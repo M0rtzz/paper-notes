@@ -134,6 +134,6 @@ MEGA 基于 encoder-decoder Transformer 架构。首先使用预训练的 Mesh-V
 - [HeatFormer: A Neural Optimizer for Multiview Human Mesh Recovery](heatformer_a_neural_optimizer_for_multiview_human_mesh_recovery.md)
 - [MaskHand: Generative Masked Modeling for Robust Hand Mesh Reconstruction in the Wild](../../ICCV2025/3d_vision/maskhand_generative_masked_modeling_for_robust_hand_mesh_reconstruction_in_the_w.md)
 - [AJAHR: Amputated Joint Aware 3D Human Mesh Recovery](../../ICCV2025/3d_vision/ajahr_amputated_joint_aware_3d_human_mesh_recovery.md)
-- [Fish2Mesh Transformer: 3D Human Mesh Recovery from Egocentric Vision](../../ICCV2025/3d_vision/fish2mesh_transformer_3d_human_mesh_recovery_from_egocentric_vision.md)
+- [Global-to-Pixel Regression for Human Mesh Recovery](../../ECCV2024/3d_vision/global-to-pixel_regression_for_human_mesh_recovery.md)
 
 <!-- RELATED:END -->

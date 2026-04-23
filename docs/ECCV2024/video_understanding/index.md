@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 视频理解方向 46篇论文解读
+  ECCV2024 视频理解方向 51篇论文解读
 description: >-
-  46篇ECCV2024 视频理解论文解读，主题涵盖：提出 ActionSwitch——首个无需类别信息、提出 Adapt2Reward、提出 AMEGO，一种从长第一人称视频中在线构建结等，每篇含核心思想与方法详解。
+  51篇ECCV2024 视频理解论文解读，主题涵盖：提出 ActionSwitch——首个无需类别信息、提出 Adapt2Reward、提出 AMEGO，一种从长第一人称视频中在线构建结等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🎞️ ECCV2024** · **46** 篇论文解读
+**🎞️ ECCV2024** · **51** 篇论文解读
 
 **[ActionSwitch: Class-agnostic Detection of Simultaneous Actions in Streaming Videos](actionswitch_class-agnostic_detection_of_simultaneous_actions_in_streaming_video.md)**
 
@@ -58,6 +58,14 @@ description: >-
 
 :   提出 EgoPoser，仅从头显设备的头部和手部稀疏且间歇性追踪信号中，鲁棒地估计全身姿态，通过全局运动分解、真实视野建模、SlowFast时序融合和体型感知优化四大核心设计，在大规模真实场景中实现SOTA性能，推理速度超600fps。
 
+**[Elysium: Exploring Object-level Perception in Videos via MLLM](elysium_exploring_object-level_perception_in_videos_via_mllm.md)**
+
+:   提出 Elysium，一个端到端可训练的 MLLM，通过构建百万级视频目标感知数据集 ElysiumTrack-1M 和设计 T-Selector 视觉 token 压缩网络，将 MLLM 的目标级感知能力从图像扩展到视频领域，支持单目标跟踪 (SOT)、引用式单目标跟踪 (RSOT) 和视频引用表达生成 (Video-REG) 等任务。
+
+**[Elysium: Exploring Object-Level Perception in Videos via MLLM](elysium_exploring_objectlevel_perception_in_videos_via_mllm.md)**
+
+:   提出Elysium，首个端到端可训练的多模态大语言模型系统化处理视频目标级任务（如目标跟踪），构建了百万级ElysiumTrack-1M视频数据集支持SOT/RSOT/Video-REG三类任务，并设计T-Selector token压缩网络在保持性能的同时大幅减少视觉token消耗。
+
 **[Evaluating Text-to-Visual Generation with Image-to-Text Generation](evaluating_text-to-visual_generation_with_image-to-text_generation.md)**
 
 :   提出VQAScore，利用VQA模型替代CLIP来评估文本-视觉生成质量，在复杂组合性提示上大幅超越CLIPScore，并发布GenAI-Bench基准。
@@ -98,6 +106,14 @@ description: >-
 
 :   本文提出一种将非线性运动先验（轨迹参数函数）引入对比度最大化框架的自监督方法，用于事件相机的稠密连续时间运动估计，在真实世界数据集 EVIMO2 上将合成数据预训练模型的零样本性能提升了 29%。
 
+**[Nymeria: A Massive Collection of Multimodal Egocentric Daily Motion in the Wild](nymeria_a_massive_collection_of_multimodal_egocentric_daily_.md)**
+
+:   构建了全球最大的野外人体运动数据集Nymeria：300小时日常活动、264人、50个场景、多设备多模态自我中心数据（Project Aria眼镜+手环+动捕服），配备亚毫秒级同步和310.5K句层次化运动语言描述。
+
+**[Nymeria: A Massive Collection of Multimodal Egocentric Daily Motion in the Wild](nymeria_a_massive_collection_of_multimodal_egocentric_daily_motion_in_the_wild.md)**
+
+:   提出 Nymeria 数据集——目前最大规模的野外多模态自我中心人体日常运动数据集，包含 300 小时、264 人、50 个场景，提供全身精确动作捕捉、多设备同步多模态数据和 310.5K 句分层语言描述，并在 body tracking、motion synthesis 等任务上建立 baseline。
+
 **[Occluded Gait Recognition with Mixture of Experts: An Action Detection Perspective](occluded_gait_recognition_with_mixture_of_experts_an_action_detection_perspectiv.md)**
 
 :   本文从动作检测的视角重新审视遮挡步态识别问题，提出GaitMoE方法通过时序专家混合(MTE)自适应构建动作锚点和动作专家混合(MAE)生成动作提议，仅使用ID标签进行端到端训练即可有效应对各种遮挡场景，并构建了首个统一的遮挡步态数据库OccGait。
@@ -117,6 +133,10 @@ description: >-
 **[PiTe: Pixel-Temporal Alignment for Large Video-Language Model](pite_pixel-temporal_alignment_for_large_video-language_model.md)**
 
 :   提出 PiTe 模型，通过物体运动轨迹在像素级别实现视频与语言的时空对齐，构建 PiTe-143k 数据集，在零样本 QA、时序定位和密集描述任务上大幅超越现有方法。
+
+**[PiTe: Pixel-Temporal Alignment for Large Video-Language Model](pite_pixeltemporal_alignment_for_large_videolanguage_mo.md)**
+
+:   提出 PiTe，一种通过物体轨迹引导的像素-时序对齐方法，利用自动构建的 PiTe-143K 数据集在空间和时间维度上实现视频与语言的精细对齐，显著提升视频理解能力。
 
 **[R²-Tuning: Efficient Image-to-Video Transfer Learning for Video Temporal Grounding](r2tuning_efficient_imagetovideo_transfer_learning_for_video.md)**
 
@@ -162,9 +182,9 @@ description: >-
 
 :   提出 SPAM 视频标注引擎，将合成数据预训练、伪标签自训练和基于图层级的主动学习相结合，仅需 3-20% 的人工标注量即可产生接近 GT 质量的多目标跟踪标注。
 
-**[TAPTR: Tracking Any Point with Transformers as Detection](taptr_tracking_any_point_with_transformers_as_detection.md)**
+**[Spherical World-Locking for Audio-Visual Localization in Egocentric Videos](spherical_world-locking_for_audio-visual_localization_in_egocentric_videos.md)**
 
-:   TAPTR 将 Tracking Any Point (TAP) 任务重新建模为类 DETR 的检测问题，将每个跟踪点表示为包含位置和内容的 point query，通过多层 Transformer 解码器逐层优化，结合 cost volume 和滑动窗口特征更新策略，在 TAP-Vid 基准上达到 SOTA 且推理速度更快。
+:   提出球面世界锁定（Spherical World-Locking, SWL）框架，通过将多模态感知流隐式变换到世界锁定的球面坐标系中，消除自身运动带来的挑战，实现更精准的第一人称视频中的音视觉定位。
 
 **[Text-Guided Video Masked Autoencoder](text-guided_video_masked_autoencoder.md)**
 

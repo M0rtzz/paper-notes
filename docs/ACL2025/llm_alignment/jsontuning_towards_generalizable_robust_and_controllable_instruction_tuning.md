@@ -142,6 +142,6 @@ tags:
 - [Measuring Data Diversity for Instruction Tuning: A Systematic Analysis and A Reliable Metric](measuring_data_diversity_for_instruction_tuning_a_systematic_analysis_and_a_reli.md)
 - [Call for Rigor in Reporting Quality of Instruction Tuning Data](call_for_rigor_in_reporting_quality_of_instruction_tuning_data.md)
 - [Upcycling Instruction Tuning from Dense to Mixture-of-Experts via Parameter Merging](upcycling_instruction_tuning_from_dense_to_mixture-of-experts_via_parameter_merg.md)
-- [RPO: Retrieval Preference Optimization for Robust Retrieval-Augmented Generation](rpo_retrieval_preference_optimization_for_robust_retrieval-augmented_generation.md)
+- [Beyond Similarity: A Gradient-based Graph Method for Instruction Tuning Data Selection](beyond_similarity_a_gradient-based_graph_method_for_instruction_tuning_data_sele.md)
 
 <!-- RELATED:END -->

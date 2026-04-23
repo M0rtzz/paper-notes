@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-SMOTE（Synthetic Minority Over-sampling Technique）是处理类不平衡和生成合成数据最广泛使用的方法之一（原始论文被引近4万次，Azure 内置支持）。它通过少数类样本间的线性插值生成合成样本，应用于：
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：SMOTE（Synthetic Minority Over-sampling Technique）是处理类不平衡和生成合成数据最广泛使用的方法之一（原始论文被引近4万次，Azure 内置支持）。它通过少数类样本间的线性插值生成合成样本，应用于：
 
 **数据增强**：提高分类器性能（医疗诊断、欺诈检测等）
 
@@ -101,14 +103,14 @@ SMOTE（Synthetic Minority Over-sampling Technique）是处理类不平衡和生
 | 邻居数 k 增大 | 召回率降低 |
 | 特征维度 d | 非共线性更容易满足 |
 
-## 亮点
+## 亮点与洞察
 
 1. **首次系统揭示 SMOTE 的隐私风险**：从理论和实验双重角度证明 SMOTE 本质上非隐私保护
 2. **最小假设的近完美攻击**：不需要辅助数据或模型访问
 3. **揭示评估方法的根本缺陷**：DCR 指标和 naive 区分方法完全不可靠
 4. **对研究社区的重要警示**：质疑了大量使用 SMOTE+DCR 评估隐私的生成模型论文
 
-## 局限性
+## 局限与展望
 
 1. 攻击假设攻击者知道使用了 SMOTE 及其参数
 2. 主要针对标准 SMOTE，变体（如 Borderline-SMOTE、ADASYN）未充分探讨
@@ -135,8 +137,8 @@ SMOTE（Synthetic Minority Over-sampling Technique）是处理类不平衡和生
 
 - [Exposing Hidden Biases in Text-to-Image Models via Automated Prompt Search](exposing_hidden_biases_in_text-to-image_models_via_automated_prompt_search.md)
 - [Privacy Amplification Through Synthetic Data: Insights from Linear Regression](../../ICML2025/image_generation/privacy_amplification_through_synthetic_data_insights_from_linear_regression.md)
+- [Exposing DeepFakes via Hyperspectral Domain Mapping](../../AAAI2026/image_generation/exposing_deepfakes_via_hyperspectral_domain_mapping.md)
 - [Minority-Focused Text-to-Image Generation via Prompt Optimization](../../CVPR2025/image_generation/minority-focused_text-to-image_generation_via_prompt_optimization.md)
 - [Copyright Infringement Detection in Text-to-Image Diffusion Models via Differential Privacy](../../AAAI2026/image_generation/copyright_infringement_detection_in_text-to-image_diffusion_models_via_different.md)
-- [Addressing Text Embedding Leakage in Diffusion-Based Image Editing](../../ICCV2025/image_generation/addressing_text_embedding_leakage_in_diffusion-based_image_editing.md)
 
 <!-- RELATED:END -->

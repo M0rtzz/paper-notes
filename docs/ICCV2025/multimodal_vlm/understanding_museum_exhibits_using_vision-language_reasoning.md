@@ -171,10 +171,10 @@ tags:
 
 ## 相关论文
 
+- [Perspective-Aware Reasoning in Vision-Language Models via Mental Imagery Simulation](perspective-aware_reasoning_in_vision-language_models_via_mental_imagery_simulat.md)
+- [Benchmarking and Improving Large Vision-Language Models for Fundamental Visual Graph Understanding and Reasoning](../../ACL2025/multimodal_vlm/benchmarking_and_improving_large_vision-language_models_for_fundamental_visual_g.md)
 - [Bring Reason to Vision: Understanding Perception and Reasoning through Model Merging](../../ICML2025/multimodal_vlm/bring_reason_to_vision_understanding_perception_and_reasoning_through_model_merg.md)
 - [Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models](../../ICML2025/multimodal_vlm/understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)
 - [CAPTURe: Evaluating Spatial Reasoning in Vision Language Models via Occluded Object Counting](capture_evaluating_spatial_reasoning_in_vision_language_models_via_occluded_obje.md)
-- [Understanding Task Transfer in Vision-Language Models](../../CVPR2026/multimodal_vlm/understanding_task_transfer_in_vision-language_models.md)
-- [Physics Context Builders: A Modular Framework for Physical Reasoning in Vision-Language Models](physics_context_builders_a_modular_framework_for_physical_reasoning_in_vision-la.md)
 
 <!-- RELATED:END -->

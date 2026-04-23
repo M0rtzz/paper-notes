@@ -147,6 +147,6 @@ RAPiD vs PDD 对比：
 - [SFPNet: Sparse Focal Point Network for Semantic Segmentation on General LiDAR Point Clouds](sfpnet_sparse_focal_point_network_for_semantic_segmentation_on_general_lidar_poi.md)
 - [Adaptive Augmentation-Aware Latent Learning for Robust LiDAR Semantic Segmentation](../../ICLR2026/autonomous_driving/adaptive_augmentation-aware_latent_learning_for_robust_lidar_semantic_segmentati.md)
 - [Rethinking Data Augmentation for Robust LiDAR Semantic Segmentation in Adverse Weather](rethinking_data_augmentation_for_robust_lidar_semantic_segmentation_in_adverse_w.md)
-- [3D-AVS: LiDAR-based 3D Auto-Vocabulary Segmentation](../../CVPR2025/autonomous_driving/3d-avs_lidar-based_3d_auto-vocabulary_segmentation.md)
+- [Neural Distribution Prior for LiDAR Out-of-Distribution Detection](../../CVPR2026/autonomous_driving/neural_distribution_prior_for_lidar_ood_detection.md)
 
 <!-- RELATED:END -->

@@ -165,10 +165,10 @@ $$z^* = \arg\min_z \|g(z) - y\|^2, \quad x^* = g(z^*)$$
 
 ## 相关论文
 
+- [Learning Deblurring Texture Prior from Unpaired Data with Diffusion Model](learning_deblurring_texture_prior_from_unpaired_data_with_diffusion_model.md)
 - [DPoser-X: Diffusion Model as Robust 3D Whole-Body Human Pose Prior](dposer-x_diffusion_model_as_robust_3d_whole-body_human_pose_prior.md)
 - [Navigating Image Restoration with VAR's Distribution Alignment Prior](../../CVPR2025/image_generation/navigating_image_restoration_with_vars_distribution_alignment_prior.md)
 - [Using Powerful Prior Knowledge of Diffusion Model in Deep Unfolding Networks for Image Compressive Sensing](../../CVPR2025/image_generation/using_powerful_prior_knowledge_of_diffusion_model_in_deep_unfolding_networks_for.md)
 - [Diff-ICMH: Harmonizing Machine and Human Vision in Image Compression with Generative Prior](../../NeurIPS2025/image_generation/diff-icmh_harmonizing_machine_and_human_vision_in_image_compression_with_generat.md)
-- [FreeCompose: Generic Zero-Shot Image Composition with Diffusion Prior](../../ECCV2024/image_generation/freecompose_generic_zero-shot_image_composition_with_diffusion_prior.md)
 
 <!-- RELATED:END -->

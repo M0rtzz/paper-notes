@@ -146,7 +146,7 @@ WAGIBench 的设计包含三大组件：
 - [AVRobustBench: Benchmarking the Robustness of Audio-Visual Recognition Models at Test-Time](textttavrobustbench_benchmarking_the_robustness_of_audio-visual_recognition_mode.md)
 - [Generalizing Analogical Inference from Boolean to Continuous Domains](../../AAAI2026/audio_speech/generalizing_analogical_inference_from_boolean_to_continuous_domains.md)
 - [Benchmarking Open-ended Audio Dialogue Understanding for Large Audio-Language Models](../../ACL2025/audio_speech/audio_dialogue_benchmark.md)
-- [A TRIANGLE Enables Multimodal Alignment Beyond Cosine Similarity](a_triangle_enables_multimodal_alignment_beyond_cosine_simila.md)
 - [Listen to Look into the Future: Audio-Visual Egocentric Gaze Anticipation](../../ECCV2024/audio_speech/listen_to_look_into_the_future_audio-visual_egocentric_gaze_anticipation.md)
+- [A TRIANGLE Enables Multimodal Alignment Beyond Cosine Similarity](a_triangle_enables_multimodal_alignment_beyond_cosine_simila.md)
 
 <!-- RELATED:END -->

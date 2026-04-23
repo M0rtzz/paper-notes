@@ -119,7 +119,7 @@ tags:
 - [Characterizing and Optimizing the Spatial Kernel of Multi Resolution Hash Encodings](characterizing_and_optimizing_the_spatial_kernel_of_multi_resolution_hash_encodi.md)
 - [RNNs Perform Task Computations by Dynamically Warping Neural Representations](../../NeurIPS2025/others/rnns_perform_task_computations_by_dynamically_warping_neural_representations.md)
 - [Learning Dynamics of RNNs in Closed-Loop Environments](../../NeurIPS2025/others/learning_dynamics_of_rnns_in_closed-loop_environments.md)
-- [ComfyUI-Copilot: An Intelligent Assistant for Automated Workflow Development](../../ACL2025/others/comfyui-copilot_an_intelligent_assistant_for_automated_workflow_development.md)
 - [How Wide and How Deep? Mitigating Over-Squashing of GNNs via Channel Capacity Constrained Estimation](../../AAAI2026/others/how_wide_and_how_deep_mitigating_over-squashing_of_gnns_via_channel_capacity_con.md)
+- [Sheaf Cohomology of Linear Predictive Coding Networks](../../NeurIPS2025/others/sheaf_cohomology_of_linear_predictive_coding_networks.md)
 
 <!-- RELATED:END -->

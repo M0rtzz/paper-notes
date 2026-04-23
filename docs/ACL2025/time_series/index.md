@@ -1,14 +1,18 @@
 ---
 title: >-
-  ACL2025 时间序列方向 5篇论文解读
+  ACL2025 时间序列方向 7篇论文解读
 description: >-
-  5篇ACL2025 时间序列论文解读，主题涵盖：提出一个基于 LLM 的多视角角色扮演框架（MPR、提出 CTPD 框架，利用 Slot、提出 G2S 框架，将时序知识图谱（TKG）预测中等，每篇含核心思想与方法详解。
+  7篇ACL2025 时间序列论文解读，主题涵盖：本文提出ANRE（Analogical、提出一个基于 LLM 的多视角角色扮演框架（MPR、提出 CTPD 框架，利用 Slot等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📈 时间序列
 
-**💬 ACL2025** · **5** 篇论文解读
+**💬 ACL2025** · **7** 篇论文解读
+
+**[ANRE: Analogical Replay for Temporal Knowledge Graph Forecasting](anre_analogical_replay_for_temporal_knowledge_graph_forecasting.md)**
+
+:   本文提出ANRE（Analogical Replay）方法，通过检索历史知识图谱快照中与当前查询结构类似的"类比事件"，将其作为推理线索辅助时序知识图谱的未来事件预测，在多个基准数据集上取得了显著的性能提升。
 
 **[Context-Aware Sentiment Forecasting via LLM-based Multi-Perspective Role-Playing Agents](context_aware_sentiment_forecasting_agents.md)**
 
@@ -25,6 +29,10 @@ description: >-
 **[LETS-C: Leveraging Text Embedding for Time Series Classification](lets-c_leveraging_text_embedding_for_time_series_classification.md)**
 
 :   提出 LETS-C——将时间序列数字化为文本字符串后用 text embedding 模型编码，与原始时间序列元素级相加融合后送入轻量 CNN+MLP 分类头，在 UEA 10 个多变量时间序列数据集上以仅 14.5% 的可训练参数量超越 OneFitsAll（GPT-2 微调）等 27 个 baseline 达到 SOTA。
+
+**[Revisiting LLMs as Zero-Shot Time-Series Forecasters: Small Noise Can Break Large Models](revisiting_llms_as_zero-shot_time_series_forecasters_small_noise_can_break_large.md)**
+
+:   本文系统评估了 LLM 作为零样本时间序列预测器的有效性，发现 LLM 对输入噪声极度敏感——即使少量噪声也会使性能大幅下降，甚至不如简单的领域专用模型（如 DLinear），建议未来应聚焦于对 LLM 进行微调以更好地处理数值序列。
 
 **[Time-MQA: Time Series Multi-Task Question Answering with Context Enhancement](time-mqa_time_series_multi-task_question_answering_with_context_enhancement.md)**
 

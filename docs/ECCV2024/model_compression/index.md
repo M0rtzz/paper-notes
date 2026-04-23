@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 模型压缩方向 30篇论文解读
+  ECCV2024 模型压缩方向 25篇论文解读
 description: >-
-  30篇ECCV2024 模型压缩论文解读，主题涵盖：首个面向视频快照压缩成像（Video、本文提出 AdaSense，利用预训练扩散模型的零、本文提出"自适应选择采样-重建对"($\mathc等，每篇含核心思想与方法详解。
+  25篇ECCV2024 模型压缩论文解读，主题涵盖：首个面向视频快照压缩成像（Video、本文提出 AdaSense，利用预训练扩散模型的零、本文提出"自适应选择采样-重建对"($\mathc等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**🎞️ ECCV2024** · **30** 篇论文解读
+**🎞️ ECCV2024** · **25** 篇论文解读
 
 **[A Simple Low-bit Quantization Framework for Video Snapshot Compressive Imaging](a_simple_lowbit_quantization_framework_for_video_snapshot_co.md)**
 
@@ -26,10 +26,6 @@ description: >-
 
 :   本文提出了一种基于特征分布统计对齐的对抗鲁棒知识蒸馏方法，通过减小 student 和 teacher 模型在对抗样本和干净样本之间的特征方差差距(variance gap)来提升 student 模型的对抗鲁棒性，发现鲁棒精度与方差差距存在强负相关线性关系。
 
-**[AnimatableDreamer: Text-Guided Non-rigid 3D Model Generation and Reconstruction with Canonical Score Distillation](animatabledreamer_text-guided_non-rigid_3d_model_generation_and_reconstruction_w.md)**
-
-:   提出 AnimatableDreamer，通过 Canonical Score Distillation (CSD) 技术，从单目视频提取骨骼和运动后生成文本引导的可动画化 3D 非刚体模型，在生成质量和时序一致性上全面超越现有方法。
-
 **[Anytime Continual Learning for Open Vocabulary Classification](anytime_continual_learning_for_open_vocabulary_classification.md)**
 
 :   提出 AnytimeCL 框架，通过部分微调 CLIP 最后一个 transformer block 并动态加权融合微调模型与原始模型的预测，实现任意时刻接收样本、任意标签集推理的开放词汇持续学习。
@@ -41,10 +37,6 @@ description: >-
 **[BaSIC: BayesNet Structure Learning for Computational Scalable Neural Image Compression](basic_bayesnet_structure_learning_for_computational_scalable_neural_image_compre.md)**
 
 :   本文提出 BaSIC 框架，通过学习神经图像压缩（NIC）系统的贝叶斯网络结构，同时控制骨干网络复杂度和自回归单元的并行计算能力，首次实现了对 NIC 全流程的计算可扩展性控制。
-
-**[Bi-TTA: Bidirectional Test-Time Adapter for Remote Physiological Measurement](bi-tta_bidirectional_test-time_adapter_for_remote_physiological_measurement.md)**
-
-:   提出 Bi-TTA 框架，首次将 Test-Time Adaptation 引入远程光电容积脉搏波 (rPPG) 任务，通过时空一致性自监督先验和前瞻-回溯双向适应策略，在推理时仅用无标注单实例数据即可完成模型域适应。
 
 **[Bidirectional Stereo Image Compression with Cross-Dimensional Entropy Model](bidirectional_stereo_image_compression_with_cross-dimensional_entropy_model.md)**
 
@@ -62,9 +54,9 @@ description: >-
 
 :   提出首个风格多样化查询图像检索（Style-Diversified QBIR）任务及数据集DSR，设计了轻量即插即用的FreestyleRet框架，通过Gram矩阵提取查询的纹理/风格特征，构建风格空间并以此初始化prompt token，使冻结的视觉编码器能适配文本、草图、低分辨率、艺术画等多种查询风格的检索。
 
-**[Implicit Style-Content Separation using B-LoRA](implicit_style-content_separation_using_b-lora.md)**
+**[GenQ: Quantization in Low Data Regimes with Generative Synthetic Data](genq_quantization_in_low_data_regimes_with_generative_synthetic_data.md)**
 
-:   提出 B-LoRA，通过分析 SDXL 架构发现仅联合训练两个特定 transformer block 的 LoRA 权重（Block 4 控制内容、Block 5 控制风格）即可隐式实现单张图片的风格-内容分离，支持风格迁移、文本风格化、一致风格生成等多种任务。
+:   提出 GenQ，首次利用 Stable Diffusion 生成的高质量合成数据进行神经网络量化，通过能量分数过滤和BN分布过滤两种机制确保合成数据的分布对齐，在无数据和少数据量化场景下大幅超越现有方法，4-bit QAT ResNet-50 在ImageNet上达到76.10%准确率。
 
 **[Improving Knowledge Distillation via Regularizing Feature Direction and Norm](improving_knowledge_distillation_via_regularizing_feature_direction_and_norm.md)**
 
@@ -74,13 +66,13 @@ description: >-
 
 :   提出 Prompt-based Variational Adapter (PVA)，通过变分适配器将 base 和 novel 类别样本在隐空间中分离，采用分治策略分别处理，结合残差连接增强 novel 类别的迁移能力，在广义零样本学习和跨数据集迁移学习基准上达到 SOTA。
 
+**[Is Retain Set All You Need in Machine Unlearning? Restoring Performance of Unlearned Models with Out-Of-Distribution Images](is_retain_set_all_you_need_in_machine_unlearning_restoring_performance_of_unlear.md)**
+
+:   提出 SCAR（Selective-distillation for Class and Architecture-agnostic unleaRning），一种无需保留集的近似遗忘算法，通过 Mahalanobis 距离引导遗忘样本特征向量向最近错误类分布迁移，并利用 OOD 图像蒸馏保持模型性能。
+
 **[Isomorphic Pruning for Vision Models](isomorphic_pruning_for_vision_models.md)**
 
 :   提出 Isomorphic Pruning，通过将网络子结构建模为图并按图同构性分组，在同构组内独立排序剪枝，解决异构子结构间重要性不可比的问题，在 ViT 和 CNN 上均取得优于专门设计的剪枝方法的效果。
-
-**[Lagrangian Hashing for Compressed Neural Field Representations](lagrangian_hashing_for_compressed_neural_field_representations.md)**
-
-:   将InstantNGP的欧拉网格哈希表与拉格朗日点云表示相结合，在哈希桶中存储可移动的高斯特征点，实现**参数量减少1.8-2.8倍**但重建质量不降的紧凑神经场表示。
 
 **[Leveraging Hierarchical Feature Sharing for Efficient Dataset Condensation](leveraging_hierarchical_feature_sharing_for_efficient_dataset_condensation.md)**
 
@@ -97,14 +89,6 @@ description: >-
 **[PQ-SAM: Post-training Quantization for Segment Anything Model](pq-sam_post-training_quantization_for_segment_anything_model.md)**
 
 :   本文提出PQ-SAM，首个专为Segment Anything Model定制的训练后量化方法，通过分组激活分布变换(GADT)和两阶段异常值层次聚类(OHC)方案解决SAM的高度不对称激活分布和有害异常值问题，将4-bit量化的SAM推进到可用水平。
-
-**[PYRA: Parallel Yielding Re-Activation for Training-Inference Efficient Task Adaptation](pyra_parallel_yielding_re-activation_for_training-inference_efficient_task_adapt.md)**
-
-:   提出PYRA方法同时实现训练高效和推理高效的任务适配，通过并行生成通道和token维度的自适应调制权重，在token合并前对特征进行re-activation校准，在ViT-L/16上1.7×加速仅掉0.1%精度、3×加速下消除"逆向压缩"现象。
-
-**[SiLC: Improving Vision Language Pretraining with Self-Distillation](silc_improving_vision_language_pretraining_with_self-distillation.md)**
-
-:   提出SiLC框架，在CLIP式图文对比学习中加入局部到全局的自蒸馏，显著提升密集预测任务（检测、分割）的性能，同时改善分类和检索。
 
 **[Simple Unsupervised Knowledge Distillation With Space Similarity](simple_unsupervised_knowledge_distillation_with_space_similarity.md)**
 
@@ -125,7 +109,3 @@ description: >-
 **[UNIC: Universal Classification Models via Multi-teacher Distillation](unic_universal_classification_models_via_multi-teacher_distillation.md)**
 
 :   提出UNIC框架，通过改进的多教师蒸馏策略（包括梯形投影器和教师丢弃技术），将多个互补预训练模型的知识融合到单一学生模型中，实现跨任务的通用分类。
-
-**[ZipLoRA: Any Subject in Any Style by Effectively Merging LoRAs](ziplora_any_subject_in_any_style_by_effectively_merging_loras.md)**
-
-:   ZipLoRA 提出了一种廉价高效的 LoRA 合并方法，通过学习逐列合并系数并最小化列间余弦相似度，实现了将独立训练的主题 LoRA 和风格 LoRA 无超参数合并，在扩散模型中生成"任意主题 × 任意风格"的个性化图像。

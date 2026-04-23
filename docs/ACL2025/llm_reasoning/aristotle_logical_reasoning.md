@@ -177,7 +177,7 @@ GPT-4o 结果：
 - [Enhancing Retrieval Systems with Inference-Time Logical Reasoning](enhancing_retrieval_systems_with_inference-time_logical_reasoning.md)
 - [LogicPro: Improving Complex Logical Reasoning via Program-Guided Learning](logicpro_program_guided_reasoning.md)
 - [BPP-Search: Enhancing Tree of Thought Reasoning for Mathematical Modeling Problem Solving](bpp-search_enhancing_tree_of_thought_reasoning_for_mathematical_modeling_problem.md)
+- [An Efficient and Precise Training Data Construction Framework for Process-Supervised Reward Model in Mathematical Reasoning](an_efficient_and_precise_training_data_construction_framework_for_process-superv.md)
 - [CoT-ICL Lab: A Synthetic Framework for Studying Chain-of-Thought Learning from In-Context Demonstrations](cot-icl_lab_a_synthetic_framework_for_studying_chain-of-thought_learning_from_in.md)
-- [Agentified Assessment of Logical Reasoning Agents](../../ICLR2026/llm_reasoning/agentified_assessment_of_logical_reasoning_agents.md)
 
 <!-- RELATED:END -->

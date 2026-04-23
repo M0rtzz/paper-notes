@@ -1,18 +1,26 @@
 ---
 title: >-
-  CVPR2026 LLM Agent方向 15篇论文解读
+  CVPR2026 LLM Agent方向 20篇论文解读
 description: >-
-  15篇CVPR2026 LLM Agent论文解读，主题涵盖：提出CareFlow基准（1050个医疗软件长视界、提出EchoTrail-GUI三阶段闭环框架：探索、提出 Ego2Web，首个将第一人称视频感知与等，每篇含核心思想与方法详解。
+  20篇CVPR2026 LLM Agent论文解读，主题涵盖：本文提出 ARGOS，首个将多摄像头行人搜索重新定、提出CareFlow基准（1050个医疗软件长视界、提出 EchoTrail-GUI 框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🦾 LLM Agent
 
-**📷 CVPR2026** · **15** 篇论文解读
+**📷 CVPR2026** · **20** 篇论文解读
+
+**[ARGOS: Who, Where, and When in Agentic Multi-Camera Person Search](argos_agentic_multi_camera_person_search.md)**
+
+:   本文提出 ARGOS，首个将多摄像头行人搜索重新定义为交互式推理问题的基准和框架，智能体通过与目击者进行多轮对话、调用时空工具并在信息不对称下推理排除候选人，包含 2,691 个任务、3 个渐进式赛道。
 
 **[CarePilot: A Multi-Agent Framework for Long-Horizon Computer Task Automation in Healthcare](carepilot_a_multi-agent_framework_for_long-horizon_computer_task_automation_in_h.md)**
 
 :   提出CareFlow基准（1050个医疗软件长视界工作流任务，8-24步，覆盖DICOM/3D Slicer/EMR/LIS四大系统）和CarePilot框架（基于Actor-Critic范式，集成工具grounding和双记忆机制），在CareFlow上超越GPT-5约15%的任务准确率。
+
+**[EchoTrail-GUI: Building Actionable Memory for GUI Agents via Critic-Guided Self-Exploration](echotrail-gui_building_actionable_memory_for_gui_agents.md)**
+
+:   提出 EchoTrail-GUI 框架，通过评论模型引导的自主探索构建高质量操作记忆库，并在推理时动态检索相关经验注入提示，将 GPT-4o 在 AndroidWorld 上的任务成功率从 34.5% 提升至 51.7%。
 
 **[EchoTrail-GUI: Building Actionable Memory for GUI Agents via Critic-Guided Self-Exploration](echotrail-gui_building_actionable_memory_for_gui_agents_via_critic-guided_self-e.md)**
 
@@ -21,6 +29,14 @@ description: >-
 **[Ego2Web: A Web Agent Benchmark Grounded in Egocentric Videos](ego2web_a_web_agent_benchmark_grounded_in_egocentric_videos.md)**
 
 :   提出 Ego2Web，首个将第一人称视频感知与 Web 代理执行相结合的基准测试，配套半自动数据构建流程和 Ego2WebJudge 自动评测框架，实验揭示当前最强 Agent 在真实视觉感知到在线行动的跨模态迁移上仍有巨大差距，最高仅 48.2% 成功率。
+
+**[EpiAgent: An Agent-Centric System for Ancient Inscription Restoration](epiagent_agent_centric_system_for_ancient_inscription_restoration.md)**
+
+:   EpiAgent是首个面向古代铭文修复的Agent系统，通过LLM中央规划器协调多模态分析、专用修复工具和迭代自我优化，在文字真实性和视觉保真度上超越现有方法。
+
+**[Gen-n-Val: Agentic Image Data Generation and Validation](gen_n_val_agentic_image_data_generation_and_validation.md)**
+
+:   本文提出 Gen-n-Val，一个基于智能体的合成数据生成与验证框架，通过 LLM 优化 Layer Diffusion 的 prompt 生成高质量单物体透明图像，再用 VLLM 过滤低质量样本，将无效合成数据从 50% 降至 7%，在 LVIS 稀有类实例分割上提升 7.6% mAP。
 
 **[GUI-CEval: A Hierarchical and Comprehensive Chinese Benchmark for Mobile GUI Agents](gui-ceval_a_hierarchical_and_comprehensive_chinese_benchmark_for_mobile_gui_agen.md)**
 
@@ -33,6 +49,10 @@ description: >-
 **[HATS: Hardness-Aware Trajectory Synthesis for GUI Agents](hats_hardnessaware_trajectory_synthesis_gui_agent.md)**
 
 :   本文提出 HATS——一个难度感知的轨迹合成框架，通过识别和处理语义歧义的GUI操作，利用难度驱动探索和对齐引导修正两个闭环模块，显著提升GUI智能体在跨环境下的泛化能力。
+
+**[HAVEN: Hierarchical Long Video Understanding with Audiovisual Entity Cohesion and Agentic Search](haven_hierarchical_long_video_understanding_with_audiovisual_entity_cohesion.md)**
+
+:   HAVEN 提出音视频实体凝聚 + 层次索引 + Agent搜索的统一框架，通过说话人身份作为跨模态一致性信号，构建全局-场景-片段-实体四级层次数据库，在LVBench上达到84.1%整体准确率的SOTA。
 
 **[Nerfify: A Multi-Agent Framework for Turning NeRF Papers into Code](nerfify_a_multi-agent_framework_for_turning_nerf_papers_into_code.md)**
 

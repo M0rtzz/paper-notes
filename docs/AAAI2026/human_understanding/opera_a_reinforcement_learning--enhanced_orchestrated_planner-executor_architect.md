@@ -26,13 +26,26 @@ tags:
 提出 OPERA 框架，通过 Goal Planning Module 和 Reason-Execute Module 的分层架构，结合专为多 agent 设计的 MAPGRPO 训练算法，大幅提升 reasoning-oriented multi-hop retrieval 性能。
 
 ## 背景与动机
-- 现有 RAG 系统在复杂 multi-hop 问题上表现不佳，主要瓶颈在于 retrieval 与 reasoning 的弱耦合
-- 静态 plan（如 PlanRAG）无法动态适应检索过程中的新情况
-- 单一 LLM 同时负责 planning 和 execution，导致可靠性受限
-- 已有 RL 方法（如 BGM）仅优化 retriever-LLM 间隙，未实现 agent 级别的精细 credit assignment
 
-## 核心问题
-如何在 RAG 框架中实现 reasoning 与 retrieval 的深度耦合，使系统能够针对复杂 multi-hop 问题进行有效的计划分解、自适应检索和精准过滤？
+### 领域现状
+
+**领域现状**：现有 RAG 系统在复杂 multi-hop 问题上表现不佳，主要瓶颈在于 retrieval 与 reasoning 的弱耦合
+
+### 现有痛点
+
+**现有痛点**：静态 plan（如 PlanRAG）无法动态适应检索过程中的新情况
+
+### 核心矛盾
+
+**核心矛盾**：单一 LLM 同时负责 planning 和 execution，导致可靠性受限
+
+### 解决思路
+
+**解决思路**：已有 RL 方法（如 BGM）仅优化 retriever-LLM 间隙，未实现 agent 级别的精细 credit assignment
+
+### 解决思路
+
+**本文目标**：如何在 RAG 框架中实现 reasoning 与 retrieval 的深度耦合，使系统能够针对复杂 multi-hop 问题进行有效的计划分解、自适应检索和精准过滤？
 
 ## 方法详解
 
@@ -52,6 +65,9 @@ OPERA 解耦为两层：
 
 ## 实验关键数据
 
+
+### 主实验
+
 | 方法 | HotpotQA EM | 2WikiMHQA EM | Musique EM |
 |------|------------|-------------|------------|
 | Adaptive-RAG (SFT) | 45.7% | 30.1% | 24.3% |
@@ -62,7 +78,7 @@ OPERA 解耦为两层：
 - Ablation: 移除 Plan Agent → EM 从 39.7% 降至 17.1%（低于无训练 CoT 的 21.2%）
 - Out-of-domain: 在 NQ（单跳）上 MAPGRPO 达 36.6% EM，SFT 反而降至 19.5%
 
-## 亮点
+## 亮点与洞察
 - 架构设计 > 训练方法：移除 Plan Agent 后性能崩塌，证明分层架构是核心贡献
 - MAPGRPO 的 expert injection 策略显著降低 policy gradient variance
 - 框架在 out-of-domain 任务（单跳 QA）也能自适应，RL 训练不会过拟合固定模式
@@ -74,7 +90,7 @@ OPERA 解耦为两层：
 - 暂未验证在更大参数量 LLM（>7B）上的效果
 - 对模糊分解和长推理链仍有困难
 
-## 与相关工作的对比
+## 相关工作与启发
 
 | 维度 | OPERA | Adaptive-RAG | ReAct | BGM |
 |------|-------|-------------|-------|-----|
@@ -83,7 +99,7 @@ OPERA 解耦为两层：
 | 训练 | MAPGRPO (role-specific) | SFT | 无训练 | GRPO |
 | 可解释性 | TMC 轨迹记录 | 无 | 部分 | 无 |
 
-## 启发与关联
+## 相关工作与启发
 - 多 agent 分层架构 + 角色专用 reward 是一种有前景的 RAG 设计范式
 - MAPGRPO 的 sequential training + high-score sample injection 可推广到其他多 agent RL 场景
 - TMC 的设计思路可用于提升 AI 系统的审计与调试能力

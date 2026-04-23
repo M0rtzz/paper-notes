@@ -44,7 +44,7 @@ description: >-
 
 **[RefiDiff: Progressive Refinement Diffusion for Efficient Missing Data Imputation](refidiff_progressive_refinement_diffusion_for_efficient_missing_data_imputation.md)**
 
-:   提出 RefiDiff 框架，通过渐进式 refinement 策略统一 predictive 和 generative 两种缺失值填补范式，结合 Mamba-based denoising network 实现高维混合类型表格数据的高效高精度填补，在 MNAR 场景下尤其突出。
+:   提出 RefiDiff 四阶段框架（预处理→warm-up→扩散→polish），首次将 predictive 和 generative 缺失值填补范式渐进统一，结合 Mamba-based denoising 在 9 个数据集上取得 SOTA，速度比 DIFFPUTER 快 4 倍。
 
 **[SD-PSFNet: Sequential and Dynamic Point Spread Function Network for Image Deraining](sd-psfnet_sequential_and_dynamic_point_spread_function_netwo.md)**
 

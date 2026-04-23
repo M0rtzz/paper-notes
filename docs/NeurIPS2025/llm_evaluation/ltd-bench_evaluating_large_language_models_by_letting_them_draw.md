@@ -159,6 +159,6 @@ LTD-Bench 包含 **183 个任务**，设计了三个核心原则：
 - [Creativity or Brute Force? Using Brainteasers as a Window into the Problem-Solving Abilities of Large Language Models](creativity_or_brute_force_using_brainteasers_as_a_window_into_the_problem-solvin.md)
 - [WXImpactBench: A Disruptive Weather Impact Understanding Benchmark for Evaluating Large Language Models](../../ACL2025/llm_evaluation/wximpactbench_a_disruptive_weather_impact_understanding_benchmark_for_evaluating.md)
 - [SeedBench: A Multi-task Benchmark for Evaluating Large Language Models in Seed Science](../../ACL2025/llm_evaluation/seedbench_a_multi-task_benchmark_for_evaluating_large_language_models_in_seed_sc.md)
-- [Can Large Language Models Master Complex Card Games?](can_large_language_models_master_complex_card_games.md)
+- [PapersPlease: A Benchmark for Evaluating Motivational Values of Large Language Models Based on ERG Theory](../../ACL2025/llm_evaluation/papersplease_a_benchmark_for_evaluating_motivational_values_of_large_language_mo.md)
 
 <!-- RELATED:END -->

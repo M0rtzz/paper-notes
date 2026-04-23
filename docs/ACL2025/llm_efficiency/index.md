@@ -1,18 +1,30 @@
 ---
 title: >-
-  ACL2025 LLM效率方向 30篇论文解读
+  ACL2025 LLM效率方向 39篇论文解读
 description: >-
-  30篇ACL2025 LLM效率论文解读，主题涵盖：提出 LaMPE（Length-aware、CLaSp 提出一种无需训练的自推测解码方法、构建了 CNNSum——基于中文小说的多尺度长文本等，每篇含核心思想与方法详解。
+  39篇ACL2025 LLM效率论文解读，主题涵盖：本文提出一种即插即用的推测解码自适应方案、本文提出了一种上下文感知的高效草稿生成策略来加速推、提出 LaMPE（Length-aware等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚡ LLM效率
 
-**💬 ACL2025** · **30** 篇论文解读
+**💬 ACL2025** · **39** 篇论文解读
+
+**[A Drop-In Solution for On-the-Fly Adaptation of Speculative Decoding in Large Language Models](a_drop-in_solution_for_on-the-fly_adaptation_of_speculative_decoding_in_large_la.md)**
+
+:   本文提出一种即插即用的推测解码自适应方案，能够在推理过程中动态调整草稿模型的推测窗口大小γ（以及可能的草稿模型选择），从而在不同输入分布下最大化推测解码的端到端加速比。
+
+**[Accelerating Speculative Decoding via Efficient Context-Aware Draft Generation](accelerating_speculative_decoding_via_efficient_context-aware_draft_generation.md)**
+
+:   本文提出了一种上下文感知的高效草稿生成策略来加速推测解码（Speculative Decoding），通过让草稿模型根据当前上下文动态调整生成质量，在保持输出一致性的前提下显著提升 LLM 推理吞吐量。
 
 **[LaMPE: Length-aware Multi-grained Positional Encoding for Adaptive Long-context Scaling Without Training](adaptive_grouped_pe_context_window.md)**
 
 :   提出 LaMPE（Length-aware Multi-grained Positional Encoding），通过 **参数化 scaled sigmoid 函数** 自适应确定最优映射长度，并设计 **三区域多粒度注意力机制**（head 精细局部 + middle 线性归一化压缩 + tail 恢复长程依赖），实现无训练即插即用的 LLM 上下文窗口外推，在五大长上下文基准上全面超越现有方法。
+
+**[Boosting Long-Context Information Seeking via Query-Guided Activation Refilling](boosting_long-context_information_seeking_via_query-guided_activation_refilling.md)**
+
+:   本文提出ACRE（Activation Refilling）方法，通过构建双层KV缓存架构——L1层紧凑捕获全局信息、L2层提供局部详细信息——并利用输入查询动态从L2向L1补充相关条目，实现长上下文信息检索任务的高效处理，在性能和效率上均有显著提升。
 
 **[CLaSp: In-Context Layer Skip for Self-Speculative Decoding](clasp_self_speculative_decoding.md)**
 
@@ -22,9 +34,21 @@ description: >-
 
 :   构建了 CNNSum——基于中文小说的多尺度长文本摘要基准（695 样本，16k-128k tokens），通过人工标注确保质量，系统测评了 20+ 个 LLM，发现高级 LLM 倾向生成主观评述导致摘要模糊、小模型性价比更高、Base 版微调效果优于 Chat 版，且用短文本数据微调即可显著提升长文本摘要能力。
 
+**[Consistency-Preserving Contrastive Decoding for Faithful Document-Grounded Dialogue](consistency-preserving_contrastive_decoding_for_faithful_document-grounded_dial.md)**
+
+:   本文提出一种一致性保持的对比解码（Consistency-Preserving Contrastive Decoding, CPCD）方法，通过在解码阶段对比有文档条件和无文档条件的生成分布，增强文档基础对话系统对源文档的忠实性，同时保持回复的流畅性和对话一致性。
+
+**[CoPrUS: Consistency Preserving Utterance Synthesis Towards More Realistic Benchmark](coprus_consistency_preserving_utterance_synthesis_towards_more_realistic_benchma.md)**
+
+:   本文提出 CoPrUS 框架，一种面向对话基准构建的一致性保持话语合成方法，通过在生成对话数据时显式维护人设、知识和对话历史的一致性约束，生成比现有方法更真实的对话基准数据。
+
 **[Giraffe: Design Choices for Extending the Context Length of Visual Language Models](design_choices_for_extending_the_context_length_of_visual_language_models.md)**
 
 :   系统性地探索了将现有视觉语言模型（VLM）的上下文窗口扩展到128K的设计空间，从数据配方、位置编码扩展到上下文利用三个维度提出最佳实践，并提出 M-RoPE++ 和混合分辨率训练两项技术，构建的 Giraffe 模型在长上下文 VLM 中达 SOTA。
+
+**[Distance between Relevant Information Pieces Causes Bias in Long-Context LLMs](distance_between_relevant_information_pieces_causes_bias_in_long-context_llms.md)**
+
+:   本文提出 LongPiBench 基准，首次系统研究当长上下文中存在多个相关信息片段时，LLM 对信息片段间距离（spacing）的敏感性，揭示了当前模型虽已基本克服"中间丢失"问题，但在相关信息间距变化时仍存在显著的位置偏差。
 
 **[Dynamic Chunking and Selection for Reading Comprehension of Ultra-Long Context in Large Language Models](dynamic_chunking_and_selection_for_reading_comprehension_of_ultra-long_context_i.md)**
 
@@ -41,6 +65,10 @@ description: >-
 **[FocusLLM: Precise Understanding of Long Context by Dynamic Condensing](focusllm_precise_understanding_of_long_context_by_dynamic_condensing.md)**
 
 :   提出FocusLLM框架，通过将长文本分块并为每块注入动态提示（dynamic prompt），用可训练的候选token浓缩各块的关键信息，再通过并行解码机制聚合到本地上下文中生成下一个token，仅用8K训练长度和0.5B训练预算即可扩展LLaMA-2到400K上下文，在LongBench和∞-Bench上超越所有基线。
+
+**[FUEL: Unveiling Environmental Impacts of Large Language Model Serving: A Functional Unit View](fuel_unveiling_environmental_impacts_of_llm_serving.md)**
+
+:   提出 FUEL 框架，首次引入生命周期评估中的"功能单元"（Functional Unit）概念作为标准化比较基准，在统一的质量、性能和工作负载约束下评估不同 LLM 服务配置的碳排放，通过模型大小、量化策略和硬件选择三个案例研究揭示了多个反直觉的绿色 AI 洞察。
 
 **[GigaChat Family: Efficient Russian Language Modeling Through Mixture of Experts Architecture](gigachat_family_efficient_russian_language_modeling_through_mixture_of_experts_a.md)**
 
@@ -61,6 +89,10 @@ description: >-
 **[Literary Evidence Retrieval via Long-Context Language Models](literary_evidence_retrieval_via_long-context_language_models.md)**
 
 :   将 RELiC 数据集改造为长上下文文学证据检索 benchmark（292 个高质量样本），要求模型在完整小说文本（45k-125k tokens）中为文学评论找到缺失引用；Gemini Pro 2.5 以 62.5% 准确率首次超越人类专家（55%），但最佳开源模型 DeepSeek-R1 仅 29.1%，揭示了闭源/开源模型在解释性推理上的巨大鸿沟。
+
+**[LongBench v2: Towards Deeper Understanding and Reasoning on Realistic Long-context Multitasks](longbench_v2_towards_deeper_understanding_and_reasoning_on_realistic_long-contex.md)**
+
+:   LongBench v2 是一个包含 503 道高难度多选题的长上下文评测基准，上下文长度从 8k 到 2M 词，覆盖六大任务类型，人类专家在 15 分钟限制下仅达到 53.7% 准确率，而最强直接回答模型（GPT-4o 2024-08）仅 50.1%，推理模型 o1-preview 达到 57.7%，凸显了推理时计算扩展对长上下文深层理解的重要性。
 
 **[LongReward: Improving Long-context Large Language Models with AI Feedback](longreward_improving_long-context_large_language_models_with_ai_feedback.md)**
 
@@ -117,6 +149,10 @@ description: >-
 **[SpindleKV: A Novel KV Cache Reduction Method Balancing Both Shallow and Deep Layers](spindlekv_layered_kv_cache.md)**
 
 :   SpindleKV 提出分层处理 KV cache 压缩的策略——深层使用注意力驱动的 token eviction（利用稀疏注意力），浅层使用基于相似性学习的 codebook 替换（利用 token 间高相似度），并解决了 GQA 兼容性问题，实现 50% KV cache 缩减而不损失性能。
+
+**[Squeezed Attention: Accelerating Long Context Length LLM Inference](squeezed_attention_accelerating_long_context_length_llm_inference.md)**
+
+:   提出 Squeezed Attention，通过离线 K-means 聚类压缩固定上下文的 Key 向量，在推理时用质心匹配预测重要 Key 并仅对其计算精确注意力，实现 3.1 倍 KV 预算削减且无精度损失，预填充和生成阶段均获得超过 4 倍加速。
 
 **[Tetris: Optimal Draft Token Selection for Batch Speculative Decoding](tetris_optimal_draft_token_selection_for_batch_speculative_decoding.md)**
 

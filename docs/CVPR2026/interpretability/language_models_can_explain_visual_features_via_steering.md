@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-稀疏自编码器（SAE）已成为发现视觉模型中可解释特征的有力工具，但当SAE扩展到发现数千个特征时，自动解释这些特征仍是开放问题。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：稀疏自编码器（SAE）已成为发现视觉模型中可解释特征的有力工具，但当SAE扩展到发现数千个特征时，自动解释这些特征仍是开放问题。
 
 现有方法（Top-k方法）的局限：
 1. **基于相关性而非因果性**：选择最高激活图像让解释器找共同模式，本质是相关性分析
@@ -131,7 +133,7 @@ SAE训练使用标准TopK目标，在ImageNet上训练。干预强度α在500个
 ## 相关论文
 
 - [DINO-QPM: Adapting Visual Foundation Models for Globally Interpretable Image Classification](dino-qpm_adapting_visual_foundation_models_for_globally_interpretable_image_clas.md)
-- [Semantic Regexes: Auto-Interpreting LLM Features with a Structured Language](../../ICLR2026/interpretability/semantic_regexes_auto-interpreting_llm_features_with_a_structured_language.md)
+- [Semantic Regexes: Auto-Interpreting LLM Features with a Structured Language](../../ICLR2026/interpretability/semantic_regexes_auto-interpreting_llm_features_with_a_structured_language_of_re.md)
 - [Finding the Translation Switch: Discovering and Exploiting the Task-Initiation Features in LLMs](../../AAAI2026/interpretability/finding_the_translation_switch_discovering_and_exploiting_the_task-initiation_fe.md)
 - [Draft and Refine with Visual Experts](draft_and_refine_with_visual_experts.md)
 - [Fantastic Features and Where to Find Them: A Probing Method to Combine Features from Multiple Foundation Models](../../NeurIPS2025/interpretability/fantastic_features_and_where_to_find_them_a_probing_method_to_combine_features_f.md)

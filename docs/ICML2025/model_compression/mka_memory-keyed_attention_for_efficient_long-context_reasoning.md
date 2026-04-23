@@ -194,8 +194,8 @@ FastMKA KV cache 比 MHA 减少 66.8%，且因融合 KV 张量的连续内存访
 
 - [LaCache: Ladder-Shaped KV Caching for Efficient Long-Context Modeling of Large Language Models](lacache_ladder-shaped_kv_caching_for_efficient_long-context_modeling_of_large_la.md)
 - [Core Context Aware Transformers for Long Context Language Modeling](core_context_aware_transformers_for_long_context_language_modeling.md)
+- [Efficient Long Context Language Model Retrieval with Compression](../../ACL2025/model_compression/efficient_long_context_language_model_retrieval_with_compression.md)
 - [DRAGON: Guard LLM Unlearning in Context via Negative Detection and Reasoning](dragon_guard_llm_unlearning_in_context_via_negative_detection_and_reasoning.md)
 - [ParallelComp: Parallel Long-Context Compressor for Length Extrapolation](parallelcomp_parallel_long-context_compressor_for_length_extrapolation.md)
-- [Skrull: Towards Efficient Long Context Fine-tuning through Dynamic Data Scheduling](../../NeurIPS2025/model_compression/skrull_towards_efficient_long_context_fine-tuning_through_dynamic_data_schedulin.md)
 
 <!-- RELATED:END -->

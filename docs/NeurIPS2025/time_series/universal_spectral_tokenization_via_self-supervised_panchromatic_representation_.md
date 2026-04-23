@@ -25,10 +25,22 @@ tags:
 提出首个通用光谱 Tokenizer，通过连续波长嵌入和自监督重建目标，在原始波长网格上联合训练异构天文光谱数据（SDSS/DESI/GALAH/APOGEE），生成对齐、均匀且物理有意义的表征。
 
 ## 研究背景与动机
-- 大型天文巡天（SDSS、DESI 等）已采集数百万条光谱，但覆盖不同波长范围和分辨率
-- 现有分析流程碎片化：每个巡天需要独立的预处理和特定任务模型，无法跨巡天共享知识
-- 固定网格方法统一多分辨率数据会导致插值伪影，且在宽波长范围内计算不可行（需 ~300K 像素）
-- 科学基础模型的核心挑战：如何从不规则、多分辨率序列数据中学习通用表征
+
+### 核心矛盾
+
+**核心矛盾**：大型天文巡天（SDSS、DESI 等）已采集数百万条光谱，但覆盖不同波长范围和分辨率
+
+### 领域现状
+
+**领域现状**：现有分析流程碎片化：每个巡天需要独立的预处理和特定任务模型，无法跨巡天共享知识
+
+### 现有痛点
+
+**现有痛点**：固定网格方法统一多分辨率数据会导致插值伪影，且在宽波长范围内计算不可行（需 ~300K 像素）
+
+### 解决思路
+
+**解决思路**：科学基础模型的核心挑战：如何从不规则、多分辨率序列数据中学习通用表征
 
 ## 方法详解
 
@@ -127,9 +139,9 @@ tags:
 ## 相关论文
 
 - [TimePoint: Accelerated Time Series Alignment via Self-Supervised Keypoint and Descriptor Learning](../../ICML2025/time_series/timepoint_accelerated_time_series_alignment_via_self-supervised_keypoint_and_des.md)
+- [OmniSat: Self-Supervised Modality Fusion for Earth Observation](../../ECCV2024/time_series/omnisat_self-supervised_modality_fusion_for_earth_observation.md)
 - [WaLRUS: Wavelets for Long-range Representation Using SSMs](walrus_wavelets_for_long-range_representation_using_ssms.md)
 - [Fern: Chaining Spectral Pearls — Ellipsoidal Forecasting Beyond Trajectories for Time Series](friren_beyond_trajectories_--_a_spectral_lens_on_time.md)
 - [SynTSBench: Rethinking Temporal Pattern Learning in Deep Learning Models for Time Series](syntsbench_rethinking_temporal_pattern_learning_in_deep_learning_models_for_time.md)
-- [Selective Learning for Deep Time Series Forecasting](selective_learning_for_deep_time_series_forecasting.md)
 
 <!-- RELATED:END -->

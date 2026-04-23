@@ -123,9 +123,9 @@ $\mathcal{L} = \lambda_b \sum_{i \in \{h,o\}} \mathcal{L}_b^i + \lambda_{iou} \s
 ## 相关论文
 
 - [Anomize: Better Open Vocabulary Video Anomaly Detection](anomize_better_open_vocabulary_video_anomaly_detection.md)
+- [GROVE: A Generalized Reward for Learning Open-Vocabulary Physical Skill](grove_a_generalized_reward_for_learning_open-vocabulary_physical_skill.md)
 - [MVGD-Net: A Novel Motion-aware Video Glass Surface Detection Network](../../AAAI2026/human_understanding/mvgd-net_a_novel_motion-aware_video_glass_surface_detection_network.md)
 - [Forensics Adapter: Adapting CLIP for Generalizable Face Forgery Detection](forensics_adapter_adapting_clip_for_generalizable_face_forgery_detection.md)
-- [Multi-Sensor Object Anomaly Detection: Unifying Appearance, Geometry, and Internal Properties](multi-sensor_object_anomaly_detection_unifying_appearance_geometry_and_internal_.md)
-- [HOI-Dyn: Learning Interaction Dynamics for Human-Object Motion Diffusion](../../NeurIPS2025/human_understanding/hoi-dyn_learning_interaction_dynamics_for_human-object_motion_diffusion.md)
+- [Towards General Visual-Linguistic Face Forgery Detection](towards_general_visual-linguistic_face_forgery_detection.md)
 
 <!-- RELATED:END -->

@@ -147,10 +147,10 @@ FUCRT（Federated Unlearning via Class-aware Representation Transformation）保
 
 ## 相关论文
 
+- [DAMP: Class Unlearning via Depth-Aware Removal of Forget-Specific Directions](../../CVPR2026/llm_safety/damp_class_unlearning_via_depth_aware_removal_of_forget_specific_directions.md)
 - [System-Aware Unlearning Algorithms: Use Lesser, Forget Faster](../../ICML2025/llm_safety/system-aware_unlearning_algorithms_use_lesser_forget_faster.md)
-- [Unlearning Evaluation through Subset Statistical Independence](../../ICLR2026/llm_safety/unlearning_evaluation_through_subset_statistical_independence.md)
 - [Towards Context-Robust LLMs: A Gated Representation Fine-tuning Approach](../../ACL2025/llm_safety/towards_context-robust_llms_a_gated_representation_fine-tuning_approach.md)
-- [Unveiling and Addressing Pseudo Forgetting in Large Language Models](../../ACL2025/llm_safety/unveiling_and_addressing_pseudo_forgetting_in_large_language_models.md)
+- [Unlearning Evaluation through Subset Statistical Independence](../../ICLR2026/llm_safety/unlearning_evaluation_through_subset_statistical_independence.md)
 - [Exploring Forgetting in Large Language Model Pre-Training](../../ACL2025/llm_safety/exploring_forgetting_in_large_language_model_pre-training.md)
 
 <!-- RELATED:END -->

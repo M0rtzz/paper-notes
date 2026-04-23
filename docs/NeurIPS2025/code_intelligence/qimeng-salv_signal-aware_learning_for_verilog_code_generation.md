@@ -26,10 +26,21 @@ tags:
 
 ## 研究背景与动机
 
-- LLM 在 Verilog 代码生成中展现潜力，但基于 RL 的偏好优化面临**功能奖励不足**的问题
-- 现有 RL 方法依赖代码结构相似度作为奖励，但同一功能可有多种不同结构的正确实现
-- 以功能正确性作为奖励更合理，但 SFT 阶段训练数据不足导致模型难以生成完全正确的模块
-- **关键洞察**：Verilog 描述硬件门/线的结构互连，不同输出信号天然独立。即使整个模块功能错误，某些信号的实现可能是正确的——这些可以提供有效的功能正确性奖励
+### 现有痛点
+
+**现有痛点**：LLM 在 Verilog 代码生成中展现潜力，但基于 RL 的偏好优化面临**功能奖励不足**的问题
+
+### 领域现状
+
+**领域现状**：现有 RL 方法依赖代码结构相似度作为奖励，但同一功能可有多种不同结构的正确实现
+
+### 核心矛盾
+
+**核心矛盾**：以功能正确性作为奖励更合理，但 SFT 阶段训练数据不足导致模型难以生成完全正确的模块
+
+### 解决思路
+
+**解决思路**：关键洞察**：Verilog 描述硬件门/线的结构互连，不同输出信号天然独立。即使整个模块功能错误，某些信号的实现可能是正确的——这些可以提供有效的功能正确性奖励
 
 ## 方法详解
 
@@ -121,7 +132,7 @@ $$\mathcal{L}(\pi_\theta;\pi_{\text{ref}}) = -\mathbb{E}\left[\log\sigma\left(\b
 - [DynaCode: A Dynamic Complexity-Aware Code Benchmark for Evaluating Large Language Models in Code Generation](../../ACL2025/code_intelligence/dynacode_a_dynamic_complexity-aware_code_benchmark_for_evaluating_large_language.md)
 - [EffiCoder: Enhancing Code Generation in Large Language Models through Efficiency-Aware Fine-tuning](../../ICML2025/code_intelligence/efficoder_enhancing_code_generation_in_large_language_models_through_efficiency-.md)
 - [Co-Evolving LLM Coder and Unit Tester via Reinforcement Learning](co-evolving_llm_coder_and_unit_tester_via_reinforcement_learning.md)
+- [ReflectionCoder: Learning from Reflection Sequence for Enhanced One-off Code Generation](../../ACL2025/code_intelligence/reflectioncoder_learning_from_reflection_sequence_for_enhanced_one-off_code_gene.md)
 - [Embedding Alignment in Code Generation for Audio](embedding_alignment_in_code_generation_for_audio.md)
-- [Learning to Solve Complex Problems via Dataset Decomposition](learning_to_solve_complex_problems_via_dataset_decomposition.md)
 
 <!-- RELATED:END -->

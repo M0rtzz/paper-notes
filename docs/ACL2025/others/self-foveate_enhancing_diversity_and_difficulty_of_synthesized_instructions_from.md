@@ -157,8 +157,8 @@ $$\mathcal{D}_{\text{gen}} = \mathcal{F}(\mathcal{D}) = \bigcup_{d_i \in \mathca
 
 - [Enhancing the Comprehensibility of Text Explanations via Unsupervised Concept Discovery](enhancing_the_comprehensibility_of_text_explanations_via_unsupervised_concept_di.md)
 - [STaR-SQL: Self-Taught Reasoner for Text-to-SQL](star-sql_self-taught_reasoner_for_text-to-sql.md)
+- [From Real to Synthetic: Synthesizing Millions of Diversified and Complicated User Instructions with Attributed Grounding](from_real_to_synthetic_synthesizing_millions_of_diversified_and_complicated_user.md)
 - [Predicting Implicit Arguments in Procedural Video Instructions](implicit_arguments_video_instructions.md)
 - [GETReason: Enhancing Image Context Extraction through Hierarchical Multi-Agent Reasoning](getreason_enhancing_image_context_extraction_through_hierarchical_multi-agent_re.md)
-- [Evaluating the Evaluation of Diversity in Commonsense Generation](evaluating_the_evaluation_of_diversity_in_commonsense_generation.md)
 
 <!-- RELATED:END -->

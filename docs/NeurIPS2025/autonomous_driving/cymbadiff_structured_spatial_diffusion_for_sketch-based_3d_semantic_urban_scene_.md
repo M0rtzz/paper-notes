@@ -142,7 +142,7 @@ tags:
 - [SPIRAL: Semantic-Aware Progressive LiDAR Scene Generation and Understanding](spiral_semantic-aware_progressive_lidar_scene_generation_and_understanding.md)
 - [Decoupled Diffusion Sparks Adaptive Scene Generation](../../ICCV2025/autonomous_driving/decoupled_diffusion_sparks_adaptive_scene_generation.md)
 - [Neurosymbolic Diffusion Models](neurosymbolic_diffusion_models.md)
-- [X-Scene: Large-Scale Driving Scene Generation with High Fidelity and Flexible Controllability](x-scene_large-scale_driving_scene_generation_with_high_fidelity_and_flexible_con.md)
 - [FlowScene: Learning Temporal 3D Semantic Scene Completion via Optical Flow Guidance](learning_temporal_3d_semantic_scene_completion_via_optical_flow_guidance.md)
+- [X-Scene: Large-Scale Driving Scene Generation with High Fidelity and Flexible Controllability](x-scene_large-scale_driving_scene_generation_with_high_fidelity_and_flexible_con.md)
 
 <!-- RELATED:END -->

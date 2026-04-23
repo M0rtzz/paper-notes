@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 可解释性方向 8篇论文解读
+  ICCV2025 可解释性方向 9篇论文解读
 description: >-
-  8篇ICCV2025 可解释性论文解读，主题涵盖：本文提出 AIM，一种基于自监督二值掩码的、提出 ArgoTweak，首个提供"旧地图先验、提出CE-FAM概念解释方法，通过训练与图像分类器等，每篇含核心思想与方法详解。
+  9篇ICCV2025 可解释性论文解读，主题涵盖：本文提出 AIM，一种基于自监督二值掩码的、提出 ArgoTweak，首个提供"旧地图先验、提出CE-FAM概念解释方法，通过训练与图像分类器等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**📹 ICCV2025** · **8** 篇论文解读
+**📹 ICCV2025** · **9** 篇论文解读
 
 **[AIM: Amending Inherent Interpretability via Self-Supervised Masking](aim_amending_inherent_interpretability_via_self-supervised_masking.md)**
 
@@ -33,6 +33,10 @@ description: >-
 **[Minerva: Evaluating Complex Video Reasoning](minerva_evaluating_complex_video_reasoning.md)**
 
 :   提出 Minerva——一个包含 1515 个手工标注的复杂视频推理问答数据集，每题配有 5 个选项和详细推理链（reasoning trace），用于评估多模态大模型的视频推理能力，并建立了视频推理错误分类体系（Temporal/Perceptual/Logical/Completeness）和 MiRA 自动评估框架。
+
+**["Principal Components" Enable A New Language of Images](principal_components_enable_a_new_language_of_images.md)**
+
+:   提出 Semanticist 视觉分词框架，通过在 latent token 空间中嵌入可证明的 PCA 结构（每个后续 token 贡献递减的非重叠信息），并用扩散解码器解耦语义-频谱耦合效应，在图像重建和自回归生成上实现了 SOTA 性能。
 
 **[SVIP: Semantically Contextualized Visual Patches for Zero-Shot Learning](svip_semantically_contextualized_visual_patches_for_zero-shot_learning.md)**
 

@@ -115,10 +115,10 @@ TensoFlow 分两阶段：(1) 几何重建阶段：沿用 TensoSDF 的张量化 S
 
 ## 相关论文
 
+- [A Probability-guided Sampler for Neural Implicit Surface Rendering](../../ECCV2024/human_understanding/a_probabilityguided_sampler_for_neural_implicit_surface_rend.md)
 - [UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation](../../ICLR2026/human_understanding/uniflow_a_unified_pixel_flow_tokenizer_for_visual_understanding_and_generation.md)
-- [MANIKIN: Biomechanically Accurate Neural Inverse Kinematics for Human Motion Estimation](../../ECCV2024/human_understanding/manikin_biomechanically_accurate_neural_inverse_kinematics_for_human_motion_esti.md)
-- [Scalable Exploration for High-Dimensional Continuous Control via Value-Guided Flow](../../ICLR2026/human_understanding/scalable_exploration_for_high-dimensional_continuous_control_via_value-guided_fl.md)
-- [Sketch2Colab: Sketch-Conditioned Multi-Human Animation via Controllable Flow Distillation](../../CVPR2026/human_understanding/sketch2colab_sketch-conditioned_multi-human_animation_via_controllable_flow_dist.md)
-- [Inverse Virtual Try-On: Generating Multi-Category Product-Style Images from Clothed Individuals](../../ICLR2026/human_understanding/inverse_virtual_try-on_generating_multi-category_product-style_images_from_cloth.md)
+- [Co-op: Correspondence-based Novel Object Pose Estimation](co-op_correspondence-based_novel_object_pose_estimation.md)
+- [ShowMak3r++: Compositional Entertainment Video Reconstruction](showmak3r_compositional_tv_show_reconstruction.md)
+- [One2Any: One-Reference 6D Pose Estimation for Any Object](one2any_one-reference_6d_pose_estimation_for_any_object.md)
 
 <!-- RELATED:END -->

@@ -129,9 +129,9 @@ tags:
 ## 相关论文
 
 - [Face Time Traveller: Travel Through Ages Without Losing Identity](face_time_traveller_travel_through_ages_without_losing_identity.md)
-- [AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile Perception](../../ICLR2026/human_understanding/anytouch_2_general_optical_tactile_representation_learning_for_dynamic_tactile_p.md)
+- [ADen: Adaptive Density Representations for Sparse-view Camera Pose Estimation](../../ECCV2024/human_understanding/aden_adaptive_density_representations_for_sparseview_camera.md)
 - [Function Spaces Without Kernels: Learning Compact Hilbert Space Representations](../../ICLR2026/human_understanding/function_spaces_without_kernels_learning_compact_hilbert_space_representations.md)
-- [Sonic: Shifting Focus to Global Audio Perception in Portrait Animation](../../CVPR2025/human_understanding/sonic_shifting_focus_to_global_audio_perception_in_portrait_animation.md)
-- [Streamline Without Sacrifice — Squeeze out Computation Redundancy in LMM](../../ICML2025/human_understanding/streamline_without_sacrifice_--_squeeze_out_computation_redundancy_in_lmm.md)
+- [AnyTouch 2: General Optical Tactile Representation Learning For Dynamic Tactile Perception](../../ICLR2026/human_understanding/anytouch_2_general_optical_tactile_representation_learning_for_dynamic_tactile_p.md)
+- [MP-GUI: Modality Perception with MLLMs for GUI Understanding](../../CVPR2025/human_understanding/mp-gui_modality_perception_with_mllms_for_gui_understanding.md)
 
 <!-- RELATED:END -->

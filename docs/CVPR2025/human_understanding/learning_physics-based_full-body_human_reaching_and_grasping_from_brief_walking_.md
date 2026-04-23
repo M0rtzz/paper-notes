@@ -142,8 +142,8 @@ tags:
 
 - [Learning Cross-Hand Policies of High-DOF Reaching and Grasping](../../ECCV2024/human_understanding/learning_cross-hand_policies_of_high-dof_reaching_and_grasping.md)
 - [FATE: Full-head Gaussian Avatar with Textural Editing from Monocular Video](fate_full-head_gaussian_avatar_with_textural_editing_from_monocular_video.md)
+- [D3-Human: Dynamic Disentangled Digital Human from Monocular Video](d3-human_dynamic_disentangled_digital_human_from_monocular_video.md)
 - [EgoExo-Fitness: Towards Egocentric and Exocentric Full-Body Action Understanding](../../ECCV2024/human_understanding/egoexo-fitness_towards_egocentric_and_exocentric_full-body_action_understanding.md)
-- [GaussianIP: Identity-Preserving Realistic 3D Human Generation via Human-Centric Diffusion Prior](gaussianip_identity-preserving_realistic_3d_human_generation_via_human-centric_d.md)
-- [X-Dyna: Expressive Dynamic Human Image Animation](x-dyna_expressive_dynamic_human_image_animation.md)
+- [Human Motion Instruction Tuning](human_motion_instruction_tuning.md)
 
 <!-- RELATED:END -->

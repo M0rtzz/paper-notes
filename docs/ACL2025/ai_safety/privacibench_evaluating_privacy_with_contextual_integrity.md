@@ -126,6 +126,6 @@ tags:
 - [Estimating Privacy Leakage of Augmented Contextual Knowledge in Language Models](estimating_privacy_leakage_of_augmented_contextual_knowledge_in_language_models.md)
 - [ELBA-Bench: An Efficient Learning Backdoor Attacks Benchmark for Large Language Models](elba-bench_an_efficient_learning_backdoor_attacks_benchmark_for_large_language_m.md)
 - [CENTAUR: Bridging the Impossible Trinity of Privacy, Efficiency, and Performance in Privacy-Preserving Transformer Inference](centaur_bridging_the_impossible_trinity_of.md)
-- [The Tug of War Within: Mitigating the Fairness-Privacy Conflicts in Large Language Models](tug_of_war_fairness_privacy.md)
+- [Crafting Privacy-Preserving Adversarial Examples: A Defense Against Membership Inference](crafting_privacy-preserving_adversarial_examples_a_defense_against_membership_inf.md)
 
 <!-- RELATED:END -->

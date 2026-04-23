@@ -126,10 +126,10 @@ tags:
 
 ## 相关论文
 
+- [CARI4D: Category Agnostic 4D Reconstruction of Human-Object Interaction](../../CVPR2026/3d_vision/cari4d_category_agnostic_4d_reconstruction_of_human_object_interaction.md)
 - [Any3DIS: Class-Agnostic 3D Instance Segmentation by 2D Mask Tracking](any3dis_class-agnostic_3d_instance_segmentation_by_2d_mask_tracking.md)
-- [RigAnyFace: Scaling Neural Facial Mesh Auto-Rigging with Unlabeled Data](../../NeurIPS2025/3d_vision/riganyface_scaling_neural_facial_mesh_auto-rigging_with_unlabeled_data.md)
 - [RigGS: Rigging of 3D Gaussians for Modeling Articulated Objects in Videos](riggs_rigging_of_3d_gaussians_for_modeling_articulated_objects_in_videos.md)
-- [Multi-View Pose-Agnostic Change Localization with Zero Labels](multi-view_pose-agnostic_change_localization_with_zero_labels.md)
-- [Unified Category-Level Object Detection and Pose Estimation from RGB Images using 3D Prototypes](../../ICCV2025/3d_vision/unified_category-level_object_detection_and_pose_estimation_from_rgb_images_usin.md)
+- [4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
+- [Multi-View Pose-Agnostic Change Localization with Zero Labels](mv_3dcd_multiview_change_detection.md)
 
 <!-- RELATED:END -->

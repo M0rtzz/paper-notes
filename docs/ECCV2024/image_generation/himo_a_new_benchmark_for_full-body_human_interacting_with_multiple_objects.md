@@ -256,8 +256,8 @@ $$\mathcal{L} = \lambda_{vel}\mathcal{L}_{vel} + \lambda_{pos}\mathcal{L}_{pos} 
 
 - [Visual Persona: Foundation Model for Full-Body Human Customization](../../CVPR2025/image_generation/visual_persona_foundation_model_for_full-body_human_customization.md)
 - [MagicEraser: Erasing Any Objects via Semantics-Aware Control](magiceraser_erasing_any_objects_via_semantics-aware_control.md)
-- [Text2Place: Affordance-aware Text Guided Human Placement](text2place_affordance-aware_text_guided_human_placement.md)
 - [Realistic Human Motion Generation with Cross-Diffusion Models](realistic_human_motion_generation_with_cross-diffusion_models.md)
-- [Generating Human Interaction Motions in Scenes with Text Control](generating_human_interaction_motions_in_scenes_with_text_control.md)
+- [Text2Place: Affordance-aware Text Guided Human Placement](text2place_affordance-aware_text_guided_human_placement.md)
+- [Towards Reliable Advertising Image Generation Using Human Feedback](towards_reliable_advertising_image_generation_using_human_fe.md)
 
 <!-- RELATED:END -->

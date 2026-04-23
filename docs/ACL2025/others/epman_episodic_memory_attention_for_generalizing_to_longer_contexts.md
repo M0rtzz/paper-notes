@@ -170,6 +170,6 @@ $$L = \mathbb{E}_\mathcal{D} [\alpha \ln p(l|q, C) + \ln(a|q, C, a_{mem})]$$
 - [If Attention Serves as a Cognitive Model of Human Memory Retrieval, What is the Plausible Memory Representation?](if_attention_serves_as_a_cognitive_model_of_human_memory_retrieval_what_is_the_p.md)
 - [Unique Hard Attention: A Tale of Two Sides](unique_hard_attention_a_tale_of_two_sides.md)
 - [Hierarchical Memory Organization for Wikipedia Generation](hierarchical_memory_wikipedia_gen.md)
-- [Attention Entropy is a Key Factor for Parallel Context Encoding](attention_entropy_parallel_encoding.md)
+- [DAPE V2: Process Attention Score as Feature Map for Length Extrapolation](dape_v2_process_attention_score_as_feature_map_for_length_extrapolation.md)
 
 <!-- RELATED:END -->

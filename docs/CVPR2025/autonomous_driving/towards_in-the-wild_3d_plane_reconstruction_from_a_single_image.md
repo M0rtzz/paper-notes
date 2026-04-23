@@ -136,7 +136,7 @@ ZeroPlane 基于 Mask2Former 和 PlaneRecTR 的检测-分割框架。输入单�
 - [Detect Anything 3D in the Wild](../../ICCV2025/autonomous_driving/detect_anything_3d_in_the_wild.md)
 - [Single Pixel Image Classification using an Ultrafast Digital Light Projector](single_pixel_image_classification_using_an_ultrafast_digital_light_projector.md)
 - [PlanarSplatting: Accurate Planar Surface Reconstruction in 3 Minutes](planarsplatting_accurate_planar_surface_reconstruction_in_3_minutes.md)
+- [MaskGWM: A Generalizable Driving World Model with Video Mask Reconstruction](maskgwm_a_generalizable_driving_world_model_with_video_mask_reconstruction.md)
 - [LabelAny3D: Label Any Object 3D in the Wild](../../NeurIPS2025/autonomous_driving/labelany3d_label_any_object_3d_in_the_wild.md)
-- [ReconDreamer: Crafting World Models for Driving Scene Reconstruction via Online Restoration](recondreamer_crafting_world_models_for_driving_scene_reconstruction_via_online_r.md)
 
 <!-- RELATED:END -->

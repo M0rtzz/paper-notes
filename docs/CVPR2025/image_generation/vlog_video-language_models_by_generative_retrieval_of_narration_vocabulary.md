@@ -122,8 +122,8 @@ VLog 基于轻量级 GPT-2-medium 和 SigLIP 构建。核心创新包括：(1) �
 
 - [Goku: Flow Based Video Generative Foundation Models](goku_flow_based_video_generative_foundation_models.md)
 - [Can Generative Video Models Help Pose Estimation?](can_generative_video_models_help_pose_estimation.md)
+- [ObjectMover: Generative Object Movement with Video Prior](objectmover_generative_object_movement_with_video_prior.md)
 - [IRGen: Generative Modeling for Image Retrieval](../../ECCV2024/image_generation/irgen_generative_modeling_for_image_retrieval.md)
 - [Articulated Kinematics Distillation from Video Diffusion Models](articulated_kinematics_distillation_from_video_diffusion_models.md)
-- [GenIR: Generative Visual Feedback for Mental Image Retrieval](../../NeurIPS2025/image_generation/genir_generative_visual_feedback_for_mental_image_retrieval.md)
 
 <!-- RELATED:END -->

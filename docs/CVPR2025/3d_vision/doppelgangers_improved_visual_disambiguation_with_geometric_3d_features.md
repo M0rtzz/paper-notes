@@ -137,9 +137,9 @@ Doppelgangers++ 在所有场景上 IR 均优于或等于 DG-OG，且使用统一
 ## 相关论文
 
 - [Pano360: Perspective to Panoramic Vision with Geometric Consistency](pano360_perspective_to_panoramic_vision_with_geometric_consistency.md)
-- [VGGT: Visual Geometry Grounded Transformer](vggt_visual_geometry_grounded_transformer.md)
 - [The NeRFect Match: Exploring NeRF Features for Visual Localization](../../ECCV2024/3d_vision/the_nerfect_match_exploring_nerf_features_for_visual_localization.md)
 - [TriTex: Learning Texture from a Single Mesh via Triplane Semantic Features](tritex_learning_texture_from_a_single_mesh_via_triplane_semantic_features.md)
-- [Neuro-3D: Towards 3D Visual Decoding from EEG Signals](neuro-3d_towards_3d_visual_decoding_from_eeg_signals.md)
+- [VGGT: Visual Geometry Grounded Transformer](vggt_visual_geometry_grounded_transformer.md)
+- [Formula-Supervised Visual-Geometric Pre-training (FSVGP)](../../ECCV2024/3d_vision/formula-supervised_visual-geometric_pre-training.md)
 
 <!-- RELATED:END -->

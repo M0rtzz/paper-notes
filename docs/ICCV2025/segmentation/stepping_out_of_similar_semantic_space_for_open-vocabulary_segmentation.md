@@ -165,8 +165,8 @@ GFA vs 学习型融合（OpenBench）：
 
 - [FLOSS: Free Lunch in Open-vocabulary Semantic Segmentation](floss_free_lunch_in_openvocabulary_semantic_segmentation.md)
 - [Training-Free Class Purification for Open-Vocabulary Semantic Segmentation](training-free_class_purification_for_open-vocabulary_semantic_segmentation.md)
+- [Exploring Simple Open-Vocabulary Semantic Segmentation](../../CVPR2025/segmentation/exploring_simple_open-vocabulary_semantic_segmentation.md)
 - [Personalized OVSS: Understanding Personal Concept in Open-Vocabulary Semantic Segmentation](understanding_personal_concept_in_open-vocabulary_semantic_segmentation.md)
 - [Auto-Vocabulary Semantic Segmentation](auto-vocabulary_semantic_segmentation.md)
-- [SCORE: Scene Context Matters in Open-Vocabulary Remote Sensing Instance Segmentation](score_scene_context_matters_in_open-vocabulary_remote_sensing_instance_segmentat.md)
 
 <!-- RELATED:END -->

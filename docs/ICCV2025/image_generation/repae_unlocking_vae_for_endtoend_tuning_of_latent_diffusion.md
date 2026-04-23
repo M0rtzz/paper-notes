@@ -1,111 +1,127 @@
 ---
 title: >-
-  [论文解读] REPA-E: Unlocking VAE for End-to-End Tuning of Latent Diffusion Transformers
+  [论文解读] REPA-E: Unlocking VAE for End-to-End Tuning with Latent Diffusion Transformers
 description: >-
-  [ICCV 2025][图像生成][end-to-end training] 回答了"潜空间扩散模型能否与VAE端到端联合训练"的基础问题——发现标准扩散loss无法端到端训练但表示对齐（REPA）loss可以，提出REPA-E实现VAE+DiT联合训练，训练速度比REPA快17倍、比vanilla快45倍，在ImageNet 256×256上达到1.12 FID（w/ CFG）的新SOTA。
+  [ICCV 2025][图像生成][端到端训练] 提出 REPA-E，首个成功实现 VAE 与潜在扩散模型端到端联调的训练方案，通过表征对齐(REPA)损失而非扩散损失来更新 VAE，训练速度提升 17-45 倍并达到 ImageNet 256 新 SOTA（FID 1.12）。
 tags:
   - ICCV 2025
   - 图像生成
-  - end-to-end training
+  - 端到端训练
   - VAE
-  - 扩散模型
-  - representation alignment
-  - REPA
-  - 训练效率
+  - 潜在扩散模型
+  - 表征对齐
+  - 训练加速
 ---
 
-# REPA-E: Unlocking VAE for End-to-End Tuning of Latent Diffusion Transformers
+# REPA-E: Unlocking VAE for End-to-End Tuning with Latent Diffusion Transformers
 
 **会议**: ICCV 2025  
 **arXiv**: [2504.10483](https://arxiv.org/abs/2504.10483)  
-**代码**: [https://end2end-diffusion.github.io/](https://end2end-diffusion.github.io/)  
-**领域**: 图像生成 / 扩散模型 / 表示学习  
-**关键词**: end-to-end training, VAE, latent diffusion, representation alignment, REPA, 训练效率
+**代码**: https://end2end-diffusion.github.io  
+**领域**: 图像生成 / 扩散模型  
+**关键词**: 端到端训练, VAE, 潜在扩散模型, 表征对齐, 训练加速
 
 ## 一句话总结
-回答了"潜空间扩散模型能否与VAE端到端联合训练"的基础问题——发现标准扩散loss无法端到端训练但表示对齐（REPA）loss可以，提出REPA-E实现VAE+DiT联合训练，训练速度比REPA快17倍、比vanilla快45倍，在ImageNet 256×256上达到1.12 FID（w/ CFG）的新SOTA。
+提出 REPA-E，首个成功实现 VAE 与潜在扩散模型端到端联调的训练方案，通过表征对齐(REPA)损失而非扩散损失来更新 VAE，训练速度提升 17-45 倍并达到 ImageNet 256 新 SOTA（FID 1.12）。
 
-## 背景与动机
-传统深度学习中端到端训练通常是最优选择，但在潜空间扩散模型（LDM）中，VAE和扩散模型一直是分开训练的——先训练好VAE，再在冻结的VAE潜空间上训练扩散模型。之前尝试端到端训练（用diffusion loss反传梯度到VAE）反而导致性能下降。REPA方法通过在DiT内部对齐DINOv2特征加速了扩散训练，但VAE仍然是冻结的。核心问题：能否通过某种loss让VAE和DiT共同进化？
+## 研究背景与动机
 
-## 核心问题
-为什么标准diffusion loss无法有效端到端训练VAE+扩散模型？什么样的loss可以解锁端到端训练？端到端训练对VAE本身有什么影响？
+**领域现状**：潜在扩散模型（LDM）采用两阶段训练——先训练 VAE 再固定 VAE 训练扩散模型。REPA 通过将扩散模型中间表征与 DINO 等预训练特征对齐来加速训练。
+
+**现有痛点**：(1) 两阶段训练意味着 VAE 的潜在空间未针对生成任务优化——VAE 为重建而训练，不一定是扩散模型的最佳输入空间；(2) 不同 VAE 存在不同问题：SD-VAE 潜在空间有高频噪声，而自训练的 IN-VAE 过度平滑；(3) 直接用扩散损失反传到 VAE 会导致潜在空间坍塌。
+
+**核心矛盾**：深度学习的经验告诉我们端到端训练通常更优，但 LDM 中直接端到端训练会让扩散损失"hack"潜在空间变简单（方便去噪但损害生成质量），导致性能下降。
+
+**本文目标**：找到一种有效的端到端训练方案，联合优化 VAE 和扩散模型以实现最优生成性能。
+
+**切入角度**：分析发现 REPA 的表征对齐分数（CKNNA）与生成质量强相关，且其上限被 VAE 特征瓶颈制约——如果能通过端到端训练改善 VAE 特征，就能突破这个瓶颈。
+
+**核心 idea**：不用扩散损失而用 REPA 损失来更新 VAE——REPA 损失鼓励 VAE 潜在空间与扩散模型特征共同向预训练视觉表征对齐，既避免了潜在空间坍塌，又自适应地改善了 VAE 的潜在空间结构。
 
 ## 方法详解
 
 ### 整体框架
-REPA-E非常简洁——在REPA的basis上把VAE解冻，让REPA loss的梯度同时流向DiT和VAE encoder/decoder。训练时DiT的中间特征与DINOv2特征做cosine相似度对齐（REPA loss），这个loss因同时作用于潜空间输入（VAE编码的）和DiT内部特征，自然地将梯度传给VAE。
+总损失 $\mathcal{L} = \mathcal{L}_{\text{DIFF}}(\theta) + \lambda \mathcal{L}_{\text{REPA}}(\theta, \phi, \omega) + \eta \mathcal{L}_{\text{REG}}(\phi)$。扩散损失 $\mathcal{L}_{\text{DIFF}}$ 仅更新扩散模型参数 $\theta$（stop-gradient 阻止反传到 VAE）；REPA 损失同时更新扩散模型 $\theta$ 和 VAE $\phi$；VAE 正则损失保持重建能力。
 
 ### 关键设计
-1. **Diffusion Loss无法端到端的原因**：diffusion loss（去噪重建）在不同时间步的梯度方向对VAE来说是矛盾的——某些时间步想让潜空间更平滑（利于去噪），另一些想保留更多细节（利于重建）。这种梯度冲突导致VAE收到的信号混乱，端到端训练时VAE退化。
 
-2. **REPA Loss解锁端到端训练**：REPA loss让DiT的hidden state与预训练VFM（如DINOv2）的特征对齐。这个loss对VAE提供了一个一致的优化方向——让潜空间编码保留更多语义信息以利于特征对齐。关键洞察：REPA loss通过DiT间接地对VAE施加"让潜空间更结构化"的压力，而非像diffusion loss那样给出矛盾信号。
+1. **REPA 损失端到端反传**:
 
-3. **VAE在端到端训练中的自我改进**：令人惊喜的发现——端到端训练不仅加速DiT学习，还改善了VAE本身。训练后的VAE产生的潜空间更加结构化（特征更可分），即使脱离DiT单独用也有更好的重建质量。这意味着REPA-E实际上是一种"通过扩散模型改善VAE"的方法。
+    - 功能：通过表征对齐损失联合优化 VAE 和扩散模型
+    - 核心思路：$\mathcal{L}_{\text{REPA}}(\theta, \phi, \omega) = -\mathbb{E}[\frac{1}{N}\sum_n \text{sim}(y^{[n]}, h_\omega(h_t^{[n]}))]$，其中 $y$ 是 DINO-v2 特征，$h_t$ 是扩散 Transformer 的中间隐状态。REPA 损失通过扩散模型反传到 VAE，鼓励 VAE 产生更有利于表征对齐的潜在空间
+    - 设计动机：直接用扩散损失更新 VAE 会坍塌（鼓励简单化潜在空间），但 REPA 损失鼓励的是与预训练视觉特征对齐——这不会简化潜在空间，反而会改善其结构
+
+2. **Batch-Norm 层做潜在空间归一化**:
+
+    - 功能：在 VAE 和扩散模型之间提供可微的动态归一化
+    - 核心思路：传统 LDM 用预计算的全局统计量归一化 VAE 输出。端到端训练中 VAE 持续更新导致统计量失效。用 BN 层的指数移动平均替代全局统计量，无需每步重新计算
+    - 设计动机：VAE 参数更新后潜在空间分布变化，固定的归一化常数不再有效。BN 层提供了轻量的自适应归一化
+
+3. **扩散损失 Stop-Gradient**:
+
+    - 功能：防止扩散损失损害 VAE 潜在空间
+    - 核心思路：扩散损失 $\mathcal{L}_{\text{DIFF}}$ 仅用于更新扩散模型参数 $\theta$，通过 stop-gradient 阻断对 VAE 参数 $\phi$ 的梯度
+    - 设计动机：实验和分析表明扩散损失会鼓励低方差的简单潜在空间（更易去噪但生成质量差），必须阻断
 
 ### 损失函数 / 训练策略
-- 总损失 = Diffusion loss + λ × REPA loss（cosine similarity alignment with DINOv2）
-- VAE和DiT同时可训练，REPA loss的梯度流经DiT反传到VAE
-- 基于SiT/REPA架构，ImageNet 256×256训练
+三部分损失：(1) 扩散损失→只更新LDM；(2) REPA损失→同时更新LDM和VAE；(3) VAE正则（重建+KL+GAN+LPIPS）→保持VAE重建能力。
 
 ## 实验关键数据
 
-| 方法 | 训练步数 | FID↓ (w/o CFG) | FID↓ (w/ CFG) |
-|------|----------|---------------|---------------|
-| SiT-XL (vanilla) | 7M | ~15 | ~6 |
-| REPA | 400K | 1.80 | ~1.4 |
-| **REPA-E** | **200K** | **1.69** | **1.12** |
+### 主实验
 
-- **FID 1.12** (w/ CFG)：ImageNet 256×256新SOTA
-- **FID 1.69** (w/o CFG)：无CFG也是SOTA
-- 比REPA快**17倍**（从400K步降到~24K步达到同等FID）
-- 比vanilla训练快**45倍**
-- 端到端训练后VAE自身改善：潜空间更结构化，下游生成质量更好
+| 方法 | 训练步数 | gFID↓ | 加速比 |
+|------|---------|-------|-------|
+| Vanilla SiT | 1.4M | 8.61 | 1× |
+| REPA | 4M | 5.90 | ~1× |
+| **REPA-E (400K)** | 400K | **4.07** | **17× vs REPA, 45× vs vanilla** |
+| REPA-E (最终) | - | **1.12** (w/ CFG) | SOTA |
 
-### 消融实验要点
-- Diffusion loss alone端到端→VAE退化、FID更差
-- REPA loss解冻VAE→FID持续改善且收敛更快
-- VAE改善与DiT改善是协同的——更好的潜空间让DiT训练更容易
-- DINOv2对齐提供了一致的语义梯度方向给VAE
+### 消融实验
 
-## 亮点
-- **回答了一个fundamental question**：端到端训练LDM为什么不work以及如何work——答案优雅且令人意外
-- **FID 1.12是ImageNet-256的新SOTA**——且训练效率极高
-- **"VAE自我改善"的发现**非常有趣：反直觉地，通过扩散训练改善了tokenizer
-- **方法极简**：只需在REPA基础上解冻VAE，几乎零额外工程成本
-- **45倍训练加速**对社区的实际价值巨大
+| 配置 | gFID | 说明 |
+|------|------|------|
+| REPA-E (完整) | 最优 | REPA 损失端到端 |
+| 用扩散损失端到端 | 性能下降 | 潜在空间坍塌 |
+| 无 BN 层 | 不稳定 | 归一化失效 |
+| 无 VAE 正则 | 重建退化 | 需要保持 VAE 重建能力 |
+| 不同 VAE (SD-VAE/IN-VAE) | 均有显著提升 | 泛化性好 |
+
+### 关键发现
+- 端到端训练自适应改善了 VAE 潜在空间：SD-VAE 的高频噪声被平滑，IN-VAE 的过度平滑被增加细节——同一种方法针对不同问题自动调整
+- CKNNA 对齐分数与 gFID 强相关（相关系数 > 0.9），验证了用对齐分数作为生成质量代理的合理性
+- 端到端训练后的 VAE 可以作为原始 VAE 的直接替换，在其他训练设置和模型架构中也能提升生成性能
+
+## 亮点与洞察
+- **反直觉发现**：扩散损失不能用于端到端训练但 REPA 损失可以——这揭示了两种损失对潜在空间结构的对立影响，是深刻的理论洞察
+- **17-45 倍训练加速**是非常实际的贡献，显著降低了大规模扩散模型训练的成本
+- 端到端训练的 VAE 本身也变好了，可以作为改进的 tokenizer 独立使用
 
 ## 局限与展望
-- 仅在ImageNet 256×256 class-conditional生成上验证
-- 未测试text-to-image场景
-- 依赖DINOv2作为对齐目标，其他VFM是否同样有效未探索
-- VAE改善的程度受限于端到端训练的规模和迭代次数
+- 仅在 ImageNet 256×256 上验证，更高分辨率和更大数据集有待确认
+- 需要额外训练 VAE 的正则化项（GAN判别器等），增加了一定复杂度
+- 目前仅与 SiT 架构配合验证，与 DiT 等其他架构的兼容性待探索
+- REPA 依赖 DINO-v2 等预训练特征，对齐质量受限于该模型
 
-## 与相关工作的对比
-- **vs. REPA**：REPA冻结VAE仅训练DiT；REPA-E解冻VAE实现联合训练，速度更快17倍
-- **vs. DC-AE**：DC-AE是先训练更好的VAE再训练DiT（两阶段）；REPA-E通过端到端一步到位
-- **vs. MAR/HART**：这些用discrete tokenizer的方法需要token重建+扩散两阶段，REPA-E统一为一个训练过程
-- **vs. Scaling Language-Free Visual Repr**：Web-SSL证明SSL encoder可以scale up；REPA-E证明SSL特征（DINOv2）可以通过对齐loss指导VAE+DiT的端到端学习
-
-## 启发与关联
-- **重要idea启发**：如果REPA loss能改善VAE，那么同样的思路能否用于改善视频VAE（如CogVideoX的3D VAE）？视频生成中VAE质量是关键瓶颈
-- 端到端训练的思路可以扩展到text-to-image——让text encoder也参与端到端优化
-- 与SANA-Sprint结合：端到端训练出更好的VAE→再进行步骤蒸馏→可能得到更好的1步生成模型
+## 相关工作与启发
+- **vs REPA (Yu et al.)**: REPA 只对齐扩散模型特征，不更新 VAE；REPA-E 通过端到端训练同时优化两者
+- **vs LSGM (Vahdat et al.)**: LSGM 用变分下界+熵项防止坍塌但收敛慢；REPA-E 用 REPA 损失更高效
+- **vs VA-VAE/DC-AE**: 这些工作优化 VAE 架构但仍是两阶段训练；REPA-E 首次实现真正的端到端
 
 ## 评分
-- 新颖性: ⭐⭐⭐⭐⭐ 回答了fundamental question，"REPA loss解锁端到端"的发现是paradigm shift
-- 实验充分度: ⭐⭐⭐⭐ ImageNet-256 SOTA，但仅限class-conditional场景
-- 写作质量: ⭐⭐⭐⭐ 问题定义精准，"为什么不work"的分析有深度
-- 价值: ⭐⭐⭐⭐⭐ 1.12 FID + 45x加速，对扩散模型训练范式有深远影响
+- 新颖性: ⭐⭐⭐⭐⭐ 首次成功实现 VAE+LDM 端到端训练，发现扩散损失vs REPA损失对潜在空间的对立影响
+- 实验充分度: ⭐⭐⭐⭐⭐ 多种 VAE、多种模型规模、训练速度+最终性能+VAE质量三方面验证
+- 写作质量: ⭐⭐⭐⭐⭐ 三个关键洞察层层递进，PCA 可视化非常直观
+- 价值: ⭐⭐⭐⭐⭐ FID 1.12 SOTA + 45 倍加速，对扩散模型训练有范式性影响
 
 <!-- RELATED:START -->
 
 ## 相关论文
 
-- [REPA-E: Unlocking VAE for End-to-End Tuning with Latent Diffusion Transformers](repa-e_unlocking_vae_for_end-to-end_tuning_of_latent_diffusion_transformers.md)
 - [End-to-End Multi-Modal Diffusion Mamba](end-to-end_multi-modal_diffusion_mamba.md)
-- [Exploring Multimodal Diffusion Transformers for Enhanced Prompt-based Image Editing](exploring_multimodal_diffusion_transformers_for_enhanced_prompt-based_image_edit.md)
-- [FreeScale: Unleashing the Resolution of Diffusion Models via Tuning-Free Scale Fusion](freescale_unleashing_the_resolution_of_diffusion_models_via_tuning-free_scale_fu.md)
-- [LaRender: Training-Free Occlusion Control in Image Generation via Latent Rendering](larender_training-free_occlusion_control_in_image_generation_via_latent_renderin.md)
+- [Latent Diffusion Models with Masked AutoEncoders](latent_diffusion_models_with_masked_autoencoders.md)
+- [Contrastive Flow Matching (ΔFM)](contrastive_flow_matching.md)
+- [InfGen: A Resolution-Agnostic Paradigm for Scalable Image Synthesis](infgen_a_resolution-agnostic_paradigm_for_scalable_image_synthesis.md)
+- [Unlocking the Potential of Diffusion Priors in Blind Face Restoration](unlocking_the_potential_of_diffusion_priors_in_blind_face_restoration.md)
 
 <!-- RELATED:END -->

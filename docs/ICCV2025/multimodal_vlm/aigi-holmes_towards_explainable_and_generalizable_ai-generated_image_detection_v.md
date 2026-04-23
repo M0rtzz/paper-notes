@@ -206,10 +206,10 @@ AIGI-Holmes 在所有生成器上均达到 98%+ 的准确率，Mean Acc. 比 AID
 
 ## 相关论文
 
-- [Unlocking the Capabilities of Large Vision-Language Models for Generalizable and Explainable Deepfake Detection](../../ICML2025/multimodal_vlm/unlocking_the_capabilities_of_large_vision-language_models_for_generalizable_and.md)
-- [DocThinker: Explainable Multimodal Large Language Models with Rule-based Reinforcement Learning for Document Understanding](docthinker_explainable_multimodal_large_language_models_with.md)
 - [CompCap: Improving Multimodal Large Language Models with Composite Captions](compcap_improving_multimodal_large_language_models_with_composite_captions.md)
 - [Bidirectional Likelihood Estimation with Multi-Modal Large Language Models for Text-Video Retrieval](bidirectional_likelihood_estimation_with_multi-modal_large_language_models_for_t.md)
-- [Generalizable Object Re-Identification via Visual In-Context Prompting](generalizable_object_re-identification_via_visual_in-context_prompting.md)
+- [DocThinker: Explainable Multimodal Large Language Models with Rule-based Reinforcement Learning for Document Understanding](docthinker_explainable_multimodal_large_language_models_with.md)
+- [Controlling Multimodal LLMs via Reward-guided Decoding](controlling_multimodal_llms_via_reward-guided_decoding.md)
+- [Effective Training Data Synthesis for Improving MLLM Chart Understanding](effective_training_data_synthesis_for_improving_mllm_chart_understanding.md)
 
 <!-- RELATED:END -->

@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2504.04756](https://arxiv.org/abs/2504.04756)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 分割  
 **关键词**: crowd simulation, locomotion, behavior generation, trajectory, continuous
 
@@ -25,6 +25,8 @@ tags:
 生成连续的人群运动行为，实现轨迹和动作的联合合成，产生自然且多样的群体运动模式
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：Continuous Locomotive Crowd Behavior Generation 方向近年取得了显著进展，但仍存在关键挑战。
 
@@ -120,7 +122,7 @@ tags:
 - [MammAlps: A Multi-view Video Behavior Monitoring Dataset of Wild Mammals in the Swiss Alps](mammalps_a_multi-view_video_behavior_monitoring_dataset_of_wild_mammals_in_the_s.md)
 - [EditAR: Unified Conditional Generation with Autoregressive Models](editar_unified_conditional_generation_with_autoregressive_models.md)
 - [POSTA: A Go-to Framework for Customized Artistic Poster Generation](posta_a_go-to_framework_for_customized_artistic_poster_generation.md)
-- [Latent Expression Generation for Referring Image Segmentation and Grounding](../../ICCV2025/segmentation/latent_expression_generation_for_referring_image_segmentation_and_grounding.md)
-- [MultiHuman-Testbench: Benchmarking Image Generation for Multiple Humans](../../NeurIPS2025/segmentation/multihuman-testbench_benchmarking_image_generation_for_multiple_humans.md)
+- [Learning 4D Panoptic Scene Graph Generation from Rich 2D Visual Scene](learning_4d_panoptic_scene_graph_generation_from_rich_2d_visual_scene.md)
+- [ARGenSeg: Image Segmentation with Autoregressive Image Generation Model](../../NeurIPS2025/segmentation/argenseg_image_segmentation_with_autoregressive_image_generation_model.md)
 
 <!-- RELATED:END -->

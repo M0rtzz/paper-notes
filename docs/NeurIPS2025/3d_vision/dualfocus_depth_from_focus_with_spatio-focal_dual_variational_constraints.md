@@ -156,6 +156,6 @@ $$\hat{D}(\mathbf{x}) = \sum_{n=1}^N p_n(\mathbf{x}) f_n$$
 - [3D Visual Illusion Depth Estimation](3d_visual_illusion_depth_estimation.md)
 - [Robust Neural Rendering in the Wild with Asymmetric Dual 3D Gaussian Splatting](robust_neural_rendering_in_the_wild_with_asymmetric_dual_3d_gaussian_splatting.md)
 - [IDOL: Unified Dual-Modal Latent Diffusion for Human-Centric Joint Video-Depth Generation](../../ECCV2024/3d_vision/idol_unified_dual-modal_latent_diffusion_for_human-centric_joint_video-depth_gen.md)
-- [More Than Generation: Unifying Generation and Depth Estimation via Text-to-Image Diffusion Models](more_than_generation_unifying_generation_and_depth_estimation_via_text-to-image_.md)
+- [Image-Guided Shape-from-Template Using Mesh Inextensibility Constraints](../../ICCV2025/3d_vision/image-guided_shape-from-template_using_mesh_inextensibility_constraints.md)
 
 <!-- RELATED:END -->

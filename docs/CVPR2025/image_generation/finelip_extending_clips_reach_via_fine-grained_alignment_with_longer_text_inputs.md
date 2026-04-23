@@ -135,9 +135,9 @@ $$\mathcal{L}_{i2t} = \max(0, R(I_q, T^-) - R(I_q, T^+) + \alpha)$$
 ## 相关论文
 
 - [FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations](flipsketch_flipping_static_drawings_to_text-guided_sketch_animations.md)
-- [FlowTok: Flowing Seamlessly Across Text and Image Tokens](../../ICCV2025/image_generation/flowtok_flowing_seamlessly_across_text_and_image_tokens.md)
-- [EmotiCrafter: Text-to-Emotional-Image Generation based on Valence-Arousal Model](../../ICCV2025/image_generation/emoticrafter_text-to-emotional-image_generation_based_on_valence-arousal_model.md)
-- [What Makes for Text to 360-degree Panorama Generation with Stable Diffusion?](../../ICCV2025/image_generation/what_makes_for_text_to_360-degree_panorama_generation_with_stable_diffusion.md)
-- [TRCE: Towards Reliable Malicious Concept Erasure in Text-to-Image Diffusion Models](../../ICCV2025/image_generation/trce_towards_reliable_malicious_concept_erasure_in_text-to-image_diffusion_model.md)
+- [EasyCraft: A Robust and Efficient Framework for Automatic Avatar Crafting](easycraft_a_robust_and_efficient_framework_for_automatic_avatar_crafting.md)
+- [Dual Prompting Image Restoration with Diffusion Transformers (DPIR)](dual_prompting_image_restoration_with_diffusion_transformers.md)
+- [Multi-party Collaborative Attention Control for Image Customization](multi-party_collaborative_attention_control_for_image_customization.md)
+- [Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_for_unified_image_generation_and_understanding.md)
 
 <!-- RELATED:END -->

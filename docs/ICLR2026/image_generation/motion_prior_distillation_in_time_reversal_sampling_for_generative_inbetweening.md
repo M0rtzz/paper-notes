@@ -159,6 +159,6 @@ $$\mathcal{L} = \frac{1}{\sigma_t^2} \|\hat{x}_{0,c_{\text{start}}} - (\hat{x}_{
 - [Inference-Time Diffusion Model Distillation](../../ICCV2025/image_generation/inference-time_diffusion_model_distillation.md)
 - [Conditionally Whitened Generative Models for Probabilistic Time Series Forecasting](conditionally_whitened_generative_models_for_probabilistic_time_series_forecasti.md)
 - [SANA-Sprint: One-Step Diffusion with Continuous-Time Consistency Distillation](../../ICCV2025/image_generation/sana-sprint_one-step_diffusion_with_continuous-time_consistency_distillation.md)
-- [Loopholing Discrete Diffusion: Deterministic Bypass of the Sampling Wall](loopholing_discrete_diffusion_deterministic_bypass_of_the_sampling_wall.md)
+- [ObjectMover: Generative Object Movement with Video Prior](../../CVPR2025/image_generation/objectmover_generative_object_movement_with_video_prior.md)
 
 <!-- RELATED:END -->

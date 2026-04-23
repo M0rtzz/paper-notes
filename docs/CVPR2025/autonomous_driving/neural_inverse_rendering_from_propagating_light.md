@@ -120,7 +120,7 @@ $\mathcal{L} = \mathcal{L}_{data} + \lambda_{cache} \mathcal{L}_{cache} + \lambd
 - [RENO: Real-Time Neural Compression for 3D LiDAR Point Clouds](reno_real-time_neural_compression_for_3d_lidar_point_clouds.md)
 - [LightLoc: Learning Outdoor LiDAR Localization at Light Speed](lightloc_learning_outdoor_lidar_localization_at_light_speed.md)
 - [GaussRender: Learning 3D Occupancy with Gaussian Rendering](../../ICCV2025/autonomous_driving/gaussrender_learning_3d_occupancy_with_gaussian_rendering.md)
+- [GoIRL: Graph-Oriented Inverse Reinforcement Learning for Multimodal Trajectory Prediction](../../ICML2025/autonomous_driving/goirl_graph-oriented_inverse_reinforcement_learning_for_multimodal_trajectory_pr.md)
 - [Single Pixel Image Classification using an Ultrafast Digital Light Projector](single_pixel_image_classification_using_an_ultrafast_digital_light_projector.md)
-- [Continuous Simplicial Neural Networks](../../NeurIPS2025/autonomous_driving/continuous_simplicial_neural_networks.md)
 
 <!-- RELATED:END -->

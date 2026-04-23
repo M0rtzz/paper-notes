@@ -143,8 +143,8 @@ $$\mathcal{L} = \sum_{k=1}^{N} \gamma^{N-k} (\mathcal{L}_{pose}^k + \alpha \math
 
 - [Zero-Shot Monocular Scene Flow Estimation in the Wild](zero-shot_monocular_scene_flow_estimation_in_the_wild.md)
 - [Protecting NeRFs' Copyright via Plug-And-Play Watermarking Base Model](../../ECCV2024/3d_vision/protecting_nerfsapos_copyright_via_plug-and-play_watermarking_base_model.md)
+- [DualPM: Dual Posed-Canonical Point Maps for 3D Shape and Pose Reconstruction](dualpm_dual_point_maps_shape_pose.md)
 - [Floxels: Fast Unsupervised Voxel Based Scene Flow Estimation](floxels_fast_unsupervised_voxel_based_scene_flow_estimation.md)
-- [DualPM: Dual Posed-Canonical Point Maps for 3D Shape and Pose Reconstruction](dualpm_dual_posed-canonical_point_maps_for_3d_shape_and_pose_reconstruction.md)
-- [Flow-NeRF: Joint Learning of Geometry, Poses, and Dense Flow within Unified Neural Representations](flow-nerf_joint_learning_of_geometry_poses_and_dense_flow_within_unified_neural_.md)
+- [4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
 
 <!-- RELATED:END -->

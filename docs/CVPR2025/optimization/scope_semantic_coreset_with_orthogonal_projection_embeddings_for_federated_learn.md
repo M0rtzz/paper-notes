@@ -130,6 +130,6 @@ SCOPE 提出了一种面向联邦学习的语义 coreset 选择框架，利用 V
 - [Model Poisoning Attacks to Federated Learning via Multi-Round Consistency](model_poisoning_attacks_to_federated_learning_via_multi-round_consistency.md)
 - [Mind the Gap: Confidence Discrepancy Can Guide Federated Semi-Supervised Learning](mind_the_gap_confidence_discrepancy_can_guide_federated_semi-supervised_learning.md)
 - [Automatic Joint Structured Pruning and Quantization for Efficient Neural Network Training and Compression](automatic_joint_structured_pruning_and_quantization_for_efficient_neural_network.md)
-- [Towards Stable and Storage-efficient Dataset Distillation: Matching Convexified Trajectory](towards_stable_and_storage-efficient_dataset_distillation_matching_convexified_t.md)
+- [Leveraging Perturbation Robustness to Enhance Out-of-Distribution Detection](leveraging_perturbation_robustness_to_enhance_out-of-distribution_detection.md)
 
 <!-- RELATED:END -->

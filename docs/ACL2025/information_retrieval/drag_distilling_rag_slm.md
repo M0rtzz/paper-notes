@@ -143,10 +143,10 @@ Teacher 模型对比（Student: Qwen2.5-3B，ARC-C）：
 
 ## 相关论文
 
-- [Does Less Hallucination Mean Less Creativity? An Empirical Investigation in LLMs](../../AAAI2026/information_retrieval/does_less_hallucination_mean_less_creativity_an_empirical_investigation_in_llms.md)
+- [Removal of Hallucination on Hallucination: Debate-Augmented RAG](removal_of_hallucination_on_hallucination_debate-augmented_rag.md)
+- [Cross-Lingual Relevance Transfer for Document Retrieval](cross-lingual_relevance_transfer_for_document_retrieval.md)
 - [CoRe-MMRAG: Cross-Source Knowledge Reconciliation for Multimodal RAG](core_mmrag_knowledge_reconciliation.md)
 - [Divide-Then-Align: Honest Alignment based on the Knowledge Boundary of RAG](divide_then_align_rag_knowledge_boundary.md)
-- [KnowShiftQA: How Robust are RAG Systems when Textbook Knowledge Shifts in K-12 Education?](knowshiftqa_rag_knowledge_shifts.md)
-- [REFIND at SemEval-2025 Task 3: Retrieval-Augmented Factuality Hallucination Detection in Large Language Models](refind_at_semeval-2025_task_3_retrieval-augmented_factuality_hallucination_detec.md)
+- [Does Less Hallucination Mean Less Creativity? An Empirical Investigation in LLMs](../../AAAI2026/information_retrieval/does_less_hallucination_mean_less_creativity_an_empirical_investigation_in_llms.md)
 
 <!-- RELATED:END -->

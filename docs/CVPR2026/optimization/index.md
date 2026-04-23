@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 优化/理论方向 8篇论文解读
+  CVPR2026 优化/理论方向 9篇论文解读
 description: >-
-  8篇CVPR2026 优化/理论论文解读，主题涵盖：提出 BlazeFL，一个基于 Python、从信号处理视角揭示固定动量系数在偏差-方差权衡上的、提出 Fed-ADE 框架，通过等，每篇含核心思想与方法详解。
+  9篇CVPR2026 优化/理论论文解读，主题涵盖：提出 BlazeFL，一个基于 Python、从信号处理视角揭示固定动量系数在偏差-方差权衡上的、针对联邦原型学习中现有方法破坏类间语义关系的问题等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📐 优化/理论
 
-**📷 CVPR2026** · **8** 篇论文解读
+**📷 CVPR2026** · **9** 篇论文解读
 
 **[BlazeFL: Fast and Deterministic Federated Learning Simulation](blazefl_fast_and_deterministic_federated_learning_simulation.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[Dynamic Momentum Recalibration in Online Gradient Learning](dynamic_momentum_recalibration_in_online_gradient_learning.md)**
 
 :   从信号处理视角揭示固定动量系数在偏差-方差权衡上的固有缺陷，提出SGDF优化器，通过在线计算最优时变增益（基于最小均方误差原则）动态平衡梯度估计的噪声抑制和信号保持，在多种视觉任务上超越SGD动量和Adam变体。
+
+**[Enhancing Visual Representation with Textual Semantics: Textual Semantics-Powered Prototypes for Heterogeneous Federated Learning](enhancing_visual_representation_with_textual_semantics_textual_semantics_powered_p.md)**
+
+:   针对联邦原型学习中现有方法破坏类间语义关系的问题，提出FedTSP方法利用预训练语言模型构建保留语义结构的文本原型，在异构联邦学习中显著提升性能并加速收敛。
 
 **[Fed-ADE: Adaptive Learning Rate for Federated Post-adaptation under Distribution Shift](fed-ade_adaptive_learning_rate_for_federated_post-adaptation_under_distribution_.md)**
 

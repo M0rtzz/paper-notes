@@ -156,8 +156,8 @@ Validation MoE带来 **+8.2%** Aspect准确率提升（73.74%→81.94%）。
 
 - [CharaConsist: Fine-Grained Consistent Character Generation](../../ICCV2025/image_generation/characonsist_fine-grained_consistent_character_generation.md)
 - [FineLIP: Extending CLIP's Reach via Fine-Grained Alignment with Longer Text Inputs](../../CVPR2025/image_generation/finelip_extending_clips_reach_via_fine-grained_alignment_with_longer_text_inputs.md)
-- [FineMatch: Aspect-based Fine-grained Image and Text Mismatch Detection and Correction](../../ECCV2024/image_generation/finematch_aspect-based_fine-grained_image_and_text_mismatch_detection_and_correc.md)
 - [TaxaDiffusion: Progressively Trained Diffusion Model for Fine-Grained Species Generation](../../ICCV2025/image_generation/taxadiffusion_progressively_trained_diffusion_model_for_fine-grained_species_gen.md)
+- [FADE: Fine-Grained Erasure in Text-to-Image Diffusion-based Foundation Models](../../CVPR2025/image_generation/fade_fine_grained_erasure_diffusion.md)
 - [CLIP Under the Microscope: A Fine-Grained Analysis of Multi-Object Representation](../../CVPR2025/image_generation/clip_under_the_microscope_a_fine-grained_analysis_of_multi-object_representation.md)
 
 <!-- RELATED:END -->

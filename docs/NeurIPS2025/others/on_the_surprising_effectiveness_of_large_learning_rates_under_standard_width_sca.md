@@ -162,6 +162,6 @@ tags:
 - [Cover Learning for Large-Scale Topology Representation](../../ICML2025/others/cover_learning_for_large-scale_topology_representation.md)
 - [Statistical Inference Under Performativity](statistical_inference_under_performativity.md)
 - [Coresets for Clustering Under Stochastic Noise](coresets_for_clustering_under_stochastic_noise.md)
-- [EPHAD: An Evidence-Based Post-Hoc Adjustment Framework for Anomaly Detection Under Data Contamination](an_evidence-based_post-hoc_adjustment_framework_for_anomaly_detection_under_data.md)
+- [ConSim: Measuring Concept-Based Explanations' Effectiveness with Automated Simulatability](../../ACL2025/others/consim_measuring_concept-based_explanations_effectiveness_with_automated_simulat.md)
 
 <!-- RELATED:END -->

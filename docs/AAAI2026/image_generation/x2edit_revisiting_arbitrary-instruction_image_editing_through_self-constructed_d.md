@@ -27,12 +27,22 @@ tags:
 构建 370 万高质量编辑数据集（14 类任务），并提出基于 Task-Aware MoE-LoRA + Contrastive Learning 的轻量级（0.9B 参数）plug-and-play 编辑模块，性能媲美 12B 全参数训练模型。
 
 ## 背景与动机
-- 开源 image editing 模型仍落后于闭源方案（GPT-4o 等），高质量编辑数据集是关键瓶颈
-- 现有数据集三大问题：(1) 构建流程繁琐、每类任务需独立设计；(2) 编辑精度低、类别不均衡；(3) 复杂任务（reasoning、camera movement、style transfer）数据极度匮乏
-- 模型方面，全参数训练（Step1X-Edit 12B、Kontext 12B）效果好但成本高；轻量方案（ICEdit 0.2B）成本低但效果差
 
-## 核心问题
-如何以少量参数（仅 full model 的 8%）实现覆盖 14 类编辑任务的高质量 arbitrary-instruction image editing？
+### 领域现状
+
+**领域现状**：开源 image editing 模型仍落后于闭源方案（GPT-4o 等），高质量编辑数据集是关键瓶颈
+
+### 现有痛点
+
+**现有痛点**：现有数据集三大问题：(1) 构建流程繁琐、每类任务需独立设计；(2) 编辑精度低、类别不均衡；(3) 复杂任务（reasoning、camera movement、style transfer）数据极度匮乏
+
+### 核心矛盾
+
+**核心矛盾**：模型方面，全参数训练（Step1X-Edit 12B、Kontext 12B）效果好但成本高；轻量方案（ICEdit 0.2B）成本低但效果差
+
+### 解决思路
+
+**本文目标**：如何以少量参数（仅 full model 的 8%）实现覆盖 14 类编辑任务的高质量 arbitrary-instruction image editing？
 
 ## 方法详解
 
@@ -61,6 +71,9 @@ $$\mathcal{L}_{task} = -\frac{1}{b}\sum_{i=1}^{N}\log\frac{\sum_j \exp(-D_{ij}/\
 
 ## 实验关键数据
 
+
+### 主实验
+
 | 方法 | 参数 | GEdit-Bench++ (EN) IJ | G_VIE | ImgEdit-Bench IJ |
 |------|------|----------------------|-------|-------------------|
 | GPT-4o | - | 9.003 | 7.848 | 8.202 |
@@ -75,7 +88,7 @@ $$\mathcal{L}_{task} = -\frac{1}{b}\sum_{i=1}^{N}\log\frac{\sum_j \exp(-D_{ij}/\
 - User study (4人, 1.3k pairs): 总体得分 2.432，位于中上游
 - 消融：Task-Aware MoE vs vanilla MoE 提升显著；contrastive loss 在所有 MMDiT 层应用效果最佳
 
-## 亮点
+## 亮点与洞察
 - 数据构建流水线统一且可复现：VLM 生成指令 + 多模型分工 + 多维过滤，370 万规模覆盖 14 类
 - 首次在 arbitrary-instruction image editing 中引入 contrastive learning，促进任务间表征分离
 - 极高的参数效率：0.9B 参数媲美 12B 全参数模型，且支持 plug-and-play
@@ -88,13 +101,13 @@ $$\mathcal{L}_{task} = -\frac{1}{b}\sum_{i=1}^{N}\log\frac{\sum_j \exp(-D_{ij}/\
 - 在 KontextBench 上与 Kontext、Bagel 存在明显差距
 - 对比学习的 temperature $\tau$ 和 $\lambda$ 的敏感性分析缺失
 
-## 与相关工作的对比
+## 相关工作与启发
 - vs **ICEdit (0.2B)**: 同为 FLUX LoRA 方案，但 X2Edit 引入 task-aware routing 和 contrastive learning，全面超越
 - vs **Kontext/Bagel (12-14B)**: 全参数训练方法，效果略优但训练成本高出数十倍；X2Edit 以 8% 参数量达到可比性能
 - vs **AnyEdit**: 数据质量和模型性能均大幅领先（AnyEdit VIE 仅 2.2 vs X2Edit 5.5）
 - vs **Step1X-Edit (12B)**: 全 DiT 微调，X2Edit 在多数指标上持平或超越
 
-## 启发与关联
+## 相关工作与启发
 - Task embedding + MoE gating 的设计可推广到其他多任务生成场景（视频编辑、3D 生成）
 - Contrastive learning 在 diffusion hidden space 中的应用是值得探索的新方向
 - 数据构建的 "VLM 生指令 + 多模型分工生图 + 多维过滤" 流水线具有通用性
@@ -114,6 +127,6 @@ $$\mathcal{L}_{task} = -\frac{1}{b}\sum_{i=1}^{N}\log\frac{\sum_j \exp(-D_{ij}/\
 - [InsightEdit: Towards Better Instruction Following for Image Editing](../../CVPR2025/image_generation/insightedit_towards_better_instruction_following_for_image_editing.md)
 - [Visual Autoregressive Modeling for Instruction-Guided Image Editing](../../ICLR2026/image_generation/visual_autoregressive_modeling_for_instruction-guided_image_editing.md)
 - [SuperEdit: Rectifying and Facilitating Supervision for Instruction-Based Image Editing](../../ICCV2025/image_generation/superedit_rectifying_and_facilitating_supervision_for_instruction-based_image_ed.md)
-- [EditReward: A Human-Aligned Reward Model for Instruction-Guided Image Editing](../../ICLR2026/image_generation/editreward_a_human-aligned_reward_model_for_instruction-guided_image_editing.md)
+- [RetrySQL: Text-to-SQL Training with Retry Data for Self-Correcting Query Generation](retrysql_text-to-sql_training_with_retry_data_for_self-correcting_query_generati.md)
 
 <!-- RELATED:END -->

@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2411.18180](https://arxiv.org/abs/2411.18180)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 语音  
 **关键词**: audio description, distinctive, contextual, movie, accessibility
 
@@ -25,6 +25,8 @@ tags:
 生成上下文中有区分度的音频描述（AD），避免生成泛化无特色的描述，通过对比学习鼓励与前后AD的差异性
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：DistinctAD 方向近年取得了显著进展，但仍存在关键挑战。
 
@@ -118,9 +120,9 @@ tags:
 ## 相关论文
 
 - [VinTAGe: Joint Video and Text Conditioning for Holistic Audio Generation](vintage_joint_video_and_text_conditioning_for_holistic_audio_generation.md)
+- [ViDscribe: Multimodal AI for Customizing Audio Description and Question Answering in Online Videos](../../CVPR2026/audio_speech/vidscribe_multimodal_ai_for_customizing_audio_description_and_question_answering.md)
 - [Exploring Timeline Control for Facial Motion Generation](exploring_timeline_control_for_facial_motion_generation.md)
-- [WavRAG: Audio-Integrated Retrieval Augmented Generation for Spoken Dialogue Models](../../ACL2025/audio_speech/wavrag_audio-integrated_retrieval_augmented_generation_for_spoken_dialogue_model.md)
 - [MultiFoley: Video-Guided Foley Sound Generation with Multimodal Controls](video-guided_foley_sound_generation_with_multimodal_controls.md)
-- [OmniSonic: Towards Universal and Holistic Audio Generation from Video and Text](../../CVPR2026/audio_speech/omnisonic_towards_universal_and_holistic_audio_generation_from_video_and_text.md)
+- [WavRAG: Audio-Integrated Retrieval Augmented Generation for Spoken Dialogue Models](../../ACL2025/audio_speech/wavrag_audio-integrated_retrieval_augmented_generation_for_spoken_dialogue_model.md)
 
 <!-- RELATED:END -->

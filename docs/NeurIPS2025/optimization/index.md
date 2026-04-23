@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 优化/理论方向 115篇论文解读
+  NeurIPS2025 优化/理论方向 113篇论文解读
 description: >-
-  115篇NeurIPS2025 优化/理论论文解读，主题涵盖：针对下层问题带耦合线性约束的双层优化问题、提出首个针对基于采样的测试时缩放方法的理论框架、本文提出一个统一的元算法框架，能将任何满足"鲁棒性等，每篇含核心思想与方法详解。
+  113篇NeurIPS2025 优化/理论论文解读，主题涵盖：针对下层问题带耦合线性约束的双层优化问题、提出首个针对基于采样的测试时缩放方法的理论框架、本文提出一个统一的元算法框架，能将任何满足"鲁棒性等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📐 优化/理论
 
-**🧠 NeurIPS2025** · **115** 篇论文解读
+**🧠 NeurIPS2025** · **113** 篇论文解读
 
 **[A Single-Loop First-Order Algorithm for Linearly Constrained Bilevel Optimization](a_single-loop_first-order_algorithm_for_linearly_constrained_bilevel_optimizatio.md)**
 
@@ -58,10 +58,6 @@ description: >-
 
 :   研究带对抗约束的在线凸优化 (COCO)，通过引入可调参数 $\beta$ 实现 $\tilde{O}(T^\beta)$ 遗憾与 $\tilde{O}(T^{1-\beta})$ 约束违反之间的精确权衡，突破了此前 $\tilde{O}(\sqrt{T})$ 约束违反的已知最优界。
 
-**[Bispectral OT: Dataset Comparison using Symmetry-Aware Optimal Transport](bispectral_ot_dataset_comparison_using_symmetry-aware_optimal_transport.md)**
-
-:   提出 Bispectral Optimal Transport (BOT)，将离散最优传输中的代价矩阵从原始像素距离替换为 bispectrum（群 Fourier 不变量）距离，使得传输计划在保持信号结构的同时精确消除群作用（如旋转）带来的变异，在旋转变换的 MNIST 等数据集上将类别保持准确率从 33% 提升至 84%。
-
 **[Brain-like Variational Inference](brain-like_variational_inference.md)**
 
 :   提出 FOND 框架（Free energy Online Natural-gradient Dynamics），从自由能最小化的第一原理推导出脉冲神经网络推断动力学，并实现 iPVAE（迭代泊松 VAE），在重建-稀疏性权衡、生物合理性和 OOD 泛化上优于标准 VAE 和预测编码模型。
@@ -77,6 +73,10 @@ description: >-
 **[Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets](constrained_network_slice_assignment_via_large_language_models.md)**
 
 :   揭示两层二次激活网络在 Abelian 群推理任务上训练时权重空间具有半环代数结构，提出 CoGS 框架通过环运算将部分解组合为全局最优解，约 95% 梯度下降解与理论构造精确匹配。
+
+**[Constrained Network Slice Assignment via Large Language Models](constrained_network_slice_assignment_via_llms.md)**
+
+:   探索用LLM（Claude系列）解决5G网络切片资源分配的约束优化问题，提出零样本LLM直接分配和LLM引导整数规划两种方法，发现LLM单独使用可产生合理的初始分配但可能违反约束，与ILP求解器结合则能实现100%完备性和均衡利用率。
 
 **[Contribution of Task-Irrelevant Stimuli to Drift of Neural Representations](contribution_of_task-irrelevant_stimuli_to_drift_of_neural_representations.md)**
 
@@ -125,10 +125,6 @@ description: >-
 **[Escaping Saddle Points without Lipschitz Smoothness: The Power of Nonlinear Preconditioning](escaping_saddle_points_without_lipschitz_smoothness_the_power_of_nonlinear_preco.md)**
 
 :   本文提出统一的充分条件连接 $(L_0,L_1)$-光滑性与各向异性光滑性两种广义光滑框架，证明非线性预条件梯度法（含梯度裁剪）在此放松条件下保持鞍点规避性质，并给出扰动变体以多项对数维数依赖达到二阶稳定点。
-
-**[Estimation of Stochastic Optimal Transport Maps](estimation_of_stochastic_optimal_transport_maps.md)**
-
-:   提出适用于随机OT映射的传输误差指标 $\mathcal{E}_p$（由优化间隙与可行性间隙组成），在无需Brenier映射存在或唯一性的最小假设下，构造了计算高效的rounding估计器达到近最优收敛率 $\tilde{O}(n^{-1/(d+2p)})$，并推广至Hölder连续核与对抗污染场景，建立了首个通用OT映射估计理论。
 
 **[Evaluating LLMs for Combinatorial Optimization: One-Phase and Two-Phase Heuristics for 2D Bin-Packing](evaluating_llms_for_combinatorial_optimization_one-phase_and_two-phase_heuristic.md)**
 
@@ -353,10 +349,6 @@ description: >-
 **[Personalized Subgraph Federated Learning with Differentiable Auxiliary Projections](personalized_subgraph_federated_learning_with_differentiable_auxiliary_projectio.md)**
 
 :   提出FedAux框架，通过可微分的辅助投影向量（APV）将节点嵌入映射到一维空间并用高斯核进行软排序聚合，APV既作为局部子图的紧凑隐私保护摘要用于服务器端相似度计算，又参与客户端的联合优化，实现了个性化的子图联邦学习。
-
-**[Perturbation Bounds for Low-Rank Inverse Approximations under Noise](perturbation_bounds_for_low-rank_inverse_approximations_under_noise.md)**
-
-:   首次给出在加性噪声下低秩逆近似 $\|(\tilde{A}^{-1})_p - A_p^{-1}\|$ 的非渐近谱范数扰动界，利用轮廓积分技术得到依赖特征间隙、谱衰减和噪声对齐的锐界，比经典全逆界改进高达 $\sqrt{n}$ 倍。
 
 **[Preference Learning with Response Time: Robust Losses and Guarantees](preference_learning_with_response_time_robust_losses_and_guarantees.md)**
 

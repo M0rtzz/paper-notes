@@ -147,8 +147,8 @@ tags:
 
 - [Can LLMs Identify Critical Limitations within Scientific Research? A Systematic Evaluation on AI Research Papers](can_llms_identify_critical_limitations_within_scientific_research_a_systematic_e.md)
 - [TaxoAdapt: Aligning LLM-Based Multidimensional Taxonomy Construction to Evolving Research Corpora](taxoadapt_aligning_llm-based_multidimensional_taxonomy_construction_to_evolving_.md)
+- [Assessing the Vulnerability of LLMs to Cognitive Biases in Scientific Research](assessing_the_vulnerability_of_llms_to_cognitive_biases_in_scientific_research.md)
 - [LLM Braces: Straightening Out LLM Predictions with Relevant Sub-Updates](llm_braces_straightening.md)
 - [LLM-AT: Automatic Transmission for LLM Tiers Optimizing Cost and Accuracy](automatic_transmission_for_llm_tiers_optimizing_cost_and_accuracy_in_large_langu.md)
-- [Towards Geo-Culturally Grounded LLM Generations](geocultural_grounded_llm.md)
 
 <!-- RELATED:END -->

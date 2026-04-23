@@ -162,10 +162,10 @@ GRU 对照：
 
 ## 相关论文
 
+- [Detecting Sockpuppetry on Wikipedia Using Meta-Learning](detecting_sockpuppetry_on_wikipedia_using_meta-learning.md)
+- [Meta-Reflection: A Feedback-Free Reflection Learning Framework](meta-reflection_a_feedback-free_reflection_learning_framework.md)
 - [Self-Correction is More than Refinement: A Learning Framework for Visual and Language Reasoning Tasks](self-correction_is_more_than_refinement_a_learning_framework_for_visual_and_lang.md)
 - [Is Meta-Learning Out? Rethinking Unsupervised Few-Shot Classification with Limited Entropy](../../ICCV2025/others/is_meta-learning_out_rethinking_unsupervised_few-shot_classification_with_limite.md)
-- [Meta-learning three-factor plasticity rules for structured credit assignment with sparse feedback](../../NeurIPS2025/others/meta-learning_three-factor_plasticity_rules_for_structured_credit_assignment_wit.md)
 - [Byte Latent Transformer: Patches Scale Better Than Tokens](byte_latent_transformer.md)
-- [The Knowledge Microscope: Features as Better Analytical Lenses than Neurons](the_knowledge_microscope_features_as_better_analytical_lenses_than_neurons.md)
 
 <!-- RELATED:END -->

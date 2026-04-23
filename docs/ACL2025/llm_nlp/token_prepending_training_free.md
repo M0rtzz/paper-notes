@@ -148,6 +148,6 @@ TP 方法修改了 LLM 的层间传播过程，主要由三部分组成：
 - [A Training-free LLM-based Approach to General Chinese Character Error Correction](a_training-free_llm-based_approach_to_general_chinese_character_error_correction.md)
 - [Training Language Model to Critique for Better Refinement](training_language_model_to_critique_for_better_refinement.md)
 - [Training-free LLM Merging for Multi-task Learning](training-free_llm_merging_for_multi-task_learning.md)
-- [Interchangeable Token Embeddings for Extendable Vocabulary and Alpha-Equivalence](../../ICML2025/llm_nlp/interchangeable_token_embeddings_for_extendable_vocabulary_and_alpha-equivalence.md)
+- [Cheaper and Better Diffusion Language Model via Task-Specific Training](cheaper_and_better_diffusion_language_model_via_task-specific_training.md)
 
 <!-- RELATED:END -->

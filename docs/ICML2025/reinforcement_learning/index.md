@@ -122,6 +122,10 @@ description: >-
 
 :   提出 Flow of Reasoning (FoR)，将多步 LLM 推理建模为 DAG 上的马尔可夫流，借助 GFlowNet 的轨迹平衡目标微调 LLM，使其仅用极少训练样本（如15个）即可采样出概率正比于奖励的多条高质量且多样化的推理路径。
 
+**[Gradual Transition from Bellman Optimality Operator to Bellman Operator in Online RL](gradual_transition_from_bellman_optimality_operator_to_bellman_operator_in.md)**
+
+:   揭示 Actor-Critic 中 Bellman 最优算子（加速学习但引入过估计偏差）和 Bellman 算子（减少偏差但收敛慢）的根本权衡，提出 Annealed Q-Learning (AQ-L)：用 expectile loss 实现从最优算子到标准算子的平滑退火，AQ-SAC 在 DM Control 10 任务上平均分达 746.1（vs SAC 657.9），实现极简即插即用的性能提升。
+
 **[Gradual Transition from Bellman Optimality Operator to Bellman Operator in Online Reinforcement Learning](gradual_transition_from_bellman_optimality_operator_to_bellman_operator_in_onlin.md)**
 
 :   提出 Annealed Q-learning (AQ-L)，通过期望分位损失（expectile loss）的参数 τ 从接近1退火至0.5，实现从 Bellman 最优算子到 Bellman 算子的平滑过渡，在连续动作空间中既加速了早期学习又抑制了后期过估计偏差，与 TD3/SAC 结合后在多种运动控制和操控任务上显著优于基线。
@@ -136,15 +140,11 @@ description: >-
 
 **[Heterogeneous Data Game: Characterizing the Model Competition Across Multiple Data Sources](heterogeneous_data_game_characterizing_the_model_competition_across_multiple_dat.md)**
 
-:   提出"异构数据博弈"框架分析多ML模型提供者在异构数据源上的竞争，揭示三种PNE模式（不存在/同质化/异质化），给出不同选择模型和市场结构下PNE存在性的充分必要条件。
+:   本文提出了异构数据博弈（HD-Game）框架，用博弈论分析多个ML模型提供商在异构数据源上的竞争行为，揭示了三种纯策略纳什均衡（PNE）模式——不存在、同质化和异质化——并给出了各类均衡存在的充分/必要条件。
 
 **[Hierarchical Reinforcement Learning with Targeted Causal Interventions](hierarchical_reinforcement_learning_with_targeted_causal_interventions.md)**
 
 :   提出 HRC 框架，将层次强化学习中的子目标关系建模为因果图，通过因果发现算法学习子目标结构，并基于因果效应优先级进行**定向干预**，显著降低长时域稀疏奖励任务的训练代价。
-
-**[Hierarchical Reinforcement Learning with Uncertainty-Guided Diffusional Subgoals](hierarchical_reinforcement_learning_with_uncertainty-guided_diffusional_subgoals.md)**
-
-:   提出 HIDI 框架，以条件扩散模型建模子目标分布，并引入高斯过程 (GP) 先验进行不确定性正则化与子目标选择，在长时域连续控制任务上显著超越现有层次强化学习方法。
 
 **[KEA: Keeping Exploration Alive by Proactively Coordinating Exploration Strategies](kea_keeping_exploration_alive_by_proactively_coordinating_exploration_strategies.md)**
 

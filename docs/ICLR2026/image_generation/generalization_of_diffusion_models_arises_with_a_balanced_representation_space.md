@@ -18,7 +18,11 @@ tags:
 **arXiv**: [2512.20963](https://arxiv.org/abs/2512.20963)  
 **领域**: 图像生成 / 扩散模型理论  
 
-## 评价
+## 一句话总结
+本文是扩散模型泛化理论领域的重要突破。通过分析两层非线性 ReLU DAE 的最优解，统一刻画了记忆化和泛化两种行为模式，并创造性地从表征空间的角度提供了一个以表征为中心的泛化理解。理论结论在 EDM、DiT 和 Stable Diffusion v1.4 上获得了一致的实验验证，且催生了两个实用应用：记忆化检测和可控编辑。理论的深度与实用性兼备。
+
+
+## 评分
 
 ⭐⭐⭐⭐⭐
 
@@ -26,7 +30,7 @@ tags:
 
 ---
 
-## 背景
+## 研究背景与动机
 
 ### 领域现状
 
@@ -46,7 +50,16 @@ tags:
 
 ---
 
-## 方法
+### 解决思路
+
+**本文目标**：### 整体框架
+
+考虑两层 ReLU DAE $\boldsymbol{f}_{\boldsymbol{W}_2, \boldsymbol{W}_1}(\boldsymbol{x}) = \boldsymbol{W}_2 [\boldsymbol{W}_1^\top \boldsymbol{x}]_+$，训练目标：
+
+$$\min_{\boldsymbol{W}_2, \boldsymbol{W。
+
+
+## 方法详解
 
 ### 整体框架
 
@@ -88,7 +101,7 @@ $$\boldsymbol{W}_{\boldsymbol{X}_k} \boldsymbol{W}_{\boldsymbol{X}_k}^\top \to \
 
 ---
 
-## 实验
+## 实验关键数据
 
 ### 主实验：记忆化检测
 
@@ -96,11 +109,11 @@ $$\boldsymbol{W}_{\boldsymbol{X}_k} \boldsymbol{W}_{\boldsymbol{X}_k}^\top \to \
 
 | 方法 | 无需Prompt | LAION AUC↑ | LAION TPR↑ | ImageNet AUC↑ | CIFAR10 AUC↑ | 平均时间↓ |
 |------|----------|-----------|-----------|-------------|-------------|---------|
-| Carlini et al. | ✗ | 0.498 | 0.020 | N/A | N/A | 3.724s |
-| Wen et al. | ✗ | 0.986 | 0.961 | N/A | N/A | 0.134s |
-| Hintersdorf et al. | ✗ | 0.957 | 0.500 | N/A | N/A | 0.009s |
-| Ross et al. | ✓ | 0.956 | 0.915 | 0.971 | 0.713 | 0.545s |
-| **Ours** | **✓** | **0.987** | **0.961** | **0.995** | **0.998** | **0.067s** |
+| Carlini et al. | ✗ | 0.498 | 0.020 | N/A | N/A | 3.724%s |
+| Wen et al. | ✗ | 0.986% | 0.961% | N/A | N/A | 0.134s |
+| Hintersdorf et al. | ✗ | 0.957% | 0.500 | N/A | N/A | 0.009s |
+| Ross et al. | ✓ | 0.956% | 0.915% | 0.971% | 0.713% | 0.545%s |
+| **Ours** | **✓** | **0.987%** | **0.961%** | **0.995%** | **0.998%** | **0.067s** |
 
 本方法是首个同时无需 prompt 且基于表征的检测方法，在三个数据集上均取得最高 AUC，且效率远超基于几何的方法。
 
@@ -117,7 +130,7 @@ $$\boldsymbol{W}_{\boldsymbol{X}_k} \boldsymbol{W}_{\boldsymbol{X}_k}^\top \to \
 
 ---
 
-## 论文优缺点
+## 局限与展望
 
 **优点**:
 - 在非线性 ReLU 设定下统一刻画了记忆化和泛化，超越了此前的线性/随机特征分析
@@ -132,6 +145,24 @@ $$\boldsymbol{W}_{\boldsymbol{X}_k} \boldsymbol{W}_{\boldsymbol{X}_k}^\top \to \
 - 表征引导编辑方法较为基础，未与现有编辑方法进行系统比较
 - 混合高斯假设是对真实数据流形的粗略近似
 
+
+## 亮点与洞察
+- 方法设计简洁有效，核心思路清晰
+- 实验验证全面，消融分析充分
+- 对领域的关键问题提供了新的解决思路
+
+
+## 局限与展望
+- 方法在特定条件下可能存在局限性，泛化性待进一步验证
+- 计算效率和可扩展性可做进一步优化
+- 与更多相关方法的结合值得探索
+
+
+## 相关工作与启发
+- **vs 同领域代表性方法**：本文在方法设计上有独特贡献，与现有方法形成互补
+- **vs 传统方法**：相比传统方案，本文方法在关键指标上取得了显著提升
+- **启发**：本文的技术路线对后续相关工作有重要参考价值
+
 <!-- RELATED:START -->
 
 ## 相关论文
@@ -139,7 +170,7 @@ $$\boldsymbol{W}_{\boldsymbol{X}_k} \boldsymbol{W}_{\boldsymbol{X}_k}^\top \to \
 - [Bridging Generalization Gap of Heterogeneous Federated Clients Using Generative Models](bridging_generalization_gap_of_heterogeneous_federated_clients_using_generative_.md)
 - [Localized Concept Erasure in Text-to-Image Diffusion Models via High-Level Representation Misdirection](localized_concept_erasure_in_text-to-image_diffusion_models_via_high-level_repre.md)
 - [What's in a Latent? Leveraging Diffusion Latent Space for Domain Generalization](../../ICCV2025/image_generation/whats_in_a_latent_leveraging_diffusion_latent_space_for_domain_generalization.md)
+- [Smoothing the Score Function for Generalization in Diffusion Models: An Optimization-based Explanation Framework](../../CVPR2026/image_generation/smoothing_the_score_function_for_generalization_in_diffusion_models.md)
 - [Stabilizing Self-Consuming Diffusion Models with Latent Space Filtering](../../AAAI2026/image_generation/stabilizing_self-consuming_diffusion_models_with_latent_space_filtering.md)
-- [From Parameters to Behaviors: Unsupervised Compression of the Policy Space](from_parameters_to_behaviors_unsupervised_compression_of_the_policy_space.md)
 
 <!-- RELATED:END -->

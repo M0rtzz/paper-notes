@@ -178,8 +178,8 @@ AGDI 在所有 base model × fine-tune 方式组合上全面领先。LoRA avg AG
 
 - [Dual-Agent Reinforcement Learning for Adaptive and Cost-Aware Visual-Inertial Odometry](dual-agent_reinforcement_learning_for_adaptive_and_cost-aware_visual-inertial_od.md)
 - [Out of Sight, Out of Track: Adversarial Attacks on Propagation-based Multi-Object Trackers via Query State Manipulation](out_of_sight_out_of_track_adversarial_attacks_on_propagation-based_multi-object_.md)
+- [HumanVBench: Probing Human-Centric Video Understanding in MLLMs with Automatically Synthesized Benchmarks](humanvbench_probing_human_centric_video_understanding_in_mllms_with_automatica.md)
+- [Dual-level Adaptation for Multi-Object Tracking: Building Test-Time Calibration from Experience and Intuition](dual-level_adaptation_for_multiobject_tracking_building_testtime_calibration_from.md)
 - [Adversarial Locomotion and Motion Imitation for Humanoid Policy Learning](../../NeurIPS2025/video_understanding/adversarial_locomotion_and_motion_imitation_for_humanoid_policy_learning.md)
-- [Real-World Point Tracking with Verifier-Guided Pseudo-Labeling](real-world_point_tracking_with_verifier-guided_pseudo-labeling.md)
-- [Question-guided Visual Compression with Memory Feedback for Long-Term Video Understanding](question-guided_visual_compression_with_memory_feedback_for_long-term_video_unde.md)
 
 <!-- RELATED:END -->

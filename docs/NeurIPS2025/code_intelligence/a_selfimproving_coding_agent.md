@@ -116,10 +116,10 @@ SICA的核心循环类似ADAS但有本质区别：
 
 ## 相关论文
 
+- [SceneGenAgent: Precise Industrial Scene Generation with Coding Agent](../../ACL2025/code_intelligence/scenegenagent_precise_industrial_scene_generation_with_coding_agent.md)
+- [DARS: Dynamic Action Re-Sampling to Enhance Coding Agent Performance by Adaptive Tree Traversal](../../ACL2025/code_intelligence/dars_dynamic_action_re-sampling_to_enhance_coding_agent_performance_by_adaptive_.md)
 - [VeriMaAS: Automated Multi-Agent Workflows for RTL Design](automated_multi-agent_workflows_for_rtl_design.md)
 - [Revisit Self-Debugging with Self-Generated Tests for Code Generation](../../ACL2025/code_intelligence/revisit_self-debugging_with_self-generated_tests_for_code_generation.md)
-- [UTBoost: Rigorous Evaluation of Coding Agents on SWE-Bench](../../ACL2025/code_intelligence/utboost_rigorous_evaluation_of_coding_agents_on_swe-bench.md)
 - [Improving Code Localization with Repository Memory](../../ICLR2026/code_intelligence/improving_code_localization_with_repository_memory.md)
-- [KV Cache Transform Coding for Compact Storage in LLM Inference](../../ICLR2026/code_intelligence/kv_cache_transform_coding_for_compact_storage_in_llm_inference.md)
 
 <!-- RELATED:END -->

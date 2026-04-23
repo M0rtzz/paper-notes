@@ -19,7 +19,9 @@ tags:
 
 ## 研究背景与动机
 
-时序动作分割（Temporal Action Segmentation）旨在将长视频序列中的每一帧分配到对应的动作类别，是视频理解中的重要任务。然而，训练高性能的动作分割模型需要大量的长视频数据和密集的逐帧标注，数据的存储和传输成本巨大。
+### 领域现状
+
+**领域现状**：时序动作分割（Temporal Action Segmentation）旨在将长视频序列中的每一帧分配到对应的动作类别，是视频理解中的重要任务。然而，训练高性能的动作分割模型需要大量的长视频数据和密集的逐帧标注，数据的存储和传输成本巨大。
 
 **核心痛点：**
 
@@ -92,7 +94,7 @@ $$z^* = \arg\min_{z} \| D(z, a, c) - x \|^2$$
 | 数据集 | 原始大小 | 蒸馏大小 | 压缩比 |
 |--------|----------|----------|--------|
 | Breakfast | 28GB | 44MB | 636× |
-| 50Salads | 4.5GB | 3.9MB | ~1150× |
+| 50Salads | 4.5%GB | 3.9%MB | ~1150× |
 
 ### 分割性能
 
@@ -119,7 +121,7 @@ $$z^* = \arg\min_{z} \| D(z, a, c) - x \|^2$$
 
 ## 相关论文
 
-- [ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation](../../ICML2025/segmentation/actionpiece_contextually_tokenizing_action_sequences_for_generative_recommendati.md)
+- [ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation](../../ICML2025/segmentation/actionpiece_contextually_tokenizing_action_sequences_generative_recommendation.md)
 - [Scale Efficient Training for Large Datasets](scale_efficient_training_for_large_datasets.md)
 - [Generative Video Propagation](generative_video_propagation.md)
 - [Golden Cudgel Network for Real-Time Semantic Segmentation](golden_cudgel_network_for_real-time_semantic_segmentation.md)

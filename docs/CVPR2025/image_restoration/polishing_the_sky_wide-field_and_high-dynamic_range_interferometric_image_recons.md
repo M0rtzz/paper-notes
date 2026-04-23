@@ -130,9 +130,9 @@ POLISH++ F₁ 相比 CLEAN 提升 **158%**（0.2750→0.7107），相比 POLISH 
 ## 相关论文
 
 - [POLISH'ing the Sky: Wide-Field and High-Dynamic Range Interferometric Image Reconstruction](../../CVPR2026/image_restoration/polishing_the_sky_wide-field_and_high-dynamic_range_interferometric_image_recons.md)
+- [PIDSR: Complementary Polarized Image Demosaicing and Super-Resolution](pidsr_complementary_polarized_image_demosaicing_and_super-resolution.md)
 - [Progressive Focused Transformer for Single Image Super-Resolution](progressive_focused_transformer_for_single_image_super-resolution.md)
 - [Augmenting Perceptual Super-Resolution via Image Quality Predictors](augmenting_perceptual_super-resolution_via_image_quality_predictors.md)
-- [PIDSR: Complementary Polarized Image Demosaicing and Super-Resolution](pidsr_complementary_polarized_image_demosaicing_and_super-resolution.md)
-- [MaIR: A Locality- and Continuity-Preserving Mamba for Image Restoration](mair_a_locality-_and_continuity-preserving_mamba_for_image_restoration.md)
+- [DiffFNO: Diffusion Fourier Neural Operator](difffno_diffusion_fourier_neural_operator.md)
 
 <!-- RELATED:END -->

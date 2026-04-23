@@ -72,7 +72,7 @@ description: >-
 
 **[IdealTSF: Can Non-Ideal Data Contribute to Enhancing Time Series Forecasting?](idealtsf_can_non-ideal_data_contribute_to_enhancing_the_performance_of_time_seri.md)**
 
-:   提出 IdealTSF 框架，通过三阶段渐进式设计——负样本预训练（用稳定分布+多尺度噪声+结构删除模拟非理想数据）、正样本训练（混合平滑插值修复数据）、ECOS 优化器（对抗扰动引导到平坦极值）——使基础 attention 模型在含噪声/缺失的时序数据上获得约 10% 的性能提升。
+:   提出 IdealTSF 框架，通过三阶段渐进式设计——负样本预训练模拟非理想数据增强鲁棒性、正样本训练用修复后数据学习趋势、ECOS 优化器引导到平坦极值——在含噪声/缺失的时序数据上 MSE 提升约 10%。
 
 **[Interpreting Fedspeak with Confidence: A LLM-Based Uncertainty-Aware Framework Guided by Monetary Policy Transmission Paths](interpreting_fedspeak_with_confidence_a_llm-based_uncertainty-aware_framework_gu.md)**
 

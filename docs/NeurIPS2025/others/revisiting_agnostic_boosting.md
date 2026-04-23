@@ -30,7 +30,9 @@ tags:
 
 ## 研究背景与动机
 
-Boosting 是统计学习中的关键方法,能将弱学习器转化为强学习器。在**可实现**设置（假设空间中存在完美分类器）下,Boosting 的理论已非常成熟。但在**不可知**设置（不假设标签的分布与假设空间的关系）下,弱到强学习的统计性质仍不够清楚。
+### 现有痛点
+
+**现有痛点**：**领域现状**：Boosting 是统计学习中的关键方法,能将弱学习器转化为强学习器。在**可实现**设置（假设空间中存在完美分类器）下,Boosting 的理论已非常成熟。但在**不可知**设置（不假设标签的分布与假设空间的关系）下,弱到强学习的统计性质仍不够清楚。
 
 核心问题:
 
@@ -146,7 +148,7 @@ Margin 过滤阈值对样本效率的影响 (模拟实验):
 - [On Agnostic PAC Learning in the Small Error Regime](on_agnostic_pac_learning_in_the_small_error_regime.md)
 - [Statistical Inference for Gradient Boosting Regression](statistical_inference_for_gradient_boosting_regression.md)
 - [Recurrent Self-Attention Dynamics: An Energy-Agnostic Perspective from Jacobians](recurrent_self-attention_dynamics_an_energy-agnostic_perspective_from_jacobians.md)
-- [Revisiting the Predictability of Performative, Social Events](../../ICML2025/others/revisiting_the_predictability_of_performative_social_events.md)
 - [Toward Material-Agnostic System Identification from Videos](../../ICCV2025/others/toward_material-agnostic_system_identification_from_videos.md)
+- [Revisiting the Predictability of Performative, Social Events](../../ICML2025/others/revisiting_the_predictability_of_performative_social_events.md)
 
 <!-- RELATED:END -->

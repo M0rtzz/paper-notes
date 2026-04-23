@@ -25,10 +25,14 @@ tags:
 AtomicVLA 提出统一规划-执行框架，通过Think-Act自适应切换生成任务链和原子技能抽象，用技能引导MoE（SG-MoE）构建可扩展的原子技能专家库，在LIBERO-LONG上超π₀ 10%，真实世界持续学习超基线21%且遗忘仅1.3%。
 
 ## 背景与动机
-现有VLA模型用单一动作解码器训练在混合数据上，面临两大问题：（1）长时horizon任务需要任务分解+规划能力，但模块化解耦（VLM规划器+VLA控制器）导致上下游不同步；（2）单解码器混合训练时不同技能相互干扰，增量学习新技能导致灾难性遗忘。核心挑战是：如何在统一框架中实现任务规划、精确执行和可扩展的持续技能学习？
 
-## 核心问题
-如何构建一个端到端的VLA框架，既能自适应地做高层任务规划和原子技能分解，又能通过模块化专家库实现高效的多技能学习和无遗忘的持续扩展？
+### 领域现状
+
+**领域现状**：现有VLA模型用单一动作解码器训练在混合数据上，面临两大问题：（1）长时horizon任务需要任务分解+规划能力，但模块化解耦（VLM规划器+VLA控制器）导致上下游不同步；（2）单解码器混合训练时不同技能相互干扰，增量学习新技能导致灾难性遗忘。核心挑战是：如何在统一框架中实现任务规划、精确执行和可扩展的持续技能学习？
+
+### 解决思路
+
+**本文目标**：如何构建一个端到端的VLA框架，既能自适应地做高层任务规划和原子技能分解，又能通过模块化专家库实现高效的多技能学习和无遗忘的持续扩展？
 
 ## 方法详解
 
@@ -63,7 +67,7 @@ AtomicVLA 提出统一规划-执行框架，通过Think-Act自适应切换生成
 - 混合训练干扰：open drawer任务不需夹爪关合→干扰其他grasping任务，SG-MoE有效隔离
 - 错误恢复：当子技能失败时能自动重规划重试
 
-## 亮点
+## 亮点与洞察
 - Think-Act统一框架解决了模块化方案的上下游脱节问题，自适应切换优雅实用
 - 将MoE从通用routing重新诠释为"技能模块化"——每个专家对应一个语义明确的原子技能，可解释性强
 - 持续学习方案极其简洁（加专家+扩路由器），遗忘仅1.3%（π₀.5的-15%对比鲜明）
@@ -76,13 +80,13 @@ AtomicVLA 提出统一规划-执行框架，通过Think-Act自适应切换生成
 - 原子技能粒度固定（Pick/Place/Open等），更细粒度或更抽象的技能层级未探索
 - 推理时Think模式约104ms + Act模式92ms（5专家），合计约200ms
 
-## 与相关工作的对比
+## 相关工作与启发
 - **π₀/π₀.5**: 统一VLA但单解码器，混合训练有技能干扰；AtomicVLA用SG-MoE隔离技能
 - **MoDE**: token级MoE去噪器，专家间无语义对应；AtomicVLA的技能级路由更有效（+5.7%）
 - **Hi-Robot/OneTwoVLA等**: 也做统一规划-执行，但无技能模块化设计导致持续学习困难
 - **LOTUS等持续学习**: 无监督技能发现但非VLA架构；AtomicVLA在VLA框架内实现可扩展的技能库
 
-## 启发与关联
+## 相关工作与启发
 - "原子技能"作为VLA的中间抽象层，可以和之前读的Fast-ThinkAct的"潜在推理"互补——一个用文本技能抽象，一个用连续潜在表征
 - 技能级MoE路由的设计可以推广到多任务VLA的scaling研究
 
@@ -99,7 +103,7 @@ AtomicVLA 提出统一规划-执行框架，通过Think-Act自适应切换生成
 - [Language-Grounded Decoupled Action Representation for Robotic Manipulation](language-grounded_decoupled_action_representation_for_robotic_manipulation.md)
 - [GeCo-SRT: Geometry-aware Continual Adaptation for Robotic Cross-Task Sim-to-Real Transfer](geco-srt_geometry-aware_continual_adaptation_for_robotic_cross-task_sim-to-real_.md)
 - [Language-Grounded Decoupled Action Representation for Robotic Manipulation (LaDA)](lada_robotic_manipulation.md)
-- [Chain of World: World Model Thinking in Latent Motion (CoWVLA)](chain_of_world_world_model_thinking_in_latent_motion.md)
+- [Diagnose, Correct, and Learn from Manipulation Failures via Visual Symbols](diagnose_correct_and_learn_from_manipulation_failures.md)
 - [ForceVLA2: Unleashing Hybrid Force-Position Control with Force Awareness for Contact-Rich Manipulation](forcevla2_unleashing_hybrid_force-position_control_with_force_awareness_for_cont.md)
 
 <!-- RELATED:END -->

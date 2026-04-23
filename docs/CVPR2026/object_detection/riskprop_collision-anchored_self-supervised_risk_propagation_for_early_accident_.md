@@ -130,9 +130,9 @@ tags:
 ## 相关论文
 
 - [M-GRPO: Stabilizing Self-Supervised Reinforcement Learning for Large Language Models with Momentum-Anchored Policy Optimization](../../NeurIPS2025/object_detection/m-grpo_stabilizing_self-supervised_reinforcement_learning_for_large_language_mod.md)
-- [AR²-4FV: Anchored Referring and Re-identification for Long-Term Grounding in Fixed-View Videos](ar2-4fv_anchored_referring_and_re-identification_for_long-term_grounding_in_fixe.md)
+- [GeoBridge: A Semantic-Anchored Multi-View Foundation Model for Geo-Localization](geobridge_semantic-anchored_multi-view_foundation_model_for_geo-localization.md)
 - [Discovering Global False Negatives On the Fly for Self-supervised Contrastive Learning](../../ICML2025/object_detection/discovering_global_false_negatives_on_the_fly_for_self-supervised_contrastive_le.md)
+- [AR²-4FV: Anchored Referring and Re-identification for Long-Term Grounding in Fixed-View Videos](ar2-4fv_anchored_referring_and_re-identification_for_long-term_grounding_in_fixe.md)
 - [SSTAG: Structure-Aware Self-Supervised Learning Method for Text-Attributed Graphs](../../NeurIPS2025/object_detection/sstag_structure-aware_self-supervised_learning_method_for_text-attributed_graphs.md)
-- [WALKER: Self-supervised Multiple Object Tracking by Walking on Temporal Appearance Graphs](../../ECCV2024/object_detection/walker_self-supervised_multiple_object_tracking_by_walking_on_temporal_appearanc.md)
 
 <!-- RELATED:END -->

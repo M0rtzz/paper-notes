@@ -141,9 +141,9 @@ tags:
 ## 相关论文
 
 - [FlashKAT: Understanding and Addressing Performance Bottlenecks in the Kolmogorov-Arnold Transformer](../../AAAI2026/interpretability/flashkat_understanding_and_addressing_performance_bottlenecks_in_the_kolmogorov-.md)
+- [An Empirical Study of Mechanistic Interpretability Approaches for Factual Recall](../../ACL2025/interpretability/an_empirical_study_of_mechanistic_interpretability_approaches_for_factual_recall.md)
 - [Modal Logical Neural Networks for Financial AI](modal_logical_neural_networks_for_financial_ai.md)
 - [SALVE: Sparse Autoencoder-Latent Vector Editing for Mechanistic Control of Neural Networks](salve_sparse_autoencoder-latent_vector_editing_for_mechanistic_control_of_neural.md)
 - [Deep Modularity Networks with Diversity-Preserving Regularization](../../NeurIPS2025/interpretability/deep_modularity_networks_with_diversity-preserving_regularization.md)
-- [Do Sparse Autoencoders Generalize? A Case Study of Answerability](../../ICML2025/interpretability/do_sparse_autoencoders_generalize_a_case_study_of_answerability.md)
 
 <!-- RELATED:END -->

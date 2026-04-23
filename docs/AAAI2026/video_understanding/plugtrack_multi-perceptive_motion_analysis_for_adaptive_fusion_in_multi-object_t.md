@@ -179,6 +179,6 @@ $$\mathcal{L} = \mathcal{L}_{SmoothL1} + \mathcal{L}_{GIoU} + \mathcal{L}_{MCAS}
 - [Learning Topology-Driven Multi-Subspace Fusion for Grassmannian Deep Networks](learning_topology-driven_multi-subspace_fusion_for_grassmannian_deep_network.md)
 - [OmniTrack: Omnidirectional Multi-Object Tracking](../../CVPR2025/video_understanding/omnidirectional_multi-object_tracking.md)
 - [FC-Track: Overlap-Aware Post-Association Correction for Online Multi-Object Tracking](../../CVPR2026/video_understanding/fc-track_overlap-aware_post-association_correction_for_online_multi-object_track.md)
-- [MITracker: Multi-View Integration for Visual Object Tracking](../../CVPR2025/video_understanding/mitracker_multi-view_integration_for_visual_object_tracking.md)
+- [STORM: End-to-End Referring Multi-Object Tracking in Videos](../../CVPR2026/video_understanding/storm_referring_multi_object_tracking.md)
 
 <!-- RELATED:END -->

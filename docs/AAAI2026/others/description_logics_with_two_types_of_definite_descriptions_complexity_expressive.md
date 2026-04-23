@@ -169,9 +169,9 @@ $$\{ι(\mathsf{building} \sqcap \forall \mathsf{tallThan}.\neg \mathsf{building}
 ## 相关论文
 
 - [Data Complexity of Querying Description Logic Knowledge Bases under Cost-Based Semantics](data_complexity_of_querying_description_logic_knowledge_bases_under_cost-based_s.md)
+- [Model Change for Description Logic Concepts](model_change_for_description_logic_concepts.md)
 - [Automated Reproducibility Has a Problem Statement Problem](automated_reproducibility_has_a_problem_statement_problem.md)
 - [Intrinsic Barriers and Practical Pathways for Human-AI Alignment: An Agreement-Based Complexity Analysis](intrinsic_barriers_and_practical_pathways_for_human-ai_alignment_an_agreement-ba.md)
 - [On the Edge of Core (Non-)Emptiness: An Automated Reasoning Approach to Approval-Based Multi-Winner Voting](on_the_edge_of_core_non-emptiness_an_automated_reasoning_approach_to_approval-ba.md)
-- [NaiLIA: Multimodal Nail Design Retrieval Based on Dense Intent Descriptions and Palette Queries](../../CVPR2026/others/nailia_multimodal_nail_design_retrieval_based_on_dense_intent_descriptions_and_p.md)
 
 <!-- RELATED:END -->

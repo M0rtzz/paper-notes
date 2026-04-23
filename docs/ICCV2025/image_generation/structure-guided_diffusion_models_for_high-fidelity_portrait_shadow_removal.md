@@ -141,7 +141,7 @@ $$\mathbf{e}_t = \epsilon_\theta(x_t, I_M, S, M, t)$$
 - [MetaShadow: Object-Centered Shadow Detection, Removal, and Synthesis](../../CVPR2025/image_generation/metashadow_object-centered_shadow_detection_removal_and_synthesis.md)
 - [PersonalVideo: High ID-Fidelity Video Customization without Dynamic and Semantic Degradation](personalvideo_high_id-fidelity_video_customization_without_dynamic_and_semantic_.md)
 - [Domain Generalizable Portrait Style Transfer](domain_generalizable_portrait_style_transfer.md)
-- [FG-Portrait: 3D Flow Guided Editable Portrait Animation](../../CVPR2026/image_generation/fg-portrait_3d_flow_guided_editable_portrait_animation.md)
 - [Compression-Aware One-Step Diffusion Model for JPEG Artifact Removal](compression-aware_one-step_diffusion_model_for_jpeg_artifact_removal.md)
+- [FG-Portrait: 3D Flow Guided Editable Portrait Animation](../../CVPR2026/image_generation/fg-portrait_3d_flow_guided_editable_portrait_animation.md)
 
 <!-- RELATED:END -->

@@ -27,13 +27,27 @@ Pippo提出了一种多视图扩散Transformer，从单张随手拍照片生成1
 
 ## 研究背景与动机
 
-从单张图像生成人体的多视图一致表示在娱乐、医疗、时尚和社交媒体领域有广泛应用。
+### 领域现状
+
+**领域现状**：从单张图像生成人体的多视图一致表示在娱乐、医疗、时尚和社交媒体领域有广泛应用。
 
 核心挑战：
-- **高质量多视图数据稀缺**：工作室级别的多视图人体捕获数据昂贵且身份数量有限（~1000身份）
-- **野外图像缺乏3D信息**：大规模互联网人体图像虽然多样但无ground-truth的3D或多视图表示
-- **现有方法依赖额外先验**：如参数化人体模型（SMPL）或输入图像的相机参数，限制了对野外数据的扩展
-- **推理时视图数受限**：训练时的视图数量限制了推理时可生成的视图数量
+
+### 现有痛点
+
+**现有痛点**：高质量多视图数据稀缺**：工作室级别的多视图人体捕获数据昂贵且身份数量有限（~1000身份）
+
+### 核心矛盾
+
+**核心矛盾**：野外图像缺乏3D信息**：大规模互联网人体图像虽然多样但无ground-truth的3D或多视图表示
+
+### 解决思路
+
+**解决思路**：现有方法依赖额外先验**：如参数化人体模型（SMPL）或输入图像的相机参数，限制了对野外数据的扩展
+
+### 补充说明
+
+**补充说明**：推理时视图数受限**：训练时的视图数量限制了推理时可生成的视图数量
 
 核心思路：结合两个世界的优势——来自野外数据的泛化能力和来自工作室数据的高保真度和视角可控性。
 
@@ -120,8 +134,8 @@ Pippo在3D一致性指标上优于现有多视图人体生成方法。
 
 - [MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding](../../CVPR2026/object_detection/mrd_multi-resolution_retrieval-detection_fusion_for_high-resolution_image_unders.md)
 - [Image Reconstruction from Readout-Multiplexed Single-Photon Detector Arrays](image_reconstruction_from_readout-multiplexed_single-photon_detector_arrays.md)
-- [Mr. DETR++: Instructive Multi-Route Training for Detection Transformers with MoE](mr_detr_instructive_multi-route_training_for_detection_transformers.md)
 - [MCCD: Multi-Agent Collaboration-based Compositional Diffusion for Complex Text-to-Image Generation](mccd_multi-agent_collaboration-based_compositional_diffusion_for_complex_text-to.md)
+- [Mr. DETR++: Instructive Multi-Route Training for Detection Transformers with MoE](mr_detr_instructive_multi-route_training_for_detection_transformers.md)
 - [Breaking Scale Anchoring: Frequency Representation Learning for Accurate High-Resolution Inference from Low-Resolution Training](../../ICLR2026/object_detection/breaking_scale_anchoring_frequency_representation_learning_for_accurate_high-res.md)
 
 <!-- RELATED:END -->

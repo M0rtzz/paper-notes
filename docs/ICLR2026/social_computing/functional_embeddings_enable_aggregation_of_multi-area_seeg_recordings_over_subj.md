@@ -28,7 +28,9 @@ tags:
 
 ## 研究背景与动机
 
-颅内神经记录（如 SEEG/DBS）的跨被试建模面临两大核心困难：
+### 现有痛点
+
+**现有痛点**：**领域现状**：颅内神经记录（如 SEEG/DBS）的跨被试建模面临两大核心困难：
 
 **解剖变异性和不一致的电极覆盖**：电极的数量、位置和覆盖区域因临床需求而异。标准的 MNI 图谱对齐假设空间对应等于功能相似，但**匹配解剖坐标处的记录常捕获不同的功能角色**，极端情况下甚至是完全不同的脑区。
 
@@ -109,10 +111,10 @@ FunctionalMap 分两阶段：
 
 ## 相关论文
 
-- [Distribution-Aware Robust Learning from Long-Tailed Data with Noisy Labels](../../ECCV2024/social_computing/distribution-aware_robust_learning_from_long-tailed_data_with_noisy_labels.md)
+- [GRADIEND: Feature Learning within Neural Networks Exemplified through Biases](gradiend_feature_learning_within_neural_networks_exemplified_through_biases.md)
 - [Scalable Multi-Task Low-Rank Model Adaptation](scalable_multi-task_low-rank_model_adaptation.md)
 - [Stop Wasting Your Tokens: Towards Efficient Runtime Multi-Agent Systems](stop_wasting_your_tokens_towards_efficient_runtime_multi-agent_systems.md)
-- [Learning from Synthetic Data via Provenance-Based Input Gradient Guidance](../../CVPR2026/social_computing/learning_from_synthetic_data_via_provenance-based_input_gradient_guidance.md)
-- [GRADIEND: Feature Learning within Neural Networks Exemplified through Biases](gradiend_feature_learning_within_neural_networks_exemplified_through_biases.md)
+- [Human or Machine? A Preliminary Turing Test for Speech-to-Speech Interaction](human_or_machine_a_preliminary_turing_test_for_speech-to-speech_interaction.md)
+- [BiasFreeBench: a Benchmark for Mitigating Bias in Large Language Model Responses](biasfreebench_a_benchmark_for_mitigating_bias_in_large_language_model_responses.md)
 
 <!-- RELATED:END -->

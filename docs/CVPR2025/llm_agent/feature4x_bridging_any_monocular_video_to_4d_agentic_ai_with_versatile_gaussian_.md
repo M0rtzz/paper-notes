@@ -19,7 +19,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2503.20776](https://arxiv.org/abs/2503.20776)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: LLM Agent / 3D视觉  
 **关键词**: 4D场景理解, 高斯特征场, 单目视频, 智能体 AI, 特征蒸馏, SAM2, InternVideo2
 
@@ -27,7 +27,10 @@ tags:
 提出 Feature4X，一个通用框架，从任意单目视频通过动态优化策略将多种 2D 视觉基础模型（SAM2、InternVideo2 等）的功能蒸馏到统一的 4D 高斯特征场中，首次实现基于 Gaussian Splatting 的视频基础模型 4D 特征提升，支持新视角下的 segment anything、几何/外观编辑和自由形式 VQA。
 
 ## 研究背景与动机
-**领域现状**：2D 视觉基础模型（CLIP、SAM、SAM2、InternVideo2）在大规模数据上取得了卓越成功，但将这些能力扩展到 3D/4D 场景的自由交互和高层语义操作仍面临挑战。
+
+### 领域现状
+
+**领域现状**：领域现状**：2D 视觉基础模型（CLIP、SAM、SAM2、InternVideo2）在大规模数据上取得了卓越成功，但将这些能力扩展到 3D/4D 场景的自由交互和高层语义操作仍面临挑战。
 
 **现有痛点**：缺乏大规模标注的 3D/4D 或多视角数据集，使得 open-vocabulary 分割、语言引导编辑、VQA 等可泛化的视觉语言任务在 4D 场景中难以实现。现有 3D 特征场方法主要处理静态场景，无法覆盖时变的 4D 动态场景。
 
@@ -73,6 +76,9 @@ tags:
 
 ### 主要能力展示
 
+
+### 主实验
+
 | 任务 | 说明 | 优势 |
 |------|------|------|
 | Novel View Segment Anything | 任意视角+时间步的分割 | 时空一致，无需逐帧处理 |
@@ -114,8 +120,8 @@ tags:
 
 - [PANDA: Towards Generalist Video Anomaly Detection via Agentic AI Engineer](../../NeurIPS2025/llm_agent/panda_towards_generalist_video_anomaly_detection_via_agentic_ai_engineer.md)
 - [Visual Agentic AI for Spatial Reasoning with a Dynamic API](visual_agentic_ai_for_spatial_reasoning_with_a_dynamic_api.md)
-- [Deep Video Discovery: Agentic Search with Tool Use for Long-form Video Understanding](../../NeurIPS2025/llm_agent/deep_video_discovery_agentic_search_with_tool_use_for_longfo.md)
 - [FeatureBench: Benchmarking Agentic Coding for Complex Feature Development](../../ICLR2026/llm_agent/featurebench_benchmarking_agentic_coding_for_complex_feature_development.md)
+- [Deep Video Discovery: Agentic Search with Tool Use for Long-form Video Understanding](../../NeurIPS2025/llm_agent/deep_video_discovery_agentic_search_with_tool_use_for_longfo.md)
 - [V-Stylist: Video Stylization via Collaboration and Reflection of MLLM Agents](v-stylist_video_stylization_via_collaboration_and_reflection_of_mllm_agents.md)
 
 <!-- RELATED:END -->

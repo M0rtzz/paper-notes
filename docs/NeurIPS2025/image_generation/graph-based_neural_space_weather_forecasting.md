@@ -230,6 +230,6 @@ $$p(X^t | X^{t-2:t-1}) = \int p(X^t | Z^t, X^{t-2:t-1}) \, p(Z^t | X^{t-2:t-1}) 
 - [Probabilistic Weather Forecasting with Deterministic Guidance-Based Diffusion Model](../../ECCV2024/image_generation/probabilistic_weather_forecasting_with_deterministic_guidance-based_diffusion_mo.md)
 - [Neural Entropy](neural_entropy.md)
 - [Elucidated Rolling Diffusion Models for Probabilistic Forecasting of Complex Dynamics](elucidated_rolling_diffusion_models_for_probabilistic_forecasting_of_complex_dyn.md)
-- [Graph Distance as Surprise: Free Energy Minimization in Knowledge Graph Reasoning](graph_distance_as_surprise_free_energy_minimization_in_knowledge_graph_reasoning.md)
+- [Exploring Variational Graph Autoencoders for Distribution Grid Data Generation](exploring_variational_graph_autoencoders_for_distribution_grid_data_generation.md)
 
 <!-- RELATED:END -->

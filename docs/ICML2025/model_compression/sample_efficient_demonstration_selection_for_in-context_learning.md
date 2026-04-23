@@ -121,7 +121,7 @@ tags:
 - [Context Tuning for In-Context Optimization](context_tuning_for_in-context_optimization.md)
 - [Best Subset Selection: Optimal Pursuit for Feature Selection and Elimination](best_subset_selection_optimal_pursuit_for_feature_selection_and_elimination.md)
 - [In-Context Learning for Pure Exploration](../../ICLR2026/model_compression/in-context_learning_for_pure_exploration.md)
-- [Generalization Bounds via Meta-Learned Model Representations: PAC-Bayes and Sample Compression Hypernetworks](generalization_bounds_via_meta-learned_model_representations_pac-bayes_and_sampl.md)
 - [UniICL: An Efficient ICL Framework Unifying Compression, Selection, and Generation](../../ACL2025/model_compression/uniicl_icl_framework.md)
+- [Disentangling Latent Shifts of In-Context Learning with Weak Supervision](../../NeurIPS2025/model_compression/disentangling_latent_shifts_of_in-context_learning_with_weak_supervision.md)
 
 <!-- RELATED:END -->

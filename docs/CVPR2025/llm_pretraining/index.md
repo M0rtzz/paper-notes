@@ -2,7 +2,7 @@
 title: >-
   CVPR2025 预训练方向 12篇论文解读
 description: >-
-  12篇CVPR2025 预训练论文解读，主题涵盖：提出跨任务少样本2D视线估计——利用预训练3D视线、提出异构半监督学习(HSSL)新问题设定——标记数、提出不确定性感知的模糊先验，为从脑信号（fMRI）等，每篇含核心思想与方法详解。
+  12篇CVPR2025 预训练论文解读，主题涵盖：提出跨任务少样本2D视线估计——利用预训练3D视线、提出异构半监督学习(HSSL)新问题设定——标记数、首次提出"系统差距"（System等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +20,11 @@ description: >-
 
 **[Bridging the Vision-Brain Gap with an Uncertainty-Aware Blur Prior](bridging_the_vision-brain_gap_with_an_uncertainty-aware_blur_prior.md)**
 
-:   提出不确定性感知的模糊先验，为从脑信号（fMRI）重建视觉刺激提供物理合理的图像退化模型，缓解大脑编码过程中高频信息丢失对重建质量的影响。
+:   首次提出"系统差距"（System GAP）和"随机差距"（Random GAP）的概念来描述脑信号与视觉刺激之间的信息不匹配，通过不确定性感知的模糊先验（UBP）动态调整图像模糊程度来缓解训练中的过拟合，在 200-way 零样本脑-图像检索任务上实现 50.9% top-1 准确率，超越前 SOTA 13.7 个百分点。
+
+**[DreamText: High Fidelity Scene Text Synthesis](dreamtext_high_fidelity_scene_text_synthesis.md)**
+
+:   DreamText重构扩散模型训练流程，引入字符级别的均衡监督(balanced supervision)和启发式交替优化策略来校正字符注意力，结合文本编码器与生成器的联合训练学习多样化字体风格，在场景文字合成任务上大幅超越SOTA方法（SeqAcc从UDiffText的0.763提升至0.940）。
 
 **[HSEmotion Team at ABAW-10 Competition: Facial Expression Recognition, Valence-Arousal Estimation, Action Unit Detection and Fine-Grained Violence Classification](hsemotion_team_at_abaw-10_competition_facial_expression_recognition_valence-arou.md)**
 
@@ -28,7 +32,7 @@ description: >-
 
 **[Improving Autoregressive Visual Generation with Cluster-Oriented Token Prediction](improving_autoregressive_visual_generation_with_cluster-oriented_token_predictio.md)**
 
-:   本文深入分析LLM框架下视觉embedding空间的特性，发现视觉token间的相关性有助于实现更稳定的生成，据此提出IAR方法，通过码本重排（Codebook Rearrangement）和簇导向token预测（Cluster-Oriented Token Prediction）提升自回归视觉生成的效率和质量。
+:   提出 IAR，通过平衡 K-means 重排 VQGAN 码本使相似 embedding 具有相邻索引，配合簇导向交叉熵损失引导模型正确预测目标 token 所在的语义簇，在 LlamaGen 100M-1.4B 各规模上将训练时间减半且提升生成质量。
 
 **[Lost in Translation, Found in Context: Sign Language Translation with Contextual Cues](lost_in_translation_found_in_context_sign_language_translation_with_contextual_c.md)**
 
@@ -41,10 +45,6 @@ description: >-
 **[Precise Event Spotting in Sports Videos: Solving Long-Range Dependency and Class Imbalance](precise_event_spotting_in_sports_videos_solving_long-range_dependency_and_class_.md)**
 
 :   提出端到端可训练的精确事件定位框架，通过自适应时空精炼模块（ASTRM）增强特征的时空信息，并引入Soft Instance Contrastive（SoftIC）损失解决类别不平衡问题，在SoccerNet V2 tight设置上以73.74 mAP超越SOTA。
-
-**[Robust Message Embedding via Attention Flow-Based Steganography](robust_message_embedding_via_attention_flow-based_steganography.md)**
-
-:   首次将Transformer注意力机制与归一化流结合，通过可逆QR码转换、可逆令牌融合和注意力仿射耦合块，实现高质量高容量的隐写，在打印-拍摄等极端物理扭曲下仍能准确还原消息。
 
 **[ScaMo: Exploring the Scaling Law in Autoregressive Motion Generation Model](scamo_exploring_the_scaling_law_in_autoregressive_motion_generation_model.md)**
 

@@ -30,9 +30,9 @@ description: >-
 
 :   提出 CLARIFY 方法，通过对比学习构建融合偏好信息的轨迹嵌入空间，利用拒绝采样选择更清晰可区分的偏好查询，从而提升离线 PbRL 在非理想反馈下的标注效率和策略性能。
 
-**[Clustering Properties of Self-Supervised Learning](clustering_properties_of_self-supervised_learning.md)**
+**[ReSA: Clustering Properties of Self-Supervised Learning](clustering_properties_of_self-supervised_learning.md)**
 
-:   从理论角度分析自监督学习（SSL）表示的聚类性质，证明 SSL 方法（对比学习、正则化方法等）在优化充分时会产生具有聚类结构的表示——类内紧凑、类间分离，连接了 SSL 与有监督学习中的神经塌缩现象。
+:   系统分析了 JEA-based SSL 中各组件的聚类性质，发现 encoding 比 embedding 和 projector 隐层具有更优更稳定的聚类能力，据此提出 ReSA（Representation Self-Assignment）利用 encoding 的聚类信息引导 embedding 学习，形成正反馈 SSL 框架，在多个标准基准上大幅超越 SOTA。
 
 **[Collapse-Proof Non-Contrastive Self-Supervised Learning](collapse-proof_non-contrastive_self-supervised_learning.md)**
 

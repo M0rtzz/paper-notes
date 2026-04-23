@@ -21,11 +21,25 @@ tags:
 
 ## 研究背景与动机
 
-- 从野外视频恢复人类在世界空间中的完整运动（全局轨迹+局部姿态）至关重要但极具挑战
-- 传统SLAM假设静态环境，移动人体会降低估计精度；单目SLAM仅恢复尺度不确定的轨迹
-- GLAMR/SLAHMR等方法依赖MoCap学习的运动prior推断轨迹尺度，遇到复杂场景（爬楼梯、跑酷）泛化差
-- WHAM通过直接回归轨迹取得好效果，但依赖MoCap数据限制了对新颖轨迹的预测
-- **核心洞察**：如果能精确定位相机轨迹（度量尺度）并在相机坐标系内估计人体运动，则世界坐标下的人体运动= 相机运动 ∘ 相对运动
+### 领域现状
+
+**领域现状**：从野外视频恢复人类在世界空间中的完整运动（全局轨迹+局部姿态）至关重要但极具挑战
+
+### 现有痛点
+
+**现有痛点**：传统SLAM假设静态环境，移动人体会降低估计精度；单目SLAM仅恢复尺度不确定的轨迹
+
+### 核心矛盾
+
+**核心矛盾**：GLAMR/SLAHMR等方法依赖MoCap学习的运动prior推断轨迹尺度，遇到复杂场景（爬楼梯、跑酷）泛化差
+
+### 解决思路
+
+**解决思路**：WHAM通过直接回归轨迹取得好效果，但依赖MoCap数据限制了对新颖轨迹的预测
+
+### 补充说明
+
+**补充说明**：核心洞察**：如果能精确定位相机轨迹（度量尺度）并在相机坐标系内估计人体运动，则世界坐标下的人体运动= 相机运动 ∘ 相对运动
 
 ## 方法详解
 
@@ -98,7 +112,7 @@ EMDB 2数据集人体全局轨迹评估：
 - Masked DROID是一个实用的工程贡献，解决了视觉SLAM在有大面积动态物体时的鲁棒性问题
 - 场景提供尺度信息的洞察极具启发性（"看到蜘蛛侠在摩天大楼间荡秋千就知道距离"）
 
-## 局限性
+## 局限与展望
 
 - 相机完全静止时SLAM无法工作，不适用于三脚架固定相机场景
 - ZoeDepth深度预测在某些场景不准，影响尺度估计
@@ -117,8 +131,8 @@ EMDB 2数据集人体全局轨迹评估：
 
 - [WaSt-3D: Wasserstein-2 Distance for Scene-to-Scene Stylization on 3D Gaussians](wast-3d_wasserstein-2_distance_for_scene-to-scene_stylization_on_3d_gaussians.md)
 - [Vista3D: Unravel the 3D Darkside of a Single Image](vista3d_unravel_the_3d_darkside_of_a_single_image.md)
-- [Transferable 3D Adversarial Shape Completion using Diffusion Models](transferable_3d_adversarial_shape_completion_using_diffusion_models.md)
 - [TPA3D: Triplane Attention for Fast Text-to-3D Generation](tpa3d_triplane_attention_for_fast_text-to-3d_generation.md)
+- [Transferable 3D Adversarial Shape Completion using Diffusion Models](transferable_3d_adversarial_shape_completion_using_diffusion_models.md)
 - [UniDream: Unifying Diffusion Priors for Relightable Text-to-3D Generation](unidream_unifying_diffusion_priors_for_relightable_text-to-3d_generation.md)
 
 <!-- RELATED:END -->

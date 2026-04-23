@@ -134,6 +134,6 @@ SphereUFormer 提出直接在球面域（icosphere 网格）上运行的 U 形 T
 - [EventFly: Event Camera Perception from Ground to the Sky](eventfly_event_camera_perception_from_ground_to_the_sky.md)
 - [Perception Tokens Enhance Visual Reasoning in Multimodal Language Models](perception_tokens_enhance_visual_reasoning_in_multimodal_language_models.md)
 - [DiffPortrait360: Consistent Portrait Diffusion for 360° View Synthesis](diffportrait360_consistent_portrait_diffusion_for_360_view_synthesis.md)
-- [End-to-End HOI Reconstruction Transformer with Graph-based Encoding](end-to-end_hoi_reconstruction_transformer_with_graph-based_encoding.md)
+- [RDD: Robust Feature Detector and Descriptor Using Deformable Transformer](rdd_robust_feature_detector_and_descriptor_using_deformable_transformer.md)
 
 <!-- RELATED:END -->

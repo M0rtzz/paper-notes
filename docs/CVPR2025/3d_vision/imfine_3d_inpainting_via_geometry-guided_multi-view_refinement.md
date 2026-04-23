@@ -126,10 +126,10 @@ tags:
 
 ## 相关论文
 
-- [MVBoost: Boost 3D Reconstruction with Multi-View Refinement](mvboost_boost_3d_reconstruction_with_multi-view_refinement.md)
 - [3D Gaussian Inpainting with Depth-Guided Cross-View Consistency](3d_gaussian_inpainting_with_depth-guided_cross-view_consistency.md)
+- [MVBoost: Boost 3D Reconstruction with Multi-View Refinement](mvboost_boost_3d_reconstruction_with_multi-view_refinement.md)
+- [Murre: Multi-view Reconstruction via SfM-guided Monocular Depth Estimation](murre_sfm_guided_depth_reconstruction.md)
 - [Multi-view Reconstruction via SfM-guided Monocular Depth Estimation](multi-view_reconstruction_via_sfm-guided_monocular_depth_estimation.md)
 - [MEt3R: Measuring Multi-View Consistency in Generated Images](met3r_measuring_multi-view_consistency_in_generated_images.md)
-- [Sharp-It: A Multi-view to Multi-view Diffusion Model for 3D Synthesis and Manipulation](sharp-it_a_multi-view_to_multi-view_diffusion_model_for_3d_synthesis_and_manipul.md)
 
 <!-- RELATED:END -->

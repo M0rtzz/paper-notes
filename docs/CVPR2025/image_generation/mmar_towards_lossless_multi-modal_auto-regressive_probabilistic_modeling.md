@@ -157,8 +157,8 @@ MMAR-7B（无 CLIP，仅 256×256）几乎追平使用预训练 CLIP 的 LLaVA-1
 
 - [Collaborative Decoding Makes Visual Auto-Regressive Modeling Efficient](collaborative_decoding_makes_visual_auto-regressive_modeling_efficient.md)
 - [HMAR: Efficient Hierarchical Masked Auto-Regressive Image Generation](hmar_efficient_hierarchical_masked_auto-regressive_image_generation.md)
+- [DiffSensei: Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation](diffsensei_bridging_multi-modal_llms_and_diffusion_models_for_customized_manga_g.md)
 - [Unified Uncertainty-Aware Diffusion for Multi-Agent Trajectory Modeling](unified_uncertainty-aware_diffusion_for_multi-agent_trajectory_modeling.md)
 - [SyncVP: Joint Diffusion for Synchronous Multi-Modal Video Prediction](syncvp_joint_diffusion_for_synchronous_multi-modal_video_prediction.md)
-- [StyleMotif: Multi-Modal Motion Stylization using Style-Content Cross Fusion](../../ICCV2025/image_generation/stylemotif_multi-modal_motion_stylization_using_style-content_cross_fusion.md)
 
 <!-- RELATED:END -->

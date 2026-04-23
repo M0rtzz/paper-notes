@@ -160,7 +160,7 @@ PC-108 仅用 CHIEF 6.5%、GigaPath 2.3% 的预训练数据，在大多数任务
 
 - [MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification](../../CVPR2025/medical_imaging/mil-pf_multiple_instance_learning_on_precomputed_features_for_mammography_classi.md)
 - [Every Error has Its Magnitude: Asymmetric Mistake Severity Training for Multiclass Multiple Instance Learning](../../CVPR2026/medical_imaging/every_error_has_its_magnitude_asymmetric_mistake_severity_training_for_multiclas.md)
-- [Fair Lung Disease Diagnosis from Chest CT via Gender-Adversarial Attention Multiple Instance Learning](../../CVPR2026/medical_imaging/fair_lung_disease_diagnosis_from_chest_ct_via_gender-adversarial_attention_multi.md)
+- [Fair Lung Disease Diagnosis from Chest CT via Gender-Adversarial Attention Multiple Instance Learning](../../CVPR2026/medical_imaging/fair_lung_disease_diagnosis_from_chest_ct_via_gend.md)
 - [CSTRL: Context-Driven Sequential Transfer Learning for Abstractive Radiology Report Summarization](../../ACL2025/medical_imaging/cstrl_context-driven_sequential_transfer_learning_for_abstractive_radiology_repo.md)
 - [The Four Color Theorem for Cell Instance Segmentation](the_four_color_theorem_for_cell_instance_segmentation.md)
 

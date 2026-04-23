@@ -132,9 +132,9 @@ tags:
 ## 相关论文
 
 - [Doppelgangers++: Improved Visual Disambiguation with Geometric 3D Features](doppelgangers_improved_visual_disambiguation_with_geometric_3d_features.md)
-- [End-to-End Implicit Neural Representations for Classification](end-to-end_implicit_neural_representations_for_classification.md)
-- [GA3CE: Unconstrained 3D Gaze Estimation with Gaze-Aware 3D Context Encoding](ga3ce_unconstrained_3d_gaze_estimation_with_gaze-aware_3d_context_encoding.md)
-- [Relation3D: Enhancing Relation Modeling for Point Cloud Instance Segmentation](relation3d_enhancing_relation_modeling_for_point_cloud_instance_segmentation.md)
-- [VGGT: Visual Geometry Grounded Transformer](vggt_visual_geometry_grounded_transformer.md)
+- [4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
+- [3D-LLaVA: Towards Generalist 3D LMMs with Omni Superpoint Transformer](3d-llava_towards_generalist_3d_lmms_with_omni_superpoint_transformer.md)
+- [HeatFormer: A Neural Optimizer for Multiview Human Mesh Recovery](heatformer_a_neural_optimizer_for_multiview_human_mesh_recovery.md)
+- [RDD: Robust Feature Detector and Descriptor Using Deformable Transformer](rdd_robust_feature_detector_and_descriptor_using_deformable_transformer.md)
 
 <!-- RELATED:END -->

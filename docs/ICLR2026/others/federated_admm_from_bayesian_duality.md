@@ -25,6 +25,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：ADMM是联邦学习的核心算法骨架，自1970年代提出至今形式几乎未变。其鲁棒的算法结构令人好奇是否有更一般的形式化。
 
 **现有痛点**：ADMM的加速变体（过松弛、动量、缩放范数等）只是引入额外变量但不改变算法形式。Swaroop等人发现VB和ADMM之间有逐行相似性，但未能推导出精确对应。
@@ -34,6 +36,12 @@ tags:
 **切入角度**：关键洞察是VB目标函数的解具有对偶结构，不仅与ADMM不动点结构类似，还自然泛化它。关键缺失环节是**自然梯度**。
 
 **核心 idea**：用指数族分布的自然参数-期望参数对偶性建立"贝叶斯对偶"结构，ADMM是VB在各向同性高斯下的特例。
+
+### 解决思路
+
+**本文目标**：### 整体框架
+经典ADMM：$(\theta_g^*, \theta_k^*, \mathbf{v}_k^*, \mathbf{v}_g^*)$ 的原始-对偶结构；贝叶斯ADMM：$(\mu_g^*, \mu_k^*, \eta_k^*, \lambda_g^*)$ 的期望参数-自然参数对偶结构。
+
 
 ## 方法详解
 
@@ -117,6 +125,6 @@ tags:
 - [Rethinking PCA Through Duality](../../NeurIPS2025/others/rethinking_pca_through_duality.md)
 - [Bayesian Network Structural Consensus via Greedy Min-Cut Analysis](../../AAAI2026/others/bayesian_network_structural_consensus_via_greedy_min-cut_analysis.md)
 - [Towards Robust and Efficient Federated Low-Rank Adaptation with Heterogeneous Clients](../../ACL2025/others/federated_lora_heterogeneous.md)
-- [Latent Variable Estimation in Bayesian Black-Litterman Models](../../ICML2025/others/latent_variable_estimation_in_bayesian_black-litterman_models.md)
+- [FEAT: Federated Geometry-Aware Correction for Exemplar Replay under Continual Dynamic Heterogeneity](../../CVPR2026/others/feat_federated_geometry_aware_correction_for_exemplar_replay_under_continual_dynamic_heterogeneity.md)
 
 <!-- RELATED:END -->

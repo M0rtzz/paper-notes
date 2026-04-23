@@ -134,7 +134,7 @@ tags:
 - [Two is Better than One: Efficient Ensemble Defense for Robust and Compact Models](two_is_better_than_one_efficient_ensemble_defense_for_robust_and_compact_models.md)
 - [ManipTrans: Efficient Dexterous Bimanual Manipulation Transfer via Residual Learning](maniptrans_efficient_dexterous_bimanual_manipulation_transfer_via_residual_learn.md)
 - [AR-VRM: Imitating Human Motions for Visual Robot Manipulation with Analogical Reasoning](../../ICCV2025/human_understanding/ar-vrm_imitating_human_motions_for_visual_robot_manipulation_with_analogical_rea.md)
-- [Biologically Plausible Online Hebbian Meta-Learning: Two-Timescale Local Rules for Spiking Neural Brain Interfaces](../../ICLR2026/human_understanding/biologically_plausible_online_hebbian_meta-learning_two-timescale_local_rules_fo.md)
-- [One Language, Two Scripts: Probing Script-Invariance in LLM Concept Representations](../../ICLR2026/human_understanding/one_language_two_scripts_probing_script-invariance_in_llm_concept_representation.md)
+- [A Two-Stage Dual-Modality Model for Facial Expression Recognition](../../CVPR2026/human_understanding/a_two_stage_dual_modality_model_for_facial_expression_recognition.md)
+- [Preference-based Reinforcement Learning beyond Pairwise Comparisons: Benefits of Multiple Options](../../NeurIPS2025/human_understanding/preference-based_reinforcement_learning_beyond_pairwise_comparisons_benefits_of_.md)
 
 <!-- RELATED:END -->

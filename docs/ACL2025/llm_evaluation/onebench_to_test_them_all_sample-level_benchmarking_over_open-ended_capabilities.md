@@ -150,6 +150,6 @@ Plackett-Luce模型通过最大化对数似然进行参数估计：
 - [VoxEval: Benchmarking the Knowledge Understanding Capabilities of End-to-End Spoken Language Models](voxeval_benchmarking_the_knowledge_understanding_capabilities_of_end-to-end_spok.md)
 - [Beyond One-Size-Fits-All: Tailored Benchmarks for Efficient Evaluation](beyond_one-size-fits-all_tailored_benchmarks_for_efficient_evaluation.md)
 - [Revisiting 3D LLM Benchmarks: Are We Really Testing 3D Capabilities?](revisiting_3d_llm_benchmarks_are_we_really_testing_3d_capabilities.md)
-- [EducationQ: Evaluating LLMs' Teaching Capabilities Through Multi-Agent Dialogue Framework](educationq_evaluating_llms_teaching_capabilities_through_multi-agent_dialogue_fr.md)
+- [WebWalker: Benchmarking LLMs in Web Traversal](webwalker_benchmarking_llms_in_web_traversal.md)
 
 <!-- RELATED:END -->

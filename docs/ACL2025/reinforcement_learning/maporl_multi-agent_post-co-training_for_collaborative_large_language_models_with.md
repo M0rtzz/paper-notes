@@ -157,8 +157,8 @@ Phi-3 (3.4B) + Qwen2.5 (3B) 和 Phi-3 + Llama-3 (8B) 的异构配对通过 MAPoR
 
 - [RePIC: Reinforced Post-Training for Personalizing Multi-Modal Language Models](../../NeurIPS2025/reinforcement_learning/repic_reinforced_post-training_for_personalizing_multi-modal_language_models.md)
 - [Post-training Large Language Models for Diverse High-Quality Responses](../../ICLR2026/reinforcement_learning/post-training_large_language_models_for_diverse_high-quality_responses.md)
+- [Bypass Back-propagation: Optimization-based Structural Pruning for Large Language Models via Policy Gradient](bypass_back-propagation_optimization-based_structural_pruning_for_large_language.md)
 - [Align-SLM: Textless Spoken Language Models with Reinforcement Learning from AI Feedback](align-slm_textless_spoken_language_models_with_reinforcement_learning_from_ai_fe.md)
 - [Training Language Models to Reason Efficiently](../../NeurIPS2025/reinforcement_learning/training_language_models_to_reason_efficiently.md)
-- [Co-rewarding: Stable Self-supervised RL for Eliciting Reasoning in Large Language Models](../../ICLR2026/reinforcement_learning/co-rewarding_stable_self-supervised_rl_for_eliciting_reasoning_in_large_language.md)
 
 <!-- RELATED:END -->

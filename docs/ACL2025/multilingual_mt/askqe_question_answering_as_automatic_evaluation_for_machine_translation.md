@@ -131,9 +131,9 @@ tags:
 ## 相关论文
 
 - [MTVQA: Benchmarking Multilingual Text-Centric Visual Question Answering](mtvqa_benchmarking_multilingual_text-centric_visual_question_answering.md)
+- [Accessible Machine Translation Evaluation For Low-Resource Languages](accessible_machine_translation_evaluation_for_low-resource_languages.md)
 - [Has Machine Translation Evaluation Achieved Human Parity?](mt_eval_human_parity.md)
 - [M-MAD: Multidimensional Multi-Agent Debate for Advanced Machine Translation Evaluation](m-mad_multidimensional_multi-agent_debate_for_advanced_machine_translation_evalu.md)
 - [Alleviating Distribution Shift in Synthetic Data for Machine Translation Quality Estimation](alleviating_distribution_shift_in_synthetic_data_for_machine_translation_quality.md)
-- [Unveiling the Power of Source: Source-based Minimum Bayes Risk Decoding for Neural Machine Translation](unveiling_the_power_of_source_source-based_minimum_bayes_risk_decoding_for_neura.md)
 
 <!-- RELATED:END -->

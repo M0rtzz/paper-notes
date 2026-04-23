@@ -130,7 +130,7 @@ $\mathcal{L}_{total} = \mathcal{L}_{index}^{start} + \mathcal{L}_{index}^{middle
 - [Generating Attribute-Aware Human Motions from Textual Prompt](../../AAAI2026/human_understanding/generating_attribute-aware_human_motions_from_textual_prompt.md)
 - [Shape My Moves: Text-Driven Shape-Aware Synthesis of Human Motions](shape_my_moves_text-driven_shape-aware_synthesis_of_human_motions.md)
 - [GaussianIP: Identity-Preserving Realistic 3D Human Generation via Human-Centric Diffusion Prior](gaussianip_identity-preserving_realistic_3d_human_generation_via_human-centric_d.md)
-- [Scaling Large Motion Models with Million-Level Human Motions](../../ICML2025/human_understanding/scaling_large_motion_models_with_million-level_human_motions.md)
-- [SOLAMI: Social Vision-Language-Action Modeling for Immersive Interaction with 3D Autonomous Characters](solami_social_vision-language-action_modeling_for_immersive_interaction_with_3d_.md)
+- [GraspXL: Generating Grasping Motions for Diverse Objects at Scale](../../ECCV2024/human_understanding/graspxl_generating_grasping_motions_for_diverse_objects_at_scale.md)
+- [QuaMo: Quaternion Motions for Vision-based 3D Human Kinematics Capture](../../ICLR2026/human_understanding/quamo_quaternion_motion_kinematics.md)
 
 <!-- RELATED:END -->

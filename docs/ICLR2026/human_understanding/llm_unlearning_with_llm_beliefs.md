@@ -186,6 +186,6 @@ $$\mathcal{L}_{\text{BSS}} = (1-\lambda_{\text{BSS}}) \mathcal{L}(\theta; \mathc
 - [Inference-Time Backdoors via Hidden Instructions in LLM Chat Templates](inference-time_backdoors_via_hidden_instructions_in_llm_chat_templates.md)
 - [Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval](evoking_user_memory_personalizing_llm_via_recollection-familiarity_adaptive_retr.md)
 - [One Language, Two Scripts: Probing Script-Invariance in LLM Concept Representations](one_language_two_scripts_probing_script-invariance_in_llm_concept_representation.md)
-- [Bias Association Discovery Framework for Open-Ended LLM Generations](../../AAAI2026/human_understanding/bias_association_discovery_framework_for_open-ended_llm_generations.md)
+- [Tool4POI: A Tool-Augmented LLM Framework for Next POI Recommendation](../../AAAI2026/human_understanding/tool4poi_a_tool-augmented_llm_framework_for_next_poi_recommendation.md)
 
 <!-- RELATED:END -->

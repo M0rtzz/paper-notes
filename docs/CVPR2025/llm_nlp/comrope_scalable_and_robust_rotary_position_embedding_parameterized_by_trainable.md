@@ -200,6 +200,6 @@ In this work, we propose ComRoPE, which generalizes RoPE by defining it in terms
 - [Computation Mechanism Behind LLM Position Generalization](../../ACL2025/llm_nlp/computation_mechanism_behind_llm_position_generalization.md)
 - [Probabilistic Aggregation and Targeted Embedding Optimization for Collective Moral Reasoning](../../ACL2025/llm_nlp/probabilistic_aggregation_and_targeted_embedding_optimization_for_collective_mor.md)
 - [Safer or Luckier? LLMs as Safety Evaluators Are Not Robust to Artifacts](../../ACL2025/llm_nlp/safer_or_luckier_llms_as_safety_evaluators_are_not_robust_to_artifacts.md)
-- [ScaleQuest: Unleashing LLM Reasoning Capability via Scalable Question Synthesis from Scratch](../../ACL2025/llm_nlp/unleashing_llm_reasoning_capability_via_scalable.md)
+- [Mitigate Position Bias in LLMs via Scaling a Single Hidden States Channel](../../ACL2025/llm_nlp/mitigate_position_bias_in_large_language_models_via_scaling_a_single_dimension.md)
 
 <!-- RELATED:END -->

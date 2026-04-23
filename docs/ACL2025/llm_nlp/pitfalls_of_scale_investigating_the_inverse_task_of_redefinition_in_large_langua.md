@@ -29,9 +29,17 @@ tags:
 
 ## 研究背景与动机
 
-- **核心问题:** 逆缩放任务（inverse scaling tasks）指模型性能随规模增大而下降的任务，能暴露 LLM 推理能力的潜在缺陷。重新定义任务（redefinition）属于"强先验"（strong priors）类逆缩放，人类可以轻松完成（100% 准确率），但 LLM 可能失败。
-- **现有不足:** 逆缩放在文献中研究不足。Inverse Scaling Prize (McKenzie et al., 2024) 初步揭示了问题，但对重新定义任务的系统研究——包括不同难度级别、不同响应格式、不同提示策略的影响——仍属空白。
-- **研究动机:** 随着 LLM 在高风险场景（科学计算、工程决策）中的应用增多，理解它们在面对与训练知识冲突的指令时能否灵活调整推理路径至关重要。
+### 领域现状
+
+**领域现状**：核心问题:** 逆缩放任务（inverse scaling tasks）指模型性能随规模增大而下降的任务，能暴露 LLM 推理能力的潜在缺陷。重新定义任务（redefinition）属于"强先验"（strong priors）类逆缩放，人类可以轻松完成（100% 准确率），但 LLM 可能失败。
+
+### 现有痛点
+
+**现有痛点**：现有不足:** 逆缩放在文献中研究不足。Inverse Scaling Prize (McKenzie et al., 2024) 初步揭示了问题，但对重新定义任务的系统研究——包括不同难度级别、不同响应格式、不同提示策略的影响——仍属空白。
+
+### 核心矛盾
+
+**核心矛盾**：研究动机:** 随着 LLM 在高风险场景（科学计算、工程决策）中的应用增多，理解它们在面对与训练知识冲突的指令时能否灵活调整推理路径至关重要。
 
 ## 方法详解
 
@@ -80,13 +88,13 @@ tags:
 - 单位重新定义比常量重新定义更容易被遵循，可能因为单位转换比常量值在训练数据中出现频率更低
 - 交换型重新定义最困难——模型需要同时覆盖两个记忆值并正确使用
 
-## 亮点
+## 亮点与洞察
 
 - 实验设计系统全面：15 个常量 × 15 个单位 × 多级难度 × 多级问题 × 多种格式，覆盖面广
 - 揭示了一个反直觉但重要的现象：LLM 的"知识"可能是推理灵活性的障碍
 - 100% 人类准确率与 LLM 的逆缩放形成鲜明对比，突显了记忆与推理的本质差异
 
-## 局限性
+## 局限与展望
 
 - 仅测试了英文 prompt，未验证多语言设置下的表现
 - 未探索微调或 RLHF 对锚定行为的影响
@@ -117,7 +125,7 @@ tags:
 - [Investigating Context-Faithfulness in Large Language Models: The Roles of Memory Strength and Evidence Style](investigating_context-faithfulness_in_large_language_models_the_roles_of_memory_.md)
 - [TESS 2: A Large-Scale Generalist Diffusion Language Model](tess_2_a_large-scale_generalist_diffusion_language_model.md)
 - [A Large-Scale Real-World Evaluation of an LLM-Based Virtual Teaching Assistant](a_large-scale_real-world_evaluation_of_llm-based_virtual_teaching_assistant.md)
+- [Cheaper and Better Diffusion Language Model via Task-Specific Training](cheaper_and_better_diffusion_language_model_via_task-specific_training.md)
 - [LLMs instead of Human Judges? A Large Scale Empirical Study across 20 NLP Evaluation Tasks](llm_vs_human_judges_study.md)
-- [Training-free LLM Merging for Multi-task Learning](training-free_llm_merging_for_multi-task_learning.md)
 
 <!-- RELATED:END -->

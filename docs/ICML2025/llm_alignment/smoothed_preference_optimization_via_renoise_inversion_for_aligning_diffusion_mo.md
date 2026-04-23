@@ -171,7 +171,7 @@ HPDv2 测试集 median score。SmPO-SDXL 对 DPO-SDXL 在 HPSv2.1 上 win-rate �
 
 - [ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization](adhmr_aligning_diffusion-based_human_mesh_recovery_via_direct_preference_optimiz.md)
 - [D-Fusion: Direct Preference Optimization for Aligning Diffusion Models with Visually Consistent Samples](d-fusion_direct_preference_optimization_for_aligning_diffusion_models_with_visua.md)
-- [InPO: Inversion Preference Optimization with Reparametrized DDIM for Efficient Diffusion Model Alignment](../../CVPR2025/llm_alignment/inpo_inversion_preference_optimization_with_reparametrized_ddim_for_efficient_di.md)
+- [InPO: Inversion Preference Optimization with Reparametrized DDIM for Efficient Diffusion Model Alignment](../../CVPR2025/llm_alignment/inpo_inversion_preference_optimization_diffusion_alignment.md)
 - [MMedPO: Aligning Medical Vision-Language Models with Clinical-Aware Multimodal Preference Optimization](mmedpo_aligning_medical_vision-language_models_with_clinical-aware_multimodal_pr.md)
 - [Calibrated Multi-Preference Optimization for Aligning Diffusion Models](../../CVPR2025/llm_alignment/calibrated_multi-preference_optimization_for_aligning_diffusion_models.md)
 

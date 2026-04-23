@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 LLM效率方向 43篇论文解读
+  NeurIPS2025 LLM效率方向 42篇论文解读
 description: >-
-  43篇NeurIPS2025 LLM效率论文解读，主题涵盖：在标准的draft-target两模型推测解码的中、建立了统一的理论框架证明各类Transformer、通过正交性损失（减少专家间投影重叠）和方差损失（增等，每篇含核心思想与方法详解。
+  42篇NeurIPS2025 LLM效率论文解读，主题涵盖：在标准的draft-target两模型推测解码的中、建立了统一的理论框架证明各类Transformer、通过正交性损失（减少专家间投影重叠）和方差损失（增等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚡ LLM效率
 
-**🧠 NeurIPS2025** · **43** 篇论文解读
+**🧠 NeurIPS2025** · **42** 篇论文解读
 
 **[3-Model Speculative Decoding (PyramidSD)](3model_speculative_decoding.md)**
 
@@ -82,10 +82,6 @@ description: >-
 
 :   提出 anGPT（近似归一化 Transformer），利用高维空间中向量范数的集中现象，用简单标量乘法替代逐层精确归一化，在消除权重衰减和学习率预热的同时实现了相比 GPT+（含 QK-norm）40% 的收敛加速，仅增加 3% 运行时开销。
 
-**[Linear Attention for Efficient Bidirectional Sequence Modeling](linear_attention_for_efficient_bidirectional_sequence_modeling.md)**
-
-:   提出 Lion 框架，首次系统地将线性 Transformer 扩展到双向序列建模，统一了全线性注意力、双向 RNN 和分块并行三种等价表示，在图像分类和 MLM 任务上训练速度比 SSM 快达 10 倍且性能可比 softmax Transformer。
-
 **[Long-Context Modeling with Dynamic Hierarchical Sparse Attention for On-Device LLMs](long-context_modeling_with_dynamic_hierarchical_sparse_attention_for_on-device_l.md)**
 
 :   提出动态分层稀疏注意力 (DHSA)，通过自适应 chunk 分割 + chunk 级相似度预测 + 上采样到 token 级的分层框架，在不重训基座模型的前提下将密集注意力替换为稀疏注意力，在 Gemma2/3 上实现与密集注意力同等精度、20-60% prefill 延迟降低和 35% 峰值内存节省。
@@ -148,7 +144,7 @@ description: >-
 
 **[Tensor Product Attention Is All You Need](tensor_product_attention_is_all_you_need.md)**
 
-:   通过上下文张量分解将 Q/K/V 表示为低秩因子的加权和，将 KV 缓存压缩至原来的 1/10~1/16，同时在验证损失和下游任务精度上超越标准 MHA/MQA/GQA/MLA。
+:   通过上下文张量积分解将 Q/K/V 表示为低秩因子的加权和，将 KV 缓存压缩至 1/10~1/16，同时在验证损失和下游任务精度上超越标准 MHA/MQA/GQA/MLA。
 
 **[The Emergence of Sparse Attention: Impact of Data Distribution and Benefits of Repetition](the_emergence_of_sparse_attention_impact_of_data_distribution_and_benefits_of_re.md)**
 

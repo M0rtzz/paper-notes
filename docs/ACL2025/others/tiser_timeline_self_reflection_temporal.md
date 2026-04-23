@@ -130,9 +130,9 @@ tags:
 ## 相关论文
 
 - [Temporal Reasoning for Timeline Summarisation in Social Media](temporal_reasoning_for_timeline_summarisation_in_social_media.md)
+- [Learning to Reason from Feedback at Test-Time](learning_to_reason_from_feedback_at_test-time.md)
+- [Meta-Reflection: A Feedback-Free Reflection Learning Framework](meta-reflection_a_feedback-free_reflection_learning_framework.md)
 - [Self-Correction is More than Refinement: A Learning Framework for Visual and Language Reasoning Tasks](self-correction_is_more_than_refinement_a_learning_framework_for_visual_and_lang.md)
 - [Improve Rule Retrieval and Reasoning with Self-Induction and Relevance ReEstimate](improve_rule_retrieval_and_reasoning_with_self-induction_and_relevance_reestimat.md)
-- [Micro-Act: Mitigate Knowledge Conflict in QA via Actionable Self-Reasoning](micro_act_knowledge_conflict_reasoning.md)
-- [Tuna: Comprehensive Fine-grained Temporal Understanding Evaluation on Dense Dynamic Videos](tuna_temporal_understanding.md)
 
 <!-- RELATED:END -->

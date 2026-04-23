@@ -27,11 +27,25 @@ tags:
 
 ## 研究背景与动机
 
-- 南极冰盖（AIS）储存着相当于约58米全球海平面上升的冰量，精确建模冰流对预测海平面变化至关重要
-- 极端环境导致冰厚度观测稀疏且噪声大，无约束插值产生不合理的通量散度，影响下游冰盖数值模型
-- 现有PINNs将质量守恒作为软惩罚加入损失函数，但无法保证物理一致性（MAD > 0），泛化性差
-- 核心问题：**能否从模型架构层面硬约束质量守恒，而非依赖损失函数软约束？**
-- 到2100年，海平面上升预计每年造成约2% GDP的洪灾成本，约3.6亿人生活在易涝地区
+### 领域现状
+
+**领域现状**：南极冰盖（AIS）储存着相当于约58米全球海平面上升的冰量，精确建模冰流对预测海平面变化至关重要
+
+### 现有痛点
+
+**现有痛点**：极端环境导致冰厚度观测稀疏且噪声大，无约束插值产生不合理的通量散度，影响下游冰盖数值模型
+
+### 核心矛盾
+
+**核心矛盾**：现有PINNs将质量守恒作为软惩罚加入损失函数，但无法保证物理一致性（MAD > 0），泛化性差
+
+### 解决思路
+
+**解决思路**：核心问题：**能否从模型架构层面硬约束质量守恒，而非依赖损失函数软约束？**
+
+### 补充说明
+
+**补充说明**：到2100年，海平面上升预计每年造成约2% GDP的洪灾成本，约3.6亿人生活在易涝地区
 
 ## 方法详解
 
@@ -111,8 +125,8 @@ $$\mathcal{L} = (1-w_{dir}) \cdot \mathcal{L}_{MSE} + w_{dir} \cdot \mathcal{L}_
 
 - [Causal Foundation Models: Disentangling Physics from Instrument Properties](../../ICML2025/remote_sensing/causal_foundation_models_disentangling_physics_from_instrument_properties.md)
 - [OrbitZoo: Real Orbital Systems Challenges for Reinforcement Learning](orbitzoo_real_orbital_systems_challenges_for_reinforcement_learning.md)
-- [GeoFlow: Real-Time Fine-Grained Cross-View Geolocalization via Iterative Flow Prediction](../../CVPR2026/remote_sensing/geoflow_real-time_fine-grained_cross-view_geolocalization_via_iterative_flow_pre.md)
 - [ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery](../../CVPR2026/remote_sensing/acpv-net_all-class_polygonal_vectorization_for_seamless_vector_map_generation_fr.md)
 - [ChA-MAEViT: Unifying Channel-Aware Masked Autoencoders and Multi-Channel Vision Transformers for Improved Cross-Channel Learning](chamaevit_unifying_channelaware_masked_autoencoders_and_mult.md)
+- [GeoFlow: Real-Time Fine-Grained Cross-View Geolocalization via Iterative Flow Prediction](../../CVPR2026/remote_sensing/geoflow_real-time_fine-grained_cross-view_geolocalization_via_iterative_flow_pre.md)
 
 <!-- RELATED:END -->

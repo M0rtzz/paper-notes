@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 图像生成方向 211篇论文解读
+  CVPR2026 图像生成方向 229篇论文解读
 description: >-
-  211篇CVPR2026 图像生成论文解读，主题涵盖：提出2ndMatch微调框架，通过对齐剪枝模型与原、提出 D2C（Diffusion Dataset、提出 ADAPT 框架，通过注意力驱动的自适应等，每篇含核心思想与方法详解。
+  229篇CVPR2026 图像生成论文解读，主题涵盖：提出2ndMatch微调框架，通过对齐剪枝模型与原、提出 D2C（Diffusion Dataset、提出 ADAPT 框架，通过注意力驱动的自适应等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**📷 CVPR2026** · **211** 篇论文解读
+**📷 CVPR2026** · **229** 篇论文解读
 
 **[2ndMatch: Finetuning Pruned Diffusion Models via Second-Order Jacobian Matching](2ndmatch_finetuning_pruned_diffusion_models_via_second-order_jacobian_matching.md)**
 
@@ -37,6 +37,10 @@ description: >-
 **[Agentic Retoucher for Text-To-Image Generation](agentic_retoucher_for_texttoimage_generation.md)**
 
 :   Agentic Retoucher 将 T2I 生成图像的局部缺陷修复重构为感知→推理→行动的多 agent 闭环决策流程，通过上下文感知的显著性检测、人类偏好对齐的诊断推理和自适应工具选择实现自主修复，在 GenBlemish-27K 上 plausibility 提升 2.89 分，83.2% 修复结果被人类评为优于原图。
+
+**[AHS: Adaptive Head Synthesis via Synthetic Data Augmentations](ahs_adaptive_head_synthesis.md)**
+
+:   AHS 通过使用头部重演模型（GAGAvatar）生成合成增强数据来克服自监督训练的局限性，结合双编码器注意力机制和自适应掩码策略，在全身图像的头部替换任务中实现了 SOTA 效果。
 
 **[AlignVAR: Towards Globally Consistent Visual Autoregression for Image Super-Resolution](alignvar_towards_globally_consistent_visual_autoregression_for_image_super-resol.md)**
 
@@ -146,6 +150,10 @@ description: >-
 
 :   提出首个音视频影视音频源分离（AV-CASS）框架，利用面部和场景双视频流的视觉线索，通过条件流匹配进行生成式三路音频分离（语音/音效/音乐），仅在合成数据上训练即可泛化到真实电影。
 
+**[Circuit Mechanisms for Spatial Relation Generation in Diffusion Transformers](circuit_mechanisms_for_spatial_relation_generation_in_diffusion_models.md)**
+
+:   通过机械可解释性方法揭示了扩散Transformer（DiT）生成空间关系的内部电路机制：随机嵌入模型使用两阶段模块化电路（关系头+物体生成头），T5编码器模型则将关系信息融合到物体token中通过单token解码，两种机制的鲁棒性差异显著。
+
 **[Circuit Mechanisms for Spatial Relation Generation in Diffusion Transformers](circuit_mechanisms_for_spatial_relation_generation_in_diffusion_transformers.md)**
 
 :   通过机制可解释性方法，揭示了扩散Transformer中空间关系生成的两种截然不同的电路机制：随机文本编码器使用"关系头+物体头"的两阶段模块化电路，而 T5 编码器将关系信息融入物体 token 中通过单 token解码，后者在域外扰动下更脆弱。
@@ -186,6 +194,10 @@ description: >-
 
 :   提出 COT-FM，一个即插即用的 Flow Matching 增强框架：通过聚类目标样本、反转预训练模型获取簇级源分布、在簇内近似最优传输，显著拉直传输路径，在不改变模型架构的前提下同时加速采样和提升生成质量。
 
+**[CRAFT: Aligning Diffusion Models with Fine-Tuning Is Easier Than You Think](craft_aligning_diffusion_models_with_finetuning_is_easier_than_you_think.md)**
+
+:   CRAFT 提出一种超轻量的扩散模型对齐方法：通过组合奖励过滤(CRF)策略自动构建高质量训练集，然后执行增强版 SFT，理论证明 CRAFT 实际优化的是分组强化学习的下界，仅用 100 个样本就超越了需要数千偏好对的 SOTA 方法，且训练速度快 11-220 倍。
+
 **[Cross-Modal Emotion Transfer for Emotion Editing in Talking Face Video](cross-modal_emotion_transfer_for_emotion_editing_in_talking_face_video.md)**
 
 :   提出 C-MET（Cross-Modal Emotion Transfer），通过建模语音和面部表情空间之间的情感语义向量映射，首次实现了基于语音驱动的扩展情感（如讽刺、魅力）说话人脸视频生成，情感准确率超越 SOTA 14%。
@@ -206,9 +218,21 @@ description: >-
 
 :   提出 Detail-Aligned VAE (DA-VAE)，通过结构化潜在空间（base + detail channels）和对齐损失，在不从头训练扩散模型的前提下将预训练 VAE 的压缩率提升至原来的 4 倍，仅需 5 H100-days 即可适配 SD3.5 生成 1024×1024 图像。
 
+**[Elucidating the SNR-t Bias of Diffusion Probabilistic Models](dcw_snr_t_bias_diffusion.md)**
+
+:   本文揭示了扩散模型中普遍存在的 SNR-t 偏差（逆过程样本的信噪比与时间步不匹配），并提出小波域动态差分校正方法（DCW），在不训练的情况下即插即用地提升多种扩散模型的生成质量。
+
+**[DeCo: Frequency-Decoupled Pixel Diffusion for End-to-End Image Generation](deco_frequency-decoupled_pixel_diffusion_for_end-to-end_image_generation.md)**
+
+:   DeCo 提出频率解耦的像素扩散框架，用轻量像素解码器处理高频细节并让DiT专注低频语义建模，配合频率感知flow matching损失，在ImageNet上达到FID 1.62（256）和2.22（512），缩小了像素扩散与潜空间扩散的差距。
+
 **[Denoising as Path Planning: Training-Free Acceleration of Diffusion Models with DPCache](denoising_as_path_planning_training-free_acceleration_of_diffusion_models_with_d.md)**
 
 :   将扩散模型采样加速形式化为全局路径规划问题，构建路径感知代价张量（PACT）量化跳步误差的路径依赖性，通过动态规划选择最优关键步序列，在FLUX上以4.87×加速超越全步基线+0.028 ImageReward。
+
+**[Depth Adaptive Efficient Visual Autoregressive Modeling](depthvar_depth_adaptive_var.md)**
+
+:   揭示了 VAR 模型中频率驱动的硬剪枝范式存在根本性局限，提出 DepthVAR，一种免训练的推理加速框架，通过自适应分配每个 token 的 Transformer 层计算深度（而非二值化的保留/剪除），实现 2.3×-3.1× 加速且质量损失极小。
 
 **[Diffusion Mental Averages](diffusion_mental_averages.md)**
 
@@ -277,6 +301,10 @@ description: >-
 **[EgoFlow: Gradient-Guided Flow Matching for Egocentric 6DoF Object Motion Generation](egoflow_gradient-guided_flow_matching_for_egocentric_6dof_object_motion_generati.md)**
 
 :   EgoFlow 提出一种基于 Flow Matching 的生成框架，通过 Mamba-Transformer-Perceiver 混合架构融合多模态场景条件，并在推理时用梯度引导采样施加可微的物理约束（碰撞避免、运动平滑性），从第一人称视频生成物理合理的 6DoF 物体运动轨迹，碰撞率降低高达 79%。
+
+**[Extending One-Step Image Generation from Class Labels to Text via Discriminative Text Representation](emf_meanflow_text_to_image.md)**
+
+:   首次将 MeanFlow 框架从类别标签条件扩展到文本条件图像生成，发现限制步数下文本表示的语义区分性和解耦性是关键瓶颈，基于 BLIP3o-NEXT 文本编码器实现了高质量的少步/单步 T2I 生成。
 
 **[EMMA: Concept Erasure Benchmark with Comprehensive Semantic Metrics and Diverse Categories](emma_concept_erasure_benchmark_with_comprehensive_semantic_metrics_and_diverse_c.md)**
 
@@ -358,6 +386,10 @@ description: >-
 
 :   FRAMER 提出频率对齐的自蒸馏训练框架，通过将最终层特征图作为教师监督中间层，并按低频/高频分别施加 IntraCL 和 InterCL 对比损失，配合自适应权重调节(FAW)和对齐门控(FAM)，在不改变网络结构和推理流程的情况下，显著提升扩散模型在真实图像超分辨率任务的高频细节恢复能力。
 
+**[Frequency-Aware Flow Matching for High-Quality Image Generation](freqflow_frequency_aware_flow_matching.md)**
+
+:   FreqFlow 通过在流匹配框架中显式引入频域感知条件，采用双分支架构分别处理低频全局结构和高频细节信息，在 ImageNet-256 上以 1.38 FID 达到 SOTA。
+
 **[From Inpainting to Layer Decomposition: Repurposing Generative Inpainting Models for Image Layer Decomposition](from_inpainting_to_layer_decomposition_repurposing_generative_inpainting_models_.md)**
 
 :   本文观察到图像图层分解（layer decomposition）与图像修复/外绘（inpainting/outpainting）任务之间的内在联系，提出 Outpaint-and-Remove 方法，通过轻量级 LoRA 微调将预训练的 inpainting DiT 模型（FLUX.1-Fill-dev）高效适配为图层分解模型，同时引入多模态上下文融合模块保留细节，仅用 10 万合成训练数据即达到 SOTA 性能。
@@ -370,6 +402,10 @@ description: >-
 
 :   将扩散模型的水印嵌入和提取过程建模为噪声信道通信，提出 Gaussian Shannon 框架，通过级联的多数投票和 LDPC 纠错码实现水印的比特精确恢复（而非仅阈值检测），在三种 Stable Diffusion 版本和七种扰动下达到 SOTA 的比特精度和检测率。
 
+**[GIST: Towards Design Compositing](gist_towards_design_compositing.md)**
+
+:   提出 GIST，一种免训练的身份保持图像合成方法，通过交叉注意力引导的 token 注入和 Flow Matched 潜空间初始化，在布局预测和排版生成之间作为即插即用的合成阶段，实现多来源视觉元素的风格协调。
+
 **[gQIR: Generative Quanta Image Reconstruction](gqir_generative_quanta_image_reconstruc_tion.md)**
 
 :   将大规模 text-to-image latent diffusion model 适配到单光子雪崩二极管（SPAD）的极端光子受限成像场景，通过三阶段框架（Quanta-aligned VAE → 对抗微调 LoRA U-Net → FusionViT 时空融合）实现从稀疏二值光子检测到高质量 RGB 图像的重建，在 10K-100K fps 极端条件下显著超越所有现有方法。
@@ -377,6 +413,10 @@ description: >-
 **[gQIR: Generative Quanta Image Reconstruction](gqir_generative_quanta_image_reconstruction.md)**
 
 :   提出 gQIR，一个模块化三阶段框架，将大规模 T2I 扩散模型适配到 SPAD 传感器的极端光子受限域，通过量子对齐 VAE（冻结编码器副本防坍缩）、对抗微调 LoRA U-Net（单步生成）和潜空间 FusionViT（时空融合），从极稀疏二值光子事件重建高质量彩色图像和视频。
+
+**[GrOCE: Graph-Guided Online Concept Erasure for Text-to-Image Diffusion Models](groce_graph-guided_online_concept_erasure_for_text-to-image_diffusion_models.md)**
+
+:   GrOCE 提出基于动态语义图的免训练概念擦除框架，通过构建语义图→自适应聚类识别→选择性切除三个协同组件，实现对文本到图像扩散模型中目标概念的精确、上下文感知的在线移除。
 
 **[Group Editing: Edit Multiple Images in One Go](group_editing_edit_multiple_images_in_one_go.md)**
 
@@ -454,6 +494,10 @@ description: >-
 
 :   揭示了SAE中大多数神经元（~81%）的可解释性或可控性不足的问题，提出CB-SAE框架——通过裁剪低效用SAE神经元并增加概念瓶颈模块，在LVLM和图像生成任务上分别提升可解释性+32.1%和可控性+14.5%。
 
+**[Intra-finger Variability of Diffusion-based Latent Fingerprint Generation](intra_finger_variability_of_diffusion_based_latent_fingerprint_generation.md)**
+
+:   本文系统评估了扩散模型合成指纹的同指变异性，通过构建包含40种表面和15种处理技术的潜指纹风格库提升生成多样性，并量化了生成过程中引入的局部/全局身份不一致性。
+
 **[Intrinsic Concept Extraction Based on Compositional Interpretability](intrinsic_concept_extraction_based_on_compositional_interpretability.md)**
 
 :   HyperExpress 提出组合可解释本征概念提取（CI-ICE）新任务，利用双曲空间的层次建模能力和等球面投影模块，从单张图像中提取可组合的物体级和属性级概念，实现可逆的复杂视觉概念分解。
@@ -465,6 +509,10 @@ description: >-
 **[Layer Consistency Matters: Elegant Latent Transition Discrepancy for Generalizable Synthetic Image Detection](layer_consistency_matters_elegant_latent_transition_discrepancy_for_generalizabl.md)**
 
 :   发现真实图像在冻结CLIP ViT中间层的特征表示呈现稳定的层间过渡，而合成图像在中间层出现显著的注意力突变，提出Layer Transition Discrepancy (LTD) 方法建模该差异，在UFD上mean Acc达96.90%，DRCT-2M上达99.54%，GenImage上达91.62%，全面超越SOTA。
+
+**[LeapAlign: Post-Training Flow Matching Models at Any Generation Step by Building Two-Step Trajectories](leapalign_post_training_flow_matching_models_at_any_generation_step.md)**
+
+:   提出 LeapAlign，通过构建两步跳跃轨迹将长生成路径缩短为两步，使奖励梯度可直接反向传播到早期生成步骤，结合轨迹相似性加权和梯度折扣策略实现 flow matching 模型的高效后训练对齐。
 
 **[Learnability-Guided Diffusion for Dataset Distillation](learnability-guided_diffusion_for_dataset_distillation.md)**
 
@@ -530,6 +578,10 @@ description: >-
 
 :   提出 MPDiT，一个多尺度 patch 的全局到局部扩散 Transformer 架构，前期用大 patch（4×4）处理全局上下文仅需 64 个 token，后期上采样到小 patch（2×2）的 256 个 token 精修局部细节，将 GFLOPs 降低高达 50%，且 XL 模型在 240 epoch 即达到 FID 2.05（cfg）。
 
+**[MultiBanana: A Challenging Benchmark for Multi-Reference Text-to-Image Generation](multibanana_a_challenging_benchmark_for_multi_reference_text_to_image_generation.md)**
+
+:   提出MultiBanana——首个系统评估多参考图像生成能力的大规模基准，包含3769个评测样本、最多8张参考图、5个难度维度（跨域/尺度/稀有概念/多语言），揭示了闭源模型"过拟合参考细节"和开源模型"忽略参考主体"的互补失败模式。
+
 **[Neighbor-Aware Localized Concept Erasure in Text-to-Image Diffusion Models](neighbor-aware_localized_concept_erasure_in_text-to-image_diffusion_models.md)**
 
 :   提出 NLCE，一个 training-free 的三阶段概念擦除框架，通过谱加权表征调制、注意力引导空间门控和门控特征清理三步实现目标概念的精确局部擦除，同时显式保留语义邻近概念，在 Oxford Flowers、Stanford Dogs、名人身份和敏感内容擦除任务上均优于现有方法。
@@ -581,6 +633,10 @@ description: >-
 **[Pixel Motion Diffusion Is What We Need for Robot Control](pixel_motion_diffusion_is_what_we_need_for_robot_control.md)**
 
 :   DAWN 提出两阶段全扩散框架——Motion Director 生成稠密像素运动场作为可解释中间表征，Action Expert 将其转化为可执行机器人动作序列，在 CALVIN（Avg Len 4.00）、MetaWorld（Overall 65.4%）和真实世界均达到 SOTA，且模型容量和训练数据远小于竞争方法。
+
+**[PixelDiT: Pixel Diffusion Transformers for Image Generation](pixeldit_pixel_diffusion_transformers_for_image_generation.md)**
+
+:   PixelDiT 提出完全基于Transformer的双层像素空间扩散模型：patch级DiT捕捉全局语义 + pixel级DiT细化纹理细节，无需VAE即可在ImageNet上达到1.61 FID，并直接在1024分辨率像素空间训练文本到图像模型。
 
 **[PixelRush: Ultra-Fast, Training-Free High-Resolution Image Generation via One-step Diffusion](pixelrush_ultra-fast_training-free_high-resolution_image_generation_via_one-step.md)**
 
@@ -718,6 +774,10 @@ description: >-
 
 :   本文分析了 Speculative Jacobi Decoding (SJD) 在文本到图像生成中接受长度分布严重偏斜的瓶颈，提出 SJD-PAC 框架，通过 Proactive Drafting (PD) 和 Adaptive Continuation (AC) 两项技术，在严格无损的前提下实现 3.8× 推理加速，显著超越原始 SJD 的约 2× 加速。
 
+**[Smoothing the Score Function for Generalization in Diffusion Models: An Optimization-based Explanation Framework](smoothing_the_score_function_for_generalization_in_diffusion_models.md)**
+
+:   本文从理论上证明扩散模型的记忆化问题源于经验得分函数中 softmax 权重的尖锐性（单个训练样本主导），并提出 Noise Unconditioning 和 Temperature Smoothing 两种平滑方法来缓解记忆化、增强泛化，同时保持生成质量。
+
 **[SOLACE: Improving Text-to-Image Generation with Intrinsic Self-Confidence Rewards](solace_self_confidence_rewards_t2i.md)**
 
 :   用T2I模型自身的去噪自信心（对注入噪声的恢复精度）作为内在奖励替代外部奖励模型做后训练，在组合生成、文字渲染、文图对齐上获一致提升，且与外部奖励互补可缓解reward hacking。
@@ -786,6 +846,10 @@ description: >-
 
 :   提出VHS（Verifier on Hidden States）——一种直接在DiT生成器中间层隐状态上工作的验证器，跳过解码-重编码开销，在单步图像生成的推理时扩展（inference-time scaling）场景下将联合生成-验证时间减少63.3%、FLOPs降低51%，同时在GenEval上相同时间预算下提升2.7%的性能。
 
+**[TokenLight: Precise Lighting Control in Images using Attribute Tokens](tokenlight_precise_lighting_control_in_images_using_attribute_tokens.md)**
+
+:   提出 TokenLight，将图像重光照表述为以属性 token（强度、颜色、环境光、漫反射级别、3D 光源位置）为条件的端到端图像生成任务，在扩散 Transformer 框架中实现精确、连续、可解释的光照控制。
+
 **[Too Vivid to Be Real? Benchmarking and Calibrating Generative Color Fidelity](too_vivid_to_be_real_benchmarking_and_calibrating_generative_color_fidelity.md)**
 
 :   针对 T2I 模型生成图像"太鲜艳不像真实照片"的问题，提出 Color Fidelity Dataset (CFD, 130 万图像)、Color Fidelity Metric (CFM, 基于 Qwen2-VL + softrank loss) 和 Color Fidelity Refinement (CFR, 无训练的时空自适应 guidance 调制)，形成评估-改善一体化框架。
@@ -834,6 +898,10 @@ description: >-
 
 :   ViStoryBench 构建了一个包含 80 个多风格故事、344 个角色、1317 个镜头的综合基准，提出 12 项自动化评估指标（涵盖角色一致性、风格相似度、提示对齐、copy-paste 检测等），系统评估了超过 25 种开源/商业故事可视化方法，填补了该领域缺乏统一评估标准的空白。
 
+**[VOSR: A Vision-Only Generative Model for Image Super-Resolution](vosr_a_vision_only_generative_model_for_image_super_resolution.md)**
+
+:   提出 VOSR，首个证明纯视觉训练的生成式超分模型可以媲美甚至超越基于 T2I 预训练方法的工作，通过视觉语义条件和面向恢复的引导策略实现高质量 SR，训练成本仅为 T2I 方法的 1/10。
+
 **[WaDi: Weight Direction-aware Distillation for One-step Image Synthesis](wadi_weight_direction-aware_distillation_for_one-step_image_synthesis.md)**
 
 :   通过分析蒸馏过程中权重变化的范数-方向分解，发现方向变化是蒸馏的关键驱动因素（变化幅度比范数大 22×），提出 LoRaD（低秩权重方向旋转）适配器，集成到 VSD 框架中构成 WaDi，仅用 ~10% 可训练参数即在 COCO 上取得一步生成 SOTA FID。
@@ -853,3 +921,7 @@ description: >-
 **[WISER: Wider Search, Deeper Thinking, and Adaptive Fusion for Training-Free Zero-Shot Composed Image Retrieval](wiser_wider_search_deeper_thinking_and_adaptive_fusion_for_training-free_zero-sh.md)**
 
 :   提出 WISER，一个无训练的零样本组合图像检索（ZS-CIR）框架，通过"检索–验证–精化"迭代循环统一 T2I 和 I2I 双路径检索，利用 VLM 验证器显式建模意图感知和不确定性感知，实现自适应融合与结构化自反思精化。在 CIRCO mAP@5 上相对提升 45%，CIRR Recall@1 上相对提升 57%，甚至超越许多训练式方法。
+
+**[YOEO: You Only Erase Once - Erasing Anything without Bringing Unexpected Content](yoeo_you_only_erase_once_erasing_anything_without_bringing_unexpected_content.md)**
+
+:   YOEO 提出一个单次擦除框架，通过将多步扩散模型蒸馏为少步模型实现高效推理，并设计杂物抑制损失（基于实体分割检测新生成的不应出现的物体）和实体特征一致性损失（确保擦除区域与周围语义一致），解决扩散模型在目标擦除中的幻觉问题。

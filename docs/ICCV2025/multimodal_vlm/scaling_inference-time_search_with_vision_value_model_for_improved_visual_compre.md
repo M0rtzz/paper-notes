@@ -165,6 +165,6 @@ $$L(\rho) = -\mathbb{E}_{(y_i, y_{i+1}, I) \sim \mathcal{D}} \left( r_{s_i} + \g
 - [LATTE: Collaborative Test-Time Adaptation of Vision-Language Models in Federated Learning](latte_collaborative_test-time_adaptation_of_vision-language_models_in_federated_.md)
 - [Understanding Museum Exhibits using Vision-Language Reasoning](understanding_museum_exhibits_using_vision-language_reasoning.md)
 - [GEOBench-VLM: Benchmarking Vision-Language Models for Geospatial Tasks](geobench-vlm_benchmarking_vision-language_models_for_geospatial_tasks.md)
-- [SparseVILA: Decoupling Visual Sparsity for Efficient VLM Inference](sparsevila_decoupling_visual_sparsity_for_efficient_vlm_infe.md)
+- [Perspective-Aware Reasoning in Vision-Language Models via Mental Imagery Simulation](perspective-aware_reasoning_in_vision-language_models_via_mental_imagery_simulat.md)
 
 <!-- RELATED:END -->

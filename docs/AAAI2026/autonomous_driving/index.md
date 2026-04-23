@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 自动驾驶方向 57篇论文解读
+  AAAI2026 自动驾驶方向 58篇论文解读
 description: >-
-  57篇AAAI2026 自动驾驶论文解读，主题涵盖：提出闭环 MPC 框架用于樟宜机场 50、一篇面向网络安全与隐私（NetS&P）任务的、首次研究开放词汇目标检测器（OVOD）的后门攻击等，每篇含核心思想与方法详解。
+  58篇AAAI2026 自动驾驶论文解读，主题涵盖：提出闭环 MPC 框架用于樟宜机场 50、一篇面向网络安全与隐私（NetS&P）任务的、首次研究开放词汇目标检测器（OVOD）的后门攻击等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**🤖 AAAI2026** · **57** 篇论文解读
+**🤖 AAAI2026** · **58** 篇论文解读
 
 **[A Data-Driven Model Predictive Control Framework for Multi-Aircraft TMA Routing Under Travel Time Uncertainty](a_data-driven_model_predictive_control_framework_for_multi-aircraft_tma_routing_.md)**
 
@@ -48,7 +48,7 @@ description: >-
 
 **[SAML: 可微语义元学习框架用于长尾运动预测](differentiable_semantic_meta-learning_framework_for_long-tail_motion_forecasting.md)**
 
-:   提出SAML框架，首次给出运动预测中"长尾性"(tailness)的可微语义定义——通过内在属性(运动学动态性、几何复杂度、时间不规则性)和交互属性(局部/全局风险)量化稀有度，经贝叶斯尾部感知器融合为连续Tail Index驱动MAML元学习适配，在nuScenes/NGSIM/HighD上取得SOTA，尤其在worst-case top 1-5%子集上大幅领先。
+:   提出 SAML 框架，首次给出运动预测中"长尾性"的可微语义定义——通过 5 类内在/交互属性量化稀有度，经贝叶斯尾部感知器融合为连续 Tail Index 驱动 MAML 元学习适配，在 nuScenes worst-case top 1% 上 minADE 比次优低 17.2%。
 
 **[Difficulty-Aware Label-Guided Denoising for Monocular 3D Object Detection](difficulty-aware_label-guided_denoising_for_monocular_3d_object_detection.md)**
 
@@ -126,6 +126,10 @@ description: >-
 
 :   提出 LiNeXt，一种轻量级非扩散网络用于LiDAR 3D场景补全，通过**距离感知选择性重复策略**、**Noise-to-Coarse模块**和**Refine模块**直接重建完整点云，在SemanticKITTI上实现了比LiDiff快**199.8倍**的推理速度，Chamfer Distance降低**50.7%**，参数量仅为其**6.1%**。
 
+**[LUCID: Learning-Enabled Uncertainty-Aware Certification of Stochastic Dynamical Systems](lucid_learning-enabled_uncertainty-aware_certification_of_stochastic_dynamical_s.md)**
+
+:   本文提出 LUCID，首个可为黑盒随机动力系统提供量化安全保证的验证引擎，通过数据驱动的控制障碍证书方法、条件均值嵌入和有限傅里叶核展开，将半无限非凸优化问题重构为可处理的线性规划。
+
 **[MambaSeg: Harnessing Mamba for Accurate and Efficient Image-Event Semantic Segmentation](mambaseg_harnessing_mamba_for_accurate_and_efficient_image-e.md)**
 
 :   提出 MambaSeg，用双分支并行 Mamba 编码器分别处理 RGB 图像和事件流，通过空间-时间双维度交互模块 (DDIM) 实现细粒度跨模态融合，在 DDD17 和 DSEC 数据集上以 25.44M 参数取得 77.56%/75.10% mIoU 的 SOTA，效率远优于 Transformer 方案。
@@ -164,7 +168,7 @@ description: >-
 
 **[RAST: A Retrieval Augmented Spatio-Temporal Framework for Traffic Prediction](rast_a_retrieval_augmented_spatio-temporal_framework_for_traffic_prediction.md)**
 
-:   将 Retrieval-Augmented Generation (RAG) 思想引入时空预测，通过维护双维度 memory bank 存储历史时空 pattern 并在推理时检索融合，构建通用的 retrieval-augmented 时空预测框架 RAST，在 6 个交通数据集上取得 SOTA 且计算效率优异。
+:   将 RAG 思想引入时空预测，通过维护双维度 memory bank 存储历史时空 pattern 并在推理时检索融合，构建通用 retrieval-augmented 时空预测框架 RAST，在 6 个交通数据集上取得 SOTA 且显存仅需竞品的 1/12。
 
 **[ReflexDiffusion: 反思增强的高侧向加速度自动驾驶轨迹规划](reflexdiffusion_reflection-enhanced_trajectory_planning_for_.md)**
 

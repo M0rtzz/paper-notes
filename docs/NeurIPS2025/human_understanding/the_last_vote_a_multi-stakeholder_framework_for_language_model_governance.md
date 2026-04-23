@@ -155,6 +155,6 @@ ISS聚合方式对比：
 - [KELPS: A Framework for Verified Multi-Language Autoformalization via Semantic-Syntactic Alignment](../../ICML2025/human_understanding/kelps_a_framework_for_verified_multi-language_autoformalization_via_semantic-syn.md)
 - [SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability](../../ICML2025/human_understanding/saebench_a_comprehensive_benchmark_for_sparse_autoencoders_in_language_model_int.md)
 - [The Transparent Earth: A Multimodal Foundation Model for the Earth's Subsurface](the_transparent_earth_a_multimodal_foundation_model_for_the_earths_subsurface.md)
-- [ShowUI: One Vision-Language-Action Model for GUI Visual Agent](../../CVPR2025/human_understanding/showui_one_vision-language-action_model_for_gui_visual_agent.md)
+- [Discovering Transformer Circuits via a Hybrid Attribution and Pruning Framework](discovering_transformer_circuits_via_a_hybrid_attribution_and_pruning_framework.md)
 
 <!-- RELATED:END -->

@@ -142,6 +142,6 @@ FairTTE框架包含三个层次：(1) 基于因果推理的偏差分析理论框
 - [One Size Fits None: Rethinking Fairness in Medical AI](../../ACL2025/medical_imaging/one_size_fits_none_rethinking_fairness_in_medical_ai.md)
 - [DualFete: Revisiting Teacher-Student Interactions from a Feedback Perspective for Semi-supervised Medical Image Segmentation](../../AAAI2026/medical_imaging/dualfete_revisiting_teacher-student_interactions_from_a_feedback_perspective_for.md)
 - [Doctor Approved: Generating Medically Accurate Skin Disease Images through AI-Expert Feedback](doctor_approved_generating_medically_accurate_skin_disease_images_through_ai-exp.md)
-- [LoMix: Learnable Weighted Multi-Scale Logits Mixing for Medical Image Segmentation](lomix_learnable_weighted_multi-scale_logits_mixing_for_medical_image_segmentatio.md)
+- [CholecTrack20: A Multi-Perspective Tracking Dataset for Surgical Tools](../../CVPR2025/medical_imaging/cholectrack20_a_multi-perspective_tracking_dataset_for_surgical_tools.md)
 
 <!-- RELATED:END -->

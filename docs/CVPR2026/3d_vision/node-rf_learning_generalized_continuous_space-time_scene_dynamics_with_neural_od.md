@@ -198,10 +198,10 @@ Node-RF 在泛化任务上碾压式领先。D-NeRF(c)（条件化版本）几乎
 
 ## 相关论文
 
+- [LumiMotion: Improving Gaussian Relighting with Scene Dynamics](lumimotion_gaussian_relighting_dynamics.md)
 - [RetimeGS: Continuous-Time Reconstruction of 4D Gaussian Splatting](retimegs_continuous_time_4d_gaussian.md)
 - [Catalyst4D: High-Fidelity 3D-to-4D Scene Editing via Dynamic Propagation](catalyst4d_highfidelity_3dto4d_scene_editing_via_d.md)
 - [MotionScale: Reconstructing Appearance, Geometry, and Motion of Dynamic Scenes with Scalable 4D Gaussian Splatting](motionscale_reconstructing_appearance_geometry_and_motion_of_dynamic_scenes_with.md)
 - [MoRe: Motion-aware Feed-forward 4D Reconstruction Transformer](more_motion-aware_feed-forward_4d_reconstruction_transformer.md)
-- [Learning Explicit Continuous Motion Representation for Dynamic Gaussian Splatting from Monocular Videos](learning_explicit_continuous_motion_representation_for_dynamic_gaussian_splattin.md)
 
 <!-- RELATED:END -->

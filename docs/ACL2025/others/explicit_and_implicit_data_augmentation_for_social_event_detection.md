@@ -173,8 +173,8 @@ SED-Aug在所有数据集上全面超越基线，尤其在Twitter2012和Twitter2
 
 - [Is Linguistically-Motivated Data Augmentation Worth It?](is_linguistically-motivated_data_augmentation_worth_it.md)
 - [SEOE: A Scalable and Reliable Semantic Evaluation Framework for Open Domain Event Detection](seoe_semantic_eval.md)
-- [Temporal Reasoning for Timeline Summarisation in Social Media](temporal_reasoning_for_timeline_summarisation_in_social_media.md)
+- [SOTOPIA-Ω: Dynamic Strategy Injection Learning and Social Instruction Following Evaluation for Social Agents](sotopia-ensuremathomega_dynamic_strategy_injection_learning_and_social_instructi.md)
 - [FreeAugment: Data Augmentation Search Across All Degrees of Freedom](../../ECCV2024/others/freeaugment_data_augmentation_search_across_all_degrees_of_freedom.md)
-- [Predicting Implicit Arguments in Procedural Video Instructions](implicit_arguments_video_instructions.md)
+- [Temporal Reasoning for Timeline Summarisation in Social Media](temporal_reasoning_for_timeline_summarisation_in_social_media.md)
 
 <!-- RELATED:END -->

@@ -140,6 +140,6 @@ temporal_style 的 95% bootstrap CI 包含零，p=0.1687，不显著。
 - [SCSA: A Plug-and-Play Semantic Continuous-Sparse Attention for Arbitrary Semantic Style Transfer](../../CVPR2025/image_generation/scsa_a_plug-and-play_semantic_continuous-sparse_attention_for_arbitrary_semantic.md)
 - [Noise Diffusion for Enhancing Semantic Faithfulness in Text-to-Image Synthesis](../../CVPR2025/image_generation/noise_diffusion_for_enhancing_semantic_faithfulness_in_text-to-image_synthesis.md)
 - [A Hidden Semantic Bottleneck in Conditional Embeddings of Diffusion Transformers](a_hidden_semantic_bottleneck_in_conditional_embeddings_of_diffusion_transformers.md)
-- [StdGEN: Semantic-Decomposed 3D Character Generation from Single Images](../../CVPR2025/image_generation/stdgen_semantic-decomposed_3d_character_generation_from_single_images.md)
+- [Flow Matching with Injected Noise for Offline-to-Online Reinforcement Learning](flow_matching_with_injected_noise_for_offline-to-online_reinforcement_learning.md)
 
 <!-- RELATED:END -->

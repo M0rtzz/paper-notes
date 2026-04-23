@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: 待公开  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 域泛化  
 **关键词**: 单源域泛化, 局部可解释性, 概念对齐, 测试时矫正, 扩散模型
 
@@ -26,6 +26,8 @@ tags:
 本文提出TIDE，一种针对单源域泛化的新型训练方案，利用扩散模型和LLM自动生成类别级概念标注（如"鸟类=尖嘴+翅膀+爪子"），通过概念显著性对齐损失训练模型关注域不变的局部概念而非全局背景特征，使模型在测试时能通过概念显著图自动矫正域偏移导致的错误预测。
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：域泛化（Domain Generalization）旨在训练能泛化到未见目标域的模型。单源域泛化更具挑战性——仅用一个源域的数据训练，却要在分布全然不同的目标域上表现良好。现有方法主要依靠数据增强（风格迁移、频域变换等）来模拟域偏移。
 
@@ -92,10 +94,10 @@ TIDE包含三个阶段：(1) 概念标注生成——利用LLM为每个类别生
 
 ## 相关论文
 
-- [Grokking in LLM Pretraining? Monitor Memorization-to-Generalization without Test](../../ICLR2026/interpretability/grokking_in_llm_pretraining_monitor_memorization-to-generalization_without_test.md)
-- [CLEME2.0: Towards Interpretable Evaluation by Disentangling Edits for Grammatical Error Correction](../../ACL2025/interpretability/cleme2_gec_evaluation.md)
-- [Language Guided Concept Bottleneck Models for Interpretable Continual Learning](language_guided_concept_bottleneck_models_for_interpretable_continual_learning.md)
-- [Concept-Based Unsupervised Domain Adaptation](../../ICML2025/interpretability/concept-based_unsupervised_domain_adaptation.md)
+- [L-SWAG: Layer-Sample Wise Activation with Gradients Information for Zero-Shot NAS on Vision Transformers](l-swag_layer-sample_wise_activation_with_gradients_information_for_zero-shot_nas.md)
 - [Scaling Vision Pre-Training to 4K Resolution](scaling_vision_pre-training_to_4k_resolution.md)
+- [Differentiable Inverse Rendering with Interpretable Basis BRDFs](differentiable_inverse_rendering_with_interpretable_basis_brdfs.md)
+- [Interpretable Image Classification via Non-parametric Part Prototype Learning](interpretable_image_classification_via_non-parametric_part_prototype_learning.md)
+- [Prompt-CAM: Making Vision Transformers Interpretable for Fine-Grained Analysis](prompt-cam_making_vision_transformers_interpretable_for_fine-grained_analysis.md)
 
 <!-- RELATED:END -->

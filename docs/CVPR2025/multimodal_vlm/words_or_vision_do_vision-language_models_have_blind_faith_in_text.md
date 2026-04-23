@@ -124,9 +124,9 @@ SFT使LLaVA的Corruption准确率从28.69%提升到71.25%，Macro提升12%。
 ## 相关论文
 
 - [Do Vision-Language Models Have Internal World Models? Towards an Atomic Evaluation](../../ACL2025/multimodal_vlm/do_vision-language_models_have_internal_world_models_towards_an_atomic_evaluatio.md)
+- [Vision-Language Models Do Not Understand Negation](vision-language_models_do_not_understand_negation.md)
 - [It's a (Blind) Match! Towards Vision-Language Correspondence without Parallel Data](its_a_blind_match_towards_vision-language_correspondence_without_parallel_data.md)
 - [PARC: A Quantitative Framework Uncovering the Symmetries within Vision Language Models](parc_a_quantitative_framework_uncovering_the_symmetries_within_vision_language_m.md)
 - [Beyond Words: Augmenting Discriminative Richness via Diffusions in Unsupervised Prompt Learning](beyond_words_augmenting_discriminative_richness_via_diffusions_in_unsupervised_p.md)
-- [FastVLM: Efficient Vision Encoding for Vision Language Models](fastvlm_efficient_vision_encoding_for_vision_language_models.md)
 
 <!-- RELATED:END -->

@@ -179,6 +179,6 @@ SingaKids 正是在这一背景下提出，旨在通过图像描述任务（pict
 - [Parrot: Multilingual Visual Instruction Tuning](../../ICML2025/multimodal_vlm/parrot_multilingual_visual_instruction_tuning.md)
 - [DALR: Dual-level Alignment Learning for Multimodal Sentence Representation Learning](dalr_dual-level_alignment_learning_for_multimodal_sentence_representation_learni.md)
 - [Speaking Beyond Language: A Large-Scale Multimodal Dataset for Learning Nonverbal Cues from Video-Grounded Dialogues](speaking_beyond_language.md)
-- [Multimodal Negative Learning](../../NeurIPS2025/multimodal_vlm/multimodal_negative_learning.md)
+- [A Parameter-Efficient and Fine-Grained Prompt Learning for Vision-Language Models](a_parameter-efficient_and_fine-grained_prompt_learning_for_vision-language_model.md)
 
 <!-- RELATED:END -->

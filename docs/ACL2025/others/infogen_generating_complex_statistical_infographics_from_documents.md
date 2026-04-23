@@ -137,10 +137,10 @@ Infogen 包含两个主要模块：
 
 ## 相关论文
 
+- [ACT: Knowledgeable Agents to Design and Perform Complex Tasks](act_knowledgeable_agents_to_design_and_perform_complex_tasks.md)
+- [ASPERA: A Simulated Environment to Evaluate Planning for Complex Action Execution](aspera_a_simulated_environment_to_evaluate_planning_for_complex_action_execution.md)
 - [Re-identification of De-identified Documents with Autoregressive Infilling](reidentification_deidentified.md)
 - [Statistical Deficiency for Task Inclusion Estimation](statistical_deficiency_task_inclusion.md)
 - [Generating Synthetic Relational Tabular Data via Structural Causal Models](generating_synthetic_relational_tabular_data_via_structural_causal_models.md)
-- [Statistical Inference Under Performativity](../../NeurIPS2025/others/statistical_inference_under_performativity.md)
-- [Generating Plausible Distractors for Multiple-Choice Questions via Student Choice Prediction](distractor_gen_multiple_choice.md)
 
 <!-- RELATED:END -->

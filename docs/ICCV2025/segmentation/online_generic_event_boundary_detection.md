@@ -190,6 +190,6 @@ ESTimator 在性能最优的同时保持与 MiniROAD 相当的实时处理速度
 - [unMORE: Unsupervised Multi-Object Segmentation via Center-Boundary Reasoning](../../ICML2025/segmentation/unmore_unsupervised_multi-object_segmentation_via_center-boundary_reasoning.md)
 - [GTPBD: A Fine-Grained Global Terraced Parcel and Boundary Dataset](../../NeurIPS2025/segmentation/gtpbd_a_fine-grained_global_terraced_parcel_and_boundary_dataset.md)
 - [Un-EVIMO: Unsupervised Event-based Independent Motion Segmentation](../../ECCV2024/segmentation/un-evimo_unsupervised_event-based_independent_motion_segmentation.md)
-- [PRUE: A Practical Recipe for Field Boundary Segmentation at Scale](../../CVPR2026/segmentation/prue_a_practical_recipe_for_field_boundary_segmentation_at_scale.md)
+- [Re-coding for Uncertainties: Edge-awareness Semantic Concordance for Resilient Event-RGB Segmentation](../../NeurIPS2025/segmentation/re-coding_for_uncertainties_edge-awareness_semantic_concordance_for_resilient_ev.md)
 
 <!-- RELATED:END -->

@@ -1,14 +1,18 @@
 ---
 title: >-
-  CVPR2025 强化学习方向 6篇论文解读
+  CVPR2025 强化学习方向 7篇论文解读
 description: >-
-  6篇CVPR2025 强化学习论文解读，主题涵盖：利用互联网上超过 2000 小时的城市步行和驾驶视、提出 DSFormer，首个用于离线强化学习的脉冲、提出Visual Forager（VF）模型等，每篇含核心思想与方法详解。
+  7篇CVPR2025 强化学习论文解读，主题涵盖：本文提出 CALF 框架，通过在 RL、利用互联网上超过 2000 小时的城市步行和驾驶视、提出 DSFormer，首个用于离线强化学习的脉冲等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**📷 CVPR2025** · **6** 篇论文解读
+**📷 CVPR2025** · **7** 篇论文解读
+
+**[CALF: Communication-Aware Learning Framework for Distributed Reinforcement Learning](calf_communication_aware_distributed_rl.md)**
+
+:   本文提出 CALF 框架，通过在 RL 训练中注入可配置的网络延迟、抖动和丢包模型，使策略在部署到真实分布式边缘设备时性能退化降低约 3-4 倍，揭示网络条件是 sim-to-real 转移中被忽视的重要维度。
 
 **[CityWalker: Learning Embodied Urban Navigation from Web-Scale Videos](citywalker_learning_embodied_urban_navigation_from_web-scale_videos.md)**
 

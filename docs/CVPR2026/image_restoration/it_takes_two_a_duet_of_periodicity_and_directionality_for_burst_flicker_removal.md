@@ -167,10 +167,10 @@ Flickerformer在全部三个指标上均取得最优，PSNR超越第二名AST +0
 
 ## 相关论文
 
+- [Winner of CVPR2026 NTIRE Challenge on Image Shadow Removal: Semantic and Geometric Guidance for Shadow Removal via Cascaded Refinement](shadow_removal_cascaded_refinement.md)
 - [Robust Adverse Weather Removal via Spectral-based Spatial Grouping (SSGformer)](../../ICCV2025/image_restoration/robust_adverse_weather_removal_via_spectral-based_spatial_grouping.md)
 - [Mechanism of Task-oriented Information Removal in In-context Learning](../../ICLR2026/image_restoration/mechanism_of_task-oriented_information_removal_in_in-context_learning.md)
+- [NTIRE 2026 The Second Challenge on Day and Night Raindrop Removal for Dual-Focused Images](ntire_2026_raindrop_removal_challenge.md)
 - [QMambaBSR: Burst Image Super-Resolution with Query State Space Model](../../CVPR2025/image_restoration/qmambabsr_burst_image_super-resolution_with_query_state_space_model.md)
-- [Benchmarking Burst Super-Resolution for Polarization Images: Noise Dataset and Analysis](../../ICCV2025/image_restoration/benchmarking_burst_superresolution_for_polarization_images_n.md)
-- [OAPT: Offset-Aware Partition Transformer for Double JPEG Artifacts Removal](../../ECCV2024/image_restoration/oapt_offset-aware_partition_transformer_for_double_jpeg_artifacts_removal.md)
 
 <!-- RELATED:END -->

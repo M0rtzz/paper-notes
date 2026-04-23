@@ -17,7 +17,7 @@ tags:
 
 **会议**: ICLR2026  
 **arXiv**: [2501.07681](https://arxiv.org/abs/2501.07681)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 模型压缩  
 **关键词**: 数据集蒸馏, 最优量化, Wasserstein 距离, 扩散模型, 潜空间聚类  
 
@@ -25,7 +25,10 @@ tags:
 将解耦式数据集蒸馏重新形式化为最优量化问题，证明通过扩散先验的潜空间聚类+权重可收敛逼近真实数据分布，提出 DDOQ 算法在 ImageNet-1K 上以极低额外计算量超越 D4M 等基线。
 
 ## 研究背景与动机
-数据集蒸馏（DD）旨在找到小型合成训练集，使得在其上训练的模型性能接近完整数据训练。早期双层优化方法计算复杂度高且依赖模型架构。**解耦方法**（如 SRe2L、D4M）通过匹配数据分布并使用生成技术绕过像素空间优化，但缺乏理论保证——没有先前工作从理论上证明蒸馏数据集是否能合理近似原始数据分布。
+
+### 现有痛点
+
+**现有痛点**：**领域现状**：数据集蒸馏（DD）旨在找到小型合成训练集，使得在其上训练的模型性能接近完整数据训练。早期双层优化方法计算复杂度高且依赖模型架构。**解耦方法**（如 SRe2L、D4M）通过匹配数据分布并使用生成技术绕过像素空间优化，但缺乏理论保证——没有先前工作从理论上证明蒸馏数据集是否能合理近似原始数据分布。
 
 关键观察：D4M 等方法在潜空间做 $k$-means 聚类再解码，本质上是在做 **Wasserstein 重心**问题（均匀权重），而经典**最优量化**理论告诉我们加上（自动学习的）权重可以显著减小 Wasserstein 距离。
 
@@ -51,6 +54,9 @@ $$\|\mathbb{E}_{\mu_\delta}[f] - \mathbb{E}_{\nu_\delta}[f]\| \leq C \cdot L \cd
 
 **ImageNet-1K（UNet backbone，ResNet-18 评估）**：
 
+
+### 主实验
+
 | IPC | SRe2L | D4M | RDED | **DDOQ** |
 |-----|-------|-----|------|----------|
 | 10 | 21.3% | 27.9% | 42.0% | **33.1%** |
@@ -62,6 +68,9 @@ $$\|\mathbb{E}_{\mu_\delta}[f] - \mathbb{E}_{\nu_\delta}[f]\| \leq C \cdot L \cd
 - 跨架构泛化（IPC=50）：DDOQ 在 CNN 学生模型上一致优于 D4M（如 MobileNet-V2: 52.1% vs 47.9%）
 
 **DiT backbone（DDOQ-DiT）**：
+
+
+### 消融实验
 
 | 数据集 | IPC | Minimax-IGD | **DDOQ-DiT** |
 |--------|-----|-------------|-------------|
@@ -85,7 +94,7 @@ $$\|\mathbb{E}_{\mu_\delta}[f] - \mathbb{E}_{\nu_\delta}[f]\| \leq C \cdot L \cd
 3. **最优量化视角**：揭示 $k$-means 等聚类方法本质上在求解最优量化问题，权重是 Voronoi 单元的测度
 4. **扩散模型的理论保证**：定理 1 证明扩散生成保持分布接近性，为在潜空间而非像素空间操作提供理论基础
 
-## 局限性
+## 局限与展望
 - 低 IPC 设置下（如 IPC=10）仍落后于 RDED 的 patch-based 方法（RDED 42.0% vs DDOQ 33.1%，UNet backbone）
 - Swin-T 等 Transformer 学生架构上 DDOQ 略逊于 D4M（57.4% vs 58.1%），可能需要更精细的超参调优
 - 收敛率 $\mathcal{O}(K^{-1/d})$ 随潜空间维度 $d$ 增大而变慢，对高维潜空间场景效果可能减弱
@@ -111,7 +120,7 @@ $$\|\mathbb{E}_{\mu_\delta}[f] - \mathbb{E}_{\nu_\delta}[f]\| \leq C \cdot L \cd
 - [Optimizing Distributional Geometry Alignment with Optimal Transport for Generative Dataset Distillation](../../NeurIPS2025/model_compression/optimizing_distributional_geometry_alignment_with_optimal_transport_for_generati.md)
 - [Dataset Color Quantization: A Training-Oriented Framework for Dataset-Level Compression](dataset_color_quantization_a_training-oriented_framework_for_dataset-level_compr.md)
 - [Compute-Optimal Quantization-Aware Training](compute-optimal_quantization-aware_training.md)
-- [Understanding Dataset Distillation via Spectral Filtering](understanding_dataset_distillation_via_spectral_filtering.md)
 - [Post Training Quantization for Efficient Dataset Condensation](../../AAAI2026/model_compression/post_training_quantization_for_efficient_dataset_condensation.md)
+- [Understanding Dataset Distillation via Spectral Filtering](understanding_dataset_distillation_via_spectral_filtering.md)
 
 <!-- RELATED:END -->

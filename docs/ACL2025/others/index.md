@@ -1,18 +1,22 @@
 ---
 title: >-
-  ACL2025 其他方向 266篇论文解读
+  ACL2025 其他方向 309篇论文解读
 description: >-
-  266篇ACL2025 其他论文解读，主题涵盖：提出 A3CG 数据集和方面-行动分析任务（从可持、构建 Barec——首个大规模、平衡、通过在8个事实验证和问答数据集上的大规模实验等，每篇含核心思想与方法详解。
+  309篇ACL2025 其他论文解读，主题涵盖：提出 A3CG 数据集和方面-行动分析任务（从可持、本文受人类认知双过程理论启发，提出双心智谈判智能体、构建 Barec——首个大规模、平衡等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**💬 ACL2025** · **266** 篇论文解读
+**💬 ACL2025** · **309** 篇论文解读
 
 **[Towards Robust ESG Analysis Against Greenwashing Risks: A3CG](a3cg_esg_greenwashing.md)**
 
 :   提出 A3CG 数据集和方面-行动分析任务（从可持续性声明中提取方面及其行动类型：已实施/计划中/不确定），通过跨类别泛化设置评估 NLP 方法抵御漂绿风险的鲁棒性，发现监督学习（GRACE F1=47.51）优于 LLM（Claude 3.5 F1=42.03）但泛化效率更差。
+
+**[A Dual-Mind Framework for Strategic and Expressive Negotiation Agent](a_dual-mind_framework_for_strategic_and_expressive_negotiation_agent.md)**
+
+:   本文受人类认知双过程理论启发，提出双心智谈判智能体框架（DMNA），将直觉模块（快速策略规划，基于 MCTS+DPO 训练）和审慎模块（慢速表达优化，基于多面反思机制）相结合，在谈判任务上取得了最优性能。
 
 **[Barec: A Large and Balanced Corpus for Fine-grained Arabic Readability Assessment](a_large_and_balanced_corpus_for_fine-grained_arabic_readability_assessment.md)**
 
@@ -25,6 +29,14 @@ description: >-
 **[A Measure of the System Dependence of Automated Metrics](a_measure_of_the_system_dependence_of_automated_metrics.md)**
 
 :   揭示 MT 自动评估指标 "尺子因被测物不同而改变长度" 的系统依赖性问题，提出 SysDep 度量来量化不同翻译系统被指标高估/低估的程度。
+
+**[A Multi-Persona Framework for Argument Quality Assessment](a_multi-persona_framework_for_argument_quality_assessment.md)**
+
+:   本文提出 MPAQ 框架，通过大语言模型模拟多个不同评估者视角（persona），对论点进行多角度质量评估，并设计粗到细的评分策略（先整数再小数），在 IBM-Rank-30k 和 IBM-ArgQ-5.3kArgs 数据集上显著超越现有基线，同时提供了可解释的多视角评估理由。
+
+**[A New Formulation of Zipf's Meaning-Frequency Law through Contextual Diversity](a_new_formulation_of_zipfs_meaning-frequency_law_through_contextual_diversity.md)**
+
+:   本文提出将 Zipf 语义-频率定律重新形式化为词频与上下文多样性之间的幂律关系，通过语言模型生成的上下文化词向量方向来量化词义数量，发现该定律在小规模语言模型中不可观测，且自回归 LM 需要比掩码 LM 多得多的参数才能呈现该定律。
 
 **[A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs](a_practical_approach_for_building_production-grade_conversational_agents_with_wo.md)**
 
@@ -42,9 +54,21 @@ description: >-
 
 :   构建 AceCode-87K（87K 编码题 + 138 万自动合成测试用例），训练代码专用 Reward Model（7B 超越 340B Nemotron），Best-of-N 提升 Llama-3.1-8B 平均 8.9 分，R1 风格从 base 直接 RL 仅 80 步 HumanEval+ 提升 22.5%。
 
+**[Achieving Certification-by-Design Through Model-Driven Development](achieving_certification-by-design_through_model-driven_development.md)**
+
+:   本文提出了一种"认证驱动设计"（Certification-by-Design）的模型驱动开发方法，通过在 NLP 系统的设计阶段就嵌入安全认证要求，使得最终系统能够自动满足相关行业标准和法规，减少事后认证的高昂成本。
+
 **[ACORD: An Expert-Annotated Retrieval Dataset for Legal Contract Clause Retrieval](acord_an_expert-annotated_retrieval_dataset_for_legal_contract_drafting.md)**
 
 :   构建首个面向合同起草的专家标注条款检索基准ACORD（114查询、126K+对、1-5星评分），评估20种检索方法发现BM25+GPT-4o pointwise重排序最优（NDCG@5=76.9%），但高质量条款精度极低（5星precision@5仅17.2%），揭示模型距真实律师需求的巨大差距。
+
+**[ACT: Knowledgeable Agents to Design and Perform Complex Tasks](act_knowledgeable_agents_to_design_and_perform_complex_tasks.md)**
+
+:   本文提出 ACT 框架，让多个 LLM 智能体通过协作设计任务并相互获取结构化知识描述，使每个智能体不仅理解自身任务还了解他人的工作方式，从而在创意写作和工具使用等复杂任务上显著超越现有多智能体方法。
+
+**[Adaptive Feature-based Low Rank Plus Sparse Decomposition for Subspace Clustering](adaptive_feature-based_low_rank_plus_sparse_decomposition_for_subspace_clusterin.md)**
+
+:   本文提出一种自适应特征驱动的低秩加稀疏矩阵分解方法，通过在特征空间中自适应学习低秩和稀疏成分的权重，解决子空间聚类中噪声鲁棒性和特征判别力不足的问题。
 
 **[Adaptive Retrieval without Self-Knowledge? Bringing Uncertainty Back Home](adaptive_retrieval_without_self-knowledge_bringing_uncertainty_back_home.md)**
 
@@ -57,6 +81,10 @@ description: >-
 **[AIDE: Attribute-Guided Multi-Hop Data Expansion for Data Scarcity in Task-Specific Fine-tuning](aide_attribute-guided_multi-hop_data_expansion_for_data_scarcity_in_task-specifi.md)**
 
 :   提出AIDE框架，通过"属性引导+Persona增强+残差连接"的多跳数据扩展机制，从仅10个种子样本生成约3K条高质量任务特定训练数据，微调Mistral-7B后在zero-shot上平均超越人工标注数据微调6%、超越Evol-Instruct等SOTA方法30%。
+
+**[ALGEN: Few-Shot Inversion Attacks on Textual Embeddings via Cross-Model Alignment](algen_few-shot_inversion_attacks_on_textual_embeddings_via_cross-model_alignment.md)**
+
+:   本文提出ALGEN，一种少样本文本嵌入反转攻击方法，通过将受害者的嵌入空间与攻击者的嵌入空间进行线性对齐，再利用训练好的嵌入到文本生成器重建原始文本，仅需1个泄露样本即可发起部分成功的攻击，1000个样本时Rouge-L达45.75。
 
 **[Aligned but Blind: Alignment Increases Implicit Bias by Reducing Awareness of Race](aligned_but_blind_implicit_bias.md)**
 
@@ -90,6 +118,10 @@ description: >-
 
 :   提出 ARise 框架，将贝叶斯风险评估与动态 RAG 集成到蒙特卡洛树搜索中，解决知识增强推理中的错误传播和验证瓶颈问题，在多跳QA任务上平均准确率超 SOTA KAR 方法 23.10%，超 RAG-equipped 推理模型（DeepSeek-R1）25.37%。
 
+**[ASPERA: A Simulated Environment to Evaluate Planning for Complex Action Execution](aspera_a_simulated_environment_to_evaluate_planning_for_complex_action_execution.md)**
+
+:   提出 ASPERA 框架及 Asper-Bench 基准，用于评估 LLM 在自定义助手库约束下执行复杂多步动作规划（程序生成）的能力，揭示了相比自由代码生成，基于自定义 API 库的程序生成对 LLM 构成显著更大的挑战。
+
 **[Attention Entropy is a Key Factor for Parallel Context Encoding](attention_entropy_parallel_encoding.md)**
 
 :   发现并行上下文编码导致 query token 的注意力熵异常升高是性能下降的关键因素，并提出 Attention Sink 共享前缀和 Selective Attention 两种免微调方法有效缓解该问题。
@@ -97,6 +129,18 @@ description: >-
 **[Autalic: A Dataset for Anti-Autistic Ableist Language In Context](autalic_a_dataset_for_anti-autistic_ableist_language_in_context.md)**
 
 :   提出 Autalic——首个专注于上下文中反自闭症残障歧视语言检测的数据集，包含 2,400 条 Reddit 句子及上下文标注，由神经多样性背景的专家标注，实验揭示当前 LLM（包括 DeepSeek、Llama3、Gemma2、Mistral）在识别反自闭症歧视语言时与人类判断严重不一致（平均 Cohen's Kappa 仅 0.091），凸显该任务的困难性。
+
+**[AutoMixer: Checkpoint Artifacts as Automatic Data Mixers](automixer_checkpoint_artifacts_as_automatic_data_mixers.md)**
+
+:   提出 AutoMixer 框架，利用训练过程中保存的检查点模型作为"数据混合器"，通过聚合多检查点的一阶影响函数近似来重新分组和加权训练数据，在八个推理基准上取得最高 1.93% 的性能提升。
+
+**[Balancing the Budget: Understanding Trade-offs Between Supervised and Preference-Based Finetuning](balancing_the_budget_understanding_trade-offs_between_supervised_and_preference-.md)**
+
+:   系统研究了在固定数据标注预算下，如何在监督微调（SFT）和偏好微调（PFT/DPO）两个阶段之间最优分配资源，发现低数据量时纯 SFT 最优，高预算时组合使用效果最佳，且仅将 <10% 预算分配给 SFT 就能解决 DPO 的冷启动问题并带来 15-20% 的数学推理提升。
+
+**[Battling against Tough Resister: Strategy Planning with Adversarial Game for Non-collaborative Dialogues](battling_against_tough_resister_strategy_planning_with_adversarial_game_for_non-.md)**
+
+:   本文提出一种基于对抗博弈的策略规划框架，用于处理非合作对话（如说服、谈判）中面对顽固对手时的策略选择问题，通过建模对话双方的对抗动态来生成更有效的说服策略。
 
 **[Behavioural vs. Representational Systematicity in End-to-End Models: An Opinionated Survey](behavioural_vs_representational_systematicity_in_end-to-end_models_an_opinionate.md)**
 
@@ -186,9 +230,17 @@ description: >-
 
 :   构建了一个高质量的全类型多词表达(MWE)识别数据集 CoAM（1.3K句），通过多步质量保障流程解决了现有数据集标注不一致的问题，并发现微调大语言模型在 MWE 识别任务上显著优于此前的 SOTA 方法 MWEasWSD。
 
+**[Code-Switching and Syntax: A Large-Scale Experiment](code-switching_and_syntax_a_large-scale_experiment.md)**
+
+:   本文通过大规模、多语言、跨现象的实验，首次系统性验证了"句法信息足以解释语码转换（code-switching）模式"这一语言学共识，仅用句法特征就能达到与双语人类相当的判断准确率，且学到的句法模式可泛化到未见过的语言对。
+
 **[CoLA: Collaborative Low-Rank Adaptation](cola_collaborative_low-rank_adaptation.md)**
 
 :   提出 CoLA，一种灵活的 LoRA 架构，打破矩阵 A 和 B 之间的固定数量约束（#A=M, #B=N），并设计三种协作策略（全协作/随机协作/启发式协作），结合扩展的 PiSSA 初始化，在低样本场景下显著优于现有 PEFT 方法。
+
+**[CoMet: Metaphor-Driven Covert Communication for Multi-Agent Language Games](comet_metaphor-driven_covert_communication_for_multi-agent_language_games.md)**
+
+:   本文提出 CoMet 框架，通过整合基于假设检验的隐喻推理器和自改进式隐喻生成器，使 LLM 智能体能在多智能体语言博弈中运用隐喻进行隐蔽通信和语义规避，在 Undercover 和 Adversarial Taboo 两个游戏中显著提升了智能体的策略沟通能力（胜率从 0.20 提升至 0.70）。
 
 **[ComfyUI-Copilot: An Intelligent Assistant for Automated Workflow Development](comfyui-copilot_an_intelligent_assistant_for_automated_workflow_development.md)**
 
@@ -210,6 +262,14 @@ description: >-
 
 :   构建了 ConECT——首个捷克-波兰电商多模态翻译数据集（11,400 句对 + 产品图片 + 类目路径），通过 VLM 端到端翻译、NMT+类目路径前缀、NMT+图像描述前缀三条技术路线的系统对比，发现结构化类目上下文能稳定提升翻译质量（COMET +0.005），而合成图像描述以级联方式注入反而严重损害翻译性能（COMET 暴跌 0.11+）。
 
+**[CONFETTI: Conversational Function-Calling Evaluation Through Turn-Level Interactions](confetti_conversational_function-calling_evaluation_through_turn-level_interacti.md)**
+
+:   CONFETTI 提出了一个面向多轮对话场景的函数调用（function-calling）评测基准，包含 109 段人类模拟对话、313 个用户轮次和 86 个 API，通过 off-policy turn-level 评估和 dialog act 标注系统性地测试 LLM 在复杂对话场景下的工具调用能力，发现即便最强模型（Nova Pro）也仅达 40% 左右，链式调用更是普遍短板。
+
+**[ConSim: Measuring Concept-Based Explanations' Effectiveness with Automated Simulatability](consim_measuring_concept-based_explanations_effectiveness_with_automated_simulat.md)**
+
+:   ConSim 提出用 LLM 作为"模拟器"来自动评估概念解释（concept-based explanation）的有效性——通过检测 LLM 能否仅凭解释来预测被解释模型的输出，从而同时衡量概念空间的质量和解释的可理解性，实现了可扩展、一致且全面的解释方法评估。
+
 **[Consistent Client Simulation for Motivational Interviewing-based Counseling](consistent_client_simulation_for_motivational_interviewing-based_counseling.md)**
 
 :   提出一种面向动机性访谈（MI）心理咨询的一致性客户模拟框架，通过状态转换、行动选择、信息选择和回复生成四个模块，确保模拟客户的行为与其预设的画像（动机、信念、改变计划、配合度）保持一致，在自动和专家评估中均优于基线方法。
@@ -217,6 +277,14 @@ description: >-
 **[Consultant Decoding: Yet Another Synergistic Mechanism](consultant_decoding_yet_another_synergistic_mechanism.md)**
 
 :   提出 Consultant Decoding (CD)，一种基于目标模型负对数似然（NLL）验证 draft token 的新型协同解码机制，相比传统 Speculative Decoding 的似然比验证方法，能大幅提升接受率、降低大模型调用频率，同时保持甚至超越目标模型的生成质量。
+
+**[Contextual Experience Replay for Self-Improvement of Language Agents](contextual_experience_replay_for_self-improvement_of_language_agents.md)**
+
+:   CER（Contextual Experience Replay）提出了一个无需训练的语言 agent 自我改进框架，通过将过去的交互经验累积并合成为动态记忆缓冲区，在推理时让 agent 检索相关知识来增强新任务的决策，在 WebArena 上相对 GPT-4o baseline 提升了 51.0% 的成功率。
+
+**[Cooperating and Competing Through Natural Language](cooperating_and_competing_through_natural_language.md)**
+
+:   本文研究 LLM 智能体在自然语言交互环境中的合作与竞争行为，通过设计多人博弈场景，分析语言策略（如说服、欺骗、协商）如何影响博弈结果，揭示了 LLM 在社会交互中的策略涌现能力和局限性。
 
 **[CORAL: Learning Consistent Representations across Multi-step Training with Lighter Speculative Drafter](coral_speculative_drafting.md)**
 
@@ -229,6 +297,10 @@ description: >-
 **[Cramming 1568 Tokens into a Single Vector and Back Again: Exploring the Limits of Embedding Space Capacity](cramming_tokens_embedding_capacity.md)**
 
 :   通过逐样本优化方法将文本压缩到可训练的 [mem] 向量中，发现 Llama-3.1-8B 可以将 1568 个 token 无损压缩到单个输入向量中，揭示了现有方法（约 x10 压缩比）与实际可达极限（x1500+）之间存在两个数量级的差距。
+
+**[DAPE V2: Process Attention Score as Feature Map for Length Extrapolation](dape_v2_process_attention_score_as_feature_map_for_length_extrapolation.md)**
+
+:   本文将 Transformer 的注意力分数视为特征图，通过在注意力分数上施加卷积操作（而非简单的 key-query 点积）来显著提升 Transformer 在长序列上的长度外推能力，将外推问题转化为经典的图像特征处理问题。
 
 **[Decoding Knowledge Attribution in Mixture-of-Experts: A Framework of Basic-Refinement Collaboration and Efficiency Analysis](decoding_knowledge_attribution_in_mixture-of-experts_a_framework_of_basic-refine.md)**
 
@@ -246,9 +318,17 @@ description: >-
 
 :   本文提出对话元素建模（Dialogue Element Modeling）这一新任务，系统定义了对话生命周期中从"前奏"到"尾声"的全面元素体系，构建了包含元素感知和对话智能体交互两大能力的DEMO benchmark，并通过模仿学习训练DEMO agent在域内外任务上均表现优异。
 
+**[Detecting Sockpuppetry on Wikipedia Using Meta-Learning](detecting_sockpuppetry_on_wikipedia_using_meta-learning.md)**
+
+:   本文将元学习（meta-learning）应用于维基百科的恶意马甲账号（sockpuppet）检测任务，通过跨多个马甲组的训练优化模型的快速适应能力，在数据稀缺场景下显著提升了检测精度，并发布了新的马甲调查数据集。
+
 **[Developmentally-plausible Working Memory Shapes a Critical Period for Language Acquisition](developmentally-plausible_working_memory_shapes_a_critical_period_for_language_a.md)**
 
 :   受"Less-is-More"假说启发，本文提出 DynamicLimit-Exp 方法，将人类工作记忆在关键期内的指数增长特征集成到语言模型训练中（通过动态调节 ALiBi 斜率），在 Child-Directed Speech 数据上训练的 GPT-2 模型在句法评估中显著优于无记忆约束和静态约束的基线。
+
+**[Digital Gatekeepers: Google's Role in Curating Hashtags and Subreddits](digital_gatekeepers_googles_role_in_curating_hashtags_and_subreddits.md)**
+
+:   本文通过对比 Google 搜索引擎返回的 hashtag 和 subreddit 结果与 Reddit 和 Twitter/X 的非采样数据，揭示了 Google 的算法系统性地压制了与色情、阴谋论、广告和加密货币相关的内容，同时推广高参与度内容，从而充当"数字守门人"影响公众话语。
 
 **[Generating Plausible Distractors for Multiple-Choice Questions via Student Choice Prediction](distractor_gen_multiple_choice.md)**
 
@@ -330,6 +410,10 @@ description: >-
 
 :   提出 EpMAN 方法，通过情景记忆模块估计上下文块的相对相关性，用该相关性重新加权解码器的自注意力（differentiating attention），配合噪声训练和注意力范围扩展策略，在 16k-256k 上下文长度范围内实现了比长上下文 LLM 和 RAG 更强且更鲁棒的表现。
 
+**[ERU-KG: Efficient Reference-aligned Unsupervised Keyphrase Generation](eru-kg_efficient_reference-aligned_unsupervised_keyphrase_generation.md)**
+
+:   ERU-KG 提出了一个由信息量模块和短语性模块组成的无监督关键短语生成框架，通过参考文本（查询、引用上下文、标题）在词项级别学习信息量估计，在关键短语生成基准上超越所有无监督基线并达到有监督模型 89% 的性能，同时推理速度最快。
+
 **[Evaluating Design Decisions for Dual Encoder-based Entity Disambiguation](evaluating_design_decisions_for_dual_encoder-based_entity_disambiguation.md)**
 
 :   系统评估了 Dual Encoder 在实体消歧（ED）任务中的关键设计选择（损失函数、相似度度量、标签语义化格式、负采样策略），并基于最优设计构建了 VerbalizED 系统，在 ZELDA 基准上达到了新的 SOTA，同时探索了一种迭代预测策略来利用已消歧的邻居实体改进困难样本。
@@ -353,6 +437,10 @@ description: >-
 **[FastDraft: How to Train Your Draft](fastdraft_how_to_train_your_draft.md)**
 
 :   提出 FastDraft，一套高效的 draft 模型预训练与对齐流程，可在24小时内用单节点8卡训练出约50M参数的 draft 模型，配合 Speculative Decoding 实现最高3倍内存带宽加速和2倍实际推理加速。
+
+**[FastMCTS: A Simple Sampling Strategy for Data Synthesis](fastmcts_a_simple_sampling_strategy_for_data_synthesis.md)**
+
+:   FastMCTS 提出了一种受 MCTS 启发的轻量级推理数据合成策略，通过自适应停留策略、动态探索和保留模拟三个改进，比拒绝采样多生成 30% 以上的正确推理路径，训练出的模型在多个数学基准上平均提升 3.9%。
 
 **[FCMR: Robust Evaluation of Financial Cross-Modal Multi-Hop Reasoning](fcmr_robust_evaluation_of_financial_cross-modal_multi-hop_reasoning.md)**
 
@@ -385,6 +473,10 @@ description: >-
 **[From Lists to Emojis: How Format Bias Affects Model Alignment](from_lists_to_emojis_how_format_bias_affects_model_alignment.md)**
 
 :   本文系统研究了 RLHF 中偏好模型（包括人类评估者、GPT-4 和开源模型）对粗体、列表、emoji 等格式模式的偏好偏差，展示了不到 1% 的偏差数据即可显著注入偏差，并提出了双头奖励模型的去偏方法。
+
+**[From Real to Synthetic: Synthesizing Millions of Diversified and Complicated User Instructions with Attributed Grounding](from_real_to_synthetic_synthesizing_millions_of_diversified_and_complicated_user.md)**
+
+:   本文提出"归因式接地"（Attributed Grounding）框架，通过自顶向下的用户归因和自底向上的基于网络文档的指令合成，构建了一个包含 100 万条多样且复杂指令的 SynthQuestions 数据集，训练模型在多个通用基准上达到领先表现。
 
 **[GA-S3: Comprehensive Social Network Simulation with Group Agents](ga-s3_comprehensive_social_network_simulation_with_group_agents.md)**
 
@@ -466,6 +558,10 @@ description: >-
 
 :   提出两阶段训练框架解决弱到强泛化中的过拟合问题：第一阶段通过基于不确定性的过滤提高弱监督信号质量，第二阶段用已微调的强模型为被丢弃的难题重新生成答案以恢复问题质量，在 GSM8k 和 MATH 上将 PGR 从 7.19% 提升到 120.50%。
 
+**[Hybrid Preferences: Learning to Route Instances for Human vs. AI Feedback](hybrid_preferences_learning_to_route_instances_for_human_vs_ai_feedback.md)**
+
+:   本文提出HyPER（混合偏好路由器），通过训练性能预测模型来智能决定每个标注实例应由人类还是AI完成偏好标注，在RewardBench上比纯人类或纯AI标注分别提升7-13%，同时大幅降低标注成本。
+
 **[Enhancing Hyperbole and Metaphor Detection with Their Bidirectional Dynamic Interaction and Emotion Knowledge](hyperbole_metaphor_detection.md)**
 
 :   提出 EmoBi 框架，通过情感分析→情感引导的域映射→双向动态交互三阶段 prompting 流程，利用 LLM 挖掘夸张和隐喻背后的情感线索及二者的互促关系，在四个数据集上大幅超越 SoTA（TroFi 上夸张检测 F1 提升 28.1%，HYPO-L 上隐喻检测 F1 提升 23.1%）。
@@ -486,6 +582,10 @@ description: >-
 
 :   提出 Implicit-VidSRL 数据集与 iSRL-Qwen2-VL 模型，针对过程性视频指令中省略的隐含论元（食材成分）进行预测，通过 SRL 框架将多步指令分解为 {verb, what, where/with} 三元组，在银标数据上微调后在隐含论元 F1 上超越 GPT-4o 达 17%。
 
+**[Implicit Reasoning in Transformers is Reasoning through Shortcuts](implicit_reasoning_in_transformers_is_reasoning_through_shortcuts.md)**
+
+:   本文通过在受控的多步数学推理数据集上从零训练 GPT-2，系统研究了语言模型的隐式推理机制，发现隐式推理本质上是基于模式匹配的捷径学习——在固定模式数据上能泛化，在非固定模式数据上则过拟合，这一发现在 SOTA 大模型上同样成立。
+
 **[Improve Rule Retrieval and Reasoning with Self-Induction and Relevance ReEstimate](improve_rule_retrieval_and_reasoning_with_self-induction_and_relevance_reestimat.md)**
 
 :   针对规则检索中查询（具体实例化事实）与规则（抽象变量形式）之间的语义鸿沟，提出 SIAR（自归纳增强检索）和 R3（规则相关性重评估）两种方法，通过将查询映射到规则语义空间并重新评估规则相关性，显著提升规则检索和下游推理性能。
@@ -493,6 +593,10 @@ description: >-
 **[Improving Language and Modality Transfer in Translation by Character-level Modeling](improving_language_and_modality_transfer_in.md)**
 
 :   提出基于字符级编码器 charSONAR 的跨语言跨模态翻译方法，通过 teacher-student 训练获得字符级文本编码器，再用轻量适配器连接 1000+ 语言的 CTC ASR 模型（MMS），在 75 语言文本翻译和 33 语言语音翻译上实现 SOTA，零资源低资源场景表现尤其突出。
+
+**[In Prospect and Retrospect: Reflective Memory Management for Long-term Personalized Dialogue Agents](in_prospect_and_retrospect_reflective_memory_management_for_long-term_personaliz.md)**
+
+:   本文提出 Reflective Memory Management (RMM) 机制，通过前瞻性反思（多粒度记忆摘要）和回顾性反思（强化学习驱动的在线检索优化）两个方向的结合，为长期个性化对话系统构建了高效的记忆管理框架，在 LongMemEval 上准确率提升超过 10%。
 
 **[Inducing Lexicons of In-Group Language with Socio-Temporal Context](inducing_lexicons_of_in-group_language_with_socio-temporal_context.md)**
 
@@ -506,6 +610,10 @@ description: >-
 
 :   提出Infogen框架，将文本文档转化为复杂统计信息图（多子图组合），采用两阶段设计——先用微调LLM生成结构化中间元数据，再用LLM代码生成器和反馈模块迭代生成最终信息图代码。
 
+**[INJONGO: A Multicultural Intent Detection and Slot-filling Dataset for 16 African Languages](injongo_a_multicultural_intent_detection_and_slot-filling_dataset_for_16_african.md)**
+
+:   本文引入 Injongo——一个覆盖 16 种非洲语言的多文化意图检测与槽位填充基准数据集，由母语者在银行、旅行、家庭、餐饮等领域原创生成，实验揭示 LLM 在非洲语言上的槽位填充表现极差（GPT-4o 仅 26 F1），意图检测也明显落后于微调基线。
+
 **[Inner Thinking Transformer: Leveraging Dynamic Depth Scaling to Foster Adaptive Internal Thinking](inner_thinking_transformer_leveraging_dynamic_depth_scaling_to_foster_adaptive_i.md)**
 
 :   提出 Inner Thinking Transformer (ITT)，通过自适应 token 路由和残差思维连接，在不增加参数的情况下为关键 token 动态分配更多计算步骤，实现隐式深度推理，162M 参数即可达到 466M Transformer 96.5% 的性能。
@@ -517,6 +625,14 @@ description: >-
 **[Instruction-Tuning Data Synthesis from Scratch via Web Reconstruction](instruction-tuning_data_synthesis_from_scratch_via_web_reconstruction.md)**
 
 :   提出 Web Reconstruction (WebR)，一种从原始网页文档全自动合成高质量指令微调数据的框架，通过"Web作为指令"和"Web作为回复"双视角范式，无需人工标注即可生成优于现有SOTA的IT数据。
+
+**[Inter-Passage Verification for Multi-evidence Multi-answer QA](inter-passage_verification_for_multi-evidence_multi-answer_qa.md)**
+
+:   本文提出 RI²VER 框架解决多答案问答（multi-answer QA）问题——先通过独立阅读大量检索段落生成高召回但含噪声的候选答案集，再通过段落间验证（生成验证问题 → 收集额外证据 → 跨段落综合验证）过滤错误答案，在 QAMPARI 和 RoMQA 上平均 F1 提升 11.17%。
+
+**[Interlocking-free Selective Rationalization Through Genetic-based Learning](interlocking-free_selective_rationalization_through_genetic-based_learning.md)**
+
+:   本文提出 GenSPP，首个完全消除 interlocking 问题的选择性合理化框架，通过遗传算法对生成器和预测器进行分离优化，在合成数据集和仇恨言论检测任务上显著提升了高亮质量（Hl-F1 提升 6.5%–10.3%），同时保持了可比的分类性能。
 
 **[Intuitive Fine-Tuning: Towards Simplifying Alignment into a Single Process](intuitive_fine_tuning.md)**
 
@@ -556,9 +672,21 @@ description: >-
 
 :   提出 ARJudge 评估框架，通过微调 Analyzer 自适应生成评估标准并执行文本+代码双驱动分析，配合无需微调的 Refiner 综合判断，在多个评估基准上超越现有微调评估器，尤其在指令遵循评估上通过代码驱动分析提升高达 11.1%。
 
+**[Learning to Reason from Feedback at Test-Time](learning_to_reason_from_feedback_at_test-time.md)**
+
+:   本文提出FTTT（Feedback at Test-Time Training）范式，将LLM在推理阶段对环境反馈的利用形式化为一个优化问题，并设计了可学习的测试时优化器OpTune，在四个推理数据集上实现了优于现有反馈利用方法的可扩展性和性能。
+
+**[LegalReasoner: Step-wised Verification-Correction for Legal Judgment Reasoning](legalreasoner_step-wised_verification-correction_for_legal_judgment_reasoning.md)**
+
+:   本文提出LegalReasoner框架，通过争议焦点识别、分步推理、过程验证器逐步校验以及专家设计的归因纠正策略来增强法律判决预测的可靠性，配合新发布的58130条香港法院案例LegalHK数据集，在LLAMA-3.1-70B上将与法院判决的一致率从72.37%提升至80.27%。
+
 **[Length-Induced Embedding Collapse in PLM-based Models](length-induced_embedding_collapse_in_plm-based_models.md)**
 
 :   发现并严格证明了 PLM 文本嵌入模型中的"长度坍缩"现象——长文本嵌入趋于聚集，源于 self-attention 作为低通滤波器随文本长度增加而滤波率增强，高频信息被过度抑制；提出 TempScale 方法通过降低 attention 温度来缓解长短文本嵌入分布差异，在 MTEB 上提升 0.94%、LongEmbed 上提升 1.10%。
+
+**[Leveraging Unit Language Guidance to Advance Speech Modeling in Textless Speech-to-Speech Translation](leveraging_unit_language_guidance_to_advance_speech_modeling_in_textless_speech-.md)**
+
+:   本文提出"单元语言"（unit language）的概念，通过n-gram语言建模将语音离散单元构造为类文本表示，并利用多任务学习引导无文本语音到语音翻译（S2ST）模型的训练过程，同时提出任务提示建模来缓解源端和目标端单元语言同时使用时的冲突，在VoxPopuli四语数据集上取得显著提升。
 
 **[Limited Generalizability in Argument Mining: State-Of-The-Art Models Learn Datasets, Not Arguments](limited_generalizability_in_argument_mining_state-of-the-art_models_learn_datase.md)**
 
@@ -583,6 +711,10 @@ description: >-
 **[Making FETCH! Happen: Finding Emergent Dog Whistles Through Common Habitats](making_fetch_happen_finding_emergent_dog_whistles_through_common_habitats.md)**
 
 :   提出 FETCH! 基准和 EarShot 系统，用于在大规模社交媒体语料库中发现新兴的"狗哨"（dog whistle，即具有双重含义的编码表达），利用向量数据库和 LLM 的结合实现了比现有方法高 2-20 个 F-score 百分点的提升。
+
+**[Map&Make: Schema Guided Text to Table Generation](mapmake_schema_guided_text_to_table_generation.md)**
+
+:   提出 Map&Make 方法，先将非结构化文本"解剖"为命题原子语句（Map阶段），再从中推导表格模式并填充数据（Make阶段），在 Rotowire 和 Livesum 两个场景上显著提升了文本转表格的质量和可解释性。
 
 **[Mapping the Podcast Ecosystem with the Structured Podcast Research Corpus](mapping_the_podcast_ecosystem_with_the_structured_podcast_research_corpus.md)**
 
@@ -612,6 +744,10 @@ description: >-
 
 :   挑战了"元学习在神经网络中蒸馏贝叶斯简单性先验"的主流观点，通过形式语言实验证明元学习实际上是在模型中植入有用的**神经机制**（如计数器），而非学习简单性偏好。
 
+**[Meta-Reflection: A Feedback-Free Reflection Learning Framework](meta-reflection_a_feedback-free_reflection_learning_framework.md)**
+
+:   提出 Meta-Reflection 框架，通过可学习的元反思代码本（codebook）存储和检索反思性洞察，使 LLM 在推理时无需外部反馈和多轮迭代，仅需单次前向传播即可利用历史反思经验来改善输出质量，在编程、数学推理和电商意图检测任务上均取得显著提升。
+
 **[MEXMA: Token-level Objectives Improve Sentence Representations](mexma_token-level_objectives_improve_sentence_representations.md)**
 
 :   提出 MEXMA，一种结合句子级和 token 级目标的跨语言句子编码器训练方法：用一种语言的句子表示去预测另一种语言的被掩码 token，同时让句子和 token 的梯度都直接更新编码器，在双文本挖掘和多项下游任务上超越 SONAR 和 LaBSE。
@@ -624,6 +760,14 @@ description: >-
 
 :   提出 MindRef 框架，模拟人类先回忆文档标题再定位具体段落的两阶段记忆模式，通过 Trie 和 FM-Index 约束解码让 LLM 独立召回参考段落，无需额外检索模型或预分段。
 
+**[Minimal Pair-Based Evaluation of Code-Switching](minimal_pair-based_evaluation_of_code-switching.md)**
+
+:   本文提出基于最小对（minimal pairs）的代码切换（code-switching, CS）评估方法，为11个语言对各收集最多1000个最小对，发现双语者和大规模LLM都倾向于自然出现的CS句子，且模型越大偏好越一致，封闭类词的操纵产生最大概率差异。
+
+**[MIR: Methodology Inspiration Retrieval for Scientific Research Problems](mir_methodology_inspiration_retrieval_for_scientific_research_problems.md)**
+
+:   本文定义了方法论启发检索（Methodology Inspiration Retrieval, MIR）新任务——为给定的科研问题检索能提供方法论启发的论文，构建了Methodology Adjacency Graph (MAG)来捕获方法论传承关系，在Recall@3上提升+5.4、mAP上提升+7.8，结合LLM重排序再获+4.5/+4.8的额外提升。
+
 **[Mitigating Confounding in Speech-Based Dementia Detection through Weight Masking](mitigating_confounding_in_speech-based_dementia_detection_through_weight_masking.md)**
 
 :   针对基于语音转录文本的痴呆检测任务中的性别混淆偏差问题，提出 Extended Confounding Filter（ECF）和 Dual Filter（DF）两种无需额外训练模块的权重掩码方法，通过追踪微调过程中的权重变化来定位性别关联参数并将其置零，在多种分布偏移场景下保持痴呆检测性能的同时显著降低性别间的假阳性率差异和统计均等性差距。
@@ -631,6 +775,10 @@ description: >-
 **[Mitigating Shortcut Learning with InterpoLated Learning](mitigating_shortcut_learning_with_interpolated_learning.md)**
 
 :   提出 InterpoLated Learning (InterpoLL)，通过将多数样本的表示与同类少数样本的表示进行插值，削弱模型对虚假关联（shortcut）的依赖，显著提升少数样本上的泛化能力。
+
+**[Mixture of Small and Large Models for Chinese Spelling Check](mixture_of_small_and_large_models_for_chinese_spelling_check.md)**
+
+:   本文提出在Beam Search解码阶段动态混合小模型（fine-tuned BERT）和大语言模型（LLM）的概率分布来进行中文拼写纠错，无需微调LLM即可兼顾小模型的精确纠错和LLM的流畅性，在多个CSC数据集上达到SOTA。
 
 **[MockConf: A Student Interpretation Dataset: Analysis, Word- and Span-level Alignment and Baselines](mockconf_a_student_interpretation_dataset_analysis_word-_and_span-level_alignmen.md)**
 
@@ -760,6 +908,10 @@ description: >-
 
 :   LORex 提出了一个即插即用的分类体系扩展框架，结合判别式排序器 TEMPORA（基于欧拉路径的分类路径语言化）和迭代式 LLM 推理（语义过滤→父节点检索→路径验证），无需微调 LLM，在 4 个基准上实现了 12% 的准确率提升和 5% 的 Wu&P 提升。
 
+**[Rationales Are Not Silver Bullets: Measuring the Impact of Rationales on Model Performance and Reliability](rationales_are_not_silver_bullets_measuring_the_impact_of_rationales_on_model_pe.md)**
+
+:   本文通过对 18 个数据集、7 类任务的系统实验，发现在训练数据中加入 rationale（推理过程）并非总是有益——rationale 有时会削弱模型性能，但可以提升模型可靠性（校准度），且性能和可靠性的改善呈线性相关，两者都受任务固有难度驱动。
+
 **[Re-identification of De-identified Documents with Autoregressive Infilling](reidentification_deidentified.md)**
 
 :   提出一种基于 RAG 的去标识化文档重标识方法：先用稀疏+稠密检索找到相关背景文档，再用自回归填充模型推断被遮蔽的个人标识信息，在三个数据集上恢复了高达 80% 的被遮蔽文本。
@@ -795,6 +947,10 @@ description: >-
 **[RoToR: Towards More Reliable Responses for Order-Invariant Inputs](rotor_towards_more_reliable_responses_for_order-invariant_inputs.md)**
 
 :   提出 RoToR，一种基于全局排序和循环位置编码分配的零样本顺序不变语言模型，通过最小化位置 ID 修改来实现稳定的顺序不变性，并设计选择路由（Selective Routing）机制自适应处理混合输入类型。
+
+**[(RSA)²: A Rhetorical-Strategy-Aware Rational Speech Act Framework for Figurative Language Understanding](rsatexttwosuperior_a_rhetorical-strategy-aware_rational_speech_act_framework_for.md)**
+
+:   本文提出 (RSA)² 框架，通过在概率语用学的 RSA 框架中显式建模说话者的修辞策略（如反讽、夸张），使 LLM 能够在不建模说话者动机的情况下正确理解非字面义，在反讽理解数据集 PragMega+ 上达到 SOTA。
 
 **[Rubrik's Cube: Testing a New Rubric for Evaluating Explanations on the CUBE Dataset](rubriks_cube_testing_a_new_rubric_for_evaluating_explanations_on_the_cube_datase.md)**
 
@@ -851,6 +1007,14 @@ description: >-
 **[SoRFT: Issue Resolving with Subtask-oriented Reinforced Fine-Tuning](sorft_issue_resolving_with_subtask-oriented_reinforced_fine-tuning.md)**
 
 :   提出 SoRFT（Subtask-oriented Reinforced Fine-Tuning），将 GitHub Issue 解决任务分解为文件定位、函数定位、行定位和代码编辑四个子任务，通过拒绝采样SFT + 基于规则的PPO强化学习两阶段训练，显著提升开源LLM在 SWE-Bench 上的 Issue 解决能力。
+
+**[SOTOPIA-Ω: Dynamic Strategy Injection Learning and Social Instruction Following Evaluation for Social Agents](sotopia-ensuremathomega_dynamic_strategy_injection_learning_and_social_instructi.md)**
+
+:   本文提出 SOTOPIA-Ω 框架，通过将谈判理论中的多步推理策略和直接策略动态注入到专家 agent 中，自动构建高质量社交对话训练语料，并定义了"社交指令跟随（S-IF）"这一新概念和两个评估指标，在 7B 模型上超越了 GPT-4 专家 agent 的社交目标达成能力。
+
+**[Sparse Rewards Can Self-Train Dialogue Agents](sparse_rewards_can_self-train_dialogue_agents.md)**
+
+:   提出 JOSH（Juxtaposed Outcomes for Simulation Harvesting）自对齐算法，让 LLM 对话 Agent 通过稀疏奖励的模拟环境自主提升性能，无需外部人类反馈，并构建了 ToolWOZ 稀疏奖励工具调用模拟环境加以验证。
 
 **[SPOT: Bridging Natural Language and Geospatial Search for Investigative Journalists](spot_bridging_natural_language_and_geospatial_search_for_investigative_journalis.md)**
 
@@ -943,6 +1107,10 @@ description: >-
 **[Theorem Prover as a Judge for Synthetic Data Generation](theorem_prover_as_a_judge_for_synthetic_data_generation.md)**
 
 :   提出 TP-as-a-Judge 框架，利用 Lean 定理证明器验证 LLM 生成的中间推理步骤，结合迭代自动形式化和基于定理证明器反馈的强化学习（RLTPF），仅用 3,508 个样本就在多个数学推理基准上取得了显著提升。
+
+**[Theoretical Guarantees for Minimum Bayes Risk Decoding](theoretical_guarantees_for_minimum_bayes_risk_decoding.md)**
+
+:   本文首次为最小贝叶斯风险（MBR）解码提供了严格的理论收敛性保证，证明了在参考假设集大小为 $n$ 时，MBR 解码以 $O(n^{-1/2})$ 的速率逼近最优解，并与 MAP 解码进行了理论比较，表明 MBR 在多种场景下收敛更快。
 
 **[Learning to Reason Over Time: Timeline Self-Reflection for Temporal Reasoning](tiser_timeline_self_reflection_temporal.md)**
 
@@ -1039,6 +1207,10 @@ description: >-
 **[Well Begun is Half Done: Low-resource Preference Alignment by Weak-to-Strong Decoding](well_begun_is_half_done_low-resource_preference_alignment_by_weak-to-strong_deco.md)**
 
 :   提出 Weak-to-Strong Decoding (WSD) 框架，利用一个小型对齐模型为大型基座模型起草对齐的开头，再由大模型续写，以低资源方式实现偏好对齐且不产生 alignment tax。
+
+**[What is Stigma Attributed to? A Theory-Grounded, Expert-Annotated Interview Corpus for Demystifying Mental-Health Stigma](what_is_stigma_attributed_to_a_theory-grounded_expert-annotated_interview_corpus.md)**
+
+:   基于归因理论构建了一个专家标注的心理健康污名访谈语料库（4,141 条片段、684 名参与者），涵盖 7 种细粒度污名类型和社会文化背景信息，并以此为基准评测了多种 SOTA 神经模型在污名检测任务上的表现与挑战。
 
 **[What Matters in Evaluating Book-Length Stories? A Systematic Study of Long Story Evaluation](what_matters_in_evaluating_book-length_stories_a_systematic_study_of_long_story_.md)**
 

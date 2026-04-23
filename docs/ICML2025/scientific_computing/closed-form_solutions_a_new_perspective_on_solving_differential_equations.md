@@ -124,9 +124,9 @@ tags:
 ## 相关论文
 
 - [Towards a Foundation Model for Partial Differential Equations Across Physics Domains](../../AAAI2026/scientific_computing/towards_a_foundation_model_for_partial_differential_equations_across_physics_dom.md)
-- [Accurate Differential Operators for Hybrid Neural Fields](../../CVPR2025/scientific_computing/accurate_differential_operators_for_hybrid_neural_fields.md)
 - [Differentiable Stellar Atmospheres with Physics-Informed Neural Networks](differentiable_stellar_atmospheres_with_physics-informed_neural_networks.md)
 - [OmniArch: Building Foundation Model For Scientific Computing](omniarch_building_foundation_model_for_scientific_computing.md)
 - [DeltaPhi: Physical States Residual Learning for Neural Operators in Data-Limited PDE Solving](../../NeurIPS2025/scientific_computing/deltaphi_physical_states_residual_learning_for_neural_operators_in_data-limited_.md)
+- [Accurate Differential Operators for Hybrid Neural Fields](../../CVPR2025/scientific_computing/accurate_differential_operators_for_hybrid_neural_fields.md)
 
 <!-- RELATED:END -->

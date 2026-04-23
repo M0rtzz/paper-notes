@@ -136,6 +136,6 @@ tags:
 - [Beyond Sensor Data: Foundation Models of Behavioral Data from Wearables Improve Health Predictions](beyond_sensor_data_foundation_models_of_behavioral_data_from_wearables_improve_h.md)
 - [What Has a Foundation Model Found? Using Inductive Bias to Probe for World Models](what_has_a_foundation_model_found_using_inductive_bias_to_probe_for_world_models.md)
 - [Test-Time Canonicalization by Foundation Models for Robust Perception](test-time_canonicalization_by_foundation_models_for_robust_perception.md)
-- [Robust Tabular Foundation Models](../../AAAI2026/self_supervised/robust_tabular_foundation_models.md)
+- [TabArena: A Living Benchmark for Machine Learning on Tabular Data](../../NeurIPS2025/self_supervised/tabarena_a_living_benchmark_for_machine_learning_on_tabular_data.md)
 
 <!-- RELATED:END -->

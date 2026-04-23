@@ -118,8 +118,8 @@ tags:
 
 - [On the Entropy Calibration of Language Models](on_the_entropy_calibration_of_language_models.md)
 - [GigaChat Family: Efficient Russian Language Modeling Through Mixture of Experts Architecture](../../ACL2025/llm_efficiency/gigachat_family_efficient_russian_language_modeling_through_mixture_of_experts_a.md)
-- [Long-Short Alignment for Effective Long-Context Modeling in LLMs](../../ICML2025/llm_efficiency/long-short_alignment_for_effective_long-context_modeling_in_llms.md)
 - [L-MTP: Leap Multi-Token Prediction Beyond Adjacent Context for Large Language Models](l-mtp_leap_multi-token_prediction_beyond_adjacent_context_for_large_language_mod.md)
+- [Long-Short Alignment for Effective Long-Context Modeling in LLMs](../../ICML2025/llm_efficiency/long-short_alignment_for_effective_long-context_modeling_in_llms.md)
 - [Scaling Inference-Efficient Language Models](../../ICML2025/llm_efficiency/scaling_inference-efficient_language_models.md)
 
 <!-- RELATED:END -->

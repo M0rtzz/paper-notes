@@ -137,8 +137,8 @@ MME-Hallucination（LLaVA-1.5）：ONLY 635.55 vs 次优M3ID 598.11 (+37.44)
 
 ## 相关论文
 
-- [Mitigating Object Hallucinations via Sentence-Level Early Intervention](mitigating_object_hallucinations_via_sentence-level_early_intervention.md)
 - [Visual Evidence Prompting Mitigates Hallucinations in Large Vision-Language Models](../../ACL2025/multimodal_vlm/visual_evidence_prompting.md)
+- [Mitigating Object Hallucinations via Sentence-Level Early Intervention](mitigating_object_hallucinations_via_sentence-level_early_intervention.md)
 - [TAB: Transformer Attention Bottlenecks enable User Intervention and Debugging in Vision-Language Models](tab_transformer_attention_bottlenecks_enable_user_intervention_and_debugging_in_.md)
 - [One Perturbation is Enough: On Generating Universal Adversarial Perturbations against Vision-Language Pre-training Models](one_perturbation_is_enough_on_generating_universal_adversarial_perturbations_aga.md)
 - [MMOne: Representing Multiple Modalities in One Scene](mmone_representing_multiple_modalities_in_one_scene.md)

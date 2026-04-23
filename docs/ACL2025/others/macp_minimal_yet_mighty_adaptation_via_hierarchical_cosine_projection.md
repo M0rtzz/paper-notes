@@ -150,9 +150,9 @@ MaCP 使用与下游任务对应的标准损失函数（交叉熵等），核心
 ## 相关论文
 
 - [Low-Rank Interconnected Adaptation across Layers](low-rank_interconnected_adaptation_across_layers.md)
+- [Minimal Pair-Based Evaluation of Code-Switching](minimal_pair-based_evaluation_of_code-switching.md)
 - [Consultant Decoding: Yet Another Synergistic Mechanism](consultant_decoding_yet_another_synergistic_mechanism.md)
 - [CoLA: Collaborative Low-Rank Adaptation](cola_collaborative_low-rank_adaptation.md)
 - [SHARE: An SLM-based Hierarchical Action CorREction Assistant for Text-to-SQL](share_text_to_sql_correction.md)
-- [Hierarchical Memory Organization for Wikipedia Generation](hierarchical_memory_wikipedia_gen.md)
 
 <!-- RELATED:END -->

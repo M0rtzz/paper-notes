@@ -130,7 +130,7 @@ tags:
 - [Object-Centric Representation Learning for Enhanced 3D Semantic Scene Graph Prediction](../../NeurIPS2025/3d_vision/object-centric_representation_learning_for_enhanced_3d_semantic_scene_graph_pred.md)
 - [Equi-GSPR: Equivariant SE(3) Graph Network Model for Sparse Point Cloud Registration](equi-gspr_equivariant_se3_graph_network_model_for_sparse_point_cloud_registratio.md)
 - [Implicit Filtering for Learning Neural Signed Distance Functions from 3D Point Clouds](implicit_filtering_for_learning_neural_signed_distance_functions_from_3d_point_c.md)
-- [DG-PIC: Domain Generalized Point-In-Context Learning for Point Cloud Understanding](dg-pic_domain_generalized_point-in-context_learning_for_point_cloud_understandin.md)
+- [DG-PIC: Domain Generalized Point-In-Context Learning for Point Cloud Understanding](dgpic_domain_generalized_pointincontext_learning_for_po.md)
 - [SEED: A Simple and Effective 3D DETR in Point Clouds](seed_a_simple_and_effective_3d_detr_in_point_clouds.md)
 
 <!-- RELATED:END -->

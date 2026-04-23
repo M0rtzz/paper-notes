@@ -26,12 +26,23 @@ tags:
 
 ## 研究背景与动机
 
-**研究问题：** QE 指标用于自动评估翻译质量，已广泛应用于数据过滤、训练和解码等翻译流程中。然而，这些指标是否编码了社会偏差——特别是性别偏差——尚未被系统研究。
+### 领域现状
+
+**领域现状**：研究问题：** QE 指标用于自动评估翻译质量，已广泛应用于数据过滤、训练和解码等翻译流程中。然而，这些指标是否编码了社会偏差——特别是性别偏差——尚未被系统研究。
 
 **现有方法的不足：**
-- **评估指标研究忽略偏差：** 大量工作评估自动指标与人类判断的相关性，但未考察性别公平性
-- **MT 偏差研究仅聚焦系统输出：** 先前工作主要检测翻译系统的性别偏差，未研究评估指标本身
-- **QE 偏差的下游影响未知：** 偏差的 QE 指标如何影响数据过滤和质量感知解码尚未探索
+
+### 核心矛盾
+
+**核心矛盾**：评估指标研究忽略偏差：** 大量工作评估自动指标与人类判断的相关性，但未考察性别公平性
+
+### 现有痛点
+
+**现有痛点**：MT 偏差研究仅聚焦系统输出：** 先前工作主要检测翻译系统的性别偏差，未研究评估指标本身
+
+### 解决思路
+
+**解决思路**：QE 偏差的下游影响未知：** 偏差的 QE 指标如何影响数据过滤和质量感知解码尚未探索
 
 **核心动机：** 定义 QE 指标的性别偏差，系统测量并揭示其在 MT 流程中的传播效应。
 
@@ -101,14 +112,14 @@ tags:
 5. **偏差传播效应：** 偏差的 QE 指标在数据过滤中不均匀淘汰阴性数据，在质量感知解码中放大 MT 系统的性别偏差
 6. **CometKiwi 23 XXL 帕累托最优：** 在准确性和公平性之间达到最佳平衡
 
-## 亮点
+## 亮点与洞察
 
 - 首次系统定义和测量 QE 指标中的性别偏差，填补了重要研究空白
 - 实验设计精巧：使用最小编辑对比对隔离性别因素，覆盖 11 个指标 × 3 个数据集 × 8 种语言
 - 揭示了偏差的下游传播效应：从评估指标到数据过滤到翻译系统
 - 提出公平性与准确性的联合评估框架（帕累托前沿分析）
 
-## 局限性
+## 局限与展望
 
 - 仅研究句子级翻译，未覆盖文档级或对话级 MT 场景
 - 性别分析主要基于二元分类，对非二元性别覆盖有限（仅通过 mGeNTE 中性实验部分涉及）
@@ -139,8 +150,8 @@ tags:
 
 - [Alleviating Distribution Shift in Synthetic Data for Machine Translation Quality Estimation](alleviating_distribution_shift_in_synthetic_data_for_machine_translation_quality.md)
 - [Exploring In-context Example Generation for Machine Translation](exploring_in-context_example_generation_for_machine_translation.md)
-- [Multi-perspective Alignment for Increasing Naturalness in Neural Machine Translation](multi-perspective_alignment_for_increasing_naturalness_in_neural_machine_transla.md)
 - [GrammaMT: Improving Machine Translation with Grammar-Informed In-Context Learning](grammamt_improving_machine_translation_with_grammar-informed_in-context_learning.md)
+- [Multi-perspective Alignment for Increasing Naturalness in Neural Machine Translation](multi-perspective_alignment_for_increasing_naturalness_in_neural_machine_transla.md)
 - [Memorization Inheritance in Sequence-Level Knowledge Distillation for Neural Machine Translation](memorization_inheritance_seqkd.md)
 
 <!-- RELATED:END -->

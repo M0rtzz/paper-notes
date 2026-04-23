@@ -141,7 +141,7 @@ P2S误差仅为SCANimate的约1/5。
 - [Divide and Fuse: Body Part Mesh Recovery from Partially Visible Human Images](divide_and_fuse_body_part_mesh_recovery_from_partially_visible_human_images.md)
 - [Differentiable Convex Polyhedra Optimization from Multi-view Images](differentiable_convex_polyhedra_optimization_from_multi-view_images.md)
 - [Auto-Regressively Generating Multi-View Consistent Images](../../ICCV2025/3d_vision/auto-regressively_generating_multi-view_consistent_images.md)
-- [HeadGaS: Real-Time Animatable Head Avatars via 3D Gaussian Splatting](headgas_real-time_animatable_head_avatars_via_3d_gaussian_splatting.md)
 - [HOI3DGen: Generating High-Quality Human-Object-Interactions in 3D](../../CVPR2025/3d_vision/hoi3dgen_generating_high-quality_human-object-interactions_in_3d.md)
+- [HeadGaS: Real-Time Animatable Head Avatars via 3D Gaussian Splatting](headgas_real-time_animatable_head_avatars_via_3d_gaussian_splatting.md)
 
 <!-- RELATED:END -->

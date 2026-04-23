@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 视频生成方向 54篇论文解读
+  CVPR2026 视频生成方向 59篇论文解读
 description: >-
-  54篇CVPR2026 视频生成论文解读，主题涵盖：首次提出活动级视频伪造定位任务和ActivityF、Anti-I2V 提出了一种针对恶意图像到视频生成、AutoCut 提出了一个端到端的广告视频编辑框架等，每篇含核心思想与方法详解。
+  59篇CVPR2026 视频生成论文解读，主题涵盖：首次提出活动级视频伪造定位任务和ActivityF、Anti-I2V 提出了一种针对恶意图像到视频生成、AutoCut 提出了一个端到端的广告视频编辑框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频生成
 
-**📷 CVPR2026** · **54** 篇论文解读
+**📷 CVPR2026** · **59** 篇论文解读
 
 **[ActivityForensics: A Comprehensive Benchmark for Localizing Manipulated Activity in Videos](activityforensics_a_comprehensive_benchmark_for_localizing_manipulated_activity_.md)**
 
@@ -46,6 +46,14 @@ description: >-
 
 :   提出 DisCa，首次将**可学习特征缓存**与**步骤蒸馏**相结合，通过轻量级神经预测器替代手工缓存策略，并设计 Restricted MeanFlow 稳定大规模视频模型蒸馏，在 HunyuanVideo 上实现 11.8× 加速且几乎无质量损失。
 
+**[DreamShot: Personalized Storyboard Synthesis with Video Diffusion Prior](dreamshot_storyboard_synthesis.md)**
+
+:   提出 DreamShot，利用视频扩散模型的时空先验来生成人物一致、场景连贯的多镜头故事板，通过 Role-Attention Consistency Loss 解决多角色混淆问题，统一支持文本到镜头、参考到镜头和镜头到镜头三种模式。
+
+**[DriveLaW: Unifying Planning and Video Generation in a Latent Driving World](drivelaw_unifying_planning_and_video_generation_in_a_latent_driving_world.md)**
+
+:   提出 DriveLaW，一个通过共享潜在空间将视频生成与运动规划统一的驾驶世界模型，将视频生成器的中间潜在特征直接注入扩散规划器，在 nuScenes 视频预测和 NAVSIM 规划基准上同时达到 SOTA。
+
 **[FastLightGen: Fast and Light Video Generation with Fewer Steps and Parameters](fastlightgen_fast_and_light_video_generation_with_fewer_steps_and_parameters.md)**
 
 :   FastLightGen 提出三阶段蒸馏算法，首次实现采样步数与模型大小的联合蒸馏，通过识别冗余层、动态概率剪枝和 well-guided teacher guidance 分布匹配，将 HunyuanVideo/WanX 压缩为 4 步 30% 参数剪枝的轻量生成器，实现约 35 倍加速且性能超越教师模型。
@@ -77,6 +85,10 @@ description: >-
 **[Geometry-as-context: Modulating Explicit 3D in Scene-consistent Video Generation to Geometry Context](geometry-as-context_modulating_explicit_3d_in_scene-consistent_video_generation_.md)**
 
 :   提出 Geometry-as-Context (GaC) 框架，将基于重建的场景视频生成中的不可微算子（3D重建+渲染）替换为统一的自回归视频生成模型，通过将几何信息（深度图）作为交错上下文嵌入生成序列，实现端到端训练并缓解累积误差。
+
+**[Gloria: Consistent Character Video Generation via Content Anchors](gloria_consistent_character_video_generation_via_content_anchors.md)**
+
+:   Gloria 提出用一组紧凑的"内容锚帧"（Content Anchors）表征角色的多视角外观和表情身份，通过超集内容锚定（防止复制粘贴）和 RoPE 弱条件（区分多锚帧）两个机制，实现超过 10 分钟的长时一致角色视频生成。
 
 **[Goal-Driven Reward by Video Diffusion Models for Reinforcement Learning](goal-driven_reward_by_video_diffusion_models_for_reinforcement_learning.md)**
 
@@ -134,6 +146,10 @@ description: >-
 
 :   提出 NOVA，首次形式化"稀疏控制、密集合成"范式用于视频编辑：稀疏分支从用户编辑的多关键帧提供语义引导，密集分支从原始视频注入运动和纹理信息；配合退化模拟训练策略实现无需配对数据的学习，在编辑保真度、运动保持和时序一致性上全面超越现有方法。
 
+**[Towards Realistic and Consistent Orbital Video Generation via 3D Foundation Priors](orbital_video_3d_foundation_priors.md)**
+
+:   提出利用 3D 基础生成模型（Hunyuan3D）的潜在特征作为形状先验，通过多尺度 3D 适配器注入基础视频扩散模型，实现从单张图像生成几何真实且视图一致的轨道视频。
+
 **[PAM: A Pose-Appearance-Motion Engine for Sim-to-Real HOI Video Generation](pam_a_pose-appearance-motion_engine_for_sim-to-real_hoi_video_generation.md)**
 
 :   提出PAM——首个仅需初始/目标手部姿态和物体几何即可生成逼真手物交互视频的引擎，通过解耦姿态生成、外观生成和运动生成三阶段，在DexYCB上FVD 29.13（vs InterDyn 38.83）、MPJPE 19.37mm（vs CosHand 30.05mm），生成的合成数据还能有效增强下游手部姿态估计任务。
@@ -149,6 +165,10 @@ description: >-
 **[Physical Simulator In-the-Loop Video Generation](physical_simulator_in-the-loop_video_generation.md)**
 
 :   提出PSIVG——首个将物理模拟器嵌入视频扩散生成循环的训练-free推理时框架：从模板视频中重建4D场景和物体网格，在MPM模拟器中生成物理一致轨迹，用光流引导视频生成，并通过TTCO测试时优化保证运动物体纹理一致性，用户偏好率达82.3%。
+
+**[PoseGen: In-Context LoRA Finetuning for Pose-Controllable Long Human Video Generation](posegen_in-context_lora_finetuning_for_pose-controllable_long_human_video_genera.md)**
+
+:   PoseGen 通过 in-context LoRA 微调实现双重条件注入（token级外观 + 通道级姿态），并提出分段交错生成策略（KV共享+姿态感知插帧），仅用33小时视频数据即可生成高保真长时人体视频。
 
 **[Rethinking Position Embedding as a Context Controller for Multi-Reference and Multi-Shot Video Generation](rethinking_position_embedding_as_a_context_controller_for_multi-reference_and_mu.md)**
 

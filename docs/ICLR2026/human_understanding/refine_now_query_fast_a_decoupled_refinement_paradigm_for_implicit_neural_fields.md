@@ -136,10 +136,10 @@ DRR-Net 在 Nyx 上 PSNR 最高（44.69 vs FA-INR 42.79），推理速度比 FA-
 
 ## 相关论文
 
+- [A Probability-guided Sampler for Neural Implicit Surface Rendering](../../ECCV2024/human_understanding/a_probabilityguided_sampler_for_neural_implicit_surface_rend.md)
 - [VI3NR: Variance Informed Initialization for Implicit Neural Representations](../../CVPR2025/human_understanding/vi3nr_variance_informed_initialization_for_implicit_neural_representations.md)
 - [PISR: Polarimetric Neural Implicit Surface Reconstruction for Textureless and Specular Objects](../../ECCV2024/human_understanding/pisr_polarimetric_neural_implicit_surface_reconstruction_for_textureless_and_spe.md)
 - [Maximizing Asynchronicity in Event-based Neural Networks](maximizing_asynchronicity_in_event-based_neural_networks.md)
 - [Time Is All It Takes: Spike-Retiming Attacks on Event-Driven Spiking Neural Networks](time_is_all_it_takes_spike-retiming_attacks_on_event-driven_spiking_neural_netwo.md)
-- [What's Making That Sound Right Now? Video-centric Audio-Visual Localization](../../ICCV2025/human_understanding/whats_making_that_sound_right_now_video-centric_audio-visual_localization.md)
 
 <!-- RELATED:END -->

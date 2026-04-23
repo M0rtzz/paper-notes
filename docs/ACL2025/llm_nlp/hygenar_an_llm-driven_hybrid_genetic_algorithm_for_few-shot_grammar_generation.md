@@ -133,6 +133,6 @@ tags:
 - [BIPro: Zero-shot Chinese Poem Generation via Block Inverse Prompting Constrained Generation Framework](bipro_zero-shot_chinese_poem_generation_via_block_inverse_prompting_constrained_.md)
 - [Zero-Shot Belief: A Hard Problem for LLMs](zero-shot_belief_a_hard_problem_for_llms.md)
 - [SEC-Prompt: SEmantic Complementary Prompting for Few-Shot Class-Incremental Learning](../../CVPR2025/llm_nlp/sec-promptsemantic_complementary_prompting_for_few-shot_class-incremental_learni.md)
-- [Dynamic Knowledge Integration for Evidence-Driven Counter-Argument Generation with Large Language Models](dynamic_knowledge_integration_for_evidence-driven_counter-argument_generation_wi.md)
+- [Adaptive Multi-prompt Contrastive Network for Few-shot Out-of-distribution Detection](../../ICML2025/llm_nlp/adaptive_multi-prompt_contrastive_network_for_few-shot_out-of-distribution_detec.md)
 
 <!-- RELATED:END -->

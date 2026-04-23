@@ -112,7 +112,7 @@ CPO基于SAPG的leader-follower架构，引入两个关键机制：（1）follow
 - [PolicyFlow: Policy Optimization with Continuous Normalizing Flow in Reinforcement Learning](policyflow_policy_optimization_with_continuous_normalizing_flow_in_reinforcement.md)
 - [Towards Bridging the Gap between Large-Scale Pretraining and Efficient Finetuning for Humanoid Control](towards_bridging_the_gap_between_large-scale_pretraining_and_efficient_finetunin.md)
 - [TROLL: Trust Regions improve Reinforcement Learning for Large Language Models](troll_trust_regions_improve_reinforcement_learning_for_large_language_models.md)
+- [Bypass Back-propagation: Optimization-based Structural Pruning for Large Language Models via Policy Gradient](../../ACL2025/reinforcement_learning/bypass_back-propagation_optimization-based_structural_pruning_for_large_language.md)
 - [On the Global Optimality of Policy Gradient Methods in General Utility Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/on_the_global_optimality_of_policy_gradient_methods_in_general_utility_reinforce.md)
-- [Robust and Diverse Multi-Agent Learning via Rational Policy Gradient](../../NeurIPS2025/reinforcement_learning/robust_and_diverse_multi-agent_learning_via_rational_policy_gradient.md)
 
 <!-- RELATED:END -->

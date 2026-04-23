@@ -27,10 +27,21 @@ tags:
 
 ## 研究背景与动机
 
-- **LLM+GNN范式兴起**：近年来将LLM作为特征增强器（feature enhancer）来优化节点表示、再输入GNN进行图表示学习的方法取得了显著成果，但该范式的本质属性和内部机制尚未被深入研究。
-- **分析难度大**：LLM增强器和GNN都是神经网络，单独建模已非常困难，二者组合后的统一分析更加棘手。
-- **核心问题**：LLM增强器在这个框架中到底扮演什么角色？它输出的特征传递了什么层次的信息？如何优化LLM到GNN的信息传输？
-- **方法论缺口**：现有工作大量采用此范式，但缺乏专门的深层分析研究来揭示其背后的工作原理。
+### 领域现状
+
+**领域现状**：LLM+GNN范式兴起**：近年来将LLM作为特征增强器（feature enhancer）来优化节点表示、再输入GNN进行图表示学习的方法取得了显著成果，但该范式的本质属性和内部机制尚未被深入研究。
+
+### 现有痛点
+
+**现有痛点**：分析难度大**：LLM增强器和GNN都是神经网络，单独建模已非常困难，二者组合后的统一分析更加棘手。
+
+### 解决思路
+
+**解决思路**：核心问题**：LLM增强器在这个框架中到底扮演什么角色？它输出的特征传递了什么层次的信息？如何优化LLM到GNN的信息传输？
+
+### 核心矛盾
+
+**核心矛盾**：方法论缺口**：现有工作大量采用此范式，但缺乏专门的深层分析研究来揭示其背后的工作原理。
 
 ## 方法详解
 
@@ -81,6 +92,9 @@ $$\mathcal{L}_{\text{II}} = \frac{1}{|\mathcal{G}|^2} \sum_{G^{\text{orig}}} \su
 ## 实验关键数据
 
 在Cora、Pubmed、Instagram三个数据集上，使用三种LLM（Llama2/Qwen2/Llama3）× 三种GNN（GCN/GAT/GraphSAGE）验证：
+
+
+### 主实验
 
 | 数据集 | LLM | GCN提升 | GAT提升 | GraphSAGE提升 |
 |--------|------|---------|---------|---------------|
@@ -133,7 +147,7 @@ $$\mathcal{L}_{\text{II}} = \frac{1}{|\mathcal{G}|^2} \sum_{G^{\text{orig}}} \su
 - [Does Graph Prompt Work? A Data Operation Perspective with Theoretical Analysis](does_graph_prompt_work_a_data_operation_perspective_with_theoretical_analysis.md)
 - [Making Classic GNNs Strong Baselines Across Varying Homophily: A Smoothness-Generalization Perspective](../../NeurIPS2025/graph_learning/making_classic_gnns_strong_baselines_across_varying_homophily_a_smoothness-gener.md)
 - [NeuroCircuitry-Inspired Hierarchical Graph Causal Attention Networks for Explainable Depression Identification](../../ICLR2026/graph_learning/neurocircuitry-inspired_hierarchical_graph_causal_attention_networks_for_explain.md)
-- [Hyperbolic-PDE GNN: Spectral Graph Neural Networks in the Perspective of A System of Hyperbolic Partial Differential Equations](hyperbolic-pde_gnn_spectral_graph_neural_networks_in_the_perspective_of_a_system.md)
 - [Machines and Mathematical Mutations: Using GNNs to Characterize Quiver Mutation Classes](machines_and_mathematical_mutations_using_gnns_to_characterize_quiver_mutation_c.md)
+- [Hyperbolic-PDE GNN: Spectral Graph Neural Networks in the Perspective of A System of Hyperbolic Partial Differential Equations](hyperbolic-pde_gnn_spectral_graph_neural_networks_in_the_perspective_of_a_system.md)
 
 <!-- RELATED:END -->

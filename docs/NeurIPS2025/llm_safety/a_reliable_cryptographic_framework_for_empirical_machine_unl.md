@@ -117,6 +117,6 @@ $$\text{Adv}(\mathcal{A}, \text{Ul}) = \frac{1}{|\mathcal{S}_\alpha|} \left| \su
 - [NegMerge: Sign-Consensual Weight Merging for Machine Unlearning](../../ICML2025/llm_safety/negmerge_sign-consensual_weight_merging_for_machine_unlearning.md)
 - [Unlearning Evaluation through Subset Statistical Independence](../../ICLR2026/llm_safety/unlearning_evaluation_through_subset_statistical_independence.md)
 - [SineProject: Machine Unlearning for Stable Vision–Language Alignment](../../CVPR2026/llm_safety/sineproject_machine_unlearning_for_stable_vision_language_alignment.md)
-- [Chinese SimpleQA: A Chinese Factuality Evaluation for Large Language Models](../../ACL2025/llm_safety/chinese_simpleqa_a_chinese_factuality_evaluation_for_large_language_models.md)
+- [Towards Effective Extraction and Evaluation of Factual Claims](../../ACL2025/llm_safety/towards_effective_extraction_and_evaluation_of_factual_claims.md)
 
 <!-- RELATED:END -->

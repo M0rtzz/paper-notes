@@ -27,10 +27,21 @@ tags:
 
 ## 研究背景与动机
 
-- **对比学习的理论理解受限**：CRL 在视觉、图、NLP 等领域取得广泛成功，但理论泛化分析局限于 i.i.d. 元组假设
-- **实践中元组不独立**：CRL 训练时通常来自固定标记样本池 $\mathcal{S}=\{(\mathbf{x}_j,\mathbf{y}_j)\}_{j=1}^N$，通过"回收"同一数据点构造不同元组 → 元组之间数据重叠，独立性假设不成立
-- **现有工作缺口**：Arora et al. (2019)、Lei et al. (2023)、Hieu et al. (2024) 均假设元组 i.i.d.
-- **本文目标**：提出贴合实际的修正理论框架，在 non-i.i.d. 设定下推导 excess risk 泛化界
+### 领域现状
+
+**领域现状**：对比学习的理论理解受限**：CRL 在视觉、图、NLP 等领域取得广泛成功，但理论泛化分析局限于 i.i.d. 元组假设
+
+### 现有痛点
+
+**现有痛点**：实践中元组不独立**：CRL 训练时通常来自固定标记样本池 $\mathcal{S}=\{(\mathbf{x}_j,\mathbf{y}_j)\}_{j=1}^N$，通过"回收"同一数据点构造不同元组 → 元组之间数据重叠，独立性假设不成立
+
+### 核心矛盾
+
+**核心矛盾**：现有工作缺口**：Arora et al. (2019)、Lei et al. (2023)、Hieu et al. (2024) 均假设元组 i.i.d.
+
+### 解决思路
+
+**解决思路**：本文目标**：提出贴合实际的修正理论框架，在 non-i.i.d. 设定下推导 excess risk 泛化界
 
 ## 方法详解
 
@@ -72,6 +83,9 @@ $$ER_{un}(\hat{f}_{\mathcal{U}}) \leq \mathcal{O}\left[\sum_c\rho(c)\frac{K_{\ma
 **Theorem 5.2**（Sub-sampled 最小化器）：额外增加 $\mathcal{O}(1/\sqrt{M})$ 项。
 
 ## 实验关键数据
+
+
+### 主实验
 
 | 表征函数类 | 估计器 | 泛化界（均衡类、大k） |
 |---|---|---|
@@ -122,7 +136,7 @@ $$ER_{un}(\hat{f}_{\mathcal{U}}) \leq \mathcal{O}\left[\sum_c\rho(c)\frac{K_{\ma
 - [Collapse-Proof Non-Contrastive Self-Supervised Learning](collapse-proof_non-contrastive_self-supervised_learning.md)
 - [ViC-MAE: Self-Supervised Representation Learning from Images and Video with Contrastive Masked Autoencoders](../../ECCV2024/self_supervised/vic-mae_self-supervised_representation_learning_from_images_and_video_with_contr.md)
 - [CLARIFY: Contrastive Preference Reinforcement Learning for Untangling Ambiguous Queries](clarify_contrastive_preference_reinforcement_learning_for_untangling_ambiguous_q.md)
-- [Contrastive Consolidation of Top-Down Modulations Achieves Sparsely Supervised Continual Learning](../../NeurIPS2025/self_supervised/contrastive_consolidation_of_top-down_modulations_achieves_sparsely_supervised_c.md)
 - [WhiSPA: Semantically and Psychologically Aligned Whisper with Self-Supervised Contrastive and Student-Teacher Learning](../../ACL2025/self_supervised/whispa_semantically_and_psychologically_aligned_whisper_with_self-supervised_con.md)
+- [Learning to Normalize on the SPD Manifold under Bures-Wasserstein Geometry](../../CVPR2025/self_supervised/learning_to_normalize_on_the_spd_manifold_under_bures-wasserstein_geometry.md)
 
 <!-- RELATED:END -->

@@ -159,8 +159,8 @@ UPA-RFASï¼ˆUniversal Patch Attack via Robust Feature, Attention, and Semanticsï¼
 
 - [QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)
 - [A Simple Linear Patch Revives Layer-Pruned Large Language Models](../../NeurIPS2025/human_understanding/a_simple_linear_patch_revives_layerpruned_large_language_mod.md)
+- [QUAR-VLA: Vision-Language-Action Model for Quadruped Robots](../../ECCV2024/human_understanding/quarvla_visionlanguageaction_model_for_quadruped_robots.md)
 - [10 Open Challenges Steering the Future of Vision-Language-Action Models](../../AAAI2026/human_understanding/10_open_challenges_steering_the_future_of_vision-language-ac.md)
 - [Transferable Backdoor Attacks for Code Models via Sharpness-Aware Adversarial Perturbation](../../AAAI2026/human_understanding/transferable_backdoor_attacks_for_code_models_via_sharpness-aware_adversarial_pe.md)
-- [Unleashing Vision-Language Semantics for Deepfake Video Detection](unleashing_vision-language_semantics_for_deepfake_video_detection.md)
 
 <!-- RELATED:END -->

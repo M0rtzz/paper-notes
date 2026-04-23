@@ -125,8 +125,8 @@ tags:
 
 - [DeAL: Decoding-time Alignment for Large Language Models](deal_decoding_time_alignment.md)
 - [Contrastive Prompting Enhances Sentence Embeddings in LLMs through Inference-Time Steering](contrastive_prompting_embeddings.md)
-- [Problem-Solving Logic Guided Curriculum In-Context Learning for LLMs Complex Reasoning](problem-solving_logic_guided_curriculum_in-context_learning_for_llms_complex_rea.md)
-- [Alignment Drift in CEFR-prompted LLMs for Interactive Spanish Tutoring](alignment_drift_in_cefr-prompted_llms_for_interactive_spanish_tutoring.md)
-- [MHA2MLA: Towards Economical Inference by Enabling DeepSeek's Multi-Head Latent Attention in Any Transformer-based LLMs](mha2mla_deepseek_latent_attention.md)
+- [Enhancing Persona Following at Decoding Time via Dynamic Importance-Guided Token Estimation for Role-Playing Agents](../../ICLR2026/llm_nlp/enhancing_persona_following_at_decoding_time_via_dynamic_importance-guided_token.md)
+- [Bitnet.cpp: Efficient Edge Inference for Ternary LLMs](bitnetcpp_efficient_edge_inference_for_ternary_llms.md)
+- [UnSeenTimeQA: Time-Sensitive Question-Answering Beyond LLMs' Memorization](unseentimeqa_time-sensitive_question-answering_beyond_llms_memorization.md)
 
 <!-- RELATED:END -->

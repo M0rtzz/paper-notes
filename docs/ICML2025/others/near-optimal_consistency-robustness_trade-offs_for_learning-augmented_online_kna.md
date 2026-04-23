@@ -26,14 +26,27 @@ tags:
 
 ## 研究背景与动机
 
-**在线背包问题 (OKP)** 是经典的在线资源分配问题：物品按序到达，每个物品有价值 $v_i$ 和重量 $w_i$，决策者必须在物品到达时立即不可撤销地决定接受或拒绝，目标是在背包容量约束下最大化总价值。该问题广泛应用于在线广告、动态定价、供应链管理等场景。
+### 现有痛点
+
+**现有痛点**：在线背包问题 (OKP)** 是经典的在线资源分配问题：物品按序到达，每个物品有价值 $v_i$ 和重量 $w_i$，决策者必须在物品到达时立即不可撤销地决定接受或拒绝，目标是在背包容量约束下最大化总价值。该问题广泛应用于在线广告、动态定价、供应链管理等场景。
 
 **已有局限**：
 
-- 基本OKP在无额外假设下不存在有界竞争比的在线算法
-- 经典方法假设单位价值有界 $v_i \in [L, U]$，最优竞争比为 $\ln(U/L) + 1$（ZCL算法）
-- 已有learning-augmented方法要么使用**复杂的频率预测**（需为每种可能价值预测总重量），要么仅在**简化变体**上达到最优权衡
-- 对于一般OKP，**Pareto最优的consistency-robustness权衡**仍是公开问题
+### 领域现状
+
+**领域现状**：基本OKP在无额外假设下不存在有界竞争比的在线算法
+
+### 核心矛盾
+
+**核心矛盾**：经典方法假设单位价值有界 $v_i \in [L, U]$，最优竞争比为 $\ln(U/L) + 1$（ZCL算法）
+
+### 解决思路
+
+**解决思路**：已有learning-augmented方法要么使用**复杂的频率预测**（需为每种可能价值预测总重量），要么仅在**简化变体**上达到最优权衡
+
+### 补充说明
+
+**补充说明**：对于一般OKP，**Pareto最优的consistency-robustness权衡**仍是公开问题
 
 **核心问题**：能否用简洁、实用的预测，为一般在线背包问题设计近Pareto最优的learning-augmented算法？
 
@@ -155,7 +168,7 @@ $$x_i = \lambda \hat{x}_i + (1 - \lambda) \tilde{x}_i, \quad \lambda \in (0,1)$$
 - [Learning-Augmented Online Bipartite Fractional Matching](../../NeurIPS2025/others/learning-augmented_online_bipartite_fractional_matching.md)
 - [Near Optimal Best Arm Identification for Clustered Bandits](near_optimal_best_arm_identification_for_clustered_bandits.md)
 - [Learning-Augmented Algorithms for MTS with Bandit Access to Multiple Predictors](learning-augmented_algorithms_for_mts_with_bandit_access_to_multiple_predictors.md)
+- [Balancing the Budget: Understanding Trade-offs Between Supervised and Preference-Based Finetuning](../../ACL2025/others/balancing_the_budget_understanding_trade-offs_between_supervised_and_preference-.md)
 - [Learning-Augmented Hierarchical Clustering](learning-augmented_hierarchical_clustering.md)
-- [Avoiding Catastrophe in Online Learning by Asking for Help](avoiding_catastrophe_in_online_learning_by_asking_for_help.md)
 
 <!-- RELATED:END -->

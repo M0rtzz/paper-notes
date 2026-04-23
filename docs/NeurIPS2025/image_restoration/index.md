@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 图像恢复方向 25篇论文解读
+  NeurIPS2025 图像恢复方向 26篇论文解读
 description: >-
-  25篇NeurIPS2025 图像恢复论文解读，主题涵盖：提出ADCM——通过将一致性模型的离散化步长形式化、提出 AudioLBM，将音频波形压缩到连续隐空间、提出 DenoiseRotator等，每篇含核心思想与方法详解。
+  26篇NeurIPS2025 图像恢复论文解读，主题涵盖：提出ADCM——通过将一致性模型的离散化步长形式化、提出 AudioLBM，将音频波形压缩到连续隐空间、提出 DenoiseRotator等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**🧠 NeurIPS2025** · **25** 篇论文解读
+**🧠 NeurIPS2025** · **26** 篇论文解读
 
 **[Adaptive Discretization for Consistency Models](adaptive_discretization_for_consistency_models.md)**
 
@@ -49,6 +49,10 @@ description: >-
 **[Latent Harmony: Synergistic Unified UHD Image Restoration via Latent Space Regularization and Controllable Refinement](latent_harmony_synergistic_unified_uhd_image_restoration_via_latent_space_regula.md)**
 
 :   提出 Latent Harmony 两阶段框架，通过潜在空间正则化构建泛化性 VAE（LH-VAE），并引入高频引导的可控 LoRA 微调机制，在保持结构完整性的同时实现 UHD 图像多退化类型统一修复的保真度-感知质量灵活权衡。
+
+**[Latent Harmony: Synergistic Unified UHD Image Restoration via Latent Space Regularization and Controllable Refinement](latent_harmony_synergistic_unified_uhd_image_restoration_with_pre-trained_diffus.md)**
+
+:   提出 Latent Harmony 两阶段框架，通过潜在空间正则化构建退化鲁棒的 LH-VAE，再用高频引导的 LoRA 微调分别优化编码器（保真度）和解码器（感知质量），实现 UHD 全能图像复原中泛化-重建-感知三重权衡的统一解决方案。
 
 **[Learning Cocoercive Conservative Denoisers via Helmholtz Decomposition for Poisson Inverse Problems](learning_cocoercive_conservative_denoisers_via_helmholtz_decomposition_for_poiss.md)**
 

@@ -25,7 +25,10 @@ tags:
 针对带有额外支撑保持约束的稀疏优化问题，提出两步投影IHT算法（先硬阈值再投影凸集），在RSC/RSS条件下给出全局目标值保证（无系统误差），揭示稀疏度松弛与次优性间的新trade-off。
 
 ## 研究背景与动机
-**领域现状**: 稀疏优化中用l0约束相比凸松弛可精确控制稀疏度。IHT算法是标准方法，已有全局收敛保证。
+
+### 领域现状
+
+**领域现状**：领域现状**: 稀疏优化中用l0约束相比凸松弛可精确控制稀疏度。IHT算法是标准方法，已有全局收敛保证。
 
 **现有痛点**: 实际中常需额外约束（预算约束、范数约束等），现有算法要么需混合约束闭式投影（常不存在），要么仅提供局部保证。
 
@@ -126,7 +129,7 @@ tags:
 - [Subspace Optimization for Large Language Models with Convergence Guarantees](subspace_optimization_for_large_language_models_with_convergence_guarantees.md)
 - [Sparse Causal Discovery with Generative Intervention for Unsupervised Graph Domain Adaptation](sparse_causal_discovery_with_generative_intervention_for_unsupervised_graph_doma.md)
 - [ECPv2: Fast, Efficient, and Scalable Global Optimization of Lipschitz Functions](../../AAAI2026/optimization/ecpv2_fast_efficient_and_scalable_global_optimization_of_lipschitz_functions.md)
-- [Online Two-Stage Submodular Maximization](../../NeurIPS2025/optimization/online_two-stage_submodular_maximization.md)
 - [Optimality and NP-Hardness of Transformers in Learning Markovian Dynamical Functions](../../NeurIPS2025/optimization/optimality_and_np-hardness_of_transformers_in_learning_markovian_dynamical_funct.md)
+- [Online Two-Stage Submodular Maximization](../../NeurIPS2025/optimization/online_two-stage_submodular_maximization.md)
 
 <!-- RELATED:END -->

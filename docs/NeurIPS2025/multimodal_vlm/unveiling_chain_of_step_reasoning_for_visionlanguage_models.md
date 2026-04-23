@@ -160,8 +160,8 @@ tags:
 
 - [AffordBot: 3D Fine-grained Embodied Reasoning via Multimodal Large Language Models](affordbot_3d_fine-grained_embodied_reasoning_via_multimodal_large_language_model.md)
 - [SpatialThinker: Reinforcing 3D Reasoning in Multimodal LLMs via Spatial Rewards](spatialthinker_reinforcing_3d_reasoning_in_multimodal_llms_via_spatial_rewards.md)
+- [Fine-Grained Evaluation of Large Vision-Language Models in Autonomous Driving](../../ICCV2025/multimodal_vlm/fine-grained_evaluation_of_large_vision-language_models_in_autonomous_driving.md)
+- [A Parameter-Efficient and Fine-Grained Prompt Learning for Vision-Language Models](../../ACL2025/multimodal_vlm/a_parameter-efficient_and_fine-grained_prompt_learning_for_vision-language_model.md)
 - [FOCUS: Internal MLLM Representations for Efficient Fine-Grained Visual Question Answering](focus_internal_mllm_representations_for_efficient_fine-grained_visual_question_a.md)
-- [HandVQA: Diagnosing and Improving Fine-Grained Spatial Reasoning about Hands in Vision-Language Models](../../CVPR2026/multimodal_vlm/handvqa_diagnosing_and_improving_fine-grained_spatial_reasoning_about_hands_in_v.md)
-- [ReasonMap: Towards Fine-Grained Visual Reasoning from Transit Maps](../../CVPR2026/multimodal_vlm/reasonmap_towards_finegrained_visual_reasoning_fro.md)
 
 <!-- RELATED:END -->

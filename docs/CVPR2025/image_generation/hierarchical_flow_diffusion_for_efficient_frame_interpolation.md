@@ -287,6 +287,6 @@ DAVIS + Vimeo-90k：
 - [TLB-VFI: Temporal-Aware Latent Brownian Bridge Diffusion for Video Frame Interpolation](../../ICCV2025/image_generation/tlb-vfi_temporal-aware_latent_brownian_bridge_diffusion_for_video_frame_interpol.md)
 - [HMAR: Efficient Hierarchical Masked Auto-Regressive Image Generation](hmar_efficient_hierarchical_masked_auto-regressive_image_generation.md)
 - [Nested Diffusion Models Using Hierarchical Latent Priors](nested_diffusion_models_using_hierarchical_latent_priors.md)
-- [Efficient Rectified Flow for Image Fusion](../../NeurIPS2025/image_generation/efficient_rectified_flow_for_image_fusion.md)
+- [DiG: Scalable and Efficient Diffusion Models with Gated Linear Attention](dig_scalable_and_efficient_diffusion_models_with_gated_linear_attention.md)
 
 <!-- RELATED:END -->

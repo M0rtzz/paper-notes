@@ -143,6 +143,6 @@ F1提升20.6%，测地距离从21.32cm大幅降低到2.89cm。
 - [Perception Tokens Enhance Visual Reasoning in Multimodal Language Models](perception_tokens_enhance_visual_reasoning_in_multimodal_language_models.md)
 - [Repurposing 2D Diffusion Models with Gaussian Atlas for 3D Generation](../../ICCV2025/3d_vision/repurposing_2d_diffusion_models_with_gaussian_atlas_for_3d_generation.md)
 - [3D-Mem: 3D Scene Memory for Embodied Exploration and Reasoning](3d-mem_3d_scene_memory_for_embodied_exploration_and_reasoning.md)
-- [HybridGS: Decoupling Transients and Statics with 2D and 3D Gaussian Splatting](hybridgs_decoupling_transients_and_statics_with_2d_and_3d_gaussian_splatting.md)
+- [DUNE: Distilling a Universal Encoder from Heterogeneous 2D and 3D Teachers](dune_universal_encoder_distillation.md)
 
 <!-- RELATED:END -->

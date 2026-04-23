@@ -172,9 +172,9 @@ FacET（可变chunks + predicted translator）显著优于所有消融变体。�
 ## 相关论文
 
 - [Generalizable Facial Expression Recognition](generalizable_facial_expression_recognition.md)
-- [Interleaving One-Class and Weakly-Supervised Models with Adaptive Thresholding for Unsupervised Video Anomaly Detection](interleaving_one-class_and_weakly-supervised_models_with_adaptive_thresholding_f.md)
 - [MagicArticulate: Make Your 3D Models Articulation-Ready](../../CVPR2025/human_understanding/magicarticulate_make_your_3d_models_articulation-ready.md)
+- [Interleaving One-Class and Weakly-Supervised Models with Adaptive Thresholding for Unsupervised Video Anomaly Detection](interleaving_one-class_and_weakly-supervised_models_with_adaptive_thresholding_f.md)
+- [A Two-Stage Dual-Modality Model for Facial Expression Recognition](../../CVPR2026/human_understanding/a_two_stage_dual_modality_model_for_facial_expression_recognition.md)
 - [SAVE: Speech-Aware Video Representation Learning for Video-Text Retrieval](../../CVPR2026/human_understanding/save_speech-aware_video_representation_learning_for_video-text_retrieval.md)
-- [ReLoo: Reconstructing Humans Dressed in Loose Garments from Monocular Video in the Wild](reloo_reconstructing_humans_dressed_in_loose_garments_from_monocular_video_in_th.md)
 
 <!-- RELATED:END -->

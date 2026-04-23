@@ -127,8 +127,8 @@ tags:
 
 - [Reasoning on Time-Series for Financial Technical Analysis](reasoning_on_time-series_for_financial_technical_analysis.md)
 - [MASFIN: A Multi-Agent System for Decomposed Financial Reasoning and Forecasting](../../NeurIPS2025/time_series/masfin_a_multi-agent_system_for_decomposed_financial_reasoning_and_forecasting.md)
+- [SciTS: Scientific Time Series Understanding and Generation with LLMs](scits_scientific_time_series_llm.md)
 - [Event-Aware Sentiment Factors from LLM-Augmented Financial Tweets: A Transparent Framework for Interpretable Quant Trading](../../ICML2025/time_series/event-aware_sentiment_factors_from_llm-augmented_financial_tweets_a_transparent_.md)
-- [scits scientific time series understanding and generation with llms](scits_scientific_time_series_understanding_and_generation_with_llms.md)
-- [Are LLMs Prescient? A Continuous Evaluation using Daily News as the Oracle](../../ICML2025/time_series/are_llms_prescient_a_continuous_evaluation_using_daily_news_as_the_oracle.md)
+- [GAICo: A Deployed and Extensible Framework for Evaluating Diverse and Multimodal Generative AI Outputs](../../AAAI2026/time_series/gaico_a_deployed_and_extensible_framework_for_evaluating_diverse_and_multimodal_.md)
 
 <!-- RELATED:END -->

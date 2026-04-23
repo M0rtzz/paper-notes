@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 AIGC检测方向 11篇论文解读
+  ACL2025 AIGC检测方向 15篇论文解读
 description: >-
-  11篇ACL2025 AIGC检测论文解读，主题涵盖：提出用 LLM 生成的 NLI、首次大规模量化社交媒体上 AI、通过 1,740 条标注实验发现，经常使用等，每篇含核心思想与方法详解。
+  15篇ACL2025 AIGC检测论文解读，主题涵盖：提出用 LLM 生成的 NLI、首次大规模量化社交媒体上 AI、本文针对金融报告这一高监管领域等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔎 AIGC检测
 
-**💬 ACL2025** · **11** 篇论文解读
+**💬 ACL2025** · **15** 篇论文解读
 
 **[A Rose by Any Other Name: LLM-Generated Explanations Are Good Proxies for Human Explanations to Collect Label Distributions on NLI](a_rose_by_any_other_name_llm-generated_explanations_are_good_proxies_for_human_e.md)**
 
@@ -18,9 +18,21 @@ description: >-
 
 :   首次大规模量化社交媒体上 AI 生成文本(AIGT)的占比变化——收集 Medium/Quora/Reddit 上 240 万帖子，构建 AIGTBench 训练最佳检测器 OSM-Det，发现 2022-2024 年间 Medium 和 Quora 的 AIGT 占比从~2% 飙升至~37-39%，而 Reddit 仅从 1.3% 增至 2.5%。
 
+**[An Empirical Study on Detecting AI-Generated Text in Financial Reports](an_empirical_study_on_detecting_ai-generated_text_in_financial_reports.md)**
+
+:   本文针对金融报告这一高监管领域，系统评估了多种AI生成文本检测方法（统计特征、神经网络分类器、水印检测等）在识别金融文档中AI生成内容方面的表现，揭示了领域特异性对检测效果的显著影响。
+
 **[People who frequently use ChatGPT for writing tasks are accurate and robust detectors of AI-generated text](chatgpt_user_ai_text_detection.md)**
 
 :   通过 1,740 条标注实验发现，经常使用 LLM 进行写作任务的人类标注者可以极高精度（5人投票仅错 1/300）检测 AI 生成文本，即使面对改写和人性化逃逸策略也显著优于大多数自动检测器。
+
+**[ChemActor: Enhancing Automated Extraction of Chemical Synthesis Actions with LLM-Generated Data](chemactor_enhancing_automated_extraction_of_chemical_synthesis_actions_with_llm-.md)**
+
+:   本文提出 ChemActor，一个经过完全微调的 LLM 化学执行器，通过序列化 LLM 生成数据框架和分布散度数据筛选模块来解决化学合成动作提取中的数据稀缺问题，在 R2D 和 D2A 任务上超越基线模型 10%。
+
+**[Cognitive Framework for Detecting AI-Generated Fiction](cognitive_framework_for_detecting_ai-generated_fiction.md)**
+
+:   本文提出一种基于认知语言学特征的AI生成小说/虚构文本检测框架，通过建模人类创意写作中的认知模式（如叙事节奏、情感弧线、隐喻密度）来区分人类和AI创作的虚构文本，在长文本场景下显著优于现有检测方法。
 
 **[Iron Sharpens Iron: Defending Against Attacks in Machine-Generated Text Detection with Adversarial Training](greater_adversarial_mgt_detection.md)**
 
@@ -29,6 +41,10 @@ description: >-
 **[HACo-Det: A Study Towards Fine-Grained Machine-Generated Text Detection under Human-AI Coauthoring](haco-det_a_study_towards_fine-grained_machine-generated_text_detection_under_hum.md)**
 
 :   提出面向人机协作写作场景的细粒度机器生成文本（MGT）检测基准 HACo-Det，通过多轮局部改写流水线自动构建带词级归属标注的 11,200 篇人机共创文本，并将七种主流检测器改造为词级序列标注模式进行系统评估，揭示当前方法在细粒度检测上的巨大改进空间。
+
+**[KatFishNet: Detecting LLM-Generated Korean Text through Linguistic Feature Analysis](katfishnet_detecting_llm-generated_korean_text_through_linguistic_feature_analys.md)**
+
+:   本文构建了首个韩语 LLM 生成文本检测基准 KatFish（涵盖三种文体、四种 LLM），通过分析词间距、词性多样性和逗号使用三类韩语语言学特征，提出 KatFishNet 检测方法，在 OOD（未见过的 LLM）设置下平均 AUROC 比最佳基线高 19.78%。
 
 **[Learning to Rewrite: Generalized LLM-Generated Text Detection](learning_to_rewrite_generalized_llm-generated_text_detection.md)**
 

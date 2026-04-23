@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # NeurIPS2025 论文笔记 TODO
 
-总计: 2525 篇 | 已完成: 2521 | 待更新: 4
+总计: 2525 篇 | 已完成: 2525 | 待更新: 0
 
 ---
 
@@ -142,7 +142,7 @@
 - [x] [Aligning by Misaligning: Boundary-aware Curriculum Learning for Multimodal Alignment](multimodal_vlm/aligning_by_misaligning_boundaryaware_curriculum_learning_fo.md) | arXiv: 2511.08399
 - [x] [Aligning Compound AI Systems via System-level DPO](image_generation/aligning_compound_ai_systems_via_system-level_dpo.md) | arXiv: 2502.17721
 - [x] [Aligning Text to Image in Diffusion Models is Easier Than You Think](image_generation/aligning_text_to_image_in_diffusion_models_is_easier_than_you_think.md) | arXiv: 2503.08250
-- [ ] [Alignment of Large Language Models with Constrained Learning](llm_alignment/alignment_of_large_language_models_with_constrained_learning.md) | arXiv: 2505.19387
+- [x] [Alignment of Large Language Models with Constrained Learning](llm_alignment/alignment_of_large_language_models_with_constrained_learning.md) | arXiv: 2505.19387
 - [x] [aline joint amortization for bayesian inference and active data acquisition](reinforcement_learning/aline_joint_amortization_for_bayesian_inference_and_active_data_acquisition.md) | arXiv: 2506.07259
 - [x] [All You Need is One: Capsule Prompt Tuning with a Single Vector](object_detection/all_you_need_is_one_capsule_prompt_tuning_with_a_single_vector.md) | arXiv: 2510.16670
 - [x] [Alligat0R: Pre-Training through Covisibility Segmentation for Relative Camera Pose Regression](segmentation/alligat0r_pre-training_through_co-visibility_segmentation_for_relative_camera_po.md) | arXiv: 2503.07561
@@ -211,7 +211,7 @@
 - [x] [automated multi-agent workflows for rtl design](llm_agent/automated_multi-agent_workflows_for_rtl_design.md) | arXiv: 2509.20182
 - [x] [automaton constrained q-learning](reinforcement_learning/automaton_constrained_q-learning.md) | arXiv: 2510.05061
 - [x] [autoopt a dataset and a unified framework for automating optimization problem so](optimization/autoopt_a_dataset_and_a_unified_framework_for_automating_optimization_problem_so.md) | arXiv: 2510.21436
-- [ ] [Autoregressive Adversarial Post-Training for Real-Time Interactive Video Generation](image_generation/autoregressive_adversarial_posttraining_for_realtime_interac.md) | arXiv: 2506.09350
+- [x] [Autoregressive Adversarial Post-Training for Real-Time Interactive Video Generation](image_generation/autoregressive_adversarial_posttraining_for_realtime_interac.md) | arXiv: 2506.09350
 - [x] [AutoSciDACT: Automated Scientific Discovery through Contrastive Embedding and Hypothesis Testing](others/autoscidact_automated_scientific_discovery_through_contrastive_embedding_and_hyp.md) | arXiv: 2510.21935
 - [x] [autotom scaling model-based mental inference via automated agent modeling](robotics/autotom_scaling_model-based_mental_inference_via_automated_agent_modeling.md) | arXiv: 2502.15676
 - [x] [AutoVLA: A Vision-Language-Action Model for End-to-End Autonomous Driving with Adaptive Reasoning and Reinforcement Fine-Tuning](autonomous_driving/autovla_a_vision-language-action_model_for_end-to-end_autonomous_driving_with_ad.md) | arXiv: 2506.13757
@@ -2303,7 +2303,7 @@
 - [x] [training the untrainable introducing inductive bias via representational alignme](others/training_the_untrainable_introducing_inductive_bias_via_representational_alignme.md) | arXiv: 2410.20035
 - [x] [training-free bayesianization for low-rank adapters of large language models](optimization/training-free_bayesianization_for_low-rank_adapters_of_large_language_models.md) | arXiv: 2412.05723
 - [x] [training-free constrained generation with stable diffusion models](image_generation/training-free_constrained_generation_with_stable_diffusion_models.md) | arXiv: 2502.05625
-- [ ] [training-free efficient video generation via dynamic token carving](image_generation/training-free_efficient_video_generation_via_dynamic_token_carving.md) | arXiv: 2505.16864
+- [x] [training-free efficient video generation via dynamic token carving](image_generation/training-free_efficient_video_generation_via_dynamic_token_carving.md) | arXiv: 2505.16864
 - [x] [training-free online video step grounding](multimodal_vlm/training-free_online_video_step_grounding.md) | arXiv: 2510.16989
 - [x] [training-free safe text embedding guidance for text-to-image diffusion models](image_generation/training-free_safe_text_embedding_guidance_for_text-to-image_diffusion_models.md) | arXiv: 2510.24012
 - [x] [traj-coa patient trajectory modeling via chain-of-agents for lung cancer risk pr](llm_agent/traj-coa_patient_trajectory_modeling_via_chain-of-agents_for_lung_cancer_risk_pr.md) | arXiv: 2510.10454
@@ -2466,7 +2466,7 @@
 - [x] [watermarking autoregressive image generation](image_generation/watermarking_autoregressive_image_generation.md) | arXiv: 2506.16349
 - [x] [wavelet canonical coherence for nonstationary signals](time_series/wavelet_canonical_coherence_for_nonstationary_signals.md) | arXiv: 2505.14253
 - [x] [wavy transformer](graph_learning/wavy_transformer.md) | arXiv: 2508.12787
-- [ ] [weak-to-strong generalization under distribution shifts](nlp_understanding/weak-to-strong_generalization_under_distribution_shifts.md) | arXiv: 2510.21332
+- [x] [weak-to-strong generalization under distribution shifts](nlp_understanding/weak-to-strong_generalization_under_distribution_shifts.md) | arXiv: 2510.21332
 - [x] [wearvqa a visual question answering benchmark for wearables in egocentric authen](multimodal_vlm/wearvqa_a_visual_question_answering_benchmark_for_wearables_in_egocentric_authen.md) | arXiv: 2511.22154
 - [x] [web-scale collection of video data for 4d animal reconstruction](video_understanding/web-scale_collection_of_video_data_for_4d_animal_reconstruction.md) | arXiv: 2511.01169
 - [x] [web-shepherd advancing prms for reinforcing web agents](llm_agent/web-shepherd_advancing_prms_for_reinforcing_web_agents.md) | arXiv: 2505.15277

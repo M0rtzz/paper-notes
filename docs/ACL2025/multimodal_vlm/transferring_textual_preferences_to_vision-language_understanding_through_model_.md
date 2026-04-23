@@ -158,8 +158,8 @@ $$\theta^{\text{MERGE}} = \{\theta^{\text{LVLM}}_{\text{venc}}, \theta^{\text{LV
 
 - [Bring Reason to Vision: Understanding Perception and Reasoning through Model Merging](../../ICML2025/multimodal_vlm/bring_reason_to_vision_understanding_perception_and_reasoning_through_model_merg.md)
 - [Value-Spectrum: Quantifying Preferences of Vision-Language Models via Value Decomposition](value_spectrum_vlm_pref.md)
+- [Chart-based Reasoning: Transferring Capabilities from LLMs to VLMs](chart-based_reasoning_transferring_capabilities_from_llms_to_vlms.md)
 - [RobustMerge: Parameter-Efficient Model Merging for MLLMs with Direction Robustness](../../NeurIPS2025/multimodal_vlm/robustmerge_parameter-efficient_model_merging_for_mllms_with_direction_robustnes.md)
 - [Jailbreak Large Vision-Language Models Through Multi-Modal Linkage](jailbreak_large_vision-language_models_through_multi-modal_linkage.md)
-- [CoSyn: Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation](cosyn_code_guided_synthetic_data.md)
 
 <!-- RELATED:END -->

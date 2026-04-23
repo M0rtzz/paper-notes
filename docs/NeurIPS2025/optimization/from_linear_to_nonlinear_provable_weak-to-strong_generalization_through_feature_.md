@@ -129,8 +129,8 @@ tags:
 ## 相关论文
 
 - [Understanding the Generalization of Stochastic Gradient Adam in Learning Neural Networks](understanding_the_generalization_of_stochastic_gradient_adam_in_learning_neural_.md)
-- [Unveiling m-Sharpness Through the Structure of Stochastic Gradient Noise](unveiling_m-sharpness_through_the_structure_of_stochastic_gradient_noise.md)
 - [Improving the Straight-Through Estimator with Zeroth-Order Information](improving_the_straight-through_estimator_with_zeroth-order_information.md)
+- [Unveiling m-Sharpness Through the Structure of Stochastic Gradient Noise](unveiling_m-sharpness_through_the_structure_of_stochastic_gradient_noise.md)
 - [Exact and Linear Convergence for Federated Learning under Arbitrary Client Participation is Attainable](exact_and_linear_convergence_for_federated_learning_under_arbitrary_client_parti.md)
 - [Random Feature Representation Boosting](../../ICML2025/optimization/random_feature_representation_boosting.md)
 

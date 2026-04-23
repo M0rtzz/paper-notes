@@ -123,9 +123,9 @@ GaRAGe 本身是评估基准而非模型，不涉及训练。评估使用 GPT-4o
 ## 相关论文
 
 - [MEMERAG: A Multilingual End-to-End Meta-Evaluation Benchmark for Retrieval Augmented Generation](memerag_a_multilingual_end-to-end_meta-evaluation_benchmark_for_retrieval_augmen.md)
+- [Atomic LLM: A Fine-Grained Information Retrieval Evaluation Benchmark for Language Models](atomic_llm_a_fine-grained_information_retrieval_evaluation_benchmark_for_languag.md)
+- [RAGEval: Scenario Specific RAG Evaluation Dataset Generation Framework](rageval_scenario_specific_rag_evaluation_dataset_generation_framework.md)
 - [MT-RAIG: Novel Benchmark and Evaluation Framework for Retrieval-Augmented Insight Generation over Multiple Tables](mt-raig_novel_benchmark_and_evaluation_framework_for_retrieval-augmented_insight.md)
 - [Unanswerability Evaluation for Retrieval Augmented Generation](unanswerability_evaluation_for_retrieval_augmented_generation.md)
-- [RAG-IGBench: Innovative Evaluation for RAG-based Interleaved Generation in Open-domain Question Answering](../../NeurIPS2025/information_retrieval/rag-igbench_innovative_evaluation_for_rag-based_interleaved_generation_in_open-d.md)
-- [DICE: Discrete Interpretable Comparative Evaluation with Probabilistic Scoring for RAG](../../NeurIPS2025/information_retrieval/dice_discrete_interpretable_comparative_evaluation_with_probabilistic_scoring_fo.md)
 
 <!-- RELATED:END -->

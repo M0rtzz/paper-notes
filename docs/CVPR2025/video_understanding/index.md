@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 视频理解方向 74篇论文解读
+  CVPR2025 视频理解方向 80篇论文解读
 description: >-
-  74篇CVPR2025 视频理解论文解读，主题涵盖：提出 BehaviorVLM，一个统一的无需微调的、提出 R-MSD（Reliable、通过掩码建模在自我中心和外部视角之间学习细粒度视图等，每篇含核心思想与方法详解。
+  80篇CVPR2025 视频理解论文解读，主题涵盖：提出 BehaviorVLM，一个统一的无需微调的、提出 R-MSD（Reliable、本文提出 BIMBA，基于 Mamba等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**📷 CVPR2025** · **74** 篇论文解读
+**📷 CVPR2025** · **80** 篇论文解读
 
 **[BehaviorVLM: Unified Finetuning-Free Behavioral Understanding with Vision-Language Reasoning](behaviorvlm_unified_finetuning-free_behavioral_understanding_with_vision-languag.md)**
 
@@ -20,7 +20,9 @@ description: >-
 
 **[BiM-VFI: Bidirectional Motion Field-Guided Frame Interpolation for Video with Non-uniform Motions](bim-vfi_bidirectional_motion_field-guided_frame_interpolation_for_video_with_non.md)**
 
-**[Bimba: Selective-Scan Compression for Long-Range Video Question Answering](bimba_selective-scan_compression_for_long-range_video_question_answering.md)**
+**[BIMBA: Selective-Scan Compression for Long-Range Video Question Answering](bimba_selective-scan_compression_for_long-range_video_question_answering.md)**
+
+:   本文提出 BIMBA，基于 Mamba selective scan 的时空 token 选择器，将长视频的 10万+ token 序列压缩 16 倍至 6400 个包含关键信息的 token，在 7 个长视频 VQA 基准上取得 SOTA。
 
 **[Bootstrap Your Own Views: Masked Ego-Exo Modeling for Fine-Grained View-Invariant Video Representations](bootstrap_your_own_views_masked_ego-exo_modeling_for_fine-grained_view-invariant.md)**
 
@@ -66,9 +68,17 @@ description: >-
 
 :   提出DynFocus，一个基于LLM的动态协作视频编码网络，通过DPE模块动态选择与问答相关的关键帧，CCE模块对关键帧用细粒度token编码（类似视锥细胞Cones）、对冗余帧用极少token粗粒度编码（类似视杆细胞Rods），在有限token预算下平衡空间细节与时序动态。
 
+**[EBS-EKF: Accurate and High Frequency Event-based Star Tracking](ebs-ekf_accurate_and_high_frequency_event-based_star_tracking.md)**
+
+:   本文提出 EBS-EKF，通过建模事件相机在低光条件下的电路行为来获得亮度依赖的质心偏移校正，结合 3D 扩展卡尔曼滤波进行星跟踪，在真实夜空数据上比现有方法精确一个数量级。
+
 **[EDCFlow: Exploring Temporally Dense Difference Maps for Event-based Optical Flow Estimation](edcflow_exploring_temporally_dense_difference_maps_for_event-based_optical_flow_.md)**
 
 :   提出EDCFlow，利用相邻事件帧之间时间密集的特征差分图与低分辨率代价体积的互补性，在1/4分辨率上实现高质量且轻量的事件光流估计。
+
+**[Efficient Motion-Aware Video MLLM](efficient_motion-aware_video_mllm.md)**
+
+:   本文提出 EMA（Efficient Motion-Aware video MLLM），利用压缩视频中的 GOP 结构融合空间与运动信息，以原生慢-快架构减少冗余并增强运动表示，同时引入 MotionBench 做运动理解基准，在多个视频 QA 和运动理解任务上取得 SOTA。
 
 **[Efficient Transfer Learning for Video-language Foundation Models](efficient_transfer_learning_for_video-language_foundation_models.md)**
 
@@ -90,9 +100,21 @@ description: >-
 
 :   AoTD 用 LLM agent 将复杂视频问题分解为子任务、调用专家视觉模型执行并收集中间结果作为推理链（CoT），经 LLM 质量过滤后蒸馏到 Video-LLM 中，让端到端模型同时获得准确答案和可解释的多步推理能力。
 
+**[ETAP: Event-based Tracking of Any Point](etap_event-based_tracking_of_any_point.md)**
+
+:   本文提出了首个纯事件相机的任意点追踪（TAP）方法 ETAP，通过新颖的对比式特征对齐损失学习运动不变的相关特征，结合新的合成数据集 EventKubric，在五个数据集上实现了跨数据集泛化，比基线在 AJ 指标上提升 136%，并在特征追踪基准上超越此前最佳的事件+帧融合方法 3.7%。
+
+**[ExpertAF: Expert Actionable Feedback from Video](expertaf_expert_actionable_feedback_from_video.md)**
+
+:   本文提出 ExpertAF，首个从视频生成可操作教练反馈的方法，通过融合视频、3D 人体姿态和语言的多模态模型，不仅能生成描述错误和改进建议的文本评语，还能检索/生成正确的专家示范，利用 Ego-Exo4D 数据集和 LLM 构建弱监督训练数据，在足球、篮球和攀岩三个场景上显著优于强基线。
+
 **[FC-Track: Overlap-Aware Post-Association Correction for Online Multi-Object Tracking](fc-track_overlap-aware_post-association_correction_for_online_multi-object_track.md)**
 
 :   提出 FC-Track，一个轻量级的后关联校正框架，通过基于 IoA（Intersection over Area）的外观特征过滤和重叠 tracklet 对内的相似度比较，在线纠正因目标重叠导致的检测-轨迹错误匹配，将长期身份切换比例从 36.86% 降至 29.55%，同时在 MOT17/MOT20 上保持 SOTA 性能。
+
+**[FRAME: Floor-aligned Representation for Avatar Motion from Egocentric Video](frame_floor-aligned_representation_for_avatar_motion_from_egocentric_video.md)**
+
+:   FRAME 提出了一种基于地面对齐坐标系的自我中心动作捕捉方法，通过建立轻量级 VR 数据采集系统收集大规模真实世界数据集，并设计了一个几何感知的多模态融合架构将设备 6D 位姿与相机图像有效结合，在 300 FPS 下实现了 state-of-the-art 的全身姿态预测。
 
 **[FSBench: A Figure Skating Benchmark for Advancing Artistic Sports Understanding](fsbench_a_figure_skating_benchmark_for_advancing_artistic_sports_understanding.md)**
 
@@ -213,6 +235,10 @@ description: >-
 **[QA-TIGER: Question-Aware Gaussian Experts for Audio-Visual Question Answering](question-aware_gaussian_experts_for_audio-visual_question_answering.md)**
 
 :   提出 QA-TIGER 框架，通过混合高斯专家（MoE）对视频时序进行连续自适应加权建模，并在编码早期即注入问题信息实现渐进式语义精炼，在多个 AVQA 基准上达到 SOTA。
+
+**[T*: Re-thinking Temporal Search for Long-Form Video Understanding](re-thinking_temporal_search_for_long-form_video_understanding.md)**
+
+:   提出轻量级时序搜索框架 T*，将昂贵的时序搜索转化为空间搜索问题，通过自适应缩放机制在时间和空间维度上迭代定位关键帧，配合首个大规模长视频关键帧搜索基准 LV-Haystack，显著提升现有 VLM 在长视频理解上的表现。
 
 **[Reasoning over Video: Evaluating How MLLMs Extract, Integrate, and Reconstruct Spatiotemporal Evidence](reasoning_over_video_evaluating_how_mllms_extract_integrate_and_reconstruct_spat.md)**
 

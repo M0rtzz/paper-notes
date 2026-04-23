@@ -120,6 +120,6 @@ tags:
 - [AdaptVision: Efficient Vision-Language Models via Adaptive Visual Acquisition](adaptvision_efficient_vision-language_models_via_adaptive_visual_acquisition.md)
 - [Phantasia: Context-Adaptive Backdoors in Vision Language Models](phantasia_context-adaptive_backdoors_in_vision_language_models.md)
 - [TOFA: Training-Free One-Shot Federated Adaptation for Vision-Language Models](../../AAAI2026/multimodal_vlm/tofa_training-free_one-shot_federated_adaptation_for_vision-language_models.md)
-- [Generate, Analyze, and Refine: Training-Free Sound Source Localization via MLLM Meta-Reasoning](generate_analyze_and_refine_training-free_sound_source_localization_via_mllm_met.md)
+- [MODIX: Training-Free Multimodal Information-Driven Positional Index Scaling for VLMs](modix_positional_index_scaling.md)
 
 <!-- RELATED:END -->

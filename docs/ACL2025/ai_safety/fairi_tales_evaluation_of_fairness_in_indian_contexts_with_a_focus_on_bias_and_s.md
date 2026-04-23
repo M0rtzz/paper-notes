@@ -126,7 +126,7 @@ tags:
 - [Is Your Model Fairly Certain? Uncertainty-Aware Fairness Evaluation for LLMs](../../ICML2025/ai_safety/is_your_model_fairly_certain_uncertainty-aware_fairness_evaluation_for_llms.md)
 - [Improving Fairness of Large Language Models in Multi-document Summarization](improving_fairness_of_large_language_models_in_multi-document_summarization.md)
 - [The Tug of War Within: Mitigating the Fairness-Privacy Conflicts in Large Language Models](tug_of_war_fairness_privacy.md)
+- [Bias in the Mirror: Are LLMs' Opinions Robust to Their Own Adversarial Attacks](bias_in_the_mirror_are_llms_opinions_robust_to_their_own_adversarial_attacks.md)
 - [Towards Fairness Assessment of Dutch Hate Speech Detection](towards_fairness_assessment_of_dutch_hate_speech_detection.md)
-- [Gender Inclusivity Fairness Index (GIFI): A Multilevel Framework](gifi_gender_fairness.md)
 
 <!-- RELATED:END -->

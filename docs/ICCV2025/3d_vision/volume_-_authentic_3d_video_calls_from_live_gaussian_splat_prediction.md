@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-3D虚拟会议有望提升远程沟通的共同在场感和参与度，但现有3D表示方案各有硬伤：
+### 领域现状
+
+**领域现状**：3D虚拟会议有望提升远程沟通的共同在场感和参与度，但现有3D表示方案各有硬伤：
 
 **复杂硬件方案**（如Google Project Starline）：需要多相机、专用传感器、强算力，成本极高
 
@@ -36,10 +38,22 @@ tags:
 **生成模型方案**（如Live 3D Portrait / TriPlaneNet）：基于EG3D生成模型反演，受限于模型训练数据，纹理和几何都不够真实
 
 **视频通话的四个核心需求**：
-- **保真性(Authenticity)**：从原始相机视角渲染时必须忠实还原输入视频（包括眼镜、配饰、发型等每个细节）
-- **真实感(Realism)**：在新视角下生成合理逼真的3D重建
-- **实时性(Live)**：在消费级设备上实时运行
-- **稳定性(Stability)**：时间序列和视角变换时无闪烁
+
+### 现有痛点
+
+**现有痛点**：保真性(Authenticity)**：从原始相机视角渲染时必须忠实还原输入视频（包括眼镜、配饰、发型等每个细节）
+
+### 核心矛盾
+
+**核心矛盾**：真实感(Realism)**：在新视角下生成合理逼真的3D重建
+
+### 解决思路
+
+**解决思路**：实时性(Live)**：在消费级设备上实时运行
+
+### 补充说明
+
+**补充说明**：稳定性(Stability)**：时间序列和视角变换时无闪烁
 
 现有方法无一同时满足这四项要求。特别是保真性——avatar方法使用过去注册的固定外观，无法反映"此刻"的状态。
 
@@ -111,7 +125,7 @@ tags:
 3. **合成数据泛化的成功范例**：通过前馈架构的skip connection和直接采样机制，输入信息可直接流向输出表示，避免了生成模型的重建偏差
 4. **问题定义的精准**：不追求360°重建，准确定义了视频通话场景的实际需求范围
 
-## 局限性
+## 局限与展望
 
 - 仅支持±40°视角（视频通话足够，但不适合更大范围的3D展示）
 - 背面/侧面区域的重建质量依赖geometry prior，可能不够真实
@@ -141,7 +155,7 @@ tags:
 ## 相关论文
 
 - [FluidNexus: 3D Fluid Reconstruction and Prediction from a Single Video](../../CVPR2025/3d_vision/fluidnexus_3d_fluid_reconstruction_and_prediction_from_a_single_video.md)
-- [Boosting Multi-View Indoor 3D Object Detection via Adaptive 3D Volume Construction](boosting_multiview_indoor_3d_object_detection_via_adaptive_3.md)
+- [Boosting Multi-View Indoor 3D Object Detection via Adaptive 3D Volume Construction](boosting_multi-view_indoor_3d_object_detection_via_adaptive_3d_volume.md)
 - [SGCDet: Boosting Multi-View Indoor 3D Object Detection via Adaptive 3D Volume Construction](boosting_multi-view_indoor_3d_object_detection_via_adaptive_3d_volume_constructi.md)
 - [Compression of 3D Gaussian Splatting with Optimized Feature Planes and Standard Video Codecs](compression_of_3d_gaussian_splatting_with_optimized_feature_planes_and_standard_.md)
 - [AR-1-to-3: Single Image to Consistent 3D Object Generation via Next-View Prediction](ar1to3_single_image_to_consistent_3d_object_via_nextview_pre.md)

@@ -115,6 +115,6 @@ tags:
 - [Low-Rank Interconnected Adaptation across Layers](../../ACL2025/others/low-rank_interconnected_adaptation_across_layers.md)
 - [The Persistence of Neural Collapse Despite Low-Rank Bias](../../NeurIPS2025/others/the_persistence_of_neural_collapse_despite_low-rank_bias.md)
 - [Towards Robust and Efficient Federated Low-Rank Adaptation with Heterogeneous Clients](../../ACL2025/others/federated_lora_heterogeneous.md)
-- [MoRE: A Mixture of Low-Rank Experts for Adaptive Multi-Task Learning](../../ACL2025/others/more_a_mixture_of_low-rank_experts_for_adaptive_multi-task_learning.md)
+- [CompTrack: Information Bottleneck-Guided Low-Rank Dynamic Token Compression for Point Cloud Tracking](../../AAAI2026/others/comptrack_information_bottleneckguided_lowrank_dynamic_token_compres.md)
 
 <!-- RELATED:END -->

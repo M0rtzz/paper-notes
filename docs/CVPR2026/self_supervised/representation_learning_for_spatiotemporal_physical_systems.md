@@ -135,6 +135,6 @@ JEPA vs VideoMAE 改善：Active Matter **51%**，Shear Flow **43%**，Rayleigh-
 - [TrackMAE: Video Representation Learning via Track, Mask, and Predict](trackmae_video_representation_learning_via_track_mask_and_predict.md)
 - [DiverseDiT: Towards Diverse Representation Learning in Diffusion Transformers](diversedit_towards_diverse_representation_learning_in_diffusion_transformers.md)
 - [D2Dewarp: Dual Dimensions Geometric Representation Learning Based Document Image Dewarping](d2dewarp_dual_dimensions_geometric_representation_learning_based_document_image_.md)
-- [BoSS: A Best-of-Strategies Selector as an Oracle for Deep Active Learning](boss_a_bestofstrategies_selector_as_an_oracle_for.md)
+- [A Stitch in Time: Learning Procedural Workflow via Self-Supervised Plackett-Luce Ranking](a_stitch_in_time_learning_procedural_workflow_via_self_supervised_plackett_luce_r.md)
 
 <!-- RELATED:END -->

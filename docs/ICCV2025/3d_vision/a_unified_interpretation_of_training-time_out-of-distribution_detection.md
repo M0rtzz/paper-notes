@@ -163,6 +163,6 @@ $$SIM_{near} = \frac{\| \min(\tilde{I}_{ID}(v), \tilde{I}_{near\text{-}OOD}(v)) 
 - [Odd-One-Out: Anomaly Detection by Comparing with Neighbors](../../CVPR2025/3d_vision/odd-one-out_anomaly_detection_by_comparing_with_neighbors.md)
 - [Unified Category-Level Object Detection and Pose Estimation from RGB Images using 3D Prototypes](unified_category-level_object_detection_and_pose_estimation_from_rgb_images_usin.md)
 - [Faster and Better 3D Splatting via Group Training](faster_and_better_3d_splatting_via_group_training.md)
-- [4D Visual Pre-training for Robot Learning](4d_visual_pre-training_for_robot_learning.md)
+- [4D Visual Pre-training for Robot Learning](4d_visual_pretraining_for_robot_learning.md)
 
 <!-- RELATED:END -->

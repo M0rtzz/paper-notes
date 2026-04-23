@@ -116,10 +116,10 @@ AndroidLab包含三个组件：(1) 标准化操作环境，统一LLM和LMM的动
 
 ## 相关论文
 
+- [Benchmarking LLMs and LLM-based Agents in Practical Vulnerability Detection for Code Repositories](benchmarking_llms_and_llm-based_agents_in_practical_vulnerability_detection_for_.md)
 - [ComfyBench: Benchmarking LLM-based Agents in ComfyUI for Autonomously Designing Collaborative AI Systems](../../CVPR2025/llm_evaluation/comfybench_benchmarking_llm-based_agents_in_comfyui_for_autonomously_designing_c.md)
 - [AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite](../../ICLR2026/llm_evaluation/astabench_benchmarking_ai_agents.md)
 - [Communicating Activations Between Language Model Agents](../../ICML2025/llm_evaluation/communicating_activations_between_language_model_agents.md)
-- [UI-Evol: Automatic Knowledge Evolving for Computer Use Agents](../../ICML2025/llm_evaluation/ui-evol_automatic_knowledge_evolving_for_computer_use_agents.md)
 - [HybridNorm: Towards Stable and Efficient Transformer Training via Hybrid Normalization](../../NeurIPS2025/llm_evaluation/hybridnorm_towards_stable_and_efficient_transformer_training_via_hybrid_normaliz.md)
 
 <!-- RELATED:END -->

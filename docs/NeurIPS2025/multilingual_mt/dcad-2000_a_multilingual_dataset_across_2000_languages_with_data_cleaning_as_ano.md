@@ -136,6 +136,6 @@ tags:
 - [Semantic and Expressive Variation in Image Captions Across Languages](../../CVPR2025/multilingual_mt/semantic_and_expressive_variations_in_image_captions_across_languages.md)
 - [The Esethu Framework: Reimagining Sustainable Dataset Governance and Curation for Low-Resource Languages](../../ACL2025/multilingual_mt/the_esethu_framework_reimagining_sustainable_dataset_governance_and_curation_for.md)
 - [Enhancing Multilingual LLM Pretraining with Model-Based Data Selection](enhancing_multilingual_llm_pretraining_with_model-based_data_selection.md)
-- [STELLAR: Scene Text Editor for Low-Resource Languages and Real-World Data](../../AAAI2026/multilingual_mt/stellar_scene_text_editor_for_low-resource_languages_and_real-world_data.md)
+- [Comparative Analysis of Multilingual Hate Speech Detection](../../ACL2025/multilingual_mt/comparative_analysis_of_multilingual_hate_speech_detection.md)
 
 <!-- RELATED:END -->

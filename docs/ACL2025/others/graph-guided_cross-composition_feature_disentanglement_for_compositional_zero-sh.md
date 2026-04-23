@@ -149,8 +149,8 @@ DCDA[PRG+N] 在 MIT-States 上 AUC 较 CAILA 提升 3.6%，在 UT-Zappos 上提�
 
 - [Zero-Shot Conversational Stance Detection: Dataset and Approaches](zero-shot_conversational_stance_detection_dataset_and_approaches.md)
 - [OwlEye: Zero-Shot Learner for Cross-Domain Graph Data Anomaly Detection](../../ICLR2026/others/owleye_zero-shot_learner_for_cross-domain_graph_data_anomaly_detection.md)
+- [ALGEN: Few-Shot Inversion Attacks on Textual Embeddings via Cross-Model Alignment](algen_few-shot_inversion_attacks_on_textual_embeddings_via_cross-model_alignment.md)
+- [DAPE V2: Process Attention Score as Feature Map for Length Extrapolation](dape_v2_process_attention_score_as_feature_map_for_length_extrapolation.md)
 - [Synthia: Novel Concept Design with Affordance Composition](synthia_novel_concept_design_with_affordance_composition.md)
-- [Task-Agnostic Guided Feature Expansion for Class-Incremental Learning](../../CVPR2025/others/task-agnostic_guided_feature_expansion_for_class-incremental_learning.md)
-- [Towards Style Alignment in Cross-Cultural Translation](towards_style_alignment_in_cross-cultural_translation.md)
 
 <!-- RELATED:END -->

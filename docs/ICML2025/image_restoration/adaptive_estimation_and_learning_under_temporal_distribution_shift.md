@@ -154,10 +154,10 @@ $$R_{\text{sq}} = \tilde{O}(n^{1/3} C^{2/3} \sigma^{4/3}), \quad R_{\text{abs}} 
 
 ## 相关论文
 
+- [IA-CLAHE: Image-Adaptive Clip Limit Estimation for CLAHE](../../CVPR2026/image_restoration/ia_clahe_image_adaptive_clip_limit.md)
 - [Learning Pixel-adaptive Multi-layer Perceptrons for Real-time Image Enhancement](../../ICCV2025/image_restoration/learning_pixel-adaptive_multi-layer_perceptrons_for_real-time_image_enhancement.md)
-- [MAP Estimation with Denoisers: Convergence Rates and Guarantees](../../NeurIPS2025/image_restoration/map_estimation_with_denoisers_convergence_rates_and_guarantees.md)
 - [Improving Diffusion-based Inverse Algorithms under Few-Step Constraint via Learnable Linear Extrapolation](../../NeurIPS2025/image_restoration/improving_diffusion-based_inverse_algorithms_under_few-step_constraint_via_learn.md)
-- [Temporal Inconsistency Guidance for Super-resolution Video Quality Assessment](../../AAAI2026/image_restoration/temporal_inconsistency_guidance_for_super-resolution_video_quality_assessment.md)
 - [Metric Convolutions: A Unifying Theory to Adaptive Image Convolutions](../../ICCV2025/image_restoration/metric_convolutions_a_unifying_theory_to_adaptive_image_convolutions.md)
+- [MAP Estimation with Denoisers: Convergence Rates and Guarantees](../../NeurIPS2025/image_restoration/map_estimation_with_denoisers_convergence_rates_and_guarantees.md)
 
 <!-- RELATED:END -->

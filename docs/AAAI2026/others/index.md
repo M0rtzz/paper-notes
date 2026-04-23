@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 其他方向 113篇论文解读
+  AAAI2026 其他方向 123篇论文解读
 description: >-
-  113篇AAAI2026 其他论文解读，主题涵盖：提出基于多目标A*搜索的label-setting、将多智能体系统中的法律设计问题（包括"有用法律"和、从Stack Theory出发引入时间语义模块等，每篇含核心思想与方法详解。
+  123篇AAAI2026 其他论文解读，主题涵盖：提出基于多目标A*搜索的label-setting、将多智能体系统中的法律设计问题（包括"有用法律"和、从图论角度研究多智能体系统中的法律设计问题，将等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🤖 AAAI2026** · **113** 篇论文解读
+**🤖 AAAI2026** · **123** 篇论文解读
 
 **[A Fast Heuristic Search Approach for Energy-Optimal Profile Routing for Electric Vehicles](a_fast_heuristic_search_approach_for_energy-optimal_profile_.md)**
 
@@ -18,9 +18,13 @@ description: >-
 
 :   将多智能体系统中的法律设计问题（包括"有用法律"和"无责任缺口法律"）形式化为超图上的顶点覆盖问题，证明了两类法律最小化问题都是NP-hard的，并给出了基于超图顶点覆盖近似算法的多项式时间近似方案。
 
+**[A Graph-Theoretical Perspective on Law Design for Multiagent Systems](a_graph-theoretical_perspective_on_law_design_for_multiagent_systems.md)**
+
+:   从图论角度研究多智能体系统中的法律设计问题，将 useful law 和 gap-free law 的最小化设计分别归约为超图的顶点覆盖问题，证明了 NP-hardness 并给出近似算法。
+
 **[A Mind Cannot Be Smeared Across Time](a_mind_cannot_be_smeared_across_time.md)**
 
-:   从Stack Theory出发引入时间语义模块，形式化证明存在性时间实现不保持合取（Temporal Gap），提出Chord（要求时间窗口内共同实例化）vs Arpeggio（只需成分在窗口内出现）两种意识假设，论证严格串行硬件在Chord假设下不可能承载需要多个同时贡献者的意识。
+:   本文从形式化角度证明，机器是否具有意识不仅取决于计算什么，还取决于何时计算——严格顺序执行的系统不满足意识统一性所需的时间共现（co-instantiation）条件，因此纯软件意识在严格顺序硬件上是不可能的。
 
 **[A New Strategy for Verifying Reach-Avoid Specifications in Neural Feedback Systems](a_new_strategy_for_verifying_reach-avoid_specifications_in_neural_feedback_syste.md)**
 
@@ -37,6 +41,10 @@ description: >-
 **[A Topological Rewriting of Tarski's Mereogeometry](a_topological_rewriting_of_tarskis_mereogeometry.md)**
 
 :   在 Coq 定理证明器中扩展 λ-MM 库，将基于 Leśniewski 部分学（mereology）的 Tarski 固体几何重写为具备完整拓扑结构的形式化系统，证明部分学类对应正则开集、满足 Kuratowski 内部公理且具有 Hausdorff（T2）性质，从而为定性空间推理提供了统一的部分学-几何-拓扑理论框架。
+
+**[UniShape: A Unified Shape-Aware Foundation Model for Time Series Classification](a_unified_shape-aware_foundation_model_for_time_series_class.md)**
+
+:   提出UniShape——首个面向时间序列分类(TSC)的形状感知基础模型：通过多尺度子序列(shape)自适应聚合的shape-aware adapter捕获类别判别性时序模式，结合原型预训练模块在实例级和shape级联合学习可迁移的shapelet表示；在189万样本上预训练后，128个UCR数据集上达到0.8708平均准确率，超越所有基线。
 
 **[Agent-SAMA: State-Aware Mobile Assistant](agent-sama_state-aware_mobile_assistant.md)**
 
@@ -94,6 +102,10 @@ description: >-
 
 :   提出 NAMEA（Non-Attention Meta Ensemble Attack），首次利用集成模型的非注意力区域（non-attention areas）融合 CNN 和 ViT 的可迁移信息，结合元学习梯度优化，在跨架构对抗迁移性上平均超越 SOTA 方法 AdaEA 和 SMER 分别 15.0% 和 9.6%。
 
+**[Bridging the Skills Gap: A Course Model for Modern Generative AI Education](bridging_the_skills_gap_a_course_model_for_modern_generative_ai_education.md)**
+
+:   本文提出了一个面向本科和研究生计算机科学学生的生成式 AI 应用课程模型，通过混合方法调查表明该课程在弥合产业界与学术界之间的生成式 AI 技能差距方面效果显著，学生普遍认为课程有价值且有效。
+
 **[Cash Flow Underwriting with Bank Transaction Data: Advancing MSME Financial Inclusion in Malaysia](cash_flow_underwriting_with_bank_transaction_data_advancing_msme_financial_inclu.md)**
 
 :   提出基于银行流水数据的端到端现金流承保工作流，构建首个马来西亚 MSME（中小微企业）银行账单数据集（611 条贷款记录），验证银行交易衍生特征相比传统申请信息可将逻辑回归模型的 AUROC 从 0.672 提升至 0.850，显著增强对缺乏信用记录的中小微企业的信用评估能力。
@@ -121,6 +133,10 @@ description: >-
 **[Clinician-in-the-Loop Smart Home System to Detect Urinary Tract Infection Flare-Ups via Uncertainty-Aware Decision Support](clinician-in-the-loop_smart_home_system_to_detect_urinary_tract_infection_flare-.md)**
 
 :   提出一种临床医师参与闭环的智能家居系统，利用环境传感器数据提取行为标记，结合新颖的共形校准区间（CCI）方法量化预测不确定性，实现对老年人尿路感染（UTI）发作的可靠检测与"不确定时弃权"的决策支持。
+
+**[CompTrack: Information Bottleneck-Guided Low-Rank Dynamic Token Compression for Point Cloud Tracking](comptrack_information_bottleneckguided_lowrank_dynamic_token_compres.md)**
+
+:   提出CompTrack——首个同时解决LiDAR点云中空间冗余和信息冗余双重挑战的3D单目标跟踪框架：空间前景预测器(SFP)基于信息熵过滤背景噪声，信息瓶颈引导的动态Token压缩(IB-DTC)模块利用在线SVD估计有效秩并将前景压缩为紧凑代理token；在nuScenes和Waymo上达到SOTA，同时以90 FPS实时运行。
 
 **[Controllable Financial Market Generation with Diffusion Guided Meta Agent](controllable_financial_market_generation_with_diffusion_guided_meta_agent.md)**
 
@@ -162,6 +178,10 @@ description: >-
 
 :   提出 FlexDeMo——一种将全分片数据并行（FSDP）与解耦动量优化相结合的混合分片训练策略，在节点内使用 FSDP 分片、节点间仅同步快速移动的动量分量，实现了接近全同步 AdamW 的损失收敛同时显著加速训练。
 
+**[Deviation Dynamics in Cardinal Hedonic Games](deviation_dynamics_in_cardinal_hedonic_games.md)**
+
+:   本文在基数享乐博弈（cardinal hedonic games）的动态模型中提出元定理，证明偏离动态可能收敛或必然收敛的判定复杂度可以直接从不存在稳定结果的实例推导得出，并在加性可分享乐博弈中提出利用偏离动态寻找个体理性和合同个体稳定分区的方法。
+
 **[DFDT: Dynamic Fast Decision Tree for IoT Data Stream Mining on Edge Devices](dfdt_dynamic_fast_decision_tree_for_iot_data_stream_mining_on_edge_devices.md)**
 
 :   提出 DFDT（Dynamic Fast Decision Tree），一种面向 IoT 边缘设备的内存受限数据流挖掘算法，通过活动感知预剪枝、动态 grace period、自适应 tie threshold 三重机制有机调控树的增长，实现精度-内存-运行时间的最优权衡。
@@ -201,6 +221,14 @@ description: >-
 **[Finding Diverse Solutions Parameterized by Cliquewidth](finding_diverse_solutions_parameterized_by_cliquewidth.md)**
 
 :   将"寻找多样化解"的参数化框架从treewidth扩展到更强的cliquewidth图参数，证明任何基于cliquewidth分解的单调动态规划都可以以极小额外开销转换为求解多样化版本的算法，并提出了一族新的Venn多样性度量函数。
+
+**[Forest vs Tree: The (N, K) Trade-off in Reproducible ML Evaluation](forest_vs_tree_the_n_k_trade-off_in_reproducible_ml_evaluation.md)**
+
+:   本文研究机器学习评估中样本数量 $N$ 和每个样本标注者数量 $K$ 之间的最优权衡：在固定预算 $N \times K$ 下，通过分析多类别标注数据集和模拟分布，发现考虑标注者分歧时 $K > 10$ 通常是最优的，且所需的总预算 $N \times K$ 往往不超过 1000。
+
+**[Forget Less by Learning from Parents Through Hierarchical Relationships](forget_less_by_learning_from_parents_through_hierarchical_relationships.md)**
+
+:   本文提出 FLLP（Forget Less by Learning from Parents）框架，通过在双曲空间中建立概念之间的父子层次关系来缓解定制扩散模型（CDM）的灾难性遗忘，利用 Lorentz 流形的树状结构建模能力实现新概念学习时的知识保持和持续概念集成。
 
 **[Formal Abductive Latent Explanations for Prototype-Based Networks](formal_abductive_latent_explanations_for_prototype-based_networks.md)**
 
@@ -286,6 +314,10 @@ description: >-
 
 :   提出MIND（Message Iteration Network Dismantler），通过全新的All-to-One注意力机制和消息迭代轮廓（Message Iteration Profiles）消除GNN对手工特征的依赖，仅利用原始邻接信息就能在百万节点级真实网络上实现SOTA的网络拆解性能，同时具有最低的计算复杂度 $O(|V|+|E|)$。
 
+**[Life, Machine Learning, and the Search for Habitability: Predicting Biosignature Fluxes for the Habitable Worlds Observatory](life_machine_learning_and_the_search_for_habitability_predicting_biosignature_fl.md)**
+
+:   本文为 NASA 宜居世界天文台（HWO）的系外行星观测优先级排序需求，提出贝叶斯卷积神经网络（BCNN）和新型光谱查询自适应 Transformer（SQuAT）两种架构，从行星反射光谱中预测生物标志物种类的通量，两者在增强数据集上均实现了高预测精度，且分别在不确定性量化和可解释性方面各有优势。
+
 **[LILAD: Learning In-context Lyapunov-stable Adaptive Dynamics Models](lilad_learning_in-context_lyapunov-stable_adaptive_dynamics_models.md)**
 
 :   提出 LILAD 框架，利用 GPT-2 的 in-context learning 能力同时学习动力学模型和 Lyapunov 函数，在保证全局指数稳定性的同时实现对非平稳参数化动力系统的自适应辨识，在多个基准系统上超越 ICL、MAML 等基线。
@@ -309,6 +341,10 @@ description: >-
 **[MF-Speech: Achieving Fine-Grained and Compositional Control in Speech Generation via Factor Disentanglement](mf-speech_achieving_fine-grained_and_compositional_control_in_speech_generation_.md)**
 
 :   提出MF-Speech框架，通过多目标优化将语音信号解耦为高纯度的内容、音色和情绪三个独立因子表示，再利用动态融合和层级风格自适应归一化（HSAN）实现细粒度的组合式语音生成控制，在多因子组合语音生成任务上显著超越现有方法（WER=4.67%, SECS=0.5685）。
+
+**[Model Change for Description Logic Concepts](model_change_for_description_logic_concepts.md)**
+
+:   本文研究描述逻辑概念在面对以 pointed interpretation 表示的新模型时的修改问题，定义了驱逐(eviction)、接纳(reception)和修正(revision)三种操作，并为 EL 和 ALC 描述逻辑提供了兼容性的正面和负面理论结果。
 
 **[Model Counting for Dependency Quantified Boolean Formulas](model_counting_for_dependency_quantified_boolean_formulas.md)**
 
@@ -437,6 +473,10 @@ description: >-
 **[Theoretical and Empirical Analysis of Lehmer Codes to Search Permutation Spaces with Evolutionary Algorithms](theoretical_and_empirical_analysis_of_lehmer_codes_to_search_permutation_spaces_.md)**
 
 :   首次对 Lehmer 编码（逆序向量）在进化算法中搜索排列空间的效率进行严格的数学运行时分析，证明 Lehmer 编码的 EA 在多数基准函数上达到 $O(n^2 \log n)$ 或 $O(n^2)$ 的期望运行时间，与经典表示持平或更优，并在 LOP 和 QAP 实际问题上验证其实用性。
+
+**[ASAG: Toward the Frontiers of Reliable Diffusion Sampling via Adversarial Sinkhorn Attention Guidance](toward_the_frontiers_of_reliable_diffusion_sampling_via_adversarial_sinkhorn_att.md)**
+
+:   提出 ASAG（Adversarial Sinkhorn Attention Guidance），从最优传输理论角度重新解读扩散模型中的自注意力分数，通过 Sinkhorn 算法在注意力层中注入对抗性传输代价来故意降低 query-key 相似度，从而破坏误导性注意力对齐并提升条件/无条件采样质量，方法轻量、即插即用、无需重训练。
 
 **[Towards Temporal Fusion Beyond the Field of View for Camera-based Semantic Scene Completion](towards_temporal_fusion_beyond_the_field_of_view_for_camera-based_semantic_scene.md)**
 

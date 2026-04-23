@@ -137,7 +137,7 @@ tags:
 
 ## 相关论文
 
-- [FLARE: Feed-forward Geometry, Appearance and Camera Estimation from Uncalibrated Sparse Views](flare_feed-forward_geometry_appearance_and_camera_estimation_from_uncalibrated_s.md)
+- [FLARE: Feed-forward Geometry, Appearance and Camera Estimation from Uncalibrated Sparse Views](flare_sparse_view_reconstruction.md)
 - [Evolving High-Quality Rendering and Reconstruction in a Unified Framework with Contribution-Adaptive Regularization](evolving_high-quality_rendering_and_reconstruction_in_a_unified_framework_with_c.md)
 - [HRAvatar: High-Quality and Relightable Gaussian Head Avatar](hravatar_high-quality_and_relightable_gaussian_head_avatar.md)
 - [MV-DUSt3R(+): Single-Stage Scene Reconstruction from Sparse Views In 2 Seconds](mv-dust3r_single-stage_scene_reconstruction_from_sparse_views_in_2_seconds.md)

@@ -27,13 +27,23 @@ tags:
 
 ## 研究背景与动机
 
-马尔可夫决策过程（MDP）是强化学习的核心数学框架，但当状态空间或动作空间规模巨大时面临严重的"维度灾难"。量子计算在无结构搜索（Grover）、优化等任务上已展现出相对经典算法的显著加速。
+### 领域现状
+
+**领域现状**：马尔可夫决策过程（MDP）是强化学习的核心数学框架，但当状态空间或动作空间规模巨大时面临严重的"维度灾难"。量子计算在无结构搜索（Grover）、优化等任务上已展现出相对经典算法的显著加速。
 
 **现有工作的不足**：
 
-- 此前量子RL算法（Wang et al. 2021; Cherrat et al. 2023）仅针对**无限时域、时不变**MDP设计，无法处理值函数随时间变化的有限时域场景
-- Wiedemann et al. (2022) 虽尝试有限时域，但样本复杂度关于 $S$ 呈指数增长
-- Naguleswaran et al. (2006) 的量子行走方法仅适用于确定性最短路径问题，无法推广到一般MDP
+### 现有痛点
+
+**现有痛点**：此前量子RL算法（Wang et al. 2021; Cherrat et al. 2023）仅针对**无限时域、时不变**MDP设计，无法处理值函数随时间变化的有限时域场景
+
+### 核心矛盾
+
+**核心矛盾**：Wiedemann et al. (2022) 虽尝试有限时域，但样本复杂度关于 $S$ 呈指数增长
+
+### 解决思路
+
+**解决思路**：Naguleswaran et al. (2006) 的量子行走方法仅适用于确定性最短路径问题，无法推广到一般MDP
 
 **本文目标**：在有限时域、时变MDP的**精确动力学设定**和**生成模型设定**下，设计量子算法以突破经典复杂度下界。
 
@@ -136,6 +146,6 @@ $$V_h^*(s) = \max_{a \in \mathcal{A}} \left\{ r_h(s,a) + \sum_{s'} P_h(s'|s,a) V
 - [Recurrent Memory for Online Interdomain Gaussian Processes](../../NeurIPS2025/image_generation/recurrent_memory_for_online_interdomain_gaussian_processes.md)
 - [ALE-Bench: A Benchmark for Long-Horizon Objective-Driven Algorithm Engineering](../../NeurIPS2025/image_generation/alebench_a_benchmark_for_longhorizon_objectivedriven_algorit.md)
 - [Fast Solvers for Discrete Diffusion Models: Theory and Applications of High-Order Algorithms](../../NeurIPS2025/image_generation/fast_solvers_for_discrete_diffusion_models_theory_and_applications_of_high-order.md)
-- [Attention, May I Have Your Decision? Localizing Generative Choices in Diffusion Models](../../CVPR2026/image_generation/attention_may_i_have_your_decision_localizing_generative_choices_in_diffusion_mo.md)
+- [Finite Difference Flow Optimization for RL Post-Training of Text-to-Image Models](../../CVPR2025/image_generation/finite_difference_flow_optimization_for_rl_post-training_of_text-to-image_models.md)
 
 <!-- RELATED:END -->

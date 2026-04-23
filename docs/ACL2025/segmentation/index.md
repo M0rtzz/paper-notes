@@ -1,14 +1,18 @@
 ---
 title: >-
-  ACL2025 语义分割方向 3篇论文解读
+  ACL2025 语义分割方向 4篇论文解读
 description: >-
-  3篇ACL2025 语义分割论文解读，主题涵盖：提出 DEF-DTS，一种基于 LLM、提出 InstructPart、提出像素级推理分割 (Pixel-level等，每篇含核心思想与方法详解。
+  4篇ACL2025 语义分割论文解读，主题涵盖：本文探索使用 BERT 类预训练语言模型来完成斯拉、提出 DEF-DTS，一种基于 LLM、提出 InstructPart等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**💬 ACL2025** · **3** 篇论文解读
+**💬 ACL2025** · **4** 篇论文解读
+
+**[BERT-like Models for Slavic Morpheme Segmentation](bert-like_models_for_slavic_morpheme_segmentation.md)**
+
+:   本文探索使用 BERT 类预训练语言模型来完成斯拉夫语系语言的形态素分割任务，通过将形态素分割建模为序列标注问题，在多个斯拉夫语言上取得了优于传统方法的结果。
 
 **[DEF-DTS: Deductive Reasoning for Open-domain Dialogue Topic Segmentation](def-dts_deductive_reasoning_for_open-domain_dialogue_topic_segmentation.md)**
 

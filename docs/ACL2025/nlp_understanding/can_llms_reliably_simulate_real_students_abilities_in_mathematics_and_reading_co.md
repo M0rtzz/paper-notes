@@ -137,9 +137,9 @@ tags:
 ## 相关论文
 
 - [Automatic Generation of Inference Making Questions for Reading Comprehension Assessments](automatic_generation_of_inference_making_questions_for_reading_comprehension_ass.md)
+- [Déjà Vu? Decoding Repeated Reading from Eye Movements](deja_vu_decoding_repeated_reading_from_eye_movements.md)
+- [Active LLMs for Multi-hop Question Answering](active_llms_for_multi-hop_question_answering.md)
 - [Analyzing Political Bias in LLMs via Target-Oriented Sentiment Classification](analyzing_political_bias_in_llms_via_target-oriented_sentiment_classification.md)
 - [Adapting Psycholinguistic Research for LLMs: Gender-Inclusive Language in a Coreference Context](adapting_psycholinguistic_research_for_llms_gender-inclusive_language_in_a_coref.md)
-- [Understanding Syllogistic Reasoning in LLMs from Formal and Natural Language Perspectives](../../AAAI2026/nlp_understanding/understanding_syllogistic_reasoning_in_llms_from_formal_and_natural_language_per.md)
-- [Planning without Search: Refining Frontier LLMs with Offline Goal-Conditioned RL](../../NeurIPS2025/nlp_understanding/planning_without_search_refining_frontier_llms_with_offline_goal-conditioned_rl.md)
 
 <!-- RELATED:END -->

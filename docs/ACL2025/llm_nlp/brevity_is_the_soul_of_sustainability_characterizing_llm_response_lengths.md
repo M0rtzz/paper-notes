@@ -143,8 +143,8 @@ tags:
 
 - [A Theory of Response Sampling in LLMs: Part Descriptive and Part Prescriptive](theory_of_llm_sampling.md)
 - [Characterizing the Expressivity of Fixed-Precision Transformer Language Models](../../NeurIPS2025/llm_nlp/characterizing_the_expressivity_of_fixed-precision_transformer_language_models.md)
-- [B-score: Detecting biases in large language models using response history](../../ICML2025/llm_nlp/b-score_detecting_biases_in_large_language_models_using_response_history.md)
 - [Improving Sustainability of Adversarial Examples in Class-Incremental Learning](../../AAAI2026/llm_nlp/improving_sustainability_of_adversarial_examples_in_class-incremental_learning.md)
-- [LLM Braces: Straightening Out LLM Predictions with Relevant Sub-Updates](llm_braces_straightening.md)
+- [B-score: Detecting biases in large language models using response history](../../ICML2025/llm_nlp/b-score_detecting_biases_in_large_language_models_using_response_history.md)
+- [Revisiting Uncertainty Quantification Evaluation in Language Models: Spurious Interactions with Response Length Bias Results](revisiting_uncertainty_quantification_evaluation_in_language_models_spurious_int.md)
 
 <!-- RELATED:END -->

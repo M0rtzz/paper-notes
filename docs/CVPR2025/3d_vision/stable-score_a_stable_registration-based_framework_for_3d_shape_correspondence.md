@@ -154,7 +154,7 @@ $\mathcal{L} = \lambda_{flow}\mathcal{L}_{flow} + \lambda_{cd}\mathcal{L}_{cd} +
 - [Stable Score Distillation](../../ICCV2025/3d_vision/stable_score_distillation.md)
 - [SPAR3D: Stable Point-Aware Reconstruction of 3D Objects from Single Images](spar3d_stable_point-aware_reconstruction_of_3d_objects_from_single_images.md)
 - [A Lightweight UDF Learning Framework for 3D Reconstruction Based on Local Shape Functions](a_lightweight_udf_learning_framework_for_3d_reconstruction_based_on_local_shape_.md)
-- [PrEditor3D: Fast and Precise 3D Shape Editing](preditor3d_fast_and_precise_3d_shape_editing.md)
+- [4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
 - [Generating Physically Stable and Buildable Brick Structures from Text](../../ICCV2025/3d_vision/generating_physically_stable_and_buildable_brick_structures_from_text.md)
 
 <!-- RELATED:END -->

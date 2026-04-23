@@ -163,7 +163,7 @@ LayerTracer 包含四个组件：
 - [Associative Transformer](../../CVPR2025/llm_efficiency/associative_transformer.md)
 - [Approximately Aligned Decoding](../../NeurIPS2025/llm_efficiency/approximately_aligned_decoding.md)
 - [Spiking Transformer: Introducing Accurate Addition-Only Spiking Self-Attention for Transformer](../../CVPR2025/llm_efficiency/spiking_transformer_introducing_accurate_addition-only_spiking_self-attention_fo.md)
+- [CoPrUS: Consistency Preserving Utterance Synthesis Towards More Realistic Benchmark](../../ACL2025/llm_efficiency/coprus_consistency_preserving_utterance_synthesis_towards_more_realistic_benchma.md)
 - [Deep Compositional Phase Diffusion for Long Motion Sequence Generation](../../NeurIPS2025/llm_efficiency/deep_compositional_phase_diffusion_for_long_motion_sequence_generation.md)
-- [CARE Transformer: Mobile-Friendly Linear Visual Transformer via Decoupled Dual Interaction](../../CVPR2025/llm_efficiency/care_transformer_mobile-friendly_linear_visual_transformer_via_decoupled_dual_in.md)
 
 <!-- RELATED:END -->

@@ -137,8 +137,8 @@ tags:
 
 - [HALoGEN: Fantastic LLM Hallucinations and Where to Find Them](../../ACL2025/llm_safety/halogen_hallucinations.md)
 - [LH-Deception: Simulating and Understanding LLM Deceptive Behaviors in Long-Horizon Interactions](../../ICLR2026/llm_safety/lh-deception_simulating_and_understanding_llm_deceptive_behaviors_in_long-horizo.md)
+- [Faithful and Robust LLM-Driven Theorem Proving for NLI Explanations](../../ACL2025/llm_safety/faithful_and_robust_llm-driven_theorem_proving_for_nli_explanations.md)
 - [TreeCut: A Synthetic Unanswerable Math Word Problem Dataset for LLM Hallucination Evaluation](../../ACL2025/llm_safety/treecut_a_synthetic_unanswerable_math_word_problem_dataset_for_llm_hallucination.md)
 - [Which Retain Set Matters for LLM Unlearning? A Case Study on Entity Unlearning](../../ACL2025/llm_safety/which_retain_set_matters_for_llm_unlearning_a_case_study_on_entity_unlearning.md)
-- [Designing Truthful Mechanisms for Asymptotic Fair Division](designing_truthful_mechanisms_for_asymptotic_fair_division.md)
 
 <!-- RELATED:END -->

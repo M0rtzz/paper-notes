@@ -27,17 +27,27 @@ tags:
 
 ## 背景与动机
 
-现有新视角合成方法受限于两个假设：**静态场景** 和 **低动态范围 (LDR) 输入**。
+### 领域现状
 
-- **动态新视角合成 (DNVS)** 虽然能处理时变场景（如运动物体、变化光照），但仅限于 LDR 图像，在强对比度条件下（直射日光、暗光环境）会丢失过曝/欠曝区域的信息。
-- **HDR 新视角合成 (HDR NVS)** 能从多曝光 LDR 图像重建 HDR 场景，但现有方法（如 HDR-NeRF、HDR-GS、GaussHDR）均假设场景完全静态。
-- **现实需求**：真实世界的 HDR 场景天然是动态的——包含运动物体、变化光照、瞬态现象。已有方法无法同时处理动态几何和 HDR 辐射重建。
+**领域现状**：现有新视角合成方法受限于两个假设：**静态场景** 和 **低动态范围 (LDR) 输入**。
+
+### 核心矛盾
+
+**核心矛盾**：动态新视角合成 (DNVS)** 虽然能处理时变场景（如运动物体、变化光照），但仅限于 LDR 图像，在强对比度条件下（直射日光、暗光环境）会丢失过曝/欠曝区域的信息。
+
+### 现有痛点
+
+**现有痛点**：HDR 新视角合成 (HDR NVS)** 能从多曝光 LDR 图像重建 HDR 场景，但现有方法（如 HDR-NeRF、HDR-GS、GaussHDR）均假设场景完全静态。
+
+### 解决思路
+
+**解决思路**：现实需求**：真实世界的 HDR 场景天然是动态的——包含运动物体、变化光照、瞬态现象。已有方法无法同时处理动态几何和 HDR 辐射重建。
 
 尽管 HDR-HexPlane 初步探索了动态 HDR 重建，但它从未仔细评估 HDR 输出质量，也未在真实场景上验证，留下了大量空白。
 
-## 核心问题
+### 解决思路
 
-**HDR Dynamic Novel View Synthesis (HDR DNVS)**：从稀疏、时变的多曝光 LDR 输入中，学习一个 HDR 4D 辐射场模型 $\mathcal{F}_h$，使其能在任意时间戳 $t'$ 和任意视角 $V'$ 下渲染时序一致的 HDR 图像。核心挑战在于：
+**本文目标**：**HDR Dynamic Novel View Synthesis (HDR DNVS)**：从稀疏、时变的多曝光 LDR 输入中，学习一个 HDR 4D 辐射场模型 $\mathcal{F}_h$，使其能在任意时间戳 $t'$ 和任意视角 $V'$ 下渲染时序一致的 HDR 图像。核心挑战在于：
 
 1. 需要联合建模不断演变的场景结构和 HDR 辐射
 2. 非刚性运动与时域变化导致复杂的时空不一致性
@@ -102,7 +112,7 @@ $$\mathbf{c}_t^l = g_\theta([\log \mathbf{c}_t^h + \log e_t, \mathbf{f}_t])$$
 - 像素级监督贡献：去掉后 PSNR 降低 1.03 dB
 - 时序上下文长度 $k=20$ 最优，过小（5/10）或过大（30）均有性能下降
 
-## 亮点
+## 亮点与洞察
 
 1. **问题定义价值高**：首次形式化 HDR DNVS 问题，填补了动态场景 HDR 合成的空白
 2. **动态色调映射器设计精巧**：受人类视觉适应机制启发，使用 GRU 建模时序辐射上下文，实现自适应 HDR-LDR 转换，且学到的色调映射曲线可解释（单调递增、随场景亮度变化而动态调整）
@@ -118,7 +128,7 @@ $$\mathbf{c}_t^l = g_\theta([\log \mathbf{c}_t^h + \log e_t, \mathbf{f}_t])$$
 4. **实际部署场景有限**：真实数据集仅 4 个室内场景，未覆盖户外大场景、极端天气等更复杂情况
 5. **训练时间相对较长**：HDR-4DGS 训练约 69-99 分钟，比 HDR-GS（14-38 分钟）更慢
 
-## 与相关工作的对比
+## 相关工作与启发
 
 | 维度 | HDR-NeRF / HDR-GS | HDR-HexPlane | HDR-4DGS (本文) |
 |------|-------------------|--------------|----------------|
@@ -128,7 +138,7 @@ $$\mathbf{c}_t^l = g_\theta([\log \mathbf{c}_t^h + \log e_t, \mathbf{f}_t])$$
 | HDR 评估 | 有 | 无 | 有（完整基准） |
 | 实时性 | NeRF 慢 / GS 快 | 慢（~1.6 fps） | 快（~41 fps） |
 
-## 启发与关联
+## 相关工作与启发
 
 - **动态色调映射思路可迁移**：DTM 的"辐射银行 + 序列模型"范式可推广到其他需要时序自适应颜色/辐射转换的任务，如视频 HDR 重建、动态光照下的 relighting
 - **双重监督策略通用性强**：像素级 + 光线级联合监督的思路可应用于其他基于 3DGS 的颜色空间转换任务
@@ -149,6 +159,6 @@ $$\mathbf{c}_t^l = g_\theta([\log \mathbf{c}_t^h + \log e_t, \mathbf{f}_t])$$
 - [High Dynamic Range Novel View Synthesis with Single Exposure](../../ICML2025/3d_vision/high_dynamic_range_novel_view_synthesis_with_single_exposure.md)
 - [HDR-NSFF: High Dynamic Range Neural Scene Flow Fields](hdr-nsff_high_dynamic_range_neural_scene_flow_fields.md)
 - [PhysGaia: A Physics-Aware Benchmark with Multi-Body Interactions for Dynamic Novel View Synthesis](../../CVPR2026/3d_vision/physgaia_a_physics-aware_benchmark_with_multi-body_interactions_for_dynamic_nove.md)
-- [InstantHDR: Single-forward Gaussian Splatting for High Dynamic Range 3D Reconstruction](../../CVPR2026/3d_vision/instanthdr_single-forward_gaussian_splatting_for_high_dynamic_range_3d_reconstru.md)
+- [Uncertainty Matters in Dynamic Gaussian Splatting for Monocular 4D Reconstruction](uncertainty_matters_in_dynamic_gaussian_splatting_for_monocular_4d_reconstructio.md)
 
 <!-- RELATED:END -->

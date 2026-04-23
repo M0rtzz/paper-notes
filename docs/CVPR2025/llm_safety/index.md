@@ -1,18 +1,14 @@
 ---
 title: >-
-  CVPR2025 LLM安全方向 2篇论文解读
+  CVPR2025 LLM安全方向 1篇论文解读
 description: >-
-  2篇CVPR2025 LLM安全论文解读，主题涵盖：通过引入55个SVG语义token、提出 GDDSG，用图着色理论将类按相似度分组——等，每篇含核心思想与方法详解。
+  1篇CVPR2025 LLM安全论文解读，主题涵盖：提出 GDDSG，用图着色理论将类按相似度分组——等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM安全
 
-**📷 CVPR2025** · **2** 篇论文解读
-
-**[Empowering LLMs to Understand and Generate Complex Vector Graphics](empowering_llms_to_understand_and_generate_complex_vector_graphics.md)**
-
-:   通过引入55个SVG语义token、构建580k条指令微调数据集SVGX-SFT，使任意LLM能准确理解和生成复杂矢量图形，在文本对齐度和美观度上超越GPT-4o和Claude，推理速度比优化方法快50-150倍。
+**📷 CVPR2025** · **1** 篇论文解读
 
 **[Order-Robust Class Incremental Learning: Graph-Driven Dynamic Similarity Grouping](order-robust_class_incremental_learning_graph-driven_dynamic_similarity_grouping.md)**
 

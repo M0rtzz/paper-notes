@@ -24,7 +24,10 @@ tags:
 提出 HiPPrO 两阶段框架用于多条件反仇恨言论生成——第一阶段通过层次化前缀学习在多个属性（策略+情感）空间中优化反言论生成，第二阶段用无参考无奖励的偏好优化提升建设性，策略一致性提升 ~38%，ROUGE 指标提升 2-3%。
 
 ## 研究背景与动机
-**领域现状**：反仇恨言论（counterspeech）是对抗在线仇恨言论的有力工具。之前的研究主要在单一条件（如特定策略）下生成反言论。
+
+### 领域现状
+
+**领域现状**：领域现状**：反仇恨言论（counterspeech）是对抗在线仇恨言论的有力工具。之前的研究主要在单一条件（如特定策略）下生成反言论。
 
 **现有痛点**：(a) 仅根据单一策略（如"幽默"或"事实纠正"）生成反言论不够细致——现实中有效的反言论同时考虑策略和情感调性；(b) 多属性同时条件化的生成研究空白；(c) 生成的反言论可能不够"建设性"——需要偏好优化。
 
@@ -120,7 +123,7 @@ tags:
 - [Predicting Through Generation: Why Generation Is Better for Prediction](predicting_through_generation_why_generation_is_better_for_prediction.md)
 - [Multi-Hop Question Generation via Dual-Perspective Keyword Guidance](multi-hop_question_generation_via_dual-perspective_keyword_guidance.md)
 - [DocAgent: A Multi-Agent System for Automated Code Documentation Generation](docagent_a_multi-agent_system_for_automated_code_documentation_generation.md)
+- [Interlocking-free Selective Rationalization Through Genetic-based Learning](interlocking-free_selective_rationalization_through_genetic-based_learning.md)
 - [GETReason: Enhancing Image Context Extraction through Hierarchical Multi-Agent Reasoning](getreason_enhancing_image_context_extraction_through_hierarchical_multi-agent_re.md)
-- [Bone Soups: A Seek-and-Soup Model Merging Approach for Controllable Multi-Objective Generation](bone_soups_multi_objective_gen.md)
 
 <!-- RELATED:END -->

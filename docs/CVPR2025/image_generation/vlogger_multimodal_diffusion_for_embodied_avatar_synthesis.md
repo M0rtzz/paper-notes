@@ -136,10 +136,10 @@ VLOGGER 是一个两阶段管线：输入为一张参考人物图像和一段音
 
 ## 相关论文
 
+- [Diffusion-4K: Ultra-High-Resolution Image Synthesis with Latent Diffusion Models](diffusion-4k_ultra-high-resolution_image_synthesis_with_latent_diffusion_models.md)
+- [EasyCraft: A Robust and Efficient Framework for Automatic Avatar Crafting](easycraft_avatar_crafting.md)
 - [GenDeg: Diffusion-based Degradation Synthesis for Generalizable All-In-One Image Restoration](gendeg_diffusion-based_degradation_synthesis_for_generalizable_all-in-one_image_.md)
-- [EasyCraft: A Robust and Efficient Framework for Automatic Avatar Crafting](easycraft_a_robust_and_efficient_framework_for_automatic_avatar_crafting.md)
 - [Enhancing Image Aesthetics with Dual-Conditioned Diffusion Models Guided by Multimodal Perception](enhancing_image_aesthetics_with_dual-conditioned_diffusion_models_guided_by_mult.md)
 - [Generative Multimodal Pretraining with Discrete Diffusion Timestep Tokens](generative_multimodal_pretraining_with_discrete_diffusion_timestep_tokens.md)
-- [GraphGPT-o: Synergistic Multimodal Comprehension and Generation on Graphs](graphgpt-o_synergistic_multimodal_comprehension_and_generation_on_graphs.md)
 
 <!-- RELATED:END -->

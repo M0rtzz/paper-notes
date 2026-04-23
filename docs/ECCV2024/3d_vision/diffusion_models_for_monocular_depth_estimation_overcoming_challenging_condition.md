@@ -166,8 +166,8 @@ pipeline包含两个阶段：
 
 - [DiffusionDepth: Diffusion Denoising Approach for Monocular Depth Estimation](diffusiondepth_diffusion_denoising_approach_for_monocular_depth_estimation.md)
 - [SEDiff: Structure Extraction for Domain Adaptive Depth Estimation via Denoising Diffusion Models](sediff_structure_extraction_for_domain_adaptive_depth_estimation_via_denoising_d.md)
+- [MVDD: Multi-View Depth Diffusion Models](mvdd_multi-view_depth_diffusion_models.md)
 - [High-Precision Self-Supervised Monocular Depth Estimation with Rich-Resource Prior](high-precision_self-supervised_monocular_depth_estimation_with_rich-resource_pri.md)
 - [Camera Height Doesn't Change: Unsupervised Training for Metric Monocular Road-Scene Depth Estimation](camera_height_doesnapost_change_unsupervised_training_for_metric_monocular_road-.md)
-- [Transferable 3D Adversarial Shape Completion using Diffusion Models](transferable_3d_adversarial_shape_completion_using_diffusion_models.md)
 
 <!-- RELATED:END -->

@@ -132,8 +132,8 @@ TeXpert的构建遵循两步流程：先收集科学文档中常用的原子LaTe
 
 - [FEA-Bench: A Benchmark for Evaluating Repository-Level Code Generation for Feature Implementation](feabench_repo_code_gen.md)
 - [DynaCode: A Dynamic Complexity-Aware Code Benchmark for Evaluating Large Language Models in Code Generation](dynacode_a_dynamic_complexity-aware_code_benchmark_for_evaluating_large_language.md)
+- [Rethinking Repetition Problems of LLMs in Code Generation](rethinking_repetition_problems_of_llms_in_code_generation.md)
 - [CodeIF: Benchmarking the Instruction-Following Capabilities of Large Language Models for Code Generation](codeif_benchmarking_the_instruction-following_capabilities_of_large_language_mod.md)
-- [MLDebugging: Towards Benchmarking Code Debugging Across Multi-Library Scenarios](mldebugging_towards_benchmarking_code_debugging_across_multi-library_scenarios.md)
-- [GiFT: Gibbs Fine-Tuning for Code Generation](gift_gibbs_fine_tuning_code_gen.md)
+- [CoCo-Bench: A Comprehensive Code Benchmark for Multi-task Large Language Model Evaluation](coco-bench_a_comprehensive_code_benchmark_for_multi-task_large_language_model_ev.md)
 
 <!-- RELATED:END -->

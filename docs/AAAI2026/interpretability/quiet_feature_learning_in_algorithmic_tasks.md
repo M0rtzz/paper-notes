@@ -25,12 +25,23 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**：LLM 训练中观察到损失曲线的相变（突然下降）和长时间平台期。缩放定律假设损失平滑下降，但算法任务上的相变违背了这一假设。
+### 领域现状
+
+**领域现状**：领域现状**：LLM 训练中观察到损失曲线的相变（突然下降）和长时间平台期。缩放定律假设损失平滑下降，但算法任务上的相变违背了这一假设。
 
 **现有痛点**：
-   - 相变前的平台期被认为是"浪费计算"——但真的什么都没学吗？
-   - 缺乏工具探测损失平台期间模型内部发生了什么
-   - "涌现能力"（Emergent Abilities）的讨论缺乏内部机制的证据
+
+### 核心矛盾
+
+**核心矛盾**：相变前的平台期被认为是"浪费计算"——但真的什么都没学吗？
+
+### 现有痛点
+
+**现有痛点**：缺乏工具探测损失平台期间模型内部发生了什么
+
+### 解决思路
+
+**解决思路**："涌现能力"（Emergent Abilities）的讨论缺乏内部机制的证据
 
 **核心矛盾**：损失不变 ≠ 学习不变——模型可能在积累不直接反映在损失上的中间表示。
 
@@ -127,7 +138,7 @@ tags:
 - [Unsupervised Feature Selection Through Group Discovery](unsupervised_feature_selection_through_group_discovery.md)
 - [Open Ad-Hoc Categorization with Contextualized Feature Learning](../../CVPR2025/interpretability/open_ad-hoc_categorization_with_contextualized_feature_learning.md)
 - [ShapBPT: Image Feature Attributions Using Data-Aware Binary Partition Trees](shapbpt_image_feature_attributions_using_data-aware_binary_partition_trees.md)
+- [Data Whitening Improves Sparse Autoencoder Learning](data_whitening_improves_sparse_autoencoder_learning.md)
 - [Position: We Need An Algorithmic Understanding of Generative AI](../../ICML2025/interpretability/position_we_need_an_algorithmic_understanding_of_generative_ai.md)
-- [Distribution-Based Feature Attribution for Explaining the Predictions of Any Classifier](distribution-based_feature_attribution_for_explaining_the_predictions_of_any_cla.md)
 
 <!-- RELATED:END -->

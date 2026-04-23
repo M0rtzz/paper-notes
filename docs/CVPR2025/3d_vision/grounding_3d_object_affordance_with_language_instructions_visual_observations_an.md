@@ -129,9 +129,9 @@ Unseen 设定下优势更明显：Full-view AUC 0.774 vs PointRefer 0.755，MAE 
 ## 相关论文
 
 - [GREAT: Geometry-Intention Collaborative Inference for Open-Vocabulary 3D Object Affordance Grounding](great_geometry-intention_collaborative_inference_for_open-vocabulary_3d_object_a.md)
-- [Text-Guided Sparse Voxel Pruning for Efficient 3D Visual Grounding](text-guided_sparse_voxel_pruning_for_efficient_3d_visual_grounding.md)
 - [HOI3DGen: Generating High-Quality Human-Object-Interactions in 3D](hoi3dgen_generating_high-quality_human-object-interactions_in_3d.md)
+- [Text-Guided Sparse Voxel Pruning for Efficient 3D Visual Grounding](text-guided_sparse_voxel_pruning_for_efficient_3d_visual_grounding.md)
 - [Reconstructing In-the-Wild Open-Vocabulary Human-Object Interactions](reconstructing_in-the-wild_open-vocabulary_human-object_interactions.md)
-- [ProxyTransformation: Preshaping Point Cloud Manifold with Proxy Attention for 3D Visual Grounding](proxytransformation_preshaping_point_cloud_manifold_with_proxy_attention_for_3d_.md)
+- [SeeGround: See and Ground for Zero-Shot Open-Vocabulary 3D Visual Grounding](seeground_see_and_ground_for_zero-shot_open-vocabulary_3d_visual_grounding.md)
 
 <!-- RELATED:END -->

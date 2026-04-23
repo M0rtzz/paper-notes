@@ -2,7 +2,7 @@
 title: >-
   CVPR2025 LLM/NLP方向 18篇论文解读
 description: >-
-  18篇CVPR2025 LLM/NLP论文解读，主题涵盖：针对语言瓶颈模型（LBM）中所有概念混合在一起导致、从理论上揭示线性注意力性能不及 Softmax、提出 vHeat 视觉 backbone，将图像等，每篇含核心思想与方法详解。
+  18篇CVPR2025 LLM/NLP论文解读，主题涵盖：提出 ALBM 模型，用属性化的类特定概念空间（A、从理论上揭示线性注意力性能不及 Softmax、提出 vHeat 视觉 backbone，将图像等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -10,9 +10,9 @@ description: >-
 
 **📷 CVPR2025** · **18** 篇论文解读
 
-**[Attribute-formed Class-specific Concept Space: Endowing Language Bottleneck Model with Better Generalization](attribute-formed_class-specific_concept_space_endowing_language_bottleneck_model.md)**
+**[Attribute-formed Class-specific Concept Space: Endowing Language Bottleneck Model with Better Interpretability and Scalability](attribute-formed_class-specific_concept_space_endowing_language_bottleneck_model.md)**
 
-:   针对语言瓶颈模型（LBM）中所有概念混合在一起导致的虚假线索推理和零样本泛化差的问题，提出属性构成的类特定概念空间，将概念按属性维度为每个类别组织独立空间。
+:   提出 ALBM 模型，用属性化的类特定概念空间（ACCS）取代现有语言瓶颈模型的类共享概念空间，避免虚假线索推理问题并支持跨类泛化，配合视觉属性提示学习（VAPL）提取细粒度属性特征，在 9 个 few-shot 基准上全面超越现有可解释分类方法。
 
 **[Breaking the Low-Rank Dilemma of Linear Attention](breaking_the_low-rank_dilemma_of_linear_attention.md)**
 
@@ -30,9 +30,9 @@ description: >-
 
 :   ComRoPE将RoPE从固定的2D旋转矩阵推广到SO(n)群的更大子群，证明交换性是保持相对位置鲁棒性的充要条件，提出AP和LD两种可训练参数化方案，在ImageNet分类（+1.6%）、COCO检测（+0.2 AP）上均优于LieRE。
 
-**[Empowering LLMs to Understand and Generate Complex Vector Graphics](empowering_llms_to_understand_and_generate_complex_vector_graphics.md)**
+**[LLM4SVG: Empowering LLMs to Understand and Generate Complex Vector Graphics](empowering_llms_to_understand_and_generate_complex_vector_graphics.md)**
 
-:   本文提出LLM4SVG，首个支持任意LLM进行SVG理解与生成的统一框架，通过可学习语义token精确编码SVG组件属性，配合模块化架构和580K条SVG指令微调数据（SVGX-SFT），显著超越GPT-4等基线在复杂矢量图形生成上的表现。
+:   提出 LLM4SVG 框架，通过定义 55 个可学习的 SVG 语义 token 替代原始 XML 标签，结合 250K 高质量 SVG 和 580K 指令数据的 SVGX-SFT 数据集进行两阶段指令微调，使 GPT-2、Phi-2、Falcon 等开源 LLM 能高质量理解和生成复杂矢量图形，GPT-2 XL 版本达 FID 64.11、CLIPScore 0.3496，大幅超越 GPT-4o（127.78 FID）和所有现有 SVG 生成方法。
 
 **[Exposure-slot: Exposure-centric Representations Learning with Slot-in-Slot Attention](exposure-slot_exposure-centric_representations_learning_with_slot-in-slot_attent.md)**
 
@@ -76,7 +76,7 @@ description: >-
 
 **[Test-Time Visual In-Context Tuning](test-time_visual_in-context_tuning.md)**
 
-:   首次系统研究VICL模型在分布偏移下的鲁棒性问题，提出VICT方法利用循环一致性自监督信号在测试时进行单样本微调，在6个视觉任务和15种图像破坏下显著改进Painter等VICL模型。
+:   本文提出VICT（Visual In-Context Tuning），通过翻转任务提示和测试样本的角色并利用循环一致性损失，在测试时对视觉上下文学习模型（如Painter）进行单样本自适应，显著提升其在分布偏移下的泛化能力。
 
 **[The Change You Want To Detect: Semantic Change Detection In Earth Observation With Hybrid Data Generation](the_change_you_want_to_detect_semantic_change_detection_in_earth_observation_wit.md)**
 

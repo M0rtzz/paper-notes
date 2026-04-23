@@ -184,8 +184,8 @@ mask 中编辑区域用 $h_{\text{factor}} = 2.0$ 放大，非编辑区域用 $r
 
 - [CharaConsist: Fine-Grained Consistent Character Generation](characonsist_fine-grained_consistent_character_generation.md)
 - [MMAIF: Multi-task and Multi-degradation All-in-One for Image Fusion with Language Guidance](mmaif_multi-task_and_multi-degradation_all-in-one_for_image_fusion_with_language.md)
+- [Addressing Text Embedding Leakage in Diffusion-based Image Editing](addressing_text_embedding_leakage_in_diffusion_based_image_editing.md)
 - [Consistent and Controllable Image Animation with Motion Diffusion Models](../../CVPR2025/image_generation/consistent_and_controllable_image_animation_with_motion_diffusion_models.md)
 - [OmniPaint: Mastering Object-Oriented Editing via Disentangled Insertion-Removal Inpainting](omnipaint_mastering_object-oriented_editing_via_disentangled_insertion-removal_i.md)
-- [EEdit: Rethinking the Spatial and Temporal Redundancy for Efficient Image Editing](eedit_rethinking_the_spatial_and_temporal_redundancy_for_efficient_image_editing.md)
 
 <!-- RELATED:END -->

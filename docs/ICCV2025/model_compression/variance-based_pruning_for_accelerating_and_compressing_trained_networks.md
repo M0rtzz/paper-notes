@@ -145,9 +145,9 @@ ConvNeXt的参数减少更显著（>50%），因其MLP占比更高。
 ## 相关论文
 
 - [Who Taught You That? Tracing Teachers in Model Distillation](../../ACL2025/model_compression/who_taught_you_that_tracing_teachers_in_model_distillation.md)
-- [Come Together, But Not Right Now: A Progressive Strategy to Boost Low-Rank Adaptation](../../ICML2025/model_compression/come_together_but_not_right_now_a_progressive_strategy_to_boost_low-rank_adaptat.md)
-- [TrimLLM: Progressive Layer Dropping for Domain-Specific LLMs](../../ACL2025/model_compression/trimllm_layer_dropping.md)
 - [DataDecide: How to Predict Best Pretraining Data with Small Experiments](../../ICML2025/model_compression/datadecide_how_to_predict_best_pretraining_data_with_small_experiments.md)
+- [Come Together, But Not Right Now: A Progressive Strategy to Boost Low-Rank Adaptation](../../ICML2025/model_compression/come_together_but_not_right_now_a_progressive_strategy_to_boost_low-rank_adaptat.md)
+- [Revisiting Weight Regularization for Low-Rank Continual Learning](../../ICLR2026/model_compression/revisiting_weight_regularization_for_low-rank_continual_learning.md)
 - [Rethinking Continual Learning with Progressive Neural Collapse](../../ICLR2026/model_compression/rethinking_continual_learning_with_progressive_neural_collapse.md)
 
 <!-- RELATED:END -->

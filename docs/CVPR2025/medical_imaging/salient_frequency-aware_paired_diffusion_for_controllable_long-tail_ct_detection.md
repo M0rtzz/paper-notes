@@ -128,6 +128,6 @@ tags:
 - [Toward Long-Tailed Online Anomaly Detection through Class-Agnostic Concepts](../../ICCV2025/medical_imaging/toward_long-tailed_online_anomaly_detection_through_class-agnostic_concepts.md)
 - [SeaLion: Semantic Part-Aware Latent Point Diffusion Models for 3D Generation](sealion_semantic_part-aware_latent_point_diffusion_models_for_3d_generation.md)
 - [Context Matters: Query-aware Dynamic Long Sequence Modeling of Gigapixel Images](../../ICML2025/medical_imaging/context_matters_query-aware_dynamic_long_sequence_modeling_of_gigapixel_images.md)
-- [AA-CLIP: Enhancing Zero-Shot Anomaly Detection via Anomaly-Aware CLIP](aa-clip_enhancing_zero-shot_anomaly_detection_via_anomaly-aware_clip.md)
+- [FDP: A Frequency-Decomposition Preprocessing Pipeline for Unsupervised Anomaly Detection in Brain MRI](../../AAAI2026/medical_imaging/fdp_a_frequency-decomposition_preprocessing_pipeline_for_unsupervised_anomaly_de.md)
 
 <!-- RELATED:END -->

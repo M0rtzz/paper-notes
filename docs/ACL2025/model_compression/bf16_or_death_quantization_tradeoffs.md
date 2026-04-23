@@ -123,8 +123,8 @@ tags:
 
 - [MoQAE: Mixed-Precision Quantization for Long-Context LLM Inference via Mixture of Quantization-Aware Experts](moqae_mixed_precision_kv_cache.md)
 - [FlatQuant: Flatness Matters for LLM Quantization](../../ICML2025/model_compression/flatquant_flatness_matters_for_llm_quantization.md)
+- [Compression in Transformer Language Models Has a Surprising Relationship with Performance](compression_in_transformer_language_models_has_a_surprising_relationship_with_pe.md)
 - [Multi-View Encoders for Performance Prediction in LLM-Based Agentic Workflows](../../ICLR2026/model_compression/multi-view_encoders_for_performance_prediction_in_llm-based_agentic_workflows.md)
 - [EfficientQAT: Efficient Quantization-Aware Training for Large Language Models](efficientqat.md)
-- [Accurate KV Cache Quantization with Outlier Tokens Tracing](accurate_kv_cache_quantization_with_outlier_tokens_tracing.md)
 
 <!-- RELATED:END -->

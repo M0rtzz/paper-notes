@@ -128,9 +128,9 @@ tags:
 ## 相关论文
 
 - [Revisiting the Test-Time Scaling of o1-like Models: Do they Truly Possess Test-Time Scaling Capabilities?](revisiting_the_test-time_scaling_of_o1-like_models_do_they_truly_possess_test-ti.md)
+- [ProcessBench: Identifying Process Errors in Mathematical Reasoning](processbench_identifying_process_errors_in_mathematical_reasoning.md)
 - [Is That Your Final Answer? Test-Time Scaling Improves Selective Question Answering](test_time_scaling_selective_qa.md)
 - [LIMOPro: Reasoning Refinement for Efficient and Effective Test-time Scaling](../../NeurIPS2025/llm_reasoning/limopro_reasoning_refinement_for_efficient_and_effective_test-time_scaling.md)
 - [Atom of Thoughts for Markov LLM Test-Time Scaling](../../NeurIPS2025/llm_reasoning/atom_of_thoughts_for_markov_llm_testtime_scaling.md)
-- [SCALE: Selective Resource Allocation for Overcoming Performance Bottlenecks in Mathematical Test-time Scaling](../../AAAI2026/llm_reasoning/scale_selective_resource_allocation_for_overcoming_performance_bottlenecks_in_ma.md)
 
 <!-- RELATED:END -->

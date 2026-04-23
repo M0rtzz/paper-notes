@@ -131,8 +131,8 @@ tags:
 ## 相关论文
 
 - [MambaVLT: Time-Evolving Multimodal State Space Model for Vision-Language Tracking](mambavlt_time-evolving_multimodal_state_space_model_for_vision-language_tracking.md)
-- [The Expressive Limits of Diagonal SSMs for State-Tracking](../../ICLR2026/video_understanding/the_expressive_limits_of_diagonal_ssms_for_state-tracking.md)
 - [Structured Sparse Transition Matrices to Enable State Tracking in State-Space Models](../../NeurIPS2025/video_understanding/structured_sparse_transition_matrices_to_enable_state_tracking_in_state-space_mo.md)
+- [The Expressive Limits of Diagonal SSMs for State-Tracking](../../ICLR2026/video_understanding/the_expressive_limits_of_diagonal_ssms_for_state-tracking.md)
 - [PASS: Path-Selective State Space Model for Event-Based Recognition](../../NeurIPS2025/video_understanding/pass_path-selective_state_space_model_for_event-based_recognition.md)
 - [MambaMia: State-Space Hierarchical Compression for Hour-Long Video Understanding in Large Multimodal Models](../../AAAI2026/video_understanding/state-space_hierarchical_compression_with_gated_attention_an.md)
 

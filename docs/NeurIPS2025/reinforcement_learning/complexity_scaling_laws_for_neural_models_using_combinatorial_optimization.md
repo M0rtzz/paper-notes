@@ -26,15 +26,23 @@ tags:
 
 ## 研究背景与动机
 
-神经缩放定律已证明模型性能随计算预算、模型大小和数据集大小可预测地改善。然而，一个关键维度被忽视：**问题复杂度**如何影响固定容量模型的性能极限？
+### 领域现状
+
+**领域现状**：神经缩放定律已证明模型性能随计算预算、模型大小和数据集大小可预测地改善。然而，一个关键维度被忽视：**问题复杂度**如何影响固定容量模型的性能极限？
 
 这一问题的挑战在于：
 1. 在语言建模、视觉等领域，难以将问题复杂度解耦为独立可缩放的度量
 2. RL 的回报信号通常不平滑，难以获得干净的缩放定律
 
 TSP 作为经典组合优化问题，提供了独特优势：
-- **解空间**（节点数 $n$）和**表示空间**（空间维度 $d$）可独立缩放
-- 组合优化促进平滑的代价趋势，即使没有可解释的损失函数也能获得有意义的缩放定律
+
+### 现有痛点
+
+**现有痛点**：解空间**（节点数 $n$）和**表示空间**（空间维度 $d$）可独立缩放
+
+### 核心矛盾
+
+**核心矛盾**：组合优化促进平滑的代价趋势，即使没有可解释的损失函数也能获得有意义的缩放定律
 
 ## 方法详解
 
@@ -131,7 +139,7 @@ $$s \approx \beta_\psi + a \cdot \psi^{-d}$$
 - **实验设计精巧**：128M 最优 TSP 解的大规模数据集创建，既用于 SFT 训练又用于精确评估
 - **跨范式一致性**：最优模型大小随计算预算的增长率（0.5-0.75）在 TSP 中与语言建模、博弈等领域高度一致
 
-## 局限性
+## 局限与展望
 
 1. **单一问题局限**：所有结论仅基于欧几里得 TSP，未验证对 VRP、QAP 等其他组合优化问题的推广性
 2. 欧几里得 TSP 的三角不等式和 PTAS 存在性使其比大多数 NP-hard 问题更"简单"
@@ -157,9 +165,9 @@ $$s \approx \beta_\psi + a \cdot \psi^{-d}$$
 ## 相关论文
 
 - [Reinforcement Learning Teachers of Test Time Scaling](reinforcement_learning_teachers_of_test_time_scaling.md)
-- [Inverse Optimization Latent Variable Models for Learning Costs Applied to Route Problems](inverse_optimization_latent_variable_models_for_learning_costs_applied_to_route_.md)
 - [Structured Reinforcement Learning for Combinatorial Decision-Making](structured_reinforcement_learning_for_combinatorial_decision-making.md)
-- [DeepDiver: Adaptive Search Intensity Scaling via Open-Web Reinforcement Learning](deepdiver_adaptive_search_intensity_scaling_via_open-web_reinforcement_learning.md)
+- [Inverse Optimization Latent Variable Models for Learning Costs Applied to Route Problems](inverse_optimization_latent_variable_models_for_learning_costs_applied_to_route_.md)
 - [Graph-Supported Dynamic Algorithm Configuration for Multi-Objective Combinatorial Optimization](../../ICML2025/reinforcement_learning/graph-supported_dynamic_algorithm_configuration_for_multi-objective_combinatoria.md)
+- [DeepDiver: Adaptive Search Intensity Scaling via Open-Web Reinforcement Learning](deepdiver_adaptive_search_intensity_scaling_via_open-web_reinforcement_learning.md)
 
 <!-- RELATED:END -->

@@ -24,7 +24,10 @@ tags:
 IRT-Router 借鉴心理测量学的项目反应理论（IRT），将 LLM 视为"考生"、query 视为"考题"，学习多维能力向量和难度/区分度参数实现可解释的多 LLM 路由，在 OOD 场景下达 87%+ 准确率且成本仅为 GPT-4o 的 1/30。
 
 ## 研究背景与动机
-**领域现状**：使用多个 LLM 时需要根据 query 特点自动选择最合适的模型，平衡性能和成本
+
+### 领域现状
+
+**领域现状**：领域现状**：使用多个 LLM 时需要根据 query 特点自动选择最合适的模型，平衡性能和成本
 
 **现有痛点**：现有路由方法（RouteLLM、RouterBench）用简单启发式或黑箱分类器，缺乏可解释性，无法说明"为什么路由到这个模型"
 
@@ -86,9 +89,9 @@ IRT-Router 借鉴心理测量学的项目反应理论（IRT），将 LLM 视为"
 ## 相关论文
 
 - [Safety is Not Only About Refusal: Reasoning-Enhanced Fine-tuning for Interpretable LLM Safety](safety_is_not_only_about_refusal_reasoning-enhanced_fine-tuning_for_interpretabl.md)
+- [ERMoE: Eigen-Reparameterized Mixture-of-Experts for Stable Routing and Interpretable Specialization](../../CVPR2026/interpretability/ermoe_eigen-reparameterized_mixture-of-experts_for_stable_routing.md)
 - [Sloth: Scaling Laws for LLM Skills to Predict Multi-Benchmark Performance Across Families](../../NeurIPS2025/interpretability/sloth_scaling_laws_for_llm_skills_to_predict_multi-benchmark_performance_across_.md)
-- [iMAD: Intelligent Multi-Agent Debate for Efficient and Accurate LLM Inference](../../AAAI2026/interpretability/imad_intelligent_multi-agent_debate_for_efficient_and_accura.md)
-- [Foundation Molecular Grammar: Multi-Modal Foundation Models Induce Interpretable Molecular Grammar](../../ICML2025/interpretability/foundation_molecular_grammar_multi-modal_foundation_models_induce_interpretable_.md)
 - [Establishing Trustworthy LLM Evaluation via Shortcut Neuron Analysis](shortcut_neuron_eval.md)
+- [Foundation Molecular Grammar: Multi-Modal Foundation Models Induce Interpretable Molecular Grammar](../../ICML2025/interpretability/foundation_molecular_grammar_multi-modal_foundation_models_induce_interpretable_.md)
 
 <!-- RELATED:END -->

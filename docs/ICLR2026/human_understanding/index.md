@@ -138,6 +138,10 @@ description: >-
 
 :   提出 P-GenRM，首个个性化生成式奖励模型：通过三阶段训练（PSI 监督微调构建结构化评价链→CRE 强化学习增强缺失偏好下的推理→难负例课程学习提升鲁棒性）将混合偏好信号转化为场景自适应的用户画像与评分标准，再引入双粒度测试时 scaling（个体级多次采样聚合 + 原型级协同过滤借用相似用户偏好），在 PersonalRewardBench 上超越前 SOTA 2.31%、测试时 scaling 额外提升 3%，且能泛化到未见用户。
 
+**[QuaMo: Quaternion Motions for Vision-based 3D Human Kinematics Capture](quamo_quaternion_motion_kinematics.md)**
+
+:   QuaMo 提出基于四元数微分方程（QDE）的 3D 人体运动学捕捉方法，通过在四元数单位球面约束下求解运动学方程，并引入二阶加速度增强的 meta-PD 控制器，实现了无不连续性、低抖动的在线实时人体运动估计，在 Human3.6M 等多个数据集上超越 SOTA。
+
 **[Rapid Training of Hamiltonian Graph Networks using Random Features](rapid_training_of_hamiltonian_graph_networks_using_random_features.md)**
 
 :   本文提出 RF-HGN，通过随机特征采样（ELM/SWIM）构建 dense 层参数并求解线性最小二乘问题来训练哈密顿图网络，完全绕过梯度下降迭代优化，在 N 体物理系统上实现 150-600 倍加速，同时保持可比精度和强零样本泛化能力。
@@ -221,7 +225,3 @@ description: >-
 **[UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation](uniflow_a_unified_pixel_flow_tokenizer_for_visual_understanding_and_generation.md)**
 
 :   提出通用统一 tokenizer UniFlow，通过层级自适应自蒸馏保留语义理解能力 + 轻量 patch-wise 像素流解码器实现高保真重建，在 13 个基准上实现理解与生成的双赢，7B UniFlow-XL 用 40% 更少数据超越 14B TokenFlow-XL 6.05%。
-
-**[Visual Autoregressive Modeling for Instruction-Guided Image Editing](visual_autoregressive_modeling_for_instruction-guided_image_editing.md)**
-
-:   VAREdit将指令引导图像编辑重构为next-scale预测问题，提出Scale-Aligned Reference (SAR)模块解决最细尺度条件与粗目标特征间的尺度不匹配，在EMU-Edit和PIE-Bench上GPT-Balance分数超越最强扩散基线64.9%和45.3%，512×512编辑仅需1.2秒。

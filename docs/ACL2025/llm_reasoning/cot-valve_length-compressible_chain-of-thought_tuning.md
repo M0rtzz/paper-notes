@@ -161,10 +161,10 @@ CoT-Valve分为两个阶段：
 
 ## 相关论文
 
+- [Enhancing Chain-of-Thought Reasoning with Critical Representation Fine-tuning](enhancing_chain-of-thought_reasoning_with_critical_representation_fine-tuning.md)
 - [TRACT: Regression-Aware Fine-tuning Meets Chain-of-Thought Reasoning](tract_regression_cot.md)
 - [Fine-Tuning on Diverse Reasoning Chains Drives Within-Inference CoT Refinement in LLMs](dcot_diverse_cot_refinement.md)
 - [Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization](../../NeurIPS2025/llm_reasoning/transformers_provably_learn_chain-of-thought_reasoning_with_length_generalizatio.md)
 - [CoT-UQ: Improving Response-wise Uncertainty Quantification in LLMs with Chain-of-Thought](cot-uq_improving_response-wise_uncertainty_quantification_in_llms_with_chain-of-.md)
-- [Mind the Gap: Bridging Thought Leap for Improved Chain-of-Thought Tuning](../../NeurIPS2025/llm_reasoning/mind_the_gap_bridging_thought_leap_for_improved_chain-of-thought_tuning.md)
 
 <!-- RELATED:END -->

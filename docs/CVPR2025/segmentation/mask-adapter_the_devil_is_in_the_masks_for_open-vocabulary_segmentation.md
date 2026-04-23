@@ -137,7 +137,7 @@ Mask-Adapter 作为即插即用模块插入任何基于 mask pooling 的 OVS 方
 - [Effective SAM Combination for Open-Vocabulary Semantic Segmentation](effective_sam_combination_for_open-vocabulary_semantic_segmentation.md)
 - [DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception](declip_decoupled_learning_for_open-vocabulary_dense_perception.md)
 - [DPSeg: Dual-Prompt Cost Volume Learning for Open-Vocabulary Semantic Segmentation](dpseg_dual-prompt_cost_volume_learning_for_open-vocabulary_semantic_segmentation.md)
+- [Exploring Simple Open-Vocabulary Semantic Segmentation](exploring_simple_open-vocabulary_semantic_segmentation.md)
 - [Semantic Library Adaptation: LoRA Retrieval and Fusion for Open-Vocabulary Semantic Segmentation](semantic_library_adaptation_lora_retrieval_and_fusion_for_open-vocabulary_semant.md)
-- [Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation](fine-grained_image-text_correspondence_with_cost_aggregation_for_open-vocabulary.md)
 
 <!-- RELATED:END -->

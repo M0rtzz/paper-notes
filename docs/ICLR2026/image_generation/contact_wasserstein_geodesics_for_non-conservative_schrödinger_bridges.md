@@ -117,9 +117,9 @@ $\ell = d_{\mathcal{W}_2}^2(\rho_\theta^{t_K}, \rho_b) + \sum_m d_{\mathcal{W}_2
 ## 相关论文
 
 - [Branched Schrödinger Bridge Matching](branched_schrödinger_bridge_matching.md)
+- [Grasp2Grasp: Vision-Based Dexterous Grasp Translation via Schrödinger Bridges](../../NeurIPS2025/image_generation/grasp2grasp_vision-based_dexterous_grasp_translation_via_schrödinger_bridges.md)
 - [Schrödinger Bridge Matching for Tree-Structured Costs and Entropic Wasserstein Barycentres](../../NeurIPS2025/image_generation/schrödinger_bridge_matching_for_tree-structured_costs_and_entropic_wasserstein_b.md)
+- [Dynamic Diffusion Schrödinger Bridge in Astrophysical Observational Inversions](../../NeurIPS2025/image_generation/dynamic_diffusion_schrödinger_bridge_in_astrophysical_observational_inversions.md)
 - [Contact-Guided 3D Genome Structure Generation of E. coli via Diffusion Transformers](contact-guided_3d_genome_structure_generation_of_e_coli_via_diffusion_transforme.md)
-- [Parallelised Differentiable Straightest Geodesics for 3D Meshes](../../CVPR2026/image_generation/parallelised_differentiable_straightest_geodesics_for_3d_meshes.md)
-- [Curly Flow Matching for Learning Non-gradient Field Dynamics](../../NeurIPS2025/image_generation/curly_flow_matching_for_learning_non-gradient_field_dynamics.md)
 
 <!-- RELATED:END -->

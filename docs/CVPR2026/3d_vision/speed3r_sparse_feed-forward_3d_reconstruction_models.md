@@ -213,6 +213,6 @@ $\pi^3$ 无参考帧和相机 token 依赖，可直接应用 GSA。实验发现 
 - [PanoVGGT: Feed-Forward 3D Reconstruction from Panoramic Imagery](panovggt_feed-forward_3d_reconstruction_from_panoramic_imagery.md)
 - [MoRe: Motion-aware Feed-forward 4D Reconstruction Transformer](more_motion-aware_feed-forward_4d_reconstruction_transformer.md)
 - [Particulate: Feed-Forward 3D Object Articulation](particulate_feed-forward_3d_object_articulation.md)
-- [AnchorSplat: Feed-Forward 3D Gaussian Splatting with 3D Geometric Priors](anchorsplat_feed-forward_3d_gaussian_splatting_with_3d_geometric_priors.md)
+- [Reliev3R: Relieving Feed-forward 3D Reconstruction from Multi-View Geometric Annotations](reliev3r_relieving_feed-forward_3d_reconstruction_from_multi-view_geometric_annot.md)
 
 <!-- RELATED:END -->

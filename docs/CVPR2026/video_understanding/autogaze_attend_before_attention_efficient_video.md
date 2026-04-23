@@ -284,7 +284,7 @@ AutoGaze 由卷积编码器和自回归 Transformer 解码器组成，仅 3M 参
 - [Attend Before Attention: Efficient and Scalable Video Understanding via Autoregressive Gazing](attend_before_attention_efficient_and_scalable_video_understanding_via_autoregre.md)
 - [StreamingTOM: Streaming Token Compression for Efficient Video Understanding](streamingtom_streaming_token_compression_video.md)
 - [TrajTok: Learning Trajectory Tokens Enhances Video Understanding](trajtok_trajectory_token_video_understanding.md)
+- [AdaSpark: Adaptive Sparsity for Efficient Long-Video Understanding](adaspark_adaptive_sparsity_for_efficient_long_video_understanding.md)
 - [Understanding Temporal Logic Consistency in Video-Language Models through Cross-Modal Attention Discriminability](understanding_temporal_logic_consistency_in_video-language_models_through_cross-.md)
-- [VecAttention: Vector-wise Sparse Attention for Accelerating Long Context Inference](vecattention_vector-wise_sparse_attention_for_accelerating_long_context_inferenc.md)
 
 <!-- RELATED:END -->

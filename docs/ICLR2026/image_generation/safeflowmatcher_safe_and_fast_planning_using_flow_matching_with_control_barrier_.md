@@ -27,15 +27,23 @@ tags:
 
 ## 研究背景与动机
 
-基于生成模型的路径规划面临两大挑战：
+### 领域现状
+
+**领域现状**：基于生成模型的路径规划面临两大挑战：
 
 **安全性缺失**：扩散/流匹配模型的采样动态由隐式学习规则控制，可能产生违反安全约束的路径
 
 **效率瓶颈**：扩散模型需要多步去噪，实时规划代价高
 
 现有安全规划方法的问题：
-- **安全引导方法**（如 classifier guidance）：依赖数据驱动代理，无法提供强安全保证
-- **认证方法**（如 SafeDiffuser）：在中间潜在状态上施加约束导致**语义错位**——认证关心的是执行路径，但约束被施加在从未执行的中间状态上。这会**扭曲学习的流**并产生**局部陷阱**（路径被困在障碍边界附近无法到达目标）
+
+### 现有痛点
+
+**现有痛点**：安全引导方法**（如 classifier guidance）：依赖数据驱动代理，无法提供强安全保证
+
+### 核心矛盾
+
+**核心矛盾**：认证方法**（如 SafeDiffuser）：在中间潜在状态上施加约束导致**语义错位**——认证关心的是执行路径，但约束被施加在从未执行的中间状态上。这会**扭曲学习的流**并产生**局部陷阱**（路径被困在障碍边界附近无法到达目标）
 
 ## 方法详解
 
@@ -109,14 +117,14 @@ SafeFlowMatcher 相比基线方法：
 - VTFD 的衰减因子有效减少了预测误差
 - CBF 的松弛权重 $w_t^k$ 在早期修正阶段提供数值稳定性
 
-## 亮点
+## 亮点与洞察
 
 - 完美结合流匹配（高效）和 CBF（安全认证），理论保证扎实
 - PC 积分器的解耦设计从根本上解决了现有方法的局部陷阱问题
 - 理论贡献突出：前向不变性定理 + 有限收敛时间保证
 - 框架通用性强：适用于动力学和代价图未知的场景
 
-## 局限性
+## 局限与展望
 
 - CBF 的构造依赖于障碍函数 $b$ 的定义，对复杂环境的适用性需进一步研究
 - QP 求解的计算开销随路点数和约束数增加
@@ -142,8 +150,8 @@ SafeFlowMatcher 相比基线方法：
 
 - [Multi-agent Coordination via Flow Matching](multi-agent_coordination_via_flow_matching.md)
 - [Laplacian Multi-scale Flow Matching for Generative Modeling](laplacian_multi-scale_flow_matching_for_generative_modeling.md)
-- [SenseFlow: Scaling Distribution Matching for Flow-based Text-to-Image Distillation](senseflow_scaling_distribution_matching_for_flow-based_text-to-image_distillatio.md)
-- [DenseGRPO: From Sparse to Dense Reward for Flow Matching Model Alignment](densegrpo_from_sparse_to_dense_reward_for_flow_matching_model_alignment.md)
 - [Flow Matching with Injected Noise for Offline-to-Online Reinforcement Learning](flow_matching_with_injected_noise_for_offline-to-online_reinforcement_learning.md)
+- [DenseGRPO: From Sparse to Dense Reward for Flow Matching Model Alignment](densegrpo_from_sparse_to_dense_reward_for_flow_matching_model_alignment.md)
+- [SenseFlow: Scaling Distribution Matching for Flow-based Text-to-Image Distillation](senseflow_scaling_distribution_matching_for_flow-based_text-to-image_distillatio.md)
 
 <!-- RELATED:END -->

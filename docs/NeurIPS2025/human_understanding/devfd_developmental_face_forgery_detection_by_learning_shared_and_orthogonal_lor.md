@@ -121,10 +121,10 @@ $$\mathcal{L} = \mathcal{L}_{\text{cls}} + \mathcal{L}_{\text{ort}} + \lambda_3\
 
 ## 相关论文
 
+- [Towards General Visual-Linguistic Face Forgery Detection](../../CVPR2025/human_understanding/towards_general_visual-linguistic_face_forgery_detection.md)
 - [Forensics Adapter: Adapting CLIP for Generalizable Face Forgery Detection](../../CVPR2025/human_understanding/forensics_adapter_adapting_clip_for_generalizable_face_forgery_detection.md)
 - [Fine-Grained DINO Tuning with Dual Supervision for Face Forgery Detection](../../AAAI2026/human_understanding/fine-grained_dino_tuning_with_dual_supervision_for_face_forgery_detection.md)
 - [Mouse-Guided Gaze: Semi-Supervised Learning of Intention-Aware Representations for Reading Detection](mouse-guided_gaze_semi-supervised_learning_of_intention-aware_representations_fo.md)
 - [Bi-Level Optimization for Self-Supervised AI-Generated Face Detection](../../ICCV2025/human_understanding/bi-level_optimization_for_self-supervised_ai-generated_face_detection.md)
-- [Bilevel Layer-Positioning LoRA for Real Image Dehazing](../../CVPR2026/human_understanding/bilevel_lora_real_image_dehazing.md)
 
 <!-- RELATED:END -->

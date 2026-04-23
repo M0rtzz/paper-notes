@@ -117,9 +117,9 @@ IndicBERT评论过滤器用二分类交叉熵训练。基准实验用GPT-4和LLa
 ## 相关论文
 
 - [mOSCAR: A Large-scale Multilingual and Multimodal Document-level Corpus](moscar_a_large-scale_multilingual_and_multimodal_document-level_corpus.md)
+- [LexGen: Domain-aware Multilingual Lexicon Generation](lexgen_domain-aware_multilingual_lexicon_generation.md)
 - [Harnessing Frozen Unimodal Encoders for Flexible Multimodal Alignment](../../CVPR2025/multilingual_mt/harnessing_frozen_unimodal_encoders_for_flexible_multimodal_alignment.md)
-- [EXECUTE: A Multilingual Benchmark for LLM Token Understanding](execute_a_multilingual_benchmark_for_llm_token_understanding.md)
-- [NameTag 3: A Tool and a Service for Multilingual/Multitagset NER](nametag_3_a_tool_and_a_service_for_multilingualmultitagset_ner.md)
+- [KnowCoder-X: Boosting Multilingual Information Extraction via Code](knowcoder-x_boosting_multilingual_information_extraction_via_code.md)
 - [LangMark: A Multilingual Dataset for Automatic Post-Editing](langmark_a_multilingual_dataset_for_automatic_post-editing.md)
 
 <!-- RELATED:END -->

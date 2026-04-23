@@ -148,6 +148,6 @@ $$\mathcal{L} = \lambda_1 \mathcal{L}_{MGCL} + \lambda_2 \mathcal{L}_{ITA} + \la
 - [RayZer: A Self-supervised Large View Synthesis Model](rayzer_a_self-supervised_large_view_synthesis_model.md)
 - [UniVG: A Generalist Diffusion Model for Unified Image Generation and Editing](univg_a_generalist_diffusion_model_for_unified_image_generation_and_editing.md)
 - [UniEgoMotion: A Unified Model for Egocentric Motion Reconstruction, Forecasting, and Generation](uniegomotion_a_unified_model_for_egocentric_motion_reconstruction_forecasting_an.md)
-- [Glove2Hand: Synthesizing Natural Hand-Object Interaction from Multi-Modal Sensing Gloves](../../CVPR2026/3d_vision/glove2hand_synthesizing_natural_hand-object_interaction_from_multi-modal_sensing.md)
+- [AnimateAnyMesh: A Feed-Forward 4D Foundation Model for Text-Driven Universal Mesh Animation](animateanymesh_a_feedforward_4d_foundation_model_for_textdri.md)
 
 <!-- RELATED:END -->

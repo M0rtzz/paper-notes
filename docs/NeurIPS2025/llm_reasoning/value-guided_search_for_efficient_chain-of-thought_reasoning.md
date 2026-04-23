@@ -25,7 +25,10 @@ tags:
 本文扩展置信度估计到多步任务，证明步级评估相比整体评估能更有效地检测推理失败，相对整体评估在CoQA上AUC-ROC提升15%，为多步推理系统的可信部署提供实用框架。
 
 ## 研究背景与动机
-**单步研究饱和**：存在大量置信度估计工作，但几乎全部聚焦单次输出，多步推理的失败检测未充分研究
+
+### 现有痛点
+
+**现有痛点**：**领域现状**：单步研究饱和**：存在大量置信度估计工作，但几乎全部聚焦单次输出，多步推理的失败检测未充分研究
 
 **多步推理复杂性**：推理链可任意长，错误可能在任何步产生，后续步会放大早期错误，现有单步方法直接应用失败
 
@@ -67,6 +70,9 @@ $$\mathcal{F}(R_i|C,Q_{[1:i]},\hat{R}_{[1:i-1]}) \rightarrow \mathbb{I}\{R_i≠\
 
 ### GSM8K(数学推理) - AUC-ROC & FPR@0.9回召
 
+
+### 主实验
+
 | 方法 | 粒度 | AUC | FPR@0.9rec | 关键发现 |
 |:---:|:---:|:---:|:---:|:---|
 | Self-Certainty | 整体 | 0.649 | 0.812 | 较弱 |
@@ -77,6 +83,9 @@ $$\mathcal{F}(R_i|C,Q_{[1:i]},\hat{R}_{[1:i-1]}) \rightarrow \mathbb{I}\{R_i≠\
 | GPT-4.1-mini | 步级 | 0.670 | 1.0(mr:0.48) | 反向滑落 |
 
 ### CoQA(对话QA) - 性能对比
+
+
+### 消融实验
 
 | 方法 | 粒度 | AUC | FPR@0.9rec | 相对整体改变 |
 |:---:|:---:|:---:|:---:|:---:|
@@ -99,7 +108,7 @@ $$\mathcal{F}(R_i|C,Q_{[1:i]},\hat{R}_{[1:i-1]}) \rightarrow \mathbb{I}\{R_i≠\
 3. **失败模式剖析**：识别虚假推理(错误步→正确答):39.3%相对故障检测率优势(步级)
 4. **医疗验证**：真实临床数据验证，强化医疗等高危场景的应用价值
 
-## 局限性
+## 局限与展望
 1. 步级标注成本(需黄金答案每步)限制数据规模，不同域迁移需重标
 2. 文本生成不同于分类，步级边界定义仍有歧义(何为一"步"？)
 3. PRM基线无法在GSM8K步级应用(多有效路径),方法限制未深入讨论
@@ -116,10 +125,10 @@ $$\mathcal{F}(R_i|C,Q_{[1:i]},\hat{R}_{[1:i-1]}) \rightarrow \mathbb{I}\{R_i≠\
 
 ## 相关论文
 
+- [Self-Error-Instruct: Generalizing from Errors for LLMs Mathematical Reasoning](../../ACL2025/llm_reasoning/self-error-instruct_generalizing_from_errors_for_llms_mathematical_reasoning.md)
 - [FineReason: Evaluating and Improving LLMs' Deliberate Reasoning through Reflective Puzzle Solving](../../ACL2025/llm_reasoning/finereason_evaluating_and_improving_llms_deliberate_reasoning_through_reflective.md)
 - [The Hawthorne Effect in Reasoning Models: Evaluating and Steering Test Awareness](the_hawthorne_effect_in_reasoning_models_evaluating_and_steering_test_awareness.md)
 - [RealMath: A Continuous Benchmark for Evaluating Language Models on Research-Level Mathematics](realmath_a_continuous_benchmark_for_evaluating_language_models_on_research-level.md)
 - [Beyond Chemical QA: Evaluating LLM's Chemical Reasoning with Modular Chemical Operations](beyond_chemical_qa_evaluating_llms_chemical_reasoning_with_modular_chemical_oper.md)
-- [Scalable Best-of-N Selection for Large Language Models via Self-Certainty](scalable_best-of-n_selection_for_large_language_models_via_self-certainty.md)
 
 <!-- RELATED:END -->

@@ -155,6 +155,6 @@ ConspEmoLLM 是唯一利用情感 LLM 检测虚假信息的先前工作，但它
 - [LLMs for Game Theory: Entropy-Guided In-Context Learning and Adaptive CoT Reasoning](../../AAAI2026/information_retrieval/llms_for_game_theory_entropy-guided_in-context_learning_and_adaptive_cot_reasoni.md)
 - [On Synthetic Data Strategies for Domain-Specific Generative Retrieval](on_synthetic_data_strategies_for_domain-specific_generative_retrieval.md)
 - [Preserving Clusters in Prompt Learning for Unsupervised Domain Adaptation](../../CVPR2025/information_retrieval/preserving_clusters_in_prompt_learning_for_unsupervised_domain_adaptation.md)
-- [REFIND at SemEval-2025 Task 3: Retrieval-Augmented Factuality Hallucination Detection in Large Language Models](refind_at_semeval-2025_task_3_retrieval-augmented_factuality_hallucination_detec.md)
+- [Automatic Benchmark Generation from Scientific Papers via Retrieval-Augmented LLMs](automatic_benchmark_generation_from_scientific_papers_via_retrieval-augmented_ll.md)
 
 <!-- RELATED:END -->

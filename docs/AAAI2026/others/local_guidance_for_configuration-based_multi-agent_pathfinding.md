@@ -126,8 +126,8 @@ tags:
 
 - [Symbolic Planning and Multi-Agent Path Finding in Extremely Dense Environments with Unassigned Agents](symbolic_planning_and_multi-agent_path_finding_in_extremely_dense_environments_w.md)
 - [Area-Optimal Control Strategies for Heterogeneous Multi-Agent Pursuit](area-optimal_control_strategies_for_heterogeneous_multi-agen.md)
-- [Multi-Hop Question Generation via Dual-Perspective Keyword Guidance](../../ACL2025/others/multi-hop_question_generation_via_dual-perspective_keyword_guidance.md)
+- [ASAG: Toward the Frontiers of Reliable Diffusion Sampling via Adversarial Sinkhorn Attention Guidance](toward_the_frontiers_of_reliable_diffusion_sampling_via_adversarial_sinkhorn_att.md)
 - [An Epistemic Perspective on Agent Awareness](an_epistemic_perspective_on_agent_awareness.md)
-- [Approximation Algorithm for Constrained k-Center Clustering: A Local Search Approach](approximation_algorithm_for_constrained_k-center_clustering_.md)
+- [Multi-Hop Question Generation via Dual-Perspective Keyword Guidance](../../ACL2025/others/multi-hop_question_generation_via_dual-perspective_keyword_guidance.md)
 
 <!-- RELATED:END -->

@@ -131,6 +131,6 @@ tags:
 - [ColaVLA: Leveraging Cognitive Latent Reasoning for Hierarchical Parallel Trajectory Planning in Autonomous Driving](../../CVPR2026/autonomous_driving/colavla_leveraging_cognitive_latent_reasoning_for_hierarchical_parallel_trajecto.md)
 - [UniMotion: A Unified Motion Framework for Simulation, Prediction and Planning](../../NeurIPS2025/autonomous_driving/unimotion_a_unified_motion_framework_for_simulation_prediction_and_planning.md)
 - [Flow Matching-Based Autonomous Driving Planning with Advanced Interactive Behavior Modeling](../../NeurIPS2025/autonomous_driving/flow_matching-based_autonomous_driving_planning_with_advanced_interactive_behavi.md)
-- [Reason2Drive: Towards Interpretable and Chain-based Reasoning for Autonomous Driving](../../ECCV2024/autonomous_driving/reason2drive_towards_interpretable_and_chain-based_reasoning_for_autonomous_driv.md)
+- [Reason2Drive: Towards Interpretable and Chain-Based Reasoning for Autonomous Driving](../../ECCV2024/autonomous_driving/reason2drive_towards_interpretable_and_chainbased_reasoning.md)
 
 <!-- RELATED:END -->

@@ -105,8 +105,8 @@ $\mathcal{L}_{total} = \mathcal{L}_{CE} + \lambda_1 \mathcal{L}_{Cos} + \lambda_
 ## 相关论文
 
 - [Tackling Resource-Constrained and Data-Heterogeneity in Federated Learning with Double-Weight Sparse Pack](tackling_resource-constrained_and_data-heterogeneity_in_federated_learning_with_.md)
-- [Mitigating Error Accumulation in Co-Speech Motion Generation via Global Rotation Diffusion and Multi-Level Constraints](mitigating_error_accumulation_in_co-speech_motion_generation_via_global_rotation.md)
 - [CLCR: Cross-Level Semantic Collaborative Representation for Multimodal Learning](../../CVPR2026/object_detection/clcr_cross-level_semantic_collaborative_representation_for_multimodal_learning.md)
+- [Mitigating Error Accumulation in Co-Speech Motion Generation via Global Rotation Diffusion and Multi-Level Constraints](mitigating_error_accumulation_in_co-speech_motion_generation_via_global_rotation.md)
 - [SABRE-FL: Selective and Accurate Backdoor Rejection for Federated Prompt Learning](../../ICLR2026/object_detection/sabre-fl_selective_and_accurate_backdoor_rejection_for_federated_prompt_learning.md)
 - [Advancing Textual Prompt Learning with Anchored Attributes](../../ICCV2025/object_detection/advancing_textual_prompt_learning_with_anchored_attributes.md)
 

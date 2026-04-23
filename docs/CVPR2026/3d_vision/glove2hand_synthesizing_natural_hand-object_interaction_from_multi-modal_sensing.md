@@ -137,10 +137,10 @@ tags:
 
 ## 相关论文
 
+- [STMI: Segmentation-Guided Token Modulation with Cross-Modal Hypergraph Interaction for Multi-Modal Object Re-Identification](../../AAAI2026/3d_vision/stmi_segmentation-guided_token_modulation_with_cross-modal_hypergraph_interactio.md)
+- [CARI4D: Category Agnostic 4D Reconstruction of Human-Object Interaction](cari4d_category_agnostic_4d_reconstruction_of_human_object_interaction.md)
 - [SkySense V2: A Unified Foundation Model for Multi-Modal Remote Sensing](../../ICCV2025/3d_vision/skysense_v2_a_unified_foundation_model_for_multi-modal_remote_sensing.md)
 - [ArtHOI: Taming Foundation Models for Monocular 4D Reconstruction of Hand-Articulated-Object Interactions](arthoi_taming_foundation_models_for_monocular_4d_reconstruction_of_hand-articula.md)
 - [AffordGrasp: Cross-Modal Diffusion for Affordance-Aware Grasp Synthesis](affordgrasp_cross-modal_diffusion_for_affordance-aware_grasp_synthesis.md)
-- [HOT3D: Hand and Object Tracking in 3D from Egocentric Multi-View Videos](../../CVPR2025/3d_vision/hot3d_hand_and_object_tracking_in_3d_from_egocentric_multi-view_videos.md)
-- [Contact-Aware Amodal Completion for Human-Object Interaction via Multi-Regional Inpainting](../../ICCV2025/3d_vision/contact-aware_amodal_completion_for_human-object_interaction_via_multi-regional_.md)
 
 <!-- RELATED:END -->

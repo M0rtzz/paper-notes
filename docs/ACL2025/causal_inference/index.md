@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 因果推理方向 7篇论文解读
+  ACL2025 因果推理方向 10篇论文解读
 description: >-
-  7篇ACL2025 因果推理论文解读，主题涵盖：提出基于四类语义关系专家（时间、篇章、条件、提出 CausalRAG，将因果图集成到 RAG、提出 FitCF 框架，利用 BERT等，每篇含核心思想与方法详解。
+  10篇ACL2025 因果推理论文解读，主题涵盖：提出基于四类语义关系专家（时间、篇章、条件、提出 CausalRAG，将因果图集成到 RAG、本文提出CoA-Reasoning框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔗 因果推理
 
-**💬 ACL2025** · **7** 篇论文解读
+**💬 ACL2025** · **10** 篇论文解读
 
 **[Causal Graph based Event Reasoning using Semantic Relation Experts](causal_graph_based_event_reasoning_using_semantic_relation_experts.md)**
 
@@ -17,6 +17,18 @@ description: >-
 **[CausalRAG: Integrating Causal Graphs into Retrieval-Augmented Generation](causalrag_integrating_causal_graphs_into_retrieval-augmented_generation.md)**
 
 :   提出 CausalRAG，将因果图集成到 RAG 的检索过程中——从文档构建文本图并识别因果关系，在查询时通过因果路径发现和因果摘要生成来检索上下文，在文档问答中显著提升上下文精度（92.86%）和检索召回率。
+
+**[CoA-Reasoning: Explorations on Counterfactual Analysis in Physical Reasoning of LVLMs](coa-reasoning_explorations_on_counterfactual_analysis_in_physical_reasoning_of_l.md)**
+
+:   本文提出CoA-Reasoning框架，通过构造反事实场景来系统性地评估和增强大型视觉语言模型（LVLMs）在物理世界推理中的因果理解能力，揭示了现有模型在反事实物理推理上的显著不足。
+
+**[Counterfactual-Consistency Prompting for Relative Temporal Understanding in Large Language Models](counterfactual-consistency_prompting_for_relative_temporal_understanding_in_larg.md)**
+
+:   本文提出了一种反事实一致性提示（Counterfactual-Consistency Prompting）方法，通过生成反事实问题并施加集体约束来解决大语言模型在时序推理中的不一致性问题，在多个时序理解数据集上取得了显著改进。
+
+**[Counterfactual Explanations for Aspect-Based Sentiment Analysis](counterfactual_explanations_for_aspect-based_sentiment_analysis.md)**
+
+:   本文提出一种为方面级情感分析（ABSA）生成反事实解释的方法，通过找到能翻转特定方面情感极性的最小文本修改，为 ABSA 模型的预测提供直观的因果解释。
 
 **[FitCF: A Framework for Automatic Feature Importance-guided Counterfactual Example Generation](fitcf_a_framework_for_automatic_feature_importance-guided_counterfactual_example.md)**
 

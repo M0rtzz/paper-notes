@@ -134,10 +134,10 @@ tags:
 
 ## 相关论文
 
+- [K/DA: Automated Data Generation Pipeline for Detoxifying Implicitly Offensive Language in Korean](kda_automated_data_generation_pipeline_for_detoxifying_implicitly_offensive_lang.md)
 - [Evaluation of LLM Vulnerabilities to Being Misused for Personalized Disinformation Generation](llm_personalized_disinformation.md)
 - [Exploring the Impact of Instruction-Tuning on LLMs' Susceptibility to Misinformation](exploring_the_impact_of_instruction-tuning_on_llms_susceptibility_to_misinformat.md)
 - [BanStereoSet: A Dataset to Measure Stereotypical Social Biases in LLMs for Bangla](banstereoset_a_dataset_to_measure_stereotypical_social_biases_in_llms_for_bangla.md)
 - [Synergizing LLMs with Global Label Propagation for Multimodal Fake News Detection](llm_label_propagation.md)
-- [Concept-Level Explainability for Auditing & Steering LLM Responses](../../NeurIPS2025/social_computing/concept-level_explainability_for_auditing_steering_llm_responses.md)
 
 <!-- RELATED:END -->

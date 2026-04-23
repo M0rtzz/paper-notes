@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 图像生成方向 7篇论文解读
+  ACL2025 图像生成方向 8篇论文解读
 description: >-
-  7篇ACL2025 图像生成论文解读，主题涵盖：提出 CIGEval，一个基于大型多模态模型（LM、提出 D-GEN——首个开源干扰项生成模型（LLa、DiffTOD 将对话规划建模为轨迹生成问题等，每篇含核心思想与方法详解。
+  8篇ACL2025 图像生成论文解读，主题涵盖：提出 CIGEval，一个基于大型多模态模型（LM、提出 D-GEN——首个开源干扰项生成模型（LLa、DiffTOD 将对话规划建模为轨迹生成问题等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**💬 ACL2025** · **7** 篇论文解读
+**💬 ACL2025** · **8** 篇论文解读
 
 **[A Unified Agentic Framework for Evaluating Conditional Image Generation](a_unified_agentic_framework_for_evaluating_conditional_image_generation.md)**
 
@@ -25,6 +25,10 @@ description: >-
 **[FlashAudio: Rectified Flows for Fast and High-Fidelity Text-to-Audio Generation](flashaudio_rectified_flow_tta.md)**
 
 :   将整流流（Rectified Flow）引入文本转音频生成，通过双焦采样器优化时间步分布、不混溶流减少数据-噪声总距离、锚定优化修正 CFG 引导误差，实现单步生成 FAD=1.49 超越百步扩散模型，生成速度达实时 400 倍。
+
+**[Generating Pedagogically Meaningful Visuals for Math Word Problems: A New Benchmark and Analysis of Text-to-Image Models](generating_pedagogically_meaningful_visuals_for_math_word_problems_a_new_benchma.md)**
+
+:   Math2Visual 提出了一个从数学应用题（MWP）文本描述自动生成教学可视化图像的框架，定义了基于教师访谈的视觉语言和设计空间，构建了 1,903 张标注数据集，并评估和微调了多个 TTI 模型，揭示了当前模型在数学关系表示上的关键不足。
 
 **[Multimodal Pragmatic Jailbreak on Text-to-image Models](multimodal_pragmatic_jailbreak_on_text-to-image_models.md)**
 

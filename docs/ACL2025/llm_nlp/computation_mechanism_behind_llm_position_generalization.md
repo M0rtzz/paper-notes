@@ -120,6 +120,6 @@ tags:
 - [LLM as Effective Streaming Processor: Bridging Streaming-Batch Mismatches with Group Position Encoding](llm_as_effective_streaming_processor_bridging_streaming-batch_mismatches_with_gr.md)
 - [Mitigate Position Bias in LLMs via Scaling a Single Hidden States Channel](mitigate_position_bias_in_large_language_models_via_scaling_a_single_dimension.md)
 - [Circuit Stability Characterizes Language Model Generalization](circuit_stability_characterizes_language_model_generalization.md)
-- [Systematic Generalization in Language Models Scales with Information Entropy](systematic_generalization_in_language_models_scales_with_information_entropy.md)
+- [A Semantic-Aware Layer-Freezing Approach to Computation-Efficient Fine-Tuning of Language Models](a_semantic-aware_layer-freezing_approach_to_computation-efficient_fine-tuning_of.md)
 
 <!-- RELATED:END -->

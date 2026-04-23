@@ -137,7 +137,7 @@ GPT-4o在Normal+Anomaly设置下4/5数据集超越最优基线，IMDB上AUROC从
 - [Ad-hoc Concept Forming in the Game Codenames as a Means for Evaluating Large Language Models](ad-hoc_concept_forming_in_the_game_codenames_as_a_means_for_evaluating_large_lan.md)
 - [CodeMEnv: Benchmarking Large Language Models on Code Migration](codemenv_benchmarking_large_language_models_on_code_migration.md)
 - [Mis-prompt: Benchmarking Large Language Models for Proactive Error Handling](mis-prompt_benchmarking_large_language_models_for_proactive_error_handling.md)
+- [Benchmarking LLMs and LLM-based Agents in Practical Vulnerability Detection for Code Repositories](benchmarking_llms_and_llm-based_agents_in_practical_vulnerability_detection_for_.md)
 - [Benchmarking Large Language Models for Zero-Shot and Few-Shot Phishing URL Detection](../../NeurIPS2025/llm_evaluation/benchmarking_large_language_models_for_zero-shot_and_few-shot_phishing_url_detec.md)
-- [Retrieval Models Aren't Tool-Savvy: Benchmarking Tool Retrieval for Large Language Models](retrieval_models_arent_tool-savvy_benchmarking_tool_retrieval_for_large_language.md)
 
 <!-- RELATED:END -->

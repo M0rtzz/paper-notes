@@ -120,10 +120,10 @@ TriTex 的架构接收一个带预提取Diff3F语义特征的3D网格和一个3D
 
 ## 相关论文
 
+- [BLADE: Single-view Body Mesh Learning through Accurate Depth Estimation](blade_single-view_body_mesh_estimation_through_accurate_depth_estimation.md)
 - [Coherent 3D Portrait Video Reconstruction via Triplane Fusion](coherent_3d_portrait_video_reconstruction_via_triplane_fusion.md)
 - [Doppelgangers++: Improved Visual Disambiguation with Geometric 3D Features](doppelgangers_improved_visual_disambiguation_with_geometric_3d_features.md)
 - [P-SLCR: Unsupervised Point Cloud Semantic Segmentation via Prototypes Structure Learning and Consistent Reasoning](p-slcr_unsupervised_point_cloud_semantic_segmentation_via_prototypes_structure_l.md)
 - [FruitNinja: 3D Object Interior Texture Generation with Gaussian Splatting](fruitninja_3d_object_interior_texture_generation_with_gaussian_splatting.md)
-- [Not All Frame Features Are Equal: Video-to-4D Generation via Decoupling Dynamic-Static Features](../../ICCV2025/3d_vision/not_all_frame_features_are_equal_video-to-4d_generation_via_decoupling_dynamic-s.md)
 
 <!-- RELATED:END -->

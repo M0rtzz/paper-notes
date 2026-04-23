@@ -131,8 +131,8 @@ tags:
 
 - [VidEoMT: Your ViT is Secretly Also a Video Segmentation Model](videomt_encoder_only_video_segmentation.md)
 - [RS-SSM: Refining Forgotten Specifics in State Space Model for Video Semantic Segmentation](rs-ssm_refining_forgotten_specifics_in_state_space_model_for_video_semantic_segm.md)
+- [Tracking and Segmenting Anything in Any Modality](../../AAAI2026/segmentation/tracking_and_segmenting_anything_in_any_modality.md)
 - [Live Interactive Training for Video Segmentation](live_interactive_training_for_video_segmentation.md)
 - [ARGenSeg: Image Segmentation with Autoregressive Image Generation Model](../../NeurIPS2025/segmentation/argenseg_image_segmentation_with_autoregressive_image_generation_model.md)
-- [CA-LoRA: Concept-Aware LoRA for Domain-Aligned Segmentation Dataset Generation](ca-lora_concept-aware_lora_for_domain-aligned_segmentation_dataset_generation.md)
 
 <!-- RELATED:END -->

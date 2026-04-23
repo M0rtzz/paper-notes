@@ -182,7 +182,7 @@ COCO Karpathy 测试集（5000张图像）上的统一评估（N-avg，归一化
 - [Aligning LLMs by Predicting Preferences from User Writing Samples](../../ICML2025/recommender/aligning_llms_by_predicting_preferences_from_user_writing_samples.md)
 - [FineVQ: Fine-Grained User Generated Content Video Quality Assessment](../../CVPR2025/recommender/finevq_fine-grained_user_generated_content_video_quality_assessment.md)
 - [QuRe: Query-Relevant Retrieval through Hard Negative Sampling in Composed Image Retrieval](../../ICML2025/recommender/qure_query-relevant_retrieval_through_hard_negative_sampling_in_composed_image_r.md)
-- [VisionArena: 230k Real World User-VLM Conversations with Preference Labels](../../CVPR2025/recommender/visionarena_230k_real_world_user-vlm_conversations_with_preference_labels.md)
+- [VisionArena: 230K Real World User-VLM Conversations with Preference Labels](../../CVPR2025/recommender/visionarena_230k_real_world_user-vlm_conversations_with_preference_labels.md)
 - [AID-AppEAL: Automatic Image Dataset and Algorithm for Content Appeal Enhancement and Assessment Labeling](../../ECCV2024/recommender/aid-appeal_automatic_image_dataset_and_algorithm_for_content_appeal_enhancement_.md)
 
 <!-- RELATED:END -->

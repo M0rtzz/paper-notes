@@ -27,13 +27,33 @@ tags:
 
 ## 研究背景与动机
 
-- VLM在长上下文场景下性能显著下降，尤其是长视频任务中甚至难以完成目标计数和时间定位
-- RoPE在文本LLM中成功实现长度泛化，但直接应用1D RoPE无法捕获视频的时空结构
-- 现有多模态RoPE扩展的局限：
-    - M-RoPE（Qwen2-VL）：最高频率分配给时间维度，启发式设计缺乏理论分析
-    - VideoRoPE：最低频率分配给时间维度，经验表现好但长距离下仍不可靠
-    - 固定和单向的时间缩放因子无法适应不同速度和信息密度的视频
-- 核心问题：**不同频率分配策略如何影响长程语义建模？能否获得理论保证？**
+### 领域现状
+
+**领域现状**：VLM在长上下文场景下性能显著下降，尤其是长视频任务中甚至难以完成目标计数和时间定位
+
+### 核心矛盾
+
+**核心矛盾**：RoPE在文本LLM中成功实现长度泛化，但直接应用1D RoPE无法捕获视频的时空结构
+
+### 现有痛点
+
+**现有痛点**：现有多模态RoPE扩展的局限：
+
+### 解决思路
+
+**解决思路**：M-RoPE（Qwen2-VL）：最高频率分配给时间维度，启发式设计缺乏理论分析
+
+### 补充说明
+
+**补充说明**：VideoRoPE：最低频率分配给时间维度，经验表现好但长距离下仍不可靠
+
+### 补充说明
+
+**补充说明**：固定和单向的时间缩放因子无法适应不同速度和信息密度的视频
+
+### 补充说明
+
+**补充说明**：核心问题：**不同频率分配策略如何影响长程语义建模？能否获得理论保证？**
 
 ## 方法详解
 
@@ -120,7 +140,7 @@ Qwen2-7B-Video模型，32k上下文长度：
 - [MMLongBench: Benchmarking Long-Context Vision-Language Models Effectively and Thoroughly](mmlongbench_benchmarking_longcontext_visionlanguage_models_e.md)
 - [NeedleInATable: Exploring Long-Context Capability of Large Language Models towards Long-Structured Tables](needleinatable_exploring_long-context_capability_of_large_language_models_toward.md)
 - [Context Informs Pragmatic Interpretation in Vision-Language Models](context_informs_pragmatic_interpretation_in_vision-language_models.md)
-- [ExGra-Med: Extended Context Graph Alignment for Medical Vision-Language Models](exgra-med_extended_context_graph_alignment_for_medical_vision-language_models.md)
 - [MaTVLM: Hybrid Mamba-Transformer for Efficient Vision-Language Modeling](../../ICCV2025/multimodal_vlm/matvlm_hybrid_mamba-transformer_for_efficient_vision-language_modeling.md)
+- [ExGra-Med: Extended Context Graph Alignment for Medical Vision-Language Models](exgra-med_extended_context_graph_alignment_for_medical_vision-language_models.md)
 
 <!-- RELATED:END -->

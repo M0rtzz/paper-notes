@@ -125,6 +125,6 @@ DeepNorm/Mix-LN 在大规模时发散，LNS 始终稳定。
 - [Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](retrospective_incontext_learning_for_temporal_credit_assignm.md)
 - [Leveraging Importance Sampling to Detach Alignment Modules from Large Language Models](leveraging_importance_sampling_to_detach_alignment_modules_from_large_language_m.md)
 - [Large Vocabulary Size Improves Large Language Models](../../ACL2025/llm_pretraining/large_vocabulary_size_improves_large_language_models.md)
-- [Large Language Models are Demonstration Pre-Selectors for Themselves](../../ICML2025/llm_pretraining/large_language_models_are_demonstration_pre-selectors_for_themselves.md)
+- [Retrofitting Large Language Models with Dynamic Tokenization](../../ACL2025/llm_pretraining/retrofitting_large_language_models_with_dynamic_tokenization.md)
 
 <!-- RELATED:END -->

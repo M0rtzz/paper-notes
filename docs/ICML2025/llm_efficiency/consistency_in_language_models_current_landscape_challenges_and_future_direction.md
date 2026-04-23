@@ -142,6 +142,6 @@ tags:
 - [On the Entropy Calibration of Language Models](../../NeurIPS2025/llm_efficiency/on_the_entropy_calibration_of_language_models.md)
 - [Position: Theory of Mind Benchmarks are Broken for Large Language Models](position_theory_of_mind_benchmarks_are_broken_for_large_language_models.md)
 - [LooGLE v2: Are LLMs Ready for Real World Long Dependency Challenges?](../../NeurIPS2025/llm_efficiency/loogle_v2_are_llms_ready_for_real_world_long_dependency_challenges.md)
-- [SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator](sepllm_accelerate_large_language_models_by_compressing_one_segment_into_one_sepa.md)
+- [Consistency-Preserving Contrastive Decoding for Faithful Document-Grounded Dialogue](../../ACL2025/llm_efficiency/consistency-preserving_contrastive_decoding_for_faithful_document-grounded_dial.md)
 
 <!-- RELATED:END -->

@@ -133,10 +133,10 @@ SCLIP 在预训练 CLIP 模型（ViT-Base/16）上做最简修改：仅将视觉
 
 ## 相关论文
 
+- [SiLC: Improving Vision Language Pretraining with Self-Distillation](silc_improving_vision_language_pretraining_with_self-distillation.md)
+- [DreamLIP: Language-Image Pre-training with Long Captions](dreamlip_language-image_pre-training_with_long_captions.md)
 - [ResCLIP: Residual Attention for Training-free Dense Vision-language Inference](../../CVPR2025/segmentation/resclip_residual_attention_for_training-free_dense_vision-language_inference.md)
-- [VISA: Reasoning Video Object Segmentation via Large Language Models](visa_reasoning_video_object_segmentation_via_large_language_models.md)
 - [SOS: Segment Object System for Open-World Instance Segmentation With Object Priors](sos_segment_object_system_for_open-world_instance_segmentation_with_object_prior.md)
-- [Attention Decomposition for Cross-Domain Semantic Segmentation](attention_decomposition_for_cross-domain_semantic_segmentation.md)
-- [LiFT: A Surprisingly Simple Lightweight Feature Transform for Dense ViT Descriptors](lift_a_surprisingly_simple_lightweight_feature_transform_for_dense_vit_descripto.md)
+- [Efficient and Versatile Robust Fine-Tuning of Zero-shot Models](efficient_and_versatile_robust_fine-tuning_of_zero-shot_models.md)
 
 <!-- RELATED:END -->

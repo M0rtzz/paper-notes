@@ -174,6 +174,6 @@ Co-Erasing 可作为即插即用模块嵌入其他擦除框架：
 - [Performance Plateaus in Inference-Time Scaling for Text-to-Image Diffusion Without External Models](performance_plateaus_in_inference-time_scaling_for_text-to-image_diffusion_witho.md)
 - [Multi-party Collaborative Attention Control for Image Customization](../../CVPR2025/image_generation/multi-party_collaborative_attention_control_for_image_customization.md)
 - [One Stone with Two Birds: A Null-Text-Null Frequency-Aware Diffusion Models for Text-Guided Image Inpainting](../../NeurIPS2025/image_generation/one_stone_with_two_birds_a_null-text-null_frequency-aware_diffusion_models_for_t.md)
-- [DCTdiff: Intriguing Properties of Image Generative Modeling in the DCT Space](dctdiff_intriguing_properties_of_image_generative_modeling_in_the_dct_space.md)
+- [Addressing Text Embedding Leakage in Diffusion-based Image Editing](../../ICCV2025/image_generation/addressing_text_embedding_leakage_in_diffusion_based_image_editing.md)
 
 <!-- RELATED:END -->

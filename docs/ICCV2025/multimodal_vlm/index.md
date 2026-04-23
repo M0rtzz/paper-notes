@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 多模态VLM方向 132篇论文解读
+  ICCV2025 多模态VLM方向 142篇论文解读
 description: >-
-  132篇ICCV2025 多模态VLM论文解读，主题涵盖：首次定义并系统研究视觉问答中的**焦点歧义**（f、提出 APLGOS 框架，利用 ChatGPT、提出AdvDreamer框架从单张图像生成物理可复等，每篇含核心思想与方法详解。
+  142篇ICCV2025 多模态VLM论文解读，主题涵盖：首次定义并系统研究视觉问答中的**焦点歧义**（f、提出 APLGOS 框架，利用 ChatGPT、提出APLGOS框架，利用视觉语言模型的提示学习能等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**📹 ICCV2025** · **132** 篇论文解读
+**📹 ICCV2025** · **142** 篇论文解读
 
 **[Acknowledging Focus Ambiguity in Visual Questions](acknowledging_focus_ambiguity_in_visual_questions.md)**
 
@@ -18,6 +18,10 @@ description: >-
 
 :   提出 APLGOS 框架，利用 ChatGPT 标准化 Q&A 对来初始化可学习 ID 提示，并在类条件高斯分布的低似然区域合成虚拟 OOD 提示和图像，通过对比学习对齐文本-图像嵌入，实现更紧凑的 ID/OOD 决策边界。
 
+**[Adaptive Prompt Learning via Gaussian Outlier Synthesis for Out-of-distribution Detection](adaptive_prompt_learning_via_gaussian_outlier_synthesis_for_out_of_distribution_detection.md)**
+
+:   提出APLGOS框架，利用视觉语言模型的提示学习能力，通过在类条件高斯分布的低概率区域合成虚拟OOD提示和图像，以更紧凑的决策边界区分已知和未知类别，在四个主流数据集上取得SOTA。
+
 **[AdvDreamer Unveils: Are Vision-Language Models Truly Ready for Real-World 3D Variations?](advdreamer_unveils_are_visionlanguage_models_truly_ready_for.md)**
 
 :   提出AdvDreamer框架从单张图像生成物理可复现的对抗性3D变换(Adv-3DT)样本，通过零样本单目姿态操作+自然度奖励模型+逆语义概率损失，揭示当前VLM（包括GPT-4o）在3D变化下性能下降高达50-80%，并建立首个3D变化鲁棒性VQA基准MM3DTBench。
@@ -26,9 +30,17 @@ description: >-
 
 :   提出 AIGI-Holmes，通过构建包含解释性标注的 Holmes-Set 数据集和精心设计的三阶段训练流程（视觉专家预训练 → SFT → DPO），将 MLLM 改造为既能准确检测 AI 生成图像又能提供人类可验证解释的"福尔摩斯"检测器，推理阶段通过协同解码策略进一步增强泛化能力。
 
+**[AIGI-Holmes: Towards Explainable and Generalizable AI-Generated Image Detection via Multimodal Large Language Models](aigi_holmes_towards_explainable_and_generalizable_ai_generated_image_detection_via_mllm.md)**
+
+:   提出AIGI-Holmes，通过构建包含解释性标注的Holmes-Set数据集、三阶段训练管线（视觉专家预训练→SFT→DPO）和协同解码策略，实现可解释且可泛化的AI生成图像检测，在三个基准上达到SOTA检测精度同时提供人类可验证的解释。
+
 **[AirCache: Activating Inter-Modal Relevancy KV Cache Compression for Efficient Large Vision-Language Model Inference](aircache_activating_inter-modal_relevancy_kv_cache_compression_for_efficient_lar.md)**
 
 :   提出 AirCache，一种面向 LVLM 的 KV Cache 压缩方法，通过精英观察窗口（Elite Observation Window）评估视觉 token 重要性，结合基于重要性分数分布强度与偏度的自适应层级预算分配，在仅保留 10% 视觉 KV Cache 时性能损失不超过 1%，解码延迟降低 29%-66%。
+
+**[AirCache: Activating Inter-modal Relevancy KV Cache Compression for Efficient Large Vision-Language Model Inference](aircache_activating_inter_modal_relevancy_kv_cache_compression_for_efficient_large_vision_language_model.md)**
+
+:   提出AirCache，通过精英观测窗口（利用文本自注意力筛选关键文本token评估视觉token重要性）和自适应层间预算分配（基于重要性分数分布的强度和偏度），实现仅保留10%视觉KV缓存即可保持模型性能，解码延迟降低29%-66%。
 
 **[Analyzing Finetuning Representation Shift for Multimodal LLMs Steering](analyzing_finetuning_representation_shift_for_multimodal_llms_steering.md)**
 
@@ -194,6 +206,10 @@ description: >-
 
 :   提出FedMVP，在联邦学习场景下通过PromptFormer网络融合图像视觉特征和LLM生成的类别属性文本特征，生成动态多模态视觉提示注入CLIP的视觉编码器，在20个数据集、三种泛化设置下显著超越现有联邦提示学习方法1.57%-2.26%。
 
+**[Fine-Grained Evaluation of Large Vision-Language Models in Autonomous Driving](fine-grained_evaluation_of_large_vision-language_models_in_autonomous_driving.md)**
+
+:   本文提出 VLADBench，一个面向自动驾驶场景的细粒度视觉语言模型评测基准，涵盖 5 大领域、11 个二级维度和 29 个三级任务，采用封闭式 QA 形式从静态知识到动态推理逐步递进评估 VLM 能力，并基于 1.4M 领域特定 QA 数据训练小规模 DS 模型验证领域间认知交互。
+
 **[FinMMR: Make Financial Numerical Reasoning More Multimodal, Comprehensive, and Challenging](finmmr_make_financial_numerical_reasoning_more_multimodal_comprehensive_and_chal.md)**
 
 :   提出 FinMMR，一个双语（中英文）多模态金融数值推理基准，包含 4,300 道题目、8,700+ 张金融图表、14 个金融子领域，系统评估了 15 个 MLLM 在专业领域复杂推理中的瓶颈，并提出视觉过滤、知识增强和模型协作三种改进策略。
@@ -290,6 +306,10 @@ description: >-
 
 :   提出 Latte 框架，在联邦学习的去中心化场景下，通过本地记忆与外部记忆的协同机制，实现视觉语言模型（如 CLIP）的协作式测试时自适应，兼顾跨客户端知识共享与个性化。
 
+**[LLaVA-CoT: Let Vision Language Models Reason Step-by-Step](llava-cot_let_vision_language_models_reason_step-by-step.md)**
+
+:   LLaVA-CoT 提出了一种让视觉语言模型自主进行多阶段结构化推理的方法——通过构建 LLaVA-CoT-100k 结构化推理标注数据集训练模型依次执行"总结→视觉解读→逻辑推理→结论生成"四个阶段，并提出阶段级回溯搜索（SWIRES）实现测试时缩放，使 11B 模型超越 Gemini-1.5-pro 和 GPT-4o-mini。
+
 **[LLaVA-KD: A Framework of Distilling Multimodal Large Language Models](llava-kd_a_framework_of_distilling_multimodal_large_language_models.md)**
 
 :   提出 LLaVA-KD 框架，通过多模态蒸馏(MDist)和关系蒸馏(RDist)策略配合三阶段训练方案(DPT-SFT-DFT)，将大规模 MLLM 的知识迁移到小规模 MLLM，在不修改模型架构的前提下显著提升小模型性能。
@@ -324,11 +344,15 @@ description: >-
 
 **[MetaMorph: Multimodal Understanding and Generation via Instruction Tuning](metamorph_multimodal_understanding_and_generation_via_instru.md)**
 
-:   提出Visual-Predictive Instruction Tuning (VPiT)——一种简单有效的视觉指令微调扩展，让预训练LLM同时预测离散文本token和连续视觉token，发现视觉生成能力是视觉理解能力提升的自然副产物，少量生成数据即可解锁，LLM的预训练知识可以迁移到视觉生成中克服常见失败模式。
+:   本文提出 VPiT（Visual-Predictive Instruction Tuning），仅通过扩展视觉指令微调让预训练 LLM 同时输出文本和连续视觉 token，发现视觉生成能力作为理解能力的"副产品"自然涌现，且理解数据对两种能力的贡献大于生成数据。
 
 **[MetaMorph: Multimodal Understanding and Generation via Instruction Tuning](metamorph_multimodal_understanding_and_generation_via_instruction_tuning.md)**
 
 :   提出 Visual-Predictive Instruction Tuning（VPiT），仅通过轻量级指令微调即可将预训练 LLM 扩展为同时理解和生成视觉 token 的统一模型 MetaMorph，发现视觉生成能力是视觉理解的自然副产物且两者互利不对称。
+
+**[METEOR: Multi-Encoder Collaborative Token Pruning for Efficient Vision Language Models](meteor_multi-encoder_collaborative_token_pruning_for_efficient_vision_language_m.md)**
+
+:   METEOR 提出首个面向多编码器 MLLM 的三阶段渐进式 token 剪枝框架：在编码阶段用特征秩分配各编码器的稀疏比例，在融合阶段通过协同剪枝消除跨编码器冗余，在解码阶段根据文本提示自适应调整剪枝比例，将视觉 token 减少 76% 而性能仅降 0.3%。
 
 **[Mitigating Object Hallucinations via Sentence-Level Early Intervention](mitigating_object_hallucinations_via_sentence-level_early_intervention.md)**
 
@@ -390,6 +414,10 @@ description: >-
 
 :   提出OracleFusion，一个两阶段语义字体排印框架：第一阶段利用MLLM增强的空间感知推理（SAR）分析甲骨文字形结构并定位关键部件；第二阶段提出Structural Oracle Vector Fusion（SOVF），通过字形结构约束和骨架保持损失生成语义丰富的矢量字体，在保持原始字形完整性的同时传达语义，辅助专家解读未释甲骨文。
 
+**[Perspective-Aware Reasoning in Vision-Language Models via Mental Imagery Simulation](perspective-aware_reasoning_in_vision-language_models_via_mental_imagery_simulat.md)**
+
+:   提出 Abstract Perspective Change (APC) 框架，通过利用视觉基础模型构建场景抽象表示并执行透视变换，使 VLM 能够从任意视角进行空间推理，在合成与真实图像基准上大幅优于现有 VLM 和微调模型。
+
 **[Physics Context Builders: A Modular Framework for Physical Reasoning in Vision-Language Models](physics_context_builders_a_modular_framework_for_physical_reasoning_in_vision-la.md)**
 
 :   提出 Physics Context Builders (PCBs)，一种模块化框架，通过微调小型专用 VLM 从仿真数据中学习生成详细的物理场景描述，作为物理上下文增强大型基础 VLM（如 GPT-4o）的物理推理能力，无需修改大模型本身。
@@ -418,6 +446,10 @@ description: >-
 
 :   发现主流VLM普遍缺乏高斯噪声鲁棒性，提出Robust-VLGuard安全数据集（含图文对齐/不对齐场景）配合噪声增强微调提升高斯噪声鲁棒性，再结合DiffPure将对抗噪声转化为高斯噪声，构建DiffPure-VLM通用防御框架，有效抵御多种强度的对抗攻击。
 
+**[SAUCE: Selective Concept Unlearning in Vision-Language Models with Sparse Autoencoders](sauce_selective_concept_unlearning_in_vision-language_models_with_sparse_autoenc.md)**
+
+:   SAUCE 利用稀疏自编码器（SAE）在 VLM 的中间表征中识别并选择性抑制与目标概念相关的特征，实现了无需权重更新的细粒度概念遗忘，在 60 个概念的测试中遗忘质量超越 SOTA 18%。
+
 **[SC-Captioner: Improving Image Captioning with Self-Correction by Reinforcement Learning](sc-captioner_improving_image_captioning_with_self-correction_by_reinforcement_le.md)**
 
 :   SC-Captioner 提出了一种基于策略梯度的多轮强化学习框架，通过设计包含正确性奖励和错误惩罚的纠错奖励函数，使大型视觉语言模型获得图像描述的自纠错能力，同时提出改进的 CAPTURE 评估指标。
@@ -445,6 +477,10 @@ description: >-
 **[ShortV: Efficient Multimodal Large Language Models by Freezing Visual Tokens in Ineffective Layers](shortv_efficient_multimodal_large_language_models_by_freezing_visual_tokens_in_i.md)**
 
 :   发现 MLLM 中存在显著的**层级冗余**——多数层对视觉 token 的变换贡献极小，据此提出 ShortV：在约 60% 的层中冻结视觉 token（跳过其注意力和 FFN 计算），在 LLaVA-NeXT-13B 上实现 50% FLOPs 减少，性能几乎无损。方法免训练，且与 token 剪枝方法正交可叠加。
+
+**[SimpleVQA: Multimodal Factuality Evaluation for Multimodal Large Language Models](simplevqa_multimodal_factuality_evaluation_for_multimodal_large_language_models.md)**
+
+:   SimpleVQA 是首个全面评估 MLLM 多模态事实性的 VQA 基准，涵盖 9 种任务类型和 9 个主题领域，通过简短确定性答案设计和 LLM-as-a-judge 评分体系，系统揭示了 18 个 MLLM 和 8 个纯文本 LLM 在事实性方面的优劣。
 
 **[SMoLoRA: Exploring and Defying Dual Catastrophic Forgetting in Continual Visual Instruction Tuning](smolora_exploring_and_defying_dual_catastrophic_forgetting_in_continual_visual_i.md)**
 
@@ -529,6 +565,10 @@ description: >-
 **[Visual Interestingness Decoded: How GPT-4o Mirrors Human Interests](visual_interestingness_decoded_how_gpt-4o_mirrors_human_interests.md)**
 
 :   系统性研究了 GPT-4o 等大型多模态模型对"图像有趣性"这一主观视觉概念的理解程度，发现 GPT-4o 与人类评判有中等正相关（配对图像一致率 73.8%），并提出利用 GPT-4o 自动标注图像对训练 learning-to-rank 模型来预测图像有趣性，超越了所有现有方法。
+
+**[VQ-FocusAmbiguity: Acknowledging Focus Ambiguity in Visual Questions](vq_focusambiguity_acknowledging_focus_ambiguity_visual_questions.md)**
+
+:   首次关注VQA中的"焦点歧义"问题——当问题中的语言可以指向图像中多个合理区域时，构建了5500个样本的VQ-FocusAmbiguity数据集，为歧义感知VQA系统的开发奠定基础。
 
 **[Why LVLMs Are More Prone to Hallucinations in Longer Responses: The Role of Context](why_lvlms_are_more_prone_to_hallucinations_in_longer_responses_the_role_of_conte.md)**
 

@@ -86,6 +86,10 @@ description: >-
 
 :   提出 BOOM 框架，通过 bootstrap 对齐回路将在线规划器的高质量动作蒸馏到策略网络，使用 likelihood-free 的前向 KL 散度和软 Q 加权机制，有效缓解规划器与策略之间的 actor divergence 问题，在高维连续控制任务上取得 SOTA。
 
+**[Boundary-to-Region Supervision for Offline Safe Reinforcement Learning](boundary_to_region_supervision_for_offline_safe_rl.md)**
+
+:   提出 B2R（Boundary-to-Region）框架，通过代价信号重对齐(CTG Realignment)解决序列模型在离线安全RL中对回报和代价的对称条件化谬误，将稀疏的边界监督转化为密集的安全区域监督，在38个安全关键任务中35个满足安全约束。
+
 **[Certifying Concavity and Monotonicity in Games via Sum-of-Squares Hierarchies](certifying_concavity_and_monotonicity_in_games_via_sum-of-squares_hierarchies.md)**
 
 :   证明了在多项式效用和半代数策略集的博弈中验证凹性和单调性是 NP-hard 的，并提出了两套基于平方和 (SOS) 规划的层次化认证方案，可在多项式时间内逐层求解。
@@ -213,10 +217,6 @@ description: >-
 **[Foundation Models as World Models: A Foundational Study in Text-Based GridWorlds](foundation_models_as_world_models_a_foundational_study_in_text-based_gridworlds.md)**
 
 :   系统性评估了基础模型（LLM）作为零样本世界模型（FWM）和直接决策智能体（FA）在文本网格世界中的表现，揭示了两种策略在确定性/随机性环境中的互补优势。
-
-**[Gaussian Process Upper Confidence Bound Achieves Nearly-Optimal Regret in Noise-Free Gaussian Process Bandits](gaussian_process_upper_confidence_bound_achieves_nearly-optimal_regret_in_noise-.md)**
-
-:   本文证明 GP-UCB 在 noise-free GP bandit 问题中可达到 nearly-optimal regret，首次在 SE 核下实现 $O(1)$ 常数累积遗憾、在 Matérn 核（$d < \nu$）下实现 $O(1)$ 累积遗憾，弥合了 GP-UCB 理论与实践之间的长期差距。
 
 **[Generalized Linear Bandits: Almost Optimal Regret with One-Pass Update](generalized_linear_bandits_almost_optimal_regret_with_one-pass_update.md)**
 

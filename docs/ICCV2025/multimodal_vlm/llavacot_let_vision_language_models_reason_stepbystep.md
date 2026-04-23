@@ -25,10 +25,14 @@ tags:
 通过构建包含结构化推理标注的LLaVA-CoT-100k数据集，训练VLM自主执行"总结→视觉解读→逻辑推理→结论"四阶段推理，配合测试时SWIRES搜索策略，11B模型超越GPT-4o-mini和Gemini-1.5-pro等大模型。
 
 ## 背景与动机
-大语言模型在推理能力上已取得显著进步（如CoT prompting），但当前的视觉语言模型（VLM）在面对复杂视觉问答任务时，仍然难以进行系统性的结构化推理。传统的chain-of-thought提示方法对VLM效果有限，因为视觉信息的解读需要额外的结构化步骤。现有VLM通常直接从问题跳到答案，缺乏中间的系统性思考过程，这在涉及空间推理、科学计算、图表理解等复杂任务时表现尤为明显。
 
-## 核心问题
-如何让VLM自主地、系统性地进行多阶段推理？关键挑战在于：(1) 缺乏结构化推理的训练数据；(2) 需要一种方法让模型学会在不同推理阶段之间自然过渡；(3) 如何在推理时进一步提升推理质量（test-time scaling）。
+### 领域现状
+
+**领域现状**：大语言模型在推理能力上已取得显著进步（如CoT prompting），但当前的视觉语言模型（VLM）在面对复杂视觉问答任务时，仍然难以进行系统性的结构化推理。传统的chain-of-thought提示方法对VLM效果有限，因为视觉信息的解读需要额外的结构化步骤。现有VLM通常直接从问题跳到答案，缺乏中间的系统性思考过程，这在涉及空间推理、科学计算、图表理解等复杂任务时表现尤为明显。
+
+### 解决思路
+
+**本文目标**：如何让VLM自主地、系统性地进行多阶段推理？关键挑战在于：(1) 缺乏结构化推理的训练数据；(2) 需要一种方法让模型学会在不同推理阶段之间自然过渡；(3) 如何在推理时进一步提升推理质量（test-time scaling）。
 
 ## 方法详解
 
@@ -69,7 +73,7 @@ LLaVA-CoT基于Llama-3.2-11B-Vision-Instruct进行微调。输入为图像和问
 - 数据集规模重要，但100k已足够达到强效果
 - SWIRES相比普通贪心解码和标准beam search更高效，在阶段粒度搜索比token粒度搜索更有效
 
-## 亮点
+## 亮点与洞察
 - **小模型超大模型**：仅11B参数，用100k训练数据就超越90B和闭源大模型，证明结构化推理的重要性远超规模
 - **四阶段设计很直觉**：Summary→Caption→Reasoning→Conclusion的流程模拟了人类解题的思维过程，特别是先看懂图再推理的分离设计
 - **SWIRES是一种通用的test-time scaling方法**：在推理阶段粒度的搜索比token级别更高效，且可以灵活调控推理时间和精度的trade-off
@@ -81,12 +85,12 @@ LLaVA-CoT基于Llama-3.2-11B-Vision-Instruct进行微调。输入为图像和问
 - 目前仅在Llama-3.2-Vision上验证，其他VLM架构（如Qwen-VL、InternVL）的兼容性未探索
 - SWIRES的搜索空间随阶段数增加指数增长，扩展到更多阶段可能需要更好的剪枝策略
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs. CoT prompting**：传统CoT是通过prompt引导模型展示推理过程，LLaVA-CoT是通过训练让模型内化结构化推理能力，不需要复杂的prompt设计
 - **vs. LLaVA系列**：保持了LLaVA的简洁架构，核心改进在训练数据的结构化标注，而非模型架构改变
 - **vs. o1-like模型**：与OpenAI o1的思路类似（通过训练时间和推理时间计算提升推理能力），但在多模态领域的开源实现
 
-## 启发与关联
+## 相关工作与启发
 - 结构化推理标注的方法可以启发其他VLM任务（如视觉定位、图像描述）的数据构建
 - test-time scaling在VLM中的有效性值得进一步探索
 
@@ -102,8 +106,8 @@ LLaVA-CoT基于Llama-3.2-11B-Vision-Instruct进行微调。输入为图像和问
 
 - [R1-VL: Learning to Reason with Multimodal Large Language Models via Step-wise Group Relative Policy Optimization](r1-vl_learning_to_reason_with_multimodal_large_language_models_via_step-wise_gro.md)
 - [ToolVQA: A Dataset for Multi-step Reasoning VQA with External Tools](toolvqa_a_dataset_for_multistep_reasoning_vqa_with_external.md)
-- [Can Multi-Modal LLMs Provide Live Step-by-Step Task Guidance?](../../NeurIPS2025/multimodal_vlm/can_multi-modal_llms_provide_live_step-by-step_task_guidance.md)
-- [Unveiling Chain of Step Reasoning for Vision-Language Models with Fine-grained Rewards](../../NeurIPS2025/multimodal_vlm/unveiling_chain_of_step_reasoning_for_visionlanguage_models.md)
-- [Training-free Online Video Step Grounding](../../NeurIPS2025/multimodal_vlm/training-free_online_video_step_grounding.md)
+- [DocThinker: Explainable Multimodal Large Language Models with Rule-based Reinforcement Learning for Document Understanding](docthinker_explainable_multimodal_large_language_models_with.md)
+- [MMAT-1M: A Large Reasoning Dataset for Multimodal Agent Tuning](mmat1m_a_large_reasoning_dataset_for_multimodal_agent_tuning.md)
+- [LLaVA-PruMerge: Adaptive Token Reduction for Efficient Large Multimodal Models](llava-prumerge_adaptive_token_reduction_for_efficient_large_multimodal_models.md)
 
 <!-- RELATED:END -->

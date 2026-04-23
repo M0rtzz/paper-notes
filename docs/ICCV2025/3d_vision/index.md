@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 3D视觉方向 284篇论文解读
+  ICCV2025 3D视觉方向 296篇论文解读
 description: >-
-  284篇ICCV2025 3D视觉论文解读，主题涵盖：提出TRAN-D，一种基于2D Gaussian、提出基于3D高斯溅射的场景地图表示（3D、提出MaskedLRM，将3D形状编辑重构为条件重等，每篇含核心思想与方法详解。
+  296篇ICCV2025 3D视觉论文解读，主题涵盖：提出TRAN-D，一种基于2D Gaussian、提出基于3D高斯溅射的场景地图表示（3D、提出MaskedLRM，将3D形状编辑重构为条件重等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D视觉
 
-**📹 ICCV2025** · **284** 篇论文解读
+**📹 ICCV2025** · **296** 篇论文解读
 
 **[TRAN-D: 2D Gaussian Splatting-based Sparse-view Transparent Object Depth Reconstruction via Physics Simulation for Scene Update](2d_gaussian_splattingbased_sparseview_transparent_object_dep.md)**
 
@@ -68,7 +68,7 @@ description: >-
 
 **[A3GS: Arbitrary Artistic Style into Arbitrary 3D Gaussian Splatting](a3gs_arbitrary_artistic_style_into_arbitrary_3d_gaussian_spl.md)**
 
-:   提出A³GS，首个**前馈式零样本3DGS风格迁移**网络——使用图卷积网络(GCN)自编码器将3DGS场景编码到潜在空间，通过AdaIN注入任意风格图像特征，仅需**10秒**即可将任意风格迁移到任意3D场景，无需逐风格优化，可处理大规模3DGS场景。
+:   提出A3GS——首个前馈式零样本3DGS风格迁移框架，通过GCN自编码器将3DGS场景编码到潜在空间并用AdaIN注入任意风格特征，仅需10秒即可完成任意风格到任意3D场景的迁移，速度比优化方法快两个数量级。
 
 **[A Lesson in Splats: Teacher-Guided Diffusion for 3D Gaussian Splats Generation with 2D Supervision](a_lesson_in_splats_teacher-guided_diffusion_for_3d_gaussian_splats_generation_wi.md)**
 
@@ -126,6 +126,10 @@ description: >-
 
 :   首个面向截肢者的3D人体网格恢复框架——通过合成100万+截肢者图像(A3D)、设计BPAC-Net截肢分类器区分截肢与遮挡、以及双Tokenizer切换策略分别编码截肢/正常位姿先验，在截肢者数据上大幅领先(ITW-amputee上MVE比TokenHMR低16.87)，非截肢者数据上也保持竞争力。
 
+**[AllTracker: Efficient Dense Point Tracking at High Resolution](alltracker_efficient_dense_point_tracking_at_high_resolution.md)**
+
+:   提出AllTracker，将点跟踪问题转化为多帧长距离光流估计问题，通过低分辨率迭代推理（2D卷积+时间注意力）加高分辨率上采样，以16M参数实现高分辨率(768-1024像素)全像素稠密点跟踪的SOTA精度。
+
 **[Amodal3R: Amodal 3D Reconstruction from Occluded 2D Images](amodal3r_amodal_3d_reconstruction_from_occluded_2d_images.md)**
 
 :   提出Amodal3R，一个端到端的遮挡感知3D重建模型，通过在TRELLIS基础上引入mask加权交叉注意力和遮挡感知注意力层，直接在3D潜空间中从部分遮挡的2D图像重建完整的3D物体形状和外观，大幅超越先前"2D补全→3D重建"的两阶段方法。
@@ -145,6 +149,10 @@ description: >-
 **[AR-1-to-3: Single Image to Consistent 3D Object Generation via Next-View Prediction](ar1to3_single_image_to_consistent_3d_object_via_nextview_pre.md)**
 
 :   提出AR-1-to-3，一种基于扩散模型的自回归下一视角预测框架，通过"先近后远"的渐进式生成策略，配合Stacked-LE（堆叠局部特征编码）和LSTM-GE（全局特征编码）两种条件注入机制，显著提升了单图到多视角生成的一致性，在GSO数据集上PSNR达13.18（相比InstantMesh的10.67提升23.5%），Chamfer Distance降至0.063（InstantMesh为0.117）。
+
+**[ArgMatch: Adaptive Refinement Gathering for Efficient Dense Matching](argmatch_adaptive_refinement_gathering_for_efficient_dense_matching.md)**
+
+:   提出自适应细化聚合(Adaptive Refinement Gathering)管线，通过内容感知偏移估计器、局部一致性匹配校正器和局部一致性上采样器，大幅降低对重型特征提取器和全局匹配器的依赖，以轻量级网络实现与SOTA竞争的稠密匹配性能。
 
 **[Articulate3D: Holistic Understanding of 3D Scenes as Universal Scene Description](articulate3d_holistic_understanding_of_3d_scenes_as_universa.md)**
 
@@ -238,6 +246,10 @@ description: >-
 
 :   提出DM-Calib——基于扩散模型的单目相机内参估计方法：设计Camera Image表示（将内参无损编码为3通道图像=方位角+仰角+灰度图），微调Stable Diffusion生成Camera Image，用RANSAC提取内参，在5个零样本数据集上超越所有基线，并将相机标定扩展到度量深度估计、位姿估计和稀疏视角3D重建。
 
+**[Boosting Multi-View Indoor 3D Object Detection via Adaptive 3D Volume Construction](boosting_multi-view_indoor_3d_object_detection_via_adaptive_3d_volume.md)**
+
+:   提出SGCDet框架，通过几何与上下文感知聚合模块（自适应特征提升）和稀疏体素构建策略（粗到细的自适应体素选择），在不依赖GT场景几何的前提下，实现了高效且高精度的多视图室内3D目标检测。
+
 **[SGCDet: Boosting Multi-View Indoor 3D Object Detection via Adaptive 3D Volume Construction](boosting_multi-view_indoor_3d_object_detection_via_adaptive_3d_volume_constructi.md)**
 
 :   SGCDet 通过自适应稀疏3D体素构建和几何-上下文感知聚合，实现了高效精准的多视图室内3D目标检测，无需真实几何监督即超越现有方法。
@@ -261,6 +273,10 @@ description: >-
 **[BoxDreamer: Dreaming Box Corners for Generalizable Object Pose Estimation](boxdreamer_dreaming_box_corners_for_generalizable_object_pose_estimation.md)**
 
 :   提出 BoxDreamer，以 3D 包围盒角点作为中间表示，通过基于参考视角的点合成器预测查询图像中的 2D 角点投影，建立 2D-3D 对应关系后用 PnP 算法恢复物体位姿，在稀疏视角和严重遮挡场景下显著优于现有方法。
+
+**[Bridging 3D Anomaly Localization and Repair via High-Quality Continuous Geometric Representation](bridging_3d_anomaly_localization_and_repair_via_high-qualit.md)**
+
+:   提出 PASDF 框架，通过姿态感知的签名距离函数（SDF）实现连续几何表征，统一了3D异常检测与修复任务，在 Real3D-AD 和 Anomaly-ShapeNet 上取得 SOTA。
 
 **[Bridging 3D Anomaly Localization and Repair via High-Quality Continuous Geometric Representation](bridging_3d_anomaly_localization_and_repair_via_high-quality_continuous_geometri.md)**
 
@@ -300,7 +316,7 @@ description: >-
 
 **[CAD-Recode: Reverse Engineering CAD Code from Point Clouds](cadrecode_reverse_engineering_cad_code_from_point_clouds.md)**
 
-:   将CAD sketch-extrude序列表示为Python代码，利用轻量级点云投影器 + 预训练LLM解码器将点云翻译为可执行Python代码来重建CAD模型，在DeepCAD/Fusion360/真实世界CC3D数据集上显著超越现有方法，且输出代码可被通用LLM理解用于CAD编辑和问答。
+:   CAD-Recode 将 3D CAD 逆向工程问题转化为"点云→Python 代码"翻译任务，利用预训练 LLM 的 Python 代码理解能力作为解码器，结合轻量级点云投影器和百万级程序化生成数据集，在多个 CAD 数据集上显著超越现有方法，并支持 LLM 驱动的 CAD 编辑和问答。
 
 **[Can3Tok: Canonical 3D Tokenization and Latent Modeling of Scene-Level 3D Gaussians](can3tok_canonical_3d_tokenization_and_latent_modeling_of_sce.md)**
 
@@ -365,6 +381,10 @@ description: >-
 **[CutS3D: Cutting Semantics in 3D for 2D Unsupervised Instance Segmentation](cuts3d_cutting_semantics_in_3d_for_2d_unsupervised_instance_segmentation.md)**
 
 :   提出CutS3D方法，首次将3D信息（单目深度估计）引入无监督实例分割，通过在3D点云中切割语义区域来分离2D中重叠的实例，并引入空间置信度机制提升伪标签质量，在多个基准上超越CutLER等SoTA。
+
+**[DAP-MAE: Domain-Adaptive Point Cloud Masked Autoencoder for Effective Cross-Domain Learning](dap-mae_domain-adaptive_point_cloud_masked_autoencoder_for_e.md)**
+
+:   提出 DAP-MAE，通过异构域适配器（HDA）和域特征生成器（DFG）协同学习多域点云数据，仅需一次预训练即可适配物体分类、表情识别、部件分割和3D检测等多种下游任务。
 
 **[DAP-MAE: Domain-Adaptive Point Cloud Masked Autoencoder for Effective Cross-Domain Learning](dap-mae_domain-adaptive_point_cloud_masked_autoencoder_for_effective_cross-domai.md)**
 
@@ -440,7 +460,7 @@ description: >-
 
 **[Easi3R: Estimating Disentangled Motion from DUSt3R Without Training](easi3r_estimating_disentangled_motion_from_dust3r_without_training.md)**
 
-:   提出 Easi3R，一种无需训练的即插即用方法，通过解耦 DUSt3R 注意力层中隐含编码的相机运动与物体运动信息，实现动态视频的4D重建、运动分割和相机位姿估计。
+:   提出 Easi3R，一种免训练的即插即用方法，通过分析和操控 DUSt3R 交叉注意力层中隐含的运动信息，实现动态物体分割、相机位姿估计和 4D 密集点云重建。
 
 **[Easy3D: A Simple Yet Effective Method for 3D Interactive Segmentation](easy3d_a_simple_yet_effective_method_for_3d_interactive_segmentation.md)**
 
@@ -504,7 +524,7 @@ description: >-
 
 **[Fish2Mesh Transformer: 3D Human Mesh Recovery from Egocentric Vision](fish2mesh_transformer_3d_human_mesh_recovery_from_egocentric_vision.md)**
 
-:   提出 Fish2Mesh，一种鱼眼感知的 Transformer 模型，通过新颖的自我中心位置编码（EPE）将等距柱状投影的3D球面信息嵌入 Swin Transformer，实现从头戴式鱼眼相机图像精确恢复3D人体网格。
+:   本文提出Fish2Mesh，一个鱼眼感知的Transformer模型，通过等距矩形投影的自我中心位置编码（EPE）将鱼眼图像的球面几何信息嵌入Swin Transformer，实现从头戴鱼眼相机的第一人称视角准确恢复3D人体mesh。
 
 **[FlashDepth: Real-time Streaming Video Depth Estimation at 2K Resolution](flashdepth_real-time_streaming_video_depth_estimation_at_2k_resolution.md)**
 
@@ -601,6 +621,10 @@ description: >-
 **[Guiding Diffusion-Based Articulated Object Generation by Partial Point Cloud Alignment and Physical Plausibility Constraints](guiding_diffusion-based_articulated_object_generation_by_partial_point_cloud_ali.md)**
 
 :   提出 PhysNAP，通过点云对齐损失和基于SDF的物理合理性约束（部件穿透+关节移动）引导预训练扩散模型 NAP 的逆扩散过程，实现类别感知的铰接物体生成，在对齐精度和物理合理性上显著优于无引导基线。
+
+**[HairCUP: Hair Compositional Universal Prior for 3D Gaussian Avatars](haircup_hair_compositional_universal_prior_for_3d_gaussian_avatars.md)**
+
+:   本文提出 HairCUP，一种将头部建模分解为面部和头发两个独立潜空间的组合式通用先验模型，通过合成无发数据创建管线实现有效解耦，支持灵活的面部/发型交换和少样本单目适配。
 
 **[Hierarchical Material Recognition from Local Appearance](hierarchical_material_recognition_from_local_appearance.md)**
 
@@ -744,7 +768,7 @@ description: >-
 
 **[MuGS: Multi-Baseline Generalizable Gaussian Splatting Reconstruction](mugs_multi-baseline_generalizable_gaussian_splatting_reconstruction.md)**
 
-:   MuGS 是首个支持多基线设置（小基线到大基线）的泛化3D高斯泼溅方法，通过融合 MVS 和 MDE 特征、投影-采样深度一致性网络和参考视图损失，在不同基线数据集上均达到 SOTA。
+:   本文提出 MuGS，首个面向多基线设定的泛化 3D 高斯溅射方法，通过融合多视角立体（MVS）和单目深度估计（MDE）特征，并设计投影-采样深度一致性网络，实现在小基线和大基线场景下的 SOTA 新视角合成。
 
 **[Multi-View 3D Point Tracking](multi-view_3d_point_tracking.md)**
 
@@ -826,6 +850,10 @@ description: >-
 
 :   提出语言引导的真实3D场景中物体放置任务（PlaceIt3D），包含基准测试、大规模数据集和基于3D LLM的基线方法PlaceWizard，实现对场景、物体和语言指令的联合推理。
 
+**[PLMP -- Point-Line Minimal Problems for Projective SfM](plmp_-_point-line_minimal_problems_for_projective_sfm.md)**
+
+:   对射影 SfM 中所有点-线最小问题进行了完整分类，发现了 291 个最小问题（其中 73 个有唯一解可线性求解），并通过稳定子群分析发展了系统化的问题分解与非最小性证明方法。
+
 **[PolarAnything: Diffusion-based Polarimetric Image Synthesis](polaranything_diffusion-based_polarimetric_image_synthesis.md)**
 
 :   提出 PolarAnything，首个基于单张 RGB 图像生成偏振图像的扩散模型框架，通过对编码后的 AoLP 和 DoLP 进行去噪扩散，实现了物理准确且逼真的偏振属性合成，无需 3D 资产或偏振相机。
@@ -837,6 +865,10 @@ description: >-
 **[PseudoMapTrainer: Learning Online Mapping without HD Maps](pseudomaptrainer_learning_online_mapping_without_hd_maps.md)**
 
 :   提出 PseudoMapTrainer，首次实现**完全不依赖 GT HD Map** 训练在线建图模型：利用 2D Gaussian Splatting（RoGS）从多视角相机图像重建道路表面并结合预训练语义分割（Mask2Former）生成矢量化伪标签，同时设计 mask-aware 匹配算法与损失函数处理部分遮挡的伪标签，支持单次行程和多次行程（众包数据）两种模式。
+
+**[Radiant Foam: Real-Time Differentiable Ray Tracing](radiant_foam_real-time_differentiable_ray_tracing.md)**
+
+:   提出 Radiant Foam，一种基于体积网格（tetrahedral mesh）光线追踪的新型可微场景表示，在不依赖光栅化的前提下达到了与 Gaussian Splatting 相当的渲染速度和质量，同时天然支持反射、折射等光传输现象。
 
 **[RayletDF: Raylet Distance Fields for Generalizable 3D Surface Reconstruction from Point Clouds or Gaussians](rayletdf_raylet_distance_fields_for_generalizable_3d_surface_reconstruction_from.md)**
 
@@ -904,7 +936,7 @@ description: >-
 
 **[RoCo-Sim: Enhancing Roadside Collaborative Perception through Foreground Simulation](roco-sim_enhancing_roadside_collaborative_perception_through_foreground_simulati.md)**
 
-:   RoCo-Sim 是首个面向路侧协同感知的仿真框架，通过相机外参优化、多视图遮挡感知采样、DepthSAM 深度渲染和可扩展后处理工具包，从单张图像生成多样且多视图一致的路侧仿真数据，将路侧3D检测性能提升 83%+。
+:   提出 RoCo-Sim，首个路侧协同感知仿真框架，通过外参优化、遮挡感知3D资产放置、DepthSAM深度建模和风格迁移后处理，从单张图像生成多视图一致的仿真数据，大幅（83%+）提升路侧 3D 检测性能。
 
 **[Ross3D: Reconstructive Visual Instruction Tuning with 3D-Awareness](ross3d_reconstructive_visual_instruction_tuning_with_3d-awareness.md)**
 
@@ -944,7 +976,7 @@ description: >-
 
 **[SeHDR: Single-Exposure HDR Novel View Synthesis via 3D Gaussian Bracketing](sehdr_single-exposure_hdr_novel_view_synthesis_via_3d_gaussian_bracketing.md)**
 
-:   SeHDR 是首个从单曝光多视图 LDR 图像生成 HDR 新视角的3DGS框架，通过在3D空间扩展包围曝光原理（Bracketed 3D Gaussians）并设计可微分神经曝光融合（NeEF）在球谐空间融合，无需 HDR 监督即超越现有方法 14.3dB。
+:   提出 SeHDR，首个从单曝光多视角 LDR 图像合成 HDR 新视角的框架，通过在 3D 高斯空间中生成包围曝光（Bracketed 3D Gaussians）并用可微神经曝光融合（NeEF）合并为 HDR 场景表示。
 
 **[Self-Ensembling Gaussian Splatting for Few-Shot Novel View Synthesis](self-ensembling_gaussian_splatting_for_few-shot_novel_view_synthesis.md)**
 
@@ -973,6 +1005,10 @@ description: >-
 **[Simulating Dual-Pixel Images From Ray Tracing For Depth Estimation](simulating_dual-pixel_images_from_ray_tracing_for_depth_estimation.md)**
 
 :   Sdirt 提出基于光线追踪的双像素（DP）图像模拟方案，通过精确计算包含像差和相位分裂信息的空间变化 DP PSF，弥合仿真与真实 DP 数据之间的域间差距，使深度估计模型在真实 DP 图像上具有更好的泛化能力。
+
+**[Single-Scanline Relative Pose Estimation for Rolling Shutter Cameras](single-scanline_relative_pose_estimation_for_rolling_shutter_cameras.md)**
+
+:   本文提出了一种不需要显式建模相机运动的卷帘快门相对位姿估计方法，仅利用每张图像一条扫描线与直线投影的交点信息来恢复位姿，并为平行线和已知重力方向等特殊场景开发了多种最小求解器。
 
 **[SkySense V2: A Unified Foundation Model for Multi-Modal Remote Sensing](skysense_v2_a_unified_foundation_model_for_multi-modal_remote_sensing.md)**
 
@@ -1034,9 +1070,17 @@ description: >-
 
 :   提出SuperMat，一个单步推理的PBR材质分解框架，通过结构化专家分支和调度器修正实现端到端训练，引入re-render loss确保物理一致性，将推理速度从秒级提升至毫秒级。
 
+**[SurfaceSplat: Connecting Surface Reconstruction and Gaussian Splatting](surfacesplat_connecting_surface_reconstruction_and_gaussian_splatting.md)**
+
+:   SurfaceSplat 提出了一种混合方法，将 SDF（有符号距离函数）和 3D 高斯溅射（3DGS）双向连接：SDF 提供粗糙几何来增强 3DGS 的渲染质量，而 3DGS 渲染的新视角图像反过来用于细化 SDF 的表面重建精度，在 DTU 和 MobileBrick 数据集上同时超越了表面重建和新视角合成的 SOTA。
+
 **[SVG-Head: Hybrid Surface-Volumetric Gaussians for High-Fidelity Head Reconstruction and Real-Time Editing](svg-head_hybrid_surface-volumetric_gaussians_for_high-fidelity_head_reconstructi.md)**
 
 :   提出SVG-Head，通过表面高斯(显式纹理图)和体积高斯(非朗伯区域补充建模)的混合表示，首次实现高保真高斯头部化身的实时外观编辑。
+
+**[TAPNext: Tracking Any Point (TAP) as Next Token Prediction](tapnext_tracking_any_point_tap_as_next_token_prediction.md)**
+
+:   TAPNext 将视频中任意点跟踪（TAP）问题重新建模为序列化的掩码 token 解码任务，去除了传统跟踪方法中的各种特定归纳偏置和启发式规则，实现了因果式在线跟踪，在 online 和 offline 跟踪器中均达到新的 SOTA，同时推理延迟极低。
 
 **[TAR3D: Creating High-Quality 3D Assets via Next-Part Prediction](tar3d_creating_high-quality_3d_assets_via_next-part_prediction.md)**
 
@@ -1137,6 +1181,10 @@ description: >-
 **[WonderPlay: Dynamic 3D Scene Generation from a Single Image and Actions](wonderplay_dynamic_3d_scene_generation_from_a_single_image_and_actions.md)**
 
 :   WonderPlay 提出混合生成模拟器（Hybrid Generative Simulator），将物理求解器的粗糙3D动态仿真与视频扩散模型的高质量生成相结合，实现从单张图像加用户动作输入生成逼真多材质动态3D场景，支持刚体、布料、液体、烟雾、颗粒等多种材质。
+
+**[WonderTurbo: Generating Interactive 3D World in 0.72 Seconds](wonderturbo_generating_interactive_3d_world_in_072_seconds.md)**
+
+:   WonderTurbo 提出首个实时交互式3D场景生成框架，通过 StepSplat（前馈式3DGS）、QuickDepth（轻量深度补全）和 FastPaint（2步扩散修复）三个模块协同加速，将单次场景扩展时间从 10+ 秒压缩到 0.72 秒，实现 15 倍加速的同时保持了与 WonderWorld 相当的生成质量。
 
 **[Zero-Shot Inexact CAD Model Alignment from a Single Image](zero-shot_inexact_cad_model_alignment_from_a_single_image.md)**
 

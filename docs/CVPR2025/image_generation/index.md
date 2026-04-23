@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 图像生成方向 271篇论文解读
+  CVPR2025 图像生成方向 300篇论文解读
 description: >-
-  271篇CVPR2025 图像生成论文解读，主题涵盖：提出基于新型原语表示PrimX和Diffusion、系统研究了使用decoder-only、提出AMO（Attention-Modulated等，每篇含核心思想与方法详解。
+  300篇CVPR2025 图像生成论文解读，主题涵盖：提出基于新型原语表示PrimX和Diffusion、系统研究了使用decoder-only、提出AMO（Attention-Modulated等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**📷 CVPR2025** · **271** 篇论文解读
+**📷 CVPR2025** · **300** 篇论文解读
 
 **[3DTopia-XL: Scaling High-Quality 3D Asset Generation via Primitive Diffusion](3dtopia-xl_scaling_high-quality_3d_asset_generation_via_primitive_diffusion.md)**
 
@@ -28,9 +28,11 @@ description: >-
 
 **[AniMer: Animal Pose and Shape Estimation Using Family Aware Transformer](animer_animal_pose_and_shape_estimation_using_family_aware_transformer.md)**
 
-**[Any-Resolution AI-Generated Image Detection by Spectral Learning](any-resolution_ai-generated_image_detection_by_spectral_learning.md)**
+:   本文提出 AniMer，首次将高容量 ViT 骨干引入四足动物 SMAL 参数估计，通过动物科级监督对比学习区分不同物种的形状分布，配合基于 ControlNet 的合成数据集 CtrlAni3D（10k图像），在 Animal3D/CtrlAni3D/跨域 Animal Kingdom 上全面超越现有方法。
 
-:   提出一种基于频谱学习的 AI 生成图像检测方法，通过在频域提取分辨率不变的特征，使检测器能够在任意分辨率的输入图像上保持鲁棒性，解决了现有方法对特定分辨率依赖的问题。
+**[SPAI: Any-Resolution AI-Generated Image Detection by Spectral Learning](any-resolution_ai-generated_image_detection_by_spectral_learning.md)**
+
+:   提出 SPAI，通过掩码频谱学习（Masked Spectral Learning）建模真实图像的频率分布，引入频谱重建相似度（SRS）和频谱上下文注意力（SCA）检测 AI 生成图像作为分布外样本，在 13 种生成模型上平均 AUC 达 91.0%，比次优方法绝对提升 5.5%，且支持任意分辨率图像检测。
 
 **[Arbitrary-Steps Image Super-Resolution via Diffusion Inversion](arbitrary-steps_image_super-resolution_via_diffusion_inversion.md)**
 
@@ -51,6 +53,10 @@ description: >-
 **[AutoPresent: Designing Structured Visuals from Scratch](autopresent_designing_structured_visuals_from_scratch.md)**
 
 :   本文提出AutoPresent框架和SlidesBench基准，首次系统研究从自然语言指令生成演示幻灯片的任务——通过让LLM生成Python代码（而非端到端图像生成）来创建PPTX幻灯片，配合SlidesLib工具库和迭代优化，8B参数的开源模型达到接近GPT-4o的效果。
+
+**[Autoregressive Distillation of Diffusion Transformers](autoregressive_distillation_of_diffusion_transformers.md)**
+
+:   提出自回归蒸馏（ARD），利用ODE轨迹的历史信息而非仅当前去噪样本作为输入来预测未来步，通过token级时间嵌入和块级因果注意力掩码修改teacher transformer架构，在ImageNet-256上以4步达到FID 1.84，仅增加1.1%额外FLOPs。
 
 **[AvatarArtist: Open-Domain 4D Avatarization](avatarartist_open-domain_4d_avatarization.md)**
 
@@ -152,9 +158,9 @@ description: >-
 
 :   提出 Cinemo，基于扩散模型的图像动画方法，通过学习运动残差（而非直接预测帧）分布大幅提升与输入图像的时间一致性，配合 SSIM 运动强度控制和 DCT 噪声初始化实现精细可控的 I2V 生成，在 UCF-101 和 MSR-VTT 上全面超越现有方法。
 
-**[Controllable Human Image Generation with Personalized Multi-Garments](controllable_human_image_generation_with_personalized_multi-garments.md)**
+**[BootComp: Controllable Human Image Generation with Personalized Multi-Garments](controllable_human_image_generation_with_personalized_multi-garments.md)**
 
-:   提出 BootComp，通过两阶段框架（分解模块从真人图像自举生成合成配对数据 + 组合模块用双 SDXL 网络通过扩展自注意力注入多服装特征），实现给定多件参考服装的可控人体图像生成，MP-LPIPS 比基线提升 30%。
+:   本文提出 BootComp，通过训练分解网络从人物图像中提取产品视图服装图来构建大规模合成配对数据集，再训练双路径扩散模型实现以多件参考服装为条件的可控人物图像生成，在 MP-LPIPS 上比 SOTA 提升 30%。
 
 **[CTRL-O: Language-Controllable Object-Centric Visual Representation Learning](ctrl-o_language-controllable_object-centric_visual_representation_learning.md)**
 
@@ -162,11 +168,15 @@ description: >-
 
 **[CustAny: Customizing Anything from A Single Example](custany_customizing_anything_from_a_single_example.md)**
 
-:   提出 CustAny，一种零样本通用物体定制化框架，通过 DINOv2+MAE 双编码器提取全面身份特征、全局+局部双层级注入、以及对比学习身份解耦，从单张参考图生成保持身份的多样化图像，在通用/人脸/试穿三个领域全面超越专用方法。
+:   本文构建了首个大规模通用物体定制数据集MC-IDC（315K图像、10K+类别），并提出CustAny框架，通过多模型ID提取、全局-局部双层ID注入和ID感知解耦模块，实现从单张参考图像对任意物体的零样本定制生成。
 
 **[Data-Free Group-Wise Fully Quantized Winograd Convolution via Learnable Scales](data-free_group-wise_fully_quantized_winograd_convolution_via_learnable_scales.md)**
 
-:   提出完全量化 Winograd 卷积的方法——通过可学习的对角缩放矩阵均衡 Winograd 域输出的动态范围差异，仅用随机高斯噪声（无真实数据）微调缩放参数，在 InstaFlow/SD v1.5 等扩散模型上实现近无损的 W8A8 Winograd 加速（CPU 卷积层加速 31.3%）。
+:   本文提出用组级量化对 Winograd 卷积全流水线进行 8-bit 量化，并通过无数据微调 Winograd 变换矩阵的缩放参数来解决输出变换中的大动态范围问题，在扩散模型上实现近无损图像生成质量和 31.3% 的卷积加速。
+
+**[Decentralized Diffusion Models](decentralized_diffusion_models.md)**
+
+:   Decentralized Diffusion Models（DDM）提出了一种将扩散模型训练分布到完全隔离的计算集群上的方法，通过在数据分区上独立训练专家模型并用轻量路由器在推理时集成，证明该集成精确优化与单模型相同的全局 Flow Matching 目标，在 FLOP-for-FLOP 下优于单一大模型。
 
 **[DeClotH: Decomposable 3D Cloth and Human Body Reconstruction from a Single Image](decloth_decomposable_3d_cloth_and_human_body_reconstruction_from_a_single_image.md)**
 
@@ -174,27 +184,27 @@ description: >-
 
 **[Decouple-Then-Merge: Finetune Diffusion Models as Multi-Task Learning](decouple-then-merge_finetune_diffusion_models_as_multi-task_learning.md)**
 
-:   提出 DeMe，将扩散模型训练视为多任务学习问题——不同时间步是不同"任务"且存在梯度冲突，通过将时间步解耦为 N 个范围分别微调再合并回单一模型，在零推理开销下显著提升生成质量（CIFAR10 FID 从 4.42 降至 3.51）。
+:   本文将扩散模型训练视为多任务学习问题，提出Decouple-then-Merge（DeMe）框架——先将时间步分组微调多个专用模型以消除梯度冲突，再通过参数空间合并回单一模型，在不增加推理开销的情况下显著提升生成质量。
 
 **[Decoupling Training-Free Guided Diffusion by ADMM](decoupling_training-free_guided_diffusion_by_admm.md)**
 
-:   提出 ADMMDiff，用 ADMM 框架将训练免费条件生成中的扩散项和引导项解耦为两个变量（x 扩散, z 引导, 约束 x=z），用近端算子分别处理，消除了手动调权重的需求并提供收敛保证，在分割/素描/文本引导生成上大幅超越 DPS 和 MPGD。
+:   本文提出 ADMMDiff，用交替方向乘子法（ADMM）将无训练条件扩散生成中的"无条件生成"和"条件引导"解耦为两个独立子问题，自动平衡两者无需手调权重超参数，在多种条件生成任务上超越现有方法。
 
 **[Denoising Functional Maps: Diffusion Models for Shape Correspondence](denoising_functional_maps_diffusion_models_for_shape_correspondence.md)**
 
-:   提出 DenoisFM，用 DDPM 直接在光谱域去噪生成功能映射矩阵来预测 3D 形状间的点对应，配合无监督符号纠正网络消除拉普拉斯特征函数的符号歧义，在多个形状匹配基准上大幅超越大规模学习方法同时匹配描述符方法。
+:   本文提出 DenoisFM，首次用去噪扩散模型直接预测形状间的功能图（functional map），通过模板匹配降低学习复杂度，并提出无监督方法解决拉普拉斯特征向量符号歧义问题，在人体和动物形状匹配上取得有竞争力的性能。
 
-**[FreeMCG: Derivative-Free Diffusion Manifold-Constrained Gradient for Unified XAI](derivative-free_diffusion_manifold-constrained_gradient_for_unified_xai.md)**
+**[Derivative-Free Diffusion Manifold-Constrained Gradient for Unified XAI](derivative-free_diffusion_manifold-constrained_gradient_for_unified_xai.md)**
 
-:   提出 FreeMCG，利用扩散模型的 Tweedie 去噪生成流形上的集成粒子，通过集成卡尔曼滤波（EnKF）理论在无需模型权重的情况下近似分类器的流形约束梯度，统一实现黑盒特征归因和反事实解释，人类评估显著优于白盒方法。
+:   本文提出 FreeMCG，利用扩散模型生成流形上的粒子集合并结合集成卡尔曼滤波近似模型梯度在数据流形上的投影，首次统一了特征归因和反事实解释两大 XAI 任务，且仅需黑盒模型访问。
 
 **[DexGrasp Anything: Towards Universal Robotic Dexterous Grasping with Physics Awareness](dexgrasp_anything_towards_universal_robotic_dexterous_grasping_with_physics_awar.md)**
 
-:   提出 DexGrasp Anything，将三种物理约束（表面拉力、外穿透排斥、自穿透排斥）集成到扩散模型的训练和采样中，配合 LLM 增强的点云+语义物体表示，在 5 个基准上达到 SOTA 灵巧抓取性能（Suc.6 57.5%，比 SceneDiffuser 提升 2.2×）。
+:   本文提出 DexGrasp Anything，将三种物理约束力集成到扩散模型的训练和采样阶段，实现几乎所有开放数据集上 SOTA 的灵巧手抓取姿态生成，并构建了包含 15K+ 物体、340万+ 抓取姿态的最大规模灵巧抓取数据集。
 
 **[DiC: Rethinking Conv3x3 Designs in Diffusion Models](dic_rethinking_conv3x3_designs_in_diffusion_models.md)**
 
-:   构建纯 3×3 卷积的扩散模型 DiC，通过沙漏编码解码器架构扩大感受野、稀疏跳跃连接减少冗余、阶段特定条件注入，在 ImageNet 256×256 上以 DiT-XL 的相当 FLOPs 实现 4.7× 吞吐量和更优 FID（3.89 vs 6.24, with CFG）。
+:   本文重新审视3x3卷积在扩散模型中的潜力，通过一系列架构改进（沙漏U-Net+稀疏跳连）和条件注入改进（阶段特定嵌入+中间块注入+条件门控），构建了纯3x3卷积的扩散模型DiC，在ImageNet生成上超越同规模DiT且推理速度显著更快。
 
 **[Diff2Flow: Training Flow Matching Models via Diffusion Model Alignment](diff2flow_training_flow_matching_models_via_diffusion_model_alignment.md)**
 
@@ -202,23 +212,27 @@ description: >-
 
 **[DiffLocks: Generating 3D Hair from a Single Image using Diffusion Models](difflocks_generating_3d_hair_from_a_single_image_using_diffusion_models.md)**
 
-:   提出 DiffLocks，通过自动化 Blender 管线构建 4 万种发型的最大合成头发数据集，用发丝 VAE 将 10 万根发丝编码为 256×256 头皮纹理图，再训练 image-conditioned HDiT 从单张图像扩散去噪生成头皮纹理，实现 2.33 秒 10 万发丝重建，速度比基线快 8-23×。
+:   本文通过自动化构建迄今最大的3D合成头发数据集（40K风格），训练一个基于扩散Transformer的头皮纹理生成模型，首次以图像条件方式直接预测单根发丝（而非引导发丝）的潜码纹理图，实现从单张图像重建包括爆炸头和秃顶在内的多样化3D发型。
 
 **[DiffSensei: Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation](diffsensei_bridging_multi-modal_llms_and_diffusion_models_for_customized_manga_g.md)**
 
-:   提出 DiffSensei，两阶段漫画面板生成框架——Stage 1 用掩码交叉注意力注入实现多角色布局控制和对话气泡放置，Stage 2 用 MLLM 适配器根据文本描述动态调整角色特征（表情/姿态/动作），解决了先前方法的"复制粘贴"效果问题。
+:   本文提出新任务"定制化漫画生成"并引入 DiffSensei 框架，用 MLLM 作为文本兼容的角色适配器连接扩散模型，通过 masked cross-attention 实现精确布局控制，在自建的大规模 MangaZero 数据集（43K页/427K标注面板）上显著超越现有方法。
 
 **[Diffusion-4K: Ultra-High-Resolution Image Synthesis with Latent Diffusion Models](diffusion-4k_ultra-high-resolution_image_synthesis_with_latent_diffusion_models.md)**
 
-:   提出 Diffusion-4K，通过分区 VAE（F=16，无需重训练即避免 OOM）和小波域微调（WLF，用 Haar DWT 分解速度预测增强高频纹理），实现直接 4096×4096 分辨率图像合成，并构建 Aesthetic-4K 基准评估超高分辨率质量。
+:   本文提出 Diffusion-4K 框架，包含 Aesthetic-4K 基准数据集、GLCM Score/Compression Ratio 评估指标、以及基于小波变换的微调方法，使 SD3-2B 和 Flux-12B 等大规模潜在扩散模型能直接生成具有丰富纹理细节的 4096×4096 高质量图像。
 
 **[Diffusion Self-Distillation for Zero-Shot Customized Image Generation](diffusion_self-distillation_for_zero-shot_customized_image_generation.md)**
 
-:   利用预训练 T2I 模型（FLUX）的上下文网格生成能力自动合成 40 万配对训练数据，再微调该模型为零样本 image+text 条件生成器，在 DreamBench++ 上以零样本方式超越需微调的 DreamBooth LoRA。
+:   本文提出 Diffusion Self-Distillation，利用预训练 T2I 模型的网格图生成能力来自动构建身份保持的配对数据集（LLM 生成 prompt + VLM 筛选），再微调同一模型实现零样本身份保持图像生成，无需测试时优化即达到接近 DreamBooth 的效果。
+
+**[DiG: Scalable and Efficient Diffusion Models with Gated Linear Attention](dig_scalable_and_efficient_diffusion_models_with_gated_linear_attention.md)**
+
+:   DiG将门控线性注意力(GLA)引入扩散模型骨干网络，通过空间重定向增强模块(SREM)解决GLA的单向建模和缺乏局部感知问题，在ImageNet 256×256生成任务上超越DiT性能的同时，在1792分辨率下速度提升2.5倍、GPU显存节省75.7%。
 
 **[Dissecting and Mitigating Diffusion Bias via Mechanistic Interpretability](dissecting_and_mitigating_diffusion_bias_via_mechanistic_interpretability.md)**
 
-:   提出 DiffLens，用 k-稀疏自编码器将 U-Net 瓶颈层的多义性神经元分解为单义性特征，通过归因分析识别偏见特征并进行干预，实现扩散模型性别偏见的精确缓解（FD 从 0.564 降至 0.046）同时保持甚至提升生成质量。
+:   本文提出DiffLens框架，通过稀疏自编码器（k-SAE）将扩散模型内部神经元解缠为单语义特征空间，再用基于梯度的归因方法定位驱动偏见生成的特定特征，从而实现对性别、种族等社会偏见的精细控制和缓解，同时保持图像质量。
 
 **[DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression](dit-ic_aligned_diffusion_transformer_for_efficient_image_compression.md)**
 
@@ -226,15 +240,15 @@ description: >-
 
 **[DiverseFlow: Sample-Efficient Diverse Mode Coverage in Flows](diverseflow_sample-efficient_diverse_mode_coverage_in_flows.md)**
 
-:   提出 DiverseFlow，一种训练免费的推理时方法，通过行列式点过程（DPP）在 ODE 求解过程中耦合多个样本使其互相排斥，在固定采样预算下显著提升流匹配模型的模式覆盖多样性（如从 5.64 个模式提升到 7.11 个）。
+:   本文提出DiverseFlow，一种无需训练的推理时方法，通过行列式点过程（DPP）在flow模型的ODE求解过程中引入样本间耦合梯度约束，在固定采样预算下显著提高生成样本的多样性和模式覆盖率。
 
 **[Divide and Conquer: Heterogeneous Noise Integration for Diffusion-based Adversarial Purification](divide_and_conquer_heterogeneous_noise_integration_for_diffusion-based_adversari.md)**
 
 :   提出基于注意力掩码的异构噪声扩散净化策略，对分类器关注的关键像素施加高强度噪声以消除对抗扰动，对其余区域施加低强度噪声以保留语义信息，并通过单步重采样大幅降低计算开销。
 
-**[DiVoT: Diffusion Powers Video Tokenizer for Comprehension and Generation](divot_diffusion_powers_video_tokenizer_for_comprehension_and_generation.md)**
+**[Divot: Diffusion Powers Video Tokenizer for Comprehension and Generation](divot_diffusion_powers_video_tokenizer_for_comprehension_and_generation.md)**
 
-:   提出 DiVoT，用扩散去噪过程作为视频分词器的自监督训练信号——若分词器的连续表示能引导 U-Net 成功去噪视频则表示有效，统一视频理解和生成，LLM 通过高斯混合模型（而非 MSE 回归）预测连续视频特征。
+:   本文提出Divot，一种利用扩散过程进行自监督视频表征学习的连续视频Tokenizer，通过让扩散模型以Tokenizer特征为条件进行去噪来训练表征，并用高斯混合模型（GMM）建模LLM输出的连续视频特征分布，实现了视频理解与生成的统一框架。
 
 **[DKDM: Data-Free Knowledge Distillation for Diffusion Models with Any Architecture](dkdm_data-free_knowledge_distillation_for_diffusion_models_with_any_architecture.md)**
 
@@ -272,9 +286,17 @@ description: >-
 
 :   提出 Dual Diffusion Transformer (D-DiT)，在单一 MM-DiT 架构中同时使用连续扩散建模图像分布和离散掩码扩散建模文本分布，是首个端到端的全扩散多模态模型，支持图像生成、图像描述和视觉问答等全套任务。
 
+**[Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_unified_generation_understanding.md)**
+
+:   提出 D-DiT（Dual Diffusion Transformer），首个完全端到端的多模态扩散模型，在图像分支用连续流匹配、文本分支用离散掩码扩散，统一损失函数下同时训练图像生成和文本理解。
+
 **[Dual Prompting Image Restoration with Diffusion Transformers (DPIR)](dual_prompting_image_restoration_with_diffusion_transformers.md)**
 
 :   提出 DPIR，基于 SD3 (Diffusion Transformer) 的图像修复模型，通过轻量级低质量图像条件分支和全局-局部视觉双提示(dual prompting)分支，从多角度引入退化图像信息，首次系统性地将 DiT 应用于图像修复并取得 SOTA 性能。
+
+**[DualAnoDiff: Dual-Interrelated Diffusion Model for Few-Shot Anomaly Image Generation](dualanodiff_few_shot_anomaly_image_generation.md)**
+
+:   提出 DualAnoDiff，利用双关联扩散模型同时生成整体异常图像和对应异常部分，解决了少样本场景下异常图像生成中多样性不足、融合不自然和掩码不对齐的问题，在下游异常检测任务中达到 SOTA。
 
 **[Dynamic Motion Blending for Versatile Motion Editing (MotionReFit)](dynamic_motion_blending_for_versatile_motion_editing.md)**
 
@@ -283,6 +305,10 @@ description: >-
 **[EasyCraft: A Robust and Efficient Framework for Automatic Avatar Crafting](easycraft_a_robust_and_efficient_framework_for_automatic_avatar_crafting.md)**
 
 :   EasyCraft 提出了一个端到端的自动角色捏脸框架，通过 MAE 预训练的通用 ViT 编码器将任意风格的面部图像映射为统一特征分布，再转换为游戏引擎捏脸参数，同时集成文本到图像技术支持文本输入，可轻松适配不同游戏引擎。
+
+**[EasyCraft: A Robust and Efficient Framework for Automatic Avatar Crafting](easycraft_avatar_crafting.md)**
+
+:   提出 EasyCraft，一个端到端的自动角色定制框架，通过自监督预训练的通用 ViT 编码器实现任意风格照片到游戏捏脸参数的转换，并结合 Stable Diffusion 支持文本驱动的角色创建。
 
 **[EDEN: Enhanced Diffusion for High-quality Large-motion Video Frame Interpolation](eden_enhanced_diffusion_for_high-quality_large-motion_video_frame_interpolation.md)**
 
@@ -312,9 +338,17 @@ description: >-
 
 :   本文提出 EmoEdit，首个通过内容修改（而非仅颜色/风格调整）来唤起指定情感的图像操纵框架，构建了 40,120 对的 EmoEditSet 数据集，设计了可即插即用的 Emotion Adapter，在结构保持和情感唤起之间取得了显著平衡。
 
+**[Enhancing Creative Generation on Stable Diffusion-based Models](enhancing_creative_generation_on_stable_diffusion-based_models.md)**
+
+:   本文提出 C3（Creative Concept Catalyst），一种免训练方法，通过在 Stable Diffusion 的去噪过程中选择性放大特征来增强创意生成能力，并提供基于创意两个主要维度的放大因子选择指南。
+
 **[Enhancing Dance-to-Music Generation via Negative Conditioning Latent Diffusion Model](enhancing_dance-to-music_generation_via_negative_conditioning_latent_diffusion_m.md)**
 
 :   提出 PN-Diffusion，利用正向播放和反向播放的舞蹈视频分别提取正负节奏条件，设计双向扩散与反向过程来联合训练 U-Net，增强生成音乐与舞蹈动作的节奏一致性和音乐质量，在 AIST++ 和 TikTok 数据集上 BCS 提升 1.80/3.85、BHS 提升 4.22/5.90。
+
+**[Enhancing Facial Privacy Protection via Weakening Diffusion Purification](enhancing_facial_privacy_protection_via_weakening_diffusion_purification.md)**
+
+:   本文通过学习逐时间步的无条件嵌入（unconditional embeddings）来削弱 LDM 反向扩散过程中的净化效应，并利用自注意力图引导保持结构一致性，在 CelebA-HQ 和 LADN 上平均 PSR 达 79.17%，同时 FID 优于所有竞争方法。
 
 **[Enhancing Image Aesthetics with Dual-Conditioned Diffusion Models Guided by Multimodal Perception](enhancing_image_aesthetics_with_dual-conditioned_diffusion_models_guided_by_mult.md)**
 
@@ -336,21 +370,49 @@ description: >-
 
 :   EvoTok 提出了一种基于残差潜在演化（Residual Latent Evolution）的统一图像 tokenizer，通过在共享潜空间中级联残差向量量化，使表示从浅层的像素级细节渐进演化到深层的语义级抽象，在仅用 13M 图像训练的情况下实现了 0.43 rFID 的重建质量，并在 7/9 个理解 benchmark 和 GenEval/GenAI-Bench 上取得优异效果。
 
+**[Exploring Sparse MoE in GANs for Text-conditioned Image Synthesis](exploring_sparse_moe_in_gans_for_text-conditioned_image_synthesis.md)**
+
+:   本文提出 Aurora，一种基于稀疏混合专家（Sparse MoE）的 GAN 文本生成图像模型，通过在生成器中引入多个专家网络和文本感知的稀疏路由器来扩大模型容量，在 64×64 分辨率上以远快于扩散模型的推理速度，在 MS COCO 上达到 6.2 的零样本 FID。
+
+**[FADE: Fine-Grained Erasure in Text-to-Image Diffusion-based Foundation Models](fade_fine_grained_erasure_diffusion.md)**
+
+:   提出 FADE（Fine-grained Attenuation for Diffusion Erasure），首次解决文生图扩散模型中概念遗忘的邻近性问题——精确擦除目标概念的同时保留语义相近概念的生成能力，在保留性能上比 SOTA 提升至少 12%。
+
 **[FaithDiff: Unleashing Diffusion Priors for Faithful Image Super-Resolution](faithdiff_unleashing_diffusion_priors_for_faithful_image_super-resolution.md)**
 
 :   提出 FaithDiff，首次释放（fine-tune）预训练扩散模型先验用于图像超分辨率，并设计对齐模块桥接退化图像特征与扩散噪声隐空间，通过联合优化 encoder 和扩散模型实现高保真结构恢复。
+
+**[FDeID-Toolbox: Face De-Identification Toolbox](fdeid-toolbox_face_de-identification_toolbox.md)**
+
+:   本文提出 FDeID-Toolbox，一个面向人脸去标识化（Face De-Identification）研究的综合性工具箱，通过模块化架构统一了数据加载、方法实现、推理流程和评测协议四个核心组件，解决了该领域实现碎片化、评测标准不一致、结果不可比较的长期痛点。
 
 **[FilmComposer: LLM-Driven Music Production for Silent Film Clips](filmcomposer_llm-driven_music_production_for_silent_film_clips.md)**
 
 :   FilmComposer 首次将大语言模型多代理系统与波形/符号音乐生成相结合，模拟专业音乐人的工作流程（选点→作曲→编曲→混音），从无声电影片段自动生成高质量（48kHz）、高音乐性、具有发展性的电影配乐。
 
+**[FilmComposer: LLM-Driven Music Production for Silent Film Clips](filmcomposer_llm_music_production.md)**
+
+:   提出 FilmComposer，模拟专业音乐人工作流，通过视觉处理、节奏可控 MusicGen 和多智能体编曲混音三大模块，首次实现面向电影片段的高质量专业配乐自动生成。
+
+**[FineLIP: Extending CLIP's Reach via Fine-Grained Alignment with Longer Text Inputs](finelip_clip_long_text_fine_grained.md)**
+
+:   提出 FineLIP，通过位置嵌入拉伸支持 248 token 长文本输入，并引入自适应 token 细化和跨模态 token 级对齐，在长描述文本的检索和文生图任务上显著超越 SOTA。
+
 **[FineLIP: Extending CLIP's Reach via Fine-Grained Alignment with Longer Text Inputs](finelip_extending_clips_reach_via_fine-grained_alignment_with_longer_text_inputs.md)**
 
 :   FineLIP 通过位置编码拉伸（77→248 tokens）、自适应 Token 精炼模块（ATRM）和跨模态 Token 级对齐（CLIM），使 CLIP 模型能够处理长文本描述并实现细粒度视觉-文本匹配，在长描述检索任务上显著超越 Long-CLIP、TULIP 等现有方法。
 
+**[Finite Difference Flow Optimization for RL Post-Training of Text-to-Image Models](finite_difference_flow_optimization_for_rl_post-training_of_text-to-image_models.md)**
+
+:   本文提出一种基于有限差分的在线 RL 变体（FDFO），通过采样成对轨迹并将 flow velocity 拉向生成更优图像的方向来优化扩散/流匹配 T2I 模型，将整个采样过程视为单一 action，比现有 RL 后训练方法收敛更快、输出质量和 prompt 对齐更优。
+
 **[FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations](flipsketch_flipping_static_drawings_to_text-guided_sketch_animations.md)**
 
 :   FlipSketch 首次实现从单张静态草图 + 文本描述自动生成无约束栅格草图动画，通过在 T2V 扩散模型上微调 LoRA、DDIM 反演参考帧机制和双注意力组合三大创新，在保持草图身份的同时生成流畅、动态的动画序列。
+
+**[FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations](flipsketch_sketch_animation.md)**
+
+:   提出 FlipSketch，首个从单张静态草图和文本描述生成无约束光栅草图动画的系统，通过微调文本-视频扩散模型、参考帧迭代对齐和双注意力组合三项创新实现流畅动画。
 
 **[Focus-N-Fix: Region-Aware Fine-Tuning for Text-to-Image Generation](focus-n-fix_region-aware_fine-tuning_for_text-to-image_generation.md)**
 
@@ -424,9 +486,17 @@ description: >-
 
 :   将照片 EXIF 元数据中的 GPS 坐标作为扩散模型的新型控制信号，训练 GPS+文本联合条件的图像生成模型，能捕捉城市内不同街区/地标的细粒度外观差异，并通过角度条件 SDS 从 2D 模型提取 3D 地标重建。
 
+**[GRADE: Benchmarking Discipline-Informed Reasoning in Image Editing](grade_benchmarking_discipline-informed_reasoning_in_image_editing.md)**
+
+:   本文提出GRADE——首个评估学科知识驱动的图像编辑能力的基准，涵盖10个学科领域520个样本，通过多维评估协议揭示了当前20个SOTA多模态模型在知识密集型编辑任务上的显著不足。
+
 **[GraphGPT-o: Synergistic Multimodal Comprehension and Generation on Graphs](graphgpt-o_synergistic_multimodal_comprehension_and_generation_on_graphs.md)**
 
 :   提出 GraphGPT-o，将多模态属性图（MMAG，节点含图像+文本，边表示关系）的结构信息注入多模态大语言模型（MLLM），通过 PPR 采样、层次化 Q-Former 对齐器和灵活推理策略，实现基于图上下文的文本-图像联合生成。
+
+**[h-Edit: Effective and Flexible Diffusion-Based Editing via Doob's h-Transform](h-edit_effective_and_flexible_diffusion-based_editing_via_doobs_h-transform.md)**
+
+:   h-Edit 基于 Doob's h-transform 将扩散图像编辑形式化为反向时间桥建模问题，通过将编辑更新解耦为"重建项"和"编辑项"，首次实现了免训练的文本引导+奖励模型联合编辑，在 PIE-Bench 上全面超越现有 SOTA 方法。
 
 **[Hiding Images in Diffusion Models by Editing Learned Score Functions](hiding_images_in_diffusion_models_by_editing_learned_score_functions.md)**
 
@@ -455,6 +525,10 @@ description: >-
 **[IDProtector: An Adversarial Noise Encoder to Protect Against ID-Preserving Image Generation](idprotector_an_adversarial_noise_encoder_to_protect_against_id-preserving_image_.md)**
 
 :   IDProtector 提出首个前馈式对抗噪声编码器，通过单次前向传播为人脸照片添加不可感知的对抗扰动，可同时防御 InstantID、IP-Adapter、PhotoMaker 等多种编码器驱动的身份保持生成方法，且对 JPEG 压缩、缩放等变换保持鲁棒。
+
+**[ILIAS: Instance-Level Image Retrieval At Scale](ilias_instance-level_image_retrieval_at_scale.md)**
+
+:   ILIAS 是一个包含 1000 个实例对象、1 亿干扰图像的大规模实例级图像检索测试基准，通过全面 benchmarking 揭示了当前基础模型在特定物体识别上的能力与不足，为该领域提供了一个远未饱和的评测标准。
 
 **[Image Generation Diversity Issues and How to Tame Them](image_generation_diversity_issues_and_how_to_tame_them.md)**
 
@@ -548,6 +622,10 @@ description: >-
 
 :   MVLift提出了一个多阶段框架，仅使用单视角2D姿态序列训练，通过线条件扩散模型→多视角优化→合成数据生成→多视角扩散模型的渐进策略建立多视角一致性，实现无需3D监督的全局3D运动（含关节旋转+根轨迹）估计，在AIST++上根轨迹误差67.6mm超越需要3D监督的WHAM (164.3mm)。
 
+**[LookingGlass: Generative Anamorphoses via Laplacian Pyramid Warping](lookingglass_generative_anamorphoses_via_laplacian_pyramid_warping.md)**
+
+:   本文提出LookingGlass方法，通过拉普拉斯金字塔扭曲（Laplacian Pyramid Warping）技术，将Visual Anagrams框架扩展到潜空间整流流模型和更广泛的空间变换类型，生成从正常视角和特定折射/反射视角看都有意义的变形画（Anamorphosis）图像。
+
 **[LoRACLR: Contrastive Adaptation for Customization of Diffusion Models](loraclr_contrastive_adaptation_for_customization_of_diffusion_models.md)**
 
 :   LoRACLR 提出一种基于对比学习目标的 LoRA 模型合并方法，通过学习一个 delta 权重将多个独立训练的单概念 LoRA 模型融合为一个统一模型，无需重训练或访问原始训练数据，即可实现高保真的多概念图像生成，合并 12 个概念仅需 5 分钟。
@@ -564,6 +642,10 @@ description: >-
 
 :   提出 MagicQuill 智能交互式图像编辑系统，用三种笔触（添加/减去/颜色）表达编辑意图，双分支扩散插件（inpainting + control）实现边缘和颜色的精细控制，MLLM 实时猜测意图自动生成 prompt，形成无需手动输入文字的连续编辑工作流。
 
+**[Make It Count: Text-to-Image Generation with an Accurate Number of Objects](make_it_count_text-to-image_generation_with_an_accurate_number_of_objects.md)**
+
+:   本文提出CountGen方法，通过在扩散模型去噪过程中识别承载物体身份信息的特征来分离和计数物体实例，并训练一个布局预测模型来修复数量不足的情况，实现了不依赖外部布局的计数准确文本到图像生成。
+
 **[MangaNinja: Line Art Colorization with Precise Reference Following](manganinja_line_art_colorization_with_precise_reference_following.md)**
 
 :   MangaNinja 是一个基于扩散模型的参考图引导线稿上色方法，通过渐进式 Patch Shuffling 策略训练模型学会局部语义匹配能力，并引入 PointNet 驱动的点控制机制实现精细颜色对应，在大姿态差异、多参考图、跨角色上色等挑战场景中显著超越现有方法。
@@ -571,6 +653,10 @@ description: >-
 **[MARBLE: Material Recomposition and Blending in CLIP-Space](marble_material_recomposition_and_blending_in_clip-space.md)**
 
 :   仅在 CLIP 空间操作材质嵌入，通过定向注入 UNet 中的材质响应层实现材质迁移和混合，并通过轻量 MLP 预测属性编辑方向实现粗糙度/金属度/透明度/发光的参数化控制，无需微调扩散模型。
+
+**[MCA-Ctrl: Multi-party Collaborative Attention Control for Image Customization](mca_ctrl_attention_control_customization.md)**
+
+:   提出 MCA-Ctrl，一种免微调的图像定制方法，通过三个并行扩散过程在自注意力层中的全局注入（SAGI）和局部查询（SALQ）操作，同时支持文本和图像条件的高质量主体生成、替换和添加。
 
 **[Memories of Forgotten Concepts](memories_of_forgotten_concepts.md)**
 
@@ -628,6 +714,10 @@ description: >-
 
 :   MCLD通过将源人物图像解耦为面部区域、外观纹理和整体图像三个焦点条件，设计多焦点条件聚合模块(MFCA)在UNet不同阶段选择性注入不同条件，有效缓解了LDM压缩导致的面部和纹理细节退化问题，在DeepFashion上取得SOTA。
 
+**[Multi-Group Proportional Representation for Text-to-Image Models](multi-group_proportional_representations_for_text-to-image_models.md)**
+
+:   本文提出Multi-Group Proportional Representation (MPR)指标，用于系统化度量文本到图像模型中交叉人口群体的代表性偏差，并开发了基于该指标的优化算法，在保持生成质量的前提下引导T2I模型向更均衡的群体代表性方向调整。
+
 **[Multi-party Collaborative Attention Control for Image Customization](multi-party_collaborative_attention_control_for_image_customization.md)**
 
 :   提出 MCA-Ctrl，一种无需微调的图像定制方法，通过三个并行扩散过程的自注意力协同控制，实现文本和图像条件下的高质量主体驱动编辑与生成，同时引入主体定位模块解决复杂视觉场景中的特征泄漏和混淆问题。
@@ -664,9 +754,21 @@ description: >-
 
 :   MaskUNet 发现扩散模型中"将某些 U-Net 参数置零反而能提升生成质量"这一反直觉现象，提出基于时间步和样本内容的可学习二值掩码动态选择参数，COCO 2014 FID 从 12.85 降至 11.72（+8.8%），T2I-CompBench 颜色绑定从 0.375 提升至 0.699。
 
+**[Not Just Text: Uncovering Vision Modality Typographic Threats in Image Generation Models](not_just_text_uncovering_vision_modality_typographic_threats_in_image_generation.md)**
+
+:   本文揭示了图像生成模型在视觉模态上存在的"排版攻击"漏洞——攻击者可以通过在输入图像中嵌入文本来操纵生成结果，并系统评估了现有防御方法对此类视觉模态威胁的无效性，提出了 VMT-IGMs 数据集作为评估基准。
+
+**[ObjectMover: Generative Object Movement with Video Prior](objectmover_generative_object_movement_with_video_prior.md)**
+
+:   ObjectMover 将图像中物体移动任务建模为序列到序列问题，通过微调视频生成模型来利用其跨帧物体一致性知识，结合游戏引擎合成的高质量数据对和多任务学习策略，实现了在复杂真实场景中的光照重整、遮挡补全和阴影/反射同步编辑。
+
 **[OFER: Occluded Face Expression Reconstruction](ofer_occluded_face_expression_reconstruction.md)**
 
 :   OFER 使用两个条件扩散模型分别生成 FLAME 参数模型的形状和表情系数，结合一个排序网络从多个候选中选出最优形状，实现了遮挡条件下多样且真实的 3D 人脸表情重建。
+
+**[OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows](omniflow_any-to-any_generation_with_multi-modal_rectified_flows.md)**
+
+:   OmniFlow 将 Stable Diffusion 3 的整流流框架扩展到多模态（文本+图像+音频）联合生成场景，通过模块化的 Omni-Transformer 架构和新颖的多模态引导机制，在无需从头训练的情况下实现了优于 CoDi 和 UniDiffuser 等前代 any-to-any 模型的生成质量。
 
 **[OmniGen: Unified Image Generation](omnigen_unified_image_generation.md)**
 
@@ -751,6 +853,10 @@ description: >-
 **[Precise, Fast, and Low-cost Concept Erasure in Value Space: Orthogonal Complement Matters](precise_fast_and_low-cost_concept_erasure_in_value_space_orthogonal_complement_m.md)**
 
 :   本文提出 AdaVD（Adaptive Value Decomposer），一种免训练的 T2I 扩散模型概念擦除方法，通过在 cross-attention 的 value 空间中将原始 prompt 投影到目标概念的正交补空间，并引入自适应 shift 因子，实现了精确擦除目标概念且极少影响非目标内容。
+
+**[Probability Density Geodesics in Image Diffusion Latent Space](probability_density_geodesics_in_image_diffusion_latent_space.md)**
+
+:   本文证明了在扩散模型的潜在空间中可以计算基于概率密度的测地线，其中通过高概率密度区域的路径比低密度区域更"短"，并展示了该技术在视频近似性分析、无训练图像序列插值和外推中的应用。
 
 **[ProReflow: Progressive Reflow with Decomposed Velocity](proreflow_progressive_reflow_with_decomposed_velocity.md)**
 
@@ -848,6 +954,10 @@ description: >-
 
 :   SemanticDraw 提出了一个亚秒级（0.64 秒）的区域多提示词文本-图像生成框架，通过三种稳定化策略解决了区域控制与扩散模型加速方法的兼容性问题，并利用多提示词流式批处理管线在单张 RTX 2080 Ti 上实现了近实时交互生成。
 
+**[SGMatch: Semantic-Guided Non-Rigid Shape Matching with Flow Regularization](sgmatch_semantic-guided_non-rigid_shape_matching_with_flow_regularization.md)**
+
+:   SGMatch提出了语义引导的非刚体3D形状匹配框架，通过语义引导局部跨注意力（SGLCA）模块将视觉基础模型的语义特征融入几何描述子以消除对称歧义，并引入条件流匹配（CFM）正则化促进对应关系的空间平滑性，在非等距变形和拓扑噪声场景下取得一致性提升（SMAL上比之前SOTA好24%）。
+
 **[ShapeWords: Guiding Text-to-Image Synthesis with 3D Shape-Aware Prompts](shapewords_guiding_text-to-image_synthesis_with_3d_shape-aware_prompts.md)**
 
 :   提出ShapeWords，将3D形状编码为可嵌入文本prompt中的特殊token（Shape2CLIP模块），实现视角无关的3D形状引导文本到图像生成，在组合场景中显著优于ControlNet深度图条件方法。
@@ -876,6 +986,10 @@ description: >-
 
 :   SoftVQ-VAE 通过将 VQ-VAE 的硬分类后验改为软分类后验（每个潜 token 自适应聚合多个 codeword），实现了完全可微的连续图像分词器，仅用 32-64 个 1D token 就能将 256×256 和 512×512 图像压缩到极高比率，使 SiT-XL 在 ImageNet 上达到 1.78 FID 的同时推理吞吐量提升 18-55 倍。
 
+**[STORM: Spatial Transport Optimization by Repositioning Attention Map for Training-Free Text-to-Image Synthesis](spatial_transport_optimization_by_repositioning_attention_map_for_training-free_.md)**
+
+:   STORM 提出基于最优传输理论的空间传输优化方法（STO），在扩散模型去噪过程中动态调整物体的注意力图位置，无需任何训练即可实现精确的空间布局控制，有效解决了 T2I 模型中"物体位置错误"这一被忽视的关键问题。
+
 **[Stable Flow: Vital Layers for Training-Free Image Editing](stable_flow_vital_layers_for_training-free_image_editing.md)**
 
 :   Stable Flow 提出自动检测 DiT（FLUX）中的"关键层"（vital layers）并仅在这些层注入参考图像的注意力特征，实现无需训练的多种图像编辑操作，同时引入 latent nudging 技术改善真实图像的流模型反演质量。
@@ -887,6 +1001,10 @@ description: >-
 **[StdGEN: Semantic-Decomposed 3D Character Generation from Single Images](stdgen_semantic-decomposed_3d_character_generation_from_single_images.md)**
 
 :   StdGEN 提出了一个从单张图像高效生成语义分解（身体/衣服/头发分离）的高质量 3D 角色的流水线，核心是 Semantic-aware Large Reconstruction Model (S-LRM)，通过在 NeRF/SDF 中引入语义场实现前馈式的几何-颜色-语义联合重建，3 分钟内即可生成可直接用于游戏/动画的分层 3D 角色。
+
+**[Stretching Each Dollar: Diffusion Training from Scratch on a Micro-Budget](stretching_each_dollar_diffusion_training_from_scratch_on_a_micro-budget.md)**
+
+:   MicroDiT 通过提出延迟遮蔽（deferred masking）策略——先用轻量级 patch-mixer 预处理所有 patch 再遮蔽 75%——配合层级宽度缩放、混合专家（MoE）及合成数据，仅用 $1,890 成本在 2.6 天内从零训练出 11.6 亿参数的稀疏 Transformer，在 COCO 上达到 12.7 FID，成本仅为 Stable Diffusion 的 1/118。
 
 **[StyleMaster: Stylize Your Video with Artistic Generation and Translation](stylemaster_stylize_your_video_with_artistic_generation_and_translation.md)**
 

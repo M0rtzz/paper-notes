@@ -122,8 +122,8 @@ tags:
 
 - [Sample Complexity of Distributionally Robust Average-Reward Reinforcement Learning](sample_complexity_of_distributionally_robust_average-reward_reinforcement_learni.md)
 - [Discovering Global False Negatives On the Fly for Self-supervised Contrastive Learning](../../ICML2025/object_detection/discovering_global_false_negatives_on_the_fly_for_self-supervised_contrastive_le.md)
-- [Adaptive Multi-head Contrastive Learning](../../ECCV2024/object_detection/adaptive_multihead_contrastive_learning.md)
 - [FALCON: False-Negative Aware Learning of Contrastive Negatives in Vision-Language Alignment](../../CVPR2026/object_detection/falcon_false-negative_aware_learning_of_contrastive_negatives_in_vision-language.md)
 - [Visible and Clear: Finding Tiny Objects in Difference Map](../../ECCV2024/object_detection/visible_and_clear_finding_tiny_objects_in_difference_map.md)
+- [Diverse Text-to-Image Generation via Contrastive Noise Optimization](../../ICLR2026/object_detection/diverse_text-to-image_generation_via_contrastive_noise_optimization.md)
 
 <!-- RELATED:END -->

@@ -157,8 +157,8 @@ ARM 在 Bird 上比标准 RAG 高 2.6pt，比 ReAct 高 11.1pt；OTT-QA 上比�
 
 - [RetroLLM: Empowering Large Language Models to Retrieve Fine-grained Evidence within Generation](retrollm_empowering_large_language_models_to_retrieve_fine-grained_evidence_with.md)
 - [Combining the Best of Both Worlds: A Method for Hybrid NMT and LLM Translation](combining_the_best_of_both_worlds_a_method_for_hybrid_nmt_and_llm_translation.md)
-- [Chat-based Person Retrieval via Dialogue-Refined Cross-Modal Alignment](../../CVPR2025/llm_nlp/chat-based_person_retrieval_via_dialogue-refined_cross-modal_alignment.md)
+- [Can We Further Elicit Reasoning in LLMs? Critic-Guided Planning with Retrieval-Augmentation for Solving Challenging Tasks](can_we_further_elicit_reasoning_in_llms_critic-guided_planning_with_retrieval-au.md)
 - [Diversity-oriented Data Augmentation with Large Language Models](diversity_data_augmentation.md)
-- [Improving Contextual Faithfulness of Large Language Models via Retrieval Heads-Induced Optimization](improving_contextual_faithfulness_of_large_language_models_via_retrieval_heads-i.md)
+- [Chat-based Person Retrieval via Dialogue-Refined Cross-Modal Alignment](../../CVPR2025/llm_nlp/chat-based_person_retrieval_via_dialogue-refined_cross-modal_alignment.md)
 
 <!-- RELATED:END -->

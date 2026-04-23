@@ -27,12 +27,23 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**：在安全敏感领域（如医疗、金融、国防），数据需要加密以防止未经授权的访问。全同态加密（FHE）允许在加密数据上直接计算，无需解密即可得到正确结果。
+### 领域现状
+
+**领域现状**：领域现状**：在安全敏感领域（如医疗、金融、国防），数据需要加密以防止未经授权的访问。全同态加密（FHE）允许在加密数据上直接计算，无需解密即可得到正确结果。
 
 **现有痛点**：
-- **传统网络不兼容 FHE**：ViT 和 CNN 中的非线性操作（如 ReLU、Softmax）在加密域下不可计算。处理加密数据时必须先解密，暴露敏感信息造成安全风险
-- **多项式网络兼容但易遗忘**：Multilinear Operator Networks 只使用多线性运算，对原始数据和加密数据返回相同结果，是目前 SOTA 的 FHE 兼容架构。但这类网络在增量学习中存在严重的灾难性遗忘
-- **现有增量学习方法不兼容**：EWC、PackNet 等方法依赖非线性操作，无法在 FHE 框架下使用
+
+### 现有痛点
+
+**现有痛点**：传统网络不兼容 FHE**：ViT 和 CNN 中的非线性操作（如 ReLU、Softmax）在加密域下不可计算。处理加密数据时必须先解密，暴露敏感信息造成安全风险
+
+### 核心矛盾
+
+**核心矛盾**：多项式网络兼容但易遗忘**：Multilinear Operator Networks 只使用多线性运算，对原始数据和加密数据返回相同结果，是目前 SOTA 的 FHE 兼容架构。但这类网络在增量学习中存在严重的灾难性遗忘
+
+### 解决思路
+
+**解决思路**：现有增量学习方法不兼容**：EWC、PackNet 等方法依赖非线性操作，无法在 FHE 框架下使用
 
 **核心矛盾**：安全性要求使用多线性网络，但多线性网络缺乏有效的增量学习机制。现有增量学习方法又不兼容 FHE 的多线性约束。
 
@@ -125,10 +136,10 @@ tags:
 
 ## 相关论文
 
-- [Efficient Data Driven Mixture-of-Expert Extraction from Trained Networks](efficient_data_driven_mixture-of-expert_extraction_from_trained_networks.md)
 - [Addressing Imbalanced Domain-Incremental Learning through Dual-Balance Collaborative Experts (DCE)](../../ICML2025/llm_efficiency/addressing_imbalanced_domain-incremental_learning_through_dual-balance_collabora.md)
+- [Efficient Data Driven Mixture-of-Expert Extraction from Trained Networks](efficient_data_driven_mixture-of-expert_extraction_from_trained_networks.md)
 - [Learning from the Undesirable: Robust Adaptation of Language Models without Forgetting](../../AAAI2026/llm_efficiency/learning_from_the_undesirable_robust_adaptation_of_language_models_without_forge.md)
-- [Language Guided Concept Bottleneck Models for Interpretable Continual Learning](language_guided_concept_bottleneck_models_for_interpretable_continual_learning.md)
 - [KAC: Kolmogorov-Arnold Classifier for Continual Learning](kac_kolmogorov-arnold_classifier_for_continual_learning.md)
+- [Language Guided Concept Bottleneck Models for Interpretable Continual Learning](language_guided_concept_bottleneck_models_for_interpretable_continual_learning.md)
 
 <!-- RELATED:END -->

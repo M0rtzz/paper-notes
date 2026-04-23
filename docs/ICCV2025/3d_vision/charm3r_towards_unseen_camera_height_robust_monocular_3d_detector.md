@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-单目3D检测在自动驾驶中至关重要，但现有模型在训练和推理使用不同相机高度时性能急剧下降：
+### 现有痛点
+
+**现有痛点**：**领域现状**：单目3D检测在自动驾驶中至关重要，但现有模型在训练和推理使用不同相机高度时性能急剧下降：
 
 **实际需求迫切**：自动驾驶平台的相机高度差异巨大（小型机器人、轿车、卡车），但几乎所有训练数据都来自特定高度（如轿车），为每种高度重新收集标注不可行
 
@@ -136,7 +138,7 @@ DEVIANT骨干同样有效：ΔH=+0.76m时AP3D_70从6.25升至26.24。
 
 ## 相关论文
 
-- [Boost 3D Reconstruction using Diffusion-based Monocular Camera Calibration](boost_3d_reconstruction_using_diffusionbased_monocular_camer.md)
+- [Boost 3D Reconstruction using Diffusion-based Monocular Camera Calibration](boost_3d_reconstruction_using_diffusion-based_monocular_camera_calibration.md)
 - [Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning](accelerate_3d_object_detection_models_via_zero-shot_attention_key_pruning.md)
 - [BezierGS: Dynamic Urban Scene Reconstruction with Bézier Curve Gaussian Splatting](beziergs_dynamic_urban_scene_reconstruction_with_bezier_curve_gaussian_splatting.md)
 - [TimeFormer: Capturing Temporal Relationships of Deformable 3D Gaussians for Robust Reconstruction](timeformer_capturing_temporal_relationships_of_deformable_3d_gaussians_for_robus.md)

@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 可解释性方向 34篇论文解读
+  CVPR2026 可解释性方向 35篇论文解读
 description: >-
-  34篇CVPR2026 可解释性论文解读，主题涵盖：提出"信息范围"（information、揭示面部AU检测中被试独立交叉验证本身引入±0.0、提出CI-ICE新任务和HyperExpress方等，每篇含核心思想与方法详解。
+  35篇CVPR2026 可解释性论文解读，主题涵盖：提出"信息范围"（information、揭示面部AU检测中被试独立交叉验证本身引入±0.0、提出CI-ICE新任务和HyperExpress方等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**📷 CVPR2026** · **34** 篇论文解读
+**📷 CVPR2026** · **35** 篇论文解读
 
 **[Beyond Semantics: Disentangling Information Scope in Sparse Autoencoders for CLIP](beyond_semantics_disentangling_information_scope_in_sparse_autoencoders_for_clip.md)**
 
@@ -45,6 +45,10 @@ description: >-
 **[EmoVerse: A MLLMs-Driven Emotion Representation Dataset for Interpretable Visual Emotion Analysis](emoverse_mllm_emotion_representation_dataset.md)**
 
 :   提出 EmoVerse，一个219K规模的视觉情感数据集，通过知识图谱启发的Background-Attribute-Subject三元组实现词级和主体级情感归因，同时提供离散CES和连续1024维DES双情感标注，配合多阶段标注验证流水线和基于Qwen2.5-VL的可解释情感模型。
+
+**[ERMoE: Eigen-Reparameterized Mixture-of-Experts for Stable Routing and Interpretable Specialization](ermoe_eigen-reparameterized_mixture-of-experts_for_stable_routing.md)**
+
+:   ERMoE 提出在正交特征基（eigenbasis）中重参数化MoE专家权重，并用特征基分数（cosine similarity）替代传统路由logits，无需辅助负载均衡损失即可实现稳定路由和可解释的专家特化。
 
 **[Feature Attribution Stability Suite: How Stable Are Post-Hoc Attributions?](feature_attribution_stability_suite_how_stable_are_post-hoc_attributions.md)**
 

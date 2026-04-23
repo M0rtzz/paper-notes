@@ -119,8 +119,8 @@ SyncVP 包含两个分支（RGB 和深度），每个分支是基于 PVDM 架构
 
 - [PQPP: A Joint Benchmark for Text-to-Image Prompt and Query Performance Prediction](pqpp_a_joint_benchmark_for_text-to-image_prompt_and_query_performance_prediction.md)
 - [DiffSensei: Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation](diffsensei_bridging_multi-modal_llms_and_diffusion_models_for_customized_manga_g.md)
+- [OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows](omniflow_any-to-any_generation_with_multi-modal_rectified_flows.md)
 - [MMAR: Towards Lossless Multi-Modal Auto-Regressive Probabilistic Modeling](mmar_towards_lossless_multi-modal_auto-regressive_probabilistic_modeling.md)
 - [End-to-End Multi-Modal Diffusion Mamba](../../ICCV2025/image_generation/end-to-end_multi-modal_diffusion_mamba.md)
-- [UNIC-Adapter: Unified Image-Instruction Adapter with Multi-modal Transformer for Image Generation](unic-adapter_unified_image-instruction_adapter_with_multi-modal_transformer_for_.md)
 
 <!-- RELATED:END -->

@@ -161,6 +161,6 @@ EPT替换Transformer中线性层的LoRA模块。输入token经过router选择top
 - [Learning to See and Act: Task-Aware Virtual View Exploration for Robotic Manipulation](learning_to_see_and_act_task-aware_virtual_view_exploration_for_robotic_manipula.md)
 - [Language-Grounded Decoupled Action Representation for Robotic Manipulation](language-grounded_decoupled_action_representation_for_robotic_manipulation.md)
 - [AtomicVLA: Unlocking the Potential of Atomic Skill Learning in Robots](atomicvla_unlocking_the_potential_of_atomic_skill_learning_in_robots.md)
-- [Unintended Misalignment from Agentic Fine-Tuning: Risks and Mitigation](../../AAAI2026/robotics/unintended_misalignment_from_agentic_fine-tuning_risks_and_m.md)
+- [FineCog-Nav: Integrating Fine-grained Cognitive Modules for Zero-shot Multimodal UAV Navigation](finecog_nav_fine_grained_cognitive_modules_for_zero_shot_uav_navigation.md)
 
 <!-- RELATED:END -->

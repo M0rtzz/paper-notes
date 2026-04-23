@@ -233,6 +233,6 @@ ParaMETA-LSTM 仅需 CLAP 1.9% 的参数量、22% 的显存、运行速度快 30
 - [SDF-Net: Structure-Aware Disentangled Feature Learning for Optical–SAR Ship Re-Identification](../../CVPR2025/others/sdf-net_structure-aware_disentangled_feature_learning_for_opticall-sar_ship_re-i.md)
 - [On the Importance of Gaussianizing Representations](../../ICML2025/others/on_the_importance_of_gaussianizing_representations.md)
 - [Exchangeability of GNN Representations with Applications to Graph Retrieval](../../ICLR2026/others/exchangeability_gnn_representations.md)
-- [Graphically Speaking: Unmasking Abuse in Social Media with Conversation Insights](../../ACL2025/others/graphically_speaking_unmasking_abuse_in_social_media_with_conversation_insights.md)
+- [Addressing Divergent Representations from Causal Interventions on Neural Networks](../../ICLR2026/others/addressing_divergent_representations_causal.md)
 
 <!-- RELATED:END -->

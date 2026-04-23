@@ -125,6 +125,6 @@ ProtoOcc作为即插即用模块一致性提升所有基线。
 - [GDFusion: Rethinking Temporal Fusion with a Unified Gradient Descent View for 3D Semantic Occupancy Prediction](rethinking_temporal_fusion_with_a_unified_gradient_descent_view_for_3d_semantic_.md)
 - [ProOOD: Prototype-Guided Out-of-Distribution 3D Occupancy Prediction](../../CVPR2026/autonomous_driving/proood_prototype-guided_out-of-distribution_3d_occupancy_prediction.md)
 - [Semantic Causality-Aware Vision-Based 3D Occupancy Prediction](../../ICCV2025/autonomous_driving/semantic_causality-aware_vision-based_3d_occupancy_prediction.md)
-- [GaussianWorld: Gaussian World Model for Streaming 3D Occupancy Prediction](gaussianworld_gaussian_world_model_for_streaming_3d_occupancy_prediction.md)
+- [GaussianFormer-2: Probabilistic Gaussian Superposition for Efficient 3D Occupancy Prediction](gaussianformer-2_probabilistic_gaussian_superposition_for_efficient_3d_occupancy.md)
 
 <!-- RELATED:END -->

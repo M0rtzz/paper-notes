@@ -131,7 +131,7 @@ Query + Retrieved Passages → **Step 1**: LLM 自适应生成内部知识 passa
 - [Diversity-oriented Data Augmentation with Large Language Models](diversity_data_augmentation.md)
 - [Taming Knowledge Conflicts in Language Models](../../ICML2025/llm_nlp/taming_knowledge_conflicts_in_language_models.md)
 - [Knowledge Boundary of Large Language Models: A Survey](knowledge_boundary_survey.md)
-- [Improving Contextual Faithfulness of Large Language Models via Retrieval Heads-Induced Optimization](improving_contextual_faithfulness_of_large_language_models_via_retrieval_heads-i.md)
-- [Dynamic Knowledge Integration for Evidence-Driven Counter-Argument Generation with Large Language Models](dynamic_knowledge_integration_for_evidence-driven_counter-argument_generation_wi.md)
+- [Can We Further Elicit Reasoning in LLMs? Critic-Guided Planning with Retrieval-Augmentation for Solving Challenging Tasks](can_we_further_elicit_reasoning_in_llms_critic-guided_planning_with_retrieval-au.md)
+- [Acquisition and Application of Novel Knowledge in Large Language Models](acquisition_and_application_of_novel_knowledge_in_large_language_models.md)
 
 <!-- RELATED:END -->

@@ -144,8 +144,8 @@ tags:
 
 - [A Case Study of Cross-Lingual Zero-Shot Generalization for Classical Languages in LLMs](a_case_study_of_cross-lingual_zero-shot_generalization_for_classical_languages_i.md)
 - [Cross-Lingual Pitfalls: Automatic Probing Cross-Lingual Weakness of Multilingual Large Language Models](crosslingual_pitfalls.md)
-- [The Hidden Space of Safety: Understanding Preference-Tuned LLMs in Multilingual Contexts](the_hidden_space_of_safety_understanding_preference-tuned_llms_in_multilingual_c.md)
-- [Cross-Lingual Transfer of Debiasing and Detoxification in Multilingual LLMs: An Extensive Investigation](cross-lingual_transfer_of_debiasing_and_detoxification_in_multilingual_llms_an_e.md)
 - [Cross-Lingual Representation Alignment Through Contrastive Image-Caption Tuning](cross-lingual_representation_alignment_through_contrastive_image-caption_tuning.md)
+- [The Hidden Space of Safety: Understanding Preference-Tuned LLMs in Multilingual Contexts](the_hidden_space_of_safety_understanding_preference-tuned_llms_in_multilingual_c.md)
+- [Cross-Lingual Generalization and Compression: From Language-Specific to Shared Neurons](cross_lingual_neurons_compression.md)
 
 <!-- RELATED:END -->

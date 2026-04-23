@@ -166,6 +166,6 @@ $C_{\text{all}}$衡量模型在同一三段论4个变体上的完全一致比例
 - [Adapting Psycholinguistic Research for LLMs: Gender-Inclusive Language in a Coreference Context](../../ACL2025/nlp_understanding/adapting_psycholinguistic_research_for_llms_gender-inclusive_language_in_a_coref.md)
 - [Recursive Question Understanding for Complex Question Answering over Heterogeneous Personal Data](../../ACL2025/nlp_understanding/recursive_question_understanding_for_complex_question_answering_over_heterogeneo.md)
 - [Sentiment Reasoning for Healthcare](../../ACL2025/nlp_understanding/sentiment_reasoning_for_healthcare.md)
-- [Can LLMs Reliably Simulate Real Students' Abilities in Mathematics and Reading Comprehension?](../../ACL2025/nlp_understanding/can_llms_reliably_simulate_real_students_abilities_in_mathematics_and_reading_co.md)
+- [Multi-Hop Reasoning for Question Answering with Hyperbolic Representations](../../ACL2025/nlp_understanding/multi-hop_reasoning_for_question_answering_with_hyperbolic_representations.md)
 
 <!-- RELATED:END -->

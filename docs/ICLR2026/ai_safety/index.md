@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 AI安全方向 47篇论文解读
+  ICLR2026 AI安全方向 50篇论文解读
 description: >-
-  47篇ICLR2026 AI安全论文解读，主题涵盖：首次形式化"无动作离线到在线RL"设定、首次用随机微分方程（SDE）框架分析差分隐私优化器、提出 ATEX-CF 框架，首次将对抗攻击的边添加等，每篇含核心思想与方法详解。
+  50篇ICLR2026 AI安全论文解读，主题涵盖：首次形式化"无动作离线到在线RL"设定、首次用随机微分方程（SDE）框架分析差分隐私优化器、提出 ATEX-CF 框架，首次将对抗攻击的边添加等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**🔬 ICLR2026** · **47** 篇论文解读
+**🔬 ICLR2026** · **50** 篇论文解读
 
 **[Action-Free Offline-to-Online RL via Discretised State Policies](action-free_offline-to-online_rl_via_discretised_state_policies.md)**
 
@@ -59,6 +59,8 @@ description: >-
 :   提出 FedMosaic 框架解决个性化联邦学习中的双重异构问题：RELA 通过梯度相似度度量任务相关性实现定制化聚合（解决数据异构），Co-LoRA 通过维度不变的 $P \in \mathbb{R}^{r \times r}, Q \in \mathbb{R}^r$ 模块实现跨异构架构（如 Llama vs Qwen）的知识共享（解决模型异构），在新提出的 40 任务多模态 PFL benchmark DRAKE 上大幅超越 SOTA。
 
 **[Dataless Weight Disentanglement in Task Arithmetic via Kronecker-Factored Approximate Curvature](dataless_weight_disentanglement_in_task_arithmetic_via_kronecker-factored_approx.md)**
+
+:   该工作将曲率近似的经典理论（KFAC）与任务算术的实际需求巧妙结合，提出了一种无需外部数据的权重解缠正则化方法。理论推导清晰，从表征漂移正则化 → Jacobian Gramian → GGN → KFAC 的逻辑链条流畅。实验覆盖视觉和语言两个领域的多种模型规模，对 $\alpha$ 超参数的鲁棒性分析很实用。不足在于 KFAC 对大模型仍有 $O(d^2)$ 存储开销，且在文本领域与使用外部数
 
 **[Efficient Resource-Constrained Training of Transformers via Subspace Optimization](efficient_resource-constrained_training_of_transformers_via_subspace_optimizatio.md)**
 
@@ -136,9 +138,17 @@ description: >-
 
 :   从理论上证明阈值邻近脉冲神经元是直接训练SNN对抗鲁棒性的关键瓶颈（它们既设定了对抗攻击强度的理论上界，又最容易发生状态翻转），并提出Threshold Guarding Optimization (TGO) 方法——通过膜电位约束+噪声LIF神经元双管齐下，在多种对抗攻击场景下取得SOTA鲁棒性，且推理阶段零额外开销。
 
+**[Membership Privacy Risks of Sharpness Aware Minimization](sam_membership_privacy_risks.md)**
+
+:   本文首次系统性地揭示了 SAM（Sharpness-Aware Minimization）训练的模型虽然泛化性能更好，但反而比 SGD 更容易遭受成员推断攻击（MIA），并从记忆化行为和方差收缩两个角度给出了理论和实验解释。
+
 **[Sample-Efficient Distributionally Robust Multi-Agent Reinforcement Learning via Online Interaction](sample-efficient_distributionally_robust_multi-agent_reinforcement_learning_via_.md)**
 
 :   本文首次研究了分布鲁棒马尔可夫博弈（DRMGs）的在线学习问题，提出 MORNAVI 算法，在无需模拟器或离线数据的情况下，通过在线交互高效学习最优鲁棒策略，并提供了 TV 散度和 KL 散度不确定性集下的首个可证明遗憾界。
+
+**[SecP-Tuning: Efficient Privacy-Preserving Prompt Tuning for Large Language Models via MPC](secp-tuning_efficient_privacy-preserving_prompt_tuning_for_large_language_mode.md)**
+
+:   提出首个基于安全多方计算（MPC）的隐私保护提示调优框架 SecP-Tuning，通过前向调优消除反向传播开销、通过隐私保护随机特征注意力（RFA）替代 softmax 降低通信复杂度，实现约 12-16 倍加速和 17-20 倍通信量缩减。
 
 **[SecP-Tuning: Efficient Privacy-Preserving Prompt Tuning for Large Language Models via MPC](secp-tuning_efficient_privacy-preserving_prompt_tuning_for_large_language_models.md)**
 
@@ -151,6 +161,10 @@ description: >-
 **[SHIELD: Suppressing Hallucinations In LVLM Encoders via Bias and Vulnerability Defense](shield_suppressing_hallucinations_in_lvlm_encoders_via_bias_and_vulnerability_de.md)**
 
 :   首次将LVLM对象幻觉系统性追溯到视觉编码器，识别出统计偏差（高频模式token过度强调）、固有偏差（预训练主导对象的残余表示）、脆弱性（微小扰动即导致特征失真）三大问题，并提出SHIELD——一个完全免训练的框架，通过token重加权、token减法和对比解码三策略协同防御，在LLaVA-1.5/InstructBLIP/Qwen-VL上全面超越VCD和OPERA等方法。
+
+**[Skirting Additive Error Barriers for Private Turnstile Streams](skirting_additive_error_barriers_for_private_turnstile_streaming.md)**
+
+:   本文证明了在差分隐私的 turnstile 流模型中，通过允许乘性误差（multiplicative error）可以绕过已知的多项式加性误差下界，将 distinct elements 和 F₂ 矩估计的加性误差从多项式级别降至 polylog(T)。
 
 **[Skirting Additive Error Barriers for Private Turnstile Streams](skirting_additive_error_barriers_for_private_turnstile_streams.md)**
 

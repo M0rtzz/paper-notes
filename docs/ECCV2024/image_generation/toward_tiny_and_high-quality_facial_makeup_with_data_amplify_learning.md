@@ -204,7 +204,7 @@ TinyBeauty 获得 86.56% 的 Rank-1 票数，遥遥领先。
 
 ## 相关论文
 
-- [EMDM: Efficient Motion Diffusion Model for Fast and High-Quality Motion Generation](emdm_efficient_motion_diffusion_model_for_fast_and_high-quality_motion_generatio.md)
+- [EMDM: Efficient Motion Diffusion Model for Fast and High-Quality Motion Generation](emdm_efficient_motion_diffusion_model_for_fast_and_high.md)
 - [A High-Quality Robust Diffusion Framework for Corrupted Dataset](a_highquality_robust_diffusion_framework_for_corrupted_datas.md)
 - [DreamDiffusion: High-Quality EEG-to-Image Generation with Temporal Masked Signal Modeling and CLIP Alignment](dreamdiffusion_high-quality_eeg-to-image_generation_with_temporal_masked_signal_.md)
 - [Diffusion-Driven Data Replay: A Novel Approach to Combat Forgetting in Federated Class Continual Learning](diffusion-driven_data_replay_a_novel_approach_to_combat_forgetting_in_federated_.md)

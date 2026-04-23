@@ -140,7 +140,7 @@ EnIGMA 是一个用于自主解决 Capture The Flag (CTF) 挑战的 LM agent，�
 - [IBDR: Promoting Ensemble Diversity with Interactive Bayesian Distributional Robustness](promoting_ensemble_diversity_with_interactive_bayesian_distributional_robustness.md)
 - [Communicating Activations Between Language Model Agents](communicating_activations_between_language_model_agents.md)
 - [UI-Evol: Automatic Knowledge Evolving for Computer Use Agents](ui-evol_automatic_knowledge_evolving_for_computer_use_agents.md)
-- [Model Context Protocol for Vision Systems: Audit, Security, and Protocol Extensions](../../NeurIPS2025/llm_evaluation/model_context_protocol_for_vision_systems_audit_security_and_protocol_extensions.md)
+- [From Tools to Teammates: Evaluating LLMs in Multi-Session Coding Interactions](../../ACL2025/llm_evaluation/from_tools_to_teammates_evaluating_llms_in_multi-session_coding_interactions.md)
 - [TiC-LM: A Web-Scale Benchmark for Time-Continual LLM Pretraining](../../ACL2025/llm_evaluation/tic-lm_a_web-scale_benchmark_for_time-continual_llm_pretraining.md)
 
 <!-- RELATED:END -->

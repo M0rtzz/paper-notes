@@ -1,18 +1,22 @@
 ---
 title: >-
-  ICCV2025 语义分割方向 73篇论文解读
+  ICCV2025 语义分割方向 78篇论文解读
 description: >-
-  73篇ICCV2025 语义分割论文解读，主题涵盖：本文提出从人类活动视频中自动提取精确的双手可操作区、提出即插即用的物理动作恢复方法、提出即插即用的物理运动修复框架等，每篇含核心思想与方法详解。
+  78篇ICCV2025 语义分割论文解读，主题涵盖：本文提出从人类活动视频中自动提取精确的双手可操作区、提出即插即用的物理动作恢复方法、提出即插即用的物理动作恢复方法等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**📹 ICCV2025** · **73** 篇论文解读
+**📹 ICCV2025** · **78** 篇论文解读
 
 **[2HandedAfforder: Learning Precise Actionable Bimanual Affordances from Human Videos](2handedafforder_learning_precise_actionable_bimanual_affordances_from_human_vide.md)**
 
 :   本文提出从人类活动视频中自动提取精确的双手可操作区域(affordance)数据集 2HANDS，并训练基于 VLM 的 2HandedAfforder 模型，实现根据文本提示预测双手抓握的精确物体区域分割，在新提出的 ActAffordance 基准上显著优于现有方法。
+
+**[A Plug-and-Play Physical Motion Restoration Approach for In-the-Wild High-Difficulty Motions](a_plug-and-play_physical_motion_restoration_approach_for_in-.md)**
+
+:   提出即插即用的物理动作恢复方法，通过Mask条件运动修正模块（MCM）修复视频动捕中的瑕疵帧，以及基于预训练+测试时适应的物理运动迁移模块（PTM）实现高难度野外动作的物理仿真，显著提升动作的物理真实性。
 
 **[A Plug-and-Play Physical Motion Restoration Approach for In-the-Wild High-Difficulty Motions](a_plug-and-play_physical_motion_restoration_approach_for_in-the-wild_high-diffic.md)**
 
@@ -74,6 +78,10 @@ description: >-
 
 :   提出DeRIS框架，将指代图像分割任务解耦为感知（perception）和认知（cognition）两个分支，通过回环协同（Loopback Synergy）机制迭代增强两分支的交互，并引入非指代样本转换增强策略，在RefCOCO/+/g和gRefCOCO数据集上取得SOTA。
 
+**[Dynamic Dictionary Learning for Remote Sensing Image Segmentation](dynamic_dictionary_learning_for_remote_sensing_image_segmentation.md)**
+
+:   本文提出动态字典学习框架 D2LS，通过多阶段交替交叉注意力迭代更新类别感知语义嵌入（字典），并引入对比约束增强类间可分性，在遥感图像粗粒度和细粒度分割任务上均超越 SOTA。
+
 **[E-SAM: Training-Free Segment Every Entity Model](e-sam_training-free_segment_every_entity_model.md)**
 
 :   E-SAM 是一个无需额外训练的框架，通过三个级联模块——多层级掩码生成（MMG）、实体级掩码精炼（EMR）和欠分割修复（USR）——系统性地解决 SAM 自动掩码生成（AMG）中的过分割和欠分割问题，在基准指标上超越现有实体分割方法 **+30.1 分**。
@@ -81,6 +89,10 @@ description: >-
 **[Enhancing Transformers Through Conditioned Embedded Tokens](enhancing_transformers_through_conditioned_embedded_tokens.md)**
 
 :   揭示 Transformer 自注意力矩阵存在固有的 ill-conditioning 问题，通过理论分析建立自注意力条件数与嵌入令牌条件数的直接关系，提出 Conditioned Embedded Tokens 方法（对嵌入矩阵添加基于 SVD 的修正项），在图像分类、目标检测、实例分割和 NLP 等多种任务上一致提升性能。
+
+**[Ensemble Foreground Management for Unsupervised Object Discovery](ensemble_foreground_management_for_unsupervised_object_discovery.md)**
+
+:   本文提出 UnionCut——一种基于最小割和集成方法的前景联合体检测方法，为无监督目标发现（UOD）提供数学上有保证的前景先验，使 UOD 算法能够准确判断发现区域是否为前景并在恰当时刻停止探索；同时提出蒸馏版 UnionSeg 大幅提升效率和精度。
 
 **[Exploiting Domain Properties in Language-Driven Domain Generalization for Semantic Segmentation](exploiting_domain_properties_in_language-driven_domain_generalization_for_semant.md)**
 
@@ -114,6 +126,10 @@ description: >-
 
 :   Hybrid-TTA 提出一种持续测试时自适应（CTTA）框架，通过动态域偏移检测（DDSD）模块判断当前输入是否来自新域，自适应地在全参数微调（Full Tuning）和高效微调（Adapter Tuning）之间切换；同时引入掩码图像建模自适应（MIMA）作为辅助任务增强模型稳定性，在 Cityscapes-to-ACDC 基准上达到 62.2% mIoU，且推理速度比可比方法快约 **20 倍**。
 
+**[Implicit Counterfactual Learning for Audio-Visual Segmentation](implicit_counterfactual_learning_for_audio-visual_segmentation.md)**
+
+:   本文提出隐式反事实框架（ICF），通过多粒度隐式文本作为模态桥梁减少音视频表征差距，并利用语义反事实生成正交反事实样本缓解模态偏好问题，配合协作分布感知对比学习实现无偏的跨模态理解，在三个 AVS 数据集上达到 SOTA。
+
 **[Inter2Former: Dynamic Hybrid Attention for Efficient High-Precision Interactive Segmentation](inter2former_dynamic_hybrid_attention_for_efficient_high-precision_interactive_s.md)**
 
 :   提出 Inter2Former，通过动态混合注意力（DHA）将边界 token 路由到全注意力、非边界 token 路由到线性复杂度的 BSQ 注意力，配合动态提示嵌入（DPE）、混合专家（HMoE）和动态局部上采样（DLU），在 CPU 设备上实现高精度交互式分割的 SOTA 性能与高效推理。
@@ -133,6 +149,10 @@ description: >-
 **[Latent Expression Generation for Referring Image Segmentation and Grounding](latent_expression_generation_for_referring_image_segmentation_and_grounding.md)**
 
 :   提出 Latent-VG 框架，通过从单个文本描述生成多个潜在表达式（共享同一主语、但具有不同视觉属性），利用互补的视觉细节弥补稀疏文本与丰富视觉信息之间的语义差距，在指代图像分割和指代表达理解任务上同时达到 SOTA。
+
+**[LawDIS: Language-Window-based Controllable Dichotomous Image Segmentation](lawdis_language-window-based_controllable_dichotomous_image_segmentati.md)**
+
+:   提出LawDIS，一种基于Stable Diffusion的语言-窗口双控可控二分图像分割框架，在宏观模式下通过语言提示指导目标分割，在微观模式下通过可变尺寸窗口精细化局部细节，在DIS5K上全面超越11种SOTA方法。
 
 **[LawDIS: Language-Window-based Controllable Dichotomous Image Segmentation](lawdis_language-window-based_controllable_dichotomous_image_segmentation.md)**
 

@@ -128,6 +128,6 @@ CP 是纯推理时干预，可与 PromptEOL、Pretended CoT、Knowledge、MetaEO
 - [Nudging: Inference-time Alignment of LLMs via Guided Decoding](nudging_inference_time_alignment.md)
 - [Leveraging Self-Attention for Input-Dependent Soft Prompting in LLMs](input_dependent_soft_prompting.md)
 - [Steering off Course: Reliability Challenges in Steering Language Models](steering_off_course_reliability_challenges_in_steering_language_models.md)
-- [Explain-then-Process: Using Grammar Prompting to Enhance Grammatical Acceptability Judgments](explain-then-process_using_grammar_prompting_to_enhance_grammatical_acceptabilit.md)
+- [Bitnet.cpp: Efficient Edge Inference for Ternary LLMs](bitnetcpp_efficient_edge_inference_for_ternary_llms.md)
 
 <!-- RELATED:END -->

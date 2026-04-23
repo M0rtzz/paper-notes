@@ -125,10 +125,10 @@ $$D = \sum_{t=1}^T \hat{s}_{l_t}\left(\|\mathbf{p}_{cam} - \mathbf{p}_{l_t}\| + 
 
 ## 相关论文
 
+- [CAD-Recode: Reverse Engineering CAD Code from Point Clouds](cadrecode_reverse_engineering_cad_code_from_point_clouds.md)
 - [SVG-Head: Hybrid Surface-Volumetric Gaussians for High-Fidelity Head Reconstruction and Real-Time Editing](svg-head_hybrid_surface-volumetric_gaussians_for_high-fidelity_head_reconstructi.md)
 - [GAP: Gaussianize Any Point Clouds with Text Guidance](gap_gaussianize_any_point_clouds_with_text_guidance.md)
+- [SurfaceSplat: Connecting Surface Reconstruction and Gaussian Splatting](surfacesplat_connecting_surface_reconstruction_and_gaussian_splatting.md)
 - [Implicit Filtering for Learning Neural Signed Distance Functions from 3D Point Clouds](../../ECCV2024/3d_vision/implicit_filtering_for_learning_neural_signed_distance_functions_from_3d_point_c.md)
-- [Event-boosted Deformable 3D Gaussians for Dynamic Scene Reconstruction](event-boosted_deformable_3d_gaussians_for_dynamic_scene_reconstruction.md)
-- [TimeFormer: Capturing Temporal Relationships of Deformable 3D Gaussians for Robust Reconstruction](timeformer_capturing_temporal_relationships_of_deformable_3d_gaussians_for_robus.md)
 
 <!-- RELATED:END -->

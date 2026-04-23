@@ -25,14 +25,18 @@ tags:
 针对偏振相机"光效低、分辨率低、噪声大"的硬件瓶颈，构建了两个专用数据集（PolarNS用于噪声统计分析，PolarBurstSR用于burst超分的训练/评测），提出偏振噪声传播分析模型，并将5种SOTA burst超分方法适配到偏振域，证明偏振专用训练在强度图(s0)和偏振角(AoLP)重建上显著优于RGB通用训练。
 
 ## 背景与动机
-偏振相机（snapshot polarization camera）利用**双Bayer模式传感器**同时捕获颜色和偏振信息。传感器上每个像素前有一个微偏振片（0°/45°/90°/135°四个方向），再叠加Bayer颜色滤波阵列，形成4×4的超级像素结构。这种设计带来两个根本性问题：
+
+### 现有痛点
+
+**现有痛点**：**领域现状**：偏振相机（snapshot polarization camera）利用**双Bayer模式传感器**同时捕获颜色和偏振信息。传感器上每个像素前有一个微偏振片（0°/45°/90°/135°四个方向），再叠加Bayer颜色滤波阵列，形成4×4的超级像素结构。这种设计带来两个根本性问题：
 1. **光效率极低**：每个像素只接收特定偏振方向和颜色的光，实际光通量仅为普通传感器的1/4到1/16，导致严重噪声
 2. **空间分辨率低**：需要从4×4超级像素池中解算出Stokes参数(s0, s1, s2)，有效分辨率大幅下降
 
 Burst超分辨率是一种通过融合多帧低分辨率图像来同时降噪和提升分辨率的有效手段。但将其应用于偏振成像面临两个关键缺失：（1）缺乏偏振图像的噪声统计真值（ground truth noise statistics）——不知道噪声长什么样就无法正确建模；（2）缺乏专门的偏振burst超分数据集和基准——过去只能用RGB数据集勉强训练，忽略了偏振特有的噪声传播机制。
 
-## 核心问题
-1. 偏振相机的噪声统计特征是什么？噪声如何从raw数据传播到最终的Stokes参数和偏振属性（DoLP、AoLP）？
+### 解决思路
+
+**本文目标**：1. 偏振相机的噪声统计特征是什么？噪声如何从raw数据传播到最终的Stokes参数和偏振属性（DoLP、AoLP）？
 2. 如何构建可靠的偏振burst超分基准？用偏振专用数据训练的模型比RGB通用训练好多少？
 
 ## 方法详解
@@ -75,7 +79,7 @@ Burst超分辨率是一种通过融合多帧低分辨率图像来同时降噪和
 - **合成 vs 真实**: 先合成预训练+真实finetuning的两阶段策略优于直接在真实数据上训练
 - **偏振 vs RGB训练**: 所有5种模型在偏振训练后都一致优于对应的RGB训练版本，且在AoLP指标上改善幅度最大
 
-## 亮点
+## 亮点与洞察
 - **开创性的偏振burst超分基准**: 填补了偏振成像领域缺乏系统性burst超分数据集和评测的空白，244场景的噪声统计覆盖了多样化的真实条件
 - **噪声传播的物理洞察**: 通过严格的噪声传播分析，揭示了偏振属性对噪声敏感的物理机制，为未来的偏振去噪/超分方法设计提供理论指导
 - **5种方法的全面适配和对比**: 不是只改一个模型，而是系统性地将5种最新burst超分方法统一适配到偏振域，提供了公平且全面的基准对比
@@ -88,13 +92,13 @@ Burst超分辨率是一种通过融合多帧低分辨率图像来同时降噪和
 - **未考虑运动场景**: burst采集假设场景近似静态，对运动物体或高动态场景未处理
 - **噪声模型仅考虑shot+read noise**: 未纳入其他噪声源（如串扰噪声、温度漂移等偏振相机特有的系统噪声）
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs BurstSR (Bhat et al., ICCV 2021)**: BurstSR是RGB领域的经典burst超分基准。本文的PolarBurstSR在数据结构上借鉴其设计，但专门针对偏振的16通道马赛克数据和Stokes参数GT
 - **vs Sony RSP数据集**: RSP提供了偏振合成数据的GT reference，本文使用它生成合成训练数据，但PolarBurstSR补充了RSP缺少的真实场景burst数据
 - **vs BSRT/Burstormer等burst超分模型**: 本文不提出新架构，而是将这些方法适配到偏振域并提供统一的公平对比基准
 - **vs 偏振去噪方法**: 已有一些偏振去噪工作，但大多是单帧方法且缺乏系统的噪声统计研究，本文首次提供了大规模噪声统计数据集
 
-## 启发与关联
+## 相关工作与启发
 - **偏振感知的网络设计**: 当前的适配只是简单改通道，可以设计利用Stokes参数物理约束（$DoLP = \sqrt{s_1^2 + s_2^2}/s_0$）的专用模块，这是一个明确的改进方向
 - **跨域迁移**: 噪声传播分析框架可以推广到其他计算摄影场景（如光谱相机、事件相机），为不同传感器类型的噪声建模提供模板
 
@@ -108,10 +112,10 @@ Burst超分辨率是一种通过融合多帧低分辨率图像来同时降噪和
 
 ## 相关论文
 
-- [A New Dataset and Framework for Real-World Blurred Images Super-Resolution](../../ECCV2024/image_restoration/a_new_dataset_and_framework_for_real-world_blurred_images_super-resolution.md)
-- [QMambaBSR: Burst Image Super-Resolution with Query State Space Model](../../CVPR2025/image_restoration/qmambabsr_burst_image_super-resolution_with_query_state_space_model.md)
 - [Emulating Self-Attention with Convolution for Efficient Image Super-Resolution](emulating_self-attention_with_convolution_for_efficient_image_super-resolution.md)
 - [Outlier-Aware Post-Training Quantization for Image Super-Resolution](outlier-aware_post-training_quantization_for_image_super-resolution.md)
-- [Spatially-Variant Degradation Model for Dataset-free Super-resolution](../../ECCV2024/image_restoration/spatially-variant_degradation_model_for_dataset-free_super-resolution.md)
+- [IM-LUT: Interpolation Mixing Look-Up Tables for Image Super-Resolution](im-lut_interpolation_mixing_look-up_tables_for_image_super-resolution.md)
+- [Devil is in the Uniformity: Exploring Diverse Learners within Transformer for Image Restoration](devil_is_in_the_uniformity_exploring_diverse_learners_within_transformer_for_ima.md)
+- [EAMamba: Efficient All-Around Vision State Space Model for Image Restoration](eamamba_efficient_all-around_vision_state_space_model_for_image_restoration.md)
 
 <!-- RELATED:END -->

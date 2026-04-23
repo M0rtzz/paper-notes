@@ -137,10 +137,10 @@ NPW 本身不涉及模型训练，而是一种评估方法。其 nuisance parame
 
 ## 相关论文
 
-- [EpiCoDe: Boosting Model Performance Beyond Training with Extrapolation and Contrastive Decoding](../../ACL2025/others/epicode_boosting_model_performance_beyond_training_with_extrapolation_and_contra.md)
+- [Rationales Are Not Silver Bullets: Measuring the Impact of Rationales on Model Performance and Reliability](../../ACL2025/others/rationales_are_not_silver_bullets_measuring_the_impact_of_rationales_on_model_pe.md)
 - [I2E: Real-Time Image-to-Event Conversion for High-Performance Spiking Neural Networks](i2e_real-time_image-to-event_conversion_for_high-performance_spiking_neural_netw.md)
-- [COIN-Matting: Confounder Intervention for Image Matting](../../ECCV2024/others/coin-matting_confounder_intervention_for_image_matting.md)
+- [Model Change for Description Logic Concepts](model_change_for_description_logic_concepts.md)
 - [Model Counting for Dependency Quantified Boolean Formulas](model_counting_for_dependency_quantified_boolean_formulas.md)
-- [Variance Computation for Weighted Model Counting with Knowledge Compilation Approach](variance_computation_for_weighted_model_counting_with_knowledge_compilation_appr.md)
+- [COIN-Matting: Confounder Intervention for Image Matting](../../ECCV2024/others/coin-matting_confounder_intervention_for_image_matting.md)
 
 <!-- RELATED:END -->

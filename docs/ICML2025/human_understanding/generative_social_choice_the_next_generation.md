@@ -148,8 +148,8 @@ $$\frac{\mathrm{sup}(\alpha^*, S, \ell - \delta)}{\max_{\alpha \in \mathcal{U}: 
 
 - [GenM3: Generative Pretrained Multi-path Motion Model for Text Conditional Human Motion Generation](../../ICCV2025/human_understanding/genm3_generative_pretrained_multi-path_motion_model_for_text_conditional_human_m.md)
 - [SOLAMI: Social Vision-Language-Action Modeling for Immersive Interaction with 3D Autonomous Characters](../../CVPR2025/human_understanding/solami_social_vision-language-action_modeling_for_immersive_interaction_with_3d_.md)
+- [Tool4POI: A Tool-Augmented LLM Framework for Next POI Recommendation](../../AAAI2026/human_understanding/tool4poi_a_tool-augmented_llm_framework_for_next_poi_recommendation.md)
 - [Omni-ID: Holistic Identity Representation Designed for Generative Tasks](../../CVPR2025/human_understanding/omni-id_holistic_identity_representation_designed_for_generative_tasks.md)
 - [FedRAG: A Framework for Fine-Tuning Retrieval-Augmented Generation Systems](fedrag_a_framework_for_fine-tuning_retrieval-augmented_generation_systems.md)
-- [Combining Generative and Geometry Priors for Wide-Angle Portrait Correction](../../ECCV2024/human_understanding/combining_generative_and_geometry_priors_for_wide-angle_portrait_correction.md)
 
 <!-- RELATED:END -->

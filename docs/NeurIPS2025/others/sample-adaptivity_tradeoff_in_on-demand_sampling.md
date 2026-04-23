@@ -173,10 +173,10 @@ $$\Omega\left(\frac{dk^{1/r}}{r\log^2 k}\right)$$
 
 ## 相关论文
 
-- [Robust Sampling for Active Statistical Inference](robust_sampling_for_active_statistical_inference.md)
 - [One Sample is Enough to Make Conformal Prediction Robust](one_sample_is_enough_to_make_conformal_prediction_robust.md)
+- [Robust Sampling for Active Statistical Inference](robust_sampling_for_active_statistical_inference.md)
 - [Foster Adaptivity and Balance in Learning with Noisy Labels](../../ECCV2024/others/foster_adaptivity_and_balance_in_learning_with_noisy_labels.md)
-- [Sampling from Binary Quadratic Distributions via Stochastic Localization](../../ICML2025/others/sampling_from_binary_quadratic_distributions_via_stochastic_localization.md)
+- [FastMCTS: A Simple Sampling Strategy for Data Synthesis](../../ACL2025/others/fastmcts_a_simple_sampling_strategy_for_data_synthesis.md)
 - [Scalable Equilibrium Sampling with Sequential Boltzmann Generators](../../ICML2025/others/scalable_equilibrium_sampling_with_sequential_boltzmann_generators.md)
 
 <!-- RELATED:END -->

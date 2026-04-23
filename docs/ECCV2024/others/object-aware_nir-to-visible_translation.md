@@ -127,6 +127,6 @@ tags:
 - [Towards Style Alignment in Cross-Cultural Translation](../../ACL2025/others/towards_style_alignment_in_cross-cultural_translation.md)
 - [Spatio-Temporal Proximity-Aware Dual-Path Model for Panoramic Activity Recognition](spatio-temporal_proximity-aware_dual-path_model_for_panoramic_activity_recogniti.md)
 - [Jigsaw++: Imagining Complete Shape Priors for Object Reassembly](../../ICCV2025/others/jigsaw_imagining_complete_shape_priors_for_object_reassembly.md)
-- [Improving Language and Modality Transfer in Translation by Character-level Modeling](../../ACL2025/others/improving_language_and_modality_transfer_in.md)
+- [Using Source-Side Confidence Estimation for Reliable Translation into Unfamiliar Languages](../../ACL2025/others/using_source-side_confidence_estimation_for_reliable_translation_into_unfamiliar.md)
 
 <!-- RELATED:END -->

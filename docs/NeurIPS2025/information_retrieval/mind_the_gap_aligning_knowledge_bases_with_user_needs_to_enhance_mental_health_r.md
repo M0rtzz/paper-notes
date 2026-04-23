@@ -131,8 +131,8 @@ $$\text{Gap}(t) = \frac{\log(1 + f_p(t))}{\max_w \log(1 + f_p(w))} \cdot \left[\
 
 - [HybGRAG: Hybrid Retrieval-Augmented Generation on Textual and Relational Knowledge Bases](../../ACL2025/information_retrieval/hybgrag_hybrid_rag_skb.md)
 - [MITRA: An AI Assistant for Knowledge Retrieval in Physics Collaborations](mitra_an_ai_assistant_for_knowledge_retrieval_in_physics_collaborations.md)
+- [Are LLMs Effective Psychological Assessors? Leveraging Adaptive RAG for Interpretable Mental Health Screening through Psychometric Practice](../../ACL2025/information_retrieval/are_llms_effective_psychological_assessors_leveraging_adaptive_rag_for_interpret.md)
 - [Health-LLM: Personalized Retrieval-Augmented Disease Prediction System](../../ACL2025/information_retrieval/health-llm_personalized_retrieval-augmented_disease_prediction_system.md)
 - [HyperGraphRAG: Retrieval-Augmented Generation via Hypergraph-Structured Knowledge Representation](hypergraphrag_retrieval-augmented_generation_via_hypergraph-structured_knowledge.md)
-- [Retrieval-Augmented Generation for Reliable Interpretation of Radio Regulations](retrieval-augmented_generation_for_reliable_interpretation_of_radio_regulations.md)
 
 <!-- RELATED:END -->

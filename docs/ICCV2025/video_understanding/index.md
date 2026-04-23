@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 视频理解方向 55篇论文解读
+  ICCV2025 视频理解方向 60篇论文解读
 description: >-
-  55篇ICCV2025 视频理解论文解读，主题涵盖：4D-Bench 是首个评估多模态大语言模型（ML、提出 4D-Bench，首个评估多模态大语言模型对、提出 Hyper-GCN，通过**自适应非均匀超图等，每篇含核心思想与方法详解。
+  60篇ICCV2025 视频理解论文解读，主题涵盖：4D-Bench 是首个评估多模态大语言模型（ML、提出 4D-Bench，首个评估多模态大语言模型对、提出 Hyper-GCN，通过**自适应非均匀超图等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**📹 ICCV2025** · **55** 篇论文解读
+**📹 ICCV2025** · **60** 篇论文解读
 
 **[4D-Bench: Benchmarking Multi-Modal Large Language Models for 4D Object Understanding](4d-bench_benchmarking_multi-modal_large_language_models_for_4d_object_understand.md)**
 
@@ -22,9 +22,17 @@ description: >-
 
 :   提出 Hyper-GCN，通过**自适应非均匀超图**替代传统二元图来建模骨骼拓扑，并引入**虚拟超关节**（hyper joints）创建虚拟连接，使多关节协同关系得以直接建模，在 NTU-60/120 和 NW-UCLA 上以最轻量的 GCN 设计实现 SOTA（base 版仅 1.1M 参数、1.63 GFLOPs）。
 
+**[AIM: Adaptive Inference of Multi-Modal LLMs via Token Merging and Pruning](aim_adaptive_inference_multimodal_llms_token_merging_pruning.md)**
+
+:   提出 AIM，一种无需训练的多模态LLM自适应推理方法，通过LLM前基于相似度的视觉token迭代合并和LLM层内基于PageRank重要性的渐进token剪枝，实现6.8倍FLOPs削减同时保持性能，在长视频理解上同等计算量下甚至超越SOTA (+4.6 MLVU)。
+
 **[AIM: Adaptive Inference of Multi-Modal LLMs via Token Merging and Pruning](aim_adaptive_inference_of_multi-modal_llms_via_token_merging_and_pruning.md)**
 
 :   提出一种无需训练的自适应推理方法，通过 LLM 前基于嵌入相似度的迭代式 token 合并 + LLM 层内基于 PageRank 多模态重要性的渐进式 token 剪枝，实现多模态 LLM 在 40 倍 FLOPs 减少范围内的灵活精度-效率权衡，在视频和图像理解任务上均取得优异表现。
+
+**[AIM: Adaptive Inference of Multi-Modal LLMs via Token Merging and Pruning](aim_adaptive_inference_of_multi_modal_llms_via_token_merging_and_pruning.md)**
+
+:   提出无需训练的自适应推理方法AIM，通过LLM前的迭代token合并（基于嵌入相似度）和LLM层内的渐进式token剪枝（基于PageRank重要性），实现多模态LLM 6.8倍FLOPs降低且几乎不损失性能，在长视频理解上甚至超越SOTA。
 
 **[Aligning Effective Tokens with Video Anomaly in Large Language Models](aligning_effective_tokens_with_video_anomaly_in_large_language_models.md)**
 
@@ -106,6 +114,10 @@ description: >-
 
 :   提出免训练方法Free-MoRef，受MoE启发将长视频token分割为多个短序列作为多参考(multi-reference)，通过MoRef注意力机制并行查询并融合统一激活值，在单卡A100上实现2×到8×更长帧输入的高效全面理解，在VideoMME/MLVU/LongVideoBench上超越专训长视频模型。
 
+**[Frequency-Semantic Enhanced Variational Autoencoder for Zero-Shot Skeleton-based Action Recognition](frequency-semantic_enhanced_variational_autoencoder_for_zero-shot_skeleton-based.md)**
+
+:   本文提出 FS-VAE（Frequency-Semantic Enhanced Variational Autoencoder），通过频率分解增强骨骼语义学习、多层级语义对齐弥合视觉-文本鸿沟、以及校准交叉对齐损失缓解对齐歧义，实现了零样本骨骼动作识别的显著性能提升。
+
 **[General Compression Framework for Efficient Transformer Object Tracking](general_compression_framework_for_efficient_transformer_object_tracking.md)**
 
 :   提出 CompressTracker，一个通用 Transformer 跟踪器压缩框架，通过阶段划分、替换训练和特征模仿三个递进创新，实现结构无关的高效压缩——压缩 SUTrack 后保持约 99% 精度同时加速 2.42 倍。
@@ -158,6 +170,10 @@ description: >-
 
 :   提出在线视频定位新任务 OVG-HQ，支持文本/图像/视频片段等混合模态查询，通过参数化记忆块（PMB）保留历史信息和混合蒸馏策略缓解模态不平衡，在流式视频中实时定位目标片段。
 
+**[PriOr-Flow: Enhancing Primitive Panoramic Optical Flow with Orthogonal View](prior-flow_enhancing_primitive_panoramic_optical_flow_with_o.md)**
+
+:   提出双分支框架 PriOr-Flow，利用正交视图的低畸变先验来补偿 ERP 全景图像极区的严重畸变，从而显著提升全景光流估计精度，在 MPFDataset 和 FlowScape 上分别降低 EPE 30.0% 和 29.6%。
+
 **[PriOr-Flow: Enhancing Primitive Panoramic Optical Flow with Orthogonal View](prior-flow_enhancing_primitive_panoramic_optical_flow_with_orthogonal_view.md)**
 
 :   提出双分支框架 PriOr-Flow，利用正交视图的低畸变先验来补偿 ERP 全景图像极区的严重畸变，从而显著提升全景光流估计精度，在 MPFDataset 和 FlowScape 上分别降低 EPE 30.0% 和 29.6%。
@@ -193,6 +209,10 @@ description: >-
 **[Towards Video Thinking Test: A Holistic Benchmark for Advanced Video Reasoning and Understanding](towards_video_thinking_test_a_holistic_benchmark_for_advanced_video_reasoning_an.md)**
 
 :   提出 Video Thinking Test (Video-TT)，一个评估视频大语言模型正确性和鲁棒性的基准，包含 1000 个 YouTube Shorts 视频和 5000 个问题，通过视觉/叙事复杂性因子和自然对抗问题揭示了当前最强模型（GPT-4o 36.6%）与人类（84.3%）之间的巨大差距。
+
+**[Training-free Generation of Temporally Consistent Rewards from VLMs](training-free_generation_of_temporally_consistent_rewards_from_vlms.md)**
+
+:   T²-VLM 提出了一种免训练、时间一致的奖励生成框架，通过仅在每个 episode 开始时查询一次 VLM 生成空间感知子目标，然后用贝叶斯粒子滤波跟踪子目标完成状态来生成结构化 RL 奖励，在机器人操作基准上达到 SOTA 且计算成本大幅降低。
 
 **[Trokens: Semantic-Aware Relational Trajectory Tokens for Few-Shot Action Recognition](trokens_semantic-aware_relational_trajectory_tokens_for_few-shot_action_recognit.md)**
 

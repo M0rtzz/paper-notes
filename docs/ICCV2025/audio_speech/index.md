@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 音频/语音方向 10篇论文解读
+  ICCV2025 音频/语音方向 12篇论文解读
 description: >-
-  10篇ICCV2025 音频/语音论文解读，主题涵盖：从YouTube教学视频中提取关键帧和文本（ASR、从YouTube收集2.5年(22,000课时)的、提出材质可控的声学特征生成任务（M-CAPA）等，每篇含核心思想与方法详解。
+  12篇ICCV2025 音频/语音论文解读，主题涵盖：从YouTube教学视频中提取关键帧和文本（ASR、从YouTube收集2.5年(22,000课时)的、本文将多模态学习中的文本、图像、音频等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**📹 ICCV2025** · **10** 篇论文解读
+**📹 ICCV2025** · **12** 篇论文解读
 
 **[2.5 Years in Class: A Multimodal Textbook for Vision-Language Pretraining](25_years_in_class_a_multimodal_textbook_for_vision-language_pretraining.md)**
 
@@ -18,6 +18,10 @@ description: >-
 
 :   从YouTube收集2.5年(22,000课时)的教学视频，通过LLM驱动的多级抽取与过滤管线构建高质量交错图文"多模态教科书"语料(6.5M关键帧 + 0.75B文本token)，显著提升VLM在知识密集型和推理任务上的预训练效果，尤其在ScienceQA和MathVista上带来大幅提升。
 
+**[Everything is a Video: Unifying Modalities through Next-Frame Prediction](everything_is_a_video_unifying_modalities_through_next-frame_prediction.md)**
+
+:   本文将多模态学习中的文本、图像、音频、视频等不同模态任务统一重构为下一帧预测问题（所有输入输出都渲染为 64×64 视频帧序列），用单一 Transformer 模型无需模态特定编码器即可处理跨模态任务，验证了"everything is a video"这一激进但可行的统一表征范式。
+
 **[How Would It Sound? Material-Controlled Multimodal Acoustic Profile Generation for Objects](how_would_it_sound_material-controlled_multimodal_acoustic_profile_generation_fo.md)**
 
 :   提出材质可控的声学特征生成任务（M-CAPA），给定室内场景的音视觉观测和用户定义的新材质配置，生成反映材质变化的目标房间脉冲响应（RIR），并构建了配套的 Acoustic Wonderland 数据集。
@@ -25,6 +29,10 @@ description: >-
 **[Latent Swap Joint Diffusion for 2D Long-Form Latent Generation](latent_swap_joint_diffusion_for_2d_long-form_latent_generation.md)**
 
 :   提出SaFa（Swap Forward），一种模态无关的高效方法，通过两种潜空间交换算子（Self-Loop Latent Swap和Reference-Guided Latent Swap）替代传统联合扩散中的均值化操作，解决频谱混叠问题并保持跨视图一致性，在长音频和全景图生成中显著优于现有方法。
+
+**[Learning to See Inside Opaque Liquid Containers using Speckle Vibrometry](learning_to_see_inside_opaque_liquid_containers_using_speckle_vibrometry.md)**
+
+:   本文提出了一种基于激光散斑振动测量的非接触式系统，通过 2D 网格同时感知多个不透明容器表面的微小振动，再用 Vibration Transformer 从振动频谱中推断容器类型和隐藏液位，开创了"透视不透明容器内部液位"这一全新计算机视觉任务。
 
 **[Lyra: An Efficient and Speech-Centric Framework for Omni-Cognition](lyra_an_efficient_and_speech-centric_framework_for_omni-cognition.md)**
 

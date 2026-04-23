@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 图像生成方向 242篇论文解读
+  NeurIPS2025 图像生成方向 245篇论文解读
 description: >-
-  242篇NeurIPS2025 图像生成论文解读，主题涵盖：DFloat11 利用 BFloat16、发现扩散模型在自消耗循环（用生成数据训练下一代模型、证明去噪得分匹配损失（denoising等，每篇含核心思想与方法详解。
+  245篇NeurIPS2025 图像生成论文解读，主题涵盖：DFloat11 利用 BFloat16、发现扩散模型在自消耗循环（用生成数据训练下一代模型、证明去噪得分匹配损失（denoising等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🧠 NeurIPS2025** · **242** 篇论文解读
+**🧠 NeurIPS2025** · **245** 篇论文解读
 
 **[70% Size, 100% Accuracy: Lossless LLM Compression for Efficient GPU Inference via Dynamic-Length Float (DFloat11)](70_size_100_accuracy_lossless_llm_compression_for_efficient.md)**
 
@@ -254,6 +254,10 @@ description: >-
 
 :   提出 DOVE，基于 CogVideoX 预训练视频生成模型，通过两阶段潜空间-像素空间训练策略和高质量 HQ-VSR 数据集实现单步推理的视频超分辨率，比多步扩散方法快 28 倍且性能相当或更优。
 
+**[Dynamic Diffusion Schrödinger Bridge in Astrophysical Observational Inversions](dynamic_diffusion_schrödinger_bridge_in_astrophysical_observational_inversions.md)**
+
+:   提出 Astro-DSB，一种基于 Diffusion Schrödinger Bridge 的天文物理反问题建模方法，直接学习观测量到真实物理分布的概率映射，训练成本仅为条件 DDPM 的 25%，且在分布外（OOD）测试中展现出显著的泛化优势，并成功应用于 Taurus B213 真实观测数据。
+
 **[EditInfinity: Image Editing with Binary-Quantized Generative Models](editinfinity_image_editing_with_binary-quantized_generative_models.md)**
 
 :   提出 EditInfinity，首次将经典"图像反演-图像编辑"范式应用于二值量化自回归生成模型 Infinity，利用量化表示可获取精确中间监督的优势实现高精度图像反演，配合分段线性平滑核实现高保真编辑效果，在 PIE-Bench 上全面超越扩散模型基线。
@@ -405,6 +409,10 @@ description: >-
 **[Graph Distance as Surprise: Free Energy Minimization in Knowledge Graph Reasoning](graph_distance_as_surprise_free_energy_minimization_in_knowledge_graph_reasoning.md)**
 
 :   将神经科学的 Free Energy Principle (FEP) 与知识图谱推理连接，提出用图的最短路径距离作为 surprise 的度量，将 Murphy et al. 的树结构 surprise 理论推广到一般有向图，为 KG-based agent 的 entity grounding 提供了一个有原则的理论框架。
+
+**[Grasp2Grasp: Vision-Based Dexterous Grasp Translation via Schrödinger Bridges](grasp2grasp_vision-based_dexterous_grasp_translation_via_schrödinger_bridges.md)**
+
+:   提出将跨手形态的视觉灵巧抓取迁移建模为 Schrödinger Bridge 问题，通过在潜空间中学习得分与流匹配（[SF]²M），并设计物理感知的最优传输代价函数（位姿/接触图/力旋量空间/雅可比可操作性），在无需配对数据的条件下实现不同机械手之间抓取意图的分布级迁移。
 
 **[GSPN-2: Efficient Parallel Sequence Modeling](gspn-2_efficient_parallel_sequence_modeling.md)**
 
@@ -969,6 +977,10 @@ description: >-
 **[Why Diffusion Models Don't Memorize: The Role of Implicit Dynamical Regularization in Training](why_diffusion_models_dont_memorize_the_role_of_implicit_dynamical_regularization.md)**
 
 :   通过数值实验和理论分析揭示扩散模型训练中存在两个关键时间尺度——泛化时间 $\tau_{\text{gen}}$ 和记忆化时间 $\tau_{\text{mem}}$，后者随训练集大小 $n$ 线性增长而前者保持恒定，由此产生的隐式动力学正则化使模型即使在高度过参数化情况下也能通过早停避免记忆化。
+
+**[Why Diffusion Models Don't Memorize: The Role of Implicit Regularization](why_diffusion_models_dont_memorize_the_role_of_implicit_regularization.md)**
+
+:   本文从数值实验和理论分析两个层面揭示扩散模型训练中存在**隐式动态正则化**机制：生成高质量样本的时间尺度 τ_gen 与出现记忆化的时间尺度 τ_mem 之间的间隔随训练集大小 n 线性增长，为"早停"提供了理论支撑。
 
 **[Why Knowledge Distillation Works in Generative Models: A Minimal Working Explanation](why_knowledge_distillation_works_in_generative_models_a_minimal_working_explanat.md)**
 

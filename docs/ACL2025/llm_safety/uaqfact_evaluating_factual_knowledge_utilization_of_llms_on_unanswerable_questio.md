@@ -169,8 +169,8 @@ $$\text{KRR} = \left(1 + e^{-R_\Delta \cdot \text{KPR}^{-1}}\right)^{-1}$$
 
 - [ComparisonQA: Evaluating Factuality Robustness of LLMs Through Knowledge Frequency Control and Uncertainty](comparisonqa_evaluating_factuality_robustness_of_llms_through_knowledge_frequenc.md)
 - [Factual Knowledge in Language Models: Robustness and Anomalies under Simple Temporal Context Variations](factual_knowledge_in_language_models_robustness_and_anomalies_under_simple_tempo.md)
+- [Towards Effective Extraction and Evaluation of Factual Claims](towards_effective_extraction_and_evaluation_of_factual_claims.md)
 - [Mamba Knockout for Unraveling Factual Information Flow](mamba_knockout_for_unraveling_factual_information_flow.md)
-- [Beyond Facts: Evaluating Intent Hallucination in Large Language Models](intent_hallucination_eval.md)
 - [Truth Knows No Language: Evaluating Truthfulness Beyond English](truth_knows_no_language_evaluating_truthfulness_beyond_english.md)
 
 <!-- RELATED:END -->

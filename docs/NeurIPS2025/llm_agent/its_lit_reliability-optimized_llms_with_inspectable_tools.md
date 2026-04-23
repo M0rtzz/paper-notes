@@ -178,6 +178,6 @@ $$\text{Cost}(S) = \sum_{t \in S} \text{Cost}(t) = \sum_{t \in S} (P_t + D_t + C
 - [Lessons Learned: A Multi-Agent Framework for Code LLMs to Learn and Improve](lessons_learned_a_multi-agent_framework_for_code_llms_to_learn_and_improve.md)
 - [Distilling LLM Agent into Small Models with Retrieval and Code Tools](distilling_llm_agent_into_small_models_with_retrieval_and_co.md)
 - [Attractive Metadata Attack: Inducing LLM Agents to Invoke Malicious Tools](attractive_metadata_attack_inducing_llm_agents_to_invoke_malicious_tools.md)
-- [Agentic Reasoning: A Streamlined Framework for Enhancing LLM Reasoning with Agentic Tools](../../ACL2025/llm_agent/agentic_reasoning_tools.md)
+- [LLM Agents Making Agent Tools](../../ACL2025/llm_agent/llm_agents_making_agent_tools.md)
 
 <!-- RELATED:END -->

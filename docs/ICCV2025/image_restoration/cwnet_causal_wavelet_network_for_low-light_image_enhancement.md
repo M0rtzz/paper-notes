@@ -115,9 +115,9 @@ $$\mathcal{L}_{total} = \lambda_1\mathcal{L}_2 + \lambda_2\mathcal{L}_{ssim} + \
 ## 相关论文
 
 - [Low-Light Image Enhancement using Event-Based Illumination Estimation (RetinEV)](low-light_image_enhancement_using_event-based_illumination_estimation.md)
+- [HVI: A New Color Space for Low-light Image Enhancement](../../CVPR2025/image_restoration/hvi_a_new_color_space_for_low-light_image_enhancement.md)
 - [ICLR: Inter-Chrominance and Luminance Interaction for Natural Color Restoration in Low-Light Image Enhancement](../../AAAI2026/image_restoration/iclr_inter-chrominance_and_luminance_interaction_for_natural_color_restoration_i.md)
 - [DarkIR: Robust Low-Light Image Restoration](../../CVPR2025/image_restoration/darkir_robust_low-light_image_restoration.md)
 - [URWKV: Unified RWKV Model with Multi-State Perspective for Low-Light Image Restoration](../../CVPR2025/image_restoration/urwkv_unified_rwkv_model_with_multi-state_perspective_for_low-light_image_restor.md)
-- [Towards Real-world Event-guided Low-light Video Enhancement and Deblurring](../../ECCV2024/image_restoration/towards_real-world_event-guided_low-light_video_enhancement_and_deblurring.md)
 
 <!-- RELATED:END -->

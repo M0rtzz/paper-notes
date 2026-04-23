@@ -132,8 +132,8 @@ tags:
 
 - [Generalized Contrastive Learning for Universal Multimodal Retrieval](generalized_contrastive_learning_for_universal_multimodal_re.md)
 - [DocoPilot: Improving Multimodal Models for Document-Level Understanding](../../CVPR2025/information_retrieval/docopilot_improving_multimodal_models_for_document-level_understanding.md)
+- [Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation for Image-Text Matching](../../ICCV2025/information_retrieval/aligning_information_capacity_between_vision_and_language_via_dense_to_sparse_feature_distillation.md)
 - [Enhancing Lexicon-Based Text Embeddings with Large Language Models](../../ACL2025/information_retrieval/enhancing_lexicon-based_text_embeddings_with_large_language_models.md)
 - [Optimized Text Embedding Models and Benchmarks for Amharic Passage Retrieval](../../ACL2025/information_retrieval/optimized_text_embedding_models_and_benchmarks_for_amharic_passage_retrieval.md)
-- [Knowledge Completes the Vision: A Multimodal Entity-aware Retrieval-Augmented Generation Framework for News Image Captioning](../../AAAI2026/information_retrieval/knowledge_completes_the_vision_a_multimodal_entity-aware_retrieval-augmented_gen.md)
 
 <!-- RELATED:END -->

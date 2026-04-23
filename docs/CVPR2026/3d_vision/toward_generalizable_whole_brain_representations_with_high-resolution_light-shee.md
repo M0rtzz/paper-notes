@@ -129,8 +129,8 @@ CANVAS 数据集构建流程：小鼠脑组织 → SHIELD 保存 → 脱脂 → 
 
 - [EventHub: Data Factory for Generalizable Event-Based Stereo Networks without Active Sensors](eventhub_data_factory_for_generalizable_event-based_stereo_networks_without_acti.md)
 - [Event Fields: Capturing Light Fields at High Speed, Resolution, and Dynamic Range](../../CVPR2025/3d_vision/event_fields_capturing_light_fields_at_high_speed_resolution_and_dynamic_range.md)
+- [UniSplat: Learning 3D Representations for Spatial Intelligence from Unposed Multi-View Images](unisplat_3d_representations_unposed.md)
 - [Enhancing Hands in 3D Whole-Body Pose Estimation with Conditional Hands Modulator](enhancing_hands_in_3d_whole-body_pose_estimation_with_conditional_hands_modulato.md)
 - [Action-guided Generation of 3D Functionality Segmentation Data](action-guided_generation_of_3d_functionality_segmentation_data.md)
-- [HyperGaussians: High-Dimensional Gaussian Splatting for High-Fidelity Animatable Face Avatars](hypergaussians_high-dimensional_gaussian_splatting_for_high-fidelity_animatable_.md)
 
 <!-- RELATED:END -->

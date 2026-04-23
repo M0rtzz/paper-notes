@@ -25,10 +25,14 @@ tags:
 提出3DGIC，通过**深度引导的跨视角一致修复**框架实现3D高斯场景中的物体移除与修补——利用渲染深度图从其他视角发现被掩码区域中的可见背景像素来精化修补掩码，再用参考视角的2D修补结果通过3D投影约束其他视角的一致性，在SPIn-NeRF数据集上FID和LPIPS全面超越现有方法。
 
 ## 背景与动机
-3D场景修补（物体移除后填补空洞）是VR/AR编辑的核心需求。主要挑战在于**跨视角一致性**——对多视角图像分别做2D修补会产生不一致内容。现有方法面临两个问题：(1) 直接用SAM生成的物体掩码作为修补掩码，但掩码区域中可能包含从其他视角可见的背景像素，将这些已知区域交给2D修补器会引入不一致内容；(2) 对每个视角独立做2D修补，缺少视角间的几何约束。
 
-## 核心问题
-如何在3D高斯场景中实现物体移除后的**高保真、多视角一致**的3D修补？关键挑战：(1) 精确确定每个视角中"真正需要修补"的区域（排除从其他视角可间接观察到的背景）；(2) 确保修补内容在所有视角间几何一致。
+### 领域现状
+
+**领域现状**：3D场景修补（物体移除后填补空洞）是VR/AR编辑的核心需求。主要挑战在于**跨视角一致性**——对多视角图像分别做2D修补会产生不一致内容。现有方法面临两个问题：(1) 直接用SAM生成的物体掩码作为修补掩码，但掩码区域中可能包含从其他视角可见的背景像素，将这些已知区域交给2D修补器会引入不一致内容；(2) 对每个视角独立做2D修补，缺少视角间的几何约束。
+
+### 解决思路
+
+**本文目标**：如何在3D高斯场景中实现物体移除后的**高保真、多视角一致**的3D修补？关键挑战：(1) 精确确定每个视角中"真正需要修补"的区域（排除从其他视角可间接观察到的背景）；(2) 确保修补内容在所有视角间几何一致。
 
 ## 方法详解
 
@@ -86,7 +90,7 @@ LDM版本在所有4个指标上取得最优。LAMA版本（非扩散）也超过
 - 掩码精化阶段仅需几何运算，耗时可忽略（<1s/场景）
 - 整体优化5000迭代在RTX 3090上约15分钟/场景，与GScream相当
 
-## 亮点
+## 亮点与洞察
 - **掩码精化的核心洞察**：SAM生成的物体掩码包含了其他视角可见的背景——用深度投影将这些区域"救回"，让修补器只处理真正需要填补的区域，从源头提升一致性
 - **确定性+学习的组合**：掩码精化是确定性几何操作（无需训练），3DGS优化是学习过程——两者互补
 - **与2D修补器解耦**：框架兼容LAMA（非扩散）和LDM（扩散）等不同修补器，即使用较弱的修补器也能超越强baseline
@@ -101,13 +105,13 @@ LDM版本在所有4个指标上取得最优。LAMA版本（非扩散）也超过
 - 室外大规模场景的深度估计噪声更大，掩码精化效果待验证
 - 没有用户研究（perceptual quality）评估
 
-## 与相关工作的对比
+## 相关工作与启发
 - **GScream**：用参考视角深度预测+跨视角特征一致性。3DGIC额外做掩码精化，不修改可见背景
 - **MALD-NeRF**：用LoRA微调扩散模型做场景特定修补。3DGIC不需要微调扩散模型，更轻量
 - **Gaussian Grouping**：用"black blurry hole"提示GroundedSAM检测修补区域，常误检。3DGIC直接用深度投影确定性精化
 - **SPIn-NeRF**：需要人工标注掩码。3DGIC全自动（用SAM+深度引导）
 
-## 启发与关联
+## 相关工作与启发
 - 深度引导掩码精化的思路可推广到其他需要跨视角一致编辑的任务（如texture editing、relighting）
 - "从其他视角恢复被遮挡区域"的确定性过程类似于传统的image-based rendering- 将RGB和深度拼接在同一张图中联合修补的做法简单但有效，避免了额外的深度修补模型
 - 掩码精化本质是跨视角信息融合的前处理，可拓展到video inpainting中用帧间光流做类似操作
@@ -125,7 +129,7 @@ LDM版本在所有4个指标上取得最优。LAMA版本（非扩散）也超过
 - [IMFine: 3D Inpainting via Geometry-guided Multi-view Refinement](imfine_3d_inpainting_via_geometry-guided_multi-view_refinement.md)
 - [GEAL: Generalizable 3D Affordance Learning with Cross-Modal Consistency](geal_generalizable_3d_affordance_learning_with_cross-modal_consistency.md)
 - [Multi-view Reconstruction via SfM-guided Monocular Depth Estimation](multi-view_reconstruction_via_sfm-guided_monocular_depth_estimation.md)
+- [Murre: Multi-view Reconstruction via SfM-guided Monocular Depth Estimation](murre_sfm_guided_depth_reconstruction.md)
 - [No Calibration, No Depth, No Problem: Cross-Sensor View Synthesis with 3D Consistency](../../CVPR2026/3d_vision/no_calibration_no_depth_no_problem_cross-sensor_view_synthesis_with_3d_consisten.md)
-- [Instant3dit: Multiview Inpainting for Fast Editing of 3D Objects](instant3dit_multiview_inpainting_for_fast_editing_of_3d_objects.md)
 
 <!-- RELATED:END -->

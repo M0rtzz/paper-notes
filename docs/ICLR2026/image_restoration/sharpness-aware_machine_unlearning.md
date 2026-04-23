@@ -129,8 +129,8 @@ Sharpness-Aware Minimization（SAM）已被证明能寻找更平坦的损失最�
 
 - [AdaBlock-dLLM: Semantic-Aware Diffusion LLM Inference via Adaptive Block Size](adablock-dllm_semantic-aware_diffusion_llm_inference_via_adaptive_block_size.md)
 - [Classic Video Denoising in a Machine Learning World: Robust, Fast, and Controllable](../../CVPR2025/image_restoration/classic_video_denoising_in_a_machine_learning_world_robust_fast_and_controllable.md)
+- [DRFusion: Degradation-Robust Fusion via Degradation-Aware Diffusion Framework](../../CVPR2026/image_restoration/drfusion_degradation_robust_fusion_via_degradation_aware_diffusion_framework.md)
 - [MAD-Avatar: Motion-Aware Animatable Gaussian Avatars Deblurring](../../CVPR2026/image_restoration/motionaware_animatable_gaussian_avatars_deblurring.md)
-- [Outlier-Aware Post-Training Quantization for Image Super-Resolution](../../ICCV2025/image_restoration/outlier-aware_post-training_quantization_for_image_super-resolution.md)
-- [OAPT: Offset-Aware Partition Transformer for Double JPEG Artifacts Removal](../../ECCV2024/image_restoration/oapt_offset-aware_partition_transformer_for_double_jpeg_artifacts_removal.md)
+- [Degradation-Aware Feature Perturbation for All-in-One Image Restoration](../../CVPR2025/image_restoration/degradation-aware_feature_perturbation_for_all-in-one_image_restoration.md)
 
 <!-- RELATED:END -->

@@ -126,8 +126,8 @@ Branch（Bayesian network Reasoning for k-ANonymity using Conditional Hierarchie
 
 - [Contextual Integrity in LLMs via Reasoning and Reinforcement Learning](contextual_integrity_in_llms_via_reasoning_and_reinforcement_learning.md)
 - [Understanding and Improving Adversarial Robustness of Neural Probabilistic Circuits](understanding_and_improving_adversarial_robustness_of_neural_probabilistic_circu.md)
-- [Optimal Adjustment Sets for Nonparametric Estimation of Weighted Controlled Direct Effect](optimal_adjustment_sets_for_nonparametric_estimation_of_weighted_controlled_dire.md)
 - [LLM Strategic Reasoning: Agentic Study through Behavioral Game Theory](llm_strategic_reasoning_agentic_study_through_behavioral_gam.md)
-- [Evaluating the Promise and Pitfalls of LLMs in Hiring Decisions](evaluating_the_promise_and_pitfalls_of_llms_in_hiring_decisions.md)
+- [Optimal Adjustment Sets for Nonparametric Estimation of Weighted Controlled Direct Effect](optimal_adjustment_sets_for_nonparametric_estimation_of_weighted_controlled_dire.md)
+- [On the Robustness of Verbal Confidence of LLMs in Adversarial Attacks](on_the_robustness_of_verbal_confidence_of_llms_in_adversarial_attacks.md)
 
 <!-- RELATED:END -->

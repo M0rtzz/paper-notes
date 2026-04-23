@@ -153,6 +153,6 @@ VISAGE基于Mask2Former检测器构建，分为三个核心组件：
 - [CAVIS: Context-Aware Video Instance Segmentation](../../ICCV2025/segmentation/cavis_context-aware_video_instance_segmentation.md)
 - [General and Task-Oriented Video Segmentation](general_and_task-oriented_video_segmentation.md)
 - [Segmentation-Guided Layer-Wise Image Vectorization with Gradient Fills](segmentation-guided_layer-wise_image_vectorization_with_gradient_fills.md)
-- [ProMerge: Prompt and Merge for Unsupervised Instance Segmentation](promerge_prompt_and_merge_for_unsupervised_instance_segmentation.md)
+- [SOS: Segment Object System for Open-World Instance Segmentation With Object Priors](sos_segment_object_system_for_open-world_instance_segmentation_with_object_prior.md)
 
 <!-- RELATED:END -->

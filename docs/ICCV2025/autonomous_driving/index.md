@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 自动驾驶方向 92篇论文解读
+  ICCV2025 自动驾驶方向 98篇论文解读
 description: >-
-  92篇ICCV2025 自动驾驶论文解读，主题涵盖：提出PGA，首个基于3DGS的物理对抗攻击框架、提出首个基于3D高斯体（3DGS）的物理对抗攻击框、本文提出首个大规模真实3D车辆数据集3DRealC等，每篇含核心思想与方法详解。
+  98篇ICCV2025 自动驾驶论文解读，主题涵盖：提出PGA，首个基于3DGS的物理对抗攻击框架、提出首个基于3D高斯体（3DGS）的物理对抗攻击框、本文提出首个大规模真实3D车辆数据集3DRealC等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**📹 ICCV2025** · **92** 篇论文解读
+**📹 ICCV2025** · **98** 篇论文解读
 
 **[3D Gaussian Splatting Driven Multi-View Robust Physical Adversarial Camouflage Generation](3d_gaussian_splatting_driven_multi-view_robust_physical_adversarial_camouflage_g.md)**
 
@@ -54,6 +54,10 @@ description: >-
 
 :   提出 ACAM-KD，一种自适应学生-教师协作注意力掩码知识蒸馏方法，通过跨注意力特征融合（STCA-FF）和自适应空间-通道掩码（ASCM）动态调整蒸馏焦点，在 COCO 检测上超越 SOTA 最高 1.4 mAP，在 Cityscapes 分割上提升 3.09 mIoU。
 
+**[ACAM-KD: Adaptive and Cooperative Attention Masking for Knowledge Distillation](acam_kd_adaptive_cooperative_attention_masking_knowledge_distillation.md)**
+
+:   提出 ACAM-KD，通过学生-教师交叉注意力特征融合(STCA-FF)和自适应空间-通道遮蔽(ASCM)两个模块，实现知识蒸馏中特征选择随学生学习状态动态演化，在COCO检测任务上以ResNet-50学生从ResNet-101教师蒸馏时mAP提升1.4超越SOTA。
+
 **[AD-GS: Object-Aware B-Spline Gaussian Splatting for Self-Supervised Autonomous Driving](ad-gs_object-aware_b-spline_gaussian_splatting_for_self-supervised_autonomous_dr.md)**
 
 :   本文提出 AD-GS，一种基于 3D Gaussian Splatting 的自监督自动驾驶场景渲染框架，核心创新是将可学习 B-spline 曲线与三角函数结合进行局部-全局运动建模，并通过简化的二值伪分割实现鲁棒的场景分解，在不依赖人工 3D 标注的条件下大幅超越现有自监督方法。
@@ -74,9 +78,17 @@ description: >-
 
 :   提出AGO框架，通过噪声增强的接地训练(grounding training)处理已知类别 + 模态适配器的自适应对齐处理未知类别，并用基于信息熵的开放世界识别器在推理时动态选择最佳特征，在Occ3D-nuScenes自监督基准上超越VEON 4.09 mIoU，同时具备开放世界零样本/少样本迁移能力。
 
+**[Beyond One Shot, Beyond One Perspective: Cross-View and Long-Horizon Distillation for Better LiDAR Representations](beyond_one_shot_beyond_one_perspective_cross-view_and_long-horizon_distillation_.md)**
+
+:   LiMA 提出了一种长时图像到 LiDAR 记忆聚合框架，通过跨视角聚合、长时特征传播和跨序列记忆对齐三个模块，显式利用 LiDAR 序列中的时空线索来增强 LiDAR 表示学习，在语义分割和 3D 目标检测任务上显著超越现有预训练方法。
+
 **[CCL-LGS: Contrastive Codebook Learning for 3D Language Gaussian Splatting](ccl-lgs_contrastive_codebook_learning_for_3d_language_gaussian_splatting.md)**
 
 :   提出CCL-LGS框架，通过零样本跟踪器实现跨视角掩码关联，并利用对比码本学习（CCL）模块蒸馏出类内紧凑、类间可区分的语义特征，从而解决基于2D先验的3D语义场重建中因遮挡、模糊和视角变化导致的跨视角语义不一致问题。
+
+**[CoDa-4DGS: Dynamic Gaussian Splatting with Context and Deformation Awareness for Autonomous Driving](coda-4dgs_dynamic_gaussian_splatting_with_context_and_deformation_awareness_for_.md)**
+
+:   CoDa-4DGS 在 4D 高斯泼溅（4DGS）框架中引入上下文感知（2D 语义基础模型自监督 4D 语义特征）和时序形变感知（追踪相邻帧间高斯的形变），通过联合编码语义和形变特征为每个高斯提供动态补偿线索，在自动驾驶动态场景渲染中捕获更精细的细节并超越现有自监督方法。
 
 **[CoLMDriver: LLM-based Negotiation Benefits Cooperative Autonomous Driving](colmdriver_llm-based_negotiation_benefits_cooperative_autonomous_driving.md)**
 
@@ -118,6 +130,10 @@ description: >-
 
 :   提出DiST-4D，首个前馈式4D驾驶场景生成框架，通过将时间预测（DiST-T）和空间新视角合成（DiST-S）解耦为两个扩散过程，以度量深度（metric depth）为几何桥梁，在nuScenes上同时实现SOTA的时间视频生成（FVD 22.67）和空间NVS（FID 10.12），无需逐场景优化。
 
+**[Distilling Diffusion Models to Efficient 3D LiDAR Scene Completion](distilling_diffusion_models_to_efficient_3d_lidar_scene_completion.md)**
+
+:   提出 ScoreLiDAR，一种针对 3D LiDAR 场景补全的扩散模型蒸馏方法，通过场景级和点级结构损失引导蒸馏，将补全时间从 30.55 秒压缩到 5.37 秒（>5x 加速），同时在 SemanticKITTI 上超越所有 SOTA 方法。
+
 **[DONUT: A Decoder-Only Model for Trajectory Prediction](donut_a_decoder-only_model_for_trajectory_prediction.md)**
 
 :   DONUT受LLM中decoder-only架构启发，提出用统一的自回归模型处理历史和未来轨迹，配合"过预测（overprediction）"策略让模型更好预判未来，在Argoverse 2基准上取得SOTA。
@@ -157,6 +173,10 @@ description: >-
 **[Foresight in Motion: Reinforcing Trajectory Prediction with Reward Heuristics](foresight_in_motion_reinforcing_trajectory_prediction_with_reward_heuristics.md)**
 
 :   提出"先推理，后预测"（First Reasoning, Then Forecasting）策略，通过基于查询中心的逆强化学习（QIRL）推断驾驶意图的奖励分布，并结合 Bi-Mamba 增强的 DETR 式轨迹解码器，显著提升轨迹预测的置信度和准确性。
+
+**[Free-running vs. Synchronous: Single-Photon Lidar for High-flux 3D Imaging](free-running_vs_synchronous_single-photon_lidar_for_high-flux_3d_imaging.md)**
+
+:   本文系统比较了单光子激光雷达（SPL）的自由运行模式和同步模式在高通量条件下的深度成像性能，提出了高效的联合最大似然估计器和基于分数模型的深度正则化算法 SSDR，证明自由运行模式在各种光通量和信背比条件下均优于同步模式。
 
 **[SDKD: Frequency-Aligned Knowledge Distillation for Lightweight Spatiotemporal Forecasting](frequency-aligned_knowledge_distillation_for_lightweight_spatiotemporal_forecast.md)**
 
@@ -278,9 +298,9 @@ description: >-
 
 :   提出首个在线 SDM（感知-决策-运动）统一 3D 疏散仿真框架 RESCUE，集成 3D 自适应社会力模型和个性化步态控制器，实现数百智能体的实时个性化疏散模拟。
 
-**[Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations](resonance_learning_to_predict_social-aware_pedestrian_trajectories_as_co-vibrati.md)**
+**[Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations](resonance_learning_to_predict_social_aware_pedestrian_trajectories_as_co_vibrations.md)**
 
-:   受振动系统和共振现象启发，提出 Resonance 模型将行人轨迹编码和预测建模为"共振动"形式，通过轨迹分解为独立振动分量、模拟共振现象学习社交交互表示。
+:   提出Resonance模型，受物理共振系统启发，将行人轨迹分解为多个独立"振动"分量以模拟智能体对各单一原因的反应，通过振动叠加预测轨迹，并利用共振现象学习社会交互表示，增强可解释性。
 
 **[RoboTron-Sim: Improving Real-World Driving via Simulated Hard-Case](robotron-sim_improving_real-world_driving_via_simulated_hard-case.md)**
 
@@ -293,6 +313,10 @@ description: >-
 **[RTMap: Real-Time Recursive Mapping with Change Detection and Localization](rtmap_real-time_recursive_mapping_with_change_detection_and_localization.md)**
 
 :   提出RTMap——首个端到端框架，同时解决多次遍历在线HD地图构建中的三大核心挑战：基于先验地图的定位、道路结构变化检测和概率感知众包地图融合，在TbV和nuScenes上同时提升地图质量和定位精度。
+
+**[SA-Occ: Satellite-Assisted 3D Occupancy Prediction in Real World](sa-occ_satellite-assisted_3d_occupancy_prediction_in_real_world.md)**
+
+:   提出 SA-Occ，首个利用卫星图像辅助车载相机进行 3D 占用预测的方法，通过动态解耦融合、3D 投影引导和均匀采样对齐三个模块解决跨视角感知挑战，在 Occ3D-nuScenes 上以仅 6.93ms 额外延迟实现 39.05% mIoU（提升 6.97%）。
 
 **[Saliency-Aware Quantized Imitation Learning for Efficient Robotic Control](saliency-aware_quantized_imitation_learning_for_efficient_robotic_control.md)**
 

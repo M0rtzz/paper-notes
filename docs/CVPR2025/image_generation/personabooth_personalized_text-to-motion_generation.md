@@ -124,8 +124,8 @@ $$L = L_D + \lambda L_{pc}$$
 
 - [ConceptGuard: Continual Personalized Text-to-Image Generation with Forgetting and Confusion Mitigation](conceptguard_continual_personalized_text-to-image_generation_with_forgetting_and.md)
 - [Yo'Chameleon: Personalized Vision and Language Generation](yochameleon_personalized_vision_and_language_generation.md)
-- [Controllable Human Image Generation with Personalized Multi-Garments](controllable_human_image_generation_with_personalized_multi-garments.md)
 - [SALAD: Skeleton-aware Latent Diffusion for Text-driven Motion Generation and Editing](salad_skeleton-aware_latent_diffusion_for_text-driven_motion_generation_and_edit.md)
+- [BootComp: Controllable Human Image Generation with Personalized Multi-Garments](controllable_human_image_generation_with_personalized_multi-garments.md)
 - [PatchDPO: Patch-level DPO for Finetuning-free Personalized Image Generation](patchdpo_patch-level_dpo_for_finetuning-free_personalized_image_generation.md)
 
 <!-- RELATED:END -->

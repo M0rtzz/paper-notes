@@ -1,14 +1,18 @@
 ---
 title: >-
-  ICCV2025 预训练方向 7篇论文解读
+  ICCV2025 预训练方向 8篇论文解读
 description: >-
-  7篇ICCV2025 预训练论文解读，主题涵盖：将场景坐标回归器拆分为「场景无关的Transfor、提出ConstStyle框架，通过构建一个理论驱动、DOV4MM 提出了首个针对掩码预训练模型的数据集等，每篇含核心思想与方法详解。
+  8篇ICCV2025 预训练论文解读，主题涵盖：ACE-G 将场景坐标回归器（SCR）拆分为通用、将场景坐标回归器拆分为「场景无关的Transfor、提出ConstStyle框架，通过构建一个理论驱动等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**📹 ICCV2025** · **7** 篇论文解读
+**📹 ICCV2025** · **8** 篇论文解读
+
+**[ACE-G: Improving Generalization of Scene Coordinate Regression Through Query Pre-Training](ace-g_improving_generalization_of_scene_coordinate_regression_through_query_pre-.md)**
+
+:   ACE-G 将场景坐标回归器（SCR）拆分为通用 Transformer 和场景专属 map code 两部分，通过在数万个场景上预训练 Transformer 使其学会从建图图像泛化到未见查询图像，在保持高效计算的同时显著提升了光照和视角变化下的重定位鲁棒性。
 
 **[ACE-G: Improving Generalization of Scene Coordinate Regression Through Query Pre-Training](aceg_improving_generalization_of_scene_coordinate_regression.md)**
 

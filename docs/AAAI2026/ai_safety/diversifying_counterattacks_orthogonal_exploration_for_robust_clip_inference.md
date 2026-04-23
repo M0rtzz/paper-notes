@@ -175,9 +175,9 @@ CW 攻击下平均鲁棒准确率：DOC 28.18% vs TTC 20.61%（+7.58%）。AutoA
 
 ## 相关论文
 
+- [Enhancing CLIP Robustness via Cross-Modality Alignment](../../NeurIPS2025/ai_safety/enhancing_clip_robustness_via_crossmodality_alignment.md)
 - [Robust Watermarking on Gradient Boosting Decision Trees](robust_watermarking_on_gradient_boosting_decision_trees.md)
 - [MPD-SGR: Robust Spiking Neural Networks with Membrane Potential Distribution-Driven Surrogate Gradient Regularization](mpd-sgr_robust_spiking_neural_networks_with_membrane_potential_distribution-driv.md)
-- [Enhancing CLIP Robustness via Cross-Modality Alignment](../../NeurIPS2025/ai_safety/enhancing_clip_robustness_via_crossmodality_alignment.md)
 - [Enhancing Adversarial Transferability by Balancing Exploration and Exploitation with Gradient-Guided Sampling](../../ICCV2025/ai_safety/enhancing_adversarial_transferability_by_balancing_exploration_and_exploitation_.md)
 - [Perturb and Recover: Fine-tuning for Effective Backdoor Removal from CLIP](../../CVPR2026/ai_safety/perturb_and_recover_fine-tuning_for_effective_backdoor_removal_from_clip.md)
 

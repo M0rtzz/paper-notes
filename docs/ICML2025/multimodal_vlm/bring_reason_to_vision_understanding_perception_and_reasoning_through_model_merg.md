@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：VLM 在视觉感知+语言任务上表现优秀，但在复杂多模态推理（如数学图表解读）上远落后于纯文本 LLM，部分原因是多模态推理数据匮乏。
 
 **现有痛点**：提升 VLM 推理能力通常需要收集大量多模态推理数据并微调，成本高昂。
@@ -118,6 +120,6 @@ tags:
 - [RTV-Bench: Benchmarking MLLM Continuous Perception, Understanding and Reasoning through Real-Time Video](../../NeurIPS2025/multimodal_vlm/rtv-bench_benchmarking_mllm_continuous_perception_understanding_and_reasoning_th.md)
 - [Defending LVLMs Against Vision Attacks through Partial-Perception Supervision](defending_lvlms_against_vision_attacks_through_partial-perception_supervision.md)
 - [MODA: MOdular Duplex Attention for Multimodal Perception, Cognition, and Emotion Understanding](moda_modular_duplex_attention_for_multimodal_perception_cognition_and_emotion_un.md)
-- [Enhancing Target-unspecific Tasks through a Features Matrix](enhancing_target-unspecific_tasks_through_a_features_matrix.md)
+- [Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models](understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)
 
 <!-- RELATED:END -->

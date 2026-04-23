@@ -25,6 +25,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：利用人类动作视频预训练视觉-语言表征以减少机器人专家演示依赖是一个有前景的方向。R3M、LIV、DecisionNCE 等方法使用时间对比学习
 
 **现有痛点**：现有方法基于"目标到达"假设——假设视频中语言指令的语义与越靠后的帧对齐越好。但实际视频中动作可能提前终止或包含不相关后续内容，导致错误的视觉-语言关联
@@ -95,9 +97,9 @@ tags:
 ## 相关论文
 
 - [Memo: Training Memory-Efficient Embodied Agents with Reinforcement Learning](memo_training_memory-efficient_embodied_agents_with_reinforcement_learning.md)
-- [Towards Provable Emergence of In-Context Reinforcement Learning](towards_provable_emergence_of_in-context_reinforcement_learning.md)
 - [EgoBridge: Domain Adaptation for Generalizable Imitation from Egocentric Human Data](egobridge_domain_adaptation_for_generalizable_imitation_from_egocentric_human_da.md)
-- [NavQ: Learning a Q-Model for Foresighted Vision-and-Language Navigation](../../ICCV2025/reinforcement_learning/navq_learning_a_q-model_for_foresighted_vision-and-language_navigation.md)
+- [Towards Provable Emergence of In-Context Reinforcement Learning](towards_provable_emergence_of_in-context_reinforcement_learning.md)
+- [Octopus: Embodied Vision-Language Programmer from Environmental Feedback](../../ECCV2024/reinforcement_learning/octopus_embodied_vision-language_programmer_from_environmental_feedback.md)
 - [Self-Improving Embodied Foundation Models](self-improving_embodied_foundation_models.md)
 
 <!-- RELATED:END -->

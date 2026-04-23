@@ -133,9 +133,9 @@ $$\mathcal{J}_{C\text{-}MARL}(\theta) = \mathbb{E}[\mathcal{J}_{GRPO}(\theta) + 
 ## 相关论文
 
 - [Resp-Agent: An Agent-Based System for Multimodal Respiratory Sound Generation and Disease Diagnosis](resp-agent_an_agent-based_system_for_multimodal_respiratory_sound_generation_and.md)
+- [MAMA-Memeia! Multi-Aspect Multi-Agent Collaboration for Depressive Symptoms Identification in Memes](../../AAAI2026/medical_imaging/mama-memeia_multi-aspect_multi-agent_collaboration_for_depressive_symptoms_ident.md)
 - [MedAgentBoard: Benchmarking Multi-Agent Collaboration with Conventional Methods for Diverse Medical Tasks](../../NeurIPS2025/medical_imaging/medagentboard_benchmarking_multi-agent_collaboration_with_conventional_methods_f.md)
 - [CARE: Towards Clinical Accountability in Multi-Modal Medical Reasoning with an Evidence-Grounded Agentic Framework](care_towards_clinical_accountability_in_multi-modal_medical_reasoning_with_an_ev.md)
 - [UltrasoundAgents: Hierarchical Multi-Agent Evidence-Chain Reasoning for Breast Ultrasound Diagnosis](../../CVPR2025/medical_imaging/ultrasoundagents_hierarchical_multi-agent_evidence-chain_reasoning_for_breast_ul.md)
-- [LungNoduleAgent: A Collaborative Multi-Agent System for Precision Diagnosis of Lung Nodules](../../AAAI2026/medical_imaging/lungnoduleagent_a_collaborative_multi-agent_system_for_precision_diagnosis_of_lu.md)
 
 <!-- RELATED:END -->

@@ -130,6 +130,6 @@ $$\mathcal{L}_{\text{opt}} = \frac{1}{N \times K \times K} \sum_n \sum_i \sum_j 
 - [Video Depth Without Video Models](video_depth_without_video_models.md)
 - [ProbeSDF: Light Field Probes for Neural Surface Reconstruction](probesdf_light_field_probes_for_neural_surface_reconstruction.md)
 - [Parametric Point Cloud Completion for Polygonal Surface Reconstruction](parametric_point_cloud_completion_for_polygonal_surface_reconstruction.md)
-- [Geometry in Style: 3D Stylization via Surface Normal Deformation](geometry_in_style_3d_stylization_via_surface_normal_deformation.md)
+- [4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
 
 <!-- RELATED:END -->

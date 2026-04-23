@@ -16,7 +16,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2412.19225](https://arxiv.org/abs/2412.19225)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 多模态VLM  
 **关键词**: image enhancement, degradation-aware, completion, selective guidance
 
@@ -24,6 +24,8 @@ tags:
 将图像增强重构为'补全'范式，通过退化感知选择机制引导网络聚焦于需要增强的区域，避免对已清晰区域的过度处理
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：Completion as Enhancement 方向近年取得了显著进展，但仍存在关键挑战。
 

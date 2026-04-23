@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 目标检测方向 41篇论文解读
+  CVPR2025 目标检测方向 47篇论文解读
 description: >-
-  41篇CVPR2025 目标检测论文解读，主题涵盖：提出B-Free训练范式——通过stable、提出 ABRA（Aligned Basis、提出 Any6D 框架，仅从单张 RGB-D等，每篇含核心思想与方法详解。
+  47篇CVPR2025 目标检测论文解读，主题涵盖：提出B-Free训练范式——通过stable、提出 ABRA（Aligned Basis、提出 Any6D 框架，仅从单张 RGB-D等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**📷 CVPR2025** · **41** 篇论文解读
+**📷 CVPR2025** · **47** 篇论文解读
 
 **[A Bias-Free Training Paradigm for More General AI-generated Image Detection](a_bias-free_training_paradigm_for_more_general_ai-generated_image_detection.md)**
 
@@ -78,6 +78,10 @@ description: >-
 
 :   CALM 通过类锚点（class anchors）将视频和文本特征映射到统一的概率分布空间，再用跨模态 VAE 建模模态间不确定性，在域内检索（MSR-VTT R@1 50.8%）和跨域检索（MSR-VTT→DiDeMo R@1 41.2%）上均超越 SOTA，仅增加 0.5M 参数。
 
+**[Generative Modeling of Class Probability for Multi-Modal Representation Learning](generative_modeling_of_class_probability_for_multi_modal_representation_learning.md)**
+
+:   CALM（Class-anchor-ALigned generative Modeling）提出用独立类别标签作为锚点，生成各模态与锚点的概率分布并通过跨模态概率 VAE 对齐，有效缓解视频文本之间的信息不平衡和模态差异问题，在四个benchmark上显著超越SOTA，尤其在跨域泛化性上表现突出。
+
 **[HumanMM: Global Human Motion Recovery from Multi-shot Videos](humanmm_global_human_motion_recovery_from_multi-shot_videos.md)**
 
 :   HumanMM首次提出从多镜头视频中恢复世界坐标系下3D人体运动的框架，通过镜头转换检测器、增强SLAM、基于立体标定的朝向对齐和运动积分器，实现了跨镜头的连续运动重建。
@@ -96,7 +100,7 @@ description: >-
 
 **[MCCD: Multi-Agent Collaboration-based Compositional Diffusion for Complex Text-to-Image Generation](mccd_multi-agent_collaboration-based_compositional_diffusion_for_complex_text-to.md)**
 
-:   提出MCCD，通过MLLM驱动的多智能体协作场景解析模块和层次化组合扩散机制（高斯掩码+区域增强滤波），以免训练方式显著提升扩散模型在多物体、多属性、多关系复杂场景下的文生图生成质量。
+:   MCCD提出基于多智能体协作的组合式扩散方法，利用MLLM驱动的多智能体系统进行复杂场景解析，并通过层次化组合扩散（高斯mask和区域增强）实现多目标复杂场景的准确高保真生成，且无需训练。
 
 **[MI-DETR: An Object Detection Model with Multi-time Inquiries Mechanism](mi-detr_an_object_detection_model_with_multi-time_inquiries_mechanism.md)**
 
@@ -113,6 +117,10 @@ description: >-
 **[Mr. DETR++: Instructive Multi-Route Training for Detection Transformers with MoE](mr_detr_instructive_multi-route_training_for_detection_transformers.md)**
 
 :   系统研究 DETR 解码器各组件在 one-to-one/one-to-many 多任务框架下的角色，发现任何单独组件都能有效协调两个目标；基于此提出多路由训练（Instructive Self-Attention + Independent FFN + Route-Aware MoE），推理时丢弃辅助路由不增加任何开销。
+
+**[MulSen-AD: Multi-Sensor Object Anomaly Detection](mulsen_ad_multi_sensor_anomaly_detection.md)**
+
+:   提出首个多传感器异常检测数据集 MulSen-AD，整合 RGB 相机、红外热成像和激光扫描三种模态，以及基线方法 MulSen-TripleAD，通过决策级融合实现 96.1% AUROC 的物体级异常检测。
 
 **[Multiple Object Tracking as ID Prediction](multiple_object_tracking_as_id_prediction.md)**
 
@@ -142,6 +150,14 @@ description: >-
 
 :   本文从维度映射的统一视角重新审视旋转目标检测中的角度解码器，揭示现有方法忽略单位圆约束导致的预测偏差，提出 Unit Cycle Resolver（UCR），并借助 UCR 构建了目前最大的多类别旋转 SAR 目标检测数据集 RSAR。
 
+**[Search and Detect: Training-Free Long Tail Object Detection via Web-Image Retrieval](search_and_detect_training-free_long_tail_object_detection_via_web-image_retriev.md)**
+
+:   SearchDet提出了一种完全免训练的长尾目标检测框架，通过从Web检索正负样本图像、注意力加权查询生成、SAM区域提议和热力图联合定位，在ODinW上比GroundingDINO提升48.7% mAP、在LVIS上提升59.1% mAP，展示了利用Web作为外部动态记忆进行推理阶段增强的巨大潜力。
+
+**[Show, Don't Tell: Detecting Novel Objects by Watching Human Videos](show_dont_tell_detecting_novel_objects_by_watching_human_videos.md)**
+
+:   本文提出"Show, Don't Tell"范式，通过观看人类操作演示视频自动创建训练数据集，训练专属的物体检测器来识别新颖物体，完全绕过了传统方法中依赖语言描述或 prompt 工程的环节，在真实机器人系统上显著提升了操作物体的检测和识别性能。
+
 **[SimLTD: Simple Supervised and Semi-Supervised Long-Tailed Object Detection](simltd_simple_supervised_and_semi-supervised_long-tailed_object_detection.md)**
 
 :   SimLTD 提出一个简洁直观的三阶段框架——先在头部类预训练、再迁移到尾部类、最后在混合采样数据上微调——可选配合无标注图像的半监督学习，在 LVIS v1 基准上全面超越依赖 ImageNet 标签的现有方法。
@@ -153,6 +169,14 @@ description: >-
 **[Stacking Brick by Brick: Aligned Feature Isolation for Incremental Face Forgery Detection](stacking_brick_by_brick_aligned_feature_isolation_for_incremental_face_forgery_d.md)**
 
 :   提出 SUR-LID 方法解决增量人脸伪造检测 (IFFD) 中的灾难性遗忘问题：通过稀疏均匀回放 (SUR) 保留旧任务的全局特征分布，通过隐空间增量检测器 (LID) 中的特征隔离和决策对齐策略将新旧任务分布"逐块堆叠"而非相互覆盖。
+
+**[Test-Time Backdoor Detection for Object Detection Models](test-time_backdoor_detection_for_object_detection_models.md)**
+
+:   TRACE（TRAnsformation Consistency Evaluation）提出了首个面向目标检测模型的测试时后门样本检测方法，基于两个关键观察——中毒样本在不同背景下检测结果更一致、干净样本在不同聚焦信息下更一致——通过对前景和背景施加变换后计算目标置信度方差来检测中毒样本，实现黑盒通用检测，AUROC 比 SOTA 提升 30%。
+
+**[TornadoNet: Real-Time Building Damage Detection with Ordinal Supervision](tornadonet_real-time_building_damage_detection_with_ordinal_supervision.md)**
+
+:   TornadoNet 构建了首个针对龙卷风灾后街景建筑损坏评估的系统性 benchmark，通过对比 YOLO 系列（CNN）和 RT-DETR（Transformer）在五级损坏检测任务上的表现，并提出序数感知（ordinal-aware）监督策略，使 RT-DETR 的 mAP@0.5 提升 4.8 个百分点，证明了将损坏严重度的有序性质纳入损失函数设计的有效性。
 
 **[Towards RAW Object Detection in Diverse Conditions](towards_raw_object_detection_in_diverse_conditions.md)**
 

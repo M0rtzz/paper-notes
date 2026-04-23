@@ -124,6 +124,6 @@ $$i^* = \arg\max_i (U_{\text{unc}}^i + \alpha U_{\text{div}}^i)$$
 - [Next Visual Granularity Generation](next_visual_granularity_generation.md)
 - [Pyramidal Patchification Flow for Visual Generation](pyramidal_patchification_flow_for_visual_generation.md)
 - [EVATok: Adaptive Length Video Tokenization for Efficient Visual Autoregressive Generation](../../CVPR2026/image_generation/evatok_adaptive_length_video_tokenization_for_eff.md)
-- [PhD: A ChatGPT-Prompted Visual Hallucination Evaluation Dataset](../../CVPR2025/image_generation/phd_a_chatgpt-prompted_visual_hallucination_evaluation_dataset.md)
+- [Diffusion Blend: Inference-Time Multi-Preference Alignment for Diffusion Models](diffusion_blend_inference-time_multi-preference_alignment_for_diffusion_models.md)
 
 <!-- RELATED:END -->

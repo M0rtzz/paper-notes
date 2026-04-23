@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：多变量时序预测中，CM 策略（每时刻多变量作一个 token）擅长捕捉变量间依赖但忽略变量特有模式；CI 策略（每变量独立处理）捕捉时间模式但忽视跨变量依赖。混合方法多基于特征融合，泛化和可解释性有限。
 
 **现有痛点**：单一策略不够全面，特征融合方法只学预测映射不学鲁棒表示。无人系统性地探索如何从表示学习角度统一 CI 和 CM。
@@ -106,6 +108,6 @@ tags:
 - [Channel Matters: Estimating Channel Influence for Multivariate Time Series](../../NeurIPS2025/time_series/channel_matters_estimating_channel_influence_for_multivariate_time_series.md)
 - [Mask the Redundancy: Evolving Masking Representation Learning for Multivariate Time-Series Clustering](mask_the_redundancy_evolving_masking_representation_learning_for_multivariate_ti.md)
 - [iTimER: Reconstruction Error-Guided Irregularly Sampled Time Series Representation Learning](beyond_observations_reconstruction_error-guided_irregularly_sampled_time_series_.md)
-- [CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting](../../ICLR2026/time_series/cpiri_channel_permutation-invariant_relational_interaction_for_multivariate_time.md)
+- [T1: One-to-One Channel-Head Binding for Multivariate Time-Series Imputation](../../ICLR2026/time_series/t1_one-to-one_channel-head_binding_for_multivariate_time-series_imputation.md)
 
 <!-- RELATED:END -->

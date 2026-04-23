@@ -144,6 +144,6 @@ H-MoRe 包含两个核心组成部分：
 - [HuMoCon: Concept Discovery for Human Motion Understanding](humocon_concept_discovery_for_human_motion_understanding.md)
 - [Temporally Consistent Object-Centric Learning by Contrasting Slots](temporally_consistent_object-centric_learning_by_contrasting_slots.md)
 - [SEAL: SEmantic Attention Learning for Long Video Representation](seal_semantic_attention_learning_for_long_video_representation.md)
-- [Ego4o: Egocentric Human Motion Capture and Understanding from Multi-Modal Input](ego4o_egocentric_human_motion_capture_and_understanding_from_multi-modal_input.md)
+- [SUGAR: Learning Skeleton Representation with Visual-Motion Knowledge for Action Recognition](../../AAAI2026/video_understanding/sugar_learning_skeleton_representation_with_visual-motion_knowledge_for_action_r.md)
 
 <!-- RELATED:END -->

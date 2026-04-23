@@ -154,6 +154,6 @@ PSNR 比 GaussianMarker 高 5.4 dB，LPIPS 低 87%。
 - [Robust and Efficient 3D Gaussian Splatting for Urban Scene Reconstruction](../../ICCV2025/3d_vision/robust_and_efficient_3d_gaussian_splatting_for_urban_scene_reconstruction.md)
 - [VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM](varsplat_uncertainty-aware_3d_gaussian_splatting_for_robust_rgb-d_slam.md)
 - [DroneSplat: 3D Gaussian Splatting for Robust 3D Reconstruction from In-the-Wild Drone Imagery](dronesplat_3d_gaussian_splatting_for_robust_3d_reconstruction_from_in-the-wild_d.md)
-- [RainyGS: Efficient Rain Synthesis with Physically-Based Gaussian Splatting](rainygs_efficient_rain_synthesis_with_physically-based_gaussian_splatting.md)
+- [Gaussian Splatting for Efficient Satellite Image Photogrammetry (EOGS)](gaussian_splatting_for_efficient_satellite_image_photogrammetry.md)
 
 <!-- RELATED:END -->

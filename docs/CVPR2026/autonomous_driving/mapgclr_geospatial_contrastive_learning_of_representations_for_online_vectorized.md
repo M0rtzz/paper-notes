@@ -158,6 +158,6 @@ $$\mathcal{L}_{\text{semi}} = \lambda_{\text{sup}} \mathcal{L}_{\text{sup}} + \l
 - [ReScene4D: Temporally Consistent Semantic Instance Segmentation of Evolving Indoor 3D Scenes](rescene4d_temporally_consistent_semantic_instance_segmentation_of_evolving_indoo.md)
 - [O3N: Omnidirectional Open-Vocabulary Occupancy Prediction](o3n_omnidirectional_openvocabulary_occupancy_predi.md)
 - [Failure Modes for Deep Learning-Based Online Mapping: How to Measure and Address Them](failure_modes_for_deep_learning-based_online_mapping_how_to_measure_and_address_.md)
-- [Learning Mutual View Information Graph for Adaptive Adversarial Collaborative Perception](learning_mutual_view_information_graph_for_adaptive_adversarial_collaborative_pe.md)
+- [Learning Vision-Language-Action World Models for Autonomous Driving](vla_world_learning_vision_language_action_world_models_for_autonomous_driving.md)
 
 <!-- RELATED:END -->

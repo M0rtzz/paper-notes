@@ -126,8 +126,8 @@ VLsI 的训练分三步走：(1) Verbalization Step：在大小 VLM 的中间目
 ## 相关论文
 
 - [ShortV: Efficient Multimodal Large Language Models by Freezing Visual Tokens in Ineffective Layers](../../ICCV2025/multimodal_vlm/shortv_efficient_multimodal_large_language_models_by_freezin.md)
-- [MBQ: Modality-Balanced Quantization for Large Vision-Language Models](mbq_modality-balanced_quantization_for_large_vision-language_models.md)
 - [HotelMatch-LLM: Joint Multi-Task Training of Small and Large Language Models for Efficient Multimodal Hotel Retrieval](../../ACL2025/multimodal_vlm/hotelmatch_llm_retrieval.md)
+- [MBQ: Modality-Balanced Quantization for Large Vision-Language Models](mbq_modality-balanced_quantization_for_large_vision-language_models.md)
 - [Towards Understanding How Knowledge Evolves in Large Vision-Language Models](towards_understanding_how_knowledge_evolves_in_large_vision-language_models.md)
 - [Continual Learning with Vision-Language Models via Semantic-Geometry Preservation](continual_learning_with_vision-language_models_via_semantic-geometry_preservatio.md)
 

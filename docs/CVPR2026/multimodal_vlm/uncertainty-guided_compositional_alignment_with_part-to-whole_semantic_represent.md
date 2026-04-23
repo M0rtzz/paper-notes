@@ -25,7 +25,10 @@ tags:
 提出UNCHA框架，在双曲VLM中用双曲不确定性建模部分图像对整体场景的语义代表性，通过不确定性引导的对比损失和蒸含损失增强组合性场景理解，在多个下游任务上超趇现有双曲VLM。
 
 ## 研究背景与动机
-VLM如CLIP在欧氏空间中难以捕捉层次关系（如部分-整体、父-子结构），且在多物体组合场景中存在偏差。
+
+### 现有痛点
+
+**现有痛点**：**领域现状**：VLM如CLIP在欧氏空间中难以捕捉层次关系（如部分-整体、父-子结构），且在多物体组合场景中存在偏差。
 
 双曲VLM（如MERU、ATMG、HyCoCLIP）通过双曲空间的负曲率和指数体积增长更好地保留层次结构，但现有方法未建模不同部分对整体的不同语义代表性——包含该场景核心物体的裁剪比背景裁剪更能代表整体场景。
 
@@ -115,9 +118,9 @@ $L = \mathcal{L}_{con}^{un} + \lambda_{ent}\mathcal{L}_{ent}^{un}$
 ## 相关论文
 
 - [When to Think and When to Look: Uncertainty-Guided Lookback](when_to_think_and_when_to_look_uncertainty-guided_lookback.md)
-- [Error Notebook-Guided, Training-Free Part Retrieval in 3D CAD Assemblies via Vision-Language Models](../../ICLR2026/multimodal_vlm/error_notebook-guided_training-free_part_retrieval_in_3d_cad_assemblies_via_visi.md)
-- [AGFT: Alignment-Guided Fine-Tuning for Zero-Shot Adversarial Robustness of Vision-Language Models](agft_alignment-guided_fine-tuning_for_zero-shot_adversarial_robustness_of_vision.md)
 - [Uncertainty-Aware Knowledge Distillation for Multimodal Large Language Models](uncertainty-aware_knowledge_distillation_for_multimodal_large_language_models.md)
+- [Calico: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models](../../CVPR2025/multimodal_vlm/calico_part-focused_semantic_co-segmentation_with_large_vision-language_models.md)
 - [Continual Learning with Vision-Language Models via Semantic-Geometry Preservation](continual_learning_with_vision-language_models_via_semantic-geometry_preservatio.md)
+- [AGFT: Alignment-Guided Fine-Tuning for Zero-Shot Adversarial Robustness of Vision-Language Models](agft_alignment-guided_fine-tuning_for_zero-shot_adversarial_robustness_of_vision.md)
 
 <!-- RELATED:END -->

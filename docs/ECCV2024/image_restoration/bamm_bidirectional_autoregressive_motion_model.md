@@ -177,10 +177,10 @@ $$\mathcal{L}_{\text{hybrid}} = -\mathbb{E}_{\mathbf{X} \in p(\mathbf{X})}\left[
 
 ## 相关论文
 
-- [Spatially-Variant Degradation Model for Dataset-free Super-resolution](spatially-variant_degradation_model_for_dataset-free_super-resolution.md)
 - [MambaIR: A Simple Baseline for Image Restoration with State-Space Model](mambair_a_simple_baseline_for_image_restoration_with_state-space_model.md)
-- [Joint RGB-Spectral Decomposition Model Guided Image Enhancement in Mobile Photography](joint_rgb-spectral_decomposition_model_guided_image_enhancement_in_mobile_photog.md)
+- [Spatially-Variant Degradation Model for Dataset-free Super-resolution](spatially-variant_degradation_model_for_dataset-free_super-resolution.md)
 - [DiTFlow: Video Motion Transfer with Diffusion Transformers](../../CVPR2025/image_restoration/video_motion_transfer_with_diffusion_transformers.md)
+- [Joint RGB-Spectral Decomposition Model Guided Image Enhancement in Mobile Photography](joint_rgb-spectral_decomposition_model_guided_image_enhancement_in_mobile_photog.md)
 - [MAD-Avatar: Motion-Aware Animatable Gaussian Avatars Deblurring](../../CVPR2026/image_restoration/motionaware_animatable_gaussian_avatars_deblurring.md)
 
 <!-- RELATED:END -->

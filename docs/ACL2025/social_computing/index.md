@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 社会计算方向 23篇论文解读
+  ACL2025 社会计算方向 27篇论文解读
 description: >-
-  23篇ACL2025 社会计算论文解读，主题涵盖：提出从被动检测到主动防御的范式转换、构建 BanStereoSet，一个包含、提出 BiasGuard，通过显式推理公平性规范来等，每篇含核心思想与方法详解。
+  27篇ACL2025 社会计算论文解读，主题涵盖：提出从被动检测到主动防御的范式转换、构建 BanStereoSet，一个包含、本文研究了一种被忽视的仇恨言论类型——表面上不包含等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 👥 社会计算
 
-**💬 ACL2025** · **23** 篇论文解读
+**💬 ACL2025** · **27** 篇论文解读
 
 **[A Survey on Proactive Defense Strategies Against Misinformation in Large Language Models](a_survey_on_proactive_defense_strategies_against_misinformation_in_large_languag.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[BanStereoSet: A Dataset to Measure Stereotypical Social Biases in LLMs for Bangla](banstereoset_a_dataset_to_measure_stereotypical_social_biases_in_llms_for_bangla.md)**
 
 :   构建 BanStereoSet，一个包含 1194 条填空式样本、覆盖 9 类偏见（种族/性别/宗教/职业/美貌/年龄/种姓/地区等）的孟加拉语刻板印象偏见数据集，用于评估多语言 LLM 在孟加拉语中的社会偏见，发现 GPT-4o 偏见最高，Mistral 最低。
+
+**[Beyond Negative Stereotypes -- Non-Negative Abusive Utterances about Identity Groups and Their Semantic Variants](beyond_negative_stereotypes_--_non-negative_abusive_utterances_about_identity_gr.md)**
+
+:   本文研究了一种被忽视的仇恨言论类型——表面上不包含负面刻板印象但实际上针对身份群体的滥用性表达，系统分析了这类"非负面滥用话语"的语义变体，并评估了现有检测模型的处理能力。
 
 **[BiasGuard: A Reasoning-Enhanced Bias Detection Tool for Large Language Models](biasguard_a_reasoning-enhanced_bias_detection_tool_for_large_language_models.md)**
 
@@ -30,6 +34,10 @@ description: >-
 
 :   首个TikTok阴谋论系统性分析：通过官方API收集美国150万条长视频，利用标签富集和远程监督识别阴谋论内容（每月约1000条新视频），评估TikTok创作者激励计划的影响，并测试开源LLM（Llama3、Mistral、Gemma）在基于音频转录的阴谋论检测上的效果（精确率高达96%但整体水平与微调RoBERTa相当）。
 
+**[Culture Matters in Toxic Language Detection in Persian](culture_matters_in_toxic_language_detection_in_persian.md)**
+
+:   本文系统比较了多种方法（微调、数据增强、零样本/少样本学习、跨语言迁移学习）在波斯语有害语言检测中的效果，揭示了文化相似性是决定跨语言迁移学习成功与否的关键因素——来自文化相近国家的语言数据带来更好的迁移效果。
+
 **[Detection of Human and Machine-Authored Fake News in Urdu](detection_of_human_and_machine-authored_fake_news_in_urdu.md)**
 
 :   本文提出了乌尔都语四分类假新闻检测任务（人类假/人类真/机器假/机器真），构建了首个乌尔都语机器生成新闻数据集，并提出层次化检测方法将四分类分解为机器文本检测和假新闻检测两个子任务，在域内和跨域设置中均优于基线。
@@ -37,6 +45,10 @@ description: >-
 **[Explicit vs. Implicit: Investigating Social Bias in Large Language Models through Self-Reflection](explicit_vs_implicit_investigating_social_bias_in_large_language_models_through_.md)**
 
 :   借鉴社会心理学中隐式联想测验（IAT）和自我报告评估（SRA），提出自反思评估框架系统研究 LLM 的显式和隐式偏见，发现 LLM 与人类一样存在显式-隐式偏见不一致——显式偏见轻微但隐式偏见强烈，且模型越大/对齐训练越多，这种不一致越严重。
+
+**[Exploring Gender Bias in Large Language Models: An In-depth Dive into the German Language](exploring_gender_bias_in_large_language_models_an_in-depth_dive_into_the_german_.md)**
+
+:   本文针对德语场景构建了五个性别偏见评测数据集，并在八个多语言 LLM 上进行系统评估，揭示了德语特有的性别偏见挑战——包括阳性职业名词的歧义解读和看似中性的名词对性别感知的影响。
 
 **[Exploring Multimodal Challenges in Toxic Chinese Detection: Taxonomy, Benchmark, and Findings](exploring_multimodal_challenges_in_toxic_chinese_detection_taxonomy_benchmark_an.md)**
 
@@ -69,6 +81,10 @@ description: >-
 **[Is LLM an Overconfident Judge? Unveiling the Capabilities of LLMs in Detecting Offensive Language with Annotation Disagreement](is_llm_an_overconfident_judge_unveiling_the_capabilities_of_llms_in_detecting_of.md)**
 
 :   系统评估了多个 LLM 在攻击性语言检测中面对标注分歧时的表现，发现 LLM 在标注者高度一致的样本上表现优异（GPT-4o F1 85.24%）但在低一致度样本上骤降至 57.06%，且模型对不确定样本表现出严重的过度自信；进一步通过 few-shot 和指令微调实验证明，在训练中引入分歧样本可同时提升检测准确率和人-AI 对齐度。
+
+**[K/DA: Automated Data Generation Pipeline for Detoxifying Implicitly Offensive Language in Korean](kda_automated_data_generation_pipeline_for_detoxifying_implicitly_offensive_lang.md)**
+
+:   本文提出 K/DA，一个自动化的韩语攻击性语言配对数据生成管线，通过 RAG 从在线社区检索时下流行的俚语来增强中性句子生成毒性版本，配合两阶段过滤（配对一致性 + 隐性攻击性），生成了 7.5K 高质量中性-毒性配对数据集，训练的去毒化模型优于基于人工标注和翻译数据集训练的模型。
 
 **[Synergizing LLMs with Global Label Propagation for Multimodal Fake News Detection](llm_label_propagation.md)**
 

@@ -25,6 +25,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：LLM 同时拥有参数知识 $\mathcal{P}$（预训练获得）和上下文知识 $\mathcal{C}$（推理时提供），现有对比解码（CCD）方法通过对比两种知识的输出分布来选择更可靠的知识源。
 
 **现有痛点**：CCD 假设至少一种知识可用，但现实中常遇到两者都不可靠的情况——此时 LLM 应弃权而非强行回答（会产生幻觉）。
@@ -102,7 +104,7 @@ CDA 在所有场景下均超越现有 CCD 方法（Zhao et al., Shi et al.等）
 - [Building Better: Avoiding Pitfalls in Developing Language Resources when Data is Scarce](building_better_avoiding_pitfalls_in_developing_language_resources_when_data_is_.md)
 - [EpiCoDe: Boosting Model Performance Beyond Training with Extrapolation and Contrastive Decoding](epicode_boosting_model_performance_beyond_training_with_extrapolation_and_contra.md)
 - [Do not Abstain! Identify and Solve the Uncertainty](do_not_abstain_identify_and_solve_the_uncertainty.md)
-- [Decoding Reading Goals from Eye Movements](decoding_reading_goals_from_eye_movements.md)
 - [Align When They Want, Complement When They Need! Human-Centered Ensembles for Adaptive Human-AI Collaboration](../../AAAI2026/others/align_when_they_want_complement_when_they_need_human-centere.md)
+- [Decoding Reading Goals from Eye Movements](decoding_reading_goals_from_eye_movements.md)
 
 <!-- RELATED:END -->

@@ -114,6 +114,6 @@ tags:
 - [ARM: Appearance Reconstruction Model for Relightable 3D Generation](arm_appearance_reconstruction_model_for_relightable_3d_generation.md)
 - [BecomingLit: Relightable Gaussian Avatars with Hybrid Neural Shading](../../NeurIPS2025/3d_vision/becominglit_relightable_gaussian_avatars_with_hybrid_neural_shading.md)
 - [Gaussian Splatting with Discretized SDF for Relightable Assets](../../ICCV2025/3d_vision/gaussian_splatting_with_discretized_sdf_for_relightable_assets.md)
-- [ROGR: Relightable 3D Objects using Generative Relighting](../../NeurIPS2025/3d_vision/rogr_relightable_3d_objects_using_generative_relighting.md)
+- [Textured Gaussians for Enhanced 3D Scene Appearance Modeling](textured_gaussians_for_enhanced_3d_scene_appearance_modeling.md)
 
 <!-- RELATED:END -->

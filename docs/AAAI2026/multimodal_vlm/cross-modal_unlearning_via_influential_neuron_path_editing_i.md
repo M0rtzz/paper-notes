@@ -159,7 +159,7 @@ MIP-Editor 的核心优势在于 path-aware 编辑比 point-wise 剪枝更"精�
 - [Modality-Aware Neuron Pruning for Unlearning in Multimodal Large Language Models](../../ACL2025/multimodal_vlm/manu_modality_aware_unlearning.md)
 - [Cross-modal Proxy Evolving for OOD Detection with Vision-Language Models](cross-modal_proxy_evolving_for_ood_detection_with_vision-lan.md)
 - [CrossVid: A Comprehensive Benchmark for Evaluating Cross-Video Reasoning in Multimodal Large Language Models](crossvid_a_comprehensive_benchmark_for_evaluating_cross-vide.md)
-- [SpeakerLM: End-to-End Versatile Speaker Diarization and Recognition with Multimodal Large Language Models](speakerlm_end-to-end_versatile_speaker_diarization_and_recognition_with_multimod.md)
+- [MMUnlearner: Reformulating Multimodal Machine Unlearning in the Era of Multimodal Large Language Models](../../ACL2025/multimodal_vlm/mmunlearner_reformulating_multimodal_machine_unlearning_in_the_era_of_multimodal.md)
 - [InEx: Hallucination Mitigation via Introspection and Cross-Modal Multi-Agent Collaboration](inex_hallucination_mitigation_via_introspection_and_cross-mo.md)
 
 <!-- RELATED:END -->

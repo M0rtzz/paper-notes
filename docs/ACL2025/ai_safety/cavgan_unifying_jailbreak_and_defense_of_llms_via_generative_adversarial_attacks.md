@@ -152,8 +152,8 @@ CAVGAN 在 Qwen2.5-7B 上 DSR 达 91.12%（SOTA +12%），同时 BAR 维持 91.4
 
 - [TIP of the Iceberg: Task-in-Prompt Adversarial Attacks on LLMs](tip_iceberg_adversarial_attacks.md)
 - [On the Robustness of Verbal Confidence of LLMs in Adversarial Attacks](../../NeurIPS2025/ai_safety/on_the_robustness_of_verbal_confidence_of_llms_in_adversarial_attacks.md)
+- [Bias in the Mirror: Are LLMs' Opinions Robust to Their Own Adversarial Attacks](bias_in_the_mirror_are_llms_opinions_robust_to_their_own_adversarial_attacks.md)
+- [Crafting Privacy-Preserving Adversarial Examples: A Defense Against Membership Inference](crafting_privacy-preserving_adversarial_examples_a_defense_against_membership_inf.md)
 - [MixAT: Combining Continuous and Discrete Adversarial Training for LLMs](../../NeurIPS2025/ai_safety/mixat_combining_continuous_and_discrete_adversarial_training_for_llms.md)
-- [CLIP-Guided Generative Networks for Transferable Targeted Adversarial Attacks](../../ECCV2024/ai_safety/clip-guided_generative_networks_for_transferable_targeted_adversarial_attacks.md)
-- [Rethinking Target Label Conditioning in Adversarial Attacks: A 2D Tensor-Guided Generative Approach](../../AAAI2026/ai_safety/rethinking_target_label_conditioning_in_adversarial_attacks_a_2d_tensor-guided_g.md)
 
 <!-- RELATED:END -->

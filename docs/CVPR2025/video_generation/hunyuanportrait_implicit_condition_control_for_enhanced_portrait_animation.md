@@ -124,9 +124,9 @@ Cross-reenactment用户评分中，HunyuanPortrait在面部运动(4.55)、视频
 ## 相关论文
 
 - [Teller: Real-Time Streaming Audio-Driven Portrait Animation with Autoregressive Motion Generation](teller_real-time_streaming_audio-driven_portrait_animation_with_autoregressive_m.md)
+- [Spatiotemporal Skip Guidance for Enhanced Video Diffusion Sampling](spatiotemporal_skip_guidance_for_enhanced_video_diffusion_sampling.md)
 - [AnimateAnything: Consistent and Controllable Animation for Video Generation](animateanything_consistent_and_controllable_animation_for_video_generation.md)
+- [TokenMotion: Decoupled Motion Control via Token Disentanglement for Human-centric Video Generation](tokenmotion_decoupled_motion_control_via_token_disentanglement_for_human-centric.md)
 - [MotiF: Making Text Count in Image Animation with Motion Focal Loss](motif_making_text_count_in_image_animation_with_motion_focal_loss.md)
-- [PoseTraj: Pose-Aware Trajectory Control in Video Diffusion](posetraj_pose-aware_trajectory_control_in_video_diffusion.md)
-- [Multi-identity Human Image Animation with Structural Video Diffusion](../../ICCV2025/video_generation/multi-identity_human_image_animation_with_structural_video_diffusion.md)
 
 <!-- RELATED:END -->

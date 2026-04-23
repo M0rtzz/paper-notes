@@ -2,7 +2,7 @@
 title: >-
   ICML2025 推荐系统方向 17篇论文解读
 description: >-
-  17篇ICML2025 推荐系统论文解读，主题涵盖：提出一种基于 LLM 的自适应信息获取框架、提出PROSE方法，通过迭代精炼和跨样本一致性验证、提出了一套判断 AI 基准何时应被废弃的 **7等，每篇含核心思想与方法详解。
+  17篇ICML2025 推荐系统论文解读，主题涵盖：提出一种基于 LLM 的自适应信息获取框架、提出通过分析用户写作样本预测其偏好来实现个性化、提出了一套判断 AI 基准何时应被废弃的 **7等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -16,7 +16,7 @@ description: >-
 
 **[Aligning LLMs by Predicting Preferences from User Writing Samples](aligning_llms_by_predicting_preferences_from_user_writing_samples.md)**
 
-:   提出PROSE方法，通过迭代精炼和跨样本一致性验证从用户写作样本中推断偏好描述，在摘要和邮件写作任务上比CIPHER提升33%，且可与ICL互补再提9%。
+:   提出通过分析用户写作样本预测其偏好来实现个性化 LLM 对齐的新范式，无需显式偏好标注即可从用户文本风格中推断偏好信号，为个性化对齐开辟了新的数据来源。
 
 **[Deprecating Benchmarks: Criteria and Framework](deprecating_benchmarks_criteria_and_framework.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[PARM: Multi-Objective Test-Time Alignment via Preference-Aware Autoregressive Reward Model](parm_multi-objective_test-time_alignment_via_preference-aware_autoregressive_rew.md)**
 
-:   提出PARM——统一的Preference-Aware自回归奖励模型，通过PBLoRA双线性低秩适配以偏好向量为条件，实现单个ARM替代K个独立ARM的多目标测试时对齐，还支持弱到强引导（小PARM引导大LLM）。
+:   提出 PARM 单一统一的偏好感知自回归奖励模型，通过 PBLoRA（Preference-Aware Bilinear Low-Rank Adaptation）将偏好向量条件化到 ARM 中，实现高效的多目标测试时对齐——用 1 个奖励模型替代 k 个独立 ARM，降低推理成本且支持弱到强引导（7B 引导 65B）。
 
 **[Position: Don't Use the CLT in LLM Evals with Fewer Than a Few Hundred Datapoints](position_dont_use_the_clt_in_llm_evals_with_fewer_than_a_few_hundred_datapoints.md)**
 

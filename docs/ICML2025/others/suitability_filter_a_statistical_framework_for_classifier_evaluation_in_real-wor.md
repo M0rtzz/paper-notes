@@ -131,7 +131,7 @@ Pipeline：
 - [Capacity Matters: A Proof-of-Concept for Transformer Memorization on Real-World Data](../../ACL2025/others/capacity_matters_a_proof-of-concept_for_transformer_memorization_on_real-world_d.md)
 - [4DGT: Learning a 4D Gaussian Transformer Using Real-World Monocular Videos](../../NeurIPS2025/others/4dgt_learning_a_4d_gaussian_transformer_using_realworld_mono.md)
 - [General Agents Contain World Models](general_agents_contain_world_models.md)
+- [Crowdsourcing of Real-world Image Annotation via Visual Properties](../../CVPR2026/others/crowdsourcing_of_real_world_image_annotation_via_visual_properties.md)
 - [Time-Aware World Model for Adaptive Prediction and Control](time-aware_world_model_for_adaptive_prediction_and_control.md)
-- [Learning to Align Multi-Faceted Evaluation: A Unified and Robust Framework](../../ACL2025/others/learning_to_align_multi-faceted_evaluation_a_unified_and_robust_framework.md)
 
 <!-- RELATED:END -->

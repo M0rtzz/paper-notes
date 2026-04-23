@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 其他方向 137篇论文解读
+  NeurIPS2025 其他方向 136篇论文解读
 description: >-
-  137篇NeurIPS2025 其他论文解读，主题涵盖：提出4DGT——一种基于4D高斯的Transfor、用 JAX 实现可微分的供应链、本文将跨域视线估计(CDGE)问题建模为广义标签偏等，每篇含核心思想与方法详解。
+  136篇NeurIPS2025 其他论文解读，主题涵盖：提出4DGT——一种基于4D高斯的Transfor、用 JAX 实现可微分的供应链、本文将跨域视线估计(CDGE)问题建模为广义标签偏等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🧠 NeurIPS2025** · **137** 篇论文解读
+**🧠 NeurIPS2025** · **136** 篇论文解读
 
 **[4DGT: Learning a 4D Gaussian Transformer Using Real-World Monocular Videos](4dgt_learning_a_4d_gaussian_transformer_using_realworld_mono.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[Adaptive Data Analysis for Growing Data](adaptive_data_analysis_for_growing_data.md)**
 
-:   首次提出动态增长数据上自适应分析的泛化界，允许分析者依据当前数据规模自适应调度查询，在批量查询设定下数据需求增长为自适应查询数的平方根，匹配静态设定下的渐近最优结果。
+:   本文首次给出了动态增长数据上自适应分析的泛化界，允许分析者根据数据规模自适应调度查询，并通过时变经验精度界和差分隐私机制实现随数据积累越来越紧的泛化保证。
 
 **[Addressing Mark Imbalance in Integration-free Neural Marked Temporal Point Processes](addressing_mark_imbalance_in_integrationfree_neural_marked_t.md)**
 
@@ -89,10 +89,6 @@ description: >-
 **[Computable Universal Online Learning](computable_universal_online_learning.md)**
 
 :   在 universal online learning 框架中引入可计算性约束，证明了"数学上可学习"不等于"可用计算机程序实现的可学习"，并给出了 agnostic 和 proper 变体下可计算学习的精确刻画。
-
-**[ConTextTab: 语义感知的表格上下文学习器](contexttab_a_semantics-aware_tabular_in-context_learner.md)**
-
-:   ConTextTab 将语义嵌入（列名、分类值的文本编码）融入 table-native ICL 架构，并在大规模真实表格数据（T4, ~2.18M 表）上预训练，在语义丰富的 CARTE 基准上取得新 SOTA，同时在非语义基准上保持与现有方法竞争力。
 
 **[Contextual Dynamic Pricing with Heterogeneous Buyers](contextual_dynamic_pricing_with_heterogeneous_buyers.md)**
 

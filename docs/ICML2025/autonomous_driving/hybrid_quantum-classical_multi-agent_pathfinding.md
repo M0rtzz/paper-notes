@@ -26,12 +26,29 @@ tags:
 
 ## 研究背景与动机
 
-- **领域现状**：MAPF是NP-hard问题，在无人机交通等大规模应用中至关重要。经典最优求解器如CBS和BCP在大规模实例上受限。
-- **现有痛点**：量子计算有望突破NP-hard问题的瓶颈，但现有QUBO-MAPF方法要么基于边的表示导致问题规模远超当前量子硬件能力，要么缺乏理论最优性保证。
-- **核心矛盾**：NISQ时代的量子硬件有限的量子比特数和高错误率  vs 需要指数级变量数的MAPF问题。
-- **本文目标**：设计可在当前量子硬件上运行的、具有理论最优性保证的MAPF量子算法。
-- **切入角度**：将BCP框架中的高层ILP问题转化为紧凑的QUBO问题，通过冲突图减少约束数量。
-- **核心 idea**：通过迭代扩展路径集+冲突图QUBO求解+理论最优性判定准则，实现可在量子硬件上求解的最优MAPF。
+### 领域现状
+
+**领域现状**：领域现状**：MAPF是NP-hard问题，在无人机交通等大规模应用中至关重要。经典最优求解器如CBS和BCP在大规模实例上受限。
+
+### 现有痛点
+
+**现有痛点**：现有痛点**：量子计算有望突破NP-hard问题的瓶颈，但现有QUBO-MAPF方法要么基于边的表示导致问题规模远超当前量子硬件能力，要么缺乏理论最优性保证。
+
+### 核心矛盾
+
+**核心矛盾**：核心矛盾**：NISQ时代的量子硬件有限的量子比特数和高错误率  vs 需要指数级变量数的MAPF问题。
+
+### 解决思路
+
+**解决思路**：本文目标**：设计可在当前量子硬件上运行的、具有理论最优性保证的MAPF量子算法。
+
+### 补充说明
+
+**补充说明**：切入角度**：将BCP框架中的高层ILP问题转化为紧凑的QUBO问题，通过冲突图减少约束数量。
+
+### 补充说明
+
+**补充说明**：核心 idea**：通过迭代扩展路径集+冲突图QUBO求解+理论最优性判定准则，实现可在量子硬件上求解的最优MAPF。
 
 ## 方法详解
 
@@ -121,6 +138,6 @@ tags:
 - [SRefiner: Soft-Braid Attention for Multi-Agent Trajectory Refinement](../../ICCV2025/autonomous_driving/srefiner_soft-braid_attention_for_multi-agent_trajectory_refinement.md)
 - [When Every Millisecond Counts: Real-Time Anomaly Detection via the Multimodal Asynchronous Hybrid Network](when_every_millisecond_counts_real-time_anomaly_detection_via_the_multimodal_asy.md)
 - [Learning to Detect Objects from Multi-Agent LiDAR Scans without Manual Labels](../../CVPR2025/autonomous_driving/learning_to_detect_objects_from_multi-agent_lidar_scans_without_manual_labels.md)
-- [Regret Lower Bounds for Decentralized Multi-Agent Stochastic Shortest Path Problems](../../NeurIPS2025/autonomous_driving/regret_lower_bounds_for_decentralized_multi-agent_stochastic_shortest_path_probl.md)
+- [BayesG: Bayesian Ego-Graph Inference for Networked Multi-Agent Reinforcement Learning](../../NeurIPS2025/autonomous_driving/bayesian_ego-graph_inference_for_networked_multi-agent_reinforcement_learning.md)
 
 <!-- RELATED:END -->

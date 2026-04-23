@@ -273,7 +273,7 @@ tags:
 - [NeoVerse: Enhancing 4D World Model with in-the-wild Monocular Videos](../../CVPR2026/video_generation/neoverse_enhancing_4d_world_model_with_in-the-wild_monocular_videos.md)
 - [SeeU: Seeing the Unseen World via 4D Dynamics-aware Generation](../../CVPR2026/video_generation/seeu_seeing_the_unseen_world_via_4d_dynamics-aware_generation.md)
 - [VideoScene: Distilling Video Diffusion Model to Generate 3D Scenes in One Step](../../CVPR2025/video_generation/videoscene_distilling_video_diffusion_model_to_generate_3d_scenes_in_one_step.md)
-- [World-Consistent Video Diffusion with Explicit 3D Modeling](../../CVPR2025/video_generation/world-consistent_video_diffusion_with_explicit_3d_modeling.md)
 - [RealCam-I2V: Real-World Image-to-Video Generation with Interactive Complex Camera Control](../../ICCV2025/video_generation/realcam-i2v_real-world_image-to-video_generation_with_interactive_complex_camera.md)
+- [World-Consistent Video Diffusion with Explicit 3D Modeling](../../CVPR2025/video_generation/world-consistent_video_diffusion_with_explicit_3d_modeling.md)
 
 <!-- RELATED:END -->

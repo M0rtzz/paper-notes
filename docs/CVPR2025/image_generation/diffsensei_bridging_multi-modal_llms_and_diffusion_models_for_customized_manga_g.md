@@ -2,90 +2,113 @@
 title: >-
   [论文解读] DiffSensei: Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation
 description: >-
-  [CVPR 2025][图像生成][漫画生成] 提出 DiffSensei，两阶段漫画面板生成框架——Stage 1 用掩码交叉注意力注入实现多角色布局控制和对话气泡放置，Stage 2 用 MLLM 适配器根据文本描述动态调整角色特征（表情/姿态/动作），解决了先前方法的"复制粘贴"效果问题。
+  [CVPR 2025][图像生成][漫画生成] 提出 DiffSensei，结合扩散模型与MLLM实现多角色定制化漫画生成，并发布首个大规模漫画数据集 MangaZero（43K页/427K标注面板）。
 tags:
   - CVPR 2025
   - 图像生成
   - 漫画生成
-  - 多角色控制
-  - 多模态LLM
-  - 掩码交叉注意力
-  - 对话气泡
+  - 扩散模型
+  - MLLM
+  - 故事可视化
 ---
 
 # DiffSensei: Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation
 
 **会议**: CVPR 2025  
 **arXiv**: [2412.07589](https://arxiv.org/abs/2412.07589)  
-**代码**: https://jianzongwu.github.io/projects/diffsensei/ (代码+模型+数据集开源)  
-**领域**: 扩散模型 / 图像生成  
-**关键词**: 漫画生成, 多角色控制, 多模态LLM, 掩码交叉注意力, 对话气泡
+**代码**: https://jianzongwu.github.io/projects/diffsensei/ (项目页)  
+**领域**: 图像生成  
+**关键词**: 漫画生成, 扩散模型, MLLM, 角色定制, MangaZero
 
 ## 一句话总结
-提出 DiffSensei，两阶段漫画面板生成框架——Stage 1 用掩码交叉注意力注入实现多角色布局控制和对话气泡放置，Stage 2 用 MLLM 适配器根据文本描述动态调整角色特征（表情/姿态/动作），解决了先前方法的"复制粘贴"效果问题。
+本文提出新任务"定制化漫画生成"并引入 DiffSensei 框架，用 MLLM 作为文本兼容的角色适配器连接扩散模型，通过 masked cross-attention 实现精确布局控制，在自建的大规模 MangaZero 数据集（43K页/427K标注面板）上显著超越现有方法。
 
 ## 研究背景与动机
 
-**领域现状**：自定义漫画生成需要在面板中放置多个特定角色，并根据剧情调整角色的表情和动作。现有故事生成方法（StoryDiffusion, SEED-Story 等）在角色一致性或动态表现力上不足。
+**领域现状**：故事可视化（从文本生成视觉叙事）近年取得进展，但漫画生成因其独特需求（角色跨面板一致性、精确布局控制、对话整合）一直是未被充分探索的方向。现有方法主要做低层次的图像风格转换，无法从头生成定制化漫画。
 
-**现有痛点**：(1) 现有方法通常"复制粘贴"参考角色特征，无法根据文本动态改变角色表情/姿态；(2) 多角色场景中角色特征容易混淆或泄露到错误位置；(3) 对话气泡的位置控制被忽略。
+**现有痛点**：(1) 零样本角色定制方案容易产生"复制粘贴"效果，角色表情/姿态缺乏变化；(2) 现有故事可视化数据集缺少角色标注和布局控制信息；(3) 扩散模型生成的角色图像倾向于僵化追随输入角色图的像素分布，即使在训练数据中看到同一角色的多种状态。
 
-**核心矛盾**：需要保持角色身份一致性（像参考图）同时允许根据文本改变角色状态（不同于参考图），这两个目标在特征注入时相互冲突。
+**核心矛盾**：需要在保持角色身份一致的同时让其表情、姿态、动作根据面板文本动态变化，单纯的图像条件注入难以实现这种灵活控制。
 
-**本文目标** 实现多角色漫画面板生成，每个角色保持身份但根据面板描述动态调整表情/姿态，同时控制对话气泡位置。
+**本文目标**：提出定制化漫画生成任务并构建完整的数据集+框架解决方案。
 
-**切入角度**：用 MLLM 作为角色特征适配器——将角色图像压缩为 token，MLLM 理解文本后调整这些 token 的表示，使角色特征与文本描述对齐后再注入扩散模型。
+**切入角度**：借鉴 MLLM 在图像编辑中的文本理解能力，用 MLLM 作为角色特征的文本兼容适配器，让角色特征在输入扩散模型前就已经根据文本提示进行了调整。
 
-**核心 idea**：MLLM 理解面板文本描述后调整角色特征 token，使扩散模型生成的角色在保持身份的同时动态响应剧情变化。
+**核心 idea**：MLLM 不直接生成图像，而是调整角色特征向量使其与面板文本对齐，然后通过 masked cross-attention 注入扩散模型的正确空间位置。
 
 ## 方法详解
 
+### 整体框架
+DiffSensei 由两个核心组件组成：(1) 基于扩散模型的图像生成器——以 SD 为基础，接收面板文本和角色特征生成漫画面板；(2) MLLM角色适配器——接收角色参考图和面板描述文字，输出根据文本调整过的角色特征向量。此外包含布局控制（masked attention）和对话嵌入模块。
+
 ### 关键设计
 
-1. **掩码交叉注意力注入 (Stage 1)**：每个角色的特征仅在其指定的 bounding box 区域内通过交叉注意力注入扩散模型。角色特征由 CLIP + 漫画专用编码器（Magi encoder）+ resampler 提取。对话嵌入将气泡位置编码到 latent 空间。防止角色特征泄露到错误区域
+1. **MLLM 角色适配器（Text-Compatible Identity Adapter）**:
 
-2. **MLLM 角色适配器 (Stage 2)**：基于 SEED-X 初始化的 MLLM，输入角色源特征 + 面板描述文本，输出适配后的角色特征。训练用 LM loss + MSE loss（特征对齐）+ 扩散 loss（通过冻结的图像生成器）。MLLM 的语言理解能力使角色特征能根据"微笑"、"愤怒"等文本动态变化
+    - 功能：根据面板文本描述动态调整角色特征，实现表情/姿态/动作的灵活变化
+    - 核心思路：将角色参考图通过视觉编码器提取特征，与面板描述文本一起输入 MLLM。MLLM 的文本理解能力使其能够理解"角色应该在这个面板中展现什么状态"，输出修改后的角色特征向量。这些向量再通过 cross-attention 注入扩散模型
+    - 设计动机：直接将角色图像特征注入扩散模型会导致僵化的像素复制，MLLM作为中间层能根据语义进行特征调整
 
-3. **对话位置控制**：将对话气泡的 bounding box 编码为对话嵌入，与噪声 latent 相加，引导生成器在正确位置留出对话空间
+2. **Masked Cross-Attention**:
+
+    - 功能：精确控制多角色在面板中的空间布局
+    - 核心思路：对每个角色定义空间 mask，在扩散模型的 cross-attention 层中限制角色特征只影响其对应的空间区域。不同于直接像素级别的条件注入，masked attention 在特征级别工作，允许扩散模型在约束范围内自由生成细节
+    - 设计动机：漫画需要多角色精确定位，简单的全局条件注入无法支持多角色场景
+
+3. **MangaZero 数据集**:
+
+    - 功能：提供首个支持多角色、多状态漫画生成的大规模训练数据
+    - 核心思路：收集日本黑白漫画，包含 43,264 页和 427,147 个标注面板。每个面板标注了角色ID、角色区域、面板描述和对话文字。同一角色在不同面板中展现不同表情和姿态
+    - 设计动机：缺乏多角色多状态标注数据是该领域的瓶颈
 
 ### 损失函数 / 训练策略
-Stage 1: 标准扩散去噪损失。Stage 2: LM loss + MSE loss + 扩散 loss 联合训练。MangaZero 数据集（黑白漫画）。
+基于扩散模型的标准去噪损失，配合角色一致性损失确保生成的角色与参考图身份一致。MLLM 组件在联合训练中学习文本条件调整。
 
 ## 实验关键数据
 
-| 指标 | DiffSensei | 最优基线 (MS-Diffusion) |
-|------|-----------|---------------------|
-| FID↓ | **0.407** | 0.408 |
-| CLIP↑ | **0.235** | 0.229 |
-| DINO-I↑ | **0.618** | 0.610 |
-| Dialog F1↑ | **0.727** | 0.720 |
+### 主实验
 
-消融：去掉 MLLM 适配器 CLIP 降 1.73%；去掉 Magi encoder 角色相似度下降；对话嵌入换 Fourier 编码 F1 从 0.653 暴降到 0.364。用户偏好研究中整体质量、角色一致性均被偏好。
+| 方法 | 角色一致性 | 文本遵循度 | 视觉质量 |
+|------|-----------|-----------|---------|
+| DiffSensei | **最优** | **最优** | **最优** |
+| IP-Adapter + ControlNet | 次优 | 中等 | 良好 |
+| StoryDiffusion | 中等 | 中等 | 中等 |
 
 ### 关键发现
-- MLLM 适配器是动态角色表现的关键——没有它角色只能"复制粘贴"
-- 对话嵌入比 Fourier 位置编码效果好得多（F1: 0.653 vs 0.364）
-- 在未见角色（Manga109）上仍然泛化良好
+- MLLM 适配器有效解决了"像素复制"问题，生成的角色表情和姿态能根据面板文本动态变化
+- Masked attention 成功支持多达4个角色的同时精确布局控制
+- MangaZero 数据集的多状态标注对训练角色变化能力至关重要
+- 可应用于真实人脸照片的漫画化
 
-## 局限性
-- 角色 ID 标注仅在单页面内一致，不能跨页/章保持长程一致
-- 只控制对话气泡位置不生成文字内容
-- 仅验证黑白漫画
+## 亮点与洞察
+- 将 MLLM 作为"语义调节器"而非生成器的设计思路巧妙——不改变扩散模型的生成过程，只改变输入条件
+- MangaZero 数据集的构建对推动漫画/故事可视化研究有重要基础设施价值
+- Masked cross-attention 的布局控制机制可迁移到其他需要精确多实体控制的生成任务
+
+## 局限与展望
+- 仅针对黑白日本漫画风格，彩色漫画和其他风格适用性未验证
+- 角色姿态变化仍受限于训练数据中的姿态分布
+- 对话气泡的位置和样式控制相对粗糙
+
+## 相关工作与启发
+- **vs IP-Adapter**: 通过图像提示注入实现角色一致，但缺乏文本驱动的动态调整。DiffSensei的MLLM适配器增加了语义级别的控制
+- **vs StoryDiffusion**: 关注连贯图像序列但缺少角色标注和布局控制。DiffSensei提供漫画特化的精确控制
 
 ## 评分
-- 新颖性: ⭐⭐⭐⭐ MLLM 作为角色特征适配器是创新设计
-- 实验充分度: ⭐⭐⭐⭐ 多基准+消融+用户研究，但 FID 差异小
-- 写作质量: ⭐⭐⭐⭐ 两阶段设计清晰
-- 价值: ⭐⭐⭐⭐ 对漫画产业自动化有直接应用价值
+- 新颖性: ⭐⭐⭐⭐⭐ 新任务定义+MLLM作角色适配器+大规模数据集，贡献全面
+- 实验充分度: ⭐⭐⭐⭐ 定性结果丰富，定量评估覆盖多维度
+- 写作质量: ⭐⭐⭐⭐ 任务定义清晰，可视化效果出色
+- 价值: ⭐⭐⭐⭐⭐ 对漫画/故事生成领域有开创性贡献
 
 <!-- RELATED:START -->
 
 ## 相关论文
 
-- [LaTexBlend: Scaling Multi-concept Customized Generation with Latent Textual Blending](latexblend_scaling_multi-concept_customized_generation_with_latent_textual_blend.md)
 - [Diffusion Self-Distillation for Zero-Shot Customized Image Generation](diffusion_self-distillation_for_zero-shot_customized_image_generation.md)
+- [LaTexBlend: Scaling Multi-concept Customized Generation with Latent Textual Blending](latexblend_scaling_multi-concept_customized_generation_with_latent_textual_blend.md)
+- [OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows](omniflow_any-to-any_generation_with_multi-modal_rectified_flows.md)
+- [MMAR: Towards Lossless Multi-Modal Auto-Regressive Probabilistic Modeling](mmar_towards_lossless_multi-modal_auto-regressive_probabilistic_modeling.md)
 - [SyncVP: Joint Diffusion for Synchronous Multi-Modal Video Prediction](syncvp_joint_diffusion_for_synchronous_multi-modal_video_prediction.md)
-- [UNIC-Adapter: Unified Image-Instruction Adapter with Multi-modal Transformer for Image Generation](unic-adapter_unified_image-instruction_adapter_with_multi-modal_transformer_for_.md)
-- [DreamRelation: Bridging Customization and Relation Generation](dreamrelation_bridging_customization_and_relation_generation.md)
 
 <!-- RELATED:END -->

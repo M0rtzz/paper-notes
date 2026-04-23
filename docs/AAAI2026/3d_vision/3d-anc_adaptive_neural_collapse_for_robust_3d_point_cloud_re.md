@@ -103,10 +103,10 @@ tags:
 
 ## 相关论文
 
+- [APC: Transferable and Efficient Adversarial Point Counterattack for Robust 3D Point Cloud Recognition](../../CVPR2026/3d_vision/apc_adversarial_point_counterattack.md)
 - [DAPointMamba: Domain Adaptive Point Mamba for Point Cloud Completion](dapointmamba_domain_adaptive_point_mamba_for_point_cloud_completion.md)
 - [Point Cloud Quantization through Multimodal Prompting for 3D Understanding](point_cloud_quantization_through_multimodal_prompting_for_3d_understanding.md)
 - [Multi-Modal Assistance for Unsupervised Domain Adaptation on Point Cloud 3D Object Detection](multi-modal_assistance_for_unsupervised_domain_adaptation_on_point_cloud_3d_obje.md)
-- [RPBG: Towards Robust Neural Point-based Graphics in the Wild](../../ECCV2024/3d_vision/rpbg_towards_robust_neural_point-based_graphics_in_the_wild.md)
-- [Toward Robust Neural Reconstruction from Sparse Point Sets](../../CVPR2025/3d_vision/toward_robust_neural_reconstruction_from_sparse_point_sets.md)
+- [Rethinking Multimodal Point Cloud Completion: A Completion-by-Correction Perspective](rethinking_multimodal_point_cloud_completion_a_completion-by-correction_perspect.md)
 
 <!-- RELATED:END -->

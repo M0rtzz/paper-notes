@@ -25,6 +25,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：协作理据化（RNP）是主流的模型无关自解释框架——生成器选择输入中最信息的子集作为理据，预测器基于理据进行预测，两者协作训练最大化准确率。
 
 **现有痛点**：作者发现一个反直觉的现象——即使去掉"最大化准确率"目标让生成器随机选择，预测器仍能达到很高准确率。说明预测器可能利用了理据选择过程引入的虚假相关。
@@ -69,9 +71,9 @@ tags:
 
 | 方法 | 文本F1 (平均) | 图F1 (平均) |
 |------|-------------|------------|
-| RNP (原始) | 72.3 | 68.5 |
-| A2I (本文) | **81.7** | **78.2** |
-| LLaMA-3.1-8B | 79.5 | - |
+| RNP (原始) | 72.3% | 68.5% |
+| A2I (本文) | **81.7%** | **78.2%** |
+| LLaMA-3.1-8B | 79.5% | - |
 
 ### 关键发现
 - 在所有数据集上均显著超越现有理据化方法
@@ -100,6 +102,6 @@ tags:
 - [Learning to Clean: Reinforcement Learning for Noisy Label Correction](../../NeurIPS2025/reinforcement_learning/learning_to_clean_reinforcement_learning_for_noisy_label_correction.md)
 - [Risk-Averse Total-Reward Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/risk-averse_total-reward_reinforcement_learning.md)
 - [Learning to Incentivize in Repeated Principal-Agent Problems with Adversarial Agent Arrivals](learning_to_incentivize_in_repeated_principal-agent_problems_with_adversarial_ag.md)
-- [Risk-Averse Constrained Reinforcement Learning with Optimized Certainty Equivalents](../../NeurIPS2025/reinforcement_learning/risk-averse_constrained_reinforcement_learning_with_optimized_certainty_equivale.md)
+- [Cross-Embodiment Offline Reinforcement Learning for Heterogeneous Robot Datasets](../../ICLR2026/reinforcement_learning/cross-embodiment_offline_reinforcement_learning_for_heterogeneous_robot_datasets.md)
 
 <!-- RELATED:END -->

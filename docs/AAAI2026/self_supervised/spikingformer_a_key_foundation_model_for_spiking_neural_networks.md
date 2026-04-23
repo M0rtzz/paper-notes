@@ -27,14 +27,21 @@ tags:
 
 ## 背景与动机
 
-SNN 的核心优势在于事件驱动的脉冲计算：用低功耗的累加 (AC, 0.9pJ) 替代高功耗的乘加 (MAC, 4.6pJ)。然而现有 SNN backbone 存在关键矛盾：
+### 领域现状
 
-- **SEW ResNet / Spikformer** 使用 SEW Residual 连接，残差加法后输出范围为 $\{0,1,2,...,16\}$，下一层卷积变成整数-浮点乘法，破坏 spike-driven 特性
-- **SD-Transformer** 使用 MS Residual + 线性注意力，保持 spike-driven 但失去全局建模能力
+**领域现状**：SNN 的核心优势在于事件驱动的脉冲计算：用低功耗的累加 (AC, 0.9pJ) 替代高功耗的乘加 (MAC, 4.6pJ)。然而现有 SNN backbone 存在关键矛盾：
 
-## 核心问题
+### 现有痛点
 
-如何在保持**全局自注意力建模**能力的同时，确保整个网络的**纯 spike-driven**计算（仅累加操作）？
+**现有痛点**：SEW ResNet / Spikformer** 使用 SEW Residual 连接，残差加法后输出范围为 $\{0,1,2,...,16\}$，下一层卷积变成整数-浮点乘法，破坏 spike-driven 特性
+
+### 核心矛盾
+
+**核心矛盾**：SD-Transformer** 使用 MS Residual + 线性注意力，保持 spike-driven 但失去全局建模能力
+
+### 解决思路
+
+**本文目标**：如何在保持**全局自注意力建模**能力的同时，确保整个网络的**纯 spike-driven**计算（仅累加操作）？
 
 ## 方法详解
 
@@ -69,6 +76,9 @@ $$E_{SNN} = E_{AC} \times \Big(\sum_{i=2}^N SOP_{Conv}^i + \sum_{j=1}^M SOP_{SSA
 
 ## 实验关键数据
 
+
+### 主实验
+
 | 模型 | 参数量 | 时间步 | ImageNet Top-1 | 能耗 (mJ) |
 |------|--------|--------|---------------|----------|
 | Spikformer-8-768 | 66.34M | 4 | 74.81% | 32.07 |
@@ -82,21 +92,21 @@ $$E_{SNN} = E_{AC} \times \Big(\sum_{i=2}^N SOP_{Conv}^i + \sum_{j=1}^M SOP_{SSA
 - DVS128 Gesture: 98.6% (T=16)
 - 在 13 个数据集上全面验证
 
-## 亮点
+## 亮点与洞察
 
 - 系统分析了 SEW vs MS Residual 的 spike-driven 行为，揭示 SEW Residual 的非脉冲范围随深度线性增长
 - 同时实现 spike-driven + 全局注意力的唯一 SNN backbone
 - 能耗仅为 ANN Transformer 的 ~42%（16.30 vs 38.34 mJ），且精度差距收窄到 3.16%
 - CML 下采样变体 Spikingformer† 进一步提升性能
 
-## 局限性
+## 局限与展望
 
 - 与 ANN Transformer 的精度差距仍有 ~3%（77.64 vs 80.80）
 - 能耗计算基于 45nm 理论估算，实际神经形态硬件部署效果未验证
 - 全局注意力的 $QK^TV$ 仍需浮点缩放因子 $s$，不完全 spike-driven
 - 分类头的 AvgPooling-FC 仍含浮点运算
 
-## 对比
+## 相关工作与启发
 
 | 方法 | Spike-Driven | 全局注意力 | ImageNet Acc |
 |------|-------------|-----------|-------------|
@@ -122,8 +132,8 @@ $$E_{SNN} = E_{AC} \times \Big(\sum_{i=2}^N SOP_{Conv}^i + \sum_{j=1}^M SOP_{SSA
 
 - [Manifolds and Modules: How Function Develops in a Neural Foundation Model](../../NeurIPS2025/self_supervised/manifolds_and_modules_how_function_develops_in_a_neural_foundation_model.md)
 - [SpHOR: A Representation Learning Perspective on Open-set Recognition for Identifying Unknown Classes in Deep Neural Networks](../../CVPR2026/self_supervised/sphor_a_representation_learning_perspective_on_open-set_recognition_for_identify.md)
-- [Robust Tabular Foundation Models](robust_tabular_foundation_models.md)
 - [MOMO: Mars Orbital Model — Foundation Model for Mars Orbital Applications](../../CVPR2026/self_supervised/momo_mars_orbital_model_foundation_model_for_mars_orbital_applications.md)
+- [Robust Tabular Foundation Models](robust_tabular_foundation_models.md)
 - [FedGRPO: Privately Optimizing Foundation Models with Group-Relative Rewards from Domain Clients](fedgrpo_privately_optimizing_foundation_models_with_group-relative_rewards_from_.md)
 
 <!-- RELATED:END -->

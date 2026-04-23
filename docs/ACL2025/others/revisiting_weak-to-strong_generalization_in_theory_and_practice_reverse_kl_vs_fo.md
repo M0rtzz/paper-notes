@@ -137,6 +137,6 @@ W2SG 设置：弱模型 $F_w$ 提供 soft label 监督强模型 $F_{sw} = f \cir
 - [Synergistic Weak-Strong Collaboration by Aligning Preferences](synergistic_weak-strong_collaboration_by_aligning_preferences.md)
 - [Well Begun is Half Done: Low-resource Preference Alignment by Weak-to-Strong Decoding](well_begun_is_half_done_low-resource_preference_alignment_by_weak-to-strong_deco.md)
 - [Behavioural vs. Representational Systematicity in End-to-End Models: An Opinionated Survey](behavioural_vs_representational_systematicity_in_end-to-end_models_an_opinionate.md)
-- [Why Are Positional Encodings Nonessential for Deep Autoregressive Transformers? Revisiting a Petroglyph](why_are_positional_encodings_nonessential_for_deep_autoregressive_transformers_r.md)
+- [Hybrid Preferences: Learning to Route Instances for Human vs. AI Feedback](hybrid_preferences_learning_to_route_instances_for_human_vs_ai_feedback.md)
 
 <!-- RELATED:END -->

@@ -132,6 +132,6 @@ MTD 阶段训练 200K 步，95% mask ratio，L1 重建损失。Flow Matching 阶
 - [Improve Representation for Imbalanced Regression through Geometric Constraints](improve_representation_for_imbalanced_regression_through_geometric_constraints.md)
 - [GaussianIP: Identity-Preserving Realistic 3D Human Generation via Human-Centric Diffusion Prior](gaussianip_identity-preserving_realistic_3d_human_generation_via_human-centric_d.md)
 - [NN-Former: Rethinking Graph Structure in Neural Architecture Representation](nn-former_rethinking_graph_structure_in_neural_architecture_representation.md)
-- [Generative Social Choice: The Next Generation](../../ICML2025/human_understanding/generative_social_choice_the_next_generation.md)
+- [Dynamic Neural Surfaces for Elastic 4D Shape Representation and Analysis](dynamic_neural_surfaces_for_elastic_4d_shape_representation_and_analysis.md)
 
 <!-- RELATED:END -->

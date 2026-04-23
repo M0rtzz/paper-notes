@@ -121,6 +121,6 @@ GANdance框架建立在预训练的条件GAN之上。其核心思路是：在已
 - [A Framework for Efficient Model Evaluation through Stratification, Sampling, and Estimation](a_framework_for_efficient_model_evaluation_through_stratific.md)
 - [Wavelength-Embedding-guided Filter-Array Transformer for Spectral Demosaicing](wavelength-embedding-guided_filter-array_transformer_for_spectral_demosaicing.md)
 - [despite exploring contrastive deep skeletonpointcloudimutext](../../ICCV2025/others/despite_exploring_contrastive_deep_skeletonpointcloudimutext.md)
-- [Robust Sampling for Active Statistical Inference](../../NeurIPS2025/others/robust_sampling_for_active_statistical_inference.md)
+- [Kernel Conditional Tests from Learning-Theoretic Bounds](../../NeurIPS2025/others/kernel_conditional_tests_from_learning-theoretic_bounds.md)
 
 <!-- RELATED:END -->

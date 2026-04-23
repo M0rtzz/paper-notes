@@ -134,10 +134,10 @@ NLI 微调使用标准交叉熵损失，仅更新 [TRUNC]/[MASK] 嵌入和分类
 
 ## 相关论文
 
+- [Benchmarking Uncertainty Quantification Methods for Large Language Models with LM-Polygraph](../../ACL2025/llm_evaluation/benchmarking_uncertainty_quantification_methods_for_large_language_models_with_l.md)
 - [Asymmetric Duos: Sidekicks Improve Uncertainty](asymmetric_duos_sidekicks_improve_uncertainty.md)
 - [AdaSTaR: Adaptive Data Sampling for Training Self-Taught Reasoners](adastar_adaptive_data_sampling_for_training_self-taught_reasoners.md)
 - [Can Large Language Models Master Complex Card Games?](can_large_language_models_master_complex_card_games.md)
 - [Incomplete Multi-view Clustering via Hierarchical Semantic Alignment and Cooperative Completion](incomplete_multi-view_clustering_via_hierarchical_semantic_alignment_and_coopera.md)
-- [LTD-Bench: Evaluating Large Language Models by Letting Them Draw](ltd-bench_evaluating_large_language_models_by_letting_them_draw.md)
 
 <!-- RELATED:END -->

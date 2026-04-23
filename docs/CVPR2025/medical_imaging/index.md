@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 医学图像方向 77篇论文解读
+  CVPR2025 医学图像方向 85篇论文解读
 description: >-
-  77篇CVPR2025 医学图像论文解读，主题涵盖：提出结合 VLM 无训练伪标签生成（外观描述、提出 AA-CLIP，通过两阶段训练策略（先适配文、借鉴基础模型范式，在大规模公开脑 MRI等，每篇含核心思想与方法详解。
+  85篇CVPR2025 医学图像论文解读，主题涵盖：提出结合 VLM 无训练伪标签生成（外观描述、提出 AA-CLIP，通过两阶段训练策略（先适配文、借鉴基础模型范式，在大规模公开脑 MRI等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**📷 CVPR2025** · **77** 篇论文解读
+**📷 CVPR2025** · **85** 篇论文解读
 
 **[A Semi-Supervised Framework for Breast Ultrasound Segmentation with Training-Free Pseudo-Label Generation and Label Refinement](a_semi-supervised_framework_for_breast_ultrasound_segmentation_with_training-fre.md)**
 
@@ -30,6 +30,10 @@ description: >-
 
 :   提出两阶段标签高效学习框架：先在 1206 例无标注 CT 上用 Masked Image Modeling 自监督预训练 3D U-Net 编码器，再结合 VDETR + Vertex RPE 和 Mean Teacher 半监督学习，仅用 144 例标注数据实现腹部创伤 3D 检测 mAP@0.50 达 45.30%（+115%）。
 
+**[Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation?](are_general-purpose_vision_models_all_we_need_for_2d_medical_image_segmentation_.md)**
+
+:   通过统一训练与评估协议，在三个异构医学数据集上对比11种专用/通用视觉模型，发现通用视觉模型（GP-VM）在分割精度和可解释性上均可超越多数专用医学分割架构（SMA），挑战了"医学分割必须用专用架构"的传统认知。
+
 **[Association of Radiologic PPFE Change with Mortality in Lung Cancer Screening Cohorts](association_of_radiologic_ppfe_change_with_mortality_in_lung_cancer_screening_co.md)**
 
 :   在两个大规模肺癌筛查队列（NLST 7980 例、SUMMIT 8561 例）中验证了基于深度学习自动量化的 PPFE（胸膜肺实质纤维弹性组织增生）进展与全因死亡率独立相关，提出 PPFE 纵向变化可作为筛查人群中识别高呼吸发病风险个体的影像生物标志物。
@@ -46,7 +50,17 @@ description: >-
 
 :   提出BoltzFormer——一种新型transformer decoder架构，通过玻尔兹曼分布动态采样稀疏注意力区域来聚焦小目标，结合退火温度调度（早期层探索、后期层利用）和PiGMA多query聚合模块，在占图像面积<0.1%的小目标分割上比SOTA提升3-12% Dice分数，同时减少一个数量级的注意力计算。
 
+**[Bridging the Skill Gap in Clinical CBCT Interpretation with CBCTRepD](bridging_the_skill_gap_in_clinical_cbct_interpretation_with_cbctrepd.md)**
+
+:   提出 CBCTRepD——首个面向口腔颌面 CBCT 的双语报告生成系统，通过构建 7408 例高质量 CBCT-报告配对数据集和多层次临床评估框架，实现了跨经验层级放射科医生的报告质量提升，尤其在减少遗漏病灶和规范化报告结构方面表现突出。
+
+**[CARL: A Framework for Equivariant Image Registration](carl_a_framework_for_equivariant_image_registration.md)**
+
+:   提出 CARL（Coordinate Attention with Refinement Layers）——通过坐标注意力机制实现对平移和旋转的 [W,U] 等变性的深度配准框架，在多步配准架构中仅替换第一步即获得全局 [W,U] 等变性，在腹部、肺部和脑部三个医学配准基准上匹配或超越 SOTA，尤其在具有不同视野的腹部配准任务上大幅领先。
+
 **[CholecTrack20: A Multi-Perspective Tracking Dataset for Surgical Tools](cholectrack20_a_multi-perspective_tracking_dataset_for_surgical_tools.md)**
+
+:   本文提出CholecTrack20数据集，首次为腹腔镜手术器械跟踪引入三种视角的轨迹定义（术中/腹腔内/可见性），包含20个完整手术视频、35K+帧、65K+标注器械实例，基准测试表明当前SOTA方法（<45% HOTA）远不能满足临床需求。
 
 **[CLoE: Expert Consistency Learning for Missing Modality Segmentation](cloe_expert_consistency_learning_for_missing_modality_segmentation.md)**
 
@@ -63,6 +77,10 @@ description: >-
 **[Decoding Matters: Efficient Mamba-Based Decoder with Distribution-Aware Deep Supervision for Medical Image Segmentation](decoding_matters_efficient_mamba-based_decoder_with_distribution-aware_deep_supe.md)**
 
 :   提出 Deco-Mamba，一种以解码器为核心的混合 Transformer-CNN-Mamba 架构，通过 Co-Attention Gate、Vision State Space Module 和可变形卷积精炼块增强解码器能力，并引入基于窗口化 KL 散度的分布感知深度监督策略，在 7 个医学图像分割基准上取得 SOTA 性能，同时保持适中的模型复杂度。
+
+**[Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning](deep_learning-based_assessment_of_the_relation_between_the_third_molar_and_mandi.md)**
+
+:   本文比较了局部学习(LL)、联邦学习(FL)和集中式学习(CL)三种范式在全景X光片上自动分类第三磨牙与下颌管重叠关系的性能，使用预训练ResNet-34作为骨干网络，发现集中式训练性能最优(AUC 0.831)，而FL在隐私保护前提下显著优于纯局部训练。
 
 **[Deep Learning Based Estimation of Blood Glucose Levels from Multidirectional Scleral Blood Vessel Imaging](deep_learning_based_estimation_of_blood_glucose_levels_from_multidirectional_scl.md)**
 
@@ -160,6 +178,10 @@ description: >-
 
 :   提出无辅助工具的多物体图像编辑框架 MoEdit，通过 FeCom 模块补偿 CLIP 编码中物体属性的交叉混淆、QTTN 模块注入数量感知到 U-Net，实现编辑前后物体数量一致且属性互不干扰。
 
+**[MR-PLIP: Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation](mr_plip_multi_resolution_pathology.md)**
+
+:   提出 MR-PLIP，首个多分辨率病理学视觉语言预训练模型，在 TCGA 数据集的 3400 万张多分辨率图文对上预训练，通过跨分辨率视觉-文本对齐和文本引导视觉表示，在 26 个数据集上超越 SOTA。
+
 **[Multi-modal Vision Pre-training for Medical Image Analysis (BrainMVP)](multi-modal_vision_pre-training_for_medical_image_analysis.md)**
 
 :   BrainMVP提出首个多模态视觉预训练范式，通过跨模态掩码重建、模态模板蒸馏和模态感知对比学习三个代理任务，在16,022例多参数脑MRI扫描(240万+图像)上预训练ViT，在六个分割和四个分类下游任务上均超越SOTA，Dice Score提升最高达14.47%。
@@ -190,7 +212,7 @@ description: >-
 
 **[Noise-Consistent Siamese-Diffusion for Medical Image Synthesis and Segmentation](noise-consistent_siamese-diffusion_for_medical_image_synthesis_and_segmentation.md)**
 
-:   Siamese-Diffusion 提出双组件扩散模型（Image-Diffusion + Mask-Diffusion）生成合成医学图像-掩码对用于数据增强，训练时通过噪声一致性损失（参数空间约束）让 Mask-Diffusion 学习图像扩散的形态先验，推理时仅用 Mask-Diffusion 保持多样性，在 Polyps 数据集上 mDice 提升 3.6%。
+:   提出 Siamese-Diffusion 双组件模型（Mask-Diffusion + Image-Diffusion），通过噪声一致性损失使 Image-Diffusion 的预测噪声引导 Mask-Diffusion 向高形态保真度收敛，推理时仅用 Mask-Diffusion 保持多样性，在Polyps上 SANet 的 mDice 提升 3.6、mIoU 提升 4.4。
 
 **[Novel Architecture of RPA In Oral Cancer Lesion Detection](novel_architecture_of_rpa_in_oral_cancer_lesion_detection.md)**
 
@@ -199,6 +221,10 @@ description: >-
 **[Nyxus: A Next Generation Image Feature Extraction Library for the Big Data and AI Era](nyxus_a_next_generation_image_feature_extraction_library_for_the_big_data_and_ai.md)**
 
 :   Nyxus 是一个面向大数据和 AI 时代的下一代图像特征提取库，支持 2D/3D 数据的 out-of-core 可扩展提取，覆盖 radiomics 和细胞分析两大领域共 261+ 特征，在速度上比 CellProfiler 快 3–131×、比 PyRadiomics/MITK 快数倍至数百倍。
+
+**[OpenMIBOOD: Open Medical Imaging Benchmarks for Out-Of-Distribution Detection](openmibood_open_medical_imaging_benchmarks_for_out-of-distribution_detection.md)**
+
+:   本文提出了 OpenMIBOOD，一个专为医学影像设计的 OOD 检测综合基准框架，包含来自组织病理、内窥镜和脑部 MRI 三个医学领域的 14 个数据集，评估了 24 种 post-hoc 方法，揭示了自然图像 OOD 基准的结论无法直接迁移到医学场景。
 
 **[LoV3D: Grounding Cognitive Prognosis Reasoning in Longitudinal 3D Brain MRI via Regional Volume Assessments](paper_title_lov3d_grounding_cognitive_prognosis_reasoning_in_longitudinal_3d_bra.md)**
 
@@ -251,6 +277,10 @@ description: >-
 **[Show and Segment: Universal Medical Image Segmentation via In-Context Learning](show_and_segment_universal_medical_image_segmentation_via_in-context_learning.md)**
 
 :   提出Iris框架，通过轻量级任务编码模块从参考图像-标签对中提取任务嵌入来指导目标图像分割，无需微调即可适应新任务，在12个数据集上达到或超越任务特定模型性能，在7个未见数据集上展示出优秀的泛化能力。
+
+**[Surg-R1: A Hierarchical Reasoning Foundation Model for Scalable and Interpretable Surgical Decision Support](surg-r1_a_hierarchical_reasoning_foundation_model_for_scalable_and_interpretable.md)**
+
+:   Surg-R1 提出了面向手术场景的层次化推理视觉语言模型（VLM），通过三级推理层次（感知-关系-上下文）和四阶段训练流水线（SFT→GRPO→自我迭代），在包含 320K 推理对的最大手术CoT数据集上训练，在 SurgBench 上以 64.9% Arena Score 大幅超越 Gemini 3.0 Pro（46.1%）和 GPT-5.1（37.9%）。
 
 **[T-FAKE: Synthesizing Thermal Images for Facial Landmarking](t-fake_synthesizing_thermal_images_for_facial_landmarking.md)**
 
@@ -307,6 +337,10 @@ description: >-
 **[VISTA3D: A Unified Segmentation Foundation Model For 3D Medical Imaging](vista3d_a_unified_segmentation_foundation_model_for_3d_medical_imaging.md)**
 
 :   提出VISTA3D，首个统一的3D医学影像分割基础模型，同时支持127类的自动分割、3D交互式编辑和零样本分割，通过从SAM蒸馏的3D超体素技术实现SOTA零样本性能，在14个数据集上达到或超过专门训练的专家模型。
+
+**[Weakly Supervised Teacher-Student Framework with Progressive Pseudo-mask Refinement for Gland Segmentation](weakly_supervised_teacher-student_framework_with_progressive_pseudo-mask_refinem.md)**
+
+:   本文提出一种弱监督教师-学生框架，利用稀疏病理学家标注和 EMA 稳定的教师网络生成渐进式精炼的伪掩码，在腺体分割任务上以远少于全监督的标注量达到 mIoU 80.10 和 mDice 89.10 的优异性能。
 
 **[WISE: A Framework for Gigapixel Whole-Slide-Image Lossless Compression](wise_a_framework_for_gigapixel_whole-slide-image_lossless_compression.md)**
 

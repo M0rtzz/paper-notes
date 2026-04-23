@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 强化学习方向 18篇论文解读
+  CVPR2026 强化学习方向 19篇论文解读
 description: >-
-  18篇CVPR2026 强化学习论文解读，主题涵盖：提出AceTone，首个支持文本和参考图像多模态条、提出 TraceR1，一个两阶段 RL、AnyDoc 提出了一个基于统一等，每篇含核心思想与方法详解。
+  19篇CVPR2026 强化学习论文解读，主题涵盖：提出AceTone，首个支持文本和参考图像多模态条、提出 TraceR1，一个两阶段 RL、AnyDoc 提出了一个基于统一等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**📷 CVPR2026** · **18** 篇论文解读
+**📷 CVPR2026** · **19** 篇论文解读
 
 **[AceTone: Bridging Words and Colors for Conditional Image Grading](acetone_bridging_words_and_colors_for_conditional_image_grading.md)**
 
@@ -49,6 +49,10 @@ description: >-
 **[Linking Perception, Confidence and Accuracy in MLLMs](linking_perception_confidence_and_accuracy_in_mllms.md)**
 
 :   揭示 MLLM 的严重置信度失校准问题（视觉输入退化时准确率暴跌但置信度不变），提出 CDRL（基于原始-噪声图像对的置信度驱动 RL）进行感知敏感性训练，并利用校准后的置信度实现自适应测试时缩放（CA-TTS），在四个基准上平均提升 8.8%。
+
+**[MSRL: Scaling Generative Multimodal Reward Modeling via Multi-Stage Reinforcement Learning](msrl_scaling_generative_multimodal_reward_modeling.md)**
+
+:   提出多阶段强化学习（MSRL）方法，通过先在大规模文本偏好数据上学习奖励推理能力，再逐步迁移到多模态任务，解决多模态奖励模型训练中标注数据稀缺的瓶颈问题，在 VL-RewardBench 上将准确率从 66.6% 提升至 75.9%。
 
 **[MSRL: Scaling Generative Multimodal Reward Modeling via Multi-Stage Reinforcement Learning](msrl_scaling_generative_multimodal_reward_modeling_via_multi-stage_reinforcement.md)**
 

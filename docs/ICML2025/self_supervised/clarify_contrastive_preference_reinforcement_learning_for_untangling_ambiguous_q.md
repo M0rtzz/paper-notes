@@ -127,8 +127,8 @@ $$\mathcal{L} = \mathcal{L}_{\text{recon}} + \lambda_{\text{amb}}\mathcal{L}_{\t
 
 - [Collapse-Proof Non-Contrastive Self-Supervised Learning](collapse-proof_non-contrastive_self-supervised_learning.md)
 - [Generalization Analysis for Supervised Contrastive Representation Learning under Non-IID Settings](generalization_analysis_for_supervised_contrastive_representation_learning_under.md)
+- [Adaptive Multi-head Contrastive Learning](../../ECCV2024/self_supervised/adaptive_multihead_contrastive_learning.md)
+- [UniGeoCLIP: Unified Geospatial Contrastive Learning](../../CVPR2026/self_supervised/unigeoclip_geospatial_contrastive.md)
 - [Contrastive Representations for Temporal Reasoning](../../NeurIPS2025/self_supervised/contrastive_representations_for_temporal_reasoning.md)
-- [Maximizing Incremental Information Entropy for Contrastive Learning](../../ICLR2026/self_supervised/maximizing_incremental_information_entropy_for_contrastive_learning.md)
-- [Contrastive Learning on LLM Back Generation Treebank for Cross-domain Constituency Parsing](../../ACL2025/self_supervised/llm_back_gen_treebank.md)
 
 <!-- RELATED:END -->

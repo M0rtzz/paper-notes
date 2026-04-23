@@ -25,6 +25,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：穆勒矩阵（Mueller Matrix）完整描述了材料对偏振光的变换特性，是光弹性分析、透明材料检测、生物组织成像的核心工具。传统穆勒矩阵测量需要多次采集不同偏振态的图像，耗时长，无法处理动态场景。
 
 **现有痛点**：(1) 传统帧相机方案需要多帧合成，无法实时。(2) 高速相机方案受限于低动态范围和同步时序。(3) 现有偏振相机只能测量斯托克斯参数（4 参数），无法测完整穆勒矩阵（16 参数）。
@@ -118,7 +120,7 @@ tags:
 - [RoadSocial: A Diverse VideoQA Dataset and Benchmark for Road Event Understanding from Social Video Narratives](roadsocial_a_diverse_videoqa_dataset_and_benchmark_for_road_event_understanding_.md)
 - [PolarFree: Polarization-based Reflection-Free Imaging](polarfree_polarization-based_reflection-free_imaging.md)
 - [Out of Sight, Out of Mind? Evaluating State Evolution in Video World Models](out_of_sight_out_of_mind_evaluating_state_evolution_in_video_world_models.md)
-- [Dual Consolidation for Pre-Trained Model-Based Domain-Incremental Learning](dual_consolidation_for_pre-trained_model-based_domain-incremental_learning.md)
 - [Potential Field Based Deep Metric Learning](potential_field_based_deep_metric_learning.md)
+- [Erase Diffusion: Empowering Object Removal Through Calibrating Diffusion Pathways (EraDiff)](erase_diffusion_empowering_object_removal_through_calibrating_diffusion_pathways.md)
 
 <!-- RELATED:END -->

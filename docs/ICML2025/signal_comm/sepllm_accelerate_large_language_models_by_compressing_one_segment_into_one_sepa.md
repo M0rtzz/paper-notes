@@ -145,6 +145,6 @@ Training-from-scratch 模式使用标准的自回归交叉熵损失，但注意�
 - [Large Language Model (LLM)-enabled In-context Learning for Wireless Network Optimization](large_language_model_llm-enabled_in-context_learning_for_wireless_network_optimi.md)
 - [Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)](../../NeurIPS2025/signal_comm/artificial_hivemind_the_open-ended_homogeneity_of_language_models_and_beyond.md)
 - [Fourier Position Embedding: Enhancing Attention's Periodic Extension for Length Generalization](fourier_position_embedding_enhancing_attentions_periodic_extension_for_length_ge.md)
-- [Eigenspectrum Analysis of Neural Networks without Aspect Ratio Bias](eigenspectrum_analysis_of_neural_networks_without_aspect_ratio_bias.md)
+- [Reward-Augmented Data Enhances Direct Preference Alignment of LLMs](reward-augmented_data_enhances_direct_preference_alignment_of_llms.md)
 
 <!-- RELATED:END -->

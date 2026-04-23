@@ -134,6 +134,6 @@ DiT-XL/2 在 ImageNet 256×256（W4A8 / W6A8）：
 - [LaVin-DiT: Large Vision Diffusion Transformer](lavin-dit_large_vision_diffusion_transformer.md)
 - [DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression](dit-ic_aligned_diffusion_transformer_for_efficient_image_compression.md)
 - [TinyFusion: Diffusion Transformers Learned Shallow](tinyfusion_diffusion_transformers_learned_shallow.md)
-- [QuantVSR: Low-Bit Post-Training Quantization for Real-World Video Super-Resolution](../../AAAI2026/image_generation/quantvsr_low-bit_post-training_quantization_for_real-world_video_super-resolutio.md)
+- [Finite Difference Flow Optimization for RL Post-Training of Text-to-Image Models](finite_difference_flow_optimization_for_rl_post-training_of_text-to-image_models.md)
 
 <!-- RELATED:END -->

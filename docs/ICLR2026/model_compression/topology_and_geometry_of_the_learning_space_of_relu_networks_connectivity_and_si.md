@@ -28,10 +28,21 @@ tags:
 
 ## 研究背景与动机
 
-理解 ReLU 网络参数空间的几何和拓扑性质，对于分析和指导训练动态至关重要。在梯度流训练过程中，ReLU 激活函数的齐次性 (homogeneity) 将参数空间决定性地限制在一个代数簇 (algebraic variety) 上。这个代数簇的结构直接影响：
-- 优化景观：梯度下降能否在不同解之间自由移动
-- 模型等价性：哪些参数配置表示相同的函数
-- 网络压缩：何时可以安全地移除某些参数
+### 领域现状
+
+**领域现状**：理解 ReLU 网络参数空间的几何和拓扑性质，对于分析和指导训练动态至关重要。在梯度流训练过程中，ReLU 激活函数的齐次性 (homogeneity) 将参数空间决定性地限制在一个代数簇 (algebraic variety) 上。这个代数簇的结构直接影响：
+
+### 现有痛点
+
+**现有痛点**：优化景观：梯度下降能否在不同解之间自由移动
+
+### 核心矛盾
+
+**核心矛盾**：模型等价性：哪些参数配置表示相同的函数
+
+### 解决思路
+
+**解决思路**：网络压缩：何时可以安全地移除某些参数
 
 之前的研究主要关注简单的顺序 (sequential) 架构（即标准多层感知机），对更一般的 DAG 架构缺乏系统分析。理解一般 DAG 架构上的参数空间拓扑尤为重要，因为现代网络（如 ResNet 的跳跃连接、DenseNet 的密集连接）本质上是 DAG 结构。
 
@@ -149,8 +160,8 @@ tags:
 ## 相关论文
 
 - [Global Minimizers of ℓp-Regularized Objectives Yield the Sparsest ReLU Neural Networks](../../NeurIPS2025/model_compression/global_minimizers_of_ellp-regularized_objectives_yield_the_sparsest_relu_neural_.md)
-- [Adaptive Width Neural Networks](adaptive_width_neural_networks.md)
 - [Boomerang Distillation Enables Zero-Shot Model Size Interpolation](boomerang_distillation_enables_zero-shot_model_size_interpolation.md)
+- [Adaptive Width Neural Networks](adaptive_width_neural_networks.md)
 - [A Recovery Guarantee for Sparse Neural Networks](a_recovery_guarantee_for_sparse_neural_networks.md)
 - [The Geometry of LLM Quantization: GPTQ as Babai's Nearest Plane Algorithm](the_geometry_of_llm_quantization_gptq_as_babais_nearest_plane_algorithm.md)
 

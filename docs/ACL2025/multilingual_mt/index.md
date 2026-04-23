@@ -1,18 +1,22 @@
 ---
 title: >-
-  ACL2025 多语言/翻译方向 74篇论文解读
+  ACL2025 多语言/翻译方向 90篇论文解读
 description: >-
-  74篇ACL2025 多语言/翻译论文解读，主题涵盖：系统评估 LLM 在三种古典语言（梵语、古希腊语、提出 DCSQE 框架，通过约束波束搜索生成更真实、本文介绍 HPLT v2，一个从 4.5 PB等，每篇含核心思想与方法详解。
+  90篇ACL2025 多语言/翻译论文解读，主题涵盖：系统评估 LLM 在三种古典语言（梵语、古希腊语、本文针对低资源语言的机器翻译评估困境、提出 DCSQE 框架，通过约束波束搜索生成更真实等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🌐 多语言/翻译
 
-**💬 ACL2025** · **74** 篇论文解读
+**💬 ACL2025** · **90** 篇论文解读
 
 **[A Case Study of Cross-Lingual Zero-Shot Generalization for Classical Languages in LLMs](a_case_study_of_cross-lingual_zero-shot_generalization_for_classical_languages_i.md)**
 
 :   系统评估 LLM 在三种古典语言（梵语、古希腊语、拉丁语）上的零样本跨语言泛化能力，涵盖 NER、机器翻译和问答三个 NLU 任务，同时贡献 1501 对梵语问答数据集并验证 RAG 策略的有效性，揭示模型规模是跨语言泛化的决定性因素。
+
+**[Accessible Machine Translation Evaluation For Low-Resource Languages](accessible_machine_translation_evaluation_for_low-resource_languages.md)**
+
+:   本文针对低资源语言的机器翻译评估困境，提出了一套不依赖高质量参考翻译和大规模标注数据的可访问评估框架，使得资源匮乏的语言可以有效评估翻译质量。
 
 **[Alleviating Distribution Shift in Synthetic Data for Machine Translation Quality Estimation](alleviating_distribution_shift_in_synthetic_data_for_machine_translation_quality.md)**
 
@@ -42,6 +46,14 @@ description: >-
 
 :   系统分析多语言 ICL 策略，发现在 prompt 中混合多种高资源语言（HRL）的 demonstrations 一致性优于纯英文 demonstrations，尤其在低资源语言（LRL）上提升显著（Llama3.1 上 LRL 平均准确率提升 8.9~12.6%），甚至仅在 prompt 中加入不相关的非英语句子也能带来可测量的增益，揭示了"多语言暴露本身即有效"的现象。
 
+**[Bridging the Language Gaps in Large Language Models with Inference-Time Cross-Lingual Intervention](bridging_the_language_gaps_in_large_language_models_with_inference-time_cross-li.md)**
+
+:   本文提出INCLINE（Inference-Time Cross-Lingual Intervention），一种无需微调的推理时框架，通过学习对齐矩阵将低性能语言的内部表示变换到高性能语言的表示空间，在9个基准和5个LLM上显著提升多语言性能。
+
+**[CC-Tuning: A Cross-Lingual Connection Mechanism for Improving Joint Multilingual Supervised Fine-Tuning](cc-tuning_a_cross-lingual_connection_mechanism_for_improving_joint_multilingual_.md)**
+
+:   本文提出 CC-Tuning，一种在隐空间层面显式建立跨语言连接的多语言微调范式，通过融合英语和非英语输入的前馈激活来提升非英语语言的能力，并在推理时利用 Transform Matrix 模拟跨语言连接。
+
 **[CCHall: A Novel Benchmark for Joint Cross-Lingual and Cross-Modal Hallucinations Detection in Large Language Models](cchall_a_novel_benchmark_for_joint_cross-lingual_and_cross-modal_hallucinations_.md)**
 
 :   提出首个**联合跨语言与跨模态**幻觉检测基准 CCHall，覆盖 9 种语言和 4 类多模态数据集，系统评估 6 款主流 MLLM 在联合场景下的幻觉表现，揭示当前模型在该联合场景中 F1 比单独跨模态低 10.9、比单独跨语言低 3.4，且提出多语提示和外部工具辅助两条缓解路径。
@@ -49,6 +61,22 @@ description: >-
 **[CLIX: Cross-Lingual Explanations of Idiomatic Expressions](clix_cross-lingual_explanations_of_idiomatic_expressions.md)**
 
 :   提出跨语言习语解释任务 CLIX，构建了包含英语习语及其西班牙语/德语解释的数据集，系统评估了 seq2seq 模型和 LLM 在该任务上的表现，发现 GPT-3.5 Turbo 的 pipeline 策略（先英文解释再翻译）配合 few-shot 效果最佳，人工评估流畅度和准确度高达 4.7+/5。
+
+**[Code-Switching Curriculum Learning for Multilingual Transfer in LLMs](code-switching_curriculum_learning_for_multilingual_transfer_in_llms.md)**
+
+:   本文受人类第二语言习得中语码转换现象的启发，提出 CSCL（Code-Switching Curriculum Learning）框架，通过"token 级 CS → 句子级 CS → 单语语料"的渐进式课程训练策略来增强 LLM 的跨语言迁移能力，在韩语、日语、印尼语等目标语言上显著优于单语持续预训练方法。
+
+**[Code-Switching Red-Teaming: LLM Evaluation for Safety and Multilingual Understanding](code-switching_red-teaming_llm_evaluation_for_safety_and_multilingual_understand.md)**
+
+:   本文提出 CSRT（Code-Switching Red-Teaming）框架，利用日常生活中常见的语码转换（code-switching）现象来构造多语言混合的红队攻击查询，成功在 10 个主流 LLM 上发现了严重的安全漏洞，攻击成功率比标准英语攻击高出 46.7%，揭示了当前 LLM 安全对齐在多语言场景下的脆弱性。
+
+**[Comparative Analysis of Multilingual Hate Speech Detection](comparative_analysis_of_multilingual_hate_speech_detection.md)**
+
+:   本文系统比较了多种LLM和预训练语言模型在多语言仇恨言论检测任务上的表现，揭示了跨语言迁移的关键瓶颈，并提出针对低资源语言的增强策略。
+
+**[Context Augmented Token-Level Post-Editing for Human Interpreting](context_augmented_token-level_post-editing_for_human_interpreting.md)**
+
+:   本文提出一种上下文增强的 token 级后编辑方法，利用对话上下文信息对人工口译的 ASR 转录进行细粒度纠错，在保持口译流畅性的同时显著提升转录质量。
 
 **[COSMMIC: Comment-Sensitive Multimodal Multilingual Indian Corpus](cosmmic_commentsensitive_multimodal_multilingual_indian_corpus.md)**
 
@@ -85,6 +113,10 @@ description: >-
 **[CruxEval-X: A Benchmark for Multilingual Code Reasoning, Understanding and Execution](cruxeval-x_a_benchmark_for_multilingual_code_reasoning_understanding_and_executi.md)**
 
 :   提出 CruxEval-X，一个覆盖 19 种编程语言的多语言代码推理基准，通过全自动的测试引导翻译流水线从 Python 版 CruxEval 扩展而来，包含 12,660 个题目和 19K 测试用例，对 24 个 LLM 的评估揭示了编程语言间的相关性以及单语言训练模型的跨语言泛化能力。
+
+**[CulFiT: A Fine-grained Cultural-aware LLM Training Paradigm via Multilingual Critique Data Synthesis](culfit_a_fine-grained_cultural-aware_llm_training_paradigm_via_multilingual_crit.md)**
+
+:   CulFiT 提出了一种文化感知的 LLM 训练范式，通过多语言批评数据合成和细粒度奖励建模来增强模型对不同文化的敏感度和包容性，在多个文化理解基准上达到了开源模型的最优性能。
 
 **[Dictionaries to the Rescue: Cross-Lingual Vocabulary Transfer for Low-Resource Languages Using Bilingual Dictionaries](dictionaries_to_the_rescue_cross-lingual_vocabulary_transfer_for_low-resource_la.md)**
 
@@ -126,6 +158,14 @@ description: >-
 
 :   提出利用多语言Matryoshka嵌入实现层级化新闻聚类的方法：嵌入的不同维度子集对应不同粒度的语义相似性（主题→话题→事件），配合改进的层级凝聚聚类算法，在SemEval 2022 Task 8上达到SOTA（Pearson ρ=0.816）。
 
+**[Implicit Cross-Lingual Rewarding for Efficient Multilingual Preference Alignment](implicit_cross-lingual_rewarding_for_efficient_multilingual_preference_alignment.md)**
+
+:   本文提出利用已对齐的英文 DPO 模型中的隐式奖励信号，通过跨语言指令-响应配对标注偏好关系，结合迭代 DPO 训练实现高效的多语言偏好对齐，在 X-AlpacaEval 上平均 Win Rate 提升 12.72%。
+
+**[Improving MLLM's Document Image Machine Translation via Synchronously Self-reviewing Its OCR Proficiency](improving_mllms_document_image_machine_translation_via_synchronously_self-review.md)**
+
+:   本文提出 Synchronously Self-Reviewing (SSR) 范式，通过在文档图像翻译过程中让 MLLM 先生成 OCR 文本再生成翻译文本，利用"双语认知优势"缓解微调导致的灾难性遗忘，同时提升 OCR 和文档图像机器翻译（DIMT）的性能。
+
 **[Just Go Parallel: Improving the Multilingual Capabilities of Large Language Models](just_go_parallel_improving_the_multilingual_capabilities_of_large_language_model.md)**
 
 :   系统研究在 decoder-only LLM 训练中加入平行数据对多语言能力的影响：平行数据放在训练末期效果最好且显著优于等量单语数据；LLM 无法自动泛化到训练方向的反向翻译（reversal curse）。
@@ -153,6 +193,14 @@ description: >-
 **[Less, but Better: Efficient Multilingual Expansion for LLMs via Layer-wise Mixture-of-Experts](less_but_better_efficient_multilingual_expansion.md)**
 
 :   分析 LLM 不同层间的跨语言表征相似度，提出 LayerMoE 按层分配不同数量的新语言专家（高相似层少分配、低相似层多分配），用 60% 更少的专家参数超越 SOTA，并通过在高相似层添加路由分类器进一步缓解灾难性遗忘。
+
+**[LexGen: Domain-aware Multilingual Lexicon Generation](lexgen_domain-aware_multilingual_lexicon_generation.md)**
+
+:   本文提出LexGen框架，通过在预训练多语言翻译模型的decoder中引入可学习的"领域路由"（Domain Routing）层，实现领域特定和领域通用知识的动态融合，在6种印度语言、8个领域的词典生成任务上超越了NLLB和BLICEr等基线。
+
+**[LLMs Can Achieve High-quality Simultaneous Machine Translation as Efficiently as Offline](llms_can_achieve_high-quality_simultaneous_machine_translation_as_efficiently_as.md)**
+
+:   本文提出了一种新范式，通过将源语言和目标语言 token 按延迟要求重排为交错序列来构造 SFT 数据，使 LLM 能够像离线翻译一样高效地完成高质量同声传译（SiMT），在多个基准上达到 SOTA 性能，同时保持离线翻译的原有能力。
 
 **[Lost in Multilinguality: Dissecting Cross-lingual Factual Inconsistency in Transformer Language Models](lost_in_multilinguality_dissecting_cross-lingual_factual_inconsistency_in_transf.md)**
 
@@ -185,6 +233,10 @@ description: >-
 **[Marco-Bench-MIF: On Multilingual Instruction-Following Capability of Large Language Models](marco_bench_multilingual_if.md)**
 
 :   将英文IFEval基准扩展到30种语言并进行文化本地化，揭示LLM在多语言指令遵循中高/低资源语言间25-35%的准确率差距，以及机器翻译数据低估模型性能7-22%。
+
+**[MaXIFE: Multilingual and Cross-lingual Instruction Following Evaluation](maxife_multilingual_and_cross-lingual_instruction_following_evaluation.md)**
+
+:   提出 MaXIFE 评测基准，覆盖 23 种语言的 1667 个可验证指令跟随任务，结合基于规则和基于模型的双重评估策略，系统评测 LLM 在多语言和跨语言场景下的指令遵循能力，填补了该方向的评测空白。
 
 **[Memorization Inheritance in Sequence-Level Knowledge Distillation for Neural Machine Translation](memorization_inheritance_seqkd.md)**
 
@@ -222,6 +274,10 @@ description: >-
 
 :   提出多视角对齐框架 (Multi-perspective Alignment)，同时奖励翻译自然度和内容保留，通过翻译体分类器和 COMET 的联合奖励信号对 NMT 模型进行强化学习微调，使译文词汇更丰富且不损失翻译准确度。
 
+**[Multilingual Encoder Knows More Than You Realize: Shared Weights Pretraining for Extremely Low-Resource Languages](multilingual_encoder_knows_more_than_you_realize_shared_weights_pretraining_for_.md)**
+
+:   提出编码器-解码器权重共享框架，通过交替复用编码器权重层和随机初始化层构建解码器，将多语言编码器CINO高效扩展为seq2seq模型XLM-SWCM，在藏维哈蒙四种极低资源语言上以不到0.5B参数大幅超越mBART和13B LLaMA。
+
 **[Do Large Language Models Have an English Accent? Evaluating and Improving the Naturalness of Multilingual LLMs](multilingual_llm_english_accent.md)**
 
 :   本文揭示多语言 LLM 在非英语语言生成中存在"英语口音"——词汇和句法上偏向英语模式，提出了基于 JSD（词汇分布）和 WL 图核+MMD（句法依赖树）的语料级自然度指标，并通过 DPO 对齐方法有效提升目标语言的自然度。
@@ -242,10 +298,6 @@ description: >-
 
 :   提出 Registering 方法：在源语言和目标语言 token 之间插入一组目标语言标记（registers），通过修改注意力掩码使目标生成仅依赖 registers 的激活，彻底解决多语言翻译中的 off-target 问题，使小模型 MITRE-913M 超越 NLLB-3.3B。
 
-**[Rethinking Evaluation Metrics for Grammatical Error Correction: Why Use a Different Evaluation Process than Human?](rethinking_evaluation_metrics_for_grammatical_error_correction_why_use_a_differe.md)**
-
-:   指出自动 GEC 评估与人类评估在聚合方式上的差距（人类用 TrueSkill 做成对比较后聚合，自动评估用平均/求和后排序），提出对所有自动指标统一使用 TrueSkill 聚合，在 SEEDA 基准上大幅提升多数指标与人类评估的相关性。
-
 **[Semantic Aware Linear Transfer by Recycling Pre-trained Language Models for Cross-Lingual Transfer](semantic_aware_linear_transfer_by_recycling_pre-trained_language_models_for_cros.md)**
 
 :   提出 SALT（Semantic Aware Linear Transfer），通过为每个非共享词表 token 基于语义相似的共享 token 对构建独立的最小二乘变换矩阵，将目标语言 PLM 的丰富嵌入表示迁移到英语中心 LLM 的嵌入空间，在下游任务、持续预训练收敛速度和跨语言理解上均优于现有方法。
@@ -257,6 +309,10 @@ description: >-
 **[ShifCon: Enhancing Non-Dominant Language Capabilities with a Shift-based Multilingual Contrastive Framework](shifcon_nondominant_language.md)**
 
 :   提出 ShifCon 框架，通过将非优势语言的表示 shift 到优势语言子空间以获取更丰富的模型知识，再 shift 回原语言子空间进行生成，结合多语言对比学习，显著提升低资源语言的表现。
+
+**[SIFT-50M: A Large-Scale Multilingual Dataset for Speech Instruction Fine-Tuning](sift-50m_a_large-scale_multilingual_dataset_for_speech_instruction_fine-tuning.md)**
+
+:   本文构建了 SIFT-50M，一个包含 5000 万条样本、覆盖 5 种语言的语音指令微调数据集，利用 LLM 和专家模型从公开语音语料中自动生成多样化的语音理解与可控语音生成指令，并训练出 SIFT-LLM 在指令跟随基准上超越现有语音文本 LLM。
 
 **[Statement-Tuning Enables Efficient Cross-lingual Generalization in Encoder-only Models](statement-tuning_enables_efficient_cross-lingual_generalization_in_encoder-only_.md)**
 
@@ -294,6 +350,10 @@ description: >-
 
 :   通过合成噪声和社交媒体文本实验发现，近年大规模预训练翻译模型（如 TowerInstruct 13B、GPT-3.5）在未使用任何专门鲁棒性训练技术的情况下，对多种字符级噪声的鲁棒性远超传统 NMT 模型（OPUS），且源端纠错+LLM 翻译的组合可进一步超越 GPT-3.5。
 
+**[Understanding In-Context Machine Translation for Low-Resource Languages: A Case Study on Manchu](understanding_in-context_machine_translation_for_low-resource_languages_a_case_s.md)**
+
+:   系统研究了LLM上下文机器翻译中各类语言资源（词典、平行语料、语法书、CoT提示）对翻译质量的影响，以满语为案例发现高质量词典和检索的平行例句最有价值而语法书几乎无用，并通过字符加密实验证明LLM主要依赖上下文学习能力而非先验知识，最后展示了利用上下文翻译生成合成平行数据来训练传统NMT模型的有效性。
+
 **[Unveiling the Power of Source: Source-based Minimum Bayes Risk Decoding for Neural Machine Translation](unveiling_the_power_of_source_source-based_minimum_bayes_risk_decoding_for_neura.md)**
 
 :   提出 source-based MBR (sMBR) 解码方法，利用释义/回译生成的准源端句子作为"支持假设"，结合无参考 QE 指标作为效用函数，首次在 MBR 解码中完全依赖源端信息，在经典和 LLM 两种 NMT 设置下均优于 QE reranking 和标准 MBR 解码。
@@ -301,6 +361,10 @@ description: >-
 **[Watching the Watchers: Exposing Gender Disparities in Machine Translation Quality Estimation](watching_the_watchers_exposing_gender_disparities_in_machine_translation_quality.md)**
 
 :   > 本文系统揭示了机器翻译质量评估 (QE) 指标中的性别偏差：在源语言性别模糊时阳性形式得分高于阴性形式，在有上下文线索时阴性形式的错误率更高，且偏差会通过数据过滤和质量感知解码传播到下游 MT 系统。
+
+**[X-WebAgentBench: A Multilingual Interactive Web Benchmark for Evaluating Global Agentic System](x-webagentbench_a_multilingual_interactive_web_benchmark_for_evaluating_global_a.md)**
+
+:   提出 X-WebAgentBench——一个多语言交互式网页基准，用于评估语言智能体在多种语言下的规划和交互能力，并评测了多种 LLM 及跨语言对齐方法，发现即使 GPT-4o 结合跨语言技术也无法达到令人满意的结果。
 
 **[ZIPA: A Family of Efficient Models for Multilingual Phone Recognition](zipa_a_family_of_efficient_models_for_multilingual_phone_recognition.md)**
 

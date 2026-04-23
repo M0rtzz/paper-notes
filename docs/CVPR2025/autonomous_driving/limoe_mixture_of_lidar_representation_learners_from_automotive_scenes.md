@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：LiDAR 点云可以转换为多种表示——距离图（range image, 保留传感器原始结构）、稀疏体素（voxel, 3D 空间结构）和原始点云（point, 精细细节）。每种表示各有优势但信息互补。
 
 **现有痛点**：现有自监督方法只用一种表示（如 UniPAD 用体素，SLidR 用距离图），浪费了互补信息。简单拼接或平均融合效果不佳——不同查询需要不同表示的不同贡献。
@@ -36,6 +38,17 @@ tags:
 **切入角度**：用 MoE 的门控机制让网络自动为每个查询选择最合适的表示组合——动态加权而非静态融合。
 
 **核心 idea**：图像蒸馏预训练三种LiDAR编码器 → MoE 动态融合 → 语义混合监督 = 统一强力点云表示。
+
+### 解决思路
+
+**本文目标**：### 关键设计
+
+1. **Stage 1: 图像→LiDAR 知识蒸馏**：用 2D 图像 backbone 的特征蒸馏到三种 LiDAR 编码器，继承图像模型的语义理解能力
+
+2. **Stage 2: 对比混合学习（CML）**：MoE 层用门控+噪声注入动态激活三种表示的特征，对比损失将混合特征蒸馏到统一的学生编码器中
+
+3. **Stage 3: 语义混合监督（SMS）**：将 MoE。
+
 
 ## 方法详解
 
@@ -55,8 +68,8 @@ tags:
 
 | 数据集 | LiMoE (ViT-L) | 最佳单表示 | 提升 |
 |--------|-------------|-----------|------|
-| nuScenes 分割 | **51.4** mIoU | ~46-48 | +3-5 |
-| SemanticKITTI (1%) | **44.85** | ~40 | +4-5 |
+| nuScenes 分割 | **51.4%** mIoU | ~46-48 | +3-5 |
+| SemanticKITTI (1%) | **44.85%** | ~40 | +4-5 |
 | nuScenes-C 鲁棒性 | **mCE 88.43** | — | 最佳 |
 
 ### 消融实验
@@ -90,7 +103,7 @@ tags:
 - [4D Contrastive Superflows are Dense 3D Representation Learners](../../ECCV2024/autonomous_driving/4d_contrastive_superflows_are_dense_3d_representation_learners.md)
 - [Generating Multimodal Driving Scenes via Next-Scene Prediction](generating_multimodal_driving_scenes_via_next-scene_prediction.md)
 - [FreeSim: Toward Free-Viewpoint Camera Simulation in Driving Scenes](freesim_toward_free-viewpoint_camera_simulation_in_driving_scenes.md)
-- [PSA-SSL: Pose and Size-aware Self-Supervised Learning on LiDAR Point Clouds](psa-ssl_pose_and_size-aware_self-supervised_learning_on_lidar_point_clouds.md)
 - [WeatherGen: A Unified Diverse Weather Generator for LiDAR Point Clouds via Spider Mamba Diffusion](weathergen_a_unified_diverse_weather_generator_for_lidar_point_clouds_via_spider.md)
+- [PSA-SSL: Pose and Size-aware Self-Supervised Learning on LiDAR Point Clouds](psa-ssl_pose_and_size-aware_self-supervised_learning_on_lidar_point_clouds.md)
 
 <!-- RELATED:END -->

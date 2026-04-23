@@ -143,10 +143,10 @@ $$\mathcal{L}_{\text{ACD}} = \mathbb{E}_{x^t,q^m} \mathbb{E}_{k \sim \mathcal{K}
 
 ## 相关论文
 
-- [Privacy-protected Retrieval-Augmented Generation for Knowledge Graph Question Answering](../../AAAI2026/ai_safety/privacy-protected_retrieval-augmented_generation_for_knowledge_graph_question_an.md)
-- [Private Continual Counting of Unbounded Streams](../../NeurIPS2025/ai_safety/private_continual_counting_of_unbounded_streams.md)
-- [Model Inversion with Layer-Specific Modeling and Alignment for Data-Free Continual Learning](../../NeurIPS2025/ai_safety/model_inversion_with_layer-specific_modeling_and_alignment_for_data-free_continu.md)
+- [A Framework for Double-Blind Federated Adaptation of Foundation Models](a_framework_for_doubleblind_federated_adaptation_of_foundati.md)
+- [Find a Scapegoat: Poisoning Membership Inference Attack and Defense to Federated Learning](find_a_scapegoat_poisoning_membership_inference_attack_and_defense_to_federated_.md)
+- [FedVLA: Federated Vision-Language-Action Learning with Dual Gating Mixture-of-Experts for Robotic Manipulation](fedvla_federated_vision-language-action_learning_with_dual_gating_mixture-of-exp.md)
 - [FedMeNF: Privacy-Preserving Federated Meta-Learning for Neural Fields](fedmenf_privacy-preserving_federated_meta-learning_for_neural_fields.md)
-- [A Framework for Double-Blind Federated Adaptation of Foundation Models](a_framework_for_double-blind_federated_adaptation_of_foundation_models.md)
+- [Enhancing Adversarial Transferability by Balancing Exploration and Exploitation with Gradient-Guided Sampling](enhancing_adversarial_transferability_by_balancing_exploration_and_exploitation_.md)
 
 <!-- RELATED:END -->

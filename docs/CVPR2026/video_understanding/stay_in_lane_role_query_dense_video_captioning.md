@@ -138,6 +138,6 @@ ROS-DVC为DETR-based密集视频描述设计角色专用查询（定位和描述
 - [FC-Track: Overlap-Aware Post-Association Correction for Online Multi-Object Tracking](fc-track_overlap-aware_post-association_correction_for_online_multi-object_track.md)
 - [VideoChat-M1: Collaborative Policy Planning for Video Understanding via Multi-Agent Reinforcement Learning](videochatm1_collaborative_policy_planning_for_vide.md)
 - [CVA: Context-aware Video-text Alignment for Video Temporal Grounding](cva_context-aware_video-text_alignment_for_video_temporal_grounding.md)
-- [FlexHook: Rethinking Two-Stage Referring-by-Tracking in RMOT](rethinking_twostage_referringbytracking_in_referri.md)
+- [STORM: End-to-End Referring Multi-Object Tracking in Videos](storm_referring_multi_object_tracking.md)
 
 <!-- RELATED:END -->

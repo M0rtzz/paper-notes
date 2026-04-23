@@ -130,7 +130,7 @@ tags:
 - [MatAnyone: Stable Video Matting with Consistent Memory Propagation](matanyone_stable_video_matting_with_consistent_memory_propagation.md)
 - [GleSAM: Segment Any-Quality Images with Generative Latent Space Enhancement](segment_any-quality_images_with_generative_latent_space_enhancement.md)
 - [Using Diffusion Priors for Video Amodal Segmentation](using_diffusion_priors_for_video_amodal_segmentation.md)
-- [ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation](../../ICML2025/segmentation/actionpiece_contextually_tokenizing_action_sequences_for_generative_recommendati.md)
 - [LiVOS: Light Video Object Segmentation with Gated Linear Matching](livos_light_video_object_segmentation_with_gated_linear_matching.md)
+- [ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation](../../ICML2025/segmentation/actionpiece_contextually_tokenizing_action_sequences_for_generative_recommendati.md)
 
 <!-- RELATED:END -->

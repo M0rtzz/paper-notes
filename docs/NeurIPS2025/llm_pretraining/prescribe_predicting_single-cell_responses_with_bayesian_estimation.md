@@ -135,7 +135,7 @@ $$\nu_i = \exp(f_\psi(z_i) + \ln N_H), \quad \tilde{\nu}_i^{\text{post}} = \frac
 - [Density Ratio Estimation-based Bayesian Optimization with Semi-Supervised Learning](../../ICML2025/llm_pretraining/density_ratio_estimation-based_bayesian_optimization_with_semi-supervised_learni.md)
 - [Bayesian Neural Scaling Law Extrapolation with Prior-Data Fitted Networks](../../ICML2025/llm_pretraining/bayesian_neural_scaling_law_extrapolation_with_prior-data_fitted_networks.md)
 - [Position: The Future of Bayesian Prediction Is Prior-Fitted](../../ICML2025/llm_pretraining/position_the_future_of_bayesian_prediction_is_prior-fitted.md)
-- [3D Prior is All You Need: Cross-Task Few-shot 2D Gaze Estimation](../../CVPR2025/llm_pretraining/3d_prior_is_all_you_need_cross-task_few-shot_2d_gaze_estimation.md)
 - [Predicting Training Re-evaluation Curves Enables Effective Data Curriculums](../../ICLR2026/llm_pretraining/predicting_training_re-evaluation_curves_enables_effective_data_curriculums_for_.md)
+- [3D Prior is All You Need: Cross-Task Few-shot 2D Gaze Estimation](../../CVPR2025/llm_pretraining/3d_prior_is_all_you_need_cross-task_few-shot_2d_gaze_estimation.md)
 
 <!-- RELATED:END -->

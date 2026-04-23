@@ -142,6 +142,6 @@ ComBo Top-2（78.6）超越了需要昂贵蒸馏的 RADIOv2.5+Adapter+，且不�
 - [Probing Preference Representations: A Multi-Dimensional Evaluation and Analysis Method for Reward Models](../../AAAI2026/interpretability/probing_preference_representations_a_multi-dimensional_evaluation_and_analysis_m.md)
 - [Foundation Molecular Grammar: Multi-Modal Foundation Models Induce Interpretable Molecular Grammar](../../ICML2025/interpretability/foundation_molecular_grammar_multi-modal_foundation_models_induce_interpretable_.md)
 - [Probing Subphonemes in Morphology Models](../../ACL2025/interpretability/probing_subphonemes_in_morphology_models.md)
-- [Semantic Regexes: Auto-Interpreting LLM Features with a Structured Language](../../ICLR2026/interpretability/semantic_regexes_auto-interpreting_llm_features_with_a_structured_language.md)
+- [Semantic Regexes: Auto-Interpreting LLM Features with a Structured Language](../../ICLR2026/interpretability/semantic_regexes_auto-interpreting_llm_features_with_a_structured_language_of_re.md)
 
 <!-- RELATED:END -->

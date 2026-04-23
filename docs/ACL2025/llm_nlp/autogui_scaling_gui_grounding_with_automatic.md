@@ -121,9 +121,9 @@ VLM微调用LoRA，在8×A100上训练1 epoch。Qwen-VL和Qwen2-VL用LoRA，SliM
 ## 相关论文
 
 - [Growing Through Experience: Scaling Episodic Grounding in Language Models](episodic_grounding_experience.md)
+- [AutoExp: Automatic Experiment Design and Execution by LLMs](autoexp_automatic_experiment_design_and_execution_by_llms.md)
 - [Mitigate Position Bias in LLMs via Scaling a Single Hidden States Channel](mitigate_position_bias_in_large_language_models_via_scaling_a_single_dimension.md)
 - [NewsInterview: a Dataset and a Playground to Evaluate LLMs' Grounding Gap via Informational Interviews](newsinterview_a_dataset_and_a_playground_to_evaluate_llms_grounding_gap_via_info.md)
-- [LLM-AT: Automatic Transmission for LLM Tiers Optimizing Cost and Accuracy](automatic_transmission_for_llm_tiers_optimizing_cost_and_accuracy_in_large_langu.md)
-- [A Survey of Automatic Prompt Optimization with Instruction-focused Heuristic-based Search Algorithm](a_survey_of_automatic_prompt_optimization_with_instruction-focused_heuristic-bas.md)
+- [LESA: Learnable LLM Layer Scaling-Up](lesa_learnable_llm_layer_scaling-up.md)
 
 <!-- RELATED:END -->

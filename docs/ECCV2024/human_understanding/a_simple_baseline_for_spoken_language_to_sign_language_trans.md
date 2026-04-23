@@ -124,7 +124,7 @@ tags:
 - [EvSign: Sign Language Recognition and Translation with Streaming Events](evsign_sign_language_recognition_and_translation_with_streaming_events.md)
 - [SignAvatars: A Large-scale 3D Sign Language Holistic Motion Dataset and Benchmark](signavatars_a_large-scale_3d_sign_language_holistic_motion_dataset_and_benchmark.md)
 - [SCAPE: A Simple and Strong Category-Agnostic Pose Estimator](scape_a_simple_and_strong_category-agnostic_pose_estimator.md)
+- [QUAR-VLA: Vision-Language-Action Model for Quadruped Robots](quarvla_visionlanguageaction_model_for_quadruped_robots.md)
 - [3DSA: Multi-view 3D Human Pose Estimation With 3D Space Attention Mechanisms](3dsa_multi-view_3d_human_pose_estimation_with_3d_space_attention_mechanisms.md)
-- [Signs as Tokens: A Retrieval-Enhanced Multilingual Sign Language Generator](../../ICCV2025/human_understanding/signs_as_tokens_a_retrieval-enhanced_multilingual_sign_language_generator.md)
 
 <!-- RELATED:END -->

@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 推荐系统方向 21篇论文解读
+  AAAI2026 推荐系统方向 23篇论文解读
 description: >-
-  21篇AAAI2026 推荐系统论文解读，主题涵盖：提出统一三层对齐框架 Align³GR，在、提出 AutoPP，首个将商品海报自动生成与基于、提出HID框架，通过属性感知的谱聚类构建混合意图来等，每篇含核心思想与方法详解。
+  23篇AAAI2026 推荐系统论文解读，主题涵盖：提出统一三层对齐框架 Align³GR，在、提出 AutoPP，首个将商品海报自动生成与基于、提出HID框架，通过属性感知的谱聚类构建混合意图来等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎁 推荐系统
 
-**🤖 AAAI2026** · **21** 篇论文解读
+**🤖 AAAI2026** · **23** 篇论文解读
 
 **[Align³GR: Unified Multi-Level Alignment for LLM-based Generative Recommendation](align3gr_unified_multi-level_alignment_for_llm-based_generat.md)**
 
@@ -41,6 +41,14 @@ description: >-
 **[Generalization Bounds for Semi-supervised Matrix Completion with Distributional Side Information](generalization_bounds_for_semi-supervised_matrix_completion_with_distributional_.md)**
 
 :   提出首个半监督矩阵补全学习范式：假设采样分布 $P$ 和真实矩阵 $G$ 共享低秩子空间，给定大量未标注数据 $M$ 和少量标注数据 $N$，证明泛化误差可分解为 $\tilde{O}(\sqrt{nd/M}) + \tilde{O}(\sqrt{dr/N})$ 两个独立项，在 Douban 和 MovieLens 数据集上显著优于仅用显式反馈的基线。
+
+**[HyMoERec: Hybrid Mixture-of-Experts for Sequential Recommendation](hymoerec_hybrid_mixture-of-experts_for_sequential_recommendation.md)**
+
+:   本文提出 HyMoERec，一个结合共享专家和特化专家分支的混合专家架构，通过自适应专家融合机制替代传统序列推荐模型中的统一前馈网络，以捕捉用户行为模式的异质性和物品复杂度的多样性，在 MovieLens-1M 和 Beauty 数据集上一致超越 SOTA。
+
+**[Inductive Generative Recommendation via Retrieval-based Speculation](inductive_generative_recommendation_via_retrieval-based_speculation.md)**
+
+:   本文揭示生成式推荐（GR）模型无法推荐训练中未见过的新物品的关键局限，提出 SpecGR 即插即用框架——用具有归纳能力的 drafter 模型提议候选物品（包括新物品），GR 模型作为 verifier 对候选进行排序验证，结合引导式重起草技术提升验证效率，在三个数据集上取得最佳整体性能。
 
 **[Inference-Aware Prompt Optimization for Aligning Black-Box Large Language Models](inference-aware_prompt_optimization_for_aligning_black-box_large_language_models.md)**
 

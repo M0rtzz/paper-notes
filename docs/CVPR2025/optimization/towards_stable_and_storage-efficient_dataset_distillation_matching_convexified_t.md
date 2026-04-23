@@ -120,9 +120,9 @@ CIFAR-10 数据集蒸馏性能（IPC=合成图片/类）：
 ## 相关论文
 
 - [AutoOpt: A Dataset and a Unified Framework for Automating Optimization Problem Solving](../../NeurIPS2025/optimization/autoopt_a_dataset_and_a_unified_framework_for_automating_optimization_problem_so.md)
-- [Bispectral OT: Dataset Comparison using Symmetry-Aware Optimal Transport](../../NeurIPS2025/optimization/bispectral_ot_dataset_comparison_using_symmetry-aware_optimal_transport.md)
 - [Asymptotically Stable Quaternionic Hopfield Structured Neural Network with Supervised Projection-based Manifold Learning](../../NeurIPS2025/optimization/asymptotically_stable_quaternion-valued_hopfield-structured_neural_network_with_.md)
 - [Automatic Joint Structured Pruning and Quantization for Efficient Neural Network Training and Compression](automatic_joint_structured_pruning_and_quantization_for_efficient_neural_network.md)
 - [Efficient Adaptive Federated Optimization](../../NeurIPS2025/optimization/efficient_adaptive_federated_optimization.md)
+- [Oracle-Efficient Combinatorial Semi-Bandits](../../NeurIPS2025/optimization/oracle-efficient_combinatorial_semi-bandits.md)
 
 <!-- RELATED:END -->

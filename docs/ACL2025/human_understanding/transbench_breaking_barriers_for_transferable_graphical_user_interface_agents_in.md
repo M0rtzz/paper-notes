@@ -132,10 +132,10 @@ TransBench 是一个 **benchmark 数据集**，不提出新模型。核心贡献
 
 ## 相关论文
 
+- [D3-Human: Dynamic Disentangled Digital Human from Monocular Video](../../CVPR2025/human_understanding/d3-human_dynamic_disentangled_digital_human_from_monocular_video.md)
 - [nnterp: A Standardized Interface for Mechanistic Interpretability of Transformers](../../NeurIPS2025/human_understanding/nnterp_a_standardized_interface_for_mechanistic_interpretability_of_transformers.md)
 - [Learning Skill-Attributes for Transferable Assessment in Video](../../NeurIPS2025/human_understanding/learning_skill-attributes_for_transferable_assessment_in_video.md)
 - [Policy Compatible Skill Incremental Learning via Lazy Learning Interface](../../NeurIPS2025/human_understanding/policy_compatible_skill_incremental_learning_via_lazy_learning_interface.md)
-- [Transferable Backdoor Attacks for Code Models via Sharpness-Aware Adversarial Perturbation](../../AAAI2026/human_understanding/transferable_backdoor_attacks_for_code_models_via_sharpness-aware_adversarial_pe.md)
-- [A Generalizable Physics-Enhanced State Space Model for Long-Term Dynamics Forecasting in Complex Environments](../../ICML2025/human_understanding/a_generalizable_physics-enhanced_state_space_model_for_long-term_dynamics_foreca.md)
+- [Iris: Breaking GUI Complexity with Adaptive Focus and Self-Refining](../../ICCV2025/human_understanding/iris_breaking_gui_complexity_with_adaptive_focus_and_self-refining.md)
 
 <!-- RELATED:END -->

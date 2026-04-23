@@ -125,6 +125,6 @@ tags:
 - [CodeAssistBench (CAB): Dataset & Benchmarking for Multi-turn Chat-Based Code Assistance](../../NeurIPS2025/llm_evaluation/codeassistbench_cab_dataset_benchmarking_for_multi-turn_chat-based_code_assistan.md)
 - [PlanetAlign: A Comprehensive Python Library for Benchmarking Network Alignment](../../ICLR2026/llm_evaluation/planetalign_a_comprehensive_python_library_for_benchmarking_network_alignment.md)
 - [RGB-to-Polarization Estimation: A New Task and Benchmark Study](../../NeurIPS2025/llm_evaluation/rgb-to-polarization_estimation_a_new_task_and_benchmark_study.md)
-- [JuStRank: Benchmarking LLM Judges for System Ranking](justrank_llm_judge_system_ranking.md)
+- [WebWalker: Benchmarking LLMs in Web Traversal](webwalker_benchmarking_llms_in_web_traversal.md)
 
 <!-- RELATED:END -->

@@ -122,8 +122,8 @@ $$\nabla\mathcal{L}_\theta = -\nabla_\theta \log \frac{e^{s(d, d_i^+)/\tau}}{e^{
 
 - [Drama: Diverse Augmentation from Large Language Models to Smaller Dense Retrievers](drama_diverse_augmentation_from_large_language_models_to_smaller_dense_retriever.md)
 - [Collapse of Dense Retrievers: Short, Early, and Literal Biases Outranking Factual Evidence](collapse_dense_retrievers.md)
+- [Sticking to the Mean: Detecting Sticky Tokens in Text Embedding Models](sticking_to_the_mean_detecting_sticky_tokens_in_text_embedding_models.md)
 - [How Should We Evaluate Data Deletion in Graph-Based ANN Indexes?](../../NeurIPS2025/information_retrieval/how_should_we_evaluate_data_deletion_in_graph-based_ann_indexes.md)
 - [KnowShiftQA: How Robust are RAG Systems when Textbook Knowledge Shifts in K-12 Education?](knowshiftqa_rag_knowledge_shifts.md)
-- [LDIR: Low-Dimensional Dense and Interpretable Text Embeddings with Relative Representations](ldir_low-dimensional_dense_and_interpretable_text_embeddings_with_relative_repre.md)
 
 <!-- RELATED:END -->

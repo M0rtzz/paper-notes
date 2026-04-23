@@ -128,6 +128,6 @@ IDES 的核心损失为逐步二次目标：$L_h(w) = \mathbb{E}_\mu[(w_h(s,a) -
 - [Fixed-Confidence Multiple Change Point Identification under Bandit Feedback](fixed-confidence_multiple_change_point_identification_under_bandit_feedback.md)
 - [Entropy-UID: A Method for Optimizing Information Density](../../ACL2025/others/entropy-uid_a_method_for_optimizing_information_density.md)
 - [A Framework for Efficient Model Evaluation through Stratification, Sampling, and Estimation](../../ECCV2024/others/a_framework_for_efficient_model_evaluation_through_stratific.md)
-- [Suitability Filter: A Statistical Framework for Classifier Evaluation in Real-World Settings](suitability_filter_a_statistical_framework_for_classifier_evaluation_in_real-wor.md)
+- [Learning-Augmented Algorithms for MTS with Bandit Access to Multiple Predictors](learning-augmented_algorithms_for_mts_with_bandit_access_to_multiple_predictors.md)
 
 <!-- RELATED:END -->

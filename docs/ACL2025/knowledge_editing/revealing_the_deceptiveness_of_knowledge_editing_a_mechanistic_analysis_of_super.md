@@ -146,8 +146,8 @@ tags:
 
 ## 相关论文
 
-- [ScEdit: Script-based Assessment of Knowledge Editing](scedit_script-based_assessment_of_knowledge_editing.md)
 - [SAKE: Steering Activations for Knowledge Editing](sake_steering_activations_for_knowledge_editing.md)
+- [ScEdit: Script-based Assessment of Knowledge Editing](scedit_script-based_assessment_of_knowledge_editing.md)
 - [Context-Robust Knowledge Editing for Language Models](context-robust_knowledge_editing_for_language_models.md)
 - [CompKe: Complex Question Answering under Knowledge Editing](compke_complex_question_answering_under_knowledge_editing.md)
 - [Efficient Knowledge Editing via Minimal Precomputation](efficient_knowledge_editing.md)

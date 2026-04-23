@@ -26,9 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-### 1. GNN 推理瓶颈
+### 现有痛点
 
-GNN 消息传递需多跳邻域数据，在延迟敏感场景中难以部署。
+**现有痛点**：GNN 消息传递需多跳邻域数据，在延迟敏感场景中难以部署。
 
 ### 2. 现有蒸馏的不足
 
@@ -65,20 +65,20 @@ GLNN 仅用软标签蒸馏，忽略 GNN 层内部的细粒度知识。
 
 | 方法 | Citeseer | Cora | PubMed | 速度 |
 |------|---------|------|--------|-----|
-| GCN Teacher | 73.1 | 81.5 | 79.0 | 1x |
-| MLP | 61.2 | 60.0 | 71.4 | 94x |
-| GLNN | 74.0 | 81.6 | 79.8 | 94x |
-| NOSMOG | 75.5 | 82.3 | 80.5 | 94x |
-| **TINED** | **77.0** | **83.2** | **81.3** | **94x** |
+| GCN Teacher | 73.1% | 81.5% | 79.0% | 1x |
+| MLP | 61.2% | 60.0% | 71.4% | 94x |
+| GLNN | 74.0% | 81.6% | 79.8% | 94x |
+| NOSMOG | 75.5% | 82.3% | 80.5% | 94x |
+| **TINED** | **77.0%** | **83.2%** | **81.3%** | **94x** |
 
 ### 消融实验
 
 | 配置 | Citeseer | 说明 |
 |------|---------|------|
-| TINED 完整 | 77.0 | TI + DE |
-| w/o TI | 74.8 | 退化为软标签 |
-| w/o DE | 75.6 | 失去平滑传递 |
-| 仅软标签 (GLNN) | 74.0 | 基线 |
+| TINED 完整 | 77.0% | TI + DE |
+| w/o TI | 74.8% | 退化为软标签 |
+| w/o DE | 75.6% | 失去平滑传递 |
+| 仅软标签 (GLNN) | 74.0% | 基线 |
 
 ### 关键发现
 
@@ -121,6 +121,6 @@ GLNN 仅用软标签蒸馏，忽略 GNN 层内部的细粒度知识。
 - [PKD: Preference-driven Knowledge Distillation for Few-shot Node Classification](../../NeurIPS2025/graph_learning/preference-driven_knowledge_distillation_for_few-shot_node_classification.md)
 - [LLM Enhancers for GNNs: An Analysis from the Perspective of Causal Mechanism Identification](llm_enhancers_for_gnns_an_analysis_from_the_perspective_of_causal_mechanism_iden.md)
 - [Machines and Mathematical Mutations: Using GNNs to Characterize Quiver Mutation Classes](machines_and_mathematical_mutations_using_gnns_to_characterize_quiver_mutation_c.md)
-- [What Expressivity Theory Misses: Message Passing Complexity for GNNs](../../NeurIPS2025/graph_learning/what_expressivity_theory_misses_message_passing_complexity_for_gnns.md)
+- [Moscat: Mixture of Scope Experts at Test for Generalizing Deeper GNNs](../../NeurIPS2025/graph_learning/mixture_of_scope_experts_at_test_generalizing_deeper_graph_neural_networks_with_.md)
 
 <!-- RELATED:END -->

@@ -128,6 +128,6 @@ tags:
 - [Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling](../../ICLR2026/medical_imaging/overthinking_reduction_with_decoupled_rewards_and_curriculum_data_scheduling.md)
 - [MMedAgent-RL: Optimizing Multi-Agent Collaboration for Multimodal Medical Reasoning](../../ICLR2026/medical_imaging/mmedagent-rl_optimizing_multi-agent_collaboration_for_multimodal_medical_reasoni.md)
 - [Exo-Plore: Exploring Exoskeleton Control Space through Human-Aligned Simulation](../../ICLR2026/medical_imaging/exo-plore_exploring_exoskeleton_control_space_through_human-aligned_simulation.md)
-- [BarcodeMamba+: Advancing State-Space Models for Fungal Biodiversity Research](../../NeurIPS2025/medical_imaging/barcodemamba_advancing_state-space_models_for_fungal_biodiversity_research.md)
+- [CHIPS: Efficient CLIP Adaptation via Curvature-aware Hybrid Influence-based Data Selection](../../CVPR2026/medical_imaging/chips_efficient_clip_adaptation_via_curvature-aware_hybrid_influence-based_data_.md)
 
 <!-- RELATED:END -->

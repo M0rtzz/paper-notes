@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 图像生成方向 74篇论文解读
+  AAAI2026 图像生成方向 77篇论文解读
 description: >-
-  74篇AAAI2026 图像生成论文解读，主题涵盖：受人类认知中"语言溯因+图像想象"双模式启发、提出一种基于自编码器双重重建损失比值的免训练图像归、提出Multi-Cue Aggregation等，每篇含核心思想与方法详解。
+  77篇AAAI2026 图像生成论文解读，主题涵盖：受人类认知中"语言溯因+图像想象"双模式启发、提出一种基于自编码器双重重建损失比值的免训练图像归、提出Multi-Cue Aggregation等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🤖 AAAI2026** · **74** 篇论文解读
+**🤖 AAAI2026** · **77** 篇论文解读
 
 **[AbductiveMLLM: Boosting Visual Abductive Reasoning Within MLLMs](abductivemllm_boosting_visual_abductive_reasoning_within_mll.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[CAD-VAE: Leveraging Correlation-Aware Latents for Comprehensive Fair Disentanglement](cad-vae_leveraging_correlation-aware_latents_for_comprehensive_fair_disentanglem.md)**
 
-:   提出CAD-VAE，引入"相关隐变量" $z_R$ 显式建模目标属性和敏感属性之间的共享信息，通过最小化条件互信息 $I(z_Y;z_S|z_R)$ 实现公平解缠绕，无需领域知识即可产生公平表示和高质量反事实样本。
+:   提出 CAD-VAE 引入相关性感知潜编码（correlated latent code）捕获目标属性与敏感属性的共享信息，通过直接最小化条件互信息实现解纠缠，配合相关性驱动优化策略精确调控共享编码，在公平表示学习、反事实生成和公平图像编辑上取得 SOTA。
 
 **[CausalCLIP: Causally-Informed Feature Disentanglement and Filtering for Generalizable Detection of Generated Images](causalclip_causally-informed_feature_disentanglement_and_filtering_for_generaliz.md)**
 
@@ -113,6 +113,10 @@ description: >-
 **[Enhancing Multimodal Misinformation Detection by Replaying the Whole Story from Image Modality Perspective](enhancing_multimodal_misinformation_detection_by_replaying_the_whole_story_from_.md)**
 
 :   提出 RetSimd，通过将文本分段并用文本转图像模型生成一系列增补图像来"重放完整故事"，配合图神经网络融合多图像关系，显著提升了图像模态对虚假信息检测的贡献，在三个基准数据集上一致性地改进了五种 SOTA 方法的性能。
+
+**[Exposing DeepFakes via Hyperspectral Domain Mapping](exposing_deepfakes_via_hyperspectral_domain_mapping.md)**
+
+:   本文提出 HSI-Detect，一个两阶段的深度伪造检测框架——先将 RGB 图像重建为 31 通道高光谱图像以放大生成模型引入的光谱伪影，再在高光谱域中进行检测，在 FaceForensics++ 上跨操纵类型检测的平均 AUC 达到 68.92%，超越 RGB-only 基线。
 
 **[FGM-HD: Boosting Generation Diversity of Fractal Generative Models through Hausdorff Dimension Induction](fgm-hd_boosting_generation_diversity_of_fractal_generative_models_through_hausdo.md)**
 
@@ -290,6 +294,10 @@ description: >-
 
 :   提出VALOR框架，结合Chain-of-Thought推理的多专家路由架构与语义对齐验证机制，在多轮多模态客服对话中实现细粒度投诉方面(Aspect)和严重度(Severity)的联合分类，较最强baseline Gemma-3绝对提升12.94%/6.51%。
 
+**[Targeted Data Protection for Diffusion Model by Matching Training Trajectory](targeted_data_protection_for_diffusion_model_by_matching_training_trajectory.md)**
+
+:   TAFAP首次成功实现扩散模型目标化数据保护（TDP），通过训练轨迹匹配生成对抗扰动，使未授权微调将输出重定向至用户指定目标概念，同时保持高图像质量。
+
 **[TruthfulRAG: Resolving Factual-level Conflicts in Retrieval-Augmented Generation with Knowledge Graphs](truthfulrag_resolving_factual-level_conflicts_in_retrieval-augmented_generation_.md)**
 
 :   提出 TruthfulRAG 框架，首次利用知识图谱 (KG) 从事实级别解决 RAG 系统中检索知识与 LLM 参数知识之间的冲突，通过三元组提取、查询感知图检索和基于熵的冲突过滤机制提升生成准确性与可信度。
@@ -298,9 +306,13 @@ description: >-
 
 :   提出 TSGDiff，首次从纯图的视角重新审视时间序列生成任务，将时间序列表示为基于傅里叶频谱特征构建的动态图，在图的潜在空间中进行扩散建模，并提出 Topo-FID 指标评估生成时间序列的结构忠实度。
 
+**[UNSEEN: Enhancing Dataset Pruning from a Generalization Perspective](unseen_enhancing_dataset_pruning_from_a_generalization_perspective.md)**
+
+:   本文提出 UNSEEN，从泛化角度改进数据集剪枝方法——不仅考虑保留样本对训练损失的贡献，还考虑其对测试泛化的贡献，通过优化训练集与未见测试分布的对齐来选择更有利于泛化的核心子集。
+
 **[VoiceCloak: A Multi-Dimensional Defense Framework against Unauthorized Diffusion-based Voice Cloning](voicecloak_a_multi-dimensional_defense_framework_against_unauthorized_diffusion-.md)**
 
-:   针对 diffusion-based voice cloning (VC) 的主动防御框架，通过多维度对抗扰动同时实现说话人身份混淆和感知质量退化，显著优于现有防御方法。
+:   针对 diffusion-based voice cloning 的主动防御框架 VoiceCloak，通过四维度对抗扰动同时实现说话人身份混淆和感知质量退化，在 LibriTTS 上 DSR 达 71.4%，大幅领先所有现有防御方法。
 
 **[X2Edit: Revisiting Arbitrary-Instruction Image Editing through Self-Constructed Data and Task-Aware Representation Learning](x2edit_revisiting_arbitrary-instruction_image_editing_through_self-constructed_d.md)**
 

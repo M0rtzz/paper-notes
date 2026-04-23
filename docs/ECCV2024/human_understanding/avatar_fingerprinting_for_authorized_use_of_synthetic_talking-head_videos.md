@@ -132,8 +132,8 @@ Avatar指纹识别的身份验证性能：
 
 ## 相关论文
 
-- [Towards High-fidelity 3D Talking Avatar with Personalized Dynamic Texture](../../CVPR2025/human_understanding/towards_high-fidelity_3d_talking_avatar_with_personalized_dynamic_texture.md)
 - [DualTalk: Dual-Speaker Interaction for 3D Talking Head Conversations](../../CVPR2025/human_understanding/dualtalk_dual-speaker_interaction_for_3d_talking_head_conversations.md)
+- [Towards High-fidelity 3D Talking Avatar with Personalized Dynamic Texture](../../CVPR2025/human_understanding/towards_high-fidelity_3d_talking_avatar_with_personalized_dynamic_texture.md)
 - [Generalizable End-to-End Tool-Use RL with Synthetic CodeGym](../../ICLR2026/human_understanding/generalizable_end-to-end_tool-use_rl_with_synthetic_codegym.md)
 - [VideoClusterNet: Self-Supervised and Adaptive Face Clustering for Videos](videoclusternet_self-supervised_and_adaptive_face_clustering_for_videos.md)
 - [Event-based Head Pose Estimation: Benchmark and Method](event-based_head_pose_estimation_benchmark_and_method.md)

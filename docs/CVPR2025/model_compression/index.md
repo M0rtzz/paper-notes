@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 模型压缩方向 57篇论文解读
+  CVPR2025 模型压缩方向 62篇论文解读
 description: >-
-  57篇CVPR2025 模型压缩论文解读，主题涵盖：提出ACMap框架，通过将每个任务独立训练的ada、提出基于交替梯度流(AGF)的统一效用度量、首次提出JPEG XS帧内模式复制(IPC)中位移等，每篇含核心思想与方法详解。
+  62篇CVPR2025 模型压缩论文解读，主题涵盖：提出ACMap框架，通过将每个任务独立训练的ada、提出基于交替梯度流(AGF)的统一效用度量、首次提出JPEG XS帧内模式复制(IPC)中位移等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**📷 CVPR2025** · **57** 篇论文解读
+**📷 CVPR2025** · **62** 篇论文解读
 
 **[Adapter Merging with Centroid Prototype Mapping for Scalable Class-Incremental Learning](adapter_merging_with_centroid_prototype_mapping_for_scalable_class-incremental_l.md)**
 
@@ -26,9 +26,17 @@ description: >-
 
 :   提出ARCHE端到端学习型图像压缩框架，在统一概率架构中整合分层Hyperprior、掩码空间自回归上下文、通道条件化和SE激励通道重校准，无需Transformer或循环组件，在Kodak上相对Ballé基线BD-Rate降低约48%，相对VVC Intra降低约5.6%，仅95M参数和222ms解码时间。
 
+**[AutoSSVH: Exploring Automated Frame Sampling for Efficient Self-Supervised Video Hashing](autossvh_exploring_automated_frame_sampling_for_efficient_self-supervised_video_h.md)**
+
+:   提出AutoSSVH方法，通过对抗式自动帧采样网络（Grade-Net）选择最具挑战性的帧子集作为训练信号，并设计P2Set（Point-to-Set）哈希对比学习范式，实现了高效的自监督视频哈希检索，在UCF101和HMDB51上大幅超越现有方法。
+
 **[BHViT: Binarized Hybrid Vision Transformer](bhvit_binarized_hybrid_vision_transformer.md)**
 
 :   针对 ViT 二值化性能严重下降的问题，提出专为二值化设计的混合 ViT 架构 BHViT，包含多尺度分组空洞卷积 token mixer、量化分解注意力矩阵二值化、shift 增强的 MLP 和正则化损失，在 ImageNet-1K 上达到 1-bit 二值化模型的 SOTA 性能。
+
+**[Binarized Mamba-Transformer for Lightweight Quad Bayer HybridEVS Demosaicing](binarized_mamba-transformer_for_lightweight_quad_bayer_hybridevs_demosaicing.md)**
+
+:   提出BMTNet——一个结合二值化Mamba和Swin Transformer的轻量级混合架构，用于Quad Bayer HybridEVS传感器的RAW图像去马赛克，通过保留核心Selective Scan的全精度、结合全局视觉信息补偿精度损失，在大幅降低计算复杂度的同时保持高质量的去马赛克效果。
 
 **[Charm: The Missing Piece in ViT Fine-Tuning for Image Aesthetic Assessment](charm_the_missing_piece_in_vit_fine-tuning_for_image_aesthetic_assessment.md)**
 
@@ -108,6 +116,10 @@ description: >-
 
 :   提出 GeoChemAD 开源基准数据集（8 个子集，覆盖多区域/多采样源/多目标元素）和 GeoChemFormer 框架，通过空间上下文自监督预训练和元素依赖建模实现无监督地球化学异常检测，在所有子集上取得最优 AUC。
 
+**[Good, Cheap, and Fast: Overfitted Image Compression with Wasserstein Distortion](good_cheap_and_fast_overfitted_image_compression_with_wasserstein_distortion.md)**
+
+:   本文将Wasserstein Distortion（WD）作为优化目标应用于过拟合图像编解码器C3，结合公共随机性实现纹理再采样，在保持极低解码复杂度（<1% MACs of HiFiC）的同时达到与生成式压缩方法相当的视觉质量-码率权衡。
+
 **[HiAP: A Multi-Granular Stochastic Auto-Pruning Framework for Vision Transformers](hiap_a_multi-granular_stochastic_auto-pruning_framework_for_vision_transformers.md)**
 
 :   HiAP 提出了一种多粒度自动剪枝框架，通过在宏观（attention heads、FFN blocks）和微观（intra-head dimensions、FFN neurons）两级部署可学习 Gumbel-Sigmoid 门控，在单阶段端到端训练中自动发现最优子网络，无需手工重要性排序或后处理阈值。
@@ -131,6 +143,10 @@ description: >-
 **[JamMa: Ultra-lightweight Local Feature Matching with Joint Mamba](jamma_ultra-lightweight_local_feature_matching_with_joint_mamba.md)**
 
 :   JamMa提出了基于Joint Mamba的超轻量级半密集特征匹配器，通过JEGO扫描-合并策略实现跨视角联合扫描、高效四方向扫描、全局感受野和全方向特征表示，以不到50%的参数和FLOPs实现了优于Transformer-based匹配器的性能-效率平衡。
+
+**[L-SWAG: Layer-Sample Wise Activation with Gradients for Zero-Shot NAS on Vision Transformers](l_swag_zero_shot_nas_vision_transformers.md)**
+
+:   本文提出 L-SWAG 零成本代理指标，结合层级梯度方差统计（可训练性）和激活模式基数（表达性），首次在 ViT 搜索空间上实现稳定正相关排名，并提出 LIBRA-NAS 集成算法组合多个代理指标，在 ImageNet1k 上以 0.1 GPU-day 找到 17.0% 测试错误率的架构。
 
 **[Layered Image Vectorization via Semantic Simplification](layered_image_vectorization_via_semantic_simplification.md)**
 
@@ -214,7 +230,7 @@ description: >-
 
 **[Targeted Forgetting of Image Subgroups in CLIP Models](targeted_forgetting_of_image_subgroups_in_clip_models.md)**
 
-:   提出三阶段 CLIP 模型子群遗忘方法：遗忘阶段用相对 Fisher 信息定位关键层+LoRA 微调遗忘目标类；提醒阶段用分布对齐在保留集上恢复；恢复阶段用模型汤（model souping）恢复零样本能力。在 ImageNet-1K 上遗忘分数达 91.0（基线 68.9）。
+:   提出三阶段 CLIP 子群图像遗忘框架（forgetting → reminding → restoring），通过相对 Fisher Information 选择关键层进行 LoRA 微调，利用 BatchNorm 统计量对齐 retain 数据分布，再通过 model souping 恢复零样本能力，在 ImageNet-1K 和 CIFAR-10 上实现精准子群遗忘（target↓到 0%）同时保持 85-93% 的综合得分。
 
 **[Task Singular Vectors: Reducing Task Interference in Model Merging](task_singular_vectors_reducing_task_interference_in_model_merging.md)**
 
@@ -228,10 +244,14 @@ description: >-
 
 :   本文提出 Tri-WE 方法通过在权重空间插值 base、前一 session 和当前 session 三个分类头来更新整个模型（而非冻结特征提取器），并用 amplified data 知识蒸馏（ADKD）缓解少样本场景下的遗忘问题，在 miniImageNet/CUB200/CIFAR100 上达到 FSCIL SOTA。
 
-**[Understanding Multi-Layered Transmission Matrices](understanding_multi-layered_transmission_matrices.md)**
+**[Understanding Multi-layered Transmission Matrices](understanding_multi-layered_transmission_matrices.md)**
 
-:   分析体散射介质的多层传输矩阵近似，发现"缺失锥"（光学孔径导致的频率域约束）使所需 SLM 层数远少于 Nyquist 采样预测——200μm 组织理论需要 100 层但实际只需 3-4 层即可实现良好聚焦，视场从 1×1μm 扩展到 13×13μm。
+:   本文从频域角度分析了多层传输矩阵逼近的理论基础，揭示了显微镜中的"缺失锥"问题在波前整形场景下反而成为优势，证明少量 SLM 层即可在有限视场内实现有效散射校正。
 
 **[WAVE: Weight Templates for Adaptive Initialization of Variable-sized Models](wave_weight_templates_for_adaptive_initialization_of_variable-sized_models.md)**
 
 :   提出 WAVE，将变尺寸模型初始化重新定义为多任务学习问题，通过共享的尺寸无关权重模板和轻量级尺寸特定的权重缩放器（via Kronecker 积）实现高效初始化，仅需 3.3% 预训练参数即可在 10 个 epoch 内超越 150 epoch 训练的模型。
+
+**[What Makes a Good Dataset for Knowledge Distillation?](what_makes_a_good_dataset_for_knowledge_distillation.md)**
+
+:   本文系统探究了知识蒸馏中"什么数据好用"这个基本问题，发现甚至非自然的 OpenGL shader 合成图像也能有效蒸馏，并总结出好的蒸馏数据集需满足：教师预测类别分布均匀、覆盖足够决策空间、数据多样性高、并包含决策边界信息。

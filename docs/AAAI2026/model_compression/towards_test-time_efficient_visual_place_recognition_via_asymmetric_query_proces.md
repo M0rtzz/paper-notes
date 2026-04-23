@@ -176,6 +176,6 @@ tags:
 - [Towards Implicit Aggregation: Robust Image Representation for Place Recognition in the Transformer Era](../../NeurIPS2025/model_compression/towards_implicit_aggregation_robust_image_representation_for_place_recognition_i.md)
 - [TALON: Test-time Adaptive Learning for On-the-Fly Category Discovery](../../CVPR2026/model_compression/talon_test-time_adaptive_learning_for_on-the-fly_category_discovery.md)
 - [Specialization after Generalization: Towards Understanding Test-Time Training in Foundation Models](../../ICLR2026/model_compression/specialization_after_generalization_towards_understanding_test-time_training_in_.md)
-- [Mamba-Adaptor: State Space Model Adaptor for Visual Recognition](../../CVPR2025/model_compression/mamba-adaptor_state_space_model_adaptor_for_visual_recognition.md)
+- [ALTER: Asymmetric LoRA for Token-Entropy-Guided Unlearning of LLMs](alter_asymmetric_lora_for_token-entropy-guided_unlearning_of.md)
 
 <!-- RELATED:END -->

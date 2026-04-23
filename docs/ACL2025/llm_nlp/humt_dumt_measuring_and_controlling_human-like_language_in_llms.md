@@ -162,10 +162,10 @@ tags:
 
 ## 相关论文
 
-- [Do Language Models Mirror Human Confidence? Exploring Psychological Insights to Address Overconfidence in LLMs](do_language_models_mirror_human_confidence_exploring_psychological_insights_to_a.md)
 - [Beware of Your Po! Measuring and Mitigating AI Safety Risks in Role-Play Fine-Tuning of LLMs](sarft_roleplay_safety.md)
+- [Do Language Models Mirror Human Confidence? Exploring Psychological Insights to Address Overconfidence in LLMs](do_language_models_mirror_human_confidence_exploring_psychological_insights_to_a.md)
+- [Game Development as Human-LLM Interaction](game_development_as_human-llm_interaction.md)
 - [Logical Forms Complement Probability in Understanding Language Model (and Human) Performance](logical_forms_complement_probability_in_understanding_language_model_and_human_p.md)
-- [Big5-Chat: Shaping LLM Personalities Through Training on Human-Grounded Data](big5-chat_shaping_llm_personalities_through_training_on_human-grounded_data.md)
-- [LLMs instead of Human Judges? A Large Scale Empirical Study across 20 NLP Evaluation Tasks](llm_vs_human_judges_study.md)
+- [ReCall: Library-Like Behavior In Language Models is Enhanced by Self-Referencing Causal Cycles](library-like_behavior_in_language_models_is_enhanced_by_self-referencing_causal_.md)
 
 <!-- RELATED:END -->

@@ -146,6 +146,6 @@ GainLoRA 与现有 CL 方法（O-LoRA、InfLoRA）兼容——它不限制新 Lo
 - [C-LoRA: Contextual Low-Rank Adaptation for Uncertainty Estimation in Large Language Models](c-lora_contextual_low-rank_adaptation_for_uncertainty_estimation_in_large_langua.md)
 - [RefLoRA: Refactored Low-Rank Adaptation for Efficient Fine-Tuning of Large Models](reflora_refactored_low-rank_adaptation_for_efficient_fine-tuning_of_large_models.md)
 - [DenseLoRA: Dense Low-Rank Adaptation of Large Language Models](../../ACL2025/model_compression/denselora_dense_low-rank_adaptation_of_large_language_models.md)
-- [GoRA: Gradient-Driven Adaptive Low Rank Adaptation](gora_gradient-driven_adaptive_low_rank_adaptation.md)
+- [PLAN: Proactive Low-Rank Allocation for Continual Learning](../../ICCV2025/model_compression/plan_proactive_low-rank_allocation_for_continual_learning.md)
 
 <!-- RELATED:END -->

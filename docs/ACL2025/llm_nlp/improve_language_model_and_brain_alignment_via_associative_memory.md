@@ -121,8 +121,8 @@ LLaMA-2 因参数量更大、训练数据更多，对齐度更高。左脑半球
 
 - [Binary Classifier Optimization for Large Language Model Alignment](bco_binary_classifier_alignment.md)
 - [Beyond Dialogue: A Profile-Dialogue Alignment Framework Towards General Role-Playing Language Model](beyond_dialogue_a_profile-dialogue_alignment_framework_towards_general_role-play.md)
+- [Clue Guided Re-Assessment to Improve Reasoning in Large Language Models](clue_guided_re-assessment_to_improve_reasoning_in_large_language_models.md)
 - [Disentangling Memory and Reasoning Ability in Large Language Models](disentangle_memory_reasoning.md)
 - [From Neurons to Semantics: Evaluating Cross-Linguistic Alignment Capabilities of Large Language Models via Neurons Alignment](from_neurons_to_semantics_evaluating_cross-linguistic_alignment_capabilities_of_.md)
-- [DeAL: Decoding-time Alignment for Large Language Models](deal_decoding_time_alignment.md)
 
 <!-- RELATED:END -->

@@ -1,18 +1,22 @@
 ---
 title: >-
-  ACL2025 预训练方向 34篇论文解读
+  ACL2025 预训练方向 39篇论文解读
 description: >-
-  34篇ACL2025 预训练论文解读，主题涵盖：本文发现 LLM 管线中 BPE、提出 AutoDS——用基座语言模型自身作为零样本、提出在自然语言预训练前先在形式语言上进行"pre-等，每篇含核心思想与方法详解。
+  39篇ACL2025 预训练论文解读，主题涵盖：本文发现 LLM 管线中 BPE、本文提出AsyncLM，一种高效的异步预训练框架、提出 AutoDS——用基座语言模型自身作为零样本等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**💬 ACL2025** · **34** 篇论文解读
+**💬 ACL2025** · **39** 篇论文解读
 
 **[Adversarial Tokenization](adversarial_tokenization.md)**
 
 :   本文发现 LLM 管线中 BPE tokenizer 只使用唯一一种分词方式，但同一字符串存在指数级多种合法分词；通过对抗性地选择非标准分词方案，可以在不改变原始文本的情况下绕过安全对齐，攻击成功率与现有 SOTA 文本级攻击方法相当。
+
+**[AsyncLM: Efficient and Adaptive Async Pre-training of Language Models](asynclm_efficient_and_adaptive_async_pre-training_of_language_models.md)**
+
+:   本文提出AsyncLM，一种高效的异步预训练框架，通过自适应梯度补偿和动态批量调度策略解决异步分布式训练中的梯度过期问题，在保持与同步训练相当的模型质量的同时，将大规模语言模型预训练的吞吐量提升了1.4-1.8倍。
 
 **[AutoDS: Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts](autonomous_data_selection_with_zero-shot_generative_classifiers_for_mathematical.md)**
 
@@ -21,6 +25,14 @@ description: >-
 **[Between Circuits and Chomsky: Pre-pretraining on Formal Languages Imparts Linguistic Biases](between_circuits_chomsky.md)**
 
 :   提出在自然语言预训练前先在形式语言上进行"pre-pretraining"，发现具有层级依赖结构的形式语言（如 k-Shuffle Dyck）能为 Transformer 提供有效的归纳偏置，使 1B 参数模型以 33% 更少的 token 达到相同的语言建模损失。
+
+**[Chinese Grammatical Error Correction With Pre-trained Models and Linguistic Clues](chinese_grammatical_error_correction_with_pre-trained_models_and_linguistic_clue.md)**
+
+:   本文提出一种融合预训练语言模型和多层级语言学线索（拼音、字形、句法依存）的中文语法纠错方法，通过显式注入语言学先验知识提升纠错模型对中文特有错误类型的识别和修正能力。
+
+**[CritiQ: Mining Data Quality Criteria from Human Preferences](critiq_mining_data_quality_criteria_from_human_preferences.md)**
+
+:   CritiQ 提出了一种基于 Agent 协作的数据质量标准自动挖掘方法，仅需约 30 个人类偏好标注对即可自动发现可解释的数据质量标准，并训练评分器进行高效数据选择，在代码、数学和逻辑领域的实验中显著提升了 Llama 3.1 的下游性能。
 
 **[Data-Constrained Synthesis of Training Data for De-Identification](data-constrained_synthesis_of_training_data_for_de-identification.md)**
 
@@ -78,6 +90,10 @@ description: >-
 
 :   实验证明更大的 subword 词汇表大小 (vocabulary size) 能持续提升 LLM 在下游任务上的性能，并提出了一种简洁的词汇表替换方法 (Swap & Insert) 用于持续训练场景下切换到更合适的词汇表。
 
+**[LEANCODE: Understanding Models Better for Code Simplification of Pre-trained Large Language Models](leancode_understanding_models_better_for_code_simplification_of_pre-trained_larg.md)**
+
+:   本文提出LeanCode，一种基于上下文感知注意力分数的代码简化方法，利用CLS注意力（分类任务）和编码器-解码器注意力（生成任务）来衡量token重要性，在代码搜索和代码摘要任务上分别比SOTA方法DietCode/SlimCode提升最高60%和29%，同时减少高达40.9%的推理时间。
+
 **[Making LLMs Better Many-to-Many Speech-to-Text Translators with Curriculum Learning](making_llms_better_many-to-many_speech-to-text_translators_with_curriculum_learn.md)**
 
 :   提出 LLM-SRT，将语音到文本翻译（S2TT）任务转化为语音识别与翻译联合任务（SRT），并通过三阶段课程学习策略（ASR→SMT→SRT）有效利用 LLM 的机器翻译能力，在低资源场景（每种语言不到 10 小时数据）下实现 15×14 语言对的 SOTA 多对多语音翻译性能。
@@ -101,6 +117,10 @@ description: >-
 **[Pre-Training Curriculum for Multi-Token Prediction in Language Models](pre-training_curriculum_for_multi-token_prediction_in_language_models.md)**
 
 :   针对小语言模型（SLM）难以直接受益于多 token 预测（MTP）目标的问题，提出前向/反向课程学习策略——前向课程（NTP→MTP）使 SLM 在保持自推测解码加速的同时提升生成质量，反向课程（MTP→NTP）在 NTP 性能上更优但失去推理加速优势。
+
+**[Retrofitting Large Language Models with Dynamic Tokenization](retrofitting_large_language_models_with_dynamic_tokenization.md)**
+
+:   本文提出对已有语言模型进行动态分词改造（dynamic tokenization），通过受 BPE 启发的子词合并算法动态决定 token 边界，结合预训练的嵌入预测超网络在线计算合并后 token 的嵌入向量，在 encoder 模型上实现平均 >20% 的序列长度缩减且性能仅下降不到 2%，在 decoder 模型上也实现了最高 17% 的序列缩减。
 
 **[SCAR: Data Selection via Style Consistency-Aware Response Ranking for Efficient Instruction-Tuning](scar_style_consistency_data_selection.md)**
 

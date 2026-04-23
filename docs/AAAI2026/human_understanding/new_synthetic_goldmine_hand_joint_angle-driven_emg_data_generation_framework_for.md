@@ -203,6 +203,6 @@ SeqEMG-GAN 在所有指标上最优，且是唯一支持未知手势生成的方
 - [VPHO: Joint Visual-Physical Cue Learning and Aggregation for Hand-Object Pose Estimation](vpho_joint_visual-physical_cue_learning_and_aggregation_for_hand-object_pose_est.md)
 - [CLIP-FTI: Fine-Grained Face Template Inversion via CLIP-Driven Attribute Conditioning](clip-fti_fine-grained_face_template_inversion_via_clip-driven_attribute_conditio.md)
 - [NURBGen: High-Fidelity Text-to-CAD Generation through LLM-Driven NURBS Modeling](nurbgen_high-fidelity_text-to-cad_generation_through_llm-driven_nurbs_modeling.md)
-- [Auto-PRE: An Automatic and Cost-Efficient Peer-Review Framework for Language Generation Evaluation](auto-pre_an_automatic_and_cost-efficient_peer-review_framework_for_language_gene.md)
+- [CPEP: Contrastive Pose-EMG Pre-training Enhances Gesture Generalization on EMG Signals](../../NeurIPS2025/human_understanding/cpep_contrastive_pose-emg_pre-training_enhances_gesture_generalization_on_emg_si.md)
 
 <!-- RELATED:END -->

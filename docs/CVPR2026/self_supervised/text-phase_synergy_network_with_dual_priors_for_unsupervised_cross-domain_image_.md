@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-**无监督跨域图像检索（UCDIR）**旨在无标注数据条件下，在异构图像域之间（如真实图片和草图）检索语义相同的图像。核心困难是：无标注+域分布差异两重挑战叠加。
+### 现有痛点
+
+**现有痛点**：**领域现状**：**无监督跨域图像检索（UCDIR）**旨在无标注数据条件下，在异构图像域之间（如真实图片和草图）检索语义相同的图像。核心困难是：无标注+域分布差异两重挑战叠加。
 
 **现有方法的两个痛点**：（1）**伪标签噪声**——通过K-means聚类生成伪标签作为监督信号，但离散伪标签常不准确，导致域内表征学习和跨域对齐都受噪声干扰，类原型也不可靠；（2）**跨域对齐导致语义退化**——对抗训练、统计分布对齐等策略在消除域差异时会不可避免地损害语义信息，因为域特定特征和语义特征是纠缠的。
 
@@ -121,7 +123,7 @@ $\mathcal{L} = \alpha \mathcal{L}_{pce} + \beta \mathcal{L}_{i2tce}$，其中 $\
 - [D2Dewarp: Dual Dimensions Geometric Representation Learning Based Document Image Dewarping](d2dewarp_dual_dimensions_geometric_representation_learning_based_document_image_.md)
 - [Suppressing Non-Semantic Noise in Masked Image Modeling Representations](suppressing_non-semantic_noise_in_masked_image_modeling_representations.md)
 - [TrackMAE: Video Representation Learning via Track, Mask, and Predict](trackmae_video_representation_learning_via_track_mask_and_predict.md)
-- [SpHOR: A Representation Learning Perspective on Open-set Recognition for Identifying Unknown Classes in Deep Neural Networks](sphor_a_representation_learning_perspective_on_open-set_recognition_for_identify.md)
-- [Representation Learning for Spatiotemporal Physical Systems](representation_learning_for_spatiotemporal_physical_systems.md)
+- [A Stitch in Time: Learning Procedural Workflow via Self-Supervised Plackett-Luce Ranking](a_stitch_in_time_learning_procedural_workflow_via_self_supervised_plackett_luce_r.md)
+- [Group-DINOmics: Incorporating People Dynamics into DINO for Self-supervised Group Activity Feature Learning](group_dinomics_incorporating_people_dynamics_into_dino_for_self_supervised_group_activity_feature_learning.md)
 
 <!-- RELATED:END -->

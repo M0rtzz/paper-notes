@@ -2,7 +2,7 @@
 title: >-
   CVPR2025 文本生成方向 2篇论文解读
 description: >-
-  2篇CVPR2025 文本生成论文解读，主题涵盖：提出ArtFormer框架，通过树结构参数化和条件、提出高效的稠密匹配摘要方案，从大量稠密对应中生成一等，每篇含核心思想与方法详解。
+  2篇CVPR2025 文本生成论文解读，主题涵盖：提出ArtFormer框架，通过树结构参数化和条件、本文提出一种稠密匹配摘要方案，通过聚类和代表性匹配等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -16,4 +16,4 @@ description: >-
 
 **[Dense Match Summarization for Faster Two-view Estimation](dense_match_summarization_for_faster_two-view_estimation.md)**
 
-:   提出高效的稠密匹配摘要方案，从大量稠密对应中生成一小组代表性匹配子集，在保持位姿估计精度的同时大幅加速 RANSAC 鲁棒估计。
+:   本文提出一种稠密匹配摘要方案，通过聚类和代表性匹配选取将10000+稠密匹配压缩为约1%的代表匹配，并用9×9矩阵编码每个簇的几何约束，实现RANSAC鲁棒估计10-100倍加速且精度损失极小。

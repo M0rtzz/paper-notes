@@ -27,14 +27,25 @@ tags:
 
 ## 背景与动机
 
-- 多模态情感分析（MSA）融合文本、音频、视频预测情感，但真实场景面临两大挑战：**模态缺失**（隐私/采集不完整）和**噪声输入**（传感器噪声）
-- 现有方法将这两个问题**分开处理**：去噪方法假设数据完整，缺失补全方法假设数据干净
-- 当噪声和缺失同时出现时，现有方法（如 IMDer、DiCMoR、MoMKE）性能显著下降
-- 噪声输入 → 错误重建 → 误差在训练和推理中层层累积
+### 现有痛点
 
-## 核心问题
+**现有痛点**：多模态情感分析（MSA）融合文本、音频、视频预测情感，但真实场景面临两大挑战：**模态缺失**（隐私/采集不完整）和**噪声输入**（传感器噪声）
 
-如何联合解决多模态情感分析中的噪声干扰和模态缺失问题，避免错误传播？
+### 领域现状
+
+**领域现状**：现有方法将这两个问题**分开处理**：去噪方法假设数据完整，缺失补全方法假设数据干净
+
+### 核心矛盾
+
+**核心矛盾**：当噪声和缺失同时出现时，现有方法（如 IMDer、DiCMoR、MoMKE）性能显著下降
+
+### 解决思路
+
+**解决思路**：噪声输入 → 错误重建 → 误差在训练和推理中层层累积
+
+### 解决思路
+
+**本文目标**：如何联合解决多模态情感分析中的噪声干扰和模态缺失问题，避免错误传播？
 
 ## 方法详解
 
@@ -71,6 +82,9 @@ $$\mathcal{L}_{IMD} = \sum_{m} \left(\sum_{b \in \{Spe,Com\}} \mathcal{L}_b^m + 
 
 ## 实验关键数据
 
+
+### 主实验
+
 | 方法 | MOSI (Avg ACC/F1) | MOSEI (Avg ACC/F1) | IEMOCAP (Avg WA/UA) |
 |------|------------------|-------------------|---------------------|
 | MoMKE | 77.05/76.46 | 80.44/79.98 | 73.35/72.78 |
@@ -80,7 +94,7 @@ $$\mathcal{L}_{IMD} = \sum_{m} \left(\sum_{b \in \{Spe,Com\}} \mathcal{L}_b^m + 
 - **噪声鲁棒性**（Gaussian noise ε=10）：TMDC vs MoMKE — MOSI 60.8 vs 53.9，MOSEI 71.2 vs 61.2，IEMOCAP 51.0 vs 34.4（平均领先约 **10 个点**）
 - Ablation：去掉 IMC 阶段影响最大（MOSI ACC 从 77.64 降至 74.17），去掉 MSD 比去掉 MCD 影响更大
 
-## 亮点
+## 亮点与洞察
 
 - **首次联合处理** MSA 中的噪声和缺失模态问题，填补了研究空白
 - **两阶段设计合理**: 先去噪再补全，避免噪声通过重建传播
@@ -96,7 +110,7 @@ $$\mathcal{L}_{IMD} = \sum_{m} \left(\sum_{b \in \{Spe,Com\}} \mathcal{L}_b^m + 
 - 仅考虑高斯噪声，实际噪声类型更多样（如模态错位、标注噪声）
 - 未利用预训练多模态大模型（如 LLM/VLM），特征提取仍基于固定 backbone
 
-## 对比
+## 相关工作与启发
 
 与 MoMKE（先前 SOTA）：MoMKE 训练多个 modality-specific MoE experts 但不做去噪，噪声场景下性能急剧下降。TMDC 通过 VIB 显式去噪 + 两阶段训练策略，在噪声环境下优势明显。与 IMDer/DiCMoR：它们用 diffusion/flow 做模态重建但假设输入无噪声，噪声+缺失同时出现时失效。
 
@@ -115,9 +129,9 @@ $$\mathcal{L}_{IMD} = \sum_{m} \left(\sum_{b \in \{Spe,Com\}} \mathcal{L}_b^m + 
 ## 相关论文
 
 - [Blink: Dynamic Visual Token Resolution for Enhanced Multimodal Understanding](../../CVPR2026/image_restoration/blink_dynamic_visual_token_resolution_for_enhanced_multimodal_understanding.md)
-- [Towards Universal Computational Aberration Correction in Photographic Cameras: A Comprehensive Benchmark Analysis](../../CVPR2026/image_restoration/towards_universal_computational_aberration_correction_in_photographic_cameras_a_.md)
+- [DRFusion: Degradation-Robust Fusion via Degradation-Aware Diffusion Framework](../../CVPR2026/image_restoration/drfusion_degradation_robust_fusion_via_degradation_aware_diffusion_framework.md)
 - [Large Language Models Meet Extreme Multi-label Classification: Scaling and Multi-modal Framework](large_language_models_meet_extreme_multi-label_classification_scaling_and_multi-.md)
+- [Towards Universal Computational Aberration Correction in Photographic Cameras: A Comprehensive Benchmark Analysis](../../CVPR2026/image_restoration/towards_universal_computational_aberration_correction_in_photographic_cameras_a_.md)
 - [Blur-Robust Detection via Feature Restoration: An End-to-End Framework for Prior-Guided Infrared UAV Target Detection](blur-robust_detection_via_feature_restoration_an_end-to-end_framework_for_prior-.md)
-- [Benchmarking Burst Super-Resolution for Polarization Images: Noise Dataset and Analysis](../../ICCV2025/image_restoration/benchmarking_burst_superresolution_for_polarization_images_n.md)
 
 <!-- RELATED:END -->

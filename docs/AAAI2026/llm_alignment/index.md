@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 对齐/RLHF方向 18篇论文解读
+  AAAI2026 对齐/RLHF方向 19篇论文解读
 description: >-
-  18篇AAAI2026 对齐/RLHF论文解读，主题涵盖：提出 Structural Alignment、AlignTree 利用 LLM、提出AMaPO算法，通过实例级自适应margin（等，每篇含核心思想与方法详解。
+  19篇AAAI2026 对齐/RLHF论文解读，主题涵盖：提出 Structural Alignment、AlignTree 利用 LLM、提出AMaPO算法，通过实例级自适应margin（等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐/RLHF
 
-**🤖 AAAI2026** · **18** 篇论文解读
+**🤖 AAAI2026** · **19** 篇论文解读
 
 **[Align to Structure: Aligning Large Language Models with Structural Information](align_to_structure_aligning_large_language_models_with_struc.md)**
 
@@ -50,6 +50,10 @@ description: >-
 
 :   系统揭示了LLM对齐过程（指令调优+偏好调优）是LLM评估器产生数值偏差的根本原因，并验证分数范围调整是最有效的缓解策略。
 
+**[GRAM-R²: Self-Training Generative Foundation Reward Models for Reward Reasoning](gram-r2_self-training_generative_foundation_reward_models_for_reward_reasoning.md)**
+
+:   本文提出 GRAM-R²，一个通过自训练方式在无标签数据上引发奖励推理能力的生成式基础奖励模型，能够同时产生偏好标签和推理理由，在响应排序、任务适配和 RLHF 等多个下游任务中一致超越判别式和生成式基线。
+
 **[Importance-Aware Data Selection for Efficient LLM Instruction Tuning](importance-aware_data_selection_for_efficient_llm_instruction_tuning.md)**
 
 :   提出MIWV（Model Instruction Weakness Value）指标，通过比较LLM在有/无one-shot ICL示例下的损失差来衡量每条指令数据对模型能力提升的重要性，在Alpaca数据集上仅用1%（520条）数据即全面超越全量52002条的微调效果。
@@ -72,7 +76,7 @@ description: >-
 
 **[Rethinking Direct Preference Optimization in Diffusion Models](rethinking_direct_preference_optimization_in_diffusion_models.md)**
 
-:   提出两个正交改进增强扩散模型偏好优化：(1) 稳定参考模型更新策略放松冻结参考模型并通过正则化鼓励探索；(2) 时间步感知训练策略缓解跨时间步奖励尺度不平衡。二者可嵌入多种偏好优化算法，在人类偏好评估基准上提升SOTA。
+:   提出两个正交且可插拔的改进策略来增强扩散模型的偏好优化：稳定参考模型更新（放松冻结+正则化锚点）和时间步感知训练（自适应权重平衡奖励尺度），两者可嵌入 DPO/IPO 等多种偏好优化算法并在人类偏好评估基准上取得 SOTA。
 
 **[SafeNlidb: A Privacy-Preserving Safety Alignment Framework for LLM-based Natural Language Database Interfaces](safenlidb_a_privacy-preserving_safety_alignment_framework_for_llm-based_natural_.md)**
 

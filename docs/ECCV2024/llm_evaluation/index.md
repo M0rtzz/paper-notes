@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 LLM评测方向 14篇论文解读
+  ECCV2024 LLM评测方向 15篇论文解读
 description: >-
-  14篇ECCV2024 LLM评测论文解读，主题涵盖：提出 ColorMNet，一种基于记忆机制的时空特、本文提出 RayFusion 框架，通过在、提出分布对齐（DA）损失将测试时特征分布拉回源域分等，每篇含核心思想与方法详解。
+  15篇ECCV2024 LLM评测论文解读，主题涵盖：提出 ColorMNet，一种基于记忆机制的时空特、本文提出 RayFusion 框架，通过在、提出分布对齐（DA）损失将测试时特征分布拉回源域分等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**🎞️ ECCV2024** · **14** 篇论文解读
+**🎞️ ECCV2024** · **15** 篇论文解读
 
 **[ColorMNet: A Memory-based Deep Spatial-Temporal Feature Propagation Network for Video Colorization](colormnet_a_memory-based_deep_spatial-temporal_feature_propagation_network_for_v.md)**
 
@@ -65,3 +65,7 @@ description: >-
 **[VisFocus: Prompt-Guided Vision Encoders for OCR-Free Dense Document Understanding](visfocus_prompt-guided_vision_encoders_for_ocr-free_dense_document_understanding.md)**
 
 :   VisFocus提出了一种提示引导的视觉编码方法用于OCR-free文档理解：通过将用户提示（prompt）直接注入视觉编码器的patch merging层（ViLMA层），配合局部掩码提示建模（LMPM）预训练任务，使视觉编码器学会聚焦于与提示相关的文本区域，在多个文档VQA基准上达到同规模SOTA。
+
+**[VisFocus: Prompt-Guided Vision Encoders for OCR-Free Dense Document Understanding](visfocus_promptguided_vision_encoders_for_ocrfree_dense.md)**
+
+:   提出 VisFocus，通过在视觉编码器的 patch merging 层引入 prompt 感知的 ViLMA 层，并设计 LMPM 预训练任务，使 OCR-Free 文档理解模型能聚焦于与用户查询相关的文本区域，在多个文档 VQA 基准上达到同规模 SOTA。

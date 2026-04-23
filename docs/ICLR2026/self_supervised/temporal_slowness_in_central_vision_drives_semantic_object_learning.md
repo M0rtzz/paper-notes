@@ -16,7 +16,7 @@ tags:
 
 **会议**: ICLR2026  
 **arXiv**: [2602.04462](https://arxiv.org/abs/2602.04462)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: video_understanding  
 **关键词**: central vision, temporal slowness, self-supervised learning, Ego4D, semantic representation
 
@@ -24,6 +24,8 @@ tags:
 通过模拟人类中央视觉（注视点裁剪）和时间慢性原则（时间对比学习），在 Ego4D 数据上训练 SSL 模型，发现两者组合能有效提升语义对象表征——中央视觉强化前景提取，时间慢性在注视凝视期间蒸馏语义信息。
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：人类从自我中心视觉流中以极少监督获取语义对象表征，但 SSL 模型在人类视觉体验上训练时效果不佳。
 
@@ -125,6 +127,6 @@ Ego4D 帧 → 注视点预测（GLC 模型）→ 中央视觉裁剪 → MoCoV3 +
 - [UniSTD: Towards Unified Spatio-Temporal Learning Across Diverse Disciplines](../../CVPR2025/self_supervised/unistd_towards_unified_spatio-temporal_learning_across_diverse_disciplines.md)
 - [SEAL: Semantic-Aware Hierarchical Learning for Generalized Category Discovery](../../NeurIPS2025/self_supervised/seal_semantic-aware_hierarchical_learning_for_generalized_category_discovery.md)
 - [Suppressing Non-Semantic Noise in Masked Image Modeling Representations](../../CVPR2026/self_supervised/suppressing_non-semantic_noise_in_masked_image_modeling_representations.md)
-- [Vision Transformers Need More Than Registers](../../CVPR2026/self_supervised/vit_need_more_than_registers.md)
+- [OCRT: Boosting Foundation Models in the Open World with Object-Concept-Relation Triad](../../CVPR2025/self_supervised/ocrt_boosting_foundation_models_in_the_open_world_with_object-concept-relation_t.md)
 
 <!-- RELATED:END -->

@@ -147,8 +147,8 @@ Typed-RAG 的处理流程：
 
 - [EXIT: Context-Aware Extractive Compression for Enhancing Retrieval-Augmented Generation](exit_context-aware_extractive_compression_for_enhancing_retrieval-augmented_gene.md)
 - [SeaKR: Self-aware Knowledge Retrieval for Adaptive Retrieval Augmented Generation](seakr_self-aware_knowledge_retrieval_for_adaptive_retrieval_augmented_generation.md)
-- [MAIN-RAG: Multi-Agent Filtering Retrieval-Augmented Generation](main-rag_multi-agent_filtering_retrieval-augmented_generation.md)
 - [Evaluation of Attribution Bias in Generator-Aware Retrieval-Augmented Large Language Models](evaluation_of_attribution_bias_in_generator-aware_retrieval-augmented_large_lang.md)
-- [Towards Adaptive Memory-Based Optimization for Enhanced Retrieval-Augmented Generation](towards_adaptive_memory-based_optimization_for_enhanced_retrieval-augmented_gene.md)
+- [MAIN-RAG: Multi-Agent Filtering Retrieval-Augmented Generation](main-rag_multi-agent_filtering_retrieval-augmented_generation.md)
+- [Investigating the Robustness of Retrieval-Augmented Generation at the Query Level](investigating_the_robustness_of_retrieval-augmented_generation_at_the_query_leve.md)
 
 <!-- RELATED:END -->

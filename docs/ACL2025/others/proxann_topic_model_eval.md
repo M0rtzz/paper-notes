@@ -129,6 +129,6 @@ LLM使用凝缩的指令和相同的样本文档执行相同任务，Fit Step使
 - [S2WTM: Spherical Sliced-Wasserstein Autoencoder for Topic Modeling](s2wtm_spherical_sliced-wasserstein_autoencoder_for_topic_modeling.md)
 - [MDCure: A Scalable Pipeline for Multi-Document Instruction-Following](mdcure_a_scalable_pipeline_for_multi-document_instruction-following.md)
 - [Understanding Cross-Domain Adaptation in Low-Resource Topic Modeling](understanding_cross-domain_adaptation_in_low-resource_topic_modeling.md)
-- [SoRFT: Issue Resolving with Subtask-oriented Reinforced Fine-Tuning](sorft_issue_resolving_with_subtask-oriented_reinforced_fine-tuning.md)
+- [Principled Content Selection to Generate Diverse and Personalized Multi-Document Summaries](dpp_diverse_multidoc_summary.md)
 
 <!-- RELATED:END -->

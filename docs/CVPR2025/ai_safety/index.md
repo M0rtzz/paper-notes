@@ -74,7 +74,7 @@ description: >-
 
 **[NoT: Federated Unlearning via Weight Negation](not_federated_unlearning_via_weight_negation.md)**
 
-:   提出 NoT（Not），通过将选定层的权重取反（乘 -1）再在保留数据上微调来实现联邦遗忘，无需访问遗忘数据或存储额外信息，在 CIFAR-10 CNN 上与从头重训的差距仅 0.29%，计算量减少约一半。
+:   提出 NoT 算法，通过对全局模型特定层的权重乘以 -1（取反）来破坏层间协同适应从而实现遗忘，再用保留数据微调恢复性能，无需额外存储或访问目标数据，在 CIFAR-10/100、Caltech-101 上以最低通信/计算开销显著优于七种基线方法。
 
 **[PSBD: Prediction Shift Uncertainty Unlocks Backdoor Detection](psbd_prediction_shift_uncertainty_unlocks_backdoor_detection.md)**
 
@@ -86,7 +86,7 @@ description: >-
 
 **[Split Adaptation for Pre-trained Vision Transformers](split_adaptation_for_pre-trained_vision_transformers.md)**
 
-:   提出 Split Adaptation，将预训练 ViT 分为客户端前端（量化+噪声）和服务端后端，通过 OOD 增强量化、Hilbert 变换增强和 patch 级检索增强实现少样本适应，在保护数据隐私和模型知识产权的同时在 CIFAR-100 5-shot 上达到 81.98%，计算量仅为线性探测的 4%。
+:   本文提出 Split Adaptation (SA)，将预训练 ViT 分割为前端（量化后发送给客户端）和后端（留在服务器），通过双层噪声注入保护数据隐私，配合OOD增强和patch检索增强缓解噪声影响和过拟合，在保护模型和数据的前提下实现高效少样本下游适配。
 
 **[Subnet-Aware Dynamic Supernet Training for Neural Architecture Search](subnet-aware_dynamic_supernet_training_for_neural_architecture_search.md)**
 

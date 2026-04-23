@@ -131,10 +131,10 @@ AV-LDM 是一个音频-视觉潜在扩散模型。输入为一段无声视频，
 
 ## 相关论文
 
-- [Spherical World-Locking for Audio-Visual Localization in Egocentric Videos](spherical_world-locking_for_audio-visual_localization_in_egocentric_videos.md)
 - [Listen to Look into the Future: Audio-Visual Egocentric Gaze Anticipation](listen_to_look_into_the_future_audio-visual_egocentric_gaze_anticipation.md)
-- [Latent-INR: A Flexible Framework for Implicit Representations of Videos with Discriminative Semantics](latent-inr_a_flexible_framework_for_implicit_representations_of_videos_with_disc.md)
 - [MEGADance: Mixture-of-Experts Architecture for Genre-Aware 3D Dance Generation](../../NeurIPS2025/audio_speech/megadance_mixture-of-experts_architecture_for_genre-aware_3d_dance_generation.md)
+- [Latent-INR: A Flexible Framework for Implicit Representations of Videos with Discriminative Semantics](latent-inr_a_flexible_framework_for_implicit_representations_of_videos_with_disc.md)
+- [Teaching Physical Awareness to LLMs through Sounds](../../ICML2025/audio_speech/teaching_physical_awareness_to_llms_through_sounds.md)
 - [Beat-It: Beat-Synchronized Multi-Condition 3D Dance Generation](beat-it_beat-synchronized_multi-condition_3d_dance_generation.md)
 
 <!-- RELATED:END -->

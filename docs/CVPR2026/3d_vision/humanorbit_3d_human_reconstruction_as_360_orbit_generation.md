@@ -150,6 +150,6 @@ tags:
 - [TeHOR: Text-Guided 3D Human and Object Reconstruction with Textures](tehor_text-guided_3d_human_and_object_reconstruction_with_textures.md)
 - [BulletGen: Improving 4D Reconstruction with Bullet-Time Generation](bulletgen_improving_4d_reconstruction_with_bullet-time_generation.md)
 - [From Orbit to Ground: Generative City Photogrammetry from Extreme Off-Nadir Satellite Images](from_orbit_to_ground_generative_city_photogrammetry_from_extreme_off-nadir_satel.md)
-- [DuoMo: Dual Motion Diffusion for World-Space Human Reconstruction](duomo_dual_motion_diffusion_for_world-space_human_reconstruction.md)
+- [CARI4D: Category Agnostic 4D Reconstruction of Human-Object Interaction](cari4d_category_agnostic_4d_reconstruction_of_human_object_interaction.md)
 
 <!-- RELATED:END -->

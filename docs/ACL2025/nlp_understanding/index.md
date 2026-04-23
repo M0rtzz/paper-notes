@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 NLP理解方向 26篇论文解读
+  ACL2025 NLP理解方向 35篇论文解读
 description: >-
-  26篇ACL2025 NLP理解论文解读，主题涵盖：提出GraphMPA框架，通过构建基于通用相似度度、提出基于变分信息瓶颈（VIB）的实体去偏方法、将 Tibblin et al. (2023)等，每篇含核心思想与方法详解。
+  35篇ACL2025 NLP理解论文解读，主题涵盖：提出GraphMPA框架，通过构建基于通用相似度度、提出基于变分信息瓶颈（VIB）的实体去偏方法、本文提出一种主动式大语言模型框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📖 NLP理解
 
-**💬 ACL2025** · **26** 篇论文解读
+**💬 ACL2025** · **35** 篇论文解读
 
 **[A Comprehensive Graph Framework for Question Answering with Mode-Seeking Preference Alignment](a_comprehensive_graph_framework_for_question_answering_with_mode-seeking_prefere.md)**
 
@@ -18,6 +18,10 @@ description: >-
 
 :   提出基于变分信息瓶颈（VIB）的实体去偏方法，将实体token映射为高斯分布以选择性压缩实体特定信息、保留上下文语义，在通用/金融/生物医学三个领域的关系抽取数据集上均取得SOTA，特别是在OOD场景下BioRED提升5.3个F1点。
 
+**[Active LLMs for Multi-hop Question Answering](active_llms_for_multi-hop_question_answering.md)**
+
+:   本文提出一种主动式大语言模型框架，通过让LLM主动决定何时需要检索外部信息、何时可以直接推理，从而在多跳问答任务中实现更高效、更准确的推理过程。
+
 **[Adapting Psycholinguistic Research for LLMs: Gender-Inclusive Language in a Coreference Context](adapting_psycholinguistic_research_for_llms_gender-inclusive_language_in_a_coref.md)**
 
 :   将 Tibblin et al. (2023) 的心理语言学实验从法语适配到英语和德语 LLM，通过测量共指词概率和生成内容分析发现：英语 LLM 基本保持先行词-共指词性别一致但 they 单数几乎不被使用且存在底层男性偏见；德语 Leo Mistral 7B 的男性偏见更强烈（压倒所有 8 种包容策略），但包容策略仍能增加女性/中性性别的出现概率，与心理语言学人类实验结果一致。
@@ -25,6 +29,10 @@ description: >-
 **[Analyzing Political Bias in LLMs via Target-Oriented Sentiment Classification](analyzing_political_bias_in_llms_via_target-oriented_sentiment_classification.md)**
 
 :   提出基于目标导向情感分类(TSC)的LLM政治偏差分析框架，通过在450个政治句子中替换1319位政治家名字并用7个模型在6种语言中预测情感，定义了基于熵的不一致性指标来量化偏差，发现LLM对左翼和中间派有正面偏见、对极右翼有负面偏见，且更大模型偏差更强更一致。
+
+**[Attribution Methods in NLP: Navigating a Fragmented Landscape](attribution_methods_in_nlp_navigating_a_fragmented_landscape.md)**
+
+:   本文对NLP领域的归因方法（Attribution Methods）进行了全面的综述和系统性比较，针对该领域评估标准碎片化、方法间缺乏公平对比的问题，提出了统一的评估框架，并揭示了不同归因方法在不同任务和模型架构上的适用性规律。
 
 **[Automatic Generation of Inference Making Questions for Reading Comprehension Assessments](automatic_generation_of_inference_making_questions_for_reading_comprehension_ass.md)**
 
@@ -34,9 +42,17 @@ description: >-
 
 :   提出 BELLE 双层多智能体辩论框架，先将多跳问题分类为四种类型，再通过双层辩论机制（第一层正反方辩论 + 第二层快/慢辩论者监督）动态规划 CoT、单步检索、迭代检索等算子的组合方案，实现面向问题类型的自适应多跳推理。
 
+**[Bilingual Zero-Shot Stance Detection](bilingual_zero-shot_stance_detection.md)**
+
+:   本文针对零样本立场检测任务的跨语言挑战，提出一种双语联合框架，通过共享语义空间的构建和跨语言知识迁移，实现在目标语言上未见过标注数据的情况下准确判断文本对特定话题的立场（支持/反对/中立）。
+
 **[BookCoref: Coreference Resolution at Book Scale](bookcoref_book_scale.md)**
 
 :   提出首个书级别共指消解基准BookCoref，通过角色链接+LLM过滤+窗口扩展的自动标注管线，在50本完整小说上生成高质量银标注数据，平均文档长度超过20万tokens。
+
+**[BRIGHTER: BRIdging the Gap in Human-Annotated Textual Emotion Recognition Datasets for 28 Languages](brighter_bridging_the_gap_in_human-annotated_textual_emotion_recognition_dataset.md)**
+
+:   本文构建了覆盖28种语言的多标签情感标注数据集BRIGHTER，重点覆盖非洲、亚洲、东欧和拉美的低资源语言，由母语使用者标注，并在单语和跨语言情感识别任务上建立了基准实验结果。
 
 **[CaLMQA: Exploring Culturally Specific Long-Form Question Answering across 23 Languages](calmqa_cultural_multilingual_qa.md)**
 
@@ -45,6 +61,14 @@ description: >-
 **[Can LLMs Reliably Simulate Real Students' Abilities in Mathematics and Reading Comprehension?](can_llms_reliably_simulate_real_students_abilities_in_mathematics_and_reading_co.md)**
 
 :   利用项目反应理论(IRT)将11个LLM与真实学生放在同一能力量表上评估，发现在无引导情况下强模型远超学生平均水平，而"扮演某年级学生"的提示虽能改变表现，但**没有任何模型-提示组合**能在所有学科和年级上可靠模拟平均学生。
+
+**[Conversational Quality Assessment: A Large-Scale Corpus and Comprehensive Study](conversational_quality_assessment_a_large-scale_corpus_and_comprehensive_study.md)**
+
+:   本文构建了一个大规模多维度对话质量评估语料库，涵盖流畅性、一致性、信息量、参与度等多个质量维度，并基于此语料库对现有对话评估方法进行了全面的基准测试和分析。
+
+**[Déjà Vu? Decoding Repeated Reading from Eye Movements](deja_vu_decoding_repeated_reading_from_eye_movements.md)**
+
+:   首次提出从眼动模式自动判断读者是否曾经阅读过某文本的预测任务，通过基于特征的 XGBoost 和神经网络 RoBERTEye 模型，在单次试验中达到 ~70% 准确率、配对试验中达到 ~91% 准确率，并引入 E-Z Reader 认知模型生成的合成扫视路径作为辅助参考信号来增强预测。
 
 **[Disambiguate First, Parse Later: Generating Interpretations for Ambiguity Resolution in Semantic Parsing](disambiguate_first_parse_later_generating_interpretations_for_ambiguity_resoluti.md)**
 
@@ -74,6 +98,10 @@ description: >-
 
 :   HiREC 提出分层检索与证据策展框架，先检索相关文档再从中选取段落，并通过过滤无关段落 + 自动生成补充查询来补全缺失信息，在包含 14.5 万篇 SEC 文档的 LOFin 基准上相比最优 RAG 基线提升 13%+ 答案准确率。
 
+**[In the LLM Era, Word Sense Induction Remains Unsolved](in_the_llm_era_word_sense_induction_remains_unsolved.md)**
+
+:   本文系统评估了 LLM 时代的词义归纳（WSI）任务，在控制更严谨的 SemCor 衍生评估集上发现，包括 LLM 方法在内的所有无监督方法都无法超越简单的"每个词只有一个义项"基线，而结合 Wiktionary 的半监督方法超越了前 SOTA 3.3%，说明 WSI 仍远未被解决。
+
 **[iQUEST: An Iterative Question-Guided Framework for Knowledge Base Question Answering](iquest_an_iterative_question-guided_framework_for_knowledge_base_question_answer.md)**
 
 :   iQUEST 提出迭代式子问题引导框架，在每一步推理中动态生成当前可解答的子问题以维持推理方向，并结合 GNN 聚合二跳邻居语义信息实现"前瞻性"实体探索，在 CWQ、WebQSP、WebQuestions、GrailQA 四个基准上取得 SOTA 或接近 SOTA 的性能，且无需微调 LLM。
@@ -85,6 +113,10 @@ description: >-
 **[NeuSym-RAG: Hybrid Neural Symbolic Retrieval with Multiview Structuring for PDF Question Answering](neusym_rag_pdf_qa.md)**
 
 :   NeuSym-RAG 提出了一个混合神经-符号检索框架，将 PDF 文档通过多视角分块解析同时存入关系数据库和向量库，LLM Agent 通过可执行动作（SQL 查询 + 向量检索 + 查看图片等）迭代式交互检索，在学术论文 QA 上比经典 RAG 提升 17.3%。
+
+**[On Synthesizing Data for Context Attribution in Question Answering](on_synthesizing_data_for_context_attribution_in_question_answering.md)**
+
+:   本文提出 SynQA，一种基于"给定上下文句子→生成 QA 对"的合成数据策略，用于训练小模型完成上下文归因任务（即为 QA 系统的回答找到支撑证据句），在多个 QA 任务和跨域场景中显著优于零样本推理和 LLM 集成方法。
 
 **[QQSUM: A Novel Task and Model of Quantitative Query-Focused Summarization for Review-based Product Question Answering](qqsum_a_novel_task_and_model_of_quantitative_query-focused_summarization_for_rev.md)**
 
@@ -113,3 +145,7 @@ description: >-
 **[SynGraph: A Dynamic Graph-LLM Synthesis Framework for Sparse Streaming User Sentiment Analysis](syngraph_a_dynamic_graph-llm_synthesis_framework_for_sparse_streaming_user_senti.md)**
 
 :   提出SynGraph框架，在连续时间动态图上将稀疏用户分为mid-tail/long-tail/extreme三类，针对不同稀疏程度利用LLM合成增强数据（结合局部-全局图理解、高阶关系和画像生成），有效缓解流式评论情感分析中的数据稀疏问题。
+
+**[A Variational Approach for Mitigating Entity Bias in Relation Extraction](variational_approach_mitigating_entity_bias_relation_extraction.md)**
+
+:   提出将变分信息瓶颈(VIB)应用于关系抽取中的实体去偏，通过将实体映射到概率分布 $\mathcal{N}(\mu, \sigma)$ 来压缩实体特定信息同时保留任务相关特征，方差 $\sigma^2$ 可量化模型对实体vs上下文的依赖程度，在TACRED、REFinD、BioRED三个域的ID和OOD设置上均达到SOTA。

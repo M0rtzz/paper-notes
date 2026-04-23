@@ -17,7 +17,7 @@ tags:
 **会议**: ICLR 2026  
 **arXiv**: [2603.10573](https://arxiv.org/abs/2603.10573)  
 
-**代码**: 待确认  
+**代码**: 无  
 **领域**: LLM NLP / 可解释性  
 
 **关键词**: in-context learning, likelihood-ratio test, mechanistic interpretability, sufficient statistic, Neyman-Pearson
@@ -28,7 +28,9 @@ tags:
 
 ## 背景与动机
 
-1. **领域现状**：ICL 使Transformer无需权重更新即可适应新任务，但底层算法机制仍有争议——是简单的检索/平均，还是构建了原则性的学习算法？
+### 领域现状
+
+**领域现状**：1. **领域现状**：ICL 使Transformer无需权重更新即可适应新任务，但底层算法机制仍有争议——是简单的检索/平均，还是构建了原则性的学习算法？
 
 2. **已有进展**：合成环境下 Transformer 可恢复线性回归、决策树等经典算法，但多聚焦回归问题的渐近收敛，未精确刻画每个 episode 的决策规则。
 
@@ -72,6 +74,9 @@ tags:
 
 ## 实验
 
+
+### 主实验
+
 | 实验 | 关键发现 |
 |------|---------|
 | Task B (非线性) | 准确率83.0%，逼近oracle的84.0%；Spearman $\rho$=0.98，几乎完美恢复LLR排序 |
@@ -82,7 +87,7 @@ tags:
 | Logit Lens | Task A在Layer 1即出现与LLR的相关性；Task B直到最终层才出现 |
 | OV电路 | Task A: Layer 0头与决策方向高对齐(>0.7)→投票集成；Task B: Layer 0沉默→深层顺序计算 |
 
-## 亮点
+## 亮点与洞察
 
 - 首次在**已知最优解**的框架下严格测试ICL的统计最优性，为可解释性研究提供理想测试床
 
@@ -92,7 +97,7 @@ tags:
 
 - 实验设计极其干净，每个消融都有明确的理论对应
 
-## 局限性
+## 局限与展望
 
 - 仅使用2层小型Transformer和低维高斯数据，机制是否在大模型/真实分布中保持未知
 

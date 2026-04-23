@@ -184,9 +184,9 @@ $$\mathcal{L}_{\text{AlignCal}}(p_y, p_{\max}) = p_y(1-p_{\max}) + (1-p_y)p_{\ma
 ## 相关论文
 
 - [LungNoduleAgent: A Collaborative Multi-Agent System for Precision Diagnosis of Lung Nodules](lungnoduleagent_a_collaborative_multi-agent_system_for_precision_diagnosis_of_lu.md)
+- [Align-Pro: Align Protein Representations Through Multi-Modal Learning](../../ACL2025/medical_imaging/align-pro_align_protein_representations_through_multi-modal_learning.md)
+- [MAMA-Memeia! Multi-Aspect Multi-Agent Collaboration for Depressive Symptoms Identification in Memes](mama-memeia_multi-aspect_multi-agent_collaboration_for_depressive_symptoms_ident.md)
 - [MAPI-GNN: Multi-Activation Plane Interaction Graph Neural Network for Multimodal Medical Diagnosis](mapi-gnn_multi-activation_plane_interaction_graph_neural_network_for_multimodal_.md)
-- [MMedAgent-RL: Optimizing Multi-Agent Collaboration for Multimodal Medical Reasoning](../../ICLR2026/medical_imaging/mmedagent-rl_optimizing_multi-agent_collaboration_for_multimodal_medical_reasoni.md)
 - [Bidirectional Channel-selective Semantic Interaction for Semi-Supervised Medical Segmentation](bidirectional_channel-selective_semantic_interaction_for_semi-supervised_medical.md)
-- [Adaptive Confidence Regularization for Multimodal Failure Detection](../../CVPR2026/medical_imaging/adaptive_confidence_regularization_for_multimodal_failure_detection.md)
 
 <!-- RELATED:END -->

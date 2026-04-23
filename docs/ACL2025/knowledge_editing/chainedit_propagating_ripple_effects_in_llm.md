@@ -129,6 +129,6 @@ LG（逻辑泛化）指标：MEMIT 从 18.6% → 58.7%（**+40.1%**），FT 从 
 - [Memorizing is Not Enough: Deep Knowledge Injection Through Reasoning](memorizing_is_not_enough_deep_knowledge_injection_through_reasoning.md)
 - [Mitigating Negative Interference in Multilingual Sequential Knowledge Editing through Null-Space Constraints](mitigating_negative_interference_in_multilingual_sequential_knowledge_editing_th.md)
 - [CompKe: Complex Question Answering under Knowledge Editing](compke_complex_question_answering_under_knowledge_editing.md)
-- [Attribution-Guided Model Rectification of Unreliable Neural Network Behaviors](../../CVPR2026/knowledge_editing/attribution-guided_model_rectification_of_unreliable_neural_network_behaviors.md)
+- [SAKE: Steering Activations for Knowledge Editing](sake_steering_activations_for_knowledge_editing.md)
 
 <!-- RELATED:END -->

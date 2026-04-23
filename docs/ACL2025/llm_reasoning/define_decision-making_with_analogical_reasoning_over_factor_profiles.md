@@ -128,6 +128,6 @@ DeFine 在 F1 (23.73) 和 Accuracy (29.64) 上均显著领先，F1 比最佳基�
 - [I-RAVEN-X: Benchmarking Generalization and Robustness of Analogical and Mathematical Reasoning in Large Language and Reasoning Models](../../NeurIPS2025/llm_reasoning/i-raven-x_benchmarking_generalization_and_robustness_of_analogical_and_mathemati.md)
 - [Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models](chain-of-reasoning_towards_unified_mathematical_reasoning_in_large_language_mode.md)
 - [Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models via a Multi-Paradigm Perspective](chain_of_reasoning_unified_math.md)
-- [Enhancing Mathematical Reasoning in LLMs by Stepwise Correction](enhancing_mathematical_reasoning_in_llms_by_stepwise_correction.md)
+- [ProcessBench: Identifying Process Errors in Mathematical Reasoning](processbench_identifying_process_errors_in_mathematical_reasoning.md)
 
 <!-- RELATED:END -->

@@ -163,6 +163,6 @@ Stanford2D3D 注册率对比：
 - [3D-SLNR: A Super Lightweight Neural Representation for Large-scale 3D Mapping](../../CVPR2025/3d_vision/3d-slnr_a_super_lightweight_neural_representation_for_large-scale_3d_mapping.md)
 - [S3R-GS: Streamlining the Pipeline for Large-Scale Street Scene Reconstruction](s3r-gs_streamlining_the_pipeline_for_large-scale_street_scene_reconstruction.md)
 - [HumanOLAT: A Large-Scale Dataset for Full-Body Human Relighting and Novel-View Synthesis](humanolat_a_large-scale_dataset_for_full-body_human_relighting_and_novel-view_sy.md)
-- [Bring Your Rear Cameras for Egocentric 3D Human Pose Estimation](bring_your_rear_cameras_for_egocentric_3d_human_pose_estimat.md)
+- [Single-Scanline Relative Pose Estimation for Rolling Shutter Cameras](single-scanline_relative_pose_estimation_for_rolling_shutter_cameras.md)
 
 <!-- RELATED:END -->

@@ -154,7 +154,7 @@ $$\mathcal{L} = \mathcal{L}_{TRI} + λ_{GD}\mathcal{L}_{GD} + λ_{ISD}\mathcal{L
 - [NeighborRetr: Balancing Hub Centrality in Cross-Modal Retrieval](../../CVPR2025/information_retrieval/neighborretr_balancing_hub_centrality_in_cross-modal_retrieval.md)
 - [CART: A Generative Cross-Modal Retrieval Framework with Coarse-To-Fine Semantic Modeling](cart_a_generative_cross-modal_retrieval_framework_with_coarse-to-fine_semantic_m.md)
 - [Neighbor-aware Instance Refining with Noisy Labels for Cross-Modal Retrieval](../../AAAI2026/information_retrieval/neighbor-aware_instance_refining_with_noisy_labels_for_cross-modal_retrieval.md)
+- [Cross-Lingual Relevance Transfer for Document Retrieval](cross-lingual_relevance_transfer_for_document_retrieval.md)
 - [Accelerating Adaptive Retrieval Augmented Generation via Instruction-Driven Representation Reduction of Retrieval Overlaps](accelerating_adaptive_retrieval_augmented_generation_via_instruction-driven_repr.md)
-- [Collapse of Dense Retrievers: Short, Early, and Literal Biases Outranking Factual Evidence](collapse_dense_retrievers.md)
 
 <!-- RELATED:END -->

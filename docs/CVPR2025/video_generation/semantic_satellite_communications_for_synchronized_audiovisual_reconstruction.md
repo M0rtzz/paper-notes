@@ -133,10 +133,10 @@ V2A-L2 在 12dB SNR 下 AKD=5.8，接近 L3 的 4.8，但带宽仅为 L3 的 50%
 
 ## 相关论文
 
-- [FADE: Frequency-Aware Diffusion Model Factorization for Video Editing](fade_frequency-aware_diffusion_model_factorization_for_video_editing.md)
-- [LongDiff: Training-Free Long Video Generation in One Go](longdiff_training-free_long_video_generation_in_one_go.md)
-- [Multi-subject Open-set Personalization in Video Generation](multi-subject_open-set_personalization_in_video_generation.md)
-- [Exploring Temporally-Aware Features for Point Tracking](exploring_temporally-aware_features_for_point_tracking.md)
-- [Mimir: Improving Video Diffusion Models for Precise Text Understanding](mimir_improving_video_diffusion_models_for_precise_text_understanding.md)
+- [VideoGuide: Improving Video Diffusion Models without Training Through a Teacher's Guide](videoguide_improving_video_diffusion_models_without_training_through_a_teachers_.md)
+- [VideoScene: Distilling Video Diffusion Model to Generate 3D Scenes in One Step](videoscene_distilling_video_diffusion_model_to_generate_3d_scenes_in_one_step.md)
+- [NeuS-V: Neuro-Symbolic Evaluation of Text-to-Video Models using Formal Verification](neuro-symbolic_evaluation_of_text-to-video_models_using_formal_verification.md)
+- [Unified Dense Prediction of Video Diffusion](unified_dense_prediction_of_video_diffusion.md)
+- [MotiF: Making Text Count in Image Animation with Motion Focal Loss](motif_making_text_count_in_image_animation_with_motion_focal_loss.md)
 
 <!-- RELATED:END -->

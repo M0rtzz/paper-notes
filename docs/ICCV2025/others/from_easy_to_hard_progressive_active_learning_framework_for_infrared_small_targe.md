@@ -200,6 +200,6 @@ $$L_{n+1} = \lambda L_n \odot (1 - N_n) + \frac{L_n + P_n}{2} \odot N_n$$
 - [MutualVPR: A Mutual Learning Framework for Resolving Supervision Inconsistencies via Adaptive Clustering](../../NeurIPS2025/others/mutualvpr_a_mutual_learning_framework_for_resolving_supervision_inconsistencies_.md)
 - [A Linear N-Point Solver for Structure and Motion from Asynchronous Tracks](a_linear_n-point_solver_for_structure_and_motion_from_asynchronous_tracks.md)
 - [On Agnostic PAC Learning in the Small Error Regime](../../NeurIPS2025/others/on_agnostic_pac_learning_in_the_small_error_regime.md)
-- [An Incremental Unified Framework for Small Defect Inspection](../../ECCV2024/others/an_incremental_unified_framework_for_small_defect_inspection.md)
+- [Gaze Target Detection Based on Head-Local-Global Coordination](../../ECCV2024/others/gaze_target_detection_based_on_head-local-global_coordination.md)
 
 <!-- RELATED:END -->

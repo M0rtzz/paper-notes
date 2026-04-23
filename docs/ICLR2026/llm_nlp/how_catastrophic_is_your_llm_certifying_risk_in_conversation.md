@@ -145,10 +145,10 @@ tags:
 
 ## 相关论文
 
+- [Mind Your Tone: Investigating How Prompt Politeness Affects LLM Accuracy](../../ACL2025/llm_nlp/mind_your_tone_investigating_how_prompt_politeness_affects_llm_accuracy_short_pa.md)
 - [A Survey of LLM-based Agents in Medicine: How Far Are We from Baymax?](../../ACL2025/llm_nlp/a_survey_of_llm-based_agents_in_medicine_how_far_are_we_from_baymax.md)
-- [Are Your LLMs Capable of Stable Reasoning?](../../ACL2025/llm_nlp/are_your_llms_capable_of_stable_reasoning.md)
-- [On the Risk of Evidence Pollution for Malicious Social Text Detection in the Era of LLMs](../../ACL2025/llm_nlp/on_the_risk_of_evidence_pollution_for_malicious_social_text_detection_in_the_era.md)
-- [IPO: Your Language Model is Secretly a Preference Classifier](../../ACL2025/llm_nlp/ipo_your_language_model_is_secretly_a_preference_classifier.md)
 - [ConflictScope: Generative Value Conflicts Reveal LLM Priorities](quamo_quaternion_motions_for_vision-based_3d_human_kinematics_capture.md)
+- [Generative Value Conflicts Reveal LLM Priorities](generative_value_conflicts_reveal_llm_priorities.md)
+- [PT2-LLM: Post-Training Ternarization for Large Language Models](pt2-llm_post-training_ternarization_for_large_language_models.md)
 
 <!-- RELATED:END -->

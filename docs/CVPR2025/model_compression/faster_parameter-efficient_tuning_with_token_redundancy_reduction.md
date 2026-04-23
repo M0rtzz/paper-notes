@@ -120,7 +120,7 @@ tags:
 - [Parameter Efficient Mamba Tuning via Projector-targeted Diagonal-centric Linear Transformation](parameter_efficient_mamba_tuning_via_projector-targeted_diagonal-centric_linear_.md)
 - [TR-PTS: Task-Relevant Parameter and Token Selection for Efficient Tuning](../../ICCV2025/model_compression/tr-pts_task-relevant_parameter_and_token_selection_for_efficient_tuning.md)
 - [Parameter-Efficient Fine-Tuning of State Space Models](../../ICML2025/model_compression/parameter-efficient_fine-tuning_of_state_space_models.md)
+- [C3A: Parameter-Efficient Fine-Tuning via Circular Convolution](../../ACL2025/model_compression/parameter-efficient_fine-tuning_via_circular_convolution.md)
 - [HyperLoRA: Parameter-Efficient Adaptive Generation for Portrait Synthesis](hyperlora_parameter-efficient_adaptive_generation_for_portrait_synthesis.md)
-- [MoRAgent: Parameter Efficient Agent Tuning with Mixture-of-Roles](../../ICML2025/model_compression/moragent_parameter_efficient_agent_tuning_with_mixture-of-roles.md)
 
 <!-- RELATED:END -->

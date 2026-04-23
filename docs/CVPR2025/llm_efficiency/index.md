@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 LLM效率方向 11篇论文解读
+  CVPR2025 LLM效率方向 12篇论文解读
 description: >-
-  11篇CVPR2025 LLM效率论文解读，主题涵盖：提出 Associative Transforme、本文提出CARE（deCoupled、提出一种从预训练 ViT 中自动提取等，每篇含核心思想与方法详解。
+  12篇CVPR2025 LLM效率论文解读，主题涵盖：提出 Associative Transforme、本文提出CARE（deCoupled、提出一种从预训练 ViT 中自动提取等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚡ LLM效率
 
-**📷 CVPR2025** · **11** 篇论文解读
+**📷 CVPR2025** · **12** 篇论文解读
 
 **[Associative Transformer](associative_transformer.md)**
 
@@ -32,7 +32,7 @@ description: >-
 
 **[Language Guided Concept Bottleneck Models for Interpretable Continual Learning](language_guided_concept_bottleneck_models_for_interpretable_continual_learning.md)**
 
-:   提出语言引导的概念瓶颈模型（Language Guided Concept Bottleneck Model），将概念瓶颈网络的可解释性与持续学习结合，通过语言模型引导的概念定义实现任务间的知识迁移和可解释的增量学习。
+:   本文将语言引导的概念瓶颈模型（CBM）引入持续学习，用 ChatGPT 生成人类可理解的概念、CLIP 编码概念嵌入构建概念瓶颈层，在缓解灾难性遗忘的同时提供透明的决策解释，在 ImageNet-subset 上超越 SOTA 3.06%。
 
 **[LOCORE: Image Re-ranking with Long-Context Sequence Modeling](locore_image_re-ranking_with_long-context_sequence_modeling.md)**
 
@@ -41,6 +41,10 @@ description: >-
 **[Low-Rank Adaptation in Multilinear Operator Networks for Security-Preserving Incremental Learning](low-rank_adaptation_in_multilinear_operator_networks_for_security-preserving_inc.md)**
 
 :   针对全同态加密（Leveled FHE）场景下多线性算子网络的灾难性遗忘问题，提出了一种结合低秩适应（LoRA）和梯度投影记忆（GPM）机制的增量学习方法，在保障数据安全的前提下实现持续学习。
+
+**[Efficient Data Driven Mixture-of-Expert Extraction from Trained Networks](moee_mixture_expert_extraction.md)**
+
+:   提出一种从预训练 ViT 中提取 MoE 变体的后训练方法，通过 HDBSCAN 聚类 MLP 隐层激活模式自动发现专家结构，无需重新训练即可在 ImageNet-1k 上减少 36% MACs 和 32% 参数的同时保留 98% 原始精度。
 
 **[Seeing What Matters: Empowering CLIP with Patch Generation-to-Selection](seeing_what_matters_empowering_clip_with_patch_generation-to-selection.md)**
 

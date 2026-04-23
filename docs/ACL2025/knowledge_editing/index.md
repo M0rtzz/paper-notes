@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 知识编辑方向 18篇论文解读
+  ACL2025 知识编辑方向 19篇论文解读
 description: >-
-  18篇ACL2025 知识编辑论文解读，主题涵盖：> 本文提出 GKI-ICD，一个通用的知识注入框、提出 ToxEdit——毒性感知的知识编辑方法、提出 BMIKE-53 —— 覆盖 53 种语言等，每篇含核心思想与方法详解。
+  19篇ACL2025 知识编辑论文解读，主题涵盖：> 本文提出 GKI-ICD，一个通用的知识注入框、提出 ToxEdit——毒性感知的知识编辑方法、提出 BMIKE-53 —— 覆盖 53 种语言等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✏️ 知识编辑
 
-**💬 ACL2025** · **18** 篇论文解读
+**💬 ACL2025** · **19** 篇论文解读
 
 **[A General Knowledge Injection Framework for ICD Coding](a_general_knowledge_injection_framework_for_icd_coding.md)**
 
@@ -77,6 +77,10 @@ description: >-
 **[Structure-aware Domain Knowledge Injection for Large Language Models](structure-aware_domain_knowledge_injection_for_large_language_models.md)**
 
 :   提出 StructTuning 方法，通过自动提取训练语料的知识分类结构，设计结构感知的持续预训练（SCPT）和结构感知的监督微调（SSFT）两阶段策略，仅用传统方法5%的数据量即可达到100%的领域知识注入效果。
+
+**[The Mirage of Model Editing: Revisiting Evaluation in the Wild](the_mirage_of_model_editing_revisiting_evaluation_in_the_wild.md)**
+
+:   本文揭示了模型编辑领域评估实践中的系统性缺陷——先前方法报告的近完美成功率（~96.8%）在真实应用场景下骤降至 38.5%，根本原因是测试中使用 teacher forcing 泄露了真值信息，并提出 QAEdit 基准和 WILD 评估框架来推动更可靠的评估。
 
 **[Towards a Principled Evaluation of Knowledge Editors](towards_a_principled_evaluation_of_knowledge_editors.md)**
 

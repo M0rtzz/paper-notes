@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2409.14983](https://arxiv.org/abs/2409.14983)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: AI安全  
 **关键词**: class incremental learning, adapters, dynamic integration, continual learning, forgetting
 
@@ -25,6 +25,8 @@ tags:
 通过动态集成任务特定适配器实现类增量学习，每个任务训练轻量适配器，推理时动态选择和组合相关适配器
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：Dynamic Integration of Task-Specific Adapters  方向近年取得了显著进展，但仍存在关键挑战。
 
@@ -120,7 +122,7 @@ tags:
 - [Model Inversion with Layer-Specific Modeling and Alignment for Data-Free Continual Learning](../../NeurIPS2025/ai_safety/model_inversion_with_layer-specific_modeling_and_alignment_for_data-free_continu.md)
 - [Subnet-Aware Dynamic Supernet Training for Neural Architecture Search](subnet-aware_dynamic_supernet_training_for_neural_architecture_search.md)
 - [Toward Enhancing Representation Learning in Federated Multi-Task Settings](../../ICLR2026/ai_safety/toward_enhancing_representation_learning_in_federated_multi-task_settings.md)
-- [Active Membership Inference Test (aMINT): Enhancing Model Auditability with Multi-Task Learning](../../ICCV2025/ai_safety/active_membership_inference_test_amint_enhancing_model_auditability_with_multi-t.md)
+- [Active Membership Inference Test (aMINT): Enhancing Model Auditability with Multi-Task Learning](../../ICCV2025/ai_safety/active_membership_inference_test_amint_enhancing_model_audit.md)
 - [Tutor-Student Reinforcement Learning: A Dynamic Curriculum for Robust Deepfake Detection](../../CVPR2026/ai_safety/tutor-student_reinforcement_learning_a_dynamic_curriculum_for_robust_deepfake_de.md)
 
 <!-- RELATED:END -->

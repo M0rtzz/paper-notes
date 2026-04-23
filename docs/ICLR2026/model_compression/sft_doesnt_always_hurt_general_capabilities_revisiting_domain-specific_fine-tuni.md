@@ -133,10 +133,10 @@ TALR在data-oblivious设定下实现了最佳的Pareto权衡。
 
 ## 相关论文
 
-- [TrimLLM: Progressive Layer Dropping for Domain-Specific LLMs](../../ACL2025/model_compression/trimllm_layer_dropping.md)
-- [Memba: Membrane-driven Parameter-Efficient Fine-Tuning for Mamba](memba_membrane-driven_parameter-efficient_fine-tuning_for_mamba.md)
-- [Fine-tuning Quantized Neural Networks with Zeroth-order Optimization](fine-tuning_quantized_neural_networks_with_zeroth-order_optimization.md)
 - [ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models](abba-adapters_efficient_and_expressive_fine-tuning_of_foundation_models.md)
-- [Revisiting Weight Regularization for Low-Rank Continual Learning](revisiting_weight_regularization_for_low-rank_continual_learning.md)
+- [Fine-tuning Quantized Neural Networks with Zeroth-order Optimization](fine-tuning_quantized_neural_networks_with_zeroth-order_optimization.md)
+- [Memba: Membrane-driven Parameter-Efficient Fine-Tuning for Mamba](memba_membrane-driven_parameter-efficient_fine-tuning_for_mamba.md)
+- [GSQ-Tuning: Group-Shared Exponents Integer in Fully Quantized Training for LLMs On-Device Fine-tuning](../../ACL2025/model_compression/gsq-tuning_group-shared_exponents_integer_in_fully_quantized_training_for_llms_o.md)
+- [LoRA Fine-Tuning without GPUs: A CPU-Efficient Meta-Generation Framework for LLMs](../../ICML2025/model_compression/lora_fine-tuning_without_gpus_a_cpu-efficient_meta-generation_framework_for_llms.md)
 
 <!-- RELATED:END -->

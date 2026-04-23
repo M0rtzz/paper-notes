@@ -28,7 +28,9 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**：VLA 模型已成为具身 AI 核心范式，通过结合视觉观察和语言指令生成机器人动作。代表方法包括离散动作模型（OpenVLA、RT-2 等）和连续动作模型（扩散策略等）。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：VLA 模型已成为具身 AI 核心范式，通过结合视觉观察和语言指令生成机器人动作。代表方法包括离散动作模型（OpenVLA、RT-2 等）和连续动作模型（扩散策略等）。
 
 **现有痛点**：(1) 感知局限——大多数 VLA 忽略深度信息；(2) 推理脆弱——简单任务上仍有显著错误率；(3) 数据质量——Open-X-Embodiment 虽有百万轨迹但分布外泛化仍脆弱；(4) 评估不可靠——仿真与真实世界性能相关性差；(5) 动作空间异构——不同机器人难以零样本泛化。
 
@@ -66,6 +68,9 @@ tags:
 
 ### VLA 动作表示范式对比
 
+
+### 主实验
+
 | 范式 | 代表方法 | 推理速度 | 训练预算 | 优势 | 劣势 |
 |------|---------|---------|---------|------|------|
 | 离散动作 | OpenVLA, RT-2 | 3-5 Hz | 较低 | 易于 Transformer 集成，可复用 next-token prediction | 量化误差，256 bin 精度有限 |
@@ -73,6 +78,9 @@ tags:
 | 混合 | $\pi_{0.5}$ | 兼顾 | 中 | 预训练离散→微调连续，收敛快 | 流程复杂，需知识隔离 |
 
 ### 各挑战维度现有方案与差距
+
+
+### 消融实验
 
 | 挑战 | 当前最佳方案 | 具体指标/现状 | 差距 |
 |------|------------|-------------|------|
@@ -132,7 +140,7 @@ tags:
 - [QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](../../CVPR2026/human_understanding/quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)
 - [When Robots Obey the Patch: Universal Transferable Patch Attacks on Vision-Language-Action Models](../../CVPR2026/human_understanding/when_robots_obey_the_patch_universal_transferable_patch_attacks_on_vision-langua.md)
 - [COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics](../../ICLR2026/human_understanding/cold-steer_steering_large_language_models_via_in-context_one-step_learning_dynam.md)
-- [ShowUI: One Vision-Language-Action Model for GUI Visual Agent](../../CVPR2025/human_understanding/showui_one_vision-language-action_model_for_gui_visual_agent.md)
-- [Failures to Surface Harmful Contents in Video Large Language Models](failures_to_surface_harmful_contents_in_video_large_language_models.md)
+- [QUAR-VLA: Vision-Language-Action Model for Quadruped Robots](../../ECCV2024/human_understanding/quarvla_visionlanguageaction_model_for_quadruped_robots.md)
+- [Anti-adversarial Learning: Desensitizing Prompts for Large Language Models](anti-adversarial_learning_desensitizing_prompts_for_large_la.md)
 
 <!-- RELATED:END -->

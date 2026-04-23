@@ -142,8 +142,8 @@ tags:
 
 - [Robust Utility-Preserving Text Anonymization Based on Large Language Models](robust_utility-preserving_text_anonymization_based_on_large_language_models.md)
 - [GradOT: Training-free Gradient-preserving Offsite-tuning for Large Language Models](gradot_offsite_tuning.md)
+- [CoPrUS: Consistency Preserving Utterance Synthesis Towards More Realistic Benchmark](coprus_consistency_preserving_utterance_synthesis_towards_more_realistic_benchma.md)
+- [Consistency-Preserving Contrastive Decoding for Faithful Document-Grounded Dialogue](consistency-preserving_contrastive_decoding_for_faithful_document-grounded_dial.md)
 - [How to Train Long-Context Language Models (Effectively)](train_long_context_effectively.md)
-- [A Content-Preserving Secure Linguistic Steganography](../../AAAI2026/llm_efficiency/a_content-preserving_secure_linguistic_steganography.md)
-- [Literary Evidence Retrieval via Long-Context Language Models](literary_evidence_retrieval_via_long-context_language_models.md)
 
 <!-- RELATED:END -->

@@ -133,6 +133,6 @@ tags:
 - [RSONet: Region-guided Selective Optimization Network for RGB-T Salient Object Detection](rsonet_region-guided_selective_optimization_network_for_rgb-t_salient_object_det.md)
 - [DA-VPT: Semantic-Guided Visual Prompt Tuning for Vision Transformers](da-vpt_semantic-guided_visual_prompt_tuning_for_vision_transformers.md)
 - [ROCKET-1: Mastering Open-World Interaction with Visual-Temporal Context Prompting](rocket-1_mastering_open-world_interaction_with_visual-temporal_context_prompting.md)
-- [RDNet: Region Proportion-Aware Dynamic Adaptive Salient Object Detection Network in Optical Remote Sensing Images](rdnet_region_proportion-aware_dynamic_adaptive_salient_object_detection_network_.md)
+- [G2HFNet: GeoGran-Aware Hierarchical Feature Fusion Network for Salient Object Detection in Optical Remote Sensing Images](binwang2hfnet_geogran-aware_hierarchical_feature_fusion_network_for_salient_obje.md)
 
 <!-- RELATED:END -->

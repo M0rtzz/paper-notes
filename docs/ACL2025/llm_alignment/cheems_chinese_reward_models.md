@@ -138,8 +138,8 @@ CheemsRM 在 Overall 上以 **0.657** 大幅领先第二名 0.535（+12.2%），
 
 - [TGDPO: Harnessing Token-Level Reward Guidance for Enhancing Direct Preference Optimization](../../ICML2025/llm_alignment/tgdpo_harnessing_token-level_reward_guidance_for_enhancing_direct_preference_opt.md)
 - [TableDreamer: Progressive and Weakness-Guided Data Synthesis from Scratch for Table Instruction Tuning](tabledreamer_progressive_and_weakness-guided_data_synthesis_from_scratch_for_tab.md)
+- [Rethinking Reward Model Evaluation Through the Lens of Reward Overoptimization](rethinking_reward_model_evaluation_through_the_lens_of_reward_overoptimization.md)
 - [Mutual-Taught for Co-adapting Policy and Reward Models](mutual_taught_policy_reward.md)
 - [EASE: Practical and Efficient Safety Alignment for Small Language Models](../../AAAI2026/llm_alignment/ease_practical_and_efficient_safety_alignment_for_small_language_models.md)
-- [Towards Reward Fairness in RLHF: From a Resource Allocation Perspective](reward_fairness_rlhf.md)
 
 <!-- RELATED:END -->

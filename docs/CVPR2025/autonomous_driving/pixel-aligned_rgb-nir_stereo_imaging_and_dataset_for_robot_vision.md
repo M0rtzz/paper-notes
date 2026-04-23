@@ -144,7 +144,7 @@ tags:
 - [Helvipad: A Real-World Dataset for Omnidirectional Stereo Depth Estimation](helvipad_a_real-world_dataset_for_omnidirectional_stereo_depth_estimation.md)
 - [3DRealCar: An In-the-wild RGB-D Car Dataset with 360-degree Views](../../ICCV2025/autonomous_driving/3drealcar_an_in-the-wild_rgb-d_car_dataset_with_360-degree_views.md)
 - [Spatiotemporal Decoupling for Efficient Vision-Based Occupancy Forecasting](spatiotemporal_decoupling_for_efficient_vision-based_occupancy_forecasting.md)
-- [VisionPAD: A Vision-Centric Pre-training Paradigm for Autonomous Driving](visionpad_a_vision-centric_pre-training_paradigm_for_autonomous_driving.md)
-- [SOLVE: Synergy of Language-Vision and End-to-End Networks for Autonomous Driving](solve_synergy_of_language-vision_and_end-to-end_networks_for_autonomous_driving.md)
+- [A Dataset for Semantic Segmentation in the Presence of Unknowns](a_dataset_for_semantic_segmentation_in_the_presence_of_unknowns.md)
+- [LiSu: A Dataset and Method for LiDAR Surface Normal Estimation](lisu_a_dataset_and_method_for_lidar_surface_normal_estimation.md)
 
 <!-- RELATED:END -->

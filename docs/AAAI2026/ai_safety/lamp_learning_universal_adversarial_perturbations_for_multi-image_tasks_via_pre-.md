@@ -18,7 +18,7 @@ tags:
 
 **会议**: AAAI2026  
 **arXiv**: [2601.21220](https://arxiv.org/abs/2601.21220)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: multimodal_vlm  
 **关键词**: Universal Adversarial Perturbation, Multi-Image MLLM, Black-box Attack, Attention Manipulation, Transferable Attack  
 
@@ -26,12 +26,22 @@ tags:
 提出 LAMP，一种针对多图 MLLM 的 black-box Universal Adversarial Perturbation 学习方法，通过 attention 约束和"传染式"损失实现仅扰动少量图像即可跨模型/任务迁移攻击。
 
 ## 背景与动机
-- 多模态大语言模型 (MLLM) 已支持多图输入（比较、推理、时序理解等），但其对抗鲁棒性几乎未被探索
-- 现有对抗攻击主要面向**单图**场景，且多为 white-box 设定，不适用于实际 black-box 场景
-- 在真实场景中（如社交媒体图片被模型处理），攻击者无法控制模型接收的图片数量和顺序，现有单图 UAP 方法在多图场景下效果有限
 
-## 核心问题
-如何在 black-box 设定下学习少量固定的 Universal Adversarial Perturbation，使其能在攻击者无法控制推理时图片数量和顺序的条件下，有效攻击多图 MLLM？
+### 领域现状
+
+**领域现状**：多模态大语言模型 (MLLM) 已支持多图输入（比较、推理、时序理解等），但其对抗鲁棒性几乎未被探索
+
+### 现有痛点
+
+**现有痛点**：现有对抗攻击主要面向**单图**场景，且多为 white-box 设定，不适用于实际 black-box 场景
+
+### 核心矛盾
+
+**核心矛盾**：在真实场景中（如社交媒体图片被模型处理），攻击者无法控制模型接收的图片数量和顺序，现有单图 UAP 方法在多图场景下效果有限
+
+### 解决思路
+
+**本文目标**：如何在 black-box 设定下学习少量固定的 Universal Adversarial Perturbation，使其能在攻击者无法控制推理时图片数量和顺序的条件下，有效攻击多图 MLLM？
 
 ## 方法详解
 
@@ -57,6 +67,9 @@ $$\mathcal{L}_{adv}^{ctg} = -\frac{1}{LH}\sum_{l}\sum_{h}\sum_{i \in \mathcal{C}
 
 ## 实验关键数据
 
+
+### 主实验
+
 | 设定 | Avg. Best Baseline | LAMP | Δ (pp) |
 |------|-------------------|------|--------|
 | 所有模型平均 | 56.3% | 75.8% | **+19.5** |
@@ -70,7 +83,7 @@ $$\mathcal{L}_{adv}^{ctg} = -\frac{1}{LH}\sum_{l}\sum_{h}\sum_{i \in \mathcal{C}
 - 最优扰动数量 $|\delta|=2$，超过 2 个改善不大（contagious loss 的贡献）
 - LPIPS 仅 0.021（baseline 最优 0.068），不可感知性更好
 
-## 亮点
+## 亮点与洞察
 - **首个多图 MLLM 对抗攻击**：填补了 multi-image 场景 UAP 攻击的空白
 - **Contagious Loss 设计精巧**：用固定数量 UAP 即可"感染"clean tokens，解决了推理时图片数量未知的难题
 - **Position-invariant 攻击**：通过 index-attention suppression 使攻击不依赖图像位置
@@ -82,12 +95,12 @@ $$\mathcal{L}_{adv}^{ctg} = -\frac{1}{LH}\sum_{l}\sum_{h}\sum_{i \in \mathcal{C}
 - 防御仅测试了 query-based defense，未评估更强的对抗训练防御
 - 训练需要 A100 GPU 和 17K 样本，计算成本未详细分析
 
-## 与相关工作的对比
+## 相关工作与启发
 - vs **CPGC-UAP / UAP-VLP / Doubly-UAP**：这些是单图 encoder/decoder 攻击，LAMP 在多图 ASR 上平均领先 19.5pp
 - vs **Jailbreak-MLLM**：后者通过模型集成提升迁移性，但 LAMP 无需集成即可达到更高 ASR
 - vs **AnyDoor / MLAI**：这些利用多图能力但非 universal 攻击，LAMP 是首个多图 UAP 方法
 
-## 启发与关联
+## 相关工作与启发
 - Contagious loss 的设计思路（让 clean token 关注 noisy token）可推广到其他 attention-based 攻击/防御场景
 - Position-invariant attack 的 index suppression 思想对多图模型的安全评估有参考价值
 - 揭示了多图 MLLM 的新攻击面：只需污染部分图片即可影响整体推理

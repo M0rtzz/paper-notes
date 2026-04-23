@@ -141,10 +141,10 @@ $$\mathcal{L}_{detector} = \mathcal{L}_{ce} + \lambda_e \mathcal{L}_{energy}$$
 
 ## 相关论文
 
-- [Detecting Unknown Objects via Energy-based Separation for Open World Object Detection](../../CVPR2026/object_detection/detecting_unknown_objects_via_energy-based_separation_for_open_world_object_dete.md)
 - [ProbPose: A Probabilistic Approach to 2D Human Pose Estimation](probpose_a_probabilistic_approach_to_2d_human_pose_estimation.md)
+- [Detecting Unknown Objects via Energy-based Separation for Open World Object Detection](../../CVPR2026/object_detection/detecting_unknown_objects_via_energy-based_separation_for_open_world_object_dete.md)
 - [3D-MOOD: Lifting 2D to 3D for Monocular Open-Set Object Detection](../../ICCV2025/object_detection/3dmood_lifting_2d_to_3d_for_monocular_openset_object_detecti.md)
 - [Uncertainty-Aware Gradient Stabilization for Small Object Detection](../../ICCV2025/object_detection/uncertainty-aware_gradient_stabilization_for_small_object_detection.md)
-- [AFreeCA: Annotation-Free Counting for All](../../ECCV2024/object_detection/afreeca_annotation-free_counting_for_all.md)
+- [ABRA: Teleporting Fine-Tuned Knowledge Across Domains for Open-Vocabulary Object Detection](abra_teleporting_fine-tuned_knowledge_across_domains_for_open-vocabulary_object_.md)
 
 <!-- RELATED:END -->

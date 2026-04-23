@@ -175,9 +175,9 @@ DriveX 包含两阶段训练：
 ## 相关论文
 
 - [Epona: Autoregressive Diffusion World Model for Autonomous Driving](epona_autoregressive_diffusion_world_model_for_autonomous_driving.md)
+- [MaskGWM: A Generalizable Driving World Model with Video Mask Reconstruction](../../CVPR2025/autonomous_driving/maskgwm_a_generalizable_driving_world_model_with_video_mask_reconstruction.md)
 - [Passing the Driving Knowledge Test](passing_the_driving_knowledge_test.md)
+- [Learning Vision-Language-Action World Models for Autonomous Driving](../../CVPR2026/autonomous_driving/vla_world_learning_vision_language_action_world_models_for_autonomous_driving.md)
 - [OccWorld: Learning a 3D Occupancy World Model for Autonomous Driving](../../ECCV2024/autonomous_driving/occworld_learning_a_3d_occupancy_world_model_for_autonomous_driving.md)
-- [Hermes: A Unified Self-Driving World Model for Simultaneous 3D Scene Understanding and Generation](hermes_a_unified_self-driving_world_model_for_simultaneous_3d_scene_understandin.md)
-- [Prioritizing Perception-Guided Self-Supervision: A New Paradigm for Causal Modeling in End-to-End Autonomous Driving](../../NeurIPS2025/autonomous_driving/prioritizing_perception-guided_self-supervision_a_new_paradigm_for_causal_modeli.md)
 
 <!-- RELATED:END -->

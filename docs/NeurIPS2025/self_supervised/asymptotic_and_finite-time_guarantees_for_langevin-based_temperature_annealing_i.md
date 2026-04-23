@@ -155,6 +155,6 @@ $$\lim_{t \to \infty} P(z_t \in \mathcal{M}^* \setminus B_\delta) = 0, \quad \fo
 - [Adv-SSL: Adversarial Self-Supervised Representation Learning with Theoretical Guarantees](adv-ssl_adversarial_self-supervised_representation_learning_with_theoretical_gua.md)
 - [Test-Time Canonicalization by Foundation Models for Robust Perception](../../ICML2025/self_supervised/test-time_canonicalization_by_foundation_models_for_robust_perception.md)
 - [Test-Time Training Provably Improves Transformers as In-Context Learners](../../ICML2025/self_supervised/test-time_training_provably_improves_transformers_as_in-context_learners.md)
-- [AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation](../../CVPR2026/self_supervised/actta_rethinking_test-time_adaptation_via_dynamic_activation.md)
+- [A Stitch in Time: Learning Procedural Workflow via Self-Supervised Plackett-Luce Ranking](../../CVPR2026/self_supervised/a_stitch_in_time_learning_procedural_workflow_via_self_supervised_plackett_luce_r.md)
 
 <!-- RELATED:END -->

@@ -126,10 +126,10 @@ tags:
 
 ## 相关论文
 
+- [Deviation Dynamics in Cardinal Hedonic Games](deviation_dynamics_in_cardinal_hedonic_games.md)
 - [A Phase Transition for Opinion Dynamics with Competing Biases](a_phase_transition_for_opinion_dynamics_with_competing_biase.md)
 - [LPWM: Latent Particle World Models for Object-Centric Stochastic Dynamics](../../ICLR2026/others/latent_particle_world_models_self-supervised_object-centric_stochastic_dynamics_.md)
-- [Beyond World Models: Rethinking Understanding in AI Models](beyond_world_models_rethinking_understanding_in_ai_models.md)
 - [In-Context Algebra](../../ICLR2026/others/in-context_algebra.md)
-- [Sassha: Sharpness-aware Adaptive Second-order Optimization with Stable Hessian Approximation](../../ICML2025/others/sassha_sharpness-aware_adaptive_second-order_optimization_with_stable_hessian_ap.md)
+- [Beyond World Models: Rethinking Understanding in AI Models](beyond_world_models_rethinking_understanding_in_ai_models.md)
 
 <!-- RELATED:END -->

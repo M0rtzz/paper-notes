@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 图学习方向 4篇论文解读
+  CVPR2025 图学习方向 5篇论文解读
 description: >-
-  4篇CVPR2025 图学习论文解读，主题涵盖：将多头注意力重新解释为图卷积滤波器子空间、提出 DVHGNN，一种利用多尺度膨胀超图捕获图像、提出HgVT，将层次化二部超图结构嵌入ViT中等，每篇含核心思想与方法详解。
+  5篇CVPR2025 图学习论文解读，主题涵盖：将多头注意力重新解释为图卷积滤波器子空间、提出 DVHGNN，一种利用多尺度膨胀超图捕获图像、提出HgVT，将层次化二部超图结构嵌入ViT中等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**📷 CVPR2025** · **4** 篇论文解读
+**📷 CVPR2025** · **5** 篇论文解读
 
 **[Coeff-Tuning: A Graph Filter Subspace View for Tuning Attention-Based Large Models](coeff-tuning_a_graph_filter_subspace_view_for_tuning_attention-based_large_model.md)**
 
@@ -25,3 +25,7 @@ description: >-
 **[Unbiased Video Scene Graph Generation via Visual and Semantic Dual Debiasing](unbiased_video_scene_graph_generation_via_visual_and_semantic_dual_debiasing.md)**
 
 :   提出 VISA 框架，从视觉（记忆引导序列建模 MGSM 降低特征方差）和语义（迭代关系生成器 IRG 引入层次上下文减少对偏置先验的依赖）双重角度对视频场景图生成进行去偏置，在 Action Genome 等数据集上大幅提升尾部类别性能。
+
+**[Universal Scene Graph Generation](universal_scene_graph_generation.md)**
+
+:   本文提出 Universal Scene Graph（USG）表示及其解析器 USG-Par，通过跨模态对象关联器和文本中心场景对比学习，从任意模态组合（图像、文本、视频、3D）输入中生成统一的场景图，同时刻画模态不变和模态特有的场景语义。

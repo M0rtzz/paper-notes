@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2026  
 **arXiv**: [2603.12222](https://arxiv.org/abs/2603.12222)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 模型压缩 / Vision Transformer剪枝 / 神经架构搜索  
 **关键词**: Vision Transformer剪枝, 多粒度结构化剪枝, Gumbel-Sigmoid门控, 端到端子网络搜索, 边缘部署  
 
@@ -25,10 +25,14 @@ tags:
 提出HiAP——统一宏观（整头/FFN块）和微观（头内维度/FFN神经元）的层级Gumbel-Sigmoid门控框架，在单次端到端训练中自动发现满足算力预算的高效ViT子网络，无需手动重要性排序或多阶段流程。
 
 ## 背景与动机
-ViT计算和内存开销大，结构化剪枝是主流压缩手段。但现有方法存在两大痛点：(1) 通常只在单一粒度操作——纯微观剪枝（如ViT-Slim修剪头内维度）虽降FLOP但仍需加载所有层的权重矩阵，内存带宽瓶颈未解；纯宏观剪枝（如UPDP丢弃整个block）会大幅损失表示能力。(2) 依赖复杂多阶段流程：先用手工启发式（如Taylor重要性、图排序）确定剪枝掩码，再单独微调恢复精度，流程繁琐且需专家知识调参。
 
-## 核心问题
-能否在单次训练中，让网络自己学会在多粒度上该剪什么、保留什么，无需人为设定每层剪枝比例或重要性度量？
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：ViT计算和内存开销大，结构化剪枝是主流压缩手段。但现有方法存在两大痛点：(1) 通常只在单一粒度操作——纯微观剪枝（如ViT-Slim修剪头内维度）虽降FLOP但仍需加载所有层的权重矩阵，内存带宽瓶颈未解；纯宏观剪枝（如UPDP丢弃整个block）会大幅损失表示能力。(2) 依赖复杂多阶段流程：先用手工启发式（如Taylor重要性、图排序）确定剪枝掩码，再单独微调恢复精度，流程繁琐且需专家知识调参。
+
+### 解决思路
+
+**本文目标**：能否在单次训练中，让网络自己学会在多粒度上该剪什么、保留什么，无需人为设定每层剪枝比例或重要性度量？
 
 ## 方法详解
 
@@ -68,24 +72,24 @@ $$\mathcal{L}_{total} = \mathcal{L}_{task} + \lambda_{macro}\mathcal{L}_{macro} 
 - 纯微观penalty间接导致整个MLP block被消除，是一种意外的depth-pruning效果
 - 网络自动发现最后一层FFN block完全冗余（$b_{12}=0$），无需人工指定
 
-## 亮点
+## 亮点与洞察
 - 框架设计非常干净：层级门控 + 可微预算 + 可行性约束，三板斧解决自动剪枝
 - 单阶段训练的简洁性是核心卖点——对比GOHSP/NViT等需图排序+多轮评估的方法，工程复杂度大幅降低
 - 解耦代价惩罚的设计让剪枝行为可控可分析，不同penalty比例下的结构演化可视化非常有说明力
 - Proposition 1证明可微预算约束的线性分解不需要门控独立性假设，理论上严谨
 
-## 局限性
+## 局限与展望
 - 目标函数只优化MACs，未建模实际延迟/能耗，论文自己承认MACs-to-latency gap是主要限制
 - ImageNet上精度与GOHSP/ViT-Slim相比仍有差距（79.1 vs 79.98），代价是换来流程简化
 - 仅在分类任务上验证，检测/分割等密集预测任务适用性未知
 - 温度退火schedule需要调参（$\tau_0$, $\tau_{min}$），对不同模型/任务的敏感性未充分分析
 
-## 与相关工作的对比
+## 相关工作与启发
 - **ViT-Slim**: 仅微观剪枝（头内维度+FFN），需稀疏性ranking+阈值确定，HiAP在多粒度统一框架中端到端生成决策
 - **GOHSP**: 使用图排序确定头重要性+优化剪枝组合，流程复杂且需专家调参；HiAP通过Gumbel门控让网络自学
 - **UPDP**: 仅宏观层面（FFN block级）剪枝，用遗传算法搜索，与HiAP的可微搜索范式不同
 
-## 启发与关联
+## 相关工作与启发
 - Gumbel-Sigmoid门控+温度退火的范式可复用到几乎任何需要学习离散结构选择的场景
 - 解耦宏微观代价的思想可推广到NAS中对不同资源维度的独立控制
 
@@ -103,6 +107,6 @@ $$\mathcal{L}_{total} = \mathcal{L}_{task} + \lambda_{macro}\mathcal{L}_{macro} 
 - [PPCL: Pluggable Pruning with Contiguous Layer Distillation for Diffusion Transformers](ppcl_pluggable_pruning_dit_distillation.md)
 - [Stronger Normalization-Free Transformers](stronger_normalization-free_transformers.md)
 - [QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)
-- [GeoChemAD: Benchmarking Unsupervised Geochemical Anomaly Detection for Mineral Exploration](geochemad_benchmarking_unsupervised_geochemical_anomaly_detection_for_mineral_ex.md)
+- [FlashVGGT: Efficient and Scalable Visual Geometry Transformers with Compressed Descriptor Attention](flashvggt_efficient_and_scalable_visual_geometry_transformers_with_compressed_descr.md)
 
 <!-- RELATED:END -->

@@ -141,9 +141,9 @@ $$\text{emb}(\langle p \rangle) = c_p \cdot \text{emb}(\langle 66 \rangle)$$
 ## 相关论文
 
 - [JoPA: Explaining Large Language Model's Generation via Joint Prompt Attribution](jopa_explaining_large_language_models_generation_via_joint_prompt_attribution.md)
+- [An Empirical Study of Large Language Models for Automated Review Generation](an_empirical_study_of_large_language_models_for_automated_review_generation.md)
 - [Representation Bending for Large Language Model Safety](repbend_representation_bending_safety.md)
 - [Binary Classifier Optimization for Large Language Model Alignment](bco_binary_classifier_alignment.md)
 - [Contrastive Perplexity for Controlled Generation: An Application in Detoxifying Large Language Models](contrastive_perplexity_controlled_gen.md)
-- [Planning-Driven Programming: A Large Language Model Programming Workflow](planning-driven_programming_a_large_language_model_programming_workflow.md)
 
 <!-- RELATED:END -->

@@ -153,9 +153,9 @@ Few-shot (10% data)：AR-VRM 45.6% vs GR-1 40.0%（**+5.6%**）
 ## 相关论文
 
 - [Two by Two: Learning Multi-Task Pairwise Objects Assembly for Generalizable Robot Manipulation](../../CVPR2025/human_understanding/two_by_two_learning_multi-task_pairwise_objects_assembly_for_generalizable_robot.md)
+- [DWIM: Towards Tool-aware Visual Reasoning via Discrepancy-aware Workflow Generation & Instruct-Masking Tuning](dwim_towards_tool-aware_visual_reasoning_via_discrepancy-aware_workflow_generati.md)
 - [Scaling Large Motion Models with Million-Level Human Motions](../../ICML2025/human_understanding/scaling_large_motion_models_with_million-level_human_motions.md)
 - [StickMotion: Generating 3D Human Motions by Drawing a Stickman](../../CVPR2025/human_understanding/stickmotion_generating_3d_human_motions_by_drawing_a_stickman.md)
 - [Theory of Mind for Explainable Human-Robot Interaction](../../AAAI2026/human_understanding/theory_of_mind_for_explainable_human-robot_interaction.md)
-- [Learning Visual Proxy for Compositional Zero-Shot Learning](learning_visual_proxy_for_compositional_zero-shot_learning.md)
 
 <!-- RELATED:END -->

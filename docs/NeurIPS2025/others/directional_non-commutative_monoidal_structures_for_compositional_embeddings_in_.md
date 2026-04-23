@@ -124,7 +124,7 @@ SSM 是注意力权重退化为隐式（均匀）且交互受限为递归结构�
 - [Learning non-equilibrium diffusions with Schrödinger bridges: from exactly solvable to simulation-free](learning_non-equilibrium_diffusions_with_schrödinger_bridges_from_exactly_solvab.md)
 - [Directional Sheaf Hypergraph Networks: Unifying Learning on Directed and Undirected Hypergraphs](../../ICLR2026/others/directional_sheaf_hypergraph_networks_unifying_learning_on_directed_and_undirect.md)
 - [Graph-guided Cross-composition Feature Disentanglement for Compositional Zero-shot Learning](../../ACL2025/others/graph-guided_cross-composition_feature_disentanglement_for_compositional_zero-sh.md)
+- [SAD Neural Networks: Divergent Gradient Flows and Asymptotic Optimality via o-minimal Structures](sad_neural_networks_divergent_gradient_flows_and_asymptotic_optimality_via_o-min.md)
 - [Non-Clairvoyant Scheduling with Progress Bars](non-clairvoyant_scheduling_with_progress_bars.md)
-- [Better Embeddings with Coupled Adam](../../ACL2025/others/better_embeddings_with_coupled_adam.md)
 
 <!-- RELATED:END -->

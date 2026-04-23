@@ -21,11 +21,25 @@ tags:
 
 ## 研究背景与动机
 
-- 编辑图像中物体的材质（如大理石变钢铁）在游戏设计、电商等应用中极有价值
-- 传统方法需要显式3D几何、光照估计和材质参数指定，过程复杂
-- 文本驱动方法难以精确描述材质的纹理细节
-- TextureDreamer等方法需要3-5张材质图像做Dreambooth微调，耗时且不可扩展
-- **核心问题**：如何从单张材质样本图像、在无需训练的条件下，将材质迁移到目标图像上的物体
+### 领域现状
+
+**领域现状**：编辑图像中物体的材质（如大理石变钢铁）在游戏设计、电商等应用中极有价值
+
+### 现有痛点
+
+**现有痛点**：传统方法需要显式3D几何、光照估计和材质参数指定，过程复杂
+
+### 核心矛盾
+
+**核心矛盾**：文本驱动方法难以精确描述材质的纹理细节
+
+### 解决思路
+
+**解决思路**：TextureDreamer等方法需要3-5张材质图像做Dreambooth微调，耗时且不可扩展
+
+### 补充说明
+
+**补充说明**：核心问题**：如何从单张材质样本图像、在无需训练的条件下，将材质迁移到目标图像上的物体
 
 ## 方法详解
 
@@ -108,7 +122,7 @@ $$I_{gen} = \mathcal{S}(z_M, D_I, I_{init}, F)$$
 - 作为新问题（2D-to-2D材质迁移）的开创者，提出了合成和真实评估数据集
 - 可与Text2Tex等3D纹理方法联合使用，将材质样本驱动的纹理化引入3D
 
-## 局限性
+## 局限与展望
 
 - 有时仅在物体最"可能"的区域迁移材质（部分迁移问题）
 - 材质样本中包含多种材质时可能混合
@@ -128,8 +142,8 @@ $$I_{gen} = \mathcal{S}(z_M, D_I, I_{init}, F)$$
 
 - [Zero-Shot Multi-Object Scene Completion](zero-shot_multi-object_scene_completion.md)
 - [Vista3D: Unravel the 3D Darkside of a Single Image](vista3d_unravel_the_3d_darkside_of_a_single_image.md)
-- [TPA3D: Triplane Attention for Fast Text-to-3D Generation](tpa3d_triplane_attention_for_fast_text-to-3d_generation.md)
-- [Track Everything Everywhere Fast and Robustly](track_everything_everywhere_fast_and_robustly.md)
 - [VCD-Texture: Variance Alignment based 3D-2D Co-Denoising for Text-Guided Texturing](vcd-texture_variance_alignment_based_3d-2d_co-denoising_for_text-guided_texturin.md)
+- [UniDream: Unifying Diffusion Priors for Relightable Text-to-3D Generation](unidream_unifying_diffusion_priors_for_relightable_text-to-3d_generation.md)
+- [Track Everything Everywhere Fast and Robustly](track_everything_everywhere_fast_and_robustly.md)
 
 <!-- RELATED:END -->

@@ -126,9 +126,9 @@ SCORE包含三个分支：
 ## 相关论文
 
 - [CAVIS: Context-Aware Video Instance Segmentation](cavis_context-aware_video_instance_segmentation.md)
+- [Dynamic Dictionary Learning for Remote Sensing Image Segmentation](dynamic_dictionary_learning_for_remote_sensing_image_segmentation.md)
 - [SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation](spade_spatial-aware_denoising_network_for_open-vocabulary_panoptic_scene_graph_g.md)
 - [FLOSS: Free Lunch in Open-vocabulary Semantic Segmentation](floss_free_lunch_in_openvocabulary_semantic_segmentation.md)
 - [Personalized OVSS: Understanding Personal Concept in Open-Vocabulary Semantic Segmentation](understanding_personal_concept_in_open-vocabulary_semantic_segmentation.md)
-- [RAGNet: Large-scale Reasoning-based Affordance Segmentation Benchmark towards General Grasping](ragnet_large-scale_reasoning-based_affordance_segmentation_benchmark_towards_gen.md)
 
 <!-- RELATED:END -->

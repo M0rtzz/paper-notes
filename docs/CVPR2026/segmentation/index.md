@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 语义分割方向 96篇论文解读
+  CVPR2026 语义分割方向 104篇论文解读
 description: >-
-  96篇CVPR2026 语义分割论文解读，主题涵盖：提出 3M-TI，一个**无需标定**的多相机跨模、构建了MEDISEG药物图像实例分割数据集（826、提出MEDISEG数据集——32种药片类型共826等，每篇含核心思想与方法详解。
+  104篇CVPR2026 语义分割论文解读，主题涵盖：提出 3M-TI，一个**无需标定**的多相机跨模、构建了MEDISEG药物图像实例分割数据集（826、提出MEDISEG数据集——32种药片类型共826等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**📷 CVPR2026** · **96** 篇论文解读
+**📷 CVPR2026** · **104** 篇论文解读
 
 **[3M-TI: High-Quality Mobile Thermal Imaging via Calibration-free Multi-Camera Cross-Modal Diffusion](3m-ti_high-quality_mobile_thermal_imaging_via_calibration-free_multi-camera_cros.md)**
 
@@ -29,6 +29,10 @@ description: >-
 **[AFRO: Bootstrap Dynamic-Aware 3D Visual Representation for Scalable Robot Learning](bootstrap_dynamic-aware_3d_visual_representation_for_scalable_robot_learning.md)**
 
 :   提出AFRO自监督3D视觉预训练框架，通过逆动力学模型（IDM）推断潜在动作、扩散Transformer前向动力学模型（FDM）预测未来特征、逆一致性约束保证时序对称性，在RH20T大规模数据上预训练后，MetaWorld 14任务平均成功率76.0%（vs DynaMo-3D 64.9%、PointMAE 63.9%），4个real-world任务也取得最优。
+
+**[Combining Boundary Supervision and Segment-Level Regularization for Fine-Grained Action Segmentation](boundary_segment_action_segmentation.md)**
+
+:   提出一种轻量级双损失训练框架用于时序动作分割（TAS），仅增加一个边界输出通道和两个辅助损失（边界回归损失 + CDF 段形状正则化损失），在 MS-TCN、C2F-TCN、FACT 三种架构上一致提升 F1 和 Edit 分数，证明精确分割可以通过简单的损失设计而非更重的架构实现。
 
 **[Brewing Stronger Features: Dual-Teacher Distillation for Multispectral Earth Observation](brewing_stronger_features_dual-teacher_distillation_for_multispectral_earth_obse.md)**
 
@@ -166,6 +170,10 @@ description: >-
 
 :   本文提出 GeoGuide，一个层次化几何引导的开放词表 3D 语义分割框架，通过基于不确定性的超点蒸馏、实例级掩码重建和跨实例关系一致性三个互补模块，利用预训练3D模型的几何先验来纠正 2D 到 3D 知识蒸馏中的几何偏差，在 ScanNet v2 上达到 64.8 mIoU 的 SOTA 性能。
 
+**[GeomPrompt: Geometric Prompt Learning for RGB-D Semantic Segmentation Under Missing and Degraded Depth](geomprompt_rgbd_segmentation.md)**
+
+:   GeomPrompt 为冻结的 RGB-D 分割模型学习轻量的几何提示模块，从 RGB 合成任务驱动的深度代理信号（无深度监督），在深度缺失时提升 6.1 mIoU，在深度退化时提升最高 3.6 mIoU。
+
 **[GeoSURGE: Geo-localization using Semantic Fusion with Hierarchy of Geographic Embeddings](geosurge_geo-localization_using_semantic_fusion_with_hierarchy_of_geographic_emb.md)**
 
 :   GeoSURGE 提出层级地理嵌入和语义融合模块，将全球图像地理定位问题建模为视觉表征与学习得到的地理表征之间的匹配，在 5 个基准的 25 项指标中取得 22 项 SOTA。
@@ -214,6 +222,10 @@ description: >-
 
 :   揭示了视觉上下文学习（VICL）中 prompt 检索忽略标签信息导致标签不一致的问题，提出 LaPR 框架通过图像-标签联合表示和混合专家机制实现标签感知的 prompt 检索，在前景分割、目标检测和图像着色任务上一致超越 SOTA。
 
+**[Low-Data Supervised Adaptation Outperforms Prompting for Cloud Segmentation Under Domain Shift](low_data_supervised_adaptation_outperforms_prompting_for_cloud_segmentation.md)**
+
+:   本文系统证明了在卫星遥感云分割任务中，提示工程完全无法弥补视觉-语言模型的域差距，而仅需0.1%（约8张图像）的有标签数据进行微调就能超越所有零样本提示策略。
+
 **[Making Training-Free Diffusion Segmentors Scale with the Generative Power](making_training-free_diffusion_segmentors_scale_with_the_generative_power.md)**
 
 :   揭示现有无训练扩散分割方法无法随生成模型能力增强而提升的根本原因——交叉注意力图到语义相关性之间存在两个gap（聚合gap和分数不平衡gap），提出自动聚合（auto aggregation）和逐像素重缩放（per-pixel rescaling）两项技术组成GoCA框架，首次使更强的扩散模型（SDXL、PixArt-Sigma、Flux）在无训练语义分割中显著超越旧模型。
@@ -242,6 +254,14 @@ description: >-
 
 :   提出 Masked Representation Modeling (MRM)，在编码器输出的潜在特征空间做随机掩码与重建，以像素分类损失监督重建结果，作为即插即用辅助任务在四种 UDA 基线上平均提升 +2.3/+2.8 mIoU (GTA→CS / Synthia→CS)，推理时零额外开销。
 
+**[Seeing Through the Tool: A Controlled Benchmark for Occlusion Robustness in Foundation Segmentation Models](occsam_bench_occlusion_robustness_segmentation.md)**
+
+:   提出 OccSAM-Bench 基准，通过合成手术器械遮挡系统评估 SAM 系列模型在内窥镜场景下的鲁棒性，并设计三区域评估协议揭示模型在遮挡下的两种行为模式：遮挡感知型和遮挡无关型。
+
+**[PCA-Seg: Revisiting Cost Aggregation for Open-Vocabulary Semantic and Part Segmentation](pca-seg_revisiting_cost_aggregation_for_openvocabulary_semantic_and_part_segmentat.md)**
+
+:   PCA-Seg 提出并行代价聚合(Parallel Cost Aggregation)范式替代传统的串行空间-类别聚合架构，通过专家驱动感知学习(EPL)模块高效整合语义和空间上下文流，并用特征正交解耦(FOD)策略消除两种知识流的冗余，每个并行块仅增加 0.35M 参数即在 8 个开放词汇语义和部件分割基准上达到 SOTA。
+
 **[PEARL: Geometry Aligns Semantics for Training-Free Open-Vocabulary Semantic Segmentation](pearl_geometry_aligns_semantics_for_training-free_open-vocabulary_semantic_segme.md)**
 
 :   PEARL 提出了一种基于 Procrustes 对齐和文本感知拉普拉斯传播的两步推理方法，在不引入额外训练或辅助骨干网络的前提下，通过修正 CLIP 最后一层自注意力中 key-query 的几何失配并利用文本语义引导标签传播，在训练免开放词汇语义分割上达到了新的 SOTA。
@@ -249,6 +269,10 @@ description: >-
 **[Phrase-Instance Alignment for Generalized Referring Segmentation](phrase-instance_alignment_for_generalized_referring_segmentation.md)**
 
 :   本文提出 InstAlign，将广义指代分割 (GRES) 重构为实例级推理问题，通过短语-目标对齐 (POA) 损失建立语言短语与视觉实例的细粒度对应关系，并用相关性加权聚合机制统一处理多目标和无目标场景，在 gRefCOCO 上 cIoU 提升 3.22%、N-acc 提升 12.25%。
+
+**[PixDLM: A Dual-Path Multimodal Language Model for UAV Reasoning Segmentation](pixdlm_uav_reasoning_segmentation.md)**
+
+:   本文定义了 UAV Reasoning Segmentation 任务，构建了包含 10K 高分辨率无人机图像和链式推理标注的 DRSeg 基准，并提出了双路径像素级多模态大模型 PixDLM 作为基线。
 
 **[Pointer-CAD: Unifying B-Rep and Command Sequences via Pointer-based Edges & Faces Selection](pointer-cad_unifying_b-rep_and_command_sequences_via_pointer-based_edges_faces_s.md)**
 
@@ -313,6 +337,10 @@ description: >-
 **[SARMAE: Masked Autoencoder for SAR Representation Learning](sarmae_masked_autoencoder_for_sar_representation_learning.md)**
 
 :   提出 SARMAE 框架，通过百万级 SAR 数据集 SAR-1M、散斑感知表征增强 (SARE) 和光学语义锚约束 (SARC)，实现噪声鲁棒的 SAR 自监督预训练，在分类、检测和分割多个下游任务上取得 SOTA。
+
+**[SDDF: Specificity-Driven Dynamic Focusing for Open-Vocabulary Camouflaged Object Detection](sddf_specificity-driven_dynamic_focusing_for_open-vocabulary_camouflaged_object.md)**
+
+:   SDDF 提出开放词汇伪装目标检测（OVCOD）新任务，构建了 OVCOD-D 基准，通过子描述主成分对比融合策略去除冗余文本噪声，以及特异性引导的区域弱对齐和动态聚焦机制增强伪装目标与背景的区分能力，在开集设置下达到 56.4 AP。
 
 **[Seeing Beyond: Extrapolative Domain Adaptive Panoramic Segmentation](seeing_beyond_extrapolative_domain_adaptive_panoramic_segmentation.md)**
 
@@ -393,3 +421,7 @@ description: >-
 **[VIRST: Video-Instructed Reasoning Assistant for SpatioTemporal Segmentation](virst_video-instructed_reasoning_assistant_for_spatiotemporal_segmentation.md)**
 
 :   VIRST 提出端到端框架将全局视频推理和像素级 mask 预测统一在单个视觉语言模型中，通过时空融合（STF）和时序动态锚点更新器（TDAU）实现时空一致的视频分割，在 ReVOS 上 J&F 达 70.8（+7.5 over SOTA），MeViS 62.9（+9.2），同时推理速度 5.1 FPS（比 VRS-HQ 快 1.3 倍）。
+
+**[Weakly-Supervised Referring Video Object Segmentation through Text Supervision](wsrvos_weakly_supervised_rvos.md)**
+
+:   提出 WSRVOS，首个仅使用文本表达式作为监督信号的弱监督指称视频目标分割框架，通过 MLLM 驱动的对比表达式增强、双向视觉-语言特征选择、实例感知表达式分类和时序分段排序约束，显著减少了对像素级标注的依赖。

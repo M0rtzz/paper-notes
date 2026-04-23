@@ -131,8 +131,8 @@ BrainMVP提出首个多模态视觉预训练范式，通过跨模态掩码重建
 
 - [Revisiting MAE Pre-Training for 3D Medical Image Segmentation](revisiting_mae_pre-training_for_3d_medical_image_segmentation.md)
 - [Boosting Vision Semantic Density with Anatomy Normality Modeling for Medical Vision-language Pre-training](../../ICCV2025/medical_imaging/boosting_vision_semantic_density_with_anatomy_normality_modeling_for_medical_vis.md)
-- [Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation](multi-resolution_pathology-language_pre-training_model_with_text-guided_visual_r.md)
 - [Interactive Medical Image Analysis with Concept-based Similarity Reasoning](interactive_medical_image_analysis_with_concept-based_similarity_reasoning.md)
-- [Boltzmann Attention Sampling for Image Analysis with Small Objects](boltzmann_attention_sampling_for_image_analysis_with_small_objects.md)
+- [Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation](multi-resolution_pathology-language_pre-training_model_with_text-guided_visual_r.md)
+- [Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation?](are_general-purpose_vision_models_all_we_need_for_2d_medical_image_segmentation_.md)
 
 <!-- RELATED:END -->

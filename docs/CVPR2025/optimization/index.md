@@ -1,18 +1,22 @@
 ---
 title: >-
-  CVPR2025 优化/理论方向 8篇论文解读
+  CVPR2025 优化/理论方向 9篇论文解读
 description: >-
-  8篇CVPR2025 优化/理论论文解读，主题涵盖：提出 GETA 框架实现自动联合结构化剪枝和量化感、提出FDSE方法，将每层网络分解为域无关特征提取器、发现 OOD 样本的检测得分比 IND等，每篇含核心思想与方法详解。
+  9篇CVPR2025 优化/理论论文解读，主题涵盖：提出 GETA 框架实现自动联合结构化剪枝和量化感、GlobustVP 首次将凸松弛技术引入曼哈顿世界、提出FDSE方法，将每层网络分解为域无关特征提取器等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📐 优化/理论
 
-**📷 CVPR2025** · **8** 篇论文解读
+**📷 CVPR2025** · **9** 篇论文解读
 
 **[Automatic Joint Structured Pruning and Quantization for Efficient Neural Network Training and Compression](automatic_joint_structured_pruning_and_quantization_for_efficient_neural_network.md)**
 
 :   提出 GETA 框架实现自动联合结构化剪枝和量化感知训练：量化感知依赖图（QADG）构建通用剪枝搜索空间 + 部分投影 SGD 保证逐层比特约束 + 可解释的联合学习策略，在 CNN 和 Transformer 上均达到竞争力或领先的压缩性能。
+
+**[Convex Relaxation for Robust Vanishing Point Estimation in Manhattan World](convex_relaxation_for_robust_vanishing_point_estimation_in_manhattan_world.md)**
+
+:   GlobustVP 首次将凸松弛技术引入曼哈顿世界消失点估计问题，通过将联合估计消失点位置与直线-消失点关联的问题转化为 QCQP 再松弛为 SDP，实现了全局最优且对 70% 外点鲁棒的高效求解器（~50ms/图）。
 
 **[Federated Learning with Domain Shift Eraser](federated_learning_with_domain_shift_eraser.md)**
 

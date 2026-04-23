@@ -119,7 +119,7 @@ DreamStruct的核心pipeline分为三个阶段：(1) 利用大语言模型（LLM
 
 ## 相关论文
 
-- [Evaluating Text-to-Visual Generation with Image-to-Text Generation](evaluating_text-to-visual_generation_with_image-to-text_generation.md)
+- [Abstractive Snippet Generation](../../ACL2025/nlp_generation/abstractive_snippet_generation.md)
 - [ATGen: A Framework for Active Text Generation](../../ACL2025/nlp_generation/atgen_a_framework_for_active_text_generation.md)
 - [Personalized Text Generation with Contrastive Activation Steering](../../ACL2025/nlp_generation/personalized_text_generation_with_contrastive_activation_steering.md)
 - [ArtFormer: Controllable Generation of Diverse 3D Articulated Objects](../../CVPR2025/nlp_generation/artformer_controllable_generation_of_diverse_3d_articulated_objects.md)

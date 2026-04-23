@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 可解释性方向 3篇论文解读
+  ECCV2024 可解释性方向 4篇论文解读
 description: >-
-  3篇ECCV2024 可解释性论文解读，主题涵盖：提出DetailSemNet用于离线签名验证、本文发现 Concept Bottleneck、提出 PLOT 框架，利用基于 Slot等，每篇含核心思想与方法详解。
+  4篇ECCV2024 可解释性论文解读，主题涵盖：提出DetailSemNet用于离线签名验证、本文发现 Concept Bottleneck、提出 PLOT 框架，利用基于 Slot等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**🎞️ ECCV2024** · **3** 篇论文解读
+**🎞️ ECCV2024** · **4** 篇论文解读
 
 **[DetailSemNet: Elevating Signature Verification through Detail-Semantic Integration](detailsemnet_elevating_signature_verification_through_detail-semantic_integratio.md)**
 
@@ -21,3 +21,7 @@ description: >-
 **[PLOT: Text-based Person Search with Part Slot Attention for Corresponding Part Discovery](plot_text-based_person_search_with_part_slot_attention_for_corresponding_part_di.md)**
 
 :   提出 PLOT 框架，利用基于 Slot Attention 的 Part Discovery Module 自动发现跨模态（图像-文本）对应的人体部件，结合 Text-based Dynamic Part Attention（TDPA）动态调整各部件重要性，无需部件级标注即可在三个 benchmark 上全面超越 SOTA。
+
+**[POA: Pre-training Once for Models of All Sizes](poa_pre-training_once_for_models_of_all_sizes.md)**
+
+:   POA 提出在自监督自蒸馏框架中引入**弹性学生分支**，通过参数共享和随机子网络采样，**一次预训练即可同时产出上百个不同大小的预训练模型**（如从 ViT-L 直接提取 ViT-S/B），各子网络在 k-NN、线性探测和下游任务上均达到 SOTA 水平。

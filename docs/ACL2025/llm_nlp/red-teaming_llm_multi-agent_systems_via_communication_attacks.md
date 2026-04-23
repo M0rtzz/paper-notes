@@ -147,10 +147,10 @@ Amayuelas 等研究了 agent 在辩论中被说服放弃任务的场景，但攻
 
 ## 相关论文
 
+- [MasRouter: Learning to Route LLMs for Multi-Agent Systems](masrouter_learning_to_route_llms_for_multi-agent_systems.md)
+- [AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](agentdropout_dynamic_agent_elimination_for_token-efficient_and_high-performance_.md)
 - [Many Heads Are Better Than One: Improved Scientific Idea Generation by A LLM-Based Multi-Agent System](virsci_multi_agent_idea_gen.md)
-- [Large Language Models Miss the Multi-Agent Mark](../../NeurIPS2025/llm_nlp/large_language_models_miss_the_multi-agent_mark.md)
 - [Understanding and Meeting Practitioner Needs When Measuring Representational Harms Caused by LLM-Based Systems](understanding_and_meeting_practitioner_needs_when_measuring_representational_har.md)
 - [Transforming Podcast Preview Generation: From Expert Models to LLM-Based Systems](transforming_podcast_preview_generation_from_expert_models_to_llm-based_systems.md)
-- [SYMPHONY: Synergistic Multi-agent Planning with Heterogeneous Language Model Assemblies](../../NeurIPS2025/llm_nlp/symphony_synergistic_multi-agent_planning_with_heterogeneous_language_model_asse.md)
 
 <!-- RELATED:END -->

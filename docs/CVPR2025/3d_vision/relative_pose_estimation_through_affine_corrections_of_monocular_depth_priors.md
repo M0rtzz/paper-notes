@@ -126,7 +126,7 @@ tags:
 - [RePoseD: Efficient Relative Pose Estimation with Known Depth Information](../../ICCV2025/3d_vision/reposed_efficient_relative_pose_estimation_with_known_depth_information.md)
 - [Scalable Autoregressive Monocular Depth Estimation](scalable_autoregressive_monocular_depth_estimation.md)
 - [Vision-Language Embodiment for Monocular Depth Estimation](vision-language_embodiment_for_monocular_depth_estimation.md)
-- [Multi-view Reconstruction via SfM-guided Monocular Depth Estimation](multi-view_reconstruction_via_sfm-guided_monocular_depth_estimation.md)
-- [PCDreamer: Point Cloud Completion Through Multi-view Diffusion Priors](pcdreamer_point_cloud_completion_through_multi-view_diffusion_priors.md)
+- [Single-Scanline Relative Pose Estimation for Rolling Shutter Cameras](../../ICCV2025/3d_vision/single-scanline_relative_pose_estimation_for_rolling_shutter_cameras.md)
+- [BLADE: Single-view Body Mesh Learning through Accurate Depth Estimation](blade_single-view_body_mesh_estimation_through_accurate_depth_estimation.md)
 
 <!-- RELATED:END -->

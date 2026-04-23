@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 自动驾驶方向 85篇论文解读
+  CVPR2025 自动驾驶方向 96篇论文解读
 description: >-
-  85篇CVPR2025 自动驾驶论文解读，主题涵盖：提出3D-AVS，首个针对LiDAR点云的**自动、提出ProtoOcc，通过**原型感知视角变换**、本文提出首个将 ASP 符号推理决策以可学习嵌入形等，每篇含核心思想与方法详解。
+  96篇CVPR2025 自动驾驶论文解读，主题涵盖：提出3D-AVS，首个针对LiDAR点云的**自动、提出ProtoOcc，通过**原型感知视角变换**、提出了 ISSU 异常分割数据集等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**📷 CVPR2025** · **85** 篇论文解读
+**📷 CVPR2025** · **96** 篇论文解读
 
 **[3D-AVS: LiDAR-based 3D Auto-Vocabulary Segmentation](3d-avs_lidar-based_3d_auto-vocabulary_segmentation.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[ProtoOcc: 3D Occupancy Prediction with Low-Resolution Queries via Prototype-aware View Transformation](3d_occupancy_prediction_with_low-resolution_queries_via_prototype-aware_view_tra.md)**
 
 :   提出ProtoOcc，通过**原型感知视角变换**将2D图像聚类原型映射到3D体素查询空间来增强低分辨率体素的上下文信息，配合**多视角占用解码**策略从增强的体素中重建高分辨率3D占用场景，用75%更小的体素分辨率仍能达到与高分辨率方法竞争的性能（Occ3D mIoU 37.80 vs PanoOcc 38.11）。
+
+**[A Dataset for Semantic Segmentation in the Presence of Unknowns](a_dataset_for_semantic_segmentation_in_the_presence_of_unknowns.md)**
+
+:   提出了 ISSU 异常分割数据集，首次同时支持已知类别（closed-set）和未知异常（open-set）的联合评估，规模是现有异常分割数据集的两倍，涵盖多域、多传感器、多光照条件，基准测试揭示了当前 SOTA 方法在域泛化与大/小物体分割上的显著不足。
 
 **[A Neuro-Symbolic Framework Combining Inductive and Deductive Reasoning for Autonomous Driving Planning](a_neuro-symbolic_framework_combining_inductive_and_deductive_reasoning_for_auton.md)**
 
@@ -34,6 +38,10 @@ description: >-
 
 :   首次将随机平滑（Randomized Smoothing）认证技术引入人类轨迹预测任务，通过mean/median聚合函数和扩散去噪器为轨迹预测模型提供保证性鲁棒性——即无论输入噪声如何扰动（在半径R内），输出始终保持在认证边界内。
 
+**[ClimbingCap: Multi-Modal Dataset and Method for Rock Climbing in World Coordinate](climbingcap_multi-modal_dataset_and_method_for_rock_climbing_in_world_.md)**
+
+:   构建了首个大规模攀岩运动多模态数据集 AscendMotion（412K帧，RGB+LiDAR+IMU），并提出 ClimbingCap 方法通过分离坐标解码、后处理优化和半监督训练，在世界坐标系中精确恢复攀岩者的3D运动。
+
 **[ClimbingCap: Multi-Modal Dataset and Method for Rock Climbing in World Coordinate](climbingcap_multi-modal_dataset_and_method_for_rock_climbing_in_world_coordinate.md)**
 
 :   提出首个攀岩运动多模态数据集 AscendMotion（412K 帧 RGB+LiDAR+IMU，22 名专业攀岩者，12 面攀岩墙），以及 ClimbingCap 方法通过分离坐标解码、三重后处理优化和半监督训练实现世界坐标系下的 3D 攀岩动作恢复，MPJPE 达 75.45mm。
@@ -45,6 +53,8 @@ description: >-
 :   CompoSIA 提出一种基于 Flow Matching DiT 的组合式驾驶视频生成框架，通过解耦结构（3D bbox）、身份（单参考图像）和自车动作（相机轨迹）三类控制信号的注入方式，实现精细独立控制和组合编辑，用于系统化合成对抗性驾驶场景，FVD 提升 17%，碰撞率增加 173%。
 
 **[Cubify Anything: Scaling Indoor 3D Object Detection](cubify_anything_scaling_indoor_3d_object_detection.md)**
+
+:   本文提出 Cubify Anything 1M (CA-1M) 数据集——首个在激光扫描上穷尽标注所有物体的大规模室内3D检测数据集（440K物体/1K场景/3.5K采集/13M帧/像素完美投影），并提出全 Transformer 检测器 CuTR，证明在数据充沛时无需3D归纳偏置（点云/体素）即可超越点云方法。
 
 **[DecoupledGaussian: Object-Scene Decoupling for Physics-Based Interaction](decoupledgaussian_object-scene_decoupling_for_physics-based_interaction.md)**
 
@@ -102,6 +112,10 @@ description: >-
 
 :   提出 GaussianWorld，将 3D 占用预测重新定义为以当前传感器输入为条件的 4D 占用预测问题，通过将场景演化分解为自车运动对齐、动态物体运动和新区域补全三个因素，在 3D 高斯空间中用世界模型显式建模场景变化，在 nuScenes 上不增加额外计算量的前提下将单帧方法的 mIoU 提升超过 2%。
 
+**[GDFusion: Rethinking Temporal Fusion with a Unified Gradient Descent View for 3D Semantic Occupancy Prediction](gdfusion_temporal_fusion_occupancy.md)**
+
+:   提出 GDFusion，通过将 RNN 重新解释为特征空间上的梯度下降，统一融合 VisionOcc 中四种异构时序信息（体素级、场景级、运动、几何），在 Occ3D 上实现 1.4%-4.8% mIoU 提升同时减少 27%-72% 显存。
+
 **[Generating Multimodal Driving Scenes via Next-Scene Prediction](generating_multimodal_driving_scenes_via_next-scene_prediction.md)**
 
 :   提出 UMGen，一个统一的多模态驾驶场景生成框架，将自车动作、地图、交通参与者和图像四种模态进行 token 化，通过帧间时序自回归（TAR）和帧内有序自回归（OAR）两阶段策略逐场景生成，同时引入动作感知地图对齐（AMA）模块保持自车运动与地图的一致性，可自主生成长达 60 秒的连贯驾驶序列。
@@ -138,6 +152,10 @@ description: >-
 
 :   提出 LiMoE，通过混合专家（MoE）机制融合三种互补的 LiDAR 表示（距离图/稀疏体素/原始点云），三阶段训练（图像→LiDAR 预训练 → 对比混合学习 → 语义混合监督），在 nuScenes 分割上达到 51.4% mIoU，跨域泛化到 7 个数据集。
 
+**[LiSu: A Dataset and Method for LiDAR Surface Normal Estimation](lisu_a_dataset_and_method_for_lidar_surface_normal_estimation.md)**
+
+:   本文提出首个大规模合成LiDAR点云表面法向量数据集LiSu，并设计时空正则化方法增强法向量估计精度，在自训练中有效抑制伪标签噪声，实现从合成到真实数据的鲁棒域自适应。
+
 **[LR-SGS: Robust LiDAR-Reflectance-Guided Salient Gaussian Splatting for Self-Driving Scene Reconstruction](lr-sgs_robust_lidar-reflectance-guided_salient_gaussian_splatting_for_self-drivi.md)**
 
 :   LR-SGS 提出基于 LiDAR 反射率引导的显著高斯泼溅方法，引入结构感知的显著高斯表示（由 LiDAR 几何和反射率特征点初始化）和光照不变的反射率通道作为额外约束，在 Waymo 数据集挑战场景（复杂光照）上 PSNR 超越 OmniRe 1.18 dB。
@@ -149,6 +167,10 @@ description: >-
 **[MapGCLR: Geospatial Contrastive Learning of Representations for Online Vectorized HD Map Construction](mapgclr_geospatial_contrastive_learning_of_representations_for_online_vectorized.md)**
 
 :   MapGCLR 提出地理空间对比学习方法，通过强制多次行驶中地理空间重叠区域的 BEV 特征一致性来改善在线矢量化 HD 地图构建的 BEV 编码器，在仅 5% 标注数据下实现 42% 的相对 mAP 提升。
+
+**[MaskGWM: A Generalizable Driving World Model with Video Mask Reconstruction](maskgwm_a_generalizable_driving_world_model_with_video_mask_reconstruction.md)**
+
+:   本文将MAE式掩码重建任务与扩散生成过程相结合，提出MaskGWM驾驶世界模型，通过扩散相关掩码token、行式掩码注意力和行式跨视角模块三项创新设计，在长时序预测和多视角生成两个场景下均显著超越了现有SOTA。
 
 **[Modeling Thousands of Human Annotators for Generalizable Text-to-Image Person Re-identification](modeling_thousands_of_human_annotators_for_generalizable_text-to-image_person_re.md)**
 
@@ -178,9 +200,17 @@ description: >-
 
 :   本文从评估基准、模型架构和训练策略三个角度推进在线视频理解：提出 OVBench（包含 6 大任务类型 16 个子任务的在线视频 QA 基准），设计金字塔记忆库（PMB）高效压缩流式视频信息，并通过离线到在线的渐进训练构建 4B 参数的 VideoChat-Online 模型，在 OVBench 上超越 7B 离线模型 4.2%。
 
+**[Open-Canopy: Towards Very High Resolution Forest Monitoring](open-canopy_towards_very_high_resolution_forest_monitoring.md)**
+
+:   Open-Canopy 提出了首个开放获取的国家级超高分辨率（1.5m）树冠高度估计基准数据集，覆盖法国超过 87,000 km²，结合 SPOT 卫星影像和航空 LiDAR 数据，同时还提出了树冠高度变化检测的基准任务 Open-Canopy-Δ，在系列 SOTA 模型上建立了全面的实验基准。
+
 **[Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots](panoramic_multimodal_semantic_occupancy_prediction_for_quadruped_robots.md)**
 
 :   首个面向四足机器人的全景多模态语义占用预测框架 VoxelHound，提出 PanoMMOcc 数据集（全景 RGB + 热成像 + 偏振 + LiDAR），通过垂直抖动补偿（VJC）和多模态信息提示融合（MIPF）模块达到 23.34% mIoU。
+
+**[PanSplat: 4K Panorama Synthesis with Feed-Forward Gaussian Splatting](pansplat_4k_panorama_synthesis_with_feed-forward_gaussian_splatting.md)**
+
+:   PanSplat 提出了一种前馈式全景视图合成方法，通过球面 3D 高斯金字塔、Fibonacci 点阵排列和层级球面代价体积设计，首次实现了 4K 分辨率（2048×4096）的高效全景图生成，在单张 A100 GPU 上即可训练。
 
 **[Physical Plausibility-aware Trajectory Prediction via Locomotion Embodiment](physical_plausibility-aware_trajectory_prediction_via_locomotion_embodiment.md)**
 
@@ -229,6 +259,10 @@ description: >-
 **[RENO: Real-Time Neural Compression for 3D LiDAR Point Clouds](reno_real-time_neural_compression_for_3d_lidar_point_clouds.md)**
 
 :   RENO提出稀疏占用码（Sparse Occupancy Codes）和一次性推理策略，首次实现了3D LiDAR点云的实时神经压缩（10fps@14-bit），以仅1MB的模型大小超越G-PCC标准12.25%码率节省。
+
+**[Rethinking Lanes and Points in Complex Scenarios for Monocular 3D Lane Detection](rethinking_lanes_and_points_in_complex_scenarios_for_monocular_3d_lane_detection.md)**
+
+:   揭示现有稀疏车道线表示方法在端点处存在固有截断缺陷（最多丢失 20m），提出端点修补策略（EP-head）和融合几何先验的 PL-attention，在 Persformer/Anchor3DLane/LATR 上分别提升 F1-score 4.4/3.2/2.8 个点。
 
 **[GDFusion: Rethinking Temporal Fusion with a Unified Gradient Descent View for 3D Semantic Occupancy Prediction](rethinking_temporal_fusion_with_a_unified_gradient_descent_view_for_3d_semantic_.md)**
 
@@ -298,6 +332,10 @@ description: >-
 
 :   GaussianLSS 在经典的 Lift-Splat-Shoot（LSS）框架上引入深度不确定性建模，通过计算深度分布的方差并将其转换为 3D 高斯表示，再利用 Gaussian Splatting 高效光栅化生成具有不确定性感知的 BEV 特征，在 nuScenes 上达到了 unprojection 方法的 SOTA，同时比 projection 方法快 2.5 倍、省 70% 显存。
 
+**[Towards Autonomous Micromobility through Scalable Urban Simulation](towards_autonomous_micromobility_through_scalable_urban_simulation.md)**
+
+:   本文提出 URBAN-SIM（高性能城市机器人学习仿真平台）和 URBAN-BENCH（8 项微出行任务 benchmark），通过层级化城市场景生成、交互式动态生成和异步场景采样三大模块，实现大规模多样化城市环境中的具身智能体训练与评测，是推动自主微出行领域的系统性仿真方案。
+
 **[Towards In-the-Wild 3D Plane Reconstruction from a Single Image](towards_in-the-wild_3d_plane_reconstruction_from_a_single_image.md)**
 
 :   ZeroPlane 提出了首个跨域零样本3D平面重建框架，通过构建包含14个数据集/56万标注的大规模平面基准数据集，并设计法向量-偏移解耦的分类-回归范式和像素几何增强嵌入模块，实现了在室内外多样场景中显著优于现有方法的泛化性能。
@@ -345,3 +383,11 @@ description: >-
 **[WeatherGen: A Unified Diverse Weather Generator for LiDAR Point Clouds via Spider Mamba Diffusion](weathergen_a_unified_diverse_weather_generator_for_lidar_point_clouds_via_spider.md)**
 
 :   本文提出 WeatherGen，首个统一的多样恶劣天气 LiDAR 数据扩散生成框架，通过 Spider Mamba 生成器保持 LiDAR 物理结构、对比学习控制器实现天气可控生成，在数据保真度和下游检测性能上均显著超越基于物理模拟的方法。
+
+**[Zero-Shot 4D Lidar Panoptic Segmentation](zero-shot_4d_lidar_panoptic_segmentation.md)**
+
+:   本文提出 SAL-4D（Segment Anything in Lidar-4D），利用多模态传感器设置作为桥梁，将视频对象分割（VOS）模型和 CLIP 视觉语言特征蒸馏到 LiDAR 空间，实现零样本 4D LiDAR 全景分割，在 3D 零样本 LPS 上超越先前方法 5+ PQ。
+
+**[ZeroVO: Visual Odometry with Minimal Assumptions](zerovo_visual_odometry_with_minimal_assumptions.md)**
+
+:   本文提出 ZeroVO，一种基于 Transformer 的单目视觉里程计方法，通过免标定的几何感知网络结构、语言先验融合和半监督训练范式，在 KITTI、nuScenes、Argoverse 2 和自建 GTA 数据集上实现了超过 30% 的零样本泛化性能提升。

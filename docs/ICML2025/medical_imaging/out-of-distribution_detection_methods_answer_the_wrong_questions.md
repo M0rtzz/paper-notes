@@ -131,8 +131,8 @@ $$\mathcal{L} = \mathbb{E}_{(x,y)\sim\mathcal{D}_{in}} \ell_{CE}(f(x), y) + \alp
 
 - [The Invisible Gorilla Effect in Out-of-distribution Detection](../../CVPR2026/medical_imaging/the_invisible_gorilla_effect_in_out-of-distribution_detection.md)
 - [DIsoN: Decentralized Isolation Networks for Out-of-Distribution Detection in Medical Imaging](../../NeurIPS2025/medical_imaging/dison_decentralized_isolation_networks_for_out-of-distribution_detection_in_medi.md)
+- [OpenMIBOOD: Open Medical Imaging Benchmarks for Out-Of-Distribution Detection](../../CVPR2025/medical_imaging/openmibood_open_medical_imaging_benchmarks_for_out-of-distribution_detection.md)
 - [Neural Stochastic Differential Equations on Compact State Spaces: Theory, Methods and Applications](neural_stochastic_differential_equations_on_compact_state_spaces_theory_methods_.md)
-- [iDPA: Instance Decoupled Prompt Attention for Incremental Medical Object Detection](idpa_instance_decoupled_prompt_attention_for_incremental_medical_object_detectio.md)
-- [MedAgentBoard: Benchmarking Multi-Agent Collaboration with Conventional Methods for Diverse Medical Tasks](../../NeurIPS2025/medical_imaging/medagentboard_benchmarking_multi-agent_collaboration_with_conventional_methods_f.md)
+- [Pattern Recognition or Medical Knowledge? The Problem with Multiple-Choice Questions in Medicine](../../ACL2025/medical_imaging/pattern_recognition_or_medical_knowledge_the_problem_with_multiple-choice_questi.md)
 
 <!-- RELATED:END -->

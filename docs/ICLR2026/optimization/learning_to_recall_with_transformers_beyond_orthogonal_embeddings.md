@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-大型语言模型（LLM）在需要存储和检索知识的任务上（如事实回忆、问答）表现出色。Transformer 能在训练期间编码信息并在推理时检索这些信息，是这一能力的核心架构。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：大型语言模型（LLM）在需要存储和检索知识的任务上（如事实回忆、问答）表现出色。Transformer 能在训练期间编码信息并在推理时检索这些信息，是这一能力的核心架构。
 
 理解 Transformer 如何学习记忆和检索模式是深度学习理论的重要方向。现有理论分析主要在以下理想化假设下展开：
 
@@ -159,7 +161,7 @@ tags:
 
 ## 相关论文
 
-- [SCOPE: Semantic Coreset with Orthogonal Projection Embeddings for Federated Learning](../../CVPR2026/optimization/scope_semantic_coreset_with_orthogonal_projection.md)
+- [SCOPE: Semantic Coreset with Orthogonal Projection Embeddings for Federated learning](../../CVPR2026/optimization/scope_semantic_coreset_with_orthogonal_projection_embeddings_for_federated_learn.md)
 - [Markovian Transformers for Informative Language Modeling](markovian_transformers_for_informative_language_modeling.md)
 - [The Affine Divergence: Aligning Activation Updates Beyond Normalisation](the_affine_divergence_aligning_activation_updates_beyond_normalisation.md)
 - [Beyond the Mean: Fisher-Orthogonal Projection for Natural Gradient Descent in Large Batch Training](../../AAAI2026/optimization/beyond_the_mean_fisher-orthogonal_projection_for_natural_gradient_descent_in_lar.md)

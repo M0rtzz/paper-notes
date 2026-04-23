@@ -131,6 +131,6 @@ EchoONE 在所有切面上均取得最高 Dice，且在 PSAX 短轴切面上优�
 - [Towards All-in-One Medical Image Re-Identification](towards_all-in-one_medical_image_re-identification.md)
 - [EchoWorld: Learning Motion-Aware World Models for Echocardiography Probe Guidance](echoworld_learning_motion-aware_world_models_for_echocardiography_probe_guidance.md)
 - [One Small Step with Fingerprints, One Giant Leap for De Novo Molecule Generation from Mass Spectra](../../NeurIPS2025/medical_imaging/one_small_step_with_fingerprints_one_giant_leap_for_de_novo_molecule_generation_.md)
-- [TopoCellGen: Generating Histopathology Cell Topology with a Diffusion Model](topocellgen_generating_histopathology_cell_topology_with_a_diffusion_model.md)
+- [MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification](mil-pf_multiple_instance_learning_on_precomputed_features_for_mammography_classi.md)
 
 <!-- RELATED:END -->

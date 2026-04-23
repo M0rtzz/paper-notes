@@ -151,6 +151,6 @@ $$\phi_R(M) = \frac{1}{|\mathcal{D}_R|} \sum_{(s,t) \in \mathcal{D}_R} \mathbb{1
 - [Segment-Based Attention Masking for GPTs](segment-based_attention_masking_for_gpts.md)
 - [Attention Entropy is a Key Factor for Parallel Context Encoding](attention_entropy_parallel_encoding.md)
 - [Inferring Stochastic Dynamics with Growth from Cross-Sectional Data](../../NeurIPS2025/others/inferring_stochastic_dynamics_with_growth_from_cross-sectional_data.md)
-- [Hierarchical Attention Generates Better Proofs](hierarchical_attention_generates_better_proofs.md)
+- [Enhancing Hyperbole and Metaphor Detection with Their Bidirectional Dynamic Interaction and Emotion Knowledge](hyperbole_metaphor_detection.md)
 
 <!-- RELATED:END -->

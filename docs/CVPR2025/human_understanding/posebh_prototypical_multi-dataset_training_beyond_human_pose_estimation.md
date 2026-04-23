@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：姿态估计数据集各有不同的骨骼定义——COCO 有 17 个人体关键点，AP-10K 有动物关键点，InterHand 有手部关键点。标准做法是为每种骨骼独立训练模型，浪费了跨数据集的共享知识。
 
 **现有痛点**：多数据集联合训练面临两个关键问题：（1）不同骨骼的关键点数量和语义不同，无法共享预测头；（2）一个数据集标注的关键点在另一数据集中未标注，造成标签缺失。
@@ -36,6 +38,16 @@ tags:
 **切入角度**：用原型学习（prototype learning）在嵌入空间中发现跨骨骼的共享原型——不用预定义关键点对应关系，让聚类自动发现。
 
 **核心 idea**：非参数关键点原型 + 跨类型自监督 = 所有骨骼类型的统一姿态估计。
+
+### 解决思路
+
+**本文目标**：### 关键设计
+
+1. **非参数关键点原型**:
+
+    - 功能：在嵌入空间中学习跨数据集共享的关键点表示
+    - 核心思路：为每种关键点维护 $J \times M \times F$ 的原型矩阵（$J$ 个关键点 × $M$ 个原型 × $F$ 维特征），通过在线 Sinkhorn-Knopp 聚类更新原型。
+
 
 ## 方法详解
 
@@ -63,10 +75,10 @@ $\mathcal{L}_{MDT} = \mathcal{L}_{KPL} + \mathcal{L}_{CSS}$。关键点损失包
 
 | 数据集 | PoseBH (ViT-B) | ViTPose++ | 提升 |
 |--------|---------------|-----------|------|
-| COCO | 77.3 AP | 76.5 | +0.8 |
-| AP-10K 动物 | 75.0 AP | 74.1 | +0.9 |
-| **APT-36K 视频动物** | **87.2 AP** | **76.0** | **+11.2** |
-| InterHand 手部 | 87.1 AUC | 86.2 | +0.9 |
+| COCO | 77.3 AP | 76.5% | +0.8 |
+| AP-10K 动物 | 75.0 AP | 74.1% | +0.9 |
+| **APT-36K 视频动物** | **87.2 AP** | **76.0%** | **+11.2** |
+| InterHand 手部 | 87.1 AUC | 86.2% | +0.9 |
 
 ### 关键发现
 - **APT-36K 提升最大 (+11.2)**——这是视频数据集，多数据集预训练提供了更好的时序理解
@@ -96,6 +108,6 @@ $\mathcal{L}_{MDT} = \mathcal{L}_{KPL} + \mathcal{L}_{CSS}$。关键点损失包
 - [HiPART: Hierarchical Pose AutoRegressive Transformer for Occluded 3D Human Pose Estimation](hipart_hierarchical_pose_autoregressive_transformer_for_occluded_3d_human_pose_e.md)
 - [WorldPose: A World Cup Dataset for Global 3D Human Pose Estimation](../../ECCV2024/human_understanding/worldpose_a_world_cup_dataset_for_global_3d_human_pose_estimation.md)
 - [GCE-Pose: Global Context Enhancement for Category-Level Object Pose Estimation](gce-pose_global_context_enhancement_for_category-level_object_pose_estimation.md)
-- [Probabilistic Prompt Distribution Learning for Animal Pose Estimation](probabilistic_prompt_distribution_learning_for_animal_pose_estimation.md)
+- [Co-op: Correspondence-based Novel Object Pose Estimation](co-op_correspondence-based_novel_object_pose_estimation.md)
 
 <!-- RELATED:END -->

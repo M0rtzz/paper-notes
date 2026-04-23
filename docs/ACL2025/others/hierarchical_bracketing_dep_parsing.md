@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**: 序列标注范式的依存分析利用预训练编码器将依存树转化为标签序列，计算效率高且性能有竞争力。
+### 领域现状
+
+**领域现状**：**领域现状**: 序列标注范式的依存分析利用预训练编码器将依存树转化为标签序列，计算效率高且性能有竞争力。
 
 **现有痛点**: 早期括号编码标签空间无界(Θ(n²))，虽然4-bit编码将投射树限制到16个标签，但仍非最优。现有非投射性扩展（如多平面方法）与编码框架不完全匹配。
 
@@ -124,9 +126,9 @@ tags:
 ## 相关论文
 
 - [Why Are Positional Encodings Nonessential for Deep Autoregressive Transformers? Revisiting a Petroglyph](why_are_positional_encodings_nonessential_for_deep_autoregressive_transformers_r.md)
-- [Hierarchical Memory Organization for Wikipedia Generation](hierarchical_memory_wikipedia_gen.md)
 - [Hierarchical Attention Generates Better Proofs](hierarchical_attention_generates_better_proofs.md)
+- [Hierarchical Memory Organization for Wikipedia Generation](hierarchical_memory_wikipedia_gen.md)
 - [SHARE: An SLM-based Hierarchical Action CorREction Assistant for Text-to-SQL](share_text_to_sql_correction.md)
-- [MaCP: Minimal yet Mighty Adaptation via Hierarchical Cosine Projection](macp_minimal_yet_mighty_adaptation_via_hierarchical_cosine_projection.md)
+- [Coreset for Robust Geometric Median: Eliminating Size Dependency on Outliers](../../NeurIPS2025/others/coreset_for_robust_geometric_median_eliminating_size_dependency_on_outliers.md)
 
 <!-- RELATED:END -->

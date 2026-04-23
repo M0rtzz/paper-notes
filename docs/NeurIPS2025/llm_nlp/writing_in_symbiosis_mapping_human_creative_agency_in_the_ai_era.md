@@ -196,9 +196,9 @@ $$y_{it} = \beta \cdot PostLLM_t + \gamma \cdot len_{it} + \delta_c + \alpha_i +
 ## 相关论文
 
 - [Towards Enhanced Immersion and Agency for LLM-based Interactive Drama](../../ACL2025/llm_nlp/towards_enhanced_immersion_and_agency_for_llm-based_interactive_drama.md)
+- [Educators' Perceptions of Large Language Models as Tutors: Comparing Human and AI Tutors in a Blind Text-only Setting](../../ACL2025/llm_nlp/educators_perceptions_of_large_language_models_as_tutors_comparing_human_and_ai_.md)
 - [EscapeBench: Towards Advancing Creative Intelligence of Language Model Agents](../../ACL2025/llm_nlp/escapebench_creative_agent.md)
 - [Mapping 1,000+ Language Models via the Log-Likelihood Vector](../../ACL2025/llm_nlp/mapping_1000_models_loglikelihood.md)
 - [LLMs can Perform Multi-Dimensional Analytic Writing Assessments](../../ACL2025/llm_nlp/llm_writing_assessment.md)
-- [On the Risk of Evidence Pollution for Malicious Social Text Detection in the Era of LLMs](../../ACL2025/llm_nlp/on_the_risk_of_evidence_pollution_for_malicious_social_text_detection_in_the_era.md)
 
 <!-- RELATED:END -->

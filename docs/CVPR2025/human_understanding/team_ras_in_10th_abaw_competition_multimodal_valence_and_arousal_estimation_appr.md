@@ -135,7 +135,7 @@ tags:
 - [Perceive What Matters: Relevance-Driven Scheduling for Multimodal Streaming Perception](perceive_what_matters_relevance-driven_scheduling_for_multimodal_streaming_perce.md)
 - [CRISP: Object Pose and Shape Estimation with Test-Time Adaptation](crisp_object_pose_and_shape_estimation_with_test-time_adaptation.md)
 - [UniHOPE: A Unified Approach for Hand-Only and Hand-Object Pose Estimation](unihope_a_unified_approach_for_hand-only_and_hand-object_pose_estimation.md)
-- [NBAvatar: Neural Billboards Avatars with Realistic Hand-Face Interaction](nbavatar_neural_billboards_avatars_with_realistic_hand-face_interaction.md)
+- [Towards General Visual-Linguistic Face Forgery Detection](towards_general_visual-linguistic_face_forgery_detection.md)
 - [MM-CondChain: A Programmatically Verified Benchmark for Visually Grounded Deep Compositional Reasoning](mm-condchain_a_programmatically_verified_benchmark_for_visually_grounded_deep_co.md)
 
 <!-- RELATED:END -->

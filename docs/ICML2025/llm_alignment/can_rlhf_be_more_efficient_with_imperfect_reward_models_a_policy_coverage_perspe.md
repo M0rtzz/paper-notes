@@ -189,6 +189,6 @@ True reward：sfairXC/FsfairX-LLaMA3-RM-v0.1（蒸馏自 Llama3-8B）
 - [Towards Reward Fairness in RLHF: From a Resource Allocation Perspective](../../ACL2025/llm_alignment/reward_fairness_rlhf.md)
 - [Provably Efficient Online RLHF with One-Pass Reward Modeling](../../NeurIPS2025/llm_alignment/provably_efficient_online_rlhf_with_one-pass_reward_modeling.md)
 - [Learning More with Less: A Dynamic Dual-Level Down-Sampling Framework for Efficient Policy Optimization](../../ICLR2026/llm_alignment/learning_more_with_less_a_dynamic_dual-level_down-sampling_framework_for_efficie.md)
-- [Mutual-Taught for Co-adapting Policy and Reward Models](../../ACL2025/llm_alignment/mutual_taught_policy_reward.md)
+- [Safety Alignment Can Be Not Superficial With Explicit Safety Signals](safety_alignment_can_be_not_superficial_with_explicit_safety_signals.md)
 
 <!-- RELATED:END -->

@@ -150,7 +150,7 @@ U-FunKAN 不同通道配置对 BUSI 分割性能的影响：
 - [Decoding with Structured Awareness: Integrating Directional, Frequency-Spatial, and Structural Attention for Medical Image Segmentation](decoding_with_structured_awareness_integrating_directional_frequency-spatial_and.md)
 - [Ambiguity-aware Truncated Flow Matching for Ambiguous Medical Image Segmentation](ambiguity-aware_truncated_flow_matching_for_ambiguous_medica.md)
 - [BiCLIP: Bidirectional and Consistent Language-Image Processing for Robust Medical Image Segmentation](../../CVPR2026/medical_imaging/biclip_bidirectional_and_consistent_language-image_processing_for_robust_medical.md)
+- [From Adaptation to Generalization: Adaptive Visual Prompting for Medical Image Segmentation](../../CVPR2026/medical_imaging/apex_adaptive_visual_prompting.md)
 - [DualFete: Revisiting Teacher-Student Interactions from a Feedback Perspective for Semi-supervised Medical Image Segmentation](dualfete_revisiting_teacher-student_interactions_from_a_feedback_perspective_for.md)
-- [Bidirectional Channel-selective Semantic Interaction for Semi-Supervised Medical Segmentation](bidirectional_channel-selective_semantic_interaction_for_semi-supervised_medical.md)
 
 <!-- RELATED:END -->

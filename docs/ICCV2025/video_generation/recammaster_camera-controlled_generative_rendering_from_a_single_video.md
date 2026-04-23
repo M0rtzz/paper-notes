@@ -130,10 +130,10 @@ VBench 质量评估：
 
 ## 相关论文
 
+- [Mind the Time: Temporally-Controlled Multi-Event Video Generation](../../CVPR2025/video_generation/mind_the_time_temporally-controlled_multi-event_video_generation.md)
+- [SteerX: Creating Any Camera-Free 3D and 4D Scenes with Geometric Steering](steerx_creating_any_camera-free_3d_and_4d_scenes_with_geometric_steering.md)
 - [RealCam-I2V: Real-World Image-to-Video Generation with Interactive Complex Camera Control](realcam-i2v_real-world_image-to-video_generation_with_interactive_complex_camera.md)
 - [Free-Form Motion Control: Controlling the 6D Poses of Camera and Objects in Video Generation](free-form_motion_control_controlling_the_6d_poses_of_camera_and_objects_in_video.md)
-- [Mind the Time: Temporally-Controlled Multi-Event Video Generation](../../CVPR2025/video_generation/mind_the_time_temporally-controlled_multi-event_video_generation.md)
-- [Dynamic Camera Poses and Where to Find Them](../../CVPR2025/video_generation/dynamic_camera_poses_and_where_to_find_them.md)
 - [IDOL: Instant Photorealistic 3D Human Creation from a Single Image](../../CVPR2025/video_generation/idol_instant_photorealistic_3d_human_creation_from_a_single_image.md)
 
 <!-- RELATED:END -->

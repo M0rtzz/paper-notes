@@ -1,18 +1,22 @@
 ---
 title: >-
-  ACL2025 强化学习方向 7篇论文解读
+  ACL2025 强化学习方向 8篇论文解读
 description: >-
-  7篇ACL2025 强化学习论文解读，主题涵盖：本文提出 Align-SLM 框架、首次将进化强化学习（ERL）应用于任务导向对话策略、提出 SchemaBench 基准（约4万条等，每篇含核心思想与方法详解。
+  8篇ACL2025 强化学习论文解读，主题涵盖：本文提出 Align-SLM 框架、本文提出一种基于策略梯度的LLM结构化剪枝方法、首次将进化强化学习（ERL）应用于任务导向对话策略等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**💬 ACL2025** · **7** 篇论文解读
+**💬 ACL2025** · **8** 篇论文解读
 
 **[Align-SLM: Textless Spoken Language Models with Reinforcement Learning from AI Feedback](align-slm_textless_spoken_language_models_with_reinforcement_learning_from_ai_fe.md)**
 
 :   本文提出 Align-SLM 框架，首次将偏好优化（DPO + RLAIF）应用于纯语音语言模型（无文本注入），通过 LLM 自动评估生成的语音续写质量构建偏好数据，结合课程学习迭代提升 SLM 的语义理解能力，在 ZeroSpeech 和 StoryCloze 等基准上达到 SLM 的 SOTA。
+
+**[Bypass Back-propagation: Optimization-based Structural Pruning for Large Language Models via Policy Gradient](bypass_back-propagation_optimization-based_structural_pruning_for_large_language.md)**
+
+:   本文提出一种基于策略梯度的LLM结构化剪枝方法，通过在概率空间中学习伯努利剪枝掩码来直接优化剪枝模型的损失函数，全程无需对LLM本身进行反向传播，仅需前向推理即可完成剪枝优化。
 
 **[An Efficient Task-Oriented Dialogue Policy: Evolutionary Reinforcement Learning Injected by Elite Individuals](eierl_dialogue_policy.md)**
 

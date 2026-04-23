@@ -133,9 +133,9 @@ Stage 1：$\mathcal{L}_{total} = \mathcal{L}_{hand}$ (MANO 参数 + 3D/2.5D 关�
 ## 相关论文
 
 - [EgoHandICL: Egocentric 3D Hand Reconstruction with In-Context Learning](../../ICLR2026/human_understanding/egohandicl_egocentric_3d_hand_reconstruction_with_in-context_learning.md)
+- [HandDreamer: Zero-Shot Text to 3D Hand Model Generation](handdreamer_zero_shot_text_to_3d_hand_model_generation.md)
 - [LASER: Layer-wise Scale Alignment for Training-Free Streaming 4D Reconstruction](laser_layer-wise_scale_alignment_for_training-free_streaming_4d_reconstruction.md)
 - [PAD-Hand: Physics-Aware Diffusion for Hand Motion Recovery](pad-hand_physics-aware_diffusion_for_hand_motion_recovery.md)
-- [RecoverMark: Robust Watermarking for Localization and Recovery of Manipulated Faces](recovermark_robust_watermarking_for_localization_and_recovery_of_manipulated_fac.md)
-- [4DSurf: High-Fidelity Dynamic Scene Surface Reconstruction](textit4dsurf_high-fidelity_dynamic_scene_surface_reconstruction.md)
+- [A Two-Stage Dual-Modality Model for Facial Expression Recognition](a_two_stage_dual_modality_model_for_facial_expression_recognition.md)
 
 <!-- RELATED:END -->

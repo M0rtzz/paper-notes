@@ -147,7 +147,7 @@ $$\text{TCS} = \text{SPS} \cdot \text{ACS}$$
 - [Resampling Augmentation for Time Series Contrastive Learning: Application to Remote Sensing](../../ICML2025/remote_sensing/resampling_augmentation_for_time_series_contrastive_learning_application_to_remo.md)
 - [EcoCast: A Spatio-Temporal Model for Continual Biodiversity and Climate Risk Forecasting](../../NeurIPS2025/remote_sensing/ecocast_a_spatio-temporal_model_for_continual_biodiversity_and_climate_risk_fore.md)
 - [Connecting the Dots: A Machine Learning Ready Dataset for Ionospheric Forecasting Models](../../NeurIPS2025/remote_sensing/connecting_the_dots_a_machine_learning_ready_dataset_for_ionospheric_forecasting.md)
-- [WildSAT: Learning Satellite Image Representations from Wildlife Observations](../../ICCV2025/remote_sensing/wildsat_learning_satellite_image_representations_from_wildlife_observations.md)
+- [Are Pretrained Image Matchers Good Enough for SAR-Optical Satellite Registration?](../../CVPR2026/remote_sensing/pretrained_image_matchers_for_sar_optical_satellite_registration.md)
 - [TDCNet: Spatio-Temporal Context Learning with Temporal Difference Convolution for Moving IRSTD](../../AAAI2026/remote_sensing/spatio-temporal_context_learning_with_temporal_difference_convolution_for_moving.md)
 
 <!-- RELATED:END -->

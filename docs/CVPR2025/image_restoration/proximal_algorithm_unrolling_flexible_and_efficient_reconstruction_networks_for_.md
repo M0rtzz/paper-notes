@@ -129,8 +129,8 @@ tags:
 ## 相关论文
 
 - [Gyro-based Neural Single Image Deblurring](gyro-based_neural_single_image_deblurring.md)
-- [A Physics-Informed Blur Learning Framework for Imaging Systems](a_physics-informed_blur_learning_framework_for_imaging_systems.md)
 - [Accelerating Image Super-Resolution Networks with Pixel-Level Classification](../../ECCV2024/image_restoration/accelerating_image_super-resolution_networks_with_pixel-level_classification.md)
+- [A Physics-Informed Blur Learning Framework for Imaging Systems](a_physics-informed_blur_learning_framework_for_imaging_systems.md)
 - [Progressive Focused Transformer for Single Image Super-Resolution](progressive_focused_transformer_for_single_image_super-resolution.md)
 - [Pixel-level and Semantic-level Adjustable Super-resolution: A Dual-LoRA Approach](pixel-level_and_semantic-level_adjustable_super-resolution_a_dual-lora_approach.md)
 

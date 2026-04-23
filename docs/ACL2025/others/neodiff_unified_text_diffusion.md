@@ -165,8 +165,8 @@ NeoDiff 在所有翻译任务上超越所有 baseline，在更小 beam size 下�
 
 - [Optimal Sensor Scheduling and Selection for Continuous-Discrete Kalman Filtering with Auxiliary Dynamics](../../ICML2025/others/optimal_sensor_scheduling_and_selection_for_continuous-discrete_kalman_filtering.md)
 - [Distribution Prototype Diffusion Learning for Open-set Supervised Anomaly Detection](../../CVPR2025/others/distribution_prototype_diffusion_learning_for_open-set_supervised_anomaly_detect.md)
-- [Compositional Diffusion with Guided Search for Long-Horizon Planning](../../ICLR2026/others/compositional_diffusion_long_horizon_planning.md)
 - [Harpoon: Generalised Manifold Guidance for Conditional Tabular Diffusion](../../ICLR2026/others/harpoon_generalised_manifold_guidance_for_conditional_tabular_diffusion.md)
 - [Rethinking Flow and Diffusion Bridge Models for Speech Enhancement](../../AAAI2026/others/rethinking_flow_and_diffusion_bridge_models_for_speech_enhancement.md)
+- [Compositional Diffusion with Guided Search for Long-Horizon Planning](../../ICLR2026/others/compositional_diffusion_long_horizon_planning.md)
 
 <!-- RELATED:END -->

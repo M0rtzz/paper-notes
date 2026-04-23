@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：透过窗户拍照时经常出现的反射是图像质量的大敌。现有去反射方法在 8-bit JPG 图像上训练，但窗户反射的物理过程（Fresnel 反射率+曝光+白平衡+色调映射）在 JPG 中已被不可逆压缩。
 
 **现有痛点**：（1）8-bit JPG 丢失了暗区和高光区的精度，但反射判断正需要这些区域的信息；（2）合成训练数据的真实度不足——简单的 alpha 混合无法模拟 Fresnel 角度依赖/双面反射/色温差异；（3）低分辨率预测后上采样会重新引入反射伪影。
@@ -37,7 +39,17 @@ tags:
 
 **核心 idea**：RAW 域物理仿真 + 上下文自拍辅助 + 高斯金字塔上采样 = 光度学准确的去反射。
 
+### 解决思路
+
+**本文目标**：### 关键设计
+
+1. **RAW 域物理仿真**：在 XYZ 空间模拟：Fresnel 角度依赖反射率、双面玻璃的多次反射、不同光源色温（透射/反射各自白平衡）、曝光差异、模糊。
+
+
 ## 方法详解
+
+### 整体框架
+
 
 ### 关键设计
 
@@ -55,7 +67,7 @@ tags:
 
 | 指标 | 完整系统 | 无 RAW 仿真 |
 |------|---------|------------|
-| PSNR (透射) | **30.62** | 下降 ~10 dB |
+| PSNR (透射) | **30.62%** | 下降 ~10 dB |
 | SSIM | **95.2%** | 下降 ~40pp |
 | 上下文图提升 | +4pp SSIM | — |
 
@@ -85,14 +97,20 @@ tags:
 - 写作质量: ⭐⭐⭐⭐ 物理仿真过程描述详细
 - 价值: ⭐⭐⭐⭐ 可直接部署到手机相机应用
 
+
+## 相关工作与启发
+- **vs 同领域代表性方法**：本文在方法设计上有独特贡献，与现有方法形成互补
+- **vs 传统方法**：相比传统方案，本文方法在关键指标上取得了显著提升
+- **启发**：本文的技术路线对后续相关工作有重要参考价值
+
 <!-- RELATED:START -->
 
 ## 相关论文
 
-- [ShowUI: One Vision-Language-Action Model for GUI Visual Agent](showui_one_vision-language-action_model_for_gui_visual_agent.md)
-- [MDP: Multidimensional Vision Model Pruning with Latency Constraint](mdp_multidimensional_vision_model_pruning_with_latency_constraint.md)
-- [Forensics Adapter: Adapting CLIP for Generalizable Face Forgery Detection](forensics_adapter_adapting_clip_for_generalizable_face_forgery_detection.md)
-- [Shape My Moves: Text-Driven Shape-Aware Synthesis of Human Motions](shape_my_moves_text-driven_shape-aware_synthesis_of_human_motions.md)
-- [Recurrent Feature Mining and Keypoint Mixup Padding for Category-Agnostic Pose Estimation](recurrent_feature_mining_and_keypoint_mixup_padding_for_category-agnostic_pose_e.md)
+- [ShowMak3r++: Compositional Entertainment Video Reconstruction](showmak3r_compositional_tv_show_reconstruction.md)
+- [Co-op: Correspondence-based Novel Object Pose Estimation](co-op_correspondence-based_novel_object_pose_estimation.md)
+- [X-Dyna: Expressive Dynamic Human Image Animation](x-dyna_expressive_dynamic_human_image_animation.md)
+- [Dynamic Neural Surfaces for Elastic 4D Shape Representation and Analysis](dynamic_neural_surfaces_for_elastic_4d_shape_representation_and_analysis.md)
+- [Efficient Video Face Enhancement with Enhanced Spatial-Temporal Consistency](efficient_video_face_enhancement_with_enhanced_spatial-temporal_consistency.md)
 
 <!-- RELATED:END -->

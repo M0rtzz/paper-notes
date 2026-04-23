@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 科学计算方向 22篇论文解读
+  NeurIPS2025 科学计算方向 23篇论文解读
 description: >-
-  22篇NeurIPS2025 科学计算论文解读，主题涵盖：提出基于贝叶斯神经网络（BNN）的代理模型、提出 Taylor mode 自动微分的"折叠"(、提出 DeltaPhi 框架：不直接学习 PDE等，每篇含核心思想与方法详解。
+  23篇NeurIPS2025 科学计算论文解读，主题涵盖：提出基于贝叶斯神经网络（BNN）的代理模型、提出 Taylor mode 自动微分的"折叠"(、提出 DeltaPhi 框架：不直接学习 PDE等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧮 科学计算
 
-**🧠 NeurIPS2025** · **22** 篇论文解读
+**🧠 NeurIPS2025** · **23** 篇论文解读
 
 **[Bayesian Surrogates for Risk-Aware Pre-Assessment of Aging Bridge Portfolios](bayesian_surrogates_for_risk-aware_pre-assessment_of_aging_bridge_portfolios.md)**
 
@@ -73,6 +73,10 @@ description: >-
 **[From Images to Physics: Probabilistic Inference of Galaxy Parameters and Emission Lines via VAE–Normalizing Flows](one-shot_transfer_learning_for_nonlinear_pdes_with_perturbative_pinns.md)**
 
 :   提出 VAE–Normalizing Flow 两阶段概率推断框架，仅从 SDSS 星系图像和测光数据即可快速推断恒星质量、SFR、红移、黑洞质量、金属丰度及发射线通量，精度超越现有非光谱方法且比 SED 拟合快 100 倍以上。
+
+**[One-Shot Transfer Learning for Nonlinear PDEs with Perturbative PINNs](oneshot_transfer_learning_nonlinear_pdes_perturbative_pinns.md)**
+
+:   将微扰理论与 PINNs 结合，将非线性PDE分解为线性子问题序列，用 Multi-Head PINN 学习线性算子的潜空间后，对新的PDE实例可通过闭式解在0.2秒内完成迁移，达到 $10^{-3}$ 量级误差。
 
 **[Physics-Guided Machine Learning for Uncertainty Quantification in Turbulence Models](physics-guided_machine_learning_for_uncertainty_quantification_in_turbulence_mod.md)**
 

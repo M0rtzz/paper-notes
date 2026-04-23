@@ -131,7 +131,7 @@ $$\mathcal{L}_{\text{total}} = \lambda_{\text{ISM}} \mathcal{L}_{\text{ISM}} + \
 - [Learning Multi-View Spatial Reasoning from Cross-View Relations](learning_multi-view_spatial_reasoning_from_cross-view_relations.md)
 - [Text–Image Conditioned 3D Generation](text-image_conditioned_3d_generation.md)
 - [Text-to-3D by Stitching a Multi-view Reconstruction Network to a Video Generator](../../ICLR2026/3d_vision/text-to-3d_by_stitching_a_multi-view_reconstruction_network_to_a_video_generator.md)
+- [STMI: Segmentation-Guided Token Modulation with Cross-Modal Hypergraph Interaction for Multi-Modal Object Re-Identification](../../AAAI2026/3d_vision/stmi_segmentation-guided_token_modulation_with_cross-modal_hypergraph_interactio.md)
 - [FlexGen: Flexible Multi-View Generation from Text and Image Inputs](../../ICCV2025/3d_vision/flexgen_flexible_multi-view_generation_from_text_and_image_inputs.md)
-- [No Calibration, No Depth, No Problem: Cross-Sensor View Synthesis with 3D Consistency](no_calibration_no_depth_no_problem_cross-sensor_view_synthesis_with_3d_consisten.md)
 
 <!-- RELATED:END -->

@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 语义分割方向 91篇论文解读
+  CVPR2025 语义分割方向 98篇论文解读
 description: >-
-  91篇CVPR2025 语义分割论文解读，主题涵盖：提出2DMamba，首个具有高效并行算法的**原生、提出SAM2.1++的干扰物感知记忆模型（DAM）、提出 G2HFNet，通过多尺度细节增强等，每篇含核心思想与方法详解。
+  98篇CVPR2025 语义分割论文解读，主题涵盖：提出2DMamba，首个具有高效并行算法的**原生、提出SAM2.1++的干扰物感知记忆模型（DAM）、提出 SAIL 框架——先通过等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**📷 CVPR2025** · **91** 篇论文解读
+**📷 CVPR2025** · **98** 篇论文解读
 
 **[2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification](2dmamba_efficient_state_space_model_for_image_representation_with_applications_o.md)**
 
@@ -18,6 +18,10 @@ description: >-
 
 :   提出SAM2.1++的干扰物感知记忆模型（DAM），将SAM2的记忆拆分为近期外观记忆（RAM，确保分割精度）和干扰物解析记忆（DRM，确保跟踪鲁棒性），通过内省式更新策略检测干扰物并自动存储锚帧，在7个基准上设立新SOTA。
 
+**[Assessing and Learning Alignment of Unimodal Vision and Language Models (SAIL)](assessing_and_learning_alignment_of_unimodal_vision_and_language_model.md)**
+
+:   提出 SAIL 框架——先通过 alignment probing 评估单模态视觉和语言模型的对齐潜力（发现 k-NN 聚类质量比线性可分性更重要），再用轻量级 GLU 对齐层 + Sigmoid 损失 + 多正样本策略高效对齐 DINOv2 和预训练语言模型，仅用 6% 的 CLIP 训练数据即超越 CLIP。
+
 **[SAIL: Assessing and Learning Alignment of Unimodal Vision and Language Models](assessing_and_learning_alignment_of_unimodal_vision_and_language_models.md)**
 
 **[Audio-Visual Instance Segmentation](audio-visual_instance_segmentation.md)**
@@ -25,6 +29,10 @@ description: >-
 **[G2HFNet: GeoGran-Aware Hierarchical Feature Fusion Network for Salient Object Detection in Optical Remote Sensing Images](binwang2hfnet_geogran-aware_hierarchical_feature_fusion_network_for_salient_obje.md)**
 
 :   提出 G2HFNet，通过多尺度细节增强 (MDE)、双分支几何-粒度互补 (DGC)、深层语义感知 (DSP) 和局部-全局引导融合 (LGF) 四个模块，针对不同层级特征设计差异化优化策略，在三个遥感显著性检测数据集上全面超越 SOTA。
+
+**[Comparative Evaluation of Traditional Methods and Deep Learning for Brain Glioma Imaging](comparative_evaluation_of_traditional_methods_and_deep_learning_for_brain_glioma.md)**
+
+:   本文系统综述了脑胶质瘤 MRI 图像分割与分类中传统方法与深度学习方法的表现，通过全面对比评估得出 CNN 架构在分割精度和鲁棒性上显著优于传统技术的结论。
 
 **[Condensing Action Segmentation Datasets via Generative Network Inversion](condensing_action_segmentation_datasets_via_generative_network_inversion.md)**
 
@@ -96,6 +104,10 @@ description: >-
 
 :   ExCEL 提出利用 patch-text 对齐范式（而非传统 image-text 对齐）挖掘 CLIP 的密集知识用于弱监督语义分割，通过文本语义扩充（TSE）和视觉校准（VC）两个模块增强密集对齐能力，在仅需 3.2GB 显存和 6% 训练时间的条件下，在 PASCAL VOC 和 MS COCO 上大幅超越 SOTA。
 
+**[Exploring Simple Open-Vocabulary Semantic Segmentation](exploring_simple_open-vocabulary_semantic_segmentation.md)**
+
+:   本文提出 S-Seg，一个极简的开放词汇语义分割模型，不依赖 CLIP 预训练、不需要标注掩码、不使用定制分组编码器，仅用伪掩码（DINO K-Means 聚类）和图像-文本对比损失训练 MaskFormer，在 Pascal VOC、Pascal Context 和 COCO 上取得了与复杂方法相当的性能，自训练后平均 mIoU 提升 5.5%。
+
 **[F-LMM: Grounding Frozen Large Multimodal Models](f-lmm_grounding_frozen_large_multimodal_models.md)**
 
 :   F-LMM 冻结现成 LMM 的所有参数，仅训练轻量 CNN mask decoder 将 LMM 注意力图中固有的词-像素对应关系翻译为分割 mask，在完全保持对话能力的同时获得 competitive 的视觉定位性能。
@@ -148,9 +160,17 @@ description: >-
 
 :   本文提出 Holmes-VAU，构建了包含 70k+ 多粒度标注的视频异常理解基准 HIVAU-70k，并设计异常聚焦时序采样器（ATS）让多模态 VLM 集中关注异常密集区域，在长视频异常检测和推理任务上大幅超越现有方法。
 
+**[ID-Patch: Robust ID Association for Group Photo Personalization](id-patch_robust_id_association_for_group_photo_personalization.md)**
+
+:   ID-Patch 通过将同一人脸特征同时生成 ID patch（用于空间控制）和 ID embedding（用于身份相似度保持），解决了多身份图像生成中的 ID 泄漏问题，在面部相似度、ID-位置关联精度和生成效率上全面超越 baseline。
+
 **[Image Quality Assessment: From Human to Machine Preference](image_quality_assessment_from_human_to_machine_preference.md)**
 
 :   本文首次提出面向机器视觉的图像质量评估（IQA for MVS），构建了包含 225 万细粒度标注和 3 万参考/失真图像对的 Machine Preference Database (MPD)，实验证明现有 HVS-centric IQA 指标无法准确表征机器偏好，揭示了人类与机器视觉系统间的根本性差异。
+
+**[Learning 4D Panoptic Scene Graph Generation from Rich 2D Visual Scene](learning_4d_panoptic_scene_graph_generation_from_rich_2d_visual_scene.md)**
+
+:   本文提出了一种基于 4D-LLM 和 2D-to-4D 迁移学习的 4D 全景场景图生成框架，通过链式场景图推理利用 LLM 的开放词汇能力，并从丰富的 2D 场景标注中迁移维度不变特征到 4D 场景，大幅缓解数据稀缺和词汇受限问题。
 
 **[Leveraging 3D Geometric Priors in 2D Rotation Symmetry Detection](leveraging_3d_geometric_priors_in_2d_rotation_symmetry_detection.md)**
 
@@ -159,6 +179,10 @@ description: >-
 **[LiVOS: Light Video Object Segmentation with Gated Linear Matching](livos_light_video_object_segmentation_with_gated_linear_matching.md)**
 
 :   提出 LiVOS——首个使用门控线性注意力替代 softmax 注意力进行内存匹配的轻量 VOS 网络，将时空注意力矩阵压缩为恒定大小的 2D 状态矩阵，实现任意长视频的恒定内存占用，并在 32G 消费级 GPU 上支持 4096p 推理。
+
+**[M3-VOS: Multi-Phase, Multi-Transition, and Multi-Scenery Video Object Segmentation](m3-vos_multi-phase_multi-transition_and_multi-scenery_video_object_segmentation.md)**
+
+:   本文引入"物相"（Phase）概念到视频目标分割任务中，构建了包含479个视频、205K掩码、覆盖6种相态和23种相变的M3-VOS基准，并提出即插即用的ReVOS方法通过逆向传播精炼来改善相变物体的分割性能。
 
 **[MambaOut: Do We Really Need Mamba for Vision?](mambaout_do_we_really_need_mamba_for_vision.md)**
 
@@ -367,3 +391,7 @@ description: >-
 **[Visual Consensus Prompting for Co-Salient Object Detection](visual_consensus_prompting_for_co-salient_object_detection.md)**
 
 :   本文首次将参数高效的提示学习范式引入共显著物体检测（CoSOD）任务，提出视觉共识提示（VCP），通过将共识提取与分散过程嵌入可学习的提示中，在冻结基础模型的条件下以极少可训练参数超越 13 个全参数微调方法。
+
+**[Your ViT is Secretly an Image Segmentation Model](your_vit_is_secretly_an_image_segmentation_model.md)**
+
+:   本文提出 Encoder-only Mask Transformer（EoMT），证明在大规模预训练与足够大的模型下，plain ViT 无需卷积适配器、像素解码器和 Transformer 解码器等任务特定组件即可完成高质量图像分割，同时速度快达 4 倍。

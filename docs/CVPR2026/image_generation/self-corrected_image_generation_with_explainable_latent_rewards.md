@@ -142,6 +142,6 @@ GenEval 细分指标（OmniGen2 backbone）：
 - [SOLACE: Improving Text-to-Image Generation with Intrinsic Self-Confidence Rewards](solace_self_confidence_rewards_t2i.md)
 - [PSR: Scaling Multi-Subject Personalized Image Generation with Pairwise Subject-Consistency Rewards](psr_scaling_multi-subject_personalized_image_generation_with_pairwise_subject-co.md)
 - [Resolving the Identity Crisis in Text-to-Image Generation](resolving_the_identity_crisis_in_text-to-image_generation.md)
-- [CTCal: Rethinking Text-to-Image Diffusion Models via Cross-Timestep Self-Calibration](ctcal_rethinking_text-to-image_diffusion_models_via_cross-timestep_self-calibrat.md)
+- [Intra-finger Variability of Diffusion-based Latent Fingerprint Generation](intra_finger_variability_of_diffusion_based_latent_fingerprint_generation.md)
 
 <!-- RELATED:END -->

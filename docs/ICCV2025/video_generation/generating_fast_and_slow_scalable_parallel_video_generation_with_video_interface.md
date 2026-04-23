@@ -139,6 +139,6 @@ tags:
 - [From Slow Bidirectional to Fast Autoregressive Video Diffusion Models](../../CVPR2025/video_generation/from_slow_bidirectional_to_fast_autoregressive_video_diffusion_models.md)
 - [VACE: All-in-One Video Creation and Editing](vace_all-in-one_video_creation_and_editing.md)
 - [One-Minute Video Generation with Test-Time Training](../../CVPR2025/video_generation/one-minute_video_generation_with_test-time_training.md)
-- [X-Dancer: Expressive Music to Human Dance Video Generation](x-dancer_expressive_music_to_human_dance_video_generation.md)
+- [MagicMirror: ID-Preserved Video Generation in Video Diffusion Transformers](magicmirror_id-preserved_video_generation_in_video_diffusion_transformers.md)
 
 <!-- RELATED:END -->

@@ -123,8 +123,8 @@ tags:
 
 - [ESPIRE: A Diagnostic Benchmark for Embodied Spatial Reasoning of Vision-Language Models](espire_a_diagnostic_benchmark_for_embodied_spatial_reasoning_of_vision-language_.md)
 - [HomeSafe-Bench: Evaluating Vision-Language Models on Unsafe Action Detection for Embodied Agents in Household Scenarios](homesafe-bench_evaluating_vision-language_models_on_unsafe_action_detection_for_.md)
-- [Towards Understanding How Knowledge Evolves in Large Vision-Language Models](towards_understanding_how_knowledge_evolves_in_large_vision-language_models.md)
 - [Recognition-Synergistic Scene Text Editing](recognition-synergistic_scene_text_editing.md)
-- [Nautilus: A Large Multimodal Model for Underwater Scene Understanding](../../NeurIPS2025/multimodal_vlm/nautilus_a_large_multimodal_model_for_underwater_scene_understanding.md)
+- [Towards Understanding How Knowledge Evolves in Large Vision-Language Models](towards_understanding_how_knowledge_evolves_in_large_vision-language_models.md)
+- [From Multimodal LLMs to Generalist Embodied Agents: Methods and Lessons](from_multimodal_llms_to_generalist_embodied_agents_methods_and_lessons.md)
 
 <!-- RELATED:END -->

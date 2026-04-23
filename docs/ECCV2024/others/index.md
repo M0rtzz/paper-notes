@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 其他方向 59篇论文解读
+  ECCV2024 其他方向 61篇论文解读
 description: >-
-  59篇ECCV2024 其他论文解读，主题涵盖：本文提出 3DFG-PIFu，通过引入3D特征网格、本文对视图图（Viewing Graph）可解性问、提出一个统计框架，通过分层（stratificat等，每篇含核心思想与方法详解。
+  61篇ECCV2024 其他论文解读，主题涵盖：本文提出 3DFG-PIFu，通过引入3D特征网格、本文对视图图（Viewing Graph）可解性问、提出一个统计框架，通过分层（stratificat等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🎞️ ECCV2024** · **59** 篇论文解读
+**🎞️ ECCV2024** · **61** 篇论文解读
 
 **[3DFG-PIFu: 3D Feature Grids for Human Digitization from Sparse Views](3dfg-pifu_3d_feature_grids_for_human_digitization_from_sparse_views.md)**
 
@@ -81,6 +81,10 @@ description: >-
 **[De-confounded Gaze Estimation](de-confounded_gaze_estimation.md)**
 
 :   本文提出基于因果干预的视线估计框架 FSCI，通过特征分离将视线相关特征与身份/光照等无关特征解耦，并利用动态混杂因子库对无关特征进行因果干预，在跨域设置下较基线提升36.2%、较SOTA提升11.5%。
+
+**[Docling Technical Report](docling_pdf_document_conversion.md)**
+
+:   Docling 是一个开源的 PDF 文档转换工具，集成了基于 DocLayNet 的布局分析模型和 TableFormer 表格结构识别模型，可在普通硬件上高效地将 PDF 转换为结构化的 JSON 或 Markdown 格式。
 
 **[Dropout Mixture Low-Rank Adaptation for Visual Parameters-Efficient Fine-Tuning](dropout_mixture_low-rank_adaptation_for_visual_parameters-efficient_fine-tuning.md)**
 
@@ -237,6 +241,10 @@ description: >-
 **[Synergy of Sight and Semantics: Visual Intention Understanding with CLIP](synergy_of_sight_and_semantics_visual_intention_understanding_with_clip.md)**
 
 :   提出了 IntCLIP 框架，通过双分支编码策略将 CLIP 中的"视觉感知"（Sight）知识迁移到"语义中心"（Semantic）的多标签意图理解任务中，结合层次化类别整合和视觉辅助聚合，在标准 MIU benchmark 和图像情感识别任务上显著超越 SOTA。
+
+**[Teaching Tailored to Talent: Adverse Weather Restoration via Prompt Pool and Depth-Anything Constraint](teaching_tailored_to_talent_adverse_weather_restoration.md)**
+
+:   提出 T3-DiffWeather，采用 prompt pool 自主组合子 prompt 构建天气退化信息，结合 Depth-Anything 约束的通用 prompt 提供场景信息，以对比 prompt 损失约束两类 prompt，在恶劣天气图像恢复任务上仅用 WeatherDiffusion 十分之一的采样步数达到 SOTA。
 
 **[Teaching Tailored to Talent: Adverse Weather Restoration via Prompt Pool and Depth-Anything Constraint](teaching_tailored_to_talent_adverse_weather_restoration_via_prompt_pool_and_dept.md)**
 

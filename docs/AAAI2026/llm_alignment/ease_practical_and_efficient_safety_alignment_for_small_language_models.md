@@ -26,12 +26,23 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**：SLM（<8B）因体积小、推理快被广泛部署在边缘设备（手机/IoT），但安全对齐方法主要针对大模型设计。
+### 领域现状
+
+**领域现状**：领域现状**：SLM（<8B）因体积小、推理快被广泛部署在边缘设备（手机/IoT），但安全对齐方法主要针对大模型设计。
 
 **现有痛点**：
-   - 浅层对齐（直接拒绝恶意查询）对复杂越狱攻击不鲁棒——攻击者可轻易绕过
-   - 深度推理对齐（让模型像 o1 一样先推理再决定是否拒绝）对 SLM 太贵——边缘设备无法承受
-   - SLM 能力有限，直接植入推理能力很困难
+
+### 现有痛点
+
+**现有痛点**：浅层对齐（直接拒绝恶意查询）对复杂越狱攻击不鲁棒——攻击者可轻易绕过
+
+### 核心矛盾
+
+**核心矛盾**：深度推理对齐（让模型像 o1 一样先推理再决定是否拒绝）对 SLM 太贵——边缘设备无法承受
+
+### 解决思路
+
+**解决思路**：SLM 能力有限，直接植入推理能力很困难
 
 **核心矛盾**：安全推理提升鲁棒性但增加推理延迟——边缘部署需要两者平衡。
 
@@ -126,8 +137,8 @@ tags:
 
 - [SafeNlidb: A Privacy-Preserving Safety Alignment Framework for LLM-based Natural Language Database Interfaces](safenlidb_a_privacy-preserving_safety_alignment_framework_for_llm-based_natural_.md)
 - [Differentiated Directional Intervention: A Framework for Evading LLM Safety Alignment](differentiated_directional_intervention_a_framework_for_evading_llm_safety_align.md)
-- [Exploring the Effects of Alignment on Numerical Bias in Large Language Models](exploring_the_effects_of_alignment_on_numerical_bias_in_large_language_models.md)
 - [GuardAlign: Test-time Safety Alignment in Multimodal Large Language Models](../../ICLR2026/llm_alignment/guardalign_test-time_safety_alignment_in_multimodal_large_language_models.md)
+- [Exploring the Effects of Alignment on Numerical Bias in Large Language Models](exploring_the_effects_of_alignment_on_numerical_bias_in_large_language_models.md)
 - [A2D: Any-Order, Any-Step Safety Alignment for Diffusion Language Models](../../ICLR2026/llm_alignment/a2d_any-order_any-step_safety_alignment_for_diffusion_language_models.md)
 
 <!-- RELATED:END -->

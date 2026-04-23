@@ -152,7 +152,7 @@ tags:
 - [A Unified Convergence Analysis for Semi-Decentralized Learning: Sampled-to-Sampled vs. Sampled-to-All Communication](../../AAAI2026/optimization/a_unified_convergence_analysis_for_semi-decentralized_learni.md)
 - [Fed-ADE: Adaptive Learning Rate for Federated Post-adaptation under Distribution Shift](../../CVPR2026/optimization/fed-ade_adaptive_learning_rate_for_federated_post-adaptation_under_distribution_.md)
 - [Non-Asymptotic Analysis of Efficiency in Conformalized Regression](non-asymptotic_analysis_of_efficiency_in_conformalized_regression.md)
-- [Adaptive Algorithms with Sharp Convergence Rates for Stochastic Hierarchical Optimization](../../NeurIPS2025/optimization/adaptive_algorithms_with_sharp_convergence_rates_for_stochas.md)
 - [Rethinking Consistent Multi-Label Classification Under Inexact Supervision](rethinking_consistent_multi-label_classification_under_inexact_supervision.md)
+- [Adaptive Algorithms with Sharp Convergence Rates for Stochastic Hierarchical Optimization](../../NeurIPS2025/optimization/adaptive_algorithms_with_sharp_convergence_rates_for_stochas.md)
 
 <!-- RELATED:END -->

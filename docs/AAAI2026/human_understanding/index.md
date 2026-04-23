@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 人体理解方向 65篇论文解读
+  AAAI2026 人体理解方向 67篇论文解读
 description: >-
-  65篇AAAI2026 人体理解论文解读，主题涵盖：系统梳理 VLA 模型面临的 10、针对同卵双胞胎人脸验证这一极端细粒度识别挑战、提出 PromptObfus，通过"反对抗学习"思等，每篇含核心思想与方法详解。
+  67篇AAAI2026 人体理解论文解读，主题涵盖：系统梳理 VLA 模型面临的 10、针对同卵双胞胎人脸验证这一极端细粒度识别挑战、提出 PromptObfus，通过"反对抗学习"思等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**🤖 AAAI2026** · **65** 篇论文解读
+**🤖 AAAI2026** · **67** 篇论文解读
 
 **[10 Open Challenges Steering the Future of Vision-Language-Action Models](10_open_challenges_steering_the_future_of_vision-language-ac.md)**
 
@@ -45,6 +45,10 @@ description: >-
 **[CCFQA: A Benchmark for Cross-Lingual and Cross-Modal Speech and Text Factuality Evaluation](ccfqa_a_benchmark_for_cross-lingual_and_cross-modal_speech_and_text_factuality_e.md)**
 
 :   提出 CCFQA——首个覆盖 8 种语言、14,400 条完全平行语音-文本事实问答样本的跨语言跨模态基准，支持 QA/XQA/SQA/XSQA 四种任务设定，系统揭示了现有 MLLM 在语言和模态切换下的事实不一致性；同时提出 LLM-SQA，以英语为桥接语言、仅 5-shot 即实现跨语言语音问答迁移，在 XSQA 上 F1 达 51.4 超越 GPT-4o-mini-Audio（45.7）。
+
+**[Chatsparent: An Interactive System for Detecting and Mitigating Cognitive Fatigue in LLMs](chatsparent_an_interactive_system_for_detecting_and_mitigating_cognitive_fatigue.md)**
+
+:   本文提出 Chatsparent 交互系统，通过实时监测 LLM 推理过程中的三种 token 级疲劳信号（注意力衰减、嵌入漂移、熵坍缩），构建统一疲劳指数并在疲劳阈值触发时自动应用轻量级干预措施（提示重注入、注意力重置、熵正则化解码、自反思检查点），将被动的聊天交互转变为主动的诊断体验。
 
 **[CLIP-FTI: Fine-Grained Face Template Inversion via CLIP-Driven Attribute Conditioning](clip-fti_fine-grained_face_template_inversion_via_clip-driven_attribute_conditio.md)**
 
@@ -237,6 +241,10 @@ description: >-
 **[Theory of Mind for Explainable Human-Robot Interaction](theory_of_mind_for_explainable_human-robot_interaction.md)**
 
 :   提出将心智理论（ToM）视为可解释AI（XAI）的一种形式，使用VXAI框架的七个评价标准系统评估现有HRI中的ToM研究，发现关键缺陷（特别是忠实度缺失），并主张将ToM整合到XAI框架中以实现用户导向的解释。
+
+**[Tool4POI: A Tool-Augmented LLM Framework for Next POI Recommendation](tool4poi_a_tool-augmented_llm_framework_for_next_poi_recommendation.md)**
+
+:   本文首次将工具增强 LLM 范式引入下一个 POI 推荐任务，通过偏好提取、多轮候选检索和重排序三个模块，使 LLM 能从全量 POI 池中检索推荐，在 Out-of-History (OOH) 场景下实现 40% 准确率（现有方法为 0%），Acc@5/10 平均提升 20%/30%。
 
 **[Towards a Common Framework for Autoformalization](towards_a_common_framework_for_autoformalization.md)**
 

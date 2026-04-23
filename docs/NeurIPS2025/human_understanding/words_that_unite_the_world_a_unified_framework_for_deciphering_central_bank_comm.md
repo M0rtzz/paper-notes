@@ -134,7 +134,7 @@ PLM 使用标准微调流程（分类头 + 交叉熵损失）。LLM 基于 promp
 - [UniPose: A Unified Multimodal Framework for Human Pose Comprehension, Generation and Editing](../../CVPR2025/human_understanding/unipose_a_unified_multimodal_framework_for_human_pose_comprehension_generation_a.md)
 - [MG-MotionLLM: A Unified Framework for Motion Comprehension and Generation across Multiple Granularities](../../CVPR2025/human_understanding/mg-motionllm_a_unified_framework_for_motion_comprehension_and_generation_across_.md)
 - [FreeMotion: A Unified Framework for Number-free Text-to-Motion Synthesis](../../ECCV2024/human_understanding/freemotion_a_unified_framework_for_number-free_text-to-motion_synthesis.md)
+- [Discontinuity-aware Normal Integration for Generic Central Camera Models](../../ICCV2025/human_understanding/discontinuity-aware_normal_integration_for_generic_central_camera_models.md)
 - [Emergent World Beliefs: Exploring Transformers in Stochastic Games](emergent_world_beliefs_exploring_transformers_in_stochastic_games.md)
-- [Remote Photoplethysmography in Real-World and Extreme Lighting Scenarios](../../CVPR2025/human_understanding/remote_photoplethysmography_in_real-world_and_extreme_lighting_scenarios.md)
 
 <!-- RELATED:END -->

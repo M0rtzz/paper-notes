@@ -25,7 +25,10 @@ tags:
 MM-CondChain 是首个针对视觉基础深层组合推理的 MLLM 基准，通过可验证程序中间表示（VPIR）自动构建多层条件链和链式硬负样本，最强模型仅获 53.33 Path F1，揭示深层组合推理是根本挑战。
 
 ## 研究背景与动机
-1. MLLM 越来越多地用于需要链式视觉验证的工作流（如 GUI 导航），但此能力缺乏系统评估
+
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：1. MLLM 越来越多地用于需要链式视觉验证的工作流（如 GUI 导航），但此能力缺乏系统评估
 2. 现有视觉推理基准仅评估浅层单层组合（如"物体是否红色且大"）或独立约束
 3. 指令遵循基准聚焦于独立约束而非层间嵌套条件推理
 4. 现有硬负样本通常限于单层变化（替换一个属性），缺乏链式硬负样本
@@ -70,6 +73,9 @@ VPIR-based Agentic Benchmark Construction Pipeline：(1) Planner 逐层编排推
 
 ### 整体性能（Path F1，%）
 
+
+### 主实验
+
 | 模型 | Natural F1 | Chart F1 | GUI F1 | Avg F1 |
 |------|-----------|---------|--------|--------|
 | Gemini-3-Pro | 55.91 | 66.04 | 38.05 | **53.33** |
@@ -100,7 +106,7 @@ VPIR-based Agentic Benchmark Construction Pipeline：(1) Planner 逐层编排推
 4. **完全确定性评估**：多选题 + 程序验证 GT，无 LLM-as-judge 偏差
 5. **揭示根本能力差距**：证明 MLLM 在深层条件推理上的系统性弱点
 
-## 局限性
+## 局限与展望
 1. 数据规模有限（975 样本），可能不足以反映模型在更大分布上的表现
 2. 主体去泄漏依赖 MLLM 重写，可能引入不完美
 3. 事实提取依赖 MLLM 准确性，基准质量受限于提取模型能力
@@ -123,7 +129,7 @@ VPIR-based Agentic Benchmark Construction Pipeline：(1) Planner 逐层编排推
 
 ## 相关论文
 
-- [ShowMak3r: Compositional TV Show Reconstruction](showmak3r_compositional_tv_show_reconstruction.md)
+- [ShowMak3r++: Compositional Entertainment Video Reconstruction](showmak3r_compositional_tv_show_reconstruction.md)
 - [From Easy to Hard: The MIR Benchmark for Progressive Interleaved Multi-Image Reasoning](../../ICCV2025/human_understanding/from_easy_to_hard_the_mir_benchmark_for_progressive_interleaved_multi-image_reas.md)
 - [OmniEVA: Embodied Versatile Planner via Task-Adaptive 3D-Grounded and Embodiment-aware Reasoning](../../ICLR2026/human_understanding/omnieva_embodied_versatile_planner_via_task-adaptive_3d-grounded_and_embodiment-.md)
 - [WIR3D: Visually-Informed and Geometry-Aware 3D Shape Abstraction](../../ICCV2025/human_understanding/wir3d_visually-informed_and_geometry-aware_3d_shape_abstraction.md)

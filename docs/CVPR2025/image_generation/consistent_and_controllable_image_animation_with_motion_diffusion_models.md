@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：图像到视频（I2V）生成通过扩散模型取得了快速进展。现有方法直接预测视频帧的潜在表示，但难以保证生成帧与输入图像的高度一致性。
 
 **现有痛点**：(1) 直接预测帧导致与输入图像的色彩和结构偏移；(2) 运动强度难以精细控制——太弱时画面静止，太强时结构崩坏；(3) FFT 基噪声初始化虽能提供全局一致性但引入高频伪影和色彩不一致。
@@ -39,6 +41,9 @@ tags:
 **核心 idea**：在 latent 空间学习运动残差分布，用 SSIM 运动桶控制强度，DCT 初始化替代 FFT 消除高频伪影。
 
 ## 方法详解
+
+### 整体框架
+
 
 ### 关键设计
 
@@ -57,9 +62,9 @@ tags:
 
 | 方法 | UCF-101 FVD↓ | IS↑ | FID↓ | MSR-VTT FVD↓ | CLIPSIM↑ |
 |------|-------------|-----|------|-------------|----------|
-| ConsistI2V | 177.66 | 56.22 | 15.74 | 104.58 | 0.2674 |
-| SEINE | 306.49 | 54.02 | 26.00 | 152.63 | 0.2774 |
-| **Cinemo** | **168.16** | **58.71** | **13.17** | **93.51** | **0.2858** |
+| ConsistI2V | 177.66 | 56.22% | 15.74% | 104.58 | 0.2674 |
+| SEINE | 306.49 | 54.02% | 26.00% | 152.63 | 0.2774 |
+| **Cinemo** | **168.16** | **58.71%** | **13.17%** | **93.51%** | **0.2858** |
 
 五个指标全面最优，也超越商用工具（Gen-2, Pika Labs）。
 
@@ -78,14 +83,26 @@ tags:
 - 写作质量: ⭐⭐⭐⭐ 清晰
 - 价值: ⭐⭐⭐⭐ 对 I2V 一致性问题有直接解决方案
 
+
+## 亮点与洞察
+- 方法设计简洁有效，核心思路清晰
+- 实验验证全面，消融分析充分
+- 对领域的关键问题提供了新的解决思路
+
+
+## 相关工作与启发
+- **vs 同领域代表性方法**：本文在方法设计上有独特贡献，与现有方法形成互补
+- **vs 传统方法**：相比传统方案，本文方法在关键指标上取得了显著提升
+- **启发**：本文的技术路线对后续相关工作有重要参考价值
+
 <!-- RELATED:START -->
 
 ## 相关论文
 
 - [MVPortrait: Text-Guided Motion and Emotion Control for Multi-View Vivid Portrait Animation](mvportrait_text-guided_motion_and_emotion_control_for_multi-view_vivid_portrait_.md)
 - [Image Referenced Sketch Colorization Based on Animation Creation Workflow](image_referenced_sketch_colorization_based_on_animation_creation_workflow.md)
-- [Controllable Human Image Generation with Personalized Multi-Garments](controllable_human_image_generation_with_personalized_multi-garments.md)
 - [MixerMDM: Learnable Composition of Human Motion Diffusion Models](mixermdm_learnable_composition_of_human_motion_diffusion_models.md)
 - [LivePhoto: Real Image Animation with Text-guided Motion Control](../../ECCV2024/image_generation/livephoto_real_image_animation_with_text-guided_motion_control.md)
+- [StableAnimator: High-Quality Identity-Preserving Human Image Animation](stableanimator_high-quality_identity-preserving_human_image_animation.md)
 
 <!-- RELATED:END -->

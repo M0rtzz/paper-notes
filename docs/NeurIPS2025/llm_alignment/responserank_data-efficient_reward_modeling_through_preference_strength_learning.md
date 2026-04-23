@@ -31,7 +31,9 @@ tags:
 
 ## 研究背景与动机
 
-RLHF 中的二元偏好选择（A 优于 B）仅传达偏好方向,不包含强度信息。但偏好强度对于不确定性下的决策和偏好模型泛化至关重要：
+### 现有痛点
+
+**现有痛点**：**领域现状**：RLHF 中的二元偏好选择（A 优于 B）仅传达偏好方向,不包含强度信息。但偏好强度对于不确定性下的决策和偏好模型泛化至关重要：
 
 **信息丢失**: "强烈偏好苹果" 与 "略微偏好苹果" 在二元标注中无法区分
 
@@ -146,7 +148,7 @@ $$\mathcal{L} = \mathcal{L}_{\text{BT}} + \lambda \mathcal{L}_{\text{rank}}$$
 - [Limited Preference Data? Learning Better Reward Model with Latent Space Synthesis](limited_preference_data_learning_better_reward_model_with_latent_space_synthesis.md)
 - [Provably Efficient Online RLHF with One-Pass Reward Modeling](provably_efficient_online_rlhf_with_one-pass_reward_modeling.md)
 - [What Makes a Reward Model a Good Teacher? An Optimization Perspective](what_makes_a_reward_model_a_good_teacher_an_optimization_perspective.md)
+- [Rethinking Reward Model Evaluation Through the Lens of Reward Overoptimization](../../ACL2025/llm_alignment/rethinking_reward_model_evaluation_through_the_lens_of_reward_overoptimization.md)
 - [Improving Data Efficiency for LLM Reinforcement Fine-tuning Through Difficulty-targeted Online Data Selection and Rollout Replay](improving_data_efficiency_for_llm_reinforcement_fine-tuning_through_difficulty-t.md)
-- [Ask a Strong LLM Judge when Your Reward Model is Uncertain](ask_a_strong_llm_judge_when_your_reward_model_is_uncertain.md)
 
 <!-- RELATED:END -->

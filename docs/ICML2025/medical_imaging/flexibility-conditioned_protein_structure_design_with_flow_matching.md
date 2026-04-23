@@ -206,6 +206,6 @@ BackFlip 在 ATLAS 测试集上达到 0.80 的 Pearson 相关系数，接近 MD 
 - [Protein Structure Tokenization: Benchmarking and New Recipe](protein_structure_tokenization_benchmarking_and_new_recipe.md)
 - [Empower Structure-Based Molecule Optimization with Gradient Guided Bayesian Flow Networks](empower_structure-based_molecule_optimization_with_gradient_guided_bayesian_flow.md)
 - [Efficient Molecular Conformer Generation with SO(3)-Averaged Flow Matching and Reflow](efficient_molecular_conformer_generation_with_so3-averaged_flow_matching_and_ref.md)
-- [Elucidating the Design Space of Multimodal Protein Language Models](elucidating_the_design_space_of_multimodal_protein_language_models.md)
+- [Scalable Generation of Spatial Transcriptomics from Histology Images via Whole-Slide Flow Matching](scalable_generation_of_spatial_transcriptomics_from_histology_images_via_whole-s.md)
 
 <!-- RELATED:END -->

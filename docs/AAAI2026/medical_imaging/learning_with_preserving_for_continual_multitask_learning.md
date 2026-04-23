@@ -127,10 +127,10 @@ LwP 采用共享特征提取器 + 任务特定头的架构。学习新任务 $\m
 
 ## 相关论文
 
+- [ConSurv: Multimodal Continual Learning for Survival Analysis](consurv_multimodal_continual_learning_for_survival_analysis.md)
 - [Residual SODAP: Residual Self-Organizing Domain-Adaptive Prompting with Structural Knowledge Preservation for Continual Learning](../../CVPR2026/medical_imaging/residual_sodap_residual_self-organizing_domain-adaptive_prompting_with_structura.md)
-- [EWC-Guided Diffusion Replay for Exemplar-Free Continual Learning in Medical Imaging](../../NeurIPS2025/medical_imaging/ewc-guided_diffusion_replay_for_exemplar-free_continual_learning_in_medical_imag.md)
 - [Radiation-Preserving Selective Imaging for Pediatric Hip Dysplasia: A Cross-Modal Approach](radiation-preserving_selective_imaging_for_pediatric_hip_dysplasia_a_cross-modal.md)
-- [Multivariate Gaussian Representation Learning for Medical Action Evaluation](multivariate_gaussian_representation_learning_for_medical_action_evaluation.md)
-- [MPA: Multimodal Prototype Augmentation for Few-Shot Learning](mpa_multimodal_prototype_augmentation_for_few-shot_learning.md)
+- [Continual Learning for fMRI-Based Brain Disorder Diagnosis via Functional Connectivity Matrices Generative Replay](../../CVPR2026/medical_imaging/forge_continual_learning_for_fmri_based_brain_disorder_diagnosis.md)
+- [EWC-Guided Diffusion Replay for Exemplar-Free Continual Learning in Medical Imaging](../../NeurIPS2025/medical_imaging/ewc-guided_diffusion_replay_for_exemplar-free_continual_learning_in_medical_imag.md)
 
 <!-- RELATED:END -->

@@ -167,9 +167,9 @@ tags:
 ## 相关论文
 
 - [TELA: Text to Layer-wise 3D Clothed Human Generation](tela_text_to_layer-wise_3d_clothed_human_generation.md)
-- [ReLoo: Reconstructing Humans Dressed in Loose Garments from Monocular Video in the Wild](reloo_reconstructing_humans_dressed_in_loose_garments_from_monocular_video_in_th.md)
+- [A Probability-guided Sampler for Neural Implicit Surface Rendering](a_probabilityguided_sampler_for_neural_implicit_surface_rend.md)
 - [FreeMotion: A Unified Framework for Number-free Text-to-Motion Synthesis](freemotion_a_unified_framework_for_number-free_text-to-motion_synthesis.md)
 - [3DSA: Multi-view 3D Human Pose Estimation With 3D Space Attention Mechanisms](3dsa_multi-view_3d_human_pose_estimation_with_3d_space_attention_mechanisms.md)
-- [RapVerse: Coherent Vocals and Whole-Body Motion Generation from Text](../../ICCV2025/human_understanding/rapverse_coherent_vocals_and_whole-body_motion_generation_from_text.md)
+- [3D Hand Pose Estimation in Everyday Egocentric Images](3d_hand_pose_estimation_in_everyday_egocentric_images.md)
 
 <!-- RELATED:END -->

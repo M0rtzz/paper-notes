@@ -150,6 +150,6 @@ $$\mathcal{L}_{total} = \mathcal{L}_{pc} + \mathcal{L}_{pr} + \mathcal{L}_f + \m
 - [RENO: Real-Time Neural Compression for 3D LiDAR Point Clouds](reno_real-time_neural_compression_for_3d_lidar_point_clouds.md)
 - [NoRD: A Data-Efficient Vision-Language-Action Model that Drives without Reasoning](../../CVPR2026/autonomous_driving/nord_a_data-efficient_vision-language-action_model_that_drives_without_reasoning.md)
 - [AutoVLA: A Vision-Language-Action Model for End-to-End Autonomous Driving with Adaptive Reasoning and Reinforcement Fine-Tuning](../../NeurIPS2025/autonomous_driving/autovla_a_vision-language-action_model_for_end-to-end_autonomous_driving_with_ad.md)
-- [Drive My Way: Preference Alignment of Vision-Language-Action Model for Personalized Driving](../../CVPR2026/autonomous_driving/drive_my_way_preference_alignment_of_vision-language-action_model_for_personaliz.md)
+- [Spatio-Temporal Graphs Beyond Grids: Benchmark for Maritime Anomaly Detection](../../NeurIPS2025/autonomous_driving/spatio-temporal_graphs_beyond_grids_benchmark_for_maritime_anomaly_detection.md)
 
 <!-- RELATED:END -->

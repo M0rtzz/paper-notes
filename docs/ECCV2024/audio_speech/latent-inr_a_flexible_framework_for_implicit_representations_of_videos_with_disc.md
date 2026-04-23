@@ -160,8 +160,8 @@ $\lambda=0.01$ 为最佳平衡点：PSNR 仅从 30.03 降至 29.46（-0.57 dB）
 
 - [CoLeaF: A Contrastive-Collaborative Learning Framework for Weakly Supervised Audio-Visual Video Parsing](coleaf_a_contrastive-collaborative_learning_framework_for_weakly_supervised_audi.md)
 - [In-the-wild Audio Spatialization with Flexible Text-guided Localization](../../ACL2025/audio_speech/tas_audio_spatialization.md)
-- [Spherical World-Locking for Audio-Visual Localization in Egocentric Videos](spherical_world-locking_for_audio-visual_localization_in_egocentric_videos.md)
 - [Action2Sound: Ambient-Aware Generation of Action Sounds from Egocentric Videos](action2sound_ambientaware_generation_of_action_sounds_from_e.md)
 - [Latent Swap Joint Diffusion for 2D Long-Form Latent Generation](../../ICCV2025/audio_speech/latent_swap_joint_diffusion_for_2d_long-form_latent_generation.md)
+- [Towards Lossless Implicit Neural Representation via Bit Plane Decomposition](../../CVPR2025/audio_speech/towards_lossless_implicit_neural_representation_via_bit_plane_decomposition.md)
 
 <!-- RELATED:END -->

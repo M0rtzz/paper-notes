@@ -160,8 +160,8 @@ DDL 内部 CE 与 MMD 的消融（Office-Home，$|\mathcal{D}_{\text{forget}}|=1
 
 - [Targeted Unlearning with Single Layer Unlearning Gradient](../../ICML2025/multimodal_vlm/targeted_unlearning_with_single_layer_unlearning_gradient.md)
 - [VaMP: Variational Multi-Modal Prompt Learning for Vision-Language Models](vamp_variational_multi-modal_prompt_learning_for_vision-language_models.md)
+- [SAUCE: Selective Concept Unlearning in Vision-Language Models with Sparse Autoencoders](../../ICCV2025/multimodal_vlm/sauce_selective_concept_unlearning_in_vision-language_models_with_sparse_autoenc.md)
 - [Modality-Aware Neuron Pruning for Unlearning in Multimodal Large Language Models](../../ACL2025/multimodal_vlm/manu_modality_aware_unlearning.md)
-- [Sparse Autoencoders Learn Monosemantic Features in Vision-Language Models](sparse_autoencoders_learn_monosemantic_features_in_visionlan.md)
 - [DOTA: DistributiOnal Test-time Adaptation of Vision-Language Models](dota_distributional_testtime_adaptation_of_visionlanguage_mo.md)
 
 <!-- RELATED:END -->

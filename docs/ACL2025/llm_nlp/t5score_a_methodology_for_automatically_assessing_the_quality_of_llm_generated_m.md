@@ -123,10 +123,10 @@ tags:
 
 ## 相关论文
 
-- [SkillVerse: Assessing and Enhancing LLMs with Tree Evaluation](skillverse_tree_eval.md)
-- [Training-free LLM Merging for Multi-task Learning](training-free_llm_merging_for_multi-task_learning.md)
 - [Neural Topic Modeling with Large Language Models in the Loop](neural_topic_modeling_with_large_language_models_in_the_loop.md)
+- [Training-free LLM Merging for Multi-task Learning](training-free_llm_merging_for_multi-task_learning.md)
+- [SkillVerse: Assessing and Enhancing LLMs with Tree Evaluation](skillverse_tree_eval.md)
 - [Aligning Large Language Models with Implicit Preferences from User-Generated Content](pugc_align_implicit_pref_ugc.md)
-- [Can Large Language Models Understand Internet Buzzwords Through User-Generated Content](buzzword_understanding_ugc.md)
+- [Assessing the Vulnerability of LLMs to Cognitive Biases in Scientific Research](assessing_the_vulnerability_of_llms_to_cognitive_biases_in_scientific_research.md)
 
 <!-- RELATED:END -->

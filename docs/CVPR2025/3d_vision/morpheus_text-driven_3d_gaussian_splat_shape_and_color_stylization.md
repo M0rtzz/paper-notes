@@ -123,6 +123,6 @@ Morpheus在所有指标上领先。CLIP Direction Similarity高达0.175（第二
 - [Speedy-Splat: Fast 3D Gaussian Splatting with Sparse Pixels and Sparse Primitives](speedy-splat_fast_3d_gaussian_splatting_with_sparse_pixels_and_sparse_primitives.md)
 - [Geometry in Style: 3D Stylization via Surface Normal Deformation](geometry_in_style_3d_stylization_via_surface_normal_deformation.md)
 - [Dr. Splat: Directly Referring 3D Gaussian Splatting via Direct Language Embedding Registration](dr_splat_directly_referring_3d_gaussian_splatting_via_direct_language_embedding_.md)
-- [PrEditor3D: Fast and Precise 3D Shape Editing](preditor3d_fast_and_precise_3d_shape_editing.md)
+- [4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
 
 <!-- RELATED:END -->

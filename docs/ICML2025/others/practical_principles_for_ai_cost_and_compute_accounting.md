@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-**AI监管的阈值困境**：EU AI Act 以计算量阈值（如 $10^{25}$ FLOP）界定高风险 AI 系统，加州 SB 53、纽约 A6453A 等法案也采用类似策略。计算量/成本阈值的优势在于：与能力风险相关、可量化、可在开发早期测量、可由外部核查。
+### 现有痛点
+
+**现有痛点**：**领域现状**：**AI监管的阈值困境**：EU AI Act 以计算量阈值（如 $10^{25}$ FLOP）界定高风险 AI 系统，加州 SB 53、纽约 A6453A 等法案也采用类似策略。计算量/成本阈值的优势在于：与能力风险相关、可量化、可在开发早期测量、可由外部核查。
 
 **核心问题**：当前缺乏统一的核算标准——"计算什么、怎么计算"存在严重歧义。当开发者有动机让模型显得"便宜"时，狭义核算标准会被创造性利用。**最典型的漏洞是蒸馏漏洞**：DeepSeek-V3 报价 600 万美元但未计入 DeepSeek-R1 的训练成本，窄口径核算掩盖了真实开发投入。
 
@@ -132,6 +134,6 @@ tags:
 - [FEAT: A Preference Feedback Dataset through a Cost-Effective Auto-Generation and Labeling Framework for English AI Tutoring](../../ACL2025/others/feat_a_preference_feedback_dataset_through_a_cost-effective_auto-generation_and_.md)
 - [REP: Keys to Robust Edits — From Theoretical Insights to Practical Advances](../../ACL2025/others/rep_robust_knowledge_editing.md)
 - [Cost-Free Neutrality for the River Method](../../AAAI2026/others/cost-free_neutrality_for_the_river_method.md)
-- [TARGA: Targeted Synthetic Data Generation for Practical Reasoning over Structured Data](../../ACL2025/others/targa_targeted_synthetic_data_generation_for_practical_reasoning_over_structured.md)
+- [A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs](../../ACL2025/others/a_practical_approach_for_building_production-grade_conversational_agents_with_wo.md)
 
 <!-- RELATED:END -->

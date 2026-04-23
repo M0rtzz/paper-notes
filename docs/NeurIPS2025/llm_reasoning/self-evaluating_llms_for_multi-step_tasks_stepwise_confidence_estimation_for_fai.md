@@ -25,7 +25,10 @@ tags:
 PolyMath构建的18语言、4难度级、500问题数学推理基准揭露：(1)推理性能跨语言差异达10分，(2)推理模型输入-输出语言一致性低且可能影响性能，(3)思考长度在语言间显著不一致，为多语言推理研究提供新视角。
 
 ## 研究背景与动机
-**多语言基准滞后**：虽有MGSM/XSVAMP等多语言数据集，但难度过简(K-12级)，无法评估推理模型真实能力
+
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：多语言基准滞后**：虽有MGSM/XSVAMP等多语言数据集，但难度过简(K-12级)，无法评估推理模型真实能力
 
 **"语言为思想工具"假说缺证**：当前几乎所有challenging数学基准仅英文，多语言推理与英文思维关系未明
 
@@ -62,6 +65,9 @@ $$\text{Difficulty-Weighted Accuracy} = \frac{1}{N}\sum_{i=1}^N\frac{\text{acc}_
 
 ### SOTA模型多语言性能 - 难度加权准确度
 
+
+### 主实验
+
 | 模型 | 英文 | 中文 | 西班牙文 | 孟加拉文 | 日文 | 平均跨语 | 最高-最低差 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Qwen3-235B-A22B-Think** | 58.2 | 57.3 | 52.1 | 44.8 | 51.6 | **54.6** | 13.4 |
@@ -70,6 +76,9 @@ $$\text{Difficulty-Weighted Accuracy} = \frac{1}{N}\sum_{i=1}^N\frac{\text{acc}_
 | GPT-4o | 55.3 | 48.1 | 47.2 | 35.4 | 42.1 | 45.6 | 20.0 |
 
 ### 各难度级准确度
+
+
+### 消融实验
 
 | 难度 | 低(⭐) | 中(⭐⭐) | 高(⭐⭐⭐) | 顶(⭐⭐⭐⭐) |
 |:---:|:---:|:---:|:---:|:---:|
@@ -98,7 +107,7 @@ $$\text{Difficulty-Weighted Accuracy} = \frac{1}{N}\sum_{i=1}^N\frac{\text{acc}_
 3. **数据质量承诺**：人工校对避免LLM翻译偏误，18语言专家把关是industry-leading
 4. **实际启示**：语言控制可能改善多语言推理，为微调前沿模型提供新方向
 
-## 局限性
+## 局限与展望
 1. 样本规模(500题)相对小，跨语言细分析(如语言族群)可调研空间有限
 2. 前沿基准(HLE)样本少(仅25题)，难度顶端覆盖度不均
 3. 未探索代码-混合语言、符号密集型(纯数学)等边界情况的影响
@@ -115,10 +124,10 @@ $$\text{Difficulty-Weighted Accuracy} = \frac{1}{N}\sum_{i=1}^N\frac{\text{acc}_
 
 ## 相关论文
 
-- [Are Large Reasoning Models Good Translation Evaluators? Analysis and Performance Boost](are_large_reasoning_models_good_translation_evaluators_analysis_and_performance_.md)
-- [Controlling Thinking Speed in Reasoning Models](controlling_thinking_speed_in_reasoning_models.md)
-- [Two-Stage Learning of Stabilizing Neural Controllers via Zubov Sampling and Iterative Domain Expansion](two-stage_learning_of_stabilizing_neural_controllers_via_zubov_sampling_and_iter.md)
-- [Topology of Reasoning: Understanding Large Reasoning Models through Reasoning Graph Properties](topology_of_reasoning_understanding_large_reasoning_models_through_reasoning_gra.md)
-- [笔记1: CoT是幻觉吗？数据分布角度](is_chain-of-thought_reasoning_of_llms_a_mirage_a_data_distribution_lens.md)
+- [Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models](does_thinking_more_always_help_mirage_of_test-time_scaling_in_reasoning_models.md)
+- [TTS-VAR: A Test-Time Scaling Framework for Visual Auto-Regressive Generation](tts-var_a_test-time_scaling_framework_for_visual_auto-regressive_generation.md)
+- [Transformers Provably Learn Chain-of-Thought Reasoning with Length Generalization](transformers_provably_learn_chain-of-thought_reasoning_with_length_generalizatio.md)
+- [TimE: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios](time_a_multilevel_benchmark_for_temporal_reasoning_of_llms_i.md)
+- [ReasonFlux-PRM: Trajectory-Aware PRMs for Long Chain-of-Thought Reasoning in LLMs](reasonfluxprm_trajectoryaware_prms_for_long_chainofthought_r.md)
 
 <!-- RELATED:END -->

@@ -124,9 +124,9 @@ tags:
 ## 相关论文
 
 - [Less is More but Where: Dynamic Token Compression via LLM-Guided Keyframe Prior](less_is_more_but_where_dynamic_token_compression_via_llm-guided_keyframe_prior.md)
-- [HyperLoRA: Parameter-Efficient Adaptive Generation for Portrait Synthesis](../../CVPR2025/model_compression/hyperlora_parameter-efficient_adaptive_generation_for_portrait_synthesis.md)
 - [MoRAgent: Parameter Efficient Agent Tuning with Mixture-of-Roles](../../ICML2025/model_compression/moragent_parameter_efficient_agent_tuning_with_mixture-of-roles.md)
+- [C3A: Parameter-Efficient Fine-Tuning via Circular Convolution](../../ACL2025/model_compression/parameter-efficient_fine-tuning_via_circular_convolution.md)
+- [HyperLoRA: Parameter-Efficient Adaptive Generation for Portrait Synthesis](../../CVPR2025/model_compression/hyperlora_parameter-efficient_adaptive_generation_for_portrait_synthesis.md)
 - [Parameter-Efficient Fine-Tuning of State Space Models](../../ICML2025/model_compression/parameter-efficient_fine-tuning_of_state_space_models.md)
-- [Stronger Normalization-Free Transformers](../../CVPR2026/model_compression/stronger_normalization-free_transformers.md)
 
 <!-- RELATED:END -->

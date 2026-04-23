@@ -28,14 +28,27 @@ tags:
 
 ## 研究背景与动机
 
-家庭服务机器人的一个核心挑战是理解人类对"整洁"的主观概念。与工业场景的标准化不同，家庭环境的物体种类繁多、数量不定，且"什么是整齐"因人而异。
+### 现有痛点
+
+**现有痛点**：家庭服务机器人的一个核心挑战是理解人类对"整洁"的主观概念。与工业场景的标准化不同，家庭环境的物体种类繁多、数量不定，且"什么是整齐"因人而异。
 
 **核心困难**：
 
-- **主观性与多解性**："整洁"没有唯一正确答案。同一组物体可以按颜色分组、按大小排列、按类别归类，都是合理的整理方案。这不是一个有标准答案的回归问题
-- **回归方法的失败**：如果用简单回归模型预测每个物体的目标位置，在多个合理方案并存时，模型会学到这些方案的"平均"——可能导致物体被放在两个好位置的中间（比如放在另一个物体上方），产生完全不合理的结果。论文图 2A 形象展示了这一问题
-- **可变输入**：物体数量不固定，从 2 个到 10+ 个不等，模型需要能处理任意长度的输入
-- **规则方法的瓶颈**：传统规则方法在场景增多时复杂度爆炸，而学习方法可以从更多数据中持续获益
+### 领域现状
+
+**领域现状**：主观性与多解性**："整洁"没有唯一正确答案。同一组物体可以按颜色分组、按大小排列、按类别归类，都是合理的整理方案。这不是一个有标准答案的回归问题
+
+### 解决思路
+
+**解决思路**：回归方法的失败**：如果用简单回归模型预测每个物体的目标位置，在多个合理方案并存时，模型会学到这些方案的"平均"——可能导致物体被放在两个好位置的中间（比如放在另一个物体上方），产生完全不合理的结果。论文图 2A 形象展示了这一问题
+
+### 核心矛盾
+
+**核心矛盾**：可变输入**：物体数量不固定，从 2 个到 10+ 个不等，模型需要能处理任意长度的输入
+
+### 补充说明
+
+**补充说明**：规则方法的瓶颈**：传统规则方法在场景增多时复杂度爆炸，而学习方法可以从更多数据中持续获益
 
 **关键类比**：物体整理 ≈ 语言生成。物体是"词"，一种整理方案是"句子"——同一组词可以排列成多个有意义的句子。这一类比自然地引入了 NLP 中的 Transformer 自回归框架。
 
@@ -145,10 +158,10 @@ tags:
 
 ## 相关论文
 
+- [COOPERA: Continual Open-Ended Human-Robot Assistance](coopera_continual_open_ended_human_robot_assistance.md)
 - [Bridging Embodiment Gaps: Deploying Vision-Language-Action Models on Soft Robots](bridging_embodiment_gaps_deploying_vision-language-action_models_on_soft_robots.md)
 - [AtomicVLA: Unlocking the Potential of Atomic Skill Learning in Robots](../../CVPR2026/robotics/atomicvla_unlocking_the_potential_of_atomic_skill.md)
-- [Mitigating the Human-Robot Domain Discrepancy in Visual Pre-training for Robotic Manipulation](../../CVPR2025/robotics/mitigating_the_human-robot_domain_discrepancy_in_visual_pre-training_for_robotic.md)
 - [Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Manipulating Human Perceptual Variability](../../ICML2025/robotics/synthesizing_images_on_perceptual_boundaries_of_anns_for_uncovering_and_manipula.md)
-- [RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots](../../ICLR2026/robotics/robocasa365_a_large-scale_simulation_framework_for_training_and_benchmarking_gen.md)
+- [Mitigating the Human-Robot Domain Discrepancy in Visual Pre-training for Robotic Manipulation](../../CVPR2025/robotics/mitigating_the_human-robot_domain_discrepancy_in_visual_pre-training_for_robotic.md)
 
 <!-- RELATED:END -->

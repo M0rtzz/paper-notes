@@ -144,8 +144,8 @@ $$\mathcal{L} = \sum_{i=1}^{m}\beta_i \mathcal{L}_{inv}(M(\mathbf{t}, G(w), y_{<
 
 - [AdaptVision: Efficient Vision-Language Models via Adaptive Visual Acquisition](adaptvision_efficient_vision-language_models_via_adaptive_visual_acquisition.md)
 - [Variation-Aware Vision Token Dropping for Faster Large Vision-Language Models](variation-aware_vision_token_dropping_for_faster_large_vision-language_models.md)
+- [Aligning What Vision-Language Models See and Perceive with Adaptive Information Flow](aif_adaptive_information_flow_vlm.md)
 - [Tell Model Where to Look: Mitigating Hallucinations in MLLMs by Vision-Guided Attention](tell_model_where_to_look_mitigating_hallucinations_in_mllms_by_vision-guided_att.md)
-- [What Do Visual Tokens Really Encode? Uncovering Sparsity and Redundancy in Multimodal Large Language Models](what_do_visual_tokens_really_encode_uncovering_sparsity_and_redundancy_in_multim.md)
 - [Revisiting Model Stitching In the Foundation Model Era](revisiting_model_stitching_in_the_foundation_model_era.md)
 
 <!-- RELATED:END -->

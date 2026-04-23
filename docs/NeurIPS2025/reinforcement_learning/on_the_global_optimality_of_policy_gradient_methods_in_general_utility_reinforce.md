@@ -132,7 +132,7 @@ tags:
 - [Robust and Diverse Multi-Agent Learning via Rational Policy Gradient](robust_and_diverse_multi-agent_learning_via_rational_policy_gradient.md)
 - [Rethinking Policy Diversity in Ensemble Policy Gradient in Large-Scale Reinforcement Learning](../../ICLR2026/reinforcement_learning/rethinking_policy_diversity_in_ensemble_policy_gradient_in_large-scale_reinforce.md)
 - [Global Convergence for Average Reward Constrained MDPs with Primal-Dual Actor-Critic](global_convergence_for_average_reward_constrained_mdps_with_primal-dual_actor_cr.md)
+- [Bypass Back-propagation: Optimization-based Structural Pruning for Large Language Models via Policy Gradient](../../ACL2025/reinforcement_learning/bypass_back-propagation_optimization-based_structural_pruning_for_large_language.md)
 - [Near-Optimal Quantum Algorithms for Computing (Coarse) Correlated Equilibria of General-Sum Games](near-optimal_quantum_algorithms_for_computing_coarse_correlated_equilibria_of_ge.md)
-- [Gradient-Variation Online Adaptivity for Accelerated Optimization with Hölder Smoothness](gradient-variation_online_adaptivity_for_accelerated_optimization_with_hölder_sm.md)
 
 <!-- RELATED:END -->

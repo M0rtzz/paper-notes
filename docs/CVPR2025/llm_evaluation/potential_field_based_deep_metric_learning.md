@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：深度度量学习（DML）通过学习嵌入空间使同类样本近、异类样本远。核心方法是 tuple mining——构建正负样本对/三元组来计算损失。
 
 **现有痛点**：（1）Tuple mining 组合爆炸——$N^2$ 或 $N^3$ 的采样复杂度；（2）现有对比/三元组损失对远离样本的交互力反而更强（梯度与距离成正比），导致优化被远处离群点主导；（3）硬样本挖掘策略需要精心调参。
@@ -92,6 +94,6 @@ tags:
 - [Improving the Effective Receptive Field of Message-Passing Neural Networks](../../ICML2025/llm_evaluation/improving_the_effective_receptive_field_of_message-passing_neural_networks.md)
 - [Sufficient Invariant Learning for Distribution Shift](sufficient_invariant_learning_for_distribution_shift.md)
 - [Towards Objective Fine-tuning: How LLMs' Prior Knowledge Causes Potential Poor Calibration?](../../ACL2025/llm_evaluation/towards_objective_fine-tuning_how_llms_prior_knowledge_causes_potential_poor_cal.md)
-- [ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval](context-cir_learning_from_concepts_in_text_for_composed_image_retrieval.md)
+- [Dual Consolidation for Pre-Trained Model-Based Domain-Incremental Learning](dual_consolidation_for_pre-trained_model-based_domain-incremental_learning.md)
 
 <!-- RELATED:END -->

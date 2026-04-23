@@ -125,9 +125,9 @@ FreeUV 基于预训练 Stable Diffusion v1.5，包含两个独立训练的网络
 ## 相关论文
 
 - [Realistic Face Reconstruction from Facial Embeddings via Diffusion Models](../../AAAI2026/image_generation/realistic_face_reconstruction_from_facial_embeddings_via_diffusion_models.md)
+- [Enhancing Facial Privacy Protection via Weakening Diffusion Purification](enhancing_facial_privacy_protection_via_weakening_diffusion_purification.md)
 - [Where's the Liability in the Generative Era? Recovery-Based Black-Box Detection of AI-Generated Content](wheres_the_liability_in_the_generative_era_recovery-based_black-box_detection_of.md)
 - [Realistic Human Motion Generation with Cross-Diffusion Models](../../ECCV2024/image_generation/realistic_human_motion_generation_with_cross-diffusion_models.md)
 - [T2ICount: Enhancing Cross-modal Understanding for Zero-Shot Counting](t2icount_enhancing_cross-modal_understanding_for_zero-shot_counting.md)
-- [Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction](nonisotropic_gaussian_diffusion_for_realistic_3d_human_motion_prediction.md)
 
 <!-- RELATED:END -->

@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 其他方向 45篇论文解读
+  CVPR2026 其他方向 53篇论文解读
 description: >-
-  45篇CVPR2026 其他论文解读，主题涵盖：构建了包含 1000 万+ 多模态标注（高分辨率3、提出AdaSFormer，一种针对室内单目语义场景、首个在物理仿真中实现接触式人-人辅助行为模仿学习的等，每篇含核心思想与方法详解。
+  53篇CVPR2026 其他论文解读，主题涵盖：构建了包含 1000 万+ 多模态标注（高分辨率3、提出AdaSFormer，一种针对室内单目语义场景、首个在物理仿真中实现接触式人-人辅助行为模仿学习的等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**📷 CVPR2026** · **45** 篇论文解读
+**📷 CVPR2026** · **53** 篇论文解读
 
 **[A2Z-10M+: Geometric Deep Learning with A-to-Z BRep Annotations for AI-Assisted CAD Modeling and Reverse Engineering](a2z-10m_geometric_deep_learning_with_a-to-z_brep_annotations_for_ai-assisted_cad.md)**
 
@@ -46,6 +46,10 @@ description: >-
 
 :   首次证明仅用 event camera（无需传统 intensity 图像）即可重建像素级精度的 4D 光场，提出 Coded-E2LF 系统：通过编码光圈序列触发 events 并累积为 event images，利用全黑 pattern 建立 event-based 与 intensity-based coded aperture imaging 的数学等价性，结合端到端 deep optics 训练实现 8×8 视点光场重建。
 
+**[Crowdsourcing of Real-world Image Annotation via Visual Properties](crowdsourcing_of_real_world_image_annotation_via_visual_properties.md)**
+
+:   提出一种基于视觉属性约束的图像标注方法论，通过知识表示构建对象类别层次结构并结合交互式众包框架，利用视觉属和视觉差引导标注过程，减少标注者主观性和语义鸿沟问题。
+
 **[Deconstructing the Failure of Ideal Noise Correction: A Three-Pillar Diagnosis](deconstructing_the_failure_of_ideal_noise_correcti.md)**
 
 :   通过宏观收敛态、微观梯度动力学和信息论三个层次，严格证明了即使给定完美噪声转移矩阵，前向校正（FC）仍不可避免地塌缩到与无校正相同的次优水平，根本原因在于有限样本下的记忆化和噪声信道的信息损失。
@@ -66,6 +70,10 @@ description: >-
 
 :   提出 Dirichlet 先验增强（DirPA），在少样本学习训练阶段从 Dirichlet 分布中采样类别比例向量来构造不平衡 episode，主动模拟真实世界长尾分布以消除先验偏移，在欧盟多个国家的作物分类任务中展示了一致的鲁棒性提升和稀有类别精度改善。
 
+**[Do Vision Models Perceive Illusory Motion in Static Images Like Humans?](do_vision_models_perceive_illusory_motion_in_static_images_like_humans.md)**
+
+:   本文系统评估了多种光流模型在旋转蛇等静态图像运动错觉上的表现，发现仅人类启发的Dual-Channel模型在模拟眼跳条件下能再现人类感知的旋转运动。
+
 **[Dual-Band Thermal Videography: Separating Time-Varying Reflection and Emission Near Ambient Conditions](dual_band_thermal_videography_separating_time-varying_reflection_and_emission_ne.md)**
 
 :   提出一种双波段长波红外视频分析框架，利用光谱线索（双波段发射率比恒定）和时间线索（物体辐射平滑变化、背景辐射突变）联合约束，首次实现近环境温度条件下动态场景中反射与发射分量的逐像素分离，并恢复物体发射率和温度场。
@@ -73,6 +81,10 @@ description: >-
 **[ELogitNorm: Enhancing OOD Detection with Extended Logit Normalization](enhancing_outofdistribution_detection_with_extende.md)**
 
 :   诊断LogitNorm的特征坍缩问题(维度坍缩+原点坍缩)，提出ELogitNorm——用到决策边界的平均距离(而非特征范数)做自适应温度缩放，无超参数、兼容所有post-hoc OOD检测方法——CIFAR-10上far-OOD AUROC提升10.48%(SCALE)，ImageNet-1K上FPR95从51.45%降至27.74%，同时改善分类精度和ECE校准。
+
+**[FEAT: Federated Geometry-Aware Correction for Exemplar Replay under Continual Dynamic Heterogeneity](feat_federated_geometry_aware_correction_for_exemplar_replay_under_continual_dynamic_heterogeneity.md)**
+
+:   提出 FEAT 方法解决联邦持续学习中回放样本利用不足的问题，通过几何结构对齐（基于 ETF 原型的角度蒸馏）和能量基几何校正（推理时去偏）缓解跨客户端异构和任务级数据不平衡。
 
 **[GazeOnce360: Fisheye-Based 360° Multi-Person Gaze Estimation with Global-Local Feature Fusion](gazeonce360_fisheye-based_360_multi-person_gaze_estimation_with_global-local_fea.md)**
 
@@ -94,9 +106,17 @@ description: >-
 
 :   提出IrisFP模型指纹框架，通过将指纹放置在多类决策边界交叉点处、构建复合样本指纹、以及基于统计可分性的指纹筛选三项创新，同时增强指纹的唯一性和鲁棒性，在5个数据集上AUC一致超过SOTA方法。
 
+**[LoViF 2026 Challenge on Human-oriented Semantic Image Quality Assessment](lovif_2026_semantic_quality_assessment_challenge.md)**
+
+:   LoViF 2026首届人类导向语义图像质量评估挑战赛：提出SeIQA基准数据集（510/80/160训练/验证/测试对），衡量图像退化是否改变了人类关注的语义信息而非传统感知保真度；冠军RedpanQA Alliance基于Qwen3-VL多模态大模型+LoRA微调+PLCC损失达到0.8724最终得分。
+
 **[Mitigating Instance Entanglement in Instance-Dependent Partial Label Learning](mitigating_instance_entanglement_in_instance-dependent_partial_label_learning.md)**
 
 :   针对实例依赖偏标签学习 (ID-PLL) 中相似类别实例因特征和候选标签重叠导致的"实例纠缠"问题，提出 CAD 框架，通过类别特定增强的类内对齐和加权惩罚损失的类间分离，双管齐下缓解类混淆。
+
+**[MyoVision: A Mobile Research Tool and NEATBoost-Attention Ensemble Framework for Real Time Chicken Breast Myopathy Detection](myovision_a_mobile_research_tool_and_neatboost_attention_ensemble_framework.md)**
+
+:   提出 MyoVision 智能手机透射成像框架和 NEATBoost-Attention 神经进化优化集成模型，用于低成本实时鸡胸肉肌病（木质胸、意面肉）三分类检测。
 
 **[NaiLIA: Multimodal Nail Design Retrieval Based on Dense Intent Descriptions and Palette Queries](nailia_multimodal_nail_design_retrieval_based_on_dense_intent_descriptions_and_p.md)**
 
@@ -113,6 +133,10 @@ description: >-
 **[Novel Anomaly Detection Scenarios and Evaluation Metrics to Address the Ambiguity in the Definition of Normal Samples](novel_anomaly_detection_scenarios_and_evaluation_metrics_to_address_the_ambiguit.md)**
 
 :   针对工业异常检测中"正常"定义随规格变更而变化的实际问题，提出了两种新场景（A2N/N2A）、一个新评价指标（S-AUROC）和一种训练增强方法 RePaste，通过将高异常分数区域重新粘贴到训练图片中来增加其出现频率，使模型灵活适应正常样本定义的变化。
+
+**[OmniFood8K: Single-Image Nutrition Estimation via Hierarchical Frequency-Aligned Fusion](omnifood8k_nutrition_estimation.md)**
+
+:   构建了涵盖 8036 个样本的中式食物多模态营养数据集 OmniFood8K 和 115K 合成数据集 NutritionSynth-115K，并提出端到端框架通过 Scale-Shift 深度适配器、频域对齐融合和掩码预测头从单张 RGB 图像预测营养信息。
 
 **[Order Matters: 3D Shape Generation from Sequential VR Sketches](order_matters_3d_shape_generation_from_sequential_vr_sketches.md)**
 
@@ -165,6 +189,14 @@ description: >-
 **[UniSpector: Towards Universal Open-set Defect Recognition via Spectral-Contrastive Visual Prompting](unispector_towards_universal_open-set_defect_recognition_via_spectral-contrastiv.md)**
 
 :   本文提出 UniSpector 开放集工业缺陷检测框架，通过频域-空域双域特征融合（SSPE）和角度间隔对比提示编码（CPE）解决了视觉提示嵌入崩塌问题，在新构建的包含 360 种缺陷类别的 Inspect Anything benchmark 上，AP50 检测和分割分别比最佳基线高 19.7% 和 15.8%。
+
+**[V-Nutri: Dish-Level Nutrition Estimation from Egocentric Cooking Videos](v_nutri_nutrition_estimation_cooking_videos.md)**
+
+:   提出 V-Nutri 框架，首次利用第一人称烹饪视频中的过程信息来辅助菜品营养估计，通过 VideoMamba 关键帧选择模块提取食材添加时刻，与最终成品图像融合来预测热量和宏量营养素。
+
+**[ViT3: Unlocking Test-Time Training in Vision](vit3_unlocking_test_time_training_in_vision.md)**
+
+:   系统性探索Test-Time Training（TTT）在视觉任务中的设计空间，总结六条实用设计洞察，提出ViT3——一个线性复杂度的纯TTT视觉架构，在分类/生成/检测/分割任务中匹配或超越Mamba和线性注意力方法。
 
 **[What Is the Optimal Ranking Score Between Precision and Recall? We Can Always Find It and It Is Rarely F₁](what_is_the_optimal_ranking_score_between_precision_and_recall_we_can_always_fin.md)**
 

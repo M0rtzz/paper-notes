@@ -157,6 +157,6 @@ Entropy-UID 是一种解码时 token 选择策略，在每个生成步骤中：
 - [Optimizing Decomposition for Optimal Claim Verification](optimizing_decomposition_for_optimal_claim_verification.md)
 - [The Harmonic Structure of Information Contours](the_harmonic_structure_of_information_contours.md)
 - [Multiple-Policy Evaluation via Density Estimation](../../ICML2025/others/multiple-policy_evaluation_via_density_estimation.md)
-- [An Information-Theoretic Framework For Optimizing Experimental Design To Distinguish Probabilistic Neural Codes](../../ICLR2026/others/an_information-theoretic_framework_for_optimizing_experimental_design_to_disting.md)
+- [RMoA: Optimizing Mixture-of-Agents through Diversity Maximization and Residual Compensation](rmoa_optimizing_mixture-of-agents_through_diversity_maximization_and_residual_co.md)
 
 <!-- RELATED:END -->

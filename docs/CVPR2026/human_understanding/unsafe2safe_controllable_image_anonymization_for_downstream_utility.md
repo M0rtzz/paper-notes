@@ -124,9 +124,9 @@ tags:
 ## 相关论文
 
 - [Sketch2Colab: Sketch-Conditioned Multi-Human Animation via Controllable Flow Distillation](sketch2colab_sketch-conditioned_multi-human_animation_via_controllable_flow_dist.md)
-- [FineXtrol: Controllable Motion Generation via Fine-Grained Text](../../AAAI2026/human_understanding/finextrol_controllable_motion_generation_via_fine-grained_text.md)
 - [Bilevel Layer-Positioning LoRA for Real Image Dehazing](bilevel_lora_real_image_dehazing.md)
+- [FineXtrol: Controllable Motion Generation via Fine-Grained Text](../../AAAI2026/human_understanding/finextrol_controllable_motion_generation_via_fine-grained_text.md)
 - [Reference-Free Image Quality Assessment for Virtual Try-On via Human Feedback](referencefree_image_quality_assessment_for_virtual.md)
-- [Controllable and Expressive One-Shot Video Head Swapping](../../ICCV2025/human_understanding/controllable_and_expressive_one-shot_video_head_swapping.md)
+- [VT-Intrinsic: Physics-Based Decomposition of Reflectance and Shading using a Single Visible-Thermal Image Pair](vt-intrinsic_physics-based_decomposition_of_reflectance_and_shading_using_a_sing.md)
 
 <!-- RELATED:END -->

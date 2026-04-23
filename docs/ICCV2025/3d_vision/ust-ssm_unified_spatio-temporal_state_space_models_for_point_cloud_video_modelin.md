@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-点云视频建模面临三重挑战：
+### 现有痛点
+
+**现有痛点**：点云视频建模面临三重挑战：
 
 **时空无序**：点云视频缺乏一致的时空排序，与SSM的单向扫描范式冲突
 
@@ -36,9 +38,18 @@ tags:
 **时序交互有限**：传统采样策略创建碎片化的时序上下文
 
 现有方案的不足：
-- Mamba4D采用时序顺序扫描，限制查询点只能获取前一帧信息
-- SSM存在远距离token交互衰减问题
-- 语义相似但时空距离远的点被分离到很远位置
+
+### 领域现状
+
+**领域现状**：Mamba4D采用时序顺序扫描，限制查询点只能获取前一帧信息
+
+### 核心矛盾
+
+**核心矛盾**：SSM存在远距离token交互衰减问题
+
+### 解决思路
+
+**解决思路**：语义相似但时空距离远的点被分离到很远位置
 
 ## 方法详解
 
@@ -80,6 +91,9 @@ $$\mathbf{F}_C' = \text{MLP}\left(\sum_{i=1}^K \frac{e^{\mathbf{F}_K'^i}}{\sum_j
 
 ### MSR-Action3D
 
+
+### 主实验
+
 | 骨干 | 方法 | 24帧 Acc(%) | 36帧 Acc(%) |
 |------|------|------------|------------|
 | CNN | MeteorNet | 88.50 | - |
@@ -92,6 +106,9 @@ $$\mathbf{F}_C' = \text{MLP}\left(\sum_{i=1}^K \frac{e^{\mathbf{F}_K'^i}}{\sum_j
 UST-SSM在所有帧数设置下取得最优，且随帧数增加性能稳定提升（36帧95.12%最优）。
 
 ### NTU RGB+D
+
+
+### 消融实验
 
 | 方法 | Cross-Subject | Cross-View |
 |------|--------------|------------|
@@ -110,7 +127,7 @@ UST-SSM以线性复杂度在运行时间、GPU显存和精度三方面优于P4Tr
 3. **STSA与SSM互补**：前者处理局部交互，后者处理全局序列依赖
 4. **Hilbert排序保留几何**：在语义聚类后仍保持局部空间连贯性
 
-## 局限性
+## 局限与展望
 
 - Prompt网络增加额外计算开销
 - 聚类数K是超参数，不同数据集可能需要调整
@@ -137,7 +154,7 @@ UST-SSM以线性复杂度在运行时间、GPU显存和精度三方面优于P4Tr
 - [Global-Aware Monocular Semantic Scene Completion with State Space Models](global-aware_monocular_semantic_scene_completion_with_state_space_models.md)
 - [MeshMamba: State Space Models for Articulated 3D Mesh Generation and Reconstruction](meshmamba_state_space_models_for_articulated_3d_mesh_generation_and_reconstructi.md)
 - [Mesh Mamba: A Unified State Space Model for Saliency Prediction in Non-Textured and Textured Meshes](../../CVPR2025/3d_vision/mesh_mamba_a_unified_state_space_model_for_saliency_prediction_in_non-textured_a.md)
-- [UPP: Unified Point-Level Prompting for Robust Point Cloud Analysis](upp_unified_point-level_prompting_for_robust_point_cloud_analysis.md)
+- [STS-Mixer: Spatio-Temporal-Spectral Mixer for 4D Point Cloud Video Understanding](../../CVPR2026/3d_vision/sts_mixer_4d_point_cloud.md)
 - [StruMamba3D: Exploring Structural Mamba for Self-supervised Point Cloud Representation Learning](strumamba3d_exploring_structural_mamba_for_self-supervised_point_cloud_represent.md)
 
 <!-- RELATED:END -->

@@ -153,7 +153,7 @@ tags:
 - [PersonaLens: A Benchmark for Personalization Evaluation in Conversational AI Assistants](personalens_a_benchmark_for_personalization_evaluation_in_conversational_ai_assi.md)
 - [Know You First and Be You Better: Modeling Human-Like User Simulators via Implicit Profiles](know_you_first_and_be_you_better_modeling_human-like_user_simulators_via_implici.md)
 - [Wizard of Shopping: Target-Oriented E-commerce Dialogue Generation with Decision Tree Branching](wizard_of_shopping_target-oriented_e-commerce_dialogue_generation_with_decision_.md)
+- [Enhancing Goal-oriented Proactive Dialogue Systems via Consistency Reflection and Correction](enhancing_goal-oriented_proactive_dialogue_systems_via_consistency_reflection_an.md)
 - [MetaMind: Modeling Human Social Thoughts with Metacognitive Multi-Agent Systems](../../NeurIPS2025/dialogue/metamind_modeling_human_social_thoughts_with_metacognitive_multi-agent_systems.md)
-- [Enabling Chatbots with Eyes and Ears: An Immersive Multimodal Conversation System](enabling_chatbots_with_eyes_and_ears_an_immersive_multimodal_conversation_system.md)
 
 <!-- RELATED:END -->

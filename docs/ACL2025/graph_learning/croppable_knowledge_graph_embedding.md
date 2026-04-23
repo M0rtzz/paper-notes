@@ -159,10 +159,10 @@ Adam 优化器 + 线性学习率衰减，batch size 1024，每个正样本生成
 
 ## 相关论文
 
+- [A Mutual Information Perspective on Knowledge Graph Embedding](a_mutual_information_perspective_on_knowledge_graph_embedding.md)
 - [RSCF: Relation-Semantics Consistent Filter for Entity Embedding of Knowledge Graph](rscf_relationsemantics_consistent_filter_for_entity.md)
+- [Agent Steerable Search for Knowledge Graph Question Answering](agent_steerable_search_for_knowledge_graph_question_answering.md)
 - [Beyond Completion: A Foundation Model for General Knowledge Graph Reasoning](beyond_completion_a_foundation_model_for_general_knowledge_graph_reasoning.md)
-- [Knowledge Graph Retrieval-Augmented Generation for LLM-based Recommendation (K-RagRec)](kg_rag_recommendation.md)
 - [Predicate-Conditional Conformalized Answer Sets for Knowledge Graph Embeddings](predicate-conditional_conformalized_answer_sets_for_knowledge_graph_embeddings.md)
-- [FiDeLiS: Faithful Reasoning in Large Language Model for Knowledge Graph Question Answering](fidelis_faithful_reasoning_in_large_language_model_for_knowledge_graph_question_.md)
 
 <!-- RELATED:END -->

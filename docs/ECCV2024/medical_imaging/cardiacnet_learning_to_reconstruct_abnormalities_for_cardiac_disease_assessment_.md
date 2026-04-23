@@ -154,6 +154,6 @@ CDD 包含两个判别器确保重建结果的时空一致性：
 - [Unsupervised Motion-Compensated Decomposition for Cardiac MRI Reconstruction via Neural Representation](../../AAAI2026/medical_imaging/unsupervised_motion-compensated_decomposition_for_cardiac_mri_reconstruction_via.md)
 - [Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning](../../CVPR2026/medical_imaging/deep_learningbased_assessment_of_the_relation_betw.md)
 - [From Policy to Logic for Efficient and Interpretable Coverage Assessment](../../AAAI2026/medical_imaging/from_policy_to_logic_for_efficient_and_interpretable_coverage_assessment.md)
-- [Synergistic Bleeding Region and Point Detection in Laparoscopic Surgical Videos](../../CVPR2026/medical_imaging/synergistic_bleeding_region_and_point_detection_in_laparoscopic_surgical_videos.md)
+- [Event-Level Detection of Surgical Instrument Handovers in Videos](../../CVPR2026/medical_imaging/event_level_detection_of_surgical_instrument_handovers_in_videos.md)
 
 <!-- RELATED:END -->

@@ -125,8 +125,8 @@ NSW-EPNews 基准包含三个核心组件：数据构建、提示模板设计、
 
 ## 相关论文
 
-- [Are LLMs Prescient? A Continuous Evaluation using Daily News as the Oracle](../../ICML2025/time_series/are_llms_prescient_a_continuous_evaluation_using_daily_news_as_the_oracle.md)
 - [DemandCast: Global hourly electricity demand forecasting](demandcast_global_hourly_electricity_demand_forecasting.md)
+- [Are LLMs Prescient? A Continuous Evaluation using Daily News as the Oracle](../../ICML2025/time_series/are_llms_prescient_a_continuous_evaluation_using_daily_news_as_the_oracle.md)
 - [Time-IMM: A Dataset and Benchmark for Irregular Multimodal Multivariate Time Series](time-imm_a_dataset_and_benchmark_for_irregular_multimodal_multivariate_time_seri.md)
 - [CausalDynamics: A Large-Scale Benchmark for Structural Discovery of Dynamical Causal Models](causaldynamics_a_large-scale_benchmark_for_structural_discovery_of_dynamical_cau.md)
 - [Context is Key: A Benchmark for Forecasting with Essential Textual Information](../../ICML2025/time_series/context_is_key_a_benchmark_for_forecasting_with_essential_textual_information.md)

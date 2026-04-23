@@ -175,6 +175,6 @@ tags:
 - [Controllable 3D Outdoor Scene Generation via Scene Graphs](controllable_3d_outdoor_scene_generation_via_scene_graphs.md)
 - [CymbaDiff: Structured Spatial Diffusion for Sketch-based 3D Semantic Urban Scene Generation](../../NeurIPS2025/autonomous_driving/cymbadiff_structured_spatial_diffusion_for_sketch-based_3d_semantic_urban_scene_.md)
 - [X-Scene: Large-Scale Driving Scene Generation with High Fidelity and Flexible Controllability](../../NeurIPS2025/autonomous_driving/x-scene_large-scale_driving_scene_generation_with_high_fidelity_and_flexible_con.md)
-- [Hermes: A Unified Self-Driving World Model for Simultaneous 3D Scene Understanding and Generation](hermes_a_unified_self-driving_world_model_for_simultaneous_3d_scene_understandin.md)
+- [Distilling Diffusion Models to Efficient 3D LiDAR Scene Completion](distilling_diffusion_models_to_efficient_3d_lidar_scene_completion.md)
 
 <!-- RELATED:END -->

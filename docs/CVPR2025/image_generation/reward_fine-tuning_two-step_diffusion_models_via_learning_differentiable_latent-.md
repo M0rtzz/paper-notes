@@ -132,6 +132,6 @@ LaSRO 的核心思想是：不直接用策略梯度去优化扩散模型，而�
 - [Personalized Preference Fine-tuning of Diffusion Models](personalized_preference_fine-tuning_of_diffusion_models.md)
 - [Trust Your Critic: Robust Reward Modeling and Reinforcement Learning for Faithful Image Editing and Generation](trust_your_critic_robust_reward_modeling_and_reinforcement_learning_for_faithful.md)
 - [Efficient Fine-Tuning and Concept Suppression for Pruned Diffusion Models](efficient_fine-tuning_and_concept_suppression_for_pruned_diffusion_models.md)
-- [Parameter-Efficient Fine-Tuning of State Space Models](../../ICML2025/image_generation/parameter-efficient_fine-tuning_of_state_space_models.md)
+- [Latent Space Imaging](latent_space_imaging.md)
 
 <!-- RELATED:END -->

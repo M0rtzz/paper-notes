@@ -117,6 +117,6 @@ tags:
 - [Factual Knowledge in Language Models: Robustness and Anomalies under Simple Temporal Context Variations](factual_knowledge_in_language_models_robustness_and_anomalies_under_simple_tempo.md)
 - [Monitoring Decoding: Mitigating Hallucination via Evaluating the Factuality of Partial Response during Generation](monitoring_decoding_mitigating_hallucination_via_evaluating_the_factuality_of_pa.md)
 - [UAlign: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models](ualign_leveraging_uncertainty_estimations_for_factuality_alignment_on_large_lang.md)
-- [Ewe: Improving Factuality with Explicit Working Memory](improving_factuality_with_explicit_working_memory.md)
+- [Are the Hidden States Hiding Something? Testing the Limits of Factuality-Encoding Capabilities in LLMs](are_the_hidden_states_hiding_something_testing_the_limits_of_factuality-encoding.md)
 
 <!-- RELATED:END -->

@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 模型压缩方向 45篇论文解读
+  ICCV2025 模型压缩方向 49篇论文解读
 description: >-
-  45篇ICCV2025 模型压缩论文解读，主题涵盖：本文揭示了知识蒸馏中教师-学生容量差距问题的本质原、提出 APT（Additive Prompt、提出自适应精炼聚合（Adaptive等，每篇含核心思想与方法详解。
+  49篇ICCV2025 模型压缩论文解读，主题涵盖：本文揭示了知识蒸馏中教师-学生容量差距问题的本质原、提出 APT（Additive Prompt、提出自适应精炼聚合（Adaptive等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**📹 ICCV2025** · **45** 篇论文解读
+**📹 ICCV2025** · **49** 篇论文解读
 
 **[A Good Teacher Adapts Their Knowledge for Distillation](a_good_teacher_adapts_their_knowledge_for_distillation.md)**
 
@@ -25,6 +25,10 @@ description: >-
 **[B-VLLM: A Vision Large Language Model with Balanced Spatio-Temporal Tokens](b-vllm_a_vision_large_language_model_with_balanced_spatio-temporal_tokens.md)**
 
 :   本文提出B-VLLM框架，通过文本条件自适应帧选择、时序帧Token合并和空间Token采样三个模块，在VLLM的上下文窗口限制内动态平衡视频的时空线索，在MVBench上带来10%的性能提升。
+
+**[B-VLLM: A Vision Large Language Model with Balanced Spatio-Temporal Tokens](b_vllm_a_vision_large_language_model_with_balanced_spatio_temporal_tokens.md)**
+
+:   提出B-VLLM框架，通过文本条件自适应帧选择、时间帧token合并和空间token采样三个模块，在VLLM上下文窗口限制内动态平衡视频的时空token，解决均匀采样忽略时间动态和每帧token减少丢失空间细节的困境，在MVBench上提升10%。
 
 **[Beyond Low-Rank Tuning: Model Prior-Guided Rank Allocation for Effective Transfer in Low-Data and Large-Gap Regimes](beyond_low-rank_tuning_model_prior-guided_rank_allocation_for_effective_transfer.md)**
 
@@ -98,6 +102,10 @@ description: >-
 
 :   提出 LieRA，利用李群理论将矩阵级 PEFT 方法（如 LoRA）推广到高维参数空间（如卷积核），通过在李代数中表示扰动并用指数映射回李群，在保持参数空间结构性质的同时实现高效微调。
 
+**[Gradient Short-Circuit: Efficient Out-of-Distribution Detection via Feature Intervention](gradient_short-circuit_efficient_out-of-distribution_detection_via_feature_inter.md)**
+
+:   本文发现 ID 样本的局部梯度方向一致而 OOD 样本梯度方向混乱，据此提出在推理阶段"短路"被虚假梯度利用的特征坐标来降低 OOD 置信度，并通过一阶近似避免二次前向传播，实现轻量高效的 OOD 检测。
+
 **[Heavy Labels Out! Dataset Distillation with Label Space Lightening](heavy_labels_out_dataset_distillation_with_label_space_lightening.md)**
 
 :   提出 HeLlO 框架，利用 CLIP 预训练模型和 LoRA-like 低秩知识迁移构建轻量级图像-标签投影器，将数据集蒸馏中软标签的存储需求降低至原来的 0.003%，同时保持甚至超越 SOTA 性能。
@@ -130,6 +138,10 @@ description: >-
 
 :   提出MSQ，通过RoundClamp量化器从权重直接计算最低有效位(LSB)并施加L1正则化诱导稀疏性，无需显式创建bit-level可训练参数即可实现混合精度量化发现，训练参数减少8倍、训练时间减少86%，同时保持竞争性的精度-压缩权衡。
 
+**[Multi-Object Sketch Animation by Scene Decomposition and Motion Planning](multi-object_sketch_animation_by_scene_decomposition_and_motion_planning.md)**
+
+:   MoSketch 首次解决多物体草图动画问题，通过 LLM 场景分解 + LLM 运动规划 + 运动精炼网络 + 组合式 SDS 四个模块，以分治策略处理物体感知运动建模和复杂运动优化两大挑战，无需任何训练数据实现高质量多物体草图动画。
+
 **[OuroMamba: A Data-Free Quantization Framework for Vision Mamba](ouromamba_a_data-free_quantization_framework_for_vision_mamba.md)**
 
 :   首个面向 Vision Mamba 模型（VMM）的无数据后训练量化框架，通过增强隐式注意力生成高质量合成数据，并结合动态异常值检测的混合精度量化方案，在 W4A4 设置下显著超越现有数据驱动 PTQ 方法。
@@ -141,6 +153,10 @@ description: >-
 **[Perspective-Aware Teaching: Adapting Knowledge for Heterogeneous Distillation](perspective-aware_teaching_adapting_knowledge_for_heterogeneous_distillation.md)**
 
 :   提出PAT（Perspective-Aware Teaching）框架，通过区域感知注意力（RAA）解决异构架构间的视角不匹配问题，通过自适应反馈提示（AFP）解决教师无感知问题，使得特征级蒸馏首次在异构知识蒸馏场景中全面超越logits级方法。
+
+**[PLAN: Proactive Low-Rank Allocation for Continual Learning](plan_proactive_low-rank_allocation_for_continual_learning.md)**
+
+:   提出 PLAN 框架，通过为每个任务前瞻性地分配正交低秩子空间并使用扰动策略最小化任务间干扰，在持续学习场景下实现了高效且无遗忘的大模型微调，在标准 CL 基准上建立了新的 SOTA。
 
 **[Scheduling Weight Transitions for Quantization-Aware Training](scheduling_weight_transitions_for_quantization-aware_training.md)**
 

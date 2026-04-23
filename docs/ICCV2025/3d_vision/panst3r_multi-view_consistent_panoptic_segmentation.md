@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-3D场景的全景分割（panoptic segmentation）需要对3D环境进行实例分割和语义分割。现有方法存在三大局限：
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：3D场景的全景分割（panoptic segmentation）需要对3D环境进行实例分割和语义分割。现有方法存在三大局限：
 
 **依赖预制2D分割**：主流方法（NeRF-based/3DGS-based）先用离线2D分割模型（如Mask2Former）获取逐帧分割，再通过NeRF/3DGS融合到3D中。将内在3D+多视角的问题降维为2D分割是**次优**的
 
@@ -146,8 +148,8 @@ PanSt3R在多个基准上达到SOTA性能，同时推理速度比现有方法快
 
 - [Auto-Regressively Generating Multi-View Consistent Images](auto-regressively_generating_multi-view_consistent_images.md)
 - [MV-Adapter: Multi-view Consistent Image Generation Made Easy](mv-adapter_multi-view_consistent_image_generation_made_easy.md)
-- [SpinMeRound: Consistent Multi-View Identity Generation Using Diffusion Models](spinmeround_consistent_multi-view_identity_generation_using_diffusion_models.md)
 - [Trace3D: Consistent Segmentation Lifting via Gaussian Instance Tracing](trace3d_consistent_segmentation_lifting_via_gaussian_instance_tracing.md)
+- [SpinMeRound: Consistent Multi-View Identity Generation Using Diffusion Models](spinmeround_consistent_multi-view_identity_generation_using_diffusion_models.md)
 - [3DEnhancer: Consistent Multi-View Diffusion for 3D Enhancement](../../CVPR2025/3d_vision/3denhancer_consistent_multi-view_diffusion_for_3d_enhancement.md)
 
 <!-- RELATED:END -->

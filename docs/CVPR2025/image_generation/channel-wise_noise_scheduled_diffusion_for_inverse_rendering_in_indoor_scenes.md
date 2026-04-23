@@ -122,6 +122,6 @@ tags:
 - [Improving Diffusion Inverse Problem Solving with Decoupled Noise Annealing](improving_diffusion_inverse_problem_solving_with_decoupled_noise_annealing.md)
 - [RoomPainter: View-Integrated Diffusion for Consistent Indoor Scene Texturing](roompainter_view-integrated_diffusion_for_consistent_indoor_scene_texturing.md)
 - [ScribbleLight: Single Image Indoor Relighting with Scribbles](scribblelight_single_image_indoor_relighting_with_scribbles.md)
-- [Ouroboros: Single-step Diffusion Models for Cycle-consistent Forward and Inverse Rendering](../../ICCV2025/image_generation/ouroboros_single-step_diffusion_models_for_cycle-consistent_forward_and_inverse_.md)
+- [Improving Editability in Image Generation with Layer-wise Memory](improving_editability_in_image_generation_with_layer-wise_memory.md)
 
 <!-- RELATED:END -->

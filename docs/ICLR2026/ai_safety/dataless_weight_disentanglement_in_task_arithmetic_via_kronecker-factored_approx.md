@@ -19,7 +19,11 @@ tags:
 **代码**: https://github.com/aimagelab/mammoth  
 **领域**: AI安全 / 模型编辑  
 
-## 评价
+## 一句话总结
+该工作将曲率近似的经典理论（KFAC）与任务算术的实际需求巧妙结合，提出了一种无需外部数据的权重解缠正则化方法。理论推导清晰，从表征漂移正则化 → Jacobian Gramian → GGN → KFAC 的逻辑链条流畅。实验覆盖视觉和语言两个领域的多种模型规模，对 $\alpha$ 超参数的鲁棒性分析很实用。不足在于 KFAC 对大模型仍有 $O(d^2)$ 存储开销，且在文本领域与使用外部数
+
+
+## 评分
 
 ⭐⭐⭐⭐
 
@@ -27,7 +31,7 @@ tags:
 
 ---
 
-## 背景
+## 研究背景与动机
 
 ### 领域现状
 
@@ -47,7 +51,18 @@ tags:
 
 ---
 
-## 方法
+### 解决思路
+
+**本文目标**：### 整体框架
+
+TAK 的训练流程分两步：
+1. **预计算阶段**: 对每个任务 $t$ 的训练数据计算 KFAC 因子 $\{(\boldsymbol{B}_t^l, \boldsymbol{A}_t^l)\}_l$，然后合并为单一代理
+2. **微调阶段**: 在线性化微调中，目标函数加入 KFAC 正则项
+
+$$\min_{\boldsymbol{\tau}_{t'}} \mathca。
+
+
+## 方法详解
 
 ### 整体框架
 
@@ -83,19 +98,19 @@ KFAC 正则化自然带来任务定位性质：$\| \mathrm{J}_{\boldsymbol{\thet
 
 ---
 
-## 实验
+## 实验关键数据
 
 ### 主实验：8 Vision 任务加法
 
 | 方法 | 无须数据 | $\alpha$ | ViT-B/32 (Abs.) | ViT-B/16 (Abs.) | ViT-L/14 (Abs.) |
 |------|---------|---------|-----------------|-----------------|-----------------|
-| Pre-trained | - | - | 48.4 | 55.4 | 65.0 |
-| Linear FT | - | 1.0 | 76.7 | 80.2 | 88.0 |
-| $\tau$Jp | ✗ | 1.0 | 85.0 | 88.2 | 90.9 |
-| Diag. GGN | ✓ | 1.0 | 80.1 | 82.9 | 87.9 |
-| **TAK (Ours)** | **✓** | **1.0** | **85.8** | **88.3** | **91.6** |
-| $\tau$Jp | ✗ | Best | 85.6 | **88.6** | 91.1 |
-| **TAK (Ours)** | **✓** | **Best** | **86.0** | 88.3 | **91.6** |
+| Pre-trained | - | - | 48.4% | 55.4% | 65.0% |
+| Linear FT | - | 1.0 | 76.7% | 80.2% | 88.0% |
+| $\tau$Jp | ✗ | 1.0 | 85.0% | 88.2% | 90.9% |
+| Diag. GGN | ✓ | 1.0 | 80.1% | 82.9% | 87.9% |
+| **TAK (Ours)** | **✓** | **1.0** | **85.8%** | **88.3%** | **91.6%** |
+| $\tau$Jp | ✗ | Best | 85.6% | **88.6%** | 91.1% |
+| **TAK (Ours)** | **✓** | **Best** | **86.0%** | 88.3% | **91.6%** |
 
 TAK 在无需外部数据的条件下达到或超过使用数据的 $\tau$Jp 方法，且 $\alpha=1.0$ 时即可获得接近最优的性能。
 
@@ -103,17 +118,17 @@ TAK 在无需外部数据的条件下达到或超过使用数据的 $\tau$Jp 方
 
 | 分析维度 | 关键结果 |
 |---------|---------|
-| 任务去学习 | TAK 目标任务准确率降至 **3.4%**（ViT-B/32），同时控制任务保留 **62.4%** |
-| 累积 vs 朴素 | ViT-B/16 上差距 < 0.3%，验证合并策略有效性 |
+| 任务去学习 | TAK 目标任务准确率降至 **3.4**（ViT-B/32），同时控制任务保留 **62.4%** |
+| 累积 vs 朴素 | ViT-B/16 上差距 < 0.3，验证合并策略有效性 |
 | KFAC 数据量 | 128-256 样本即可饱和性能 |
 | Monte Carlo 采样 | 1-2 个样本/数据点即可，更多反而性能下降 |
 | KFAC 压缩 | Block-8 策略实现 87% 内存节省，仅损失 ~1 点准确率 |
 | 训练开销 | MC=1 时全部因子预计算仅需 3.9 分钟 |
-| 语言任务 (T5-base) | TAK: 78.7 Abs. / 98.9 Norm.；$\tau$Jp: **81.3** / **100** |
+| 语言任务 (T5-base) | TAK: 78.7 Abs. / 98.9 Norm.；$\tau$Jp: **81.3%** / **100** |
 
 ---
 
-## 论文优缺点
+## 局限与展望
 
 **优点**:
 - 理论推导严谨，将表征漂移正则化与 GGN/KFAC 优雅连接
@@ -128,6 +143,24 @@ TAK 在无需外部数据的条件下达到或超过使用数据的 $\tau$Jp 方
 - 理论分析基于线性化假设，虽然非线性实验也有效但缺乏严格保证
 - 未探索参数高效微调（如 LoRA）场景下的适用性
 
+
+## 亮点与洞察
+- 方法设计简洁有效，核心思路清晰
+- 实验验证全面，消融分析充分
+- 对领域的关键问题提供了新的解决思路
+
+
+## 局限与展望
+- 方法在特定条件下可能存在局限性，泛化性待进一步验证
+- 计算效率和可扩展性可做进一步优化
+- 与更多相关方法的结合值得探索
+
+
+## 相关工作与启发
+- **vs 同领域代表性方法**：本文在方法设计上有独特贡献，与现有方法形成互补
+- **vs 传统方法**：相比传统方案，本文方法在关键指标上取得了显著提升
+- **启发**：本文的技术路线对后续相关工作有重要参考价值
+
 <!-- RELATED:START -->
 
 ## 相关论文
@@ -136,6 +169,6 @@ TAK 在无需外部数据的条件下达到或超过使用数据的 $\tau$Jp 方
 - [NoT: Federated Unlearning via Weight Negation](../../CVPR2025/ai_safety/not_federated_unlearning_via_weight_negation.md)
 - [Reconstruction and Secrecy under Approximate Distance Queries](../../NeurIPS2025/ai_safety/reconstruction_and_secrecy_under_approximate_distance_queries.md)
 - [TIP of the Iceberg: Task-in-Prompt Adversarial Attacks on LLMs](../../ACL2025/ai_safety/tip_iceberg_adversarial_attacks.md)
-- [Dynamic Integration of Task-Specific Adapters for Class Incremental Learning](../../CVPR2025/ai_safety/dynamic_integration_of_task-specific_adapters_for_class_incremental_learning.md)
+- [Preserving Task-Relevant Information Under Linear Concept Removal](../../NeurIPS2025/ai_safety/preserving_task-relevant_information_under_linear_concept_removal.md)
 
 <!-- RELATED:END -->

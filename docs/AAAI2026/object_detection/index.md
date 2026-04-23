@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 目标检测方向 42篇论文解读
+  AAAI2026 目标检测方向 43篇论文解读
 description: >-
-  42篇AAAI2026 目标检测论文解读，主题涵盖：首次提出时间序列大模型（TSLM）生成内容检测理论、AC3 提出了一个直接学习连续动作序列（actio、构建了首个面向无人机场景的大规模等，每篇含核心思想与方法详解。
+  43篇AAAI2026 目标检测论文解读，主题涵盖：首次提出时间序列大模型（TSLM）生成内容检测理论、AC3 提出了一个直接学习连续动作序列（actio、构建了首个面向无人机场景的大规模等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🤖 AAAI2026** · **42** 篇论文解读
+**🤖 AAAI2026** · **43** 篇论文解读
 
 **[A Theoretical Analysis of Detecting Large Model-Generated Time Series](a_theoretical_analysis_of_detecting_large_model-generated_time_series.md)**
 
@@ -69,6 +69,10 @@ description: >-
 **[How Many Experts Are Enough? Towards Optimal Semantic Specialization for Mixture-of-Experts](how_many_experts_are_enough_towards_optimal_semantic_specialization_for_mixture-.md)**
 
 :   提出MASS框架，通过基于梯度的语义漂移检测自适应扩展MoE专家池，并结合Top-p置信度路由策略，在无需超参搜索的情况下自动发现最优专家数量，同时增强专家间的语义分化。
+
+**[LampQ: Towards Accurate Layer-wise Mixed Precision Quantization for Vision Transformers](lampq_towards_accurate_layer-wise_mixed_precision_quantization_for_vision_transf.md)**
+
+:   本文提出 LampQ，一种基于度量（metric-based）的逐层混合精度量化方法，通过类型感知的 Fisher 信息度量衡量 ViT 各层对量化的敏感度，结合整数线性规划优化比特宽度分配并迭代更新，在图像分类、目标检测和零样本量化等多个任务上取得 SOTA 性能。
 
 **[Learning Procedural-aware Video Representations through State-Grounded Hierarchy Unfolding](learning_procedural-aware_video_representations_through_state-grounded_hierarchy.md)**
 

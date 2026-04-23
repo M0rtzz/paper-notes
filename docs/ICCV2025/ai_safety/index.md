@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 AI安全方向 23篇论文解读
+  ICCV2025 AI安全方向 26篇论文解读
 description: >-
-  23篇ICCV2025 AI安全论文解读，主题涵盖：本文提出BlindFed框架，通过全同态加密（FH、BlindFed提出了双盲联邦基础模型适配框架：通、提出Active MINT（aMINT）等，每篇含核心思想与方法详解。
+  26篇ICCV2025 AI安全论文解读，主题涵盖：本文提出BlindFed框架，通过全同态加密（FH、BlindFed提出了双盲联邦基础模型适配框架：通、提出Active MINT（aMINT）等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**📹 ICCV2025** · **23** 篇论文解读
+**📹 ICCV2025** · **26** 篇论文解读
 
 **[A Framework for Double-Blind Federated Adaptation of Foundation Models](a_framework_for_double-blind_federated_adaptation_of_foundation_models.md)**
 
@@ -29,6 +29,14 @@ description: >-
 **[Ask and Remember: A Questions-Only Replay Strategy for Continual Visual Question Answering](ask_and_remember_a_questions-only_replay_strategy_for_continual_visual_question_.md)**
 
 :   提出QUAD——一种仅存储过去任务问题（不存储图像）的持续VQA方法，通过问题重放和注意力一致性蒸馏，在保护隐私的同时超越存储图像的现有方法。
+
+**[Ask and Remember: A Questions-Only Replay Strategy for Continual Visual Question Answering](ask_and_remember_a_questions_only_replay_strategy_for_continual_visual_question_answering.md)**
+
+:   提出QUAD，通过仅存储先前任务的问题（不存储图像）进行重放，配合注意力一致性蒸馏保持跨任务的模态内和模态间注意力模式，在隐私保护的前提下实现持续VQA的SOTA性能。
+
+**[Backdoor Attacks on Neural Networks via One-Bit Flip](backdoor_attacks_on_neural_networks_via_one_bit_flip.md)**
+
+:   提出SOLEFLIP，首个在量化模型上仅翻转一个比特位即可注入后门的推理阶段攻击方法，通过高效算法识别可利用的权重和比特位，并生成对应触发器，在CIFAR-10/SVHN/ImageNet上实现平均98.9%的攻击成功率且对正常精度零影响。
 
 **[Backdoor Mitigation by Distance-Driven Detoxification](backdoor_mitigation_by_distance-driven_detoxification.md)**
 
@@ -53,6 +61,10 @@ description: >-
 **[FedMeNF: Privacy-Preserving Federated Meta-Learning for Neural Fields](fedmenf_privacy-preserving_federated_meta-learning_for_neural_fields.md)**
 
 :   本文首次研究在私有数据场景下的联邦神经场（Neural Fields）元学习问题，揭示了现有联邦元学习方法在神经场任务中的严重隐私泄露机制，并提出FedMeNF，通过隐私保护损失函数正则化局部元梯度中的隐私信息，在保持快速优化能力的同时有效保护客户端数据隐私。
+
+**[FedVLA: Federated Vision-Language-Action Learning with Dual Gating Mixture-of-Experts for Robotic Manipulation](fedvla_federated_vision-language-action_learning_with_dual_gating_mixture-of-exp.md)**
+
+:   本文提出 FedVLA——首个面向视觉-语言-动作（VLA）模型的联邦学习框架，通过指令导向场景解析（IOSP）增强任务感知特征提取、双门控混合专家（DGMoE）实现自适应知识路由、以及专家驱动聚合（EDA）策略确保跨客户端有效知识整合，在保护数据隐私的同时达到与集中式训练相当的任务成功率。
 
 **[Find a Scapegoat: Poisoning Membership Inference Attack and Defense to Federated Learning](find_a_scapegoat_poisoning_membership_inference_attack_and_defense_to_federated_.md)**
 

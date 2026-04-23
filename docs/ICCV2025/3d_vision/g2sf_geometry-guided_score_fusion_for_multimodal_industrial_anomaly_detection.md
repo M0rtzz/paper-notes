@@ -135,6 +135,6 @@ G2SF 采用冻结的 DINO（图像）和 Point-MAE（点云）提取特征，构
 - [GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering](geosplatting_towards_geometry_guided_gaussian_splatting_for_physically-based_inv.md)
 - [Stable Score Distillation](stable_score_distillation.md)
 - [Odd-One-Out: Anomaly Detection by Comparing with Neighbors](../../CVPR2025/3d_vision/odd-one-out_anomaly_detection_by_comparing_with_neighbors.md)
-- [Geometry Distributions](geometry_distributions.md)
+- [EgoM2P: Egocentric Multimodal Multitask Pretraining](egom2p_egocentric_multimodal_multitask_pretraining.md)
 
 <!-- RELATED:END -->

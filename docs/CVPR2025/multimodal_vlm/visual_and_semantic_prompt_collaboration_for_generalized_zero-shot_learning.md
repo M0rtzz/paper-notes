@@ -133,6 +133,6 @@ VSPCN以预训练ViT-Base（ImageNet-1k）为骨干，输入包含5部分：CLS 
 - [DPC: Dual-Prompt Collaboration for Tuning Vision-Language Models](dpc_dual-prompt_collaboration_for_tuning_vision-language_models.md)
 - [Generalized Few-Shot 3D Point Cloud Segmentation with Vision-Language Model](generalized_few-shot_3d_point_cloud_segmentation_with_vision-language_model.md)
 - [Vision-Language Model IP Protection via Prompt-based Learning](vision-language_model_ip_protection_via_prompt-based_learning.md)
-- [NLPrompt: Noise-Label Prompt Learning for Vision-Language Models](nlprompt_noise-label_prompt_learning_for_vision-language_models.md)
+- [SpLIP: Elevating All Zero-Shot Sketch-Based Image Retrieval Through Multimodal Prompt Learning](../../ECCV2024/multimodal_vlm/elevating_all_zeroshot_sketchbased_image_retrieval_through_m.md)
 
 <!-- RELATED:END -->

@@ -129,7 +129,7 @@ DINO-BoC 自监督学习：单通道输入 ViT-small，student-teacher 框架。
 - [Pre-Training Curriculum for Multi-Token Prediction in Language Models](../../ACL2025/llm_pretraining/pre-training_curriculum_for_multi-token_prediction_in_language_models.md)
 - [Meta-rater: A Multi-dimensional Data Selection Method for Pre-training Language Models](../../ACL2025/llm_pretraining/metarater_a_multidimensional_data_selection_method.md)
 - [Stochastic Self-Organization in Multi-Agent Systems](stochastic_self-organization_in_multi-agent_systems.md)
-- [POA: Pre-training Once for Models of All Sizes](../../ECCV2024/llm_pretraining/poa_pre-training_once_for_models_of_all_sizes.md)
 - [Common Corpus: The Largest Collection of Ethical Data for LLM Pre-Training](common_corpus_ethical_data_for_llm_pretraining.md)
+- [MT-DAO: Multi-Timescale Distributed Adaptive Optimizers with Local Updates](mt-dao_multi-timescale_distributed_adaptive_optimizers_with_local_updates.md)
 
 <!-- RELATED:END -->

@@ -133,9 +133,9 @@ $\boldsymbol{\phi}$-SfT 数据集上 Chamfer 距离 ($\times 10^4$)：
 ## 相关论文
 
 - [4DTAM: Non-Rigid Tracking and Mapping via Dynamic Surface Gaussians](4dtam_non-rigid_tracking_and_mapping_via_dynamic_surface_gaussians.md)
+- [4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
+- [Eval3D: Interpretable and Fine-grained Evaluation for 3D Generation](eval3d_interpretable_and_fine-grained_evaluation_for_3d_generation.md)
 - [Geometry in Style: 3D Stylization via Surface Normal Deformation](geometry_in_style_3d_stylization_via_surface_normal_deformation.md)
 - [GauSTAR: Gaussian Surface Tracking and Reconstruction](gaustar_gaussian_surface_tracking_and_reconstruction.md)
-- [Fine-Grained Erasure in Text-to-Image Diffusion-based Foundation Models](fine-grained_erasure_in_text-to-image_diffusion-based_foundation_models.md)
-- [Joint Optimization of Neural Radiance Fields and Continuous Camera Motion from a Monocular Video](joint_optimization_of_neural_radiance_fields_and_continuous_camera_motion_from_a.md)
 
 <!-- RELATED:END -->

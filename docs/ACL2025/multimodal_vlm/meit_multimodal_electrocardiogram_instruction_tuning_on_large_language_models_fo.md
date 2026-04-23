@@ -168,6 +168,6 @@ LLaMA-3 在诊断准确性上达到 3.98/5，接近人类专家水平。
 - [MAmmoTH-VL: Eliciting Multimodal Reasoning with Instruction Tuning at Scale](mammoth_vl_multimodal_reasoning.md)
 - [Enhancing Multimodal Continual Instruction Tuning with BranchLoRA](branchlora_continual_instruction.md)
 - [HiDe-LLaVA: Hierarchical Decoupling for Continual Instruction Tuning of Multimodal Large Language Model](hidellava_hierarchical_decoupling_for_continual_instruction.md)
-- [Visual Instruction Bottleneck Tuning](../../NeurIPS2025/multimodal_vlm/visual_instruction_bottleneck_tuning.md)
+- [Con Instruction: Universal Jailbreaking of Multimodal Large Language Models via Non-Textual Modalities](con_instruction_universal_jailbreaking_of_multimodal_large_language_models_via_n.md)
 
 <!-- RELATED:END -->

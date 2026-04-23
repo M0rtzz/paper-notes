@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 其他方向 36篇论文解读
+  ICCV2025 其他方向 38篇论文解读
 description: >-
-  36篇ICCV2025 其他论文解读，主题涵盖：发现GCD中未标注数据（尤其是未知类别）的ViT注、本文提出 HOPS（Hyperdimensiona、本文提出了一种统一的线性 N-point 求解器等，每篇含核心思想与方法详解。
+  38篇ICCV2025 其他论文解读，主题涵盖：发现GCD中未标注数据（尤其是未知类别）的ViT注、本文提出 HOPS（Hyperdimensiona、本文提出了一种统一的线性 N-point 求解器等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**📹 ICCV2025** · **36** 篇论文解读
+**📹 ICCV2025** · **38** 篇论文解读
 
 **[A Hidden Stumbling Block in Generalized Category Discovery: Distracted Attention](a_hidden_stumbling_block_in_generalized_category_discovery_d.md)**
 
@@ -134,6 +134,10 @@ description: >-
 
 :   提出Φ-GAN，将SAR的理想点散射中心（PSC）电磁散射物理模型以可微神经模块形式集成到GAN训练中，通过双物理损失（生成器物理一致性约束+判别器电磁特征蒸馏）显著提升数据稀缺场景下SAR图像生成的质量和稳定性。
 
+**[Processing and Acquisition Traces in Visual Encoders: What Does CLIP Know About Your Camera?](processing_and_acquisition_traces_in_visual_encoders_what_does_clip_know_about_y.md)**
+
+:   揭示了 CLIP 等视觉编码器在学习的表征中系统性地编码了图像采集和处理参数（如相机型号、ISO、JPEG 质量等肉眼不可见的信息），且这些隐含信息会通过与语义标签的统计相关性显著影响（正面或负面）语义预测准确性。
+
 **[Recover Biological Structure from Sparse-View Diffraction Images with Neural Volumetric Prior](recover_biological_structure_from_sparse-view_diffraction_images_with_neural_vol.md)**
 
 :   提出Neural Volumetric Prior (NVP)，通过融合显式3D特征网格与隐式MLP的混合神经表示，结合基于衍射光学的物理渲染方程，首次实现了从稀疏视角（仅6-7张荧光图像）对半透明生物样本3D折射率的高保真体积重建，所需图像数量减少约50倍、处理时间缩短3倍。
@@ -141,6 +145,10 @@ description: >-
 **[Recovering Parametric Scenes from Very Few Time-of-Flight Pixels](recovering_parametric_scenes_from_very_few_time-of-flight_pixels.md)**
 
 :   本文探索用极少量（低至 15 个像素）低成本广视场 ToF 传感器恢复 3D 参数化场景几何的可行性，设计了前馈预测+可微渲染的分析-合成框架，在 6D 物体位姿估计等任务上展示了令人惊讶的效果。
+
+**[Revisiting Image Fusion for Multi-Illuminant White-Balance Correction](revisiting_image_fusion_for_multi-illuminant_white-balance_correction.md)**
+
+:   针对多光源场景白平衡校正问题，提出一种基于 Transformer 的高效融合模型来替代传统线性融合，并构建了包含 16,000+ 张图像的大规模多光源白平衡数据集，在新数据集上实现比现有方法提升 100% 的校正质量。
 
 **[Thermal Polarimetric Multi-view Stereo](thermal_polarimetric_multi-view_stereo.md)**
 

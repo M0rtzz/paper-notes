@@ -24,7 +24,10 @@ tags:
 本文研究了在教师模型为"不可迁移"（non-transferable）设计时无数据知识蒸馏面临的挑战——合成样本容易落入分布外区域导致蒸馏失败，提出了逃逸分布外区域（escaping OOD）的方法来实现有效蒸馏。
 
 ## 研究背景与动机
-**领域现状**：无数据知识蒸馏（Data-Free KD）通过生成器合成训练数据来训练学生模型，无需访问原始训练数据，在数据隐私场景中很有价值。同时，不可迁移学习（Non-Transferable Learning）旨在保护模型的知识产权，使模型在授权域外性能下降。
+
+### 领域现状
+
+**领域现状**：领域现状**：无数据知识蒸馏（Data-Free KD）通过生成器合成训练数据来训练学生模型，无需访问原始训练数据，在数据隐私场景中很有价值。同时，不可迁移学习（Non-Transferable Learning）旨在保护模型的知识产权，使模型在授权域外性能下降。
 
 **现有痛点**：当教师模型经过不可迁移训练时，其在分布外区域会给出误导性输出。传统无数据 KD 的生成器可能生成分布外样本，导致这些误导性知识被传递给学生模型。
 
@@ -122,8 +125,8 @@ tags:
 
 - [A Good Teacher Adapts Their Knowledge for Distillation](../../ICCV2025/model_compression/a_good_teacher_adapts_their_knowledge_for_distillation.md)
 - [Single-Teacher View Augmentation: Boosting Knowledge Distillation via Angular Diversity](../../NeurIPS2025/model_compression/single-teacher_view_augmentation_boosting_knowledge_distillation_via_angular_div.md)
+- [Gradient Short-Circuit: Efficient Out-of-Distribution Detection via Feature Intervention](../../ICCV2025/model_compression/gradient_short-circuit_efficient_out-of-distribution_detection_via_feature_inter.md)
 - [AMiD: Knowledge Distillation for LLMs with α-mixture Assistant Distribution](../../ICLR2026/model_compression/amid_knowledge_distillation_for_llms_with_α-mixture_assistant_distribution.md)
 - [ABKD: Pursuing a Proper Allocation of the Probability Mass in Knowledge Distillation via α-β-Divergence](abkd_pursuing_a_proper_allocation_of_the_probability_mass_in_knowledge_distillat.md)
-- [Data Laundering: Artificially Boosting Benchmark Results through Knowledge Distillation](../../ACL2025/model_compression/data_laundering_artificially_boosting_benchmark_results_through_knowledge_distil.md)
 
 <!-- RELATED:END -->

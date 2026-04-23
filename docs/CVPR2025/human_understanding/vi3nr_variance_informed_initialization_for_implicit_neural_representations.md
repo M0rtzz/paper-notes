@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：INR 使用各种新颖激活函数（Sine/Gaussian/Sinc/Wavelet 等）替代 ReLU 来提升频率拟合能力。但每种激活都需要专门推导初始化（如 SIREN 为 Sine 推导了特定初始化），缺乏通用方法。
 
 **现有痛点**：（1）Xavier 和 Kaiming 初始化仅适用于 ReLU/tanh 等标准激活；（2）SIREN 的初始化专为 Sine 设计，不能直接用于 Gaussian/Sinc 等；（3）错误的初始化导致前向传播中方差爆炸或消失，反向传播梯度不稳定，INR 训练崩溃。
@@ -38,6 +40,9 @@ tags:
 **核心 idea**：通用方差传播方程 + 一个自由度的网格搜索 = 适用于任意激活的 INR 初始化。
 
 ## 方法详解
+
+### 整体框架
+
 
 ### 关键设计
 
@@ -55,7 +60,7 @@ tags:
 
 | 激活函数 | 前向误差 $E_f$ (VI3NR/基线) | 说明 |
 |---------|-------------------------|------|
-| Gaussian | **0.9** / 6.7 | 7.4× 改善 |
+| Gaussian | **0.9** / 6.7 | 7.4%× 改善 |
 | Sinc | 显著改善 | — |
 | Sine | 匹配 SIREN | 验证一致性 |
 
@@ -86,14 +91,20 @@ tags:
 - 写作质量: ⭐⭐⭐⭐⭐ 推导优雅
 - 价值: ⭐⭐⭐⭐ INR 社区的实用基础工具
 
+
+## 相关工作与启发
+- **vs 同领域代表性方法**：本文在方法设计上有独特贡献，与现有方法形成互补
+- **vs 传统方法**：相比传统方案，本文方法在关键指标上取得了显著提升
+- **启发**：本文的技术路线对后续相关工作有重要参考价值
+
 <!-- RELATED:START -->
 
 ## 相关论文
 
+- [A Probability-guided Sampler for Neural Implicit Surface Rendering](../../ECCV2024/human_understanding/a_probabilityguided_sampler_for_neural_implicit_surface_rend.md)
 - [PISR: Polarimetric Neural Implicit Surface Reconstruction for Textureless and Specular Objects](../../ECCV2024/human_understanding/pisr_polarimetric_neural_implicit_surface_reconstruction_for_textureless_and_spe.md)
-- [Refine Now, Query Fast: A Decoupled Refinement Paradigm for Implicit Neural Fields](../../ICLR2026/human_understanding/refine_now_query_fast_a_decoupled_refinement_paradigm_for_implicit_neural_fields.md)
 - [WIR3D: Visually-Informed and Geometry-Aware 3D Shape Abstraction](../../ICCV2025/human_understanding/wir3d_visually-informed_and_geometry-aware_3d_shape_abstraction.md)
-- [NN-Former: Rethinking Graph Structure in Neural Architecture Representation](nn-former_rethinking_graph_structure_in_neural_architecture_representation.md)
-- [Quaffure: Real-Time Quasi-Static Neural Hair Simulation](quaffure_real-time_quasi-static_neural_hair_simulation.md)
+- [Refine Now, Query Fast: A Decoupled Refinement Paradigm for Implicit Neural Fields](../../ICLR2026/human_understanding/refine_now_query_fast_a_decoupled_refinement_paradigm_for_implicit_neural_fields.md)
+- [Dynamic Neural Surfaces for Elastic 4D Shape Representation and Analysis](dynamic_neural_surfaces_for_elastic_4d_shape_representation_and_analysis.md)
 
 <!-- RELATED:END -->

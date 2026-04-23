@@ -126,7 +126,7 @@ MultiGen 基于预训练的文本到图像扩散模型（如 Stable Diffusion）
 - [OmniSSR: Zero-shot Omnidirectional Image Super-Resolution using Stable Diffusion Model](omnissr_zero-shot_omnidirectional_image_super-resolution_using_stable_diffusion_.md)
 - [FreeCompose: Generic Zero-Shot Image Composition with Diffusion Prior](freecompose_generic_zero-shot_image_composition_with_diffusion_prior.md)
 - [T2ICount: Enhancing Cross-modal Understanding for Zero-Shot Counting](../../CVPR2025/image_generation/t2icount_enhancing_cross-modal_understanding_for_zero-shot_counting.md)
-- [DreamDrone: Text-to-Image Diffusion Models are Zero-shot Perpetual View Generators](dreamdrone_text-to-image_diffusion_models_are_zero-shot_perpetual_view_generator.md)
-- [DynamicID: Zero-Shot Multi-ID Image Personalization with Flexible Facial Editability](../../ICCV2025/image_generation/dynamicid_zero-shot_multi-id_image_personalization_with_flexible_facial_editabil.md)
+- [MotionChain: Conversational Motion Controllers via Multimodal Prompts](motionchain_conversational_motion_controllers_via_multimodal_prompts.md)
+- [XPSR: Cross-modal Priors for Diffusion-based Image Super-Resolution](xpsr_cross-modal_priors_for_diffusion-based_image_super-resolution.md)
 
 <!-- RELATED:END -->

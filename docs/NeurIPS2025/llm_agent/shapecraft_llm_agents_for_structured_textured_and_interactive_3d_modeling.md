@@ -167,7 +167,7 @@ ShapeCraft 在 IoGT、CLIP Score、VQA Pass Rate 三项最优，Hausdorff 距离
 - [Structured Personalization: Modeling Constraints as Matroids for Data-Minimal LLM Agents](../../AAAI2026/llm_agent/structured_personalization_modeling_constraints_as_matroids_for_data-minimal_llm.md)
 - [TrajAgent: An LLM-Agent Framework for Trajectory Modeling via Large-and-Small Model Collaboration](trajagent_an_llm-agent_framework_for_trajectory_modeling_via_large-and-small_mod.md)
 - [Traj-CoA: Patient Trajectory Modeling via Chain-of-Agents for Lung Cancer Risk Prediction](traj-coa_patient_trajectory_modeling_via_chain-of-agents_for_lung_cancer_risk_pr.md)
+- [BookWorld: From Novels to Interactive Agent Societies for Story Creation](../../ACL2025/llm_agent/bookworld_from_novels_to_interactive_agent_societies_for_story_creation.md)
 - [A-MEM: Agentic Memory for LLM Agents](a-mem_agentic_memory_for_llm_agents.md)
-- [LLM Agents for Knowledge Discovery in Atomic Layer Processing](llm_agents_for_knowledge_discovery_in_atomic_layer_processing.md)
 
 <!-- RELATED:END -->

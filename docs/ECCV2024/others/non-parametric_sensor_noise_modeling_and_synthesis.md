@@ -124,7 +124,7 @@ tags:
 - [Predict and Resist: Long-Term Accident Anticipation under Sensor Noise](../../AAAI2026/others/predict_and_resist_long-term_accident_anticipation_under_sensor_noise.md)
 - [AddMe: Zero-Shot Group-Photo Synthesis by Inserting People Into Scenes](addme_zero-shot_group-photo_synthesis_by_inserting_people_into_scenes.md)
 - [Coresets for Clustering Under Stochastic Noise](../../NeurIPS2025/others/coresets_for_clustering_under_stochastic_noise.md)
-- [Non-Clairvoyant Scheduling with Progress Bars](../../NeurIPS2025/others/non-clairvoyant_scheduling_with_progress_bars.md)
+- [FastMCTS: A Simple Sampling Strategy for Data Synthesis](../../ACL2025/others/fastmcts_a_simple_sampling_strategy_for_data_synthesis.md)
 - [SudoLM: Learning Access Control of Parametric Knowledge with Authorization Alignment](../../ACL2025/others/sudolm_authorization_alignment.md)
 
 <!-- RELATED:END -->

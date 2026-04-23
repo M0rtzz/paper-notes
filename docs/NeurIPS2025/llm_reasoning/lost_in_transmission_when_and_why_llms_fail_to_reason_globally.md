@@ -17,7 +17,7 @@ tags:
 
 **会议**: NeurIPS 2025 (Spotlight)  
 **arXiv**: [2505.08140](https://arxiv.org/abs/2505.08140)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: llm_reasoning  
 **关键词**: communication complexity, bounded attention, chain-of-thought, LLM limitations, computational framework  
 **作者**: Tobias Schnabel, Kiran Tomlinson, Adith Swaminathan, Jennifer Neville (Microsoft)
@@ -28,7 +28,9 @@ tags:
 
 ## 研究背景与动机
 
-**LLM全局推理的系统性失败**：基于Transformer的LLM在需要整合输入大部分信息的任务上（如图可达性、变量追踪、多数投票聚合）持续失败，即使模型规模很大也无济于事。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：**LLM全局推理的系统性失败**：基于Transformer的LLM在需要整合输入大部分信息的任务上（如图可达性、变量追踪、多数投票聚合）持续失败，即使模型规模很大也无济于事。
 
 **缺乏原理性解释**：现有工作多在实证层面观察失败，缺少形式化框架来解释为什么某些任务难而某些容易，也无法预测哪类问题LLM会失败。
 
@@ -95,7 +97,7 @@ tags:
 
 **关键发现**：(1) BAPO-easy/hard的分类精确预测了LLM的成功/失败模式；(2) CoT有效但需足够长的推理链——250词限制不够，o3/Gemini的内部长推理则可解决；(3) 真实任务(情感聚合、代码追踪)中也观察到与理论一致的BAPO-hard失败。
 
-## 亮点
+## 亮点与洞察
 
 1. **优雅的理论框架**：BAPO模型将复杂的Transformer行为抽象为简洁的通信带宽问题，建立了理论-实验的清晰对应，AC评价其为"clean and valuable theoretical contribution"
 2. **原理性解释CoT**：首次证明CoT的理论效力——将BAPO变成图灵完备，提供了CoT有效性的形式化保证，而非仅实证观察
@@ -103,7 +105,7 @@ tags:
 4. **架构设计启示**：指出增加MLP宽度/层数（计算能力）无法解决问题，关键在于增大注意力通信带宽，为架构改进提供方向性指引
 5. **NeurIPS 2025 Spotlight**：4位审稿人中3位给Accept(5分)，AC强调其在理解LLM方面的重要性和对后续研究的激发作用
 
-## 局限性
+## 局限与展望
 
 1. **模型抽象过度简化**：假设前缀/后缀有无限计算能力、完美位置编码、单token输出，与真实Transformer差距较大，限制了直接应用性
 2. **任务集合有限**：仅分析6个合成问题，尚未覆盖更多自然语言中的推理任务；理论下界多数是松弛的
@@ -125,9 +127,9 @@ tags:
 ## 相关论文
 
 - [When Reasoning Meets Compression: Understanding the Effects of LLMs Compression on Large Reasoning Models](../../ICLR2026/llm_reasoning/when_reasoning_meets_compression_understanding_the_effects_of_llms_compression_o.md)
-- [笔记6：Self-Evaluating LLMs - 多步任务的步级置信度估计](value-guided_search_for_efficient_chain-of-thought_reasoning.md)
 - [Why is Your Language Model a Poor Implicit Reward Model?](../../ICLR2026/llm_reasoning/why_is_your_language_model_a_poor_implicit_reward_model.md)
-- [Many LLMs Are More Utilitarian Than One](many_llms_are_more_utilitarian_than_one.md)
+- [笔记6：Self-Evaluating LLMs - 多步任务的步级置信度估计](value-guided_search_for_efficient_chain-of-thought_reasoning.md)
 - [Native Reasoning Models: Training Language Models to Reason on Unverifiable Data](../../ICLR2026/llm_reasoning/native_reasoning_models_training_language_models_to_reason_on_unverifiable_data.md)
+- [Many LLMs Are More Utilitarian Than One](many_llms_are_more_utilitarian_than_one.md)
 
 <!-- RELATED:END -->

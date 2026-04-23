@@ -128,7 +128,7 @@ tags:
 - [Color Alignment in Diffusion](color_alignment_in_diffusion.md)
 - [GCC: Generative Color Constancy via Diffusing a Color Checker](gcc_generative_color_constancy_via_diffusing_a_color_checker.md)
 - [MangaNinja: Line Art Colorization with Precise Reference Following](manganinja_line_art_colorization_with_precise_reference_following.md)
-- [ColorPeel: Color Prompt Learning with Diffusion Models via Color and Shape Disentanglement](../../ECCV2024/image_generation/colorpeel_color_prompt_learning_with_diffusion_models_via_color_and_shape_disent.md)
 - [Science-T2I: Addressing Scientific Illusions in Image Synthesis](science-t2i_addressing_scientific_illusions_in_image_synthesis.md)
+- [ColorPeel: Color Prompt Learning with Diffusion Models via Color and Shape Disentanglement](../../ECCV2024/image_generation/colorpeel_color_prompt_learning_with_diffusion_models_v.md)
 
 <!-- RELATED:END -->

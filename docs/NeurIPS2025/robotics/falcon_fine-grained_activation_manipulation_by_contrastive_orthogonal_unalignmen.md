@@ -128,6 +128,6 @@ $$\nabla\mathcal{L}_\mathcal{F}^{\text{proj}} = \nabla\mathcal{L}_\mathcal{F} - 
 - [VITRIX-CLIPIN: Enhancing Fine-Grained Visual Understanding in CLIP via Instruction Editing Data and Long Captions](vitrix-clipin_enhancing_fine-grained_visual_understanding_in_clip_via_instructio.md)
 - [RoboCerebra: A Large-scale Benchmark for Long-horizon Robotic Manipulation Evaluation](robocerebra_a_large-scale_benchmark_for_long-horizon_robotic_manipulation_evalua.md)
 - [CHEER-Ekman: Fine-grained Embodied Emotion Classification](../../ACL2025/robotics/cheer-ekman_fine-grained_embodied_emotion_classification.md)
-- [Phoenix: A Motion-based Self-Reflection Framework for Fine-grained Robotic Action Correction](../../CVPR2025/robotics/phoenix_a_motion-based_self-reflection_framework_for_fine-grained_robotic_action.md)
+- [CogVLA: Cognition-Aligned Vision-Language-Action Model via Instruction-Driven Routing & Sparsification](cogvla_cognition-aligned_vision-language-action_model_via_instruction-driven_rou.md)
 
 <!-- RELATED:END -->

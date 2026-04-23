@@ -176,8 +176,8 @@ straQ\* 的长期价值（累积回报）显著高于基线，验证了 Q-learni
 
 - [Unintended Harms of Value-Aligned LLMs: Psychological and Empirical Insights](unintended_harms_of_value-aligned_llms_psychological_and_empirical_insights.md)
 - [Generative Psycho-Lexical Approach for Constructing Value Systems in Large Language Models](generative_psycholexical_approach_for_constructing_value.md)
-- [Training Language Model to Critique for Better Refinement](training_language_model_to_critique_for_better_refinement.md)
-- [Circuit Stability Characterizes Language Model Generalization](circuit_stability_characterizes_language_model_generalization.md)
+- [Value Portrait: Assessing Language Models' Values through Psychometrically and Ecologically Valid Items](value_portrait_assessing_language_models_values_through_psychometrically_and_eco.md)
+- [Cultural Value Differences of LLMs: Prompt, Language, and Model Size](../../ECCV2024/llm_nlp/cultural_value_differences_llms.md)
 - [Representation Bending for Large Language Model Safety](repbend_representation_bending_safety.md)
 
 <!-- RELATED:END -->

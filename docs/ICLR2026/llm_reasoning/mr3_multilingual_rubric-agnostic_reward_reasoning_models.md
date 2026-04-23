@@ -171,6 +171,6 @@ mR3-Qwen3-14B以14B参数超越120B教师模型（+0.13 on m-RB, +1.04 on MM-Eva
 - [Is It Thinking or Cheating? Detecting Implicit Reward Hacking by Measuring Reasoning Effort](is_it_thinking_or_cheating_detecting_implicit_reward_hacking_by_measuring_reason.md)
 - [Why is Your Language Model a Poor Implicit Reward Model?](why_is_your_language_model_a_poor_implicit_reward_model.md)
 - [Fixing the Broken Compass: Diagnosing and Improving Inference-Time Reward Modeling](fixing_the_broken_compass_diagnosing_and_improving_inference-time_reward_modelin.md)
-- [Towards Safe Reasoning in Large Reasoning Models via Corrective Intervention](towards_safe_reasoning_in_large_reasoning_models_via_corrective_intervention.md)
+- [Know What You Don't Know: Uncertainty Calibration of Process Reward Models](../../NeurIPS2025/llm_reasoning/know_what_you_dont_know_uncertainty_calibration_of_process_reward_models.md)
 
 <!-- RELATED:END -->

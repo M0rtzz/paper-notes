@@ -24,13 +24,28 @@ tags:
 提出 EMTC 框架，通过 Importance-aware Variate-wise Masking (IVM) 动态屏蔽冗余时间戳，结合 Multi-Endogenous Views (MEV) 多视图生成与 cluster-guided contrastive learning，在 15 个 MTS 聚类基准上平均 F1 提升 4.85%。
 
 ## 研究背景与动机
-多变量时间序列 (MTS) 聚类需要发现数据的内在分组模式，但 MTS 中存在大量冗余（如稳态运行记录、零输出时段），削弱了对关键时间戳的关注。
+
+### 领域现状
+
+**领域现状**：多变量时间序列 (MTS) 聚类需要发现数据的内在分组模式，但 MTS 中存在大量冗余（如稳态运行记录、零输出时段），削弱了对关键时间戳的关注。
 
 现有方法的问题：
-- **Autoencoder 方法**（DeTSEC、RDDC）：重建目标倾向于保留冗余信息
-- **Contrastive learning 方法**（TimesURL、FCACC）：效果依赖数据增强策略的设计，若与聚类分布不匹配则会放大冗余
-- **Attention 机制**：软加权保留了完整输入结构，且可能被高激活但无信息的模式误导
-- **Static masking**（Ti-MAE、TS-MVP）：固定掩码策略无法随学习过程动态适应聚类任务
+
+### 解决思路
+
+**解决思路**：Autoencoder 方法**（DeTSEC、RDDC）：重建目标倾向于保留冗余信息
+
+### 现有痛点
+
+**现有痛点**：Contrastive learning 方法**（TimesURL、FCACC）：效果依赖数据增强策略的设计，若与聚类分布不匹配则会放大冗余
+
+### 核心矛盾
+
+**核心矛盾**：Attention 机制**：软加权保留了完整输入结构，且可能被高激活但无信息的模式误导
+
+### 补充说明
+
+**补充说明**：Static masking**（Ti-MAE、TS-MVP）：固定掩码策略无法随学习过程动态适应聚类任务
 
 核心洞察：masking 策略应与聚类目标协同演化，动态排除聚类无关的冗余时间戳。
 
@@ -75,7 +90,7 @@ $$\mathcal{L}_{total} = \mathcal{L}_{contra} + \alpha \mathcal{L}_{intra} + \bet
 - 去除 CMC → 聚类效果退化，验证 cluster-guided contrastive 的有效性
 - 去除 MEV → 单视图表现更差，验证多视图互补作用
 
-## 亮点
+## 亮点与洞察
 - **Evolving masking 理念新颖**：掩码与聚类目标协同演化，而非静态预处理，是 MTS 聚类中首次探索 learnable redundancy masking
 - **IVM-MEV 互补设计**：MEV 缓解 crisp masking 的信息损失，IVM 抑制 MEV 放大的冗余，形成良性循环
 - **将聚类目标融入表示学习**：通过动态聚类标签引导对比学习，打通了表示学习与下游聚类目标的连接
@@ -100,6 +115,6 @@ $$\mathcal{L}_{total} = \mathcal{L}_{contra} + \alpha \mathcal{L}_{intra} + \bet
 - [C3RL: Rethinking the Combination of Channel-independence and Channel-mixing from Representation Learning](c3rl_rethinking_the_combination_of_channel-independence_and_channel-mixing_from_.md)
 - [GTM: A General Time-series Model for Enhanced Representation Learning of Time-Series Data](../../ICLR2026/time_series/gtm_a_general_time-series_model_for_enhanced_representation_learning_of_time-ser.md)
 - [iTimER: Reconstruction Error-Guided Irregularly Sampled Time Series Representation Learning](beyond_observations_reconstruction_error-guided_irregularly_sampled_time_series_.md)
-- [PAANO: Patch-Based Representation Learning for Time-Series Anomaly Detection](../../ICLR2026/time_series/paano_patch-based_representation_learning_for_time-series_anomaly_detection.md)
+- [Counterfactual Explainable AI (XAI) Method for Deep Learning-Based Multivariate Time Series Classification](counterfactual_explainable_ai_xai_method_for_deep_learning-based_multivariate_ti.md)
 
 <!-- RELATED:END -->

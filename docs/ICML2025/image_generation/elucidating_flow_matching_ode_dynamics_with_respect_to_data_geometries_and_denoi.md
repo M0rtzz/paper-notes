@@ -27,11 +27,21 @@ tags:
 
 ## 研究背景与动机
 
-Flow Matching模型将扩散模型的ODE采样推广为一般框架，通过学习向量场显著减少采样步数。然而，FM模型的理论理解仍不充分，特别是：
+### 领域现状
 
-- **轨迹与数据几何的关系**：数据的几何结构（如聚类、流形结构）如何影响和引导采样轨迹？
-- **终端收敛性**：当数据位于低维子空间或流形上时，轨迹是否保证收敛到数据分布？这对生成质量至关重要。
-- **实际意义**：轨迹收敛是consistency model等单步生成模型的理论基础；理解数据几何与ODE轨迹的关系可以指导采样策略的优化。
+**领域现状**：Flow Matching模型将扩散模型的ODE采样推广为一般框架，通过学习向量场显著减少采样步数。然而，FM模型的理论理解仍不充分，特别是：
+
+### 现有痛点
+
+**现有痛点**：轨迹与数据几何的关系**：数据的几何结构（如聚类、流形结构）如何影响和引导采样轨迹？
+
+### 核心矛盾
+
+**核心矛盾**：终端收敛性**：当数据位于低维子空间或流形上时，轨迹是否保证收敛到数据分布？这对生成质量至关重要。
+
+### 解决思路
+
+**解决思路**：实际意义**：轨迹收敛是consistency model等单步生成模型的理论基础；理解数据几何与ODE轨迹的关系可以指导采样策略的优化。
 
 先前工作（如Biroli等、Li & Chen）主要关注随机采样器在简化设置下的分布级分析，本文首次系统揭示了数据几何如何在个体ODE轨迹层面发挥作用。
 
@@ -139,7 +149,7 @@ $$\langle m_\sigma(x) - x, \text{proj}_\Omega(x) - x \rangle > 0$$
 - [Improving Flow Matching by Aligning Flow Divergence](improving_flow_matching_by_aligning_flow_divergence.md)
 - [Composite Flow Matching for Reinforcement Learning with Shifted-Dynamics Data](../../NeurIPS2025/image_generation/composite_flow_matching_for_reinforcement_learning_with_shifted-dynamics_data.md)
 - [Gaussian Mixture Flow Matching Models](gaussian_mixture_flow_matching_models.md)
-- [ETTA: Elucidating the Design Space of Text-to-Audio Models](etta_elucidating_the_design_space_of_text-to-audio_models.md)
 - [ContinualFlow: Learning and Unlearning with Neural Flow Matching](continualflow_learning_and_unlearning_with_neural_flow_matching.md)
+- [ETTA: Elucidating the Design Space of Text-to-Audio Models](etta_elucidating_the_design_space_of_text-to-audio_models.md)
 
 <!-- RELATED:END -->

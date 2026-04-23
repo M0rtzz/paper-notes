@@ -30,9 +30,17 @@ tags:
 
 ## 研究背景与动机
 
-- **隐私多臂老虎机**：在线学习中学习者需利用历史数据做决策，但隐私约束要求限制信息泄露量。
-- **现有方法的 GDP 松弛**：TS-Gaussian（Agrawal & Goyal, 2017）本身满足 $O(\sqrt{T})$-GDP，但每轮对每个臂都采样高斯模型导致隐私预算浪费严重。
-- **核心洞察**：(1) 高斯分布仅在臂被拉取时才变化，中间轮次的采样是多余的隐私消耗；(2) 使用 arm-specific epoch 结构限制每个观测仅用一次，进一步减少隐私损失；(3) $\phi$ 个采样的最大值在概率意义上等价于 UCB 的乐观上界。
+### 领域现状
+
+**领域现状**：隐私多臂老虎机**：在线学习中学习者需利用历史数据做决策，但隐私约束要求限制信息泄露量。
+
+### 解决思路
+
+**本文目标**：**核心矛盾**：现有方法的 GDP 松弛**：TS-Gaussian（Agrawal & Goyal, 2017）本身满足 $O(\sqrt{T})$-GDP，但每轮对每个臂都采样高斯模型导致隐私预算浪费严重。
+
+### 解决思路
+
+**解决思路**：核心洞察**：(1) 高斯分布仅在臂被拉取时才变化，中间轮次的采样是多余的隐私消耗；(2) 使用 arm-specific epoch 结构限制每个观测仅用一次，进一步减少隐私损失；(3) $\phi$ 个采样的最大值在概率意义上等价于 UCB 的乐观上界。
 
 ## 方法详解
 
@@ -58,6 +66,9 @@ DP-TS-UCB 是一个两阶段算法：
 ## 实验关键数据
 
 ### 隐私-遗憾权衡总结
+
+
+### 主实验
 
 | 算法 | 遗憾上界 | GDP 保证 |
 |---|---|---|
@@ -120,10 +131,10 @@ DP-TS-UCB 是一个两阶段算法：
 
 ## 相关论文
 
-- [Improving the Trade-off Between Watermark Strength and Speculative Sampling Efficiency for Language Models](../../ICLR2026/ai_safety/improving_the_trade-off_between_watermark_strength_and_speculative_sampling_effi.md)
-- [Clients Collaborate: Flexible Differentially Private Federated Learning with Guaranteed Improvement of Utility-Privacy Trade-off](clients_collaborate_flexible_differentially_private_federated_learning_with_guar.md)
 - [Empirical Privacy Variance](empirical_privacy_variance.md)
+- [Clients Collaborate: Flexible Differentially Private Federated Learning with Guaranteed Improvement of Utility-Privacy Trade-off](clients_collaborate_flexible_differentially_private_federated_learning_with_guar.md)
 - [Activation Space Interventions Can Be Transferred Between Large Language Models](activation_space_interventions_can_be_transferred_between_large_language_models.md)
-- [Mitigating Privacy-Utility Trade-off in Decentralized Federated Learning via f-Differential Privacy](../../NeurIPS2025/ai_safety/mitigating_privacy-utility_trade-off_in_decentralized_federated_learning_via_f-d.md)
+- [On Differential Privacy for Adaptively Solving Search Problems via Sketching](on_differential_privacy_for_adaptively_solving_search_problems_via_sketching.md)
+- [Cape: Context-Aware Prompt Perturbation Mechanism with Differential Privacy](cape_context-aware_prompt_perturbation_mechanism_with_differential_privacy.md)
 
 <!-- RELATED:END -->

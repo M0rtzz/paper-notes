@@ -17,7 +17,7 @@ tags:
 
 **会议**: ICCV2025  
 **arXiv**: [2510.20972](https://arxiv.org/abs/2510.20972)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 三维重建 / 热成像 / 偏振成像  
 **关键词**: thermal imaging, polarimetric imaging, LWIR, multi-view stereo, SDF, shape from polarization
 
@@ -27,9 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-### 三维重建的材质与光照依赖问题
+### 核心矛盾
 
-三维形状重建是计算机视觉的基础问题，但现有方法对光照和材质有强假设：
+**核心矛盾**：三维形状重建是计算机视觉的基础问题，但现有方法对光照和材质有强假设：
 
 - **多视立体匹配**：依赖表面纹理进行对应点匹配
 - **结构光/光度立体**：需要特定光照条件，假设不透明表面
@@ -146,9 +146,9 @@ tags:
 
 ## 相关论文
 
-- [Mahalanobis Distance-Based Multi-View Optimal Transport for Multi-View Crowd Localization](../../ECCV2024/others/mahalanobis_distance-based_multi-view_optimal_transport_for_multi-view_crowd_loc.md)
 - [Auto-Regressively Generating Multi-View Consistent Images (MV-AR)](autoregressively_generating_multiview_consistent_images.md)
-- [Which Viewpoint Shows It Best? Language for Weakly Supervising View Selection in Multi-view Instructional Videos](../../CVPR2025/others/which_viewpoint_shows_it_best_language_for_weakly_supervising_view_selection_in_.md)
+- [Mahalanobis Distance-Based Multi-View Optimal Transport for Multi-View Crowd Localization](../../ECCV2024/others/mahalanobis_distance-based_multi-view_optimal_transport_for_multi-view_crowd_loc.md)
+- [Which Viewpoint Shows it Best? Language for Weakly Supervising View Selection in Multi-view Instructional Videos](../../CVPR2025/others/which_viewpoint_shows_it_best_language_for_weakly_supervising_view_selection_in_.md)
 - [Recover Biological Structure from Sparse-View Diffraction Images with Neural Volumetric Prior](recover_biological_structure_from_sparse-view_diffraction_images_with_neural_vol.md)
 - [Three-View Focal Length Recovery From Homographies](../../CVPR2025/others/three-view_focal_length_recovery_from_homographies.md)
 

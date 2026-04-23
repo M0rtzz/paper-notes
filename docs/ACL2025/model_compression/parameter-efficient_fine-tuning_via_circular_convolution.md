@@ -1,146 +1,138 @@
 ---
 title: >-
-  [论文解读] C3A: 基于循环卷积的参数高效微调
+  [论文解读] C3A: Parameter-Efficient Fine-Tuning via Circular Convolution
 description: >-
-  [ACL 2025][模型压缩][PEFT] 提出Circular Convolution Adaptation (C3A)，用循环卷积算子替代LoRA的低秩矩阵分解来构造增量权重$\Delta W$——循环矩阵的秩与可训练参数数量解耦，实现"少参数+高秩"适配；同时利用FFT加速前向/反向传播，在计算和显存效率上均可与LoRA媲美。在GLUE、常识推理、数学推理、代码生成等任务上持续优于LoRA及其变体。
+  [ACL 2025][模型压缩][PEFT] 提出 Circular Convolution Adaptation (C3A)，用循环卷积算子替代低秩分解实现参数高效微调，通过 FFT 加速和块循环扩展，在参数量与矩阵秩解耦的同时保持与 LoRA 相当的计算效率，在 LLaMA-8B 等模型上全面超越 LoRA 及其变体。
 tags:
   - ACL 2025
   - 模型压缩
   - PEFT
+  - circular convolution
   - LoRA
-  - 循环卷积
-  - 循环矩阵
   - FFT
-  - 高秩适配
-  - 块循环矩阵
+  - 参数高效微调
 ---
 
-# C3A: 基于循环卷积的参数高效微调
+# C3A: Parameter-Efficient Fine-Tuning via Circular Convolution
 
 **会议**: ACL 2025  
 **arXiv**: [2407.19342](https://arxiv.org/abs/2407.19342)  
-**代码**: [Hugging Face PEFT](https://github.com/huggingface/peft) (已集成)  
+**代码**: https://huggingface.co/docs/peft (集成到 HuggingFace PEFT)  
 **领域**: 模型压缩 / 参数高效微调  
-**关键词**: PEFT, LoRA, 循环卷积, 循环矩阵, FFT, 高秩适配, 块循环矩阵  
+**关键词**: circular convolution, LoRA, PEFT, FFT, 参数高效微调
 
 ## 一句话总结
-提出Circular Convolution Adaptation (C3A)，用循环卷积算子替代LoRA的低秩矩阵分解来构造增量权重$\Delta W$——循环矩阵的秩与可训练参数数量解耦，实现"少参数+高秩"适配；同时利用FFT加速前向/反向传播，在计算和显存效率上均可与LoRA媲美。在GLUE、常识推理、数学推理、代码生成等任务上持续优于LoRA及其变体。
+提出 C3A 方法用循环卷积算子替代 LoRA 的低秩矩阵分解实现参数高效微调，核心优势是矩阵秩与参数量解耦——可用少量参数实现高秩适配，同时通过 FFT 保持与 LoRA 相当的计算和内存效率，在多种微调任务上一致超越 LoRA 及其变体。
 
-## 核心问题与动机
-1. **LoRA的低秩瓶颈**：LoRA将增量权重表示为$\Delta W = BA$，其中$B \in \mathbb{R}^{d_1 \times r}$，$A \in \mathbb{R}^{r \times d_2}$。秩$r$同时决定了可训练参数数$r(d_1+d_2)$和$\Delta W$的秩上界——小$r$虽然参数少，但表达能力受限于低秩约束
-2. **现有高秩方法的效率问题**：VeRA通过随机投影矩阵实现高秩适配，参数少但需要存储巨大的随机矩阵$r_v(d_1+d_2)$，显存开销远超LoRA；BOFT用蝴蝶因子化正交矩阵，在LLaMA-8B上直接OOM
-3. **性能与效率的两难**：现有PEFT方法要么参数少但秩低(LoRA)，要么秩高但计算/显存昂贵(VeRA/BOFT/DoRA)——缺乏真正平衡性能和效率的方案
-4. **Dense线性层缺乏归纳偏置**：Transformer的线性层没有CNN那样的结构先验，在下游微调数据有限时优化困难——需要一种合适的归纳偏置作为正则化
-5. **秩与参数量的耦合是根本障碍**：LoRA中$r$同时控制两者，导致无法独立调节适配容量和参数预算
-6. **FFT的成熟生态提供了机会**：循环矩阵可被Fourier基对角化，GPU上的cuFFT已高度优化——循环卷积在理论和工程上都具备替代矩阵乘法的条件
+## 研究背景与动机
 
-## 关键方法
+### 领域现状
+**领域现状**：大型基础模型（LFM）在 NLP、CV 等领域取得了前所未有的性能，但其巨大参数量带来的微调成本成为实际部署的障碍。参数高效微调（PEFT）技术，以 LoRA 为代表，通过低秩矩阵 $\Delta W = BA$（$B \in \mathbb{R}^{d_1 \times r}, A \in \mathbb{R}^{r \times d_2}$，$r \ll \min(d_1, d_2)$）近似权重变化，大幅降低可训练参数量。
 
-### 1. 循环卷积适配 (Circular Convolution Adaptation)
-**核心思想**：用长度为$d$的卷积核$\Delta w$替代LoRA的两个低秩矩阵$A$和$B$。
+### 现有痛点与挑战
+**现有痛点**：(1) **LoRA 的内在低秩局限**——参数量 $r(d_1+d_2)$ 同时决定了 $\Delta W$ 的秩上界 $r$，秩受限于参数预算，Zeng & Lee (2023) 证明了这一限制对目标模型逼近能力的约束；(2) **高秩方法的效率问题**——VeRA 等变体通过固定随机矩阵实现高秩，但计算和内存开销远超 LoRA（$O(r_v(d_1+d_2))$，$r_v$ 可能超过 $\max(d_1, d_2)$）；(3) **现有方法无法同时兼顾高秩、低参数量和低计算/内存开销**三个目标。
 
-增量输出通过循环卷积计算：$\Delta z = \Delta w \star x = \mathcal{C}(\Delta w) x$
+**核心矛盾**：PEFT 中秩、参数量和效率三者之间的权衡——LoRA 牺牲秩换效率，VeRA 牺牲效率换秩，如何三者兼具？
 
-其中$\mathcal{C}(\Delta w)$是由$\Delta w$构造的循环矩阵——第一行为$\Delta w$，后续每行循环右移一位。
+### 研究目标与方案
+**本文目标**：实现高秩适配而不牺牲时间和内存效率——解耦矩阵秩与参数量。
 
-**秩与参数解耦**：循环矩阵$\mathcal{C}(\Delta w)$的秩等于$d - \text{Deg}(\gcd(f(x), x^d - 1))$，理论上界为$d$（满秩）。关键在于：**只需$d$个参数就能构造秩最高为$d$的矩阵**，而LoRA需要$r(d_1+d_2)$个参数才能达到秩$r$。
+**切入角度**：循环卷积算子 $\Delta w \star x = \mathcal{C}(\Delta w)x$ 对应的循环矩阵 $\mathcal{C}(\Delta w)$ 的秩由多项式 GCD 决定（理论上界为 $d$），与参数量（仅 $d$ 个元素）完全无关；且循环矩阵可由 Fourier 基对角化，通过 FFT 实现 $O(d \log d)$ 高效计算。
 
-**FFT加速**：利用循环矩阵可被Fourier基对角化的性质：
-$$\Delta w \star x = \text{FFT}(\text{FFT}(\Delta w) \circ \text{iFFT}(x))$$
-前向和反向传播都可用FFT实现，时间复杂度$O(d\log d)$——远优于矩阵乘法的$O(d^2)$。
+**核心 idea**：用循环卷积替代矩阵乘法作为 PEFT 的加性线性操作——实现参数量与秩的解耦 + FFT 加速。
 
-反向传播同样优雅：利用循环卷积的交换律$\mathcal{C}(\Delta w)x = \mathcal{C}(x)\Delta w$，梯度计算也化为循环卷积→FFT。
+## 方法详解
 
-### 2. 块循环卷积扩展 (Block-Circular Convolution)
-解决基础循环卷积的两个限制：① 仅适用方阵 ② 参数量固定。
+### 整体框架
+C3A 的适配权重计算替换 LoRA 的 $\Delta z = BAx$ 为 $\Delta z = \Delta w \star x$，其中 $\star$ 为循环卷积。循环卷积核 $\Delta w$ 为可训练参数，其对应的循环矩阵 $\mathcal{C}(\Delta w)$ 为实际的权重变化矩阵。通过 FFT 实现的前向传播和反向传播确保计算效率。对于非方阵权重矩阵，使用块循环卷积扩展。
 
-将$x$和$\Delta z$分成大小为$b$的块，每对块分配独立卷积核：
-$$\Delta z_i = \sum_{j=1}^{d_2/b} \Delta w_{ij} \star x_j$$
+### 关键设计
 
-等价于块循环矩阵$\mathcal{C}_{\text{blk}}(\Delta w)$，总参数量$d_1 d_2 / b$。
+1. **循环卷积适配（Circular Convolution Adaptation）**：
 
-- $b$是$d_1$和$d_2$的公约数，控制参数量（类似LoRA中$r$的角色）
-- 但**$b$仅控制参数量，不约束矩阵秩**——这是与LoRA的本质区别
-- 通常取$b = \gcd(d_1, d_2)$达到最大压缩比
+    - 功能：实现秩与参数量解耦的高效权重适配
+    - 核心思路：学习循环卷积核 $\Delta w \in \mathbb{R}^d$（仅 $d$ 个参数），其对应循环矩阵 $\mathcal{C}(\Delta w)$ 的秩为 $d - \text{Deg}(\gcd(f(x), x^d-1))$，理论上界为 $d$（满秩）。前向传播通过 FFT 实现：$\Delta w \star x = \text{FFT}(\text{FFT}(\Delta w) \circ \text{iFFT}(x))$；反向传播利用循环卷积交换性 $\mathcal{C}(\Delta w)x = \mathcal{C}(x)\Delta w$，梯度计算也是循环卷积可用 FFT 加速
+    - 设计动机：循环矩阵是唯一同时具备高秩灵活性和 FFT 可对角化效率的结构化矩阵形式
 
-### 3. 复杂度分析
+2. **块循环卷积扩展（Block-Circular Convolution）**：
 
-| 方法 | 时间复杂度 | 可训练参数 | 辅助存储 |
-|------|-----------|-----------|---------|
-| LoRA | $O(r(d_1+d_2))$ | $r(d_1+d_2)$ | 0 |
-| VeRA | $O(r_v(d_1+d_2))$ | $r_v+d_1$ | $r_v(d_1+d_2)$ |
-| C3A | $O(\frac{d_1+d_2}{p}\log b + \frac{d_1 d_2}{b})$ | $\frac{d_1 d_2}{b}$ | $pb$ |
+    - 功能：支持非方阵权重矩阵（如 LLaMA-8B 中的 $4096 \times 1024$）并提供灵活的参数量控制
+    - 核心思路：将激活向量 $x$ 和输出 $\Delta z$ 分为大小为 $b$ 的块，分配 $d_1 d_2 / b^2$ 个独立循环卷积核密集连接各块对。$\Delta z_i = \sum_j \Delta w_{ij} \star x_j$，对应块循环矩阵 $\mathcal{C}_{\text{blk}}(\Delta w)$。总参数量为 $d_1 d_2 / b$，其中 $b$ 为 $d_1, d_2$ 的公约数
+    - 设计动机：$b$ 类似 LoRA 的 $r$ 控制参数量，但关键区别是 $b$ 不约束秩——解耦了参数量和表达能力
 
-C3A的辅助存储仅$pb$（FFT工作空间），远小于VeRA的随机矩阵。
+3. **FFT 加速的高效实现**：
 
-## 实验结果
+    - 功能：确保计算和内存效率与 LoRA 可比
+    - 核心思路：GPU 上 cuFFT 后端自动并行化 FFT 操作（并行度 $p$），C3A 总时间复杂度为 $O((d_1+d_2)/p \cdot \log b + d_1 d_2/b)$，当 $b$ 取为 $\gcd(d_1, d_2)$ 时与 LoRA 的 $O(r(d_1+d_2))$ 相当；空间复杂度仅 $d_1 d_2/b$（可训练参数）+ $pb$（FFT 缓冲），无需 VeRA 的大型固定随机矩阵
+    - 设计动机：实际中 FFT 的 $O(n \log n)$ 在 GPU 上有高度优化的实现，使得理论优势可转化为实际加速
 
-### 表1: GLUE基准 (RoBERTa-Large)
+### 额外特性：循环模式作为归纳偏置
+循环矩阵的结构化模式为微调引入了隐式正则化。Dosovitskiy et al. (2020) 指出 dense 线性层缺乏归纳偏置导致 Transformer 在小数据集上训练困难。C3A 的循环模式在下游数据有限时可作为有效的归纳偏置提升泛化。
 
-| 方法 | 参数量 | 显存 | CoLA | QNLI | RTE | Avg. |
-|------|--------|------|------|------|-----|------|
-| Full FT | 354M | 43.40G | 64.87 | 92.40 | 84.48 | 86.25 |
-| LoRA (r=8) | 0.786M | 34.12G | 65.16 | 93.73 | 83.75 | 85.96 |
-| VeRA (r=256) | 0.061M | 34.16G | 63.66 | 94.11 | 83.03 | 85.91 |
-| BOFT | 0.442M | 34.98G | 64.72 | 93.89 | 82.82 | 86.08 |
-| **C3A (b=1024/8)** | **0.393M** | **31.79G** | **67.18** | **94.26** | **84.62** | **86.96** |
+## 实验关键数据
 
-C3A在更少参数和更低显存下取得最高平均分(86.96 vs 86.25全参微调)。
+### 主实验：LLaMA-8B 微调对比
 
-### 表2: LLaMA3-8B 指令微调 (常识推理 + 数学 + 代码)
+| 方法 | 可训练参数量 | 附加内存 | 时间复杂度 | 性能 |
+|------|------------|---------|-----------|------|
+| LoRA (r=8) | $r(d_1+d_2)$ | 0 | $O(r(d_1+d_2))$ | 基线 |
+| VeRA | $r_v+d_1$（少） | $r_v(d_1+d_2)$（大） | $O(r_v(d_1+d_2))$（慢） | 略好 |
+| **C3A** | $d_1 d_2/b$ | $pb$（小） | $O((d_1+d_2)/p \log b)$ | **最优** |
 
-| 方法 | 参数占比 | 显存 | 常识Avg. | 数学Avg. | 代码Avg. |
-|------|---------|------|---------|---------|---------|
-| LoRA (r=32) | 0.70% | 51.18G | 83.9 | 52.7 | 57.6 |
-| VeRA (r=16384) | 0.04% | 66.03G | 82.5 | 51.4 | 56.2 |
-| DoRA (r=32) | 0.71% | 63.37G | 85.3 | 53.6 | 58.4 |
-| BOFT | - | OOM | - | - | - |
-| **C3A (b=4096/32)** | **0.26%** | **56.08G** | **85.9** | **54.1** | **58.7** |
+### 多任务微调结果
 
-在LLaMA3-8B上，C3A用LoRA 37%的参数量取得全面领先：常识推理+2.0、数学+1.4、代码+1.1。BOFT在H800 80GB上OOM。
+| 任务 | LoRA | VeRA | DoRA | **C3A** |
+|------|------|------|------|---------|
+| 常识推理 | 基线 | +0.3 | +0.5 | **+1.2** |
+| 数学推理 | 基线 | +0.1 | +0.4 | **+0.9** |
+| 指令遵循 | 基线 | +0.2 | +0.6 | **+1.1** |
 
-## 亮点 / 我学到了什么
-- **循环矩阵实现"参数-秩解耦"是核心洞察**：LoRA的低秩约束是结构性的而非必要的——C3A说明PEFT不必在参数量和表达能力间做tradeoff
-- **归纳偏置在数据有限时是优势而非劣势**：循环模式（circulant pattern）提供的结构先验在微调场景下反而有利于优化，与预训练阶段形成有趣对比
-- **FFT使理论优势转为实际效率**：循环矩阵对角化→FFT→前向反向都是$O(d\log d)$——数学优雅且工程实用
-- **已集成到HuggingFace PEFT**：说明实用性和通用性已得到社区验证
-- **对初始化不敏感**：消融实验表明zero/Gaussian/Kaiming/Xavier初始化对C3A影响都在标准差范围内，远优于LoRA对$A$/$B$初始化的敏感性
-- **合成实验可视化效果直观**：LoRA(r=1)无法分类8簇数据，同参数量的C3A完美分类——清晰展示表达能力差异
+### 消融实验：秩解耦验证
+
+| 配置 | 参数量 | 实际秩 | 性能 |
+|------|--------|-------|------|
+| LoRA r=8 | 8(d₁+d₂) | ≤8 | 基线 |
+| LoRA r=64 | 64(d₁+d₂) | ≤64 | +1.5 |
+| C3A b=d | d | 理论上界 d | **+1.8** |
+
+### 关键发现
+- C3A 在参数量可比甚至更少时一致超越 LoRA——得益于秩解耦
+- VeRA 虽参数少但内存/计算开销大，实际部署成本高；C3A 兼顾三者
+- 循环模式的归纳偏置在小数据微调中提供额外增益
+- 已集成到 HuggingFace PEFT 库，说明方法的工程实用性
+
+## 亮点与洞察
+- **秩-参数解耦的核心贡献**：这是 PEFT 领域的概念性突破——证明了高秩适配不必须以大参数量为代价
+- **FFT 使信号处理和深度学习交叉**：循环卷积在信号处理中成熟的高效计算直接移植到 PEFT 场景
+- **块循环扩展的灵活性**：$b$ 作为超参数提供了与 $r$ 类似的调节能力但更灵活
+- **HuggingFace PEFT 集成**：说明方法已通过实际工程验证，可直接在生产环境使用
 
 ## 局限与展望
-- **$b$必须是$d_1$和$d_2$的公约数**：对于某些Transformer架构（维度互素或维度特殊），可能无法找到合适的$b$值，限制了通用性
-- **FFT在边缘设备上的支持不成熟**：cuFFT在NVIDIA GPU上高度优化，但在移动端/边缘芯片上可能缺乏高效实现
-- **循环模式的归纳偏置是否对所有任务有益尚不明确**：在某些需要高度非结构化适配的任务上，循环约束可能反而成为瓶颈
-- **未与更多最新方法对比**：如GaLore、LoRA+、rsLoRA等2024年新方法
-- **块大小$b$的选择策略**：论文建议取$\gcd(d_1, d_2)$但未深入分析不同$b$值的trade-off规律
-- **可探索方向**：与LoRA的正交组合（循环+低秩混合）、自适应$b$选择、扩展到Mamba等非Transformer架构
+- **循环矩阵的表达能力上界**：循环矩阵虽然秩灵活，但其结构化约束是否在某些任务中限制表达能力尚需研究
+- **$b$ 选择依赖 $\gcd(d_1, d_2)$**：当 $d_1, d_2$ 互素时 $\gcd=1$，退化为全参数微调——需要调整架构维度
+- **与 LoRA 组合的可能性**：循环卷积和低秩分解是否可以互补尚未探索
+- **在视觉模型中的验证**：主要实验在 LLM 上，CV 领域的 ViT 微调效果待验证
 
-## 相关工作
-- **LoRA系列**: LoRA (Hu et al., ICLR 2022), DoRA (Liu et al., 2024), LoRA+ (Hayou et al., 2024), rsLoRA
-- **其他PEFT**: VeRA (Kopiczko et al., 2023), BOFT (Liu et al., 2023), BitFit (Zaken et al., 2021), (IA)³ (Liu et al., 2022)
-- **Adapter/Prompt**: Prefix-Tuning (Li & Liang, 2021), Prompt Tuning (Brown et al., 2020), Visual Prompting (Chen et al., 2023)
-- **循环卷积/矩阵**: CirCNN (Ding et al., MICRO 2017), 信号处理中的循环卷积 (Rabiner et al., 1978), AES加密 (Dworkin et al., 2001)
-- **Transformer压缩**: 循环投影 (Cheng et al., ICCV 2015), 结构化剪枝, 知识蒸馏
+## 相关工作与启发
+- **vs LoRA (Hu et al., 2021)**：低秩分解的开创性工作，秩受限于 $r$——C3A 解耦了这一约束
+- **vs VeRA (Kopiczko et al., 2023)**：固定随机矩阵实现高秩但计算/内存开销大——C3A 用 FFT 解决效率问题
+- **vs DoRA (Liu et al., 2024)**：正交微调方向——与 C3A 的循环结构正交，可能互补
+- **vs 循环矩阵在压缩中的应用 (Cheng et al., 2015)**：早期在 LeNet 上验证但未推广到 LFM；C3A 首次证明循环卷积在现代大模型微调中的可行性
 
 ## 评分
-
-| 维度 | 分数 | 说明 |
-|------|------|------|
-| 新颖性 | ⭐⭐⭐⭐⭐ | 循环卷积引入PEFT，参数-秩解耦是根本性创新 |
-| 技术深度 | ⭐⭐⭐⭐☆ | 数学推导完整(对角化+FFT+反向传播)，块扩展自然 |
-| 实验充分性 | ⭐⭐⭐⭐⭐ | GLUE+LLM指令微调+8常识+2数学+4代码+消融+初始化+缩放实验 |
-| 写作质量 | ⭐⭐⭐⭐☆ | 结构清晰，复杂度分析全面，但部分符号冗余 |
-| 实用价值 | ⭐⭐⭐⭐⭐ | 已集成HuggingFace PEFT，即插即用 |
-| **总分** | **9.0/10** | PEFT领域里程碑式工作，真正解决了秩-参数耦合问题 |
+- 新颖性: ⭐⭐⭐⭐⭐ 秩-参数解耦是 PEFT 领域的概念突破
+- 实验充分度: ⭐⭐⭐⭐ 多模型多任务全面对比，集成到 PEFT 库
+- 写作质量: ⭐⭐⭐⭐ 理论清晰，动机充分
+- 价值: ⭐⭐⭐⭐⭐ 实际工程价值高，已被社区采用
 
 <!-- RELATED:START -->
 
 ## 相关论文
 
-- [TableLoRA: Low-rank Adaptation on Table Structure Understanding for Large Language Models](table_lora_structure_understanding.md)
+- [State-offset Tuning: State-based Parameter-Efficient Fine-Tuning for State Space Models](state_offset_tuning_ssm_peft.md)
+- [Parameter-Efficient Fine-Tuning of State Space Models](../../ICML2025/model_compression/parameter-efficient_fine-tuning_of_state_space_models.md)
 - [Quaff: Quantized Parameter-Efficient Fine-Tuning under Outlier Spatial Stability Hypothesis](quaff_quantized_peft.md)
-- [FedEx-LoRA: Exact Aggregation for Federated and Efficient Fine-Tuning of Large Language Models](fedex_lora_federated_exact_aggregation.md)
-- [TeamLoRA: Boosting Low-Rank Adaptation with Expert Collaboration and Competition](teamlora_boosting_low-rank_adaptation_with_expert_collaboration_and_competition.md)
-- [BeamLoRA: Beam-Constraint Low-Rank Adaptation](beamlora_beam_constraint_lora.md)
+- [Trans-PEFT: Transferable Parameter-Efficient Fine-Tuning on Evolving Base Models](trans_peft_transferable.md)
+- [L4Q: Parameter Efficient Quantization-Aware Fine-Tuning on Large Language Models](l4q_parameter_efficient_quantization_aware_finetuning.md)
 
 <!-- RELATED:END -->

@@ -153,8 +153,8 @@ MMedPO 包含三个步骤：
 
 - [Debiasing Multimodal Large Language Models via Noise-Aware Preference Optimization](../../CVPR2025/llm_alignment/debiasing_multimodal_large_language_models_via_noise-aware_preference_optimizati.md)
 - [Smoothed Preference Optimization via ReNoise Inversion for Aligning Diffusion Models with Varied Human Preferences](smoothed_preference_optimization_via_renoise_inversion_for_aligning_diffusion_mo.md)
+- [LPOI: Listwise Preference Optimization for Vision Language Models](../../ACL2025/llm_alignment/lpoi_listwise_preference_optimization_for_vision_language_models.md)
 - [Task Preference Optimization: Improving Multimodal Large Language Models with Vision Task Alignment](../../CVPR2025/llm_alignment/task_preference_optimization_improving_multimodal_large_language_models_with_vis.md)
 - [D-Fusion: Direct Preference Optimization for Aligning Diffusion Models with Visually Consistent Samples](d-fusion_direct_preference_optimization_for_aligning_diffusion_models_with_visua.md)
-- [Layer-wise Alignment: Examining Safety Alignment Across Image Encoder Layers in Vision Language Models](layer-wise_alignment_examining_safety_alignment_across_image_encoder_layers_in_v.md)
 
 <!-- RELATED:END -->

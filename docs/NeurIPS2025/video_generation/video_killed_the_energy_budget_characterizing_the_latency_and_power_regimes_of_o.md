@@ -156,6 +156,6 @@ tags:
 - [DisMo: Disentangled Motion Representations for Open-World Motion Transfer](dismo_disentangled_motion_representations_for_openworld_moti.md)
 - [VideoDirector: Precise Video Editing via Text-to-Video Models](../../CVPR2025/video_generation/videodirector_precise_video_editing_via_text-to-video_models.md)
 - [Multi-subject Open-set Personalization in Video Generation](../../CVPR2025/video_generation/multi-subject_open-set_personalization_in_video_generation.md)
-- [Mimir: Improving Video Diffusion Models for Precise Text Understanding](../../CVPR2025/video_generation/mimir_improving_video_diffusion_models_for_precise_text_understanding.md)
+- [VPO: Aligning Text-to-Video Generation Models with Prompt Optimization](../../ICCV2025/video_generation/vpo_aligning_text-to-video_generation_models_with_prompt_optimization.md)
 
 <!-- RELATED:END -->

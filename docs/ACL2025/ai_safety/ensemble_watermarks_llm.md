@@ -25,7 +25,10 @@ tags:
 提出集成水印方法，将文体特征（藏头词 acrostic + 感觉运动词 sensorimotor norms）与已有红绿水印组合，在 paraphrasing 攻击后三特征集成检测率达 95%，而单独红绿水印仅 49%。
 
 ## 研究背景与动机
-**领域现状**：LLM 水印（如 Kirchenbauer 等的红绿水印）通过修改 token 生成概率嵌入隐藏信号。
+
+### 领域现状
+
+**领域现状**：领域现状**：LLM 水印（如 Kirchenbauer 等的红绿水印）通过修改 token 生成概率嵌入隐藏信号。
 
 **现有痛点**：单一特征水印在 paraphrasing 攻击下鲁棒性差——红绿水印的检测率从高检测率直降至 ~49%。
 
@@ -67,6 +70,9 @@ tags:
 ## 实验关键数据
 
 ### Paraphrasing 攻击后检测率（≥10% 文本被改写）
+
+
+### 主实验
 
 | 特征组合 | Llama 3.1 8B (Strong) | Llama 3.2 3B (Strong) |
 |----------|----------------------|----------------------|
@@ -115,7 +121,7 @@ tags:
 - [Improved Unbiased Watermark for Large Language Models](improved_unbiased_watermark_for_large_language.md)
 - [MorphMark: Flexible Adaptive Watermarking for Large Language Models](morphmark_adaptive_watermarking.md)
 - [Improving Fairness of Large Language Models in Multi-document Summarization](improving_fairness_of_large_language_models_in_multi-document_summarization.md)
+- [The Tug of War Within: Mitigating the Fairness-Privacy Conflicts in Large Language Models](tug_of_war_fairness_privacy.md)
 - [From Trade-off to Synergy: A Versatile Symbiotic Watermarking Framework for Large Language Models](from_tradeoff_to_synergy_a_versatile.md)
-- [ELBA-Bench: An Efficient Learning Backdoor Attacks Benchmark for Large Language Models](elba-bench_an_efficient_learning_backdoor_attacks_benchmark_for_large_language_m.md)
 
 <!-- RELATED:END -->

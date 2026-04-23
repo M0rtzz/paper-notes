@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR2025  
 **arXiv**: [2603.13176](https://arxiv.org/abs/2603.13176)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: human_understanding  
 **关键词**: perception scheduling, human-robot collaboration, streaming perception, information theory, multimodal perception
 
@@ -25,7 +25,10 @@ tags:
 提出一种面向人机协作的感知调度框架，基于信息增益和计算代价的权衡来选择性激活感知模块（目标检测/姿态估计），在流式感知场景下将计算延迟降低最多 27.52%，同时 MMPose 激活召回提升 72.73%。
 
 ## 研究背景与动机
-1. 人机协作（HRC）需要持续执行多个感知模块以实现准确的场景理解
+
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：1. 人机协作（HRC）需要持续执行多个感知模块以实现准确的场景理解
 2. 逐帧激活所有模块虽然保证离线感知质量，但在流式场景下会累积延迟导致性能下降
 3. 现有并行感知管道根据就绪状态（而非信息需求）周期性激活模块，对重模块可能错过关键帧
 4. 关键帧方法通常需要完整视频序列，且选择标准与感知系统的信息需求不对齐
@@ -103,7 +106,7 @@ tags:
 4. **相关性感知**：由 Relevance 框架提供的任务相关性加权确保资源分配给重要区域
 5. **实用轻量**：调度逻辑在 CPU 上运行，不占用 GPU 计算资源
 
-## 局限性
+## 局限与展望
 1. MMPose 召回绝对值仍很低（0.20-0.38），框架无法从根本上解决重模块推理延迟问题
 2. 实验仅在 3 个自录视频上验证，缺乏标准数据集和大规模评估
 3. 奖励中的拉格朗日乘子 $\lambda$ 需手动设置，不同场景下最优值可能不同
@@ -128,8 +131,8 @@ tags:
 
 - [I See What You Mean: Co-Speech Gestures for Reference Resolution in Multimodal Dialogue](../../ACL2025/human_understanding/i_see_what_you_mean_co-speech_gestures_for_reference_resolution_in_multimodal_di.md)
 - [Team RAS in 10th ABAW Competition: Multimodal Valence and Arousal Estimation Approach](team_ras_in_10th_abaw_competition_multimodal_valence_and_arousal_estimation_appr.md)
+- [MP-GUI: Modality Perception with MLLMs for GUI Understanding](mp-gui_modality_perception_with_mllms_for_gui_understanding.md)
 - [Sonic: Shifting Focus to Global Audio Perception in Portrait Animation](sonic_shifting_focus_to_global_audio_perception_in_portrait_animation.md)
 - [SemGes: Semantics-aware Co-Speech Gesture Generation using Semantic Coherence and Relevance Learning](../../ICCV2025/human_understanding/semges_semantics-aware_co-speech_gesture_generation_using_semantic_coherence_and.md)
-- [What's Making That Sound Right Now? Video-centric Audio-Visual Localization](../../ICCV2025/human_understanding/whats_making_that_sound_right_now_video-centric_audio-visual_localization.md)
 
 <!-- RELATED:END -->

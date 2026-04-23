@@ -181,7 +181,7 @@ CharaConsist 在几乎所有指标上取得最优，尤其在背景一致性（C
 - [TaxaDiffusion: Progressively Trained Diffusion Model for Fine-Grained Species Generation](taxadiffusion_progressively_trained_diffusion_model_for_fine-grained_species_gen.md)
 - [FineLIP: Extending CLIP's Reach via Fine-Grained Alignment with Longer Text Inputs](../../CVPR2025/image_generation/finelip_extending_clips_reach_via_fine-grained_alignment_with_longer_text_inputs.md)
 - [CLIP Under the Microscope: A Fine-Grained Analysis of Multi-Object Representation](../../CVPR2025/image_generation/clip_under_the_microscope_a_fine-grained_analysis_of_multi-object_representation.md)
+- [FADE: Fine-Grained Erasure in Text-to-Image Diffusion-based Foundation Models](../../CVPR2025/image_generation/fade_fine_grained_erasure_diffusion.md)
 - [Multi-turn Consistent Image Editing](multi-turn_consistent_image_editing.md)
-- [AnyPortal: Zero-Shot Consistent Video Background Replacement](anyportal_zero-shot_consistent_video_background_replacement.md)
 
 <!-- RELATED:END -->

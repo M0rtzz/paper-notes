@@ -1,18 +1,26 @@
 ---
 title: >-
-  ECCV2024 强化学习方向 2篇论文解读
+  ECCV2024 强化学习方向 4篇论文解读
 description: >-
-  2篇ECCV2024 强化学习论文解读，主题涵盖：提出AdaGlimpse，利用Soft、利用视觉语言模型 (MineCLIP) 的等，每篇含核心思想与方法详解。
+  4篇ECCV2024 强化学习论文解读，主题涵盖：提出AdaGlimpse，利用Soft、提出 Octopus，一个具身视觉-语言编程模型、Octopus 是一个具身视觉-语言编程模型等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**🎞️ ECCV2024** · **2** 篇论文解读
+**🎞️ ECCV2024** · **4** 篇论文解读
 
 **[AdaGlimpse: Active Visual Exploration with Arbitrary Glimpse Position and Scale](adaglimpse_active_visual_exploration_with_arbitrary_glimpse_position_and_scale.md)**
 
 :   提出AdaGlimpse，利用Soft Actor-Critic强化学习从连续动作空间中选择任意位置和尺度的glimpse，结合弹性位置编码的ViT编码器实现多任务（重建/分类/分割）的主动视觉探索，以仅6%像素超越了使用18%像素的SOTA方法。
+
+**[Octopus: Embodied Vision-Language Programmer from Environmental Feedback](octopus_embodied_vision-language_programmer_from_environmental_feedback.md)**
+
+:   提出 Octopus，一个具身视觉-语言编程模型，通过生成可执行代码来连接高层规划与底层操控，并引入 Reinforcement Learning with Environmental Feedback (RLEF) 训练方案来提升决策质量。
+
+**[Octopus: Embodied Vision-Language Programmer from Environmental Feedback](octopus_embodied_visionlanguage_programmer_from_environmental_feedback.md)**
+
+:   Octopus 是一个具身视觉-语言编程模型，通过将 VLM 与可执行代码生成相结合，利用 GPT-4 收集训练数据并引入 RLEF（环境反馈强化学习）进行微调，在三个不同模拟器（OmniGibson、Minecraft、GTA-V）中实现了端到端的视觉感知→计划→代码生成→执行闭环。
 
 **[Visual Grounding for Object-Level Generalization in Reinforcement Learning](visual_grounding_for_object-level_generalization_in_reinforcement_learning.md)**
 

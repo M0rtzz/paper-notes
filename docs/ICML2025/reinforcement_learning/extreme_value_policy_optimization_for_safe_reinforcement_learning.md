@@ -159,6 +159,6 @@ $$A'_R = \frac{\pi(a|s)}{\pi_0(a|s)} A_R, \quad C' = \frac{\pi(a|s)}{\pi_0(a|s)}
 - [Wasserstein Policy Optimization](wasserstein_policy_optimization.md)
 - [Online Optimization for Offline Safe Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/online_optimization_for_offline_safe_reinforcement_learning.md)
 - [Controlling Underestimation Bias in Constrained Reinforcement Learning for Safe Exploration](controlling_underestimation_bias_in_constrained_reinforcement_learning_for_safe_.md)
-- [Opinion: Towards Unified Expressive Policy Optimization for Robust Robot Learning](../../NeurIPS2025/reinforcement_learning/opinion_towards_unified_expressive_policy_optimization_for_robust_robot_learning.md)
+- [Boundary-to-Region Supervision for Offline Safe Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/boundary_to_region_supervision_for_offline_safe_rl.md)
 
 <!-- RELATED:END -->

@@ -25,12 +25,23 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**：多域机器翻译（MDMT）要求单一模型覆盖法律、医学、字幕等多个领域。LLM 的通用翻译能力强但域适应仍是挑战。
+### 领域现状
+
+**领域现状**：领域现状**：多域机器翻译（MDMT）要求单一模型覆盖法律、医学、字幕等多个领域。LLM 的通用翻译能力强但域适应仍是挑战。
 
 **现有痛点**：
-   - LoRA 在多域微调时存在参数干扰——适应某域后其他域性能下降
-   - Adapter 方法为每个域引入独立模块——域数增长时参数和内存成本线性增加
-   - ICL 依赖高质量域内示例，MDMT 效果不佳
+
+### 现有痛点
+
+**现有痛点**：LoRA 在多域微调时存在参数干扰——适应某域后其他域性能下降
+
+### 核心矛盾
+
+**核心矛盾**：Adapter 方法为每个域引入独立模块——域数增长时参数和内存成本线性增加
+
+### 解决思路
+
+**解决思路**：ICL 依赖高质量域内示例，MDMT 效果不佳
 
 **核心矛盾**：能否找到不引入额外参数、不产生域间干扰的 PEFT 方法？
 
@@ -115,8 +126,8 @@ CANEFT 在已见和未见域上都超越 Full FT 和 LoRA。
 
 - [Mitigating Content Effects on Reasoning in Language Models through Fine-Grained Activation Steering](mitigating_content_effects_on_reasoning_in_language_models_through_fine-grained_.md)
 - [Focusing on Language: Revealing and Exploiting Language Attention Heads in Multilingual Large Language Models](focusing_on_language_revealing_and_exploiting_language_attention_heads_in_multil.md)
-- [Statement-Tuning Enables Efficient Cross-lingual Generalization in Encoder-only Models](../../ACL2025/multilingual_mt/statement-tuning_enables_efficient_cross-lingual_generalization_in_encoder-only_.md)
 - [Exploring the Translation Mechanism of Large Language Models](../../NeurIPS2025/multilingual_mt/exploring_the_translation_mechanism_of_large_language_models.md)
-- [Multi-perspective Alignment for Increasing Naturalness in Neural Machine Translation](../../ACL2025/multilingual_mt/multi-perspective_alignment_for_increasing_naturalness_in_neural_machine_transla.md)
+- [SIFT-50M: A Large-Scale Multilingual Dataset for Speech Instruction Fine-Tuning](../../ACL2025/multilingual_mt/sift-50m_a_large-scale_multilingual_dataset_for_speech_instruction_fine-tuning.md)
+- [Statement-Tuning Enables Efficient Cross-lingual Generalization in Encoder-only Models](../../ACL2025/multilingual_mt/statement-tuning_enables_efficient_cross-lingual_generalization_in_encoder-only_.md)
 
 <!-- RELATED:END -->

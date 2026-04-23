@@ -26,12 +26,23 @@ tags:
 
 ## 研究背景与动机
 
-随着 LLM 在日常生活中的广泛应用，关于模型伦理影响的担忧催生了大量偏见和公平性基准测试。标准偏见基准通常测量敏感属性（如性别代词）与社会属性（如职业）之间的关联，输入输出都很简短，例如测量"Nurse is"后面跟男性或女性关联词的概率。
+### 领域现状
+
+**领域现状**：随着 LLM 在日常生活中的广泛应用，关于模型伦理影响的担忧催生了大量偏见和公平性基准测试。标准偏见基准通常测量敏感属性（如性别代词）与社会属性（如职业）之间的关联，输入输出都很简短，例如测量"Nurse is"后面跟男性或女性关联词的概率。
 
 然而，这些基准存在根本问题：
-- 被批评存在未明确的假设、缺乏动机和概念性问题
-- 与真实世界的 LLM 使用场景脱节——真实交互通常需要长文本生成
-- 先前研究已发现内在指标难以预测外在指标，但即使是外在指标也可能无法反映真实使用中的偏见
+
+### 现有痛点
+
+**现有痛点**：被批评存在未明确的假设、缺乏动机和概念性问题
+
+### 核心矛盾
+
+**核心矛盾**：与真实世界的 LLM 使用场景脱节——真实交互通常需要长文本生成
+
+### 解决思路
+
+**解决思路**：先前研究已发现内在指标难以预测外在指标，但即使是外在指标也可能无法反映真实使用中的偏见
 
 作者将标准基准称为"trick tests"（诡计测试），即去语境化的评估，通过人为构造的场景引出模型与敏感属性的简单关联，而非估计模型真实使用的影响。
 
@@ -95,7 +106,7 @@ tags:
 3. **挑战了领域共识**：不仅内在指标无法预测外在指标（已知），连外在指标也无法预测更真实的使用场景表现（新发现）
 4. **实践启示强烈**：当 BBQ 等标准基准被 Google、Anthropic 等用于模型评估时，本文质疑了这种做法的有效性
 
-## 局限性
+## 局限与展望
 
 - 仅研究了性别-职业偏见这一最常见的偏见类型，对种族、社会经济地位等其他维度可能有不同结论
 - RUTEd 评估虽比标准基准更贴近真实使用，但仍未经真正的用户研究验证
@@ -123,9 +134,9 @@ tags:
 ## 相关论文
 
 - [Veracity Bias and Beyond: Uncovering LLMs' Hidden Beliefs in Problem-Solving Reasoning](veracity_bias_llm_hidden_beliefs.md)
+- [Revisiting Uncertainty Quantification Evaluation in Language Models: Spurious Interactions with Response Length Bias Results](revisiting_uncertainty_quantification_evaluation_in_language_models_spurious_int.md)
+- [Information Locality as an Inductive Bias for Neural Language Models](information_locality_as_an_inductive_bias_for_neural_language_models.md)
 - [Attention Speaks Volumes: Localizing and Mitigating Bias in Language Models](attention_speaks_volumes_localizing_and_mitigating_bias_in_language_models.md)
-- [Evaluating Implicit Bias in Large Language Models by Attacking from a Psychometric Perspective](evaluating_implicit_bias_in_large_language_models_by_attacking_from_a_psychometr.md)
-- [Deontological Keyword Bias: The Impact of Modal Expressions on Normative Judgments of Language Models](deontological_keyword_bias.md)
-- [Leveraging Large Language Models to Measure Gender Representation Bias in Gendered Language Corpora](leveraging_large_language_models_to_measure_gender_representation_bias_in_gender.md)
+- [Language Models Grow Less Humanlike beyond Phase Transition](language_models_grow_less_humanlike_beyond_phase_transition.md)
 
 <!-- RELATED:END -->

@@ -126,6 +126,6 @@ tags:
 - [Provable Maximum Entropy Manifold Exploration via Diffusion Models](../../ICML2025/image_generation/provable_maximum_entropy_manifold_exploration_via_diffusion_models.md)
 - [Continuous Diffusion Model for Language Modeling](continuous_diffusion_model_for_language_modeling.md)
 - [Encoder-Decoder Diffusion Language Models for Efficient Training and Inference](encoder-decoder_diffusion_language_models_for_efficient_training_and_inference.md)
-- [Cross-fluctuation Phase Transitions Reveal Sampling Dynamics in Diffusion Models](cross-fluctuation_phase_transitions_reveal_sampling_dynamics_in_diffusion_models.md)
+- [Progressive Inference-Time Annealing of Diffusion Models for Sampling from Boltzmann Densities](progressive_inference-time_annealing_of_diffusion_models_for_sampling_from_boltz.md)
 
 <!-- RELATED:END -->

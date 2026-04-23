@@ -28,14 +28,25 @@ tags:
 
 ## 背景与动机
 
-- 现有语音 tokenizer（如 WavTokenizer、EnCodec）统一按固定帧率（如 40Hz、75Hz）分配 token，忽略语音信号信息密度的时序变化
-- 自然语音中，静音和稳定元音区域存在大量冗余，而快速发音转换和情感表达丰富的片段信息密度高
-- 固定帧率导致冗余区域 token 浪费、高信息区域表示不足，下游 speech LM 难以学到自然韵律
-- 已有的自适应压缩工作（如 TFC）仅在预定义的几种帧率间切换，属"伪动态"，且不建模 token 时长
+### 领域现状
 
-## 核心问题
+**领域现状**：现有语音 tokenizer（如 WavTokenizer、EnCodec）统一按固定帧率（如 40Hz、75Hz）分配 token，忽略语音信号信息密度的时序变化
 
-如何设计一个全动态可变帧率的声学 speech tokenizer，使其能根据局部特征相似性自适应分配 token，并且无需辅助时长预测器即可直接用于下游 autoregressive speech LM？
+### 现有痛点
+
+**现有痛点**：自然语音中，静音和稳定元音区域存在大量冗余，而快速发音转换和情感表达丰富的片段信息密度高
+
+### 核心矛盾
+
+**核心矛盾**：固定帧率导致冗余区域 token 浪费、高信息区域表示不足，下游 speech LM 难以学到自然韵律
+
+### 解决思路
+
+**解决思路**：已有的自适应压缩工作（如 TFC）仅在预定义的几种帧率间切换，属"伪动态"，且不建模 token 时长
+
+### 解决思路
+
+**本文目标**：如何设计一个全动态可变帧率的声学 speech tokenizer，使其能根据局部特征相似性自适应分配 token，并且无需辅助时长预测器即可直接用于下游 autoregressive speech LM？
 
 ## 方法详解
 
@@ -73,6 +84,9 @@ $$\text{ID}_n = (d_n - 1) \cdot K + k_n$$
 
 ## 实验关键数据
 
+
+### 主实验
+
 | 模型 | 帧率(Hz) | Bitrate(kbps) | UTMOS↑ | PESQ↑ | STOI↑ |
 |------|---------|--------------|--------|-------|-------|
 | WavTokenizer | 75.00 | 0.90 | 4.0247 | 2.4543 | 0.9188 |
@@ -87,7 +101,7 @@ $$\text{ID}_n = (d_n - 1) \cdot K + k_n$$
 - ARCH 语义评估：AudioMNIST F1 从 0.4509 提升到 0.6078（τ=0.7）
 - 推理效率：τ=0.6 时 RTF=0.487，比基线加速 **36%**
 
-## 亮点
+## 亮点与洞察
 
 - **首个**全动态可变帧率声学 tokenizer 可直接集成到下游 autoregressive speech LM
 - 隐式时长编码方案简洁优雅，无需额外模块或训练，将内容+时长编入单一 token
@@ -102,7 +116,7 @@ $$\text{ID}_n = (d_n - 1) \cdot K + k_n$$
 - 客观 speaker similarity 随帧率下降略有下降（虽主观 MOS 差异不显著）
 - 未探索音乐、环境音等其他音频领域
 
-## 对比
+## 相关工作与启发
 
 | 维度 | VARSTok | TFC | WavTokenizer |
 |------|---------|-----|-------------|
@@ -127,8 +141,8 @@ $$\text{ID}_n = (d_n - 1) \cdot K + k_n$$
 
 - [Hearing More with Less: Multi-Modal Retrieval-and-Selection Augmented Conversational LLM-Based ASR](hearing_more_with_less_multi-modal_retrieval-and-selection_augmented_conversatio.md)
 - [FlexiCodec: A Dynamic Neural Audio Codec for Low Frame Rates](../../ICLR2026/audio_speech/flexicodec_a_dynamic_neural_audio_codec_for_low_frame_rates.md)
-- [DualSpeechLM: Towards Unified Speech Understanding and Generation via Dual Speech Token Modeling](dualspeechlm_towards_unified_speech_understanding_and_generation_via_dual_speech.md)
 - [Listen Like a Teacher: Mitigating Whisper Hallucinations using Adaptive Layer Attention and Knowledge Distillation](listen_like_a_teacher_mitigating_whisper_hallucinations_using_adaptive_layer_att.md)
+- [DualSpeechLM: Towards Unified Speech Understanding and Generation via Dual Speech Token Modeling](dualspeechlm_towards_unified_speech_understanding_and_generation_via_dual_speech.md)
 - [TripleSumm: Adaptive Triple-Modality Fusion for Video Summarization](../../ICLR2026/audio_speech/triplesumm_adaptive_triple-modality_fusion_for_video_summarization.md)
 
 <!-- RELATED:END -->

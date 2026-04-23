@@ -128,7 +128,7 @@ $$L_{\text{distill}} = \|\epsilon_{\theta_S}(x_t, \hat{z}_{t,c,\varnothing,w}) -
 - [DICE: Distilling Classifier-Free Guidance into Text Embeddings](../../AAAI2026/image_generation/dice_distilling_classifier-free_guidance_into_text_embedding.md)
 - [TCFG: Tangential Damping Classifier-Free Guidance](../../CVPR2025/image_generation/tcfg_tangential_damping_classifier-free_guidance.md)
 - [Studying Classifier(-Free) Guidance From A Classifier-Centric Perspective](../../AAAI2026/image_generation/studying_classifier-free_guidance_from_a_classifier-centric_perspective.md)
-- [Classifier-Free Guidance inside the Attraction Basin May Cause Memorization](../../CVPR2025/image_generation/classifier-free_guidance_inside_the_attraction_basin_may_cause_memorization.md)
 - [Towards a Golden Classifier-Free Guidance Path via Foresight Fixed Point Iterations](../../NeurIPS2025/image_generation/towards_a_golden_classifier-free_guidance_path_via_foresight_fixed_point_iterati.md)
+- [Classifier-Free Guidance inside the Attraction Basin May Cause Memorization](../../CVPR2025/image_generation/classifier-free_guidance_inside_the_attraction_basin_may_cause_memorization.md)
 
 <!-- RELATED:END -->

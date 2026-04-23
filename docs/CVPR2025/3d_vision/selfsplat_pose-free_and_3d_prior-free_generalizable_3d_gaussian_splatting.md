@@ -135,6 +135,6 @@ SelfSplat 输入无位姿的三帧图像 $(I_{c_1}, I_t, I_{c_2})$，包含四�
 - [SfM-Free 3D Gaussian Splatting via Hierarchical Training](sfm-free_3d_gaussian_splatting_via_hierarchical_training.md)
 - [OnlineSplatter: Pose-Free Online 3D Reconstruction for Free-Moving Objects](../../NeurIPS2025/3d_vision/onlinesplatter_pose-free_online_3d_reconstruction_for_free-moving_objects.md)
 - [E2EGS: Event-to-Edge Gaussian Splatting for Pose-Free 3D Reconstruction](../../CVPR2026/3d_vision/e2egs_event-to-edge_gaussian_splatting_for_pose-free_3d_reconstruction.md)
-- [MGGTalk: Monocular and Generalizable Gaussian Talking Head Animation](monocular_and_generalizable_gaussian_talking_head_animation.md)
+- [DeSplat: Decomposed Gaussian Splatting for Distractor-Free Rendering](desplat_decomposed_gaussian_splatting_for_distractor-free_rendering.md)
 
 <!-- RELATED:END -->

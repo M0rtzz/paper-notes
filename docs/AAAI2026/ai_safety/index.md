@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 AI安全方向 59篇论文解读
+  AAAI2026 AI安全方向 62篇论文解读
 description: >-
-  59篇AAAI2026 AI安全论文解读，主题涵盖：本文系统综述了算法公平性的三大维度（群体公平、在仅假设损失函数L-光滑（不需要凸性）的条件下、提出 Information Difference等，每篇含核心思想与方法详解。
+  62篇AAAI2026 AI安全论文解读，主题涵盖：本文系统综述了算法公平性的三大维度（群体公平、在仅假设损失函数L-光滑（不需要凸性）的条件下、提出 Information Difference等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**🤖 AAAI2026** · **59** 篇论文解读
+**🤖 AAAI2026** · **62** 篇论文解读
 
 **[Alternative Fairness and Accuracy Optimization in Criminal Justice](alternative_fairness_and_accuracy_optimization_in_criminal_j.md)**
 
@@ -21,6 +21,10 @@ description: >-
 **[An Information Theoretic Evaluation Metric for Strong Unlearning](an_information_theoretic_evaluation_metric_for_strong_unlear.md)**
 
 :   提出 Information Difference Index (IDI)，一种基于信息论的白盒评估指标，通过度量中间层特征与遗忘标签之间的互信息来衡量机器遗忘的彻底程度，揭示了现有黑盒指标（MIA、JSD等）无法捕捉的中间层残留信息问题，并提出 COLA 方法在特征层面消除残余信息。
+
+**[An Information Theoretic Evaluation Metric for Strong Unlearning](an_information_theoretic_evaluation_metric_for_strong_unlearning.md)**
+
+:   揭示现有黑盒遗忘评估指标（MIA/JSD等）的根本缺陷——仅修改最后一层即可满足所有黑盒指标但中间层完整保留遗忘数据信息，提出IDI白盒指标通过InfoNCE估计各层与遗忘标签的互信息差异来量化遗忘效果，并提出COLA方法在CIFAR-10/100和ImageNet-1K上实现接近Retrain的IDI得分。
 
 **[An LLM-Based Simulation Framework for Embodied Conversational Agents in Psychological Counseling](an_llm-based_simulation_framework_for_embodied_conversationa.md)**
 
@@ -122,6 +126,10 @@ description: >-
 
 :   提出 HealSplit，首个针对分割联邦学习（SFL）的统一防御框架，通过拓扑感知检测（TAS）识别中毒样本、GAN 生成语义一致的替代表示、对抗多教师蒸馏训练一致性验证学生模型，实现端到端检测与恢复，在五类投毒攻击下均大幅超越十种 SOTA 防御方法。
 
+**[Improving the Convergence Rate of Ray Search Optimization for Query-Efficient Hard-Label Attacks](improving_the_convergence_rate_of_ray_search_optimization_for_query-efficient_ha.md)**
+
+:   本文针对硬标签黑盒对抗攻击中的查询效率瓶颈，提出基于 Nesterov 加速梯度的动量算法 ARS-OPT，并引入代理模型先验得到增强版 PARS-OPT，在理论上证明了更快的收敛率，在 ImageNet 和 CIFAR-10 上超越 13 种 SOTA 方法。
+
 **[InfoDecom: Decomposing Information for Defending Against Privacy Leakage in Split Inference](infodecom_decomposing_information_for_defending_against_privacy_leakage_in_split.md)**
 
 :   提出 InfoDecom，通过两级信息分解（频域视觉信息去除 + 互信息抑制）减少 smashed data 中的冗余信息，再添加闭式计算的高斯噪声提供理论隐私保证，在浅层客户端模型下实现远优于现有方法的 utility-privacy trade-off。
@@ -137,6 +145,10 @@ description: >-
 **[Matrix-Free Two-to-Infinity and One-to-Two Norms Estimation](matrix-free_two-to-infinity_and_one-to-two_norms_estimation.md)**
 
 :   提出 TwINEst 和 TwINEst++ 两种基于 Hutchinson 对角估计器的随机算法，用于在无矩阵 (matrix-free) 设定下高效估计 $\|A\|_{2\to\infty}$ 和 $\|A\|_{1\to 2}$ 范数，并提供了 oracle 复杂度理论保证，在 DNN 的 Jacobian 正则化（图像分类对抗鲁棒性）和推荐系统对抗攻击防御中展现了显著优势。
+
+**[Minimizing Inequity in Facility Location Games](minimizing_inequity_in_facility_location_games.md)**
+
+:   研究实数轴上设施选址博弈中最小化组间最大加权效果（Maximum Group Effect）的问题，提出 BALANCED 和 MAJOR-PHANTOM 两种策略防护机制，在单设施场景下实现紧近似比，统一了功利主义（社会成本）、平等主义（最大成本）等经典目标和组公平目标，并将 endpoint 机制扩展到双设施场景。
 
 **[MPD-SGR: Robust Spiking Neural Networks with Membrane Potential Distribution-Driven Surrogate Gradient Regularization](mpd-sgr_robust_spiking_neural_networks_with_membrane_potential_distribution-driv.md)**
 

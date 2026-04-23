@@ -151,9 +151,9 @@ DVL-Suite 包含两部分：
 ## 相关论文
 
 - [PunchBench: Benchmarking MLLMs in Multimodal Punchline Comprehension](../../ACL2025/multimodal_vlm/punchbench_mllm_punchline.md)
-- [RTV-Bench: Benchmarking MLLM Continuous Perception, Understanding and Reasoning through Real-Time Video](rtv-bench_benchmarking_mllm_continuous_perception_understanding_and_reasoning_th.md)
+- [RTV-Bench: Benchmarking MLLM Continuous Perception, Understanding and Reasoning through Real-Time Video](rtv_bench_benchmarking_mllm_continuous_perception_through_realtime_video.md)
 - [Video-R1: Reinforcing Video Reasoning in MLLMs](video-r1_reinforcing_video_reasoning_in_mllms.md)
 - [Struct2D: A Perception-Guided Framework for Spatial Reasoning in MLLMs](struct2d_a_perception-guided_framework_for_spatial_reasoning_in_mllms.md)
-- [CHOICE: Benchmarking the Remote Sensing Capabilities of Large Vision-Language Models](choice_benchmarking_the_remote_sensing_capabilities_of_large_vision-language_mod.md)
+- [RobustMerge: Parameter-Efficient Model Merging for MLLMs with Direction Robustness](robustmerge_parameter-efficient_model_merging_for_mllms_with_direction_robustnes.md)
 
 <!-- RELATED:END -->

@@ -29,10 +29,21 @@ tags:
 
 ## 研究背景与动机
 
-- **三类分子各有优势**：小分子适合口服（吸收好）、肽擅长细胞内靶向（穿透能力）、抗体高特异性治疗重疾。
-- **现有方法的片面性**：各领域都有专门的生成模型，无法跨域共享数据和知识。
-- **统一表示的挑战**：小分子是功能基团组合，肽/抗体是氨基酸线性排列，纯原子图忽略层次化先验且计算成本高。
-- **跨域可迁移性**：分子-蛋白质相互作用的物理化学规则是通用的，统一建模可利用更大更多样的数据。
+### 领域现状
+
+**领域现状**：三类分子各有优势**：小分子适合口服（吸收好）、肽擅长细胞内靶向（穿透能力）、抗体高特异性治疗重疾。
+
+### 现有痛点
+
+**现有痛点**：现有方法的片面性**：各领域都有专门的生成模型，无法跨域共享数据和知识。
+
+### 核心矛盾
+
+**核心矛盾**：统一表示的挑战**：小分子是功能基团组合，肽/抗体是氨基酸线性排列，纯原子图忽略层次化先验且计算成本高。
+
+### 解决思路
+
+**解决思路**：跨域可迁移性**：分子-蛋白质相互作用的物理化学规则是通用的，统一建模可利用更大更多样的数据。
 
 ## 方法详解
 
@@ -122,8 +133,8 @@ tags:
 
 ## 相关论文
 
-- [Pharmacophore-Guided Generative Design of Novel Drug-Like Molecules](../../NeurIPS2025/medical_imaging/pharmacophore-guided_generative_design_of_novel_drug-like_molecules.md)
 - [Uncertainty-Aware Multi-Objective Reinforcement Learning-Guided Diffusion Models for 3D De Novo Molecular Design](../../NeurIPS2025/medical_imaging/uncertainty-aware_multi-objective_reinforcement_learning-guided_diffusion_models.md)
+- [Pharmacophore-Guided Generative Design of Novel Drug-Like Molecules](../../NeurIPS2025/medical_imaging/pharmacophore-guided_generative_design_of_novel_drug-like_molecules.md)
 - [Geometric Generative Modeling with Noise-Conditioned Graph Networks](geometric_generative_modeling_with_noise-conditioned_graph_networks.md)
 - [De novo generation of functional terpene synthases using TpsGPT](../../NeurIPS2025/medical_imaging/de_novo_generation_of_functional_terpene_synthases_using_tpsgpt.md)
 - [Towards Unified and Lossless Latent Space for 3D Molecular Latent Diffusion Modeling](../../NeurIPS2025/medical_imaging/towards_unified_and_lossless_latent_space_for_3d_molecular_latent_diffusion_mode.md)

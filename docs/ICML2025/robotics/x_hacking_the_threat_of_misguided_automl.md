@@ -17,7 +17,7 @@ tags:
 
 **会议**: ICML2025  
 **arXiv**: [2401.08513](https://arxiv.org/abs/2401.08513)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: robotics  
 **关键词**: AutoML, X-hacking, 可解释AI, Rashomon集, 对抗安全
 
@@ -27,15 +27,19 @@ tags:
 ## 研究背景与动机
 
 ### 从P-hacking到X-hacking
+
 P-hacking是传统统计学中的已知威胁：研究者通过尝试多种分析方式来获得想要的统计显著性结果。本文将这一概念推广到可解释AI领域。
 
-### 核心问题
-在数据科学管道中，有大量自由度（特征工程、模型选择、超参数调优等），不同的管道配置可能产生截然不同的特征重要性解释。对抗者可以利用AutoML系统性地搜索满足其"目标叙事"的管道配置。
+### 现有痛点
 
-### Rashomon效应
-Rashomon集是指在相同数据上达到近似最优预测性能的所有模型的集合。关键观察：这些模型虽然预测性能相似，但对特征重要性的排序可能完全不同。
+**现有痛点**：在数据科学管道中，有大量自由度（特征工程、模型选择、超参数调优等），不同的管道配置可能产生截然不同的特征重要性解释。对抗者可以利用AutoML系统性地搜索满足其"目标叙事"的管道配置。
+
+### 核心矛盾
+
+**核心矛盾**：Rashomon集是指在相同数据上达到近似最优预测性能的所有模型的集合。关键观察：这些模型虽然预测性能相似，但对特征重要性的排序可能完全不同。
 
 ### 威胁场景
+
 - 保险公司：寻找支持"年龄不影响保费"的模型来规避歧视指控
 - 贷款审批：选择隐藏敏感特征影响的解释
 - 监管规避：操纵特征重要性以满足合规要求
@@ -68,13 +72,19 @@ Rashomon集是指在相同数据上达到近似最优预测性能的所有模型
 
 ### X-hacking成功率
 
+
+### 主实验
+
 | 数据集 | 随机搜索成功率 | BO成功率 | BO加速 |
 |--------|-------------|---------|--------|
 | Adult Income | 高 | 更高 | ~3× |
 | COMPAS | 中等 | 高 | ~3× |
-| German Credit | 中等 | 高 | ~2.5× |
+| German Credit | 中等 | 高 | ~2.5%× |
 
 ### 数据集对X-hacking的易受性
+
+
+### 消融实验
 
 | 特征 | 易受攻击 | 抗攻击 |
 |------|---------|--------|
@@ -123,8 +133,8 @@ Rashomon集是指在相同数据上达到近似最优预测性能的所有模型
 
 - [Machine Learning from Explanations](machine_learning_from_explanations.md)
 - [PoisonBench: Assessing Large Language Model Vulnerability to Data Poisoning](poisonbench_assessing_large_language_model_vulnerability_to_data_poisoning.md)
-- [Learning to Stop: Deep Learning for Mean Field Optimal Stopping](learning_to_stop_deep_learning_for_mean_field_optimal_stopping.md)
 - [Geometric Contact Flows: Contactomorphisms for Dynamics and Control](geometric_contact_flows_contactomorphisms_for_dynamics_and_control.md)
-- [Synthesizing Images on Perceptual Boundaries of ANNs for Uncovering and Manipulating Human Perceptual Variability](synthesizing_images_on_perceptual_boundaries_of_anns_for_uncovering_and_manipula.md)
+- [Learning to Stop: Deep Learning for Mean Field Optimal Stopping](learning_to_stop_deep_learning_for_mean_field_optimal_stopping.md)
+- [CommVQ: Commutative Vector Quantization for KV Cache Compression](commvq_commutative_vector_quantization_for_kv_cache_compression.md)
 
 <!-- RELATED:END -->

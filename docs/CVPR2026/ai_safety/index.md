@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 AI安全方向 21篇论文解读
+  CVPR2026 AI安全方向 25篇论文解读
 description: >-
-  21篇CVPR2026 AI安全论文解读，主题涵盖：首次揭示视觉模型成员推断攻击(MIA)面临的对抗性、提出 Pseudo-Random、提出 FOUL 框架，通过"学习阶段解耦因果/非因等，每篇含核心思想与方法详解。
+  25篇CVPR2026 AI安全论文解读，主题涵盖：首次揭示视觉模型成员推断攻击(MIA)面临的对抗性、提出 Pseudo-Random、提出基于视觉 token 聚类的水印方案等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**📷 CVPR2026** · **21** 篇论文解读
+**📷 CVPR2026** · **25** 篇论文解读
 
 **[A Unified Perspective on Adversarial Membership Manipulation in Vision Models](a_unified_perspective_on_adversarial_membership_manipulation_in_vision_models.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[All Vehicles Can Lie: Efficient Adversarial Defense in Fully Untrusted-Vehicle Collaborative Perception via Pseudo-Random Bayesian Inference](all_vehicles_can_lie_efficient_adversarial_defense_in_fully_untrusted-vehicle_co.md)**
 
 :   提出 Pseudo-Random Bayesian Inference (PRBI) 框架，在**所有车辆均不可信**的协同感知场景中，利用帧间时序一致性作为自参考信号，通过伪随机分组 + 贝叶斯推断，仅需平均 2.5 次验证/帧即可高效识别并排除恶意车辆，检测精度恢复至攻击前的 79.4%–86.9%。
+
+**[ClusterMark: Towards Robust Watermarking for Autoregressive Image Generators with Visual Token Clustering](clustermark_towards_robust_watermarking_for_autoregressive_image_generators_with.md)**
+
+:   提出基于视觉 token 聚类的水印方案 ClusterMark，将 KGW 风格的 LLM 水印适配到自回归图像生成器，通过将相似 token 分到同一绿/红集合来显著提升水印在图像扰动下的鲁棒性，同时保持图像质量。
 
 **[Computation and Communication Efficient Federated Unlearning via On-server Gradient Conflict Mitigation and Expression](computation_and_communication_efficient_federated_unlearning_via_on-server_gradi.md)**
 
@@ -58,9 +62,21 @@ description: >-
 
 :   提出IAG，首个针对VLM视觉定位的多目标后门攻击方法，通过文本条件U-Net动态生成输入感知触发器，将任意指定目标物体的语义信息嵌入视觉输入中，在12种设置下的11种达到最高攻击成功率。
 
+**[LogitDynamics: Reliable ViT Error Detection from Layerwise Logit Trajectories](logitdynamics_vit_error_detection.md)**
+
+:   LogitDynamics 通过在 ViT 各层附加轻量分类头，提取层间 logit 轨迹和 top-K 竞争动态特征，训练线性探针来预测模型错误，在跨数据集泛化上优于现有方法。
+
+**[Monte Carlo Stochastic Depth for Uncertainty Estimation in Deep Learning](mcsd_uncertainty_estimation.md)**
+
+:   将随机深度（Stochastic Depth）正式连接到贝叶斯变分推理框架，提出 Monte Carlo Stochastic Depth (MCSD) 作为不确定性估计方法，并在 YOLO、RT-DETR 等现代检测器上进行首次系统基准测试，证明其在校准和不确定性排名上与 MC Dropout 竞争力强。
+
 **[Multi-Paradigm Collaborative Adversarial Attack Against Multi-Modal Large Language Models](multi-paradigm_collaborative_adversarial_attack_against_multi-modal_large_langua.md)**
 
 :   提出 MPCAttack 框架，联合跨模态对齐、多模态理解和视觉自监督三种学习范式的特征表示，通过多范式协同优化策略生成高迁移性对抗样本，在开源和闭源 MLLM 上均取得 SOTA 攻击效果。
+
+**[One-to-More: High-Fidelity Training-Free Anomaly Generation with Attention Control](one-to-more_high-fidelity_training-free_anomaly_generation_with_attention_control.md)**
+
+:   O2MAG 提出一种无需训练的少样本异常生成方法，通过三分支扩散过程中的自注意力嫁接(TriAG)从单张参考异常图像合成更多逼真异常，配合异常引导优化(AGO)对齐文本语义和异常引导增强(DAE)确保掩码区域完整填充，在 MVTec-AD 下游异常检测任务中显著优于现有方法。
 
 **[Perturb and Recover: Fine-tuning for Effective Backdoor Removal from CLIP](perturb_and_recover_fine-tuning_for_effective_backdoor_removal_from_clip.md)**
 

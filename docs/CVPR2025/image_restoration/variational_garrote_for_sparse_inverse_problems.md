@@ -134,9 +134,9 @@ MSE 排序一致：FBP > LASSO > VG，且 VG 方差更小。
 ## 相关论文
 
 - [FiRe: Fixed-points of Restoration Priors for Solving Inverse Problems](fire_fixed-points_of_restoration_priors_for_solving_inverse_problems.md)
+- [GSNR: Graph Smooth Null-Space Representation for Inverse Problems](../../CVPR2026/image_restoration/gsnr_graph_smooth_null_space_representation_for_inverse_problems.md)
 - [Learning Cocoercive Conservative Denoisers via Helmholtz Decomposition for Poisson Inverse Problems](../../NeurIPS2025/image_restoration/learning_cocoercive_conservative_denoisers_via_helmholtz_decomposition_for_poiss.md)
-- [DiTFlow: Video Motion Transfer with Diffusion Transformers](video_motion_transfer_with_diffusion_transformers.md)
-- [AdcSR: Adversarial Diffusion Compression for Real-World Image Super-Resolution](adversarial_diffusion_compression_for_real-world_image_super-resolution.md)
-- [Progressive Focused Transformer for Single Image Super-Resolution](progressive_focused_transformer_for_single_image_super-resolution.md)
+- [Vision-Language Gradient Descent-driven All-in-One Deep Unfolding Networks](vision-language_gradient_descent-driven_all-in-one_deep_unfolding_networks.md)
+- [Complexity Experts are Task-Discriminative Learners for Any Image Restoration](complexity_experts_are_task-discriminative_learners_for_any_image_restoration.md)
 
 <!-- RELATED:END -->

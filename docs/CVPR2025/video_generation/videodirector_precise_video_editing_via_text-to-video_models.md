@@ -133,6 +133,6 @@ VideoDirector 是无需训练的方法。Pivotal Inversion 阶段通过优化 Nu
 - [SketchVideo: Sketch-Based Video Generation and Editing](sketchvideo_sketch-based_video_generation_and_editing.md)
 - [Towards Precise Scaling Laws for Video Diffusion Transformers](towards_precise_scaling_laws_for_video_diffusion_transformers.md)
 - [ShotAdapter: Text-to-Multi-Shot Video Generation with Diffusion Models](shotadapter_text-to-multi-shot_video_generation_with_diffusion_models.md)
-- [MotionPro: A Precise Motion Controller for Image-to-Video Generation](motionpro_a_precise_motion_controller_for_image-to-video_generation.md)
+- [Visual Prompting for One-Shot Controllable Video Editing Without Inversion](visual_prompting_for_one-shot_controllable_video_editing_without_inversion.md)
 
 <!-- RELATED:END -->

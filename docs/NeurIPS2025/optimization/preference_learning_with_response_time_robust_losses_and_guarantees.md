@@ -31,7 +31,9 @@ tags:
 
 ## 研究背景与动机
 
-二元偏好数据已成为微调基础模型的核心信号（如 RLHF），但用户决策过程中蕴含的时间信息（如响应/反应时间）往往被忽视。直觉上，用户快速做出选择（如苹果 vs 橙子）往往暗示偏好强度更大，而犹豫不决则意味着两者差异较小。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：二元偏好数据已成为微调基础模型的核心信号（如 RLHF），但用户决策过程中蕴含的时间信息（如响应/反应时间）往往被忽视。直觉上，用户快速做出选择（如苹果 vs 橙子）往往暗示偏好强度更大，而犹豫不决则意味着两者差异较小。
 
 现有方法的核心局限：
 
@@ -148,6 +150,6 @@ tags:
 - [POPri: Private Federated Learning using Preference-Optimized Synthetic Data](../../ICML2025/optimization/popri_private_federated_learning_using_preference-optimized_synthetic_data.md)
 - [Doubly Robust Alignment for Large Language Models](doubly_robust_alignment_for_large_language_models.md)
 - [Robust Estimation Under Heterogeneous Corruption Rates](robust_estimation_under_heterogeneous_corruption_rates.md)
-- [FedRTS: Federated Robust Pruning via Combinatorial Thompson Sampling](fedrts_federated_robust_pruning_via_combinatorial_thompson_sampling.md)
+- [Natural Gradient VI: Guarantees for Non-Conjugate Models](natural_gradient_vi_guarantees_for_non-conjugate_models.md)
 
 <!-- RELATED:END -->

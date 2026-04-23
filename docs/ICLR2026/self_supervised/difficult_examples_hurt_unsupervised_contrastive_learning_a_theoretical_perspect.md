@@ -121,8 +121,8 @@ tags:
 
 - [Maximizing Incremental Information Entropy for Contrastive Learning](maximizing_incremental_information_entropy_for_contrastive_learning.md)
 - [SpHOR: A Representation Learning Perspective on Open-set Recognition](../../CVPR2026/self_supervised/sphor_a_representation_learning_perspective_on_ope.md)
+- [UniGeoCLIP: Unified Geospatial Contrastive Learning](../../CVPR2026/self_supervised/unigeoclip_geospatial_contrastive.md)
 - [Adv-SSL: Adversarial Self-Supervised Representation Learning with Theoretical Guarantees](../../NeurIPS2025/self_supervised/adv-ssl_adversarial_self-supervised_representation_learning_with_theoretical_gua.md)
 - [MovSemCL: Movement-Semantics Contrastive Learning for Trajectory Similarity (Extension)](../../AAAI2026/self_supervised/movsemcl_movement-semantics_contrastive_learning_for_trajectory_similarity_exten.md)
-- [SpHOR: A Representation Learning Perspective on Open-set Recognition for Identifying Unknown Classes in Deep Neural Networks](../../CVPR2026/self_supervised/sphor_a_representation_learning_perspective_on_open-set_recognition_for_identify.md)
 
 <!-- RELATED:END -->

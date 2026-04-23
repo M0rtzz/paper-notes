@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：LLM不确定性量化（UQ）对可信AI至关重要。黑盒API场景下无法获取梯度、logits或隐藏状态，必须仅从采样输出进行决策。现有方法包括语义熵、自一致性和基于嵌入几何的方法。
 
 **现有痛点**：(1) 共形预测（CP）提供分布无关的有限样本保证，但生成式任务打破了经典监督设定——文本提示不是可量化的协变量；(2) Full-UCP需要对每个候选重新计算（计算密集），Split-UCP数据效率低（分割成本高）；(3) 现有方法未能将低成本信号与高成本质量指标校准对齐。
@@ -66,6 +68,10 @@ tags:
 
 ### 评估指标
 事实性严重度 $\text{FS}(a) = 1 - \max_{r \in \mathcal{R}_q} \text{BERTScoreF1}(\text{head}(a), r)$，仅评估答案头部（首句或Final字段），truncated至16 tokens。
+
+### 损失函数 / 训练策略
+模型采用端到端训练，优化目标综合考虑任务损失和正则化项。
+
 
 ## 实验关键数据
 
@@ -125,8 +131,8 @@ tags:
 
 - [RNE: plug-and-play diffusion inference-time control and energy-based training](rne_plug-and-play_diffusion_inference-time_control_and_energy-based_training.md)
 - [Diffusion Blend: Inference-Time Multi-Preference Alignment for Diffusion Models](diffusion_blend_inference-time_multi-preference_alignment_for_diffusion_models.md)
-- [From Parameters to Behaviors: Unsupervised Compression of the Policy Space](from_parameters_to_behaviors_unsupervised_compression_of_the_policy_space.md)
 - [GLASS Flows: Efficient Inference for Reward Alignment of Flow and Diffusion Models](glass_flows_reward_alignment_diffusion.md)
+- [From Parameters to Behaviors: Unsupervised Compression of the Policy Space](from_parameters_to_behaviors_unsupervised_compression_of_the_policy_space.md)
 - [Translate Policy to Language: Flow Matching Generated Rewards for LLM Explanations](translate_policy_to_language_flow_matching_generated_rewards_for_llm_explanation.md)
 
 <!-- RELATED:END -->

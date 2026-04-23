@@ -147,6 +147,6 @@ $$\tilde{\mathbf{x}} = (1 - \mathbf{M}) \odot \mathbf{x}_0 + \mathbf{D}$$
 - [From Sequential to Recursive: Enhancing Decision-Focused Learning with Bidirectional Feedback](../../AAAI2026/others/from_sequential_to_recursive_enhancing_decision-focused_learning_with_bidirectio.md)
 - [Depth-Synergized Mamba Meets Memory Experts for All-Day Image Reflection Separation](../../AAAI2026/others/depth-synergized_mamba_meets_memory_experts_for_all-day_image_reflection_separat.md)
 - [Rethinking Data Bias: Dataset Copyright Protection via Embedding Class-Wise Hidden Bias](rethinking_data_bias_dataset_copyright_protection_via_embedding_class-wise_hidde.md)
-- [Evaluating Design Decisions for Dual Encoder-based Entity Disambiguation](../../ACL2025/others/evaluating_design_decisions_for_dual_encoder-based_entity_disambiguation.md)
+- [Unveiling Dual Quality in Product Reviews: An NLP-Based Approach](../../ACL2025/others/unveiling_dual_quality_in_product_reviews_an_nlp-based_approach.md)
 
 <!-- RELATED:END -->

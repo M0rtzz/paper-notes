@@ -1,26 +1,18 @@
 ---
 title: >-
-  ECCV2024 图像恢复方向 32篇论文解读
+  ECCV2024 图像恢复方向 26篇论文解读
 description: >-
-  32篇ECCV2024 图像恢复论文解读，主题涵盖：针对现有盲超分方法在处理含模糊（散焦/运动模糊）图、提出PCSR——首个像素级计算资源分配的超分方法、提出自适应选择采样-重建框架 $\mathcal{等，每篇含核心思想与方法详解。
+  26篇ECCV2024 图像恢复论文解读，主题涵盖：提出PCSR——首个像素级计算资源分配的超分方法、提出非对称掩码方案 AMSNet，训练时用单掩码、提出 BAMM（双向自回归运动模型）等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**🎞️ ECCV2024** · **32** 篇论文解读
-
-**[A New Dataset and Framework for Real-World Blurred Images Super-Resolution](a_new_dataset_and_framework_for_real-world_blurred_images_super-resolution.md)**
-
-:   针对现有盲超分方法在处理含模糊（散焦/运动模糊）图像时过度纹理化、破坏模糊区域感知质量的问题，构建了包含近3000张模糊图像的ReBlurSR数据集，并提出PBaSR框架，通过双分支解耦训练（CDM）和基于权重插值的跨分支融合（CFM），在不增加任何推理开销的前提下，同时提升模糊图像和普通图像的超分效果，LPIPS提升0.02~0.10。
+**🎞️ ECCV2024** · **26** 篇论文解读
 
 **[Accelerating Image Super-Resolution Networks with Pixel-Level Classification](accelerating_image_super-resolution_networks_with_pixel-level_classification.md)**
 
 :   提出PCSR——首个像素级计算资源分配的超分方法，用轻量MLP分类器逐像素判断恢复难度并分配到不同容量的上采样器，在PSNR几乎不掉的情况下将FLOPs压低至原始模型的18%~57%，大幅优于现有patch级方法ClassSR和ARM。
-
-**[Adaptive Selection of Sampling-Reconstruction in Fourier Compressed Sensing](adaptive_selection_of_samplingreconstruction_in_fourier_comp.md)**
-
-:   提出自适应选择采样-重建框架 $\mathcal{H}_{1.5}$，为每个输入数据自适应选择最佳的采样mask与专用重建网络对，利用超分辨率空间生成模型量化高频不确定性实现选择，理论证明优于非自适应联合优化 $\mathcal{H}_1$ 和自适应采样 $\mathcal{H}_2$。
 
 **[Asymmetric Mask Scheme for Self-supervised Real Image Denoising](asymmetric_mask_scheme_for_self-supervised_real_image_denoising.md)**
 
@@ -94,10 +86,6 @@ description: >-
 
 :   提出成对距离蒸馏框架，通过蒸馏专用模型和通用模型之间的内部和模型间距离关系，实现无监督真实世界图像超分辨率的退化自适应。
 
-**[Pixel-Aware Stable Diffusion for Realistic Image Super-Resolution and Personalized Stylization](pixel-aware_stable_diffusion_for_realistic_image_super-resolution_and_personaliz.md)**
-
-:   提出 PASD（Pixel-Aware Stable Diffusion），通过像素感知交叉注意力（PACA）模块使扩散模型在像素级感知图像局部结构，结合退化去除模块和可调噪声调度，实现了真实图像超分辨率和个性化风格化的统一框架，只需替换底座模型即可切换风格。
-
 **[Restoring Images in Adverse Weather Conditions via Histogram Transformer](restoring_images_in_adverse_weather_conditions_via_histogram_transformer.md)**
 
 :   提出 Histoformer，一种基于直方图自注意力机制的高效 Transformer，通过将空间特征按像素强度排序分箱（bin），在箱内和箱间执行自注意力，实现动态范围的空间注意力以高效处理天气退化像素，配合动态范围卷积和 Pearson 相关性损失，在去雪/去雨雾/去雨滴三大任务上统一建模并达到 SOTA。
@@ -114,10 +102,6 @@ description: >-
 
 :   提出首个无需数据集训练的空间变化退化模型 SVDSR，每个像素的退化核由可学习的原子核字典的线性组合表示，系数矩阵通过模糊集的隶属函数从图像纹理信息推导，在 MAP 框架下用 Monte Carlo EM 算法推断，$2\times$ 超分平均提升 1 dB。
 
-**[Stream Query Denoising for Vectorized HD-Map Construction](stream_query_denoising_for_vectorized_hd-map_construction.md)**
-
-:   提出 Stream Query Denoising (SQD) 策略，通过对前一帧 GT 添加噪声并训练网络恢复当前帧 GT 来增强流式 HD 地图构建中的时序一致性建模，在 nuScenes 和 Argoverse2 上全面超越 StreamMapNet。
-
 **[Towards Real-world Event-guided Low-light Video Enhancement and Deblurring](towards_real-world_event-guided_low-light_video_enhancement_and_deblurring.md)**
 
 :   本文首次提出事件相机引导的低光视频增强与去模糊联合任务，构建了基于分光棱镜的真实世界数据集 RELED，并设计了包含事件引导可变形时序对齐 (ED-TFA) 和频谱滤波跨模态增强 (SFCM-FE) 两个核心模块的端到端框架，在 PSNR 上比此前最佳方法提升 1.2dB 以上。
@@ -129,11 +113,3 @@ description: >-
 **[Unrolled Decomposed Unpaired Learning for Controllable Low-Light Video Enhancement](unrolled_decomposed_unpaired_learning_for_controllable_low-light_video_enhanceme.md)**
 
 :   提出 UDU-Net，将低光视频增强建模为 MAP 优化问题并展开为深度网络，通过 Intra/Inter 子网分别处理空间（光照）和时序（一致性）退化，支持无配对训练和人类感知反馈的可控增强。
-
-**[XPSR: Cross-modal Priors for Diffusion-based Image Super-Resolution](xpsr_cross-modal_priors_for_diffusion-based_image_super-resolution.md)**
-
-:   XPSR 利用多模态大语言模型（MLLM）提取高层和低层语义先验，通过 Semantic-Fusion Attention 和 Degradation-Free Constraint 引导扩散模型实现高保真、高真实感的图像超分辨率。
-
-**[You Only Need One Step: Fast Super-Resolution with Stable Diffusion via Scale Distillation](you_only_need_one_step_fast_super-resolution_with_stable_diffusion_via_scale_dis.md)**
-
-:   提出YONOS-SR方法，通过尺度蒸馏（Scale Distillation）策略训练基于Stable Diffusion的超分辨率模型，仅需一步DDIM即可获得SOTA结果，速度比传统方法快200倍。

@@ -126,8 +126,8 @@ ReACT 分为两个阶段：
 
 - [Interpretable Reward Model via Sparse Autoencoder](interpretable_reward_model_via_sparse_autoencoder.md)
 - [Token-Efficient Item Representation via Images for LLM Recommender Systems](../../ICLR2026/recommender/token-efficient_item_representation_via_images_for_llm_recommender_systems.md)
+- [Laser: Bi-Tuning with Collaborative Information for Controllable LLM-Based Sequential Recommendation](../../ACL2025/recommender/bi-tuning_with_collaborative_information_for_controllable_llm-based_sequential_r.md)
 - [GoalRank: Group-Relative Optimization for a Large Ranking Model](../../ICLR2026/recommender/goalrank_group-relative_optimization_for_a_large_ranking_model.md)
 - [Measuring What Matters: Construct Validity in Large Language Model Benchmarks](../../NeurIPS2025/recommender/measuring_what_matters_construct_validity_in_large_language_model_benchmarks.md)
-- [Recommendations and Reporting Checklist for Rigorous & Transparent Human Baselines in Model Evaluations](../../ICML2025/recommender/recommendations_and_reporting_checklist_for_rigorous_transparent_human_baselines.md)
 
 <!-- RELATED:END -->

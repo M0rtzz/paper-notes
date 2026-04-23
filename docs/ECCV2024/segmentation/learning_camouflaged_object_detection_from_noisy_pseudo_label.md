@@ -141,8 +141,8 @@ WSSCOD 是一个两阶段方法：
 
 - [Frequency-Spatial Entanglement Learning for Camouflaged Object Detection](frequency-spatial_entanglement_learning_for_camouflaged_object_detection.md)
 - [EReCu: Pseudo-label Evolution Fusion and Refinement with Multi-Cue Learning for Unsupervised Camouflage Detection](../../CVPR2026/segmentation/erecu_pseudo-label_evolution_fusion_and_refinement_with_multi-cue_learning_for_u.md)
-- [SOS: Segment Object System for Open-World Instance Segmentation With Object Priors](sos_segment_object_system_for_open-world_instance_segmentation_with_object_prior.md)
 - [Towards Robust Pseudo-Label Learning in Semantic Segmentation: An Encoding Perspective](../../NeurIPS2025/segmentation/towards_robust_pseudo-label_learning_in_semantic_segmentation_an_encoding_perspe.md)
-- [Self-supervised Co-salient Object Detection via Feature Correspondences at Multiple Scales](self-supervised_co-salient_object_detection_via_feature_correspondences_at_multi.md)
+- [SOS: Segment Object System for Open-World Instance Segmentation With Object Priors](sos_segment_object_system_for_open-world_instance_segmentation_with_object_prior.md)
+- [SDDF: Specificity-Driven Dynamic Focusing for Open-Vocabulary Camouflaged Object Detection](../../CVPR2026/segmentation/sddf_specificity-driven_dynamic_focusing_for_open-vocabulary_camouflaged_object.md)
 
 <!-- RELATED:END -->

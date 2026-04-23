@@ -166,8 +166,8 @@ $$\text{flip}_\eta(x) \coloneqq \Pr_{r,r' \sim \mu}[b_r^{(\eta)}(x) \neq b_{r'}^
 
 - [Membership Inference Attacks Against Fine-tuned Diffusion Language Models (SAMA)](../../ICLR2026/ai_safety/membership_inference_attacks_against_fine-tuned_diffusion_language_models.md)
 - [Distributive Fairness in Large Language Models: Evaluating Alignment with Human Values](distributive_fairness_in_large_language_models_evaluating_alignment_with_human_v.md)
-- [ELBA-Bench: An Efficient Learning Backdoor Attacks Benchmark for Large Language Models](../../ACL2025/ai_safety/elba-bench_an_efficient_learning_backdoor_attacks_benchmark_for_large_language_m.md)
+- [Impact of Dataset Properties on Membership Inference Vulnerability of Deep Transfer Learning](impact_of_dataset_properties_on_membership_inference.md)
+- [Merge Hijacking: Backdoor Attacks to Model Merging of Large Language Models](../../ACL2025/ai_safety/merge_hijacking_backdoor_attacks_to_model_merging_of_large_language_models.md)
 - [Ensemble Watermarks for Large Language Models](../../ACL2025/ai_safety/ensemble_watermarks_llm.md)
-- [Impact of Dataset Properties on Membership Inference Vulnerability of Deep Transfer Learning](impact_of_dataset_properties_on_membership_inference_vulnerability_of_deep_trans.md)
 
 <!-- RELATED:END -->

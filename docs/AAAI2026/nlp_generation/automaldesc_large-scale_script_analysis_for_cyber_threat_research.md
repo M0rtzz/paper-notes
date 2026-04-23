@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：网络安全中需要对恶意脚本做静态分析并生成自然语言解释。现有方法依赖 YARA 规则和沙箱引爆，覆盖面有限且需人工专家。
 
 **现有痛点**：(1) 专家标注成本极高，难以覆盖 5 种脚本语言的海量变种；(2) 通用 LLM 对恶意软件的行为理解不足（Base 模型 Batch 检测仅 52.7%）；(3) 缺乏大规模高质量恶意脚本描述数据集。
@@ -94,8 +96,8 @@ tags:
 ## 相关论文
 
 - [A Representation Level Analysis of NMT Model Robustness to Grammatical Errors](../../ACL2025/nlp_generation/a_representation_level_analysis_of_nmt_model_robustness_to_grammatical_errors.md)
-- [Theme-Explanation Structure for Table Summarization Using Large Language Models](../../ACL2025/nlp_generation/theme-explanation_structure_for_table_summarization_using_large_language_models_.md)
 - [An Empirical Study of Many-to-Many Summarization with Large Language Models](../../ACL2025/nlp_generation/an_empirical_study_of_manytomany_summarization.md)
+- [Theme-Explanation Structure for Table Summarization Using Large Language Models](../../ACL2025/nlp_generation/theme-explanation_structure_for_table_summarization_using_large_language_models_.md)
 - [Unveiling Attractor Cycles in Large Language Models: A Dynamical Systems View of Successive Paraphrasing](../../ACL2025/nlp_generation/unveiling_attractor_cycles_in_large_language_models_a_dynamical_systems_view_of_.md)
 - [C3TG: Conflict-aware, Composite, and Collaborative Controlled Text Generation](c3tg_conflict-aware_composite_and_collaborative_controlled_text_generation.md)
 

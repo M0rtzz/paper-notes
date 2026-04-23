@@ -118,8 +118,8 @@ RIFLEx分三步：(1) 分析RoPE各频率分量 $\theta_j$ 的周期 $N_j = 2\pi
 
 - [AsymRnR: Video Diffusion Transformers Acceleration with Asymmetric Reduction and Restoration](asymrnr_video_diffusion_transformers_acceleration_with_asymmetric_reduction_and_.md)
 - [Free-Lunch Long Video Generation via Layer-Adaptive O.O.D Correction](../../CVPR2026/video_generation/free-lunch_long_video_generation_via_layer-adaptive_ood_correction.md)
+- [MagicMirror: ID-Preserved Video Generation in Video Diffusion Transformers](../../ICCV2025/video_generation/magicmirror_id-preserved_video_generation_in_video_diffusion_transformers.md)
 - [Decouple and Track: Benchmarking and Improving Video Diffusion Transformers for Motion Transfer](../../ICCV2025/video_generation/decouple_and_track_benchmarking_and_improving_video_diffusion_transformers_for_m.md)
 - [Towards Precise Scaling Laws for Video Diffusion Transformers](../../CVPR2025/video_generation/towards_precise_scaling_laws_for_video_diffusion_transformers.md)
-- [When to Lock Attention: Training-Free KV Control in Video Diffusion](../../CVPR2025/video_generation/when_to_lock_attention_training-free_kv_control_in_video_diffusion.md)
 
 <!-- RELATED:END -->

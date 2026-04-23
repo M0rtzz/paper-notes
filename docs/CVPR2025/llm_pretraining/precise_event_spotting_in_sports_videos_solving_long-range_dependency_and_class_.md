@@ -138,9 +138,9 @@ $$\mathcal{L}_{final} = \mathcal{L}_{BCE} + \lambda_{SIC} \cdot \mathcal{L}_{SIC
 ## 相关论文
 
 - [Reducing Class-Wise Performance Disparity via Margin Regularization](../../ICLR2026/llm_pretraining/reducing_class-wise_performance_disparity_via_margin_regularization.md)
-- [DreamLIP: Language-Image Pre-training with Long Captions](../../ECCV2024/llm_pretraining/dreamlip_language-image_pre-training_with_long_captions.md)
-- [Watch and Learn: Learning to Use Computers from Online Videos](../../CVPR2026/llm_pretraining/watch_and_learn_learning_to_use_computers_from_online_videos.md)
 - [Nemotron-CC: Transforming Common Crawl into a Refined Long-Horizon Pretraining Dataset](../../ACL2025/llm_pretraining/nemotron_cc_pretraining_data.md)
+- [Watch and Learn: Learning to Use Computers from Online Videos](../../CVPR2026/llm_pretraining/watch_and_learn_learning_to_use_computers_from_online_videos.md)
+- [A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning](../../ICML2025/llm_pretraining/a_square_peg_in_a_square_hole_meta-expert_for_long-tailed_semi-supervised_learni.md)
 - [No-Regret Strategy Solving in Imperfect-Information Games via Pre-Trained Embedding](../../AAAI2026/llm_pretraining/no-regret_strategy_solving_in_imperfect-information_games_via_pre-trained_embedd.md)
 
 <!-- RELATED:END -->

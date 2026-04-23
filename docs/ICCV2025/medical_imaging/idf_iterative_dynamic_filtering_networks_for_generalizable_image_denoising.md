@@ -160,8 +160,8 @@ IDF 采用迭代去噪方案：输入噪声图像 $\mathbf{I}_{Noisy}$ 经过 T 
 
 - [SIC: Similarity-Based Interpretable Image Classification with Neural Networks](sic_similarity-based_interpretable_image_classification_with_neural_networks.md)
 - [UKBOB: One Billion MRI Labeled Masks for Generalizable 3D Medical Image Segmentation](ukbob_one_billion_mri_labeled_masks_for_generalizable_3d_medical_image_segmentat.md)
+- [RelativeFlow: Taming Medical Image Denoising Learning with Noisy Reference](../../CVPR2026/medical_imaging/relativeflow_taming_medical_image_denoising_learning_with_noisy_reference.md)
 - [DictAS: A Framework for Class-Generalizable Few-Shot Anomaly Segmentation via Dictionary Lookup](dictas_a_framework_for_class-generalizable_few-shot_anomaly_segmentation_via_dic.md)
 - [Iterative Foundation Model Fine-Tuning on Multiple Rewards](../../NeurIPS2025/medical_imaging/iterative_foundation_model_fine-tuning_on_multiple_rewards.md)
-- [Self Iterative Label Refinement via Robust Unlabeled Learning](../../NeurIPS2025/medical_imaging/self_iterative_label_refinement_via_robust_unlabeled_learning.md)
 
 <!-- RELATED:END -->

@@ -122,7 +122,7 @@ SFT 使用标准交叉熵损失；RL 使用 PPO 算法，奖励函数结合评�
 - [RM-R1: Reward Modeling as Reasoning](rm-r1_reward_modeling_as_reasoning.md)
 - [AutoQD: Automatic Discovery of Diverse Behaviors with Quality-Diversity Optimization](autoqd_automatic_discovery_of_diverse_behaviors_with_quality-diversity_optimizat.md)
 - [Post-training Large Language Models for Diverse High-Quality Responses](post-training_large_language_models_for_diverse_high-quality_responses.md)
+- [First-Order Representation Languages for Goal-Conditioned RL](../../AAAI2026/reinforcement_learning/first-order_representation_languages_for_goal-conditioned_rl.md)
 - [The Burden of Interactive Alignment with Inconsistent Preferences](../../NeurIPS2025/reinforcement_learning/the_burden_of_interactive_alignment_with_inconsistent_preferences.md)
-- [Reasoning as Representation: Rethinking Visual Reinforcement Learning in Image Quality Assessment](reasoning_as_representation_rethinking_visual_reinforcement_learning_in_image_qu.md)
 
 <!-- RELATED:END -->

@@ -123,7 +123,7 @@ PSDF在最优配置（$\tau_T=0.5, \tau_Q=0.4, \ell_Q=25$）下达到约124 tok/
 - [SAM Decoding: Speculative Decoding via Suffix Automaton](../../ACL2025/llm_efficiency/sam_decoding_speculative_decoding_via_suffix_automaton.md)
 - [OmniDraft: A Cross-Vocabulary Online Adaptive Drafter for On-Device Speculative Decoding](omnidraft_a_cross-vocabulary_online_adaptive_drafter_for_on-device_speculative_d.md)
 - [Tetris: Optimal Draft Token Selection for Batch Speculative Decoding](../../ACL2025/llm_efficiency/tetris_optimal_draft_token_selection_for_batch_speculative_decoding.md)
-- [CLaSp: In-Context Layer Skip for Self-Speculative Decoding](../../ACL2025/llm_efficiency/clasp_self_speculative_decoding.md)
-- [Yggdrasil: Bridging Dynamic Speculation and Static Runtime for Latency-Optimal Tree-Based LLM Decoding](yggdrasil_bridging_dynamic_speculation_and_static_runtime_for_latency-optimal_tr.md)
+- [Accelerating Speculative Decoding via Efficient Context-Aware Draft Generation](../../ACL2025/llm_efficiency/accelerating_speculative_decoding_via_efficient_context-aware_draft_generation.md)
+- [A Drop-In Solution for On-the-Fly Adaptation of Speculative Decoding in Large Language Models](../../ACL2025/llm_efficiency/a_drop-in_solution_for_on-the-fly_adaptation_of_speculative_decoding_in_large_la.md)
 
 <!-- RELATED:END -->

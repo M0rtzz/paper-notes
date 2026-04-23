@@ -159,10 +159,10 @@ SLAM上所有算法与胜率的相关性都很高（≥0.91），说明均匀分
 
 ## 相关论文
 
+- [Analyzing the Rapid Generalization of SFT via the Perspective of Attention Head Activation Patterns](analyzing_the_rapid_generalization_of_sft_via_the_perspective_of_attention_head_.md)
 - [MHA2MLA: Towards Economical Inference by Enabling DeepSeek's Multi-Head Latent Attention in Any Transformer-based LLMs](mha2mla_deepseek_latent_attention.md)
+- [Are Optimal Algorithms Still Optimal? Rethinking Sorting in LLM-Based Pairwise Ranking with Batching and Caching](are_optimal_algorithms_still_optimal_rethinking_sorting_in_llm-based_pairwise_ra.md)
+- [AI as a Novel Ethical Agent: Exploring Moral Judgments by Large Language Models](ai_as_a_novel_ethical_agent_exploring_moral_judgments_by_large_language_models.md)
 - [Post Hoc Regression Refinement via Pairwise Rankings](../../NeurIPS2025/llm_nlp/post_hoc_regression_refinement_via_pairwise_rankings.md)
-- [AIMSCheck: Leveraging LLMs for AI-Assisted Review of Modern Slavery Statements Across Jurisdictions](aimscheck_modern_slavery.md)
-- [Can LLMs Identify Critical Limitations within Scientific Research? A Systematic Evaluation on AI Research Papers](can_llms_identify_critical_limitations_within_scientific_research_a_systematic_e.md)
-- [Beware of Your Po! Measuring and Mitigating AI Safety Risks in Role-Play Fine-Tuning of LLMs](sarft_roleplay_safety.md)
 
 <!-- RELATED:END -->

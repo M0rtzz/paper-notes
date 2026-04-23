@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-从脑活动解码语音表征对恢复瘫痪或严重语言障碍者的交流能力具有重要意义。侵入式脑机接口(如 ECoG)已能实现词错误率低于 5% 的连续语音重建，但其依赖神经外科植入，限制了可扩展性和临床可行性。
+### 现有痛点
+
+**现有痛点**：**领域现状**：从脑活动解码语音表征对恢复瘫痪或严重语言障碍者的交流能力具有重要意义。侵入式脑机接口(如 ECoG)已能实现词错误率低于 5% 的连续语音重建，但其依赖神经外科植入，限制了可扩展性和临床可行性。
 
 脑磁图(MEG)作为非侵入式替代方案，提供安全、可重复的语音相关神经活动探测手段，但面临三大挑战：
 
@@ -125,8 +127,8 @@ MEGState 以 MEG 信号 $\mathbf{X} \in \mathbb{R}^{M \times T}$（$M$ 个传感
 
 - [Decoding Reading Goals from Eye Movements](../../ACL2025/others/decoding_reading_goals_from_eye_movements.md)
 - [Brain Netflix: Scaling Data to Reconstruct Videos from Brain Signals](../../ECCV2024/others/brain_netflix_scaling_data_to_reconstruct_videos_from_brain_signals.md)
+- [Theoretical Guarantees for Minimum Bayes Risk Decoding](../../ACL2025/others/theoretical_guarantees_for_minimum_bayes_risk_decoding.md)
 - [Consultant Decoding: Yet Another Synergistic Mechanism](../../ACL2025/others/consultant_decoding_yet_another_synergistic_mechanism.md)
 - [When to Speak, When to Abstain: Contrastive Decoding with Abstention](../../ACL2025/others/when_to_speak_when_to_abstain.md)
-- [CoachMe: Decoding Sport Elements with a Reference-Based Coaching Instruction Generation Model](../../ACL2025/others/coachme_sport_instruction.md)
 
 <!-- RELATED:END -->

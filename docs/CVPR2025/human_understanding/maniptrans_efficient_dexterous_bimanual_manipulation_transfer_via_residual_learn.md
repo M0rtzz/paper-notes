@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：灵巧操作（如抓取/旋转物体）是机器人的核心挑战。动捕数据提供了丰富的人手操作演示，但人手有 27 个自由度、灵巧手有不同的运动学结构——直接重定向（retarget）无法保证物理上的有效交互。
 
 **现有痛点**：（1）QuasiSim 等物理仿真方法需要 40+ 小时优化一个轨迹；（2）直接 RL 训练灵巧手操作需要任务特定奖励设计，且双手版本维度爆炸；（3）重定向+RL 残差的简单组合因动作空间复杂而收敛困难。
@@ -36,6 +38,13 @@ tags:
 **切入角度**：解耦——先学手的运动模式（Stage-1，无物体），再用残差网络仅学习"因为物体交互需要的修正量"（Stage-2）。残差模块的动作空间小得多。
 
 **核心 idea**：手运动预训练 + 物体交互残差 + 课程学习 = 高效的双手灵巧操作迁移。
+
+### 解决思路
+
+**本文目标**：### 关键设计
+
+1. **Stage-1: 纯手轨迹模仿**：用 RL 训练策略模仿动捕的手腕位姿和手指关节角，不涉及物体。
+
 
 ## 方法详解
 
@@ -93,6 +102,6 @@ tags:
 - [Two by Two: Learning Multi-Task Pairwise Objects Assembly for Generalizable Robot Manipulation](two_by_two_learning_multi-task_pairwise_objects_assembly_for_generalizable_robot.md)
 - [GigaHands: A Massive Annotated Dataset of Bimanual Hand Activities](gigahands_a_massive_annotated_dataset_of_bimanual_hand_activities.md)
 - [BiPreManip: Learning Affordance-Based Bimanual Preparatory Manipulation through Anticipatory Collaboration](../../CVPR2026/human_understanding/bipremanip_learning_affordance-based_bimanual_preparatory_manipulation_through_a.md)
-- [Project-Probe-Aggregate: Efficient Fine-Tuning for Group Robustness](project-probe-aggregate_efficient_fine-tuning_for_group_robustness.md)
+- [Less is More: Efficient Model Merging with Binary Task Switch](less_is_more_efficient_model_merging_with_binary_task_switch.md)
 
 <!-- RELATED:END -->

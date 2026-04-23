@@ -123,9 +123,9 @@ SegAgent 将 referring expression segmentation 建模为人类标注员的迭代
 ## 相关论文
 
 - [SPARROW: Learning Spatial Precision and Temporal Referential Consistency in Pixel-Grounded Video MLLMs](sparrow_learning_spatial_precision_and_temporal_referential_consistency_in_pixel.md)
+- [Exploring Simple Open-Vocabulary Semantic Segmentation](exploring_simple_open-vocabulary_semantic_segmentation.md)
 - [Exploring CLIP's Dense Knowledge for Weakly Supervised Semantic Segmentation](exploring_clips_dense_knowledge_for_weakly_supervised_semantic_segmentation.md)
 - [Image Quality Assessment: From Human to Machine Preference](image_quality_assessment_from_human_to_machine_preference.md)
 - [Holmes-VAU: Towards Long-term Video Anomaly Understanding at Any Granularity](holmes-vau_towards_long-term_video_anomaly_understanding_at_any_granularity.md)
-- [DINOv2 Meets Text: A Unified Framework for Image- and Pixel-Level Vision-Language Alignment](dinov2_meets_text_a_unified_framework_for_image-_and_pixel-level_vision-language.md)
 
 <!-- RELATED:END -->

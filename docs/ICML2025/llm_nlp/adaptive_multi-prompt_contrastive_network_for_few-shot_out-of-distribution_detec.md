@@ -170,9 +170,9 @@ AMCN 基于 CLIP 视觉-语言预训练模型，包含三个核心模块：
 ## 相关论文
 
 - [SEC-Prompt: SEmantic Complementary Prompting for Few-Shot Class-Incremental Learning](../../CVPR2025/llm_nlp/sec-promptsemantic_complementary_prompting_for_few-shot_class-incremental_learni.md)
+- [CoPS: Conditional Prompt Synthesis for Zero-Shot Anomaly Detection](../../CVPR2026/llm_nlp/cops_conditional_prompt_synthesis_for_zero-shot_anomaly_detection.md)
 - [Out-of-distribution Generalisation is Hard: Evidence from ARC-like Tasks](../../NeurIPS2025/llm_nlp/out-of-distribution_generalisation_is_hard_evidence_from_arc-like_tasks.md)
 - [PromptMoE: Generalizable Zero-Shot Anomaly Detection via Visually-Guided Prompt Mixing of Experts](../../AAAI2026/llm_nlp/promptmoe_generalizable_zero-shot_anomaly_detection_via_visually-guided_prompt_m.md)
 - [HyGenar: An LLM-Driven Hybrid Genetic Algorithm for Few-Shot Grammar Generation](../../ACL2025/llm_nlp/hygenar_an_llm-driven_hybrid_genetic_algorithm_for_few-shot_grammar_generation.md)
-- [Gradient-Adaptive Policy Optimization: Towards Multi-Objective Alignment of Large Language Models](../../ACL2025/llm_nlp/gapo_multi_objective_alignment.md)
 
 <!-- RELATED:END -->

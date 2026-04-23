@@ -142,6 +142,6 @@ tags:
 - [Understanding Silent Data Corruption in LLM Training](understanding_silent_data_corruption_in_llm_training.md)
 - [Training Language Model to Critique for Better Refinement](training_language_model_to_critique_for_better_refinement.md)
 - [Large Language Models in Bioinformatics: A Survey](large_language_models_in_bioinformatics_a_survey.md)
-- [Knowledge Boundary of Large Language Models: A Survey](knowledge_boundary_survey.md)
+- [Cheaper and Better Diffusion Language Model via Task-Specific Training](cheaper_and_better_diffusion_language_model_via_task-specific_training.md)
 
 <!-- RELATED:END -->

@@ -138,6 +138,6 @@ GAKer 包含冻结的特征提取器 $\mathcal{F}_\psi$ 和 UNet 生成器 $\mat
 - [Rethinking Target Label Conditioning in Adversarial Attacks: A 2D Tensor-Guided Generative Approach](../../AAAI2026/ai_safety/rethinking_target_label_conditioning_in_adversarial_attacks_a_2d_tensor-guided_g.md)
 - [CLIP-Guided Generative Networks for Transferable Targeted Adversarial Attacks](clip-guided_generative_networks_for_transferable_targeted_adversarial_attacks.md)
 - [Editing Physiological Signals in Videos Using Latent Representations](../../CVPR2026/ai_safety/editing_physiological_signals_in_videos_using_latent_representations.md)
-- [Resource-Adaptive Federated Text Generation with Differential Privacy](../../ICLR2026/ai_safety/resource-adaptive_federated_text_generation_with_differential_privacy.md)
+- [Can Editing LLMs Inject Harm?](../../AAAI2026/ai_safety/can_editing_llms_inject_harm.md)
 
 <!-- RELATED:END -->

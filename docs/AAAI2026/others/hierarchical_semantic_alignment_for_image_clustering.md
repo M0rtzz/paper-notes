@@ -121,8 +121,8 @@ tags:
 
 - [LeanRAG: Knowledge-Graph-Based Generation with Semantic Aggregation and Hierarchical Retrieval](leanrag_knowledge-graph-based_generation_with_semantic_aggregation_and_hierarchi.md)
 - [Learning-Augmented Hierarchical Clustering](../../ICML2025/others/learning-augmented_hierarchical_clustering.md)
+- [LoViF 2026 Challenge on Human-oriented Semantic Image Quality Assessment](../../CVPR2026/others/lovif_2026_semantic_quality_assessment_challenge.md)
+- [OmniFood8K: Single-Image Nutrition Estimation via Hierarchical Frequency-Aligned Fusion](../../CVPR2026/others/omnifood8k_nutrition_estimation.md)
 - [Towards Temporal Fusion Beyond the Field of View for Camera-based Semantic Scene Completion](towards_temporal_fusion_beyond_the_field_of_view_for_camera-based_semantic_scene.md)
-- [Approximation Algorithm for Constrained k-Center Clustering: A Local Search Approach](approximation_algorithm_for_constrained_k-center_clustering_.md)
-- [Verification-Guided Context Optimization for Tool Calling via Hierarchical LLMs-as-editors](verification-guided_context_optimization_for_tool_calling_via_hierarchical_llms-.md)
 
 <!-- RELATED:END -->

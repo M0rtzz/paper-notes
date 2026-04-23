@@ -26,12 +26,23 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**：布局控制图像生成（GLIGEN、MIGC、InstanceDiffusion）和图像定位（Grounding DINO、CogVLM）分别取得进展，但两者独立训练，未发挥协同效应。
+### 领域现状
+
+**领域现状**：领域现状**：布局控制图像生成（GLIGEN、MIGC、InstanceDiffusion）和图像定位（Grounding DINO、CogVLM）分别取得进展，但两者独立训练，未发挥协同效应。
 
 **现有痛点**：
-   - 单任务方法难以准确区分文本中的空间关系（如"前-中-后" vs "上-中-下"）
-   - 直接联合训练两个任务性能受限——优化目标冲突
-   - PlanGen 等统一模型仍然独立优化各任务
+
+### 现有痛点
+
+**现有痛点**：单任务方法难以准确区分文本中的空间关系（如"前-中-后" vs "上-中-下"）
+
+### 核心矛盾
+
+**核心矛盾**：直接联合训练两个任务性能受限——优化目标冲突
+
+### 解决思路
+
+**解决思路**：PlanGen 等统一模型仍然独立优化各任务
 
 **核心矛盾**：L2I 和 I2L 天然互为逆任务，联合训练应该互相增强，但实际操作中优化困难。
 
@@ -116,7 +127,7 @@ EchoGen 在所有指标上超越所有方法（含纯生成和统一模型）。
 ## 相关论文
 
 - [Cycle-Consistent Tuning for Layered Image Decomposition](../../CVPR2026/image_generation/cycle-consistent_tuning_for_layered_image_decomposition.md)
-- [ConsistCompose: Unified Multimodal Layout Control for Image Composition](../../CVPR2026/image_generation/consistcompose_multimodal_layout_control.md)
+- [ConsistCompose: Unified Multimodal Layout Control for Image Composition](../../CVPR2026/image_generation/consistcompose_unified_multimodal_layout_control_for_image_composition.md)
 - [Co-Reinforcement Learning for Unified Multimodal Understanding and Generation](../../NeurIPS2025/image_generation/coreinforcement_learning_for_unified_multimodal_understandin.md)
 - [Dual Diffusion for Unified Image Generation and Understanding](../../CVPR2025/image_generation/dual_diffusion_for_unified_image_generation_and_understanding.md)
 - [Infinite-Story: A Training-Free Consistent Text-to-Image Generation](infinite-story_a_training-free_consistent_text-to-image_gene.md)

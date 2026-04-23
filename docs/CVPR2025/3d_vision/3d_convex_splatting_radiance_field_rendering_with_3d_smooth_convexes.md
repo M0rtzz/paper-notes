@@ -123,9 +123,9 @@ tags:
 ## 相关论文
 
 - [Sparse Voxels Rasterization: Real-time High-fidelity Radiance Field Rendering](sparse_voxels_rasterization_real-time_high-fidelity_radiance_field_rendering.md)
+- [Geometry Field Splatting with Gaussian Surfels](geometry_field_splatting_with_gaussian_surfels.md)
+- [Depth-Guided Bundle Sampling for Efficient Generalizable Neural Radiance Field Reconstruction](depth-guided_bundle_sampling_for_efficient_generalizable_neural_radiance_field_r.md)
 - [Augmented Radiance Field: A General Framework for Enhanced Gaussian Splatting](../../ICLR2026/3d_vision/augmented_radiance_field_a_general_framework_for_enhanced_gaussian_splatting.md)
 - [NeRFPrior: Learning Neural Radiance Field as a Prior for Indoor Scene Reconstruction](nerfprior_learning_neural_radiance_field_as_a_prior_for_indoor_scene_reconstruct.md)
-- [DoF-Gaussian: Controllable Depth-of-Field for 3D Gaussian Splatting](dof-gaussian_controllable_depth-of-field_for_3d_gaussian_splatting.md)
-- [LookCloser: Frequency-aware Radiance Field for Tiny-Detail Scene (FA-NeRF)](lookcloser_frequency-aware_radiance_field_for_tiny-detail_scene.md)
 
 <!-- RELATED:END -->

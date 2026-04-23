@@ -27,11 +27,25 @@ tags:
 
 ## 研究背景与动机
 
-- **沉浸式角色交互的需求**：心理学研究表明社交交互中沉浸度越高体验越好，但现有角色智能体仅限于文本或语音交互，缺乏 3D 肢体语言。
-- **模块化方案的延迟问题**：现有方法（如 LLM-Agent 框架）通过文本串联各子模块（动作理解→文本→动作生成），这种方式传递高层信息但丢失细微线索，且多子模块的串联引入严重延迟。
-- **来自机器人学的启示**：LLM-Agent 适合高层规划任务，但对低层操控任务，端到端 VLA 模型表现更优——虚拟角色本质上是虚拟人形机器人，适合 VLA 建模。
-- **数据稀缺的挑战**：综合性多模态交互数据（同时包含语音+肢体动作的对话）极其稀缺，采集成本禁止性高。
-- **单一运动任务的不足**：已有运动相关的 LLM 工作专注于单一任务（如文本到动作、动作理解），无法根据角色设定生成基于上下文的响应性动作。
+### 领域现状
+
+**领域现状**：沉浸式角色交互的需求**：心理学研究表明社交交互中沉浸度越高体验越好，但现有角色智能体仅限于文本或语音交互，缺乏 3D 肢体语言。
+
+### 现有痛点
+
+**现有痛点**：模块化方案的延迟问题**：现有方法（如 LLM-Agent 框架）通过文本串联各子模块（动作理解→文本→动作生成），这种方式传递高层信息但丢失细微线索，且多子模块的串联引入严重延迟。
+
+### 核心矛盾
+
+**核心矛盾**：来自机器人学的启示**：LLM-Agent 适合高层规划任务，但对低层操控任务，端到端 VLA 模型表现更优——虚拟角色本质上是虚拟人形机器人，适合 VLA 建模。
+
+### 解决思路
+
+**解决思路**：数据稀缺的挑战**：综合性多模态交互数据（同时包含语音+肢体动作的对话）极其稀缺，采集成本禁止性高。
+
+### 补充说明
+
+**补充说明**：单一运动任务的不足**：已有运动相关的 LLM 工作专注于单一任务（如文本到动作、动作理解），无法根据角色设定生成基于上下文的响应性动作。
 
 ## 方法详解
 
@@ -115,8 +129,8 @@ Tokenizer 训练：$\mathcal{L}_m = \lambda_r \mathcal{L}_r + \lambda_e \mathcal
 
 - [ShowUI: One Vision-Language-Action Model for GUI Visual Agent](showui_one_vision-language-action_model_for_gui_visual_agent.md)
 - [DualTalk: Dual-Speaker Interaction for 3D Talking Head Conversations](dualtalk_dual-speaker_interaction_for_3d_talking_head_conversations.md)
-- [QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](../../CVPR2026/human_understanding/quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)
 - [FSboard: Over 3 Million Characters of ASL Fingerspelling Collected via Smartphones](fsboard_over_3_million_characters_of_asl_fingerspelling_collected_via_smartphone.md)
-- [Stochastic Human Motion Prediction with Memory of Action Transition and Action Characteristic](stochastic_human_motion_prediction_with_memory_of_action_transition_and_action_c.md)
+- [QUAR-VLA: Vision-Language-Action Model for Quadruped Robots](../../ECCV2024/human_understanding/quar-vla_vision-language-action_model_for_quadruped_robots.md)
+- [QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](../../CVPR2026/human_understanding/quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)
 
 <!-- RELATED:END -->

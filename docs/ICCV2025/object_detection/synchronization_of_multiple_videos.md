@@ -27,14 +27,37 @@ tags:
 
 ## 研究背景与动机
 
-- **同场景多摄像头同步**相对简单，通常只需简单的时间偏移
-- **跨场景视频同步**或生成式AI视频同步则面临巨大挑战：
-    - 不同的主体和背景
-    - 非线性temporal错位（同一动作的速度/节奏/风格各不相同）
-    - 传统基于音频、时间戳等信号的方法不再适用
-- 现有视频对齐方法（如 TCC、LAV）主要依赖成对匹配，计算复杂度高且鲁棒性有限
-- 随着视频生成模型（如 Sora）的兴起，同步多个AI生成的同一动作视频成为新的需求场景
-- 本文灵感来自 Prototypical Networks (Snell et al.)，将原型学习的思想从少样本学习迁移到时序对齐任务
+### 领域现状
+
+**领域现状**：同场景多摄像头同步**相对简单，通常只需简单的时间偏移
+
+### 现有痛点
+
+**现有痛点**：跨场景视频同步**或生成式AI视频同步则面临巨大挑战：
+
+### 核心矛盾
+
+**核心矛盾**：不同的主体和背景
+
+### 解决思路
+
+**解决思路**：非线性temporal错位（同一动作的速度/节奏/风格各不相同）
+
+### 补充说明
+
+**补充说明**：传统基于音频、时间戳等信号的方法不再适用
+
+### 补充说明
+
+**补充说明**：现有视频对齐方法（如 TCC、LAV）主要依赖成对匹配，计算复杂度高且鲁棒性有限
+
+### 补充说明
+
+**补充说明**：随着视频生成模型（如 Sora）的兴起，同步多个AI生成的同一动作视频成为新的需求场景
+
+### 补充说明
+
+**补充说明**：本文灵感来自 Prototypical Networks (Snell et al.)，将原型学习的思想从少样本学习迁移到时序对齐任务
 
 ## 方法详解
 
@@ -134,6 +157,6 @@ TPL 在以下任务上优于现有方法：
 - [Multiple Object Tracking as ID Prediction](../../CVPR2025/object_detection/multiple_object_tracking_as_id_prediction.md)
 - [Anchored Answers: Unravelling Positional Bias in GPT-2's Multiple-Choice Questions](../../ACL2025/object_detection/anchored_answers_unravelling_positional_bias_in_gpt-2s_multiple-choice_questions.md)
 - [HumanMM: Global Human Motion Recovery from Multi-shot Videos](../../CVPR2025/object_detection/humanmm_global_human_motion_recovery_from_multi-shot_videos.md)
-- [WALKER: Self-supervised Multiple Object Tracking by Walking on Temporal Appearance Graphs](../../ECCV2024/object_detection/walker_self-supervised_multiple_object_tracking_by_walking_on_temporal_appearanc.md)
+- [Show, Don't Tell: Detecting Novel Objects by Watching Human Videos](../../CVPR2025/object_detection/show_dont_tell_detecting_novel_objects_by_watching_human_videos.md)
 
 <!-- RELATED:END -->

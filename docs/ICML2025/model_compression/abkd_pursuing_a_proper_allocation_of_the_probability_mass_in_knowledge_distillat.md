@@ -152,9 +152,9 @@ ABKD 在 1.5B→0.1B 的蒸馏配置上，ROUGE-L 相比 FKLD/RKLD 提升 0.81~3
 ## 相关论文
 
 - [Knowledge Distillation with Refined Logits](../../ICCV2025/model_compression/knowledge_distillation_with_refined_logits.md)
+- [What Makes a Good Dataset for Knowledge Distillation?](../../CVPR2025/model_compression/what_makes_a_good_dataset_for_knowledge_distillation.md)
 - [A Good Teacher Adapts Their Knowledge for Distillation](../../ICCV2025/model_compression/a_good_teacher_adapts_their_knowledge_for_distillation.md)
+- [Sparse Logit Sampling: Accelerating Knowledge Distillation in LLMs](../../ACL2025/model_compression/sparse_logit_sampling_accelerating_knowledge_distillation_in_llms.md)
 - [Perspective-Aware Teaching: Adapting Knowledge for Heterogeneous Distillation](../../ICCV2025/model_compression/perspective-aware_teaching_adapting_knowledge_for_heterogeneous_distillation.md)
-- [Local Dense Logit Relations for Enhanced Knowledge Distillation](../../ICCV2025/model_compression/local_dense_logit_relations_for_enhanced_knowledge_distillation.md)
-- [When Data-Free Knowledge Distillation Meets Non-Transferable Teacher: Escaping Out-of-Distribution](when_data-free_knowledge_distillation_meets_non-transferable_teacher_escaping_ou.md)
 
 <!-- RELATED:END -->

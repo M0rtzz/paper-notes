@@ -120,8 +120,8 @@ $$\mathcal{M} = [x_r^k, a_r^k]_{k=1}^K \cup [x_t, \varnothing]$$
 
 - [Object-level Correlation for Few-Shot Segmentation](../../ICCV2025/segmentation/object-level_correlation_for_few-shot_segmentation.md)
 - [Dual-Agent Optimization framework for Cross-Domain Few-Shot Segmentation](../../CVPR2025/segmentation/dual-agent_optimization_framework_for_cross-domain_few-shot_segmentation.md)
-- [Mechanistic Interpretability of RNNs Emulating Hidden Markov Models](mechanistic_interpretability_of_rnns_emulating_hidden_markov_models.md)
 - [MOVE: Motion-Guided Few-Shot Video Object Segmentation](../../ICCV2025/segmentation/move_motion-guided_few-shot_video_object_segmentation.md)
 - [Vanish into Thin Air: Cross-prompt Universal Adversarial Attacks for SAM2](vanish_into_thin_air_cross-prompt_universal_adversarial_attacks_for_sam2.md)
+- [Mechanistic Interpretability of RNNs Emulating Hidden Markov Models](mechanistic_interpretability_of_rnns_emulating_hidden_markov_models.md)
 
 <!-- RELATED:END -->

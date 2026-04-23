@@ -191,10 +191,10 @@ UDIS-D 数据集 warp 精度对比：
 
 ## 相关论文
 
+- [Revisiting Image Fusion for Multi-Illuminant White-Balance Correction](revisiting_image_fusion_for_multi-illuminant_white-balance_correction.md)
+- [ERU-KG: Efficient Reference-aligned Unsupervised Keyphrase Generation](../../ACL2025/others/eru-kg_efficient_reference-aligned_unsupervised_keyphrase_generation.md)
 - [Is Meta-Learning Out? Rethinking Unsupervised Few-Shot Classification with Limited Entropy](is_meta-learning_out_rethinking_unsupervised_few-shot_classification_with_limite.md)
-- [Distributionally Robust Classification for Multi-Source Unsupervised Domain Adaptation](../../ICLR2026/others/distributionally_robust_classification_for_multi-source_unsupervised_domain_adap.md)
 - [Learning Visual Hierarchies in Hyperbolic Space for Image Retrieval](learning_visual_hierarchies_in_hyperbolic_space_for_image_retrieval.md)
-- [Completing Missing Annotation: Multi-Agent Debate for Accurate and Scalable Relevance Assessment](../../ICLR2026/others/completing_missing_annotation_multi-agent_debate_for_accurate_and_scalable_relev.md)
 - [Regor: Progressive Correspondence Regenerator for Robust 3D Registration](../../CVPR2025/others/progressive_correspondence_regenerator_for_robust_3d_registration.md)
 
 <!-- RELATED:END -->

@@ -123,9 +123,9 @@ tags:
 ## 相关论文
 
 - [PoseTraj: Pose-Aware Trajectory Control in Video Diffusion](../../CVPR2025/video_generation/posetraj_pose-aware_trajectory_control_in_video_diffusion.md)
-- [LeviTor: 3D Trajectory Oriented Image-to-Video Synthesis](../../CVPR2025/video_generation/levitor_3d_trajectory_oriented_image-to-video_synthesis.md)
 - [MimicMotion: High-Quality Human Motion Video Generation with Confidence-aware Pose Guidance](../../ICML2025/video_generation/mimicmotion_high-quality_human_motion_video_generation_with_confidence-aware_pos.md)
 - [PerformRecast: Expression and Head Pose Disentanglement for Portrait Video Editing](../../CVPR2026/video_generation/performrecast_expression_and_head_pose_disentanglement_for_portrait_video_editin.md)
-- [Causal-Entity Reflected Egocentric Traffic Accident Video Synthesis](../../ICCV2025/video_generation/causal-entity_reflected_egocentric_traffic_accident_video_synthesis.md)
+- [LeviTor: 3D Trajectory Oriented Image-to-Video Synthesis](../../CVPR2025/video_generation/levitor_3d_trajectory_oriented_image-to-video_synthesis.md)
+- [MIMO: Controllable Character Video Synthesis with Spatial Decomposed Modeling](../../CVPR2025/video_generation/mimo_controllable_character_video_synthesis_with_spatial_decomposed_modeling.md)
 
 <!-- RELATED:END -->

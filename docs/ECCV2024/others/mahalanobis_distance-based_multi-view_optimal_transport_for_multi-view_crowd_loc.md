@@ -156,7 +156,7 @@ $$C_{ij} = \sum_{k=1}^K \mathbb{1}(d_{cam}^k) \exp(\sqrt{(\mathbf{x}_i - \mathbf
 
 - [Thermal Polarimetric Multi-view Stereo](../../ICCV2025/others/thermal_polarimetric_multi-view_stereo.md)
 - [FisherRF: Active View Selection and Mapping with Radiance Fields Using Fisher Information](fisherrf_active_view_selection_and_mapping_with_radiance_fields_using_fisher_inf.md)
-- [Which Viewpoint Shows It Best? Language for Weakly Supervising View Selection in Multi-view Instructional Videos](../../CVPR2025/others/which_viewpoint_shows_it_best_language_for_weakly_supervising_view_selection_in_.md)
+- [Which Viewpoint Shows it Best? Language for Weakly Supervising View Selection in Multi-view Instructional Videos](../../CVPR2025/others/which_viewpoint_shows_it_best_language_for_weakly_supervising_view_selection_in_.md)
 - [Lightspeed Geometric Dataset Distance via Sliced Optimal Transport](../../ICML2025/others/lightspeed_geometric_dataset_distance_via_sliced_optimal_transport.md)
 - [Auto-Regressively Generating Multi-View Consistent Images (MV-AR)](../../ICCV2025/others/autoregressively_generating_multiview_consistent_images.md)
 

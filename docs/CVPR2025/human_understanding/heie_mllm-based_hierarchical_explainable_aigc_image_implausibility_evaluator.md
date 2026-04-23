@@ -150,6 +150,6 @@ tags:
 - [OrderChain: Towards General Instruct-Tuning for Stimulating the Ordinal Understanding Ability of MLLM](../../ICCV2025/human_understanding/orderchain_towards_general_instruct-tuning_for_stimulating_the_ordinal_understan.md)
 - [X-Dyna: Expressive Dynamic Human Image Animation](x-dyna_expressive_dynamic_human_image_animation.md)
 - [From Logits to Hierarchies: Hierarchical Clustering made Simple](../../ICML2025/human_understanding/from_logits_to_hierarchies_hierarchical_clustering_made_simple.md)
-- [Theory of Mind for Explainable Human-Robot Interaction](../../AAAI2026/human_understanding/theory_of_mind_for_explainable_human-robot_interaction.md)
+- [RUBIK: A Structured Benchmark for Image Matching across Geometric Challenges](rubik_a_structured_benchmark_for_image_matching_across_geometric_challenges.md)
 
 <!-- RELATED:END -->

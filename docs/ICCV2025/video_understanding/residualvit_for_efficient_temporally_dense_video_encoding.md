@@ -129,6 +129,6 @@ $$\mathcal{J}_{L \rightarrow V} = -\sum_{i=1}^{B}\sum_{k=1}^{N}\sum_{j=1}^{B} \s
 - [Factorized Learning for Temporally Grounded Video-Language Models](factorized_learning_for_temporally_grounded_video-language_models.md)
 - [EDCFlow: Exploring Temporally Dense Difference Maps for Event-based Optical Flow Estimation](../../CVPR2025/video_understanding/edcflow_exploring_temporally_dense_difference_maps_for_event-based_optical_flow_.md)
 - [TOGA: Temporally Grounded Open-Ended Video QA with Weak Supervision](toga_temporally_grounded_open-ended_video_qa_with_weak_supervision.md)
-- [Online Dense Point Tracking with Streaming Memory](online_dense_point_tracking_with_streaming_memory.md)
+- [Training-free Generation of Temporally Consistent Rewards from VLMs](training-free_generation_of_temporally_consistent_rewards_from_vlms.md)
 
 <!-- RELATED:END -->

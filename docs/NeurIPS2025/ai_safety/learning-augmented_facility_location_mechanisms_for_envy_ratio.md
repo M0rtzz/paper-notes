@@ -175,10 +175,10 @@ $$\text{Envy Ratio} = \max_{i,j} \frac{u_i}{u_j}$$
 
 ## 相关论文
 
-- [Estimating Privacy Leakage of Augmented Contextual Knowledge in Language Models](../../ACL2025/ai_safety/estimating_privacy_leakage_of_augmented_contextual_knowledge_in_language_models.md)
+- [Minimizing Inequity in Facility Location Games](../../AAAI2026/ai_safety/minimizing_inequity_in_facility_location_games.md)
 - [FairContrast: Enhancing Fairness through Contrastive Learning and Customized Augmentation](faircontrast_enhancing_fairness_through_contrastive_learning_and_customized_augm.md)
-- [Privacy-protected Retrieval-Augmented Generation for Knowledge Graph Question Answering](../../AAAI2026/ai_safety/privacy-protected_retrieval-augmented_generation_for_knowledge_graph_question_an.md)
 - [Mitigating Disparate Impact of Differentially Private Learning through Bounded Adaptive Clipping](mitigating_disparate_impact_of_differentially_private_learning_through_bounded_a.md)
-- [Towards Highly Transferable Vision-Language Attack via Semantic-Augmented Dynamic Contrastive Interaction](../../CVPR2026/ai_safety/towards_highly_transferable_vision-language_attack_via_semantic-augmented_dynami.md)
+- [Trans-EnV: A Framework for Evaluating the Linguistic Robustness of LLMs Against English Varieties](trans-env_a_framework_for_evaluating_the_linguistic_robustness_of_llms_against_e.md)
+- [Causally Reliable Concept Bottleneck Models](causally_reliable_concept_bottleneck_models.md)
 
 <!-- RELATED:END -->

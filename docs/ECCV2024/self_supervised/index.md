@@ -2,13 +2,17 @@
 title: >-
   ECCV2024 自监督方向 13篇论文解读
 description: >-
-  13篇ECCV2024 自监督论文解读，主题涵盖：提出基于图掩码自编码器 (GMAE) 的城市级、提出CropMAE——用同一图像的两个随机裁剪视图、提出FlowCon，一种基于密度估计的OOD检测方等，每篇含核心思想与方法详解。
+  13篇ECCV2024 自监督论文解读，主题涵盖：本文提出AMCL（Adaptive、提出基于图掩码自编码器 (GMAE) 的城市级、提出CropMAE——用同一图像的两个随机裁剪视图等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督
 
 **🎞️ ECCV2024** · **13** 篇论文解读
+
+**[Adaptive Multi-head Contrastive Learning](adaptive_multihead_contrastive_learning.md)**
+
+:   本文提出AMCL（Adaptive Multi-head Contrastive Learning），通过多个投影头产生不同特征视角，配合基于MLE推导的自适应温度机制为每对样本独立加权，有效解决了多种数据增强下正负样本相似度分布重叠的问题，一致提升SimCLR、MoCo和Barlow Twins的性能。
 
 **[COHO: Context-Sensitive City-Scale Hierarchical Urban Layout Generation](coho_context-sensitive_city-scale_hierarchical_urban_layout_generation.md)**
 
@@ -30,10 +34,6 @@ description: >-
 
 :   本文提出MarineInst，一个面向海洋图像分析的基础模型，能够同时输出实例掩码和语义描述；并构建了MarineInst20M——迄今最大的海洋图像数据集（2000万张），支持从图像级场景理解到区域级实例理解的多层次海洋视觉分析任务。
 
-**[OmniSat: Self-Supervised Modality Fusion for Earth Observation](omnisat_self-supervised_modality_fusion_for_earth_observation.md)**
-
-:   提出OmniSat统一框架，通过模态特异编码器+跨模态对比自监督预训练，将多光谱时序（S2）、SAR时序（S1）、高分辨率单时相（SPOT/Aerial）等异构遥感数据融合为统一表示，在语义分割和作物分类上超越所有单模态和多模态基线。
-
 **[PosFormer: Recognizing Complex Handwritten Mathematical Expression with Position Forest Transformer](posformer_recognizing_complex_handwritten_mathematical_expression_with_position_.md)**
 
 :   提出位置森林 Transformer（PosFormer），通过将数学表达式的 LaTeX 序列编码为位置森林结构，显式建模符号间的层级与位置关系，并设计隐式注意力校正模块，在不增加推理开销的前提下，在单行/多行/复杂表达式数据集上全面超越 SOTA。
@@ -50,13 +50,13 @@ description: >-
 
 :   挑战了"自监督学习在持续表征学习中优于监督学习"的普遍观点，发现**监督学习加上 MLP 投影头**即可在持续学习场景下构建出比 SSL 更强的表征——关键不在于有无标签，而在于 MLP projector 对特征可迁移性的提升作用。
 
+**[SCPNet: Unsupervised Cross-modal Homography Estimation via Intra-modal Self-supervised Learning](scpnet_unsupervised_cross-modal_homography_estimation_via_intra-modal_self-super.md)**
+
+:   提出 SCPNet，通过模内自监督学习（intra-modal self-supervised learning）、相关性网络和一致性特征图投影三个关键组件的协同，首次在卫星-地图等大模态差距数据集上实现了有效的无监督跨模态单应性估计，MACE 比监督方法 MHN 低 14%。
+
 **[Self-supervised Video Copy Localization with Regional Token Representation](self-supervised_video_copy_localization_with_regional_token_representation.md)**
 
 :   提出了一种自监督视频拷贝定位框架，通过在 Vision Transformer 中引入 Regional Token 捕获局部区域信息，并利用传递性（Transitivity Property）自动生成训练数据，在无需人工标注的情况下超越了有监督方法的性能。
-
-**[Semantically Guided Representation Learning For Action Anticipation](semantically_guided_representation_learning_for_action_anticipation.md)**
-
-:   提出 S-GEAR 框架，通过学习视觉动作原型并利用语言模型的语义关联来引导原型之间的几何关系，使模型理解动作间的语义互联性，从而提升动作预测性能，在 Epic-Kitchens 55/100、EGTEA Gaze+、50 Salads 四个基准上取得 SOTA 或极具竞争力的结果。
 
 **[ViC-MAE: Self-Supervised Representation Learning from Images and Video with Contrastive Masked Autoencoders](vic-mae_self-supervised_representation_learning_from_images_and_video_with_contr.md)**
 

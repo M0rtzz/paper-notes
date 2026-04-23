@@ -25,7 +25,10 @@ tags:
 提出 HMAGAT，用有向超图注意力网络替代 GNN 的成对消息传递来建模多智能体路径规划中的群体交互，仅用 1M 参数和 1% 训练数据即超越 85M 参数的 SOTA 模型。
 
 ## 背景与动机
-1. 多智能体路径规划 (MAPF) 要求多个智能体无碰撞地到达各自目标，最优求解是 NP-hard
+
+### 领域现状
+
+**领域现状**：1. 多智能体路径规划 (MAPF) 要求多个智能体无碰撞地到达各自目标，最优求解是 NP-hard
 2. 现有学习方法（GNN、Transformer）仅建模成对 (pairwise) 交互，无法捕获多智能体同时交互的群体动态
 3. 在高密度场景中，GNN 的注意力稀释问题尤为严重：大量无关智能体稀释了关键交互的注意力权重
 4. MAPF 本质上是群体问题——只有建模全局联合状态空间才能达到最优性和完备性
@@ -121,8 +124,8 @@ tags:
 ## 相关论文
 
 - [S-DAG: A Subject-Based Directed Acyclic Graph for Multi-Agent Heterogeneous Reasoning](../../AAAI2026/graph_learning/s-dag_a_subject-based_directed_acyclic_graph_for_multi-agent.md)
-- [Assemble Your Crew: Automatic Multi-agent Communication Topology Design via Autoregressive Graph Generation](../../AAAI2026/graph_learning/assemble_your_crew_automatic_multi-agent_communication_topol.md)
 - [Cooperative Sheaf Neural Networks](cooperative_sheaf_neural_networks.md)
+- [Assemble Your Crew: Automatic Multi-agent Communication Topology Design via Autoregressive Graph Generation](../../AAAI2026/graph_learning/assemble_your_crew_automatic_multi-agent_communication_topol.md)
 - [Beyond Simple Graphs: Neural Multi-Objective Routing on Multigraphs](beyond_simple_graphs_neural_multi-objective_routing_on_multigraphs.md)
 - [Are We Measuring Oversmoothing in Graph Neural Networks Correctly?](are_we_measuring_oversmoothing_in_graph_neural_networks_correctly.md)
 

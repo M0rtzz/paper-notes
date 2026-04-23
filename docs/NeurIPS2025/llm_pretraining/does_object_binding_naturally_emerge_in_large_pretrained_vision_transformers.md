@@ -155,10 +155,10 @@ $$h^{(\ell)}(x_t) = f^{(\ell)}(x_t, c) + b^{(\ell)}(x_t)$$
 
 ## 相关论文
 
-- [The Curse of Depth in Large Language Models](the_curse_of_depth_in_large_language_models.md)
 - [How Does Sequence Modeling Architecture Influence Base Capabilities of Pre-trained Language Models?](how_does_sequence_modeling_architecture_influence_base_capabilities_of_pre-train.md)
-- [Scalable Fingerprinting of Large Language Models](scalable_fingerprinting_of_large_language_models.md)
+- [The Curse of Depth in Large Language Models](the_curse_of_depth_in_large_language_models.md)
 - [The Sharpness Disparity Principle in Transformers for Accelerating Language Model Pre-Training](../../ICML2025/llm_pretraining/the_sharpness_disparity_principle_in_transformers_for_accelerating_language_mode.md)
 - [Bridging the Vision-Brain Gap with an Uncertainty-Aware Blur Prior](../../CVPR2025/llm_pretraining/bridging_the_vision-brain_gap_with_an_uncertainty-aware_blur_prior.md)
+- [Scalable Fingerprinting of Large Language Models](scalable_fingerprinting_of_large_language_models.md)
 
 <!-- RELATED:END -->

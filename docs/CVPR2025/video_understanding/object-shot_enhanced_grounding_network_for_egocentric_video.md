@@ -135,9 +135,9 @@ OSGNet† 比 RGNet† 提升 +3.77 点 R@1@0.5，提升 +6.74 点 R@5@0.5。
 ## 相关论文
 
 - [Locality-Aware Zero-Shot Human-Object Interaction Detection](locality-aware_zero-shot_human-object_interaction_detection.md)
-- [HierarQ: Task-Aware Hierarchical Q-Former for Enhanced Video Understanding](hierarq_task-aware_hierarchical_q-former_for_enhanced_video_understanding.md)
 - [DynFocus: Dynamic Cooperative Network Empowers LLMs with Video Understanding](dynfocus_dynamic_cooperative_network_empowers_llms_with_video_understanding.md)
+- [HierarQ: Task-Aware Hierarchical Q-Former for Enhanced Video Understanding](hierarq_task-aware_hierarchical_q-former_for_enhanced_video_understanding.md)
+- [Frequency-Semantic Enhanced Variational Autoencoder for Zero-Shot Skeleton-based Action Recognition](../../ICCV2025/video_understanding/frequency-semantic_enhanced_variational_autoencoder_for_zero-shot_skeleton-based.md)
 - [Fine-grained Spatiotemporal Grounding on Egocentric Videos](../../ICCV2025/video_understanding/fine-grained_spatiotemporal_grounding_on_egocentric_videos.md)
-- [Context-Enhanced Memory-Refined Transformer for Online Action Detection](context-enhanced_memory-refined_transformer_for_online_action_detection.md)
 
 <!-- RELATED:END -->

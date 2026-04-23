@@ -146,9 +146,9 @@ DriveRestorer 使用标准扩散损失 $\mathcal{L}_{\mathcal{R}} = \mathbb{E}[\
 ## 相关论文
 
 - [ReconDreamer++: Harmonizing Generative and Reconstructive Models for Driving Scene Representation](../../ICCV2025/autonomous_driving/recondreamer_harmonizing_generative_and_reconstructive_models_for_driving_scene_.md)
+- [MaskGWM: A Generalizable Driving World Model with Video Mask Reconstruction](maskgwm_a_generalizable_driving_world_model_with_video_mask_reconstruction.md)
 - [LR-SGS: Robust LiDAR-Reflectance-Guided Salient Gaussian Splatting for Self-Driving Scene Reconstruction](lr-sgs_robust_lidar-reflectance-guided_salient_gaussian_splatting_for_self-drivi.md)
 - [Online Video Understanding: OVBench and VideoChat-Online](online_video_understanding_ovbench_and_videochat-online.md)
 - [GaussianWorld: Gaussian World Model for Streaming 3D Occupancy Prediction](gaussianworld_gaussian_world_model_for_streaming_3d_occupancy_prediction.md)
-- [Distilling Multi-modal Large Language Models for Autonomous Driving](distilling_multi-modal_large_language_models_for_autonomous_driving.md)
 
 <!-- RELATED:END -->

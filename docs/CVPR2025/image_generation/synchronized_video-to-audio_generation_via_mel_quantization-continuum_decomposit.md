@@ -121,8 +121,8 @@ $$\mathcal{L} = \mathbb{E}_{\mathbf{z}_0, t, \mathbf{C}_S, \mathbf{C}_T, \epsilo
 
 - [Generative Image Layer Decomposition with Visual Effects](generative_image_layer_decomposition_with_visual_effects.md)
 - [StyleMaster: Stylize Your Video with Artistic Generation and Translation](stylemaster_stylize_your_video_with_artistic_generation_and_translation.md)
+- [Divot: Diffusion Powers Video Tokenizer for Comprehension and Generation](divot_diffusion_powers_video_tokenizer_for_comprehension_and_generation.md)
 - [MGAudio: Model-Guided Dual-Role Alignment for High-Fidelity Open-Domain Video-to-Audio Generation](../../NeurIPS2025/image_generation/model-guided_dual-role_alignment_for_high-fidelity_open-domain_video-to-audio_ge.md)
 - [Q-DiT: Accurate Post-Training Quantization for Diffusion Transformers](q-dit_accurate_post-training_quantization_for_diffusion_transformers.md)
-- [SVFR: A Unified Framework for Generalized Video Face Restoration](svfr_a_unified_framework_for_generalized_video_face_restoration.md)
 
 <!-- RELATED:END -->

@@ -144,8 +144,8 @@ tags:
 
 - [MoMaGen: Generating Demonstrations under Soft and Hard Constraints for Multi-Step Bimanual Mobile Manipulation](../../ICLR2026/reinforcement_learning/momagen_generating_demonstrations_under_soft_and_hard_constraints_for_multi-step.md)
 - [Safety Certificate against Latent Variables with Partially Unidentifiable Dynamics](safety_certificate_against_latent_variables_with_partially_unidentifiable_dynami.md)
+- [RoboFactory: Exploring Embodied Agent Collaboration with Compositional Constraints](../../ICCV2025/reinforcement_learning/robofactory_exploring_embodied_agent_collaboration_with_compositional_constraint.md)
 - [Massively Parallel Imitation Learning of Mouse Forelimb Musculoskeletal Reaching Dynamics](../../NeurIPS2025/reinforcement_learning/massively_parallel_imitation_learning_of_mouse_forelimb_musculoskeletal_reaching.md)
 - [EvoLM: In Search of Lost Language Model Training Dynamics](../../NeurIPS2025/reinforcement_learning/evolm_in_search_of_lost_language_model_training_dynamics.md)
-- [Solving Continuous Mean Field Games: Deep Reinforcement Learning for Non-Stationary Dynamics](../../NeurIPS2025/reinforcement_learning/solving_continuous_mean_field_games_deep_reinforcement_learning_for_non-stationa.md)
 
 <!-- RELATED:END -->

@@ -26,11 +26,24 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：关节物体（多刚体通过关节相连）生成研究有限。NAP受限于预定义图结构，CAGE/SINGAPO采用检索方式限制多样性。
 
 **核心矛盾**：质量vs灵活性（固定结构限多样性），几何质量vs运动学准确性（两者约束冲突）。
 
 **核心洞察**：关节物体本质是树形结构 → 树位置编码捕捉层级关系 + Shape Prior保证几何质量 + Gumbel-Softmax扩展多样性。
+
+### 解决思路
+
+**本文目标**：### 整体框架
+**阶段1**：Shape Prior预训练（VAE+SDF+条件扩散模型学习几何先验）
+**阶段2**：Articulation Transformer（树位置编码+迭代解码逐层生成节点）
+
+### 关键设计
+
+1. **树结构参数化**：每节点存储几何属性(bbox $b_i \in \mathbb{R}^6$, 潜在码 $z_i \in \mathbb{R}^{768}$)。
+
 
 ## 方法详解
 
@@ -66,8 +79,8 @@ $L_{trans} = \beta_o L_o + \beta_P L_P + L_a$（终止分类 + 编码簿KL + 属
 | 配置 | POR↓ | MMD↓ | COV↑ |
 |------|------|------|------|
 | 全模型 | 0.709 | 0.5213 | 0.5266 |
-| 移除TPE | 1.170 | 0.5000 | 0.5053 |
-| 移除Shape Prior | 2.502 | 0.4574 | 0.7606 |
+| 移除TPE | 1.170% | 0.5000 | 0.5053 |
+| 移除Shape Prior | 2.502% | 0.4574 | 0.7606 |
 
 ### 关键发现
 - 多样性指标(DS=0.67)显著领先(CAGE仅0.07)
@@ -94,10 +107,10 @@ $L_{trans} = \beta_o L_o + \beta_P L_P + L_a$（终止分类 + 编码簿KL + 属
 
 ## 相关论文
 
+- [Abstractive Snippet Generation](../../ACL2025/nlp_generation/abstractive_snippet_generation.md)
 - [ATGen: A Framework for Active Text Generation](../../ACL2025/nlp_generation/atgen_a_framework_for_active_text_generation.md)
 - [Personalized Text Generation with Contrastive Activation Steering](../../ACL2025/nlp_generation/personalized_text_generation_with_contrastive_activation_steering.md)
-- [Evaluating Text-to-Visual Generation with Image-to-Text Generation](../../ECCV2024/nlp_generation/evaluating_text-to-visual_generation_with_image-to-text_generation.md)
 - [Writing Like the Best: Exemplar-Based Expository Text Generation](../../ACL2025/nlp_generation/writing_like_best_exemplar.md)
-- [Dehumanizing Machines: Mitigating Anthropomorphic Behaviors in Text Generation Systems](../../ACL2025/nlp_generation/dehumanizing_machines_anthropomorphic.md)
+- [Towards Better Open-Ended Text Generation: A Multicriteria Evaluation Framework](../../ACL2025/nlp_generation/towards_better_open-ended_text_generation_a_multicriteria_evaluation_framework.md)
 
 <!-- RELATED:END -->

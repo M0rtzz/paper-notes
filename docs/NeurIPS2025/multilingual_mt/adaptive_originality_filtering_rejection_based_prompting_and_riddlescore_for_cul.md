@@ -122,10 +122,10 @@ tags:
 
 ## 相关论文
 
+- [LexGen: Domain-aware Multilingual Lexicon Generation](../../ACL2025/multilingual_mt/lexgen_domain-aware_multilingual_lexicon_generation.md)
 - [Exploring In-context Example Generation for Machine Translation](../../ACL2025/multilingual_mt/exploring_in-context_example_generation_for_machine_translation.md)
 - [ATLAS: Adaptive Transfer Scaling Laws for Multilingual Pretraining, Finetuning, and Decoding the Curse of Multilinguality](../../ICLR2026/multilingual_mt/atlas_adaptive_transfer_scaling_laws_for_multilingual_pretraining_finetuning_and.md)
 - [Bridging the Multilingual Safety Divide: Efficient, Culturally-Aware Alignment for Global South Languages](../../AAAI2026/multilingual_mt/bridging_the_multilingual_safety_divide_efficient_culturally-aware_alignment_for.md)
-- [Prior-based Noisy Text Data Filtering: Fast and Strong Alternative For Perplexity](../../ICLR2026/multilingual_mt/prior-based_noisy_text_data_filtering_fast_and_strong_alternative_for_perplexity.md)
-- [Enhancing Multilingual LLM Pretraining with Model-Based Data Selection](enhancing_multilingual_llm_pretraining_with_model-based_data_selection.md)
+- [Prior-based Noisy Text Data Filtering: Fast and Strong Alternative for Perplexity](../../ICLR2026/multilingual_mt/prior-based_noisy_text_data_filtering_fast_and_strong_alternative_to_perplexity.md)
 
 <!-- RELATED:END -->

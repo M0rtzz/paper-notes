@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：类增量学习（CIL）要求模型在不断学习新类的同时不遗忘旧类。现有方法的性能高度依赖类的到达顺序——在某些顺序下表现好，换一种顺序就大幅下降。
 
 **现有痛点**：顺序敏感性（order sensitivity）是 CIL 的核心挑战但被大多研究忽视。理论分析（Corollary 1）证明：类间相似度越高→遗忘越多+顺序敏感性越强。
@@ -35,6 +37,13 @@ tags:
 **切入角度**：不改变类的到达顺序，而是在学习时将相似类分到不同组——每组内的类尽量不相似。用图着色理论保证分组最优性。
 
 **核心 idea**：构建相似度图 → Welsh-Powell 着色 → 异组内类不相似 → 独立 NCM + 适配器 = 顺序无关的增量学习。
+
+### 解决思路
+
+**本文目标**：### 关键设计
+
+1. **SimGraph + 图着色**：用预训练特征的 L2 距离构建类间相似度图，自适应阈值 $\eta_{i,j}$ 决定是否连边。
+
 
 ## 方法详解
 
@@ -87,10 +96,10 @@ tags:
 
 ## 相关论文
 
+- [Faithful and Robust LLM-Driven Theorem Proving for NLI Explanations](../../ACL2025/llm_safety/faithful_and_robust_llm-driven_theorem_proving_for_nli_explanations.md)
 - [CATFormer: When Continual Learning Meets Spiking Transformers With Dynamic Thresholds](../../AAAI2026/llm_safety/catformer_when_continual_learning_meets_spiking_transformers_with_dynamic_thresh.md)
-- [Adversarial Robust Memory-Based Continual Learner](../../ICCV2025/llm_safety/adversarial_robust_memory-based_continual_learner.md)
 - [TRUST -- Transformer-Driven U-Net for Sparse Target Recovery](../../NeurIPS2025/llm_safety/trust_--_transformer-driven_u-net_for_sparse_target_recovery.md)
-- [Towards Context-Robust LLMs: A Gated Representation Fine-tuning Approach](../../ACL2025/llm_safety/towards_context-robust_llms_a_gated_representation_fine-tuning_approach.md)
-- [Forgetting Through Transforming: Enabling Federated Unlearning via Class-Aware Representation Transformation](../../ICCV2025/llm_safety/forgetting_through_transforming_enabling_federated_unlearning_via_class-aware_re.md)
+- [Adversarial Robust Memory-Based Continual Learner](../../ICCV2025/llm_safety/adversarial_robust_memory-based_continual_learner.md)
+- [Core: Robust Factual Precision with Informative Sub-Claim Identification](../../ACL2025/llm_safety/core_robust_factual_precision_with_informative_sub-claim_identification.md)
 
 <!-- RELATED:END -->

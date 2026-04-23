@@ -165,8 +165,8 @@ tags:
 
 - [Broadband Ground Motion Synthesis by Diffusion Model with Minimal Condition](broadband_ground_motion_synthesis_by_diffusion_model_with_minimal_condition.md)
 - [Move-in-2D: 2D-Conditioned Human Motion Generation](../../CVPR2025/image_generation/move-in-2d_2d-conditioned_human_motion_generation.md)
+- [Make It Count: Text-to-Image Generation with an Accurate Number of Objects](../../CVPR2025/image_generation/make_it_count_text-to-image_generation_with_an_accurate_number_of_objects.md)
 - [Event-T2M: Event-level Conditioning for Complex Text-to-Motion Synthesis](../../ICLR2026/image_generation/event-t2m_event-level_conditioning_for_complex_text-to-motion_synthesis.md)
 - [EDEN: Enhanced Diffusion for High-quality Large-motion Video Frame Interpolation](../../CVPR2025/image_generation/eden_enhanced_diffusion_for_high-quality_large-motion_video_frame_interpolation.md)
-- [Your Text Encoder Can Be An Object-Level Watermarking Controller](../../ICCV2025/image_generation/your_text_encoder_can_be_an_object-level_watermarking_controller.md)
 
 <!-- RELATED:END -->

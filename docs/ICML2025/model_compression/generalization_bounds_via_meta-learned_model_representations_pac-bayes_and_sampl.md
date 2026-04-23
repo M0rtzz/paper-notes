@@ -172,8 +172,8 @@ $$\min_{\psi, \phi_1, \phi_2} \frac{1}{n} \sum_{i=1}^n \mathbb{E}\hat{\mathcal{L
 
 - [Tighter CMI-Based Generalization Bounds via Stochastic Projection and Quantization](../../NeurIPS2025/model_compression/tighter_cmi-based_generalization_bounds_via_stochastic_projection_and_quantizati.md)
 - [Learned Image Compression with Dictionary-based Entropy Model](../../CVPR2025/model_compression/learned_image_compression_with_dictionary-based_entropy_model.md)
+- [LoRA Fine-Tuning without GPUs: A CPU-Efficient Meta-Generation Framework for LLMs](lora_fine-tuning_without_gpus_a_cpu-efficient_meta-generation_framework_for_llms.md)
 - [Sample Efficient Demonstration Selection for In-Context Learning](sample_efficient_demonstration_selection_for_in-context_learning.md)
 - [RADIO: Rate-Distortion Optimization for Large Language Model Compression](radio_rate-distortion_optimization_for_large_language_model_compression.md)
-- [any4: Learned 4-bit Numeric Representation for LLMs](any4_learned_4-bit_numeric_representation_for_llms.md)
 
 <!-- RELATED:END -->

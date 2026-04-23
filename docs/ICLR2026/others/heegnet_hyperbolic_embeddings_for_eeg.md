@@ -25,6 +25,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：EEG脑机接口因被试间/会话间分布偏移导致泛化差。域适应方法（矩对齐）是当前SOTA，但在大偏移下失效。EEG解码几乎完全基于欧几里得嵌入。
 
 **现有痛点**：(1) 大脑的视觉处理、情感调节等认知过程具有层次结构，但欧几里得空间难以高效表示层次数据——圆的周长线性增长而树节点数指数增长；(2) 仅做矩对齐无法保证正迁移，特别在大域偏移下。
@@ -123,7 +125,7 @@ HEEGNet = 欧几里得编码器(时间→空间→时间卷积) → 投影到双
 - [HypeVPR: Exploring Hyperbolic Space for Perspective to Equirectangular Visual Place Recognition](../../CVPR2026/others/hypevpr_exploring_hyperbolic_space_for_perspective_to_equirectangular_visual_pla.md)
 - [Better Embeddings with Coupled Adam](../../ACL2025/others/better_embeddings_with_coupled_adam.md)
 - [CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](../../AAAI2026/others/cat-net_a_cross-attention_tone_network_for_cross-subject_eeg-emg_fusion_tone_dec.md)
-- [Partial Colexifications Improve Concept Embeddings](../../ACL2025/others/partial_colexifications_improve_concept_embeddings.md)
 - [Learning Visual Hierarchies in Hyperbolic Space for Image Retrieval](../../ICCV2025/others/learning_visual_hierarchies_in_hyperbolic_space_for_image_retrieval.md)
+- [Partial Colexifications Improve Concept Embeddings](../../ACL2025/others/partial_colexifications_improve_concept_embeddings.md)
 
 <!-- RELATED:END -->

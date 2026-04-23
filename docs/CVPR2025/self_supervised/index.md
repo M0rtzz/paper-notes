@@ -38,7 +38,7 @@ description: >-
 
 **[Learning to Normalize on the SPD Manifold under Bures-Wasserstein Geometry](learning_to_normalize_on_the_spd_manifold_under_bures-wasserstein_geometry.md)**
 
-:   提出 GBWBN，在 SPD（对称正定）流形上用广义 Bures-Wasserstein 距离实现黎曼批归一化，通过可学习度量参数 M 和矩阵幂变形 θ 处理病态 SPD 矩阵问题，在骨架动作识别/脑电分类/无人机识别等 SPD 学习任务上一致提升。
+:   本文提出 GBWBN，首个基于广义 Bures-Wasserstein 几何的 SPD 流形批归一化方法，引入可学习的度量参数和矩阵幂非线性变形来有效处理病态协方差矩阵，在骨骼动作识别和脑电分类上取得 SOTA。
 
 **[MAP: Unleashing Hybrid Mamba-Transformer Vision Backbone's Potential with Masked Autoregressive Pretraining](map_unleashing_hybrid_mamba-transformer_vision_backbones_potential_with_masked_a.md)**
 

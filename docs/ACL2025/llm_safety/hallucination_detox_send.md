@@ -125,6 +125,6 @@ SenD训练协议包含三个核心组件：
 - [Beyond Facts: Evaluating Intent Hallucination in Large Language Models](intent_hallucination_eval.md)
 - [SafeRoute: Adaptive Model Selection for Efficient and Accurate Safety Guardrails in Large Language Models](saferoute_adaptive_model_selection_for_efficient_and_accurate_safety_guardrails_.md)
 - [Improving Model Factuality with Fine-grained Critique-based Evaluator](improving_model_factuality_with_fine-grained_critique-based_evaluator.md)
-- [Unveiling and Addressing Pseudo Forgetting in Large Language Models](unveiling_and_addressing_pseudo_forgetting_in_large_language_models.md)
+- [ReLearn: Unlearning via Learning for Large Language Models](relearn_unlearning_via_learning_for_large_language_models.md)
 
 <!-- RELATED:END -->

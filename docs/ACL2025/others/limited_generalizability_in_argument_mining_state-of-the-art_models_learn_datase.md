@@ -164,7 +164,7 @@ tags:
 - [An Analysis of Datasets, Metrics and Models in Keyphrase Generation](an_analysis_of_datasets_metrics_and_models_in_keyphrase_generation.md)
 - [Towards Comprehensive Argument Analysis in Education: Dataset, Tasks, and Method](towards_comprehensive_argument_analysis_in_education_dataset_tasks_and_method.md)
 - [Predicting Implicit Arguments in Procedural Video Instructions](implicit_arguments_video_instructions.md)
+- [A Multi-Persona Framework for Argument Quality Assessment](a_multi-persona_framework_for_argument_quality_assessment.md)
 - [UnHiPPO: Uncertainty-Aware Initialization for State Space Models](../../ICML2025/others/unhippo_uncertainty-aware_initialization_for_state_space_models.md)
-- [Do not Abstain! Identify and Solve the Uncertainty](do_not_abstain_identify_and_solve_the_uncertainty.md)
 
 <!-- RELATED:END -->

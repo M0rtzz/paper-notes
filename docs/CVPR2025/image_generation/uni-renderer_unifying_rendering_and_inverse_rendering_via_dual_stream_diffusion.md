@@ -146,6 +146,6 @@ Uni-Renderer 的输入输出取决于任务模式：渲染模式下输入固有�
 - [Ouroboros: Single-step Diffusion Models for Cycle-consistent Forward and Inverse Rendering](../../ICCV2025/image_generation/ouroboros_single-step_diffusion_models_for_cycle-consistent_forward_and_inverse_.md)
 - [PICD: Versatile Perceptual Image Compression with Diffusion Rendering](picd_versatile_perceptual_image_compression_with_diffusion_rendering.md)
 - [AMO Sampler: Enhancing Text Rendering with Overshooting](amo_sampler_enhancing_text_rendering_with_overshooting.md)
-- [Improving Diffusion Inverse Problem Solving with Decoupled Noise Annealing](improving_diffusion_inverse_problem_solving_with_decoupled_noise_annealing.md)
+- [Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_unified_generation_understanding.md)
 
 <!-- RELATED:END -->

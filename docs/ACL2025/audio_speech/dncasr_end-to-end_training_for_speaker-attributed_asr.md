@@ -143,8 +143,8 @@ $$\bm{L}_{\text{CA}}[i] = \text{CA}(\bm{S}_{\text{CA}}[i], \bm{W}_{\text{CA}} \o
 
 - [Distilling an End-to-End Voice Assistant Without Instruction Training Data](distilling_an_end-to-end_voice_assistant_without_instruction_training_data.md)
 - [OmniFlatten: An End-to-end GPT Model for Seamless Voice Conversation](omniflatten_an_end-to-end_gpt_model_for_seamless_voice_conversation.md)
+- [Contextual Biasing with the Knowledgeable External Language Model for End-to-End Speech Recognition](contextual_biasing_with_the_knowledgeable_external_language_model_for_end-to-end.md)
 - [E2E-VGuard: Adversarial Prevention for Production LLM-based End-To-End Speech Synthesis](../../NeurIPS2025/audio_speech/e2e-vguard_adversarial_prevention_for_production_llm-based_end-to-end_speech_syn.md)
 - [On the Robust Approximation of ASR Metrics](on_the_robust_approximation_of_asr_metrics.md)
-- [GigaSpeech 2: An Evolving, Large-Scale and Multi-domain ASR Corpus for Low-Resource Languages](gigaspeech2_low_resource_asr.md)
 
 <!-- RELATED:END -->

@@ -155,10 +155,10 @@ $$\overline{\mathcal{E}} = \frac{1}{|G|N} \sum_{g \in G} \sum_{n=1}^{N} \mathcal
 
 ## 相关论文
 
+- [Latent Harmony: Synergistic Unified UHD Image Restoration via Latent Space Regularization and Controllable Refinement](latent_harmony_synergistic_unified_uhd_image_restoration_with_pre-trained_diffus.md)
 - [Audio Super-Resolution with Latent Bridge Models](audio_super-resolution_with_latent_bridge_models.md)
 - [The Surprising Effectiveness of Noise Pretraining for Implicit Neural Representations](../../CVPR2026/image_restoration/the_surprising_effectiveness_of_noise_pretraining_for_implicit_neural_representa.md)
 - [FIPER: Factorized Features for Robust Image Super-Resolution and Compression](fiper_factorized_features_for_robust_image_super-resolution_and_compression.md)
-- [PIDSR: Complementary Polarized Image Demosaicing and Super-Resolution](../../CVPR2025/image_restoration/pidsr_complementary_polarized_image_demosaicing_and_super-resolution.md)
 - [Progressive Focused Transformer for Single Image Super-Resolution](../../CVPR2025/image_restoration/progressive_focused_transformer_for_single_image_super-resolution.md)
 
 <!-- RELATED:END -->

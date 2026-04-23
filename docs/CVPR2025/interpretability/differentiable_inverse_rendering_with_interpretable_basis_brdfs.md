@@ -16,7 +16,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2411.17994](https://arxiv.org/abs/2411.17994)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 其他  
 **关键词**: inverse rendering, BRDF, differentiable rendering, material estimation, physically-based
 
@@ -24,6 +24,8 @@ tags:
 提出基于可解释基 BRDF 的可微逆渲染方法，将材质分解为有物理意义的基函数组合，实现可解释的材质估计
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：Differentiable Inverse Rendering with Interpretable Basis BRDFs 方向近年取得了显著进展，但仍存在关键挑战。
 
@@ -116,10 +118,10 @@ tags:
 
 ## 相关论文
 
-- [Language Guided Concept Bottleneck Models for Interpretable Continual Learning](language_guided_concept_bottleneck_models_for_interpretable_continual_learning.md)
 - [Interpretable Image Classification via Non-parametric Part Prototype Learning](interpretable_image_classification_via_non-parametric_part_prototype_learning.md)
 - [Prompt-CAM: Making Vision Transformers Interpretable for Fine-Grained Analysis](prompt-cam_making_vision_transformers_interpretable_for_fine-grained_analysis.md)
-- [TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction](tide_training_locally_interpretable_domain_generalization_models_enables_test-ti.md)
+- [TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction](tide_training_locally_interpretable_domain_generalization_models_enables_test_time_correction.md)
 - [What Makes an Ensemble (Un)interpretable?](../../ICML2025/interpretability/what_makes_an_ensemble_un_interpretable.md)
+- [CHiQPM: Calibrated Hierarchical Interpretable Image Classification](../../NeurIPS2025/interpretability/chiqpm_calibrated_hierarchical_interpretable_image_classification.md)
 
 <!-- RELATED:END -->

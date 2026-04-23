@@ -214,6 +214,6 @@ tags:
 - [Sapiens: Foundation for Human Vision Models](../../ECCV2024/3d_vision/sapiens_foundation_for_human_vision_models.md)
 - [Gaussian Eigen Models for Human Heads](../../CVPR2025/3d_vision/gaussian_eigen_models_for_human_heads.md)
 - [Parameter-Free Fine-tuning via Redundancy Elimination for Vision Foundation Models](../../AAAI2026/3d_vision/parameter-free_fine-tuning_via_redundancy_elimination_for_vision_foundation_mode.md)
-- [GIQ: Benchmarking 3D Geometric Reasoning of Vision Foundation Models with Simulated and Real Polyhedra](../../ICLR2026/3d_vision/giq_benchmarking_3d_geometric_reasoning_of_vision_foundation_models_with_simulat.md)
+- [Feat2GS: Probing Visual Foundation Models with Gaussian Splatting](../../CVPR2025/3d_vision/feat2gs_probing_visual_foundation_models_with_gaussian_splatting.md)
 
 <!-- RELATED:END -->

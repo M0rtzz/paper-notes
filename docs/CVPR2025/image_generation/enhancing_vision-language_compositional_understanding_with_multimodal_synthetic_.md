@@ -127,7 +127,7 @@ SPARCL框架分为两阶段：数据生成阶段和模型训练阶段。
 - [Font-Agent: Enhancing Font Understanding with Large Language Models](font-agent_enhancing_font_understanding_with_large_language_models.md)
 - [Training Data Provenance Verification: Did Your Model Use Synthetic Data from My Generative Model for Training?](training_data_provenance_verification_did_your_model_use_synthetic_data_from_my_.md)
 - [Yo'Chameleon: Personalized Vision and Language Generation](yochameleon_personalized_vision_and_language_generation.md)
-- [Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models](../../ICML2025/image_generation/understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)
 - [T2ICount: Enhancing Cross-modal Understanding for Zero-Shot Counting](t2icount_enhancing_cross-modal_understanding_for_zero-shot_counting.md)
+- [TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation](tokenflow_unified_image_tokenizer_for_multimodal_understanding_and_generation.md)
 
 <!-- RELATED:END -->

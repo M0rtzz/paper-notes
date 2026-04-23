@@ -144,9 +144,9 @@ PartCraft 在 EMR（精确匹配率）上比最强基线 Break-a-Scene 高 7%，
 ## 相关论文
 
 - [Articulation in Motion: Prior-Free Part Mobility Analysis for Articulated Objects](../../ICLR2026/others/articulation_in_motion_prior-free_part_mobility_analysis_for_articulated_objects.md)
-- [Wavelength-Embedding-guided Filter-Array Transformer for Spectral Demosaicing](wavelength-embedding-guided_filter-array_transformer_for_spectral_demosaicing.md)
-- [COIN-Matting: Confounder Intervention for Image Matting](coin-matting_confounder_intervention_for_image_matting.md)
-- [Learning Anomalies with Normality Prior for Unsupervised Video Anomaly Detection](learning_anomalies_with_normality_prior_for_unsupervised_video_anomaly_detection.md)
-- [HPFF: Hierarchical Locally Supervised Learning with Patch Feature Fusion](hpff_hierarchical_locally_supervised_learning_with_patch_feature_fusion.md)
+- [Active Generation for Image Classification](active_generation_for_image_classification.md)
+- [Event-based Mosaicing Bundle Adjustment](event-based_mosaicing_bundle_adjustment.md)
+- [Dropout Mixture Low-Rank Adaptation for Visual Parameters-Efficient Fine-Tuning](dropout_mixture_low-rank_adaptation_for_visual_parameters-efficient_fine-tuning.md)
+- [AddMe: Zero-Shot Group-Photo Synthesis by Inserting People Into Scenes](addme_zero-shot_group-photo_synthesis_by_inserting_people_into_scenes.md)
 
 <!-- RELATED:END -->

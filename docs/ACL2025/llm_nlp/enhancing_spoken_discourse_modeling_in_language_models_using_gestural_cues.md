@@ -160,8 +160,8 @@ tags:
 
 - [Locate-and-Focus: Enhancing Terminology Translation in Speech Language Models](locateandfocus_enhancing_terminology_translation_in_speech.md)
 - [Neural Topic Modeling with Large Language Models in the Loop](neural_topic_modeling_with_large_language_models_in_the_loop.md)
-- [ECLM: Entity Level Language Model for Spoken Language Understanding with Chain of Intent](eclm_entity_level_language_model_spoken_language_understanding.md)
+- [Cross-Modal Alignment for LLM-Enhanced Spoken Language Understanding](cross-modal_alignment_for_llm-enhanced_spoken_language_understanding.md)
+- [When People are Floods: Analyzing Dehumanizing Metaphors in Immigration Discourse with Large Language Models](dehumanizing_metaphors_immigration.md)
 - [Exploring Graph Representations of Logical Forms for Language Modeling](exploring_graph_representations_of_logical_forms_for_language_modeling.md)
-- [Automated CAD Modeling Sequence Generation from Text Descriptions via Transformer-Based Large Language Models](cadllm_cad_modeling_from_text.md)
 
 <!-- RELATED:END -->

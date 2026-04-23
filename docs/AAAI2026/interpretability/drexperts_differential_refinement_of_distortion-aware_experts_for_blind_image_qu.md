@@ -133,7 +133,7 @@ RGB图像同时输入ViT Image Encoder和DA-CLIP。DA-CLIP通过10种失真类�
 - [Draft and Refine with Visual Experts](../../CVPR2026/interpretability/draft_and_refine_with_visual_experts.md)
 - [ShapBPT: Image Feature Attributions Using Data-Aware Binary Partition Trees](shapbpt_image_feature_attributions_using_data-aware_binary_partition_trees.md)
 - [Learning on Model Weights using Tree Experts](../../CVPR2025/interpretability/learning_on_model_weights_using_tree_experts.md)
+- [ERMoE: Eigen-Reparameterized Mixture-of-Experts for Stable Routing and Interpretable Specialization](../../CVPR2026/interpretability/ermoe_eigen-reparameterized_mixture-of-experts_for_stable_routing.md)
 - [KVQ: Boosting Video Quality Assessment via Saliency-Guided Local Perception](../../CVPR2025/interpretability/kvq_boosting_video_quality_assessment_via_saliency-guided_local_perception.md)
-- [GateRA: Token-Aware Modulation for Parameter-Efficient Fine-Tuning](gatera_token-aware_modulation_for_parameter-efficient_fine-tuning.md)
 
 <!-- RELATED:END -->

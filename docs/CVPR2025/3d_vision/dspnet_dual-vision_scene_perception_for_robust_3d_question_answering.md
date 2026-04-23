@@ -130,7 +130,7 @@ DSPNet 输入 3D 点云、多视图图像和问题文本，输出答案。流程
 - [DepthCues: Evaluating Monocular Depth Perception in Large Vision Models](depthcues_evaluating_monocular_depth_perception_in_large_vision_models.md)
 - [Robust Neural Rendering in the Wild with Asymmetric Dual 3D Gaussian Splatting](../../NeurIPS2025/3d_vision/robust_neural_rendering_in_the_wild_with_asymmetric_dual_3d_gaussian_splatting.md)
 - [Continuous 3D Perception Model with Persistent State](continuous_3d_perception_model_with_persistent_state.md)
-- [Dual Exposure Stereo for Extended Dynamic Range 3D Imaging](dual_exposure_stereo_for_extended_dynamic_range_3d_imaging.md)
-- [SphereUFormer: A U-Shaped Transformer for Spherical 360 Perception](sphereuformer_a_u-shaped_transformer_for_spherical_360_perception.md)
+- [4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
+- [Dual Exposure Stereo for Extended Dynamic Range 3D Imaging](dual_exposure_stereo_extended_dr_3d.md)
 
 <!-- RELATED:END -->

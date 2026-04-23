@@ -151,8 +151,8 @@ Shapley 值 → 约束回归问题 (Eq.1.2)
 
 - [Provably Cost-Sensitive Adversarial Defense via Randomized Smoothing](../../ICML2025/llm_evaluation/provably_cost-sensitive_adversarial_defense_via_randomized_smoothing.md)
 - [READoc: A Unified Benchmark for Realistic Document Structured Extraction](../../ACL2025/llm_evaluation/readoc_a_unified_benchmark_for_realistic_document_structured_extraction.md)
-- [TUMLU: A Unified and Native Language Understanding Benchmark for Turkic Languages](../../ACL2025/llm_evaluation/tumlu_a_unified_and_native_language_understanding_benchmark_for_turkic_languages.md)
 - [HybridNorm: Towards Stable and Efficient Transformer Training via Hybrid Normalization](hybridnorm_towards_stable_and_efficient_transformer_training_via_hybrid_normaliz.md)
-- [Efficient Semantic Uncertainty Quantification in Language Models via Diversity-Steered Sampling](efficient_semantic_uncertainty_quantification_in_language_models_via_diversity-s.md)
+- [PapersPlease: A Benchmark for Evaluating Motivational Values of Large Language Models Based on ERG Theory](../../ACL2025/llm_evaluation/papersplease_a_benchmark_for_evaluating_motivational_values_of_large_language_mo.md)
+- [TUMLU: A Unified and Native Language Understanding Benchmark for Turkic Languages](../../ACL2025/llm_evaluation/tumlu_a_unified_and_native_language_understanding_benchmark_for_turkic_languages.md)
 
 <!-- RELATED:END -->

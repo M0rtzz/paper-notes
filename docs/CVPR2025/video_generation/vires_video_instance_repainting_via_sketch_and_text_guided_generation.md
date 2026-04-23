@@ -16,7 +16,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2411.16199](https://arxiv.org/abs/2411.16199)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 视频编辑 / 扩散模型  
 **关键词**: 视频实例重绘、草图引导、文本引导、时序一致性、扩散模型
 
@@ -25,12 +25,23 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**：视频编辑需求日益增长，但现有方法在精确控制特定实例的外观变化时面临挑战。文本引导的视频编辑（如Tune-A-Video）缺乏空间精度；图像修复方法（如ProPainter）缺乏语义控制。
+### 领域现状
+
+**领域现状**：领域现状**：视频编辑需求日益增长，但现有方法在精确控制特定实例的外观变化时面临挑战。文本引导的视频编辑（如Tune-A-Video）缺乏空间精度；图像修复方法（如ProPainter）缺乏语义控制。
 
 **核心矛盾**：
-   - 文本引导提供语义信息但缺乏空间精确性
-   - 草图/mask提供空间信息但缺乏语义丰富性
-   - 视频编辑还需保证时间一致性和背景不变
+
+### 现有痛点
+
+**现有痛点**：文本引导提供语义信息但缺乏空间精确性
+
+### 核心矛盾
+
+**核心矛盾**：草图/mask提供空间信息但缺乏语义丰富性
+
+### 解决思路
+
+**解决思路**：视频编辑还需保证时间一致性和背景不变
 
 **核心思路**：结合草图（空间控制）和文本（语义控制）双重引导，配合实例分割掩码限制编辑区域，在扩散模型框架中融入时序注意力确保时间一致性。
 
@@ -115,6 +126,6 @@ tags:
 - [PhyT2V: LLM-Guided Iterative Self-Refinement for Physics-Grounded Text-to-Video Generation](phyt2v_llm-guided_iterative_self-refinement_for_physics-grounded_text-to-video_g.md)
 - [Optical-Flow Guided Prompt Optimization for Coherent Video Generation](optical-flow_guided_prompt_optimization_for_coherent_video_generation.md)
 - [StreamingT2V: Consistent, Dynamic, and Extendable Long Video Generation from Text](streamingt2v_consistent_dynamic_and_extendable_long_video_generation_from_text.md)
-- [AID: Adapting Image2Video Diffusion Models for Instruction-guided Video Prediction](../../ICCV2025/video_generation/aid_adapting_image2video_diffusion_models_for_instruction-guided_video_predictio.md)
+- [Geometry-guided Online 3D Video Synthesis with Multi-View Temporal Consistency](geometry-guided_online_3d_video_synthesis_with_multi-view_temporal_consistency.md)
 
 <!-- RELATED:END -->

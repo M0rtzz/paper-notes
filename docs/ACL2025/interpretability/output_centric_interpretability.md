@@ -114,9 +114,9 @@ tags:
 ## 相关论文
 
 - [Formal Mechanistic Interpretability: Automated Circuit Discovery with Provable Guarantees](../../ICLR2026/interpretability/formal_mechanistic_interpretability_automated_circuit_discovery_with_provable_gu.md)
+- [An Empirical Study of Mechanistic Interpretability Approaches for Factual Recall](an_empirical_study_of_mechanistic_interpretability_approaches_for_factual_recall.md)
 - [Mechanistic Interpretability of Emotion Inference in Large Language Models](mechanistic_interpretability_of_emotion_inference_in_large_language_models.md)
 - [Normalized AOPC: Fixing Misleading Faithfulness Metrics for Feature Attribution Explainability](normalized_aopc_faithfulness_metrics.md)
 - [VL-SAE: Interpreting and Enhancing Vision-Language Alignment with a Unified Concept Set](../../NeurIPS2025/interpretability/vlsae_interpreting_and_enhancing_visionlanguage_alignment_wi.md)
-- [MIB: A Mechanistic Interpretability Benchmark](../../ICML2025/interpretability/mib_a_mechanistic_interpretability_benchmark.md)
 
 <!-- RELATED:END -->

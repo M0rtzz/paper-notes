@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 对齐/RLHF方向 50篇论文解读
+  NeurIPS2025 对齐/RLHF方向 51篇论文解读
 description: >-
-  50篇NeurIPS2025 对齐/RLHF论文解读，主题涵盖：提出一种自适应 Alpha 聚合策略，在联邦、提出基于任务并发（Task Concurrency、提出基于不确定性的路由框架，用SNGP对pairw等，每篇含核心思想与方法详解。
+  51篇NeurIPS2025 对齐/RLHF论文解读，主题涵盖：提出一种自适应 Alpha 聚合策略，在联邦、提出基于任务并发（Task Concurrency、本文提出 CAID（Constrained等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐/RLHF
 
-**🧠 NeurIPS2025** · **50** 篇论文解读
+**🧠 NeurIPS2025** · **51** 篇论文解读
 
 **[A Systematic Evaluation of Preference Aggregation in Federated RLHF for Pluralistic Alignment of LLMs](a_systematic_evaluation_of_preference_aggregation_in_federated_rlhf_for_pluralis.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[Adjacent Words, Divergent Intents: Jailbreaking Large Language Models via Task Concurrency](adjacent_words_divergent_intents_jailbreaking_large_language_models_via_task_con.md)**
 
 :   提出基于任务并发（Task Concurrency）的LLM越狱攻击框架 JAIL-CON，通过在词级别交错编码有害任务和良性任务，利用LLM处理并发任务的能力绕过安全防护，同时产生的并发回答在guardrail下具有更强的隐蔽性。
+
+**[Alignment of Large Language Models with Constrained Learning](alignment_of_large_language_models_with_constrained_learning.md)**
+
+:   本文提出 CAID（Constrained Alignment via Iterative Dualization），通过迭代对偶方法交替更新 LLM 策略和对偶变量，在理论上证明了对偶方法可以找到最优约束 LLM 策略（至多存在参数化间隙），并在 PKU-SafeRLHF 数据集上显著改善了约束满足和 helpfulness-safety 权衡。
 
 **[Ask a Strong LLM Judge when Your Reward Model is Uncertain](ask_a_strong_llm_judge_when_your_reward_model_is_uncertain.md)**
 

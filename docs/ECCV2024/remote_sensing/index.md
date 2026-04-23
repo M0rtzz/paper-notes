@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 遥感方向 7篇论文解读
+  ECCV2024 遥感方向 6篇论文解读
 description: >-
-  7篇ECCV2024 遥感论文解读，主题涵盖：针对细粒度跨视角定位模型在新区域部署时精度下降的问、提出 ConGeo，一种模型无关的单视图+跨视图对、构建首个地面-无人机跨平台视频行人重识别数据集G2等，每篇含核心思想与方法详解。
+  6篇ECCV2024 遥感论文解读，主题涵盖：针对细粒度跨视角定位模型在新区域部署时精度下降的问、提出 ConGeo，一种模型无关的单视图+跨视图对、构建首个地面-无人机跨平台视频行人重识别数据集G2等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛰️ 遥感
 
-**🎞️ ECCV2024** · **7** 篇论文解读
+**🎞️ ECCV2024** · **6** 篇论文解读
 
 **[Adapting Fine-Grained Cross-View Localization to Areas without Fine Ground Truth](adapting_fine-grained_cross-view_localization_to_areas_without_fine_ground_truth.md)**
 
@@ -29,10 +29,6 @@ description: >-
 **[Masked Angle-Aware Autoencoder for Remote Sensing Images](masked_angle-aware_autoencoder_for_remote_sensing_images.md)**
 
 :   提出 MA3E，在 MAE 预训练中显式引入角度变化（通过 scaling center crop 构建旋转裁剪），并用最优传输损失自动分配重建目标，使模型感知遥感目标的多样角度，学习旋转不变表示。
-
-**[SCPNet: Unsupervised Cross-modal Homography Estimation via Intra-modal Self-supervised Learning](scpnet_unsupervised_cross-modal_homography_estimation_via_intra-modal_self-super.md)**
-
-:   提出 SCPNet，通过模内自监督学习（intra-modal self-supervised learning）、相关性网络和一致性特征图投影三个关键组件的协同，首次在卫星-地图等大模态差距数据集上实现了有效的无监督跨模态单应性估计，MACE 比监督方法 MHN 低 14%。
 
 **[Weakly-Supervised Camera Localization by Ground-to-Satellite Image Registration](weakly-supervised_camera_localization_by_ground-to-satellite_image_registration.md)**
 

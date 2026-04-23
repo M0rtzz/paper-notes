@@ -126,8 +126,8 @@ tags:
 
 - [RoadSceneVQA: Benchmarking Visual Question Answering in Roadside Perception Systems for Intelligent Transportation System](roadscenevqa_benchmarking_visual_question_answering_in_roadside_perception_syste.md)
 - [Understanding Dynamic Scenes in Egocentric 4D Point Clouds](understanding_dynamic_scenes_in_ego_centric_4d_point_clouds.md)
-- [Invisible Triggers, Visible Threats! Road-Style Adversarial Creation Attack for Visual 3D Detection in Autonomous Driving](invisible_triggers_visible_threats_road-style_adversarial_creation_attack_for_vi.md)
 - [Fine-Grained Representation for Lane Topology Reasoning](fine-grained_representation_for_lane_topology_reasoning.md)
+- [Invisible Triggers, Visible Threats! Road-Style Adversarial Creation Attack for Visual 3D Detection in Autonomous Driving](invisible_triggers_visible_threats_road-style_adversarial_creation_attack_for_vi.md)
 - [MindDriver: Introducing Progressive Multimodal Reasoning for Autonomous Driving](../../CVPR2026/autonomous_driving/minddriver_introducing_progressive_multimodal_reasoning_for_autonomous_driving.md)
 
 <!-- RELATED:END -->

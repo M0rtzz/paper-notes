@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 图学习方向 35篇论文解读
+  AAAI2026 图学习方向 36篇论文解读
 description: >-
-  35篇AAAI2026 图学习论文解读，主题涵盖：提出自适应初始残差连接（Adaptive、提出 ARGNN 框架，为图上每个节点学习一个连续、提出分形节点（Fractal Nodes）增强等，每篇含核心思想与方法详解。
+  36篇AAAI2026 图学习论文解读，主题涵盖：提出自适应初始残差连接（Adaptive、提出 ARGNN 框架，为图上每个节点学习一个连续、提出分形节点（Fractal Nodes）增强等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**🤖 AAAI2026** · **35** 篇论文解读
+**🤖 AAAI2026** · **36** 篇论文解读
 
 **[Adaptive Initial Residual Connections for GNNs with Theoretical Guarantees](adaptive_initial_residual_connections_for_gnns_with_theoretical_guarantees.md)**
 
@@ -77,6 +77,10 @@ description: >-
 **[Hyperbolic Continuous Structural Entropy for Hierarchical Clustering](hyperbolic_continuous_structural_entropy_for_hierarchical_clustering.md)**
 
 :   提出 HypCSE，将离散结构熵（SE）松弛为双曲空间中的连续结构熵（CSE），结合图结构学习和对比学习，实现端到端可微的层次聚类，在 7 个数据集上全面超越离散和连续层次聚类方法。
+
+**[Kernelized Edge Attention: Addressing Semantic Attention Blurring in Temporal Graph Neural Networks](kernelized_edge_attention_addressing_semantic_attention_blurring_in_temporal_gra.md)**
+
+:   本文提出 KEAT（Kernelized Edge Attention for Temporal Graphs），通过连续时间核（Laplacian、RBF、可学习 MLP）调制边特征来解决时序图神经网络中节点与边表示纠缠导致的语义注意力模糊问题，在链接预测任务上实现了对 DyGFormer 高达 18% 和 TGN 7% 的 MRR 提升。
 
 **[Logical Characterizations of GNNs with Mean Aggregation](logical_characterizations_of_gnns_with_mean_aggregation.md)**
 

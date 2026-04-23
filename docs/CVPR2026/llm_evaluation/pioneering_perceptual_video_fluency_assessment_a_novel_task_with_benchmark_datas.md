@@ -134,9 +134,9 @@ FluNet 包含三个部分：patch embedding 层 $F_p$（单层卷积）、编码
 ## 相关论文
 
 - [TacSIm: A Dataset and Benchmark for Football Tactical Style Imitation](tacsim_a_dataset_and_benchmark_for_football_tactical_style_imitation.md)
+- [VGA-Bench: A Unified Benchmark for Video Aesthetics and Generation Quality Evaluation](vga_bench_unified_benchmark_for_video_aesthetics_and_generation_quality.md)
+- [KRISTEVA: Close Reading as a Novel Task for Benchmarking Interpretive Reasoning](../../ACL2025/llm_evaluation/kristeva_close_reading_as_a_novel_task_for_benchmarking_interpretive_reasoning.md)
 - [RoadSocial: A Diverse VideoQA Dataset and Benchmark for Road Event Understanding from Social Video Narratives](../../CVPR2025/llm_evaluation/roadsocial_a_diverse_videoqa_dataset_and_benchmark_for_road_event_understanding_.md)
-- [HouseLayout3D: A Benchmark and Training-Free Baseline for 3D Layout Estimation in the Wild](../../NeurIPS2025/llm_evaluation/houselayout3d_a_benchmark_and_training-free_baseline_for_3d_layout_estimation_in.md)
 - [AnesSuite: A Comprehensive Benchmark and Dataset Suite for Anesthesiology Reasoning](../../ICLR2026/llm_evaluation/anessuite_a_comprehensive_benchmark_and_dataset_suite_for_anesthesiology_reasoni.md)
-- [Out of Sight, Out of Mind? Evaluating State Evolution in Video World Models](out_of_sight_out_of_mind_evaluating_state_evolutio.md)
 
 <!-- RELATED:END -->

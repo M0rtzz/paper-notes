@@ -1,18 +1,26 @@
 ---
 title: >-
-  ACL2025 文本生成方向 22篇论文解读
+  ACL2025 文本生成方向 27篇论文解读
 description: >-
-  22篇ACL2025 文本生成论文解读，主题涵盖：从表示层面系统分析 NMT 编码器如何处理语法错误、首次系统研究LLM在多对多摘要（M2MS）任务上的、提出ATGen——首个系统化的NLG主动学习框架等，每篇含核心思想与方法详解。
+  27篇ACL2025 文本生成论文解读，主题涵盖：从表示层面系统分析 NMT 编码器如何处理语法错误、本文提出了一种面向搜索引擎的抽象化片段生成方法、本文对非自回归翻译（NAT）中的迭代精修方法进行了等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✍️ 文本生成
 
-**💬 ACL2025** · **22** 篇论文解读
+**💬 ACL2025** · **27** 篇论文解读
 
 **[A Representation Level Analysis of NMT Model Robustness to Grammatical Errors](a_representation_level_analysis_of_nmt_model_robustness_to_grammatical_errors.md)**
 
 :   从表示层面系统分析 NMT 编码器如何处理语法错误——发现编码器先在浅层"检测"错误（GED 探测 F1 上升），再在深层"纠正"错误（CKA 距离下降），并提出 Robustness Heads 概念识别出参与纠正的具体注意力头，在 4 个模型×5 个语言方向上验证了该"检测→纠正"两阶段机制。
+
+**[Abstractive Snippet Generation](abstractive_snippet_generation.md)**
+
+:   本文提出了一种面向搜索引擎的抽象化片段生成方法，通过查询感知的摘要生成技术，为搜索结果页面生成比传统抽取式片段更简洁、信息量更大的文本摘要，显著提升用户搜索体验。
+
+**[An Empirical Study of Iterative Refinements for Non-Autoregressive Translation](an_empirical_study_of_iterative_refinements_for_non-autoregressive_translation.md)**
+
+:   本文对非自回归翻译（NAT）中的迭代精修方法进行了系统性的实证研究，比较了不同精修策略（如CMLM、DisCo、SUNDAE等）在翻译质量与推理速度之间的权衡，揭示了迭代次数、掩码比例和训练策略对最终性能的关键影响，为NAT研究提供了全面的实践指导。
 
 **[An Empirical Study of Many-to-Many Summarization with Large Language Models](an_empirical_study_of_manytomany_summarization.md)**
 
@@ -22,6 +30,10 @@ description: >-
 
 :   提出ATGen——首个系统化的NLG主动学习框架，集成SOTA AL策略、人工/LLM标注界面、PEFT高效训练和vLLM推理优化，在TriviaQA/GSM8K等4个NLG任务上验证主动学习可将标注成本降低2-4倍。
 
+**[Balancing Diversity and Risk in LLM Sampling: How to Select Your Method and Parameter for Open-Ended Text Generation](balancing_diversity_and_risk_in_llm_sampling_how_to_select_your_method_and_param.md)**
+
+:   本文提出了一种基于上下文保持前缀树（CP-Trie）的系统性评估框架，通过不依赖概率和参数调优的指标来评估截断采样方法在多样性与风险之间的内在适应能力，并为实际应用中的参数选择提供指导。
+
 **[CoCoLex: Confidence-guided Copy-based Decoding for Grounded Legal Text Generation](cocolex_legal_text_gen.md)**
 
 :   提出 CoCoLex，一种无需训练的解码策略，利用解码过程中隐状态与上下文 token 隐状态的欧氏距离构造复制分布，并通过基于预测熵的置信度分数动态平衡"从上下文复制"与"自由生成"的比例，在五个法律基准上一致提升忠实性和正确性，尤其在长文本生成任务中效果突出。
@@ -29,6 +41,14 @@ description: >-
 **[Context-Aware Hierarchical Merging for Long Document Summarization](context-aware_hierarchical_merging_for_long_document_summarization.md)**
 
 :   提出上下文感知的层次合并（CAHM）方法，通过在层次合并摘要过程中引入源文档的相关上下文（抽取/检索/引用三种方式），有效缓解 LLM 在超长文档（>100K tokens）摘要中的幻觉问题。
+
+**[Controlling Politeness in Multi-Turn Dialogues Through Pre-Phrase Augmentation](controlling_politeness_in_multi-turn_dialogues_through_pre-phrase_augmentation.md)**
+
+:   本文提出一种基于前缀短语增强（Pre-Phrase Augmentation）的方法，通过在对话生成过程中自动添加礼貌性调控前缀，实现多轮对话中礼貌程度的细粒度控制，同时保持对话内容的连贯性和信息完整性。
+
+**[Decomposed Opinion Summarization with Verified Aspect-Aware Modules](decomposed_opinion_summarization_with_verified_aspect-aware_modules.md)**
+
+:   本文将观点摘要（opinion summarization）任务分解为三个可逐步验证的模块——方面识别、观点汇总、元评论合成，通过 LLM 零样本提示实现领域无关的模块化处理，在科研论文、商业评论和产品评论三个领域生成了更可追溯、更全面的摘要。
 
 **[Dehumanizing Machines: Mitigating Anthropomorphic Behaviors in Text Generation Systems](dehumanizing_machines_anthropomorphic.md)**
 

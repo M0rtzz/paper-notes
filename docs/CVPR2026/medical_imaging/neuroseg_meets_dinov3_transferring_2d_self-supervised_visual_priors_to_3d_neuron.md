@@ -151,7 +151,7 @@ NeurINO 提出通过将 DINOv3 预训练的 2D 卷积核膨胀（inflate）为 3
 - [Marker-Based 3D Reconstruction of Aggregates with a Comparative Analysis of 2D and 3D Morphologies](marker-based_3d_reconstruction_of_aggregates_with_a_comparative_analysis_of_2d_a.md)
 - [Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding](addressing_data_scarcity_in_3d_trauma_detection_th.md)
 - [Learning Generalizable 3D Medical Image Representations from Mask-Guided Self-Supervision](learning_generalizable_3d_medical_image_representations_from_mask-guided_self-su.md)
+- [From Adaptation to Generalization: Adaptive Visual Prompting for Medical Image Segmentation](apex_adaptive_visual_prompting.md)
 - [An OpenMind for 3D Medical Vision Self-supervised Learning](../../ICCV2025/medical_imaging/an_openmind_for_3d_medical_vision_selfsupervised_learning.md)
-- [Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation? A Cross-Dataset Empirical Study](are_generalpurpose_vision_models_all_we_need_for_2.md)
 
 <!-- RELATED:END -->

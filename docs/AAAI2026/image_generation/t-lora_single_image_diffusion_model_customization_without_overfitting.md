@@ -237,6 +237,6 @@ FLUX-1.dev实验：
 - [MOLM: Mixture of LoRA Markers](../../ICLR2026/image_generation/molm_mixture_of_lora_markers.md)
 - [L-DiffER: Single Image Reflection Removal with Language-Based Diffusion Model](../../ECCV2024/image_generation/l-differ_single_image_reflection_removal_with_language-based_diffusion_model.md)
 - [PersonalVideo: High ID-Fidelity Video Customization without Dynamic and Semantic Degradation](../../ICCV2025/image_generation/personalvideo_high_id-fidelity_video_customization_without_dynamic_and_semantic_.md)
-- [LoRACLR: Contrastive Adaptation for Customization of Diffusion Models](../../CVPR2025/image_generation/loraclr_contrastive_adaptation_for_customization_of_diffusion_models.md)
+- [Efficient Personalization of Quantized Diffusion Model without Backpropagation (ZOODiP)](../../CVPR2025/image_generation/efficient_personalization_of_quantized_diffusion_model_without_backpropagation.md)
 
 <!-- RELATED:END -->

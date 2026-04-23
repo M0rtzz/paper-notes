@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 强化学习方向 130篇论文解读
+  ICLR2026 强化学习方向 133篇论文解读
 description: >-
-  130篇ICLR2026 强化学习论文解读，主题涵盖：提出了一种新的覆盖性参数——**特征-动态覆盖**、提出 AbstRaL，通过强化学习教 LLM、提出APPLE——一种结合强化学习与监督学习的通用等，每篇含核心思想与方法详解。
+  133篇ICLR2026 强化学习论文解读，主题涵盖：提出了一种新的覆盖性参数——**特征-动态覆盖**、提出 AbstRaL，通过强化学习教 LLM、提出APPLE——一种结合强化学习与监督学习的通用等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**🔬 ICLR2026** · **130** 篇论文解读
+**🔬 ICLR2026** · **133** 篇论文解读
 
 **[A Unifying View of Coverage in Linear Off-Policy Evaluation](a_unifying_view_of_coverage_in_linear_off-policy_evaluation.md)**
 
@@ -164,7 +164,11 @@ description: >-
 
 **[How LLMs Learn to Reason: A Complex Network Perspective](how_llms_learn_to_reason_a_complex_network_perspective.md)**
 
-:   从复杂网络视角提出**稀疏概念网假说**（平均度 $\langle k\rangle\approx 2$），统一解释 RLVR 训练的四大谜题（两阶段学习曲线、V 型回复长度、灾难性遗忘、策略坍缩），并据此设计 Annealed-RLVR 算法在 Minerva 和 AIME 上超越标准 RLVR。
+:   本文从复杂网络视角提出"稀疏概念网"理论来统一解释RLVR训练中四个令人困惑的现象（V形响应长度、两阶段学习曲线、灾难性遗忘、策略坍塌），揭示它们都源于平均度约为2的稀疏推理图的拓扑自组织，并据此设计Annealed-RLVR算法在数学推理基准上超越标准RLVR。
+
+**[InFOM: Intention-Conditioned Flow Occupancy Models](infom_intention_flow_occupancy.md)**
+
+:   InFOM 通过变分推断学习潜在意图编码器、用 flow matching 建模意图条件化的折扣状态占据度量，实现了 RL 中的高效预训练与微调，在 36 个状态任务和 4 个图像任务上比基线提升 1.8 倍中位回报和 36% 成功率。
 
 **[Is Pure Exploitation Sufficient in Exogenous MDPs with Linear Function Approximation?](is_pure_exploitation_sufficient_in_exogenous_mdps_with_linear_function_approxima.md)**
 
@@ -249,10 +253,6 @@ description: >-
 **[Nearly-Optimal Bandit Learning in Stackelberg Games with Side Information](nearly-optimal_bandit_learning_in_stackelberg_games_with_side_information.md)**
 
 :   本文通过将Stackelberg博弈中的领导者效用空间线性化，提出了一种约简到线性上下文赌臂问题的算法，在带侧信息的赌臂反馈设置下将遗憾界从 $\tilde{O}(T^{2/3})$ 改进到近似最优的 $\tilde{O}(T^{1/2})$。
-
-**[Offline Reinforcement Learning with Generative Trajectory Policies](offline_reinforcement_learning_with_generative_trajectory_policies.md)**
-
-:   提出 Generative Trajectory Policy (GTP)，通过学习 ODE 完整解映射统一扩散、流匹配和一致性模型，配合分数近似和值驱动引导两项关键适配技术，在 D4RL 上达到 SOTA。
 
 **[On Discovering Algorithms for Adversarial Imitation Learning](on_discovering_algorithms_for_adversarial_imitation_learning.md)**
 
@@ -341,6 +341,14 @@ description: >-
 **[Pruning as a Cooperative Game: Surrogate-Assisted Layer Contribution Estimation for Large Language Models](remix_reinforcement_routing_for_mixtures_of_loras_in_llm_finetuning.md)**
 
 :   将LLM层剪枝建模为合作博弈（每层=玩家，模型性能=效用）→精确Shapley值计算不可行（$2^L$种组合）→提出两阶段近似：(1)分层蒙特卡洛采样生成mask+评估PPL作为监督信号→(2)训练轻量代理网络预测任意mask的性能→高效估算每层Shapley值→捕获层间依赖→显著优于静态启发式剪枝基线。
+
+**[ReMix: Reinforcement Routing for Mixtures of LoRAs in LLM Finetuning](remix_reinforcement_routing_lora.md)**
+
+:   ReMix 发现现有 Mixture-of-LoRAs 模型存在严重的路由权重坍缩问题（即使激活 k>1 个 LoRA，有效 LoRA 数也迅速降到 1），提出用非可学习的常数路由权重确保所有激活 LoRA 平等贡献，并用 RLOO 强化学习梯度估计器训练路由器，显著优于 SOTA PEFT 方法。
+
+**[ReMoT: Reinforcement Learning with Motion Contrast Triplets](remot_reinforcement_learning_with_motion_contrast_triplets.md)**
+
+:   ReMoT 提出一个统一的训练范式，通过规则驱动的运动对比三元组数据集（ReMoT-16K）和 Group Relative Policy Optimization（GRPO）组合奖励优化，系统性地提升 VLM 在时空一致性推理上的能力，在时空推理任务上实现 25.1% 的性能跃升。
 
 **[Retaining Suboptimal Actions to Follow Shifting Optima in Multi-Agent RL](retaining_suboptimal_actions_to_follow_shifting_optima_in_multi-agent_reinforcem.md)**
 
@@ -457,6 +465,10 @@ description: >-
 **[Thinking on the Fly: Test-Time Reasoning Enhancement via Latent Thought Policy Optimization](thinking_on_the_fly_test-time_reasoning_enhancement_via_latent_thought_policy_op.md)**
 
 :   本文提出潜在思维策略优化（LTPO），一种无需更新模型参数的测试时推理增强框架，通过将中间潜在"思维"向量视为可优化的动态参数，利用在线策略梯度方法和内在置信度奖励信号来增强冻结LLM的推理能力。
+
+**[Toward a Dynamic Stackelberg Game-Theoretic Framework for Agent-Based Conversational AI Defense Against LLM Jailbreaking](toward_a_dynamic_stackelberg_game-theoretic_framework_for_agent-based_conversat.md)**
+
+:   将 LLM 越狱攻防形式化为动态 Stackelberg 扩展形式博弈，结合快速扩展随机树 (RRT) 搜索提示空间，提出 Purple Agent 防御架构实现"红队思维，蓝队行动"的预见性防御。
 
 **[Towards Bridging the Gap between Large-Scale Pretraining and Efficient Finetuning for Humanoid Control](towards_bridging_the_gap_between_large-scale_pretraining_and_efficient_finetunin.md)**
 

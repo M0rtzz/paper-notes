@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 具身智能方向 28篇论文解读
+  CVPR2025 具身智能方向 31篇论文解读
 description: >-
-  28篇CVPR2025 具身智能论文解读，主题涵盖：提出3D-MVP，将Masked、通过系统评估发现DINO/iBOT在机器人任务上优、提出 DRAWER 框架，从静态场景视频自动构建可等，每篇含核心思想与方法详解。
+  31篇CVPR2025 具身智能论文解读，主题涵盖：提出3D-MVP，将Masked、通过系统评估发现DINO/iBOT在机器人任务上优、提出ASAP框架，通过大模型辅助对齐(LMA)等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 具身智能
 
-**📷 CVPR2025** · **28** 篇论文解读
+**📷 CVPR2025** · **31** 篇论文解读
 
 **[3D-MVP: 3D Multiview Pretraining for Robotic Manipulation](3d-mvp_3d_multiview_pretraining_for_manipulation.md)**
 
@@ -18,9 +18,17 @@ description: >-
 
 :   通过系统评估发现DINO/iBOT在机器人任务上优于MAE但在非物体中心(NOC)数据上性能退化，原因是丧失了物体中心表示能力。提出SlotMIM方法，通过语义瓶颈（减少原型数量促进objectness涌现）和跨视图一致性正则+slot级对比学习，使模型在NOC数据上也能学到物体中心表示，仅用241K样本即超越用>1M样本的MVP/VC-1。
 
+**[ASAP: Advancing Semantic Alignment Promotes Multi-Modal Manipulation Detecting and Grounding](asap_advancing_semantic_alignment_promotes_multi-modal_manipulation_de.md)**
+
+:   提出ASAP框架，通过大模型辅助对齐(LMA)、篡改引导交叉注意力(MGCA)和补丁篡改建模(PMM)三个核心模块，系统性地推进图文语义对齐以提升多模态篡改检测与定位性能——在DGM4基准上AUC达94.38%，文本定位F1达76.52%，显著超越现有方法。
+
 **[ASAP: Advancing Semantic Alignment for Multi-Modal Manipulation Detection](asap_advancing_semantic_alignment_promotes_multi-modal_manipulation_detecting_an.md)**
 
 **[Chapter-Llama: Efficient Chaptering in Hour-Long Videos with LLMs](chapter-llama_efficient_chaptering_in_hour-long_videos_with_llms.md)**
+
+**[Coordinated Manipulation of Hybrid Deformable-Rigid Objects in Constrained Environments](coordinated_manipulation_hybrid_deformable_rigid_objects.md)**
+
+:   本文提出基于应变参数化 Cosserat 杆模型（GVS）的准静态轨迹优化框架，用于双臂机器人在约束环境中协调操纵混合变形-刚性线性物体（hDLO），利用解析梯度实现比有限差分快 33 倍的求解速度，并在真实双臂平台上验证了 ~3cm 的变形误差。
 
 **[DRAWER: Digital Reconstruction and Articulation with Environment Realism](drawer_digital_reconstruction_and_articulation_with_environment_realism.md)**
 
@@ -30,9 +38,9 @@ description: >-
 
 :   提出 Expert Pyramid Tuning (EPT)，将计算机视觉中的多尺度特征金字塔思想引入 LoRA-based MoE，通过共享元知识子空间 + 反卷积金字塔投影机制构建不同粒度的专家，实现更高效的多任务参数微调。
 
-**[Foundations of the Theory of Performance-Based Ranking](foundations_of_the_theory_of_performance-based_ranking.md)**
+**[Foundations of the Theory of Performance-Based Ranking](foundations_of_the_theory_of_performance_based_ranking.md)**
 
-:   建立基于概率测度和序理论的性能排名公理化框架，用 6 大支柱（性能测度/偏序/满意度/评价函数/分数/重要性）统一了准确率/精度/召回率/F1 等指标，证明了何种评分函数适合用于排名、何种不适合。
+:   建立基于性能排名的通用数学理论基础，将性能定义为概率测度、引入满意度和重要性随机变量、提出三条公理化的性能序定义，并推导出参数化的排名分数族(ranking scores)，证明准确率、召回率、精度和F1等常用指标属于该族的特例。
 
 **[Influence Malleability in Linearized Attention: Dual Implications of Non-Convergent NTK Dynamics](influence_malleability_in_linearized_attention_dual_implications_of_non-converge.md)**
 
@@ -89,6 +97,10 @@ description: >-
 **[Robotic Visual Instruction](robotic_visual_instruction.md)**
 
 :   提出 Robotic Visual Instruction (RoVI)，一种以手绘箭头和圆圈为核心的视觉指令范式，替代自然语言来指导机器人操作，并设计 VIEW pipeline 将2D视觉指令转化为3D动作序列，在真实环境中达到87.5%成功率。
+
+**[RoboTwin: Dual-Arm Robot Benchmark with Generative Digital Twins](robotwin_dual-arm_robot_benchmark_with_generative_digital_twins.md)**
+
+:   RoboTwin提出了一个基于生成式数字孪生的双臂机器人基准框架，利用3D生成基础模型从单张2D图像创建物体数字孪生，并结合大语言模型自动生成机器人操作代码，在仿真预训练+少量真实数据微调的范式下实现了单臂任务成功率提升70%、双臂任务提升40%的显著效果。
 
 **[SaPaVe: Towards Active Perception and Manipulation in Vision-Language-Action Models for Robotics](sapave_towards_active_perception_and_manipulation_in_vision-language-action_mode.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 视频生成方向 10篇论文解读
+  AAAI2026 视频生成方向 11篇论文解读
 description: >-
-  10篇AAAI2026 视频生成论文解读，主题涵盖：提出3D4D交互式4D可视化框架、提出 DreamRunner 框架，通过 LLM、提出 FilmWeaver 框架等，每篇含核心思想与方法详解。
+  11篇AAAI2026 视频生成论文解读，主题涵盖：提出3D4D交互式4D可视化框架、提出 DreamRunner 框架，通过 LLM、提出 FilmWeaver 框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频生成
 
-**🤖 AAAI2026** · **10** 篇论文解读
+**🤖 AAAI2026** · **11** 篇论文解读
 
 **[3D4D: An Interactive Editable 4D World Model via 3D Video Generation](3d4d_an_interactive_editable_4d_world_model_via_3d_video_generation.md)**
 
@@ -49,3 +49,7 @@ description: >-
 **[Seeing the Unseen: Zooming in the Dark with Event Cameras](seeing_the_unseen_zooming_in_the_dark_with_event_cameras.md)**
 
 :   提出首个事件驱动低光视频超分（LVSR）框架 RetinexEVSR，通过 Retinex 启发的双向融合策略（RBF）——先用光照图引导事件特征去噪（IEE），再用增强后的事件特征恢复反射率细节（ERE），在 SDSD 基准上实现 2.95dB 增益且运行时间减少 65%。
+
+**[SphereDiff: Tuning-free Omnidirectional Panoramic Image and Video Generation via Spherical Latent Representation](spherediff_tuning-free_360_static_and_dynamic_panorama_generation_via_spherical_.md)**
+
+:   本文提出 SphereDiff，定义球面隐空间表示（Fibonacci Lattice 均匀分布）替代传统等距矩形投影，结合动态采样算法和畸变感知加权平均，无需微调即可利用 SANA/LTX Video 等预训练扩散模型生成无缝、低畸变的360度全景图像和视频。

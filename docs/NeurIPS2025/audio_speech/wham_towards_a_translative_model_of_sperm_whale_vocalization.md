@@ -142,7 +142,7 @@ WhAM 尽管以生成为主要训练目标，在下游分类上仍显著高于随
 - [Towards Reliable Large Audio Language Model](../../ACL2025/audio_speech/towards_reliable_large_audio_language_model.md)
 - [OmniFlatten: An End-to-end GPT Model for Seamless Voice Conversation](../../ACL2025/audio_speech/omniflatten_an_end-to-end_gpt_model_for_seamless_voice_conversation.md)
 - [Crab: A Unified Audio-Visual Scene Understanding Model with Explicit Cooperation](../../CVPR2025/audio_speech/crab_a_unified_audio-visual_scene_understanding_model_with_explicit_cooperation.md)
+- [Contextual Biasing with the Knowledgeable External Language Model for End-to-End Speech Recognition](../../ACL2025/audio_speech/contextual_biasing_with_the_knowledgeable_external_language_model_for_end-to-end.md)
 - [USE: A Unified Model for Universal Sound Separation and Extraction](../../AAAI2026/audio_speech/use_a_unified_model_for_universal_sound_separation_and_extraction.md)
-- [Spark-TTS: An Efficient LLM-Based Text-to-Speech Model with Single-Stream Decoupled Speech Tokens](../../ACL2025/audio_speech/spark-tts_an_efficient_llm-based_text-to-speech_model_with_single-stream_decoupl.md)
 
 <!-- RELATED:END -->

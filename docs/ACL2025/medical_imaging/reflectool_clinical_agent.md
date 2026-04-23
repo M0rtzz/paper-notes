@@ -119,7 +119,7 @@ ReflecTool 提出了一个反思感知的工具增强临床 Agent 框架，通�
 - [CliniDial: A Naturally Occurring Multimodal Dialogue Dataset for Team Reflection in Action During Clinical Operation](clinidial_a_naturally_occurring_multimodal_dialogue_dataset_for_team_reflection_.md)
 - [From Conversation to Query Execution: Benchmarking User and Tool Interactions for EHR Database Agents](../../ICLR2026/medical_imaging/from_conversation_to_query_execution_benchmarking_user_and_tool_interactions_for.md)
 - [RAD: Towards Trustworthy Retrieval-Augmented Multi-modal Clinical Diagnosis](../../NeurIPS2025/medical_imaging/rad_towards_trustworthy_retrieval-augmented_multi-modal_clinical_diagnosis.md)
+- [A Modular Approach for Clinical SLMs Driven by Synthetic Data with Pre-Instruction Tuning, Model Merging, and Clinical-Tasks Alignment](a_modular_approach_for_clinical_slms_driven_by_synthetic_data_with_pre-instructi.md)
 - [Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications](omni_rag_medical.md)
-- [MedBioRAG: Semantic Search and Retrieval-Augmented Generation with Large Language Models for Medical and Biological QA](medbiorag_semantic_search_and_retrieval-augmented_generation_with_large_language.md)
 
 <!-- RELATED:END -->

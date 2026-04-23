@@ -18,7 +18,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2603.12083](https://arxiv.org/abs/2603.12083)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 图像复原 / 光学像差校正  
 **关键词**: 计算像差校正, 镜头设计, benchmark, CNN vs Transformer, 光学像差, 通用校正
 
@@ -28,7 +28,9 @@ tags:
 
 ## 研究背景与动机
 
-**计算像差校正（CAC）的重要性**: 相机镜头不可避免地引入各种像差（球差、色差、场曲等），计算校正可以在软件层面补偿光学缺陷
+### 领域现状
+
+**领域现状**：**计算像差校正（CAC）的重要性**: 相机镜头不可避免地引入各种像差（球差、色差、场曲等），计算校正可以在软件层面补偿光学缺陷
 
 **现有方法的局限**: 现有 CAC 方法通常针对特定镜头训练，跨镜头泛化能力很差，换一个镜头就需要重新训练
 
@@ -39,6 +41,18 @@ tags:
 **CNN vs Transformer 的未知**: 在大多数低级视觉任务中 Transformer 逐渐占优，但 CAC 领域缺乏系统比较
 
 **核心idea**: 建立大规模多样化镜头 benchmark + 综合评估指标，系统揭示 CAC 领域的最佳实践
+
+### 解决思路
+
+**本文目标**：### 整体框架
+
+本文主要是 Benchmark 论文，核心贡献包括：
+
+1. **自动镜头设计**: 扩展 OptiFusion 自动设计 120 种多样化镜头，覆盖不同焦距、光圈、视场
+2. **ODE 评估指标**: 综合 PSNR/SSIM/OIQE + 空间均匀性 + 色差指标的统一评估框架
+3. **24 种算法的全面对比**: 覆盖 CNN、Transformer、混合等多种架构
+。
+
 
 ## 方法详解
 
@@ -107,7 +121,7 @@ tags:
 3. **ODE 指标的实用性**: 综合先指标比单一 PSNR 更能反映实际效果
 4. **自动镜头设计思路**: 解决了光学 AI 研究的数据瓶颈
 
-## 局限性
+## 局限与展望
 
 - 120 种镜头均为计算设计，与真实镜头可能存在差异
 - 未考虑镜头老化、温度变化等真实场景因素
@@ -133,9 +147,9 @@ tags:
 ## 相关论文
 
 - [Towards Universal Computational Aberration Correction in Photographic Cameras: A Comprehensive Benchmark Analysis](../../CVPR2026/image_restoration/towards_universal_computational_aberration_correction_in_photographic_cameras_a_.md)
-- [DiTFlow: Video Motion Transfer with Diffusion Transformers](video_motion_transfer_with_diffusion_transformers.md)
 - [Progressive Focused Transformer for Single Image Super-Resolution](progressive_focused_transformer_for_single_image_super-resolution.md)
+- [DiTFlow: Video Motion Transfer with Diffusion Transformers](video_motion_transfer_with_diffusion_transformers.md)
 - [INFP: Audio-Driven Interactive Head Generation in Dyadic Conversations](infp_audio-driven_interactive_head_generation_in_dyadic_conversations.md)
-- [PIDSR: Complementary Polarized Image Demosaicing and Super-Resolution](pidsr_complementary_polarized_image_demosaicing_and_super-resolution.md)
+- [DnLUT: Ultra-Efficient Color Image Denoising via Channel-Aware Lookup Tables](dnlut_ultra-efficient_color_image_denoising_via_channel-aware_lookup_tables.md)
 
 <!-- RELATED:END -->

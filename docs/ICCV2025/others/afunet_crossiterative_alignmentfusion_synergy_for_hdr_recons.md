@@ -110,9 +110,9 @@ tags:
 ## 相关论文
 
 - [AdaptiveAE: An Adaptive Exposure Strategy for HDR Capturing in Dynamic Scenes](adaptiveae_an_adaptive_exposure_strategy_for_hdr_capturing_i.md)
-- [Towards Style Alignment in Cross-Cultural Translation](../../ACL2025/others/towards_style_alignment_in_cross-cultural_translation.md)
 - [Intrinsic Single-Image HDR Reconstruction](../../ECCV2024/others/intrinsic_single-image_hdr_reconstruction.md)
-- [CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](../../AAAI2026/others/cat-net_a_cross-attention_tone_network_for_cross-subject_eeg-emg_fusion_tone_dec.md)
-- [despite exploring contrastive deep skeletonpointcloudimutext](despite_exploring_contrastive_deep_skeletonpointcloudimutext.md)
+- [Towards Style Alignment in Cross-Cultural Translation](../../ACL2025/others/towards_style_alignment_in_cross-cultural_translation.md)
+- [Revisiting Image Fusion for Multi-Illuminant White-Balance Correction](revisiting_image_fusion_for_multi-illuminant_white-balance_correction.md)
+- [ALGEN: Few-Shot Inversion Attacks on Textual Embeddings via Cross-Model Alignment](../../ACL2025/others/algen_few-shot_inversion_attacks_on_textual_embeddings_via_cross-model_alignment.md)
 
 <!-- RELATED:END -->

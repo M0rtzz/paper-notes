@@ -25,15 +25,19 @@ tags:
 提出 GraphUniverse 框架，通过分层生成具有持久语义社区的图族（graph families），首次实现对图学习模型归纳泛化能力的系统性评估，揭示了 transductive 性能无法可靠预测 inductive 泛化能力这一关键发现。
 
 ## 背景与动机
-图学习领域的基准评测存在根本性缺陷：现有合成图生成工具（如 GraphWorld）仅能生成独立的单图，评测局限于 transductive 设置（模型在同一图结构上训练和测试）。这使得以下两项被公认为构建图基础模型所必需的能力无法被评估：
+
+### 领域现状
+
+**领域现状**：图学习领域的基准评测存在根本性缺陷：现有合成图生成工具（如 GraphWorld）仅能生成独立的单图，评测局限于 transductive 设置（模型在同一图结构上训练和测试）。这使得以下两项被公认为构建图基础模型所必需的能力无法被评估：
 
 1. **归纳泛化**：模型对未见过的全新图的泛化能力
 2. **分布偏移鲁棒性**：图属性（同质性、度分布等）发生变化时的性能稳定性
 
 近期的批评性分析（Bechler-Speicher et al., 2025; Wang et al., 2025）指出，现有静态基准数据集覆盖不足、属性不可调、对异质图支持有限，严重阻碍了图学习模型向通用化发展。
 
-## 核心问题
-如何生成结构可控、语义一致的多图族，以系统性地评估图学习模型的归纳泛化能力和分布偏移鲁棒性？
+### 解决思路
+
+**本文目标**：如何生成结构可控、语义一致的多图族，以系统性地评估图学习模型的归纳泛化能力和分布偏移鲁棒性？
 
 ## 方法详解
 
@@ -83,7 +87,7 @@ GraphUniverse 采用三层分层生成框架，将全局社区属性与局部图
 - 在 5 个真实 inductive 数据集上验证
 - GraphUniverse 与真实数据集的模型排名相关性显著高于 GraphWorld，对所有数据集均为正相关；GraphWorld 对半数数据集为负相关
 
-## 亮点
+## 亮点与洞察
 1. **填补关键空白**：首个支持 inductive 图学习系统评估的合成图生成框架，解决了该领域长期缺乏多图基准的问题
 2. **持久语义社区设计**：通过分层架构保证跨图语义一致性，同时允许结构属性的精细控制——这是区别于 GraphWorld 的核心创新
 3. **揭示评测范式偏差**：transductive 性能不能可靠预测 inductive 泛化能力，这一发现对图学习领域的评测文化有重要影响
@@ -97,7 +101,7 @@ GraphUniverse 采用三层分层生成框架，将全局社区属性与局部图
 4. **任务覆盖有限**：实验仅涵盖节点分类和图级回归，缺少链接预测、图分类等重要任务
 5. **扩展到大规模图的验证不足**：最大实验规模为 1000 节点，对万级以上节点图的表现尚未验证
 
-## 与相关工作的对比
+## 相关工作与启发
 
 | 方法 | 多图生成 | 语义一致性 | 属性可控 | Inductive 评估 |
 |------|---------|-----------|---------|---------------|
@@ -109,7 +113,7 @@ GraphUniverse 采用三层分层生成框架，将全局社区属性与局部图
 
 GraphUniverse 的核心优势在于同时支持多图生成和跨图语义一致性，使得 inductive 设置下的受控实验首次成为可能。
 
-## 启发与关联
+## 相关工作与启发
 - 该框架的分层生成思想可推广到其他结构化数据（如分子图、点云），构建通用的合成数据生成管线
 - "Transductive ≠ Inductive" 的发现提示在图基础模型开发中需要重新审视现有评测方案
 - 受控分布偏移测试为理解 GNN 的泛化机制提供了新的实验工具，与 OOD 泛化理论研究互补
@@ -127,8 +131,8 @@ GraphUniverse 的核心优势在于同时支持多图生成和跨图语义一致
 
 - [Inductive Transfer Learning for Graph-Based Recommenders](../../NeurIPS2025/graph_learning/inductive_transfer_learning_for_graph-based_recommenders.md)
 - [RAS: Retrieval-And-Structuring for Knowledge-Intensive LLM Generation](ras_retrieval-and-structuring_for_knowledge-intensive_llm_generation.md)
-- [WSGG: Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos](../../CVPR2026/graph_learning/wsgg_spatiotemporal_world_scene_graph.md)
+- [Universal Scene Graph Generation](../../CVPR2025/graph_learning/universal_scene_graph_generation.md)
 - [Making Classic GNNs Strong Baselines Across Varying Homophily: A Smoothness-Generalization Perspective](../../NeurIPS2025/graph_learning/making_classic_gnns_strong_baselines_across_varying_homophily_a_smoothness-gener.md)
-- [Assemble Your Crew: Automatic Multi-agent Communication Topology Design via Autoregressive Graph Generation](../../AAAI2026/graph_learning/assemble_your_crew_automatic_multi-agent_communication_topol.md)
+- [WSGG: Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos](../../CVPR2026/graph_learning/wsgg_spatiotemporal_world_scene_graph.md)
 
 <!-- RELATED:END -->

@@ -117,10 +117,10 @@ GUIDE 的构建分为三个阶段：(1) 视频收集——54 名新手用户在 
 
 ## 相关论文
 
+- [MP-GUI: Modality Perception with MLLMs for GUI Understanding](../../CVPR2025/human_understanding/mp-gui_modality_perception_with_mllms_for_gui_understanding.md)
 - [Bias Association Discovery Framework for Open-Ended LLM Generations](../../AAAI2026/human_understanding/bias_association_discovery_framework_for_open-ended_llm_generations.md)
 - [See, Think, Act: Teaching Multimodal Agents to Effectively Interact with GUI by Identifying Toggles](see_think_act_teaching_multimodal_agents_to_effectively_interact_with_gui_by_ide.md)
 - [OMG-Bench: A New Challenging Benchmark for Skeleton-based Online Micro Hand Gesture Recognition](omg-bench_a_new_challenging_benchmark_for_skeleton-based_online_micro_hand_gestu.md)
 - [SteelDefectX: A Coarse-to-Fine Vision-Language Dataset and Benchmark for Generalizable Steel Surface Defect Detection](steeldefectx_a_coarse-to-fine_vision-language_dataset_and_benchmark_for_generali.md)
-- [Face-Human-Bench: A Comprehensive Benchmark of Face and Human Understanding for Multi-modal Assistants](../../NeurIPS2025/human_understanding/face-human-bench_a_comprehensive_benchmark_of_face_and_human_understanding_for_m.md)
 
 <!-- RELATED:END -->

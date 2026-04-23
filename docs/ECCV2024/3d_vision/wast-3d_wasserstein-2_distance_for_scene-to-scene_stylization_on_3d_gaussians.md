@@ -21,10 +21,21 @@ tags:
 
 ## 研究背景与动机
 
-- 现有3D风格迁移主要修改纹理/颜色，几乎无法迁移几何风格
-- 画作中的"集合"技法（如Arcimboldo用蔬菜拼人像、Picasso用木块拼乐器）体现了从局部风格元素组装整体内容的艺术思想
-- 基于NeRF的方法（ARF、StyleRF、SNeRF）在RGB特征空间优化，无法改变底层几何
-- **核心洞察**：将风格迁移从"特征空间生成"转变为"两个3D粒子分布的显式匹配"
+### 领域现状
+
+**领域现状**：现有3D风格迁移主要修改纹理/颜色，几乎无法迁移几何风格
+
+### 现有痛点
+
+**现有痛点**：画作中的"集合"技法（如Arcimboldo用蔬菜拼人像、Picasso用木块拼乐器）体现了从局部风格元素组装整体内容的艺术思想
+
+### 核心矛盾
+
+**核心矛盾**：基于NeRF的方法（ARF、StyleRF、SNeRF）在RGB特征空间优化，无法改变底层几何
+
+### 解决思路
+
+**解决思路**：核心洞察**：将风格迁移从"特征空间生成"转变为"两个3D粒子分布的显式匹配"
 
 ## 方法详解
 
@@ -100,7 +111,7 @@ Sinkhorn散度优化的不同参数组合效果：
 - 内容场景由风格元素"组装"而成的思想与艺术中的集合技法直接对应
 - 正则化高斯溅射是3D风格迁移的良好基底表示——显式、可操作、高效
 
-## 局限性
+## 局限与展望
 
 - 风格场景必须也是3D高斯溅射表示，无法直接使用2D风格图
 - 需要16GB VRAM，大场景内存开销较大
@@ -120,8 +131,8 @@ Sinkhorn散度优化的不同参数组合效果：
 
 - [Zero-Shot Multi-Object Scene Completion](zero-shot_multi-object_scene_completion.md)
 - [Vista3D: Unravel the 3D Darkside of a Single Image](vista3d_unravel_the_3d_darkside_of_a_single_image.md)
-- [TPA3D: Triplane Attention for Fast Text-to-3D Generation](tpa3d_triplane_attention_for_fast_text-to-3d_generation.md)
 - [Transferable 3D Adversarial Shape Completion using Diffusion Models](transferable_3d_adversarial_shape_completion_using_diffusion_models.md)
-- [UniDream: Unifying Diffusion Priors for Relightable Text-to-3D Generation](unidream_unifying_diffusion_priors_for_relightable_text-to-3d_generation.md)
+- [TPA3D: Triplane Attention for Fast Text-to-3D Generation](tpa3d_triplane_attention_for_fast_text-to-3d_generation.md)
+- [TRAM: Global Trajectory and Motion of 3D Humans from in-the-wild Videos](tram_global_trajectory_and_motion_of_3d_humans_from_in-the-wild_videos.md)
 
 <!-- RELATED:END -->

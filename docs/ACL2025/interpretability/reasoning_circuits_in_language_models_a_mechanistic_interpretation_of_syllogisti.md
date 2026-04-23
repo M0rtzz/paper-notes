@@ -144,7 +144,7 @@ tags:
 - [Mechanistic Interpretability of Emotion Inference in Large Language Models](mechanistic_interpretability_of_emotion_inference_in_large_language_models.md)
 - [Towards Explainable Temporal Reasoning in Large Language Models: A Structure-Aware Generative Framework](towards_explainable_temporal_reasoning_in_large_language_models_a_structure-awar.md)
 - [Separating Tongue from Thought: Activation Patching Reveals Language-Agnostic Concept Representations in Transformers](separating_tongue_from_thought_activation_patching_reveals_language-agnostic_con.md)
-- [To Steer or Not to Steer? Mechanistic Error Reduction with Abstention for Language Models](../../ICML2025/interpretability/to_steer_or_not_to_steer_mechanistic_error_reduction_with_abstention_for_languag.md)
 - [Inference-Time Decomposition of Activations (ITDA): A Scalable Approach to Interpreting Large Language Models](../../ICML2025/interpretability/inference-time_decomposition_of_activations_itda_a_scalable_approach_to_interpre.md)
+- [Cracking Factual Knowledge: A Comprehensive Analysis of Degenerate Knowledge Neurons in Large Language Models](cracking_factual_knowledge_a_comprehensive_analysis_of_degenerate_knowledge_neur.md)
 
 <!-- RELATED:END -->

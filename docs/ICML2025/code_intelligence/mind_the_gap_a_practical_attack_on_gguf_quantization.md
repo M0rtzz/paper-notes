@@ -24,7 +24,10 @@ tags:
 首次提出针对 GGUF 量化格式的攻击：利用量化误差作为"自由度"训练恶意量化模型，全精度下正常但量化后注入后门，在不安全代码生成（Δ=88.7%）、定向内容注入（Δ=85.0%）和良性拒绝（Δ=30.1%）上有效。
 
 ## 研究背景与动机
-**领域现状**: 后训练量化是 LLM 部署标准做法。GGUF 是最流行格式，被 ollama/llama.cpp 使用。
+
+### 领域现状
+
+**领域现状**：领域现状**: 后训练量化是 LLM 部署标准做法。GGUF 是最流行格式，被 ollama/llama.cpp 使用。
 
 **现有痛点**: 已知简单 rounding 量化可被攻击，但 GGUF 等复杂方案曾被认为更安全。
 
@@ -35,6 +38,12 @@ tags:
 **切入角度**: 量化误差 $\boldsymbol{\epsilon} = \mathbf{W} - \text{DeQuant}(\text{Quant}(\mathbf{W}))$ 提供的灵活性足以构造恶意模型。
 
 **核心 idea**: 在误差预算内训练目标恶意 LLM，同时约束全精度版本保持正常。
+
+### 解决思路
+
+**本文目标**：### 整体框架
+攻击两步：(1) 训练量化后执行恶意行为且全精度正常的模型；(2) 上传全精度版本，用户量化后自动激活后门。
+
 
 ## 方法详解
 
@@ -132,9 +141,9 @@ tags:
 ## 相关论文
 
 - [Towards Practical Defect-Focused Automated Code Review](towards_practical_defect-focused_automated_code_review.md)
+- [Reasoning Through Execution: Unifying Process and Outcome Rewards for Code Generation](reasoning_through_execution_unifying_process_and_outcome_rewards_for_code_genera.md)
+- [Function-to-Style Guidance of LLMs for Code Translation](function-to-style_guidance_of_llms_for_code_translation.md)
 - [DyCodeEval: Dynamic Benchmarking of Reasoning Capabilities in Code Large Language Models Under Data Contamination](dynamic_benchmarking_of_reasoning_capabilities_in_code_large_language_models_und.md)
-- [AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence](adaptivestep_automatically_dividing_reasoning_step_through_model_confidence.md)
 - [Training Software Engineering Agents and Verifiers with SWE-Gym](training_software_engineering_agents_and_verifiers_with_swe-gym.md)
-- [EpiCoder: Encompassing Diversity and Complexity in Code Generation](epicoder_encompassing_diversity_and_complexity_in_code_generation.md)
 
 <!-- RELATED:END -->

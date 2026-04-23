@@ -138,10 +138,10 @@ FastDraft 采用三阶段流水线：
 
 ## 相关论文
 
+- [Sparse Rewards Can Self-Train Dialogue Agents](sparse_rewards_can_self-train_dialogue_agents.md)
 - [Your Model is Overconfident, and Other Lies We Tell Ourselves](your_model_is_overconfident_and_other_lies_we_tell_ourselves.md)
 - [How to Mitigate Overfitting in Weak-to-Strong Generalization?](how_to_mitigate_overfitting_in_weak-to-strong_generalization.md)
 - [Using Shapley Interactions to Understand How Models Use Structure](using_shapley_interactions_to_understand_how_models_use_structure.md)
 - [From Lists to Emojis: How Format Bias Affects Model Alignment](from_lists_to_emojis_how_format_bias_affects_model_alignment.md)
-- [The AI Gap: How Socioeconomic Status Affects Language Technology Interactions](the_ai_gap_how_socioeconomic_status_affects_language_technology_interactions.md)
 
 <!-- RELATED:END -->

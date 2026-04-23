@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 语义分割方向 53篇论文解读
+  ECCV2024 语义分割方向 59篇论文解读
 description: >-
-  53篇ECCV2024 语义分割论文解读，主题涵盖：ProLab 用 LLM 生成类别的常识性描述、基于Stable Diffusion构建了一个极简、提出ActionVOS——一种以人类动作叙述作为额等，每篇含核心思想与方法详解。
+  59篇ECCV2024 语义分割论文解读，主题涵盖：ProLab 用 LLM 生成类别的常识性描述、基于Stable Diffusion构建了一个极简、提出ActionVOS——一种以人类动作叙述作为额等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**🎞️ ECCV2024** · **53** 篇论文解读
+**🎞️ ECCV2024** · **59** 篇论文解读
 
 **[A Semantic Space is Worth 256 Language Descriptions: Make Stronger Segmentation Models with Descriptive Properties](a_semantic_space_is_worth_256_language_descriptions_make_str.md)**
 
@@ -34,6 +34,10 @@ description: >-
 
 :   本文提出 ADFormer，一种用于跨域语义分割的新型 Transformer 架构，通过将解码器中的交叉注意力分解为域无关和域特定两部分，结合梯度反转对抗学习，有效缩小源域和目标域之间的分布差异，在 GTA→Cityscapes 和 SYNTHIA→Cityscapes 两个基准上以显著更低的复杂度超越了现有无 proposal 方法。
 
+**[BrushNet: A Plug-and-Play Image Inpainting Model with Decomposed Dual-Branch Diffusion](brushnet_a_plug-and-play_image_inpainting_model_with_decomposed_dual-branch_diff.md)**
+
+:   提出 BrushNet，一种即插即用的双分支扩散模型图像修复架构，通过将遮罩图像特征提取与图像生成解耦到独立分支，实现逐层像素级特征注入，在图像质量、遮罩区域保持和文本对齐三方面全面超越已有方法。
+
 **[CoLA: Conditional Dropout and Language-Driven Robust Dual-Modal Salient Object Detection](cola_conditional_dropout_and_language-driven_robust_dual-modal_salient_object_de.md)**
 
 :   提出 CoLA 框架，通过语言驱动的质量评估（LQA）和条件性 Dropout（CD）两个核心模块，首次在双模态显著性目标检测中同时解决噪声输入和模态缺失两大鲁棒性问题。
@@ -41,6 +45,10 @@ description: >-
 **[ColorMAE: Exploring Data-Independent Masking Strategies in Masked AutoEncoders](colormae_exploring_data-independent_masking_strategies_in_masked_autoencoders.md)**
 
 :   提出 ColorMAE，通过对随机噪声施加不同频域滤波器生成具有空间与语义先验的数据无关遮罩模式，在不增加任何参数和计算开销的前提下，显著提升 MAE 的下游任务表现，尤其在语义分割任务上相比随机遮罩提升 2.72 mIoU。
+
+**[ControlNet++: Improving Conditional Controls with Efficient Consistency Feedback](controlnet_improving_conditional_controls_with_efficien.md)**
+
+:   提出 ControlNet++，通过预训练判别模型提取生成图像的条件并优化像素级循环一致性损失来显式提升可控生成的精度，同时提出高效单步去噪奖励策略避免多步采样的巨大开销。
 
 **[ControlNet++: Improving Conditional Controls with Efficient Consistency Feedback](controlnet_improving_conditional_controls_with_efficient_consistency_feedback.md)**
 
@@ -74,6 +82,10 @@ description: >-
 
 :   本文提出 OVDiff，利用预训练的文本到图像扩散模型为任意文本类别生成支持图像集，从中提取多层次原型（类级、实例级、部件级），结合背景原型实现无训练的开放词汇语义分割，在 PASCAL VOC 上超越先前方法 10% 以上。
 
+**[DreamLIP: Language-Image Pre-training with Long Captions](dreamlip_language-image_pre-training_with_long_captions.md)**
+
+:   通过 MLLM 为 30M 图像生成长文本描述，提出动态子描述采样的多正样本对比学习和子描述特定分组损失，实现细粒度视觉-语言对齐，仅用 30M 数据在检索和语义分割上达到甚至超越 CLIP 400M 的性能。
+
 **[EAFormer: Scene Text Segmentation with Edge-Aware Transformers](eaformer_scene_text_segmentation_with_edge-aware_transformers.md)**
 
 :   提出边缘感知Transformer（EAFormer），通过文本边缘提取器过滤非文本区域边缘、对称交叉注意力在编码器中融合文本边缘信息，显著提升文字边缘区域的分割精度，并重标注COCO_TS和MLT_S数据集以实现更公平评估。
@@ -101,6 +113,10 @@ description: >-
 **[General and Task-Oriented Video Segmentation](general_and_task-oriented_video_segmentation.md)**
 
 :   GvSeg 提出了一个通用视频分割框架，通过将分割目标解耦为外观、形状和位置三个因素，并根据任务需求（VIS/VSS/VPS/EVS）动态调整这三个因素在查询初始化、匹配和采样中的参与度，在统一架构下实现了四种视频分割任务的SOTA性能。
+
+**[GiT: Towards Generalist Vision Transformer through Universal Language Interface](git_towards_generalist_vision_transformer_through_universal_language_interface.md)**
+
+:   提出 GiT 框架，通过通用语言接口将图像描述、目标检测、实例分割、语义分割和视觉定位五大视觉任务统一为自回归序列生成，仅用纯 ViT（无任何任务特定模块）实现多任务联合训练，且任务间互相增强。
 
 **[LASS3D: Language-Assisted Semi-Supervised 3D Semantic Segmentation with Progressive Unreliable Data Exploitation](lass3d_language-assisted_semi-supervised_3d_semantic_segmentation_with_progressi.md)**
 
@@ -134,21 +150,21 @@ description: >-
 
 :   首次定义开放集全景场景图生成（OpenPSG）任务，利用 BLIP-2 作为多模态关系解码器，结合关系查询 Transformer（RelQ-Former）实现开放集关系预测，在 PSG 数据集 PredCls R@100 达到 79.3%，闭集场景超越先前 SOTA 26.6%。
 
-**[Part2Object: Hierarchical Unsupervised 3D Instance Segmentation](part2object_hierarchical_unsupervised_3d_instance_segmentation.md)**
+**[OpenPSG: Open-set Panoptic Scene Graph Generation via Large Multimodal Models](openpsg_openset_panoptic_scene_graph_generation_via_large_mu.md)**
 
-:   提出 Part2Object 层次聚类框架，利用自监督特征和3D物体性先验（objectness prior），从零件级过分割逐层合并到物体级实例，生成高质量伪标签用于自训练 Hi-Mask3D，实现无需人工标注的3D实例分割。
+:   本文首次提出开放集全景场景图生成任务（OpenPSG），利用大型多模态模型（BLIP-2）以自回归方式预测物体间的开放集关系，通过关系查询Transformer高效提取物体对特征并过滤无关对，在闭集和开放集设置下均取得SOTA。
 
 **[PartSTAD: 2D-to-3D Part Segmentation Task Adaptation](partstad_2d-to-3d_part_segmentation_task_adaptation.md)**
 
 :   PartSTAD 提出了一种 2D-to-3D 部件分割的任务适配方法：通过为 GLIP 的 2D 检测框引入可学习权重预测网络（以 3D mRIoU 为目标优化），并集成 SAM 获取精确前景掩码，在 PartNet-Mobility 上实现了语义分割 mIoU 提升 7.0%p、实例分割 mAP50 提升 5.2%p（相对 PartSLIP）。
 
+**[Plain-Det: A Plain Multi-Dataset Object Detector](plain-det_a_plain_multi-dataset_object_detector.md)**
+
+:   Plain-Det 提出了一个简洁灵活的多数据集目标检测框架，通过语义空间校准、类感知查询组合器和基于难度的动态采样策略，在 COCO 上达到 51.9 mAP（匹配当时 SOTA），并可灵活扩展到新数据集且保持鲁棒性能。
+
 **[Point-Supervised Panoptic Segmentation via Estimating Pseudo Labels from Learnable Distance](point-supervised_panoptic_segmentation_via_estimating_pseudo_labels_from_learnab.md)**
 
 :   本文提出一种基于可学习距离的点监督全景分割方法，用 anchor query 表示每个实例，通过交叉注意力预测像素到实例的距离，并以端到端方式由点标签监督距离学习，结合迭代的查询聚合和增强过程持续优化伪标签质量，取得了点监督全景分割的 SOTA 结果。
-
-**[ProMerge: Prompt and Merge for Unsupervised Instance Segmentation](promerge_prompt_and_merge_for_unsupervised_instance_segmentation.md)**
-
-:   提出ProMerge方法，利用自监督视觉特征进行patch初始分组和策略性合并，结合背景mask剪枝技术，实现高效的无监督实例分割。
 
 **[ReMamber: Referring Image Segmentation with Mamba Twister](remamber_referring_image_segmentation_with_mamba_twister.md)**
 
@@ -166,6 +182,10 @@ description: >-
 
 :   发现 CLIP 的密集预测失败源于自注意力导致的空间位置错位问题，提出 Correlative Self-Attention (CSA) 机制——仅修改最后一层自注意力的计算方式（无需训练），将 CLIP 的零样本语义分割从 14.1% 平均 mIoU 提升至 38.2%，超越所有已有方法。
 
+**[SCLIP: Rethinking Self-Attention for Dense Vision-Language Inference](sclip_rethinking_selfattention_for_dense_visionlanguage_infe.md)**
+
+:   发现CLIP在密集预测中失败的根因是自注意力机制导致的空间位置错配（spatial-invariant features），提出Correlative Self-Attention(CSA)机制——仅用一个投影矩阵计算token间相关性作为注意力分数，无需任何训练/额外参数即可将CLIP的零样本语义分割mIoU从14.1%提升至38.2%（8个基准平均），大幅超越现有SOTA的33.9%。
+
 **[SegGen: Supercharging Segmentation Models with Text2Mask and Mask2Img Synthesis](seggen_supercharging_segmentation_models_with_text2mask_and_mask2img_synthesis.md)**
 
 :   提出 SegGen 数据生成框架，反转传统"先生图再标注"的流程为"先从文本生成分割掩码，再从掩码生成图像"，打破分割数据合成的"鸡生蛋"瓶颈，在 ADE20K 上将 Mask2Former R50 的 mIoU 从 47.2 提升至 49.9（+2.7）。
@@ -182,6 +202,10 @@ description: >-
 
 :   提出 SCoSPARC——一个两阶段自监督共显著目标检测模型，通过 patch 级和 region 级 ViT 特征对应关系检测图像组中的共显著物体，在 CoCA 数据集上 F-measure 比无监督 SOTA 高 13.7%，甚至超越多个有监督方法。
 
+**[SiLC: Improving Vision Language Pretraining with Self-Distillation](silc_improving_vision_language_pretraining_with_self-distillation.md)**
+
+:   提出SiLC框架，在CLIP式图文对比学习中加入局部到全局的自蒸馏，显著提升密集预测任务（检测、分割）的性能，同时改善分类和检索。
+
 **[SOS: Segment Object System for Open-World Instance Segmentation With Object Priors](sos_segment_object_system_for_open-world_instance_segmentation_with_object_prior.md)**
 
 :   提出 SOS 方法，通过用 DINO 自注意力图作为物体先验生成聚焦于物体的 SAM 提示点，从而产出高质量伪标注来训练标准实例分割系统，在 COCO/LVIS/ADE20k 跨类别/跨数据集设置下大幅超越 SOTA，精度提升高达 81.6%。
@@ -190,6 +214,10 @@ description: >-
 
 :   SPIN 构建了首个自然图像子部件（subpart）级层级语义分割数据集 SubPartImageNet——包含 203 个子部件类别和 10.6 万条标注——并提出两个层级一致性评估指标（SpCS / SeCS），在 20+ 现代模型上全面基准测试，揭示了当前模型在子部件层面的严重不足。
 
+**[UDiffText: A Unified Framework for High-quality Text Synthesis in Arbitrary Images via Character-aware Diffusion Models](udifftext_a_unified_framework_for_high-quality_text_synthesis_in_arbitrary_image.md)**
+
+:   提出 UDiffText，通过设计轻量级字符级文本编码器替换 CLIP encoder、引入基于字符分割图的 local attention loss 和 STR loss 微调 cross-attention 层，并在推理阶段对 noised latent 进行 refinement，实现在任意图像中合成高精度、视觉协调的文本，SeqAcc 全面超越 SOTA。
+
 **[Un-EVIMO: Unsupervised Event-based Independent Motion Segmentation](un-evimo_unsupervised_event-based_independent_motion_segmentation.md)**
 
 :   首个无需标注的事件相机独立运动物体(IMO)分割框架，利用光流与几何约束生成伪标签训练分割网络，在 EVIMO 数据集上取得与有监督方法可比的性能。
@@ -197,10 +225,6 @@ description: >-
 **[UniFS: Universal Few-Shot Instance Perception with Point Representations](unifs_universal_few-shot_instance_perception_with_point_representations.md)**
 
 :   提出UniFS——首个通用少样本实例感知模型，通过将目标检测、实例分割、姿态估计和目标计数统一为动态点表示学习范式，并引入结构感知点学习(SAPL)损失来捕获点间高阶结构关系，在最小任务假设下达到接近专家模型的性能。
-
-**[Unleashing the Power of Prompt-driven Nucleus Instance Segmentation](unleashing_the_power_of_prompt-driven_nucleus_instance_segmentation.md)**
-
-:   提出 PromptNucSeg 框架，通过训练一个 prompter 自动生成细胞核中心点 prompt，并微调 SAM 进行逐核分割，同时引入相邻核作为 negative prompt 解决重叠核分割问题，无需复杂后处理即在三个 benchmark 上达到 SOTA。
 
 **[Unsupervised Moving Object Segmentation with Atmospheric Turbulence](unsupervised_moving_object_segmentation_with_atmospheric_turbulence.md)**
 

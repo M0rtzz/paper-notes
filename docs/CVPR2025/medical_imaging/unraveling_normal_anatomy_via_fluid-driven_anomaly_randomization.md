@@ -126,6 +126,6 @@ UNA 由三个阶段构成：(1) 流体驱动的异常随机化——使用对流
 - [UniVAD: A Training-free Unified Model for Few-shot Visual Anomaly Detection](univad_a_training-free_unified_model_for_few-shot_visual_anomaly_detection.md)
 - [Enhancing Statistical Validity and Power in Hybrid Controlled Trials: A Randomization Inference Approach with Conformal Selective Borrowing](../../ICML2025/medical_imaging/enhancing_statistical_validity_and_power_in_hybrid_controlled_trials_a_randomiza.md)
 - [Evidential learning driven Breast Tumor Segmentation with Stage-divided Vision-Language Interaction](evidential_learning_driven_breast_tumor_segmentation_with_stage-divided_vision-l.md)
-- [PatientSim: A Persona-Driven Simulator for Realistic Doctor-Patient Interactions](../../NeurIPS2025/medical_imaging/patientsim_a_persona-driven_simulator_for_realistic_doctor-patient_interactions.md)
+- [SMMILE: An Expert-Driven Benchmark for Multimodal Medical In-Context Learning](../../NeurIPS2025/medical_imaging/smmile_an_expert-driven_benchmark_for_multimodal_medical_in-context_learning.md)
 
 <!-- RELATED:END -->

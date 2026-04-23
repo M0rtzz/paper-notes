@@ -172,7 +172,7 @@ tags:
 - [Internal and External Impacts of Natural Language Processing Papers](internal_and_external_impacts_of_natural_language_processing_papers.md)
 - [What Makes a Good Natural Language Prompt?](good_natural_language_prompt.md)
 - [A Survey of LLM-based Agents in Medicine: How Far Are We from Baymax?](a_survey_of_llm-based_agents_in_medicine_how_far_are_we_from_baymax.md)
-- [On the Risk of Evidence Pollution for Malicious Social Text Detection in the Era of LLMs](on_the_risk_of_evidence_pollution_for_malicious_social_text_detection_in_the_era.md)
-- [SelfElicit: Your Language Model Secretly Knows Where is the Relevant Evidence](selfelicit_evidence_highlighting.md)
+- [An Empirical Study of Large Language Models for Automated Review Generation](an_empirical_study_of_large_language_models_for_automated_review_generation.md)
+- [LLM×MapReduce: Simplified Long-Sequence Processing using Large Language Models](llm_mapreduce_simplified_long_sequence_processing.md)
 
 <!-- RELATED:END -->

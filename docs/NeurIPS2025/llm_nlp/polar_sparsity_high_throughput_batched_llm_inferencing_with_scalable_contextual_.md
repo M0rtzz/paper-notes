@@ -180,7 +180,7 @@ Router 训练：
 - [Detecting High-Stakes Interactions with Activation Probes](detecting_high-stakes_interactions_with_activation_probes.md)
 - [ScaleQuest: Unleashing LLM Reasoning Capability via Scalable Question Synthesis from Scratch](../../ACL2025/llm_nlp/unleashing_llm_reasoning_capability_via_scalable.md)
 - [Scalable and Accurate Graph Reasoning with LLM-Based Multi-Agents](../../AAAI2026/llm_nlp/scalable_and_accurate_graph_reasoning_with_llm-based_multi-agents.md)
-- [Expert Evaluation of LLM World Models: A High-Tc Superconductivity Case Study](../../ICML2025/llm_nlp/expert_evaluation_of_llm_world_models_a_high-t_c_superconductivity_case_study.md)
-- [Un-considering Contextual Information: Assessing LLMs' Understanding of Indexical Elements](../../ACL2025/llm_nlp/un-considering_contextual_information_assessing_llms_understanding_of_indexical_.md)
+- [BFS-Prover: Scalable Best-First Tree Search for LLM-Based Automatic Theorem Proving](../../ACL2025/llm_nlp/bfs-prover_scalable_best-first_tree_search_for_llm-based_automatic_theorem_provi.md)
+- [AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](../../ACL2025/llm_nlp/agentdropout_dynamic_agent_elimination_for_token-efficient_and_high-performance_.md)
 
 <!-- RELATED:END -->

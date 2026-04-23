@@ -1,14 +1,18 @@
 ---
 title: >-
-  ACL2025 图像恢复方向 2篇论文解读
+  ACL2025 图像恢复方向 3篇论文解读
 description: >-
-  2篇ACL2025 图像恢复论文解读，主题涵盖：DiffuseDef 在编码器与分类器之间插入一个、提出 PreP-OCR 两阶段流水线：先用合成退化等，每篇含核心思想与方法详解。
+  3篇ACL2025 图像恢复论文解读，主题涵盖：本文针对少样本关系抽取中支持集标签噪声问题、DiffuseDef 在编码器与分类器之间插入一个、提出 PreP-OCR 两阶段流水线：先用合成退化等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**💬 ACL2025** · **2** 篇论文解读
+**💬 ACL2025** · **3** 篇论文解读
+
+**[A Self-Denoising Model for Robust Few-Shot Relation Extraction](a_self-denoising_model_for_robust_few-shot_relation_extraction.md)**
+
+:   本文针对少样本关系抽取中支持集标签噪声问题，提出自去噪模型（SDM），通过标签校正模块和关系分类模块的协同训练，自动修正噪声标签并实现更鲁棒的关系预测，即使在无噪声场景下也显著超越基线。
 
 **[DiffuseDef: Improved Robustness to Adversarial Attacks via Iterative Denoising](diffusedef_adversarial_defense.md)**
 

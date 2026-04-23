@@ -148,9 +148,9 @@ $$FI = \frac{1}{|X|}\sum_{q_j \in X} \frac{1}{1 + \text{CoV}^2(q_j)}$$
 ## 相关论文
 
 - [Position: The Complexity of Perfect AI Alignment -- Formalizing the RLHF Trilemma](position_the_complexity_of_perfect_ai_alignment_--_formalizing_the_rlhf_trilemma.md)
+- [Aligning to What? Limits to RLHF Based Alignment](../../ACL2025/llm_alignment/aligning_to_what_limits_to_rlhf_based_alignment.md)
 - [PKU-SafeRLHF: Towards Multi-Level Safety Alignment for LLMs with Human Preference](../../ACL2025/llm_alignment/pku-saferlhf_towards_multi-level_safety_alignment_for_llms_with_human_preference.md)
 - [Federated Data-Efficient Instruction Tuning for Large Language Models](../../ACL2025/llm_alignment/federated_data-efficient_instruction_tuning_for_large_language_models.md)
-- [EvoRefuse: Evolutionary Prompt Optimization for Evaluation and Mitigation of LLM Over-Refusal to Pseudo-Malicious Instructions](evorefuse_evolutionary_prompt_optimization_for_evaluation_and_mitigation_of_llm_.md)
-- [Measuring Data Diversity for Instruction Tuning: A Systematic Analysis and A Reliable Metric](../../ACL2025/llm_alignment/measuring_data_diversity_for_instruction_tuning_a_systematic_analysis_and_a_reli.md)
+- [Rethinking Reward Model Evaluation Through the Lens of Reward Overoptimization](../../ACL2025/llm_alignment/rethinking_reward_model_evaluation_through_the_lens_of_reward_overoptimization.md)
 
 <!-- RELATED:END -->

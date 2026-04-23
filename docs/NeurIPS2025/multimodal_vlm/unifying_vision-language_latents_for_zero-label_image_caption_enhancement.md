@@ -127,8 +127,8 @@ ViZer在冻结的视觉编码器和VLM的隐层特征空间之间引入一个轻
 
 - [RATE-Nav: Region-Aware Termination Enhancement for Zero-shot Object Navigation with Vision-Language Models](../../ACL2025/multimodal_vlm/rate-nav_region-aware_termination_enhancement_for_zero-shot_object_navigation_wi.md)
 - [Completion as Enhancement: A Degradation-Aware Selective Image Guided Network](../../CVPR2025/multimodal_vlm/completion_as_enhancement_a_degradation-aware_selective_image_guided_network_for.md)
-- [Zero-Shot Robustness of Vision Language Models Via Confidence-Aware Weighting](zero-shot_robustness_of_vision_language_models_via_confidence-aware_weighting.md)
 - [CAPability: A Comprehensive Visual Caption Benchmark for Evaluating Both Correctness and Thoroughness](capability_a_comprehensive_visual_caption_benchmark_for_eval.md)
+- [Zero-Shot Robustness of Vision Language Models Via Confidence-Aware Weighting](zero-shot_robustness_of_vision_language_models_via_confidence-aware_weighting.md)
 - [Test-Time Spectrum-Aware Latent Steering for Zero-Shot Generalization in Vision-Language Models](test-time_spectrum-aware_latent_steering_for_zero-shot_generalization_in_vision-.md)
 
 <!-- RELATED:END -->

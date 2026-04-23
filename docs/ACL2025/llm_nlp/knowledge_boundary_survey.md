@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**: LLM在参数中存储大量知识，但在记忆和利用某些知识方面仍存在局限，导致不真实、不准确的回复。**现有痛点**: Know-Unknown Quadrant概念性强但缺乏形式化；已有形式化定义仅关注特定LLM。**核心矛盾**: 对LLM知识边界缺乏清晰统一的定义，阻碍了系统性的识别和缓解策略。**本文目标**: 提供全面的形式化知识边界定义并系统综述相关研究。**切入角度**: 从知识是否被人类已知、是否嵌入参数、是否可实证验证三个维度定义边界。**核心idea**: 将知识分为PAK（无论怎么问都会）、PSK（看怎么问）、MSU（模型不会但人类知道）、MAU（人类也不知道）四类。
+### 领域现状
+
+**领域现状**：**领域现状**: LLM在参数中存储大量知识，但在记忆和利用某些知识方面仍存在局限，导致不真实、不准确的回复。**现有痛点**: Know-Unknown Quadrant概念性强但缺乏形式化；已有形式化定义仅关注特定LLM。**核心矛盾**: 对LLM知识边界缺乏清晰统一的定义，阻碍了系统性的识别和缓解策略。**本文目标**: 提供全面的形式化知识边界定义并系统综述相关研究。**切入角度**: 从知识是否被人类已知、是否嵌入参数、是否可实证验证三个维度定义边界。**核心idea**: 将知识分为PAK（无论怎么问都会）、PSK（看怎么问）、MSU（模型不会但人类知道）、MAU（人类也不知道）四类。
 
 ## 方法详解
 
@@ -120,8 +122,8 @@ tags:
 
 - [Analyzing LLMs' Knowledge Boundary Cognition Across Languages Through the Lens of Internal Representations](knowledge_boundary_crosslingual.md)
 - [Large Language Models in Bioinformatics: A Survey](large_language_models_in_bioinformatics_a_survey.md)
+- [Acquisition and Application of Novel Knowledge in Large Language Models](acquisition_and_application_of_novel_knowledge_in_large_language_models.md)
 - [A Survey of Large Language Models in Psychotherapy: Current Landscape and Future Directions](a_survey_of_large_language_models_in_psychotherapy_current_landscape_and_future_.md)
 - [When Large Language Models Meet Speech: A Survey on Integration Approaches](when_large_language_models_meet_speech_a_survey_on_integration_approaches.md)
-- [Recent Advances in Speech Language Models: A Survey](recent_advances_in_speech_language_models_a_survey.md)
 
 <!-- RELATED:END -->

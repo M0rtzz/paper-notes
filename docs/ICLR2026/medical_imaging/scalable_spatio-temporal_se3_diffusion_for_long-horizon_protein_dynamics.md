@@ -133,9 +133,9 @@ STAR-MD 在所有指标上均达 SOTA。
 ## 相关论文
 
 - [Protein Counterfactuals via Diffusion-Guided Latent Optimization](protein_counterfactuals_via_diffusion-guided_latent_optimization.md)
-- [Scalable Diffusion Transformer for Conditional 4D fMRI Synthesis](../../NeurIPS2025/medical_imaging/scalable_diffusion_transformer_for_conditional_4d_fmri_synthesis.md)
 - [Can Natural Image Autoencoders Compactly Tokenize fMRI Volumes for Long-Range Dynamics Modeling?](../../CVPR2026/medical_imaging/can_natural_image_autoencoders_compactly_tokenize_fmri_volumes_for_long-range_dy.md)
+- [Scalable Diffusion Transformer for Conditional 4D fMRI Synthesis](../../NeurIPS2025/medical_imaging/scalable_diffusion_transformer_for_conditional_4d_fmri_synthesis.md)
 - [ConfRover: Simultaneous Modeling of Protein Conformation and Dynamics via Autoregression](../../NeurIPS2025/medical_imaging/confrover_simultaneous_modeling_of_protein_conformation_and_dynamics_via_autoreg.md)
-- [Protein as a Second Language for LLMs](protein_as_a_second_language_for_llms.md)
+- [Learning Patient-Specific Disease Dynamics with Latent Flow Matching for Longitudinal Imaging Generation](learning_patient-specific_disease_dynamics_with_latent_flow_matching_for_longitu.md)
 
 <!-- RELATED:END -->

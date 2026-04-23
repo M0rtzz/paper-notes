@@ -159,6 +159,6 @@ PEFT 方法在 RLVR 上的表现对比：
 - [I Can't Believe It's Not Scene Flow!](../../ECCV2024/object_detection/i_canapost_believe_itaposs_not_scene_flow.md)
 - [BeautyGRPO: Aesthetic Alignment for Face Retouching via Dynamic Path Guidance and Fine-Grained Preference Modeling](../../CVPR2026/object_detection/beautygrpo_aesthetic_alignment_for_face_retouching_via_dynamic_path_guidance_and.md)
 - [Fixed Anchors Are Not Enough: Dynamic Retrieval and Persistent Homology for Dataset Distillation](../../CVPR2026/object_detection/fixed_anchors_are_not_enough_dynamic_retrieval_and_persistent_homology_for_datas.md)
-- [ReCon: Region-Controllable Data Augmentation with Rectification and Alignment for Object Detection](recon_region-controllable_data_augmentation_with_rectification_and_alignment_for.md)
+- [All You Need is One: Capsule Prompt Tuning with a Single Vector](all_you_need_is_one_capsule_prompt_tuning_with_a_single_vector.md)
 
 <!-- RELATED:END -->

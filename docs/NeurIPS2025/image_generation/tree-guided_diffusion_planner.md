@@ -133,7 +133,7 @@ Proposition 1证明了双层采样的必要性：从标准高斯初始化的引�
 - [Task-Agnostic Pre-training and Task-Guided Fine-tuning for Versatile Diffusion Planner](../../ICML2025/image_generation/task-agnostic_pre-training_and_task-guided_fine-tuning_for_versatile_diffusion_p.md)
 - [Schrödinger Bridge Matching for Tree-Structured Costs and Entropic Wasserstein Barycentres](schrödinger_bridge_matching_for_tree-structured_costs_and_entropic_wasserstein_b.md)
 - [Safe and Stable Control via Lyapunov-Guided Diffusion Models](safe_and_stable_control_via_lyapunov-guided_diffusion_models.md)
-- [Tree-Sliced Wasserstein Distance: A Geometric Perspective](../../ICML2025/image_generation/tree-sliced_wasserstein_distance_a_geometric_perspective.md)
 - [Guided Diffusion Sampling on Function Spaces with Applications to PDEs](guided_diffusion_sampling_on_function_spaces_with_applications_to_pdes.md)
+- [KLASS: KL-Guided Fast Inference in Masked Diffusion Models](klass_kl-guided_fast_inference_in_masked_diffusion_models.md)
 
 <!-- RELATED:END -->

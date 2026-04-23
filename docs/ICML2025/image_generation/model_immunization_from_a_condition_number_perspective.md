@@ -164,6 +164,6 @@ $$\min_{\omega,\theta} \mathcal{R}_{\text{ill}}(H_H(\theta)) + \mathcal{R}_{\tex
 - [A Closer Look at Model Collapse: From a Generalization-to-Memorization Perspective](../../NeurIPS2025/image_generation/a_closer_look_at_model_collapse_from_a_generalization-to-memorization_perspectiv.md)
 - [Pairwise Optimal Transports for Training All-to-All Flow-Based Condition Transfer Model](../../NeurIPS2025/image_generation/pairwise_optimal_transports_for_training_all-to-all_flow-based_condition_transfe.md)
 - [Tree-Sliced Wasserstein Distance: A Geometric Perspective](tree-sliced_wasserstein_distance_a_geometric_perspective.md)
-- [Accelerating Diffusion Model Training under Minimal Budgets: A Condensation-Based Perspective](../../CVPR2026/image_generation/accelerating_diffusion_model_training_under_minimal_budgets_a_condensation-based.md)
+- [Make It Count: Text-to-Image Generation with an Accurate Number of Objects](../../CVPR2025/image_generation/make_it_count_text-to-image_generation_with_an_accurate_number_of_objects.md)
 
 <!-- RELATED:END -->

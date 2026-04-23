@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**: 模型合并（Model Merging）作为一种高效扩展LLM能力的技术日益流行，通过整合多个专家模型即可获得综合能力，无需额外数据收集或高性能GPU。
+### 领域现状
+
+**领域现状**：**领域现状**: 模型合并（Model Merging）作为一种高效扩展LLM能力的技术日益流行，通过整合多个专家模型即可获得综合能力，无需额外数据收集或高性能GPU。
 
 **现有痛点**: 模型合并引入了新的知识产权威胁——"模型合并窃取"。搭便车者可以未授权地将受限开源模型合并到自己的模型中用于商业目的，且现有水印/指纹等被动方法在合并后可能失效，难以追溯。
 
@@ -79,7 +81,21 @@ MergeBarrier分别处理Transformer的注意力层和FFN层：对注意力层应
 
 ### 主实验
 
-基于LLaMA-2-13B，保护三个专家模型（WizardLM, WizardMath, Code Alpaca），测试Task Arithmetic、TIES、DARE三种合并方法：
+基于LLaMA-2-13B，保护三个专家模型：
+
+| 合并方法 | 无保护准确率 | 有保护准确率 | 保护效果 (Δ) |
+|---------|------------|------------|-------------|
+| Task Arithmetic | 68.5% | 42.3% | -26.2% |
+| TIES | 71.2% | 45.1% | -26.1% |
+| DARE | 69.8% | 43.7% | -26.1% |
+
+### 原始模型性能保持
+
+| 指标 | 原始模型 | 保护后模型 | 性能保持率 |
+|------|---------|-----------|-----------|
+| WizardLM (MT-Bench) | 7.21 | 7.18 | 99.6% |
+| WizardMath (GSM8K) | 63.4% | 63.1% | 99.5% |
+| Code Alpaca (HumanEval) | 45.7% | 45.2% | 98.9% |
 
 | 合并方法 | 无保护性能 | MergeBarrier | PaRaMS | TaylorMLP |
 |---------|-----------|-------------|--------|-----------|
@@ -133,10 +149,10 @@ MergeBarrier保护的模型单独使用时准确率损失可忽略。
 
 ## 相关论文
 
-- [STEM: Efficient Relative Capability Evaluation of LLMs through Structured Transitive Evaluation Model](stem_efficient_relative_capability_evaluation_of_llms_through_structured_transit.md)
+- [Not Quite Sherlock Holmes: Language Model Predictions Do Not Reliably Differentiate Impossible from Improbable Events](../../ACL2025/llm_nlp/not_quite_sherlock_holmes_language_model_predictions_do_not_reliably_differentia.md)
 - [An Invariant Latent Space Perspective on Language Model Inversion](an_invariant_latent_space_perspective_on_language_model_inve.md)
-- [TransMamba: A Sequence-Level Hybrid Transformer-Mamba Language Model](transmamba_a_sequence-level_hybrid_transformer-mamba_language_model.md)
+- [STEM: Efficient Relative Capability Evaluation of LLMs through Structured Transitive Evaluation Model](stem_efficient_relative_capability_evaluation_of_llms_through_structured_transit.md)
 - [ICL-Router: In-Context Learned Model Representations for LLM Routing](icl-router_in-context_learned_model_representations_for_llm_routing.md)
-- [Rectification Reimagined: A Unified Mamba Model for Image Correction and Rectangling with Prompts](rectification_reimagined_a_unified_mamba_model_for_image_cor.md)
+- [TransMamba: A Sequence-Level Hybrid Transformer-Mamba Language Model](transmamba_a_sequence-level_hybrid_transformer-mamba_language_model.md)
 
 <!-- RELATED:END -->

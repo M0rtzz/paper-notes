@@ -126,10 +126,10 @@ MPD 仅需 3 次查询（P=3 个提示）和 3.5 秒训练，比 BBT 快 462 倍
 
 ## 相关论文
 
+- [ProgCo: Program Helps Self-Correction of Large Language Models](progco_program_helps_self-correction_of_large_language_models.md)
 - [Training Language Model to Critique for Better Refinement](training_language_model_to_critique_for_better_refinement.md)
 - [Many Heads Are Better Than One: Improved Scientific Idea Generation by A LLM-Based Multi-Agent System](virsci_multi_agent_idea_gen.md)
+- [P3: Prompts Promote Prompting](p3_prompts_promote_prompting.md)
 - [ChronoSense: Exploring Temporal Understanding in Large Language Models with Time Intervals of Events](chronosense_exploring_temporal_understanding_in_large_language_models_with_time_.md)
-- [Leveraging Self-Attention for Input-Dependent Soft Prompting in LLMs](input_dependent_soft_prompting.md)
-- [Explain-then-Process: Using Grammar Prompting to Enhance Grammatical Acceptability Judgments](explain-then-process_using_grammar_prompting_to_enhance_grammatical_acceptabilit.md)
 
 <!-- RELATED:END -->

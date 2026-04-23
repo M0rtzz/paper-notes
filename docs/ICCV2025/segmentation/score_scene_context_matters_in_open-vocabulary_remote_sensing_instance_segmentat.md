@@ -154,6 +154,6 @@ SCORE 由三个分支构成：(1) 上下文分支（蓝）——使用遥感 CLI
 - [Stepping Out of Similar Semantic Space for Open-Vocabulary Segmentation](stepping_out_of_similar_semantic_space_for_open-vocabulary_segmentation.md)
 - [Training-Free Class Purification for Open-Vocabulary Semantic Segmentation](training-free_class_purification_for_open-vocabulary_semantic_segmentation.md)
 - [CAVIS: Context-Aware Video Instance Segmentation](cavis_context-aware_video_instance_segmentation.md)
-- [SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation](spade_spatial-aware_denoising_network_for_open-vocabulary_panoptic_scene_graph_g.md)
+- [Dynamic Dictionary Learning for Remote Sensing Image Segmentation](dynamic_dictionary_learning_for_remote_sensing_image_segmentation.md)
 
 <!-- RELATED:END -->

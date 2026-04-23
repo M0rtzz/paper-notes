@@ -148,6 +148,6 @@ tags:
 - [FactGuard: Event-Centric and Commonsense-Guided Fake News Detection](../../AAAI2026/social_computing/factguard_event-centric_and_commonsense-guided_fake_news_detection.md)
 - [Human or Machine? A Preliminary Turing Test for Speech-to-Speech Interaction](../../ICLR2026/social_computing/human_or_machine_a_preliminary_turing_test_for_speech-to-speech_interaction.md)
 - [ImpliHateVid: Implicit Hate Speech Detection in Videos](implihatevid_video_hate.md)
-- [Exploring Multimodal Challenges in Toxic Chinese Detection: Taxonomy, Benchmark, and Findings](exploring_multimodal_challenges_in_toxic_chinese_detection_taxonomy_benchmark_an.md)
+- [Culture Matters in Toxic Language Detection in Persian](culture_matters_in_toxic_language_detection_in_persian.md)
 
 <!-- RELATED:END -->

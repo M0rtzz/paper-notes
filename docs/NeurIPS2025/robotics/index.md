@@ -46,6 +46,10 @@ description: >-
 
 :   提出 C-Nav 持续目标导航框架，通过**双路径抗遗忘机制**（特征蒸馏 + 特征回放）和**基于 LOF 的自适应经验选择**，使导航智能体在增量学习新物体类别时有效避免灾难性遗忘，在 4 种主流架构和 2 个数据集上均超越全量数据回放基线。
 
+**[COOPERA: Continual Open-Ended Human-Robot Assistance](coopera_continual_open_ended_human_robot_assistance.md)**
+
+:   提出 COOPERA 框架，首次实现持续、开放式的人机协作研究，通过LLM驱动具有心理特征和长期意图的模拟人类与机器人在3D环境中多天交互，机器人通过学习人类特征和上下文意图逐步提升个性化协作能力。
+
 **[DexFlyWheel: A Scalable Self-Improving Data Generation Framework for Dexterous Manipulation](dexflywheel_a_scalable_and_self-improving_data_generation_framework_for_dexterou.md)**
 
 :   提出 DexFlyWheel，一个从单个人类示教出发、通过 IL + 残差 RL + 数据增强组成的自改进循环逐步扩展数据多样性的灵巧操作数据生成框架，在 4 个任务上生成 2000+ 示教，策略平均成功率 81.9%，真实世界迁移成功率 78.3%。
@@ -77,10 +81,6 @@ description: >-
 **[Generalizable Domain Adaptation for Sim-and-Real Policy Co-Training](generalizable_domain_adaptation_for_sim-and-real_policy_co-training.md)**
 
 :   提出基于不平衡最优运输（UOT）的模拟-真实策略联合训练框架，通过对观察-动作联合分布进行对齐（而非仅对齐观察边际分布），结合时间对齐采样策略处理数据不平衡，在机器人操纵任务上实现30%的OOD泛化提升。
-
-**[Grasp2Grasp: Vision-Based Dexterous Grasp Translation via Schrödinger Bridges](grasp2grasp_vision-based_dexterous_grasp_translation_via_schrödinger_bridges.md)**
-
-:   提出将跨手形态的视觉灵巧抓取迁移建模为 Schrödinger Bridge 问题，通过在潜空间中学习得分与流匹配（[SF]²M），并设计物理感知的最优传输代价函数（位姿/接触图/力旋量空间/雅可比可操作性），在无需配对数据的条件下实现不同机械手之间抓取意图的分布级迁移。
 
 **[Harnessing the Computation Redundancy in ViTs to Boost Adversarial Transferability](harnessing_the_computation_redundancy_in_vits_to_boost_adversarial_transferabili.md)**
 
@@ -148,7 +148,7 @@ description: >-
 
 **[NeSyPr: Neurosymbolic Proceduralization For Efficient Embodied Reasoning](nesypr_neurosymbolic_proceduralization_for_efficient_embodied_reasoning.md)**
 
-:   提出 NeSyPr（Neurosymbolic Proceduralization），一种将符号规划器的声明性知识编译为可组合过程化表示的框架，使紧凑语言模型在无需在线符号引导的情况下完成高效具身推理，在 PDDLGym、VirtualHome 和 ALFWorld 三个基准上超越大规模推理模型和符号规划器。
+:   NeSyPr提出了一种神经符号程序化框架，通过将符号规划器生成的任务计划转化为可组合的程序化表示，使紧凑的语言模型在无需外部符号引导的情况下实现高效的单步推理，类似人类的知识编译过程。
 
 **[Operation Veja: Fixing Fundamental Concepts Missing from Modern Roleplaying Training Paradigms](operation_veja_fixing_fundamental_concepts_missing_from_modern_roleplaying_train.md)**
 

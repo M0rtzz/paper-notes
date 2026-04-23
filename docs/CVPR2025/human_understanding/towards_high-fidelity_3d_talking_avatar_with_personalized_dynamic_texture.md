@@ -124,6 +124,6 @@ TexTalker分三阶段：(1) 将面部运动和纹理变化统一为UV空间的mo
 - [HiNeuS: High-fidelity Neural Surface Mitigating Low-texture and Reflective Ambiguity](../../ICCV2025/human_understanding/hineus_high-fidelity_neural_surface_mitigating_low-texture_and_reflective_ambigu.md)
 - [4DSurf: High-Fidelity Dynamic Scene Surface Reconstruction](../../CVPR2026/human_understanding/textit4dsurf_high-fidelity_dynamic_scene_surface_reconstruction.md)
 - [DualTalk: Dual-Speaker Interaction for 3D Talking Head Conversations](dualtalk_dual-speaker_interaction_for_3d_talking_head_conversations.md)
-- [X-Dyna: Expressive Dynamic Human Image Animation](x-dyna_expressive_dynamic_human_image_animation.md)
+- [Hi3DGen: High-fidelity 3D Geometry Generation from Images via Normal Bridging](../../ICCV2025/human_understanding/hi3dgen_high-fidelity_3d_geometry_generation_from_images_via_normal_bridging.md)
 
 <!-- RELATED:END -->

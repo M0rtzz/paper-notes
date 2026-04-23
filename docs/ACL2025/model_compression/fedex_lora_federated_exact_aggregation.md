@@ -149,9 +149,9 @@ NLU 任务（RoBERTa-base, GLUE, r=4）:
 ## 相关论文
 
 - [L4Q: Parameter Efficient Quantization-Aware Fine-Tuning on Large Language Models](l4q_parameter_efficient_quantization_aware_finetuning.md)
+- [C3A: Parameter-Efficient Fine-Tuning via Circular Convolution](parameter-efficient_fine-tuning_via_circular_convolution.md)
 - [Data Efficient Adaptation in Large Language Models via Continuous Low-Rank Fine-Tuning](../../NeurIPS2025/model_compression/data_efficient_adaptation_in_large_language_models_via_continuous_low-rank_fine-.md)
 - [Hyperbolic Fine-Tuning for Large Language Models](../../NeurIPS2025/model_compression/hyperbolic_fine-tuning_for_large_language_models.md)
 - [DenseLoRA: Dense Low-Rank Adaptation of Large Language Models](denselora_dense_low-rank_adaptation_of_large_language_models.md)
-- [RefLoRA: Refactored Low-Rank Adaptation for Efficient Fine-Tuning of Large Models](../../NeurIPS2025/model_compression/reflora_refactored_low-rank_adaptation_for_efficient_fine-tuning_of_large_models.md)
 
 <!-- RELATED:END -->

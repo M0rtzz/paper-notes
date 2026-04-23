@@ -145,8 +145,8 @@ $$\text{VS}(K) = \exp\left(-\sum_{i=1}^{n} \lambda_i \log \lambda_i\right)$$
 
 - [Learning to Sample Effective and Diverse Prompts for Text-to-Image Generation](../../CVPR2025/image_generation/learning_to_sample_effective_and_diverse_prompts_for_text-to-image_generation.md)
 - [Continuous Uniqueness and Novelty Metrics for Generative Modeling of Inorganic Crystals](continuous_uniqueness_and_novelty_metrics_for_generative_modeling_of_inorganic_c.md)
-- [Watermarking Autoregressive Image Generation](watermarking_autoregressive_image_generation.md)
 - [LoRAverse: A Submodular Framework to Retrieve Diverse Adapters for Diffusion Models](../../ICCV2025/image_generation/loraverse_a_submodular_framework_to_retrieve_diverse_adapters_for_diffusion_mode.md)
+- [Watermarking Autoregressive Image Generation](watermarking_autoregressive_image_generation.md)
 - [Exposing Hidden Biases in Text-to-Image Models via Automated Prompt Search](../../ICLR2026/image_generation/exposing_hidden_biases_in_text-to-image_models_via_automated_prompt_search.md)
 
 <!-- RELATED:END -->

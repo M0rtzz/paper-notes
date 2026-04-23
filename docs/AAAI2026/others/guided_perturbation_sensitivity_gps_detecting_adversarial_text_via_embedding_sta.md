@@ -150,10 +150,10 @@ K=5 即可达到峰值性能的 98%，性能随 K 增大变化极小（<0.015 F1
 
 ## 相关论文
 
-- [Boosting Adversarial Transferability via Ensemble Non-Attention](boosting_adversarial_transferability_via_ensemble_non-attention.md)
 - [Wavelength-Embedding-guided Filter-Array Transformer for Spectral Demosaicing](../../ECCV2024/others/wavelength-embedding-guided_filter-array_transformer_for_spectral_demosaicing.md)
+- [Boosting Adversarial Transferability via Ensemble Non-Attention](boosting_adversarial_transferability_via_ensemble_non-attention.md)
+- [Map&Make: Schema Guided Text to Table Generation](../../ACL2025/others/mapmake_schema_guided_text_to_table_generation.md)
 - [On the Importance of Gaussianizing Representations](../../ICML2025/others/on_the_importance_of_gaussianizing_representations.md)
 - [Controllable Financial Market Generation with Diffusion Guided Meta Agent](controllable_financial_market_generation_with_diffusion_guided_meta_agent.md)
-- [Verification-Guided Context Optimization for Tool Calling via Hierarchical LLMs-as-editors](verification-guided_context_optimization_for_tool_calling_via_hierarchical_llms-.md)
 
 <!-- RELATED:END -->

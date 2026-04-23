@@ -133,10 +133,10 @@ Mip-NeRF360 + Tanks&Temples + Deep Blending综合结果：
 
 ## 相关论文
 
+- [Depth-Guided Bundle Sampling for Efficient Generalizable Neural Radiance Field Reconstruction](../../CVPR2025/3d_vision/depth-guided_bundle_sampling_for_efficient_generalizable_neural_radiance_field_r.md)
 - [Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting](quantifying_and_alleviating_co-adaptation_in_sparse-view_3d_gaussian_splatting.md)
+- [MuGS: Multi-Baseline Generalizable Gaussian Splatting Reconstruction](../../ICCV2025/3d_vision/mugs_multi-baseline_generalizable_gaussian_splatting_reconstruction.md)
 - [Identity-preserving Distillation Sampling by Fixed-Point Iterator](../../CVPR2025/3d_vision/identity-preserving_distillation_sampling_by_fixed-point_iterator.md)
 - [Sampling-Aware 3D Spatial Analysis in Multiplexed Imaging](../../CVPR2026/3d_vision/sampling-aware_3d_spatial_analysis_in_multiplexed_imaging.md)
-- [MICAS: Multi-grained In-Context Adaptive Sampling for 3D Point Cloud Processing](../../CVPR2025/3d_vision/micas_multi-grained_in-context_adaptive_sampling_for_3d_point_cloud_processing.md)
-- [OnlineSplatter: Pose-Free Online 3D Reconstruction for Free-Moving Objects](onlinesplatter_pose-free_online_3d_reconstruction_for_free-moving_objects.md)
 
 <!-- RELATED:END -->

@@ -166,9 +166,9 @@ Urdu 和 Russian 上 chain-gloss 比 few-shot 高出 2.5+ BLEU。
 ## 相关论文
 
 - [Exploring In-context Example Generation for Machine Translation](exploring_in-context_example_generation_for_machine_translation.md)
+- [Understanding In-Context Machine Translation for Low-Resource Languages: A Case Study on Manchu](understanding_in-context_machine_translation_for_low-resource_languages_a_case_s.md)
 - [Blessing of Multilinguality: A Systematic Analysis of Multilingual In-Context Learning](blessing_of_multilinguality_a_systematic_analysis_of_multilingual_in-context_lea.md)
 - [THOR-MoE: Hierarchical Task-Guided and Context-Responsive Routing for Neural Machine Translation](thor-moe_hierarchical_task-guided_and_context-responsive_routing_for_neural_mach.md)
-- [How Data Mixing Shapes In-Context Learning: Asymptotic Equivalence for Transformers with MLPs](../../NeurIPS2025/multilingual_mt/how_data_mixing_shapes_in-context_learning_asymptotic_equivalence_for_transforme.md)
-- [Multi-perspective Alignment for Increasing Naturalness in Neural Machine Translation](multi-perspective_alignment_for_increasing_naturalness_in_neural_machine_transla.md)
+- [Accessible Machine Translation Evaluation For Low-Resource Languages](accessible_machine_translation_evaluation_for_low-resource_languages.md)
 
 <!-- RELATED:END -->

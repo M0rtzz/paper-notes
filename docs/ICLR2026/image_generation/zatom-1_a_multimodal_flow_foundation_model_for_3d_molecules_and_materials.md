@@ -139,6 +139,6 @@ Zatom-1在QM9多任务属性预测上达到SOTA，证明生成预训练可以为
 - [CoD: A Diffusion Foundation Model for Image Compression](../../CVPR2026/image_generation/cod_a_diffusion_foundation_model_for_image_compression.md)
 - [RMFlow: Refined Mean Flow by a Noise-Injection Step for Multimodal Generation](rmflow_refined_mean_flow_by_a_noise-injection_step_for_multimodal_generation.md)
 - [Unified Multi-Modal Interactive & Reactive 3D Motion Generation via Rectified Flow](unified_multi-modal_interactive_reactive_3d_motion_generation_via_rectified_flow.md)
-- [AlignTok: Aligning Visual Foundation Encoders to Tokenizers for Diffusion Models](aligntok_aligning_visual_foundation_encoders_to_tokenizers_for_diffusion_models.md)
+- [Pyramidal Patchification Flow for Visual Generation](pyramidal_patchification_flow_for_visual_generation.md)
 
 <!-- RELATED:END -->

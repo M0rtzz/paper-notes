@@ -127,7 +127,7 @@ tags:
 - [Harmonizing Visual Representations for Unified Multimodal Understanding and Generation](harmonizing_visual_representations_for_unified_multimodal_un.md)
 - [MUSE-VL: Modeling Unified VLM through Semantic Discrete Encoding](muse-vl_modeling_unified_vlm_through_semantic_discrete_encoding.md)
 - [UniTok: A Unified Tokenizer for Visual Generation and Understanding](../../NeurIPS2025/multimodal_vlm/unitok_a_unified_tokenizer_for_visual_generation_and_understanding.md)
-- [BRAVE: Broadening the Visual Encoding of Vision-Language Models](../../ECCV2024/multimodal_vlm/brave_broadening_the_visual_encoding_of_vision-language_models.md)
 - [Customized Visual Storytelling with Unified Multimodal LLMs](../../CVPR2026/multimodal_vlm/customized_visual_storytelling_with_unified_multimodal_llms.md)
+- [BRAVE: Broadening the Visual Encoding of Vision-Language Models](../../ECCV2024/multimodal_vlm/brave_broadening_the_visual_encoding_of_vision-language_models.md)
 
 <!-- RELATED:END -->

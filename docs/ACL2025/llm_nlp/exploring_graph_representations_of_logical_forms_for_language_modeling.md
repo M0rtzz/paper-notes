@@ -127,7 +127,7 @@ GFoLDS 采用图 Transformer 架构，总参数量约 174M。在标准 Transform
 - [Logical Forms Complement Probability in Understanding Language Model (and Human) Performance](logical_forms_complement_probability_in_understanding_language_model_and_human_p.md)
 - [Automated CAD Modeling Sequence Generation from Text Descriptions via Transformer-Based Large Language Models](cadllm_cad_modeling_from_text.md)
 - [Can Graph Descriptive Order Affect Solving Graph Problems with LLMs?](graph_descriptive_order_llm.md)
-- [Enhancing Spoken Discourse Modeling in Language Models Using Gestural Cues](enhancing_spoken_discourse_modeling_in_language_models_using_gestural_cues.md)
 - [Can LLMs Interpret and Leverage Structured Linguistic Representations? A Case Study with AMRs](can_llms_interpret_and_leverage_structured_linguistic_representations_a_case_stu.md)
+- [Enhancing Spoken Discourse Modeling in Language Models Using Gestural Cues](enhancing_spoken_discourse_modeling_in_language_models_using_gestural_cues.md)
 
 <!-- RELATED:END -->

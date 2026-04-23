@@ -123,6 +123,6 @@ $$\mathcal{L} = \mathcal{L}_{ce} + \lambda_1 \mathcal{L}_r + \lambda_2 \mathcal{
 - [Segment and Matte Anything in a Unified Model (SAMA)](../../AAAI2026/segmentation/segment_and_matte_anything_in_a_unified_model.md)
 - [EdgeTAM: On-Device Track Anything Model](../../CVPR2025/segmentation/edgetam_on-device_track_anything_model.md)
 - [SAM2-LOVE: Segment Anything Model 2 in Language-Aided Audio-Visual Scenes](../../CVPR2025/segmentation/sam2-love_segment_anything_model_2_in_language-aided_audio-visual_scenes.md)
-- [SAQ-SAM: Semantically-Aligned Quantization for Segment Anything Model](../../AAAI2026/segmentation/saq-sam_semantically-aligned_quantization_for_segment_anything_model.md)
+- [InfoCLIP: Bridging Vision-Language Pretraining and Open-Vocabulary Semantic Segmentation via Information-Theoretic Alignment Transfer](../../AAAI2026/segmentation/infoclip_bridging_vision-language_pretraining_and_open-vocab.md)
 
 <!-- RELATED:END -->

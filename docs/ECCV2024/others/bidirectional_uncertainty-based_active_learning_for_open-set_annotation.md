@@ -156,6 +156,6 @@ $$x^* = \arg\max_x \; p_{K+1}^{aux}(x) \cdot unc_n + r \cdot [1 - p_{K+1}^{aux}(
 - [Distribution Prototype Diffusion Learning for Open-set Supervised Anomaly Detection](../../CVPR2025/others/distribution_prototype_diffusion_learning_for_open-set_supervised_anomaly_detect.md)
 - [Open Set Label Shift with Test Time Out-of-Distribution Reference](../../CVPR2025/others/open_set_label_shift_with_test_time_out-of-distribution_reference.md)
 - [Active Generation for Image Classification](active_generation_for_image_classification.md)
-- [Shifted Autoencoders for Point Annotation Restoration in Object Counting](shifted_autoencoders_for_point_annotation_restoration_in_object_counting.md)
+- [UniSpector: Towards Universal Open-set Defect Recognition via Spectral-Contrastive Visual Prompting](../../CVPR2026/others/unispector_towards_universal_open-set_defect_recognition_via_spectral-contrastiv.md)
 
 <!-- RELATED:END -->

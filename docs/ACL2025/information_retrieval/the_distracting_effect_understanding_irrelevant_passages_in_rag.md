@@ -140,9 +140,9 @@ tags:
 ## 相关论文
 
 - [From Ambiguity to Accuracy: The Transformative Effect of Coreference Resolution on RAG Systems](from_ambiguity_to_accuracy_the_transformative_effect_of_coreference_resolution_o.md)
+- [Removal of Hallucination on Hallucination: Debate-Augmented RAG](removal_of_hallucination_on_hallucination_debate-augmented_rag.md)
+- [RAGEval: Scenario Specific RAG Evaluation Dataset Generation Framework](rageval_scenario_specific_rag_evaluation_dataset_generation_framework.md)
 - [Mitigating Lost-in-Retrieval Problems in RAG Multi-Hop QA](mitigating_lost-in-retrieval_problems_in_retrieval_augmented_multi-hop_question_.md)
 - [Typed-RAG: Type-Aware Decomposition of Non-Factoid Questions for Retrieval-Augmented Generation](typed-rag_type-aware_decomposition_of_non-factoid_questions_for_retrieval-augmen.md)
-- [Pandora's Box or Aladdin's Lamp: A Comprehensive Analysis Revealing the Role of RAG Noise in Large Language Models](pandora_box_rag_noise.md)
-- [Understanding Synthetic Context Extension via Retrieval Heads](../../ICML2025/information_retrieval/understanding_synthetic_context_extension_via_retrieval_heads.md)
 
 <!-- RELATED:END -->

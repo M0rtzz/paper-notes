@@ -1,22 +1,18 @@
 ---
 title: >-
-  NeurIPS2025 物理学方向 19篇论文解读
+  NeurIPS2025 物理学方向 18篇论文解读
 description: >-
-  19篇NeurIPS2025 物理学论文解读，主题涵盖：提出 AstroCo，一种将 Conformer（、提出 Astro-DSB，一种基于、用条件可逆神经网络（cINN）训练于15,777颗等，每篇含核心思想与方法详解。
+  18篇NeurIPS2025 物理学论文解读，主题涵盖：提出 AstroCo，一种将 Conformer（、用条件可逆神经网络（cINN）训练于15,777颗、提供2.8亿模拟LHC碰撞事件的标准化数据集和竞赛等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚛️ 物理学
 
-**🧠 NeurIPS2025** · **19** 篇论文解读
+**🧠 NeurIPS2025** · **18** 篇论文解读
 
 **[AstroCo: Self-Supervised Conformer-Style Transformers for Light-Curve Embeddings](astroco_self-supervised_conformer-style_transformers_for_light-curve_embeddings.md)**
 
 :   提出 AstroCo，一种将 Conformer（注意力 + 深度可分离卷积 + 门控）引入天文不规则光变曲线的自监督编码器，在 MACHO 数据集上重建误差比 Astromer v1/v2 降低 61-70%，少样本分类 macro-F1 提升约 7%。
-
-**[Dynamic Diffusion Schrödinger Bridge in Astrophysical Observational Inversions](dynamic_diffusion_schrödinger_bridge_in_astrophysical_observational_inversions.md)**
-
-:   提出 Astro-DSB，一种基于 Diffusion Schrödinger Bridge 的天文物理反问题建模方法，直接学习观测量到真实物理分布的概率映射，训练成本仅为条件 DDPM 的 25%，且在分布外（OOD）测试中展现出显著的泛化优势，并成功应用于 Taurus B213 真实观测数据。
 
 **[Exoplanet Formation Inference Using Conditional Invertible Neural Networks](exoplanet_formation_inference_using_conditional_invertible_neural_networks.md)**
 

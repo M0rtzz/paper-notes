@@ -147,6 +147,6 @@ AlwaysTool 在平均 $R_{\text{total}}$ 上最高，但置信区间宽。
 - [A Practical Guide for Incorporating Symmetry in Diffusion Policy](a_practical_guide_for_incorporating_symmetry_in_diffusion_policy.md)
 - [Policy Compatible Skill Incremental Learning via Lazy Learning Interface](policy_compatible_skill_incremental_learning_via_lazy_learning_interface.md)
 - [LLM Unlearning with LLM Beliefs](../../ICLR2026/human_understanding/llm_unlearning_with_llm_beliefs.md)
-- [FACE: A General Framework for Mapping Collaborative Filtering Embeddings into LLM Tokens](face_a_general_framework_for_mapping_collaborative_filtering_embeddings_into_llm.md)
+- [LUMIA: A Handheld Vision-to-Music System for Real-Time, Embodied Composition](lumia_a_handheld_vision-to-music_system_for_real-time_embodied_composition.md)
 
 <!-- RELATED:END -->

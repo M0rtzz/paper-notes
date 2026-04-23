@@ -124,8 +124,8 @@ PCSR模型由三部分组成：**骨干网络(Backbone)** + **像素级分类器
 
 - [Overcoming Distribution Mismatch in Quantizing Image Super-Resolution Networks](overcoming_distribution_mismatch_in_quantizing_image_super-resolution_networks.md)
 - [Pixel-level and Semantic-level Adjustable Super-resolution: A Dual-LoRA Approach](../../CVPR2025/image_restoration/pixel-level_and_semantic-level_adjustable_super-resolution_a_dual-lora_approach.md)
-- [Pixel-Aware Stable Diffusion for Realistic Image Super-Resolution and Personalized Stylization](pixel-aware_stable_diffusion_for_realistic_image_super-resolution_and_personaliz.md)
 - [Rethinking Image Super-Resolution from Training Data Perspectives](rethinking_image_super-resolution_from_training_data_perspectives.md)
+- [Pairwise Distance Distillation for Unsupervised Real-World Image Super-Resolution](pairwise_distance_distillation_for_unsupervised_real-world_image_super-resolutio.md)
 - [Contourlet Residual for Prompt Learning Enhanced Infrared Image Super-Resolution](contourlet_residual_for_prompt_learning_enhanced_infrared_image_super-resolution.md)
 
 <!-- RELATED:END -->

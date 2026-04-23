@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 医学图像方向 150篇论文解读
+  CVPR2026 医学图像方向 157篇论文解读
 description: >-
-  150篇CVPR2026 医学图像论文解读，主题涵盖：提出三步评估协议（选参考染色条件→表征测试集染色属、提出面向乳腺超声（BUS）图像分割的半监督框架、利用简单外观描述（"dark oval"等）驱动等，每篇含核心思想与方法详解。
+  157篇CVPR2026 医学图像论文解读，主题涵盖：提出三步评估协议（选参考染色条件→表征测试集染色属、提出面向乳腺超声（BUS）图像分割的半监督框架、利用简单外观描述（"dark oval"等）驱动等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**📷 CVPR2026** · **150** 篇论文解读
+**📷 CVPR2026** · **157** 篇论文解读
 
 **[A protocol for evaluating robustness to H&E staining variation in computational pathology models](a_protocol_for_evaluating_robustness_to_he_stainin.md)**
 
@@ -57,6 +57,10 @@ description: >-
 **[Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding](addressing_data_scarcity_in_3d_trauma_detection_through_self-supervised_and_semi.md)**
 
 :   提出两阶段标签高效框架：先用 patch-based MIM 在1,206个无标注CT上自监督预训练3D U-Net编码器，再用VDETR+3D顶点相对位置编码做3D损伤检测，配合Mean Teacher半监督一致性正则化利用2,000个无标注体数据，仅用144个有标注样本即实现56.57% val mAP@0.50（比纯监督提升115%）。
+
+**[From Adaptation to Generalization: Adaptive Visual Prompting for Medical Image Segmentation](apex_adaptive_visual_prompting.md)**
+
+:   提出 APEX（Adaptive Prompt EXtraction），通过从可学习 prompt 记忆中自适应检索输入特定的 visual prompt（而非为每个域固定一个 prompt），结合低频特征对比学习增强域间区分能力，显著提升医学图像分割在已见域和未见域上的泛化性能。
 
 **[Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation? A Cross-Dataset Empirical Study](are_general-purpose_vision_models_all_we_need_for_2d_medical_image_segmentation_.md)**
 
@@ -230,6 +234,10 @@ description: >-
 
 :   提出EquivAnIA频谱方法，通过Cake小波和Ridge滤波器在傅里叶域计算角度能量分布，实现对数值旋转严格鲁棒的各向异性图像分析，在合成和真实图像上均远优于传统angular PSD的分箱方法。
 
+**[Event-Level Detection of Surgical Instrument Handovers in Videos](event_level_detection_of_surgical_instrument_handovers_in_videos.md)**
+
+:   提出面向真实手术视频中器械交接检测的时空视觉框架，结合 ViT 空间特征提取和单向 LSTM 时序建模，通过多任务学习联合预测交接事件和方向，在肾移植手术视频上达到 F1=0.84 的检测性能。
+
 **[Every Error has Its Magnitude: Asymmetric Mistake Severity Training for Multiclass Multiple Instance Learning](every_error_has_its_magnitude_asymmetric_mistake_severity_training_for_multiclas.md)**
 
 :   提出 PAMS（Priority-Aware Mistake Severity）方法，通过非对称严重性感知的交叉熵损失（MSCE）、语义特征混合（SFR）和非对称 Mikel's Wheel 指标，在多分类 MIL WSI 诊断中显著降低严重误诊风险。
@@ -269,6 +277,10 @@ description: >-
 **[Forecasting Epileptic Seizures from Contactless Camera via Cross-Species Transfer Learning](forecasting_epileptic_seizures_from_contactless_camera_via_cross-species_transfe.md)**
 
 :   首次提出纯视频的癫痫发作预测任务，利用大规模啮齿动物癫痫视频进行跨物种自监督预训练，通过 VideoMAE 框架实现 3-10 秒预测窗口内 >70% 的发作预测准确率。
+
+**[Continual Learning for fMRI-Based Brain Disorder Diagnosis via Functional Connectivity Matrices Generative Replay](forge_continual_learning_for_fmri_based_brain_disorder_diagnosis.md)**
+
+:   提出 FORGE，首个专为跨站点 fMRI 脑疾病诊断设计的持续学习框架，通过结构感知 VAE 生成逼真的功能连接矩阵进行隐私保护式生成回放，结合双层知识蒸馏和层次化上下文赌博机采样策略，有效缓解灾难性遗忘。
 
 **[GaussianPile: A Unified Sparse Gaussian Splatting Framework for Slice-based Volumetric Reconstruction](gaussianpile_a_unified_sparse_gaussian_splatting_framework_for_slice-based_volum.md)**
 
@@ -317,6 +329,10 @@ description: >-
 **[Learning Generalizable 3D Medical Image Representations from Mask-Guided Self-Supervision](learning_generalizable_3d_medical_image_representations_from_mask-guided_self-su.md)**
 
 :   提出 MASS（MAsk-guided Self-Supervised learning），利用 SAM2 自动生成的类别无关 mask 作为伪标注，以 in-context 分割为 pretext task 进行自监督预训练，无需任何人工标注即可学到语义丰富、泛化性强的 3D 医学图像表征，在 few-shot 分割和冻结编码器分类上均取得优异表现。
+
+**[LEMON: A Large Endoscopic MONocular Dataset and Foundation Model for Perception in Surgical Settings](lemon_a_large_endoscopic_monocular_dataset_and_foundation_model_for_perception_in.md)**
+
+:   构建了包含 4194 个手术视频（938 小时）的大规模内窥镜数据集 LEMON，并提出基于增强知识蒸馏的自监督基础模型 LemonFM，在手术阶段识别、工具检测、动作识别和语义分割四大下游任务上全面超越现有手术基础模型。
 
 **[LUMINA: A Multi-Vendor Mammography Benchmark with Energy Harmonization Protocol](lumina_a_multi-vendor_mammography_benchmark_with_energy_harmonization_protocol.md)**
 
@@ -486,6 +502,10 @@ description: >-
 
 :   通过将 SIENA 脑萎缩管线中经典的颅骨剥离（BET2）和组织分割（FAST）模块替换为深度学习方案（SynthStrip、SynthSeg），在保留管线可解释性的前提下显著提升了 PBVC 估计的临床敏感度和鲁棒性。
 
+**[RelativeFlow: Taming Medical Image Denoising Learning with Noisy Reference](relativeflow_taming_medical_image_denoising_learning_with_noisy_reference.md)**
+
+:   提出 RelativeFlow，基于 flow matching 的框架，通过将绝对噪声到干净映射分解为相对更噪到噪声映射，结合一致传输约束和基于模拟的速度场，从异质噪声参考中学习统一的去噪流，突破参考偏差限制。
+
 **[Residual SODAP: Residual Self-Organizing Domain-Adaptive Prompting with Structural Knowledge Preservation for Continual Learning](residual_sodap_residual_self-organizing_domain-adaptive_prompting_with_structura.md)**
 
 :   提出 Residual SODAP 框架，通过 α-entmax 稀疏提示选择+残差聚合、无数据统计蒸馏+伪特征回放、提示使用模式漂移检测，以及不确定性加权多损失平衡，联合解决提示端表征适应和分类器端知识保持问题，在医学域增量学习上达到 SOTA。
@@ -494,9 +514,17 @@ description: >-
 
 :   提出Residual SODAP框架，在无任务ID、无数据存储的域增量学习中，联合解决表示适应（α-entmax稀疏prompt选择+残差聚合）和分类器保持（统计伪特征重放+知识蒸馏），在DR、皮肤癌和CORe50三个基准上达到SOTA。
 
+**[Robust Fair Disease Diagnosis in CT Images](robust_fair_disease_diagnosis_in_ct_images.md)**
+
+:   本文提出结合Logit调整交叉熵（处理类别不平衡）和CVaR聚合（处理人口统计公平性）的双层目标函数，在CT诊断中实现了性别平均macro F1达0.8403且公平性差距仅0.0239。
+
 **[Robust Multi-Source Covid-19 Detection in CT Images](robust_multi-source_covid-19_detection_in_ct_images.md)**
 
 :   提出一种多任务学习框架，在共享 EfficientNet-B7 骨干上同时训练 COVID-19 诊断头和来源医院识别头（使用 logit-adjusted 损失），推动特征提取器学习跨机构不变的表示，在多源 CT 数据集上 F1 达到 0.9098。
+
+**[SD-FSMIS: Adapting Stable Diffusion for Few-Shot Medical Image Segmentation](sd_fsmis_adapting_stable_diffusion_for_few_shot_medical_image_segmentation.md)**
+
+:   提出 SD-FSMIS，一个将预训练 Stable Diffusion 适配到少样本医学图像分割的框架，通过支持-查询交互模块和视觉到文本条件转换器实现高效适配，在跨域场景中表现尤为突出。
 
 **[Semantic Class Distribution Learning for Debiasing Semi-Supervised Medical Image Segmentation](semantic_class_distribution_learning_for_debiasing.md)**
 

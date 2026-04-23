@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 3D视觉方向 78篇论文解读
+  AAAI2026 3D视觉方向 80篇论文解读
 description: >-
-  78篇AAAI2026 3D视觉论文解读，主题涵盖：将Neural Collapse(NC)机制引入3、提出将 3D-free 方法（HawkI 风格的、提出4DSTR框架，通过基于Mamba的时序关联校等，每篇含核心思想与方法详解。
+  80篇AAAI2026 3D视觉论文解读，主题涵盖：将Neural Collapse(NC)机制引入3、提出将 3D-free 方法（HawkI 风格的、提出4DSTR框架，通过基于Mamba的时序关联校等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D视觉
 
-**🤖 AAAI2026** · **78** 篇论文解读
+**🤖 AAAI2026** · **80** 篇论文解读
 
 **[3D-ANC: Adaptive Neural Collapse for Robust 3D Point Cloud Recognition](3d-anc_adaptive_neural_collapse_for_robust_3d_point_cloud_re.md)**
 
@@ -109,6 +109,10 @@ description: >-
 **[FantasyStyle: Controllable Stylized Distillation for 3D Gaussian Splatting](fantasystyle_controllable_stylized_distillation_for_3d_gaussian_splatting.md)**
 
 :   本文提出FantasyStyle，首个完全基于扩散模型蒸馏的3DGS风格迁移框架，通过多视图频率一致性（MVFC）机制抑制低频分量减少视角间冲突，并设计可控风格化蒸馏（CSD）引入负引导消除风格图像的内容泄漏，在风格化质量和内容保持上均超越现有VGG和扩散方法。
+
+**[Fast 3D Surrogate Modeling for Data Center Thermal Management](fast_3d_surrogate_modeling_for_data_center_thermal_management.md)**
+
+:   本文开发了基于视觉的 3D 代理建模框架，通过将数据中心的服务器负载、风扇速度和空调温度设定点编码为 3D 体素表示，利用 3D CNN U-Net、3D 傅里叶神经算子和 3D Vision Transformer 等架构实现实时温度场预测，速度比传统 CFD 求解器快 20000 倍，同时实现 7% 的能耗节约。
 
 **[FoundationSLAM: 释放深度基础模型在端到端稠密视觉SLAM中的潜力](foundationslam_unleashing_the_power_of_depth_foundation_models_for.md)**
 
@@ -289,6 +293,10 @@ description: >-
 **[Split-Layer: Enhancing Implicit Neural Representation by Maximizing the Dimensionality of Feature Space](split-layer_enhancing_implicit_neural_representation_by_maximizing_the_dimension.md)**
 
 :   提出 Split-Layer，将 MLP 全连接层拆分为多个并行分支并用 Hadamard 积整合输出，在不增加参数和计算的前提下将特征空间维度从 $C$ 指数级扩展到 $\binom{C/\sqrt{N}+N-1}{N}$，显著提升隐式神经表示（INR）的表征能力。
+
+**[STMI: Segmentation-Guided Token Modulation with Cross-Modal Hypergraph Interaction for Multi-Modal Object Re-Identification](stmi_segmentation-guided_token_modulation_with_cross-modal_hypergraph_interactio.md)**
+
+:   STMI提出一个三组件的多模态目标重识别框架，通过SAM分割引导的特征调制（SFM）抑制背景噪声、语义Token重新分配（STR）提取紧凑表示、以及跨模态超图交互（CHI）捕获高阶语义关系，在RGBNT201等benchmark上取得了显著提升。
 
 **[StreamSTGS: Streaming Spatial and Temporal Gaussian Grids for Real-Time Free-Viewpoint Video](streamstgs_streaming_spatial_and_temporal_gaussian_grids_for_real-time_free-view.md)**
 

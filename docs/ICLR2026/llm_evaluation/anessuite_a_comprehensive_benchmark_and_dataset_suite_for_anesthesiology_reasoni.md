@@ -167,8 +167,8 @@ SFT阶段使用标准的next-token prediction损失。GRPO阶段采用group rela
 
 - [PhysReason: A Comprehensive Benchmark towards Physics-Based Reasoning](../../ACL2025/llm_evaluation/physreason_a_comprehensive_benchmark_towards_physics-based_reasoning.md)
 - [3DSRBench: A Comprehensive 3D Spatial Reasoning Benchmark](../../ICCV2025/llm_evaluation/3dsrbench_a_comprehensive_3d_spatial_reasoning_benchmark.md)
-- [AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite](astabench_benchmarking_ai_agents.md)
 - [PlanetAlign: A Comprehensive Python Library for Benchmarking Network Alignment](planetalign_a_comprehensive_python_library_for_benchmarking_network_alignment.md)
-- [Predicting LLM Reasoning Performance with Small Proxy Model](predicting_llm_reasoning_performance_with_small_proxy_model.md)
+- [R2G: A Multi-View Circuit Graph Benchmark Suite from RTL to GDSII](../../CVPR2026/llm_evaluation/r2g_multi_view_circuit_graph_benchmark_suite_from_rtl_to_gdsii.md)
+- [AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite](astabench_benchmarking_ai_agents.md)
 
 <!-- RELATED:END -->

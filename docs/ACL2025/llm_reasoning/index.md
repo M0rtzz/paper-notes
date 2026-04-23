@@ -1,18 +1,26 @@
 ---
 title: >-
-  ACL2025 LLM推理方向 43篇论文解读
+  ACL2025 LLM推理方向 52篇论文解读
 description: >-
-  43篇ACL2025 LLM推理论文解读，主题涵盖：提出 Aristotle 逻辑推理框架、提出 BPP-Search 算法，将 Beam、本文提出DeltaBench——首个系统评估o1类等，每篇含核心思想与方法详解。
+  52篇ACL2025 LLM推理论文解读，主题涵盖：本文提出EpicPRM框架，通过基于困惑度（per、提出 Aristotle 逻辑推理框架、本文针对多跳问答（Multi-hop等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM推理
 
-**💬 ACL2025** · **43** 篇论文解读
+**💬 ACL2025** · **52** 篇论文解读
+
+**[An Efficient and Precise Training Data Construction Framework for Process-Supervised Reward Model in Mathematical Reasoning](an_efficient_and_precise_training_data_construction_framework_for_process-superv.md)**
+
+:   本文提出EpicPRM框架，通过基于困惑度（perplexity）的Monte Carlo估计量化每个推理步骤的贡献度，并使用自适应二分搜索高效定位首个错误步骤，构建了高质量的过程监督数据集Epic50k（仅50k标注步骤），训练出的PRM性能可媲美甚至超越在PRM800k上训练的模型。
 
 **[Aristotle: Mastering Logical Reasoning with A Logic-Complete Decompose-Search-Resolve Framework](aristotle_logical_reasoning.md)**
 
 :   提出 Aristotle 逻辑推理框架，将符号表达式和逻辑规则全面融入 Decompose-Search-Resolve 的每个阶段，通过逻辑分解器、搜索路由器和消解器三大组件实现逻辑完备的推理，在多个逻辑推理基准上以 GPT-4 平均提升 4.5%、GPT-4o 平均提升 5.4% 超越 SOTA。
+
+**[Beyond the Answer: Advancing Multi-Hop QA with Fine-Grained Graph Reasoning and Evaluation](beyond_the_answer_advancing_multi-hop_qa_with_fine-grained_graph_reasoning_and_e.md)**
+
+:   本文针对多跳问答（Multi-hop QA）任务中推理过程不透明、评估粒度粗糙的问题，提出了一种基于细粒度图推理的框架，通过构建推理图来显式建模证据链，并引入细粒度评估指标来衡量推理过程的质量，而非仅关注最终答案的正确性。
 
 **[BPP-Search: Enhancing Tree of Thought Reasoning for Mathematical Modeling Problem Solving](bpp-search_enhancing_tree_of_thought_reasoning_for_mathematical_modeling_problem.md)**
 
@@ -33,6 +41,14 @@ description: >-
 **[ClozeMath: Improving Mathematical Reasoning in Language Models by Learning to Fill Equations](clozemath_improving_mathematical_reasoning_in_language_models_by_learning_to_fil.md)**
 
 :   ClozeMath 提出了一种受人类完形填空学习启发的微调策略，通过掩码数学解答中的方程式并训练模型预测它们（text-infilling目标），与标准语言模型目标联合训练，在GSM8K和MATH上显著超越了强基线Masked Thought，并在推理时间扩展和鲁棒性测试中表现出更好的泛化能力。
+
+**[Commonsense Abductive Reasoning using Knowledge from Multiple Sources](commonsense_abductive_reasoning_using_knowledge_from_multiple_sources.md)**
+
+:   本文提出一种融合多源知识（知识图谱、预训练语言模型、规则库）的常识溯因推理方法，通过联合利用结构化和非结构化知识来生成更准确、更可解释的最佳解释，在溯因推理基准上取得了显著提升。
+
+**[Complex Reasoning with Natural Language Contexts and Background Knowledge](complex_reasoning_with_natural_language_contexts_and_background_knowledge.md)**
+
+:   本文提出一种将自然语言上下文与结构化背景知识相结合的复杂推理框架，通过知识图谱检索增强和上下文感知的推理链生成，显著提升LLM在需要外部知识支撑的多步推理任务上的表现。
 
 **[CoT-ICL Lab: A Synthetic Framework for Studying Chain-of-Thought Learning from In-Context Demonstrations](cot-icl_lab_a_synthetic_framework_for_studying_chain-of-thought_learning_from_in.md)**
 
@@ -66,6 +82,10 @@ description: >-
 
 :   将长 CoT 推理引入机器翻译，构建多智能体框架（翻译器→顾问→评估器）迭代精炼含比喻/隐喻的文学翻译，合成 22K 长思维翻译训练样本，训练的 DRT-14B 在文学翻译上超越 QwQ-32B 和 DeepSeek-R1-Distill-32B 等大模型。
 
+**[Enhancing Chain-of-Thought Reasoning with Critical Representation Fine-tuning](enhancing_chain-of-thought_reasoning_with_critical_representation_fine-tuning.md)**
+
+:   提出 CRFT 方法，通过信息流分析自动识别 Transformer 各层中对推理输出影响最大的"关键表征"，并在低秩线性子空间中对这些表征进行有监督优化，在仅使用模型 0.016% 参数的情况下，将 LLaMA-2-7B 在 GSM8K 上的准确率提升了 18.2%。
+
 **[Enhancing Mathematical Reasoning in LLMs by Stepwise Correction](enhancing_mathematical_reasoning_in_llms_by_stepwise_correction.md)**
 
 :   本文提出StepCo（Stepwise Correction），一种迭代式"验证-修正"框架：利用过程监督验证器（PSV）逐步定位LLM推理路径中的首个错误步骤并触发LLM修正，在8个数学推理基准上以GPT-4o为后端取得94.1%平均准确率，超越Best-of-10方法+2.4个点，同时减少77.8%的token消耗。
@@ -89,6 +109,10 @@ description: >-
 **[Improving Chain-of-Thought Reasoning via Quasi-Symbolic Abstractions](improving_chain-of-thought_reasoning_via_quasi-symbolic_abstractions.md)**
 
 :   本文提出QuaSAR（Quasi-Symbolic Abstract Reasoning），一种CoT变体方法，通过引导LLM先对问题进行符号化抽象（提取变量/谓词）、再用半形式化表示重构问题、最后基于准符号推理链求解，在GPT-4o上相比CoT提高最多8%准确率，并显著增强了对对抗性变体（选项打乱、数值替换）的鲁棒性。
+
+**[Large Language and Reasoning Models are Shallow Disjunctive Reasoners](large_language_and_reasoning_models_are_shallow_disjunctive_reasoners.md)**
+
+:   本文利用合成的空间与时间推理基准（STaR）评估LLM和LRM在需要组合多条推理路径的析取规则推理任务上的系统性泛化能力，发现即使是o3-mini等推理模型也只能处理单路径推理，在多路径析取推理场景中性能急剧下降。
 
 **[Local Look-Ahead Guidance via Verifier-in-the-Loop for Automated Theorem Proving](local_look-ahead_guidance_via_verifier-in-the-loop_for_automated_theorem_proving.md)**
 
@@ -126,6 +150,10 @@ description: >-
 
 :   提出 PCoT（说服增强的思维链）方法，通过两阶段推理——先让 LLM 分析文本中的说服策略，再结合说服分析结果判断是否为虚假信息——在零样本设置下，5 个 LLM 和 5 个数据集上平均提升 15% 的检测 F1。
 
+**[ProcessBench: Identifying Process Errors in Mathematical Reasoning](processbench_identifying_process_errors_in_mathematical_reasoning.md)**
+
+:   本文提出ProcessBench基准（3,400个测试用例，以竞赛/奥赛级数学题为主），评估PRM和critic模型定位数学推理中最早错误步骤的能力，发现现有PRM无法泛化到超出GSM8K/MATH的难题，而通用LLM（如QwQ-32B-Preview）作为critic的表现可与GPT-4o媲美。
+
 **[Ranked Voting based Self-Consistency of Large Language Models](ranked_voting_based_self-consistency_of_large_language_models.md)**
 
 :   将 Self-Consistency 的多数投票升级为排序投票，让 LLM 每次推理生成多个候选答案的偏好排序而非单一答案，用三种排序投票方法（IRV/BCV/MRRV）聚合多次推理的排序信息，在 6 个数据集上一致超越传统 SC，最高提升 12.46%。
@@ -142,9 +170,17 @@ description: >-
 
 :   系统性地揭示了 QwQ/DeepSeek-R1/LIMO 等 o1-like 模型在测试时并不具备真正的顺序扩展 (sequential scaling) 能力——更长的 CoT 并不带来更高准确率，根因是自我修正 (self-revision) 能力不足——并据此提出 Shortest Majority Vote 并行扩展方法显著超越传统多数投票。
 
+**[RSVP: Reasoning Segmentation via Visual Prompting and Multi-modal Chain-of-Thought](rsvp_reasoning_segmentation_via_visual_prompting_and_multi-modal_chain-of-though.md)**
+
+:   本文提出 RSVP 框架，通过两阶段结构（推理驱动定位 + 分割精炼）将多模态大模型的推理能力与视觉分割相统一，利用多模态思维链视觉提示在 ReasonSeg 上超越 SOTA 达 +6.5 gIoU / +9.2 cIoU，零样本 SegInW 达到 49.7 mAP。
+
 **[Safe: Enhancing Mathematical Reasoning in Large Language Models via Retrospective Step-aware Formal Verification](safe_math_reasoning.md)**
 
 :   提出 Safe 框架，首次利用 Lean 4 形式化语言对 LLM 数学推理的每一步进行回顾性逐步验证，通过自动形式化+自动定理证明检测幻觉，并与前瞻性 PRM 分数融合，在多个数学数据集上取得 SOTA，同时发布包含 30,809 条形式化声明的 FormalStep 基准。
+
+**[Self-Error-Instruct: Generalizing from Errors for LLMs Mathematical Reasoning](self-error-instruct_generalizing_from_errors_for_llms_mathematical_reasoning.md)**
+
+:   提出 Self-Error-Instruct (SEI) 框架，通过分析目标模型在数学推理中的错误案例，使用 GPT-4o 提取错误关键词并聚类得到错误类型，然后针对每种错误类型采用 self-instruct 方式合成训练数据，迭代微调模型以系统性地补齐数学推理能力短板。
 
 **[SoftCoT: Soft Chain-of-Thought for Efficient Reasoning with LLMs](softcot_soft_chain_of_thought.md)**
 

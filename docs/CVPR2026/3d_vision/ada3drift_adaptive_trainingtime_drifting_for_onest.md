@@ -123,8 +123,8 @@ Ada3Drift 的输入是机器人本体状态和 3D 点云观测，输出是未来
 
 - [HyperMVP: Hyperbolic Multiview Pretraining for Robotic Manipulation](hyperbolic_multiview_pretraining_for_robotic_manipulation.md)
 - [Foundry: Distilling 3D Foundation Models for the Edge](foundry_distilling_3d_foundation_models_for_the_edge.md)
+- [APC: Transferable and Efficient Adversarial Point Counterattack for Robust 3D Point Cloud Recognition](apc_adversarial_point_counterattack.md)
 - [tttLRM: Test-Time Training for Long Context and Autoregressive 3D Reconstruction](tttlrm_test-time_training_for_long_context_and_autoregressive_3d_reconstruction.md)
 - [Real2Edit2Real: Generating Robotic Demonstrations via a 3D Control Interface](real2edit2real_generating_robotic_demonstrations_via_a_3d_control_interface.md)
-- [SonoWorld: From One Image to a 3D Audio-Visual Scene](sonoworld_from_one_image_to_a_3d_audio-visual_scene.md)
 
 <!-- RELATED:END -->

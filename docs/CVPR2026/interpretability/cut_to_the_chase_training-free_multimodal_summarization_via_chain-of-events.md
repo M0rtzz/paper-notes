@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-**多模态摘要（MMS）的重要性**：需要从视频、文本、图像等多源输入生成简洁文本摘要，应用于教学视频、讲座、新闻广播等场景。
+### 现有痛点
+
+**现有痛点**：**领域现状**：**多模态摘要（MMS）的重要性**：需要从视频、文本、图像等多源输入生成简洁文本摘要，应用于教学视频、讲座、新闻广播等场景。
 
 **领域特定监督的依赖问题**：现有 MMS 模型（如 MLASK、MMSum）依赖大规模配对数据和领域特定微调，跨域泛化能力差。实验显示在 VIEWS 上训练后迁移到其他数据集性能大幅下降。
 
@@ -101,7 +103,7 @@ CoE 包含四个模块：(1) 层次事件图（HEG）构建 → (2) 跨模态空
 - 事件演化推理模块显式建模因果转换，超越了扁平化时序建模
 - 轻量级风格适配仅需少量参考即可对齐领域语言习惯
 
-## 局限性
+## 局限与展望
 
 - 依赖 MLLM 的质量（如 GPT-4o），推理成本较高
 - 视频帧采样策略可能遗漏关键内容
@@ -127,7 +129,7 @@ CoE 包含四个模块：(1) 层次事件图（HEG）构建 → (2) 跨模态空
 - [SubspaceAD: Training-Free Few-Shot Anomaly Detection via Subspace Modeling](subspacead_training-free_few-shot_anomaly_detection_via_subspace_modeling.md)
 - [Towards Faithful Multimodal Concept Bottleneck Models](towards_faithful_multimodal_concept_bottleneck_models.md)
 - [Reallocating Attention Across Layers to Reduce Multimodal Hallucination](reallocating_attention_reduce_hallucination.md)
-- [VADTree: Explainable Training-Free Video Anomaly Detection via Hierarchical Granularity](../../NeurIPS2025/interpretability/vadtree_explainable_training-free_video_anomaly_detection_via_hierarchical_granu.md)
 - [Curvature Tuning: Provable Training-free Model Steering From a Single Parameter](../../NeurIPS2025/interpretability/curvature_tuning_provable_training-free_model_steering_from_a_single_parameter.md)
+- [VADTree: Explainable Training-Free Video Anomaly Detection via Hierarchical Granularity](../../NeurIPS2025/interpretability/vadtree_explainable_training-free_video_anomaly_detection_via_hierarchical_granu.md)
 
 <!-- RELATED:END -->

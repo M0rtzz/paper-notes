@@ -27,11 +27,25 @@ tags:
 
 ## 研究背景与动机
 
-- 现有 VideoQA 基准主要关注常见场景（烹饪、教学等），缺乏对"令人惊讶"视频的理解评估
-- 理解趣味视频不仅是视觉感知，更需要理解常识违反——为什么某个场景有趣/创意/不可思议
-- GPT-4V 在 NExT-QA 上已达 80% 准确率，需要更具挑战性的基准
-- 现有幽默/创意理解数据集多依赖音频和叙事线索，视觉理解的作用不突出
-- FunQA 的平均回答长度 34.2 词，远超 NExT-QA 的 2.6 词，要求更深入的视频理解
+### 领域现状
+
+**领域现状**：现有 VideoQA 基准主要关注常见场景（烹饪、教学等），缺乏对"令人惊讶"视频的理解评估
+
+### 现有痛点
+
+**现有痛点**：理解趣味视频不仅是视觉感知，更需要理解常识违反——为什么某个场景有趣/创意/不可思议
+
+### 核心矛盾
+
+**核心矛盾**：GPT-4V 在 NExT-QA 上已达 80% 准确率，需要更具挑战性的基准
+
+### 解决思路
+
+**解决思路**：现有幽默/创意理解数据集多依赖音频和叙事线索，视觉理解的作用不突出
+
+### 补充说明
+
+**补充说明**：FunQA 的平均回答长度 34.2 词，远超 NExT-QA 的 2.6 词，要求更深入的视频理解
 
 ## 方法详解
 
@@ -136,8 +150,8 @@ tags:
 
 - [SCoP: Evaluating the Comprehension Process of Large Language Models from a Cognitive View](../../ACL2025/llm_nlp/scop_evaluating_the_comprehension_process_of_large_language_models_from_a_cognit.md)
 - [PhysVid: Physics Aware Local Conditioning for Generative Video](../../CVPR2026/llm_nlp/physvid_physics_aware_local_conditioning_for_generative_video_models.md)
+- [VA-GPT: Aligning Effective Tokens with Video Anomaly in Large Language Models](../../ICCV2025/llm_nlp/va_gpt_aligning_effective_tokens_video_anomaly.md)
 - [TEMPLE: Incentivizing Temporal Understanding of Video LLMs via Progressive Pre-SFT Alignment](../../AAAI2026/llm_nlp/temple_incentivizing_temporal_understanding_of_video_large_language_models_via_p.md)
 - [StreamBridge: Turning Your Offline Video Large Language Model into a Proactive Streaming Model](../../NeurIPS2025/llm_nlp/streambridge_turning_your_offline_video_large_language_model_into_a_proactive_st.md)
-- [Propose, Assess, Search: Harnessing LLMs for Goal-Oriented Planning in Instructional Videos](propose_assess_search_harnessing_llms_for_goal-oriented_planning_in_instructiona.md)
 
 <!-- RELATED:END -->

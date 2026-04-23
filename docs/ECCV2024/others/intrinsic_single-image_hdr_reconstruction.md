@@ -32,21 +32,21 @@ tags:
 
 ## 研究背景与动机
 
-### 问题定义
+### 现有痛点
 
-普通相机的低动态范围（LDR）无法捕捉自然场景中丰富的对比度，导致饱和像素丢失颜色和细节。从单张 LDR 照片重建场景中的高动态范围（HDR）亮度是计算摄影中的重要任务。
+**现有痛点**：普通相机的低动态范围（LDR）无法捕捉自然场景中丰富的对比度，导致饱和像素丢失颜色和细节。从单张 LDR 照片重建场景中的高动态范围（HDR）亮度是计算摄影中的重要任务。
 
-### 现有方法的不足
+### 解决思路
 
-**端到端方法的困难**：HDR 重建任务要求网络理解高层级的几何和光照线索，从场景上下文推断丢失的细节，对数据驱动算法生成准确且高分辨率的结果构成挑战
+**本文目标**：**端到端方法的困难**：HDR 重建任务要求网络理解高层级的几何和光照线索，从场景上下文推断丢失的细节，对数据驱动算法生成准确且高分辨率的结果构成挑战
 
 **问题耦合**：传统方法将颜色恢复和亮度范围扩展混在一起处理，增加了学习难度
 
 **泛化性不足**：直接在 LDR-HDR 对上训练的模型难以在多样化场景中保持稳定表现
 
-### 核心动机
+### 核心矛盾
 
-自然图像可以分解为反照率（albedo，表面颜色）和明暗（shading，光照效果）两个内在分量。HDR 重建中丢失的信息本质上来自两个不同的来源：(1) 过曝区域的亮度信息丢失（shading 域）；(2) 饱和像素的颜色信息丢失（albedo 域）。将问题分解可以降低单个子任务的复杂度。
+**核心矛盾**：自然图像可以分解为反照率（albedo，表面颜色）和明暗（shading，光照效果）两个内在分量。HDR 重建中丢失的信息本质上来自两个不同的来源：(1) 过曝区域的亮度信息丢失（shading 域）；(2) 饱和像素的颜色信息丢失（albedo 域）。将问题分解可以降低单个子任务的复杂度。
 
 ---
 
@@ -123,7 +123,7 @@ $$\mathcal{L} = \mathcal{L}_{shading} + \mathcal{L}_{albedo}$$
 3. **降低数据需求**：每个子网络只需学习更简单的映射关系，降低了对训练数据多样性的要求
 4. **灵活性**：框架允许独立改进各子模块，便于后续升级
 
-## 局限性
+## 局限与展望
 
 1. 内在分解本身的准确性会影响最终 HDR 重建质量，分解误差会传播
 2. 对于严重过曝（完全白色）的大面积区域，两个子网络都难以恢复有意义的内容
@@ -146,8 +146,8 @@ $$\mathcal{L} = \mathcal{L}_{shading} + \mathcal{L}_{albedo}$$
 
 - [Active Generation for Image Classification](active_generation_for_image_classification.md)
 - [AFUNet: Cross-Iterative Alignment-Fusion Synergy for HDR Reconstruction via Deep Unfolding Paradigm](../../ICCV2025/others/afunet_crossiterative_alignmentfusion_synergy_for_hdr_recons.md)
-- [Image Demoiréing in RAW and sRGB Domains](image_demoiréing_in_raw_and_srgb_domains.md)
+- [OmniFood8K: Single-Image Nutrition Estimation via Hierarchical Frequency-Aligned Fusion](../../CVPR2026/others/omnifood8k_nutrition_estimation.md)
 - [COIN-Matting: Confounder Intervention for Image Matting](coin-matting_confounder_intervention_for_image_matting.md)
-- [CLR-GAN: Improving GANs Stability and Quality via Consistent Latent Representation and Reconstruction](clr-gan_improving_gans_stability_and_quality_via_consistent_latent_representatio.md)
+- [Image Demoiréing in RAW and sRGB Domains](image_demoiréing_in_raw_and_srgb_domains.md)
 
 <!-- RELATED:END -->

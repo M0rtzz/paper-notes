@@ -27,7 +27,10 @@ tags:
 提出 CAPT 混淆感知 prompt tuning 框架，通过语义混淆挖掘器（SEM）和样本混淆挖掘器（SAM）显式建模 VLM 的系统性误对齐模式，配合多粒度差异专家（MGDE）融合不同层次的混淆信息，在 11 个基准上取得 HM 83.90% 的最优表现。
 
 ## 研究背景与动机
-1. CLIP 等视觉语言模型存在系统性误对齐：特定类别对之间的混淆不是随机的，而是持续发生的固定模式
+
+### 解决思路
+
+**本文目标**：**领域现状**：1. CLIP 等视觉语言模型存在系统性误对齐：特定类别对之间的混淆不是随机的，而是持续发生的固定模式
 2. 例如 OxfordPets 数据集中，terrier 被错分为 bulldog 30 次，而几乎不被误认为其他类
 3. 现有 prompt tuning 方法（MaPLe、PromptSRC）优化全局图像-文本特征对齐，忽略了这种固定混淆模式
 4. 模型误对齐源于视觉和语义上高度相似类别之间的模糊语义边界和局部表示相似性
@@ -95,7 +98,7 @@ $$\mathcal{L} = \mathcal{L}_{ori} + \mathcal{L}_{confuse}$$
 - 混淆银行的设计简洁有效，为后续研究提供了可复用的工具
 - Diff-Manner Adapter 融合 ViT 全局性和 CNN 局部性的思路有普适价值
 
-## 局限性
+## 局限与展望
 - pseudo-GT 的质量依赖模型初始预测能力，弱模型可能产生噪声过大的混淆银行
 - LLM 生成语义 prompt 的质量和一致性未充分分析
 - 模型复杂度增加（SEM+SAM+MGDE），训练成本可能显著高于简单 prompt tuning
@@ -116,7 +119,7 @@ $$\mathcal{L} = \mathcal{L}_{ori} + \mathcal{L}_{confuse}$$
 ## 相关论文
 
 - [Towards Calibrating Prompt Tuning of Vision-Language Models](towards_calibrating_prompt_tuning_of_vision-language_models.md)
-- [Noise-Aware Few-Shot Learning through Bi-directional Multi-View Prompt Alignment](noise-aware_few-shot_learning_through_bi-directional_multi-view_prompt_alignment.md)
+- [Noise-Aware Few-Shot Learning through Bi-directional Multi-View Prompt Alignment](noiseaware_fewshot_learning_through_bidirectional.md)
 - [Evolving Prompt Adaptation for Vision-Language Models](evolving_prompt_adaptation_for_visionlanguage_mode.md)
 - [DPC: Dual-Prompt Collaboration for Tuning Vision-Language Models](../../CVPR2025/multimodal_vlm/dpc_dual-prompt_collaboration_for_tuning_vision-language_models.md)
 - [Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models](../../ICML2025/multimodal_vlm/understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)

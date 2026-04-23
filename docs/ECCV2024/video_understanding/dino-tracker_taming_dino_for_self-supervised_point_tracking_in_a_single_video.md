@@ -175,6 +175,6 @@ Phi(I) = Phi_DINO(I) + Phi_Delta(I)
 - [Local All-Pair Correspondence for Point Tracking](local_all-pair_correspondence_for_point_tracking.md)
 - [Boosting 3D Single Object Tracking with 2D Matching Distillation and 3D Pre-training](boosting_3d_single_object_tracking_with_2d_matching_distillation_and_3d_pre-trai.md)
 - [TimeCraft: Navigate Weakly-Supervised Temporal Grounded Video Question Answering via Bi-directional Reasoning](timecraft_navigate_weakly-supervised_temporal_grounded_video_question_answering_.md)
-- [TAPTR: Tracking Any Point with Transformers as Detection](taptr_tracking_any_point_with_transformers_as_detection.md)
+- [FinePseudo: Improving Pseudo-Labelling through Temporal-Alignability for Semi-Supervised Fine-Grained Action Recognition](finepseudo_improving_pseudo-labelling_through_temporal-alignablity_for_semi-supe.md)
 
 <!-- RELATED:END -->

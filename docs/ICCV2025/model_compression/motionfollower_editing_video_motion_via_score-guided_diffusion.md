@@ -179,8 +179,8 @@ $$\nabla_{z_t^e} \log q(F_t^e, F_t^r | z_t^e) = \frac{d\mathcal{L}_{fg}}{dz_t^e}
 
 - [Context Guided Transformer Entropy Modeling for Video Compression](context_guided_transformer_entropy_modeling_for_video_compression.md)
 - [F²HDR: Two-Stage HDR Video Reconstruction via Flow Adapter and Physical Motion Modeling](../../CVPR2026/model_compression/textf2texthdr_two-stage_hdr_video_reconstruction_via_flow_adapter_and_physical_m.md)
+- [Multi-Object Sketch Animation by Scene Decomposition and Motion Planning](multi-object_sketch_animation_by_scene_decomposition_and_motion_planning.md)
 - [Adaptive Stochastic Coefficients for Accelerating Diffusion Sampling](../../NeurIPS2025/model_compression/adaptive_stochastic_coefficients_for_accelerating_diffusion_sampling.md)
-- [AnimatableDreamer: Text-Guided Non-rigid 3D Model Generation and Reconstruction with Canonical Score Distillation](../../ECCV2024/model_compression/animatabledreamer_text-guided_non-rigid_3d_model_generation_and_reconstruction_w.md)
 - [Generalized Interpolating Discrete Diffusion](../../ICML2025/model_compression/generalized_interpolating_discrete_diffusion.md)
 
 <!-- RELATED:END -->

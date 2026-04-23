@@ -130,7 +130,7 @@ PicoSAM3 是一个 1.3M 参数的超轻量可提示分割模型，通过 ROI 隐
 - [Golden Cudgel Network for Real-Time Semantic Segmentation](golden_cudgel_network_for_real-time_semantic_segmentation.md)
 - [SmartEraser: Remove Anything from Images using Masked-Region Guidance](smarteraser_remove_anything_from_images_using_masked-region_guidance.md)
 - [RDNet: Region Proportion-Aware Dynamic Adaptive Salient Object Detection Network in Optical Remote Sensing Images](rdnet_region_proportion-aware_dynamic_adaptive_salient_object_detection_network_.md)
-- [IT³: Idempotent Test-Time Training](../../ICML2025/segmentation/it3_idempotent_test-time_training.md)
 - [RSONet: Region-guided Selective Optimization Network for RGB-T Salient Object Detection](rsonet_region-guided_selective_optimization_network_for_rgb-t_salient_object_det.md)
+- [Attention (as Discrete-Time Markov) Chains](../../NeurIPS2025/segmentation/attention_as_discrete-time_markov_chains.md)
 
 <!-- RELATED:END -->

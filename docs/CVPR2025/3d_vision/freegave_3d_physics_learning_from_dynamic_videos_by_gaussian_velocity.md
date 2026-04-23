@@ -129,6 +129,6 @@ tags:
 - [MoSca: Dynamic Gaussian Fusion from Casual Videos via 4D Motion Scaffolds](mosca_dynamic_gaussian_fusion_from_casual_videos_via_4d_motion_scaffolds.md)
 - [Stereo4D: Learning How Things Move in 3D from Internet Stereo Videos](stereo4d_learning_how_things_move_in_3d_from_internet_stereo_videos.md)
 - [PGC: Physics-Based Gaussian Cloth from a Single Pose](pgc_physics-based_gaussian_cloth_from_a_single_pose.md)
-- [GaussHDR: High Dynamic Range Gaussian Splatting via Learning Unified 3D and 2D Local Tone Mapping](gausshdr_high_dynamic_range_gaussian_splatting_via_learning_unified_3d_and_2d_lo.md)
+- [MegaSaM: Accurate, Fast and Robust Structure and Motion from Casual Dynamic Videos](megasam_accurate_fast_and_robust_structure_and_motion_from_casual_dynamic_videos.md)
 
 <!-- RELATED:END -->

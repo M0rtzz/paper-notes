@@ -27,10 +27,21 @@ tags:
 
 ## 研究背景与动机
 
-- 组合推理问题（如 Sokoban、魔方）通常需要昂贵的搜索算法（A*、BestFS）来求解
-- **时间对比学习**（如 CRL）用于学习状态表征，正样本来自轨迹内邻近状态，负样本来自不同轨迹
-- **关键失败模式**：在 Sokoban 中，不同轨迹有不同的墙壁布局（上下文），CRL 利用墙壁布局而非时间结构来区分正负样本，导致同一轨迹内所有状态被编码到极相似的表征（t-SNE 显示轨迹聚簇为小点）
-- 结果：CRL 表征无法反映状态间的时间距离，对规划无用
+### 现有痛点
+
+**现有痛点**：组合推理问题（如 Sokoban、魔方）通常需要昂贵的搜索算法（A*、BestFS）来求解
+
+### 领域现状
+
+**领域现状**：时间对比学习**（如 CRL）用于学习状态表征，正样本来自轨迹内邻近状态，负样本来自不同轨迹
+
+### 核心矛盾
+
+**核心矛盾**：关键失败模式**：在 Sokoban 中，不同轨迹有不同的墙壁布局（上下文），CRL 利用墙壁布局而非时间结构来区分正负样本，导致同一轨迹内所有状态被编码到极相似的表征（t-SNE 显示轨迹聚簇为小点）
+
+### 解决思路
+
+**解决思路**：结果：CRL 表征无法反映状态间的时间距离，对规划无用
 
 ## 方法详解
 
@@ -123,9 +134,9 @@ CRTR 的核心改动极其简洁——仅修改对比学习中的负采样方式
 ## 相关论文
 
 - [Contextures: Representations from Contexts](../../ICML2025/self_supervised/contextures_representations_from_contexts.md)
-- [Contrastive Consolidation of Top-Down Modulations Achieves Sparsely Supervised Continual Learning](contrastive_consolidation_of_top-down_modulations_achieves_sparsely_supervised_c.md)
 - [UniSTD: Towards Unified Spatio-Temporal Learning Across Diverse Disciplines](../../CVPR2025/self_supervised/unistd_towards_unified_spatio-temporal_learning_across_diverse_disciplines.md)
 - [CLARIFY: Contrastive Preference Reinforcement Learning for Untangling Ambiguous Queries](../../ICML2025/self_supervised/clarify_contrastive_preference_reinforcement_learning_for_untangling_ambiguous_q.md)
 - [Temporal Slowness in Central Vision Drives Semantic Object Learning](../../ICLR2026/self_supervised/temporal_slowness_in_central_vision_drives_semantic_object_learning.md)
+- [Suppressing Non-Semantic Noise in Masked Image Modeling Representations](../../CVPR2026/self_supervised/suppressing_non-semantic_noise_in_masked_image_modeling_representations.md)
 
 <!-- RELATED:END -->

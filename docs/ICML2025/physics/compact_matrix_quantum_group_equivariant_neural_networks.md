@@ -31,15 +31,25 @@ tags:
 
 ## 研究背景与动机
 
-群等变神经网络（Group Equivariant Neural Networks）在处理具有明确群对称性的数据时非常有效，已广泛应用于图像识别、分子建模等领域。然而，这些网络依赖于经典几何空间上的对称性描述，即使用**交换**的 $C^*$-代数（紧致群上的连续函数代数）。
+### 领域现状
+
+**领域现状**：群等变神经网络（Group Equivariant Neural Networks）在处理具有明确群对称性的数据时非常有效，已广泛应用于图像识别、分子建模等领域。然而，这些网络依赖于经典几何空间上的对称性描述，即使用**交换**的 $C^*$-代数（紧致群上的连续函数代数）。
 
 当数据存在于**非交换几何**中时（形式上由非交换 $C^*$-代数描述），传统的群等变网络就不再适用。例如，量子信息处理、量子纠错等领域涉及的对称性由**量子群**而非经典群描述。
 
 本文的核心动机是：
 
-- **填补理论空白**：将等变神经网络的理论框架从经典群推广到量子群
-- **刻画权重矩阵**：为"easy"紧致矩阵量子群提供权重矩阵的完整刻画
-- **发现新结果**：即使回退到经典群情形，也获得了此前机器学习文献中未出现过的权重矩阵刻画
+### 现有痛点
+
+**现有痛点**：填补理论空白**：将等变神经网络的理论框架从经典群推广到量子群
+
+### 核心矛盾
+
+**核心矛盾**：刻画权重矩阵**：为"easy"紧致矩阵量子群提供权重矩阵的完整刻画
+
+### 解决思路
+
+**解决思路**：发现新结果**：即使回退到经典群情形，也获得了此前机器学习文献中未出现过的权重矩阵刻画
 
 ## 方法详解
 
@@ -88,6 +98,9 @@ $$W = \sum_{\pi \in D(k, l)} c_\pi \cdot T_\pi$$
 
 ### 权重矩阵维度对比（不同量子群，$n=2, k=l=2$）
 
+
+### 主实验
+
 | 量子群 | intertwiner 空间维度 | 新结果？ |
 |:---|:---|:---|
 | $O_2$ | 2 | 否 |
@@ -112,7 +125,7 @@ $$W = \sum_{\pi \in D(k, l)} c_\pi \cdot T_\pi$$
 - **统一框架**：通过"easy"量子群的语言，统一了多种经典群和量子群的权重刻画
 - **连接了数学和机器学习**：涉及范畴论、表示论、组合数学等深层数学工具
 
-## 局限性
+## 局限与展望
 
 1. **纯理论工作**：没有提供任何数值实验或实际应用验证
 2. **仅涵盖 easy 量子群**：对于非 easy 的量子群，权重刻画仍是开放问题
@@ -141,8 +154,8 @@ $$W = \sum_{\pi \in D(k, l)} c_\pi \cdot T_\pi$$
 ## 相关论文
 
 - [ATP: Adaptive Threshold Pruning for Efficient Data Encoding in Quantum Neural Networks](../../CVPR2025/physics/atp_adaptive_threshold_pruning_for_efficient_data_encoding_in_quantum_neural_net.md)
-- [ResQ: A Novel Framework to Implement Residual Neural Networks on Analog Rydberg Atom Quantum Computers](../../ICCV2025/physics/resq_a_novel_framework_to_implement_residual_neural_networks_on_analog_rydberg_a.md)
 - [Exoplanet Formation Inference Using Conditional Invertible Neural Networks](../../NeurIPS2025/physics/exoplanet_formation_inference_using_conditional_invertible_neural_networks.md)
+- [ResQ: A Novel Framework to Implement Residual Neural Networks on Analog Rydberg Atom Quantum Computers](../../ICCV2025/physics/resq_a_novel_framework_to_implement_residual_neural_networks_on_analog_rydberg_a.md)
 - [Feedback-driven Recurrent Quantum Neural Network Universality](../../ICLR2026/physics/feedback-driven_recurrent_quantum_neural_network_universality.md)
 - [Neural Deprojection of Galaxy Stellar Mass Profiles](../../NeurIPS2025/physics/neural_deprojection_of_galaxy_stellar_mass_profiles.md)
 

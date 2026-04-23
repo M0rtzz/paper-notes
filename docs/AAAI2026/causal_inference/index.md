@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 因果推理方向 9篇论文解读
+  AAAI2026 因果推理方向 10篇论文解读
 description: >-
-  9篇AAAI2026 因果推理论文解读，主题涵盖：提出 CaDyT，结合高斯过程连续时间动力学建模（、提出 Owl 框架，通过结构因果模型将视觉/文本注、提出 ABCA（Aspect-Based等，每篇含核心思想与方法详解。
+  10篇AAAI2026 因果推理论文解读，主题涵盖：提出 CaDyT，结合高斯过程连续时间动力学建模（、提出 Owl 框架，通过结构因果模型将视觉/文本注、本文提出"环境理论"（Theory of等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔗 因果推理
 
-**🤖 AAAI2026** · **9** 篇论文解读
+**🤖 AAAI2026** · **10** 篇论文解读
 
 **[CaDyT: Causal Structure Learning for Dynamical Systems with Theoretical Score Analysis](causal_structure_learning_for_dynamical_systems_with_theoretical_score_analysis.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[Causally-Grounded Dual-Path Attention Intervention for Object Hallucination Mitigation in LVLMs](causally-grounded_dual-path_attention_intervention_for_objec.md)**
 
 :   提出 Owl 框架，通过结构因果模型将视觉/文本注意力建模为中介变量，引入 VTACR 指标量化跨模态注意力失衡，设计 VTACR 引导的自适应注意力调制 + 双路径对比解码策略，在 POPE 和 CHAIR 上实现 SOTA 的幻觉抑制效果。
+
+**[From Theory of Mind to Theory of Environment: Counterfactual Simulation of Latent Environmental Dynamics](from_theory_of_mind_to_theory_of_environment_counterfactual_simulation_of_latent.md)**
+
+:   本文提出"环境理论"（Theory of Environment）概念，认为人类可能通过与心智理论（Theory of Mind）共享的计算机制来推断环境中隐含的动态规律，从而扩展运动探索的维度空间并促进行为创新。
 
 **[Hallucinate Less by Thinking More: Aspect-Based Causal Abstention for Large Language Models](hallucinate_less_by_thinking_more_aspect-based_causal_absten.md)**
 

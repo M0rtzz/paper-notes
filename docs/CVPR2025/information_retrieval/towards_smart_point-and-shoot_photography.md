@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：大多数人用手机拍照时构图不够理想——可能取景范围不对或角度偏了。现有自动构图方法（如裁剪建议）只能在已拍照片上后处理，不能在拍照前告诉用户"摄像头往右转 15°"。
 
 **现有痛点**：缺少从当前视角出发的实时相机姿态调整建议——不是"哪里裁剪"而是"往哪个方向看"。这需要同时解决两个问题：（1）判断当前构图是否需要调整；（2）如果需要，预测具体的偏航和俯仰调整量。
@@ -104,10 +106,10 @@ CCQA：$L_{CCQA} = L_{MSE} + L_{rank} + 0.1 \cdot L_{consistency}$。CPAM：$L_{
 
 ## 相关论文
 
-- [EZSR: Event-based Zero-Shot Recognition](ezsr_event-based_zero-shot_recognition.md)
-- [Preserving Clusters in Prompt Learning for Unsupervised Domain Adaptation](preserving_clusters_in_prompt_learning_for_unsupervised_domain_adaptation.md)
 - [Advancing Myopia To Holism: Fully Contrastive Language-Image Pre-training](advancing_myopia_to_holism_fully_contrastive_language-image_pre-training.md)
-- [DocoPilot: Improving Multimodal Models for Document-Level Understanding](docopilot_improving_multimodal_models_for_document-level_understanding.md)
+- [Preserving Clusters in Prompt Learning for Unsupervised Domain Adaptation](preserving_clusters_in_prompt_learning_for_unsupervised_domain_adaptation.md)
+- [GENIUS: A Generative Framework for Universal Multimodal Search](genius_a_generative_framework_for_universal_multimodal_search.md)
+- [EZSR: Event-based Zero-Shot Recognition](ezsr_event-based_zero-shot_recognition.md)
 - [LamRA: Large Multimodal Model as Your Advanced Retrieval Assistant](lamra_large_multimodal_model_as_your_advanced_retrieval_assistant.md)
 
 <!-- RELATED:END -->

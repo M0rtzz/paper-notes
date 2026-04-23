@@ -24,15 +24,28 @@ tags:
 将场景坐标回归器拆分为「场景无关的Transformer」和「场景特定的map code」，通过在数万场景上进行交替的mapping/query预训练，显著提升SCR方法在光照、视角变化下的泛化能力，同时保持轻量化的计算开销。
 
 ## 背景与动机
-场景坐标回归（Scene Coordinate Regression, SCR）是一种基于学习的视觉重定位方法，其核心思路是训练一个网络，将图像patch特征映射到对应的3D坐标，进而通过PnP求解器估计相机位姿。代表性工作ACE仅需几分钟的场景特定训练即可达到很高精度。
+
+### 领域现状
+
+**领域现状**：场景坐标回归（Scene Coordinate Regression, SCR）是一种基于学习的视觉重定位方法，其核心思路是训练一个网络，将图像patch特征映射到对应的3D坐标，进而通过PnP求解器估计相机位姿。代表性工作ACE仅需几分钟的场景特定训练即可达到很高精度。
 
 **现有方法的痛点**：
-- SCR方法的泛化能力远不如经典的特征匹配方法（如hloc）。当查询图像的成像条件（光照、视角、物体摆放）与训练视图差异较大时，SCR模型容易失效。
-- 关键原因在于训练机制本身：以往SCR的训练目标是把场景的训练视图编码到回归器的网络权重中，回归器本质上是在「过拟合」训练视图——这是设计使然（by design），而非bug。因此网络对未见过的查询条件缺乏泛化能力。
-- 传统特征匹配方法通过大规模数据上预训练的特征提取器天然具有对外观变化的鲁棒性，但SCR方法缺乏这种跨场景预训练的能力。
 
-## 核心问题
-如何让SCR方法在保持快速场景适配（几分钟训练）和轻量化优势的同时，获得对光照变化、大视角差异、季节/天气变化等条件的泛化能力？
+### 现有痛点
+
+**现有痛点**：SCR方法的泛化能力远不如经典的特征匹配方法（如hloc）。当查询图像的成像条件（光照、视角、物体摆放）与训练视图差异较大时，SCR模型容易失效。
+
+### 解决思路
+
+**解决思路**：关键原因在于训练机制本身：以往SCR的训练目标是把场景的训练视图编码到回归器的网络权重中，回归器本质上是在「过拟合」训练视图——这是设计使然（by design），而非bug。因此网络对未见过的查询条件缺乏泛化能力。
+
+### 核心矛盾
+
+**核心矛盾**：传统特征匹配方法通过大规模数据上预训练的特征提取器天然具有对外观变化的鲁棒性，但SCR方法缺乏这种跨场景预训练的能力。
+
+### 解决思路
+
+**本文目标**：如何让SCR方法在保持快速场景适配（几分钟训练）和轻量化优势的同时，获得对光照变化、大视角差异、季节/天气变化等条件的泛化能力？
 
 核心挑战在于：传统SCR把"理解场景"和"回归坐标"两个任务耦合在同一个网络中，导致网络必须为每个场景从头训练，无法积累跨场景的泛化知识。
 
@@ -88,7 +101,7 @@ ACE-G将传统的单一场景坐标回归器拆分为两部分：
 - **预训练场景规模**：使用更多场景进行预训练通常会带来更好的泛化效果。
 - **5min vs 25min mapping**：更长的mapping时间（25分钟）可以带来更好的场景编码质量。
 
-## 亮点
+## 亮点与洞察
 - **思路极其清晰**：将"场景记忆"和"坐标回归能力"巧妙解耦。过拟合问题不是bug而是feature——既然无法避免过拟合，就把需要过拟合的部分（map code）和需要泛化的部分（Transformer）分开。
 - **预训练策略设计精妙**：通过mapping/query交替训练模拟实际使用场景，让Transformer在预训练阶段就学会泛化，而非仅仅学会过拟合。
 - **实用性强**：mapping阶段不需要3D GT，只需带位姿的图像；代码和预训练模型均已开源；5分钟即可完成场景mapping。
@@ -101,12 +114,12 @@ ACE-G将传统的单一场景坐标回归器拆分为两部分：
 - **计算成本方面**：虽然比特征匹配方法轻量，但Transformer + map code的组合仍比原始ACE更重。
 - **户外大规模场景**：在城市级别的大规模户外定位场景中的表现有待进一步验证。
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs ACE / ACE-DINOv2**：ACE使用轻量MLP作为场景特定回归器，所有权重都是场景特定的，无法利用跨场景知识。ACE-G通过分离map code和Transformer，引入预训练，显著提升泛化性。ACE-DINOv2使用DINOv2特征但仍采用ACE的场景特定训练范式，泛化性不如ACE-G。
 - **vs 特征匹配方法（hloc等）**：传统特征匹配方法通过预训练特征提取器天然具有泛化性，但需要显式地存储和检索场景特征地图，存储和计算开销大。ACE-G在保持SCR方法紧凑表示的同时，缩小了与特征匹配方法的泛化性差距。
 - **vs NeRF/3DGS-based定位**：基于神经渲染的定位方法也需要场景特定训练，泛化性同样有限。ACE-G的分离思路对这类方法也有启发意义。
 
-## 启发与关联
+## 相关工作与启发
 - **"记忆外化"思路的普适性**：将任务特定知识从网络权重中分离到外部可学习编码的思路，和Prompt Tuning、LoRA等参数高效微调方法有异曲同工之妙。可以考虑将类似思路应用到其他需要快速适配的视觉任务中。
 - **预训练策略的创新**：交替mapping/query训练来模拟真实使用场景的预训练策略，可以推广为一种通用的"模拟部署条件的预训练"范式。
 - **与3D基础模型的结合**：如果用更强大的3D基础模型替代DINOv2作为特征骨干，或用更大规模的3D数据预训练，有望进一步提升性能。
@@ -121,10 +134,10 @@ ACE-G将传统的单一场景坐标回归器拆分为两部分：
 
 ## 相关论文
 
-- [Improving Continual Pre-training Through Seamless Data Packing](../../ACL2025/llm_pretraining/improving_continual_pre-training_through_seamless_data_packing.md)
 - [ConstStyle: Robust Domain Generalization with Unified Style Transformation](conststyle_robust_domain_generalization_with_unified_style_transformation.md)
 - [Dataset Ownership Verification for Pre-trained Masked Models](dataset_ownership_verification_for_pre-trained_masked_models.md)
-- [The Sharpness Disparity Principle in Transformers for Accelerating Language Model Pre-Training](../../ICML2025/llm_pretraining/the_sharpness_disparity_principle_in_transformers_for_accelerating_language_mode.md)
-- [The Scene Language: Representing Scenes with Programs, Words, and Embeddings](../../CVPR2025/llm_pretraining/the_scene_language_representing_scenes_with_programs_words_and_embeddings.md)
+- [Make Your Training Flexible: Towards Deployment-Efficient Video Models](make_your_training_flexible_towards_deployment-efficient_video_models.md)
+- [Improving Continual Pre-training Through Seamless Data Packing](../../ACL2025/llm_pretraining/improving_continual_pre-training_through_seamless_data_packing.md)
+- [Image Intrinsic Scale Assessment: Bridging the Gap Between Quality and Resolution](image_intrinsic_scale_assessment_bridging_the_gap_between_quality_and_resolution.md)
 
 <!-- RELATED:END -->

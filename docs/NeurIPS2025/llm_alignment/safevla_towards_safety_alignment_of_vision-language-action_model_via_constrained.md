@@ -144,10 +144,10 @@ CC 平均下降 **83.58%**，SR 平均提升 **+3.85%**。
 
 ## 相关论文
 
-- [Layer-wise Alignment: Examining Safety Alignment Across Image Encoder Layers in Vision Language Models](../../ICML2025/llm_alignment/layer-wise_alignment_examining_safety_alignment_across_image_encoder_layers_in_v.md)
+- [Alignment of Large Language Models with Constrained Learning](alignment_of_large_language_models_with_constrained_learning.md)
+- [Safety Alignment via Constrained Knowledge Unlearning](../../ACL2025/llm_alignment/safety_alignment_via_constrained_knowledge_unlearning.md)
 - [Towards Understanding Safety Alignment: A Mechanistic Perspective from Safety Neurons](towards_understanding_safety_alignment_a_mechanistic_perspective_from_safety_neu.md)
-- [Mitigating the Safety Alignment Tax with Null-Space Constrained Policy Optimization](../../ICLR2026/llm_alignment/mitigating_the_safety_alignment_tax_with_null-space_constrained_policy_optimizat.md)
 - [Human-assisted Robotic Policy Refinement via Action Preference Optimization](human-assisted_robotic_policy_refinement_via_action_preference_optimization.md)
-- [Limited Preference Data? Learning Better Reward Model with Latent Space Synthesis](limited_preference_data_learning_better_reward_model_with_latent_space_synthesis.md)
+- [Layer-wise Alignment: Examining Safety Alignment Across Image Encoder Layers in Vision Language Models](../../ICML2025/llm_alignment/layer-wise_alignment_examining_safety_alignment_across_image_encoder_layers_in_v.md)
 
 <!-- RELATED:END -->

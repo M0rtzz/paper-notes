@@ -135,8 +135,8 @@ ProtGPT2上不同偏好对构造方法对比：
 
 - [g-DPO: Scalable Preference Optimization for Protein Language Models](../../NeurIPS2025/llm_alignment/g-dpo_scalable_preference_optimization_for_protein_language_models.md)
 - [Focused-DPO: Enhancing Code Generation Through Focused Preference Optimization on Error-Prone Points](focused-dpo_enhancing_code_generation_through_focused_preference_optimization_on.md)
+- [FocalPO: Enhancing Preference Optimizing by Focusing on Correct Preference Rankings](focalpo_enhancing_preference_optimizing_by_focusing_on_correct_preference_rankin.md)
 - [RPO: Retrieval Preference Optimization for Robust Retrieval-Augmented Generation](rpo_retrieval_preference_optimization_for_robust_retrieval-augmented_generation.md)
-- [JsonTuning: Towards Generalizable, Robust, and Controllable Instruction Tuning](jsontuning_towards_generalizable_robust_and_controllable_instruction_tuning.md)
-- [Reverse Preference Optimization for Complex Instruction Following](reverse_preference_optimization_for_complex_instruction_following.md)
+- [Retrieval-Augmented Fine-Tuning With Preference Optimization For Visual Program Generation](retrieval-augmented_fine-tuning_with_preference_optimization_for_visual_program_.md)
 
 <!-- RELATED:END -->

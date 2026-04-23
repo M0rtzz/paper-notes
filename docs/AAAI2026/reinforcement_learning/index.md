@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 强化学习方向 66篇论文解读
+  AAAI2026 强化学习方向 69篇论文解读
 description: >-
-  66篇AAAI2026 强化学习论文解读，主题涵盖：本文提出了一个基于多维目标空间的 LLM、提出 reMARL 框架，将图像处理中的主动轮廓模、提出 MACO 多智能体会话式 Bandit等，每篇含核心思想与方法详解。
+  69篇AAAI2026 强化学习论文解读，主题涵盖：本文提出了一个基于多维目标空间的 LLM、提出 reMARL 框架，将图像处理中的主动轮廓模、提出 reMARL 框架，利用图像处理领域知识（a等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**🤖 AAAI2026** · **66** 篇论文解读
+**🤖 AAAI2026** · **69** 篇论文解读
 
 **[A Course Correction in Steerability Evaluation: Revealing Miscalibration and Side Effects in LLMs](a_course_correction_in_steerability_evaluation_revealing_mis.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[A Learning Framework For Cooperative Collision Avoidance of UAV Swarms Leveraging Domain Knowledge](a_learning_framework_for_cooperative_collision_avoidance_of_.md)**
 
 :   提出 reMARL 框架，将图像处理中的主动轮廓模型（active contour）作为领域知识引入多智能体强化学习的奖励设计，使无人机集群仅通过最大化个体奖励即可学会协作避撞，在大规模集群（≤10架）中性能显著优于 COMA/VDN/QMIX/MAPPO 等 SOTA MARL 方法，反应时间比元启发式方法快 98.75%，能耗降低 85.37%。
+
+**[A Learning Framework For Cooperative Collision Avoidance of UAV Swarms Leveraging Domain Knowledge](a_learning_framework_for_cooperative_collision_avoidance_of_uav_swarms_leveragin.md)**
+
+:   提出 reMARL 框架，利用图像处理领域知识（active contour model）设计多智能体强化学习奖励函数，实现无人机集群的协作避碰，相比传统元启发式方法反应时间缩短 98.75%、能耗降低 85.37%。
 
 **[A Multi-Agent Conversational Bandit Approach to Online Evaluation and Selection of User-Aligned LLM Responses](a_multi-agent_conversational_bandit_approach_to_online_evaluation_and_selection_.md)**
 
@@ -53,6 +57,10 @@ description: >-
 **[CHDP: Cooperative Hybrid Diffusion Policies for RL in Parametric Environments](chdp_cooperative_hybrid_diffusion_policies_for_reinforcement_learning_in_paramet.md)**
 
 :   将混合动作空间问题建模为两个agent的全合作博弈，分别用离散和连续扩散策略生成动作，通过顺序更新和Q引导码本解决策略冲突与高维可扩展性问题，成功率最高提升19.3%。
+
+**[Constrained and Robust Policy Synthesis with Satisfiability-Modulo-Probabilistic-Model-Checking](constrained_and_robust_policy_synthesis_with_satisfiability-modulo-probabilistic.md)**
+
+:   本文提出首个能在任意结构约束下高效计算鲁棒策略的框架，通过将 SAT 求解器与概率模型检测算法紧密集成，实现对有限马尔可夫决策过程（MDP）的约束策略合成和鲁棒策略合成，在数百个 benchmark 上验证了可行性和竞争力。
 
 **[Deep (Predictive) Discounted Counterfactual Regret Minimization](deep_predictive_discounted_counterfactual_regret_minimization.md)**
 
@@ -93,6 +101,10 @@ description: >-
 **[Explaining Decentralized Multi-Agent Reinforcement Learning Policies](explaining_decentralized_multi-agent_reinforcement_learning_policies.md)**
 
 :   提出首个针对去中心化多智能体强化学习（MARL）策略的可解释方法，包括基于 Hasse 图的策略摘要生成和基于查询的自然语言解释（When/Why Not/What），在四个 MARL 领域展示了通用性和计算效率，用户研究表明显著提升了人类对策略的理解和问答表现。
+
+**[First-Order Representation Languages for Goal-Conditioned RL](first-order_representation_languages_for_goal-conditioned_rl.md)**
+
+:   本文研究一阶关系语言在目标条件强化学习（goal-conditioned RL）和泛化规划中的应用，提出将目标表示为原子集合的子集或提升版本，结合 HER 自动创建由简到难的目标课程，在大规模稀疏奖励规划问题上成功学习到泛化策略。
 
 **[Formal Verification of Diffusion Auctions](formal_verification_of_diffusion_auctions.md)**
 
@@ -164,7 +176,7 @@ description: >-
 
 **[One-Step Generative Policies with Q-Learning: A Reformulation of MeanFlow](one-step_generative_policies_with_q-learning_a_reformulation_of_meanflow.md)**
 
-:   将MeanFlow重新形式化为残差映射 $g(a_t,b,t) = a_t - u(a_t,b,t)$，实现一步噪声→动作的生成式策略，无需蒸馏或多步ODE积分，可直接与Q-learning联合训练，在OGBench和D4RL的73个任务上取得强性能。
+:   本文将MeanFlow从视觉生成任务重新改造为离线RL的生成式策略，提出一种残差形式的直接噪声到动作映射，实现单步采样的表达性策略，可在单阶段训练中与Q函数稳定联合优化，在OGBench和D4RL的73个任务上取得了强劲性能。
 
 **[Partial Action Replacement: Tackling Distribution Shift in Offline MARL](partial_action_replacement_tackling_distribution_shift_in_offline_marl.md)**
 

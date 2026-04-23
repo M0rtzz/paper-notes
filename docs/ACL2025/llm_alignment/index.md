@@ -1,14 +1,18 @@
 ---
 title: >-
-  ACL2025 对齐/RLHF方向 63篇论文解读
+  ACL2025 对齐/RLHF方向 78篇论文解读
 description: >-
-  63篇ACL2025 对齐/RLHF论文解读，主题涵盖：本文提出 AgentAlign 框架、提出 AgentRM，一个可泛化的奖励模型、发现 LLM 对齐训练的矛盾效应：对齐成功消除了显等，每篇含核心思想与方法详解。
+  78篇ACL2025 对齐/RLHF论文解读，主题涵盖：本文提出AGD（Adversarial Game、本文提出 AgentAlign 框架、提出 AgentRM，一个可泛化的奖励模型等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐/RLHF
 
-**💬 ACL2025** · **63** 篇论文解读
+**💬 ACL2025** · **78** 篇论文解读
+
+**[AGD: Adversarial Game Defense Against Jailbreak Attacks in Large Language Models](agd_adversarial_game_defense_against_jailbreak_attacks_in_large_language_models.md)**
+
+:   本文提出AGD（Adversarial Game Defense），一种基于对抗博弈的LLM越狱攻击防御方法，通过动态调整模型内部表示在有用性和无害性之间取得平衡，利用IQR异常检测、双层优化博弈和专家模型采样三个阶段显著提升LLM安全性。
 
 **[AgentAlign: Navigating Safety Alignment in the Shift from Informative to Agentic LLMs](agentalign_navigating_safety_alignment_in_the_shift_from_informative_to_agentic_.md)**
 
@@ -21,6 +25,10 @@ description: >-
 **[Aligned but Blind: Alignment Increases Implicit Bias by Reducing Awareness of Race](aligned_but_blind_implicit_bias.md)**
 
 :   发现 LLM 对齐训练的矛盾效应：对齐成功消除了显式偏见（Llama 3 70B 降至 8.13%），但反而放大了隐式偏见（从 64.1% 升至 91.4%），机制是对齐使模型在歧义上下文中不再表征种族概念（"种族盲视"），导致安全护栏无法在隐性场景中激活。通过在早期层注入种族感知激活可将隐式偏见从 97.3% 降至 71.2%。
+
+**[Aligning to What? Limits to RLHF Based Alignment](aligning_to_what_limits_to_rlhf_based_alignment.md)**
+
+:   本文通过系统实验发现RLHF（包括DPO、ORPO、RLOO等方法）在减少LLM隐性种族偏见方面基本无效，且SFT在RLHF之前进行会"固化"模型偏见，揭示了当前对齐技术在处理模糊目标（如消除偏见）方面的根本局限。
 
 **[AMoPO: Adaptive Multi-objective Preference Optimization without Reward Models and Reference Models](amopo_adaptive_multi-objective_preference_optimization_without_reward_models_and.md)**
 
@@ -37,6 +45,10 @@ description: >-
 **[AutoMixAlign: Adaptive Data Mixing for Multi-Task Preference Optimization in LLMs](automixalign_adaptive_data_mixing.md)**
 
 :   AutoMixAlign 提出了一种理论驱动的多任务偏好优化数据混合方法：先训练各任务的 specialist model 确定最优 loss 基线，再通过 minimax 优化自适应调整数据混合比例，优先处理 excess loss（与 specialist 的差距）最大的任务，在 helpfulness/harmlessness/reasoning 多任务 DPO 中平均提升 9.42%。
+
+**[Beyond Similarity: A Gradient-based Graph Method for Instruction Tuning Data Selection](beyond_similarity_a_gradient-based_graph_method_for_instruction_tuning_data_sele.md)**
+
+:   本文提出 G2IS（Gradient-based Graph Instruction Selection），通过构建基于梯度的指令图来建模指令数据之间的联合分布和相互依赖关系，结合梯度遍历算法进行数据选择，仅用 1% 的数据即可超越全数据指令调优的效果。
 
 **[Beyond Surface-Level Patterns: An Essence-Driven Defense Framework Against Jailbreak Attacks in LLMs](beyond_surface-level_patterns_an_essence-driven_defense_framework_against_jailbr.md)**
 
@@ -66,6 +78,10 @@ description: >-
 
 :   为弥补中文 Reward Model 资源的空白，本文构建了 CheemsBench（首个大规模中文 RM 评测基准）和 CheemsPreference（首个大规模中文偏好数据集），通过人机协作标注 + 远程监督过滤策略训练的 CheemsRM 在中文场景显著超越现有所有开源 RM。
 
+**[Constitutional Classifiers: Defending Against Universal Jailbreaks Across Thousands of Hours of Red Teaming](constitutional_classifiers_defending_against_universal_jailbreaks_across_thousan.md)**
+
+:   Anthropic提出"宪法分类器"（Constitutional Classifiers），通过从自然语言安全规则（宪法）出发生成合成训练数据来训练输入/输出安全分类器，在超过3000小时的红队测试中未被发现通用越狱攻击，同时仅增加0.38%的误拒率和23.7%的推理开销。
+
 **[Curiosity-Driven Reinforcement Learning from Human Feedback](curiosity_driven_rlhf.md)**
 
 :   CD-RLHF 将好奇心驱动探索（curiosity-driven RL）引入 RLHF，通过前向动力学模型的预测误差作为内在奖励，结合 top-k 门控过滤与 reward whitening，在不损失对齐质量的前提下大幅提升 LLM 输出多样性（Llama-3.2-1B 上 Diversity 提升 40.26%，EAD 提升 8.92%）。
@@ -77,6 +93,10 @@ description: >-
 **[DiffPO: Diffusion Alignment with Direct Preference Optimization](diffpo_diffusion_alignment.md)**
 
 :   提出 DiffPO，将 LLM 对齐重新建模为句子级扩散去噪过程，通过 parallel decoding 实现高效推理时对齐，作为即插即用模块可增强任意底座模型的对齐质量。
+
+**[Don't Say No: Jailbreaking LLM by Suppressing Refusal](dont_say_no_jailbreaking_llm_by_suppressing_refusal.md)**
+
+:   本文提出 DSN（Don't Say No）攻击方法，通过分析现有越狱攻击中目标损失函数的缺陷，引入余弦衰减调度和拒绝抑制两种改进策略，在多个 LLM 上实现了超越现有方法的攻击成功率（ASR），并展示了对未见数据集和黑盒模型的强迁移性。
 
 **[Dynamic Scaling of Unit Tests for Code Reward Modeling](dynamic_scaling_of_unit_tests_for_code_reward_modeling.md)**
 
@@ -98,6 +118,10 @@ description: >-
 
 :   提出 Segment Supervised Preference Optimization (SSPO)，将视频配音中译文与源语音的时长对齐问题建模为段级偏好优化，通过逐句采样+细粒度 DPO 损失实现每行对话的时长一致性，同时维持翻译质量和输出格式。
 
+**[FocalPO: Enhancing Preference Optimizing by Focusing on Correct Preference Rankings](focalpo_enhancing_preference_optimizing_by_focusing_on_correct_preference_rankin.md)**
+
+:   本文提出 FocalPO，一种 DPO 变体，通过引入受 Focal Loss 启发的调制因子来降低错误排序对的权重、优先强化模型已正确排序的偏好对的理解，在 AlpacaEval 2.0 等基准上超越 DPO 及其变体。
+
 **[Focused-DPO: Enhancing Code Generation Through Focused Preference Optimization on Error-Prone Points](focused-dpo_enhancing_code_generation_through_focused_preference_optimization_on.md)**
 
 :   发现代码生成模型的错误高度集中在特定"错误易发点"（error-prone points），前缀/后缀几乎不变而中间段决定正确性，提出 Focused-DPO：通过 PageRank 在代码-测试二部图上排序定位关键中间段，并在 DPO 损失中对该段加权放大（$w_{focused}=2$），仅用 5000 样本即可在 HumanEval+ 上提升 4.41%、LiveCodeBench-Hard 上相对提升 42.86%。
@@ -117,6 +141,10 @@ description: >-
 **[Internal Value Alignment in Large Language Models through Controlled Value Vector Activation](internal_value_alignment_in_large_language_models_through_controlled_value_vecto.md)**
 
 :   提出 ConVA（Controlled Value Vector Activation）框架，通过上下文控制的数据集精准识别 LLM 隐空间中的价值向量，并用门控最小扰动机制在推理时激活目标价值，在 Schwartz 10 种基本价值上实现平均 29.6% 的控制成功率提升，同时保持 97%+ 的文本流畅度和通用能力。
+
+**[Intuitive Fine-Tuning: Towards Simplifying Alignment into a Single Process](intuitive_fine_tuning_simplifying_alignment_into_single_process.md)**
+
+:   通过 MDP 框架统一分析 SFT 和偏好优化（PO），发现 SFT 是 PO 的特例但偏好估计和转移优化均不充分，提出 IFT（Intuitive Fine-Tuning）通过时序残差连接让模型在不需要偏好数据的情况下获得接近甚至超越 SFT+PO 流水线的对齐效果。
 
 **[IOPO: Empowering LLMs with Complex Instruction Following via Input-Output Preference Optimization](iopo_input_output_preference.md)**
 
@@ -141,6 +169,10 @@ description: >-
 **[LLMs Caught in the Crossfire: Malware Requests and Jailbreak Challenges](llms_caught_in_the_crossfire_malware_requests_and_jailbreak_challenges.md)**
 
 :   构建 MalwareBench 基准（320 个手工恶意代码需求 × 11 种黑盒越狱方法 = 3520 个 prompt），系统评测 29 个 LLM 在恶意代码生成场景下的安全性，发现越狱攻击将平均拒绝率从 60.93% 降至 39.92%，且模型参数量与防御能力并非正比关系。
+
+**[LPOI: Listwise Preference Optimization for Vision Language Models](lpoi_listwise_preference_optimization_for_vision_language_models.md)**
+
+:   本文提出 LPOI，首个面向 VLM 的目标感知列表级偏好优化方法——通过识别并遮挡图像中的关键目标，在正样本和负样本之间插值生成渐进式遮挡序列，训练模型按目标可见度排序，从而在无需额外标注的情况下有效降低幻觉，在 MMHalBench、AMBER 和 Object HalBench 上超越现有偏好优化方法。
 
 **[LSSF: Safety Alignment via Low-Rank Safety Subspace Fusion](lssf_safety_subspace.md)**
 
@@ -182,6 +214,10 @@ description: >-
 
 :   发布 PKU-SafeRLHF 大规模安全偏好数据集，包含 44.6k 精炼 prompt、265k 带安全元标签的 QA 对和 166.8k 偏好数据，首次引入 19 种危害类别和 3 级严重程度标注，并训练了严重程度敏感的审核模型（93% 准确率）和基于该数据的 SafeRLHF 对齐 pipeline。
 
+**[PRMBench: A Fine-grained and Challenging Benchmark for Process-Level Reward Models](prmbench_a_fine-grained_and_challenging_benchmark_for_process-level_reward_model.md)**
+
+:   本文提出PRMBench，一个包含6,216个精心设计问题和83,456个步骤级标签的基准，从简洁性（Simplicity）、合理性（Soundness）和敏感性（Sensitivity）三个维度系统评估过程级奖励模型（PRM）的细粒度错误检测能力，实验揭示了现有15个PRM的显著不足。
+
 **[Probability-Consistent Preference Optimization for Enhanced LLM Reasoning](probability-consistent_preference_optimization_for_enhanced_llm_reasoning.md)**
 
 :   > PCPO 在偏好对选择阶段引入 token 级概率一致性指标，选出答案正确且推理过程与错误回答最"相似"的配对进行 DPO 训练，让模型聚焦关键推理差异，在多个数学推理 benchmark 上一致超越 IRPO/ScPO。
@@ -194,9 +230,17 @@ description: >-
 
 :   提出 Red Queen Attack——首个基于 Theory of Mind（ToM）构建多轮对话场景并隐藏恶意意图的越狱攻击方法，生成 56K 多轮隐蔽攻击数据，在 GPT-4o 上达到 87.6% ASR；同时提出 Red Queen Guard 防御策略，通过多轮 DPO 数据训练将 ASR 降至 <1%，同时不影响通用基准性能。
 
+**[Rethinking Reward Model Evaluation Through the Lens of Reward Overoptimization](rethinking_reward_model_evaluation_through_the_lens_of_reward_overoptimization.md)**
+
+:   本文从奖励过优化（reward overoptimization）的视角重新审视奖励模型评估方法，发现现有基准与下游策略性能相关性弱，并提出了三条构建可靠评估基准的关键准则：最小化正负样本的非正确性差异、使用多次比较覆盖广泛响应范围、以及从多样模型中采样响应。
+
 **[Rethinking Table Instruction Tuning](rethinking_table_instruction_tuning.md)**
 
 :   系统消融表格指令微调中被忽视的超参数选择（学习率、数据量、epoch），揭示现有表格 LLM 因学习率过大（2e-5）导致通用能力严重退化（MMLU 降 14 分、AI2ARC 降 21 分），提出仅需 13 个数据集各 200 条（共 2600 条）+ 学习率 1e-6 + 2 epoch 微调 LLaMA 3.1 8B Instruct 即可构建 TAMA，在 13 个表格任务上匹配/超越 GPT-3.5 和 GPT-4，同时完整保持通用能力。
+
+**[Retrieval-Augmented Fine-Tuning With Preference Optimization For Visual Program Generation](retrieval-augmented_fine-tuning_with_preference_optimization_for_visual_program_.md)**
+
+:   本文针对工业视觉编程语言（Ladder Diagram）的自动生成任务，提出了一种两阶段训练策略：先通过检索增强微调（Retrieval-Augmented Fine-Tuning）利用子程序复用特性，再通过基于图编辑操作构造偏好对的 DPO 训练进一步提升准确性，在真实 LD 数据上将程序级准确率提升超过 10%。
 
 **[Reverse Preference Optimization for Complex Instruction Following](reverse_preference_optimization_for_complex_instruction_following.md)**
 
@@ -218,9 +262,17 @@ description: >-
 
 :   RISE 发现 LLM 约 75% 的数学错误是微妙的步内错误（数字替换、操作数交换、步骤遗漏），通过让 LLM 自编辑向正确解注入预定义微妙错误来构造高质量难负样本，配合错误感知 DPO 训练，仅用 4.5K 样本在 GSM8K 提升 3.0%、MATH 提升 7.9%，并泛化到逻辑推理和代码生成。
 
+**[Robust Preference Optimization via Dynamic Target Margins](robust_preference_optimization_via_dynamic_target_margins.md)**
+
+:   本文提出 γ-PO，一种通过在偏好对级别动态调整目标奖励边际的方式来增强 DPO 鲁棒性的即插即用方法，在 AlpacaEval2 和 Arena-Hard 上平均提升 4.4%。
+
 **[RPO: Retrieval Preference Optimization for Robust Retrieval-Augmented Generation](rpo_retrieval_preference_optimization_for_robust_retrieval-augmented_generation.md)**
 
 :   提出 Retrieval Preference Optimization (RPO)，一种专为 RAG 设计的轻量级偏好对齐方法，通过将检索质量评估隐式地集成到生成过程中，使 LLM 能够自适应地在参数知识和检索知识之间做出选择，无需额外组件即可缓解知识冲突导致的幻觉问题。
+
+**[Safety Alignment via Constrained Knowledge Unlearning](safety_alignment_via_constrained_knowledge_unlearning.md)**
+
+:   本文提出 Constrained Knowledge Unlearning (CKU)，通过在 MLP 层中定位有用知识神经元并在遗忘过程中保护其梯度来删除有害知识，在不损害模型通用能力的前提下显著提升 LLM 的安全性。
 
 **[SDPO: Segment-Level Direct Preference Optimization for Social Agents](sdpo_segment-level_direct_preference_optimization_for_social_agents.md)**
 
@@ -229,6 +281,10 @@ description: >-
 **[SEA: Low-Resource Safety Alignment for Multimodal Large Language Models via Synthetic Embeddings](sea_lowresource_safety_alignment_for_multimodal.md)**
 
 :   提出 SEA 框架，通过梯度优化生成合成模态 embedding（不需要真实图像/视频/音频），仅用文本安全数据就能实现多模态 LLM 的安全对齐，在单张 RTX3090 上 24 秒即可合成高质量 embedding，同时发布了视频和音频安全基准 VA-SafetyBench。
+
+**[SQL Injection Jailbreak: A Structural Disaster of Large Language Models](sql_injection_jailbreak_a_structural_disaster_of_large_language_models.md)**
+
+:   提出 SQL Injection Jailbreak（SIJ），一种利用 LLM 提示构造方式中的结构性漏洞进行越狱的新方法，在开源模型上实现近 100% 攻击成功率，在闭源模型上平均超过 85%，并提出 Self-Reminder-Key 防御方案。
 
 **[SynthesizeMe! Inducing Persona-Guided Prompts for Personalized Reward Models in LLMs](synthesizeme_persona_prompts.md)**
 
@@ -245,6 +301,10 @@ description: >-
 **[Teaching an Old LLM Secure Coding: Localized Preference Optimization on Distilled Preferences](teaching_an_old_llm_secure_coding.md)**
 
 :   提出 DiSCo（从前沿 LLM 蒸馏的安全代码偏好数据集，10K 实例覆盖 431 种 CWE）和 LPO（局部偏好优化算法，仅在安全相关 token 上传播损失），在四个安全编码基准上减少 19-40% 的安全问题，同时提升 3-10% 的代码质量。
+
+**[Tempest: Autonomous Multi-Turn Jailbreaking of Large Language Models with Tree Search](tempest_autonomous_multi-turn_jailbreaking_of_large_language_models_with_tree_se.md)**
+
+:   本文提出 Tempest（论文早期版本称 Siege），一个基于广度优先树搜索的多轮对抗框架，通过追踪目标 LLM 的部分合规信息并将其重新注入后续查询，在 JailbreakBench 上对 GPT-3.5-turbo 达到 100%、GPT-4 达到 97% 的攻击成功率，且需要的查询数远少于 Crescendo/GOAT 等基线。
 
 **[Think&Cite: Improving Attributed Text Generation with Self-Guided Tree Search and Progress Reward Modeling](think_cite_attributed_text_gen.md)**
 

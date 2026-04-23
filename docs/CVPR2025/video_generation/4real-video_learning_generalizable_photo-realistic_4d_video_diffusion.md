@@ -145,8 +145,8 @@ tags:
 
 - [Learning Temporally Consistent Video Depth from Video Diffusion Priors](learning_temporally_consistent_video_depth_from_video_diffusion_priors.md)
 - [Learning from Streaming Video with Orthogonal Gradients](learning_from_streaming_video_with_orthogonal_gradients.md)
+- [Towards Realistic and Consistent Orbital Video Generation via 3D Foundation Priors](../../CVPR2026/video_generation/orbital_video_3d_foundation_priors.md)
 - [NormalCrafter: Learning Temporally Consistent Normals from Video Diffusion Priors](../../ICCV2025/video_generation/normalcrafter_learning_temporally_consistent_normals_from_video_diffusion_priors.md)
-- [Reangle-A-Video: 4D Video Generation as Video-to-Video Translation](../../ICCV2025/video_generation/reangle-a-video_4d_video_generation_as_video-to-video_translation.md)
-- [Geometry-aware 4D Video Generation for Robot Manipulation](../../ICLR2026/video_generation/geometry-aware_4d_video_generation_for_robot_manipulation.md)
+- [Disentangled World Models: Learning to Transfer Semantic Knowledge from Distracting Videos for Reinforcement Learning](../../ICCV2025/video_generation/disentangled_world_models_learning_to_transfer_semantic_knowledge_from_distracti.md)
 
 <!-- RELATED:END -->

@@ -176,9 +176,9 @@ $$\bm{h} = I_T(\cdot) \circ I_A(\cdot) \circ I_V(\cdot), \quad I_k(\bm{x}) = \be
 ## 相关论文
 
 - [Resounding Acoustic Fields with Reciprocity](../../NeurIPS2025/audio_speech/resounding_acoustic_fields_with_reciprocity.md)
-- [Talking Together: Synthesizing Co-Located 3D Conversations from Audio](../../CVPR2026/audio_speech/talking_together_synthesizing_co-located_3d_conversations_from_audio.md)
+- [Acoustic Individual Identification of White-Faced Capuchin Monkeys Using Joint Multi-Species Embeddings](acoustic_individual_identification_of_white-faced_capuchin_monkeys_using_joint_m.md)
 - [Scalable Multilingual Multimodal Machine Translation with Speech-Text Fusion](../../ICLR2026/audio_speech/scalable_multilingual_multimodal_machine_translation_with_speech-text_fusion.md)
+- [Talking Together: Synthesizing Co-Located 3D Conversations from Audio](../../CVPR2026/audio_speech/talking_together_synthesizing_co-located_3d_conversations_from_audio.md)
 - [Aligning Generative Music AI with Human Preferences: Methods and Challenges](../../AAAI2026/audio_speech/aligning_generative_music_ai_with_human_preferences_methods_and_challenges.md)
-- [How Would It Sound? Material-Controlled Multimodal Acoustic Profile Generation for Objects](../../ICCV2025/audio_speech/how_would_it_sound_material-controlled_multimodal_acoustic_profile_generation_fo.md)
 
 <!-- RELATED:END -->

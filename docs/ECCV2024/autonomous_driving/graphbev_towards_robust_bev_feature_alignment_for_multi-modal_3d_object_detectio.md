@@ -179,9 +179,9 @@ $$L_{Align} = \frac{1}{N_B} \sum_{i=1}^{N_B} (\hat{F_B}_i - {F_B^D}_i)^2$$
 ## 相关论文
 
 - [FSD-BEV: Foreground Self-Distillation for Multi-View 3D Object Detection](fsd-bev_foreground_self-distillation_for_multi-view_3d_object_detection.md)
+- [OccGen: Generative Multi-modal 3D Occupancy Prediction for Autonomous Driving](occgen_generative_multimodal_3d_occupancy_prediction_for_aut.md)
 - [OPEN: Object-wise Position Embedding for Multi-view 3D Object Detection](open_object-wise_position_embedding_for_multi-view_3d_object_detection.md)
 - [MonoWAD: Weather-Adaptive Diffusion Model for Robust Monocular 3D Object Detection](monowad_weather-adaptive_diffusion_model_for_robust_monocular_3d_object_detectio.md)
 - [Look Before You Fuse: 2D-Guided Cross-Modal Alignment for Robust 3D Detection](../../CVPR2026/autonomous_driving/look_before_you_fuse_2d-guided_cross-modal_alignment_for_robust_3d_detection.md)
-- [Detecting As Labeling: Rethinking LiDAR-camera Fusion in 3D Object Detection](detecting_as_labeling_rethinking_lidar-camera_fusion_in_3d_object_detection.md)
 
 <!-- RELATED:END -->

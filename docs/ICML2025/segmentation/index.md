@@ -1,18 +1,22 @@
 ---
 title: >-
-  ICML2025 语义分割方向 20篇论文解读
+  ICML2025 语义分割方向 21篇论文解读
 description: >-
-  20篇ICML2025 语义分割论文解读，主题涵盖：提出 ActionPiece，首个上下文感知的动作、本文发现 adapter 天然具有领域信息解耦能力、提出首个大规模油气井检测基准数据集等，每篇含核心思想与方法详解。
+  21篇ICML2025 语义分割论文解读，主题涵盖：提出 ActionPiece，首个上下文感知的动作、提出 ActionPiece，首个上下文感知的动作、本文发现 adapter 天然具有领域信息解耦能力等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**🧪 ICML2025** · **20** 篇论文解读
+**🧪 ICML2025** · **21** 篇论文解读
 
 **[ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation](actionpiece_contextually_tokenizing_action_sequences_for_generative_recommendati.md)**
 
 :   提出 ActionPiece，首个上下文感知的动作序列分词器，将用户行为序列建模为"特征集合的序列"，通过类 BPE 的合并策略在集合内部和相邻集合之间发现高频特征模式，使同一动作在不同上下文中被分词为不同 token，显著提升生成式推荐性能。
+
+**[ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation](actionpiece_contextually_tokenizing_action_sequences_generative_recommendation.md)**
+
+:   提出 ActionPiece，首个上下文感知的动作序列分词方法，将每个动作表示为无序特征集合，通过加权共现统计在集合内和相邻集合间学习合并规则构建词表，使同一动作在不同上下文中被分词为不同token，在推荐任务中显著提升生成式推荐的准确性。
 
 **[Adapter Naturally Serves as Decoupler for Cross-Domain Few-Shot Semantic Segmentation](adapter_naturally_serves_as_decoupler_for_cross-domain_few-shot_semantic_segment.md)**
 
@@ -52,7 +56,7 @@ description: >-
 
 **[IT³: Idempotent Test-Time Training](it3_idempotent_test-time_training.md)**
 
-:   提出 IT³，一种基于幂等性（idempotence）的测试时训练方法，通过最小化网络递归应用的输出差异来实现无需辅助任务、无需额外数据的通用测试时适应。
+:   提出 IT³，一种基于幂等性（idempotence）的通用测试时训练方法，通过最小化网络递归调用间的偏差来适应分布外样本，无需领域特定的辅助任务，适用于任意任务和架构。
 
 **[MorphTok: Morphologically Grounded Tokenization for Indian Languages](morphtok_morphologically_grounded_tokenization_for_indian_languages.md)**
 

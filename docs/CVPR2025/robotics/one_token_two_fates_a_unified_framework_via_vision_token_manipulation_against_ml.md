@@ -152,6 +152,6 @@ tags:
 - [VLA-Cache: Efficient Vision-Language-Action Manipulation via Adaptive Token Caching](../../NeurIPS2025/robotics/vla-cache_efficient_vision-language-action_manipulation_via_adaptive_token_cachi.md)
 - [Moto: Latent Motion Token as the Bridging Language for Learning Robot Manipulation from Videos](../../ICCV2025/robotics/moto_latent_motion_token_as_the_bridging_language_for_learning_robot_manipulatio.md)
 - [Pixel-level Scene Understanding in One Token: Visual States Need What-is-Where Composition](../../CVPR2026/robotics/pixel-level_scene_understanding_in_one_token_visual_states_need_what-is-where_co.md)
-- [RoboGround: Robotic Manipulation with Grounded Vision-Language Priors](roboground_robotic_manipulation_with_grounded_vision-language_priors.md)
+- [Token Taxes: Mitigating AGI's Economic Risks](../../ICLR2026/robotics/token_taxes_mitigating_agis_economic_risks.md)
 
 <!-- RELATED:END -->

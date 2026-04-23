@@ -130,8 +130,8 @@ tags:
 
 - [ELABORATION: A Comprehensive Benchmark on Human-LLM Competitive Programming](elaboration_competitive_programming.md)
 - [McBE: A Multi-task Chinese Bias Evaluation Benchmark for Large Language Models](mcbe_a_multi-task_chinese_bias_evaluation_benchmark_for_large_language_models.md)
+- [KRISTEVA: Close Reading as a Novel Task for Benchmarking Interpretive Reasoning](kristeva_close_reading_as_a_novel_task_for_benchmarking_interpretive_reasoning.md)
 - [MMLU-CF: A Contamination-free Multi-task Language Understanding Benchmark](mmlu-cf_a_contamination-free_multi-task_language_understanding_benchmark.md)
 - [CodeMEnv: Benchmarking Large Language Models on Code Migration](codemenv_benchmarking_large_language_models_on_code_migration.md)
-- [AD-LLM: Benchmarking Large Language Models for Anomaly Detection](ad-llm_benchmarking_large_language_models_for_anomaly_detection.md)
 
 <!-- RELATED:END -->

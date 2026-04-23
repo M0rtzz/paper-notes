@@ -135,6 +135,6 @@ DynFocus分三部分：(1) 视觉+文本编码器提取特征；(2) 动态协作
 - [Object-Shot Enhanced Grounding Network for Egocentric Video](object-shot_enhanced_grounding_network_for_egocentric_video.md)
 - [Dynamic Updates for Language Adaptation in Visual-Language Tracking](dynamic_updates_for_language_adaptation_in_visual-language_tracking.md)
 - [OVO-Bench: How Far is Your Video-LLMs from Real-World Online Video Understanding?](ovo-bench_how_far_is_your_video-llms_from_real-world_online_video_understanding.md)
-- [Enhancing Temporal Understanding in Video-LLMs through Stacked Temporal Attention in Vision Encoders](../../NeurIPS2025/video_understanding/enhancing_temporal_understanding_in_videollms_through_stacke.md)
+- [UFVideo: Towards Unified Fine-Grained Video Cooperative Understanding with Large Language Models](../../CVPR2026/video_understanding/ufvideo_towards_unified_fine-grained_video_cooperative_understanding_with_large_.md)
 
 <!-- RELATED:END -->

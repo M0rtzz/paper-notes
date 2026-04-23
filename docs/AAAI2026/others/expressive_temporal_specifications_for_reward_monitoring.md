@@ -170,6 +170,6 @@ QRM 定义为带寄存器的有限状态机 $\mathcal{A} = (Q, q_0, \delta_q, \m
 - [A New Strategy for Verifying Reach-Avoid Specifications in Neural Feedback Systems](a_new_strategy_for_verifying_reach-avoid_specifications_in_neural_feedback_syste.md)
 - [Judging by the Rules: Compliance-Aligned Framework for Modern Slavery Statement Monitoring](judging_by_the_rules_compliance-aligned_framework_for_modern_slavery_statement_m.md)
 - [Towards Temporal Fusion Beyond the Field of View for Camera-based Semantic Scene Completion](towards_temporal_fusion_beyond_the_field_of_view_for_camera-based_semantic_scene.md)
-- [Enhancing Generative Auto-bidding with Offline Reward Evaluation and Policy Search](../../ICLR2026/others/enhancing_generative_auto_bidding.md)
+- [A Dual-Mind Framework for Strategic and Expressive Negotiation Agent](../../ACL2025/others/a_dual-mind_framework_for_strategic_and_expressive_negotiation_agent.md)
 
 <!-- RELATED:END -->

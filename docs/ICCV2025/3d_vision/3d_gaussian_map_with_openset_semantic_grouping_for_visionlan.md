@@ -29,7 +29,9 @@ tags:
 
 ## 背景与动机
 
-视觉-语言导航（VLN）要求智能体根据自然语言指令在复杂3D环境中移动，核心挑战在于全面的场景理解。现有方法的局限：
+### 领域现状
+
+**领域现状**：视觉-语言导航（VLN）要求智能体根据自然语言指令在复杂3D环境中移动，核心挑战在于全面的场景理解。现有方法的局限：
 
 1. **2D视角的局限性**：大多数VLN方法使用单目RGB图像提取2D特征，难以捕捉完整的3D几何和空间关系
 2. **语义信息不充分**：传统表示（如拓扑图、2D语义图）忽略了场景中丰富的语义信息，限制了跨场景泛化能力
@@ -37,9 +39,9 @@ tags:
 
 3D Gaussian Splatting（3DGS）作为一种高效、可微分的3D场景表示方法，在实时渲染和语义重建方面展现出优势，自然适合作为VLN的场景表示基础。
 
-## 核心问题
+### 解决思路
 
-1. 如何利用3D高斯溅射构建既包含精细几何结构又包含丰富语义信息的场景地图？
+**本文目标**：1. 如何利用3D高斯溅射构建既包含精细几何结构又包含丰富语义信息的场景地图？
 2. 如何在开放词汇设定下对3D高斯进行语义分组，使之适应未见过的对象类别？
 3. 如何基于3D高斯地图设计有效的导航决策策略？
 
@@ -89,7 +91,7 @@ tags:
 | R2R (val unseen) | SR↑ | 较高 | VER等 | 成功率 |
 | R2R (val unseen) | SPL↑ | 较高 | VER等 | 路径加权成功率 |
 | REVERIE (val unseen) | SR↑ | 较高 | - | 远程目标导航 |
-| R4R | SR↑ | 待确认 | - | 长路径导航 |
+| R4R | SR↑ | 无 | - | 长路径导航 |
 
 > 注：具体数值因无法访问论文全文暂不可列出，但从引用情况（5篇引用）和发表在ICCV 2025来看，实验结果相较前序VER等方法有明显提升。
 
@@ -100,7 +102,7 @@ tags:
 - **多层级动作预测**：多粒度特征融合相比单一粒度有明显增益
 - **语义特征来源**：不同VLM提取的语义特征对性能的影响
 
-## 亮点
+## 亮点与洞察
 
 1. **3DGS首次系统应用于VLN**：将3D Gaussian Splatting作为VLN场景表示的核心，同时编码几何结构和语义信息，开创性地将3DGS引入导航领域
 2. **开放词汇设定**：通过开放集语义分组，智能体无需预定义类别即可理解场景，更接近真实应用场景
@@ -115,7 +117,7 @@ tags:
 4. **连续环境**：当前VLN主要在离散导航图（Matterport3D）上评测，在连续环境（VLN-CE）中的表现有待验证
 5. **3D高斯质量**：在线增量构建的高斯地图质量可能不如离线优化的3DGS
 
-## 与相关工作的对比
+## 相关工作与启发
 
 | 方法 | 场景表示 | 语义能力 | 3D几何 | 开放词汇 |
 |------|---------|---------|--------|---------|
@@ -127,7 +129,7 @@ tags:
 
 本文相比前序工作VER的核心进步在于：(1) 从体素到高斯的表示升级，更高效且几何细节更丰富；(2) 引入开放集语义分组，突破固定类别限制。
 
-## 启发与关联
+## 相关工作与启发
 
 1. **3DGS + 语义 = 强大的场景表示**：3D高斯溅射不仅适用于渲染，结合语义特征后可作为具身智能的通用场景表示
 2. **开放词汇是未来趋势**：VLN中使用开放集语义（而非预定义类别）更符合真实场景需求，可推广到其他具身AI任务
@@ -150,7 +152,7 @@ tags:
 - [AutoOcc: Automatic Open-Ended Semantic Occupancy Annotation via Vision-Language Guided Gaussian Splatting](autoocc_automatic_openended_semantic_occupancy_annotation_vi.md)
 - [CLIP-GS: Unifying Vision-Language Representation with 3D Gaussian Splatting](clip-gs_unifying_vision-language_representation_with_3d_gaussian_splatting.md)
 - [Describe, Adapt and Combine: Empowering CLIP Encoders for Open-set 3D Object Retrieval](describe_adapt_and_combine_empowering_clip_encoders_for_open-set_3d_object_retri.md)
-- [3DGraphLLM: Combining Semantic Graphs and Large Language Models for 3D Scene Understanding](3dgraphllm_combining_semantic_graphs_and_large_language_mode.md)
+- [3DGraphLLM: Combining Semantic Graphs and Large Language Models for 3D Scene Understanding](3dgraphllm_combining_semantic_graphs_and_large_language_models_for_3d_scene_unde.md)
 - [OpenFly: A Comprehensive Platform for Aerial Vision-Language Navigation](../../ICLR2026/3d_vision/openfly_a_comprehensive_platform_for_aerial_vision-language_navigation.md)
 
 <!-- RELATED:END -->

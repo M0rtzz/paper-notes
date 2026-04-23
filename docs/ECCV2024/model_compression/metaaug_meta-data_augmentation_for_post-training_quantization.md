@@ -185,8 +185,8 @@ MetaAug 不仅测试准确率最高，训练-测试差距最小（23.42 vs PD-Qu
 
 - [PQ-SAM: Post-training Quantization for Segment Anything Model](pq-sam_post-training_quantization_for_segment_anything_model.md)
 - [Post Training Quantization for Efficient Dataset Condensation](../../AAAI2026/model_compression/post_training_quantization_for_efficient_dataset_condensation.md)
+- [GenQ: Quantization in Low Data Regimes with Generative Synthetic Data](genq_quantization_in_low_data_regimes_with_generative_synthetic_data.md)
 - [BoA: Attention-aware Post-training Quantization without Backpropagation](../../ICML2025/model_compression/boa_attention-aware_post-training_quantization_without_backpropagation.md)
 - [Quantization Error Propagation: Revisiting Layer-Wise Post-Training Quantization](../../NeurIPS2025/model_compression/quantization_error_propagation_revisiting_layer-wise_post-training_quantization.md)
-- [ATLAS: Autoformalizing Theorems through Lifting, Augmentation, and Synthesis of Data](../../NeurIPS2025/model_compression/atlas_autoformalizing_theorems_through_lifting_augmentation_and_synthesis_of_dat.md)
 
 <!-- RELATED:END -->

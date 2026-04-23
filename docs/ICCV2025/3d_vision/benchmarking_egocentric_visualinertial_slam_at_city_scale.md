@@ -129,6 +129,6 @@ LaMAria 是第一个同时覆盖大规模、第一人称、厘米精度、多种
 - [Egocentric Action-aware Inertial Localization in Point Clouds with Vision-Language Guidance](egocentric_action-aware_inertial_localization_in_point_clouds_with_vision-langua.md)
 - [Outdoor Monocular SLAM with Global Scale-Consistent 3D Gaussian Pointmaps](outdoor_monocular_slam_with_global_scale-consistent_3d_gaussian_pointmaps.md)
 - [Benchmarking and Learning Multi-Dimensional Quality Evaluator for Text-to-3D Generation](benchmarking_and_learning_multi-dimensional_quality_evaluator_for_text-to-3d_gen.md)
-- [S3E: Self-Supervised State Estimation for Radar-Inertial System](s3e_self-supervised_state_estimation_for_radar-inertial_system.md)
+- [Fish2Mesh Transformer: 3D Human Mesh Recovery from Egocentric Vision](fish2mesh_transformer_3d_human_mesh_recovery_from_egocentric_vision.md)
 
 <!-- RELATED:END -->

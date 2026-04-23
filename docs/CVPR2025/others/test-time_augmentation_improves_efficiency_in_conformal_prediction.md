@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：共形预测（Conformal Prediction）为分类器附加统计保证——输出包含真实标签的预测集合，在用户指定的置信水平 $1-\alpha$ 下保证覆盖率。但预测集越大越无用（极端：包含所有类），因此"效率"（预测集大小）是关键指标。
 
 **现有痛点**：共形预测的效率完全取决于底层分类器的输出质量——如果分类器对真实类给出高概率则预测集小，反之预测集大。现有方法通过改进共形得分函数（如 RAPS 加正则化）来提升效率，但未考虑改进分类器本身的概率输出。
@@ -105,7 +107,7 @@ ImageNet ResNet-50 预测集大小↓（$\alpha$=0.01）：
 - [Effortless Active Labeling for Long-Term Test-Time Adaptation](effortless_active_labeling_for_long-term_test-time_adaptation.md)
 - [One Sample is Enough to Make Conformal Prediction Robust](../../NeurIPS2025/others/one_sample_is_enough_to_make_conformal_prediction_robust.md)
 - [Open Set Label Shift with Test Time Out-of-Distribution Reference](open_set_label_shift_with_test_time_out-of-distribution_reference.md)
+- [Learning to Reason from Feedback at Test-Time](../../ACL2025/others/learning_to_reason_from_feedback_at_test-time.md)
 - [Time-Aware World Model for Adaptive Prediction and Control](../../ICML2025/others/time-aware_world_model_for_adaptive_prediction_and_control.md)
-- [Neural Collapse in Test-Time Adaptation](../../CVPR2026/others/neural_collapse_in_test-time_adaptation.md)
 
 <!-- RELATED:END -->

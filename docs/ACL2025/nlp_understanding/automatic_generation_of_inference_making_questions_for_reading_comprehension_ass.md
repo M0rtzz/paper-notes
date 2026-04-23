@@ -127,9 +127,9 @@ tags:
 ## 相关论文
 
 - [Can LLMs Reliably Simulate Real Students' Abilities in Mathematics and Reading Comprehension?](can_llms_reliably_simulate_real_students_abilities_in_mathematics_and_reading_co.md)
-- [NeuSym-RAG: Hybrid Neural Symbolic Retrieval with Multiview Structuring for PDF Question Answering](neusym_rag_pdf_qa.md)
-- [Dynamic Order Template Prediction for Generative Aspect-Based Sentiment Analysis](dot_absa_template.md)
-- [Hierarchical Retrieval with Evidence Curation for Open-Domain Financial QA](hierarchical_retrieval_with_evidence_curation_for_open-domain_financial_question.md)
+- [Déjà Vu? Decoding Repeated Reading from Eye Movements](deja_vu_decoding_repeated_reading_from_eye_movements.md)
+- [Attribution Methods in NLP: Navigating a Fragmented Landscape](attribution_methods_in_nlp_navigating_a_fragmented_landscape.md)
 - [SynGraph: A Dynamic Graph-LLM Synthesis Framework for Sparse Streaming User Sentiment Analysis](syngraph_a_dynamic_graph-llm_synthesis_framework_for_sparse_streaming_user_senti.md)
+- [Conversational Quality Assessment: A Large-Scale Corpus and Comprehensive Study](conversational_quality_assessment_a_large-scale_corpus_and_comprehensive_study.md)
 
 <!-- RELATED:END -->

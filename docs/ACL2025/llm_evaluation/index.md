@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 LLM评测方向 75篇论文解读
+  ACL2025 LLM评测方向 88篇论文解读
 description: >-
-  75篇ACL2025 LLM评测论文解读，主题涵盖：提出基于 conformal risk、引入 MisMatched——首个覆盖非 CS、提出 AbGen——首个评估 LLM等，每篇含核心思想与方法详解。
+  88篇ACL2025 LLM评测论文解读，主题涵盖：提出基于 conformal risk、引入 MisMatched——首个覆盖非 CS、提出 AbGen——首个评估 LLM等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**💬 ACL2025** · **75** 篇论文解读
+**💬 ACL2025** · **88** 篇论文解读
 
 **[A Conformal Risk Control Framework for Granular Word Assessment and Uncertainty Calibration of CLIPScore Quality Estimates](a_conformal_risk_control_framework_for_granular_word_assessment_and_uncertainty_.md)**
 
@@ -54,6 +54,14 @@ description: >-
 
 :   为白俄罗斯语（Belarusian，东斯拉夫语族）构建了首个NLU benchmark——BelarusianGLUE，包含5个任务约15K条实例，系统评估了BERT系列和LLM的表现，发现简单任务（情感分析）接近人类水平但难任务（Winograd）仍有显著差距，且最优模型类型因任务而异。
 
+**[Benchmarking LLMs and LLM-based Agents in Practical Vulnerability Detection for Code Repositories](benchmarking_llms_and_llm-based_agents_in_practical_vulnerability_detection_for_.md)**
+
+:   提出 JitVul 基准，将每个函数与其引入漏洞和修复漏洞的commit关联，基于879个CVE覆盖91种漏洞类型，系统评估了LLM和ReAct Agent在仓库级别漏洞检测中的能力，发现ReAct Agent优于纯LLM但两者均有较大改进空间。
+
+**[Benchmarking Uncertainty Quantification Methods for Large Language Models with LM-Polygraph](benchmarking_uncertainty_quantification_methods_for_large_language_models_with_l.md)**
+
+:   构建了 LM-Polygraph 不确定性量化（UQ）基准，实现了30+种SOTA方法，在11个文本生成任务上系统评估了UQ和置信度归一化技术的效果，为LLM幻觉检测提供了统一的评测框架。
+
 **[BESSTIE: A Benchmark for Sentiment and Sarcasm Classification for Varieties of English](besstie_a_benchmark_for_sentiment_and_sarcasm_classification_for_varieties_of_en.md)**
 
 :   构建 BESSTIE，首个针对英语变体（澳大利亚/印度/英国英语）的情感分析和讽刺检测标注基准，通过 9 个微调 LLM 评估发现模型在印度英语（外圈变体）上表现显著差于内圈变体，跨变体泛化能力也有限。
@@ -94,6 +102,10 @@ description: >-
 
 :   提出 Com2，一个基于因果事件图和因果理论（干预/反事实）构建的复杂常识推理基准，包含 2500 道主题和 1254 道侦探故事题目，揭示 LLM 在推理深度与广度上的显著不足。
 
+**[CoV-Eval: Can You Really Trust Code Copilots? Evaluating Large Language Models from a Code Security Perspective](cov_eval_evaluating_llms_from_code_security_perspective.md)**
+
+:   提出 CoV-Eval，首个多任务代码漏洞评估基准，涵盖代码补全、漏洞修复、漏洞检测和漏洞分类四个维度，并开发 VC-Judge 漏洞判断模型替代传统静态分析工具，对 20 个 LLM 进行全面评估，发现虽然多数 LLM 能检测漏洞代码，但仍倾向生成不安全代码且漏洞修复能力有限。
+
 **[CuLEmo: Cultural Lenses on Emotion - Benchmarking LLMs for Cross-Cultural Emotion Understanding](culemo_cultural_lenses_on_emotion_-_benchmarking_llms_for_cross-cultural_emotion.md)**
 
 :   提出 CuLEmo，首个评估文化感知情感预测的多语言基准数据集，涵盖 6 种语言/文化（阿姆哈拉语、阿拉伯语、英语、德语、印地语、西班牙语），通过 400 个文化相关场景评估 LLM 的跨文化情感理解能力，发现情感表达在不同文化间存在显著差异且 LLM 表现参差不齐。
@@ -105,6 +117,10 @@ description: >-
 **[EcomScriptBench: A Multi-task Benchmark for E-commerce Script Planning via Step-wise Intention-Driven Product Association](ecomscriptbench.md)**
 
 :   定义电商脚本规划（EcomScript）任务并构建首个大规模基准 EcomScriptBench（60 万脚本 + 240 万产品），通过购买意图桥接动作步骤与产品搜索的语义鸿沟，揭示当前 LLM 在该任务上的显著不足。
+
+**[EditInspector: A Benchmark for Evaluation of Text-Guided Image Edits](editinspector_a_benchmark_for_evaluation_of_text-guided_image_edits.md)**
+
+:   本文提出 EditInspector，一个基于人工标注的多维度文本引导图像编辑评估基准，覆盖编辑准确性、伪影检测、视觉质量、场景融合度、常识一致性和变化描述六个维度，揭示了当前 VLM 在全面评估编辑质量方面的不足，并提出在伪影检测和差异描述生成上超越 SOTA 的两种新方法。
 
 **[EducationQ: Evaluating LLMs' Teaching Capabilities Through Multi-Agent Dialogue Framework](educationq_evaluating_llms_teaching_capabilities_through_multi-agent_dialogue_fr.md)**
 
@@ -150,9 +166,21 @@ description: >-
 
 :   本文定义了"LLM 生成写作反馈"这一新任务，构建了包含 1,300 个带有受控写作缺陷的故事数据集（StoryFeedback，共 83K 对故事-反馈），通过自动指标和人工评估系统地测试了 8 个 LLM 在反馈的具体性、正确性、问题检测和正面评价适当性四个维度的表现，发现模型能给出具体且基本正确的反馈，但常常抓不住最大的写作问题，且不善于判断何时该给正面评价。
 
+**[HomeBench: Evaluating LLMs in Smart Homes with Valid and Invalid Instructions Across Single and Multiple Devices](homebench_evaluating_llms_in_smart_homes_with_valid_and_invalid_instructions_acr.md)**
+
+:   本文提出HomeBench，首个同时包含合法与非法指令、覆盖单设备和多设备场景的智能家居LLM评估基准，发现即使是GPT-4o在包含非法指令的多设备场景中成功率也仅为0.0%。
+
+**[How Far are LLMs from Being Our Digital Twins? A Benchmark for Persona-Based Behavior Chain Simulation](how_far_are_llms_from_being_our_digital_twins_a_benchmark_for_persona-based_beha.md)**
+
+:   本文提出BehaviorChain基准，首次评估LLM模拟连续人类行为的能力，包含1001个人格画像下的15846个行为样本，发现即使是最先进的模型在连续行为模拟任务上仍表现不佳。
+
 **[HPSS: Heuristic Prompting Strategy Search for LLM Evaluators](hpss_heuristic_prompting_strategy_search_for_llm_evaluators.md)**
 
 :   整合 8 个影响 LLM 评估提示效果的关键因子（评分尺度、ICL 示例、评估标准、参考答案、CoT、AutoCoT、度量指标、组件顺序），提出基于遗传算法的启发式提示策略搜索方法 HPSS，在 12,960 种组合空间中高效找到最优提示策略，仅用基线 5% 的生成成本即超越 G-Eval 和 CloserLook。
+
+**[Influences on LLM Calibration: A Study of Response Agreement, Loss Functions, and Prompt Styles](influences_on_llm_calibration_a_study_of_response_agreement_loss_functions_and_p.md)**
+
+:   本文系统研究影响 LLM 校准（calibration）的三大因素——多模型响应一致性、损失函数选择和 prompt 风格，提出 Calib-n 框架通过训练辅助模型聚合多个 LLM 的响应来估计置信度，发现响应一致性和 focal loss 能显著改善校准性能。
 
 **[JuStRank: Benchmarking LLM Judges for System Ranking](justrank_llm_judge_system_ranking.md)**
 
@@ -161,6 +189,10 @@ description: >-
 **[KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding](kitab-bench_a_comprehensive_multi-domain_benchmark_for_arabic_ocr_and_document_u.md)**
 
 :   KITAB-Bench 是一个涵盖 9 大领域 36 个子领域共 8,809 个样本的综合性阿拉伯语 OCR 基准，评估结果显示现代视觉语言模型（如 GPT-4o、Gemini）在字符错误率上平均超过传统 OCR 方法 60%，但在 PDF-to-Markdown 转换中最优模型仅达到 65% 准确率，凸显了阿拉伯语文档理解的巨大挑战。
+
+**[KRISTEVA: Close Reading as a Novel Task for Benchmarking Interpretive Reasoning](kristeva_close_reading_as_a_novel_task_for_benchmarking_interpretive_reasoning.md)**
+
+:   本文提出 KRISTEVA，首个评估 LLM 细读（close reading）能力的基准，包含 1331 道从大学课堂数据中构建的多选题，覆盖风格特征提取、上下文检索、特征-上下文多跳推理三个递进难度层次，19 个 SOTA LLM 在 11 个任务中的 10 个上仍落后于人类专家。
 
 **[La Leaderboard: A Large Language Model Leaderboard for Spanish Varieties and Languages of Spain and Latin America](la_leaderboard_spanish.md)**
 
@@ -202,6 +234,10 @@ description: >-
 
 :   系统研究人与 LLM 对话中的 grounding（建立共识）失败问题，发现 LLM 主动澄清的频率仅为人类的 1/3、主动追问的频率仅为 1/16，提出 Rifts 基准（约 1.8K 任务）评测 LLM 的 grounding 能力，并通过 grounding forecaster 实现初步干预。
 
+**[NorEval: A Norwegian Language Understanding and Generation Evaluation Benchmark](noreval_a_norwegian_language_understanding_and_generation_evaluation_benchmark.md)**
+
+:   本文提出 NorEval，一个包含 24 个人工创建数据集、覆盖 9 类任务的挪威语综合评测套件，系统地评测了 19 个开源挪威语语言模型在语言理解和生成上的能力，发现模型在常识推理、真实性和指令遵循上仍显著落后于人类。
+
 **[ONEBench to Test Them All: Sample-Level Benchmarking Over Open-Ended Capabilities](onebench_to_test_them_all_sample-level_benchmarking_over_open-ended_capabilities.md)**
 
 :   ONEBench提出了一种新的基准评测范式：将多个评测数据集的样本合并为统一数据池，通过Plackett-Luce排名聚合算法在样本级别进行模型比较，支持异构指标聚合、不完整数据处理和个性化能力探测。
@@ -209,6 +245,10 @@ description: >-
 **[Pap2Pat: Benchmarking Outline-Guided Long-Text Patent Generation with Patent-Paper Pairs](pap2pat_benchmarking_outline-guided_long-text_patent_generation_with_patent-pape.md)**
 
 :   构建了包含 1.8k 专利-论文配对的 Pap2Pat 基准，提出基于大纲的分块专利描述生成方法 COPGen，并设计了基于 NLI 的事实性/覆盖率/风格评估指标，系统评测了当前 LLM 在超长专利文档生成上的能力与不足。
+
+**[PapersPlease: A Benchmark for Evaluating Motivational Values of Large Language Models Based on ERG Theory](papersplease_a_benchmark_for_evaluating_motivational_values_of_large_language_mo.md)**
+
+:   提出PapersPlease基准，包含3700个基于ERG动机理论构建的道德困境场景，让LLM扮演移民检查官决定是否放行，揭示了6个LLM在动机价值优先级上的显著差异以及对边缘化身份群体的偏见。
 
 **[PATCH: Psychometrics-Assisted Benchmarking of LLMs Against Human Populations](patch_psychometrics-assisted_benchmarking_of_large_language_models_against_human.md)**
 
@@ -250,6 +290,10 @@ description: >-
 
 :   提出 SeedBench——首个面向种子科学（种子育种）的多任务 LLM 评测基准，包含 2,264 道专家验证题目，覆盖基因信息检索、基因功能调控和品种选育三大育种流程，对 26 个 LLM 进行系统评估，揭示了当前 LLM 与真实育种需求之间的显著差距。
 
+**[skLEP: A Slovak General Language Understanding Benchmark](sklep_a_slovak_general_language_understanding_benchmark.md)**
+
+:   本文提出 skLEP，首个面向斯洛伐克语的综合性自然语言理解基准，包含 9 个多层级任务（词级、句对级、文档级），并对斯洛伐克语专有模型、多语言模型和英语模型进行了系统评测，发现 mDeBERTaV3 在平均性能上超越了所有斯洛伐克专有模型。
+
 **[Something's Fishy In The Data Lake: A Critical Re-evaluation of Table Union Search Benchmarks](somethings_fishy_in_the_data_lake_a_critical_re-evaluation_of_table_union_search.md)**
 
 :   系统性分析了主流表联合搜索 (Table Union Search, TUS) 基准测试的三大结构性缺陷——过度重叠、语义简单、真值噪声，揭示简单的词袋 (BoW) 和预训练嵌入基线就能在这些基准上达到或超越复杂 SOTA 方法的效果，调研结论指出当前基准无法有效评估语义理解能力。
@@ -278,6 +322,10 @@ description: >-
 
 :   揭示LLM的先验知识在微调过程中会导致校准退化（已知数据引发过度自信，未知数据反而有利于校准），提出CogCalib认知感知校准框架，在训练中根据知识偏差动态应用不同学习策略，在保持任务性能的同时平均降低57%的ECE。
 
+**[TripCraft: A Benchmark for Spatio-Temporally Fine Grained Travel Planning](tripcraft_a_benchmark_for_spatio-temporally_fine_grained_travel_planning.md)**
+
+:   提出TripCraft——一个整合真实世界时空约束（公共交通、活动可用性、用户画像等）的旅行规划基准数据集，配套五个连续评估指标，系统评估LLM生成行程的质量，在参数指导设置下将餐饮时间分数从61%提升至80%。
+
 **[TripTailor: A Real-World Benchmark for Personalized Travel Planning](triptailor_a_real-world_benchmark_for_personalized_travel_planning.md)**
 
 :   提出 TripTailor，一个基于真实数据的大规模旅行规划 benchmark，包含 40 个城市的 50 万+ POI 和近 4000 条真实行程，并引入可行性、合理性和个性化三维评估框架，发现最先进 LLM 生成的行程不到 10% 能达到人类水平。
@@ -293,6 +341,10 @@ description: >-
 **[VoxEval: Benchmarking the Knowledge Understanding Capabilities of End-to-End Spoken Language Models](voxeval_benchmarking_the_knowledge_understanding_capabilities_of_end-to-end_spok.md)**
 
 :   提出 VoxEval，首个支持端到端纯语音输入-输出评估的 SpeechQA 基准，涵盖 56 个学科、26 种输入音频条件，系统揭示了当前端到端语音大模型在知识理解和数学推理方面的严重不足。
+
+**[WebWalker: Benchmarking LLMs in Web Traversal](webwalker_benchmarking_llms_in_web_traversal.md)**
+
+:   提出 WebWalkerQA 基准评测 LLM 在网页深层遍历中的信息获取能力，并设计 WebWalker 多智能体框架通过 Explore-Critic 范式模仿人类网页导航行为，结合 RAG 的横向-纵向集成显著提升了复杂问答性能。
 
 **[Where Are We? Evaluating LLM Performance on African Languages](where_are_we_evaluating_llm_performance_on_african_languages.md)**
 

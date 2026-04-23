@@ -138,6 +138,6 @@ ImageNet预训练时，Focus-Net和Overview-Net各连一个分类头，使用相
 - [Paint by Inpaint: Learning to Add Image Objects by Removing Them First](paint_by_inpaint_learning_to_add_image_objects_by_removing_them_first.md)
 - [ConText: Driving In-context Learning for Text Removal and Segmentation](../../ICML2025/segmentation/context_driving_in-context_learning_for_text_removal_and_segmentation.md)
 - [The Power of Context: How Multimodality Improves Image Super-Resolution](the_power_of_context_how_multimodality_improves_image_super-resolution.md)
-- [Dynamic Derivation and Elimination: Audio Visual Segmentation with Enhanced Audio Semantics](dynamic_derivation_and_elimination_audio_visual_segmentation_with_enhanced_audio.md)
+- [ROCKET-1: Mastering Open-World Interaction with Visual-Temporal Context Prompting](rocket-1_mastering_open-world_interaction_with_visual-temporal_context_prompting.md)
 
 <!-- RELATED:END -->

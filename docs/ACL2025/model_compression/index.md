@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 模型压缩方向 65篇论文解读
+  ACL2025 模型压缩方向 75篇论文解读
 description: >-
-  65篇ACL2025 模型压缩论文解读，主题涵盖：提出 500xCompressor，将最多约、发现 KV Cache 的 outlier、AlignDistil 证明了 RLHF等，每篇含核心思想与方法详解。
+  75篇ACL2025 模型压缩论文解读，主题涵盖：提出 500xCompressor，将最多约、发现 KV Cache 的 outlier、AlignDistil 证明了 RLHF等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**💬 ACL2025** · **65** 篇论文解读
+**💬 ACL2025** · **75** 篇论文解读
 
 **[500xCompressor: Generalized Prompt Compression for Large Language Models](500xcompressor_generalized_prompt_compression_for_large_language_models.md)**
 
@@ -38,6 +38,10 @@ description: >-
 
 :   BeamLoRA 发现 LoRA 模块中不同 rank 的重要性存在显著差异且随训练动态演变，受 beam search 启发，提出在训练过程中动态评估 rank 重要性、剪枝不重要的 rank 并将参数空间扩展给重要 rank，在固定总 rank 下提升性能，在三个基座模型的 12 个数据集上持续优于 LoRA 及其变体。
 
+**[Beyond Logits: Aligning Feature Dynamics for Effective Knowledge Distillation](beyond_logits_aligning_feature_dynamics_for_effective_knowledge_distillation.md)**
+
+:   本文提出一种超越 logit 匹配的知识蒸馏方法，通过对齐教师和学生模型在训练过程中的特征变化动态（而非静态特征快照），实现更有效的知识转移，显著提升了 NLP 任务上的蒸馏效果。
+
 **[Beyond Text Compression: Evaluating Tokenizers Across Scales](beyond_text_compression_tokenizers.md)**
 
 :   本文系统评估了 6 种 tokenizer 在 350M 和 2.7B 参数模型上的影响，发现 tokenizer 选择对英文任务影响极小但对多语言任务（如机器翻译）有显著且跨尺度一致的影响，并提出了基于 Zipf 定律的新型内在评估指标，比文本压缩率能更好地预测多语言场景下的下游性能。
@@ -54,9 +58,25 @@ description: >-
 
 :   提出 BrainECHO 三阶段框架（自编码—对齐—微调），通过向量量化离散表示将脑信号映射到 Mel 频谱图空间，再借助 Whisper 完成非侵入式脑信号到文本的高质量解码。
 
+**[CAMI: A Counselor Agent Supporting Motivational Interviewing through State Inference and Topic Exploration](cami_a_counselor_agent_supporting_motivational_interviewing_through_state_infere.md)**
+
+:   本文提出CAMI（Counselor Agent for Motivational Interviewing），一个基于动机式访谈（MI）原则的咨询Agent，通过STAR框架（状态推断、话题探索、回复生成）来引导来访者产生改变谈话（change talk），在自动化和人工评估中均优于现有方法。
+
 **[Capture the Key in Reasoning to Enhance CoT Distillation Generalization](capture_key_cot_distillation.md)**
 
 :   提出 EDIT（mistakE-Driven key reasonIng step distillaTion），通过构造正确/错误配对的 dual CoTs 数据，利用最小编辑距离算法定位关键推理步骤，并以 token 级细粒度损失函数引导小模型聚焦学习这些关键步骤，而非简单模仿教师的推理形式。
+
+**[CFSP: An Efficient Structured Pruning Framework for LLMs with Coarse-to-Fine Activation Information](cfsp_an_efficient_structured_pruning_framework_for_llms_with_coarse-to-fine_acti.md)**
+
+:   本文提出CFSP框架，利用粗粒度（block间）和细粒度（block内）的激活信息作为重要性准则指导LLM的结构化剪枝，仅需一次前向传播即可完成剪枝，在多个模型和稀疏度预算上优于现有方法。
+
+**[Compact and Compressible Representations for LLMs Using Structured Sparse Decomposition](compact_and_compressible_representations_for_llms_using_structured_sparse_decom.md)**
+
+:   本文提出一种结构化稀疏分解方法，将LLM权重矩阵分解为低秩部分和结构化稀疏部分的组合，实现高压缩比的同时保持模型性能，使大模型在资源受限环境下高效部署成为可能。
+
+**[Compression in Transformer Language Models Has a Surprising Relationship with Performance](compression_in_transformer_language_models_has_a_surprising_relationship_with_pe.md)**
+
+:   本文从信息论角度研究Transformer语言模型中压缩（权重的可压缩性）与模型性能之间的关系，发现了一个反直觉的现象：在一定范围内，更容易被压缩的模型反而具有更好的泛化性能，这与最小描述长度（MDL）原理的预测一致。
 
 **[Correcting Hallucinations in News Summaries: Exploration of Self-Correcting LLM Methods with External Knowledge](correcting_hallucinations_in_news_summaries_exploration_of_self-correcting_llm_m.md)**
 
@@ -82,6 +102,10 @@ description: >-
 
 :   提出 DeBoP 范式，将轻量级 LLM（LwLLM）的行为优化转化为对离散执行序列的优化，通过无梯度蒙特卡洛树搜索（MCTS）自动寻找最优 demonstration，使 LLaMA3-8B 在多数任务上超越 GPT-3.5 并减少约 60% 计算时间。
 
+**[Disentangling the Roles of Representation and Selection in Data Pruning](disentangling_the_roles_of_representation_and_selection_in_data_pruning.md)**
+
+:   本文将数据剪枝（data pruning）系统性地拆解为"数据表示"和"选择算法"两个独立维度，通过理论分析和大规模实验发现：表示质量（尤其是训练梯度）对剪枝效果起决定性作用，而不同选择算法在不同场景下各有优劣，且常常偏离其设计目标。
+
 **[DRPruning: Efficient Large Language Model Pruning through Distributionally Robust Optimization](drpruning_robust_pruning.md)**
 
 :   DRPruning 将分布稳健优化（DRO）引入 LLM 结构化剪枝，通过 scaling law 预测各领域最终 loss 作为参考、动态调整训练数据分布来平衡剪枝后各领域性能，在单语和多语设置下分别以 -5.59% PPL 和 +2.95% 下游任务的提升超越 Sheared LLaMA。
@@ -89,6 +113,10 @@ description: >-
 **[EAC-MoE: Expert-Selection Aware Compressor for Mixture-of-Experts Large Language Models](eac_moe_expert_aware_compression.md)**
 
 :   EAC-MoE 深入分析 MoE 模型的专家选择特性，提出两个互补模块——量化时通过逐层校准路由器缓解 expert-shift 问题（QESC），推理时基于专家选择频率动态剪枝不重要专家（PESF），在 4 个 MoE 模型上实现显著的内存压缩和推理加速且精度损失极小。
+
+**[Efficient Long Context Language Model Retrieval with Compression](efficient_long_context_language_model_retrieval_with_compression.md)**
+
+:   提出 CoLoR（Compression for Long context Retrieval），通过偏好优化和长度正则化联合训练段落压缩模型，在保持长上下文语言模型检索性能提升 6% 的同时将上下文长度压缩 1.91 倍。
 
 **[EfficientQAT: Efficient Quantization-Aware Training for Large Language Models](efficientqat.md)**
 
@@ -118,6 +146,10 @@ description: >-
 
 :   Graph Counselor 提出了一个多智能体协作的 GraphRAG 推理框架，通过 Planning/Thought/Execution 三个 Agent 自适应提取图结构信息，并引入多视角自反思机制纠正推理偏差，在多个图推理任务上超越现有方法。
 
+**[GSQ-Tuning: Group-Shared Exponents Integer in Fully Quantized Training for LLMs On-Device Fine-tuning](gsq-tuning_group-shared_exponents_integer_in_fully_quantized_training_for_llms_o.md)**
+
+:   GSQ-Tuning 提出了一种基于"组共享指数整数"（Group-Shared Exponents Integer）格式的全量化微调框架，在推理和训练中完全消除浮点运算，结合 LoRA 适配器实现了精度接近 BF16 微调、内存降低 1.85x、功耗降低 5x、芯片面积缩小 11x 的边端 LLM 微调方案。
+
 **[IAM: Efficient Inference through Attention Mapping between Different-scale LLMs](iam_efficient_inference_through_attention_mapping_between_different-scale_llms.md)**
 
 :   发现不同规模 LLM 的注意力矩阵具有高度相似性，提出 IAM 框架——在 prefill 阶段建立小模型与大模型注意力头之间的余弦相似度映射，decode 阶段用小模型的注意力矩阵替代大模型映射层的注意力计算，实现 KV cache 减少 22% 和推理加速 11%，且与现有 KV cache 压缩方法正交。
@@ -146,6 +178,10 @@ description: >-
 
 :   本文将 adapter souping（权重平均）与交叉注意力微调结合用于低资源克里奥尔语机器翻译，发现虽然方法带来了显著提升（最高 +8 BLEU），但语言关联性与 adapter 性能无有意义的协变关系——随机初始化的未训练 adapter 表现同样优秀，表明 adapter 在此设定下的作用本质是**参数正则化而非语言信息迁移**。
 
+**[LLMSR@XLLM25: Less is More: Enhancing Structured Multi-Agent Reasoning via Quality-Guided Distillation](llmsrxllm25_less_is_more_enhancing_structured_multi-agent_reasoning_via_quality-.md)**
+
+:   本文提出 Less is More 框架，在仅有 24 个标注样本的极端低资源条件下，通过逆向提示归纳、GPT-4o 增强的检索式推理合成和双阶段奖励引导过滤三个阶段，蒸馏出高质量的结构化推理数据来微调 LLaMA3-8B 多智能体系统，在 XLLM@ACL2025 共享任务中获得第三名。
+
 **[LongReD: Mitigating Short-Text Degradation of Long-Context Large Language Models via Restoration Distillation](longred_mitigating_short-text_degradation_of_long-context_large_language_models_.md)**
 
 :   本文系统分析了长上下文LLM在短文本任务上性能退化的两个原因（分布漂移和灾难性遗忘），并提出LongReD方法，通过短文本蒸馏和短到长蒸馏两个训练目标来最小化扩展模型与原始模型之间的分布差异，在保持长文本建模能力的同时将短文本性能保留至原始模型的99.4%。
@@ -172,9 +208,9 @@ description: >-
 
 :   OSP（Outlier-Safe Pre-Training）框架通过三项创新——Muon 优化器（消除特权基方向）、Single-Scale RMSNorm（防止通道放大）和可学习嵌入投影层（重分布嵌入层激活），在预训练阶段主动防止异常值形成，训练的 1.4B 模型在 1T tokens 上实现近零超额峰度（0.04 vs 标准模型的 1818.56），在激进4-bit量化下平均分 35.7（Adam 为 26.5），仅 2% 训练开销。
 
-**[C3A: 基于循环卷积的参数高效微调](parameter-efficient_fine-tuning_via_circular_convolution.md)**
+**[C3A: Parameter-Efficient Fine-Tuning via Circular Convolution](parameter-efficient_fine-tuning_via_circular_convolution.md)**
 
-:   提出Circular Convolution Adaptation (C3A)，用循环卷积算子替代LoRA的低秩矩阵分解来构造增量权重$\Delta W$——循环矩阵的秩与可训练参数数量解耦，实现"少参数+高秩"适配；同时利用FFT加速前向/反向传播，在计算和显存效率上均可与LoRA媲美。在GLUE、常识推理、数学推理、代码生成等任务上持续优于LoRA及其变体。
+:   提出 C3A 方法用循环卷积算子替代 LoRA 的低秩矩阵分解实现参数高效微调，核心优势是矩阵秩与参数量解耦——可用少量参数实现高秩适配，同时通过 FFT 保持与 LoRA 相当的计算和内存效率，在多种微调任务上一致超越 LoRA 及其变体。
 
 **[Pre-training Distillation for Large Language Models: A Design Space Exploration](pre-training_distillation_for_large_language_models_a_design_space_exploration.md)**
 
@@ -212,6 +248,10 @@ description: >-
 
 :   提出 Sci-LoRA——一种混合多领域 LoRA 的框架，通过对比学习训练文本编码器+动态权重生成器+LoRA 融合模块，在无需领域标签的情况下实现跨12个学科领域的科学文本通俗化改写，在5个数据集10个指标上超越 SOTA。
 
+**[SCOPE: Optimizing Key-Value Cache Compression in Long-context Generation](scope_optimizing_key-value_cache_compression_in_long-context_generation.md)**
+
+:   提出 SCOPE 框架，针对长上下文生成任务分别优化 prefill 和 decoding 阶段的 KV 缓存压缩策略——prefill 阶段保留完整缓存以维持理解能力，decoding 阶段采用滑动窗口选择 heavy hitters，并通过 adaptive 和 discontinuous 策略进一步优化内存和传输效率。
+
 **[SEE: Strategic Exploration and Exploitation for Cohesive In-Context Prompt Optimization](see_strategic_exploration_exploitation_prompt_optimization.md)**
 
 :   SEE 是首个将指令（instruction）和示例（examples）作为整体进行联合优化的 prompt 优化框架，采用元启发式优化原则设计四阶段探索-利用策略，配合五种 LLM 算子的自适应选择，在 35 个基准任务上大幅超越 9 种 SOTA 方法。
@@ -223,6 +263,10 @@ description: >-
 **[Semantic Exploration with Adaptive Gating for Efficient Problem Solving with Language Models](semantic_exploration_adaptive_gating.md)**
 
 :   针对 LLM 树搜索推理中"简单题也做复杂搜索"和"语义重复路径反复扩展"两大浪费问题，提出 SEAG 框架：先用 entropy 门控决定是否启动树搜索，再用语义聚类合并等价推理步骤，最终在准确率平均提升 4.3% 的同时仅需 RAP 31% 的推理开销。
+
+**[Sparse Logit Sampling: Accelerating Knowledge Distillation in LLMs](sparse_logit_sampling_accelerating_knowledge_distillation_in_llms.md)**
+
+:   证明了朴素的 Top-K 稀疏知识蒸馏会产生有偏估计，提出基于重要性采样的 Random Sampling Knowledge Distillation (RSKD) 方法，提供无偏梯度估计，仅需存储极度稀疏的 logits，训练开销仅比交叉熵增加不到 10%，性能与全量蒸馏持平。
 
 **[State-offset Tuning: State-based Parameter-Efficient Fine-Tuning for State Space Models](state_offset_tuning_ssm_peft.md)**
 
@@ -247,10 +291,6 @@ description: >-
 **[Trans-PEFT: Transferable Parameter-Efficient Fine-Tuning on Evolving Base Models](trans_peft_transferable.md)**
 
 :   Trans-PEFT 发现基座模型更新（如 Qwen2→Qwen2.5）主要改变 FFN 层的任务知识存储而较少影响 Attention 层的任务模式，据此提出层内知识掩码和跨层知识丢弃两种策略，使在旧版本上训练的 PEFT 模块可直接迁移到新版本而不需重新微调，性能提升可达 30%。
-
-**[TrimLLM: Progressive Layer Dropping for Domain-Specific LLMs](trimllm_layer_dropping.md)**
-
-:   提出TrimLLM，基于层级专业化（layer-wise specialization）现象，在领域微调过程中渐进式丢弃对目标领域不重要的层，在50-60%压缩率下无精度损失且获得2.1-5.7倍推理加速，且不依赖专用硬件。
 
 **[UniICL: An Efficient ICL Framework Unifying Compression, Selection, and Generation](uniicl_icl_framework.md)**
 

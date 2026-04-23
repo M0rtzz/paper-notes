@@ -169,6 +169,6 @@ CDIM 在保持可比或更优质量的同时，推理速度比 DPS 快 ~28 倍�
 - [Difix3D+: Improving 3D Reconstructions with Single-Step Diffusion Models](../../CVPR2025/3d_vision/difix3d_improving_3d_reconstructions_with_single-step_diffusion_models.md)
 - [SpinMeRound: Consistent Multi-View Identity Generation Using Diffusion Models](../../ICCV2025/3d_vision/spinmeround_consistent_multi-view_identity_generation_using_diffusion_models.md)
 - [Scaling Properties of Diffusion Models for Perceptual Tasks](../../CVPR2025/3d_vision/scaling_properties_of_diffusion_models_for_perceptual_tasks.md)
-- [Fine-Grained Erasure in Text-to-Image Diffusion-based Foundation Models](../../CVPR2025/3d_vision/fine-grained_erasure_in_text-to-image_diffusion-based_foundation_models.md)
+- [MVDD: Multi-View Depth Diffusion Models](../../ECCV2024/3d_vision/mvdd_multi-view_depth_diffusion_models.md)
 
 <!-- RELATED:END -->

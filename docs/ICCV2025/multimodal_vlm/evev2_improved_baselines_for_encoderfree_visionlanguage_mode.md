@@ -25,10 +25,14 @@ tags:
 系统性地探索无视觉编码器VLM的最优架构和训练策略，提出Divide-and-Conquer架构将transformer完全分解为模态专用组件（attention/FFN/LayerNorm各模态独立），在仅100M公开数据下超越所有encoder-free同类并接近encoder-based VLM性能。
 
 ## 背景与动机
-主流VLM（如LLaVA/InternVL）依赖预训练视觉编码器（如CLIP-ViT），但编码器带来分辨率/宽高比的惯性偏置、复杂的多组件协调需求、以及独立scaling的困难。Encoder-free VLM（如Fuyu/EVEv1）直接让一个统一的decoder-only模型从零学习视觉感知，结构更简洁。但挑战在于：(1) 从零学习视觉感知需要大量数据和计算；(2) 视觉和语言在同一个模型中可能产生表示干扰——简单的权重共享或MoE解耦不够充分。
 
-## 核心问题
-如何让encoder-free VLM高效地从零学习视觉感知,同时最小化视觉和语言模态之间的表示干扰？
+### 现有痛点
+
+**现有痛点**：**领域现状**：主流VLM（如LLaVA/InternVL）依赖预训练视觉编码器（如CLIP-ViT），但编码器带来分辨率/宽高比的惯性偏置、复杂的多组件协调需求、以及独立scaling的困难。Encoder-free VLM（如Fuyu/EVEv1）直接让一个统一的decoder-only模型从零学习视觉感知，结构更简洁。但挑战在于：(1) 从零学习视觉感知需要大量数据和计算；(2) 视觉和语言在同一个模型中可能产生表示干扰——简单的权重共享或MoE解耦不够充分。
+
+### 解决思路
+
+**本文目标**：如何让encoder-free VLM高效地从零学习视觉感知,同时最小化视觉和语言模态之间的表示干扰？
 
 ## 方法详解
 
@@ -72,7 +76,7 @@ EVEv2.0基于Qwen2.5-7B LLM，用简单的双层卷积做patch embedding（strid
 - LayerNorm是最需要解耦的模块（仅解耦LN即可获得明显提升）
 - 推理速度：EVEv2.0 TTFT仅比EVEv1.0多13%，TPS相同（35 tok/s）
 
-## 亮点
+## 亮点与洞察
 - **ICCV Highlight，系统性研究的典范**：不是追求SOTA而是系统性地回答"encoder-free VLM的最优路径是什么"
 - **Divide-and-Conquer架构**：完全模态解耦是encoder-free VLM的关键突破——简单但有效，通过量化分析（LLM vs VLM权重变化）给出充分动机
 - **DenseFusion++标注引擎**的高效性：7B模型标注质量超越13B+17B组合，可规模化
@@ -86,13 +90,13 @@ EVEv2.0基于Qwen2.5-7B LLM，用简单的双层卷积做patch embedding（strid
 - 2×7B参数的存储需求高于标准7B模型
 - 尚未扩展到音频/视频模态
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs. EVEv1**：EVEv1用单个dense模型+视觉监督；EVEv2完全解耦+DenseFusion++，无需视觉监督，性能大幅提升
 - **vs. Mono-InternVL**：Mono-InternVL仅解耦FFN（MoE），EVEv2完全解耦所有组件；但Mono-InternVL用13x更多数据
 - **vs. Scaling Language-Free Visual Repr**：Web-SSL证明SSL可以匹配CLIP；EVEv2证明全零学习的视觉encoder也可以匹配预训练encoder——两者方向互补
 - **vs. FALCON**：FALCON在encoder内部用register压缩高分辨率token；EVEv2从根本上去掉encoder
 
-## 启发与关联
+## 相关工作与启发
 - **idea潜力**：完全模态解耦的思路可以扩展到三模态（视觉/文本/音频）的native multimodal model
 - Divide-and-Conquer与Dynamic-DINO的MoE方法可以结合——在decoder-only架构中使用模态感知的细粒度专家
 - DenseFusion++标注引擎的思路对数据工程领域有重要参考价值
@@ -107,10 +111,10 @@ EVEv2.0基于Qwen2.5-7B LLM，用简单的双层卷积做patch embedding（strid
 
 ## 相关论文
 
+- [METEOR: Multi-Encoder Collaborative Token Pruning for Efficient Vision Language Models](meteor_multi-encoder_collaborative_token_pruning_for_efficient_vision_language_m.md)
 - [Florence-VL: Enhancing Vision-Language Models with Generative Vision Encoder and Depth-Breadth Fusion](../../CVPR2025/multimodal_vlm/florence-vl_enhancing_vision-language_models_with_generative_vision_encoder_and_.md)
 - [Scaling Inference-Time Search with Vision Value Model for Improved Visual Comprehension](scaling_inferencetime_search_with_vision_value_model_for_imp.md)
 - [Training-Free Personalization via Retrieval and Reasoning on Fingerprints](training-free_personalization_via_retrieval_and_reasoning_on_fingerprints.md)
 - [Exploiting Vision Language Model for Training-Free 3D Point Cloud OOD Detection](exploiting_vision_language_model_for_training-free_3d_point_cloud_ood_detection_.md)
-- [CapeLLM: Support-Free Category-Agnostic Pose Estimation with Multimodal Large Language Models](capellm_support-free_category-agnostic_pose_estimation_with_multimodal_large_lan.md)
 
 <!-- RELATED:END -->

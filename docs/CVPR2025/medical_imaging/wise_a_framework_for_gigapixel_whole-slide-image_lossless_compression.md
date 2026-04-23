@@ -118,10 +118,10 @@ WISE 是一个纯算法无训练的压缩方法，不涉及深度学习训练。
 
 ## 相关论文
 
+- [CARL: A Framework for Equivariant Image Registration](carl_a_framework_for_equivariant_image_registration.md)
 - [Exploiting Low-Dimensional Manifold of Features for Few-Shot Whole Slide Image Classification](../../ICLR2026/medical_imaging/exploiting_low-dimensional_manifold_of_features_for_few-shot_whole_slide_image_c.md)
 - [Act Like a Pathologist: Tissue-Aware Whole Slide Image Reasoning](../../CVPR2026/medical_imaging/act_like_a_pathologist_tissue-aware_whole_slide_image_reasoning.md)
 - [Towards Effective and Efficient Context-aware Nucleus Detection in Histopathology Whole Slide Images](../../AAAI2026/medical_imaging/towards_effective_and_efficient_context-aware_nucleus_detection_in_histopatholog.md)
 - [Scalable Generation of Spatial Transcriptomics from Histology Images via Whole-Slide Flow Matching](../../ICML2025/medical_imaging/scalable_generation_of_spatial_transcriptomics_from_histology_images_via_whole-s.md)
-- [MUSE: Harnessing Precise and Diverse Semantics for Few-Shot Whole Slide Image Classification](../../CVPR2026/medical_imaging/muse_harnessing_precise_and_diverse_semantics_for_few-shot_whole_slide_image_cla.md)
 
 <!-- RELATED:END -->

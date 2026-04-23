@@ -144,6 +144,6 @@ tags:
 - [Mr. DETR++: Instructive Multi-Route Training for Detection Transformers with MoE](mr_detr_instructive_multi-route_training_for_detection_transformers.md)
 - [FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies](../../NeurIPS2025/object_detection/flexevent_towards_flexible_event-frame_object_detection_at_varying_operational_f.md)
 - [Revisiting Adversarial Patch Defenses on Object Detectors: Unified Evaluation, Large-Scale Dataset, and New Insights](../../ICCV2025/object_detection/revisiting_adversarial_patch_defenses_on_object_detectors_unified_evaluation_lar.md)
-- [Plain-Det: A Plain Multi-Dataset Object Detector](../../ECCV2024/object_detection/plain-det_a_plain_multi-dataset_object_detector.md)
+- [BurstDeflicker: A Benchmark Dataset for Flicker Removal in Dynamic Scenes](../../NeurIPS2025/object_detection/delving_into_cascaded_instability_a_lipschitz_continuity_view_on_image_restorati.md)
 
 <!-- RELATED:END -->

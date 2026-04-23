@@ -130,9 +130,9 @@ tags:
 ## 相关论文
 
 - [Single Pixel Image Classification using an Ultrafast Digital Light Projector](../../CVPR2025/autonomous_driving/single_pixel_image_classification_using_an_ultrafast_digital_light_projector.md)
-- [Pixel-Aligned RGB-NIR Stereo Imaging and Dataset for Robot Vision](../../CVPR2025/autonomous_driving/pixel-aligned_rgb-nir_stereo_imaging_and_dataset_for_robot_vision.md)
 - [Unlocking Generalization Power in LiDAR Point Cloud Registration](../../CVPR2025/autonomous_driving/unlocking_generalization_power_in_lidar_point_cloud_registration.md)
+- [Pixel-Aligned RGB-NIR Stereo Imaging and Dataset for Robot Vision](../../CVPR2025/autonomous_driving/pixel-aligned_rgb-nir_stereo_imaging_and_dataset_for_robot_vision.md)
 - [M²-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs](../../CVPR2025/autonomous_driving/m2-occ_resilient_3d_semantic_occupancy_prediction_for_autonomous_driving_with_in.md)
-- [SPIRAL: Semantic-Aware Progressive LiDAR Scene Generation and Understanding](spiral_semantic-aware_progressive_lidar_scene_generation_and_understanding.md)
+- [Geometry-to-Image Synthesis-Driven Generative Point Cloud Registration](../../ICML2025/autonomous_driving/geometry-to-image_synthesis-driven_generative_point_cloud_registration.md)
 
 <!-- RELATED:END -->

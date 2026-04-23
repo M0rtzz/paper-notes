@@ -159,9 +159,9 @@ PPCL 分两个阶段、三个步骤：
 ## 相关论文
 
 - [BinaryAttention: One-Bit QK-Attention for Vision and Diffusion Transformers](binaryattention_one-bit_qk-attention_for_vision_and_diffusion_transformers.md)
+- [OPAD: Adversarial Concept Distillation for One-Step Diffusion Personalization](opad_adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
 - [HiAP: A Multi-Granular Stochastic Auto-Pruning Framework for Vision Transformers](hiap_a_multigranular_stochastic_autopruning_framew.md)
+- [Adversarial Concept Distillation for One-Step Diffusion Personalization](adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
 - [FAIR-Pruner: Leveraging Tolerance of Difference for Flexible Automatic Layer-Wise Neural Network Pruning](fair-pruner_leveraging_tolerance_of_difference_for_flexible_automatic_layer-wise.md)
-- [Stronger Normalization-Free Transformers](stronger_normalization-free_transformers.md)
-- [SODA: Sensitivity-Oriented Dynamic Acceleration for Diffusion Transformer](soda_sensitivity-oriented_dynamic_acceleration_for_diffusion_transformer.md)
 
 <!-- RELATED:END -->

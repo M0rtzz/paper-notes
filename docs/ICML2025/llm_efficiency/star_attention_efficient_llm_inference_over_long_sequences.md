@@ -26,15 +26,18 @@ tags:
 
 ## 研究背景与动机
 
-### 长序列推理的瓶颈
-百万token级别的上下文日益常见（代码分析/多文档摘要），但自注意力的二次复杂度使推理极其昂贵。
+### 核心矛盾
 
-### 已有方法的局限
-- FlashAttention：加速但不改变复杂度
+**核心矛盾**：百万token级别的上下文日益常见（代码分析/多文档摘要），但自注意力的二次复杂度使推理极其昂贵。
+
+### 解决思路
+
+**本文目标**：- FlashAttention：加速但不改变复杂度
 - Ring Attention：分布式但需要环形通信
 - 分块编码方法：需要微调或额外组件
 
 ### Star Attention的核心观察
+
 推理通常分两阶段：(1)长上下文编码，(2)短查询生成。上下文token只需局部注意力，查询token需要全局注意力。
 
 ## 方法详解
@@ -60,6 +63,9 @@ tags:
 
 ### 推理加速
 
+
+### 主实验
+
 | 上下文长度 | 主机数 | 加速倍数 | 精度保持 |
 |-----------|--------|---------|---------|
 | 128K | 4 | 4x | 99% |
@@ -67,6 +73,9 @@ tags:
 | 512K | 16 | **11x** | **97%** |
 
 ### 精度对比（Llama3.1-8B/70B）
+
+
+### 消融实验
 
 | 基准 | 标准注意力 | Star Attention |
 |------|----------|---------------|
@@ -123,10 +132,10 @@ tags:
 
 ## 相关论文
 
+- [Squeezed Attention: Accelerating Long Context Length LLM Inference](../../ACL2025/llm_efficiency/squeezed_attention_accelerating_long_context_length_llm_inference.md)
 - [Scaling Inference-Efficient Language Models](scaling_inference-efficient_language_models.md)
-- [LycheeDecode: Accelerating Long-Context LLM Inference via Hybrid-Head Sparse Decoding](../../ICLR2026/llm_efficiency/lycheedecode_accelerating_long-context_llm_inference_via_hybrid-head_sparse_deco.md)
-- [DISC: Dynamic Decomposition Improves LLM Inference Scaling](../../NeurIPS2025/llm_efficiency/disc_dynamic_decomposition_improves_llm_inference_scaling.md)
 - [Efficient Length-Generalizable Attention via Causal Retrieval for Long-Context Language Modeling](efficient_length-generalizable_attention_via_causal_retrieval_for_long-context_l.md)
-- [Hierarchical Balance Packing: Towards Efficient Supervised Fine-tuning for Long-Context LLM](../../NeurIPS2025/llm_efficiency/hierarchical_balance_packing_towards_efficient_supervised_fine-tuning_for_long-c.md)
+- [LycheeDecode: Accelerating Long-Context LLM Inference via Hybrid-Head Sparse Decoding](../../ICLR2026/llm_efficiency/lycheedecode_accelerating_long-context_llm_inference_via_hybrid_speculative_deco.md)
+- [DISC: Dynamic Decomposition Improves LLM Inference Scaling](../../NeurIPS2025/llm_efficiency/disc_dynamic_decomposition_improves_llm_inference_scaling.md)
 
 <!-- RELATED:END -->

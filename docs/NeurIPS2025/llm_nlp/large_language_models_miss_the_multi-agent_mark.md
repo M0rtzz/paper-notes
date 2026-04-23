@@ -118,9 +118,9 @@ Position paper 通过调研 1400+ 篇论文，系统论证当前 MAS LLMs 在四
 ## 相关论文
 
 - [SYMPHONY: Synergistic Multi-agent Planning with Heterogeneous Language Model Assemblies](symphony_synergistic_multi-agent_planning_with_heterogeneous_language_model_asse.md)
+- [MasRouter: Learning to Route LLMs for Multi-Agent Systems](../../ACL2025/llm_nlp/masrouter_learning_to_route_llms_for_multi-agent_systems.md)
+- [AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](../../ACL2025/llm_nlp/agentdropout_dynamic_agent_elimination_for_token-efficient_and_high-performance_.md)
 - [Red-Teaming LLM Multi-Agent Systems via Communication Attacks](../../ACL2025/llm_nlp/red-teaming_llm_multi-agent_systems_via_communication_attacks.md)
-- [EnCompass: Enhancing Agent Programming with Search Over Program Execution Paths](encompass_enhancing_agent_programming_with_search_over_program_execution_paths.md)
-- [DICE-Bench: Evaluating the Tool-Use Capabilities of Large Language Models in Multi-Round, Multi-Party Dialogues](../../ACL2025/llm_nlp/dice-bench_evaluating_the_tool-use_capabilities_of_large_language_models_in_mult.md)
-- [Solving Inequality Proofs with Large Language Models](solving_inequality_proofs_with_large_language_models.md)
+- [AI as a Novel Ethical Agent: Exploring Moral Judgments by Large Language Models](../../ACL2025/llm_nlp/ai_as_a_novel_ethical_agent_exploring_moral_judgments_by_large_language_models.md)
 
 <!-- RELATED:END -->

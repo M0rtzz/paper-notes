@@ -146,6 +146,6 @@ CodeGEMM 的能效（19.36 GFLOPS/W）是 AQLM 2×8 的 1.9×，内存子系统�
 - [Vision-centric Token Compression in Large Language Model](vision-centric_token_compression_in_large_language_model.md)
 - [One QuantLLM for ALL: Fine-tuning Quantized LLMs Once for Efficient Deployments](../../ACL2025/model_compression/one_quantllm_for_all_fine-tuning_quantized_llms_once_for_efficient_deployments.md)
 - [VESSA: Video-based objEct-centric Self-Supervised Adaptation for Visual Foundation Models](vessa_video-based_object-centric_self-supervised_adaptation_for_visual_foundatio.md)
-- [Matryoshka Pilot: Learning to Drive Black-Box LLMs with LLMs](matryoshka_pilot_learning_to_drive_black-box_llms_with_llms.md)
+- [Learning to Factorize and Adapt: A Versatile Approach Toward Universal Spatio-Temporal Foundation Models](learning_to_factorize_and_adapt_a_versatile_approach_toward_universal_spatio-tem.md)
 
 <!-- RELATED:END -->

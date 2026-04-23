@@ -135,8 +135,8 @@ $$\mathcal{L}_{GFL} = \sum_{i=1}^{N_{pos}} s_{geo_i} BCE(s_{geo_i}, p_i) + \sum_
 
 - [MapGCLR: Geospatial Contrastive Learning of Representations for Online Vectorized HD Map Construction](mapgclr_geospatial_contrastive_learning_of_representations_for_online_vectorized.md)
 - [Uncertainty-Instructed Structure Injection for Generalizable HD Map Construction](uncertainty-instructed_structure_injection_for_generalizable_hd_map_construction.md)
+- [Stream Query Denoising for Vectorized HD-Map Construction](../../ECCV2024/autonomous_driving/stream_query_denoising_for_vectorized_hd-map_construction.md)
 - [Online Video Understanding: OVBench and VideoChat-Online](online_video_understanding_ovbench_and_videochat-online.md)
 - [DecoupledGaussian: Object-Scene Decoupling for Physics-Based Interaction](decoupledgaussian_object-scene_decoupling_for_physics-based_interaction.md)
-- [Scenario Dreamer: Vectorized Latent Diffusion for Generating Driving Simulation Environments](scenario_dreamer_vectorized_latent_diffusion_for_generating_driving_simulation_e.md)
 
 <!-- RELATED:END -->

@@ -130,6 +130,6 @@ tags:
 - [CortexDebate: Debating Sparsely and Equally for Multi-Agent Debate](cortexdebate_debating_sparsely_and_equally_for_multi-agent_debate.md)
 - [Learning to Align Multi-Faceted Evaluation: A Unified and Robust Framework](learning_to_align_multi-faceted_evaluation_a_unified_and_robust_framework.md)
 - [GETReason: Enhancing Image Context Extraction through Hierarchical Multi-Agent Reasoning](getreason_enhancing_image_context_extraction_through_hierarchical_multi-agent_re.md)
-- [AIDE: Attribute-Guided Multi-Hop Data Expansion for Data Scarcity in Task-Specific Fine-tuning](aide_attribute-guided_multi-hop_data_expansion_for_data_scarcity_in_task-specifi.md)
+- [DSP: Dynamic Sequence Parallelism for Multi-Dimensional Transformers](../../ICML2025/others/dsp_dynamic_sequence_parallelism_for_multi-dimensional_transformers.md)
 
 <!-- RELATED:END -->

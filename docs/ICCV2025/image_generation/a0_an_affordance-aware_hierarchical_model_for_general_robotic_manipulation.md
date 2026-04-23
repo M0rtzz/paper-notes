@@ -189,9 +189,9 @@ SIAL 的影响最为显著：移除后 HOI4D 上 MAE 增加 13.6 像素，说明
 ## 相关论文
 
 - [EC-Flow: Enabling Versatile Robotic Manipulation from Action-Unlabeled Videos via Equivariant Flow Matching](ec-flow_enabling_versatile_robotic_manipulation_from_action-unlabeled_videos_via.md)
-- [Two-Steps Diffusion Policy for Robotic Manipulation via Genetic Denoising](../../NeurIPS2025/image_generation/two-steps_diffusion_policy_for_robotic_manipulation_via_genetic_denoising.md)
-- [Image Generation as a Visual Planner for Robotic Manipulation](../../CVPR2026/image_generation/image_generation_as_a_visual_planner_for_robotic_manipulation.md)
-- [Text2Place: Affordance-aware Text Guided Human Placement](../../ECCV2024/image_generation/text2place_affordance-aware_text_guided_human_placement.md)
+- [CHORDS: Diffusion Sampling Accelerator with Multi-Core Hierarchical ODE Solvers](chords_diffusion_sampling_accelerator_with_multi_core_hierarchical_ode_solvers.md)
 - [Aether: Geometric-Aware Unified World Modeling](aether_geometric-aware_unified_world_modeling.md)
+- [Learning Deblurring Texture Prior from Unpaired Data with Diffusion Model](learning_deblurring_texture_prior_from_unpaired_data_with_diffusion_model.md)
+- [ImageGem: In-the-wild Generative Image Interaction Dataset for Generative Model Personalization](imagegem_in-the-wild_generative_image_interaction_dataset_for_generative_model_p.md)
 
 <!-- RELATED:END -->

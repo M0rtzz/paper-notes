@@ -1,14 +1,18 @@
 ---
 title: >-
-  ACL2025 人体理解方向 3篇论文解读
+  ACL2025 人体理解方向 4篇论文解读
 description: >-
-  3篇ACL2025 人体理解论文解读，主题涵盖：基于BoLD数据集通过四步半自动流水线构建了BQA、提出自监督预训练方法学习表征性共语手势（co-sp、提出首个系统评估 GUI Agent等，每篇含核心思想与方法详解。
+  4篇ACL2025 人体理解论文解读，主题涵盖：本文揭示了常识推理基准中表面简单但实际隐含复杂推理、基于BoLD数据集通过四步半自动流水线构建了BQA、提出自监督预训练方法学习表征性共语手势（co-sp等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**💬 ACL2025** · **3** 篇论文解读
+**💬 ACL2025** · **4** 篇论文解读
+
+**[Beyond Surface Simplicity: Revealing Hidden Reasoning Attributes for Precise Commonsense Diagnosis](beyond_surface_simplicity_revealing_hidden_reasoning_attributes_for_precise_comm.md)**
+
+:   本文揭示了常识推理基准中表面简单但实际隐含复杂推理属性的问题，提出了一种基于隐藏推理属性的细粒度诊断框架，能够更精确地分析和评估模型的常识推理能力。
 
 **[BQA: Body Language Question Answering Dataset for Video Large Language Models](bqa_body_language_question_answering_dataset_for_video_large_language_models.md)**
 

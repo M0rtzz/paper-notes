@@ -122,6 +122,6 @@ tags:
 - [AdvMark: Decoupling Defense Strategies for Robust Image Watermarking](../../CVPR2026/human_understanding/decoupling_defense_strategies_for_robust_image_watermarking.md)
 - [REINA: Regularized Entropy Information-Based Loss for Efficient Simultaneous Speech Translation](../../AAAI2026/human_understanding/reina_regularized_entropy_information-based_loss_for_efficient_simultaneous_spee.md)
 - [DecoVLN: Decoupling Observation, Reasoning, and Correction for Vision-and-Language Navigation](../../CVPR2026/human_understanding/decovln_decoupling_observation_reasoning_and_correction_for_vision-and-language_.md)
-- [Behavior Tokens Speak Louder: Disentangled Explainable Recommendation with Behavior Vocabulary](../../AAAI2026/human_understanding/behavior_tokens_speak_louder_disentangled_explainable_recommendation_with_behavi.md)
+- [Tool4POI: A Tool-Augmented LLM Framework for Next POI Recommendation](../../AAAI2026/human_understanding/tool4poi_a_tool-augmented_llm_framework_for_next_poi_recommendation.md)
 
 <!-- RELATED:END -->

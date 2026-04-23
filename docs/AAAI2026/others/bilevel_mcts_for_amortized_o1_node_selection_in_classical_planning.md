@@ -156,6 +156,6 @@ tags:
 - [MeshA*: Efficient Path Planning With Motion Primitives](mesha_efficient_path_planning_with_motion_primitives.md)
 - [Symbolic Planning and Multi-Agent Path Finding in Extremely Dense Environments with Unassigned Agents](symbolic_planning_and_multi-agent_path_finding_in_extremely_dense_environments_w.md)
 - [Compositional Diffusion with Guided Search for Long-Horizon Planning](../../ICLR2026/others/compositional_diffusion_long_horizon_planning.md)
-- [Deadline-Aware, Energy-Efficient Control of Domestic Immersion Hot Water Heaters](deadline-aware_energy-efficient_control_of_domestic_immersion_hot_water_heater.md)
+- [Sparse-Pivot: Dynamic Correlation Clustering for Node Insertions](../../ICML2025/others/sparse-pivot_dynamic_correlation_clustering_for_node_insertions.md)
 
 <!-- RELATED:END -->

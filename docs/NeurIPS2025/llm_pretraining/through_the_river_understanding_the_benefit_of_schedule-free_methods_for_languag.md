@@ -162,6 +162,6 @@ SF-GD 在二次目标函数上的稳定性阈值为 $\lambda_1(H) > \frac{2}{(1-
 - [Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale](language_model_behavioral_phases_are_consistent_across_archi.md)
 - [Nemotron-CLIMB: CLustering-based Iterative Data Mixture Bootstrapping for Language Model Pre-training](nemotron-climb_clustering-based_iterative_data_mixture_bootstrapping_for_languag.md)
 - [The Sharpness Disparity Principle in Transformers for Accelerating Language Model Pre-Training](../../ICML2025/llm_pretraining/the_sharpness_disparity_principle_in_transformers_for_accelerating_language_mode.md)
-- [Stealing Training Data from Large Language Models in Decentralized Training through Activation Inversion Attack](../../ACL2025/llm_pretraining/stealing_training_data_from_large_language_models_in_decentralized_training_thro.md)
+- [Metadata Conditioning Accelerates Language Model Pre-training](../../ICML2025/llm_pretraining/metadata_conditioning_accelerates_language_model_pre-training.md)
 
 <!-- RELATED:END -->

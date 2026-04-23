@@ -135,6 +135,6 @@ MetaShadow 由两个协同组件构成：Stage I 的 Shadow Analyzer（基于CM-
 - [Structure-Guided Diffusion Models for High-Fidelity Portrait Shadow Removal](../../ICCV2025/image_generation/structure-guided_diffusion_models_for_high-fidelity_portrait_shadow_removal.md)
 - [HOI-IDiff: An Image-like Diffusion Method for Human-Object Interaction Detection](an_image-like_diffusion_method_for_human-object_interaction_detection.md)
 - [Object-WIPER: Training-Free Object and Associated Effect Removal in Videos](../../CVPR2026/image_generation/object-wiper_training-free_object_and_associated_effect_removal_in_videos.md)
-- [OmniPaint: Mastering Object-Oriented Editing via Disentangled Insertion-Removal Inpainting](../../ICCV2025/image_generation/omnipaint_mastering_object-oriented_editing_via_disentangled_insertion-removal_i.md)
+- [Exploring Sparse MoE in GANs for Text-conditioned Image Synthesis](exploring_sparse_moe_in_gans_for_text-conditioned_image_synthesis.md)
 
 <!-- RELATED:END -->

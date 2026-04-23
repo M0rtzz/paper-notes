@@ -151,8 +151,8 @@ IBBI（Image–Brain BI-directional）框架利用交叉注意力矩阵 $A^{(\el
 ## 相关论文
 
 - [MoRE-Brain: Routed Mixture of Experts for Interpretable and Generalizable Cross-Subject fMRI Visual Decoding](../../NeurIPS2025/medical_imaging/more-brain_routed_mixture_of_experts_for_interpretable_and_generalizable_cross-s.md)
-- [Augmenting Representations with Scientific Papers](augmenting_representations_with_scientific_papers.md)
 - [Neuro-Symbolic Decoding of Neural Activity](neuro-symbolic_decoding_of_neural_activity.md)
+- [Augmenting Representations with Scientific Papers](augmenting_representations_with_scientific_papers.md)
 - [Zebra: Towards Zero-Shot Cross-Subject Generalization for Universal Brain Visual Decoding](../../NeurIPS2025/medical_imaging/zebra_towards_zero-shot_cross-subject_generalization_for_universal_brain_visual_.md)
 - [Beyond Brain Decoding: Visual-Semantic Reconstructions to Mental Creation Extension Based on fMRI](../../ICCV2025/medical_imaging/beyond_brain_decoding_visualsemantic_reconstructions_to_ment.md)
 

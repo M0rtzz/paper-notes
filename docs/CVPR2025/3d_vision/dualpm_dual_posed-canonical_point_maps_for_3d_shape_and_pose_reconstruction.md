@@ -124,8 +124,8 @@ $$\mathcal{L}_P = \frac{1}{|M|}\sum_{\boldsymbol{u} \in M} c_P(\boldsymbol{u})\|
 
 - [Dual Exposure Stereo for Extended Dynamic Range 3D Imaging](dual_exposure_stereo_for_extended_dynamic_range_3d_imaging.md)
 - [Multi-View Pose-Agnostic Change Localization with Zero Labels](multi-view_pose-agnostic_change_localization_with_zero_labels.md)
-- [NeuraLeaf: Neural Parametric Leaf Models with Shape and Deformation Disentanglement](../../ICCV2025/3d_vision/neuraleaf_neural_parametric_leaf_models_with_shape_and_deformation_disentangleme.md)
-- [Unleashing Vecset Diffusion Model for Fast Shape Generation (FlashVDM)](../../ICCV2025/3d_vision/unleashing_vecset_diffusion_model_for_fast_shape_generation.md)
-- [Efficient Spiking Point Mamba for Point Cloud Analysis](../../ICCV2025/3d_vision/efficient_spiking_point_mamba_for_point_cloud_analysis.md)
+- [Multi-view Reconstruction via SfM-guided Monocular Depth Estimation](multi-view_reconstruction_via_sfm-guided_monocular_depth_estimation.md)
+- [DUNE: Distilling a Universal Encoder from Heterogeneous 2D and 3D Teachers](dune_distilling_a_universal_encoder_from_heterogeneous_2d_and_3d_teachers.md)
+- [Fine-Grained Erasure in Text-to-Image Diffusion-based Foundation Models](fine-grained_erasure_in_text-to-image_diffusion-based_foundation_models.md)
 
 <!-- RELATED:END -->

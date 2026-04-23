@@ -24,12 +24,16 @@ tags:
 提出4DGT——一种基于4D高斯的Transformer模型，完全在真实世界单目带位姿视频上训练，以前馈方式在几秒内完成动态场景重建，显著优于同类前馈网络，并达到与优化类方法可比的精度。
 
 ## 背景与动机
-动态3D场景重建是计算机视觉中的核心任务。现有方法主要分两大类：(1) **优化类方法**如Shape-of-Motion等，每个场景需要数小时的逐场景优化，无法扩展到长视频或实时应用；(2) **前馈类方法**如L4GM、StaticLRM，虽然推理快，但通常需要多视角输入或合成数据训练，在真实世界复杂动态场景上效果有限。
+
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：动态3D场景重建是计算机视觉中的核心任务。现有方法主要分两大类：(1) **优化类方法**如Shape-of-Motion等，每个场景需要数小时的逐场景优化，无法扩展到长视频或实时应用；(2) **前馈类方法**如L4GM、StaticLRM，虽然推理快，但通常需要多视角输入或合成数据训练，在真实世界复杂动态场景上效果有限。
 
 核心痛点在于：现有前馈方法没有很好地建模场景中物体的时间维度——静态背景和动态前景的生命周期不同，物体可能出现又消失，传统3D高斯表示缺乏时间维度的建模能力。此外，随着输入帧数增加，空间-时间token数量爆炸式增长，训练和推理的显存和效率成为瓶颈。
 
-## 核心问题
-如何设计一个前馈动态场景重建模型，使其：(1) 能在真实世界单目视频上训练而非依赖合成数据；(2) 统一建模静态和动态成分及其不同的时间生命周期；(3) 处理长视频序列时保持高效？
+### 解决思路
+
+**本文目标**：如何设计一个前馈动态场景重建模型，使其：(1) 能在真实世界单目视频上训练而非依赖合成数据；(2) 统一建模静态和动态成分及其不同的时间生命周期；(3) 处理长视频序列时保持高效？
 
 ## 方法详解
 
@@ -99,7 +103,7 @@ tags:
 - **两阶段训练**：仅用Stage 1的密集高斯渲染质量和效率都不如两阶段方案
 - **TLoD多层级**：多层级处理有助于平衡全局一致性和局部细节
 
-## 亮点
+## 亮点与洞察
 - **4D高斯表示的统一建模**：通过时间协方差cov_t和时间位置t，自然统一了静态和动态物体的表示——静态物体的时间生命周期长，动态物体的短，无需显式区分
 - **密度控制是关键创新**：Magic Filter基于opacity排序裁剪的思路简单但有效，既减少了渲染开销，又为更大的时空输入腾出了显存空间，是本文能在64帧长序列上前馈推理的核心使能技术
 - **真实世界训练数据**：完全在真实世界单目视频上训练，不依赖合成数据，泛化能力强
@@ -112,13 +116,13 @@ tags:
 - **非刚体运动建模**：4D高斯的线性运动假设（ms3速度+omega角速度）对非线性复杂运动的建模能力有限
 - **渲染效率**：虽然比优化方法快很多，但14.5GB的模型在实时应用中仍有优化空间
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs Shape-of-Motion**: SoM是逐场景优化方法，精度高但慢（数小时）。4DGT前馈推理仅需秒级，泛化性更好，但在单个场景上的极致精度可能略逊
 - **vs L4GM**: L4GM也是前馈3DGS模型，但主要面向合成多视角输入。4DGT在单目真实世界视频上显著更强
 - **vs StaticLRM**: StaticLRM仅处理静态场景，没有时间维度建模。4DGT通过4D高斯扩展了对动态场景的支持
 - **vs 4DSTR/4DGC等4D方法**: 4DGT的核心优势在于前馈推理+真实世界训练，而非依赖合成数据或逐场景优化
 
-## 启发与关联
+## 相关工作与启发
 - **Magic Filter的密度控制思路**可以迁移到其他token-heavy的视觉任务中——基于激活度/重要性裁剪不活跃token是一种通用的效率提升策略
 - DINOv2作为冻结backbone + 轻量Transformer fusion的架构模式在这类feed-forward 3D生成任务中持续证明有效
 
@@ -136,6 +140,6 @@ tags:
 - [LATTE-MV: Learning to Anticipate Table Tennis Hits from Monocular Videos](../../CVPR2025/others/latte-mv_learning_to_anticipate_table_tennis_hits_from_monocular_videos.md)
 - [OrbitZoo: Real Orbital Systems Challenges for Reinforcement Learning](orbitzoo_real_orbital_systems_challenges_for_reinforcement_learning.md)
 - [Suitability Filter: A Statistical Framework for Classifier Evaluation in Real-World Settings](../../ICML2025/others/suitability_filter_a_statistical_framework_for_classifier_evaluation_in_real-wor.md)
-- [SimRecon: SimReady Compositional Scene Reconstruction from Real Videos](../../CVPR2026/others/simrecon_simready_compositional_scene_reconstruction_from_real_videos.md)
+- [Gaussian Process Upper Confidence Bound Achieves Nearly-Optimal Regret in Noise-Free Gaussian Process Bandits](gaussian_process_upper_confidence_bound_achieves_nearly-optimal_regret_in_noise-.md)
 
 <!-- RELATED:END -->

@@ -125,8 +125,8 @@ tags:
 
 - [Which Retain Set Matters for LLM Unlearning? A Case Study on Entity Unlearning](which_retain_set_matters_for_llm_unlearning_a_case_study_on_entity_unlearning.md)
 - [Can Indirect Prompt Injection Attacks Be Detected and Removed?](indirect_prompt_injection_detection.md)
+- [ReLearn: Unlearning via Learning for Large Language Models](relearn_unlearning_via_learning_for_large_language_models.md)
 - [Beyond Facts: Evaluating Intent Hallucination in Large Language Models](intent_hallucination_eval.md)
 - [Chinese SimpleQA: A Chinese Factuality Evaluation for Large Language Models](chinese_simpleqa_a_chinese_factuality_evaluation_for_large_language_models.md)
-- [REVS: Unlearning Sensitive Information in Language Models via Rank Editing in the Vocabulary Space](revs_unlearning_sensitive_information_in_language_models_via_rank_editing_in_the.md)
 
 <!-- RELATED:END -->

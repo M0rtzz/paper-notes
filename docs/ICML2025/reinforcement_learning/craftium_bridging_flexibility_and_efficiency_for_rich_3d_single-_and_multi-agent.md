@@ -124,6 +124,6 @@ Craftium 基于开源 Minetest 游戏引擎构建了一个灵活高效的 3D RL 
 - [GraphOmni: A Comprehensive and Extensible Benchmark Framework for Large Language Models on Graph-theoretic Tasks](../../ICLR2026/reinforcement_learning/graphomni_a_comprehensive_and_extensible_benchmark_framework_for_large_language_.md)
 - [Forecasting in Offline Reinforcement Learning for Non-stationary Environments](../../NeurIPS2025/reinforcement_learning/forecasting_in_offline_reinforcement_learning_for_non-stationary_environments.md)
 - [Reasoning Gym: Reasoning Environments for Reinforcement Learning with Verifiable Rewards](../../NeurIPS2025/reinforcement_learning/reasoning_gym_reasoning_environments_for_reinforcement_learning_with_verifiable_.md)
-- [Pessimism Principle Can Be Effective: Towards a Framework for Zero-Shot Transfer RL](pessimism_principle_can_be_effective_towards_a_framework_for_zero-shot_transfer_.md)
+- [CALF: Communication-Aware Learning Framework for Distributed Reinforcement Learning](../../CVPR2025/reinforcement_learning/calf_communication_aware_distributed_rl.md)
 
 <!-- RELATED:END -->

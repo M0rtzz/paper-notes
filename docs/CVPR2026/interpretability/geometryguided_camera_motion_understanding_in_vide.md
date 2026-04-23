@@ -25,10 +25,14 @@ tags:
 通过 benchmarking-diagnosis-injection 框架系统揭示 VideoLLM 的相机运动盲区，并利用冻结 3DFM (VGGT) 提取几何线索 + 轻量时序分类器 + 结构化提示注入，无需微调即可显著提升 VideoLLM 的细粒度相机运动理解。
 
 ## 背景与动机
-相机运动 (pan/tilt/dolly 等) 是电影语法的核心几何信号，直接影响叙事、注意力引导和空间布局表达。然而现有 VideoLLM 主要针对高层语义 (物体识别、动作理解) 优化，缺少显式的相机运动监督。实验发现，多数 VideoLLM 在相机运动 VQA 上的准确率接近随机猜测 (25%)，说明这一关键信号被严重忽视。更值得注意的是，对 CameraBench 进行专门微调的模型甚至比原始 Qwen2.5-VL 表现更差，揭示了常规微调路线的问题。
 
-## 核心问题
-1. VideoLLM 在细粒度相机运动原语识别上系统性失败，原因是什么？
+### 领域现状
+
+**领域现状**：相机运动 (pan/tilt/dolly 等) 是电影语法的核心几何信号，直接影响叙事、注意力引导和空间布局表达。然而现有 VideoLLM 主要针对高层语义 (物体识别、动作理解) 优化，缺少显式的相机运动监督。实验发现，多数 VideoLLM 在相机运动 VQA 上的准确率接近随机猜测 (25%)，说明这一关键信号被严重忽视。更值得注意的是，对 CameraBench 进行专门微调的模型甚至比原始 Qwen2.5-VL 表现更差，揭示了常规微调路线的问题。
+
+### 解决思路
+
+**本文目标**：1. VideoLLM 在细粒度相机运动原语识别上系统性失败，原因是什么？
 2. 如何在不修改 VideoLLM 权重的前提下注入可靠的相机运动信息？
 
 ## 方法详解
@@ -66,7 +70,7 @@ tags:
 - 蒸馏 vs 完整 VGGT: 吞吐量 23.36 vs 4.39 samples/s，精度损失可控
 - 时序卷积 vs 平均池化: 去掉时序建模后精度明显下降
 
-## 亮点 / 我学到了什么
+## 亮点与洞察 / 我学到了什么
 - 用 probing 定量诊断 "信息在哪丢失" 是理解大模型瓶颈的优秀方法论
 - 约束感知标签体系设计巧妙: 互斥矩阵 + 基数正则从损失函数层面保证预测的物理合理性
 - 结构化提示注入无需训练权重即可改变模型的推理行为模式
@@ -77,7 +81,7 @@ tags:
 - 仅探索了 VGGT 一个 3DFM backbone，未对比其他几何模型
 - static 类预测不可靠，VGGT 的重建先验假设相机运动，静态段可能 OOD
 
-## 与相关工作的对比
+## 相关工作与启发
 - **CameraBench**: 提供原语级运动标注和 VQA 评估，但标签来自人工标注且无精确相机参数；本文用外参确定性标注更可靠
 - **SpatialVID**: 提供逐帧深度和 pose 驱动的运动指令，但用于视频生成而非理解；本文反向利用几何信号增强理解
 - **Shot-by-Shot**: 用 shot-level 电影语法线索引导描述生成，但不涉及原语级运动识别
@@ -94,8 +98,8 @@ tags:
 
 - [Text-guided Fine-Grained Video Anomaly Understanding](text-guided_fine-grained_video_anomaly_understanding.md)
 - [Missing No More: Dictionary-Guided Cross-Modal Image Fusion under Missing Infrared](missing_no_more_dictionary-guided_cross-modal_image_fusion_under_missing_infrare.md)
-- [Reallocating Attention Across Layers to Reduce Multimodal Hallucination](reallocating_attention_reduce_hallucination.md)
-- [SubspaceAD: Training-Free Few-Shot Anomaly Detection via Subspace Modeling](subspacead_training-free_few-shot_anomaly_detection_via_subspace_modeling.md)
-- [Edit-As-Act: Goal-Regressive Planning for Open-Vocabulary 3D Indoor Scene Editing](edit-as-act_goal-regressive_planning_for_open-vocabulary_3d_indoor_scene_editing.md)
+- [Beyond Semantics: Disentangling Information Scope in Sparse Autoencoders for CLIP](beyond_semantics_disentangling_information_scope_in_sparse_autoencoders_for_clip.md)
+- [Reallocating Attention Across Layers to Reduce Multimodal Hallucination](reallocating_attention_across_layers_to_reduce_multimodal_hallucination.md)
+- [Pixel2Phys: Distilling Governing Laws from Visual Dynamics](pixel2phys_distilling_governing_laws_from_visual_dynamics.md)
 
 <!-- RELATED:END -->

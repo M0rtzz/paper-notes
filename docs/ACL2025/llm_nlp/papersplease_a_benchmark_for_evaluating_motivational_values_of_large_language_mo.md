@@ -129,7 +129,7 @@ PapersPlease 由 3,700 个角色扮演场景组成，LLM 扮演虚构国家 Arst
 - [Theory of Mind in Large Language Models: Assessment and Enhancement](theory_of_mind_llm.md)
 - [SocialEval: Evaluating Social Intelligence of Large Language Models](socialeval_evaluating_social_intelligence_of_large_language_models.md)
 - [ExpliCa: Evaluating Explicit Causal Reasoning in Large Language Models](explica_evaluating_explicit_causal_reasoning_in_large_language_models.md)
-- [Evaluating Implicit Bias in Large Language Models by Attacking from a Psychometric Perspective](evaluating_implicit_bias_in_large_language_models_by_attacking_from_a_psychometr.md)
+- [Catching Shortcuts: A Framework for Evaluating Shortcuts in Large Language Models](catching_shortcuts_a_framework_for_evaluating_shortcuts_in_large_language_models.md)
 - [SCoP: Evaluating the Comprehension Process of Large Language Models from a Cognitive View](scop_evaluating_the_comprehension_process_of_large_language_models_from_a_cognit.md)
 
 <!-- RELATED:END -->

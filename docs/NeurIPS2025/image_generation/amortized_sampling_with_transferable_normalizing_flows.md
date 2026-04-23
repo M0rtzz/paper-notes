@@ -138,8 +138,8 @@ Prose 在相同能量评估预算下全面超越 1μs MD，尤其在宏观结构
 ## 相关论文
 
 - [Normalizing Flows are Capable Generative Models](../../ICML2025/image_generation/normalizing_flows_are_capable_generative_models.md)
-- [Multimodal Generative Flows for LHC Jets](multimodal_generative_flows_for_lhc_jets.md)
 - [Transferable Black-Box One-Shot Forging of Watermarks via Image Preference Models](transferable_black-box_one-shot_forging_of_watermarks_via_image_preference_model.md)
+- [Multimodal Generative Flows for LHC Jets](multimodal_generative_flows_for_lhc_jets.md)
 - [On the Relation between Rectified Flows and Optimal Transport](on_the_relation_between_rectified_flows_and_optimal_transport.md)
 - [Flowing Backwards: Improving Normalizing Flows via Reverse Representation Alignment](../../AAAI2026/image_generation/flowing_backwards_improving_normalizing_flows_via_reverse_representation_alignme.md)
 

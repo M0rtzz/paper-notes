@@ -199,10 +199,10 @@ $$\mathcal{D}_p = (\mathbf{x_1}, y_1), \dots, (\mathbf{x_k}, y_k) \oplus (\mathb
 
 ## 相关论文
 
+- [Merge Hijacking: Backdoor Attacks to Model Merging of Large Language Models](merge_hijacking_backdoor_attacks_to_model_merging_of_large_language_models.md)
 - [Ensemble Watermarks for Large Language Models](ensemble_watermarks_llm.md)
 - [ReDial: Assessing Dialect Fairness and Robustness of Large Language Models in Reasoning Tasks](dialect_fairness_robustness.md)
 - [Improved Unbiased Watermark for Large Language Models](improved_unbiased_watermark_for_large_language.md)
 - [MorphMark: Flexible Adaptive Watermarking for Large Language Models](morphmark_adaptive_watermarking.md)
-- [Improving Fairness of Large Language Models in Multi-document Summarization](improving_fairness_of_large_language_models_in_multi-document_summarization.md)
 
 <!-- RELATED:END -->

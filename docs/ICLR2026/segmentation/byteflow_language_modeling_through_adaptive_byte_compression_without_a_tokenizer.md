@@ -25,7 +25,10 @@ tags:
 提出 ByteFlow Net，一种无需分词器的分层字节级语言模型，利用信息论中的编码率(coding rate)自适应地将原始字节流压缩为语义单元，在预训练损失和下游任务上超越 BPE 基线和已有字节级架构。
 
 ## 背景与动机
-1. 现代 LLM 依赖固定的 BPE 分词器，一旦训练完成只能在固定粒度上操作
+
+### 解决思路
+
+**本文目标**：**领域现状**：1. 现代 LLM 依赖固定的 BPE 分词器，一旦训练完成只能在固定粒度上操作
 2. 固定分词导致计数、算术、结构化数据、多语言等场景下的脆弱行为
 3. 分词是流水线中唯一不可学习的阶段，打破了端到端建模
 4. 已有无分词方案：纯字节级模型（序列太长计算昂贵）、启发式分块（固定步长/空格边界，inductive bias 强）
@@ -142,9 +145,9 @@ tags:
 ## 相关论文
 
 - [Masked Representation Modeling for Domain-Adaptive Segmentation](../../CVPR2026/segmentation/masked_representation_modeling_for_domain-adaptive_segmentation.md)
+- [GiT: Towards Generalist Vision Transformer through Universal Language Interface](../../ECCV2024/segmentation/git_towards_generalist_vision_transformer_through_universal_language_interface.md)
 - [Direct Segmentation without Logits Optimization for Training-Free Open-Vocabulary Semantic Segmentation](../../CVPR2026/segmentation/direct_segmentation_without_logits_optimization_for_training-free_open-vocabular.md)
+- [Weakly-Supervised Referring Video Object Segmentation through Text Supervision](../../CVPR2026/segmentation/wsrvos_weakly_supervised_rvos.md)
 - [Adaptive Morph-Patch Transformer for Aortic Vessel Segmentation](../../AAAI2026/segmentation/adaptive_morph-patch_transformer_for_aortic_vessel_segmentat.md)
-- [Seeing Beyond: Extrapolative Domain Adaptive Panoramic Segmentation](../../CVPR2026/segmentation/seeing_beyond_extrapolative_domain_adaptive_panoramic_segmentation.md)
-- [Enhancing Transformers Through Conditioned Embedded Tokens](../../ICCV2025/segmentation/enhancing_transformers_through_conditioned_embedded_tokens.md)
 
 <!-- RELATED:END -->

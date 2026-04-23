@@ -135,6 +135,6 @@ tags:
 - [Novel Anomaly Detection Scenarios and Evaluation Metrics to Address the Ambiguity in the Definition of Normal Samples](novel_anomaly_detection_scenarios_and_evaluation_metrics_to_address_the_ambiguit.md)
 - [ELogitNorm: Enhancing OOD Detection with Extended Logit Normalization](enhancing_outofdistribution_detection_with_extende.md)
 - [POLISH'ing the Sky: Wide-Field and High-Dynamic Range Interferometric Image Reconstruction](polishing_the_sky_widefield_and_highdynamic_range.md)
-- [Reimagining Anomalies: What if Anomalies Were Normal?](../../AAAI2026/others/reimagining_anomalies_what_if_anomalies_were_normal.md)
+- [MyoVision: A Mobile Research Tool and NEATBoost-Attention Ensemble Framework for Real Time Chicken Breast Myopathy Detection](myovision_a_mobile_research_tool_and_neatboost_attention_ensemble_framework.md)
 
 <!-- RELATED:END -->

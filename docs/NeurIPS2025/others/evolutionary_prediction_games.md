@@ -146,8 +146,8 @@ $$\mathcal{A}'(\bm{p}) = \mathcal{A}^{\text{opt}}(2\bm{p}^* - \bm{p})$$
 ## 相关论文
 
 - [Efficient Kernelized Learning in Polyhedral Games Beyond Full-Information: From Colonel Blotto to Congestion Games](efficient_kernelized_learning_in_polyhedral_games_beyond_full-information_from_c.md)
-- [Optimism Without Regularization: Constant Regret in Zero-Sum Games](optimism_without_regularization_constant_regret_in_zero-sum_games.md)
 - [EVOS: Efficient Implicit Neural Training via EVOlutionary Selector](../../CVPR2025/others/evos_efficient_implicit_neural_training_via_evolutionary_selector.md)
+- [Optimism Without Regularization: Constant Regret in Zero-Sum Games](optimism_without_regularization_constant_regret_in_zero-sum_games.md)
 - [Cautious Next Token Prediction](../../ACL2025/others/cautious_next_token_prediction.md)
 - [FlashMD: Long-Stride, Universal Prediction of Molecular Dynamics](flashmd_long-stride_universal_prediction_of_molecular_dynamics.md)
 

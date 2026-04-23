@@ -18,7 +18,7 @@ tags:
 
 **会议**: CVPR2025  
 **arXiv**: [2603.10852](https://arxiv.org/abs/2603.10852)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: medical_imaging  
 **关键词**: multi-agent, breast ultrasound, BI-RADS, VLM, reinforcement-learning, evidence-chain
 
@@ -28,7 +28,9 @@ tags:
 
 ## 研究背景与动机
 
-乳腺超声（BUS）是乳腺癌筛查的重要工具。临床医生遵循从粗到精的阅片流程：定位病灶→评估细粒度征象（形态、回声模式等）→综合证据给出 BI-RADS 分级和良恶性判断。现有方法存在以下不足：
+### 现有痛点
+
+**现有痛点**：**领域现状**：乳腺超声（BUS）是乳腺癌筛查的重要工具。临床医生遵循从粗到精的阅片流程：定位病灶→评估细粒度征象（形态、回声模式等）→综合证据给出 BI-RADS 分级和良恶性判断。现有方法存在以下不足：
 
 **端到端预测缺乏可解释性**：无法给出中间证据链，限制临床可审计性
 
@@ -66,6 +68,9 @@ $$R_M = \lambda_1 \cdot \mathbb{I}[y_{mal}^{pred} = y_{mal}^{gt}] + \lambda_2 \c
 
 在 BUSBRA、BUSI、BUDIAT 三个域内数据集和 BrEaST 域外数据集上评估。所有方法均使用相同的 Qwen2.5-VL-3B 基座模型，仅训练策略不同：
 
+
+### 主实验
+
 | 方法 | Overall AUC | Overall Acc | Bi-Acc | κ |
 |------|-------------|-------------|--------|---|
 | Zero-Shot | 0.476 | 0.602 | 0.117 | 0.014 |
@@ -76,6 +81,9 @@ $$R_M = \lambda_1 \cdot \mathbb{I}[y_{mal}^{pred} = y_{mal}^{gt}] + \lambda_2 \c
 注意 Think-with-Image 虽然也包含 crop-and-zoom 流程，但性能接近随机，说明单纯的裁剪放大不能保证提升，关键在于层次化劳动分工。域外泛化（BrEaST）上，本方法良恶性 AUC 0.685 vs CoT-SFT 0.586，得益于 ROI crop 降低了背景敏感性。
 
 **消融分析**（Overall 指标）：
+
+
+### 消融实验
 
 | 变体 | AUC | Acc | Bi-Acc | κ | IoU |
 |------|-----|-----|--------|---|-----|
@@ -89,7 +97,7 @@ $$R_M = \lambda_1 \cdot \mathbb{I}[y_{mal}^{pred} = y_{mal}^{gt}] + \lambda_2 \c
 
 **属性识别**：裁剪局部视图在 Boundary、Edge、Echo 上的 F1 均优于全图输入，验证 crop-and-zoom 策略的有效性。在 OOD 数据集 BrEaST 上，局部视图优势更明显（Boundary Macro-F1: 0.524 vs 0.387）。
 
-## 亮点
+## 亮点与洞察
 
 1. **首个超声诊断 Agent 框架**：将 VLM 多智能体与临床 BUS 工作流对齐
     - ROI→属性→诊断的证据链可追溯
@@ -102,7 +110,7 @@ $$R_M = \lambda_1 \cdot \mathbb{I}[y_{mal}^{pred} = y_{mal}^{gt}] + \lambda_2 \c
 5. **RL 训练策略的通用性**：Oracle 课程 RL + 轨迹自蒸馏的范式可迁移到其他层次化多智能体任务
 6. **域外 AUC 提升显著**：BrEaST 上 AUC 0.685 vs CoT-SFT 0.586，得益于 crop-and-zoom 减少背景干扰
 
-## 局限性
+## 局限与展望
 
 1. 基座模型仅 3B 参数（Qwen2.5-VL-3B），推理能力受限，更大模型（7B/14B）可能有更好表现
 2. BI-RADS 分级准确率偏低（最优仅 0.515），κ 值仅 0.224 表明一致性不足，距离临床可用还有差距
@@ -126,6 +134,6 @@ $$R_M = \lambda_1 \cdot \mathbb{I}[y_{mal}^{pred} = y_{mal}^{gt}] + \lambda_2 \c
 - [LungNoduleAgent: A Collaborative Multi-Agent System for Precision Diagnosis of Lung Nodules](../../AAAI2026/medical_imaging/lungnoduleagent_a_collaborative_multi-agent_system_for_precision_diagnosis_of_lu.md)
 - [H-DDx: A Hierarchical Evaluation Framework for Differential Diagnosis](../../NeurIPS2025/medical_imaging/h-ddx_a_hierarchical_evaluation_framework_for_differential_diagnosis.md)
 - [MMedAgent-RL: Optimizing Multi-Agent Collaboration for Multimodal Medical Reasoning](../../ICLR2026/medical_imaging/mmedagent-rl_optimizing_multi-agent_collaboration_for_multimodal_medical_reasoni.md)
-- [GIIM: Graph-based Learning of Inter- and Intra-view Dependencies for Multi-view Medical Image Diagnosis](giim_graph-based_learning_of_inter-_and_intra-view_dependencies_for_multi-view_m.md)
+- [Surg-R1: A Hierarchical Reasoning Foundation Model for Scalable and Interpretable Surgical Decision Support](surg-r1_a_hierarchical_reasoning_foundation_model_for_scalable_and_interpretable.md)
 
 <!-- RELATED:END -->

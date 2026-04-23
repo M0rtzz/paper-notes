@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 LLM推理方向 14篇论文解读
+  CVPR2026 LLM推理方向 16篇论文解读
 description: >-
-  14篇CVPR2026 LLM推理论文解读，主题涵盖：提出"艺术视差合成"新范式（Art3D）、构建首个面向中文电商海报的多维度质量评估框架、提出EagleVision双阶段框架等，每篇含核心思想与方法详解。
+  16篇CVPR2026 LLM推理论文解读，主题涵盖：提出"艺术视差合成"新范式（Art3D）、构建首个面向中文电商海报的多维度质量评估框架、提出EagleVision双阶段框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM推理
 
-**📷 CVPR2026** · **14** 篇论文解读
+**📷 CVPR2026** · **16** 篇论文解读
 
 **[Beyond Geometry: Artistic Disparity Synthesis for Immersive 2D-to-3D](beyond_geometry_artistic_disparity_synthesis_for_immersive_2d-to-3d.md)**
 
@@ -30,9 +30,17 @@ description: >-
 
 :   提出GRAZE，一种完全无训练的时空事件定位管线——用Grounding DINO发现候选player-dummy交互对，通过运动感知的几何评分（位移幅度+方向余弦相似度）排序候选，再用SAM2掩码传播作为独立的像素级接触验证器（而非依赖检测置信度），配合两阶段后向精化恢复事件起始帧，在738个橄榄球练习视频上97.4%有效输出率、77.5%在±10帧内定位。
 
+**[GRAZE: Grounded Refinement and Motion-Aware Zero-Shot Event Localization](graze_grounded_refinement_and_motion-aware_zero-shot_generation.md)**
+
+:   提出 GRAZE，一个无需训练的管线，利用 Grounding DINO 发现候选交互、SAM2 掩码重叠作为像素级接触验证器，在 738 段美式橄榄球训练视频中实现 97.4% 覆盖率和 ±10 帧内 77.5% 的接触起始帧定位精度。
+
 **[Harnessing Chain-of-Thought Reasoning in Multimodal Large Language Models for Face Anti-Spoofing](harnessing_chain-of-thought_reasoning_in_multimodal_large_language_models_for_fa.md)**
 
 :   构建首个面向人脸反欺骗(FAS)的CoT-VQA数据集 FaceCoT（108万样本，14种攻击类型），并提出分两阶段渐进学习策略 CEPL，在11个FAS基准上平均AUC提升4.06%、HTER降低5.00%。
+
+**[Latent Chain-of-Thought World Modeling for End-to-End Autonomous Driving](latent_chain-of-thought_world_modeling_for_end-to-end_autonomous_driving.md)**
+
+:   LCDrive 提出潜在链式思考（Latent CoT）框架，用动作提议token和世界模型预测token替代自然语言CoT进行推理，通过冷启动+RL后训练实现更低延迟、更好轨迹质量的端到端自动驾驶。
 
 **[Rationale-Enhanced Decoding for Multi-modal Chain-of-Thought](rationale-enhanced_decoding_for_multi-modal_chain-of-thought.md)**
 

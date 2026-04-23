@@ -270,8 +270,8 @@ tags:
 
 - [EMDUL: Expanding mmWave Datasets for Human Pose Estimation with Unlabeled Data and LiDAR Datasets](expanding_mmwave_datasets_for_human_pose_estimation_with_unlabeled_data_and_lida.md)
 - [Failure Modes for Deep Learning-Based Online Mapping: How to Measure and Address Them](failure_modes_for_deep_learning-based_online_mapping_how_to_measure_and_address_.md)
+- [Learning Vision-Language-Action World Models for Autonomous Driving](vla_world_learning_vision_language_action_world_models_for_autonomous_driving.md)
 - [Learning Mutual View Information Graph for Adaptive Adversarial Collaborative Perception](learning_mutual_view_information_graph_for_adaptive_adversarial_collaborative_pe.md)
 - [ReMoT: Reinforcement Learning with Motion Contrast Triplets](remot_reinforcement_learning_with_motion_contrast_triplets.md)
-- [Towards Balanced Multi-Modal Learning in 3D Human Pose Estimation](towards_balanced_multi_modal_learning_in_3d_human_pose_estimation.md)
 
 <!-- RELATED:END -->

@@ -154,10 +154,10 @@ KIT-ML：
 
 ## 相关论文
 
+- [Do Vision Models Perceive Illusory Motion in Static Images Like Humans?](do_vision_models_perceive_illusory_motion_in_static_images_like_humans.md)
 - [Advancing Sequential Numerical Prediction in Autoregressive Models](../../ACL2025/others/advancing_sequential_numerical_prediction_in_autoregressive_models.md)
-- [SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design](sldprtnet_a_largescale_multimodal_dataset_for_cad.md)
-- [Order Matters: 3D Shape Generation from Sequential VR Sketches](order_matters_3d_shape_generation_from_sequential_vr_sketches.md)
-- [Cautious Next Token Prediction](../../ACL2025/others/cautious_next_token_prediction.md)
-- [MeshA*: Efficient Path Planning With Motion Primitives](../../AAAI2026/others/mesha_efficient_path_planning_with_motion_primitives.md)
+- [RandAR: Decoder-only Autoregressive Visual Generation in Random Orders](../../CVPR2025/others/randar_decoder-only_autoregressive_visual_generation_in_random_orders.md)
+- [SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design](sldprtnet_a_large-scale_multimodal_dataset_for_cad_generation_in_language-driven.md)
+- [Map&Make: Schema Guided Text to Table Generation](../../ACL2025/others/mapmake_schema_guided_text_to_table_generation.md)
 
 <!-- RELATED:END -->

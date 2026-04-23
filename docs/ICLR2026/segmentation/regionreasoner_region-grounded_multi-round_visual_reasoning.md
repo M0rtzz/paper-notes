@@ -25,7 +25,10 @@ tags:
 提出 RegionReasoner，一个基于强化学习的多轮视觉推理框架，通过引用标注奖励和全局-局部一致性奖励，使推理轨迹必须显式引用参考区域坐标并保持语义连贯，在新构建的 RegionDial-Bench 上显著提升多轮定位和分割精度。
 
 ## 背景与动机
-1. 现有 VLM 推理主要是单步或纯文本空间推理，缺乏迭代视觉上下文精炼能力
+
+### 现有痛点
+
+**现有痛点**：**领域现状**：1. 现有 VLM 推理主要是单步或纯文本空间推理，缺乏迭代视觉上下文精炼能力
 2. VisionReasoner 提供了单轮结构化推理但不跨轮传播区域引用
 3. SegLLM 支持多轮交互分割但没有可验证的推理轨迹或 RL 信号
 4. 朴素堆叠单轮推理导致：引用传播脆弱、坐标幻觉难以检测
@@ -117,8 +120,8 @@ tags:
 ## 相关论文
 
 - [Towards Context-Aware Image Anonymization with Multi-Agent Reasoning](../../CVPR2026/segmentation/towards_context-aware_image_anonymization_with_multi-agent_reasoning.md)
-- [Pixel-Level Reasoning Segmentation via Multi-turn Conversations](../../ACL2025/segmentation/pixel-level_reasoning_segmentation_via_multi-turn_conversations.md)
 - [VEGGIE: Instructional Editing and Reasoning Video Concepts with Grounded Generation](../../ICCV2025/segmentation/veggie_instructional_editing_and_reasoning_video_concepts_with_grounded_generati.md)
+- [Pixel-Level Reasoning Segmentation via Multi-turn Conversations](../../ACL2025/segmentation/pixel-level_reasoning_segmentation_via_multi-turn_conversations.md)
 - [Region-based Cluster Discrimination for Visual Representation Learning](../../ICCV2025/segmentation/region-based_cluster_discrimination_for_visual_representation_learning.md)
 - [VIRTUE: Visual-Interactive Text-Image Universal Embedder](virtue_visual-interactive_text-image_universal_embedder.md)
 

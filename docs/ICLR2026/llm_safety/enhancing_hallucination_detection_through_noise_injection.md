@@ -114,9 +114,9 @@ tags:
 ## 相关论文
 
 - [VeriTrail: Closed-Domain Hallucination Detection with Traceability](veritrail_closed-domain_hallucination_detection_with_traceability.md)
+- [Automated Explanation Generation and Hallucination Detection for Heritage Image Retrieval](../../ACL2025/llm_safety/automated_explanation_generation_and_hallucination_detection_for_heritage_image_.md)
 - [HD-NDEs: Neural Differential Equations for Hallucination Detection in LLMs](../../ACL2025/llm_safety/hd-ndes_neural_differential_equations_for_hallucination_detection_in_llms.md)
+- [Fine-grained Hallucination Detection and Mitigation in Long-form Question Answering](../../ACL2025/llm_safety/localizing_and_mitigating_errors_in_long-form_question_answering.md)
 - [Understanding Sensitivity of Differential Attention through the Lens of Adversarial Robustness](understanding_sensitivity_of_differential_attention_through_the_lens_of_adversar.md)
-- [Learning Auxiliary Tasks Improves Reference-Free Hallucination Detection in Open-Domain Long-Form Generation](../../ACL2025/llm_safety/learning_auxiliary_tasks_improves_reference-free_hallucination_detection_in_open.md)
-- [Unlearning Evaluation through Subset Statistical Independence](unlearning_evaluation_through_subset_statistical_independence.md)
 
 <!-- RELATED:END -->

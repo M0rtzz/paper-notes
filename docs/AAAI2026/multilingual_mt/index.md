@@ -46,6 +46,6 @@ description: >-
 
 :   ViDia2Std 构建了首个覆盖越南全部 63 个省份的手工标注越南语方言-标准语平行语料库（13,000+ 句对），并评估了多种 seq2seq 模型在方言归一化任务上的表现，证明方言归一化作为预处理步骤能显著提升机器翻译和情感分析等下游任务的性能。
 
-**[X-MuTest: A Multilingual Benchmark for Explainable Hate Speech Detection](x-mutest_a_multilingual_benchmark_for_explainable_hate_speech_detection_and_a_no.md)**
+**[X-MuTeST: A Multilingual Benchmark for Explainable Hate Speech Detection and A Novel LLM-consulted Explanation Framework](x-mutest_a_multilingual_benchmark_for_explainable_hate_speech_detection_and_a_no.md)**
 
-:   提出 X-MuTest，一个多语言可解释仇恨言论检测基准，覆盖多种语言和文化背景，评估 LLM 不仅检测仇恨言论的能力，更关注其提供可解释性理由的能力，发现当前模型在多语言和跨文化场景中存在显著性能差异。
+:   本文提出X-MuTeST框架，结合LLM语义推理和n-gram attention增强的两阶段训练方法，用于可解释的多语言仇恨言论检测，并提供了印地语和泰卢固语的首个token级人工标注理据基准数据集。

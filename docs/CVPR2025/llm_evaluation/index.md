@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 LLM评测方向 25篇论文解读
+  CVPR2025 LLM评测方向 24篇论文解读
 description: >-
-  25篇CVPR2025 LLM评测论文解读，主题涵盖：ComfyBench 提出了首个评估LLM、提出 ConText-CIR 框架，通过、通过将密集匹配聚类为代表性子集等，每篇含核心思想与方法详解。
+  24篇CVPR2025 LLM评测论文解读，主题涵盖：ComfyBench 提出了首个评估LLM、提出 ConText-CIR 框架，通过、提出层次化频率捷径搜索方法（HFSS）等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**📷 CVPR2025** · **25** 篇论文解读
+**📷 CVPR2025** · **24** 篇论文解读
 
 **[ComfyBench: Benchmarking LLM-based Agents in ComfyUI for Autonomously Designing Collaborative AI Systems](comfybench_benchmarking_llm-based_agents_in_comfyui_for_autonomously_designing_c.md)**
 
@@ -17,10 +17,6 @@ description: >-
 **[ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval](context-cir_learning_from_concepts_in_text_for_composed_image_retrieval.md)**
 
 :   提出 ConText-CIR 框架，通过 Text Concept-Consistency 损失让文本修改中的名词短语更好地关注查询图像的相关部分，配合合成数据生成管线，在多个 CIR 基准上取得 SOTA。
-
-**[Dense Match Summarization for Faster Two-view Estimation](dense_match_summarization_for_faster_two-view_estimation.md)**
-
-:   通过将密集匹配聚类为代表性子集，并用9×9矩阵编码每个聚类的几何约束，在保持精度的前提下将RANSAC鲁棒估计加速10-100倍。
 
 **[Do ImageNet-trained Models Learn Shortcuts? The Impact of Frequency Shortcuts on Generalization](do_imagenet-trained_models_learn_shortcuts_the_impact_of_frequency_shortcuts_on_.md)**
 
@@ -72,7 +68,7 @@ description: >-
 
 **[PosterO: Structuring Layout Trees to Enable Language Models in Generalized Content-Aware Layout Generation](postero_structuring_layout_trees_to_enable_language_models_in_generalized_conten.md)**
 
-:   本文提出PosterO，一种以布局为中心的海报生成方法，将数据集中的布局结构化为SVG语言的层次化树表示，通过通用形状表示、设计意图向量化和层次节点描述三大机制，使LLM能够通过in-context learning在推理时生成多样化的内容感知布局。
+:   提出 PosterO，将海报版面结构化为 SVG 布局树，通过设计意图向量化和层次节点表示实现与 LLM 的对接，利用意图对齐的上下文学习生成高质量内容感知版面，在多个基准上达到 SOTA 并引入首个支持多用途和多形状元素的 PStylish7 数据集。
 
 **[Potential Field Based Deep Metric Learning](potential_field_based_deep_metric_learning.md)**
 
@@ -100,7 +96,7 @@ description: >-
 
 **[TraF-Align: Trajectory-aware Feature Alignment for Asynchronous Multi-agent Perception](traf-align_trajectory-aware_feature_alignment_for_asynchronous_multi-agent_perce.md)**
 
-:   提出TraF-Align框架，通过预测特征级目标轨迹来学习特征的流动路径，生成沿时间排列的采样点将当前时刻query引导至相关历史特征，解决异步多智能体感知中的时空失配问题。
+:   提出 TraF-Align 框架，通过在特征级别预测目标运动轨迹来学习特征的时空流动路径，沿轨迹生成时序有序的采样点将当前时刻 query 引导至相关历史特征，实现异步多智能体感知中的精确特征对齐，在 V2V4Real 和 DAIR-V2X-Seq 两个真实数据集上刷新SOTA。
 
 **[Uncertainty Weighted Gradients for Model Calibration](uncertainty_weighted_gradients_for_model_calibration.md)**
 

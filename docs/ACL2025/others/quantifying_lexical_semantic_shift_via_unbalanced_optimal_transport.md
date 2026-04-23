@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**: 词汇语义变迁检测旨在识别词义随时间的变化，主要方法用上下文化嵌入估计词级变化程度。**现有痛点**: 现有方法仅能给出词级整体变化分数，无法揭示每个用法实例的语义变化方向和程度。**核心矛盾**: 同一个词的不同用法可能有不同变化方向（如"record"的音乐义增长、信息义衰退），词级聚合掩盖了这些细粒度信号。**本文目标**: 提供实例级的语义变化量化。**切入角度**: 将两个时期的用法实例集视为两个分布，用UOT做对齐。**核心idea**: UOT允许"质量不守恒"——两个分布的总质量可以不同，恰好对应词义使用频率的增减。
+### 领域现状
+
+**领域现状**：**领域现状**: 词汇语义变迁检测旨在识别词义随时间的变化，主要方法用上下文化嵌入估计词级变化程度。**现有痛点**: 现有方法仅能给出词级整体变化分数，无法揭示每个用法实例的语义变化方向和程度。**核心矛盾**: 同一个词的不同用法可能有不同变化方向（如"record"的音乐义增长、信息义衰退），词级聚合掩盖了这些细粒度信号。**本文目标**: 提供实例级的语义变化量化。**切入角度**: 将两个时期的用法实例集视为两个分布，用UOT做对齐。**核心idea**: UOT允许"质量不守恒"——两个分布的总质量可以不同，恰好对应词义使用频率的增减。
 
 ## 方法详解
 
@@ -116,9 +118,9 @@ SUS可视化验证（"record"一词）：
 ## 相关论文
 
 - [Variational Regularized Unbalanced Optimal Transport: Single Network, Least Action](../../NeurIPS2025/others/variational_regularized_unbalanced_optimal_transport_single_network_least_action.md)
-- [LaCoOT: Layer Collapse through Optimal Transport](../../ICCV2025/others/lacoot_layer_collapse_through_optimal_transport.md)
 - [Hierarchical Refinement: Optimal Transport to Infinity and Beyond](../../ICML2025/others/hierarchical_refinement_optimal_transport_to_infinity_and_beyond.md)
-- [S3 - Semantic Signal Separation](s3_-_semantic_signal_separation.md)
+- [LaCoOT: Layer Collapse through Optimal Transport](../../ICCV2025/others/lacoot_layer_collapse_through_optimal_transport.md)
 - [Neuron Empirical Gradient: Discovering and Quantifying Neurons' Global Linear Controllability](neuron_empirical_gradient_discovering_and_quantifying_neurons_global_linear_cont.md)
+- [S3 - Semantic Signal Separation](s3_-_semantic_signal_separation.md)
 
 <!-- RELATED:END -->

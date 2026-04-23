@@ -1,14 +1,26 @@
 ---
 title: >-
-  ACL2025 图学习方向 22篇论文解读
+  ACL2025 图学习方向 25篇论文解读
 description: >-
-  22篇ACL2025 图学习论文解读，主题涵盖：提出 MERRY，一个统一处理 KG 内（零样本、本文提出Morpher，一种多模态提示学习范式、提出 ClaimPKG 框架，通过轻量级专用等，每篇含核心思想与方法详解。
+  25篇ACL2025 图学习论文解读，主题涵盖：本文提出深度生成自适应重放（DGAR）方法、本文提出基于互信息最大化的知识图谱嵌入（KGE）框、本文提出一种基于智能体的可控知识图谱搜索框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**💬 ACL2025** · **22** 篇论文解读
+**💬 ACL2025** · **25** 篇论文解读
+
+**[A Generative Adaptive Replay Continual Learning Model for Temporal Knowledge Graph Reasoning](a_generative_adaptive_replay_continual_learning_model_for_temporal_knowledge_gra.md)**
+
+:   本文提出深度生成自适应重放（DGAR）方法，利用预训练扩散模型生成历史实体分布表示、通过增强历史分布与当前分布的共同特征来缓解分布冲突，并设计逐层自适应重放机制整合历史与当前知识，在时序知识图谱推理的持续学习场景中显著缓解了灾难性遗忘问题。
+
+**[A Mutual Information Perspective on Knowledge Graph Embedding](a_mutual_information_perspective_on_knowledge_graph_embedding.md)**
+
+:   本文提出基于互信息最大化的知识图谱嵌入（KGE）框架，通过最大化三元组不同组成部分之间的互信息来提升实体和关系的语义表示能力，在复杂关系模式（1-N、N-1等）上取得一致性能提升。
+
+**[Agent Steerable Search for Knowledge Graph Question Answering](agent_steerable_search_for_knowledge_graph_question_answering.md)**
+
+:   本文提出一种基于智能体的可控知识图谱搜索框架，让LLM Agent能够根据问题类型和推理需求动态调整图搜索策略（如搜索深度、方向、剪枝规则），实现对知识图谱问答过程的精细控制。
 
 **[Beyond Completion: A Foundation Model for General Knowledge Graph Reasoning](beyond_completion_a_foundation_model_for_general_knowledge_graph_reasoning.md)**
 

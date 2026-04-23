@@ -135,8 +135,8 @@ tags:
 
 - [DiverseDiT: Towards Diverse Representation Learning in Diffusion Transformers](../../CVPR2026/self_supervised/diversedit_towards_diverse_representation_learning_in_diffusion_transformers.md)
 - [Contrastive Representations for Temporal Reasoning](../../NeurIPS2025/self_supervised/contrastive_representations_for_temporal_reasoning.md)
+- [UniGeoCLIP: Unified Geospatial Contrastive Learning](../../CVPR2026/self_supervised/unigeoclip_geospatial_contrastive.md)
 - [Temporal Slowness in Central Vision Drives Semantic Object Learning](../../ICLR2026/self_supervised/temporal_slowness_in_central_vision_drives_semantic_object_learning.md)
 - [BrainOmni: A Brain Foundation Model for Unified EEG and MEG Signals](../../NeurIPS2025/self_supervised/brainomni_a_brain_foundation_model_for_unified_eeg_and_meg_signals.md)
-- [Memory-Integrated Reconfigurable Adapters: A Unified Framework for Settings with Multiple Tasks](../../NeurIPS2025/self_supervised/memory-integrated_reconfigurable_adapters_a_unified_framework_for_settings_with_.md)
 
 <!-- RELATED:END -->

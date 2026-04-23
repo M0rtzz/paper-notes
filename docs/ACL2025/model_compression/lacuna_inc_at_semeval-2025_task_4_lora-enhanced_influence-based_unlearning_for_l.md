@@ -21,7 +21,9 @@ tags:
 
 ## 背景与动机
 
-1. **GDPR 等隐私法规要求"被遗忘权"**：LLM 部署后需要能选择性删除特定训练数据的影响，但完全重训对大模型不可行。
+### 现有痛点
+
+**现有痛点**：**领域现状**：1. **GDPR 等隐私法规要求"被遗忘权"**：LLM 部署后需要能选择性删除特定训练数据的影响，但完全重训对大模型不可行。
 2. **现有遗忘方法破坏通用能力**：梯度上升等方法虽能遗忘目标数据，但严重退化模型在 MMLU 等基准上的表现。
 3. **SemEval-2025 Task 4 挑战**：要求在 1 小时内完成 OLMo 模型的遗忘，同时保持 MMLU > 0.371，平衡遗忘效果与模型效用。
 
@@ -49,6 +51,9 @@ $$\Delta\theta_t = -\eta \cdot \frac{g_t}{\max(\gamma \cdot h_t, \epsilon)}$$
 
 ### 表2：与基线方法对比（OLMo-7B，Setup 3 最优配置）
 
+
+### 主实验
+
 | 方法 | 总分 | 任务聚合分 | MIA 分 | MMLU 均值 |
 |:---|:---:|:---:|:---:|:---:|
 | 梯度上升 | 0.394 | 0 | 0.912 | 0.269 |
@@ -62,20 +67,23 @@ $$\Delta\theta_t = -\eta \cdot \frac{g_t}{\max(\gamma \cdot h_t, \epsilon)}$$
 
 ### 超参敏感性
 
+
+### 消融实验
+
 | 配置 | 激进度 | MMLU 结果 |
 |:---|:---|:---|
 | Setup 1（高学习率 4e-5） | 激进 | MMLU < 阈值，失败 |
 | Setup 2（中等） | 平衡 | 子任务 1/3 最佳 |
 | Setup 3（保守 2e-5） | 保守 | 综合最优 |
 
-## 亮点
+## 亮点与洞察
 
 - **两阶段解耦设计**：影响函数精准定位→二阶优化稳定化，避免联合训练的近似漂移
 - **Fisher 对角线替代完整 Hessian**：从 $O(d^2)$ 降至 $O(d)$，对大模型可行
 - **LoRA 参数高效遗忘**：仅更新低秩适配器，进一步降低内存和计算需求
 - **MMLU 保持最优**：在所有比较方法中 MMLU 最高，说明对通用能力破坏最小
 
-## 局限性
+## 局限与展望
 
 - **MIA 分数为 0**：LIBU 在成员推理攻击指标上完全失败，说明遗忘不够彻底
 - **仅在小模型上验证**：OLMo-1B/7B，对更大模型的可扩展性未知
@@ -95,8 +103,8 @@ $$\Delta\theta_t = -\eta \cdot \frac{g_t}{\max(\gamma \cdot h_t, \epsilon)}$$
 
 - [Sci-LoRA: Mixture of Scientific LoRAs for Cross-Domain Lay Paraphrasing](sci-lora_mixture_of_scientific_loras_for_cross-domain_lay_paraphrasing.md)
 - [IAM: Efficient Inference through Attention Mapping between Different-scale LLMs](iam_efficient_inference_through_attention_mapping_between_different-scale_llms.md)
-- [RISE: Reasoning Enhancement via Iterative Self-Exploration in Multi-hop Question Answering](rise_reasoning_enhancement_via_iterative_self-exploration_in_multi-hop_question_.md)
 - [TaDA: Training-free recipe for Decoding with Adaptive KV Cache Compression and Mean-centering](tada_training-free_recipe_for_decoding_with_adaptive_kv_cache_compression_and_me.md)
 - [Wanda++: Pruning Large Language Models via Regional Gradients](wanda_pruning_large_language_models_via_regional_gradients.md)
+- [RISE: Reasoning Enhancement via Iterative Self-Exploration in Multi-hop Question Answering](rise_reasoning_enhancement_via_iterative_self-exploration_in_multi-hop_question_.md)
 
 <!-- RELATED:END -->

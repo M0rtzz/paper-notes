@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 3D视觉方向 232篇论文解读
+  CVPR2026 3D视觉方向 255篇论文解读
 description: >-
-  232篇CVPR2026 3D视觉论文解读，主题涵盖：提出"就地补全"（in-place、提出"隐式几何涌现原则"（IGEP）、提出自约束先验（Self-Constrained等，每篇含核心思想与方法详解。
+  255篇CVPR2026 3D视觉论文解读，主题涵盖：提出"就地补全"（in-place、提出"隐式几何涌现原则"（IGEP）、提出自约束先验（Self-Constrained等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D视觉
 
-**📷 CVPR2026** · **232** 篇论文解读
+**📷 CVPR2026** · **255** 篇论文解读
 
 **[3D-Fixer: Coarse-to-Fine In-place Completion for 3D Scenes from a Single Image](3d-fixer_coarse-to-fine_in-place_completion_for_3d_scenes_from_a_single_image.md)**
 
@@ -82,6 +82,10 @@ description: >-
 
 :   AffordMatcher 提出了一种从视觉信号（RGB 图像中的人物交互）定位 3D 场景中可供性区域的方法，通过大规模 AffordBridge 数据集和基于不相似度矩阵的 Match-to-Match 注意力机制，在零样本可供性分割上达到 53.4 mAP，超越次优方法 7.8 个点。
 
+**[Affostruction: 3D Affordance Grounding with Generative Reconstruction](affostruction_3d_affordance_grounding_with_generative_reconstruction.md)**
+
+:   提出Affostruction，通过稀疏体素融合的生成式重建完成物体几何（包括未观测区域），并用Flow Matching建模功能可供性的多模态分布，在完整3D形状上实现功能区域定位，重建IoU提升54.8%、affordance aIoU提升40.4%。
+
 **[AnchorSplat: Feed-Forward 3D Gaussian Splatting with 3D Geometric Priors](anchorsplat_feed-forward_3d_gaussian_splatting_with_3d_geometric_priors.md)**
 
 :   AnchorSplat 提出了一种锚点对齐的前馈 3DGS 框架，以 3D 几何先验（稀疏点云）为锚点直接在 3D 空间预测高斯，用约 20 倍更少的高斯数量和一半的重建时间在 ScanNet++ v2 上达到 SOTA 性能（PSNR 21.48），同时具备更好的深度估计精度。
@@ -93,6 +97,10 @@ description: >-
 **[AnyPcc: Compressing Any Point Cloud with a Single Universal Model](anypcc_compressing_any_point_cloud_with_a_single_universal_model.md)**
 
 :   提出 AnyPcc，通过 Universal Context Model（融合空间+通道双粒度先验）和 Instance-Adaptive Fine-Tuning（实例自适应微调）策略，用单一模型在 15 个多样化数据集上实现 SOTA 点云几何压缩，相比 G-PCC v23 获得 ~12% 的码率增益。
+
+**[APC: Transferable and Efficient Adversarial Point Counterattack for Robust 3D Point Cloud Recognition](apc_adversarial_point_counterattack.md)**
+
+:   APC 提出一种轻量级输入级净化模块，通过生成逐点反扰动来中和对抗攻击，同时在几何一致性和语义一致性双重约束下训练，实现了跨攻击和跨模型的强鲁棒性。
 
 **[ArtHOI: Taming Foundation Models for Monocular 4D Reconstruction of Hand-Articulated-Object Interactions](arthoi_taming_foundation_models_for_monocular_4d_reconstruction_of_hand-articula.md)**
 
@@ -125,6 +133,10 @@ description: >-
 **[BulletGen: Improving 4D Reconstruction with Bullet-Time Generation](bulletgen_improving_4d_reconstruction_with_bullet-time_generation.md)**
 
 :   提出 BulletGen，在选定的"子弹时间"冻结帧用静态视频扩散模型生成新视角，精确定位后用于监督 4D 高斯场景优化，在仅有单目视频输入的情况下实现极端新视角合成和 2D/3D 追踪的 SOTA。
+
+**[CARI4D: Category Agnostic 4D Reconstruction of Human-Object Interaction](cari4d_category_agnostic_4d_reconstruction_of_human_object_interaction.md)**
+
+:   提出CARI4D，首个类别无关的方法，从单目RGB视频中重建度量尺度的4D人物交互——包括物体形状重建、位姿跟踪、手部接触推理和物理约束优化，零样本泛化到未见类别。
 
 **[Catalyst4D: High-Fidelity 3D-to-4D Scene Editing via Dynamic Propagation](catalyst4d_high-fidelity_3d-to-4d_scene_editing_via_dynamic_propagation.md)**
 
@@ -174,6 +186,10 @@ description: >-
 
 :   CrowdGaussian 提出了从单张图像重建多人 3D 高斯泼溅表示的统一框架，通过自监督适配的大型遮挡人体重建模型（LORM）恢复被遮挡区域的完整几何，再通过自校准学习（SCL）训练的单步扩散精炼器（CrowdRefiner）提升纹理细节质量。
 
+**[CUBE: Representing 3D Faces with Learnable B-Spline Volumes](cube_bspline_3d_faces.md)**
+
+:   提出 CUBE（Control-based Unified B-spline Encoding），一种结合 B 样条体和可学习高维控制特征的混合几何表示，通过两阶段解码（B 样条基插值 + 轻量 MLP 残差）实现可编辑、高精度的 3D 人脸重建和扫描配准。
+
 **[CustomTex: High-fidelity Indoor Scene Texturing via Multi-Reference Customization](customtex_high-fidelity_indoor_scene_texturing_via_multi-reference_customization.md)**
 
 :   提出CustomTex框架，通过实例级的多参考图像驱动和双蒸馏训练策略（语义级VSD蒸馏+像素级超分蒸馏），实现3D室内场景的高保真、实例可控纹理生成，在语义一致性、纹理清晰度和减少"烘焙阴影"方面全面超越现有方法。
@@ -181,6 +197,10 @@ description: >-
 **[Dark3R: Learning Structure from Motion in the Dark](dark3r_learning_structure_from_motion_in_the_dark.md)**
 
 :   提出 Dark3R 框架，通过教师-学生蒸馏将 MASt3R 的3D先验迁移到极端低光照（SNR < −4 dB）原始图像上，实现了传统方法完全失败的暗光环境下的运动恢复结构（SfM）和新视角合成。
+
+**[DeepShapeMatchingKit: Accelerated Functional Map Solver and Shape Matching Pipelines Revisited](deepshapematchingkit_accelerated_functional_map_solver.md)**
+
+:   本文提出了功能图求解器的向量化重构实现33倍加速，识别并记录了DiffusionNet的两个未记录实现变体，引入平衡准确率作为部分匹配评估的补充指标，并发布了统一的开源代码库。
 
 **[Deformation-based In-Context Learning for Point Cloud Understanding](deformation-based_in-context_learning_for_point_cloud_understanding.md)**
 
@@ -266,6 +286,10 @@ description: >-
 
 :   提出FACT-GS，将纹理参数化重新定义为采样密度分配问题，通过可学习变形场实现频率自适应的非均匀纹理采样，在固定参数预算下显著提升高频细节恢复能力。
 
+**[Fall Risk and Gait Analysis using World-Spaced 3D Human Mesh Recovery](fall_risk_gait_analysis_hmr.md)**
+
+:   提出基于 GVHMR（世界坐标系 3D 人体网格恢复）的步态分析管线，从单目视频中提取老年人定时起立行走测试的时空步态参数，验证了视频衍生指标与可穿戴传感器的相关性及与跌倒风险的关联。
+
 **[Fast3Dcache: Training-free 3D Geometry Synthesis Acceleration](fast3dcache_training-free_3d_geometry_synthesis_acceleration.md)**
 
 :   本文提出 Fast3Dcache，一个面向 3D 扩散模型的无需训练的几何感知缓存框架，通过预测性缓存调度约束（PCSC）根据体素稳定化模式动态分配缓存预算，以及时空稳定性准则（SSC）基于速度和加速度选择稳定 token 进行复用，实现最高 27.12% 的吞吐提升和 54.83% 的 FLOPs 降低，几何质量仅损失约 2%。
@@ -282,6 +306,10 @@ description: >-
 
 :   提出 FI3Det，首个少样本增量 3D 目标检测框架：在基础训练阶段通过 VLM 引导的未知对象学习模块提前感知潜在新类别，在增量阶段通过门控多模态原型铸造模块融合 2D 语义和 3D 几何特征进行新类检测，在 ScanNet V2 和 SUN RGB-D 上的新类 mAP 平均提升 17.37%。
 
+**[FF3R: Feedforward Feature 3D Reconstruction from Unconstrained Views](ff3r_feedforward_feature_3d_reconstruction_from_unconstrained_views.md)**
+
+:   FF3R是首个完全无标注的前馈框架，能从无约束多视角图像序列中同时进行几何重建和开放词汇语义理解，处理64+张图像的速度比优化方法快180倍。
+
 **[FluidGaussian: Propagating Simulation-Based Uncertainty Toward Functionally-Intelligent 3D Reconstruction](fluidgaussian_propagating_simulation-based_uncertainty_toward_functionally-intel.md)**
 
 :   提出 FluidGaussian，通过流体模拟传播的不确定性指标来指导 3D 重建中的主动视角选择，使重建结果不仅视觉逼真，还具备物理交互的合理性。
@@ -297,6 +325,10 @@ description: >-
 **[FreeArtGS: Articulated Gaussian Splatting Under Free-Moving Scenario](freeartgs_articulated_gaussian_splatting_under_free-moving_scenario.md)**
 
 :   FreeArtGS 提出在"自由移动场景"(物体姿态和关节状态同时任意变化)下从单目RGB-D视频重建铰接物体的方法，通过运动驱动的部件分割、鲁棒关节估计和端到端3DGS优化的三阶段流程，在自建FreeArt-21基准和现有数据集上远超所有基线。
+
+**[FreeScale: Scaling 3D Scenes via Certainty-Aware Free-View Generation](freescale_scaling_3d_scenes.md)**
+
+:   FreeScale 通过从已有场景重建中以确定性引导的方式采样高质量自由视角图像，将有限的真实世界数据扩展为大规模训练数据，在前馈新视角合成模型上获得 2.7 dB PSNR 提升。
 
 **[FE2E: From Editor to Dense Geometry Estimator](from_editor_to_dense_geometry_estimator.md)**
 
@@ -402,6 +434,10 @@ description: >-
 
 :   提出首个前馈HDR新视角合成方法InstantHDR，设计几何引导的外观建模模块解决多曝光融合中的外观不一致问题，并通过MetaNet预测场景特定色调映射参数实现泛化，从未标定多曝光LDR图像中秒级重建HDR 3D高斯场景，稀疏4视角下PSNR超GaussianHDR +2.90 dB，速度快约700倍。
 
+**[Iris: Bringing Real-World Priors into Diffusion Model for Monocular Depth Estimation](iris_bringing_realworld_priors_into_diffusion_model_for_monocular_depth_estimation.md)**
+
+:   Iris 提出一种确定性扩散框架，通过两阶段"先验到几何"(PGD)调度将真实世界先验注入扩散模型：第一阶段在高时间步用频谱门控蒸馏(SGD)从教师模型提取低频布局先验，第二阶段在低时间步用合成数据精细化高频几何细节，同时引入频谱门控一致性(SGC)实现跨阶段高频信息对齐，在有限数据和计算预算下达到 SOTA 零样本深度估计性能。
+
 **[JOPP-3D: Joint Open Vocabulary Semantic Segmentation on Point Clouds and Panoramas](jopp-3d_joint_open_vocabulary_semantic_segmentation_on_point_clouds_and_panorama.md)**
 
 :   提出 JOPP-3D，首个联合处理3D点云和全景图像的开放词汇语义分割框架，通过切向分解将全景图映射到正二十面体面、用 SAM+CLIP 提取语义对齐的3D实例嵌入，在 S3DIS 上以弱监督达到 80.9% mIoU 超越所有封闭词汇方法。
@@ -442,6 +478,10 @@ description: >-
 
 :   LitePT 通过深入分析卷积和注意力在U-Net各层级的角色，提出在浅层使用稀疏卷积、深层使用注意力的分层混合架构，并引入无参数的PointROPE位置编码，实现了比Point Transformer V3少3.6倍参数、快2倍、省2倍内存，同时在多个点云基准上性能持平或超越。
 
+**[Long-SCOPE: Fully Sparse Long-Range Cooperative 3D Perception](long_scope_fully_sparse_long_range_cooperative_3d_perception.md)**
+
+:   Long-SCOPE提出了全稀疏的长距离协同3D感知框架，通过几何引导查询生成和上下文感知关联模块，在100-150m远距离场景下实现了SOTA性能，同时保持高效的计算和通信成本。
+
 **[LongStream: Long-Sequence Streaming Autoregressive Visual Geometry](longstream_long-sequence_streaming_autoregressive_visual_geometry.md)**
 
 :   提出LongStream，一种gauge-decoupled的流式视觉几何模型，通过关键帧相对位姿预测、正交尺度学习和缓存一致性训练，实现千帧级别稳定的度量尺度实时（18 FPS）场景重建。
@@ -454,6 +494,10 @@ description: >-
 
 :   提出 LTGS 框架，通过构建可复用的物体级高斯模板，从时空稀疏的观测图像中高效更新 3DGS 场景重建，实现长期环境演化的时序建模。
 
+**[LumiMotion: Improving Gaussian Relighting with Scene Dynamics](lumimotion_gaussian_relighting_dynamics.md)**
+
+:   LumiMotion 是首个利用场景动态（运动区域）作为监督信号来改善逆渲染的 Gaussian-based 方法，通过动静分离和运动揭示的材质变化来更好地分离光照与材质，albedo 估计 LPIPS 提升 23%，重光照提升 15%。
+
 **[M3DLayout: A Multi-Source Dataset of 3D Indoor Layouts and Structured Descriptions for 3D Generation](m3dlayout_a_multi-source_dataset_of_3d_indoor_layouts_and_structured_description.md)**
 
 :   构建了多源大规模 3D 室内布局数据集 M3DLayout（21,367 布局、433k+ 物体实例），融合真实扫描、专业设计和程序化生成三种来源，配以结构化文本描述，为文本驱动的 3D 场景生成提供高质量训练基础。
@@ -465,6 +509,10 @@ description: >-
 **[Mamba Learns in Context: Structure-Aware Domain Generalization for Multi-Task Point Cloud Understanding](mamba_learns_in_context_structure-aware_domain_generalization_for_multi-task_poi.md)**
 
 :   提出SADG框架，首次将Mamba引入多任务点云域泛化的上下文学习，通过结构感知序列化（质心距离谱+测地曲率谱）、分层域感知建模和谱图对齐三个模块，在重建、去噪、配准三个任务上全面超越SOTA。
+
+**[MARCO: Navigating the Unseen Space of Semantic Correspondence](marco_semantic_correspondence.md)**
+
+:   提出 MARCO，基于单一 DINOv2 backbone 的语义对应模型，通过粗到细高斯 RBF 损失逐步提升空间精度，并用自蒸馏框架将稀疏关键点监督扩展为稠密伪对应标签，在标准基准和未见关键点/类别上均达到 SOTA，同时比双编码器方法小 3 倍、快 10 倍。
 
 **[Masking Matters: Unlocking the Spatial Reasoning Capabilities of LLMs for 3D Scene-Language Understanding](masking_matters_unlocking_the_spatial_reasoning_capabilities_of_llms_for_3d_scen.md)**
 
@@ -542,9 +590,21 @@ description: >-
 
 :   本文提出 NFH-SEM，一个基于神经场的混合框架，通过将 SEM 电子散射物理模型嵌入神经场优化过程，从多视角多检测器 SEM 图像重建高保真的微观结构 3D 表面，实现了自标定、抗阴影的纳米级精度重建（478nm 层叠特征、782nm 花粉纹理、1.559μm 断裂台阶）。
 
+**[Neural Gabor Splatting: Enhanced Gaussian Splatting with Neural Gabor for High-frequency Surface Reconstruction](neural_gabor_splatting.md)**
+
+:   Neural Gabor Splatting 为每个高斯原语嵌入一个轻量级 MLP（SIREN 架构），使单个原语能表示复杂的空间变化颜色模式，配合频率感知致密化策略，在相同数据预算下显著提升高频表面重建质量。
+
+**[NG-GS: NeRF-Guided 3D Gaussian Splatting Segmentation](ng_gs_nerf_guided_3d_gaussian_splatting_segmentation.md)**
+
+:   提出 NG-GS 框架，利用 NeRF 的连续建模能力解决 3DGS 分割中的边界离散化问题，通过 RBF 插值构建连续特征场结合多分辨率哈希编码和 NeRF-GS 联合优化实现高质量对象分割。
+
 **[NI-Tex: Non-isometric Image-based Garment Texture Generation](ni-tex_non-isometric_image-based_garment_texture_generation.md)**
 
 :   提出NI-Tex框架，通过构建3D Garment Videos数据集、基于图像编辑的跨拓扑增强以及不确定性引导的迭代烘焙算法，首次以前馈架构实现了非等距条件下从单图到3D服装PBR纹理的高质量生成。
+
+**[NimbusGS: Unified 3D Scene Reconstruction under Hybrid Weather](nimbusgs_unified_3d_scene_reconstruction_under_hybrid_weather.md)**
+
+:   NimbusGS 提出统一的3D场景重建框架，通过将天气退化分解为连续散射场（雾/霾）和逐视图粒子残差层（雨/雪），配合几何引导梯度缩放机制，在单一框架内实现跨天气和混合天气条件下的SOTA重建。
 
 **[No Calibration, No Depth, No Problem: Cross-Sensor View Synthesis with 3D Consistency](no_calibration_no_depth_no_problem_cross-sensor_view_synthesis_with_3d_consisten.md)**
 
@@ -642,6 +702,10 @@ description: >-
 
 :   提出 PixARMesh，首个在原生 mesh 空间（而非 SDF）中进行单视图场景重建的自回归框架，通过像素对齐图像特征和全局场景上下文增强点云编码器，在统一的 token 序列中同时预测物体位姿和mesh，在 3D-FRONT 上达到场景级 SOTA 且输出紧凑、可编辑的 artist-ready mesh。
 
+**[PointINS: Instance-Aware Self-Supervised Learning for Point Clouds](pointins_instance-aware_self-supervised_learning_for_point_clouds.md)**
+
+:   PointINS 提出首个显式学习语义一致性和几何推理的点云自监督框架，通过无标签的偏移分支配合偏移分布正则化（ODR）和空间聚类正则化（SCR），在室内实例分割上平均提升 +3.5% mAP，室外全景分割提升 +4.1% PQ。
+
 **[PointTPA: Dynamic Network Parameter Adaptation for 3D Scene Understanding](pointtpa_dynamic_network_parameter_adaptation_for_3d_scene_understanding.md)**
 
 :   提出 PointTPA 框架，通过序列化邻域分组（SNG）和动态参数投射器（DPP）两个轻量模块在推理时为每个输入场景生成定制化的网络参数，仅增加 <2% 参数量即在 ScanNet 上达到 78.4% mIoU，超越现有参数高效微调（PEFT）方法。
@@ -706,6 +770,10 @@ description: >-
 
 :   提出首个统一多层级语言高斯场与开放词汇3D场景图的无训练框架 ReLaGS，通过最大权重剪枝和鲁棒异常值感知特征聚合改进场景表示，结合GNN关系预测实现高效的结构化3D场景理解。
 
+**[Reliev3R: Relieving Feed-forward 3D Reconstruction from Multi-View Geometric Annotations](reliev3r_relieving_feed-forward_3d_reconstruction_from_multi-view_geometric_annot.md)**
+
+:   Reliev3R 首次提出无需多视图几何标注（无需 SfM/MVS 生成的点云和位姿）即可从头训练前馈3D重建模型（FFRM）的弱监督范式，利用单目相对深度和稀疏图像对应作为替代监督，性能追平甚至超过部分全监督 FFRM。
+
 **[Reparameterized Tensor Ring Functional Decomposition for Multi-Dimensional Data Recovery](reparameterized_tensor_ring_functional_decomposition_for_multi-dimensional_data_.md)**
 
 :   提出 RepTRFD：通过将 Tensor Ring 因子重参数化为"可学习隐张量 × 固定基"的形式，解决 INR 参数化 TR 因子的频谱偏置问题，在图像修复/去噪/超分/点云恢复等任务上全面超越 SOTA。
@@ -746,6 +814,10 @@ description: >-
 
 :   本文系统研究了多重成像中采样几何（2D切片 vs 3D序列切片）对空间统计量恢复精度的影响，并提出了一种几何感知的稀疏3D重建模块，在有限的成像预算下实现可靠的深度感知空间分析。
 
+**[SASNet: Spatially-Adaptive Sinusoidal Networks for INRs](sasnet_spatially_adaptive_sinusoidal_networks_for_inrs.md)**
+
+:   提出 SASNet，通过将冻结的频率嵌入层与轻量级哈希网格 MLP 学习的空间自适应掩码相结合，解决 SIREN 中频率初始化敏感和高频泄漏问题，在图像拟合、体数据拟合和 SDF 重建任务上实现更快收敛和更高重建质量。
+
 **[Scalable Object Relation Encoding for Better 3D Spatial Reasoning in Large Language Models](scalable_object_relation_encoding_for_better_3d_spatial_reasoning_in_large_langu.md)**
 
 :   提出 QuatRoPE，一种基于四元数旋转的3D位置编码方法，仅需 $O(n)$ 输入token即可保留所有 $O(n^2)$ 物体间空间关系，并配合 IGRE 机制减少与语言 RoPE 的干扰，在多个3D视觉语言基准上取得大幅提升。
@@ -774,6 +846,10 @@ description: >-
 
 :   提出 SeeThrough3D，通过半透明 3D 包围盒渲染的遮挡感知场景表示（OSCR）来条件化 FLUX 模型，实现了精确的 3D 布局控制与遮挡一致的文本到图像生成。
 
+**[SEPatch3D: Revisiting Token Compression for Accelerating ViT-based Sparse Multi-View 3D Object Detectors](sepatch3d_revisiting_token_compression_for_accelerating_vit_based_sparse_3d_detectors.md)**
+
+:   提出 SEPatch3D，通过时空感知的动态 patch 大小选择和基于熵的信息性 patch 筛选增强机制，在 ViT 基稀疏多视角 3D 检测中实现 57% 推理加速且保持可比检测精度。
+
 **[SGAD-SLAM: Splatting Gaussians at Adjusted Depth for Better Radiance Fields in RGBD SLAM](sgad-slam_splatting_gaussians_at_adjusted_depth_for_better_radiance_fields_in_rg.md)**
 
 :   提出SGAD-SLAM，采用像素对齐的简化高斯表示并允许高斯沿射线调整深度偏移以提升渲染质量和可扩展性，同时引入基于几何相似度的GICP跟踪策略加速相机位姿估计，在Replica、TUM、ScanNet和ScanNet++上全面超越最新方法。
@@ -781,6 +857,10 @@ description: >-
 **[SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation](sgi_structured_2d_gaussians_for_efficient_and_compact_large_image_representation.md)**
 
 :   SGI 提出基于种子点(seed)的结构化 2D 高斯表示框架，通过将无结构高斯原语组织为种子驱动的神经高斯、结合上下文引导的熵编码和多尺度拟合策略，在高分辨率图像表示中实现最高 7.5× 压缩比和 6.5× 优化加速，同时保持甚至提升重建保真度。
+
+**[SGS-Intrinsic: Semantic-Invariant Gaussian Splatting for Sparse-View Indoor Inverse Rendering](sgs-intrinsic_semantic-invariant_gaussian_splatting_for_sparse-view_indoor_invers.md)**
+
+:   SGS-Intrinsic 提出两阶段室内逆渲染框架，第一阶段利用语义和几何先验构建稠密几何一致的高斯场，第二阶段结合混合光照模型和材质先验进行材质-光照分解，并通过去阴影模块防止阴影烘焙到反照率中。
 
 **[Sky2Ground: A Benchmark for Site Modeling under Varying Altitude](sky2ground_a_benchmark_for_site_modeling_under_varying_altitude.md)**
 
@@ -834,6 +914,10 @@ description: >-
 
 :   提出 Stepper 框架，通过逐步生成多视角全景图并结合前馈式3D重建管线，实现文本驱动的高保真沉浸式3D场景生成，在PSNR上比现有方法平均提升3.3 dB。
 
+**[STS-Mixer: Spatio-Temporal-Spectral Mixer for 4D Point Cloud Video Understanding](sts_mixer_4d_point_cloud.md)**
+
+:   STS-Mixer 首次将图傅里叶变换（GFT）引入 4D 点云视频理解，通过频域分解捕获不同尺度的几何结构（低频=全局形状、高频=局部细节），与时空信息混合后在动作识别和语义分割上达到 SOTA。
+
 **[SwiftTailor: Efficient 3D Garment Generation with Geometry Image Representation](swifttailor_efficient_3d_garment_generation_with_geometry_image_representation.md)**
 
 :   提出两阶段轻量框架SwiftTailor，通过PatternMaker预测缝纫样板 + GarmentSewer将其转换为统一UV空间的Garment Geometry Image，结合逆映射与动态拼接直接生成3D服装网格，推理速度比现有方法快数十倍且达到SOTA质量。
@@ -841,6 +925,10 @@ description: >-
 **[TagSplat: Topology-Aware Gaussian Splatting for Dynamic Mesh Modeling and Tracking](tagsplat_topology-aware_gaussian_splatting_for_dynamic_mesh_modeling_and_trackin.md)**
 
 :   提出拓扑感知的高斯泼溅框架 TagSplat，通过显式编码高斯基元间的空间连接关系，在动态场景重建中生成拓扑一致的网格序列，并支持精确的3D关键点跟踪。
+
+**[Learning 3D Reconstruction with Priors in Test Time](tco_learning_3d_reconstruction_with_priors_in_test_time.md)**
+
+:   提出测试时约束优化（TCO）框架，无需重训练或修改预训练多视图 Transformer 架构，通过在推理时将先验（相机位姿、内参、深度）作为预测约束进行优化，大幅提升 3D 重建精度。
 
 **[TeHOR: Text-Guided 3D Human and Object Reconstruction with Textures](tehor_text-guided_3d_human_and_object_reconstruction_with_textures.md)**
 
@@ -877,6 +965,10 @@ description: >-
 **[Unblur-SLAM: Dense Neural SLAM for Blurry Inputs](unblur-slam_dense_neural_slam_for_blurry_inputs.md)**
 
 :   Unblur-SLAM 不是简单把去模糊网络塞进 SLAM 前端，而是围绕“哪些模糊帧可以先去模糊再跟踪、哪些模糊帧必须直接在 3D 空间里建模”这一关键决策，设计了模糊检测、物理约束去模糊、3D Gaussian blur refinement 和严重模糊 fallback 的完整流水线，因此能同时处理运动模糊和散焦模糊，并显著提升跟踪与重建质量。
+
+**[UniSplat: Learning 3D Representations for Spatial Intelligence from Unposed Multi-View Images](unisplat_3d_representations_unposed.md)**
+
+:   UniSplat 通过双掩码策略、粗到细高斯溅射和位姿条件重校准三个组件，从无位姿多视角图像中学习统一的几何-外观-语义 3D 表示，为空间智能奠定感知基础。
 
 **[Using Gaussian Splats to Create High-Fidelity Facial Geometry and Texture](using_gaussian_splats_to_create_high-fidelity_facial_geometry_and_texture.md)**
 

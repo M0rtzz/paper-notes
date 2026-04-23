@@ -138,9 +138,9 @@ BadVision是一个两阶段攻击框架：Stage 1 触发器优化——在冻结
 ## 相关论文
 
 - [Self-Supervised Spatial Correspondence Across Modalities](self-supervised_spatial_correspondence_across_modalities.md)
+- [FlowHijack: A Dynamics-Aware Backdoor Attack on Flow-Matching VLA Models](../../CVPR2026/multimodal_vlm/flowhijack_dynamics_aware_backdoor_attack_on_flow_matching_vla_models.md)
+- [Multimodal Autoregressive Pre-training of Large Vision Encoders](multimodal_autoregressive_pre-training_of_large_vision_encoders.md)
+- [Calico: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models](calico_part-focused_semantic_co-segmentation_with_large_vision-language_models.md)
 - [Self-Evolving Visual Concept Library using Vision-Language Critics](self-evolving_visual_concept_library_using_vision-language_critics.md)
-- [TRivia: Self-supervised Fine-tuning of Vision-Language Models for Table Recognition](../../CVPR2026/multimodal_vlm/trivia_self-supervised_fine-tuning_of_vision-language_models_for_table_recogniti.md)
-- [MMRL: Multi-Modal Representation Learning for Vision-Language Models](mmrl_multi-modal_representation_learning_for_vision-language_models.md)
-- [Continual Learning with Vision-Language Models via Semantic-Geometry Preservation](continual_learning_with_vision-language_models_via_semantic-geometry_preservatio.md)
 
 <!-- RELATED:END -->

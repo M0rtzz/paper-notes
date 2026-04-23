@@ -139,9 +139,9 @@ tags:
 ## 相关论文
 
 - [Optimizing for the Shortest Path in Denoising Diffusion Model](optimizing_for_the_shortest_path_in_denoising_diffusion_model.md)
+- [DiffSensei: Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation](diffsensei_bridging_multi-modal_llms_and_diffusion_models_for_customized_manga_g.md)
 - [Visual Lexicon: Rich Image Features in Language Space](visual_lexicon_rich_image_features_in_language_space.md)
 - [Tiled Diffusion](tiled_diffusion.md)
-- [Color Alignment in Diffusion](color_alignment_in_diffusion.md)
-- [VLOGGER: Multimodal Diffusion for Embodied Avatar Synthesis](vlogger_multimodal_diffusion_for_embodied_avatar_synthesis.md)
+- [Decentralized Diffusion Models](decentralized_diffusion_models.md)
 
 <!-- RELATED:END -->

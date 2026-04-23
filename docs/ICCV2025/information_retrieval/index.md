@@ -1,18 +1,22 @@
 ---
 title: >-
-  ICCV2025 信息检索/RAG方向 6篇论文解读
+  ICCV2025 信息检索/RAG方向 7篇论文解读
 description: >-
-  6篇ICCV2025 信息检索/RAG论文解读，主题涵盖：提出D2S-VSE框架，通过两阶段训练（稠密文本预、LangBridge 通过将视觉特征显式分解为、提出 **MonSTeR**——首个**运动-场景等，每篇含核心思想与方法详解。
+  7篇ICCV2025 信息检索/RAG论文解读，主题涵盖：提出D2S-VSE框架，通过两阶段训练（稠密文本预、提出D2S-VSE，通过两阶段训练——先用LLaV、LangBridge 通过将视觉特征显式分解为等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔍 信息检索/RAG
 
-**📹 ICCV2025** · **6** 篇论文解读
+**📹 ICCV2025** · **7** 篇论文解读
 
 **[Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation](aligning_information_capacity_between_vision_and_language_via_dense-to-sparse_fe.md)**
 
 :   提出D2S-VSE框架，通过两阶段训练（稠密文本预训练+稠密到稀疏特征蒸馏微调）增强视觉语义嵌入的信息容量，解决图文匹配中图像与文本信息密度不对称的核心问题。
+
+**[Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation for Image-Text Matching](aligning_information_capacity_between_vision_and_language_via_dense_to_sparse_feature_distillation.md)**
+
+:   提出D2S-VSE，通过两阶段训练——先用LLaVA生成的稠密文本与图像预训练对齐以增强信息容量，再将稠密文本嵌入蒸馏到稀疏文本嵌入——解决图文匹配中信息密度不对称问题，在MS-COCO和Flickr30K上超越SOTA。
 
 **[LangBridge: Interpreting Image as a Combination of Language Embeddings](langbridge_interpreting_image_as_a_combination_of_language_embeddings.md)**
 

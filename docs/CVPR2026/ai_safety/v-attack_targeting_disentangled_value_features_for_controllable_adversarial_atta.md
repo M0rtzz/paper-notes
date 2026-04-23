@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-对抗攻击已从干扰分类预测进化到操控 LVLM 的图像语义。但现有方法在精确操控特定概念时成功率极低——同时改变3个概念，成功率<10%。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：对抗攻击已从干扰分类预测进化到操控 LVLM 的图像语义。但现有方法在精确操控特定概念时成功率极低——同时改变3个概念，成功率<10%。
 
 **核心发现**：ViT 自注意力使 Patch 特征产生语义纠缠（全局上下文主导，局部语义被稀释），而 Value 特征天然抑制全局上下文通道，保留高熵的解耦局部语义。通道分布分析显示 Patch 特征被少数高激活通道（与 CLS token 相关）主导，而 Value 特征分布均匀。
 
@@ -112,8 +114,8 @@ tags:
 ## 相关论文
 
 - [Towards Highly Transferable Vision-Language Attack via Semantic-Augmented Dynamic Contrastive Interaction](towards_highly_transferable_vision-language_attack_via_semantic-augmented_dynami.md)
-- [Multi-Paradigm Collaborative Adversarial Attack Against Multi-Modal Large Language Models](multi-paradigm_collaborative_adversarial_attack_against_multi-modal_large_langua.md)
 - [Identifying and Understanding Cross-Class Features in Adversarial Training](../../ICML2025/ai_safety/identifying_and_understanding_cross-class_features_in_adversarial_training.md)
+- [Multi-Paradigm Collaborative Adversarial Attack Against Multi-Modal Large Language Models](multi-paradigm_collaborative_adversarial_attack_against_multi-modal_large_langua.md)
 - [MOS-Attack: A Scalable Multi-Objective Adversarial Attack Framework](../../CVPR2025/ai_safety/mos-attack_a_scalable_multi-objective_adversarial_attack_framework.md)
 - [Generative Adversarial Perturbations with Cross-paradigm Transferability on Localized Crowd Counting](generative_adversarial_perturbations_with_cross-paradigm_transferability_on_loca.md)
 

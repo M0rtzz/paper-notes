@@ -183,6 +183,6 @@ CIDEr +3.5, F1 +1.7, R@1₀.₅ +2.4。
 - [Moment Quantization for Video Temporal Grounding](moment_quantization_for_video_temporal_grounding.md)
 - [Seq2Time: Sequential Knowledge Transfer for Video LLM Temporal Grounding](../../CVPR2025/video_understanding/seq2time_sequential_knowledge_transfer_for_video_llm_temporal_grounding.md)
 - [Hierarchical Event Memory for Accurate and Low-latency Online Video Temporal Grounding](hierarchical_event_memory_for_accurate_and_low-latency_online_video_temporal_gro.md)
-- [OVG-HQ: Online Video Grounding with Hybrid-modal Queries](ovg-hq_online_video_grounding_with_hybrid-modal_queries.md)
+- [ExpertAF: Expert Actionable Feedback from Video](../../CVPR2025/video_understanding/expertaf_expert_actionable_feedback_from_video.md)
 
 <!-- RELATED:END -->

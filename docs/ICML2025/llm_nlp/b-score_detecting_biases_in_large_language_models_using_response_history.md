@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-LLM常表现出强烈的偏见，例如GPT-4o被要求生成0-9的随机数时，70%的概率会选择7。现有的偏见研究主要关注训练数据不均衡导致的偏见（第三类偏见），但实际上偏见可能来自多个来源：
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：LLM常表现出强烈的偏见，例如GPT-4o被要求生成0-9的随机数时，70%的概率会选择7。现有的偏见研究主要关注训练数据不均衡导致的偏见（第三类偏见），但实际上偏见可能来自多个来源：
 
 **实际偏好导致的偏见**：模型确实有某种"偏好"（如政治倾向）
 
@@ -151,8 +153,8 @@ Random类问题去偏最显著：单轮最高选择概率从0.77降至0.29。
 
 - [Binary Hypothesis Testing for Softmax Models and Leverage Score Models](binary_hypothesis_testing_for_softmax_models_and_leverage_score_models.md)
 - [Detecting Referring Expressions in Visually Grounded Dialogue with Autoregressive Language Models](../../ACL2025/llm_nlp/detecting_referring_expressions_in_visually_grounded_dialogue_with_autoregressiv.md)
-- [Emergent Symbolic Mechanisms Support Abstract Reasoning in Large Language Models](emergent_symbolic_mechanisms_support_abstract_reasoning_in_large_language_models.md)
+- [Revisiting Uncertainty Quantification Evaluation in Language Models: Spurious Interactions with Response Length Bias Results](../../ACL2025/llm_nlp/revisiting_uncertainty_quantification_evaluation_in_language_models_spurious_int.md)
 - [Detecting High-Stakes Interactions with Activation Probes](../../NeurIPS2025/llm_nlp/detecting_high-stakes_interactions_with_activation_probes.md)
-- [Brevity is the soul of sustainability: Characterizing LLM response lengths](../../ACL2025/llm_nlp/brevity_is_the_soul_of_sustainability_characterizing_llm_response_lengths.md)
+- [Assessing the Vulnerability of LLMs to Cognitive Biases in Scientific Research](../../ACL2025/llm_nlp/assessing_the_vulnerability_of_llms_to_cognitive_biases_in_scientific_research.md)
 
 <!-- RELATED:END -->

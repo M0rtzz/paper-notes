@@ -117,7 +117,7 @@ tags:
 - [Soft Filtering: Guiding Zero-Shot Composed Image Retrieval with Prescriptive and Proscriptive Prompts](../../AAAI2026/llm_nlp/soft_filtering_guiding_zero-shot_composed_image_retrieval_with_prescriptive_and_.md)
 - [Improving Contextual Faithfulness of Large Language Models via Retrieval Heads-Induced Optimization](../../ACL2025/llm_nlp/improving_contextual_faithfulness_of_large_language_models_via_retrieval_heads-i.md)
 - [Chat-based Person Retrieval via Dialogue-Refined Cross-Modal Alignment](chat-based_person_retrieval_via_dialogue-refined_cross-modal_alignment.md)
-- [Attribute-formed Class-specific Concept Space: Endowing Language Bottleneck Model with Better Generalization](attribute-formed_class-specific_concept_space_endowing_language_bottleneck_model.md)
 - [GenKnowSub: Improving Modularity and Reusability of LLMs through General Knowledge Subtraction](../../ACL2025/llm_nlp/genknowsub_improving_modularity_and_reusability_of_llms_through_general_knowledg.md)
+- [Learning from Litigation: Graphs and LLMs for Retrieval and Reasoning in eDiscovery](../../ACL2025/llm_nlp/learning_from_litigation_graphs_and_llms_for_retrieval_and_reasoning_in_ediscove.md)
 
 <!-- RELATED:END -->

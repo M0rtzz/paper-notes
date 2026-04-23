@@ -146,10 +146,10 @@ WikiEarth基准（32个meta-images，23个场景）：
 
 ## 相关论文
 
+- [Affostruction: 3D Affordance Grounding with Generative Reconstruction](affostruction_3d_affordance_grounding_with_generative_reconstruction.md)
 - [DROID-W: DROID-SLAM in the Wild](droid-slam_in_the_wild.md)
 - [GaussFusion: Improving 3D Reconstruction in the Wild with A Geometry-Informed Video Generator](gaussfusion_improving_3d_reconstruction_in_the_wild_with_a_geometry-informed_vid.md)
 - [Zero-Shot Monocular Scene Flow Estimation in the Wild](../../CVPR2025/3d_vision/zero-shot_monocular_scene_flow_estimation_in_the_wild.md)
 - [Reconstructing Animals and the Wild](../../CVPR2025/3d_vision/reconstructing_animals_and_the_wild.md)
-- [SCOPE: Scene-Contextualized Incremental Few-Shot 3D Segmentation](scope_scene-contextualized_incremental_few-shot_3d_segmentation.md)
 
 <!-- RELATED:END -->

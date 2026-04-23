@@ -185,6 +185,6 @@ GeoRemover 的核心优势在于融合了两类方法的长处：在几何域享
 - [Temporal Score Analysis for Understanding and Correcting Diffusion Artifacts](../../CVPR2025/image_generation/temporal_score_analysis_for_understanding_and_correcting_diffusion_artifacts.md)
 - [Coupling Generative Modeling and an Autoencoder with the Causal Bridge](coupling_generative_modeling_and_an_autoencoder_with_the_causal_bridge.md)
 - [Non-Markovian Discrete Diffusion with Causal Language Models](non-markovian_discrete_diffusion_with_causal_language_models.md)
-- [How to Move Your Dragon: Text-to-Motion Synthesis for Large-Vocabulary Objects](../../ICML2025/image_generation/how_to_move_your_dragon_text-to-motion_synthesis_for_large-vocabulary_objects.md)
+- [Make It Count: Text-to-Image Generation with an Accurate Number of Objects](../../CVPR2025/image_generation/make_it_count_text-to-image_generation_with_an_accurate_number_of_objects.md)
 
 <!-- RELATED:END -->

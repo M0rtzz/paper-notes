@@ -148,6 +148,6 @@ MoSA 框架迁移到 Wan 2.1 后也有显著提升：Wan 2.1 原始 FVD=1251 / C
 - [SymphoMotion: Joint Control of Camera Motion and Object Dynamics for Coherent Video Generation](../../CVPR2026/video_generation/symphomotion_joint_control_of_camera_motion_and_object_dynamics_for_coherent_vid.md)
 - [MotionCharacter: Fine-Grained Motion Controllable Human Video Generation](../../AAAI2026/video_generation/motioncharacter_fine-grained_motion_controllable_human_video_generation.md)
 - [MotionStream: Real-Time Video Generation with Interactive Motion Controls](motionstream_real-time_video_generation_with_interactive_motion_controls.md)
-- [VidTwin: Video VAE with Decoupled Structure and Dynamics](../../CVPR2025/video_generation/vidtwin_video_vae_with_decoupled_structure_and_dynamics.md)
+- [TokenMotion: Decoupled Motion Control via Token Disentanglement for Human-centric Video Generation](../../CVPR2025/video_generation/tokenmotion_decoupled_motion_control_via_token_disentanglement_for_human-centric.md)
 
 <!-- RELATED:END -->

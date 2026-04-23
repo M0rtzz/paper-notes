@@ -169,6 +169,6 @@ NPO 在弱记忆化数据上过度遗忘，强记忆化数据上不足遗忘。
 - [Robust LLM Alignment via Distributionally Robust Direct Preference Optimization](robust_llm_alignment_via_distributionally_robust_direct_preference_optimization.md)
 - [Atyaephyra at SemEval-2025 Task 4: Low-Rank Negative Preference Optimization](../../ACL2025/llm_alignment/atyaephyra_at_semeval-2025_task_4_low-rank_negative_preference_optimization.md)
 - [ORPO-Distill: Mixed-Policy Preference Optimization for Cross-Architecture LLM Distillation](orpo-distill_mixed-policy_preference_optimization_for_cross-architecture_llm_dis.md)
-- [Rethinking Table Instruction Tuning](../../ACL2025/llm_alignment/rethinking_table_instruction_tuning.md)
+- [Safety Alignment via Constrained Knowledge Unlearning](../../ACL2025/llm_alignment/safety_alignment_via_constrained_knowledge_unlearning.md)
 
 <!-- RELATED:END -->

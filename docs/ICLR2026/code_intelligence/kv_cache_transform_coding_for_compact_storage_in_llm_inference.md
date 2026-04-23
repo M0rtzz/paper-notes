@@ -172,7 +172,7 @@ KV 缓存 → PCA 变换（去相关） → 自适应量化 → 熵编码 → �
 - [Inference-Time Safety for Code LLMs via Retrieval-Augmented Revision](inference-time_safety_for_code_llms_via_retrieval-augmented_revision.md)
 - [A Self-Improving Coding Agent](../../NeurIPS2025/code_intelligence/a_selfimproving_coding_agent.md)
 - [UTBoost: Rigorous Evaluation of Coding Agents on SWE-Bench](../../ACL2025/code_intelligence/utboost_rigorous_evaluation_of_coding_agents_on_swe-bench.md)
+- [SceneGenAgent: Precise Industrial Scene Generation with Coding Agent](../../ACL2025/code_intelligence/scenegenagent_precise_industrial_scene_generation_with_coding_agent.md)
 - [DiffBench Meets DiffAgent: End-to-End LLM-Driven Diffusion Acceleration Code Generation](../../AAAI2026/code_intelligence/diffbench_meets_diffagent_end-to-end_llm-driven_diffusion_ac.md)
-- [TAPA: Training-Free Adaptation of Programmatic Agents via LLM-Guided Program Synthesis in Dynamic Environments](../../AAAI2026/code_intelligence/tapas_are_free_training-free_adaptation_of_programmatic_agen.md)
 
 <!-- RELATED:END -->

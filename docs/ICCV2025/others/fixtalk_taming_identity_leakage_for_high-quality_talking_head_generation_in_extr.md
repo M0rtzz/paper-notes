@@ -150,7 +150,7 @@ $$I^g = G(f^s + z^d_{\text{FDM}}, \tilde{f^s_\pi})$$
 - [HiEI: A Universal Framework for Generating High-quality Emerging Images from Natural Images](../../ECCV2024/others/hiei_a_universal_framework_for_generating_high-quality_emerging_images_from_natu.md)
 - [Failure Cases Are Better Learned But Boundary Says Sorry: Facilitating Smooth Perception Change for Accuracy-Robustness Trade-Off in Adversarial Training](failure_cases_are_better_learned_but_boundary_says_sorry_facilitating_smooth_per.md)
 - [High-Fidelity 3D Textured Shapes Generation by Sparse Encoding and Adversarial Decoding](../../ECCV2024/others/high-fidelity_3d_textured_shapes_generation_by_sparse_encoding_and_adversarial_d.md)
-- [Unveiling Dual Quality in Product Reviews: An NLP-Based Approach](../../ACL2025/others/unveiling_dual_quality_in_product_reviews_an_nlp-based_approach.md)
-- [QualiSpeech: A Speech Quality Assessment Dataset with Natural Language Reasoning](../../ACL2025/others/qualispeech_a_speech_quality_assessment_dataset_with_natural_language_reasoning_.md)
+- [A Multi-Persona Framework for Argument Quality Assessment](../../ACL2025/others/a_multi-persona_framework_for_argument_quality_assessment.md)
+- [Gaze Target Detection Based on Head-Local-Global Coordination](../../ECCV2024/others/gaze_target_detection_based_on_head-local-global_coordination.md)
 
 <!-- RELATED:END -->

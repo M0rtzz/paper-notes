@@ -25,10 +25,22 @@ tags:
 发现 Diffusion Transformers (DiTs) 中存在 massive activations 现象导致特征不可区分，揭示其与 AdaLN 的内在联系，提出无需训练的 DiTF 框架来提取语义判别性特征，在视觉对应任务上超越 DINO 和 SD 模型。
 
 ## 研究背景与动机
-- 预训练 Stable Diffusion (SD) 模型已被证明可以作为有效的视觉对应特征提取器
-- Diffusion Transformers (DiTs) 在可扩展性和生成质量上优于 SD，但直接提取特征用于感知任务效果很差
-- 分析发现 DiTs 存在 massive activations 现象：极少数特征维度的激活值比其他维度高 100 倍以上
-- 这些 massive activations 使得所有空间 token 的特征向量方向高度相似，导致余弦相似度无法区分不同位置
+
+### 领域现状
+
+**领域现状**：预训练 Stable Diffusion (SD) 模型已被证明可以作为有效的视觉对应特征提取器
+
+### 核心矛盾
+
+**核心矛盾**：Diffusion Transformers (DiTs) 在可扩展性和生成质量上优于 SD，但直接提取特征用于感知任务效果很差
+
+### 现有痛点
+
+**现有痛点**：分析发现 DiTs 存在 massive activations 现象：极少数特征维度的激活值比其他维度高 100 倍以上
+
+### 解决思路
+
+**解决思路**：这些 massive activations 使得所有空间 token 的特征向量方向高度相似，导致余弦相似度无法区分不同位置
 
 ## 方法详解
 

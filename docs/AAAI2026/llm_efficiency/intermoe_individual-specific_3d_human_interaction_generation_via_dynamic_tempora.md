@@ -129,6 +129,6 @@ FID 降低：InterHuman -9%（从 5.149 降至 4.677），InterX -22%（从 0.46
 - [Vocabulary Customization for Efficient Domain-Specific LLM Deployment](../../NeurIPS2025/llm_efficiency/vocabulary_customization_for_efficient_domain-specific_llm_deployment.md)
 - [Expert Divergence Learning for MoE-based Language Models](../../ICLR2026/llm_efficiency/expert_divergence_learning_for_moe-based_language_models.md)
 - [DND: Boosting Large Language Models with Dynamic Nested Depth](../../ICLR2026/llm_efficiency/dnd_boosting_large_language_models_with_dynamic_nested_depth.md)
-- [Deep Compositional Phase Diffusion for Long Motion Sequence Generation](../../NeurIPS2025/llm_efficiency/deep_compositional_phase_diffusion_for_long_motion_sequence_generation.md)
+- [Advancing Expert Specialization for Better MoE](../../NeurIPS2025/llm_efficiency/advancing_expert_specialization_for_better_moe.md)
 
 <!-- RELATED:END -->

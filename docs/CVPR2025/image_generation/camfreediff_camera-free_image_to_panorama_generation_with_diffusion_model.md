@@ -128,6 +128,6 @@ tags:
 - [TKG-DM: Training-Free Chroma Key Content Generation Diffusion Model](tkg-dm_training-free_chroma_key_content_generation_diffusion_model.md)
 - [What Makes for Text to 360-degree Panorama Generation with Stable Diffusion?](../../ICCV2025/image_generation/what_makes_for_text_to_360-degree_panorama_generation_with_stable_diffusion.md)
 - [FreeMorph: Tuning-Free Generalized Image Morphing with Diffusion Model](../../ICCV2025/image_generation/freemorph_tuning-free_generalized_image_morphing_with_diffusion_model.md)
-- [DreamCache: Finetuning-Free Lightweight Personalized Image Generation via Feature Caching](dreamcache_finetuning-free_lightweight_personalized_image_generation_via_feature.md)
+- [PatchDPO: Patch-level DPO for Finetuning-free Personalized Image Generation](patchdpo_patch-level_dpo_for_finetuning-free_personalized_image_generation.md)
 
 <!-- RELATED:END -->

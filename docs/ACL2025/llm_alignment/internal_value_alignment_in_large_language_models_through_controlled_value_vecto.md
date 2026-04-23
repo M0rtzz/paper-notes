@@ -138,7 +138,7 @@ ConVA 包含两个阶段：(1) **上下文受控的价值向量识别**——构
 - [Trajectory Bellman Residual Minimization: A Simple Value-Based Method for LLM Reasoning](../../NeurIPS2025/llm_alignment/trajectory_bellman_residual_minimization_a_simple_value-based_method_for_llm_rea.md)
 - [SEA: Low-Resource Safety Alignment for Multimodal Large Language Models via Synthetic Embeddings](sea_lowresource_safety_alignment_for_multimodal.md)
 - [QueryAttack: Jailbreaking Aligned Large Language Models Using Structured Non-natural Query Language](queryattack_jailbreaking_aligned_large_language_models_using_structured_non-natu.md)
-- [Red Queen: Safeguarding Large Language Models against Concealed Multi-Turn Jailbreaking](red_queen_safeguarding_large_language_models_against_concealed_multi-turn_jailbr.md)
-- [HiddenDetect: Detecting Jailbreak Attacks against Large Vision-Language Models via Monitoring Hidden States](hiddendetect_detecting_jailbreak_attacks_against_multimodal_large_language_model.md)
+- [Alignment of Large Language Models with Constrained Learning](../../NeurIPS2025/llm_alignment/alignment_of_large_language_models_with_constrained_learning.md)
+- [AGD: Adversarial Game Defense Against Jailbreak Attacks in Large Language Models](agd_adversarial_game_defense_against_jailbreak_attacks_in_large_language_models.md)
 
 <!-- RELATED:END -->

@@ -122,6 +122,6 @@ EgoAllo 接收两种输入：头戴设备的 SLAM 位姿序列（SE(3) 变换）
 - [Dyn-HaMR: Recovering 4D Interacting Hand Motion from a Dynamic Camera](dyn-hamr_recovering_4d_interacting_hand_motion_from_a_dynamic_camera.md)
 - [Image as an IMU: Estimating Camera Motion from a Single Motion-Blurred Image](../../ICCV2025/3d_vision/image_as_an_imu_estimating_camera_motion_from_a_single_motion-blurred_image.md)
 - [MAC-Ego3D: Multi-Agent Gaussian Consensus for Real-Time Collaborative Ego-Motion and Photorealistic 3D Reconstruction](mac-ego3d_multi-agent_gaussian_consensus_for_real-time_collaborative_ego-motion_.md)
-- [ManiVideo: Generating Hand-Object Manipulation Video with Dexterous and Generalizable Grasping](manivideo_generating_hand-object_manipulation_video_with_dexterous_and_generaliz.md)
+- [Easi3R: Estimating Disentangled Motion from DUSt3R Without Training](../../ICCV2025/3d_vision/easi3r_estimating_disentangled_motion_from_dust3r_without_training.md)
 
 <!-- RELATED:END -->

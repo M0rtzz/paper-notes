@@ -25,10 +25,14 @@ tags:
 提出一种用2D图像监督训练3D扩散模型的框架：利用预训练的确定性3D重建模型作为"噪声教师"生成3D噪声样本，通过多步去噪策略和渲染损失实现跨模态（3D去噪+2D监督）训练，在用更小模型的情况下超越教师模型0.5-0.85 PSNR。
 
 ## 背景与动机
-3D重建中，确定性前馈模型（如Splatter Image、Flash3D）受限于2D到3D映射的歧义性，预测往往模糊；而3D扩散模型虽然能建模分布多样性，但传统训练方式要求去噪和监督在同一模态（即需要大量3D数据），这在现实中极度稀缺。如何在只有2D图像的情况下训练3D扩散模型，是一个未被充分探索的关键问题。
 
-## 核心问题
-如何在没有3D ground truth的情况下，训练一个在3D空间操作的扩散模型？核心挑战在于标准扩散训练要求噪声样本和监督信号在同一模态，而这里去噪在3D、监督只有2D图像。
+### 现有痛点
+
+**现有痛点**：**领域现状**：3D重建中，确定性前馈模型（如Splatter Image、Flash3D）受限于2D到3D映射的歧义性，预测往往模糊；而3D扩散模型虽然能建模分布多样性，但传统训练方式要求去噪和监督在同一模态（即需要大量3D数据），这在现实中极度稀缺。如何在只有2D图像的情况下训练3D扩散模型，是一个未被充分探索的关键问题。
+
+### 核心矛盾
+
+**核心矛盾**：**本文目标**：如何在没有3D ground truth的情况下，训练一个在3D空间操作的扩散模型？核心挑战在于标准扩散训练要求噪声样本和监督信号在同一模态，而这里去噪在3D、监督只有2D图像。
 
 ## 方法详解
 
@@ -88,7 +92,7 @@ tags:
 - 加权损失 vs 不加权：24.49 vs 22.88，证明时间步加权很重要
 - 确定性前馈模型（同架构）仅19.99 PSNR，证明是扩散框架而非架构带来的提升
 
-## 亮点 / 我学到了什么
+## 亮点与洞察 / 我学到了什么
 - **跨模态扩散训练是可行的**: 打破了扩散模型必须在同模态下训练的限制，这个思路可以迁移到其他模态缺乏GT的场景
 - **"噪声教师"概念巧妙**: 不完美的确定性预测在加噪后反而可以成为扩散模型的有效输入，SDEdit的噪声覆盖思想被巧妙利用
 - **小模型超越大模型**: 只用295MB的中等模型就超越了646MB大模型的教师，说明扩散框架本身的表示能力优于确定性框架
@@ -100,7 +104,7 @@ tags:
 - 仅验证了3DGS表示，未拓展到其他3D表示（mesh, NeRF等）
 - 教师模型的选择影响最终质量的上限
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs Splatter Image/Flash3D（确定性模型）**: 本文用其作为教师，以更小模型超越。确定性模型无法建模多样性，在歧义区域产生模糊；本文通过扩散模型捕获分布
 - **vs HoloDiffusion**: 也是2D监督训练3D扩散，但HoloDiffusion用额外去噪pass来弥合分布差异；本文通过选择适当噪声水平+多步去噪更优雅地解决
 - **vs ViewsetDiffusion**: 在多视角图像上去噪再汇聚到3D，但受限于视角数量和独立加噪导致的不一致；本文直接在3D空间去噪更连贯
@@ -119,7 +123,7 @@ tags:
 
 ## 相关论文
 
-- [Baking Gaussian Splatting into Diffusion Denoiser for Fast and Scalable Single-stage Image-to-3D Generation and Reconstruction](baking_gaussian_splatting_into_diffusion_denoiser_for_fast_and_scalable_single-s.md)
+- [Baking Gaussian Splatting into Diffusion Denoiser for Fast and Scalable Single-stage Image-to-3D Generation and Reconstruction](baking_gaussian_splatting_into_diffusion_denoiser_for_fast_a.md)
 - [Gaussian Variation Field Diffusion for High-fidelity Video-to-4D Synthesis](gaussian_variation_field_diffusion_for_high-fidelity_video-to-4d_synthesis.md)
 - [HouseTour: A Virtual Real Estate A(I)gent](housetour_a_virtual_real_estate_aigent.md)
 - [CATSplat: Context-Aware Transformer with Spatial Guidance for Generalizable 3D Gaussian Splatting from A Single-View Image](catsplat_contextaware_transformer_with_spatial_guidance_for.md)

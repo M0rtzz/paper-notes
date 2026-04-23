@@ -155,7 +155,7 @@ $$\mathbf{s}^{(t+1)} = \mathbf{s}^{(t)} \oplus \sum_k \mathbf{r}_k^{(t)} \otimes
 - [TouchFormer: A Robust Transformer-based Framework for Multimodal Material Perception](touchformer_a_robust_transformer-based_framework_for_multimodal_material_percept.md)
 - [TransiT: Transient Transformer for Non-line-of-sight Videography](../../ICCV2025/robotics/transit_transient_transformer_for_non-line-of-sight_videography.md)
 - [Constructive Distortion: Improving MLLMs with Attention-Guided Image Warping](../../ICLR2026/robotics/constructive_distortion_improving_mllms_with_attention-guided_image_warping.md)
-- [EvoEmpirBench: Dynamic Spatial Reasoning with Agent-ExpVer](evoempirbench_dynamic_spatial_reasoning_with_agent-expver.md)
 - [Solving Instance Detection from an Open-World Perspective](../../CVPR2025/robotics/solving_instance_detection_from_an_open-world_perspective.md)
+- [EvoEmpirBench: Dynamic Spatial Reasoning with Agent-ExpVer](evoempirbench_dynamic_spatial_reasoning_with_agent-expver.md)
 
 <!-- RELATED:END -->

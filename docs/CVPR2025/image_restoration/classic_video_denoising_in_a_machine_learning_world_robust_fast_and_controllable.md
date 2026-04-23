@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2504.03136](https://arxiv.org/abs/2504.03136)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 图像修复  
 **关键词**: video denoising, classic methods, ML integration, controllable, fast inference
 
@@ -25,6 +25,8 @@ tags:
 重新审视经典视频去噪方法并与现代ML工具结合，实现鲁棒、快速且噪声级别可控的视频去噪
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：Classic Video Denoising in a Machine Learning World 方向近年取得了显著进展，但仍存在关键挑战。
 

@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-无监督技能发现是强化学习中的重要方向，旨在不依赖外部奖励的情况下学习多样化行为。然而现有方法存在一个被忽视的问题：
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：无监督技能发现是强化学习中的重要方向，旨在不依赖外部奖励的情况下学习多样化行为。然而现有方法存在一个被忽视的问题：
 
 **忽略技能的周期性本质**：多数方法专注于最大化状态与技能间的互信息或最大化潜空间中的行进距离
 
@@ -35,6 +37,21 @@ tags:
 **现有方法的局限**：基于互信息的DIAYN等方法难以自然地发现不同周期的技能
 
 PSD 的核心动机：利用圆形潜空间的拓扑结构来天然编码周期性，从而发现具有多样化周期的运动技能。
+
+### 解决思路
+
+**本文目标**：### 整体框架
+
+PSD 框架包含三个核心组件：
+1. **圆形潜空间编码器**：将状态映射到单位圆上
+2. **时间距离感知训练**：学习编码器以捕捉时间距离信息
+3. **周期性技能策略**：基于潜空间中的周期性表示生成行为
+
+### 关键设计
+
+**圆形潜空间**：
+- 将状态 $s$ 映射到单位圆 $\mathcal{S}^1$ 上的一个角度 $\phi(s) \in [0, 2\pi)。
+
 
 ## 方法详解
 
@@ -124,7 +141,7 @@ PSD 框架包含三个核心组件：
 ## 局限与展望
 
 1. 圆形潜空间主要适用于单频率周期运动，多频率复合运动的建模有待探索
-2. 目前主要在locomotion任务上验证，其他周期性任务（如操控、飞行）的适用性待确认
+2. 目前主要在locomotion任务上验证，其他周期性任务（如操控、飞行）的适用性无
 3. 训练过程需要分阶段进行，端到端训练可能更高效
 4. 未探索连续周期而非离散周期集合的技能发现
 5. 真实机器人部署的sim-to-real问题未涉及
@@ -151,7 +168,7 @@ PSD 框架包含三个核心组件：
 - [SUSD: Structured Unsupervised Skill Discovery through State Factorization](../../ICLR2026/reinforcement_learning/susd_structured_unsupervised_skill_discovery_through_state_factorization.md)
 - [Self-Improving Skill Learning for Robust Skill-based Meta-Reinforcement Learning](../../ICLR2026/reinforcement_learning/self-improving_skill_learning_for_robust_skill-based_meta-reinforcement_learning.md)
 - [AutoQD: Automatic Discovery of Diverse Behaviors with Quality-Diversity Optimization](../../ICLR2026/reinforcement_learning/autoqd_automatic_discovery_of_diverse_behaviors_with_quality-diversity_optimizat.md)
-- [Actor-Free Continuous Control via Structurally Maximizable Q-Functions](actorfree_continuous_control_via_structurally_maximizable_qf.md)
-- [CORE: Constraint-Aware One-Step Reinforcement Learning for Simulation-Guided Neural Network Accelerator Design](core_constraint-aware_one-step_reinforcement_learning_for_simulation-guided_neur.md)
+- [DCcluster-Opt: Benchmarking Dynamic Multi-Objective Optimization for Geo-Distributed Data Center Workloads](dccluster-opt_benchmarking_dynamic_multi-objective_optimization_for_geo-distribu.md)
+- [Boundary-to-Region Supervision for Offline Safe Reinforcement Learning](boundary_to_region_supervision_for_offline_safe_rl.md)
 
 <!-- RELATED:END -->

@@ -170,8 +170,8 @@ LaMoGen 是一个 **Text → LabanLite → Motion** 的两阶段生成框架：
 
 - [MoLingo: Motion-Language Alignment for Text-to-Human Motion Generation](molingo_motion-language_alignment_for_text-to-motion_generation.md)
 - [SOSControl: Enhancing Human Motion Generation through Saliency-Aware Symbolic Orientation and Timing Control](../../AAAI2026/human_understanding/soscontrol_enhancing_human_motion_generation_through_saliency-aware_symbolic_ori.md)
+- [CoMo: Controllable Motion Generation Through Language Guided Pose Code Editing](../../ECCV2024/human_understanding/como_controllable_motion_generation_through_language_guided_pose_code_editing.md)
 - [HandX: Scaling Bimanual Motion and Interaction Generation](handx_scaling_bimanual_motion_and_interaction_generation.md)
-- [NURBGen: High-Fidelity Text-to-CAD Generation through LLM-Driven NURBS Modeling](../../AAAI2026/human_understanding/nurbgen_high-fidelity_text-to-cad_generation_through_llm-driven_nurbs_modeling.md)
-- [Inference-Time Backdoors via Hidden Instructions in LLM Chat Templates](../../ICLR2026/human_understanding/inference-time_backdoors_via_hidden_instructions_in_llm_chat_templates.md)
+- [QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)
 
 <!-- RELATED:END -->

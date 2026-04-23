@@ -149,9 +149,9 @@ $$\ell = \text{CE}(\tilde{f^e}, f^e) + \ell_2(\tilde{\boldsymbol{f}^c}, \boldsym
 ## 相关论文
 
 - [Pixel-Level Reasoning Segmentation via Multi-turn Conversations](../../ACL2025/segmentation/pixel-level_reasoning_segmentation_via_multi-turn_conversations.md)
+- [M3-VOS: Multi-Phase, Multi-Transition, and Multi-Scenery Video Object Segmentation](../../CVPR2025/segmentation/m3-vos_multi-phase_multi-transition_and_multi-scenery_video_object_segmentation.md)
+- [Ensemble Foreground Management for Unsupervised Object Discovery](../../ICCV2025/segmentation/ensemble_foreground_management_for_unsupervised_object_discovery.md)
 - [Unsupervised Moving Object Segmentation with Atmospheric Turbulence](../../ECCV2024/segmentation/unsupervised_moving_object_segmentation_with_atmospheric_turbulence.md)
 - [UniPixel: Unified Object Referring and Segmentation for Pixel-Level Visual Reasoning](../../NeurIPS2025/segmentation/unipixel_unified_object_referring_and_segmentation_for_pixel-level_visual_reason.md)
-- [Hierarchical Compact Clustering Attention (COCA) for Unsupervised Object-Centric Learning](../../CVPR2025/segmentation/hierarchical_compact_clustering_attention_coca_for_unsupervised_object-centric_l.md)
-- [Online Generic Event Boundary Detection](../../ICCV2025/segmentation/online_generic_event_boundary_detection.md)
 
 <!-- RELATED:END -->

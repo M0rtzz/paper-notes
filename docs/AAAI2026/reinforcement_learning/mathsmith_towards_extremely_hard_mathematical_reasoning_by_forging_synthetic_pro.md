@@ -158,8 +158,8 @@ MathSmith 包含三个核心阶段：
 
 - [TextShield-R1: Reinforced Reasoning for Tampered Text Detection](textshield-r1_reinforced_reasoning_for_tampered_text_detection.md)
 - [Learning from Synthetic Data Improves Multi-hop Reasoning](../../ICLR2026/reinforcement_learning/learning_from_synthetic_data_improves_multi-hop_reasoning.md)
-- [Aligning Machiavellian Agents: Behavior Steering via Test-Time Policy Shaping](aligning_machiavellian_agents_behavior_steering_via_test-tim.md)
 - [BRITE: Bootstrapping Reinforced Thinking Process to Enhance Language Model Reasoning](../../ICML2025/reinforcement_learning/brite_bootstrapping_reinforced_thinking_process_to_enhance_language_model_reason.md)
+- [Aligning Machiavellian Agents: Behavior Steering via Test-Time Policy Shaping](aligning_machiavellian_agents_behavior_steering_via_test-tim.md)
 - [MMhops-R1: Multimodal Multi-hop Reasoning](mmhops-r1_multimodal_multi-hop_reasoning.md)
 
 <!-- RELATED:END -->

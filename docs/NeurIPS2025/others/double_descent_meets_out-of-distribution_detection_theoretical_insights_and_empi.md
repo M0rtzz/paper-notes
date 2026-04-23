@@ -128,6 +128,6 @@ tags:
 - [Harnessing Feature Resonance under Arbitrary Target Alignment for Out-of-Distribution Node Detection](harnessing_feature_resonance_under_arbitrary_target_alignment_for_out-of-distrib.md)
 - [H2ST: Hierarchical Two-Sample Tests for Continual Out-of-Distribution Detection](../../CVPR2025/others/h2st_hierarchical_two-sample_tests_for_continual_out-of-distribution_detection.md)
 - [Theoretical and Empirical Analysis of Lehmer Codes to Search Permutation Spaces with Evolutionary Algorithms](../../AAAI2026/others/theoretical_and_empirical_analysis_of_lehmer_codes_to_search_permutation_spaces_.md)
-- [Open Set Label Shift with Test Time Out-of-Distribution Reference](../../CVPR2025/others/open_set_label_shift_with_test_time_out-of-distribution_reference.md)
+- [REP: Keys to Robust Edits — From Theoretical Insights to Practical Advances](../../ACL2025/others/rep_robust_knowledge_editing.md)
 
 <!-- RELATED:END -->

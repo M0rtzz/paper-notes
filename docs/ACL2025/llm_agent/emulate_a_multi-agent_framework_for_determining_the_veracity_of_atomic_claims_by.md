@@ -130,8 +130,8 @@ EMULATE 在所有三个数据集的 6/8 指标上取得最佳结果。
 
 - [Leveraging Dual Process Theory in Language Agent Framework for Real-time Simultaneous Human-AI Collaboration](dpt_agent_dual_process.md)
 - [A Multi-Agent Framework for Mitigating Dialect Biases in Privacy Policy Question-Answering Systems](multi_agent_dialect_bias_privacy_qa.md)
+- [Browsing Like Human: A Multimodal Web Agent with Experiential Fast-and-Slow Thinking](browsing_like_human_a_multimodal_web_agent_with_experiential_fast-and-slow_think.md)
+- [MIND: A Multi-agent Framework for Zero-shot Harmful Meme Detection](mind_a_multi-agent_framework_for_zero-shot_harmful_meme_detection.md)
 - [Bel Esprit: Multi-Agent Framework for Building AI Model Pipelines](bel_esprit_multi-agent_framework_for_building_ai_model_pipelines.md)
-- [METAL: A Multi-Agent Framework for Chart Generation with Test-Time Scaling](metal_a_multi-agent_framework_for_chart_generation_with_test-time_scaling.md)
-- [Table-Critic: A Multi-Agent Framework for Collaborative Criticism and Refinement in Table Reasoning](table_critic_multi_agent.md)
 
 <!-- RELATED:END -->

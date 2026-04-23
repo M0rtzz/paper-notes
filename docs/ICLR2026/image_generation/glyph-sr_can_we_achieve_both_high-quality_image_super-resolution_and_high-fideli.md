@@ -107,7 +107,7 @@ GLYPH-SR基于预训练LDM（Juggernaut-XL），在其上添加Text-SR融合Cont
 - [GlyphMastero: A Glyph Encoder for High-Fidelity Scene Text Editing](../../CVPR2025/image_generation/glyphmastero_a_glyph_encoder_for_high-fidelity_scene_text_editing.md)
 - [Uncertainty-guided Perturbation for Image Super-Resolution Diffusion Model](../../CVPR2025/image_generation/uncertainty-guided_perturbation_for_image_super-resolution_diffusion_model.md)
 - [LVTINO: LAtent Video consisTency INverse sOlver for High Definition Video Restoration](lvtino_latent_video_consistency_inverse_solver_for_high_definition_video_restora.md)
-- [Step-Aware Residual-Guided Diffusion for EEG Spatial Super-Resolution](step-aware_residual-guided_diffusion_for_eeg_spatial_super-resolution.md)
+- [XPSR: Cross-modal Priors for Diffusion-based Image Super-Resolution](../../ECCV2024/image_generation/xpsr_crossmodal_priors_for_diffusionbased_image_superresolut.md)
 - [RepLDM: Reprogramming Pretrained Latent Diffusion Models for High-Quality, High-Efficiency, High-Resolution Image Generation](../../NeurIPS2025/image_generation/repldm_reprogramming_pretrained_latent_diffusion_models_for_high-quality_high-ef.md)
 
 <!-- RELATED:END -->

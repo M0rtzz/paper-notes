@@ -200,10 +200,10 @@ $$\text{Score} = w_2 \rho_{\text{env}}(i+1) + w_3 \gamma_{\text{act}}(i+1) + w_4
 
 ## 相关论文
 
+- [IGen: Scalable Data Generation for Robot Learning from Open-World Images](../../CVPR2026/robotics/igen_scalable_data_generation_for_robot_learning_from_open-world_images.md)
 - [DexFlyWheel: A Scalable Self-Improving Data Generation Framework for Dexterous Manipulation](../../NeurIPS2025/robotics/dexflywheel_a_scalable_and_self-improving_data_generation_framework_for_dexterou.md)
 - [UrbanNav: Learning Language-Guided Urban Navigation from Web-Scale Human Trajectories](urbannav_learning_language-guided_urban_navigation_from_web-scale_human_trajecto.md)
 - [LaF-GRPO: In-Situ Navigation Instruction Generation for the Visually Impaired via GRPO with LLM-as-Follower Reward](laf-grpo_in-situ_navigation_instruction_generation_for_the_visually_impaired_via.md)
 - [ReALFRED: An Embodied Instruction Following Benchmark in Photo-Realistic Environments](../../ECCV2024/robotics/realfred_an_embodied_instruction_following_benchmark_in_photo-realistic_environm.md)
-- [When Agents Persuade: Propaganda Generation and Mitigation in LLMs](../../ICLR2026/robotics/when_agents_persuade_propaganda_generation_and_mitigation_in_llms.md)
 
 <!-- RELATED:END -->

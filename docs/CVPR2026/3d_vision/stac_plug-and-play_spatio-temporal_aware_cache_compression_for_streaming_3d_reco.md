@@ -127,9 +127,9 @@ STAC将STream3R的内存从19.75GB降至2.20GB（运行时仅0.86GB），FPS从2
 ## 相关论文
 
 - [Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos](towards_spatio-temporal_world_scene_graph_generation_from_monocular_videos.md)
+- [STS-Mixer: Spatio-Temporal-Spectral Mixer for 4D Point Cloud Video Understanding](sts_mixer_4d_point_cloud.md)
 - [LongStream: Long-Sequence Streaming Autoregressive Visual Geometry](longstream_long-sequence_streaming_autoregressive_visual_geometry.md)
 - [Protecting NeRFs' Copyright via Plug-And-Play Watermarking Base Model](../../ECCV2024/3d_vision/protecting_nerfsapos_copyright_via_plug-and-play_watermarking_base_model.md)
 - [Human Interaction-Aware 3D Reconstruction from a Single Image](human_interaction-aware_3d_reconstruction_from_a_single_image.md)
-- [SCFlow2: Plug-and-Play Object Pose Refiner with Shape-Constraint Scene Flow](../../CVPR2025/3d_vision/scflow2_plug-and-play_object_pose_refiner_with_shape-constraint_scene_flow.md)
 
 <!-- RELATED:END -->

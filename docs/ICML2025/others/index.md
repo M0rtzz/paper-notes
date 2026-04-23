@@ -42,9 +42,9 @@ description: >-
 
 :   提出 Cover Learning 作为一种统一的无监督学习问题，基于优化的视角设计三项损失函数（测度、几何、拓扑）学习数据集的拓扑忠实覆盖，所得单纯复形在拓扑推断中比标准几何复形更紧凑，在大规模拓扑可视化中比 Mapper 图能表示更高维信息。
 
-**[Decision Making under the Exponential Family DRO](decision_making_under_the_exponential_family_distributionally_robust_optimisatio.md)**
+**[DRO-BAS: Decision Making under the Exponential Family DRO with Bayesian Ambiguity Sets](decision_making_under_the_exponential_family_distributionally_robust_optimisatio.md)**
 
-:   研究基于指数族分布的分布鲁棒优化（DRO）框架，利用指数族分布的自然参数空间构建不确定集，分析最优决策的性质和计算方法，在多种决策场景（如投资组合优化、风险管理）中展示优势。
+:   提出 DRO-BAS 框架，利用贝叶斯后验信念构建两种后验知情的不确定集（BASPP 和 BASPE），在指数族共轭模型下可化为高效单阶段随机规划，在 Newsvendor 和 Portfolio 问题上 Pareto 支配现有 Bayesian DRO 方法。
 
 **[Democratic AI is Possible. The Democracy Levels Framework Shows How It Might Work](democratic_ai_is_possible_the_democracy_levels_framework_shows_how_it_might_work.md)**
 
@@ -62,9 +62,9 @@ description: >-
 
 :   提出 Diversified Prototypical Ensemble (DPE)，用多个多样化的原型分类器替换标准线性分类头，通过显式（inter-prototype similarity loss）和隐式（bootstrap 采样）两种多样化策略，在不需要子群标注的情况下自适应发现子群决策边界，显著提升 worst-group accuracy。
 
-**[Diversity by Design: Leveraging Distribution Matching for Offline Model-Based Optimization](diversity_by_design_leveraging_distribution_matching_for_offline_model-based_opt.md)**
+**[Diversity By Design: Leveraging Distribution Matching for Offline Model-Based Optimization](diversity_by_design_leveraging_distribution_matching_for_offline_model-based_opt.md)**
 
-:   DynAMO 在离线模型优化 (MBO) 中将设计多样性建模为分布匹配问题，通过对抗训练使生成设计的分布捕捉离线数据集中的固有多样性，在多个科学领域显著提升候选方案的多样性而不牺牲质量。
+:   提出 DynAMO，通过将设计多样性显式建模为分布匹配问题，在离线模型基础优化（MBO）中同时发现高质量和高多样性的候选设计方案。
 
 **[DSP: Dynamic Sequence Parallelism for Multi-Dimensional Transformers](dsp_dynamic_sequence_parallelism_for_multi-dimensional_transformers.md)**
 
@@ -128,7 +128,7 @@ description: >-
 
 **[Hierarchical Refinement: Optimal Transport to Infinity and Beyond](hierarchical_refinement_optimal_transport_to_infinity_and_beyond.md)**
 
-:   提出 Hierarchical Refinement (HiRef) 算法，通过递归求解低秩 OT 子问题动态构建多尺度数据划分，最终恢复双射 Monge 映射，实现 $O(n\log n)$ 时间和 $O(n)$ 空间复杂度，将全秩 OT 扩展到百万级数据。
+:   提出 Hierarchical Refinement (HiRef) 算法，通过递归求解低秩最优传输子问题来动态构建多尺度数据分区，以对数线性时间和线性空间复杂度获得完整的双射 Monge 映射，将最优传输扩展到百万级数据集。
 
 **[How Do Transformers Learn Variable Binding in Symbolic Programs?](how_do_transformers_learn_variable_binding_in_symbolic_programs.md)**
 

@@ -25,7 +25,10 @@ tags:
 本文发现简单的一次性随机剪枝就能解锁深度 RL 的扩展潜力——稀疏网络比配备 SOTA 架构的稠密网络实现更高的参数效率、更强的可塑性保持和更少的梯度干扰。
 
 ## 研究背景与动机
-**领域现状**: 深度 RL 中扩大网络规模 (scaling up) 一直困难重重，与监督学习的 scaling law 形成鲜明对比。
+
+### 领域现状
+
+**领域现状**：领域现状**: 深度 RL 中扩大网络规模 (scaling up) 一直困难重重，与监督学习的 scaling law 形成鲜明对比。
 
 **现有痛点**: 天真地增大网络参数量在 RL 中往往不带来性能提升，反而因为可塑性损失 (plasticity loss)、梯度干扰等训练病理现象导致性能下降。现有解决方案包括周期性重置 (periodic reset)、Layer Normalization 等，都是针对性修补。
 
@@ -34,6 +37,12 @@ tags:
 **本文切入**: 不追求更复杂的架构修改，而是研究最简单的干预——静态网络稀疏化。
 
 **核心 idea**: 在训练前一次性随机移除一定比例的权重，该稀疏网络在同等参数量下比稠密网络拥有更好的扩展性。
+
+### 解决思路
+
+**本文目标**：### 整体框架
+输入：标准 DRL 网络 (如 MLP/CNN) → 训练前一次性随机剪枝 (random pruning，移除预定比例权重) → 正常 RL 训练 → 输出稀疏策略网络。
+
 
 ## 方法详解
 
@@ -117,7 +126,7 @@ tags:
 - [Scaling Laws and Pathologies of Single-Layer PINNs: Network Width and PDE Nonlinearity](../../NeurIPS2025/medical_imaging/scaling_laws_and_pathologies_of_single-layer_pinns_network_width_and_pde_nonline.md)
 - [The Brain's Bitter Lesson: Scaling Speech Decoding With Self-Supervised Learning](the_brains_bitter_lesson_scaling_speech_decoding_with_self-supervised_learning.md)
 - [Improved Off-policy Reinforcement Learning in Biological Sequence Design](improved_off-policy_reinforcement_learning_in_biological_sequence_design.md)
+- [FairGRPO: Fair Reinforcement Learning for Equitable Clinical Reasoning](../../NeurIPS2025/medical_imaging/fairgrpo_fair_reinforcement_learning_for_equitable_clinical_reasoning.md)
 - [The Disparate Benefits of Deep Ensembles](the_disparate_benefits_of_deep_ensembles.md)
-- [Efficient Noise Calculation in Deep Learning-based MRI Reconstructions](efficient_noise_calculation_in_deep_learning-based_mri_reconstructions.md)
 
 <!-- RELATED:END -->

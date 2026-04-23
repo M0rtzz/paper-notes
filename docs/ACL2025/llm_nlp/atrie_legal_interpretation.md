@@ -120,10 +120,10 @@ ATRIE 包含两个核心模块：**法律概念解释器 (Legal Concept Interpre
 
 ## 相关论文
 
+- [Learning from Litigation: Graphs and LLMs for Retrieval and Reasoning in eDiscovery](learning_from_litigation_graphs_and_llms_for_retrieval_and_reasoning_in_ediscove.md)
 - [SkillVerse: Assessing and Enhancing LLMs with Tree Evaluation](skillverse_tree_eval.md)
+- [Leveraging Human Production-Interpretation Asymmetries to Test LLM Cognitive Plausibility](leveraging_human_production-interpretation_asymmetries_to_test_llm_cognitive_pla.md)
 - [Which of These Best Describes Multiple Choice Evaluation with LLMs?](multiple_choice_eval.md)
-- [How LLMs Comprehend Temporal Meaning in Narratives: A Case Study in Cognitive Evaluation of LLMs](how_llms_comprehend_temporal_meaning_in_narratives_a_case_study_in_cognitive_eva.md)
 - [Length Controlled Generation for Black-box LLMs](length_controlled_generation_for_black-box_llms.md)
-- [Psycholinguistic Word Features: A New Approach for the Evaluation of LLMs Alignment with Humans](psycholinguistic_word_features_a_new_approach_for_the_evaluation_of_llms_alignme.md)
 
 <!-- RELATED:END -->

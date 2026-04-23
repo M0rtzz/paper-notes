@@ -175,6 +175,6 @@ $$\mathcal{L} = a_\text{color}\mathcal{L}_c + a_\text{mask}\mathcal{L}_m + a_\te
 - [GaussianUpdate: Continual 3D Gaussian Splatting Update for Changing Environments](gaussianupdate_continual_3d_gaussian_splatting_update_for_changing_environments.md)
 - [RegGS: Unposed Sparse Views Gaussian Splatting with 3DGS Registration](reggs_unposed_sparse_views_gaussian_splatting_with_3dgs_registration.md)
 - [PhysicsNeRF: Physics-Guided 3D Reconstruction from Sparse Views](../../ICML2025/3d_vision/physicsnerf_physics-guided_3d_reconstruction_from_sparse_views.md)
-- [SparseSurf: Sparse-View 3D Gaussian Splatting for Surface Reconstruction](../../AAAI2026/3d_vision/sparsesurf_sparse-view_3d_gaussian_splatting_for_surface_reconstruction.md)
+- [SurfaceSplat: Connecting Surface Reconstruction and Gaussian Splatting](surfacesplat_connecting_surface_reconstruction_and_gaussian_splatting.md)
 
 <!-- RELATED:END -->

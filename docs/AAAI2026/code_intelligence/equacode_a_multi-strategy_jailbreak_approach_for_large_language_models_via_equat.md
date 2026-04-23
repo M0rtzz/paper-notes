@@ -24,7 +24,10 @@ tags:
 提出EquaCode多策略越狱方法，将恶意查询分解为方程求解（B+C+x=A）和代码补全（补全Solver类的solve()方法）的跨域组合，在GPT系列上平均攻击成功率92.78%，在最新模型（Gemini/DeepSeek/Grok）上接近100%。
 
 ## 研究背景与动机
-**领域现状**：LLM安全对齐主要针对自然语言输入进行防护，但对非自然语言域（数学、代码）的防护存在显著漏洞。
+
+### 领域现状
+
+**领域现状**：领域现状**：LLM安全对齐主要针对自然语言输入进行防护，但对非自然语言域（数学、代码）的防护存在显著漏洞。
 
 **现有痛点**：(a) 白盒攻击需要模型梯度不实用；(b) 黑盒攻击（GCG、AutoDAN）需要多次迭代；(c) 单一域攻击（仅方程或仅代码）成功率有限。
 
@@ -127,9 +130,9 @@ tags:
 ## 相关论文
 
 - [SPAN: Benchmarking and Improving Cross-Calendar Temporal Reasoning of Large Language Models](span_benchmarking_and_improving_cross-calendar_temporal_reasoning_of_large_langu.md)
-- [Personality-Guided Code Generation Using Large Language Models](../../ACL2025/code_intelligence/personality_guided_code_gen.md)
 - [A Stochastic Differential Equation Framework for Multi-Objective LLM Interactions](../../NeurIPS2025/code_intelligence/a_stochastic_differential_equation_framework_for_multi-objective_llm_interaction.md)
-- [Training Large Language Models To Reason In Parallel With Global Forking Tokens](../../ICLR2026/code_intelligence/training_large_language_models_to_reason_in_parallel_with_global_forking_tokens.md)
+- [Personality-Guided Code Generation Using Large Language Models](../../ACL2025/code_intelligence/personality_guided_code_gen.md)
+- [Training Large Language Models to Reason in Parallel with Global Forking Tokens](../../ICLR2026/code_intelligence/training_large_language_models_to_reason_in_parallel_with_global_reflection.md)
 - [DRO-InstructZero: Distributionally Robust Prompt Optimization for Large Language Models](../../ICLR2026/code_intelligence/dro-instructzero_distributionally_robust_prompt_optimization_for_large_language_.md)
 
 <!-- RELATED:END -->

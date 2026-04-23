@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-跨模态表示对齐是多模态AI的核心课题。传统方法（如CLIP）依赖大规模配对数据的对比学习来实现视觉-语言对齐，但在多语言检索、视觉文本理解、交错多模态编码等复杂任务上性能趋于饱和。
+### 现有痛点
+
+**现有痛点**：**领域现状**：跨模态表示对齐是多模态AI的核心课题。传统方法（如CLIP）依赖大规模配对数据的对比学习来实现视觉-语言对齐，但在多语言检索、视觉文本理解、交错多模态编码等复杂任务上性能趋于饱和。
 
 **核心痛点**：
 
@@ -126,9 +128,9 @@ LCO-Emb 的核心思路非常简洁：取出 MLLM 的语言解码器（LLM），
 ## 相关论文
 
 - [Generalized Contrastive Learning for Universal Multimodal Retrieval](generalized_contrastive_learning_for_universal_multimodal_re.md)
+- [Multi-Label Cluster Discrimination for Visual Representation Learning](../../ECCV2024/information_retrieval/multi-label_cluster_discrimination_for_visual_representation_learning.md)
 - [HyperGraphRAG: Retrieval-Augmented Generation via Hypergraph-Structured Knowledge Representation](hypergraphrag_retrieval-augmented_generation_via_hypergraph-structured_knowledge.md)
 - [ViLU: Learning Vision-Language Uncertainties for Failure Prediction](../../ICCV2025/information_retrieval/vilu_learning_vision-language_uncertainties_for_failure_prediction.md)
-- [SEAL: Scaling to Emphasize Attention for Long-Context Retrieval](../../ACL2025/information_retrieval/seal_scaling_to_emphasize_attention_for_long-context_retrieval.md)
-- [Revela: Dense Retriever Learning via Language Modeling](../../ICLR2026/information_retrieval/revela_dense_retriever_learning_via_language_modeling.md)
+- [Learning Task-Agnostic Representations through Multi-Teacher Distillation](learning_task-agnostic_representations_through_multi-teacher_distillation.md)
 
 <!-- RELATED:END -->

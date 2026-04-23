@@ -179,9 +179,9 @@ PolyJuice 引导几乎不影响图像质量，FID 甚至略有改善。
 ## 相关论文
 
 - [GASP: Efficient Black-Box Generation of Adversarial Suffixes for Jailbreaking LLMs](gasp_efficient_black-box_generation_of_adversarial_suffixes_for_jailbreaking_llm.md)
+- [Constitutional Classifiers: Defending Against Universal Jailbreaks Across Thousands of Hours of Red Teaming](../../ACL2025/llm_alignment/constitutional_classifiers_defending_against_universal_jailbreaks_across_thousan.md)
 - [Jailbreak-Zero: A Path to Pareto Optimal Red Teaming for Large Language Models](jailbreak-zero_a_path_to_pareto_optimal_red_teaming_for_large_language_models.md)
 - [DP²O-SR: Direct Perceptual Preference Optimization for Real-World Image Super-Resolution](dp2o-sr_direct_perceptual_preference_optimization_for_real-world_image_super-res.md)
-- [M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs](../../ACL2025/llm_alignment/m2s_multiturn_to_singleturn_jailbreak_in.md)
 - [What Makes a Reward Model a Good Teacher? An Optimization Perspective](what_makes_a_reward_model_a_good_teacher_an_optimization_perspective.md)
 
 <!-- RELATED:END -->

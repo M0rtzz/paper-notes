@@ -1,18 +1,22 @@
 ---
 title: >-
-  ACL2025 可解释性方向 21篇论文解读
+  ACL2025 可解释性方向 22篇论文解读
 description: >-
-  21篇ACL2025 可解释性论文解读，主题涵盖：提出一个双视角 NLG 元评估框架、本文提出 GeoTemp 数据集（320k 提示、将信息论偏见归因分数指标扩展到黏着语（菲律宾语）等，每篇含核心思想与方法详解。
+  22篇ACL2025 可解释性论文解读，主题涵盖：提出一个双视角 NLG 元评估框架、本文系统性地比较了多种机理可解释性方法（因果追踪、本文提出 GeoTemp 数据集（320k 提示等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**💬 ACL2025** · **21** 篇论文解读
+**💬 ACL2025** · **22** 篇论文解读
 
 **[A Dual-Perspective NLG Meta-Evaluation Framework with Automatic Benchmark and Better Interpretability](a_dual-perspective_nlg_meta-evaluation_framework_with_automatic_benchmark_and_be.md)**
 
 :   提出一个双视角 NLG 元评估框架，将传统的人-指标相关性分解为全局视角（序数分类，判断粗粒度质量等级）和局部视角（相邻对比，区分细粒度质量差异），并通过自动化基准构建方法避免人工标注和数据污染，在 16 个 LLM 评估器上实验发现 Qwen-2.5-72B 全局最优、DeepSeek-V3 局部最优。
+
+**[An Empirical Study of Mechanistic Interpretability Approaches for Factual Recall](an_empirical_study_of_mechanistic_interpretability_approaches_for_factual_recall.md)**
+
+:   本文系统性地比较了多种机理可解释性方法（因果追踪、激活修补、探针分析等）在定位和解释LLM事实回忆机制方面的表现，揭示了不同方法的一致性、分歧点和各自的适用场景。
 
 **[Around the World in 24 Hours: Probing LLM Knowledge of Time and Place](around_the_world_in_24_hours_probing_llm_knowledge_of_time_and_place.md)**
 

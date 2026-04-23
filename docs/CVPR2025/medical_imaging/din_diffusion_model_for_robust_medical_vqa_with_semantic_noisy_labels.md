@@ -150,8 +150,8 @@ $$\mathcal{L}_{total} = \mathcal{L}_{dif} + \alpha \mathcal{L}_{RFL}$$
 
 - [TopoCellGen: Generating Histopathology Cell Topology with a Diffusion Model](topocellgen_generating_histopathology_cell_topology_with_a_diffusion_model.md)
 - [SeaLion: Semantic Part-Aware Latent Point Diffusion Models for 3D Generation](sealion_semantic_part-aware_latent_point_diffusion_models_for_3d_generation.md)
+- [Noise-Consistent Siamese-Diffusion for Medical Image Synthesis and Segmentation](noise-consistent_siamese-diffusion_for_medical_image_synthesis_and_segmentation.md)
 - [Hierarchical Schedule Optimization for Fast and Robust Diffusion Model Sampling](../../AAAI2026/medical_imaging/hierarchical_schedule_optimization_for_fast_and_robust_diffusion_model_sampling.md)
 - [ZoomLDM: Latent Diffusion Model for Multi-Scale Image Generation](zoomldm_latent_diffusion_model_for_multi-scale_image_generation.md)
-- [BiCLIP: Bidirectional and Consistent Language-Image Processing for Robust Medical Image Segmentation](biclip_bidirectional_and_consistent_language-image_processing_for_robust_medical.md)
 
 <!-- RELATED:END -->

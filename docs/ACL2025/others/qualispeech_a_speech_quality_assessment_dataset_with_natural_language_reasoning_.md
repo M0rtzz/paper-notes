@@ -173,10 +173,10 @@ QualiSpeech 训练集包含 **10,558** 个样本，来源均衡分布：
 
 ## 相关论文
 
+- [A Multi-Persona Framework for Argument Quality Assessment](a_multi-persona_framework_for_argument_quality_assessment.md)
+- [Cooperating and Competing Through Natural Language](cooperating_and_competing_through_natural_language.md)
+- [Leveraging Unit Language Guidance to Advance Speech Modeling in Textless Speech-to-Speech Translation](leveraging_unit_language_guidance_to_advance_speech_modeling_in_textless_speech-.md)
 - [SPOT: Bridging Natural Language and Geospatial Search for Investigative Journalists](spot_bridging_natural_language_and_geospatial_search_for_investigative_journalis.md)
 - [ChildMandarin: A Comprehensive Mandarin Speech Dataset for Young Children Aged 3-5](childmandarin_a_comprehensive_mandarin_speech_dataset_for_young_children_aged_3-.md)
-- [STRICTA: Structured Reasoning in Critical Text Assessment for Peer Review and Beyond](stricta_structured_reasoning_in_critical_text_assessment_for_peer_review_and_bey.md)
-- [Autalic: A Dataset for Anti-Autistic Ableist Language In Context](autalic_a_dataset_for_anti-autistic_ableist_language_in_context.md)
-- [HiEI: A Universal Framework for Generating High-quality Emerging Images from Natural Images](../../ECCV2024/others/hiei_a_universal_framework_for_generating_high-quality_emerging_images_from_natu.md)
 
 <!-- RELATED:END -->

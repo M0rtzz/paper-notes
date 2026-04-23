@@ -117,7 +117,7 @@ tags:
 - [Intrinsic Barriers and Practical Pathways for Human-AI Alignment: An Agreement-Based Complexity Analysis](intrinsic_barriers_and_practical_pathways_for_human-ai_alignment_an_agreement-ba.md)
 - [When to Speak, When to Abstain: Contrastive Decoding with Abstention](../../ACL2025/others/when_to_speak_when_to_abstain.md)
 - [How Hard Is It to Rig a Tournament When Few Players Can Beat or Be Beaten by the Favorite?](how_hard_is_it_to_rig_a_tournament_when_few_players_can_beat_or_be_beaten_by_the.md)
+- [Hybrid Preferences: Learning to Route Instances for Human vs. AI Feedback](../../ACL2025/others/hybrid_preferences_learning_to_route_instances_for_human_vs_ai_feedback.md)
 - [When to Retrain after Drift: A Data-Only Test of Post-Drift Data Size Sufficiency](../../ICLR2026/others/when_to_retrain_after_drift_a_data-only_test_of_post-drift_data_size_sufficiency.md)
-- [LILAD: Learning In-context Lyapunov-stable Adaptive Dynamics Models](lilad_learning_in-context_lyapunov-stable_adaptive_dynamics_models.md)
 
 <!-- RELATED:END -->

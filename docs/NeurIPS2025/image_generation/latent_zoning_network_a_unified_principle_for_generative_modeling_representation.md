@@ -144,6 +144,6 @@ LZN 建立一个共享的高斯潜在空间，连接多对编码器-解码器。
 - [Denoising Weak Lensing Mass Maps with Diffusion Model and Generative Adversarial Network](denoising_weak_lensing_mass_maps_with_diffusion_model_and_generative_adversarial.md)
 - [Diffusion Generative Modeling on Lie Group Representations](diffusion_generative_modeling_on_lie_group_representations.md)
 - [Parallel Sequence Modeling via Generalized Spatial Propagation Network](../../CVPR2025/image_generation/parallel_sequence_modeling_via_generalized_spatial_propagation_network.md)
-- [Coupling Generative Modeling and an Autoencoder with the Causal Bridge](coupling_generative_modeling_and_an_autoencoder_with_the_causal_bridge.md)
+- [BiGain: Unified Token Compression for Joint Generation and Classification](../../CVPR2025/image_generation/bigain_unified_token_compression_for_joint_generation_and_classification.md)
 
 <!-- RELATED:END -->

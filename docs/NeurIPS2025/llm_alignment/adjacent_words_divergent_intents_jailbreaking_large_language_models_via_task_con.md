@@ -175,8 +175,8 @@ $$\max_{T_b} P(harmful\_response | T_{interleaved}(T_h, T_b))$$
 
 - [QueryAttack: Jailbreaking Aligned Large Language Models Using Structured Non-natural Query Language](../../ACL2025/llm_alignment/queryattack_jailbreaking_aligned_large_language_models_using_structured_non-natu.md)
 - [Task Preference Optimization: Improving Multimodal Large Language Models with Vision Task Alignment](../../CVPR2025/llm_alignment/task_preference_optimization_improving_multimodal_large_language_models_with_vis.md)
+- [Tempest: Autonomous Multi-Turn Jailbreaking of Large Language Models with Tree Search](../../ACL2025/llm_alignment/tempest_autonomous_multi-turn_jailbreaking_of_large_language_models_with_tree_se.md)
 - [Jailbreak-Zero: A Path to Pareto Optimal Red Teaming for Large Language Models](jailbreak-zero_a_path_to_pareto_optimal_red_teaming_for_large_language_models.md)
-- [Reinforcement Learning Finetunes Small Subnetworks in Large Language Models](reinforcement_learning_finetunes_small_subnetworks_in_large_language_models.md)
-- [Red Queen: Safeguarding Large Language Models against Concealed Multi-Turn Jailbreaking](../../ACL2025/llm_alignment/red_queen_safeguarding_large_language_models_against_concealed_multi-turn_jailbr.md)
+- [Alignment of Large Language Models with Constrained Learning](alignment_of_large_language_models_with_constrained_learning.md)
 
 <!-- RELATED:END -->

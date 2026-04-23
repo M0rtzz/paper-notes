@@ -146,9 +146,9 @@ MD 是一个 **无需训练** 的推理时框架，不涉及额外训练：
 ## 相关论文
 
 - [Odysseus Navigates the Sirens' Song: Dynamic Focus Decoding for Factual and Diverse Open-Ended Text Generation](odysseus_dynamic_focus_decoding.md)
+- [How Does Response Length Affect Long-Form Factuality](how_does_response_length_affect_long-form_factuality.md)
 - [ChartCap: Mitigating Hallucination of Dense Chart Captioning](../../ICCV2025/llm_safety/chartcap_mitigating_hallucination_of_dense_chart_captioning.md)
+- [Automated Explanation Generation and Hallucination Detection for Heritage Image Retrieval](automated_explanation_generation_and_hallucination_detection_for_heritage_image_.md)
 - [Beyond Facts: Evaluating Intent Hallucination in Large Language Models](intent_hallucination_eval.md)
-- [ComparisonQA: Evaluating Factuality Robustness of LLMs Through Knowledge Frequency Control and Uncertainty](comparisonqa_evaluating_factuality_robustness_of_llms_through_knowledge_frequenc.md)
-- [Learning Auxiliary Tasks Improves Reference-Free Hallucination Detection in Open-Domain Long-Form Generation](learning_auxiliary_tasks_improves_reference-free_hallucination_detection_in_open.md)
 
 <!-- RELATED:END -->

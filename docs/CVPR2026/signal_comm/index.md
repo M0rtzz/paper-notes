@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 信号/通信方向 4篇论文解读
+  CVPR2026 信号/通信方向 5篇论文解读
 description: >-
-  4篇CVPR2026 信号/通信论文解读，主题涵盖：本文提出 AcTTA，一种基于动态激活函数调制的测、提出 ChartNet，一个包含 150、提出 DIME 框架，通过类别计数引导的光谱适配器等，每篇含核心思想与方法详解。
+  5篇CVPR2026 信号/通信论文解读，主题涵盖：本文提出 AcTTA，一种基于动态激活函数调制的测、提出 ChartNet，一个包含 150、CLAY 提出免训练的条件视觉相似度计算方法等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📡 信号/通信
 
-**📷 CVPR2026** · **4** 篇论文解读
+**📷 CVPR2026** · **5** 篇论文解读
 
 **[AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation](actta_rethinking_test-time_adaptation_via_dynamic_activation.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[ChartNet: A Million-Scale, High-Quality Multimodal Dataset for Robust Chart Understanding](chartnet_a_million-scale_high-quality_multimodal_dataset_for_robust_chart_unders.md)**
 
 :   提出 ChartNet，一个包含 150 万条高质量多模态对齐样本的百万级图表理解数据集，通过代码引导的合成管线生成涵盖 24 种图表类型、6 种绘图库的五元组数据（代码、图像、数据表、文本描述、带推理的 QA），在 ChartNet 上微调的 2B 模型可超越 GPT-4o 和 72B 开源模型。
+
+**[CLAY: Conditional Visual Similarity Modulation in Vision-Language Embedding Space](clay_conditional_visual_similarity.md)**
+
+:   CLAY 提出免训练的条件视觉相似度计算方法，通过在 VLM 嵌入空间中构建文本条件子空间来调制相似度，无需重新计算数据库特征即可适应不同检索条件，并支持多条件检索。
 
 **[Dual-Imbalance Continual Learning for Real-World Food Recognition](dual-imbalance_continual_learning_for_real-world_food_recognition.md)**
 

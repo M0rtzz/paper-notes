@@ -184,8 +184,8 @@ $$FL(p_t) = -\alpha_t (1 - p_t)^\gamma \log(p_t)$$
 
 - [Do Retrieval Augmented Language Models Know When They Don't Know?](do_retrieval_augmented_language_models_know_when_they_dont_know.md)
 - [FutureMind: Equipping Small Language Models with Strategic Thinking-Pattern Priors via Adaptive Knowledge Distillation](../../ICLR2026/information_retrieval/futuremind_equipping_small_language_models_with_strategic_thinking-pattern_prior.md)
+- [When Claims Evolve: Evaluating and Enhancing the Robustness of Embedding Models Against Misinformation Edits](../../ACL2025/information_retrieval/when_claims_evolve_evaluating_and_enhancing_the_robustness_of_embedding_models_a.md)
 - [SeCon-RAG: A Two-Stage Semantic Filtering and Conflict-Free Framework for Trustworthy RAG](../../NeurIPS2025/information_retrieval/secon-rag_a_two-stage_semantic_filtering_and_conflict-free_framework_for_trustwo.md)
 - [Positional Bias in Multimodal Embedding Models: Do They Favor the Beginning, the Middle, or the End?](positional_bias_in_multimodal_embedding_models_do_they_favor_the_beginning_the_m.md)
-- [OAD-Promoter: Enhancing Zero-shot VQA using Large Language Models with Object Attribute Description](oad-promoter_enhancing_zero-shot_vqa_using_large_language_models_with_object_att.md)
 
 <!-- RELATED:END -->

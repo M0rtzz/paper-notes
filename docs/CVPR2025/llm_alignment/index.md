@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 对齐/RLHF方向 15篇论文解读
+  CVPR2025 对齐/RLHF方向 17篇论文解读
 description: >-
-  15篇CVPR2025 对齐/RLHF论文解读，主题涵盖：本文提出 Step-by-step、提出一种求解可转向等变 CNN、提出 HG-DPO，以真实人像作为 DPO 的等，每篇含核心思想与方法详解。
+  17篇CVPR2025 对齐/RLHF论文解读，主题涵盖：本文提出 Step-by-step、提出一种求解可转向等变 CNN、提出 HG-DPO，以真实人像作为 DPO 的等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐/RLHF
 
-**📷 CVPR2025** · **15** 篇论文解读
+**📷 CVPR2025** · **17** 篇论文解读
 
 **[Aesthetic Post-Training Diffusion Models from Generic Preferences with Step-by-step Preference Optimization](aesthetic_post-training_diffusion_models_from_generic_preferences_with_step-by-s.md)**
 
@@ -42,13 +42,17 @@ description: >-
 
 :   NaPO 针对MLLM的模态偏差问题（过度依赖语言先验或视觉细节），通过mask模态信息构造偏差数据集RLAIF-V-Bias，并提出基于负Box-Cox变换的噪声感知偏好优化算法，在自动构造的含噪数据上实现鲁棒训练，在去偏和减幻觉上均取得显著效果。
 
-**[Do We Really Need Curated Malicious Data for Safety Alignment in Multi-Modal Large Language Models?](do_we_really_need_curated_malicious_data_for_safety_alignment_in_multi-modal_lar.md)**
+**[Do We Really Need Curated Malicious Data for Safety Alignment in Multi-Modal LLMs?](do_we_really_need_curated_malicious_data_for_safety_alignment_in_multi-modal_lar.md)**
 
-:   本文通过系统分析揭示MLLM的安全对齐缺口主要源于微调数据的分布偏差（而非图像内容、回复质量或对比行为），仅需用少量良性指令跟随数据（将回复替换为简单拒绝句）即可显著提升5种架构MLLM的安全性，无需费力收集恶意数据。
+:   探讨多模态大语言模型安全对齐是否真正需要精心策划的恶意数据，发现利用现有良性数据并结合简单的安全微调策略即可实现有效的安全对齐，大幅降低了安全对齐的数据成本。
 
 **[Enhancing SAM with Efficient Prompting and Preference Optimization for Semi-Supervised Medical Image Segmentation](enhancing_sam_with_efficient_prompting_and_preference_optimization_for_semi-supe.md)**
 
 :   提出一种增强 SAM 的半监督医学图像分割框架：通过 CLIP 和 VQA 无监督生成包含语义、位置和形状信息的高效提示（无需专家标注），再用 DPO 偏好优化技术配合虚拟标注器（代替人类标注者提供排名/评分）训练最优分割策略，在肺分割、乳腺肿瘤分割、器官分割等多模态任务上达到 SOTA。
+
+**[InPO: Inversion Preference Optimization with Reparametrized DDIM for Efficient Diffusion Model Alignment](inpo_inversion_preference_optimization_diffusion_alignment.md)**
+
+:   本文提出 DDIM-InPO，通过将扩散模型视为单步生成模型并利用 DDIM 反演技术找到与偏好数据高度相关的潜变量，实现仅需 400 步微调即可达到 SOTA 的高效扩散模型偏好对齐。
 
 **[InPO: Inversion Preference Optimization with Reparametrized DDIM for Efficient Diffusion Model Alignment](inpo_inversion_preference_optimization_with_reparametrized_ddim_for_efficient_di.md)**
 
@@ -61,6 +65,10 @@ description: >-
 **[PhysMoDPO: Physically-Plausible Humanoid Motion with Preference Optimization](physmodpo_physically-plausible_humanoid_motion_with_preference_optimization.md)**
 
 :   提出 PhysMoDPO，将 Direct Preference Optimization 应用于文本驱动的人体运动生成，通过将全身控制器（WBC）集成到训练 pipeline 中计算基于物理的奖励来构造偏好数据，使生成运动同时满足物理约束和文本指令，并在 Unitree G1 机器人上实现零样本部署。
+
+**[Enhancing SAM with Efficient Prompting and Preference Optimization for Semi-supervised Medical Image Segmentation](sam_dpo_semi_supervised_medical_segmentation.md)**
+
+:   本文提出一种增强 SAM 的半监督医学图像分割框架，通过 BiomedCLIP、VQA 和 GPT-4 生成无监督提示替代专家标注，并引入 DPO 启发的偏好对齐策略在无标注数据上进一步优化模型，在低标注场景下显著超越 SOTA。
 
 **[SymDPO: Boosting In-Context Learning of Large Multimodal Models with Symbol Demonstration Direct Preference Optimization](symdpo_boosting_in-context_learning_of_large_multimodal_models_with_symbol_demon.md)**
 

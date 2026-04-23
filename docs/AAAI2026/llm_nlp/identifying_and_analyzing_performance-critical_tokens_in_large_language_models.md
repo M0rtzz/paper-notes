@@ -131,10 +131,10 @@ tags:
 
 ## 相关论文
 
+- [Analyzing and Mitigating Inconsistency in Discrete Speech Tokens for Neural Codec Language Models](../../ACL2025/llm_nlp/analyzing_and_mitigating_inconsistency_in_discrete_speech_tokens_for_neural_code.md)
 - [ProFuser: Progressive Fusion of Large Language Models](profuser_progressive_fusion_of_large_language_models.md)
-- [When People are Floods: Analyzing Dehumanizing Metaphors in Immigration Discourse with Large Language Models](../../ACL2025/llm_nlp/dehumanizing_metaphors_immigration.md)
-- [LoKI: Low-damage Knowledge Implanting of Large Language Models](loki_low-damage_knowledge_implanting_of_large_language_models.md)
+- [Collaborative Performance Prediction for Large Language Models](../../ACL2025/llm_nlp/collaborative_performance_prediction_for_large_language_models.md)
 - [Control Illusion: The Failure of Instruction Hierarchies in Large Language Models](control_illusion_the_failure_of_instruction_hierarchies_in_large_language_models.md)
-- [Regress, Don't Guess — A Regression-like Loss on Number Tokens for Language Models](../../ICML2025/llm_nlp/regress_dont_guess_--_a_regression-like_loss_on_number_tokens_for_language_model.md)
+- [LoKI: Low-damage Knowledge Implanting of Large Language Models](loki_low-damage_knowledge_implanting_of_large_language_models.md)
 
 <!-- RELATED:END -->

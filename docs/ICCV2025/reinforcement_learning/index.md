@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 强化学习方向 6篇论文解读
+  ICCV2025 强化学习方向 7篇论文解读
 description: >-
-  6篇ICCV2025 强化学习论文解读，主题涵盖：DescRL 将动作描述生成作为强化学习导航的辅助、提出 mDP3，一种免训练、模型无关的视频帧选择方、提出 NavQ，一种前瞻性 VLN 智能体，通过等，每篇含核心思想与方法详解。
+  7篇ICCV2025 强化学习论文解读，主题涵盖：DescRL 将动作描述生成作为强化学习导航的辅助、提出 mDP3，一种免训练、模型无关的视频帧选择方、提出 NavQ，一种前瞻性 VLN 智能体，通过等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**📹 ICCV2025** · **6** 篇论文解读
+**📹 ICCV2025** · **7** 篇论文解读
 
 **[Embodied Navigation with Auxiliary Task of Action Description Prediction](embodied_navigation_with_auxiliary_task_of_action_description_prediction.md)**
 
@@ -33,3 +33,7 @@ description: >-
 **[RL-Selector: Reinforcement Learning-Guided Data Selection via Redundancy Assessment](reinforcement_learning-guided_data_selection_via_redundancy_assessment.md)**
 
 :   提出 RL-Selector，引入 ε-sample cover 概念量化样本冗余度，将数据选择建模为强化学习过程，通过轻量 A2C 策略网络自适应优化选择策略，在多个基准数据集上以更少数据达到接近甚至超越全量训练的泛化性能。
+
+**[RoboFactory: Exploring Embodied Agent Collaboration with Compositional Constraints](robofactory_exploring_embodied_agent_collaboration_with_compositional_constraint.md)**
+
+:   提出组合约束（compositional constraints）概念来形式化多智能体具身协作中的安全与效率要求，基于此构建了首个多智能体操作基准 RoboFactory，并系统探索了多智能体模仿学习的架构和训练策略。

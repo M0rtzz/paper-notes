@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-视觉定位需要确定查询图像在3D环境中的相机位姿。主流表示包括：点云+描述子（HLoc）、网格（MeshLoc）、学习的隐式表示（APR/SCR）。NeRF作为紧凑的3D场景表示（Mip-NeRF仅5.28MB），已用于数据增强、辅助监督和位姿精炼，但其内部特征用于直接2D-3D匹配的潜力尚未被充分挖掘。已有工作（CrossFire、NeRF-Loc）需与匹配任务联合训练，不能使用预训练NeRF。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：视觉定位需要确定查询图像在3D环境中的相机位姿。主流表示包括：点云+描述子（HLoc）、网格（MeshLoc）、学习的隐式表示（APR/SCR）。NeRF作为紧凑的3D场景表示（Mip-NeRF仅5.28MB），已用于数据增强、辅助监督和位姿精炼，但其内部特征用于直接2D-3D匹配的潜力尚未被充分挖掘。已有工作（CrossFire、NeRF-Loc）需与匹配任务联合训练，不能使用预训练NeRF。
 
 ## 方法详解
 
@@ -56,6 +58,9 @@ tags:
 
 中位位姿误差 (cm / °)：
 
+
+### 主实验
+
 | 方法 | 场景表示 | Kings | Hospital | Shop | StMary | Court | 平均 |
 |------|----------|-------|----------|------|--------|-------|------|
 | DSAC* | SCR网络 | 15/0.3 | 21/0.4 | 5/0.3 | 13/0.4 | 49/0.3 | 20.6/0.3 |
@@ -66,6 +71,9 @@ tags:
 | **NeRFMatch** | **NeRF+RGB** | **13.0/0.2** | **19.4/0.4** | **8.5/0.4** | **7.9/0.3** | **17.5/0.1** | **13.3/0.3** |
 
 ### 模型效率
+
+
+### 消融实验
 
 | 组件 | 大小 | 推理时间 |
 |------|------|----------|
@@ -87,7 +95,7 @@ tags:
 2. 无需修改或重训NeRF模型即可用于定位，可直接受益于NeRF研究的持续进步
 3. Mini版本展示了无需学习匹配函数、仅学习好的特征表示即可实现合理定位
 
-## 局限性
+## 局限与展望
 
 - 室内场景因低纹理和运动模糊表现不佳
 - 依赖图像检索提供初始位姿范围
@@ -108,10 +116,10 @@ tags:
 
 ## 相关论文
 
-- [SceneGraphLoc: Cross-Modal Coarse Visual Localization on 3D Scene Graphs](scenegraphloc_cross-modal_coarse_visual_localization_on_3d_scene_graphs.md)
+- [SceneGraphLoc: Cross-Modal Coarse Visual Localization on 3D Scene Graphs](scenegraphloc_crossmodal_coarse_visual_localization_on_3d_sc.md)
 - [Invertible Neural Warp for NeRF](invertible_neural_warp_for_nerf.md)
 - [TrackNeRF: Bundle Adjusting NeRF from Sparse and Noisy Views via Feature Tracks](tracknerf_bundle_adjusting_nerf_from_sparse_and_noisy_views_via_feature_tracks.md)
-- [Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions](deblur_e-nerf_nerf_from_motion-blurred_events_under_high-speed_or_low-light_cond.md)
 - [MeshFeat: Multi-Resolution Features for Neural Fields on Meshes](meshfeat_multi-resolution_features_for_neural_fields_on_meshes.md)
+- [Deblur e-NeRF: NeRF from Motion-Blurred Events under High-speed or Low-light Conditions](deblur_e-nerf_nerf_from_motion-blurred_events_under_high-speed_or_low-light_cond.md)
 
 <!-- RELATED:END -->

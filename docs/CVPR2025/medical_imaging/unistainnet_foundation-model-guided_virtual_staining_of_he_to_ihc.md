@@ -125,6 +125,6 @@ SPADE-UNet 生成器，以三种信号为条件：(1) UNI 稠密空间 token，(
 - [Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation](multi-resolution_pathology-language_pre-training_model_with_text-guided_visual_r.md)
 - [Multiscale Structure-Guided Latent Diffusion for Multimodal MRI Translation](multiscale_structure-guided_latent_diffusion_for_multimodal_mri_translation.md)
 - [Developing Foundation Models for Universal Segmentation from 3D Whole-Body Positron Emission Tomography](developing_foundation_models_for_universal_segmentation_from_3d_whole-body_posit.md)
-- [Unsupervised Foundation Model-Agnostic Slide-Level Representation Learning](unsupervised_foundation_model-agnostic_slide-level_representation_learning.md)
+- [VISTA3D: A Unified Segmentation Foundation Model For 3D Medical Imaging](vista3d_a_unified_segmentation_foundation_model_for_3d_medical_imaging.md)
 
 <!-- RELATED:END -->

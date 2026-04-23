@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 多模态VLM方向 73篇论文解读
+  AAAI2026 多模态VLM方向 76篇论文解读
 description: >-
-  73篇AAAI2026 多模态VLM论文解读，主题涵盖：提出 CDDS 算法，通过双路径 UNet、构建anyECG数据集（含报告生成、波形定位、提出基于 VLM 的自主任务完成评估框架等，每篇含核心思想与方法详解。
+  76篇AAAI2026 多模态VLM论文解读，主题涵盖：提出 CDDS 算法，通过双路径 UNet、构建anyECG数据集（含报告生成、波形定位、提出基于 VLM 的自主任务完成评估框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**🤖 AAAI2026** · **73** 篇论文解读
+**🤖 AAAI2026** · **76** 篇论文解读
 
 **[Aligning the True Semantics: Constrained Decoupling and Distribution Sampling for Cross-Modal Alignment](aligning_the_true_semantics_constrained_decoupling_and_distr.md)**
 
@@ -150,6 +150,10 @@ description: >-
 
 :   LLM-CAS 首次将 LLM 实时幻觉纠正建模为层次强化学习（HRL）问题，训练 RL Agent 在推理时动态选择最优的神经元扰动策略（高层选择功能网络类别，低层选择扰动类型和幅度），结合自适应掩码+因果追踪精确定位目标神经元，在 StoryCloze 上提升 10.98%，超越 ITI/CAA/SADI 等静态/动态基线。
 
+**[LLMC+: Benchmarking Vision-Language Model Compression with a Plug-and-play Toolkit](llmc_benchmarking_vision-language_model_compression_with_a_plug-and-play_toolkit.md)**
+
+:   本文提出 LLMC+，一个全面的视觉语言模型（VLM）压缩基准和即插即用工具包，支持 5 个代表性 VLM 家族的 20+ 种压缩算法，系统研究了 token 级和模型级压缩的独立及联合效果，揭示了三大关键发现。
+
 **[MacVQA: Adaptive Memory Allocation and Global Noise Filtering for Continual Visual Question Answering](macvqa_adaptive_memory_allocation_and_global_noise_filtering_for_continual_visua.md)**
 
 :   本文提出MacVQA框架，通过全局噪声过滤（GonF）增强视觉特征的鲁棒性，并通过自适应记忆分配（AMA）基于原型检索和记忆衰减优化知识保留与更新，在VQA v2的10个持续学习任务上实现43.38%平均准确率（+3.57%）和2.32%遗忘率。
@@ -185,6 +189,10 @@ description: >-
 **[PatientVLM Meets DocVLM: Pre-Consultation Dialogue Between Vision-Language Models for Efficient Diagnosis](patientvlm_meets_docvlm_pre-consultation_dialogue_between_vision-language_models.md)**
 
 :   提出Pre-Consultation Dialogue Framework (PCDF)，通过两个VLM（DocVLM和PatientVLM）模拟医生-患者多轮对话，生成image-dialogue-diagnosis三元组用于微调DocVLM，在四个医学影像基准上平均F1提升11.48。
+
+**[PatientVLM Meets DocVLM: Pre-Consultation Dialogue Between Vision-Language Models for Efficient Diagnosis](patientvlm_meets_docvlm_pre-consultation_dialogue_between_vision_language_models.md)**
+
+:   本文提出PCDF（Pre-Consultation Dialogue Framework），通过两个VLM角色扮演——DocVLM提问、PatientVLM回答——模拟真实医患对话，生成image-dialogue-diagnosis三元组用于微调DocVLM，在四个医学影像基准上平均F1提升11.48个百分点，且不依赖真实临床对话数据。
 
 **[PET2Rep: Towards Vision-Language Model-Driven Automated Radiology Report Generation for Positron Emission Tomography](pet2rep_towards_vision-language_model-drived_automated_radiology_report_generati.md)**
 
@@ -281,6 +289,10 @@ description: >-
 **[Towards Long-window Anchoring in Vision-Language Model Distillation](towards_long-window_anchoring_in_vision-language_model_distillation.md)**
 
 :   LAid（Long-window Anchoring distillation）提出了一种位置感知的知识蒸馏框架，通过头部级别的傅里叶增强位置知识传递，将小型VLM（3B/7B）的有效上下文窗口扩展至原来的3.2倍，接近大型教师模型（32B）的水平，同时保持标准VL基准上的性能。
+
+**[CAMU: Context Augmentation for Meme Understanding](trace_textual_relevance_augmentation_and_contextual_encoding_for_multimodal_hate.md)**
+
+:   本文提出 CAMU 框架，通过视觉 grounding 增强的上下文 caption 生成、新颖的 caption 评分网络和 CLIP 文本编码器的参数高效 n-layer 微调，在 Hateful Memes 数据集上达到 0.807 准确率和 0.806 F1，与 55B 参数的 SOTA 方法持平但效率高得多。
 
 **[Tri-Bench: Stress-Testing VLM Reliability on Spatial Reasoning under Camera Tilt and Object Interference](tri-bench_stress-testing_vlm_reliability_on_spatial_reasoning_under_camera_tilt_.md)**
 

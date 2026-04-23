@@ -126,8 +126,8 @@ $\mathcal{L}_{total} = \mathcal{L}_{sem} + \mathcal{L}_{VQ} + \mathcal{L}_{pix}$
 
 - [EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation](evotok_a_unified_image_tokenizer_via_residual_latent_evolution_for_visual_unders.md)
 - [JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation](janusflow_harmonizing_autoregression_and_rectified_flow_for_unified_multimodal_u.md)
+- [Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_unified_generation_understanding.md)
 - [Co-Reinforcement Learning for Unified Multimodal Understanding and Generation](../../NeurIPS2025/image_generation/coreinforcement_learning_for_unified_multimodal_understandin.md)
-- [Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_for_unified_image_generation_and_understanding.md)
 - [WeGen: A Unified Model for Interactive Multimodal Generation as We Chat](wegen_a_unified_model_for_interactive_multimodal_generation_as_we_chat.md)
 
 <!-- RELATED:END -->

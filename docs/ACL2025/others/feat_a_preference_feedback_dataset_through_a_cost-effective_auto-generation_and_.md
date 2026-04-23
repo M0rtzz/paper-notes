@@ -149,9 +149,9 @@ FEAT（Feedback Dataset Generation Framework for English AI Tutoring）由三个
 ## 相关论文
 
 - [Dolphin: Moving Towards Closed-loop Auto-research through Thinking, Practice, and Feedback](dolphin_moving_towards_closed-loop_auto-research_through_thinking_practice_and_f.md)
+- [Meta-Reflection: A Feedback-Free Reflection Learning Framework](meta-reflection_a_feedback-free_reflection_learning_framework.md)
+- [Hybrid Preferences: Learning to Route Instances for Human vs. AI Feedback](hybrid_preferences_learning_to_route_instances_for_human_vs_ai_feedback.md)
 - [Predicting Through Generation: Why Generation Is Better for Prediction](predicting_through_generation_why_generation_is_better_for_prediction.md)
 - [Practical Principles for AI Cost and Compute Accounting](../../ICML2025/others/practical_principles_for_ai_cost_and_compute_accounting.md)
-- [Sightation Counts: Leveraging Sighted User Feedback in Building a BLV-aligned Dataset of Diagram Descriptions](sightation_counts_leveraging_sighted_user_feedback_in_building_a_blv-aligned_dat.md)
-- [Counterspeech the Ultimate Shield! Multi-Conditioned Counterspeech Generation through Attributed Prefix Learning](hippro_counterspeech_gen.md)
 
 <!-- RELATED:END -->

@@ -158,9 +158,9 @@ $$dY_t = f^\star(Y_t, t)dt + g^\star(Y_t, t)dB_t$$
 ## 相关论文
 
 - [Zero-Shot Adaptation of Parameter-Efficient Fine-Tuning in Diffusion Models](zero-shot_adaptation_of_parameter-efficient_fine-tuning_in_diffusion_models.md)
-- [Parameter-Efficient Fine-Tuning of State Space Models](parameter-efficient_fine-tuning_of_state_space_models.md)
 - [Encoder-Decoder Diffusion Language Models for Efficient Training and Inference](../../NeurIPS2025/image_generation/encoder-decoder_diffusion_language_models_for_efficient_training_and_inference.md)
 - [Efficient Fine-Tuning and Concept Suppression for Pruned Diffusion Models](../../CVPR2025/image_generation/efficient_fine-tuning_and_concept_suppression_for_pruned_diffusion_models.md)
+- [DiG: Scalable and Efficient Diffusion Models with Gated Linear Attention](../../CVPR2025/image_generation/dig_scalable_and_efficient_diffusion_models_with_gated_linear_attention.md)
 - [Reviving ConvNeXt for Efficient Convolutional Diffusion Models](../../CVPR2026/image_generation/reviving_convnext_for_efficient_convolutional_diffusion_models.md)
 
 <!-- RELATED:END -->

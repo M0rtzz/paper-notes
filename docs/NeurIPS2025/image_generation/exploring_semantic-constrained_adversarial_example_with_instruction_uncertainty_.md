@@ -152,6 +152,6 @@ $$A_{\text{Text}} = \{\text{label}_{\text{Adv}} \mid \text{AbstractedLabel} \not
 - [Constrained Discrete Diffusion](constrained_discrete_diffusion.md)
 - [Training-Free Constrained Generation with Stable Diffusion Models](training-free_constrained_generation_with_stable_diffusion_models.md)
 - [Epistemic Uncertainty for Generated Image Detection](epistemic_uncertainty_for_generated_image_detection.md)
-- [Instant Adversarial Purification with Adversarial Consistency Distillation](../../CVPR2025/image_generation/instant_adversarial_purification_with_adversarial_consistency_distillation.md)
+- [CustAny: Customizing Anything from A Single Example](../../CVPR2025/image_generation/custany_customizing_anything_from_a_single_example.md)
 
 <!-- RELATED:END -->

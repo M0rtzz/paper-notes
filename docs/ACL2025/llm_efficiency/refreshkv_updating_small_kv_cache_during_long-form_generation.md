@@ -140,8 +140,8 @@ RefreshKV维护两个KV缓存：
 
 - [KV-Latent: Dimensional-level KV Cache Reduction with Frequency-aware Rotary Positional Embedding](kv_latent_cache_reduction.md)
 - [SpindleKV: A Novel KV Cache Reduction Method Balancing Both Shallow and Deep Layers](spindlekv_layered_kv_cache.md)
+- [Squeezed Attention: Accelerating Long Context Length LLM Inference](squeezed_attention_accelerating_long_context_length_llm_inference.md)
 - [Judge Q: Trainable Queries for Optimized Information Retention in KV Cache Eviction](../../AAAI2026/llm_efficiency/judge_q_trainable_queries_for_optimized_information_retention_in_kv_cache_evicti.md)
-- [Deep Compositional Phase Diffusion for Long Motion Sequence Generation](../../NeurIPS2025/llm_efficiency/deep_compositional_phase_diffusion_for_long_motion_sequence_generation.md)
-- [Rejecting Hallucinated State Targets during Planning](../../ICML2025/llm_efficiency/rejecting_hallucinated_state_targets_during_planning.md)
+- [Accelerating Speculative Decoding via Efficient Context-Aware Draft Generation](accelerating_speculative_decoding_via_efficient_context-aware_draft_generation.md)
 
 <!-- RELATED:END -->

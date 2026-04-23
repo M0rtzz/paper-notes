@@ -132,10 +132,10 @@ THINGS-EEG数据集上200-way跨被试检索（LOSO协议，平均所有fold和3
 
 ## 相关论文
 
+- [HyCal: A Training-Free Prototype Calibration Method for Cross-Discipline Few-Shot Class-Incremental Learning](hycal_training_free_prototype_calibration_for_cross_discipline_fscil.md)
 - [Graph Out-of-Distribution Detection via Test-Time Calibration with Dual Dynamic Dictionaries](../../AAAI2026/llm_evaluation/graph_out-of-distribution_detection_via_test-time_calibration_with_dual_dynamic_.md)
+- [Test-Time Adaptation by Causal Trimming](../../NeurIPS2025/llm_evaluation/test-time_adaptation_by_causal_trimming.md)
 - [Cross-Scale Pansharpening via ScaleFormer and the PanScale Benchmark](cross-scale_pansharpening_via_scaleformer_and_the_panscale_benchmark.md)
 - [Free-Grained Hierarchical Visual Recognition](free-grained_hierarchical_visual_recognition.md)
-- [Test-Time Adaptation by Causal Trimming](../../NeurIPS2025/llm_evaluation/test-time_adaptation_by_causal_trimming.md)
-- [ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval](../../CVPR2025/llm_evaluation/context-cir_learning_from_concepts_in_text_for_composed_image_retrieval.md)
 
 <!-- RELATED:END -->

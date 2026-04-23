@@ -131,8 +131,8 @@ Hard 任务上最好的 CSR 仅为 0.362（Claude），说明严格约束满足�
 
 - [Tree-of-Evolution: Tree-Structured Instruction Evolution for Code Generation in Large Language Models](tree_of_evolution_code_gen.md)
 - [DynaCode: A Dynamic Complexity-Aware Code Benchmark for Evaluating Large Language Models in Code Generation](dynacode_a_dynamic_complexity-aware_code_benchmark_for_evaluating_large_language.md)
-- [Personality-Guided Code Generation Using Large Language Models](personality_guided_code_gen.md)
 - [CodeReviewQA: The Code Review Comprehension Assessment for Large Language Models](codereviewqa_the_code_review_comprehension_assessment_for_large_language_models.md)
+- [Personality-Guided Code Generation Using Large Language Models](personality_guided_code_gen.md)
 - [DyCodeEval: Dynamic Benchmarking of Reasoning Capabilities in Code Large Language Models Under Data Contamination](../../ICML2025/code_intelligence/dynamic_benchmarking_of_reasoning_capabilities_in_code_large_language_models_und.md)
 
 <!-- RELATED:END -->

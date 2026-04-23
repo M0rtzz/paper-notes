@@ -147,9 +147,9 @@ SDEval 以原始安全基准样本 $P=(T, I)$ 为输入，通过动态策略集 
 ## 相关论文
 
 - [Evolving Contextual Safety in Multi-Modal Large Language Models via Inference-Time Self-Reflective Memory](../../CVPR2026/multimodal_vlm/evolving_contextual_safety_in_multi-modal_large_language_models_via_inference-ti.md)
+- [SimpleVQA: Multimodal Factuality Evaluation for Multimodal Large Language Models](../../ICCV2025/multimodal_vlm/simplevqa_multimodal_factuality_evaluation_for_multimodal_large_language_models.md)
 - [Dynamic Multimodal Activation Steering for Hallucination Mitigation in Large Vision-Language Models](../../ICLR2026/multimodal_vlm/dynamic_multimodal_activation_steering_for_hallucination_mitigation_in_large_vis.md)
 - [Video-SafetyBench: A Benchmark for Safety Evaluation of Video LVLMs](../../NeurIPS2025/multimodal_vlm/video-safetybench_a_benchmark_for_safety_evaluation_of_video_lvlms.md)
 - [MoDES: Accelerating Mixture-of-Experts Multimodal Large Language Models via Dynamic Expert Skipping](../../CVPR2026/multimodal_vlm/modes_moe_dynamic_expert_skipping.md)
-- [Hierarchical Safety Realignment: Lightweight Restoration of Safety in Pruned Large Vision-Language Models](../../ACL2025/multimodal_vlm/hierarchical_safety_realignment_lightweight_restoration_of_safety_in_pruned_larg.md)
 
 <!-- RELATED:END -->

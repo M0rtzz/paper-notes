@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-大语言模型在文本任务上表现出色，但将其能力拓展到需要空间和时间推理的多模态环境时面临挑战。场景图（Scene Graph）是一种结构化表示，编码了场景中实体、属性和关系，广泛应用于具身 AI、机器人、3D 环境建模等领域。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：大语言模型在文本任务上表现出色，但将其能力拓展到需要空间和时间推理的多模态环境时面临挑战。场景图（Scene Graph）是一种结构化表示，编码了场景中实体、属性和关系，广泛应用于具身 AI、机器人、3D 环境建模等领域。
 
 然而，LLM 对场景图的利用能力缺乏系统性评估。已有工作主要聚焦于图像-场景图对，而文本-场景图的研究有限。现有基准如 FACTUAL 仅关注静态场景，不适用于动态、真实世界场景。关键问题包括：LLM 是否真正理解场景图的空间和语义结构？在处理长上下文和复杂三元组时是否会出现误解？
 
@@ -131,7 +133,7 @@ TSG Bench 基于叙事文本和对应的动态场景图序列构建，包含 120
 - [AAD-LLM: Neural Attention-Driven Auditory Scene Understanding](aad-llm_neural_attention-driven_auditory_scene_understanding.md)
 - [Can Large Language Models Understand Internet Buzzwords Through User-Generated Content](buzzword_understanding_ugc.md)
 - [Can Graph Descriptive Order Affect Solving Graph Problems with LLMs?](graph_descriptive_order_llm.md)
-- [Empowering LLMs to Understand and Generate Complex Vector Graphics](../../CVPR2025/llm_nlp/empowering_llms_to_understand_and_generate_complex_vector_graphics.md)
-- [Can LLMs Understand Unvoiced Speech? Exploring EMG-to-Text Conversion with LLMs](can_llms_understand_unvoiced_speech_exploring_emg-to-text_conversion_with_llms.md)
+- [Can Large Language Models Accurately Generate Answer Keys for Health-related Questions?](can_large_language_models_accurately_generate_answer_keys_for_health-related_que.md)
+- [Past Meets Present: Creating Historical Analogy with Large Language Models](past_meets_present_creating_historical_analogy_with_large_language_models.md)
 
 <!-- RELATED:END -->

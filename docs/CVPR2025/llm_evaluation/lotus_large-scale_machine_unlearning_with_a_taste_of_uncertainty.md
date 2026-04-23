@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：机器遗忘需要让模型"忘记"特定训练数据。理想目标是逼近从头重训但不实际重训。先前方法（NegGrad/SCRUB/SalUn）在小规模有效但在 ImageNet 级别不可行。
 
 **现有痛点**：（1）现有方法在大规模数据上要么不收敛，要么需要长时间微调；（2）评估遗忘效果的金标准是从头重训+计算 JSD，但大模型重训成本极高——缺乏免重训的评估指标。
@@ -90,9 +92,9 @@ ViT 仅需 3 epoch，ResNet18 10 epoch。$\alpha=2$。
 ## 相关论文
 
 - [Uncertainty Weighted Gradients for Model Calibration](uncertainty_weighted_gradients_for_model_calibration.md)
-- [Sync from the Sea: Retrieving Alignable Videos from Large-Scale Datasets](../../ECCV2024/llm_evaluation/sync_from_the_sea_retrieving_alignable_videos_from_large-scale_datasets.md)
+- [Benchmarking Uncertainty Quantification Methods for Large Language Models with LM-Polygraph](../../ACL2025/llm_evaluation/benchmarking_uncertainty_quantification_methods_for_large_language_models_with_l.md)
 - [HellaSwag-Pro: A Large-Scale Bilingual Benchmark for Evaluating the Robustness of LLMs in Commonsense Reasoning](../../ACL2025/llm_evaluation/hellaswag-pro_a_large-scale_bilingual_benchmark_for_evaluating_the_robustness_of.md)
+- [Sync from the Sea: Retrieving Alignable Videos from Large-Scale Datasets](../../ECCV2024/llm_evaluation/sync_from_the_sea_retrieving_alignable_videos_from_large-scale_datasets.md)
 - [Revisiting the Past: Data Unlearning with Model State History](../../ICLR2026/llm_evaluation/revisiting_the_past_data_unlearning_with_model_state_history.md)
-- [Put CASH on Bandits: A Max K-Armed Problem for Automated Machine Learning](../../NeurIPS2025/llm_evaluation/put_cash_on_bandits_a_max_k-armed_problem_for_automated_machine_learning.md)
 
 <!-- RELATED:END -->

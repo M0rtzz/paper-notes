@@ -24,10 +24,14 @@ tags:
 提出一个统计框架，通过分层（stratification）、采样设计（sampling）和估计器（estimation）三个组件的协同设计，在仅标注少量测试样本的情况下精确估计CV模型准确率，最高可实现10倍的效率增益（即用1/10的标注量达到同等精度）。
 
 ## 背景与动机
-评估CV模型的准确率需要高质量标注的测试集，但标注成本昂贵。现有做法是从数据集中简单随机抽样（SRS）一个子集进行标注并取平均——这种朴素方法没有利用模型自身的预测信息，导致在有限标注预算下估计精度不高。统计学中的调查抽样（survey sampling）领域早已解决了类似问题，但CV社区一直缺乏系统的指导方针和全面的实验比较，导致这些高效抽样技术未被采用。
 
-## 核心问题
-**如何用最少的标注测试样本来精确估计模型的预测准确率？** 这个问题在模型需要在多个数据集、多个指标上评估（如CLIP在几十个分类任务上的benchmark）时尤为重要。减少标注量不仅降低成本，还加速了模型迭代。
+### 领域现状
+
+**领域现状**：评估CV模型的准确率需要高质量标注的测试集，但标注成本昂贵。现有做法是从数据集中简单随机抽样（SRS）一个子集进行标注并取平均——这种朴素方法没有利用模型自身的预测信息，导致在有限标注预算下估计精度不高。统计学中的调查抽样（survey sampling）领域早已解决了类似问题，但CV社区一直缺乏系统的指导方针和全面的实验比较，导致这些高效抽样技术未被采用。
+
+### 解决思路
+
+**本文目标**：**如何用最少的标注测试样本来精确估计模型的预测准确率？** 这个问题在模型需要在多个数据集、多个指标上评估（如CLIP在几十个分类任务上的benchmark）时尤为重要。减少标注量不仅降低成本，还加速了模型迭代。
 
 ## 方法详解
 整体思路是：不要盲目随机选标注样本，而是利用模型自身的预测置信度来"聪明地"选择哪些样本最值得标注，同时在估计阶段利用未标注样本的预测信息来提升精度。
@@ -64,7 +68,7 @@ tags:
 - **效率增益何时最大**：模型准确率越高的任务，增益越大（因为高准确率 → 大部分 $Z_i=1$ → $\hat{Z}$ 更容易预测 → 残差方差小）
 - **分布外数据**：效率增益在分布内数据上更大，OOD时代理 $\hat{Z}$ 质量下降，增益受限
 
-## 亮点
+## 亮点与洞察
 - **理论与实践的漂亮衔接**：Proposition 2+Corollary 3 将MSE最小化归结为 $k$-means，把一个统计理论问题转化为一个人人都能用的算法——这是这篇论文最"啊哈"的地方
 - **实用性极强**：推荐的"backpocket method"非常简单——在模型置信度上跑 $k$-means 分成10层 → 比例分配抽样 → HT估计。不需要复杂的数学推导就能用
 - **DF估计器当SRS已完成时仍可用**：如果你已经用SRS标注了数据，还可以事后利用DF估计器来提升精度，无需重新抽样
@@ -77,7 +81,7 @@ tags:
 - **校准依赖部分标注数据**：isotonic regression需要一半数据来拟合校准函数，这部分数据的标注预算未被计入效率比较中
 - **未考虑多模型同时评估**：实际benchmark通常同时比较多个模型，联合优化多个模型的评估效率是自然扩展
 
-## 与相关工作的对比
+## 相关工作与启发
 
 | 方面 | 本文 | Active Testing (Kossen et al., NeurIPS 2022) | PPI++ (Angelopoulos et al., 2023) |
 |------|------|----------------------------------------------|-----------------------------------|
@@ -89,7 +93,7 @@ tags:
 
 本文的核心优势在于系统性和实用性——不追求最先进的技术，而是在已有统计工具中找到CV社区可以开箱即用的最佳实践。
 
-## 启发与关联
+## 相关工作与启发
 - 这篇论文的核心思想——**利用模型自身预测来优化评估效率**——对任何需要benchmark评估的研究都有借鉴意义
 - **潜在idea**：将该框架扩展到目标检测/分割任务的评估——需要定义合适的损失函数代理和分层策略（如基于predicted IoU或confidence的分层）
 - 校准（calibration）在整个框架中的核心作用暗示：研究模型校准本身 → 评估效率提升是可以量化的
@@ -106,8 +110,8 @@ tags:
 
 - [Exploring Guided Sampling of Conditional GANs](exploring_guided_sampling_of_conditional_gans.md)
 - [Multiple-Policy Evaluation via Density Estimation](../../ICML2025/others/multiple-policy_evaluation_via_density_estimation.md)
-- [De-confounded Gaze Estimation](de-confounded_gaze_estimation.md)
 - [Active Measurement: Efficient Estimation at Scale](../../NeurIPS2025/others/active_measurement_efficient_estimation_at_scale.md)
-- [An Incremental Unified Framework for Small Defect Inspection](an_incremental_unified_framework_for_small_defect_inspection.md)
+- [De-confounded Gaze Estimation](de-confounded_gaze_estimation.md)
+- [AttnZero: Efficient Attention Discovery for Vision Transformers](attnzero_efficient_attention_discovery_for_vision_transformers.md)
 
 <!-- RELATED:END -->

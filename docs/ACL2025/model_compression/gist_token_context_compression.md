@@ -131,9 +131,9 @@ tags:
 ## 相关论文
 
 - [DAC: A Dynamic Attention-aware Approach for Task-Agnostic Prompt Compression](dac_prompt_compression.md)
+- [Efficient Long Context Language Model Retrieval with Compression](efficient_long_context_language_model_retrieval_with_compression.md)
 - [Explaining Puzzle Solutions in Natural Language: An Exploratory Study on 6×6 Sudoku](explaining_puzzle_solutions_in_natural_language_an_exploratory_study_on_6x6_sudo.md)
-- [APB: Accelerating Distributed Long-Context Inference by Passing Compressed Context Blocks across GPUs](apb_distributed_long_context.md)
+- [SCOPE: Optimizing Key-Value Cache Compression in Long-context Generation](scope_optimizing_key-value_cache_compression_in_long-context_generation.md)
 - [LALIC: Linear Attention Modeling for Learned Image Compression](../../CVPR2025/model_compression/linear_attention_modeling_for_learned_image_compression.md)
-- [MKA: Memory-Keyed Attention for Efficient Long-Context Reasoning](../../ICML2025/model_compression/mka_memory-keyed_attention_for_efficient_long-context_reasoning.md)
 
 <!-- RELATED:END -->

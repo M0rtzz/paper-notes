@@ -150,6 +150,6 @@ JailBound 分两个阶段：
 - [Hierarchical Safety Realignment: Lightweight Restoration of Safety in Pruned Large Vision-Language Models](../../ACL2025/multimodal_vlm/hierarchical_safety_realignment_lightweight_restoration_of_safety_in_pruned_larg.md)
 - [IDEATOR: Jailbreaking and Benchmarking Large Vision-Language Models Using Themselves](../../ICCV2025/multimodal_vlm/ideator_jailbreaking_and_benchmarking_large_visionlanguage_m.md)
 - [Do Vision-Language Models Have Internal World Models? Towards an Atomic Evaluation](../../ACL2025/multimodal_vlm/do_vision-language_models_have_internal_world_models_towards_an_atomic_evaluatio.md)
-- [FOCUS: Internal MLLM Representations for Efficient Fine-Grained Visual Question Answering](focus_internal_mllm_representations_for_efficient_fine-grained_visual_question_a.md)
+- [Jailbreaking Multimodal Large Language Models via Shuffle Inconsistency](../../ICCV2025/multimodal_vlm/jailbreaking_multimodal_large_language_models_via_shuffle_inconsistency.md)
 
 <!-- RELATED:END -->

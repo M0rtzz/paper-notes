@@ -1,18 +1,26 @@
 ---
 title: >-
-  CVPR2026 模型压缩方向 44篇论文解读
+  CVPR2026 模型压缩方向 55篇论文解读
 description: >-
-  44篇CVPR2026 模型压缩论文解读，主题涵盖：提出首个完全端到端的时序语句定位(TSGV)框架、本文首次为 JPEG XS 标准中的 Intra、针对 JPEG XS 屏幕内容编码中 Intra等，每篇含核心思想与方法详解。
+  55篇CVPR2026 模型压缩论文解读，主题涵盖：提出4D-RGPT和感知4D蒸馏（P4D）框架、提出首个完全端到端的时序语句定位(TSGV)框架、OPAD 首次解决单步扩散模型的个性化问题（1-S等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**📷 CVPR2026** · **44** 篇论文解读
+**📷 CVPR2026** · **55** 篇论文解读
+
+**[4D-RGPT: Toward Region-level 4D Understanding via Perceptual Distillation](4d_rgpt_toward_region_level_4d_understanding_via_perceptual_distillation.md)**
+
+:   提出4D-RGPT和感知4D蒸馏（P4D）框架，通过从冻结的4D感知专家模型中蒸馏深度和光流等知识到MLLM中增强4D感知，同时构建R4D-Bench——首个区域级4D视频问答基准。
 
 **[A Paradigm Shift: Fully End-to-End Training for Temporal Sentence Grounding in Videos](a_paradigm_shift_fully_end-to-end_training_for_temporal_sentence_grounding_in_vi.md)**
 
 :   提出首个完全端到端的时序语句定位(TSGV)框架，通过语句条件适配器(SCADA)将语句嵌入注入视频backbone的中间层来动态调制视觉特征，配合视频中心学习策略加速训练，在Charades-STA和ActivityNet上超越SOTA。
+
+**[Adversarial Concept Distillation for One-Step Diffusion Personalization](adversarial_concept_distillation_for_one-step_diffusion_personalization.md)**
+
+:   OPAD 首次解决单步扩散模型的个性化问题（1-SDP），通过教师-学生联合训练 + 对齐损失 + 对抗监督实现单步高质量概念生成，并引入协作学习阶段利用学生生成样本反馈增强双方。
 
 **[An FPGA Implementation of Displacement Vector Search for Intra Pattern Copy in JPEG XS](an_fpga_implementation_of_displacement_vector_sear.md)**
 
@@ -29,6 +37,10 @@ description: >-
 **[ARCHE: Autoregressive Residual Compression with Hyperprior and Excitation](arche_autoregressive_residual_compression_with_hyperprior_and_excitation.md)**
 
 :   提出 ARCHE 端到端图像压缩框架，在无 Transformer 和循环模块的纯卷积架构下，通过统一层级超先验、Masked PixelCNN 空间自回归上下文、通道条件化、SE 通道重标定和潜在残差预测五个互补组件，在 Kodak 上相对 Balle 基线降低 48% BD-Rate、相对 VVC Intra 降低 5.6%，同时仅需 95M 参数和 222ms 解码时间。
+
+**[Batch Loss Score for Dynamic Data Pruning](batch_loss_score_for_dynamic_data_pruning.md)**
+
+:   提出 Batch Loss Score (BLS)，一种仅用均值 batch loss（而非难以获取的逐样本 loss）来估计样本重要性的方法，通过 EMA 低通滤波的信号处理视角提供理论保证，仅需 3 行代码即可集成到现有动态剪枝框架中。
 
 **[Beyond Loss Values: Robust Dynamic Pruning via Loss Trajectory Alignment](beyond_loss_values_robust_dynamic_pruning_via_loss_trajectory_alignment.md)**
 
@@ -54,13 +66,17 @@ description: >-
 
 :   针对长尾分布下知识蒸馏中教师模型向头部类偏斜的问题，将传统 KL 散度损失分解为跨组损失和组内损失两个组件，通过重平衡跨组损失校准教师的组级预测、重加权组内损失保证各组等贡献，在 CIFAR-100-LT/TinyImageNet-LT/ImageNet-LT 上全面超越现有方法，甚至超过教师模型自身表现。
 
-**[FAAR: Efficient Frequency-Aware Multi-Task Fine-Tuning via Automatic Rank Selection](faar_efficient_frequency-aware_multi-task_fine-tuning_via_automatic_rank_selecti.md)**
+**[Enhancing Mixture-of-Experts Specialization via Cluster-Aware Upcycling](enhancing_mixture_of_experts_specialization_via_cluster_aware_upcycling.md)**
 
-:   提出 FAAR，一种频率感知的多任务参数高效微调方法，通过 Performance-Driven Rank Shrinking (PDRS) 为每个任务和层动态选择最优秩，并设计 Task-Spectral Pyramidal Decoder (TS-PD) 利用 FFT 频率信息增强空间感知和跨任务一致性，以传统微调 1/9 的参数量实现更优性能。
+:   提出 Cluster-aware Upcycling，通过球面 k-means 聚类提取密集模型的语义结构来初始化 MoE 的专家和路由器参数，打破专家对称性并促进早期专业化，配合专家集成自蒸馏损失在 CLIP ViT 上一致超越现有 upcycling 方法。
 
 **[FAIR-Pruner: Leveraging Tolerance of Difference for Flexible Automatic Layer-Wise Neural Network Pruning](fair-pruner_leveraging_tolerance_of_difference_for_flexible_automatic_layer-wise.md)**
 
 :   提出 FAIR-Pruner 结构化剪枝框架，通过 Tolerance of Differences（ToD）指标协调两个互补视角：基于类条件可分性的 Wasserstein Utilization Score（识别冗余单元）和基于 Taylor 展开的 Reconstruction Score（保护关键单元），自动确定逐层非均匀剪枝率且支持免搜索灵活调整压缩比，在 CIFAR-10/SVHN/ImageNet 上取得 SOTA。
+
+**[FlashVGGT: Efficient and Scalable Visual Geometry Transformers with Compressed Descriptor Attention](flashvggt_efficient_and_scalable_visual_geometry_transformers_with_compressed_descr.md)**
+
+:   通过将VGGT中的全局自注意力替换为基于描述符的交叉注意力，实现了1000张图像推理时间降至VGGT的9.3%，同时保持竞争性重建精度，并可扩展至3000+张图像序列。
 
 **[Frequency Switching Mechanism for Parameter-Efficient Multi-Task Learning](frequency_switching_mechanism_for_parameter-ecient_multi-task_learning.md)**
 
@@ -106,6 +122,14 @@ description: >-
 
 :   提出 LTC 框架，通过在训练阶段利用 MKEE（最小化核能量+最大化熵）在线生成伪未知类样本，配合双最大间隔损失和自适应阈值，在7个数据集上实现1.5%–13.1%的全类精度提升，彻底摆脱了哈希编码对细粒度语义的损害。
 
+**[LLaVA-LE: Large Language-and-Vision Assistant for Lunar Exploration](llava-le_large_language-and-vision_assistant_for_lunar_exploration.md)**
+
+:   LLaVA-LE 是首个面向月球探测的视觉语言模型，通过构建大规模真实月球图像-文本数据集 LUCID（96K 图像+81K QA对）和两阶段课程学习微调 LLaVA，在月球地质理解和多模态推理上实现 3.3× 基线提升。
+
+**[MaMe & MaRe: Matrix-Based Token Merging and Restoration for Efficient Visual Perception and Synthesis](mame_and_mare_matrix_based_token_merging_and_restoration_for_efficient_visual_perception_and_synthesis.md)**
+
+:   提出 MaMe，一种基于全矩阵运算的免训练可微分 token 合并方法，以及其逆操作 MaRe 用于 token 恢复，在图像分类、视频识别和图像生成等任务中实现高效加速且性能损失极小。
+
 **[Markovian Scale Prediction: A New Era of Visual Autoregressive Generation](markovian_scale_prediction_a_new_era_of_visual_autoregressive_generation.md)**
 
 :   将视觉自回归模型 (VAR) 从全上下文依赖的 next-scale prediction 重构为基于马尔可夫过程的 Markovian scale prediction，通过滑动窗口历史补偿机制实现非全上下文建模，在 ImageNet 上 FID 降低 10.5%、峰值内存减少 83.8%。
@@ -118,6 +142,10 @@ description: >-
 
 :   提出 MEMO 框架，通过掩码边缘训练和基于置信度排序的渐进式推理策略，仅使用交叉熵损失就能生成清晰的单像素边缘图，在 crispness-aware 评估上大幅超越现有方法（BSDS 上 CEval ODS 从 0.749 提升到 0.836）。
 
+**[Memory-Efficient Transfer Learning with Fading Side Networks via Masked Dual Path Distillation](memory_efficient_transfer_learning_with_fading_side_networks.md)**
+
+:   MDPD提出通过冻结骨干网络与轻量侧网络之间的双向知识蒸馏实现高效微调，训练完成后丢弃侧网络，从而同时实现训练时的参数/内存高效和推理时的速度高效。
+
 **[MINE-JEPA: In-Domain Self-Supervised Learning for Mineral Exploration](mine-jepa_in-domain_self-supervised_learning_for_mine-like_object_classification.md)**
 
 :   提出 Mine-JEPA，首个面向侧扫声纳（SSS）水雷分类的域内自监督学习流水线——基于 SIGReg 正则化损失、声纳适配增强策略和 ImageNet 初始化，仅用 1,170 张未标注声纳图像预训练即超越了在 17 亿图像上预训练的 DINOv3 基础模型。
@@ -125,6 +153,10 @@ description: >-
 **[On the Robustness of Diffusion-Based Image Compression to Bit-Flip Errors](on_the_robustness_of_diffusion-based_image_compression_to_bit-flip_errors.md)**
 
 :   首次系统研究了扩散模型图像压缩在比特翻转错误下的鲁棒性，发现基于反向信道编码（RCC）的扩散压缩方法天然比传统和学习型编解码器更耐错，并提出 Robust Turbo-DDCM 变体通过独立编码原子索引进一步提升鲁棒性，在 BER 达 $10^{-3}$ 时仍保持良好重建质量。
+
+**[OPAD: Adversarial Concept Distillation for One-Step Diffusion Personalization](opad_adversarial_concept_distillation_for_one-step_diffusion_personalization.md)**
+
+:   OPAD 首次解决单步扩散模型的个性化问题（1-SDP），通过教师-学生联合训练 + 对齐损失 + 对抗监督实现可靠的单步个性化生成，并提出协作学习阶段利用学生高效生成反哺教师。
 
 **[Parallax to Align Them All: An OmniParallax Attention Mechanism for Distributed Multi-View Image Compression](parallax_to_align_them_all_an_omniparallax_attention_mechanism_for_distributed_m.md)**
 
@@ -154,6 +186,10 @@ description: >-
 
 :   提出 QuantVLA，首个面向 Vision-Language-Action (VLA) 模型的免训练后量化框架，通过选择性量化布局和两个轻量级标定机制（注意力温度匹配 ATM 和输出头平衡 OHB），在 W4A8 精度下实现约 70% 的内存节省，同时任务成功率超过全精度基线。
 
+**[RDVQ: Differentiable Vector Quantization for Rate-Distortion Optimization of Generative Image Compression](rdvq_differentiable_vq_image_compression.md)**
+
+:   RDVQ 通过对码本分布的可微松弛，首次实现了 VQ-based 图像压缩的端到端率失真联合优化，在极低码率下以不到 20% 的参数量取得了优于或竞争性的感知质量。
+
 **[RL-ScanIQA: Reinforcement-Learned Scanpaths for Blind 360° Image Quality Assessment](rl-scaniqa_reinforcement-learned_scanpaths_for_blind_360image_quality_assessment.md)**
 
 **[SODA: Sensitivity-Oriented Dynamic Acceleration for Diffusion Transformer](soda_sensitivity-oriented_dynamic_acceleration_for_diffusion_transformer.md)**
@@ -176,6 +212,10 @@ description: >-
 
 :   提出 Image-Adaptive Prompt Learning (IAPL)，在推理时根据每张测试图像动态调整 CLIP 编码器的 prompt，通过测试时 token 调优和条件信息学习器实现对未见生成器的强泛化，在 UniversalFakeDetect 和 GenImage 上分别达到 95.61% 和 96.7% 平均准确率的 SOTA 性能。
 
+**[Understanding and Enforcing Weight Disentanglement in Task Arithmetic](understanding_and_enforcing_weight_disentanglement_in_task_arithmetic.md)**
+
+:   本文提出任务特征专业化（TFS）作为权重解耦的充分条件，揭示其几何结果是权重向量正交性，并基于此提出 OrthoReg 正则化方法，通过在微调时强制权重更新矩阵的列向量正交来促进任务向量解耦，显著提升各种任务算术方法的性能。
+
 **[UniComp: Rethinking Video Compression Through Informational Uniqueness](unicomp_rethinking_video_compression_through_informational_uniqueness.md)**
 
 :   提出基于信息唯一性（而非注意力）的视频 token 压缩框架 UniComp，通过帧组融合、token 分配和空间动态压缩三个模块在时序-空间-全局维度上最大化保留唯一信息，在仅保留 10% token 时仍能超越未压缩基线性能。
@@ -183,3 +223,7 @@ description: >-
 **[Unlocking ImageNet's Multi-Object Nature: Automated Large-Scale Multilabel Annotation](unlocking_imagenets_multi-object_nature_automated_large-scale_multilabel_annotat.md)**
 
 :   提出全自动流水线，利用自监督 ViT 特征进行无监督目标发现，为 ImageNet-1K 全部 128 万训练图像生成带空间定位的多标签标注，无需人工标注，模型在域内和下游多标签任务上均获一致提升（ReaL +2.0 top-1, COCO +4.2 mAP）。
+
+**[WPT: World-to-Policy Transfer via Online World Model Distillation](wpt_world-to-policy_transfer_via_online_world_model_distillation.md)**
+
+:   WPT 提出世界-策略转移训练范式，通过可训练的奖励模型将世界模型的未来预测知识注入教师策略，再通过策略蒸馏和世界奖励蒸馏转移到轻量学生策略，实现79.23驾驶得分（闭环）且推理速度提升4.9倍。

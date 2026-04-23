@@ -127,8 +127,8 @@ Schmidt et al. 指出压缩率不应是评估分词器的唯一标准。Splinter
 
 - [Adversarial Tokenization](adversarial_tokenization.md)
 - [Tokenization is Sensitive to Language Variation](tokenization_is_sensitive_to_language_variation.md)
-- [Making LLMs Better Many-to-Many Speech-to-Text Translators with Curriculum Learning](making_llms_better_many-to-many_speech-to-text_translators_with_curriculum_learn.md)
 - [Evaluating Morphological Alignment of Tokenizers in 70 Languages](../../ICML2025/llm_pretraining/evaluating_morphological_alignment_of_tokenizers_in_70_languages.md)
-- [Incorporating Domain Knowledge into Materials Tokenization](incorporating_domain_knowledge_into_materials_tokenization.md)
+- [Making LLMs Better Many-to-Many Speech-to-Text Translators with Curriculum Learning](making_llms_better_many-to-many_speech-to-text_translators_with_curriculum_learn.md)
+- [Between Circuits and Chomsky: Pre-pretraining on Formal Languages Imparts Linguistic Biases](between_circuits_chomsky.md)
 
 <!-- RELATED:END -->

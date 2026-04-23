@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 LLM安全方向 11篇论文解读
+  NeurIPS2025 LLM安全方向 10篇论文解读
 description: >-
-  11篇NeurIPS2025 LLM安全论文解读，主题涵盖：提出一种基于 Cramér-von Mises、将机器遗忘的评估问题建模为密码学博弈（unlear、提出Angular Steering等，每篇含核心思想与方法详解。
+  10篇NeurIPS2025 LLM安全论文解读，主题涵盖：提出一种基于 Cramér-von Mises、将机器遗忘的评估问题建模为密码学博弈（unlear、提出 Buffer 层作为测试时自适应等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM安全
 
-**🧠 NeurIPS2025** · **11** 篇论文解读
+**🧠 NeurIPS2025** · **10** 篇论文解读
 
 **[A Cramér–von Mises Approach to Incentivizing Truthful Data Sharing](a_cramrvon_mises_approach_to_incentivizing_truthful_data_sha.md)**
 
@@ -18,17 +18,13 @@ description: >-
 
 :   将机器遗忘的评估问题建模为密码学博弈（unlearning sample inference game），通过定义adversary的"advantage"来衡量遗忘质量，克服了传统MIA准确率作为评估指标的多种缺陷（不以retrain为零基准、对数据划分敏感、对MIA选择敏感），并提出SWAP test作为高效的实用近似方案。
 
-**[Angular Steering: Behavior Control via Rotation in Activation Space](angular_steering_behavior_control_via_rotation_in_activation_space.md)**
-
-:   提出Angular Steering，将LLM激活引导统一建模为固定2D子空间中的旋转操作——通过旋转角度提供0°-360°的连续、细粒度、范数保持的行为控制旋钮，统一了激活加法和方向消融为旋转的特例，在Llama 3/Qwen 2.5/Gemma 2（3B-14B）上实现鲁棒的行为调控。
-
 **[Buffer Layers for Test-Time Adaptation](buffer_layers_for_test-time_adaptation.md)**
 
 :   提出 Buffer 层作为测试时自适应 (TTA) 的新范式，替代传统的归一化层更新，从根本上保留预训练骨干网络的完整性，有效缓解灾难性遗忘并在多种架构和 TTA 框架中实现一致的性能提升。
 
 **[Demystifying Language Model Forgetting with Low-Rank Example Associations](demystifying_language_model_forgetting_with_low-rank_example_associations.md)**
 
-:   发现LLM微调后上游样本遗忘与新学任务之间的关联矩阵具有低秩结构（rank-3即$R^2>0.69$），利用矩阵补全预测未见任务导致的遗忘，指导选择性回放以减轻遗忘。
+:   发现 LLM 微调后上游样本遗忘与新学任务之间的关联矩阵具有低秩结构（rank-3 即 $R^2 > 0.69$），利用矩阵补全预测未见任务导致的遗忘，指导选择性回放以减轻遗忘。
 
 **[Finding Structure in Continual Learning](finding_structure_in_continual_learning.md)**
 

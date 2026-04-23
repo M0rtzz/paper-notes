@@ -122,9 +122,9 @@ ShowUI 基于 Qwen2-VL-2B 构建。输入为用户查询 + 动作空间说明（
 ## 相关论文
 
 - [SOLAMI: Social Vision-Language-Action Modeling for Immersive Interaction with 3D Autonomous Characters](solami_social_vision-language-action_modeling_for_immersive_interaction_with_3d_.md)
+- [QUAR-VLA: Vision-Language-Action Model for Quadruped Robots](../../ECCV2024/human_understanding/quarvla_visionlanguageaction_model_for_quadruped_robots.md)
 - [MDP: Multidimensional Vision Model Pruning with Latency Constraint](mdp_multidimensional_vision_model_pruning_with_latency_constraint.md)
-- [QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](../../CVPR2026/human_understanding/quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)
+- [MP-GUI: Modality Perception with MLLMs for GUI Understanding](mp-gui_modality_perception_with_mllms_for_gui_understanding.md)
 - [Stochastic Human Motion Prediction with Memory of Action Transition and Action Characteristic](stochastic_human_motion_prediction_with_memory_of_action_transition_and_action_c.md)
-- [10 Open Challenges Steering the Future of Vision-Language-Action Models](../../AAAI2026/human_understanding/10_open_challenges_steering_the_future_of_vision-language-ac.md)
 
 <!-- RELATED:END -->

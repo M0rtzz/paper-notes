@@ -127,7 +127,7 @@ $$\nabla_\nu D_{LV}^{q_{\alpha,\nu}^*}(q_{\alpha,\nu}, p_{\phi,\nu}) = \mathbb{E
 - [Rethinking Evaluation of Infrared Small Target Detection](rethinking_evaluation_of_infrared_small_target_detection.md)
 - [Erase Diffusion: Empowering Object Removal Through Calibrating Diffusion Pathways (EraDiff)](../../CVPR2025/llm_evaluation/erase_diffusion_empowering_object_removal_through_calibrating_diffusion_pathways.md)
 - [Gradient Aligned Regression via Pairwise Losses](../../ICML2025/llm_evaluation/gradient_aligned_regression_via_pairwise_losses.md)
+- [Rethinking Few Shot CLIP Benchmarks: A Critical Analysis in the Inductive Setting](../../ICCV2025/llm_evaluation/rethinking_few_shot_clip_benchmarks_a_critical_analysis_in_the_inductive_setting.md)
 - [Lost in Benchmarks? Rethinking Large Language Model Benchmarking with Item Response Theory](../../AAAI2026/llm_evaluation/lost_in_benchmarks_rethinking_large_language_model_benchmarking_with_item_respon.md)
-- [Test-Time Adaptation by Causal Trimming](test-time_adaptation_by_causal_trimming.md)
 
 <!-- RELATED:END -->

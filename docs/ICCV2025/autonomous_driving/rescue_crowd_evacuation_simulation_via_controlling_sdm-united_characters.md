@@ -22,13 +22,30 @@ tags:
 
 ## 研究背景与动机
 
-人群疏散模拟对公共安全至关重要，但现有方法无法同时满足以下需求：
+### 现有痛点
+
+**现有痛点**：**领域现状**：人群疏散模拟对公共安全至关重要，但现有方法无法同时满足以下需求：
 
 **传统仿真的简化表示**：社会力模型（SFM）使用简化 2D 表示，力反馈只能用不真实的替代计算，无法反映 3D 碰撞、跌倒等真实物理行为。
 
 **角色控制的扩展不足**：基于物理引擎的角色控制方法在密集场景中缺乏个性化运动，可能导致跌倒和碰撞。扩散模型的运动生成面临可控性和物理真实性挑战。
 
 **两个关键需求**：3D 近身感知（拥挤中的在线动态调整）和个性化步态（不同属性个体表现不同行为）。
+
+### 解决思路
+
+**本文目标**：### SDM 统一框架
+
+模拟人脑的感知-决策-运动循环：
+
+1. **感知模块**：每个智能体感知自身状态（位置、速度、人形状态）、他人状态（相对根位置）和环境状态
+2. **决策模块**：3D 自适应 SFM 决策机制，A* 搜索找路径+SFM 驱动+避碰
+3. **运动模块**：Pacer 路径跟随控制器 + 个性化步态转换器
+
+### 3D 自适应 SFM 决策机制
+
+**基础力**：驱。
+
 
 ## 方法详解
 
@@ -66,13 +83,19 @@ $$F_{\text{evasive}} = A \, \text{sgn}(o_i \cdot p_i) \, p_i$$
 
 ### 定量比较
 
+
+### 主实验
+
 | 方法 | 平均成功率 | 平均跌倒次数 |
 |------|-----------|------------|
 | OmniControl | 0.48 | — |
-| MaskedMimic | 0.60 | 18.55 |
-| **RESCUE** | **0.84** | **12.26** |
+| MaskedMimic | 0.60 | 18.55% |
+| **RESCUE** | **0.84** | **12.26%** |
 
 ### 速度多样性分析
+
+
+### 消融实验
 
 | 群体 | 速度特征 |
 |------|---------|
@@ -96,7 +119,7 @@ $$F_{\text{evasive}} = A \, \text{sgn}(o_i \cdot p_i) \, p_i$$
 3. **个性化系数校准**：补偿物理引擎摩擦因素，确保模拟速度匹配文献值
 4. **部件级力可视化**：为疏散分析提供前所未有的洞察
 
-## 局限性
+## 局限与展望
 
 1. 100STYLE 数据集的运动风格有限
 2. 五组分类较为粗糙
@@ -120,9 +143,9 @@ $$F_{\text{evasive}} = A \, \text{sgn}(o_i \cdot p_i) \, p_i$$
 ## 相关论文
 
 - [SeqGrowGraph: Learning Lane Topology as a Chain of Graph Expansions](seqgrowgraph_learning_lane_topology_as_a_chain_of_graph_expansions.md)
-- [Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations](resonance_learning_to_predict_social-aware_pedestrian_trajectories_as_co-vibrati.md)
 - [World4Drive: End-to-End Autonomous Driving via Intention-aware Physical Latent World Model](world4drive_end-to-end_autonomous_driving_via_intention-aware_physical_latent_wo.md)
 - [Point-to-Region Loss for Semi-Supervised Point-Based Crowd Counting](../../CVPR2025/autonomous_driving/point-to-region_loss_for_semi-supervised_point-based_crowd_counting.md)
 - [LangTraj: Diffusion Model and Dataset for Language-Conditioned Trajectory Simulation](langtraj_diffusion_model_and_dataset_for_language-conditioned_trajectory_simulat.md)
+- [Long-term Traffic Simulation with Interleaved Autoregressive Motion and Scenario Generation](long-term_traffic_simulation_with_interleaved_autoregressive_motion_and_scenario.md)
 
 <!-- RELATED:END -->

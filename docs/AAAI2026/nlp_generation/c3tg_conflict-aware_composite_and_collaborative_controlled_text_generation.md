@@ -126,10 +126,10 @@ tags:
 
 ## 相关论文
 
+- [Decomposed Opinion Summarization with Verified Aspect-Aware Modules](../../ACL2025/nlp_generation/decomposed_opinion_summarization_with_verified_aspect-aware_modules.md)
 - [Context-Aware Hierarchical Merging for Long Document Summarization](../../ACL2025/nlp_generation/context-aware_hierarchical_merging_for_long_document_summarization.md)
-- [Evaluating Text-to-Visual Generation with Image-to-Text Generation](../../ECCV2024/nlp_generation/evaluating_text-to-visual_generation_with_image-to-text_generation.md)
 - [ATGen: A Framework for Active Text Generation](../../ACL2025/nlp_generation/atgen_a_framework_for_active_text_generation.md)
 - [Personalized Text Generation with Contrastive Activation Steering](../../ACL2025/nlp_generation/personalized_text_generation_with_contrastive_activation_steering.md)
-- [FS-DFM: Fast and Accurate Long Text Generation with Few-Step Diffusion Language Model](../../ICLR2026/nlp_generation/fs-dfm_fast_and_accurate_long_text_generation_with_few-step_diffusion_language_m.md)
+- [Writing Like the Best: Exemplar-Based Expository Text Generation](../../ACL2025/nlp_generation/writing_like_best_exemplar.md)
 
 <!-- RELATED:END -->

@@ -146,9 +146,9 @@ Prob-MS 在最关键的 Recall 指标上比 MSCM-MS 提升 17.5%，同时 ECE（
 ## 相关论文
 
 - [OD-RASE: Ontology-Driven Risk Assessment and Safety Enhancement for Autonomous Driving](../../ICCV2025/autonomous_driving/od-rase_ontology-driven_risk_assessment_and_safety_enhancement_for_autonomous_dr.md)
+- [LEADER: Learning Reliable Local-to-Global Correspondences for LiDAR Relocalization](../../CVPR2026/autonomous_driving/leader_lidar_relocalization.md)
+- [Neural Distribution Prior for LiDAR Out-of-Distribution Detection](../../CVPR2026/autonomous_driving/neural_distribution_prior_for_lidar_ood_detection.md)
 - [Risk-Aware Self-Consistent Imitation Learning for Trajectory Planning in Autonomous Driving](../../ECCV2024/autonomous_driving/risk-aware_self-consistent_imitation_learning_for_trajectory_planning_in_autonom.md)
-- [Hierarchical Prompt Learning for Image- and Text-Based Person Re-Identification](hierarchical_prompt_learning_for_image-_and_text-based_person_re-identification.md)
 - [Towards 3D Object-Centric Feature Learning for Semantic Scene Completion](towards_3d_object-centric_feature_learning_for_semantic_scene_completion.md)
-- [Task Prototype-Based Knowledge Retrieval for Multi-Task Learning from Partially Annotated Data](task_prototype-based_knowledge_retrieval_for_multi-task_lear.md)
 
 <!-- RELATED:END -->

@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：VR 体验需要逼真的自由视角渲染。现有体积视频数据集要么基于固定相机阵列（空间受限），要么分辨率/帧率不足以支撑沉浸体验。
 
 **现有痛点**：（1）缺少高分辨率（5K+）、高帧率（60FPS）、同步多视角的动态场景数据；（2）固定阵列覆盖角度有限，不支持自由移动；（3）现有方法不处理跨相机的颜色差异（光照遮挡导致各 GoPro 曝光不一致）。
@@ -36,6 +38,13 @@ tags:
 **切入角度**：双策略采集——固定点拍摄（密集时序，可用 COLMAP 标定）+ 移动拍摄（大范围覆盖，位姿待解决）。STG++ 加入可学习颜色变换解决跨相机颜色不一致。
 
 **核心 idea**：46 GoPro 移动阵列 + STG++ 颜色校正 + HRTF 空间音频 = 首个沉浸式体积视频数据集。
+
+### 解决思路
+
+**本文目标**：### 关键设计
+
+1. **采集系统**：46 台同步 GoPro，5312×2988@60FPS。
+
 
 ## 方法详解
 
@@ -55,9 +64,9 @@ $\mathcal{L} = (1-\lambda_1)L_1 + \lambda_1 D_{SSIM}$。60 帧分段训练。
 
 | 场景 | STG++ PSNR | FPS | 内存 |
 |------|-----------|-----|------|
-| Opera | 31.24 | 110.47 | 387MB |
-| Lab | 27.58 | — | — |
-| 4DRotor (对比) | — | 46.22 | 5818MB |
+| Opera | 31.24% | 110.47 | 387MB |
+| Lab | 27.58% | — | — |
+| 4DRotor (对比) | — | 46.22% | 5818MB |
 
 用户研究（21 位专家）：空间感知 61.9% Excellent，整体沉浸 90.46% ≥ Good。
 
@@ -93,8 +102,8 @@ $\mathcal{L} = (1-\lambda_1)L_1 + \lambda_1 D_{SSIM}$。60 帧分段训练。
 
 - [Dynamic Parameter Memory: Temporary LoRA-Enhanced LLM for Long-Sequence Emotion Recognition in Conversation](../../ICLR2026/audio_speech/dynamic_parameter_memory_temporary_lora-enhanced_llm_for_long-sequence_emotion_r.md)
 - [Latent-INR: A Flexible Framework for Implicit Representations of Videos with Discriminative Semantics](../../ECCV2024/audio_speech/latent-inr_a_flexible_framework_for_implicit_representations_of_videos_with_disc.md)
+- [ViDscribe: Multimodal AI for Customizing Audio Description and Question Answering in Online Videos](../../CVPR2026/audio_speech/vidscribe_multimodal_ai_for_customizing_audio_description_and_question_answering.md)
 - [Action2Sound: Ambient-Aware Generation of Action Sounds from Egocentric Videos](../../ECCV2024/audio_speech/action2sound_ambientaware_generation_of_action_sounds_from_e.md)
-- [Spherical World-Locking for Audio-Visual Localization in Egocentric Videos](../../ECCV2024/audio_speech/spherical_world-locking_for_audio-visual_localization_in_egocentric_videos.md)
 - [Object-aware Sound Source Localization via Audio-Visual Scene Understanding](object-aware_sound_source_localization_via_audio-visual_scene_understanding.md)
 
 <!-- RELATED:END -->

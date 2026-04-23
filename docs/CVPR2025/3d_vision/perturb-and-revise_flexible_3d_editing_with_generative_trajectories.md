@@ -127,8 +127,8 @@ Perturb-and-Revise 包含三个阶段：(1) 参数扰动——将源 NeRF 参数
 
 - [PrEditor3D: Fast and Precise 3D Shape Editing](preditor3d_fast_and_precise_3d_shape_editing.md)
 - [DriveX: Driving View Synthesis on Free-form Trajectories with Generative Prior](../../ICCV2025/3d_vision/driving_view_synthesis_on_free-form_trajectories_with_generative_prior.md)
+- [Reference-Based 3D-Aware Image Editing with Triplanes](reference-based_3d-aware_image_editing_with_triplanes.md)
+- [PERSE: Personalized 3D Generative Avatars from A Single Portrait](perse_personalized_3d_generative_avatars_from_a_single_portrait.md)
 - [Instant3dit: Multiview Inpainting for Fast Editing of 3D Objects](instant3dit_multiview_inpainting_for_fast_editing_of_3d_objects.md)
-- [Instruct-4DGS: Efficient Dynamic Scene Editing via 4D Gaussian-based Static-Dynamic Separation](efficient_dynamic_scene_editing_via_4d_gaussian-based_static-dynamic_separation.md)
-- [Ctrl-D: Controllable Dynamic 3D Scene Editing with Personalized 2D Diffusion](ctrl-d_controllable_dynamic_3d_scene_editing_with_personalized_2d_diffusion.md)
 
 <!-- RELATED:END -->

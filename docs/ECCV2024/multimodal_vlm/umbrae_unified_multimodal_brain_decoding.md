@@ -145,7 +145,7 @@ UMBRAE由三部分组成：(1) 脑编码器（被试特定tokenizer + 通用perc
 - [UniCode: Learning a Unified Codebook for Multimodal Large Language Models](unicode_learning_a_unified_codebook_for_multimodal_large_language_models.md)
 - [Mixture of Decoding: An Attention-Inspired Adaptive Decoding Strategy to Mitigate Hallucination in Multimodal LLMs](../../ACL2025/multimodal_vlm/mixture_of_decoding_an_attention-inspired_adaptive_decoding_strategy_to_mitigate.md)
 - [Uni3DL: Unified Model for 3D and Language Understanding](uni3dl_a_unified_model_for_3d_vision-language_understanding.md)
-- [Large Motion Model for Unified Multi-Modal Motion Generation](large_motion_model_for_unified_multi-modal_motion_generation.md)
 - [Controlling Multimodal LLMs via Reward-guided Decoding](../../ICCV2025/multimodal_vlm/controlling_multimodal_llms_via_rewardguided_decoding.md)
+- [Customized Visual Storytelling with Unified Multimodal LLMs](../../CVPR2026/multimodal_vlm/customized_visual_storytelling_with_unified_multimodal_llms.md)
 
 <!-- RELATED:END -->

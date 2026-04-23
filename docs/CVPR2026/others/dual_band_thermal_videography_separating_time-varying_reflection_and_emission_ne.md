@@ -180,9 +180,9 @@ $$\arg\min \; \gamma_1 \mathcal{L}_{smooth} + \gamma_2 \mathcal{L}_{Huber} + \ga
 ## 相关论文
 
 - [Learning to Reason Over Time: Timeline Self-Reflection for Temporal Reasoning](../../ACL2025/others/tiser_timeline_self_reflection_temporal.md)
+- [Meta-Reflection: A Feedback-Free Reflection Learning Framework](../../ACL2025/others/meta-reflection_a_feedback-free_reflection_learning_framework.md)
 - [Neural Collapse in Test-Time Adaptation](neural_collapse_in_test-time_adaptation.md)
+- [ViT3: Unlocking Test-Time Training in Vision](vit3_unlocking_test_time_training_in_vision.md)
 - [Thermal Polarimetric Multi-view Stereo](../../ICCV2025/others/thermal_polarimetric_multi-view_stereo.md)
-- [Depth-Synergized Mamba Meets Memory Experts for All-Day Image Reflection Separation](../../AAAI2026/others/depth-synergized_mamba_meets_memory_experts_for_all-day_image_reflection_separat.md)
-- [Neural Network for Simulating Radio Emission from Extensive Air Showers](../../NeurIPS2025/others/neural_network_for_simulating_radio_emission_from_extensive_air_showers.md)
 
 <!-- RELATED:END -->

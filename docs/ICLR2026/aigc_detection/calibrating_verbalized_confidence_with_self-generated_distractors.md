@@ -150,9 +150,9 @@ DiNCo 从 LLM "暗示性偏差" 这一被忽视的角度出发，通过自动生
 ## 相关论文
 
 - [Optimized Algorithms for Text Clustering with LLM-Generated Constraints](../../AAAI2026/aigc_detection/optimized_algorithms_for_text_clustering_with_llm-generated_constraints.md)
+- [Cognitive Framework for Detecting AI-Generated Fiction](../../ACL2025/aigc_detection/cognitive_framework_for_detecting_ai-generated_fiction.md)
 - [Learning to Rewrite: Generalized LLM-Generated Text Detection](../../ACL2025/aigc_detection/learning_to_rewrite_generalized_llm-generated_text_detection.md)
+- [An Empirical Study on Detecting AI-Generated Text in Financial Reports](../../ACL2025/aigc_detection/an_empirical_study_on_detecting_ai-generated_text_in_financial_reports.md)
 - [Low-Perplexity LLM-Generated Sequences and Where To Find Them](../../ACL2025/aigc_detection/low-perplexity_llm-generated_sequences_and_where_to_find_them.md)
-- [DuoLens: A Framework for Robust Detection of Machine-Generated Multilingual Text and Code](../../NeurIPS2025/aigc_detection/duolens_a_framework_for_robust_detection_of_machine-generated_multilingual_text_.md)
-- [CLAWS: Creativity Detection for LLM-Generated Solutions Using Attention Window of Sections](../../NeurIPS2025/aigc_detection/clawscreativity_detection_for_llm-generated_solutions_using_attention_window_of_.md)
 
 <!-- RELATED:END -->

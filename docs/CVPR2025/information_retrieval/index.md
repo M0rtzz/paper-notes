@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 信息检索/RAG方向 16篇论文解读
+  CVPR2025 信息检索/RAG方向 17篇论文解读
 description: >-
-  16篇CVPR2025 信息检索/RAG论文解读，主题涵盖：将CLIP从传统的一对一(image,、提出 ChatHuman，一个基于 LLM、本文构建了 Doc-750K——一个包含等，每篇含核心思想与方法详解。
+  17篇CVPR2025 信息检索/RAG论文解读，主题涵盖：将CLIP从传统的一对一(image,、提出 ChatHuman，一个基于 LLM、提出 COBRA——基于组合互信息（CMI）的检索等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔍 信息检索/RAG
 
-**📷 CVPR2025** · **16** 篇论文解读
+**📷 CVPR2025** · **17** 篇论文解读
 
 **[Advancing Myopia To Holism: Fully Contrastive Language-Image Pre-training](advancing_myopia_to_holism_fully_contrastive_language-image_pre-training.md)**
 
@@ -18,13 +18,17 @@ description: >-
 
 :   提出 ChatHuman，一个基于 LLM 的语言驱动系统，通过自动选择和集成专门的 3D 人体分析工具（3D 姿态估计、形状恢复、接触检测、人物交互分析、情感识别等），利用学术论文作为工具使用说明和 RAG（检索增强生成）创建 in-context 示例以管理新工具，在工具选择准确率和整体 3D 人体任务性能上超越现有 LLM 模型。
 
+**[COBRA: COmBinatorial Retrieval Augmentation for Few-Shot Adaptation](cobra_combinatorial_retrieval_augmentation_for_few-shot_adaptation.md)**
+
+:   提出 COBRA——基于组合互信息（CMI）的检索增强少样本适配方法，通过同时考虑检索样本与目标任务的相似性和样本间的多样性，从 LAION-2B 中检索高质量辅助数据，在多个图像分类基准上一致性超越传统最近邻检索方法，且计算开销可忽略。
+
 **[DocoPilot: Improving Multimodal Models for Document-Level Understanding](docopilot_improving_multimodal_models_for_document-level_understanding.md)**
 
 :   本文构建了 Doc-750K——一个包含 758K 问答对和 3.1M 图像的高质量文档级多模态数据集，并基于此训练原生文档理解模型 Docopilot，在 MM-NIAH 上超越 InternVL2-8B 达 19.9 个百分点，无需 RAG 即可高效处理多页文档。
 
 **[EZSR: Event-based Zero-Shot Recognition](ezsr_event-based_zero-shot_recognition.md)**
 
-:   提出 EZSR，通过将事件相机数据与 CLIP 的 RGB 嵌入空间对齐，实现基于事件数据的零样本物体识别。
+:   提出 EZSR 框架用于事件相机数据的零样本物体识别，通过标量级调制（scalar-wise modulation）策略解决事件嵌入与 CLIP 文本嵌入之间的语义错位问题，并通过从静态 RGB 图像大规模合成事件数据来突破训练数据稀缺限制，在 N-ImageNet 上以 ViT-B/16 达到 47.84% 零样本准确率。
 
 **[Few-Shot Recognition via Stage-Wise Retrieval-Augmented Finetuning](few-shot_recognition_via_stage-wise_retrieval-augmented_finetuning.md)**
 

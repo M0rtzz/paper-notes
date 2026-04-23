@@ -192,8 +192,8 @@ MEPE 从 0.170m 降至 0.069m（-59%），AccS/AccR 提升 18.9%/23.0%。
 
 ## 相关论文
 
-- [Embracing Large Language Models in Traffic Flow Forecasting](../../ACL2025/autonomous_driving/embracing_large_language_models_in_traffic_flow_forecasting.md)
 - [GaussianFlowOcc: Sparse and Weakly Supervised Occupancy Estimation using Gaussian Splatting and Temporal Flow](gaussianflowocc_sparse_and_weakly_supervised_occupancy_estimation_using_gaussian.md)
+- [Embracing Large Language Models in Traffic Flow Forecasting](../../ACL2025/autonomous_driving/embracing_large_language_models_in_traffic_flow_forecasting.md)
 - [TacoDepth: Towards Efficient Radar-Camera Depth Estimation with One-Stage Fusion](../../CVPR2025/autonomous_driving/tacodepth_towards_efficient_radar-camera_depth_estimation_with_one-stage_fusion.md)
 - [Meta Dynamic Graph for Traffic Flow Prediction](../../AAAI2026/autonomous_driving/meta_dynamic_graph_for_traffic_flow_prediction.md)
 - [VoteFlow: Enforcing Local Rigidity in Self-Supervised Scene Flow](../../CVPR2025/autonomous_driving/voteflow_enforcing_local_rigidity_in_self-supervised_scene_flow.md)

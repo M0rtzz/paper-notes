@@ -127,7 +127,7 @@ tags:
 - [SemanticHuman-HD: High-Resolution Semantic Disentangled 3D Human Generation](semantichuman-hd_high-resolution_semantic_disentangled_3d_human_generation.md)
 - [LGM: Large Multi-View Gaussian Model for High-Resolution 3D Content Creation](lgm_large_multi-view_gaussian_model_for_high-resolution_3d_content_creation.md)
 - [WaSt-3D: Wasserstein-2 Distance for Scene-to-Scene Stylization on 3D Gaussians](wast-3d_wasserstein-2_distance_for_scene-to-scene_stylization_on_3d_gaussians.md)
-- [SceneVerse: Scaling 3D Vision-Language Learning for Grounded Scene Understanding](sceneverse_scaling_3d_vision-language_learning_for_grounded_scene_understanding.md)
+- [SceneVerse: Scaling 3D Vision-Language Learning for Grounded Scene Understanding](sceneverse_scaling_3d_visionlanguage_learning_for_grounded_s.md)
 - [Open Vocabulary 3D Scene Understanding via Geometry Guided Self-Distillation](open_vocabulary_3d_scene_understanding_via_geometry_guided_self-distillation.md)
 
 <!-- RELATED:END -->

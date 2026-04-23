@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：纯视觉 3D 语义占用预测需要融合多帧信息来弥补单帧深度估计的不确定性。现有时序融合方法（如 SOLOFusion、BEVDet4D）需要缓存多帧 BEV 特征——N 帧就需要 N 倍内存，限制了帧数和实时性。
 
 **现有痛点**：（1）多帧缓存内存开销大；（2）不同时序线索（场景先验/运动补偿/深度一致性）被混在一起学习，缺乏结构化理解；（3）适配不同的占用预测方法（BEVDetOcc/FlashOCC 等）需要重新设计融合模块。
@@ -93,9 +95,9 @@ tags:
 
 ## 相关论文
 
+- [GaussianWorld: Gaussian World Model for Streaming 3D Occupancy Prediction](gaussianworld_gaussian_world_model_for_streaming_3d_occupancy_prediction.md)
 - [SDGOcc: Semantic and Depth-Guided BEV Transformation for 3D Multimodal Occupancy Prediction](sdgocc_semantic_and_depth-guided_birds-eye_view_transformation_for_3d_multimodal.md)
 - [ProtoOcc: 3D Occupancy Prediction with Low-Resolution Queries via Prototype-aware View Transformation](3d_occupancy_prediction_with_low-resolution_queries_via_prototype-aware_view_tra.md)
-- [GaussianWorld: Gaussian World Model for Streaming 3D Occupancy Prediction](gaussianworld_gaussian_world_model_for_streaming_3d_occupancy_prediction.md)
 - [OccMamba: Semantic Occupancy Prediction with State Space Models](occmamba_semantic_occupancy_prediction_with_state_space_models.md)
 - [M²-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs](m2-occ_resilient_3d_semantic_occupancy_prediction_for_autonomous_driving_with_in.md)
 

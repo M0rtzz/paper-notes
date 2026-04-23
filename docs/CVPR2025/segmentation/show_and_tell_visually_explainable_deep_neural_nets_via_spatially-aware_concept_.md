@@ -128,9 +128,9 @@ $$\mathcal{L}_{CBL} = -\sum_{m=1}^{M} \sum_{h,w} sim(q[m,h,w], p[m,h,w])$$
 ## 相关论文
 
 - [Deep Nets with Subsampling Layers Unwittingly Discard Useful Activations at Test-Time](../../ECCV2024/segmentation/deep_nets_with_subsampling_layers_unwittingly_discard_useful_activations_at_test.md)
-- [F-LMM: Grounding Frozen Large Multimodal Models](f-lmm_grounding_frozen_large_multimodal_models.md)
-- [EditAR: Unified Conditional Generation with Autoregressive Models](editar_unified_conditional_generation_with_autoregressive_models.md)
+- [Comparative Evaluation of Traditional Methods and Deep Learning for Brain Glioma Imaging](comparative_evaluation_of_traditional_methods_and_deep_learning_for_brain_glioma.md)
 - [ConceptPrism: Concept Disentanglement in Personalized Diffusion Models via Residual Token Optimization](../../CVPR2026/segmentation/conceptprism_concept_disentanglement_in_personalized_diffusion_models_via_residu.md)
-- [StoryGPT-V: Large Language Models as Consistent Story Visualizers](storygpt-v_large_language_models_as_consistent_story_visualizers.md)
+- [EditAR: Unified Conditional Generation with Autoregressive Models](editar_unified_conditional_generation_with_autoregressive_models.md)
+- [F-LMM: Grounding Frozen Large Multimodal Models](f-lmm_grounding_frozen_large_multimodal_models.md)
 
 <!-- RELATED:END -->

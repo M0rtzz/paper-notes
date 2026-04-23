@@ -127,8 +127,8 @@ DPO 自然度对齐效果（中文）:
 
 - [Disentangling Language and Culture for Evaluating Multilingual Large Language Models](disentangle_language_culture.md)
 - [Just Go Parallel: Improving the Multilingual Capabilities of Large Language Models](just_go_parallel_improving_the_multilingual_capabilities_of_large_language_model.md)
+- [Bridging the Language Gaps in Large Language Models with Inference-Time Cross-Lingual Intervention](bridging_the_language_gaps_in_large_language_models_with_inference-time_cross-li.md)
 - [M-RewardBench: Evaluating Reward Models in Multilingual Settings](m_rewardbench.md)
 - [Cross-Lingual Pitfalls: Automatic Probing Cross-Lingual Weakness of Multilingual Large Language Models](crosslingual_pitfalls.md)
-- [Cross-Lingual Optimization for Language Transfer in Large Language Models](cross-lingual_optimization_for_language_transfer_in_large_language_models.md)
 
 <!-- RELATED:END -->

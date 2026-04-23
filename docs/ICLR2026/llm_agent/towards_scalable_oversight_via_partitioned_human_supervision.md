@@ -157,6 +157,6 @@ $$|\hat{A}_{\text{mix}} - A| \leq \sqrt{2v\log\frac{2}{\delta}} + c\log\frac{2}{
 - [ToolWeaver: Weaving Collaborative Semantics for Scalable Tool Use in Large Language Models](toolweaver_weaving_collaborative_semantics_for_scalable_tool_use_in_large_langua.md)
 - [Parallelism Meets Adaptiveness: Scalable Documents Understanding in Multi-Agent LLM Systems](../../AAAI2026/llm_agent/parallelism_meets_adaptiveness_scalable_documents_understanding_in_multi-agent_l.md)
 - [AgentAuditor: Human-Level Safety and Security Evaluation for LLM Agents](../../NeurIPS2025/llm_agent/agentauditor_humanlevel_safety_and_security_evaluation_for_l.md)
-- [EMULATE: A Multi-Agent Framework for Determining the Veracity of Atomic Claims by Emulating Human Actions](../../ACL2025/llm_agent/emulate_a_multi-agent_framework_for_determining_the_veracity_of_atomic_claims_by.md)
+- [Browsing Like Human: A Multimodal Web Agent with Experiential Fast-and-Slow Thinking](../../ACL2025/llm_agent/browsing_like_human_a_multimodal_web_agent_with_experiential_fast-and-slow_think.md)
 
 <!-- RELATED:END -->

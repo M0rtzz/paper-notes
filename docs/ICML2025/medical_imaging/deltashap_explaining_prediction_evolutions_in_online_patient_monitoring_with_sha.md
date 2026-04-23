@@ -251,6 +251,6 @@ DeltaSHAP 在 AUPD 上超越次优方法 62%（22.59 vs 13.95），AUPP 降低 7
 - [Protein Structure Tokenization: Benchmarking and New Recipe](protein_structure_tokenization_benchmarking_and_new_recipe.md)
 - [Scalable Non-Equivariant 3D Molecule Generation via Rotational Alignment](scalable_non-equivariant_3d_molecule_generation_via_rotational_alignment.md)
 - [Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation](../../CVPR2025/medical_imaging/multi-resolution_pathology-language_pre-training_model_with_text-guided_visual_r.md)
-- [LLM-Assisted Emergency Triage Benchmark: Bridging Hospital-Rich and MCI-Like Field Simulation](../../NeurIPS2025/medical_imaging/llm-assisted_emergency_triage_benchmark_bridging_hospital-rich_and_mci-like_fiel.md)
+- [Scalable Diffusion Transformer for Conditional 4D fMRI Synthesis](../../NeurIPS2025/medical_imaging/scalable_diffusion_transformer_for_conditional_4d_fmri_synthesis.md)
 
 <!-- RELATED:END -->

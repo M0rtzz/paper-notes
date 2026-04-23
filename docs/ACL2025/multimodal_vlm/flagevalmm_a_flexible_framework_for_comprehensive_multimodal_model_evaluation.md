@@ -133,7 +133,7 @@ FlagEvalMM 由两大组件构成：**评估服务器 (Evaluation Server)** 和 *
 - [UPME: An Unsupervised Peer Review Framework for Multimodal Large Language Model Evaluation](../../CVPR2025/multimodal_vlm/upme_an_unsupervised_peer_review_framework_for_multimodal_large_language_model_e.md)
 - [ReefKnot: A Comprehensive Benchmark for Relation Hallucination Evaluation, Analysis and Mitigation in Multimodal Large Language Models](reefknot_a_comprehensive_benchmark_for_relation_hallucination_evaluation_analysi.md)
 - [FinMME: Benchmark Dataset for Financial Multi-Modal Reasoning Evaluation](finmme_benchmark_dataset_for_financial_multi-modal_reasoning_evaluation.md)
-- [LongDocURL: a Comprehensive Multimodal Long Document Benchmark Integrating Understanding, Reasoning, and Locating](longdocurl_multimodal_long_doc.md)
-- [CoreMatching: A Co-adaptive Sparse Inference Framework with Token and Neuron Pruning for Comprehensive Acceleration of Vision-Language Models](../../ICML2025/multimodal_vlm/corematching_a_co-adaptive_sparse_inference_framework_with_token_and_neuron_prun.md)
+- [SpatialScore: Towards Comprehensive Evaluation for Spatial Intelligence](../../CVPR2026/multimodal_vlm/spatialscore_towards_comprehensive_evaluation_for_spatial_intelligence.md)
+- [Hidden in Plain Sight: Evaluation of the Deception Detection Capabilities of LLMs in Multimodal Settings](hidden_in_plain_sight_evaluation_of_the_deception_detection_capabilities_of_llms.md)
 
 <!-- RELATED:END -->

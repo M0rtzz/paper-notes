@@ -142,7 +142,7 @@ $$\theta_l^* \leftarrow \theta_l^{(0)} - \lambda^* \nabla_{\theta_l}\mathcal{L}_
 - [SALMUBench: A Benchmark for Sensitive Association-Level Multimodal Unlearning](../../CVPR2026/multimodal_vlm/salmubench_a_benchmark_for_sensitive_association-level_multimodal_unlearning.md)
 - [Approximate Domain Unlearning for Vision-Language Models](../../NeurIPS2025/multimodal_vlm/approximate_domain_unlearning_for_visionlanguage_models.md)
 - [Modality-Aware Neuron Pruning for Unlearning in Multimodal Large Language Models](../../ACL2025/multimodal_vlm/manu_modality_aware_unlearning.md)
-- [Cross-Modal Unlearning via Influential Neuron Path Editing in Multimodal Large Language Models](../../AAAI2026/multimodal_vlm/cross-modal_unlearning_via_influential_neuron_path_editing_i.md)
-- [Which Concepts to Forget and How to Refuse? Decomposing Concepts for Continual Unlearning in Large Vision-Language Models](../../CVPR2026/multimodal_vlm/which_concepts_to_forget_and_how_to_refuse_decomposing_concepts_for_continual_un.md)
+- [MMUnlearner: Reformulating Multimodal Machine Unlearning in the Era of Multimodal Large Language Models](../../ACL2025/multimodal_vlm/mmunlearner_reformulating_multimodal_machine_unlearning_in_the_era_of_multimodal.md)
+- [SAUCE: Selective Concept Unlearning in Vision-Language Models with Sparse Autoencoders](../../ICCV2025/multimodal_vlm/sauce_selective_concept_unlearning_in_vision-language_models_with_sparse_autoenc.md)
 
 <!-- RELATED:END -->

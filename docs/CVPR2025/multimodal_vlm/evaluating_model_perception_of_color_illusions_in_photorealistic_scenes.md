@@ -131,7 +131,7 @@ tags:
 - [Evaluating Multimodal Large Language Models on Core Music Perception Tasks](../../NeurIPS2025/multimodal_vlm/evaluating_multimodal_large_language_models_on_core_music_perception_tasks.md)
 - [Bring Reason to Vision: Understanding Perception and Reasoning through Model Merging](../../ICML2025/multimodal_vlm/bring_reason_to_vision_understanding_perception_and_reasoning_through_model_merg.md)
 - [Revisiting Model Stitching in the Foundation Model Era](revisiting_model_stitching_in_the_foundation_model_era.md)
+- [Evaluating Vision-Language Models as Evaluators in Path Planning](evaluating_vision-language_models_as_evaluators_in_path_planning.md)
 - [MV-MATH: Evaluating Multimodal Math Reasoning in Multi-Visual Contexts](mv-math_evaluating_multimodal_math_reasoning_in_multi-visual_contexts.md)
-- [FineGRAIN: Evaluating Failure Modes of Text-to-Image Models with Vision Language Model Judges](../../NeurIPS2025/multimodal_vlm/finegrain_evaluating_failure_modes_of_text-to-image_models_with_vision_language_.md)
 
 <!-- RELATED:END -->

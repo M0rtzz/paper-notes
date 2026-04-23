@@ -23,12 +23,23 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**：LLM 被用作调查的可扩展替代——部署昂贵调查前预测公众意见分布。但现有评估基于传统结构化问卷。
+### 领域现状
+
+**领域现状**：领域现状**：LLM 被用作调查的可扩展替代——部署昂贵调查前预测公众意见分布。但现有评估基于传统结构化问卷。
 
 **现有痛点**：
-   - 传统调查缺乏社交媒体特有的上下文（平台规范、社区话语、文化因素）
-   - 调查数据与真实社交讨论脱节——问卷去除了形成观点的社会环境
-   - 现有基准话题单一、文化同质、缺乏上下文元数据
+
+### 现有痛点
+
+**现有痛点**：传统调查缺乏社交媒体特有的上下文（平台规范、社区话语、文化因素）
+
+### 核心矛盾
+
+**核心矛盾**：调查数据与真实社交讨论脱节——问卷去除了形成观点的社会环境
+
+### 解决思路
+
+**解决思路**：现有基准话题单一、文化同质、缺乏上下文元数据
 
 **核心矛盾**：LLM 实际部署的场景是社交媒体，但评估用的是与社交媒体风格截然不同的结构化调查。
 
@@ -129,9 +140,9 @@ tags:
 ## 相关论文
 
 - [Faster and Stronger: When ANN-SNN Conversion Meets Parallel Spiking Calculation](../../ICML2025/llm_evaluation/faster_and_stronger_when_ann-snn_conversion_meets_parallel_spiking_calculation.md)
-- [When Priors Backfire: On the Vulnerability of Unlearnable Examples to Pretraining](../../ICLR2026/llm_evaluation/when_priors_backfire_on_the_vulnerability_of_unlearnable_examples_to_pretraining.md)
+- [When Priors Backfire: On the Vulnerability of Unlearnable Examples to Pretraining](../../ICLR2026/llm_evaluation/when_priors_backfire_on_the_vulnerability_of_unlearnable_examples_to_data_augmen.md)
 - [AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite](../../ICLR2026/llm_evaluation/astabench_benchmarking_ai_agents.md)
-- [When and Where to Reset Matters for Long-Term Test-Time Adaptation](../../ICLR2026/llm_evaluation/when_and_where_to_reset_matters_for_long-term_test-time_adaptation.md)
 - [InterSyn: Interleaved Learning for Dynamic Motion Synthesis in the Wild](../../ICCV2025/llm_evaluation/intersyn_interleaved_learning_for_dynamic_motion_synthesis_in_the_wild.md)
+- [When and Where to Reset Matters for Long-Term Test-Time Adaptation](../../ICLR2026/llm_evaluation/when_and_where_to_reset_matters_for_long-term_test-time_adaptation.md)
 
 <!-- RELATED:END -->

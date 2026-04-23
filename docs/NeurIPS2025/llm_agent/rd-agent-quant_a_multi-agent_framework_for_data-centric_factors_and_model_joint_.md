@@ -180,8 +180,8 @@ R&D-Agent(Q) 将量化研发分解为五个功能模块，分属 Research 和 De
 
 - [MAT-Agent: Adaptive Multi-Agent Training Optimization](mat-agent_adaptive_multi-agent_training_optimization.md)
 - [TrajAgent: An LLM-Agent Framework for Trajectory Modeling via Large-and-Small Model Collaboration](trajagent_an_llm-agent_framework_for_trajectory_modeling_via_large-and-small_mod.md)
-- [Bel Esprit: Multi-Agent Framework for Building AI Model Pipelines](../../ACL2025/llm_agent/bel_esprit_multi-agent_framework_for_building_ai_model_pipelines.md)
 - [Group-in-Group Policy Optimization for LLM Agent Training](groupingroup_policy_optimization_for_llm_agent_training.md)
+- [Bel Esprit: Multi-Agent Framework for Building AI Model Pipelines](../../ACL2025/llm_agent/bel_esprit_multi-agent_framework_for_building_ai_model_pipelines.md)
 - [Lessons Learned: A Multi-Agent Framework for Code LLMs to Learn and Improve](lessons_learned_a_multi-agent_framework_for_code_llms_to_learn_and_improve.md)
 
 <!-- RELATED:END -->

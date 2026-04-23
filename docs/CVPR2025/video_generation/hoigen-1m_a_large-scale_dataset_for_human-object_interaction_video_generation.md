@@ -26,6 +26,8 @@ HOIGen-1M 是首个面向人物交互 (HOI) 视频生成的百万级高质量数
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：文本到视频 (T2V) 生成已取得巨大进展，Sora、Kling 1.5 等模型可以生成复杂场景。然而，人物交互 (HOI) 作为物理世界的基本组成部分，仍然是当前 T2V 模型的硬伤——即使超过 10B 参数的模型也难以准确生成简单的 HOI 视频（如"把行李箱搬上公交车"）。
 
 **现有痛点**：(1) 缺乏大规模 HOI 视频数据——WebVid-10M 包含低质量水印视频，Panda-70M 含大量静态/模糊视频且多数不含 HOI；(2) 现有 HOI 感知数据集（CAD-120、BEHAVE 等）规模太小（数千到数万级），远达不到训练 T2V 模型所需的百万级；(3) 现有字幕方法要么太简短（12-13 词），要么不专门针对 HOI 设计，丢失交互细节；(4) 缺乏评估 HOI 视频生成质量的专用指标。
@@ -62,6 +64,9 @@ HOIGen-1M 的构建包含三个核心部分：(1) 视频筛选管线——从 80
 
 ## 实验关键数据
 
+
+### 主实验
+
 | 指标 | 数据 |
 |------|------|
 | 数据集规模 | 110 万+ 视频片段 |
@@ -85,7 +90,7 @@ HOIGen-1M 的构建包含三个核心部分：(1) 视频筛选管线——从 80
 3. **HOI 评估指标的设计**：将 HOI 检测器引入生成评估是巧妙的跨任务迁移——比通用指标更能捕捉交互生成的核心质量
 4. **实验揭示的 gap**：即使最先进的商业模型 Kling 1.5 在 CoarseHOIScore 上也仅 42.72%，说明 HOI 视频生成仍然是一个远未解决的难题
 
-## 局限性
+## 局限与展望
 
 1. CoarseHOIScore 和 FineHOIScore 依赖现有 HOI 检测器和 MLLM 的能力，可能无法捕捉精细的交互质量差异
 2. 数据集主要来源于公开视频，场景和拍摄条件可能存在偏差
@@ -113,8 +118,8 @@ HOIGen-1M 的构建包含三个核心部分：(1) 视频筛选管线——从 80
 
 - [DH-FaceVid-1K: A Large-Scale High-Quality Dataset for Face Video Generation](../../ICCV2025/video_generation/dh-facevid-1k_a_large-scale_high-quality_dataset_for_face_video_generation.md)
 - [IDOL: Instant Photorealistic 3D Human Creation from a Single Image](idol_instant_photorealistic_3d_human_creation_from_a_single_image.md)
+- [MovieBench: A Hierarchical Movie Level Dataset for Long Video Generation](moviebench_a_hierarchical_movie_level_dataset_for_long_video_generation.md)
 - [Video-Bench: Human-Aligned Video Generation Benchmark](video-bench_human-aligned_video_generation_benchmark.md)
-- [TIP-I2V: A Million-Scale Real Text and Image Prompt Dataset for Image-to-Video Generation](../../ICCV2025/video_generation/tip-i2v_a_million-scale_real_text_and_image_prompt_dataset_for_image-to-video_ge.md)
 - [Video-ColBERT: Contextualized Late Interaction for Text-to-Video Retrieval](video-colbert_contextualized_late_interaction_for_text-to-video_retrieval.md)
 
 <!-- RELATED:END -->

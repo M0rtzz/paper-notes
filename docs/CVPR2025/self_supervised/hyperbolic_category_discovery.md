@@ -124,9 +124,9 @@ tags:
 ## 相关论文
 
 - [SEAL: Semantic-Aware Hierarchical Learning for Generalized Category Discovery](../../NeurIPS2025/self_supervised/seal_semantic-aware_hierarchical_learning_for_generalized_category_discovery.md)
+- [OmniGCD: Abstracting Generalized Category Discovery for Modality Agnosticism](../../CVPR2026/self_supervised/omnigcd_abstracting_generalized_category_discovery_for_modality_agnosticism.md)
 - [PromptCCD: Learning Gaussian Mixture Prompt Pool for Continual Category Discovery](../../ECCV2024/self_supervised/promptccd_learning_gaussian_mixture_prompt_pool_for_continual_category_discovery.md)
-- [Foundation Models for Scientific Discovery: From Paradigm Enhancement to Paradigm Transition](../../NeurIPS2025/self_supervised/foundation_models_for_scientific_discovery_from_paradigm_enhancement_to_paradigm.md)
 - [Towards LLM-Empowered Knowledge Tracing via LLM-Student Hierarchical Behavior Alignment in Hyperbolic Space](../../AAAI2026/self_supervised/towards_llm-empowered_knowledge_tracing_via_llm-student_hierarchical_behavior_al.md)
-- [ScaleLSD: Scalable Deep Line Segment Detection Streamlined](scalelsd_scalable_deep_line_segment_detection_streamlined.md)
+- [Foundation Models for Scientific Discovery: From Paradigm Enhancement to Paradigm Transition](../../NeurIPS2025/self_supervised/foundation_models_for_scientific_discovery_from_paradigm_enhancement_to_paradigm.md)
 
 <!-- RELATED:END -->

@@ -26,12 +26,21 @@ tags:
 
 ## 研究背景与动机
 
-非洲低资源语言在NLP领域严重欠缺代表性，根本原因包括：
+### 现有痛点
+
+**现有痛点**：**领域现状**：非洲低资源语言在NLP领域严重欠缺代表性，根本原因包括：
 
 1. **数据稀缺**：isiXhosa 拥有超过900万使用者，但公开可用的语音数据仅约61小时，远低于同等人口规模语言的基准线。
 2. **现有许可证不足**：传统的开放许可证（如CC BY）假设所有用户具有平等的资源获取能力，实际上资源丰富的非非洲实体更容易从中获益，加剧了不平等。封闭许可证则限制了研究和创新。
 3. **社区利益被忽视**：现有的数据集创建流程很少为数据贡献者——即语言社区成员——提供持续的经济收益或治理权力。例如 Oshiwambo 数据集项目因缺乏合适的非洲中心化许可证而无法发布。
 4. **可持续性挑战**：低资源语言数据集的创建通常是一次性的，缺乏持续投入机制来扩展和维护数据集。
+
+### 解决思路
+
+**本文目标**：### 整体框架
+
+Esethu 框架包含三个核心要素：社区驱动的数据策划流程、创新的 Esethu 许可证、以及可持续的收益再投资模型。
+
 
 ## 方法详解
 
@@ -122,10 +131,10 @@ ViXSD 数据集包含 8 位说话者（4男4女）、395 段录音、约10小时
 
 ## 相关论文
 
+- [Accessible Machine Translation Evaluation For Low-Resource Languages](accessible_machine_translation_evaluation_for_low-resource_languages.md)
 - [Dictionaries to the Rescue: Cross-Lingual Vocabulary Transfer for Low-Resource Languages Using Bilingual Dictionaries](dictionaries_to_the_rescue_cross-lingual_vocabulary_transfer_for_low-resource_la.md)
+- [Multilingual Encoder Knows More Than You Realize: Shared Weights Pretraining for Extremely Low-Resource Languages](multilingual_encoder_knows_more_than_you_realize_shared_weights_pretraining_for_.md)
+- [Understanding In-Context Machine Translation for Low-Resource Languages: A Case Study on Manchu](understanding_in-context_machine_translation_for_low-resource_languages_a_case_s.md)
 - [Read it in Two Steps: Translating Extremely Low-Resource Languages with Code-Augmented Grammar Books](low_resource_translation.md)
-- [STELLAR: Scene Text Editor for Low-Resource Languages and Real-World Data](../../AAAI2026/multilingual_mt/stellar_scene_text_editor_for_low-resource_languages_and_real-world_data.md)
-- [ViDia2Std: A Parallel Corpus and Methods for Low-Resource Vietnamese Dialect-to-Standard Translation](../../AAAI2026/multilingual_mt/vidia2std_a_parallel_corpus_and_methods_for_low-resource_vietnamese_dialect-to-s.md)
-- [DCAD-2000: A Multilingual Dataset across 2000+ Languages with Data Cleaning as Anomaly Detection](../../NeurIPS2025/multilingual_mt/dcad-2000_a_multilingual_dataset_across_2000_languages_with_data_cleaning_as_ano.md)
 
 <!-- RELATED:END -->

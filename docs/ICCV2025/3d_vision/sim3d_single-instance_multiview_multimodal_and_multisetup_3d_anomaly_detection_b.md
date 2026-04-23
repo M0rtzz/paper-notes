@@ -179,6 +179,6 @@ $$\text{2D标注} \xrightarrow{\text{投影到网格}} \text{3D网格标注} \xr
 - [Event-based Tiny Object Detection: A Benchmark Dataset and Baseline](event-based_tiny_object_detection_a_benchmark_dataset_and_baseline.md)
 - [PASDF: Bridging 3D Anomaly Localization and Repair via High-Quality Continuous Geometric Representation](bridging_3d_anomaly_localization_and_repair_via_highquality.md)
 - [HIS-GPT: Towards 3D Human-In-Scene Multimodal Understanding](his-gpt_towards_3d_human-in-scene_multimodal_understanding.md)
-- [Odd-One-Out: Anomaly Detection by Comparing with Neighbors](../../CVPR2025/3d_vision/odd-one-out_anomaly_detection_by_comparing_with_neighbors.md)
+- [CosmoBench: A Multiscale, Multiview, Multitask Cosmology Benchmark for Geometric Deep Learning](../../NeurIPS2025/3d_vision/cosmobench_a_multiscale_multiview_multitask_cosmology_benchmark_for_geometric_de.md)
 
 <!-- RELATED:END -->

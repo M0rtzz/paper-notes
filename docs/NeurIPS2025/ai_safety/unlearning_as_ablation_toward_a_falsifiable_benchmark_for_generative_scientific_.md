@@ -27,14 +27,25 @@ tags:
 
 ## 研究背景与动机
 
-当前围绕 AI 科学发现的讨论充斥着大胆声明（"AGI 将治愈所有疾病"、"科学进步将加速"等），但缺乏一个根本性的认识论区分：**LLM 究竟是真正生成新知识，还是只是重新组合训练数据中的已有片段？**
+### 现有痛点
+
+**现有痛点**：当前围绕 AI 科学发现的讨论充斥着大胆声明（"AGI 将治愈所有疾病"、"科学进步将加速"等），但缺乏一个根本性的认识论区分：**LLM 究竟是真正生成新知识，还是只是重新组合训练数据中的已有片段？**
 
 这个问题对 AI for Science 至关重要。如果 AI 系统要作为科学研究的合作伙伴被信任，我们必须知道它们能否从原理出发推导新结果，而不是检索或插值记忆的内容。当前缺乏一个**可证伪的测试**来回答这个问题。
 
 已有的遗忘研究主要由三个动机驱动：
-- **隐私合规**：GDPR 的"被遗忘权"
-- **版权保护**：防止模型记忆受版权保护的内容
-- **安全**：移除危险知识（如武器合成步骤）
+
+### 领域现状
+
+**领域现状**：隐私合规**：GDPR 的"被遗忘权"
+
+### 核心矛盾
+
+**核心矛盾**：版权保护**：防止模型记忆受版权保护的内容
+
+### 解决思路
+
+**解决思路**：安全**：移除危险知识（如武器合成步骤）
 
 但从未有人将遗忘框架用于**科学认识论**——测试模型是否具有建设性的知识生成能力。本文正是填补这一空白。
 
@@ -94,6 +105,9 @@ tags:
 
 ### 提议的评估指标
 
+
+### 主实验
+
 | 指标类别 | 具体指标 | 说明 |
 |---------|---------|------|
 | 成功率 | Pass@k | 模型成功重新推导 $T$ 并通过验证的比例 |
@@ -101,6 +115,9 @@ tags:
 | 效用保留 | MMLU 子集准确率 | 确认遗忘未破坏通用能力 |
 
 ### 与已有基准的对比
+
+
+### 消融实验
 
 | 基准 | 目标模型 | 遗忘移除 | 建设性重推导 | 可证伪性 |
 |------|---------|---------|------------|---------|
@@ -156,6 +173,6 @@ tags:
 - [DeepPersona: A Generative Engine for Scaling Deep Synthetic Personas](deeppersona_a_generative_engine_for_scaling_deep_synthetic_personas.md)
 - [CPRet: A Dataset, Benchmark, and Model for Retrieval in Competitive Programming](cpret_a_dataset_benchmark_and_model_for_retrieval_in_competitive_programming.md)
 - [ORBIT -- Open Recommendation Benchmark for Reproducible Research with Hidden Tests](orbit_--_open_recommendation_benchmark_for_reproducible_research_with_hidden_tes.md)
-- [Efficient Verified Machine Unlearning for Distillation](efficient_verified_machine_unlearning_for_distillation.md)
+- [ForensicHub: A Unified Benchmark & Codebase for All-Domain Fake Image Detection and Localization](forensichub_a_unified_benchmark_codebase_for_all-domain_fake_image_detection_and.md)
 
 <!-- RELATED:END -->

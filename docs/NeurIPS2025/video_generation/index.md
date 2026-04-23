@@ -1,14 +1,18 @@
 ---
 title: >-
-  NeurIPS2025 视频生成方向 21篇论文解读
+  NeurIPS2025 视频生成方向 23篇论文解读
 description: >-
-  21篇NeurIPS2025 视频生成论文解读，主题涵盖：DisMo 通过双流架构（运动提取器 +、提出Force Prompting、提出 Foresight，一种训练无关的自适应层复等，每篇含核心思想与方法详解。
+  23篇NeurIPS2025 视频生成论文解读，主题涵盖：本文提出 AAPT（Autoregressive、DisMo 通过双流架构（运动提取器 +、提出Force Prompting等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频生成
 
-**🧠 NeurIPS2025** · **21** 篇论文解读
+**🧠 NeurIPS2025** · **23** 篇论文解读
+
+**[Autoregressive Adversarial Post-Training for Real-Time Interactive Video Generation](autoregressive_adversarial_posttraining_for_realtime_interac.md)**
+
+:   本文提出 AAPT（Autoregressive Adversarial Post-Training），通过对抗训练将预训练视频扩散模型转化为自回归实时视频生成器，每帧仅需一次前向传播（1NFE），基于 student-forcing 训练减少误差累积，8B 模型在单张 H100 上实现 736×416 分辨率 24fps 实时流式生成，最长可达一分钟（1440帧）。
 
 **[DisMo: Disentangled Motion Representations for Open-World Motion Transfer](dismo_disentangled_motion_representations_for_openworld_moti.md)**
 
@@ -73,6 +77,10 @@ description: >-
 **[Stable Cinemetrics: Structured Taxonomy and Evaluation for Professional Video Generation](stable_cinemetrics_structured_taxonomy_and_evaluation_for_professional_video_gen.md)**
 
 :   提出 SCINE（Stable Cinemetrics），首个面向专业视频制作的结构化评估框架，定义了 76 个细粒度电影控制节点的分层分类体系，配合大规模专业人员评估（80+ 影视从业者、20K+ 视频、248K 标注），揭示当前最强 T2V 模型在专业控制上的显著不足。
+
+**[Training-Free Efficient Video Generation via Dynamic Token Carving](training-free_efficient_video_generation_via_dynamic_token_carving.md)**
+
+:   本文提出 Jenga，一种免训练的视频 DiT 推理加速方案，通过动态块注意力裁剪（基于 3D 空间填充曲线重排 token 后进行稀疏 KV block 选择）和渐进分辨率策略（从低分辨率逐步提升）正交结合，在 HunyuanVideo 上实现 8.83 倍加速且 VBench 仅下降 0.01%。
 
 **[Video Diffusion Models Excel at Tracking Similar-Looking Objects Without Supervision](video_diffusion_models_excel_at_tracking_similar-looking_objects_without_supervi.md)**
 

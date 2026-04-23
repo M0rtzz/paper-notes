@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 时间序列方向 32篇论文解读
+  ICLR2026 时间序列方向 36篇论文解读
 description: >-
-  32篇ICLR2026 时间序列论文解读，主题涵盖：提出TATO框架，通过自动优化数据预处理、针对单变量时间序列中现有方法难以检测的"小幅点异常、提出 CPiRi 框架，通过冻结的预训练时序编码器等，每篇含核心思想与方法详解。
+  36篇ICLR2026 时间序列论文解读，主题涵盖：提出TATO框架，通过自动优化数据预处理、针对单变量时间序列中现有方法难以检测的"小幅点异常、提出 CPiRi 框架，通过冻结的预训练时序编码器等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📈 时间序列
 
-**🔬 ICLR2026** · **32** 篇论文解读
+**🔬 ICLR2026** · **36** 篇论文解读
 
 **[Adapt Data to Model: Adaptive Transformation Optimization for Domain-shared Time Series Foundation Models](adapt_data_to_model_adaptive_transformation_optimization_for_domain-shared_time_.md)**
 
@@ -21,6 +21,10 @@ description: >-
 **[CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting](cpiri_channel_permutation-invariant_relational_interaction_for_multivariate_time.md)**
 
 :   提出 CPiRi 框架，通过冻结的预训练时序编码器 + 轻量空间 Transformer + 通道打乱训练策略，实现通道排列不变 (CPI) 的跨通道关系建模，在 5 个基准上达到 SOTA 且通道打乱后性能几乎无损 ($\Delta$WAPE < 0.25%)。
+
+**[CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting](cpiri_channel_permutation-invariant_relational_interaction_for_multivariate_time_se.md)**
+
+:   提出 CPiRi 框架，通过冻结预训练时序编码器 + 可训练置换等变空间模块 + 通道打乱训练策略，在不牺牲跨通道建模能力的前提下实现通道排序不变性（CPI），在多个交通基准上达到 SOTA。
 
 **[Delta-XAI: A Unified Framework for Explaining Prediction Changes in Online Time Series Monitoring](delta-xai_a_unified_framework_for_explaining_prediction_changes_in_online_time_s.md)**
 
@@ -45,6 +49,10 @@ description: >-
 **[GTM: A General Time-series Model for Enhanced Representation Learning of Time-Series Data](gtm_a_general_time-series_model_for_enhanced_representation_learning_of_time-ser.md)**
 
 :   提出 GTM，一个通过频域注意力机制捕获时间粒度感知特征的通用时序基础模型，结合混合掩码预训练策略，首次实现无需任务特定修改即可适配所有生成式时序任务。
+
+**[GTM: A General Time-series Model for Enhanced Representation Learning](gtm_a_general_time-series_model_for_enhanced_representation_learning_of_time-series.md)**
+
+:   提出 GTM，一个通过频域注意力机制捕获时间粒度感知特征、并通过混合掩码统一重建与自回归预训练目标的通用时间序列基础模型，在预测、补全、异常检测、分类等多任务上均达到 SOTA。
 
 **[HiVid: LLM-Guided Video Saliency For Content-Aware VOD And Live Streaming](hivid_llm-guided_video_saliency_for_content-aware_vod_and_live_streaming.md)**
 
@@ -86,6 +94,10 @@ description: >-
 
 :   提出 xCPD 即插即用插件，将多变量时间序列的建模单元从"通道"细化到"通道-patch"，通过共享图傅里叶基做谱嵌入→按频率能量响应分组为低/中/高频段→动态 MoE 路由自适应选择频率特定滤波专家，可无缝集成到 CI/CD 任何现有模型上一致提升长短期预测性能，并支持零样本迁移。
 
+**[SciTS: Scientific Time Series Understanding and Generation with LLMs](scits_scientific_time_series_llm.md)**
+
+:   本文提出 SciTS——一个覆盖 12 个科学领域、43 个任务、54K+ 样本的科学时间序列基准，并构建 TimeOmni 框架通过多 patch expert 路由和 LLM 骨干统一处理理解和生成两类时间序列任务，在全基准上取得最佳综合表现。
+
 **[scits scientific time series understanding and generation with llms](scits_scientific_time_series_understanding_and_generation_with_llms.md)**
 
 :   提出SciTS基准覆盖12个科学领域43个任务54K+实例（长度从$10^0$到$10^7$、频率达10MHz），系统评估17个模型发现通用LLM比专用时序模型泛化更好但文本/图像编码各有局限，据此设计TimeOmni框架用多Patch专家+路由机制+Patch重编程显式建模时间动态并与LLM联合训练。
@@ -125,6 +137,10 @@ description: >-
 **[TSPulse: Tiny Pre-Trained Models with Disentangled Representations for Rapid Time Series](tspulse_tiny_pre-trained_models_with_disentangled_representations_for_rapid_time.md)**
 
 :   提出 TSPulse，仅 1M 参数的超轻量时间序列预训练模型，通过双空间掩码重建和双嵌入解耦策略，在分类（+5-16%）、异常检测（+20%）、插补（+50%）和相似性检索（+25%）四大任务上超越 10-100 倍大的模型。
+
+**[TSRating: Rating Quality of Diverse Time Series Data by Meta-learning from LLM Judgment](tsrating_time_series_quality_llm.md)**
+
+:   TSRating 利用 LLM 的先验知识从趋势、频率、幅度、模式四个维度成对评判时间序列数据块的质量，再通过 Bradley-Terry 模型转换为标量分数，并用元学习训练跨域泛化的 TSRater 模型，实现高效、准确的时间序列数据质量评估。
 
 **[调节 RNN 训练中的 Burn-in 阶段可提升性能](tuning_the_burn-in_phase_in_training_recurrent_neural_networks_improves_their_pe.md)**
 

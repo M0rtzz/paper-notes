@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 模型压缩方向 53篇论文解读
+  AAAI2026 模型压缩方向 54篇论文解读
 description: >-
-  53篇AAAI2026 模型压缩论文解读，主题涵盖：针对动态MoE-LoRA适配器推理延迟暴增（250、提出AgentODRL，一个基于Orchestra、提出ALTER框架，利用非对称LoRA架构结合To等，每篇含核心思想与方法详解。
+  54篇AAAI2026 模型压缩论文解读，主题涵盖：针对动态MoE-LoRA适配器推理延迟暴增（250、提出AgentODRL，一个基于Orchestra、提出ALTER框架，利用非对称LoRA架构结合To等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**🤖 AAAI2026** · **53** 篇论文解读
+**🤖 AAAI2026** · **54** 篇论文解读
 
 **[AdaFuse: Accelerating Dynamic Adapter Inference via Token-Level Pre-Gating and Fused Kernel Optimization](adafuse_accelerating_dynamic_adapter_inference_via_token-lev.md)**
 
@@ -21,6 +21,10 @@ description: >-
 **[ALTER: Asymmetric LoRA for Token-Entropy-Guided Unlearning of LLMs](alter_asymmetric_lora_for_token-entropy-guided_unlearning_of.md)**
 
 :   提出ALTER框架，利用非对称LoRA架构结合Token级别的Tsallis熵引导，实现LLM中目标知识的精准遗忘，同时通过参数隔离机制保留模型基础能力，在TOFU、WMDP和MUSE三个基准上达到SOTA。
+
+**[BD-Net: Has Depth-Wise Convolution Ever Been Applied in Binary Neural Networks?](bd-net_has_depth-wise_convolution_ever_been_applied_in_binary_neural_networks.md)**
+
+:   本文提出 BD-Net，通过引入 1.58-bit 卷积和 pre-BN 残差连接，首次成功将深度可分离卷积（depth-wise convolution）应用于二值神经网络（BNN），在 ImageNet 上以 33M OPs 的极低计算量实现了 BNN 领域的新 SOTA，多个数据集上精度提升最高达 9.3 个百分点。
 
 **[Beyond Sharpness: A Flatness Decomposition Framework for Efficient Continual Learning](beyond_sharpness_a_flatness_decomposition_framework_for_efficient_continual_lear.md)**
 
@@ -148,7 +152,7 @@ description: >-
 
 **[Prototype-Based Semantic Consistency Alignment for Domain Adaptive Retrieval](prototype-based_semantic_consistency_alignment_for_domain_adaptive_retrieval.md)**
 
-:   提出 PSCA 两阶段框架，通过正交 prototype 建立类级语义连接，结合几何-语义一致性对齐动态修正伪标签可靠性，并在重建特征上进行 hash 编码，显著提升跨域检索性能。
+:   提出 PSCA 两阶段框架，通过正交 prototype 建立类级语义连接，结合几何-语义一致性对齐动态修正伪标签可靠性，并在重建特征上进行 hash 编码，在多个跨域检索数据集上大幅超越现有方法。
 
 **[Put the Space of LoRA Initialization to the Extreme to Preserve Pre-trained Knowledge](put_the_space_of_lora_initialization_to_the_extreme_to_preserve_pre-trained_know.md)**
 

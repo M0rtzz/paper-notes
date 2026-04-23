@@ -121,8 +121,8 @@ PRO-Motion 由三个模块组成，形成一个流水线：（1）**Motion Plann
 
 - [DragAPart: Learning a Part-Level Motion Prior for Articulated Objects](dragapart_learning_a_part-level_motion_prior_for_articulated_objects.md)
 - [ScaMo: Exploring the Scaling Law in Autoregressive Motion Generation Model](../../CVPR2025/llm_pretraining/scamo_exploring_the_scaling_law_in_autoregressive_motion_generation_model.md)
+- [DreamText: High Fidelity Scene Text Synthesis](../../CVPR2025/llm_pretraining/dreamtext_high_fidelity_scene_text_synthesis.md)
 - [ScanTalk: 3D Talking Heads from Unregistered Scans](scantalk_3d_talking_heads_from_unregistered_scans.md)
-- [Improving Autoregressive Visual Generation with Cluster-Oriented Token Prediction](../../CVPR2025/llm_pretraining/improving_autoregressive_visual_generation_with_cluster-oriented_token_predictio.md)
-- [How to Synthesize Text Data without Model Collapse?](../../ICML2025/llm_pretraining/how_to_synthesize_text_data_without_model_collapse.md)
+- [LottieGPT: Tokenizing Vector Animation for Autoregressive Generation](../../CVPR2026/llm_pretraining/lottiegpt_vector_animation_generation.md)
 
 <!-- RELATED:END -->

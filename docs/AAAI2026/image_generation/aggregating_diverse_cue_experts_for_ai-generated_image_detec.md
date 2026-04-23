@@ -25,13 +25,26 @@ tags:
 提出Multi-Cue Aggregation Network (MCAN)，通过混合编码器适配器(MoEA)将原始图像、高频信息和新提出的色度不一致性(CI)三种互补线索统一融合，实现跨生成模型的鲁棒AI生成图像检测。
 
 ## 背景与动机
-- 随着图像生成模型（GAN、扩散模型等）快速发展，检测AI生成图像变得越来越重要，同时也越来越困难
-- 现有方法多依赖单一特征：重建误差（DIRE、LaRE²）依赖特定扩散模型、高频特征丢弃语义信息、CLIP冻结特征缺乏针对性——单一线索容易过拟合到特定生成模型，泛化性差
-- 不同线索在不同场景下表现互补：高频特征检测不出的简单内容图像，图像内容特征可能能检测到；反之亦然
-- 已有的多线索方法（如FatFormer）对各线索分配不均、优化不充分
 
-## 核心问题
-如何有效整合空间域、频率域和色度域的互补检测线索，构建一个泛化性强的统一检测框架，使其在面对未见过的生成模型时仍保持高性能？
+### 领域现状
+
+**领域现状**：随着图像生成模型（GAN、扩散模型等）快速发展，检测AI生成图像变得越来越重要，同时也越来越困难
+
+### 现有痛点
+
+**现有痛点**：现有方法多依赖单一特征：重建误差（DIRE、LaRE²）依赖特定扩散模型、高频特征丢弃语义信息、CLIP冻结特征缺乏针对性——单一线索容易过拟合到特定生成模型，泛化性差
+
+### 核心矛盾
+
+**核心矛盾**：不同线索在不同场景下表现互补：高频特征检测不出的简单内容图像，图像内容特征可能能检测到；反之亦然
+
+### 解决思路
+
+**解决思路**：已有的多线索方法（如FatFormer）对各线索分配不均、优化不充分
+
+### 解决思路
+
+**本文目标**：如何有效整合空间域、频率域和色度域的互补检测线索，构建一个泛化性强的统一检测框架，使其在面对未见过的生成模型时仍保持高性能？
 
 ## 方法详解
 
@@ -73,7 +86,7 @@ GenImage上特别突出的单子集结果：
 - CI加入HF/Img/HF+Img分别提升5.6%/2.4%/1.5%，验证CI的互补价值
 - 最优专家数=4（≥线索数3），最优MoEA层=后4层
 
-## 亮点
+## 亮点与洞察
 - **CI线索有物理基础**：基于光照模型推导，通过色度比消除光照强度影响，暴露传感器噪声——这是真实图像固有但AI生成图像缺失的特征，不依赖特定生成模型
 - **MoEA可重参数化**：推理时多个expert合并为单一矩阵，不增加FLOPs，是一个工程上很优雅的设计
 - **跨模型泛化强**：在BigGAN上从FatFormer的49.9%飙升到98.8%，说明多线索互补确实能覆盖单线索盲区
@@ -87,12 +100,12 @@ GenImage上特别突出的单子集结果：
 - UniversalFakeDetect上部分子集（如Deep fakes的CRN 68.9%、Low level的SAN 86.7%）仍有提升空间
 - MoEA的路由机制较简单（全softmax），可探索top-k稀疏路由或线索感知路由
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs FatFormer (CVPR'24)**：FatFormer也用CLIP+频率adapter，但只融合图像和频率两种线索且adapter结构固定。MCAN增加CI第三线索 + 动态MoEA路由，GenImage上平均ACC高9.5%（96.9% vs 87.4%），UniversalFakeDetect高2.4%
 - **vs NPR (CVPR'24)**：NPR聚焦上采样伪影的手工特征，在特定GAN模型上强但泛化有限。MCAN通过学习多线索自适应融合，在GenImage上平均高8.3%
 - **vs AIDE (ICLR'25)**：AIDE做了AI生成图像检测的sanity check，是最新的强baseline。MCAN在Chameleon的SDV1.4设定上超出7.01%，说明多线索融合的优势在更具挑战性的跨域场景下更明显
 
-## 启发与关联
+## 相关工作与启发
 - **多线索融合范式可推广**：这种"把不同信号视作多模态输入+MoE路由"的思路可以迁移到其他检测/取证任务，如视频deepfake检测（加入时序一致性线索）、图像篡改定位（加入边缘不一致性线索）
 - **物理先验的检测线索**：CI的设计思路——从图像形成的物理过程出发找真实图像独有的特征——是一个很有价值的研究方向。可以考虑其他物理先验如CFA插值伪影、镜头畸变等
 - **与基础模型结合**：MCAN当前用CLIP ViT-B/16作backbone，未来可探索DINOv2、SigLIP等更强backbone，或用更大模型（ViT-L）进一步提升
@@ -109,9 +122,9 @@ GenImage上特别突出的单子集结果：
 ## 相关论文
 
 - [AEDR: Training-Free AI-Generated Image Attribution via Autoencoder Double-Reconstruction](aedr_training-free_ai-generated_image_attribution_via_autoen.md)
-- [Any-Resolution AI-Generated Image Detection by Spectral Learning](../../CVPR2025/image_generation/any-resolution_ai-generated_image_detection_by_spectral_learning.md)
-- [CausalCLIP: Causally-Informed Feature Disentanglement and Filtering for Generalizable Detection of Generated Images](causalclip_causally-informed_feature_disentanglement_and_filtering_for_generaliz.md)
 - [Epistemic Uncertainty for Generated Image Detection](../../NeurIPS2025/image_generation/epistemic_uncertainty_for_generated_image_detection.md)
+- [CausalCLIP: Causally-Informed Feature Disentanglement and Filtering for Generalizable Detection of Generated Images](causalclip_causally-informed_feature_disentanglement_and_filtering_for_generaliz.md)
 - [Physics-Driven Spatiotemporal Modeling for AI-Generated Video Detection](../../NeurIPS2025/image_generation/physics-driven_spatiotemporal_modeling_for_ai-generated_video_detection.md)
+- [Diversity over Uniformity: Rethinking Representation in Generated Image Detection](../../CVPR2026/image_generation/diversity_over_uniformity_rethinking_representation_in_generated_image_detection.md)
 
 <!-- RELATED:END -->

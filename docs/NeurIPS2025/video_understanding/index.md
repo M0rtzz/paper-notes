@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 视频理解方向 62篇论文解读
+  NeurIPS2025 视频理解方向 63篇论文解读
 description: >-
-  62篇NeurIPS2025 视频理解论文解读，主题涵盖：本文证明了将 Transformer、提出 AdaVideoRAG，通过轻量级意图分类器、ALMI提出上下半身对抗训练框架：下半身策略在上半等，每篇含核心思想与方法详解。
+  63篇NeurIPS2025 视频理解论文解读，主题涵盖：本文证明了将 Transformer、提出 AdaVideoRAG，通过轻量级意图分类器、ALMI提出上下半身对抗训练框架：下半身策略在上半等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🧠 NeurIPS2025** · **62** 篇论文解读
+**🧠 NeurIPS2025** · **63** 篇论文解读
 
 **[A Little Depth Goes a Long Way: The Expressive Power of Log-Depth Transformers](a_little_depth_goes_a_long_way_the_expressive_power_of_logde.md)**
 
@@ -61,6 +61,10 @@ description: >-
 **[egoEMOTION: Egocentric Vision and Physiological Signals for Emotion and Personality Recognition in Real-World Tasks](egoemotion_egocentric_vision_and_physiological_signals_for_emotion_and_personali.md)**
 
 :   提出egoEMOTION——首个结合第一人称视觉（Meta Project Aria眼镜）与生理信号的情感与人格识别数据集，涵盖43名被试、50+小时录制、16种任务，发现第一人称视觉信号（尤其眼动特征）在真实场景情感预测中优于传统生理信号。
+
+**[EgoGazeVQA: Egocentric Gaze-Guided Video Question Answering Benchmark](egogazevqa_egocentric_gaze_guided_video_question_answering.md)**
+
+:   提出 EgoGazeVQA，首个融合用户眼动注视数据的第一人称视频问答基准，通过注视引导的提示策略（文本/视觉/显著性图）显著提升 MLLM 对用户意图的理解能力，Gaze Salience Map 策略最高可将 MiniCPM-o 的准确率从35.9%提升至53.7%。
 
 **[Empower Words: DualGround for Structured Phrase and Sentence-Level Temporal Grounding](empower_words_dualground_for_structured_phrase_and_sentencel.md)**
 
@@ -191,6 +195,8 @@ description: >-
 :   提出 FASB（Flexible Activation Steering with Backtracking）框架，通过跟踪 LLM 生成过程中的内部状态动态判断干预必要性和强度，并引入回溯机制纠正已偏离的 token，在 TruthfulQA 上 True*Info 达 80.56%、6 个多选任务平均准确率 78.8%，显著优于所有基线。
 
 **[Structured Sparse Transition Matrices to Enable State Tracking in State-Space Models](structured_sparse_transition_matrices_to_enable_state_tracking_in_state-space_mo.md)**
+
+:   本文提出 PD-SSM，一种结构化稀疏参数化方法用于状态空间模型（SSM）的状态转移矩阵。核心思想是将转移矩阵分解为列 one-hot 矩阵 P 与复数对角矩阵 D 的乘积（A = PD），从而在保持与对角 SSM 相当的计算效率（Θ(LN)）的同时，获得与非结构化（稠密）SSM 等同的表达能力——单层即可模拟任意 N 状态有限状态自动机（FSA）。理论上证明了该参数化的 BIBO 稳定性和最优状态维度。实验在 FSA 模拟、多元时序分类、长序列基准和自然语言状态追踪任务中均表现优异。
 
 **[TAPVid-360: Tracking Any Point in 360 from Narrow Field of View Video](tapvid-360_tracking_any_point_in_360_from_narrow_field_of_view_video.md)**
 

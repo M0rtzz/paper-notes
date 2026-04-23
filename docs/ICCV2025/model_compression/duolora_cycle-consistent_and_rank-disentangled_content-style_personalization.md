@@ -133,10 +133,10 @@ $$\mathcal{L} = \lambda_{layer\_prior} \mathcal{L}_{layer\_prior} + \lambda_{cyc
 
 ## 相关论文
 
-- [Implicit Style-Content Separation using B-LoRA](../../ECCV2024/model_compression/implicit_style-content_separation_using_b-lora.md)
-- [Beyond Low-Rank Tuning: Model Prior-Guided Rank Allocation for Effective Transfer in Low-Data and Large-Gap Regimes](beyond_low-rank_tuning_model_prior-guided_rank_allocation_for_effective_transfer.md)
 - [Style Quantization for Data-Efficient GAN Training](../../CVPR2025/model_compression/style_quantization_for_data-efficient_gan_training.md)
-- [StolenLoRA: Exploring LoRA Extraction Attacks via Synthetic Data](stolenlora_exploring_lora_extraction_attacks_via_synthetic_data.md)
-- [FiRA: Can We Achieve Full-Rank Training of LLMs Under Low-Rank Constraint?](../../NeurIPS2025/model_compression/fira_can_we_achieve_full-rank_training_of_llms_under_low-rank_constraint.md)
+- [Beyond Low-Rank Tuning: Model Prior-Guided Rank Allocation for Effective Transfer in Low-Data and Large-Gap Regimes](beyond_low-rank_tuning_model_prior-guided_rank_allocation_for_effective_transfer.md)
+- [PLAN: Proactive Low-Rank Allocation for Continual Learning](plan_proactive_low-rank_allocation_for_continual_learning.md)
+- [FreestyleRet: Retrieving Images from Style-Diversified Queries](../../ECCV2024/model_compression/freestyleret_retrieving_images_from_style-diversified_queries.md)
+- [Adversarial Concept Distillation for One-Step Diffusion Personalization](../../CVPR2026/model_compression/adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
 
 <!-- RELATED:END -->

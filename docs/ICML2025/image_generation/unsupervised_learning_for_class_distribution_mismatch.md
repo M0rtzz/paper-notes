@@ -151,9 +151,9 @@ $$\mathcal{L} = \mathcal{L}_{\text{gen}}^{(\mathcal{D}_P, \mathcal{D}_N)} + \mat
 ## 相关论文
 
 - [Autoencoder-Based Hybrid Replay for Class-Incremental Learning](autoencoder-based_hybrid_replay_for_class-incremental_learning.md)
+- [Unsupervised Imaging Inverse Problems with Diffusion Distribution Matching](../../ICCV2025/image_generation/unsupervised_imaging_inverse_problems_with_diffusion_distribution_matching.md)
 - [Pretrained Reversible Generation as Unsupervised Visual Representation Learning](../../ICCV2025/image_generation/pretrained_reversible_generation_as_unsupervised_visual_representation_learning.md)
 - [Idempotent Unsupervised Representation Learning for Skeleton-Based Action Recognition](../../ECCV2024/image_generation/idempotent_unsupervised_representation_learning_for_skeleton-based_action_recogn.md)
-- [Learning Few-Step Diffusion Models by Trajectory Distribution Matching](../../ICCV2025/image_generation/learning_few-step_diffusion_models_by_trajectory_distribution_matching.md)
 - [Expressive Score-Based Priors for Distribution Matching with Geometry-Preserving Regularization](expressive_score-based_priors_for_distribution_matching_with_geometry-preserving.md)
 
 <!-- RELATED:END -->

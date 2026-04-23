@@ -25,10 +25,14 @@ tags:
 提出DM-Calib——基于扩散模型的单目相机内参估计方法：设计Camera Image表示（将内参无损编码为3通道图像=方位角+仰角+灰度图），微调Stable Diffusion生成Camera Image，用RANSAC提取内参，在5个零样本数据集上超越所有基线，并将相机标定扩展到度量深度估计、位姿估计和稀疏视角3D重建。
 
 ## 背景与动机
-单目相机标定是病态问题，传统方法依赖曼哈顿世界假设或标定板等强先验，泛化差。学习方法受限于训练数据量。扩散模型隐式理解焦距与图像内容的关系（长焦→浅景深/压缩感，广角→夸张透视），这一先验知识可用于相机标定。
 
-## 核心问题
-如何将扩散模型中隐含的成像先验有效提取出来，用于高精度单目相机内参估计？关键挑战：数值相机参数(f_x,f_y,c_x,c_y)不适合与图像扩散模型直接结合。
+### 领域现状
+
+**领域现状**：单目相机标定是病态问题，传统方法依赖曼哈顿世界假设或标定板等强先验，泛化差。学习方法受限于训练数据量。扩散模型隐式理解焦距与图像内容的关系（长焦→浅景深/压缩感，广角→夸张透视），这一先验知识可用于相机标定。
+
+### 解决思路
+
+**本文目标**：如何将扩散模型中隐含的成像先验有效提取出来，用于高精度单目相机内参估计？关键挑战：数值相机参数(f_x,f_y,c_x,c_y)不适合与图像扩散模型直接结合。
 
 ## 方法详解
 
@@ -72,7 +76,7 @@ tags:
 - 单步推理 vs 多步: 单步更好（多步+稀疏GT训练困难）
 - Fine-tune VAE解码器: 对度量深度至关重要
 
-## 亮点
+## 亮点与洞察
 - **Camera Image设计**: 关键洞察是在第三通道放灰度图减小域差距，使VAE编解码误差可忽略——看似简单但实验证明差异巨大
 - **RANSAC提取内参**: 将稠密Camera Image→4个标量的映射变为简单的直线拟合问题，既鲁棒又高效
 - **扩散模型懂焦距**: SD模型确实理解不同焦距的成像特征（Fig.1的长焦vs短焦生成），这个发现本身就有价值
@@ -84,12 +88,12 @@ tags:
 - 度量深度训练仍需LiDAR/RGBD数据的稀疏GT
 - 未处理径向畸变等非针孔相机模型
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs DiffCalib**: 也用扩散模型但生成incidence map→域差距大，且需与depth联合训练；DM-Calib的Camera Image更兼容扩散模型且独立训练
 - **vs WildCame/GeoCalib**: 非扩散方法，依赖几何特征（消失点等），泛化性差
 - **vs UniDepth**: 联合训练内参和深度，但相互干扰导致内参精度下降
 
-## 启发与关联
+## 相关工作与启发
 - 扩散模型先验用于3D几何任务的范式值得学习
 - Camera Image的设计思路（将非图像信号编码为图像格式以利用预训练扩散模型）具有广泛适用性
 - 内参估计对任何需要从野外图片做3D重建的管线都是关键
@@ -104,10 +108,10 @@ tags:
 
 ## 相关论文
 
-- [CHARM3R: Towards Unseen Camera Height Robust Monocular 3D Detector](charm3r_towards_unseen_camera_height_robust_monocular_3d_detector.md)
+- [CHARM3R: Towards Unseen Camera Height Robust Monocular 3D Detector](charm3r_towards_unseen_camera_height_robust_monocular_3d_det.md)
 - [MoGA: 3D Generative Avatar Prior for Monocular Gaussian Avatar Reconstruction](moga_3d_generative_avatar_prior_for_monocular_gaussian_avatar_reconstruction.md)
 - [Vivid4D: Improving 4D Reconstruction from Monocular Video by Video Inpainting](vivid4d_improving_4d_reconstruction_from_monocular_video_by_video_inpainting.md)
 - [HORT: Monocular Hand-held Objects Reconstruction with Transformers](hort_monocular_hand-held_objects_reconstruction_with_transformers.md)
-- [Baking Gaussian Splatting into Diffusion Denoiser for Fast and Scalable Single-stage Image-to-3D Generation and Reconstruction](baking_gaussian_splatting_into_diffusion_denoiser_for_fast_and_scalable_single-s.md)
+- [Baking Gaussian Splatting into Diffusion Denoiser for Fast and Scalable Single-stage Image-to-3D Generation and Reconstruction](baking_gaussian_splatting_into_diffusion_denoiser_for_fast_a.md)
 
 <!-- RELATED:END -->

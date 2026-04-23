@@ -122,6 +122,6 @@ tags:
 - [Towards All-in-One Medical Image Re-Identification](../../CVPR2025/medical_imaging/towards_all-in-one_medical_image_re-identification.md)
 - [Interpretable Cross-Domain Few-Shot Learning with Rectified Target-Domain Local Alignment](../../CVPR2026/medical_imaging/interpretable_cross-domain_few-shot_learning_with_rectified_target-domain_local_.md)
 - [Learning Cell-Aware Hierarchical Multi-Modal Representations for Robust Molecular Modeling](../../AAAI2026/medical_imaging/learning_cell-aware_hierarchical_multi-modal_representations.md)
-- [Human Knowledge Integrated Multi-modal Learning for Single Source Domain Generalization](../../CVPR2026/medical_imaging/human_knowledge_integrated_multi-modal_learning_for_single_source_domain_general.md)
+- [Human Knowledge Integrated Multi-modal Learning for Single Source Domain Generalization](../../CVPR2026/medical_imaging/human_knowledge_integrated_multimodal_learning_for.md)
 
 <!-- RELATED:END -->

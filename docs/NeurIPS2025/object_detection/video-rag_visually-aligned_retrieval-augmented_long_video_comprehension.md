@@ -152,8 +152,8 @@ Video-RAG包含三个阶段：
 
 - [Beyond Caption-Based Queries for Video Moment Retrieval](../../CVPR2026/object_detection/beyond_caption-based_queries_for_video_moment_retrieval.md)
 - [Toward Faithful Retrieval-Augmented Generation with Sparse Autoencoders](../../ICLR2026/object_detection/toward_faithful_retrieval-augmented_generation_with_sparse_autoencoders.md)
-- [Beyond Fact Retrieval: Episodic Memory for RAG with Generative Semantic Workspaces](../../AAAI2026/object_detection/beyond_fact_retrieval_episodic_memory_for_rag_with_generative_semantic_workspace.md)
-- [MSTAR: Box-Free Multi-Query Scene Text Retrieval with Attention Recycling](mstar_box-free_multi-query_scene_text_retrieval_with_attention_recycling.md)
 - [Sparse-Dense Side-Tuner for Efficient Video Temporal Grounding](../../ICCV2025/object_detection/sparse-dense_side-tuner_for_efficient_video_temporal_grounding.md)
+- [Large-scale Pre-training for Grounded Video Caption Generation](../../ICCV2025/object_detection/large-scale_pre-training_for_grounded_video_caption_generation.md)
+- [DiffVsgg: Diffusion-Driven Online Video Scene Graph Generation](../../CVPR2025/object_detection/diffvsgg_diffusion-driven_online_video_scene_graph_generation.md)
 
 <!-- RELATED:END -->

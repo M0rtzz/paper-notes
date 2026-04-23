@@ -123,7 +123,7 @@ $$\frac{1}{2}L\lambda \|X\|_{S_{2/L}}^{2/L} = \min \{\text{正则化项}\}$$
 - [CoLA: Collaborative Low-Rank Adaptation](../../ACL2025/others/cola_collaborative_low-rank_adaptation.md)
 - [Low-Rank Interconnected Adaptation across Layers](../../ACL2025/others/low-rank_interconnected_adaptation_across_layers.md)
 - [Consistent Low-Rank Approximation](../../ICLR2026/others/consistent_low-rank_approximation.md)
-- [Reliable Active Learning from Unreliable Labels via Neural Collapse Geometry](reliable_active_learning_from_unreliable_labels_via_neural_collapse_geometry.md)
 - [Neural Collapse in Test-Time Adaptation](../../CVPR2026/others/neural_collapse_in_test-time_adaptation.md)
+- [Reliable Active Learning from Unreliable Labels via Neural Collapse Geometry](reliable_active_learning_from_unreliable_labels_via_neural_collapse_geometry.md)
 
 <!-- RELATED:END -->

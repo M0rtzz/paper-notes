@@ -131,6 +131,6 @@ LiveCodeBench v5 (Qwen2.5-Coder-7B)：
 - [SeeDNorm: Self-Rescaled Dynamic Normalization](seednorm_self-rescaled_dynamic_normalization.md)
 - [Reference-Guided Machine Unlearning](reference-guided_machine_unlearning.md)
 - [Draft-based Approximate Inference for LLMs](draft-based_approximate_inference_for_llms.md)
-- [AMiD: Knowledge Distillation for LLMs with α-mixture Assistant Distribution](amid_knowledge_distillation_for_llms_with_α-mixture_assistant_distribution.md)
+- [STAR: Similarity-guided Teacher-Assisted Refinement for Super-Tiny Function Calling Models](star_similarity-guided_teacher-assisted_refinement_for_super-tiny_function_calli.md)
 
 <!-- RELATED:END -->

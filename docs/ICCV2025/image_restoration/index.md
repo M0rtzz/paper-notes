@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 图像恢复方向 30篇论文解读
+  ICCV2025 图像恢复方向 32篇论文解读
 description: >-
-  30篇ICCV2025 图像恢复论文解读，主题涵盖：提出ALOcc框架，通过遮挡感知自适应提升机制、提出ALOcc框架，通过遮挡感知的自适应提升机制、针对偏振相机"光效低、分辨率低等，每篇含核心思想与方法详解。
+  32篇ICCV2025 图像恢复论文解读，主题涵盖：提出ALOcc框架，通过遮挡感知自适应提升机制、提出ALOcc框架，通过遮挡感知的自适应提升机制、本文针对偏振图像 burst 超分辨率的缺乏数据集等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**📹 ICCV2025** · **30** 篇论文解读
+**📹 ICCV2025** · **32** 篇论文解读
 
 **[ALOcc: Adaptive Lifting-Based 3D Semantic Occupancy and Cost Volume-Based Flow Predictions](alocc_adaptive_lifting-based_3d_semantic_occupancy_and_cost_volume-based_flow_pr.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[ALOcc: Adaptive Lifting-Based 3D Semantic Occupancy and Cost Volume-Based Flow Predictions](alocc_adaptive_liftingbased_3d_semantic_occupancy_and_cost_v.md)**
 
 :   提出ALOcc框架，通过遮挡感知的自适应提升机制、语义原型对齐和BEV代价体flow预测三个改进，在多个占据预测基准上取得SOTA，同时保持较高推理速度。
+
+**[Benchmarking Burst Super-Resolution for Polarization Images: Noise Dataset and Analysis](benchmarking_burst_super-resolution_for_polarization_images_noise_dataset_and_an.md)**
+
+:   本文针对偏振图像 burst 超分辨率的缺乏数据集和噪声模型的问题，构建了两个专用数据集 PolarNS（噪声统计）和 PolarBurstSR（超分基准），提出了偏振噪声传播分析模型，并系统比较了现有 burst SR 方法在偏振场景下的表现，为偏振图像重建领域建立了标准化评测基准。
 
 **[Benchmarking Burst Super-Resolution for Polarization Images: Noise Dataset and Analysis](benchmarking_burst_superresolution_for_polarization_images_n.md)**
 
@@ -77,6 +81,10 @@ description: >-
 **[Generic Event Boundary Detection via Denoising Diffusion (DiffGEBD)](generic_event_boundary_detection_via_denoising_diffusion.md)**
 
 :   DiffGEBD 首次将扩散模型引入通用事件边界检测（GEBD），通过将边界预测建模为从随机噪声到合理边界分布的去噪过程，利用 Classifier-Free Guidance 控制预测多样性，并提出了对称 F1 和 Diversity Score 两项新评估指标来衡量多预测场景下的质量与多样性。
+
+**[IM-LUT: Interpolation Mixing Look-Up Tables for Image Super-Resolution](im-lut_interpolation_mixing_look-up_tables_for_image_super-resolution.md)**
+
+:   本文提出 IM-LUT，通过学习混合多种插值函数的权重来实现任意尺度图像超分辨率，并将预测网络转换为查找表形式，在 CPU 上实现轻量快速推理同时保持重建质量。
 
 **[Learning Pixel-adaptive Multi-layer Perceptrons for Real-time Image Enhancement](learning_pixel-adaptive_multi-layer_perceptrons_for_real-time_image_enhancement.md)**
 

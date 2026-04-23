@@ -30,7 +30,9 @@ tags:
 
 ## 研究背景与动机
 
-主成分分析（PCA）是数据科学中最基础的工具之一。近期发现自注意力机制与 (核) PCA 之间存在深刻联系,重新激发了对 PCA 基础理论的研究兴趣。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：主成分分析（PCA）是数据科学中最基础的工具之一。近期发现自注意力机制与 (核) PCA 之间存在深刻联系,重新激发了对 PCA 基础理论的研究兴趣。
 
 重新审视 PCA 的动机：
 
@@ -156,6 +158,6 @@ PCA 算法的运行时间比较 (n=10000, d=1000, k=50):
 - [Rethinking Aleatoric and Epistemic Uncertainty](../../ICML2025/others/rethinking_aleatoric_and_epistemic_uncertainty.md)
 - [Improving Decision Trees through the Lens of Parameterized Local Search](improving_decision_trees_through_the_lens_of_parameterized_local_search.md)
 - [AutoSciDACT: Automated Scientific Discovery through Contrastive Embedding and Hypothesis Testing](autoscidact_automated_scientific_discovery_through_contrastive_embedding_and_hyp.md)
-- [LaCoOT: Layer Collapse through Optimal Transport](../../ICCV2025/others/lacoot_layer_collapse_through_optimal_transport.md)
+- [Is Meta-Learning Out? Rethinking Unsupervised Few-Shot Classification with Limited Entropy](../../ICCV2025/others/is_meta-learning_out_rethinking_unsupervised_few-shot_classification_with_limite.md)
 
 <!-- RELATED:END -->

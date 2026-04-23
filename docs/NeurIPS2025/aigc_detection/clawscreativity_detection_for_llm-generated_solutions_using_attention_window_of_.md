@@ -144,6 +144,6 @@ CLAWS 本身是无训练的特征提取方法。在结合下游分类器（XGBoo
 - [DuoLens: A Framework for Robust Detection of Machine-Generated Multilingual Text and Code](duolens_a_framework_for_robust_detection_of_machine-generated_multilingual_text_.md)
 - [Classical Planning with LLM-Generated Heuristics: Challenging the State of the Art with Python Code](classical_planning_with_llm-generated_heuristics_challenging_the_state_of_the_ar.md)
 - [Reasoning Compiler: LLM-Guided Optimizations for Efficient Model Serving](reasoning_compiler_llm-guided_optimizations_for_efficient_model_serving.md)
-- [Low-Perplexity LLM-Generated Sequences and Where To Find Them](../../ACL2025/aigc_detection/low-perplexity_llm-generated_sequences_and_where_to_find_them.md)
+- [Death of the Novel(ty): Beyond n-Gram Novelty as a Metric for Textual Creativity](../../ICLR2026/aigc_detection/death_of_the_novelty_beyond_n-gram_novelty_as_a_metric_for_textual_creativity.md)
 
 <!-- RELATED:END -->

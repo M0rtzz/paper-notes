@@ -119,6 +119,6 @@ TUNE 在几乎所有数据集-模型组合上大幅提升，而现有 TTA 方法
 - [TALON: Test-time Adaptive Learning for On-the-Fly Category Discovery](../../CVPR2026/model_compression/talon_test-time_adaptive_learning_for_on-the-fly_category_discovery.md)
 - [Specialization after Generalization: Towards Understanding Test-Time Training in Foundation Models](../../ICLR2026/model_compression/specialization_after_generalization_towards_understanding_test-time_training_in_.md)
 - [Correcting Hallucinations in News Summaries: Exploration of Self-Correcting LLM Methods with External Knowledge](../../ACL2025/model_compression/correcting_hallucinations_in_news_summaries_exploration_of_self-correcting_llm_m.md)
-- [Bi-TTA: Bidirectional Test-Time Adapter for Remote Physiological Measurement](../../ECCV2024/model_compression/bi-tta_bidirectional_test-time_adapter_for_remote_physiological_measurement.md)
+- [Modality-free Graph In-context Alignment](../../ICLR2026/model_compression/modality-free_graph_in-context_alignment.md)
 
 <!-- RELATED:END -->

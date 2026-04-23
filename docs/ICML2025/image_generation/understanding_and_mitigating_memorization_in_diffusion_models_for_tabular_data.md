@@ -26,13 +26,16 @@ tags:
 
 ## 研究背景与动机
 
-### 表格数据生成的隐私风险
-扩散模型在表格数据生成上取得突破（TabDDPM/TabSyn），但记忆化问题被严重忽视。记忆化指模型无意复制训练数据，引发隐私泄露和泛化性下降。
+### 现有痛点
 
-### 图像/文本领域已有研究但表格领域空白
-图像和文本生成中的记忆化已被广泛研究，但表格数据的混合类型特征（数值+类别）使检测和缓解方法不能直接迁移。
+**现有痛点**：扩散模型在表格数据生成上取得突破（TabDDPM/TabSyn），但记忆化问题被严重忽视。记忆化指模型无意复制训练数据，引发隐私泄露和泛化性下降。
+
+### 核心矛盾
+
+**核心矛盾**：图像和文本生成中的记忆化已被广泛研究，但表格数据的混合类型特征（数值+类别）使检测和缓解方法不能直接迁移。
 
 ### 三个关键问题
+
 1. 表格扩散模型是否存在记忆化？
 2. 哪些因素影响记忆化程度？
 3. 如何有效缓解？
@@ -125,8 +128,8 @@ tags:
 
 - [Understanding and Mitigating Memorization in Generative Models via Sharpness of Probability Landscapes](understanding_and_mitigating_memorization_in_generative_models_via_sharpness_of_.md)
 - [Localizing and Mitigating Memorization in Image Autoregressive Models](localizing_and_mitigating_memorization_in_image_autoregressive_models.md)
-- [Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models](understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)
 - [Compositional Scene Understanding through Inverse Generative Modeling](compositional_scene_understanding_through_inverse_generative_modeling.md)
 - [When Diffusion Models Memorize: Inductive Biases in Probability Flow of Minimum-Norm Shallow Neural Nets](when_diffusion_models_memorize_inductive_biases_in_probability_flow_of_minimum-n.md)
+- [Detecting and Mitigating Memorization in Diffusion Models through Anisotropy of the Log-Probability](../../ICLR2026/image_generation/detecting_and_mitigating_memorization_in_diffusion_models_through_anisotropy_of_.md)
 
 <!-- RELATED:END -->

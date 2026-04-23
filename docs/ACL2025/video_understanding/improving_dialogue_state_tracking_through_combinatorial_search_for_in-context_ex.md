@@ -175,7 +175,7 @@ Oracle 设置（无检索错误，Llama-3-8B）——JGA 上界：
 - [DeltaProduct: Improving State-Tracking in Linear RNNs via Householder Products](../../NeurIPS2025/video_understanding/deltaproduct_improving_state-tracking_in_linear_rnns_via_householder_products.md)
 - [From Teacher to Student: Tracking Memorization Through Model Distillation](from_teacher_to_student_tracking_memorization_through_model_distillation.md)
 - [ICR Probe: Tracking Hidden State Dynamics for Reliable Hallucination Detection in LLMs](icr_probe_tracking_hidden_state_dynamics_for_reliable_hallucination_detection_in.md)
+- [Structured Sparse Transition Matrices to Enable State Tracking in State-Space Models](../../NeurIPS2025/video_understanding/structured_sparse_transition_matrices_to_enable_state_tracking_in_state-space_mo.md)
 - [FinePseudo: Improving Pseudo-Labelling through Temporal-Alignability for Semi-Supervised Fine-Grained Action Recognition](../../ECCV2024/video_understanding/finepseudo_improving_pseudo-labelling_through_temporal-alignablity_for_semi-supe.md)
-- [Agentic Persona Control and Task State Tracking for Realistic User Simulation](../../NeurIPS2025/video_understanding/agentic_persona_control_and_task_state_tracking_for_realistic_user_simulation_in.md)
 
 <!-- RELATED:END -->

@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-随机降维（如 JL 变换）是加速大规模欧式优化的核心技术。经典 JL 引理将 $n$ 个点投影到 $O(\log n)$ 维即可保持成对距离，但该目标维度随数据规模 $|X|$ 增长。
+### 现有痛点
+
+**现有痛点**：**领域现状**：随机降维（如 JL 变换）是加速大规模欧式优化的核心技术。经典 JL 引理将 $n$ 个点投影到 $O(\log n)$ 维即可保持成对距离，但该目标维度随数据规模 $|X|$ 增长。
 
 对于**最小化**问题（如 facility location、k-center），已有工作将目标维度与数据集的倍增维度 $\lambda_X$ 关联，实现了数据无关映射+数据依赖分析的双重优势。然而，对于**最大化**问题（如最大匹配、最大TSP、多样性最大化），此类结果此前几乎空白。
 
@@ -130,6 +132,6 @@ $$t = O\!\left(\varepsilon^{-2}\,\lambda\,\log \frac{1}{\varepsilon}\right)$$
 - [Maximum Coverage in Turnstile Streams with Applications to Fingerprinting Measures](maximum_coverage_in_turnstile_streams_with_applications_to_fingerprinting_measur.md)
 - [Verbosity-Aware Rationale Reduction: Effective Reduction of Redundant Rationale](../../ACL2025/others/verbosity-aware_rationale_reduction_effective_reduction_of_redundant_rationale_v.md)
 - [Efficient Optimization with Orthogonality Constraint: a Randomized Riemannian Submanifold Method](efficient_optimization_with_orthogonality_constraint_a_randomized_riemannian_sub.md)
-- [Diversity by Design: Leveraging Distribution Matching for Offline Model-Based Optimization](diversity_by_design_leveraging_distribution_matching_for_offline_model-based_opt.md)
+- [Fully Dynamic Euclidean Bi-Chromatic Matching in Sublinear Update Time](fully_dynamic_euclidean_bi-chromatic_matching_in_sublinear_update_time.md)
 
 <!-- RELATED:END -->

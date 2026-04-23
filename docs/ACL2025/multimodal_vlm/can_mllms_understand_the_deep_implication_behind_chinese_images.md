@@ -166,7 +166,7 @@ GPT-4o总体得分2.71（满分5分），表明模型仅能观察到绘画表面
 - [NegVQA: Can Vision Language Models Understand Negation?](negvqa_can_vision_language_models_understand_negation.md)
 - [Can Vision Language Models Understand Mimed Actions?](can_vision_language_models_understand_mimed_actions.md)
 - [Can Multimodal Large Language Models Understand Spatial Relations?](spatialmqa_mllm_spatial_relations.md)
+- [Finding Needles in Images: Can Multi-modal LLMs Locate Fine Details?](finding_needles_in_images_can_multi-modal_llms_locate_fine_details.md)
 - [CORDIAL: Can Multimodal Large Language Models Effectively Understand Coherence Relations?](cordial_can_multimodal_large_language_models_effectively_understand_coherence_re.md)
-- [MMSciBench: Benchmarking Language Models on Chinese Multimodal Scientific Problems](mmscibench_benchmarking_language_models_on_chinese_multimodal_scientific_problem.md)
 
 <!-- RELATED:END -->

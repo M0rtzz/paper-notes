@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 图学习方向 6篇论文解读
+  CVPR2026 图学习方向 7篇论文解读
 description: >-
-  6篇CVPR2026 图学习论文解读，主题涵盖：GLIC 把学习图像压缩里的非线性变换从固定卷积或、提出 G2F-RAG 范式，将检索到的结构化知识渲、利用 Busemann 函数将多类逻辑回归（MLR等，每篇含核心思想与方法详解。
+  7篇CVPR2026 图学习论文解读，主题涵盖：GLIC 把学习图像压缩里的非线性变换从固定卷积或、提出 G2F-RAG 范式，将检索到的结构化知识渲、利用 Busemann 函数将多类逻辑回归（MLR等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**📷 CVPR2026** · **6** 篇论文解读
+**📷 CVPR2026** · **7** 篇论文解读
 
 **[Adaptive Learned Image Compression with Graph Neural Networks](adaptive_learned_image_compression_with_graph_neural_networks.md)**
 
@@ -21,6 +21,10 @@ description: >-
 **[Hyperbolic Busemann Neural Networks](hyperbolic_busemann_neural_networks.md)**
 
 :   利用 Busemann 函数将多类逻辑回归（MLR）和全连接层（FC）内蕴地提升到双曲空间，提出 BMLR 和 BFC 两个统一组件，在 Poincaré 球和 Lorentz 模型上同时适用，且在图像分类、基因组序列、节点分类、链接预测四类任务上均优于已有双曲层。
+
+**[M3KG-RAG: Multi-hop Multimodal Knowledge Graph-enhanced Retrieval-Augmented Generation](m3kg_rag_multi_hop_multimodal_knowledge_graph_enhanced_retrieval_augmented_genera.md)**
+
+:   提出M3KG-RAG，通过轻量多Agent流水线构建多跳多模态知识图谱（M3KG），并设计GRASP机制进行实体定位和选择性剪枝，仅保留查询相关且有助回答的知识，大幅提升MLLM的音视觉推理能力。
 
 **[Mario: Multimodal Graph Reasoning with Large Language Models](mario_multimodal_graph_reasoning_with_large_language_models.md)**
 

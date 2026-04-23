@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: 待公开  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 视频修复 / 老电影修复  
 **关键词**: 老电影修复, Mamba, 退化感知, 光流对齐, 状态空间模型
 
@@ -26,6 +26,8 @@ tags:
 本文提出MambaOFR框架，针对老电影特有的复合退化问题，设计退化感知prompt引导Mamba模型动态调整修复模式，配合光流引导的掩码变形对齐模块防止结构缺陷传播，并引入首个包含合成与真实数据的老电影修复benchmark数据集。
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：老电影修复旨在恢复模拟胶片时代的影片质量，需要处理划痕、闪烁、噪点、颜色衰减、胶片颗粒等特有退化。近年来视频修复方法（如BasicVSR++、RVRT等）在现代视频去噪、超分等任务上表现出色。
 
@@ -62,6 +64,10 @@ MambaOFR采用多帧输入的编码器-解码器架构，核心是Mamba-based时
     - 核心思路：合成部分使用复合退化模拟流水线（随机叠加划痕、噪点、闪烁、色彩衰减等），从高质量数字视频生成配对训练数据。真实部分收集实际老电影片段用于定性评估。涵盖不同年代、不同胶片类型的退化模式
     - 设计动机：现有方法缺乏统一评测平台，不同论文使用不同测试集导致结果不可比
 
+### 损失函数 / 训练策略
+模型采用端到端训练，优化目标综合考虑任务损失和正则化项。
+
+
 ## 实验关键数据
 
 ### 关键发现
@@ -85,14 +91,27 @@ MambaOFR采用多帧输入的编码器-解码器架构，核心是Mamba-based时
 - 颜色恢复依赖训练数据的色彩分布，对特殊色彩风格的胶片可能效果有限
 - 未来可结合生成模型（如扩散模型）进行修复区域的语义重建
 
+
+## 相关工作与启发
+- **vs 同领域代表性方法**：本文在方法设计上有独特贡献，与现有方法形成互补
+- **vs 传统方法**：相比传统方案，本文方法在关键指标上取得了显著提升
+- **启发**：本文的技术路线对后续相关工作有重要参考价值
+
+
+## 评分
+- 新颖性: ⭐⭐⭐⭐ 方法设计有独特贡献
+- 实验充分度: ⭐⭐⭐⭐ 多数据集验证
+- 写作质量: ⭐⭐⭐⭐ 条理清晰
+- 价值: ⭐⭐⭐⭐ 对领域有推动作用
+
 <!-- RELATED:START -->
 
 ## 相关论文
 
 - [MVSMamba: Multi-View Stereo with State Space Model](../../NeurIPS2025/llm_evaluation/mvsmamba_multi-view_stereo_with_state_space_model.md)
 - [Generalization Error Analysis for Selective State-Space Models Through the Lens of Attention](../../NeurIPS2025/llm_evaluation/generalization_error_analysis_for_selective_state-space_models_through_the_lens_.md)
-- [PosterO: Structuring Layout Trees to Enable Language Models in Generalized Content-Aware Layout Generation](postero_structuring_layout_trees_to_enable_language_models_in_generalized_conten.md)
 - [Out of Sight, Out of Mind? Evaluating State Evolution in Video World Models](out_of_sight_out_of_mind_evaluating_state_evolution_in_video_world_models.md)
 - [Uncertainty Weighted Gradients for Model Calibration](uncertainty_weighted_gradients_for_model_calibration.md)
+- [TraF-Align: Trajectory-aware Feature Alignment for Asynchronous Multi-agent Perception](traf-align_trajectory-aware_feature_alignment_for_asynchronous_multi-agent_perce.md)
 
 <!-- RELATED:END -->

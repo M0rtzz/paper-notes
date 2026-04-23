@@ -215,10 +215,10 @@ ActionGenome4D 上的关系预测（PredCls, DINOv2-L）：
 
 ## 相关论文
 
+- [Universal Scene Graph Generation](../../CVPR2025/graph_learning/universal_scene_graph_generation.md)
 - [Spatio-Temporal Directed Graph Learning for Account Takeover Fraud Detection](../../NeurIPS2025/graph_learning/spatio-temporal_directed_graph_learning_for_account_takeover_fraud_detection.md)
 - [ESCA: Contextualizing Embodied Agents via Scene-Graph Generation](../../NeurIPS2025/graph_learning/esca_contextualizing_embodied_agents_via_scene-graph_generation.md)
-- [Unbiased Video Scene Graph Generation via Visual and Semantic Dual Debiasing](../../CVPR2025/graph_learning/unbiased_video_scene_graph_generation_via_visual_and_semantic_dual_debiasing.md)
+- [M3KG-RAG: Multi-hop Multimodal Knowledge Graph-enhanced Retrieval-Augmented Generation](m3kg_rag_multi_hop_multimodal_knowledge_graph_enhanced_retrieval_augmented_genera.md)
 - [Fine-Grained Scene Graph Generation via Sample-Level Bias Prediction](../../ECCV2024/graph_learning/fine-grained_scene_graph_generation_via_sample-level_bias_prediction.md)
-- [Interaction-Centric Knowledge Infusion and Transfer for Open-Vocabulary Scene Graph Generation](../../NeurIPS2025/graph_learning/interaction-centric_knowledge_infusion_and_transfer_for_open-vocabulary_scene_gr.md)
 
 <!-- RELATED:END -->

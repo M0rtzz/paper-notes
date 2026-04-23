@@ -177,10 +177,10 @@ PropVG在GREC上F1超SimVG +10.1%，"无目标"判别准确率超+18.1%。
 
 ## 相关论文
 
-- [Multi-Label Cluster Discrimination for Visual Representation Learning](../../ECCV2024/social_computing/multi-label_cluster_discrimination_for_visual_representation_learning.md)
 - [taz2024full: Analysing German Newspapers for Gender Bias and Discrimination across Decades](../../ACL2025/social_computing/taz2024full_analysing_german_newspapers_for_gender_bias_and_discrimination_acros.md)
 - [Classifier-to-Bias: Toward Unsupervised Automatic Bias Detection for Visual Classifiers](../../CVPR2025/social_computing/classifier-to-bias_toward_unsupervised_automatic_bias_detection_for_visual_class.md)
 - [DeepTraverse: A Depth-First Search Inspired Network for Algorithmic Visual Understanding](../../NeurIPS2025/social_computing/deeptraverse_a_depth-first_search_inspired_network_for_algorithmic_visual_unders.md)
-- [Gradient Extrapolation for Debiased Representation Learning](gradient_extrapolation_for_debiased_representation_learning.md)
+- [GRACE: Graph-Based Contextual Debiasing for Fair Visual Question Answering](../../ECCV2024/social_computing/grace_graph-based_contextual_debiasing_for_fair_visual_question_answering.md)
+- [Classifier-guided CLIP Distillation for Unsupervised Multi-label Classification](../../CVPR2025/social_computing/classifier-guided_clip_distillation_for_unsupervised_multi-label_classification.md)
 
 <!-- RELATED:END -->

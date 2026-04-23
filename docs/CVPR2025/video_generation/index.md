@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 视频生成方向 76篇论文解读
+  CVPR2025 视频生成方向 84篇论文解读
 description: >-
-  76篇CVPR2025 视频生成论文解读，主题涵盖：提出4Real-Video，一种基于双流架构的4D、提出两阶段可控视频生成框架：第一阶段将不同控制信号、提出 AKD，将视频扩散模型（CogVideoX-等，每篇含核心思想与方法详解。
+  84篇CVPR2025 视频生成论文解读，主题涵盖：提出4Real-Video，一种基于双流架构的4D、提出两阶段可控视频生成框架：第一阶段将不同控制信号、本文提出AKD框架，通过骨骼关节参数化将3D资产的等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频生成
 
-**📷 CVPR2025** · **76** 篇论文解读
+**📷 CVPR2025** · **84** 篇论文解读
 
 **[4Real-Video: Learning Generalizable Photo-Realistic 4D Video Diffusion](4real-video_learning_generalizable_photo-realistic_4d_video_diffusion.md)**
 
@@ -20,7 +20,11 @@ description: >-
 
 **[Articulated Kinematics Distillation from Video Diffusion Models](articulated_kinematics_distillation_from_video_diffusion_models.md)**
 
-:   提出 AKD，将视频扩散模型（CogVideoX-5B）的运动先验通过 SDS 蒸馏到 3D 铰链角色的关节角度参数中，结合可微分前向运动学+高斯散射渲染+物理约束，实现文本驱动的真实角色动画，VideoPhy SA 得分从 TC4D 的 0.40 提升到 0.81。
+:   本文提出AKD框架，通过骨骼关节参数化将3D资产的运动自由度从全空间降维到少量关节角度，再利用视频扩散模型（CogVideoX）的SDS梯度蒸馏出文本对齐的关节运动序列，并可通过物理仿真进一步确保物理合理性。
+
+**[BF-STVSR: B-Splines and Fourier—Best Friends for High Fidelity Spatial-Temporal Video Super-Resolution](bf-stvsr_b-splines_and_fourier---best_friends_for_high_fidelity_spatia.md)**
+
+:   提出 BF-STVSR 框架，用 B-spline Mapper 建模时间运动插值、Fourier Mapper 捕获空间高频细节，无需外部光流网络即可实现连续时空视频超分辨率的 SOTA 性能。
 
 **[BF-STVSR: B-Splines and Fourier—Best Friends for High Fidelity Spatial-Temporal Video Super-Resolution](bf-stvsr_b-splines_and_fourier---best_friends_for_high_fidelity_spatial-temporal.md)**
 
@@ -38,6 +42,10 @@ description: >-
 
 :   提出DynPose-100K——一个包含10万个动态互联网视频及其相机位姿标注的大规模数据集，通过专用模型组合+VLM的视频过滤管线和集成最新点跟踪+动态掩码+全局BA的位姿估计管线实现。
 
+**[DynamicScaler: Seamless and Scalable Video Generation for Panoramic Scenes](dynamicscaler_panoramic_video.md)**
+
+:   提出 DynamicScaler，一个无需训练的统一框架，通过偏移移位去噪器和全局运动引导，实现任意分辨率/宽高比的全景动态场景生成，支持 360° 视场、长时长和可循环视频。
+
 **[DynamicScaler: Seamless and Scalable Video Generation for Panoramic Scenes](dynamicscaler_seamless_and_scalable_video_generation_for_panoramic_scenes.md)**
 
 :   DynamicScaler 提出了一个无需微调的统一框架，通过偏移移位去噪器（OSD）和全局运动引导（GMG）实现任意分辨率/宽高比的全景动态场景合成，支持常规全景和 360° 视野视频生成，同时保持恒定 VRAM 消耗。
@@ -50,13 +58,25 @@ description: >-
 
 :   提出 FADE，一种免训练的视频编辑方法，通过分析 T2V 模型中各 transformer block 的频率角色（sketching vs sharpening），利用频谱引导调制在频域中分离保留与编辑内容，实现高质量的外观和运动编辑。
 
+**[FlashMotion: Few-Step Controllable Video Generation with Trajectory Guidance](flashmotion_few-step_controllable_video_generation_with_trajectory_guidance.md)**
+
+:   FlashMotion 提出了一个三阶段训练框架，将轨迹可控视频生成从多步去噪蒸馏到少步推理（4-8步），通过先训练轨迹适配器、再蒸馏生成器、最后用扩散+对抗混合目标微调适配器的策略，在大幅加速推理的同时保持了视频质量和轨迹精度。
+
 **[From Slow Bidirectional to Fast Autoregressive Video Diffusion Models](from_slow_bidirectional_to_fast_autoregressive_video_diffusion_models.md)**
 
 :   CausVid 通过非对称蒸馏将预训练的双向视频扩散 Transformer 蒸馏为因果自回归 4 步生成器，结合 ODE 初始化和 KV 缓存，实现 9.4 FPS 的流式视频生成（比 CogVideoX 快 160×），在 VBench-Long 基准上以 84.27 分排名第一。
 
+**[GEN3C: 3D-Informed World-Consistent Video Generation with Precise Camera Control](gen3c_3d-informed_world-consistent_video_generation_with_precise_camera_control.md)**
+
+:   GEN3C 提出了一种基于 3D 缓存（point cloud cache）引导的视频生成框架，通过对种子图像预测深度并反投影得到 3D 点云，在生成下一帧时将 3D 缓存按用户指定的相机轨迹渲染为 2D 条件图，从而实现精确的相机控制和跨帧 3D 一致性。
+
 **[Generative Inbetweening through Frame-wise Conditions-Driven Video Generation](generative_inbetweening_through_frame-wise_conditions-driven_video_generation.md)**
 
 :   提出 FCVG，通过从两个关键帧中提取匹配线段并逐帧线性插值作为帧级条件，注入 SVD 视频生成模型，显著消解了生成式中间帧合成中前向/反向路径的模糊性，实现时序稳定的视频插帧。
+
+**[Geometry-guided Online 3D Video Synthesis with Multi-View Temporal Consistency](geometry-guided_online_3d_video_synthesis_with_multi-view_temporal_consistency.md)**
+
+:   本文提出了一种几何引导的在线视频视角合成方法，通过渐进式深度图优化和截断有符号距离场（TSDF）累积来构建视角和时序一致的深度表示，再用该深度引导预训练的图像融合网络，实现了高效且一致的新视角视频合成。
 
 **[HOIGen-1M: A Large-Scale Dataset for Human-Object Interaction Video Generation](hoigen-1m_a_large-scale_dataset_for_human-object_interaction_video_generation.md)**
 
@@ -138,6 +158,10 @@ description: >-
 
 :   提出 MotionStone，通过训练独立的运动强度估计器将视频运动解耦为物体运动和相机运动两个维度，并以解耦方式注入 Diffusion Transformer，实现精细的运动强度可控 I2V 生成。
 
+**[MovieBench: A Hierarchical Movie Level Dataset for Long Video Generation](moviebench_a_hierarchical_movie_level_dataset_for_long_video_generation.md)**
+
+:   本文提出MovieBench——首个面向电影级长视频生成的层次化数据集，提供电影-场景-镜头三级标注（含角色肖像、字幕和音频），并基于此定义了四个基准任务（文本到关键帧、身份定制长视频、关键帧条件视频、音频驱动说话人生成），揭示了现有模型在多场景叙事一致性上的重大挑战。
+
 **[Multi-subject Open-set Personalization in Video Generation](multi-subject_open-set_personalization_in_video_generation.md)**
 
 :   提出 Video Alchemist，在 Diffusion Transformer 架构中内置多主体、开放集的视频个性化生成能力，支持前景物体和背景的定制，无需测试时优化。
@@ -206,6 +230,10 @@ description: >-
 
 :   提出 SpatialDreamer，一种基于视频扩散模型的自监督立体视频合成框架：通过深度引导的视频数据生成模块 (DVG) 解决立体视频训练数据不足问题，通过 RefinerNet 框架和一致性控制模块（立体偏差强度 + 时序交互学习 TIL）确保生成立体视频的几何与时间一致性，性能超越 Apple Vision Pro 3D 转换器。
 
+**[Spatiotemporal Skip Guidance for Enhanced Video Diffusion Sampling](spatiotemporal_skip_guidance_for_enhanced_video_diffusion_sampling.md)**
+
+:   STG（Spatiotemporal Skip Guidance）提出通过选择性跳过 Transformer 的时空层来构造隐式弱模型，作为原模型的退化版本进行自扰动引导，无需额外训练即可提升视频扩散模型的生成质量，同时保持样本多样性和运动动态性，克服了 CFG 在视频生成中导致多样性和动态性下降的根本缺陷。
+
 **[StreamingT2V: Consistent, Dynamic, and Extendable Long Video Generation from Text](streamingt2v_consistent_dynamic_and_extendable_long_video_generation_from_text.md)**
 
 :   提出 StreamingT2V，一种自回归文本到长视频生成方法，通过短期记忆模块（CAM）和长期记忆模块（APM）实现长达 2 分钟以上（1200+ 帧）的无缝、高运动量视频生成。
@@ -233,6 +261,10 @@ description: >-
 **[Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model](timestep_embedding_tells_its_time_to_cache_for_video_diffusion_model.md)**
 
 :   本文提出 TeaCache，一种免训练的视频扩散模型缓存加速方法，通过时间步嵌入调制噪声输入来估计相邻时间步模型输出的差异，配合多项式拟合进行缩放校准，从而自适应决定何时缓存/复用输出，在 Open-Sora-Plan 上实现 4.41× 加速且视觉质量几乎无损（VBench 仅降 0.07%）。
+
+**[TokenMotion: Decoupled Motion Control via Token Disentanglement for Human-centric Video Generation](tokenmotion_decoupled_motion_control_via_token_disentanglement_for_human-centric.md)**
+
+:   TokenMotion 提出首个基于 DiT 的视频扩散框架，通过将相机轨迹和人体姿态表示为时空 token，并利用"解耦-融合"策略与人体感知动态掩码，实现对相机运动与人体运动的精细联合控制，在 text-to-video 和 image-to-video 范式上均超越现有 SOTA。
 
 **[Tora: Trajectory-Oriented Diffusion Transformer for Video Generation](tora_trajectory-oriented_diffusion_transformer_for_video_generation.md)**
 

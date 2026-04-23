@@ -140,6 +140,6 @@ tags:
 - [RadGPT: Constructing 3D Image-Text Tumor Datasets](../../ICCV2025/medical_imaging/radgpt_constructing_3d_image-text_tumor_datasets.md)
 - [EEG-Language Pretraining for Highly Label-Efficient Clinical Phenotyping](../../ICML2025/medical_imaging/eeg-language_pretraining_for_highly_label-efficient_clinical_phenotyping.md)
 - [MultiverSeg: Scalable Interactive Segmentation of Biomedical Imaging Datasets with In-Context Guidance](../../ICCV2025/medical_imaging/multiverseg_scalable_interactive_segmentation_of_biomedical_imaging_datasets_wit.md)
-- [Unmasking Biases and Reliability Concerns in Convolutional Neural Networks Analysis of Cancer Pathology Images](../../CVPR2025/medical_imaging/unmasking_biases_and_reliability_concerns_in_convolutional_neural_networks_analy.md)
+- [Surg-R1: A Hierarchical Reasoning Foundation Model for Scalable and Interpretable Surgical Decision Support](../../CVPR2025/medical_imaging/surg-r1_a_hierarchical_reasoning_foundation_model_for_scalable_and_interpretable.md)
 
 <!-- RELATED:END -->

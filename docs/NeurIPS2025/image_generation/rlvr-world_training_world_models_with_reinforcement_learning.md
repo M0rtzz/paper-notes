@@ -140,6 +140,6 @@ RLVR-World 将不同模态的世界模型统一到自回归序列建模框架下
 - [Aether: Geometric-Aware Unified World Modeling](../../ICCV2025/image_generation/aether_geometricaware_unified_world_modeling.md)
 - [Co-Reinforcement Learning for Unified Multimodal Understanding and Generation](coreinforcement_learning_for_unified_multimodal_understandin.md)
 - [Towards Robust Zero-Shot Reinforcement Learning](towards_robust_zero-shot_reinforcement_learning.md)
-- [UniReal: Universal Image Generation and Editing via Learning Real-world Dynamics](../../CVPR2025/image_generation/unireal_universal_image_generation_and_editing_via_learning_real-world_dynamics.md)
+- [Controlling the World by Sleight of Hand](../../ECCV2024/image_generation/controlling_the_world_by_sleight_of_hand.md)
 
 <!-- RELATED:END -->

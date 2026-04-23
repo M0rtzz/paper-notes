@@ -26,12 +26,29 @@ tags:
 
 ## 研究背景与动机
 
-- 车辆路径问题（VRP）是物流运输的核心优化问题，传统启发式方法依赖手工规则、适应性差
-- GFlowNet通过学习解空间上的分布来生成多样化高质量路径，是有前景的替代方案
-- 现有GFlowNet-VRP方法（AGFN、GFACS）仅使用轨迹平衡（TB）进行全局优化，忽视了局部优化信号
-- TB的局限：当整条路径成本高时，即使其中有高质量的局部转移（如W→X→Y），也会因全局奖励差而收到弱训练信号
-- 详细平衡（DB）提供步级局部信号，但单独使用DB无法满足VRP需要的全局视角
-- 核心洞察：**全局和局部优化互补，需要统一框架**
+### 领域现状
+
+**领域现状**：车辆路径问题（VRP）是物流运输的核心优化问题，传统启发式方法依赖手工规则、适应性差
+
+### 现有痛点
+
+**现有痛点**：GFlowNet通过学习解空间上的分布来生成多样化高质量路径，是有前景的替代方案
+
+### 核心矛盾
+
+**核心矛盾**：现有GFlowNet-VRP方法（AGFN、GFACS）仅使用轨迹平衡（TB）进行全局优化，忽视了局部优化信号
+
+### 解决思路
+
+**解决思路**：TB的局限：当整条路径成本高时，即使其中有高质量的局部转移（如W→X→Y），也会因全局奖励差而收到弱训练信号
+
+### 补充说明
+
+**补充说明**：详细平衡（DB）提供步级局部信号，但单独使用DB无法满足VRP需要的全局视角
+
+### 补充说明
+
+**补充说明**：核心洞察：**全局和局部优化互补，需要统一框架**
 
 ## 方法详解
 
@@ -124,8 +141,8 @@ CVRP基准测试（Gap%相对于LKH）：
 
 - [OR-R1: Automating Modeling and Solving of Operations Research Optimization Problems](../../AAAI2026/others/or-r1_automating_modeling_and_solving_of_operations_research_optimization_proble.md)
 - [Evaluating GFlowNet from Partial Episodes for Stable and Flexible Policy-Based Training](../../ICLR2026/others/evaluating_gflownet_from_partial_episodes_for_stable_and_flexible_policy-based_t.md)
+- [MIR: Methodology Inspiration Retrieval for Scientific Research Problems](../../ACL2025/others/mir_methodology_inspiration_retrieval_for_scientific_research_problems.md)
 - [Hanging in the Balance: Pivotal Moments in Crisis Counseling Conversations](../../ACL2025/others/hanging_in_the_balance_pivotal_moments_in_crisis_counseling_conversations.md)
-- [Foster Adaptivity and Balance in Learning with Noisy Labels](../../ECCV2024/others/foster_adaptivity_and_balance_in_learning_with_noisy_labels.md)
-- [Near-Optimal Consistency-Robustness Trade-Offs for Learning-Augmented Online Knapsack Problems](../../ICML2025/others/near-optimal_consistency-robustness_trade-offs_for_learning-augmented_online_kna.md)
+- [Revisiting Image Fusion for Multi-Illuminant White-Balance Correction](../../ICCV2025/others/revisiting_image_fusion_for_multi-illuminant_white-balance_correction.md)
 
 <!-- RELATED:END -->

@@ -209,7 +209,7 @@ tags:
 - [How LLMs Comprehend Temporal Meaning in Narratives: A Case Study in Cognitive Evaluation of LLMs](../../ACL2025/llm_nlp/how_llms_comprehend_temporal_meaning_in_narratives_a_case_study_in_cognitive_eva.md)
 - [A Large-Scale Real-World Evaluation of an LLM-Based Virtual Teaching Assistant](../../ACL2025/llm_nlp/a_large-scale_real-world_evaluation_of_llm-based_virtual_teaching_assistant.md)
 - [If Eleanor Rigby Had Met ChatGPT: A Study on Loneliness in a Post-LLM World](../../ACL2025/llm_nlp/if_eleanor_rigby_had_met_chatgpt_a_study_on_loneliness_in_a_post-llm_world.md)
+- [Transforming Podcast Preview Generation: From Expert Models to LLM-Based Systems](../../ACL2025/llm_nlp/transforming_podcast_preview_generation_from_expert_models_to_llm-based_systems.md)
 - [Is It JUST Semantics? A Case Study of Discourse Particle Understanding in LLMs](../../ACL2025/llm_nlp/is_it_just_semantics_a_case_study_of_discourse_particle_understanding_in_llms.md)
-- [Algorithmic Fidelity of Large Language Models in Generating Synthetic German Public Opinions: A Case Study](../../ACL2025/llm_nlp/algorithmic_fidelity_german_opinion.md)
 
 <!-- RELATED:END -->

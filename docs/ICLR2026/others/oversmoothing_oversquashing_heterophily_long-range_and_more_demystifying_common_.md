@@ -144,9 +144,9 @@ $$\mathcal{M}_v^K := \mathcal{M}_v^{K-1} \uplus \left\{\biguplus_{u \in \mathcal
 ## 相关论文
 
 - [Learning Structure-Semantic Evolution Trajectories for Graph Domain Adaptation](learning_structure-semantic_evolution_trajectories_for_graph_domain_adaptation.md)
-- [Directional Non-Commutative Monoidal Structures for Compositional Embeddings in Machine Learning](../../NeurIPS2025/others/directional_non-commutative_monoidal_structures_for_compositional_embeddings_in_.md)
+- [Life, Machine Learning, and the Search for Habitability: Predicting Biosignature Fluxes for the Habitable Worlds Observatory](../../AAAI2026/others/life_machine_learning_and_the_search_for_habitability_predicting_biosignature_fl.md)
 - [Learning Adaptive Distribution Alignment with Neural Characteristic Function for Graph Domain Adaptation](learning_adaptive_distribution_alignment_with_neural_characteristic_function_for.md)
-- [Revisiting Sharpness-Aware Minimization: A More Faithful and Effective Implementation](revisiting_sharpness-aware_minimization_a_more_faithful_and_effective_implementa.md)
+- [Directional Non-Commutative Monoidal Structures for Compositional Embeddings in Machine Learning](../../NeurIPS2025/others/directional_non-commutative_monoidal_structures_for_compositional_embeddings_in_.md)
 - [SEED: Towards More Accurate Semantic Evaluation for Visual Brain Decoding](seed_towards_more_accurate_semantic_evaluation_for_visual_brain_decoding.md)
 
 <!-- RELATED:END -->

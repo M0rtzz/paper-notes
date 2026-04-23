@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-口语理解（SLU）是任务型对话系统的核心组件，包含意图检测（分类）和槽填充（序列标注）两个子任务。现实场景中，用户常在一句话中表达多个意图（亚马逊内部数据集中 52% 是多意图样本），这使得多意图 SLU 成为重要挑战。
+### 现有痛点
+
+**现有痛点**：**领域现状**：口语理解（SLU）是任务型对话系统的核心组件，包含意图检测（分类）和槽填充（序列标注）两个子任务。现实场景中，用户常在一句话中表达多个意图（亚马逊内部数据集中 52% 是多意图样本），这使得多意图 SLU 成为重要挑战。
 
 将 LLM 直接用于多意图 SLU 面临两个核心问题：
 
@@ -101,7 +103,7 @@ $$U \mapsto \{(I_1: U_1), (I_2: U_2), \ldots, (I_n: U_n)\}$$
 3. **Entity Slots Recovery 保证了推理时的精确对齐**：这一设计解决了 LLM 在序列标注中最关键的工程问题
 4. **仅 1 epoch 微调即可大幅超越 SOTA**：说明 LLM 的基础能力在合适的框架下可以被高效激活
 
-## 局限性
+## 局限与展望
 
 - 仅在 MixATIS 和 MixSNIPS 两个英文数据集上验证，缺乏多语言和更复杂场景的评估
 - Entity Slots Recovery 依赖精确匹配，如果 LLM 生成了原始话语中不存在的词汇可能导致恢复失败
@@ -127,10 +129,10 @@ $$U \mapsto \{(I_1: U_1), (I_2: U_2), \ldots, (I_n: U_n)\}$$
 
 ## 相关论文
 
+- [Cross-Modal Alignment for LLM-Enhanced Spoken Language Understanding](cross-modal_alignment_for_llm-enhanced_spoken_language_understanding.md)
 - [On Entity Identification in Language Models](on_entity_identification_in_language_models.md)
 - [Logical Forms Complement Probability in Understanding Language Model (and Human) Performance](logical_forms_complement_probability_in_understanding_language_model_and_human_p.md)
-- [Enhancing Spoken Discourse Modeling in Language Models Using Gestural Cues](enhancing_spoken_discourse_modeling_in_language_models_using_gestural_cues.md)
 - [Enhancing Character-Level Understanding in LLMs through Token Internal Structure Learning](character_level_understanding.md)
-- [MExGen: Multi-Level Explanations for Generative Language Models](mexgen_multi_level_explanations.md)
+- [LR²Bench: Evaluating Long-chain Reflective Reasoning Capabilities of Large Language Models via Constraint Satisfaction Problems](lr2bench_evaluating_long-chain_reflective_reasoning_capabilities_of_large_langua.md)
 
 <!-- RELATED:END -->

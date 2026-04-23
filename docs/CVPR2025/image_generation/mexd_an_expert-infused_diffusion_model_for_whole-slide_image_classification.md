@@ -123,6 +123,6 @@ MExD 首次将生成式扩散模型应用于全切片图像（WSI）分类，通
 - [DPoser-X: Diffusion Model as Robust 3D Whole-Body Human Pose Prior](../../ICCV2025/image_generation/dposer-x_diffusion_model_as_robust_3d_whole-body_human_pose_prior.md)
 - [InterMimic: Towards Universal Whole-Body Control for Physics-Based Human-Object Interactions](intermimic_towards_universal_whole-body_control_for_physics-based_human-object_i.md)
 - [CaMiT: A Time-Aware Car Model Dataset for Classification and Generation](../../NeurIPS2025/image_generation/camit_a_time-aware_car_model_dataset_for_classification_and_generation.md)
-- [Active Generation for Image Classification](../../ECCV2024/image_generation/active_generation_for_image_classification.md)
+- [CamFreeDiff: Camera-free Image to Panorama Generation with Diffusion Model](camfreediff_camera-free_image_to_panorama_generation_with_diffusion_model.md)
 
 <!-- RELATED:END -->

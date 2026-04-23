@@ -161,7 +161,7 @@ StructFlowBench 包含两个核心组件：
 - [CFBench: A Comprehensive Constraints-Following Benchmark for LLMs](cfbench_a_comprehensive_constraints-following_benchmark_for_llms.md)
 - [CodeAssistBench (CAB): Dataset & Benchmarking for Multi-turn Chat-Based Code Assistance](../../NeurIPS2025/llm_evaluation/codeassistbench_cab_dataset_benchmarking_for_multi-turn_chat-based_code_assistan.md)
 - [READoc: A Unified Benchmark for Realistic Document Structured Extraction](readoc_a_unified_benchmark_for_realistic_document_structured_extraction.md)
-- [KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding](kitab-bench_a_comprehensive_multi-domain_benchmark_for_arabic_ocr_and_document_u.md)
 - [McBE: A Multi-task Chinese Bias Evaluation Benchmark for Large Language Models](mcbe_a_multi-task_chinese_bias_evaluation_benchmark_for_large_language_models.md)
+- [KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding](kitab-bench_a_comprehensive_multi-domain_benchmark_for_arabic_ocr_and_document_u.md)
 
 <!-- RELATED:END -->

@@ -40,4 +40,4 @@ description: >-
 
 **[Towards a Foundation Model for Partial Differential Equations Across Physics Domains](towards_a_foundation_model_for_partial_differential_equations_across_physics_dom.md)**
 
-:   提出 PDE-FM，一个结合空间-频谱 tokenization、物理感知 FiLM 调制和 Mamba 状态空间 backbone 的模块化 PDE foundation model，在 The Well 基准的 12 个跨物理域数据集上平均降低 VRMSE 46%。
+:   提出 PDE-FM，一个结合空间-频谱双模态 tokenization、FiLM 物理调制和 Mamba 状态空间 backbone 的模块化 PDE foundation model，在 The Well 基准 12 个异构物理域数据集上平均降低 VRMSE 46%。

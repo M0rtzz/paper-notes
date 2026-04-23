@@ -176,7 +176,7 @@ Car 类指标最优（AMOTA 0.613），Pedestrian 类 IDS 最高（342），反�
 - [PAP: A Prediction-as-Perception Framework for 3D Object Detection](../../CVPR2025/autonomous_driving/a_prediction-as-perception_framework_for_3d_object_detection.md)
 - [R4Det: 4D Radar-Camera Fusion for High-Performance 3D Object Detection](r4det_4d_radar-camera_fusion_for_high-performance_3d_object_detection.md)
 - [CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection](ccf_complementary_collaborative_fusion_for_domain_generalized_multi-modal_3d_obj.md)
+- [Den-TP: A Density-Balanced Data Curation and Evaluation Framework for Trajectory Prediction](den_tp_a_density_balanced_data_curation_and_evaluation_framework_for_trajectory.md)
 - [On the Feasibility and Opportunity of Autoregressive 3D Object Detection](on_the_feasibility_and_opportunity_of_autoregressive_3d_object_detection.md)
-- [SparseAlign: A Fully Sparse Framework for Cooperative Object Detection](../../CVPR2025/autonomous_driving/sparsealign_a_fully_sparse_framework_for_cooperative_object_detection.md)
 
 <!-- RELATED:END -->

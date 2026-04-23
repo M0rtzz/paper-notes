@@ -138,9 +138,9 @@ SciScore 分类准确率（Science-T2I-S / Science-T2I-C）：
 ## 相关论文
 
 - [The Art of Deception: Color Visual Illusions and Diffusion Models](the_art_of_deception_color_visual_illusions_and_diffusion_models.md)
+- [Exploring Sparse MoE in GANs for Text-conditioned Image Synthesis](exploring_sparse_moe_in_gans_for_text-conditioned_image_synthesis.md)
 - [Addressing Text Embedding Leakage in Diffusion-Based Image Editing](../../ICCV2025/image_generation/addressing_text_embedding_leakage_in_diffusion-based_image_editing.md)
 - [Multi-focal Conditioned Latent Diffusion for Person Image Synthesis](multi-focal_conditioned_latent_diffusion_for_person_image_synthesis.md)
 - [Noise Diffusion for Enhancing Semantic Faithfulness in Text-to-Image Synthesis](noise_diffusion_for_enhancing_semantic_faithfulness_in_text-to-image_synthesis.md)
-- [Self-Cross Diffusion Guidance for Text-to-Image Synthesis of Similar Subjects](self-cross_diffusion_guidance_for_text-to-image_synthesis_of_similar_subjects.md)
 
 <!-- RELATED:END -->

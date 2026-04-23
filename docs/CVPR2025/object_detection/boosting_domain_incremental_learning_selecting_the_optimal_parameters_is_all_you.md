@@ -15,7 +15,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2505.23744](https://arxiv.org/abs/2505.23744)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 目标检测  
 **关键词**: domain incremental learning, parameter selection, continual learning, object detection
 
@@ -23,6 +23,8 @@ tags:
 发现在域增量学习中选择最优参数子集比微调全部参数更有效，提出参数选择策略解决域增量目标检测的灾难性遗忘
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：Boosting Domain Incremental Learning 方向近年取得了显著进展，但仍存在关键挑战。
 

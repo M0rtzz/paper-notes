@@ -142,8 +142,8 @@ ICQ 包含三大贡献：
 
 - [BlinkTrack: Feature Tracking over 80 FPS via Events and Images](../../ICCV2025/video_understanding/blinktrack_feature_tracking_over_80_fps_via_events_and_images.md)
 - [VideoGEM: Training-Free Action Grounding in Videos](videogem_training-free_action_grounding_in_videos.md)
-- [DivPrune: Diversity-Based Visual Token Pruning for Large Multimodal Models](divprune_diversity-based_visual_token_pruning_for_large_multimodal_models.md)
 - [DPU: Dynamic Prototype Updating for Multimodal Out-of-Distribution Detection](dpu_dynamic_prototype_updating_for_multimodal_out-of-distribution_detection.md)
+- [DivPrune: Diversity-Based Visual Token Pruning for Large Multimodal Models](divprune_diversity-based_visual_token_pruning_for_large_multimodal_models.md)
 - [Mamba-VMR: Multimodal Query Augmentation via Generated Videos for Precise Temporal Grounding](../../CVPR2026/video_understanding/mamba-vmr_multimodal_query_augmentation_via_generated_videos_for_precise_tempora.md)
 
 <!-- RELATED:END -->

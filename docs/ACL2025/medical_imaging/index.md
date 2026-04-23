@@ -1,14 +1,18 @@
 ---
 title: >-
-  ACL2025 医学图像方向 22篇论文解读
+  ACL2025 医学图像方向 27篇论文解读
 description: >-
-  22篇ACL2025 医学图像论文解读，主题涵盖：将罗马尼亚语医疗程序名称匹配建模为检索问题而非分类、构建首个大规模泛非洲医学问答基准、提出结构化放射学报告生成（SRRG）新任务等，每篇含核心思想与方法详解。
+  27篇ACL2025 医学图像论文解读，主题涵盖：本文提出一种将小型语言模型（SLM）高效适配为临床、将罗马尼亚语医疗程序名称匹配建模为检索问题而非分类、构建首个大规模泛非洲医学问答基准等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**💬 ACL2025** · **22** 篇论文解读
+**💬 ACL2025** · **27** 篇论文解读
+
+**[A Modular Approach for Clinical SLMs Driven by Synthetic Data with Pre-Instruction Tuning, Model Merging, and Clinical-Tasks Alignment](a_modular_approach_for_clinical_slms_driven_by_synthetic_data_with_pre-instructi.md)**
+
+:   本文提出一种将小型语言模型（SLM）高效适配为临床领域模型的模块化框架，包含领域专家预指令微调（在医学语料上训练多个专家模型）、模型合并（将多个专家合并为统一的 MediPhi）、以及基于 250 万条合成指令（MediFlow）的临床任务对齐，最终 3.8B 参数的 MediPhi 在多项临床任务上超越 GPT-4。
 
 **[A Retrieval-Based Approach to Medical Procedure Matching in Romanian](a_retrieval-based_approach_to_medical_procedure_matching_in_romanian.md)**
 
@@ -17,6 +21,10 @@ description: >-
 **[AfriMed-QA: A Pan-African, Multi-Specialty, Medical Question-Answering Benchmark Dataset](afrimed_qa_pan_african.md)**
 
 :   构建首个大规模泛非洲医学问答基准 AfriMed-QA（15,275 题，16 国 60+ 医学院校、32 个专科），系统评估 30 个 LLM 并发现非洲医疗场景下存在显著的地域性能差距和生物医学模型反不如通用模型的反直觉现象。
+
+**[Align-Pro: Align Protein Representations Through Multi-Modal Learning](align-pro_align_protein_representations_through_multi-modal_learning.md)**
+
+:   Align-Pro通过多模态对比学习框架，将蛋白质的序列、结构和功能描述三种模态的表示对齐到统一的嵌入空间中，从而实现跨模态的蛋白质检索、分类和功能预测。
 
 **[Automated Structured Radiology Report Generation](automated_structured_radiology_report_generation.md)**
 
@@ -42,6 +50,10 @@ description: >-
 
 :   构建了 CliniDial 数据集，收集自模拟临床手术中的自然对话，包含音频转录、双角度视频和患者生理信号等多模态数据，标注了团队反思行为编码，揭示了现有 LLM 在处理标签不均衡、自然对话交互和领域多模态数据方面的显著不足。
 
+**[Concept Bottleneck Language Models For Protein Design](concept_bottleneck_language_models_for_protein_design.md)**
+
+:   本文将概念瓶颈模型（Concept Bottleneck Model）的可解释性设计理念引入蛋白质语言模型，通过中间层的生物学概念作为瓶颈，实现既能设计功能性蛋白质序列又能提供人类可理解的设计理由的蛋白质生成系统。
+
 **[CSTRL: Context-Driven Sequential Transfer Learning for Abstractive Radiology Report Summarization](cstrl_context-driven_sequential_transfer_learning_for_abstractive_radiology_repo.md)**
 
 :   提出 CSTRL，一种基于顺序迁移学习的放射学报告摘要生成方法，通过优化的间隔句生成（GSG）预训练、Fisher 矩阵正则化防止灾难性遗忘，并结合知识蒸馏实现模型压缩，在 MIMIC-CXR 和 Open-I 数据集上大幅超越现有方法。
@@ -57,6 +69,10 @@ description: >-
 **[ANGEL: Learning from Negative Samples in Biomedical Generative Entity Linking](learning_from_negative_samples_in_biomedical_generative_entity_linking.md)**
 
 :   提出 ANGEL 框架，首次在生成式生物医学实体链接（BioEL）中引入负样本训练，通过两阶段策略（正样本训练 + 负样本感知的偏好优化）显著提升模型区分表面形式相似但语义不同的实体的能力，在五个基准数据集上平均 top-1 准确率提升 1.7%。
+
+**[MedBioRAG: Semantic Search and Retrieval-Augmented Generation with Large Language Models for Medical and Biological QA](medbiorag_semantic_search_and_retrieval-augmented_generation_for_biomedical_lite.md)**
+
+:   MedBioRAG 提出了一种结合语义搜索、文档检索和微调 LLM 的检索增强生成框架，在生物医学问答的文本检索、封闭式 QA 和长文本 QA 三类任务上全面超越 GPT-4o 基线和此前 SOTA。
 
 **[MedBioRAG: Semantic Search and Retrieval-Augmented Generation with Large Language Models for Medical and Biological QA](medbiorag_semantic_search_and_retrieval-augmented_generation_with_large_language.md)**
 
@@ -77,6 +93,10 @@ description: >-
 **[One Size Fits None: Rethinking Fairness in Medical AI](one_size_fits_none_rethinking_fairness_in_medical_ai.md)**
 
 :   本文在三个多模态医学预测任务（ICU死亡率、移植物失败、急诊分诊）上进行子群体性能分析，揭示聚合指标掩盖的群体间性能差异，主张将公平性与透明度紧密结合，通过常规化的子群体报告推动负责任的医学AI部署。
+
+**[Pattern Recognition or Medical Knowledge? The Problem with Multiple-Choice Questions in Medicine](pattern_recognition_or_medical_knowledge_the_problem_with_multiple-choice_questi.md)**
+
+:   本文通过构建围绕虚构器官"Glianorex"的医学选择题基准，揭示LLM在医学MCQ测试中主要依赖模式识别和答题策略而非真正的临床推理能力——模型在完全虚构的医学知识上平均得分64%，而医生仅得27%。
 
 **[Radar: Enhancing Radiology Report Generation with Supplementary Knowledge Injection](radar_radiology_report_gen.md)**
 

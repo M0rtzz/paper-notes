@@ -141,9 +141,9 @@ FlipSketch 首次实现从单张静态草图 + 文本描述自动生成无约束
 ## 相关论文
 
 - [FineLIP: Extending CLIP's Reach via Fine-Grained Alignment with Longer Text Inputs](finelip_extending_clips_reach_via_fine-grained_alignment_with_longer_text_inputs.md)
-- [DEXTER: Diffusion-Guided EXplanations with TExtual Reasoning for Vision Models](../../NeurIPS2025/image_generation/dexter_diffusion-guided_explanations_with_textual_reasoning_for_vision_models.md)
-- [FlowTok: Flowing Seamlessly Across Text and Image Tokens](../../ICCV2025/image_generation/flowtok_flowing_seamlessly_across_text_and_image_tokens.md)
-- [EmotiCrafter: Text-to-Emotional-Image Generation based on Valence-Arousal Model](../../ICCV2025/image_generation/emoticrafter_text-to-emotional-image_generation_based_on_valence-arousal_model.md)
-- [What Makes for Text to 360-degree Panorama Generation with Stable Diffusion?](../../ICCV2025/image_generation/what_makes_for_text_to_360-degree_panorama_generation_with_stable_diffusion.md)
+- [Dynamic Motion Blending for Versatile Motion Editing (MotionReFit)](dynamic_motion_blending_for_versatile_motion_editing.md)
+- [Dual Prompting Image Restoration with Diffusion Transformers (DPIR)](dual_prompting_image_restoration_with_diffusion_transformers.md)
+- [FilmComposer: LLM-Driven Music Production for Silent Film Clips](filmcomposer_llm-driven_music_production_for_silent_film_clips.md)
+- [DualAnoDiff: Dual-Interrelated Diffusion Model for Few-Shot Anomaly Image Generation](dual-interrelated_diffusion_model_for_few-shot_anomaly_image_generation.md)
 
 <!-- RELATED:END -->

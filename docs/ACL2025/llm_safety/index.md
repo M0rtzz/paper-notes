@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 LLM安全方向 37篇论文解读
+  ACL2025 LLM安全方向 47篇论文解读
 description: >-
-  37篇ACL2025 LLM安全论文解读，主题涵盖：提出 AGrail，一个终身学习的 LLM、提出NOVA框架，通过内部一致性探测(ICP)衡量、提出"上下文知识遗忘"方法，通过引入特殊的遗忘等，每篇含核心思想与方法详解。
+  47篇ACL2025 LLM安全论文解读，主题涵盖：提出 AGrail，一个终身学习的 LLM、提出NOVA框架，通过内部一致性探测(ICP)衡量、本文针对LLM中因知识错位（模型参数知识与事实不一等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM安全
 
-**💬 ACL2025** · **37** 篇论文解读
+**💬 ACL2025** · **47** 篇论文解读
 
 **[AGrail: A Lifelong Agent Guardrail with Effective and Adaptive Safety Detection](agrail_a_lifelong_agent_guardrail_with_effective_and_adaptive_safety_detection.md)**
 
@@ -18,13 +18,25 @@ description: >-
 
 :   提出NOVA框架，通过内部一致性探测(ICP)衡量LLM对指令的熟悉度+语义等价识别(SEI)衡量LLM对目标回复的熟悉度，筛选出知识对齐的高质量指令数据，仅用5%数据微调LLaMA-3-8B即可在BioGEN上提升8.6分、FollowRAG上提升7.2分，同时保持指令遵循能力。
 
+**[Alleviating Hallucinations from Knowledge Misalignment in Large Language Models via Selective Abstention Learning](alleviating_hallucinations_from_knowledge_misalignment_in_large_language_models_.md)**
+
+:   本文针对LLM中因知识错位（模型参数知识与事实不一致）导致的幻觉问题，提出选择性弃权学习（Selective Abstention Learning）方法，让模型在遇到知识边界外的问题时学会主动拒绝回答而非编造内容，从而减少幻觉。
+
 **[Answer When Needed, Forget When Not: Language Models Pretend to Forget via In-Context Knowledge Unlearning](answer_when_needed_forget_when_not_language_models_pretend_to_forget_via_in-cont.md)**
 
 :   提出"上下文知识遗忘"方法，通过引入特殊的遗忘 token `<<UNL>>...<</UNL>>` 使 LLM 在推理时根据上下文选择性遗忘特定知识，在 TOFU/AGE/RWKU 上达到 95% 遗忘准确率且保留 80% 无关知识，深入的内部分析发现 LLM 并未真正删除知识而是在最后一层"假装遗忘"。
 
+**[Are the Hidden States Hiding Something? Testing the Limits of Factuality-Encoding Capabilities in LLMs](are_the_hidden_states_hiding_something_testing_the_limits_of_factuality-encoding.md)**
+
+:   本文挑战了"LLM隐藏状态能编码事实真假信息"这一先前结论，通过构建更真实、更具挑战性的数据集（基于困惑度的负样本采样和基于QA的LLM生成数据集），发现先前方法在更贴近实际场景的数据上泛化能力有限，为LLM事实性评估研究提供了更严格的评估基准和实践指导。
+
 **[ArgHiTZ at ArchEHR-QA 2025: A Two-Step Divide and Conquer Approach to Patient Question Answering for Top Factuality](arghitz_at_archehr-qa_2025_a_two-step_divide_and_conquer_approach_to_patient_que.md)**
 
 :   在 ArchEHR-QA 2025 共享任务中提出两阶段"分治"方法：先用重排序模型从电子健康记录中提取关键句子，再用小型医学 LLM 生成回复，在不使用外部知识的情况下取得事实性排名第一、总分第 8/30 的成绩。
+
+**[Automated Explanation Generation and Hallucination Detection for Heritage Image Retrieval](automated_explanation_generation_and_hallucination_detection_for_heritage_image_.md)**
+
+:   本文针对文化遗产图像检索任务，提出了一个结合自动解释生成和幻觉检测的框架，利用视觉语言模型为检索结果生成可解释的文本描述，同时通过领域知识约束的幻觉检测机制确保描述的事实准确性，在多个文化遗产数据集上验证了方法的有效性。
 
 **[Chinese SimpleQA: A Chinese Factuality Evaluation for Large Language Models](chinese_simpleqa_a_chinese_factuality_evaluation_for_large_language_models.md)**
 
@@ -38,6 +50,10 @@ description: >-
 
 :   构建 ComparisonQA 基准（283K 配对问题），通过让高频和低频实体共享同一抽象问题实现受控对比，结合正确性和不确定性的两轮评估方法发现 LLM（包括 GPT-4o）对低频知识的鲁棒性极差。
 
+**[Core: Robust Factual Precision with Informative Sub-Claim Identification](core_robust_factual_precision_with_informative_sub-claim_identification.md)**
+
+:   本文提出 Core 框架，通过识别和过滤信息性子声明（informative sub-claims）来实现鲁棒的事实精度（factual precision）评估，解决了现有方法因无信息声明的稀释效应而导致评估不准确的问题。
+
 **[Defense Against Prompt Injection Attack by Leveraging Attack Techniques](defense_prompt_injection.md)**
 
 :   本文提出一种"以攻为防"的 prompt injection 防御策略：将已有的攻击技术（ignore、escape、fake completion）反转用于防御，在被注入的数据内容后追加 shield prompt + 原始指令，使 LLM 忽略注入指令而执行原始指令，在多种攻击场景下将 ASR 降至接近零。
@@ -49,6 +65,10 @@ description: >-
 **[Factual Knowledge in Language Models: Robustness and Anomalies under Simple Temporal Context Variations](factual_knowledge_in_language_models_robustness_and_anomalies_under_simple_tempo.md)**
 
 :   发布 TimeStress 数据集（521K 陈述，2003 条时间事实），评估 18 个 LLM 在时间上下文变化下的事实知识鲁棒性，发现最好的模型仅对 11% 的事实实现完美鲁棒，且存在人类不会犯的关键错误。
+
+**[Faithful and Robust LLM-Driven Theorem Proving for NLI Explanations](faithful_and_robust_llm-driven_theorem_proving_for_nli_explanations.md)**
+
+:   本文研究 LLM 与定理证明器（TP）的交互架构，提出四种策略来缓解自动形式化中的语义信息损失、语法错误、证明构造不足和反馈解读困难等问题，在 e-SNLI、QASC 和 WorldTree 三个数据集上分别实现了形式化精度 +18.46%/+34.2%/+39.77% 和解释质量 +29.5%/+51.5%/+41.25% 的显著提升。
 
 **[From Misleading Queries to Accurate Answers: A Three-Stage Fine-Tuning Method for LLMs](from_misleading_queries_to_accurate_answers_a_three-stage_fine-tuning_method_for.md)**
 
@@ -65,6 +85,10 @@ description: >-
 **[HD-NDEs: Neural Differential Equations for Hallucination Detection in LLMs](hd-ndes_neural_differential_equations_for_hallucination_detection_in_llms.md)**
 
 :   本文首次将神经微分方程（Neural DEs）应用于LLM幻觉检测，通过对隐空间中token激活的连续轨迹建模来系统评估陈述的真实性，在True-False数据集上AUC-ROC超过SOTA 14%以上。
+
+**[How Does Response Length Affect Long-Form Factuality](how_does_response_length_affect_long-form_factuality.md)**
+
+:   本文系统研究了LLM响应长度与事实精确度的关系，提出高效的双层事实性评估框架Bafe（与人类注释89.31%一致），确认了长度偏差的存在，并通过排除错误传播和长上下文假说，证明"事实耗竭"是事实性下降的主要原因。
 
 **[Ewe: Improving Factuality with Explicit Working Memory](improving_factuality_with_explicit_working_memory.md)**
 
@@ -90,6 +114,10 @@ description: >-
 
 :   系统性地研究了开放域长文本生成中的无参考幻觉检测问题，发现 LLM 内部状态（概率/熵）不足以可靠区分事实与幻觉内容，并提出 RATE-FT（Rationale and Auxiliary Task Enhanced Fine-Tuning），通过引入推理解释和辅助 QA 任务增强微调，在 LongFact 上比普通微调提升 3% 以上。
 
+**[Fine-grained Hallucination Detection and Mitigation in Long-form Question Answering](localizing_and_mitigating_errors_in_long-form_question_answering.md)**
+
+:   本文构建了首个包含 span 级别错误标注的 LFQA 幻觉数据集 HaluQuestQA（698 QA 对，4.7k 错误标注，5 种错误类型），训练了一个自动反馈模型来检测不完整信息的错误 span 并生成解释，最后提出 Error-informed Refinement 方法利用反馈信号精炼答案，将幻觉减少约 3%，且人类评估中 84% 的用户更偏好精炼后的答案。
+
 **[Mamba Knockout for Unraveling Factual Information Flow](mamba_knockout_for_unraveling_factual_information_flow.md)**
 
 :   将 Transformer 上的 Attention Knockout 可解释性方法迁移至 Mamba-1 和 Mamba-2，揭示了 SSM 模型中事实信息的流动模式——发现 Mamba 与 Transformer 共享"主语 token 在中后层向最后 token 传递关键信息"的普遍模式，但在首 token 偏置和关系 token 依赖等方面存在架构特异性差异。
@@ -110,6 +138,14 @@ description: >-
 
 :   提出 Opt-Out，一种基于最优传输理论的实体级 LLM 遗忘方法，利用 Sliced Wasserstein Distance 正则化参数偏移实现精细遗忘；同时构建首个实体级遗忘数据集 ELUDe（20 目标实体 + 144 邻居实体，15K+ forget / 90K+ retain QA 对），在 Llama-3.1-8B 和 Phi-3.5 上全面超越现有方法。
 
+**[Real-time Factuality Assessment from Adversarial Feedback](real-time_factuality_assessment_from_adversarial_feedback.md)**
+
+:   本文揭示了现有事实性评估数据集存在"数据泄漏"问题（LLM 因预训练记忆而轻松识别旧虚假信息），提出了一个基于 RAG 检测器对抗反馈的迭代改写流水线来生成真正具有挑战性的实时虚假新闻变体，使 GPT-4o RAG 检测器的 ROC-AUC 绝对下降 17.5%。
+
+**[ReLearn: Unlearning via Learning for Large Language Models](relearn_unlearning_via_learning_for_large_language_models.md)**
+
+:   ReLearn提出用"正向学习"替代传统的"逆向优化"来实现LLM知识遗忘，通过数据增强和微调pipeline使模型在遗忘目标知识的同时保持语言生成质量和流畅性，并设计了包含KFR、KRR和LS三个指标的综合评估框架。
+
 **[REVS: Unlearning Sensitive Information in Language Models via Rank Editing in the Vocabulary Space](revs_unlearning_sensitive_information_in_language_models_via_rank_editing_in_the.md)**
 
 :   提出 REVS，一种无梯度的模型编辑方法，通过在 FF2 层中定位与敏感 token 关联最强的神经元，将其投影到词汇空间后迭代降低目标 token 排名，在 SSN/Email/URL 三类敏感数据上 Unlearning Score 显著超越 6 种基线（89.58 vs 36.98），同时通用能力几乎零损（MMLU 61.05→60.87），且对 Logit-Lens 和 Delta 提取攻击高度鲁棒。
@@ -129,6 +165,10 @@ description: >-
 **[Towards Context-Robust LLMs: A Gated Representation Fine-tuning Approach](towards_context-robust_llms_a_gated_representation_fine-tuning_approach.md)**
 
 :   提出 Grft（Gated Representation Fine-Tuning），一种轻量级即插即用的门控表示微调方法，仅需不到 200 个训练样本和模型 0.0004% 的参数，即可让 LLM 在面对矛盾、无用的外部上下文时表现出类似人类的鲁棒认知行为。
+
+**[Towards Effective Extraction and Evaluation of Factual Claims](towards_effective_extraction_and_evaluation_of_factual_claims.md)**
+
+:   提出了一个用于评估事实声明抽取质量的标准化框架（包含覆盖率和去语境化等指标），并开发了Claimify——一个能在高置信度下处理歧义并抽取声明的LLM方法，在该框架下显著优于已有方法。
 
 **[TreeCut: A Synthetic Unanswerable Math Word Problem Dataset for LLM Hallucination Evaluation](treecut_a_synthetic_unanswerable_math_word_problem_dataset_for_llm_hallucination.md)**
 

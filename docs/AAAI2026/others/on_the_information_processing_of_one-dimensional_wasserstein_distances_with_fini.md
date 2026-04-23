@@ -168,6 +168,6 @@ Wasserstein距离嵌入的径向排序与已知疏水性排序的相关性显著
 - [On Support Samples of Next Word Prediction](../../ACL2025/others/on_support_samples_of_next_word_prediction.md)
 - [DiffMM: Efficient Method for Accurate Noisy and Sparse Trajectory Map Matching via One Step Diffusion](diffmm_efficient_method_for_accurate_noisy_and_sparse_trajectory_map_matching_vi.md)
 - [Learning Distances from Data with Normalizing Flows and Score Matching](../../ICML2025/others/learning_distances_from_data_with_normalizing_flows_and_score_matching.md)
-- [Brain-Like Processing Pathways Form in Models With Heterogeneous Experts](../../NeurIPS2025/others/brain-like_processing_pathways_form_in_models_with_heterogeneous_experts.md)
+- [S2WTM: Spherical Sliced-Wasserstein Autoencoder for Topic Modeling](../../ACL2025/others/s2wtm_spherical_sliced-wasserstein_autoencoder_for_topic_modeling.md)
 
 <!-- RELATED:END -->

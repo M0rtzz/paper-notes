@@ -16,7 +16,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2504.05590](https://arxiv.org/abs/2504.05590)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 模型压缩  
 **关键词**: image dehazing, model compression, domain adaptation, real-world, deployment
 
@@ -24,6 +24,8 @@ tags:
 提出压缩-适应（CoA）框架实现实际图像去雾：先在合成数据上训练大模型，然后压缩+适应到真实域，平衡性能和部署效率
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：CoA 方向近年取得了显著进展，但仍存在关键挑战。
 
@@ -119,7 +121,7 @@ tags:
 - [Towards Practical Real-Time Neural Video Compression](towards_practical_real-time_neural_video_compression.md)
 - [Learned Image Compression with Dictionary-based Entropy Model](learned_image_compression_with_dictionary-based_entropy_model.md)
 - [LALIC: Linear Attention Modeling for Learned Image Compression](linear_attention_modeling_for_learned_image_compression.md)
+- [Good, Cheap, and Fast: Overfitted Image Compression with Wasserstein Distortion](good_cheap_and_fast_overfitted_image_compression_with_wasserstein_distortion.md)
 - [MambaIC: State Space Models for High-Performance Learned Image Compression](mambaic_state_space_models_for_high-performance_learned_image_compression.md)
-- [Layered Image Vectorization via Semantic Simplification](layered_image_vectorization_via_semantic_simplification.md)
 
 <!-- RELATED:END -->

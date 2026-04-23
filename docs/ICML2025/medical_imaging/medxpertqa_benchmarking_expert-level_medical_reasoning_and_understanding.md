@@ -151,6 +151,6 @@ MedXpertQA 构建了包含 4460 题、覆盖 17 个专科和 11 个身体系统�
 - [CGBench: Benchmarking Language Model Scientific Reasoning for Clinical Genetics Research](../../NeurIPS2025/medical_imaging/cgbench_benchmarking_language_model_scientific_reasoning_for_clinical_genetics_r.md)
 - [Protein Structure Tokenization: Benchmarking and New Recipe](protein_structure_tokenization_benchmarking_and_new_recipe.md)
 - [VLM-SubtleBench: How Far Are VLMs from Human-Level Subtle Comparative Reasoning?](../../ICLR2026/medical_imaging/vlm-subtlebench_how_far_are_vlms_from_human-level_subtle_comparative_reasoning.md)
-- [Mastering Multiple-Expert Routing: Realizable H-Consistency and Strong Guarantees](mastering_multiple-expert_routing_realizable_h-consistency_and_strong_guarantees.md)
+- [Human Behavior Atlas: Benchmarking Unified Psychological and Social Behavior Understanding](../../ICLR2026/medical_imaging/human_behavior_atlas_benchmarking_unified_psychological_and_social_behavior_unde.md)
 
 <!-- RELATED:END -->

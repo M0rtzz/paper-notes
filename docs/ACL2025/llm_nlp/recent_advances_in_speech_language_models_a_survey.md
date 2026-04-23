@@ -132,8 +132,8 @@ SpeechLM 是一个自回归基础模型，直接处理和生成语音序列 $\ma
 
 - [When Large Language Models Meet Speech: A Survey on Integration Approaches](when_large_language_models_meet_speech_a_survey_on_integration_approaches.md)
 - [Large Language Models in Bioinformatics: A Survey](large_language_models_in_bioinformatics_a_survey.md)
+- [Knowledge Boundary of Large Language Models: A Survey](knowledge_boundary_survey.md)
 - [Language-Codec: Bridging Discrete Codec Representations and Speech Language Models](language_codec_bridging_discrete_codec_speech_language_models.md)
 - [Locate-and-Focus: Enhancing Terminology Translation in Speech Language Models](locateandfocus_enhancing_terminology_translation_in_speech.md)
-- [Knowledge Boundary of Large Language Models: A Survey](knowledge_boundary_survey.md)
 
 <!-- RELATED:END -->

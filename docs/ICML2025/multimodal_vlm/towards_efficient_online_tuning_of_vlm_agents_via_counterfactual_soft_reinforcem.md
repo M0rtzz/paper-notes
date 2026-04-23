@@ -134,7 +134,7 @@ CoSo 达到 26.5%，较 RL4VLM 的 22.7% 提升 16.7%。
 - [Praxis-VLM: Vision-Grounded Decision Making via Text-Driven Reinforcement Learning](../../NeurIPS2025/multimodal_vlm/praxisvlm_visiongrounded_decision_making_via_textdriven_rein.md)
 - [VAGEN: Reinforcing World Model Reasoning for Multi-Turn VLM Agents](../../NeurIPS2025/multimodal_vlm/vagen_reinforcing_world_model_reasoning_for_multi-turn_vlm_agents.md)
 - [SC-Captioner: Improving Image Captioning with Self-Correction by Reinforcement Learning](../../ICCV2025/multimodal_vlm/sc-captioner_improving_image_captioning_with_self-correction_by_reinforcement_le.md)
-- [Unified Reinforcement and Imitation Learning for Vision-Language Models](../../NeurIPS2025/multimodal_vlm/unified_reinforcement_and_imitation_learning_for_vision-language_models.md)
 - [AVR: Adaptive VLM Routing for Computer Use Agents](../../CVPR2026/multimodal_vlm/adaptive_vision-language_model_routing_for_computer_use_agents.md)
+- [Unified Reinforcement and Imitation Learning for Vision-Language Models](../../NeurIPS2025/multimodal_vlm/unified_reinforcement_and_imitation_learning_for_vision-language_models.md)
 
 <!-- RELATED:END -->

@@ -128,9 +128,9 @@ tags:
 ## 相关论文
 
 - [Personalized Generation In Large Model Era: A Survey](personalized_generation_in_large_model_era_a_survey.md)
+- [Hybrid Preferences: Learning to Route Instances for Human vs. AI Feedback](hybrid_preferences_learning_to_route_instances_for_human_vs_ai_feedback.md)
 - [Revisiting Weak-to-Strong Generalization: Reverse KL vs. Forward KL](revisiting_weak-to-strong_generalization_in_theory_and_practice_reverse_kl_vs_fo.md)
 - [The Hidden Attention of Mamba Models](the_hidden_attention_of_mamba_models.md)
 - [Training the Untrainable: Introducing Inductive Bias via Representational Alignment](../../NeurIPS2025/others/training_the_untrainable_introducing_inductive_bias_via_representational_alignme.md)
-- [Advancing Sequential Numerical Prediction in Autoregressive Models](advancing_sequential_numerical_prediction_in_autoregressive_models.md)
 
 <!-- RELATED:END -->

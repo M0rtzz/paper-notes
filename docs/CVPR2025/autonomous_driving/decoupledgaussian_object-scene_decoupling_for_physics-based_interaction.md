@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2503.05484](https://arxiv.org/abs/2503.05484)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 自动驾驶  
 **关键词**: Gaussian Splatting, object decoupling, physics simulation, scene editing, interaction
 
@@ -25,6 +25,8 @@ tags:
 将 3DGS 场景中的物体与背景解耦，使物体支持物理仿真（碰撞、抓取等），同时保持场景的高质量渲染
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：DecoupledGaussian 方向近年取得了显著进展，但仍存在关键挑战。
 

@@ -155,8 +155,8 @@ ViT-B/16 在 ImageNet-1K 线性评估：
 
 - [Self-supervised Video Copy Localization with Regional Token Representation](self-supervised_video_copy_localization_with_regional_token_representation.md)
 - [Efficient Image Pre-Training with Siamese Cropped Masked Autoencoders](efficient_image_pre-training_with_siamese_cropped_masked_autoencoders.md)
+- [Adaptive Multi-head Contrastive Learning](adaptive_multihead_contrastive_learning.md)
 - [FlowCon: Out-of-Distribution Detection using Flow-Based Contrastive Learning](flowcon_out-of-distribution_detection_using_flow-based_contrastive_learning.md)
-- [OmniSat: Self-Supervised Modality Fusion for Earth Observation](omnisat_self-supervised_modality_fusion_for_earth_observation.md)
-- [TrackMAE: Video Representation Learning via Track, Mask, and Predict](../../CVPR2026/self_supervised/trackmae_video_representation_learning_via_track_mask_and_predict.md)
+- [SCPNet: Unsupervised Cross-modal Homography Estimation via Intra-modal Self-supervised Learning](scpnet_unsupervised_cross-modal_homography_estimation_via_intra-modal_self-super.md)
 
 <!-- RELATED:END -->

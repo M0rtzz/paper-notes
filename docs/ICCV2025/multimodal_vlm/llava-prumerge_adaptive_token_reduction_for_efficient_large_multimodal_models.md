@@ -130,6 +130,6 @@ PruMerge+在ScienceQA上甚至超过原始LLaVA-1.5，说明去除冗余token实
 - [Dynamic-VLM: Simple Dynamic Visual Token Compression for VideoLLM](dynamic-vlm_simple_dynamic_visual_token_compression_for_videollm.md)
 - [GRAB: A Challenging GRaph Analysis Benchmark for Large Multimodal Models](grab_a_challenging_graph_analysis_benchmark_for_large_multimodal_models.md)
 - [FOLDER: Accelerating Multi-modal Large Language Models with Enhanced Performance](folder_accelerating_multi-modal_large_language_models_with_enhanced_performance.md)
-- [ShortV: Efficient Multimodal Large Language Models by Freezing Visual Tokens in Ineffective Layers](shortv_efficient_multimodal_large_language_models_by_freezin.md)
+- [METEOR: Multi-Encoder Collaborative Token Pruning for Efficient Vision Language Models](meteor_multi-encoder_collaborative_token_pruning_for_efficient_vision_language_m.md)
 
 <!-- RELATED:END -->

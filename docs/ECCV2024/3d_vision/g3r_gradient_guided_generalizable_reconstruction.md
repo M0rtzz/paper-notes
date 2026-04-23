@@ -144,8 +144,8 @@ G3R范式（Fig. 2c）介于可泛化方法和逐场景优化之间：给定源�
 
 - [Pixel-GS: Density Control with Pixel-aware Gradient for 3D Gaussian Splatting](pixel-gs_density_control_with_pixel-aware_gradient_for_3d_gaussian_splatting.md)
 - [MVSGaussian: Fast Generalizable Gaussian Splatting Reconstruction from Multi-View Stereo](mvsgaussian_fast_generalizable_gaussian_splatting_reconstruction_from_multi-view.md)
+- [Depth-Guided Bundle Sampling for Efficient Generalizable Neural Radiance Field Reconstruction](../../CVPR2025/3d_vision/depth-guided_bundle_sampling_for_efficient_generalizable_neural_radiance_field_r.md)
 - [VCD-Texture: Variance Alignment based 3D-2D Co-Denoising for Text-Guided Texturing](vcd-texture_variance_alignment_based_3d-2d_co-denoising_for_text-guided_texturin.md)
-- [GAURA: Generalizable Approach for Unified Restoration and Rendering of Arbitrary Views](gaura_generalizable_approach_for_unified_restoration_and_rendering_of_arbitrary_.md)
-- [Efficient Depth-Guided Urban View Synthesis (EDUS)](efficient_depth-guided_urban_view_synthesis.md)
+- [AnimatableDreamer: Text-Guided Non-rigid 3D Model Generation and Reconstruction with Canonical Score Distillation](animatabledreamer_text-guided_non-rigid_3d_model_generation_and_reconstruction_w.md)
 
 <!-- RELATED:END -->

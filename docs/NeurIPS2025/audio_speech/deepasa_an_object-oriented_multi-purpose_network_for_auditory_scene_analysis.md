@@ -145,6 +145,6 @@ DeepASA 在各单项任务上均超越专用模型，且是唯一同时覆盖 US
 - [Multi-head Temporal Latent Attention](multi-head_temporal_latent_attention.md)
 - [LeVo: High-Quality Song Generation with Multi-Preference Alignment](levo_high-quality_song_generation_with_multi-preference_alignment.md)
 - [Mixed Monotonicity Reachability Analysis of Neural ODE: A Trade-Off Between Tightness and Efficiency](mixed_monotonicity_reachability_analysis_of_neural_ode_a_trade-off_between_tight.md)
-- [PSA-MF: Personality-Sentiment Aligned Multi-Level Fusion for Multimodal Sentiment Analysis](../../AAAI2026/audio_speech/psa-mf_personality-sentiment_aligned_multi-level_fusion_for_multimodal_sentiment.md)
+- [Crab: A Unified Audio-Visual Scene Understanding Model with Explicit Cooperation](../../CVPR2025/audio_speech/crab_a_unified_audio-visual_scene_understanding_model_with_explicit_cooperation.md)
 
 <!-- RELATED:END -->

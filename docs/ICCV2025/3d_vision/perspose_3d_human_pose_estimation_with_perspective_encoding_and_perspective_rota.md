@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-现有3D HPE方法使用裁剪图像作为输入存在两个被忽视的问题：
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：现有3D HPE方法使用裁剪图像作为输入存在两个被忽视的问题：
 
 **裁剪丢失深度信息**：相同裁剪图像可能对应不同相对深度（图2示例：subjects a和b裁剪图像相同但深度不同）；不同裁剪图像可能有相同深度（subjects a和c）
 
@@ -101,7 +103,7 @@ PersPose在多个基准上取得一致的SOTA或竞争性结果。
 3. **物理原理清晰**：基于相机成像几何原理设计，而非黑盒方法
 4. **即插即用**：PE和PR可嵌入任意现有HPE框架
 
-## 局限性
+## 局限与展望
 
 - 需要已知或可获取的相机焦距信息
 - PR操作需要额外的图像变换计算
@@ -128,7 +130,7 @@ PersPose在多个基准上取得一致的SOTA或竞争性结果。
 - [Bring Your Rear Cameras for Egocentric 3D Human Pose Estimation](bring_your_rear_cameras_for_egocentric_3d_human_pose_estimation.md)
 - [Pano360: Perspective to Panoramic Vision with Geometric Consistency](../../CVPR2025/3d_vision/pano360_perspective_to_panoramic_vision_with_geometric_consistency.md)
 - [Extreme Rotation Estimation in the Wild](../../CVPR2025/3d_vision/extreme_rotation_estimation_in_the_wild.md)
-- [RePoseD: Efficient Relative Pose Estimation with Known Depth Information](reposed_efficient_relative_pose_estimation_with_known_depth_information.md)
-- [BoxDreamer: Dreaming Box Corners for Generalizable Object Pose Estimation](boxdreamer_dreaming_box_corners_for_generalizable_object_pos.md)
+- [Single-Scanline Relative Pose Estimation for Rolling Shutter Cameras](single-scanline_relative_pose_estimation_for_rolling_shutter_cameras.md)
+- [BoxDreamer: Dreaming Box Corners for Generalizable Object Pose Estimation](boxdreamer_dreaming_box_corners_for_generalizable_object_pose_estimation.md)
 
 <!-- RELATED:END -->

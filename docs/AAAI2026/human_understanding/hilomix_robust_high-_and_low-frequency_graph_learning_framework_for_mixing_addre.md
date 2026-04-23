@@ -200,7 +200,7 @@ HiLoMix 在所有指标上全面领先，MRR 提升最显著（15.61%），表�
 - [Bias Association Discovery Framework for Open-Ended LLM Generations](bias_association_discovery_framework_for_open-ended_llm_generations.md)
 - [PathMind: A Retrieve-Prioritize-Reason Framework for Knowledge Graph Reasoning with Large Language Models](pathmind_a_retrieve-prioritize-reason_framework_for_knowledge_graph_reasoning_wi.md)
 - [Towards a Common Framework for Autoformalization](towards_a_common_framework_for_autoformalization.md)
-- [Distributionally Robust Online Markov Game with Linear Function Approximation](distributionally_robust_online_markov_game_with_linear_function_approximation.md)
 - [HiNeuS: High-fidelity Neural Surface Mitigating Low-texture and Reflective Ambiguity](../../ICCV2025/human_understanding/hineus_high-fidelity_neural_surface_mitigating_low-texture_and_reflective_ambigu.md)
+- [Distributionally Robust Online Markov Game with Linear Function Approximation](distributionally_robust_online_markov_game_with_linear_function_approximation.md)
 
 <!-- RELATED:END -->

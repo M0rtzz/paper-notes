@@ -140,8 +140,8 @@ GPT进行 in-context learning 分类准确率仅57%，接近随机猜测（50%�
 
 - [The Canary's Echo: Auditing Privacy Risks of LLM-Generated Synthetic Text](the_canarys_echo_auditing_privacy_risks_of_llm-generated_synthetic_text.md)
 - [MaskSQL: Safeguarding Privacy for LLM-Based Text-to-SQL via Abstraction](../../NeurIPS2025/ai_safety/masksql_safeguarding_privacy_for_llm-based_text-to-sql_via_abstraction.md)
+- [Building a Long Text Privacy Policy Corpus with Multi-Class Labels](../../ACL2025/ai_safety/building_a_long_text_privacy_policy_corpus_with_multi-class_labels.md)
+- [Backdoor Attacks on Neural Networks via One-Bit Flip](../../ICCV2025/ai_safety/backdoor_attacks_on_neural_networks_via_one_bit_flip.md)
 - [De-mark: Watermark Removal in Large Language Models](de-mark_watermark_removal_in_large_language_models.md)
-- [Revealing Weaknesses in Text Watermarking Through Self-Information Rewrite Attacks](revealing_weaknesses_in_text_watermarking_through_self-information_rewrite_attac.md)
-- [Cascade: Token-Sharded Private LLM Inference](cascade_token-sharded_private_llm_inference.md)
 
 <!-- RELATED:END -->

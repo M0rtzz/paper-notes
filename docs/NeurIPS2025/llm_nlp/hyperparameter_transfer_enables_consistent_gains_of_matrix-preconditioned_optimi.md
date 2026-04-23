@@ -121,9 +121,9 @@ tags:
 ## 相关论文
 
 - [Don't Be Lazy: CompleteP Enables Compute-Efficient Deep Transformers](dont_be_lazy_completep_enables_compute-efficient_deep_transformers.md)
+- [ExpeTrans: LLMs Are Experiential Transfer Learners](../../ACL2025/llm_nlp/expetrans_llms_are_experiential_transfer_learners.md)
 - [Systematic Generalization in Language Models Scales with Information Entropy](../../ACL2025/llm_nlp/systematic_generalization_in_language_models_scales_with_information_entropy.md)
 - [OPTS: Bandit-Based Prompt Design Strategy Selection Improves Prompt Optimizers](../../ACL2025/llm_nlp/bandit-based_prompt_design_strategy_selection_improves_prompt_optimizers.md)
-- [Weight Decay may matter more than μP for Learning Rate Transfer in Practice](../../ICLR2026/llm_nlp/weight_decay_may_matter_more_than_mup_for_learning_rate_transfer_in_practice.md)
 - [Geometric Signatures of Compositionality Across a Language Model's Lifetime](../../ACL2025/llm_nlp/geometric_compositionality_lifetime.md)
 
 <!-- RELATED:END -->

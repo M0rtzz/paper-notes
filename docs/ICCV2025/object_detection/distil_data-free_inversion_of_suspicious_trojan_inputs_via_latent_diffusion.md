@@ -172,6 +172,6 @@ DISTIL 在 BackdoorBench 上平均精度 **88.5%**，比最佳基线高约 **7.1
 - [DiffDoctor: Diagnosing Image Diffusion Models Before Treating](diffdoctor_diagnosing_image_diffusion_models_before_treating.md)
 - [EvRT-DETR: Latent Space Adaptation of Image Detectors for Event-based Vision](evrt-detr_latent_space_adaptation_of_image_detectors_for_event-based_vision.md)
 - [Attention to Neural Plagiarism: Diffusion Models Can Plagiarize Your Copyrighted Images!](attention_to_neural_plagiarism_diffusion_models_can_plagiarize_your_copyrighted_.md)
-- [SFUOD: Source-Free Unknown Object Detection](sfuod_source-free_unknown_object_detection.md)
+- [ForgeLens: Data-Efficient Forgery Focus for Generalizable Forgery Image Detection](forgelens_data-efficient_forgery_focus_for_generalizable_forgery_image_detection.md)
 
 <!-- RELATED:END -->

@@ -157,10 +157,10 @@ $$
 
 ## 相关论文
 
+- [Vision-Language Models Do Not Understand Negation](../../CVPR2025/multimodal_vlm/vision-language_models_do_not_understand_negation.md)
 - [Can Vision Language Models Understand Mimed Actions?](can_vision_language_models_understand_mimed_actions.md)
 - [Can Multimodal Large Language Models Understand Spatial Relations?](spatialmqa_mllm_spatial_relations.md)
 - [CORDIAL: Can Multimodal Large Language Models Effectively Understand Coherence Relations?](cordial_can_multimodal_large_language_models_effectively_understand_coherence_re.md)
 - [Can MLLMs Understand the Deep Implication Behind Chinese Images?](can_mllms_understand_the_deep_implication_behind_chinese_images.md)
-- [Can Vision-Language Models Evaluate Handwritten Math?](can_vision-language_models_evaluate_handwritten_math.md)
 
 <!-- RELATED:END -->

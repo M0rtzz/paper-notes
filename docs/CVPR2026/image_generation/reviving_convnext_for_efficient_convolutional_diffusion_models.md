@@ -183,9 +183,9 @@ FCDM-XL可在4块RTX 4090（消费级GPU）上完成256×256 ImageNet训练，ba
 ## 相关论文
 
 - [DiT-IC: Aligned Diffusion Transformer for Efficient Image Compression](ditic_aligned_diffusion_transformer_for_efficient.md)
+- [DiG: Scalable and Efficient Diffusion Models with Gated Linear Attention](../../CVPR2025/image_generation/dig_scalable_and_efficient_diffusion_models_with_gated_linear_attention.md)
+- [Elucidating the SNR-t Bias of Diffusion Probabilistic Models](dcw_snr_t_bias_diffusion.md)
 - [Exploring Conditions for Diffusion Models in Robotic Control](exploring_conditions_for_diffusion_models_in_robotic_control.md)
 - [DogFit: Domain-guided Fine-tuning for Efficient Transfer Learning of Diffusion Models](../../AAAI2026/image_generation/dogfit_domain-guided_fine-tuning_for_efficient_transfer_learning_of_diffusion_mo.md)
-- [GLASS Flows: Efficient Inference for Reward Alignment of Flow and Diffusion Models](../../ICLR2026/image_generation/glass_flows_reward_alignment_diffusion.md)
-- [Encoder-Decoder Diffusion Language Models for Efficient Training and Inference](../../NeurIPS2025/image_generation/encoder-decoder_diffusion_language_models_for_efficient_training_and_inference.md)
 
 <!-- RELATED:END -->

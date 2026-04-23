@@ -131,6 +131,6 @@ Transfer learning 场景下 KVQ 优势更明显：KoNViD-1k 上 SRCC 0.909（vs 
 - [Text-guided Fine-Grained Video Anomaly Understanding](../../CVPR2026/interpretability/text-guided_fine-grained_video_anomaly_understanding.md)
 - [Geometry-Guided Camera Motion Understanding in VideoLLMs](geometry-guided_camera_motion_understanding_in_videollms.md)
 - [Towards Flexible Perception with Visual Memory](../../ICML2025/interpretability/towards_flexible_perception_with_visual_memory.md)
-- [Language Guided Concept Bottleneck Models for Interpretable Continual Learning](language_guided_concept_bottleneck_models_for_interpretable_continual_learning.md)
+- [H-SPLID: HSIC-based Saliency Preserving Latent Information Decomposition](../../NeurIPS2025/interpretability/h-splid_hsic-based_saliency_preserving_latent_information_decomposition.md)
 
 <!-- RELATED:END -->

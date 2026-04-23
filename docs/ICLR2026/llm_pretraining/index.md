@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 预训练方向 24篇论文解读
+  ICLR2026 预训练方向 25篇论文解读
 description: >-
-  24篇ICLR2026 预训练论文解读，主题涵盖：从信息论和代数角度证明随机特征模型中存在数据重构定、提出块样本MAC-Bayes泛化界（mean、构建 CHAMMI-75——最大的异构多通道显微镜等，每篇含核心思想与方法详解。
+  25篇ICLR2026 预训练论文解读，主题涵盖：从信息论和代数角度证明随机特征模型中存在数据重构定、提出块样本MAC-Bayes泛化界（mean、构建 CHAMMI-75——最大的异构多通道显微镜等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**🔬 ICLR2026** · **24** 篇论文解读
+**🔬 ICLR2026** · **25** 篇论文解读
 
 **[A Law of Data Reconstruction for Random Features (and Beyond)](a_law_of_data_reconstruction_for_random_features_and_beyond.md)**
 
@@ -101,6 +101,10 @@ description: >-
 **[Understanding and Improving Shampoo and SOAP via Kullback-Leibler Minimization](understanding_and_improving_shampoo_and_soap_via_kullback-leibler_minimization.md)**
 
 :   从 KL 散度最小化角度重新解释 Shampoo 和 SOAP 的结构化二阶矩估计，揭示其固有局限，并提出 KL-Shampoo 和 KL-SOAP 两种实用方案，在无需 Adam grafting 的情况下匹配或超越原始方法。
+
+**[Understanding the Emergence of Seemingly Useless Features in Next-Token Predictors](understanding_the_emergence_of_seemingly_useless_features_in_deep_learning.md)**
+
+:   从梯度信号的角度解释了为什么用下一 token 预测(NTP)训练的 Transformer 会学习到对预测当前下一 token "无用"的特征，提出三种梯度路径分解（直接学习、预缓存、电路共享）并在玩具任务、OthelloGPT 和语言模型中验证。
 
 **[Understanding the Emergence of Seemingly Useless Features in Next-Token Predictors](understanding_the_emergence_of_seemingly_useless_features_in_next-token_predicto.md)**
 

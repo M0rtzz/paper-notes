@@ -145,7 +145,7 @@ SDF 损失包含 RGB 渲染损失 $\mathcal{L}_{rgb}$、深度损失 $\mathcal{L
 - [SparseLaneSTP: Leveraging Spatio-Temporal Priors with Sparse Transformers for 3D Lane Detection](sparselanestp_leveraging_spatio-temporal_priors_with_sparse_transformers_for_3d_.md)
 - [GaussRender: Learning 3D Occupancy with Gaussian Rendering](gaussrender_learning_3d_occupancy_with_gaussian_rendering.md)
 - [Extrapolated Urban View Synthesis Benchmark](extrapolated_urban_view_synthesis_benchmark.md)
-- [FlowScene: Learning Temporal 3D Semantic Scene Completion via Optical Flow Guidance](../../NeurIPS2025/autonomous_driving/learning_temporal_3d_semantic_scene_completion_via_optical_flow_guidance.md)
-- [SimWorld-Robotics: Synthesizing Photorealistic and Dynamic Urban Environments for Multimodal Robot Navigation and Collaboration](../../NeurIPS2025/autonomous_driving/simworld-robotics_synthesizing_photorealistic_and_dynamic_urban_environments_for.md)
+- [CoDa-4DGS: Dynamic Gaussian Splatting with Context and Deformation Awareness for Autonomous Driving](coda-4dgs_dynamic_gaussian_splatting_with_context_and_deformation_awareness_for_.md)
+- [SkyDiffusion: Leveraging BEV Paradigm for Ground-to-Aerial Image Synthesis](leveraging_bev_paradigm_for_ground-to-aerial_image_synthesis.md)
 
 <!-- RELATED:END -->

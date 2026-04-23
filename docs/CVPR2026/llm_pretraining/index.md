@@ -1,18 +1,22 @@
 ---
 title: >-
-  CVPR2026 预训练方向 7篇论文解读
+  CVPR2026 预训练方向 9篇论文解读
 description: >-
-  7篇CVPR2026 预训练论文解读，主题涵盖：提出 MergeGuard，一种主动式双阶段权重保、提出 FlowMotion，一种无需训练的视频运动、提出 CodeAlign 框架等，每篇含核心思想与方法详解。
+  9篇CVPR2026 预训练论文解读，主题涵盖：提出 MergeGuard，一种主动式双阶段权重保、本文提出 Evidential、提出 FlowMotion，一种无需训练的视频运动等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**📷 CVPR2026** · **7** 篇论文解读
+**📷 CVPR2026** · **9** 篇论文解读
 
 **[Defending Unauthorized Model Merging via Dual-Stage Weight Protection](defending_unauthorized_model_merging_via_dual-stage_weight_protection.md)**
 
 :   提出 MergeGuard，一种主动式双阶段权重保护框架：Stage 1通过L2正则化分散任务关键权重，Stage 2注入结构化扰动破坏合并兼容性，在保持保护模型<1.5%性能损失的同时使合并模型精度下降高达90%。
+
+**[Evidential Transformation Network: Turning Pretrained Models into Evidential Models for Post-hoc Uncertainty Estimation](evidential_transformation_network_post_hoc_uncertainty_estimation.md)**
+
+:   本文提出 Evidential Transformation Network (ETN)，一个轻量级后置模块，通过在 logit 空间学习样本相关的仿射变换，将预训练分类器或 LLM 转化为证据模型，以最小的计算开销实现可靠的不确定性估计。
 
 **[FlowMotion: Training-Free Flow Guidance for Video Motion Transfer](flowmotion_training-free_flow_guidance_for_video_motion_transfer.md)**
 
@@ -21,6 +25,10 @@ description: >-
 **[Linking Modality Isolation in Heterogeneous Collaborative Perception](linking_modality_isolation_in_heterogeneous_collaborative_perception.md)**
 
 :   提出 CodeAlign 框架，通过码本构建离散代码空间和跨模态 Feature-Code-Feature (FCF) 翻译，首次解决异构协同感知中不同模态从未在训练数据中共现的"模态隔离"问题，仅需 HEAL 8% 训练参数、通信量降低 1024 倍，同时达到 SOTA 感知性能。
+
+**[LottieGPT: Tokenizing Vector Animation for Autoregressive Generation](lottiegpt_vector_animation_generation.md)**
+
+:   提出首个矢量动画自回归生成框架 LottieGPT，设计了 Lottie 分词器将层级几何体、变换和关键帧运动编码为紧凑 token 序列，构建 660K 动画数据集，基于 Qwen-VL 微调实现从文本/图像直接生成可编辑矢量动画。
 
 **[MXNorm: Reusing MXFP block scales for efficient tensor normalisation](mxnorm_reusing_mxfp_block_scales_for_efficient_ten.md)**
 

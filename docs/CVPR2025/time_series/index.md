@@ -2,7 +2,7 @@
 title: >-
   CVPR2025 时间序列方向 5篇论文解读
 description: >-
-  5篇CVPR2025 时间序列论文解读，主题涵盖：将付费搜索CPC预测重构为"部分可观测竞争下的预测、提出 DejaVid，一种编码器无关的轻量级视频分、提出 FLAVC，在学习型视频压缩框架中引入特征级等，每篇含核心思想与方法详解。
+  5篇CVPR2025 时间序列论文解读，主题涵盖：将付费搜索CPC预测重构为"部分可观测竞争下的预测、提出 DejaVid，一种编码器无关的轻量级视频分、提出 FLAVC，在学习型视频压缩（LVC）框架中等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,11 +20,11 @@ description: >-
 
 **[FLAVC: Learned Video Compression with Feature Level Attention](flavc_learned_video_compression_with_feature_level_attention.md)**
 
-:   提出 FLAVC，在学习型视频压缩框架中引入特征级注意力机制，在特征域（而非像素域）中更高效地利用运动估计和时空上下文信息。
+:   提出 FLAVC，在学习型视频压缩（LVC）框架中引入 Feature-level Attention（FLA）模块，通过将高层局部 patch embedding 转换为一维批次向量并替换传统注意力权重为全局上下文矩阵，实现全帧级全局感知，配合 Dense Overlapping Patcher 和 Transformer-CNN 混合编码器，在四个视频压缩数据集上取得 SOTA 率失真性能。
 
 **[Learning Extremely High Density Crowds as Active Matters](learning_extremely_high_density_crowds_as_active_matters.md)**
 
-:   将极高密度人群类比为物理学中的"主动物质"（active matter），从质量参差的野外视频中学习人群的集体动力学行为模式，用于人群分析和预测。
+:   本文将极端高密度人群（≥5人/m²）建模为主动物质（active matter），提出一种结合新型"人群材料"应力模型与Toner-Tu主动力的神经随机微分方程系统，通过混合欧拉-拉格朗日的CrowdMPM框架直接从野外视频光流中学习并预测人群动力学。
 
 **[Reasoning in Visual Navigation of End-to-end Trained Agents: A Dynamical Systems Approach](reasoning_in_visual_navigation_of_end-to-end_trained_agents_a_dynamical_systems_.md)**
 

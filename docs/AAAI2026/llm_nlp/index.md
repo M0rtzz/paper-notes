@@ -68,7 +68,7 @@ description: >-
 
 **[PERSIST: Persistent Instability in LLM's Personality Measurements](persistent_instability_in_llms_personality_measurements_effects_of_scale_reasoni.md)**
 
-:   PERSIST 框架系统评估 25 个开源 LLM（1B-685B）在 200 万+响应上的人格测量稳定性，发现即使 400B+模型在 5 分制量表上仍有 SD>0.3 的不稳定性，且 CoT 推理悖论性地增加变异性同时降低困惑度，LLM 适配问卷与传统人类问卷表现出相似的不稳定性。
+:   PERSIST 框架系统评估 29 个 LLM（1B-685B）在 200 万+响应上的人格测量稳定性，揭示了 CoT 推理增加变异性却降低困惑度的"推理悖论"，以及会话历史对大小模型产生相反影响的规模依赖效应，表明当前 LLM 缺乏行为一致性的架构基础。
 
 **[Position on LLM-Assisted Peer Review: Addressing Reviewer Gap through Mentoring and Feedback](position_on_llm-assisted_peer_review_addressing_reviewer_gap_through_mentoring_a.md)**
 

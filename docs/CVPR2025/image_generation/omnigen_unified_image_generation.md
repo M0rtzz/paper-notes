@@ -27,7 +27,16 @@ tags:
 
 ## 研究背景与动机
 
-大语言模型 (LLM) 已统一语言生成任务并革新人机交互，但图像生成领域仍缺乏能在单一框架内处理各种任务的统一模型。当前每个新任务都需设计特定模块并微调（如 ControlNet 用于可控生成、InstantID 用于身份保持、InstructPix2Pix 用于编辑），导致繁琐的多步工作流程。例如，ControlNet 需先用检测器提取条件，InstantID 需人脸检测和编码。核心问题是：能否像 ChatGPT 处理语言任务那样，通过单个模型和用户指令端到端完成任意图像生成任务？本文提出 OmniGen，追求极简架构和灵活指令跟随，消除对额外插件和中间步骤的需求。
+### 现有痛点
+
+**现有痛点**：**领域现状**：大语言模型 (LLM) 已统一语言生成任务并革新人机交互，但图像生成领域仍缺乏能在单一框架内处理各种任务的统一模型。当前每个新任务都需设计特定模块并微调（如 ControlNet 用于可控生成、InstantID 用于身份保持、InstructPix2Pix 用于编辑），导致繁琐的多步工作流程。例如，ControlNet 需先用检测器提取条件，InstantID 需人脸检测和编码。核心问题是：能否像 ChatGPT 处理语言任务那样，通过单个模型和用户指令端到端完成任意图像生成任务？本文提出 OmniGen，追求极简架构和灵活指令跟随，消除对额外插件和中间步骤的需求。
+
+### 解决思路
+
+**本文目标**：### 整体框架
+
+OmniGen 仅包含两个组件：冻结的 SDXL VAE 用于图像编解码，Phi-3 初始化的大型 Transformer 模型用于基于条件的图像生成。
+
 
 ## 方法详解
 
@@ -110,7 +119,7 @@ OmniGen 仅包含两个组件：冻结的 SDXL VAE 用于图像编解码，Phi-3
 ## 相关论文
 
 - [DreamOmni: Unified Image Generation and Editing](dreamomni_unified_image_generation_and_editing.md)
-- [Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_for_unified_image_generation_and_understanding.md)
+- [Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_unified_generation_understanding.md)
 - [TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation](tokenflow_unified_image_tokenizer_for_multimodal_understanding_and_generation.md)
 - [UNIC-Adapter: Unified Image-Instruction Adapter with Multi-modal Transformer for Image Generation](unic-adapter_unified_image-instruction_adapter_with_multi-modal_transformer_for_.md)
 - [JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation](janusflow_harmonizing_autoregression_and_rectified_flow_for_unified_multimodal_u.md)

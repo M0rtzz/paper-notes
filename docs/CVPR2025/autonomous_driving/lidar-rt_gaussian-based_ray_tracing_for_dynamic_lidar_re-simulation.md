@@ -28,7 +28,9 @@ tags:
 
 ## 研究背景与动机
 
-LiDAR传感器是自动驾驶中3D感知的核心组件，LiDAR仿真对于扩展训练数据和验证感知算法至关重要。现有方法存在以下局限：
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：LiDAR传感器是自动驾驶中3D感知的核心组件，LiDAR仿真对于扩展训练数据和验证感知算法至关重要。现有方法存在以下局限：
 
 1. **传统仿真器** (CARLA, AirSim)：存在严重的sim-to-real差距，需要大量人工创建虚拟资产
 2. **显式重建方法** (LiDARsim, PCGen)：依赖surfel/mesh等显式表示，对几何质量敏感，且仅支持静态场景
@@ -85,6 +87,9 @@ $$\mathcal{L} = \lambda_d \mathcal{L}_d + \lambda_i \mathcal{L}_i + \lambda_r \m
 
 ### Waymo Open Dataset (64×2650分辨率)
 
+
+### 主实验
+
 | 方法 | FPS | 存储 | Depth RMSE↓ | Depth MedAE↓ | SSIM↑ | CD↓ | F-score↑ |
 |------|-----|------|-------------|--------------|-------|-----|----------|
 | LiDAR-NeRF | 0.98 | 1.6GB | 7.726 | 0.052 | 0.682 | 0.182 | 0.918 |
@@ -110,7 +115,7 @@ $$\mathcal{L} = \lambda_d \mathcal{L}_d + \lambda_i \mathcal{L}_i + \lambda_r \m
 3. **前向序反向传播**：巧妙解决了光线追踪中无法像tile-based rasterizer那样维护全局排序缓冲的问题
 4. **实用性强**：支持场景编辑（物体增删、传感器参数变更），可直接服务于仿真数据增强
 
-## 局限性
+## 局限与展望
 
 1. 对动态物体的建模依赖准确的跟踪标注框，tracking质量直接影响重建效果
 2. 高斯原语的密度控制策略（分裂/剪枝）直接沿用3DGS，未针对LiDAR的稀疏特性优化
@@ -138,7 +143,7 @@ $$\mathcal{L} = \lambda_d \mathcal{L}_d + \lambda_i \mathcal{L}_i + \lambda_r \m
 - [LR-SGS: Robust LiDAR-Reflectance-Guided Salient Gaussian Splatting for Self-Driving Scene Reconstruction](lr-sgs_robust_lidar-reflectance-guided_salient_gaussian_splatting_for_self-drivi.md)
 - [LiDAR-GS++: Improving LiDAR Gaussian Reconstruction via Diffusion Priors](../../AAAI2026/autonomous_driving/lidar-gsimproving_lidar_gaussian_reconstruction_via_diffusion_priors.md)
 - [Splat-LOAM: Gaussian Splatting LiDAR Odometry and Mapping](../../ICCV2025/autonomous_driving/splat-loam_gaussian_splatting_lidar_odometry_and_mapping.md)
+- [Zero-Shot 4D Lidar Panoptic Segmentation](zero-shot_4d_lidar_panoptic_segmentation.md)
 - [LiDARCrafter: Dynamic 4D World Modeling from LiDAR Sequences](../../AAAI2026/autonomous_driving/lidarcrafter_dynamic_4d_world_modeling_from_lidar_sequences.md)
-- [3D-AVS: LiDAR-based 3D Auto-Vocabulary Segmentation](3d-avs_lidar-based_3d_auto-vocabulary_segmentation.md)
 
 <!-- RELATED:END -->

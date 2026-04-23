@@ -131,9 +131,9 @@ tags:
 ## 相关论文
 
 - [MIRA: Empowering One-Touch AI Services on Smartphones with MLLM-based Instruction Recommendation](mira_empowering_one-touch_ai_services_on_smartphones_with_mllm-based_instruction.md)
+- [Laser: Bi-Tuning with Collaborative Information for Controllable LLM-Based Sequential Recommendation](bi-tuning_with_collaborative_information_for_controllable_llm-based_sequential_r.md)
 - [GRAM: Generative Recommendation via Semantic-aware Multi-granular Late Fusion](gram_generative_recommendation.md)
 - [Overcoming Sparsity Artifacts in Crosscoders to Interpret Chat-Tuning](../../NeurIPS2025/recommender/overcoming_sparsity_artifacts_in_crosscoders_to_interpret_chat-tuning.md)
 - [Transformer Copilot: Learning from The Mistake Log in LLM Fine-tuning](../../NeurIPS2025/recommender/transformer_copilot_learning_from_the_mistake_log_in_llm_fine-tuning.md)
-- [KERL: Knowledge-Enhanced Personalized Recipe Recommendation using Large Language Models](kerl_knowledge-enhanced_personalized_recipe_recommendation_using_large_language_.md)
 
 <!-- RELATED:END -->

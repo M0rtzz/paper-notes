@@ -26,11 +26,25 @@ tags:
 
 ## 研究背景与动机
 
-- 自由能估计是统计力学、化学、生物和机器学习中的基本挑战（如配分函数计算、配体结合自由能）
-- 经典方法（FEP、BAR、TI）依赖平衡采样或中间系统，在高维空间中分布重叠不足时失效
-- Jarzynski 等式引入非平衡轨迹，但估计器方差大
-- 近年深度学习方法（normalizing flows + targeted FEP、neural TI）有进展，但非平衡方法在深度学习框架中仍未被充分探索
-- **FEAT 的定位**：利用随机插值高效学习传输，通过 escorted Jarzynski 和 Crooks 定理提供更灵活、更低方差的估计器
+### 现有痛点
+
+**现有痛点**：自由能估计是统计力学、化学、生物和机器学习中的基本挑战（如配分函数计算、配体结合自由能）
+
+### 领域现状
+
+**领域现状**：经典方法（FEP、BAR、TI）依赖平衡采样或中间系统，在高维空间中分布重叠不足时失效
+
+### 核心矛盾
+
+**核心矛盾**：Jarzynski 等式引入非平衡轨迹，但估计器方差大
+
+### 解决思路
+
+**解决思路**：近年深度学习方法（normalizing flows + targeted FEP、neural TI）有进展，但非平衡方法在深度学习框架中仍未被充分探索
+
+### 补充说明
+
+**补充说明**：FEAT 的定位**：利用随机插值高效学习传输，通过 escorted Jarzynski 和 Crooks 定理提供更灵活、更低方差的估计器
 
 ## 方法详解
 
@@ -119,7 +133,7 @@ FEAT 的核心流程：
 - [TITAN: A Trajectory-Informed Technique for Adaptive Parameter Freezing in Large-Scale VQE](titan_a_trajectory-informed_technique_for_adaptive_parameter_freezing_in_large-s.md)
 - [ATP: Adaptive Threshold Pruning for Efficient Data Encoding in Quantum Neural Networks](../../CVPR2025/physics/atp_adaptive_threshold_pruning_for_efficient_data_encoding_in_quantum_neural_net.md)
 - [Adaptive Fidelity Estimation for Quantum Programs with Graph-Guided Noise Awareness](../../AAAI2026/physics/adaptive_fidelity_estimation_for_quantum_programs_with_graph.md)
-- [Exoplanet Formation Inference Using Conditional Invertible Neural Networks](exoplanet_formation_inference_using_conditional_invertible_neural_networks.md)
-- [Neural Deprojection of Galaxy Stellar Mass Profiles](neural_deprojection_of_galaxy_stellar_mass_profiles.md)
+- [Simulation-Based Inference for Neutrino Interaction Model Parameter Tuning](simulation-based_inference_for_neutrino_interaction_model_parameter_tuning.md)
+- [The Pareto Frontier of Resilient Jet Tagging](the_pareto_frontier_of_resilient_jet_tagging.md)
 
 <!-- RELATED:END -->

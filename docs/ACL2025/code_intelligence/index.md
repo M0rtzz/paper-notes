@@ -1,18 +1,26 @@
 ---
 title: >-
-  ACL2025 代码智能方向 20篇论文解读
+  ACL2025 代码智能方向 27篇论文解读
 description: >-
-  20篇ACL2025 代码智能论文解读，主题涵盖：提出 LongCodeU 基准，从代码单元感知、提出 CodeDPO，通过 PageRank、提出 CodeIF，第一个系统性评估 LLM等，每篇含核心思想与方法详解。
+  27篇ACL2025 代码智能论文解读，主题涵盖：提出 LongCodeU 基准，从代码单元感知、本文提出超越传统一维序列表示的二维代码表示方法、提出 CoCo-Bench（Comprehensi等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💻 代码智能
 
-**💬 ACL2025** · **20** 篇论文解读
+**💬 ACL2025** · **27** 篇论文解读
 
 **[LongCodeU: Benchmarking Long-Context Language Models on Long Code Understanding](benchmarking_long-context_language_models_on_long_code_understanding.md)**
 
 :   提出 LongCodeU 基准，从代码单元感知、单元内理解、单元间关系理解和长文档理解四个维度设计 8 个任务，评估 9 个长上下文语言模型在真实仓库级长代码上的理解能力，揭示 32K token 是当前 LCLM 长代码理解的实际上限。
+
+**[Beyond Sequences: Two-dimensional Representation and Dependency Encoding for Code Generation](beyond_sequences_two-dimensional_representation_and_dependency_encoding_for_code.md)**
+
+:   本文提出超越传统一维序列表示的二维代码表示方法，通过显式编码代码的结构依赖关系（如语法树结构和变量依赖），显著提升了代码生成的准确性和结构正确性。
+
+**[CoCo-Bench: A Comprehensive Code Benchmark for Multi-task Large Language Model Evaluation](coco-bench_a_comprehensive_code_benchmark_for_multi-task_large_language_model_ev.md)**
+
+:   提出 CoCo-Bench（Comprehensive Code Benchmark），一个覆盖代码理解、代码生成、代码修改和代码审查四个维度的综合代码基准，支持多编程语言和多难度等级，通过严格的人工审核确保数据质量，揭示了现有 LLM 在代码能力上的不均衡表现。
 
 **[CodeDPO: Aligning Code Models with Self Generated and Verified Source Code](codedpo_code_alignment.md)**
 
@@ -33,6 +41,10 @@ description: >-
 **[CoRet: Improved Retriever for Code Editing](coret_improved_retriever_for_code_editing.md)**
 
 :   提出 CoRet，一个面向代码编辑任务的稠密检索模型，通过整合代码语义、仓库文件层级结构和调用图依赖关系，并使用针对仓库级检索设计的对数似然损失函数，在 SWE-bench 和 Long Code Arena 上比现有模型的 Recall 至少提升 15 个百分点。
+
+**[DARS: Dynamic Action Re-Sampling to Enhance Coding Agent Performance by Adaptive Tree Traversal](dars_dynamic_action_re-sampling_to_enhance_coding_agent_performance_by_adaptive_.md)**
+
+:   本文提出 DARS（动态动作重采样），一种针对编程智能体的推理时计算扩展方法，在智能体做出次优决策的关键节点上动态分支并尝试替代动作，在 SWE-Bench Lite 上以 Claude 3.5 Sonnet V2 实现 55% 的 pass@k 和 47% 的 pass@1，超越当时开源 SOTA 框架。
 
 **[DynaCode: A Dynamic Complexity-Aware Code Benchmark for Evaluating Large Language Models in Code Generation](dynacode_a_dynamic_complexity-aware_code_benchmark_for_evaluating_large_language.md)**
 
@@ -70,9 +82,25 @@ description: >-
 
 :   用 GPT-4o 为每个编程任务动态生成适配的 MBTI 人格类型和详细描述，再让目标 LLM 以该人格角色扮演程序员生成代码，在 7 个 LLM × 4 个数据集的 28 个组合中 23 个取得 pass rate 提升，最高达 12.9%，关键因素是人格多样性而非某个特定人格。
 
+**[Program Synthesis Benchmark for Visual Programming in XLogoOnline Environment](program_synthesis_benchmark_for_visual_programming_in_xlogoonline_environment.md)**
+
+:   本文基于 XLogoOnline 视觉编程环境构建了一个需要空间规划、编程和逻辑推理等多技能组合的程序合成基准，发现 GPT-4V 仅能解决 20% 的任务，但通过 8 万+合成数据微调加上模拟器驱动的课程学习，Llama3-8B 大幅超越了 GPT-4V 和 Llama3-70B。
+
+**[ReflectionCoder: Learning from Reflection Sequence for Enhanced One-off Code Generation](reflectioncoder_learning_from_reflection_sequence_for_enhanced_one-off_code_gene.md)**
+
+:   ReflectionCoder通过构建整合编译器反馈的"反思序列"（reflection sequence）数据，结合反思自蒸馏和动态掩码蒸馏两种训练策略，使模型在一次性代码生成中达到SOTA性能，无需运行时的多轮调试。
+
+**[Rethinking Repetition Problems of LLMs in Code Generation](rethinking_repetition_problems_of_llms_in_code_generation.md)**
+
+:   本文重新定义了代码生成中的重复问题，区分出比内容重复更普遍且更难处理的"结构性重复"，并提出基于语法规则的重复惩罚解码方法RPG（Repetition Penalization based on Grammar），在新构建的CodeRepetEval和标准基准上大幅缓解重复问题。
+
 **[Revisit Self-Debugging with Self-Generated Tests for Code Generation](revisit_self-debugging_with_self-generated_tests_for_code_generation.md)**
 
 :   系统性地研究了使用 LLM 自生成测试进行自调试（self-debugging）的效果，发现基于后执行信息的自调试在基础编程问题上反而降低性能（因自生成测试偏差），但基于执行中间状态（in-execution）的自调试可有效规避该偏差，在基础和竞赛题上均有提升。
+
+**[SceneGenAgent: Precise Industrial Scene Generation with Coding Agent](scenegenagent_precise_industrial_scene_generation_with_coding_agent.md)**
+
+:   提出 SceneGenAgent，一个基于 LLM 的代码生成 Agent，通过结构化布局规划、布局验证和迭代优化流程，利用 C# 代码精确生成工业场景，在真实工业任务上达到 81% 成功率，并构建 SceneInstruct 数据集使开源 LLM 接近 GPT-4o 水平。
 
 **[TeXpert: A Multi-Level Benchmark for Evaluating LaTeX Code Generation by LLMs](texpert_a_multi-level_benchmark_for_evaluating_latex_code_generation_by_llms.md)**
 

@@ -150,6 +150,6 @@ DPO 损失：标准的 Direct Preference Optimization 损失，将高分摘要�
 - [Gumbel Reranking: Differentiable End-to-End Reranker Optimization](gumbel_reranking.md)
 - [RRRA: Resampling and Reranking through a Retriever Adapter](../../AAAI2026/information_retrieval/rrra_resampling_and_reranking_through_a_retriever_adapter.md)
 - [Unanswerability Evaluation for Retrieval Augmented Generation](unanswerability_evaluation_for_retrieval_augmented_generation.md)
-- [Investigating the Robustness of Retrieval-Augmented Generation at the Query Level](investigating_the_robustness_of_retrieval-augmented_generation_at_the_query_leve.md)
+- [Towards Adaptive Memory-Based Optimization for Enhanced Retrieval-Augmented Generation](towards_adaptive_memory-based_optimization_for_enhanced_retrieval-augmented_gene.md)
 
 <!-- RELATED:END -->

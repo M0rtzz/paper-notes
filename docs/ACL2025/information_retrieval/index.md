@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 信息检索/RAG方向 71篇论文解读
+  ACL2025 信息检索/RAG方向 82篇论文解读
 description: >-
-  71篇ACL2025 信息检索/RAG论文解读，主题涵盖：提出DRUID真实世界事实验证数据集和ACU评估指、揭示 LLM 文本嵌入的有趣现象：将嵌入向量通过解、提出 IDR²，一种模型无关的自适应RAG加速框架等，每篇含核心思想与方法详解。
+  82篇ACL2025 信息检索/RAG论文解读，主题涵盖：提出DRUID真实世界事实验证数据集和ACU评估指、揭示 LLM 文本嵌入的有趣现象：将嵌入向量通过解、提出 IDR²，一种模型无关的自适应RAG加速框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔍 信息检索/RAG
 
-**💬 ACL2025** · **71** 篇论文解读
+**💬 ACL2025** · **82** 篇论文解读
 
 **[A Reality Check on Context Utilisation for Retrieval-Augmented Generation](a_reality_check_on_context_utilisation_for_retrieval-augmented_generation.md)**
 
@@ -25,6 +25,22 @@ description: >-
 **[AIR-Bench: Automated Heterogeneous Information Retrieval Benchmark](air-bench_automated_heterogeneous_information_retrieval_benchmark.md)**
 
 :   提出AIR-Bench——首个利用LLM自动生成测试数据的异构IR基准，覆盖2个任务（QA/长文档）、9个领域、13种语言共69个数据集，三阶段质量控制管线确保生成数据与人工标注高度一致，解决了传统IR基准领域覆盖有限和更新成本高的问题。
+
+**[Any Information Is Just Worth One Single Screenshot: Unifying Search With Visualized Information Retrieval](any_information_is_just_worth_one_single_screenshot_unifying_search_with_visuali.md)**
+
+:   本文正式定义了可视化信息检索（Vis-IR）范式——将多模态信息统一渲染为截图（Screenshot）进行检索，构建了包含1300万截图的VIRA数据集、UniSE检索模型家族和MVRB基准测试，为统一搜索引擎奠定基础。
+
+**[Are LLMs Effective Psychological Assessors? Leveraging Adaptive RAG for Interpretable Mental Health Screening through Psychometric Practice](are_llms_effective_psychological_assessors_leveraging_adaptive_rag_for_interpret.md)**
+
+:   本文提出了一种基于问卷引导的心理健康筛查框架，通过自适应RAG从用户Reddit帖子中检索相关内容，再用LLM代为填写标准化心理量表（如BDI-II），在无需训练数据的情况下匹配或超越有监督方法的性能，同时提供了临床可解释的评估结果。
+
+**[Atomic LLM: A Fine-Grained Information Retrieval Evaluation Benchmark for Language Models](atomic_llm_a_fine-grained_information_retrieval_evaluation_benchmark_for_languag.md)**
+
+:   本文提出Atomic LLM基准，通过将信息检索评估分解为原子级别（Atomic Level）的事实检索任务，从事实精确性、来源归因、粒度覆盖等多个维度对LLM的信息检索能力进行细粒度评估，揭示了现有LLM在精确事实提取方面的系统性不足。
+
+**[Automatic Benchmark Generation from Scientific Papers via Retrieval-Augmented LLMs](automatic_benchmark_generation_from_scientific_papers_via_retrieval-augmented_ll.md)**
+
+:   本文提出一种基于检索增强LLM的自动基准生成方法，从科学论文中自动抽取可测试的知识点并生成高质量的评估题目，在NLP、机器学习、生物信息学等领域验证了方法的有效性，为领域特定LLM评估基准的快速构建提供了新范式。
 
 **[Beyond True or False: Retrieval-Augmented Hierarchical Analysis of Nuanced Claims](beyond_true_or_false_retrieval-augmented_hierarchical_analysis_of_nuanced_claims.md)**
 
@@ -47,6 +63,10 @@ description: >-
 **[CoRe-MMRAG: Cross-Source Knowledge Reconciliation for Multimodal RAG](core_mmrag_knowledge_reconciliation.md)**
 
 :   CoRe-MMRAG 提出了一个端到端多模态 RAG 框架，通过四阶段流水线（参数知识生成→视觉-文本联合重排序→外部知识生成→内外知识整合）解决参数知识-检索知识不一致(PRKI)和视觉-文本知识不一致(VTKI)两个问题，在 InfoSeek 和 Encyclopedic-VQA 上分别提升 5.6% 和 9.3%。
+
+**[Cross-Lingual Relevance Transfer for Document Retrieval](cross-lingual_relevance_transfer_for_document_retrieval.md)**
+
+:   本文提出一种跨语言相关性迁移方法，通过在高资源语言（如英语）上训练的检索模型将相关性判断能力迁移到低资源语言，在多个跨语言文档检索基准上显著超越现有方法。
 
 **[Divide-Then-Align: Honest Alignment based on the Knowledge Boundary of RAG](divide_then_align_rag_knowledge_boundary.md)**
 
@@ -224,6 +244,10 @@ description: >-
 
 :   提出 RAEmoLLM，首个基于情感信息检索的 RAG 框架，利用情感 LLM 的隐式嵌入构建检索数据库，为跨域虚假信息检测提供情感相关的 few-shot 示例，在三个基准上最高分别提升 15.64%、31.18% 和 15.73%（对比其他 few-shot 方法），无需微调。
 
+**[RAGEval: Scenario Specific RAG Evaluation Dataset Generation Framework](rageval_scenario_specific_rag_evaluation_dataset_generation_framework.md)**
+
+:   RAGEval 提出了一个基于 schema 的自动化评估数据集生成框架，能够针对不同垂直领域（金融、法律、医疗等）自动生成高质量的文档-问题-答案-参考四元组，并引入完整性（Completeness）、幻觉（Hallucination）和无关性（Irrelevance）三个新评估指标来严格评估 RAG 系统的事实准确性。
+
 **[RARE: Retrieval-Augmented Reasoning Enhancement for Large Language Models](rare_retrieval_augmented_reasoning.md)**
 
 :   提出 RARE，在 rStar 的 MCTS 推理框架中引入两个检索增强动作（A6: 基于原始问题生成搜索查询并检索，A7: 对子问题进行检索并重新回答），并用检索增强的事实性评分器（RAFS）替代原始判别器，使 LLaMA 3.1 在医学和常识推理任务上达到甚至超越 GPT-4o 的水平。
@@ -235,6 +259,10 @@ description: >-
 **[REFIND at SemEval-2025 Task 3: Retrieval-Augmented Factuality Hallucination Detection in Large Language Models](refind_at_semeval-2025_task_3_retrieval-augmented_factuality_hallucination_detec.md)**
 
 :   提出 REFIND 框架，通过计算每个 token 在有无检索文档条件下的生成概率之比（Context Sensitivity Ratio, CSR），实现对 LLM 输出中幻觉片段的高效检测，在 SemEval-2025 Task 3 的 9 种语言上显著超越基线。
+
+**[Removal of Hallucination on Hallucination: Debate-Augmented RAG](removal_of_hallucination_on_hallucination_debate-augmented_rag.md)**
+
+:   DRAG（Debate-Augmented RAG）提出在RAG系统的检索和生成两个阶段均引入多智能体辩论（MAD）机制，通过正反方辩论+裁判仲裁的结构化流程，消除因错误检索导致的"幻觉传递幻觉"问题，在6个QA基准上显著提升事实准确性。
 
 **[Reranking-based Generation for Unbiased Perspective Summarization](reranking-based_generation_for_unbiased_perspective_summarization.md)**
 
@@ -252,6 +280,10 @@ description: >-
 
 :   SEAL 通过发现特定注意力头/通道对长上下文检索有正/负影响的现象，设计了头级和通道级可学习缩放因子，仅用50个合成样本微调即可大幅提升LLM长上下文检索性能，且缩放因子可离线合并至模型权重实现零推理开销。
 
+**[Semantic Outlier Removal with Embedding Models and LLMs](semantic_outlier_removal_with_embedding_models_and_llms.md)**
+
+:   提出 SORE（Semantic Outlier Removal），一种基于多语言句子嵌入和近似近邻搜索的文本清洗方法，通过元数据嵌入识别核心内容，并标记与预定义离群类别匹配或严重偏离核心内容的文本片段，在接近 LLM 水平的精度下实现了极低的计算成本，已在生产环境中每天处理数百万文档。
+
 **[SetR: Shifting from Ranking to Set Selection for Retrieval Augmented Generation](setr_set_selection_rag.md)**
 
 :   提出 SetR，将 RAG 中的文档排序范式转变为集合选择范式，通过 CoT 推理识别查询的信息需求并选择最优文档集合，在使用更少文档（平均 2.91 个 vs 5 个）的同时显著提升多跳问答性能。
@@ -260,9 +292,17 @@ description: >-
 
 :   SGIC 利用 LLM 的 token 级不确定性分数（文档相关性不确定性 + 答案置信度不确定性）作为自校准的引导信号，通过迭代将前一轮答案及其不确定性分数注入提示中触发上下文推理，在 HotpotQA 上将 Llama2-7B 的 EM 从 69.1% 提升到 77.2%（+8.1%），对 GPT-4o 也有 2.8% 的提升。
 
+**[Sticking to the Mean: Detecting Sticky Tokens in Text Embedding Models](sticking_to_the_mean_detecting_sticky_tokens_in_text_embedding_models.md)**
+
+:   本文系统研究了文本嵌入模型中的"粘性token"现象——某些异常token被反复插入句子后会将句子相似度拉向固定值，提出了高效检测方法 STD 并在 14 个模型家族的 40 个检查点中发现 868 个粘性token，揭示了高达 50% 的下游任务性能下降。
+
 **[The Distracting Effect: Understanding Irrelevant Passages in RAG](the_distracting_effect_understanding_irrelevant_passages_in_rag.md)**
 
 :   本文提出了一个形式化的段落干扰效应（Distracting Effect）度量方法，并开发了多种获取高干扰段落的技术（包括偏斜检索和分类合成），证明了该度量跨LLM的鲁棒性，最终通过用高干扰段落微调LLM，在问答准确率上实现了最高7.5%的提升。
+
+**[Toward Structured Knowledge Reasoning: Contrastive Retrieval-Augmented Generation on Experience](toward_structured_knowledge_reasoning_contrastive_retrieval-augmented_generation.md)**
+
+:   本文提出 CoRE 框架，通过蒙特卡洛树搜索（MCTS）构建包含成功和失败经验的记忆库，并在推理时通过对比式上下文学习（Contrastive ICL）检索正负样例来增强 LLM 对结构化数据（表格、数据库）的推理能力，在 Text-to-SQL 和 TableQA 上分别平均提升 3.44% 和 4.24%。
 
 **[Towards Adaptive Memory-Based Optimization for Enhanced Retrieval-Augmented Generation](towards_adaptive_memory-based_optimization_for_enhanced_retrieval-augmented_gene.md)**
 
@@ -287,6 +327,10 @@ description: >-
 **[VoxRAG: A Step Toward Transcription-Free RAG Systems in Spoken Question Answering](voxrag_a_step_toward_transcription-free_rag_systems_in_spoken_question_answering.md)**
 
 :   提出 VoxRAG，一个模块化的语音到语音检索增强生成系统，使用 CLAP 音频嵌入绕过转录直接从语音查询检索语义相关的音频片段，在播客问答场景中验证了无转录语音检索的可行性，Recall@10 在 somewhat relevant 片段上达到 0.60。
+
+**[When Claims Evolve: Evaluating and Enhancing the Robustness of Embedding Models Against Misinformation Edits](when_claims_evolve_evaluating_and_enhancing_the_robustness_of_embedding_models_a.md)**
+
+:   提出一个扰动框架来系统评估句子嵌入模型在处理经过编辑的虚假信息声明时的鲁棒性，发现标准嵌入模型性能显著下降，并通过知识蒸馏和声明规范化两种缓解方法将领域内鲁棒性提升最高 17 个百分点、跨域泛化提升 10 个百分点。
 
 **[When Should Dense Retrievers Be Updated in Evolving Corpora? Detecting Out-of-Distribution Corpora Using GradNormIR](when_should_dense_retrievers_be_updated_in_evolving_corpora_detecting_out-of-dis.md)**
 

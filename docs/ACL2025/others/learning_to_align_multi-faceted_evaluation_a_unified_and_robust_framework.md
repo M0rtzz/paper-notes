@@ -154,7 +154,7 @@ ARJudge 在所有微调评估器中最优，在 LLMBar 上比最佳微调基线 
 - [FCMR: Robust Evaluation of Financial Cross-Modal Multi-Hop Reasoning](fcmr_robust_evaluation_of_financial_cross-modal_multi-hop_reasoning.md)
 - [Multi-Facet Blending for Faceted Query-by-Example Retrieval](multi-facet_blending_for_faceted_query-by-example_retrieval.md)
 - [SSUF: A Semi-supervised Scalable Unified Framework for E-commerce Query Classification](a_semi-supervised_scalable_unified_framework_for_e-commerce_query_classification.md)
+- [A Multi-Persona Framework for Argument Quality Assessment](a_multi-persona_framework_for_argument_quality_assessment.md)
 - [InspireDebate: Multi-Dimensional Evaluation-Guided Reasoning for Debating](inspiredebate_multidim_evaluation_debating.md)
-- [SEOE: A Scalable and Reliable Semantic Evaluation Framework for Open Domain Event Detection](seoe_semantic_eval.md)
 
 <!-- RELATED:END -->

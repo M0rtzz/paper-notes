@@ -117,8 +117,8 @@ tags:
 
 - [Towards Context-Robust LLMs: A Gated Representation Fine-tuning Approach](towards_context-robust_llms_a_gated_representation_fine-tuning_approach.md)
 - [Teaming LLMs to Detect and Mitigate Hallucinations](../../NeurIPS2025/llm_safety/teaming_llms_to_detect_and_mitigate_hallucinations.md)
+- [Alleviating Hallucinations from Knowledge Misalignment in Large Language Models via Selective Abstention Learning](alleviating_hallucinations_from_knowledge_misalignment_in_large_language_models_.md)
 - [Factual Knowledge in Language Models: Robustness and Anomalies under Simple Temporal Context Variations](factual_knowledge_in_language_models_robustness_and_anomalies_under_simple_tempo.md)
-- [HALoGEN: Fantastic LLM Hallucinations and Where to Find Them](halogen_hallucinations.md)
 - [Answer When Needed, Forget When Not: Language Models Pretend to Forget via In-Context Knowledge Unlearning](answer_when_needed_forget_when_not_language_models_pretend_to_forget_via_in-cont.md)
 
 <!-- RELATED:END -->

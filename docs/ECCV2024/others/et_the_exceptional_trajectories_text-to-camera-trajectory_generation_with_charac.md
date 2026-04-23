@@ -214,7 +214,7 @@ Director C 在 FD_CLaTr 上相比 MDM 降低 3.0，相比 CCD 降低 32.1；CLaT
 - [Free-Viewpoint Video of Outdoor Sports Using a Flying Camera](free-viewpoint_video_of_outdoor_sports_using_a_flying_camera.md)
 - [Active Generation for Image Classification](active_generation_for_image_classification.md)
 - [Elegantly Written: Disentangling Writer and Character Styles for Enhancing Online Chinese Handwriting](elegantly_written_disentangling_writer_and_character_styles_for_enhancing_online.md)
+- [Map&Make: Schema Guided Text to Table Generation](../../ACL2025/others/mapmake_schema_guided_text_to_table_generation.md)
 - [Next-Scale Autoregressive Models for Text-to-Motion Generation](../../CVPR2026/others/next-scale_autoregressive_models_for_text-to-motion_generation.md)
-- [Spotting Out-of-Character Behavior: Atomic-Level Evaluation of Persona Fidelity in Open-Ended Generation](../../ACL2025/others/spotting_out-of-character_behavior_atomic-level_evaluation_of_persona_fidelity_i.md)
 
 <!-- RELATED:END -->

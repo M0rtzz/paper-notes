@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-角色扮演 LLM 是近年来大模型应用的热门方向，典型产品如 Character AI 和 Replika 展现了巨大潜力。然而，当前的角色扮演训练存在两个核心问题：
+### 现有痛点
+
+**现有痛点**：**领域现状**：角色扮演 LLM 是近年来大模型应用的热门方向，典型产品如 Character AI 和 Replika 展现了巨大潜力。然而，当前的角色扮演训练存在两个核心问题：
 
 **Profile 与对话的偏差（Bias）**：训练时使用预定义的完整角色 profile 来指导特定场景的对话生成，但单个场景的对话通常只能体现 profile 的部分特质。例如，赫敏的说话风格被定义为四类，但某场景的对话可能只体现了其中两类。在 HPD 数据集中，83.2% 的对话与预定义 profile 存在偏差。这种偏差会误导模型训练。
 
@@ -125,6 +127,6 @@ Beyond Dialogue 框架包含三个核心阶段：
 - [Detecting Referring Expressions in Visually Grounded Dialogue with Autoregressive Language Models](detecting_referring_expressions_in_visually_grounded_dialogue_with_autoregressiv.md)
 - [Chat-based Person Retrieval via Dialogue-Refined Cross-Modal Alignment](../../CVPR2025/llm_nlp/chat-based_person_retrieval_via_dialogue-refined_cross-modal_alignment.md)
 - [Beyond Profile: From Surface-Level Facts to Deep Persona Simulation in LLMs](beyond_profile_from_surface-level_facts_to_deep_persona_simulation_in_llms.md)
-- [Binary Classifier Optimization for Large Language Model Alignment](bco_binary_classifier_alignment.md)
+- [Can LLMs Simulate L2-English Dialogue? An Information-Theoretic Analysis of L1-Dependent Biases](can_llms_simulate_l2-english_dialogue_an_information-theoretic_analysis_of_l1-de.md)
 
 <!-- RELATED:END -->

@@ -132,8 +132,8 @@ PIE-Bench 上的编辑质量和速度对比：
 ## 相关论文
 
 - [Towards Scalable Human-Aligned Benchmark for Text-Guided Image Editing](towards_scalable_human-aligned_benchmark_for_text-guided_image_editing.md)
-- [TurboFill: Adapting Few-Step Text-to-Image Model for Fast Image Inpainting](turbofill_adapting_few-step_text-to-image_model_for_fast_image_inpainting.md)
 - [OSDFace: One-Step Diffusion Model for Face Restoration](osdface_one-step_diffusion_model_for_face_restoration.md)
+- [TurboFill: Adapting Few-Step Text-to-Image Model for Fast Image Inpainting](turbofill_adapting_few-step_text-to-image_model_for_fast_image_inpainting.md)
 - [ChordEdit: One-Step Low-Energy Transport for Image Editing](../../CVPR2026/image_generation/chordedit_one-step_low-energy_transport_for_image_editing.md)
 - [InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing](interedit_navigating_text-guided_multi-human_3d_motion_editing.md)
 

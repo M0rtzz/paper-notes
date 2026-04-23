@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2501.01601](https://arxiv.org/abs/2501.01601)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 自监督学习  
 **关键词**: few-shot, implicit function, equivariance, NeRF, SDF
 
@@ -25,6 +25,8 @@ tags:
 通过等变性约束从少量样本生成隐式函数（NeRF/SDF），利用对称性先验减少对数据的需求
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：Few-Shot Implicit Function Generation via Equivariance 方向近年取得了显著进展，但仍存在关键挑战。
 

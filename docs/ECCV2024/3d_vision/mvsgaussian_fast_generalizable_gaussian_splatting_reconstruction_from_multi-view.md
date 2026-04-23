@@ -25,10 +25,14 @@ tags:
 将MVS的代价体深度估计与3D高斯溅射结合，通过混合渲染(splatting+volume rendering)提升泛化性，并提出基于多视图几何一致性的点云聚合策略，使per-scene优化仅需45秒就超越3D-GS的10分钟效果。
 
 ## 背景与动机
-3D-GS虽然实现了实时高质量渲染，但依赖耗时的per-scene优化。现有前馈式泛化方法(PixelSplat等)要么限于图像对输入、要么计算开销大、要么仅适用于物体级重建。核心矛盾：3D-GS的参数化显式表示在不同场景间差异巨大，如何设计一个可泛化的表示来适配3D-GS？此外，splatting中高斯与像素的多对多映射关系比NeRF的体渲染更难泛化。
 
-## 核心问题
-如何构建一个高效的泛化式高斯溅射框架，既能在未见场景上前馈推理得到合理结果，又能在45秒内快速微调达到甚至超越3D-GS长时间优化的效果？
+### 领域现状
+
+**领域现状**：3D-GS虽然实现了实时高质量渲染，但依赖耗时的per-scene优化。现有前馈式泛化方法(PixelSplat等)要么限于图像对输入、要么计算开销大、要么仅适用于物体级重建。核心矛盾：3D-GS的参数化显式表示在不同场景间差异巨大，如何设计一个可泛化的表示来适配3D-GS？此外，splatting中高斯与像素的多对多映射关系比NeRF的体渲染更难泛化。
+
+### 解决思路
+
+**本文目标**：如何构建一个高效的泛化式高斯溅射框架，既能在未见场景上前馈推理得到合理结果，又能在45秒内快速微调达到甚至超越3D-GS长时间优化的效果？
 
 ## 方法详解
 
@@ -63,7 +67,7 @@ tags:
 - **RGB vs SH**: 直接回归RGB在NeRF Synthetic上比SH好2dB+
 - **一致性检查聚合**: PSNR 26.98 > 体素下采样 26.72 > 直接拼接 26.18，且优化更快(45s vs 90s)
 
-## 亮点
+## 亮点与洞察
 - **混合渲染的洞察**: splatting的多对多映射是泛化的瓶颈——用简单的一对一volume rendering补充，两者互补效果出色
 - **45秒超越3D-GS**: 高质量初始化+几何一致性筛选是关键——证明"好的初始化值千步优化"
 - **视图数量无关设计**: 训练时混用2/3/4视角，测试时任意数量都能用
@@ -73,12 +77,12 @@ tags:
 - 泛化模型仅在DTU训练，场景多样性有限
 - 可探索将混合渲染insight迁移到更大规模场景(如城市级)
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs MVSplat**: 都用MVS的代价体做深度估计，但MVSGaussian额外用混合渲染提升泛化+提供per-scene优化支持；MVSplat更轻量但不支持per-scene优化
 - **vs PixelSplat**: MVSGaussian支持多视图输入(不限于双视图)、计算开销更小、DTU上PSNR好14dB
 - **vs 3D-GS**: MVSGaussian通过前馈泛化提供优质初始化，45秒优化就超越3D-GS的10分钟结果
 
-## 启发与关联
+## 相关工作与启发
 - 混合渲染(splatting+VR)的思路可迁移到其他需要泛化的3D任务
 - 几何一致性点云筛选策略对任何基于点云的3D重建都有参考价值
 - 与MVSplat形成ECCV2024的"MVS+3DGS"双子星，说明这个方向很有价值
@@ -94,9 +98,9 @@ tags:
 ## 相关论文
 
 - [GaussReg: Fast 3D Registration with Gaussian Splatting](gaussreg_fast_3d_registration_with_gaussian_splatting.md)
-- [MuGS: Multi-Baseline Generalizable Gaussian Splatting Reconstruction](../../ICCV2025/3d_vision/mugs_multi-baseline_generalizable_gaussian_splatting_reconstruction.md)
 - [MVSplat: Efficient 3D Gaussian Splatting from Sparse Multi-View Images](mvsplat_efficient_3d_gaussian_splatting_from_sparse_multi-view_images.md)
 - [GaussCtrl: Multi-View Consistent Text-Driven 3D Gaussian Splatting Editing](gaussctrl_multi-view_consistent_text-driven_3d_gaussian_splatting_editing.md)
+- [MuGS: Multi-Baseline Generalizable Gaussian Splatting Reconstruction](../../ICCV2025/3d_vision/mugs_multi-baseline_generalizable_gaussian_splatting_reconstruction.md)
 - [Track Everything Everywhere Fast and Robustly](track_everything_everywhere_fast_and_robustly.md)
 
 <!-- RELATED:END -->

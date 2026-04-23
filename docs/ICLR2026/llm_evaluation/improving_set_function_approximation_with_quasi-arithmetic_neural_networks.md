@@ -25,6 +25,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：集合函数学习要求置换不变性。DeepSets用sum池化，PointNet用max池化——两种固定、不可训练的池化操作将近似负担推给编码器和估计器。
 
 **现有痛点**：(1) 固定池化迫使编码器学习既适应下游任务又适应特定池化操作的嵌入→限制了嵌入迁移性；(2) sum和max是Kolmogorov均值的极端特例→大量中间形式（几何均值、调和均值等）未被利用；(3) 已有可学习池化方法要么复杂难用、要么表达力有限（如Power DeepSets仅学一个指数）。
@@ -65,6 +67,9 @@ QUANN: $\hat{F}(X) = \rho(\psi^{-1}(\frac{1}{|P_k(X)|}\sum_{\pi} \psi(\phi(\pi))
 
 ### 集合函数任务
 
+
+### 主实验
+
 | 方法 | 集合分类 | 集合回归 | 点云分类 | 平均 |
 |------|---------|---------|---------|------|
 | DeepSets (sum) | 基线 | 基线 | 基线 | 基线 |
@@ -73,6 +78,9 @@ QUANN: $\hat{F}(X) = \rho(\psi^{-1}(\frac{1}{|P_k(X)|}\sum_{\pi} \psi(\phi(\pi))
 | **QUANN-1** | **最优** | **最优** | **最优** | **SOTA** |
 
 ### 编码器迁移性
+
+
+### 消融实验
 
 | 配置 | 在非集合任务上的表现 |
 |------|-------------------|
@@ -109,7 +117,7 @@ QUANN: $\hat{F}(X) = \rho(\psi^{-1}(\frac{1}{|P_k(X)|}\sum_{\pi} \psi(\phi(\pi))
 - [Improving the Effective Receptive Field of Message-Passing Neural Networks](../../ICML2025/llm_evaluation/improving_the_effective_receptive_field_of_message-passing_neural_networks.md)
 - [AdaBet: Gradient-free Layer Selection for Efficient Training of Deep Neural Networks](../../CVPR2026/llm_evaluation/adabet_gradient-free_layer_selection_for_efficient_training_of_deep_neural_netwo.md)
 - [Disentangling Shared and Private Neural Dynamics with SPIRE: A Latent Modeling Framework for Deep Brain Stimulation](disentangling_shared_and_private_neural_dynamics_with_spire_a_latent_modeling_fr.md)
-- [Same Content, Different Representations: A Controlled Study for Table QA](same_content_different_representations_a_controlled_study_for_t.md)
-- [Breaking the Correlation Plateau: On the Optimization and Capacity Limits of Attention-Based Regressors](breaking_the_correlation_plateau_on_the_optimization_and_capacity_limits_of_atte.md)
+- [AnesSuite: A Comprehensive Benchmark and Dataset Suite for Anesthesiology Reasoning](anessuite_a_comprehensive_benchmark_and_dataset_suite_for_anesthesiology_reasoni.md)
+- [Which LLM Multi-Agent Protocol to Choose?](which_llm_multi-agent_protocol_to_choose.md)
 
 <!-- RELATED:END -->

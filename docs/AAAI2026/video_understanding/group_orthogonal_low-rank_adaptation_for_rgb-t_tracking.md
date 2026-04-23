@@ -178,9 +178,9 @@ GOLA 比 LoRA 提升 1.2%/0.9%（PR/SR）且可训练参数减少 23%。
 ## 相关论文
 
 - [Dynamic Updates for Language Adaptation in Visual-Language Tracking](../../CVPR2025/video_understanding/dynamic_updates_for_language_adaptation_in_visual-language_tracking.md)
+- [Dual-level Adaptation for Multi-Object Tracking: Building Test-Time Calibration from Experience and Intuition](../../CVPR2026/video_understanding/dual-level_adaptation_for_multiobject_tracking_building_testtime_calibration_from.md)
 - [Unified Spatiotemporal Token Compression for Video-LLMs at Ultra-Low Retention](../../CVPR2026/video_understanding/unified_spatiotemporal_token_compression_for_video-llms_at_ultra-low_retention.md)
 - [LongVideo-R1: Smart Navigation for Low-cost Long Video Understanding](../../CVPR2026/video_understanding/longvideo-r1_smart_navigation_for_low-cost_long_video_understanding.md)
 - [XTrack: Multimodal Training Boosts RGB-X Video Object Trackers](../../ICCV2025/video_understanding/xtrack_multimodal_training_boosts_rgb-x_video_object_trackers.md)
-- [MaskAdapt: Learning Flexible Motion Adaptation via Mask-Invariant Prior for Physics-Based Characters](../../CVPR2026/video_understanding/maskadapt_learning_flexible_motion_adaptation_via_mask-invariant_prior_for_physi.md)
 
 <!-- RELATED:END -->

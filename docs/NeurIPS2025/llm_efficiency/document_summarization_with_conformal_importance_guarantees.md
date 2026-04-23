@@ -125,10 +125,10 @@ $$1 - \alpha \leq \mathbb{P}[B(F_{\hat{q}}(x_{n+1}); y^*_{n+1}) \geq \beta] < 1 
 
 ## 相关论文
 
+- [Consistency-Preserving Contrastive Decoding for Faithful Document-Grounded Dialogue](../../ACL2025/llm_efficiency/consistency-preserving_contrastive_decoding_for_faithful_document-grounded_dial.md)
 - [CNNSum: Exploring Long-Context Summarization with Large Language Models in Chinese Novels](../../ACL2025/llm_efficiency/cnnsum_exploring_long-context_summarization_with_large_language_models_in_chines.md)
 - [3-Model Speculative Decoding (PyramidSD)](3model_speculative_decoding.md)
-- [Learning in Compact Spaces with Approximately Normalized Transformer](learning_in_compact_spaces_with_approximately_normalized_transformer.md)
-- [Dynamics of Spontaneous Topic Changes in Next Token Prediction with Self-Attention](dynamics_of_spontaneous_topic_changes_in_next_token_prediction_with_self-attenti.md)
+- [Vocabulary Customization for Efficient Domain-Specific LLM Deployment](vocabulary_customization_for_efficient_domain-specific_llm_deployment.md)
 - [The PokeAgent Challenge: Competitive and Long-Context Learning at Scale](the_pokeagent_challenge_competitive_and_long-context_learning_at_scale.md)
 
 <!-- RELATED:END -->

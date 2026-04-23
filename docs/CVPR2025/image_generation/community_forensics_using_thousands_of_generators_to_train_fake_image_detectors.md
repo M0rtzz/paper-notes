@@ -125,7 +125,7 @@ tags:
 - [Visual Language Models as Zero-Shot Deepfake Detectors](../../ICML2025/image_generation/visual_language_models_as_zero-shot_deepfake_detectors.md)
 - [Flatten Graphs as Sequences: Transformers are Scalable Graph Generators](../../NeurIPS2025/image_generation/flatten_graphs_as_sequences_transformers_are_scalable_graph_generators.md)
 - [SimLBR: Learning to Detect Fake Images by Learning to Detect Real Images](../../CVPR2026/image_generation/simlbr_learning_to_detect_fake_images_by_learning_to_detect_real_images.md)
-- [DreamDrone: Text-to-Image Diffusion Models are Zero-shot Perpetual View Generators](../../ECCV2024/image_generation/dreamdrone_text-to-image_diffusion_models_are_zero-shot_perpetual_view_generator.md)
 - [TurboFill: Adapting Few-Step Text-to-Image Model for Fast Image Inpainting](turbofill_adapting_few-step_text-to-image_model_for_fast_image_inpainting.md)
+- [Reversing Flow for Image Restoration](reversing_flow_for_image_restoration.md)
 
 <!-- RELATED:END -->

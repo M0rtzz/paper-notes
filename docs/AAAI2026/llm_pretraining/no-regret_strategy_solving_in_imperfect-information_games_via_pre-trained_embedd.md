@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-在无限注德州扑克等大规模不完美信息博弈中，信息集数量巨大（$\approx 10^{13}$），直接用 CFR（反事实遗憾最小化）求解 Nash 均衡在空间上完全不可行。主流方法采用"抽象-求解-翻译"范式：先将相似信息集聚类到离散等价类中，在抽象博弈上求解，再映射回原博弈。
+### 领域现状
+
+**领域现状**：在无限注德州扑克等大规模不完美信息博弈中，信息集数量巨大（$\approx 10^{13}$），直接用 CFR（反事实遗憾最小化）求解 Nash 均衡在空间上完全不可行。主流方法采用"抽象-求解-翻译"范式：先将相似信息集聚类到离散等价类中，在抽象博弈上求解，再映射回原博弈。
 
 **现有聚类方法的核心问题**：硬分类带来二元性困境。例如两手牌 9♠A♠ 和 T♠A♠ 在翻牌后虽然都是对子，但后者可组成顺子同花而前者只能组成同花。将它们放入同一聚类会忽略关键差异，分开则浪费了共享策略的潜力。这种离散分类不可逆地丢失了信息集之间的细微区别。
 
@@ -125,9 +127,9 @@ HandEbdNet 用手牌强度（胜率分布）作为监督信号训练。策略求
 ## 相关论文
 
 - [Dataset Ownership Verification for Pre-trained Masked Models](../../ICCV2025/llm_pretraining/dataset_ownership_verification_for_pre-trained_masked_models.md)
+- [Chinese Grammatical Error Correction With Pre-trained Models and Linguistic Clues](../../ACL2025/llm_pretraining/chinese_grammatical_error_correction_with_pre-trained_models_and_linguistic_clue.md)
 - [Deconstructing Positional Information: From Attention Logits to Training Biases](../../ICLR2026/llm_pretraining/deconstructing_positional_information_from_attention_logits_to_training_biases.md)
 - [Explaining Grokking and Information Bottleneck through Neural Collapse Emergence](../../ICLR2026/llm_pretraining/explaining_grokking_and_information_bottleneck_through_neural_collapse_emergence.md)
-- [How Does Sequence Modeling Architecture Influence Base Capabilities of Pre-trained Language Models?](../../NeurIPS2025/llm_pretraining/how_does_sequence_modeling_architecture_influence_base_capabilities_of_pre-train.md)
 - [Scaling Embedding Layers in Language Models](../../NeurIPS2025/llm_pretraining/scaling_embedding_layers_in_language_models.md)
 
 <!-- RELATED:END -->

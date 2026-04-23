@@ -145,9 +145,9 @@ NADIR 在 Telugu、Malayalam、Tamil、Kannada、Sanskrit 等 5 种语言上的 
 ## 相关论文
 
 - [Focusing on Language: Revealing and Exploiting Language Attention Heads in Multilingual Large Language Models](focusing_on_language_revealing_and_exploiting_language_attention_heads_in_multil.md)
-- [STELLAR: Scene Text Editor for Low-Resource Languages and Real-World Data](stellar_scene_text_editor_for_low-resource_languages_and_real-world_data.md)
 - [ShifCon: Enhancing Non-Dominant Language Capabilities with a Shift-based Multilingual Contrastive Framework](../../ACL2025/multilingual_mt/shifcon_nondominant_language.md)
+- [STELLAR: Scene Text Editor for Low-Resource Languages and Real-World Data](stellar_scene_text_editor_for_low-resource_languages_and_real-world_data.md)
 - [Bridging the Multilingual Safety Divide: Efficient, Culturally-Aware Alignment for Global South Languages](bridging_the_multilingual_safety_divide_efficient_culturally-aware_alignment_for.md)
-- [Semantic and Expressive Variation in Image Captions Across Languages](../../CVPR2025/multilingual_mt/semantic_and_expressive_variations_in_image_captions_across_languages.md)
+- [Accessible Machine Translation Evaluation For Low-Resource Languages](../../ACL2025/multilingual_mt/accessible_machine_translation_evaluation_for_low-resource_languages.md)
 
 <!-- RELATED:END -->

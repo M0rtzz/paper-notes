@@ -25,10 +25,14 @@ tags:
 揭示了VLM中视觉token剪枝方法（如FastV）因RoPE的长程衰减特性导致系统性地保留图像底部token的严重缺陷，并提出FEATHER方法通过去除RoPE+均匀采样+两阶段剪枝修复该问题，在定位任务上实现5倍以上的性能提升。
 
 ## 背景与动机
-当前VLM（如LLaVA系列）将图像编码为大量patch token输入LLM，导致推理开销巨大。FastV等方法在LLM的浅层就剪掉大量视觉token以加速推理，并声称在多数benchmark上几乎不掉点。但这引发了一个根本性问题：如此激进地丢弃视觉信息后模型仍然表现很好，到底是因为剪枝策略真的有效，还是因为benchmark本身不够challenging？
 
-## 核心问题
-(1) 为什么早期视觉token剪枝在定位等视觉密集型任务上惨败？(2) 为什么在大多数其他benchmark上表现依然良好？(3) 如何设计更好的剪枝策略以兼顾效率和视觉能力？
+### 现有痛点
+
+**现有痛点**：**领域现状**：当前VLM（如LLaVA系列）将图像编码为大量patch token输入LLM，导致推理开销巨大。FastV等方法在LLM的浅层就剪掉大量视觉token以加速推理，并声称在多数benchmark上几乎不掉点。但这引发了一个根本性问题：如此激进地丢弃视觉信息后模型仍然表现很好，到底是因为剪枝策略真的有效，还是因为benchmark本身不够challenging？
+
+### 解决思路
+
+**本文目标**：(1) 为什么早期视觉token剪枝在定位等视觉密集型任务上惨败？(2) 为什么在大多数其他benchmark上表现依然良好？(3) 如何设计更好的剪枝策略以兼顾效率和视觉能力？
 
 ## 方法详解
 
@@ -64,7 +68,7 @@ FEATHER完全是training-free的推理时方法，不需要额外训练或微调
 - 剪枝层越深，注意力准则越准确（K=8优于K=3，K=16更好）
 - Token位置打乱实验证实：定位性能对位置信息极度敏感，而多数benchmark对位置信息不敏感
 
-## 亮点
+## 亮点与洞察
 - **发现极具洞察力**：RoPE导致视觉token剪枝系统偏向图像底部，这个发现对整个VLM加速社区都有重要警示意义
 - **修复方法极简**：去掉RoPE就能大幅改善，体现了"理解问题比复杂方案更重要"
 - **Benchmark批判有价值**：揭示了当前VL benchmark普遍缺乏评估细粒度视觉能力的问题，这对社区有深远影响
@@ -76,12 +80,12 @@ FEATHER完全是training-free的推理时方法，不需要额外训练或微调
 - 两阶段剪枝的超参数（K=8, K=16）似乎是手动调的，缺乏自适应选择
 - 定位任务虽然大幅改善，但与baseline差距仍很大（39.3 vs 53.2）
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs. FastV**：FastV用原始注意力在K=3剪枝，FEATHER揭示其位置偏差并用去RoPE+两阶段修复，定位任务5x+提升
 - **vs. PyramidDrop**：PyramidDrop多阶段剪枝但仍用原始准则，FEATHER修复了准则本身的缺陷
 - **vs. LLaVA-PruMerge/VisionZip**：这些方法在ViT阶段剪枝，不保留位置信息，导致定位性能极差
 
-## 启发与关联
+## 相关工作与启发
 - RoPE在跨模态场景中的位置偏差问题可能普遍存在，值得在其他多模态任务中检验
 - 两阶段渐进式剪枝的思路可以迁移到视频VLM的temporal token剪枝
 
@@ -96,9 +100,9 @@ FEATHER完全是training-free的推理时方法，不需要额外训练或微调
 ## 相关论文
 
 - [LLaVA-PruMerge: Adaptive Token Reduction for Efficient Large Multimodal Models](llavaprumerge_adaptive_token_reduction_for_efficient_large_m.md)
+- [METEOR: Multi-Encoder Collaborative Token Pruning for Efficient Vision Language Models](meteor_multi-encoder_collaborative_token_pruning_for_efficient_vision_language_m.md)
 - [Growing a Twig to Accelerate Large Vision-Language Models](growing_a_twig_to_accelerate_large_vision-language_models.md)
 - [SparseVILA: Decoupling Visual Sparsity for Efficient VLM Inference](sparsevila_decoupling_visual_sparsity_for_efficient_vlm_infe.md)
 - [Dynamic-VLM: Simple Dynamic Visual Token Compression for VideoLLM](dynamic-vlm_simple_dynamic_visual_token_compression_for_videollm.md)
-- [Scaling Inference-Time Search with Vision Value Model for Improved Visual Comprehension](scaling_inferencetime_search_with_vision_value_model_for_imp.md)
 
 <!-- RELATED:END -->

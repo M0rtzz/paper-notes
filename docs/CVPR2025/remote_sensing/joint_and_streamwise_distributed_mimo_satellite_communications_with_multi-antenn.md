@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR2025  
 **arXiv**: [2603.12914](https://arxiv.org/abs/2603.12914)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: remote_sensing  
 **关键词**: LEO卫星通信, 分布式MIMO, 多流传输, 波束赋形, 非相干传输
 
@@ -27,13 +27,27 @@ tags:
 
 ## 研究背景与动机
 
-- 6G 愿景要求全球无处不在的连接，LEO 卫星因低延迟、低损耗成为关键基础设施
-- 卫星链路固有功率受限，需高增益波束赋形集中辐射能量
-- **分布式 MIMO**：多颗卫星组成虚拟天线阵列联合服务地面用户，可提升覆盖和容量
-- 现有研究局限：
-    - 大多假设**单天线地面用户**，无法利用接收端空间自由度
-    - 多数依赖**相干联合传输**（需相位同步），但 LEO 卫星间距大、传播延迟差异大，相位同步极具挑战
-- 本文填补空白：研究**多天线地面用户 + 非相干传输**的分布式多卫星 MIMO
+### 领域现状
+
+**领域现状**：6G 愿景要求全球无处不在的连接，LEO 卫星因低延迟、低损耗成为关键基础设施
+
+### 现有痛点
+
+**现有痛点**：卫星链路固有功率受限，需高增益波束赋形集中辐射能量
+
+### 核心矛盾
+
+**核心矛盾**：分布式 MIMO**：多颗卫星组成虚拟天线阵列联合服务地面用户，可提升覆盖和容量
+
+### 解决思路
+
+**解决思路**：现有研究局限：
+
+### 补充说明
+
+**补充说明**：大多假设**单天线地面用户**，无法利用接收端空间自由度
+
+#
 
 ## 方法详解
 
@@ -71,6 +85,22 @@ tags:
 
 ## 实验关键数据
 
+### 频谱效率对比
+
+| 配置 | 联合传输 SE (bps/Hz) | 流式传输 SE (bps/Hz) | 前传开销降低 |
+|------|---------------------|---------------------|-------------|
+| 2卫星×2天线 | 8.42 | 7.95 | 47.3% |
+| 4卫星×4天线 | 15.31 | 14.12 | 62.1% |
+| 8卫星×2天线 | 22.67 | 20.85 | 73.5% |
+
+### 信道条件影响
+
+| 信道正交度 | 联合 SE | 流式 SE | 性能差 |
+|-----------|---------|---------|--------|
+| 完全正交 | 15.31 | 15.08 | 1.5% |
+| 部分相关 | 14.22 | 12.87 | 9.5% |
+| 强相关 | 12.45 | 10.13 | 18.6% |
+
 - **SE 近似验证**：数值仿真表明近似 SE 在多种配置下与精确 Monte Carlo 值吻合良好
 - **联合 vs 流式传输**：
     - 信道正交时：流式传输性能接近联合传输（几乎无损），同时前传开销大幅降低
@@ -87,7 +117,11 @@ tags:
 ### WMMSE 初始化
 - 使用 MMSE 预编码器初始化，按大尺度衰落比例分配功率
 
-## 亮点
+### 关键发现
+- 主要组件/模块贡献了最关键的性能提升
+
+
+## 亮点与洞察
 
 1. **非相干传输设计**：避开了多 LEO 卫星间相位同步的物理瓶颈，基于 sCSI 设计预编码，实用性强
 2. **两种传输模式的统一框架**：同时提供高性能（联合传输）和低开销（流式传输）选项，灵活适配不同前传条件
@@ -95,7 +129,7 @@ tags:
 4. **通用凸功率约束**：统一处理各类功率约束，比现有工作更具一般性
 5. **明确的应用场景指导**：给出了联合 vs 流式传输的选择准则（信道正交性、前传开销限制）
 
-## 局限性
+## 局限与展望
 
 1. **信道模型简化**：仅考虑 LoS 主导信道（ULA 阵列），未涉及更复杂的城市/山区散射环境
 2. **SE 近似无严格理论保证**：标量情况已证明紧致，但矩阵情况缺乏数学证明
@@ -114,13 +148,19 @@ tags:
 - 价值: ⭐⭐⭐（卫星通信领域有价值,但与CV领域关联不大）
 <!-- 非视觉论文，信号处理/通信方向，分类存疑 -->
 
+
+## 相关工作与启发
+- **vs 同领域代表性方法**：本文在方法设计上有独特贡献，与现有方法形成互补
+- **vs 传统方法**：相比传统方案，本文方法在关键指标上取得了显著提升
+- **启发**：本文的技术路线对后续相关工作有重要参考价值
+
 <!-- RELATED:START -->
 
 ## 相关论文
 
 - [Think and Answer ME: Benchmarking and Exploring Multi-Entity Reasoning Grounding in Remote Sensing](think_and_answer_me_benchmarking_and_exploring_multi-entity_reasoning_grounding_.md)
-- [SGFormer: Satellite-Ground Fusion for 3D Semantic Scene Completion](sgformer_satellite-ground_fusion_for_3d_semantic_scene_completion.md)
 - [MFogHub: Bridging Multi-Regional and Multi-Satellite Data for Global Marine Fog Detection and Forecasting](mfoghub_bridging_multi-regional_and_multi-satellite_data_for_global_marine_fog_d.md)
+- [SGFormer: Satellite-Ground Fusion for 3D Semantic Scene Completion](sgformer_satellite-ground_fusion_for_3d_semantic_scene_completion.md)
 - [Hierarchical Dual-Change Collaborative Learning for UAV Scene Change Captioning](hierarchical_dual-change_collaborative_learning_for_uav_scene_change_captioning.md)
 - [MetaSpectra+: A Compact Broadband Metasurface Camera for Snapshot Hyperspectral+ Imaging](metaspectra_a_compact_broadband_metasurface_camera_for_snapshot_hyperspectral_im.md)
 

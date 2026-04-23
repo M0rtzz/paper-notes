@@ -220,6 +220,6 @@ EMD 是一个即插即用的模块，包含两个核心组件：
 - [GS-LIVM: Real-Time Photo-Realistic LiDAR-Inertial-Visual Mapping with Gaussian Splatting](gs-livm_real-time_photo-realistic_lidar-inertial-visual_mapping_with_gaussian_sp.md)
 - [Splat-LOAM: Gaussian Splatting LiDAR Odometry and Mapping](splat-loam_gaussian_splatting_lidar_odometry_and_mapping.md)
 - [RaCFormer: Towards High-Quality 3D Object Detection via Query-based Radar-Camera Fusion](../../CVPR2025/autonomous_driving/racformer_towards_high-quality_3d_object_detection_via_query-based_radar-camera_.md)
-- [6DOPE-GS: Online 6D Object Pose Estimation using Gaussian Splatting](6dope-gs_online_6d_object_pose_estimation_using_gaussian_splatting.md)
+- [6DOPE-GS: Online 6D Object Pose Estimation using Gaussian Splatting](6dopegs_online_6d_object_pose_estimation_using_gaussian_spla.md)
 
 <!-- RELATED:END -->

@@ -152,8 +152,8 @@ DNAR 在**所有任务、所有测试规模**上均达到 100% 节点级和图�
 
 - [Positional Attention: Expressivity and Learnability of Algorithmic Computation](positional_attention_expressivity_and_learnability_of_algorithmic_computation.md)
 - [Optimal Sensor Scheduling and Selection for Continuous-Discrete Kalman Filtering with Auxiliary Dynamics](optimal_sensor_scheduling_and_selection_for_continuous-discrete_kalman_filtering.md)
+- [Implicit Reasoning in Transformers is Reasoning through Shortcuts](../../ACL2025/others/implicit_reasoning_in_transformers_is_reasoning_through_shortcuts.md)
 - [Neural Force Field: Few-shot Learning of Generalized Physical Reasoning](../../ICLR2026/others/neural_force_field_few-shot_learning_of_generalized_physical_reasoning.md)
 - [Unifying Continuous and Discrete Text Diffusion with Non-simultaneous Diffusion Processes](../../ACL2025/others/neodiff_unified_text_diffusion.md)
-- [Commonsense Reasoning in Arab Culture](../../ACL2025/others/commonsense_arab_culture.md)
 
 <!-- RELATED:END -->

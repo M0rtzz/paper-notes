@@ -159,8 +159,8 @@ tags:
 
 - [TTT-MIM: Test-Time Training with Masked Image Modeling for Denoising Distribution Shifts](ttt-mim_test-time_training_with_masked_image_modeling_for_denoising_distribution.md)
 - [Towards Real-world Event-guided Low-light Video Enhancement and Deblurring](towards_real-world_event-guided_low-light_video_enhancement_and_deblurring.md)
-- [Unrolled Decomposed Unpaired Learning for Controllable Low-Light Video Enhancement](unrolled_decomposed_unpaired_learning_for_controllable_low-light_video_enhanceme.md)
+- [SelfHVD: Self-Supervised Handheld Video Deblurring](../../CVPR2026/image_restoration/selfhvd_self-supervised_handheld_video_deblurring.md)
 - [Blind Image Deblurring with Noise-Robust Kernel Estimation](blind_image_deblurring_with_noise-robust_kernel_estimation.md)
-- [Exploiting Dual-Correlation for Multi-frame Time-of-Flight Denoising](exploiting_dual-correlation_for_multi-frame_time-of-flight_denoising.md)
+- [Unrolled Decomposed Unpaired Learning for Controllable Low-Light Video Enhancement](unrolled_decomposed_unpaired_learning_for_controllable_low-light_video_enhanceme.md)
 
 <!-- RELATED:END -->

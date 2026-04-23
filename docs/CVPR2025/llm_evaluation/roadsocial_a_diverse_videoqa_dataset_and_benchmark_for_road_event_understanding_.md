@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: 待公开  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 视频问答 / 交通理解  
 **关键词**: VideoQA, 道路事件, 社交媒体, 数据集, Video LLM
 
@@ -26,6 +26,8 @@ tags:
 本文提出RoadSocial，一个来源于社交媒体的大规模多样化VideoQA数据集（13.2K视频、260K问答对），覆盖全球多地域多视角的道路事件场景，通过半自动标注框架和12类QA任务系统性评测了18种Video LLM的道路事件理解能力。
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：视频问答（VideoQA）是评估视频语言模型理解能力的重要任务。在自动驾驶和交通安全领域，准确理解道路事件（事故、违规行为、天气影响等）对安全系统至关重要。
 
@@ -93,7 +95,7 @@ RoadSocial的构建流程：(1) 数据收集——从社交媒体平台按关键
 - [Event Ellipsometer: Event-based Mueller-Matrix Video Imaging](event_ellipsometer_event-based_mueller-matrix_video_imaging.md)
 - [VinaBench: Benchmark for Faithful and Consistent Visual Narratives](vinabench_benchmark_for_faithful_and_consistent_visual_narratives.md)
 - [CulturalBench: A Robust, Diverse, and Challenging Cultural Benchmark by Human-AI CulturalTeaming](../../ACL2025/llm_evaluation/culturalbench_a_robust_diverse_and_challenging_cultural_benchmark_by_human-ai_cu.md)
-- [BelarusianGLUE: Towards a Natural Language Understanding Benchmark for Belarusian](../../ACL2025/llm_evaluation/belarusian_glue.md)
+- [Out of Sight, Out of Mind? Evaluating State Evolution in Video World Models](out_of_sight_out_of_mind_evaluating_state_evolution_in_video_world_models.md)
 - [Pioneering Perceptual Video Fluency Assessment: A Novel Task with Benchmark Dataset and Baseline](../../CVPR2026/llm_evaluation/pioneering_perceptual_video_fluency_assessment_a_novel_task_with_benchmark_datas.md)
 
 <!-- RELATED:END -->

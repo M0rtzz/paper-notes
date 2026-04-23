@@ -242,10 +242,10 @@ SIGMark是training-free方法，无需训练。嵌入阶段通过数学变换保
 
 ## 相关论文
 
+- [VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models](../../ECCV2024/video_generation/vfusion3d_learning_scalable_3d_generative_models_from_video_diffusion_models.md)
 - [DynamicScaler: Seamless and Scalable Video Generation for Panoramic Scenes](../../CVPR2025/video_generation/dynamicscaler_seamless_and_scalable_video_generation_for_panoramic_scenes.md)
 - [STiV: Scalable Text and Image Conditioned Video Generation](../../ICCV2025/video_generation/stiv_scalable_text_and_image_conditioned_video_generation.md)
-- [VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models](../../ECCV2024/video_generation/vfusion3d_learning_scalable_3d_generative_models_from_video_diffusion_models.md)
 - [Target-Aware Video Diffusion Models](target-aware_video_diffusion_models.md)
-- [SAW: Toward a Surgical Action World Model via Controllable and Scalable Video Generation](../../CVPR2025/video_generation/saw_toward_a_surgical_action_world_model_via_controllable_and_scalable_video_gen.md)
+- [BlazeBVD: Make Scale-Time Equalization Great Again for Blind Video Deflickering](../../ECCV2024/video_generation/blazebvd_make_scale-time_equalization_great_again_for_blind_video_deflickering.md)
 
 <!-- RELATED:END -->

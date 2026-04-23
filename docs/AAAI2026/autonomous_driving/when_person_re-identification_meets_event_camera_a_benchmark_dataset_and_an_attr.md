@@ -26,12 +26,22 @@ tags:
 构建首个大规模 RGB-Event 行人重识别数据集 EvReID（1200 ID / 118,988 图像对），并提出基于行人属性引导的三阶段对比学习框架 TriPro-ReID，通过正负属性 prompt 和跨模态 prompt 融合 RGB 与 Event 两种模态特征，mAP 达 69.3%。
 
 ## 背景与动机
-- 基于 RGB 摄像头的行人 ReID 在光照变化、运动模糊和隐私保护方面面临挑战
-- Event camera 具有低功耗、高动态范围、无运动模糊等优势，但现有 event-based ReID 数据集规模极小（Event-ReID 仅 33 ID / 16,000 样本），无法评估真实性能和泛化能力
-- 现有方法仅关注 event 特征学习或 RGB-Event 特征融合，忽视了行人属性（长发、戴眼镜等）这类中层语义信息
 
-## 核心问题
-如何构建大规模、真实的 RGB-Event 行人 ReID 基准数据集，并设计有效利用多模态视觉特征与行人属性语义信息的 ReID 框架？
+### 领域现状
+
+**领域现状**：基于 RGB 摄像头的行人 ReID 在光照变化、运动模糊和隐私保护方面面临挑战
+
+### 核心矛盾
+
+**核心矛盾**：Event camera 具有低功耗、高动态范围、无运动模糊等优势，但现有 event-based ReID 数据集规模极小（Event-ReID 仅 33 ID / 16,000 样本），无法评估真实性能和泛化能力
+
+### 现有痛点
+
+**现有痛点**：现有方法仅关注 event 特征学习或 RGB-Event 特征融合，忽视了行人属性（长发、戴眼镜等）这类中层语义信息
+
+### 解决思路
+
+**本文目标**：如何构建大规模、真实的 RGB-Event 行人 ReID 基准数据集，并设计有效利用多模态视觉特征与行人属性语义信息的 ReID 框架？
 
 ## 方法详解
 
@@ -63,6 +73,9 @@ tags:
 
 **EvReID 数据集上（V+E 模态）：**
 
+
+### 主实验
+
 | 方法 | mAP | Rank-1 | Rank-5 |
 |------|-----|--------|--------|
 | CLIMB-ReID | 68.3 | 85.2 | 92.8 |
@@ -74,6 +87,9 @@ tags:
 
 **Ablation（EvReID）：**
 
+
+### 消融实验
+
 | 配置 | mAP | Rank-1 |
 |------|-----|--------|
 | Base only | 49.2 | 73.0 |
@@ -81,9 +97,12 @@ tags:
 | +CMP | 50.2 | 75.2 |
 | +PNAP+CMP | **69.3** | **88.6** |
 
+
+### 关键发现
+
 - PNAP 提升最大（+13.1 mAP），仅用 Positive prompt 为 54.4 mAP，正负属性组合效果显著
 
-## 亮点
+## 亮点与洞察
 - **首个大规模真实 RGB-Event ReID 数据集**：规模是前作 36 倍 ID 数，多季节/多光照覆盖
 - **正负属性 prompt 设计巧妙**：不仅利用 "有什么属性"，还利用 "没有什么属性" 作为判别线索，ablation 验证了负属性的关键作用
 - **三阶段渐进训练策略**：从 text alignment → multimodal fusion → attribute tuning，逐步引入信息，训练稳定
@@ -95,12 +114,12 @@ tags:
 - Event 单模态性能远低于 RGB（如 AP3D: 40.6 vs 65.4 mAP），Event 特征利用还有大量空间
 - 未探索 open-set 或 cross-domain 评估场景
 
-## 与相关工作的对比
+## 相关工作与启发
 - vs. SDCL（CVPR2023）：同为 RGB-Event 融合 ReID，但 SDCL 缺乏属性语义引导，mAP 低 15.1
 - vs. CLIP-ReID（AAAI2023）：TriPro-ReID 在其基础上引入 CMP 和 PNAP，V+E 模态 mAP 从 49.2 提升到 69.3
 - vs. CLIMB-ReID（AAAI2025）：使用 Mamba 架构，TriPro-ReID 在 mAP 和 Rank-1 上均优
 
-## 启发与关联
+## 相关工作与启发
 - 正负属性 prompt 的思路可推广到其他细粒度识别任务（车辆 ReID、动物识别等）
 - Event camera 在隐私保护场景（如智能监控）有独特价值，RGB-Event 融合是一个增长中的研究方向
 - 三阶段 prompt 学习策略可为其他多模态 CLIP 下游任务提供参考
@@ -117,7 +136,7 @@ tags:
 
 - [Hierarchical Prompt Learning for Image- and Text-Based Person Re-Identification](hierarchical_prompt_learning_for_image-_and_text-based_person_re-identification.md)
 - [Debiased Dual-Invariant Defense for Adversarially Robust Person Re-Identification](debiased_dual-invariant_defense_for_adversarially_robust_person_re-identificatio.md)
-- [FedBPrompt: Federated Domain Generalization Person Re-Identification via Body Distribution Aware Visual Prompts](../../CVPR2026/autonomous_driving/fedbprompt_federated_domain_generalization_person_re-identification_via_body_dis.md)
+- [FedBPrompt: Federated Domain Generalization Person Re-Identification via Body Distribution Aware Visual Prompts](../../CVPR2026/autonomous_driving/fedbprompt_federated_domain_generalization_person.md)
 - [GSAlign: Geometric and Semantic Alignment Network for Aerial-Ground Person Re-Identification](../../NeurIPS2025/autonomous_driving/gsalign_geometric_and_semantic_alignment_network_for_aerial-ground_person_re-ide.md)
 - [Modeling Thousands of Human Annotators for Generalizable Text-to-Image Person Re-identification](../../CVPR2025/autonomous_driving/modeling_thousands_of_human_annotators_for_generalizable_text-to-image_person_re.md)
 

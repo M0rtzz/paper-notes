@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-**对称性和手性是同一枚硬币的两面**:对称性关注两部分的相似性,手性关注差异性。在形状分析中,许多顶点描述子(如Diff3F)虽然具有语义和几何鲁棒性,但**无法区分左右对称部分**,导致:
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：**对称性和手性是同一枚硬币的两面**:对称性关注两部分的相似性,手性关注差异性。在形状分析中,许多顶点描述子(如Diff3F)虽然具有语义和几何鲁棒性,但**无法区分左右对称部分**,导致:
 
 **形状匹配中的左右歧义** — 左眼可能匹配到右眼
 
@@ -73,6 +75,9 @@ $$\mathcal{L}_{fif} = \frac{1}{|V|}(\frac{|\chi^\top\mathbf{1}_{|V|}|}{\|\chi\|_
 
 ### 左右区分准确率
 
+
+### 主实验
+
 | 训练/测试 | BeCoS | FAUST | SCAPE | SMAL | TOSCA |
 |-----------|-------|-------|-------|------|-------|
 | Diff3F | 50.87 | 51.21 | 52.53 | 50.91 | 51.48 |
@@ -81,6 +86,9 @@ $$\mathcal{L}_{fif} = \frac{1}{|V|}(\frac{|\chi^\top\mathbf{1}_{|V|}|}{\|\chi\|_
 | **χ (Ours)** | **91.84** | **94.76** | **95.51** | **96.59** | **94.09** |
 
 ### 跨数据集泛化
+
+
+### 消融实验
 
 | 训练集 | BeCoS-h测试 | BeCoS-a测试 |
 |--------|-------------|-------------|
@@ -101,7 +109,7 @@ $$\mathcal{L}_{fif} = \frac{1}{|V|}(\frac{|\chi^\top\mathbf{1}_{|V|}|}{\|\chi\|_
 3. **即插即用增强** — 可与任何现有顶点描述子结合使用
 4. **从2D到3D的知识蒸馏** — 有效利用2D基础模型中隐含的手性信息
 
-## 局限性
+## 局限与展望
 
 - 依赖Diff3F的渲染+纹理化流程,计算开销较大
 - 对完全对称物体(如球体)手性定义不明确
@@ -128,6 +136,6 @@ $$\mathcal{L}_{fif} = \frac{1}{|V|}(\frac{|\chi^\top\mathbf{1}_{|V|}|}{\|\chi\|_
 - [Representing 3D Shapes with 64 Latent Vectors for 3D Diffusion Models](representing_3d_shapes_with_64_latent_vectors_for_3d_diffusion_models.md)
 - [DMesh++: An Efficient Differentiable Mesh for Complex Shapes](dmesh_an_efficient_differentiable_mesh_for_complex_shapes.md)
 - [NeuraLeaf: Neural Parametric Leaf Models with Shape and Deformation Disentanglement](neuraleaf_neural_parametric_leaf_models_with_shape_and_deformation_disentangleme.md)
-- [Open-Vocabulary Octree-Graph for 3D Scene Understanding](open-vocabulary_octree-graph_for_3d_scene_understanding.md)
+- [HIS-GPT: Towards 3D Human-In-Scene Multimodal Understanding](his-gpt_towards_3d_human-in-scene_multimodal_understanding.md)
 
 <!-- RELATED:END -->

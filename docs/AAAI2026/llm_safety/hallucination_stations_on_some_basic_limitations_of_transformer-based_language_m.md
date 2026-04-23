@@ -125,8 +125,8 @@ tags:
 
 - [Beyond Facts: Evaluating Intent Hallucination in Large Language Models](../../ACL2025/llm_safety/intent_hallucination_eval.md)
 - [TRUST -- Transformer-Driven U-Net for Sparse Target Recovery](../../NeurIPS2025/llm_safety/trust_--_transformer-driven_u-net_for_sparse_target_recovery.md)
+- [ReLearn: Unlearning via Learning for Large Language Models](../../ACL2025/llm_safety/relearn_unlearning_via_learning_for_large_language_models.md)
 - [Unveiling and Addressing Pseudo Forgetting in Large Language Models](../../ACL2025/llm_safety/unveiling_and_addressing_pseudo_forgetting_in_large_language_models.md)
 - [Hallucination Detox: Sensitivity Dropout (SenD) for Large Language Model Training](../../ACL2025/llm_safety/hallucination_detox_send.md)
-- [Chinese SimpleQA: A Chinese Factuality Evaluation for Large Language Models](../../ACL2025/llm_safety/chinese_simpleqa_a_chinese_factuality_evaluation_for_large_language_models.md)
 
 <!-- RELATED:END -->

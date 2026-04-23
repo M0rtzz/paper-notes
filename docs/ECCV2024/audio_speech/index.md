@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 音频/语音方向 9篇论文解读
+  ECCV2024 音频/语音方向 10篇论文解读
 description: >-
-  9篇ECCV2024 音频/语音论文解读，主题涵盖：提出 AV-LDM，通过在训练时引入同一视频不同时、提出 Beat-It 框架，通过将节拍条件从音乐中、提出 CoLeaF 双分支学习框架等，每篇含核心思想与方法详解。
+  10篇ECCV2024 音频/语音论文解读，主题涵盖：提出 AV-LDM，通过在训练时引入同一视频不同时、提出 Beat-It 框架，通过将节拍条件从音乐中、提出 CoLeaF 双分支学习框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**🎞️ ECCV2024** · **9** 篇论文解读
+**🎞️ ECCV2024** · **10** 篇论文解读
 
 **[Action2Sound: Ambient-Aware Generation of Action Sounds from Egocentric Videos](action2sound_ambientaware_generation_of_action_sounds_from_e.md)**
 
@@ -21,6 +21,14 @@ description: >-
 **[CoLeaF: A Contrastive-Collaborative Learning Framework for Weakly Supervised Audio-Visual Video Parsing](coleaf_a_contrastive-collaborative_learning_framework_for_weakly_supervised_audi.md)**
 
 :   提出 CoLeaF 双分支学习框架，通过事件感知对比学习显式优化跨模态上下文的整合，在弱监督音视频解析任务上平均提升 1.9% F-score。
+
+**[ControlLLM: Augment Language Models with Tools by Searching on Graphs](controlllm_augment_language_models_with_tools.md)**
+
+:   提出 ControlLLM 框架，通过任务分解、Thoughts-on-Graph (ToG) 图搜索范式和执行引擎三大组件，让 LLM 在预构建的工具图上搜索最优解决方案路径，准确高效地调用多模态工具完成复杂任务，在困难任务上达到 93% 的解决方案成功率。
+
+**[ControlLLM: Augment Language Models with Tools by Searching on Graphs](controlllm_augment_language_models_with_tools_by_searching_on_graphs.md)**
+
+:   提出 ControlLLM 框架，通过在预构建的工具图（Tool Graph）上进行图搜索（Thoughts-on-Graph）来规划多模态工具调用，显著提升了复杂任务中工具选择和参数赋值的准确性。
 
 **[EDTalk: Efficient Disentanglement for Emotional Talking Head Synthesis](edtalk_efficient_disentanglement_for_emotional_talking_head_synthesis.md)**
 
@@ -41,7 +49,3 @@ description: >-
 **[Siamese Vision Transformers are Scalable Audio-Visual Learners](siamese_vision_transformers_are_scalable_audio-visual_learners.md)**
 
 :   提出AVSiam框架，使用单个共享权重的ViT backbone同时处理音频和视觉输入，结合多比例随机掩码策略和对比+重建双目标预训练，以极低成本（比MAViL快28.9倍）在音视觉分类和检索上达到SOTA性能。
-
-**[Spherical World-Locking for Audio-Visual Localization in Egocentric Videos](spherical_world-locking_for_audio-visual_localization_in_egocentric_videos.md)**
-
-:   提出球面世界锁定（Spherical World-Locking, SWL）框架，通过将多模态感知流隐式变换到世界锁定的球面坐标系中，消除自身运动带来的挑战，实现更精准的第一人称视频中的音视觉定位。

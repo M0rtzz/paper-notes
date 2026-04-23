@@ -135,10 +135,10 @@ $$\begin{pmatrix}\boldsymbol{\lambda}_a \\ \boldsymbol{\lambda}_b\end{pmatrix} \
 
 ## 相关论文
 
-- [Understanding the Emergence of Seemingly Useless Features in Next-Token Predictors](understanding_the_emergence_of_seemingly_useless_features_in_next-token_predicto.md)
+- [Understanding the Emergence of Seemingly Useless Features in Next-Token Predictors](understanding_the_emergence_of_seemingly_useless_features_in_deep_learning.md)
 - [Understanding and Enhancing Mask-Based Pretraining towards Universal Representations](../../NeurIPS2025/llm_pretraining/understanding_and_enhancing_mask-based_pretraining_towards_universal_representat.md)
 - [Improving Autoregressive Visual Generation with Cluster-Oriented Token Prediction](../../CVPR2025/llm_pretraining/improving_autoregressive_visual_generation_with_cluster-oriented_token_predictio.md)
 - [Improving Continual Pre-training Through Seamless Data Packing](../../ACL2025/llm_pretraining/improving_continual_pre-training_through_seamless_data_packing.md)
-- [Through the River: Understanding the Benefit of Schedule-Free Methods for Language Model Training](../../NeurIPS2025/llm_pretraining/through_the_river_understanding_the_benefit_of_schedule-free_methods_for_languag.md)
+- [ACE-G: Improving Generalization of Scene Coordinate Regression Through Query Pre-Training](../../ICCV2025/llm_pretraining/ace-g_improving_generalization_of_scene_coordinate_regression_through_query_pre-.md)
 
 <!-- RELATED:END -->

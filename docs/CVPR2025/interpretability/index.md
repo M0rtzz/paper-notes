@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 可解释性方向 17篇论文解读
+  CVPR2025 可解释性方向 18篇论文解读
 description: >-
-  17篇CVPR2025 可解释性论文解读，主题涵盖：提出基于可解释基 BRDF 的可微逆渲染方法、提出一个从基准构建、诊断到注入的完整框架，通过、本文提出一种基于非参数原型学习的可解释图像分类框架等，每篇含核心思想与方法详解。
+  18篇CVPR2025 可解释性论文解读，主题涵盖：提出基于可解释基 BRDF 的可微逆渲染方法、提出一个从基准构建、诊断到注入的完整框架，通过、本文提出一种基于非参数原型学习的可解释图像分类框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**📷 CVPR2025** · **17** 篇论文解读
+**📷 CVPR2025** · **18** 篇论文解读
 
 **[Differentiable Inverse Rendering with Interpretable Basis BRDFs](differentiable_inverse_rendering_with_interpretable_basis_brdfs.md)**
 
@@ -30,10 +30,6 @@ description: >-
 
 :   本文提出L-SWAG（Layer-Sample Wise Activation with Gradients），一种新型通用零代价代理，通过结合层级和样本级的激活值与梯度信息来评估网络架构质量，首次将零代价NAS系统性地扩展到Vision Transformer搜索空间，并在Autoformer搜索空间的6个任务上建立了新的benchmark。
 
-**[Language Guided Concept Bottleneck Models for Interpretable Continual Learning](language_guided_concept_bottleneck_models_for_interpretable_continual_learning.md)**
-
-:   将语言引导的概念瓶颈模型 (CBM) 整合到持续学习中，通过 ChatGPT 生成类别概念、CLIP 编码的概念对齐模块和语义引导的原型增强策略，在 ImageNet-subset 上实现最终准确率 +3.06% 的提升，同时提供透明可解释的决策过程。
-
 **[Learning on Model Weights using Tree Experts](learning_on_model_weights_using_tree_experts.md)**
 
 :   发现公开模型大多属于少数 Model Tree（从共同祖先微调而来），在同一 Tree 内学习权重远比跨 Tree 简单；提出 ProbeX——首个针对单隐藏层权重的轻量 probing 方法，通过 Tucker 张量分解实现参数量 30 倍压缩，并首次实现了将模型权重与文本表示对齐的零样本模型分类（89.8% 准确率）。
@@ -41,6 +37,10 @@ description: >-
 **[Learning Visual Composition through Improved Semantic Guidance](learning_visual_composition_through_improved_semantic_guidance.md)**
 
 :   本文提出通过改善训练数据的语义监督信号（使用基础模型重新生成高质量描述+使用预训练文本编码器替代从头训练）来大幅提升标准 CLIP 模型的视觉组合理解能力，在 ARO 基准上从CLIP的59%/63%提升到92%/94%，在DOCCI图像检索上从58.4%提升到94.5% recall@1，且无需任何架构改动。
+
+**[On the Possible Detectability of Image-in-Image Steganography](on_the_possible_detectability_of_image-in-image_steganography.md)**
+
+:   本文从理论和实验两个层面揭示了当下流行的基于深度学习的 image-in-image 隐写方案存在严重的可检测性漏洞——其嵌入过程本质是一个混合过程，可被独立成分分析（ICA）轻松识别，仅用小波域独立成分的前四阶矩构成的 8 维特征就能达到 84.6% 的检测准确率，而经典的 SRM+SVM 方法更是达到 99% 以上。
 
 **[Open Ad-Hoc Categorization with Contextualized Feature Learning](open_ad-hoc_categorization_with_contextualized_feature_learning.md)**
 
@@ -65,6 +65,10 @@ description: >-
 **[TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction](tide_training_locally_interpretable_domain_generalization_models_enables_test-ti.md)**
 
 :   本文提出TIDE，一种针对单源域泛化的新型训练方案，利用扩散模型和LLM自动生成类别级概念标注（如"鸟类=尖嘴+翅膀+爪子"），通过概念显著性对齐损失训练模型关注域不变的局部概念而非全局背景特征，使模型在测试时能通过概念显著图自动矫正域偏移导致的错误预测。
+
+**[TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction](tide_training_locally_interpretable_domain_generalization_models_enables_test_time_correction.md)**
+
+:   提出TIDE框架，通过LLM和扩散模型自动生成概念级显著性标注，训练模型关注局部领域不变概念而非全局特征，并在测试时利用概念签名迭代修正错误预测，在四个SSDG基准上平均超越SOTA 12%。
 
 **[Towards Faithful Multimodal Concept Bottleneck Models](towards_faithful_multimodal_concept_bottleneck_models.md)**
 

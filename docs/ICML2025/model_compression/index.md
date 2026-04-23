@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICML2025 模型压缩方向 69篇论文解读
+  ICML2025 模型压缩方向 70篇论文解读
 description: >-
-  69篇ICML2025 模型压缩论文解读，主题涵盖：本文提出了一个评估 AI-人类工作集成的数学框架、本文深入分析了知识蒸馏中 FKLD 和 RKLD、提出 RSR/RSR++ 算法——通过预处理固定的等，每篇含核心思想与方法详解。
+  70篇ICML2025 模型压缩论文解读，主题涵盖：本文提出了一个评估 AI-人类工作集成的数学框架、本文深入分析了知识蒸馏中 FKLD 和 RKLD、提出 RSR/RSR++ 算法——通过预处理固定的等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**🧪 ICML2025** · **69** 篇论文解读
+**🧪 ICML2025** · **70** 篇论文解读
 
 **[A Mathematical Framework for AI-Human Integration in Work](a_mathematical_framework_for_ai-human_integration_in_work.md)**
 
@@ -77,6 +77,10 @@ description: >-
 **[FGFP: A Fractional Gaussian Filter and Pruning for Deep Neural Networks Compression](fgfp_a_fractional_gaussian_filter_and_pruning_for_deep_neural_networks_compressi.md)**
 
 :   提出 FGFP 框架，将分数阶微积分与高斯函数结合构建分数阶高斯滤波器（FGF），每个卷积核仅需 7 个参数，配合自适应非结构化剪枝（AUP），在 CIFAR-10 上 ResNet-20 精度仅降 1.52% 即实现 85.2% 的模型压缩率，在 ImageNet 上 ResNet-50 精度降 1.63% 实现 69.1% 压缩率。
+
+**[FGFP: A Fractional Gaussian Filter and Pruning for DNN Compression](fgfp_a_fractional_gaussian_filter_and_pruning_for_deep_neural_networks_compression.md)**
+
+:   提出FGFP框架，将分数阶微积分与高斯函数结合构建分数阶高斯滤波器(FGF)替代标准卷积核，每个核仅需7个参数，配合自适应非结构化剪枝达到极高压缩比（ResNet-20 85.2%压缩仅降1.52%精度）。
 
 **[FlatQuant: Flatness Matters for LLM Quantization](flatquant_flatness_matters_for_llm_quantization.md)**
 
@@ -158,9 +162,9 @@ description: >-
 
 :   这篇立场论文（position paper）主张 LLM 社会模拟是一种有前途的研究方法，通过综述实证比较和相关评论，识别了五个可解决的挑战，并提出方向性建议，认为 LLM 社会模拟已可用于试点和探索性研究。
 
-**[LoRA Fine-Tuning Without GPUs: A CPU-Efficient Meta-Generation Framework for LLMs](lora_fine-tuning_without_gpus_a_cpu-efficient_meta-generation_framework_for_llms.md)**
+**[LoRA Fine-Tuning without GPUs: A CPU-Efficient Meta-Generation Framework for LLMs](lora_fine-tuning_without_gpus_a_cpu-efficient_meta-generation_framework_for_llms.md)**
 
-:   提出无 GPU 的 LoRA 微调方法：学习元算子将数据集概率分布映射到 LoRA 权重，利用预训练 adapter 库在 CPU 上通过轻量组合生成新 adapter，性能虽不及 GPU 训练但持续优于基座模型。
+:   提出在 CPU 上高效进行 LoRA 微调的元生成框架，通过预计算和缓存策略避免 GPU 依赖，使资源受限环境下的 LLM 微调成为可能。
 
 **[Make LoRA Great Again: Boosting LoRA with Adaptive Singular Values and Mixture-of-Experts Optimization Alignment](make_lora_great_again_boosting_lora_with_adaptive_singular_values_and_mixture-of.md)**
 

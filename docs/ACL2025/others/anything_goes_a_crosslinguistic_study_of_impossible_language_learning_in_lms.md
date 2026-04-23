@@ -133,6 +133,6 @@ tags:
 - [Self-Correction is More than Refinement: A Learning Framework for Visual and Language Reasoning Tasks](self-correction_is_more_than_refinement_a_learning_framework_for_visual_and_lang.md)
 - [What Matters in Evaluating Book-Length Stories? A Systematic Study of Long Story Evaluation](what_matters_in_evaluating_book-length_stories_a_systematic_study_of_long_story_.md)
 - [Understanding Common Ground Misalignment in Goal-Oriented Dialog: A Case-Study with Ubuntu Chat Logs](understanding_common_ground_misalignment_in_goal-oriented_dialog_a_case-study_wi.md)
-- [Inducing Lexicons of In-Group Language with Socio-Temporal Context](inducing_lexicons_of_in-group_language_with_socio-temporal_context.md)
+- [Cooperating and Competing Through Natural Language](cooperating_and_competing_through_natural_language.md)
 
 <!-- RELATED:END -->

@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 医学图像方向 41篇论文解读
+  ICCV2025 医学图像方向 43篇论文解读
 description: >-
-  41篇ICCV2025 医学图像论文解读，主题涵盖：提出AcZeroTS框架，将主动学习与基于VLM的、提出ProLearn框架，首次通过原型驱动的语义近、发布了最大的公开 3D 医学影像预训练数据集等，每篇含核心思想与方法详解。
+  43篇ICCV2025 医学图像论文解读，主题涵盖：提出AcZeroTS框架，将主动学习与基于VLM的、提出ProLearn框架，首次通过原型驱动的语义近、发布了最大的公开 3D 医学影像预训练数据集等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**📹 ICCV2025** · **41** 篇论文解读
+**📹 ICCV2025** · **43** 篇论文解读
 
 **[AcZeroTS: Active Learning for Zero-shot Tissue Segmentation in Pathology Images](aczerots_active_learning_for_zeroshot_tissue_segmentation_in.md)**
 
@@ -90,9 +90,17 @@ description: >-
 
 :   提出迭代动态滤波网络 (IDF)，仅用约 0.04M 参数，通过逐像素动态核预测 + 自适应迭代精炼策略，仅在单一级别高斯噪声上训练即可泛化到各种未见噪声类型（高斯/泊松/椒盐/蒙特卡洛渲染/真实噪声），实现出色的 OOD 去噪性能。
 
+**[InsideOut: Integrated RGB-Radiative Gaussian Splatting for Comprehensive 3D Object Representation](insideout_integrated_rgb-radiative_gaussian_splatting_for_comprehensive_3d_objec.md)**
+
+:   InsideOut 将 3D Gaussian Splatting 从仅建模 RGB 表面扩展到同时建模 X 射线内部结构，通过层次化拟合和 X 射线参考损失实现了 RGB 外观与内部辐射结构的联合表示。
+
 **[Integrating Biological Knowledge for Robust Microscopy Image Profiling on De Novo Cell Lines](integrating_biological_knowledge_for_robust_microscopy_image_profiling_on_de_nov.md)**
 
 :   提出将外部生物知识（蛋白质互作图谱+单细胞基础模型的转录组特征）整合到显微图像预训练中，显式解耦扰动特异性和细胞系特异性表征，提升模型在未见细胞系上的扰动筛查泛化能力。
+
+**[M-Net: MRI Brain Tumor Sequential Segmentation Network via Mesh-Cast](m-net_mri_brain_tumor_sequential_segmentation_network_via_mesh-cast.md)**
+
+:   M-Net 将 MRI 相邻切片间的空间连续性重新理解为"类时序"数据，提出 Mesh-Cast 机制将任意序列模型（LSTM、Transformer、Mamba SSM 等）无缝集成到通道和时序信息处理中，配合两阶段顺序训练策略（TPS），在 BraTS2019 和 BraTS2023 上取得了 SOTA 分割性能。
 
 **[MRGen: Segmentation Data Engine for Underrepresented MRI Modalities](mrgen_segmentation_data_engine_for_underrepresented_mri_modalities.md)**
 

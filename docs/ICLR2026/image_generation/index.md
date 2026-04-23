@@ -268,6 +268,8 @@ description: >-
 
 **[Generalization of Diffusion Models Arises with a Balanced Representation Space](generalization_of_diffusion_models_arises_with_a_balanced_representation_space.md)**
 
+:   本文是扩散模型泛化理论领域的重要突破。通过分析两层非线性 ReLU DAE 的最优解，统一刻画了记忆化和泛化两种行为模式，并创造性地从表征空间的角度提供了一个以表征为中心的泛化理解。理论结论在 EDM、DiT 和 Stable Diffusion v1.4 上获得了一致的实验验证，且催生了两个实用应用：记忆化检测和可控编辑。理论的深度与实用性兼备。
+
 **[Generate Any Scene: Scene Graph Driven Data Synthesis for Visual Generation Training](generate_any_scene_scene_graph_driven_data_synthesis_for_visual_generation_train.md)**
 
 :   提出 Generate Any Scene 数据引擎，基于 28K 物体×1.5K 属性×10K 关系的视觉元素分类法系统枚举场景图并转化为标题+VQA 对，支持四种应用：自我改进（SD1.5 +4%）、定向蒸馏（<800 条数据 TIFA +10%）、场景图奖励模型（DPG-Bench +5% vs CLIP）和内容审核增强。

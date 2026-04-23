@@ -159,7 +159,7 @@ $$\phi^e = \phi^{e-1} - \alpha \nabla_\phi (MSE(f_\phi(\mathcal{A}(X_s)), Y^*) +
 - [Rectifying Soft-Label Entangled Bias in Long-Tailed Dataset Distillation](../../NeurIPS2025/model_compression/rectifying_soft-label_entangled_bias_in_long-tailed_dataset_distillation.md)
 - [Dataset Distillation via the Wasserstein Metric](dataset_distillation_via_the_wasserstein_metric.md)
 - [Enhancing Dataset Distillation via Non-Critical Region Refinement](../../CVPR2025/model_compression/enhancing_dataset_distillation_via_non-critical_region_refinement.md)
+- [Gradient Short-Circuit: Efficient Out-of-Distribution Detection via Feature Intervention](gradient_short-circuit_efficient_out-of-distribution_detection_via_feature_inter.md)
 - [Hyperbolic Dataset Distillation](../../NeurIPS2025/model_compression/hyperbolic_dataset_distillation.md)
-- [Dataset Distillation with Neural Characteristic Function: A Minmax Perspective](../../CVPR2025/model_compression/dataset_distillation_with_neural_characteristic_function_a_minmax_perspective.md)
 
 <!-- RELATED:END -->

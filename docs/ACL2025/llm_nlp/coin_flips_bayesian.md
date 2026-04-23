@@ -146,7 +146,7 @@ $$\delta(p^*, \hat{p}_{\mathcal{M}}) = \frac{1}{2} \sum_{o \in \Omega} |p^*(o) -
 - [LLMs Can Be Easily Confused by Instructional Distractions](llms_can_be_easily_confused_by_instructional_distractions.md)
 - [Can LLMs Interpret and Leverage Structured Linguistic Representations? A Case Study with AMRs](can_llms_interpret_and_leverage_structured_linguistic_representations_a_case_stu.md)
 - [LLMs Can Simulate Standardized Patients via Agent Coevolution](evopatient_standardized_patient.md)
+- [Biased LLMs Can Influence Political Decision-Making](biased_llms_can_influence_political_decision-making.md)
 - [Can LLMs Understand Unvoiced Speech? Exploring EMG-to-Text Conversion with LLMs](can_llms_understand_unvoiced_speech_exploring_emg-to-text_conversion_with_llms.md)
-- [LLMs can Perform Multi-Dimensional Analytic Writing Assessments](llm_writing_assessment.md)
 
 <!-- RELATED:END -->

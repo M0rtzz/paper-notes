@@ -26,13 +26,26 @@ tags:
 提出 XLinear，一个基于 MLP + sigmoid gating 的轻量时间序列预测模型，通过 global token 机制高效融合 endogenous 与 exogenous 变量信息，在 12 个数据集上实现精度与效率的最优平衡。
 
 ## 背景与动机
-- Transformer 模型（TimeXer 等）精度高但计算开销大，且 patch 机制存在局限（permutation invariance 导致时序信息丢失）
-- MLP 模型（DLinear 等）高效轻量但忽视了跨变量依赖，尤其无法利用 exogenous inputs
-- 真实场景中 exogenous 变量（如天气数据）与 endogenous 变量（如水温）存在单向因果关系，利用这种关系可显著提升预测效果
-- 现有模型要么不支持 exogenous inputs，要么支持但计算代价过高
 
-## 核心问题
-如何在保持 MLP 级别效率的同时，有效建模 endogenous 变量的时序模式和与 exogenous 变量的跨变量依赖，实现精度-效率的最优权衡？
+### 领域现状
+
+**领域现状**：Transformer 模型（TimeXer 等）精度高但计算开销大，且 patch 机制存在局限（permutation invariance 导致时序信息丢失）
+
+### 核心矛盾
+
+**核心矛盾**：MLP 模型（DLinear 等）高效轻量但忽视了跨变量依赖，尤其无法利用 exogenous inputs
+
+### 现有痛点
+
+**现有痛点**：真实场景中 exogenous 变量（如天气数据）与 endogenous 变量（如水温）存在单向因果关系，利用这种关系可显著提升预测效果
+
+### 解决思路
+
+**解决思路**：现有模型要么不支持 exogenous inputs，要么支持但计算代价过高
+
+### 解决思路
+
+**本文目标**：如何在保持 MLP 级别效率的同时，有效建模 endogenous 变量的时序模式和与 exogenous 变量的跨变量依赖，实现精度-效率的最优权衡？
 
 ## 方法详解
 
@@ -57,6 +70,9 @@ $$[E'_{\text{exo}}, X''_{\text{glob}}] = \sigma(\text{Linear}_4(\phi(\text{Linea
 
 ## 实验关键数据
 
+
+### 主实验
+
 | 模型 | Electricity MSE | ETTh1 MSE | Weather MSE | 训练速度 |
 |------|----------------|-----------|-------------|----------|
 | TimeXer | 0.261 | 0.057 | 0.001 | 基准 |
@@ -69,7 +85,7 @@ $$[E'_{\text{exo}}, X''_{\text{glob}}] = \sigma(\text{Linear}_4(\phi(\text{Linea
 - Electricity (96步): XLinear MSE=0.256 vs TimeXer 0.261
 - 训练速度匹配 DLinear，内存消耗低于所有 SOTA 模型
 
-## 亮点
+## 亮点与洞察
 - 极致轻量：仅两组 MLP-based gating module，参数量远小于 Transformer 方案
 - Global token 设计巧妙隔离跨变量噪声，同时保留有效信息传递
 - 训练速度比 TimeXer 等高效 Transformer 快 30% 以上
@@ -81,7 +97,7 @@ $$[E'_{\text{exo}}, X''_{\text{glob}}] = \sigma(\text{Linear}_4(\phi(\text{Linea
 - Input length 固定为 96，未充分探索不同 look-back window 的影响
 - 缺少与 foundation time series model 的对比
 
-## 与相关工作的对比
+## 相关工作与启发
 
 | 维度 | XLinear | TimeXer | DLinear | iTransformer |
 |------|---------|---------|---------|-------------|
@@ -91,7 +107,7 @@ $$[E'_{\text{exo}}, X''_{\text{glob}}] = \sigma(\text{Linear}_4(\phi(\text{Linea
 | 训练效率 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
 | 精度 | SOTA | 次优 | 较低 | 中等 |
 
-## 启发与关联
+## 相关工作与启发
 - "Less is more" 在时间序列领域再次得到验证：精心设计的 MLP 可超越复杂 Transformer
 - Global token 作为信息枢纽的设计理念（源自 TimeXer）通过 MLP gating 实现了更高效的版本
 - Exogenous inputs 在实际应用中极为重要，但被多数 benchmark 忽视

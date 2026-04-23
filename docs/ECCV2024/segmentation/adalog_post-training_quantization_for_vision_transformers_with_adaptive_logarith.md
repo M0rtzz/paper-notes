@@ -111,6 +111,6 @@ AdaLog作用于标准ViT block中的post-Softmax层(MatMul2)和post-GELU层(FC2)
 - [EAFormer: Scene Text Segmentation with Edge-Aware Transformers](eaformer_scene_text_segmentation_with_edge-aware_transformers.md)
 - [MPM: Mutual Pair Merging for Efficient Vision Transformers](../../CVPR2026/segmentation/mpm_mutual_pair_merging_for_efficient_vision_transformers.md)
 - [Revisiting \[CLS\] and Patch Token Interaction in Vision Transformers](../../ICLR2026/segmentation/revisiting_cls_and_patch_token_interaction_in_vision_transformers.md)
-- [Rotary Position Embedding for Vision Transformer](rotary_position_embedding_for_vision_transformer.md)
+- [DreamLIP: Language-Image Pre-training with Long Captions](dreamlip_language-image_pre-training_with_long_captions.md)
 
 <!-- RELATED:END -->

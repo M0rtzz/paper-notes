@@ -2,7 +2,7 @@
 title: >-
   CVPR2025 因果推理方向 6篇论文解读
 description: >-
-  6篇CVPR2025 因果推理论文解读，主题涵盖：提出 Adventurer 系列视觉模型、提出 Antidote 统一框架、提出基于溯因反事实推理的全参考图像质量评估方法（F等，每篇含核心思想与方法详解。
+  6篇CVPR2025 因果推理论文解读，主题涵盖：提出 Adventurer 系列视觉模型、提出Antidote——合成数据驱动的统一后训练框、将全参考图像质量评估（FR-IQA）形式化为反事实等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -14,22 +14,22 @@ description: >-
 
 :   提出 Adventurer 系列视觉模型，通过"头部平均池化 token"和"层间翻转"两个简单设计将图像输入适配到单向因果扫描框架中，使 Mamba 架构在视觉任务上实现 4-6 倍于现有 Vision Mamba 的训练速度，同时保持与 ViT 相当甚至更优的精度。
 
-**[Antidote: A Unified Framework for Mitigating LVLM Hallucinations in Counterfactual Presupposition](antidote_a_unified_framework_for_mitigating_lvlm_hallucinations_in_counterfactua.md)**
+**[Antidote: A Unified Framework for Mitigating LVLM Hallucinations in Counterfactual Presupposition and Object Perception](antidote_a_unified_framework_for_mitigating_lvlm_hallucinations_in_counterfactua.md)**
 
-:   提出 Antidote 统一框架，专门解决大型视觉语言模型在面对含反事实预设的问题（如"图中的大象是什么颜色的？"而图中没有大象）时的幻觉生成问题。
+:   提出Antidote——合成数据驱动的统一后训练框架，通过将事实先验注入提示实现模型自校正，将幻觉缓解解耦为偏好优化问题，在LLaVA系列上CP-Bench提升超50%，POPE提升1.8-3.3%，CHAIR/SHR降低30-50%，且无灾难性遗忘。
 
-**[Image Quality Assessment: Investigating Causal Perceptual Effects with Abductive Counterfactual](image_quality_assessment_investigating_causal_perceptual_effects_with_abductive_.md)**
+**[Image Quality Assessment: Investigating Causal Perceptual Effects with Abductive Counterfactual Inference](image_quality_assessment_investigating_causal_perceptual_effects_with_abductive_.md)**
 
-:   提出基于溯因反事实推理的全参考图像质量评估方法（FR-IQA），通过建模"如果没有某种失真，感知质量会如何变化"的因果关系来更准确地评估图像质量。
+:   将全参考图像质量评估（FR-IQA）形式化为反事实推断问题，通过结构因果模型（SCM）区分深度特征中与感知质量因果相关的成分和噪声成分，实现无需训练、可跨骨干网络的鲁棒质量预测，在多个基准数据集上取得竞争性性能。
 
 **[Joint Scheduling of Causal Prompts and Tasks for Multi-Task Learning](joint_scheduling_of_causal_prompts_and_tasks_for_multi-task_learning.md)**
 
-:   提出 JSCPT，通过联合调度因果提示（消除虚假相关）和任务学习顺序（利用动态任务关系），优化多任务提示学习的性能。
+:   提出 JSCPT（Joint Scheduling of Causal Prompts and Tasks）框架，首先设计多任务视觉语言提示（MTVLP）并通过因果干预消除提示中的虚假相关特征，然后通过自适应任务调度器根据训练过程中任务关系的动态变化调整学习顺序和权重，在多个多任务视觉识别基准上取得显著提升。
 
 **[Seeing Far and Clearly: Mitigating Hallucinations in MLLMs with Attention Causal Decoding](seeing_far_and_clearly_mitigating_hallucinations_in_mllms_with_attention_causal_.md)**
 
-:   将 MLLM 幻觉分为初始幻觉（首次出现的错误描述）和雪球幻觉（基于已有错误的累积放大），提出注意力因果解码方法分别针对两种类型进行缓解。
+:   提出 FarSight，一种即插即用的无训练解码策略，通过在因果掩码的上三角矩阵中引入注意力寄存器来吸收异常 token 的过度注意力，并设计递减掩蔽率的位置感知编码增强远距离视觉 token 的信息传播，有效缓解多模态大模型中的初始幻觉和雪球幻觉。
 
-**[Towards Fine-Grained Interpretability: Counterfactual Explanations for Misclassification](towards_fine-grained_interpretability_counterfactual_explanations_for_misclassif.md)**
+**[FG-VCE: Towards Fine-Grained Interpretability — Counterfactual Explanations for Misclassification with Saliency Partition](towards_fine-grained_interpretability_counterfactual_explanations_for_misclassif.md)**
 
-:   针对模型错误分类的场景，提出细粒度的反事实解释方法 — 不仅展示"模型看了什么"，还能回答"如果哪些区域不同，模型就能正确分类"。
+:   提出 FG-VCE（Fine-Grained Visual Contrastive Explanation）框架，通过 Shapley 值计算特征点贡献度、显著性分区模块隔离局部特征、以及迭代反事实生成策略，首次实现了对象级和部件级的细粒度反事实解释，揭示模型误分类的具体原因——"哪些细粒度特征导致了错误"以及"哪些局部区域主导了预测改变"。

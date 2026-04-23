@@ -206,7 +206,7 @@ $$L_{\text{SLP}} = \mathbb{E}_{X \sim p(X)}[-\log p(X|c)]$$
 - [PetFace: A Large-Scale Dataset and Benchmark for Animal Identification](petface_a_large-scale_dataset_and_benchmark_for_animal_identification.md)
 - [A Simple Baseline for Spoken Language to Sign Language Translation with 3D Avatars](a_simple_baseline_for_spoken_language_to_sign_language_trans.md)
 - [EvSign: Sign Language Recognition and Translation with Streaming Events](evsign_sign_language_recognition_and_translation_with_streaming_events.md)
+- [Large Motion Model for Unified Multi-Modal Motion Generation](large_motion_model_for_unified_multi-modal_motion_generation.md)
 - [WorldPose: A World Cup Dataset for Global 3D Human Pose Estimation](worldpose_a_world_cup_dataset_for_global_3d_human_pose_estimation.md)
-- [Event-based Head Pose Estimation: Benchmark and Method](event-based_head_pose_estimation_benchmark_and_method.md)
 
 <!-- RELATED:END -->

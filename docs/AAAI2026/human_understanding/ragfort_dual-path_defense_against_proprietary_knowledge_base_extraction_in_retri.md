@@ -202,6 +202,6 @@ $$\hat{r}(x_{<t}, z) = 1 \iff \max_y q_t(y) < \max_y p_t(y) - \alpha \cdot D_{\t
 - [FedRAG: A Framework for Fine-Tuning Retrieval-Augmented Generation Systems](../../ICML2025/human_understanding/fedrag_a_framework_for_fine-tuning_retrieval-augmented_generation_systems.md)
 - [VimoRAG: Video-based Retrieval-augmented 3D Motion Generation for Motion Language Models](../../NeurIPS2025/human_understanding/vimorag_video-based_retrieval-augmented_3d_motion_generation_for_motion_language.md)
 - [Antibody: Strengthening Defense Against Harmful Fine-Tuning for Large Language Models via Attenuating Harmful Gradient Influence](../../ICLR2026/human_understanding/antibody_strengthening_defense_against_harmful_fine-tuning_for_large_language_mo.md)
-- [Semantic Retrieval Augmented Contrastive Learning for Sequential Recommendation](../../NeurIPS2025/human_understanding/semantic_retrieval_augmented_contrastive_learning_for_sequential_recommendation.md)
+- [Tool4POI: A Tool-Augmented LLM Framework for Next POI Recommendation](tool4poi_a_tool-augmented_llm_framework_for_next_poi_recommendation.md)
 
 <!-- RELATED:END -->

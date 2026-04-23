@@ -141,6 +141,6 @@ tags:
 - [EvoWiki: Evaluating LLMs on Evolving Knowledge](evowiki_evaluating_llms_on_evolving_knowledge.md)
 - [MultiCogEval: Evaluating LLMs Across Multi-Cognitive Levels](../../ICML2025/llm_evaluation/evaluating_llms_across_multi-cognitive_levels_from_medical_knowledge_mastery_to_.md)
 - [SeedBench: A Multi-task Benchmark for Evaluating Large Language Models in Seed Science](seedbench_a_multi-task_benchmark_for_evaluating_large_language_models_in_seed_sc.md)
-- [Help Me Write a Story: Evaluating LLMs' Ability to Generate Writing Feedback](help_write_story_feedback.md)
+- [Can External Validation Tools Improve Annotation Quality for LLM-as-a-Judge?](can_external_validation_tools_improve_annotation_quality_for_llm-as-a-judge.md)
 
 <!-- RELATED:END -->

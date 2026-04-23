@@ -153,6 +153,6 @@ $$\hat{\mathbf{W}}_l = \sum_{s=1}^{S} c_{ls} \mathbf{D}_s$$
 - [Learned Image Compression with Dictionary-based Entropy Model](../../CVPR2025/model_compression/learned_image_compression_with_dictionary-based_entropy_model.md)
 - [Spark Transformer: Reactivating Sparsity in FFN and Attention](../../NeurIPS2025/model_compression/spark_transformer_reactivating_sparsity_in_ffn_and_attention.md)
 - [BinaryAttention: One-Bit QK-Attention for Vision and Diffusion Transformers](../../CVPR2026/model_compression/binaryattention_one-bit_qk-attention_for_vision_and_diffusion_transformers.md)
-- [Explore and Establish Synergistic Effects between Weight Pruning and Coreset Selection](explore_and_establish_synergistic_effects_between_weight_pruning_and_coreset_sel.md)
+- [Find your Needle: Small Object Image Retrieval via Multi-Object Attention Optimization](../../NeurIPS2025/model_compression/find_your_needle_small_object_image_retrieval_via_multi-object_attention_optimiz.md)
 
 <!-- RELATED:END -->

@@ -123,6 +123,6 @@ $$\mathcal{L}_{total} = \mathcal{L}_\mathcal{V} + \mathcal{L}_\mathcal{E} = (\la
 - [Fine-Grained Representation for Lane Topology Reasoning](../../AAAI2026/autonomous_driving/fine-grained_representation_for_lane_topology_reasoning.md)
 - [A Neuro-Symbolic Framework Combining Inductive and Deductive Reasoning for Autonomous Driving Planning](a_neuro-symbolic_framework_combining_inductive_and_deductive_reasoning_for_auton.md)
 - [Driving by the Rules: A Benchmark for Integrating Traffic Sign Regulations into Vectorized HD Map](driving_by_the_rules_a_benchmark_for_integrating_traffic_sign_regulations_into_v.md)
-- [Generating Multimodal Driving Scenes via Next-Scene Prediction](generating_multimodal_driving_scenes_via_next-scene_prediction.md)
+- [GLane3D: Detecting Lanes with Graph of 3D Keypoints](glane3d_detecting_lanes_with_graph_of_3d_keypoints.md)
 
 <!-- RELATED:END -->

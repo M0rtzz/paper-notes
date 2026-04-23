@@ -1,18 +1,22 @@
 ---
 title: >-
-  ACL2025 推荐系统方向 7篇论文解读
+  ACL2025 推荐系统方向 8篇论文解读
 description: >-
-  7篇ACL2025 推荐系统论文解读，主题涵盖：针对对话推荐系统中的假阴性问题（用户可能喜欢的it、提出 CoVE 框架，通过扩展 LLM、提出 GRAM 生成式推荐框架等，每篇含核心思想与方法详解。
+  8篇ACL2025 推荐系统论文解读，主题涵盖：针对对话推荐系统中的假阴性问题（用户可能喜欢的it、本文提出Laser框架，通过在LLM输入的前缀和后、提出 CoVE 框架，通过扩展 LLM等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎁 推荐系统
 
-**💬 ACL2025** · **7** 篇论文解读
+**💬 ACL2025** · **8** 篇论文解读
 
 **[Beyond Single Labels: Improving Conversational Recommendation through LLM-Powered Data Augmentation](beyond_single_labels_improving_conversational_recommendation_through_llm-powered.md)**
 
 :   针对对话推荐系统中的假阴性问题（用户可能喜欢的item被错误标记为负样本），提出基于LLM的数据增强框架，通过语义检索+相关性打分生成合成标签，再通过两阶段训练策略平衡语义相关性和协同信息。
+
+**[Laser: Bi-Tuning with Collaborative Information for Controllable LLM-Based Sequential Recommendation](bi-tuning_with_collaborative_information_for_controllable_llm-based_sequential_r.md)**
+
+:   本文提出Laser框架，通过在LLM输入的前缀和后缀分别插入可训练虚拟token（Bi-Tuning），将用户-物品协同信息注入冻结的LLM，并设计基于MoE的M-Former来捕获不同类型用户的差异化特征，实现参数高效的序列推荐。
 
 **[CoVE: Compressed Vocabulary Expansion Makes Better LLM-based Recommender Systems](cove_compressed_vocabulary_expansion_makes_better_llm-based_recommender_systems.md)**
 

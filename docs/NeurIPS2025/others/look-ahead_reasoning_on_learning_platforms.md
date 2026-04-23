@@ -24,12 +24,24 @@ tags:
 在学习平台的用户-算法交互中形式化 level-$k$ 前瞻推理，证明个体自私的高阶推理只加速收敛但不改变均衡（无长期收益），而集体协调的收益由学习者-用户效用函数的对齐程度决定，提供了刻画协调收益上界的理论框架。
 
 ## 研究背景与动机
-**领域现状**：学习平台（如推荐系统、招聘筛选）训练预测模型，用户为获得有利结果会策略性地修改数据（如修改简历关键词）。Strategic Classification 框架研究用户对固定模型的最佳响应。
+
+### 领域现状
+
+**领域现状**：领域现状**：学习平台（如推荐系统、招聘筛选）训练预测模型，用户为获得有利结果会策略性地修改数据（如修改简历关键词）。Strategic Classification 框架研究用户对固定模型的最佳响应。
 
 **现有痛点**：
-   - 标准 strategic classification 忽略了用户行为的耦合效应——每个用户独立优化，不考虑其他用户同时在做类似事
-   - 算法集体行动（Algorithmic Collective Action）研究协调行为，但缺乏刻画协调收益和极限的理论
-   - 不同深度的战略推理（"我知道他们知道我知道..."）对学习动态的影响不清楚
+
+### 现有痛点
+
+**现有痛点**：标准 strategic classification 忽略了用户行为的耦合效应——每个用户独立优化，不考虑其他用户同时在做类似事
+
+### 核心矛盾
+
+**核心矛盾**：算法集体行动（Algorithmic Collective Action）研究协调行为，但缺乏刻画协调收益和极限的理论
+
+### 解决思路
+
+**解决思路**：不同深度的战略推理（"我知道他们知道我知道..."）对学习动态的影响不清楚
 
 **核心矛盾**：用户的战略行为会改变数据分布，进而改变平台训练的模型，但用户是否能通过更深层的推理或集体协调来改善结果？
 
@@ -68,6 +80,9 @@ tags:
 ## 实验关键数据
 
 ### 理论结果总结
+
+
+### 主实验
 
 | 设定 | 均衡 | 收敛速度 | 用户效用 |
 |------|------|---------|---------|
@@ -110,8 +125,8 @@ tags:
 
 - [Memorization: A Close Look at Books](../../ACL2025/others/memorization_a_close_look_at_books.md)
 - [Learning to Reason Over Time: Timeline Self-Reflection for Temporal Reasoning](../../ACL2025/others/tiser_timeline_self_reflection_temporal.md)
+- [Implicit Reasoning in Transformers is Reasoning through Shortcuts](../../ACL2025/others/implicit_reasoning_in_transformers_is_reasoning_through_shortcuts.md)
 - [UniFormer: Unified and Efficient Transformer for Reasoning Across General and Custom Computing](uniformer_unified_and_efficient_transformer_for_reasoning_across_general_and_cus.md)
 - [Self-Correction is More than Refinement: A Learning Framework for Visual and Language Reasoning Tasks](../../ACL2025/others/self-correction_is_more_than_refinement_a_learning_framework_for_visual_and_lang.md)
-- [Discrete Neural Algorithmic Reasoning](../../ICML2025/others/discrete_neural_algorithmic_reasoning.md)
 
 <!-- RELATED:END -->

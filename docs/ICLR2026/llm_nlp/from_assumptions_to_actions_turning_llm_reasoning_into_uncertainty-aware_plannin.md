@@ -164,10 +164,10 @@ PCE 是纯推理时框架，无需训练。默认超参数：$D=3, \alpha=1, \be
 
 ## 相关论文
 
-- [Uncertainty Under the Curve: A Sequence-Level Entropy Area Metric for Reasoning LLMs](../../AAAI2026/llm_nlp/uncertainty_under_the_curve_a_sequence-level_entropy_area_metric_for_reasoning_l.md)
 - [PlanGenLLMs: A Modern Survey of LLM Planning Capabilities](../../ACL2025/llm_nlp/plangenllms_planning_survey.md)
-- [Revisiting Common Assumptions about Arabic Dialects in NLP](../../ACL2025/llm_nlp/arabic_dialects_assumptions_revisited.md)
-- [Scalable and Accurate Graph Reasoning with LLM-Based Multi-Agents](../../AAAI2026/llm_nlp/scalable_and_accurate_graph_reasoning_with_llm-based_multi-agents.md)
-- [Compositional-ARC: Assessing Systematic Generalization in Abstract Spatial Reasoning](compositional-arc_assessing_systematic_generalization_in_abstract_spatial_reason.md)
+- [Uncertainty Under the Curve: A Sequence-Level Entropy Area Metric for Reasoning LLMs](../../AAAI2026/llm_nlp/uncertainty_under_the_curve_a_sequence-level_entropy_area_metric_for_reasoning_l.md)
+- [The Path of Least Resistance: Guiding LLM Reasoning Trajectories for Efficient Consistency](the_path_of_least_resistance_guiding_llm_reasoning_trajectories_for_efficient_co.md)
+- [Reconsidering LLM Uncertainty Estimation Methods in the Wild](../../ACL2025/llm_nlp/reconsidering_llm_uncertainty_estimation_methods_in_the_wild.md)
+- [Predicting LLM Reasoning Performance with Small Proxy Models](predicting_llm_reasoning_performance_with_small_proxy_models.md)
 
 <!-- RELATED:END -->

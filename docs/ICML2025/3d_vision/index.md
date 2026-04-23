@@ -36,7 +36,7 @@ description: >-
 
 **[Probabilistic Interactive 3D Segmentation with Hierarchical Neural Processes](probabilistic_interactive_3d_segmentation_with_hierarchical_neural_processes.md)**
 
-:   提出 NPISeg3D，基于层级神经过程（Hierarchical NPs）的概率性交互式 3D 分割框架，通过场景级和物体级隐变量结构增强少样本泛化，同时提供可靠的不确定性估计。
+:   NPISeg3D提出了首个基于层次化神经过程（Hierarchical Neural Processes）的概率交互式3D分割框架，通过场景级和物体级双层潜变量结构以及概率原型调制器，在少量点击下实现了优于AGILE3D的分割精度，同时提供可靠的不确定性估计。
 
 **[ReferSplat: Referring Segmentation in 3D Gaussian Splatting](refersplat_referring_segmentation_in_3d_gaussian_splatting.md)**
 
@@ -44,7 +44,7 @@ description: >-
 
 **[SE(3)-Equivariant Diffusion Policy in Spherical Fourier Space](se3-equivariant_diffusion_policy_in_spherical_fourier_space.md)**
 
-:   提出 Spherical Diffusion Policy（SDP），通过将状态、动作和去噪过程嵌入球面傅里叶空间实现端到端 SE(3) 等变的闭环操作策略，在 20 个仿真和 5 个真机任务上大幅超越基线。
+:   提出在球面 Fourier 空间中构建 SE(3) 等变扩散策略，利用球谐函数的等变性质使策略对输入场景的刚体变换保持等变，在机器人操作任务上实现更好的空间泛化。
 
 **[LaGa: Tackling View-Dependent Semantics in 3D Language Gaussian Splatting](tackling_view-dependent_semantics_in_3d_language_gaussian_splatting.md)**
 

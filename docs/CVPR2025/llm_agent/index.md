@@ -10,9 +10,9 @@ description: >-
 
 **📷 CVPR2025** · **10** 篇论文解读
 
-**[ATA: Adaptive Transformation Agent for Text-Guided Subject-Position Variable Background Inpainting](ata_adaptive_transformation_agent_for_text-guided_subject-position_variable_back.md)**
+**[ATA: Adaptive Transformation Agent for Text-Guided Subject-Position Variable Background Generation](ata_adaptive_transformation_agent_for_text-guided_subject-position_variable_back.md)**
 
-:   提出 ATA（Adaptive Transformation Agent），解决文本引导的主体位置可变背景修复任务，通过 PosAgent Block 自适应预测位移、Reverse Displacement Transform 模块和 Position Switch Embedding，在保持修复质量的同时实现主体位置的灵活调整。
+:   提出 ATA（Adaptive Transformation Agent）框架，在文本引导的背景生成中实现对主体位置和姿态的精确控制，通过自适应变换模块动态调整主体在背景中的放置，兼顾视觉一致性和语义合理性。
 
 **[Feature4X: Bridging Any Monocular Video to 4D Agentic AI with Versatile Gaussian Feature Fields](feature4x_bridging_any_monocular_video_to_4d_agentic_ai_with_versatile_gaussian_.md)**
 

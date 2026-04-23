@@ -26,10 +26,14 @@ tags:
 提出Residual SODAP框架，在无任务ID、无数据存储的域增量学习中，联合解决表示适应（α-entmax稀疏prompt选择+残差聚合）和分类器保持（统计伪特征重放+知识蒸馏），在DR、皮肤癌和CORe50三个基准上达到SOTA。
 
 ## 背景与动机
-现有Prompt-based持续学习(PCL)方法存在两个关键限制：(1)prompt选择方案不够好——Top-k硬选择不可微且表达力有限，Softmax软选择虽然可微但噪声累积（不相关prompt也有非零权重）；(2)忽略了分类器层面的遗忘——现有PCL主要关注prompt/prompt池设计来改善表示适应，但通过cross-composition诊断实验发现，分类器决策边界不稳定才是域增量学习中遗忘的主要来源。
 
-## 核心问题
-如何在prompt-based CL框架内同时实现高质量的表示适应和分类器层面的知识保持，在无Task-ID、无过去数据存储的严格约束下缓解灾难性遗忘？
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：现有Prompt-based持续学习(PCL)方法存在两个关键限制：(1)prompt选择方案不够好——Top-k硬选择不可微且表达力有限，Softmax软选择虽然可微但噪声累积（不相关prompt也有非零权重）；(2)忽略了分类器层面的遗忘——现有PCL主要关注prompt/prompt池设计来改善表示适应，但通过cross-composition诊断实验发现，分类器决策边界不稳定才是域增量学习中遗忘的主要来源。
+
+### 解决思路
+
+**本文目标**：如何在prompt-based CL框架内同时实现高质量的表示适应和分类器层面的知识保持，在无Task-ID、无过去数据存储的严格约束下缓解灾难性遗忘？
 
 ## 方法详解
 
@@ -66,7 +70,7 @@ tags:
 - 蒸馏+伪重放各贡献1.5~2.2pp准确率提升
 - 组件间存在accuracy-forgetting trade-off：某些消融降低遗忘但牺牲准确率，完整模型在trade-off曲线最佳点
 
-## 亮点
+## 亮点与洞察
 - **Backbone×Classifier诊断分析清晰地揭示了PCL中被忽视的分类器级遗忘问题**，是非常好的动机分析
 - α-entmax巧妙地解决了Top-k(不可微)和Softmax(噪声累积)之间的困境——精确零权重+可微性兼得
 - 统计伪特征重放极其轻量——只需每类存储均值和方差，用高斯采样即可回放
@@ -79,13 +83,13 @@ tags:
 - PUDD的超参（窗口大小、阈值、D_max等）较多，虽不需要手动调损失权重但引入了其他超参
 - Prompt池持续扩展（60→84→94），长期部署下参数量会线性增长
 
-## 与相关工作的对比
+## 相关工作与启发
 - **OS-Prompt++**: 同是PCL方法但无分类器保持机制，DR上AvgACC 0.769 vs 0.850
 - **Coda-Prompt**: 正交正则化的prompt学习，DR上AvgACC仅0.688
 - **DER++**: 需要replay buffer（存储过去数据），即使存数据仍不如本文无数据存储方案
 - **Online EWC**: 经典正则化方法，AvgF 0.174远高于本文0.047
 
-## 启发与关联
+## 相关工作与启发
 - "分类器级遗忘"的insight可推广到其他CL方法——不仅是PCL，任何使用共享分类器的CL方法都可能存在这个问题
 - α-entmax稀疏选择机制可用于其他需要从大池中选取子集的场景（如MoE路由）
 - 统计伪特征重放的思路可用于任何禁止数据存储的隐私敏感场景
@@ -101,9 +105,9 @@ tags:
 ## 相关论文
 
 - [Tell2Adapt: A Unified Framework for Source Free Unsupervised Domain Adaptation via Vision Foundation Model](tell2adapt_a_unified_framework_for_source_free_unsupervised_domain_adaptation_vi.md)
+- [From Adaptation to Generalization: Adaptive Visual Prompting for Medical Image Segmentation](apex_adaptive_visual_prompting.md)
 - [Human Knowledge Integrated Multi-modal Learning for Single Source Domain Generalization](human_knowledge_integrated_multimodal_learning_for.md)
 - [Interpretable Cross-Domain Few-Shot Learning with Rectified Target-Domain Local Alignment](interpretable_cross-domain_few-shot_learning_with_rectified_target-domain_local_.md)
-- [Active Inference for Micro-Gesture Recognition: EFE-Guided Temporal Sampling and Adaptive Learning](active_inference_for_micro-gesture_recognition_efe-guided_temporal_sampling_and_.md)
-- [Learning Generalizable 3D Medical Image Representations from Mask-Guided Self-Supervision](learning_generalizable_3d_medical_image_representations_from_mask-guided_self-su.md)
+- [Continual Learning for fMRI-Based Brain Disorder Diagnosis via Functional Connectivity Matrices Generative Replay](forge_continual_learning_for_fmri_based_brain_disorder_diagnosis.md)
 
 <!-- RELATED:END -->

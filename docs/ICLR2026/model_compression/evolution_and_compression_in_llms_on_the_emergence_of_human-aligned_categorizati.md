@@ -27,15 +27,17 @@ tags:
 
 ## 背景与动机
 
-人类语义分类系统（如颜色命名）被大量证据表明遵循 Information Bottleneck (IB) 原则——在词汇的信息复杂度（complexity）和沟通准确性（accuracy）之间实现近最优的权衡。这一理论框架由 Zaslavsky et al. (2018) 提出，并在 World Color Survey (WCS) 的 110 种语言中得到了广泛验证。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：人类语义分类系统（如颜色命名）被大量证据表明遵循 Information Bottleneck (IB) 原则——在词汇的信息复杂度（complexity）和沟通准确性（accuracy）之间实现近最优的权衡。这一理论框架由 Zaslavsky et al. (2018) 提出，并在 World Color Survey (WCS) 的 110 种语言中得到了广泛验证。
 
 然而，LLM 的训练目标是语言建模（next-token prediction），并非 IB 目标函数。这就引出了核心疑问：LLM 是否仅仅在模仿训练数据中的分类模式，还是拥有一种内在的、类似人类的归纳偏置（inductive bias），能够自发驱动高效的语义压缩？
 
 颜色命名是认知科学中研究分类的经典领域，拥有独一无二的跨语言人类数据（WCS 数据集）和文化演化实验数据（Xu et al., 2013），因此成为评估 LLM 是否与人类对齐的理想测试平台。
 
-## 核心问题
+### 解决思路
 
-1. LLM 的英语颜色命名系统在 IB 效率和人类对齐度上表现如何？
+**本文目标**：1. LLM 的英语颜色命名系统在 IB 效率和人类对齐度上表现如何？
 2. LLM 是否仅是模仿训练数据中的模式，还是拥有真正的 IB 效率归纳偏置？
 3. 这种偏置在颜色以外的语义域是否也存在？
 
@@ -92,7 +94,7 @@ $$\mathcal{F}_\beta[q] = I_q(M;W) - \beta \cdot I_q(W;U)$$
 - 经过 IICLL 代际传递，类别逐渐变得空间紧凑且基于两个维度区分区域
 - 初步证据表明 LLM 的 IB 偏置可能具有跨域通用性
 
-## 亮点
+## 亮点与洞察
 
 1. **理论-实验深度结合**：将认知科学的 IB 框架和迭代学习范式无缝迁移到 LLM 研究，方法论极具说服力
 2. **IICLL 范式创新**：使用伪标签消除了训练数据模仿的混淆因素，直接探测 LLM 的内在归纳偏置
@@ -108,7 +110,7 @@ $$\mathcal{F}_\beta[q] = I_q(M;W) - \beta \cdot I_q(W;U)$$
 4. **缺乏通信压力**：IICLL 仅模拟文化传递，未整合实际通信的功能性压力，与真实语言演化仍有差距
 5. **评估局限于英语**：虽然使用了 WCS 数据，但 LLM 的直接评测仅在英语颜色词上进行
 
-## 与相关工作的对比
+## 相关工作与启发
 
 | 工作 | 关注点 | 本文区别 |
 |------|--------|----------|
@@ -118,7 +120,7 @@ $$\mathcal{F}_\beta[q] = I_q(M;W) - \beta \cdot I_q(W;U)$$
 | Carlsson et al. (2024) | 神经网络 agent 的 IB 高效颜色命名 | 使用 LLM 而非从头训练的 agent |
 | Ren et al. (2020) NIL | 神经迭代学习中的组合性语言 | 聚焦语义压缩效率而非组合性 |
 
-## 启发与关联
+## 相关工作与启发
 
 - **对 LLM 对齐研究的启示**：IB 效率作为人类-AI 对齐的一个可量化维度，比传统的 benchmark 评测更深入地捕捉语义层面的对齐
 - **对模型压缩的启示**：虽归类于 model_compression，本文实际讨论的是"语义压缩"而非参数压缩，但其信息论视角（IB 原则）对理解模型如何在有限表征中编码语义有重要参考价值
@@ -138,7 +140,7 @@ $$\mathcal{F}_\beta[q] = I_q(M;W) - \beta \cdot I_q(W;U)$$
 - [LLM DNA: Tracing Model Evolution via Functional Representations](llm_dna_tracing_model_evolution_via_functional_representations.md)
 - [Human-LLM Collaborative Feature Engineering for Tabular Learning](human-llm_collaborative_feature_engineering_for_tabular_data.md)
 - [CoEvo: Continual Evolution of Symbolic Solutions Using Large Language Models](../../AAAI2026/model_compression/coevo_continual_evolution_of_symbolic_solutions_using_large_language_models.md)
-- [TokenSqueeze: Performance-Preserving Compression for Reasoning LLMs](../../NeurIPS2025/model_compression/tokensqueeze_performance-preserving_compression_for_reasoning_llms.md)
 - [Preference-Aligned LoRA Merging: Preserving Subspace Coverage and Addressing Directional Anisotropy](../../CVPR2026/model_compression/preference-aligned_lora_merging_preserving_subspace_coverage_and_addressing_dire.md)
+- [TokenSqueeze: Performance-Preserving Compression for Reasoning LLMs](../../NeurIPS2025/model_compression/tokensqueeze_performance-preserving_compression_for_reasoning_llms.md)
 
 <!-- RELATED:END -->

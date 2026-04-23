@@ -144,8 +144,8 @@ MetaGS在合成数据上平均PSNR比NRHints高约3-9dB，比GS3高约2-8dB。
 
 - [PointMAC: Meta-Learned Adaptation for Robust Test-Time Point Cloud Completion](pointmac_meta-learned_adaptation_for_robust_test-time_point_cloud_completion.md)
 - [A Unified Interpretation of Training-Time Out-of-Distribution Detection](../../ICCV2025/3d_vision/a_unified_interpretation_of_training-time_out-of-distribution_detection.md)
-- [ROGR: Relightable 3D Objects using Generative Relighting](rogr_relightable_3d_objects_using_generative_relighting.md)
 - [From Programs to Poses: Factored Real-World Scene Generation via Learned Program Libraries](from_programs_to_poses_factored_real-world_scene_generation_via_learned_program_.md)
-- [ReCap: Better Gaussian Relighting with Cross-Environment Captures](../../CVPR2025/3d_vision/recap_better_gaussian_relighting_with_cross-environment_captures.md)
+- [ROGR: Relightable 3D Objects using Generative Relighting](rogr_relightable_3d_objects_using_generative_relighting.md)
+- [LumiMotion: Improving Gaussian Relighting with Scene Dynamics](../../CVPR2026/3d_vision/lumimotion_gaussian_relighting_dynamics.md)
 
 <!-- RELATED:END -->

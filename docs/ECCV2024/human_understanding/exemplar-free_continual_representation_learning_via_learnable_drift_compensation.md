@@ -138,10 +138,10 @@ $$y^* = \arg\min_{y=1,...,Y^t} \|f_\theta^t(x) - P_t^y\|$$
 
 ## 相关论文
 
+- [One-stage Prompt-based Continual Learning](one-stage_prompt-based_continual_learning.md)
 - [Semantic Shift Estimation via Dual-Projection and Classifier Reconstruction for Exemplar-Free Class-Incremental Learning](../../ICML2025/human_understanding/semantic_shift_estimation_via_dual-projection_and_classifier_reconstruction_for_.md)
 - [Human Motion Forecasting in Dynamic Domain Shifts: A Homeostatic Continual Test-Time Adaptation Framework](human_motion_forecasting_in_dynamic_domain_shifts_a_homeostatic_continual_test-t.md)
 - [FreeMotion: A Unified Framework for Number-free Text-to-Motion Synthesis](freemotion_a_unified_framework_for_number-free_text-to-motion_synthesis.md)
 - [Towards Unified Representation of Invariant-Specific Features in Missing Modality Face Anti-Spoofing](towards_unified_representation_of_invariant-specific_features_in_missing_modalit.md)
-- [SAVE: Speech-Aware Video Representation Learning for Video-Text Retrieval](../../CVPR2026/human_understanding/save_speech-aware_video_representation_learning_for_video-text_retrieval.md)
 
 <!-- RELATED:END -->

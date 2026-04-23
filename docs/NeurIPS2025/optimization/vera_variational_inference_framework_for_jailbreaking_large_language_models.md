@@ -25,10 +25,22 @@ tags:
 将黑盒 LLM 越狱攻击形式化为变分推断问题，训练小型攻击者 LLM 近似目标 LLM 的对抗提示后验分布，一次训练后可高效、多样地生成越狱提示，无需依赖人工模板。
 
 ## 研究背景与动机
-- 现有黑盒越狱方法依赖遗传算法或搜索，需为每个行为单独优化，计算成本高
-- 多数方法依赖人工编写的越狱模板池作为初始化，绑定于已知漏洞，容易被修补
-- 单一成功案例不足以全面评估模型漏洞，需要多样化攻击以覆盖脆弱性全貌
-- 缺乏从分布角度理解和生成对抗提示的原则性框架
+
+### 领域现状
+
+**领域现状**：现有黑盒越狱方法依赖遗传算法或搜索，需为每个行为单独优化，计算成本高
+
+### 现有痛点
+
+**现有痛点**：多数方法依赖人工编写的越狱模板池作为初始化，绑定于已知漏洞，容易被修补
+
+### 核心矛盾
+
+**核心矛盾**：单一成功案例不足以全面评估模型漏洞，需要多样化攻击以覆盖脆弱性全貌
+
+### 解决思路
+
+**解决思路**：缺乏从分布角度理解和生成对抗提示的原则性框架
 
 ## 方法详解
 
@@ -121,9 +133,9 @@ tags:
 ## 相关论文
 
 - [Doubly Robust Alignment for Large Language Models](doubly_robust_alignment_for_large_language_models.md)
+- [Constrained Network Slice Assignment via Large Language Models](constrained_network_slice_assignment_via_llms.md)
 - [VIKING: Deep Variational Inference with Stochastic Projections](viking_deep_variational_inference_with_stochastic_projections.md)
-- [Large Language Bayes](large_language_bayes.md)
 - [NeuSymEA: Neuro-symbolic Entity Alignment via Variational Inference](neuro-symbolic_entity_alignment_via_variational_inference.md)
-- [Training-Free Bayesianization for Low-Rank Adapters of Large Language Models](training-free_bayesianization_for_low-rank_adapters_of_large_language_models.md)
+- [Large Language Bayes](large_language_bayes.md)
 
 <!-- RELATED:END -->

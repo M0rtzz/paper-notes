@@ -174,9 +174,9 @@ DiffiT提供两种变体：
 ## 相关论文
 
 - [RAZOR: Ratio-Aware Layer Editing for Targeted Unlearning in Vision Transformers and Diffusion Models](../../CVPR2026/image_generation/razor_ratio-aware_layer_editing_for_targeted_unlearning_in_vision_transformers_a.md)
-- [Diffusion Model is a Good Pose Estimator from 3D RF-Vision](diffusion_model_is_a_good_pose_estimator_from_3d_rf-vision.md)
-- [EdgeDiT: Hardware-Aware Diffusion Transformers for Efficient On-Device Image Generation](../../CVPR2026/image_generation/edgedit_hardware-aware_diffusion_transformers_for_efficient_on-device_image_gene.md)
+- [PixelDiT: Pixel Diffusion Transformers for Image Generation](../../CVPR2026/image_generation/pixeldit_pixel_diffusion_transformers_for_image_generation.md)
 - [Latent Guard: a Safety Framework for Text-to-Image Generation](latent_guard_a_safety_framework_for_text-to-image_generation.md)
 - [Powerful and Flexible: Personalized Text-to-Image Generation via Reinforcement Learning](powerful_and_flexible_personalized_text-to-image_generation_via_reinforcement_le.md)
+- [Towards Reliable Advertising Image Generation Using Human Feedback](towards_reliable_advertising_image_generation_using_human_fe.md)
 
 <!-- RELATED:END -->

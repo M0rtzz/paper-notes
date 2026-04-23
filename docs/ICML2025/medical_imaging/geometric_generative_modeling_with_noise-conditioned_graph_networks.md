@@ -28,9 +28,17 @@ tags:
 
 ## 研究背景与动机
 
-- **几何图生成的重要性**：3D 点云、分子结构、空间基因组学等都涉及带空间信息的图结构生成。
-- **现有 GNN 的静态局限**：流式生成模型中的 GNN 在整个去噪过程中使用固定的 kNN 或半径图，忽略了噪声级别对图信号的影响。
-- **信息论动机**：理论分析表明，噪声增大时恢复信号需要更远的邻居信息，且图可以用更低分辨率表示。
+### 领域现状
+
+**领域现状**：几何图生成的重要性**：3D 点云、分子结构、空间基因组学等都涉及带空间信息的图结构生成。
+
+### 现有痛点
+
+**现有痛点**：现有 GNN 的静态局限**：流式生成模型中的 GNN 在整个去噪过程中使用固定的 kNN 或半径图，忽略了噪声级别对图信号的影响。
+
+### 核心矛盾
+
+**核心矛盾**：信息论动机**：理论分析表明，噪声增大时恢复信号需要更远的邻居信息，且图可以用更低分辨率表示。
 
 ## 方法详解
 
@@ -125,7 +133,7 @@ $$r_t, s_t = f(t, r_0, r_1, s_0, s_1)$$
 - [Generative Modeling of Full-Atom Protein Conformations using Latent Diffusion on Graph Embeddings](../../NeurIPS2025/medical_imaging/generative_modeling_of_full-atom_protein_conformations_using_latent_diffusion_on.md)
 - [UniMoMo: Unified Generative Modeling of 3D Molecules for De Novo Binder Design](unimomo_unified_generative_modeling_of_3d_molecules_for_de_novo_binder_design.md)
 - [Towards Multiscale Graph-based Protein Learning with Geometric Secondary Structural Motifs](../../NeurIPS2025/medical_imaging/towards_multiscale_graph-based_protein_learning_with_geometric_secondary_structu.md)
-- [Random Search Neural Networks for Efficient and Expressive Graph Learning](../../NeurIPS2025/medical_imaging/random_search_neural_networks_for_efficient_and_expressive_graph_learning.md)
 - [Flexibility-conditioned Protein Structure Design with Flow Matching](flexibility-conditioned_protein_structure_design_with_flow_matching.md)
+- [Random Search Neural Networks for Efficient and Expressive Graph Learning](../../NeurIPS2025/medical_imaging/random_search_neural_networks_for_efficient_and_expressive_graph_learning.md)
 
 <!-- RELATED:END -->

@@ -128,10 +128,10 @@ VeC（Vector Compactness）衡量矢量图元被语义 mask 高度包含（>85% 
 
 ## 相关论文
 
-- [Understanding Multi-Layered Transmission Matrices](understanding_multi-layered_transmission_matrices.md)
+- [Understanding Multi-layered Transmission Matrices](understanding_multi-layered_transmission_matrices.md)
 - [One-Step Diffusion-Based Image Compression with Semantic Distillation](../../NeurIPS2025/model_compression/one-step_diffusion-based_image_compression_with_semantic_distillation.md)
 - [CoA: Towards Real Image Dehazing via Compression-and-Adaptation](coa_towards_real_image_dehazing_via_compression-and-adaptation.md)
-- [Targeted Forgetting of Image Subgroups in CLIP Models](targeted_forgetting_of_image_subgroups_in_clip_models.md)
 - [Learned Image Compression with Dictionary-based Entropy Model](learned_image_compression_with_dictionary-based_entropy_model.md)
+- [Reversible Decoupling Network for Single Image Reflection Removal](reversible_decoupling_network_for_single_image_reflection_removal.md)
 
 <!-- RELATED:END -->

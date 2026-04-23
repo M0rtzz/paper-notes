@@ -171,6 +171,6 @@ $$\mathbf{s}_i = \frac{1}{|\mathcal{N}(i)|} \sum_{j \in \mathcal{N}(i)} l_{ij}$$
 - [ReWeaver: Towards Simulation-Ready and Topology-Accurate Garment Reconstruction](../../CVPR2026/3d_vision/reweaver_towards_simulation-ready_and_topology-accurate_garment_reconstruction.md)
 - [Arbitrary-Scale 3D Gaussian Super-Resolution](arbitrary-scale_3d_gaussian_super-resolution.md)
 - [Mesh Interpolation Graph Network for Dynamic and Spatially Irregular Global Weather Forecasting](../../NeurIPS2025/3d_vision/mesh_interpolation_graph_network_for_dynamic_and_spatially_irregular_global_weat.md)
-- [Graph Smoothing for Enhanced Local Geometry Learning in Point Cloud Analysis](graph_smoothing_for_enhanced_local_geometry_learning_in_point_cloud_analysis.md)
+- [Open-World 3D Scene Graph Generation for Retrieval-Augmented Reasoning](open-world_3d_scene_graph_generation_for_retrieval-augmented_reasoning.md)
 
 <!-- RELATED:END -->

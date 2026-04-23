@@ -145,8 +145,8 @@ $$\hat{\mathcal{L}}(f, G) = \underbrace{\frac{1}{n_s}\sum_{i=1}^{n_s}\|f(\mathtt
 
 - [Understanding Ice Crystal Habit Diversity with Self-Supervised Learning](understanding_ice_crystal_habit_diversity_with_self-supervised_learning.md)
 - [T-REGS: Minimum Spanning Tree Regularization for Self-Supervised Learning](t-regs_minimum_spanning_tree_regularization_for_self-supervised_learning.md)
-- [Clustering Properties of Self-Supervised Learning](../../ICML2025/self_supervised/clustering_properties_of_self-supervised_learning.md)
 - [SHuBERT: Self-Supervised Sign Language Representation Learning via Multi-Stream Cluster Prediction](../../ACL2025/self_supervised/shubert_self-supervised_sign_language_representation_learning_via_multi-stream_c.md)
 - [STaRFormer: Semi-Supervised Task-Informed Representation Learning via Dynamic Attention-Based Regional Masking](starformer_semi-supervised_task-informed_representation_learning_via_dynamic_att.md)
+- [ReSA: Clustering Properties of Self-Supervised Learning](../../ICML2025/self_supervised/clustering_properties_of_self-supervised_learning.md)
 
 <!-- RELATED:END -->

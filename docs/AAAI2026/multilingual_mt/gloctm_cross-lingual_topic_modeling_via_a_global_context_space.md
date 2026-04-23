@@ -129,8 +129,8 @@ tags:
 
 - [Bridging the Multilingual Safety Divide: Efficient, Culturally-Aware Alignment for Global South Languages](bridging_the_multilingual_safety_divide_efficient_culturally-aware_alignment_for.md)
 - [Cross-Lingual Pitfalls: Automatic Probing Cross-Lingual Weakness of Multilingual Large Language Models](../../ACL2025/multilingual_mt/crosslingual_pitfalls.md)
-- [CCHall: A Novel Benchmark for Joint Cross-Lingual and Cross-Modal Hallucinations Detection in Large Language Models](../../ACL2025/multilingual_mt/cchall_a_novel_benchmark_for_joint_cross-lingual_and_cross-modal_hallucinations_.md)
 - [The Hidden Space of Safety: Understanding Preference-Tuned LLMs in Multilingual Contexts](../../ACL2025/multilingual_mt/the_hidden_space_of_safety_understanding_preference-tuned_llms_in_multilingual_c.md)
+- [CCHall: A Novel Benchmark for Joint Cross-Lingual and Cross-Modal Hallucinations Detection in Large Language Models](../../ACL2025/multilingual_mt/cchall_a_novel_benchmark_for_joint_cross-lingual_and_cross-modal_hallucinations_.md)
 - [CLIX: Cross-Lingual Explanations of Idiomatic Expressions](../../ACL2025/multilingual_mt/clix_cross-lingual_explanations_of_idiomatic_expressions.md)
 
 <!-- RELATED:END -->

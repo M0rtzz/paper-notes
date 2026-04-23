@@ -142,7 +142,7 @@ $$L = L_{fix} + \sum_{i}^{\mathcal{T}} \left( L_{response,i} + \frac{\alpha \cdo
 - [Contextual Dynamic Pricing with Heterogeneous Buyers](contextual_dynamic_pricing_with_heterogeneous_buyers.md)
 - [LoGU: Long-form Generation with Uncertainty Expressions](../../ACL2025/others/logu_longform_gen_uncertainty.md)
 - [Brain Netflix: Scaling Data to Reconstruct Videos from Brain Signals](../../ECCV2024/others/brain_netflix_scaling_data_to_reconstruct_videos_from_brain_signals.md)
+- [Do Vision Models Perceive Illusory Motion in Static Images Like Humans?](../../CVPR2026/others/do_vision_models_perceive_illusory_motion_in_static_images_like_humans.md)
 - [Beyond Position: the emergence of wavelet-like properties in Transformers](../../ACL2025/others/beyond_position_the_emergence_of_wavelet-like_properties_in_transformers.md)
-- [EvoBrain: Dynamic Multi-Channel EEG Graph Modeling for Time-Evolving Brain Networks](evobrain_dynamic_multi-channel_eeg_graph_modeling_for_time-evolving_brain_networ.md)
 
 <!-- RELATED:END -->

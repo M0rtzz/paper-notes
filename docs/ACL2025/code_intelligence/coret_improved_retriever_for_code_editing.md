@@ -147,8 +147,8 @@ $$\mathcal{L}(\theta) = \frac{1}{N} \sum_i^N \frac{1}{|\mathcal{C}_i^*|} \sum_{c
 
 - [OASIS: Order-Augmented Strategy for Improved Code Search](oasis_order-augmented_strategy_for_improved_code_search.md)
 - [GALLa: Graph Aligned Large Language Models for Improved Source Code Understanding](galla_graph_aligned_large_language_models.md)
-- [CoMo: Controllable Motion Generation Through Language Guided Pose Code Editing](../../ECCV2024/code_intelligence/como_controllable_motion_generation_through_language_guided_pose_code_editing.md)
 - [DynaCode: A Dynamic Complexity-Aware Code Benchmark for Evaluating Large Language Models in Code Generation](dynacode_a_dynamic_complexity-aware_code_benchmark_for_evaluating_large_language.md)
 - [CodeDPO: Aligning Code Models with Self Generated and Verified Source Code](codedpo_code_alignment.md)
+- [Tree-of-Code: A Tree-Structured Exploring Framework for End-to-End Code Generation](tree-of-code_a_tree-structured_exploring_framework_for_end-to-end_code_generatio.md)
 
 <!-- RELATED:END -->

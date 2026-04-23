@@ -120,6 +120,6 @@ Mosaic/MixUp 拼接图像（4→1）→ 增加单图内目标数 N → 保持一
 - [MI-DETR: An Object Detection Model with Multi-time Inquiries Mechanism](mi-detr_an_object_detection_model_with_multi-time_inquiries_mechanism.md)
 - [Mr. DETR++: Instructive Multi-Route Training for Detection Transformers with MoE](mr_detr_instructive_multi-route_training_for_detection_transformers.md)
 - [Sim-DETR: Unlock DETR for Temporal Sentence Grounding](../../ICCV2025/object_detection/sim-detr_unlock_detr_for_temporal_sentence_grounding.md)
-- [Few-Shot Pattern Detection via Template Matching and Regression](../../ICCV2025/object_detection/few-shot_pattern_detection_via_template_matching_and_regression.md)
+- [ReCon-GS: Continuum-Preserved Gaussian Streaming for Fast and Compact Reconstruction](../../NeurIPS2025/object_detection/recon-gs_continuum-preserved_gaussian_streaming_for_fast_and_compact_reconstruct.md)
 
 <!-- RELATED:END -->

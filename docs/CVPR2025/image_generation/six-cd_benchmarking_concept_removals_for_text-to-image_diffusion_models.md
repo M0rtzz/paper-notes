@@ -127,8 +127,8 @@ Six-CD 基准包含三个核心组件：（1）覆盖六类不良概念的全面
 
 - [ICE: Intrinsic Concept Extraction from a Single Image via Diffusion Models](ice_intrinsic_concept_extraction_from_a_single_image_via_diffusion_models.md)
 - [TRCE: Towards Reliable Malicious Concept Erasure in Text-to-Image Diffusion Models](../../ICCV2025/image_generation/trce_towards_reliable_malicious_concept_erasure_in_text-to-image_diffusion_model.md)
+- [GRADE: Benchmarking Discipline-Informed Reasoning in Image Editing](grade_benchmarking_discipline-informed_reasoning_in_image_editing.md)
+- [FADE: Fine-Grained Erasure in Text-to-Image Diffusion-based Foundation Models](fade_fine_grained_erasure_diffusion.md)
 - [Everything in Its Place: Benchmarking Spatial Intelligence of Text-to-Image Models](../../ICLR2026/image_generation/everything_in_its_place_benchmarking_spatial_intelligence_of_text-to-image_model.md)
-- [Scaling Down Text Encoders of Text-to-Image Diffusion Models](scaling_down_text_encoders_of_text-to-image_diffusion_models.md)
-- [Efficient Fine-Tuning and Concept Suppression for Pruned Diffusion Models](efficient_fine-tuning_and_concept_suppression_for_pruned_diffusion_models.md)
 
 <!-- RELATED:END -->

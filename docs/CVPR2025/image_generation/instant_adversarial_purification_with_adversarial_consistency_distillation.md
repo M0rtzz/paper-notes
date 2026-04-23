@@ -166,7 +166,7 @@ OSCP 由两个组件构成：
 - [Divide and Conquer: Heterogeneous Noise Integration for Diffusion-based Adversarial Purification](divide_and_conquer_heterogeneous_noise_integration_for_diffusion-based_adversari.md)
 - [IDProtector: An Adversarial Noise Encoder to Protect Against ID-Preserving Image Generation](idprotector_an_adversarial_noise_encoder_to_protect_against_id-preserving_image_.md)
 - [Learning Differentially Private Diffusion Models via Stochastic Adversarial Distillation](../../ECCV2024/image_generation/learning_differentially_private_diffusion_models_via_stochastic_adversarial_dist.md)
-- [Denoising Weak Lensing Mass Maps with Diffusion Model and Generative Adversarial Network](../../NeurIPS2025/image_generation/denoising_weak_lensing_mass_maps_with_diffusion_model_and_generative_adversarial.md)
-- [Exploring Semantic-constrained Adversarial Example with Instruction Uncertainty Reduction](../../NeurIPS2025/image_generation/exploring_semantic-constrained_adversarial_example_with_instruction_uncertainty_.md)
+- [Enhancing Facial Privacy Protection via Weakening Diffusion Purification](enhancing_facial_privacy_protection_via_weakening_diffusion_purification.md)
+- [DIA: The Adversarial Exposure of Deterministic Inversion in Diffusion Models](../../ICCV2025/image_generation/dia_the_adversarial_exposure_of_deterministic_inversion_in_diffusion_models.md)
 
 <!-- RELATED:END -->

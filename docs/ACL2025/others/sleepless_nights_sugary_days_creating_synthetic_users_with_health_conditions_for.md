@@ -158,7 +158,7 @@ tags:
 - [Retrospective Learning from Interactions](retrospective_learning_from_interactions.md)
 - [Meaning Beyond Truth Conditions: Evaluating Discourse Level Understanding via Anaphora Accessibility](meaning_beyond_truth_conditions_evaluating_discourse_level_understanding_via_ana.md)
 - [Substance over Style: Evaluating Proactive Conversational Coaching Agents](proactive_conversational_coaching.md)
+- [CONFETTI: Conversational Function-Calling Evaluation Through Turn-Level Interactions](confetti_conversational_function-calling_evaluation_through_turn-level_interacti.md)
 - [CoachMe: Decoding Sport Elements with a Reference-Based Coaching Instruction Generation Model](coachme_sport_instruction.md)
-- [Using Shapley Interactions to Understand How Models Use Structure](using_shapley_interactions_to_understand_how_models_use_structure.md)
 
 <!-- RELATED:END -->

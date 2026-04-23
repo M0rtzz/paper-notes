@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-LLM 处理数字的四个根本性问题：
+### 现有痛点
+
+**现有痛点**：**领域现状**：LLM 处理数字的四个根本性问题：
 
 **分词**：标准子词分词将数字切割为任意 token
 
@@ -99,7 +101,7 @@ NTL 在大规模模型上性能提升一致，不影响纯文本任务表现。
 
 NTL 与数字级分词组合效果最佳。
 
-## 亮点
+## 亮点与洞察
 
 - 优雅地解决了 CE 损失在数值 token 上的名义尺度问题
 - NTL-WAS 通过 Wasserstein 距离完美克服了朴素回归损失的非唯一最小值缺陷
@@ -107,7 +109,7 @@ NTL 与数字级分词组合效果最佳。
 - 灵活的代价函数设计支持非欧几里得空间（如模运算）
 - 不影响文本任务 + 零运行时开销 → 没有理由不在预训练中使用
 
-## 局限性
+## 局限与展望
 
 - 仅在数学相关任务上验证，未涵盖科学计算、金融等领域
 - 对多数字分词器的支持需要非欧代价矩阵，增加了使用复杂度
@@ -123,10 +125,10 @@ NTL 与数字级分词组合效果最佳。
 
 ## 相关论文
 
-- [Identifying and Analyzing Performance-Critical Tokens in Large Language Models](../../AAAI2026/llm_nlp/identifying_and_analyzing_performance-critical_tokens_in_large_language_models.md)
 - [ReCall: Library-Like Behavior In Language Models is Enhanced by Self-Referencing Causal Cycles](../../ACL2025/llm_nlp/library-like_behavior_in_language_models_is_enhanced_by_self-referencing_causal_.md)
 - [HumT DumT: Measuring and Controlling Human-like Language in LLMs](../../ACL2025/llm_nlp/humt_dumt_measuring_and_controlling_human-like_language_in_llms.md)
-- [OLMoTrace: Tracing Language Model Outputs Back to Trillions of Training Tokens](../../ACL2025/llm_nlp/olmotrace_tracing_language_model_outputs_back_to_trillions_of_training_tokens.md)
-- [Post Hoc Regression Refinement via Pairwise Rankings](../../NeurIPS2025/llm_nlp/post_hoc_regression_refinement_via_pairwise_rankings.md)
+- [VA-GPT: Aligning Effective Tokens with Video Anomaly in Large Language Models](../../ICCV2025/llm_nlp/va_gpt_aligning_effective_tokens_video_anomaly.md)
+- [Analyzing and Mitigating Inconsistency in Discrete Speech Tokens for Neural Codec Language Models](../../ACL2025/llm_nlp/analyzing_and_mitigating_inconsistency_in_discrete_speech_tokens_for_neural_code.md)
+- [Identifying and Analyzing Performance-Critical Tokens in Large Language Models](../../AAAI2026/llm_nlp/identifying_and_analyzing_performance-critical_tokens_in_large_language_models.md)
 
 <!-- RELATED:END -->

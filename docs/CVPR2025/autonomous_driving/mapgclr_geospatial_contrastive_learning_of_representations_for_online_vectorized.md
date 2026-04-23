@@ -131,6 +131,6 @@ $\mathcal{L}_\text{GCLR} = -\log\frac{\exp(\text{sim}(\mathbf{z}_i, \mathbf{z}_i
 - [Uncertainty-Instructed Structure Injection for Generalizable HD Map Construction](uncertainty-instructed_structure_injection_for_generalizable_hd_map_construction.md)
 - [Driving by the Rules: A Benchmark for Integrating Traffic Sign Regulations into Vectorized HD Map](driving_by_the_rules_a_benchmark_for_integrating_traffic_sign_regulations_into_v.md)
 - [PSA-SSL: Pose and Size-aware Self-Supervised Learning on LiDAR Point Clouds](psa-ssl_pose_and_size-aware_self-supervised_learning_on_lidar_point_clouds.md)
-- [Unlocking Generalization Power in LiDAR Point Cloud Registration](unlocking_generalization_power_in_lidar_point_cloud_registration.md)
+- [ZeroVO: Visual Odometry with Minimal Assumptions](zerovo_visual_odometry_with_minimal_assumptions.md)
 
 <!-- RELATED:END -->

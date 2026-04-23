@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：自动驾驶仿真需要逼真的交通场景生成。现有方法要么只能短时间仿真（<10 秒），要么不能处理智能体的出入场（车辆进入/离开场景）。城市级长时间仿真需要同时建模数百个智能体的行为、交通信号灯、遮挡关系和出入场动态。
 
 **现有痛点**：稀疏张量是核心技术难题——不同智能体在不同时刻出现/消失，导致数据张量中有大量无效位置。传统做法用零填充或硬裁剪处理，但这在扩散模型推理中会导致生成质量下降。
@@ -103,7 +105,7 @@ WOMD-XLMap 60s 仿真 JS 散度↓：
 - [Generative Gaussian Splatting for Unbounded 3D City Generation](generative_gaussian_splatting_for_unbounded_3d_city_generation.md)
 - [DrivingSphere: Building a High-fidelity 4D World for Closed-loop Simulation](drivingsphere_building_a_high-fidelity_4d_world_for_closed-loop_simulation.md)
 - [SimScale: Learning to Drive via Real-World Simulation at Scale](../../CVPR2026/autonomous_driving/simscale_learning_to_drive_via_real-world_simulation_at_scale.md)
+- [MaskGWM: A Generalizable Driving World Model with Video Mask Reconstruction](maskgwm_a_generalizable_driving_world_model_with_video_mask_reconstruction.md)
 - [GaussianWorld: Gaussian World Model for Streaming 3D Occupancy Prediction](gaussianworld_gaussian_world_model_for_streaming_3d_occupancy_prediction.md)
-- [FreeSim: Toward Free-Viewpoint Camera Simulation in Driving Scenes](freesim_toward_free-viewpoint_camera_simulation_in_driving_scenes.md)
 
 <!-- RELATED:END -->

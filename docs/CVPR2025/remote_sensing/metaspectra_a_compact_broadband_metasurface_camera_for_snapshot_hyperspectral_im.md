@@ -28,13 +28,33 @@ tags:
 
 ## 研究背景与动机
 
-- 多功能超表面成像可在紧凑单目系统中同时获取多种模态（光谱、偏振、HDR等），但受限于**严重色差，工作带宽仅 10-100nm**
-- 快照高光谱成像需要在一次曝光中恢复三维高光谱数据立方体，关键在于光学编码设计和计算重建
-- 现有方案：
-    - 采样型（编码光圈/滤波阵列等）：需中继光学元件，体积大
-    - 编码型（DOE/光栅等）：较紧凑但制造成本高
-    - 多功能超表面：紧凑但窄带
-- **核心挑战**：扩展多功能超表面成像的可用带宽，使其覆盖整个可见光谱
+### 领域现状
+
+**领域现状**：多功能超表面成像可在紧凑单目系统中同时获取多种模态（光谱、偏振、HDR等），但受限于**严重色差，工作带宽仅 10-100nm**
+
+### 现有痛点
+
+**现有痛点**：快照高光谱成像需要在一次曝光中恢复三维高光谱数据立方体，关键在于光学编码设计和计算重建
+
+### 核心矛盾
+
+**核心矛盾**：现有方案：
+
+### 解决思路
+
+**解决思路**：采样型（编码光圈/滤波阵列等）：需中继光学元件，体积大
+
+### 补充说明
+
+**补充说明**：编码型（DOE/光栅等）：较紧凑但制造成本高
+
+### 补充说明
+
+**补充说明**：多功能超表面：紧凑但窄带
+
+### 补充说明
+
+**补充说明**：核心挑战**：扩展多功能超表面成像的可用带宽，使其覆盖整个可见光谱
 
 ## 方法详解
 
@@ -76,6 +96,9 @@ tags:
 
 ### KAUST 数据集上的高光谱重建（快照方法对比）
 
+
+### 主实验
+
 | 方法 | PSNR(dB) | SSIM | SAM |
 |------|----------|------|-----|
 | Ours (DWDN) | **32.92** | **0.94** | **0.17** |
@@ -92,7 +115,7 @@ tags:
 - HDR 模式：动态范围提升约 11dB
 - 偏振模式：成功区分 0°/90° 偏振分量
 
-## 亮点
+## 亮点与洞察
 
 1. **带宽突破性**：工作带宽 250nm，超越现有多功能超表面系统一个数量级（10-100nm → 250nm）
 2. **解耦设计思想**：折射光学做成像、超表面做分束/色散控制，各司其职，突破了单一超表面的性能瓶颈
@@ -100,7 +123,7 @@ tags:
 4. **最短 TTL（17mm）**：在保持 SOTA 重建质量的同时实现最紧凑的系统设计
 5. **完整的端到端系统**：从纳米制造到标定到算法重建，给出了完整的可复现方案
 
-## 局限性
+## 局限与展望
 
 1. **景深有限**（0.2-0.7m），仅适用于近距离成像场景
 2. 随机交错分束策略以**光效率换取伪影抑制**，部分能量损失
@@ -122,8 +145,8 @@ tags:
 
 - [Dense Dispersed Structured Light for Hyperspectral 3D Imaging of Dynamic Scenes](dense_dispersed_structured_light_for_hyperspectral_3d_imaging_of_dynamic_scenes.md)
 - [Hierarchical Dual-Change Collaborative Learning for UAV Scene Change Captioning](hierarchical_dual-change_collaborative_learning_for_uav_scene_change_captioning.md)
-- [Joint and Streamwise Distributed MIMO Satellite Communications with Multi-Antenna Ground Users](joint_and_streamwise_distributed_mimo_satellite_communications_with_multi-antenn.md)
 - [Think and Answer ME: Benchmarking and Exploring Multi-Entity Reasoning Grounding in Remote Sensing](think_and_answer_me_benchmarking_and_exploring_multi-entity_reasoning_grounding_.md)
+- [Joint and Streamwise Distributed MIMO Satellite Communications with Multi-Antenna Ground Users](joint_and_streamwise_distributed_mimo_satellite_communications_with_multi-antenn.md)
 - [DiSciPLE: Learning Interpretable Programs for Scientific Visual Discovery](disciple_learning_interpretable_programs_for_scientific_visual_discovery.md)
 
 <!-- RELATED:END -->

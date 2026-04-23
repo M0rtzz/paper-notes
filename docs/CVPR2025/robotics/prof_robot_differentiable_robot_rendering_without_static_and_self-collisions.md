@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：可微渲染在机器人学中的应用日益增多——用于逆运动学（IK）、姿态估计和轨迹优化。但现有方法（如 DrR、NiLBS）在通过梯度优化关节角度时会生成碰撞的构型——机械臂穿过桌子或自身关节交叉。
 
 **现有痛点**：可微渲染只优化"看起来像目标"的视觉损失，不知道物理约束。结果是优化出的关节角度在渲染上看起来正确，但在物理上不可能执行（碰撞）。
@@ -36,6 +38,17 @@ tags:
 **切入角度**：将碰撞检测可微化——用签名距离函数（SDF）表示障碍物和机器人各连杆，碰撞约束 $\max(0, d_{safe} - \text{SDF}(p))$ 自然可微，可以与渲染损失联合优化。
 
 **核心 idea**：3DGS 可微渲染 + SDF 碰撞约束 + 自碰撞检测 = 物理可行的可微机器人规划。
+
+### 解决思路
+
+**本文目标**：### 关键设计
+
+1. **连杆级 3DGS 绑定**：每个机器人连杆独立用 3D 高斯表示，通过正运动学（FK）变换到关节角度对应的位姿
+
+2. **静态碰撞约束**：用环境 SDF $\phi_{env}(p)$ 检测每个高斯中心与障碍物的距离，$\mathcal{L}_{static} = \sum \max(0, d_{safe} - \phi_{env}(p_i))$
+
+3. **自碰。
+
 
 ## 方法详解
 
@@ -52,6 +65,9 @@ tags:
 $\mathcal{L} = \mathcal{L}_{render} + \lambda_1 \mathcal{L}_{static} + \lambda_2 \mathcal{L}_{self}$。渲染损失用 L1+SSIM。
 
 ## 实验关键数据
+
+
+### 主实验
 
 | 方法 | 碰撞率 | IK 精度 |
 |------|--------|---------|
@@ -86,7 +102,7 @@ $\mathcal{L} = \mathcal{L}_{render} + \lambda_1 \mathcal{L}_{static} + \lambda_2
 - [A Data-Centric Revisit of Pre-Trained Vision Models for Robot Learning](a_data-centric_revisit_of_pre-trained_vision_models_for_robot_learning.md)
 - [Mitigating the Human-Robot Domain Discrepancy in Visual Pre-training for Robotic Manipulation](mitigating_the_human-robot_domain_discrepancy_in_visual_pre-training_for_robotic.md)
 - [Think Small, Act Big: Primitive Prompt Learning for Lifelong Robot Manipulation](think_small_act_big_primitive_prompt_learning_for_lifelong_robot_manipulation.md)
+- [RoboTwin: Dual-Arm Robot Benchmark with Generative Digital Twins](robotwin_dual-arm_robot_benchmark_with_generative_digital_twins.md)
 - [Evaluating VLMs' Spatial Reasoning Over Robot Motion: A Step Towards Robot Planning with Motion Preferences](../../ICLR2026/robotics/evaluating_vlms_spatial_reasoning_over_robot_motion_a_step_towards_robot_plannin.md)
-- [Moto: Latent Motion Token as the Bridging Language for Learning Robot Manipulation from Videos](../../ICCV2025/robotics/moto_latent_motion_token_as_the_bridging_language_for_learning_robot_manipulatio.md)
 
 <!-- RELATED:END -->

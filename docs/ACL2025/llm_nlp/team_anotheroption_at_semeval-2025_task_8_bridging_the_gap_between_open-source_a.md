@@ -286,6 +286,6 @@ tags:
 - [Enhancing Open-Domain Task-Solving Capability of LLMs via Autonomous Tool Integration from GitHub](paper_2312_17294.md)
 - [Mind the (Belief) Gap: Group Identity in the World of LLMs](mind_the_belief_gap_group_identity_in_the_world_of_llms.md)
 - [Masking in Multi-hop QA: How LMs Perform with Context Permutation](masking_in_multi-hop_qa_an_analysis_of_how_language_models_perform_with_context_.md)
-- [Beyond In-Context Learning: Aligning Long-form Generation of LLMs via Task-Inherent Attribute Guidelines](beyond_in-context_learning_aligning_long-form_generation_of_large_language_model.md)
+- [Language-Codec: Bridging Discrete Codec Representations and Speech Language Models](language_codec_bridging_discrete_codec_speech_language_models.md)
 
 <!-- RELATED:END -->

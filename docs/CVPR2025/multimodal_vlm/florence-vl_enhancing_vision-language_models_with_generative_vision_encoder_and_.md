@@ -122,6 +122,6 @@ tags:
 - [SPA-VL: A Comprehensive Safety Preference Alignment Dataset for Vision Language Models](spa-vl_a_comprehensive_safety_preference_alignment_dataset_for_vision_language_m.md)
 - [VILA-M3: Enhancing Vision-Language Models with Medical Expert Knowledge](vila-m3_enhancing_vision-language_models_with_medical_expert_knowledge.md)
 - [EVEv2: Improved Baselines for Encoder-Free Vision-Language Models](../../ICCV2025/multimodal_vlm/evev2_improved_baselines_for_encoderfree_visionlanguage_mode.md)
-- [Instruction-Grounded Visual Projectors for Continual Learning of Generative Vision-Language Models](../../ICCV2025/multimodal_vlm/instruction-grounded_visual_projectors_for_continual_learning_of_generative_visi.md)
+- [SSR: Enhancing Depth Perception in VLMs via Rationale-Guided Spatial Reasoning](../../NeurIPS2025/multimodal_vlm/ssr_enhancing_depth_perception_in_vision-language_models_via_rationale-guided_sp.md)
 
 <!-- RELATED:END -->

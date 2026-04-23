@@ -24,7 +24,10 @@ tags:
 本文提出 Utility Learning (UL) 问题，通过从演示中推断智能体的效用函数来捕捉其风险态度，设计了两个可证明高效的算法并分析了样本复杂度和可辨识性。
 
 ## 研究背景与动机
-**领域现状**: 逆强化学习 (IRL) 从专家演示推断奖励函数，是理解和模仿行为的核心方法。然而，经典 IRL 假设智能体是风险中性的 (最大化期望累积奖励)。
+
+### 领域现状
+
+**领域现状**：领域现状**: 逆强化学习 (IRL) 从专家演示推断奖励函数，是理解和模仿行为的核心方法。然而，经典 IRL 假设智能体是风险中性的 (最大化期望累积奖励)。
 
 **现有痛点**: 人类行为普遍表现出风险敏感性——面对随机性时会表现出风险规避或风险追求。风险中性假设不仅引入模型误差，还无法直接捕捉智能体的风险态度。
 
@@ -33,6 +36,20 @@ tags:
 **本文切入角度**: 引入效用函数 $u$ 来显式表示风险态度，将其学习定义为 Utility Learning (UL) 问题。
 
 **核心 idea**: 在 MDP 中定义效用函数作为风险态度的编码，分析其部分可辨识性，并设计有限样本算法进行推断。
+
+### 解决思路
+
+**本文目标**：### 整体框架
+输入：MDP 环境结构 + 智能体的演示轨迹 → 效用学习算法 → 输出效用函数（编码风险态度）
+
+### 关键设计
+
+1. **效用函数建模**:
+
+    - 效用函数 $u: \mathbb{R} \to \mathbb{R}$ 作用于累积奖励，捕捉风险态度
+    - 凹函数 → 风险规避，凸函数 → 风险追求，线性 → 风险中性
+    - 设计动机：经济学中的期望效用。
+
 
 ## 方法详解
 
@@ -113,8 +130,8 @@ tags:
 
 - [A Generalized Bisimulation Metric of State Similarity between Markov Decision Processes: From Theoretical Propositions to Applications](../../NeurIPS2025/reinforcement_learning/a_generalized_bisimulation_metric_of_state_similarity_betwee.md)
 - [Solving Zero-Sum Convex Markov Games](solving_zero-sum_convex_markov_games.md)
-- [Counterfactual Effect Decomposition in Multi-Agent Sequential Decision Making](counterfactual_effect_decomposition_in_multi-agent_sequential_decision_making.md)
 - [Divide and Conquer: Grounding LLMs as Efficient Decision-Making Agents via Offline Hierarchical Reinforcement Learning](divide_and_conquer_grounding_llms_as_efficient_decision-making_agents_via_offlin.md)
-- [SkillMimic: Learning Basketball Interaction Skills from Demonstrations](../../CVPR2025/reinforcement_learning/skillmimic_learning_basketball_interaction_skills_from_demonstrations.md)
+- [Counterfactual Effect Decomposition in Multi-Agent Sequential Decision Making](counterfactual_effect_decomposition_in_multi-agent_sequential_decision_making.md)
+- [Learning from Demonstrations via Capability-Aware Goal Sampling](../../NeurIPS2025/reinforcement_learning/learning_from_demonstrations_via_capability-aware_goal_sampling.md)
 
 <!-- RELATED:END -->

@@ -152,10 +152,10 @@ tags:
 
 ## 相关论文
 
+- [What Makes a Good Dataset for Knowledge Distillation?](../../CVPR2025/model_compression/what_makes_a_good_dataset_for_knowledge_distillation.md)
 - [Knowledge Distillation with Refined Logits](knowledge_distillation_with_refined_logits.md)
 - [Single-Teacher View Augmentation: Boosting Knowledge Distillation via Angular Diversity](../../NeurIPS2025/model_compression/single-teacher_view_augmentation_boosting_knowledge_distillation_via_angular_div.md)
-- [Perspective-Aware Teaching: Adapting Knowledge for Heterogeneous Distillation](perspective-aware_teaching_adapting_knowledge_for_heterogeneous_distillation.md)
 - [Local Dense Logit Relations for Enhanced Knowledge Distillation](local_dense_logit_relations_for_enhanced_knowledge_distillation.md)
-- [Distilling Balanced Knowledge from a Biased Teacher](../../CVPR2026/model_compression/distilling_balanced_knowledge_from_a_biased_teacher.md)
+- [Perspective-Aware Teaching: Adapting Knowledge for Heterogeneous Distillation](perspective-aware_teaching_adapting_knowledge_for_heterogeneous_distillation.md)
 
 <!-- RELATED:END -->

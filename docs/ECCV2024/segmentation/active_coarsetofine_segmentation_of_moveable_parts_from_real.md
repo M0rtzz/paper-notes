@@ -98,7 +98,7 @@ tags:
 - [Universal 3D Shape Matching via Coarse-to-Fine Language Guidance](../../CVPR2026/segmentation/universal_3d_shape_matching_via_coarse-to-fine_language_guidance.md)
 - [SPIN: Hierarchical Segmentation with Subpart Granularity in Natural Images](spin_hierarchical_segmentation_with_subpart_granularity_in_natural_images.md)
 - [Efficient and Versatile Robust Fine-Tuning of Zero-shot Models](efficient_and_versatile_robust_fine-tuning_of_zero-shot_models.md)
+- [UDiffText: A Unified Framework for High-quality Text Synthesis in Arbitrary Images via Character-aware Diffusion Models](udifftext_a_unified_framework_for_high-quality_text_synthesis_in_arbitrary_image.md)
 - [Diffusion-Driven Two-Stage Active Learning for Low-Budget Semantic Segmentation](../../NeurIPS2025/segmentation/diffusion-driven_two-stage_active_learning_for_low-budget_semantic_segmentation.md)
-- [A²LC: Active and Automated Label Correction for Semantic Segmentation](../../AAAI2026/segmentation/a2lc_active_and_automated_label_correction_for_semantic_segm.md)
 
 <!-- RELATED:END -->

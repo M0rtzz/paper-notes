@@ -120,10 +120,10 @@ tags:
 
 ## 相关论文
 
+- [DAPE V2: Process Attention Score as Feature Map for Length Extrapolation](dape_v2_process_attention_score_as_feature_map_for_length_extrapolation.md)
 - [Three-View Focal Length Recovery From Homographies](../../CVPR2025/others/three-view_focal_length_recovery_from_homographies.md)
-- [What Matters in Evaluating Book-Length Stories? A Systematic Study of Long Story Evaluation](what_matters_in_evaluating_book-length_stories_a_systematic_study_of_long_story_.md)
 - [I0T: Embedding Standardization Method Towards Zero Modality Gap](i0t_embedding_standardization_method_towards_zero_modality_gap.md)
-- [LaCoOT: Layer Collapse through Optimal Transport](../../ICCV2025/others/lacoot_layer_collapse_through_optimal_transport.md)
 - [MaxSup: Overcoming Representation Collapse in Label Smoothing](../../NeurIPS2025/others/maxsup_overcoming_representation_collapse_in_label_smoothing.md)
+- [LaCoOT: Layer Collapse through Optimal Transport](../../ICCV2025/others/lacoot_layer_collapse_through_optimal_transport.md)
 
 <!-- RELATED:END -->

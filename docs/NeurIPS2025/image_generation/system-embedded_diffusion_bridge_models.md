@@ -125,8 +125,8 @@ SDB构建了一个从伪逆重建（pseudoinverse reconstruction, PR）到干净
 
 - [Towards General Modality Translation with Contrastive and Predictive Latent Diffusion Bridge](towards_general_modality_translation_with_contrastive_and_predictive_latent_diff.md)
 - [Aligning Compound AI Systems via System-level DPO](aligning_compound_ai_systems_via_system-level_dpo.md)
+- [Dynamic Diffusion Schrödinger Bridge in Astrophysical Observational Inversions](dynamic_diffusion_schrödinger_bridge_in_astrophysical_observational_inversions.md)
 - [Coupling Generative Modeling and an Autoencoder with the Causal Bridge](coupling_generative_modeling_and_an_autoencoder_with_the_causal_bridge.md)
 - [MagicQuill: An Intelligent Interactive Image Editing System](../../CVPR2025/image_generation/magicquill_an_intelligent_interactive_image_editing_system.md)
-- [Schrödinger Bridge Matching for Tree-Structured Costs and Entropic Wasserstein Barycentres](schrödinger_bridge_matching_for_tree-structured_costs_and_entropic_wasserstein_b.md)
 
 <!-- RELATED:END -->

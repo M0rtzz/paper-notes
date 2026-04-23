@@ -111,7 +111,7 @@ CRISP 是纯推理时方法，不需要任何训练。策略模型使用 Qwen2.5
 - [Inference-Time Chain-of-Thought Pruning with Latent Informativeness Signals](../../NeurIPS2025/llm_reasoning/inference-time_chain-of-thought_pruning_with_latent_informativeness_signals.md)
 - [Dynamic and Generalizable Process Reward Modeling (DG-PRM)](../../ACL2025/llm_reasoning/dgprm_dynamic_process_reward.md)
 - [Jupiter: Enhancing LLM Data Analysis Capabilities via Notebook and Inference-Time Value-Guided Search](../../AAAI2026/llm_reasoning/jupiter_enhancing_llm_data_analysis_capabilities_via_notebook_and_inference-time.md)
+- [Enhancing Retrieval Systems with Inference-Time Logical Reasoning](../../ACL2025/llm_reasoning/enhancing_retrieval_systems_with_inference-time_logical_reasoning.md)
 - [DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization](drpo_efficient_reasoning_via_decoupled_reward_policy_optimization.md)
-- [mR3: Multilingual Rubric-Agnostic Reward Reasoning Models](mr3_multilingual_rubric-agnostic_reward_reasoning_models.md)
 
 <!-- RELATED:END -->

@@ -1,14 +1,18 @@
 ---
 title: >-
-  ACL2025 对话系统方向 12篇论文解读
+  ACL2025 对话系统方向 15篇论文解读
 description: >-
-  12篇ACL2025 对话系统论文解读，主题涵盖：提出 ES-VR，首个将人类价值观强化融入情感支持、本文提出赋予聊天机器人"眼睛和耳朵"的沉浸式多模态、提出 EnSToM，一种基于熵缩放转向向量的轻量级等，每篇含核心思想与方法详解。
+  15篇ACL2025 对话系统论文解读，主题涵盖：本文针对 RAG 对话系统中检索文档与生成回答之间、提出 ES-VR，首个将人类价值观强化融入情感支持、本文提出赋予聊天机器人"眼睛和耳朵"的沉浸式多模态等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🗣️ 对话系统
 
-**💬 ACL2025** · **12** 篇论文解读
+**💬 ACL2025** · **15** 篇论文解读
+
+**[Contradiction Detection in RAG-Based Chatbots](contradiction_detection_in_rag-based_chatbots.md)**
+
+:   本文针对 RAG 对话系统中检索文档与生成回答之间的矛盾问题，提出了一种多粒度矛盾检测框架，能够识别显式矛盾、隐式矛盾和部分矛盾，并提供可解释的矛盾定位。
 
 **[Dialogue Systems for Emotional Support via Value Reinforcement](dialogue_systems_for_emotional_support_via_value_reinforcement.md)**
 
@@ -17,6 +21,10 @@ description: >-
 **[Enabling Chatbots with Eyes and Ears: An Immersive Multimodal Conversation System](enabling_chatbots_with_eyes_and_ears_an_immersive_multimodal_conversation_system.md)**
 
 :   本文提出赋予聊天机器人"眼睛和耳朵"的沉浸式多模态对话系统，构建了融合视觉与听觉的多会话多方对话数据集 M3C，并设计了包含对话模块和多模态记忆检索模块的对话模型，实现了多说话者共享视听体验的动态长期对话。
+
+**[Enhancing Goal-oriented Proactive Dialogue Systems via Consistency Reflection and Correction](enhancing_goal-oriented_proactive_dialogue_systems_via_consistency_reflection_an.md)**
+
+:   提出模型无关的两阶段 CRC 框架（一致性反思 + 一致性纠正），通过先让模型反思生成回复与对话上下文之间的不一致之处、再据此纠正回复，显著提升了目标导向主动对话系统中生成回复与对话上下文的一致性。
 
 **[EnSToM: Enhancing Dialogue Systems with Entropy-Scaled Steering Vectors for Topic Maintenance](enstom_enhancing_dialogue_systems_with_entropy-scaled_steering_vectors_for_topic.md)**
 
@@ -45,6 +53,10 @@ description: >-
 **[ReflectDiffu: Reflect between Emotion-intent Contagion and Mimicry for Empathetic Response Generation via a RL-Diffusion Framework](reflectdiffu_empathetic_response.md)**
 
 :   提出轻量级共情对话框架 ReflectDiffu，融合情感传染（捕捉情绪）、意图二次机制（Exploring-Sampling-Correcting将情绪映射为行动意图）和扩散模型生成，在相关性、可控性和信息量上全面超越现有基线和 Llama-3.1-8B。
+
+**[Single- vs. Dual-Prompt Dialogue Generation with LLMs for Job Interviews in Human Resources](single-_vs_dual-prompt_dialogue_generation_with_llms_for_job_interviews_in_human.md)**
+
+:   本文系统比较了使用 LLM 生成求职面试对话的两种策略——单提示（一次性生成完整对话）和双提示（两个 agent 分别扮演面试官和候选人轮流对话），发现双提示方法生成的对话在自然度上的胜率是单提示的 2-10 倍，但 token 成本增加约 6 倍。
 
 **[UniConv: Unifying Retrieval and Response Generation for Large Language Models in Conversations](uniconv_retrieval_response_gen.md)**
 

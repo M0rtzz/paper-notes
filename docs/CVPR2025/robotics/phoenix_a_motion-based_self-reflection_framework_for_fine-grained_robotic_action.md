@@ -140,6 +140,6 @@ RoboMimic 9 个任务的平均成功率：
 - [LaDA: Language-Grounded Decoupled Action Representation for Robotic Manipulation](language-grounded_decoupled_action_representation_for_robotic_manipulation.md)
 - [DexFlyWheel: A Scalable Self-Improving Data Generation Framework for Dexterous Manipulation](../../NeurIPS2025/robotics/dexflywheel_a_scalable_and_self-improving_data_generation_framework_for_dexterou.md)
 - [FALCON: Fine-grained Activation Manipulation by Contrastive Orthogonal Unalignment for Large Language Model](../../NeurIPS2025/robotics/falcon_fine-grained_activation_manipulation_by_contrastive_orthogonal_unalignmen.md)
-- [VITRIX-CLIPIN: Enhancing Fine-Grained Visual Understanding in CLIP via Instruction Editing Data and Long Captions](../../NeurIPS2025/robotics/vitrix-clipin_enhancing_fine-grained_visual_understanding_in_clip_via_instructio.md)
+- [Robotic Visual Instruction](robotic_visual_instruction.md)
 
 <!-- RELATED:END -->

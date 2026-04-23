@@ -127,6 +127,6 @@ ExPO 自解释在所有设置下均显著超越专家 CoT（MATH 上 +10.6~11.1%
 - [Incentivizing Agentic Reasoning in LLM Judges via Tool-Integrated Reinforcement Learning](../../ICLR2026/model_compression/incentivizing_agentic_reasoning_in_llm_judges_via_tool-integrated_reinforcement_.md)
 - [ACPBench Hard: Unrestrained Reasoning about Action, Change, and Planning](../../ICLR2026/model_compression/acpbench_hard_unrestrained_reasoning_about_action_change_and_planning.md)
 - [MARGE: Improving Math Reasoning for LLMs with Guided Exploration](../../ICML2025/model_compression/marge_improving_math_reasoning_for_llms_with_guided_exploration.md)
-- [Temperature as a Meta-Policy: Adaptive Temperature in LLM Reinforcement Learning](../../ICLR2026/model_compression/temperature_as_a_meta-policy_adaptive_temperature_in_llm_reinforcement_learning.md)
+- [RISE: Reasoning Enhancement via Iterative Self-Exploration in Multi-hop Question Answering](../../ACL2025/model_compression/rise_reasoning_enhancement_via_iterative_self-exploration_in_multi-hop_question_.md)
 
 <!-- RELATED:END -->

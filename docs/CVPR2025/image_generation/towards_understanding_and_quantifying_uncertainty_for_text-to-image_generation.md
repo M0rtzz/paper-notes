@@ -27,11 +27,21 @@ tags:
 
 ## 研究背景与动机
 
-T2I模型的不确定性量化几乎空白，现有工作仅关注图像空间（给定图像判断是否OOD），而prompt空间的不确定性未被探索：
+### 领域现状
 
-- **不确定性应发生在语义层面**：图像空间的变化（颜色、对比度）不一定反映语义差异——斑马条纹反转在像素空间差异巨大但语义完全相同
-- **数据不确定性（aleatoric）**：prompt模糊导致多种合理语义输出（如"fis"可能是fish或fist）
-- **认知不确定性（epistemic）**：模型不认识某些概念（如训练数据中未包含的政治人物）
+**领域现状**：T2I模型的不确定性量化几乎空白，现有工作仅关注图像空间（给定图像判断是否OOD），而prompt空间的不确定性未被探索：
+
+### 核心矛盾
+
+**核心矛盾**：不确定性应发生在语义层面**：图像空间的变化（颜色、对比度）不一定反映语义差异——斑马条纹反转在像素空间差异巨大但语义完全相同
+
+### 现有痛点
+
+**现有痛点**：数据不确定性（aleatoric）**：prompt模糊导致多种合理语义输出（如"fis"可能是fish或fist）
+
+### 解决思路
+
+**解决思路**：认知不确定性（epistemic）**：模型不认识某些概念（如训练数据中未包含的政治人物）
 
 应用价值：偏差检测、版权保护、OOD检测、深度伪造预防。
 
@@ -123,10 +133,10 @@ PUNC在各OOD检测场景下一致优于图像空间方法。
 
 ## 相关论文
 
-- [Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_for_unified_image_generation_and_understanding.md)
+- [Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_unified_generation_understanding.md)
 - [TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation](tokenflow_unified_image_tokenizer_for_multimodal_understanding_and_generation.md)
-- [Minority-Focused Text-to-Image Generation via Prompt Optimization](minority-focused_text-to-image_generation_via_prompt_optimization.md)
 - [Uncertainty-guided Perturbation for Image Super-Resolution Diffusion Model](uncertainty-guided_perturbation_for_image_super-resolution_diffusion_model.md)
+- [Minority-Focused Text-to-Image Generation via Prompt Optimization](minority-focused_text-to-image_generation_via_prompt_optimization.md)
 - [EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation](evotok_a_unified_image_tokenizer_via_residual_latent_evolution_for_visual_unders.md)
 
 <!-- RELATED:END -->

@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-大语言模型（LLMs）被广泛认为具有出色的语义理解能力，但目前缺乏一种**定量且任务无关**的度量指标来衡量这种能力。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：大语言模型（LLMs）被广泛认为具有出色的语义理解能力，但目前缺乏一种**定量且任务无关**的度量指标来衡量这种能力。
 
 现有评估方法的局限性：
 
@@ -128,8 +130,8 @@ tags:
 
 - [A Semantic-Aware Layer-Freezing Approach to Computation-Efficient Fine-Tuning of Language Models](a_semantic-aware_layer-freezing_approach_to_computation-efficient_fine-tuning_of.md)
 - [PiFi: Plug-in and Fine-tuning: Bridging the Gap between Small Language Models and Large Language Models](plugin_finetuning_bridge.md)
-- [Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models](salience_sparse_fine_tuning.md)
-- [Steering off Course: Reliability Challenges in Steering Language Models](steering_off_course_reliability_challenges_in_steering_language_models.md)
+- [Argument Mining in the Age of Large Language Models](argument_mining_in_the_age_of_large_language_models.md)
 - [Beyond Induction Heads: In-Context Meta Learning Induces Multi-Phase Circuit Emergence](../../ICML2025/llm_nlp/beyond_induction_heads_in-context_meta_learning_induces_multi-phase_circuit_emer.md)
+- [Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models](salience_sparse_fine_tuning.md)
 
 <!-- RELATED:END -->

@@ -124,8 +124,8 @@ tags:
 
 - [Large Language Models for Predictive Analysis: How Far Are They?](large_language_models_for_predictive_analysis_how_far_are_they.md)
 - [Deontological Keyword Bias: The Impact of Modal Expressions on Normative Judgments of Language Models](deontological_keyword_bias.md)
-- [Enhancing Character-Level Understanding in LLMs through Token Internal Structure Learning](character_level_understanding.md)
 - [Token Prepending: A Training-Free Approach for Eliciting Better Sentence Embeddings from LLMs](token_prepending_training_free.md)
+- [Enhancing Character-Level Understanding in LLMs through Token Internal Structure Learning](character_level_understanding.md)
 - [Turning Trash into Treasure: Accelerating Inference of Large Language Models with Token Recycling](token_recycling.md)
 
 <!-- RELATED:END -->

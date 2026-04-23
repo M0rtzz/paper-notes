@@ -141,10 +141,10 @@ NameTag 3 基于预训练语言模型（XLM-R Large 355M 或 RobeCzech Base 126M
 
 ## 相关论文
 
-- [LangSAMP: Language-Script Aware Multilingual Pretraining](langsamp_multilingual_pretraining.md)
-- [EXECUTE: A Multilingual Benchmark for LLM Token Understanding](execute_a_multilingual_benchmark_for_llm_token_understanding.md)
 - [M-RewardBench: Evaluating Reward Models in Multilingual Settings](m_rewardbench.md)
-- [KnowCoder-X: Boosting Multilingual Information Extraction via Code](knowcoder-x_boosting_multilingual_information_extraction_via_code.md)
+- [EXECUTE: A Multilingual Benchmark for LLM Token Understanding](execute_a_multilingual_benchmark_for_llm_token_understanding.md)
 - [LangMark: A Multilingual Dataset for Automatic Post-Editing](langmark_a_multilingual_dataset_for_automatic_post-editing.md)
+- [LangSAMP: Language-Script Aware Multilingual Pretraining](langsamp_multilingual_pretraining.md)
+- [LexGen: Domain-aware Multilingual Lexicon Generation](lexgen_domain-aware_multilingual_lexicon_generation.md)
 
 <!-- RELATED:END -->

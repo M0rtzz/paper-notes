@@ -150,6 +150,6 @@ VG LLM在标准MLLM基础上增加一个3D视觉几何编码器分支：
 - [EA3D: Online Open-World 3D Object Extraction from Streaming Videos](ea3d_online_open-world_3d_object_extraction_from_streaming_videos.md)
 - [PlanarGS: High-Fidelity Indoor 3D Gaussian Splatting Guided by Vision-Language Planar Priors](planargs_high-fidelity_indoor_3d_gaussian_splatting_guided_by_vision-language_pl.md)
 - [SceneForge: Enhancing 3D-text alignment with Structured Scene Compositions](sceneforge_enhancing_3d-text_alignment_with_structured_scene_compositions.md)
-- [GAPrompt: Geometry-Aware Point Cloud Prompt for 3D Vision Model](../../ICML2025/3d_vision/gaprompt_geometry-aware_point_cloud_prompt_for_3d_vision_model.md)
+- [D$^2$USt3R: Enhancing 3D Reconstruction for Dynamic Scenes](d2ust3r_enhancing_3d_reconstruction_for_dynamic_scenes.md)
 
 <!-- RELATED:END -->

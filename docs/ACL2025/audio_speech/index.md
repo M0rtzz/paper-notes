@@ -1,18 +1,22 @@
 ---
 title: >-
-  ACL2025 音频/语音方向 35篇论文解读
+  ACL2025 音频/语音方向 37篇论文解读
 description: >-
-  35篇ACL2025 音频/语音论文解读，主题涵盖：对文本和语音两种模态下将非裔美式英语（AAE）融入、提出INTP（Intelligibility、提出 AI4Reading，一个基于 11等，每篇含核心思想与方法详解。
+  37篇ACL2025 音频/语音论文解读，主题涵盖：对文本和语音两种模态下将非裔美式英语（AAE）融入、本文探索利用来自鸟类和人类的跨物种声学预训练嵌入来、提出INTP（Intelligibility等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**💬 ACL2025** · **35** 篇论文解读
+**💬 ACL2025** · **37** 篇论文解读
 
 **[Finding A Voice: Exploring the Potential of African American Dialect and Voice Generation for Chatbots](aae_voice_chatbot.md)**
 
 :   对文本和语音两种模态下将非裔美式英语（AAE）融入聊天机器人进行系统研究，发现文本AAE反而损害用户体验，但配合非裔口音的语音机器人受到AAE使用者青睐，揭示了语言个性化中模态选择的关键作用。
+
+**[Acoustic Individual Identification of White-Faced Capuchin Monkeys Using Joint Multi-Species Embeddings](acoustic_individual_identification_of_white-faced_capuchin_monkeys_using_joint_m.md)**
+
+:   本文探索利用来自鸟类和人类的跨物种声学预训练嵌入来识别白面卷尾猴的个体叫声，发现联合多物种表征能进一步提升识别性能，为数据极度稀缺的野生动物个体识别提供了新的迁移学习范式。
 
 **[Advancing Zero-shot Text-to-Speech Intelligibility across Diverse Domains via Preference Alignment](advancing_zero-shot_text-to-speech_intelligibility_across_diverse_domains_via_pr.md)**
 
@@ -41,6 +45,10 @@ description: >-
 **[CLaMP 3: Universal Music Information Retrieval Across Unaligned Modalities and Unseen Languages](clamp_3_universal_music_information_retrieval_across_unaligned_modalities_and_un.md)**
 
 :   提出 CLaMP 3 统一框架，通过对比学习将乐谱、演奏信号、音频录音与多语言文本对齐到共享表示空间，在无配对训练数据的模态间实现跨模态检索，并展现出对未见语言的强泛化能力。
+
+**[Contextual Biasing with the Knowledgeable External Language Model for End-to-End Speech Recognition](contextual_biasing_with_the_knowledgeable_external_language_model_for_end-to-end.md)**
+
+:   本文提出利用知识增强的外部语言模型（KELM）进行上下文偏置，在端到端语音识别中通过动态融合外部领域知识和偏置词表，大幅提升稀有词和专有名词的识别准确率。
 
 **[ControlSpeech: Towards Simultaneous and Independent Zero-shot Speaker Cloning and Zero-shot Language Style Control](controlspeech_zero_shot.md)**
 

@@ -145,7 +145,7 @@ SAM FTI-FDet 提出基于轻量 SAM 的自动提示实例分割框架，通过 T
 - [Foveated Instance Segmentation](foveated_instance_segmentation.md)
 - [HFP-SAM: Hierarchical Frequency Prompted SAM for Efficient Marine Animal Segmentation](hfp-sam_hierarchical_frequency_prompted_sam_for_efficient_marine_animal_segmenta.md)
 - [CrossEarth-SAR: A SAR-Centric and Billion-Scale Geospatial Foundation Model for Domain Generalizable Semantic Segmentation](crossearth-sar_a_sar-centric_and_billion-scale_geospatial_foundation_model_for_d.md)
+- [Your ViT is Secretly an Image Segmentation Model](your_vit_is_secretly_an_image_segmentation_model.md)
 - [SAMWise: Infusing Wisdom in SAM2 for Text-Driven Video Segmentation](samwise_infusing_wisdom_in_sam2_for_text-driven_video_segmentation.md)
-- [DPSeg: Dual-Prompt Cost Volume Learning for Open-Vocabulary Semantic Segmentation](dpseg_dual-prompt_cost_volume_learning_for_open-vocabulary_semantic_segmentation.md)
 
 <!-- RELATED:END -->

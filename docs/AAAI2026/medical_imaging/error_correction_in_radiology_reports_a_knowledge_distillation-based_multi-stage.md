@@ -214,6 +214,6 @@ tags:
 - [Momentum Memory for Knowledge Distillation in Computational Pathology](../../CVPR2026/medical_imaging/momentum_memory_for_knowledge_distillation_in_computational_pathology.md)
 - [Pairing-free Group-level Knowledge Distillation for Robust Gastrointestinal Lesion Classification in White-Light Endoscopy](pairing-free_group-level_knowledge_distillation_for_robust_gastrointestinal_lesi.md)
 - [Prototype-Based Knowledge Guidance for Fine-Grained Structured Radiology Reporting](../../CVPR2026/medical_imaging/prototypebased_knowledge_guidance_for_finegrained.md)
-- [Radar: Enhancing Radiology Report Generation with Supplementary Knowledge Injection](../../ACL2025/medical_imaging/radar_radiology_report_gen.md)
+- [MAMA-Memeia! Multi-Aspect Multi-Agent Collaboration for Depressive Symptoms Identification in Memes](mama-memeia_multi-aspect_multi-agent_collaboration_for_depressive_symptoms_ident.md)
 
 <!-- RELATED:END -->

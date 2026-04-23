@@ -25,10 +25,14 @@ tags:
 提出3DSR——将扩散超分模型与3DGS表示交替迭代实现3D一致超分：每步去噪后将SR图像训练到3DGS中获得3D一致渲染→重编码回潜在空间引导下一步去噪，无需微调任何模型即显式保证跨视角一致性，在LLFF上PSNR提升1.16dB+FID降低50%(vs StableSR)。
 
 ## 背景与动机
-3D场景重建受限于输入图像分辨率。直接用图像SR逐帧增强→每帧hallucinate的细节不一致→3DGS训练后产生模糊和几何伪影。视频SR隐式建模时序一致性但不保证3D一致性。需要一个框架显式利用3D表示来约束扩散SR的多视角一致性。
 
-## 核心问题
-如何在利用扩散模型生成高质量SR细节的同时，保证跨视角的3D结构一致性？
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：3D场景重建受限于输入图像分辨率。直接用图像SR逐帧增强→每帧hallucinate的细节不一致→3DGS训练后产生模糊和几何伪影。视频SR隐式建模时序一致性但不保证3D一致性。需要一个框架显式利用3D表示来约束扩散SR的多视角一致性。
+
+### 解决思路
+
+**本文目标**：如何在利用扩散模型生成高质量SR细节的同时，保证跨视角的3D结构一致性？
 
 ## 方法详解
 
@@ -50,6 +54,9 @@ tags:
 
 ### LLFF (×8下采样 ×4上采样)
 
+
+### 主实验
+
 | 方法 | PSNR↑ | SSIM↑ | LPIPS↓ | MEt3R(3D一致)↓ | FID↓ |
 |------|-------|-------|--------|------------|------|
 | SuperGaussian(VSR) | 23.05 | 0.725 | 0.296 | 0.541 | 51.2 |
@@ -59,13 +66,16 @@ tags:
 
 ### MipNeRF360 (×8下采样 ×4上采样)
 
+
+### 消融实验
+
 | 方法 | PSNR↑ | LPIPS↓ | FID↓ |
 |------|-------|--------|------|
 | SuperGaussian | 25.25 | 0.303 | 32.7 |
 | StableSR | 24.31 | 0.326 | 44.2 |
 | **3DSR** | **26.10** | **0.222** | **22.4** |
 
-## 亮点 / 我学到了什么
+## 亮点与洞察 / 我学到了什么
 - **3D表示作为一致性约束**: 将3DGS插入扩散去噪循环——简单但有效的3D一致性保证方式
 - **FID降低一半**: 从41.1→20.7(LLFF)，说明3D一致性约束大幅减少了hallucinated细节的分布偏移
 - **无微调即插即用**: 不修改任何预训练模型，纯利用3DGS的几何归纳偏置
@@ -76,7 +86,7 @@ tags:
 - NIQE指标(无参考画质)不如StableSR——3D一致性约束可能牺牲部分感知质量
 - 仅验证了×4上采样
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs StableSR(ISR)**: 逐帧SR无3D一致性→3DGS训练后blurry；3DSR显式保证一致性
 - **vs SuperGaussian(VSR)**: 依赖视频模型的时序一致性，不是真正的3D一致性
 - **vs DiSR-NeRF**: 用SDS优化NeRF，产生黑色伪影；3DSR直接用3DGS渲染引导
@@ -97,8 +107,8 @@ tags:
 
 - [Diffusion-based 3D Hand Motion Recovery with Intuitive Physics](diffusion-based_3d_hand_motion_recovery_with_intuitive_physics.md)
 - [DPoser-X: Diffusion Model as Robust 3D Whole-Body Human Pose Prior](dposer-x_diffusion_model_as_robust_3d_whole-body_human_pose_prior.md)
-- [FaceCraft4D: Animated 3D Facial Avatar Generation from a Single Image](facecraft4d_animated_3d_facial_avatar_generation_from_a_single_image.md)
 - [TeRA: Rethinking Text-guided Realistic 3D Avatar Generation](tera_rethinking_text-guided_realistic_3d_avatar_generation.md)
-- [PatchScaler: An Efficient Patch-Independent Diffusion Model for Image Super-Resolution](patchscaler_an_efficient_patch-independent_diffusion_model_for_image_super-resol.md)
+- [FaceCraft4D: Animated 3D Facial Avatar Generation from a Single Image](facecraft4d_animated_3d_facial_avatar_generation_from_a_single_image.md)
+- [Physics-Consistent Diffusion for Efficient Fluid Super-Resolution via Multiscale Residual Correction](../../CVPR2026/image_generation/physics-consistent_diffusion_for_efficient_fluid_super-resolution_via_multiscale.md)
 
 <!-- RELATED:END -->

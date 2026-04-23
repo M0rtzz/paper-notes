@@ -131,8 +131,8 @@ tags:
 
 - [ClozeMath: Improving Mathematical Reasoning in Language Models by Learning to Fill Equations](clozemath_improving_mathematical_reasoning_in_language_models_by_learning_to_fil.md)
 - [Enhancing Retrieval Systems with Inference-Time Logical Reasoning](enhancing_retrieval_systems_with_inference-time_logical_reasoning.md)
+- [Complex Reasoning with Natural Language Contexts and Background Knowledge](complex_reasoning_with_natural_language_contexts_and_background_knowledge.md)
 - [Aristotle: Mastering Logical Reasoning with A Logic-Complete Decompose-Search-Resolve Framework](aristotle_logical_reasoning.md)
 - [Improving Chain-of-Thought Reasoning via Quasi-Symbolic Abstractions](improving_chain-of-thought_reasoning_via_quasi-symbolic_abstractions.md)
-- [Learning-enabled Polynomial Lyapunov Function Synthesis via High-Accuracy Counterexample-Guided Framework](../../CVPR2025/llm_reasoning/learning-enabled_polynomial_lyapunov_function_synthesis_via_high-accuracy_counte.md)
 
 <!-- RELATED:END -->

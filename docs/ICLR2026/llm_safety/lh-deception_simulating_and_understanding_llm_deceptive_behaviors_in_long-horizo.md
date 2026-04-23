@@ -146,7 +146,7 @@ LH-Deception 是一个三角色多智能体仿真系统：**执行者**（perfor
 - [Understanding Sensitivity of Differential Attention through the Lens of Adversarial Robustness](understanding_sensitivity_of_differential_attention_through_the_lens_of_adversar.md)
 - [LLM Targeted Underperformance Disproportionately Impacts Vulnerable Users](../../AAAI2026/llm_safety/llm_targeted_underperformance_disproportionately_impacts_vulnerable_users.md)
 - [PANDA: Patch and Distribution-Aware Augmentation for Long-Tailed Exemplar-Free Continual Learning](../../AAAI2026/llm_safety/panda_--_patch_and_distribution-aware_augmentation_for_long-tailed_exemplar-free.md)
+- [How Does Response Length Affect Long-Form Factuality](../../ACL2025/llm_safety/how_does_response_length_affect_long-form_factuality.md)
 - [HALoGEN: Fantastic LLM Hallucinations and Where to Find Them](../../ACL2025/llm_safety/halogen_hallucinations.md)
-- [Learning Auxiliary Tasks Improves Reference-Free Hallucination Detection in Open-Domain Long-Form Generation](../../ACL2025/llm_safety/learning_auxiliary_tasks_improves_reference-free_hallucination_detection_in_open.md)
 
 <!-- RELATED:END -->

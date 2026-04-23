@@ -122,9 +122,9 @@ PatchDPO在IP-Adapter和ELITE两个基线上均带来显著提升。
 ## 相关论文
 
 - [DreamCache: Finetuning-Free Lightweight Personalized Image Generation via Feature Caching](dreamcache_finetuning-free_lightweight_personalized_image_generation_via_feature.md)
-- [Controllable Human Image Generation with Personalized Multi-Garments](controllable_human_image_generation_with_personalized_multi-garments.md)
+- [BootComp: Controllable Human Image Generation with Personalized Multi-Garments](controllable_human_image_generation_with_personalized_multi-garments.md)
 - [PersonaBooth: Personalized Text-to-Motion Generation](personabooth_personalized_text-to-motion_generation.md)
-- [ConceptGuard: Continual Personalized Text-to-Image Generation with Forgetting and Confusion Mitigation](conceptguard_continual_personalized_text-to-image_generation_with_forgetting_and.md)
 - [Aligning Compound AI Systems via System-level DPO](../../NeurIPS2025/image_generation/aligning_compound_ai_systems_via_system-level_dpo.md)
+- [ConceptGuard: Continual Personalized Text-to-Image Generation with Forgetting and Confusion Mitigation](conceptguard_continual_personalized_text-to-image_generation_with_forgetting_and.md)
 
 <!-- RELATED:END -->

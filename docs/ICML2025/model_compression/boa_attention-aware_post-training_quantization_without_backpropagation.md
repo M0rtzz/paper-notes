@@ -123,8 +123,8 @@ Llama-2-7B W2A16 量化 perplexity：
 
 - [TurboBoA: Faster and Exact Attention-aware Quantization without Backpropagation](../../ICLR2026/model_compression/turboboa_faster_and_exact_attention-aware_quantization_without_backpropagation.md)
 - [Q-resafe: Assessing Safety Risks and Quantization-aware Safety Patching for Quantized Large Language Models](q-resafe_assessing_safety_risks_and_quantization-aware_safety_patching_for_quant.md)
+- [LoRA Fine-Tuning without GPUs: A CPU-Efficient Meta-Generation Framework for LLMs](lora_fine-tuning_without_gpus_a_cpu-efficient_meta-generation_framework_for_llms.md)
 - [WildChat-50m: A Deep Dive Into the Role of Synthetic Data in Post-Training](wildchat-50m_a_deep_dive_into_the_role_of_synthetic_data_in_post-training.md)
 - [Post Training Quantization for Efficient Dataset Condensation](../../AAAI2026/model_compression/post_training_quantization_for_efficient_dataset_condensation.md)
-- [Quantization Error Propagation: Revisiting Layer-Wise Post-Training Quantization](../../NeurIPS2025/model_compression/quantization_error_propagation_revisiting_layer-wise_post-training_quantization.md)
 
 <!-- RELATED:END -->

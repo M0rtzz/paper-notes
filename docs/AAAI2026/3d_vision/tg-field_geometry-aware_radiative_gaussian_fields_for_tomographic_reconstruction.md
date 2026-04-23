@@ -200,6 +200,6 @@ $$\hat{\boldsymbol{\mu}}_i(t) = \boldsymbol{\mu}_i + \Delta\boldsymbol{\mu}_i(t)
 - [Discretized Gaussian Representation for Tomographic Reconstruction](../../ICCV2025/3d_vision/discretized_gaussian_representation_for_tomographic_reconstruction.md)
 - [SparseSurf: Sparse-View 3D Gaussian Splatting for Surface Reconstruction](sparsesurf_sparse-view_3d_gaussian_splatting_for_surface_reconstruction.md)
 - [OceanSplat: Object-aware Gaussian Splatting with Trinocular View Consistency for Underwater Scene Reconstruction](oceansplat_object-aware_gaussian_splatting_with_trinocular_view_consistency_for_.md)
-- [GaussianGrow: Geometry-aware Gaussian Growing from 3D Point Clouds with Text Guidance](../../CVPR2026/3d_vision/gaussiangrow_geometry-aware_gaussian_growing_from_3d_point_clouds_with_text_guid.md)
+- [Geometry Field Splatting with Gaussian Surfels](../../CVPR2025/3d_vision/geometry_field_splatting_with_gaussian_surfels.md)
 
 <!-- RELATED:END -->

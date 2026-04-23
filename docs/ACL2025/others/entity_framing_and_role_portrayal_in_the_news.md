@@ -149,8 +149,8 @@ tags:
 
 - [Narrative Media Framing in Political Discourse](narrative_media_framing_in_political_discourse.md)
 - [Evaluating Design Decisions for Dual Encoder-based Entity Disambiguation](evaluating_design_decisions_for_dual_encoder-based_entity_disambiguation.md)
-- [SHARE: An SLM-based Hierarchical Action CorREction Assistant for Text-to-SQL](share_text_to_sql_correction.md)
+- [Digital Gatekeepers: Google's Role in Curating Hashtags and Subreddits](digital_gatekeepers_googles_role_in_curating_hashtags_and_subreddits.md)
 - [Attention Entropy is a Key Factor for Parallel Context Encoding](attention_entropy_parallel_encoding.md)
-- [Decoding Reading Goals from Eye Movements](decoding_reading_goals_from_eye_movements.md)
+- [Tuna: Comprehensive Fine-grained Temporal Understanding Evaluation on Dense Dynamic Videos](tuna_temporal_understanding.md)
 
 <!-- RELATED:END -->

@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：LLM 通过预训练存储大量事实知识，但样本效率（需要看到多少次才能学会）未被系统研究。
 
 **现有痛点**：真实文本中信息遵循长尾分布，模型需要从少量出现中学习稀有事实。现有工作比较模型性能时不考虑训练数据中的频率信息。
@@ -117,8 +119,8 @@ Wikipedia 语料统计事实频率 -> 在同一语料上预训练多种模型 ->
 
 - [Evaluating Language Models as Synthetic Data Generators](evaluating_lms_synthetic_data_gen.md)
 - [KazMMLU: Evaluating Language Models on Kazakh, Russian, and Regional Knowledge of Kazakhstan](kazmmlu_evaluating_language_models_on_kazakh_russian_and_regional_knowledge_of_k.md)
-- [How Humans and LLMs Organize Conceptual Knowledge: Exploring Subordinate Categories in Italian](conceptual_knowledge_org.md)
+- [Condor: Enhance LLM Alignment with Knowledge-Driven Data Synthesis and Refinement](condor_enhance_llm_alignment_with_knowledge-driven_data_synthesis_and_refinement.md)
 - [CogSteer: Cognition-Inspired Selective Layer Intervention for Efficiently Steering Large Language Models](cogsteer_cognition-inspired_selective_layer_intervention_for_efficiently_steerin.md)
-- [Knowledge Boundary of Large Language Models: A Survey](knowledge_boundary_survey.md)
+- [How Humans and LLMs Organize Conceptual Knowledge: Exploring Subordinate Categories in Italian](conceptual_knowledge_org.md)
 
 <!-- RELATED:END -->

@@ -17,7 +17,7 @@ tags:
 
 **会议**: ICCV 2025  
 **arXiv**: [2503.17695](https://arxiv.org/abs/2503.17695)  
-**代码**: 待确认 (无)  
+**代码**: 无 (无)  
 **领域**: 图像编辑/运动编辑  
 **关键词**: 运动编辑, 光流引导, 多视图一致性, 免训练扩散, 3D点云
 
@@ -27,7 +27,9 @@ MotionDiff 提出一种免训练、零样本的多视图运动编辑方法，通
 
 ## 研究背景与动机
 
-利用生成模型进行可控编辑是当前的热门问题，但在**运动编辑**领域仍面临三大挑战：
+### 现有痛点
+
+**现有痛点**：**领域现状**：利用生成模型进行可控编辑是当前的热门问题，但在**运动编辑**领域仍面临三大挑战：
 
 **复杂运动处理困难**：现有基于物理的编辑方法（如 DragGAN、DragDiffusion）主要处理简单的拖拽/平移运动，难以处理旋转、缩放、拉伸等复杂运动
 
@@ -36,6 +38,22 @@ MotionDiff 提出一种免训练、零样本的多视图运动编辑方法，通
 **需要重训练或特定表示**：很多方法需要重训练扩散模型或依赖 NeRF/3DGS 等特定场表示，增加了计算成本和数据收集开销
 
 作者的核心洞察：光流是表达像素级运动的天然载体。通过在 3D 空间中建模运动（将用户定义的运动模式作用于 3D 点云），可以自然地获得多视图一致的光流，进而引导扩散模型实现精确的运动编辑。
+
+### 解决思路
+
+**本文目标**：### 整体框架
+
+MotionDiff 包含两个推理阶段：
+
+1. **多视图光流估计阶段（MFES）**：用户从静态场景中选择感兴趣的物体并定义运动模式，通过 PKM 估计多视图光流
+2. **多视图运动扩散阶段（MMDS）**：利用估计的光流引导 Stable Diffusion 进行运动编辑，通过解耦运动表示保证多视图一致性
+
+### 关键设计
+
+**1. 点运动学模型（PKM）**
+
+P。
+
 
 ## 方法详解
 
@@ -165,8 +183,8 @@ MotionDiff 是**完全免训练**的推理方法。引导策略基于 classifier
 
 - [Early Timestep Zero-Shot Candidate Selection for Instruction-Guided Image Editing](early_timestep_zero-shot_candidate_selection_for_instruction-guided_image_editin.md)
 - [DynamicID: Zero-Shot Multi-ID Image Personalization with Flexible Facial Editability](dynamicid_zero-shot_multi-id_image_personalization_with_flexible_facial_editabil.md)
-- [Stable Flow: Vital Layers for Training-Free Image Editing](../../CVPR2025/image_generation/stable_flow_vital_layers_for_training-free_image_editing.md)
 - [FlowEdit: Inversion-Free Text-Based Editing Using Pre-Trained Flow Models](flowedit_inversion-free_text-based_editing_using_pre-trained_flow_models.md)
+- [Stable Flow: Vital Layers for Training-Free Image Editing](../../CVPR2025/image_generation/stable_flow_vital_layers_for_training-free_image_editing.md)
 - [AnyPortal: Zero-Shot Consistent Video Background Replacement](anyportal_zero-shot_consistent_video_background_replacement.md)
 
 <!-- RELATED:END -->

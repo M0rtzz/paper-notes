@@ -17,7 +17,7 @@ tags:
 
 **会议**: CVPR 2025  
 **arXiv**: [2503.19706](https://arxiv.org/abs/2503.19706)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: 视频理解  
 **关键词**: ego-exo, view-invariant, masked modeling, self-supervised, video representation
 
@@ -25,6 +25,8 @@ tags:
 通过掩码建模在自我中心和外部视角之间学习细粒度视图不变表示，无需配对标注即可从两种视角的关联中自监督学习
 
 ## 研究背景与动机
+
+### 领域现状
 
 **领域现状**：Bootstrap Your Own Views 方向近年取得了显著进展，但仍存在关键挑战。
 
@@ -118,8 +120,8 @@ tags:
 ## 相关论文
 
 - [Towards Efficient General Feature Prediction in Masked Skeleton Modeling](../../ICCV2025/video_understanding/towards_efficient_general_feature_prediction_in_masked_skeleton_modeling.md)
-- [SAVA-X: Ego-to-Exo Imitation Error Detection via Scene-Adaptive View Alignment and Bidirectional Cross View Fusion](../../CVPR2026/video_understanding/savax_egotoexo_imitation_error_detection_via_scene.md)
 - [Data Collection-Free Masked Video Modeling](../../ECCV2024/video_understanding/data_collection-free_masked_video_modeling.md)
+- [SAVA-X: Ego-to-Exo Imitation Error Detection via Scene-Adaptive View Alignment and Bidirectional Cross View Fusion](../../CVPR2026/video_understanding/savax_egotoexo_imitation_error_detection_via_scene.md)
 - [OVO-Bench: How Far is Your Video-LLMs from Real-World Online Video Understanding?](ovo-bench_how_far_is_your_video-llms_from_real-world_online_video_understanding.md)
 - [Fine-grained Spatiotemporal Grounding on Egocentric Videos](../../ICCV2025/video_understanding/fine-grained_spatiotemporal_grounding_on_egocentric_videos.md)
 

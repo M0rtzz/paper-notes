@@ -138,8 +138,8 @@ tags:
 
 - [MExGen: Multi-Level Explanations for Generative Language Models](mexgen_multi_level_explanations.md)
 - [Exploring Explanations Improves the Robustness of In-Context Learning](exploring_explanations_improves_the_robustness_of_in-context_learning.md)
-- [Why Not Act on What You Know? Unleashing Safety Potential of LLMs via Self-Aware Guard Enhancement](why_not_act_on_what_you_know_unleashing_safety_potential_of_llms_via_self-aware_.md)
 - [Evaluating Language Models as Synthetic Data Generators](evaluating_lms_synthetic_data_gen.md)
 - [STEM-PoM: Evaluating Language Models Math-Symbol Reasoning in Document Parsing](stem-pom_evaluating_language_models_math-symbol_reasoning_in_document_parsing.md)
+- [KazMMLU: Evaluating Language Models on Kazakh, Russian, and Regional Knowledge of Kazakhstan](kazmmlu_evaluating_language_models_on_kazakh_russian_and_regional_knowledge_of_k.md)
 
 <!-- RELATED:END -->

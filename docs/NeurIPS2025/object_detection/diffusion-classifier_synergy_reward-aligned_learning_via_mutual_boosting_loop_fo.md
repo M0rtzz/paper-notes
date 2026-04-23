@@ -17,7 +17,7 @@ tags:
 
 **会议**: NEURIPS2025  
 **arXiv**: [2510.03608](https://arxiv.org/abs/2510.03608)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: few-shot learning / incremental learning  
 **关键词**: Few-Shot Class-Incremental Learning, diffusion model, Reward-Aligned Generation, Mutual Boosting Loop, data augmentation
 
@@ -25,13 +25,26 @@ tags:
 提出 Diffusion-Classifier Synergy (DCS) 框架，通过在扩散模型和分类器之间建立互相增强的闭环，利用多层次奖励函数（特征级+logits级）引导扩散模型生成对分类器最有益的图像，在 FSCIL 基准上取得 SOTA。
 
 ## 背景与动机
-- Few-Shot Class-Incremental Learning (FSCIL) 要求模型在增量学习新类时仅有少量样本，同时不能遗忘旧类知识，面临严重的 stability-plasticity 困境
-- 现有 FSCIL 方法高度依赖初始有限数据集中的知识，难以显著提升类内泛化（intra-task）和类间判别（inter-task）能力
-- 扩散模型天然具备数据增强潜力：为旧类生成图像可做 knowledge replay，为新类增强可提供更丰富训练信号
-- 但直接使用扩散模型存在两大问题：(1) 仅以类名为条件生成的图像存在语义偏差和多样性不足；(2) 生成过程缺乏分类器反馈，无法自适应地生成分类器真正需要的样本
 
-## 核心问题
-1. **语义错位与多样性缺失**：vanilla 扩散模型以类名条件生成图像时，语义对齐精度和类内多样性之间存在 trade-off，且两项指标均低于真实数据基线
+### 领域现状
+
+**领域现状**：Few-Shot Class-Incremental Learning (FSCIL) 要求模型在增量学习新类时仅有少量样本，同时不能遗忘旧类知识，面临严重的 stability-plasticity 困境
+
+### 现有痛点
+
+**现有痛点**：现有 FSCIL 方法高度依赖初始有限数据集中的知识，难以显著提升类内泛化（intra-task）和类间判别（inter-task）能力
+
+### 核心矛盾
+
+**核心矛盾**：扩散模型天然具备数据增强潜力：为旧类生成图像可做 knowledge replay，为新类增强可提供更丰富训练信号
+
+### 解决思路
+
+**解决思路**：但直接使用扩散模型存在两大问题：(1) 仅以类名为条件生成的图像存在语义偏差和多样性不足；(2) 生成过程缺乏分类器反馈，无法自适应地生成分类器真正需要的样本
+
+### 解决思路
+
+**本文目标**：1. **语义错位与多样性缺失**：vanilla 扩散模型以类名条件生成图像时，语义对齐精度和类内多样性之间存在 trade-off，且两项指标均低于真实数据基线
 2. **反馈通路缺失**：现有数据增强方法将扩散模型视为"盲目教师"，无法根据分类器当前状态自适应调整生成内容，不能生成针对决策边界的困难样本
 
 ## 方法详解
@@ -92,7 +105,7 @@ DCS 的核心思想是在扩散模型 $D$ 和 FSCIL 分类器 $\sigma$ 之间建
 - Logits 级奖励（特别是 $\mathcal{R}_{\text{CSCA}}$）贡献最大，证明分类器反馈对生成质量至关重要
 - 在每类仅生成 <50 张图像的条件下，DCS 超越了 vanilla 扩散模型在更大生成规模下的表现
 
-## 亮点
+## 亮点与洞察
 - **闭环设计精巧**：将扩散模型与分类器的交互从单向知识提供升级为双向协同进化，形成 mutual boosting loop
 - **奖励函数多层次且互补**：特征级负责语义锚定和多样性，logits 级负责决策边界优化，逐层消融验证了每个组件的贡献
 - **高效生成**：每类仅需约 30 张生成图像即可达到 SOTA，远低于传统增强方法的百万级规模
@@ -106,13 +119,13 @@ DCS 的核心思想是在扩散模型 $D$ 和 FSCIL 分类器 $\sigma$ 之间建
 - 仅在标准 FSCIL 基准（miniImageNet、CUB-200、CIFAR-100）上验证，未涉及更复杂场景（如领域增量、开放世界）
 - 分类器仍采用冻结特征提取器 + 原型更新的经典范式，若与更先进的增量学习策略结合效果可能更好
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs 传统 FSCIL 方法**（TOPIC, CEC, FACT, SAVC 等）：这些方法依赖网络优化技巧（自监督学习、分布校准），DCS 不修改分类网络，仅通过生成增强即超越
 - **vs 扩散模型增强**（直接用 SD 生成）：vanilla 扩散模型在少量生成（<50/类）下表现显著不如 DCS，DCS 通过奖励引导实现"少而精"
 - **vs 生成式增量学习**（如 SDAFL [1]）：传统方法缺乏分类器反馈，DCS 通过闭环奖励实现自适应生成
 - **vs DAS 原始应用**：原始 DAS 使用 HPSv2/TCE 等图像质量奖励，DCS 将奖励函数针对 FSCIL 任务重新设计
 
-## 启发与关联
+## 相关工作与启发
 - **生成-判别协同范式**值得推广到其他 data-scarce 场景（如医学影像、长尾识别）
 - 奖励设计中的 confusion-aware 思路可借鉴到对比学习中的 hard negative mining
 - 为大型生成模型在下游小任务中的高效适配提供了一种 training-free 的范式（通过奖励引导而非微调）
@@ -132,6 +145,6 @@ DCS 的核心思想是在扩散模型 $D$ 和 FSCIL 分类器 $\sigma$ 之间建
 - [The Devil is in the Spurious Correlations: Boosting Moment Retrieval with Dynamic Learning](../../ICCV2025/object_detection/the_devil_is_in_the_spurious_correlations_boosting_moment_retrieval_with_dynamic.md)
 - [Boosting Domain Incremental Learning: Selecting the Optimal Parameters Is All You Need](../../CVPR2025/object_detection/boosting_domain_incremental_learning_selecting_the_optimal_parameters_is_all_you.md)
 - [SAGA: Learning Signal-Aligned Distributions for Improved Text-to-Image Generation](../../AAAI2026/object_detection/saga_learning_signal-aligned_distributions_for_improved_text-to-image_generation.md)
-- [ROICtrl: Boosting Instance Control for Visual Generation](../../CVPR2025/object_detection/roictrl_boosting_instance_control_for_visual_generation.md)
+- [Delving into Cascaded Instability: A Lipschitz Continuity View on Image Restoration and Object Detection Synergy](lr_yolo_lipschitz_continuity_image_restoration_object_detection.md)
 
 <!-- RELATED:END -->

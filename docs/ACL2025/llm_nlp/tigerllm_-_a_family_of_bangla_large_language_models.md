@@ -190,6 +190,6 @@ TigerLLM 的开发包含三个核心贡献：
 - [Large Language Models in Bioinformatics: A Survey](large_language_models_in_bioinformatics_a_survey.md)
 - [Large Language Models are Good Relational Learners](large_language_models_are_good_relational_learners.md)
 - [Knowledge Boundary of Large Language Models: A Survey](knowledge_boundary_survey.md)
-- [Conformity in Large Language Models](conformity_in_large_language_models.md)
+- [Argument Mining in the Age of Large Language Models](argument_mining_in_the_age_of_large_language_models.md)
 
 <!-- RELATED:END -->

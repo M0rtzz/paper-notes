@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 自动驾驶方向 96篇论文解读
+  CVPR2026 自动驾驶方向 103篇论文解读
 description: >-
-  96篇CVPR2026 自动驾驶论文解读，主题涵盖：受人脑"预测性感知"机制启发，提出 PAP、借鉴人类"预判目标位置再聚焦观察"的认知模式、提出 AdaRadar——基于 DCT等，每篇含核心思想与方法详解。
+  103篇CVPR2026 自动驾驶论文解读，主题涵盖：受人脑"预测性感知"机制启发，提出 PAP、借鉴人类"预判目标位置再聚焦观察"的认知模式、提出 AdaRadar——基于 DCT等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**📷 CVPR2026** · **96** 篇论文解读
+**📷 CVPR2026** · **103** 篇论文解读
 
 **[A Prediction-as-Perception Framework for 3D Object Detection](a_prediction-as-perception_framework_for_3d_object_detection.md)**
 
@@ -33,6 +33,10 @@ description: >-
 **[BuildAnyPoint: 3D Building Structured Abstraction from Diverse Point Clouds](buildanypoint_3d_building_structured_abstraction_from_diverse_point_clouds.md)**
 
 :   提出BuildAnyPoint，通过**松耦合级联扩散Transformer(Loca-DiT)**实现从多样分布的点云（机载LiDAR、SfM、稀疏噪声点云）到结构化3D建筑Mesh的统一重建——先用分层潜在扩散恢复底层点云分布，再用自回归Transformer生成紧凑多边形Mesh。
+
+**[C2T: LLM-Aligned Common-Sense Reward Learning for Traffic-Vehicle Coordination](c2t_llm_traffic_coordination.md)**
+
+:   提出 C2T 框架，通过将交通状态转换为结构化描述（caption），利用 LLM 进行离线偏好判断并蒸馏为内在奖励函数，替代手工设计的交通信号控制奖励，在 CityFlow 基准的多个真实城市网络上提升效率、安全性和能耗指标。
 
 **[CausalVAD: De-confounding End-to-End Autonomous Driving via Causal Intervention](causalvad_de-confounding_end-to-end_autonomous_driving_via_causal_intervention.md)**
 
@@ -69,6 +73,10 @@ description: >-
 **[CycleBEV: Regularizing View Transformation Networks via View Cycle Consistency for Bird's-Eye-View Semantic Segmentation](cyclebev_regularizing_view_transformation_networks_via_view_cycle_consistency_fo.md)**
 
 :   提出 CycleBEV 正则化框架：训练时引入逆视角变换（IVT）网络将 BEV 分割图映射回透视图（PV）分割图，通过循环一致性损失及高度感知几何正则化、跨视角隐空间对齐两项新目标来增强现有 BEV 语义分割模型，推理时不增加任何开销。
+
+**[Den-TP: A Density-Balanced Data Curation and Evaluation Framework for Trajectory Prediction](den_tp_a_density_balanced_data_curation_and_evaluation_framework_for_trajectory.md)**
+
+:   从数据中心视角出发，提出 Den-TP 框架通过密度感知的数据集筛选和评估协议来解决轨迹预测数据集中场景密度的长尾不平衡问题，仅用 50% 数据就能保持整体性能并显著改善高密度场景的鲁棒性。
 
 **[DLWM: Dual Latent World Models enable Holistic Gaussian-centric Pre-training in Autonomous Driving](dlwm_dual_latent_world_models_enable_holistic_gaussian-centric_pre-training_in_a.md)**
 
@@ -158,6 +166,10 @@ description: >-
 
 :   将LeJEPA自监督框架扩展到多模态设置，引入可学习融合token作为Perceiver式潜在瓶颈在共享Transformer内高效融合RGB与伴随模态（LiDAR深度/热红外），采用剪枝策略将注意力开销降低约9倍，在Waymo上CenterNet 3D检测mAP XY达23.6（比RGB-only LeJEPA提升4.3），Depth MAE从4.704降至2.860。
 
+**[LEADER: Learning Reliable Local-to-Global Correspondences for LiDAR Relocalization](leader_lidar_relocalization.md)**
+
+:   LEADER 通过鲁棒的投影式几何编码器（偏航不变）和截断相对可靠性损失（抑制不可靠点），在 LiDAR 重定位任务上分别实现 24.1% 和 73.9% 的位置误差相对降低。
+
 **[Learnability-Driven Submodular Optimization for Active Roadside 3D Detection](learnability-driven_submodular_optimization_for_active_roadside_3d_detection.md)**
 
 :   提出 LH3D 框架，通过「深度置信度→语义平衡→几何多样性」三阶段子模优化的主动学习策略，抑制路侧单目 3D 检测中固有歧义样本的选取，仅用 20% 标注预算即显著优于传统不确定性/多样性 AL 方法。
@@ -229,6 +241,10 @@ description: >-
 **[Monocular Open Vocabulary Occupancy Prediction for Indoor Scenes (LegoOcc)](monocular_open_vocabulary_occupancy_prediction_for_indoor_scenes.md)**
 
 :   提出 LegoOcc，利用语言嵌入高斯（LE-Gaussians）作为统一的几何-语义中间表示，结合基于 Poisson 过程的高斯到占用（G2O）算子和渐进温度衰减策略，在仅使用二值占用标签（无语义标注）的情况下实现室内场景的单目开放词汇占用预测，在 Occ-ScanNet 上达到 59.50 IoU / 21.05 mIoU。
+
+**[Neural Distribution Prior for LiDAR Out-of-Distribution Detection](neural_distribution_prior_for_lidar_ood_detection.md)**
+
+:   NDP提出了可学习的神经分布先验模块来建模网络预测的分布结构，结合Perlin噪声生成的伪OOD样本和软异常暴露策略，在STU基准上实现61.31% AP，超越之前最佳结果10倍以上。
 
 **[NoRD: A Data-Efficient Vision-Language-Action Model that Drives without Reasoning](nord_a_data-efficient_vision-language-action_model_that_drives_without_reasoning.md)**
 
@@ -346,6 +362,10 @@ description: >-
 
 :   利用 microLED-on-CMOS 数字光投影器实现超快单像素成像（SPI），结合低复杂度机器学习模型（ELM 和 DNN），在完全跳过图像重建的情况下以 1.2 kHz 帧率实现了 MNIST 手写数字 >90% 的分类准确率。
 
+**[SparseWorld-TC: Trajectory-Conditioned Sparse Occupancy World Model](sparseworld_tc_trajectory_conditioned_sparse_occupancy_world_model.md)**
+
+:   提出一种基于纯注意力的稀疏占用世界模型SparseWorld-TC，绕过VAE离散化和BEV中间表示，直接从原始图像特征端到端预测轨迹条件的多帧未来占用，在nuScenes上大幅超越现有方法。
+
 **[Sparsity-Aware Voxel Attention and Foreground Modulation for 3D Semantic Scene Completion](sparsity-aware_voxel_attention_and_foreground_modulation_for_3d_semantic_scene_c.md)**
 
 :   提出 VoxSAMNet，一个显式建模体素稀疏性和语义不均衡的单目语义场景补全框架，通过 Dummy Shortcut 跳过空体素、Foreground Dropout + Text-Guided Image Filter 缓解长尾过拟合，在 SemanticKITTI 上达到 18.19% mIoU 的 SOTA（超越现有单目和立体方法）。
@@ -378,6 +398,10 @@ description: >-
 
 :   提出基于 Shapley 值+Pearson 相关系数的模态贡献评估算法和 Fisher 信息矩阵引导的自适应权重约束（AWC）正则化方法，解决 RGB/LiDAR/mmWave/WiFi 四模态端到端融合中的模态不平衡问题，在 MM-Fi 数据集上 MPJPE 降低 2.71mm 且不引入额外可学参数。
 
+**[Traffic Scene Generation from Natural Language Description for Autonomous Vehicles with Large Language Model](traffic_scene_generation_from_natural_language_description_for_autonomous_vehicl.md)**
+
+:   提出 TTSG，一个无需训练的模块化框架，能够直接从自由格式自然语言描述生成逼真的交通场景，通过 LLM 驱动的提示分析、道路检索、智能体规划和计划感知道路排序算法，无需预定义路线或生成点，在 SafeBench 上实现最低 3.5% 平均碰撞率。
+
 **[U4D: Uncertainty-Aware 4D World Modeling from LiDAR Sequences](u4d_uncertainty-aware_4d_world_modeling_from_lidar_sequences.md)**
 
 :   提出 U4D，首个不确定性感知的 4D LiDAR 世界建模框架，通过"先难后易"的两阶段扩散生成策略，先重建高不确定性区域再条件补全整个场景，并设计 MoST 模块自适应融合时空特征以保证时序一致性。
@@ -385,6 +409,10 @@ description: >-
 **[VIRD: View-Invariant Representation through Dual-Axis Transformation for Cross-View Pose Estimation](vird_view-invariant_representation_through_dual-axis_transformation_for_cross-vi.md)**
 
 :   提出 VIRD，通过双轴变换（极坐标变换 + 上下文增强位置注意力）构建视图不变表示，在无方向先验条件下实现 SOTA 的跨视角位姿估计，在 KITTI 上位置和方向误差分别降低 50.7% 和 76.5%。
+
+**[Learning Vision-Language-Action World Models for Autonomous Driving](vla_world_learning_vision_language_action_world_models_for_autonomous_driving.md)**
+
+:   VLA-World将世界模型的预测想象与VLA模型的反思推理统一到一个框架中，通过生成未来帧并对其进行推理来改进轨迹规划，实现了最低的碰撞率和FID分数。
 
 **[WalkGPT: Grounded Vision-Language Conversation with Depth-Aware Segmentation for Pedestrian Navigation](walkgpt_grounded_vision-language_conversation_with_depth-aware_segmentation_for_.md)**
 

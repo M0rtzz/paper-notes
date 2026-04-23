@@ -176,7 +176,7 @@ $$\min_{\mathbf{W}^*} \underbrace{\mathbb{E}_{i,j}\|\mathbf{W}^*\mathbf{e}_{j,i}
 - [Semantic Surgery: Zero-Shot Concept Erasure in Diffusion Models](../../NeurIPS2025/image_generation/semantic_surgery_zero-shot_concept_erasure_in_diffusion_models.md)
 - [Neighbor-Aware Localized Concept Erasure in Text-to-Image Diffusion Models](../../CVPR2026/image_generation/neighbor-aware_localized_concept_erasure_in_text-to-image_diffusion_models.md)
 - [Prototype-Guided Concept Erasure in Diffusion Models](../../CVPR2026/image_generation/prototype-guided_concept_erasure_in_diffusion_models.md)
+- [GrOCE: Graph-Guided Online Concept Erasure for Text-to-Image Diffusion Models](../../CVPR2026/image_generation/groce_graph-guided_online_concept_erasure_for_text-to-image_diffusion_models.md)
 - [SPEED: Scalable, Precise, and Efficient Concept Erasure for Diffusion Models](../../ICLR2026/image_generation/speed_scalable_precise_and_efficient_concept_erasure_for_diffusion_models.md)
-- [Localized Concept Erasure in Text-to-Image Diffusion Models via High-Level Representation Misdirection](../../ICLR2026/image_generation/localized_concept_erasure_in_text-to-image_diffusion_models_via_high-level_repre.md)
 
 <!-- RELATED:END -->

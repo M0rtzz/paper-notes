@@ -154,6 +154,6 @@ OVB 上界：$|\tau_{DR_s} - \tau^*|^2 \leq \sigma^2 \nu^2 C_Y^2 C_D^2$
 - [Estimating Causal Effects in Gaussian Linear SCMs with Finite Data](estimating_causal_effects_in_gaussian_linear_scms_with_finite_data.md)
 - [Conformal Prediction for Causal Effects of Continuous Treatments](../../NeurIPS2025/causal_inference/conformal_prediction_for_causal_effects_of_continuous_treatments.md)
 - [On the Reliability of Large Language Models for Causal Discovery](../../ACL2025/causal_inference/llm_causal_discovery_reliability.md)
-- [Image Quality Assessment: Investigating Causal Perceptual Effects with Abductive Counterfactual](../../CVPR2025/causal_inference/image_quality_assessment_investigating_causal_perceptual_effects_with_abductive_.md)
+- [Image Quality Assessment: Investigating Causal Perceptual Effects with Abductive Counterfactual Inference](../../CVPR2025/causal_inference/image_quality_assessment_investigating_causal_perceptual_effects_with_abductive_.md)
 
 <!-- RELATED:END -->

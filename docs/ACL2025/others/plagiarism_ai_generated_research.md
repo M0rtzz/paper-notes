@@ -127,7 +127,7 @@ tags:
 - [Towards Better Evaluation for Generated Patent Claims](patclaimeval_patent_evaluation.md)
 - [Research Borderlands: Analysing Writing Across Research Cultures](research_borderlands_analysing_writing_across_research_cultures.md)
 - [Military AI Needs Technically-Informed Regulation to Safeguard AI Research and its Applications](../../NeurIPS2025/others/military_ai_needs_technically-informed_regulation_to_safeguard_ai_research_and_i.md)
-- [Do not Abstain! Identify and Solve the Uncertainty](do_not_abstain_identify_and_solve_the_uncertainty.md)
 - [Synthia: Novel Concept Design with Affordance Composition](synthia_novel_concept_design_with_affordance_composition.md)
+- [Do not Abstain! Identify and Solve the Uncertainty](do_not_abstain_identify_and_solve_the_uncertainty.md)
 
 <!-- RELATED:END -->

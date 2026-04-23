@@ -168,9 +168,9 @@ $$r_{gc}(P_g) = \begin{cases} \tanh(\alpha(1-\phi(P_g, C_g))^3), & P_g \in \math
 ## 相关论文
 
 - [TrackingWorld: World-centric Monocular 3D Tracking of Almost All Pixels](trackingworld_world-centric_monocular_3d_tracking_of_almost_all_pixels.md)
+- [A Thousand Words Paint a Picture: Multimodal Goal Tracking for Grounded Social Intelligence](../../ACL2025/video_understanding/a_thousand_words_paint_a_picture_multimodal_goal_tracking_for_grounded_social_in.md)
 - [Attention to Trajectory: Trajectory-Aware Open-Vocabulary Tracking](../../ICCV2025/video_understanding/attention_to_trajectory_trajectory-aware_open-vocabulary_tracking.md)
+- [Training-free Generation of Temporally Consistent Rewards from VLMs](../../ICCV2025/video_understanding/training-free_generation_of_temporally_consistent_rewards_from_vlms.md)
 - [Lattice Boltzmann Model for Learning Real-World Pixel Dynamicity](lattice_boltzmann_model_for_learning_real-world_pixel_dynamicity.md)
-- [AMEGO: Active Memory from Long EGOcentric Videos](../../ECCV2024/video_understanding/amego_active_memory_from_long_egocentric_videos.md)
-- [SLAck: Semantic, Location, and Appearance Aware Open-Vocabulary Tracking](../../ECCV2024/video_understanding/slack_semantic_location_and_appearance_aware_open-vocabulary_tracking.md)
 
 <!-- RELATED:END -->

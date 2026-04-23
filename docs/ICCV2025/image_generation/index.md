@@ -1,14 +1,18 @@
 ---
 title: >-
-  ICCV2025 图像生成方向 198篇论文解读
+  ICCV2025 图像生成方向 215篇论文解读
 description: >-
-  198篇ICCV2025 图像生成论文解读，主题涵盖：提出 A0，一个层次化可供性感知扩散模型、提出 MoLaM，一个统一的交互式动作-语言模型、提出 LTC-Accel，一种基于"局部转移一致性等，每篇含核心思想与方法详解。
+  215篇ICCV2025 图像生成论文解读，主题涵盖：提出 A₀，一个可供性感知的分层扩散模型、提出 A0，一个层次化可供性感知扩散模型、提出 MoLaM，一个统一的交互式动作-语言模型等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**📹 ICCV2025** · **198** 篇论文解读
+**📹 ICCV2025** · **215** 篇论文解读
+
+**[A0: An Affordance-Aware Hierarchical Model for General Robotic Manipulation](a0_affordance_aware_hierarchical_model_robotic_manipulation.md)**
+
+:   提出 A₀，一个可供性感知的分层扩散模型，通过将操作任务分解为高层空间可供性理解（预测接触点和轨迹）和低层动作执行，在100万接触点数据上预训练后仅需少量任务数据微调即可跨平台(Franka/Kinova/Realman/Dobot)部署，在擦白板等复杂轨迹任务中成功率达45%。
 
 **[A0: An Affordance-Aware Hierarchical Model for General Robotic Manipulation](a0_an_affordance-aware_hierarchical_model_for_general_robotic_manipulation.md)**
 
@@ -26,13 +30,25 @@ description: >-
 
 :   提出 RouteT2I，首个面向文本到图像生成的边缘-云模型路由框架，通过多维质量度量、Pareto 相对优越性和双门控 token 选择 MoE 架构，在控制成本的同时最大化图像生成质量。
 
+**[Adaptive Routing of Text-to-Image Generation Requests Between Large Cloud Model and Light-Weight Edge Model](adaptive_routing_of_text_to_image_generation_requests_between_large_cloud_model_and_light_weight_edge_model.md)**
+
+:   提出RouteT2I框架，通过多维质量评估指标和双门控token选择MoE路由模型，动态将文本到图像生成请求分配到边缘轻量模型或云端大模型，在50%路由率下实现云端全用83.97%的质量提升。
+
 **[Addressing Text Embedding Leakage in Diffusion-Based Image Editing](addressing_text_embedding_leakage_in_diffusion-based_image_editing.md)**
 
 :   揭示了基于扩散模型的文本图像编辑中属性泄露的根本原因——自回归文本编码器中 EOS 嵌入的语义纠缠，并提出 ALE 框架（ORE + RGB-CAM + BB），从嵌入解耦、注意力遮罩和背景混合三个层面彻底消除属性泄露。
 
+**[Addressing Text Embedding Leakage in Diffusion-based Image Editing](addressing_text_embedding_leakage_in_diffusion_based_image_editing.md)**
+
+:   提出ALE框架，通过对象限制嵌入(ORE)解耦EOS token的语义纠缠、区域引导混合交叉注意力掩码(RGB-CAM)约束空间注意力、背景混合(BB)保留未编辑区域，系统性解决扩散模型文本图像编辑中的属性泄漏问题，并建立了ALE-Bench评估基准。
+
 **[ADIEE: Automatic Dataset Creation and Scorer for Instruction-Guided Image Editing Evaluation](adiee_automatic_dataset_creation_and_scorer_for_instruction-guided_image_editing.md)**
 
 :   本文提出 ADIEE，一种自动化构建指令引导图像编辑评估数据集的方法，并基于超过 10 万样本微调 LLaVA-NeXT-8B 模型作为评分器，在多个基准上超越所有开源 VLM 和 Gemini-Pro 1.5，同时可作为奖励模型提升图像编辑模型性能。
+
+**[ADIEE: Automatic Dataset Creation and Scorer for Instruction-Guided Image Editing Evaluation](adiee_automatic_dataset_creation_and_scorer_for_instruction_guided_image_editing_evaluation.md)**
+
+:   提出ADIEE，通过自动化方法构建超过10万样本的图像编辑评估训练数据集，微调LLaVA-NeXT-8B作为编辑质量评分模型，在多个基准上超越开源VLM和Gemini-Pro 1.5，并可作为奖励模型提升编辑模型性能。
 
 **[Aether: Geometric-Aware Unified World Modeling](aether_geometric-aware_unified_world_modeling.md)**
 
@@ -41,6 +57,14 @@ description: >-
 **[Aether: Geometric-Aware Unified World Modeling](aether_geometricaware_unified_world_modeling.md)**
 
 :   提出Aether统一世界模型，在合成RGB-D数据上后训练CogVideoX视频扩散模型，通过随机组合输入/输出模态的多任务训练策略，同时实现4D重建、动作条件视频预测和目标条件视觉规划，且零样本迁移到真实世界数据达到与领域专用模型可比的性能。
+
+**[AIComposer: Any Style and Content Image Composition via Feature Integration](aicomposer_any_style_and_content_image_composition_via_feature_integration.md)**
+
+:   AIComposer 提出了首个不依赖文本提示的跨域图像合成方法，通过 MLP 网络融合前景和背景的 CLIP 特征，并结合 backward inversion + forward denoising 和局部交叉注意力策略，在无需训练扩散模型的前提下实现了自然风格化和无缝合成，LPIPS 和 CSD 指标分别提升 30.5% 和 18.1%。
+
+**[ALE: Attribute-Leakage-free Editing for Text-based Image Editing](ale_attribute_leakage_free_editing.md)**
+
+:   揭示文本引导图像编辑中属性泄漏的根本原因是自回归文本编码器中 EOS 嵌入的语义纠缠，提出 ALE 框架通过目标受限嵌入(ORE)、区域引导交叉注意力遮蔽(RGB-CAM)和背景融合(BB)三个组件消除属性泄漏，并构建了专门的 ALE-Bench 评测基准。
 
 **[AnimeGamer: Infinite Anime Life Simulation with Next Game State Prediction](animegamer_infinite_anime_life_simulation_with_next_game_state_prediction.md)**
 
@@ -74,6 +98,10 @@ description: >-
 
 :   提出TDSM（Triplet Diffusion for Skeleton-Text Matching），首次将扩散模型应用于零样本骨骼动作识别，通过反向扩散过程实现骨骼特征与文本prompt的隐式对齐，并引入triplet diffusion损失增强判别力，在NTU-60/120和PKU-MMD上大幅超越SOTA（2.36%到13.05%的提升幅度）。
 
+**[Bridging the Skeleton-Text Modality Gap: Diffusion-Powered Modality Alignment for Zero-shot Skeleton-based Action Recognition](bridging_the_skeleton_text_modality_gap_diffusion_powered_modality_alignment_for.md)**
+
+:   提出TDSM（Triplet Diffusion for Skeleton-Text Matching），首次将扩散模型应用于零样本骨骼动作识别，通过反向扩散过程实现骨骼特征与文本prompt的隐式对齐，并引入triplet diffusion损失增强判别力，在NTU-60/120和PKU-MMD上大幅超越SOTA（2.36%到13.05%的提升幅度）。
+
 **[BVINet: Unlocking Blind Video Inpainting with Zero Annotations](bvinet_unlocking_blind_video_inpainting_with_zero_annotations.md)**
 
 :   首次定义并解决"盲视频修复"（blind video inpainting）任务——在无需任何损坏区域标注的情况下，端到端地同时完成"哪里需要修复"和"如何修复"，通过 mask 预测网络与视频补全网络的一致性约束互相增强，在合成数据和真实应用（弹幕去除/划痕修复）中均取得优异效果。
@@ -97,6 +125,10 @@ description: >-
 **[CHORDS: Diffusion Sampling Accelerator with Multi-Core Hierarchical ODE Solvers](chords_diffusion_sampling_accelerator_with_multi-core_hierarchical_ode_solvers.md)**
 
 :   提出 Chords，一种基于多核层次 ODE 求解器的扩散采样加速框架，通过慢到快的核间纠正机制（inter-core rectification），在 4-8 个 GPU 上实现 2.1×~2.9× 加速，且不牺牲生成质量。
+
+**[CHORDS: Diffusion Sampling Accelerator with Multi-Core Hierarchical ODE Solvers](chords_diffusion_sampling_accelerator_with_multi_core_hierarchical_ode_solvers.md)**
+
+:   提出 Chords，一种基于多核层级 ODE 求解器的无训练、模型无关扩散采样加速框架，通过慢到快的求解器层级和核间纠偏机制，在 4~8 个 GPU 核上实现最高 2.9× 加速而不损失生成质量。
 
 **[CNS-Bench: Benchmarking Image Classifier Robustness Under Continuous Nuisance Shifts](cns-bench_benchmarking_image_classifier_robustness_under_continuous_nuisance_shi.md)**
 
@@ -170,6 +202,10 @@ description: >-
 
 :   提出 DescriptiveEdit，将"指令式图像编辑"重新定义为"参考图像条件下的文本到图像生成"，通过 Cross-Attentive UNet 引入注意力桥接层将参考图像特征注入生成过程，仅需 75M 可训练参数即可实现高保真描述式编辑，并与 ControlNet、IP-Adapter 等社区工具无缝兼容。
 
+**[DIA: The Adversarial Exposure of Deterministic Inversion in Diffusion Models](dia_the_adversarial_exposure_of_deterministic_inversion_in_diffusion_models.md)**
+
+:   提出 DDIM Inversion Attack (DIA)，通过直接攻击 DDIM 反演轨迹路径来干扰扩散模型的图像编辑能力，有效防御恶意深度伪造和隐私侵犯内容生成，在多种编辑方法上大幅超越 AdvDM 和 Photoguard 等现有防御方法。
+
 **[DICE: Staleness-Centric Optimizations for Parallel Diffusion MoE Inference](dice_staleness-centric_optimizations_for_parallel_diffusion_moe_inference.md)**
 
 :   针对 MoE 扩散模型并行推理中的"陈旧性"问题 (staleness)，提出 DICE 框架，通过步级交织并行、层级选择性同步和 token 级条件通信三层优化策略，在 DiT-MoE 上实现 1.26× 加速且质量损失极小。
@@ -189,6 +225,10 @@ description: >-
 **[DIIP: Diffusion Image Prior](diffusion_image_prior.md)**
 
 :   发现预训练扩散模型在重建退化图像时存在类似 Deep Image Prior 的隐式偏置——迭代优化过程中先生成干净图像再过拟合到退化输入——且比 DIP 适用更广泛的退化类型，据此提出完全盲（无需退化模型）的图像复原方法 DIIP。
+
+**[Discovering Divergent Representations between Text-to-Image Models](discovering_divergent_representations_between_text-to-image_models.md)**
+
+:   提出 CompCon（Comparing Concepts），一种进化搜索算法，自动发现两个文生图模型之间的"分歧表征"——即在哪些视觉属性上、被哪类提示词触发时，两个模型会产生截然不同的输出，并构建了 ID² 基准数据集进行系统评估。
 
 **[Disrupting Model Merging: A Parameter-Level Defense Without Sacrificing Accuracy](disrupting_model_merging_a_parameter-level_defense_without_sacrificing_accuracy.md)**
 
@@ -310,6 +350,10 @@ description: >-
 
 :   提出 Free4D，首个无需微调的单图像 4D 场景生成框架，通过 4D 几何结构初始化、自适应引导去噪保证空间一致性、参考潜变量替换保证时序一致性、基于调制的精化融合多视角信息为一致的 4D 高斯表示，实现实时可控渲染。
 
+**[FreeCus: Free Lunch Subject-driven Customization in Diffusion Transformers](freecus_free_lunch_subject-driven_customization_in_diffusion_transformers.md)**
+
+:   本文提出 FreeCus，一个完全免训练的主体驱动定制框架，通过关键注意力共享机制、改进的动态偏移特征提取和多模态大语言模型语义增强三大创新，激活扩散 Transformer（DiT）的内在零样本主体定制能力，达到与需要额外训练的方法相当甚至更优的效果。
+
 **[FreeMorph: Tuning-Free Generalized Image Morphing with Diffusion Model](freemorph_tuning-free_generalized_image_morphing_with_diffusion_model.md)**
 
 :   FreeMorph 提出首个无需微调的通用图像变形方法，通过引导感知球面插值和步骤导向变化趋势两个创新设计，实现了 30 秒内在任意语义/布局的图像对之间生成平滑过渡序列，速度比现有方法快 10-50 倍。
@@ -422,6 +466,10 @@ description: >-
 
 :   系统性地分析了 LDM 中自编码器应具备的三个关键属性（潜空间平滑性、感知压缩质量、重建质量），发现现有自编码器无法同时满足，提出 Variational Masked AutoEncoders (VMAEs)，结合 MAE 的层次化特征和 VAE 的概率编码，在仅 13.4% 参数和 4.1% GFLOPs 的条件下显著提升生成质量（ImageNet-1K gFID: 5.98 vs SD-VAE 的 6.49）。
 
+**[LATINO-PRO: LAtent consisTency INverse sOlver with PRompt Optimization](latino-pro_latent_consistency_inverse_solver_with_prompt_optimization.md)**
+
+:   LATINO-PRO 首次将 Latent Consistency Model（LCM）作为生成先验嵌入零样本逆问题求解框架，仅需 8 次神经函数评估即达 SOTA 重建质量，并通过经验贝叶斯自动校准文本提示进一步提升性能。
+
 **[Lay-Your-Scene: Natural Scene Layout Generation with Diffusion Transformers](lay-your-scene_natural_scene_layout_generation_with_diffusion_transformers.md)**
 
 :   提出 LayouSyn，基于轻量开源语言模型提取场景元素、结合宽高比感知扩散 Transformer 的开放词汇文本到布局生成流水线，在空间推理和数量推理基准上达到 SOTA。
@@ -433,6 +481,10 @@ description: >-
 **[LD-RPS: Zero-Shot Unified Image Restoration via Latent Diffusion Recurrent Posterior Sampling](ld-rps_zero-shot_unified_image_restoration_via_latent_diffusion_recurrent_poster.md)**
 
 :   LD-RPS 提出一种零样本、无数据集的统一图像复原方法，利用预训练潜在扩散模型进行循环后验采样，通过多模态大模型提供语义先验、可学习 F-PAM 模块对齐退化域，实现多种退化类型的高质量盲复原。
+
+**[Learning Deblurring Texture Prior from Unpaired Data with Diffusion Model](learning_deblurring_texture_prior_from_unpaired_data_with_diffusion_model.md)**
+
+:   TP-Diff 首次将扩散模型引入无配对图像去模糊任务，通过记忆增强的纹理先验编码器（TPE）学习空间可变的纹理先验，并设计滤波调制自注意力（FM-MSA）利用该先验实现精准去模糊，以仅 11.89M 参数在多个基准上刷新无监督 SOTA。
 
 **[Learning Few-Step Diffusion Models by Trajectory Distribution Matching](learning_few-step_diffusion_models_by_trajectory_distribution_matching.md)**
 
@@ -469,6 +521,10 @@ description: >-
 **[LoRAverse: A Submodular Framework to Retrieve Diverse Adapters for Diffusion Models](loraverse_a_submodular_framework_to_retrieve_diverse_adapters_for_diffusion_mode.md)**
 
 :   将从100K+ LoRA适配器库中检索相关且多样化的LoRA组合建模为组合优化问题，提出基于子模函数最大化的LoRAverse框架，通过概念提取+子模检索实现兼顾相关性和多样性的LoRA选择。
+
+**[LUSD: Localized Update Score Distillation for Text-Guided Image Editing](lusd_localized_update_score_distillation_for_text-guided_image_editing.md)**
+
+:   LUSD 通过注意力空间正则化和梯度过滤归一化两个简单修改，解决了现有分数蒸馏方法在图像编辑（尤其是物体插入）中因梯度幅值和空间分布差异过大而导致失败的问题，在 prompt 忠实度和背景保留之间取得了更好的平衡。
 
 **[M2SFormer: Multi-Spectral and Multi-Scale Attention with Edge-Aware Difficulty Guidance for Image Forgery Localization](m2sformer_multi-spectral_and_multi-scale_attention_with_edge-aware_difficulty_gu.md)**
 
@@ -614,9 +670,9 @@ description: >-
 
 :   本文提出 REPA-E，通过表示对齐（REPA）损失实现 VAE 和潜在扩散 Transformer 的端到端联合训练，训练速度分别比 REPA 和普通训练快 17× 和 45×，在 ImageNet 256×256 上达到 FID 1.12 的新SOTA。
 
-**[REPA-E: Unlocking VAE for End-to-End Tuning of Latent Diffusion Transformers](repae_unlocking_vae_for_endtoend_tuning_of_latent_diffusion.md)**
+**[REPA-E: Unlocking VAE for End-to-End Tuning with Latent Diffusion Transformers](repae_unlocking_vae_for_endtoend_tuning_of_latent_diffusion.md)**
 
-:   回答了"潜空间扩散模型能否与VAE端到端联合训练"的基础问题——发现标准扩散loss无法端到端训练但表示对齐（REPA）loss可以，提出REPA-E实现VAE+DiT联合训练，训练速度比REPA快17倍、比vanilla快45倍，在ImageNet 256×256上达到1.12 FID（w/ CFG）的新SOTA。
+:   提出 REPA-E，首个成功实现 VAE 与潜在扩散模型端到端联调的训练方案，通过表征对齐(REPA)损失而非扩散损失来更新 VAE，训练速度提升 17-45 倍并达到 ImageNet 256 新 SOTA（FID 1.12）。
 
 **[Rethink Sparse Signals for Pose-guided Text-to-Image Generation](rethink_sparse_signals_for_pose-guided_text-to-image_generation.md)**
 
@@ -669,6 +725,10 @@ description: >-
 **[ShortFT: Diffusion Model Alignment via Shortcut-based Fine-Tuning](shortft_diffusion_model_alignment_via_shortcut-based_fine-tuning.md)**
 
 :   提出 ShortFT，利用轨迹保持少步扩散模型构建去噪捷径（shortcut），将原本冗长的去噪链大幅缩短，从而实现完整的端到端奖励梯度反向传播，高效且有效地将扩散模型与奖励函数对齐。
+
+**[SliderSpace: Decomposing the Visual Capabilities of Diffusion Models](sliderspace_decomposing_the_visual_capabilities_of_diffusion_models.md)**
+
+:   SliderSpace 通过对扩散模型在给定提示下生成图像的 CLIP 特征做 PCA 分解，自动发现多个语义正交的可控方向，每个方向训练为 LoRA 适配器（slider），实现了无需人工指定属性的概念分解、艺术风格探索和多样性增强。
 
 **[SMGDiff: Soccer Motion Generation using Diffusion Probabilistic Models](smgdiff_soccer_motion_generation_using_diffusion_probabilistic_models.md)**
 
@@ -726,6 +786,10 @@ description: >-
 
 :   首次利用文本提示（text prompt）指导扩散模型的动态量化比特分配——通过预测文本对应的生成图像质量，为不同层和时间步自适应选择高/中/低比特精度，在降低计算复杂度的同时保持甚至提升生成质量。
 
+**[The Curse of Conditions: Analyzing and Improving Optimal Transport for Conditional Flow-Based Generation](the_curse_of_conditions_analyzing_and_improving_optimal_transport_for_conditiona.md)**
+
+:   本文揭示了条件流匹配中使用标准最优传输（OT）会导致训练-测试不匹配的"条件诅咒"问题——OT 忽略条件信息导致训练时先验分布产生条件偏移，而测试时用的是无偏先验，并提出了 C²OT（Conditional Optimal Transport）通过在 OT 代价矩阵中加入条件权重项来修复此问题。
+
 **[The Silent Assistant: NoiseQuery as Implicit Guidance for Goal-Driven Image Generation](the_silent_assistant_noisequery_as_implicit_guidance_for_goal-driven_image_gener.md)**
 
 :   本文提出 NoiseQuery，一种免训练的 T2I 生成增强方法，通过预构建大规模噪声库并在推理时检索与用户目标最匹配的初始噪声，实现高级语义和低级视觉属性的细粒度控制，仅需 0.002 秒/prompt 的额外开销即可提升多种 T2I 模型和增强技术的效果。
@@ -769,6 +833,10 @@ description: >-
 **[Unlocking the Potential of Diffusion Priors in Blind Face Restoration](unlocking_the_potential_of_diffusion_priors_in_blind_face_restoration.md)**
 
 :   本文提出 FLIPNET，一个基于 T2I 扩散模型的统一框架，通过翻转输入在修复模式（BoostHub 选择性融合 LQ 特征 + BFR-oriented 面部嵌入）和退化模式（从真实退化数据集学习并合成退化图像）之间切换，同时解决 HQ/LQ 分布差距和合成/真实退化差距两大难题。
+
+**[Unsupervised Imaging Inverse Problems with Diffusion Distribution Matching](unsupervised_imaging_inverse_problems_with_diffusion_distribution_matching.md)**
+
+:   DDM4IP 提出一种无监督框架，利用条件流匹配（Conditional Flow Matching）建模退化分布，同时通过分布匹配损失自动学习未知的前向退化模型，仅需少量非配对数据即可在去模糊、非均匀 PSF 标定和盲超分辨率任务上达到或超过现有方法。
 
 **[Video Color Grading via Look-Up Table Generation](video_color_grading_via_look-up_table_generation.md)**
 

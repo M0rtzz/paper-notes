@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-机制可解释性（Mechanistic Interpretability）旨在逆向工程神经网络的内部计算过程，将其表示为人类可理解的电路（circuit）和特征（feature）。然而当前存在两个核心问题：
+### 现有痛点
+
+**现有痛点**：**领域现状**：机制可解释性（Mechanistic Interpretability）旨在逆向工程神经网络的内部计算过程，将其表示为人类可理解的电路（circuit）和特征（feature）。然而当前存在两个核心问题：
 
 **定义模糊**：什么是"有效的"机制解释缺乏统一标准，现有研究往往采用 ad-hoc 的评估方式
 
@@ -82,6 +84,9 @@ $$\forall i: \Pr_{x \sim \mathcal{D}}[t(x) = d_t[i{+}1:] \circ \gamma_i \circ d_
 - **第一层 = 解析器**：通过注意力模式将 token 序列解析为子句列表
 - **第二层 = 求值器**：MLP 隐藏层中仅 34 个神经元有效，通过穷举赋值来判断可满足性
 
+
+### 主实验
+
 | 公理 | 组件 | 决策树解释 $\epsilon$ | 析取解释 $\epsilon$ |
 |------|------|----------------------|---------------------|
 | 公理 1 (前缀等价) | 第一层 | ≈0.0000374 | ≈0.0000374 |
@@ -135,9 +140,9 @@ $$\forall i: \Pr_{x \sim \mathcal{D}}[t(x) = d_t[i{+}1:] \circ \gamma_i \circ d_
 ## 相关论文
 
 - [nnterp: A Standardized Interface for Mechanistic Interpretability of Transformers](../../NeurIPS2025/human_understanding/nnterp_a_standardized_interface_for_mechanistic_interpretability_of_transformers.md)
-- [Mechanistic Interpretability of RNNs Emulating Hidden Markov Models](../../NeurIPS2025/human_understanding/mechanistic_interpretability_of_rnns_emulating_hidden_markov_models.md)
 - [A Differential and Pointwise Control Approach to Reinforcement Learning](../../NeurIPS2025/human_understanding/a_differential_and_pointwise_control_approach_to_reinforceme.md)
 - [UniHOPE: A Unified Approach for Hand-Only and Hand-Object Pose Estimation](../../CVPR2025/human_understanding/unihope_a_unified_approach_for_hand-only_and_hand-object_pose_estimation.md)
 - [Team RAS in 10th ABAW Competition: Multimodal Valence and Arousal Estimation Approach](../../CVPR2025/human_understanding/team_ras_in_10th_abaw_competition_multimodal_valence_and_arousal_estimation_appr.md)
+- [SAMO: A Lightweight Sharpness-Aware Approach for Multi-Task Optimization with Joint Global-Local Perturbation](../../ICCV2025/human_understanding/samo_a_lightweight_sharpness-aware_approach_for_multi-task_optimization_with_joi.md)
 
 <!-- RELATED:END -->

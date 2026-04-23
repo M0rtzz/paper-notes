@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 其他方向 42篇论文解读
+  CVPR2025 其他方向 45篇论文解读
 description: >-
-  42篇CVPR2025 其他论文解读，主题涵盖：构建了包含100万+复杂CAD模型、提出 AnomalyNCD，首个基于自监督的工业多、提出一个面向板金弯曲工艺的可制造性度量分类法（按配等，每篇含核心思想与方法详解。
+  45篇CVPR2025 其他论文解读，主题涵盖：构建了包含100万+复杂CAD模型、提出 AnomalyNCD，首个基于自监督的工业多、提出一个面向板金弯曲工艺的可制造性度量分类法（按配等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**📷 CVPR2025** · **42** 篇论文解读
+**📷 CVPR2025** · **45** 篇论文解读
 
 **[A2Z-10M+: Geometric Deep Learning with A-to-Z BRep Annotations for AI-Assisted CAD Modeling and Reverse Engineering](a2z-10m_geometric_deep_learning_with_a-to-z_brep_annotations_for_ai-assisted_cad.md)**
 
@@ -51,6 +51,10 @@ description: >-
 **[Feature Selection for Latent Factor Models](feature_selection_for_latent_factor_models.md)**
 
 :   提出基于信噪比（SNR）的类特异性特征选择方法用于低秩生成模型（PPCA/LFA/ELF），每新增一个类只需$O(1)$计算（不需重训旧类模型），避免了灾难性遗忘，并提出新的非参数潜因子模型ELF，在微阵列癌症分类和高维特征选择上验证了有效性。
+
+**[FIction: 4D Future Interaction Prediction from Video](fiction_4d_future_interaction_prediction_from_video.md)**
+
+:   本文提出 FIction，首个从视频中进行 4D 未来交互预测的模型，给定输入视频预测人将与环境中哪些物体在什么 3D 位置发生交互，以及如何执行该交互（3D 人体姿态），在 EgoExo4D 数据集上超越前方法 30%+ 相对增益。
 
 **[Focal Split: Untethered Snapshot Depth from Differential Defocus](focal_split_untethered_snapshot_depth_from_differential_defocus.md)**
 
@@ -102,11 +106,11 @@ description: >-
 
 **[Open Set Label Shift with Test Time Out-of-Distribution Reference](open_set_label_shift_with_test_time_out-of-distribution_reference.md)**
 
-:   提出 NoT 三阶段框架解决开集标签偏移（OSLS）：通过参考数据集估计源域 ID/OOD 比例，用 EM 算法最大似然估计目标域标签分布，再校正不完美 OOD 分类器的偏差，无需重训练分类器即可适应标签分布变化。
+:   本文针对开集标签偏移（OSLS）问题——目标分布包含源分布中没有的OOD类且标签分布变化——提出无需重训练的三阶段估计方法：利用已有的ID分类器和OOD检测器，通过EM算法估计目标域的标签分布和OOD比例，并校正分类器以适应目标分布。
 
 **[Order-One Rolling Shutter Cameras](order-one_rolling_shutter_cameras.md)**
 
-:   建立了卷帘快门（Rolling Shutter, RS）相机的统一代数理论，定义了"一阶RS相机"（RS1）——将空间点一一映射到图像点的卷帘模型，完整分类了其三种类型（I/II/III），并发现了 31 个 2-5 相机间相对位姿估计的最小问题。
+:   提出 Order-One Rolling Shutter (RS1) 相机的统一理论，证明了将空间点映射到恰好一个图像点的卷帘快门相机类的数学特征，构建了显式参数化，并完整分类了线性 RS1 相机的 31 个相对位姿最小问题。
 
 **[PLeaS: Merging Models with Permutations and Least Squares](pleas_-_merging_models_with_permutations_and_least_squares.md)**
 
@@ -115,6 +119,10 @@ description: >-
 **[Regor: Progressive Correspondence Regenerator for Robust 3D Registration](progressive_correspondence_regenerator_for_robust_3d_registration.md)**
 
 :   Regor提出了一种渐进式对应关系再生策略，不同于传统的"自上而下"外点剔除方法，通过"自下而上"地在局部球体内迭代生成更多高质量对应关系，生成的正确匹配数量是现有方法的10倍，即使在弱特征条件下也能实现鲁棒配准。
+
+**[RandAR: Decoder-only Autoregressive Visual Generation in Random Orders](randar_decoder-only_autoregressive_visual_generation_in_random_orders.md)**
+
+:   提出 RandAR——首个支持任意 token 生成顺序的 decoder-only 视觉自回归模型，通过在每个图像 token 前插入"位置指令 token"来指示下一个待生成 token 的空间位置，在性能不损失的前提下解锁并行解码（2.5x 加速）、零样本 inpainting/outpainting 和分辨率外推等全新能力。
 
 **[Rooftop Wind Field Reconstruction Using Sparse Sensors: From Deterministic to Generative Learning Methods](rooftop_wind_field_reconstruction_using_sparse_sensors_from_deterministic_to_gen.md)**
 
@@ -139,6 +147,10 @@ description: >-
 **[TAET: Two-Stage Adversarial Equalization Training on Long-Tailed Distributions](taet_two-stage_adversarial_equalization_training_on_long-tailed_distributions.md)**
 
 :   提出TAET两阶段对抗均衡训练框架：先用交叉熵损失稳定早期训练，再用层级对抗鲁棒学习(HARL)联合BCL/HDL/RCEL三种损失均衡各类性能，并引入平衡鲁棒性(Balanced Robustness)评估指标，解决长尾分布下对抗训练的尾部类鲁棒性不足问题。
+
+**[TailedCore: Few-Shot Sampling for Unsupervised Long-Tail Noisy Anomaly Detection](tailedcore_few-shot_sampling_for_unsupervised_long-tail_noisy_anomaly_detection.md)**
+
+:   TailedCore 解决了无监督异常检测中"正常样本既包含噪声缺陷又服从未知长尾类别分布"的实际场景，提出 TailSampler 通过嵌入相似度的对称性假设预测类别基数来独立采样尾部类样本，构建了既能捕捉尾部类信息又对噪声鲁棒的内存库模型，在多种设置下超过 SOTA。
 
 **[Task-Agnostic Guided Feature Expansion for Class-Incremental Learning](task-agnostic_guided_feature_expansion_for_class-incremental_learning.md)**
 
@@ -166,11 +178,11 @@ description: >-
 
 **[Wear Classification of Abrasive Flap Wheels using a Hierarchical Deep Learning Approach](wear_classification_of_abrasive_flap_wheels_using_a_hierarchical_deep_learning_a.md)**
 
-:   针对柔性磨料翻页轮的复杂磨损模式，提出三级层次化深度学习分类框架，将磨损评估分解为使用状态检测、磨损类型识别和严重程度评估三个子任务，使用EfficientNetV2迁移学习实现93.8%–99.3%的分类精度。
+:   本文提出一种基于 EfficientNetV2 的分层视觉分类框架，将砂布翼轮的磨损状态分解为三个层级（使用状态→磨损类型→严重程度），在各子任务上取得 93.8%~99.3% 的分类精度。
 
-**[Which Viewpoint Shows It Best? Language for Weakly Supervising View Selection in Multi-view Instructional Videos](which_viewpoint_shows_it_best_language_for_weakly_supervising_view_selection_in_.md)**
+**[Which Viewpoint Shows it Best? Language for Weakly Supervising View Selection in Multi-view Instructional Videos](which_viewpoint_shows_it_best_language_for_weakly_supervising_view_selection_in_.md)**
 
-:   LangView 提出用语言作为弱监督信号训练多视角教学视频的视角选择模型：通过比较各视角预测字幕与视角无关叙述的匹配度生成伪标签，无需人工最佳视角标注即可学习自动切镜。
+:   本文提出 LangView，利用视角无关的文字叙述（narration）作为弱监督信号，通过比较各视角预测 caption 与真实叙述的匹配度来生成最佳视角伪标签，实现无需手动标注的多视角教学视频自动视角选择。
 
 **[ZO-SAM: Zero-Order Sharpness-Aware Minimization for Efficient Sparse Training](zo-sam_zero-order_sharpness-aware_minimization_for_efficient_sparse_training.md)**
 

@@ -127,6 +127,6 @@ OSDFace 的训练分两个阶段。第一阶段：训练视觉表示嵌入器（
 - [SwiftEdit: Lightning Fast Text-Guided Image Editing via One-Step Diffusion](swiftedit_lightning_fast_text-guided_image_editing_via_one-step_diffusion.md)
 - [GenDeg: Diffusion-based Degradation Synthesis for Generalizable All-In-One Image Restoration](gendeg_diffusion-based_degradation_synthesis_for_generalizable_all-in-one_image_.md)
 - [DOVE: Efficient One-Step Diffusion Model for Real-World Video Super-Resolution](../../NeurIPS2025/image_generation/dove_efficient_one-step_diffusion_model_for_real-world_video_super-resolution.md)
-- [MoFRR: Mixture of Diffusion Models for Face Retouching Restoration](../../ICCV2025/image_generation/mofrr_mixture_of_diffusion_models_for_face_retouching_restoration.md)
+- [Unlocking the Potential of Diffusion Priors in Blind Face Restoration](../../ICCV2025/image_generation/unlocking_the_potential_of_diffusion_priors_in_blind_face_restoration.md)
 
 <!-- RELATED:END -->

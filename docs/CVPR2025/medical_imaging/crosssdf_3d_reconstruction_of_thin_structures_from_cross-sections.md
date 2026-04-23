@@ -27,13 +27,27 @@ tags:
 
 ## 研究背景与动机
 
-**领域现状**：从平面截面数据重建 3D 结构是医学影像、制造业和地形学中的经典问题。CT/MRI 扫描产生稀疏的 2D 截面数据，需从中重建完整的 3D 形状。
+### 领域现状
+
+**领域现状**：领域现状**：从平面截面数据重建 3D 结构是医学影像、制造业和地形学中的经典问题。CT/MRI 扫描产生稀疏的 2D 截面数据，需从中重建完整的 3D 形状。
 
 **现有痛点**：
-   - **点云重建方法**：截面之间数据稀疏，常导致失败
-   - **传统插值方法**（OReX 等）：产生严重的"棱状"伪影（laddering artifacts），在平行截面间出现阶梯状结构
-   - **Indicator function 方法**：不连续性导致法线和光滑性伪影，且退化为不稳定的二分类问题
-   - 所有现有方法在重建**薄结构**（如血管、神经组织）时表现糟糕，要么过度平滑要么断裂
+
+### 现有痛点
+
+**现有痛点**：点云重建方法**：截面之间数据稀疏，常导致失败
+
+### 核心矛盾
+
+**核心矛盾**：传统插值方法**（OReX 等）：产生严重的"棱状"伪影（laddering artifacts），在平行截面间出现阶梯状结构
+
+### 解决思路
+
+**解决思路**：Indicator function 方法**：不连续性导致法线和光滑性伪影，且退化为不稳定的二分类问题
+
+### 补充说明
+
+**补充说明**：所有现有方法在重建**薄结构**（如血管、神经组织）时表现糟糕，要么过度平滑要么断裂
 
 **核心矛盾**：2D SDF 和期望的 3D SDF 在一般情况下不一致——直接拟合 2D SDF 会迫使 3D 表面法线与截面平行，产生"阶梯效应"。
 
@@ -132,8 +146,8 @@ $$\mathcal{L}_{eik} = \mathbb{E}_{\mathbf{x}}[(|\nabla f(\mathbf{x})| - 1)^2]$$
 ## 相关论文
 
 - [Marker-Based 3D Reconstruction of Aggregates with a Comparative Analysis of 2D and 3D Morphologies](../../CVPR2026/medical_imaging/marker-based_3d_reconstruction_of_aggregates_with_a_comparative_analysis_of_2d_a.md)
-- [VISTA3D: A Unified Segmentation Foundation Model For 3D Medical Imaging](vista3d_a_unified_segmentation_foundation_model_for_3d_medical_imaging.md)
 - [vesselFM: A Foundation Model for Universal 3D Blood Vessel Segmentation](vesselfm_a_foundation_model_for_universal_3d_blood_vessel_segmentation.md)
+- [VISTA3D: A Unified Segmentation Foundation Model For 3D Medical Imaging](vista3d_a_unified_segmentation_foundation_model_for_3d_medical_imaging.md)
 - [Revisiting MAE Pre-Training for 3D Medical Image Segmentation](revisiting_mae_pre-training_for_3d_medical_image_segmentation.md)
 - [SeaLion: Semantic Part-Aware Latent Point Diffusion Models for 3D Generation](sealion_semantic_part-aware_latent_point_diffusion_models_for_3d_generation.md)
 

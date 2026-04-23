@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 医学图像方向 98篇论文解读
+  AAAI2026 医学图像方向 103篇论文解读
 description: >-
-  98篇AAAI2026 医学图像论文解读，主题涵盖：提出一种两阶段疾病感知框架，通过学习14个与病理类、针对老年认知障碍患者的群体认知刺激治疗（CST）场、针对ICU机械通气（MV）设置优化问题等，每篇含核心思想与方法详解。
+  103篇AAAI2026 医学图像论文解读，主题涵盖：提出一种两阶段疾病感知框架，通过学习14个与病理类、针对老年认知障碍患者的群体认知刺激治疗（CST）场、针对ICU机械通气（MV）设置优化问题等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**🤖 AAAI2026** · **98** 篇论文解读
+**🤖 AAAI2026** · **103** 篇论文解读
 
 **[A Disease-Aware Dual-Stage Framework for Chest X-ray Report Generation](a_disease-aware_dual-stage_framework_for_chest_x-ray_report_.md)**
 
@@ -66,6 +66,10 @@ description: >-
 
 :   提出带可行性约束的最优臂识别新框架，允许决策者分别测试臂的性能或可行性约束，设计了渐近最优算法，可自适应地选择通过性能或可行性中更容易的方式淘汰次优臂。
 
+**[ConSurv: Multimodal Continual Learning for Survival Analysis](consurv_multimodal_continual_learning_for_survival_analysis.md)**
+
+:   本文提出 ConSurv，首个面向生存分析的多模态持续学习方法，通过多阶段混合专家（MS-MoE）和特征约束回放（FCR）两个核心组件，在整合全切片病理图像和基因组数据的场景下有效缓解灾难性遗忘，并在新构建的 MSAIL 基准上全面超越现有方法。
+
 **[Cross-Sample Augmented Test-Time Adaptation for Personalized Intraoperative Hypotension Prediction](cross-sample_augmented_test-time_adaptation_for_personalized_intraoperative_hypo.md)**
 
 :   提出 CSA-TTA 框架，通过跨样本库构建、粗到细检索和多任务优化，在测试时从其他患者数据中检索低血压事件信号来增强个性化术中低血压预测。
@@ -85,6 +89,10 @@ description: >-
 **[DiA-gnostic VLVAE: Disentangled Alignment-Constrained Vision Language Variational AutoEncoder for Robust Radiology Reporting with Missing Modalities](dia-gnostic_vlvae_disentangled_alignment-constrained_vision_language_variational.md)**
 
 :   提出 DiA-gnostic VLVAE，通过视觉-语言混合专家VAE学习三因子潜空间（视觉特有/语言特有/共享），配合正交性+对比对齐的双约束实现解纠缠，使模型在临床上下文缺失时仍能生成可靠的放射学报告，在 IU X-Ray 和 MIMIC-CXR 上达到竞争性 BLEU@4。
+
+**[Distributional Priors Guided Diffusion for Generating 3D Molecules in Low Data Regimes](distributional_priors_guided_diffusion_for_generating_3d_molecules_in_low_data_r.md)**
+
+:   本文提出 GODD（Geometric OOD Diffusion Model），通过等变非对称自编码器捕捉分布结构先验来引导扩散模型的生成过程，使得在数据丰富的分子分布上训练的模型能够泛化到数据稀缺的分布，在 OOD 结构偏移基准上成功率提升 12.6%。
 
 **[Divide, Conquer and Unite: Hierarchical Style-Recalibrated Prototype Alignment for Federated Medical Segmentation](divide_conquer_and_unite_hierarchical_style-recalibrated_prototype_alignment_for.md)**
 
@@ -166,6 +174,10 @@ description: >-
 
 :   提出 GP-MoLFormer-Sim，一种无需训练的测试时分子生成引导方法：利用化学语言模型（GP-MoLFormer）自身的上下文嵌入计算与目标分子的相似度，在自回归解码时动态调整logits来引导生成，结合遗传算法（GP-MoLFormer-Sim+GA）后在PMO基准的23个任务上平均排名第2，且在黑盒oracle设定下优于依赖GPT-4的MOLLEO。
 
+**[Graph-Theoretic Consistency for Robust and Topology-Aware Semi-Supervised Histopathology Segmentation](graph-theoretic_consistency_for_robust_and_topology-aware_semi-supervised_histop.md)**
+
+:   本文提出 TGC（Topology Graph Consistency）框架，通过对齐预测图与参考图之间的拉普拉斯谱、连通分量数和邻接统计量来引入图论拓扑约束，在仅 5-10% 标注下实现接近全监督的组织病理学分割性能。
+
 **[GROVER: Graph-guided Representation of Omics and Vision with Expert Regulation for Cancer Survival Prediction](grover_graph-guided_representation_of_omics_and_vision_with_expert_regulation_fo.md)**
 
 :   提出空间多组学框架GROVER，通过KAN-GCN编码器捕获非线性空间-特征依赖、spot-feature-pair对比学习对齐异构模态、以及自适应混合专家（MoE）动态路由过滤低质量信号，在四个真实空间组学数据集上实现了优于现有方法的聚类性能。
@@ -210,6 +222,10 @@ description: >-
 
 :   提出 MAISI-v2，首个将 Rectified Flow 引入 3D 医学图像合成的框架，通过替换 DDPM 实现 33 倍加速，并设计区域特异性对比损失增强对肿瘤等小区域条件的忠实度，在下游肿瘤分割任务中验证了合成数据的增强价值。
 
+**[MAMA-Memeia! Multi-Aspect Multi-Agent Collaboration for Depressive Symptoms Identification in Memes](mama-memeia_multi-aspect_multi-agent_collaboration_for_depressive_symptoms_ident.md)**
+
+:   本文提出 MAMAMemeia，一个基于认知分析疗法（CAT）能力框架的多智能体多方面协作讨论框架，用于从社交媒体表情包中识别抑郁症状，同时引入 RESTOREx 资源（含 LLM 生成和人工标注的解释），在 macro-F1 上超越 30+ 种方法 7.55%。
+
 **[MAPI-GNN: Multi-Activation Plane Interaction Graph Neural Network for Multimodal Medical Diagnosis](mapi-gnn_multi-activation_plane_interaction_graph_neural_network_for_multimodal_.md)**
 
 :   提出 MAPI-GNN，通过多维特征判别器在语义子空间中动态构建多个激活图，再经层次化融合网络聚合样本内和样本间关系，在前列腺癌和冠心病两个多模态诊断任务上显著超越现有 SOTA（PI-CAI 上 ACC 0.9432，AUC 0.9838）。
@@ -224,7 +240,7 @@ description: >-
 
 **[MergeDNA: Context-aware Genome Modeling with Dynamic Tokenization through Token Merging](mergedna_context-aware_genome_modeling_with_dynamic_tokenization_through_token_m.md)**
 
-:   提出 MergeDNA，通过可微分的 Token Merging 机制实现上下文感知的动态 DNA tokenization，结合层次化 autoencoder Transformer 和自适应 masked token modeling 预训练，在多个基因组 benchmark 上取得 SOTA。
+:   提出 MergeDNA，通过可微分 Token Merging 实现上下文感知的动态 DNA tokenization，结合层次化 autoencoder 和自适应 masked token modeling 预训练，380M 参数超越 1.3B GENERator。
 
 **[MindCross: Fast New Subject Adaptation with Limited Data for Cross-subject Video Reconstruction from Brain Signals](mindcross_fast_new_subject_adaptation_with_limited_data_for_cross-subject_video_.md)**
 
@@ -257,6 +273,10 @@ description: >-
 **[NutriScreener: Retrieval-Augmented Multi-Pose Graph Attention Network for Malnourishment Screening](nutriscreener_retrieval-augmented_multi-pose_graph_attention_network_for_malnour.md)**
 
 :   提出 NutriScreener，一个结合CLIP视觉编码器、多姿态图注意力网络（GAT）和基于FAISS的检索增强分类/回归模块的框架，通过跨姿态注意力和类别增强检索来实现鲁棒的儿童营养不良检测与人体测量学预测，在AnthroVision等跨大洲数据集上达到0.79 recall和0.82 AUC，临床医生评价准确性4.3/5、效率4.6/5。
+
+**[CountVid: Open-World Object Counting in Videos](open-world_object_counting_in_videos.md)**
+
+:   提出 CountVid 模型和 VideoCount 数据集，首次系统研究开放世界视频物体计数任务——给定文本或图像描述指定目标物体，枚举视频中所有独特实例，通过组合图像计数模型和可提示视频分割追踪模型解决遮挡、重复出现等挑战，在包含 TAO、MOT20、企鹅群和 X 射线金属结晶等多样化场景上显著优于多种强基线。
 
 **[Pairing-free Group-level Knowledge Distillation for Robust Gastrointestinal Lesion Classification in White-Light Endoscopy](pairing-free_group-level_knowledge_distillation_for_robust_gastrointestinal_lesi.md)**
 

@@ -27,6 +27,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：后门攻击在监督学习中已被广泛研究，攻击者通过在训练数据中注入带触发器的样本使模型对触发器敏感。SSL 因为没有标签，后门攻击的机制完全不同——需要让触发器图像在特征空间中聚类到特定位置。
 
 **现有痛点**：现有不可见后门攻击（如 WaNet、ISSBA）在 SSL 中失效，因为 SSL 的数据增强（ColorJitter/RandomCrop/GaussianBlur 等）会破坏触发器——增强后的图像不再包含完整触发器，后门无法建立。
@@ -52,6 +54,9 @@ tags:
 $\mathcal{L}_{total} = \mathcal{L}_{stealthy} + \alpha \mathcal{L}_{disentangle} + \beta \mathcal{L}_{alignment}$。两阶段：先预训练后门注入器，再微调编码器。
 
 ## 实验关键数据
+
+
+### 主实验
 
 | SSL 方法 | ASR | SSIM | PSNR |
 |---------|-----|------|------|

@@ -123,8 +123,8 @@ K-MSE 由三个组件构成：
 
 - [Dynamic Parallel Tree Search for Efficient LLM Reasoning](dynamic_parallel_tree_search_for_efficient_llm_reasoning.md)
 - [Structural Reasoning Improves Molecular Understanding of LLM](structural_reasoning_improves_molecular_understanding_of_llm.md)
+- [BFS-Prover: Scalable Best-First Tree Search for LLM-Based Automatic Theorem Proving](bfs-prover_scalable_best-first_tree_search_for_llm-based_automatic_theorem_provi.md)
 - [CER: Confidence Enhanced Reasoning in LLMs](cer_confidence_enhanced_reasoning.md)
-- [Wider or Deeper: Scaling LLM Inference-Time Compute with Adaptive Branching Tree Search](../../NeurIPS2025/llm_nlp/wider_or_deeper_scaling_llm_inference-time_compute_with_adaptive_branching_tree_.md)
 - [Towards Enhanced Immersion and Agency for LLM-based Interactive Drama](towards_enhanced_immersion_and_agency_for_llm-based_interactive_drama.md)
 
 <!-- RELATED:END -->

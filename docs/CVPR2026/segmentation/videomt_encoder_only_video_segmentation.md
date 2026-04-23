@@ -26,10 +26,14 @@ tags:
 提出encoder-only视频分割模型VidEoMT，通过查询传播和查询融合将分割与时序关联统一在单个ViT编码器中，消除所有专用追踪模块，在YouTube-VIS 2019上达到160 FPS（比CAVIS快10×+），同时AP仅差0.3。
 
 ## 背景与动机
-现有在线视频分割方法（CAVIS、DVIS++、DVIS-DAQ）遵循"分割器+追踪器"的解耦范式：分割器由ViT+ViT-Adapter+Mask2Former像素解码器+Transformer解码器组成，追踪器由上下文感知特征+重识别层+Transformer追踪块组成。虽然精度高，但架构极其复杂且慢（CAVIS仅15 FPS）。EoMT论文证明了图像分割可以encoder-only完成（无需解码器/像素解码器）。那么视频分割是否也可以？关键额外挑战是时序追踪。
 
-## 核心问题
-能否用一个简单的encoder-only ViT同时完成视频分割和时序关联，实现接近SOTA精度但快一个数量级的速度？
+### 现有痛点
+
+**现有痛点**：**领域现状**：现有在线视频分割方法（CAVIS、DVIS++、DVIS-DAQ）遵循"分割器+追踪器"的解耦范式：分割器由ViT+ViT-Adapter+Mask2Former像素解码器+Transformer解码器组成，追踪器由上下文感知特征+重识别层+Transformer追踪块组成。虽然精度高，但架构极其复杂且慢（CAVIS仅15 FPS）。EoMT论文证明了图像分割可以encoder-only完成（无需解码器/像素解码器）。那么视频分割是否也可以？关键额外挑战是时序追踪。
+
+### 核心矛盾
+
+**核心矛盾**：**本文目标**：能否用一个简单的encoder-only ViT同时完成视频分割和时序关联，实现接近SOTA精度但快一个数量级的速度？
 
 ## 方法详解
 
@@ -66,7 +70,7 @@ VidEoMT基于EoMT：将N个可学习查询注入到DINOv2 ViT的最后L2层与pa
 - **VidEoMT vs EoMT+tracker**：VidEoMT（68.6 AP, 160 FPS）优于EoMT+CAVIS（68.1 AP, 42 FPS）——统一比解耦更好更快
 - **查询融合 vs TrackFormer**：融合（68.6 AP, 160 FPS）优于TrackFormer（67.7 AP, 117 FPS）——更简单更快更准
 
-## 亮点
+## 亮点与洞察
 - 10×+加速是game-changing级别的——160 FPS使实时视频分割成为现实
 - "VFM预训练的ViT已经隐式学会了追踪"是一个深刻的洞察——DINO训练目标促进跨视图一致性，这正是追踪所需
 - 渐进式模块移除实验非常有说服力——每一步都定量验证了"哪些组件是冗余的"
@@ -80,12 +84,12 @@ VidEoMT基于EoMT：将N个可学习查询注入到DINOv2 ViT的最后L2层与pa
 - 训练需要微调整个ViT编码器（CAVIS可以冻结），内存成本更高
 - 仅支持online模式，不适用于需要全局时序推理的offline设置
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs CAVIS (ICCV 2025)**：CAVIS是当前SOTA但仅15 FPS，VidEoMT 160 FPS（10.7×加速），AP仅差0.3——用极少精度换巨大速度
 - **vs MinVIS**：MinVIS同样追求简单高效但用了Swin-L+Mask2Former解码器，VidEoMT彻底encoder-only，更快（160 vs 29 FPS）且更准（68.6 vs 61.6 AP）
 - **vs EoMT (CVPR 2025 图像分割)**：VidEoMT是EoMT的视频版本，通过查询传播+融合实现了7.3 AP的提升（68.6 vs 61.3）
 
-## 启发与关联
+## 相关工作与启发
 - "强预训练可以消除下游任务特定组件"的论点在越来越多任务上被验证——从图像分割（EoMT）到视频分割（VidEoMT），下一步可能是3D感知、视频生成等
 - 查询传播+融合的时序建模方式可以用于其他需要帧间关联的任务——如视频目标检测、动作检测
 - 对自动驾驶等实时应用意义重大：160 FPS在各种应用场景下都足够
@@ -100,10 +104,10 @@ VidEoMT基于EoMT：将N个可学习查询注入到DINOv2 ViT的最后L2层与pa
 
 ## 相关论文
 
+- [Your ViT is Secretly an Image Segmentation Model](../../CVPR2025/segmentation/your_vit_is_secretly_an_image_segmentation_model.md)
 - [GKD: Generalizable Knowledge Distillation from Vision Foundation Models for Semantic Segmentation](gkd_generalizable_knowledge_distillation_vfm.md)
 - [RobotSeg: A Model and Dataset for Segmenting Robots in Image and Video](robotseg_a_model_and_dataset_for_segmenting_robots_in_image_and_video.md)
 - [SPAR: Single-Pass Any-Resolution ViT for Open-Vocabulary Segmentation](spar_single-pass_any-resolution_vit_for_open-vocabulary_segmentation.md)
 - [RS-SSM: Refining Forgotten Specifics in State Space Model for Video Semantic Segmentation](rs-ssm_refining_forgotten_specifics_in_state_space_model_for_video_semantic_segm.md)
-- [A Mixed Diet Makes DINO An Omnivorous Vision Encoder](mixed_diet_dino_omnivorous_encoder.md)
 
 <!-- RELATED:END -->

@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 目标检测方向 38篇论文解读
+  NeurIPS2025 目标检测方向 40篇论文解读
 description: >-
-  38篇NeurIPS2025 目标检测论文解读，主题涵盖：提出 Capsule Prompt-Tuning、本文提出SpherePair损失函数、提出 Reasoning-based Bias等，每篇含核心思想与方法详解。
+  40篇NeurIPS2025 目标检测论文解读，主题涵盖：提出 Capsule Prompt-Tuning、本文提出SpherePair损失函数、提出 Reasoning-based Bias等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🧠 NeurIPS2025** · **38** 篇论文解读
+**🧠 NeurIPS2025** · **40** 篇论文解读
 
 **[All You Need is One: Capsule Prompt Tuning with a Single Vector](all_you_need_is_one_capsule_prompt_tuning_with_a_single_vector.md)**
 
@@ -78,9 +78,17 @@ description: >-
 
 :   提出 InstanceAssemble，在 DiT-based T2I 模型（SD3 和 Flux）的 Transformer 块中注入"实例组装注意力"机制，通过将每个 bounding box 区域的 image token 独立与对应的 layout hidden state 做 cross-attention 来实现精确的实例级空间控制，同时以 LoRA 轻量适配方式保持与现有风格 LoRA 的兼容性，并提出包含 5K 图像/90K 实例的 DenseLayout 基准和多维度的 Layout Grounding Score（LGS）评估指标。
 
+**[Delving into Cascaded Instability: A Lipschitz Continuity View on Image Restoration and Object Detection Synergy](lr_yolo_lipschitz_continuity_image_restoration_object_detection.md)**
+
+:   从 Lipschitz 连续性视角分析图像复原与目标检测级联框架的不稳定性根源，发现两个网络在平滑性上存在量级差异，提出 LR-YOLO 通过将复原任务集成到检测backbone的特征学习中来正则化检测器的Lipschitz常数，在去雾和低光增强基准上持续提升检测稳定性。
+
 **[M-GRPO: Stabilizing Self-Supervised Reinforcement Learning for Large Language Models with Momentum-Anchored Policy Optimization](m-grpo_stabilizing_self-supervised_reinforcement_learning_for_large_language_mod.md)**
 
 :   针对自监督强化学习中 LLM 策略崩溃和熵崩溃问题，提出动量锚定的 GRPO（M-GRPO）框架和基于 IQR 的低熵轨迹过滤方法，实现稳定训练和 SOTA 性能。
+
+**[M-GRPO: Stabilizing Self-Supervised Reinforcement Learning for Large Language Models with Momentum-Anchored Policy Optimization](m-grpo_stabilizing_self-supervised_reinforcement_learning_for_multimodal_underst.md)**
+
+:   针对自监督强化学习（SS-RLVR）在长期训练中普遍出现的"策略崩溃"问题，提出 M-GRPO：通过动量模型提供稳定的伪标签目标 + 基于四分位距（IQR）的低熵轨迹过滤防止熵崩溃，在无标注 MATH 数据集上训练 Qwen3-4B-Base，最终 checkpoint 即超越 SRT 手动选取的最佳 checkpoint，AIME24 +2.92%、GPQA +5.05%。
 
 **[MSTAR: Box-Free Multi-Query Scene Text Retrieval with Attention Recycling](mstar_box-free_multi-query_scene_text_retrieval_with_attention_recycling.md)**
 

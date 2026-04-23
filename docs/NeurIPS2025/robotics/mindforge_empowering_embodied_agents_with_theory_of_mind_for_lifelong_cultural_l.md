@@ -126,8 +126,8 @@ MindForge 在 Voyager 基础上增加三大组件：(1) 基于 BigToM 因果模�
 
 - [MindPower: Enabling Theory-of-Mind Reasoning in VLM-based Embodied Agents](../../CVPR2026/robotics/mindpower_enabling_theoryofmind_reasoning_in_vlmba.md)
 - [LabUtopia: High-Fidelity Simulation and Hierarchical Benchmark for Scientific Embodied Agents](labutopia_high-fidelity_simulation_and_hierarchical_benchmark_for_scientific_emb.md)
-- [NeSyPr: Neurosymbolic Proceduralization For Efficient Embodied Reasoning](nesypr_neurosymbolic_proceduralization_for_efficient_embodied_reasoning.md)
 - [Adaptive Theory of Mind for LLM-based Multi-Agent Coordination](../../AAAI2026/robotics/adaptive_theory_of_mind_for_llm-based_multi-agent_coordination.md)
 - [Can Agents Fix Agent Issues?](can_agents_fix_agent_issues.md)
+- [A Computable Game-Theoretic Framework for Multi-Agent Theory of Mind](../../AAAI2026/robotics/a_computable_game-theoretic_framework_for_multi-agent_theory_of_mind.md)
 
 <!-- RELATED:END -->

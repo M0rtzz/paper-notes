@@ -126,9 +126,9 @@ HSEmotion 团队在 ABAW-10 竞赛中提出了一个轻量级 pipeline：用预�
 ## 相关论文
 
 - [Optimal Online Change Detection via Random Fourier Features](../../NeurIPS2025/llm_pretraining/optimal_online_change_detection_via_random_fourier_features.md)
-- [PRESCRIBE: Predicting Single-Cell Responses with Bayesian Estimation](../../NeurIPS2025/llm_pretraining/prescribe_predicting_single-cell_responses_with_bayesian_estimation.md)
 - [Gradient-Weight Alignment as a Train-Time Proxy for Generalization in Classification Tasks](../../NeurIPS2025/llm_pretraining/gradient-weight_alignment_as_a_train-time_proxy_for_generalization_in_classifica.md)
+- [PRESCRIBE: Predicting Single-Cell Responses with Bayesian Estimation](../../NeurIPS2025/llm_pretraining/prescribe_predicting_single-cell_responses_with_bayesian_estimation.md)
 - [DipLLM: Fine-Tuning LLM for Strategic Decision-Making in Diplomacy](../../ICML2025/llm_pretraining/dipllm_fine-tuning_llm_for_strategic_decision-making_in_diplomacy.md)
-- [Density Ratio Estimation-based Bayesian Optimization with Semi-Supervised Learning](../../ICML2025/llm_pretraining/density_ratio_estimation-based_bayesian_optimization_with_semi-supervised_learni.md)
+- [PreLAR: World Model Pre-training with Learnable Action Representation](../../ECCV2024/llm_pretraining/prelar_world_model_pre-training_with_learnable_action_representation.md)
 
 <!-- RELATED:END -->

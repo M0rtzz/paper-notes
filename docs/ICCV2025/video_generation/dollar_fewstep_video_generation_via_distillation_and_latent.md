@@ -232,10 +232,10 @@ VSD loss + consistency loss混合，后接latent reward fine-tuning。
 
 ## 相关论文
 
-- [Identity-Preserving Image-to-Video Generation via Reward-Guided Optimization](../../CVPR2026/video_generation/identity-preserving_image-to-video_generation_via_reward-guided_optimization.md)
-- [FlashMotion: Few-Step Controllable Video Generation with Trajectory Guidance](../../CVPR2026/video_generation/flashmotion_fewstep_controllable_video_generation.md)
-- [VPO: Aligning Text-to-Video Generation Models with Prompt Optimization](vpo_aligning_text-to-video_generation_models_with_prompt_optimization.md)
 - [Adversarial Distribution Matching for Diffusion Distillation Towards Efficient Image and Video Synthesis](adversarial_distribution_matching_for_diffusion_distillation_towards_efficient_i.md)
-- [V.I.P.: Iterative Online Preference Distillation for Efficient Video Diffusion Models](vip_iterative_online_preference_distillation_for_efficient_video_diffusion_model.md)
+- [FVGen: Accelerating Novel-View Synthesis with Adversarial Video Diffusion Distillation](fvgen_accelerating_novel-view_synthesis_with_adversarial_video_diffusion_distill.md)
+- [Long Context Tuning for Video Generation](long_context_tuning_for_video_generation.md)
+- [VPO: Aligning Text-to-Video Generation Models with Prompt Optimization](vpo_aligning_text-to-video_generation_models_with_prompt_optimization.md)
+- [FlashMotion: Few-Step Controllable Video Generation with Trajectory Guidance](../../CVPR2025/video_generation/flashmotion_few-step_controllable_video_generation_with_trajectory_guidance.md)
 
 <!-- RELATED:END -->

@@ -132,6 +132,6 @@ tags:
 - [Learning Anomalies with Normality Prior for Unsupervised Video Anomaly Detection](learning_anomalies_with_normality_prior_for_unsupervised_video_anomaly_detection.md)
 - [STSP: Spatial-Temporal Subspace Projection for Video Class-Incremental Learning](stsp_spatial-temporal_subspace_projection_for_video_class-incremental_learning.md)
 - [Provably Data-Driven Projection Method for Quadratic Programming](../../AAAI2026/others/provably_data-driven_projection_method_for_quadratic_programming.md)
-- [Capacity Matters: A Proof-of-Concept for Transformer Memorization on Real-World Data](../../ACL2025/others/capacity_matters_a_proof-of-concept_for_transformer_memorization_on_real-world_d.md)
+- [Integral Fast Fourier Color Constancy](../../CVPR2025/others/integral_fast_fourier_color_constancy.md)
 
 <!-- RELATED:END -->

@@ -26,11 +26,19 @@ tags:
 
 ## 研究背景与动机
 
-标记时间点过程(MTPP)建模事件流中每个事件的类型(mark)和发生时间，在地震预测、社交媒体转发等场景广泛应用。现有MTPP模型忽略了一个关键问题：**标记分布高度不平衡**。例如7级地震(稀有但重要)比3级地震(频繁)少得多。
+### 领域现状
+
+**领域现状**：标记时间点过程(MTPP)建模事件流中每个事件的类型(mark)和发生时间，在地震预测、社交媒体转发等场景广泛应用。现有MTPP模型忽略了一个关键问题：**标记分布高度不平衡**。例如7级地震(稀有但重要)比3级地震(频繁)少得多。
 
 不平衡导致的问题：
-- 频繁标记的条件概率 $p^*(m,t)$ 在大多数时间点上远高于稀有标记
-- 模型几乎总是预测频繁标记，稀有标记的macro-F1极低（如Retweet数据集上稀有标记仅0.027 vs 频繁标记0.618）
+
+### 现有痛点
+
+**现有痛点**：频繁标记的条件概率 $p^*(m,t)$ 在大多数时间点上远高于稀有标记
+
+### 核心矛盾
+
+**核心矛盾**：模型几乎总是预测频繁标记，稀有标记的macro-F1极低（如Retweet数据集上稀有标记仅0.027 vs 频繁标记0.618）
 
 现有方法通常"先预测时间 $t$，再预测在 $t$ 时的标记 $p^*(m|t)$"，但这使阈值方法难以应用（因为标记概率随时间变化，无法为所有时间点学习统一阈值）。
 
@@ -122,6 +130,6 @@ tags:
 - [A Spatio-Temporal Point Process for Fine-Grained Modeling of Reading Behavior](../../ACL2025/others/a_spatio-temporal_point_process_for_fine-grained_modeling_of_reading_behavior.md)
 - [Addressing Divergent Representations from Causal Interventions on Neural Networks](../../ICLR2026/others/addressing_divergent_representations_causal.md)
 - [Position: There Is No Free Bayesian Uncertainty Quantification](position_there_is_no_free_bayesian_uncertainty_quantification.md)
-- [Alias-Free ViT: Fractional Shift Invariance via Linear Attention](alias-free_vit_fractional_shift_invariance_via_linear_attention.md)
+- [Weight Weaving: Parameter Pooling for Data-Free Model Merging](weight_weaving_parameter_pooling_for_data-free_model_merging.md)
 
 <!-- RELATED:END -->

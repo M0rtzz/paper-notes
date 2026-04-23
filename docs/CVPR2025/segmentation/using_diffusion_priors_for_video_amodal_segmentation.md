@@ -132,7 +132,7 @@ tags:
 - [Leveraging 3D Geometric Priors in 2D Rotation Symmetry Detection](leveraging_3d_geometric_priors_in_2d_rotation_symmetry_detection.md)
 - [LiVOS: Light Video Object Segmentation with Gated Linear Matching](livos_light_video_object_segmentation_with_gated_linear_matching.md)
 - [Generative Video Propagation](generative_video_propagation.md)
-- [SAMWise: Infusing Wisdom in SAM2 for Text-Driven Video Segmentation](samwise_infusing_wisdom_in_sam2_for_text-driven_video_segmentation.md)
 - [Exploiting Temporal State Space Sharing for Video Semantic Segmentation](exploiting_temporal_state_space_sharing_for_video_semantic_segmentation.md)
+- [The Devil is in Temporal Token: High Quality Video Reasoning Segmentation](the_devil_is_in_temporal_token_high_quality_video_reasoning_segmentation.md)
 
 <!-- RELATED:END -->

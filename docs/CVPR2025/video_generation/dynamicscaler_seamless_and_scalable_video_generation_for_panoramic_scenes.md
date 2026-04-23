@@ -130,7 +130,7 @@ $$Z_{HR^0} = \Phi_\theta^{OSD}(noise(inter(\Phi_\theta^{OSD}(Z_{LR^T}))))$$
 - [SAW: Toward a Surgical Action World Model via Controllable and Scalable Video Generation](saw_toward_a_surgical_action_world_model_via_controllable_and_scalable_video_gen.md)
 - [VideoScene: Distilling Video Diffusion Model to Generate 3D Scenes in One Step](videoscene_distilling_video_diffusion_model_to_generate_3d_scenes_in_one_step.md)
 - [STiV: Scalable Text and Image Conditioned Video Generation](../../ICCV2025/video_generation/stiv_scalable_text_and_image_conditioned_video_generation.md)
-- [Generating, Fast and Slow: Scalable Parallel Video Generation with Video Interface Networks](../../ICCV2025/video_generation/generating_fast_and_slow_scalable_parallel_video_generation_with_video_interface.md)
-- [SIGMark: Scalable In-Generation Watermark with Blind Extraction for Video Diffusion](../../ICLR2026/video_generation/sigmark_scalable_in-generation_watermark_with_blind_extraction_for_video_diffusi.md)
+- [SketchVideo: Sketch-Based Video Generation and Editing](sketchvideo_sketch-based_video_generation_and_editing.md)
+- [Video-Bench: Human-Aligned Video Generation Benchmark](video-bench_human-aligned_video_generation_benchmark.md)
 
 <!-- RELATED:END -->

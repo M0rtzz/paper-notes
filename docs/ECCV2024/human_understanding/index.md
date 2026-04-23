@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 人体理解方向 57篇论文解读
+  ECCV2024 人体理解方向 67篇论文解读
 description: >-
-  57篇ECCV2024 人体理解论文解读，主题涵盖：通过系统研究裁剪输入、相机内参感知位置编码(KPE、提出将视线估计重新表述为密集3D眼球网格回归、本文提出3D空间注意力模块（3DSA）等，每篇含核心思想与方法详解。
+  67篇ECCV2024 人体理解论文解读，主题涵盖：通过系统研究裁剪输入、相机内参感知位置编码(KPE、提出将视线估计重新表述为密集3D眼球网格回归、本文提出3D空间注意力模块（3DSA）等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**🎞️ ECCV2024** · **57** 篇论文解读
+**🎞️ ECCV2024** · **67** 篇论文解读
 
 **[3D Hand Pose Estimation in Everyday Egocentric Images](3d_hand_pose_estimation_in_everyday_egocentric_images.md)**
 
@@ -22,6 +22,10 @@ description: >-
 
 :   本文提出3D空间注意力模块（3DSA），通过3D空间细分算法将特征体积划分为多个区域并为其分配基于视角的注意力权重，解决多视图3D人体姿态估计中不同视角对不同空间区域贡献不均的问题，在 CMU Panoptic Studio 数据集上达到 SOTA。
 
+**[A Probability-guided Sampler for Neural Implicit Surface Rendering](a_probabilityguided_sampler_for_neural_implicit_surface_rend.md)**
+
+:   提出一种概率引导的光线采样器（Probability-guided Sampler），在3D图像投影空间中建模概率密度函数来指导光线采样朝向感兴趣区域，同时设计了包含近表面和空白空间两个分量的新型表面重建损失，可作为插件集成到现有神经隐式表面渲染器中，显著提升重建精度和渲染质量。
+
 **[A Simple Baseline for Spoken Language to Sign Language Translation with 3D Avatars](a_simple_baseline_for_spoken_language_to_sign_language_trans.md)**
 
 :   提出首个基于3D Avatar输出的Spoken2Sign翻译基线系统，通过三步流程（字典构建→SMPLSign-X 3D手语估计→检索-连接-渲染翻译）将口语文本翻译为3D手语动画，在Phoenix-2014T上back-translation BLEU-4达25.46，同时其3D手语副产品（关键点增强和多视角理解）显著提升了手语理解任务性能。
@@ -29,6 +33,10 @@ description: >-
 **[AdaDistill: Adaptive Knowledge Distillation for Deep Face Recognition](adadistill_adaptive_knowledge_distillation_for_deep_face_rec.md)**
 
 :   提出AdaDistill，将知识蒸馏概念嵌入margin penalty softmax loss中，通过基于EMA的自适应类中心（早期用sample-sample简单知识、后期用sample-center复杂知识）和困难样本感知机制，无需额外超参数即可提升轻量级人脸识别模型的判别能力，在IJB-B/C和ICCV21-MFR等挑战性基准上超越SOTA蒸馏方法。
+
+**[ADen: Adaptive Density Representations for Sparse-view Camera Pose Estimation](aden_adaptive_density_representations_for_sparseview_camera.md)**
+
+:   提出ADen框架，通过生成器输出多个位姿假设+判别器评分选择最佳的方式，统一了位姿回归和概率估计范式，仅需500个自适应样本即超越需要500K均匀采样的方法，同时实现实时推理。
 
 **[Alignist: CAD-Informed Orientation Distribution Estimation by Fusing Shape and Correspondences](alignist_cad-informed_orientation_distribution_estimation_by_fusing_shape_and_co.md)**
 
@@ -42,6 +50,10 @@ description: >-
 
 :   本文定义了"Avatar指纹识别"这一新任务——验证合成说话头视频中驱动表情的真实身份，贡献了迄今最大规模的面部重建数据集NVFAIR（161个身份），并提出基于归一化面部关键点距离和时序CNN的基线方法，通过学习与外观无关的面部运动签名实现身份验证（平均AUC 0.85），且能泛化到未见过的生成器（AUC 0.83）。
 
+**[Bi-TTA: Bidirectional Test-Time Adapter for Remote Physiological Measurement](bi-tta_bidirectional_test-time_adapter_for_remote_physiological_measurement.md)**
+
+:   提出 Bi-TTA 框架，首次将 Test-Time Adaptation 引入远程光电容积脉搏波 (rPPG) 任务，通过时空一致性自监督先验和前瞻-回溯双向适应策略，在推理时仅用无标注单实例数据即可完成模型域适应。
+
 **[Bridging the Gap Between Human Motion and Action Semantics via Kinematic Phrases](bridging_the_gap_between_human_motion_and_action_semantics_via_kinematic_phrases.md)**
 
 :   本文提出运动学短语（Kinematic Phrases, KP）作为人体运动与动作语义之间的中间表示，KP基于客观运动学事实，具有适当抽象性、可解释性和通用性，并据此构建了运动理解系统和白盒运动生成评估基准KPG。
@@ -50,9 +62,9 @@ description: >-
 
 :   提出结合 StyleGAN 生成式先验（用于人脸矫正）和几何对称先验（用于背景直线矫正）的双模块框架，大幅提升广角人像畸变校正的视觉质量和定量指标。
 
-**[Controlling the World by Sleight of Hand](controlling_the_world_by_sleight_of_hand.md)**
+**[CoMo: Controllable Motion Generation Through Language Guided Pose Code Editing](como_controllable_motion_generation_through_language_guided_pose_code_editing.md)**
 
-:   提出 CosHand，通过手部二值掩码作为动作条件，在预训练 Stable Diffusion 上微调，预测手-物交互后的未来图像，并可零样本泛化到机器人末端执行器。
+:   提出 CoMo，通过将动作序列分解为语义明确的 pose code（如"左膝微弯"），实现基于文本的可控动作生成与基于 LLM 的零样本动作编辑。
 
 **[Cut Out the Middleman: Revisiting Pose-Based Gait Recognition](cut_out_the_middleman_revisiting_pose-based_gait_recognition.md)**
 
@@ -82,6 +94,10 @@ description: >-
 
 :   提出可学习漂移补偿(LDC)，通过训练一个前向投影器将旧特征空间映射到新特征空间，在无需存储旧样本的情况下有效补偿类原型的语义漂移，首次实现了无样本半监督持续学习。
 
+**[Facial Affective Behavior Analysis with Instruction Tuning](facial_affective_behavior_analysis_with_instruction_tuning.md)**
+
+:   提出首个面向面部情感行为分析（FABA）的指令微调数据集 FABA-Instruct、评测基准 FABA-Bench 以及高效 MLLM 架构 EmoLA，通过面部先验专家模块和 LoRA 适配实现了对情绪与 AU 的细粒度描述与识别。
+
 **[FoundPose: Unseen Object Pose Estimation with Foundation Features](foundpose_unseen_object_pose_estimation_with_foundation_features.md)**
 
 :   FoundPose 利用冻结的 DINOv2 基础模型提取 patch 描述子，通过 bag-of-words 模板检索和 kNN 匹配建立 2D-3D 对应关系，无需任何任务特定训练即可实现未见物体的 6D 位姿估计，在 BOP 基准上显著超越现有 RGB 方法。
@@ -94,9 +110,9 @@ description: >-
 
 :   提出 CAFE 方法，通过在固定 CLIP 人脸特征上学习 Sigmoid Mask 选取表情相关特征，配合通道分离和通道多样性损失，实现仅使用单个训练集就能在多个未见数据集上大幅超越 SOTA 表情识别方法的零样本泛化能力。
 
-**[GiT: Towards Generalist Vision Transformer through Universal Language Interface](git_towards_generalist_vision_transformer_through_universal_language_interface.md)**
+**[GraspXL: Generating Grasping Motions for Diverse Objects at Scale](graspxl_generating_grasping_motions_for_diverse_objects_at_scale.md)**
 
-:   提出 GiT 框架，通过通用语言接口将图像描述、目标检测、实例分割、语义分割和视觉定位五大视觉任务统一为自回归序列生成，仅用纯 ViT（无任何任务特定模块）实现多任务联合训练，且任务间互相增强。
+:   提出 GraspXL，一个基于强化学习的抓取动作生成框架，仅用58个物体训练即可泛化到50万+未见物体，同时支持多运动目标（抓取区域、朝向、手腕旋转、手部位置）控制和多种灵巧手平台。
 
 **[GS-Pose: Category-Level Object Pose Estimation via Geometric and Semantic Correspondence](gs-pose_category-level_object_pose_estimation_via_geometric_and_semantic_corresp.md)**
 
@@ -130,6 +146,14 @@ description: >-
 
 :   提出 LaPose 框架，通过拉普拉斯混合模型 (LMM) 建模物体形状不确定性，结合 DINOv2 通用3D流和卷积专用特征流的双流架构预测 NOCS 坐标分布，并引入尺度无关的位姿表示解决 RGB-only 场景下的固有尺度歧义，在 NOCS 数据集上取得 SOTA。
 
+**[Large Motion Model for Unified Multi-Modal Motion Generation](large_motion_model_for_unified_multi-modal_motion_generation.md)**
+
+:   提出 Large Motion Model (LMM)，首个以动作为中心的多模态统一动作生成基础模型，通过构建包含 10 个任务、16 个数据集、320K 序列的 MotionVerse 基准，设计支持身体部位感知的 ArtAttention 机制，以及结合随机帧率/掩码的预训练策略，实现跨任务的高质量动作生成。
+
+**[Large Motion Model for Unified Multi-Modal Motion Generation](large_motion_model_for_unified_multimodal_motion_generation.md)**
+
+:   LMM是首个多模态通用人体动作生成模型，统一了文本/动作/音乐/语音等10种任务、16个数据集（320K序列/1亿帧），通过身体部位感知的ArtAttention机制和可变帧率+随机遮掩的预训练策略，在多个标准benchmark上与专家模型竞争甚至超越。
+
 **[Learning Cross-Hand Policies of High-DOF Reaching and Grasping](learning_cross-hand_policies_of_high-dof_reaching_and_grasping.md)**
 
 :   提出一种两阶段层次化框架，通过语义关键点和交互等分面（IBS）作为手型无关的状态表示，结合Transformer策略网络和手型特定的适配模型，实现了灵巧抓取策略在不同高自由度机械手之间的零样本迁移。
@@ -158,6 +182,10 @@ description: >-
 
 :   针对人体关节遮挡导致2D骨架图边缺失、传统图拉普拉斯位置编码失效的问题，提出PerturbPE方法，利用瑞利-薛定谔微扰定理多次随机扰动并求平均来提取图拉普拉斯特征基的一致性部分作为位置编码，在完整骨架上优于MöbiusGCN，在边缺失场景下性能提升达12%。
 
+**[One-stage Prompt-based Continual Learning](one-stage_prompt-based_continual_learning.md)**
+
+:   提出 OS-Prompt 框架，通过直接使用 ViT 中间层 token embedding 作为 prompt query（而非额外的 query ViT 前向传播），将 Prompt-based Continual Learning 的计算成本降低约 50%，并通过 Query-Pool Regularization (QR) loss 补偿表征能力损失，在 CIFAR-100、ImageNet-R、DomainNet 上超越 CodaPrompt 约 1.4%。
+
 **[PetFace: A Large-Scale Dataset and Benchmark for Animal Identification](petface_a_large-scale_dataset_and_benchmark_for_animal_identification.md)**
 
 :   构建了包含13个动物科、319个品种、257,484个个体（超100万张图像）的大规模动物面部识别数据集PetFace，并建立了已见个体重识别和未见个体验证两套基准测试，为动物非侵入式自动识别提供基础设施。
@@ -174,9 +202,13 @@ description: >-
 
 :   本文首次将人体姿态信息引入显著目标排序(SOR)任务，通过提出姿态感知交互模块(PAI)和姿态驱动排序模块(PDR)来建模人体活动与注意力转移的关系，在复杂场景中显著提升了SOR性能并达到SOTA。
 
-**[ReLoo: Reconstructing Humans Dressed in Loose Garments from Monocular Video in the Wild](reloo_reconstructing_humans_dressed_in_loose_garments_from_monocular_video_in_th.md)**
+**[QUAR-VLA: Vision-Language-Action Model for Quadruped Robots](quar-vla_vision-language-action_model_for_quadruped_robots.md)**
 
-:   提出 ReLoo，通过分层神经人体表示和非层级虚拟骨骼变形模块，从单目野外视频中重建穿着宽松服装的高质量3D人体模型。
+:   首次提出四足机器人视觉-语言-动作（QUAR-VLA）范式，构建 259K episode 的多任务数据集 QUARD 和基于预训练多模态大模型的 QUART 模型，实现感知、导航、全身操作等多任务统一控制。
+
+**[QUAR-VLA: Vision-Language-Action Model for Quadruped Robots](quarvla_visionlanguageaction_model_for_quadruped_robots.md)**
+
+:   提出 QUAR-VLA 范式，首次将视觉、语言指令和动作生成统一到四足机器人中，构建了大规模多任务数据集 QUARD（259K episodes），训练 QUART 模型（基于 8B VLM）实现感知、导航、全身操控等多种任务，并展示了从仿真到真实的迁移能力。
 
 **[RePOSE: 3D Human Pose Estimation via Spatio-Temporal Depth Relational Consistency](repose_3d_human_pose_estimation_via_spatio-temporal_depth_relational_consistency.md)**
 
@@ -190,6 +222,10 @@ description: >-
 
 :   提出 LSFA（Local-to-global Self-supervised Feature Adaptation）框架，通过模态内特征紧凑性优化（IFC）和跨模态局部到全局一致性对齐（CLC）两个自监督策略对预训练特征进行任务导向适配，在 MVTec-3D AD 上取得 97.1% I-AUROC，超越 SOTA +3.4%。
 
+**[Self-supervised Feature Adaptation for 3D Industrial Anomaly Detection](selfsupervised_feature_adaptation_for_3d_industrial_ano.md)**
+
+:   提出 LSFA（Local-to-global Self-supervised Feature Adaptation），通过模态内特征紧致化（IFC）和跨模态局部到全局一致性对齐（CLC）微调适配器，学习面向异常检测的任务导向表示，在 MVTec-3D AD 上达到 97.1% I-AUROC（+3.4%）。
+
 **[SignAvatars: A Large-scale 3D Sign Language Holistic Motion Dataset and Benchmark](signavatars_a_large-scale_3d_sign_language_holistic_motion_dataset_and_benchmark.md)**
 
 :   提出 SignAvatars，首个大规模多提示（HamNoSys/语言/单词）3D 手语全身运动数据集（70K 视频、8.34M 帧、153 名手语者），设计了带生物力学约束的自动 3D 标注流水线，并提出基于 VQ-VAE 的 SignVAE 模型作为 3D 手语生产（SLP）的首个 benchmark baseline。
@@ -200,7 +236,7 @@ description: >-
 
 **[TELA: Text to Layer-wise 3D Clothed Human Generation](tela_text_to_layer-wise_3d_clothed_human_generation.md)**
 
-:   提出TELA方法，通过分层人体表示和渐进优化策略，从文本描述生成服装可分离的3D人体模型，支持虚拟试穿等服装编辑应用。
+:   TELA提出了分层的3D穿衣人体表示方法和渐进优化策略，从文本描述生成服装可解耦的3D人体模型，支持逐层穿衣生成和虚拟试衣等编辑应用。
 
 **[TF-FAS: Twofold-Element Fine-Grained Semantic Guidance for Generalizable Face Anti-Spoofing](tf-fas_twofold-element_fine-grained_semantic_guidance_for_generalizable_face_ant.md)**
 
@@ -233,6 +269,10 @@ description: >-
 **[WordRobe: Text-Guided Generation of Textured 3D Garments](wordrobe_text-guided_generation_of_textured_3d_garments.md)**
 
 :   提出 WordRobe，通过 coarse-to-fine 两阶段编码-解码框架学习 3D 服装 UDF 隐空间，利用弱监督 CLIP 映射网络实现文本驱动的 3D 服装生成与编辑，并利用 ControlNet 的 view-composited 属性在单次前向推理中生成视角一致的纹理贴图，速度比 Text2Tex 快 13 倍。
+
+**[WordRobe: Text-Guided Generation of Textured 3D Garments](wordrobe_textguided_generation_of_textured_3d_garments.md)**
+
+:   提出 WordRobe 框架，通过学习 3D 服装潜在空间并与 CLIP 嵌入对齐，实现文本驱动的带纹理 3D 服装网格生成，并利用 ControlNet 的单步前向推理实现高效视角一致的纹理合成。
 
 **[WorldPose: A World Cup Dataset for Global 3D Human Pose Estimation](worldpose_a_world_cup_dataset_for_global_3d_human_pose_estimation.md)**
 

@@ -25,14 +25,26 @@ tags:
 揭示开源LLM缺乏关于视觉世界的层次分类知识（甚至不知道基本的生物分类体系），这使得LLM成为Vision LLM层次视觉识别的瓶颈。
 
 ## 研究背景与动机
-分类法是视觉识别的核心，如波士顿梗犬→梗犬→狗→哺乳动物→动物形成语义路径。理想的通用视觉识别系统应能同时映射到分类法的叶节点和内部节点，并保持层次一致性。
+
+### 核心矛盾
+
+**核心矛盾**：分类法是视觉识别的核心，如波士顿梗犬→梗犬→狗→哺乳动物→动物形成语义路径。理想的通用视觉识别系统应能同时映射到分类法的叶节点和内部节点，并保持层次一致性。
 
 Vision LLM (VLLM)统一了多种视觉任务，具有构建这样的通用系统的潜力，但现有评测主要关注叶节点分类精度，忽略了层次一致性。
 
 核心发现与矛盾：
-- 开源和商业VLLM在层次识别上严重缺乏一致性（如Qwen2.5-VL-72B在iNaturalist分类法上67%+的路径出错）
-- 问题的根源不在视觉编码器和投影器（它们保留了高度判别性和良好结构的特征），而在LLM——开源LLM缺乏分类法知识
-- 微调VLLM可以帮助但无法根本解决，且微调对LLM文本层次一致性的提升大于对VLLM视觉层次一致性的提升，再次确认了LLM的瓶颈效应
+
+### 领域现状
+
+**领域现状**：开源和商业VLLM在层次识别上严重缺乏一致性（如Qwen2.5-VL-72B在iNaturalist分类法上67%+的路径出错）
+
+### 现有痛点
+
+**现有痛点**：问题的根源不在视觉编码器和投影器（它们保留了高度判别性和良好结构的特征），而在LLM——开源LLM缺乏分类法知识
+
+### 解决思路
+
+**解决思路**：微调VLLM可以帮助但无法根本解决，且微调对LLM文本层次一致性的提升大于对VLLM视觉层次一致性的提升，再次确认了LLM的瓶颈效应
 
 ## 方法详解
 
@@ -122,7 +134,7 @@ Vision LLM (VLLM)统一了多种视觉任务，具有构建这样的通用系统
 
 - [Taxonomy-Aware Representation Alignment for Hierarchical Visual Recognition with Large Multimodal Models](taxonomy-aware_representation_alignment_for_hierarchical_visual_recognition_with.md)
 - [Beyond Recognition: Evaluating Visual Perspective Taking in Vision Language Models](beyond_recognition_evaluating_visual_perspective_taking_in_vision_language_model.md)
-- [CLIP-Free, Label-Free, Unsupervised Concept Bottleneck Models](clip-free_label_free_unsupervised_concept_bottleneck_models.md)
+- [Meta-Prompting for Automating Zero-Shot Visual Recognition with LLMs](../../ECCV2024/multimodal_vlm/meta-prompting_for_automating_zero-shot_visual_recognition_with_llms.md)
 - [Visual Instruction Bottleneck Tuning](../../NeurIPS2025/multimodal_vlm/visual_instruction_bottleneck_tuning.md)
 - [RLAIF-V: Open-Source AI Feedback Leads to Super GPT-4V Trustworthiness](../../CVPR2025/multimodal_vlm/rlaif-v_open-source_ai_feedback_leads_to_super_gpt-4v_trustworthiness.md)
 

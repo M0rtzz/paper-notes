@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 LLM评测方向 20篇论文解读
+  ICCV2025 LLM评测方向 21篇论文解读
 description: >-
-  20篇ICCV2025 LLM评测论文解读，主题涵盖：提出首个全面的3D空间推理基准3DSRBench、本文提出条件概率框架CPF，将组合零样本学习中的组、提出条件概率框架（CPF），将组合识别概率分解为对等，每篇含核心思想与方法详解。
+  21篇ICCV2025 LLM评测论文解读，主题涵盖：提出首个全面的3D空间推理基准3DSRBench、本文提出条件概率框架CPF，将组合零样本学习中的组、提出条件概率框架（CPF），将组合识别概率分解为对等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**📹 ICCV2025** · **20** 篇论文解读
+**📹 ICCV2025** · **21** 篇论文解读
 
 **[3DSRBench: A Comprehensive 3D Spatial Reasoning Benchmark](3dsrbench_a_comprehensive_3d_spatial_reasoning_benchmark.md)**
 
@@ -28,7 +28,7 @@ description: >-
 
 **[A Real-world Display Inverse Rendering Dataset](a_realworld_display_inverse_rendering_dataset.md)**
 
-:   构建了首个基于LCD显示器-相机系统的真实世界逆渲染数据集，包含16个物体的OLAT（逐像素点亮）采集图像、偏振信息和GT几何，并提出简单有效的基线方法（基于Cook-Torrance BRDF的可微渲染优化），在150秒内超越现有逆渲染方法。
+:   本文构建了首个基于LCD显示器-偏振相机系统的真实世界逆渲染数据集（DIR），包含多种反射特性物体在OLAT照明下的偏振立体图像、标定的显示器背光/非线性和高质量GT几何，并提出了显示器逆渲染的简单有效基线方法。
 
 **[BATCLIP: Bimodal Online Test-Time Adaptation for CLIP](batclip_bimodal_online_test-time_adaptation_for_clip.md)**
 
@@ -73,6 +73,10 @@ description: >-
 **[On the Robustness Tradeoff in Fine-Tuning](on_the_robustness_tradeoff_in_fine-tuning.md)**
 
 :   首次系统研究微调过程中对抗鲁棒性与准确率的权衡关系，在231个模型、7种微调策略和6个数据集上揭示：(1)微调初期鲁棒性先升后降；(2)不同PEFT策略和任务复杂度导致不同的Pareto前沿；(3)OOD鲁棒性不存在类似权衡而是紧跟准确率变化。
+
+**[Rethinking Few Shot CLIP Benchmarks: A Critical Analysis in the Inductive Setting](rethinking_few_shot_clip_benchmarks_a_critical_analysis_in_the_inductive_setting.md)**
+
+:   指出现有 CLIP 少样本分类基准因 CLIP 预训练时已见过测试数据集而实际是"部分转导设置"，提出基于 unlearning 的归纳基准评估方案，并设计了一种在新基准下稳定 SOTA 的少样本分类方法。
 
 **[ShadowHack: Hacking Shadows via Luminance-Color Divide and Conquer](shadowhack_hacking_shadows_via_luminance-color_divide_and_conquer.md)**
 

@@ -136,10 +136,10 @@ ShapeDiscover 算法的 pipeline：输入为点云 $X \subseteq \mathbb{R}^N$，
 
 ## 相关论文
 
+- [Code-Switching and Syntax: A Large-Scale Experiment](../../ACL2025/others/code-switching_and_syntax_a_large-scale_experiment.md)
 - [Kaputt: A Large-Scale Dataset for Visual Defect Detection](../../ICCV2025/others/kaputt_a_large-scale_dataset_for_visual_defect_detection.md)
 - [SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design](../../CVPR2025/others/sldprtnet_a_large-scale_multimodal_dataset_for_cad_generation_in_language-driven.md)
 - [Power Variable Projection for Initialization-Free Large-Scale Bundle Adjustment](../../ECCV2024/others/power_variable_projection_for_initialization-free_large-scale_bundle_adjustment.md)
 - [On the Surprising Effectiveness of Large Learning Rates under Standard Width Scaling](../../NeurIPS2025/others/on_the_surprising_effectiveness_of_large_learning_rates_under_standard_width_sca.md)
-- [Noisy-Pair Robust Representation Alignment for Positive-Unlabeled Learning](../../ICLR2026/others/noisy-pair_robust_representation_alignment_for_positive-unlabeled_learning.md)
 
 <!-- RELATED:END -->

@@ -17,7 +17,7 @@ tags:
 
 **会议**: NEURIPS2025  
 **arXiv**: [2509.21650](https://arxiv.org/abs/2509.21650)  
-**代码**: 待确认  
+**代码**: 无  
 **领域**: LLM理论 / 自监督学习  
 **关键词**: masked autoencoder, pretraining theory, random matrix theory, bias-variance tradeoff, R2MAE
 
@@ -25,7 +25,10 @@ tags:
 用高维线性回归理论精确刻画了 mask-based pretraining 中掩码率对测试风险的影响（偏差-方差分解），揭示了最优掩码率依赖于任务和模型大小，并据此提出 R2MAE（随机随机掩码），在视觉、语言、DNA、单细胞模型上一致超越固定掩码率。
 
 ## 研究背景与动机
-**领域现状**：mask-based pretraining（BERT 15%、MAE 75%）是 NLP/CV/生物信息学的主流自监督范式，但为什么不同领域的最优掩码率差异如此之大，理论上并不清楚。
+
+### 领域现状
+
+**领域现状**：领域现状**：mask-based pretraining（BERT 15%、MAE 75%）是 NLP/CV/生物信息学的主流自监督范式，但为什么不同领域的最优掩码率差异如此之大，理论上并不清楚。
 
 **现有痛点**：(1) BERT 用 15%，MAE 用 75%——为什么？(2) 最优掩码率随下游任务和模型大小变化；(3) 现有理论无法统一解释不同域的定量行为。
 

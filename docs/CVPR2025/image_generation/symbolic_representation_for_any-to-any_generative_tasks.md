@@ -138,10 +138,10 @@ ComfyBench 性能：
 
 ## 相关论文
 
-- [Any-Resolution AI-Generated Image Detection by Spectral Learning](any-resolution_ai-generated_image_detection_by_spectral_learning.md)
+- [OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows](omniflow_any-to-any_generation_with_multi-modal_rectified_flows.md)
 - [DKDM: Data-Free Knowledge Distillation for Diffusion Models with Any Architecture](dkdm_data-free_knowledge_distillation_for_diffusion_models_with_any_architecture.md)
+- [ZipLoRA: Any Subject in Any Style by Effectively Merging LoRAs](../../ECCV2024/image_generation/ziplora_any_subject_in_any_style_by_effectively_merging_loras.md)
 - [K-LoRA: Unlocking Training-Free Fusion of Any Subject and Style LoRAs](k-lora_unlocking_training-free_fusion_of_any_subject_and_style_loras.md)
-- [MagicEraser: Erasing Any Objects via Semantics-Aware Control](../../ECCV2024/image_generation/magiceraser_erasing_any_objects_via_semantics-aware_control.md)
-- [Concept Lancet: Image Editing with Compositional Representation Transplant](concept_lancet_image_editing_with_compositional_representation_transplant.md)
+- [SPAI: Any-Resolution AI-Generated Image Detection by Spectral Learning](any-resolution_ai-generated_image_detection_by_spectral_learning.md)
 
 <!-- RELATED:END -->

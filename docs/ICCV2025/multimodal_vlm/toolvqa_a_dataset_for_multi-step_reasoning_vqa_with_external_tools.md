@@ -171,8 +171,8 @@ LCS 匹配对数据质量至关重要：移除后准确率从 90.8% 降至 41.6%
 
 - [Acknowledging Focus Ambiguity in Visual Questions](acknowledging_focus_ambiguity_in_visual_questions.md)
 - [MMAT-1M: A Large Reasoning Dataset for Multimodal Agent Tuning](mmat1m_a_large_reasoning_dataset_for_multimodal_agent_tuning.md)
-- [LLaVA-CoT: Let Vision Language Models Reason Step-by-Step](llavacot_let_vision_language_models_reason_stepbystep.md)
-- [ReasonVQA: A Multi-hop Reasoning Benchmark with Structural Knowledge for Visual Question Answering](reasonvqa_a_multi-hop_reasoning_benchmark_with_structural_knowledge_for_visual_q.md)
-- [Understanding Museum Exhibits using Vision-Language Reasoning](understanding_museum_exhibits_using_vision-language_reasoning.md)
+- [LLaVA-CoT: Let Vision Language Models Reason Step-by-Step](llava-cot_let_vision_language_models_reason_step-by-step.md)
+- [Fine-Grained Evaluation of Large Vision-Language Models in Autonomous Driving](fine-grained_evaluation_of_large_vision-language_models_in_autonomous_driving.md)
+- [SimpleVQA: Multimodal Factuality Evaluation for Multimodal Large Language Models](simplevqa_multimodal_factuality_evaluation_for_multimodal_large_language_models.md)
 
 <!-- RELATED:END -->

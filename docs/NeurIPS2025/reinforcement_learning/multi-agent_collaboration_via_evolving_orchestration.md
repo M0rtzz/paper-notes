@@ -138,10 +138,10 @@ tags:
 
 ## 相关论文
 
-- [Learning to Generate and Extract: A Multi-Agent Collaboration Framework for Zero-shot Document-level Event Arguments Extraction](../../AAAI2026/reinforcement_learning/learning_to_generate_and_extract_a_multi-agent_collaboration_framework_for_zero-.md)
-- [Sequential Multi-Agent Dynamic Algorithm Configuration](sequential_multi-agent_dynamic_algorithm_configuration.md)
+- [RoboFactory: Exploring Embodied Agent Collaboration with Compositional Constraints](../../ICCV2025/reinforcement_learning/robofactory_exploring_embodied_agent_collaboration_with_compositional_constraint.md)
 - [A Theory of Multi-Agent Generative Flow Networks](a_theory_of_multi-agent_generative_flow_networks.md)
+- [Sequential Multi-Agent Dynamic Algorithm Configuration](sequential_multi-agent_dynamic_algorithm_configuration.md)
+- [Learning to Generate and Extract: A Multi-Agent Collaboration Framework for Zero-shot Document-level Event Arguments Extraction](../../AAAI2026/reinforcement_learning/learning_to_generate_and_extract_a_multi-agent_collaboration_framework_for_zero-.md)
 - [Extending NGU to Multi-Agent RL: A Preliminary Study](extending_ngu_to_multi-agent_rl_a_preliminary_study.md)
-- [Robust and Diverse Multi-Agent Learning via Rational Policy Gradient](robust_and_diverse_multi-agent_learning_via_rational_policy_gradient.md)
 
 <!-- RELATED:END -->

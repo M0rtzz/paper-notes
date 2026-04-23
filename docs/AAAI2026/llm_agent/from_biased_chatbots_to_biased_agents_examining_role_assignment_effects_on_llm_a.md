@@ -126,9 +126,9 @@ tags:
 ## 相关论文
 
 - [D-GARA: A Dynamic Benchmarking Framework for GUI Agent Robustness in Real-World Anomalies](d-gara_a_dynamic_benchmarking_framework_for_gui_agent_robust.md)
+- [MAM: Modular Multi-Agent Framework for Multi-Modal Medical Diagnosis via Role-Specialized Collaboration](../../ACL2025/llm_agent/mam_modular_multi-agent_framework_for_multi-modal_medical_diagnosis_via_role-spe.md)
 - [AgentChangeBench: A Multi-Dimensional Evaluation Framework for Goal-Shift Robustness](../../NeurIPS2025/llm_agent/agentchangebench_a_multi-dimensional_evaluation_framework_for_goal-shift_robustn.md)
-- [SoMe: A Realistic Benchmark for LLM-based Social Media Agents](some_a_realistic_benchmark_for_llm-based_social_media_agents.md)
 - [DEPO: Dual-Efficiency Preference Optimization for LLM Agents](depo_dual-efficiency_preference_optimization_for_llm_agents.md)
-- [Towards Trustworthy Multi-Turn LLM Agents via Behavioral Guidance](towards_trustworthy_multi-turn_llm_agents_via_behavioral_guidance.md)
+- [SoMe: A Realistic Benchmark for LLM-based Social Media Agents](some_a_realistic_benchmark_for_llm-based_social_media_agents.md)
 
 <!-- RELATED:END -->

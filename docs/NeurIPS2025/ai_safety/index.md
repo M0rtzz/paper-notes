@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 AI安全方向 117篇论文解读
+  NeurIPS2025 AI安全方向 116篇论文解读
 description: >-
-  117篇NeurIPS2025 AI安全论文解读，主题涵盖：提出一组通用化组件（Component、提出 FedLEASE——解决联邦 LoRA、提出 Adversarial Paraphrasi等，每篇含核心思想与方法详解。
+  116篇NeurIPS2025 AI安全论文解读，主题涵盖：提出一组通用化组件（Component、提出 FedLEASE——解决联邦 LoRA、提出 Adversarial Paraphrasi等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**🧠 NeurIPS2025** · **117** 篇论文解读
+**🧠 NeurIPS2025** · **116** 篇论文解读
 
 **[A Set of Generalized Components to Achieve Effective Poison-only Clean-label Backdoor Attacks with Collaborative Sample Selection and Triggers](a_set_of_generalized_components_to_achieve_effective_poison-only_clean-label_bac.md)**
 
@@ -33,10 +33,6 @@ description: >-
 **[ALMGuard: Safety Shortcuts and Where to Find Them as Guardrails for Audio-Language Models](almguard_safety_shortcuts_and_where_to_find_them_as_guardrails_for_audio-languag.md)**
 
 :   首个针对音频语言模型（ALM）越狱攻击的防御框架——发现对齐过的 ALM 存在可被激活的潜在安全快捷路径（safety shortcuts），通过 Mel 梯度稀疏掩码（M-GSM）定位关键频率段，施加快捷路径激活扰动（SAP），将平均攻击成功率从 41.6% 降至 4.6%，同时几乎不影响正常任务性能。
-
-**[Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)](artificial_hivemind_the_open-ended_homogeneity_of_language_models_and_beyond.md)**
-
-:   构建了 Infinity-Chat 数据集（26K 开放式真实用户查询 + 31,250 条人类标注），揭示了 LM 在开放式生成中的"Artificial Hivemind"效应——模型内重复和模型间同质化严重，并发现 Reward Model 和 LM Judge 在个体偏好差异大的样本上校准失败。
 
 **[Beyond Last-Click: An Optimal Mechanism for Ad Attribution](beyond_last-click_an_optimal_mechanism_for_ad_attribution.md)**
 
@@ -218,6 +214,10 @@ description: >-
 
 :   首个系统评估小语言模型 (SLMs, 1-4B参数) 在移动与可穿戴健康监测任务上表现的基准，覆盖zero-shot/few-shot/指令微调三种范式，并在iPhone上验证了端侧部署的可行性。
 
+**[Impact of Dataset Properties on Membership Inference Vulnerability of Deep Transfer Learning](impact_of_dataset_properties_on_membership_inference.md)**
+
+:   本文理论推导并实验验证了深度迁移学习中成员推理攻击（MIA）脆弱性与每类样本数之间的幂律关系 $\log(\text{tpr}-\text{fpr}) = -\beta_S \log(S) - \beta_0$，发现增加数据量可降低平均和最坏情况脆弱性，但保护最脆弱样本需要极大量数据。
+
 **[Impact of Dataset Properties on Membership Inference Vulnerability of Deep Transfer Learning](impact_of_dataset_properties_on_membership_inference_vulnerability_of_deep_trans.md)**
 
 :   从理论和实验两方面揭示深度迁移学习中成员推断攻击 (MIA) 脆弱性与每类样本数之间存在幂律关系：随着每类样本数 $S$ 增加，MIA 优势按 $S^{-1/2}$ 下降，但保护最脆弱样本所需的数据量极大，凸显了差分隐私形式化保障的不可替代性。
@@ -337,10 +337,6 @@ description: >-
 **[ORBIT -- Open Recommendation Benchmark for Reproducible Research with Hidden Tests](orbit_--_open_recommendation_benchmark_for_reproducible_research_with_hidden_tes.md)**
 
 :   提出ORBIT统一推荐系统基准，包含5个标准化公开数据集评估和基于真实浏览历史构建的隐私安全ClueWeb-Reco隐藏测试集，系统评估了12个推荐模型并引入LLM-QueryGen基线，揭示了现有方法在大规模真实推荐场景中的局限性。
-
-**[Perturbation Bounds for Low-Rank Inverse Approximations under Noise](perturbation_bounds_for_low-rank_inverse_approximations_under_noise.md)**
-
-:   首次给出在加性噪声下低秩逆近似 $\|(\tilde{A}^{-1})_p - A_p^{-1}\|$ 的非渐近谱范数扰动界，利用轮廓积分技术得到依赖特征间隙、谱衰减和噪声对齐的锐界，比经典全逆界改进高达 $\sqrt{n}$ 倍。
 
 **[Poly-Guard: Massive Multi-Domain Safety Policy-Grounded Guardrail Dataset](poly-guard_massive_multi-domain_safety_policy-grounded_guardrail_dataset.md)**
 

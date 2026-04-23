@@ -25,6 +25,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：LLM Agent 越来越多地部署在医疗、金融、教育等高风险领域，但不伦理行为可能导致人身伤害和财务损失。
 
 **现有痛点**：(a) 伦理行为难以系统化量化；(b) RLHF 等对齐方法计算成本高、粒度粗，不适合细粒度行为控制；(c) 硬编码规则无法应对动态或上下文相关的伦理场景。
@@ -128,7 +130,7 @@ tags:
 - [SAKE: Steering Activations for Knowledge Editing](../../ACL2025/knowledge_editing/sake_steering_activations_for_knowledge_editing.md)
 - [Multiplicative Orthogonal Sequential Editing for Language Models (MOSE)](multiplicative_orthogonal_sequential_editing_for_language_models.md)
 - [DocMEdit: Towards Document-Level Model Editing](../../ACL2025/knowledge_editing/docmedit_towards_document-level_model_editing.md)
-- [Energy-Regularized Sequential Model Editing on Hyperspheres](../../ICLR2026/knowledge_editing/energy-regularized_sequential_model_editing_on_hyperspheres.md)
 - [Fine-tuning Done Right in Model Editing](../../ICLR2026/knowledge_editing/fine-tuning_done_right_in_model_editing.md)
+- [Energy-Regularized Sequential Model Editing on Hyperspheres](../../ICLR2026/knowledge_editing/energy-regularized_sequential_model_editing_on_hyperspheres.md)
 
 <!-- RELATED:END -->

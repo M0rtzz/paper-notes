@@ -27,7 +27,9 @@ tags:
 
 ## 研究背景与动机
 
-视觉提示调优 (VPT) 通过在 Transformer 块的输入空间插入轻量可学习提示 token 来适配预训练模型，是参数高效微调 (PEFT) 的主流方法之一。现有 VPT 方法通常使用固定的提示分布——要么浅层（仅第一层），要么深层（均匀分布到所有层）。
+### 领域现状
+
+**领域现状**：视觉提示调优 (VPT) 通过在 Transformer 块的输入空间插入轻量可学习提示 token 来适配预训练模型，是参数高效微调 (PEFT) 的主流方法之一。现有 VPT 方法通常使用固定的提示分布——要么浅层（仅第一层），要么深层（均匀分布到所有层）。
 
 然而，最新研究揭示了一个关键现象：**每个预训练块的重要性在不同任务间差异很大**，这意味着不加区分地使用固定提示分布无法充分发挥 VPT 的潜力。
 
@@ -36,9 +38,18 @@ tags:
 2. 如何设计基于该定义的自适应分布策略？
 
 通过实证分析，作者发现三个关键 insights：
-- 适当调整提示分布能显著提升性能
-- 有效的调整随训练过程中提示更新而变化（非静态）
-- 分布调整的效果只有在提示调优后才能准确评估（嵌套关系）
+
+### 现有痛点
+
+**现有痛点**：适当调整提示分布能显著提升性能
+
+### 核心矛盾
+
+**核心矛盾**：有效的调整随训练过程中提示更新而变化（非静态）
+
+### 解决思路
+
+**解决思路**：分布调整的效果只有在提示调优后才能准确评估（嵌套关系）
 
 ## 方法详解
 
@@ -147,7 +158,7 @@ FGVC 基准：PRO-VPT 达到 91.7% 均值准确率，较 VPT 提升 2.0pp。
 ## 相关论文
 
 - [Attention to the Burstiness in Visual Prompt Tuning!](attention_to_the_burstiness_in_visual_prompt_tuning.md)
-- [Adaptive Prompt Learning via Gaussian Outlier Synthesis for Out-of-Distribution Detection](adaptive_prompt_learning_via_gaussian_outlier_synthesis_for_out-of-distribution_.md)
+- [Adaptive Prompt Learning via Gaussian Outlier Synthesis for Out-of-distribution Detection](adaptive_prompt_learning_via_gaussian_outlier_synthesis_for_out_of_distribution_detection.md)
 - [FedMVP: Federated Multimodal Visual Prompt Tuning for Vision-Language Models](fedmvp_federated_multimodal_visual_prompt_tuning_for_vision-language_models.md)
 - [Revisit Visual Prompt Tuning: The Expressiveness of Prompt Experts](../../ICLR2026/multimodal_vlm/revisit_visual_prompt_tuning_the_expressiveness_of_prompt_experts.md)
 - [CVPT: Cross Visual Prompt Tuning](cvpt_cross_visual_prompt_tuning.md)

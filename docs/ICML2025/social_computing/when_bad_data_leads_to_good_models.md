@@ -172,6 +172,6 @@ tags:
 - [DATE-LM: Benchmarking Data Attribution Evaluation for Large Language Models](../../NeurIPS2025/social_computing/date-lm_benchmarking_data_attribution_evaluation_for_large_language_models.md)
 - [OR-Bench: An Over-Refusal Benchmark for Large Language Models](or-bench_an_over-refusal_benchmark_for_large_language_models.md)
 - [Raising the Bar: Investigating the Values of Large Language Models via Generative Evolving Testing](raising_the_bar_investigating_the_values_of_large_language_models_via_generative.md)
-- [Learning from Synthetic Data via Provenance-Based Input Gradient Guidance](../../CVPR2026/social_computing/learning_from_synthetic_data_via_provenance-based_input_gradient_guidance.md)
+- [K/DA: Automated Data Generation Pipeline for Detoxifying Implicitly Offensive Language in Korean](../../ACL2025/social_computing/kda_automated_data_generation_pipeline_for_detoxifying_implicitly_offensive_lang.md)
 
 <!-- RELATED:END -->

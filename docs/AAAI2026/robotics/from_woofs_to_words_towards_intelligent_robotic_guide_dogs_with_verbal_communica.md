@@ -170,6 +170,6 @@ tags:
 - [SpatialActor: Exploring Disentangled Spatial Representations for Robust Robotic Manipulation](spatialactor_exploring_disentangled_spatial_representations_for_robust_robotic_m.md)
 - [CLIP Behaves like a Bag-of-Words Model Cross-modally but not Uni-modally](../../ICLR2026/robotics/clip_behaves_like_a_bag-of-words_model_cross-modally_but_not_uni-modally.md)
 - [Language-Grounded Decoupled Action Representation for Robotic Manipulation](../../CVPR2026/robotics/language-grounded_decoupled_action_representation_for_robotic_manipulation.md)
-- [RoboInter: A Holistic Intermediate Representation Suite Towards Robotic Manipulation](../../ICLR2026/robotics/robointer_a_holistic_intermediate_representation_suite_towards_robotic_manipulat.md)
+- [Robotic Visual Instruction](../../CVPR2025/robotics/robotic_visual_instruction.md)
 
 <!-- RELATED:END -->

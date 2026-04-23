@@ -183,6 +183,6 @@ PFAvatar 在所有评估指标上均显著领先。
 - [RTGaze: Real-Time 3D-Aware Gaze Redirection from a Single Image](rtgaze_real-time_3d-aware_gaze_redirection_from_a_single_image.md)
 - [3D Reconstruction of Objects in Hands without Real World 3D Supervision](../../ECCV2024/3d_vision/3d_reconstruction_of_objects_in_hands_without_real_world_3d.md)
 - [MoGA: 3D Generative Avatar Prior for Monocular Gaussian Avatar Reconstruction](../../ICCV2025/3d_vision/moga_3d_generative_avatar_prior_for_monocular_gaussian_avatar_reconstruction.md)
-- [EmbodiedSplat: Personalized Real-to-Sim-to-Real Navigation with Gaussian Splats from a Mobile Device](../../ICCV2025/3d_vision/embodiedsplat_personalized_real-to-sim-to-real_navigation_with_gaussian_splats_f.md)
+- [Iris: Bringing Real-World Priors into Diffusion Model for Monocular Depth Estimation](../../CVPR2026/3d_vision/iris_bringing_realworld_priors_into_diffusion_model_for_monocular_depth_estimation.md)
 
 <!-- RELATED:END -->

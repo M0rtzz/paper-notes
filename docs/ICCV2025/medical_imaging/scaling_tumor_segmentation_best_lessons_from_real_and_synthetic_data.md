@@ -164,10 +164,10 @@ AbdomenAtlas 2.0 在 MSD 排行榜取得 **#1** 名次。
 
 ## 相关论文
 
+- [M-Net: MRI Brain Tumor Sequential Segmentation Network via Mesh-Cast](m-net_mri_brain_tumor_sequential_segmentation_network_via_mesh-cast.md)
 - [MRGen: Segmentation Data Engine for Underrepresented MRI Modalities](mrgen_segmentation_data_engine_for_underrepresented_mri_modalities.md)
+- [A Modular Approach for Clinical SLMs Driven by Synthetic Data with Pre-Instruction Tuning, Model Merging, and Clinical-Tasks Alignment](../../ACL2025/medical_imaging/a_modular_approach_for_clinical_slms_driven_by_synthetic_data_with_pre-instructi.md)
 - [MIRA: Medical Time Series Foundation Model for Real-World Health Data](../../NeurIPS2025/medical_imaging/mira_medical_time_series_foundation_model_for_real-world_health_data.md)
 - [RadGPT: Constructing 3D Image-Text Tumor Datasets](radgpt_constructing_3d_image-text_tumor_datasets.md)
-- [Constrained Best Arm Identification with Tests for Feasibility](../../AAAI2026/medical_imaging/constrained_best_arm_identification_with_tests_for_feasibility.md)
-- [Evidential learning driven Breast Tumor Segmentation with Stage-divided Vision-Language Interaction](../../CVPR2025/medical_imaging/evidential_learning_driven_breast_tumor_segmentation_with_stage-divided_vision-l.md)
 
 <!-- RELATED:END -->

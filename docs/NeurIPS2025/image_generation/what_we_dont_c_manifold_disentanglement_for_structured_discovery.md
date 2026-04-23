@@ -25,10 +25,22 @@ tags:
 提出 WWDC（What We Don't C）方法，利用条件引导的潜在流匹配从已有 VAE 表征中去除已知信息，使未知特征在残余流形中更易被发现和访问，实现迭代式科学发现。
 
 ## 研究背景与动机
-- 表征学习的核心挑战：如何在学到的表征中访问有意义的信息
-- 标准解缠绕方法（如 β-VAE、对比学习）试图将所有变化因子分离到各自维度，但在复杂数据上难以实现
-- 关键洞察：与其追求完全解缠绕，不如从已有表征中去除已知信息，让"未知"更易被发现
-- 实际需求：在天文学等科学领域，主导信号（如星系形态类别）往往遮蔽了次要但重要的信号
+
+### 领域现状
+
+**领域现状**：表征学习的核心挑战：如何在学到的表征中访问有意义的信息
+
+### 现有痛点
+
+**现有痛点**：标准解缠绕方法（如 β-VAE、对比学习）试图将所有变化因子分离到各自维度，但在复杂数据上难以实现
+
+### 核心矛盾
+
+**核心矛盾**：关键洞察：与其追求完全解缠绕，不如从已有表征中去除已知信息，让"未知"更易被发现
+
+### 解决思路
+
+**解决思路**：实际需求：在天文学等科学领域，主导信号（如星系形态类别）往往遮蔽了次要但重要的信号
 
 ## 方法详解
 
@@ -67,6 +79,9 @@ tags:
 
 ### 2D 高斯实验
 
+
+### 主实验
+
 | 引导权重 ω | 类别互信息 (t=0) | 距离线性可解释性 R² (t=0) |
 |-----------|---------------|---------------------|
 | 0 (无引导) | 高 | ~0.3 |
@@ -74,6 +89,9 @@ tags:
 | 1.0 (完全引导) | ~0 | ~1.0 |
 
 ### 彩色 MNIST 实验
+
+
+### 消融实验
 
 | 表征空间 | 数字分类准确率 | 蓝色回归 R² |
 |---------|-------------|-----------|
@@ -123,9 +141,9 @@ tags:
 ## 相关论文
 
 - [Score-informed Neural Operator for Enhancing Ordering-based Causal Discovery](score-informed_neural_operator_for_enhancing_ordering-based_causal_discovery.md)
+- [Why Diffusion Models Don't Memorize: The Role of Implicit Regularization](why_diffusion_models_dont_memorize_the_role_of_implicit_regularization.md)
 - [Generative Model Inversion Through the Lens of the Manifold Hypothesis](generative_model_inversion_through_the_lens_of_the_manifold_hypothesis.md)
 - [Diffusion-Based Electromagnetic Inverse Design of Scattering Structured Media](diffusion-based_electromagnetic_inverse_design_of_scattering_structured_media.md)
 - [Local Manifold Approximation and Projection for Manifold-Aware Diffusion Planning](../../ICML2025/image_generation/local_manifold_approximation_and_projection_for_manifold-aware_diffusion_plannin.md)
-- [StelLA: Subspace Learning in Low-rank Adaptation using Stiefel Manifold](stella_subspace_learning_in_low-rank_adaptation_using_stiefel_manifold.md)
 
 <!-- RELATED:END -->

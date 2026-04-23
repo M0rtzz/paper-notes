@@ -24,7 +24,10 @@ tags:
 提出Scone方法，通过为高频n-gram学习上下文化的嵌入（用独立Transformer模型训练），在推理时将这些嵌入卸载到主存/SSD，实现"训练时用更多计算但推理时不增加加速器资源"的新缩放范式，1B参数模型超越1.9B基线。
 
 ## 研究背景与动机
-**领域现状**：传统缩放方式是增大模型参数——但这同时增加推理时的FLOPS和加速器内存。
+
+### 领域现状
+
+**领域现状**：领域现状**：传统缩放方式是增大模型参数——但这同时增加推理时的FLOPS和加速器内存。
 
 **现有痛点**：增大词汇量来扩展embedding有两个问题：(1) 同时增大output layer导致解码成本暴涨；(2) 尾部token训练不充分。
 
@@ -108,10 +111,10 @@ tags:
 
 ## 相关论文
 
-- [The Curse of Depth in Large Language Models](the_curse_of_depth_in_large_language_models.md)
 - [Scalable Fingerprinting of Large Language Models](scalable_fingerprinting_of_large_language_models.md)
+- [The Curse of Depth in Large Language Models](the_curse_of_depth_in_large_language_models.md)
 - [Superposition Yields Robust Neural Scaling](superposition_yields_robust_neural_scaling.md)
 - [Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](retrospective_incontext_learning_for_temporal_credit_assignm.md)
-- [Learning the Wrong Lessons: Syntactic-Domain Spurious Correlations in Language Models](learning_the_wrong_lessons_syntactic-domain_spurious_correlations_in_language_mo.md)
+- [Leveraging Importance Sampling to Detach Alignment Modules from Large Language Models](leveraging_importance_sampling_to_detach_alignment_modules_from_large_language_m.md)
 
 <!-- RELATED:END -->

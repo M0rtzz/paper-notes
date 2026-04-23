@@ -142,10 +142,10 @@ VLM2-Bench围绕三类视觉线索构建：
 
 ## 相关论文
 
-- [To Think or Not To Think: A Study of Explicit Thinking in Rule-Based Visual Reinforcement Fine-Tuning](../../NeurIPS2025/multimodal_vlm/think_or_not_think_a_study_of_explicit_thinking_in_rule-based_visual_reinforceme.md)
+- [VS-Bench: Evaluating VLMs for Strategic Abilities in Multi-Agent Environments](../../CVPR2026/multimodal_vlm/vs_bench_evaluating_vlms_for_strategic_abilities_in_multi_agent_environments.md)
+- [Cultivating Game Sense for Yourself: Making VLMs Gaming Experts](cultivating_gaming_sense_for_yourself_making_vlms_gaming_experts.md)
 - [EffiVLM-Bench: A Comprehensive Benchmark for Evaluating Training-Free Acceleration in Large Vision-Language Models](effivlm_bench_acceleration.md)
 - [Speaking Beyond Language: A Large-Scale Multimodal Dataset for Learning Nonverbal Cues from Video-Grounded Dialogues](speaking_beyond_language.md)
-- [Visual Interestingness Decoded: How GPT-4o Mirrors Human Interests](../../ICCV2025/multimodal_vlm/visual_interestingness_decoded_how_gpt-4o_mirrors_human_interests.md)
-- [Exploring How Generative MLLMs Perceive More Than CLIP with the Same Vision Encoder](exploring_how_generative_mllms_perceive_more.md)
+- [To Think or Not To Think: A Study of Explicit Thinking in Rule-Based Visual Reinforcement Fine-Tuning](../../NeurIPS2025/multimodal_vlm/think_or_not_think_a_study_of_explicit_thinking_in_rule-based_visual_reinforceme.md)
 
 <!-- RELATED:END -->

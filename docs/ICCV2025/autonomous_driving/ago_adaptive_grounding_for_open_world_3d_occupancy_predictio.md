@@ -25,10 +25,14 @@ tags:
 提出AGO框架，通过噪声增强的接地训练(grounding training)处理已知类别 + 模态适配器的自适应对齐处理未知类别，并用基于信息熵的开放世界识别器在推理时动态选择最佳特征，在Occ3D-nuScenes自监督基准上超越VEON 4.09 mIoU，同时具备开放世界零样本/少样本迁移能力。
 
 ## 背景与动机
-3D语义占位预测依赖昂贵的3D标注，自监督方法利用VLM生成伪标签，但面临两个核心问题：(1)基于伪标签的传统监督受限于固定标签空间，无法预测未知类别；(2)直接对齐VLM图像嵌入存在严重的模态差距（图像-文本相似度范围仅约0.1），导致预测不可靠。
 
-## 核心问题
-如何在保持已知类别强预测能力的同时，使3D占位模型具备预测未知类别的开放世界泛化能力？
+### 现有痛点
+
+**现有痛点**：**领域现状**：3D语义占位预测依赖昂贵的3D标注，自监督方法利用VLM生成伪标签，但面临两个核心问题：(1)基于伪标签的传统监督受限于固定标签空间，无法预测未知类别；(2)直接对齐VLM图像嵌入存在严重的模态差距（图像-文本相似度范围仅约0.1），导致预测不可靠。
+
+### 解决思路
+
+**本文目标**：如何在保持已知类别强预测能力的同时，使3D占位模型具备预测未知类别的开放世界泛化能力？
 
 ## 方法详解
 
@@ -77,7 +81,7 @@ mIoU提升+4.09（vs VEON），且参数量仅为VEON的9.2%
 - 最小信息熵标准优于最大置信度标准(3.6 vs 3.1 未知mIoU)
 - ResNet-50也能达15.23 mIoU，仍超所有先前方法
 
-## 亮点 / 我学到了什么
+## 亮点与洞察 / 我学到了什么
 - **接地训练替代传统分类器**: 直接用文本嵌入做logits，标签空间可在训练和推理间无缝切换
 - **噪声文本负样本很聪明**: 从词典随机采样的噪声词作为hard negative，几乎零成本地增强了判别能力
 - **模态适配器解耦文本/图像对齐**: 避免了模态冲突，是处理VLM中文本-图像嵌入不一致的有效方案
@@ -89,7 +93,7 @@ mIoU提升+4.09（vs VEON），且参数量仅为VEON的9.2%
 - 在某些稀有动态类别（如trailer）上改进有限
 - 未知类别的零样本能力仍然有限(预训练阶段unknown mIoU仅3.59)
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs VEON**: VEON集成多个大型基础模型(ViT-L等, 678M参数)，AGO仅62.5M参数但mIoU+4.09
 - **vs POP-3D**: POP-3D纯对齐方法，缺乏几何和语义线索，未知类别mIoU仅0.94
 - **vs SelfOcc**: 纯自监督+固定标签空间，完全无法预测未知类别(0.00 mIoU)
@@ -109,10 +113,10 @@ mIoU提升+4.09（vs VEON），且参数量仅为VEON的9.2%
 
 ## 相关论文
 
+- [SA-Occ: Satellite-Assisted 3D Occupancy Prediction in Real World](sa-occ_satellite-assisted_3d_occupancy_prediction_in_real_world.md)
 - [Towards Open-World Generation of Stereo Images and Unsupervised Matching](towards_open-world_generation_of_stereo_images_and_unsupervised_matching.md)
 - [O3N: Omnidirectional Open-Vocabulary Occupancy Prediction](../../CVPR2025/autonomous_driving/o3n_omnidirectional_open-vocabulary_occupancy_prediction.md)
 - [Semantic Causality-Aware Vision-Based 3D Occupancy Prediction](semantic_causality-aware_vision-based_3d_occupancy_prediction.md)
 - [GaussianWorld: Gaussian World Model for Streaming 3D Occupancy Prediction](../../CVPR2025/autonomous_driving/gaussianworld_gaussian_world_model_for_streaming_3d_occupancy_prediction.md)
-- [EmbodiedOcc: Embodied 3D Occupancy Prediction for Vision-based Online Scene Understanding](embodiedocc_embodied_3d_occupancy_prediction_for_vision-based_online_scene_under.md)
 
 <!-- RELATED:END -->

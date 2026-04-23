@@ -132,9 +132,9 @@ tags:
 ## 相关论文
 
 - [Can You Hear Me Now? A Benchmark for Long-Range Graph Propagation and Beyond](../../ICLR2026/llm_evaluation/can_you_hear_me_now_a_benchmark_for_long-range_graph_propagation_and_beyond.md)
+- [CoV-Eval: Can You Really Trust Code Copilots? Evaluating Large Language Models from a Code Security Perspective](../../ACL2025/llm_evaluation/cov_eval_evaluating_llms_from_code_security_perspective.md)
 - [PhysReason: A Comprehensive Benchmark towards Physics-Based Reasoning](../../ACL2025/llm_evaluation/physreason_a_comprehensive_benchmark_towards_physics-based_reasoning.md)
 - [3DSRBench: A Comprehensive 3D Spatial Reasoning Benchmark](../../ICCV2025/llm_evaluation/3dsrbench_a_comprehensive_3d_spatial_reasoning_benchmark.md)
-- [Ineq-Comp: Benchmarking Human-Intuitive Compositional Reasoning in Automated Theorem Proving on Inequalities](ineq-comp_benchmarking_human-intuitive_compositional_reasoning_in_automated_theo.md)
 - [VinaBench: Benchmark for Faithful and Consistent Visual Narratives](../../CVPR2025/llm_evaluation/vinabench_benchmark_for_faithful_and_consistent_visual_narratives.md)
 
 <!-- RELATED:END -->

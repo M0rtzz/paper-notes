@@ -207,6 +207,6 @@ PGB 模块消融：
 - [Compose Your Policies! Improving Diffusion-based or Flow-based Robot Policies via Test-time Distribution-level Composition](../../ICLR2026/image_generation/compose_your_policies_improving_diffusion-based_or_flow-based_robot_policies_via.md)
 - [Offline Reinforcement Learning with Generative Trajectory Policies](../../ICLR2026/image_generation/offline_reinforcement_learning_with_generative_trajectory_policies.md)
 - [Failure Prediction at Runtime for Generative Robot Policies](../../NeurIPS2025/image_generation/failure_prediction_at_runtime_for_generative_robot_policies.md)
-- [BADiff: Bandwidth Adaptive Diffusion Model](../../NeurIPS2025/image_generation/badiff_bandwidth_adaptive_diffusion_model.md)
+- [Contractive Diffusion Policies: Robust Action Diffusion via Contractive Score-Based Sampling with Differential Equations](../../ICLR2026/image_generation/contractive_diffusion_policies_robust_action_diffusion_via_contractive_score-bas.md)
 
 <!-- RELATED:END -->

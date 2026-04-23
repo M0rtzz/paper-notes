@@ -151,8 +151,8 @@ DIVE 1/8 在 WikiText2 上比次优的 FLAP 低 0.99 PPL，LAMBADA 上低 8.38 P
 
 - [Diversity-oriented Data Augmentation with Large Language Models](diversity_data_augmentation.md)
 - [NeKo: Cross-Modality Post-Recognition Error Correction with Tasks-Guided Mixture-of-Experts Language Model](neko_cross-modality_post-recognition_error_correction_with_tasks-guided_mixture-.md)
+- [Cross-Modal Alignment for LLM-Enhanced Spoken Language Understanding](cross-modal_alignment_for_llm-enhanced_spoken_language_understanding.md)
 - [CER: Confidence Enhanced Reasoning in LLMs](cer_confidence_enhanced_reasoning.md)
 - [Towards Enhanced Immersion and Agency for LLM-based Interactive Drama](towards_enhanced_immersion_and_agency_for_llm-based_interactive_drama.md)
-- [Beyond Output Matching: Bidirectional Alignment for Enhanced In-Context Learning](beyond_output_matching_bidirectional_alignment_for_enhanced_in-context_learning.md)
 
 <!-- RELATED:END -->

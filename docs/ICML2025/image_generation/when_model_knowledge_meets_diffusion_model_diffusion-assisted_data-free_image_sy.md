@@ -121,10 +121,10 @@ tags:
 
 ## 相关论文
 
-- [DKDM: Data-Free Knowledge Distillation for Diffusion Models with Any Architecture](../../CVPR2025/image_generation/dkdm_data-free_knowledge_distillation_for_diffusion_models_with_any_architecture.md)
-- [Broadband Ground Motion Synthesis by Diffusion Model with Minimal Condition](broadband_ground_motion_synthesis_by_diffusion_model_with_minimal_condition.md)
+- [DDIS: When Model Knowledge Meets Diffusion Model](when_model_knowledge_meets_diffusion_model_diffusion-assisted_data-free_image_synthesis.md)
 - [Towards a Mechanistic Explanation of Diffusion Model Generalization](towards_a_mechanistic_explanation_of_diffusion_model_generalization.md)
-- [Using Powerful Prior Knowledge of Diffusion Model in Deep Unfolding Networks for Image Compressive Sensing](../../CVPR2025/image_generation/using_powerful_prior_knowledge_of_diffusion_model_in_deep_unfolding_networks_for.md)
-- [FreeMorph: Tuning-Free Generalized Image Morphing with Diffusion Model](../../ICCV2025/image_generation/freemorph_tuning-free_generalized_image_morphing_with_diffusion_model.md)
+- [TCP-Diffusion: A Multi-modal Diffusion Model for Global Tropical Cyclone Precipitation Forecasting with Change Awareness](tcp-diffusion_a_multi-modal_diffusion_model_for_global_tropical_cyclone_precipit.md)
+- [Broadband Ground Motion Synthesis by Diffusion Model with Minimal Condition](broadband_ground_motion_synthesis_by_diffusion_model_with_minimal_condition.md)
+- [Beyond One-Hot Labels: Semantic Mixing for Model Calibration](beyond_one-hot_labels_semantic_mixing_for_model_calibration.md)
 
 <!-- RELATED:END -->

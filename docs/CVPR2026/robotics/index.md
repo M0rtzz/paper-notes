@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 具身智能方向 44篇论文解读
+  CVPR2026 具身智能方向 50篇论文解读
 description: >-
-  44篇CVPR2026 具身智能论文解读，主题涵盖：利用预训练3D几何基础模型π3作为感知骨干、提出自适应动作分块(AAC)策略、AtomicVLA 提出统一规划-执行框架等，每篇含核心思想与方法详解。
+  50篇CVPR2026 具身智能论文解读，主题涵盖：利用预训练3D几何基础模型π3作为感知骨干、提出自适应动作分块(AAC)策略、AtomicVLA 提出统一规划-执行框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 具身智能
 
-**📷 CVPR2026** · **44** 篇论文解读
+**📷 CVPR2026** · **50** 篇论文解读
 
 **[Action–Geometry Prediction with 3D Geometric Prior for Bimanual Manipulation](actiongeometry_prediction_with_3d_geometric_prior.md)**
 
@@ -42,9 +42,21 @@ description: >-
 
 :   提出 NeSyCR 神经符号反事实推理框架，将视频示教抽象为符号世界模型，通过反事实状态推演检测跨域不兼容并自动修正程序步骤，在跨域 demo-to-code 任务上比最强基线 Statler 提升 31.14% 成功率。
 
+**[CycleManip: Enabling Cyclic Task Manipulation via Effective Historical Perception and Understanding](cyclemanip_enabling_cyclic_task_manipulation_via_effective_historical_percepti.md)**
+
+:   CycleManip 首次系统性地解决机器人循环操作任务（如摇瓶子N次），通过成本感知的历史采样策略增强历史感知，配合多任务学习辅助目标提升历史理解，以端到端模仿学习方式实现循环次数可控的操作。
+
 **[DAWN: Pixel Motion Diffusion is What We Need for Robot Control](dawn_pixel_motion_diffusion_robot_control.md)**
 
 :   提出 DAWN，一个两阶段全扩散的视觉语言动作框架——Motion Director（潜扩散模型）生成稠密像素运动场作为可解释的中间表示，Action Expert（扩散 Transformer 策略）将像素运动转换为可执行机器人动作；在 CALVIN 基准上取得 SOTA（平均长度 4.00），并在真实世界单臂/双臂操控中展现强泛化能力。
+
+**[DeepSketcher: Internalizing Visual Manipulation for Multimodal Reasoning](deepsketcher_internalizing_visual_manipulation_for_multimodal_reasoning.md)**
+
+:   提出DeepSketcher套件——包含31k高质量代码渲染的图文交错CoT数据集和一个自包含的Embedding Editor模型，使VLM无需外部工具即可在视觉嵌入空间直接生成"视觉思考"进行多模态推理。
+
+**[Diagnose, Correct, and Learn from Manipulation Failures via Visual Symbols](diagnose_correct_and_learn_from_manipulation_failures.md)**
+
+:   提出 ViFailback 框架，利用显式视觉符号（箭头、准星等）高效标注真实世界机器人操作失败数据，构建 58,128 条 VQA 对的大规模数据集，并微调得到 ViFailback-8B 模型，在真实机器人实验中结合 VLA 模型实现失败恢复，平均成功率提升 22.2%。
 
 **[Diagnose, Correct, and Learn from Manipulation Failures via Visual Symbols](diagnose_correct_and_learn_from_manipulation_failures_via_visual_symbols.md)**
 
@@ -65,6 +77,10 @@ description: >-
 **[Fast-ThinkAct: Efficient Vision-Language-Action Reasoning via Verbalizable Latent Planning](fast-thinkact_efficient_vision-language-action_reasoning_via_verbalizable_latent.md)**
 
 :   提出 Fast-ThinkAct，通过将冗长的文本 CoT 推理（~250 token）压缩为 6 个可语言化的连续 latent token，结合 reward-guided preference distillation 和 visual trajectory alignment，实现 89.3% 推理延迟降低（9.3× faster than ThinkAct-7B）同时保持甚至超越 SOTA reasoning VLA 的性能。
+
+**[FineCog-Nav: Integrating Fine-grained Cognitive Modules for Zero-shot Multimodal UAV Navigation](finecog_nav_fine_grained_cognitive_modules_for_zero_shot_uav_navigation.md)**
+
+:   本文提出 FineCog-Nav，一个受人类认知启发的零样本 UAV 视觉语言导航框架，将导航分解为语言处理、感知、注意力、记忆、想象、推理和决策七个细粒度认知模块，每个模块使用中等规模基础模型驱动，无需训练即可在复杂 3D 环境中完成长程导航。
 
 **[FORCE: Transferable Visual Jailbreaking Attacks via Feature Over-Reliance CorrEction](force_transferable_visual_jailbreaking_attacks_via_feature_over-reliance_correct.md)**
 
@@ -89,6 +105,10 @@ description: >-
 **[HiF-VLA: Hindsight, Insight and Foresight through Motion Representation for Vision-Language-Action Models](hif-vla_hindsight_insight_and_foresight_through_motion_representation_for_vision.md)**
 
 :   提出 HiF-VLA 框架，通过运动向量（Motion Vector）作为紧凑时间原语，统一回顾（Hindsight）、洞察（Insight）和前瞻（Foresight）三种时间推理能力，实现 VLA 模型的双向时间扩展，在长时操作任务中以极低计算开销大幅超越基线。
+
+**[IGen: Scalable Data Generation for Robot Learning from Open-World Images](igen_scalable_data_generation_for_robot_learning_from_open-world_images.md)**
+
+:   IGen 从单张开放世界图像出发，通过3D场景重建→VLM任务规划→SE(3)动作生成→点云合成→帧渲染，自动生成大规模视觉-动作训练数据，仅用生成数据训练的策略即可完成真实世界操作。
 
 **[Influence Malleability in Linearized Attention: Dual Implications of Non-Convergent NTK Dynamics](influence_malleability_in_linearized_attention_dua.md)**
 
@@ -165,6 +185,10 @@ description: >-
 **[SaPaVe: Towards Active Perception and Manipulation in Vision-Language-Action Models for Robotics](sapave_towards_active_perception_and_manipulation_in_vision-language-action_mode.md)**
 
 :   提出 SaPaVe 端到端框架，通过解耦相机运动与操控动作的两阶段自底向上学习策略，实现语义驱动的主动感知与视角不变的操控执行，在真实世界任务中超越 GR00T N1 和 π₀ 分别 31.25% 和 40%。
+
+**[STRNet: Visual Navigation with Spatio-Temporal Representation through Dynamic Graph Aggregation](strnet_visual_navigation_with_spatio-temporal_representation_through_dynamic_gra.md)**
+
+:   STRNet 提出统一的时空表征框架用于视觉导航，通过图推理模块建模帧内空间拓扑结构，结合混合时间偏移和多分辨率差分卷积建模时序动态，显著提升了目标条件导航的成功率（比 NoMaD 提升 70%）。
 
 **[Test-time Ego-Exo-centric Adaptation for Action Anticipation via Multi-Label Prototype Growing and Dual-Clue Consistency](test-time_ego-exo-centric_adaptation_for_action_anticipation_via_multi-label_pro.md)**
 

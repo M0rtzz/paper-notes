@@ -135,8 +135,8 @@ $$\mathcal{L} = \alpha \cdot \mathcal{L}_b(f(x_b; \Theta), y_b) + \frac{1-\alpha
 
 - [Adversarial Inception Backdoor Attacks against Reinforcement Learning](adversarial_inception_backdoor_attacks_against_reinforcement_learning.md)
 - [ICLShield: Exploring and Mitigating In-Context Learning Backdoor Attacks](iclshield_exploring_and_mitigating_in-context_learning_backdoor_attacks.md)
+- [Backdoor Attacks on Neural Networks via One-Bit Flip](../../ICCV2025/ai_safety/backdoor_attacks_on_neural_networks_via_one_bit_flip.md)
 - [ToxicTextCLIP: Text-Based Poisoning and Backdoor Attacks on CLIP Pre-training](../../NeurIPS2025/ai_safety/toxictextclip_text-based_poisoning_and_backdoor_attacks_on_clip_pre-training.md)
 - [Detecting Backdoor Attacks in Federated Learning via Direction Alignment Inspection](../../CVPR2025/ai_safety/detecting_backdoor_attacks_in_federated_learning_via_direction_alignment_inspect.md)
-- [Event Trojan: Asynchronous Event-Based Backdoor Attacks](../../ECCV2024/ai_safety/event_trojan_asynchronous_event-based_backdoor_attacks.md)
 
 <!-- RELATED:END -->

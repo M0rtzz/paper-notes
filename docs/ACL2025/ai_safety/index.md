@@ -1,14 +1,22 @@
 ---
 title: >-
-  ACL2025 AI安全方向 28篇论文解读
+  ACL2025 AI安全方向 32篇论文解读
 description: >-
-  28篇ACL2025 AI安全论文解读，主题涵盖：提出 CAVGAN 框架，利用生成对抗网络在、提出 Centaur 框架，融合随机置换矩阵和安全、本文构建了首个高质量人工标注的标准英语-AAVE平等，每篇含核心思想与方法详解。
+  32篇ACL2025 AI安全论文解读，主题涵盖：本文提出一种新颖的"自辩论"范式、本文构建了一个包含149家公司隐私政策的多维度标注、提出 CAVGAN 框架，利用生成对抗网络在等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**💬 ACL2025** · **28** 篇论文解读
+**💬 ACL2025** · **32** 篇论文解读
+
+**[Bias in the Mirror: Are LLMs' Opinions Robust to Their Own Adversarial Attacks](bias_in_the_mirror_are_llms_opinions_robust_to_their_own_adversarial_attacks.md)**
+
+:   本文提出一种新颖的"自辩论"范式，让同一个LLM的两个实例分别扮演正方和反方进行辩论，试图说服一个中立版本的模型，以此评估LLM内在偏见的鲁棒性——偏见是否容易被动摇，以及模型是否容易被自身的对抗性论证带偏。
+
+**[Building a Long Text Privacy Policy Corpus with Multi-Class Labels](building_a_long_text_privacy_policy_corpus_with_multi-class_labels.md)**
+
+:   本文构建了一个包含149家公司隐私政策的多维度标注语料库（64个标注维度），涵盖欧盟和美国隐私法规中的争议条款和法律规则，并使用当前大语言模型建立了分类基准。
 
 **[CAVGAN: Unifying Jailbreak and Defense of LLMs via Generative Adversarial Attacks](cavgan_unifying_jailbreak_and_defense_of_llms_via_generative_adversarial_attacks.md)**
 
@@ -17,6 +25,10 @@ description: >-
 **[CENTAUR: Bridging the Impossible Trinity of Privacy, Efficiency, and Performance in Privacy-Preserving Transformer Inference](centaur_bridging_the_impossible_trinity_of.md)**
 
 :   提出 Centaur 框架，融合随机置换矩阵和安全多方计算（SMPC）来打破隐私保护 Transformer 推理（PPTI）中的"不可能三角"——同时实现强隐私保护、5-30x 加速和明文级别推理精度。
+
+**[Crafting Privacy-Preserving Adversarial Examples: A Defense Against Membership Inference](crafting_privacy-preserving_adversarial_examples_a_defense_against_membership_inf.md)**
+
+:   本文提出一种通过构造隐私保护型对抗样本来防御成员推理攻击（MIA）的方法，在模型预测输出中注入精心设计的扰动，使攻击者无法判断某条数据是否属于训练集，同时保持模型对正常用户的服务质量。
 
 **[ReDial: Assessing Dialect Fairness and Robustness of Large Language Models in Reasoning Tasks](dialect_fairness_robustness.md)**
 
@@ -61,6 +73,10 @@ description: >-
 **[Can LLM Watermarks Robustly Prevent Unauthorized Knowledge Distillation?](llm_watermark_distillation_robustness.md)**
 
 :   本文首次系统研究 LLM 水印在防止未授权知识蒸馏中的鲁棒性，提出三种水印去除攻击（无目标/有目标释义 + 推理时水印中和），发现有目标释义和水印中和可以彻底去除继承的水印，其中水印中和在保持知识迁移效率的同时实现零额外训练开销的水印去除。
+
+**[Merge Hijacking: Backdoor Attacks to Model Merging of Large Language Models](merge_hijacking_backdoor_attacks_to_model_merging_of_large_language_models.md)**
+
+:   提出 Merge Hijacking——首个针对 LLM 模型合并的后门攻击方法，攻击者仅需上传一个恶意模型，当受害者将其与任意干净模型合并时，生成的合并模型继承后门并在所有任务上保持攻击有效性和正常性能，且对现有防御方法具有鲁棒性。
 
 **[MorphMark: Flexible Adaptive Watermarking for Large Language Models](morphmark_adaptive_watermarking.md)**
 

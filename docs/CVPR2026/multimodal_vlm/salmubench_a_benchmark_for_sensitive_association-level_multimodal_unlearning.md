@@ -131,8 +131,8 @@ SALMUBench 提供完整的遗忘评估生态系统，包含三个核心组件：
 
 - [Targeted Unlearning with Single Layer Unlearning Gradient](../../ICML2025/multimodal_vlm/targeted_unlearning_with_single_layer_unlearning_gradient.md)
 - [Mixture of States (MoS): Routing Token-Level Dynamics for Multimodal Generation](mos_mixture_of_states_multimodal_generation.md)
+- [MMUnlearner: Reformulating Multimodal Machine Unlearning in the Era of Multimodal Large Language Models](../../ACL2025/multimodal_vlm/mmunlearner_reformulating_multimodal_machine_unlearning_in_the_era_of_multimodal.md)
 - [Modality-Aware Neuron Pruning for Unlearning in Multimodal Large Language Models](../../ACL2025/multimodal_vlm/manu_modality_aware_unlearning.md)
-- [Approximate Domain Unlearning for Vision-Language Models](../../NeurIPS2025/multimodal_vlm/approximate_domain_unlearning_for_visionlanguage_models.md)
-- [PointAlign: Feature-Level Alignment Regularization for 3D Vision-Language Models](pointalign_feature-level_alignment_regularization_for_3d_vision-language_models.md)
+- [AGRI-CM3: A Chinese Massive Multi-Modal Multi-Level Benchmark for Agricultural Understanding](../../ACL2025/multimodal_vlm/agri-cm3_a_chinese_massive_multi-modal_multi-level_benchmark_for_agricultural_un.md)
 
 <!-- RELATED:END -->

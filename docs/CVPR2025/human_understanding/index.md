@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 人体理解方向 89篇论文解读
+  CVPR2025 人体理解方向 98篇论文解读
 description: >-
-  89篇CVPR2025 人体理解论文解读，主题涵盖：首次从毫米波雷达图像进行3D人脸重建：用物理雷达渲、首次系统研究3D手势估计中合成数据到真实数据的域差、用预训练的Foundation等，每篇含核心思想与方法详解。
+  98篇CVPR2025 人体理解论文解读，主题涵盖：首次从毫米波雷达图像进行3D人脸重建：用物理雷达渲、首次系统研究3D手势估计中合成数据到真实数据的域差、用预训练的Foundation等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**📷 CVPR2025** · **89** 篇论文解读
+**📷 CVPR2025** · **98** 篇论文解读
 
 **[3D Face Reconstruction From Radar Images](3d_face_reconstruction_from_radar_images.md)**
 
@@ -26,7 +26,9 @@ description: >-
 
 **[ChatGarment: Garment Estimation, Generation and Editing via Large Language Models](chatgarment_garment_estimation_generation_and_editing_via_large_language_models.md)**
 
-**[Co-op: Correspondence-Based Novel Object Pose Estimation](co-op_correspondence-based_novel_object_pose_estimation.md)**
+**[Co-op: Correspondence-based Novel Object Pose Estimation](co-op_correspondence-based_novel_object_pose_estimation.md)**
+
+:   本文提出 Co-op，一个基于对应关系的新物体6DoF位姿估计框架，在粗估计阶段用混合表示（patch级分类+偏移回归）仅42个模板即可快速准确估计初始位姿，在精细化阶段用概率流回归+可微PnP端到端优化，在BOP Challenge七个核心数据集上大幅超越现有方法。
 
 **[Collaborative Tree Search for Enhancing Embodied Multi-Agent Collaboration](collaborative_tree_search_for_enhancing_embodied_multi-agent_collaboration.md)**
 
@@ -48,6 +50,10 @@ description: >-
 
 :   提出 CryptoFace，首个端到端全同态加密（FHE）人脸识别系统，通过混合浅层 patch CNN 架构（CryptoFaceNet）大幅降低乘法深度，实现比 SOTA FHE 网络快 7 倍的加密推理，同时提升验证精度。
 
+**[D3-Human: Dynamic Disentangled Digital Human from Monocular Video](d3-human_dynamic_disentangled_digital_human_from_monocular_video.md)**
+
+:   D3-Human 提出了一种从单目视频重建解耦（服装+人体）数字人几何的方法，通过定义人体流形上的有符号距离场（hmSDF）在无需3D服装先验的条件下实现了可见区域的服装-人体精确分割，约20分钟生成解耦模板并支持换装和动画应用。
+
 **[Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program Synthesis](design2garmentcode_turning_design_concepts_to_tangible_garments_through_program_.md)**
 
 :   提出 Design2GarmentCode，首个神经符号方法将多模态设计输入（文本/图像/草图）转化为参数化服装制版程序（GarmentCode DSL），实现 100% 仿真成功率和 88.67% 的用户满意度，且生成的程序可编辑、可参数化。
@@ -55,6 +61,10 @@ description: >-
 **[DualTalk: Dual-Speaker Interaction for 3D Talking Head Conversations](dualtalk_dual-speaker_interaction_for_3d_talking_head_conversations.md)**
 
 :   提出 DualTalk——首个统一建模说话者和倾听者行为的多轮双人交互 3D 说话人头生成框架，配套构建了包含 50 小时、1000+ 身份的双人对话数据集。
+
+**[Dynamic Neural Surfaces for Elastic 4D Shape Representation and Analysis](dynamic_neural_surfaces_for_elastic_4d_shape_representation_and_analysis.md)**
+
+:   本文提出 Dynamic Spherical Neural Surfaces (D-SNS)，用 MLP 将 genus-0 的 4D 表面建模为时空连续函数，然后在 SRNF/SRVF 空间中直接完成时空配准、测地线计算和均值估计，无需离散化，在 4D 人体和面部数据集上超越了 4D Atlas。
 
 **[Efficient Video Face Enhancement with Enhanced Spatial-Temporal Consistency](efficient_video_face_enhancement_with_enhanced_spatial-temporal_consistency.md)**
 
@@ -100,6 +110,10 @@ description: >-
 
 :   GigaHands 是迄今为止最大的双手活动数据集，通过设计"指令-标注"程序化采集策略和 51 相机无标记捕捉系统，收集了 34 小时、56 名被试、417 个物体的双手活动数据，包含 1.83 亿帧 RGB 图像和 84K 条详细文本标注，在文本驱动手部动作生成和动作描述任务上展示了数据规模的价值。
 
+**[GROVE: A Generalized Reward for Learning Open-Vocabulary Physical Skill](grove_a_generalized_reward_for_learning_open-vocabulary_physical_skill.md)**
+
+:   本文提出GROVE框架，利用LLM生成物理约束+VLM评估动作语义的互补方式构建广义奖励函数，并通过Pose2CLIP轻量映射器跳过渲染直接将姿态投影到语义空间，实现了开放词汇物理技能学习，比现有方法训练速度快8.4倍同时动作自然度提升22.2%。
+
 **[Hearing Anywhere in Any Environment](hearing_anywhere_in_any_environment.md)**
 
 :   提出 xRIR，一个可跨房间泛化的声脉冲响应（RIR）预测统一模型，结合全景深度图的几何特征提取器和少量参考 RIR 的声学编码器，配合新构建的 AcousticRooms 数据集（260 个房间、30 万+ RIR），在已见/未见模拟环境和真实环境中均大幅超越基线方法。
@@ -122,7 +136,11 @@ description: >-
 
 **[HotSpot: Signed Distance Function Optimization with an Asymptotically Sufficient Condition](hotspot_signed_distance_function_optimization_with_an_asymptotically_sufficient_.md)**
 
-:   提出 HotSpot，基于 screened Poisson 方程与距离的经典关系设计新的 SDF 优化损失，提供了渐近充分条件保证收敛到真正的距离函数（而非仅满足 Eikonal 的伪解），同时自然惩罚多余表面积，在复杂形状上显著优于 SAL/DiGS/StEik。
+:   本文提出 HotSpot，利用屏蔽泊松方程与距离场的经典关系设计新的 heat loss，为神经签名距离函数优化提供渐近充分条件，保证隐式函数收敛到真实距离场，在复杂拓扑的2D/3D表面重建中显著超越现有方法。
+
+**[Human Motion Instruction Tuning](human_motion_instruction_tuning.md)**
+
+:   LLaMo 提出了一种保留运动原始表示（而非转化为语言 token）的多模态指令微调框架，通过同时处理视频、运动序列和文本输入来增强模型对复杂人体行为的理解和预测能力。
 
 **[Improve Representation for Imbalanced Regression through Geometric Constraints](improve_representation_for_imbalanced_regression_through_geometric_constraints.md)**
 
@@ -180,6 +198,14 @@ description: >-
 
 :   提出MotionMap——用热力图表示运动空间分布的新范式，通过t-SNE降维+codebook实现可变数量模式预测和置信度量化，以最少采样实现最佳模式覆盖。
 
+**[MotionReFit: Dynamic Motion Blending for Versatile Motion Editing](motionrefit_motion_editing.md)**
+
+:   提出 MotionReFit，首个通用文本引导动作编辑框架，通过 MotionCutMix 数据增强和自回归扩散模型+运动协调器，同时支持空间和时序编辑，无需额外规格说明或 LLM。
+
+**[MP-GUI: Modality Perception with MLLMs for GUI Understanding](mp-gui_modality_perception_with_mllms_for_gui_understanding.md)**
+
+:   MP-GUI设计了三个专用感知器分别提取GUI中的图形、文本和空间模态信息，通过空间结构精炼策略和自适应融合门控将三种模态组合，在有限训练数据下在多种GUI理解任务上取得了优于通用MLLM的表现。
+
 **[Multi-Sensor Object Anomaly Detection: Unifying Appearance, Geometry, and Internal Properties](multi-sensor_object_anomaly_detection_unifying_appearance_geometry_and_internal_.md)**
 
 :   提出 MulSen-AD，首个融合 RGB 相机、激光扫描仪和红外热成像三种传感器的工业物体异常检测数据集（15 类产品、14 种异常），并设计 MulSen-TripleAD 决策级融合基线方法，实现 96.1% AUROC，证明多传感器融合显著优于单传感器方法。
@@ -228,6 +254,10 @@ description: >-
 
 :   提出 PPA（Project-Probe-Aggregate）三步方法，通过投影去除类代理信息放大偏差、以组先验校正探测组标签、聚合组权重，仅需不到 0.01% 可训练参数即可在无组标注情况下提升基础模型的群组鲁棒性。
 
+**[PS-EIP: Robust Photometric Stereo Based on Event Interval Profile](ps-eip_robust_photometric_stereo_based_on_event_interval_profile.md)**
+
+:   提出基于事件间隔轮廓（Event Interval Profile, EIP）的鲁棒光度立体方法，通过利用事件间隔时间序列的连续性和轮廓形状来检测阴影与镜面反射引起的异常值，无需深度学习即可显著超越 EventPS-FCN。
+
 **[Quaffure: Real-Time Quasi-Static Neural Hair Simulation](quaffure_real-time_quasi-static_neural_hair_simulation.md)**
 
 :   Quaffure 提出首个基于物理自监督的实时准静态头发仿真方法，通过将头发形变分解为刚性姿态变换和学习到的修正，使用改进的 Cosserat 弹性能量作为自监督损失训练 CNN 解码器，在消费级硬件上仅需几毫秒即可为不同发型、体型和姿态预测物理合理的头发悬垂效果。
@@ -260,6 +290,10 @@ description: >-
 
 :   RGBAvatar提出"精简高斯混合形状"表示，仅用20个可学习基底即可高效表征可动画头部虚拟形象，配合批量并行渲染和颜色初始化策略，首次实现在线实时（边拍边建）的头部虚拟形象重建。
 
+**[RUBIK: A Structured Benchmark for Image Matching across Geometric Challenges](rubik_a_structured_benchmark_for_image_matching_across_geometric_challenges.md)**
+
+:   RUBIK提出了一个基于nuScenes数据集的结构化图像匹配基准，通过重叠度、尺度比和视角差三个互补的几何难度准则将16.5K图像对组织成33个难度等级，系统评估了14种方法后发现最好的detector-free方法（DUSt3R）也仅在54.8%的图像对上成功，暴露了当前方法在极端几何条件下的严重不足。
+
 **[Scalable Video-to-Dataset Generation for Cross-Platform Mobile Agents](scalable_video-to-dataset_generation_for_cross-platform_mobile_agents.md)**
 
 :   MONDAY 框架从 YouTube 教学视频自动生成移动端导航数据集——通过 OCR 场景转换检测和 GPT-4o 的 3 步动作识别流程，以人工标注 1/17 的成本（$0.34 vs $5.76/视频）构建了覆盖 iOS/Android 双平台的 313K 标注帧，预训练后 agent 在未见的 Windows Mobile 上提升 18.11%。
@@ -276,9 +310,9 @@ description: >-
 
 :   本文提出 ShapeMove 框架，通过 Shape-Aware FSQ-VAE 将连续体型信息注入离散量化的动作 token，并利用预训练语言模型同时预测体型参数和动作 token，实现了首个从自然语言描述端到端生成体型感知动作的方法。
 
-**[ShowMak3r: Compositional TV Show Reconstruction](showmak3r_compositional_tv_show_reconstruction.md)**
+**[ShowMak3r++: Compositional Entertainment Video Reconstruction](showmak3r_compositional_tv_show_reconstruction.md)**
 
-:   提出 ShowMak3r，首个从网络视频（芭蕾/跑酷/电影片段）中进行组合式 4D 重建的完整流水线：3DGS 舞台重建 + 深度引导的 SMPL 时空定位 + 跨镜头演员匹配 + 隐式 MLP 面部表情精化，舞台 PSNR 19.65，面部 PSNR 24.34（比 ExAvatar +4.17）。
+:   本文提出 ShowMak3r++，一个从电视节目和网络视频重建动态辐射场的组合式管线，核心创新包括基于深度先验的时空定位模块、跨镜头演员关联的 ShotMatcher，以及隐式人脸拟合网络，支持演员重定位、插入、删除等后制编辑应用。
 
 **[ShowUI: One Vision-Language-Action Model for GUI Visual Agent](showui_one_vision-language-action_model_for_gui_visual_agent.md)**
 
@@ -319,6 +353,10 @@ description: >-
 **[TensoFlow: Tensorial Flow-based Sampler for Inverse Rendering](tensoflow_tensorial_flow-based_sampler_for_inverse_rendering.md)**
 
 :   提出 TensoFlow，通过张量化归一化流（Tensorial Normalizing Flow）学习空间-方向感知的重要性采样器，替代逆渲染中固定的预定义采样器（如 cosine-weighted、GGX），大幅降低渲染方程蒙特卡洛估计的方差，提升材质和光照分解质量。
+
+**[Towards General Visual-Linguistic Face Forgery Detection](towards_general_visual-linguistic_face_forgery_detection.md)**
+
+:   VLFFD 提出了一种视觉-语言范式的深度伪造检测方法，通过 Prompt Forgery Image Generator (PFIG) 自动生成带有细粒度文本描述的混合伪造图像，再用 Coarse-and-Fine Co-training (C2F) 框架联合训练粗粒度和细粒度数据，显著提升了检测模型的泛化性和可解释性。
 
 **[Towards High-fidelity 3D Talking Avatar with Personalized Dynamic Texture](towards_high-fidelity_3d_talking_avatar_with_personalized_dynamic_texture.md)**
 

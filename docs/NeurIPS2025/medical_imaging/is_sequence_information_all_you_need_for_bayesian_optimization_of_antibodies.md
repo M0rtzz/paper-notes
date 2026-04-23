@@ -146,7 +146,7 @@ tags:
 - [Extending Sequence Length is Not All You Need: Effective Integration of Multimodal Signals for Gene Expression Prediction](../../ICLR2026/medical_imaging/extending_sequence_length_is_not_all_you_need_effective_integration_of_multimoda.md)
 - [Steering Generative Models with Experimental Data for Protein Fitness Optimization](steering_generative_models_with_experimental_data_for_protein_fitness_optimizati.md)
 - [Empower Structure-Based Molecule Optimization with Gradient Guided Bayesian Flow Networks](../../ICML2025/medical_imaging/empower_structure-based_molecule_optimization_with_gradient_guided_bayesian_flow.md)
+- [Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation?](../../CVPR2025/medical_imaging/are_general-purpose_vision_models_all_we_need_for_2d_medical_image_segmentation_.md)
 - [Multimodal Bayesian Network for Robust Assessment of Casualties in Autonomous Triage](multimodal_bayesian_network_for_robust_assessment_of_casualties_in_autonomous_tr.md)
-- [Unified All-Atom Molecule Generation with Neural Fields](unified_all-atom_molecule_generation_with_neural_fields.md)
 
 <!-- RELATED:END -->

@@ -130,10 +130,10 @@ tags:
 
 ## 相关论文
 
+- [ETAP: Event-based Tracking of Any Point](../../CVPR2025/video_understanding/etap_event-based_tracking_of_any_point.md)
 - [Beyond the Frame: Generating 360° Panoramic Videos from Perspective Videos](../../ICCV2025/video_understanding/beyond_the_frame_generating_360deg_panoramic_videos_from_perspective_videos.md)
-- [TAPTR: Tracking Any Point with Transformers as Detection](../../ECCV2024/video_understanding/taptr_tracking_any_point_with_transformers_as_detection.md)
 - [Self-Supervised Any-Point Tracking by Contrastive Random Walks](../../ECCV2024/video_understanding/self-supervised_any-point_tracking_by_contrastive_random_walks.md)
 - [Fixed-Point RNNs: Interpolating from Diagonal to Dense](fixed-point_rnns_interpolating_from_diagonal_to_dense.md)
-- [MITracker: Multi-View Integration for Visual Object Tracking](../../CVPR2025/video_understanding/mitracker_multi-view_integration_for_visual_object_tracking.md)
+- [Structured Sparse Transition Matrices to Enable State Tracking in State-Space Models](structured_sparse_transition_matrices_to_enable_state_tracking_in_state-space_mo.md)
 
 <!-- RELATED:END -->

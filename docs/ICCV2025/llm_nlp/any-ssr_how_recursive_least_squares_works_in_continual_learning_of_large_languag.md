@@ -200,10 +200,10 @@ Any-SSR在无需回放的情况下，通用能力损失仅-1.26，接近使用1%
 
 ## 相关论文
 
+- [VA-GPT: Aligning Effective Tokens with Video Anomaly in Large Language Models](va_gpt_aligning_effective_tokens_video_anomaly.md)
 - [Recurrent Knowledge Identification and Fusion for Language Model Continual Learning](../../ACL2025/llm_nlp/recurrent_kif_continual_learning.md)
-- [AfroBench: How Good are Large Language Models on African Languages?](../../ACL2025/llm_nlp/afrobench_how_good_are_large_language_models_on_african_languages.md)
-- [Large Language Models for Predictive Analysis: How Far Are They?](../../ACL2025/llm_nlp/large_language_models_for_predictive_analysis_how_far_are_they.md)
-- [C²Prompt: Class-aware Client Knowledge Interaction for Federated Continual Learning](../../NeurIPS2025/llm_nlp/c2prompt_class-aware_client_knowledge_interaction_for_federated_continual_learni.md)
-- [One-stage Prompt-based Continual Learning](../../ECCV2024/llm_nlp/one-stage_prompt-based_continual_learning.md)
+- [Zeroth-Order Fine-Tuning of LLMs in Random Subspaces](zeroth-order_fine-tuning_of_llms_in_random_subspaces.md)
+- [GORP: Continual Gradient Low-Rank Projection Fine-Tuning for LLMs](../../ACL2025/llm_nlp/gorp_continual_gradient_projection.md)
+- [HFT: Half Fine-Tuning for Large Language Models](../../ACL2025/llm_nlp/hft_half_fine-tuning_for_large_language_models.md)
 
 <!-- RELATED:END -->

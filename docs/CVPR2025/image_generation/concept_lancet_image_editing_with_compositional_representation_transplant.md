@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：基于扩散模型的图像编辑（如 P2P-Zero、InfEdit 等）通常通过在文本嵌入或 score 空间做向量加减来实现概念修改。例如替换"猫→狗"就把嵌入中减去"猫"加上"狗"。
 
 **现有痛点**：简单的向量加减（VecAdd）面临严重的编辑强度校准问题：(1) 减去太多导致源图像结构崩坏；(2) 减去太少导致源概念残留；(3) 不同概念需要不同强度但无法自动确定。这使得编辑在效果和一致性之间难以平衡。
@@ -102,10 +104,10 @@ tags:
 
 ## 相关论文
 
-- [Unveil Inversion and Invariance in Flow Transformer for Versatile Image Editing](unveil_inversion_and_invariance_in_flow_transformer_for_versatile_image_editing.md)
+- [Multi-Group Proportional Representation for Text-to-Image Models](multi-group_proportional_representations_for_text-to-image_models.md)
 - [Towards Scalable Human-Aligned Benchmark for Text-Guided Image Editing](towards_scalable_human-aligned_benchmark_for_text-guided_image_editing.md)
+- [Unveil Inversion and Invariance in Flow Transformer for Versatile Image Editing](unveil_inversion_and_invariance_in_flow_transformer_for_versatile_image_editing.md)
 - [Stable Flow: Vital Layers for Training-Free Image Editing](stable_flow_vital_layers_for_training-free_image_editing.md)
 - [Intrinsic Concept Extraction Based on Compositional Interpretability](../../CVPR2026/image_generation/intrinsic_concept_extraction_based_on_compositional_interpretability.md)
-- [coDrawAgents: A Multi-Agent Dialogue Framework for Compositional Image Generation](codrawagents_a_multi-agent_dialogue_framework_for_compositional_image_generation.md)
 
 <!-- RELATED:END -->

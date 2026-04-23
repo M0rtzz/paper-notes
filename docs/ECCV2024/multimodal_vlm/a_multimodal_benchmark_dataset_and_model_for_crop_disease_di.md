@@ -108,6 +108,6 @@ tags:
 - [Dataset Growth (InfoGrowth)](dataset_growth.md)
 - [Are Vision Language Models Ready for Clinical Diagnosis? A 3D Medical Benchmark for Tumor-centric Visual Question Answering](../../NeurIPS2025/multimodal_vlm/are_vision_language_models_ready_for_clinical_diagnosis_a_3d_medical_benchmark_f.md)
 - [FinMME: Benchmark Dataset for Financial Multi-Modal Reasoning Evaluation](../../ACL2025/multimodal_vlm/finmme_benchmark_dataset_for_financial_multi-modal_reasoning_evaluation.md)
-- [iNews: A Multimodal Dataset for Modeling Personalized Affective Responses to News](../../ACL2025/multimodal_vlm/inews_a_multimodal_dataset_for_modeling_personalized_affective_responses_to_news.md)
+- [GENIXER: Empowering Multimodal Large Language Model as a Powerful Data Generator](genixer_empowering_multimodal_large_language_model_as_a_powe.md)
 
 <!-- RELATED:END -->

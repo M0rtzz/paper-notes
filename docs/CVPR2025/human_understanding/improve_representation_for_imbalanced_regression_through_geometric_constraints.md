@@ -131,9 +131,9 @@ UCI-Airfoil数据集上（MAE）：
 ## 相关论文
 
 - [Learning Affine Correspondences by Integrating Geometric Constraints](learning_affine_correspondences_by_integrating_geometric_constraints.md)
-- [SemGeoMo: Dynamic Contextual Human Motion Generation with Semantic and Geometric Guidance](semgeomo_dynamic_contextual_human_motion_generation_with_semantic_and_geometric_.md)
+- [RUBIK: A Structured Benchmark for Image Matching across Geometric Challenges](rubik_a_structured_benchmark_for_image_matching_across_geometric_challenges.md)
 - [NN-Former: Rethinking Graph Structure in Neural Architecture Representation](nn-former_rethinking_graph_structure_in_neural_architecture_representation.md)
 - [Omni-ID: Holistic Identity Representation Designed for Generative Tasks](omni-id_holistic_identity_representation_designed_for_generative_tasks.md)
-- [Design2GarmentCode: Turning Design Concepts to Tangible Garments Through Program Synthesis](design2garmentcode_turning_design_concepts_to_tangible_garments_through_program_.md)
+- [Dynamic Neural Surfaces for Elastic 4D Shape Representation and Analysis](dynamic_neural_surfaces_for_elastic_4d_shape_representation_and_analysis.md)
 
 <!-- RELATED:END -->

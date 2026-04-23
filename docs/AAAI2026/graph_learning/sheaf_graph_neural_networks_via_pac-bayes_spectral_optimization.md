@@ -28,13 +28,15 @@ tags:
 
 ## 背景与动机
 
-经典 GNN（GCN、GAT）本质上是低通滤波器，在同质图（相邻节点标签一致）上效果好，但在异质图上性能严重退化——这就是过平滑问题。Cellular sheaf 理论将边重新解释为局部特征空间之间的线性限制映射，其 sheaf Laplacian 的谱能捕获边的方向性和类别分散度。
+### 现有痛点
+
+**现有痛点**：**领域现状**：经典 GNN（GCN、GAT）本质上是低通滤波器，在同质图（相邻节点标签一致）上效果好，但在异质图上性能严重退化——这就是过平滑问题。Cellular sheaf 理论将边重新解释为局部特征空间之间的线性限制映射，其 sheaf Laplacian 的谱能捕获边的方向性和类别分散度。
 
 现有 sheaf GNN 存在三个关键限制：(1) 通常使用固定或简单门控的限制映射；(2) 缺乏异质性感知的不确定性校准；(3) 除了经验测试准确率外没有泛化保证。PAC-Bayes 分析可提供原理性的泛化界，但现有 GNN 的 PAC-Bayes 界因忽略底层算子的谱而过松。
 
-## 核心问题
+### 解决思路
 
-如何在学习 sheaf 限制映射的同时，通过谱间隙优化收紧 PAC-Bayes 泛化界，从而在异质图上获得有保证的强性能？
+**本文目标**：如何在学习 sheaf 限制映射的同时，通过谱间隙优化收紧 PAC-Bayes 泛化界，从而在异质图上获得有保证的强性能？
 
 ## 方法详解
 
@@ -64,6 +66,9 @@ SGPC 包含三大模块：(1) OT + WE Lift 学习 sheaf 限制映射；(2) SVR-A
 
 ### 节点分类（9 个基准，准确率 %）
 
+
+### 主实验
+
 | 方法 | Cora | Citeseer | Actor | Chameleon | Cornell | Texas | Wisconsin |
 |------|------|----------|-------|-----------|---------|-------|-----------|
 | GCN | 81.3 | 71.1 | 20.4 | 49.8 | 60.2 | 68.3 | 57.7 |
@@ -74,7 +79,7 @@ SGPC 包含三大模块：(1) OT + WE Lift 学习 sheaf 限制映射；(2) SVR-A
 
 在异质图上优势尤为明显：Cornell/Texas/Wisconsin（同质率仅 0.06-0.16）上大幅超越经典 GNN。
 
-## 亮点
+## 亮点与洞察
 
 - **理论完备性突出**：提供 CG 收敛、$\lambda_2$ 单调增长、风险-方差收缩、PAC-Bayes 泛化界四重理论保证
 - **谱间隙与泛化界的精妙联系**：通过 $c_{het}/\lambda_2$ 正则化将异质性惩罚与扩散能力绑定
@@ -87,11 +92,11 @@ SGPC 包含三大模块：(1) OT + WE Lift 学习 sheaf 限制映射；(2) SVR-A
 - $\beta$-Dirichlet 后验的固定点求解器收敛速度依赖先验参数选择
 - 实验中同质图（Cora/Citeseer/Pubmed）的提升相对有限
 
-## 与相关工作的对比
+## 相关工作与启发
 
 NSD 使用静态或参数化 sheaf 结构但缺乏谱控制和泛化保证；Bodnar et al. 通过路径对齐优化谱间隙但无 PAC-Bayes 校准；现有 PAC-Bayes for GNN 工作界过松因忽略谱信息。SGPC 首次将 OT-based sheaf 学习、谱间隙优化和 PAC-Bayes 风险控制统一。
 
-## 启发与关联
+## 相关工作与启发
 
 - PAC-Bayes + 谱优化的范式可推广到其他图上的概率模型
 - Wasserstein Lift 学习 sheaf 映射的思路可启发流形学习方法
@@ -111,7 +116,7 @@ NSD 使用静态或参数化 sheaf 结构但缺乏谱控制和泛化保证；Bod
 - [Cooperative Sheaf Neural Networks](../../ICLR2026/graph_learning/cooperative_sheaf_neural_networks.md)
 - [Adaptive Riemannian Graph Neural Networks](adaptive_riemannian_graph_neural_networks.md)
 - [NOTAM-Evolve: A Knowledge-Guided Self-Evolving Optimization Framework with LLMs for NOTAM Interpretation](notam-evolve_a_knowledge-guided_self-evolving_optimization_framework_with_llms_f.md)
+- [Kernelized Edge Attention: Addressing Semantic Attention Blurring in Temporal Graph Neural Networks](kernelized_edge_attention_addressing_semantic_attention_blurring_in_temporal_gra.md)
 - [Magnitude-Modulated Equivariant Adapter for Parameter-Efficient Fine-Tuning of Equivariant Graph Neural Networks](magnitude-modulated_equivariant_adapter_for_parameter-efficient_fine-tuning_of_e.md)
-- [Spiking Heterogeneous Graph Attention Networks](spiking_heterogeneous_graph_attention_networks.md)
 
 <!-- RELATED:END -->

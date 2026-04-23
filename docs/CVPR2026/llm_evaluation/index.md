@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 LLM评测方向 20篇论文解读
+  CVPR2026 LLM评测方向 23篇论文解读
 description: >-
-  20篇CVPR2026 LLM评测论文解读，主题涵盖：提出 AdaBet，一种基于代数拓扑（第一、提出首个跨尺度全色锐化数据集PanScale和评测、提出 CryoHype，一种基于等，每篇含核心思想与方法详解。
+  23篇CVPR2026 LLM评测论文解读，主题涵盖：提出 AdaBet，一种基于代数拓扑（第一、提出首个跨尺度全色锐化数据集PanScale和评测、提出 CryoHype，一种基于等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**📷 CVPR2026** · **20** 篇论文解读
+**📷 CVPR2026** · **23** 篇论文解读
 
 **[AdaBet: Gradient-free Layer Selection for Efficient Training of Deep Neural Networks](adabet_gradient-free_layer_selection_for_efficient_training_of_deep_neural_netwo.md)**
 
@@ -46,6 +46,10 @@ description: >-
 
 :   提出Hier-COS框架，为层次标签树中的每个节点分配正交基向量，通过子空间组合（祖先基+自身基+后代基）构建层次感知向量空间（HAVS），理论保证特征空间的距离结构与层次树一致，同时提出HOPS评估指标解决现有层次化评估指标的排列不变性缺陷。
 
+**[HyCal: A Training-Free Prototype Calibration Method for Cross-Discipline Few-Shot Class-Incremental Learning](hycal_training_free_prototype_calibration_for_cross_discipline_fscil.md)**
+
+:   本文识别了异质域持续学习中的"域引力"（Domain Gravity）偏差——数据丰富或低熵域在共享嵌入空间中产生不成比例的影响，并提出 HyCal，一种无训练方法，通过融合余弦相似度和马氏距离进行原型校准，在跨学科不平衡少样本增量学习中实现稳健分类。
+
 **[Out of Sight, Out of Mind? Evaluating State Evolution in Video World Models](out_of_sight_out_of_mind_evaluating_state_evolutio.md)**
 
 :   本文提出StEvo-Bench，一个包含225个任务的benchmark，通过在视频生成过程中插入遮挡或相机转向来测试视频世界模型能否在不可观测期间继续正确演化场景状态，发现当前最先进模型（包括Veo 3、Sora 2 Pro等）的成功率不到10%，揭示了视频模型将状态演化与观察高度耦合的根本问题。
@@ -57,6 +61,10 @@ description: >-
 **[Pioneering Perceptual Video Fluency Assessment: A Novel Task with Benchmark Dataset and Baseline](pioneering_perceptual_video_fluency_assessment_a_novel_task_with_benchmark_datas.md)**
 
 :   本文首次将视频流畅度评估（VFA）从传统视频质量评估（VQA）中独立出来，构建了首个流畅度评估数据集 FluVid（4,606 视频），并提出 FluNet 基线模型，通过时序排列自注意力（T-PSA）实现高效帧间交互，SRCC/PLCC 分别达到 0.816/0.821。
+
+**[R2G: A Multi-View Circuit Graph Benchmark Suite from RTL to GDSII](r2g_multi_view_circuit_graph_benchmark_suite_from_rtl_to_gdsii.md)**
+
+:   提出 R2G，首个标准化的多视图电路图基准套件，在 30 个 IP 核上提供 5 种阶段感知的图表示（具有信息对等性），系统研究发现图表示选择比 GNN 模型选择对性能影响更大。
 
 **[ReflexSplit: Single Image Reflection Separation via Layer Fusion-Separation](reflexsplit_single_image_reflection_separation_via_layer_fusion-separation.md)**
 
@@ -85,6 +93,10 @@ description: >-
 **[Temporal Imbalance of Positive and Negative Supervision in Class-Incremental Learning](temporal_imbalance_of_positive_and_negative_supervision_in_class-incremental_lea.md)**
 
 :   提出时序不平衡（Temporal Imbalance）这一被忽视的类增量学习偏差来源，并设计 Temporal-Adjusted Loss（TAL）通过时间衰减记忆核动态降低旧类的负监督权重，以即插即用的方式显著缓解灾难性遗忘。
+
+**[VGA-Bench: A Unified Benchmark for Video Aesthetics and Generation Quality Evaluation](vga_bench_unified_benchmark_for_video_aesthetics_and_generation_quality.md)**
+
+:   VGA-Bench提出了一个统一的AIGC视频评估基准，包含三层分类体系（美学质量、美学标签、生成质量）、1016个提示词、60000个视频和三个专用评估模型，实现了与人类判断对齐的自动化评估。
 
 **[Weakly Supervised Video Anomaly Detection with Anomaly-Connected Components and Intention Reasoning](weakly_supervised_video_anomaly_detection_with_anomaly-connected_components_and_.md)**
 

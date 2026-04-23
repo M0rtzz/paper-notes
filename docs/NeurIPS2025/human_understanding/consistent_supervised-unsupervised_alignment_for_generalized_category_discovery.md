@@ -129,7 +129,7 @@ NC-GCD 包含四个核心组件：(1) 预训练视觉编码器 $f(\cdot)$（DINO
 - [UnCLe: Towards Scalable Dynamic Causal Discovery in Non-Linear Temporal Systems](uncle_towards_scalable_dynamic_causal_discovery_in_non-linear_temporal_systems.md)
 - [Cycle-Sync: Robust Global Camera Pose Estimation through Enhanced Cycle-Consistent Synchronization](cycle-sync_robust_global_camera_pose_estimation_through_enhanced_cycle-consisten.md)
 - [Interleaving One-Class and Weakly-Supervised Models with Adaptive Thresholding for Unsupervised Video Anomaly Detection](../../ECCV2024/human_understanding/interleaving_one-class_and_weakly-supervised_models_with_adaptive_thresholding_f.md)
-- [Mouse-Guided Gaze: Semi-Supervised Learning of Intention-Aware Representations for Reading Detection](mouse-guided_gaze_semi-supervised_learning_of_intention-aware_representations_fo.md)
-- [SignRep: Enhancing Self-Supervised Sign Representations](../../ICCV2025/human_understanding/signrep_enhancing_self-supervised_sign_representations.md)
+- [GROVE: A Generalized Reward for Learning Open-Vocabulary Physical Skill](../../CVPR2025/human_understanding/grove_a_generalized_reward_for_learning_open-vocabulary_physical_skill.md)
+- [Intra-view and Inter-view Correlation Guided Multi-view Novel Class Discovery](../../ICCV2025/human_understanding/intra-view_and_inter-view_correlation_guided_multi-view_novel_class_discovery.md)
 
 <!-- RELATED:END -->

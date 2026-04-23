@@ -26,7 +26,9 @@ tags:
 
 ## 研究背景与动机
 
-度量学习是机器学习中的基础任务。传统方法将数据映射到欧氏空间后使用欧氏距离，但这受限于欧氏空间的几何约束。更灵活的方法是在数据空间定义黎曼度量并求解测地距离。
+### 核心矛盾
+
+**核心矛盾**：**领域现状**：度量学习是机器学习中的基础任务。传统方法将数据映射到欧氏空间后使用欧氏距离，但这受限于欧氏空间的几何约束。更灵活的方法是在数据空间定义黎曼度量并求解测地距离。
 
 **Fermat 距离**是一类基于密度的距离（DBD），核心思想类似光学中的费马最小时间原理：定义共形度量张量 $g_x(u,v) = \langle u,v\rangle / p(x)^{2\beta}$，使得低密度区域被"拉长"，高密度区域被"压缩"。测地线自然沿数据流形的高密度区域行进。
 
@@ -86,14 +88,14 @@ $$\ddot{\varphi} - \beta(s(\varphi)\cdot\dot{\varphi})\dot{\varphi} + \beta s(\v
 - **Flow score vs Score matching**：直接用 flow 导数噪声过大，score matching 更精确
 - **维度缩放**：$\beta = 1/D$ 显著改善数值稳定性
 
-## 亮点
+## 亮点与洞察
 
 - 首次在 Fermat 距离领域提供了 ground truth 对比评估
 - 揭示了传统方法理论保证与实际性能巨大差距的根源：密度估计精度不足
 - 维度自适应缩放 $\beta=1/D$ 使方法可推广到高维
 - Score 松弛法有效克服维度灾难
 
-## 局限性
+## 局限与展望
 
 - 高维实验仅在标准高斯分布上测试，未验证真实高维数据集
 - Score matching 和 normalizing flows 本身需要训练，增加前期计算成本
@@ -109,8 +111,8 @@ $$\ddot{\varphi} - \beta(s(\varphi)\cdot\dot{\varphi})\dot{\varphi} + \beta s(\v
 
 - [Score Matching with Missing Data](score_matching_with_missing_data.md)
 - [WGFormer: An SE(3)-Transformer Driven by Wasserstein Gradient Flows for Molecular Generation](wgformer_an_se3-transformer_driven_by_wasserstein_gradient_flows_for_molecular_g.md)
-- [Diversity by Design: Leveraging Distribution Matching for Offline Model-Based Optimization](diversity_by_design_leveraging_distribution_matching_for_offline_model-based_opt.md)
+- [Diversity By Design: Leveraging Distribution Matching for Offline Model-Based Optimization](diversity_by_design_leveraging_distribution_matching_for_offline_model-based_opt.md)
 - [Fully Dynamic Euclidean Bi-Chromatic Matching in Sublinear Update Time](fully_dynamic_euclidean_bi-chromatic_matching_in_sublinear_update_time.md)
-- [PAC Learning with Improvements](pac_learning_with_improvements.md)
+- [Stable Matching with Ties: Approximation Ratios and Learning](../../NeurIPS2025/others/stable_matching_with_ties_approximation_ratios_and_learning.md)
 
 <!-- RELATED:END -->

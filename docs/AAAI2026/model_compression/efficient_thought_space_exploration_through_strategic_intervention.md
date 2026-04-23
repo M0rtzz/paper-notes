@@ -183,7 +183,7 @@ HPR 采用两个角色：
 - [SEE: Strategic Exploration and Exploitation for Cohesive In-Context Prompt Optimization](../../ACL2025/model_compression/see_strategic_exploration_exploitation_prompt_optimization.md)
 - [ELSE: Efficient Deep Neural Network Inference through Line-based Sparsity Exploration](../../ECCV2024/model_compression/else_efficient_deep_neural_network_inference_through_line-based_sparsity_explora.md)
 - [A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings](../../NeurIPS2025/model_compression/a-thought_efficient_reasoning_via_bidirectional_compression_for_low-resource_set.md)
+- [Gradient Short-Circuit: Efficient Out-of-Distribution Detection via Feature Intervention](../../ICCV2025/model_compression/gradient_short-circuit_efficient_out-of-distribution_detection_via_feature_inter.md)
 - [Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression](efficient_reasoning_for_large_reasoning_language_models_via_certainty-guided_ref.md)
-- [Pre-training Distillation for Large Language Models: A Design Space Exploration](../../ACL2025/model_compression/pre-training_distillation_for_large_language_models_a_design_space_exploration.md)
 
 <!-- RELATED:END -->

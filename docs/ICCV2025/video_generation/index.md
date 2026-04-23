@@ -1,18 +1,22 @@
 ---
 title: >-
-  ICCV2025 视频生成方向 46篇论文解读
+  ICCV2025 视频生成方向 51篇论文解读
 description: >-
-  46篇ICCV2025 视频生成论文解读，主题涵盖：本文提出对抗分布匹配（ADM）框架、提出AID框架，将预训练的Image2Video扩、本文提出MATR（Moment等，每篇含核心思想与方法详解。
+  51篇ICCV2025 视频生成论文解读，主题涵盖：本文提出对抗分布匹配（ADM）框架、提出对抗式分布匹配(ADM)框架、提出AID框架，将预训练的Image2Video扩等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频生成
 
-**📹 ICCV2025** · **46** 篇论文解读
+**📹 ICCV2025** · **51** 篇论文解读
 
 **[Adversarial Distribution Matching for Diffusion Distillation Towards Efficient Image and Video Synthesis](adversarial_distribution_matching_for_diffusion_distillation_towards_efficient_i.md)**
 
 :   本文提出对抗分布匹配（ADM）框架，通过基于扩散模型的判别器以对抗方式对齐真假分数估计器的潜在预测，替代DMD中预定义的KL散度，结合对抗蒸馏预训练（ADP），在SDXL上实现一步生成超越DMD2，并在SD3和CogVideoX上刷新多步蒸馏基准。
+
+**[Adversarial Distribution Matching for Diffusion Distillation Towards Efficient Image and Video Synthesis](adversarial_distribution_matching_for_diffusion_distillation_towards_efficient_image_and_video_synthesis.md)**
+
+:   提出对抗式分布匹配(ADM)框架，用基于扩散模型的判别器以隐式、数据驱动的方式对齐真假分数估计器的潜在预测，取代DMD中预定义的KL散度，结合对抗蒸馏预训练(ADP)形成DMDX管线，在SDXL一步生成上超越DMD2，并扩展到SD3和CogVideoX视频生成。
 
 **[AID: Adapting Image2Video Diffusion Models for Instruction-guided Video Prediction](aid_adapting_image2video_diffusion_models_for_instruction-guided_video_predictio.md)**
 
@@ -54,6 +58,10 @@ description: >-
 
 :   提出DIVE框架，利用预训练DINOv2模型的语义特征作为隐式对应关系来引导主体驱动的视频编辑，通过DINO特征进行时序运动建模和目标主体身份注册，实现高质量的主体替换同时保持运动一致性。
 
+**[DOLLAR: Few-Step Video Generation via Distillation and Latent Reward Optimization](dollar_few-step_video_generation_via_distillation_and_latent_reward_optimization.md)**
+
+:   提出 DOLLAR，结合变分分数蒸馏（VSD）和一致性蒸馏（CD）实现少步视频生成，并引入潜在奖励模型微调策略进一步提升质量，4 步学生模型在 VBench 上达到 82.57 分超越教师模型和 Gen-3、Kling 等基线，单步蒸馏实现 278.6 倍加速。
+
 **[DOLLAR: Few-Step Video Generation via Distillation and Latent Reward Optimization](dollar_fewstep_video_generation_via_distillation_and_latent.md)**
 
 :   结合变分分数蒸馏（VSD）和一致性蒸馏实现少步视频生成，同时提出潜空间奖励模型微调方法进一步优化特定质量维度，4步student模型在VBench上达82.57分超越teacher模型和Gen-3/Kling等商业基线，1步蒸馏实现278.6倍采样加速。
@@ -86,6 +94,10 @@ description: >-
 
 :   提出 FuXi-RTM，首个将深度学习辐射传输模型 (DLRTM) 作为可微物理正则化器集成到天气预报框架中的混合物理引导体系，在 88.51% 的变量-预报时效组合上超越无约束基线。
 
+**[FVGen: Accelerating Novel-View Synthesis with Adversarial Video Diffusion Distillation](fvgen_accelerating_novel-view_synthesis_with_adversarial_video_diffusion_distill.md)**
+
+:   本文提出 FVGen，一个将多步视频扩散模型（VDM）蒸馏为仅需 4 步采样的快速学生模型的框架，通过 GAN 目标的学生初始化和软化反向 KL 散度优化，实现了保持甚至超越教师模型视觉质量的同时减少 90% 以上的采样时间。
+
 **[Generating, Fast and Slow: Scalable Parallel Video Generation with Video Interface Networks](generating_fast_and_slow_scalable_parallel_video_generation_with_video_interface.md)**
 
 :   提出 Video Interface Networks (VINs)，一种类似"快思考"的抽象模块，在每个扩散步中将长视频编码为固定大小的全局 token，引导 DiT 并行生成多个视频 chunk，实现高效且时序一致的长视频生成。
@@ -101,6 +113,10 @@ description: >-
 **[MagicDrive-V2: High-Resolution Long Video Generation for Autonomous Driving with Adaptive Control](magicdrive-v2_high-resolution_long_video_generation_for_autonomous_driving_with_.md)**
 
 :   MagicDrive-V2 提出了基于 DiT + 3D VAE 的多视角驾驶视频生成框架，通过时空条件编码模块和渐进式训练策略，实现了 848×1600×6 视角、241 帧的高分辨率长视频生成，显著超越现有方法的分辨率和帧数限制。
+
+**[MagicMirror: ID-Preserved Video Generation in Video Diffusion Transformers](magicmirror_id-preserved_video_generation_in_video_diffusion_transformers.md)**
+
+:   MagicMirror 是首个基于 Video Diffusion Transformer（CogVideoX）实现零样本身份保持视频生成的框架，通过双分支面部特征提取、条件自适应归一化（CAN）和图像预训练+视频微调两阶段策略，在保持人脸身份一致性的同时生成高质量动态视频。
 
 **[MotionAgent: Fine-grained Controllable Video Generation via Motion Field Agent](motionagent_fine-grained_controllable_video_generation_via_motion_field_agent.md)**
 
@@ -145,6 +161,10 @@ description: >-
 **[ReCamMaster: Camera-Controlled Generative Rendering from A Single Video](recammaster_camera-controlled_generative_rendering_from_a_single_video.md)**
 
 :   提出 ReCamMaster，通过帧维度拼接的视频条件注入机制和 UE5 合成的多相机同步数据集，实现从单视频输入以新相机轨迹重新生成视频，显著超越现有方法。
+
+**[SteerX: Creating Any Camera-Free 3D and 4D Scenes with Geometric Steering](steerx_creating_any_camera-free_3d_and_4d_scenes_with_geometric_steering.md)**
+
+:   SteerX 提出了一种零样本推理时引导方法，通过将场景重建融入视频生成过程中，利用无需相机参数的前馈重建模型设计几何奖励函数，引导生成分布朝向更好的几何一致性，实现了高质量的无相机条件 3D/4D 场景生成。
 
 **[STiV: Scalable Text and Image Conditioned Video Generation](stiv_scalable_text_and_image_conditioned_video_generation.md)**
 

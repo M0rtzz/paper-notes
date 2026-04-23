@@ -146,6 +146,6 @@ tags:
 - [De-confounded Gaze Estimation](de-confounded_gaze_estimation.md)
 - [Learning Anomalies with Normality Prior for Unsupervised Video Anomaly Detection](learning_anomalies_with_normality_prior_for_unsupervised_video_anomaly_detection.md)
 - [Momentum Auxiliary Network for Supervised Local Learning](momentum_auxiliary_network_for_supervised_local_learning.md)
-- [Harnessing Feature Resonance under Arbitrary Target Alignment for Out-of-Distribution Node Detection](../../NeurIPS2025/others/harnessing_feature_resonance_under_arbitrary_target_alignment_for_out-of-distrib.md)
+- [GazeXplain: Learning to Predict Natural Language Explanations of Visual Scanpaths](gazexplain_learning_to_predict_natural_language_explanations_of_visual_scanpaths.md)
 
 <!-- RELATED:END -->

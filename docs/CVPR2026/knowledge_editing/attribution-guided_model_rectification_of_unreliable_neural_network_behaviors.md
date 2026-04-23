@@ -178,6 +178,6 @@ Rank-one编辑的优化目标为约束最小二乘：$\min_\Lambda \|v^* - f_l(k
 - [Energy-Regularized Sequential Model Editing on Hyperspheres](../../ICLR2026/knowledge_editing/energy-regularized_sequential_model_editing_on_hyperspheres.md)
 - [Fine-tuning Done Right in Model Editing](../../ICLR2026/knowledge_editing/fine-tuning_done_right_in_model_editing.md)
 - [EAMET: Robust Massive Model Editing via Embedding Alignment Optimization](../../ICLR2026/knowledge_editing/eamet_robust_massive_model_editing_via_embedding_alignment_optimization.md)
-- [DocMEdit: Towards Document-Level Model Editing](../../ACL2025/knowledge_editing/docmedit_towards_document-level_model_editing.md)
+- [Bilinear Representation Mitigates Reversal Curse and Enables Consistent Model Editing](../../ICLR2026/knowledge_editing/bilinear_representation_mitigates_reversal_curse_and_enables_consistent_model_ed.md)
 
 <!-- RELATED:END -->

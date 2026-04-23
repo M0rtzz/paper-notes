@@ -121,10 +121,10 @@ $\mathcal{L} = \mathcal{L}_{rec} + 0.1 \cdot \mathcal{L}_{KL} + \mathcal{L}_{tas
 
 ## 相关论文
 
-- [SpectralGCD: Spectral Concept Selection and Cross-modal Representation Learning for Generalized Category Discovery](../../ICLR2026/object_detection/spectralgcd_spectral_concept_selection_and_cross-modal_representation_learning_f.md)
-- [Learning Multi-Modal Prototypes for Cross-Domain Few-Shot Object Detection](../../CVPR2026/object_detection/learning_multi-modal_prototypes_for_cross-domain_few-shot_object_detection.md)
 - [DreamVideo-Omni: Omni-Motion Controlled Multi-Subject Video Customization with Latent Identity Reinforcement Learning](dreamvideo-omni_omni-motion_controlled_multi-subject_video_customization_with_la.md)
-- [DetectiumFire: A Comprehensive Multi-modal Dataset Bridging Vision and Language for Fire Understanding](../../NeurIPS2025/object_detection/detectiumfire_a_comprehensive_multi-modal_dataset_bridging_vision_and_language_f.md)
-- [Global Context-aware Representation Learning for Spatially Resolved Transcriptomics](../../ICML2025/object_detection/global_context-aware_representation_learning_for_spatially_resolved_transcriptom.md)
+- [Boosting Domain Incremental Learning: Selecting the Optimal Parameters Is All You Need](boosting_domain_incremental_learning_selecting_the_optimal_parameters_is_all_you.md)
+- [MI-DETR: An Object Detection Model with Multi-time Inquiries Mechanism](mi-detr_an_object_detection_model_with_multi-time_inquiries_mechanism.md)
+- [MulSen-AD: Multi-Sensor Object Anomaly Detection](mulsen_ad_multi_sensor_anomaly_detection.md)
+- [HumanMM: Global Human Motion Recovery from Multi-shot Videos](humanmm_global_human_motion_recovery_from_multi-shot_videos.md)
 
 <!-- RELATED:END -->

@@ -128,9 +128,9 @@ tags:
 ## 相关论文
 
 - [ScribbleLight: Single Image Indoor Relighting with Scribbles](scribblelight_single_image_indoor_relighting_with_scribbles.md)
+- [Enhancing Creative Generation on Stable Diffusion-based Models](enhancing_creative_generation_on_stable_diffusion-based_models.md)
 - [Synchronized Video-to-Audio Generation via Mel Quantization-Continuum Decomposition](synchronized_video-to-audio_generation_via_mel_quantization-continuum_decomposit.md)
 - [Not All Parameters Matter: Masking Diffusion Models for Enhancing Generation Ability](not_all_parameters_matter_masking_diffusion_models_for_enhancing_generation_abil.md)
-- [Traversing Distortion-Perception Tradeoff Using a Single Score-Based Generative Model](traversing_distortion-perception_tradeoff_using_a_single_score-based_generative_.md)
-- [Uncertainty-guided Perturbation for Image Super-Resolution Diffusion Model](uncertainty-guided_perturbation_for_image_super-resolution_diffusion_model.md)
+- [Enhancing Facial Privacy Protection via Weakening Diffusion Purification](enhancing_facial_privacy_protection_via_weakening_diffusion_purification.md)
 
 <!-- RELATED:END -->

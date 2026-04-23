@@ -24,12 +24,24 @@ tags:
 通过对训练梯度的前导项近似分析，推导出Transformer在训练早期阶段各权重矩阵的闭式表达——均可分解为三种基函数（bigram、token-interchangeability、context mapping）的简单组合——从而揭示Transformer如何从自然语言数据中学习"bird"↔"flew"这类语义关联，且理论预测与真实LLM的学到权重高度吻合。
 
 ## 研究背景与动机
-"bird"和"flew"之间的语义关联是语言建模的基础——模型需要超越记忆，实现泛化和连贯文本生成。理解这些关联如何在语言模型中被学习和表示，对于连接深度学习与语言学理论、建立大型语言模型的机制性基础至关重要。
+
+### 领域现状
+
+**领域现状**："bird"和"flew"之间的语义关联是语言建模的基础——模型需要超越记忆，实现泛化和连贯文本生成。理解这些关联如何在语言模型中被学习和表示，对于连接深度学习与语言学理论、建立大型语言模型的机制性基础至关重要。
 
 **当前问题**：
-- 现有Transformer可解释性研究主要分为两条路线：(1) 分析训练好的模型的内部表示（如attention可视化、probing）；(2) 简化模型/任务的理论分析（如单头attention在合成数据上的分析）
-- **关键gap**：缺乏对Transformer如何在**训练过程中**从真实自然语言数据中逐步学习语义关联的**机制性理解**
-- 已有的基于简化假设的理论分析（如线性attention、单层模型）难以直接解释多层、多头、真实训练的Transformer
+
+### 现有痛点
+
+**现有痛点**：现有Transformer可解释性研究主要分为两条路线：(1) 分析训练好的模型的内部表示（如attention可视化、probing）；(2) 简化模型/任务的理论分析（如单头attention在合成数据上的分析）
+
+### 核心矛盾
+
+**核心矛盾**：关键gap**：缺乏对Transformer如何在**训练过程中**从真实自然语言数据中逐步学习语义关联的**机制性理解**
+
+### 解决思路
+
+**解决思路**：已有的基于简化假设的理论分析（如线性attention、单层模型）难以直接解释多层、多头、真实训练的Transformer
 
 **本文切入点**：从**训练动态**的视角出发，利用梯度的**前导项近似**，推导出可解析、可验证的权重闭式表达。这种方法不假设简化的架构，而是通过数学分析梯度更新中最主要的贡献项来表征早期训练阶段模型权重的形成过程。
 
@@ -132,7 +144,7 @@ tags:
 - [How Do Transformers Learn Implicit Reasoning?](../../NeurIPS2025/interpretability/how_do_transformers_learn_implicit_reasoning.md)
 - [Towards Understanding Subliminal Learning: When and How Hidden Biases Transfer](towards_understanding_subliminal_learning_when_and_how_hidden_biases_transfer.md)
 - [Stretching Beyond the Obvious: A Gradient-Free Framework to Unveil the Hidden Landscape of Visual Invariance](stretching_beyond_the_obvious_a_gradient-free_framework_to_unveil_the_hidden_lan.md)
-- [When Thinking Backfires: Mechanistic Insights Into Reasoning-Induced Misalignment](when_thinking_backfires_mechanistic_insights_into_reasoning-induced_misalignment.md)
-- [Formal Mechanistic Interpretability: Automated Circuit Discovery with Provable Guarantees](formal_mechanistic_interpretability_automated_circuit_discovery_with_provable_gu.md)
+- [Uncovering Grounding IDs: How External Cues Shape Multimodal Binding](uncovering_grounding_ids_how_external_cues_shape_multimodal_binding.md)
+- [Implicit Statistical Inference in Transformers: Approximating Likelihood-Ratio Tests In-Context](implicit_statistical_inference_in_transformers_approximating_likelihood-ratio_te.md)
 
 <!-- RELATED:END -->

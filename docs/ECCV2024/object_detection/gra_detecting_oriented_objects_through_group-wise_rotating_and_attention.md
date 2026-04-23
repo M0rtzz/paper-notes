@@ -162,8 +162,8 @@ Oriented R-CNN + R50_GRA: mAP 72.59%，优于 ARC 的 72.39%。
 
 - [Detecting Out-of-Distribution through the Lens of Neural Collapse](../../CVPR2025/object_detection/detecting_out-of-distribution_through_the_lens_of_neural_collapse.md)
 - [Show, Don't Tell: Detecting Novel Objects by Watching Human Videos](../../CVPR2026/object_detection/show_dont_tell_detecting_novel_objects_by_watching.md)
-- [Detecting Unknown Objects via Energy-based Separation for Open World Object Detection](../../CVPR2026/object_detection/detecting_unknown_objects_via_energy-based_separation_for_open_world_object_dete.md)
+- [Be Yourself: Bounded Attention for Multi-Subject Text-to-Image Generation](be_yourself_bounded_attention_for_multi-subject_text-to-image_generation.md)
+- [Detecting Unknown Objects via Energy-Based Separation for Open World Object Detection](../../CVPR2026/object_detection/detecting_unknown_objects_via_energy-based_separation.md)
 - [Visible and Clear: Finding Tiny Objects in Difference Map](visible_and_clear_finding_tiny_objects_in_difference_map.md)
-- [Projecting Points to Axes: Oriented Object Detection via Point-Axis Representation](projecting_points_to_axes_oriented_object_detection_via_point-axis_representatio.md)
 
 <!-- RELATED:END -->

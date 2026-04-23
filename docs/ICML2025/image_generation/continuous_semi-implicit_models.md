@@ -26,6 +26,8 @@ tags:
 
 ## 研究背景与动机
 
+### 领域现状
+
 **领域现状**：半隐式分布（SI Distribution）在变分推断和生成建模中展现潜力。层级半隐式模型（HSIVI）通过堆叠多个 SI 层增强表达力，可用于加速扩散模型。
 
 **现有痛点**：HSIVI 的序贯训练（逐层模拟）收敛慢；现有扩散蒸馏方法要么是单步确定性的（缺乏多样性），要么是多步但训练复杂。
@@ -102,9 +104,9 @@ ImageNet 512×512：
 ## 相关论文
 
 - [Continuous Visual Autoregressive Generation via Score Maximization](continuous_visual_autoregressive_generation_via_score_maximization.md)
+- [Why Diffusion Models Don't Memorize: The Role of Implicit Regularization](../../NeurIPS2025/image_generation/why_diffusion_models_dont_memorize_the_role_of_implicit_regularization.md)
 - [Implicit Bias Injection Attacks against Text-to-Image Diffusion Models](../../CVPR2025/image_generation/implicit_bias_injection_attacks_against_text-to-image_diffusion_models.md)
 - [Generative Audio Language Modeling with Continuous-Valued Tokens and Masked Next-Token Prediction](generative_audio_language_modeling_with_continuous-valued_tokens_and_masked_next.md)
-- [Implicit Concept Removal of Diffusion Models](../../ECCV2024/image_generation/implicit_concept_removal_of_diffusion_models.md)
 - [Why Diffusion Models Don't Memorize: The Role of Implicit Dynamical Regularization in Training](../../NeurIPS2025/image_generation/why_diffusion_models_dont_memorize_the_role_of_implicit_dynamical_regularization.md)
 
 <!-- RELATED:END -->

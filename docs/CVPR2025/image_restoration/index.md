@@ -1,18 +1,18 @@
 ---
 title: >-
-  CVPR2025 图像恢复方向 38篇论文解读
+  CVPR2025 图像恢复方向 40篇论文解读
 description: >-
-  38篇CVPR2025 图像恢复论文解读，主题涵盖：提出Flag Decomposition（FD）—、提出基于物理的 PSF 学习框架、提出对抗扩散压缩（ADC）框架，将一步扩散模型等，每篇含核心思想与方法详解。
+  40篇CVPR2025 图像恢复论文解读，主题涵盖：本文提出Flag Decomposition、提出基于物理的 PSF 学习框架、提出对抗扩散压缩（ADC）框架，将一步扩散模型等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**📷 CVPR2025** · **38** 篇论文解读
+**📷 CVPR2025** · **40** 篇论文解读
 
 **[A Flag Decomposition for Hierarchical Datasets](a_flag_decomposition_for_hierarchical_datasets.md)**
 
-:   提出Flag Decomposition（FD）——一种保持层次结构的矩阵分解方法，将具有嵌套列层次的数据矩阵分解为Stiefel坐标表示的flag（嵌套子空间序列）、块上三角矩阵和置换矩阵，在去噪、聚类和小样本学习任务上优于SVD等标准方法。
+:   本文提出Flag Decomposition (FD)，一种将层次结构数据分解为保持层级关系的flag流形表示（Stiefel坐标）的算法，在去噪、聚类和少样本学习任务中展示了相比SVD等标准方法的优势。
 
 **[A Physics-Informed Blur Learning Framework for Imaging Systems](a_physics-informed_blur_learning_framework_for_imaging_systems.md)**
 
@@ -42,19 +42,23 @@ description: >-
 
 **[Degradation-Aware Feature Perturbation for All-in-One Image Restoration](degradation-aware_feature_perturbation_for_all-in-one_image_restoration.md)**
 
-:   提出 DFPIR，通过退化引导的特征扰动——通道级扰动（退化引导的通道混洗在高维空间中重组特征）和注意力级扰动（top-K 掩码交叉注意力选择性传递信息）——将特征空间对齐到统一的参数空间，在 3/5 任务全合一修复中平均 PSNR 超越 InstructIR +0.45/+1.09 dB。
+:   本文提出DFPIR框架，通过退化类型引导的通道打乱扰动和注意力选择性掩码扰动两种机制，在编解码器之间调整特征空间以适配统一参数空间，在去噪/去雾/去雨/去模糊/低光增强五个任务上取得SOTA。
 
 **[Detail-Preserving Latent Diffusion for Stable Shadow Removal](detail-preserving_latent_diffusion_for_stable_shadow_removal.md)**
 
-:   提出两阶段阴影去除框架，Stage 1 微调 Stable Diffusion 去噪器以 z₀-prediction 方式生成粗阴影去除结果（低方差高稳定性），Stage 2 用 Detail Injection 模块通过 RRDB 块选择性地将阴影感知高频细节注入冻结 VAE 解码器，在四个基准上达到无掩码方法最优。
+:   本文提出两阶段Stable Diffusion微调方案用于阴影去除：第一阶段在latent空间微调去噪器完成主要阴影消除，第二阶段通过阴影感知的Detail Injection模块从VAE编码器提取特征调制解码器，恢复第一阶段丢失的高频细节，实现高质量且泛化性强的阴影去除。
 
 **[DiffFNO: Diffusion Fourier Neural Operator](difffno_diffusion_fourier_neural_operator.md)**
 
-:   提出 DiffFNO，将加权傅里叶神经算子（WFNO，通过模式重平衡保留高频傅里叶模式）与扩散框架结合，配合门控融合机制和自适应时间步 ODE 求解器，实现任意尺度图像超分辨率，在 DIV2K 多尺度上比 SRNO/LMI 提升 0.3-1.0 dB PSNR。
+:   提出 DiffFNO，将加权傅里叶神经算子（WFNO）与扩散框架结合用于任意尺度超分辨率，通过模式再平衡（Mode Rebalancing）保留关键高频分量，门控融合机制融合频域和空间域特征，自适应步长 ODE 求解器加速推理，在多个基准上超越现有方法 2-4 dB PSNR。
 
 **[DnLUT: Ultra-Efficient Color Image Denoising via Channel-Aware Lookup Tables](dnlut_ultra-efficient_color_image_denoising_via_channel-aware_lookup_tables.md)**
 
 :   提出基于查找表(LUT)的超高效彩色图像去噪框架 DnLUT，通过 Pairwise Channel Mixer (PCM) 捕获通道间相关性和 L 形卷积核扩展感受野，仅需 500KB 存储和 DnCNN 0.1% 的能耗即可实现 SOTA 的 LUT 去噪性能。
+
+**[DPIR: Dual Prompting Image Restoration with Diffusion Transformers](dpir_dual_prompting_restoration_dit.md)**
+
+:   提出 DPIR，首个基于 Diffusion Transformer（SD3）的图像修复方法，通过轻量低质量图像条件分支和视觉-文本双提示控制分支，从全局上下文和局部外观两个视觉维度增强修复质量和保真度。
 
 **[EchoMimicV2: Towards Striking, Simplified, and Semi-Body Human Animation](echomimicv2_towards_striking_simplified_and_semi-body_human_animation.md)**
 
@@ -79,6 +83,10 @@ description: >-
 **[Gyro-based Neural Single Image Deblurring](gyro-based_neural_single_image_deblurring.md)**
 
 :   提出 GyroDeblurNet，通过新颖的相机运动场嵌入表示复杂手抖、陀螺仪细化模块利用图像模糊信息校正陀螺仪误差、陀螺仪去模糊模块用校正后的运动信息去除模糊，配合课程学习策略，在合成和真实数据集上大幅超越现有方法。
+
+**[HVI: A New Color Space for Low-light Image Enhancement](hvi_a_new_color_space_for_low-light_image_enhancement.md)**
+
+:   本文提出了一种新的色彩空间 HVI（Horizontal/Vertical-Intensity），通过极化的 HS 映射消除红色伪影、可学习的强度分量压缩暗区黑色伪影，并配合 CIDNet 解耦网络在 10 个数据集上超越了现有低光增强 SOTA。
 
 **[INFP: Audio-Driven Interactive Head Generation in Dyadic Conversations](infp_audio-driven_interactive_head_generation_in_dyadic_conversations.md)**
 

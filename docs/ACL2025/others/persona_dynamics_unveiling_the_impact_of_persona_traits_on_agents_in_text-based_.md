@@ -163,10 +163,10 @@ $$\pi(a_t = a_t^i | s_t) = \frac{\exp(Q(s_t, a_t^i))}{\sum_{j=1}^{|A_t|} \exp(Q(
 
 ## 相关论文
 
+- [Deviation Dynamics in Cardinal Hedonic Games](../../AAAI2026/others/deviation_dynamics_in_cardinal_hedonic_games.md)
 - [Unveiling Dual Quality in Product Reviews: An NLP-Based Approach](unveiling_dual_quality_in_product_reviews_an_nlp-based_approach.md)
-- [Evolutionary Prediction Games](../../NeurIPS2025/others/evolutionary_prediction_games.md)
+- [A Multi-Persona Framework for Argument Quality Assessment](a_multi-persona_framework_for_argument_quality_assessment.md)
 - [Towards Text-Image Interleaved Retrieval](towards_text-image_interleaved_retrieval.md)
 - [SHARE: An SLM-based Hierarchical Action CorREction Assistant for Text-to-SQL](share_text_to_sql_correction.md)
-- [Spotting Out-of-Character Behavior: Atomic-Level Evaluation of Persona Fidelity in Open-Ended Generation](spotting_out-of-character_behavior_atomic-level_evaluation_of_persona_fidelity_i.md)
 
 <!-- RELATED:END -->

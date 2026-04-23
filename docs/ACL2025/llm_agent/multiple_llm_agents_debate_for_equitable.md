@@ -129,8 +129,8 @@ tags:
 
 - [From Debate to Equilibrium: Belief-Driven Multi-Agent LLM Reasoning via Bayesian Nash Equilibrium](../../ICML2025/llm_agent/from_debate_to_equilibrium_belief-driven_multi-agent_llm_reasoning_via_bayesian_.md)
 - [MoralReason: Generalizable Moral Decision Alignment For LLM Agents Using Reasoning-Level Reinforcement Learning](../../AAAI2026/llm_agent/moralreason_generalizable_moral_decision_alignment_for_llm_agents_using_reasonin.md)
+- [LLM Agents Making Agent Tools](llm_agents_making_agent_tools.md)
+- [An Empirical Study on LLM-based Agents for Automated Bug Fixing](an_empirical_study_on_llm-based_agents_for_automated_bug_fixing.md)
 - [ARCANE: A Multi-Agent Framework for Interpretable and Configurable Alignment](../../AAAI2026/llm_agent/arcane_a_multi-agent_framework_for_interpretable_and_configurable_alignment.md)
-- [MultiAgentBench: Evaluating the Collaboration and Competition of LLM Agents](multiagentbench_evaluating_the_collaboration_and_competition_of_llm_agents.md)
-- [Debate or Vote: Which Yields Better Decisions in Multi-Agent Large Language Models?](../../NeurIPS2025/llm_agent/debate_or_vote_which_yields_better_decisions_in_multi-agent_large_language_model.md)
 
 <!-- RELATED:END -->

@@ -130,7 +130,7 @@ LAION-C 是评估基准而非训练数据集。为验证数据集可解性，作
 - [FA: Forced Prompt Learning of Vision-Language Models for Out-of-Distribution Detection](../../ICCV2025/multimodal_vlm/fa_forced_prompt_learning_of_vision-language_models_for_out-of-distribution_dete.md)
 - [Revisiting Logit Distributions for Reliable Out-of-Distribution Detection](../../NeurIPS2025/multimodal_vlm/revisiting_logit_distributions_for_reliable_out-of-distribution_detection.md)
 - [On the Out-of-Distribution Generalization of Multimodal Large Language Models](../../CVPR2025/multimodal_vlm/on_the_out-of-distribution_generalization_of_large_multimodal_models.md)
-- [Adaptive Prompt Learning via Gaussian Outlier Synthesis for Out-of-Distribution Detection](../../ICCV2025/multimodal_vlm/adaptive_prompt_learning_via_gaussian_outlier_synthesis_for_out-of-distribution_.md)
 - [Playing the Fool: Jailbreaking LLMs and Multimodal LLMs with Out-of-Distribution Strategy](../../CVPR2025/multimodal_vlm/playing_the_fool_jailbreaking_llms_and_multimodal_llms_with_out-of-distribution_.md)
+- [Adaptive Prompt Learning via Gaussian Outlier Synthesis for Out-of-Distribution Detection](../../ICCV2025/multimodal_vlm/adaptive_prompt_learning_via_gaussian_outlier_synthesis_for_out-of-distribution_.md)
 
 <!-- RELATED:END -->

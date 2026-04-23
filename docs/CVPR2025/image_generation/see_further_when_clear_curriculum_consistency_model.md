@@ -127,7 +127,7 @@ $$\mathcal{L}_{\text{CCM}} = \mathbb{E}_{t \sim \mathcal{U}(0,1)}\left[\lambda(\
 - [Riemannian Consistency Model](../../NeurIPS2025/image_generation/riemannian_consistency_model.md)
 - [PCM: Picard Consistency Model for Fast Parallel Sampling of Diffusion Models](pcm_picard_consistency_model_for_fast_parallel_sampling_of_diffusion_models.md)
 - [Learning to See in the Extremely Dark](../../ICCV2025/image_generation/learning_to_see_in_the_extremely_dark.md)
+- [DDIS: When Model Knowledge Meets Diffusion Model](../../ICML2025/image_generation/when_model_knowledge_meets_diffusion_model_diffusion-assisted_data-free_image_synthesis.md)
 - [Zero-Shot Image Restoration Using Few-Step Guidance of Consistency Models (and Beyond)](zero-shot_image_restoration_using_few-step_guidance_of_consistency_models_and_be.md)
-- [How to Build a Consistency Model: Learning Flow Maps via Self-Distillation](../../NeurIPS2025/image_generation/how_to_build_a_consistency_model_learning_flow_maps_via_self-distillation.md)
 
 <!-- RELATED:END -->

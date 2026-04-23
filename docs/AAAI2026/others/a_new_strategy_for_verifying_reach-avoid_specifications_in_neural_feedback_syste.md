@@ -142,8 +142,8 @@ tags:
 
 - [Expressive Temporal Specifications for Reward Monitoring](expressive_temporal_specifications_for_reward_monitoring.md)
 - [Private Frequency Estimation via Residue Number Systems](private_frequency_estimation_via_residue_number_systems.md)
-- [From Sequential to Recursive: Enhancing Decision-Focused Learning with Bidirectional Feedback](from_sequential_to_recursive_enhancing_decision-focused_learning_with_bidirectio.md)
-- [A Graph-Theoretical Perspective on Law Design for Multiagent Systems](a_graph-theoretical_perspective_on_law_design_for_multiagent.md)
+- [A Graph-Theoretical Perspective on Law Design for Multiagent Systems](a_graph-theoretical_perspective_on_law_design_for_multiagent_systems.md)
 - [Modeling Neural Activity with Conditionally Linear Dynamical Systems](../../NeurIPS2025/others/modeling_neural_activity_with_conditionally_linear_dynamical_systems.md)
+- [From Sequential to Recursive: Enhancing Decision-Focused Learning with Bidirectional Feedback](from_sequential_to_recursive_enhancing_decision-focused_learning_with_bidirectio.md)
 
 <!-- RELATED:END -->

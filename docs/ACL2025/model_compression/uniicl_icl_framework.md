@@ -163,10 +163,10 @@ UniICL 的核心优势在于"统一性"和"轻量性"：用最少的额外参数
 
 ## 相关论文
 
-- [LoRA Fine-Tuning Without GPUs: A CPU-Efficient Meta-Generation Framework for LLMs](../../ICML2025/model_compression/lora_fine-tuning_without_gpus_a_cpu-efficient_meta-generation_framework_for_llms.md)
+- [LoRA Fine-Tuning without GPUs: A CPU-Efficient Meta-Generation Framework for LLMs](../../ICML2025/model_compression/lora_fine-tuning_without_gpus_a_cpu-efficient_meta-generation_framework_for_llms.md)
 - [UniQuanF: Unifying Uniform and Binary-coding Quantization for Accurate Compression of Large Language Models](uniquanf_unified_quantization.md)
 - [Sample Efficient Demonstration Selection for In-Context Learning](../../ICML2025/model_compression/sample_efficient_demonstration_selection_for_in-context_learning.md)
+- [SCOPE: Optimizing Key-Value Cache Compression in Long-context Generation](scope_optimizing_key-value_cache_compression_in_long-context_generation.md)
 - [HyperLoRA: Parameter-Efficient Adaptive Generation for Portrait Synthesis](../../CVPR2025/model_compression/hyperlora_parameter-efficient_adaptive_generation_for_portrait_synthesis.md)
-- [OrthoRank: Token Selection via Sink Token Orthogonality for Efficient LLM Inference](../../ICML2025/model_compression/orthorank_token_selection_via_sink_token_orthogonality_for_efficient_llm_inferen.md)
 
 <!-- RELATED:END -->

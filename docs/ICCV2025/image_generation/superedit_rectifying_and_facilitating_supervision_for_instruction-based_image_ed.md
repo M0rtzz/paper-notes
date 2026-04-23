@@ -151,7 +151,7 @@ SuperEdit 以 **30× 更少数据**和 **13× 更小模型**超越 SmartEdit 9.1
 
 ## 相关论文
 
-- [ADIEE: Automatic Dataset Creation and Scorer for Instruction-Guided Image Editing Evaluation](adiee_automatic_dataset_creation_and_scorer_for_instruction-guided_image_editing.md)
+- [ADIEE: Automatic Dataset Creation and Scorer for Instruction-Guided Image Editing Evaluation](adiee_automatic_dataset_creation_and_scorer_for_instruction_guided_image_editing_evaluation.md)
 - [Early Timestep Zero-Shot Candidate Selection for Instruction-Guided Image Editing](early_timestep_zero-shot_candidate_selection_for_instruction-guided_image_editin.md)
 - [InsightEdit: Towards Better Instruction Following for Image Editing](../../CVPR2025/image_generation/insightedit_towards_better_instruction_following_for_image_editing.md)
 - [CaO2: Rectifying Inconsistencies in Diffusion-Based Dataset Distillation](cao2_rectifying_inconsistencies_in_diffusion-based_dataset_distillation.md)

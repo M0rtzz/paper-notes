@@ -27,11 +27,25 @@ tags:
 
 ## 研究背景与动机
 
-- 在临床试验（尤其是罕见病）中，对照组样本量往往有限，统计功效不足
-- 外部对照（historical studies/real-world data）可补充对照组信息，但直接使用会引入偏差
-- FDA指南明确指出外部对照面临**选择偏差、时间不一致、未观测混杂、结局差异**等问题
-- 现有方法大多基于Cox模型假设，缺乏灵活性；或仅处理协变量偏移（covariate shift）而忽略结局漂移（outcome drift）
-- 半参数高效估计（基于EIF）近年在因果推断中广受欢迎，但尚未充分推广到带外部对照的生存分析场景
+### 领域现状
+
+**领域现状**：在临床试验（尤其是罕见病）中，对照组样本量往往有限，统计功效不足
+
+### 核心矛盾
+
+**核心矛盾**：外部对照（historical studies/real-world data）可补充对照组信息，但直接使用会引入偏差
+
+### 现有痛点
+
+**现有痛点**：FDA指南明确指出外部对照面临**选择偏差、时间不一致、未观测混杂、结局差异**等问题
+
+### 解决思路
+
+**解决思路**：现有方法大多基于Cox模型假设，缺乏灵活性；或仅处理协变量偏移（covariate shift）而忽略结局漂移（outcome drift）
+
+### 补充说明
+
+**补充说明**：半参数高效估计（基于EIF）近年在因果推断中广受欢迎，但尚未充分推广到带外部对照的生存分析场景
 
 **核心动机**：需要一个同时处理协变量偏移和结局漂移、可融合机器学习的灵活框架，且提供有效统计推断（置信区间）。
 
@@ -139,6 +153,6 @@ $$\theta_\tau = \int_0^\tau \{S_1(t|R=1) - S_0(t|R=1)\} dt$$
 - [SurvHTE-Bench: A Benchmark for Heterogeneous Treatment Effect Estimation in Survival Analysis](../../ICLR2026/medical_imaging/survhte-bench_a_benchmark_for_heterogeneous_treatment_effect_estimation_in_survi.md)
 - [Dual Mixture-of-Experts Framework for Discrete-Time Survival Analysis](../../NeurIPS2025/medical_imaging/dual_mixture-of-experts_framework_for_discrete-time_survival_analysis.md)
 - [EEG-Language Pretraining for Highly Label-Efficient Clinical Phenotyping](eeg-language_pretraining_for_highly_label-efficient_clinical_phenotyping.md)
-- [Distilled Prompt Learning for Incomplete Multimodal Survival Prediction](../../CVPR2025/medical_imaging/distilled_prompt_learning_for_incomplete_multimodal_survival_prediction.md)
+- [ConSurv: Multimodal Continual Learning for Survival Analysis](../../AAAI2026/medical_imaging/consurv_multimodal_continual_learning_for_survival_analysis.md)
 
 <!-- RELATED:END -->

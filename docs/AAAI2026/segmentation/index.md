@@ -1,14 +1,14 @@
 ---
 title: >-
-  AAAI2026 语义分割方向 30篇论文解读
+  AAAI2026 语义分割方向 31篇论文解读
 description: >-
-  30篇AAAI2026 语义分割论文解读，主题涵盖：将SAM2基础模型迁移到3D牙齿分割任务、提出 A²LC 框架，在传统主动标签校正（人工逐一、提出 Morph-Patch Transforme等，每篇含核心思想与方法详解。
+  31篇AAAI2026 语义分割论文解读，主题涵盖：将SAM2基础模型迁移到3D牙齿分割任务、提出 A²LC 框架，在传统主动标签校正（人工逐一、提出 Morph-Patch Transforme等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**🤖 AAAI2026** · **30** 篇论文解读
+**🤖 AAAI2026** · **31** 篇论文解读
 
 **[3DTeethSAM: Taming SAM2 for 3D Teeth Segmentation](3dteethsam_taming_sam2_for_3d_teeth_segmentation.md)**
 
@@ -32,7 +32,7 @@ description: >-
 
 **[Causal-Tune: Mining Causal Factors from Vision Foundation Models for Domain Generalized Semantic Segmentation](causal-tune_mining_causal_factors_from_vision_foundation_mod.md)**
 
-:   提出Causal-Tune，从因果视角分析VFM特征中的artifacts，利用DCT频域分解+高斯带通滤波分离因果/非因果因素，结合因果感知可学习token在频域精化特征，在Cityscapes→ACDC跨域分割中平均提升+2.4% mIoU（Snow场景+4.8%），仅需单卡RTX3090/14GB训练。
+:   本文提出Causal-Tune，一种基于因果机制的VFM微调策略，通过DCT频域变换和高斯带通滤波器将VFM特征分离为因果（域不变）和非因果（域特定）成分，仅对因果成分施加可学习token精炼，在域泛化语义分割中有效抑制VFM伪影并提升泛化性能。
 
 **[Do We Need Perfect Data? Leveraging Noise for Domain Generalized Segmentation](do_we_need_perfect_data_leveraging_noise_for_domain_generalized_segmentation.md)**
 
@@ -125,6 +125,10 @@ description: >-
 **[Towards Affordance-Aware Robotic Dexterous Grasping with Human-like Priors](towards_affordance-aware_robotic_dexterous_grasping_with_human-like_priors.md)**
 
 :   提出AffordDex，一个两阶段框架：第一阶段通过模仿学习预训练人类手部运动先验（自然的运动轨迹），第二阶段通过残差模块和VLM引导的负可供性分割（NAA）进行强化学习精炼，实现既像人类一样自然、又功能正确的灵巧机器人抓取（如避开刀刃抓握刀柄），在多个泛化级别上显著超越SOTA。
+
+**[Tracking and Segmenting Anything in Any Modality](tracking_and_segmenting_anything_in_any_modality.md)**
+
+:   SATA提出了一个统一的跟踪与分割框架，通过解耦混合专家（DeMoE）机制建模跨模态共享知识和特有信息，并引入任务感知多目标跟踪（TaMOT）管线统一所有任务输出，在18个跟踪和分割benchmark上展现了优越性能。
 
 **[Vista: Scene-Aware Optimization for Streaming Video Question Answering Under Post-Hoc Queries](vista_scene-aware_optimization_for_streaming_video_question_answering_under_post.md)**
 

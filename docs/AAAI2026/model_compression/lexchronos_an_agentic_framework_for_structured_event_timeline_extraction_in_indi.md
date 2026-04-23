@@ -207,10 +207,10 @@ $$F_{i+1} = \text{FeedbackAgent}(J, E_{i+1})$$
 
 ## 相关论文
 
-- [Multi-View Encoders for Performance Prediction in LLM-Based Agentic Workflows](../../ICLR2026/model_compression/multi-view_encoders_for_performance_prediction_in_llm-based_agentic_workflows.md)
+- [CFSP: An Efficient Structured Pruning Framework for LLMs with Coarse-to-Fine Activation Information](../../ACL2025/model_compression/cfsp_an_efficient_structured_pruning_framework_for_llms_with_coarse-to-fine_acti.md)
 - [Beyond Sharpness: A Flatness Decomposition Framework for Efficient Continual Learning](beyond_sharpness_a_flatness_decomposition_framework_for_efficient_continual_lear.md)
-- [StolenLoRA: Exploring LoRA Extraction Attacks via Synthetic Data](../../ICCV2025/model_compression/stolenlora_exploring_lora_extraction_attacks_via_synthetic_data.md)
 - [HCF: Hierarchical Cascade Framework for Distributed Multi-Stage Image Compression](hcf_hierarchical_cascade_framework_for_distributed_multi-stage_image_compression.md)
-- [Incentivizing Agentic Reasoning in LLM Judges via Tool-Integrated Reinforcement Learning](../../ICLR2026/model_compression/incentivizing_agentic_reasoning_in_llm_judges_via_tool-integrated_reinforcement_.md)
+- [Multi-View Encoders for Performance Prediction in LLM-Based Agentic Workflows](../../ICLR2026/model_compression/multi-view_encoders_for_performance_prediction_in_llm-based_agentic_workflows.md)
+- [Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring](hierarchical_pedagogical_oversight_a_multi-agent_adversarial_framework_for_relia.md)
 
 <!-- RELATED:END -->

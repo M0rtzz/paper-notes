@@ -139,9 +139,9 @@ $$L^t = L_\text{render}^t + w_{\tilde{\text{proj}}}^t L_{\tilde{\text{proj}}}^t 
 ## 相关论文
 
 - [IAAO: Interactive Affordance Learning for Articulated Objects in 3D Environments](iaao_interactive_affordance_learning_for_articulated_objects_in_3d_environments.md)
+- [Textured Gaussians for Enhanced 3D Scene Appearance Modeling](textured_gaussians_for_enhanced_3d_scene_appearance_modeling.md)
 - [Category-Agnostic Neural Object Rigging](category-agnostic_neural_object_rigging.md)
+- [UnCommon Objects in 3D](uncommon_objects_in_3d.md)
 - [URDF-Anything: Constructing Articulated Objects with 3D Multimodal Language Model](../../NeurIPS2025/3d_vision/urdf-anything_constructing_articulated_objects_with_3d_multimodal_language_model.md)
-- [Reconstruction and Simulation of Elastic Objects with Spring-Mass 3D Gaussians](../../ECCV2024/3d_vision/reconstruction_and_simulation_of_elastic_objects_with_spring-mass_3d_gaussians.md)
-- [PICO: Reconstructing 3D People In Contact with Objects](pico_reconstructing_3d_people_in_contact_with_objects.md)
 
 <!-- RELATED:END -->

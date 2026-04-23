@@ -161,8 +161,8 @@ LLaMA2-7B 上：
 
 - [Low-Rank Interconnected Adaptation across Layers](low-rank_interconnected_adaptation_across_layers.md)
 - [CoLA: Collaborative Low-Rank Adaptation](cola_collaborative_low-rank_adaptation.md)
+- [Adaptive Feature-based Low Rank Plus Sparse Decomposition for Subspace Clustering](adaptive_feature-based_low_rank_plus_sparse_decomposition_for_subspace_clusterin.md)
 - [Dropout Mixture Low-Rank Adaptation for Visual Parameters-Efficient Fine-Tuning](../../ECCV2024/others/dropout_mixture_low-rank_adaptation_for_visual_parameters-efficient_fine-tuning.md)
 - [Towards Robust and Efficient Federated Low-Rank Adaptation with Heterogeneous Clients](federated_lora_heterogeneous.md)
-- [Decoding Knowledge Attribution in Mixture-of-Experts: A Framework of Basic-Refinement Collaboration and Efficiency Analysis](decoding_knowledge_attribution_in_mixture-of-experts_a_framework_of_basic-refine.md)
 
 <!-- RELATED:END -->

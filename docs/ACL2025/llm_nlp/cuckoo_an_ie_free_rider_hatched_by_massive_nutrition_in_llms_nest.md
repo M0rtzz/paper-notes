@@ -187,6 +187,6 @@ In-context tagging 能力的涌现也很有启发性：与 LLM 中 in-context le
 - [Training-free LLM Merging for Multi-task Learning](training-free_llm_merging_for_multi-task_learning.md)
 - [A Training-free LLM-based Approach to General Chinese Character Error Correction](a_training-free_llm-based_approach_to_general_chinese_character_error_correction.md)
 - [Token Prepending: A Training-Free Approach for Eliciting Better Sentence Embeddings from LLMs](token_prepending_training_free.md)
-- [LLM Braces: Straightening Out LLM Predictions with Relevant Sub-Updates](llm_braces_straightening.md)
+- [C²LEVA: Toward Comprehensive and Contamination-Free Language Model Evaluation](c2leva_toward_comprehensive_and_contamination-free_language_model_evaluation.md)
 
 <!-- RELATED:END -->

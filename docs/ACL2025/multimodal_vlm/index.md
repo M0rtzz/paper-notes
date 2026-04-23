@@ -1,14 +1,26 @@
 ---
 title: >-
-  ACL2025 多模态VLM方向 122篇论文解读
+  ACL2025 多模态VLM方向 138篇论文解读
 description: >-
-  122篇ACL2025 多模态VLM论文解读，主题涵盖：提出AdamMeme——一个基于多智能体协作的自适、提出 Adaptive Linguistic、提出MAC基准和diversity-promoti等，每篇含核心思想与方法详解。
+  138篇ACL2025 多模态VLM论文解读，主题涵盖：本文提出 DoPL（Detail-oriented、本文发现 LLM 中存在类似人脑视觉皮层的"视觉区、本文提出 ASD（Activation等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**💬 ACL2025** · **122** 篇论文解读
+**💬 ACL2025** · **138** 篇论文解读
+
+**[A Parameter-Efficient and Fine-Grained Prompt Learning for Vision-Language Models](a_parameter-efficient_and_fine-grained_prompt_learning_for_vision-language_model.md)**
+
+:   本文提出 DoPL（Detail-oriented Prompt Learning）方法，通过低熵信息集中理论发现文本-视觉兴趣共享 token，并以此构建对齐权重增强文本和视觉提示，仅用 0.25M（0.12%）可训练参数即实现细粒度多模态语义对齐，在六个基准上超越全参数微调方法。
+
+**[Activating Distributed Visual Region within LLMs for Efficient and Effective Vision-Language Training and Inference](activating_distributed_visual_region_within_llms_for_efficient_and_effective_vis.md)**
+
+:   本文发现 LLM 中存在类似人脑视觉皮层的"视觉区域"——稀疏且均匀分布的层集合，仅更新 25% 的层即可保留 99% 的视觉性能，同时保持甚至提升语言能力，并据此提出了高效的视觉区域定向训练和剪枝范式。
+
+**[Activation Steering Decoding: Mitigating Hallucination in Large Vision-Language Models through Bidirectional Hidden State Intervention](activation_steering_decoding_mitigating_hallucination_in_large_vision-language_m.md)**
+
+:   本文提出 ASD（Activation Steering Decoding），一种无需训练的推理时幻觉缓解方法，通过在 LVLM 的中间隐藏状态中识别幻觉方向模式，利用双向引导和对比解码来抑制幻觉输出，同时保持模型在通用视觉理解任务上的性能。
 
 **[AdamMeme: Adaptively Probe the Reasoning Capacity of Multimodal Large Language Models on Harmfulness](adammeme_adaptively_probe_the_reasoning_capacity_of_multimodal_large_language_mo.md)**
 
@@ -26,6 +38,10 @@ description: >-
 
 :   本文提出Agent-RewardBench，首个评估多模态LLM作为agent奖励模型能力的基准，覆盖感知/规划/安全三个维度和7个真实场景，包含1,136条高质量step-level样本，实验揭示即使最强模型GPT-4o也仅达61.4%准确率，且强模型在安全维度反而表现更差。
 
+**[AGRI-CM3: A Chinese Massive Multi-Modal Multi-Level Benchmark for Agricultural Understanding](agri-cm3_a_chinese_massive_multi-modal_multi-level_benchmark_for_agricultural_un.md)**
+
+:   本文提出AGRI-CM3，一个面向农业领域的中文大规模多模态多层次评测基准，涵盖作物识别、病虫害诊断、农事操作理解等多个农业子任务，用于系统评估VLM在农业垂直领域的能力。
+
 **[AkaCE: A Multimodal Multi-party Dataset for Emotion Recognition in Movie Dialogues](akan_cinematic_emotions_ace_a_multimodal_multi-party_dataset_for_emotion_recogni.md)**
 
 :   构建 AkaCE——首个非洲语言多模态对话情感识别数据集，覆盖阿坎语（加纳主要语言，约 2000 万使用者），含 385 段对话 6162 条发言（音频+视觉+文本三模态）、308 名说话人（性别平衡 155男/153女），并提供首个非洲语言词级韵律突出标注。
@@ -37,6 +53,10 @@ description: >-
 **[AlignMMBench: Evaluating Chinese Multimodal Alignment in Large Vision-Language Models](alignmmbench_evaluating_chinese_multimodal_alignment_in_large_vision-language_mo.md)**
 
 :   提出 AlignMMBench，首个面向中文视觉上下文的多模态对齐评测基准，涵盖 3 大类 13 项任务、1054 张图像和 4978 个 QA 对（含单轮/多轮对话），并训练了基于 ChatGLM3-6B 的评估器 CritiqueVLM，其评估一致性超过 GPT-4。
+
+**[Answering Complex Geographic Questions by Adaptive Reasoning with Visual Context and External Commonsense Knowledge](answering_complex_geographic_questions_by_adaptive_reasoning_with_visual_context.md)**
+
+:   本文提出一种面向复杂地理问题的自适应推理框架，结合视觉上下文（如地图、卫星图像）和外部常识知识库进行多步推理，根据问题复杂度动态选择推理路径，在地理VQA任务上显著超越直接端到端回答的方法。
 
 **[Aria-UI: Visual Grounding for GUI Instructions](aria-ui_visual_grounding_for_gui_instructions.md)**
 
@@ -50,6 +70,10 @@ description: >-
 
 :   在 LLaVA-NeXT 上增加视觉粒度缩放器（空间金字塔池化获取多级粒度 token）和视觉粒度路由器（基于图像+指令自适应选粒度），并提出 RGLF 训练范式用 LMM 自身的生成概率作为反馈来训练路由器，在 11 个基准上实现"减少 token 反而提升性能"的效果。
 
+**[Benchmarking and Improving Large Vision-Language Models for Fundamental Visual Graph Understanding and Reasoning](benchmarking_and_improving_large_vision-language_models_for_fundamental_visual_g.md)**
+
+:   本文构建了一个系统性评测基准来评估大型视觉语言模型（LVLM）在基础视觉图结构理解与推理上的能力，发现现有模型在此类任务上表现欠佳，并提出了针对性的改进方法。
+
 **[Enhancing Multimodal Continual Instruction Tuning with BranchLoRA](branchlora_continual_instruction.md)**
 
 :   针对多模态持续指令微调(MCIT)中MoELoRA的参数低效和灾难性遗忘问题，提出BranchLoRA——一种非对称架构，共享矩阵A捕获跨任务通用模式、多路矩阵B编码任务特有知识，配合灵活调参-冻结机制和任务特定路由器，在CoIN benchmark上以更少参数大幅超越前SOTA MoELoRA（ACC: 44.20 vs 37.13, BWT: -20.98 vs -25.91）。
@@ -61,6 +85,10 @@ description: >-
 **[Can MLLMs Understand the Deep Implication Behind Chinese Images?](can_mllms_understand_the_deep_implication_behind_chinese_images.md)**
 
 :   提出 CII-Bench（Chinese Image Implication Understanding Benchmark），包含698张中国互联网/传统文化图像及800道选择题，系统评测MLLM对中文图像深层含义的高阶理解能力，发现最佳模型准确率仅64.4%，远低于人类平均78.2%，且模型在中国传统文化领域表现最差。
+
+**[Can Multimodal Foundation Models Understand Schematic Diagrams? An Empirical Study on Information-Seeking QA over Scientific Papers](can_multimodal_foundation_models_understand_schematic_diagrams_an_empirical_stud.md)**
+
+:   本文提出 MISS-QA，首个专门评估多模态基础模型理解科学论文中示意图能力的基准，包含 1,500 个专家标注样本，揭示了当前最强模型与人类专家之间存在显著性能差距。
 
 **[Can Vision-Language Models Evaluate Handwritten Math?](can_vision-language_models_evaluate_handwritten_math.md)**
 
@@ -78,6 +106,10 @@ description: >-
 
 :   系统研究多语言LVLM训练策略中训练语言数量、语言数据分布和多语言OCR三个维度，发现可同时训练100种语言且仅需25-50%非英语数据，据此训练出覆盖100语言的Centurio模型达到SOTA。
 
+**[Chart-based Reasoning: Transferring Capabilities from LLMs to VLMs](chart-based_reasoning_transferring_capabilities_from_llms_to_vlms.md)**
+
+:   本文提出一种将LLM的推理能力迁移到VLM的方法，通过改进图表表示预训练、构造大规模合成推理数据集和多任务微调，使5B参数的PaLI-3在ChartQA上超越10倍大的模型。
+
 **[ChartCoder: Advancing Multimodal Large Language Model for Chart-to-Code Generation](chartcoder_chart_to_code.md)**
 
 :   提出首个专用chart-to-code MLLM（ChartCoder），以Code LLM为语言骨干+160K大规模图表-代码数据集+Snippet-of-Thought逐步推理方法，7B模型在三个基准上超越所有开源MLLM，接近GPT-4o水平。
@@ -90,6 +122,10 @@ description: >-
 
 :   本文提出了一种基于多模态大模型（MLLM）集成的科学图表视觉问答系统，通过 few-shot 示例检索策略和置信度感知的模型选择机制，在 SciVQA 2025 共享任务中获得第三名（平均 F1 = 85.12）。
 
+**[Con Instruction: Universal Jailbreaking of Multimodal Large Language Models via Non-Textual Modalities](con_instruction_universal_jailbreaking_of_multimodal_large_language_models_via_n.md)**
+
+:   本文提出 Con Instruction 方法，通过优化对抗性图像或音频使其在嵌入空间中与目标恶意指令对齐，实现无需文本输入即可越狱多模态大语言模型（MLLM），在 LLaVA-v1.5 上达到 86.6% 的攻击成功率，并提出了 ARC 评估框架来同时衡量攻击响应的质量和相关性。
+
 **[Insight Over Sight: Exploring the Vision-Knowledge Conflicts in Multimodal LLMs](conflictvis_vision_knowledge_conflict.md)**
 
 :   首次系统探索 MLLM 中常识级别的视觉-知识冲突问题，提出自动化框架构建 ConflictVis 基准（374 图 + 1122 QA），发现 MLLM 在约 20% 的冲突场景中过度依赖参数化知识（尤其是 Yes-No 和动作类问题），并提出 Focus-on-Vision 提示策略进行缓解。
@@ -97,6 +133,10 @@ description: >-
 **[CORDIAL: Can Multimodal Large Language Models Effectively Understand Coherence Relations?](cordial_can_multimodal_large_language_models_effectively_understand_coherence_re.md)**
 
 :   本文提出CORDIAL，首个用连贯关系（Coherence Relations）评估MLLM多模态话语分析能力的基准，涵盖灾难管理、社交媒体和在线文章3个话语领域的不同粒度连贯关系，实验发现即使Gemini 1.5 Pro和GPT-4o也无法匹配简单的CLIP分类器基线，揭示了MLLM在语用理解方面的根本不足。
+
+**[Coreference as an Indicator of Context Scope in Multimodal Narrative](coreference_as_an_indicator_of_context_scope_in_multimodal_narrative.md)**
+
+:   本文揭示了大型多模态语言模型在视觉叙事（visual storytelling）任务中的共指表达（coreferential expressions）分布与人类存在显著差异——人类能变化丰富地交错引用不同实体并保持跨文本-图像的一致性，而机器在追踪混合引用方面能力不足，并提出了一系列量化共指模式特征的指标。
 
 **[CoSyn: Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation](cosyn_code_guided_synthetic_data.md)**
 
@@ -109,6 +149,10 @@ description: >-
 **[CrafText Benchmark: Advancing Instruction Following in Complex Multimodal Open-Ended World](craftext_benchmark_advancing_instruction_following_in_complex_multimodal_open-en.md)**
 
 :   提出 CrafText，一个基于 Craftax 开放世界环境的多模态指令跟随基准，包含 3,924 条指令和 3,423 个独特词汇，覆盖定位、条件、建造和成就四类任务，并设计双重评估协议测试智能体的语言泛化和目标泛化能力。
+
+**[Cultivating Game Sense for Yourself: Making VLMs Gaming Experts](cultivating_gaming_sense_for_yourself_making_vlms_gaming_experts.md)**
+
+:   本文提出了 GameSense 框架，将 VLM 从游戏的直接控制者提升为高级开发者，通过让 VLM 自主观察和开发特定任务的"游戏感"执行模块（从规则到神经网络），首次实现了在动作游戏、射击游戏和休闲游戏等多种类型中的流畅游玩。
 
 **[DALR: Dual-level Alignment Learning for Multimodal Sentence Representation Learning](dalr_dual-level_alignment_learning_for_multimodal_sentence_representation_learni.md)**
 
@@ -166,6 +210,10 @@ description: >-
 
 :   TikTok提出一种基于MLLM的两阶段级联内容审核系统（Router-Ranker），通过轻量级嵌入检索路由器过滤97.5%的合规流量，仅将高风险视频送入微调后的LLaVA进行精细分类，F1提升66.5%的同时部署成本降至直接全量部署的1.5%。
 
+**[Finding Needles in Images: Can Multi-modal LLMs Locate Fine Details?](finding_needles_in_images_can_multi-modal_llms_locate_fine_details.md)**
+
+:   本文提出 NiM 基准数据集，系统评估多模态大模型（MLLM）在复杂文档中定位细粒度信息的能力，并设计 Spot-IT 方法通过智能补丁选择和高斯注意力机制显著提升模型在细节抽取任务上的表现。
+
 **[FinMME: Benchmark Dataset for Financial Multi-Modal Reasoning Evaluation](finmme_benchmark_dataset_for_financial_multi-modal_reasoning_evaluation.md)**
 
 :   构建了一个包含 11,000+ 高质量金融多模态样本的评估基准 FinMME，涵盖 18 个金融领域和 10 种图表类型，提出了融合幻觉惩罚和领域归一化的 FinScore 评估体系，实验表明即使 GPT-4o 也仅得 47 分，揭示了 MLLM 在金融领域的显著不足。
@@ -174,9 +222,17 @@ description: >-
 
 :   提出 FlagEvalMM，一个开源的多模态模型评估框架，通过将模型推理与评估过程解耦的架构设计，统一支持视觉语言理解（VQA）、文生图/文生视频生成和图文检索等多种多模态任务的评估。
 
+**[GODBench: A Benchmark for Multimodal Large Language Models in Video Comment Art](godbench_a_benchmark_for_multimodal_large_language_models_in_video_comment_art.md)**
+
+:   GODBench 构建了首个系统性评估多模态大模型（MLLM）视频弹幕/评论创作能力的基准，定义了5个创意维度和25个子类别，并提出受物理波纹传播启发的 Ripple of Thought（RoT）多步推理框架来增强模型的创意生成能力。
+
 **[Harnessing PDF Data for Improving Japanese Large Multimodal Models](harnessing_pdf_data_for_improving_japanese_large_multimodal_models.md)**
 
 :   提出一套全自动 PDF 数据提取管道，从日语 PDF 中提取图文对并生成指令数据，通过持续微调 LLaVA1.5 框架显著提升日语多模态模型性能，在 Heron-Bench 上实现 2.1%~13.8% 的提升。
+
+**[Hidden in Plain Sight: Evaluation of the Deception Detection Capabilities of LLMs in Multimodal Settings](hidden_in_plain_sight_evaluation_of_the_deception_detection_capabilities_of_llms.md)**
+
+:   本文系统评估了LLM和多模态大模型在文本、视频、音频等多种模态上的欺骗检测能力，发现微调后的LLM在文本欺骗检测上达到SOTA，但多模态模型在利用跨模态线索方面仍存在显著不足。
 
 **[HiDe-LLaVA: Hierarchical Decoupling for Continual Instruction Tuning of Multimodal Large Language Model](hidellava_hierarchical_decoupling_for_continual_instruction.md)**
 
@@ -294,6 +350,10 @@ description: >-
 
 :   提出 MMSciBench，一个包含 4,482 道中文高中数学和物理题目的多模态科学推理基准，涵盖选择题和问答题、纯文本和图文配对两种模态，并带有人工标注难度等级和三级知识分类体系；评估显示最强模型 Gemini 1.5 Pro 002 仅达 63.77% 准确率，且在图文题上性能大幅下降（36.28 个百分点差距）。
 
+**[MMUnlearner: Reformulating Multimodal Machine Unlearning in the Era of Multimodal Large Language Models](mmunlearner_reformulating_multimodal_machine_unlearning_in_the_era_of_multimodal.md)**
+
+:   本文重新定义了多模态大语言模型（MLLM）时代的机器遗忘任务——仅擦除与特定实体关联的视觉模式而保留文本知识，并提出几何约束梯度上升方法MMUnlearner，通过权重显著性图选择性更新参数，在MLLMU-Bench和CLEAR两大基准上全面超越GA和NPO等基线。
+
 **[MultiMM: Cultural Bias Matters — Cross-Cultural Benchmark for Multimodal Metaphors](multimm_cultural_metaphor.md)**
 
 :   提出MultiMM——首个跨文化多模态隐喻数据集，包含8461个中英文广告图文对及细粒度标注，并设计SEMD模型融合情感特征增强隐喻检测。
@@ -377,6 +437,10 @@ description: >-
 **[SingaKids: A Multilingual Multimodal Dialogic Tutor for Language Learning](singakids_a_multilingual_multimodal_dialogic_tutor_for_language_learning.md)**
 
 :   提出 SingaKids 系统，一个面向小学生的多语言多模态对话式语言学习辅导系统，通过图像描述任务整合稠密图像字幕、多语言对话、语音理解和儿童友好语音生成，支持英语、中文、马来语和泰米尔语四种语言的互动学习。
+
+**[Single-to-mix Modality Alignment with Multimodal Large Language Model for Document Image Machine Translation](single-to-mix_modality_alignment_with_multimodal_large_language_model_for_docume.md)**
+
+:   本文提出 M4Doc，一种基于"单模态到混合模态对齐"的文档图像机器翻译框架，在训练阶段利用多模态大语言模型（MLLM）的视觉-文本联合表示来增强轻量级图像编码器，推理时丢弃 MLLM 以保持高效，在跨域泛化和复杂文档场景中取得了显著的翻译质量提升。
 
 **[Sharper and Faster mean Better: Towards More Efficient Vision-Language Model for Hour-scale Long Video Understanding](sophia_efficient_long_video.md)**
 

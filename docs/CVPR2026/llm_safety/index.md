@@ -1,18 +1,26 @@
 ---
 title: >-
-  CVPR2026 LLM安全方向 7篇论文解读
+  CVPR2026 LLM安全方向 9篇论文解读
 description: >-
-  7篇CVPR2026 LLM安全论文解读，主题涵盖：提出 EMIMC 框架，受大脑海马-前额叶协作记忆、提出"Designing to、本文从梯度视角系统分析了 EWC等，每篇含核心思想与方法详解。
+  9篇CVPR2026 LLM安全论文解读，主题涵盖：提出 EMIMC 框架，受大脑海马-前额叶协作记忆、系统研究 VLM 微调到自动驾驶场景时的灾难性遗忘、提出 DAMP（深度感知投影调制）等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM安全
 
-**📷 CVPR2026** · **7** 篇论文解读
+**📷 CVPR2026** · **9** 篇论文解读
 
 **[Association and Consolidation: Evolutionary Memory-Enhanced Incremental Multi-View Clustering](association_and_consolidation_evolutionary_memory-enhanced_incremental_multi-vie.md)**
 
 :   提出 EMIMC 框架，受大脑海马-前额叶协作记忆机制启发，通过 Rapid Associative Module (正交映射保证可塑性)、Cognitive Forgetting Module (幂律衰减模拟遗忘曲线) 和 Knowledge Consolidation Module (时序张量低秩分解提炼长期记忆) 三模块协同，解决增量多视图聚类中的稳定性-可塑性困境。
+
+**[The Blind Spot of Adaptation: Quantifying and Mitigating Forgetting in Fine-tuned Driving Models](blind_spot_of_adaptation_quantifying_and_mitigating_forgetting_in_fine_tuned_driving_models.md)**
+
+:   系统研究 VLM 微调到自动驾驶场景时的灾难性遗忘问题，构建 180K 场景大规模基准 FidelityDrivingBench，并提出 Drive Expert Adapter (DEA) 通过提示空间路由在不腐蚀基础参数的前提下增强驾驶任务性能。
+
+**[DAMP: Class Unlearning via Depth-Aware Removal of Forget-Specific Directions](damp_class_unlearning_via_depth_aware_removal_of_forget_specific_directions.md)**
+
+:   提出 DAMP（深度感知投影调制），一种一次性闭式权重手术方法用于类遗忘，通过在每个网络阶段的编辑空间中移除遗忘类特有方向来实现选择性遗忘，深度感知缩放规则确保浅层保守编辑、深层强力编辑。
 
 **[Designing to Forget: Deep Semi-parametric Models for Unlearning](designing_to_forget_deep_semi-parametric_models_for_unlearning.md)**
 

@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 自监督方向 14篇论文解读
+  ICLR2026 自监督方向 13篇论文解读
 description: >-
-  14篇ICLR2026 自监督论文解读，主题涵盖：通过相似度图模型理论分析严格证明"困难样本"（跨类、提出 DeMol 双图增强多尺度交互框架、受果蝇嗅觉回路启发，提出 Fly-CL 框架等，每篇含核心思想与方法详解。
+  13篇ICLR2026 自监督论文解读，主题涵盖：通过相似度图模型理论分析严格证明"困难样本"（跨类、提出 DeMol 双图增强多尺度交互框架、受果蝇嗅觉回路启发，提出 Fly-CL 框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督
 
-**🔬 ICLR2026** · **14** 篇论文解读
+**🔬 ICLR2026** · **13** 篇论文解读
 
 **[Difficult Examples Hurt Unsupervised Contrastive Learning: A Theoretical Perspective](difficult_examples_hurt_unsupervised_contrastive_learning_a_theoretical_perspect.md)**
 
@@ -49,10 +49,6 @@ description: >-
 **[SNAP-UQ: Self-supervised Next-Activation Prediction for Single-Pass Uncertainty](snap-uq_self-supervised_next-activation_prediction_for_single-pass_uncertainty_i.md)**
 
 :   SNAP-UQ 提出一种面向 TinyML 场景的单次前向传播不确定性估计方法：在骨干网络的选定层附加微型 int8 预测头，用自监督方式预测下一层的激活统计量，将实际激活与预测之间的偏差（"surprisal"）聚合为不确定性分数，无需额外前向传播、时序缓冲或集成，仅增加几十 KB 闪存即可在微控制器上实现可靠的分布偏移检测和故障检测。
-
-**[Spectrum Tuning: Post-Training for Distributional Coverage and In-Context Steerability](spectrum_tuning_post-training_for_distributional_coverage_and_in-context_steerab.md)**
-
-:   揭示RLHF/DPO等后训练会损害模型的上下文可操控性(in-context steerability)、输出覆盖率和分布对齐，提出Spectrum Suite评测框架和Spectrum Tuning方法，首次在后训练阶段改善分布对齐能力。
 
 **[Temporal Slowness in Central Vision Drives Semantic Object Learning](temporal_slowness_in_central_vision_drives_semantic_object_learning.md)**
 

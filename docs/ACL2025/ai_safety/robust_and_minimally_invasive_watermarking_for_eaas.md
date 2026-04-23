@@ -171,8 +171,8 @@ $\alpha$ 的影响（无 CSE 时）：
 
 - [Robust Data Watermarking in Language Models by Injecting Fictitious Knowledge](robust_data_watermarking_in_language_models_by_injecting_fictitious_knowledge.md)
 - [Robust Watermarking on Gradient Boosting Decision Trees](../../AAAI2026/ai_safety/robust_watermarking_on_gradient_boosting_decision_trees.md)
+- [ClusterMark: Towards Robust Watermarking for Autoregressive Image Generators with Visual Token Clustering](../../CVPR2026/ai_safety/clustermark_towards_robust_watermarking_for_autoregressive_image_generators_with.md)
 - [Sandcastles in the Storm: Revisiting Watermarking Impossibility](sandcastles_watermarking_impossibility.md)
 - [MorphMark: Flexible Adaptive Watermarking for Large Language Models](morphmark_adaptive_watermarking.md)
-- [PMark: Towards Robust and Distortion-free Semantic-level Watermarking with Channel Constraints](../../ICLR2026/ai_safety/pmark_towards_robust_and_distortion-free_semantic-level_watermarking_with_channe.md)
 
 <!-- RELATED:END -->

@@ -117,10 +117,10 @@ AMF损失：$\mathcal{L}_{\text{AMF}}(z_{\text{ref}}, z_t) = \|\text{AMF}(z_{\te
 
 ## 相关论文
 
-- [Closed-Loop Transfer for Weakly-supervised Affordance Grounding](../../ICCV2025/image_restoration/closed-loop_transfer_for_weakly-supervised_affordance_grounding.md)
+- [DPIR: Dual Prompting Image Restoration with Diffusion Transformers](dpir_dual_prompting_restoration_dit.md)
 - [Classic Video Denoising in a Machine Learning World: Robust, Fast, and Controllable](classic_video_denoising_in_a_machine_learning_world_robust_fast_and_controllable.md)
-- [NEC-Diff: Noise-Robust Event–RAW Complementary Diffusion for Seeing Motion in Extreme Darkness](../../CVPR2026/image_restoration/nec-diff_noise-robust_event-raw_complementary_diffusion_for_seeing_motion_in_ext.md)
-- [BAMM: Bidirectional Autoregressive Motion Model](../../ECCV2024/image_restoration/bamm_bidirectional_autoregressive_motion_model.md)
+- [Closed-Loop Transfer for Weakly-supervised Affordance Grounding](../../ICCV2025/image_restoration/closed-loop_transfer_for_weakly-supervised_affordance_grounding.md)
+- [DiffFNO: Diffusion Fourier Neural Operator](difffno_diffusion_fourier_neural_operator.md)
 - [Efficient Diffusion as Low Light Enhancer (ReDDiT)](efficient_diffusion_as_low_light_enhancer.md)
 
 <!-- RELATED:END -->

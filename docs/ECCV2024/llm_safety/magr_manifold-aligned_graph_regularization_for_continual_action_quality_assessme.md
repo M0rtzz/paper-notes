@@ -149,10 +149,10 @@ Joint Training 上界分别为 0.9360 / 0.9075 / 0.8460 / 0.7556。
 
 ## 相关论文
 
-- [Order-Robust Class Incremental Learning: Graph-Driven Dynamic Similarity Grouping](../../CVPR2025/llm_safety/order-robust_class_incremental_learning_graph-driven_dynamic_similarity_grouping.md)
+- [Real-time Factuality Assessment from Adversarial Feedback](../../ACL2025/llm_safety/real-time_factuality_assessment_from_adversarial_feedback.md)
 - [Finding Structure in Continual Learning](../../NeurIPS2025/llm_safety/finding_structure_in_continual_learning.md)
+- [Order-Robust Class Incremental Learning: Graph-Driven Dynamic Similarity Grouping](../../CVPR2025/llm_safety/order-robust_class_incremental_learning_graph-driven_dynamic_similarity_grouping.md)
 - [Adversarial Robust Memory-Based Continual Learner](../../ICCV2025/llm_safety/adversarial_robust_memory-based_continual_learner.md)
-- [Elastic Weight Consolidation Done Right for Continual Learning](../../CVPR2026/llm_safety/elastic_weight_consolidation_done_right_for_continual_learning.md)
 - [BECAME: BayEsian Continual Learning with Adaptive Model MErging](../../ICML2025/llm_safety/became_bayesian_continual_learning_with_adaptive_model_merging.md)
 
 <!-- RELATED:END -->

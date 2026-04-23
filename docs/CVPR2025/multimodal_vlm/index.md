@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 多模态VLM方向 123篇论文解读
+  CVPR2025 多模态VLM方向 133篇论文解读
 description: >-
-  123篇CVPR2025 多模态VLM论文解读，主题涵盖：提出4D LangSplat，通过多模态大语言模型、提出一个 training-free、提出 ACID（主动数据筛选即隐式蒸馏）和等，每篇含核心思想与方法详解。
+  133篇CVPR2025 多模态VLM论文解读，主题涵盖：提出4D LangSplat，通过多模态大语言模型、提出一个 training-free、提出 ACID（主动数据筛选即隐式蒸馏）和等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**📷 CVPR2025** · **123** 篇论文解读
+**📷 CVPR2025** · **133** 篇论文解读
 
 **[4D LangSplat: 4D Language Gaussian Splatting via Multimodal Large Language Models](4d_langsplat_4d_language_gaussian_splatting_via_multimodal_large_language_models.md)**
 
@@ -30,11 +30,19 @@ description: >-
 
 :   提出AiR（Augmenting discriminative Richness）方法，利用LoRA微调的Stable Diffusion生成合成图像构建辅助分类器，与文本分类器互补融合，将无监督prompt learning中的文本-图像匹配扩展为图像-图像匹配，显著提升细粒度/遥感等困难数据集上的分类准确率。
 
+**[Calico: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models](calico_part-focused_semantic_co-segmentation_with_large_vision-language_models.md)**
+
+:   提出 Calico——首个面向部件级语义共分割的大视觉语言模型，通过对应关系提取模块（CEM）和对应关系适配模块（CAM）在多图像间建立部件级语义对应，仅微调 0.3% 参数就在新构建的 MixedParts 基准上全面超越现有方法，mIoU 提升 6.3%、推理加速 51.3%。
+
 **[Can Large Vision-Language Models Correct Semantic Grounding Errors By Themselves?](can_large_vision-language_models_correct_semantic_grounding_errors_by_themselves.md)**
 
 :   系统研究了VLM在语义定位任务中的自我纠错能力，发现内在自我纠错（无外部反馈）反而损害性能（-7至-17点），但通过同一VLM作为二值验证器提供反馈的迭代纠错最多可提升8.4个百分点，揭示了反馈质量是自我纠错的关键瓶颈。
 
 **[COAP: Memory-Efficient Training with Correlation-Aware Gradient Projection](coap_memory-efficient_training_with_correlation-aware_gradient_projection.md)**
+
+**[CoLLM: A Large Language Model for Composed Image Retrieval](collm_a_large_language_model_for_composed_image_retrieval.md)**
+
+:   提出 CoLLM——利用大语言模型进行组合图像检索（CIR）的一站式框架，通过从图文对即时生成训练三元组、用 LLM 生成联合多模态嵌入，以及构建 340 万样本的 MTCIR 大规模数据集，在多个 CIR 基准上取得 SOTA 性能，MTCIR 最高带来 15% 的性能提升。
 
 **[CoMM: A Coherent Interleaved Image-Text Dataset for Multimodal Understanding and Generation](comm_a_coherent_interleaved_image-text_dataset_for_multimodal_understanding_and_.md)**
 
@@ -43,6 +51,10 @@ description: >-
 **[Completion as Enhancement: A Degradation-Aware Selective Image Guided Network](completion_as_enhancement_a_degradation-aware_selective_image_guided_network_for.md)**
 
 :   将图像增强重构为'补全'范式，通过退化感知选择机制引导网络聚焦于需要增强的区域，避免对已清晰区域的过度处理
+
+**[Compositional Caching for Training-free Open-vocabulary Attribute Detection](compositional_caching_for_training-free_open-vocabulary_attribute_detection.md)**
+
+:   ComCa 提出了一种无需训练的开放词汇属性检测方法，通过利用大规模网络图片数据库和 LLM 构建带有软属性标签的辅助图像缓存，在推理时聚合缓存图像的相似度来增强 VLM 的属性预测能力，无需任何额外训练即可与训练式方法竞争。
 
 **[Context-Aware Multimodal Pretraining](context-aware_multimodal_pretraining.md)**
 
@@ -108,6 +120,10 @@ description: >-
 
 :   本文提出了一套自动化框架生成包含 19,000 张真实感颜色错觉图像的 RCID 数据集，首次系统性揭示了 VLM 确实存在类人的颜色感知偏差，并通过混合训练方法使模型能同时理解人类感知和真实像素值。
 
+**[Evaluating Vision-Language Models as Evaluators in Path Planning](evaluating_vision-language_models_as_evaluators_in_path_planning.md)**
+
+:   本文提出 PathEval 基准，系统评估视觉语言模型（VLM）作为路径规划评估器的能力，发现 VLM 虽然能够从场景描述中抽象出最优路径的特征，但其视觉组件在感知路径的低级细节方面存在严重瓶颈，端到端微调无法有效解决此问题，需要任务特定的判别式视觉编码器适配。
+
 **[EventGPT: Event Stream Understanding with Multimodal Large Language Models](eventgpt_event_stream_understanding_with_multimodal_large_language_models.md)**
 
 :   首个专为事件相机流设计的 MLLM，通过三阶段渐进训练范式（视觉-语言对齐→事件-语言对齐→指令微调）跨越异步事件数据与语言之间的巨大领域差距，在事件场景描述和 VQA 上大幅超越通用 MLLM。
@@ -166,7 +182,11 @@ description: >-
 
 **[HomeSafe-Bench: Evaluating Vision-Language Models on Unsafe Action Detection for Embodied Agents in Household Scenarios](homesafe-bench_evaluating_vision-language_models_on_unsafe_action_detection_for_.md)**
 
-:   提出HomeSafe-Bench——一个包含438个案例覆盖六大家庭功能区域的不安全动作检测基准，并设计HD-Guard双脑分层流式架构，以轻量FastBrain做高频筛查、大模型SlowBrain做深度推理，平衡家庭机器人安全监控的实时性与准确性。
+:   HomeSafe-Bench是首个评估VLM在家庭场景中不安全行为检测的benchmark（438个案例覆盖6个功能区域），并提出HD-Guard层次化流式架构协调轻量FastBrain和大规模SlowBrain实现实时安全监控。
+
+**[How to Merge Your Multimodal Models Over Time?](how_to_merge_your_multimodal_models_over_time.md)**
+
+:   本文提出 TIME（Temporal Integration of Model Expertise）框架，系统研究了多模态专家模型随时间渐进融合的问题，通过初始化策略、部署策略和融合技术三个轴定义搜索空间，在 FoMo-in-Flux 基准上揭示了时序模型融合的关键设计原则。
 
 **[Hyperbolic Safety-Aware Vision-Language Models](hyperbolic_safety-aware_vision-language_models.md)**
 
@@ -199,6 +219,10 @@ description: >-
 **[LLaVA-Critic: Learning to Evaluate Multimodal Models](llava-critic_learning_to_evaluate_multimodal_models.md)**
 
 :   LLaVA-Critic 是首个开源的通用多模态评估模型，通过在精心构建的113k评估指令数据上训练，使开源LMM具备了接近GPT-4o水平的Pointwise评分和Pairwise排序能力，并可作为奖励模型为迭代DPO提供有效的偏好信号，超越基于人类反馈训练的LLaVA-RLHF奖励模型。
+
+**[MarkushGrapher: Joint Visual and Textual Recognition of Markush Structures](markushgrapher_joint_visual_and_textual_recognition_of_markush_structures.md)**
+
+:   本文提出MarkushGrapher，一个多模态方法，通过联合编码文本、图像和布局信息来识别专利文档中的Markush结构（化学结构模板），并构建了首个真实世界Markush结构标注基准M2S，在大多数评估设定下超越了SOTA化学专用和通用视觉语言模型。
 
 **[MARTEN: Visual Question Answering with Mask Generation for Multi-Modal Document Understanding](marten_visual_question_answering_with_mask_generation_for_multi-modal_document_u.md)**
 
@@ -243,6 +267,10 @@ description: >-
 **[A Two-Stage Progressive Pre-training using Multi-Modal Contrastive Masked Autoencoders](multi-modal_contrastive_masked_autoencoders_a_two-stage_progressive_pre-training.md)**
 
 :   本文提出渐进式两阶段预训练策略——第一阶段用patch级对比学习对齐RGB和深度模态的跨模态表示，第二阶段用掩码自编码+受扩散模型启发的去噪+特征蒸馏联合训练，在ScanNet语义分割上比Mask3D提升+1.3% mIoU，在多个RGB-D下游任务上达到SOTA。
+
+**[Multimodal Autoregressive Pre-training of Large Vision Encoders](multimodal_autoregressive_pre-training_of_large_vision_encoders.md)**
+
+:   Apple提出AIMV2系列视觉编码器，通过将ViT编码器与一个多模态自回归解码器配对——同时生成原始图像patch和文本token作为预训练目标，在保持简洁训练流程的同时实现了跨任务的通用性能，AIMV2-3B在ImageNet冻结主干评估中达到89.5%，并在多模态理解基准上全面超越CLIP和SigLIP。
 
 **[Multimodal OCR: Parse Anything from Documents](multimodal_ocr_parse_anything_from_documents.md)**
 
@@ -372,6 +400,10 @@ description: >-
 
 :   揭示 prompt tuning 冻结 VLM 参数既不促进知识迁移也未显著提升效率（仅减 6% 内存/16% 时间），提出 Skip Tuning 通过层级跳过（LSkip）和类别跳过（CSkip）缩短全微调的梯度传播流，实现 15× 时间效率和 6.4× 内存效率提升的同时精度更优。
 
+**[SmartCLIP: Modular Vision-language Alignment with Identification Guarantees](smartclip_modular_vision-language_alignment_with_identification_guarantees.md)**
+
+:   SmartCLIP 通过引入自适应掩码网络实现模块化的视觉-文本对齐，在理论上证明了潜在变量的可识别性，有效解决了 CLIP 训练中的信息错位和表征纠缠问题，在长/短文本检索和零样本分类等多项任务上显著超越现有方法。
+
 **[SPA-VL: A Comprehensive Safety Preference Alignment Dataset for Vision Language Models](spa-vl_a_comprehensive_safety_preference_alignment_dataset_for_vision_language_m.md)**
 
 :   SPA-VL 构建了一个包含 100,788 个四元组（问题、图像、优选回答、劣选回答）的大规模VLM安全偏好对齐数据集，覆盖6大领域/13类/53子类有害内容，基于12个VLM的多样化回答和全自动化标注流程，使用DPO/PPO训练后模型在安全性上大幅提升同时保持帮助性。
@@ -428,6 +460,10 @@ description: >-
 
 :   CleanSight 发现 LVLM 后门攻击的机制不在像素层面而在注意力层面——触发器通过"注意力窃取"（trigger token 抢夺 text token 的注意力）来激活后门，据此提出了一种免训练、即插即用的 test-time 防御方法：通过检测跨模态注意力比例异常来识别中毒输入，再通过剪枝高注意力视觉 token 来中和后门，ASR 降至接近 0% 且几乎不影响模型性能。
 
+**[Thinking in Dynamics: How Multimodal Large Language Models Perceive, Track, and Reason Dynamics in Physical 4D World](thinking_in_dynamics_how_multimodal_large_language_models_perceive_track_and_rea.md)**
+
+:   本文提出 Dyn-Bench——首个系统评估多模态大模型（MLLMs）在物理4D世界中动态感知、追踪和推理能力的大规模基准，包含 1K 视频、7K VQA 对和 3K 动态目标定位对，发现现有模型无法同时在时空推理和动态定位上表现良好，并提出 Mask-Guided Fusion 和 ST-TCM 两种结构化增强方法显著提升表现。
+
 **[Thinking in Space: How Multimodal Large Language Models See, Remember, and Recall Spaces](thinking_in_space_how_multimodal_large_language_models_see_remember_and_recall_s.md)**
 
 :   本文提出 VSI-Bench，一个基于视频的视觉空间智能基准（5000+ QA对），系统评估了 MLLM 的空间推理能力，发现空间推理是主要瓶颈，传统语言推理技术（CoT等）无法提升性能，但显式生成认知地图可改善空间距离推理。
@@ -475,6 +511,10 @@ description: >-
 **[Vision-Language Model IP Protection via Prompt-based Learning](vision-language_model_ip_protection_via_prompt-based_learning.md)**
 
 :   提出IP-CLIP框架，通过轻量级IP-Prompt学习（域token+图像token）和风格增强分支，在冻结CLIP骨干上实现VLM的知识产权保护——让模型在授权域保持高准确率的同时故意降低在非授权域的性能，授权域准确率下降为0%。
+
+**[Vision-Language Models Do Not Understand Negation](vision-language_models_do_not_understand_negation.md)**
+
+:   本文提出 NegBench 基准，系统揭示了 CLIP 等视觉语言模型在否定理解上的严重缺陷（表现接近随机水平），并通过在大规模合成否定数据集上微调，将否定查询的检索召回率提升 10%、MCQ 准确率提升高达 40%。
 
 **[VisionZip: Longer is Better but Not Necessary in Vision Language Models](visionzip_longer_is_better_but_not_necessary_in_vision_language_models.md)**
 

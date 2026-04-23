@@ -74,9 +74,9 @@ description: >-
 
 :   本文揭示了知识图谱复杂查询回答（CQA）现有基准中高达 98% 的"复杂"查询实际上可被简化为简单的单链接预测问题，由此导致研究进展被严重高估；作者提出了平衡采样的新基准（FB15k237+H、NELL995+H、ICEWS18+H），并引入混合求解器 CQD-Hybrid 验证了这一发现，在新基准上所有 SOTA 方法的 MRR 大幅下降（最多超过 30 个点）。
 
-**[Learnable Spatial-Temporal Positional Encoding for Link Prediction](learnable_spatial-temporal_positional_encoding_for_link_prediction.md)**
+**[L-STEP: Learnable Spatial-Temporal Positional Encoding for Link Prediction](learnable_spatial-temporal_positional_encoding_for_link_prediction.md)**
 
-:   提出 L-STEP，一种可学习的时空位置编码方法，从时空谱角度证明可保持图属性，仅用 MLP 即可达到 Transformer 性能，在 13 个数据集和 TGB 基准上取得领先表现，且计算复杂度更优。
+:   提出 L-STEP，一种基于可学习时空位置编码的轻量级时序链接预测模型，通过离散傅里叶变换捕获位置编码的时序演化，用 MLP 替代 Transformer 注意力机制达到 SOTA 效果且运行更快。
 
 **[LLM Enhancers for GNNs: An Analysis from the Perspective of Causal Mechanism Identification](llm_enhancers_for_gnns_an_analysis_from_the_perspective_of_causal_mechanism_iden.md)**
 

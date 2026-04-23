@@ -187,6 +187,6 @@ $$n_t = \begin{cases} n_1, & \Delta_t > \rho_0 \cdot \Delta_0 \quad \text{(æ—©æœ
 - [EDformer: Transformer-Based Event Denoising Across Varied Noise Levels](edformer_transformer-based_event_denoising_across_varied_noise_levels.md)
 - [OAPT: Offset-Aware Partition Transformer for Double JPEG Artifacts Removal](oapt_offset-aware_partition_transformer_for_double_jpeg_artifacts_removal.md)
 - [Learning Exhaustive Correlation for Spectral Super-Resolution: Where Spatial-Spectral Attention Meets Linear Dependence](learning_exhaustive_correlation_for_spectral_super-resolution_where_spatial-spec.md)
-- [You Only Need One Step: Fast Super-Resolution with Stable Diffusion via Scale Distillation](you_only_need_one_step_fast_super-resolution_with_stable_diffusion_via_scale_dis.md)
+- [DiffusionBlocks: Block-wise Neural Network Training via Diffusion Interpretation](../../ICLR2026/image_restoration/diffusionblocks_block-wise_neural_network_training_via_diffusion_interpretation.md)
 
 <!-- RELATED:END -->

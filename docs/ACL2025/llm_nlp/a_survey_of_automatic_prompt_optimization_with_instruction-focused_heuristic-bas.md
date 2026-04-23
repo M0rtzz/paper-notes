@@ -145,9 +145,9 @@ tags:
 ## 相关论文
 
 - [RiOT: Efficient Prompt Refinement with Residual Optimization Tree](riot_efficient_prompt_refinement_with_residual_optimization_tree.md)
+- [Why Prompt Design Matters and Works: A Complexity Analysis of Prompt Search Space in LLMs](why_prompt_design_matters_and_works_a_complexity_analysis_of_prompt_search_space.md)
+- [BFS-Prover: Scalable Best-First Tree Search for LLM-Based Automatic Theorem Proving](bfs-prover_scalable_best-first_tree_search_for_llm-based_automatic_theorem_provi.md)
 - [Efficient and Accurate Prompt Optimization: the Benefit of Memory in Exemplar-Guided Reflection](erm_prompt_optimization_memory.md)
 - [System Prompt Optimization with Meta-Learning](../../NeurIPS2025/llm_nlp/system_prompt_optimization_with_meta-learning.md)
-- [GAPO: Learning Preferential Prompt through Generative Adversarial Policy Optimization](gapo_preferential_prompt.md)
-- [PRESTO: Preimage-Informed Instruction Optimization for Prompting Black-Box LLMs](../../NeurIPS2025/llm_nlp/presto_preimage-informed_instruction_optimization_for_prompting_black-box_llms.md)
 
 <!-- RELATED:END -->

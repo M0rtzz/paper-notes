@@ -120,7 +120,7 @@ FedGEM 包含两个阶段：(1) 迭代协作训练阶段——客户端本地 EM
 - [Federated ADMM from Bayesian Duality](federated_admm_from_bayesian_duality.md)
 - [RMoA: Optimizing Mixture-of-Agents through Diversity Maximization and Residual Compensation](../../ACL2025/others/rmoa_optimizing_mixture-of-agents_through_diversity_maximization_and_residual_co.md)
 - [Neural Force Field: Few-shot Learning of Generalized Physical Reasoning](neural_force_field_few-shot_learning_of_generalized_physical_reasoning.md)
+- [Mixture of Small and Large Models for Chinese Spelling Check](../../ACL2025/others/mixture_of_small_and_large_models_for_chinese_spelling_check.md)
 - [Private Frequency Estimation via Residue Number Systems](../../AAAI2026/others/private_frequency_estimation_via_residue_number_systems.md)
-- [LipNeXt: Scaling up Lipschitz-based Certified Robustness to Billion-parameter Models](lipnext_scaling_up_lipschitz-based_certified_robustness_to_billion-parameter_mod.md)
 
 <!-- RELATED:END -->

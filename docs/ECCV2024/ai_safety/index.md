@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 AI安全方向 11篇论文解读
+  ECCV2024 AI安全方向 12篇论文解读
 description: >-
-  11篇ECCV2024 AI安全论文解读，主题涵盖：提出 GAKer，首个可泛化到未知目标类别的定向对、提出 CGNC，利用 CLIP、提出 Event Trojan 框架等，每篇含核心思想与方法详解。
+  12篇ECCV2024 AI安全论文解读，主题涵盖：提出 GAKer，首个可泛化到未知目标类别的定向对、提出 CGNC，利用 CLIP、提出 Event Trojan 框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**🎞️ ECCV2024** · **11** 篇论文解读
+**🎞️ ECCV2024** · **12** 篇论文解读
 
 **[Any Target Can Be Offense: Adversarial Example Generation via Generalized Latent Infection](any_target_can_be_offense_adversarial_example_generation_via_generalized_latent_.md)**
 
@@ -42,13 +42,17 @@ description: >-
 
 :   首次系统研究分布式 DNN 中熵编码模型在有意干扰（对抗攻击）和无意干扰（天气变化、运动模糊等）下的鲁棒性，发现熵模型学习的压缩特征与分类特征截然不同，并提出基于目标感知全变差去噪的防御方法，可将攻击后的传输开销降低至低于干净数据水平，准确率仅下降约 2%。
 
-**[RingID: Rethinking Tree-Ring Watermarking for Enhanced Multi-Key Identification](ringid_rethinking_tree-ring_watermarking_for_enhanced_multi-key_identification.md)**
+**[SkyMask: Attack-Agnostic Robust Federated Learning with Fine-Grained Learnable Masks](skymask_attack-agnostic_robust_federated_learning_with_fine-grained_learnable_ma.md)**
 
-:   本文深入分析了 Tree-Ring 水印方法的鲁棒性来源（发现分布偏移是其验证任务中意外的隐藏助力），揭示其在多密钥识别任务中的严重缺陷，并提出 RingID——一种多通道异构水印框架，通过离散化、无损嵌入和更圆环形设计，将2048个密钥的识别准确率从0.07提升至0.82。
+:   提出 SkyMask，利用参数级可学习二值掩码在服务器端检测恶意客户端模型更新，实现攻击无关的鲁棒联邦学习，在恶意客户端占比高达 80% 时仍能有效防御。
 
 **[Towards Multi-modal Transformers in Federated Learning](towards_multi-modal_transformers_in_federated_learning.md)**
 
 :   提出 FedCola 框架，通过互补本地训练和协作聚合两个策略，在联邦学习中实现多模态 Transformer 的跨模态知识迁移，无需公共数据即可弥合单模态与多模态客户端之间的差距。
+
+**[Towards Multi-modal Transformers in Federated Learning](towards_multimodal_transformers_in_federated_learning.md)**
+
+:   首次探索Transformer架构在转移式多模态联邦学习中的应用，提出FedCola框架，通过互补式本地训练（利用跨模态Transformer blocks）和协作式服务器聚合（选择性聚合self-attention层），在保护数据隐私的前提下有效训练多模态Transformer。
 
 **[Unveiling Privacy Risks in Stochastic Neural Networks Training: Effective Image Reconstruction from Gradients](unveiling_privacy_risks_in_stochastic_neural_networks_training_effective_image_r.md)**
 

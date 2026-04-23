@@ -162,7 +162,7 @@ Breakfast 上逐步添加组件（MSTCN backbone）：
 - [Skeleton Motion Words for Unsupervised Skeleton-Based Temporal Action Segmentation](../../ICCV2025/segmentation/skeleton_motion_words_for_unsupervised_skeleton-based_temporal_action_segmentati.md)
 - [VP-SAM: Taming Segment Anything Model for Video Polyp Segmentation via Disentanglement and Spatio-Temporal Side Network](vp-sam_taming_segment_anything_model_for_video_polyp_segmentation_via_disentangl.md)
 - [Segmentation-Guided Layer-Wise Image Vectorization with Gradient Fills](segmentation-guided_layer-wise_image_vectorization_with_gradient_fills.md)
+- [DreamLIP: Language-Image Pre-training with Long Captions](dreamlip_language-image_pre-training_with_long_captions.md)
 - [Temporal Rate Reduction Clustering for Human Motion Segmentation](../../ICCV2025/segmentation/temporal_rate_reduction_clustering_for_human_motion_segmentation.md)
-- [Fractal Calibration for Long-Tailed Object Detection](../../CVPR2025/segmentation/fractal_calibration_for_long-tailed_object_detection.md)
 
 <!-- RELATED:END -->

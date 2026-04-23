@@ -26,14 +26,18 @@ tags:
 提出CIARD，通过对比推离损失（Contrastive Push Loss）解决双教师ARD框架中clean teacher和robust teacher的优化目标冲突，并设计迭代教师训练（ITT）策略持续更新robust teacher以防止性能退化，在CIFAR-10/100和Tiny-ImageNet上同时提升对抗鲁棒性+3.53%和干净准确率+5.87%。
 
 ## 背景与动机
-边缘设备部署需要高效且鲁棒的模型。知识蒸馏(KD)可压缩教师到学生，但传统KD不关心鲁棒性。对抗训练(AT)增强鲁棒性但对小模型效果有限。对抗鲁棒蒸馏(ARD)将两者结合。
+
+### 领域现状
+
+**领域现状**：边缘设备部署需要高效且鲁棒的模型。知识蒸馏(KD)可压缩教师到学生，但传统KD不关心鲁棒性。对抗训练(AT)增强鲁棒性但对小模型效果有限。对抗鲁棒蒸馏(ARD)将两者结合。
 
 双教师ARD的两个关键挑战：
 1. **优化目标冲突**：clean teacher关注干净样本准确率，robust teacher关注对抗鲁棒性，学生难以调和
 2. **对抗教师性能退化**：训练中学生生成的对抗样本越来越强，持续侵蚀robust teacher性能
 
-## 核心问题
-如何在双教师ARD框架中同时提升学生的对抗鲁棒性和干净准确率？
+### 解决思路
+
+**本文目标**：如何在双教师ARD框架中同时提升学生的对抗鲁棒性和干净准确率？
 
 ## 方法详解
 
@@ -85,7 +89,7 @@ CIARD包含固定的clean teacher + 持续更新的robust teacher + push loss机
 - ITT去掉后robust accuracy在训练后期明显下降
 - ITT更新频率需要平衡计算成本和收益
 
-## 亮点
+## 亮点与洞察
 - **打破精度-鲁棒性权衡**：同时提升两者对实际部署意义重大
 - **Push Loss的反直觉设计**：推远清洁教师的错误预测——"负样本"思路简单有效
 - **教师退化问题的识别和解决**：首次明确指出并用ITT直接解决
@@ -97,12 +101,12 @@ CIARD包含固定的clean teacher + 持续更新的robust teacher + push loss机
 - Push loss权重系数需手动调节
 - 未与最新对抗训练方法充分对比
 
-## 与相关工作的对比
+## 相关工作与启发
 - **vs. ARD/RSLAD**：单教师框架，鲁棒性提升有限且干净准确率低
 - **vs. MTARD/B-MTARD**：双教师但未解决优化冲突和教师退化
 - **CIARD优势**：push loss解耦 + ITT动态更新
 
-## 启发与关联
+## 相关工作与启发
 - Push loss的"远离错误"策略可迁移到其他多教师蒸馏场景
 - 教师模型动态退化问题在其他在线蒸馏/对抗学习中也可能存在
 - 与curriculum learning有相似性：ITT本质上是让教师适应学生的"课程"难度
@@ -127,10 +131,10 @@ CIARD包含固定的clean teacher + 持续更新的robust teacher + push loss机
 
 ## 相关论文
 
-- [Heterogeneous Adversarial Play in Interactive Environments](../../NeurIPS2025/model_compression/heterogeneous_adversarial_play_in_interactive_environments.md)
+- [OPAD: Adversarial Concept Distillation for One-Step Diffusion Personalization](../../CVPR2026/model_compression/opad_adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
 - [Knowledge Distillation with Refined Logits](knowledge_distillation_with_refined_logits.md)
-- [RISE: Reasoning Enhancement via Iterative Self-Exploration in Multi-hop Question Answering](../../ACL2025/model_compression/rise_reasoning_enhancement_via_iterative_self-exploration_in_multi-hop_question_.md)
+- [Adversarial Concept Distillation for One-Step Diffusion Personalization](../../CVPR2026/model_compression/adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
 - [A Good Teacher Adapts Their Knowledge for Distillation](a_good_teacher_adapts_their_knowledge_for_distillation.md)
-- [Perspective-Aware Teaching: Adapting Knowledge for Heterogeneous Distillation](perspective-aware_teaching_adapting_knowledge_for_heterogeneous_distillation.md)
+- [Heterogeneous Adversarial Play in Interactive Environments](../../NeurIPS2025/model_compression/heterogeneous_adversarial_play_in_interactive_environments.md)
 
 <!-- RELATED:END -->

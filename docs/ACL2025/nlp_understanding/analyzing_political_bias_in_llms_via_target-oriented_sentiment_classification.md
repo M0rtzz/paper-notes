@@ -126,10 +126,10 @@ tags:
 
 ## 相关论文
 
-- [A Variational Approach for Mitigating Entity Bias in Relation Extraction](a_variational_approach_for_mitigating_entity_bias_in_relation_extraction.md)
 - [Sentiment Reasoning for Healthcare](sentiment_reasoning_for_healthcare.md)
+- [A Variational Approach for Mitigating Entity Bias in Relation Extraction](a_variational_approach_for_mitigating_entity_bias_in_relation_extraction.md)
 - [Dynamic Order Template Prediction for Generative Aspect-Based Sentiment Analysis](dot_absa_template.md)
+- [Active LLMs for Multi-hop Question Answering](active_llms_for_multi-hop_question_answering.md)
 - [SynGraph: A Dynamic Graph-LLM Synthesis Framework for Sparse Streaming User Sentiment Analysis](syngraph_a_dynamic_graph-llm_synthesis_framework_for_sparse_streaming_user_senti.md)
-- [Adapting Psycholinguistic Research for LLMs: Gender-Inclusive Language in a Coreference Context](adapting_psycholinguistic_research_for_llms_gender-inclusive_language_in_a_coref.md)
 
 <!-- RELATED:END -->

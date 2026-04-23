@@ -2984,9 +2984,9 @@ BCE 和 HSC 的反|--------|------|--??据集上与异常样本同?*arX??|**会�
 ## 相关论文
 
 - [AttnZero: Efficient Attention Discovery for Vision Transformers](../../ECCV2024/others/attnzero_efficient_attention_discovery_for_vision_transformers.md)
+- [CoMet: Metaphor-Driven Covert Communication for Multi-Agent Language Games](comet_metaphor-driven_covert_communication_for_multi-agent_language_games.md)
 - [On Agnostic PAC Learning in the Small Error Regime](../../NeurIPS2025/others/on_agnostic_pac_learning_in_the_small_error_regime.md)
 - [CADReview: Automatically Reviewing CAD Programs with Error Detection and Correction](cadreview_automatically_reviewing_cad_programs_with_error_detection_and_correcti.md)
 - [SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design](../../CVPR2025/others/sldprtnet_a_large-scale_multimodal_dataset_for_cad_generation_in_language-driven.md)
-- [CiteEval: Principle-Driven Citation Evaluation for Source Attribution](citeeval_principle-driven_citation_evaluation_for_source_attribution.md)
 
 <!-- RELATED:END -->

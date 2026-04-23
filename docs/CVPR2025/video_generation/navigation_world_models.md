@@ -149,6 +149,6 @@ NWM独立规划的ATE比最好的导航策略低40%。
 - [Disentangled World Models: Learning to Transfer Semantic Knowledge from Distracting Videos for Reinforcement Learning](../../ICCV2025/video_generation/disentangled_world_models_learning_to_transfer_semantic_knowledge_from_distracti.md)
 - [World-Consistent Video Diffusion with Explicit 3D Modeling](world-consistent_video_diffusion_with_explicit_3d_modeling.md)
 - [ShotAdapter: Text-to-Multi-Shot Video Generation with Diffusion Models](shotadapter_text-to-multi-shot_video_generation_with_diffusion_models.md)
-- [From Slow Bidirectional to Fast Autoregressive Video Diffusion Models](from_slow_bidirectional_to_fast_autoregressive_video_diffusion_models.md)
+- [Articulated Kinematics Distillation from Video Diffusion Models](articulated_kinematics_distillation_from_video_diffusion_models.md)
 
 <!-- RELATED:END -->

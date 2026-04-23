@@ -122,9 +122,9 @@ tags:
 ## 相关论文
 
 - [Explorer: Scaling Exploration-Driven Web Trajectory Synthesis for Multimodal Web Agents](explorer_scaling_exploration-driven_web_trajectory_synthesis_for_multimodal_web_.md)
+- [Browsing Like Human: A Multimodal Web Agent with Experiential Fast-and-Slow Thinking](browsing_like_human_a_multimodal_web_agent_with_experiential_fast-and-slow_think.md)
 - [SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home LLM Agents](../../ICLR2026/llm_agent/simuhome_a_temporal-_and_environment-aware_benchmark_for_smart_home_llm_agents.md)
-- [OS Agents: A Survey on MLLM-based Agents for General Computing Devices Use](os_agents_a_survey_on_mllm-based_agents_for_general_computing_devices_use.md)
-- [Multiple LLM Agents Debate for Equitable Cultural Alignment](multiple_llm_agents_debate_for_equitable.md)
-- [MultiAgentBench: Evaluating the Collaboration and Competition of LLM Agents](multiagentbench_evaluating_the_collaboration_and_competition_of_llm_agents.md)
+- [LLM Agents Making Agent Tools](llm_agents_making_agent_tools.md)
+- [An Empirical Study on LLM-based Agents for Automated Bug Fixing](an_empirical_study_on_llm-based_agents_for_automated_bug_fixing.md)
 
 <!-- RELATED:END -->

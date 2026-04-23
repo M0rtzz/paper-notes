@@ -123,8 +123,8 @@ HiVU 基准：在 L3（困难推理）上 Overall Winner 77.13% vs baseline 22.8
 
 - [VGEnt: Graph-Based Retrieval-Reasoning-Augmented Generation for Long Video Understanding](vgent_graph-based_retrieval-reasoning-augmented_generation_for_long_video_unders.md)
 - [DrVideo: Document Retrieval Based Long Video Understanding](../../CVPR2025/video_understanding/drvideo_document_retrieval_based_long_video_understanding.md)
+- [AdaSpark: Adaptive Sparsity for Efficient Long-Video Understanding](../../CVPR2026/video_understanding/adaspark_adaptive_sparsity_for_efficient_long_video_understanding.md)
 - [Rethinking Video-Text Understanding: Retrieval from Counterfactually Augmented Data](../../ECCV2024/video_understanding/rethinking_video-text_understanding_retrieval_from_counterfactually_augmented_da.md)
 - [VideoLucy: Deep Memory Backtracking for Long Video Understanding](videolucy_deep_memory_backtracking_for_long_video_understanding.md)
-- [Less is More: Local Intrinsic Dimensions of Contextual Language Models](less_is_more_local_intrinsic_dimensions_of_contextual_language_models.md)
 
 <!-- RELATED:END -->
