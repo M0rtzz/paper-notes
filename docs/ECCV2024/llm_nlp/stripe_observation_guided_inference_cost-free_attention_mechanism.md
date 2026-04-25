@@ -242,6 +242,6 @@ $$A_{enhanced}^{(h)} = A_{std}^{(h)} + \alpha^{(h)} \cdot A_{stripe}^{(h)}$$
 - [Nudging: Inference-time Alignment of LLMs via Guided Decoding](../../ACL2025/llm_nlp/nudging_inference_time_alignment.md)
 - [MHA2MLA: Towards Economical Inference by Enabling DeepSeek's Multi-Head Latent Attention in Any Transformer-based LLMs](../../ACL2025/llm_nlp/mha2mla_deepseek_latent_attention.md)
 - [Computation Mechanism Behind LLM Position Generalization](../../ACL2025/llm_nlp/computation_mechanism_behind_llm_position_generalization.md)
-- [LASER: Attention with Exponential Transformation](../../ICML2025/llm_nlp/laser_attention_with_exponential_transformation.md)
+- [LLM-AT: Automatic Transmission for LLM Tiers Optimizing Cost and Accuracy](../../ACL2025/llm_nlp/automatic_transmission_for_llm_tiers_optimizing_cost_and_accuracy_in_large_langu.md)
 
 <!-- RELATED:END -->

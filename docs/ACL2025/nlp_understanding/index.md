@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 NLP理解方向 35篇论文解读
+  ACL2025 NLP理解方向 36篇论文解读
 description: >-
-  35篇ACL2025 NLP理解论文解读，主题涵盖：提出GraphMPA框架，通过构建基于通用相似度度、提出基于变分信息瓶颈（VIB）的实体去偏方法、本文提出一种主动式大语言模型框架等，每篇含核心思想与方法详解。
+  36篇ACL2025 NLP理解论文解读，主题涵盖：提出GraphMPA框架，通过构建基于通用相似度度、提出基于变分信息瓶颈（VIB）的实体去偏方法、本文提出一种主动式大语言模型框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📖 NLP理解
 
-**💬 ACL2025** · **35** 篇论文解读
+**💬 ACL2025** · **36** 篇论文解读
 
 **[A Comprehensive Graph Framework for Question Answering with Mode-Seeking Preference Alignment](a_comprehensive_graph_framework_for_question_answering_with_mode-seeking_prefere.md)**
 
@@ -105,6 +105,10 @@ description: >-
 **[iQUEST: An Iterative Question-Guided Framework for Knowledge Base Question Answering](iquest_an_iterative_question-guided_framework_for_knowledge_base_question_answer.md)**
 
 :   iQUEST 提出迭代式子问题引导框架，在每一步推理中动态生成当前可解答的子问题以维持推理方向，并结合 GNN 聚合二跳邻居语义信息实现"前瞻性"实体探索，在 CWQ、WebQSP、WebQuestions、GrailQA 四个基准上取得 SOTA 或接近 SOTA 的性能，且无需微调 LLM。
+
+**[Meaning Beyond Truth Conditions: Evaluating Discourse Level Understanding via Anaphora Accessibility](meaning-beyond-truth-conditions-anaphora-accessibility.md)**
+
+:   本文提出自然语言理解能力的三层次层级体系（词汇/句子/篇章），以回指可及性（anaphora accessibility）作为篇章级理解的诊断任务，通过动态语义学启发的评估数据集系统考察了 LLM 在全称量词、否定和析取三种语言结构下的篇章理解能力。
 
 **[Multi-Hop Reasoning for Question Answering with Hyperbolic Representations](multi-hop_reasoning_for_question_answering_with_hyperbolic_representations.md)**
 

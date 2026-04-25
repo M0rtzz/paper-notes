@@ -139,8 +139,8 @@ $$\mathcal{L} = \mathbb{E}_{t, x_0, \epsilon} \left[ \lambda_c(t) \|\hat{x}_c - 
 
 - [SaMam: Style-aware State Space Model for Arbitrary Image Style Transfer](../../CVPR2025/image_generation/samam_style-aware_state_space_model_for_arbitrary_image_style_transfer.md)
 - [Shallow Diffuse: Robust and Invisible Watermarking through Low-Dimensional Subspaces in Diffusion Models](../../NeurIPS2025/image_generation/shallow_diffuse_robust_and_invisible_watermarking_through_low-dimensional_subspa.md)
-- [Long-Context State-Space Video World Models](../../ICCV2025/image_generation/long-context_state-space_video_world_models.md)
 - [State-Covering Trajectory Stitching for Diffusion Planners](../../NeurIPS2025/image_generation/state-covering_trajectory_stitching_for_diffusion_planners.md)
+- [Long-Context State-Space Video World Models](../../ICCV2025/image_generation/long-context_state-space_video_world_models.md)
 - [LIVS: A Pluralistic Alignment Dataset for Inclusive Public Spaces](livs_a_pluralistic_alignment_dataset_for_inclusive_public_spaces.md)
 
 <!-- RELATED:END -->

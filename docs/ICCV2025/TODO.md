@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # ICCV2025 论文笔记 TODO
 
-总计: 1870 篇 | 已完成: 1368 | 待更新: 502
+总计: 1870 篇 | 已完成: 1369 | 待更新: 501
 
 ---
 
@@ -1397,7 +1397,7 @@
 - [x] [resgs residual densification of 3d gaussian for efficient detail recovery](3d_vision/resgs_residual_densification_of_3d_gaussian_for_efficient_detail_recovery.md) | arXiv: 2412.07494
 - [x] [residualvit for efficient temporally dense video encoding](video_understanding/residualvit_for_efficient_temporally_dense_video_encoding.md) | arXiv: 2509.13255
 - [x] [resolving token-space gradient conflicts token space manipulation for transforme](robotics/resolving_token-space_gradient_conflicts_token_space_manipulation_for_transforme.md) | arXiv: 2507.07485
-- [ ] [resonance learning to predict social-aware pedestrian trajectories as co-vibrati](autonomous_driving/resonance_learning_to_predict_social-aware_pedestrian_trajectories_as_co-vibrati.md) | arXiv: 2412.02447
+- [x] [resonance learning to predict social-aware pedestrian trajectories as co-vibrati](autonomous_driving/resonance_learning_to_predict_social-aware_pedestrian_trajectories_as_co-vibrati.md) | arXiv: 2412.02447
 - [x] [resq a novel framework to implement residual neural networks on analog rydberg a](physics/resq_a_novel_framework_to_implement_residual_neural_networks_on_analog_rydberg_a.md) | arXiv: 2506.21537
 - [x] [rethink sparse signals for pose-guided text-to-image generation](image_generation/rethink_sparse_signals_for_pose-guided_text-to-image_generation.md) | arXiv: 2506.20983
 - [x] [rethinking cross-modal interaction in multimodal diffusion transformers](image_generation/rethinking_cross-modal_interaction_in_multimodal_diffusion_transformers.md) | arXiv: 2506.07986

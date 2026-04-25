@@ -136,6 +136,6 @@ CMU Panoptic 数据集 Chamfer 距离（mm）：
 - [Towards High-fidelity 3D Talking Avatar with Personalized Dynamic Texture](../../CVPR2025/human_understanding/towards_high-fidelity_3d_talking_avatar_with_personalized_dynamic_texture.md)
 - [HiNeuS: High-fidelity Neural Surface Mitigating Low-texture and Reflective Ambiguity](../../ICCV2025/human_understanding/hineus_high-fidelity_neural_surface_mitigating_low-texture_and_reflective_ambigu.md)
 - [Avat3r: Large Animatable Gaussian Reconstruction Model for High-fidelity 3D Head Avatars](../../ICCV2025/human_understanding/avat3r_large_animatable_gaussian_reconstruction_model_for_hi.md)
-- [SteelDefectX: A Coarse-to-Fine Vision-Language Dataset and Benchmark for Generalizable Steel Surface Defect Detection](steeldefectx_a_coarse-to-fine_vision-language_dataset_and_benchmark_for_generali.md)
+- [NURBGen: High-Fidelity Text-to-CAD Generation through LLM-Driven NURBS Modeling](../../AAAI2026/human_understanding/nurbgen_high-fidelity_text-to-cad_generation_through_llm-driven_nurbs_modeling.md)
 
 <!-- RELATED:END -->

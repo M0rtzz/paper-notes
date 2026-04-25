@@ -164,6 +164,6 @@ HUMAINE 基于心理测量学原理，包含四个层次：
 - [Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis](talk_evaluate_diagnose_user-aware_agent_evaluation_with_automated_error_analysis.md)
 - [Subliminal Signals in Preference Labels](subliminal_signals_in_preference_labels.md)
 - [SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home Agents](simuhome_a_temporal-_and_environment-aware_benchmark_for_smart_home_agents.md)
-- [Benchmarking Overton Pluralism in LLMs](benchmarking_overton_pluralism_in_llms.md)
+- [Noise-Aware Generalization: Robustness to In-Domain Noise and Out-of-Domain Generalization](noise-aware_generalization_robustness_to_in-domain_noise_and_out-of-domain_gener.md)
 
 <!-- RELATED:END -->

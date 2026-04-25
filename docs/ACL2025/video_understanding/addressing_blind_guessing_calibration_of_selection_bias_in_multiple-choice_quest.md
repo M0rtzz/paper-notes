@@ -145,10 +145,10 @@ BOLD是后处理方法，不涉及模型重训练。Weighted_BOLD的权重优化
 
 ## 相关论文
 
-- [A.I.R.: Adaptive, Iterative, and Reasoning-based Frame Selection For Video Question Answering](../../ICLR2026/video_understanding/air_enabling_adaptive_iterative_and_reasoning-based_frame_selection_for_video_qu.md)
-- [CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing](../../NeurIPS2025/video_understanding/cleverbirds_a_multiple-choice_benchmark_for_fine-grained_human_knowledge_tracing.md)
-- [EgoTextVQA: Towards Egocentric Scene-Text Aware Video Question Answering](../../CVPR2025/video_understanding/egotextvqa_towards_egocentric_scene-text_aware_video_question_answering.md)
-- [EgoGazeVQA: Egocentric Gaze-Guided Video Question Answering Benchmark](../../NeurIPS2025/video_understanding/egogazevqa_egocentric_gaze_guided_video_question_answering.md)
-- [QA-TIGER: Question-Aware Gaussian Experts for Audio-Visual Question Answering](../../CVPR2025/video_understanding/question-aware_gaussian_experts_for_audio-visual_question_answering.md)
+- [Generative Frame Sampler for Long Video Understanding](generative_frame_sampler_for_long_video_understanding.md)
+- [RAVEN: Robust Advertisement Video Violation Temporal Grounding via Reinforcement Reasoning](raven_robust_advertisement_video_violation_temporal_grounding_via_reinforcement_.md)
+- [Sparse-to-Dense: A Free Lunch for Lossless Acceleration of Video Understanding in LLMs](sparse-to-dense_a_free_lunch_for_lossless_acceleration_of_video_understanding_in.md)
+- [ICR Probe: Tracking Hidden State Dynamics for Reliable Hallucination Detection in LLMs](icr_probe_tracking_hidden_state_dynamics_for_reliable_hallucination_detection_in.md)
+- [Attention-Seeker: Dynamic Self-Attention Scoring for Unsupervised Key-Frame Extraction](attention-seeker_dynamic_self-attention_scoring_for_unsupervised_key-frame_extra.md)
 
 <!-- RELATED:END -->

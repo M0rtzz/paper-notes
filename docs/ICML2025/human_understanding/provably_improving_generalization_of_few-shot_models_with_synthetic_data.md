@@ -148,7 +148,7 @@ $$\mathcal{L} = \lambda F(\boldsymbol{S}, h) + F(\boldsymbol{G}, h) + \lambda_1 
 - [Conformal Prediction for Zero-Shot Models](../../CVPR2025/human_understanding/conformal_prediction_for_zero-shot_models.md)
 - [Data-Juicer 2.0: Cloud-Scale Adaptive Data Processing for and with Foundation Models](../../NeurIPS2025/human_understanding/data-juicer_20_cloud-scale_adaptive_data_processing_for_and_with_foundation_mode.md)
 - [Few-Shot Precise Event Spotting via Unified Multi-Entity Graph and Distillation](../../AAAI2026/human_understanding/few-shot_precise_event_spotting_via_unified_multi-entity_graph_and_distillation.md)
-- [OpenAnimals: Revisiting Person Re-Identification for Animals Towards Better Generalization](../../ICCV2025/human_understanding/openanimals_revisiting_person_re-identification_for_animals_towards_better_gener.md)
+- [Cross-Modal Taxonomic Generalization in (Vision-) Language Models](../../ACL2026/human_understanding/cross-modal_taxonomic_generalization_in_vision-_language_models.md)
 - [BEDLAM2.0: Synthetic Humans and Cameras in Motion](../../NeurIPS2025/human_understanding/bedlam20_synthetic_humans_and_cameras_in_motion.md)
 
 <!-- RELATED:END -->

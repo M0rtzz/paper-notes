@@ -190,6 +190,6 @@ LLaMA 0.25B on OpenWebText, 50K steps：
 - [Nemotron-CLIMB: CLustering-based Iterative Data Mixture Bootstrapping for Language Model Pre-training](../../NeurIPS2025/llm_pretraining/nemotron-climb_clustering-based_iterative_data_mixture_bootstrapping_for_languag.md)
 - [Language Model Developers Should Report Train-Test Overlap](language_model_developers_should_report_train-test_overlap.md)
 - [Through the River: Understanding the Benefit of Schedule-Free Methods for Language Model Training](../../NeurIPS2025/llm_pretraining/through_the_river_understanding_the_benefit_of_schedule-free_methods_for_languag.md)
-- [Chameleon: A Flexible Data-mixing Framework for Language Model Pretraining and Finetuning](chameleon_a_flexible_data-mixing_framework_for_language_model_pretraining_and_fi.md)
+- [Counting in Small Transformers: The Delicate Interplay between Attention and Feed-Forward Layers](counting_in_small_transformers_the_delicate_interplay_between_attention_and_feed.md)
 
 <!-- RELATED:END -->

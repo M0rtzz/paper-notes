@@ -128,8 +128,8 @@ tags:
 
 - [L-SWAG: Layer-Sample Wise Activation with Gradients Information for Zero-Shot NAS on Vision Transformers](../../CVPR2025/interpretability/l-swag_layer-sample_wise_activation_with_gradients_information_for_zero-shot_nas.md)
 - [Improving Perturbation-based Explanations by Understanding the Role of Uncertainty Calibration](../../NeurIPS2025/interpretability/improving_perturbation-based_explanations_by_understanding_the_role_of_uncertain.md)
-- [Layer by layer, module by module: Choose both for optimal OOD probing of ViT](../../ICLR2026/interpretability/layer_by_layer_module_by_module_choose_both_for_optimal_ood_probing_of_vit.md)
 - [Inference-Time Decomposition of Activations (ITDA): A Scalable Approach to Interpreting Large Language Models](inference-time_decomposition_of_activations_itda_a_scalable_approach_to_interpre.md)
-- [Mechanistic Interpretability of Emotion Inference in Large Language Models](../../ACL2025/interpretability/mechanistic_interpretability_of_emotion_inference_in_large_language_models.md)
+- [Layer by layer, module by module: Choose both for optimal OOD probing of ViT](../../ICLR2026/interpretability/layer_by_layer_module_by_module_choose_both_for_optimal_ood_probing_of_vit.md)
+- [Pixel2Phys: Distilling Governing Laws from Visual Dynamics](../../CVPR2026/interpretability/pixel2phys_distilling_governing_laws_from_visual_dynamics.md)
 
 <!-- RELATED:END -->

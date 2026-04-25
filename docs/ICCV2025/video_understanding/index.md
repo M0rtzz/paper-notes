@@ -1,18 +1,22 @@
 ---
 title: >-
-  ICCV2025 视频理解方向 60篇论文解读
+  ICCV2025 视频理解方向 62篇论文解读
 description: >-
-  60篇ICCV2025 视频理解论文解读，主题涵盖：4D-Bench 是首个评估多模态大语言模型（ML、提出 4D-Bench，首个评估多模态大语言模型对、提出 Hyper-GCN，通过**自适应非均匀超图等，每篇含核心思想与方法详解。
+  62篇ICCV2025 视频理解论文解读，主题涵盖：4D-Bench 是首个评估多模态大语言模型（ML、本文提出 4D-Bench，首个评估多模态大模型、提出 4D-Bench，首个评估多模态大语言模型对等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**📹 ICCV2025** · **60** 篇论文解读
+**📹 ICCV2025** · **62** 篇论文解读
 
 **[4D-Bench: Benchmarking Multi-Modal Large Language Models for 4D Object Understanding](4d-bench_benchmarking_multi-modal_large_language_models_for_4d_object_understand.md)**
 
 :   4D-Bench 是首个评估多模态大语言模型（MLLM）4D 物体理解能力的基准，包含 4D 物体问答和描述两大任务，揭示了即使 SOTA GPT-4o 也仅达 63% 准确率（人类基线 91%），暴露了当前 MLLM 在多视角时序推理上的显著不足。
+
+**[4D-Bench: Benchmarking Multi-modal Large Language Models for 4D Object Understanding](4d_bench_benchmarking_multimodal_llms_for_4d_object_understanding.md)**
+
+:   本文提出 4D-Bench，首个评估多模态大模型 (MLLM) 在 4D 物体（动态 3D 物体）理解能力的基准，包含 4D 物体问答和 4D 物体描述两大任务，揭示了即使是 GPT-4o 在简单 4D 物体上也仅达 63% 准确率（人类基线 91%），尤其在物体计数和时序理解上表现薄弱。
 
 **[4D-Bench: Benchmarking Multi-modal Large Language Models for 4D Object Understanding](4dbench_benchmarking_multimodal_large_language_models_for_4d.md)**
 
@@ -21,6 +25,10 @@ description: >-
 **[Adaptive Hyper-Graph Convolution Network for Skeleton-Based Human Action Recognition](adaptive_hyper-graph_convolution_network_for_skeleton-based_human_action_recogni.md)**
 
 :   提出 Hyper-GCN，通过**自适应非均匀超图**替代传统二元图来建模骨骼拓扑，并引入**虚拟超关节**（hyper joints）创建虚拟连接，使多关节协同关系得以直接建模，在 NTU-60/120 和 NW-UCLA 上以最轻量的 GCN 设计实现 SOTA（base 版仅 1.1M 参数、1.63 GFLOPs）。
+
+**[Adaptive Hyper-Graph Convolution Network for Skeleton-based Human Action Recognition with Virtual Connections](adaptive_hyper_graph_convolution_network_skeleton_action_recognition.md)**
+
+:   本文提出 Hyper-GCN，通过自适应非均匀超图卷积和虚拟超节点（hyper joints）的设计，突破了传统 GCN 仅建模关节对之间二元关系的限制，实现了多关节协同语义的高效聚合，在 NTU-60/120 和 NW-UCLA 数据集上以最轻量的 GCN 设计达到了 SOTA 性能。
 
 **[AIM: Adaptive Inference of Multi-Modal LLMs via Token Merging and Pruning](aim_adaptive_inference_multimodal_llms_token_merging_pruning.md)**
 

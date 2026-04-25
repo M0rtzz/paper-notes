@@ -157,7 +157,7 @@ CIGPose-x 仅用 COCO-WholeBody 训练就超过了依赖两阶段蒸馏+额外 U
 - [RapVerse: Coherent Vocals and Whole-Body Motion Generation from Text](../../ICCV2025/human_understanding/rapverse_coherent_vocals_and_whole-body_motion_generation_from_text.md)
 - [CleanPose: Category-Level Object Pose Estimation via Causal Learning and Knowledge Distillation](../../ICCV2025/human_understanding/cleanpose_category-level_object_pose_estimation_via_causal_learning_and_knowledg.md)
 - [ParaRevSNN: A Parallel Reversible Spiking Neural Network for Efficient Training and Inference](../../AAAI2026/human_understanding/pararevsnn_a_parallel_reversible_spiking_neural_network_for_efficient_training_a.md)
-- [FSMC-Pose: Frequency and Spatial Fusion with Multiscale Self-calibration for Cattle Mounting Pose Estimation](fsmc-pose_frequency_and_spatial_fusion_with_multiscale_selfcalibration_for_cattle.md)
+- [FSMC-Pose: Frequency and Spatial Fusion with Multiscale Self-calibration for Cattle Mounting Pose Estimation](fsmc_pose_frequency_spatial_cattle_mounting_pose.md)
 - [COG: Confidence-aware Optimal Geometric Correspondence for Unsupervised Single-reference Novel Object Pose Estimation](cog_confidence-aware_optimal_geometric_correspondence_for_unsupervised_single-re.md)
 
 <!-- RELATED:END -->

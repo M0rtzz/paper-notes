@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 2546篇论文解读
+  NeurIPS2025 2556篇论文解读
 description: >-
-  2546篇NeurIPS2025论文解读，涵盖图像生成(245篇)、强化学习(160篇)、医学图像(148篇)、多模态VLM(144篇)等45个方向，每篇含核心思想、方法详解与实验分析。
+  2556篇NeurIPS2025论文解读，涵盖图像生成(247篇)、强化学习(160篇)、医学图像(148篇)、多模态VLM(145篇)等45个方向，每篇含核心思想、方法详解与实验分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧠 NeurIPS2025 论文笔记
 
-**2546** 篇论文解读，覆盖 **45** 个领域。
+**2556** 篇论文解读，覆盖 **45** 个领域。
 
 <div class="conf-index" markdown>
 
@@ -168,6 +168,10 @@ description: >-
 
 :   深入诊断长尾数据下扩散模型尾类生成退化的根因为 U-Net 瓶颈层的"表示纠缠"（representation entanglement），提出 CORAL 通过在瓶颈层施加监督对比损失来解耦类别表示，在 CIFAR10/100-LT、CelebA-5、ImageNet-LT 上全面超越 DDPM/CBDM/T2H 等基线。
 
+**[CORAL: Disentangling Latent Representations in Long-Tailed Diffusion](image_generation/coral_longtail_diffusion.md)**
+
+:   本文发现扩散模型在长尾数据上训练时，U-Net 瓶颈层的潜在表征出现"表征纠缠"——尾部类别与头部类别特征空间严重重叠，并提出 CORAL 方法通过在瓶颈层添加投影头和监督对比损失，促进类别间潜在表征分离，显著提升尾部类别生成质量和多样性。
+
 **[Co-Reinforcement Learning for Unified Multimodal Understanding and Generation](image_generation/coreinforcement_learning_for_unified_multimodal_understandin.md)**
 
 :   提出 CoRL（Co-Reinforcement Learning）框架，通过"统一RL→精细化RL"两阶段策略对统一多模态模型（ULM）同时进行理解和生成能力的强化学习优化，实现理解生成双能力的协同进化，在 1.5B 参数量下生成提升 7%、理解提升 23%。
@@ -187,6 +191,10 @@ description: >-
 **[Curly Flow Matching for Learning Non-gradient Field Dynamics](image_generation/curly_flow_matching_for_learning_non-gradient_field_dynamics.md)**
 
 :   提出 Curly Flow Matching (Curly-FM)，通过设计带有非零参考漂移的 Schrödinger Bridge 问题，使 flow matching 能够学习周期性、旋转性等非梯度场动力学，突破了传统方法只能建模梯度场的限制。
+
+**[Distilled Decoding 2: One-step Sampling of Image Auto-regressive Models with Conditional Score Distillation](image_generation/dd2_onestep_ar_distill.md)**
+
+:   本文提出 DD2，将自回归图像模型重新解释为条件分数模型，通过条件分数蒸馏（CSD）损失训练单步生成器匹配原始 AR 模型的输出分布，在 ImageNet-256 上实现 FID 仅增加约 2-3.5 的单步生成，获得 8-238 倍加速，相比 DD1 将单步性能差距缩小 67%。
 
 **[DeCaFlow: A Deconfounding Causal Generative Model](image_generation/decaflow_a_deconfounding_causal_generative_model.md)**
 
@@ -2363,6 +2371,10 @@ description: >-
 **[CyIN: Cyclic Informative Latent Space for Bridging Complete and Incomplete Multimodal Learning](multimodal_vlm/cyin_cyclic_informative_latent_space_for_bridging_complete_and_incomplete_multim.md)**
 
 :   提出 CyIN 框架，通过 token 级和 label 级信息瓶颈（IB）构建信息化潜空间，结合循环跨模态翻译重建缺失信息，在单一统一模型中同时优化完整和不完整多模态学习。
+
+**[DanmakuTPPBench: A Multi-modal Benchmark for Temporal Point Process Modeling and Understanding](multimodal_vlm/danmaku_tpp_bench.md)**
+
+:   本文提出 DanmakuTPPBench，首个融合时间、文本和视觉的多模态时间点过程（TPP）基准，包含从 B 站弹幕系统收集的 DanmakuTPP-Events（7,250 个视频序列，1080 万弹幕事件）和基于多 Agent 流水线构建的 DanmakuTPP-QA（10 种评估任务），揭示了当前 LLM/MLLM 在 TPP 理解上的显著差距。
 
 **[DanmakuTPPBench: A Multi-modal Benchmark for Temporal Point Process Modeling and Understanding](multimodal_vlm/danmakutppbench_a_multimodal_benchmark_for_temporal_point_pr.md)**
 
@@ -5764,6 +5776,10 @@ description: >-
 
 :   提出Dual-Stage Adaptive Sharpening (DSAS)，一个无需训练的即插即用注意力优化框架，通过Contextual Gate Weighting (CGW)增强关键段落对问题和目标位置的注意力、通过Reciprocal Attention Suppression (RAS)抑制关键与无关段落间的信息交换，在多文档QA上平均F1提升达4.2%。
 
+**[DualGround: Structured Phrase and Sentence-Level Temporal Grounding](video_understanding/dualground_phrase_temporal.md)**
+
+:   本文发现现有视频时间定位模型过度依赖 [EOS] token 的全局句子语义而忽略词级信号，提出 DualGround 双分支架构，通过句子级路径（自适应交叉注意力）和短语级路径（循环短语生成+Slot Attention）显式分离全局和局部语义，在 QVHighlights 和 Charades-STA 上实现 SOTA。
+
 **[egoEMOTION: Egocentric Vision and Physiological Signals for Emotion and Personality Recognition in Real-World Tasks](video_understanding/egoemotion_egocentric_vision_and_physiological_signals_for_emotion_and_personali.md)**
 
 :   提出egoEMOTION——首个结合第一人称视觉（Meta Project Aria眼镜）与生理信号的情感与人格识别数据集，涵盖43名被试、50+小时录制、16种任务，发现第一人称视觉信号（尤其眼动特征）在真实场景情感预测中优于传统生理信号。
@@ -5896,6 +5912,10 @@ description: >-
 
 :   发布首个同步多模态野生动物监测数据集SmartWilds，整合无人机影像、相机陷阱和生物声学三种模态共101GB数据，通过GPS/时间戳实现跨模态对齐，建立可重复的保护监测标准协议，填补综合性生态系统多传感器融合数据集的空白。
 
+**[Tool-Augmented Spatiotemporal Reasoning for Streamlining Video Question Answering Task](video_understanding/star_tool_video_qa.md)**
+
+:   本文提出 STAR 框架，通过构建包含 22 个工具的视频分析工具箱，让 LLM 交替调用时间和空间工具渐进式定位视频中的 3D 关注区域（3D RoI），在 VideoMME 上提升 8.2%、LongVideoBench 上提升 4.6%。
+
 **[Steering When Necessary: Flexible Steering Large Language Models with Backtracking](video_understanding/steering_when_necessary_flexible_steering_large_language_models_with_backtrackin.md)**
 
 :   提出 FASB（Flexible Activation Steering with Backtracking）框架，通过跟踪 LLM 生成过程中的内部状态动态判断干预必要性和强度，并引入回溯机制纠正已偏离的 token，在 TruthfulQA 上 True*Info 达 80.56%、6 个多选任务平均准确率 78.8%，显著优于所有基线。
@@ -5907,6 +5927,10 @@ description: >-
 **[TAPVid-360: Tracking Any Point in 360 from Narrow Field of View Video](video_understanding/tapvid-360_tracking_any_point_in_360_from_narrow_field_of_view_video.md)**
 
 :   本文提出TAPVid-360任务和数据集，要求模型在窄视野视频中跟踪查询点的3D方向（包括视野外的点），通过利用360度视频生成训练数据并微调CoTracker3实现方向预测，在视野外跟踪上远超现有方法。
+
+**[TempSamp-R1: Effective Temporal Sampling with Reinforcement Fine-Tuning for Video LLMs](video_understanding/tempsamp_r1_temporal_grounding.md)**
+
+:   本文提出 TempSamp-R1，一个混合策略强化微调框架，通过将高质量离策略（ground truth）引导融入 GRPO 的在策略采样，并设计非线性软优势估计稳定训练，在视频时间定位任务上实现 SOTA（Charades-STA R1@0.7: 52.9%，ActivityNet R1@0.5: 56.0%）。
 
 **[TempSamp-R1: Effective Temporal Sampling with Reinforcement Fine-Tuning for Video LLMs](video_understanding/tempsampr1_effective_temporal_sampling_with_reinforcement_fi.md)**
 
@@ -6184,6 +6208,10 @@ description: >-
 
 :   提出 TimE，一个包含 38,522 个 QA 对的多层级时间推理基准，覆盖知识密集（Wiki）、动态新闻（News）、长对话（Dial）三种真实场景和三级渐进式 11 子任务，全面评估 24 个 LLM 后发现即便最强推理模型在时间线构建和反事实推理等复杂任务上仍有显著短板。
 
+**[TimE: A Multi-level Benchmark for Temporal Reasoning of LLMs in Real-World Scenarios](llm_reasoning/time_temporal_reasoning.md)**
+
+:   本文提出 TimE，一个包含 38,522 个 QA 对的多层级时间推理基准，覆盖知识密集（Wiki）、动态事件（News）和多轮对话（Dial）三类真实场景，设计 11 个细粒度子任务系统评估 LLM 的时间推理能力，并发布人工标注子集 TimE-Lite。
+
 **[Topology of Reasoning: Understanding Large Reasoning Models through Reasoning Graph Properties](llm_reasoning/topology_of_reasoning_understanding_large_reasoning_models_through_reasoning_gra.md)**
 
 :   提出"推理图"概念——通过对 LLM 隐藏状态聚类构建有向图，从环路密度、直径和小世界指标三个图论维度分析大推理模型（如 DeepSeek-R1 蒸馏系列），发现推理模型的推理图具有显著更多环路（~5/样本）、更大直径和更强小世界特性（~6倍），且这些特性随任务难度和模型规模增长。
@@ -6275,6 +6303,10 @@ description: >-
 **[EfficientNav: Towards On-Device Object-Goal Navigation with Navigation Map Caching and Retrieval](robotics/efficientnav_towards_on-device_object-goal_navigation_with_navigation_map_cachin.md)**
 
 :   通过离散内存缓存（KV cache分组独立计算+选择性加载）、注意力驱动聚类（LLM浅层attention指导分组）和语义感知检索（CLIP+背包问题适配不同内存预算），首次在Jetson Orin上用LLaMA-3.2-11b实现零样本ObjNav，比GPT-4基线提升11.1% SR且实时延迟降低6.7×。
+
+**[EgoThinker: Unveiling Egocentric Reasoning with Spatio-Temporal CoT](robotics/egothinker_egocentric_reasoning.md)**
+
+:   本文提出 EgoThinker，通过构建 EgoRe-5M 大规模第一人称视频推理数据集（含因果 CoT 标注和手物定位标注）和两阶段训练（SFT + GRPO 强化微调），赋予 MLLM 鲁棒的第一人称推理、手物定位和时间定位能力，在多个 egocentric 基准上实现 SOTA。
 
 **[EgoThinker: Unveiling Egocentric Reasoning with Spatio-Temporal CoT](robotics/egothinker_unveiling_egocentric_reasoning_with_spatiotempora.md)**
 
@@ -8062,6 +8094,178 @@ description: >-
 
 ---
 
+## 📚 预训练 { #llm_pretraining }
+
+**[AI Progress Should Be Measured by Capability-Per-Resource, Not Scale Alone: A Framework for Gradient-Guided Resource Allocation in LLMs](llm_pretraining/ai_progress_should_be_measured_by_capability-per-resource_not_scale_alone_a_fram.md)**
+
+:   本文以 position paper 的形式挑战"规模至上主义"，提出以**能力-每-资源（Capability-Per-Resource, CPR）**取代单纯的规模扩张来衡量 AI 进步，并给出一套基于梯度引导的资源分配理论框架——通过发布"梯度蓝图"元数据，使下游适配者仅微调高影响力参数子集即可在资源占用大幅降低的同时保持接近全参数微调的性能。
+
+**[Alternating Gradient Flows: A Theory of Feature Learning in Two-layer Neural Networks](llm_pretraining/alternating_gradient_flows_a_theory_of_feature_learning_in_two-layer_neural_netw.md)**
+
+:   提出交替梯度流（AGF）理论框架解释神经网络的逐步"鞍到鞍"特征学习动力学——将训练建模为休眠神经元的效用最大化和活跃神经元的代价最小化的交替过程，统一了对角线性网络、注意力模型和模块加法的特征选择分析，预测与实际梯度流高度一致。
+
+**[An Empirical Investigation of Neural ODEs and Symbolic Regression for Dynamical Systems](llm_pretraining/an_empirical_investigation_of_neural_odes_and_symbolic_regression_for_dynamical_.md)**
+
+:   系统实证研究 Neural ODE (NODE) 在动力系统中的外推能力和 Symbolic Regression (SR) 的方程恢复能力，发现 NODE 在动态相似条件下可外推到新边界条件，并提出 NODE→SR 流水线：仅用 10% 原始数据训练 NODE 生成增强数据，SR 即可恢复 2/3 的控制方程和 1/3 的良好近似。
+
+**[Beyond Benign Overfitting in Nadaraya-Watson Interpolators](llm_pretraining/beyond_benign_overfitting_in_nadaraya-watson_interpolators.md)**
+
+:   通过调节 Nadaraya-Watson 插值器中的单一带宽参数 $\beta$，精确刻画了从灾难性过拟合（$\beta < d$）→ 良性过拟合（$\beta = d$）→ 温和过拟合（$\beta > d$）的完整相变谱，证明高估数据内禀维度比低估更安全。
+
+**[Born a Transformer – Always a Transformer? On the Effect of Pretraining on Architectural Abilities](llm_pretraining/born_a_transformer_--_always_a_transformer_on_the_effect_of_pretraining_on_archi.md)**
+
+:   通过系统性地研究检索和复制任务家族，揭示了大规模预训练会为Transformer引入方向性偏置（右/前向优于左/后向），但无法克服非唯一任务上的根本架构限制；微调可消除方向偏置但不能突破架构表达力边界。
+
+**[Breaking the Frozen Subspace: Importance Sampling for Low-Rank Optimization in LLM Pretraining](llm_pretraining/breaking_the_frozen_subspace_importance_sampling_for_low-rank_optimization_in_ll.md)**
+
+:   发现GaLore等低秩优化方法的主导子空间在预训练中会"冻结"（相邻子空间重叠度趋近1），导致权重更新卡在固定低秩子空间中；提出SARA（重要性采样子空间选择），按奇异值权重随机采样奇异向量构建子空间，证明收敛性的同时将低秩优化器与全秩Adam的性能差距缩小最高46%。
+
+**[Broken Tokens: Your Language Model Can Secretly Handle Non-Canonical Tokenization](llm_pretraining/broken_tokens_your_language_model_can_secretly_handle_non-canonical_tokenization.md)**
+
+:   揭示 LLM 能秘密处理非标准分词（如将"Hello"拆为"He"+"llo"而非标准的"Hello"整词token）——即使输入的 token 序列与训练时不同，模型表现出惊人的鲁棒性，且这种能力来自嵌入空间中子词嵌入的线性组合近似整词嵌入的特性。
+
+**[Conformal Risk Training: End-to-End Optimization of Conformal Risk Control](llm_pretraining/conformal_risk_training_end-to-end_optimization_of_conformal_risk_control.md)**
+
+:   本文将 Conformal Risk Control (CRC) 从期望损失扩展到一般化的 Optimized Certainty-Equivalent (OCE) 风险度量（包含 CVaR 等尾部风险），并提出"共形风险训练"方法，通过在训练中端到端地微分共形风险控制过程，在保持可证明风险保证的同时显著改善平均情况性能。
+
+**[Differentiable Hierarchical Visual Tokenization](llm_pretraining/differentiable_hierarchical_visual_tokenization.md)**
+
+:   提出一种端到端可微分的层次化视觉分词器，以像素级粒度自适应图像内容进行 token 划分，利用信息准则进行层次模型选择，可直接替换 ViT 的固定 patch 分词，并支持光栅-矢量转换。
+
+**[Disaggregation Reveals Hidden Training Dynamics: The Case of Agreement Attraction](llm_pretraining/disaggregation_reveals_hidden_training_dynamics_the_case_of_agreement_attraction.md)**
+
+:   本文通过对语言模型在主谓一致任务上的表现按实验条件进行细粒度拆解（disaggregation），揭示了聚合指标所掩盖的多阶段训练动态：模型先学词频偏好、再学局部上下文、最后发展出一般性的语法规则，这一过程涉及多次"隐藏突破"而非简单的单调提升。
+
+**[Does Object Binding Naturally Emerge in Large Pretrained Vision Transformers?](llm_pretraining/does_object_binding_naturally_emerge_in_large_pretrained_vision_transformers.md)**
+
+:   通过定义 IsSameObject 谓词并设计二次探针，证明大规模预训练 ViT（尤其是 DINO、CLIP）自然涌现了目标绑定能力，该信号编码在低维子空间中并主动引导注意力机制，挑战了认知科学界认为 ViT 缺乏绑定能力的观点。
+
+**[Efficient Pre-Training of LLMs via Topology-Aware Communication Alignment on More Than 9600 GPUs](llm_pretraining/efficient_pre-training_of_llms_via_topology-aware_communication_alignment_on_mor.md)**
+
+:   提出 Arnold 调度系统，通过将 LLM 训练的通信模式（DP/PP group）与数据中心物理网络拓扑对齐，在模拟中将通信组最大跨度减少 1.67x，在 9600+ GPU 生产级训练中端到端性能提升 10.6%。
+
+**[Enhancing Training Data Attribution with Representational Optimization](llm_pretraining/enhancing_training_data_attribution_with_representational_optimization.md)**
+
+:   提出 AirRep（Attentive Influence Ranking Representation），一种基于表示学习的训练数据归因方法，通过可训练编码器和注意力池化机制，在推理效率比梯度方法快约 80 倍的同时，达到甚至超越 SOTA 梯度方法的归因精度。
+
+**[Final-Model-Only Data Attribution with a Unifying View of Gradient-Based Methods](llm_pretraining/final-model-only_data_attribution_with_a_unifying_view_of_gradient-based_methods.md)**
+
+:   明确提出"仅有最终模型"(FiMO)的训练数据归因设定，将问题从"贡献度"重构为"敏感性"度量，提出 further training 作为金标准，并统一推导出多种梯度方法（Grad-Dot、影响函数、TRAK、DataInf 等）均为 further training 的不同阶近似。
+
+**[Flatness is Necessary, Neural Collapse is Not: Rethinking Generalization via Grokking](llm_pretraining/flatness_is_necessary_neural_collapse_is_not_rethinking_generalization_via_grokk.md)**
+
+:   利用 grokking（延迟泛化）作为因果探针，证明 **relative flatness 是泛化的（潜在）必要条件**，而 neural collapse 虽常伴随泛化出现，但并非必要——它只是通往 flatness 的一条路径。
+
+**[Gemstones: A Model Suite for Multi-Faceted Scaling Laws](llm_pretraining/gemstones_a_model_suite_for_multi-faceted_scaling_laws.md)**
+
+:   开源由超过4000个检查点（覆盖50M-2B参数、多种宽度-深度比）组成的Gemstones模型套件，通过系统实验揭示缩放律对模型选择、学习率调度、冷却策略等设计选择高度敏感，并提出基于凸包的新拟合方法提升稀疏采样下的缩放律稳定性。
+
+**[Generalization Bounds for Rank-sparse Neural Networks](llm_pretraining/generalization_bounds_for_rank-sparse_neural_networks.md)**
+
+:   本文证明了利用神经网络权重矩阵近似低秩结构的泛化界，当 Schatten $p$ 拟范数较小时，样本复杂度仅为 $\widetilde{O}(WrL^2)$，其中 $W$, $L$, $r$ 分别为宽度、深度和权重矩阵的秩。
+
+**[Global Minimizers of Sigmoid Contrastive Loss](llm_pretraining/global_minimizers_of_sigmoid_contrastive_loss.md)**
+
+:   首次在实践相关的 N≫d 区间严格刻画了 Sigmoid 对比损失（SigLIP）在可训练温度和偏置下的全局最小值几何结构，提出了 (m, b_rel)-Constellation 这一新型组合对象，并用其解释了 SigLIP 的检索成功、模态间隙现象，以及提出了显式 relative bias 参数化改进训练动态。
+
+**[Gradient-Weight Alignment as a Train-Time Proxy for Generalization in Classification Tasks](llm_pretraining/gradient-weight_alignment_as_a_train-time_proxy_for_generalization_in_classifica.md)**
+
+:   提出 Gradient-Weight Alignment (GWA)，通过量化每个训练样本梯度与模型权重的方向一致性（cosine similarity），在训练过程中无需验证集即可准确预测泛化性能、确定最佳早停时机，并定位有影响力的训练样本。
+
+**[How Does Sequence Modeling Architecture Influence Base Capabilities of Pre-trained Language Models?](llm_pretraining/how_does_sequence_modeling_architecture_influence_base_capabilities_of_pre-train.md)**
+
+:   通过"限定领域预训练 + OOD 测试"的评估框架揭示 Mamba/RWKV 等 stateful 架构存在基础能力退化，并归纳出关键设计原则——"全序列任意选择能力"（full-sequence visibility + real relation calculation + non-uniform distribution），用极简的 Top-1 Element/Chunk Selection 架构验证该原则可恢复至接近 Transformer 的基础能力。
+
+**[Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale](llm_pretraining/language_model_behavioral_phases_are_consistent_across_archi.md)**
+
+:   通过对超过 1,400 个语言模型检查点（涵盖 Transformer/Mamba/RWKV 三种架构、14M–12B 参数规模、两种训练数据集）在 11 万+ token 上的系统分析，发现所有自回归语言模型在预训练过程中展现出高度一致的行为阶段——预测概率依次过拟合到递增阶数的 n-gram 概率，且词频、n-gram 概率和语义相似度三个简单启发式可解释高达 98% 的行为方差。
+
+**[Learning the Wrong Lessons: Syntactic-Domain Spurious Correlations in Language Models](llm_pretraining/learning_the_wrong_lessons_syntactic-domain_spurious_correlations_in_language_mo.md)**
+
+:   揭示 LLM 学会了句法模板（PoS n-gram）与领域之间的虚假关联，导致跨域性能骤降，甚至可利用此关联绕过安全拒绝机制（refusal bypass），在 OLMo-2 上将拒绝率从 40% 降至 2.5%。
+
+**[Learning to Flow from Generative Pretext Tasks for Neural Architecture Encoding](llm_pretraining/learning_to_flow_from_generative_pretext_tasks_for_neural_architecture_encoding.md)**
+
+:   提出 FGP（Flow-based Generative Pre-training），通过让编码器重建"流代理"（flow surrogate）这一架构信息流的简化表征，使任意结构的编码器无需专用的异步消息传递设计即可捕获信息流，在性能预测中 Precision@1% 最高提升 106%。
+
+**[Leveraging Importance Sampling to Detach Alignment Modules from Large Language Models](llm_pretraining/leveraging_importance_sampling_to_detach_alignment_modules_from_large_language_m.md)**
+
+:   提出 Residual Alignment Model (RAM)，将 LLM 对齐过程形式化为重要性采样，将大模型分解为冻结的 Proposal Module 和可训练的小型 Residual Aligner，以不到 1/8 参数实现可比甚至超越全参数 SFT/DPO 的对齐效果，同时解决了首 token 延迟问题。
+
+**[Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale](llm_pretraining/lm_behavioral_phases.md)**
+
+:   本文通过分析 1,400+ 个模型检查点在 110,000+ token 上的行为，发现自回归语言模型在训练过程中展现高度一致的行为阶段——预测概率依次过拟合到递增 n 的 n-gram 概率，且三个简单启发式（词频、n-gram 概率、语义相似度）可解释高达 98% 的模型行为方差，此规律跨架构（Transformer/Mamba/RWKV）、数据集和规模保持一致。
+
+**[Memory Mosaics at Scale](llm_pretraining/memory_mosaics_at_scale.md)**
+
+:   Memory Mosaics v2 将关联存储网络扩展至 10B 参数、1T token 训练规模，在新任务学习和上下文学习上显著超越同规模甚至 8T token 训练的 Transformer。
+
+**[Nemotron-CLIMB: CLustering-based Iterative Data Mixture Bootstrapping for Language Model Pre-training](llm_pretraining/nemotron-climb_clustering-based_iterative_data_mixture_bootstrapping_for_languag.md)**
+
+:   NVIDIA 提出 CLIMB 框架，通过嵌入聚类 + 迭代自举搜索自动发现最优预训练数据混合比例，在 1B 模型上超过 Llama-3.2-1B 达 2.0%，并发布了 1.2T token 的 ClimbLab 语料库和 400B token 的 ClimbMix 高质量数据集。
+
+**[Neural Collapse under Gradient Flow on Shallow ReLU Networks for Orthogonally Separable Data](llm_pretraining/neural_collapse_under_gradient_flow_on_shallow_relu_networks_for_orthogonally_se.md)**
+
+:   首次证明在正交可分数据上，两层ReLU网络的梯度流（GF）在小初始化下可证收敛到Neural Collapse（NC）解，揭示了GF隐式偏置（早期神经元对齐+渐近最大间隔偏置）在促进NC出现中的关键作用。
+
+**[Optimal Online Change Detection via Random Fourier Features](llm_pretraining/optimal_online_change_detection_via_random_fourier_features.md)**
+
+:   提出 Online RFF-MMD 算法，通过随机 Fourier 特征近似 MMD 统计量并嵌入到二进制网格的序贯检验框架中，实现了无需训练数据、无需窗口参数的在线非参数变点检测，运行时间和空间复杂度均为对数级，并证明了检测延迟的 minimax 最优性。
+
+**[Power Lines: Scaling Laws for Weight Decay and Batch Size in LLM Pre-training](llm_pretraining/power_lines_scaling_laws_for_weight_decay_and_batch_size_in_llm_pre-training.md)**
+
+:   提出了一套针对 LLM 预训练中权重衰减 $\lambda$ 和批大小 $B$ 的幂律缩放定律（power laws），通过 AdamW 时间尺度 $\tau$ 的概念统一了超参数缩放关系，使得在大规模训练前即可准确预测最优超参数。
+
+**[Predict Training Data Quality via Its Geometry in Metric Space](llm_pretraining/predict_training_data_quality_via_its_geometry_in_metric_space.md)**
+
+:   提出基于持久同调（Persistent Homology）的训练数据多样性度量方法，证明数据的几何/拓扑结构特征能够有效预测模型性能，优于传统基于熵的Vendi Score等指标。
+
+**[PRESCRIBE: Predicting Single-Cell Responses with Bayesian Estimation](llm_pretraining/prescribe_predicting_single-cell_responses_with_bayesian_estimation.md)**
+
+:   提出 PRESCRIBE 框架，通过多变量深度证据回归联合建模单细胞扰动预测中的认知不确定性（模型对输入的不熟悉程度）和随机不确定性（生物系统固有的随机性），生成伪 E-distance 作为统一的不确定性代理指标，过滤不可靠预测后准确率提升 3% 以上。
+
+**[Quantifying Task-Relevant Representational Similarity Using Decision Variable Correlation](llm_pretraining/quantifying_task-relevant_representational_similarity_using_decision_variable_co.md)**
+
+:   本文提出基于决策变量相关（DVC）的新方法来衡量两个神经表征在分类任务上的逐试次一致性，发现深度网络在 ImageNet 上准确率越高反而与猴脑 V4/IT 的 DVC 越低，对抗训练和大规模数据集预训练也无法缩小这一差距。
+
+**[Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](llm_pretraining/retrospective_incontext_learning_for_temporal_credit_assignm.md)**
+
+:   提出 RICL（Retrospective In-Context Learning），利用 LLM 的预训练知识通过回顾式上下文学习将稀疏环境反馈转化为密集优势函数信号，实现比传统 Monte Carlo 方法高 100 倍的样本效率，并在此基础上构建 RICOL 在线学习框架。
+
+**[Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](llm_pretraining/ricl_temporal_credit.md)**
+
+:   本文提出 RICL（回顾式上下文学习），通过比较 LLM 策略在上下文更新前后的 log-probability 差异来估计优势函数，将稀疏环境反馈转化为密集训练信号，实现高效的时间信用分配，并在 BabyAI 任务上以更高采样效率达到传统 RL 可比的收敛性能。
+
+**[Scalable Fingerprinting of Large Language Models](llm_pretraining/scalable_fingerprinting_of_large_language_models.md)**
+
+:   提出 Perinucleus 采样方法生成可扩展的 LLM 指纹，能在 Llama-3.1-8B 上嵌入 24,576 个指纹（比现有方法多两个数量级）且不损害模型能力，并通过理论和实验证明大规模指纹是抵御共谋攻击的关键。
+
+**[Scaling Embedding Layers in Language Models](llm_pretraining/scaling_embedding_layers_in_language_models.md)**
+
+:   提出Scone方法，通过为高频n-gram学习上下文化的嵌入（用独立Transformer模型训练），在推理时将这些嵌入卸载到主存/SSD，实现"训练时用更多计算但推理时不增加加速器资源"的新缩放范式，1B参数模型超越1.9B基线。
+
+**[Superposition Yields Robust Neural Scaling](llm_pretraining/superposition_yields_robust_neural_scaling.md)**
+
+:   揭示表示叠加（superposition）是神经缩放定律的核心驱动力：在强叠加区间，损失**通用地**与模型维度成反比（$L \propto 1/m$），且该行为与数据频率分布的具体形式无关，这与实际 LLM 的缩放行为一致。
+
+**[The Curse of Depth in Large Language Models](llm_pretraining/the_curse_of_depth_in_large_language_models.md)**
+
+:   揭示 Pre-LN Transformer 中输出方差指数增长导致深层退化为恒等映射的根本原因，提出无参数的 LayerNorm Scaling（LNS）策略——仅在 LayerNorm 后乘以 $1/\sqrt{\ell}$，将方差从指数增长压缩为多项式增长，在 130M-7B 全规模上稳定改进困惑度 5-8%。
+
+**[Through the River: Understanding the Benefit of Schedule-Free Methods for Language Model Training](llm_pretraining/through_the_river_understanding_the_benefit_of_schedule-free_methods_for_languag.md)**
+
+:   从 river-valley 损失景观的几何视角，分析了 Schedule-Free (SF) 优化器在语言模型预训练中不需要学习率衰减和权重平均就能持续追踪最优解的原因，并揭示 SF 隐式执行了权重平均，进而提出解耦动量和平均窗口的改进版 SF-AdamW。
+
+**[Understanding and Enhancing Mask-Based Pretraining towards Universal Representations](llm_pretraining/understanding_and_enhancing_mask-based_pretraining_towards_universal_representat.md)**
+
+:   用高维线性回归理论精确刻画了 mask-based pretraining 中掩码率对测试风险的影响（偏差-方差分解），揭示了最优掩码率依赖于任务和模型大小，并据此提出 R2MAE（随机随机掩码），在视觉、语言、DNA、单细胞模型上一致超越固定掩码率。
+
+**[ZEUS: Zero-shot Embeddings for Unsupervised Separation of Tabular Data](llm_pretraining/zeus_zero-shot_embeddings_for_unsupervised_separation_of_tabular_data.md)**
+
+:   ZEUS 是首个面向表格数据的零样本聚类方法，通过在合成数据集上预训练一个 Transformer 编码器来学习可泛化的表示，使得新数据集无需任何额外训练或调参即可在单次前向传播中完成高质量聚类。
+
+---
+
 ## 🎵 音频/语音 { #audio_speech }
 
 **[A Controllable Examination for Long-Context Language Models](audio_speech/a_controllable_examination_for_longcontext_language_models.md)**
@@ -8223,170 +8427,6 @@ description: >-
 **[WhAM: Towards A Translative Model of Sperm Whale Vocalization](audio_speech/wham_towards_a_translative_model_of_sperm_whale_vocalization.md)**
 
 :   提出 WhAM（Whale Acoustics Model），首个基于 Transformer 的抹香鲸 coda 生成模型，通过微调 VampNet 实现声学翻译、合成生成与下游分类的三合一能力。
-
----
-
-## 📚 预训练 { #llm_pretraining }
-
-**[AI Progress Should Be Measured by Capability-Per-Resource, Not Scale Alone: A Framework for Gradient-Guided Resource Allocation in LLMs](llm_pretraining/ai_progress_should_be_measured_by_capability-per-resource_not_scale_alone_a_fram.md)**
-
-:   本文以 position paper 的形式挑战"规模至上主义"，提出以**能力-每-资源（Capability-Per-Resource, CPR）**取代单纯的规模扩张来衡量 AI 进步，并给出一套基于梯度引导的资源分配理论框架——通过发布"梯度蓝图"元数据，使下游适配者仅微调高影响力参数子集即可在资源占用大幅降低的同时保持接近全参数微调的性能。
-
-**[Alternating Gradient Flows: A Theory of Feature Learning in Two-layer Neural Networks](llm_pretraining/alternating_gradient_flows_a_theory_of_feature_learning_in_two-layer_neural_netw.md)**
-
-:   提出交替梯度流（AGF）理论框架解释神经网络的逐步"鞍到鞍"特征学习动力学——将训练建模为休眠神经元的效用最大化和活跃神经元的代价最小化的交替过程，统一了对角线性网络、注意力模型和模块加法的特征选择分析，预测与实际梯度流高度一致。
-
-**[An Empirical Investigation of Neural ODEs and Symbolic Regression for Dynamical Systems](llm_pretraining/an_empirical_investigation_of_neural_odes_and_symbolic_regression_for_dynamical_.md)**
-
-:   系统实证研究 Neural ODE (NODE) 在动力系统中的外推能力和 Symbolic Regression (SR) 的方程恢复能力，发现 NODE 在动态相似条件下可外推到新边界条件，并提出 NODE→SR 流水线：仅用 10% 原始数据训练 NODE 生成增强数据，SR 即可恢复 2/3 的控制方程和 1/3 的良好近似。
-
-**[Beyond Benign Overfitting in Nadaraya-Watson Interpolators](llm_pretraining/beyond_benign_overfitting_in_nadaraya-watson_interpolators.md)**
-
-:   通过调节 Nadaraya-Watson 插值器中的单一带宽参数 $\beta$，精确刻画了从灾难性过拟合（$\beta < d$）→ 良性过拟合（$\beta = d$）→ 温和过拟合（$\beta > d$）的完整相变谱，证明高估数据内禀维度比低估更安全。
-
-**[Born a Transformer – Always a Transformer? On the Effect of Pretraining on Architectural Abilities](llm_pretraining/born_a_transformer_--_always_a_transformer_on_the_effect_of_pretraining_on_archi.md)**
-
-:   通过系统性地研究检索和复制任务家族，揭示了大规模预训练会为Transformer引入方向性偏置（右/前向优于左/后向），但无法克服非唯一任务上的根本架构限制；微调可消除方向偏置但不能突破架构表达力边界。
-
-**[Breaking the Frozen Subspace: Importance Sampling for Low-Rank Optimization in LLM Pretraining](llm_pretraining/breaking_the_frozen_subspace_importance_sampling_for_low-rank_optimization_in_ll.md)**
-
-:   发现GaLore等低秩优化方法的主导子空间在预训练中会"冻结"（相邻子空间重叠度趋近1），导致权重更新卡在固定低秩子空间中；提出SARA（重要性采样子空间选择），按奇异值权重随机采样奇异向量构建子空间，证明收敛性的同时将低秩优化器与全秩Adam的性能差距缩小最高46%。
-
-**[Broken Tokens: Your Language Model Can Secretly Handle Non-Canonical Tokenization](llm_pretraining/broken_tokens_your_language_model_can_secretly_handle_non-canonical_tokenization.md)**
-
-:   揭示 LLM 能秘密处理非标准分词（如将"Hello"拆为"He"+"llo"而非标准的"Hello"整词token）——即使输入的 token 序列与训练时不同，模型表现出惊人的鲁棒性，且这种能力来自嵌入空间中子词嵌入的线性组合近似整词嵌入的特性。
-
-**[Conformal Risk Training: End-to-End Optimization of Conformal Risk Control](llm_pretraining/conformal_risk_training_end-to-end_optimization_of_conformal_risk_control.md)**
-
-:   本文将 Conformal Risk Control (CRC) 从期望损失扩展到一般化的 Optimized Certainty-Equivalent (OCE) 风险度量（包含 CVaR 等尾部风险），并提出"共形风险训练"方法，通过在训练中端到端地微分共形风险控制过程，在保持可证明风险保证的同时显著改善平均情况性能。
-
-**[Differentiable Hierarchical Visual Tokenization](llm_pretraining/differentiable_hierarchical_visual_tokenization.md)**
-
-:   提出一种端到端可微分的层次化视觉分词器，以像素级粒度自适应图像内容进行 token 划分，利用信息准则进行层次模型选择，可直接替换 ViT 的固定 patch 分词，并支持光栅-矢量转换。
-
-**[Disaggregation Reveals Hidden Training Dynamics: The Case of Agreement Attraction](llm_pretraining/disaggregation_reveals_hidden_training_dynamics_the_case_of_agreement_attraction.md)**
-
-:   本文通过对语言模型在主谓一致任务上的表现按实验条件进行细粒度拆解（disaggregation），揭示了聚合指标所掩盖的多阶段训练动态：模型先学词频偏好、再学局部上下文、最后发展出一般性的语法规则，这一过程涉及多次"隐藏突破"而非简单的单调提升。
-
-**[Does Object Binding Naturally Emerge in Large Pretrained Vision Transformers?](llm_pretraining/does_object_binding_naturally_emerge_in_large_pretrained_vision_transformers.md)**
-
-:   通过定义 IsSameObject 谓词并设计二次探针，证明大规模预训练 ViT（尤其是 DINO、CLIP）自然涌现了目标绑定能力，该信号编码在低维子空间中并主动引导注意力机制，挑战了认知科学界认为 ViT 缺乏绑定能力的观点。
-
-**[Efficient Pre-Training of LLMs via Topology-Aware Communication Alignment on More Than 9600 GPUs](llm_pretraining/efficient_pre-training_of_llms_via_topology-aware_communication_alignment_on_mor.md)**
-
-:   提出 Arnold 调度系统，通过将 LLM 训练的通信模式（DP/PP group）与数据中心物理网络拓扑对齐，在模拟中将通信组最大跨度减少 1.67x，在 9600+ GPU 生产级训练中端到端性能提升 10.6%。
-
-**[Enhancing Training Data Attribution with Representational Optimization](llm_pretraining/enhancing_training_data_attribution_with_representational_optimization.md)**
-
-:   提出 AirRep（Attentive Influence Ranking Representation），一种基于表示学习的训练数据归因方法，通过可训练编码器和注意力池化机制，在推理效率比梯度方法快约 80 倍的同时，达到甚至超越 SOTA 梯度方法的归因精度。
-
-**[Final-Model-Only Data Attribution with a Unifying View of Gradient-Based Methods](llm_pretraining/final-model-only_data_attribution_with_a_unifying_view_of_gradient-based_methods.md)**
-
-:   明确提出"仅有最终模型"(FiMO)的训练数据归因设定，将问题从"贡献度"重构为"敏感性"度量，提出 further training 作为金标准，并统一推导出多种梯度方法（Grad-Dot、影响函数、TRAK、DataInf 等）均为 further training 的不同阶近似。
-
-**[Flatness is Necessary, Neural Collapse is Not: Rethinking Generalization via Grokking](llm_pretraining/flatness_is_necessary_neural_collapse_is_not_rethinking_generalization_via_grokk.md)**
-
-:   利用 grokking（延迟泛化）作为因果探针，证明 **relative flatness 是泛化的（潜在）必要条件**，而 neural collapse 虽常伴随泛化出现，但并非必要——它只是通往 flatness 的一条路径。
-
-**[Gemstones: A Model Suite for Multi-Faceted Scaling Laws](llm_pretraining/gemstones_a_model_suite_for_multi-faceted_scaling_laws.md)**
-
-:   开源由超过4000个检查点（覆盖50M-2B参数、多种宽度-深度比）组成的Gemstones模型套件，通过系统实验揭示缩放律对模型选择、学习率调度、冷却策略等设计选择高度敏感，并提出基于凸包的新拟合方法提升稀疏采样下的缩放律稳定性。
-
-**[Generalization Bounds for Rank-sparse Neural Networks](llm_pretraining/generalization_bounds_for_rank-sparse_neural_networks.md)**
-
-:   本文证明了利用神经网络权重矩阵近似低秩结构的泛化界，当 Schatten $p$ 拟范数较小时，样本复杂度仅为 $\widetilde{O}(WrL^2)$，其中 $W$, $L$, $r$ 分别为宽度、深度和权重矩阵的秩。
-
-**[Global Minimizers of Sigmoid Contrastive Loss](llm_pretraining/global_minimizers_of_sigmoid_contrastive_loss.md)**
-
-:   首次在实践相关的 N≫d 区间严格刻画了 Sigmoid 对比损失（SigLIP）在可训练温度和偏置下的全局最小值几何结构，提出了 (m, b_rel)-Constellation 这一新型组合对象，并用其解释了 SigLIP 的检索成功、模态间隙现象，以及提出了显式 relative bias 参数化改进训练动态。
-
-**[Gradient-Weight Alignment as a Train-Time Proxy for Generalization in Classification Tasks](llm_pretraining/gradient-weight_alignment_as_a_train-time_proxy_for_generalization_in_classifica.md)**
-
-:   提出 Gradient-Weight Alignment (GWA)，通过量化每个训练样本梯度与模型权重的方向一致性（cosine similarity），在训练过程中无需验证集即可准确预测泛化性能、确定最佳早停时机，并定位有影响力的训练样本。
-
-**[How Does Sequence Modeling Architecture Influence Base Capabilities of Pre-trained Language Models?](llm_pretraining/how_does_sequence_modeling_architecture_influence_base_capabilities_of_pre-train.md)**
-
-:   通过"限定领域预训练 + OOD 测试"的评估框架揭示 Mamba/RWKV 等 stateful 架构存在基础能力退化，并归纳出关键设计原则——"全序列任意选择能力"（full-sequence visibility + real relation calculation + non-uniform distribution），用极简的 Top-1 Element/Chunk Selection 架构验证该原则可恢复至接近 Transformer 的基础能力。
-
-**[Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale](llm_pretraining/language_model_behavioral_phases_are_consistent_across_archi.md)**
-
-:   通过对超过 1,400 个语言模型检查点（涵盖 Transformer/Mamba/RWKV 三种架构、14M–12B 参数规模、两种训练数据集）在 11 万+ token 上的系统分析，发现所有自回归语言模型在预训练过程中展现出高度一致的行为阶段——预测概率依次过拟合到递增阶数的 n-gram 概率，且词频、n-gram 概率和语义相似度三个简单启发式可解释高达 98% 的行为方差。
-
-**[Learning the Wrong Lessons: Syntactic-Domain Spurious Correlations in Language Models](llm_pretraining/learning_the_wrong_lessons_syntactic-domain_spurious_correlations_in_language_mo.md)**
-
-:   揭示 LLM 学会了句法模板（PoS n-gram）与领域之间的虚假关联，导致跨域性能骤降，甚至可利用此关联绕过安全拒绝机制（refusal bypass），在 OLMo-2 上将拒绝率从 40% 降至 2.5%。
-
-**[Learning to Flow from Generative Pretext Tasks for Neural Architecture Encoding](llm_pretraining/learning_to_flow_from_generative_pretext_tasks_for_neural_architecture_encoding.md)**
-
-:   提出 FGP（Flow-based Generative Pre-training），通过让编码器重建"流代理"（flow surrogate）这一架构信息流的简化表征，使任意结构的编码器无需专用的异步消息传递设计即可捕获信息流，在性能预测中 Precision@1% 最高提升 106%。
-
-**[Leveraging Importance Sampling to Detach Alignment Modules from Large Language Models](llm_pretraining/leveraging_importance_sampling_to_detach_alignment_modules_from_large_language_m.md)**
-
-:   提出 Residual Alignment Model (RAM)，将 LLM 对齐过程形式化为重要性采样，将大模型分解为冻结的 Proposal Module 和可训练的小型 Residual Aligner，以不到 1/8 参数实现可比甚至超越全参数 SFT/DPO 的对齐效果，同时解决了首 token 延迟问题。
-
-**[Memory Mosaics at Scale](llm_pretraining/memory_mosaics_at_scale.md)**
-
-:   Memory Mosaics v2 将关联存储网络扩展至 10B 参数、1T token 训练规模，在新任务学习和上下文学习上显著超越同规模甚至 8T token 训练的 Transformer。
-
-**[Nemotron-CLIMB: CLustering-based Iterative Data Mixture Bootstrapping for Language Model Pre-training](llm_pretraining/nemotron-climb_clustering-based_iterative_data_mixture_bootstrapping_for_languag.md)**
-
-:   NVIDIA 提出 CLIMB 框架，通过嵌入聚类 + 迭代自举搜索自动发现最优预训练数据混合比例，在 1B 模型上超过 Llama-3.2-1B 达 2.0%，并发布了 1.2T token 的 ClimbLab 语料库和 400B token 的 ClimbMix 高质量数据集。
-
-**[Neural Collapse under Gradient Flow on Shallow ReLU Networks for Orthogonally Separable Data](llm_pretraining/neural_collapse_under_gradient_flow_on_shallow_relu_networks_for_orthogonally_se.md)**
-
-:   首次证明在正交可分数据上，两层ReLU网络的梯度流（GF）在小初始化下可证收敛到Neural Collapse（NC）解，揭示了GF隐式偏置（早期神经元对齐+渐近最大间隔偏置）在促进NC出现中的关键作用。
-
-**[Optimal Online Change Detection via Random Fourier Features](llm_pretraining/optimal_online_change_detection_via_random_fourier_features.md)**
-
-:   提出 Online RFF-MMD 算法，通过随机 Fourier 特征近似 MMD 统计量并嵌入到二进制网格的序贯检验框架中，实现了无需训练数据、无需窗口参数的在线非参数变点检测，运行时间和空间复杂度均为对数级，并证明了检测延迟的 minimax 最优性。
-
-**[Power Lines: Scaling Laws for Weight Decay and Batch Size in LLM Pre-training](llm_pretraining/power_lines_scaling_laws_for_weight_decay_and_batch_size_in_llm_pre-training.md)**
-
-:   提出了一套针对 LLM 预训练中权重衰减 $\lambda$ 和批大小 $B$ 的幂律缩放定律（power laws），通过 AdamW 时间尺度 $\tau$ 的概念统一了超参数缩放关系，使得在大规模训练前即可准确预测最优超参数。
-
-**[Predict Training Data Quality via Its Geometry in Metric Space](llm_pretraining/predict_training_data_quality_via_its_geometry_in_metric_space.md)**
-
-:   提出基于持久同调（Persistent Homology）的训练数据多样性度量方法，证明数据的几何/拓扑结构特征能够有效预测模型性能，优于传统基于熵的Vendi Score等指标。
-
-**[PRESCRIBE: Predicting Single-Cell Responses with Bayesian Estimation](llm_pretraining/prescribe_predicting_single-cell_responses_with_bayesian_estimation.md)**
-
-:   提出 PRESCRIBE 框架，通过多变量深度证据回归联合建模单细胞扰动预测中的认知不确定性（模型对输入的不熟悉程度）和随机不确定性（生物系统固有的随机性），生成伪 E-distance 作为统一的不确定性代理指标，过滤不可靠预测后准确率提升 3% 以上。
-
-**[Quantifying Task-Relevant Representational Similarity Using Decision Variable Correlation](llm_pretraining/quantifying_task-relevant_representational_similarity_using_decision_variable_co.md)**
-
-:   本文提出基于决策变量相关（DVC）的新方法来衡量两个神经表征在分类任务上的逐试次一致性，发现深度网络在 ImageNet 上准确率越高反而与猴脑 V4/IT 的 DVC 越低，对抗训练和大规模数据集预训练也无法缩小这一差距。
-
-**[Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](llm_pretraining/retrospective_incontext_learning_for_temporal_credit_assignm.md)**
-
-:   提出 RICL（Retrospective In-Context Learning），利用 LLM 的预训练知识通过回顾式上下文学习将稀疏环境反馈转化为密集优势函数信号，实现比传统 Monte Carlo 方法高 100 倍的样本效率，并在此基础上构建 RICOL 在线学习框架。
-
-**[Scalable Fingerprinting of Large Language Models](llm_pretraining/scalable_fingerprinting_of_large_language_models.md)**
-
-:   提出 Perinucleus 采样方法生成可扩展的 LLM 指纹，能在 Llama-3.1-8B 上嵌入 24,576 个指纹（比现有方法多两个数量级）且不损害模型能力，并通过理论和实验证明大规模指纹是抵御共谋攻击的关键。
-
-**[Scaling Embedding Layers in Language Models](llm_pretraining/scaling_embedding_layers_in_language_models.md)**
-
-:   提出Scone方法，通过为高频n-gram学习上下文化的嵌入（用独立Transformer模型训练），在推理时将这些嵌入卸载到主存/SSD，实现"训练时用更多计算但推理时不增加加速器资源"的新缩放范式，1B参数模型超越1.9B基线。
-
-**[Superposition Yields Robust Neural Scaling](llm_pretraining/superposition_yields_robust_neural_scaling.md)**
-
-:   揭示表示叠加（superposition）是神经缩放定律的核心驱动力：在强叠加区间，损失**通用地**与模型维度成反比（$L \propto 1/m$），且该行为与数据频率分布的具体形式无关，这与实际 LLM 的缩放行为一致。
-
-**[The Curse of Depth in Large Language Models](llm_pretraining/the_curse_of_depth_in_large_language_models.md)**
-
-:   揭示 Pre-LN Transformer 中输出方差指数增长导致深层退化为恒等映射的根本原因，提出无参数的 LayerNorm Scaling（LNS）策略——仅在 LayerNorm 后乘以 $1/\sqrt{\ell}$，将方差从指数增长压缩为多项式增长，在 130M-7B 全规模上稳定改进困惑度 5-8%。
-
-**[Through the River: Understanding the Benefit of Schedule-Free Methods for Language Model Training](llm_pretraining/through_the_river_understanding_the_benefit_of_schedule-free_methods_for_languag.md)**
-
-:   从 river-valley 损失景观的几何视角，分析了 Schedule-Free (SF) 优化器在语言模型预训练中不需要学习率衰减和权重平均就能持续追踪最优解的原因，并揭示 SF 隐式执行了权重平均，进而提出解耦动量和平均窗口的改进版 SF-AdamW。
-
-**[Understanding and Enhancing Mask-Based Pretraining towards Universal Representations](llm_pretraining/understanding_and_enhancing_mask-based_pretraining_towards_universal_representat.md)**
-
-:   用高维线性回归理论精确刻画了 mask-based pretraining 中掩码率对测试风险的影响（偏差-方差分解），揭示了最优掩码率依赖于任务和模型大小，并据此提出 R2MAE（随机随机掩码），在视觉、语言、DNA、单细胞模型上一致超越固定掩码率。
-
-**[ZEUS: Zero-shot Embeddings for Unsupervised Separation of Tabular Data](llm_pretraining/zeus_zero-shot_embeddings_for_unsupervised_separation_of_tabular_data.md)**
-
-:   ZEUS 是首个面向表格数据的零样本聚类方法，通过在合成数据集上预训练一个 Transformer 编码器来学习可泛化的表示，使得新数据集无需任何额外训练或调参即可在单次前向传播中完成高质量聚类。
 
 ---
 

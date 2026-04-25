@@ -124,10 +124,10 @@ tags:
 
 ## 相关论文
 
-- [How Do Transformers Learn to Associate Tokens: Gradient Leading Terms Bring Mechanistic Understanding](../../ICLR2026/interpretability/how_do_transformers_learn_to_associate_tokens_gradient_leading_terms_bring_mecha.md)
+- [Do LLMs Know Tool Irrelevance? Demystifying Structural Alignment Bias in Tool Invocations](../../ACL2026/interpretability/do_llms_know_tool_irrelevance_demystifying_structural_alignment_bias_in_tool_inv.md)
 - [An Empirical Study of Mechanistic Interpretability Approaches for Factual Recall](an_empirical_study_of_mechanistic_interpretability_approaches_for_factual_recall.md)
 - [Reasoning Circuits in Language Models: A Mechanistic Interpretation of Syllogistic Inference](reasoning_circuits_in_language_models_a_mechanistic_interpretation_of_syllogisti.md)
+- [How Do Transformers Learn to Associate Tokens: Gradient Leading Terms Bring Mechanistic Understanding](../../ICLR2026/interpretability/how_do_transformers_learn_to_associate_tokens_gradient_leading_terms_bring_mecha.md)
 - [A Dual-Perspective NLG Meta-Evaluation Framework with Automatic Benchmark and Better Interpretability](a_dual-perspective_nlg_meta-evaluation_framework_with_automatic_benchmark_and_be.md)
-- [Why Is Spatial Reasoning Hard for VLMs? An Attention Mechanism Perspective on Focus Areas](../../ICML2025/interpretability/why_is_spatial_reasoning_hard_for_vlms_an_attention_mechanism_perspective_on_foc.md)
 
 <!-- RELATED:END -->

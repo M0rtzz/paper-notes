@@ -133,8 +133,8 @@ tags:
 
 - [Intention Chain-of-Thought Prompting with Dynamic Routing for Code Generation](intention_chain-of-thought_prompting_with_dynamic_routing_for_code_generation.md)
 - [DreamPRM: Domain-Reweighted Process Reward Model for Multimodal Reasoning](../../NeurIPS2025/llm_reasoning/dreamprm_domain-reweighted_process_reward_model_for_multimodal_reasoning.md)
-- [Unlocking Multimodal Mathematical Reasoning via Process Reward Model](../../NeurIPS2025/llm_reasoning/unlocking_multimodal_mathematical_reasoning_via_process_reward_model.md)
 - [BPP-Search: Enhancing Tree of Thought Reasoning for Mathematical Modeling Problem Solving](../../ACL2025/llm_reasoning/bpp-search_enhancing_tree_of_thought_reasoning_for_mathematical_modeling_problem.md)
+- [Unlocking Multimodal Mathematical Reasoning via Process Reward Model](../../NeurIPS2025/llm_reasoning/unlocking_multimodal_mathematical_reasoning_via_process_reward_model.md)
 - [Jupiter: Enhancing LLM Data Analysis Capabilities via Notebook and Inference-Time Value-Guided Search](jupiter_enhancing_llm_data_analysis_capabilities_via_notebook_and_inference-time.md)
 
 <!-- RELATED:END -->

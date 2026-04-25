@@ -128,6 +128,6 @@ CANEFT 在已见和未见域上都超越 Full FT 和 LoRA。
 - [Focusing on Language: Revealing and Exploiting Language Attention Heads in Multilingual Large Language Models](focusing_on_language_revealing_and_exploiting_language_attention_heads_in_multil.md)
 - [Exploring the Translation Mechanism of Large Language Models](../../NeurIPS2025/multilingual_mt/exploring_the_translation_mechanism_of_large_language_models.md)
 - [SIFT-50M: A Large-Scale Multilingual Dataset for Speech Instruction Fine-Tuning](../../ACL2025/multilingual_mt/sift-50m_a_large-scale_multilingual_dataset_for_speech_instruction_fine-tuning.md)
-- [Statement-Tuning Enables Efficient Cross-lingual Generalization in Encoder-only Models](../../ACL2025/multilingual_mt/statement-tuning_enables_efficient_cross-lingual_generalization_in_encoder-only_.md)
+- [Efficient Training for Cross-lingual Speech Language Models](../../ACL2026/multilingual_mt/efficient_training_for_cross-lingual_speech_language_models.md)
 
 <!-- RELATED:END -->

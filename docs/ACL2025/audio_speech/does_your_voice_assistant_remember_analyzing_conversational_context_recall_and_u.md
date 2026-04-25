@@ -166,6 +166,6 @@ Lyra 无 RAG baseline = 2.83，RAG 未带来提升。
 - [Finding A Voice: Exploring the Potential of African American Dialect and Voice Generation for Chatbots](aae_voice_chatbot.md)
 - [SpeechIQ: Speech-Agentic Intelligence Quotient Across Cognitive Levels in Voice Understanding by Large Language Models](speechiq_speechagentic_intelligence_quotient_across_cognitive.md)
 - [OmniFlatten: An End-to-end GPT Model for Seamless Voice Conversation](omniflatten_an_end-to-end_gpt_model_for_seamless_voice_conversation.md)
-- [TCSinger 2: Customizable Multilingual Zero-shot Singing Voice Synthesis](tcsinger_2_customizable_multilingual_zero-shot_singing_voice_synthesis.md)
+- [Analyzing and Mitigating Inconsistency in Discrete Audio Tokens for Neural Codec Language Models](audio_token_consistency.md)
 
 <!-- RELATED:END -->

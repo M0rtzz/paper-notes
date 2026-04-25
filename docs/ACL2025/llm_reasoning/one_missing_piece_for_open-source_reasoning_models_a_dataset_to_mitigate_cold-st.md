@@ -196,6 +196,6 @@ GPQA 上 Llama-8B 提升 60%（22.7→36.4），Qwen-7B-LC 超越 Bespoke-7B（�
 - [Fine-Tuning on Diverse Reasoning Chains Drives Within-Inference CoT Refinement in LLMs](dcot_diverse_cot_refinement.md)
 - [CoT-UQ: Improving Response-wise Uncertainty Quantification in LLMs with Chain-of-Thought](cot-uq_improving_response-wise_uncertainty_quantification_in_llms_with_chain-of-.md)
 - [Enhancing Mathematical Reasoning in LLMs by Stepwise Correction](enhancing_mathematical_reasoning_in_llms_by_stepwise_correction.md)
-- [CoT-Valve: Length-Compressible Chain-of-Thought Tuning](cot-valve_length-compressible_chain-of-thought_tuning.md)
+- [SoftCoT: Soft Chain-of-Thought for Efficient Reasoning with LLMs](softcot_soft_chain_of_thought.md)
 
 <!-- RELATED:END -->

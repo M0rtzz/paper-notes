@@ -139,8 +139,8 @@ NST 迭代效果（泰语）:
 
 ## 相关论文
 
+- [Hard to Be Heard: Phoneme-Level ASR Analysis of Phonologically Complex, Low-Resource Endangered Languages](../../ACL2026/audio_speech/hard_to_be_heard_phoneme-level_asr_analysis_of_phonologically_complex_low-resour.md)
 - [On the Robust Approximation of ASR Metrics](on_the_robust_approximation_of_asr_metrics.md)
-- [EuroSpeech: A Multilingual Speech Corpus](../../NeurIPS2025/audio_speech/eurospeech_a_multilingual_speech_corpus.md)
 - [UniCodec: Unified Audio Codec with Single Domain-Adaptive Codebook](unicodec_unified_audio_codec_with_single_domain-adaptive_codebook.md)
 - [DNCASR: End-to-End Training for Speaker-Attributed ASR](dncasr_end-to-end_training_for_speaker-attributed_asr.md)
 - [CLaMP 3: Universal Music Information Retrieval Across Unaligned Modalities and Unseen Languages](clamp_3_universal_music_information_retrieval_across_unaligned_modalities_and_un.md)

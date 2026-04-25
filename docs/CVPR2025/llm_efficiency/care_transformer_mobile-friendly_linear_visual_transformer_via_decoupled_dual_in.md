@@ -151,8 +151,8 @@ ImageNet-1K分类：
 
 - [Associative Transformer](associative_transformer.md)
 - [Spiking Transformer: Introducing Accurate Addition-Only Spiking Self-Attention for Transformer](spiking_transformer_introducing_accurate_addition-only_spiking_self-attention_fo.md)
-- [Learning in Compact Spaces with Approximately Normalized Transformer](../../NeurIPS2025/llm_efficiency/learning_in_compact_spaces_with_approximately_normalized_transformer.md)
-- [Frequency-Aware Token Reduction for Efficient Vision Transformer](../../NeurIPS2025/llm_efficiency/frequency-aware_token_reduction_for_efficient_vision_transformer.md)
-- [A Unified Framework for Establishing the Universal Approximation of Transformer-Type Architectures](../../NeurIPS2025/llm_efficiency/a_unified_framework_for_establishing_the_universal_approxima.md)
+- [Spatial-TTT: Streaming Visual-based Spatial Intelligence with Test-Time Training](spatial-ttt_streaming_visual-based_spatial_intelligence_with_test-time_training.md)
+- [Language Guided Concept Bottleneck Models for Interpretable Continual Learning](language_guided_concept_bottleneck_models_for_interpretable_continual_learning.md)
+- [Efficient Data Driven Mixture-of-Expert Extraction from Trained Networks](efficient_data_driven_mixture-of-expert_extraction_from_trained_networks.md)
 
 <!-- RELATED:END -->

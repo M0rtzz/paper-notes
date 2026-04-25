@@ -167,10 +167,10 @@ d=64 时，预训练+微调将总体召回率从 71.4% 提升至 **92.3%**，最
 
 ## 相关论文
 
-- [HiFi-RAG: Hierarchical Content Filtering and Two-Pass Generation for Open-Domain RAG](hifi-rag_hierarchical_content_filtering_and_two-pass_generation_for_open-domain_.md)
 - [Hierarchical Document Refinement for Long-context Retrieval-augmented Generation](../../ACL2025/information_retrieval/hierarchical_document_refinement_for_long-context_retrieval-augmented_generation.md)
+- [HiFi-RAG: Hierarchical Content Filtering and Two-Pass Generation for Open-Domain RAG](hifi-rag_hierarchical_content_filtering_and_two-pass_generation_for_open-domain_.md)
 - [Beyond True or False: Retrieval-Augmented Hierarchical Analysis of Nuanced Claims](../../ACL2025/information_retrieval/beyond_true_or_false_retrieval-augmented_hierarchical_analysis_of_nuanced_claims.md)
 - [Hierarchical Concept-based Interpretable Models](../../ICLR2026/information_retrieval/hierarchical_concept-based_interpretable_models.md)
-- [Chain-of-Retrieval Augmented Generation (CoRAG)](chain-of-retrieval_augmented_generation.md)
+- [ChAIRO: Contextual Hierarchical Analogical Induction and Reasoning Optimization for LLMs](../../ACL2026/information_retrieval/chairo_contextual_hierarchical_analogical_induction_and_reasoning_optimization_f.md)
 
 <!-- RELATED:END -->

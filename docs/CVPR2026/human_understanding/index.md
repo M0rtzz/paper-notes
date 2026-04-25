@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 人体理解方向 80篇论文解读
+  CVPR2026 人体理解方向 82篇论文解读
 description: >-
-  80篇CVPR2026 人体理解论文解读，主题涵盖：提出两阶段双模态面部表情识别框架：Stage I、提出 LIDMark，首个将 deepfake、提出AVATAR框架，通过离线策略训练架构（分层回等，每篇含核心思想与方法详解。
+  82篇CVPR2026 人体理解论文解读，主题涵盖：提出两阶段双模态面部表情识别框架：Stage I、提出 LIDMark，首个将 deepfake、提出AVATAR框架，通过离线策略训练架构（分层回等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**📷 CVPR2026** · **80** 篇论文解读
+**📷 CVPR2026** · **82** 篇论文解读
 
 **[A Two-Stage Dual-Modality Model for Facial Expression Recognition](a_two_stage_dual_modality_model_for_facial_expression_recognition.md)**
 
@@ -97,6 +97,14 @@ description: >-
 **[FSMC-Pose: Frequency and Spatial Fusion with Multiscale Self-calibration for Cattle Mounting Pose Estimation](fsmc-pose_frequency_and_spatial_fusion_with_multiscale_selfcalibration_for_cattle.md)**
 
 :   FSMC-Pose 提出面向牛只爬跨(mounting)姿态估计的轻量级 top-down 框架，包含频率-空间融合骨干网络 CattleMountNet（通过 SFEBlock 的小波变换+高斯滤波分离前景-背景，RABlock 的多尺度扩张卷积聚合上下文）和多尺度自校准头 SC2Head（空间-通道共校准 + 自校准分支纠正结构偏移），同时构建了首个牛只爬跨数据集 MOUNT-Cattle，在复杂群养环境中以极低计算成本(4.41 GFLOPS, 2.698M 参数)达到 89% AP。
+
+**[FSMC-Pose: Frequency and Spatial Fusion with Multiscale Self-calibration for Cattle Mounting Pose Estimation](fsmc_pose_cattle_mounting_pose_estimation.md)**
+
+:   提出 FSMC-Pose 轻量级自上而下框架，通过频率-空间融合骨干 CattleMountNet 和多尺度自校准头 SC2Head 实现密集杂乱牧场环境下的牛群骑跨姿态估计，AP 达 89%，参数仅 2.698M。
+
+**[FSMC-Pose: Frequency and Spatial Fusion with Multiscale Self-calibration for Cattle Mounting Pose Estimation](fsmc_pose_frequency_spatial_cattle_mounting_pose.md)**
+
+:   FSMC-Pose 提出了一种面向牧场密集场景的轻量级牛群爬跨姿态估计框架，通过频率-空间融合骨干网络 CattleMountNet 和多尺度自校准预测头 SC2Head，在参数仅 2.698M、4.4G FLOPs 下实现了89% AP的高精度。
 
 **[GardenDesigner: Encoding Aesthetic Principles into Jiangnan Garden Construction via a Chain of Agents](gardendesigner_encoding_aesthetic_principles_into_jiangnan_garden_construction_v.md)**
 

@@ -147,6 +147,6 @@ HybriDLA 以纯视觉输入达到 83.5% mAP，仅差多模态 DLAFormer 0.3%。�
 - [PosterO: Structuring Layout Trees to Enable Language Models in Generalized Content-Aware Layout Generation](../../CVPR2025/llm_evaluation/postero_structuring_layout_trees_to_enable_language_models_in_generalized_conten.md)
 - [Structured Language Generation Model: Loss Calibration and Formatted Decoding for Efficient Text](structured_language_generation_model_loss_calibration_and_formatted_decoding_for.md)
 - [HybridNorm: Towards Stable and Efficient Transformer Training via Hybrid Normalization](../../NeurIPS2025/llm_evaluation/hybridnorm_towards_stable_and_efficient_transformer_training_via_hybrid_normaliz.md)
-- [Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis](../../ICLR2026/llm_evaluation/talk_evaluate_diagnose_user-aware_agent_evaluation_with_automated_error_analysis.md)
+- [CAST: Achieving Stable LLM-based Text Analysis for Data Analytics](../../ACL2026/llm_evaluation/cast_achieving_stable_llm-based_text_analysis_for_data_analytics.md)
 
 <!-- RELATED:END -->

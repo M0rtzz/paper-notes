@@ -130,6 +130,6 @@ tags:
 - [Déjà Vu? Decoding Repeated Reading from Eye Movements](deja_vu_decoding_repeated_reading_from_eye_movements.md)
 - [Attribution Methods in NLP: Navigating a Fragmented Landscape](attribution_methods_in_nlp_navigating_a_fragmented_landscape.md)
 - [SynGraph: A Dynamic Graph-LLM Synthesis Framework for Sparse Streaming User Sentiment Analysis](syngraph_a_dynamic_graph-llm_synthesis_framework_for_sparse_streaming_user_senti.md)
-- [Conversational Quality Assessment: A Large-Scale Corpus and Comprehensive Study](conversational_quality_assessment_a_large-scale_corpus_and_comprehensive_study.md)
+- [A Variational Approach for Mitigating Entity Bias in Relation Extraction](variational_approach_mitigating_entity_bias_relation_extraction.md)
 
 <!-- RELATED:END -->

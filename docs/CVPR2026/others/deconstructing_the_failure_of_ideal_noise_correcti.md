@@ -56,9 +56,14 @@ tags:
 - Clothing1M 真实噪声：JEC 72.24% vs Forward 69.84% vs DivideMix 74.76%
 - 多标签扩展实验：随样本信息量从 1-label 到 10-labels 增加，FC 的精度稳步提升趋近理想样本选择，ECE 显著更低
 
+### 宏观分析实验验证
+
+在线性分类器（近似 Ideal Fitted Case）上验证了 FC 的理论优势：高噪声比下 FC 与 NC 的精度差距 $\Delta \ge P(\mathcal{X}_{error}) \cdot \mathbb{E}[\max(0, 1-2\delta(X))]$ 更大。但在过参数化网络的记忆化态下，FC 的解塑缩为 one-hot 向量 $\mathbf{e}_{k^*_{FC}}$（$T$ 矩阵列最大值对应类），对称噪声下精度差距恰好为零，FC 与 NC 完全等价。
+
 ### 消融实验要点
 - 线性分类器（近似理想态）验证了 FC 在 Ideal Fitted Case 下的理论优势，特别是高噪声比下精度差距更大
 - ECE 改善比 accuracy 改善更显著，确认了校正方法的真正优势在于后验质量而非仅仅 accuracy
+- 微观分析揭示了梯度软化效应的暂态本质：softmax 近顶点梯度趋于零，优化器被困在噪声标签对应的顶点 $\mathbf{e}_{y^n}$ 附近，形成 pseudo-convergence
 
 ## 亮点与洞察
 - 真正「解构」了一个持续 10 年的领域悖论，不是凑个新 loss 而是从理论根源解释现象
@@ -73,7 +78,9 @@ tags:
 ## 相关工作与启发
 - vs **DivideMix / Co-teaching**（样本选择方法）：本文的 JEC 在轻量增强后就能追平这些复杂框架，说明噪声校正方法潜力被低估
 - vs **Forward / Backward Correction**（传统 $T$-矩阵方法）：首次严格证明其失败不在于 $T$ 估计而在于有限样本结构问题
-- vs **Robust Loss**（GCE, SCE 等）：这些方法绕过 $T$ 建模，本文的信息论分析对它们同样适用——都受限于噪声信道的信息损失
+- vs **Robust Loss**（GCE, SCE 等）：这些方法绕过 $T$ 建模，本文的信息论分析对它们同样适用
+- Data Processing Inequality 证明 $I_{noisy}(x) \le I_{clean}(x)$，噪声信道不可逆地降低了每个样本的信息量
+- FEC/JEC 通过正则化（预训练 + Mixup）将 FC 推向理想态，避免记忆化塑缩——都受限于噪声信道的信息损失
 
 ## 相关工作与启发
 - 梯度饱和导致 pseudo-convergence 的分析可以迁移到其他使用 softmax + CE 的场景（如知识蒸馏中的软标签训练）

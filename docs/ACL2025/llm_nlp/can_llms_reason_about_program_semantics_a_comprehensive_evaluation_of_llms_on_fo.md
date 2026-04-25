@@ -137,6 +137,6 @@ FormalBench 基准的设计和评估包含三个部分：（1）**基准构建**
 - [MemBench: Towards More Comprehensive Evaluation on the Memory of LLM-based Agents](membench_towards_more_comprehensive_evaluation_on_the_memory_of_llm-based_agents.md)
 - [Can LLMs Help Uncover Insights about LLMs? A Large-Scale, Evolving Literature Analysis of Frontier LLMs](can_llms_help_uncover_insights_about_llms_a_large-scale_evolving_literature_anal.md)
 - [Can LLMs Interpret and Leverage Structured Linguistic Representations? A Case Study with AMRs](can_llms_interpret_and_leverage_structured_linguistic_representations_a_case_stu.md)
-- [Is It JUST Semantics? A Case Study of Discourse Particle Understanding in LLMs](is_it_just_semantics_a_case_study_of_discourse_particle_understanding_in_llms.md)
+- [Bitnet.cpp: Efficient Edge Inference for Ternary LLMs](bitnetcpp_efficient_edge_inference_for_ternary_llms.md)
 
 <!-- RELATED:END -->

@@ -177,6 +177,6 @@ NEURO-LOOP 流程：
 - [A Snapshot of Influence: A Local Data Attribution Framework for Online Reinforcement Learning](../../NeurIPS2025/robotics/a_snapshot_of_influence_a_local_data_attribution_framework_f.md)
 - [EvoEmpirBench: Dynamic Spatial Reasoning with Agent-ExpVer](evoempirbench_dynamic_spatial_reasoning_with_agent-expver.md)
 - [Adaptive Theory of Mind for LLM-based Multi-Agent Coordination](adaptive_theory_of_mind_for_llm-based_multi-agent_coordination.md)
-- [To Align or Not to Align: Strategic Multimodal Representation Alignment for Optimal Performance](to_align_or_not_to_align_strategic_multimodal_representation_alignment_for_optim.md)
+- [A Computable Game-Theoretic Framework for Multi-Agent Theory of Mind](a_computable_game-theoretic_framework_for_multi-agent_theory_of_mind.md)
 
 <!-- RELATED:END -->

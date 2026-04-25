@@ -104,8 +104,8 @@ tags:
 
 ## 相关论文
 
-- [Beyond Dialogue: A Profile-Dialogue Alignment Framework Towards General Role-Playing Language Model](beyond_dialogue_a_profile-dialogue_alignment_framework_towards_general_role-play.md)
 - [LLMs + Persona-Plug = Personalized LLMs](llms_persona-plug_personalized_llms.md)
+- [Beyond Dialogue: A Profile-Dialogue Alignment Framework Towards General Role-Playing Language Model](beyond_dialogue_a_profile-dialogue_alignment_framework_towards_general_role-play.md)
 - [Enhancing Character-Level Understanding in LLMs through Token Internal Structure Learning](character_level_understanding.md)
 - [UnSeenTimeQA: Time-Sensitive Question-Answering Beyond LLMs' Memorization](unseentimeqa_time-sensitive_question-answering_beyond_llms_memorization.md)
 - [From Data to Knowledge: Evaluating How Efficiently Language Models Learn Facts](from_data_to_knowledge_evaluating_how_efficiently_language_models_learn_facts.md)

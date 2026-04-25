@@ -124,6 +124,6 @@ DiffATD 将主动目标发现（ATD）建模为在网格化搜索空间中的序
 - [Compressing Biology: Evaluating the Stable Diffusion VAE for Phenotypic Drug Discovery](compressing_biology_evaluating_the_stable_diffusion_vae_for_phenotypic_drug_disc.md)
 - [Doctor Approved: Generating Medically Accurate Skin Disease Images through AI-Expert Feedback](doctor_approved_generating_medically_accurate_skin_disease_images_through_ai-exp.md)
 - [Amortized Active Generation of Pareto Sets](amortized_active_generation_of_pareto_sets.md)
-- [Interpreting GFlowNets for Drug Discovery: Extracting Actionable Insights for Medicinal Chemistry](interpreting_gflownets_for_drug_discovery_extracting_actionable_insights_for_med.md)
+- [Self-supervised Learning of Echocardiographic Video Representations via Online Cluster Distillation](self-supervised_learning_of_echocardiographic_video_representations_via_online_c.md)
 
 <!-- RELATED:END -->

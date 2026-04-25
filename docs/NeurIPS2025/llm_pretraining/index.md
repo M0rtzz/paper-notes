@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 预训练方向 40篇论文解读
+  NeurIPS2025 预训练方向 42篇论文解读
 description: >-
-  40篇NeurIPS2025 预训练论文解读，主题涵盖：本文以 position paper、提出交替梯度流（AGF）理论框架解释神经网络的逐步、系统实证研究 Neural ODE (NODE)等，每篇含核心思想与方法详解。
+  42篇NeurIPS2025 预训练论文解读，主题涵盖：本文以 position paper、提出交替梯度流（AGF）理论框架解释神经网络的逐步、系统实证研究 Neural ODE (NODE)等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**🧠 NeurIPS2025** · **40** 篇论文解读
+**🧠 NeurIPS2025** · **42** 篇论文解读
 
 **[AI Progress Should Be Measured by Capability-Per-Resource, Not Scale Alone: A Framework for Gradient-Guided Resource Allocation in LLMs](ai_progress_should_be_measured_by_capability-per-resource_not_scale_alone_a_fram.md)**
 
@@ -106,6 +106,10 @@ description: >-
 
 :   提出 Residual Alignment Model (RAM)，将 LLM 对齐过程形式化为重要性采样，将大模型分解为冻结的 Proposal Module 和可训练的小型 Residual Aligner，以不到 1/8 参数实现可比甚至超越全参数 SFT/DPO 的对齐效果，同时解决了首 token 延迟问题。
 
+**[Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale](lm_behavioral_phases.md)**
+
+:   本文通过分析 1,400+ 个模型检查点在 110,000+ token 上的行为，发现自回归语言模型在训练过程中展现高度一致的行为阶段——预测概率依次过拟合到递增 n 的 n-gram 概率，且三个简单启发式（词频、n-gram 概率、语义相似度）可解释高达 98% 的模型行为方差，此规律跨架构（Transformer/Mamba/RWKV）、数据集和规模保持一致。
+
 **[Memory Mosaics at Scale](memory_mosaics_at_scale.md)**
 
 :   Memory Mosaics v2 将关联存储网络扩展至 10B 参数、1T token 训练规模，在新任务学习和上下文学习上显著超越同规模甚至 8T token 训练的 Transformer。
@@ -141,6 +145,10 @@ description: >-
 **[Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](retrospective_incontext_learning_for_temporal_credit_assignm.md)**
 
 :   提出 RICL（Retrospective In-Context Learning），利用 LLM 的预训练知识通过回顾式上下文学习将稀疏环境反馈转化为密集优势函数信号，实现比传统 Monte Carlo 方法高 100 倍的样本效率，并在此基础上构建 RICOL 在线学习框架。
+
+**[Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](ricl_temporal_credit.md)**
+
+:   本文提出 RICL（回顾式上下文学习），通过比较 LLM 策略在上下文更新前后的 log-probability 差异来估计优势函数，将稀疏环境反馈转化为密集训练信号，实现高效的时间信用分配，并在 BabyAI 任务上以更高采样效率达到传统 RL 可比的收敛性能。
 
 **[Scalable Fingerprinting of Large Language Models](scalable_fingerprinting_of_large_language_models.md)**
 

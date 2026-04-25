@@ -131,6 +131,6 @@ PrivacyPair 数据构建 → 逐层可学习向量 $m_l$ 量化特征变化 → 
 - [FedMeNF: Privacy-Preserving Federated Meta-Learning for Neural Fields](../../ICCV2025/ai_safety/fedmenf_privacy-preserving_federated_meta-learning_for_neural_fields.md)
 - [Mitigating Privacy-Utility Trade-off in Decentralized Federated Learning via f-Differential Privacy](../../NeurIPS2025/ai_safety/mitigating_privacy-utility_trade-off_in_decentralized_federated_learning_via_f-d.md)
 - [Gradient Inversion Attacks on Parameter-Efficient Fine-Tuning](gradient_inversion_attacks_on_parameter-efficient_fine-tuning.md)
-- [Lyapunov Stable Graph Neural Flow](lyapunov_stable_graph_neural_flow.md)
+- [The Canary's Echo: Auditing Privacy Risks of LLM-Generated Synthetic Text](../../ICML2025/ai_safety/the_canarys_echo_auditing_privacy_risks_of_llm-generated_synthetic_text.md)
 
 <!-- RELATED:END -->

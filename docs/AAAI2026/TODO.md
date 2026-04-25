@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # AAAI2026 论文笔记 TODO
 
-总计: 1379 篇 | 已完成: 1378 | 待更新: 1
+总计: 1379 篇 | 已完成: 1379 | 待更新: 0
 
 ---
 
@@ -766,7 +766,7 @@
 - [x] [mass concept erasure in diffusion models with concept hierarchy](image_generation/mass_concept_erasure_in_diffusion_models_with_concept_hierarchy.md) | arXiv: 2601.03305
 - [x] [mathsmith towards extremely hard mathematical reasoning by forging synthetic pro](reinforcement_learning/mathsmith_towards_extremely_hard_mathematical_reasoning_by_forging_synthetic_pro.md) | arXiv: 2508.05592
 - [x] [matrix-free two-to-infinity and one-to-two norms estimation](ai_safety/matrix-free_two-to-infinity_and_one-to-two_norms_estimation.md) | arXiv: 2508.04444
-- [ ] [mavis a benchmark for multimodal source attribution in long-form visual question](multimodal_vlm/mavis_a_benchmark_for_multimodal_source_attribution_in_long-form_visual_question.md) | arXiv: 2511.12142
+- [x] [mavis a benchmark for multimodal source attribution in long-form visual question](multimodal_vlm/mavis_a_benchmark_for_multimodal_source_attribution_in_long-form_visual_question.md) | arXiv: 2511.12142
 - [x] [mcmoe completing missing modalities with mixture of experts for incomplete multi](multimodal_vlm/mcmoe_completing_missing_modalities_with_mixture_of_experts_for_incomplete_multi.md) | arXiv: 2511.17397
 - [x] [mcts-sql light-weight llms can master the text-to-sql through monte carlo tree s](llm_nlp/mcts-sql_light-weight_llms_can_master_the_text-to-sql_through_monte_carlo_tree_s.md) | arXiv: 2501.16607
 - [x] [mctsr-zero self-reflective psychological counseling dialogues generation via pri](model_compression/mctsr-zero_self-reflective_psychological_counseling_dialogues_generation_via_pri.md) | arXiv: 2505.23229

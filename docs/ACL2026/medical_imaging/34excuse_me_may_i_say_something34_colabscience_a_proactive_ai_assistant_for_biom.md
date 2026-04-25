@@ -1,0 +1,126 @@
+---
+title: >-
+  [论文解读] "Excuse Me, May I Say Something…" CoLabScience: A Proactive AI Assistant for Biomedical Discovery
+description: >-
+  [ACL 2026][医学图像][主动干预] CoLabScience 通过 PULI（正无标注学习干预）框架，训练一个能在生物医学团队讨论中**主动判断何时介入、如何介入**的 LLM 助手，利用 GRPO 和强化学习协调器从流式对话中自动识别最佳干预时机并生成科学建议。
+tags:
+  - ACL 2026
+  - 医学图像
+  - 主动干预
+  - 科学协作
+  - 正无标注学习
+  - 强化学习
+  - 生物医学对话
+---
+
+# "Excuse Me, May I Say Something…" CoLabScience: A Proactive AI Assistant for Biomedical Discovery
+
+**会议**: ACL 2026  
+**arXiv**: [2604.15588](https://arxiv.org/abs/2604.15588)  
+**代码**: https://github.com/YANGWU001/CoLabScience  
+**领域**: LLM Agent / 医学NLP  
+**关键词**: 主动干预、科学协作、正无标注学习、强化学习、生物医学对话
+
+## 一句话总结
+CoLabScience 通过 PULI（正无标注学习干预）框架，训练一个能在生物医学团队讨论中**主动判断何时介入、如何介入**的 LLM 助手，利用 GRPO 和强化学习协调器从流式对话中自动识别最佳干预时机并生成科学建议。
+
+## 研究背景与动机
+
+**领域现状**：LLM 已广泛应用于生物医学研究，包括药物重定位、疾病诊断、临床问答等任务，但现有模型主要以"被动响应"（reactive）模式运行——只有在用户明确提问后才会回答。
+
+**现有痛点**：在多人科学协作场景中，团队讨论往往是流式的、多角色交替进行的。被动模式下的 LLM 无法在讨论偏离目标或遗漏关键知识时及时介入，容易错失重要的科学洞察机会。
+
+**核心矛盾**：科学协作需要"主动参与"（proactive），但现有方法要么依赖手工设计的提示规则，要么缺乏可学习的干预时机判断机制，无法做到自适应、上下文感知的介入。
+
+**本文目标**：设计一个主动式 LLM 助手，能够：(1) 在流式科学讨论中判断**何时介入**；(2) 生成**高质量的干预内容**。
+
+**切入角度**：将问题建模为"正无标注"（PU）学习问题——对话中仅有少量最佳干预点被标注为正样本，其余为未标注，通过强化学习协调器从中发现隐含的正负样本。
+
+**核心 idea**：用一个轻量 Observer 判断干预时机、一个大模型 Presenter 生成干预内容，通过 RL 协调器端到端联合优化两者。
+
+## 方法详解
+
+### 整体框架
+系统由三个核心组件组成：(1) **Coordinator**（协调器，MLP）：接收当前对话状态，输出二值决策（介入 or 沉默）；(2) **Observer**（观察者，小型 LLM）：通过 GRPO 训练学习干预时机分类；(3) **Presenter**（呈现者，大型 LLM）：通过 SFT 训练生成干预内容。输入包括项目提案 $C$（研究目标、背景知识、数据集）和双尺度记忆（短期记忆 $\mathcal{M}^S$ 保留最近 3 轮对话，长期记忆 $\mathcal{M}^L$ 通过 LLM 摘要器递归压缩历史）。
+
+### 关键设计
+
+1. **PULI 正无标注学习干预框架**:
+
+    - 功能：从只有稀疏正标签的对话数据中学习何时介入
+    - 核心思路：将每段对话标注一个最偏离研究目标的轮次为正样本，其余为未标注。Coordinator 为每个未标注轮次预测"介入/沉默"，选出的沉默样本作为负例训练 Observer，选出的介入样本增强正集训练 Presenter。两个模型的性能变化（Observer 准确率变化 $r^{\text{when}}$、Presenter ROUGE-1 变化 $r^{\text{how}}$）作为 reward 反馈给 Coordinator，通过 REINFORCE 更新
+    - 设计动机：真实协作场景中难以标注每一轮的干预必要性，PU 学习允许仅标注少量高置信正样本，降低标注噪声和幻觉风险
+
+2. **双尺度对话记忆**:
+
+    - 功能：为干预决策提供充分的上下文信息
+    - 核心思路：短期记忆 $\mathcal{M}^S$ 包含当前轮及前两轮对话；长期记忆 $\mathcal{M}^L$ 通过 LLM 摘要器 $\Gamma(\cdot)$ 递归压缩所有历史对话。状态向量 $S_n$ 由 Observer 和 Presenter 的最后隐层表示拼接而成
+    - 设计动机：短期记忆捕获即时语境变化，长期记忆防止关键历史信息丢失，同时避免内存无限增长
+
+3. **BSDD 生物医学流式对话数据集**:
+
+    - 功能：提供训练和评估主动干预的标准基准
+    - 核心思路：用 Prophet LLM 从 PubMed 论文提取项目提案，Dialogue-Simulator LLM 模拟四种角色（药理学家、药物化学家、生物信息学家、临床医生）进行多轮讨论，Prophet LLM 标注最偏离目标的轮次为正干预点
+    - 设计动机：现有生物医学对话数据集（如 MedDialog）聚焦于医患对话，缺乏科学团队讨论和干预标注
+
+### 损失函数 / 训练策略
+总奖励 $r_{\text{total}} = \lambda \cdot r^{\text{when}} + (1-\lambda) \cdot r^{\text{how}}$，$\lambda=0.6$ 平衡干预时机和内容质量。Coordinator 使用 REINFORCE 策略梯度更新。Observer 用 GRPO 训练。Presenter 用 LoRA（rank=16, $\alpha=64$）SFT。
+
+## 实验关键数据
+
+### 主实验
+
+| 模型配置 | 指标 | PULI | ICL | Proactive Agent |
+|--------|------|------|----------|------|
+| Qwen3-0.6B + Qwen3-14B | Accuracy | **64.1%** | 55.7% | 53.9% |
+| Qwen3-0.6B + Qwen3-14B | F1 | **46.4%** | 28.9% | 24.5% |
+| Qwen3-0.6B + Qwen3-14B | ROUGE-1 | **32.4%** | 29.4% | 27.6% |
+| LLaMA3.2-1B + LLaMA3.1-8B | Accuracy | **67.4%** | 58.4% | 54.5% |
+| LLaMA3.2-1B + LLaMA3.1-8B | F1 | **65.4%** | 56.7% | 60.2% |
+| LLaMA3.2-1B + LLaMA3.1-8B | WR-Intra | **39.2%** | 20.8% | 7.5% |
+
+### 消融实验
+
+| 配置 | Accuracy | F1 | WR-Intra | 说明 |
+|------|---------|------|------|------|
+| PULI | **67.4%** | **65.4%** | **57.5%** | 完整模型 |
+| w DPO | 64.6% | 63.1% | 31.7% | 用 DPO 替代 GRPO |
+| w SFT | 61.9% | 58.6% | 6.7% | 纯 SFT Observer |
+| w PN | 57.3% | 54.5% | 4.1% | 全部未标注视为负 |
+
+### 关键发现
+- PULI 在跨模型族对比中，LLaMA3 对 WR 达 45.8%，显著超过 GPT 对的 ICL（18.3%），表明小型开源模型+PULI 可超越 GPT-4o
+- $\lambda=0.6$ 是最优平衡点，过小导致 Observer 准确率暴跌，过大损害 Presenter 质量
+- 人类评估中 PULI 在 Timing（4.65 vs 4.36）、Quality（4.35 vs 4.18）、Helpfulness（4.60 vs 4.43）全面超越 GPT 对基线
+
+## 亮点与洞察
+- **PU 学习用于干预检测**是一个巧妙的建模选择：稀疏标注避免了让 LLM 对每一轮做细粒度判断引入的幻觉噪声，同时 RL 协调器可以自动发现未标注数据中的隐含正负样本
+- **Observer-Presenter 分离架构**实现了效率与质量的平衡：轻量 Observer 实时监控，仅在需要时调用昂贵的 Presenter，适合实时协作场景
+- 这种"何时行动+如何行动"的双目标 RL 框架可迁移到其他需要时机判断的任务，如教育辅导中的自动提示、会议助手的要点提醒
+
+## 局限与展望
+- 数据基于 LLM 模拟的对话，真实科学会议中的叠话、非正式推理、目标动态演变等复杂性未被完全捕获
+- 每段对话仅标注一个正干预点，可能遗漏多个有价值的干预时机
+- 实际部署需集成 ASR/TTS，原型引入约 0.8 秒/轮额外延迟
+- 目前仅聚焦"目标偏离"型干预，未覆盖澄清误解、促进协作等多样化干预类型
+
+## 相关工作与启发
+- **vs Proactive Agent (Lu et al., 2024b)**: 后者用手工系统提示控制主动行为，PULI 通过 RL 学习自适应干预策略，准确率高 12.9%
+- **vs VideoLLM-Online**: 后者在多模态流中学习叙述时机，PULI 针对文本科学对话的干预时机，目标更聚焦于科学协作
+
+## 评分
+- 新颖性: ⭐⭐⭐⭐ PU 学习+RL 协调器用于主动干预是全新组合，但数据集构建方式较为常规
+- 实验充分度: ⭐⭐⭐⭐ 多模型族、多基线、人类评估、消融实验覆盖全面
+- 写作质量: ⭐⭐⭐⭐ 问题定义清晰，框架图易懂，但符号系统略重
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [BioHiCL: Hierarchical Multi-Label Contrastive Learning for Biomedical Retrieval with MeSH Labels](biohicl_hierarchical_multi-label_contrastive_learning_for_biomedical_retrieval_w.md)
+- [GenMol: A Drug Discovery Generalist with Discrete Diffusion](../../ICML2025/medical_imaging/genmol_a_drug_discovery_generalist_with_discrete_diffusion.md)
+- [BiomedSQL: Text-to-SQL for Scientific Reasoning on Biomedical Knowledge Bases](../../ICLR2026/medical_imaging/biomedsql_text-to-sql_for_scientific_reasoning_on_biomedical_knowledge_bases.md)
+- [vMFCoOp: Towards Equilibrium on a Unified Hyperspherical Manifold for Prompting Biomedical VLMs](../../AAAI2026/medical_imaging/vmfcoop_towards_equilibrium_on_a_unified_hyperspherical_manifold_for_prompting_b.md)
+- [VitalDiagnosis: AI-Driven Ecosystem for 24/7 Vital Monitoring and Chronic Disease Management](../../AAAI2026/medical_imaging/vitaldiagnosis_ai-driven_ecosystem_for_247_vital_monitoring_and_chronic_disease_.md)
+
+<!-- RELATED:END -->

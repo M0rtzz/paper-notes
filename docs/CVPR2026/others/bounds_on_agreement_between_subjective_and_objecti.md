@@ -33,6 +33,7 @@ tags:
 **现有应对方式的不足**：(1) 有些工作提出新的评价指标（如分类错误率、分辨力、ε-insensitive RMSE），但这些指标缺乏统一理论基础；(2) MOS不确定性模型（如高斯分布建模）可能违反MOS的离散性和有限范围约束，clip等修补引入新偏差。
 
 **本文方法的独特性**：不提出新指标，而是为两个最常用的既有指标（PCC、MSE）推导理论界。仅基于"投票期望等于真实质量"这一最基本假设，不需要MOS不确定性模型。界自然反映了MOS的离散性质和对投票数的依赖。
+
 ## 方法详解
 
 ### 整体框架
@@ -115,9 +116,9 @@ tags:
 ## 相关论文
 
 - [What Is the Optimal Ranking Score Between Precision and Recall? We Can Always Find It and It Is Rarely F₁](what_is_the_optimal_ranking_score_between_precision_and_recall_we_can_always_fin.md)
-- [Integration of deep generative Anomaly Detection algorithm in high-speed industrial line](integration_of_deep_generative_anomaly_detection_a.md)
-- [Novel Anomaly Detection Scenarios and Evaluation Metrics to Address the Ambiguity in the Definition of Normal Samples](novel_anomaly_detection_scenarios_and_evaluation_metrics_to_address_the_ambiguit.md)
-- [SimRecon: SimReady Compositional Scene Reconstruction from Real Videos](simrecon_simready_compositional_scene_reconstruction_from_real_videos.md)
-- [AssistMimic: Physics-Grounded Humanoid Assistance via Multi-Agent RL](assistmimic_physics_grounded_humanoid_assistance.md)
+- [ELogitNorm: Enhancing OOD Detection with Extended Logit Normalization](enhancing_outofdistribution_detection_with_extende.md)
+- [FEAT: Federated Geometry-Aware Correction for Exemplar Replay under Continual Dynamic Heterogeneity](feat_federated_geometry_aware_correction_for_exemplar_replay_under_continual_dynamic_heterogeneity.md)
+- [Order Matters: 3D Shape Generation from Sequential VR Sketches](order_matters_3d_shape_generation_from_sequential_vr_sketches.md)
+- [IrisFP: Adversarial-Example-based Model Fingerprinting with Enhanced Uniqueness and Robustness](irisfp_adversarial-example-based_model_fingerprinting_with_enhanced_uniqueness_a.md)
 
 <!-- RELATED:END -->

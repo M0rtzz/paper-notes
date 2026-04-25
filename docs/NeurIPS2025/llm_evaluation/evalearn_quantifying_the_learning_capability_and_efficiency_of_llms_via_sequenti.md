@@ -146,6 +146,6 @@ EvaLearn 采用**序列化评估范式**：
 - [RankLLM: Weighted Ranking of LLMs by Quantifying Question Difficulty](../../ICLR2026/llm_evaluation/rankllm_weighted_ranking_of_llms_by_quantifying_question_difficulty.md)
 - [Put CASH on Bandits: A Max K-Armed Problem for Automated Machine Learning](put_cash_on_bandits_a_max_k-armed_problem_for_automated_machine_learning.md)
 - [CLIMB: Class-Imbalanced Learning Benchmark on Tabular Data](climb_class-imbalanced_learning_benchmark_on_tabular_data.md)
-- [LCDB 1.1: A Database Illustrating Learning Curves Are More Ill-Behaved Than Previously Thought](lcdb_11_a_database_illustrating_learning_curves_are_more_ill-behaved_than_previo.md)
+- [Exploring the Capability Boundaries of LLMs in Mastering of Chinese Chouxiang Language](../../ACL2026/llm_evaluation/exploring_the_capability_boundaries_of_llms_in_mastering_of_chinese_chouxiang_la.md)
 
 <!-- RELATED:END -->

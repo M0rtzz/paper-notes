@@ -175,7 +175,7 @@ INT4 量化后生成精度保持 94.4%，log-likelihood 完全不变；与自推
 - [Thinking in Latents: Adaptive Anchor Refinement for Implicit Reasoning in LLMs](thinking_in_latents_adaptive_anchor_refinement_for_implicit_reasoning_in_llms.md)
 - [When Agents "Misremember" Collectively: Exploring the Mandela Effect in LLM-based Multi-Agent Systems](when_agents_misremember_collectively_exploring_the_mandela_effect_in_llm-based_m.md)
 - [YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information](../../ECCV2024/object_detection/yolov9_learning_what_you_want_to_learn_using_programmable_gradient_information.md)
-- [Robust Hallucination Detection in LLMs via Adaptive Token Selection](../../NeurIPS2025/object_detection/robust_hallucination_detection_in_llms_via_adaptive_token_selection.md)
+- [StructMem: Structured Memory for Long-Horizon Behavior in LLMs](../../ACL2026/object_detection/structmem_structured_memory_for_long-horizon_behavior_in_llms.md)
 - [When Trackers Date Fish: A Benchmark and Framework for Underwater Multiple Fish Tracking](../../AAAI2026/object_detection/when_trackers_date_fish_a_benchmark_and_framework_for_underwater_multiple_fish_t.md)
 
 <!-- RELATED:END -->

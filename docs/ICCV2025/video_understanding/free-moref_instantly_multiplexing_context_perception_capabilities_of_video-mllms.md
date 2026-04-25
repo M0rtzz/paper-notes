@@ -167,6 +167,6 @@ N=2时效果最佳且计算量仅为原来的27.6%。
 - [VecAttention: Vector-wise Sparse Attention for Accelerating Long Context Inference](../../CVPR2026/video_understanding/vecattention_vector-wise_sparse_attention_for_accelerating_long_context_inferenc.md)
 - [EgoAdapt: Adaptive Multisensory Distillation and Policy Learning for Efficient Egocentric Perception](egoadapt_adaptive_multisensory_distillation_and_policy_learning_for_efficient_eg.md)
 - [Training-free Generation of Temporally Consistent Rewards from VLMs](training-free_generation_of_temporally_consistent_rewards_from_vlms.md)
-- [AIM: Adaptive Inference of Multi-Modal LLMs via Token Merging and Pruning](aim_adaptive_inference_of_multi_modal_llms_via_token_merging_and_pruning.md)
+- [AIM: Adaptive Inference of Multi-Modal LLMs via Token Merging and Pruning](aim_adaptive_inference_multimodal_llms_token_merging_pruning.md)
 
 <!-- RELATED:END -->

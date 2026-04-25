@@ -119,10 +119,10 @@ tags:
 
 ## 相关论文
 
+- [Process Reward Models Meet Planning: Generating Precise and Scalable Datasets for Step-Level Rewards](../../ACL2026/llm_reasoning/process_reward_models_meet_planning_generating_precise_and_scalable_datasets_for.md)
 - [PrismAudio: Decomposed Chain-of-Thoughts and Multi-dimensional Rewards for Video-to-Audio Generation](../../ICLR2026/llm_reasoning/prismaudio_decomposed_chain-of-thoughts_and_multi-dimensional_rewards_for_video-.md)
 - [BLM-Guard: Explainable Multimodal Ad Moderation with Chain-of-Thought and Policy-Aligned Rewards](../../AAAI2026/llm_reasoning/blm-guard_explainable_multimodal_ad_moderation_with_chain-of.md)
 - [Two-Stage Learning of Stabilizing Neural Controllers via Zubov Sampling and Iterative Domain Expansion](two-stage_learning_of_stabilizing_neural_controllers_via_zubov_sampling_and_iter.md)
 - [Know What You Don't Know: Uncertainty Calibration of Process Reward Models](know_what_you_dont_know_uncertainty_calibration_of_process_reward_models.md)
-- [Large Language Models Can Learn and Generalize Steganographic Chain-of-Thought under Process Supervision](large_language_models_can_learn_and_generalize_steganographic_chain-of-thought_u.md)
 
 <!-- RELATED:END -->

@@ -117,8 +117,8 @@ tags:
 ## 相关论文
 
 - [Search and Detect: Training-Free Long Tail Object Detection via Web-Image Retrieval](search_and_detect_training-free_long_tail_object_detection_via_web-image_retriev.md)
-- [Few-Shot Learner Generalizes Across AI-Generated Image Detection](../../ICML2025/object_detection/few-shot_learner_generalizes_across_ai-generated_image_detection.md)
 - [Is Less More? Exploring Token Condensation as Training-free Test-time Adaptation](../../ICCV2025/object_detection/is_less_more_exploring_token_condensation_as_training-free_test-time_adaptation.md)
+- [Few-Shot Learner Generalizes Across AI-Generated Image Detection](../../ICML2025/object_detection/few-shot_learner_generalizes_across_ai-generated_image_detection.md)
 - [Dual Data Alignment Makes AI-Generated Image Detector Easier Generalizable](../../NeurIPS2025/object_detection/dual_data_alignment_makes_ai-generated_image_detector_easier_generalizable.md)
 - [Training-free Detection of Generated Videos via Spatial-Temporal Likelihoods](../../CVPR2026/object_detection/training-free_detection_of_generated_videos_via_spatial-temporal_likelihoods.md)
 

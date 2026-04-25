@@ -210,8 +210,8 @@ $$R(\hat{f}) - R(f^*) \leq 2U\epsilon + 4\sqrt{2}\rho\sum_{y=1}^{C}\mathcal{R}_O
 
 - [Density Ratio Estimation-based Bayesian Optimization with Semi-Supervised Learning](density_ratio_estimation-based_bayesian_optimization_with_semi-supervised_learni.md)
 - [A Unified Framework for Heterogeneous Semi-supervised Learning](../../CVPR2025/llm_pretraining/a_unified_framework_for_heterogeneous_semi-supervised_learning.md)
-- [On the Role of Label Noise in the Feature Learning Process](on_the_role_of_label_noise_in_the_feature_learning_process.md)
 - [Algebra Unveils Deep Learning -- An Invitation to Neuroalgebraic Geometry](algebra_unveils_deep_learning_--_an_invitation_to_neuroalgebraic_geometry.md)
+- [On the Role of Label Noise in the Feature Learning Process](on_the_role_of_label_noise_in_the_feature_learning_process.md)
 - [Revisiting Continuity of Image Tokens for Cross-Domain Few-Shot Learning](revisiting_continuity_of_image_tokens_for_cross-domain_few-shot_learning.md)
 
 <!-- RELATED:END -->

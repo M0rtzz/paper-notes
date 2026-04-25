@@ -147,6 +147,6 @@ Teacher 模型对比（Student: Qwen2.5-3B，ARC-C）：
 - [Cross-Lingual Relevance Transfer for Document Retrieval](cross-lingual_relevance_transfer_for_document_retrieval.md)
 - [CoRe-MMRAG: Cross-Source Knowledge Reconciliation for Multimodal RAG](core_mmrag_knowledge_reconciliation.md)
 - [Divide-Then-Align: Honest Alignment based on the Knowledge Boundary of RAG](divide_then_align_rag_knowledge_boundary.md)
-- [Does Less Hallucination Mean Less Creativity? An Empirical Investigation in LLMs](../../AAAI2026/information_retrieval/does_less_hallucination_mean_less_creativity_an_empirical_investigation_in_llms.md)
+- [Are LLMs Effective Psychological Assessors? Leveraging Adaptive RAG for Interpretable Mental Health Screening](llm_psychological_assessor.md)
 
 <!-- RELATED:END -->

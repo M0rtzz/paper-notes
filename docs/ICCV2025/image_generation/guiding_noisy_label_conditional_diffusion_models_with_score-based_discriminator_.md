@@ -151,8 +151,8 @@ SBDC在类条件指标（CW-FID、CW-Density、CW-Coverage）上全面超越TDSM
 
 ## 相关论文
 
-- [Distilled Decoding 2: One-step Sampling of Image Auto-regressive Models with Conditional Score Distillation](../../NeurIPS2025/image_generation/distilled_decoding_2_onestep_sampling_of_image_autoregressiv.md)
 - [UniCombine: Unified Multi-Conditional Combination with Diffusion Transformer](unicombine_unified_multi-conditional_combination_with_diffusion_transformer.md)
+- [Distilled Decoding 2: One-step Sampling of Image Auto-regressive Models with Conditional Score Distillation](../../NeurIPS2025/image_generation/distilled_decoding_2_onestep_sampling_of_image_autoregressiv.md)
 - [Guiding Diffusion Models with Semantically Degraded Conditions](../../CVPR2026/image_generation/guiding_diffusion_models_with_semantically_degraded_conditions.md)
 - [Guiding Diffusion Models with Semantically Degraded Conditions (CDG)](../../CVPR2026/image_generation/cdg_condition_degradation_guidance_diffusion.md)
 - [Balanced Image Stylization with Style Matching Score](balanced_image_stylization_with_style_matching_score.md)

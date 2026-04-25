@@ -125,6 +125,6 @@ tags:
 - [SkyLadder: Better and Faster Pretraining via Context Window Scheduling](skyladder_better_and_faster_pretraining_via_context_window_scheduling.md)
 - [Mozart: Modularized and Efficient MoE Training on 3.5D Wafer-Scale Chiplet Architectures](mozart_modularized_and_efficient_moe_training_on_35d_wafer-scale_chiplet_archite.md)
 - [EasyInv: Toward Fast and Better DDIM Inversion](../../ICML2025/llm_efficiency/easyinv_toward_fast_and_better_ddim_inversion.md)
-- [Efficient Data Driven Mixture-of-Expert Extraction from Trained Networks](../../CVPR2025/llm_efficiency/efficient_data_driven_mixture-of-expert_extraction_from_trained_networks.md)
+- [Efficient Data Driven Mixture-of-Expert Extraction from Trained Networks](../../CVPR2025/llm_efficiency/moee_mixture_expert_extraction.md)
 
 <!-- RELATED:END -->

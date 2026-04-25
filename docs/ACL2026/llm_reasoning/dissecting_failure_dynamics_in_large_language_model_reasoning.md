@@ -1,0 +1,125 @@
+---
+title: >-
+  [论文解读] Dissecting Failure Dynamics in Large Language Model Reasoning
+description: >-
+  [ACL 2026][LLM推理][推理失败分析] 通过分析 LLM 推理轨迹，发现错误集中在早期的少数关键转折点，错误发生后模型进入"认知螺旋"——局部连贯但全局错误地不断延伸；基于此提出 GUARD 框架，在熵信号检测到的高风险转折点处进行短距分支修复。
+tags:
+  - ACL 2026
+  - LLM推理
+  - 推理失败分析
+  - 熵信号
+  - 失败早发性
+  - 认知螺旋
+  - 推理时干预
+---
+
+# Dissecting Failure Dynamics in Large Language Model Reasoning
+
+**会议**: ACL 2026  
+**arXiv**: [2604.14528](https://arxiv.org/abs/2604.14528)  
+**代码**: [GitHub](https://github.com/ZHUWEI-hub/GUARD)  
+**领域**: LLM推理 / 推理时计算  
+**关键词**: 推理失败分析, 熵信号, 失败早发性, 认知螺旋, 推理时干预
+
+## 一句话总结
+通过分析 LLM 推理轨迹，发现错误集中在早期的少数关键转折点，错误发生后模型进入"认知螺旋"——局部连贯但全局错误地不断延伸；基于此提出 GUARD 框架，在熵信号检测到的高风险转折点处进行短距分支修复。
+
+## 研究背景与动机
+
+**领域现状**：大型推理模型（LRM）如 DeepSeek-R1、OpenAI o1 通过延长推理链来提升性能。现有推理时扩展策略主要关注"给更多计算"——生成更长链、并行采样多条轨迹、MCTS 搜索。
+
+**现有痛点**：现有方法是"盲目扩展"——不关心错误在轨迹中何时何处出现，对所有位置一视同仁地分配计算。多路径方法（如 Best-of-N）需要维护多条完整并行轨迹，计算冗余严重。
+
+**核心矛盾**：推理时扩展的收益取决于"错误是否可修复"，但现有方法不区分"仍可修复的早期偏离"和"已不可逆的后期偏离"——导致计算浪费在无效的后期延伸上。
+
+**本文目标**：理解推理失败在轨迹中的时间动态特征，并据此设计针对性的干预机制。
+
+**切入角度**：对错误轨迹进行逐段分析，发现四个关键规律为干预提供指导。
+
+**核心 idea**：错误集中在早期 + 错误段有熵尖峰 + 部分错误从同一前缀可恢复 → 在熵尖峰处做短距分支、在后期截断犹豫行为。
+
+## 方法详解
+
+### 整体框架
+GUARD 维护单条主推理轨迹，实时监控 token 级熵。在推理步骤边界检测到异常高熵时触发短距分支：生成 3 条简短替代续写（动量、抑制、反事实），选择平均熵最低的继续。在后期检测到犹豫标记时截断推理防止无效延伸。
+
+### 关键设计
+
+1. **推理失败动态的四个发现**:
+
+    - 功能：为干预策略提供实证基础
+    - 核心思路：（1）失败早发性：85%+ 的失败起点出现在轨迹前 30%，43.5% 的错误轨迹仅含单个错误段；（2）认知螺旋：错误后轨迹显著延长但持续局部连贯，形成"看似合理但全局错误"的延伸推理；（3）熵信号：失败起点处 token 级熵出现局部尖峰，错误段整体熵显著高于正确段（$p<0.001$）；（4）局部可恢复性：20%+ 的失败轨迹从同一前缀的替代续写可达到正确答案
+    - 设计动机：这四个发现共同说明：错误是局部的、可检测的、部分可修复的 → 只在关键位置干预比全局扩展更高效
+
+2. **基于实例自适应阈值的失败检测**:
+
+    - 功能：在推理步骤边界检测高风险转折点
+    - 核心思路：在分隔符处检查当前 token 熵是否超过历史熵的 $q$ 分位数：$\mathbb{I}_{drift}(x_t) = \mathbb{I}[x_{t-1} \in \mathcal{T}_{delim} \land \mathcal{H}(x_t) > \text{Quantile}_q(\mathbf{H}_{<t})]$。使用分位数而非绝对阈值使检测自适应于当前问题的熵尺度
+    - 设计动机：绝对阈值对不同问题不鲁棒——简单问题的"高熵"可能是困难问题的"正常熵"，分位数方法消除了这种尺度差异
+
+3. **短距语义分支与后期截断**:
+
+    - 功能：在检测到的风险点探索局部替代而非维护完整并行路径
+    - 核心思路：触发时生成 3 条短距续写——动量分支（标准贪心）、抑制分支（前置"Wait,"打断继续模式）、反事实分支（前置"Let me reconsider:"鼓励重新考虑）。选择平均熵最低的续写继续单条轨迹。后期当剩余容量 $\rho_t \leq \rho_{min}$ 时，遇到犹豫标记直接替换为终止信号
+    - 设计动机：从可恢复性发现中得到启示——不需要探索完整替代路径，只需在偏离点提供几个局部替代并选择最确定的一个
+
+### 损失函数 / 训练策略
+GUARD 是纯推理时框架，不涉及训练。所有分支共享预计算的 KV 缓存以最小化延迟开销。
+
+## 实验关键数据
+
+### 主实验
+
+| 方法 | AIME24 | AIME25 | AMC23 | MATH500 | 平均 Pass@1 |
+|------|--------|--------|-------|---------|------------|
+| BASE | 20.0 | 13.3 | 57.0 | 78.9 | 36.2 |
+| Reflexion | 30.0 | 23.3 | 72.5 | 80.2 | - |
+| α1 | 20.0 | 26.7 | 70.0 | 80.4 | 41.2 |
+| GUARD | - | - | - | - | 显著提升 |
+
+### 消融实验
+
+| 配置 | 关键指标 | 说明 |
+|------|---------|------|
+| 无分支（仅检测） | 性能有限 | 检测不够，需要修复 |
+| 无后期截断 | token 浪费增多 | 后期延伸是无效计算 |
+| 固定绝对阈值 | 不稳定 | 自适应阈值更鲁棒 |
+
+### 关键发现
+- 错误轨迹的段数显著多于正确轨迹——额外的段几乎全部是失败起点后的无效延伸
+- 熵信号是可靠的失败指示器——失败段的平均熵显著高于正确段
+- 短距分支（3 条 × 短距）比维护多条完整并行路径在 token 效率上优得多
+- GUARD 在小模型（1.5B）上的收益尤其显著，因为小模型更容易陷入认知螺旋
+
+## 亮点与洞察
+- **"认知螺旋"概念**精确描述了 LLM 推理失败的核心病理——错误后不是立即崩溃而是"看似合理地越陷越深"，这解释了为什么更长的推理链不一定更好
+- **在偏离点做手术而非全身治疗**的思路非常高效——将计算集中在 20% 的可恢复失败上
+- 分析发现可以指导推理 RL 训练——如果 85% 的失败源于前 30% 的轨迹，训练信号也应集中在这些早期转折点
+
+## 局限与展望
+- 使用 Gemini 3 Pro 作为外部 oracle 判断段有效性，存在评估偏差
+- 仅在数学/竞赛推理上验证，自然语言推理和代码生成中的失败动态可能不同
+- 3 条分支的设计（动量/抑制/反事实）较为手工，更好的分支策略值得探索
+- 后期截断可能误杀"经过长思考最终找到答案"的正确轨迹
+
+## 相关工作与启发
+- **vs Best-of-N**: BoN 生成 N 条完整并行路径，GUARD 只在单条路径的少数风险点做短距探索
+- **vs DTS**: DTS 基于绝对熵触发分支，GUARD 使用基于历史分位数的自适应阈值
+- **vs α1**: α1 通过信息论指标动态调节深度，但不做局部修复
+
+## 评分
+- 新颖性: ⭐⭐⭐⭐⭐ 推理失败动态的系统性分析是全新视角，认知螺旋概念有深刻洞察
+- 实验充分度: ⭐⭐⭐⭐ 多个竞赛推理 benchmark、详细统计分析
+- 写作质量: ⭐⭐⭐⭐⭐ 分析→方法的逻辑链极其流畅，可视化出色
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [Incorporating Self-Rewriting into Large Language Model Reasoning Reinforcement](../../AAAI2026/llm_reasoning/incorporating_self-rewriting_into_large_language_model_reasoning_reinforcement.md)
+- [Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models](../../ICLR2026/llm_reasoning/dynamics-predictive_sampling_for_active_rl_finetuning_of_large_reasoning_models.md)
+- [Why is Your Language Model a Poor Implicit Reward Model?](../../ICLR2026/llm_reasoning/why_is_your_language_model_a_poor_implicit_reward_model.md)
+- [Estimating the Empowerment of Language Model Agents](../../ICLR2026/llm_reasoning/estimating_the_empowerment_of_language_model_agents.md)
+- [Critic-CoT: Boosting the Reasoning Abilities of Large Language Model via Chain-of-Thoughts Critic](../../ACL2025/llm_reasoning/critic-cot_boosting_the_reasoning_abilities_of_large_language_model_via_chain-of.md)
+
+<!-- RELATED:END -->

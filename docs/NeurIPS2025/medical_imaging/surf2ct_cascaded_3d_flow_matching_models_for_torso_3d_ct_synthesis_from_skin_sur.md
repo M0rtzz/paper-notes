@@ -155,6 +155,6 @@ $$\frac{d\mathbf{x}(t)}{dt} = v_\theta^{(1)}(t, \mathbf{x}(t), f_{\text{partial}
 - [Riemannian Flow Matching for Brain Connectivity Matrices via Pullback Geometry](riemannian_flow_matching_for_brain_connectivity_matrices_via_pullback_geometry.md)
 - [Multimodal 3D Genome Pre-training](multimodal_3d_genome_pre-training.md)
 - [Prior-Guided Flow Matching for Target-Aware Molecule Design with Learnable Atom Number](prior-guided_flow_matching_for_target-aware_molecule_design_with_learnable_atom_.md)
-- [3D-RAD: A Comprehensive 3D Radiology Med-VQA Dataset with Multi-Temporal Analysis and Diverse Diagnostic Tasks](3drad_a_comprehensive_3d_radiology_medvqa_dataset_with_multi.md)
+- [Flexibility-conditioned Protein Structure Design with Flow Matching](../../ICML2025/medical_imaging/flexibility-conditioned_protein_structure_design_with_flow_matching.md)
 
 <!-- RELATED:END -->

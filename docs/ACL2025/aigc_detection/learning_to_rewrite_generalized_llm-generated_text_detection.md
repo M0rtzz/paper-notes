@@ -148,9 +148,9 @@ L2R在两种攻击下均保持最高AUROC，Decoherence攻击下仅下降2.63%�
 ## 相关论文
 
 - [Who Writes What: Unveiling the Impact of Author Roles on AI-generated Text Detection](who_writes_what_ai_detection.md)
+- [Reliably Bounding False Positives: A Zero-Shot Machine-Generated Text Detection Framework via Multiscaled Conformal Prediction](mcp-zero-shot-mgt-detection-via-conformal-prediction.md)
 - [MultiSocial: Multilingual Benchmark of Machine-Generated Text Detection of Social-Media Texts](multisocial_mgt_detection.md)
 - [Comparing LLM-generated and human-authored news text using formal syntactic theory](llm_vs_human_formal_syntax.md)
 - [KatFishNet: Detecting LLM-Generated Korean Text through Linguistic Feature Analysis](katfishnet_detecting_llm-generated_korean_text_through_linguistic_feature_analys.md)
-- [Iron Sharpens Iron: Defending Against Attacks in Machine-Generated Text Detection with Adversarial Training](greater_adversarial_mgt_detection.md)
 
 <!-- RELATED:END -->

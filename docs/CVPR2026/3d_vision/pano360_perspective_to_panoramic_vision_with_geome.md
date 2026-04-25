@@ -128,6 +128,6 @@ Pano360提出一种基于Transformer的全景拼接框架，将传统2D逐对对
 - [PanoVGGT: Feed-Forward 3D Reconstruction from Panoramic Imagery](panovggt_feed-forward_3d_reconstruction_from_panoramic_imagery.md)
 - [VGGT-SLAM++: Visual SLAM with DEM-Based Covisibility and Local Bundle Adjustment](vggt-slam.md)
 - [PCSTracker: Long-Term Scene Flow Estimation for Point Cloud Sequences](pcstracker_long-term_scene_flow_estimation_for_point_cloud_sequences.md)
-- [RnG: A Unified Transformer for Complete 3D Modeling from Partial Observations](rng_a_unified_transformer_for_complete_3d_modeling_from_partial_observations.md)
+- [RnG: A Unified Transformer for Complete 3D Modeling from Partial Observations](rng_unified_transformer_complete_3d_modeling_partial_observations.md)
 
 <!-- RELATED:END -->

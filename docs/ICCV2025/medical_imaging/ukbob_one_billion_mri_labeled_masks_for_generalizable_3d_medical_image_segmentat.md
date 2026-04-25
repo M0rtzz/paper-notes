@@ -184,7 +184,7 @@ Pipeline：UK Biobank MRI数据 → TotalVibeSegmentator自动标注72类器官 
 - [Towards All-in-One Medical Image Re-Identification](../../CVPR2025/medical_imaging/towards_all-in-one_medical_image_re-identification.md)
 - [IDF: Iterative Dynamic Filtering Networks for Generalizable Image Denoising](idf_iterative_dynamic_filtering_networks_for_generalizable_image_denoising.md)
 - [Revisiting MAE Pre-Training for 3D Medical Image Segmentation](../../CVPR2025/medical_imaging/revisiting_mae_pre-training_for_3d_medical_image_segmentation.md)
-- [Progressive Test Time Energy Adaptation for Medical Image Segmentation](progressive_test_time_energy_adaptation_for_medical_image_segmentation.md)
 - [MRGen: Segmentation Data Engine for Underrepresented MRI Modalities](mrgen_segmentation_data_engine_for_underrepresented_mri_modalities.md)
+- [Progressive Test Time Energy Adaptation for Medical Image Segmentation](progressive_test_time_energy_adaptation_for_medical_image_segmentation.md)
 
 <!-- RELATED:END -->

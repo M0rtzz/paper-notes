@@ -134,7 +134,7 @@ tags:
 
 ## 相关论文
 
-- [AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](agentdropout_dynamic_agent_elimination_for_token-efficient_and_high-performance_.md)
+- [AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](agentdropout-dynamic-agent-elimination-for-multi-agent-collaboration.md)
 - [Red-Teaming LLM Multi-Agent Systems via Communication Attacks](red-teaming_llm_multi-agent_systems_via_communication_attacks.md)
 - [MasRouter: Learning to Route LLMs for Multi-Agent Systems](masrouter_learning_to_route_llms_for_multi-agent_systems.md)
 - [Multi-Prompting Decoder Helps Better Language Understanding](multi-prompting_decoder_helps_better_language_understanding.md)

@@ -180,9 +180,9 @@ LiveAoPSBench 的核心设计理念是**利用时间戳实现抗污染**：
 ## 相关论文
 
 - [How Much Can We Forget about Data Contamination?](how_much_can_we_forget_about_data_contamination.md)
+- [Subject-level Inference for Realistic Text Anonymization Evaluation](../../ACL2026/llm_evaluation/subject-level_inference_for_realistic_text_anonymization_evaluation.md)
 - [Improved and Oracle-Efficient Online $\ell_1$-Multicalibration](improved_and_oracle-efficient_online_ell_1-multicalibration.md)
+- [PhantomWiki: On-Demand Datasets for Reasoning and Retrieval Evaluation](phantomwiki_on-demand_datasets_for_reasoning_and_retrieval_evaluation.md)
 - [MMLU-CF: A Contamination-free Multi-task Language Understanding Benchmark](../../ACL2025/llm_evaluation/mmlu-cf_a_contamination-free_multi-task_language_understanding_benchmark.md)
-- [Preference Leakage: A Contamination Problem in LLM-as-a-judge](../../ICLR2026/llm_evaluation/preference_leakage_a_contamination_problem_in_llm-as-a-judge.md)
-- [Truthfulness Despite Weak Supervision: Evaluating and Training LLMs Using Peer Prediction](../../ICLR2026/llm_evaluation/truthfulness_despite_weak_supervision_evaluating_and_training_llms_using_peer_pr.md)
 
 <!-- RELATED:END -->

@@ -184,6 +184,6 @@ AI 音乐生成与分析模型近年来快速发展：Suno、Udio 等文本转�
 - [Sparsify: Learning Sparsity for Effective and Efficient Music Performance Question Answering](../../ACL2025/audio_speech/sparsify_music_avqa.md)
 - [From Generation to Attribution: Music AI Agent Architectures for the Post-Streaming Era](from_generation_to_attribution_music_ai_agent_architectures_for_the_post-streami.md)
 - [BNMusic: Blending Environmental Noises into Personalized Music](bnmusic_blending_environmental_noises_into_personalized_music.md)
-- [Aligning Generative Music AI with Human Preferences: Methods and Challenges](../../AAAI2026/audio_speech/aligning_generative_music_ai_with_human_preferences_methods_and_challenges.md)
+- [Perceptually Aligning Representations of Music via Noise-Augmented Autoencoders](perceptually_aligning_representations_of_music_via_noise-augmented_autoencoders.md)
 
 <!-- RELATED:END -->

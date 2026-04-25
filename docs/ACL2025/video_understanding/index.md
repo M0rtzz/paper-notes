@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 视频理解方向 9篇论文解读
+  ACL2025 视频理解方向 10篇论文解读
 description: >-
-  9篇ACL2025 视频理解论文解读，主题涵盖：本文提出了一个多模态目标追踪框架、首次系统性研究视频语言模型（VLM）在多选题回答中、本文提出Attention-Seeker方法等，每篇含核心思想与方法详解。
+  10篇ACL2025 视频理解论文解读，主题涵盖：本文提出了一个多模态目标追踪框架、首次系统性研究视频语言模型（VLM）在多选题回答中、本文提出Attention-Seeker方法等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**💬 ACL2025** · **9** 篇论文解读
+**💬 ACL2025** · **10** 篇论文解读
 
 **[A Thousand Words Paint a Picture: Multimodal Goal Tracking for Grounded Social Intelligence](a_thousand_words_paint_a_picture_multimodal_goal_tracking_for_grounded_social_in.md)**
 
@@ -21,6 +21,10 @@ description: >-
 **[Attention-Seeker: Dynamic Self-Attention Scoring for Unsupervised Key-Frame Extraction](attention-seeker_dynamic_self-attention_scoring_for_unsupervised_key-frame_extra.md)**
 
 :   本文提出Attention-Seeker方法，通过动态地分析Transformer模型中自注意力层的注意力得分分布，无需任何监督信号即可从视频中提取最具代表性的关键帧，在多个视频摘要基准数据集上超越了现有的无监督方法。
+
+**[Addressing Blind Guessing: Calibration of Selection Bias in Multiple-Choice Question Answering by Video Language Models](bold_selection_bias.md)**
+
+:   本文首次系统研究视频语言模型（VLM）在多选题回答中的选择偏差问题，通过分解MCQA任务的关键组件（视频、问题、选项）来定位偏差来源，并提出BOLD后处理校准技术来平衡偏差，不仅改善了去偏指标还提升了整体准确率。
 
 **[From Teacher to Student: Tracking Memorization Through Model Distillation](from_teacher_to_student_tracking_memorization_through_model_distillation.md)**
 

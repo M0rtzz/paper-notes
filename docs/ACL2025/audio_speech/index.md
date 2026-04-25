@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 音频/语音方向 37篇论文解读
+  ACL2025 音频/语音方向 39篇论文解读
 description: >-
-  37篇ACL2025 音频/语音论文解读，主题涵盖：对文本和语音两种模态下将非裔美式英语（AAE）融入、本文探索利用来自鸟类和人类的跨物种声学预训练嵌入来、提出INTP（Intelligibility等，每篇含核心思想与方法详解。
+  39篇ACL2025 音频/语音论文解读，主题涵盖：对文本和语音两种模态下将非裔美式英语（AAE）融入、本文探索利用来自鸟类和人类的跨物种声学预训练嵌入来、提出INTP（Intelligibility等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**💬 ACL2025** · **37** 篇论文解读
+**💬 ACL2025** · **39** 篇论文解读
 
 **[Finding A Voice: Exploring the Potential of African American Dialect and Voice Generation for Chatbots](aae_voice_chatbot.md)**
 
@@ -26,6 +26,10 @@ description: >-
 
 :   提出 AI4Reading，一个基于 11 个专业化 LLM Agent 协作的中文有声书解读系统，通过主题分析、案例扩展、编辑润色、口语化改写和整合修订等阶段自动生成解读稿，并用 TTS 合成音频，在解读脚本质量（简洁性、完整性、准确性、连贯性）上超过专业人工解读平台樊登读书。
 
+**[ATRI: Mitigating Multilingual Audio Text Retrieval Inconsistencies by Reducing Data Distribution Errors](atri-mitigating-multilingual-audio-text-retrieval-inconsistencies.md)**
+
+:   本文分析了多语言音频文本检索（ML-ATR）中跨语言检索不一致的根本原因是训练数据分布误差，并提出 KCL（1-to-K对比学习）和 CACL（音频-英语共锚对比学习）两种策略来减少该误差，在 8 种语言上达到了 SOTA 性能。
+
 **[ATRI: Mitigating Multilingual Audio Text Retrieval Inconsistencies by Reducing Data Distribution Errors](atri_mitigating_multilingual_audio_text_retrieval_inconsistencies_by_reducing_da.md)**
 
 :   从理论上分析多语言音频文本检索（ML-ATR）中跨语言不一致性的根本原因是训练数据分布误差，并提出 1-to-K 对比学习（KCL）和音频-英语共锚对比学习（CACL）两种策略来减少该误差，在召回率和一致性上达到 SOTA。
@@ -33,6 +37,10 @@ description: >-
 **[Benchmarking Open-ended Audio Dialogue Understanding for Large Audio-Language Models](audio_dialogue_benchmark.md)**
 
 :   本文提出 ADU-Bench，一个包含 4 个子数据集（通用对话、技能、多语言、歧义处理）共 20,000+ 开放式音频对话的综合基准，系统评估 16 个大型音频语言模型（LALM）在音频对话理解上的能力，揭示现有模型在数学公式理解、角色扮演、多语言和语音歧义处理上的显著不足。
+
+**[Analyzing and Mitigating Inconsistency in Discrete Audio Tokens for Neural Codec Language Models](audio_token_consistency.md)**
+
+:   本文揭示并量化分析了神经音频编解码器中的离散表示不一致性（DRI）问题——相同音频片段因上下文不同被编码为不同离散token序列，提出切片一致性和扰动一致性两种约束方法，将一致性平均提升21-36%，并在VALL-E语音生成中将WER降低3.72%。
 
 **[Autoregressive Speech Synthesis without Vector Quantization](autoregressive_speech_synthesis_without_vq.md)**
 

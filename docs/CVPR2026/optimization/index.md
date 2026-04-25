@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 优化/理论方向 9篇论文解读
+  CVPR2026 优化/理论方向 10篇论文解读
 description: >-
-  9篇CVPR2026 优化/理论论文解读，主题涵盖：提出 BlazeFL，一个基于 Python、从信号处理视角揭示固定动量系数在偏差-方差权衡上的、针对联邦原型学习中现有方法破坏类间语义关系的问题等，每篇含核心思想与方法详解。
+  10篇CVPR2026 优化/理论论文解读，主题涵盖：提出 BlazeFL，一个基于 Python、从信号处理视角揭示固定动量系数在偏差-方差权衡上的、针对联邦原型学习中现有方法破坏类间语义关系的问题等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📐 优化/理论
 
-**📷 CVPR2026** · **9** 篇论文解读
+**📷 CVPR2026** · **10** 篇论文解读
 
 **[BlazeFL: Fast and Deterministic Federated Learning Simulation](blazefl_fast_and_deterministic_federated_learning_simulation.md)**
 
@@ -25,6 +25,10 @@ description: >-
 **[Fed-ADE: Adaptive Learning Rate for Federated Post-adaptation under Distribution Shift](fed-ade_adaptive_learning_rate_for_federated_post-adaptation_under_distribution_.md)**
 
 :   提出 Fed-ADE 框架，通过 uncertainty dynamics estimation 和 representation dynamics estimation 两个轻量级分布漂移信号，为每个客户端在每个时间步自适应调整学习率，实现联邦部署后无监督适应。
+
+**[Enhancing Visual Representation with Textual Semantics: Textual Semantics-Powered Prototypes for Heterogeneous Federated Learning](fedtsp_textual_semantics_powered_prototypes_heterogeneous_fl.md)**
+
+:   提出 FedTSP，利用预训练语言模型（PLM）从文本模态构建语义丰富的原型，在异构联邦学习中保持类别间语义关系，通过可学习提示弥合模态鸿沟，显著提升模型性能并加速收敛。
 
 **[OTPrune: Distribution-Aligned Visual Token Pruning via Optimal Transport](otprune_distribution-aligned_visual_token_pruning_via_optimal_transport.md)**
 

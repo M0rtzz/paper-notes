@@ -137,7 +137,7 @@ TL-DPO包含两个互补的损失函数：(1) **目标生成损失**——仅在
 - [Octopus: Alleviating Hallucination via Dynamic Contrastive Decoding](octopus_alleviating_hallucination_via_dynamic_contrastive_decoding.md)
 - [Mixture of Decoding: An Attention-Inspired Adaptive Decoding Strategy to Mitigate Hallucination in Multimodal LLMs](../../ACL2025/multimodal_vlm/mixture_of_decoding_an_attention-inspired_adaptive_decoding_strategy_to_mitigate.md)
 - [MAVias: Mitigate Any Visual Bias](../../ICCV2025/multimodal_vlm/mavias_mitigate_any_visual_bias.md)
-- [Locate-then-Sparsify: Attribution Guided Sparse Strategy for Visual Hallucination Mitigation](../../CVPR2026/multimodal_vlm/locate-then-sparsify_attribution_guided_sparse_strategy_for_visual_hallucination.md)
 - [It's a (Blind) Match! Towards Vision-Language Correspondence without Parallel Data](its_a_blind_match_towards_vision-language_correspondence_without_parallel_data.md)
+- [Locate-then-Sparsify: Attribution Guided Sparse Strategy for Visual Hallucination Mitigation](../../CVPR2026/multimodal_vlm/locate-then-sparsify_attribution_guided_sparse_strategy_for_visual_hallucination.md)
 
 <!-- RELATED:END -->

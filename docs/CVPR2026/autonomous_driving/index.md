@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 自动驾驶方向 103篇论文解读
+  CVPR2026 自动驾驶方向 104篇论文解读
 description: >-
-  103篇CVPR2026 自动驾驶论文解读，主题涵盖：受人脑"预测性感知"机制启发，提出 PAP、借鉴人类"预判目标位置再聚焦观察"的认知模式、提出 AdaRadar——基于 DCT等，每篇含核心思想与方法详解。
+  104篇CVPR2026 自动驾驶论文解读，主题涵盖：受人脑"预测性感知"机制启发，提出 PAP、借鉴人类"预判目标位置再聚焦观察"的认知模式、提出 AdaRadar——基于 DCT等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**📷 CVPR2026** · **103** 篇论文解读
+**📷 CVPR2026** · **104** 篇论文解读
 
 **[A Prediction-as-Perception Framework for 3D Object Detection](a_prediction-as-perception_framework_for_3d_object_detection.md)**
 
@@ -401,6 +401,10 @@ description: >-
 **[Traffic Scene Generation from Natural Language Description for Autonomous Vehicles with Large Language Model](traffic_scene_generation_from_natural_language_description_for_autonomous_vehicl.md)**
 
 :   提出 TTSG，一个无需训练的模块化框架，能够直接从自由格式自然语言描述生成逼真的交通场景，通过 LLM 驱动的提示分析、道路检索、智能体规划和计划感知道路排序算法，无需预定义路线或生成点，在 SafeBench 上实现最低 3.5% 平均碰撞率。
+
+**[Traffic Scene Generation from Natural Language Description for Autonomous Vehicles with Large Language Model](ttsg_text_to_traffic_scene_generation_from_natural_language.md)**
+
+:   提出 TTSG 模块化框架，利用 LLM 将自由文本描述转化为可执行的交通场景，通过提示分析、道路检索、智能体规划和新颖的计划感知道路排名算法生成多样化场景，在 SafeBench 上实现最低平均碰撞率 3.5%。
 
 **[U4D: Uncertainty-Aware 4D World Modeling from LiDAR Sequences](u4d_uncertainty-aware_4d_world_modeling_from_lidar_sequences.md)**
 

@@ -165,6 +165,6 @@ tags:
 - [AutoFigure: Generating and Refining Publication-Ready Scientific Illustrations](../../ICLR2026/human_understanding/autofigure_generating_and_refining_publication-ready_scientific_illustrations.md)
 - [How Video Meetings Change Your Expression](../../ECCV2024/human_understanding/how_video_meetings_change_your_expression.md)
 - [Pose Priors from Language Models](pose_priors_from_language_models.md)
-- [VimoRAG: Video-based Retrieval-augmented 3D Motion Generation for Motion Language Models](../../NeurIPS2025/human_understanding/vimorag_video-based_retrieval-augmented_3d_motion_generation_for_motion_language.md)
+- [3D Face Reconstruction From Radar Images](3d_face_reconstruction_from_radar_images.md)
 
 <!-- RELATED:END -->

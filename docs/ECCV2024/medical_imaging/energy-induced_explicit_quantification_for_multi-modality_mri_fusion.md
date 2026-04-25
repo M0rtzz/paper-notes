@@ -132,6 +132,6 @@ E²PA的总损失函数由三部分组成：任务损失（如分割任务的交
 - [Domesticating SAM for Breast Ultrasound Image Segmentation via Spatial-Frequency Fusion and Uncertainty Correction](domesticating_sam_for_breast_ultrasound_image_segmentation_via_spatial-frequency.md)
 - [Energy Matching: Unifying Flow Matching and Energy-Based Models for Generative Modeling](../../NeurIPS2025/medical_imaging/energy_matching_unifying_flow_matching_and_energy-based_models_for_generative_mo.md)
 - [Federated Modality-specific Encoders and Partially Personalized Fusion Decoder for Multimodal Brain Tumor Segmentation](../../CVPR2026/medical_imaging/federated_modalityspecific_encoders_and_partially.md)
-- [A Unified Solution to Video Fusion: From Multi-Frame Learning to Benchmarking](../../NeurIPS2025/medical_imaging/a_unified_solution_to_video_fusion_from_multi-frame_learning_to_benchmarking.md)
+- [GTP-4o: Modality-prompted Heterogeneous Graph Learning for Omni-modal Biomedical Representation](gtp4o_modalityprompted_heterogeneous_graph_learning_for.md)
 
 <!-- RELATED:END -->

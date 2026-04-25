@@ -139,6 +139,6 @@ tags:
 - [Training-free LLM Merging for Multi-task Learning](training-free_llm_merging_for_multi-task_learning.md)
 - [NeKo: Cross-Modality Post-Recognition Error Correction with Tasks-Guided Mixture-of-Experts Language Model](neko_cross-modality_post-recognition_error_correction_with_tasks-guided_mixture-.md)
 - [SkillAggregation: Reference-free LLM-Dependent Aggregation](skillaggregation_reference-free_llm-dependent_aggregation.md)
-- [Understanding Silent Data Corruption in LLM Training](understanding_silent_data_corruption_in_llm_training.md)
+- [Beyond Dialogue: A Profile-Dialogue Alignment Framework Towards General Role-Playing Language Model](beyond_dialogue_roleplay.md)
 
 <!-- RELATED:END -->

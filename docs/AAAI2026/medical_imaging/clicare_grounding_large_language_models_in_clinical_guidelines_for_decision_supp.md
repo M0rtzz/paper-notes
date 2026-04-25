@@ -193,8 +193,8 @@ TKG 压缩是最关键组件，移除后性能大幅下降（Gemini 从 4.976→
 
 - [Foundation Models for Clinical Records at Health System Scale](../../ICML2025/medical_imaging/foundation_models_for_clinical_records_at_health_system_scale.md)
 - [Personalization of Large Foundation Models for Health Interventions](personalization_of_large_foundation_models_for_health_interventions.md)
+- [HypEHR: Hyperbolic Modeling of Electronic Health Records for Efficient Question Answering](../../ACL2026/medical_imaging/hypehr_hyperbolic_modeling_of_electronic_health_records_for_efficient_question_a.md)
 - [G2L: From Giga-Scale to Cancer-Specific Large-Scale Pathology Foundation Models via Efficient Fine-Tuning](g2lfrom_giga-scale_to_cancer-specific_large-scale_pathology_foundation_models_vi.md)
 - [Unleashing the Potential of Large Language Models for Text-to-Image Generation through Autoregressive Representation Alignment](unleashing_the_potential_of_large_language_models_for_text-to-image_generation_t.md)
-- [Do Large Language Models Think Like the Brain? Sentence-Level Evidences from Layer-Wise Embeddings and fMRI](do_large_language_models_think_like_the_brain_sentence-level_evidences_from_laye.md)
 
 <!-- RELATED:END -->

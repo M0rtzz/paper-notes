@@ -132,7 +132,7 @@ Reflex Agent 作为可插拔模块嵌入通用 Agent 编排架构中，内部包
 - [Towards Trustworthy Multi-Turn LLM Agents via Behavioral Guidance](towards_trustworthy_multi-turn_llm_agents_via_behavioral_guidance.md)
 - [COVR: Collaborative Optimization of VLMs and RL Agent for Visual-Based Control](covrcollaborative_optimization_of_vlms_and_rl_agent_for_visu.md)
 - [V-Stylist: Video Stylization via Collaboration and Reflection of MLLM Agents](../../CVPR2025/llm_agent/v-stylist_video_stylization_via_collaboration_and_reflection_of_mllm_agents.md)
+- [CodeStruct: Code Agents over Structured Action Spaces](../../ACL2026/llm_agent/codestruct_code_agents_over_structured_action_spaces.md)
 - [PerTouch: VLM-Driven Agent for Personalized and Semantic Image Retouching](pertouch_vlm-driven_agent_for_personalized_and_semantic_image_retouching.md)
-- [CoMind: Towards Community-Driven Agents for Machine Learning Engineering](../../ICLR2026/llm_agent/comind_towards_community-driven_agents_for_machine_learning_engineering.md)
 
 <!-- RELATED:END -->

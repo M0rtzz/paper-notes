@@ -128,6 +128,6 @@ $$\text{Var}(\hat{\mu}) = \underbrace{\frac{1}{nk}(\mu - \mu^2 - \sigma^2)}_{\te
 - [Right Answer, Wrong Score: Uncovering the Inconsistencies of LLM Evaluation in Multiple-Choice QA](../../ACL2025/llm_evaluation/right_answer_wrong_score_uncovering_the_inconsistencies_of_llm_evaluation_in_mul.md)
 - [Atomic Calibration of LLMs in Long-Form Generations](../../ACL2025/llm_evaluation/atomic_calibration_of_llms_in_long-form_generations.md)
 - [Beyond the Surface: Enhancing LLM-as-a-Judge Alignment with Human via Internal Representations](beyond_the_surface_enhancing_llm-as-a-judge_alignment_with_human_via_internal_re.md)
-- [Rethinking Evaluation of Infrared Small Target Detection](rethinking_evaluation_of_infrared_small_target_detection.md)
+- [Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions](../../ICML2025/llm_evaluation/learning_safe_strategies_for_value_maximizing_buyers_in_uniform_price_auctions.md)
 
 <!-- RELATED:END -->

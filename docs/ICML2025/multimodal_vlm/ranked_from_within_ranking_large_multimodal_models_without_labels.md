@@ -139,6 +139,6 @@ LMM 生成答案时每个 token 都有 softmax 概率分布。利用这些概率
 - [Quantization without Tears](../../CVPR2025/multimodal_vlm/quantization_without_tears.md)
 - [Towards Multimodal Domain Generalization with Few Labels](../../CVPR2026/multimodal_vlm/towards_multimodal_domain_generalization_with_few_labels.md)
 - [PARC: A Quantitative Framework Uncovering the Symmetries within Vision Language Models](../../CVPR2025/multimodal_vlm/parc_a_quantitative_framework_uncovering_the_symmetries_within_vision_language_m.md)
-- [Robust Multimodal Large Language Models Against Modality Conflict](robust_multimodal_large_language_models_against_modality_conflict.md)
+- [Mitigating Hallucinations in Large Vision-Language Models without Performance Degradation](../../ACL2026/multimodal_vlm/mitigating_hallucinations_in_large_vision-language_models_without_performance_de.md)
 
 <!-- RELATED:END -->

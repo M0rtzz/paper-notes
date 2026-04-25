@@ -149,9 +149,9 @@ GOAL包含两个核心组件：(1) LISM（Local Image-Sentence Matching）用于
 ## 相关论文
 
 - [Preserving Clusters in Prompt Learning for Unsupervised Domain Adaptation](preserving_clusters_in_prompt_learning_for_unsupervised_domain_adaptation.md)
-- [Divide-Then-Align: Honest Alignment based on the Knowledge Boundary of RAG](../../ACL2025/information_retrieval/divide_then_align_rag_knowledge_boundary.md)
 - [Beyond Global Similarity: Towards Fine-Grained, Multi-Condition Multimodal Retrieval](../../CVPR2026/information_retrieval/beyond_global_similarity_towards_fine-grained_multi-condition_multimodal_retriev.md)
+- [Divide-Then-Align: Honest Alignment based on the Knowledge Boundary of RAG](../../ACL2025/information_retrieval/divide_then_align_rag_knowledge_boundary.md)
 - [GainRAG: Preference Alignment in Retrieval-Augmented Generation through Gain Signal Synthesis](../../ACL2025/information_retrieval/gainrag_preference_alignment.md)
-- [OAD-Promoter: Enhancing Zero-shot VQA using Large Language Models with Object Attribute Description](../../AAAI2026/information_retrieval/oad-promoter_enhancing_zero-shot_vqa_using_large_language_models_with_object_att.md)
+- [FAITH: Factuality Alignment through Integrating Trustworthiness and Honestness](../../ACL2026/information_retrieval/faith_factuality_alignment_through_integrating_trustworthiness_and_honestness.md)
 
 <!-- RELATED:END -->

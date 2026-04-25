@@ -1,8 +1,15 @@
+---
+title: >-
+  CVPR2026 联邦学习方向 1篇论文解读
+description: >-
+  1篇CVPR2026 联邦学习论文解读，主题涵盖：提出 FedTSP，利用预训练语言模型（PLM）从等，每篇含核心思想与方法详解。
+---
+
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤝 联邦学习
 
-**📷 CVPR2026** · 共 **1** 篇
+**📷 CVPR2026** · **1** 篇论文解读
 
-**[Federated Active Learning Under Extreme Non-IID and Global Class Imbalance](federated_active_learning_extreme_noniid.md)**
+**[Enhancing Visual Representation with Textual Semantics: Textual Semantics-Powered Prototypes for Heterogeneous Federated Learning](fedtsp_textual_semantics_powered_prototypes_heterogeneous_fl.md)**
 
-:   系统分析全局类不平衡与客户端异构性对联邦主动学习中 query model 选择的影响，发现类平衡采样能力是性能的最一致预测因子，据此提出 FairFAL——自适应选择 query model + 原型引导伪标签 + 不确定性-多样性平衡采样的类公平 FAL 框架。
+:   提出 FedTSP，利用预训练语言模型（PLM）从文本模态构建语义丰富的原型，在异构联邦学习中保持类别间语义关系，通过可学习提示弥合模态鸿沟，显著提升模型性能并加速收敛。

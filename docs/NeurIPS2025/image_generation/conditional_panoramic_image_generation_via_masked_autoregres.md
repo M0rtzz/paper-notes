@@ -157,7 +157,7 @@ PAR基于掩码自回归建模（MAR），整体pipeline为：
 - [InfinityStar: Unified Spacetime AutoRegressive Modeling for Visual Generation](infinitystar_unified_spacetime_autoregressive_modeling_for_v.md)
 - [Watermarking Autoregressive Image Generation](watermarking_autoregressive_image_generation.md)
 - [MacDiff: Unified Skeleton Modeling with Masked Conditional Diffusion](../../ECCV2024/image_generation/macdiff_unified_skeleton_modeling_with_masked_conditional_diffusion.md)
-- [Understand Before You Generate: Self-Guided Training for Autoregressive Image Generation](understand_before_you_generate_self-guided_training_for_autoregressive_image_gen.md)
 - [DC-AR: Efficient Masked Autoregressive Image Generation with Deep Compression Hybrid Tokenizer](../../ICCV2025/image_generation/dc-ar_efficient_masked_autoregressive_image_generation_with_deep_compression_hyb.md)
+- [Understand Before You Generate: Self-Guided Training for Autoregressive Image Generation](understand_before_you_generate_self-guided_training_for_autoregressive_image_gen.md)
 
 <!-- RELATED:END -->

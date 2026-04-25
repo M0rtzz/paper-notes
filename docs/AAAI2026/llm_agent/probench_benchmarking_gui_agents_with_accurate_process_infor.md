@@ -130,7 +130,7 @@ ProBench 包含三个模块：(1) Task Curation（任务构建）；(2) Dynamic 
 - [D-GARA: A Dynamic Benchmarking Framework for GUI Agent Robustness in Real-World Anomalies](d-gara_a_dynamic_benchmarking_framework_for_gui_agent_robust.md)
 - [Benchmarking Agentic Systems in Automated Scientific Information Extraction with ChemX](../../NeurIPS2025/llm_agent/benchmarking_agentic_systems_in_automated_scientific_information_extraction_with.md)
 - [History-Aware Reasoning for GUI Agents](history-aware_reasoning_for_gui_agents.md)
+- [FedGUI: Benchmarking Federated GUI Agents across Heterogeneous Platforms, Devices, and Operating Systems](../../ACL2026/llm_agent/fedgui_benchmarking_federated_gui_agents_across_heterogeneous_platforms_devices_.md)
 - [Promoting Sustainable Web Agents: Benchmarking and Estimating Energy Consumption Through Empirical and Theoretical Analysis](promoting_sustainable_web_agents_benchmarking_and_estimating_energy_consumption_.md)
-- [TongUI: Internet-Scale Trajectories from Multimodal Web Tutorials for Generalized GUI Agents](tongui_internet-scale_trajectories_from_multimodal_web_tutor.md)
 
 <!-- RELATED:END -->

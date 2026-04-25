@@ -148,6 +148,6 @@ tags:
 - [Unveiling the Key Factors for Distilling Chain-of-Thought Reasoning](unveiling_the_key_factors_for_distilling_chain-of-thought_reasoning.md)
 - [Critic-CoT: Boosting the Reasoning Abilities of Large Language Model via Chain-of-Thoughts Critic](critic-cot_boosting_the_reasoning_abilities_of_large_language_model_via_chain-of.md)
 - [Argus: Vision-Centric Reasoning with Grounded Chain-of-Thought](../../CVPR2025/llm_reasoning/argus_vision-centric_reasoning_with_grounded_chain-of-thought.md)
-- [AIMCoT: Active Information-driven Multimodal Chain-of-Thought for Vision-Language Reasoning](../../ICLR2026/llm_reasoning/aimcot_active_information-driven_multimodal_chain-of-thought_for_vision-language.md)
+- [GPO: Learning from Critical Steps to Improve LLM Reasoning](../../NeurIPS2025/llm_reasoning/gpo_learning_from_critical_steps_to_improve_llm_reasoning.md)
 
 <!-- RELATED:END -->

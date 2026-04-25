@@ -96,7 +96,7 @@ tags:
 
 ## 相关论文
 
-- [Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](../../NeurIPS2025/llm_pretraining/retrospective_incontext_learning_for_temporal_credit_assignm.md)
+- [Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](../../NeurIPS2025/llm_pretraining/ricl_temporal_credit.md)
 - [In-Context Adaptation to Concept Drift for Learned Database Operations](../../ICML2025/llm_pretraining/in-context_adaptation_to_concept_drift_for_learned_database_operations.md)
 - [When Can In-Context Learning Generalize Out of Task Distribution?](../../ICML2025/llm_pretraining/when_can_in-context_learning_generalize_out_of_task_distribution.md)
 - [The Scene Language: Representing Scenes with Programs, Words, and Embeddings](the_scene_language_representing_scenes_with_programs_words_and_embeddings.md)

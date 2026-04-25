@@ -141,8 +141,8 @@ SpiralDiff 基于 ResShift（一种高效残差偏移扩散框架）构建，仅
 
 - [Adaptive Auxiliary Prompt Blending for Target-Faithful Diffusion Generation](adaptive_auxiliary_prompt_blending_for_target-faithful_diffusion_generation.md)
 - [Towards RAW Object Detection in Diverse Conditions](../../CVPR2025/object_detection/towards_raw_object_detection_in_diverse_conditions.md)
+- [Evolutionary Negative Module Pruning for Better LoRA Merging](../../ACL2026/object_detection/evolutionary_negative_module_pruning_for_better_lora_merging.md)
 - [SimROD: A Simple Baseline for Raw Object Detection with Global and Local Enhancements](../../AAAI2026/object_detection/simrod_a_simple_baseline_for_raw_object_detection_with_global_and_local_enhancem.md)
-- [Tracking Meets LoRA: Faster Training, Larger Model, Stronger Performance](../../ECCV2024/object_detection/tracking_meets_lora_faster_training_larger_model_strong.md)
 - [ABRA: Teleporting Fine-Tuned Knowledge Across Domains for Open-Vocabulary Object Detection](abra_teleporting_fine-tuned_knowledge_across_domains_for_open-vocabulary_object_.md)
 
 <!-- RELATED:END -->

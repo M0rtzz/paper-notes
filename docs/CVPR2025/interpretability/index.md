@@ -1,14 +1,18 @@
 ---
 title: >-
-  CVPR2025 可解释性方向 18篇论文解读
+  CVPR2025 可解释性方向 21篇论文解读
 description: >-
-  18篇CVPR2025 可解释性论文解读，主题涵盖：提出基于可解释基 BRDF 的可微逆渲染方法、提出一个从基准构建、诊断到注入的完整框架，通过、本文提出一种基于非参数原型学习的可解释图像分类框架等，每篇含核心思想与方法详解。
+  21篇CVPR2025 可解释性论文解读，主题涵盖：本文提出ALBM（属性形成的语言瓶颈模型）、提出基于可解释基 BRDF 的可微逆渲染方法、提出一个从基准构建、诊断到注入的完整框架，通过等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**📷 CVPR2025** · **18** 篇论文解读
+**📷 CVPR2025** · **21** 篇论文解读
+
+**[Attribute-formed Class-specific Concept Space: Endowing Language Bottleneck Model with Better Interpretability and Scalability](albm_attribute_concept_space.md)**
+
+:   本文提出ALBM（属性形成的语言瓶颈模型），通过构建属性引导的类特异概念空间避免虚假线索推理问题，并利用视觉属性提示学习提取细粒度属性特征，结合描述-摘要-补充（DSS）策略自动生成高质量概念集，在9个基准上实现了更好的可解释性和可扩展性。
 
 **[Differentiable Inverse Rendering with Interpretable Basis BRDFs](differentiable_inverse_rendering_with_interpretable_basis_brdfs.md)**
 
@@ -38,6 +42,10 @@ description: >-
 
 :   本文提出通过改善训练数据的语义监督信号（使用基础模型重新生成高质量描述+使用预训练文本编码器替代从头训练）来大幅提升标准 CLIP 模型的视觉组合理解能力，在 ARO 基准上从CLIP的59%/63%提升到92%/94%，在DOCCI图像检索上从58.4%提升到94.5% recall@1，且无需任何架构改动。
 
+**[L-SWAG: Layer-Sample Wise Activation with Gradients information for Zero-Shot NAS on Vision Transformers](lswag_zero_shot_nas.md)**
+
+:   本文提出L-SWAG指标，通过分层梯度方差和激活模式基数的乘积来表征CNN和ViT网络的可训练性和表达性，并设计LIBRA-NAS算法组合互补代理指标，在ViT搜索空间和14个任务上实现了SOTA级别的零样本NAS性能。
+
 **[On the Possible Detectability of Image-in-Image Steganography](on_the_possible_detectability_of_image-in-image_steganography.md)**
 
 :   本文从理论和实验两个层面揭示了当下流行的基于深度学习的 image-in-image 隐写方案存在严重的可检测性漏洞——其嵌入过程本质是一个混合过程，可被独立成分分析（ICA）轻松识别，仅用小波域独立成分的前四阶矩构成的 8 维特征就能达到 84.6% 的检测准确率，而经典的 SRM+SVM 方法更是达到 99% 以上。
@@ -61,6 +69,10 @@ description: >-
 **[Scaling Vision Pre-Training to 4K Resolution](scaling_vision_pre-training_to_4k_resolution.md)**
 
 :   本文提出PS3（Pre-training with Scale-Selective Scaling），通过局部区域与局部caption的对比学习代替全图对比，以近常数的计算开销将CLIP式视觉预训练扩展到4K分辨率，并结合top-down/bottom-up patch选择机制构建VILA-HD多模态大模型，在高分辨率感知任务上大幅超越GPT-4o和Qwen2.5-VL。
+
+**[TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction](tide_domain_generalization.md)**
+
+:   本文提出TIDE方法，通过利用扩散模型和LLM自动生成概念级显著图标注，训练可局部解释的域泛化模型，并在测试时利用概念签名进行预测矫正，在四个标准DG基准上平均超越SOTA 12%。
 
 **[TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction](tide_training_locally_interpretable_domain_generalization_models_enables_test-ti.md)**
 

@@ -135,6 +135,6 @@ MAGICIAN在每一步执行感知-规划-行动循环：(1) 用预训练占据度
 - [LTGS: Long-Term Gaussian Scene Chronology From Sparse View Updates](ltgs_long-term_gaussian_scene_chronology_from_sparse_view_updates.md)
 - [PCSTracker: Long-Term Scene Flow Estimation for Point Cloud Sequences](pcstracker_long-term_scene_flow_estimation_for_point_cloud_sequences.md)
 - [OnlinePG: Online Open-Vocabulary Panoptic Mapping with 3D Gaussian Splatting](onlinepg_online_open-vocabulary_panoptic_mapping_with_3d_gaussian_splatting.md)
-- [SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation](sgi_structured_2d_gaussians_for_efficient_and_compact_large_image_representation.md)
+- [SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation](sgi_structured_2d_gaussians_large_image_representation.md)
 
 <!-- RELATED:END -->

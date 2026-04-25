@@ -141,9 +141,9 @@ tags:
 ## 相关论文
 
 - [Towards Practical Defect-Focused Automated Code Review](towards_practical_defect-focused_automated_code_review.md)
+- [SolidCoder: Bridging the Mental-Reality Gap in LLM Code Generation through Concrete Execution](../../ACL2026/code_intelligence/solidcoder_bridging_the_mental-reality_gap_in_llm_code_generation_through_concre.md)
 - [Reasoning Through Execution: Unifying Process and Outcome Rewards for Code Generation](reasoning_through_execution_unifying_process_and_outcome_rewards_for_code_genera.md)
 - [Function-to-Style Guidance of LLMs for Code Translation](function-to-style_guidance_of_llms_for_code_translation.md)
 - [DyCodeEval: Dynamic Benchmarking of Reasoning Capabilities in Code Large Language Models Under Data Contamination](dynamic_benchmarking_of_reasoning_capabilities_in_code_large_language_models_und.md)
-- [Training Software Engineering Agents and Verifiers with SWE-Gym](training_software_engineering_agents_and_verifiers_with_swe-gym.md)
 
 <!-- RELATED:END -->

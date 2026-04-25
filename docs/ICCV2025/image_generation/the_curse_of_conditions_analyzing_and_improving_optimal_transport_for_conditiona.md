@@ -141,7 +141,7 @@ C²OT 的修改非常简洁：仅在流匹配训练中计算 minibatch OT 耦合
 - [On the Relation between Rectified Flows and Optimal Transport](../../NeurIPS2025/image_generation/on_the_relation_between_rectified_flows_and_optimal_transport.md)
 - [COT-FM: Cluster-wise Optimal Transport Flow Matching](../../CVPR2026/image_generation/cot-fm_cluster-wise_optimal_transport_flow_matching.md)
 - [Counterfactual Identifiability via Dynamic Optimal Transport](../../NeurIPS2025/image_generation/counterfactual_identifiability_via_dynamic_optimal_transport.md)
-- [Improving Posterior Inference of Galaxy Properties with Image-Based Conditional Flow Matching](../../NeurIPS2025/image_generation/improving_posterior_inference_of_galaxy_properties_with_image-based_conditional_.md)
 - [Pairwise Optimal Transports for Training All-to-All Flow-Based Condition Transfer Model](../../NeurIPS2025/image_generation/pairwise_optimal_transports_for_training_all-to-all_flow-based_condition_transfe.md)
+- [Improving Posterior Inference of Galaxy Properties with Image-Based Conditional Flow Matching](../../NeurIPS2025/image_generation/improving_posterior_inference_of_galaxy_properties_with_image-based_conditional_.md)
 
 <!-- RELATED:END -->

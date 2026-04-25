@@ -141,8 +141,8 @@ FC-Track 作为后处理插件嵌入标准在线 MOT 流程。在每帧的标准
 
 - [Occlusion-Aware SORT: Observing Occlusion for Robust Multi-Object Tracking](occlusion-aware_sort_observing_occlusion_for_robust_multi-object_tracking.md)
 - [Out of Sight, Out of Track: Adversarial Attacks on Propagation-based Multi-Object Trackers via Query State Manipulation](out_of_sight_out_of_track_adversarial_attacks_on_propagation-based_multi-object_.md)
-- [Dual-level Adaptation for Multi-Object Tracking: Building Test-Time Calibration from Experience and Intuition](dual-level_adaptation_for_multiobject_tracking_building_testtime_calibration_from.md)
+- [TCEI: Dual-level Adaptation for Multi-Object Tracking via Test-Time Calibration](tcei_dual_level_adaptation_multi_object_tracking.md)
+- [Dual-level Adaptation for Multi-Object Tracking: Building Test-Time Calibration from Experience and Intuition](tcei_test_time_calibration_experience_intuition_mot.md)
 - [STORM: End-to-End Referring Multi-Object Tracking in Videos](storm_referring_multi_object_tracking.md)
-- [Event6D: Event-based Novel Object 6D Pose Tracking](event6d_event-based_novel_object_6d_pose_tracking.md)
 
 <!-- RELATED:END -->

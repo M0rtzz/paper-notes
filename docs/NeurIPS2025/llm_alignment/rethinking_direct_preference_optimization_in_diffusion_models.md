@@ -146,7 +146,7 @@ SD1.5 上的结果:
 - [Curriculum Direct Preference Optimization for Diffusion and Consistency Models](../../CVPR2025/llm_alignment/curriculum_direct_preference_optimization_for_diffusion_and_consistency_models.md)
 - [ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization](../../ICML2025/llm_alignment/adhmr_aligning_diffusion-based_human_mesh_recovery_via_direct_preference_optimiz.md)
 - [DP²O-SR: Direct Perceptual Preference Optimization for Real-World Image Super-Resolution](dp2o-sr_direct_perceptual_preference_optimization_for_real-world_image_super-res.md)
+- [Aesthetic Post-Training Diffusion Models from Generic Preferences with Step-by-step Preference Optimization](../../CVPR2025/llm_alignment/spo_aesthetic_post_training.md)
 - [DiffPO: Diffusion Alignment with Direct Preference Optimization](../../ACL2025/llm_alignment/diffpo_diffusion_alignment.md)
-- [DenseDPO: Fine-Grained Temporal Preference Optimization for Video Diffusion Models](densedpo_finegrained_temporal_preference_optimization_for_vi.md)
 
 <!-- RELATED:END -->

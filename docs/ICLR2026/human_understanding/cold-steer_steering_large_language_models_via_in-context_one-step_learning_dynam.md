@@ -133,7 +133,7 @@ tags:
 - [Scalable In-Context Q-Learning](scalable_in-context_q-learning.md)
 - [TimeOmni-1: Incentivizing Complex Reasoning with Time Series in Large Language Models](timeomni-1_incentivizing_complex_reasoning_with_time_series_in_large_language_mo.md)
 - [Anti-adversarial Learning: Desensitizing Prompts for Large Language Models](../../AAAI2026/human_understanding/anti-adversarial_learning_desensitizing_prompts_for_large_la.md)
-- [10 Open Challenges Steering the Future of Vision-Language-Action Models](../../AAAI2026/human_understanding/10_open_challenges_steering_the_future_of_vision-language-ac.md)
 - [EgoHandICL: Egocentric 3D Hand Reconstruction with In-Context Learning](egohandicl_egocentric_3d_hand_reconstruction_with_in-context_learning.md)
+- [10 Open Challenges Steering the Future of Vision-Language-Action Models](../../AAAI2026/human_understanding/10_open_challenges_steering_the_future_of_vision-language-ac.md)
 
 <!-- RELATED:END -->

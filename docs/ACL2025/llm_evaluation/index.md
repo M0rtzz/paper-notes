@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 LLM评测方向 88篇论文解读
+  ACL2025 LLM评测方向 89篇论文解读
 description: >-
-  88篇ACL2025 LLM评测论文解读，主题涵盖：提出基于 conformal risk、引入 MisMatched——首个覆盖非 CS、提出 AbGen——首个评估 LLM等，每篇含核心思想与方法详解。
+  89篇ACL2025 LLM评测论文解读，主题涵盖：提出基于 conformal risk、引入 MisMatched——首个覆盖非 CS、提出 AbGen——首个评估 LLM等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM评测
 
-**💬 ACL2025** · **88** 篇论文解读
+**💬 ACL2025** · **89** 篇论文解读
 
 **[A Conformal Risk Control Framework for Granular Word Assessment and Uncertainty Calibration of CLIPScore Quality Estimates](a_conformal_risk_control_framework_for_granular_word_assessment_and_uncertainty_.md)**
 
@@ -101,6 +101,10 @@ description: >-
 **[Com2: A Causal-Guided Benchmark for Exploring Complex Commonsense Reasoning in Large Language Models](com2_causal_commonsense.md)**
 
 :   提出 Com2，一个基于因果事件图和因果理论（干预/反事实）构建的复杂常识推理基准，包含 2500 道主题和 1254 道侦探故事题目，揭示 LLM 在推理深度与广度上的显著不足。
+
+**[Can You Really Trust Code Copilots? Evaluating Large Language Models from a Code Security Perspective](cov-eval-code-security-evaluation-benchmark.md)**
+
+:   本文提出多任务代码漏洞评估基准 CoV-Eval，覆盖代码补全、漏洞修复、检测和分类四个任务及18种漏洞类型，并开发了与人类专家高度一致的判断模型 VC-Judge，对20个LLM的综合评估揭示了代码安全领域的关键挑战。
 
 **[CoV-Eval: Can You Really Trust Code Copilots? Evaluating Large Language Models from a Code Security Perspective](cov_eval_evaluating_llms_from_code_security_perspective.md)**
 

@@ -122,7 +122,7 @@ MENSA 数据集上各模块贡献（逐步累加）：
 - [Solving the Granularity Mismatch: Hierarchical Preference Learning for Long-Horizon LLM Agents](../../ICLR2026/llm_agent/solving_the_granularity_mismatch_hierarchical_preference_learning_for_long-horiz.md)
 - [Deep Video Discovery: Agentic Search with Tool Use for Long-form Video Understanding](../../NeurIPS2025/llm_agent/deep_video_discovery_agentic_search_with_tool_use_for_longfo.md)
 - [Self-Taught Agentic Long-Context Understanding](self_taught_agentic_long_ctx.md)
+- [Hierarchical Long Video Understanding with Audiovisual Entity Cohesion and Agentic Search](../../CVPR2026/llm_agent/haven_hierarchical_long_video_understanding_audiovisual_entity.md)
 - [HAVEN: Hierarchical Long Video Understanding with Audiovisual Entity Cohesion and Agentic Search](../../CVPR2026/llm_agent/haven_hierarchical_long_video_understanding_with_audiovisual_entity_cohesion.md)
-- [LLM Agents Making Agent Tools](llm_agents_making_agent_tools.md)
 
 <!-- RELATED:END -->

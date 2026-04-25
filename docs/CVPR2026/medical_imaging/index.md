@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 医学图像方向 157篇论文解读
+  CVPR2026 医学图像方向 158篇论文解读
 description: >-
-  157篇CVPR2026 医学图像论文解读，主题涵盖：提出三步评估协议（选参考染色条件→表征测试集染色属、提出面向乳腺超声（BUS）图像分割的半监督框架、利用简单外观描述（"dark oval"等）驱动等，每篇含核心思想与方法详解。
+  158篇CVPR2026 医学图像论文解读，主题涵盖：提出三步评估协议（选参考染色条件→表征测试集染色属、提出面向乳腺超声（BUS）图像分割的半监督框架、利用简单外观描述（"dark oval"等）驱动等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**📷 CVPR2026** · **157** 篇论文解读
+**📷 CVPR2026** · **158** 篇论文解读
 
 **[A protocol for evaluating robustness to H&E staining variation in computational pathology models](a_protocol_for_evaluating_robustness_to_he_stainin.md)**
 
@@ -333,6 +333,10 @@ description: >-
 **[LEMON: A Large Endoscopic MONocular Dataset and Foundation Model for Perception in Surgical Settings](lemon_a_large_endoscopic_monocular_dataset_and_foundation_model_for_perception_in.md)**
 
 :   构建了包含 4194 个手术视频（938 小时）的大规模内窥镜数据集 LEMON，并提出基于增强知识蒸馏的自监督基础模型 LemonFM，在手术阶段识别、工具检测、动作识别和语义分割四大下游任务上全面超越现有手术基础模型。
+
+**[LEMON: A Large Endoscopic MONocular Dataset and Foundation Model for Perception in Surgical Settings](lemon_large_endoscopic_monocular_dataset_foundation_model_surgical.md)**
+
+:   构建了当前最大的开放手术视频数据集 LEMON（4194 视频、938 小时、35 种术式），并提出基于增强知识蒸馏的基础模型 LemonFM，在手术阶段识别、工具检测、动作识别和语义分割四项下游任务上全面超越现有方法。
 
 **[LUMINA: A Multi-Vendor Mammography Benchmark with Energy Harmonization Protocol](lumina_a_multi-vendor_mammography_benchmark_with_energy_harmonization_protocol.md)**
 

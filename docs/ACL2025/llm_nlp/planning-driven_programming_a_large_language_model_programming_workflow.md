@@ -160,6 +160,6 @@ LPW 是纯推理时方法，不需要额外训练：
 - [Are Language Models Efficient Reasoners? A Perspective from Logic Programming](../../NeurIPS2025/llm_nlp/are_language_models_efficient_reasoners_a_perspective_from_logic_programming.md)
 - [Interactive and Expressive Code-Augmented Planning with Large Language Models](interactive_and_expressive_code-augmented_planning_with_large_language_models.md)
 - [On the Limit of Language Models as Planning Formalizers](limit_llm_planning_formalizer.md)
-- [EnCompass: Enhancing Agent Programming with Search Over Program Execution Paths](../../NeurIPS2025/llm_nlp/encompass_enhancing_agent_programming_with_search_over_program_execution_paths.md)
+- [INTERACT: Enabling Interactive, Question-Driven Learning in Large Language Models](interact_enabling_interactive_question-driven_learning_in_large_language_models.md)
 
 <!-- RELATED:END -->

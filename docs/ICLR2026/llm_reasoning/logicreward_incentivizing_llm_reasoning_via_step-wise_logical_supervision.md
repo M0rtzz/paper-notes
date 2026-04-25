@@ -113,9 +113,9 @@ LogicReward = Rollout生成 → Autoformalization with Soft Unification → 步�
 ## 相关论文
 
 - [Agentified Assessment of Logical Reasoning Agents](agentified_assessment_of_logical_reasoning_agents.md)
+- [Semantic-Aware Logical Reasoning via a Semiotic Framework](../../ACL2026/llm_reasoning/semantic-aware_logical_reasoning_via_a_semiotic_framework.md)
 - [Nudging the Boundaries of LLM Reasoning](nudging_the_boundaries_of_llm_reasoning.md)
 - [Enhancing Retrieval Systems with Inference-Time Logical Reasoning](../../ACL2025/llm_reasoning/enhancing_retrieval_systems_with_inference-time_logical_reasoning.md)
 - [LogicPro: Improving Complex Logical Reasoning via Program-Guided Learning](../../ACL2025/llm_reasoning/logicpro_program_guided_reasoning.md)
-- [On the Design of KL-Regularized Policy Gradient Algorithms for LLM Reasoning](on_the_design_of_kl-regularized_policy_gradient_algorithms_for_llm_reasoning.md)
 
 <!-- RELATED:END -->

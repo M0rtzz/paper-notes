@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 LLM/NLP方向 380篇论文解读
+  ACL2025 LLM/NLP方向 391篇论文解读
 description: >-
-  380篇ACL2025 LLM/NLP论文解读，主题涵盖：在韩国KAIST一门477人研究生AI编程课中部署、提出ArrangementPuzzle拼图数据集并、通过分析LLM推理过程中潜在表征的转移轨迹（tra等，每篇含核心思想与方法详解。
+  391篇ACL2025 LLM/NLP论文解读，主题涵盖：在韩国KAIST一门477人研究生AI编程课中部署、提出ArrangementPuzzle拼图数据集并、通过分析LLM推理过程中潜在表征的转移轨迹（tra等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM/NLP
 
-**💬 ACL2025** · **380** 篇论文解读
+**💬 ACL2025** · **391** 篇论文解读
 
 **[A Large-Scale Real-World Evaluation of an LLM-Based Virtual Teaching Assistant](a_large-scale_real-world_evaluation_of_llm-based_virtual_teaching_assistant.md)**
 
@@ -65,6 +65,10 @@ description: >-
 **[AfroBench: How Good are Large Language Models on African Languages?](afrobench_how_good_are_large_language_models_on_african_languages.md)**
 
 :   提出AfroBench——覆盖64种非洲语言、15个NLP任务、22个数据集的综合评测基准，评估12个LLM发现闭源模型(GPT-4o)领先最佳开源模型(Gemma 2 27B)约12分，但所有LLM仍落后于微调基线，与英语的差距在开源模型上超过40分。
+
+**[AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](agentdropout-dynamic-agent-elimination-for-multi-agent-collaboration.md)**
+
+:   本文提出 AgentDropout，通过在多轮讨论中动态消除冗余 Agent（节点剪枝）和冗余通信边（边剪枝），在降低 21.6% prompt token 消耗的同时提升了 1.14 分的任务性能。
 
 **[AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](agentdropout_dynamic_agent_elimination_for_token-efficient_and_high-performance_.md)**
 
@@ -130,6 +134,10 @@ description: >-
 
 :   提出 ArithmAttack，通过在数学题上下文中随机插入标点符号（不改变任何单词）来测试 LLM 的鲁棒性，发现八个主流 LLM（包括 Llama3、Mistral、DeepSeek）在面对这种简单噪声时性能都显著下降。
 
+**[Can We Retrieve Everything All at Once? ARM: An Alignment-Oriented LLM-based Retrieval Method](arm_alignment_retrieval.md)**
+
+:   本文提出ARM（对齐导向的LLM检索方法），通过将问题与数据集合的组织结构对齐——探索数据对象间的关系而非仅匹配查询文本——实现复杂查询的一次性全量检索，在Bird数据集上比标准RAG提升5.2%、比ReAct提升15.9%。
+
 **[Assessing and Enhancing the Causal Reasoning Abilities of Language Models via Faithful Textual Interpretation](assessing_and_enhancing_the_causal_reasoning_abilities_of_language_models_via_fai.md)**
 
 :   本文提出了一个基于忠实文本解释（Faithful Textual Interpretation, FTI）的框架，通过将因果推理任务中的变量关系忠实地转化为自然语言描述，评估并增强LLM的因果推理能力，在多个因果推理基准上取得了显著提升。
@@ -194,6 +202,10 @@ description: >-
 
 :   提出 Beyond Dialogue 框架，通过 Profile-Dialogue 对齐消除角色扮演训练中 profile 与对话之间的偏差，并引入句子级细粒度对齐任务，使模型更好地理解和表现角色特质。
 
+**[Beyond Dialogue: A Profile-Dialogue Alignment Framework Towards General Role-Playing Language Model](beyond_dialogue_roleplay.md)**
+
+:   本文提出Beyond Dialogue框架，通过引入"超越对话"任务实现角色轮廓与场景对话的句级细粒度对齐，解决了角色扮演训练中预定义角色轮廓与具体场景对话之间的偏差问题，在角色忠实度上超越GPT-4o和专用角色扮演基线。
+
 **[Beyond In-Context Learning: Aligning Long-form Generation of LLMs via Task-Inherent Attribute Guidelines](beyond_in-context_learning_aligning_long-form_generation_of_large_language_model.md)**
 
 :   从理论和实验两方面证明 ICL 示例无法充分传递任务的语言和格式属性，提出 LongGuide 算法从少量训练数据中自动学习 Metric Guideline (MG) 和 Output Constraint Guideline (OCG) 两类指导规则，在 7 个长文本生成任务上平均提升超过 5% ROUGE-L。
@@ -209,6 +221,10 @@ description: >-
 **[Beyond Prompt Engineering: Robust Behavior Control in LLMs via Steering Target Atoms](beyond_prompt_engineering_robust_behavior_control_in_llms_via_steering_target_at.md)**
 
 :   提出 STA（Steering Target Atoms），利用稀疏自编码器 (SAE) 将 LLM 的表示解耦为原子知识组件，通过激活幅度和频率筛选目标原子并操控，实现比提示工程更鲁棒、更精细的行为控制，在安全解毒和推理控制任务上效果优于现有 steering 方法。
+
+**[BFS-Prover: Scalable Best-First Tree Search for LLM-based Automatic Theorem Proving](bfs-prover-scalable-best-first-tree-search-for-llm-based-automatic-theorem-proving.md)**
+
+:   本文提出 BFS-Prover，一个基于最优优先搜索（BFS）的自动定理证明系统，通过战略性数据过滤、DPO 优化和长度归一化三项创新，在 MiniF2F 测试集上以 72.95% 的准确率达到了 SOTA，证明了简单的 BFS 方法在适当扩展后可以超越复杂的 MCTS 方法。
 
 **[BFS-Prover: Scalable Best-First Tree Search for LLM-Based Automatic Theorem Proving](bfs-prover_scalable_best-first_tree_search_for_llm-based_automatic_theorem_provi.md)**
 
@@ -580,6 +596,10 @@ description: >-
 
 :   提出一个 weak-to-strong episodic grounding 框架，利用 MCTS 收集结构化经验数据，通过行为比率蒸馏将小模型的 episodic grounding 能力迁移到大模型，结合 DPO 优化实现从成功和失败经验中学习，在物理规划任务上超越 GPT-4o 等 SOTA 模型 3.45%。
 
+**[Revisiting Epistemic Markers in Confidence Estimation: Can Markers Accurately Reflect Large Language Models' Uncertainty?](epistemic-markers-in-confidence-estimation.md)**
+
+:   本文系统研究了 LLM 使用认知标记（如"fairly confident"）表达置信度的可靠性，定义了"标记置信度"为模型使用特定标记时的实际准确率，发现标记在同分布下泛化良好但在分布外场景不一致。
+
 **[Efficient and Accurate Prompt Optimization: the Benefit of Memory in Exemplar-Guided Reflection](erm_prompt_optimization_memory.md)**
 
 :   提出 ERM 方法，通过指导性元提示生成带详细解题过程的 exemplar 来增强 feedback 质量，并引入 Feedback Memory 和 Exemplar Factory 两种长期记忆机制来高效存储和复用历史反馈与示例，在多个任务上以约一半的优化步数超越了 SOTA prompt 优化方法。
@@ -876,6 +896,10 @@ description: >-
 
 :   系统评估"LLM-as-Formalizer"方法论的极限——首次要求 LLM 生成完整 PDDL 表示（而非部分），从不同自然度的文本描述中形式化规划领域，发现最强模型（GPT-4o/o3-mini/DeepSeek-R1）可有效形式化超越直接规划，但描述越自然性能越低，弱模型卡在语法错误而强模型面临语义错误。
 
+**[Can LLMs Identify Critical Limitations within Scientific Research? A Systematic Evaluation on AI Research Papers](limitgen-llms-identify-research-limitations.md)**
+
+:   本文提出 LimitGen 基准，首次系统评估 LLM 识别 AI 论文局限性的能力，包含合成子集（通过受控扰动构建）和人类子集（ICLR 2025 审稿），发现 RAG 增强能有效提升局限性生成的具体性和建设性。
+
 **[LlamaDuo: LLMOps Pipeline for Seamless Migration from Service LLMs to Small-Scale Local LLMs](llamaduo_llmops_pipeline_for_seamless_migration_from_service_llms_to_small-scale.md)**
 
 :   提出 LlamaDuo 自动化 LLMOps 流水线，通过服务 LLM 生成合成数据迭代微调小模型，使 2B-8B 本地模型在特定下游任务上逼近甚至匹敌 GPT-4o 等大模型性能，且长期部署成本显著降低。
@@ -915,6 +939,10 @@ description: >-
 **[LLMs can Perform Multi-Dimensional Analytic Writing Assessments](llm_writing_assessment.md)**
 
 :   利用 L2 研究生文献综述语料库，系统评估了 LLM 在多维分析写作评估（评分+评论）上的能力，并提出可解释的反馈质量评估框架 ProEval。
+
+**[How LLMs Comprehend Temporal Meaning in Narratives: A Case Study in Cognitive Evaluation of LLMs](llms-comprehend-temporal-meaning-in-narratives.md)**
+
+:   本文通过认知语言学实验范式评估 LLM 对叙事中时态体态（aspect）语义的理解，发现 LLM 过度依赖原型搭配、产生不一致的体态判断、在体态驱动的因果推理上表现不佳，揭示了 LLM 叙事理解的根本局限。
 
 **[LLMs Can Be Easily Confused by Instructional Distractions](llms_can_be_easily_confused_by_instructional_distractions.md)**
 
@@ -1047,6 +1075,10 @@ description: >-
 **[Neural Topic Modeling with Large Language Models in the Loop](neural_topic_modeling_with_large_language_models_in_the_loop.md)**
 
 :   提出LLM-ITL框架，将LLM以"in-the-loop"方式集成到神经主题模型（NTM）训练中，通过基于最优传输的主题对齐目标和置信度加权机制，在保持文档表示质量和计算效率的同时显著提升主题可解释性。
+
+**[From Neurons to Semantics: Evaluating Cross-Linguistic Alignment Capabilities of Large Language Models via Neurons Alignment](neuronxa-cross-lingual-alignment-via-neurons.md)**
+
+:   本文提出 NeuronXA 框架，通过分析 LLM 前馈网络中神经元激活状态来评估跨语言对齐能力，仅需 100 个平行句对即可达到与下游任务性能 0.9556 的皮尔逊相关和与迁移能力 0.8514 的相关。
 
 **[NewsInterview: a Dataset and a Playground to Evaluate LLMs' Grounding Gap via Informational Interviews](newsinterview_a_dataset_and_a_playground_to_evaluate_llms_grounding_gap_via_info.md)**
 
@@ -1216,6 +1248,10 @@ description: >-
 
 :   通过受控故事任务评估 8 个开源 LLM 对认识情态（may/must、know/believe/doubt）的语义知识，发现 LLM 在生成恰当认知表达方面表现有限且不鲁棒——必然性（must）优于可能性（may），事实陈述优于信念陈述。
 
+**[Are Optimal Algorithms Still Optimal? Rethinking Sorting in LLM-Based Pairwise Ranking with Batching and Caching](rethinking-sorting-in-llm-pairwise-ranking.md)**
+
+:   本文重新审视了 LLM 成对排序提示（PRP）中排序算法的效率分析，以 LLM 推理调用次数（而非传统比较次数）为成本度量，提出批处理和缓存优化，证明在 LLM 场景下 Quicksort 可以比 Heapsort 减少 44% 的推理调用。
+
 **[RetroLLM: Empowering Large Language Models to Retrieve Fine-grained Evidence within Generation](retrollm_empowering_large_language_models_to_retrieve_fine-grained_evidence_with.md)**
 
 :   提出RetroLLM统一框架，将检索和生成集成为单一自回归解码过程，通过层级FM-Index约束和前瞻式受限解码，使LLM能直接从语料库中生成细粒度证据，同时显著减少token消耗。
@@ -1231,6 +1267,10 @@ description: >-
 **[Revisiting Uncertainty Quantification Evaluation in Language Models: Spurious Interactions with Response Length Bias Results](revisiting_uncertainty_quantification_evaluation_in_language_models_spurious_int.md)**
 
 :   本文发现语言模型不确定性量化（UQ）评估中存在严重的长度偏差问题——UQ 方法和正确性度量函数都受响应长度偏差影响，二者的"互偏差"系统性地扭曲了 AUROC 排名，并在理论和实证上证明了这一点，同时发现 LLM-as-a-Judge 方法是最不受长度偏差影响的评估选择。
+
+**[Improving Contextual Faithfulness of Large Language Models via Retrieval Heads-Induced Optimization](rhio_retrieval_heads_faithfulness.md)**
+
+:   本文发现长篇问答（LFQA）的忠实性与检索头（retrieval heads）高度相关，提出Rhio框架——通过掩蔽检索头生成逼真的不忠实样本，引入控制token让模型学会区分忠实/不忠实生成，并利用对比解码放大差异，在GroundBench上比GPT-4o更忠实。
 
 **[RiOT: Efficient Prompt Refinement with Residual Optimization Tree](riot_efficient_prompt_refinement_with_residual_optimization_tree.md)**
 
@@ -1291,6 +1331,10 @@ description: >-
 **[SelfElicit: Your Language Model Secretly Knows Where is the Relevant Evidence](selfelicit_evidence_highlighting.md)**
 
 :   SelfElicit 发现 LLM 深层注意力分数天然具有定位上下文中关键证据的能力（即使模型回答错误时也是如此），据此提出一种推理时的上下文增强方法：仅需生成一个额外 token 即可自动识别并高亮关键证据句，引导模型给出更准确的回答。
+
+**[Supervised Fine-Tuning Achieves Rapid Task Adaption Via Alternating Attention Head Activation Patterns](sft_attention_activation.md)**
+
+:   本文通过梯度分析方法从注意力头激活模式的角度剖析SFT过程，发现LLM通过选择性激活任务特定注意力头来适配下游任务，且复杂任务的激活模式是基础任务模式的组合，少量参数变化就能显著改变激活模式。
 
 **[Embracing Imperfection: Simulating Students with Diverse Cognitive Levels Using LLM-based Agents](simulating_diverse_students.md)**
 

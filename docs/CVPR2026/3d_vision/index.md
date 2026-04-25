@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 3D视觉方向 255篇论文解读
+  CVPR2026 3D视觉方向 257篇论文解读
 description: >-
-  255篇CVPR2026 3D视觉论文解读，主题涵盖：提出"就地补全"（in-place、提出"隐式几何涌现原则"（IGEP）、提出自约束先验（Self-Constrained等，每篇含核心思想与方法详解。
+  257篇CVPR2026 3D视觉论文解读，主题涵盖：提出"就地补全"（in-place、提出"隐式几何涌现原则"（IGEP）、提出自约束先验（Self-Constrained等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D视觉
 
-**📷 CVPR2026** · **255** 篇论文解读
+**📷 CVPR2026** · **257** 篇论文解读
 
 **[3D-Fixer: Coarse-to-Fine In-place Completion for 3D Scenes from a Single Image](3d-fixer_coarse-to-fine_in-place_completion_for_3d_scenes_from_a_single_image.md)**
 
@@ -806,6 +806,10 @@ description: >-
 
 :   RnG 提出重构引导因果注意力（Reconstruction-Guided Causal Attention），将 Transformer 的 KV-Cache 重新解释为隐式 3D 表示，用单个前馈 Transformer 统一完成从无位姿稀疏图像到完整 3D 几何与外观的重建与生成，速度比扩散方法快 100 倍以上。
 
+**[RnG: A Unified Transformer for Complete 3D Modeling from Partial Observations](rng_unified_transformer_complete_3d_modeling_partial_observations.md)**
+
+:   提出 RnG，一个统一的前馈 Transformer，通过重建引导的因果注意力机制将 KV-Cache 作为隐式 3D 表征，从少量无姿态图像中同时完成 3D 重建和新视角 RGBD 生成，推理速度比扩散方法快 100 倍以上。
+
 **[S2AM3D: Scale-controllable Part Segmentation of 3D Point Clouds](s2am3d_scale-controllable_part_segmentation_of_3d_point_cloud.md)**
 
 :   提出融合2D预训练先验与3D对比监督的点云部件分割框架S2AM3D，通过点一致性编码器获得全局一致的点特征，并设计尺度感知提示解码器实现连续可控的分割粒度调节，在多个基准上大幅超越现有方法。
@@ -857,6 +861,10 @@ description: >-
 **[SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation](sgi_structured_2d_gaussians_for_efficient_and_compact_large_image_representation.md)**
 
 :   SGI 提出基于种子点(seed)的结构化 2D 高斯表示框架，通过将无结构高斯原语组织为种子驱动的神经高斯、结合上下文引导的熵编码和多尺度拟合策略，在高分辨率图像表示中实现最高 7.5× 压缩比和 6.5× 优化加速，同时保持甚至提升重建保真度。
+
+**[SGI: Structured 2D Gaussians for Efficient and Compact Large Image Representation](sgi_structured_2d_gaussians_large_image_representation.md)**
+
+:   提出 SGI，通过种子点（seed）组织非结构化 2D 高斯基元并用轻量 MLP 解码属性，配合上下文模型驱动的熵编码和多尺度拟合策略，实现高分辨率图像表征中最多 7.5× 压缩和 6.5× 加速，同时保持或提升保真度。
 
 **[SGS-Intrinsic: Semantic-Invariant Gaussian Splatting for Sparse-View Indoor Inverse Rendering](sgs-intrinsic_semantic-invariant_gaussian_splatting_for_sparse-view_indoor_invers.md)**
 

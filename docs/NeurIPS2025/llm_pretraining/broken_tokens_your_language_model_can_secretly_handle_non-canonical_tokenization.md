@@ -125,6 +125,6 @@ tags:
 - [Tokenization is Sensitive to Language Variation](../../ACL2025/llm_pretraining/tokenization_is_sensitive_to_language_variation.md)
 - [Through the River: Understanding the Benefit of Schedule-Free Methods for Language Model Training](through_the_river_understanding_the_benefit_of_schedule-free_methods_for_languag.md)
 - [Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale](language_model_behavioral_phases_are_consistent_across_archi.md)
-- [Nemotron-CLIMB: CLustering-based Iterative Data Mixture Bootstrapping for Language Model Pre-training](nemotron-climb_clustering-based_iterative_data_mixture_bootstrapping_for_languag.md)
+- [Retrofitting Large Language Models with Dynamic Tokenization](../../ACL2025/llm_pretraining/retrofitting_large_language_models_with_dynamic_tokenization.md)
 
 <!-- RELATED:END -->

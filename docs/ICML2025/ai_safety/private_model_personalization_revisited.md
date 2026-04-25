@@ -128,6 +128,6 @@ tags:
 - [Clients Collaborate: Flexible Differentially Private Federated Learning with Guaranteed Improvement of Utility-Privacy Trade-off](clients_collaborate_flexible_differentially_private_federated_learning_with_guar.md)
 - [Faster Rates for Private Adversarial Bandits](faster_rates_for_private_adversarial_bandits.md)
 - [Improving the Variance of Differentially Private Randomized Experiments through Clustering](improving_the_variance_of_differentially_private_randomized_experiments_through_.md)
-- [An Efficient Private GPT Never Autoregressively Decodes](an_efficient_private_gpt_never_autoregressively_decodes.md)
+- [FedSVD: Adaptive Orthogonalization for Private Federated Learning with LoRA](../../NeurIPS2025/ai_safety/fedsvd_adaptive_orthogonalization_for_private_federated_learning_with_lora.md)
 
 <!-- RELATED:END -->

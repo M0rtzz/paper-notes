@@ -124,9 +124,9 @@ ESG-Bench 构建：94 份真实 ESG 报告 → GPT-4o 生成问题 → 人工标
 ## 相关论文
 
 - [Is In-Context Learning Learning?](../../ICLR2026/llm_reasoning/is_in-context_learning_learning.md)
-- [Understanding the Role of Hallucination in Reinforcement Post-Training of Multimodal Reasoning Models](../../CVPR2026/llm_reasoning/understanding_the_role_of_hallucination_in_reinforcement_post-training_of_multim.md)
+- [Generating Effective CoT Traces for Mitigating Causal Hallucination](../../ACL2026/llm_reasoning/generating_effective_cot_traces_for_mitigating_causal_hallucination.md)
 - [TopoBench: Benchmarking LLMs on Hard Topological Reasoning](../../ICLR2026/llm_reasoning/topobench_benchmarking_llms_on_hard_topological_reasoning.md)
+- [Understanding the Role of Hallucination in Reinforcement Post-Training of Multimodal Reasoning Models](../../CVPR2026/llm_reasoning/understanding_the_role_of_hallucination_in_reinforcement_post-training_of_multim.md)
 - [GeoGramBench: Benchmarking the Geometric Program Reasoning in Modern LLMs](../../ICLR2026/llm_reasoning/geogrambench_benchmarking_the_geometric_program_reasoning_in_modern_llms.md)
-- [Segment-Level Attribution for Selective Learning of Long Reasoning Traces](../../ICLR2026/llm_reasoning/segment-level_attribution_for_selective_learning_of_long_reasoning_traces.md)
 
 <!-- RELATED:END -->

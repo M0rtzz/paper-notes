@@ -124,6 +124,6 @@ PPO + 回溯奖励塑形。回溯奖励：$r_{bt} = -\alpha \cdot (t_{current} -
 - [Steering When Necessary: Flexible Steering Large Language Models with Backtracking](steering_when_necessary_flexible_steering_large_language_models_with_backtrackin.md)
 - [ExpertAF: Expert Actionable Feedback from Video](../../CVPR2025/video_understanding/expertaf_expert_actionable_feedback_from_video.md)
 - [Learning to Assist: Physics-Grounded Human-Human Control via Multi-Agent Reinforcement Learning](../../CVPR2026/video_understanding/learning_to_assist_physics-grounded_human-human_control_via_multi-agent_reinforc.md)
-- [TempSamp-R1: Effective Temporal Sampling with Reinforcement Fine-Tuning for Video LLMs](tempsampr1_effective_temporal_sampling_with_reinforcement_fi.md)
+- [TempSamp-R1: Effective Temporal Sampling with Reinforcement Fine-Tuning for Video LLMs](tempsamp_r1_temporal_grounding.md)
 
 <!-- RELATED:END -->

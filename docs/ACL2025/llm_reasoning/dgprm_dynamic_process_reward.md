@@ -117,10 +117,10 @@ $$\mathcal{L}_{\text{DG-PRM}}(\theta) = -\mathbb{E}_{(\hat{y}_+^{(t)}, \hat{y}_-
 
 ## 相关论文
 
-- [Unlocking Multimodal Mathematical Reasoning via Process Reward Model](../../NeurIPS2025/llm_reasoning/unlocking_multimodal_mathematical_reasoning_via_process_reward_model.md)
+- [Efficient Process Reward Modeling via Contrastive Mutual Information](../../ACL2026/llm_reasoning/efficient_process_reward_modeling_via_contrastive_mutual_information.md)
 - [An Efficient and Precise Training Data Construction Framework for Process-Supervised Reward Model in Mathematical Reasoning](an_efficient_and_precise_training_data_construction_framework_for_process-superv.md)
+- [Unlocking Multimodal Mathematical Reasoning via Process Reward Model](../../NeurIPS2025/llm_reasoning/unlocking_multimodal_mathematical_reasoning_via_process_reward_model.md)
+- [EpicPRM: An Efficient and Precise Training Data Construction Framework for Process-supervised Reward Model in Mathematical Reasoning](epicprm-efficient-precise-training-data-for-process-reward-model.md)
 - [Revisiting Self-Consistency from Dynamic Distributional Alignment Perspective on Answer Aggregation](revisiting_self-consistency_from_dynamic_distributional_alignment_perspective_on.md)
-- [DreamPRM: Domain-Reweighted Process Reward Model for Multimodal Reasoning](../../NeurIPS2025/llm_reasoning/dreamprm_domain-reweighted_process_reward_model_for_multimodal_reasoning.md)
-- [Fixing the Broken Compass: Diagnosing and Improving Inference-Time Reward Modeling](../../ICLR2026/llm_reasoning/fixing_the_broken_compass_diagnosing_and_improving_inference-time_reward_modelin.md)
 
 <!-- RELATED:END -->

@@ -128,10 +128,10 @@ LocFT-BF = 标准广度优先 mini-batch 训练 + 局部化参数更新（仅调
 
 ## 相关论文
 
+- [FABLE: Fine-grained Fact Anchoring for Unstructured Model Editing](../../ACL2026/knowledge_editing/fable_fine-grained_fact_anchoring_for_unstructured_model_editing.md)
 - [Energy-Regularized Sequential Model Editing on Hyperspheres](energy-regularized_sequential_model_editing_on_hyperspheres.md)
 - [EAMET: Robust Massive Model Editing via Embedding Alignment Optimization](eamet_robust_massive_model_editing_via_embedding_alignment_optimization.md)
 - [Bilinear Representation Mitigates Reversal Curse and Enables Consistent Model Editing](bilinear_representation_mitigates_reversal_curse_and_enables_consistent_model_ed.md)
 - [GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing](got-edit_geometry-aware_generic_object_tracking_via_online_model_editing.md)
-- [DocMEdit: Towards Document-Level Model Editing](../../ACL2025/knowledge_editing/docmedit_towards_document-level_model_editing.md)
 
 <!-- RELATED:END -->

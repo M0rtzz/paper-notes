@@ -130,8 +130,8 @@ RingID 基于 Tree-Ring 但做了系统性增强。整体流程：在 StableDiff
 
 - [Robust-Wide: Robust Watermarking against Instruction-driven Image Editing](robust-wide_robust_watermarking_against_instruction-driven_image_editing.md)
 - [M2D2M: Multi-Motion Generation from Text with Discrete Diffusion Models](m2d2m_multi-motion_generation_from_text_with_discrete_diffusion_models.md)
-- [Tree-Guided Diffusion Planner](../../NeurIPS2025/image_generation/tree-guided_diffusion_planner.md)
+- [AFMRL: Attribute-Enhanced Fine-Grained Multi-Modal Representation Learning in E-commerce](../../ACL2026/image_generation/afmrl_attribute-enhanced_fine-grained_multi-modal_representation_learning_in_e-c.md)
 - [OMG: Occlusion-friendly Personalized Multi-concept Generation in Diffusion Models](omg_occlusion-friendly_personalized_multi-concept_generation_in_diffusion_models.md)
-- [A Closer Look at GAN Priors: Exploiting Intermediate Features for Enhanced Model Inversion Attacks](a_closer_look_at_gan_priors_exploiting_intermediate_features.md)
+- [Tree-Guided Diffusion Planner](../../NeurIPS2025/image_generation/tree-guided_diffusion_planner.md)
 
 <!-- RELATED:END -->

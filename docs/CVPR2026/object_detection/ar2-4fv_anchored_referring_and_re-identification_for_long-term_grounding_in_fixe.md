@@ -191,8 +191,8 @@ mAP +6.7%，mIoU +4.2%，在高 IoU 阈值（P@0.8, P@0.9）下优势更明显�
 
 - [SDF-Net: Structure-Aware Disentangled Feature Learning for Optical–SAR Ship Re-Identification](sdf-net_structure-aware_disentangled_feature_learning_for_opticall-sar_ship_re-i.md)
 - [GeoBridge: A Semantic-Anchored Multi-View Foundation Model for Geo-Localization](geobridge_semantic-anchored_multi-view_foundation_model_for_geo-localization.md)
+- [HiGMem: A Hierarchical and LLM-Guided Memory System for Long-Term Conversational Agents](../../ACL2026/object_detection/higmem_a_hierarchical_and_llm-guided_memory_system_for_long-term_conversational_.md)
 - [Fixed Anchors Are Not Enough: Dynamic Retrieval and Persistent Homology for Dataset Distillation](fixed_anchors_are_not_enough_dynamic_retrieval_and_persistent_homology_for_datas.md)
 - [Robust Long-term Test-Time Adaptation for 3D Human Pose Estimation through Motion Discretization](../../AAAI2026/object_detection/robust_long-term_test-time_adaptation_for_3d_human_pose_estimation_through_motio.md)
-- [Show, Don't Tell: Detecting Novel Objects by Watching Human Videos](show_dont_tell_detecting_novel_objects_by_watching.md)
 
 <!-- RELATED:END -->

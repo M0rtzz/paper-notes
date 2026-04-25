@@ -117,8 +117,8 @@ AgentMath-30B-A3B（仅3B激活参数）在AIME24/25上超越OpenAI-o3-mini (87.
 
 - [SealQA: Raising the Bar for Reasoning in Search-Augmented Language Models](sealqa_raising_the_bar_for_reasoning_in_search-augmented_language_models.md)
 - [Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models](../../ACL2025/llm_reasoning/chain-of-reasoning_towards_unified_mathematical_reasoning_in_large_language_mode.md)
+- [ReCoQA: A Benchmark for Tool-Augmented and Multi-Step Reasoning in Real Estate Question and Answering](../../ACL2026/llm_reasoning/recoqa_a_benchmark_for_tool-augmented_and_multi-step_reasoning_in_real_estate_qu.md)
 - [Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models via a Multi-Paradigm Perspective](../../ACL2025/llm_reasoning/chain_of_reasoning_unified_math.md)
 - [Safe: Enhancing Mathematical Reasoning in Large Language Models via Retrospective Step-aware Formal Verification](../../ACL2025/llm_reasoning/safe_math_reasoning.md)
-- [Conflict-Aware Fusion: Resolving Logic Inertia in Large Language Models via Structured Cognitive Priors](conflict-aware_fusion_resolving_logic_inertia_in_large_language_models_via_struc.md)
 
 <!-- RELATED:END -->

@@ -137,6 +137,6 @@ MM-Vet 通用能力：
 - [Fair Lung Disease Diagnosis from Chest CT via Gender-Adversarial Attention Multiple Instance Learning](fair_lung_disease_diagnosis_from_chest_ct_via_gender-adversarial_attention_multi.md)
 - [Towards Interpretable Visual Decoding with Attention to Brain Representations](../../ICLR2026/medical_imaging/towards_interpretable_visual_decoding_with_attention_to_brain_representations.md)
 - [CountVid: Open-World Object Counting in Videos](../../AAAI2026/medical_imaging/open-world_object_counting_in_videos.md)
-- [Small but Mighty: Dynamic Wavelet Expert-Guided Fine-Tuning of Large-Scale Models for Optical Remote Sensing Object Segmentation](../../AAAI2026/medical_imaging/small_but_mighty_dynamic_wavelet_expert-guided_fine-tuning_of_large-scale_models.md)
+- [Detecting Hallucinations in SpeechLLMs at Inference Time Using Attention Maps](../../ACL2026/medical_imaging/detecting_hallucinations_in_speechllms_at_inference_time_using_attention_maps.md)
 
 <!-- RELATED:END -->

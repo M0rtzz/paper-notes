@@ -129,10 +129,10 @@ Slimmable 模型在全宽度下仅比专用模型略差（~14%），但获得了
 
 ## 相关论文
 
+- [Analyzing and Mitigating Inconsistency in Discrete Audio Tokens for Neural Codec Language Models](../../ACL2025/audio_speech/audio_token_consistency.md)
 - [Sound Logical Explanations for Mean Aggregation Graph Neural Networks](sound_logical_explanations_for_mean_aggregation_graph_neural_networks.md)
-- [Towards Lossless Implicit Neural Representation via Bit Plane Decomposition](../../CVPR2025/audio_speech/towards_lossless_implicit_neural_representation_via_bit_plane_decomposition.md)
 - [Mixed Monotonicity Reachability Analysis of Neural ODE: A Trade-Off Between Tightness and Efficiency](mixed_monotonicity_reachability_analysis_of_neural_ode_a_trade-off_between_tight.md)
+- [Towards Lossless Implicit Neural Representation via Bit Plane Decomposition](../../CVPR2025/audio_speech/towards_lossless_implicit_neural_representation_via_bit_plane_decomposition.md)
 - [Toward Complex-Valued Neural Networks for Waveform Generation](../../ICLR2026/audio_speech/toward_complex-valued_neural_networks_for_waveform_generation.md)
-- [FlexiCodec: A Dynamic Neural Audio Codec for Low Frame Rates](../../ICLR2026/audio_speech/flexicodec_a_dynamic_neural_audio_codec_for_low_frame_rates.md)
 
 <!-- RELATED:END -->

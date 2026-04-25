@@ -122,6 +122,6 @@ $\mathcal{L} = \mathcal{L}_{pixel} + \lambda \mathcal{L}_{aux}$，像素损失 +
 - [Devil is in the Uniformity: Exploring Diverse Learners within Transformer for Image Restoration](../../ICCV2025/image_restoration/devil_is_in_the_uniformity_exploring_diverse_learners_within_transformer_for_ima.md)
 - [MoE-DiffIR: Task-customized Diffusion Priors for Universal Compressed Image Restoration](../../ECCV2024/image_restoration/moe-diffir_task-customized_diffusion_priors_for_universal_compressed_image_resto.md)
 - [DarkIR: Robust Low-Light Image Restoration](darkir_robust_low-light_image_restoration.md)
-- [Degradation-Aware Feature Perturbation for All-in-One Image Restoration](degradation-aware_feature_perturbation_for_all-in-one_image_restoration.md)
+- [DPIR: Dual Prompting Image Restoration with Diffusion Transformers](dpir_dual_prompting_restoration_dit.md)
 
 <!-- RELATED:END -->

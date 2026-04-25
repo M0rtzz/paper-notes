@@ -170,10 +170,10 @@ $$
 
 ## 相关论文
 
-- [Circuit Compositions: Exploring Modular Structures in Transformer-Based Language Models](../../ACL2025/llm_nlp/circuit_compositions_modular_structures.md)
-- [Automated CAD Modeling Sequence Generation from Text Descriptions via Transformer-Based Large Language Models](../../ACL2025/llm_nlp/cadllm_cad_modeling_from_text.md)
-- [A Modular Dataset to Demonstrate LLM Abstraction Capability](../../ACL2025/llm_nlp/a_modular_dataset_to_demonstrate_llm_abstraction_capability.md)
-- [TransMamba: A Sequence-Level Hybrid Transformer-Mamba Language Model](../../AAAI2026/llm_nlp/transmamba_a_sequence-level_hybrid_transformer-mamba_language_model.md)
+- [Trapped by simplicity: When Transformers fail to learn from noisy features](trapped_by_simplicity_when_transformers_fail_to_learn_from_noisy_features.md)
 - [ELLMob: Event-Driven Human Mobility Generation with Self-Aligned LLM Framework](ellmob_event-driven_human_mobility_generation_with_self-aligned_llm_framework.md)
+- [DreamOn: Diffusion Language Models For Code Infilling Beyond Fixed-size Canvas](dreamon_diffusion_language_models_for_code_infilling_beyond_fixed-size_canvas.md)
+- [Enhancing Persona Following at Decoding Time via Dynamic Importance Estimation for Role-Playing Agents](enhancing_persona_following_at_decoding_time_via_dynamic_importance_estimation_.md)
+- [Near-Optimal Online Deployment and Routing for Streaming LLMs](near-optimal_online_deployment_and_routing_for_streaming_llms.md)
 
 <!-- RELATED:END -->

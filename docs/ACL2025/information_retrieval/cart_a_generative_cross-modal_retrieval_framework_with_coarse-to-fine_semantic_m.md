@@ -179,7 +179,7 @@ CART 大幅超越 GRACE（使用预定义标识符），在 Flickr30K R@1 上 81
 - [NeighborRetr: Balancing Hub Centrality in Cross-Modal Retrieval](../../CVPR2025/information_retrieval/neighborretr_balancing_hub_centrality_in_cross-modal_retrieval.md)
 - [Maximal Matching Matters: Preventing Representation Collapse for Robust Cross-Modal Retrieval](maximal_matching_matters_preventing_representation_collapse_for_robust_cross-mod.md)
 - [GENIUS: A Generative Framework for Universal Multimodal Search](../../CVPR2025/information_retrieval/genius_a_generative_framework_for_universal_multimodal_search.md)
-- [On Synthetic Data Strategies for Domain-Specific Generative Retrieval](on_synthetic_data_strategies_for_domain-specific_generative_retrieval.md)
 - [Neighbor-aware Instance Refining with Noisy Labels for Cross-Modal Retrieval](../../AAAI2026/information_retrieval/neighbor-aware_instance_refining_with_noisy_labels_for_cross-modal_retrieval.md)
+- [On Synthetic Data Strategies for Domain-Specific Generative Retrieval](on_synthetic_data_strategies_for_domain-specific_generative_retrieval.md)
 
 <!-- RELATED:END -->

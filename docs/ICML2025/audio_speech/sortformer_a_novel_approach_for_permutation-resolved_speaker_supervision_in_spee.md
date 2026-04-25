@@ -186,6 +186,6 @@ $$\tilde{\mathbf{A}} = \frac{\mathbf{A}}{\|\mathbf{A}\|_2} + \mathbf{\Gamma}^T \
 - [Different Speech Translation Models Encode and Translate Speaker Gender Differently](../../ACL2025/audio_speech/different_speech_translation_models_encode_and_translate_speaker_gender_differen.md)
 - [Latent Speech-Text Transformer](../../ICLR2026/audio_speech/latent_speech_text_transformer.md)
 - [SpeechWeave: Diverse Multilingual Synthetic Text & Audio Data Generation Pipeline for Training Text to Speech Models](../../ACL2025/audio_speech/speechweave_diverse_multilingual_synthetic_text_audio_data_generation_pipeline_f.md)
-- [Spark-TTS: An Efficient LLM-Based Text-to-Speech Model with Single-Stream Decoupled Speech Tokens](../../ACL2025/audio_speech/spark-tts_an_efficient_llm-based_text-to-speech_model_with_single-stream_decoupl.md)
+- [SAND-Math: Using LLMs to Generate Novel, Difficult and Useful Mathematics Questions and Answers](../../NeurIPS2025/audio_speech/sand-math_using_llms_to_generate_novel_difficult_and_useful_mathematics_question.md)
 
 <!-- RELATED:END -->

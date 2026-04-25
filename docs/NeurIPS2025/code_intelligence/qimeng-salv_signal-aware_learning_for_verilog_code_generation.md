@@ -133,6 +133,6 @@ $$\mathcal{L}(\pi_\theta;\pi_{\text{ref}}) = -\mathbb{E}\left[\log\sigma\left(\b
 - [EffiCoder: Enhancing Code Generation in Large Language Models through Efficiency-Aware Fine-tuning](../../ICML2025/code_intelligence/efficoder_enhancing_code_generation_in_large_language_models_through_efficiency-.md)
 - [Co-Evolving LLM Coder and Unit Tester via Reinforcement Learning](co-evolving_llm_coder_and_unit_tester_via_reinforcement_learning.md)
 - [ReflectionCoder: Learning from Reflection Sequence for Enhanced One-off Code Generation](../../ACL2025/code_intelligence/reflectioncoder_learning_from_reflection_sequence_for_enhanced_one-off_code_gene.md)
-- [Embedding Alignment in Code Generation for Audio](embedding_alignment_in_code_generation_for_audio.md)
+- [Learning to Solve Complex Problems via Dataset Decomposition](learning_to_solve_complex_problems_via_dataset_decomposition.md)
 
 <!-- RELATED:END -->

@@ -120,7 +120,7 @@ Sa2VA★ 微调版本采用 LoRA 微调视觉编码器，在 MoCentric-Bench 合
 ## 相关论文
 
 - [MUVR: A Multi-Modal Untrimmed Video Retrieval Benchmark with Multi-Level Visual Correspondence](muvr_a_multi-modal_untrimmed_video_retrieval_benchmark_with_multi-level_visual_c.md)
-- [AIM: Adaptive Inference of Multi-Modal LLMs via Token Merging and Pruning](../../ICCV2025/video_understanding/aim_adaptive_inference_of_multi-modal_llms_via_token_merging_and_pruning.md)
+- [AIM: Adaptive Inference of Multi-Modal LLMs via Token Merging and Pruning](../../ICCV2025/video_understanding/aim_adaptive_inference_multimodal_llms_token_merging_pruning.md)
 - [Ego4o: Egocentric Human Motion Capture and Understanding from Multi-Modal Input](../../CVPR2025/video_understanding/ego4o_egocentric_human_motion_capture_and_understanding_from_multi-modal_input.md)
 - [DynImg: Key Frames with Visual Prompts are Good Representation for Multi-Modal Video Understanding](../../ICCV2025/video_understanding/dynimg_key_frames_with_visual_prompts_are_good_representation_for_multi-modal_vi.md)
 - [OVG-HQ: Online Video Grounding with Hybrid-modal Queries](../../ICCV2025/video_understanding/ovg-hq_online_video_grounding_with_hybrid-modal_queries.md)

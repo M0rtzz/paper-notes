@@ -164,10 +164,10 @@ FLoReNce（Feedback-Loop Reasoner with Non-parametric Experience）由两个阶�
 
 ## 相关论文
 
+- [Agentic Conversational Search with Contextualized Reasoning via Reinforcement Learning](../../ACL2026/human_understanding/agentic_conversational_search_with_contextualized_reasoning_via_reinforcement_le.md)
 - [Tool4POI: A Tool-Augmented LLM Framework for Next POI Recommendation](tool4poi_a_tool-augmented_llm_framework_for_next_poi_recommendation.md)
 - [Why Do Open-Source LLMs Struggle with Data Analysis? A Systematic Empirical Study](why_do_open-source_llms_struggle_with_data_analysis_a_systematic_empirical_study.md)
 - [Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis](facial-r1_aligning_reasoning_and_recognition_for_facial_emotion_analysis.md)
 - [Small Language Models for Efficient Agentic Tool Calling: Outperforming Large Models with Targeted Fine-tuning](small_language_models_for_efficient_agentic_tool_calling_outperforming_large_mod.md)
-- [TimeOmni-1: Incentivizing Complex Reasoning with Time Series in Large Language Models](../../ICLR2026/human_understanding/timeomni-1_incentivizing_complex_reasoning_with_time_series_in_large_language_mo.md)
 
 <!-- RELATED:END -->

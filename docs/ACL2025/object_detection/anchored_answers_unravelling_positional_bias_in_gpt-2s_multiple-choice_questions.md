@@ -120,6 +120,6 @@ MLP值向量更新后的MCQ准确率（%）：
 - [Multiple Object Tracking as ID Prediction](../../CVPR2025/object_detection/multiple_object_tracking_as_id_prediction.md)
 - [Why Safeguarded Ships Run Aground? Aligned Large Language Models' Safety Mechanisms Tend to Be Anchored in The Template Region](why_safeguarded_ships_run_aground_aligned_large_language_models_safety_mechanism.md)
 - [A Bias-Free Training Paradigm for More General AI-generated Image Detection](../../CVPR2025/object_detection/a_bias-free_training_paradigm_for_more_general_ai-generated_image_detection.md)
-- [Advancing Textual Prompt Learning with Anchored Attributes](../../ICCV2025/object_detection/advancing_textual_prompt_learning_with_anchored_attributes.md)
+- [Rectify the Regression Bias in Long-Tailed Object Detection](../../ECCV2024/object_detection/rectify_the_regression_bias_in_long-tailed_object_detection.md)
 
 <!-- RELATED:END -->

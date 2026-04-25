@@ -166,6 +166,6 @@ GLIP 和 SAM 均冻结，仅训练权重预测网络（per category，few-shot 8
 - [PartField: Learning 3D Feature Fields for Part Segmentation and Beyond](../../ICCV2025/segmentation/partfield_learning_3d_feature_fields_for_part_segmentation_and_beyond.md)
 - [InstructPart: Task-Oriented Part Segmentation with Instruction Reasoning](../../ACL2025/segmentation/instructpart_task-oriented_part_segmentation_with_instruction_reasoning.md)
 - [Leveraging 3D Geometric Priors in 2D Rotation Symmetry Detection](../../CVPR2025/segmentation/leveraging_3d_geometric_priors_in_2d_rotation_symmetry_detection.md)
-- [OLAF: A Plug-and-Play Framework for Enhanced Multi-object Multi-part Scene Parsing](olaf_a_plug-and-play_framework_for_enhanced_multi-object_multi-part_scene_parsin.md)
+- [LASS3D: Language-Assisted Semi-Supervised 3D Semantic Segmentation with Progressive Unreliable Data Exploitation](lass3d_language-assisted_semi-supervised_3d_semantic_segmentation_with_progressi.md)
 
 <!-- RELATED:END -->

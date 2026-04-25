@@ -135,6 +135,6 @@ tags:
 - [Exploring LLMs for Scientific Information Extraction using the SciEx Framework](exploring_llms_for_scientific_information_extraction_using_the_sciex_framework.md)
 - [Conditional Information Bottleneck for Multimodal Fusion: Overcoming Shortcut Learning in Sarcasm Detection](conditional_information_bottleneck_for_multimodal_fusion_overcoming_shortcut_lea.md)
 - [Evading Data Provenance in Deep Neural Networks](../../ICCV2025/multimodal_vlm/evading_data_provenance_in_deep_neural_networks.md)
-- [LiveWeb-IE: A Benchmark For Online Web Information Extraction](../../ICLR2026/multimodal_vlm/liveweb-ie_a_benchmark_for_online_web_information_extraction.md)
+- [Multimodal Bandits: Regret Lower Bounds and Optimal Algorithms](../../NeurIPS2025/multimodal_vlm/multimodal_bandits_regret_lower_bounds_and_optimal_algorithms.md)
 
 <!-- RELATED:END -->

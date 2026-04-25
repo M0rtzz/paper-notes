@@ -127,9 +127,9 @@ Agentic Predictor 包含三个阶段：(a) 多视图工作流编码器将 Agent 
 ## 相关论文
 
 - [Incentivizing Agentic Reasoning in LLM Judges via Tool-Integrated Reinforcement Learning](incentivizing_agentic_reasoning_in_llm_judges_via_tool-integrated_reinforcement_.md)
+- [Supplement Generation Training for Enhancing Agentic Task Performance](../../ACL2026/model_compression/supplement_generation_training_for_enhancing_agentic_task_performance.md)
 - [Parallel Token Prediction for Language Models](parallel_token_prediction_for_language_models.md)
 - [A Fano-Style Accuracy Upper Bound for LLM Single-Pass Reasoning in Multi-Hop QA](a_fano-style_accuracy_upper_bound_for_llm_single-pass_reasoning_in_multi-hop_qa.md)
 - [Parallax to Align Them All: An OmniParallax Attention Mechanism for Distributed Multi-View Image Compression](../../CVPR2026/model_compression/parallax_to_align_them_all_an_omniparallax_attention_mechanism_for_distributed_m.md)
-- [MuTri: Multi-view Tri-alignment for OCT to OCTA 3D Image Translation](../../CVPR2025/model_compression/mutri_multi-view_tri-alignment_for_oct_to_octa_3d_image_translation.md)
 
 <!-- RELATED:END -->

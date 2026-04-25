@@ -128,6 +128,6 @@ DoPL 在六个视觉识别基准上均超越了此前最好的参数高效微调
 - [Quantized Prompt for Efficient Generalization of Vision-Language Models](../../ECCV2024/multimodal_vlm/quantized_prompt_for_efficient_generalization_of_vision-language_models.md)
 - [FairLLaVA: Fairness-Aware Parameter-Efficient Fine-Tuning for Large Vision-Language Models](../../CVPR2026/multimodal_vlm/fairllava_fairness-aware_parameter-efficient_fine-tuning_for_large_vision-langua.md)
 - [NLPrompt: Noise-Label Prompt Learning for Vision-Language Models](../../CVPR2025/multimodal_vlm/nlprompt_noise-label_prompt_learning_for_vision-language_models.md)
-- [FLAIR: VLM with Fine-grained Language-informed Image Representations](../../CVPR2025/multimodal_vlm/flair_vlm_with_fine-grained_language-informed_image_representations.md)
+- [VaMP: Variational Multi-Modal Prompt Learning for Vision-Language Models](../../NeurIPS2025/multimodal_vlm/vamp_variational_multi-modal_prompt_learning_for_vision-language_models.md)
 
 <!-- RELATED:END -->

@@ -160,8 +160,8 @@ $e_T = 0.1$ 表示数据量增加1%时，最优帧数增加0.1%。使用前向�
 
 - [Learning Optimal Multimodal Information Bottleneck Representations](../../ICML2025/multimodal_vlm/learning_optimal_multimodal_information_bottleneck_representations.md)
 - [Video-XL: Extra-Long Vision Language Model for Hour-Scale Video Understanding](../../CVPR2025/multimodal_vlm/video-xl_extra-long_vision_language_model_for_hour-scale_video_understanding.md)
-- [TAPT: Test-Time Adversarial Prompt Tuning for Robust Inference in Vision-Language Models](../../CVPR2025/multimodal_vlm/tapt_test-time_adversarial_prompt_tuning_for_robust_inference_in_vision-language.md)
 - [Multimodal Bandits: Regret Lower Bounds and Optimal Algorithms](../../NeurIPS2025/multimodal_vlm/multimodal_bandits_regret_lower_bounds_and_optimal_algorithms.md)
 - [GODBench: A Benchmark for Multimodal Large Language Models in Video Comment Art](godbench_a_benchmark_for_multimodal_large_language_models_in_video_comment_art.md)
+- [TAPT: Test-Time Adversarial Prompt Tuning for Robust Inference in Vision-Language Models](../../CVPR2025/multimodal_vlm/tapt_test-time_adversarial_prompt_tuning_for_robust_inference_in_vision-language.md)
 
 <!-- RELATED:END -->

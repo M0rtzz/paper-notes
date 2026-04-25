@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 自动驾驶方向 98篇论文解读
+  ICCV2025 自动驾驶方向 100篇论文解读
 description: >-
-  98篇ICCV2025 自动驾驶论文解读，主题涵盖：提出PGA，首个基于3DGS的物理对抗攻击框架、提出首个基于3D高斯体（3DGS）的物理对抗攻击框、本文提出首个大规模真实3D车辆数据集3DRealC等，每篇含核心思想与方法详解。
+  100篇ICCV2025 自动驾驶论文解读，主题涵盖：提出PGA，首个基于3DGS的物理对抗攻击框架、提出首个基于3D高斯体（3DGS）的物理对抗攻击框、本文提出首个大规模真实3D车辆数据集3DRealC等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**📹 ICCV2025** · **98** 篇论文解读
+**📹 ICCV2025** · **100** 篇论文解读
 
 **[3D Gaussian Splatting Driven Multi-View Robust Physical Adversarial Camouflage Generation](3d_gaussian_splatting_driven_multi-view_robust_physical_adversarial_camouflage_g.md)**
 
@@ -56,11 +56,15 @@ description: >-
 
 **[ACAM-KD: Adaptive and Cooperative Attention Masking for Knowledge Distillation](acam_kd_adaptive_cooperative_attention_masking_knowledge_distillation.md)**
 
-:   提出 ACAM-KD，通过学生-教师交叉注意力特征融合(STCA-FF)和自适应空间-通道遮蔽(ASCM)两个模块，实现知识蒸馏中特征选择随学生学习状态动态演化，在COCO检测任务上以ResNet-50学生从ResNet-101教师蒸馏时mAP提升1.4超越SOTA。
+:   提出 ACAM-KD，通过学生-教师交叉注意力特征融合（STCA-FF）和自适应空间-通道遮蔽（ASCM）两个模块，使知识蒸馏中的特征选择能随学生学习状态动态演化，在 COCO 检测上 RetinaNet R50 从 R101 蒸馏时 mAP 达 41.2（+1.4 超越 SOTA），Cityscapes 分割上 DeepLabV3-MBV2 mIoU 提升 3.09。
 
 **[AD-GS: Object-Aware B-Spline Gaussian Splatting for Self-Supervised Autonomous Driving](ad-gs_object-aware_b-spline_gaussian_splatting_for_self-supervised_autonomous_dr.md)**
 
 :   本文提出 AD-GS，一种基于 3D Gaussian Splatting 的自监督自动驾驶场景渲染框架，核心创新是将可学习 B-spline 曲线与三角函数结合进行局部-全局运动建模，并通过简化的二值伪分割实现鲁棒的场景分解，在不依赖人工 3D 标注的条件下大幅超越现有自监督方法。
+
+**[AD-GS: Object-Aware B-Spline Gaussian Splatting for Self-Supervised Autonomous Driving](ad_gs_object_aware_bspline_gaussian_splatting_self_supervised_autonomous_driving.md)**
+
+:   本文提出 AD-GS，一种自监督的自动驾驶场景渲染框架，通过结合局部感知的可学习 B 样条曲线和全局感知的三角函数来建模动态物体运动，并利用简化的伪 2D 分割进行场景分解，在不依赖人工 3D 标注的情况下显著超越现有自监督方法，接近有标注方法的性能。
 
 **[AdaDrive: Self-Adaptive Slow-Fast System for Language-Grounded Autonomous Driving](adadrive_self-adaptive_slow-fast_system_for_language-grounded_autonomous_driving.md)**
 
@@ -297,6 +301,10 @@ description: >-
 **[RESCUE: Crowd Evacuation Simulation via Controlling SDM-United Characters](rescue_crowd_evacuation_simulation_via_controlling_sdm-united_characters.md)**
 
 :   提出首个在线 SDM（感知-决策-运动）统一 3D 疏散仿真框架 RESCUE，集成 3D 自适应社会力模型和个性化步态控制器，实现数百智能体的实时个性化疏散模拟。
+
+**[Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations](resonance_learning_to_predict_social-aware_pedestrian_trajectories_as_co-vibrati.md)**
+
+:   本文提出 Resonance (Re) 模型，将行人轨迹预测分解为多个"振动"的叠加——线性基底、自偏置（self-bias）和共振偏置（resonance-bias），利用轨迹频谱的相似性模拟社会交互中的"共振"现象，在 ETH-UCY、SDD、NBA、nuScenes 等数据集上验证了方法的有效性。
 
 **[Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations](resonance_learning_to_predict_social_aware_pedestrian_trajectories_as_co_vibrations.md)**
 

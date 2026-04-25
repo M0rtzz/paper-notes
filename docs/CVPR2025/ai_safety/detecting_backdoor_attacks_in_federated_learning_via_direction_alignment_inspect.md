@@ -142,6 +142,6 @@ AlignIns 在 cross-device（大规模客户端）设置下同样有效。
 - [Infighting in the Dark: Multi-Label Backdoor Attack in Federated Learning](infighting_in_the_dark_multi-label_backdoor_attack_in_federated_learning.md)
 - [ICLShield: Exploring and Mitigating In-Context Learning Backdoor Attacks](../../ICML2025/ai_safety/iclshield_exploring_and_mitigating_in-context_learning_backdoor_attacks.md)
 - [Adversarial Inception Backdoor Attacks against Reinforcement Learning](../../ICML2025/ai_safety/adversarial_inception_backdoor_attacks_against_reinforcement_learning.md)
-- [DeDe: Detecting Backdoor Samples for SSL Encoders via Decoders](dede_detecting_backdoor_samples_for_ssl_encoders_via_decoders.md)
+- [MARS: A Malignity-Aware Backdoor Defense in Federated Learning](../../NeurIPS2025/ai_safety/mars_a_malignity-aware_backdoor_defense_in_federated_learning.md)
 
 <!-- RELATED:END -->

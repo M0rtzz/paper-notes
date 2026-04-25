@@ -187,6 +187,6 @@ MOSA 对通用能力的影响极小，与原始模型基本持平。
 - [Language Model Distillation: A Temporal Difference Imitation Learning Perspective](language_model_distillation_a_temporal_difference_imitation_learning_perspective.md)
 - [Where and What Matters: Sensitivity-Aware Task Vectors for Many-Shot Multimodal In-Context Learning](where_and_what_matters_sensitivity-aware_task_vectors_for_many-shot_multimodal_i.md)
 - [Teaching Language Models to Evolve with Users: Dynamic Profile Modeling for Personalized Alignment](../../NeurIPS2025/reinforcement_learning/teaching_language_models_to_evolve_with_users_dynamic_profile_modeling_for_perso.md)
-- [GraphOmni: A Comprehensive and Extensible Benchmark Framework for Large Language Models on Graph-theoretic Tasks](../../ICLR2026/reinforcement_learning/graphomni_a_comprehensive_and_extensible_benchmark_framework_for_large_language_.md)
+- [A Survey of Reinforcement Learning for Large Language Models under Data Scarcity: Challenges and Solutions](../../ACL2026/reinforcement_learning/a_survey_of_reinforcement_learning_for_large_language_models_under_data_scarcity.md)
 
 <!-- RELATED:END -->

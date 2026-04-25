@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 视频理解方向 63篇论文解读
+  NeurIPS2025 视频理解方向 66篇论文解读
 description: >-
-  63篇NeurIPS2025 视频理解论文解读，主题涵盖：本文证明了将 Transformer、提出 AdaVideoRAG，通过轻量级意图分类器、ALMI提出上下半身对抗训练框架：下半身策略在上半等，每篇含核心思想与方法详解。
+  66篇NeurIPS2025 视频理解论文解读，主题涵盖：本文证明了将 Transformer、提出 AdaVideoRAG，通过轻量级意图分类器、ALMI提出上下半身对抗训练框架：下半身策略在上半等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🧠 NeurIPS2025** · **63** 篇论文解读
+**🧠 NeurIPS2025** · **66** 篇论文解读
 
 **[A Little Depth Goes a Long Way: The Expressive Power of Log-Depth Transformers](a_little_depth_goes_a_long_way_the_expressive_power_of_logde.md)**
 
@@ -57,6 +57,10 @@ description: >-
 **[DSAS: A Universal Plug-and-Play Framework for Attention Optimization in Multi-Document Question Answering](dsas_a_universal_plug-and-play_framework_for_attention_optimization_in_multi-doc.md)**
 
 :   提出Dual-Stage Adaptive Sharpening (DSAS)，一个无需训练的即插即用注意力优化框架，通过Contextual Gate Weighting (CGW)增强关键段落对问题和目标位置的注意力、通过Reciprocal Attention Suppression (RAS)抑制关键与无关段落间的信息交换，在多文档QA上平均F1提升达4.2%。
+
+**[DualGround: Structured Phrase and Sentence-Level Temporal Grounding](dualground_phrase_temporal.md)**
+
+:   本文发现现有视频时间定位模型过度依赖 [EOS] token 的全局句子语义而忽略词级信号，提出 DualGround 双分支架构，通过句子级路径（自适应交叉注意力）和短语级路径（循环短语生成+Slot Attention）显式分离全局和局部语义，在 QVHighlights 和 Charades-STA 上实现 SOTA。
 
 **[egoEMOTION: Egocentric Vision and Physiological Signals for Emotion and Personality Recognition in Real-World Tasks](egoemotion_egocentric_vision_and_physiological_signals_for_emotion_and_personali.md)**
 
@@ -190,6 +194,10 @@ description: >-
 
 :   发布首个同步多模态野生动物监测数据集SmartWilds，整合无人机影像、相机陷阱和生物声学三种模态共101GB数据，通过GPS/时间戳实现跨模态对齐，建立可重复的保护监测标准协议，填补综合性生态系统多传感器融合数据集的空白。
 
+**[Tool-Augmented Spatiotemporal Reasoning for Streamlining Video Question Answering Task](star_tool_video_qa.md)**
+
+:   本文提出 STAR 框架，通过构建包含 22 个工具的视频分析工具箱，让 LLM 交替调用时间和空间工具渐进式定位视频中的 3D 关注区域（3D RoI），在 VideoMME 上提升 8.2%、LongVideoBench 上提升 4.6%。
+
 **[Steering When Necessary: Flexible Steering Large Language Models with Backtracking](steering_when_necessary_flexible_steering_large_language_models_with_backtrackin.md)**
 
 :   提出 FASB（Flexible Activation Steering with Backtracking）框架，通过跟踪 LLM 生成过程中的内部状态动态判断干预必要性和强度，并引入回溯机制纠正已偏离的 token，在 TruthfulQA 上 True*Info 达 80.56%、6 个多选任务平均准确率 78.8%，显著优于所有基线。
@@ -201,6 +209,10 @@ description: >-
 **[TAPVid-360: Tracking Any Point in 360 from Narrow Field of View Video](tapvid-360_tracking_any_point_in_360_from_narrow_field_of_view_video.md)**
 
 :   本文提出TAPVid-360任务和数据集，要求模型在窄视野视频中跟踪查询点的3D方向（包括视野外的点），通过利用360度视频生成训练数据并微调CoTracker3实现方向预测，在视野外跟踪上远超现有方法。
+
+**[TempSamp-R1: Effective Temporal Sampling with Reinforcement Fine-Tuning for Video LLMs](tempsamp_r1_temporal_grounding.md)**
+
+:   本文提出 TempSamp-R1，一个混合策略强化微调框架，通过将高质量离策略（ground truth）引导融入 GRPO 的在策略采样，并设计非线性软优势估计稳定训练，在视频时间定位任务上实现 SOTA（Charades-STA R1@0.7: 52.9%，ActivityNet R1@0.5: 56.0%）。
 
 **[TempSamp-R1: Effective Temporal Sampling with Reinforcement Fine-Tuning for Video LLMs](tempsampr1_effective_temporal_sampling_with_reinforcement_fi.md)**
 

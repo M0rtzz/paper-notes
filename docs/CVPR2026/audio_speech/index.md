@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 音频/语音方向 20篇论文解读
+  CVPR2026 音频/语音方向 21篇论文解读
 description: >-
-  20篇CVPR2026 音频/语音论文解读，主题涵盖：提出BabyVLM-V2框架，从婴儿第一视角的SA、提出一个高度正则化的多模态融合管线、提出 Refine 集成主动学习方法等，每篇含核心思想与方法详解。
+  21篇CVPR2026 音频/语音论文解读，主题涵盖：提出BabyVLM-V2框架，从婴儿第一视角的SA、提出一个高度正则化的多模态融合管线、提出 Refine 集成主动学习方法等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**📷 CVPR2026** · **20** 篇论文解读
+**📷 CVPR2026** · **21** 篇论文解读
 
 **[BabyVLM-V2: Toward Developmentally Grounded Pretraining and Benchmarking of Vision Foundation Models](babyvlm-v2_toward_developmentally_grounded_pretraining_and_benchmarking_of_visio.md)**
 
@@ -85,6 +85,10 @@ description: >-
 **[Unlocking Strong Supervision: A Data-Centric Study of General-Purpose Audio Pre-Training Methods](unlocking_strong_supervision_a_data-centric_study_of_general-purpose_audio_pre-t.md)**
 
 :   本文通过系统的数据中心实验证明音频预训练性能主要由标签/监督质量驱动而非模型设计，提出 Unified Tag System (UTS) 将语音、音乐、环境音统一到 800-3k 标签的高粒度词表中，UTS 训练的模型用 5 倍更少的数据在语音（VoxCeleb2）和音乐（MusicCaps）等域外任务上超越 AudioSet 基线。
+
+**[ViDscribe: Multimodal AI for Customizing Audio Description and Question Answering in Online Videos](vidscribe_multimodal_ai_customizing_audio_description_videos.md)**
+
+:   提出 ViDscribe 网络平台，集成 AI 生成的音频描述（含 6 种用户定制选项）和会话式视觉问答接口，通过 8 名盲人低视力用户的纵向实地研究证明定制化音频描述显著提升有效性、愉悦感和沉浸感。
 
 **[ViDscribe: Multimodal AI for Customizing Audio Description and Question Answering in Online Videos](vidscribe_multimodal_ai_for_customizing_audio_description_and_question_answering.md)**
 

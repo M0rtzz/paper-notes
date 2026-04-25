@@ -176,8 +176,8 @@ $$\mathcal{L}_{\text{DavIR-DPO}} = -\mathbb{E}\left[\log \sigma\left(\beta \frac
 
 - [Meta-rater: A Multi-dimensional Data Selection Method for Pre-training Language Models](metarater_a_multidimensional_data_selection_method.md)
 - [Large Vocabulary Size Improves Large Language Models](large_vocabulary_size_improves_large_language_models.md)
-- [Retrofitting Large Language Models with Dynamic Tokenization](retrofitting_large_language_models_with_dynamic_tokenization.md)
 - [SCAR: Data Selection via Style Consistency-Aware Response Ranking for Efficient Instruction-Tuning](scar_style_consistency_data_selection.md)
+- [Retrofitting Large Language Models with Dynamic Tokenization](retrofitting_large_language_models_with_dynamic_tokenization.md)
 - [Stealing Training Data from Large Language Models in Decentralized Training through Activation Inversion Attack](stealing_training_data_from_large_language_models_in_decentralized_training_thro.md)
 
 <!-- RELATED:END -->

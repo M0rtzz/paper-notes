@@ -123,7 +123,7 @@ tags:
 - [Cubic Discrete Diffusion: Discrete Visual Generation on High-Dimensional Representation Tokens](cubic_discrete_diffusion_discrete_visual_generation_on_high-dimensional_represen.md)
 - [AStar: Boosting Multimodal Reasoning with Automated Structured Thinking](../../AAAI2026/multimodal_vlm/astar_boosting_multimodal_reasoning_with_automated_structure.md)
 - [Dita: Scaling Diffusion Transformer for Generalist Vision-Language-Action Policy](../../ICCV2025/multimodal_vlm/dita_scaling_diffusion_transformer_for_generalist_visionlang.md)
-- [ReasonMap: Towards Fine-Grained Visual Reasoning from Transit Maps](reasonmap_towards_fine-grained_visual_reasoning_from_transit_maps.md)
 - [ProbRes: Probabilistic Jump Diffusion for Open-World Egocentric Activity Recognition](../../ICCV2025/multimodal_vlm/probres_probabilistic_jump_diffusion_for_open-world_egocentric_activity_recognit.md)
+- [ReasonMap: Towards Fine-Grained Visual Reasoning from Transit Maps](reasonmap_towards_fine-grained_visual_reasoning_from_transit_maps.md)
 
 <!-- RELATED:END -->

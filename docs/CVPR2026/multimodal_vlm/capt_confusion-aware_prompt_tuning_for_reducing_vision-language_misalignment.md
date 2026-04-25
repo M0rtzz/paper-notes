@@ -121,7 +121,7 @@ $$\mathcal{L} = \mathcal{L}_{ori} + \mathcal{L}_{confuse}$$
 - [Towards Calibrating Prompt Tuning of Vision-Language Models](towards_calibrating_prompt_tuning_of_vision-language_models.md)
 - [Noise-Aware Few-Shot Learning through Bi-directional Multi-View Prompt Alignment](noiseaware_fewshot_learning_through_bidirectional.md)
 - [Evolving Prompt Adaptation for Vision-Language Models](evolving_prompt_adaptation_for_visionlanguage_mode.md)
+- [Revisit Visual Prompt Tuning: The Expressiveness of Prompt Experts](../../ICLR2026/multimodal_vlm/revisit_visual_prompt_tuning_the_expressiveness_of_prompt_experts.md)
 - [DPC: Dual-Prompt Collaboration for Tuning Vision-Language Models](../../CVPR2025/multimodal_vlm/dpc_dual-prompt_collaboration_for_tuning_vision-language_models.md)
-- [Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models](../../ICML2025/multimodal_vlm/understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)
 
 <!-- RELATED:END -->

@@ -145,8 +145,8 @@ AlwaysTool 在平均 $R_{\text{total}}$ 上最高，但置信区间宽。
 
 - [Log-Sum-Exponential Estimator for Off-Policy Evaluation and Learning](../../ICML2025/human_understanding/log-sum-exponential_estimator_for_off-policy_evaluation_and_learning.md)
 - [A Practical Guide for Incorporating Symmetry in Diffusion Policy](a_practical_guide_for_incorporating_symmetry_in_diffusion_policy.md)
+- [Enhancing LLM-based Search Agents via Contribution Weighted Group Relative Policy Optimization](../../ACL2026/human_understanding/enhancing_llm-based_search_agents_via_contribution_weighted_group_relative_polic.md)
 - [Policy Compatible Skill Incremental Learning via Lazy Learning Interface](policy_compatible_skill_incremental_learning_via_lazy_learning_interface.md)
-- [LLM Unlearning with LLM Beliefs](../../ICLR2026/human_understanding/llm_unlearning_with_llm_beliefs.md)
-- [LUMIA: A Handheld Vision-to-Music System for Real-Time, Embodied Composition](lumia_a_handheld_vision-to-music_system_for_real-time_embodied_composition.md)
+- [Statistical Guarantees for Offline Domain Randomization](../../ICLR2026/human_understanding/statistical_guarantees_for_offline_domain_randomization.md)
 
 <!-- RELATED:END -->

@@ -210,6 +210,6 @@ PS-CBM平均ACC超SOTA 1.0%~7.4%，CEA超2.0%~9.5%，同时使用的概念数仅
 - [Small Language Models for Efficient Agentic Tool Calling: Outperforming Large Models with Targeted Fine-tuning](small_language_models_for_efficient_agentic_tool_calling_outperforming_large_mod.md)
 - [Anti-adversarial Learning: Desensitizing Prompts for Large Language Models](anti-adversarial_learning_desensitizing_prompts_for_large_la.md)
 - [Failures to Surface Harmful Contents in Video Large Language Models](failures_to_surface_harmful_contents_in_video_large_language_models.md)
-- [Transferable Backdoor Attacks for Code Models via Sharpness-Aware Adversarial Perturbation](transferable_backdoor_attacks_for_code_models_via_sharpness-aware_adversarial_pe.md)
+- [PA-FAS: Towards Interpretable and Generalizable Multimodal Face Anti-Spoofing via Path-Augmented Reinforcement Learning](pa-fas_towards_interpretable_and_generalizable_multimodal_face_anti-spoofing_via.md)
 
 <!-- RELATED:END -->

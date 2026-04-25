@@ -188,7 +188,7 @@ CIPHER 吞吐量与标准 Greedy 解码完全一致（0.70 items/s），远超 O
 - [MaskDiME: Adaptive Masked Diffusion for Precise and Efficient Visual Counterfactual Explanations](maskdime_adaptive_masked_diffusion_for_precise_and_efficient_visual_counterfactu.md)
 - [Retrieving Counterfactuals Improves Visual In-Context Learning](retrieving_counterfactuals_improves_visual_in-context_learning.md)
 - [Causally-Grounded Dual-Path Attention Intervention for Object Hallucination Mitigation in LVLMs](../../AAAI2026/causal_inference/causally-grounded_dual-path_attention_intervention_for_objec.md)
+- [Dialectic-Med: Mitigating Diagnostic Hallucinations via Counterfactual Adversarial Multi-Agent Debate](../../ACL2026/causal_inference/dialectic-med_mitigating_diagnostic_hallucinations_via_counterfactual_adversaria.md)
 - [RFEval: Benchmarking Reasoning Faithfulness under Counterfactual Perturbations](../../ICLR2026/causal_inference/rfeval_benchmarking_reasoning_faithfulness_under_counterfactual_perturbations.md)
-- [Action-Guided Attention for Video Action Anticipation](../../ICLR2026/causal_inference/action-guided_attention_for_video_action_anticipation.md)
 
 <!-- RELATED:END -->

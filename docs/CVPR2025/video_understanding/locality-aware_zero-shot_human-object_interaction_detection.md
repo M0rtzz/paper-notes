@@ -140,6 +140,6 @@ LAIN 是一个两阶段 HOI 检测框架：
 - [VDRP: Visual Diversity and Region-aware Prompt Learning for Zero-shot HOI Detection](../../NeurIPS2025/video_understanding/visual_diversity_and_region-aware_prompt_learning_for_zero-shot_hoi_detection.md)
 - [Object-Shot Enhanced Grounding Network for Egocentric Video](object-shot_enhanced_grounding_network_for_egocentric_video.md)
 - [Progress-Aware Video Frame Captioning](progress-aware_video_frame_captioning.md)
-- [TAMT: Temporal-Aware Model Tuning for Cross-Domain Few-Shot Action Recognition](tamt_temporal-aware_model_tuning_for_cross-domain_few-shot_action_recognition.md)
+- [Part-Aware Bottom-Up Group Reasoning for Fine-Grained Social Interaction Detection](../../NeurIPS2025/video_understanding/part-aware_bottom-up_group_reasoning_for_fine-grained_social_interaction_detecti.md)
 
 <!-- RELATED:END -->

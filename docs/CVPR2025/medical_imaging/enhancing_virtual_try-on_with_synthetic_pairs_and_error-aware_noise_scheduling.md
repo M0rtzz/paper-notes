@@ -124,7 +124,7 @@ EARSB使用MSE损失: $\mathcal{L}_{EARSB} = \mathbb{E}_{t \sim U(0,1)} \|\epsil
 - [AA-CLIP: Enhancing Zero-Shot Anomaly Detection via Anomaly-Aware CLIP](aa-clip_enhancing_zero-shot_anomaly_detection_via_anomaly-aware_clip.md)
 - [Noise-Consistent Siamese-Diffusion for Medical Image Synthesis and Segmentation](noise-consistent_siamese-diffusion_for_medical_image_synthesis_and_segmentation.md)
 - [Geometric Generative Modeling with Noise-Conditioned Graph Networks](../../ICML2025/medical_imaging/geometric_generative_modeling_with_noise-conditioned_graph_networks.md)
-- [UNIStainNet: Foundation-Model-Guided Virtual Staining of H&E to IHC](unistainnet_foundation-model-guided_virtual_staining_of_he_to_ihc.md)
 - [SeaLion: Semantic Part-Aware Latent Point Diffusion Models for 3D Generation](sealion_semantic_part-aware_latent_point_diffusion_models_for_3d_generation.md)
+- [RDFace: A Benchmark Dataset for Rare Disease Facial Image Analysis under Extreme Data Scarcity and Phenotype-Aware Synthetic Generation](../../CVPR2026/medical_imaging/rdface_a_benchmark_dataset_for_rare_disease_facial_image_analysis_under_extreme_.md)
 
 <!-- RELATED:END -->

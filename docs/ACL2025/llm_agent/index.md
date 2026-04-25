@@ -1,18 +1,22 @@
 ---
 title: >-
-  ACL2025 LLM Agent方向 60篇论文解读
+  ACL2025 LLM Agent方向 61篇论文解读
 description: >-
-  60篇ACL2025 LLM Agent论文解读，主题涵盖：提出一个双agent协作框架(方言Agent +、本文提出 KnowSelf，一种数据驱动方法、Agentic Reasoning 提出了一个将等，每篇含核心思想与方法详解。
+  61篇ACL2025 LLM Agent论文解读，主题涵盖：提出一个双agent协作框架(方言Agent +、本文提出 Agentic Reward、本文提出 KnowSelf，一种数据驱动方法等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🦾 LLM Agent
 
-**💬 ACL2025** · **60** 篇论文解读
+**💬 ACL2025** · **61** 篇论文解读
 
 **[A Multi-Agent Framework for Mitigating Dialect Biases in Privacy Policy Question-Answering Systems](a_multi-agent_framework_for_mitigating_dialect_biases_in_privacy_policy_question.md)**
 
 :   提出一个双agent协作框架(方言Agent + 隐私政策Agent)，通过将非标准英语方言翻译为标准美式英语(SAE)并进行迭代验证，在不需要重训练或方言特定微调的前提下，显著降低隐私政策问答中的方言偏差并提升整体性能。
+
+**[Agentic Reward Modeling: Integrating Human Preferences with Verifiable Correctness Signals for Reliable Reward Systems](agentic-reward-modeling-integrating-human-preferences-with-verifiable-correctness-signals.md)**
+
+:   本文提出 Agentic Reward Modeling，将传统基于人类偏好的奖励模型与可验证正确性信号（事实性和指令遵循）相结合，通过路由器-验证代理-判断器的 Agent 架构，实现了在多个奖励模型基准和下游任务上的显著提升。
 
 **[Agentic Knowledgeable Self-Awareness](agentic_knowledgeable_self-awareness.md)**
 

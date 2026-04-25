@@ -119,9 +119,9 @@ tags:
 ## 相关论文
 
 - [DRIFT: Dynamic Rule-Based Defense with Injection Isolation for Securing LLM Agents](../../NeurIPS2025/llm_agent/drift_dynamic_rulebased_defense_with_injection_isolation_for.md)
+- [Conjunctive Prompt Attacks in Multi-Agent LLM Systems](../../ACL2026/llm_agent/conjunctive_prompt_attacks_in_multi-agent_llm_systems.md)
+- [JTPRO: A Joint Tool-Prompt Reflective Optimization Framework for Language Agents](../../ACL2026/llm_agent/jtpro_a_joint_tool-prompt_reflective_optimization_framework_for_language_agents.md)
 - [Agents Under Siege: Breaking Pragmatic Multi-Agent LLM Systems with Optimized Prompt Attacks](../../ACL2025/llm_agent/agents_under_siege_breaking_pragmatic_multi-agent_llm_systems_with_optimized_pro.md)
 - [SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home LLM Agents](simuhome_a_temporal-_and_environment-aware_benchmark_for_smart_home_llm_agents.md)
-- [FingerTip 20K: A Benchmark for Proactive and Personalized Mobile LLM Agents](fingertip_20k_a_benchmark_for_proactive_and_personalized_mobile_llm_agents.md)
-- [NewtonBench: Benchmarking Generalizable Scientific Law Discovery in LLM Agents](newtonbench_benchmarking_generalizable_scientific_law_discovery_in_llm_agents.md)
 
 <!-- RELATED:END -->

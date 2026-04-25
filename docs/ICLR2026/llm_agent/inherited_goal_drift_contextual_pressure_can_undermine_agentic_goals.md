@@ -143,9 +143,9 @@ tags:
 ## 相关论文
 
 - [REPRO-Bench: Can Agentic AI Systems Assess the Reproducibility of Social Science Research?](../../ACL2025/llm_agent/repro-bench_can_agentic_ai_systems_assess_the_reproducibility_of_research_claims.md)
+- [CI-Work: Benchmarking Contextual Integrity in Enterprise LLM Agents](../../ACL2026/llm_agent/ci-work_benchmarking_contextual_integrity_in_enterprise_llm_agents.md)
 - [REPRO-Bench: Can Agentic AI Systems Assess the Reproducibility of Social Science?](../../ACL2025/llm_agent/repro-bench_can_agentic_ai_systems_assess_the_reproducibility_of_social_science_.md)
 - [SR-Scientist: Scientific Equation Discovery With Agentic AI](sr-scientist_scientific_equation_discovery_with_agentic_ai.md)
-- [COACH: Collaborative Agents for Contextual Highlighting -- A Multi-Agent Framework for Sports Video Analysis](../../AAAI2026/llm_agent/coach_collaborative_agents_for_contextual_highlighting_--_a_multi-agent_framewor.md)
 - [AgentChangeBench: A Multi-Dimensional Evaluation Framework for Goal-Shift Robustness](../../NeurIPS2025/llm_agent/agentchangebench_a_multi-dimensional_evaluation_framework_for_goal-shift_robustn.md)
 
 <!-- RELATED:END -->

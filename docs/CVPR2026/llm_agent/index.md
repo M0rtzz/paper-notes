@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 LLM Agent方向 20篇论文解读
+  CVPR2026 LLM Agent方向 21篇论文解读
 description: >-
-  20篇CVPR2026 LLM Agent论文解读，主题涵盖：本文提出 ARGOS，首个将多摄像头行人搜索重新定、提出CareFlow基准（1050个医疗软件长视界、提出 EchoTrail-GUI 框架等，每篇含核心思想与方法详解。
+  21篇CVPR2026 LLM Agent论文解读，主题涵盖：本文提出 ARGOS，首个将多摄像头行人搜索重新定、提出CareFlow基准（1050个医疗软件长视界、提出 EchoTrail-GUI 框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🦾 LLM Agent
 
-**📷 CVPR2026** · **20** 篇论文解读
+**📷 CVPR2026** · **21** 篇论文解读
 
 **[ARGOS: Who, Where, and When in Agentic Multi-Camera Person Search](argos_agentic_multi_camera_person_search.md)**
 
@@ -49,6 +49,10 @@ description: >-
 **[HATS: Hardness-Aware Trajectory Synthesis for GUI Agents](hats_hardnessaware_trajectory_synthesis_gui_agent.md)**
 
 :   本文提出 HATS——一个难度感知的轨迹合成框架，通过识别和处理语义歧义的GUI操作，利用难度驱动探索和对齐引导修正两个闭环模块，显著提升GUI智能体在跨环境下的泛化能力。
+
+**[Hierarchical Long Video Understanding with Audiovisual Entity Cohesion and Agentic Search](haven_hierarchical_long_video_understanding_audiovisual_entity.md)**
+
+:   提出 HAVEN 框架，通过音视频实体一致性和层次化视频索引（全局-场景-片段-实体四层），配合智能体搜索机制在 LVBench 上达到 84.1% 准确率，尤其在推理类别达 80.1%。
 
 **[HAVEN: Hierarchical Long Video Understanding with Audiovisual Entity Cohesion and Agentic Search](haven_hierarchical_long_video_understanding_with_audiovisual_entity_cohesion.md)**
 

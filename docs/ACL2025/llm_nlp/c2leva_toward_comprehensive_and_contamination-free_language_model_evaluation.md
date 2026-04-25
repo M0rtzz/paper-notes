@@ -138,8 +138,8 @@ C²LEVA 的设计包含两大核心支柱：（1）**综合性评测体系**：2
 
 - [MemBench: Towards More Comprehensive Evaluation on the Memory of LLM-based Agents](membench_towards_more_comprehensive_evaluation_on_the_memory_of_llm-based_agents.md)
 - [Can LLMs Reason About Program Semantics? A Comprehensive Evaluation of LLMs on Formal Specification Inference](can_llms_reason_about_program_semantics_a_comprehensive_evaluation_of_llms_on_fo.md)
-- [STEM: Efficient Relative Capability Evaluation of LLMs through Structured Transitive Evaluation Model](../../AAAI2026/llm_nlp/stem_efficient_relative_capability_evaluation_of_llms_through_structured_transit.md)
 - [SkillAggregation: Reference-free LLM-Dependent Aggregation](skillaggregation_reference-free_llm-dependent_aggregation.md)
+- [STEM: Efficient Relative Capability Evaluation of LLMs through Structured Transitive Evaluation Model](../../AAAI2026/llm_nlp/stem_efficient_relative_capability_evaluation_of_llms_through_structured_transit.md)
 - [Training-free LLM Merging for Multi-task Learning](training-free_llm_merging_for_multi-task_learning.md)
 
 <!-- RELATED:END -->

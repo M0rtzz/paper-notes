@@ -1,14 +1,14 @@
 ---
 title: >-
-  ECCV2024 974篇论文解读
+  ECCV2024 976篇论文解读
 description: >-
-  974篇ECCV2024论文解读，涵盖3D视觉(188篇)、图像生成(134篇)、多模态VLM(76篇)、人体理解(67篇)等40个方向，每篇含核心思想、方法详解与实验分析。
+  976篇ECCV2024论文解读，涵盖3D视觉(188篇)、图像生成(134篇)、多模态VLM(78篇)、人体理解(67篇)等40个方向，每篇含核心思想、方法详解与实验分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎞️ ECCV2024 论文笔记
 
-**974** 篇论文解读，覆盖 **40** 个领域。
+**976** 篇论文解读，覆盖 **40** 个领域。
 
 <div class="conf-index" markdown>
 
@@ -1360,6 +1360,10 @@ description: >-
 
 :   通过系统benchmarking发现没有单一视觉编码器在所有VLM任务上最优，提出BRAVE方法用Multi-Encoder Querying Transformer（MEQ-Former）将多个冻结编码器的特征融合为紧凑表示，以仅116M可训练参数在多个captioning和VQA基准上达到SOTA。
 
+**[CAT: Enhancing Multimodal Large Language Model to Answer Questions in Dynamic Audio-Visual Scenarios](multimodal_vlm/cat_audio_visual_qa.md)**
+
+:   本文提出 CAT 模型，通过设计线索聚合器（Clue Aggregator）提取问题相关的音视频细节特征、构建音视频联合指令数据集 AVinstruct、以及 AI 辅助的歧义感知 DPO 策略，显著提升多模态大语言模型在动态音视频场景中的问答能力。
+
 **[CAT: Enhancing Multimodal Large Language Model to Answer Questions in Dynamic Audio-Visual Scenarios](multimodal_vlm/cat_enhancing_multimodal_large_language_model_to_answer_questions_in_dynamic_aud.md)**
 
 :   提出 CAT 模型，通过设计问题相关线索聚合器（Clue Aggregator）捕获细粒度音视频特征，结合混合多模态训练策略和 AI 辅助的模糊感知直接偏好优化（ADPO）策略，显著提升 MLLM 在动态音视频场景中的问答准确性，在多个 AVQA 基准上达到 SOTA。
@@ -1371,6 +1375,10 @@ description: >-
 **[CLAP: Isolating Content from Style through Contrastive Learning with Augmented Prompts](multimodal_vlm/clap_isolating_content_from_style_through_contrastive_learning_with_augmented_pr.md)**
 
 :   从因果生成模型视角出发，提出 CLAP（Contrastive Learning with Augmented Prompts），通过文本 prompt 增强 + 对比学习训练一个轻量解耦网络，将 CLIP 预训练特征中的 content 与 style 分离，仅用文本训练即可同时提升图像和文本两侧的表征质量，在 zero-shot、few-shot 分类和对抗鲁棒性上均取得一致提升。
+
+**[Bad Students Make Great Teachers: Active Learning Accelerates Large-Scale Visual Understanding](multimodal_vlm/classact_active_learning.md)**
+
+:   本文提出 ClassAct / ActiveCLIP 方法，利用小型代理模型为训练数据计算"可学习性"分数，优先选择对大模型训练最有价值的数据，在 JFT 分类和 CLIP 多模态预训练中分别减少 46% 和 51% 的训练更新量，同时实现端到端计算正收益。
 
 **[Dataset Growth (InfoGrowth)](multimodal_vlm/dataset_growth.md)**
 

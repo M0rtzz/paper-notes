@@ -138,10 +138,10 @@ tags:
 
 ## 相关论文
 
-- [USDC: A Dataset of User Stance and Dogmatism in Long Conversations](usdc_a_dataset_of_underlineuser_underlinestance_and_underlinedogmatism_in_long_u.md)
-- [FEAT: A Preference Feedback Dataset through a Cost-Effective Auto-Generation and Labeling Framework for English AI Tutoring](feat_a_preference_feedback_dataset_through_a_cost-effective_auto-generation_and_.md)
-- [A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs](a_practical_approach_for_building_production-grade_conversational_agents_with_wo.md)
-- [ERU-KG: Efficient Reference-aligned Unsupervised Keyphrase Generation](eru-kg_efficient_reference-aligned_unsupervised_keyphrase_generation.md)
-- [Learning to Reason from Feedback at Test-Time](learning_to_reason_from_feedback_at_test-time.md)
+- [InspireDebate: Multi-Dimensional Evaluation-Guided Reasoning for Debating](inspiredebate_multidim_evaluation_debating.md)
+- [Synergistic Weak-Strong Collaboration by Aligning Preferences](synergistic_weak-strong_collaboration_by_aligning_preferences.md)
+- [GETReason: Enhancing Image Context Extraction through Hierarchical Multi-Agent Reasoning](getreason_enhancing_image_context_extraction_through_hierarchical_multi-agent_re.md)
+- [Uni-Retrieval: A Multi-Style Retrieval Framework for STEM's Education](uni-retrieval_a_multi-style_retrieval_framework_for_stems_education.md)
+- [Self-Correction is More than Refinement: A Learning Framework for Visual and Language Reasoning Tasks](self-correction_is_more_than_refinement_a_learning_framework_for_visual_and_lang.md)
 
 <!-- RELATED:END -->

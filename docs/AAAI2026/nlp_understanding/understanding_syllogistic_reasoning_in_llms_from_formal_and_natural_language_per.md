@@ -164,8 +164,8 @@ $C_{\text{all}}$衡量模型在同一三段论4个变体上的完全一致比例
 
 - [Language Models and Logic Programs for Trustworthy Tax Reasoning](language_models_and_logic_programs_for_trustworthy_tax_reasoning.md)
 - [Adapting Psycholinguistic Research for LLMs: Gender-Inclusive Language in a Coreference Context](../../ACL2025/nlp_understanding/adapting_psycholinguistic_research_for_llms_gender-inclusive_language_in_a_coref.md)
-- [Recursive Question Understanding for Complex Question Answering over Heterogeneous Personal Data](../../ACL2025/nlp_understanding/recursive_question_understanding_for_complex_question_answering_over_heterogeneo.md)
+- [Meaning Beyond Truth Conditions: Evaluating Discourse Level Understanding via Anaphora Accessibility](../../ACL2025/nlp_understanding/meaning-beyond-truth-conditions-anaphora-accessibility.md)
 - [Sentiment Reasoning for Healthcare](../../ACL2025/nlp_understanding/sentiment_reasoning_for_healthcare.md)
-- [Multi-Hop Reasoning for Question Answering with Hyperbolic Representations](../../ACL2025/nlp_understanding/multi-hop_reasoning_for_question_answering_with_hyperbolic_representations.md)
+- [Recursive Question Understanding for Complex Question Answering over Heterogeneous Personal Data](../../ACL2025/nlp_understanding/recursive_question_understanding_for_complex_question_answering_over_heterogeneo.md)
 
 <!-- RELATED:END -->

@@ -128,8 +128,8 @@ MimicGen 12 个机器人操作任务，100 个专家演示训练，50 次 rollou
 ## 相关论文
 
 - [Policy Compatible Skill Incremental Learning via Lazy Learning Interface](policy_compatible_skill_incremental_learning_via_lazy_learning_interface.md)
-- [Succeed or Learn Slowly: Sample Efficient Off-Policy Reinforcement Learning for Mobile App Control](succeed_or_learn_slowly_sample_efficient_off-policy_reinforcement_learning_for_m.md)
 - [HOI-Dyn: Learning Interaction Dynamics for Human-Object Motion Diffusion](hoi-dyn_learning_interaction_dynamics_for_human-object_motion_diffusion.md)
+- [Succeed or Learn Slowly: Sample Efficient Off-Policy Reinforcement Learning for Mobile App Control](succeed_or_learn_slowly_sample_efficient_off-policy_reinforcement_learning_for_m.md)
 - [PoseSOR: Human Pose Can Guide Our Attention](../../ECCV2024/human_understanding/posesor_human_pose_can_guide_our_attention.md)
 - [Degradation-Modeled Multipath Diffusion for Tunable Metalens Photography](../../ICCV2025/human_understanding/degradation-modeled_multipath_diffusion_for_tunable_metalens_photography.md)
 

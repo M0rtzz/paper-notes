@@ -151,7 +151,7 @@ MELLE 是一个 decoder-only 的自回归语言模型，输入是 BPE 文本 tok
 - [Chain-Talker: Chain Understanding and Rendering for Empathetic Conversational Speech Synthesis](chain-talker_chain_understanding_and_rendering_for_empathetic_conversational_spe.md)
 - [Distilling an End-to-End Voice Assistant Without Instruction Training Data](distilling_an_end-to-end_voice_assistant_without_instruction_training_data.md)
 - [E2E-VGuard: Adversarial Prevention for Production LLM-based End-To-End Speech Synthesis](../../NeurIPS2025/audio_speech/e2e-vguard_adversarial_prevention_for_production_llm-based_end-to-end_speech_syn.md)
-- [TCSinger 2: Customizable Multilingual Zero-shot Singing Voice Synthesis](tcsinger_2_customizable_multilingual_zero-shot_singing_voice_synthesis.md)
+- [Affectron: Emotional Speech Synthesis with Affective and Contextually Aligned Nonverbal Vocalizations](../../ACL2026/audio_speech/affectron_emotional_speech_synthesis_with_affective_and_contextually_aligned_non.md)
 - [Zero-Shot Text-to-Speech for Vietnamese](zero-shot_text-to-speech_for_vietnamese.md)
 
 <!-- RELATED:END -->

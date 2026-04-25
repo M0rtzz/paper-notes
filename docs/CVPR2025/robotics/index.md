@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 具身智能方向 31篇论文解读
+  CVPR2025 具身智能方向 32篇论文解读
 description: >-
-  31篇CVPR2025 具身智能论文解读，主题涵盖：提出3D-MVP，将Masked、通过系统评估发现DINO/iBOT在机器人任务上优、提出ASAP框架，通过大模型辅助对齐(LMA)等，每篇含核心思想与方法详解。
+  32篇CVPR2025 具身智能论文解读，主题涵盖：提出3D-MVP，将Masked、通过系统评估发现DINO/iBOT在机器人任务上优、提出ASAP框架，通过大模型辅助对齐(LMA)等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 具身智能
 
-**📷 CVPR2025** · **31** 篇论文解读
+**📷 CVPR2025** · **32** 篇论文解读
 
 **[3D-MVP: 3D Multiview Pretraining for Robotic Manipulation](3d-mvp_3d_multiview_pretraining_for_manipulation.md)**
 
@@ -37,6 +37,10 @@ description: >-
 **[Expert Pyramid Tuning: Efficient Parameter Fine-Tuning for Expertise-Driven Task Allocation](expert_pyramid_tuning_efficient_parameter_fine-tuning_for_expertise-driven_task_.md)**
 
 :   提出 Expert Pyramid Tuning (EPT)，将计算机视觉中的多尺度特征金字塔思想引入 LoRA-based MoE，通过共享元知识子空间 + 反卷积金字塔投影机制构建不同粒度的专家，实现更高效的多任务参数微调。
+
+**[Foundations of the Theory of Performance-Based Ranking](foundations_of_the_theory_of_performance-based_ranking.md)**
+
+:   本文基于概率论和序理论建立了性能排名的严格数学基础，提出了包含6大支柱的通用框架和3条公理，定义了参数化的"排名分数"族，并在二分类任务中证明了 accuracy、TPR、TNR、PPV、F-score 等满足公理，而 MCC、几何均值等常用指标不适合用于排名。
 
 **[Foundations of the Theory of Performance-Based Ranking](foundations_of_the_theory_of_performance_based_ranking.md)**
 

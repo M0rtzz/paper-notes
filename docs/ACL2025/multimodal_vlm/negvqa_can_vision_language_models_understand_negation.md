@@ -161,6 +161,6 @@ $$
 - [Can Vision Language Models Understand Mimed Actions?](can_vision_language_models_understand_mimed_actions.md)
 - [Can Multimodal Large Language Models Understand Spatial Relations?](spatialmqa_mllm_spatial_relations.md)
 - [CORDIAL: Can Multimodal Large Language Models Effectively Understand Coherence Relations?](cordial_can_multimodal_large_language_models_effectively_understand_coherence_re.md)
-- [Can MLLMs Understand the Deep Implication Behind Chinese Images?](can_mllms_understand_the_deep_implication_behind_chinese_images.md)
+- [CORDIAL: Can Multimodal Large Language Models Effectively Understand Coherence Relationships?](cordial-multimodal-llm-coherence-relationships.md)
 
 <!-- RELATED:END -->

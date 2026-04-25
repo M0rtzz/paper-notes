@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 1574篇论文解读
+  ICLR2026 1578篇论文解读
 description: >-
-  1574篇ICLR2026论文解读，涵盖图像生成(152篇)、强化学习(133篇)、模型压缩(100篇)、医学图像(77篇)等44个方向，每篇含核心思想、方法详解与实验分析。
+  1578篇ICLR2026论文解读，涵盖图像生成(152篇)、强化学习(135篇)、模型压缩(100篇)、医学图像(77篇)等44个方向，每篇含核心思想、方法详解与实验分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 ICLR2026 论文笔记
 
-**1574** 篇论文解读，覆盖 **44** 个领域。
+**1578** 篇论文解读，覆盖 **44** 个领域。
 
 <div class="conf-index" markdown>
 
@@ -648,9 +648,17 @@ description: >-
 
 :   提出 AutoQD，通过随机傅里叶特征（RFF）将策略的占据度量嵌入有限维空间，再用加权 PCA 降维得到行为描述符，实现无需人工设计 BD 的 QD 优化，在 6 个连续控制任务上全面超越手工 BD 和现有无监督 QD 方法。
 
+**[AutoQD: Automatic Discovery of Diverse Behaviors with Quality-Diversity Optimization](reinforcement_learning/autoqd_diverse_behaviors.md)**
+
+:   本文提出 AutoQD，利用策略占据测度（occupancy measure）的随机傅里叶特征嵌入自动生成行为描述符，无需手工设计即可在连续控制任务中发现多样化高质量策略，并在 6 个标准环境中证明了有效性。
+
 **[AutoTool: Automatic Scaling of Tool-Use Capabilities in RL via Decoupled Entropy Constraints](reinforcement_learning/autotool_automatic_scaling_of_tool-use_capabilities_in_rl_via_decoupled_entropy_.md)**
 
 :   提出解耦自适应熵约束 (Decoupled Adaptive Entropy Constraints) 的强化学习策略，使 LLM 在工具调用任务中根据问题难度自动切换长/短推理模式，在提升 9.8% 准确率的同时减少约 81% 的推理 token 开销。
+
+**[AutoTool: Automatic Scaling of Tool-Use Capabilities in RL via Decoupled Entropy Constraints](reinforcement_learning/autotool_scaling_tool_use.md)**
+
+:   本文提出 AutoTool，通过解耦自适应熵约束策略解决 LLM 工具使用中直接 RL 训练的推理坍缩问题和缩放后模型的过度思考问题，实现自动根据问题难度切换长短推理模式，在准确率提升 9.8% 的同时减少 ~81% 的推理 token 开销。
 
 **[AWM: Accurate Weight-Matrix Fingerprint for Large Language Models](reinforcement_learning/awm_accurate_weight-matrix_fingerprint_for_large_language_models.md)**
 
@@ -4126,6 +4134,166 @@ description: >-
 
 ---
 
+## 💬 LLM/NLP { #llm_nlp }
+
+**[AssetFormer: Modular 3D Assets Generation with Autoregressive Transformer](llm_nlp/assetformer_modular_3d.md)**
+
+:   本文提出 AssetFormer，一个基于自回归 Transformer 的模块化 3D 资产生成框架，通过设计图遍历 token 排序、token 集建模和 SlowFast 解码策略，从文本描述生成由离散基元组合的高质量建筑资产，并构建了首个大规模真实模块化 3D 数据集（16k 真实 + 4k 合成样本）。
+
+**[AssetFormer: Modular 3D Assets Generation with Autoregressive Transformer](llm_nlp/assetformer_modular_3d_assets_generation_with_autoregressive_transformer.md)**
+
+:   提出 AssetFormer，基于 Llama 架构的自回归 Transformer，将模块化 3D 资产（由 primitive 序列组成）建模为离散 token 序列，通过 DFS/BFS 图遍历重排序和联合词汇表解码实现从文本描述生成可直接用于游戏引擎的模块化 3D 资产。
+
+**[Compositional-ARC: Assessing Systematic Generalization in Abstract Spatial Reasoning](llm_nlp/compositional-arc_assessing_systematic_generalization_in_abstract_spatial_reason.md)**
+
+:   提出 Compositional-ARC 数据集评估模型在抽象空间推理中的系统性泛化能力——从已知基础几何变换（如平移、旋转）泛化到未见过的变换组合。一个仅 5.7M 参数的 MLC 训练的 encoder-decoder 模型在系统性任务上达到 78.26%，与 ARC Prize 2024 冠军的 8B 模型+TTT 持平，远超 GPT-4o、o3-mini 等（<3%）。
+
+**[d²Cache: Accelerating Diffusion-Based LLMs via Dual Adaptive Caching](llm_nlp/d2cache_accelerating_diffusion-based_llms_via_dual_adaptive_caching.md)**
+
+:   提出 d²Cache，一种面向 Diffusion-based LLM（dLLM）的无训练近似 KV 缓存框架，通过确定性先验引导的 masked token 选择 + 注意力感知的非 mask token 选择两阶段策略，实现 4.1× 推理加速同时提升生成质量。
+
+**[DreamOn: Diffusion Language Models For Code Infilling Beyond Fixed-size Canvas](llm_nlp/dreamon_diffusion_language_models_for_code_infilling_beyond_fixed-size_canvas.md)**
+
+:   DreamOn 通过引入 [expand] 和 [delete] 两个特殊状态解决了扩散语言模型（DLM）的固定长度生成限制，无需架构修改即可实现变长代码填充，在 HumanEval-Infilling 上比扩散基线平均提升 26.4%，达到与 SOTA 自回归模型持平的水平。
+
+**[ELLMob: Event-Driven Human Mobility Generation with Self-Aligned LLM Framework](llm_nlp/ellmob_event-driven_human_mobility_generation_with_self-aligned_language_models.md)**
+
+:   提出 ELLMob 框架，基于认知心理学的模糊痕迹理论（FTT），通过提取并迭代对齐"习惯 gist"和"事件 gist"来调和用户日常模式与社会事件约束之间的竞争，实现事件驱动的可解释轨迹生成。
+
+**[ELLMob: Event-Driven Human Mobility Generation with Self-Aligned LLM Framework](llm_nlp/ellmob_event-driven_human_mobility_generation_with_self-aligned_llm_framework.md)**
+
+:   提出 ELLMob，一个基于模糊痕迹理论（FTT）的自对齐 LLM 框架，通过提取并迭代对齐"习惯模式要旨"与"事件约束要旨"来生成兼顾日常规律与事件响应的人类移动轨迹。
+
+**[Enhancing Persona Following at Decoding Time via Dynamic Importance-Guided Token Estimation for Role-Playing Agents](llm_nlp/enhancing_persona_following_at_decoding_time_via_dynamic_importance-guided_token.md)**
+
+:   提出 Persona Dynamic Decoding (PDD) 框架，通过条件互信息动态估计人格属性的场景依赖重要性，并将重要性分数整合到多目标奖励引导解码中，实现无需微调的推理时人格跟随。
+
+**[Enhancing Persona Following at Decoding Time via Dynamic Importance Estimation for Role-Playing Agents](llm_nlp/enhancing_persona_following_at_decoding_time_via_dynamic_importance_estimation_.md)**
+
+:   提出 Persona Dynamic Decoding (PDD) 框架，通过条件互信息动态估计人格属性的场景相关重要性，并以加权多目标奖励引导解码，实现无需微调的推理时自适应人格跟随。
+
+**[Enhancing Persona Following at Decoding Time via Dynamic Importance Estimation for Role-Playing Agents](llm_nlp/enhancing_persona_following_at_decoding_time_via_dynamic_importance_estimation_f.md)**
+
+:   提出 PDD（Persona Dynamic Decoding）框架，通过条件互信息动态估计不同场景下人设属性的重要性，并以加权多目标奖励引导推理时解码，实现无需微调的自适应人设遵循。
+
+**[Evaluating Text Creativity across Diverse Domains: A Dataset and Large Language Model Evaluator](llm_nlp/evaluating_text_creativity_across_diverse_domains_a_dataset_and_large_language_m.md)**
+
+:   提出基于上下文感知的成对比较框架来评估文本创造力，构建了包含 100K+ 人类级别和 1M+ 合成数据的 CreataSet 数据集，训练出 CrEval 评估器，在与人类判断的对齐度上超越 GPT-4o 达 18.7%。
+
+**[Fine-Grained Activation Steering: Steering Less, Achieving More](llm_nlp/fine-grained_activation_steering_steering_less_achieving_more.md)**
+
+:   AUSteer 发现块级激活转向（steering）本质上是异质的——不同维度控制不同 token 分布，混合转向既放大有益信号也放大有害信号。提出原子单元（AU）级细粒度转向：用激活动量定位判别性维度，自适应调节转向强度，仅转向 ≤100 个维度即大幅超越转向数千维度的 SOTA 方法。
+
+**[First is Not Really Better Than Last: Evaluating Layer Choice and Aggregation Strategies in Language Model Data Influence Estimation](llm_nlp/first_is_not_really_better_than_last_evaluating_layer_choice_and_aggregation_str.md)**
+
+:   通过理论和实验证明先前工作所推崇的"第一层（embedding）最适合做 influence estimation"的结论是不可靠的，发现中间 attention 层才是更好的估计层，并提出 Rank 和 Vote 两种新的跨层聚合策略以及 Noise Detection Rate (NDR) proxy 指标，显著改善了 LLM 中有害训练样本的检测效果。
+
+**[From Assumptions to Actions: Turning LLM Reasoning into Uncertainty-Aware Planning](llm_nlp/from_assumptions_to_actions_turning_llm_reasoning_into_uncertainty-aware_plannin.md)**
+
+:   提出 PCE（Planner-Composer-Evaluator）框架，将 LLM 推理链中隐含的环境假设显式提取并组织为决策树，通过似然度-增益-成本评分实现不确定性感知的行动选择，大幅减少多智能体协作中的通信开销。
+
+**[Function Induction and Task Generalization: An Interpretability Study with Off-by-One Addition](llm_nlp/function_induction_and_task_generalization_an_interpretability_study_with_off-by.md)**
+
+:   通过 off-by-one addition（如 1+1=3, 2+2=5）这一反事实任务，利用 path patching 发现大语言模型内部存在 **function induction** 机制——一种超越 token 级别 pattern matching、在函数级别进行归纳推理的注意力头电路，并证明该机制可跨任务复用。
+
+**[Generative Value Conflicts Reveal LLM Priorities](llm_nlp/generative_value_conflicts_reveal_llm_priorities.md)**
+
+:   提出 ConflictScope，一个自动生成价值冲突场景的 pipeline，通过开放式评估（非选择题）揭示 LLM 在冲突情境下的价值优先级排序，发现模型在开放式设置中从保护性价值（如无害性）转向个人价值（如用户自主性），且系统提示可将目标排序对齐提升 14%。
+
+**[How Catastrophic is Your LLM? Certifying Risk in Conversation](llm_nlp/how_catastrophic_is_your_llm_certifying_risk_in_conversation.md)**
+
+:   提出 C3LLM（Certification of Catastrophic risks in multi-turn Conversation for LLMs），首个为多轮 LLM 对话中灾难性风险提供统计认证的框架：用语义相似度图上的 Markov 过程建模对话分布，定义 3 种对话采样策略 + 增强层，使用 Clopper-Pearson 95% 置信区间认证模型产生有害输出的概率界——发现最差模型风险下界高达 72%。
+
+**[KVComm: Enabling Efficient LLM Communication through Selective KV Sharing](llm_nlp/kvcomm_enabling_efficient_llm_communication_through_selective_kv_sharing.md)**
+
+:   提出 KVComm 框架通过选择性共享 KV pairs 实现 LLM 间高效通信，发现 hidden states 存在"信息集中偏差"使其不适合跨模型传递，设计基于注意力重要性 + 高斯先验的层选择策略，仅传输 30% 层即可超越大多数 baseline。
+
+**[LLEMA: Evolutionary Search with LLMs for Multi-Objective Materials Discovery](llm_nlp/llema_evolutionary_search_with_llms_for_multi-objective_material_design.md)**
+
+:   提出 LLEMA 框架，将 LLM 的科学知识与化学规则引导的进化搜索和记忆驱动的迭代优化相结合，在 14 个多目标材料发现任务上实现了更高的命中率、稳定性和 Pareto 前沿质量。
+
+**[LLEMA: Evolutionary Search with LLMs for Multi-Objective Materials Discovery](llm_nlp/llema_evolutionary_search_with_llms_for_multi-objective_materials_discovery.md)**
+
+:   提出 LLEMA 框架，将 LLM 的科学先验知识与化学规则引导的进化搜索和记忆驱动的迭代优化相结合，在 14 个多目标材料发现任务上显著超越生成式和纯 LLM 基线。
+
+**[Meta-RL Induces Exploration in Language Agents](llm_nlp/meta-rl_induces_exploration_in_language_agents.md)**
+
+:   提出 LaMer 框架，将元强化学习（Meta-RL）引入 LLM agent 训练，通过跨 episode 的奖励优化和基于反思的上下文策略适应，使语言智能体学会主动探索环境，在 Sokoban/MineSweeper/Webshop 上分别获得 11%/14%/19% 的绝对性能提升。
+
+**[Near-Optimal Online Deployment and Routing for Streaming LLMs](llm_nlp/near-optimal_online_deployment_and_routing_for_streaming_llms.md)**
+
+:   首次形式化 LLM 流式在线部署+路由联合问题：新模型持续出现、旧模型可能过时，在并发部署上限 $M_{\max}$ 和成本预算约束下，提出 StageRoute 分层算法，证明 $\tilde{\mathcal{O}}(T^{2/3})$ 遗憾界并给出匹配下界，达到近最优。
+
+**[Neural Synchrony Between Socially Interacting Language Models](llm_nlp/neural_synchrony_between_socially_interacting_language_models.md)**
+
+:   首次研究社会交互中 LLM 间的神经同步现象：通过训练仿射变换预测交互伙伴的未来表征，定义 $SyncR^2$ 指标量化同步强度，发现该同步依赖于社会参与和时间邻近性，且与 LLM 的社会行为表现高度相关（Pearson $r$ = 0.88-0.99），呼应了人类脑间同步（IBS）的神经科学发现。
+
+**[Optimas: Optimizing Compound AI Systems with Globally Aligned Local Rewards](llm_nlp/optimas_optimizing_compound_ai_systems_with_globally_aligned_local_rewards.md)**
+
+:   提出 Optimas 框架，为复合 AI 系统中每个组件维护一个与全局奖励对齐的局部奖励函数（LRF），使异构组件（prompt、模型参数、超参数、模型选择）可独立优化，在五个真实系统上平均提升 11.92%。
+
+**[Predicting LLM Reasoning Performance with Small Proxy Models](llm_nlp/predicting_llm_reasoning_performance_with_small_proxy_models.md)**
+
+:   提出 rBridge 方法，通过结合前沿模型推理轨迹 (reasoning trace) 的 NLL 评估与 token 级任务对齐权重，使 ≤1B 的小模型能有效预测 13B-32B 大模型的推理性能，数据排序计算成本降低 100 倍以上。
+
+**[PT2-LLM: Post-Training Ternarization for Large Language Models](llm_nlp/pt2-llm_post-training_ternarization_for_large_language_models.md)**
+
+:   提出 PT2-LLM，首个针对 LLM 的后训练三值化框架，通过非对称三值量化器（含迭代三值拟合和激活感知网格对齐）与结构相似性重排序策略，在 1.58-bit 下实现优于 2-bit PTQ 方法的性能。
+
+**[ConflictScope: Generative Value Conflicts Reveal LLM Priorities](llm_nlp/quamo_quaternion_motions_for_vision-based_3d_human_kinematics_capture.md)**
+
+:   提出ConflictScope——自动化价值冲突场景生成与评估流水线：给定任意价值集合，自动生成价值对之间的冲突场景，通过模拟用户的开放式交互（而非选择题）评估LLM的价值优先级排序；发现模型在开放式评估中从"保护性价值"（如无害性）显著转向"个人价值"（如用户自主性），系统提示可使对齐目标排序提升14%。
+
+**[Rethinking Code Similarity for Automated Algorithm Design with LLMs](llm_nlp/rethinking_code_similarity_for_automated_algorithm_design_with_llms.md)**
+
+:   提出 BehaveSim，一种基于"问题求解轨迹"（PSTrajs）和动态时间规整（DTW）的算法相似度度量方法，从执行行为层面而非语法或输出层面衡量算法差异，集成到 FunSearch/EoH 等 LLM-AAD 框架后显著提升性能。
+
+**[Statistical Advantage of Softmax Attention: Insights from Single-Location Regression](llm_nlp/statistical_advantage_of_softmax_attention_insights_from_single-location_regress.md)**
+
+:   通过提出"单位置回归"(Single-Location Regression, SLR) 理论框架，结合统计物理中的 order parameter 方法，在高维极限下严格证明了 softmax attention 在种群层面达到 Bayes 风险而线性 attention 本质上无法做到，并在有限样本情形下证实 softmax 始终优于线性 attention，为 softmax 在检索任务中的优势提供了首个原理性解释。
+
+**[Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding](llm_nlp/stopping_computation_for_converged_tokens_in_masked_diffusion-lm_decoding.md)**
+
+:   提出 SureLock，当 Masked Diffusion LM 中已 unmask 的 token 后验分布稳定后永久锁定该位置（跳过 Q 投影和 FFN，缓存 KV），将每步注意力计算从 $O(N^2d)$ 降为 $O(MNd)$，在 LLaDA-8B 上减少 30-50% FLOPs 且不损生成质量。
+
+**[The Lattice Representation Hypothesis of Large Language Models](llm_nlp/the_lattice_representation_hypothesis_of_large_language_models.md)**
+
+:   提出 LLM 的**格表示假说 (Lattice Representation Hypothesis)**：通过将线性表示假说与形式概念分析 (FCA) 统一，证明 LLM 嵌入空间中的属性方向通过半空间交集隐式编码了一个**概念格 (concept lattice)**，从而实现了连续几何与符号抽象之间的桥接。
+
+**[The Path of Least Resistance: Guiding LLM Reasoning Trajectories for Efficient Consistency](llm_nlp/the_path_of_least_resistance_guiding_llm_reasoning_trajectories_for_efficient_co.md)**
+
+:   提出 PoLR（Path of Least Resistance），首个利用推理前缀一致性的推理时方法，通过聚类短前缀并仅扩展主导聚类来实现 Self-Consistency 的高效替代，可减少高达 60% token 使用和 50% 延迟。
+
+**[Toward Safer Diffusion Language Models: Discovery and Mitigation of Priming Vulnerabilities](llm_nlp/toward_safer_diffusion_language_models_discovery_and_mitigation_of_priming_vulne.md)**
+
+:   揭示了掩码扩散语言模型（MDLM）中的"启动漏洞"（priming vulnerability）——在去噪中间步骤注入肯定性 token 可绕过安全防线，并提出 Recovery Alignment（RA）方法训练模型从被污染的中间状态恢复到安全响应。
+
+**[Trapped by simplicity: When Transformers fail to learn from noisy features](llm_nlp/trapped_by_simplicity_when_transformers_fail_to_learn_from_noisy_features.md)**
+
+:   研究表明 Transformer 在从含特征噪声的数据中学习布尔函数时会失败——其简单性偏好（倾向学习低敏感度函数）导致模型被困在比目标函数更简单的最优噪声预测器上，无法恢复真实的无噪声目标函数。
+
+**[Unsupervised Evaluation of Multi-Turn Objective-Driven Interactions](llm_nlp/unsupervised_evaluation_of_multi-turn_objective-driven_interactions.md)**
+
+:   提出三种**无监督**指标——LLM 引导聚类（目标识别）、基于微调完成模型的交互完整性检测、响应树（LLM 不确定性量化）——用于评估多轮目标驱动对话，无需标注数据或 LLM-as-a-judge，仅用 8B 模型即可匹配/超越 70B judge 的性能。
+
+**[WebDevJudge: Evaluating (M)LLMs as Critiques for Web Development Quality](llm_nlp/webdevjudge_mllm_web_development.md)**
+
+:   构建 WebDevJudge 元评估基准，系统评估 LLM/MLLM 及智能体工作流在 Web 开发质量评估任务上作为裁判的能力，发现当前最强模型与人类专家之间仍存在约15%的一致率差距，并揭示了功能等价识别失败和可行性验证薄弱两大根本瓶颈。
+
+**[Weight Decay may matter more than μP for Learning Rate Transfer in Practice](llm_nlp/weight_decay_may_matter_more_than_mup_for_learning_rate_transfer_in_practice.md)**
+
+:   本文通过大规模实证分析表明，μP 的核心对齐假设仅在训练初期短暂成立，实际训练中是独立权重衰减（independent weight decay）而非 μP 在正确稳定跨宽度的特征学习动态，μP 的实际益处可被解释为一种隐式学习率预热。
+
+**[When Stability Fails: Hidden Failure Modes of LLMs in Data-Constrained Scientific Decision-Making](llm_nlp/when_stability_fails_hidden_failure_modes_of_llms_in_data-constrained_scientific.md)**
+
+:   通过控制性行为评估框架，揭示 LLM 在数据约束的科学决策任务中的四种隐藏失败模式：高稳定性≠正确性、prompt 措辞敏感性、放宽阈值下的过度选择、以及幻觉产生无效标识符。
+
+**[When Stability Fails: Hidden Failure Modes of LLMs in Data-Constrained Scientific Decision-Making](llm_nlp/when_stability_fails_hidden_failure_modes_of_llms_in_data-critical_statistical_.md)**
+
+:   揭示 LLM 在数据约束的科学决策任务中的隐藏失败模式：模型可以展现近乎完美的运行间稳定性，同时系统性偏离统计学基准真值，表现为过度选择、prompt 敏感和幻觉基因标识符。
+
+---
+
 ## ⚖️ 对齐/RLHF { #llm_alignment }
 
 **[A2D: Any-Order, Any-Step Safety Alignment for Diffusion Language Models](llm_alignment/a2d_any-order_any-step_safety_alignment_for_diffusion_language_models.md)**
@@ -4279,162 +4447,6 @@ description: >-
 **[Why DPO is a Misspecified Estimator and How to Fix It](llm_alignment/why_dpo_is_misspecified_estimator.md)**
 
 :   从信息几何角度证明 DPO 在参数化（非 tabular）策略类下本质上是一个误指定的统计估计问题——DPO 将真实奖励函数 KL 投影到隐式奖励流形上，当奖励不可实现时会导致偏好反转和奖励下降——并提出 AuxDPO 通过引入零空间辅助变量来修复此问题。
-
----
-
-## 💬 LLM/NLP { #llm_nlp }
-
-**[AssetFormer: Modular 3D Assets Generation with Autoregressive Transformer](llm_nlp/assetformer_modular_3d_assets_generation_with_autoregressive_transformer.md)**
-
-:   提出 AssetFormer，基于 Llama 架构的自回归 Transformer，将模块化 3D 资产（由 primitive 序列组成）建模为离散 token 序列，通过 DFS/BFS 图遍历重排序和联合词汇表解码实现从文本描述生成可直接用于游戏引擎的模块化 3D 资产。
-
-**[Compositional-ARC: Assessing Systematic Generalization in Abstract Spatial Reasoning](llm_nlp/compositional-arc_assessing_systematic_generalization_in_abstract_spatial_reason.md)**
-
-:   提出 Compositional-ARC 数据集评估模型在抽象空间推理中的系统性泛化能力——从已知基础几何变换（如平移、旋转）泛化到未见过的变换组合。一个仅 5.7M 参数的 MLC 训练的 encoder-decoder 模型在系统性任务上达到 78.26%，与 ARC Prize 2024 冠军的 8B 模型+TTT 持平，远超 GPT-4o、o3-mini 等（<3%）。
-
-**[d²Cache: Accelerating Diffusion-Based LLMs via Dual Adaptive Caching](llm_nlp/d2cache_accelerating_diffusion-based_llms_via_dual_adaptive_caching.md)**
-
-:   提出 d²Cache，一种面向 Diffusion-based LLM（dLLM）的无训练近似 KV 缓存框架，通过确定性先验引导的 masked token 选择 + 注意力感知的非 mask token 选择两阶段策略，实现 4.1× 推理加速同时提升生成质量。
-
-**[DreamOn: Diffusion Language Models For Code Infilling Beyond Fixed-size Canvas](llm_nlp/dreamon_diffusion_language_models_for_code_infilling_beyond_fixed-size_canvas.md)**
-
-:   DreamOn 通过引入 [expand] 和 [delete] 两个特殊状态解决了扩散语言模型（DLM）的固定长度生成限制，无需架构修改即可实现变长代码填充，在 HumanEval-Infilling 上比扩散基线平均提升 26.4%，达到与 SOTA 自回归模型持平的水平。
-
-**[ELLMob: Event-Driven Human Mobility Generation with Self-Aligned LLM Framework](llm_nlp/ellmob_event-driven_human_mobility_generation_with_self-aligned_language_models.md)**
-
-:   提出 ELLMob 框架，基于认知心理学的模糊痕迹理论（FTT），通过提取并迭代对齐"习惯 gist"和"事件 gist"来调和用户日常模式与社会事件约束之间的竞争，实现事件驱动的可解释轨迹生成。
-
-**[ELLMob: Event-Driven Human Mobility Generation with Self-Aligned LLM Framework](llm_nlp/ellmob_event-driven_human_mobility_generation_with_self-aligned_llm_framework.md)**
-
-:   提出 ELLMob，一个基于模糊痕迹理论（FTT）的自对齐 LLM 框架，通过提取并迭代对齐"习惯模式要旨"与"事件约束要旨"来生成兼顾日常规律与事件响应的人类移动轨迹。
-
-**[Enhancing Persona Following at Decoding Time via Dynamic Importance-Guided Token Estimation for Role-Playing Agents](llm_nlp/enhancing_persona_following_at_decoding_time_via_dynamic_importance-guided_token.md)**
-
-:   提出 Persona Dynamic Decoding (PDD) 框架，通过条件互信息动态估计人格属性的场景依赖重要性，并将重要性分数整合到多目标奖励引导解码中，实现无需微调的推理时人格跟随。
-
-**[Enhancing Persona Following at Decoding Time via Dynamic Importance Estimation for Role-Playing Agents](llm_nlp/enhancing_persona_following_at_decoding_time_via_dynamic_importance_estimation_.md)**
-
-:   提出 Persona Dynamic Decoding (PDD) 框架，通过条件互信息动态估计人格属性的场景相关重要性，并以加权多目标奖励引导解码，实现无需微调的推理时自适应人格跟随。
-
-**[Enhancing Persona Following at Decoding Time via Dynamic Importance Estimation for Role-Playing Agents](llm_nlp/enhancing_persona_following_at_decoding_time_via_dynamic_importance_estimation_f.md)**
-
-:   提出 PDD（Persona Dynamic Decoding）框架，通过条件互信息动态估计不同场景下人设属性的重要性，并以加权多目标奖励引导推理时解码，实现无需微调的自适应人设遵循。
-
-**[Evaluating Text Creativity across Diverse Domains: A Dataset and Large Language Model Evaluator](llm_nlp/evaluating_text_creativity_across_diverse_domains_a_dataset_and_large_language_m.md)**
-
-:   提出基于上下文感知的成对比较框架来评估文本创造力，构建了包含 100K+ 人类级别和 1M+ 合成数据的 CreataSet 数据集，训练出 CrEval 评估器，在与人类判断的对齐度上超越 GPT-4o 达 18.7%。
-
-**[Fine-Grained Activation Steering: Steering Less, Achieving More](llm_nlp/fine-grained_activation_steering_steering_less_achieving_more.md)**
-
-:   AUSteer 发现块级激活转向（steering）本质上是异质的——不同维度控制不同 token 分布，混合转向既放大有益信号也放大有害信号。提出原子单元（AU）级细粒度转向：用激活动量定位判别性维度，自适应调节转向强度，仅转向 ≤100 个维度即大幅超越转向数千维度的 SOTA 方法。
-
-**[First is Not Really Better Than Last: Evaluating Layer Choice and Aggregation Strategies in Language Model Data Influence Estimation](llm_nlp/first_is_not_really_better_than_last_evaluating_layer_choice_and_aggregation_str.md)**
-
-:   通过理论和实验证明先前工作所推崇的"第一层（embedding）最适合做 influence estimation"的结论是不可靠的，发现中间 attention 层才是更好的估计层，并提出 Rank 和 Vote 两种新的跨层聚合策略以及 Noise Detection Rate (NDR) proxy 指标，显著改善了 LLM 中有害训练样本的检测效果。
-
-**[From Assumptions to Actions: Turning LLM Reasoning into Uncertainty-Aware Planning](llm_nlp/from_assumptions_to_actions_turning_llm_reasoning_into_uncertainty-aware_plannin.md)**
-
-:   提出 PCE（Planner-Composer-Evaluator）框架，将 LLM 推理链中隐含的环境假设显式提取并组织为决策树，通过似然度-增益-成本评分实现不确定性感知的行动选择，大幅减少多智能体协作中的通信开销。
-
-**[Function Induction and Task Generalization: An Interpretability Study with Off-by-One Addition](llm_nlp/function_induction_and_task_generalization_an_interpretability_study_with_off-by.md)**
-
-:   通过 off-by-one addition（如 1+1=3, 2+2=5）这一反事实任务，利用 path patching 发现大语言模型内部存在 **function induction** 机制——一种超越 token 级别 pattern matching、在函数级别进行归纳推理的注意力头电路，并证明该机制可跨任务复用。
-
-**[Generative Value Conflicts Reveal LLM Priorities](llm_nlp/generative_value_conflicts_reveal_llm_priorities.md)**
-
-:   提出 ConflictScope，一个自动生成价值冲突场景的 pipeline，通过开放式评估（非选择题）揭示 LLM 在冲突情境下的价值优先级排序，发现模型在开放式设置中从保护性价值（如无害性）转向个人价值（如用户自主性），且系统提示可将目标排序对齐提升 14%。
-
-**[How Catastrophic is Your LLM? Certifying Risk in Conversation](llm_nlp/how_catastrophic_is_your_llm_certifying_risk_in_conversation.md)**
-
-:   提出 C3LLM（Certification of Catastrophic risks in multi-turn Conversation for LLMs），首个为多轮 LLM 对话中灾难性风险提供统计认证的框架：用语义相似度图上的 Markov 过程建模对话分布，定义 3 种对话采样策略 + 增强层，使用 Clopper-Pearson 95% 置信区间认证模型产生有害输出的概率界——发现最差模型风险下界高达 72%。
-
-**[KVComm: Enabling Efficient LLM Communication through Selective KV Sharing](llm_nlp/kvcomm_enabling_efficient_llm_communication_through_selective_kv_sharing.md)**
-
-:   提出 KVComm 框架通过选择性共享 KV pairs 实现 LLM 间高效通信，发现 hidden states 存在"信息集中偏差"使其不适合跨模型传递，设计基于注意力重要性 + 高斯先验的层选择策略，仅传输 30% 层即可超越大多数 baseline。
-
-**[LLEMA: Evolutionary Search with LLMs for Multi-Objective Materials Discovery](llm_nlp/llema_evolutionary_search_with_llms_for_multi-objective_material_design.md)**
-
-:   提出 LLEMA 框架，将 LLM 的科学知识与化学规则引导的进化搜索和记忆驱动的迭代优化相结合，在 14 个多目标材料发现任务上实现了更高的命中率、稳定性和 Pareto 前沿质量。
-
-**[LLEMA: Evolutionary Search with LLMs for Multi-Objective Materials Discovery](llm_nlp/llema_evolutionary_search_with_llms_for_multi-objective_materials_discovery.md)**
-
-:   提出 LLEMA 框架，将 LLM 的科学先验知识与化学规则引导的进化搜索和记忆驱动的迭代优化相结合，在 14 个多目标材料发现任务上显著超越生成式和纯 LLM 基线。
-
-**[Meta-RL Induces Exploration in Language Agents](llm_nlp/meta-rl_induces_exploration_in_language_agents.md)**
-
-:   提出 LaMer 框架，将元强化学习（Meta-RL）引入 LLM agent 训练，通过跨 episode 的奖励优化和基于反思的上下文策略适应，使语言智能体学会主动探索环境，在 Sokoban/MineSweeper/Webshop 上分别获得 11%/14%/19% 的绝对性能提升。
-
-**[Near-Optimal Online Deployment and Routing for Streaming LLMs](llm_nlp/near-optimal_online_deployment_and_routing_for_streaming_llms.md)**
-
-:   首次形式化 LLM 流式在线部署+路由联合问题：新模型持续出现、旧模型可能过时，在并发部署上限 $M_{\max}$ 和成本预算约束下，提出 StageRoute 分层算法，证明 $\tilde{\mathcal{O}}(T^{2/3})$ 遗憾界并给出匹配下界，达到近最优。
-
-**[Neural Synchrony Between Socially Interacting Language Models](llm_nlp/neural_synchrony_between_socially_interacting_language_models.md)**
-
-:   首次研究社会交互中 LLM 间的神经同步现象：通过训练仿射变换预测交互伙伴的未来表征，定义 $SyncR^2$ 指标量化同步强度，发现该同步依赖于社会参与和时间邻近性，且与 LLM 的社会行为表现高度相关（Pearson $r$ = 0.88-0.99），呼应了人类脑间同步（IBS）的神经科学发现。
-
-**[Optimas: Optimizing Compound AI Systems with Globally Aligned Local Rewards](llm_nlp/optimas_optimizing_compound_ai_systems_with_globally_aligned_local_rewards.md)**
-
-:   提出 Optimas 框架，为复合 AI 系统中每个组件维护一个与全局奖励对齐的局部奖励函数（LRF），使异构组件（prompt、模型参数、超参数、模型选择）可独立优化，在五个真实系统上平均提升 11.92%。
-
-**[Predicting LLM Reasoning Performance with Small Proxy Models](llm_nlp/predicting_llm_reasoning_performance_with_small_proxy_models.md)**
-
-:   提出 rBridge 方法，通过结合前沿模型推理轨迹 (reasoning trace) 的 NLL 评估与 token 级任务对齐权重，使 ≤1B 的小模型能有效预测 13B-32B 大模型的推理性能，数据排序计算成本降低 100 倍以上。
-
-**[PT2-LLM: Post-Training Ternarization for Large Language Models](llm_nlp/pt2-llm_post-training_ternarization_for_large_language_models.md)**
-
-:   提出 PT2-LLM，首个针对 LLM 的后训练三值化框架，通过非对称三值量化器（含迭代三值拟合和激活感知网格对齐）与结构相似性重排序策略，在 1.58-bit 下实现优于 2-bit PTQ 方法的性能。
-
-**[ConflictScope: Generative Value Conflicts Reveal LLM Priorities](llm_nlp/quamo_quaternion_motions_for_vision-based_3d_human_kinematics_capture.md)**
-
-:   提出ConflictScope——自动化价值冲突场景生成与评估流水线：给定任意价值集合，自动生成价值对之间的冲突场景，通过模拟用户的开放式交互（而非选择题）评估LLM的价值优先级排序；发现模型在开放式评估中从"保护性价值"（如无害性）显著转向"个人价值"（如用户自主性），系统提示可使对齐目标排序提升14%。
-
-**[Rethinking Code Similarity for Automated Algorithm Design with LLMs](llm_nlp/rethinking_code_similarity_for_automated_algorithm_design_with_llms.md)**
-
-:   提出 BehaveSim，一种基于"问题求解轨迹"（PSTrajs）和动态时间规整（DTW）的算法相似度度量方法，从执行行为层面而非语法或输出层面衡量算法差异，集成到 FunSearch/EoH 等 LLM-AAD 框架后显著提升性能。
-
-**[Statistical Advantage of Softmax Attention: Insights from Single-Location Regression](llm_nlp/statistical_advantage_of_softmax_attention_insights_from_single-location_regress.md)**
-
-:   通过提出"单位置回归"(Single-Location Regression, SLR) 理论框架，结合统计物理中的 order parameter 方法，在高维极限下严格证明了 softmax attention 在种群层面达到 Bayes 风险而线性 attention 本质上无法做到，并在有限样本情形下证实 softmax 始终优于线性 attention，为 softmax 在检索任务中的优势提供了首个原理性解释。
-
-**[Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding](llm_nlp/stopping_computation_for_converged_tokens_in_masked_diffusion-lm_decoding.md)**
-
-:   提出 SureLock，当 Masked Diffusion LM 中已 unmask 的 token 后验分布稳定后永久锁定该位置（跳过 Q 投影和 FFN，缓存 KV），将每步注意力计算从 $O(N^2d)$ 降为 $O(MNd)$，在 LLaDA-8B 上减少 30-50% FLOPs 且不损生成质量。
-
-**[The Lattice Representation Hypothesis of Large Language Models](llm_nlp/the_lattice_representation_hypothesis_of_large_language_models.md)**
-
-:   提出 LLM 的**格表示假说 (Lattice Representation Hypothesis)**：通过将线性表示假说与形式概念分析 (FCA) 统一，证明 LLM 嵌入空间中的属性方向通过半空间交集隐式编码了一个**概念格 (concept lattice)**，从而实现了连续几何与符号抽象之间的桥接。
-
-**[The Path of Least Resistance: Guiding LLM Reasoning Trajectories for Efficient Consistency](llm_nlp/the_path_of_least_resistance_guiding_llm_reasoning_trajectories_for_efficient_co.md)**
-
-:   提出 PoLR（Path of Least Resistance），首个利用推理前缀一致性的推理时方法，通过聚类短前缀并仅扩展主导聚类来实现 Self-Consistency 的高效替代，可减少高达 60% token 使用和 50% 延迟。
-
-**[Toward Safer Diffusion Language Models: Discovery and Mitigation of Priming Vulnerabilities](llm_nlp/toward_safer_diffusion_language_models_discovery_and_mitigation_of_priming_vulne.md)**
-
-:   揭示了掩码扩散语言模型（MDLM）中的"启动漏洞"（priming vulnerability）——在去噪中间步骤注入肯定性 token 可绕过安全防线，并提出 Recovery Alignment（RA）方法训练模型从被污染的中间状态恢复到安全响应。
-
-**[Trapped by simplicity: When Transformers fail to learn from noisy features](llm_nlp/trapped_by_simplicity_when_transformers_fail_to_learn_from_noisy_features.md)**
-
-:   研究表明 Transformer 在从含特征噪声的数据中学习布尔函数时会失败——其简单性偏好（倾向学习低敏感度函数）导致模型被困在比目标函数更简单的最优噪声预测器上，无法恢复真实的无噪声目标函数。
-
-**[Unsupervised Evaluation of Multi-Turn Objective-Driven Interactions](llm_nlp/unsupervised_evaluation_of_multi-turn_objective-driven_interactions.md)**
-
-:   提出三种**无监督**指标——LLM 引导聚类（目标识别）、基于微调完成模型的交互完整性检测、响应树（LLM 不确定性量化）——用于评估多轮目标驱动对话，无需标注数据或 LLM-as-a-judge，仅用 8B 模型即可匹配/超越 70B judge 的性能。
-
-**[WebDevJudge: Evaluating (M)LLMs as Critiques for Web Development Quality](llm_nlp/webdevjudge_mllm_web_development.md)**
-
-:   构建 WebDevJudge 元评估基准，系统评估 LLM/MLLM 及智能体工作流在 Web 开发质量评估任务上作为裁判的能力，发现当前最强模型与人类专家之间仍存在约15%的一致率差距，并揭示了功能等价识别失败和可行性验证薄弱两大根本瓶颈。
-
-**[Weight Decay may matter more than μP for Learning Rate Transfer in Practice](llm_nlp/weight_decay_may_matter_more_than_mup_for_learning_rate_transfer_in_practice.md)**
-
-:   本文通过大规模实证分析表明，μP 的核心对齐假设仅在训练初期短暂成立，实际训练中是独立权重衰减（independent weight decay）而非 μP 在正确稳定跨宽度的特征学习动态，μP 的实际益处可被解释为一种隐式学习率预热。
-
-**[When Stability Fails: Hidden Failure Modes of LLMs in Data-Constrained Scientific Decision-Making](llm_nlp/when_stability_fails_hidden_failure_modes_of_llms_in_data-constrained_scientific.md)**
-
-:   通过控制性行为评估框架，揭示 LLM 在数据约束的科学决策任务中的四种隐藏失败模式：高稳定性≠正确性、prompt 措辞敏感性、放宽阈值下的过度选择、以及幻觉产生无效标识符。
-
-**[When Stability Fails: Hidden Failure Modes of LLMs in Data-Constrained Scientific Decision-Making](llm_nlp/when_stability_fails_hidden_failure_modes_of_llms_in_data-critical_statistical_.md)**
-
-:   揭示 LLM 在数据约束的科学决策任务中的隐藏失败模式：模型可以展现近乎完美的运行间稳定性，同时系统性偏离统计学基准真值，表现为过度选择、prompt 敏感和幻觉基因标识符。
 
 ---
 
@@ -6083,6 +6095,10 @@ description: >-
 **[ASSESS: A Semantic and Structural Evaluation Framework for Statement Similarity](multilingual_mt/assess_a_semantic_and_structural_evaluation_framework_for_statement_similarity.md)**
 
 :   提出 ASSESS 框架，其核心是 TransTED Similarity 指标——通过将形式化数学命题解析为算子树 (Operator Tree)，并在标准树编辑距离 (TED) 基础上融入 Lean 证明策略驱动的语义变换，实现了在 EPLA 基准上 70.16% 准确率和 0.35 Kappa 分数的 SOTA 性能，同时仅需 CPU 资源即可复现。
+
+**[ASSESS: A Semantic and Structural Evaluation Framework for Statement Similarity](multilingual_mt/assess_autoformalization_eval.md)**
+
+:   本文提出 ASSESS 框架和 TransTED Similarity 指标，通过将形式语句解析为操作符树并在树编辑距离中融入语义变换，实现了自动形式化语句相似度的 SOTA 评估（70.16% 准确率、0.35 Kappa），并发布了包含 1247 对专家标注的 EPLA 基准。
 
 **[ATLAS: Adaptive Transfer Scaling Laws for Multilingual Pretraining, Finetuning, and Decoding the Curse of Multilinguality](multilingual_mt/atlas_adaptive_transfer_scaling_laws_for_multilingual_pretraining_finetuning_and.md)**
 

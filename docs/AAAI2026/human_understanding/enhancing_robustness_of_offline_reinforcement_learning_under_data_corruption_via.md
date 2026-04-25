@@ -125,7 +125,7 @@ IQL 收敛到尖锐高峰和深谷区域；IQL+SAM 学到显著更平滑更平�
 - [MIDB: Multilingual Instruction Data Booster for Enhancing Cultural Equality in Multilingual Instruction Synthesis](midb_multilingual_instruction_data_booster_for_enhancing_cultural_equality_in_mu.md)
 - [MagShield: Towards Better Robustness in Sparse Inertial Motion Capture Under Magnetic Disturbances](../../ICCV2025/human_understanding/magshield_towards_better_robustness_in_sparse_inertial_motion_capture_under_magn.md)
 - [Statistical Guarantees for Offline Domain Randomization](../../ICLR2026/human_understanding/statistical_guarantees_for_offline_domain_randomization.md)
-- [Enhancing Noise Resilience in Face Clustering via Sparse Differential Transformer](enhancing_noise_resilience_in_face_clustering_via_sparse_differential_transforme.md)
 - [Self-Correction Distillation for Structured Data Question Answering](self-correction_distillation_for_structured_data_question_answering.md)
+- [Enhancing Noise Resilience in Face Clustering via Sparse Differential Transformer](enhancing_noise_resilience_in_face_clustering_via_sparse_differential_transforme.md)
 
 <!-- RELATED:END -->

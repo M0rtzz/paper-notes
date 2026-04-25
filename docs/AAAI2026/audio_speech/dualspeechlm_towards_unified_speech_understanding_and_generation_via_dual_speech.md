@@ -155,10 +155,10 @@ DualSpeechLM 包含两个核心模块：
 
 ## 相关论文
 
+- [Do We Need Distinct Representations for Every Speech Token? Unveiling and Exploiting Redundancy in Large Speech Language Models](../../ACL2026/audio_speech/do_we_need_distinct_representations_for_every_speech_token_unveiling_and_exploit.md)
 - [HPSU: A Benchmark for Human-Level Perception in Real-World Spoken Speech Understanding](hpsu_a_benchmark_for_human-level_perception_in_real-world_spoken_speech_understa.md)
 - [Efficient Speech Language Modeling via Energy Distance in Continuous Latent Space](../../NeurIPS2025/audio_speech/efficient_speech_language_modeling_via_energy_distance_in_continuous_latent_spac.md)
 - [Pay Attention to CTC: Fast and Robust Pseudo-Labelling for Unified Speech Recognition](../../ICLR2026/audio_speech/pay_attention_to_ctc_fast_and_robust_pseudo-labelling_for_unified_speech_recogni.md)
 - [Cross-Space Synergy: A Unified Framework for Multimodal Emotion Recognition in Conversation](cross-space_synergy_a_unified_framework_for_multimodal_emotion_recognition_in_co.md)
-- [Crab: A Unified Audio-Visual Scene Understanding Model with Explicit Cooperation](../../CVPR2025/audio_speech/crab_a_unified_audio-visual_scene_understanding_model_with_explicit_cooperation.md)
 
 <!-- RELATED:END -->

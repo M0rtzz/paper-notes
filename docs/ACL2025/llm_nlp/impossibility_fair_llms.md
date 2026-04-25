@@ -142,7 +142,7 @@ tags:
 - [LLMs + Persona-Plug = Personalized LLMs](llms_persona-plug_personalized_llms.md)
 - [Can LLMs Help Uncover Insights about LLMs? A Large-Scale, Evolving Literature Analysis of Frontier LLMs](can_llms_help_uncover_insights_about_llms_a_large-scale_evolving_literature_anal.md)
 - [Can LLMs Understand Unvoiced Speech? Exploring EMG-to-Text Conversion with LLMs](can_llms_understand_unvoiced_speech_exploring_emg-to-text_conversion_with_llms.md)
-- [How LLMs Comprehend Temporal Meaning in Narratives: A Case Study in Cognitive Evaluation of LLMs](how_llms_comprehend_temporal_meaning_in_narratives_a_case_study_in_cognitive_eva.md)
+- [How LLMs Comprehend Temporal Meaning in Narratives: A Case Study in Cognitive Evaluation of LLMs](llms-comprehend-temporal-meaning-in-narratives.md)
 - [LlamaDuo: LLMOps Pipeline for Seamless Migration from Service LLMs to Small-Scale Local LLMs](llamaduo_llmops_pipeline_for_seamless_migration_from_service_llms_to_small-scale.md)
 
 <!-- RELATED:END -->

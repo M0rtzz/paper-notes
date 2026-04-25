@@ -152,8 +152,8 @@ BLINK是评测基准，不涉及模型训练。所有评估在零样本设置下
 
 - [VisionZip: Longer is Better but Not Necessary in Vision Language Models](../../CVPR2025/multimodal_vlm/visionzip_longer_is_better_but_not_necessary_in_vision_language_models.md)
 - [Vision-Language Models Can't See the Obvious](../../ICCV2025/multimodal_vlm/vision-language_models_cant_see_the_obvious.md)
-- [Aligning What Vision-Language Models See and Perceive with Adaptive Information Flow](../../CVPR2026/multimodal_vlm/aif_adaptive_information_flow_vlm.md)
 - [MathVerse: Does Your Multi-modal LLM Truly See the Diagrams in Visual Math Problems?](mathverse_does_your_multi-modal_llm_truly_see_the_diagrams_in_visual_math_proble.md)
+- [Aligning What Vision-Language Models See and Perceive with Adaptive Information Flow](../../CVPR2026/multimodal_vlm/aif_adaptive_information_flow_vlm.md)
 - [ForensicZip: More Tokens are Better but Not Necessary in Forensic Vision-Language Models](../../CVPR2025/multimodal_vlm/forensiczip_more_tokens_are_better_but_not_necessary_in_forensic_vision-language.md)
 
 <!-- RELATED:END -->

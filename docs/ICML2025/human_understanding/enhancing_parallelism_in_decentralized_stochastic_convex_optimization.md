@@ -154,6 +154,6 @@ $$\mathbb{E}[f(\bar{x}_T) - f^*] \leq \mathcal{O}\left(\frac{\sigma D_1}{\sqrt{M
 - [Enhancing Decision-Making of Large Language Models via Actor-Critic](enhancing_decision-making_of_large_language_models_via_actor-critic.md)
 - [SymRTLO: Enhancing RTL Code Optimization with LLMs and Neuron-Inspired Symbolic Reasoning](../../NeurIPS2025/human_understanding/symrtlo_enhancing_rtl_code_optimization_with_llms_and_neuron-inspired_symbolic_r.md)
 - [Emergent World Beliefs: Exploring Transformers in Stochastic Games](../../NeurIPS2025/human_understanding/emergent_world_beliefs_exploring_transformers_in_stochastic_games.md)
-- [Stochastic Human Motion Prediction with Memory of Action Transition and Action Characteristic](../../CVPR2025/human_understanding/stochastic_human_motion_prediction_with_memory_of_action_transition_and_action_c.md)
+- [Enhancing LLM-based Search Agents via Contribution Weighted Group Relative Policy Optimization](../../ACL2026/human_understanding/enhancing_llm-based_search_agents_via_contribution_weighted_group_relative_polic.md)
 
 <!-- RELATED:END -->

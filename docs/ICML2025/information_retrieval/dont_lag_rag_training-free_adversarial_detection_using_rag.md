@@ -150,6 +150,6 @@ VRAG 检测 pipeline（如 Figure 2 所示）分四步：
 - [VoxRAG: A Step Toward Transcription-Free RAG Systems in Spoken Question Answering](../../ACL2025/information_retrieval/voxrag_a_step_toward_transcription-free_rag_systems_in_spoken_question_answering.md)
 - [HiFi-RAG: Hierarchical Content Filtering and Two-Pass Generation for Open-Domain RAG](../../NeurIPS2025/information_retrieval/hifi-rag_hierarchical_content_filtering_and_two-pass_generation_for_open-domain_.md)
 - [RAG-IGBench: Innovative Evaluation for RAG-based Interleaved Generation in Open-domain Question Answering](../../NeurIPS2025/information_retrieval/rag-igbench_innovative_evaluation_for_rag-based_interleaved_generation_in_open-d.md)
-- [Investigating Language Preference of Multilingual RAG Systems](../../ACL2025/information_retrieval/investigating_language_preference_of_multilingual_rag_systems.md)
+- [Advancing Myopia To Holism: Fully Contrastive Language-Image Pre-training](../../CVPR2025/information_retrieval/advancing_myopia_to_holism_fully_contrastive_language-image_pre-training.md)
 
 <!-- RELATED:END -->

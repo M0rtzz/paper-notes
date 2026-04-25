@@ -135,8 +135,8 @@ ProcessBench 包含3,400个测试用例。每个用例由一个数学问题和�
 
 - [Self-Error-Instruct: Generalizing from Errors for LLMs Mathematical Reasoning](self-error-instruct_generalizing_from_errors_for_llms_mathematical_reasoning.md)
 - [Linguistic Generalizability of Test-Time Scaling in Mathematical Reasoning](mclm_multilingual_test_time_scaling.md)
+- [EpicPRM: An Efficient and Precise Training Data Construction Framework for Process-supervised Reward Model in Mathematical Reasoning](epicprm-efficient-precise-training-data-for-process-reward-model.md)
 - [Can Large Language Models Detect Errors in Long Chain-of-Thought Reasoning?](can_large_language_models_detect_errors_in_long_chain-of-thought_reasoning.md)
 - [An Efficient and Precise Training Data Construction Framework for Process-Supervised Reward Model in Mathematical Reasoning](an_efficient_and_precise_training_data_construction_framework_for_process-superv.md)
-- [Enhancing Mathematical Reasoning in LLMs by Stepwise Correction](enhancing_mathematical_reasoning_in_llms_by_stepwise_correction.md)
 
 <!-- RELATED:END -->

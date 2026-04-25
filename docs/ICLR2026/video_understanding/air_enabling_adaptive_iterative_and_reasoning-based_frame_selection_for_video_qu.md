@@ -119,10 +119,10 @@ tags:
 
 ## 相关论文
 
-- [EgoPointVQA: Gesture-Based Egocentric Video Question Answering](../../CVPR2026/video_understanding/egopointvqa_gesture_based_egocentric_video_qa.md)
 - [Tool-Augmented Spatiotemporal Reasoning for Streamlining Video Question Answering Task](../../NeurIPS2025/video_understanding/toolaugmented_spatiotemporal_reasoning_for_streamlining_vide.md)
+- [EgoPointVQA: Gesture-Based Egocentric Video Question Answering](../../CVPR2026/video_understanding/egopointvqa_gesture_based_egocentric_video_qa.md)
 - [Wavelet-based Frame Selection by Detecting Semantic Boundary for Long Video Understanding](../../CVPR2026/video_understanding/wavelet-based_frame_selection_by_detecting_semantic_boundary_for_long_video_unde.md)
 - [M-LLM Based Video Frame Selection for Efficient Video Understanding](../../CVPR2025/video_understanding/m-llm_based_video_frame_selection_for_efficient_video_understanding.md)
-- [Addressing Blind Guessing: Calibration of Selection Bias in Multiple-Choice Question Answering by Video Language Models](../../ACL2025/video_understanding/addressing_blind_guessing_calibration_of_selection_bias_in_multiple-choice_quest.md)
+- [AnveshanaAI: A Multimodal Platform for Adaptive AI/ML Education through Automated Question Generation and Interactive Assessment](anveshanaai_a_multimodal_platform_for_adaptive_aiml_education_through_automated_.md)
 
 <!-- RELATED:END -->

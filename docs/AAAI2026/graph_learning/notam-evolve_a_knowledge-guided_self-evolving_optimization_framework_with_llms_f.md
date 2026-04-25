@@ -213,6 +213,6 @@ NOTAM-Evolve 相比基础模型提升 **30.4%**（0.458 → 0.762），AVG接近
 - [Sheaf Graph Neural Networks via PAC-Bayes Spectral Optimization](sheaf_graph_neural_networks_via_pac-bayes_spectral_optimization.md)
 - [Self-Adaptive Graph Mixture of Models](self-adaptive_graph_mixture_of_models.md)
 - [Explore-on-Graph: Incentivizing Autonomous Exploration of LLMs on Knowledge Graphs](../../ICLR2026/graph_learning/explore-on-graph_incentivizing_autonomous_exploration_of_large_language_models_o.md)
-- [Format as a Prior: Quantifying and Analyzing Bias in LLMs for Heterogeneous Data](format_as_a_prior_quantifying_and_analyzing_bias_in_llms_for_heterogeneous_data.md)
+- [AutoPKG: An Automated Framework for Dynamic E-commerce Product-Attribute Knowledge Graph Construction](../../ACL2026/graph_learning/autopkg_an_automated_framework_for_dynamic_e-commerce_product-attribute_knowledg.md)
 
 <!-- RELATED:END -->

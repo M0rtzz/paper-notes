@@ -116,7 +116,7 @@ tags:
 - [Toward Enhancing Representation Learning in Federated Multi-Task Settings](toward_enhancing_representation_learning_in_federated_multi-task_settings.md)
 - [Resource-Adaptive Federated Text Generation with Differential Privacy](resource-adaptive_federated_text_generation_with_differential_privacy.md)
 - [Why Do Unlearnable Examples Work: A Novel Perspective of Mutual Information](why_do_unlearnable_examples_work_a_novel_perspective_of_mutual_information.md)
+- [Adaptive Text Anonymization: Learning Privacy-Utility Trade-offs via Prompt Optimization](../../ACL2026/ai_safety/adaptive_text_anonymization_learning_privacy-utility_trade-offs_via_prompt_optim.md)
 - [PRISM: Privacy-Aware Routing for Adaptive Cloud-Edge LLM Inference via Semantic Sketch Collaboration](../../AAAI2026/ai_safety/prism_privacy-aware_routing_for_adaptive_cloud-edge_llm_inference_via_semantic_s.md)
-- [Unified Privacy Guarantees for Decentralized Learning via Matrix Factorization](unified_privacy_guarantees_for_decentralized_learning_via_matrix_factorization.md)
 
 <!-- RELATED:END -->

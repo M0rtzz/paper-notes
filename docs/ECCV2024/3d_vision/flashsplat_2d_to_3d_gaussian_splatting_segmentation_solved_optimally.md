@@ -163,7 +163,7 @@ tags:
 - [3×2: 3D Object Part Segmentation by 2D Semantic Correspondences](3x2_3d_object_part_segmentation_by_2d_semantic_correspondenc.md)
 - [GaussianImage: 1000 FPS Image Representation and Compression by 2D Gaussian Splatting](gaussianimage_1000_fps_image_representation_and_compression_by_2d_gaussian_splat.md)
 - [Rethinking End-to-End 2D to 3D Scene Segmentation in Gaussian Splatting](../../CVPR2025/3d_vision/rethinking_end-to-end_2d_to_3d_scene_segmentation_in_gaussian_splatting.md)
+- [Click-Gaussian: Interactive Segmentation to Any 3D Gaussians](click-gaussian_interactive_segmentation_to_any_3d_gaussians.md)
 - [Surface Reconstruction from 3D Gaussian Splatting via Local Structural Hints](surface_reconstruction_from_3d_gaussian_splatting_via_local_structural_hints.md)
-- [GS-LRM: Large Reconstruction Model for 3D Gaussian Splatting](gs-lrm_large_reconstruction_model_for_3d_gaussian_splatting.md)
 
 <!-- RELATED:END -->

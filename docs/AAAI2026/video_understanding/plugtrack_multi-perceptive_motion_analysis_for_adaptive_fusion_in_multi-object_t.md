@@ -178,7 +178,7 @@ $$\mathcal{L} = \mathcal{L}_{SmoothL1} + \mathcal{L}_{GIoU} + \mathcal{L}_{MCAS}
 - [Occlusion-Aware SORT: Observing Occlusion for Robust Multi-Object Tracking](../../CVPR2026/video_understanding/occlusion-aware_sort_observing_occlusion_for_robust_multi-object_tracking.md)
 - [Learning Topology-Driven Multi-Subspace Fusion for Grassmannian Deep Networks](learning_topology-driven_multi-subspace_fusion_for_grassmannian_deep_network.md)
 - [OmniTrack: Omnidirectional Multi-Object Tracking](../../CVPR2025/video_understanding/omnidirectional_multi-object_tracking.md)
+- [TCEI: Dual-level Adaptation for Multi-Object Tracking via Test-Time Calibration](../../CVPR2026/video_understanding/tcei_dual_level_adaptation_multi_object_tracking.md)
 - [FC-Track: Overlap-Aware Post-Association Correction for Online Multi-Object Tracking](../../CVPR2026/video_understanding/fc-track_overlap-aware_post-association_correction_for_online_multi-object_track.md)
-- [STORM: End-to-End Referring Multi-Object Tracking in Videos](../../CVPR2026/video_understanding/storm_referring_multi_object_tracking.md)
 
 <!-- RELATED:END -->

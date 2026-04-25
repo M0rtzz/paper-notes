@@ -136,6 +136,6 @@ A-ToM智能体维护一组不同ToM阶数的假设智能体 $\{\pi_j^{(k)}\}_{k 
 - [Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems](shadows_in_the_code_exploring_the_risks_and_defenses_of_llm-.md)
 - [EvoEmpirBench: Dynamic Spatial Reasoning with Agent-ExpVer](evoempirbench_dynamic_spatial_reasoning_with_agent-expver.md)
 - [MindPower: Enabling Theory-of-Mind Reasoning in VLM-based Embodied Agents](../../CVPR2026/robotics/mindpower_enabling_theoryofmind_reasoning_in_vlmba.md)
-- [MindForge: Empowering Embodied Agents with Theory of Mind for Lifelong Cultural Learning](../../NeurIPS2025/robotics/mindforge_empowering_embodied_agents_with_theory_of_mind_for_lifelong_cultural_l.md)
+- [iSeal: Encrypted Fingerprinting for Reliable LLM Ownership Verification](iseal_encrypted_fingerprinting_for_reliable_llm_ownership_verification.md)
 
 <!-- RELATED:END -->

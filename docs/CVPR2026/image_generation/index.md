@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 图像生成方向 229篇论文解读
+  CVPR2026 图像生成方向 230篇论文解读
 description: >-
-  229篇CVPR2026 图像生成论文解读，主题涵盖：提出2ndMatch微调框架，通过对齐剪枝模型与原、提出 D2C（Diffusion Dataset、提出 ADAPT 框架，通过注意力驱动的自适应等，每篇含核心思想与方法详解。
+  230篇CVPR2026 图像生成论文解读，主题涵盖：提出2ndMatch微调框架，通过对齐剪枝模型与原、提出 D2C（Diffusion Dataset、提出 ADAPT 框架，通过注意力驱动的自适应等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**📷 CVPR2026** · **229** 篇论文解读
+**📷 CVPR2026** · **230** 篇论文解读
 
 **[2ndMatch: Finetuning Pruned Diffusion Models via Second-Order Jacobian Matching](2ndmatch_finetuning_pruned_diffusion_models_via_second-order_jacobian_matching.md)**
 
@@ -773,6 +773,10 @@ description: >-
 **[SJD-PAC: Accelerating Speculative Jacobi Decoding via Proactive Drafting and Adaptive Continuation](sjd-pac_accelerating_speculative_jacobi_decoding_via_proactive_drafting_and_adap.md)**
 
 :   本文分析了 Speculative Jacobi Decoding (SJD) 在文本到图像生成中接受长度分布严重偏斜的瓶颈，提出 SJD-PAC 框架，通过 Proactive Drafting (PD) 和 Adaptive Continuation (AC) 两项技术，在严格无损的前提下实现 3.8× 推理加速，显著超越原始 SJD 的约 2× 加速。
+
+**[Smoothing the Score Function for Generalization in Diffusion Models: An Optimization-based Explanation Framework](smoothing_score_function_generalization_diffusion_models.md)**
+
+:   从理论上证明扩散模型的记忆化源于经验得分函数的"尖锐性"（softmax 权重集中），提出噪声无条件化和温度平滑两种方法，通过平滑得分函数权重来提升泛化、减少记忆化，同时保持生成质量。
 
 **[Smoothing the Score Function for Generalization in Diffusion Models: An Optimization-based Explanation Framework](smoothing_the_score_function_for_generalization_in_diffusion_models.md)**
 

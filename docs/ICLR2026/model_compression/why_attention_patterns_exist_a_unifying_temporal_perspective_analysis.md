@@ -163,7 +163,7 @@ TAPPA 基于 q-similarity 的简单指标一致优于所有基线方法。
 - [Einstein Fields: A Neural Perspective To Computational General Relativity](einstein_fields_a_neural_perspective_to_computational_general_relativity.md)
 - [TurboBoA: Faster and Exact Attention-aware Quantization without Backpropagation](turboboa_faster_and_exact_attention-aware_quantization_without_backpropagation.md)
 - [Towards an Optimal Control Perspective of ResNet Training](../../ICML2025/model_compression/towards_an_optimal_control_perspective_of_resnet_training.md)
+- [A Layer-wise Analysis of Supervised Fine-Tuning](../../ACL2026/model_compression/a_layer-wise_analysis_of_supervised_fine-tuning.md)
 - [FlyPrompt: Brain-Inspired Random-Expanded Routing with Temporal-Ensemble Experts for General Continual Learning](flyprompt_brain-inspired_random-expanded_routing.md)
-- [Token Distillation: Attention-Aware Input Embeddings for New Tokens](token_distillation_attention-aware_input_embeddings_for_new_tokens.md)
 
 <!-- RELATED:END -->

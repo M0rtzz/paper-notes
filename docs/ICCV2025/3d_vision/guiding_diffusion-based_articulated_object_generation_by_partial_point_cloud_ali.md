@@ -158,7 +158,7 @@ $$\psi(\boldsymbol{q}_j, i, i') = \frac{1}{2}\min(0, -(d(\boldsymbol{q}_j, i) + 
 - [REPARO: Compositional 3D Assets Generation with Differentiable 3D Layout Alignment](reparo_compositional_3d_assets_generation_with_differentiable_3d_layout_alignmen.md)
 - [Efficient Spiking Point Mamba for Point Cloud Analysis](efficient_spiking_point_mamba_for_point_cloud_analysis.md)
 - [Blended Point Cloud Diffusion for Localized Text-guided Shape Editing](blended_point_cloud_diffusion_for_localized_textguided_shape.md)
-- [Learning 3D Object Spatial Relationships from Pre-trained 2D Diffusion Models](learning_3d_object_spatial_relationships_from_pre-trained_2d_diffusion_models.md)
 - [Image-Guided Shape-from-Template Using Mesh Inextensibility Constraints](image-guided_shape-from-template_using_mesh_inextensibility_constraints.md)
+- [Learning 3D Object Spatial Relationships from Pre-trained 2D Diffusion Models](learning_3d_object_spatial_relationships_from_pre-trained_2d_diffusion_models.md)
 
 <!-- RELATED:END -->

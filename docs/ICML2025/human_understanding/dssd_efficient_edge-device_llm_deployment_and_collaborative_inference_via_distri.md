@@ -160,7 +160,7 @@ DSSD与草稿长度$\gamma$的优化是正交的。可以进一步结合Zhao et 
 - [Ada-KV: Optimizing KV Cache Eviction by Adaptive Budget Allocation for Efficient LLM Inference](../../NeurIPS2025/human_understanding/ada-kv_optimizing_kv_cache_eviction_by_adaptive_budget_allocation_for_efficient_.md)
 - [Efficient Logit-based Knowledge Distillation of Deep Spiking Neural Networks for Full-Range Timestep Deployment](efficient_logit-based_knowledge_distillation_of_deep_spiking_neural_networks_for.md)
 - [FACE: A General Framework for Mapping Collaborative Filtering Embeddings into LLM Tokens](../../NeurIPS2025/human_understanding/face_a_general_framework_for_mapping_collaborative_filtering_embeddings_into_llm.md)
-- [Inference-Time Backdoors via Hidden Instructions in LLM Chat Templates](../../ICLR2026/human_understanding/inference-time_backdoors_via_hidden_instructions_in_llm_chat_templates.md)
 - [Sparse Spectral Training and Inference on Euclidean and Hyperbolic Neural Networks](sparse_spectral_training_and_inference_on_euclidean_and_hyperbolic_neural_networ.md)
+- [Inference-Time Backdoors via Hidden Instructions in LLM Chat Templates](../../ICLR2026/human_understanding/inference-time_backdoors_via_hidden_instructions_in_llm_chat_templates.md)
 
 <!-- RELATED:END -->

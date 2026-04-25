@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 具身智能方向 56篇论文解读
+  NeurIPS2025 具身智能方向 57篇论文解读
 description: >-
-  56篇NeurIPS2025 具身智能论文解读，主题涵盖：首次将数据归因（data attribution）、提出 Adaptive Frontier、AutoToM 实现完全自动化的基于模型的心智理论等，每篇含核心思想与方法详解。
+  57篇NeurIPS2025 具身智能论文解读，主题涵盖：首次将数据归因（data attribution）、提出 Adaptive Frontier、AutoToM 实现完全自动化的基于模型的心智理论等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 具身智能
 
-**🧠 NeurIPS2025** · **56** 篇论文解读
+**🧠 NeurIPS2025** · **57** 篇论文解读
 
 **[A Snapshot of Influence: A Local Data Attribution Framework for Online Reinforcement Learning](a_snapshot_of_influence_a_local_data_attribution_framework_f.md)**
 
@@ -61,6 +61,10 @@ description: >-
 **[EfficientNav: Towards On-Device Object-Goal Navigation with Navigation Map Caching and Retrieval](efficientnav_towards_on-device_object-goal_navigation_with_navigation_map_cachin.md)**
 
 :   通过离散内存缓存（KV cache分组独立计算+选择性加载）、注意力驱动聚类（LLM浅层attention指导分组）和语义感知检索（CLIP+背包问题适配不同内存预算），首次在Jetson Orin上用LLaMA-3.2-11b实现零样本ObjNav，比GPT-4基线提升11.1% SR且实时延迟降低6.7×。
+
+**[EgoThinker: Unveiling Egocentric Reasoning with Spatio-Temporal CoT](egothinker_egocentric_reasoning.md)**
+
+:   本文提出 EgoThinker，通过构建 EgoRe-5M 大规模第一人称视频推理数据集（含因果 CoT 标注和手物定位标注）和两阶段训练（SFT + GRPO 强化微调），赋予 MLLM 鲁棒的第一人称推理、手物定位和时间定位能力，在多个 egocentric 基准上实现 SOTA。
 
 **[EgoThinker: Unveiling Egocentric Reasoning with Spatio-Temporal CoT](egothinker_unveiling_egocentric_reasoning_with_spatiotempora.md)**
 

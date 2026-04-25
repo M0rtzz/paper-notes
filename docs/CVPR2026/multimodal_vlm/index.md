@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 多模态VLM方向 246篇论文解读
+  CVPR2026 多模态VLM方向 251篇论文解读
 description: >-
-  246篇CVPR2026 多模态VLM论文解读，主题涵盖：提出A3框架，包含理论驱动的三阶段广告美学评估范式、提出一种在VLM跨模态空间中具有闭式解的去偏方法、提出VLM去偏的闭式解方法，通过在跨模态嵌入空间中等，每篇含核心思想与方法详解。
+  251篇CVPR2026 多模态VLM论文解读，主题涵盖：提出A3框架，包含理论驱动的三阶段广告美学评估范式、提出一种在VLM跨模态空间中具有闭式解的去偏方法、提出VLM去偏的闭式解方法，通过在跨模态嵌入空间中等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**📷 CVPR2026** · **246** 篇论文解读
+**📷 CVPR2026** · **251** 篇论文解读
 
 **[A3: Towards Advertising Aesthetic Assessment](a3_towards_advertising_aesthetic_assessment.md)**
 
@@ -57,6 +57,10 @@ description: >-
 **[ApET: Approximation-Error Guided Token Compression for Efficient VLMs](apet_approximation_error_token_compression.md)**
 
 :   从信息论角度出发，通过线性近似重建每个visual token并用重建误差衡量其信息量（误差大=信息多=应保留），提出完全不依赖注意力权重的ApET框架，在LLaVA-1.5-7B上88.9%压缩保留95.2%精度，视频任务甚至达100.4%超基线，且完全兼容FlashAttention。
+
+**[See, Hear, and Understand: Benchmarking Audiovisual Human Speech Understanding in Multimodal Large Language Models](av_speakerbench_audiovisual_human_speech_understanding_mllms.md)**
+
+:   提出 AV-SpeakerBench，一个包含 3212 道选择题的以说话人为中心的音视频推理基准，揭示了 Gemini 2.5 Pro 在音视频融合方面的优势以及开源模型在说话人推理上的显著不足。
 
 **[AVA-VLA: Improving Vision-Language-Action models with Active Visual Attention](ava_vla_improving_vision_language_action_models_with_active_visual_attention.md)**
 
@@ -598,6 +602,14 @@ description: >-
 
 :   PaddleOCR-VL 提出粗到细（coarse-to-fine）的文档解析框架，先用轻量 VRFM 模块检测有效区域和阅读顺序，再用紧凑的 0.9B VLM 进行精细识别，以最少的视觉 token 和参数实现了文档解析 SOTA。
 
+**[PaddleOCR-VL: Boosting Document Parsing Efficiency and Performance with Coarse-to-Fine Visual Processing](paddleocr_vl_coarse_to_fine_document_parsing.md)**
+
+:   PaddleOCR-VL 提出粗到细的文档解析架构：粗阶段用轻量级有效区域聚焦模块(VRFM)定位文档中的有效视觉区域并预测阅读顺序，细阶段用紧凑的0.9B视觉语言模型对裁剪区域进行精细识别，在最少视觉token和参数下实现文档解析SOTA。
+
+**[PaddleOCR-VL: Boosting Document Parsing Efficiency and Performance with Coarse-to-Fine Visual Processing](paddleocr_vl_document_parsing_coarse_to_fine_visual_processing.md)**
+
+:   提出 PaddleOCR-VL 粗到精文档解析框架：粗阶段用轻量 VRFM 模块识别有效视觉区域，精阶段用紧凑 0.9B VLM 仅处理有效区域，以最少视觉 token 和参数在 OmniDocBench v1.5 上实现 SOTA，大幅降低延迟和资源消耗。
+
 **[Parallel In-context Learning for Large Vision Language Models](parallel_in-context_learning_for_large_vision_language_models.md)**
 
 :   提出 Parallel-ICL，将多模态 in-context learning 的长 demonstration 上下文分块并行处理，通过加权 Product-of-Experts 在 logit 层集成，实现与全上下文 MM-ICL 相当甚至更优的性能，同时显著降低推理延迟。
@@ -857,6 +869,14 @@ description: >-
 **[TreeTeaming: Autonomous Red-Teaming of Vision-Language Models via Hierarchical Strategy Exploration](treeteaming_autonomous_red-teaming_of_vision-language_models_via_hierarchical_s.md)**
 
 :   TreeTeaming 提出了一个基于层次策略树的自动化红队测试框架，通过 LLM 驱动的 Orchestrator 动态地探索和进化攻击策略，在12个主流 VLM 上实现了 SOTA 的攻击成功率（GPT-4o 达 87.60%），并发现了超越已知策略集的多样化新攻击手段。
+
+**[TreeTeaming: Autonomous Red-Teaming of Vision-Language Models via Hierarchical Strategy Exploration](treeteaming_autonomous_red_teaming_vlm_strategy_exploration.md)**
+
+:   提出 TreeTeaming 自动红队框架，将策略探索从静态测试转变为动态演化过程：LLM 编排器自主构建和扩展层次化策略树，多模态执行器执行具体攻击，在 12 个 VLM 中的 11 个上达到 SOTA 攻击成功率（GPT-4o 上达 87.60%）。
+
+**[TreeTeaming: Autonomous Red-Teaming of Vision-Language Models via Hierarchical Strategy Exploration](treeteaming_autonomous_red_teaming_vlm_strategy_tree.md)**
+
+:   TreeTeaming 提出了一种自主红队框架，通过 LLM 驱动的 Orchestrator 动态构建和扩展策略树，从单个种子示例自主发现多样化的 VLM 攻击策略，在12个主流 VLM 上实现了SOTA攻击成功率（GPT-4o 上达87.60%），同时发现的策略多样性超越所有已知公开策略的并集。
 
 **[TRivia: Self-supervised Fine-tuning of Vision-Language Models for Table Recognition](trivia_self-supervised_fine-tuning_of_vision-language_models_for_table_recogniti.md)**
 

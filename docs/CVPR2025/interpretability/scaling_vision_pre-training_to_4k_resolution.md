@@ -128,6 +128,6 @@ VILA-HD-4K比GPT-4o高16.1%，比Qwen2.5-VL高7.5%且速度快1.67倍。
 - [Evolution of Concepts in Language Model Pre-Training](../../ICLR2026/interpretability/evolution_of_concepts_in_language_model_pre-training.md)
 - [POA: Pre-training Once for Models of All Sizes](../../ECCV2024/interpretability/poa_pre-training_once_for_models_of_all_sizes.md)
 - [Probing the Mid-Level Vision Capabilities of Self-Supervised Learning](probing_the_mid-level_vision_capabilities_of_self-supervised_learning.md)
-- [Prompt-CAM: Making Vision Transformers Interpretable for Fine-Grained Analysis](prompt-cam_making_vision_transformers_interpretable_for_fine-grained_analysis.md)
+- [Towards Scaling Laws for Symbolic Regression](../../NeurIPS2025/interpretability/towards_scaling_laws_for_symbolic_regression.md)
 
 <!-- RELATED:END -->

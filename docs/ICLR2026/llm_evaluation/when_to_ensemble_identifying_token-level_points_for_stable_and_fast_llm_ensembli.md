@@ -160,10 +160,10 @@ SAFE 是无训练的推理时方法，不涉及损失函数。是即插即用（
 
 ## 相关论文
 
+- [CAST: Achieving Stable LLM-based Text Analysis for Data Analytics](../../ACL2026/llm_evaluation/cast_achieving_stable_llm-based_text_analysis_for_data_analytics.md)
 - [Enabling Fine-Grained Operating Points for Black-Box LLMs](enabling_fine-grained_operating_points_for_black-box_llms.md)
 - [When Priors Backfire: On the Vulnerability of Unlearnable Examples to Pretraining](when_priors_backfire_on_the_vulnerability_of_unlearnable_examples_to_pretraining.md)
 - [When and Where to Reset Matters for Long-Term Test-Time Adaptation](when_and_where_to_reset_matters_for_long-term_test-time_adaptation.md)
-- [HybridNorm: Towards Stable and Efficient Transformer Training via Hybrid Normalization](../../NeurIPS2025/llm_evaluation/hybridnorm_towards_stable_and_efficient_transformer_training_via_hybrid_normaliz.md)
-- [DcMatch: Unsupervised Multi-Shape Matching with Dual-Level Consistency](../../AAAI2026/llm_evaluation/dcmatch_unsupervised_multi-shape_matching_with_dual-level_consistency.md)
+- [Which LLM Multi-Agent Protocol to Choose?](which_llm_multi-agent_protocol_to_choose.md)
 
 <!-- RELATED:END -->

@@ -117,9 +117,9 @@ Access Denied Inc 是一个完整的三阶段评估 pipeline：(1) 从 Adult 数
 ## 相关论文
 
 - [SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home Agents](../../ICLR2026/llm_evaluation/simuhome_a_temporal-_and_environment-aware_benchmark_for_smart_home_agents.md)
+- [Self-Awareness before Action: Mitigating Logical Inertia via Proactive Cognitive Awareness](../../ACL2026/llm_evaluation/self-awareness_before_action_mitigating_logical_inertia_via_proactive_cognitive_.md)
 - [Spectral Sensitivity Estimation with an Uncalibrated Diffraction Grating](../../ICCV2025/llm_evaluation/spectral_sensitivity_estimation_with_an_uncalibrated_diffraction_grating.md)
 - [ELABORATION: A Comprehensive Benchmark on Human-LLM Competitive Programming](elaboration_competitive_programming.md)
 - [HalluLens: LLM Hallucination Benchmark](hallulens_llm_hallucination_benchmark.md)
-- [Movie101v2: Improved Movie Narration Benchmark](movie101v2_improved_movie_narration_benchmark.md)
 
 <!-- RELATED:END -->

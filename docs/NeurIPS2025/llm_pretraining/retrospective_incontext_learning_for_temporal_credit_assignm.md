@@ -143,7 +143,7 @@ $$\min_\pi \mathbb{E}_{s \sim d_{\pi_0}}\left[D_{KL}\left(\frac{1}{Z(s)} \odot \
 - [Scalable Fingerprinting of Large Language Models](scalable_fingerprinting_of_large_language_models.md)
 - [The Curse of Depth in Large Language Models](the_curse_of_depth_in_large_language_models.md)
 - [Leveraging Importance Sampling to Detach Alignment Modules from Large Language Models](leveraging_importance_sampling_to_detach_alignment_modules_from_large_language_m.md)
-- [Large Vocabulary Size Improves Large Language Models](../../ACL2025/llm_pretraining/large_vocabulary_size_improves_large_language_models.md)
+- [Memory Mosaics at Scale](memory_mosaics_at_scale.md)
 - [Learning the Wrong Lessons: Syntactic-Domain Spurious Correlations in Language Models](learning_the_wrong_lessons_syntactic-domain_spurious_correlations_in_language_mo.md)
 
 <!-- RELATED:END -->

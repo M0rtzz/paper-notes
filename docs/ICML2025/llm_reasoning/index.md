@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICML2025 LLM推理方向 13篇论文解读
+  ICML2025 LLM推理方向 15篇论文解读
 description: >-
-  13篇ICML2025 LLM推理论文解读，主题涵盖：提出 AH2AC2 挑战——基于 Hanabi、AdaDecode 通过在中间层训练轻量级 LM、本文发现推理模型（如 DeepSeek-R1-Di等，每篇含核心思想与方法详解。
+  15篇ICML2025 LLM推理论文解读，主题涵盖：提出 AH2AC2 挑战——基于 Hanabi、AdaDecode 通过在中间层训练轻量级 LM、本文发现推理模型（如 DeepSeek-R1-Di等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM推理
 
-**🧪 ICML2025** · **13** 篇论文解读
+**🧪 ICML2025** · **15** 篇论文解读
 
 **[Ad-Hoc Human-AI Coordination Challenge (AH2AC2)](ad-hoc_human-ai_coordination_challenge.md)**
 
@@ -46,6 +46,10 @@ description: >-
 
 :   提出 PCoT（Persuasion-Augmented Chain of Thought），通过两阶段推理——先让 LLM 识别文本中的说服策略，再将说服分析结果注入虚假信息检测推理——在零样本设置下，跨 5 个 LLM 和 5 个数据集平均提升 F1 约 15%。
 
+**[PCoT: Persuasion-Augmented Chain of Thought for Detecting Fake News and Social Media Disinformation](pcot_persuasion_disinfo.md)**
+
+:   本文提出 PCoT（说服增强链式思维）方法，通过两阶段推理——先让 LLM 识别文本中的说服策略，再利用该分析进行虚假信息检测——在五个数据集和五个 LLM 上实现平均 15% 的 F1 提升，并发布了两个新的后知识截止期虚假信息数据集。
+
 **[ProofCompass: Enhancing Specialized Provers with LLM Guidance](proofcompass_enhancing_specialized_provers_with_llm_guidance.md)**
 
 :   ProofCompass 提出一种无需额外训练的混合方法，用通用 LLM 为专业定理证明器（如 DeepSeek-Prover-v1.5-RL）提供自然语言证明策略和中间引理选择，在 miniF2F 上用 25 倍少的尝试次数超越了基线性能（54.9% → 55.3%）。
@@ -53,6 +57,10 @@ description: >-
 **[Putnam-AXIOM: A Functional & Static Benchmark for Measuring Higher Level Mathematical Reasoning in LLMs](putnam-axiom_a_functional_and_static_benchmark_for_measuring_higher_level_mathem.md)**
 
 :   提出 Putnam-AXIOM —— 522 道大学级 Putnam 竞赛数学题 + 100 道程序化功能变体，揭示 LLM 数学推理中的记忆依赖，并引入 Teacher-Forced Accuracy (TFA) 作为超越最终答案的推理质量评估指标。
+
+**[Towards Better Chain-of-Thought: A Reflection on Effectiveness and Faithfulness](quire_better_cot.md)**
+
+:   本文从有效性和忠实性两个角度系统分析影响 CoT 性能的关键因素，发现问题难度、信息增益和信息流是有效性的核心因素，并揭示 LLM 在预测答案时可从问题中直接召回 CoT 缺失的正确信息导致不忠实推理，进而提出 QUIRE 方法同时提升 CoT 的忠实性和有效性。
 
 **[Rethinking External Slow-Thinking: From Snowball Errors to Probability of Correct Reasoning](rethinking_external_slow-thinking_from_snowball_errors_to_probability_of_correct.md)**
 

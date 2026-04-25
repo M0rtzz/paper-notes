@@ -139,7 +139,7 @@ tags:
 - [Optimizing Pre-Training Data Mixtures with Mixtures of Data Expert Models](optimizing_pre-training_data_mixtures_with_mixtures_of_data_expert_models.md)
 - [Improving Continual Pre-training Through Seamless Data Packing](improving_continual_pre-training_through_seamless_data_packing.md)
 - [Synthesizing Post-Training Data for LLMs through Multi-Agent Simulation](synthesizing_post-training_data_for_llms_through_multi-agent_simulation.md)
-- [Stealing Training Data from Large Language Models in Decentralized Training through Activation Inversion Attack](stealing_training_data_from_large_language_models_in_decentralized_training_thro.md)
+- [Stealing Training Data from Large Language Models in Decentralized Training through Activation Inversion Attack](activation-inversion-attack-stealing-training-data-in-decentralized-training.md)
 - [Meta-rater: A Multi-dimensional Data Selection Method for Pre-training Language Models](metarater_a_multidimensional_data_selection_method.md)
 
 <!-- RELATED:END -->

@@ -153,6 +153,6 @@ MotionMap在多模态度量MMADE/MMFDE上全面最优。
 - [BubbleFormer: Forecasting Boiling with Transformers](../../NeurIPS2025/human_understanding/bubbleformer_forecasting_boiling_with_transformers.md)
 - [UniPose: A Unified Multimodal Framework for Human Pose Comprehension, Generation and Editing](unipose_a_unified_multimodal_framework_for_human_pose_comprehension_generation_a.md)
 - [PoseBH: Prototypical Multi-Dataset Training Beyond Human Pose Estimation](posebh_prototypical_multi-dataset_training_beyond_human_pose_estimation.md)
-- [GCE-Pose: Global Context Enhancement for Category-Level Object Pose Estimation](gce-pose_global_context_enhancement_for_category-level_object_pose_estimation.md)
+- [Human Motion Forecasting in Dynamic Domain Shifts: A Homeostatic Continual Test-Time Adaptation Framework](../../ECCV2024/human_understanding/human_motion_forecasting_in_dynamic_domain_shifts_a_homeostatic_continual_test-t.md)
 
 <!-- RELATED:END -->

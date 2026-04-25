@@ -123,6 +123,6 @@ LLaMA3-8B 零样本准确率：
 - [Sketch to Adapt: Fine-Tunable Sketches for Efficient LLM Adaptation](sketch_to_adapt_fine-tunable_sketches_for_efficient_llm_adaptation.md)
 - [LoRA Fine-Tuning without GPUs: A CPU-Efficient Meta-Generation Framework for LLMs](lora_fine-tuning_without_gpus_a_cpu-efficient_meta-generation_framework_for_llms.md)
 - [OrthoRank: Token Selection via Sink Token Orthogonality for Efficient LLM Inference](orthorank_token_selection_via_sink_token_orthogonality_for_efficient_llm_inferen.md)
-- [ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference](../../ICLR2026/model_compression/paroquant_pairwise_rotation_quantization_for_efficient_reasoning_llm_inference.md)
+- [BlockPruner: Fine-grained Pruning for Large Language Models](../../ACL2025/model_compression/blockpruner_fine-grained_pruning_for_large_language_models.md)
 
 <!-- RELATED:END -->

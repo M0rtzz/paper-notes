@@ -128,7 +128,7 @@ Mistral-7B在PKU-SafeRLHF和HH-RLHF测试集上的结果：
 - [Binary Classifier Optimization for Large Language Model Alignment](bco_binary_classifier_alignment.md)
 - [GAPO: Learning Preferential Prompt through Generative Adversarial Policy Optimization](gapo_preferential_prompt.md)
 - [DeAL: Decoding-time Alignment for Large Language Models](deal_decoding_time_alignment.md)
-- [From Neurons to Semantics: Evaluating Cross-Linguistic Alignment Capabilities of Large Language Models via Neurons Alignment](from_neurons_to_semantics_evaluating_cross-linguistic_alignment_capabilities_of_.md)
-- [Improving Contextual Faithfulness of Large Language Models via Retrieval Heads-Induced Optimization](improving_contextual_faithfulness_of_large_language_models_via_retrieval_heads-i.md)
+- [From Neurons to Semantics: Evaluating Cross-Linguistic Alignment Capabilities of Large Language Models via Neurons Alignment](neuronxa-cross-lingual-alignment-via-neurons.md)
+- [Improving Contextual Faithfulness of Large Language Models via Retrieval Heads-Induced Optimization](rhio_retrieval_heads_faithfulness.md)
 
 <!-- RELATED:END -->

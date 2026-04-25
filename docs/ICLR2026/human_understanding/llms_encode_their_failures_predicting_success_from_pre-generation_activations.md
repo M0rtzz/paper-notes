@@ -126,7 +126,7 @@ tags:
 - [Auto-PRE: An Automatic and Cost-Efficient Peer-Review Framework for Language Generation Evaluation](../../AAAI2026/human_understanding/auto-pre_an_automatic_and_cost-efficient_peer-review_framework_for_language_gene.md)
 - [The Devil behind the Mask: An Emergent Safety Vulnerability of Diffusion LLMs](the_devil_behind_the_mask_an_emergent_safety_vulnerability_of_diffusion_llms.md)
 - [Failures to Surface Harmful Contents in Video Large Language Models](../../AAAI2026/human_understanding/failures_to_surface_harmful_contents_in_video_large_language_models.md)
+- [CAP: Controllable Alignment Prompting for Unlearning in LLMs](../../ACL2026/human_understanding/cap_controllable_alignment_prompting_for_unlearning_in_llms.md)
 - [Think-While-Generating: On-the-Fly Reasoning for Personalized Long-Form Generation](think-while-generating_on-the-fly_reasoning_for_personalized_long-form_generatio.md)
-- [Chatsparent: An Interactive System for Detecting and Mitigating Cognitive Fatigue in LLMs](../../AAAI2026/human_understanding/chatsparent_an_interactive_system_for_detecting_and_mitigating_cognitive_fatigue.md)
 
 <!-- RELATED:END -->

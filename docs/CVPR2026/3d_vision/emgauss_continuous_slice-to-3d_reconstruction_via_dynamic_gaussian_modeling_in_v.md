@@ -174,6 +174,6 @@ $$\Delta\mu_i, \Delta S_i, \Delta o_i = \Phi_\theta(\mu_i, t)$$
 - [InstantHDR: Single-forward Gaussian Splatting for High Dynamic Range 3D Reconstruction](instanthdr_singleforward_gaussian_splatting_for_hi.md)
 - [RetimeGS: Continuous-Time Reconstruction of 4D Gaussian Splatting](retimegs_continuous_time_4d_gaussian.md)
 - [Learning Explicit Continuous Motion Representation for Dynamic Gaussian Splatting from Monocular Videos](learning_explicit_continuous_motion_representation_for_dynamic_gaussian_splattin.md)
-- [TagSplat: Topology-Aware Gaussian Splatting for Dynamic Mesh Modeling and Tracking](tagsplat_topology-aware_gaussian_splatting_for_dynamic_mesh_modeling_and_trackin.md)
+- [E2EGS: Event-to-Edge Gaussian Splatting for Pose-Free 3D Reconstruction](e2egs_event-to-edge_gaussian_splatting_for_pose-free_3d_reconstruction.md)
 
 <!-- RELATED:END -->

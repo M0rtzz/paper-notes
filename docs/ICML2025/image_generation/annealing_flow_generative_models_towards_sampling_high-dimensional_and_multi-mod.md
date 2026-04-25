@@ -153,7 +153,7 @@ Annealing Flow 的核心流程：
 - [Progressive Inference-Time Annealing of Diffusion Models for Sampling from Boltzmann Densities](../../NeurIPS2025/image_generation/progressive_inference-time_annealing_of_diffusion_models_for_sampling_from_boltz.md)
 - [Physics-Constrained Flow Matching: Sampling Generative Models with Hard Constraints](../../NeurIPS2025/image_generation/physics-constrained_flow_matching_sampling_generative_models_with_hard_constrain.md)
 - [BinauralFlow: A Causal and Streamable Approach for High-Quality Binaural Speech Synthesis with Flow Matching Models](binauralflow_a_causal_and_streamable_approach_for_high-quality_binaural_speech_s.md)
+- [Distillation of Discrete Diffusion through Dimensional Correlations (Di4C)](distillation_of_discrete_diffusion_through_dimensional_correlations.md)
 - [TCP-Diffusion: A Multi-modal Diffusion Model for Global Tropical Cyclone Precipitation Forecasting with Change Awareness](tcp-diffusion_a_multi-modal_diffusion_model_for_global_tropical_cyclone_precipit.md)
-- [Multi-Aspect Cross-modal Quantization for Generative Recommendation](../../AAAI2026/image_generation/multi-aspect_cross-modal_quantization_for_generative_recommendation.md)
 
 <!-- RELATED:END -->

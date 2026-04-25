@@ -153,6 +153,6 @@ Linear Attention 替换对比（DeiT-T/Swin-T/Swin-S 设置下，仅替换注意
 - [ZeroS: Zero-Sum Linear Attention for Efficient Transformers](../../NeurIPS2025/llm_efficiency/zeros_zero-sum_linear_attention_for_efficient_transformers.md)
 - [RACE Attention: A Strictly Linear-Time Attention for Long-Sequence Training](../../ICLR2026/llm_efficiency/race_attention_a_strictly_linear-time_attention_for_long-sequence_training.md)
 - [xLSTM Scaling Laws: Competitive Performance with Linear Time-Complexity](../../ICLR2026/llm_efficiency/xlstm_scaling_laws_competitive_performance_with_linear_time-complexity.md)
-- [Tensor Product Attention Is All You Need](../../NeurIPS2025/llm_efficiency/tensor_product_attention_is_all_you_need.md)
+- [CARE Transformer: Mobile-Friendly Linear Visual Transformer via Decoupled Dual Interaction](../../CVPR2025/llm_efficiency/care_transformer_linear_attention.md)
 
 <!-- RELATED:END -->

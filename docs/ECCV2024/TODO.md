@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # ECCV2024 论文笔记 TODO
 
-总计: 868 篇 | 已完成: 867 | 待更新: 1
+总计: 868 篇 | 已完成: 868 | 待更新: 0
 
 ---
 
@@ -605,7 +605,7 @@
 - [x] [progressive classifier and feature extractor adaptation for unsupervised domain ](3d_vision/progressive_classifier_and_feature_extractor_adaptation_for_unsupervised_domain_.md) | arXiv: 2311.16474
 - [x] [progressive pretext task learning for human trajectory prediction](autonomous_driving/progressive_pretext_task_learning_for_human_trajectory_prediction.md) | arXiv: 2407.11588
 - [x] [projecting points to axes oriented object detection via point-axis representatio](object_detection/projecting_points_to_axes_oriented_object_detection_via_point-axis_representatio.md) | arXiv: 2407.08489
-- [ ] [promerge prompt and merge for unsupervised instance segmentation](segmentation/promerge_prompt_and_merge_for_unsupervised_instance_segmentation.md) | arXiv: 2409.18961
+- [x] [promerge prompt and merge for unsupervised instance segmentation](segmentation/promerge_prompt_and_merge_for_unsupervised_instance_segmentation.md) | arXiv: 2409.18961
 - [x] [promptccd learning gaussian mixture prompt pool for continual category discovery](self_supervised/promptccd_learning_gaussian_mixture_prompt_pool_for_continual_category_discovery.md) | arXiv: 2407.19001
 - [x] [prompting future driven diffusion model for hand motion prediction](image_generation/prompting_future_driven_diffusion_model_for_hand_motion_prediction.md)
 - [x] [prompting language-informed distribution for compositional zero-shot learning](llm_nlp/prompting_language-informed_distribution_for_compositional_zero-shot_learning.md) | arXiv: 2305.14428

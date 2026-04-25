@@ -193,7 +193,7 @@ $$\mathcal{L}_{cycle} = \sum_{i,j}^n (1 - \cos(\Pi_i^\top \widetilde{\Phi}_i \ma
 - [Graph Out-of-Distribution Detection via Test-Time Calibration with Dual Dynamic Dictionaries](graph_out-of-distribution_detection_via_test-time_calibration_with_dual_dynamic_.md)
 - [Eliminating Warping Shakes for Unsupervised Online Video Stitching](../../ECCV2024/llm_evaluation/eliminating_warping_shakes_for_unsupervised_online_video_stitching.md)
 - [Learning Generalizable Shape Completion with SIM(3) Equivariance](../../NeurIPS2025/llm_evaluation/learning_generalizable_shape_completion_with_sim3_equivariance.md)
+- [Subject-level Inference for Realistic Text Anonymization Evaluation](../../ACL2026/llm_evaluation/subject-level_inference_for_realistic_text_anonymization_evaluation.md)
 - [Improved Runtime Guarantees for the SPEA2 Multi-Objective Optimizer](improved_runtime_guarantees_for_the_spea2_multi-objective_optimizer.md)
-- [MAPS: Multi-Agent Personality Shaping for Collaborative Reasoning](maps_multi-agent_personality_shaping_for_collaborative_reaso.md)
 
 <!-- RELATED:END -->

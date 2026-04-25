@@ -195,6 +195,6 @@ $$\text{score}_{\text{agg}}(s) = \prod_{\phi_j \in \Phi} \hat{P}(\phi_j(s)|\phi_
 - [PRAISE: Enhancing Product Descriptions with LLM-Driven Structured Insights](../../ACL2025/llm_nlp/praise_enhancing_product_descriptions_with_llm-driven_structured_insights.md)
 - [Out-of-distribution Generalisation is Hard: Evidence from ARC-like Tasks](../../NeurIPS2025/llm_nlp/out-of-distribution_generalisation_is_hard_evidence_from_arc-like_tasks.md)
 - [Boosting LLM's Molecular Structure Elucidation with Knowledge Enhanced Tree Search Reasoning](../../ACL2025/llm_nlp/boosting_llms_molecular_structure_elucidation_with_knowledge_enhanced_tree_searc.md)
-- [Collaborative Performance Prediction for Large Language Models](../../ACL2025/llm_nlp/collaborative_performance_prediction_for_large_language_models.md)
+- [Are Language Models Efficient Reasoners? A Perspective from Logic Programming](../../NeurIPS2025/llm_nlp/are_language_models_efficient_reasoners_a_perspective_from_logic_programming.md)
 
 <!-- RELATED:END -->

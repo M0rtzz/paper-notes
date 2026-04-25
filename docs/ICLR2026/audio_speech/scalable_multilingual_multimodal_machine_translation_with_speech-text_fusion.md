@@ -119,6 +119,6 @@ tags:
 - [SpeechWeave: Diverse Multilingual Synthetic Text & Audio Data Generation Pipeline for Training Text to Speech Models](../../ACL2025/audio_speech/speechweave_diverse_multilingual_synthetic_text_audio_data_generation_pipeline_f.md)
 - [VowelPrompt: Hearing Speech Emotions from Text via Vowel-level Prosodic Augmentation](vowelprompt_hearing_speech_emotions_from_text_via_vowel-level_prosodic_augmentat.md)
 - [TripleSumm: Adaptive Triple-Modality Fusion for Video Summarization](triplesumm_adaptive_triple-modality_fusion_for_video_summarization.md)
-- [EuroSpeech: A Multilingual Speech Corpus](../../NeurIPS2025/audio_speech/eurospeech_a_multilingual_speech_corpus.md)
+- [SimulMEGA: MoE Routers are Advanced Policy Makers for Simultaneous Speech Translation](../../NeurIPS2025/audio_speech/simulmega_moe_routers_are_advanced_policy_makers_for_simultaneous_speech_transla.md)
 
 <!-- RELATED:END -->

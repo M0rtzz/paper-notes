@@ -139,8 +139,8 @@ tags:
 
 - [MIB: A Mechanistic Interpretability Benchmark](../../ICML2025/interpretability/mib_a_mechanistic_interpretability_benchmark.md)
 - [Position-aware Automatic Circuit Discovery](position-aware_automatic_circuit_discovery.md)
+- [Attribute-formed Class-specific Concept Space: Endowing Language Bottleneck Model with Better Interpretability and Scalability](../../CVPR2025/interpretability/albm_attribute_concept_space.md)
 - [Establishing Trustworthy LLM Evaluation via Shortcut Neuron Analysis](shortcut_neuron_eval.md)
 - [Llama See, Llama Do: A Mechanistic Perspective on Contextual Entrainment and Distraction in LLMs](llama_see_llama_do_entrainment.md)
-- [EXPERT: An Explainable Image Captioning Evaluation Metric with Structured Explanations](expert_an_explainable_image_captioning_evaluation_metric_with_structured_explana.md)
 
 <!-- RELATED:END -->

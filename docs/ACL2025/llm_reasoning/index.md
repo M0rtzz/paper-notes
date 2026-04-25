@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 LLM推理方向 52篇论文解读
+  ACL2025 LLM推理方向 53篇论文解读
 description: >-
-  52篇ACL2025 LLM推理论文解读，主题涵盖：本文提出EpicPRM框架，通过基于困惑度（per、提出 Aristotle 逻辑推理框架、本文针对多跳问答（Multi-hop等，每篇含核心思想与方法详解。
+  53篇ACL2025 LLM推理论文解读，主题涵盖：本文提出EpicPRM框架，通过基于困惑度（per、提出 Aristotle 逻辑推理框架、本文针对多跳问答（Multi-hop等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM推理
 
-**💬 ACL2025** · **52** 篇论文解读
+**💬 ACL2025** · **53** 篇论文解读
 
 **[An Efficient and Precise Training Data Construction Framework for Process-Supervised Reward Model in Mathematical Reasoning](an_efficient_and_precise_training_data_construction_framework_for_process-superv.md)**
 
@@ -93,6 +93,10 @@ description: >-
 **[Enhancing Retrieval Systems with Inference-Time Logical Reasoning](enhancing_retrieval_systems_with_inference-time_logical_reasoning.md)**
 
 :   提出推理时逻辑推理框架（ITLR），利用 LLM 将自然语言查询转换为逻辑表达式（AND/OR/NOT），然后基于模糊逻辑对各子项的 cosine similarity 分数进行组合，在合成数据和 NFCorpus/SciFact/ArguAna 三个真实数据集上一致性超越传统 dense retrieval 和 BRIGHT baseline，尤其在含否定的复杂查询上提升显著。
+
+**[EpicPRM: An Efficient and Precise Training Data Construction Framework for Process-supervised Reward Model in Mathematical Reasoning](epicprm-efficient-precise-training-data-for-process-reward-model.md)**
+
+:   本文提出 EpicPRM 框架，通过基于困惑度的贡献量化和自适应二分搜索算法，高效精确地构建高质量过程监督训练数据集 Epic50k，其训练的 PRM 以不到 PRM800k 10% 的数据量达到了相当甚至更好的监督性能。
 
 **[FineReason: Evaluating and Improving LLMs' Deliberate Reasoning through Reflective Puzzle Solving](finereason_evaluating_and_improving_llms_deliberate_reasoning_through_reflective.md)**
 

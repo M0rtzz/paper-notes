@@ -171,9 +171,9 @@ Mixtral 8x7B 生成的合成查询在 MultiHop-RAG 上 HIT@4 为 61.64，远超 
 ## 相关论文
 
 - [Understanding Synthetic Context Extension via Retrieval Heads](../../ICML2025/information_retrieval/understanding_synthetic_context_extension_via_retrieval_heads.md)
-- [GENIUS: A Generative Framework for Universal Multimodal Search](../../CVPR2025/information_retrieval/genius_a_generative_framework_for_universal_multimodal_search.md)
 - [RAEmoLLM: Retrieval Augmented LLMs for Cross-Domain Misinformation Detection Using In-Context Learning Based on Emotional Information](raemollm_retrieval_augmented_llms_for_cross-domain_misinformation_detection_usin.md)
 - [RAGEval: Scenario Specific RAG Evaluation Dataset Generation Framework](rageval_scenario_specific_rag_evaluation_dataset_generation_framework.md)
+- [GENIUS: A Generative Framework for Universal Multimodal Search](../../CVPR2025/information_retrieval/genius_a_generative_framework_for_universal_multimodal_search.md)
 - [CART: A Generative Cross-Modal Retrieval Framework with Coarse-To-Fine Semantic Modeling](cart_a_generative_cross-modal_retrieval_framework_with_coarse-to-fine_semantic_m.md)
 
 <!-- RELATED:END -->

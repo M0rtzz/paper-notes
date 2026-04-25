@@ -130,6 +130,6 @@ ARC-JSD 提出基于 Jensen-Shannon 散度的 RAG 上下文归因方法——通
 - [Better Estimation of the Kullback-Leibler Divergence Between Language Models](better_estimation_of_the_kullback--leibler_divergence_between_language_models.md)
 - [ValuePilot: A Two-Phase Framework for Value-Driven Decision-Making](valuepilot_a_two-phase_framework_for_value-driven_decision-making.md)
 - [Knowing When to Stop: Efficient Context Processing via Latent Sufficiency Signals](knowing_when_to_stop_efficient_context_processing_via_latent_sufficiency_signals.md)
-- [On the Power of Context-Enhanced Learning in LLMs](../../ICML2025/interpretability/on_the_power_of_context-enhanced_learning_in_llms.md)
+- [Context-Value-Action Architecture for Value-Driven Large Language Model Agents](../../ACL2026/interpretability/context-value-action_architecture_for_value-driven_large_language_model_agents.md)
 
 <!-- RELATED:END -->

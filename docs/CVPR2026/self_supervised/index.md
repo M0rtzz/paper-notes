@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 自监督方向 27篇论文解读
+  CVPR2026 自监督方向 28篇论文解读
 description: >-
-  27篇CVPR2026 自监督论文解读，主题涵盖：提出 PL-Stitch 自监督框架，利用、提出基于最优传输理论的在线混合模型学习框架、提出 BD-Merging 框架，通过等，每篇含核心思想与方法详解。
+  28篇CVPR2026 自监督论文解读，主题涵盖：提出 PL-Stitch 自监督框架，利用、提出基于最优传输理论的在线混合模型学习框架、提出 BD-Merging 框架，通过等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督
 
-**📷 CVPR2026** · **27** 篇论文解读
+**📷 CVPR2026** · **28** 篇论文解读
 
 **[A Stitch in Time: Learning Procedural Workflow via Self-Supervised Plackett-Luce Ranking](a_stitch_in_time_learning_procedural_workflow_via_self_supervised_plackett_luce_r.md)**
 
@@ -57,6 +57,10 @@ description: >-
 **[OmniGCD: Abstracting Generalized Category Discovery for Modality Agnosticism](omnigcd_abstracting_generalized_category_discovery_for_modality_agnosticism.md)**
 
 :   提出 OmniGCD，首个模态无关的广义类别发现方法，利用合成数据训练的 GCDformer 在测试时将任意模态的 GCD 潜空间变换为更适合聚类的表示，在 16 个跨四种模态的数据集上实现零样本 GCD。
+
+**[An Optimal Transport-driven Approach for Cultivating Latent Space in Online Incremental Learning](otc_optimal_transport_cultivating_latent_space_online_incremental_learning.md)**
+
+:   提出基于最优传输理论的在线混合模型框架（MMOT），为每个类别维护多个自适应质心来表征流式数据的多模态分布，结合动态保持策略缓解灾难性遗忘，在 OCIL 场景显著超越现有方法。
 
 **[Re-Depth Anything: Test-Time Depth Refinement via Self-Supervised Re-lighting](redepth_anything_test-time_depth_refinement_via_self-supervised_re-lighting.md)**
 

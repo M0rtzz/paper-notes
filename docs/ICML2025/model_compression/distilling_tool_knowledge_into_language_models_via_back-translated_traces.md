@@ -150,7 +150,7 @@ $$\mathcal{L} = -\sum_{t=1}^{T} \log P_\theta(y_t | y_{<t}, x)$$
 - [Towards the Law of Capacity Gap in Distilling Language Models](../../ACL2025/model_compression/law_of_capacity_gap_distilling_language_models.md)
 - [Distilling Balanced Knowledge from a Biased Teacher](../../CVPR2026/model_compression/distilling_balanced_knowledge_from_a_biased_teacher.md)
 - [ViT-Linearizer: Distilling Quadratic Knowledge into Linear-Time Vision Models](../../ICCV2025/model_compression/vit-linearizer_distilling_quadratic_knowledge_into_linear-time_vision_models.md)
+- [Meta-Tool: Efficient Few-Shot Tool Adaptation for Small Language Models](../../ACL2026/model_compression/meta-tool_efficient_few-shot_tool_adaptation_for_small_language_models.md)
 - [From Language Models over Tokens to Language Models over Characters](from_language_models_over_tokens_to_language_models_over_characters.md)
-- [Distilling Cross-Modal Knowledge via Feature Disentanglement](../../AAAI2026/model_compression/distilling_cross-modal_knowledge_via_feature_disentanglement.md)
 
 <!-- RELATED:END -->

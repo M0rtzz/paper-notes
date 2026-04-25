@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 语义分割方向 104篇论文解读
+  CVPR2026 语义分割方向 106篇论文解读
 description: >-
-  104篇CVPR2026 语义分割论文解读，主题涵盖：提出 3M-TI，一个**无需标定**的多相机跨模、构建了MEDISEG药物图像实例分割数据集（826、提出MEDISEG数据集——32种药片类型共826等，每篇含核心思想与方法详解。
+  106篇CVPR2026 语义分割论文解读，主题涵盖：提出 3M-TI，一个**无需标定**的多相机跨模、构建了MEDISEG药物图像实例分割数据集（826、提出MEDISEG数据集——32种药片类型共826等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**📷 CVPR2026** · **104** 篇论文解读
+**📷 CVPR2026** · **106** 篇论文解读
 
 **[3M-TI: High-Quality Mobile Thermal Imaging via Calibration-free Multi-Camera Cross-Modal Diffusion](3m-ti_high-quality_mobile_thermal_imaging_via_calibration-free_multi-camera_cros.md)**
 
@@ -261,6 +261,14 @@ description: >-
 **[PCA-Seg: Revisiting Cost Aggregation for Open-Vocabulary Semantic and Part Segmentation](pca-seg_revisiting_cost_aggregation_for_openvocabulary_semantic_and_part_segmentat.md)**
 
 :   PCA-Seg 提出并行代价聚合(Parallel Cost Aggregation)范式替代传统的串行空间-类别聚合架构，通过专家驱动感知学习(EPL)模块高效整合语义和空间上下文流，并用特征正交解耦(FOD)策略消除两种知识流的冗余，每个并行块仅增加 0.35M 参数即在 8 个开放词汇语义和部件分割基准上达到 SOTA。
+
+**[PCA-Seg: Revisiting Cost Aggregation for Open-Vocabulary Semantic and Part Segmentation](pca_seg_cost_aggregation_open_vocabulary_segmentation.md)**
+
+:   重新审视代价聚合策略，提出 PCA-Seg 并行架构替代现有串行结构，通过专家驱动感知学习模块整合类语义和空间上下文两路信息，配合特征正交化解耦策略减少冗余，在 8 个基准上以每个块仅 0.35M 额外参数达到 SOTA。
+
+**[PCA-Seg: Revisiting Cost Aggregation for Open-Vocabulary Semantic and Part Segmentation](pca_seg_parallel_cost_aggregation_open_vocabulary_segmentation.md)**
+
+:   PCA-Seg 重新审视开放词汇语义和部件分割中的成本聚合机制，提出并行成本聚合范式替代现有的串行架构，通过专家驱动感知学习(EPL)模块高效整合语义和上下文流，并用特征正交解耦(FOD)策略降低两种知识流的冗余，每个并行块仅增加0.35M参数即在8个基准上达到SOTA。
 
 **[PEARL: Geometry Aligns Semantics for Training-Free Open-Vocabulary Semantic Segmentation](pearl_geometry_aligns_semantics_for_training-free_open-vocabulary_semantic_segme.md)**
 

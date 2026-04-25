@@ -149,6 +149,6 @@ $$\mathcal{L}(\theta) = \frac{1}{N} \sum_i^N \frac{1}{|\mathcal{C}_i^*|} \sum_{c
 - [GALLa: Graph Aligned Large Language Models for Improved Source Code Understanding](galla_graph_aligned_large_language_models.md)
 - [DynaCode: A Dynamic Complexity-Aware Code Benchmark for Evaluating Large Language Models in Code Generation](dynacode_a_dynamic_complexity-aware_code_benchmark_for_evaluating_large_language.md)
 - [CodeDPO: Aligning Code Models with Self Generated and Verified Source Code](codedpo_code_alignment.md)
-- [Tree-of-Code: A Tree-Structured Exploring Framework for End-to-End Code Generation](tree-of-code_a_tree-structured_exploring_framework_for_end-to-end_code_generatio.md)
+- [DARS: Dynamic Action Re-Sampling to Enhance Coding Agent Performance by Adaptive Tree Traversal](dars_dynamic_action_re-sampling_to_enhance_coding_agent_performance_by_adaptive_.md)
 
 <!-- RELATED:END -->

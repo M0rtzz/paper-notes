@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 LLM推理方向 7篇论文解读
+  CVPR2025 LLM推理方向 9篇论文解读
 description: >-
-  7篇CVPR2025 LLM推理论文解读，主题涵盖：Argus 提出了一种grounded、提出 CoT-VLA，将视觉思维链推理引入视觉-语、提出交错模态思维链（ICoT）等，每篇含核心思想与方法详解。
+  9篇CVPR2025 LLM推理论文解读，主题涵盖：Argus 提出了一种grounded、提出 CoT-VLA，将视觉思维链推理引入视觉-语、提出交错模态思维链（ICoT）等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM推理
 
-**📷 CVPR2025** · **7** 篇论文解读
+**📷 CVPR2025** · **9** 篇论文解读
 
 **[Argus: Vision-Centric Reasoning with Grounded Chain-of-Thought](argus_vision-centric_reasoning_with_grounded_chain-of-thought.md)**
 
@@ -26,6 +26,10 @@ description: >-
 
 :   提出一种学习与验证结合的多项式 Lyapunov 函数合成方法，通过数据驱动的机器学习引导多项式形式选择，并利用高精度反例引导框架迭代优化，在灵活性和数学严格性之间取得平衡。
 
+**[Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval](osrcir_reflective_cot.md)**
+
+:   本文提出OSrCIR，一种免训练的单阶段零样本组合图像检索方法，利用多模态大语言模型直接处理参考图像和修改文本，并通过反思式链式思维推理准确理解用户隐含意图，在多个基准上比现有免训练方法提升1.80%~6.44%。
+
 **[Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval](reason-before-retrieve_one-stage_reflective_chain-of-thoughts_for_training-free_.md)**
 
 :   OSrCIR提出单阶段反思性链式思维推理，让MLLM同时处理参考图像和修改文本（避免两阶段caption→推理的信息丢失），通过"描述→思考→反思→目标描述"四步CoT生成准确的目标图像描述，在CIRCO上mAP@5达23.87%超越CIReVL 26.2%，且完全免训练。
@@ -37,3 +41,7 @@ description: >-
 **[VideoEspresso: A Large-Scale Chain-of-Thought Dataset for Fine-Grained Video Reasoning via Core Frame Selection](videoespresso_a_large-scale_chain-of-thought_dataset_for_fine-grained_video_reas.md)**
 
 :   VideoEspresso 构建了一个20万+的大规模视频CoT推理数据集（包含空间bounding box和时间grounding标注），并提出VideoQA-SC混合框架——用1.5B轻量级模型选择平均2.36个核心帧，再用8B推理模型进行两阶段证据提取+答案生成，以仅1.8%的帧数和14.7%的计算量超越了GPT-4o和所有开源LVLM。
+
+**[VideoEspresso: A Large-Scale Chain-of-Thought Dataset for Fine-Grained Video Reasoning via Core Frame Selection](videoespresso_cot_reasoning.md)**
+
+:   本文提出VideoEspresso数据集及混合LVLM协作框架，通过语义感知的冗余去除构建高质量视频QA对，并引入多模态链式思维（CoT）标注，结合轻量帧选择器和两阶段推理模型实现高效精准的视频推理。

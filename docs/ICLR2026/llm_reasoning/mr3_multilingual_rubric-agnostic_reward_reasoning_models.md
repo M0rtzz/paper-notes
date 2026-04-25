@@ -169,8 +169,8 @@ mR3-Qwen3-14B以14B参数超越120B教师模型（+0.13 on m-RB, +1.04 on MM-Eva
 
 - [DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization](drpo_efficient_reasoning_via_decoupled_reward_policy_optimization.md)
 - [Is It Thinking or Cheating? Detecting Implicit Reward Hacking by Measuring Reasoning Effort](is_it_thinking_or_cheating_detecting_implicit_reward_hacking_by_measuring_reason.md)
+- [Process Reward Models Meet Planning: Generating Precise and Scalable Datasets for Step-Level Rewards](../../ACL2026/llm_reasoning/process_reward_models_meet_planning_generating_precise_and_scalable_datasets_for.md)
 - [Why is Your Language Model a Poor Implicit Reward Model?](why_is_your_language_model_a_poor_implicit_reward_model.md)
 - [Fixing the Broken Compass: Diagnosing and Improving Inference-Time Reward Modeling](fixing_the_broken_compass_diagnosing_and_improving_inference-time_reward_modelin.md)
-- [Know What You Don't Know: Uncertainty Calibration of Process Reward Models](../../NeurIPS2025/llm_reasoning/know_what_you_dont_know_uncertainty_calibration_of_process_reward_models.md)
 
 <!-- RELATED:END -->

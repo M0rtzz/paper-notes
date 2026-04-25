@@ -125,6 +125,6 @@ Charbonnier loss 负责像素级监督，边缘感知 loss 保持高频细节，
 - [SpatioTemporal Difference Network for Video Depth Super-Resolution](spatiotemporal_difference_network_for_video_depth_super-resolution.md)
 - [UniRain: Unified Image Deraining with RAG-based Dataset Distillation and Multi-objective Reweighted Optimization](../../CVPR2026/image_restoration/unirain_unified_image_deraining_with_rag-based_dataset_distillation_and_multi-ob.md)
 - [POLISH'ing the Sky: Wide-Field and High-Dynamic Range Interferometric Image Reconstruction](../../CVPR2026/image_restoration/polishing_the_sky_wide-field_and_high-dynamic_range_interferometric_image_recons.md)
-- [Rethinking Nighttime Image Deraining via Learnable Color Space Transformation](../../NeurIPS2025/image_restoration/rethinking_nighttime_image_deraining_via_learnable_color_space_transformation.md)
+- [Blink: Dynamic Visual Token Resolution for Enhanced Multimodal Understanding](../../CVPR2026/image_restoration/blink_dynamic_visual_token_resolution_for_enhanced_multimodal_understanding.md)
 
 <!-- RELATED:END -->

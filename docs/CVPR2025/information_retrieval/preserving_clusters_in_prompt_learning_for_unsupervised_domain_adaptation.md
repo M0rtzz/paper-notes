@@ -127,6 +127,6 @@ $$\mathcal{L}_{total} = \mathcal{L}_S + \lambda_T \mathcal{L}_T + \lambda_\mathc
 - [Redundancy, Isotropy and Intrinsic Dimensionality of Prompt-Based Text Embeddings](../../ACL2025/information_retrieval/redundancy_isotropy_and_intrinsic_dimensionality_of_prompt-based_text_embeddings.md)
 - [RAEmoLLM: Retrieval Augmented LLMs for Cross-Domain Misinformation Detection Using In-Context Learning Based on Emotional Information](../../ACL2025/information_retrieval/raemollm_retrieval_augmented_llms_for_cross-domain_misinformation_detection_usin.md)
 - [GOAL: Global-Local Object Alignment Learning](goal_global-local_object_alignment_learning.md)
-- [On Synthetic Data Strategies for Domain-Specific Generative Retrieval](../../ACL2025/information_retrieval/on_synthetic_data_strategies_for_domain-specific_generative_retrieval.md)
+- [Feedback Adaptation for Retrieval-Augmented Generation](../../ACL2026/information_retrieval/feedback_adaptation_for_retrieval-augmented_generation.md)
 
 <!-- RELATED:END -->

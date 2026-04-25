@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 其他方向 309篇论文解读
+  ACL2025 其他方向 310篇论文解读
 description: >-
-  309篇ACL2025 其他论文解读，主题涵盖：提出 A3CG 数据集和方面-行动分析任务（从可持、本文受人类认知双过程理论启发，提出双心智谈判智能体、构建 Barec——首个大规模、平衡等，每篇含核心思想与方法详解。
+  310篇ACL2025 其他论文解读，主题涵盖：提出 A3CG 数据集和方面-行动分析任务（从可持、本文受人类认知双过程理论启发，提出双心智谈判智能体、构建 Barec——首个大规模、平衡等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**💬 ACL2025** · **309** 篇论文解读
+**💬 ACL2025** · **310** 篇论文解读
 
 **[Towards Robust ESG Analysis Against Greenwashing Risks: A3CG](a3cg_esg_greenwashing.md)**
 
@@ -995,6 +995,10 @@ description: >-
 **[SHARE: An SLM-based Hierarchical Action CorREction Assistant for Text-to-SQL](share_text_to_sql_correction.md)**
 
 :   提出 SHARE 框架，用三个 <8B 参数的专用小语言模型（SLM）组成顺序管道，将声明式 SQL 转换为可暴露推理路径的步进动作轨迹，再分阶段修正 schema 链接错误与逻辑推理错误，以极低成本实现 LLM 的 Text-to-SQL 自纠正。
+
+**[Sightation Counts: Leveraging Sighted User Feedback in Building a BLV-aligned Dataset of Diagram Descriptions](sightation-blv-aligned-diagram-descriptions.md)**
+
+:   本文构建了 Sightation 数据集，通过让视力正常者评估（而非生成）VLM 的图表描述，创建了首个经视障教育专家验证的大规模 BLV 对齐数据集，涵盖5K图表和137K样本，用于多种下游任务训练。
 
 **[Sightation Counts: Leveraging Sighted User Feedback in Building a BLV-aligned Dataset of Diagram Descriptions](sightation_counts_leveraging_sighted_user_feedback_in_building_a_blv-aligned_dat.md)**
 

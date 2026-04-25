@@ -1,18 +1,22 @@
 ---
 title: >-
-  CVPR2025 LLM效率方向 12篇论文解读
+  CVPR2025 LLM效率方向 13篇论文解读
 description: >-
-  12篇CVPR2025 LLM效率论文解读，主题涵盖：提出 Associative Transforme、本文提出CARE（deCoupled、提出一种从预训练 ViT 中自动提取等，每篇含核心思想与方法详解。
+  13篇CVPR2025 LLM效率论文解读，主题涵盖：提出 Associative Transforme、本文提出CARE Transformer、本文提出CARE（deCoupled等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚡ LLM效率
 
-**📷 CVPR2025** · **12** 篇论文解读
+**📷 CVPR2025** · **13** 篇论文解读
 
 **[Associative Transformer](associative_transformer.md)**
 
 :   提出 Associative Transformer (AiT)，通过在 Transformer 中引入可学习的显式记忆模块和 Hopfield 网络进行 token 重建，以更少的参数实现优于 ViT 的分类和关系推理性能。
+
+**[CARE Transformer: Mobile-Friendly Linear Visual Transformer via Decoupled Dual Interaction](care_transformer_linear_attention.md)**
+
+:   本文提出CARE Transformer，通过非对称特征解耦将局部归纳偏置和长距离依赖的学习分离，并设计动态记忆单元和双交互模块充分利用特征互补性，实现了移动端友好的线性复杂度视觉Transformer，在ImageNet上以仅0.7 GMACs达到78.4% top-1精度。
 
 **[CARE Transformer: Mobile-Friendly Linear Visual Transformer via Decoupled Dual Interaction](care_transformer_mobile-friendly_linear_visual_transformer_via_decoupled_dual_in.md)**
 

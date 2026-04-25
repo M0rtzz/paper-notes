@@ -144,10 +144,10 @@ Stage 2: 梯度引导的下游适配（模型适配者）
 
 ## 相关论文
 
+- [Commonsense Knowledge with Negation: A Resource to Enhance Negation Understanding](../../ACL2026/llm_pretraining/commonsense_knowledge_with_negation_a_resource_to_enhance_negation_understanding.md)
 - [Memory Mosaics at Scale](memory_mosaics_at_scale.md)
 - [Flatness is Necessary, Neural Collapse is Not: Rethinking Generalization via Grokking](flatness_is_necessary_neural_collapse_is_not_rethinking_generalization_via_grokk.md)
-- [Language Model Developers Should Report Train-Test Overlap](../../ICML2025/llm_pretraining/language_model_developers_should_report_train-test_overlap.md)
-- [A Unified Framework for Heterogeneous Semi-supervised Learning](../../CVPR2025/llm_pretraining/a_unified_framework_for_heterogeneous_semi-supervised_learning.md)
-- [Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale](language_model_behavioral_phases_are_consistent_across_archi.md)
+- [Final-Model-Only Data Attribution with a Unifying View of Gradient-Based Methods](final-model-only_data_attribution_with_a_unifying_view_of_gradient-based_methods.md)
+- [Gradient-Weight Alignment as a Train-Time Proxy for Generalization in Classification Tasks](gradient-weight_alignment_as_a_train-time_proxy_for_generalization_in_classifica.md)
 
 <!-- RELATED:END -->

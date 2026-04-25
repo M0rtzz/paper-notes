@@ -147,6 +147,6 @@ HIVE 在 29 个领域中的 28 个取得最佳成绩。表现最强的领域：G
 - [Retrv-R1: A Reasoning-Driven MLLM Framework for Universal and Efficient Multimodal Retrieval](../../NeurIPS2025/multimodal_vlm/retrv-r1_a_reasoning-driven_mllm_framework_for_universal_and_efficient_multimoda.md)
 - [Reasoning-Driven Multimodal LLM for Domain Generalization](../../ICLR2026/multimodal_vlm/reasoning-driven_multimodal_llm_for_domain_generalization.md)
 - [TIGeR: A Unified Framework for Time, Images and Geo-location Retrieval](tiger_a_unified_framework_for_time_images_and_geo-location_retrieval.md)
-- [From Intuition to Investigation: A Tool-Augmented Reasoning MLLM Framework for Generalizable Face Anti-Spoofing](from_intuition_to_investigation_a_tool-augmented_reasoning_mllm_framework_for_ge.md)
+- [Small Drafts, Big Verdict: Information-Intensive Visual Reasoning via Speculation](../../ICLR2026/multimodal_vlm/small_drafts_big_verdict_information-intensive_visual_reasoning_via_speculation.md)
 
 <!-- RELATED:END -->

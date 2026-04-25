@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 多模态VLM方向 138篇论文解读
+  ACL2025 多模态VLM方向 142篇论文解读
 description: >-
-  138篇ACL2025 多模态VLM论文解读，主题涵盖：本文提出 DoPL（Detail-oriented、本文发现 LLM 中存在类似人脑视觉皮层的"视觉区、本文提出 ASD（Activation等，每篇含核心思想与方法详解。
+  142篇ACL2025 多模态VLM论文解读，主题涵盖：本文提出 DoPL（Detail-oriented、本文发现 LLM 中存在类似人脑视觉皮层的"视觉区、本文提出 ASD（Activation等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**💬 ACL2025** · **138** 篇论文解读
+**💬 ACL2025** · **142** 篇论文解读
 
 **[A Parameter-Efficient and Fine-Grained Prompt Learning for Vision-Language Models](a_parameter-efficient_and_fine-grained_prompt_learning_for_vision-language_model.md)**
 
@@ -129,6 +129,10 @@ description: >-
 **[Insight Over Sight: Exploring the Vision-Knowledge Conflicts in Multimodal LLMs](conflictvis_vision_knowledge_conflict.md)**
 
 :   首次系统探索 MLLM 中常识级别的视觉-知识冲突问题，提出自动化框架构建 ConflictVis 基准（374 图 + 1122 QA），发现 MLLM 在约 20% 的冲突场景中过度依赖参数化知识（尤其是 Yes-No 和动作类问题），并提出 Focus-on-Vision 提示策略进行缓解。
+
+**[CORDIAL: Can Multimodal Large Language Models Effectively Understand Coherence Relationships?](cordial-multimodal-llm-coherence-relationships.md)**
+
+:   本文提出 CORDIAL 基准，评估多模态大语言模型在多模态话语分析中理解连贯关系（Coherence Relations）的能力，发现即使顶级模型如 Gemini 1.5 Pro 和 GPT-4o 也无法匹配简单 CLIP 分类器的表现，尤其在语用类关系上差距显著。
 
 **[CORDIAL: Can Multimodal Large Language Models Effectively Understand Coherence Relations?](cordial_can_multimodal_large_language_models_effectively_understand_coherence_re.md)**
 
@@ -522,6 +526,10 @@ description: >-
 
 :   提出 ViGiL3D——一个语言多样性诊断数据集和自动化分析框架，用于评估 3D 视觉定位（3DVG）方法在否定、粗粒度指代、共指消解等多种语言现象上的表现，揭示现有方法在分布外提示上性能显著下降（最高达 20+ 点）。
 
+**[Weaving Context Across Images: Improving Vision-Language Models through Focus-Centric Visual Chains](visc-focus-centric-visual-chains-for-multi-image-reasoning.md)**
+
+:   本文提出 Focus-Centric Visual Chain 推理范式，将多图复杂任务分解为聚焦子集图像的逐步推理序列，并提出 FCDS 数据合成框架构建 VISC-150K 数据集，在 7 个多图基准上平均提升 3.16% 和 2.24%。
+
 **[Vision-Language Models Struggle to Align Entities across Modalities](vision-language_models_struggle_to_align_entities_across_modalities.md)**
 
 :   提出 MATE 基准（5,500 个问答实例），通过合成 3D 场景的跨模态属性检索任务系统评估 VLM 的实体链接能力，发现即使最强闭源模型仍落后人类约 15 个百分点，且性能随场景物体数量增加急剧下降——根源在于跨模态特征绑定而非单模态感知。
@@ -533,6 +541,10 @@ description: >-
 **[VisuoThink: Empowering LVLM Reasoning with Multimodal Tree Search](visuothink_empowering_lvlm_reasoning_with_multimodal_tree_search.md)**
 
 :   本文提出VisuoThink框架，通过视觉-文本交织推理和预测性前瞻树搜索，在推理过程中动态整合视觉辅助信息并探索多条推理路径，无需微调即可在几何和空间推理任务上实现SOTA性能（Geomverse-109上Accuracy@1最高达48.5%，相比最优基线提升21.8%）。
+
+**[VLM2-Bench: A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues](vlm2-bench-visual-cue-linking.md)**
+
+:   本文提出 VLM2-Bench，评估 VLM 在多图/视频中隐式关联匹配视觉线索的能力，涵盖通用线索、物体线索和人物线索三大类9个子任务，发现即使最强模型也落后人类30%以上。
 
 **[VLM2-Bench: A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues](vlm2-bench_a_closer_look_at_how_well_vlms_implicitly_link_explicit_matching_visu.md)**
 
@@ -557,6 +569,10 @@ description: >-
 **[Weaving Context Across Images: Improving Vision-Language Models through Focus-Centric Visual Chains](weaving_context_across_images_improving_vision-language_models_through_focus-cen.md)**
 
 :   提出 Focus-Centric Visual Chain 多图推理范式，通过问题分解和逐步聚焦关键视觉信息实现跨图推理，并构建 VISC-150K 数据集，在七个多图基准上实现 2-3% 的一致性提升。
+
+**[We-Math: Does Your Large Multimodal Model Achieve Human-like Mathematical Reasoning?](wemath_knowledge_reasoning.md)**
+
+:   本文提出We-Math基准，包含6.5K视觉数学问题和67个层次化知识概念，通过将复合问题分解为子问题引入四维评估指标（知识不足IK、泛化不足IG、完全掌握CM、机械记忆RM），首次从知识掌握角度系统评估LMM的数学推理过程而非仅关注最终结果。
 
 **[WikiMixQA: A Multimodal Benchmark for Question Answering over Tables and Charts](wikimixqa_a_multimodal_benchmark_for_question_answering_over_tables_and_charts.md)**
 

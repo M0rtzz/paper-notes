@@ -153,6 +153,6 @@ tags:
 - [Less, but Better: Efficient Multilingual Expansion for LLMs via Layer-wise Mixture-of-Experts](less_but_better_efficient_multilingual_expansion.md)
 - [Implicit Cross-Lingual Rewarding for Efficient Multilingual Preference Alignment](implicit_cross-lingual_rewarding_for_efficient_multilingual_preference_alignment.md)
 - [Language Fusion for Parameter-Efficient Cross-lingual Transfer (FLARE)](flare_crosslingual_lora.md)
-- [M-RewardBench: Evaluating Reward Models in Multilingual Settings](m_rewardbench.md)
+- [Efficient Training for Cross-lingual Speech Language Models](../../ACL2026/multilingual_mt/efficient_training_for_cross-lingual_speech_language_models.md)
 
 <!-- RELATED:END -->

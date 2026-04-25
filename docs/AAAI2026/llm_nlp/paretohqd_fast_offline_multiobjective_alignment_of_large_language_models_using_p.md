@@ -130,6 +130,6 @@ ParetoHqD 分两阶段：Stage 1 从原始数据集的 Pareto 前沿选取匹配
 - [Diversity-oriented Data Augmentation with Large Language Models](../../ACL2025/llm_nlp/diversity_data_augmentation.md)
 - [ProFuser: Progressive Fusion of Large Language Models](profuser_progressive_fusion_of_large_language_models.md)
 - [DeAL: Decoding-time Alignment for Large Language Models](../../ACL2025/llm_nlp/deal_decoding_time_alignment.md)
-- [From Neurons to Semantics: Evaluating Cross-Linguistic Alignment Capabilities of Large Language Models via Neurons Alignment](../../ACL2025/llm_nlp/from_neurons_to_semantics_evaluating_cross-linguistic_alignment_capabilities_of_.md)
+- [CoSToM: Causal-oriented Steering for Intrinsic Theory-of-Mind Alignment in Large Language Models](../../ACL2026/llm_nlp/costomcausal-oriented_steering_for_intrinsic_theory-of-mind_alignment_in_large_l.md)
 
 <!-- RELATED:END -->

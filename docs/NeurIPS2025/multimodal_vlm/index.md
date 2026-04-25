@@ -1,14 +1,14 @@
 ---
 title: >-
-  NeurIPS2025 多模态VLM方向 144篇论文解读
+  NeurIPS2025 多模态VLM方向 145篇论文解读
 description: >-
-  144篇NeurIPS2025 多模态VLM论文解读，主题涵盖：提出 M-Attack，通过对源图像做随机裁剪后与、构建了首个面向石油天然气行业视频广告的多模态框架分、提出ACT（Annotation with等，每篇含核心思想与方法详解。
+  145篇NeurIPS2025 多模态VLM论文解读，主题涵盖：提出 M-Attack，通过对源图像做随机裁剪后与、构建了首个面向石油天然气行业视频广告的多模态框架分、提出ACT（Annotation with等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态VLM
 
-**🧠 NeurIPS2025** · **144** 篇论文解读
+**🧠 NeurIPS2025** · **145** 篇论文解读
 
 **[A Frustratingly Simple Yet Highly Effective Attack Baseline: Over 90% Success Rate Against the Strong Black-box Models of GPT-4.5/4o/o1](a_frustratingly_simple_yet_highly_effective_attack_baseline.md)**
 
@@ -133,6 +133,10 @@ description: >-
 **[CyIN: Cyclic Informative Latent Space for Bridging Complete and Incomplete Multimodal Learning](cyin_cyclic_informative_latent_space_for_bridging_complete_and_incomplete_multim.md)**
 
 :   提出 CyIN 框架，通过 token 级和 label 级信息瓶颈（IB）构建信息化潜空间，结合循环跨模态翻译重建缺失信息，在单一统一模型中同时优化完整和不完整多模态学习。
+
+**[DanmakuTPPBench: A Multi-modal Benchmark for Temporal Point Process Modeling and Understanding](danmaku_tpp_bench.md)**
+
+:   本文提出 DanmakuTPPBench，首个融合时间、文本和视觉的多模态时间点过程（TPP）基准，包含从 B 站弹幕系统收集的 DanmakuTPP-Events（7,250 个视频序列，1080 万弹幕事件）和基于多 Agent 流水线构建的 DanmakuTPP-QA（10 种评估任务），揭示了当前 LLM/MLLM 在 TPP 理解上的显著差距。
 
 **[DanmakuTPPBench: A Multi-modal Benchmark for Temporal Point Process Modeling and Understanding](danmakutppbench_a_multimodal_benchmark_for_temporal_point_pr.md)**
 

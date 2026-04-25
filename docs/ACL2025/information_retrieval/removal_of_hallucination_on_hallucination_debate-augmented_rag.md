@@ -131,6 +131,6 @@ DRAG是完全免训练的框架（training-free），不涉及任何模型微调
 - [REFIND at SemEval-2025 Task 3: Retrieval-Augmented Factuality Hallucination Detection in Large Language Models](refind_at_semeval-2025_task_3_retrieval-augmented_factuality_hallucination_detec.md)
 - [RAGEval: Scenario Specific RAG Evaluation Dataset Generation Framework](rageval_scenario_specific_rag_evaluation_dataset_generation_framework.md)
 - [The Distracting Effect: Understanding Irrelevant Passages in RAG](the_distracting_effect_understanding_irrelevant_passages_in_rag.md)
-- [From Ambiguity to Accuracy: The Transformative Effect of Coreference Resolution on RAG Systems](from_ambiguity_to_accuracy_the_transformative_effect_of_coreference_resolution_o.md)
+- [Semantic Outlier Removal with Embedding Models and LLMs](semantic_outlier_removal_with_embedding_models_and_llms.md)
 
 <!-- RELATED:END -->

@@ -142,6 +142,6 @@ NaviBridger 的整体架构由三部分组成：(1) 特征提取模块——用 
 - [Visual-Instructed Degradation Diffusion for All-in-One Image Restoration](visual-instructed_degradation_diffusion_for_all-in-one_image_restoration.md)
 - [ε-VAE: Denoising as Visual Decoding](../../ICML2025/image_restoration/epsilon-vae_denoising_as_visual_decoding.md)
 - [Exploiting Diffusion Prior for Task-driven Image Restoration](../../ICCV2025/image_restoration/exploiting_diffusion_prior_for_task-driven_image_restoration.md)
-- [Efficient Visual State Space Model for Image Deblurring](efficient_visual_state_space_model_for_image_deblurring.md)
+- [Classic Video Denoising in a Machine Learning World: Robust, Fast, and Controllable](classic_video_denoising_in_a_machine_learning_world_robust_fast_and_controllable.md)
 
 <!-- RELATED:END -->

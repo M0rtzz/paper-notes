@@ -152,7 +152,7 @@ LogiQA 上 Deepseek-R1-14B: 27.80 → 35.60（+7.80%）。
 - [Universal Properties of Activation Sparsity in Modern Large Language Models](universal_properties_of_activation_sparsity_in_modern_large_language_models.md)
 - [Probabilistic Token Alignment for Large Language Model Fusion](../../NeurIPS2025/interpretability/probabilistic_token_alignment_for_large_language_model_fusion.md)
 - [Hidden Breakthroughs in Language Model Training](hidden_breakthroughs_in_language_model_training.md)
-- [The Trilemma of Truth in Large Language Models](../../NeurIPS2025/interpretability/the_trilemma_of_truth_in_large_language_models.md)
+- [Tracing Relational Knowledge Recall in Large Language Models](../../ACL2026/interpretability/tracing_relational_knowledge_recall_in_large_language_models.md)
 - [Evolution of Concepts in Language Model Pre-Training](evolution_of_concepts_in_language_model_pre-training.md)
 
 <!-- RELATED:END -->

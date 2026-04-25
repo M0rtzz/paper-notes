@@ -140,9 +140,9 @@ PolyMNIST 80%缺失：DyMo超OnlineMAE +5.67%；DVM全表缺失：超ModDrop +4.
 ## 相关论文
 
 - [DriftLite: Lightweight Drift Control for Inference-Time Scaling of Diffusion Models](driftlite_lightweight_drift_control_for_inference-time_scaling_of_diffusion_mode.md)
+- [Learning Dynamic Representations and Policies from Multimodal Clinical Time-Series with Informative Missingness](../../ACL2026/medical_imaging/learning_dynamic_representations_and_policies_from_multimodal_clinical_time-seri.md)
 - [TIP: Tabular-Image Pre-training for Multimodal Classification with Incomplete Data](../../ECCV2024/medical_imaging/tip_tabular-image_pre-training_for_multimodal_classification_with_incomplete_dat.md)
+- [Detecting Hallucinations in SpeechLLMs at Inference Time Using Attention Maps](../../ACL2026/medical_imaging/detecting_hallucinations_in_speechllms_at_inference_time_using_attention_maps.md)
 - [DistMLIP: A Distributed Inference Platform for Machine Learning Interatomic Potentials](distmlip_a_distributed_inference_platform_for_machine_learning_interatomic_poten.md)
-- [MIRAGE: Scaling Test-Time Inference with Parallel Graph-Retrieval-Augmented Reasoning Chains](../../AAAI2026/medical_imaging/mirage_scaling_test-time_inference_with_parallel_graph-retrieval-augmented_reaso.md)
-- [Distilled Prompt Learning for Incomplete Multimodal Survival Prediction](../../CVPR2025/medical_imaging/distilled_prompt_learning_for_incomplete_multimodal_survival_prediction.md)
 
 <!-- RELATED:END -->

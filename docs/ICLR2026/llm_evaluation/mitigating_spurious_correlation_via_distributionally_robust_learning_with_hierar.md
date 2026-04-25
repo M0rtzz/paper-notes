@@ -108,7 +108,7 @@ Algorithm 1：z'的PGD + β的mirror descent + θ的SGD。ε的选择使用启�
 - [Breaking the Correlation Plateau: On the Optimization and Capacity Limits of Attention-Based Regressors](breaking_the_correlation_plateau_on_the_optimization_and_capacity_limits_of_atte.md)
 - [Aggregation Hides OOD Generalization Failures from Spurious Correlations](../../NeurIPS2025/llm_evaluation/aggregation_hides_out-of-distribution_generalization_failures_from_spurious_corr.md)
 - [Free-Grained Hierarchical Visual Recognition](../../CVPR2026/llm_evaluation/free-grained_hierarchical_visual_recognition.md)
+- [Self-Awareness before Action: Mitigating Logical Inertia via Proactive Cognitive Awareness](../../ACL2026/llm_evaluation/self-awareness_before_action_mitigating_logical_inertia_via_proactive_cognitive_.md)
 - [Risk Management for Mitigating Benchmark Failure Modes: BenchRisk](../../NeurIPS2025/llm_evaluation/risk_management_for_mitigating_benchmark_failure_modes_benchrisk.md)
-- [LCA: Local Classifier Alignment for Continual Learning](lca_local_classifier_alignment_for_continual_learning.md)
 
 <!-- RELATED:END -->

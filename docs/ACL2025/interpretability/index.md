@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 可解释性方向 22篇论文解读
+  ACL2025 可解释性方向 24篇论文解读
 description: >-
-  22篇ACL2025 可解释性论文解读，主题涵盖：提出一个双视角 NLG 元评估框架、本文系统性地比较了多种机理可解释性方法（因果追踪、本文提出 GeoTemp 数据集（320k 提示等，每篇含核心思想与方法详解。
+  24篇ACL2025 可解释性论文解读，主题涵盖：提出一个双视角 NLG 元评估框架、本文系统性地比较了多种机理可解释性方法（因果追踪、本文提出 GeoTemp 数据集（320k 提示等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**💬 ACL2025** · **22** 篇论文解读
+**💬 ACL2025** · **24** 篇论文解读
 
 **[A Dual-Perspective NLG Meta-Evaluation Framework with Automatic Benchmark and Better Interpretability](a_dual-perspective_nlg_meta-evaluation_framework_with_automatic_benchmark_and_be.md)**
 
@@ -34,6 +34,10 @@ description: >-
 
 :   > 本文从结构和功能两个角度全面定义了退化知识神经元 (DKN)，提出基于持久同调的神经拓扑聚类方法 (NTC) 获取 DKN，并通过 34 个实验揭示了 DKN 与 LLM 鲁棒性、可进化性和复杂性之间的关系。
 
+**[Cracking Factual Knowledge: A Comprehensive Analysis of Degenerate Knowledge Neurons in Large Language Models](degenerate_knowledge_neurons.md)**
+
+:   本文从结构和功能双重角度重新定义了LLM中的退化知识神经元（DKN），提出神经拓扑聚类方法获取任意数量和结构的DKN，并通过34个实验揭示了DKN与LLM鲁棒性、可进化性和复杂性的内在关联。
+
 **[EXPERT: An Explainable Image Captioning Evaluation Metric with Structured Explanations](expert_an_explainable_image_captioning_evaluation_metric_with_structured_explana.md)**
 
 :   本文提出 EXPERT，一种基于 VLM 微调的无参考图像描述评估指标，通过构建大规模结构化解释数据集并设计两阶段评估模板，在多个基准数据集上达到 SOTA 的同时，提供基于流畅度、相关性、描述性三个维度的高质量结构化解释。
@@ -41,6 +45,10 @@ description: >-
 **[IRT-Router: Effective and Interpretable Multi-LLM Routing via Item Response Theory](irt_router_multi_llm.md)**
 
 :   IRT-Router 借鉴心理测量学的项目反应理论（IRT），将 LLM 视为"考生"、query 视为"考题"，学习多维能力向量和难度/区分度参数实现可解释的多 LLM 路由，在 OOD 场景下达 87%+ 准确率且成本仅为 GPT-4o 的 1/30。
+
+**[Separating Tongue from Thought: Activation Patching Reveals Language-Agnostic Concept Representations in Transformers](language_agnostic_concepts.md)**
+
+:   本文通过激活修补（activation patching）方法对翻译任务中的LLM潜在表示进行因果分析，发现输出语言在早期层编码而概念在后期层编码，证明LLM内部存在语言无关的概念表示——跨语言平均概念表示不仅可用且能提升翻译性能。
 
 **[Llama See, Llama Do: A Mechanistic Perspective on Contextual Entrainment and Distraction in LLMs](llama_see_llama_do_entrainment.md)**
 

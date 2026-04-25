@@ -135,7 +135,7 @@ Deletion Control验证（SIFT1B, b=10⁵, α=0.84）：
 - [The Atlas of In-Context Learning: How Attention Heads Shape In-Context Retrieval Augmentation](the_atlas_of_in-context_learning_how_attention_heads_shape_in-context_retrieval_.md)
 - [On Synthetic Data Strategies for Domain-Specific Generative Retrieval](../../ACL2025/information_retrieval/on_synthetic_data_strategies_for_domain-specific_generative_retrieval.md)
 - [When Should Dense Retrievers Be Updated in Evolving Corpora? Detecting Out-of-Distribution Corpora Using GradNormIR](../../ACL2025/information_retrieval/when_should_dense_retrievers_be_updated_in_evolving_corpora_detecting_out-of-dis.md)
-- [KnowShiftQA: How Robust are RAG Systems when Textbook Knowledge Shifts in K-12 Education?](../../ACL2025/information_retrieval/knowshiftqa_rag_knowledge_shifts.md)
 - [MuRating: A High Quality Data Selecting Approach to Multilingual Large Language Model Pretraining](murating_a_high_quality_data_selecting_approach_to_multilingual_large_language_m.md)
+- [KnowShiftQA: How Robust are RAG Systems when Textbook Knowledge Shifts in K-12 Education?](../../ACL2025/information_retrieval/knowshiftqa_rag_knowledge_shifts.md)
 
 <!-- RELATED:END -->

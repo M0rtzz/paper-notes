@@ -144,6 +144,6 @@ tags:
 - [Tetris: Optimal Draft Token Selection for Batch Speculative Decoding](../../ACL2025/llm_efficiency/tetris_optimal_draft_token_selection_for_batch_speculative_decoding.md)
 - [Constant Bit-Size Transformers Are Turing Complete](constant_bit-size_transformers_are_turing_complete.md)
 - [3-Model Speculative Decoding (PyramidSD)](3model_speculative_decoding.md)
-- [L-MTP: Leap Multi-Token Prediction Beyond Adjacent Context for Large Language Models](l-mtp_leap_multi-token_prediction_beyond_adjacent_context_for_large_language_mod.md)
+- [Unveiling Environmental Impacts of Large Language Model Serving: A Functional Unit View](../../ACL2025/llm_efficiency/fuel-unveiling-environmental-impacts-of-llm-serving.md)
 
 <!-- RELATED:END -->

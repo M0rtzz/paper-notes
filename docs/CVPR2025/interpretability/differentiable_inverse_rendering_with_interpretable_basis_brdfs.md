@@ -120,7 +120,7 @@ tags:
 
 - [Interpretable Image Classification via Non-parametric Part Prototype Learning](interpretable_image_classification_via_non-parametric_part_prototype_learning.md)
 - [Prompt-CAM: Making Vision Transformers Interpretable for Fine-Grained Analysis](prompt-cam_making_vision_transformers_interpretable_for_fine-grained_analysis.md)
-- [TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction](tide_training_locally_interpretable_domain_generalization_models_enables_test_time_correction.md)
+- [TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction](tide_domain_generalization.md)
 - [What Makes an Ensemble (Un)interpretable?](../../ICML2025/interpretability/what_makes_an_ensemble_un_interpretable.md)
 - [CHiQPM: Calibrated Hierarchical Interpretable Image Classification](../../NeurIPS2025/interpretability/chiqpm_calibrated_hierarchical_interpretable_image_classification.md)
 

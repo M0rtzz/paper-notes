@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 信息检索/RAG方向 82篇论文解读
+  ACL2025 信息检索/RAG方向 84篇论文解读
 description: >-
-  82篇ACL2025 信息检索/RAG论文解读，主题涵盖：提出DRUID真实世界事实验证数据集和ACU评估指、揭示 LLM 文本嵌入的有趣现象：将嵌入向量通过解、提出 IDR²，一种模型无关的自适应RAG加速框架等，每篇含核心思想与方法详解。
+  84篇ACL2025 信息检索/RAG论文解读，主题涵盖：提出DRUID真实世界事实验证数据集和ACU评估指、揭示 LLM 文本嵌入的有趣现象：将嵌入向量通过解、提出 IDR²，一种模型无关的自适应RAG加速框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔍 信息检索/RAG
 
-**💬 ACL2025** · **82** 篇论文解读
+**💬 ACL2025** · **84** 篇论文解读
 
 **[A Reality Check on Context Utilisation for Retrieval-Augmented Generation](a_reality_check_on_context_utilisation_for_retrieval-augmented_generation.md)**
 
@@ -180,6 +180,10 @@ description: >-
 
 :   提出 LDIR 方法，通过最远点采样选取锚文本（anchor texts），计算待编码文本与各锚文本的语义相关度，构建低维（≤500 维）、稠密且可解释的文本嵌入，性能接近黑盒模型并显著优于已有可解释嵌入方法。
 
+**[Are LLMs Effective Psychological Assessors? Leveraging Adaptive RAG for Interpretable Mental Health Screening](llm_psychological_assessor.md)**
+
+:   本文提出基于自适应RAG的心理问卷引导筛查框架，通过检索用户Reddit帖子并让LLM代替用户填写标准化心理问卷（BDI-II等），在无需训练数据的情况下匹配或超越SOTA监督方法的抑郁筛查性能，并扩展到其他心理健康状况。
+
 **[Re-ranking Using Large Language Models for Mitigating Exposure to Harmful Content on Social Media Platforms](llm_reranking_harmful_content.md)**
 
 :   提出基于 LLM 的成对偏好重排序方法，在零样本和少样本设置下对社交媒体推荐序列中的有害内容进行降级排序，显著优于 Perspective API 和 OpenAI Moderation API 等工业级分类器，同时引入 PP-k 和 EWN 两个新评估指标。
@@ -319,6 +323,10 @@ description: >-
 **[Unanswerability Evaluation for Retrieval Augmented Generation](unanswerability_evaluation_for_retrieval_augmented_generation.md)**
 
 :   UAEval4RAG 提出了一个针对 RAG 系统处理不可回答查询的全面评估框架，定义了六类不可回答类别，能够基于任意知识库自动合成测试数据并评估系统的拒绝能力，实验揭示没有单一配置能在所有数据集上同时最优化可回答和不可回答查询的表现。
+
+**[Any Information Is Just Worth One Single Screenshot: Unifying Search With Visualized Information Retrieval](unise-visualized-information-retrieval-with-screenshots.md)**
+
+:   本文定义了可视化信息检索（Vis-IR）新范式，将多模态信息统一表示为截图（Screenshot）进行检索，贡献了大规模数据集 VIRA（1300万截图）、通用检索模型 UniSE 和综合基准 MVRB。
 
 **[VISA: Retrieval Augmented Generation with Visual Source Attribution](visa_retrieval_augmented_generation_with_visual_source_attribution.md)**
 

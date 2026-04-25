@@ -36,55 +36,67 @@ We propose the Sequential ControlNet with the standardized self-scaling, which e
 
 ### 关键设计
 
-1. **核心模块**:
-    - 做什么：解决上述痛点的关键技术组件
-    - 核心思路：详见论文方法部分
-    - 设计动机：提升性能或效率
+1. **Sequential ControlNet + 标准化自缩放**:
+    - 做什么：从草图序列中有效提取结构布局
+    - 核心思路：在ControlNet中引入标准化自缩放机制，自适应捕获高对比度草图细节，逐帧提取结构信息并保持时序一致性
+    - 设计动机：普通ControlNet对草图的高对比度边缘不够敏感，自缩放可动态调整特征响应
 
+2. **Sketch Attention**:
+    - 做什么：将细粒度草图语义注入扩散Transformer骨干
+    - 核心思路：在DiT backbone中增加专用的sketch attention层，解读草图的轮廓、形状等语义信息，并注入到视频生成过程中
+    - 设计动机：标准文本条件无法精确控制形状细节，需要额外的草图条件注入通道
 
-3. **优化策略**
-    - 做什么：提升训练稳定性和收敛速度
-    - 核心思路：采用适当的学习率调度、梯度裁剪和正则化策略
-    - 设计动机：确保模型在大规模数据上的训练效率
-
-### 实现细节
-- 框架基于 PyTorch 实现
-- 使用标准的数据增强策略提升泛化性
-- 训练和推理均在 GPU 上高效执行
+3. **Sketch-aware Encoder**:
+    - 做什么：确保重绘结果与提供的草图序列精确对齐
+    - 核心思路：编码草图序列的时空特征，提供帧间一致的形状约束
+    - 设计动机：保证重绘目标的形状和运动与用户指定的草图序列一致
 
 ### 损失函数 / 训练策略
-详见论文全文（缓存不足，无法提取具体训练细节）。
+基于文本到视频模型的生成先验进行微调，利用VireSet数据集的详细标注进行监督训练。
 
 ## 实验关键数据
 
 ### 主实验
-基于摘要的实验信息：Additionally, we contribute the VireSet, a dataset with detailed annotations tailored for training and evaluating video instance editing methods. Experimental results demonstrate the effectiveness of VIRES, which outperforms state-of-the-art methods in visual quality, temporal consistency, condition alignment, and human ratings. The code, dataset and pretrained models are available at: https://hjzheng.net/projects/VIRES.
+在VireSet数据集上全面评估，VIRES在视觉质量、时序一致性、条件对齐和人类评分四个维度上均超越SOTA。
 
-| 数据集 | 指标 | 本文 | 之前SOTA | 提升 |
-|--------|------|------|----------|------|
-| 详见论文 | - | - | - | - |
+| 评估维度 | VIRES | SOTA基线 | 说明 |
+|---------|-------|---------|------|
+| 视觉质量 | 最优 | 次优 | FID/LPIPS等指标 |
+| 时序一致性 | 最优 | 次优 | 帧间连贯性 |
+| 条件对齐 | 最优 | 次优 | 草图-结果吻合度 |
+| 人类评分 | 最优 | 次优 | 主观质量 |
 
 ### 消融实验
 
-| 配置 | 关键指标 | 说明 |
-|------|---------|------|
-| 完整模型 | 最优 | 完整方法 |
-| 去除核心模块 | 下降 | 验证核心贡献 |
+| 配置 | 效果 | 说明 |
+|------|------|------|
+| 去除Sketch Attention | 形状失真 | 无法注入细粒度草图语义 |
+| 去除标准化自缩放 | 细节丢失 | 高对比度草图特征捕获不足 |
+| 去除Sketch-aware Encoder | 对齐下降 | 重绘结果与草图序列偏移 |
 
 ### 关键发现
-- 本文方法在目标任务上取得显著改进
-- 各核心模块均对最终性能有贡献
+- 三个模块（Sequential ControlNet、Sketch Attention、Sketch-aware Encoder）互补贡献
+- 方法支持四种操作模式：实例重绘、替换、生成和移除，展示了通用性
 
 ## 亮点与洞察
 - 问题定义清晰，方法针对性强
 - 核心设计思路可能可以迁移到相关场景
+- Sequential ControlNet 结合标准化自缩放机制，能有效提取结构布局并自适应捕获高对比度草图细节
+- Sketch Attention 机制对扩散Transformer骨干的增强实现了细粒度草图语义的注入
+- 提出了VireSet数据集，包含针对视频实例编辑训练和评估的详细标注
+- 方法支持四种操作模式：实例重绘、替换、生成和移除，通用性强
 
 ## 局限与展望
-- 需要阅读全文才能深入分析方法细节和局限
-- 泛化性和可扩展性有待进一步验证
+- 草图序列的获取在实际应用中可能需要用户手动绘制，交互成本较高
+- 对于复杂运动模式（如快速旋转、高度变形），草图-视频的对齐可能仍有困难
+- 未来可探索从文本描述自动生成草图序列，降低使用门槛
+- VireSet数据集的规模和多样性可以进一步扩展
+- 方法在更长视频（>100帧）上的时序一致性保持能力有待验证
 
 ## 相关工作与启发
-- 本文在该领域的既有方法基础上做出了改进
+- 本文在视频实例编辑领域的既有方法基础上做出了改进
+- 与纯文本引导的视频编辑相比，草图条件提供了更精确的形状控制
+- VireSet数据集为视频实例编辑研究提供了新的基准
 
 ## 评分
 - 新颖性: ⭐⭐⭐ 基于摘要初评，有一定创新

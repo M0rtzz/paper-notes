@@ -134,6 +134,6 @@ Pipeline：
 - [BECAME: BayEsian Continual Learning with Adaptive Model MErging](became_bayesian_continual_learning_with_adaptive_model_merging.md)
 - [Finding Structure in Continual Learning](../../NeurIPS2025/llm_safety/finding_structure_in_continual_learning.md)
 - [Cut out and Replay: A Simple yet Versatile Strategy for Multi-Label Online Continual Learning](cut_out_and_replay_a_simple_yet_versatile_strategy_for_multi-label_online_contin.md)
-- [Learning Auxiliary Tasks Improves Reference-Free Hallucination Detection in Open-Domain Long-Form Generation](../../ACL2025/llm_safety/learning_auxiliary_tasks_improves_reference-free_hallucination_detection_in_open.md)
+- [Learning Auxiliary Tasks Improves Reference-Free Hallucination Detection in Open-Domain Long-Form Generation](../../ACL2025/llm_safety/rate-ft-auxiliary-tasks-for-hallucination-detection.md)
 
 <!-- RELATED:END -->

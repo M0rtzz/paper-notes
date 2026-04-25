@@ -163,6 +163,6 @@ $$\mathcal{L}_{\text{pnu}} = \begin{cases} (1-\gamma) \cdot (\mathcal{L}_{\text{
 - [Contamination Detection for VLMs using Multi-Modal Semantic Perturbation](../../ICLR2026/multimodal_vlm/contamination_detection_for_vlms_using_multi-modal_semantic_perturbation.md)
 - [InEx: Hallucination Mitigation via Introspection and Cross-Modal Multi-Agent Collaboration](inex_hallucination_mitigation_via_introspection_and_cross-mo.md)
 - [Concept-RuleNet: Grounded Multi-Agent Neurosymbolic Reasoning in Vision Language Models](concept-rulenet_grounded_multi-agent_neurosymbolic_reasoning.md)
-- [BOFA: Bridge-Layer Orthogonal Low-Rank Fusion for CLIP-Based Class-Incremental Learning](bofa_bridge-layer_orthogonal_low-rank_fusion_for_clip-based_.md)
+- [AICA-Bench: Holistically Examining the Capabilities of VLMs in Affective Image Content Analysis](../../ACL2026/multimodal_vlm/aica-bench_holistically_examining_the_capabilities_of_vlms_in_affective_image_co.md)
 
 <!-- RELATED:END -->

@@ -183,6 +183,6 @@ tags:
 - [Empowering Decision Trees via Shape Function Branching](../../NeurIPS2025/interpretability/empowering_decision_trees_via_shape_function_branching.md)
 - [How Do Transformers Learn to Associate Tokens: Gradient Leading Terms Bring Mechanistic Understanding](how_do_transformers_learn_to_associate_tokens_gradient_leading_terms_bring_mecha.md)
 - [Towards Faithful Multimodal Concept Bottleneck Models](../../CVPR2026/interpretability/towards_faithful_multimodal_concept_bottleneck_models.md)
-- [Uncovering Graph Reasoning in Decoder-only Transformers with Circuit Tracing](../../NeurIPS2025/interpretability/uncovering_graph_reasoning_in_decoder-only_transformers_with_circuit_tracing.md)
+- [From Signal Degradation to Computation Collapse: Uncovering the Two Failure Modes of LLM Quantization](../../ACL2026/interpretability/from_signal_degradation_to_computation_collapse_uncovering_the_two_failure_modes.md)
 
 <!-- RELATED:END -->

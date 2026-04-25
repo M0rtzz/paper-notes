@@ -139,8 +139,8 @@ tags:
 
 - [Sampling-Efficient Test-Time Scaling: Self-Estimating the Best-of-N Sampling in Early Decoding](sampling-efficient_test-time_scaling_self-estimating_the_best-of-n_sampling_in_e.md)
 - [AbbIE: Autoregressive Block-Based Iterative Encoder for Efficient Sequence Modeling](abbie_autoregressive_block-based_iterative_encoder_for_efficient_sequence_modeli.md)
-- [DreamPRM: Domain-Reweighted Process Reward Model for Multimodal Reasoning](dreamprm_domain-reweighted_process_reward_model_for_multimodal_reasoning.md)
 - [SERL: Self-Examining Reinforcement Learning on Open-Domain](../../AAAI2026/llm_reasoning/serl_self-examining_reinforcement_learning_on_open-domain.md)
+- [DreamPRM: Domain-Reweighted Process Reward Model for Multimodal Reasoning](dreamprm_domain-reweighted_process_reward_model_for_multimodal_reasoning.md)
 - [Curriculum Abductive Learning](curriculum_abductive_learning.md)
 
 <!-- RELATED:END -->

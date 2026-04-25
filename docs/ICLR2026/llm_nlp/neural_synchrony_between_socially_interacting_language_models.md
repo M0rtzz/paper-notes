@@ -178,8 +178,8 @@ $SyncR^2$ 分布随 agent 间关系亲密度增加而上移——更亲密的社
 
 - [Information Locality as an Inductive Bias for Neural Language Models](../../ACL2025/llm_nlp/information_locality_as_an_inductive_bias_for_neural_language_models.md)
 - [Neural Topic Modeling with Large Language Models in the Loop](../../ACL2025/llm_nlp/neural_topic_modeling_with_large_language_models_in_the_loop.md)
+- [An Existence Proof for Neural Language Models That Can Explain Garden-Path Effects via Surprisal](../../ACL2026/llm_nlp/an_existence_proof_for_neural_language_models_that_can_explain_garden-path_effec.md)
 - [PiFi: Plug-in and Fine-tuning: Bridging the Gap between Small Language Models and Large Language Models](../../ACL2025/llm_nlp/plugin_finetuning_bridge.md)
 - [BehaviorBox: Automated Discovery of Fine-Grained Performance Differences Between Language Models](../../ACL2025/llm_nlp/behaviorbox_automated_discovery_of_fine-grained_performance_differences_between_.md)
-- [Analyzing and Mitigating Inconsistency in Discrete Speech Tokens for Neural Codec Language Models](../../ACL2025/llm_nlp/analyzing_and_mitigating_inconsistency_in_discrete_speech_tokens_for_neural_code.md)
 
 <!-- RELATED:END -->

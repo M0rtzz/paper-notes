@@ -131,6 +131,6 @@ BrainNRDS 的流程分为三个方向：（1）从 fMRI 脑活动解码光流（
 - [Unmasking Biases and Reliability Concerns in Convolutional Neural Networks Analysis of Cancer Pathology Images](unmasking_biases_and_reliability_concerns_in_convolutional_neural_networks_analy.md)
 - [Context Matters: Query-aware Dynamic Long Sequence Modeling of Gigapixel Images](../../ICML2025/medical_imaging/context_matters_query-aware_dynamic_long_sequence_modeling_of_gigapixel_images.md)
 - [T-FAKE: Synthesizing Thermal Images for Facial Landmarking](t-fake_synthesizing_thermal_images_for_facial_landmarking.md)
-- [FFaceNeRF: Few-Shot Face Editing in Neural Radiance Fields](ffacenerf_few-shot_face_editing_in_neural_radiance_fields.md)
+- [Learning Dynamic Representations and Policies from Multimodal Clinical Time-Series with Informative Missingness](../../ACL2026/medical_imaging/learning_dynamic_representations_and_policies_from_multimodal_clinical_time-seri.md)
 
 <!-- RELATED:END -->

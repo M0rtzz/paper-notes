@@ -181,6 +181,6 @@ Router 训练：
 - [ScaleQuest: Unleashing LLM Reasoning Capability via Scalable Question Synthesis from Scratch](../../ACL2025/llm_nlp/unleashing_llm_reasoning_capability_via_scalable.md)
 - [Scalable and Accurate Graph Reasoning with LLM-Based Multi-Agents](../../AAAI2026/llm_nlp/scalable_and_accurate_graph_reasoning_with_llm-based_multi-agents.md)
 - [BFS-Prover: Scalable Best-First Tree Search for LLM-Based Automatic Theorem Proving](../../ACL2025/llm_nlp/bfs-prover_scalable_best-first_tree_search_for_llm-based_automatic_theorem_provi.md)
-- [AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](../../ACL2025/llm_nlp/agentdropout_dynamic_agent_elimination_for_token-efficient_and_high-performance_.md)
+- [AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](../../ACL2025/llm_nlp/agentdropout-dynamic-agent-elimination-for-multi-agent-collaboration.md)
 
 <!-- RELATED:END -->

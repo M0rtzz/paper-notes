@@ -142,8 +142,8 @@ pass@50 改进（平均跨 Llama-3.2-3B, Qwen2.5-3B, Gemma-3-27B）：
 
 - [Steering MoE LLMs via Expert (De)Activation](steering_moe_llms_via_expert_deactivation.md)
 - [Draft-based Approximate Inference for LLMs](draft-based_approximate_inference_for_llms.md)
+- [Calibrated Speculative Decoding: Frequency-Guided Candidate Selection for Efficient Inference](../../ACL2026/model_compression/calibrated_speculative_decoding_frequency-guided_candidate_selection_for_efficie.md)
 - [Specialization after Generalization: Towards Understanding Test-Time Training in Foundation Models](specialization_after_generalization_towards_understanding_test-time_training_in_.md)
 - [Inference-Time Hyper-Scaling with KV Cache Compression](../../NeurIPS2025/model_compression/inference-time_hyper-scaling_with_kv_cache_compression.md)
-- [zip2zip: Inference-Time Adaptive Tokenization via Online Compression](../../NeurIPS2025/model_compression/zip2zip_inference-time_adaptive_tokenization_via_online_compression.md)
 
 <!-- RELATED:END -->

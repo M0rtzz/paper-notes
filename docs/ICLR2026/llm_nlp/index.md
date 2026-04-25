@@ -1,14 +1,18 @@
 ---
 title: >-
-  ICLR2026 LLM/NLP方向 38篇论文解读
+  ICLR2026 LLM/NLP方向 39篇论文解读
 description: >-
-  38篇ICLR2026 LLM/NLP论文解读，主题涵盖：提出 AssetFormer，基于 Llama、提出 Compositional-ARC、提出 d²Cache，一种面向等，每篇含核心思想与方法详解。
+  39篇ICLR2026 LLM/NLP论文解读，主题涵盖：本文提出 AssetFormer，一个基于自回归、提出 AssetFormer，基于 Llama、提出 Compositional-ARC等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM/NLP
 
-**🔬 ICLR2026** · **38** 篇论文解读
+**🔬 ICLR2026** · **39** 篇论文解读
+
+**[AssetFormer: Modular 3D Assets Generation with Autoregressive Transformer](assetformer_modular_3d.md)**
+
+:   本文提出 AssetFormer，一个基于自回归 Transformer 的模块化 3D 资产生成框架，通过设计图遍历 token 排序、token 集建模和 SlowFast 解码策略，从文本描述生成由离散基元组合的高质量建筑资产，并构建了首个大规模真实模块化 3D 数据集（16k 真实 + 4k 合成样本）。
 
 **[AssetFormer: Modular 3D Assets Generation with Autoregressive Transformer](assetformer_modular_3d_assets_generation_with_autoregressive_transformer.md)**
 

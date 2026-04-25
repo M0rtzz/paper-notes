@@ -1,5 +1,5 @@
 # Auto-generated: ECCV2024 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !audio_speech/
@@ -50,7 +49,7 @@
 !video_generation/
 !video_understanding/
 
-# 已完成笔记 (867 篇)
+# 已完成笔记 (868 篇)
 !3d_vision/3d_congealing_3d-aware_image_alignment_in_the_wild.md
 !3d_vision/3d_reconstruction_of_objects_in_hands_without_real_world_3d.md
 !3d_vision/3d_single-object_tracking_in_point_clouds_with_high_temporal_variation.md
@@ -815,6 +814,7 @@
 !segmentation/partstad_2d-to-3d_part_segmentation_task_adaptation.md
 !segmentation/plain-det_a_plain_multi-dataset_object_detector.md
 !segmentation/point-supervised_panoptic_segmentation_via_estimating_pseudo_labels_from_learnab.md
+!segmentation/promerge_prompt_and_merge_for_unsupervised_instance_segmentation.md
 !segmentation/remamber_referring_image_segmentation_with_mamba_twister.md
 !segmentation/representing_topological_self-similarity_using_fractal_feature_maps_for_accurate.md
 !segmentation/rotary_position_embedding_for_vision_transformer.md

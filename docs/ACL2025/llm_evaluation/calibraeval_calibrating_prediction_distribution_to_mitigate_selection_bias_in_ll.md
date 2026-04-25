@@ -153,6 +153,6 @@ Qwen-72B 上的效果：
 - [JuStRank: Benchmarking LLM Judges for System Ranking](justrank_llm_judge_system_ranking.md)
 - [ODP-Bench: Benchmarking Out-of-Distribution Performance Prediction](../../ICCV2025/llm_evaluation/odp-bench_benchmarking_out-of-distribution_performance_prediction.md)
 - [McBE: A Multi-task Chinese Bias Evaluation Benchmark for Large Language Models](mcbe_a_multi-task_chinese_bias_evaluation_benchmark_for_large_language_models.md)
-- [Help Me Write a Story: Evaluating LLMs' Ability to Generate Writing Feedback](help_write_story_feedback.md)
+- [Text-to-Distribution Prediction with Quantile Tokens and Neighbor Context](../../ACL2026/llm_evaluation/text-to-distribution_prediction_with_quantile_tokens_and_neighbor_context.md)
 
 <!-- RELATED:END -->

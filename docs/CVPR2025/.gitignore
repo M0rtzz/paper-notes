@@ -1,5 +1,5 @@
 # Auto-generated: CVPR2025 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !aigc_detection/
@@ -54,7 +53,7 @@
 !video_generation/
 !video_understanding/
 
-# 已完成笔记 (1788 篇)
+# 已完成笔记 (1789 篇)
 !3d_vision/3d-grand_a_million-scale_dataset_for_3d-llms_with_better_grounding_and_less_hall.md
 !3d_vision/3d-gsw_3d_gaussian_splatting_for_robust_watermarking.md
 !3d_vision/3d-hgs_3d_half-gaussian_splatting.md
@@ -1528,6 +1527,7 @@
 !robotics/chapter-llama_efficient_chaptering_in_hour-long_videos_with_llms.md
 !robotics/drawer_digital_reconstruction_and_articulation_with_environment_realism.md
 !robotics/expert_pyramid_tuning_efficient_parameter_fine-tuning_for_expertise-driven_task_.md
+!robotics/foundations_of_the_theory_of_performance-based_ranking.md
 !robotics/influence_malleability_in_linearized_attention_dual_implications_of_non-converge.md
 !robotics/instruction-based_image_manipulation_by_watching_how_things_move.md
 !robotics/language-grounded_decoupled_action_representation_for_robotic_manipulation.md

@@ -115,6 +115,6 @@ tags:
 - [The Curse of Depth in Large Language Models](the_curse_of_depth_in_large_language_models.md)
 - [Superposition Yields Robust Neural Scaling](superposition_yields_robust_neural_scaling.md)
 - [Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](retrospective_incontext_learning_for_temporal_credit_assignm.md)
-- [Leveraging Importance Sampling to Detach Alignment Modules from Large Language Models](leveraging_importance_sampling_to_detach_alignment_modules_from_large_language_m.md)
+- [Gemstones: A Model Suite for Multi-Faceted Scaling Laws](gemstones_a_model_suite_for_multi-faceted_scaling_laws.md)
 
 <!-- RELATED:END -->

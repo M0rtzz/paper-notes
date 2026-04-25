@@ -152,7 +152,7 @@ DiNCo 从 LLM "暗示性偏差" 这一被忽视的角度出发，通过自动生
 - [Optimized Algorithms for Text Clustering with LLM-Generated Constraints](../../AAAI2026/aigc_detection/optimized_algorithms_for_text_clustering_with_llm-generated_constraints.md)
 - [Cognitive Framework for Detecting AI-Generated Fiction](../../ACL2025/aigc_detection/cognitive_framework_for_detecting_ai-generated_fiction.md)
 - [Learning to Rewrite: Generalized LLM-Generated Text Detection](../../ACL2025/aigc_detection/learning_to_rewrite_generalized_llm-generated_text_detection.md)
+- [BIASEDTALES-ML: A Multilingual Dataset for Analyzing Narrative Attribute Distributions in LLM-Generated Stories](../../ACL2026/aigc_detection/biasedtales-ml_a_multilingual_dataset_for_analyzing_narrative_attribute_distribu.md)
 - [An Empirical Study on Detecting AI-Generated Text in Financial Reports](../../ACL2025/aigc_detection/an_empirical_study_on_detecting_ai-generated_text_in_financial_reports.md)
-- [Low-Perplexity LLM-Generated Sequences and Where To Find Them](../../ACL2025/aigc_detection/low-perplexity_llm-generated_sequences_and_where_to_find_them.md)
 
 <!-- RELATED:END -->

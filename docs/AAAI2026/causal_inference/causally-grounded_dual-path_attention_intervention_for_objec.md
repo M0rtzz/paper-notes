@@ -175,9 +175,9 @@ Owl（Bi-mOdal attention reWeighting for Layer-wise hallucination mitigation）�
 ## 相关论文
 
 - [Skill Path: Unveiling Language Skills from Circuit Graphs](skill_path_unveiling_language_skills_from_circuit_graphs.md)
-- [Learning Robust Intervention Representations with Delta Embeddings](../../ICLR2026/causal_inference/learning_robust_intervention_representations_with_delta_embeddings.md)
 - [Action-Guided Attention for Video Action Anticipation](../../ICLR2026/causal_inference/action-guided_attention_for_video_action_anticipation.md)
 - [MUG: Multi-agent Undercover Gaming — Hallucination Removal via Counterfactual Test for Multimodal Reasoning](multi-agent_undercover_gaming_hallucination_removal_via_coun.md)
+- [Learning Robust Intervention Representations with Delta Embeddings](../../ICLR2026/causal_inference/learning_robust_intervention_representations_with_delta_embeddings.md)
 - [Fighting Hallucinations with Counterfactuals: Diffusion-Guided Perturbations for LVLM Hallucination Suppression](../../CVPR2026/causal_inference/fighting_hallucinations_with_counterfactuals_diffusion-guided_perturbations_for_.md)
 
 <!-- RELATED:END -->

@@ -1,7 +1,7 @@
 <!-- 由 src/gen_todo.py 自动生成 -->
 # CVPR2025 论文笔记 TODO
 
-总计: 3068 篇 | 已完成: 1787 | 待更新: 1281
+总计: 3068 篇 | 已完成: 1788 | 待更新: 1280
 
 ---
 
@@ -1041,7 +1041,7 @@
 - [x] [forestlpr lidar place recognition in forests attentioning multiple bev density i](autonomous_driving/forestlpr_lidar_place_recognition_in_forests_attentioning_multiple_bev_density_i.md) | arXiv: 2503.04475
 - [ ] [forming auxiliary high-confident instance-level loss to promote learning from la](others/forming_auxiliary_high-confident_instance-level_loss_to_promote_learning_from_la.md)
 - [ ] [fortifying federated learning towards trustworthiness via auditable data valuati](medical_imaging/fortifying_federated_learning_towards_trustworthiness_via_auditable_data_valuati.md)
-- [ ] [foundations of the theory of performance-based ranking](robotics/foundations_of_the_theory_of_performance-based_ranking.md) | arXiv: 2412.04227
+- [x] [foundations of the theory of performance-based ranking](robotics/foundations_of_the_theory_of_performance-based_ranking.md) | arXiv: 2412.04227
 - [x] [foundationstereo zero-shot stereo matching](3d_vision/foundationstereo_zero-shot_stereo_matching.md) | arXiv: 2501.09898
 - [x] [foundhand large-scale domain-specific learning for controllable hand image gener](3d_vision/foundhand_large-scale_domain-specific_learning_for_controllable_hand_image_gener.md) | arXiv: 2412.02690
 - [x] [foveated instance segmentation](segmentation/foveated_instance_segmentation.md) | arXiv: 2503.21854

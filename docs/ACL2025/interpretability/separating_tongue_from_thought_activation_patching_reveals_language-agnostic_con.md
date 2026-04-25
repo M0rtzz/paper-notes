@@ -145,10 +145,10 @@ tags:
 
 ## 相关论文
 
-- [Granular Concept Circuits: Toward a Fine-Grained Circuit Discovery for Concept Representations](../../ICCV2025/interpretability/granular_concept_circuits_toward_a_fine-grained_circuit_discovery_for_concept_re.md)
-- [How Intrinsic Motivation Shapes Learned Representations in Decision Transformers: A Cognitive Interpretability Analysis](../../NeurIPS2025/interpretability/toward_explainable_offline_rl_analyzing_representations_in_intrinsically_motivat.md)
-- [CE-FAM: Concept-Based Explanation via Fusion of Activation Maps](../../ICCV2025/interpretability/ce-fam_concept-based_explanation_via_fusion_of_activation_maps.md)
-- [Simulating Society Requires Simulating Thought](../../NeurIPS2025/interpretability/simulating_society_requires_simulating_thought.md)
-- [Concepts from Representations: Post-hoc Concept Bottleneck Models via Sparse Decomposition of Visual Representations](../../AAAI2026/interpretability/concepts_from_representations_post-hoc_concept_bottleneck_models_via_sparse_deco.md)
+- [Reasoning Circuits in Language Models: A Mechanistic Interpretation of Syllogistic Inference](reasoning_circuits_in_language_models_a_mechanistic_interpretation_of_syllogisti.md)
+- [An Empirical Study of Mechanistic Interpretability Approaches for Factual Recall](an_empirical_study_of_mechanistic_interpretability_approaches_for_factual_recall.md)
+- [Position-aware Automatic Circuit Discovery](position-aware_automatic_circuit_discovery.md)
+- [Probing Subphonemes in Morphology Models](probing_subphonemes_in_morphology_models.md)
+- [Mechanistic Interpretability of Emotion Inference in Large Language Models](mechanistic_interpretability_of_emotion_inference_in_large_language_models.md)
 
 <!-- RELATED:END -->

@@ -161,6 +161,6 @@ HRScene 包含两大部分：
 - [Predict-Optimize-Distill: A Self-Improving Cycle for 4D Object Understanding](predict-optimize-distill_a_self-improving_cycle_for_4d_object_understanding.md)
 - [A Cephalometric Landmark Regression Method Based on Dual-Encoder for High-Resolution X-Ray Image](../../ECCV2024/medical_imaging/a_cephalometric_landmark_regression_method_based_on_dual-encoder_for_high-resolu.md)
 - [Modeling Spatiotemporal Neural Frames for High Resolution Brain Dynamics](../../CVPR2026/medical_imaging/modeling_spatiotemporal_neural_frames_for_high_resolution_brain_dynamic.md)
-- [MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding](../../ICML2025/medical_imaging/medxpertqa_benchmarking_expert-level_medical_reasoning_and_understanding.md)
+- [THUNDER: Tile-level Histopathology image UNDERstanding benchmark](../../NeurIPS2025/medical_imaging/thunder_tile-level_histopathology_image_understanding_benchmark.md)
 
 <!-- RELATED:END -->

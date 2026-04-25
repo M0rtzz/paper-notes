@@ -162,6 +162,6 @@ PPCL 分两个阶段、三个步骤：
 - [OPAD: Adversarial Concept Distillation for One-Step Diffusion Personalization](opad_adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
 - [HiAP: A Multi-Granular Stochastic Auto-Pruning Framework for Vision Transformers](hiap_a_multigranular_stochastic_autopruning_framew.md)
 - [Adversarial Concept Distillation for One-Step Diffusion Personalization](adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
-- [FAIR-Pruner: Leveraging Tolerance of Difference for Flexible Automatic Layer-Wise Neural Network Pruning](fair-pruner_leveraging_tolerance_of_difference_for_flexible_automatic_layer-wise.md)
+- [Adaptive Layer Selection for Layer-Wise Token Pruning in LLM Inference](../../ACL2026/model_compression/adaptive_layer_selection_for_layer-wise_token_pruning_in_llm_inference.md)
 
 <!-- RELATED:END -->

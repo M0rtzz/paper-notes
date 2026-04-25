@@ -156,6 +156,6 @@ ECT 同时拥有**最少参数 (1.19M)** 和**最低推理延迟 (82ms)**，比 
 - [Joint RGB-Spectral Decomposition Model Guided Image Enhancement in Mobile Photography](joint_rgb-spectral_decomposition_model_guided_image_enhancement_in_mobile_photog.md)
 - [Spectral Super-Resolution via Adversarial Unfolding and Data-Driven Spectrum Regularization](../../CVPR2026/image_restoration/spectral_super-resolution_via_adversarial_unfolding_and_data-driven_spectrum_reg.md)
 - [Contourlet Residual for Prompt Learning Enhanced Infrared Image Super-Resolution](contourlet_residual_for_prompt_learning_enhanced_infrared_image_super-resolution.md)
-- [Spiking Meets Attention: Efficient Remote Sensing Image Super-Resolution with Attention Spiking Neural Networks](../../NeurIPS2025/image_restoration/spiking_meets_attention_efficient_remote_sensing_image_super-resolution_with_att.md)
+- [Efficient Diffusion Transformer with Step-wise Dynamic Attention Mediators](efficient_diffusion_transformer_with_step-wise_dynamic_attention_mediators.md)
 
 <!-- RELATED:END -->

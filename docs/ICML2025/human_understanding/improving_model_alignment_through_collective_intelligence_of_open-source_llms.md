@@ -136,6 +136,6 @@ Pipeline:
 - [Why Do Open-Source LLMs Struggle with Data Analysis? A Systematic Empirical Study](../../AAAI2026/human_understanding/why_do_open-source_llms_struggle_with_data_analysis_a_systematic_empirical_study.md)
 - [Towards Long-Horizon Interpretability: Efficient and Faithful Multi-Token Attribution for Reasoning LLMs](towards_long-horizon_interpretability_efficient_and_faithful_multi-token_attribu.md)
 - [Truly Self-Improving Agents Require Intrinsic Metacognitive Learning](truly_self-improving_agents_require_intrinsic_metacognitive_learning.md)
-- [RULEBREAKERS: Challenging LLMs at the Crossroads between Formal Logic and Human-like Reasoning](rulebreakers_challenging_llms_at_the_crossroads_between_formal_logic_and_human-l.md)
+- [CAP: Controllable Alignment Prompting for Unlearning in LLMs](../../ACL2026/human_understanding/cap_controllable_alignment_prompting_for_unlearning_in_llms.md)
 
 <!-- RELATED:END -->

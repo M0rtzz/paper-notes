@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 LLM效率方向 39篇论文解读
+  ACL2025 LLM效率方向 40篇论文解读
 description: >-
-  39篇ACL2025 LLM效率论文解读，主题涵盖：本文提出一种即插即用的推测解码自适应方案、本文提出了一种上下文感知的高效草稿生成策略来加速推、提出 LaMPE（Length-aware等，每篇含核心思想与方法详解。
+  40篇ACL2025 LLM效率论文解读，主题涵盖：本文提出一种即插即用的推测解码自适应方案、本文提出了一种上下文感知的高效草稿生成策略来加速推、提出 LaMPE（Length-aware等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚡ LLM效率
 
-**💬 ACL2025** · **39** 篇论文解读
+**💬 ACL2025** · **40** 篇论文解读
 
 **[A Drop-In Solution for On-the-Fly Adaptation of Speculative Decoding in Large Language Models](a_drop-in_solution_for_on-the-fly_adaptation_of_speculative_decoding_in_large_la.md)**
 
@@ -65,6 +65,10 @@ description: >-
 **[FocusLLM: Precise Understanding of Long Context by Dynamic Condensing](focusllm_precise_understanding_of_long_context_by_dynamic_condensing.md)**
 
 :   提出FocusLLM框架，通过将长文本分块并为每块注入动态提示（dynamic prompt），用可训练的候选token浓缩各块的关键信息，再通过并行解码机制聚合到本地上下文中生成下一个token，仅用8K训练长度和0.5B训练预算即可扩展LLaMA-2到400K上下文，在LongBench和∞-Bench上超越所有基线。
+
+**[Unveiling Environmental Impacts of Large Language Model Serving: A Functional Unit View](fuel-unveiling-environmental-impacts-of-llm-serving.md)**
+
+:   本文引入生命周期评估中"功能单元"（Functional Unit）概念作为标准化比较基础，提出 FUEL 框架来评估 LLM 服务的环境影响，通过三个案例研究（模型大小、量化策略、硬件选择）揭示了降低碳排放的关键权衡。
 
 **[FUEL: Unveiling Environmental Impacts of Large Language Model Serving: A Functional Unit View](fuel_unveiling_environmental_impacts_of_llm_serving.md)**
 

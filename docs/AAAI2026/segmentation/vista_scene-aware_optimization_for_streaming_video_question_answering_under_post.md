@@ -142,6 +142,6 @@ StreamingBench 基准上的关键结果：
 - [TabRAG: Improving Tabular Document Question Answering for Retrieval Augmented Generation via Structured Representations](../../NeurIPS2025/segmentation/tabrag_improving_tabular_document_question_answering_for_retrieval_augmented_gen.md)
 - [Towards Affordance-Aware Robotic Dexterous Grasping with Human-like Priors](towards_affordance-aware_robotic_dexterous_grasping_with_human-like_priors.md)
 - [EAFormer: Scene Text Segmentation with Edge-Aware Transformers](../../ECCV2024/segmentation/eaformer_scene_text_segmentation_with_edge-aware_transformers.md)
-- [Breaking the Stealth-Potency Trade-off in Clean-Image Backdoors with Generative Trigger Optimization](breaking_the_stealth-potency_trade-off_in_clean-image_backdoors_with_generative_.md)
+- [EAGLE: Episodic Appearance- and Geometry-Aware Memory for Unified 2D-3D Visual Query Localization](eagle_episodic_appearance-_and_geometry-aware_memory_for_unified_2d-3d_visual_qu.md)
 
 <!-- RELATED:END -->

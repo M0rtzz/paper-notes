@@ -179,6 +179,6 @@ CPM-17 上 AJI 超前最优 +1.9，PQ 超前最优 +2.8。
 - [iDPA: Instance Decoupled Prompt Attention for Incremental Medical Object Detection](../../ICML2025/medical_imaging/idpa_instance_decoupled_prompt_attention_for_incremental_medical_object_detectio.md)
 - [The Four Color Theorem for Cell Instance Segmentation](../../ICML2025/medical_imaging/the_four_color_theorem_for_cell_instance_segmentation.md)
 - [Evidential learning driven Breast Tumor Segmentation with Stage-divided Vision-Language Interaction](../../CVPR2025/medical_imaging/evidential_learning_driven_breast_tumor_segmentation_with_stage-divided_vision-l.md)
-- [I-MedSAM: Implicit Medical Image Segmentation with Segment Anything](i-medsam_implicit_medical_image_segmentation_with_segment_anything.md)
+- [DISCO: Densely-overlapping Cell Instance Segmentation via Adjacency-aware Collaborative Coloring](../../ICLR2026/medical_imaging/disco_densely-overlapping_cell_instance_segmentation_via_adjacency-aware_collabo.md)
 
 <!-- RELATED:END -->

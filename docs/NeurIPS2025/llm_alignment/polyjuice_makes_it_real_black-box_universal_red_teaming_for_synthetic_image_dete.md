@@ -182,6 +182,6 @@ PolyJuice 引导几乎不影响图像质量，FID 甚至略有改善。
 - [Constitutional Classifiers: Defending Against Universal Jailbreaks Across Thousands of Hours of Red Teaming](../../ACL2025/llm_alignment/constitutional_classifiers_defending_against_universal_jailbreaks_across_thousan.md)
 - [Jailbreak-Zero: A Path to Pareto Optimal Red Teaming for Large Language Models](jailbreak-zero_a_path_to_pareto_optimal_red_teaming_for_large_language_models.md)
 - [DP²O-SR: Direct Perceptual Preference Optimization for Real-World Image Super-Resolution](dp2o-sr_direct_perceptual_preference_optimization_for_real-world_image_super-res.md)
-- [What Makes a Reward Model a Good Teacher? An Optimization Perspective](what_makes_a_reward_model_a_good_teacher_an_optimization_perspective.md)
+- [STAR-Teaming: A Strategy-Response Multiplex Network Approach to Automated LLM Red Teaming](../../ACL2026/llm_alignment/star-teaming_a_strategy-response_multiplex_network_approach_to_automated_llm_red.md)
 
 <!-- RELATED:END -->

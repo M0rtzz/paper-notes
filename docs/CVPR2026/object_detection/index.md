@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 目标检测方向 77篇论文解读
+  CVPR2026 目标检测方向 78篇论文解读
 description: >-
-  77篇CVPR2026 目标检测论文解读，主题涵盖：提出混合集成解码器(HED)和渐进微调策略用于跨域、提出 ABRA 方法，将域知识与类别知识解耦、将跨域类别迁移问题建模为权重空间的 SVD等，每篇含核心思想与方法详解。
+  78篇CVPR2026 目标检测论文解读，主题涵盖：提出混合集成解码器(HED)和渐进微调策略用于跨域、提出 ABRA 方法，将域知识与类别知识解耦、将跨域类别迁移问题建模为权重空间的 SVD等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**📷 CVPR2026** · **77** 篇论文解读
+**📷 CVPR2026** · **78** 篇论文解读
 
 **[A Closer Look at Cross-Domain Few-Shot Object Detection: Fine-Tuning Matters and Parallel Decoder Helps](a_closer_look_at_cross-domain_few-shot_object_detection_fine-tuning_matters_and_.md)**
 
@@ -145,6 +145,10 @@ description: >-
 **[GeoBridge: A Semantic-Anchored Multi-View Foundation Model for Geo-Localization](geobridge_semantic-anchored_multi-view_foundation_model_for_geo-localization.md)**
 
 :   GeoBridge 提出语义锚定的多视角地理定位基础模型，将无人机/街景/卫星影像通过文本描述构建跨模态语义桥梁，实现双向跨视角匹配和语言到图像定位，并构建了GeoLoc数据集（50K+对，36国）。
+
+**[HeROD: Heuristic-inspired Reasoning Priors Facilitate Data-Efficient Referring Object Detection](herod_heuristic_inspired_reasoning_data_efficient_rod.md)**
+
+:   HeROD 提出了一种轻量级、模型无关的框架，通过将启发式空间和语义推理先验注入 DETR 风格检测管道的三个阶段（候选排序、预测融合、匈牙利匹配），在标注稀缺条件下显著提升指代目标检测(ROD)的数据效率和收敛性能。
 
 **[HieraMamba: Video Temporal Grounding via Hierarchical Anchor-Mamba Pooling](hieramamba_video_temporal_grounding_via_hierarchical_anchor-mamba_pooling.md)**
 

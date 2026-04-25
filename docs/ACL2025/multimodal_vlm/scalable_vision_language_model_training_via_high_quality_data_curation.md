@@ -164,7 +164,7 @@ SFT-Instruction数据集质量最高，但SFT-Preference因复杂度过高反而
 - [Active Data Curation Effectively Distills Large-Scale Multimodal Models](../../CVPR2025/multimodal_vlm/active_data_curation_effectively_distills_large-scale_multimodal_models.md)
 - [Error-driven Data-efficient Large Multimodal Model Tuning](error-driven_data-efficient_large_multimodal_model_tuning.md)
 - [Effective Training Data Synthesis for Improving MLLM Chart Understanding](../../ICCV2025/multimodal_vlm/effective_training_data_synthesis_for_improving_mllm_chart_understanding.md)
-- [R-VLM: Region-Aware Vision Language Model for Precise GUI Grounding](r-vlm_region-aware_vision_language_model_for_precise_gui_grounding.md)
 - [SCAN: Bootstrapping Contrastive Pre-training for Data Efficiency](../../ICCV2025/multimodal_vlm/scan_bootstrapping_contrastive_pre-training_for_data_efficiency.md)
+- [R-VLM: Region-Aware Vision Language Model for Precise GUI Grounding](r-vlm_region-aware_vision_language_model_for_precise_gui_grounding.md)
 
 <!-- RELATED:END -->

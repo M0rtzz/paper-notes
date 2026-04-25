@@ -131,6 +131,6 @@ Tokenizer 训练：$\mathcal{L}_m = \lambda_r \mathcal{L}_r + \lambda_e \mathcal
 - [DualTalk: Dual-Speaker Interaction for 3D Talking Head Conversations](dualtalk_dual-speaker_interaction_for_3d_talking_head_conversations.md)
 - [FSboard: Over 3 Million Characters of ASL Fingerspelling Collected via Smartphones](fsboard_over_3_million_characters_of_asl_fingerspelling_collected_via_smartphone.md)
 - [QUAR-VLA: Vision-Language-Action Model for Quadruped Robots](../../ECCV2024/human_understanding/quar-vla_vision-language-action_model_for_quadruped_robots.md)
-- [QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](../../CVPR2026/human_understanding/quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)
+- [Stochastic Human Motion Prediction with Memory of Action Transition and Action Characteristic](stochastic_human_motion_prediction_with_memory_of_action_transition_and_action_c.md)
 
 <!-- RELATED:END -->

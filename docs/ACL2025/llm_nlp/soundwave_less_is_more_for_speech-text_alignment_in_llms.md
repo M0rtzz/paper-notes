@@ -132,6 +132,6 @@ Soundwave 的整体 pipeline 为：语音输入 → 语音编码器（如 Whispe
 - [Language Models, Graph Searching, and Supervision Adulteration: When More Supervision is Less and How to Make More More](lm_graph_search_supervision.md)
 - [Nudging: Inference-time Alignment of LLMs via Guided Decoding](nudging_inference_time_alignment.md)
 - [Fine-Grained Activation Steering: Steering Less, Achieving More](../../ICLR2026/llm_nlp/fine-grained_activation_steering_steering_less_achieving_more.md)
-- [Alignment Drift in CEFR-prompted LLMs for Interactive Spanish Tutoring](alignment_drift_in_cefr-prompted_llms_for_interactive_spanish_tutoring.md)
+- [Recent Advances in Speech Language Models: A Survey](recent_advances_in_speech_language_models_a_survey.md)
 
 <!-- RELATED:END -->

@@ -132,6 +132,6 @@ tags:
 - [Buffer Layers for Test-Time Adaptation](../../NeurIPS2025/llm_safety/buffer_layers_for_test-time_adaptation.md)
 - [Chinese SimpleQA: A Chinese Factuality Evaluation for Large Language Models](chinese_simpleqa_a_chinese_factuality_evaluation_for_large_language_models.md)
 - [Ewe: Improving Factuality with Explicit Working Memory](improving_factuality_with_explicit_working_memory.md)
-- [How Does Response Length Affect Long-Form Factuality](how_does_response_length_affect_long-form_factuality.md)
+- [Adversarial Robust Memory-Based Continual Learner](../../ICCV2025/llm_safety/adversarial_robust_memory-based_continual_learner.md)
 
 <!-- RELATED:END -->

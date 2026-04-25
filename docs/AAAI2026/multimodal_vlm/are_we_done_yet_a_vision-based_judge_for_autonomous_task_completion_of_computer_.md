@@ -139,6 +139,6 @@ Computer Use Agents (CUAs) 是一类能自主操作数字界面的 AI 系统，�
 - [Adaptive Vision-Language Model Routing for Computer Use Agents](../../CVPR2026/multimodal_vlm/adaptive_visionlanguage_model_routing_for_computer.md)
 - [Attacking Vision-Language Computer Agents via Pop-ups](../../ACL2025/multimodal_vlm/attacking_vl_agents_popups.md)
 - [VipAct: Visual-Perception Enhancement via Specialized VLM Agent Collaboration and Tool-use](vipact_visual-perception_enhancement_via_specialized_vlm_age.md)
-- [Understanding Task Transfer in Vision-Language Models](../../CVPR2026/multimodal_vlm/understanding_task_transfer_in_vision-language_models.md)
+- [anyECG-chat: A Generalist ECG-MLLM for Flexible ECG Input and Multi-Task Understanding](anyecg-chat_a_generalist_ecg-mllm_for_flexible_ecg_input_and.md)
 
 <!-- RELATED:END -->

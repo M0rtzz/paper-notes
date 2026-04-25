@@ -169,8 +169,8 @@ LLM 微调
 
 ## 相关论文
 
-- [Robust Multi-bit Text Watermark with LLM-based Paraphrasers](robust_multi-bit_text_watermark_with_llm-based_paraphrasers.md)
 - [Sequentially Auditing Differential Privacy](../../NeurIPS2025/ai_safety/sequentially_auditing_differential_privacy.md)
+- [Robust Multi-bit Text Watermark with LLM-based Paraphrasers](robust_multi-bit_text_watermark_with_llm-based_paraphrasers.md)
 - [MaskSQL: Safeguarding Privacy for LLM-Based Text-to-SQL via Abstraction](../../NeurIPS2025/ai_safety/masksql_safeguarding_privacy_for_llm-based_text-to-sql_via_abstraction.md)
 - [Adversarial Paraphrasing: A Universal Attack for Humanizing AI-Generated Text](../../NeurIPS2025/ai_safety/adversarial_paraphrasing_a_universal_attack_for_humanizing_ai-generated_text.md)
 - [Membership Privacy Risks of Sharpness Aware Minimization](../../ICLR2026/ai_safety/sam_membership_privacy_risks.md)

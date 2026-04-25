@@ -161,7 +161,7 @@ DiffED 捕获的是结构级编辑成本，而非感知相似度。
 - [Learning a Distance Measure from the Information-Estimation Geometry of Data](learning_a_distance_measure_from_the_information-estimation_geometry_of_data.md)
 - [Continual Unlearning for Text-to-Image Diffusion Models: A Regularization Perspective](continual_unlearning_for_text-to-image_diffusion_models_a_regularization_perspec.md)
 - [When Scores Learn Geometry: Rate Separations under the Manifold Hypothesis](when_scores_learn_geometry_rate_separations_under_the_manifold_hypothesis.md)
+- [InfinityStar: Unified Spacetime AutoRegressive Modeling for Visual Generation](../../NeurIPS2025/image_generation/infinitystar_unified_spacetime_autoregressive_modeling_for_v.md)
 - [Information Theoretic Learning for Diffusion Models with Warm Start](../../NeurIPS2025/image_generation/information_theoretic_learning_for_diffusion_models_with_warm_start.md)
-- [Revelio: Interpreting and Leveraging Semantic Information in Diffusion Models](../../ICCV2025/image_generation/revelio_interpreting_and_leveraging_semantic_information_in_diffusion_models.md)
 
 <!-- RELATED:END -->

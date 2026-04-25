@@ -151,7 +151,7 @@ tags:
 - [Img-Diff: Contrastive Data Synthesis for Multimodal Large Language Models](img-diff_contrastive_data_synthesis_for_multimodal_large_language_models.md)
 - [Scalable Vision Language Model Training via High Quality Data Curation](../../ACL2025/multimodal_vlm/scalable_vision_language_model_training_via_high_quality_data_curation.md)
 - [Synthetic Data is an Elegant GIFT for Continual Vision-Language Models](synthetic_data_is_an_elegant_gift_for_continual_vision-language_models.md)
+- [CORDIAL: Can Multimodal Large Language Models Effectively Understand Coherence Relationships?](../../ACL2025/multimodal_vlm/cordial-multimodal-llm-coherence-relationships.md)
 - [CORDIAL: Can Multimodal Large Language Models Effectively Understand Coherence Relations?](../../ACL2025/multimodal_vlm/cordial_can_multimodal_large_language_models_effectively_understand_coherence_re.md)
-- [Bad Students Make Great Teachers: Active Learning Accelerates Large-Scale Visual Understanding](../../ECCV2024/multimodal_vlm/bad_students_make_great_teachers_active_learning_accelerates_large-scale_visual_.md)
 
 <!-- RELATED:END -->

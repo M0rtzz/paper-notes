@@ -179,8 +179,8 @@ FlexAttention的TFLOPs比LLaVA-HD降低约31%，比LLaVA-XAttn降低约37%。实
 
 - [FlexAttention for Efficient High-Resolution Vision-Language Models](flexattention_for_efficient_highresolution_visionlanguage_mo.md)
 - [Attention Prompting on Image for Large Vision-Language Models](attention_prompting_on_image_for_large_visionlanguage_models.md)
+- [Bad Students Make Great Teachers: Active Learning Accelerates Large-Scale Visual Understanding](classact_active_learning.md)
 - [DeCUR: Decoupling Common and Unique Representations for Multimodal Self-supervised Learning](decoupling_common_and_unique_representations_for_multimodal_.md)
 - [Meta-Prompting for Automating Zero-shot Visual Recognition with LLMs](metaprompting_for_automating_zeroshot_visual_recognitio.md)
-- [Towards Real-World Adverse Weather Image Restoration: Enhancing Clearness and Semantics with Vision-Language Models](towards_realworld_adverse_weather_image_restoration_enhancin.md)
 
 <!-- RELATED:END -->

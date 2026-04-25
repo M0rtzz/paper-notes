@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2025 LLM/NLP方向 18篇论文解读
+  CVPR2025 LLM/NLP方向 19篇论文解读
 description: >-
-  18篇CVPR2025 LLM/NLP论文解读，主题涵盖：提出 ALBM 模型，用属性化的类特定概念空间（A、从理论上揭示线性注意力性能不及 Softmax、提出 vHeat 视觉 backbone，将图像等，每篇含核心思想与方法详解。
+  19篇CVPR2025 LLM/NLP论文解读，主题涵盖：提出 ALBM 模型，用属性化的类特定概念空间（A、从理论上揭示线性注意力性能不及 Softmax、提出 vHeat 视觉 backbone，将图像等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM/NLP
 
-**📷 CVPR2025** · **18** 篇论文解读
+**📷 CVPR2025** · **19** 篇论文解读
 
 **[Attribute-formed Class-specific Concept Space: Endowing Language Bottleneck Model with Better Interpretability and Scalability](attribute-formed_class-specific_concept_space_endowing_language_bottleneck_model.md)**
 
@@ -25,6 +25,10 @@ description: >-
 **[Chat-based Person Retrieval via Dialogue-Refined Cross-Modal Alignment](chat-based_person_retrieval_via_dialogue-refined_cross-modal_alignment.md)**
 
 :   本文提出基于对话的行人检索（ChatPR）新范式，构建了首个对话-图像配对数据集ChatPedes，并设计了DiaNA框架通过自适应属性精炼器实现对话与图像间的细粒度跨模态对齐，显著优于传统单句文本检索方法。
+
+**[ComRoPE: Scalable and Robust Rotary Position Embedding Parameterized by Trainable Commuting Angle Matrices](comrope_rotary_position.md)**
+
+:   本文提出ComRoPE，通过将RoPE推广为由可训练交换角矩阵参数化的旋转位置编码，理论证明了角矩阵的成对交换性是RoPE满足相对位置依赖性的充要条件，在ImageNet-1K上比SOTA方法LieRE提升1.6%（训练分辨率）和2.9%（更高分辨率）。
 
 **[ComRoPE: Scalable and Robust Rotary Position Embedding Parameterized by Trainable Commuting Angle Matrices](comrope_scalable_and_robust_rotary_position_embedding_parameterized_by_trainable.md)**
 

@@ -139,6 +139,6 @@ Biogen 各子指标: HLM 33.7(vs 39.7), RLM 39.8(vs 48.4), ER 35.2(vs 39.2), 溶
 - [Align-Pro: Align Protein Representations Through Multi-Modal Learning](../../ACL2025/medical_imaging/align-pro_align_protein_representations_through_multi-modal_learning.md)
 - [Learning Domain-Aware Task Prompt Representations for Multi-Domain All-in-One Image Restoration](../../ICLR2026/medical_imaging/learning_domain-aware_task_prompt_representations_for_multi-domain_all-in-one_im.md)
 - [PulseMind: A Multi-Modal Medical Model for Real-World Clinical Diagnosis](pulsemind_a_multi-modal_medical_model_for_real-world_clinical_diagnosis.md)
-- [Bridging Vision and Language for Robust Context-Aware Surgical Point Tracking: The VL-SurgPT Dataset and Benchmark](bridging_vision_and_language_for_robust_context-aware_surgical_point_tracking_th.md)
+- [AROMA: Augmented Reasoning Over a Multimodal Architecture for Virtual Cell Genetic Perturbation Modeling](../../ACL2026/medical_imaging/aroma_augmented_reasoning_over_a_multimodal_architecture_for_virtual_cell_geneti.md)
 
 <!-- RELATED:END -->

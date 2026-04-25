@@ -126,6 +126,6 @@ HMR-Scorer过滤掉底部20%低质量伪标注数据后，模型用80%数据反�
 - [D-Fusion: Direct Preference Optimization for Aligning Diffusion Models with Visually Consistent Samples](d-fusion_direct_preference_optimization_for_aligning_diffusion_models_with_visua.md)
 - [Rethinking Direct Preference Optimization in Diffusion Models](../../NeurIPS2025/llm_alignment/rethinking_direct_preference_optimization_in_diffusion_models.md)
 - [Curriculum Direct Preference Optimization for Diffusion and Consistency Models](../../CVPR2025/llm_alignment/curriculum_direct_preference_optimization_for_diffusion_and_consistency_models.md)
-- [DiffPO: Diffusion Alignment with Direct Preference Optimization](../../ACL2025/llm_alignment/diffpo_diffusion_alignment.md)
+- [Calibrated Multi-Preference Optimization for Aligning Diffusion Models](../../CVPR2025/llm_alignment/capo_multi_preference.md)
 
 <!-- RELATED:END -->

@@ -210,7 +210,7 @@ $$F_{i+1} = \text{FeedbackAgent}(J, E_{i+1})$$
 - [CFSP: An Efficient Structured Pruning Framework for LLMs with Coarse-to-Fine Activation Information](../../ACL2025/model_compression/cfsp_an_efficient_structured_pruning_framework_for_llms_with_coarse-to-fine_acti.md)
 - [Beyond Sharpness: A Flatness Decomposition Framework for Efficient Continual Learning](beyond_sharpness_a_flatness_decomposition_framework_for_efficient_continual_lear.md)
 - [HCF: Hierarchical Cascade Framework for Distributed Multi-Stage Image Compression](hcf_hierarchical_cascade_framework_for_distributed_multi-stage_image_compression.md)
-- [Multi-View Encoders for Performance Prediction in LLM-Based Agentic Workflows](../../ICLR2026/model_compression/multi-view_encoders_for_performance_prediction_in_llm-based_agentic_workflows.md)
+- [Supplement Generation Training for Enhancing Agentic Task Performance](../../ACL2026/model_compression/supplement_generation_training_for_enhancing_agentic_task_performance.md)
 - [Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring](hierarchical_pedagogical_oversight_a_multi-agent_adversarial_framework_for_relia.md)
 
 <!-- RELATED:END -->

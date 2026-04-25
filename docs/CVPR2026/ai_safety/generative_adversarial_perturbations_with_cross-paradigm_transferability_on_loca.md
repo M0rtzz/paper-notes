@@ -129,7 +129,7 @@ tags:
 - [Multi-Paradigm Collaborative Adversarial Attack Against Multi-Modal Large Language Models](multi-paradigm_collaborative_adversarial_attack_against_multi-modal_large_langua.md)
 - [Boosting Adversarial Transferability with Spatial Adversarial Alignment](../../NeurIPS2025/ai_safety/boosting_adversarial_transferability_with_spatial_adversarial_alignment.md)
 - [Enhancing Adversarial Transferability by Balancing Exploration and Exploitation with Gradient-Guided Sampling](../../ICCV2025/ai_safety/enhancing_adversarial_transferability_by_balancing_exploration_and_exploitation_.md)
-- [Identifying and Understanding Cross-Class Features in Adversarial Training](../../ICML2025/ai_safety/identifying_and_understanding_cross-class_features_in_adversarial_training.md)
 - [Rethinking Target Label Conditioning in Adversarial Attacks: A 2D Tensor-Guided Generative Approach](../../AAAI2026/ai_safety/rethinking_target_label_conditioning_in_adversarial_attacks_a_2d_tensor-guided_g.md)
+- [Identifying and Understanding Cross-Class Features in Adversarial Training](../../ICML2025/ai_safety/identifying_and_understanding_cross-class_features_in_adversarial_training.md)
 
 <!-- RELATED:END -->

@@ -133,7 +133,7 @@ tags:
 - [On the Clean Generalization and Robust Overfitting in Adversarial Training from Two Theoretical Views: Representation Complexity and Training Dynamics](../../ICML2025/llm_pretraining/on_the_clean_generalization_and_robust_overfitting_in_adversarial_training_from_.md)
 - [Intrinsic Training Dynamics of Deep Neural Networks](../../ICLR2026/llm_pretraining/intrinsic_training_dynamics_of_deep_neural_networks.md)
 - [Training Dynamics Underlying Language Model Scaling Laws: Loss Deceleration and Zero-Sum Learning](../../ACL2025/llm_pretraining/training_dynamics_underlying_language_model_scaling_laws_loss_deceleration_and_z.md)
+- [Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale](lm_behavioral_phases.md)
 - [Diversity Explains Inference Scaling Laws: Through a Case Study of Minimum Bayes Risk Decoding](../../ACL2025/llm_pretraining/diversity_explains_inference_scaling_laws_through_a_case_study_of_minimum_bayes_.md)
-- [Enhancing Training Data Attribution with Representational Optimization](enhancing_training_data_attribution_with_representational_optimization.md)
 
 <!-- RELATED:END -->

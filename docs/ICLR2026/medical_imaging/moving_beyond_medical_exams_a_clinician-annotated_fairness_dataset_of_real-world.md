@@ -147,8 +147,8 @@ MENTAT是评估数据集，不用于训练。核心评估设计：
 
 - [PulseMind: A Multi-Modal Medical Model for Real-World Clinical Diagnosis](../../AAAI2026/medical_imaging/pulsemind_a_multi-modal_medical_model_for_real-world_clinical_diagnosis.md)
 - [Experience with Single Domain Generalization in Real World Medical Imaging Deployments](../../AAAI2026/medical_imaging/experience_with_single_domain_generalization_in_real_world_medical_imaging_deplo.md)
-- [Can SAEs Reveal and Mitigate Racial Biases of LLMs in Healthcare?](can_saes_reveal_and_mitigate_racial_biases_of_llms_in_healthcare.md)
 - [MIRA: Medical Time Series Foundation Model for Real-World Health Data](../../NeurIPS2025/medical_imaging/mira_medical_time_series_foundation_model_for_real-world_health_data.md)
+- [Can SAEs Reveal and Mitigate Racial Biases of LLMs in Healthcare?](can_saes_reveal_and_mitigate_racial_biases_of_llms_in_healthcare.md)
 - [XSeg: A Large-scale X-ray Contraband Segmentation Benchmark for Real-World Security Screening](../../CVPR2026/medical_imaging/xseg_a_large-scale_x-ray_contraband_segmentation_benchmark_for_real-world_securi.md)
 
 <!-- RELATED:END -->

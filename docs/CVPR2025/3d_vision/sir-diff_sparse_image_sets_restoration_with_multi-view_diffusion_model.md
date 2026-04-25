@@ -119,6 +119,6 @@ SIR-Diff 基于 SD 2.1 的潜在扩散模型架构。输入为一组退化图像
 - [MVGenMaster: Scaling Multi-View Generation from Any Image via 3D Priors Enhanced Diffusion Model](mvgenmaster_scaling_multi-view_generation_from_any_image_via_3d_priors_enhanced_.md)
 - [Toward Robust Neural Reconstruction from Sparse Point Sets](toward_robust_neural_reconstruction_from_sparse_point_sets.md)
 - [MVPaint: Synchronized Multi-View Diffusion for Painting Anything 3D](mvpaint_synchronized_multi-view_diffusion_for_painting_anything_3d.md)
-- [NanoSD: Edge Efficient Foundation Model for Real Time Image Restoration](../../CVPR2026/3d_vision/nanosd_edge_efficient_foundation_model_for_real_time_image_restoration.md)
+- [MVGD: Zero-Shot Novel View and Depth Synthesis with Multi-View Geometric Diffusion](zero-shot_novel_view_and_depth_synthesis_with_multi-view_geometric_diffusion.md)
 
 <!-- RELATED:END -->

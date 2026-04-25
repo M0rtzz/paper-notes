@@ -1,14 +1,18 @@
 ---
 title: >-
-  ACL2025 预训练方向 39篇论文解读
+  ACL2025 预训练方向 40篇论文解读
 description: >-
-  39篇ACL2025 预训练论文解读，主题涵盖：本文发现 LLM 管线中 BPE、本文提出AsyncLM，一种高效的异步预训练框架、提出 AutoDS——用基座语言模型自身作为零样本等，每篇含核心思想与方法详解。
+  40篇ACL2025 预训练论文解读，主题涵盖：本文首次提出针对去中心化训练的激活反转攻击（AIA、本文发现 LLM 管线中 BPE、本文提出AsyncLM，一种高效的异步预训练框架等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**💬 ACL2025** · **39** 篇论文解读
+**💬 ACL2025** · **40** 篇论文解读
+
+**[Stealing Training Data from Large Language Models in Decentralized Training through Activation Inversion Attack](activation-inversion-attack-stealing-training-data-in-decentralized-training.md)**
+
+:   本文首次提出针对去中心化训练的激活反转攻击（AIA），通过构建影子数据集训练攻击模型，恶意阶段可以从传输的激活值中重建训练数据，在 GPT2-XL 上实现了 62% 的邮件地址窃取准确率。
 
 **[Adversarial Tokenization](adversarial_tokenization.md)**
 

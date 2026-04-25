@@ -139,6 +139,6 @@ rdFFT 基于 Cooley-Tukey 算法，在递归分解的每个阶段保持共轭对
 - [Towards Implicit Aggregation: Robust Image Representation for Place Recognition in the Transformer Era](towards_implicit_aggregation_robust_image_representation_for_place_recognition_i.md)
 - [MSQ: Memory-Efficient Bit Sparsification Quantization](../../ICCV2025/model_compression/msq_memory-efficient_bit_sparsification_quantization.md)
 - [Task Vector Quantization for Memory-Efficient Model Merging](../../ICCV2025/model_compression/task_vector_quantization_for_memory-efficient_model_merging.md)
-- [MKA: Memory-Keyed Attention for Efficient Long-Context Reasoning](../../ICML2025/model_compression/mka_memory-keyed_attention_for_efficient_long-context_reasoning.md)
+- [Towards Test-time Efficient Visual Place Recognition via Asymmetric Query Processing](../../AAAI2026/model_compression/towards_test-time_efficient_visual_place_recognition_via_asymmetric_query_proces.md)
 
 <!-- RELATED:END -->

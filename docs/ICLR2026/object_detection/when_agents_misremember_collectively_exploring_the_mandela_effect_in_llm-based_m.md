@@ -149,10 +149,10 @@ $$\sigma_{max} = |(\mathcal{Q}_{\times}^{GS} \cup \mathcal{Q}_{\times}^{GL} \cup
 
 ## 相关论文
 
+- [HiGMem: A Hierarchical and LLM-Guided Memory System for Long-Term Conversational Agents](../../ACL2026/object_detection/higmem_a_hierarchical_and_llm-guided_memory_system_for_long-term_conversational_.md)
 - [Procedural Mistake Detection via Action Effect Modeling](procedural_mistake_detection_via_action_effect_modeling.md)
 - [When Hallucination Costs Millions: Benchmarking AI Agents in High-Stakes Adversarial Financial Markets](../../AAAI2026/object_detection/when_hallucination_costs_millions_benchmarking_ai_agents_in_high-stakes_adversar.md)
 - [What Layers When: Learning to Skip Compute in LLMs with Residual Gates](what_layers_when_learning_to_skip_compute_in_llms_with_residual_gates.md)
-- [Is Your Paper Being Reviewed by an LLM? Benchmarking AI Text Detection in Peer Review](is_your_paper_being_reviewed_by_an_llm_benchmarking_ai_text_detection_in_peer_re.md)
-- [MCCD: Multi-Agent Collaboration-based Compositional Diffusion for Complex Text-to-Image Generation](../../CVPR2025/object_detection/mccd_multi-agent_collaboration-based_compositional_diffusion_for_complex_text-to.md)
+- [Debating the Unspoken: Role-Anchored Multi-Agent Reasoning for Half-Truth Detection](../../ACL2026/object_detection/debating_the_unspoken_role-anchored_multi-agent_reasoning_for_half-truth_detecti.md)
 
 <!-- RELATED:END -->

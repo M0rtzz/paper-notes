@@ -1,5 +1,5 @@
 # Auto-generated: AAAI2026 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !aigc_detection/
@@ -58,7 +57,7 @@
 !video_generation/
 !video_understanding/
 
-# 已完成笔记 (1378 篇)
+# 已完成笔记 (1379 篇)
 !3d_vision/3d-anc_adaptive_neural_collapse_for_robust_3d_point_cloud_re.md
 !3d_vision/3d-free_meets_3d_priors_novel_view_synthesis_from_a_single_image_with_pretrained.md
 !3d_vision/4dstr_advancing_generative_4d_gaussians_with_spatial-tempora.md
@@ -510,6 +509,7 @@
 !information_retrieval/knowledge_completes_the_vision_a_multimodal_entity-aware_retrieval-augmented_gen.md
 !information_retrieval/llms_for_game_theory_entropy-guided_in-context_learning_and_adaptive_cot_reasoni.md
 !information_retrieval/magnitude_matters_a_superior_class_of_similarity_metrics_for_holistic_semantic_u.md
+!information_retrieval/mavis_a_benchmark_for_multimodal_source_attribution_in_long-form_visual_question.md
 !information_retrieval/mem-pal_towards_memory-based_personalized_dialogue_assistants_for_long-term_user.md
 !information_retrieval/multimodal_deepresearcher_generating_text-chart_interleaved_.md
 !information_retrieval/n2n-gqa_noise-to-narrative_for_graph-based_table-text_question_answering_using_l.md

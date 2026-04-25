@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICLR2026 强化学习方向 133篇论文解读
+  ICLR2026 强化学习方向 135篇论文解读
 description: >-
-  133篇ICLR2026 强化学习论文解读，主题涵盖：提出了一种新的覆盖性参数——**特征-动态覆盖**、提出 AbstRaL，通过强化学习教 LLM、提出APPLE——一种结合强化学习与监督学习的通用等，每篇含核心思想与方法详解。
+  135篇ICLR2026 强化学习论文解读，主题涵盖：提出了一种新的覆盖性参数——**特征-动态覆盖**、提出 AbstRaL，通过强化学习教 LLM、提出APPLE——一种结合强化学习与监督学习的通用等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**🔬 ICLR2026** · **133** 篇论文解读
+**🔬 ICLR2026** · **135** 篇论文解读
 
 **[A Unifying View of Coverage in Linear Off-Policy Evaluation](a_unifying_view_of_coverage_in_linear_off-policy_evaluation.md)**
 
@@ -30,9 +30,17 @@ description: >-
 
 :   提出 AutoQD，通过随机傅里叶特征（RFF）将策略的占据度量嵌入有限维空间，再用加权 PCA 降维得到行为描述符，实现无需人工设计 BD 的 QD 优化，在 6 个连续控制任务上全面超越手工 BD 和现有无监督 QD 方法。
 
+**[AutoQD: Automatic Discovery of Diverse Behaviors with Quality-Diversity Optimization](autoqd_diverse_behaviors.md)**
+
+:   本文提出 AutoQD，利用策略占据测度（occupancy measure）的随机傅里叶特征嵌入自动生成行为描述符，无需手工设计即可在连续控制任务中发现多样化高质量策略，并在 6 个标准环境中证明了有效性。
+
 **[AutoTool: Automatic Scaling of Tool-Use Capabilities in RL via Decoupled Entropy Constraints](autotool_automatic_scaling_of_tool-use_capabilities_in_rl_via_decoupled_entropy_.md)**
 
 :   提出解耦自适应熵约束 (Decoupled Adaptive Entropy Constraints) 的强化学习策略，使 LLM 在工具调用任务中根据问题难度自动切换长/短推理模式，在提升 9.8% 准确率的同时减少约 81% 的推理 token 开销。
+
+**[AutoTool: Automatic Scaling of Tool-Use Capabilities in RL via Decoupled Entropy Constraints](autotool_scaling_tool_use.md)**
+
+:   本文提出 AutoTool，通过解耦自适应熵约束策略解决 LLM 工具使用中直接 RL 训练的推理坍缩问题和缩放后模型的过度思考问题，实现自动根据问题难度切换长短推理模式，在准确率提升 9.8% 的同时减少 ~81% 的推理 token 开销。
 
 **[AWM: Accurate Weight-Matrix Fingerprint for Large Language Models](awm_accurate_weight-matrix_fingerprint_for_large_language_models.md)**
 

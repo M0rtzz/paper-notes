@@ -1,18 +1,22 @@
 ---
 title: >-
-  ICLR2026 多语言/翻译方向 6篇论文解读
+  ICLR2026 多语言/翻译方向 7篇论文解读
 description: >-
-  6篇ICLR2026 多语言/翻译论文解读，主题涵盖：提出 ASSESS 框架，其核心是、提出 Adaptive Transfer、系统分析了MoE大语言模型中多语言路由模式等，每篇含核心思想与方法详解。
+  7篇ICLR2026 多语言/翻译论文解读，主题涵盖：提出 ASSESS 框架，其核心是、本文提出 ASSESS 框架和 TransTED、提出 Adaptive Transfer等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🌐 多语言/翻译
 
-**🔬 ICLR2026** · **6** 篇论文解读
+**🔬 ICLR2026** · **7** 篇论文解读
 
 **[ASSESS: A Semantic and Structural Evaluation Framework for Statement Similarity](assess_a_semantic_and_structural_evaluation_framework_for_statement_similarity.md)**
 
 :   提出 ASSESS 框架，其核心是 TransTED Similarity 指标——通过将形式化数学命题解析为算子树 (Operator Tree)，并在标准树编辑距离 (TED) 基础上融入 Lean 证明策略驱动的语义变换，实现了在 EPLA 基准上 70.16% 准确率和 0.35 Kappa 分数的 SOTA 性能，同时仅需 CPU 资源即可复现。
+
+**[ASSESS: A Semantic and Structural Evaluation Framework for Statement Similarity](assess_autoformalization_eval.md)**
+
+:   本文提出 ASSESS 框架和 TransTED Similarity 指标，通过将形式语句解析为操作符树并在树编辑距离中融入语义变换，实现了自动形式化语句相似度的 SOTA 评估（70.16% 准确率、0.35 Kappa），并发布了包含 1247 对专家标注的 EPLA 基准。
 
 **[ATLAS: Adaptive Transfer Scaling Laws for Multilingual Pretraining, Finetuning, and Decoding the Curse of Multilinguality](atlas_adaptive_transfer_scaling_laws_for_multilingual_pretraining_finetuning_and.md)**
 

@@ -134,6 +134,6 @@ $$R_M = \lambda_1 \cdot \mathbb{I}[y_{mal}^{pred} = y_{mal}^{gt}] + \lambda_2 \c
 - [LungNoduleAgent: A Collaborative Multi-Agent System for Precision Diagnosis of Lung Nodules](../../AAAI2026/medical_imaging/lungnoduleagent_a_collaborative_multi-agent_system_for_precision_diagnosis_of_lu.md)
 - [H-DDx: A Hierarchical Evaluation Framework for Differential Diagnosis](../../NeurIPS2025/medical_imaging/h-ddx_a_hierarchical_evaluation_framework_for_differential_diagnosis.md)
 - [MMedAgent-RL: Optimizing Multi-Agent Collaboration for Multimodal Medical Reasoning](../../ICLR2026/medical_imaging/mmedagent-rl_optimizing_multi-agent_collaboration_for_multimodal_medical_reasoni.md)
-- [Surg-R1: A Hierarchical Reasoning Foundation Model for Scalable and Interpretable Surgical Decision Support](surg-r1_a_hierarchical_reasoning_foundation_model_for_scalable_and_interpretable.md)
+- [GIIM: Graph-based Learning of Inter- and Intra-view Dependencies for Multi-view Medical Image Diagnosis](giim_graph-based_learning_of_inter-_and_intra-view_dependencies_for_multi-view_m.md)
 
 <!-- RELATED:END -->

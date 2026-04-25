@@ -132,6 +132,6 @@ $$L = \mathbb{E}_{z_{Y,t}, \epsilon, t, C_T, C_H^*}\left[\|\epsilon - \epsilon_\
 - [HIMO: A New Benchmark for Full-Body Human Interacting with Multiple Objects](../../ECCV2024/image_generation/himo_a_new_benchmark_for_full-body_human_interacting_with_multiple_objects.md)
 - [InterMimic: Towards Universal Whole-Body Control for Physics-Based Human-Object Interactions](intermimic_towards_universal_whole-body_control_for_physics-based_human-object_i.md)
 - [DPoser-X: Diffusion Model as Robust 3D Whole-Body Human Pose Prior](../../ICCV2025/image_generation/dposer-x_diffusion_model_as_robust_3d_whole-body_human_pose_prior.md)
-- [Visual Lexicon: Rich Image Features in Language Space](visual_lexicon_rich_image_features_in_language_space.md)
+- [MCA-Ctrl: Multi-party Collaborative Attention Control for Image Customization](mca_ctrl_attention_control_customization.md)
 
 <!-- RELATED:END -->

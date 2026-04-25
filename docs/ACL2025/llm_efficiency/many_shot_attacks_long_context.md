@@ -120,6 +120,6 @@ tags:
 - [Efficient Many-Shot In-Context Learning with Dynamic Block-Sparse Attention](efficient_many-shot_in-context_learning_with_dynamic_block-sparse_attention.md)
 - [What are the Essential Factors in Crafting Effective Long Context Multi-Hop Instruction Datasets? Insights and Best Practices](what_are_the_essential_factors_in_crafting_effective_long_context_multi-hop_inst.md)
 - [LADM: Long-context Training Data Selection with Attention-based Dependency Measurement for LLMs](ladm_long_context_data.md)
-- [Seeing What Matters: Empowering CLIP with Patch Generation-to-Selection](../../CVPR2025/llm_efficiency/seeing_what_matters_empowering_clip_with_patch_generation-to-selection.md)
+- [Mitigating Posterior Salience Attenuation in Long-Context LLMs with Positional Contrastive Decoding](mitigating_posterior_salience_attenuation_in_long-context_llms_with_positional_c.md)
 
 <!-- RELATED:END -->

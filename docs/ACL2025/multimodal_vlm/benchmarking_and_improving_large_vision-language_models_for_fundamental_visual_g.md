@@ -120,7 +120,7 @@ tags:
 
 - [Improving Medical Large Vision-Language Models with Abnormal-Aware Feedback](improving_medical_large_vision-language_models_with_abnormal-aware_feedback.md)
 - [Unveiling the Lack of LVLM Robustness to Fundamental Visual Variations: Why and Path Forward](unveiling_the_lack_of_lvlm_robustness_to_fundamental_visual_variations_why_and_p.md)
-- [Weaving Context Across Images: Improving Vision-Language Models through Focus-Centric Visual Chains](weaving_context_across_images_improving_vision-language_models_through_focus-cen.md)
+- [Weaving Context Across Images: Improving Vision-Language Models through Focus-Centric Visual Chains](visc-focus-centric-visual-chains-for-multi-image-reasoning.md)
 - [Harnessing PDF Data for Improving Japanese Large Multimodal Models](harnessing_pdf_data_for_improving_japanese_large_multimodal_models.md)
 - [GraphVLM: Benchmarking Vision Language Models for Multimodal Graph Learning](../../CVPR2026/multimodal_vlm/graphvlm_benchmarking_vision_language_models_for_multimodal_graph_learning.md)
 

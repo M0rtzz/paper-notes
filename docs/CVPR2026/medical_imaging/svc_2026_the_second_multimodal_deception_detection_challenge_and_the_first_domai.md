@@ -140,6 +140,6 @@ SVC 2026包含两个赛道：(1) **跨域多模态欺骗检测挑战（MMDD）**
 - [Adaptive Confidence Regularization for Multimodal Failure Detection](adaptive_confidence_regularization_for_multimodal_failure_detection.md)
 - [Bidirectional Multimodal Prompt Learning with Scale-Aware Training for Few-Shot Multi-Class Anomaly Detection](bidirectional_multimodal_prompt_learning_with_scale-aware_training_for_few-shot_.md)
 - [Interpretable Cross-Domain Few-Shot Learning with Rectified Target-Domain Local Alignment](interpretable_cross-domain_few-shot_learning_with_rectified_target-domain_local_.md)
-- [GLEAM: A Multimodal Imaging Dataset and HAMM for Glaucoma Classification](gleam_a_multimodal_imaging_dataset_and_hamm_for_gl.md)
+- [Unlocking Multi-Site Clinical Data: A Federated Approach to Privacy-First Child Autism Behavior Analysis](unlocking_multi-site_clinical_data_a_federated_approach_to_privacy-first_child_a.md)
 
 <!-- RELATED:END -->

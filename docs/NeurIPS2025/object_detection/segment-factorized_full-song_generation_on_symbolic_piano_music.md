@@ -112,10 +112,10 @@ SFS接受用户提供的歌曲结构$(\\hat{s}_{1:M}, \\hat{e}_{1:M}, \\hat{l}_{
 
 ## 相关论文
 
+- [Anchored Cyclic Generation: A Novel Paradigm for Long-Sequence Symbolic Music Generation](../../ACL2026/object_detection/anchored_cyclic_generation_a_novel_paradigm_for_long-sequence_symbolic_music_gen.md)
 - [OverLayBench: A Benchmark for Layout-to-Image Generation with Dense Overlaps](overlaybench_a_benchmark_for_layout-to-image_generation_with_dense_overlaps.md)
 - [InstanceAssemble: Layout-Aware Image Generation via Instance Assembling Attention](instanceassemble_layoutaware_image_generation_via_instance_a.md)
+- [Generalizable Insights for Graph Transformers in Theory and Practice](generalizable_insights_for_graph_transformers_in_theory_and_practice.md)
 - [ROICtrl: Boosting Instance Control for Visual Generation](../../CVPR2025/object_detection/roictrl_boosting_instance_control_for_visual_generation.md)
-- [YOLO-Count: Differentiable Object Counting for Text-to-Image Generation](../../ICCV2025/object_detection/yolo-count_differentiable_object_counting_for_text-to-image_generation.md)
-- [Large-scale Pre-training for Grounded Video Caption Generation](../../ICCV2025/object_detection/large-scale_pre-training_for_grounded_video_caption_generation.md)
 
 <!-- RELATED:END -->

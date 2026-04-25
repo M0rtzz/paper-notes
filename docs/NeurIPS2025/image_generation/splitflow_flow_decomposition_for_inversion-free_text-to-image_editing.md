@@ -141,6 +141,6 @@ SplitFlow 包含两个阶段：
 - [Taming Rectified Flow for Inversion and Editing](../../ICML2025/image_generation/taming_rectified_flow_for_inversion_and_editing.md)
 - [Unveil Inversion and Invariance in Flow Transformer for Versatile Image Editing](../../CVPR2025/image_generation/unveil_inversion_and_invariance_in_flow_transformer_for_versatile_image_editing.md)
 - [Training-Free Safe Text Embedding Guidance for Text-to-Image Diffusion Models](training-free_safe_text_embedding_guidance_for_text-to-image_diffusion_models.md)
-- [Stable Flow: Vital Layers for Training-Free Image Editing](../../CVPR2025/image_generation/stable_flow_vital_layers_for_training-free_image_editing.md)
+- [ALE: Attribute-Leakage-free Editing for Text-based Image Editing](../../ICCV2025/image_generation/ale_attribute_leakage_free_editing.md)
 
 <!-- RELATED:END -->

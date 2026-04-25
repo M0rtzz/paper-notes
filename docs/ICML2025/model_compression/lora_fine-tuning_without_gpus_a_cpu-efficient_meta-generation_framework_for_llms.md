@@ -123,6 +123,6 @@ tags:
 - [EMLoC: Emulator-based Memory-efficient Fine-tuning with LoRA Correction](../../NeurIPS2025/model_compression/emloc_emulator-based_memory-efficient_fine-tuning_with_lora_correction.md)
 - [Loquetier: A Virtualized Multi-LoRA Framework for Unified LLM Fine-tuning and Serving](../../NeurIPS2025/model_compression/loquetier_a_virtualized_multi-lora_framework_for_unified_llm_fine-tuning_and_ser.md)
 - [CFSP: An Efficient Structured Pruning Framework for LLMs with Coarse-to-Fine Activation Information](../../ACL2025/model_compression/cfsp_an_efficient_structured_pruning_framework_for_llms_with_coarse-to-fine_acti.md)
-- [FedEx-LoRA: Exact Aggregation for Federated and Efficient Fine-Tuning of Large Language Models](../../ACL2025/model_compression/fedex_lora_federated_exact_aggregation.md)
+- [VocabTrim: Vocabulary Pruning for Efficient Speculative Decoding in LLMs](vocabtrim_vocabulary_pruning_for_efficient_speculative_decoding_in_llms.md)
 
 <!-- RELATED:END -->

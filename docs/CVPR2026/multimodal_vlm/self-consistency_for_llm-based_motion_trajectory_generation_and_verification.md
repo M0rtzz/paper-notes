@@ -118,9 +118,9 @@ tags:
 ## 相关论文
 
 - [GenDoP: Auto-regressive Camera Trajectory Generation as a Director of Photography](../../ICCV2025/multimodal_vlm/gendop_auto-regressive_camera_trajectory_generation_as_a_director_of_photography.md)
+- [Don't Act Blindly: Robust GUI Automation via Action-Effect Verification and Self-Correction](../../ACL2026/multimodal_vlm/don39t_act_blindly_robust_gui_automation_via_action-effect_verification_and_self.md)
 - [EvoLMM: Self-Evolving Large Multimodal Models with Continuous Rewards](evolmm_self-evolving_large_multimodal_models_with_continuous_rewards.md)
 - [Enhance Multimodal Consistency and Coherence for Text-Image Plan Generation](../../ACL2025/multimodal_vlm/enhance_multimodal_consistency_and_coherence_for_text-image_plan_generation.md)
 - [Enhancing Outcome Reward-Based RL Training of MLLMs with Self-Consistency Sampling](../../NeurIPS2025/multimodal_vlm/enhancing_the_outcome_reward-based_rl_training_of_mllms_with_self-consistency_sa.md)
-- [DC-Merge: Improving Model Merging with Directional Consistency](dc-merge_improving_model_merging_with_directional_consistency.md)
 
 <!-- RELATED:END -->

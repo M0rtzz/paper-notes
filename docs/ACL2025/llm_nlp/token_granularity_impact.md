@@ -126,6 +126,6 @@ tags:
 - [Deontological Keyword Bias: The Impact of Modal Expressions on Normative Judgments of Language Models](deontological_keyword_bias.md)
 - [Token Prepending: A Training-Free Approach for Eliciting Better Sentence Embeddings from LLMs](token_prepending_training_free.md)
 - [Enhancing Character-Level Understanding in LLMs through Token Internal Structure Learning](character_level_understanding.md)
-- [Turning Trash into Treasure: Accelerating Inference of Large Language Models with Token Recycling](token_recycling.md)
+- [Circuit Stability Characterizes Language Model Generalization](circuit_stability_characterizes_language_model_generalization.md)
 
 <!-- RELATED:END -->

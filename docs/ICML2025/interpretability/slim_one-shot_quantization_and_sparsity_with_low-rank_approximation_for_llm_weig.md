@@ -133,10 +133,10 @@ $$diag(\mathbf{x})\mathcal{L}, \mathcal{R} = -SVD(diag(\mathbf{x})(E_Q + E_S))$$
 
 ## 相关论文
 
+- [From Signal Degradation to Computation Collapse: Uncovering the Two Failure Modes of LLM Quantization](../../ACL2026/interpretability/from_signal_degradation_to_computation_collapse_uncovering_the_two_failure_modes.md)
 - [Conditional Distribution Compression via the Kernel Conditional Mean Embedding](../../NeurIPS2025/interpretability/conditional_distribution_compression_via_the_kernel_conditional_mean_embedding.md)
 - [SVIP: Semantically Contextualized Visual Patches for Zero-Shot Learning](../../ICCV2025/interpretability/svip_semantically_contextualized_visual_patches_for_zero-shot_learning.md)
 - [FourierPET: Deep Fourier-based Unrolled Network for Low-count PET Reconstruction](../../AAAI2026/interpretability/fourierpet_deep_fourier-based_unrolled_network_for_low-count_pet_reconstruction.md)
-- [Universal Properties of Activation Sparsity in Modern Large Language Models](../../ICLR2026/interpretability/universal_properties_of_activation_sparsity_in_modern_large_language_models.md)
 - [A Unified Reasoning Framework for Holistic Zero-Shot Video Anomaly Analysis](../../NeurIPS2025/interpretability/a_unified_reasoning_framework_for_holistic_zeroshot_video_an.md)
 
 <!-- RELATED:END -->

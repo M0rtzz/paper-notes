@@ -117,7 +117,7 @@ tags:
 ## 相关论文
 
 - [Zero-Shot Conversational Stance Detection: Dataset and Approaches](zero-shot_conversational_stance_detection_dataset_and_approaches.md)
-- [Sightation Counts: Leveraging Sighted User Feedback in Building a BLV-aligned Dataset of Diagram Descriptions](sightation_counts_leveraging_sighted_user_feedback_in_building_a_blv-aligned_dat.md)
+- [Sightation Counts: Leveraging Sighted User Feedback in Building a BLV-aligned Dataset of Diagram Descriptions](sightation-blv-aligned-diagram-descriptions.md)
 - [SHARE: Shared Memory-Aware Open-Domain Long-Term Dialogue Dataset Constructed from Movie Script](share_shared_memory-aware_open-domain_long-term_dialogue_dataset_constructed_fro.md)
 - [Hanging in the Balance: Pivotal Moments in Crisis Counseling Conversations](hanging_in_the_balance_pivotal_moments_in_crisis_counseling_conversations.md)
 - [Follow-up Question Generation for Enhanced Patient-Provider Conversations](follow-up_question_generation_for_enhanced_patient-provider_conversations.md)

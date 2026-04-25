@@ -156,6 +156,6 @@ HyDE 假设生成的假设性文档即使有事实错误也能辅助检索。本
 - [VDocRAG: Retrieval-Augmented Generation over Visually-Rich Documents](../../CVPR2025/information_retrieval/vdocrag_retrieval-augmented_generation_over_visually-rich_documents.md)
 - [Investigating the Robustness of Retrieval-Augmented Generation at the Query Level](investigating_the_robustness_of_retrieval-augmented_generation_at_the_query_leve.md)
 - [Rethinking Addressing in Language Models via Contextualized Equivariant Positional Encoding](../../ICML2025/information_retrieval/rethinking_addressing_in_language_models_via_contexualized_equivariant_positiona.md)
-- [Health-LLM: Personalized Retrieval-Augmented Disease Prediction System](health-llm_personalized_retrieval-augmented_disease_prediction_system.md)
+- [CURaTE: Continual Unlearning in Real Time with Ensured Preservation of LLM Knowledge](../../ACL2026/information_retrieval/curate_continual_unlearning_in_real_time_with_ensured_preservation_of_llm_knowle.md)
 
 <!-- RELATED:END -->

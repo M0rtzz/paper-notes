@@ -154,10 +154,10 @@ tags:
 
 ## 相关论文
 
-- [Active Data Curation Effectively Distills Large-Scale Multimodal Models](../../CVPR2025/multimodal_vlm/active_data_curation_effectively_distills_large-scale_multimodal_models.md)
 - [Meta-Prompting for Automating Zero-shot Visual Recognition with LLMs](metaprompting_for_automating_zeroshot_visual_recognitio.md)
 - [CLAP: Isolating Content from Style Through Contrastive Learning with Augmented Prompts](clap_isolating_content_from_style_through_contrastive_learni.md)
-- [UniCode: Learning a Unified Codebook for Multimodal Large Language Models](unicode_learning_a_unified_codebook_for_multimodal_large_lan.md)
-- [Self-Adapting Large Visual-Language Models to Edge Devices across Visual Modalities](self-adapting_large_visual-language_models_to_edge_devices_across_visual_modalit.md)
+- [SpLIP: Elevating All Zero-Shot Sketch-Based Image Retrieval Through Multimodal Prompt Learning](elevating_all_zeroshot_sketchbased_image_retrieval_through_m.md)
+- [MarvelOVD: Marrying Object Recognition and Vision-Language Models for Robust Open-Vocabulary Object Detection](marvelovd_marrying_object_recognition_and_visionlanguage_mod.md)
+- [The Hard Positive Truth About Vision-Language Compositionality](the_hard_positive_truth_about_visionlanguage_compositionalit.md)
 
 <!-- RELATED:END -->

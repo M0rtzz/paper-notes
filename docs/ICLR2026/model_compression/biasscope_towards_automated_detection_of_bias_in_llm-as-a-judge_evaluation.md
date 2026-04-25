@@ -165,7 +165,7 @@ BiasScope 是一个两阶段迭代框架：
 - [BeyondBench: Contamination-Resistant Evaluation of Reasoning in Language Models](beyondbench_contamination-resistant_evaluation_of_reasoning_in_language_models.md)
 - [Rectified Decoupled Dataset Distillation: A Closer Look for Fair and Comprehensive Evaluation](rectified_decoupled_dataset_distillation_a_closer_look_for_fair_and_comprehensiv.md)
 - [Steer LLM Latents for Hallucination Detection](../../ICML2025/model_compression/steer_llm_latents_for_hallucination_detection.md)
+- [Memory-Augmented LLM-based Multi-Agent System for Automated Feature Generation on Tabular Data](../../ACL2026/model_compression/memory-augmented_llm-based_multi-agent_system_for_automated_feature_generation_o.md)
 - [Incentivizing Agentic Reasoning in LLM Judges via Tool-Integrated Reinforcement Learning](incentivizing_agentic_reasoning_in_llm_judges_via_tool-integrated_reinforcement_.md)
-- [KBVQ-MoE: KLT-guided SVD with Bias-Corrected Vector Quantization for MoE Large Language Models](kbvq-moe_klt-guided_svd_with_bias-corrected_vector_quantization_for_moe_large_la.md)
 
 <!-- RELATED:END -->

@@ -143,6 +143,6 @@ Stage 1: 视觉投影器对齐（LCS-558K）。Stage 2: 自回归语言模型损
 - [Learning to See Inside Opaque Liquid Containers using Speckle Vibrometry](../../ICCV2025/audio_speech/learning_to_see_inside_opaque_liquid_containers_using_speckle_vibrometry.md)
 - [AudSemThinker: Enhancing Audio-Language Models through Reasoning over Semantics of Sound](../../NeurIPS2025/audio_speech/audsemthinker_enhancing_audio-language_models_through_reasoning_over_semantics_o.md)
 - [Investigating and Enhancing Vision-Audio Capability in Omnimodal Large Language Models](../../ACL2025/audio_speech/investigating_and_enhancing_vision-audio_capability_in_omnimodal_large_language_.md)
-- [Benchmarking Open-ended Audio Dialogue Understanding for Large Audio-Language Models](../../ACL2025/audio_speech/audio_dialogue_benchmark.md)
+- [Analyzing and Mitigating Inconsistency in Discrete Audio Tokens for Neural Codec Language Models](../../ACL2025/audio_speech/audio_token_consistency.md)
 
 <!-- RELATED:END -->

@@ -181,10 +181,10 @@ Section 3.3 展示 Lego Sketch 可作为核心结构替换 CM-Sketch 等，与 f
 
 ## 相关论文
 
+- [Memory-Augmented LLM-based Multi-Agent System for Automated Feature Generation on Tabular Data](../../ACL2026/model_compression/memory-augmented_llm-based_multi-agent_system_for_automated_feature_generation_o.md)
 - [LightMem: Lightweight and Efficient Memory-Augmented Generation](../../ICLR2026/model_compression/lightmem_lightweight_and_efficient_memory-augmented_generation.md)
 - [Predictive Data Selection: The Data That Predicts Is the Data That Teaches](predictive_data_selection_the_data_that_predicts_is_the_data_that_teaches.md)
-- [GraSS: Scalable Data Attribution with Gradient Sparsification and Sparse Projection](../../NeurIPS2025/model_compression/grass_scalable_data_attribution_with_gradient_sparsification_and_sparse_projecti.md)
 - [On the Creation of Narrow AI: Hierarchy and Nonlocality of Neural Network Skills](../../NeurIPS2025/model_compression/on_the_creation_of_narrow_ai_hierarchy_and_nonlocality_of_neural_network_skills.md)
-- [Sketch Down the FLOPs: Towards Efficient Networks for Human Sketch](../../CVPR2025/model_compression/sketch_down_the_flops_towards_efficient_networks_for_human_sketch.md)
+- [GraSS: Scalable Data Attribution with Gradient Sparsification and Sparse Projection](../../NeurIPS2025/model_compression/grass_scalable_data_attribution_with_gradient_sparsification_and_sparse_projecti.md)
 
 <!-- RELATED:END -->

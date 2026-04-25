@@ -123,6 +123,6 @@ tags:
 - [PKU-SafeRLHF: Towards Multi-Level Safety Alignment for LLMs with Human Preference](../../ACL2025/llm_alignment/pku-saferlhf_towards_multi-level_safety_alignment_for_llms_with_human_preference.md)
 - [SynthesizeMe! Inducing Persona-Guided Prompts for Personalized Reward Models in LLMs](../../ACL2025/llm_alignment/synthesizeme_persona_prompts.md)
 - [AutoMixAlign: Adaptive Data Mixing for Multi-Task Preference Optimization in LLMs](../../ACL2025/llm_alignment/automixalign_adaptive_data_mixing.md)
-- [Diverging Preferences: When do Annotators Disagree and do Models Know?](../../ICML2025/llm_alignment/diverging_preferences_when_do_annotators_disagree_and_do_models_know.md)
+- [AgentAlign: Navigating Safety Alignment in the Shift from Informative to Agentic LLMs](../../ACL2025/llm_alignment/agentalign_navigating_safety_alignment_in_the_shift_from_informative_to_agentic_.md)
 
 <!-- RELATED:END -->

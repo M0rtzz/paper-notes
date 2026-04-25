@@ -136,8 +136,8 @@ $$\text{Attn}(Q,K,V) = [\underbrace{Q_aK_a^\top V_a}_{\text{Agg-Agg}} + \underbr
 
 - [Representation Consistency for Accurate and Coherent LLM Answer Aggregation](representation_consistency_for_accurate_and_coherent_llm_answer_aggregation.md)
 - [Towards Test-time Efficient Visual Place Recognition via Asymmetric Query Processing](../../AAAI2026/model_compression/towards_test-time_efficient_visual_place_recognition_via_asymmetric_query_proces.md)
-- [Smooth Regularization for Efficient Video Recognition](smooth_regularization_for_efficient_video_recognition.md)
 - [Memory-Efficient Training with In-Place FFT Implementation](memory-efficient_training_with_in-place_fft_implementation.md)
+- [Smooth Regularization for Efficient Video Recognition](smooth_regularization_for_efficient_video_recognition.md)
 - [Revisiting Semi-Supervised Learning in the Era of Foundation Models](revisiting_semi-supervised_learning_in_the_era_of_foundation_models.md)
 
 <!-- RELATED:END -->

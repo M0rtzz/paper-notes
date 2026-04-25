@@ -135,8 +135,8 @@ Q1（特征类型识别）是最难的提取任务——最佳模型 Phi-4 仅 4
 
 - [MARS: Benchmarking the Metaphysical Reasoning Abilities of Language Models with a Multi-task Evaluation Dataset](mars_benchmarking_the_metaphysical_reasoning_abilities_of_language_models_with_a.md)
 - [FinanceReasoning: Benchmarking Financial Numerical Reasoning More Credible, Comprehensive and Challenging](financereasoning_benchmarking_financial_numerical_reasoning_more.md)
-- [Pioneering Perceptual Video Fluency Assessment: A Novel Task with Benchmark Dataset and Baseline](../../CVPR2026/llm_evaluation/pioneering_perceptual_video_fluency_assessment_a_novel_task_with_benchmark_datas.md)
 - [Open-Insect: Benchmarking Open-Set Recognition of Novel Species in Biodiversity Monitoring](../../NeurIPS2025/llm_evaluation/open-insect_benchmarking_open-set_recognition_of_novel_species_in_biodiversity_m.md)
-- [MMLU-CF: A Contamination-free Multi-task Language Understanding Benchmark](mmlu-cf_a_contamination-free_multi-task_language_understanding_benchmark.md)
+- [Pioneering Perceptual Video Fluency Assessment: A Novel Task with Benchmark Dataset and Baseline](../../CVPR2026/llm_evaluation/pioneering_perceptual_video_fluency_assessment_a_novel_task_with_benchmark_datas.md)
+- [PhysReason: A Comprehensive Benchmark towards Physics-Based Reasoning](physreason_a_comprehensive_benchmark_towards_physics-based_reasoning.md)
 
 <!-- RELATED:END -->

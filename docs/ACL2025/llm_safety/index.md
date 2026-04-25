@@ -1,14 +1,14 @@
 ---
 title: >-
-  ACL2025 LLM安全方向 47篇论文解读
+  ACL2025 LLM安全方向 49篇论文解读
 description: >-
-  47篇ACL2025 LLM安全论文解读，主题涵盖：提出 AGrail，一个终身学习的 LLM、提出NOVA框架，通过内部一致性探测(ICP)衡量、本文针对LLM中因知识错位（模型参数知识与事实不一等，每篇含核心思想与方法详解。
+  49篇ACL2025 LLM安全论文解读，主题涵盖：提出 AGrail，一个终身学习的 LLM、提出NOVA框架，通过内部一致性探测(ICP)衡量、本文针对LLM中因知识错位（模型参数知识与事实不一等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM安全
 
-**💬 ACL2025** · **47** 篇论文解读
+**💬 ACL2025** · **49** 篇论文解读
 
 **[AGrail: A Lifelong Agent Guardrail with Effective and Adaptive Safety Detection](agrail_a_lifelong_agent_guardrail_with_effective_and_adaptive_safety_detection.md)**
 
@@ -86,6 +86,10 @@ description: >-
 
 :   本文首次将神经微分方程（Neural DEs）应用于LLM幻觉检测，通过对隐空间中token激活的连续轨迹建模来系统评估陈述的真实性，在True-False数据集上AUC-ROC超过SOTA 14%以上。
 
+**[Are the Hidden States Hiding Something? Testing the Limits of Factuality-Encoding Capabilities in LLMs](hidden-states-factuality-encoding-limits.md)**
+
+:   本文挑战了先前关于 LLM 隐藏状态能编码事实性信息的研究结论，通过构建更真实和更具挑战性的数据集（基于困惑度的负采样 + QA导出的LLM生成事实），发现先前结论在更真实的场景下难以泛化。
+
 **[How Does Response Length Affect Long-Form Factuality](how_does_response_length_affect_long-form_factuality.md)**
 
 :   本文系统研究了LLM响应长度与事实精确度的关系，提出高效的双层事实性评估框架Bafe（与人类注释89.31%一致），确认了长度偏差的存在，并通过排除错误传播和长上下文假说，证明"事实耗竭"是事实性下降的主要原因。
@@ -137,6 +141,10 @@ description: >-
 **[Opt-Out: Investigating Entity-Level Unlearning for Large Language Models via Optimal Transport](opt-out_investigating_entity-level_unlearning_for_large_language_models_via_opti.md)**
 
 :   提出 Opt-Out，一种基于最优传输理论的实体级 LLM 遗忘方法，利用 Sliced Wasserstein Distance 正则化参数偏移实现精细遗忘；同时构建首个实体级遗忘数据集 ELUDe（20 目标实体 + 144 邻居实体，15K+ forget / 90K+ retain QA 对），在 Llama-3.1-8B 和 Phi-3.5 上全面超越现有方法。
+
+**[Learning Auxiliary Tasks Improves Reference-Free Hallucination Detection in Open-Domain Long-Form Generation](rate-ft-auxiliary-tasks-for-hallucination-detection.md)**
+
+:   本文系统研究了开放域长文本生成中的无参考幻觉检测，发现模型内部状态（概率/熵）不足以可靠检测长文本幻觉，提出 RATE-FT 方法通过引入辅助 QA 任务和推理过程（rationale）来增强微调检测效果。
 
 **[Real-time Factuality Assessment from Adversarial Feedback](real-time_factuality_assessment_from_adversarial_feedback.md)**
 

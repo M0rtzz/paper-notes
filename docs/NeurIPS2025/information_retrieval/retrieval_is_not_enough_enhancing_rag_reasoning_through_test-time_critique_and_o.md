@@ -192,7 +192,7 @@ AlignRAG 在所有骨干网络和基准上均取得最佳。8B CLM 搭配 7B 生
 - [Towards Inference-Time Scaling for Continuous Space Reasoning](../../AAAI2026/information_retrieval/towards_inference-time_scaling_for_continuous_space_reasoning.md)
 - [Towards Adaptive Memory-Based Optimization for Enhanced Retrieval-Augmented Generation](../../ACL2025/information_retrieval/towards_adaptive_memory-based_optimization_for_enhanced_retrieval-augmented_gene.md)
 - [SeCon-RAG: A Two-Stage Semantic Filtering and Conflict-Free Framework for Trustworthy RAG](secon-rag_a_two-stage_semantic_filtering_and_conflict-free_framework_for_trustwo.md)
-- [Learning Task-Agnostic Representations through Multi-Teacher Distillation](learning_task-agnostic_representations_through_multi-teacher_distillation.md)
-- [EXIT: Context-Aware Extractive Compression for Enhancing Retrieval-Augmented Generation](../../ACL2025/information_retrieval/exit_context-aware_extractive_compression_for_enhancing_retrieval-augmented_gene.md)
+- [ChAIRO: Contextual Hierarchical Analogical Induction and Reasoning Optimization for LLMs](../../ACL2026/information_retrieval/chairo_contextual_hierarchical_analogical_induction_and_reasoning_optimization_f.md)
+- [CarO: Chain-of-Analogy Reasoning Optimization for Robust Content Moderation](../../ACL2026/information_retrieval/caro_chain-of-analogy_reasoning_optimization_for_robust_content_moderation.md)
 
 <!-- RELATED:END -->

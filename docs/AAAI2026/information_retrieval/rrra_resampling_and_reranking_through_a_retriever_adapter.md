@@ -178,6 +178,6 @@ NQ R@1上比SimANS高+6.2，MS-Doc R@1上高+4.7。
 - [Revela: Dense Retriever Learning via Language Modeling](../../ICLR2026/information_retrieval/revela_dense_retriever_learning_via_language_modeling.md)
 - [Gumbel Reranking: Differentiable End-to-End Reranker Optimization](../../ACL2025/information_retrieval/gumbel_reranking.md)
 - [Explaining CLIP Zero-shot Predictions Through Concepts](../../CVPR2026/information_retrieval/explaining_clip_zero-shot_predictions_through_concepts.md)
-- [NanoVDR: Distilling a 2B Vision-Language Retriever into a 70M Text-Only Encoder for Visual Document Retrieval](../../CVPR2026/information_retrieval/nanovdr_distilling_a_2b_vision-language_retriever_into_a_70m_text-only_encoder_f.md)
+- [FAITH: Factuality Alignment through Integrating Trustworthiness and Honestness](../../ACL2026/information_retrieval/faith_factuality_alignment_through_integrating_trustworthiness_and_honestness.md)
 
 <!-- RELATED:END -->

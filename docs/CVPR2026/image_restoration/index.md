@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 图像恢复方向 40篇论文解读
+  CVPR2026 图像恢复方向 46篇论文解读
 description: >-
-  40篇CVPR2026 图像恢复论文解读，主题涵盖：提出IQPIR框架，引入预训练NR-IQA模型的图、提出通过超分辨率+频域自适应混合来增强现有数据集中、BHCast从单张模糊的EHT黑洞图像出发等，每篇含核心思想与方法详解。
+  46篇CVPR2026 图像恢复论文解读，主题涵盖：提出IQPIR框架，引入预训练NR-IQA模型的图、提出通过超分辨率+频域自适应混合来增强现有数据集中、BHCast从单张模糊的EHT黑洞图像出发等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**📷 CVPR2026** · **40** 篇论文解读
+**📷 CVPR2026** · **46** 篇论文解读
 
 **[Beyond Ground-Truth: Leveraging Image Quality Priors for Real-World Image Restoration](beyond_ground-truth_leveraging_image_quality_priors_for_real-world_image_restora.md)**
 
@@ -58,6 +58,10 @@ description: >-
 
 :   提出细粒度感知奖励模型 FinPercep-RM 和协同进化课程学习（CCL）策略，解决 RLHF 应用于真实世界超分辨率时的奖励黑客和训练不稳定问题，通过同时输出全局质量分数和空间退化热力图实现局部缺陷感知。
 
+**[FinPercep-RM: A Fine-grained Reward Model and Co-evolutionary Curriculum for RL-based Real-world Super-Resolution](finpercep_rm_fine_grained_reward_model_rl_super_resolution.md)**
+
+:   提出 FinPercep-RM 细粒度感知奖励模型，通过预测全局质量分数和感知退化图来空间定位缺陷，配合协同进化课程学习策略平衡训练稳定性和奖励鲁棒性，有效抑制 RL-based 真实世界超分辨率中的奖励黑客问题。
+
 **[GSNR: Graph Smooth Null-Space Representation for Inverse Problems](gsnr_graph_smooth_null_space_representation_for_inverse_problems.md)**
 
 :   提出图平滑零空间表示（GSNR），通过谱图理论构建零空间受限拉普拉斯矩阵并选择最平滑的 p 个谱模式作为零空间投影基，为 PnP、DIP 和扩散模型等逆问题求解器提供结构化的零空间约束，在去模糊、压缩感知、去马赛克和超分辨率上提升高达 4.3dB PSNR。
@@ -106,6 +110,10 @@ description: >-
 
 :   证明了精心设计的设备特定退化建模（通过标定获取真实的 blur 和 noise 参数）可以显著提升手机超分辨率的真实场景性能——通过将公开渲染图像 unprocess 到不同手机的 RAW 域生成高低分辨率训练对，训练的 SR 模型在保留设备的真实数据上明显优于使用大量任意退化组合训练的基线。
 
+**[Toward Real-world Infrared Image Super-Resolution: A Unified Autoregressive Framework and Benchmark Dataset](real_iisr_infrared_image_super_resolution_autoregressive.md)**
+
+:   提出 Real-IISR 统一自回归框架，通过热-结构引导模块、条件自适应码本和热序一致性损失解决真实红外图像超分辨率的特有挑战，并构建了 FLIR-IISR 数据集（1457 对真实 LR-HR 红外图像）。
+
 **[SAT: Selective Aggregation Transformer for Image Super-Resolution](sat_selective_aggregation_transformer_for_image_super_resolution.md)**
 
 :   提出选择性聚合 Transformer (SAT)，通过密度驱动 token 聚合将 Key-Value 矩阵 token 数减少 97%、保持 Query 全分辨率，实现高效全局注意力建模，超越 SOTA PFT 达 0.22dB 且 FLOPs 降低 27%。
@@ -146,6 +154,10 @@ description: >-
 
 :   构建首个面向消费级相机的通用计算像差校正基准 UniCAC，提出光学退化评估器 ODE 量化像差难度，系统评测 24 种图像恢复/CAC 方法，揭示影响 CAC 性能的三大关键因素。
 
+**[UCAN: Unified Convolutional Attention Network for Expansive Receptive Fields in Lightweight Super-Resolution](ucan_unified_convolutional_attention_lightweight_sr.md)**
+
+:   提出 UCAN 轻量级超分辨率网络，统一卷积和注意力机制来高效扩展有效感受野，通过 Hedgehog 注意力解决线性注意力的秩坍缩问题，引入大核蒸馏模块和半共享参数策略，在 Manga109 (4×) 上以仅 48.4G MACs 达到 31.63 dB PSNR。
+
 **[UCAN: Unified Convolutional Attention Network for Expansive Receptive Fields in Lightweight Super-Resolution](ucan_unified_convolutional_attention_network_for_expansive_receptive_fields_in_l.md)**
 
 :   提出 UCAN，一种统一卷积与注意力的轻量级超分网络，通过 Hedgehog Attention 突破线性注意力的低秩瓶颈，结合 Flash Attention 大窗口建模、大核蒸馏模块和跨层参数共享，在极低计算量下实现了与大模型可比的超分性能。
@@ -157,6 +169,18 @@ description: >-
 **[UniBlendNet: Unified Global, Multi-Scale, and Region-Adaptive Modeling for Ambient Lighting Normalization](uniblendnet_unified_global_multi_scale_and_region_adaptive_modeling_for_ambient_lighting_normalization.md)**
 
 :   提出 UniBlendNet，在 IFBlend 基础上统一融合全局上下文建模、多尺度特征聚合和区域自适应残差精修三个模块，用于复杂空间变化光照条件下的环境光归一化任务。
+
+**[UniCAC: Towards Universal Computational Aberration Correction in Photographic Cameras](unicac_universal_computational_aberration_correction.md)**
+
+:   构建首个面向摄影镜头的大规模通用计算像差校正基准 UniCAC（覆盖球面和非球面镜头），提出光学退化评估器（ODE）替代传统 RMS 半径指标，并通过评估 24 个模型总结出影响 CAC 性能的三大关键因素：先验利用、网络架构和训练策略。
+
+**[Towards Universal Computational Aberration Correction in Photographic Cameras: A Comprehensive Benchmark Analysis](unicac_universal_computational_aberration_correction_benchmark.md)**
+
+:   本文构建了首个大规模通用计算像差校正(CAC)基准 UniCAC，提出光学退化评估器(ODE)量化像差难度，并对24种图像恢复/CAC算法进行了全面评估，揭示了先验利用、网络架构和训练策略三大关键因素对CAC性能的影响。
+
+**[UniRain: Unified Image Deraining with RAG-based Dataset Distillation and Multi-objective Reweighted Optimization](unirain_unified_image_deraining_rag_dataset_distillation.md)**
+
+:   提出 UniRain 统一图像去雨框架，通过 RAG 驱动的数据蒸馏从百万级公开数据集筛选高质量样本，结合非对称 MoE 架构和多目标重加权优化策略，在雨条纹和雨滴（白天/夜间）四种退化类型上实现一致优异性能。
 
 **[UniRain: Unified Image Deraining with RAG-based Dataset Distillation and Multi-objective Reweighted Optimization](unirain_unified_image_deraining_with_rag-based_dataset_distillation_and_multi-ob.md)**
 

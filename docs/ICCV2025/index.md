@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 1400篇论文解读
+  ICCV2025 1406篇论文解读
 description: >-
-  1400篇ICCV2025论文解读，涵盖3D视觉(296篇)、图像生成(215篇)、多模态VLM(142篇)、自动驾驶(98篇)等41个方向，每篇含核心思想、方法详解与实验分析。
+  1406篇ICCV2025论文解读，涵盖3D视觉(298篇)、图像生成(215篇)、多模态VLM(142篇)、自动驾驶(100篇)等41个方向，每篇含核心思想、方法详解与实验分析。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 ICCV2025 论文笔记
 
-**1400** 篇论文解读，覆盖 **41** 个领域。
+**1406** 篇论文解读，覆盖 **41** 个领域。
 
 <div class="conf-index" markdown>
 
@@ -47,6 +47,10 @@ description: >-
 **[3DGS-LM: Faster Gaussian-Splatting Optimization with Levenberg-Marquardt](3d_vision/3dgs-lm_faster_gaussian-splatting_optimization_with_levenberg-marquardt.md)**
 
 :   本文提出3DGS-LM，用定制的Levenberg-Marquardt优化器替换3DGS中的ADAM优化器，通过高效的GPU缓存驱动并行化方案实现Jacobian-向量积的快速计算，在保持相同重建质量的前提下将3DGS优化速度提升20%。
+
+**[3DGS-LM: Faster Gaussian-Splatting Optimization with Levenberg-Marquardt](3d_vision/3dgs_lm_faster_gaussian_splatting_optimization_with_levenberg_marquardt.md)**
+
+:   本文提出 3DGS-LM，通过将 3D Gaussian Splatting 的 ADAM 优化器替换为定制的 Levenberg-Marquardt (LM) 二阶优化器，并设计了高效的 GPU 并行化方案和梯度缓存结构，在保持相同重建质量的前提下实现了 20% 的训练加速。
 
 **[3DGS-LM: Faster Gaussian-Splatting Optimization with Levenberg-Marquardt](3d_vision/3dgslm_faster_gaussiansplatting_optimization_with_levenbergm.md)**
 
@@ -99,6 +103,10 @@ description: >-
 **[AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering](3d_vision/aaa-gaussians_anti-aliased_and_artifact-free_3d_gaussian_rendering.md)**
 
 :   AAA-Gaussians提出了一种统一的3D高斯光栅化框架，通过自适应3D平滑滤波器、视空间透视正确边界计算和基于视锥体的3D裁剪，在单一框架内同时解决了3DGS的锯齿、投影畸变和闪烁三大顽疾，在分布外视角评估中大幅领先其他方法，同时保持实时渲染性能。
+
+**[AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering](3d_vision/aaa_gaussians_anti_aliased_artifact_free_3d_gaussian_rendering.md)**
+
+:   本文提出 AAA-Gaussians，通过自适应 3D 平滑滤波器、视空间透视正确包围盒、基于视锥体的 3D 裁剪三项技术，在统一框架内系统解决了 3DGS 的锯齿、投影失真、弹出伪影等问题，在 in-distribution 和 out-of-distribution 视角下均实现了 SOTA 的无伪影实时渲染。
 
 **[AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering](3d_vision/aaagaussians_antialiased_and_artifactfree_3d_gaussian_render.md)**
 
@@ -2686,11 +2694,15 @@ description: >-
 
 **[ACAM-KD: Adaptive and Cooperative Attention Masking for Knowledge Distillation](autonomous_driving/acam_kd_adaptive_cooperative_attention_masking_knowledge_distillation.md)**
 
-:   提出 ACAM-KD，通过学生-教师交叉注意力特征融合(STCA-FF)和自适应空间-通道遮蔽(ASCM)两个模块，实现知识蒸馏中特征选择随学生学习状态动态演化，在COCO检测任务上以ResNet-50学生从ResNet-101教师蒸馏时mAP提升1.4超越SOTA。
+:   提出 ACAM-KD，通过学生-教师交叉注意力特征融合（STCA-FF）和自适应空间-通道遮蔽（ASCM）两个模块，使知识蒸馏中的特征选择能随学生学习状态动态演化，在 COCO 检测上 RetinaNet R50 从 R101 蒸馏时 mAP 达 41.2（+1.4 超越 SOTA），Cityscapes 分割上 DeepLabV3-MBV2 mIoU 提升 3.09。
 
 **[AD-GS: Object-Aware B-Spline Gaussian Splatting for Self-Supervised Autonomous Driving](autonomous_driving/ad-gs_object-aware_b-spline_gaussian_splatting_for_self-supervised_autonomous_dr.md)**
 
 :   本文提出 AD-GS，一种基于 3D Gaussian Splatting 的自监督自动驾驶场景渲染框架，核心创新是将可学习 B-spline 曲线与三角函数结合进行局部-全局运动建模，并通过简化的二值伪分割实现鲁棒的场景分解，在不依赖人工 3D 标注的条件下大幅超越现有自监督方法。
+
+**[AD-GS: Object-Aware B-Spline Gaussian Splatting for Self-Supervised Autonomous Driving](autonomous_driving/ad_gs_object_aware_bspline_gaussian_splatting_self_supervised_autonomous_driving.md)**
+
+:   本文提出 AD-GS，一种自监督的自动驾驶场景渲染框架，通过结合局部感知的可学习 B 样条曲线和全局感知的三角函数来建模动态物体运动，并利用简化的伪 2D 分割进行场景分解，在不依赖人工 3D 标注的情况下显著超越现有自监督方法，接近有标注方法的性能。
 
 **[AdaDrive: Self-Adaptive Slow-Fast System for Language-Grounded Autonomous Driving](autonomous_driving/adadrive_self-adaptive_slow-fast_system_for_language-grounded_autonomous_driving.md)**
 
@@ -2927,6 +2939,10 @@ description: >-
 **[RESCUE: Crowd Evacuation Simulation via Controlling SDM-United Characters](autonomous_driving/rescue_crowd_evacuation_simulation_via_controlling_sdm-united_characters.md)**
 
 :   提出首个在线 SDM（感知-决策-运动）统一 3D 疏散仿真框架 RESCUE，集成 3D 自适应社会力模型和个性化步态控制器，实现数百智能体的实时个性化疏散模拟。
+
+**[Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations](autonomous_driving/resonance_learning_to_predict_social-aware_pedestrian_trajectories_as_co-vibrati.md)**
+
+:   本文提出 Resonance (Re) 模型，将行人轨迹预测分解为多个"振动"的叠加——线性基底、自偏置（self-bias）和共振偏置（resonance-bias），利用轨迹频谱的相似性模拟社会交互中的"共振"现象，在 ETH-UCY、SDD、NBA、nuScenes 等数据集上验证了方法的有效性。
 
 **[Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations](autonomous_driving/resonance_learning_to_predict_social_aware_pedestrian_trajectories_as_co_vibrations.md)**
 
@@ -3644,6 +3660,10 @@ description: >-
 
 :   4D-Bench 是首个评估多模态大语言模型（MLLM）4D 物体理解能力的基准，包含 4D 物体问答和描述两大任务，揭示了即使 SOTA GPT-4o 也仅达 63% 准确率（人类基线 91%），暴露了当前 MLLM 在多视角时序推理上的显著不足。
 
+**[4D-Bench: Benchmarking Multi-modal Large Language Models for 4D Object Understanding](video_understanding/4d_bench_benchmarking_multimodal_llms_for_4d_object_understanding.md)**
+
+:   本文提出 4D-Bench，首个评估多模态大模型 (MLLM) 在 4D 物体（动态 3D 物体）理解能力的基准，包含 4D 物体问答和 4D 物体描述两大任务，揭示了即使是 GPT-4o 在简单 4D 物体上也仅达 63% 准确率（人类基线 91%），尤其在物体计数和时序理解上表现薄弱。
+
 **[4D-Bench: Benchmarking Multi-modal Large Language Models for 4D Object Understanding](video_understanding/4dbench_benchmarking_multimodal_large_language_models_for_4d.md)**
 
 :   提出 4D-Bench，首个评估多模态大语言模型对4D物体（具有时间演化的3D物体）理解能力的基准，包含4D物体问答（751 QA对）和4D物体描述（580物体×5标注）两大任务，发现即使SOTA的GPT-4o也仅达63%准确率（人类91%），揭示了MLLM在多视角时空理解上的巨大差距。
@@ -3651,6 +3671,10 @@ description: >-
 **[Adaptive Hyper-Graph Convolution Network for Skeleton-Based Human Action Recognition](video_understanding/adaptive_hyper-graph_convolution_network_for_skeleton-based_human_action_recogni.md)**
 
 :   提出 Hyper-GCN，通过**自适应非均匀超图**替代传统二元图来建模骨骼拓扑，并引入**虚拟超关节**（hyper joints）创建虚拟连接，使多关节协同关系得以直接建模，在 NTU-60/120 和 NW-UCLA 上以最轻量的 GCN 设计实现 SOTA（base 版仅 1.1M 参数、1.63 GFLOPs）。
+
+**[Adaptive Hyper-Graph Convolution Network for Skeleton-based Human Action Recognition with Virtual Connections](video_understanding/adaptive_hyper_graph_convolution_network_skeleton_action_recognition.md)**
+
+:   本文提出 Hyper-GCN，通过自适应非均匀超图卷积和虚拟超节点（hyper joints）的设计，突破了传统 GCN 仅建模关节对之间二元关系的限制，实现了多关节协同语义的高效聚合，在 NTU-60/120 和 NW-UCLA 数据集上以最轻量的 GCN 设计达到了 SOTA 性能。
 
 **[AIM: Adaptive Inference of Multi-Modal LLMs via Token Merging and Pruning](video_understanding/aim_adaptive_inference_multimodal_llms_token_merging_pruning.md)**
 

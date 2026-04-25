@@ -152,10 +152,10 @@ We-Math的构建与评估流程：
 
 ## 相关论文
 
-- [MathVerse: Does Your Multi-modal LLM Truly See the Diagrams in Visual Math Problems?](../../ECCV2024/multimodal_vlm/mathverse_does_your_multi-modal_llm_truly_see_the_diagrams_in_visual_math_proble.md)
-- [The Role of Visual Modality in Multimodal Mathematical Reasoning: Challenges and Insights](the_role_of_visual_modality_in_multimodal_mathematical_reasoning_challenges_and_.md)
-- [MathCoder-VL: Bridging Vision and Code for Enhanced Multimodal Mathematical Reasoning](mathcoder-vl_bridging_vision_and_code_for_enhanced_multimodal_mathematical_reaso.md)
-- [MathVerse: Does Your Multi-modal LLM Truly See the Diagrams in Visual Math?](../../ECCV2024/multimodal_vlm/mathverse_does_your_multimodal_llm_truly_see_the_diagrams_in.md)
 - [OmniAlign-V: Towards Enhanced Alignment of MLLMs with Human Preference](omnialign-v_towards_enhanced_alignment_of_mllms_with_human_preference.md)
+- [Agent-RewardBench: Towards a Unified Benchmark for Reward Modeling across Perception, Planning, and Safety in Real-World Multimodal Agents](agent_rewardbench.md)
+- [Burn After Reading: Do Multimodal Large Language Models Truly Capture Order of Events in Image Sequences?](burn_after_reading_do_multimodal_large_language_models_truly_capture_order_of_ev.md)
+- [The Role of Visual Modality in Multimodal Mathematical Reasoning: Challenges and Insights](the_role_of_visual_modality_in_multimodal_mathematical_reasoning_challenges_and_.md)
+- [CoSyn: Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation](cosyn_code_guided_synthetic_data.md)
 
 <!-- RELATED:END -->

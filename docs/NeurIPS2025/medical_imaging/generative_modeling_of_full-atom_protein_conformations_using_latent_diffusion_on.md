@@ -143,6 +143,6 @@ $$H^{(l+1)} = \sigma\left(\sum_{k=0}^{K-1} \Theta_k^{(l)} T_k(\tilde{L}) H^{(l)}
 - [Towards Multiscale Graph-based Protein Learning with Geometric Secondary Structural Motifs](towards_multiscale_graph-based_protein_learning_with_geometric_secondary_structu.md)
 - [Generative Distribution Embeddings: Lifting Autoencoders to the Space of Distributions for Multiscale Representation Learning](generative_distribution_embeddings_lifting_autoencoders_to_the_space_of_distribu.md)
 - [Geometric Generative Modeling with Noise-Conditioned Graph Networks](../../ICML2025/medical_imaging/geometric_generative_modeling_with_noise-conditioned_graph_networks.md)
-- [ConfRover: Simultaneous Modeling of Protein Conformation and Dynamics via Autoregression](confrover_simultaneous_modeling_of_protein_conformation_and_dynamics_via_autoreg.md)
+- [Steering Generative Models with Experimental Data for Protein Fitness Optimization](steering_generative_models_with_experimental_data_for_protein_fitness_optimizati.md)
 
 <!-- RELATED:END -->

@@ -133,6 +133,6 @@ HPL 在参考策略的探索数据上构建三个层次的偏好对：① 轨迹
 - [The Tool Decathlon: Benchmarking Language Agents for Diverse, Realistic, and Long-Horizon Task Execution](the_tool_decathlon_benchmarking_language_agents_for_diverse_realistic_and_long-h.md)
 - [Reducing Belief Deviation in Reinforcement Learning for Active Reasoning of LLM Agents](reducing_belief_deviation_in_reinforcement_learning_for_active_reasoning.md)
 - [NexusSum: Hierarchical LLM Agents for Long-Form Narrative Summarization](../../ACL2025/llm_agent/nexussum_narrative_summarization.md)
-- [CoMind: Towards Community-Driven Agents for Machine Learning Engineering](comind_towards_community-driven_agents_for_machine_learning_engineering.md)
+- [DEPO: Dual-Efficiency Preference Optimization for LLM Agents](../../AAAI2026/llm_agent/depo_dual-efficiency_preference_optimization_for_llm_agents.md)
 
 <!-- RELATED:END -->

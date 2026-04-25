@@ -1,0 +1,131 @@
+---
+title: >-
+  [论文解读] From Heads to Neurons: Causal Attribution and Steering in Multi-Task Vision-Language Models
+description: >-
+  [ACL 2026][多模态][神经元归因] 提出 HONES 框架，通过先定位任务关键注意力头再以其为条件引导 FFN 神经元归因，实现了多任务 VLM 中跨异构任务的统一、无梯度的神经元级因果分析和轻量级任务性能提升。
+tags:
+  - ACL 2026
+  - 多模态
+  - 神经元归因
+  - 因果分析
+  - 多任务VLM
+  - 注意力头
+  - 模型可解释性
+---
+
+# From Heads to Neurons: Causal Attribution and Steering in Multi-Task Vision-Language Models
+
+**会议**: ACL 2026  
+**arXiv**: [2604.17941](https://arxiv.org/abs/2604.17941)  
+**代码**: [github](https://github.com/petergit1/HONES)  
+**领域**: 多模态视觉语言模型  
+**关键词**: 神经元归因, 因果分析, 多任务VLM, 注意力头, 模型可解释性
+
+## 一句话总结
+
+提出 HONES 框架，通过先定位任务关键注意力头再以其为条件引导 FFN 神经元归因，实现了多任务 VLM 中跨异构任务的统一、无梯度的神经元级因果分析和轻量级任务性能提升。
+
+## 研究背景与动机
+
+**领域现状**：大型视觉语言模型（VLM）在 VQA、OCR、图像描述等多任务中表现出色，但内部决策过程不透明——多种能力纠缠在共享参数中，阻碍了错误归因和可控部署。神经元级分析能提供细粒度的可操作洞察。
+
+**现有痛点**：(1) 现有神经元分析主要关注单任务设置，无法跨异构任务（如问答 vs 图文匹配）比较神经元重要性；(2) 大多方法独立评分神经元，忽略了注意力头的任务依赖路由效应，导致多义性神经元获得膨胀的重要性分数。
+
+**核心矛盾**：如何在共享参数空间中准确识别不同任务的关键神经元，同时避免多义性带来的噪声？
+
+**本文目标**：设计统一的跨任务神经元归因框架，并利用发现的关键神经元进行轻量级任务性能提升。
+
+**切入角度**：遵循 Transformer 的结构化因果视图——注意力头负责选择和路由任务关键输入，FFN 神经元负责将路由信息写入残差流。先定位路由节点（注意力头），再在其条件下归因 FFN 神经元。
+
+**核心 idea**：神经元的任务重要性应通过其在任务关键注意力头路由路径下的"写入贡献"来衡量，而非简单的激活幅度。
+
+## 方法详解
+
+### 整体框架
+
+HONES 分两阶段：**发现阶段**——(1) 通过均值替换干预定位任务关键注意力头 $\mathcal{H}_t^*$；(2) 在注意力头条件下，通过直接词汇投影（DVP）衡量每个 FFN 神经元对任务目标的因果写入贡献，选取 Top-K 神经元。**引导阶段**——冻结骨干网络，仅在关键神经元上学习稀疏缩放因子，通过 KL 正则化实现可控任务提升。
+
+### 关键设计
+
+1. **因果注意力头定位**:
+
+    - 功能：识别任务关键的"路由节点"，约束下游神经元搜索空间
+    - 核心思路：采用均值替换干预——将目标头的输出替换为其余 $H-1$ 个头输出的均值，测量任务性能下降 $S_t(h)$。选取 Top-$K_h$ 个头组成 $\mathcal{H}_t^*$
+    - 设计动机：相比零置换，均值替换减少分布外伪影；先定位路由节点可有效隔离有效计算路径
+
+2. **头引导的神经元归因（因果写入效应）**:
+
+    - 功能：在任务路由上下文条件下为每个 FFN 神经元评分
+    - 核心思路：对每个神经元 $(l,i)$，计算其通过下投影向残差流写入的向量 $\Delta \mathbf{r}_i^{(l)}$，再用直接词汇投影（DVP）投射到目标 token 的 unembedding 向量方向，得到写入贡献 $c_{l,i}$。然后对每个关键头施加干预，计算干预前后的贡献落差 $\Delta c$，以头重要性加权聚合为最终分数 $I_{l,i}$
+    - 设计动机：独立评分的激活方法容易被多义性混淆；头引导条件确保只计入沿任务路由路径的有效贡献
+
+3. **轻量级神经元引导**:
+
+    - 功能：通过调节关键神经元的激活来提升任务性能
+    - 核心思路：冻结所有骨干参数，为每个关键神经元学习缩放因子 $\lambda_{l,i}$。优化目标包含任务损失和 KL 散度正则项：$\min_{\lambda_t} \mathcal{L}_t + \beta \text{KL}(p_\theta \| p_{\theta_{\lambda_t}})$
+    - 设计动机：KL 正则防止过度偏离原始模型行为；仅学习稀疏缩放因子，参数量极小
+
+### 训练策略
+
+发现阶段使用 7K 图像的 discovery split，引导阶段使用 2K 图像的 dev split 学习缩放因子，3K 图像用于测试。支持开放式目标（如 caption）时用 IDF 加权聚合 token 的 unembedding 向量。
+
+## 实验关键数据
+
+### 主实验（Top-1% 神经元掩码后的性能下降 %）
+
+| 方法 | VQA | OCR | Caption | Retrieval | 平均 |
+|------|-----|-----|---------|-----------|------|
+| AP | 11.33 | 10.40 | 8.65 | 0.50 | 7.72 |
+| MA | 6.82 | 15.50 | 11.90 | 1.35 | 8.89 |
+| APE | 3.20 | -1.87 | 12.20 | 0.90 | 3.61 |
+| **HONES** | **27.30** | **19.00** | **19.80** | **7.43** | **18.38** |
+
+### 引导效果（LLaVA-1.5-7B）
+
+| 方法 | VQA | OCR | Caption | Retrieval | 平均 |
+|------|-------|-------|---------|-----------|-------|
+| Base | 0.652 | 0.576 | 0.129 | 0.933 | 0.572 |
+| Grid-Search | 0.666 | 0.594 | 0.132 | 0.956 | 0.587 |
+| **HONES** | **0.673** | **0.602** | **0.141** | **0.963** | **0.595** |
+
+### 关键发现
+- HONES 在所有任务和两个 VLM 上全面超越激活统计方法，平均性能下降达18.38%（LLaVA）和 21.91%（Qwen）
+- 关键神经元表现出任务依赖的层偏好：检索任务集中在中间层（视觉-文本对齐），其他任务偏向深层（答案解码）
+- VQA 共享神经元的跨任务显著性最高，呈现"Hub"效应——VQA 相关神经元支撑了广泛的视觉语言任务
+- OOD 实验中，直接迁移域内学习的缩放因子（zero-shot）即可获得一致的提升
+
+## 亮点与洞察
+- 从注意力头到神经元的"粗到细"归因思路优雅且高效——头引导条件有效抑制了多义性噪声
+- 提出统一的跨任务评分接口（DVP + IDF 加权），解决了异构任务输出不可比的难题
+- VQA 作为跨任务"Hub"的发现具有重要的模型理解意义
+- 引导方法仅学习稀疏缩放因子，参数开销极低且 OOD 可迁移
+
+## 局限与展望
+- 实验限于 7B 规模的稠密模型，更大模型或 MoE 架构上的验证待进行
+- 四个粗粒度任务类别可能掩盖子任务级别的差异（如 VQA 中的计数 vs 空间推理）
+- 因果分析需要多次前向传播，计算开销较高，大数据集上扩展性受限
+- 未探索与 SAE 等特征级方法的互补结合
+
+## 相关工作与启发
+- **vs AP/MA/APE（激活统计方法）**: 仅看激活幅度无法区分多义性，HONES 的头引导条件更准确
+- **vs QRNCA（梯度方法）**: HONES 无梯度且更高效，定位速度更快
+- **vs SAE**: HONES 在原始模型上直接操作，无需额外特征学习，支持因果归因和轻量引导
+- **vs MultEdit**: MultEdit 编辑 MLP 块的知识，HONES 分析跨任务的神经元共享结构
+
+## 评分
+- 新颖性: ⭐⭐⭐⭐⭐ 头引导神经元归因的框架设计新颖，跨任务统一评分接口解决了实际瓶颈
+- 实验充分度: ⭐⭐⭐⭐⭐ 四任务×两模型，大量控制变体和消融实验，OOD 验证
+- 写作质量: ⭐⭐⭐⭐ 框架描述清晰，发现洞察丰富
+- 价值: ⭐⭐⭐⭐⭐ 对 VLM 可解释性和可控性有重要推进，引导方法具有实用价值
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [Understanding Task Transfer in Vision-Language Models](../../CVPR2026/multimodal_vlm/understanding_task_transfer_in_vision-language_models.md)
+- [FineSteer: A Unified Framework for Fine-Grained Inference-Time Steering in Large Language Models](finesteer_a_unified_framework_for_fine-grained_inference-time_steering_in_large_.md)
+- [Learning Invariant Causal Mechanism from Vision-Language Models](../../ICML2025/multimodal_vlm/learning_invariant_causal_mechanism_from_vision-language_models.md)
+- [Causal-LLaVA: Causal Disentanglement for Mitigating Hallucination in Multimodal Large Language Models](../../NeurIPS2025/multimodal_vlm/causalllava_causal_disentanglement_for_mitigating_hallucinat.md)
+- [OMIBench: Benchmarking Olympiad-Level Multi-Image Reasoning in Large Vision-Language Models](omibench_benchmarking_olympiad-level_multi-image_reasoning_in_large_vision-langu.md)
+
+<!-- RELATED:END -->

@@ -153,6 +153,6 @@ tags:
 - [Enhancing Visual Representation with Textual Semantics: Textual Semantics-Powered Prototypes for Heterogeneous Federated Learning](enhancing_visual_representation_with_textual_semantics_textual_semantics_powered_p.md)
 - [FedRTS: Federated Robust Pruning via Combinatorial Thompson Sampling](../../NeurIPS2025/optimization/fedrts_federated_robust_pruning_via_combinatorial_thompson_sampling.md)
 - [Automatic Joint Structured Pruning and Quantization for Efficient Neural Network Training and Compression](../../CVPR2025/optimization/automatic_joint_structured_pruning_and_quantization_for_efficient_neural_network.md)
-- [CogFlow: Bridging Perception and Reasoning through Knowledge Internalization for Visual Mathematical Problem Solving](../../ICLR2026/optimization/cogflow_bridging_perception_and_reasoning_through_knowledge_internalization_for_.md)
+- [Leveraging Perturbation Robustness to Enhance Out-of-Distribution Detection](../../CVPR2025/optimization/leveraging_perturbation_robustness_to_enhance_out-of-distribution_detection.md)
 
 <!-- RELATED:END -->

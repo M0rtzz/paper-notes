@@ -116,7 +116,7 @@ Teacher-Student EMA 框架 → 教师生成伪标签（阈值 τ=0.9）→ 点�
 - [ItTakesTwo: Leveraging Peer Representations for Semi-supervised LiDAR Semantic Segmentation](../../ECCV2024/autonomous_driving/ittakestwo_leveraging_peer_representations_for_semi-supervised_lidar_semantic_se.md)
 - [Point-to-Region Loss for Semi-Supervised Point-Based Crowd Counting](point-to-region_loss_for_semi-supervised_point-based_crowd_counting.md)
 - [A Dataset for Semantic Segmentation in the Presence of Unknowns](a_dataset_for_semantic_segmentation_in_the_presence_of_unknowns.md)
-- [VoteFlow: Enforcing Local Rigidity in Self-Supervised Scene Flow](voteflow_enforcing_local_rigidity_in_self-supervised_scene_flow.md)
 - [Zero-Shot 4D Lidar Panoptic Segmentation](zero-shot_4d_lidar_panoptic_segmentation.md)
+- [VoteFlow: Enforcing Local Rigidity in Self-Supervised Scene Flow](voteflow_enforcing_local_rigidity_in_self-supervised_scene_flow.md)
 
 <!-- RELATED:END -->

@@ -144,7 +144,7 @@ TSBOW在规模、分辨率、类别数和天气多样性上全面超越现有基
 - [HG-Lane: High-Fidelity Generation of Lane Scenes under Adverse Weather and Lighting Conditions without Re-annotation](../../CVPR2026/autonomous_driving/hg-lane_high-fidelity_generation_of_lane_scenes_under_adverse_weather_and_lighti.md)
 - [Walking Further: Semantic-aware Multimodal Gait Recognition Under Long-Range Conditions](walking_further_semantic-aware_multimodal_gait_recognition_under_long-range_cond.md)
 - [TrafficLoc: Localizing Traffic Surveillance Cameras in 3D Scenes](../../ICCV2025/autonomous_driving/trafficloc_localizing_traffic_surveillance_cameras_in_3d_scenes.md)
-- [Traffic Scene Generation from Natural Language Description for Autonomous Vehicles with Large Language Model](../../CVPR2026/autonomous_driving/traffic_scene_generation_from_natural_language_description_for_autonomous_vehicl.md)
-- [URB -- Urban Routing Benchmark for RL-Equipped Connected Autonomous Vehicles](../../NeurIPS2025/autonomous_driving/urb_--_urban_routing_benchmark_for_rl-equipped_connected_autonomous_vehicles.md)
+- [Perception Characteristics Distance: Measuring Stability and Robustness of Perception System in Dynamic Conditions under a Certain Decision Rule](../../CVPR2026/autonomous_driving/perception_characteristics_distance_measuring_stability_and_robustness_of_percep.md)
+- [Traffic Scene Generation from Natural Language Description for Autonomous Vehicles with Large Language Model](../../CVPR2026/autonomous_driving/ttsg_text_to_traffic_scene_generation_from_natural_language.md)
 
 <!-- RELATED:END -->

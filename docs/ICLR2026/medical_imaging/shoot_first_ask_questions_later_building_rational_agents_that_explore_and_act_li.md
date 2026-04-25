@@ -129,6 +129,6 @@ tags:
 - [Incentives in Federated Learning with Heterogeneous Agents](incentives_in_federated_learning_with_heterogeneous_agents.md)
 - [From Conversation to Query Execution: Benchmarking User and Tool Interactions for EHR Database Agents](from_conversation_to_query_execution_benchmarking_user_and_tool_interactions_for.md)
 - [X-WIN: Building Chest Radiograph World Model via Predictive Sensing](../../CVPR2026/medical_imaging/x-win_building_chest_radiograph_world_model_via_predictive_sensing.md)
-- [Out-of-Distribution Detection Methods Answer the Wrong Questions](../../ICML2025/medical_imaging/out-of-distribution_detection_methods_answer_the_wrong_questions.md)
+- [Beyond the Individual: Virtualizing Multi-Disciplinary Reasoning for Clinical Intake via Collaborative Agents](../../ACL2026/medical_imaging/beyond_the_individual_virtualizing_multi-disciplinary_reasoning_for_clinical_int.md)
 
 <!-- RELATED:END -->

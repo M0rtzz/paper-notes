@@ -156,7 +156,7 @@ REDA由三个核心组件构成：
 - [Chain-of-Jailbreak Attack for Image Generation Models via Editing Step by Step](chain-of-jailbreak_attack_for_image_generation_models_via_editing_step_by_step.md)
 - [QueryAttack: Jailbreaking Aligned Large Language Models Using Structured Non-natural Query Language](queryattack_jailbreaking_aligned_large_language_models_using_structured_non-natu.md)
 - [Don't Say No: Jailbreaking LLM by Suppressing Refusal](dont_say_no_jailbreaking_llm_by_suppressing_refusal.md)
-- [Aesthetic Post-Training Diffusion Models from Generic Preferences with Step-by-step Preference Optimization](../../CVPR2025/llm_alignment/aesthetic_post-training_diffusion_models_from_generic_preferences_with_step-by-s.md)
 - [Adjacent Words, Divergent Intents: Jailbreaking Large Language Models via Task Concurrency](../../NeurIPS2025/llm_alignment/adjacent_words_divergent_intents_jailbreaking_large_language_models_via_task_con.md)
+- [Aesthetic Post-Training Diffusion Models from Generic Preferences with Step-by-step Preference Optimization](../../CVPR2025/llm_alignment/aesthetic_post-training_diffusion_models_from_generic_preferences_with_step-by-s.md)
 
 <!-- RELATED:END -->

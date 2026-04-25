@@ -1,14 +1,14 @@
 ---
 title: >-
-  ICCV2025 3D视觉方向 296篇论文解读
+  ICCV2025 3D视觉方向 298篇论文解读
 description: >-
-  296篇ICCV2025 3D视觉论文解读，主题涵盖：提出TRAN-D，一种基于2D Gaussian、提出基于3D高斯溅射的场景地图表示（3D、提出MaskedLRM，将3D形状编辑重构为条件重等，每篇含核心思想与方法详解。
+  298篇ICCV2025 3D视觉论文解读，主题涵盖：提出TRAN-D，一种基于2D Gaussian、提出基于3D高斯溅射的场景地图表示（3D、提出MaskedLRM，将3D形状编辑重构为条件重等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D视觉
 
-**📹 ICCV2025** · **296** 篇论文解读
+**📹 ICCV2025** · **298** 篇论文解读
 
 **[TRAN-D: 2D Gaussian Splatting-based Sparse-view Transparent Object Depth Reconstruction via Physics Simulation for Scene Update](2d_gaussian_splattingbased_sparseview_transparent_object_dep.md)**
 
@@ -41,6 +41,10 @@ description: >-
 **[3DGS-LM: Faster Gaussian-Splatting Optimization with Levenberg-Marquardt](3dgs-lm_faster_gaussian-splatting_optimization_with_levenberg-marquardt.md)**
 
 :   本文提出3DGS-LM，用定制的Levenberg-Marquardt优化器替换3DGS中的ADAM优化器，通过高效的GPU缓存驱动并行化方案实现Jacobian-向量积的快速计算，在保持相同重建质量的前提下将3DGS优化速度提升20%。
+
+**[3DGS-LM: Faster Gaussian-Splatting Optimization with Levenberg-Marquardt](3dgs_lm_faster_gaussian_splatting_optimization_with_levenberg_marquardt.md)**
+
+:   本文提出 3DGS-LM，通过将 3D Gaussian Splatting 的 ADAM 优化器替换为定制的 Levenberg-Marquardt (LM) 二阶优化器，并设计了高效的 GPU 并行化方案和梯度缓存结构，在保持相同重建质量的前提下实现了 20% 的训练加速。
 
 **[3DGS-LM: Faster Gaussian-Splatting Optimization with Levenberg-Marquardt](3dgslm_faster_gaussiansplatting_optimization_with_levenbergm.md)**
 
@@ -93,6 +97,10 @@ description: >-
 **[AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering](aaa-gaussians_anti-aliased_and_artifact-free_3d_gaussian_rendering.md)**
 
 :   AAA-Gaussians提出了一种统一的3D高斯光栅化框架，通过自适应3D平滑滤波器、视空间透视正确边界计算和基于视锥体的3D裁剪，在单一框架内同时解决了3DGS的锯齿、投影畸变和闪烁三大顽疾，在分布外视角评估中大幅领先其他方法，同时保持实时渲染性能。
+
+**[AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering](aaa_gaussians_anti_aliased_artifact_free_3d_gaussian_rendering.md)**
+
+:   本文提出 AAA-Gaussians，通过自适应 3D 平滑滤波器、视空间透视正确包围盒、基于视锥体的 3D 裁剪三项技术，在统一框架内系统解决了 3DGS 的锯齿、投影失真、弹出伪影等问题，在 in-distribution 和 out-of-distribution 视角下均实现了 SOTA 的无伪影实时渲染。
 
 **[AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering](aaagaussians_antialiased_and_artifactfree_3d_gaussian_render.md)**
 

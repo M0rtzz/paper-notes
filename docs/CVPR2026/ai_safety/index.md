@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 AI安全方向 25篇论文解读
+  CVPR2026 AI安全方向 26篇论文解读
 description: >-
-  25篇CVPR2026 AI安全论文解读，主题涵盖：首次揭示视觉模型成员推断攻击(MIA)面临的对抗性、提出 Pseudo-Random、提出基于视觉 token 聚类的水印方案等，每篇含核心思想与方法详解。
+  26篇CVPR2026 AI安全论文解读，主题涵盖：首次揭示视觉模型成员推断攻击(MIA)面临的对抗性、提出 Pseudo-Random、提出基于视觉 Token 聚类的水印方法等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI安全
 
-**📷 CVPR2026** · **25** 篇论文解读
+**📷 CVPR2026** · **26** 篇论文解读
 
 **[A Unified Perspective on Adversarial Membership Manipulation in Vision Models](a_unified_perspective_on_adversarial_membership_manipulation_in_vision_models.md)**
 
@@ -17,6 +17,10 @@ description: >-
 **[All Vehicles Can Lie: Efficient Adversarial Defense in Fully Untrusted-Vehicle Collaborative Perception via Pseudo-Random Bayesian Inference](all_vehicles_can_lie_efficient_adversarial_defense_in_fully_untrusted-vehicle_co.md)**
 
 :   提出 Pseudo-Random Bayesian Inference (PRBI) 框架，在**所有车辆均不可信**的协同感知场景中，利用帧间时序一致性作为自参考信号，通过伪随机分组 + 贝叶斯推断，仅需平均 2.5 次验证/帧即可高效识别并排除恶意车辆，检测精度恢复至攻击前的 79.4%–86.9%。
+
+**[ClusterMark: Towards Robust Watermarking for Autoregressive Image Generators with Visual Token Clustering](clustermark_robust_watermarking_autoregressive_image_generators.md)**
+
+:   提出基于视觉 Token 聚类的水印方法 ClusterMark，通过将相似 Token 分配到同一颜色集（红/绿），大幅提升自回归图像生成模型水印在图像扰动下的鲁棒性，同时保持图像质量和快速验证。
 
 **[ClusterMark: Towards Robust Watermarking for Autoregressive Image Generators with Visual Token Clustering](clustermark_towards_robust_watermarking_for_autoregressive_image_generators_with.md)**
 

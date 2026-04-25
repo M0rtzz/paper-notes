@@ -161,6 +161,6 @@ tags:
 - [D-GARA: A Dynamic Benchmarking Framework for GUI Agent Robustness in Real-World Anomalies](d-gara_a_dynamic_benchmarking_framework_for_gui_agent_robust.md)
 - [Leveraging Dual Process Theory in Language Agent Framework for Real-time Simultaneous Human-AI Collaboration](../../ACL2025/llm_agent/dpt_agent_dual_process.md)
 - [Time, Identity and Consciousness in Language Model Agents](time_identity_and_consciousness_in_language_model_agents.md)
-- [With Great Capabilities Come Great Responsibilities: Introducing the Agentic Risk & Capability Framework for Governing Agentic AI Systems](with_great_capabilities_come_great_responsibilities_introducing_the_agentic_risk.md)
+- [Agentic Plan Caching: Test-Time Memory for Fast and Cost-Efficient LLM Agents](../../NeurIPS2025/llm_agent/agentic_plan_caching_test-time_memory_for_fast_and_cost-efficient_llm_agents.md)
 
 <!-- RELATED:END -->

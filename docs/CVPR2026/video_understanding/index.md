@@ -1,14 +1,14 @@
 ---
 title: >-
-  CVPR2026 视频理解方向 87篇论文解读
+  CVPR2026 视频理解方向 90篇论文解读
 description: >-
-  87篇CVPR2026 视频理解论文解读，主题涵盖：提出 A4VL，一个 training-free、提出 A4VL，一个无训练的多智能体感知-行动联盟、提出 AdaSpark，通过 3D 时空等，每篇含核心思想与方法详解。
+  90篇CVPR2026 视频理解论文解读，主题涵盖：提出 A4VL，一个 training-free、提出 A4VL，一个无训练的多智能体感知-行动联盟、提出 AdaSpark，通过 3D 时空等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**📷 CVPR2026** · **87** 篇论文解读
+**📷 CVPR2026** · **90** 篇论文解读
 
 **[A4VL: A Multi-Agent Perception-Action Alliance for Efficient Long Video Reasoning](a4vl_multiagent_long_video_reasoning.md)**
 
@@ -137,6 +137,10 @@ description: >-
 **[HumanVBench: Probing Human-Centric Video Understanding in MLLMs with Automatically Synthesized Benchmarks](humanvbench_probing_human_centric_video_understanding_in_mllms_with_automatica.md)**
 
 :   提出 HumanVBench，一个包含 16 个细粒度任务的人体中心视频理解基准，配套两个自动化流水线（视频标注 + 干扰项感知 QA 合成），对 30 个主流视频 MLLM 的评测揭示了当前模型在细微情感感知和语音-视觉对齐方面的关键不足。
+
+**[HumanVBench: Probing Human-Centric Video Understanding in MLLMs with Automatically Synthesized Benchmarks](humanvbench_probing_human_centric_video_understanding_mllms.md)**
+
+:   提出 HumanVBench，一个包含 16 个细粒度任务的视频基准，通过两个自动化管道（视频标注+干扰项生成）系统评估 MLLM 的以人为中心视频理解能力，揭示了当前模型在情感感知和语音-视觉对齐方面的显著不足。
 
 **[LAOF: Robust Latent Action Learning with Optical Flow Constraints](laof_robust_latent_action_learning_with_optical_flow_constraints.md)**
 
@@ -281,6 +285,14 @@ description: >-
 **[SVAgent: Storyline-Guided Long Video Understanding via Cross-Modal Multi-Agent Collaboration](svagent_storyline_guided_long_video_understanding_via_cross_modal_multi_agent_collaboration.md)**
 
 :   提出 SVAgent，一个故事线引导的跨模态多智能体框架用于长视频问答，通过渐进式构建叙事表示、DPP 证据选择、跨模态一致性验证和迭代精炼实现超越基线 5.5%-11.5% 的性能提升。
+
+**[TCEI: Dual-level Adaptation for Multi-Object Tracking via Test-Time Calibration](tcei_dual_level_adaptation_multi_object_tracking.md)**
+
+:   受人类决策双系统启发，提出 TCEI 测试时校准框架用于多目标跟踪：直觉系统利用瞬时记忆快速预测，经验系统利用累积经验校准直觉预测，通过利用置信和不确定样本作为历史先验和反思案例实现在线适应。
+
+**[Dual-level Adaptation for Multi-Object Tracking: Building Test-Time Calibration from Experience and Intuition](tcei_test_time_calibration_experience_intuition_mot.md)**
+
+:   TCEI 框架受 Kahneman 双系统理论启发，提出直觉系统（利用近期观测对象的瞬时记忆快速推断）和经验系统（利用历史视频积累的经验校准直觉预测）相结合的测试时自适应方法，无需反向传播即可在分布偏移下显著提升多目标跟踪性能。
 
 **[TrajTok: Learning Trajectory Tokens Enhances Video Understanding](trajtok_learning_trajectory_tokens_enables_better_video_understanding.md)**
 

@@ -118,9 +118,9 @@ tags:
 ## 相关论文
 
 - [The Trilemma of Truth in Large Language Models](the_trilemma_of_truth_in_large_language_models.md)
-- [Emergence of Linear Truth Encodings in Language Models](emergence_of_linear_truth_encodings_in_language_models.md)
 - [Why Is Attention Sparse in Particle Transformer?](why_is_attention_sparse_in_particle_transformer.md)
+- [Emergence of Linear Truth Encodings in Language Models](emergence_of_linear_truth_encodings_in_language_models.md)
 - [Noise Stability of Transformer Models](../../ICLR2026/interpretability/noise_stability_of_transformer_models.md)
-- [Better Estimation of the Kullback-Leibler Divergence Between Language Models](better_estimation_of_the_kullback--leibler_divergence_between_language_models.md)
+- [Beyond Components: Singular Vector-Based Interpretability of Transformer Circuits](beyond_components_singular_vector-based_interpretability_of_transformer_circuits.md)
 
 <!-- RELATED:END -->

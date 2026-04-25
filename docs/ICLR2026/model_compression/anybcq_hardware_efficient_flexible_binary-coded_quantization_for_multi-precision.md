@@ -116,6 +116,6 @@ AnyBCQ在2-bit下MMLU超越对手10+个百分点。4-bit下与Any-Precision LLM�
 - [DynaQuant: Dynamic Mixed-Precision Quantization for Learned Image Compression](../../AAAI2026/model_compression/dynaquant_dynamic_mixed-precision_quantization_for_learned_i.md)
 - [ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference](paroquant_pairwise_rotation_quantization_for_efficient_reasoning_llm_inference.md)
 - [Binary Quadratic Quantization: Beyond First-Order Quantization for Real-Valued Matrix Compression](../../NeurIPS2025/model_compression/binary_quadratic_quantization_beyond_first-order_quantization_for_real-valued_ma.md)
-- [QuEPT: Quantized Elastic Precision Transformers with One-Shot Calibration for Multi-Bit Switching](../../AAAI2026/model_compression/quept_quantized_elastic_precision_transformers_with_one-shot_calibration_for_mul.md)
+- [KVmix: Gradient-Based Layer Importance-Aware Mixed-Precision Quantization for KV Cache](../../AAAI2026/model_compression/kvmix_gradient-based_layer_importance-aware_mixed-precision_.md)
 
 <!-- RELATED:END -->

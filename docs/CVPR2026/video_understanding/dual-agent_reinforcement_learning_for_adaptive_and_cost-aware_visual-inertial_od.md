@@ -152,6 +152,6 @@ tags:
 - [VideoChat-M1: Collaborative Policy Planning for Video Understanding via Multi-Agent Reinforcement Learning](videochat-m1_collaborative_policy_planning_for_video_understanding_via_multi-age.md)
 - [LongVideo-R1: Smart Navigation for Low-cost Long Video Understanding](longvideo-r1_smart_navigation_for_low-cost_long_video_understanding.md)
 - [Coordinated Humanoid Robot Locomotion with Symmetry Equivariant Reinforcement Learning Policy](../../AAAI2026/video_understanding/coordinated_humanoid_robot_locomotion_with_symmetry_equivariant_reinforcement_le.md)
-- [Echoes of Ownership: Adversarial-Guided Dual Injection for Copyright Protection in MLLMs](echoes_of_ownership_adversarial-guided_dual_injection_for_copyright_protection_i.md)
+- [Reinforcement Learning with Backtracking Feedback](../../NeurIPS2025/video_understanding/reinforcement_learning_with_backtracking_feedback.md)
 
 <!-- RELATED:END -->

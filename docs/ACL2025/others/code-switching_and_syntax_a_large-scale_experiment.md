@@ -130,6 +130,6 @@ tags:
 - [Cover Learning for Large-Scale Topology Representation](../../ICML2025/others/cover_learning_for_large-scale_topology_representation.md)
 - [Kaputt: A Large-Scale Dataset for Visual Defect Detection](../../ICCV2025/others/kaputt_a_large-scale_dataset_for_visual_defect_detection.md)
 - [Personalized Generation In Large Model Era: A Survey](personalized_generation_in_large_model_era_a_survey.md)
-- [SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design](../../CVPR2025/others/sldprtnet_a_large-scale_multimodal_dataset_for_cad_generation_in_language-driven.md)
+- [DocAgent: A Multi-Agent System for Automated Code Documentation Generation](docagent_a_multi-agent_system_for_automated_code_documentation_generation.md)
 
 <!-- RELATED:END -->

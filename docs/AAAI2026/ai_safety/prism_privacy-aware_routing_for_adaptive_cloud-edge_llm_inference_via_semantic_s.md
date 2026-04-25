@@ -191,6 +191,6 @@ $$\hat{R} = \mathcal{G}_{\text{edge}}(\mathcal{C}_{\text{edge}})$$
 - [CryptoMoE: Privacy-Preserving and Scalable Mixture of Experts Inference via Balanced Expert Routing](../../NeurIPS2025/ai_safety/cryptomoe_privacy-preserving_and_scalable_mixture_of_experts_inference_via_balan.md)
 - [Adaptive Methods Are Preferable in High Privacy Settings: An SDE Perspective](../../ICLR2026/ai_safety/adaptive_methods_are_preferable_in_high_privacy_settings_an_sde_perspective.md)
 - [RegionMarker: A Region-Triggered Semantic Watermarking Framework for Embedding-as-a-Service](regionmarker_a_region-triggered_semantic_watermarking_framework_for_embedding-as.md)
-- [Privacy Auditing of Multi-Domain Graph Pre-Trained Model under Membership Inference Attack](privacy_auditing_of_multi-domain_graph_pre-trained_model_under_membership_infere.md)
+- [Adaptive Text Anonymization: Learning Privacy-Utility Trade-offs via Prompt Optimization](../../ACL2026/ai_safety/adaptive_text_anonymization_learning_privacy-utility_trade-offs_via_prompt_optim.md)
 
 <!-- RELATED:END -->

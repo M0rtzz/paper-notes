@@ -170,6 +170,6 @@ DA-HOI 将 HOI 检测解耦为两个完全独立的阶段：
 - [Zero-Shot Detection of AI-Generated Images](../../ECCV2024/object_detection/zero-shot_detection_of_ai-generated_images.md)
 - [Pixels Don't Lie (But Your Detector Might): Bootstrapping MLLM-as-a-Judge for Trustworthy Deepfake Detection and Reasoning Supervision](../../CVPR2026/object_detection/pixels_dont_lie_but_your_detector_might_bootstrapping_mllm-as-a-judge_for_trustw.md)
 - [Evaluating Few-Shot Pill Recognition Under Visual Domain Shift](../../CVPR2026/object_detection/evaluating_fewshot_pill_recognition_under_visual_d.md)
-- [SAGE: Spatial-visual Adaptive Graph Exploration for Efficient Visual Place Recognition](sage_spatial-visual_adaptive_graph_exploration_for_efficient_visual_place_recogn.md)
+- [OpenKD: Opening Prompt Diversity for Zero- and Few-shot Keypoint Detection](../../ECCV2024/object_detection/openkd_opening_prompt_diversity_for_zero-_and_few-shot_keypoint_detection.md)
 
 <!-- RELATED:END -->

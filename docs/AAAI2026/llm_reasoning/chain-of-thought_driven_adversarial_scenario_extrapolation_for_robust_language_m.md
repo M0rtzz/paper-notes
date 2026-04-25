@@ -130,6 +130,6 @@ ASE 在推理时添加两步 CoT 推理作为"预热"：$x \rightarrow r_{scenar
 - [Are Reasoning LLMs Robust to Interventions on Their Chain-of-Thought?](../../ICLR2026/llm_reasoning/are_reasoning_llms_robust_to_interventions_on_their_chain-of-thought.md)
 - [AIMCoT: Active Information-driven Multimodal Chain-of-Thought for Vision-Language Reasoning](../../ICLR2026/llm_reasoning/aimcot_active_information-driven_multimodal_chain-of-thought_for_vision-language.md)
 - [Adversarial Manipulation of Reasoning Models using Internal Representations](../../ICML2025/llm_reasoning/adversarial_manipulation_of_reasoning_models_using_internal_representations.md)
-- [The Curious Case of Analogies: Investigating Analogical Reasoning in Large Language Models](the_curious_case_of_analogies_investigating_analogical_reasoning_in_large_langua.md)
+- [AIM-CoT: Active Information-driven Multimodal Chain-of-Thought for Vision-Language Reasoning](../../ACL2026/llm_reasoning/aim-cot_active_information-driven_multimodal_chain-of-thought_for_vision-languag.md)
 
 <!-- RELATED:END -->

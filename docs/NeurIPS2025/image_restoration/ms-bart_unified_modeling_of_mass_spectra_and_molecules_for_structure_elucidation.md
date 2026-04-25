@@ -159,8 +159,8 @@ MS-Bart 在 NPLIB1 上相似度指标全面领先：MCES 改善 19.16%，Tanimot
 
 - [UniBlendNet: Unified Global, Multi-Scale, and Region-Adaptive Modeling for Ambient Lighting Normalization](../../CVPR2026/image_restoration/uniblendnet_unified_global_multi_scale_and_region_adaptive_modeling_for_ambient_lighting_normalization.md)
 - [Latent Harmony: Synergistic Unified UHD Image Restoration via Latent Space Regularization and Controllable Refinement](latent_harmony_synergistic_unified_uhd_image_restoration_via_latent_space_regula.md)
-- [UniPhys: Unified Planner and Controller with Diffusion for Flexible Physics-Based Character Control](../../ICCV2025/image_restoration/uniphys_unified_planner_and_controller_with_diffusion_for_flexible_physics-based.md)
 - [Skip to the Good Part: Representation Structure & Inference-Time Layer Skipping in Diffusion vs. Autoregressive LLMs](../../ICLR2026/image_restoration/skip_to_the_good_part_representation_structure_inference-time_layer_skipping_in_.md)
-- [URWKV: Unified RWKV Model with Multi-State Perspective for Low-Light Image Restoration](../../CVPR2025/image_restoration/urwkv_unified_rwkv_model_with_multi-state_perspective_for_low-light_image_restor.md)
+- [UniPhys: Unified Planner and Controller with Diffusion for Flexible Physics-Based Character Control](../../ICCV2025/image_restoration/uniphys_unified_planner_and_controller_with_diffusion_for_flexible_physics-based.md)
+- [TTT-MIM: Test-Time Training with Masked Image Modeling for Denoising Distribution Shifts](../../ECCV2024/image_restoration/ttt-mim_test-time_training_with_masked_image_modeling_for_denoising_distribution.md)
 
 <!-- RELATED:END -->

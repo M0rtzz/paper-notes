@@ -136,8 +136,8 @@ tags:
 
 - [Stochastic Chameleons: Irrelevant Context Hallucinations Reveal Class-Based (Mis)Generalization in LLMs](../../ACL2025/llm_safety/stochastic_chameleons_irrelevant_context_hallucinations_reveal_class-based_misge.md)
 - [HALoGEN: Fantastic LLM Hallucinations and Where to Find Them](../../ACL2025/llm_safety/halogen_hallucinations.md)
-- [HD-NDEs: Neural Differential Equations for Hallucination Detection in LLMs](../../ACL2025/llm_safety/hd-ndes_neural_differential_equations_for_hallucination_detection_in_llms.md)
 - [Alleviating Hallucinations from Knowledge Misalignment in Large Language Models via Selective Abstention Learning](../../ACL2025/llm_safety/alleviating_hallucinations_from_knowledge_misalignment_in_large_language_models_.md)
+- [HD-NDEs: Neural Differential Equations for Hallucination Detection in LLMs](../../ACL2025/llm_safety/hd-ndes_neural_differential_equations_for_hallucination_detection_in_llms.md)
 - [UAQFact: Evaluating Factual Knowledge Utilization of LLMs on Unanswerable Questions](../../ACL2025/llm_safety/uaqfact_evaluating_factual_knowledge_utilization_of_llms_on_unanswerable_questio.md)
 
 <!-- RELATED:END -->

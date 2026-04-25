@@ -133,10 +133,10 @@ NASCA 与 XNLI 零样本迁移性能的皮尔逊相关达 0.9326，与 BMLAMA-53
 
 ## 相关论文
 
+- [Can LLMs Interpret and Leverage Structured Linguistic Representations? A Case Study with AMRs](can_llms_interpret_and_leverage_structured_linguistic_representations_a_case_stu.md)
 - [Cross-Modal Alignment for LLM-Enhanced Spoken Language Understanding](cross-modal_alignment_for_llm-enhanced_spoken_language_understanding.md)
 - [DeAL: Decoding-time Alignment for Large Language Models](deal_decoding_time_alignment.md)
+- [Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models](salience_sparse_fine_tuning.md)
 - [Binary Classifier Optimization for Large Language Model Alignment](bco_binary_classifier_alignment.md)
-- [Gradient-Adaptive Policy Optimization: Towards Multi-Objective Alignment of Large Language Models](gapo_multi_objective_alignment.md)
-- [Direct Confidence Alignment: Aligning Verbalized Confidence with Internal Confidence In Large Language Models](direct_confidence_alignment_aligning_verbalized_confidence_with_internal_confide.md)
 
 <!-- RELATED:END -->
