@@ -6,8 +6,8 @@
 [![Last Commit](https://img.shields.io/github/last-commit/zhaoyang97/Paper-Notes?label=最近更新)](https://github.com/zhaoyang97/Paper-Notes/commits) -->
 
 **5 分钟读懂一篇顶会论文，一个仓库读懂最新 AI 进展。**
-- 📖 **13,600+** 篇 AI · LLM · NLP · CV 顶会论文解读
-- 🏛️ 覆盖 CVPR · ICLR · AAAI · NeurIPS · ICCV · ACL · ICML · ECCV 等会议
+- 📖 **14,000+** 篇 AI · LLM · NLP · CV 顶会论文解读
+- 🏛️ 覆盖 ACL · CVPR · ICLR · AAAI · NeurIPS · ICCV · ICML · ECCV 等会议
 - 🔬 横跨 LLM Reasoning · VLM · Agent · RLHF · RAG · AIGC · Robotics · Autonomous Driving 等46个研究方向
 - 🔄 持续更新中
 
@@ -17,14 +17,18 @@
 
 > 💡 **提示**：如果数学公式渲染异常，刷新页面通常可以解决。
 
+> ⚠️ **关于 ACL 2026**：本仓库收录的 ACL 2026 论文均来自 arXiv 上 Comments 标注为 "Accepted to ACL 2026" 的论文，并非官方 AC 结果，仅供参考。官方接收列表待公布 [ACL 2026 Accepted Papers](https://2026.aclweb.org/program/accepted_papers/)。
+
 ## 🎉 版本发布
 
+- **v1.1.0**（2026-04-25）：新增 ACL 2026 论文解读
 - **v1.0.0**（2026-04-18）：首个正式版本，累计 13,000+ 篇论文解读，覆盖 CVPR 2026、ICLR 2026、AAAI 2026、NeurIPS 2025、ICCV 2025、ACL 2025、ICML 2025、CVPR 2025、ECCV 2024共9个会议
 
 ## 📊 会议覆盖
 
 | 会议 | 笔记数 |
 |------|-------:|
+| ACL 2026 | 208 |
 | CVPR 2026 | 1,691 |
 | ICLR 2026 | 1,521 |
 | AAAI 2026 | 1,343 |
@@ -39,7 +43,6 @@
 
 | 公布时间 | 会议 |
 |----------|--------------|
-| 2026-04 | [ACL 2026](https://2026.aclweb.org/program/accepted_papers/) |
 | 2026-05 | ICML 2026 |
 | 2026-07 | ECCV 2026 |
 | 2026-09 | NeurIPS 2026 |
@@ -114,6 +117,7 @@ docs/
 │   ├── llm_reasoning/
 │   ├── multimodal_vlm/
 │   └── ...
+├── ACL2026/
 ├── ICLR2026/
 ├── AAAI2026/
 ├── NeurIPS2025/
