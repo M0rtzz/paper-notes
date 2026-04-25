@@ -149,9 +149,9 @@ GOAL包含两个核心组件：(1) LISM（Local Image-Sentence Matching）用于
 ## 相关论文
 
 - [Preserving Clusters in Prompt Learning for Unsupervised Domain Adaptation](preserving_clusters_in_prompt_learning_for_unsupervised_domain_adaptation.md)
-- [Beyond Global Similarity: Towards Fine-Grained, Multi-Condition Multimodal Retrieval](../../CVPR2026/information_retrieval/beyond_global_similarity_towards_fine-grained_multi-condition_multimodal_retriev.md)
 - [Divide-Then-Align: Honest Alignment based on the Knowledge Boundary of RAG](../../ACL2025/information_retrieval/divide_then_align_rag_knowledge_boundary.md)
+- [Beyond Global Similarity: Towards Fine-Grained, Multi-Condition Multimodal Retrieval](../../CVPR2026/information_retrieval/beyond_global_similarity_towards_fine-grained_multi-condition_multimodal_retriev.md)
+- [To Lie or Not to Lie? Investigating The Biased Spread of Global Lies by LLMs](../../ACL2026/information_retrieval/to_lie_or_not_to_lie_investigating_the_biased_spread_of_global_lies_by_llms.md)
 - [GainRAG: Preference Alignment in Retrieval-Augmented Generation through Gain Signal Synthesis](../../ACL2025/information_retrieval/gainrag_preference_alignment.md)
-- [FAITH: Factuality Alignment through Integrating Trustworthiness and Honestness](../../ACL2026/information_retrieval/faith_factuality_alignment_through_integrating_trustworthiness_and_honestness.md)
 
 <!-- RELATED:END -->

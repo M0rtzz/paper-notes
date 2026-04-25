@@ -119,9 +119,9 @@ PlantInquiryVQA是评估基准。评估使用标准词汇指标（F1、BLEU-4、
 ## 相关论文
 
 - [Do Large Language Models Think Like the Brain? Sentence-Level Evidences from Layer-Wise Embeddings and fMRI](../../AAAI2026/medical_imaging/do_large_language_models_think_like_the_brain_sentence-level_evidences_from_laye.md)
+- [Dr. Assistant: Enhancing Clinical Diagnostic Inquiry via Structured Diagnostic Reasoning Data and Reinforcement Learning](dr_assistant_enhancing_clinical_diagnostic_inquiry_via_structured_diagnostic_rea.md)
 - [Elucidating the Design Space of Multimodal Protein Language Models](../../ICML2025/medical_imaging/elucidating_the_design_space_of_multimodal_protein_language_models.md)
 - [Multimodal Protein Language Models for Enzyme Kinetic Parameters: From Substrate Recognition to Conformational Adaptation](../../CVPR2026/medical_imaging/multimodal_protein_language_models_for_enzyme_kine.md)
-- [RePrompT: Recurrent Prompt Tuning for Integrating Structured EHR Encoders with Large Language Models](reprompt_recurrent_prompt_tuning_for_integrating_structured_ehr_encoders_with_la.md)
-- [MedKCO: Medical Vision-Language Pretraining via Knowledge-Driven Cognitive Orchestration](../../CVPR2026/medical_imaging/medkco_medical_vision-language_pretraining_via_knowledge-driven_cognitive_orches.md)
+- [Text-Attributed Knowledge Graph Enrichment with Large Language Models for Medical Concept Representation](text-attributed_knowledge_graph_enrichment_with_large_language_models_for_medica.md)
 
 <!-- RELATED:END -->

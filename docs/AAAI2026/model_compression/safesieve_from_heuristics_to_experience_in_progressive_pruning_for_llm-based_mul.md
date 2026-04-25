@@ -167,9 +167,9 @@ $$\hat{E}_{ij}(t) = \frac{E_{ij}(t) - \mu_t}{\sigma_t + \varepsilon}, \quad \hat
 ## 相关论文
 
 - [AgentODRL: A Large Language Model-based Multi-agent System for ODRL Generation](agentodrl_a_large_language_model-based_multi-agent_system_fo.md)
+- [MAGEO: From Experience to Skill — Multi-Agent Generative Engine Optimization via Reusable Strategy Learning](../../ACL2026/model_compression/from_experience_to_skill_multi-agent_generative_engine_optimization_via_reusable.md)
 - [Memory-Augmented LLM-based Multi-Agent System for Automated Feature Generation on Tabular Data](../../ACL2026/model_compression/memory-augmented_llm-based_multi-agent_system_for_automated_feature_generation_o.md)
 - [Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring](hierarchical_pedagogical_oversight_a_multi-agent_adversarial_framework_for_relia.md)
-- [Graph Counselor: Adaptive Graph Exploration via Multi-Agent Synergy to Enhance LLM Reasoning](../../ACL2025/model_compression/graph_counselor_multiagent_graphrag.md)
 - [InfoCom: Kilobyte-Scale Communication-Efficient Collaborative Perception with Information-Aware Feature Compression](infocom_kilobyte-scale_communication-efficient_collaborative_perception_with_inf.md)
 
 <!-- RELATED:END -->

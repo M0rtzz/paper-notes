@@ -150,6 +150,6 @@ R²ec相对最佳基线的提升：CDs上H@5提升63.7%，N@10提升72.3%；Inst
 - [Inference-Time Reward Hacking in Large Language Models](inference-time_reward_hacking_in_large_language_models.md)
 - [Radial Neighborhood Smoothing Recommender System](radial_neighborhood_smoothing_recommender_system.md)
 - [KERL: Knowledge-Enhanced Personalized Recipe Recommendation using Large Language Models](../../ACL2025/recommender/kerl_knowledge-enhanced_personalized_recipe_recommendation_using_large_language_.md)
-- [TraveLLaMA: A Multimodal Travel Assistant with Large-Scale Dataset and Structured Reasoning](../../AAAI2026/recommender/travellama_a_multimodal_travel_assistant_with_large-scale_dataset_and_structured.md)
+- [From Evaluation to Defense: Advancing Safety in Video Large Language Models](../../ICLR2026/recommender/from_evaluation_to_defense_advancing_safety_in_video_large_language_models.md)
 
 <!-- RELATED:END -->

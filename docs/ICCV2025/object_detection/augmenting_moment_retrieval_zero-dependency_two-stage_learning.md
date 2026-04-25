@@ -145,7 +145,7 @@ AMR 遵循标准的 DETR 框架流程：视频特征通过 CLIP + SlowFast 提�
 - [The Devil is in the Spurious Correlations: Boosting Moment Retrieval with Dynamic Learning](the_devil_is_in_the_spurious_correlations_boosting_moment_retrieval_with_dynamic.md)
 - [Beyond Caption-Based Queries for Video Moment Retrieval](../../CVPR2026/object_detection/beyond_caption-based_queries_for_video_moment_retrieval.md)
 - [UPRE: Zero-Shot Domain Adaptation for Object Detection via Unified Prompt and Representation Enhancement](upre_zero-shot_domain_adaptation_for_object_detection_via_unified_prompt_and_rep.md)
-- [Spherical Linear Interpolation and Text-Anchoring for Zero-shot Composed Image Retrieval](../../ECCV2024/object_detection/spherical_linear_interpolation_and_text-anchoring_for_zero-shot_composed_image_r.md)
 - [Advancing Textual Prompt Learning with Anchored Attributes](advancing_textual_prompt_learning_with_anchored_attributes.md)
+- [Spherical Linear Interpolation and Text-Anchoring for Zero-shot Composed Image Retrieval](../../ECCV2024/object_detection/spherical_linear_interpolation_and_text-anchoring_for_zero-shot_composed_image_r.md)
 
 <!-- RELATED:END -->

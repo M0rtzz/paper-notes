@@ -113,7 +113,7 @@ SATA作为即插即用模块应用于预训练ViT的推理阶段：(1) 从ViT的
 - [3DSRBench: A Comprehensive 3D Spatial Reasoning Benchmark](../../ICCV2025/llm_evaluation/3dsrbench_a_comprehensive_3d_spatial_reasoning_benchmark.md)
 - [On the Robustness Tradeoff in Fine-Tuning](../../ICCV2025/llm_evaluation/on_the_robustness_tradeoff_in_fine-tuning.md)
 - [Runtime Analysis of Evolutionary NAS for Multiclass Classification](../../ICML2025/llm_evaluation/runtime_analysis_of_evolutionary_nas_for_multiclass_classification.md)
-- [Beyond the Surface: Enhancing LLM-as-a-Judge Alignment with Human via Internal Representations](../../NeurIPS2025/llm_evaluation/beyond_the_surface_enhancing_llm-as-a-judge_alignment_with_human_via_internal_re.md)
 - [IBDR: Promoting Ensemble Diversity with Interactive Bayesian Distributional Robustness](../../ICML2025/llm_evaluation/promoting_ensemble_diversity_with_interactive_bayesian_distributional_robustness.md)
+- [Beyond the Surface: Enhancing LLM-as-a-Judge Alignment with Human via Internal Representations](../../NeurIPS2025/llm_evaluation/beyond_the_surface_enhancing_llm-as-a-judge_alignment_with_human_via_internal_re.md)
 
 <!-- RELATED:END -->

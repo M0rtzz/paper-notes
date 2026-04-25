@@ -160,6 +160,6 @@ tags:
 - [Cross-Domain Policy Optimization via Bellman Consistency and Hybrid Critics](cross-domain_policy_optimization_via_bellman_consistency_and_hybrid_critics.md)
 - [RuleReasoner: Reinforced Rule-based Reasoning via Domain-aware Dynamic Sampling](rulereasoner_reinforced_rule-based_reasoning_via_domain-aware_dynamic_sampling.md)
 - [FedDAP: Domain-Aware Prototype Learning for Federated Learning under Domain Shift](../../CVPR2026/human_understanding/feddap_domain-aware_prototype_learning_for_federated_learning_under_domain_shift.md)
-- [A Regularized Newton Method for Nonconvex Optimization with Global and Local Complexity Guarantees](../../NeurIPS2025/human_understanding/a_regularized_newton_method_for_nonconvex_optimization_with.md)
+- [FACTS: Table Summarization via Offline Template Generation with Agentic Workflows](../../ACL2026/human_understanding/facts_table_summarization_via_offline_template_generation_with_agentic_workflows.md)
 
 <!-- RELATED:END -->

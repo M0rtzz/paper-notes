@@ -197,7 +197,7 @@ $$\Pr(\mathbf{vCache}(x) = r(x) \mid \mathcal{D}) \ge 1 - \delta$$
 - [Spectral Attention Steering for Prompt Highlighting](spectral_attention_steering_for_prompt_highlighting.md)
 - [Prompt and Parameter Co-Optimization for Large Language Models](prompt_and_parameter_co-optimization_for_large_language_models.md)
 - [Supercharging Floorplan Localization with Semantic Rays](../../ICCV2025/llm_evaluation/supercharging_floorplan_localization_with_semantic_rays.md)
+- [PIArena: A Platform for Prompt Injection Evaluation](../../ACL2026/llm_evaluation/piarena_a_platform_for_prompt_injection_evaluation.md)
 - [Prompt and Parameter Co-Optimization for Large Language Model Task Adaptation](prompt_and_parameter_co-optimization_for_large_language_model_task_adaptation.md)
-- [RefineVAD: Semantic-Guided Feature Recalibration for Weakly Supervised Video Anomaly Detection](../../AAAI2026/llm_evaluation/refinevad_semantic-guided_feature_recalibration_for_weakly_supervised_video_anom.md)
 
 <!-- RELATED:END -->

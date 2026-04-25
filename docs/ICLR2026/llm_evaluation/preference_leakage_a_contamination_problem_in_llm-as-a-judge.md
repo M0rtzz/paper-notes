@@ -196,6 +196,6 @@ $$\text{PLS}(i,j) = \frac{\left(\frac{\text{WR}(i,i) - \text{AVG}(i,j)}{\text{AV
 - [LLM-as-a-Judge for Scalable Test Coverage Evaluation](../../AAAI2026/llm_evaluation/llm-as-a-judge_for_scalable_test_coverage_evaluation_accuracy_operational_reliab.md)
 - [YESciEval: Robust LLM-as-a-Judge for Scientific Question Answering](../../ACL2025/llm_evaluation/yescieval_llm_judge_science.md)
 - [Beyond the Surface: Enhancing LLM-as-a-Judge Alignment with Human via Internal Representations](../../NeurIPS2025/llm_evaluation/beyond_the_surface_enhancing_llm-as-a-judge_alignment_with_human_via_internal_re.md)
-- [Can External Validation Tools Improve Annotation Quality for LLM-as-a-Judge?](../../ACL2025/llm_evaluation/can_external_validation_tools_improve_annotation_quality_for_llm-as-a-judge.md)
+- [Unpacking Human Preference for LLMs: Demographically Aware Evaluation with the HUMAINE Framework](unpacking_human_preference_for_llms_demographically_aware_evaluation_of_long-fo.md)
 
 <!-- RELATED:END -->

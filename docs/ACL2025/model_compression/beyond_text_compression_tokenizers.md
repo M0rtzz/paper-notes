@@ -142,8 +142,8 @@ tags:
 
 - [APB: Accelerating Distributed Long-Context Inference by Passing Compressed Context Blocks across GPUs](apb_distributed_long_context.md)
 - [Beyond Logits: Aligning Feature Dynamics for Effective Knowledge Distillation](beyond_logits_aligning_feature_dynamics_for_effective_knowledge_distillation.md)
+- [Binary Quadratic Quantization: Beyond First-Order Quantization for Real-Valued Matrix Compression](../../NeurIPS2025/model_compression/binary_quadratic_quantization_beyond_first-order_quantization_for_real-valued_ma.md)
 - [Flipping Knowledge Distillation: Leveraging Small Models' Expertise to Enhance LLMs in Text Matching](flipping_kd_small_to_large.md)
 - [Text-to-LoRA: Instant Transformer Adaption](../../ICML2025/model_compression/text-to-lora_instant_transformer_adaption.md)
-- [Binary Quadratic Quantization: Beyond First-Order Quantization for Real-Valued Matrix Compression](../../NeurIPS2025/model_compression/binary_quadratic_quantization_beyond_first-order_quantization_for_real-valued_ma.md)
 
 <!-- RELATED:END -->

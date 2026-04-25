@@ -119,9 +119,9 @@ tags:
 ## 相关论文
 
 - [Improved Unbiased Watermark for Large Language Models](improved_unbiased_watermark_for_large_language.md)
+- [Topic-Based Watermarks for Large Language Models](../../ACL2026/ai_safety/topic-based_watermarks_for_large_language_models.md)
 - [MorphMark: Flexible Adaptive Watermarking for Large Language Models](morphmark_adaptive_watermarking.md)
 - [Improving Fairness of Large Language Models in Multi-document Summarization](improving_fairness_of_large_language_models_in_multi-document_summarization.md)
 - [The Tug of War Within: Mitigating the Fairness-Privacy Conflicts in Large Language Models](tug_of_war_fairness_privacy.md)
-- [From Trade-off to Synergy: A Versatile Symbiotic Watermarking Framework for Large Language Models](from_tradeoff_to_synergy_a_versatile.md)
 
 <!-- RELATED:END -->

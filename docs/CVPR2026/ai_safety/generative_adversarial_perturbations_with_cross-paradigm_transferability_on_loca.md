@@ -130,6 +130,6 @@ tags:
 - [Boosting Adversarial Transferability with Spatial Adversarial Alignment](../../NeurIPS2025/ai_safety/boosting_adversarial_transferability_with_spatial_adversarial_alignment.md)
 - [Enhancing Adversarial Transferability by Balancing Exploration and Exploitation with Gradient-Guided Sampling](../../ICCV2025/ai_safety/enhancing_adversarial_transferability_by_balancing_exploration_and_exploitation_.md)
 - [Rethinking Target Label Conditioning in Adversarial Attacks: A 2D Tensor-Guided Generative Approach](../../AAAI2026/ai_safety/rethinking_target_label_conditioning_in_adversarial_attacks_a_2d_tensor-guided_g.md)
-- [Identifying and Understanding Cross-Class Features in Adversarial Training](../../ICML2025/ai_safety/identifying_and_understanding_cross-class_features_in_adversarial_training.md)
+- [V-Attack: Targeting Disentangled Value Features for Controllable Adversarial Attacks on LVLMs](v-attack_targeting_disentangled_value_features_for_controllable_adversarial_atta.md)
 
 <!-- RELATED:END -->

@@ -121,6 +121,6 @@ COAP 通过观察投影矩阵间的高相关性，设计了一种高效的两阶
 - [Targeted Unlearning with Single Layer Unlearning Gradient](../../ICML2025/multimodal_vlm/targeted_unlearning_with_single_layer_unlearning_gradient.md)
 - [G2D: Boosting Multimodal Learning with Gradient-Guided Distillation](../../ICCV2025/multimodal_vlm/g2d_boosting_multimodal_learning_with_gradient-guided_distillation.md)
 - [Activating Distributed Visual Region within LLMs for Efficient and Effective Vision-Language Training and Inference](../../ACL2025/multimodal_vlm/activating_distributed_visual_region_within_llms_for_efficient_and_effective_vis.md)
-- [CoMemo: LVLMs Need Image Context with Image Memory](../../ICML2025/multimodal_vlm/comemo_lvlms_need_image_context_with_image_memory.md)
+- [Context-Aware Multimodal Pretraining](context-aware_multimodal_pretraining.md)
 
 <!-- RELATED:END -->

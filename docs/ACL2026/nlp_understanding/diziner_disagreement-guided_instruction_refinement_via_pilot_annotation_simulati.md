@@ -121,8 +121,8 @@ DiZiNER 无需任何参数更新。嵌入器训练使用对比损失。迭代精
 
 - [SLIMER: Show Less, Instruct More - Enriching Prompts with Definitions and Guidelines for Zero-Shot NER](../../ECCV2024/nlp_understanding/slimer_zero_shot_ner.md)
 - [Bilingual Zero-Shot Stance Detection](../../ACL2025/nlp_understanding/bilingual_zero-shot_stance_detection.md)
-- [iQUEST: An Iterative Question-Guided Framework for Knowledge Base Question Answering](../../ACL2025/nlp_understanding/iquest_an_iterative_question-guided_framework_for_knowledge_base_question_answer.md)
-- [Self-Critique Guided Iterative Reasoning for Multi-hop Question Answering](../../ACL2025/nlp_understanding/self-critique_guided_iterative_reasoning_for_multi-hop_question_answering.md)
-- [Understanding Syllogistic Reasoning in LLMs from Formal and Natural Language Perspectives](../../AAAI2026/nlp_understanding/understanding_syllogistic_reasoning_in_llms_from_formal_and_natural_language_per.md)
+- [Lost in the Prompt Order: Revealing the Limitations of Causal Attention in Language Models](lost_in_the_prompt_order_revealing_the_limitations_of_causal_attention_in_langua.md)
+- [It's High Time: A Survey of Temporal Question Answering](it39s_high_time_a_survey_of_temporal_question_answering.md)
+- [HCRE: LLM-based Hierarchical Classification for Cross-Document Relation Extraction](hcre_llm-based_hierarchical_classification_for_cross-document_relation_extractio.md)
 
 <!-- RELATED:END -->

@@ -125,10 +125,10 @@ tags:
 
 ## 相关论文
 
+- [Multilingual Language Models Encode Script Over Linguistic Structure](../../ACL2026/human_understanding/multilingual_language_models_encode_script_over_linguistic_structure.md)
 - [LLM Unlearning with LLM Beliefs](llm_unlearning_with_llm_beliefs.md)
 - [COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics](cold-steer_steering_large_language_models_via_in-context_one-step_learning_dynam.md)
 - [Partially Shared Concept Bottleneck Models](../../AAAI2026/human_understanding/partially_shared_concept_bottleneck_models.md)
 - [Rethinking Concept Bottleneck Models: From Pitfalls to Solutions](../../CVPR2026/human_understanding/rethinking_concept_bottleneck_models_from_pitfalls_to_solutions.md)
-- [Two is Better than One: Efficient Ensemble Defense for Robust and Compact Models](../../CVPR2025/human_understanding/two_is_better_than_one_efficient_ensemble_defense_for_robust_and_compact_models.md)
 
 <!-- RELATED:END -->

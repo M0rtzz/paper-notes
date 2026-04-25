@@ -149,6 +149,6 @@ $$\mathcal{L}_{overall} = \mathcal{L}_{point} + \lambda_5 \mathcal{L}_{APG}$$
 - [RecoverMark: Robust Watermarking for Localization and Recovery of Manipulated Faces](../../CVPR2026/human_understanding/recovermark_robust_watermarking_for_localization_and_recovery_of_manipulated_fac.md)
 - [ParTY: Part-Guidance for Expressive Text-to-Motion Synthesis](../../CVPR2026/human_understanding/party_part-guidance_for_expressive_text-to-motion_synthesis.md)
 - [What's Making That Sound Right Now? Video-centric Audio-Visual Localization](../../ICCV2025/human_understanding/whats_making_that_sound_right_now_video-centric_audio-visual_localization.md)
-- [Truly Self-Improving Agents Require Intrinsic Metacognitive Learning](../../ICML2025/human_understanding/truly_self-improving_agents_require_intrinsic_metacognitive_learning.md)
+- [SemGeoMo: Dynamic Contextual Human Motion Generation with Semantic and Geometric Guidance](../../CVPR2025/human_understanding/semgeomo_dynamic_contextual_human_motion_generation_with_semantic_and_geometric_.md)
 
 <!-- RELATED:END -->

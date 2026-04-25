@@ -1,14 +1,18 @@
 ---
 title: >-
-  ACL2026 其他方向 2篇论文解读
+  ACL2026 其他方向 3篇论文解读
 description: >-
-  2篇ACL2026 其他论文解读，主题涵盖：提出Edge-Eval框架，通过5个部署指标（经济、提出 PTE（Prefill Token等，每篇含核心思想与方法详解。
+  3篇ACL2026 其他论文解读，主题涵盖：将LiTEx推理分类法从"标签一致下的解释变异"扩、提出Edge-Eval框架，通过5个部署指标（经济、提出 PTE（Prefill Token等，每篇含核心思想与方法详解。
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**💬 ACL2026** · **2** 篇论文解读
+**💬 ACL2026** · **3** 篇论文解读
+
+**[Agree, Disagree, Explain: Decomposing Human Label Variation in NLI through the Lens of Explanations](agree_disagree_explain_decomposing_human_label_variation_in_nli_through_the_lens.md)**
+
+:   将LiTEx推理分类法从"标签一致下的解释变异"扩展到"标签不一致"场景，发现标注者可能标签不同但推理类似，推理类别的一致性比标签一致性更好地反映解释的语义相似度。
 
 **[Are Large Language Models Economically Viable for Industry Deployment?](are_large_language_models_economically_viable_for_industry_deployment.md)**
 

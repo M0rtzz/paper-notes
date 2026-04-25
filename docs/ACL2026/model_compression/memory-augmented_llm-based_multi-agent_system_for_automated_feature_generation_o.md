@@ -125,7 +125,7 @@ tags:
 - [AgentODRL: A Large Language Model-based Multi-agent System for ODRL Generation](../../AAAI2026/model_compression/agentodrl_a_large_language_model-based_multi-agent_system_fo.md)
 - [Human-LLM Collaborative Feature Engineering for Tabular Learning](../../ICLR2026/model_compression/human-llm_collaborative_feature_engineering_for_tabular_data.md)
 - [LightMem: Lightweight and Efficient Memory-Augmented Generation](../../ICLR2026/model_compression/lightmem_lightweight_and_efficient_memory-augmented_generation.md)
+- [Mem^p: Exploring Agent Procedural Memory](memp_exploring_agent_procedural_memory.md)
 - [Efficient Learned Data Compression via Dual-Stream Feature Decoupling](efficient_learned_data_compression_via_dual-stream_feature_decoupling.md)
-- [SafeSieve: From Heuristics to Experience in Progressive Pruning for LLM-based Multi-Agent Communication](../../AAAI2026/model_compression/safesieve_from_heuristics_to_experience_in_progressive_pruning_for_llm-based_mul.md)
 
 <!-- RELATED:END -->

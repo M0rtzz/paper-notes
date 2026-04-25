@@ -127,8 +127,8 @@ AMA（Attractive Metadata Attack）证明仅通过精心设计恶意工具的元
 
 ## 相关论文
 
-- [Distilling LLM Agent into Small Models with Retrieval and Code Tools](distilling_llm_agent_into_small_models_with_retrieval_and_co.md)
 - [LLM Agents Making Agent Tools](../../ACL2025/llm_agent/llm_agents_making_agent_tools.md)
+- [Distilling LLM Agent into Small Models with Retrieval and Code Tools](distilling_llm_agent_into_small_models_with_retrieval_and_co.md)
 - [It's LIT! Reliability-Optimized LLMs with Inspectable Tools](its_lit_reliability-optimized_llms_with_inspectable_tools.md)
 - [Agentic Reasoning: A Streamlined Framework for Enhancing LLM Reasoning with Agentic Tools](../../ACL2025/llm_agent/agentic_reasoning_tools.md)
 - [A-MEM: Agentic Memory for LLM Agents](a-mem_agentic_memory_for_llm_agents.md)

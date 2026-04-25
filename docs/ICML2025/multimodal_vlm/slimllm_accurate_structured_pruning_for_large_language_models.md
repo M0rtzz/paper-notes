@@ -124,6 +124,6 @@ SlimLLM的结构化剪枝可与SparseGPT等非结构化方法叠加——先移�
 - [NeedleInATable: Exploring Long-Context Capability of Large Language Models towards Long-Structured Tables](../../NeurIPS2025/multimodal_vlm/needleinatable_exploring_long-context_capability_of_large_language_models_toward.md)
 - [Token Pruning in Multimodal Large Language Models: Are We Solving the Right Problem?](../../ACL2025/multimodal_vlm/token_pruning_in_multimodal_large_language_models_are_we_solving_the_right_probl.md)
 - [Modality-Aware Neuron Pruning for Unlearning in Multimodal Large Language Models](../../ACL2025/multimodal_vlm/manu_modality_aware_unlearning.md)
-- [CoreMatching: A Co-adaptive Sparse Inference Framework with Token and Neuron Pruning for Comprehensive Acceleration of Vision-Language Models](corematching_a_co-adaptive_sparse_inference_framework_with_token_and_neuron_prun.md)
+- [Topology-Aware Layer Pruning for Large Vision-Language Models](../../ACL2026/multimodal_vlm/topology-aware_layer_pruning_for_large_vision-language_models.md)
 
 <!-- RELATED:END -->

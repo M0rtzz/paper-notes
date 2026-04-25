@@ -138,8 +138,8 @@ MAD 从无 CoT 到详细 CoT 下降了一个数量级以上，说明慢思考显
 ## 相关论文
 
 - [What Makes a Good Natural Language Prompt?](good_natural_language_prompt.md)
-- [LazyReview: A Dataset for Uncovering Lazy Thinking in NLP Peer Reviews](lazyreview_peer_review.md)
 - [Composing Linear Layers from Irreducibles](../../NeurIPS2025/llm_nlp/composing_linear_layers_from_irreducibles.md)
+- [LazyReview: A Dataset for Uncovering Lazy Thinking in NLP Peer Reviews](lazyreview_peer_review.md)
 - [GORP: Continual Gradient Low-Rank Projection Fine-Tuning for LLMs](gorp_continual_gradient_projection.md)
 - [Unlocking Recursive Thinking of LLMs: Alignment via Refinement](unlocking_recursive_thinking_of_llms_alignment_via_refinement.md)
 

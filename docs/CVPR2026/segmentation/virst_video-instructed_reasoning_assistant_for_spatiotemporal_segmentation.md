@@ -130,8 +130,8 @@ $L_{total} = \lambda_{bce} L_{bce} + \lambda_{dice} L_{dice} + \lambda_{token} L
 
 - [DPAD: Discriminative Perception via Anchored Description for Reasoning Segmentation](discriminative_perception_via_anchored_description_for_reasoning_segmentation.md)
 - [Online Reasoning Video Segmentation with Just-in-Time Digital Twins](../../ICCV2025/segmentation/online_reasoning_video_segmentation_with_just-in-time_digital_twins.md)
+- [TemporalVLM: Video LLMs for Temporal Reasoning in Long Videos](../../ACL2026/segmentation/temporalvlm_video_llms_for_temporal_reasoning_in_long_videos.md)
 - [Weakly-Supervised Referring Video Object Segmentation through Text Supervision](wsrvos_weakly_supervised_rvos.md)
 - [VISA: Reasoning Video Object Segmentation via Large Language Models](../../ECCV2024/segmentation/visa_reasoning_video_object_segmentation_via_large_language_models.md)
-- [Live Interactive Training for Video Segmentation](live_interactive_training_for_video_segmentation.md)
 
 <!-- RELATED:END -->

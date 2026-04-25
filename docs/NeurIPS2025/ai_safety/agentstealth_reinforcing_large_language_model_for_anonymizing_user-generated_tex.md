@@ -179,6 +179,6 @@ $$R = \alpha \cdot R_{anon} + \beta \cdot R_{utility} + \gamma \cdot R_{fluency}
 - [Adversarial Paraphrasing: A Universal Attack for Humanizing AI-Generated Text](adversarial_paraphrasing_a_universal_attack_for_humanizing_ai-generated_text.md)
 - [DNA-DetectLLM: Unveiling AI-Generated Text via a DNA-Inspired Mutation-Repair Paradigm](dna-detectllm_unveiling_ai-generated_text_via_a_dna-inspired_mutation-repair_par.md)
 - [PULSE: Practical Evaluation Scenarios for Large Multimodal Model Unlearning](pulse_practical_evaluation_scenarios_for_large_multimodal_model_unlearning.md)
-- [Merge Hijacking: Backdoor Attacks to Model Merging of Large Language Models](../../ACL2025/ai_safety/merge_hijacking_backdoor_attacks_to_model_merging_of_large_language_models.md)
+- [The Canary's Echo: Auditing Privacy Risks of LLM-Generated Synthetic Text](../../ICML2025/ai_safety/the_canarys_echo_auditing_privacy_risks_of_llm-generated_synthetic_text.md)
 
 <!-- RELATED:END -->

@@ -126,6 +126,6 @@ tags:
 - [Optimal and Practical Batched Linear Bandit Algorithm](optimal_and_practical_batched_linear_bandit_algorithm.md)
 - [Nearly-Optimal Bandit Learning in Stackelberg Games with Side Information](../../ICLR2026/reinforcement_learning/nearly-optimal_bandit_learning_in_stackelberg_games_with_side_information.md)
 - [Solving Zero-Sum Convex Markov Games](solving_zero-sum_convex_markov_games.md)
-- [Divide and Conquer: Grounding LLMs as Efficient Decision-Making Agents via Offline Hierarchical Reinforcement Learning](divide_and_conquer_grounding_llms_as_efficient_decision-making_agents_via_offlin.md)
+- [Diving into Self-Evolving Training for Multimodal Reasoning](diving_into_self-evolving_training_for_multimodal_reasoning.md)
 
 <!-- RELATED:END -->

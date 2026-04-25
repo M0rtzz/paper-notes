@@ -195,6 +195,6 @@ BoN@5 准确率对比（Llama-3.1-8B-Instruct）：
 - [Enhancing Mathematical Reasoning in LLMs by Stepwise Correction](enhancing_mathematical_reasoning_in_llms_by_stepwise_correction.md)
 - [Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models via a Multi-Paradigm Perspective](chain_of_reasoning_unified_math.md)
 - [ClozeMath: Improving Mathematical Reasoning in Language Models by Learning to Fill Equations](clozemath_improving_mathematical_reasoning_in_language_models_by_learning_to_fil.md)
-- [MM-Verify: Enhancing Multimodal Reasoning with Chain-of-Thought Verification](mm-verify_enhancing_multimodal_reasoning_with_chain-of-thought_verification.md)
+- [BPP-Search: Enhancing Tree of Thought Reasoning for Mathematical Modeling Problem Solving](bpp-search_enhancing_tree_of_thought_reasoning_for_mathematical_modeling_problem.md)
 
 <!-- RELATED:END -->

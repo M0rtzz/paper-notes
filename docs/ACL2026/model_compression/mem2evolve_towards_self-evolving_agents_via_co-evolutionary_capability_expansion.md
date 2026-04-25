@@ -118,10 +118,10 @@ Mem²Evolve 的核心是一个"前向推理 + 后向进化"的双阶段任务循
 
 ## 相关论文
 
+- [Mem^p: Exploring Agent Procedural Memory](memp_exploring_agent_procedural_memory.md)
 - [Condensed Data Expansion Using Model Inversion for Knowledge Distillation](../../AAAI2026/model_compression/condensed_data_expansion_using_model_inversion_for_knowledge_distillation.md)
-- [CLAG: Adaptive Memory Organization via Agent-Driven Clustering for Small Language Model Agents](clag_adaptive_memory_organization_via_agent-driven_clustering_for_small_language.md)
-- [ExGRPO: Learning to Reason from Experience](../../ICLR2026/model_compression/exgrpo_learning_to_reason_from_experience.md)
-- [HeurekaBench: A Benchmarking Framework for AI Co-scientist](../../ICLR2026/model_compression/heurekabench_a_benchmarking_framework_for_ai_co-scientist.md)
-- [IterResearch: Rethinking Long-Horizon Agents with Interaction Scaling](../../ICLR2026/model_compression/iterresearch_rethinking_long-horizon_agents_with_interaction_scaling.md)
+- [ChemAmp: Amplified Chemistry Tools via Composable Agents](chemamp_amplified_chemistry_tools_via_composable_agents.md)
+- [Enabling Agents to Communicate Entirely in Latent Space](enabling_agents_to_communicate_entirely_in_latent_space.md)
+- [Polynomial Expansion Rank Adaptation: Enhancing Low-Rank Fine-Tuning with High-Order Interactions](polynomial_expansion_rank_adaptation_enhancing_low-rank_fine-tuning_with_high-or.md)
 
 <!-- RELATED:END -->

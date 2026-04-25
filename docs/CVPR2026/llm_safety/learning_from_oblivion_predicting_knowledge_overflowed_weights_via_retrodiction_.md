@@ -175,7 +175,7 @@ KNOWN将masked accuracy从baseline提升约2.2%（39.38 vs ~37.2），证明在�
 - [The Blind Spot of Adaptation: Quantifying and Mitigating Forgetting in Fine-tuned Driving Models](blind_spot_of_adaptation_quantifying_and_mitigating_forgetting_in_fine_tuned_driving_models.md)
 - [Alleviating Hallucinations from Knowledge Misalignment in Large Language Models via Selective Abstention Learning](../../ACL2025/llm_safety/alleviating_hallucinations_from_knowledge_misalignment_in_large_language_models_.md)
 - [Elastic Weight Consolidation Done Right for Continual Learning](elastic_weight_consolidation_done_right_for_continual_learning.md)
-- [Unveiling and Addressing Pseudo Forgetting in Large Language Models](../../ACL2025/llm_safety/unveiling_and_addressing_pseudo_forgetting_in_large_language_models.md)
-- [Exploring Forgetting in Large Language Model Pre-Training](../../ACL2025/llm_safety/exploring_forgetting_in_large_language_model_pre-training.md)
+- [Masked by Consensus: Disentangling Privileged Knowledge in LLM Correctness](../../ACL2026/llm_safety/masked_by_consensus_disentangling_privileged_knowledge_in_llm_correctness.md)
+- [KoCo: Conditioning Language Model Pre-training on Knowledge Coordinates](../../ACL2026/llm_safety/koco_conditioning_language_model_pre-training_on_knowledge_coordinates.md)
 
 <!-- RELATED:END -->

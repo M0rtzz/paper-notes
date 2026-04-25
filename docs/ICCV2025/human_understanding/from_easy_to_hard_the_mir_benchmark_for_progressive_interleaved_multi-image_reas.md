@@ -130,7 +130,7 @@ Qwen2-VL 在 MIR 上的各阶段表现：
 - [RUBIK: A Structured Benchmark for Image Matching across Geometric Challenges](../../CVPR2025/human_understanding/rubik_a_structured_benchmark_for_image_matching_across_geometric_challenges.md)
 - [LVFace: Progressive Cluster Optimization for Large Vision Models in Face Recognition](lvface_progressive_cluster_optimization_for_large_vision_models_in_face_recognit.md)
 - [Face-Human-Bench: A Comprehensive Benchmark of Face and Human Understanding for Multi-modal Assistants](../../NeurIPS2025/human_understanding/face-human-bench_a_comprehensive_benchmark_of_face_and_human_understanding_for_m.md)
-- [MM-CondChain: A Programmatically Verified Benchmark for Visually Grounded Deep Compositional Reasoning](../../CVPR2025/human_understanding/mm-condchain_a_programmatically_verified_benchmark_for_visually_grounded_deep_co.md)
 - [LLaVA-ReID: Selective Multi-Image Questioner for Interactive Person Re-Identification](../../ICML2025/human_understanding/llava-reid_selective_multi-image_questioner_for_interactive_person_re-identifica.md)
+- [MM-CondChain: A Programmatically Verified Benchmark for Visually Grounded Deep Compositional Reasoning](../../CVPR2025/human_understanding/mm-condchain_a_programmatically_verified_benchmark_for_visually_grounded_deep_co.md)
 
 <!-- RELATED:END -->

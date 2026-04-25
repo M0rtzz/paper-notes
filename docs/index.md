@@ -1,6 +1,6 @@
 ---
-title: "AI 顶会论文解读 | 14000+篇深度笔记"
-description: "14000+篇AI、LLM、NLP、CV顶会论文解读，每篇5分钟读懂核心思想。覆盖ICLR、CVPR、ACL、NeurIPS、AAAI、ICCV、ECCV等10大会议46个研究领域，每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。"
+title: "AI 顶会论文解读 | 15000+篇深度笔记"
+description: "15000+篇AI、LLM、NLP、CV顶会论文解读，每篇5分钟读懂核心思想。覆盖ICLR、CVPR、ACL、NeurIPS、AAAI、ICCV、ECCV等10大会议46个研究领域，每篇笔记含一句话总结、背景动机、方法详解、实验数据、亮点洞察与局限性分析。"
 search:
   exclude: true
 hide:
@@ -17,7 +17,7 @@ hide:
 <p class="hero-subtitle">AI · LLM · NLP · CV 顶会论文解读，每篇 5 分钟读懂核心思想。<br>覆盖 ICLR · CVPR · ACL · NeurIPS · ICML · AAAI · ICCV · ECCV 等会议<br>持续更新中</p>
 
 <div class="hero-stats">
-<div class="stat"><span class="stat-number">14833</span><span class="stat-label">篇笔记</span></div>
+<div class="stat"><span class="stat-number">15282</span><span class="stat-label">篇笔记</span></div>
 <div class="stat"><span class="stat-number">10</span><span class="stat-label">个会议</span></div>
 <div class="stat"><span class="stat-number">46</span><span class="stat-label">个领域</span></div>
 </div>
@@ -32,83 +32,88 @@ hide:
 
 ### 💬 [ACL2026](ACL2026/index.md)
 
-<div class="conf-count">178 篇 · 36 个领域</div>
+<div class="conf-count">627 篇 · 41 个领域</div>
 
 <div class="area-groups">
 <div class="area-group">
 <div class="area-group-label">LLM</div>
 <div class="area-tags">
-<a class="area-tag" href="ACL2026/llm_agent/">LLM Agent 12</a>
-<a class="area-tag" href="ACL2026/llm_reasoning/">LLM推理 9</a>
-<a class="area-tag" href="ACL2026/llm_evaluation/">LLM评测 6</a>
-<a class="area-tag" href="ACL2026/llm_nlp/">LLM/NLP 6</a>
-<a class="area-tag" href="ACL2026/llm_efficiency/">LLM效率 3</a>
-<a class="area-tag" href="ACL2026/knowledge_editing/">知识编辑 1</a>
-<a class="area-tag" href="ACL2026/llm_alignment/">对齐/RLHF 1</a>
-<a class="area-tag" href="ACL2026/llm_pretraining/">预训练 1</a>
+<a class="area-tag" href="ACL2026/llm_agent/">LLM Agent 38</a>
+<a class="area-tag" href="ACL2026/llm_evaluation/">LLM评测 34</a>
+<a class="area-tag" href="ACL2026/llm_reasoning/">LLM推理 31</a>
+<a class="area-tag" href="ACL2026/llm_nlp/">LLM/NLP 25</a>
+<a class="area-tag" href="ACL2026/llm_alignment/">对齐/RLHF 8</a>
+<a class="area-tag" href="ACL2026/llm_efficiency/">LLM效率 7</a>
+<a class="area-tag" href="ACL2026/llm_safety/">LLM安全 7</a>
+<a class="area-tag" href="ACL2026/llm_pretraining/">预训练 5</a>
+<a class="area-tag" href="ACL2026/knowledge_editing/">知识编辑 4</a>
 </div>
 </div>
 <div class="area-group">
 <div class="area-group-label">生成与多模态</div>
 <div class="area-tags">
-<a class="area-tag" href="ACL2026/multimodal_vlm/">多模态VLM 16</a>
-<a class="area-tag" href="ACL2026/audio_speech/">音频/语音 4</a>
-<a class="area-tag" href="ACL2026/image_generation/">图像生成 3</a>
-<a class="area-tag" href="ACL2026/aigc_detection/">AIGC检测 2</a>
-<a class="area-tag" href="ACL2026/video_generation/">视频生成 1</a>
+<a class="area-tag" href="ACL2026/multimodal_vlm/">多模态VLM 46</a>
+<a class="area-tag" href="ACL2026/audio_speech/">音频/语音 21</a>
+<a class="area-tag" href="ACL2026/image_generation/">图像生成 11</a>
+<a class="area-tag" href="ACL2026/aigc_detection/">AIGC检测 8</a>
+<a class="area-tag" href="ACL2026/video_generation/">视频生成 3</a>
 </div>
 </div>
 <div class="area-group">
 <div class="area-group-label">NLP 应用</div>
 <div class="area-tags">
-<a class="area-tag" href="ACL2026/information_retrieval/">信息检索/RAG 12</a>
-<a class="area-tag" href="ACL2026/code_intelligence/">代码智能 6</a>
-<a class="area-tag" href="ACL2026/multilingual_mt/">多语言/翻译 3</a>
-<a class="area-tag" href="ACL2026/dialogue/">对话系统 1</a>
-<a class="area-tag" href="ACL2026/nlp_generation/">文本生成 1</a>
-<a class="area-tag" href="ACL2026/nlp_understanding/">NLP理解 1</a>
+<a class="area-tag" href="ACL2026/information_retrieval/">信息检索/RAG 37</a>
+<a class="area-tag" href="ACL2026/code_intelligence/">代码智能 22</a>
+<a class="area-tag" href="ACL2026/multilingual_mt/">多语言/翻译 18</a>
+<a class="area-tag" href="ACL2026/dialogue/">对话系统 9</a>
+<a class="area-tag" href="ACL2026/nlp_understanding/">NLP理解 4</a>
+<a class="area-tag" href="ACL2026/nlp_generation/">文本生成 2</a>
 </div>
 </div>
 <div class="area-group">
 <div class="area-group-label">视觉感知</div>
 <div class="area-tags">
-<a class="area-tag" href="ACL2026/human_understanding/">人体理解 10</a>
-<a class="area-tag" href="ACL2026/object_detection/">目标检测 10</a>
-<a class="area-tag" href="ACL2026/segmentation/">语义分割 2</a>
-<a class="area-tag" href="ACL2026/image_restoration/">图像恢复 1</a>
-<a class="area-tag" href="ACL2026/video_understanding/">视频理解 1</a>
+<a class="area-tag" href="ACL2026/human_understanding/">人体理解 39</a>
+<a class="area-tag" href="ACL2026/object_detection/">目标检测 18</a>
+<a class="area-tag" href="ACL2026/video_understanding/">视频理解 11</a>
+<a class="area-tag" href="ACL2026/image_restoration/">图像恢复 5</a>
+<a class="area-tag" href="ACL2026/segmentation/">语义分割 4</a>
+<a class="area-tag" href="ACL2026/remote_sensing/">遥感 1</a>
 </div>
 </div>
 <div class="area-group">
 <div class="area-group-label">决策与具身</div>
 <div class="area-tags">
-<a class="area-tag" href="ACL2026/reinforcement_learning/">强化学习 4</a>
-<a class="area-tag" href="ACL2026/recommender/">推荐系统 3</a>
-<a class="area-tag" href="ACL2026/robotics/">具身智能 1</a>
+<a class="area-tag" href="ACL2026/reinforcement_learning/">强化学习 29</a>
+<a class="area-tag" href="ACL2026/recommender/">推荐系统 12</a>
+<a class="area-tag" href="ACL2026/robotics/">具身智能 7</a>
 </div>
 </div>
 <div class="area-group">
 <div class="area-group-label">基础与理论</div>
 <div class="area-tags">
-<a class="area-tag" href="ACL2026/model_compression/">模型压缩 16</a>
-<a class="area-tag" href="ACL2026/interpretability/">可解释性 9</a>
-<a class="area-tag" href="ACL2026/causal_inference/">因果推理 4</a>
-<a class="area-tag" href="ACL2026/graph_learning/">图学习 2</a>
-<a class="area-tag" href="ACL2026/time_series/">时间序列 1</a>
+<a class="area-tag" href="ACL2026/model_compression/">模型压缩 45</a>
+<a class="area-tag" href="ACL2026/interpretability/">可解释性 30</a>
+<a class="area-tag" href="ACL2026/graph_learning/">图学习 8</a>
+<a class="area-tag" href="ACL2026/causal_inference/">因果推理 7</a>
+<a class="area-tag" href="ACL2026/time_series/">时间序列 5</a>
+<a class="area-tag" href="ACL2026/self_supervised/">自监督 2</a>
+<a class="area-tag" href="ACL2026/optimization/">优化/理论 1</a>
 </div>
 </div>
 <div class="area-group">
 <div class="area-group-label">科学与跨学科</div>
 <div class="area-tags">
-<a class="area-tag" href="ACL2026/medical_imaging/">医学图像 19</a>
-<a class="area-tag" href="ACL2026/ai_safety/">AI安全 3</a>
-<a class="area-tag" href="ACL2026/social_computing/">社会计算 1</a>
+<a class="area-tag" href="ACL2026/medical_imaging/">医学图像 38</a>
+<a class="area-tag" href="ACL2026/ai_safety/">AI安全 10</a>
+<a class="area-tag" href="ACL2026/social_computing/">社会计算 9</a>
+<a class="area-tag" href="ACL2026/signal_comm/">信号/通信 3</a>
 </div>
 </div>
 <div class="area-group">
 <div class="area-group-label">其他</div>
 <div class="area-tags">
-<a class="area-tag" href="ACL2026/others/">其他 2</a>
+<a class="area-tag" href="ACL2026/others/">其他 3</a>
 </div>
 </div>
 </div>

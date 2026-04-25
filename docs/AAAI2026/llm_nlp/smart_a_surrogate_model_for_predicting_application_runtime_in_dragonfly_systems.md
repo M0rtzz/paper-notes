@@ -180,6 +180,6 @@ Smart 虽最慢，但仍不到最短 PDES 迭代时间的 6.4%，相比最长仿
 - [Scalable and Accurate Graph Reasoning with LLM-Based Multi-Agents](scalable_and_accurate_graph_reasoning_with_llm-based_multi-agents.md)
 - [VSPO: Validating Semantic Pitfalls in Ontology via LLM-Based CQ Generation](vspo_validating_semantic_pitfalls_in_ontology_via_llm-based_cq_generation.md)
 - [ICL-Router: In-Context Learned Model Representations for LLM Routing](icl-router_in-context_learned_model_representations_for_llm_routing.md)
-- [SolverLLM: 通过LLM引导的搜索利用测试时缩放求解优化问题](../../NeurIPS2025/llm_nlp/solverllm_leveraging_test-time_scaling_for_optimization_problem_via_llm-guided_s.md)
+- [Detoxification for LLM from Dataset Itself](../../ACL2026/llm_nlp/detoxification_for_llm_from_dataset_itself.md)
 
 <!-- RELATED:END -->

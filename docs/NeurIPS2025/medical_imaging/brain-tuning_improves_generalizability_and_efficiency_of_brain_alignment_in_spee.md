@@ -137,6 +137,6 @@ tags:
 - [The Brain's Bitter Lesson: Scaling Speech Decoding With Self-Supervised Learning](../../ICML2025/medical_imaging/the_brains_bitter_lesson_scaling_speech_decoding_with_self-supervised_learning.md)
 - [Riemannian Flow Matching for Brain Connectivity Matrices via Pullback Geometry](riemannian_flow_matching_for_brain_connectivity_matrices_via_pullback_geometry.md)
 - [Brain Harmony: A Multimodal Foundation Model Unifying Morphology and Function into 1D Tokens](brain_harmony_a_multimodal_foundation_model_unifying_morphology_and_function_int.md)
-- [From Black Box to Biomarker: Sparse Autoencoders for Interpreting Speech Models of Parkinson's Disease](from_black_box_to_biomarker_sparse_autoencoders_for_interpreting_speech_models_o.md)
+- [DCA: Graph-Guided Deep Embedding Clustering for Brain Atlases](dca_graph-guided_deep_embedding_clustering_for_brain_atlases.md)
 
 <!-- RELATED:END -->

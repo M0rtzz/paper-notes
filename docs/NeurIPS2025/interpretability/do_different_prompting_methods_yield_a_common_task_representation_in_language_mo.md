@@ -154,9 +154,9 @@ tags:
 
 ## 相关论文
 
+- [SHAP Values via Sparse Fourier Representation](shap_values_via_sparse_fourier_representation.md)
 - [How Do Transformers Learn Implicit Reasoning?](how_do_transformers_learn_implicit_reasoning.md)
 - [Are Greedy Task Orderings Better Than Random in Continual Linear Regression?](are_greedy_task_orderings_better_than_random_in_continual_linear_regression.md)
-- [SHAP Values via Sparse Fourier Representation](shap_values_via_sparse_fourier_representation.md)
 - [Do Sparse Autoencoders Generalize? A Case Study of Answerability](../../ICML2025/interpretability/do_sparse_autoencoders_generalize_a_case_study_of_answerability.md)
 - [The Non-Linear Representation Dilemma: Is Causal Abstraction Enough for Mechanistic Interpretability?](the_non-linear_representation_dilemma_is_causal_abstraction_enough_for_mechanist.md)
 

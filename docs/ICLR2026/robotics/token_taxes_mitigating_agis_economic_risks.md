@@ -143,8 +143,8 @@ Token Tax 定义：应用于模型推理 token 的基于使用量的附加费（
 
 - [Let's Think in Two Steps: Mitigating Agreement Bias in MLLMs with Self-Grounded Verification](lets_think_in_two_steps_mitigating_agreement_bias_in_mllms_with_self-grounded_ve.md)
 - [An Economic Framework for 6-DoF Grasp Detection](../../ECCV2024/robotics/an_economic_framework_for_6-dof_grasp_detection.md)
-- [Unintended Misalignment from Agentic Fine-Tuning: Risks and Mitigation](../../AAAI2026/robotics/unintended_misalignment_from_agentic_fine-tuning_risks_and_m.md)
 - [Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs](../../NeurIPS2025/robotics/toward_engineering_agi_benchmarking_the_engineering_design_capabilities_of_llms.md)
-- [Characterizing AI Manipulation Risks in Brazilian YouTube Climate Discourse](../../AAAI2026/robotics/characterizing_ai_manipulation_risks_in_brazilian_youtube_climate_discourse.md)
+- [Unintended Misalignment from Agentic Fine-Tuning: Risks and Mitigation](../../AAAI2026/robotics/unintended_misalignment_from_agentic_fine-tuning_risks_and_m.md)
+- [Explaining and Mitigating Crosslingual Tokenizer Inequities](../../NeurIPS2025/robotics/explaining_and_mitigating_crosslingual_tokenizer_inequities.md)
 
 <!-- RELATED:END -->

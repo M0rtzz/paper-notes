@@ -123,6 +123,6 @@ UIS-Digger 是**四 Agent 协作系统**，基于 ReAct 范式通过请求-响�
 - [A Real-world Display Inverse Rendering Dataset](../../ICCV2025/llm_evaluation/a_realworld_display_inverse_rendering_dataset.md)
 - [Which LLM Multi-Agent Protocol to Choose?](which_llm_multi-agent_protocol_to_choose.md)
 - [TripTailor: A Real-World Benchmark for Personalized Travel Planning](../../ACL2025/llm_evaluation/triptailor_a_real-world_benchmark_for_personalized_travel_planning.md)
-- [Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis](talk_evaluate_diagnose_user-aware_agent_evaluation_with_automated_error_analysis.md)
+- [AnesSuite: A Comprehensive Benchmark and Dataset Suite for Anesthesiology Reasoning](anessuite_a_comprehensive_benchmark_and_dataset_suite_for_anesthesiology_reasoni.md)
 
 <!-- RELATED:END -->

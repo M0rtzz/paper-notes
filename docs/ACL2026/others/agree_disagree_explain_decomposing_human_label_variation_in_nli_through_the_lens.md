@@ -1,3 +1,17 @@
+---
+title: >-
+  [论文解读] Agree, Disagree, Explain: Decomposing Human Label Variation in NLI through the Lens of Explanations
+description: >-
+  [ACL 2026][标注分歧] 将LiTEx推理分类法从"标签一致下的解释变异"扩展到"标签不一致"场景，发现标注者可能标签不同但推理类似，推理类别的一致性比标签一致性更好地反映解释的语义相似度。
+tags:
+  - ACL 2026
+  - 标注分歧
+  - 自然语言推理
+  - LiTEx分类法
+  - 推理策略
+  - 人类标注变异
+---
+
 # Agree, Disagree, Explain: Decomposing Human Label Variation in NLI through the Lens of Explanations
 
 **会议**: ACL 2026  
@@ -57,6 +71,7 @@
 ## 实验关键数据
 
 ### 主实验
+
 | 数据集 | 标注数量 | κ值 | 主要发现 |
 |--------|---------|-----|---------|
 | e-SNLI | 原有标注 | - | 推理知识和信息缺失是主要类别 |
@@ -64,6 +79,7 @@
 | VariErr | 1933对 | 0.792 | 信息缺失是最频繁类别 |
 
 ### 关键发现
+
 | 发现 | 说明 |
 |------|------|
 | 标签不一致但推理一致 | 标注者用相同推理策略但得出不同标签，说明分歧在判断而非理解 |
@@ -98,3 +114,15 @@
 - 实验充分度: ⭐⭐⭐ 分析深入但规模较小
 - 写作质量: ⭐⭐⭐⭐ 案例说明清晰，分析层次分明
 - 价值: ⭐⭐⭐⭐ 对标注流程和数据质量研究有重要启示
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [Improving Decision Trees through the Lens of Parameterized Local Search](../../NeurIPS2025/others/improving_decision_trees_through_the_lens_of_parameterized_local_search.md)
+- [How Hard is it to Explain Preferences Using Few Boolean Attributes?](../../AAAI2026/others/how_hard_is_it_to_explain_preferences_using_few_boolean_attributes.md)
+- [Formal Abductive Latent Explanations for Prototype-Based Networks](../../AAAI2026/others/formal_abductive_latent_explanations_for_prototype-based_networks.md)
+- [LayerD: Decomposing Raster Graphic Designs into Layers](../../ICCV2025/others/layerd_decomposing_raster_graphic_designs_into_layers.md)
+- [Entailed Between the Lines: Incorporating Implication into NLI](../../ACL2025/others/entailed_between_the_lines_incorporating_implication_into_nli.md)
+
+<!-- RELATED:END -->

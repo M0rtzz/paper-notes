@@ -114,7 +114,7 @@ tags:
 - [Scalable Fingerprinting of Large Language Models](scalable_fingerprinting_of_large_language_models.md)
 - [The Curse of Depth in Large Language Models](the_curse_of_depth_in_large_language_models.md)
 - [Superposition Yields Robust Neural Scaling](superposition_yields_robust_neural_scaling.md)
-- [Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](retrospective_incontext_learning_for_temporal_credit_assignm.md)
 - [Gemstones: A Model Suite for Multi-Faceted Scaling Laws](gemstones_a_model_suite_for_multi-faceted_scaling_laws.md)
+- [Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models](retrospective_incontext_learning_for_temporal_credit_assignm.md)
 
 <!-- RELATED:END -->

@@ -1,0 +1,128 @@
+---
+title: >-
+  [论文解读] Anonpsy: A Graph-Based Framework for Structure-Preserving De-identification of Psychiatric Narratives
+description: >-
+  [ACL 2026][医学图像][去标识化] 提出Anonpsy框架，将精神科叙事的去标识化重新定义为图引导的语义重写问题——先将叙事转换为语义图，在图上进行受约束的扰动以修改身份信息同时保持临床结构，最后通过图条件生成重建叙事。
+tags:
+  - ACL 2026
+  - 医学图像
+  - 去标识化
+  - 精神科叙事
+  - 语义图
+  - 结构保持
+  - LLM生成
+---
+
+# Anonpsy: A Graph-Based Framework for Structure-Preserving De-identification of Psychiatric Narratives
+
+**会议**: ACL 2026  
+**arXiv**: [2601.13503](https://arxiv.org/abs/2601.13503)  
+**代码**: 无  
+**领域**: Clinical NLP / Privacy  
+**关键词**: 去标识化, 精神科叙事, 语义图, 结构保持, LLM生成
+
+## 一句话总结
+
+提出Anonpsy框架，将精神科叙事的去标识化重新定义为图引导的语义重写问题——先将叙事转换为语义图，在图上进行受约束的扰动以修改身份信息同时保持临床结构，最后通过图条件生成重建叙事。
+
+## 研究背景与动机
+
+**领域现状**：精神科叙事包含丰富的临床信息（症状时间线、因果关系、诊断逻辑），对下游诊断预测等任务至关重要，但也嵌入了大量患者身份信息。
+
+**现有痛点**：(1) Token级PHI掩码保留临床结构但语义相似度过高，残余再识别风险大；(2) LLM-based合成数据创建（SDC）降低了可识别性但不受控地扭曲了临床结构——如将被害妄想改为夸大妄想；(3) 两种方法都将文本视为无结构序列，忽略了精神科叙事中的关系和时间依赖。
+
+**核心矛盾**：在精神科叙事中，可识别性来源于叙事结构本身（特异性生活事件、时间线）而非仅显式标识符。需要同时修改身份信息和保持临床结构——这对文本级方法是根本性矛盾。
+
+**本文目标**：将去标识化重新定义为结构保持的生成问题，在中间图表示上实现精细控制。
+
+**切入角度**：将叙事转换为包含临床实体、时间锚点和类型关系的语义图，在图上进行受约束的扰动。
+
+**核心 idea**：通过解耦事件结构和表面文本，可以在图级别精确控制哪些保留、哪些修改，再从修改后的图重新生成连贯叙事。
+
+## 方法详解
+
+### 整体框架
+
+三步流程：(1) 语义图转换 $G = \mathcal{E}(X)$ ——用LLM辅助的schema约束转换将叙事转为语义图；(2) 图约束扰动 $\tilde{G} = \mathcal{P}(G)$ ——修改上下文属性但保持时间、因果、诊断结构；(3) 图条件文本生成 $\hat{X} = \mathcal{D}(\tilde{G})$ ——从修改后的图生成去标识叙事。
+
+### 关键设计
+
+1. **语义图表示**:
+
+    - 功能：提供可编辑的中间表示，解耦结构与内容
+    - 核心思路：节点V为临床实体（症状、治疗、诊断），边E为类型关系（诊断依赖、因果关系、时间序列）。使用schema约束的LLM提取
+    - 设计动机：图表示使"保留什么、修改什么"变得可控——修改人口学属性同时保持症状-诊断关系
+
+2. **图约束扰动**:
+
+    - 功能：修改可识别信息同时保持临床逻辑
+    - 核心思路：选择性修改上下文属性（如年龄、职业、具体生活事件），同时保持时间偏移关系和因果/诊断边不变
+    - 设计动机：精神科诊断依赖于症状的时间发展顺序和因果关系，这些不能被扰动
+
+3. **图条件文本生成**:
+
+    - 功能：从修改后的图生成连贯的去标识叙事
+    - 核心思路：以修改后的语义图为条件，使用本地部署的LLM生成新叙事。较低温度用于schema提取和叙事生成（稳定性），较高温度用于扰动（多样性）
+    - 设计动机：全部使用本地LLM（gpt-oss:120b），因为临床隐私环境通常禁止云API
+
+### 损失函数 / 训练策略
+
+无需训练，三个算子（转换、扰动、生成）均通过prompt工程和确定性控制流实现。所有LLM处理在4块RTX A6000上本地运行。
+
+## 实验关键数据
+
+### 主实验
+
+| 方法 | 诊断保真度(F1) | 可识别性(cosine sim) | 说明 |
+|------|--------------|---------------------|------|
+| PHI掩码 | 高 | 高(危险) | 结构完整但可追溯 |
+| LLM-SDC | 低(语义漂移) | 低 | 安全但临床失真 |
+| Anonpsy | 高 | 低 | 两者平衡 |
+
+### 消融实验
+
+| 配置 | 关键指标 | 说明 |
+|------|---------|------|
+| 无图扰动 | 可识别性高 | 结构不变则高度可追溯 |
+| 无结构约束 | 诊断F1降低 | 自由重写损害临床意义 |
+| 专家评估 | 低再识别风险 | 精神科医生无法追溯原始案例 |
+| GPT-5评估 | 低语义相似度 | 自动化评估与人工一致 |
+
+### 关键发现
+- Anonpsy在隐私保护-临床保真度的trade-off中占据最佳位置
+- 图中间表示使得"修改什么"变得透明可控
+- 专家评估确认去标识后的叙事保持了原始的诊断逻辑
+
+## 亮点与洞察
+- 将去标识化从"文本处理"提升到"结构感知生成"的范式转变
+- 语义图表示使临床人员可以检查和干预修改过程
+- 完全本地部署保证了真实临床环境的可用性
+
+## 局限与展望
+- 仅在90个精神科案例上测试，规模较小
+- 语义图的提取质量依赖LLM能力
+- 目前仅针对精神科叙事，其他临床专科的适用性未验证
+- 未来可扩展到多语言和更大规模的临床数据
+
+## 相关工作与启发
+- **vs PHI掩码**: 在语义层面而非token层面操作，更彻底地消除可识别信息
+- **vs LLM-SDC**: 通过图约束控制重写范围，避免不受控的语义漂移
+- **vs 知识图谱方法**: 不用于检索或推理，而是用于控制生成，是KG的新用途
+
+## 评分
+- 新颖性: ⭐⭐⭐⭐⭐ 图引导的去标识化是全新范式
+- 实验充分度: ⭐⭐⭐ 数据规模小但评估维度全面
+- 写作质量: ⭐⭐⭐⭐ 问题定义清晰，方法形式化严谨
+- 价值: ⭐⭐⭐⭐⭐ 对临床NLP隐私保护有重要实际意义
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [RedactX: An LLM-Powered Framework for Automatic Clinical Data De-Identification](../../ACL2025/medical_imaging/redactor_an_llm-powered_framework_for_automatic_clinical_data_de-identification.md)
+- [Region-Grounded Report Generation for 3D Medical Imaging: A Fine-Grained Dataset and Graph-Enhanced Framework](region-grounded_report_generation_for_3d_medical_imaging_a_fine-grained_dataset_.md)
+- [LogosKG: Hardware-Optimized Scalable and Interpretable Knowledge Graph Retrieval](logoskg_hardware-optimized_scalable_and_interpretable_knowledge_graph_retrieval.md)
+- [Text-Attributed Knowledge Graph Enrichment with Large Language Models for Medical Concept Representation](text-attributed_knowledge_graph_enrichment_with_large_language_models_for_medica.md)
+- [Learning with Preserving for Continual Multitask Learning](../../AAAI2026/medical_imaging/learning_with_preserving_for_continual_multitask_learning.md)
+
+<!-- RELATED:END -->

@@ -6,7 +6,7 @@
 [![Last Commit](https://img.shields.io/github/last-commit/zhaoyang97/Paper-Notes?label=最近更新)](https://github.com/zhaoyang97/Paper-Notes/commits) -->
 
 **5 分钟读懂一篇顶会论文，一个仓库读懂最新 AI 进展。**
-- 📖 **14,000+** 篇 AI · LLM · NLP · CV 顶会论文解读
+- 📖 **15,000+** 篇 AI · LLM · NLP · CV 顶会论文解读
 - 🏛️ 覆盖 ACL · CVPR · ICLR · AAAI · NeurIPS · ICCV · ICML · ECCV 等会议
 - 🔬 横跨 LLM Reasoning · VLM · Agent · RLHF · RAG · AIGC · Robotics · Autonomous Driving 等46个研究方向
 - 🔄 持续更新中
@@ -28,16 +28,16 @@
 
 | 会议 | 笔记数 |
 |------|-------:|
-| ACL 2026 | 208 |
-| CVPR 2026 | 1,691 |
-| ICLR 2026 | 1,521 |
-| AAAI 2026 | 1,343 |
-| NeurIPS 2025 | 2,547 |
-| ICCV 2025 | 1,314 |
-| ACL 2025 | 1,573 |
-| ICML 2025 | 1,066 |
-| CVPR 2025 | 1,692 |
-| ECCV 2024 | 879 |
+| ACL 2026 | 627 |
+| CVPR 2026 | 1,932 |
+| ICLR 2026 | 1,578 |
+| AAAI 2026 | 1,391 |
+| NeurIPS 2025 | 2,556 |
+| ICCV 2025 | 1,406 |
+| ACL 2025 | 1,903 |
+| ICML 2025 | 1,076 |
+| CVPR 2025 | 1,837 |
+| ECCV 2024 | 976 |
 
 ## 🗓️ 更新路线图
 
@@ -55,52 +55,52 @@
 
 | 文件夹 | 领域 | 笔记数 |
 |--------|------|-------:|
-| `3d_vision/` | 🧊 3D 视觉 | 1,317 |
-| `ai_safety/` | 🛡️ AI 安全/隐私 | 384 |
-| `aigc_detection/` | 🔎 AIGC 检测 | 30 |
-| `audio_speech/` | 🎵 音频/语音 | 180 |
-| `autonomous_driving/` | 🚗 自动驾驶 | 462 |
-| `causal_inference/` | 🔗 因果推理 | 89 |
-| `code_intelligence/` | 💻 代码智能 | 85 |
-| `dialogue/` | 🗣️ 对话系统 | 29 |
+| `3d_vision/` | 🧊 3D 视觉 | 1,390 |
+| `ai_safety/` | 🛡️ AI 安全/隐私 | 421 |
+| `aigc_detection/` | 🔎 AIGC 检测 | 45 |
+| `audio_speech/` | 🎵 音频/语音 | 215 |
+| `autonomous_driving/` | 🚗 自动驾驶 | 499 |
+| `causal_inference/` | 🔗 因果推理 | 101 |
+| `code_intelligence/` | 💻 代码智能 | 117 |
+| `dialogue/` | 🗣️ 对话系统 | 43 |
 | `earth_science/` | 🌍 地球科学 | 7 |
-| `graph_learning/` | 🕸️ 图学习 | 179 |
-| `human_understanding/` | 🧑 人体理解 | 529 |
-| `image_generation/` | 🎨 图像生成 | 1,380 |
-| `image_restoration/` | 🖼️ 图像恢复 | 182 |
-| `information_retrieval/` | 🔍 信息检索/RAG | 198 |
-| `interpretability/` | 🔬 可解释性 | 279 |
-| `knowledge_editing/` | ✏️ 知识编辑 | 40 |
-| `llm_agent/` | 🦾 LLM Agent | 224 |
-| `llm_alignment/` | ⚖️ 对齐/RLHF | 223 |
-| `llm_efficiency/` | ⚡ LLM 效率 | 154 |
-| `llm_evaluation/` | 📊 LLM 评测 | 339 |
-| `llm_nlp/` | 💬 LLM/NLP (其他) | 484 |
-| `llm_pretraining/` | 📚 预训练 | 162 |
-| `llm_reasoning/` | 💡 LLM 推理 | 231 |
-| `llm_safety/` | 🔒 LLM 安全 | 84 |
-| `medical_imaging/` | 🏥 医学图像 | 704 |
-| `model_compression/` | 📦 模型压缩 | 597 |
-| `multilingual_mt/` | 🌐 多语言/翻译 | 106 |
-| `multimodal_vlm/` | 🧩 多模态 VLM | 976 |
-| `nlp_generation/` | ✍️ 文本生成 | 31 |
-| `nlp_understanding/` | 📖 NLP 理解 | 30 |
-| `object_detection/` | 🎯 目标检测 | 320 |
-| `optimization/` | 📐 优化/理论 | 260 |
-| `physics/` | ⚛️ 物理学 | 32 |
-| `recommender/` | 🎁 推荐系统 | 79 |
-| `reinforcement_learning/` | 🎮 强化学习 | 474 |
-| `remote_sensing/` | 🛰️ 遥感 | 74 |
-| `robotics/` | 🤖 具身智能 | 258 |
-| `scientific_computing/` | 🧮 科学计算 | 52 |
-| `segmentation/` | ✂️ 语义分割 | 427 |
-| `self_supervised/` | 🔄 自监督 | 145 |
-| `signal_comm/` | 📡 信号/通信 | 48 |
-| `social_computing/` | 👥 社会计算 | 76 |
-| `time_series/` | 📈 时间序列 | 159 |
-| `video_generation/` | 🎬 视频生成 | 250 |
-| `video_understanding/` | 📹 视频理解 | 384 |
-| `others/` | 📂 其他 | 862 |
+| `graph_learning/` | 🕸️ 图学习 | 194 |
+| `human_understanding/` | 🧑 人体理解 | 601 |
+| `image_generation/` | 🎨 图像生成 | 1,489 |
+| `image_restoration/` | 🖼️ 图像恢复 | 212 |
+| `information_retrieval/` | 🔍 信息检索/RAG | 257 |
+| `interpretability/` | 🔬 可解释性 | 326 |
+| `knowledge_editing/` | ✏️ 知识编辑 | 46 |
+| `llm_agent/` | 🦾 LLM Agent | 301 |
+| `llm_alignment/` | ⚖️ 对齐/RLHF | 259 |
+| `llm_efficiency/` | ⚡ LLM 效率 | 173 |
+| `llm_evaluation/` | 📊 LLM 评测 | 407 |
+| `llm_nlp/` | 💬 LLM/NLP (其他) | 595 |
+| `llm_pretraining/` | 📚 预训练 | 186 |
+| `llm_reasoning/` | 💡 LLM 推理 | 295 |
+| `llm_safety/` | 🔒 LLM 安全 | 106 |
+| `medical_imaging/` | 🏥 医学图像 | 775 |
+| `model_compression/` | 📦 模型压缩 | 678 |
+| `multilingual_mt/` | 🌐 多语言/翻译 | 142 |
+| `multimodal_vlm/` | 🧩 多模态 VLM | 1,141 |
+| `nlp_generation/` | ✍️ 文本生成 | 37 |
+| `nlp_understanding/` | 📖 NLP 理解 | 46 |
+| `object_detection/` | 🎯 目标检测 | 359 |
+| `optimization/` | 📐 优化/理论 | 261 |
+| `physics/` | ⚛️ 物理学 | 33 |
+| `recommender/` | 🎁 推荐系统 | 97 |
+| `reinforcement_learning/` | 🎮 强化学习 | 520 |
+| `remote_sensing/` | 🛰️ 遥感 | 79 |
+| `robotics/` | 🤖 具身智能 | 281 |
+| `scientific_computing/` | 🧮 科学计算 | 53 |
+| `segmentation/` | ✂️ 语义分割 | 460 |
+| `self_supervised/` | 🔄 自监督 | 152 |
+| `signal_comm/` | 📡 信号/通信 | 52 |
+| `social_computing/` | 👥 社会计算 | 93 |
+| `time_series/` | 📈 时间序列 | 172 |
+| `video_generation/` | 🎬 视频生成 | 275 |
+| `video_understanding/` | 📹 视频理解 | 435 |
+| `others/` | 📂 其他 | 928 |
 
 ## 📂 目录结构
 

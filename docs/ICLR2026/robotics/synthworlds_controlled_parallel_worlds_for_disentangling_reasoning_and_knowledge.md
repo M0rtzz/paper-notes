@@ -158,9 +158,9 @@ SynthWorlds 的生成流程分为三个阶段：
 ## 相关论文
 
 - [ExoPredicator: Learning Abstract Models of Dynamic Worlds for Robot Planning](exopredicator_learning_abstract_models_of_dynamic_worlds_for_robot_planning.md)
+- [Reasoning Hijacking: The Fragility of Reasoning Alignment in Large Language Models](../../ACL2026/robotics/reasoning_hijacking_the_fragility_of_reasoning_alignment_in_large_language_model.md)
 - [Experience-based Knowledge Correction for Robust Planning in Minecraft](experience-based_knowledge_correction_for_robust_planning_in_minecraft.md)
-- [JULI: Jailbreak Large Language Models by Self-Introspection](juli_jailbreak_large_language_models_by_self-introspection.md)
 - [RoboPARA: Dual-Arm Robot Planning with Parallel Allocation and Recomposition Across Tasks](robopara_dual-arm_robot_planning_with_parallel_allocation_and_recomposition_acro.md)
-- [Sysformer: Safeguarding Frozen Large Language Models with Adaptive System Prompts](sysformer_safeguarding_frozen_large_language_models_with_adaptive_system_prompts.md)
+- [JULI: Jailbreak Large Language Models by Self-Introspection](juli_jailbreak_large_language_models_by_self-introspection.md)
 
 <!-- RELATED:END -->

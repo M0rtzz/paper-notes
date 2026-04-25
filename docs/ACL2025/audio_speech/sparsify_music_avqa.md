@@ -120,10 +120,10 @@ AV QA 提升最显著（+12.41 vs DG-SCT）
 
 ## 相关论文
 
+- [Music Audio-Visual Question Answering Requires Specialized Multimodal Designs](../../ACL2026/audio_speech/music_audio-visual_question_answering_requires_specialized_multimodal_designs.md)
 - [Ethics Statements in AI Music Papers: The Effective and the Ineffective](../../NeurIPS2025/audio_speech/ethics_statements_in_ai_music_papers_the_effective_and_the_ineffective.md)
+- [Jamendo-MT-QA: A Benchmark for Multi-Track Comparative Music Question Answering](../../ACL2026/audio_speech/jamendo-mt-qa_a_benchmark_for_multi-track_comparative_music_question_answering.md)
 - [Query-Guided Spatial-Temporal-Frequency Interaction for Music Audio-Visual Question Answering](../../ICLR2026/audio_speech/query-guided_spatial-temporal-frequency_interaction_for_music_audio-visual_quest.md)
-- [ViDscribe: Multimodal AI for Customizing Audio Description and Question Answering in Online Videos](../../CVPR2026/audio_speech/vidscribe_multimodal_ai_for_customizing_audio_description_and_question_answering.md)
-- [CLaMP 3: Universal Music Information Retrieval Across Unaligned Modalities and Unseen Languages](clamp_3_universal_music_information_retrieval_across_unaligned_modalities_and_un.md)
 - [Spark-TTS: An Efficient LLM-Based Text-to-Speech Model with Single-Stream Decoupled Speech Tokens](spark-tts_an_efficient_llm-based_text-to-speech_model_with_single-stream_decoupl.md)
 
 <!-- RELATED:END -->

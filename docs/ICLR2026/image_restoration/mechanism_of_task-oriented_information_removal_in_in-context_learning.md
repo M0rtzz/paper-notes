@@ -181,6 +181,6 @@ tags:
 - [ProtoTS: Learning Hierarchical Prototypes for Explainable Time Series Forecasting](protots_learning_hierarchical_prototypes_for_explainable_time_series_forecasting.md)
 - [Winner of CVPR2026 NTIRE Challenge on Image Shadow Removal: Semantic and Geometric Guidance for Shadow Removal via Cascaded Refinement](../../CVPR2026/image_restoration/shadow_removal_cascaded_refinement.md)
 - [Flickerformer: A Duet of Periodicity and Directionality for Burst Flicker Removal](../../CVPR2026/image_restoration/it_takes_two_a_duet_of_periodicity_and_directionality_for_burst_flicker_removal.md)
-- [Exploiting Diffusion Prior for Task-driven Image Restoration](../../ICCV2025/image_restoration/exploiting_diffusion_prior_for_task-driven_image_restoration.md)
+- [Learning to Extract Rational Evidence via Reinforcement Learning for Retrieval-Augmented Generation](../../ACL2026/image_restoration/learning_to_extract_rational_evidence_via_reinforcement_learning_for_retrieval-a.md)
 
 <!-- RELATED:END -->

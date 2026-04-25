@@ -218,8 +218,8 @@ $$\hat{\mathbf{W}}_i = \mathbf{W}_i + \mathbf{e}_t(t_i)$$
 
 - [Quantifying Conversational Reliability of Large Language Models under Multi-Turn Interaction](quantifying_conversational_reliability_of_large_language_models_under_multi-turn.md)
 - [Causality Matters: How Temporal Information Emerges in Video Language Models](causality_matters_how_temporal_information_emerges_in_video_language_models.md)
-- [Video Finetuning Improves Reasoning Between Frames](../../NeurIPS2025/video_understanding/video_finetuning_improves_reasoning_between_frames.md)
 - [On the Consistency of Video Large Language Models in Temporal Comprehension](../../CVPR2025/video_understanding/on_the_consistency_of_video_large_language_models_in_temporal_comprehension.md)
+- [Video Finetuning Improves Reasoning Between Frames](../../NeurIPS2025/video_understanding/video_finetuning_improves_reasoning_between_frames.md)
 - [R-AVST: Empowering Video-LLMs with Fine-Grained Spatio-Temporal Reasoning in Complex Audio-Visual Scenarios](r-avst_empowering_video-llms_with_fine-grained_spatio-temporal_reasoning_in_comp.md)
 
 <!-- RELATED:END -->

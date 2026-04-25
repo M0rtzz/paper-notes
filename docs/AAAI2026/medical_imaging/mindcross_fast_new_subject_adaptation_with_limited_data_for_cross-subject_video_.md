@@ -168,6 +168,6 @@ $$\mathcal{L}_{align} = \mathcal{L}_{SoftCLIP}(\mathbf{e}, \hat{\mathbf{e}}) + \
 - [Zebra: Towards Zero-Shot Cross-Subject Generalization for Universal Brain Visual Decoding](../../NeurIPS2025/medical_imaging/zebra_towards_zero-shot_cross-subject_generalization_for_universal_brain_visual_.md)
 - [FAPEX: Fractional Amplitude-Phase Expressor for Robust Cross-Subject Seizure Prediction](../../NeurIPS2025/medical_imaging/fapex_fractional_amplitude-phase_expressor_for_robust_cross-subject_seizure_pred.md)
 - [MoRE-Brain: Routed Mixture of Experts for Interpretable and Generalizable Cross-Subject fMRI Visual Decoding](../../NeurIPS2025/medical_imaging/more-brain_routed_mixture_of_experts_for_interpretable_and_generalizable_cross-s.md)
-- [Cross-Sample Augmented Test-Time Adaptation for Personalized Intraoperative Hypotension Prediction](cross-sample_augmented_test-time_adaptation_for_personalized_intraoperative_hypo.md)
+- [Language Reconstruction with Brain Predictive Coding from fMRI Data](../../ACL2026/medical_imaging/language_reconstruction_with_brain_predictive_coding_from_fmri_data.md)
 
 <!-- RELATED:END -->

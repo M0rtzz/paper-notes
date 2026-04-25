@@ -135,9 +135,9 @@ FrontierCO 涵盖 8 类 CO 问题（路由: TSP/CVRP; 图: MIS/MDS; 设施选址
 ## 相关论文
 
 - [RRNCO: Towards Real-World Routing with Neural Combinatorial Optimization](rrnco_towards_real-world_routing_with_neural_combinatorial_optimization.md)
+- [CLewR: Curriculum Learning with Restarts for Machine Translation Preference Learning](../../ACL2026/optimization/clewr_curriculum_learning_with_restarts_for_machine_translation_preference_learn.md)
 - [Celo2: Towards Learned Optimization Free Lunch](celo2_towards_learned_optimization_free_lunch.md)
 - [Provable and Practical In-Context Policy Optimization for Self-Improvement](provable_and_practical_in-context_policy_optimization_for_self-improvement.md)
 - [Pareto-Grid-Guided Large Language Models for Fast and High-Quality Heuristics Design in Multi-Objective Combinatorial Optimization](../../AAAI2026/optimization/pareto-grid-guided_large_language_models_for_fast_and_high-quality_heuristics_de.md)
-- [Convex Dominance in Deep Learning I: A Scaling Law of Loss and Learning Rate](convex_dominance_in_deep_learning_i_a_scaling_law_of_loss_and_learning_rate.md)
 
 <!-- RELATED:END -->

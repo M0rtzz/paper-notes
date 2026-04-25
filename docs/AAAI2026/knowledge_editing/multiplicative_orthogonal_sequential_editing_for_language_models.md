@@ -124,8 +124,8 @@ MOSE 将知识编辑从"加法更新"转变为"乘法更新"：不是 $W' = W_0 
 
 - [Neuron-Level Sequential Editing for Large Language Models](../../ACL2025/knowledge_editing/neuron-level_sequential_editing_for_large_language_models.md)
 - [Context-Robust Knowledge Editing for Language Models](../../ACL2025/knowledge_editing/context-robust_knowledge_editing_for_language_models.md)
+- [Aligning Language Models with Real-time Knowledge Editing](../../ACL2026/knowledge_editing/aligning_language_models_with_real-time_knowledge_editing.md)
 - [MEGen: Generative Backdoor into Large Language Models via Model Editing](../../ACL2025/knowledge_editing/megen_generative_backdoor_into_large_language_models_via_model_editing.md)
 - [Model Editing as a Double-Edged Sword: Steering Agent Ethical Behavior](model_editing_as_a_double-edged_sword_steering_agent_ethical_behavior_toward_ben.md)
-- [Energy-Regularized Sequential Model Editing on Hyperspheres](../../ICLR2026/knowledge_editing/energy-regularized_sequential_model_editing_on_hyperspheres.md)
 
 <!-- RELATED:END -->

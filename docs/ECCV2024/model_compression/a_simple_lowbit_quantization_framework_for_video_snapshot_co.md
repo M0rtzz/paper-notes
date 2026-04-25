@@ -128,8 +128,8 @@ Q-SCI以端到端Video SCI重建网络（以EfficientSCI-S为backbone）为基�
 
 - [Uncertainty-Driven Spectral Compressive Imaging with Spatial-Frequency Transformer](uncertainty-driven_spectral_compressive_imaging_with_spatial-frequency_transform.md)
 - [GenQ: Quantization in Low Data Regimes with Generative Synthetic Data](genq_quantization_in_low_data_regimes_with_generative_synthetic_data.md)
-- [Simple Unsupervised Knowledge Distillation With Space Similarity](simple_unsupervised_knowledge_distillation_with_space_similarity.md)
 - [LittleBit: Ultra Low-Bit Quantization via Latent Factorization](../../NeurIPS2025/model_compression/littlebit_ultra_low-bit_quantization_via_latent_factorization.md)
+- [Simple Unsupervised Knowledge Distillation With Space Similarity](simple_unsupervised_knowledge_distillation_with_space_similarity.md)
 - [ParetoQ: Improving Scaling Laws in Extremely Low-bit LLM Quantization](../../NeurIPS2025/model_compression/paretoq_improving_scaling_laws_in_extremely_low-bit_llm_quantization.md)
 
 <!-- RELATED:END -->

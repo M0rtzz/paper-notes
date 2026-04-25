@@ -150,6 +150,6 @@ ML模型在实际部署中需要具备各种不变性质（旋转、尺寸、亮
 - [OracleFusion: Assisting the Decipherment of Oracle Bone Script with Structurally Constrained Semantic Typography](oraclefusion_assisting_the_decipherment_of_oracle_bone_script_with_structurally_.md)
 - [Omniview-Tuning: Boosting Viewpoint Invariance of Vision-Language Pre-training Models](../../ECCV2024/multimodal_vlm/omniviewtuning_boosting_viewpoint_invariance_of_visionlangua.md)
 - [Vision Graph Prompting via Semantic Low-Rank Decomposition](../../ICML2025/multimodal_vlm/vision_graph_prompting_via_semantic_low-rank_decomposition.md)
-- [Visual and Semantic Prompt Collaboration for Generalized Zero-Shot Learning](../../CVPR2025/multimodal_vlm/visual_and_semantic_prompt_collaboration_for_generalized_zero-shot_learning.md)
+- [Tri-Bench: Stress-Testing VLM Reliability on Spatial Reasoning under Camera Tilt and Object Interference](../../AAAI2026/multimodal_vlm/tri-bench_stress-testing_vlm_reliability_on_spatial_reasoning_under_camera_tilt_.md)
 
 <!-- RELATED:END -->

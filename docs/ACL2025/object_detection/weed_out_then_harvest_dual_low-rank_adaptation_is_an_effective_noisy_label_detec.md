@@ -111,10 +111,10 @@ tags:
 
 ## 相关论文
 
+- [GeoRA: Geometry-Aware Low-Rank Adaptation for RLVR](../../ACL2026/object_detection/geora_geometry-aware_low-rank_adaptation_for_rlvr.md)
 - [EW-DETR: Evolving World Object Detection via Incremental Low-Rank DEtection TRansformer](../../CVPR2026/object_detection/ew-detr_evolving_world_object_detection_via_incremental_low-rank_detection_trans.md)
 - [Dual Data Alignment Makes AI-Generated Image Detector Easier Generalizable](../../NeurIPS2025/object_detection/dual_data_alignment_makes_ai-generated_image_detector_easier_generalizable.md)
 - [Generalized Diffusion Detector: Mining Robust Features from Diffusion Models for Domain-Generalized Detection](../../CVPR2025/object_detection/generalized_diffusion_detector_mining_robust_features_from_diffusion_models_for_.md)
 - [Sample Complexity of Distributionally Robust Average-Reward Reinforcement Learning](../../NeurIPS2025/object_detection/sample_complexity_of_distributionally_robust_average-reward_reinforcement_learni.md)
-- [Detecting Out-of-Distribution through the Lens of Neural Collapse](../../CVPR2025/object_detection/detecting_out-of-distribution_through_the_lens_of_neural_collapse.md)
 
 <!-- RELATED:END -->

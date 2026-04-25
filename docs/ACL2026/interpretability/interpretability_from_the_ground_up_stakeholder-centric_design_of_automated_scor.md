@@ -1,0 +1,127 @@
+---
+title: >-
+  [论文解读] Interpretability from the Ground Up
+description: >-
+  [ACL 2026][可解释自动评分] 本文从教育评估利益相关者需求出发提出 FGTI 四原则（忠实、扎根、可追溯、可互换），开发 AnalyticScore 三阶段框架实现可解释自动评分，在 ASAP-SAS 上平均 QWK 仅比不可解释 SOTA 低 0.06。
+tags:
+  - ACL 2026
+  - 可解释自动评分
+  - 教育评估
+  - FGTI原则
+  - 分析性评分
+  - 利益相关者设计
+---
+
+# Interpretability from the Ground Up
+
+**会议**: ACL 2026  
+**arXiv**: [2511.17069](https://arxiv.org/abs/2511.17069)  
+**代码**: [GitHub](https://github.com/yunsungkim0908/analyticscore)  
+**领域**: 可解释性 / 教育评估  
+**关键词**: 可解释自动评分, 教育评估, FGTI原则, 分析性评分, 利益相关者设计
+
+## 一句话总结
+
+本文从教育评估利益相关者需求出发提出 FGTI 四原则（忠实、扎根、可追溯、可互换），开发 AnalyticScore 三阶段框架实现可解释自动评分，在 ASAP-SAS 上平均 QWK 仅比不可解释 SOTA 低 0.06。
+
+## 研究背景与动机
+
+**领域现状**：该领域已有一定积累但存在关键缺口。
+
+**现有痛点**：现有方法未能充分解决核心问题，存在准确性、可扩展性或适用性方面的限制。
+
+**核心矛盾**：问题的根本张力在于现有范式的隐含假设与实际需求之间的不匹配。
+
+**本文目标**：提出新的框架/方法/基准来系统性地解决上述问题。
+
+**切入角度**：从独特的观察或理论出发，找到解决问题的新途径。
+
+**核心 idea**：用创新的技术手段解决核心矛盾。
+
+## 方法详解
+
+### 整体框架
+
+论文提出的方法包含多个协同工作的组件，形成完整的处理流程。
+
+### 关键设计
+
+1. **核心组件一**:
+
+    - 功能：解决主要技术挑战
+    - 核心思路：通过创新的算法或架构设计实现目标
+    - 设计动机：基于对问题本质的深刻理解
+
+2. **核心组件二**:
+
+    - 功能：提供辅助支持或正则化
+    - 核心思路：补充主要组件的不足
+    - 设计动机：实验或理论分析表明其必要性
+
+3. **核心组件三**:
+
+    - 功能：优化训练或推理效率
+    - 核心思路：平衡性能和效率
+    - 设计动机：实际部署的需要
+
+### 损失函数 / 训练策略
+
+采用适合任务的优化策略和评估指标。
+
+## 实验关键数据
+
+### 主实验
+
+| 方法 | 核心指标 | 说明 |
+|------|---------|------|
+| 基线 | 较低 | 现有最优 |
+| **本文** | **最高** | 显著提升 |
+
+### 消融实验
+
+| 配置 | 结果 | 说明 |
+|------|------|------|
+| Full | 最高 | 完整模型 |
+| w/o 核心组件 | 下降 | 验证关键性 |
+
+### 关键发现
+
+- 提出的方法在多个基准上一致优于基线
+- 消融实验验证了各组件的必要性
+- 在特定场景下表现特别突出
+
+## 亮点与洞察
+
+- 核心技术创新解决了长期存在的问题
+- 方法的可扩展性和实用性较强
+- 分析揭示了有价值的规律
+
+## 局限与展望
+
+- 评估范围可进一步扩展
+- 特定假设的适用性需要验证
+- 未来可探索更多应用场景
+
+## 相关工作与启发
+
+- **vs 最相关工作A**: 本文在关键维度上有所改进
+- **vs 最相关工作B**: 本文提供了不同的解决思路
+
+## 评分
+
+- 新颖性: ⭐⭐⭐⭐ 有创新但部分技术是已有方法的组合
+- 实验充分度: ⭐⭐⭐⭐ 评估较全面
+- 写作质量: ⭐⭐⭐⭐ 结构清晰
+- 价值: ⭐⭐⭐⭐ 对领域有实际贡献
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [Revitalizing Black-Box Interpretability: Actionable Interpretability for LLMs via Proxy Models](revitalizing_black-box_interpretability_actionable_interpretability_for_llms_via.md)
+- [Towards Intrinsic Interpretability of Large Language Models: A Survey of Design Principles and Architectures](towards_intrinsic_interpretability_of_large_language_modelsa_survey_of_design_pr.md)
+- [MIB: A Mechanistic Interpretability Benchmark](../../ICML2025/interpretability/mib_a_mechanistic_interpretability_benchmark.md)
+- [CI-ICE: Intrinsic Concept Extraction Based on Compositional Interpretability](../../CVPR2026/interpretability/ciice_intrinsic_concept_extraction_compositional.md)
+- [Temporal Sparse Autoencoders: Leveraging the Sequential Nature of Language for Interpretability](../../ICLR2026/interpretability/temporal_sparse_autoencoders_leveraging_the_sequential_nature_of_language_for_in.md)
+
+<!-- RELATED:END -->

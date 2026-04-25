@@ -174,6 +174,6 @@ $s_t^{(a)} \in [0, 1]$ 衡量从初始噪声 ($t=0$) 到最终音频结构 ($t=T
 - [Guided Diffusion Sampling on Function Spaces with Applications to PDEs](guided_diffusion_sampling_on_function_spaces_with_applications_to_pdes.md)
 - [MGE-LDM: Joint Latent Diffusion for Simultaneous Music Generation and Source Extraction](mge-ldm_joint_latent_diffusion_for_simultaneous_music_generation_and_source_extr.md)
 - [Exploring Variational Graph Autoencoders for Distribution Grid Data Generation](exploring_variational_graph_autoencoders_for_distribution_grid_data_generation.md)
-- [Emergence and Evolution of Interpretable Concepts in Diffusion Models](emergence_and_evolution_of_interpretable_concepts_in_diffusi.md)
+- [Latent Diffusion Models with Masked AutoEncoders](../../ICCV2025/image_generation/latent_diffusion_models_with_masked_autoencoders.md)
 
 <!-- RELATED:END -->

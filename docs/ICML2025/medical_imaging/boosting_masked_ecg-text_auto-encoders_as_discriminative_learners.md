@@ -225,6 +225,6 @@ D-BETA 仅用 1 个导联 (76.5%) 即超过之前 SOTA 使用全部 12 导联的
 - [A Novel Approach to Classification of ECG Arrhythmia Types with Latent ODEs](../../NeurIPS2025/medical_imaging/a_novel_approach_to_classification_of_ecg_arrhythmia_types_with_latent_odes.md)
 - [Benchmarking ECG FMs: A Reality Check Across Clinical Tasks](../../ICLR2026/medical_imaging/benchmarking_ecg_fms_a_reality_check_across_clinical_tasks.md)
 - [How to Make the Most of Your Masked Language Model for Protein Engineering](../../ICLR2026/medical_imaging/how_to_make_the_most_of_your_masked_language_model_for_protein_engineering.md)
-- [RadGPT: Constructing 3D Image-Text Tumor Datasets](../../ICCV2025/medical_imaging/radgpt_constructing_3d_image-text_tumor_datasets.md)
+- [Boosting Medical Visual Understanding From Multi-Granular Language Learning](../../ICLR2026/medical_imaging/boosting_medical_visual_understanding_from_multi-granular_language_learning.md)
 
 <!-- RELATED:END -->

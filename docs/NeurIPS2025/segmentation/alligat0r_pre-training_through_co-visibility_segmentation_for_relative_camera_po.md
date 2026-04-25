@@ -122,7 +122,7 @@ RUBIK benchmark：总体成功率 60.3% 排第一，超越 DUSt3R (54.8%)、MASt
 - [COSMOS: Cross-Modality Self-Distillation for Vision Language Pre-training](../../CVPR2025/segmentation/cosmos_cross-modality_self-distillation_for_vision_language_pre-training.md)
 - [DreamLIP: Language-Image Pre-training with Long Captions](../../ECCV2024/segmentation/dreamlip_language-image_pre-training_with_long_captions.md)
 - [InstructSAM: A Training-Free Framework for Instruction-Oriented Remote Sensing Object Recognition](instructsam_a_training-free_framework_for_instruction-oriented_remote_sensing_ob.md)
-- [Enhancing Transformers Through Conditioned Embedded Tokens](../../ICCV2025/segmentation/enhancing_transformers_through_conditioned_embedded_tokens.md)
 - [MV-SSM: Multi-View State Space Modeling for 3D Human Pose Estimation](../../CVPR2025/segmentation/mv-ssm_multi-view_state_space_modeling_for_3d_human_pose_estimation.md)
+- [Enhancing Transformers Through Conditioned Embedded Tokens](../../ICCV2025/segmentation/enhancing_transformers_through_conditioned_embedded_tokens.md)
 
 <!-- RELATED:END -->

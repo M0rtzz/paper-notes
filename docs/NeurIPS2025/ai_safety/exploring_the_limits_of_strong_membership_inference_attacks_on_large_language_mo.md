@@ -168,6 +168,6 @@ $$\text{flip}_\eta(x) \coloneqq \Pr_{r,r' \sim \mu}[b_r^{(\eta)}(x) \neq b_{r'}^
 - [Distributive Fairness in Large Language Models: Evaluating Alignment with Human Values](distributive_fairness_in_large_language_models_evaluating_alignment_with_human_v.md)
 - [Impact of Dataset Properties on Membership Inference Vulnerability of Deep Transfer Learning](impact_of_dataset_properties_on_membership_inference.md)
 - [Merge Hijacking: Backdoor Attacks to Model Merging of Large Language Models](../../ACL2025/ai_safety/merge_hijacking_backdoor_attacks_to_model_merging_of_large_language_models.md)
-- [Ensemble Watermarks for Large Language Models](../../ACL2025/ai_safety/ensemble_watermarks_llm.md)
+- [Jailbreaking Large Language Models with Morality Attacks](../../ACL2026/ai_safety/jailbreaking_large_language_models_with_morality_attacks.md)
 
 <!-- RELATED:END -->

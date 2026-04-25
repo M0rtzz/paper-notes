@@ -172,9 +172,9 @@ FacET（可变chunks + predicted translator）显著优于所有消融变体。�
 ## 相关论文
 
 - [Generalizable Facial Expression Recognition](generalizable_facial_expression_recognition.md)
-- [MagicArticulate: Make Your 3D Models Articulation-Ready](../../CVPR2025/human_understanding/magicarticulate_make_your_3d_models_articulation-ready.md)
+- [HistLens: Mapping Idea Change across Concepts and Corpora](../../ACL2026/human_understanding/histlens_mapping_idea_change_across_concepts_and_corpora.md)
 - [Interleaving One-Class and Weakly-Supervised Models with Adaptive Thresholding for Unsupervised Video Anomaly Detection](interleaving_one-class_and_weakly-supervised_models_with_adaptive_thresholding_f.md)
-- [A Two-Stage Dual-Modality Model for Facial Expression Recognition](../../CVPR2026/human_understanding/a_two_stage_dual_modality_model_for_facial_expression_recognition.md)
-- [SAVE: Speech-Aware Video Representation Learning for Video-Text Retrieval](../../CVPR2026/human_understanding/save_speech-aware_video_representation_learning_for_video-text_retrieval.md)
+- [MagicArticulate: Make Your 3D Models Articulation-Ready](../../CVPR2025/human_understanding/magicarticulate_make_your_3d_models_articulation-ready.md)
+- [The Reasoning Trap: How Enhancing LLM Reasoning Amplifies Tool Hallucination](../../ACL2026/human_understanding/the_reasoning_trap_how_enhancing_llm_reasoning_amplifies_tool_hallucination.md)
 
 <!-- RELATED:END -->

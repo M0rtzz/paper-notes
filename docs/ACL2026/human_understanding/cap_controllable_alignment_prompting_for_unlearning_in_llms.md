@@ -130,8 +130,8 @@ CAP 包含两个阶段：(1) 提示生成器优化——使用 RL 训练 SLM 生
 
 - [LLM Unlearning with LLM Beliefs](../../ICLR2026/human_understanding/llm_unlearning_with_llm_beliefs.md)
 - [Improving Model Alignment through Collective Intelligence of Open-Source LLMs](../../ICML2025/human_understanding/improving_model_alignment_through_collective_intelligence_of_open-source_llms.md)
-- [Can LLMs Truly Embody Human Personality? Analyzing AI and Human Behavior Alignment in Dispute Resolution](../../AAAI2026/human_understanding/can_llms_truly_embody_human_personality_analyzing_ai_and_human_behavior_alignmen.md)
 - [Distillation Robustifies Unlearning](../../NeurIPS2025/human_understanding/distillation_robustifies_unlearning.md)
-- [Unsafe2Safe: Controllable Image Anonymization for Downstream Utility](../../CVPR2026/human_understanding/unsafe2safe_controllable_image_anonymization_for_downstream_utility.md)
+- [Vocab Diet: Reshaping the Vocabulary of LLMs via Vector Arithmetic](vocab_diet_reshaping_the_vocabulary_of_llms_via_vector_arithmetic.md)
+- [Can LLMs Truly Embody Human Personality? Analyzing AI and Human Behavior Alignment in Dispute Resolution](../../AAAI2026/human_understanding/can_llms_truly_embody_human_personality_analyzing_ai_and_human_behavior_alignmen.md)
 
 <!-- RELATED:END -->

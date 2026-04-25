@@ -137,9 +137,9 @@ tags:
 ## 相关论文
 
 - [MExGen: Multi-Level Explanations for Generative Language Models](mexgen_multi_level_explanations.md)
+- [Why Did Apple Fall: Evaluating Curiosity in Large Language Models](../../ACL2026/llm_nlp/why_did_apple_fall_evaluating_curiosity_in_large_language_models.md)
 - [Exploring Explanations Improves the Robustness of In-Context Learning](exploring_explanations_improves_the_robustness_of_in-context_learning.md)
-- [Evaluating Language Models as Synthetic Data Generators](evaluating_lms_synthetic_data_gen.md)
 - [STEM-PoM: Evaluating Language Models Math-Symbol Reasoning in Document Parsing](stem-pom_evaluating_language_models_math-symbol_reasoning_in_document_parsing.md)
-- [Why Not Act on What You Know? Unleashing Safety Potential of LLMs via Self-Aware Guard Enhancement](why_not_act_on_what_you_know_unleashing_safety_potential_of_llms_via_self-aware_.md)
+- [TESS 2: A Large-Scale Generalist Diffusion Language Model](tess_2_a_large-scale_generalist_diffusion_language_model.md)
 
 <!-- RELATED:END -->

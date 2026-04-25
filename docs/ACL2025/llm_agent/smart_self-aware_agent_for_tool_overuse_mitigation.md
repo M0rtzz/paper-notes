@@ -108,6 +108,6 @@ tags:
 - [SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home LLM Agents](../../ICLR2026/llm_agent/simuhome_a_temporal-_and_environment-aware_benchmark_for_smart_home_llm_agents.md)
 - [Agentic Knowledgeable Self-Awareness](agentic_knowledgeable_self-awareness.md)
 - [Adaptive Tool Use in Large Language Models with Meta-Cognition Trigger](meco_metacognition_tool_use.md)
-- [Play2Prompt: Zero-shot Tool Instruction Optimization for LLM Agents via Tool Play](play2prompt_zero-shot_tool_instruction_optimization_for_llm_agents_via_tool_play.md)
+- [GUI-explorer: Autonomous Exploration and Mining of Transition-aware Knowledge for GUI Agent](gui_explorer_autonomous.md)
 
 <!-- RELATED:END -->

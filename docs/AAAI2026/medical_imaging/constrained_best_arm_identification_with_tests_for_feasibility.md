@@ -152,7 +152,7 @@ F-first 在类型 a 更优（0.58x），P-first 在类型 b 更优（0.84x），
 - [MIRNet: Integrating Constrained Graph-Based Reasoning with Pre-training for Diagnostic Medical Imaging](mirnet_integrating_constrained_graph-based_reasoning_with_pre-training_for_diagn.md)
 - [MAMA-Memeia! Multi-Aspect Multi-Agent Collaboration for Depressive Symptoms Identification in Memes](mama-memeia_multi-aspect_multi-agent_collaboration_for_depressive_symptoms_ident.md)
 - [DiA-gnostic VLVAE: Disentangled Alignment-Constrained Vision Language Variational AutoEncoder for Robust Radiology Reporting with Missing Modalities](dia-gnostic_vlvae_disentangled_alignment-constrained_vision_language_variational.md)
-- [Towards All-in-One Medical Image Re-Identification](../../CVPR2025/medical_imaging/towards_all-in-one_medical_image_re-identification.md)
 - [Scaling Tumor Segmentation: Best Lessons from Real and Synthetic Data](../../ICCV2025/medical_imaging/scaling_tumor_segmentation_best_lessons_from_real_and_synthetic_data.md)
+- [Anonpsy: A Graph-Based Framework for Structure-Preserving De-identification of Psychiatric Narratives](../../ACL2026/medical_imaging/anonpsy_a_graph-based_framework_for_structure-preserving_de-identification_of_ps.md)
 
 <!-- RELATED:END -->

@@ -148,6 +148,6 @@ tags:
 - [MedAgentGym: A Scalable Agentic Training Environment for Code-Centric Reasoning in Biomedical Data Science](medagentgym_agentic_training_biomedical.md)
 - [Augmenting Representations with Scientific Papers](augmenting_representations_with_scientific_papers.md)
 - [Query-driven Document-level Scientific Evidence Extraction from Biomedical Studies](../../ACL2025/medical_imaging/urca_biomedical_evidence_extraction.md)
-- [Tracing Pharmacological Knowledge in Large Language Models](tracing_pharmacological_knowledge_in_large_language_models.md)
+- [Text-Attributed Knowledge Graph Enrichment with Large Language Models for Medical Concept Representation](../../ACL2026/medical_imaging/text-attributed_knowledge_graph_enrichment_with_large_language_models_for_medica.md)
 
 <!-- RELATED:END -->

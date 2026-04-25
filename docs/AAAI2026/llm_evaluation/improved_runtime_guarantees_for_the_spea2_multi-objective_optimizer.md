@@ -129,8 +129,8 @@ tags:
 ## 相关论文
 
 - [Runtime Analysis of Evolutionary NAS for Multiclass Classification](../../ICML2025/llm_evaluation/runtime_analysis_of_evolutionary_nas_for_multiclass_classification.md)
-- [MAPS: Multi-Agent Personality Shaping for Collaborative Reasoning](maps_multi-agent_personality_shaping_for_collaborative_reaso.md)
 - [Movie101v2: Improved Movie Narration Benchmark](../../ACL2025/llm_evaluation/movie101v2_improved_movie_narration_benchmark.md)
+- [MAPS: Multi-Agent Personality Shaping for Collaborative Reasoning](maps_multi-agent_personality_shaping_for_collaborative_reaso.md)
 - [DcMatch: Unsupervised Multi-Shape Matching with Dual-Level Consistency](dcmatch_unsupervised_multi-shape_matching_with_dual-level_consistency.md)
 - [Improved and Oracle-Efficient Online $\ell_1$-Multicalibration](../../ICML2025/llm_evaluation/improved_and_oracle-efficient_online_ell_1-multicalibration.md)
 

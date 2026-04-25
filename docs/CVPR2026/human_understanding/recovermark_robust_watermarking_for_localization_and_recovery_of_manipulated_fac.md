@@ -127,7 +127,7 @@ ID 数据集上人脸恢复质量对比（PSNR/MS-SSIM）：
 - [AdvMark: Decoupling Defense Strategies for Robust Image Watermarking](decoupling_defense_strategies_for_robust_image_watermarking.md)
 - [PAD-Hand: Physics-Aware Diffusion for Hand Motion Recovery](pad-hand_physics-aware_diffusion_for_hand_motion_recovery.md)
 - [All in One: Unifying Deepfake Detection, Tampering Localization, and Source Tracing with a Robust Landmark-Identity Watermark](all_in_one_unifying_deepfake_detection_tampering_localization_and_source_tracing.md)
+- [XMark: Reliable Multi-Bit Watermarking for LLM-Generated Texts](../../ACL2026/human_understanding/xmark_reliable_multi-bit_watermarking_for_llm-generated_texts.md)
 - [A2P: From 2D Alignment to 3D Plausibility for Occlusion-Robust Two-Hand Reconstruction](from_2d_alignment_to_3d_plausibility_unifying_hete.md)
-- [QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)
 
 <!-- RELATED:END -->

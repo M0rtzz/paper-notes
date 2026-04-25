@@ -130,8 +130,8 @@ $R_{tool}$ 的设计特别重要：不仅奖励“调用了工具”，还奖励
 
 - [How Does Response Length Affect Long-Form Factuality](../../ACL2025/llm_safety/how_does_response_length_affect_long-form_factuality.md)
 - [System-Aware Unlearning Algorithms: Use Lesser, Forget Faster](../../ICML2025/llm_safety/system-aware_unlearning_algorithms_use_lesser_forget_faster.md)
+- [MeasHalu: Mitigation of Scientific Measurement Hallucinations for LLMs](../../ACL2026/llm_safety/meashalu_mitigation_of_scientific_measurement_hallucinations_for_large_language_.md)
 - [Teaming LLMs to Detect and Mitigate Hallucinations](../../NeurIPS2025/llm_safety/teaming_llms_to_detect_and_mitigate_hallucinations.md)
 - [Towards Context-Robust LLMs: A Gated Representation Fine-tuning Approach](../../ACL2025/llm_safety/towards_context-robust_llms_a_gated_representation_fine-tuning_approach.md)
-- [HD-NDEs: Neural Differential Equations for Hallucination Detection in LLMs](../../ACL2025/llm_safety/hd-ndes_neural_differential_equations_for_hallucination_detection_in_llms.md)
 
 <!-- RELATED:END -->

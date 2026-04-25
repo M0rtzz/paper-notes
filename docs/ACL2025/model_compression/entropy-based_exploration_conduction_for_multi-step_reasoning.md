@@ -184,6 +184,6 @@ $$\pi_j(a|\mathbf{s}_j) = \begin{cases} 1 - \epsilon, & a = a_j^* \\ \frac{\epsi
 - [Graph Counselor: Adaptive Graph Exploration via Multi-Agent Synergy to Enhance LLM Reasoning](graph_counselor_multiagent_graphrag.md)
 - [MARGE: Improving Math Reasoning for LLMs with Guided Exploration](../../ICML2025/model_compression/marge_improving_math_reasoning_for_llms_with_guided_exploration.md)
 - [LLMSR@XLLM25: Less is More: Enhancing Structured Multi-Agent Reasoning via Quality-Guided Distillation](llmsrxllm25_less_is_more_enhancing_structured_multi-agent_reasoning_via_quality-.md)
-- [SEE: Strategic Exploration and Exploitation for Cohesive In-Context Prompt Optimization](see_strategic_exploration_exploitation_prompt_optimization.md)
+- [Reinforced Efficient Reasoning via Semantically Diverse Exploration](../../ACL2026/model_compression/reinforced_efficient_reasoning_via_semantically_diverse_exploration.md)
 
 <!-- RELATED:END -->

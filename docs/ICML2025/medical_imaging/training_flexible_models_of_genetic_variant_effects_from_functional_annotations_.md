@@ -151,6 +151,6 @@ DeepWAS 的整体 pipeline 如下：
 - [Do Multiple Instance Learning Models Transfer?](do_multiple_instance_learning_models_transfer.md)
 - [LDMol: A Text-to-Molecule Diffusion Model with Structurally Informative Latent Space Surpasses AR Models](ldmol_a_text-to-molecule_diffusion_model_with_structurally_informative_latent_sp.md)
 - [Certification for Differentially Private Prediction in Gradient-Based Training](certification_for_differentially_private_prediction_in_gradient-based_training.md)
-- [Foundation Models for Clinical Records at Health System Scale](foundation_models_for_clinical_records_at_health_system_scale.md)
+- [SGD Jittering: A Training Strategy for Robust and Accurate Model-Based Architectures](sgd_jittering_a_training_strategy_for_robust_and_accurate_model-based_architectu.md)
 
 <!-- RELATED:END -->

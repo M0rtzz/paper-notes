@@ -142,7 +142,7 @@ SOKE 在 Back-Translation BLEU-4 上也显著领先：14.48 vs 11.45（How2Sign�
 - [SignRep: Enhancing Self-Supervised Sign Representations](signrep_enhancing_self-supervised_sign_representations.md)
 - [VimoRAG: Video-based Retrieval-augmented 3D Motion Generation for Motion Language Models](../../NeurIPS2025/human_understanding/vimorag_video-based_retrieval-augmented_3d_motion_generation_for_motion_language.md)
 - [A Simple Baseline for Spoken Language to Sign Language Translation with 3D Avatars](../../ECCV2024/human_understanding/a_simple_baseline_for_spoken_language_to_sign_language_trans.md)
+- [Multilingual Language Models Encode Script Over Linguistic Structure](../../ACL2026/human_understanding/multilingual_language_models_encode_script_over_linguistic_structure.md)
 - [EvSign: Sign Language Recognition and Translation with Streaming Events](../../ECCV2024/human_understanding/evsign_sign_language_recognition_and_translation_with_streaming_events.md)
-- [GestureHYDRA: Semantic Co-speech Gesture Synthesis via Hybrid Modality Diffusion Transformer and Cascaded-Synchronized Retrieval-Augmented Generation](gesturehydra_semantic_co-speech_gesture_synthesis_via_hybrid_modality_diffusion_.md)
 
 <!-- RELATED:END -->

@@ -212,7 +212,7 @@ NOTAM-Evolve 相比基础模型提升 **30.4%**（0.458 → 0.762），AVG接近
 - [Assessing LLMs for Serendipity Discovery in Knowledge Graphs: A Case for Drug Repurposing](assessing_llms_for_serendipity_discovery_in_knowledge_graphs_a_case_for_drug_rep.md)
 - [Sheaf Graph Neural Networks via PAC-Bayes Spectral Optimization](sheaf_graph_neural_networks_via_pac-bayes_spectral_optimization.md)
 - [Self-Adaptive Graph Mixture of Models](self-adaptive_graph_mixture_of_models.md)
-- [Explore-on-Graph: Incentivizing Autonomous Exploration of LLMs on Knowledge Graphs](../../ICLR2026/graph_learning/explore-on-graph_incentivizing_autonomous_exploration_of_large_language_models_o.md)
 - [AutoPKG: An Automated Framework for Dynamic E-commerce Product-Attribute Knowledge Graph Construction](../../ACL2026/graph_learning/autopkg_an_automated_framework_for_dynamic_e-commerce_product-attribute_knowledg.md)
+- [Which bird does not have wings: Negative-constrained KGQA with Schema-guided Semantic Matching and Self-directed Refinement](../../ACL2026/graph_learning/which_bird_does_not_have_wings_negative-constrained_kgqa_with_schema-guided_sema.md)
 
 <!-- RELATED:END -->

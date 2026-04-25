@@ -209,9 +209,9 @@ $$L_t = \text{MSE}(\text{Conv}(\textbf{P}_{\text{pred}}), \text{Conv}(\textbf{P}
 ## 相关论文
 
 - [mmPred: Radar-based Human Motion Prediction in the Dark](mmpred_radar-based_human_motion_prediction_in_the_dark.md)
+- [SAMoRA: Semantic-Aware Mixture of LoRA Experts for Task-Adaptive Learning](../../ACL2026/human_understanding/samora_semantic-aware_mixture_of_lora_experts_for_task-adaptive_learning.md)
 - [MoEE: Mixture of Emotion Experts for Audio-Driven Portrait Animation](../../CVPR2025/human_understanding/moee_mixture_of_emotion_experts_for_audio-driven_portrait_animation.md)
 - [A Quality-Guided Mixture of Score-Fusion Experts Framework for Human Recognition](../../ICCV2025/human_understanding/a_quality-guided_mixture_of_score-fusion_experts_framework_for_human_recognition.md)
 - [SimMotionEdit: Text-Based Human Motion Editing with Motion Similarity Prediction](../../CVPR2025/human_understanding/simmotionedit_text-based_human_motion_editing_with_motion_similarity_prediction.md)
-- [SocialGesture: Delving into Multi-Person Gesture Understanding](../../CVPR2025/human_understanding/socialgesture_delving_into_multi-person_gesture_understanding.md)
 
 <!-- RELATED:END -->

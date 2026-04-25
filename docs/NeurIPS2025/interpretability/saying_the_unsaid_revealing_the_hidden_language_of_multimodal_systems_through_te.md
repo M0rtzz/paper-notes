@@ -114,8 +114,8 @@ tags:
 
 - [Evaluating LLMs in Open-Source Games](evaluating_llms_in_open-source_games.md)
 - [Hidden Breakthroughs in Language Model Training](../../ICLR2026/interpretability/hidden_breakthroughs_in_language_model_training.md)
-- [The Trilemma of Truth in Large Language Models](the_trilemma_of_truth_in_large_language_models.md)
 - [Towards Faithful Multimodal Concept Bottleneck Models](../../CVPR2025/interpretability/towards_faithful_multimodal_concept_bottleneck_models.md)
+- [The Trilemma of Truth in Large Language Models](the_trilemma_of_truth_in_large_language_models.md)
 - [Supernova Event Dataset: Interpreting Large Language Models' Personality through Critical Event Analysis](../../ICML2025/interpretability/supernova_event_dataset_interpreting_large_language_models_personality_through_c.md)
 
 <!-- RELATED:END -->

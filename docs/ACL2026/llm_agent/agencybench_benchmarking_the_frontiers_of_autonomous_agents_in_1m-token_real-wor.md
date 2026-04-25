@@ -72,12 +72,14 @@ tags:
 ## 实验关键数据
 
 ### 主实验
+
 | 模型类型 | 平均分 | 最高 | 最低 |
 |---------|--------|------|------|
 | 闭源模型 | 48.4% | GPT-5.2 (56.5%) | Grok-4.1-Fast (44.3%) |
 | 开源模型 | 32.1% | GLM-4.6 (38.6%) | Qwen-3-235B (27.0%) |
 
 ### 关键行为差异
+
 | 模型 | 特点 | 说明 |
 |------|------|------|
 | GPT-5.2 | 反馈自校正强 | 最善于利用用户反馈改进 |
@@ -117,10 +119,10 @@ tags:
 
 ## 相关论文
 
+- [MCP-Flow: Facilitating LLM Agents to Master Real-World, Diverse and Scaling MCP Tools](mcp-flow_facilitating_llm_agents_to_master_real-world_diverse_and_scaling_mcp_to.md)
 - [D-GARA: A Dynamic Benchmarking Framework for GUI Agent Robustness in Real-World Anomalies](../../AAAI2026/llm_agent/d-gara_a_dynamic_benchmarking_framework_for_gui_agent_robust.md)
 - [OpenAgentSafety: A Comprehensive Framework for Evaluating Real-World AI Agent Safety](../../ICLR2026/llm_agent/openagentsafety_a_comprehensive_framework_for_evaluating_real-world_ai_agent_saf.md)
 - [CI-Work: Benchmarking Contextual Integrity in Enterprise LLM Agents](ci-work_benchmarking_contextual_integrity_in_enterprise_llm_agents.md)
 - [FedGUI: Benchmarking Federated GUI Agents across Heterogeneous Platforms, Devices, and Operating Systems](fedgui_benchmarking_federated_gui_agents_across_heterogeneous_platforms_devices_.md)
-- [AutoGLM: Autonomous Foundation Agents for GUIs](../../AAAI2026/llm_agent/autoglm_autonomous_foundation_agents_for_guis.md)
 
 <!-- RELATED:END -->

@@ -113,9 +113,9 @@ VisionArena 构建了一个包含 230K 条真实用户与 VLM 交互记录的大
 ## 相关论文
 
 - [Wide-Horizon Thinking and Simulation-Based Evaluation for Real-World LLM Planning with Multifaceted Constraints](../../NeurIPS2025/recommender/wide-horizon_thinking_and_simulation-based_evaluation_for_real-world_llm_plannin.md)
+- [Beyond Itinerary Planning: A Real-World Benchmark for Multi-Turn and Tool-Using Travel Tasks](../../ACL2026/recommender/beyond_itinerary_planning-a_real-world_benchmark_for_multi-turn_and_tool-using_t.md)
 - [FineVQ: Fine-Grained User Generated Content Video Quality Assessment](finevq_fine-grained_user_generated_content_video_quality_assessment.md)
 - [Beyond Single Labels: Improving Conversational Recommendation through LLM-Powered Data Augmentation](../../ACL2025/recommender/beyond_single_labels_improving_conversational_recommendation_through_llm-powered.md)
 - [Aligning LLMs by Predicting Preferences from User Writing Samples](../../ICML2025/recommender/aligning_llms_by_predicting_preferences_from_user_writing_samples.md)
-- [SIMPLEMIX: Frustratingly Simple Mixing of Off- and On-policy Data in Language Model Preference Learning](../../ICML2025/recommender/simplemix_frustratingly_simple_mixing_of_off-_and_on-policy_data_in_language_mod.md)
 
 <!-- RELATED:END -->

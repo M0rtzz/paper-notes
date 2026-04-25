@@ -143,6 +143,6 @@ tags:
 - [QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)
 - [DEIG: Detail-Enhanced Instance Generation with Fine-Grained Semantic Control](../../AAAI2026/human_understanding/deig_detail-enhanced_instance_generation_with_fine-grained_semantic_control.md)
 - [SAVE: Speech-Aware Video Representation Learning for Video-Text Retrieval](save_speech-aware_video_representation_learning_for_video-text_retrieval.md)
-- [LASER: Layer-wise Scale Alignment for Training-Free Streaming 4D Reconstruction](laser_layer-wise_scale_alignment_for_training-free_streaming_4d_reconstruction.md)
+- [Splits! Flexible Sociocultural Linguistic Investigation at Scale](../../ACL2026/human_understanding/splits_flexible_sociocultural_linguistic_investigation_at_scale.md)
 
 <!-- RELATED:END -->

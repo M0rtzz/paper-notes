@@ -133,8 +133,8 @@ CKU 在多种越狱攻击（GCG、AutoDAN 等）下的防御效果优于所有�
 
 - [SafeVLA: Towards Safety Alignment of Vision-Language-Action Model via Constrained Learning](../../NeurIPS2025/llm_alignment/safevla_towards_safety_alignment_of_vision-language-action_model_via_constrained.md)
 - [LSSF: Safety Alignment via Low-Rank Safety Subspace Fusion](lssf_safety_subspace.md)
-- [Mitigating the Safety Alignment Tax with Null-Space Constrained Policy Optimization](../../ICLR2026/llm_alignment/mitigating_the_safety_alignment_tax_with_null-space_constrained_policy_optimizat.md)
 - [Enhancing Safe and Controllable Protein Generation via Knowledge Preference Optimization](kpo_protein_safety.md)
+- [Mitigating the Safety Alignment Tax with Null-Space Constrained Policy Optimization](../../ICLR2026/llm_alignment/mitigating_the_safety_alignment_tax_with_null-space_constrained_policy_optimizat.md)
 - [Improving LLM Safety Alignment with Dual-Objective Optimization](../../ICML2025/llm_alignment/improving_llm_safety_alignment_with_dual-objective_optimization.md)
 
 <!-- RELATED:END -->

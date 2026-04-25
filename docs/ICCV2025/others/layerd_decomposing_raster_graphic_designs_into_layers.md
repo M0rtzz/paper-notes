@@ -159,8 +159,8 @@ LayerD 将分解任务公式化为**迭代的顶层抠图 + 背景补全**过程
 
 - [Low-Rank Interconnected Adaptation across Layers](../../ACL2025/others/low-rank_interconnected_adaptation_across_layers.md)
 - [Enhancing Certified Robustness via Block Reflector Orthogonal Layers and Logit Annealing Loss](../../ICML2025/others/enhancing_certified_robustness_via_block_reflector_orthogonal_layers_and_logit_a.md)
+- [Agree, Disagree, Explain: Decomposing Human Label Variation in NLI through the Lens of Explanations](../../ACL2026/others/agree_disagree_explain_decomposing_human_label_variation_in_nli_through_the_lens.md)
 - [A Linear N-Point Solver for Structure and Motion from Asynchronous Tracks](a_linear_n-point_solver_for_structure_and_motion_from_asynchronous_tracks.md)
 - [C4D: 4D Made from 3D through Dual Correspondences](c4d_4d_made_from_3d_through_dual_correspondences.md)
-- [Membership Inference Attacks with False Discovery Rate Control](membership_inference_attacks_with_false_discovery_rate_control.md)
 
 <!-- RELATED:END -->

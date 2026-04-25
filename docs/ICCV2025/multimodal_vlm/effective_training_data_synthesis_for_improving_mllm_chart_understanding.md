@@ -138,6 +138,6 @@ ECD在4个MLLM上6个测试集上整体一致提升。
 - [SCAN: Bootstrapping Contrastive Pre-training for Data Efficiency](scan_bootstrapping_contrastive_pre-training_for_data_efficiency.md)
 - [Img-Diff: Contrastive Data Synthesis for Multimodal Large Language Models](../../CVPR2025/multimodal_vlm/img-diff_contrastive_data_synthesis_for_multimodal_large_language_models.md)
 - [MegaPairs: Massive Data Synthesis For Universal Multimodal Retrieval](../../ACL2025/multimodal_vlm/megapairs_massive_data_synthesis_for_universal_multimodal_retrieval.md)
-- [Harnessing PDF Data for Improving Japanese Large Multimodal Models](../../ACL2025/multimodal_vlm/harnessing_pdf_data_for_improving_japanese_large_multimodal_models.md)
+- [Scalable Vision Language Model Training via High Quality Data Curation](../../ACL2025/multimodal_vlm/scalable_vision_language_model_training_via_high_quality_data_curation.md)
 
 <!-- RELATED:END -->

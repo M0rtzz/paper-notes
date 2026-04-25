@@ -138,6 +138,6 @@ Function Vector 零样本注入（Biography 数据集）：
 - [SEAL: Scaling to Emphasize Attention for Long-Context Retrieval](../../ACL2025/information_retrieval/seal_scaling_to_emphasize_attention_for_long-context_retrieval.md)
 - [RAEmoLLM: Retrieval Augmented LLMs for Cross-Domain Misinformation Detection Using In-Context Learning Based on Emotional Information](../../ACL2025/information_retrieval/raemollm_retrieval_augmented_llms_for_cross-domain_misinformation_detection_usin.md)
 - [Scale-invariant Attention](scale-invariant_attention.md)
-- [MIR-Bench: Can Your LLM Recognize Complicated Patterns via Many-Shot In-Context Reasoning?](mir-bench_can_your_llm_recognize_complicated_patterns_via_many-shot_in-context_r.md)
+- [How Retrieved Context Shapes Internal Representations in RAG](../../ACL2026/information_retrieval/how_retrieved_context_shapes_internal_representations_in_rag.md)
 
 <!-- RELATED:END -->

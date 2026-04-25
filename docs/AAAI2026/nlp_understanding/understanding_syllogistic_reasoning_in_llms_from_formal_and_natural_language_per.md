@@ -166,6 +166,6 @@ $C_{\text{all}}$衡量模型在同一三段论4个变体上的完全一致比例
 - [Adapting Psycholinguistic Research for LLMs: Gender-Inclusive Language in a Coreference Context](../../ACL2025/nlp_understanding/adapting_psycholinguistic_research_for_llms_gender-inclusive_language_in_a_coref.md)
 - [Meaning Beyond Truth Conditions: Evaluating Discourse Level Understanding via Anaphora Accessibility](../../ACL2025/nlp_understanding/meaning-beyond-truth-conditions-anaphora-accessibility.md)
 - [Sentiment Reasoning for Healthcare](../../ACL2025/nlp_understanding/sentiment_reasoning_for_healthcare.md)
-- [Recursive Question Understanding for Complex Question Answering over Heterogeneous Personal Data](../../ACL2025/nlp_understanding/recursive_question_understanding_for_complex_question_answering_over_heterogeneo.md)
+- [Lost in the Prompt Order: Revealing the Limitations of Causal Attention in Language Models](../../ACL2026/nlp_understanding/lost_in_the_prompt_order_revealing_the_limitations_of_causal_attention_in_langua.md)
 
 <!-- RELATED:END -->

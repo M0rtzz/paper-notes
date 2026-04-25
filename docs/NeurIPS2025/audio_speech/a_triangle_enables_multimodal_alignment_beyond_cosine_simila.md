@@ -129,8 +129,8 @@ TRIANGLE提出用高维空间中三模态嵌入向量构成的三角形面积作
 
 - [LeVo: High-Quality Song Generation with Multi-Preference Alignment](levo_high-quality_song_generation_with_multi-preference_alignment.md)
 - [Beyond Transcription: Unified Audio Schema for Perception-Aware AudioLLMs](../../ACL2026/audio_speech/beyond_transcription_unified_audio_schema_for_perception-aware_audiollms.md)
+- [Beyond Explicit Refusals: Soft-Failure Attacks on Retrieval-Augmented Generation](../../ACL2026/audio_speech/beyond_explicit_refusals_soft-failure_attacks_on_retrieval-augmented_generation.md)
 - [Advancing Zero-shot Text-to-Speech Intelligibility across Diverse Domains via Preference Alignment](../../ACL2025/audio_speech/advancing_zero-shot_text-to-speech_intelligibility_across_diverse_domains_via_pr.md)
 - [Benchmarking Egocentric Multimodal Goal Inference for Assistive Wearable Agents](benchmarking_egocentric_multimodal_goal_inference_for_assist.md)
-- [When Style Breaks Safety: Defending LLMs Against Superficial Style Alignment](../../ICLR2026/audio_speech/when_style_breaks_safety_defending_llms_against_superficial_style_alignment.md)
 
 <!-- RELATED:END -->

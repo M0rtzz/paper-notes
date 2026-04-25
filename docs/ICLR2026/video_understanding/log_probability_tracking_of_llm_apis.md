@@ -159,8 +159,8 @@ LT在权重剪枝灵敏度上比MET高 $2^9=512$ 倍，比MMLU-ALG高 $2^6=64$ �
 
 - [NerVE: Nonlinear Eigenspectrum Dynamics in LLM Feed-Forward Networks](nerve_nonlinear_eigenspectrum_dynamics_in_llm_feed-forward_networks.md)
 - [Stabilizing Policy Gradients for Sample-Efficient Reinforcement Learning in LLM Reasoning](stabilizing_policy_gradients_for_sample-efficient_reinforcement_learning_in_llm_.md)
+- [ViLL-E: Video LLM Embeddings for Retrieval](../../ACL2026/video_understanding/vill-e_video_llm_embeddings_for_retrieval.md)
 - [A Little Depth Goes a Long Way: The Expressive Power of Log-Depth Transformers](../../NeurIPS2025/video_understanding/a_little_depth_goes_a_long_way_the_expressive_power_of_logde.md)
 - [The Expressive Limits of Diagonal SSMs for State-Tracking](the_expressive_limits_of_diagonal_ssms_for_state-tracking.md)
-- [RecToM: A Benchmark for Evaluating Machine Theory of Mind in LLM-based Conversational Recommender Systems](../../AAAI2026/video_understanding/rectom_a_benchmark_for_evaluating_machine_theory_of_mind_in_llm-based_conversati.md)
 
 <!-- RELATED:END -->

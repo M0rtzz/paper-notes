@@ -130,10 +130,10 @@ VIRO采用两阶段解耦管道：(1) 预执行阶段：LLM将自然语言查询
 
 ## 相关论文
 
+- [Forest Before Trees: Latent Superposition for Efficient Visual Reasoning](../../ACL2026/interpretability/forest_before_trees_latent_superposition_for_efficient_visual_reasoning.md)
 - [Efficient Vision-Language Reasoning via Adaptive Token Pruning](../../NeurIPS2025/interpretability/efficient_vision-language_reasoning_via_adaptive_token_pruning.md)
 - [Towards Scaling Laws for Symbolic Regression](../../NeurIPS2025/interpretability/towards_scaling_laws_for_symbolic_regression.md)
 - [TangledFeatures: Robust Feature Selection in Highly Correlated Spaces](../../NeurIPS2025/interpretability/tangledfeatures_robust_feature_selection_in_highly_correlated_spaces.md)
-- [SafeDrive: Fine-Grained Safety Reasoning for End-to-End Driving in a Sparse World](safedrive_fine-grained_safety_reasoning_for_end-to-end_driving_in_a_sparse_world.md)
-- [DetailSemNet: Elevating Signature Verification through Detail-Semantic Integration](../../ECCV2024/interpretability/detailsemnet_elevating_signature_verification_through_detail-semantic_integratio.md)
+- [PV-SQL: Synergizing Database Probing and Rule-based Verification for Text-to-SQL Agents](../../ACL2026/interpretability/pv-sql_synergizing_database_probing_and_rule-based_verification_for_text-to-sql_.md)
 
 <!-- RELATED:END -->

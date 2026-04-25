@@ -142,10 +142,10 @@ PAS 框架形式化为 E_police = f(S, R, G, M, P)，包含五个阶段：
 
 ## 相关论文
 
+- [Personalized Benchmarking: Evaluating LLMs by Individual Preferences](../../ACL2026/recommender/personalized_benchmarking_evaluating_llms_by_individual_preferences.md)
 - [Deprecating Benchmarks: Criteria and Framework](../../ICML2025/recommender/deprecating_benchmarks_criteria_and_framework.md)
 - [Search Arena: Analyzing Search-Augmented LLMs](../../ICLR2026/recommender/search_arena_analyzing_search-augmented_llms.md)
-- [Aligning LLMs by Predicting Preferences from User Writing Samples](../../ICML2025/recommender/aligning_llms_by_predicting_preferences_from_user_writing_samples.md)
 - [Tokenize Once, Recommend Anywhere: Unified Item Tokenization for Multi-domain LLM-based Recommendation](tokenize_once_recommend_anywhere_unified_item_tokenization_for_multi-domain_llm-.md)
-- [Semi-Supervised Synthetic Data Generation with Fine-Grained Relevance Control for Short Video Search Relevance Modeling](semi-supervised_synthetic_data_generation_with_fine-grained_relevance_control_fo.md)
+- [What Makes LLMs Effective Sequential Recommenders? A Study on Preference Intensity and Temporal Context](../../ACL2026/recommender/what_makes_llms_effective_sequential_recommenders_a_study_on_preference_intensit.md)
 
 <!-- RELATED:END -->

@@ -158,8 +158,8 @@ BLEU 与嵌入方法在编程任务上的 Pearson 相关系数高达 0.98-0.99�
 
 - [SkillVerse: Assessing and Enhancing LLMs with Tree Evaluation](skillverse_tree_eval.md)
 - [Computation Mechanism Behind LLM Position Generalization](computation_mechanism_behind_llm_position_generalization.md)
-- [PlanGenLLMs: A Modern Survey of LLM Planning Capabilities](plangenllms_planning_survey.md)
 - [Dynamic Parallel Tree Search for Efficient LLM Reasoning](dynamic_parallel_tree_search_for_efficient_llm_reasoning.md)
+- [PlanGenLLMs: A Modern Survey of LLM Planning Capabilities](plangenllms_planning_survey.md)
 - [Boosting LLM's Molecular Structure Elucidation with Knowledge Enhanced Tree Search Reasoning](boosting_llms_molecular_structure_elucidation_with_knowledge_enhanced_tree_searc.md)
 
 <!-- RELATED:END -->

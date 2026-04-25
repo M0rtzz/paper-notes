@@ -141,8 +141,8 @@ tags:
 
 ## 相关论文
 
-- [Measuring Uncertainty Calibration](../../ICLR2026/llm_evaluation/measuring_uncertainty_calibration.md)
 - [GRACE: A Granular Benchmark for Evaluating Model Calibration Against Human Calibration](../../ACL2025/llm_evaluation/grace_a_granular_benchmark_for_evaluating_model_calibration_against_human_calibr.md)
+- [Measuring Uncertainty Calibration](../../ICLR2026/llm_evaluation/measuring_uncertainty_calibration.md)
 - [Cross-regularization: Adaptive Model Complexity through Validation Gradients](../../ICML2025/llm_evaluation/cross-regularization_adaptive_model_complexity_through_validation_gradients.md)
 - [LoTUS: Large-Scale Machine Unlearning with a Taste of Uncertainty](lotus_large-scale_machine_unlearning_with_a_taste_of_uncertainty.md)
 - [Conformal Prediction in The Loop: A Feedback-Based Uncertainty Model for Trajectory Optimization](../../NeurIPS2025/llm_evaluation/conformal_prediction_in_the_loop_a_feedback-based_uncertainty_model_for_trajecto.md)

@@ -132,6 +132,6 @@ tags:
 - [Embedding Alignment in Code Generation for Audio](embedding_alignment_in_code_generation_for_audio.md)
 - [MaintainCoder: Maintainable Code Generation Under Dynamic Requirements](maintaincoder_maintainable_code_generation_under_dynamic_requirements.md)
 - [QiMeng-SALV: Signal-Aware Learning for Verilog Code Generation](qimeng-salv_signal-aware_learning_for_verilog_code_generation.md)
-- [EpiCoder: Encompassing Diversity and Complexity in Code Generation](../../ICML2025/code_intelligence/epicoder_encompassing_diversity_and_complexity_in_code_generation.md)
+- [Table2LaTeX-RL: High-Fidelity LaTeX Code Generation from Table Images via Reinforced Multimodal Language Models](table2latex-rl_high-fidelity_latex_code_generation_from_table_images_via_reinfor.md)
 
 <!-- RELATED:END -->

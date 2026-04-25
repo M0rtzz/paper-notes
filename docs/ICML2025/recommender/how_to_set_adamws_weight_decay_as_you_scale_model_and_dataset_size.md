@@ -183,8 +183,8 @@ $$\eta = \eta_{\text{base}} / s, \quad \lambda = s \cdot \lambda_{\text{base}}$$
 ## 相关论文
 
 - [TraveLLaMA: A Multimodal Travel Assistant with Large-Scale Dataset and Structured Reasoning](../../AAAI2026/recommender/travellama_a_multimodal_travel_assistant_with_large-scale_dataset_and_structured.md)
-- [The More You Automate, the Less You See: Hidden Pitfalls of AI Scientist Systems](../../NeurIPS2025/recommender/the_more_you_automate_the_less_you_see_hidden_pitfalls_of_ai_scientist_systems.md)
 - [PARM: Multi-Objective Test-Time Alignment via Preference-Aware Autoregressive Reward Model](parm_multi-objective_test-time_alignment_via_preference-aware_autoregressive_rew.md)
+- [The More You Automate, the Less You See: Hidden Pitfalls of AI Scientist Systems](../../NeurIPS2025/recommender/the_more_you_automate_the_less_you_see_hidden_pitfalls_of_ai_scientist_systems.md)
 - [Recommendations and Reporting Checklist for Rigorous & Transparent Human Baselines in Model Evaluations](recommendations_and_reporting_checklist_for_rigorous_transparent_human_baselines.md)
 - [SIMPLEMIX: Frustratingly Simple Mixing of Off- and On-policy Data in Language Model Preference Learning](simplemix_frustratingly_simple_mixing_of_off-_and_on-policy_data_in_language_mod.md)
 

@@ -139,8 +139,8 @@ $$L_{soft} = \sum_{i=1}^{N} D_{KL}(P(i), \hat{y_i})$$
 
 - [Laser: Bi-Tuning with Collaborative Information for Controllable LLM-Based Sequential Recommendation](bi-tuning_with_collaborative_information_for_controllable_llm-based_sequential_r.md)
 - [MATCHA: Toward Safe and Human-Aligned Game Conversational Recommendation via Multi-Agent Decomposition](../../ICML2025/recommender/toward_safe_and_human-aligned_game_conversational_recommendation_via_multi-agent.md)
+- [HARPO: Hierarchical Agentic Reasoning for User-Aligned Conversational Recommendation](../../ACL2026/recommender/harpo_hierarchical_agentic_reasoning_for_user-aligned_conversational_recommendat.md)
+- [Where and What: Reasoning Dynamic and Implicit Preferences in Situated Conversational Recommendation](../../ACL2026/recommender/where_and_what_reasoning_dynamic_and_implicit_preferences_in_situated_conversati.md)
 - [VisionArena: 230K Real World User-VLM Conversations with Preference Labels](../../CVPR2025/recommender/visionarena_230k_real_world_user-vlm_conversations_with_preference_labels.md)
-- [VisualLens: Personalization through Task-Agnostic Visual History](../../NeurIPS2025/recommender/visuallens_personalization_through_task-agnostic_visual_history.md)
-- [RecLM: Recommendation Instruction Tuning](reclm_recommendation_instruction_tuning.md)
 
 <!-- RELATED:END -->

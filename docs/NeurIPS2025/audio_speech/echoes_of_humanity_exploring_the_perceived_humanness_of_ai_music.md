@@ -139,6 +139,6 @@ tags:
 - [From Generation to Attribution: Music AI Agent Architectures for the Post-Streaming Era](from_generation_to_attribution_music_ai_agent_architectures_for_the_post-streami.md)
 - [Accelerate Creation of Product Claims Using Generative AI](accelerate_creation_of_product_claims_using_generative_ai.md)
 - [Aligning Generative Music AI with Human Preferences: Methods and Challenges](../../AAAI2026/audio_speech/aligning_generative_music_ai_with_human_preferences_methods_and_challenges.md)
-- [BNMusic: Blending Environmental Noises into Personalized Music](bnmusic_blending_environmental_noises_into_personalized_music.md)
+- [Exploring Timeline Control for Facial Motion Generation](../../CVPR2025/audio_speech/exploring_timeline_control_for_facial_motion_generation.md)
 
 <!-- RELATED:END -->

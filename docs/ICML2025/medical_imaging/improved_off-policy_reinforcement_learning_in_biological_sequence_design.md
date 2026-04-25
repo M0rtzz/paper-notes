@@ -202,6 +202,6 @@ $$\delta(x; \sigma) = g(\sigma(x))$$
 - [CrossNovo: Bidirectional Representations Augmented Autoregressive Biological Sequence Generation](../../NeurIPS2025/medical_imaging/bidirectional_representations_augmented_autoregressive_biological_sequence_gener.md)
 - [Controllable Sequence Editing for Biological and Clinical Trajectories](../../ICLR2026/medical_imaging/controllable_sequence_editing_for_biological_and_clinical_trajectories.md)
 - [Uncertainty-Aware Multi-Objective Reinforcement Learning-Guided Diffusion Models for 3D De Novo Molecular Design](../../NeurIPS2025/medical_imaging/uncertainty-aware_multi-objective_reinforcement_learning-guided_diffusion_models.md)
-- [Network Sparsity Unlocks the Scaling Potential of Deep Reinforcement Learning](network_sparsity_unlocks_the_scaling_potential_of_deep_reinforcement_learning.md)
+- [Reliable Algorithm Selection for Machine Learning-Guided Design](reliable_algorithm_selection_for_machine_learning-guided_design.md)
 
 <!-- RELATED:END -->

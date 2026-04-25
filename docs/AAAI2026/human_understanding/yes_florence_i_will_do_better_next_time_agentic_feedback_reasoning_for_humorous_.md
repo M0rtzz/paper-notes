@@ -168,6 +168,6 @@ FLoReNce（Feedback-Loop Reasoner with Non-parametric Experience）由两个阶�
 - [Tool4POI: A Tool-Augmented LLM Framework for Next POI Recommendation](tool4poi_a_tool-augmented_llm_framework_for_next_poi_recommendation.md)
 - [Why Do Open-Source LLMs Struggle with Data Analysis? A Systematic Empirical Study](why_do_open-source_llms_struggle_with_data_analysis_a_systematic_empirical_study.md)
 - [Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis](facial-r1_aligning_reasoning_and_recognition_for_facial_emotion_analysis.md)
-- [Small Language Models for Efficient Agentic Tool Calling: Outperforming Large Models with Targeted Fine-tuning](small_language_models_for_efficient_agentic_tool_calling_outperforming_large_mod.md)
+- [Anomize: Better Open Vocabulary Video Anomaly Detection](../../CVPR2025/human_understanding/anomize_better_open_vocabulary_video_anomaly_detection.md)
 
 <!-- RELATED:END -->

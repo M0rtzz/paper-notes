@@ -128,9 +128,9 @@ UNIC的训练流程：(1) 选择多个具有互补优势的预训练教师模型
 ## 相关论文
 
 - [Adversarially Robust Distillation by Reducing the Student-Teacher Variance Gap](adversarially_robust_distillation_by_reducing_the_student-teacher_variance_gap.md)
+- [Find Your Optimal Teacher: Personalized Data Synthesis via Router-Guided Multi-Teacher Distillation](../../ACL2026/model_compression/find_your_optimal_teacher_personalized_data_synthesis_via_router-guided_multi-te.md)
 - [Anytime Continual Learning for Open Vocabulary Classification](anytime_continual_learning_for_open_vocabulary_classification.md)
 - [Universal Cross-Tokenizer Distillation via Approximate Likelihood Matching](../../NeurIPS2025/model_compression/universal_cross-tokenizer_distillation_via_approximate_likelihood_matching.md)
 - [A Good Teacher Adapts Their Knowledge for Distillation](../../ICCV2025/model_compression/a_good_teacher_adapts_their_knowledge_for_distillation.md)
-- [Competitive Distillation: A Simple Learning Strategy for Improving Visual Classification](../../ICCV2025/model_compression/competitive_distillation_a_simple_learning_strategy_for_improving_visual_classif.md)
 
 <!-- RELATED:END -->

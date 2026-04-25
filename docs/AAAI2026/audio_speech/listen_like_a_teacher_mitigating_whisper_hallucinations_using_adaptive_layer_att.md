@@ -157,10 +157,10 @@ ALA仅增加0.98%参数，延迟增加8%，RTF增加9%。
 
 ## 相关论文
 
+- [TellWhisper: Tell Whisper Who Speaks When](../../ACL2026/audio_speech/tellwhisper_tell_whisper_who_speaks_when.md)
 - [Multi-granularity Interactive Attention Framework for Residual Hierarchical Pronunciation Assessment](multi-granularity_interactive_attention_framework_for_residual_hierarchical_pron.md)
 - [TripleSumm: Adaptive Triple-Modality Fusion for Video Summarization](../../ICLR2026/audio_speech/triplesumm_adaptive_triple-modality_fusion_for_video_summarization.md)
-- [Listen to Look into the Future: Audio-Visual Egocentric Gaze Anticipation](../../ECCV2024/audio_speech/listen_to_look_into_the_future_audio-visual_egocentric_gaze_anticipation.md)
 - [Say More with Less: Variable-Frame-Rate Speech Tokenization via Adaptive Clustering and Implicit Duration Coding](say_more_with_less_variable-frame-rate_speech_tokenization_via_adaptive_clusteri.md)
-- [Multi-head Temporal Latent Attention](../../NeurIPS2025/audio_speech/multi-head_temporal_latent_attention.md)
+- [Listen to Look into the Future: Audio-Visual Egocentric Gaze Anticipation](../../ECCV2024/audio_speech/listen_to_look_into_the_future_audio-visual_egocentric_gaze_anticipation.md)
 
 <!-- RELATED:END -->

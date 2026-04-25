@@ -177,8 +177,8 @@ tags:
 
 - [LLM Probing with Contrastive Eigenproblems: Improving Understanding and Applicability of CCS](../../NeurIPS2025/interpretability/llm_probing_with_contrastive_eigenproblems_improving_understanding_and_applicabi.md)
 - [Cracking Factual Knowledge: A Comprehensive Analysis of Degenerate Knowledge Neurons in Large Language Models](degenerate_knowledge_neurons.md)
+- [Rhetorical Questions in LLM Representations: A Linear Probing Study](../../ACL2026/interpretability/rhetorical_questions_in_llm_representations_a_linear_probing_study.md)
 - [Probing Subphonemes in Morphology Models](probing_subphonemes_in_morphology_models.md)
 - [Probing the Geometry of Truth: Consistency and Generalization of Truth Directions](probing_the_geometry_of_truth_consistency_and_generalization_of_truth_directions.md)
-- [Geometric Priors for Generalizable World Models via Vector Symbolic Architecture](../../NeurIPS2025/interpretability/geometric_priors_for_generalizable_world_models_via_vector_symbolic_architecture.md)
 
 <!-- RELATED:END -->

@@ -128,6 +128,6 @@ PASCAL-Context 数据集，Swin-T (ImageNet-1k) 作为编码器骨架：
 - [Frequency Switching Mechanism for Parameter-Efficient Multi-Task Learning](../../CVPR2026/model_compression/frequency_switching_mechanism_for_parameter-ecient_multi-task_learning.md)
 - [Task Vector Quantization for Memory-Efficient Model Merging](../../ICCV2025/model_compression/task_vector_quantization_for_memory-efficient_model_merging.md)
 - [TR-PTS: Task-Relevant Parameter and Token Selection for Efficient Tuning](../../ICCV2025/model_compression/tr-pts_task-relevant_parameter_and_token_selection_for_efficient_tuning.md)
-- [DAC: A Dynamic Attention-aware Approach for Task-Agnostic Prompt Compression](../../ACL2025/model_compression/dac_prompt_compression.md)
+- [BHViT: Binarized Hybrid Vision Transformer](bhvit_binarized_hybrid_vision_transformer.md)
 
 <!-- RELATED:END -->

@@ -134,6 +134,6 @@ pipeline 由 LLM 和 TP 交替协作完成：输入 NLI 三元组（前提、假
 - [Core: Robust Factual Precision with Informative Sub-Claim Identification](core_robust_factual_precision_with_informative_sub-claim_identification.md)
 - [Towards Context-Robust LLMs: A Gated Representation Fine-tuning Approach](towards_context-robust_llms_a_gated_representation_fine-tuning_approach.md)
 - [Which Retain Set Matters for LLM Unlearning? A Case Study on Entity Unlearning](which_retain_set_matters_for_llm_unlearning_a_case_study_on_entity_unlearning.md)
-- [HALoGEN: Fantastic LLM Hallucinations and Where to Find Them](halogen_hallucinations.md)
+- [TRUST -- Transformer-Driven U-Net for Sparse Target Recovery](../../NeurIPS2025/llm_safety/trust_--_transformer-driven_u-net_for_sparse_target_recovery.md)
 
 <!-- RELATED:END -->

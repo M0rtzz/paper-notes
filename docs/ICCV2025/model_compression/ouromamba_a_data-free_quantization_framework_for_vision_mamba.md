@@ -132,6 +132,6 @@ OuroMamba 包含两个阶段：OuroMamba-Gen（合成数据生成）和 OuroMamb
 - [MixA-Q: Revisiting Activation Sparsity for Vision Transformers from a Mixed-Precision Quantization Perspective](mixa-q_revisiting_activation_sparsity_for_vision_transformers_from_a_mixed-preci.md)
 - [GenQ: Quantization in Low Data Regimes with Generative Synthetic Data](../../ECCV2024/model_compression/genq_quantization_in_low_data_regimes_with_generative_synthetic_data.md)
 - [MSQ: Memory-Efficient Bit Sparsification Quantization](msq_memory-efficient_bit_sparsification_quantization.md)
-- [GPTAQ: Efficient Finetuning-Free Quantization for Asymmetric Calibration](../../ICML2025/model_compression/gptaq_efficient_finetuning-free_quantization_for_asymmetric_calibration.md)
+- [Style Quantization for Data-Efficient GAN Training](../../CVPR2025/model_compression/style_quantization_for_data-efficient_gan_training.md)
 
 <!-- RELATED:END -->

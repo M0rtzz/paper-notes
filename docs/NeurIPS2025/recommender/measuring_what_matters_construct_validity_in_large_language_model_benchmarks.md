@@ -131,8 +131,8 @@ tags:
 ## 相关论文
 
 - [Inference-Time Reward Hacking in Large Language Models](inference-time_reward_hacking_in_large_language_models.md)
-- [Deprecating Benchmarks: Criteria and Framework](../../ICML2025/recommender/deprecating_benchmarks_criteria_and_framework.md)
 - [From Evaluation to Defense: Advancing Safety in Video Large Language Models](../../ICLR2026/recommender/from_evaluation_to_defense_advancing_safety_in_video_large_language_models.md)
+- [Deprecating Benchmarks: Criteria and Framework](../../ICML2025/recommender/deprecating_benchmarks_criteria_and_framework.md)
 - [Who You Are Matters: Bridging Topics and Social Roles via LLM-Enhanced Logical Recommendation](who_you_are_matters_bridging_topics_and_social_roles_via_llm-enhanced_logical_re.md)
 - [KERL: Knowledge-Enhanced Personalized Recipe Recommendation using Large Language Models](../../ACL2025/recommender/kerl_knowledge-enhanced_personalized_recipe_recommendation_using_large_language_.md)
 

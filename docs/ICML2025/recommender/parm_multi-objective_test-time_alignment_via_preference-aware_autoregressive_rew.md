@@ -122,7 +122,7 @@ tags:
 - [Aligning LLMs by Predicting Preferences from User Writing Samples](aligning_llms_by_predicting_preferences_from_user_writing_samples.md)
 - [SIMPLEMIX: Frustratingly Simple Mixing of Off- and On-policy Data in Language Model Preference Learning](simplemix_frustratingly_simple_mixing_of_off-_and_on-policy_data_in_language_mod.md)
 - [Inference-Time Reward Hacking in Large Language Models](../../NeurIPS2025/recommender/inference-time_reward_hacking_in_large_language_models.md)
-- [MMPB: It's Time for Multi-Modal Personalization](../../NeurIPS2025/recommender/mmpb_its_time_for_multi-modal_personalization.md)
 - [Interpretable Reward Model via Sparse Autoencoder](../../AAAI2026/recommender/interpretable_reward_model_via_sparse_autoencoder.md)
+- [RLTHF: Targeted Human Feedback for LLM Alignment](rlthf_targeted_human_feedback_for_llm_alignment.md)
 
 <!-- RELATED:END -->

@@ -133,8 +133,8 @@ Coreset 选择旨在找到训练数据的小规模代表性子集来加速训练
 
 - [Distribution Learning Meets Graph Structure Sampling](distribution_learning_meets_graph_structure_sampling.md)
 - [Diffusion Sampling Correction via Approximately 10 Parameters](../../ICML2025/human_understanding/diffusion_sampling_correction_via_approximately_10_parameters.md)
-- [Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis](../../AAAI2026/human_understanding/facial-r1_aligning_reasoning_and_recognition_for_facial_emotion_analysis.md)
 - [RuleReasoner: Reinforced Rule-based Reasoning via Domain-aware Dynamic Sampling](../../ICLR2026/human_understanding/rulereasoner_reinforced_rule-based_reasoning_via_domain-aware_dynamic_sampling.md)
-- [FATE: Full-head Gaussian Avatar with Textural Editing from Monocular Video](../../CVPR2025/human_understanding/fate_full-head_gaussian_avatar_with_textural_editing_from_monocular_video.md)
+- [Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis](../../AAAI2026/human_understanding/facial-r1_aligning_reasoning_and_recognition_for_facial_emotion_analysis.md)
+- [Aligning Agents via Planning: A Benchmark for Trajectory-Level Reward Modeling](../../ACL2026/human_understanding/aligning_agents_via_planning_a_benchmark_for_trajectory-level_reward_modeling.md)
 
 <!-- RELATED:END -->

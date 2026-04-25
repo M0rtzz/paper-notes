@@ -156,6 +156,6 @@ DebackX 在翻译质量上略优于 TIT-Render 系列（BLEU 12.8 vs 12.1），�
 - [LEMONADE: A Large Multilingual Expert-Annotated Abstractive Event Dataset for the Real World](lemonade_a_large_multilingual_expert-annotated_abstractive_event_dataset_for_the.md)
 - [Improving MLLM's Document Image Machine Translation via Synchronously Self-reviewing Its OCR Proficiency](improving_mllms_document_image_machine_translation_via_synchronously_self-review.md)
 - [Machine Translation Models are Zero-Shot Detectors of Translation Direction](machine_translation_models_are_zero-shot_detectors_of_translation_direction.md)
-- [Exploring the Translation Mechanism of Large Language Models](../../NeurIPS2025/multilingual_mt/exploring_the_translation_mechanism_of_large_language_models.md)
+- [STELLAR: Scene Text Editor for Low-Resource Languages and Real-World Data](../../AAAI2026/multilingual_mt/stellar_scene_text_editor_for_low-resource_languages_and_real-world_data.md)
 
 <!-- RELATED:END -->

@@ -131,8 +131,8 @@ tags:
 
 - [Mitigating Privacy-Utility Trade-off in Decentralized Federated Learning via f-Differential Privacy](../../NeurIPS2025/ai_safety/mitigating_privacy-utility_trade-off_in_decentralized_federated_learning_via_f-d.md)
 - [Resource-Adaptive Federated Text Generation with Differential Privacy](../../ICLR2026/ai_safety/resource-adaptive_federated_text_generation_with_differential_privacy.md)
+- [De-Anonymization at Scale via Tournament-Style Attribution](de-anonymization_at_scale_via_tournament-style_attribution.md)
 - [Clients Collaborate: Flexible Differentially Private Federated Learning with Guaranteed Improvement of Utility-Privacy Trade-off](../../ICML2025/ai_safety/clients_collaborate_flexible_differentially_private_federated_learning_with_guar.md)
 - [InvisibleInk: High-Utility and Low-Cost Text Generation with Differential Privacy](../../NeurIPS2025/ai_safety/invisibleink_high-utility_and_low-cost_text_generation_with_differential_privacy.md)
-- [Connecting Thompson Sampling and UCB: Towards More Efficient Trade-offs Between Privacy and Regret](../../ICML2025/ai_safety/connecting_thompson_sampling_and_ucb_towards_more_efficient_best-fixed_action_.md)
 
 <!-- RELATED:END -->

@@ -122,6 +122,6 @@ tags:
 - [Hierarchical Event Memory for Accurate and Low-latency Online Video Temporal Grounding](../../ICCV2025/video_understanding/hierarchical_event_memory_for_accurate_and_low-latency_online_video_temporal_gro.md)
 - [EDCFlow: Exploring Temporally Dense Difference Maps for Event-based Optical Flow Estimation](edcflow_exploring_temporally_dense_difference_maps_for_event-based_optical_flow_.md)
 - [AllTracker: Efficient Dense Point Tracking at High Resolution](../../ICCV2025/video_understanding/alltracker_efficient_dense_point_tracking_at_high_resolution.md)
-- [VISTA: Enhancing Long-Duration and High-Resolution Video Understanding by Video SpatioTemporal Augmentation](vista_enhancing_long-duration_and_high-resolution_video_understanding_by_video_s.md)
+- [Event6D: Event-based Novel Object 6D Pose Tracking](../../CVPR2026/video_understanding/event6d_event-based_novel_object_6d_pose_tracking.md)
 
 <!-- RELATED:END -->

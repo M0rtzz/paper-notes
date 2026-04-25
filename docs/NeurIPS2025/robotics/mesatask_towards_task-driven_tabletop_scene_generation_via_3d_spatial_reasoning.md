@@ -124,6 +124,6 @@ SFT 阶段：标准语言模型 loss；DPO 阶段：$\mathcal{L}_{DPO} = -\log\s
 - [MMTU: A Massive Multi-Task Table Understanding and Reasoning Benchmark](mmtu_a_massive_multi-task_table_understanding_and_reasoning_benchmark.md)
 - [3D-MVP: 3D Multiview Pretraining for Robotic Manipulation](../../CVPR2025/robotics/3d-mvp_3d_multiview_pretraining_for_manipulation.md)
 - [Learning Spatial-Aware Manipulation Ordering](learning_spatial-aware_manipulation_ordering.md)
-- [Expert Pyramid Tuning: Efficient Parameter Fine-Tuning for Expertise-Driven Task Allocation](../../CVPR2025/robotics/expert_pyramid_tuning_efficient_parameter_fine-tuning_for_expertise-driven_task_.md)
+- [EvoEmpirBench: Dynamic Spatial Reasoning with Agent-ExpVer](../../AAAI2026/robotics/evoempirbench_dynamic_spatial_reasoning_with_agent-expver.md)
 
 <!-- RELATED:END -->

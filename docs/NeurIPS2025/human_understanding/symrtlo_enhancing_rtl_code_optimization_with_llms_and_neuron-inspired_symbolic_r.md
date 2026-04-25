@@ -164,8 +164,8 @@ Wire/Cell对比（11个基准，Yosys）：
 
 - [Enhancing Parallelism in Decentralized Stochastic Convex Optimization](../../ICML2025/human_understanding/enhancing_parallelism_in_decentralized_stochastic_convex_optimization.md)
 - [Towards Long-Horizon Interpretability: Efficient and Faithful Multi-Token Attribution for Reasoning LLMs](../../ICML2025/human_understanding/towards_long-horizon_interpretability_efficient_and_faithful_multi-token_attribu.md)
+- [The Reasoning Trap: How Enhancing LLM Reasoning Amplifies Tool Hallucination](../../ACL2026/human_understanding/the_reasoning_trap_how_enhancing_llm_reasoning_amplifies_tool_hallucination.md)
 - [RULEBREAKERS: Challenging LLMs at the Crossroads between Formal Logic and Human-like Reasoning](../../ICML2025/human_understanding/rulebreakers_challenging_llms_at_the_crossroads_between_formal_logic_and_human-l.md)
 - [Recurrent Attention-based Token Selection for Efficient Streaming Video-LLMs](recurrent_attention-based_token_selection_for_efficient_streaming_video-llms.md)
-- [Mapping Faithful Reasoning in Language Models](mapping_faithful_reasoning_in_language_models.md)
 
 <!-- RELATED:END -->

@@ -171,7 +171,7 @@ $$\underset{\Phi}{\arg\min} \frac{1}{M} \sum_{i=1}^{M} J(\Phi, \boldsymbol{h}_i,
 - [The Trilemma of Truth in Large Language Models](../../NeurIPS2025/interpretability/the_trilemma_of_truth_in_large_language_models.md)
 - [Emergence of Linear Truth Encodings in Language Models](../../NeurIPS2025/interpretability/emergence_of_linear_truth_encodings_in_language_models.md)
 - [Probing Subphonemes in Morphology Models](probing_subphonemes_in_morphology_models.md)
-- [Around the World in 24 Hours: Probing LLM Knowledge of Time and Place](around_the_world_in_24_hours_probing_llm_knowledge_of_time_and_place.md)
 - [Geometry-Guided Camera Motion Understanding in VideoLLMs](../../CVPR2025/interpretability/geometry-guided_camera_motion_understanding_in_videollms.md)
+- [Around the World in 24 Hours: Probing LLM Knowledge of Time and Place](around_the_world_in_24_hours_probing_llm_knowledge_of_time_and_place.md)
 
 <!-- RELATED:END -->

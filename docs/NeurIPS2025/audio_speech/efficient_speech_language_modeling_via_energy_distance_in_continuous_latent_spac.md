@@ -148,7 +148,7 @@ SLED 是唯一同时实现单次采样、无后处理和流式推理的连续语
 - [Latent Space Factorization in LoRA](latent_space_factorization_in_lora.md)
 - [FLAM: Frame-Wise Language-Audio Modeling](../../ICML2025/audio_speech/flam_frame-wise_language-audio_modeling.md)
 - [Bridging the Language Gap: Synthetic Voice Diversity via Latent Mixup for Equitable Speech Recognition](../../ICML2025/audio_speech/bridging_the_language_gap_synthetic_voice_diversity_via_latent_mixup_for_equitab.md)
-- [E-BATS: Efficient Backpropagation-Free Test-Time Adaptation for Speech Foundation Models](e-bats_efficient_backpropagation-free_test-time_adaptation_for_speech_foundation.md)
 - [Multi-head Temporal Latent Attention](multi-head_temporal_latent_attention.md)
+- [E-BATS: Efficient Backpropagation-Free Test-Time Adaptation for Speech Foundation Models](e-bats_efficient_backpropagation-free_test-time_adaptation_for_speech_foundation.md)
 
 <!-- RELATED:END -->

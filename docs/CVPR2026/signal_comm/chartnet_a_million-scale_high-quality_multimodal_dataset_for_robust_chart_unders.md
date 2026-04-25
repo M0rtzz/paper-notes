@@ -144,8 +144,8 @@ ChartMimic-v2 代码生成（granite-vision-2B）：
 
 - [Robust Preference Alignment via Directional Neighborhood Consensus](../../ICLR2026/signal_comm/robust_preference_alignment_via_directional_neighborhood_consensus.md)
 - [Boosting Multimodal Learning via Disentangled Gradient Learning](../../ICCV2025/signal_comm/boosting_multimodal_learning_via_disentangled_gradient_learning.md)
+- [Solver-Independent Automated Problem Formulation via LLMs for High-Cost Simulation-Driven Design](../../ACL2026/signal_comm/solver-independent_automated_problem_formulation_via_llms_for_high-cost_simulati.md)
 - [Bispectral OT: Dataset Comparison using Symmetry-Aware Optimal Transport](../../NeurIPS2025/signal_comm/bispectral_ot_dataset_comparison_using_symmetry-aware_optimal_transport.md)
 - [Tuning the Frequencies: Robust Training for Sinusoidal Neural Networks](../../CVPR2025/signal_comm/tuning_the_frequencies_robust_training_for_sinusoidal_neural_networks.md)
-- [Defect Spectrum: A Granular Look of Large-Scale Defect Datasets with Rich Semantics](../../ECCV2024/signal_comm/defect_spectrum_a_granular_look_of_large-scale_defect_datasets_with_rich_semanti.md)
 
 <!-- RELATED:END -->

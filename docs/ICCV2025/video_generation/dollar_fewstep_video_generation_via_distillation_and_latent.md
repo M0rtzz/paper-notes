@@ -234,8 +234,8 @@ VSD loss + consistency loss混合，后接latent reward fine-tuning。
 
 - [Adversarial Distribution Matching for Diffusion Distillation Towards Efficient Image and Video Synthesis](adversarial_distribution_matching_for_diffusion_distillation_towards_efficient_i.md)
 - [FVGen: Accelerating Novel-View Synthesis with Adversarial Video Diffusion Distillation](fvgen_accelerating_novel-view_synthesis_with_adversarial_video_diffusion_distill.md)
-- [Long Context Tuning for Video Generation](long_context_tuning_for_video_generation.md)
 - [FlashMotion: Few-Step Controllable Video Generation with Trajectory Guidance](../../CVPR2025/video_generation/flashmotion_few-step_controllable_video_generation_with_trajectory_guidance.md)
+- [Long Context Tuning for Video Generation](long_context_tuning_for_video_generation.md)
 - [Versatile Transition Generation with Image-to-Video Diffusion](versatile_transition_generation_with_image-to-video_diffusion.md)
 
 <!-- RELATED:END -->

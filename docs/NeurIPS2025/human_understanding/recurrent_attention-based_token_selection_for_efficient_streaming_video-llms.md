@@ -163,7 +163,7 @@ Token选择方法对比 (NextQA, 保留6% token)：
 - [Towards Long-Horizon Interpretability: Efficient and Faithful Multi-Token Attribution for Reasoning LLMs](../../ICML2025/human_understanding/towards_long-horizon_interpretability_efficient_and_faithful_multi-token_attribu.md)
 - [Switchable Token-Specific Codebook Quantization for Face Image Compression](switchable_token-specific_codebook_quantization_for_face_image_compression.md)
 - [SpecAttn: Speculating Sparse Attention](specattn_speculating_sparse_attention.md)
-- [SymRTLO: Enhancing RTL Code Optimization with LLMs and Neuron-Inspired Symbolic Reasoning](symrtlo_enhancing_rtl_code_optimization_with_llms_and_neuron-inspired_symbolic_r.md)
 - [Learning Skill-Attributes for Transferable Assessment in Video](learning_skill-attributes_for_transferable_assessment_in_video.md)
+- [Node-Based Editing for Multimodal Generation of Text, Audio, Image, and Video](node-based_editing_for_multimodal_generation_of_text_audio_image_and_video.md)
 
 <!-- RELATED:END -->

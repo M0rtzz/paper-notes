@@ -138,6 +138,6 @@ ROCKET-1 提出了一种新的视觉时序上下文提示（visual-temporal cont
 - [V-CLR: View-Consistent Learning for Open-World Instance Segmentation](v-clr_view-consistent_learning_for_open-world_instance_segmentation.md)
 - [Open-World Skill Discovery from Unsegmented Demonstration Videos](../../ICCV2025/segmentation/open-world_skill_discovery_from_unsegmented_demonstration_videos.md)
 - [CPM: Class-Conditional Prompting Machine for Audio-Visual Segmentation](../../ECCV2024/segmentation/cpm_class-conditional_prompting_machine_for_audio-visual_segmentation.md)
-- [The Devil is in Temporal Token: High Quality Video Reasoning Segmentation](the_devil_is_in_temporal_token_high_quality_video_reasoning_segmentation.md)
+- [The Power of Context: How Multimodality Improves Image Super-Resolution](the_power_of_context_how_multimodality_improves_image_super-resolution.md)
 
 <!-- RELATED:END -->

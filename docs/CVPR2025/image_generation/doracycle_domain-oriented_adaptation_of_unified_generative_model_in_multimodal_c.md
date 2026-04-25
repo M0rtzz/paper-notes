@@ -118,6 +118,6 @@ $\mathcal{L} = \mathcal{L}_{real} + \mathcal{L}_{syn}$，T cycle 用 token-level
 - [Everything to the Synthetic: Diffusion-driven Test-time Adaptation via Synthetic-Domain Alignment](everything_to_the_synthetic_diffusion-driven_test-time_adaptation_via_synthetic-.md)
 - [TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation](tokenflow_unified_image_tokenizer_for_multimodal_understanding_and_generation.md)
 - [Diffusion-Driven Progressive Target Manipulation for Source-Free Domain Adaptation](../../NeurIPS2025/image_generation/diffusion-driven_progressive_target_manipulation_for_source-free_domain_adaptati.md)
-- [Generative Multimodal Pretraining with Discrete Diffusion Timestep Tokens](generative_multimodal_pretraining_with_discrete_diffusion_timestep_tokens.md)
+- [JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation](janusflow_harmonizing_autoregression_and_rectified_flow_for_unified_multimodal_u.md)
 
 <!-- RELATED:END -->

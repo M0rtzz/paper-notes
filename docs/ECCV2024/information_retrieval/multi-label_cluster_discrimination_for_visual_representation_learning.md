@@ -182,6 +182,6 @@ Zero-shot 分类比 OpenCLIP 提升 **3.9%**，比 FLIP 提升 **1.5%**。MSCOCO
 - [Grounding Language Models for Visual Entity Recognition](grounding_language_models_for_visual_entity_recognition.md)
 - [Towards Open-Ended Visual Recognition with Large Language Model](towards_open-ended_visual_recognition_with_large_language_models.md)
 - [Digging Deeper: Learning Multi-Level Concept Hierarchies](../../ICLR2026/information_retrieval/digging_deeper_learning_multi-level_concept_hierarchies.md)
-- [Learning Task-Agnostic Representations through Multi-Teacher Distillation](../../NeurIPS2025/information_retrieval/learning_task-agnostic_representations_through_multi-teacher_distillation.md)
+- [Prune-then-Merge: Towards Efficient Multi-Vector Visual Document Retrieval](../../ACL2026/information_retrieval/sculpting_the_vector_space_towards_efficient_multi-vector_visual_document_retrie.md)
 
 <!-- RELATED:END -->

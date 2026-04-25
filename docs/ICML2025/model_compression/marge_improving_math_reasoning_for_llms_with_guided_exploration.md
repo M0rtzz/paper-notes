@@ -149,6 +149,6 @@ MARGE 使用类似 DPO 的偏好优化损失，但训练对是基于命中率构
 - [Entropy-based Exploration Conduction for Multi-step Reasoning](../../ACL2025/model_compression/entropy-based_exploration_conduction_for_multi-step_reasoning.md)
 - [TokenSqueeze: Performance-Preserving Compression for Reasoning LLMs](../../NeurIPS2025/model_compression/tokensqueeze_performance-preserving_compression_for_reasoning_llms.md)
 - [RISE: Reasoning Enhancement via Iterative Self-Exploration in Multi-hop Question Answering](../../ACL2025/model_compression/rise_reasoning_enhancement_via_iterative_self-exploration_in_multi-hop_question_.md)
-- [Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression](../../AAAI2026/model_compression/efficient_reasoning_for_large_reasoning_language_models_via_certainty-guided_ref.md)
+- [ExPO: Unlocking Hard Reasoning with Self-Explanation-Guided Reinforcement Learning](../../NeurIPS2025/model_compression/expo_unlocking_hard_reasoning_with_self-explanation-guided_reinforcement_learnin.md)
 
 <!-- RELATED:END -->

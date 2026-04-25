@@ -129,6 +129,6 @@ GraspLDP 采用两阶段训练：(1) Action Latent Learning 阶段：用 VAE 将
 - [Formal Verification of Diffusion Auctions](../../AAAI2026/reinforcement_learning/formal_verification_of_diffusion_auctions.md)
 - [Lifelong Imitation Learning with Multimodal Latent Replay and Incremental Adjustment](lifelong_imitation_learning_with_multimodal_latent_replay_and_incremental_adjust.md)
 - [Object-Centric Latent Action Learning](../../AAAI2026/reinforcement_learning/object-centric_latent_action_learning.md)
-- [EgoBridge: Domain Adaptation for Generalizable Imitation from Egocentric Human Data](../../NeurIPS2025/reinforcement_learning/egobridge_domain_adaptation_for_generalizable_imitation_from_egocentric_human_da.md)
+- [SpiralThinker: Latent Reasoning through an Iterative Process with Text-Latent Interleaving](../../ACL2026/reinforcement_learning/spiralthinker_latent_reasoning_through_an_iterative_process_with_text-latent_int.md)
 
 <!-- RELATED:END -->

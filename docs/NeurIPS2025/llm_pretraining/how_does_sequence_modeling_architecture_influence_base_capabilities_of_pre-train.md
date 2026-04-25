@@ -133,8 +133,8 @@ tags:
 
 - [LEANCODE: Understanding Models Better for Code Simplification of Pre-trained Large Language Models](../../ACL2025/llm_pretraining/leancode_understanding_models_better_for_code_simplification_of_pre-trained_larg.md)
 - [Dataset Ownership Verification for Pre-trained Masked Models](../../ICCV2025/llm_pretraining/dataset_ownership_verification_for_pre-trained_masked_models.md)
-- [The Curse of Depth in Large Language Models](the_curse_of_depth_in_large_language_models.md)
 - [Does Object Binding Naturally Emerge in Large Pretrained Vision Transformers?](does_object_binding_naturally_emerge_in_large_pretrained_vision_transformers.md)
+- [The Curse of Depth in Large Language Models](the_curse_of_depth_in_large_language_models.md)
 - [Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale](language_model_behavioral_phases_are_consistent_across_archi.md)
 
 <!-- RELATED:END -->

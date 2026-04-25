@@ -130,8 +130,8 @@ Docopilot-8B 在 MM-NIAH 上超越 InternVL2-8B +19.9 点，超越 InternVL2-26B
 
 - [Benchmarking Retrieval-Augmented Multimodal Generation for Document Question Answering](../../NeurIPS2025/information_retrieval/benchmarking_retrievalaugmented_multimodal_generation_for_do.md)
 - [Towards Storage-Efficient Visual Document Retrieval: An Empirical Study on Reducing Patch-Level Embeddings](../../ACL2025/information_retrieval/towards_storage-efficient_visual_document_retrieval_an_empirical_study_on_reduci.md)
-- [A Survey on MLLM-based Visually Rich Document Understanding: Methods, Challenges, and Emerging Trends](../../ACL2026/information_retrieval/a_survey_on_mllm-based_visually_rich_document_understanding_methods_challenges_a.md)
-- [RAVENEA: A Benchmark for Multimodal Retrieval-Augmented Visual Culture Understanding](../../ICLR2026/information_retrieval/ravenea_a_benchmark_for_multimodal_retrieval-augmented_visual_culture_understand.md)
 - [Query-Level Uncertainty in Large Language Models](../../ICLR2026/information_retrieval/query-level_uncertainty_in_large_language_models.md)
+- [RAVENEA: A Benchmark for Multimodal Retrieval-Augmented Visual Culture Understanding](../../ICLR2026/information_retrieval/ravenea_a_benchmark_for_multimodal_retrieval-augmented_visual_culture_understand.md)
+- [A Survey on MLLM-based Visually Rich Document Understanding: Methods, Challenges, and Emerging Trends](../../ACL2026/information_retrieval/a_survey_on_mllm-based_visually_rich_document_understanding_methods_challenges_a.md)
 
 <!-- RELATED:END -->

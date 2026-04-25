@@ -107,8 +107,8 @@ LongBioBench的核心idea非常简洁：用**虚构传记**同时作为needle和
 
 - [AudSemThinker: Enhancing Audio-Language Models through Reasoning over Semantics of Sound](audsemthinker_enhancing_audio-language_models_through_reasoning_over_semantics_o.md)
 - [Does Your Voice Assistant Remember? Analyzing Conversational Context Recall and Utilization in Voice Interaction Models](../../ACL2025/audio_speech/does_your_voice_assistant_remember_analyzing_conversational_context_recall_and_u.md)
-- [Associative Syntax and Maximal Repetitions Reveal Context-Dependent Complexity in Fruit Bat Communication](associative_syntax_and_maximal_repetitions_reveal_context-dependent_complexity_i.md)
 - [End-to-end Contrastive Language-Speech Pretraining Model For Long-form Spoken Question Answering](../../AAAI2026/audio_speech/end-to-end_contrastive_language-speech_pretraining_model_for_long-form_spoken_qu.md)
-- [EMoVA: Empowering Language Models to See, Hear and Speak with Vivid Emotions](../../CVPR2025/audio_speech/emova_empowering_language_models_to_see_hear_and_speak_with_vivid_emotions.md)
+- [Associative Syntax and Maximal Repetitions Reveal Context-Dependent Complexity in Fruit Bat Communication](associative_syntax_and_maximal_repetitions_reveal_context-dependent_complexity_i.md)
+- [Latent Swap Joint Diffusion for 2D Long-Form Latent Generation](../../ICCV2025/audio_speech/latent_swap_joint_diffusion_for_2d_long-form_latent_generation.md)
 
 <!-- RELATED:END -->

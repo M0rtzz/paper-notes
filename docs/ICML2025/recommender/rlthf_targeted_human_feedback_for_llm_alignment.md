@@ -132,6 +132,6 @@ ROI 对比：RLTHF 相对于 Random 标注的投资回报率在 HH-RLHF 上高 1
 - [PARM: Multi-Objective Test-Time Alignment via Preference-Aware Autoregressive Reward Model](parm_multi-objective_test-time_alignment_via_preference-aware_autoregressive_rew.md)
 - [Align³GR: Unified Multi-Level Alignment for LLM-based Generative Recommendation](../../AAAI2026/recommender/align3gr_unified_multi-level_alignment_for_llm-based_generat.md)
 - [Recommendations and Reporting Checklist for Rigorous & Transparent Human Baselines in Model Evaluations](recommendations_and_reporting_checklist_for_rigorous_transparent_human_baselines.md)
-- [Preference is More Than Comparisons: Rethinking Dueling Bandits with Augmented Human Feedback](../../AAAI2026/recommender/preference_is_more_than_comparisons_rethinking_dueling_bandits_with_augmented_hu.md)
+- [MATCHA: Toward Safe and Human-Aligned Game Conversational Recommendation via Multi-Agent Decomposition](toward_safe_and_human-aligned_game_conversational_recommendation_via_multi-agent.md)
 
 <!-- RELATED:END -->

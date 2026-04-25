@@ -123,10 +123,10 @@ tags:
 
 ## 相关论文
 
+- [SessionIntentBench: A Multi-Task Inter-Session Intention-Shift Modeling Benchmark](../../ACL2026/llm_evaluation/sessionintentbench_a_multi-task_inter-session_intention-shift_modeling_benchmark.md)
 - [MMLU-CF: A Contamination-free Multi-task Language Understanding Benchmark](mmlu-cf_a_contamination-free_multi-task_language_understanding_benchmark.md)
+- [TripTailor: A Real-World Benchmark for Personalized Travel Planning](triptailor_a_real-world_benchmark_for_personalized_travel_planning.md)
 - [McBE: A Multi-task Chinese Bias Evaluation Benchmark for Large Language Models](mcbe_a_multi-task_chinese_bias_evaluation_benchmark_for_large_language_models.md)
 - [SeedBench: A Multi-task Benchmark for Evaluating Large Language Models in Seed Science](seedbench_a_multi-task_benchmark_for_evaluating_large_language_models_in_seed_sc.md)
-- [TripTailor: A Real-World Benchmark for Personalized Travel Planning](triptailor_a_real-world_benchmark_for_personalized_travel_planning.md)
-- [TripCraft: A Benchmark for Spatio-Temporally Fine Grained Travel Planning](tripcraft_a_benchmark_for_spatio-temporally_fine_grained_travel_planning.md)
 
 <!-- RELATED:END -->

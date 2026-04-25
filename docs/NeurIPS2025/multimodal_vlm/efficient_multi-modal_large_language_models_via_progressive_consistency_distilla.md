@@ -191,6 +191,6 @@ KV缓存减少 **88.9%**，FLOPs减少 **83.9%**，实际加速约 **1.6×**。
 - [FOLDER: Accelerating Multi-modal Large Language Models with Enhanced Performance](../../ICCV2025/multimodal_vlm/folder_accelerating_multi-modal_large_language_models_with_enhanced_performance.md)
 - [VaMP: Variational Multi-Modal Prompt Learning for Vision-Language Models](vamp_variational_multi-modal_prompt_learning_for_vision-language_models.md)
 - [SpatialTraceGen: High-Fidelity Traces for Efficient VLM Spatial Reasoning Distillation](spatialtracegen_high-fidelity_traces_for_efficient_vlm_spatial_reasoning_distill.md)
-- [Jailbreak Large Vision-Language Models Through Multi-Modal Linkage](../../ACL2025/multimodal_vlm/jailbreak_large_vision-language_models_through_multi-modal_linkage.md)
+- [A Two-Stage Progressive Pre-training using Multi-Modal Contrastive Masked Autoencoders](../../CVPR2025/multimodal_vlm/multi-modal_contrastive_masked_autoencoders_a_two-stage_progressive_pre-training.md)
 
 <!-- RELATED:END -->

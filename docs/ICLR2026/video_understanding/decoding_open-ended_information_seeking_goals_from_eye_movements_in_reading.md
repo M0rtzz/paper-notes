@@ -98,8 +98,8 @@ tags:
 
 - [MovieRecapsQA: A Multimodal Open-Ended Video Question-Answering Benchmark](../../CVPR2026/video_understanding/movierecapsqa_a_multimodal_open-ended_video_question-answering_benchmark.md)
 - [TOGA: Temporally Grounded Open-Ended Video QA with Weak Supervision](../../ICCV2025/video_understanding/toga_temporally_grounded_open-ended_video_qa_with_weak_supervision.md)
+- [Probing for Reading Times](../../ACL2026/video_understanding/probing_for_reading_times.md)
 - [Map the Flow: Revealing Hidden Pathways of Information in VideoLLMs](map_the_flow_revealing_hidden_pathways_of_information_in_videollms.md)
 - [GoalForce: Teaching Video Models to Accomplish Physics-Conditioned Goals](../../CVPR2026/video_understanding/goal_force_teaching_video_models_to_accomplish_physics-conditioned_goals.md)
-- [VideoSeek: Long-Horizon Video Agent with Tool-Guided Seeking](../../CVPR2026/video_understanding/videoseek_long-horizon_video_agent_with_tool-guided_seeking.md)
 
 <!-- RELATED:END -->

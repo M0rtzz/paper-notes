@@ -127,9 +127,9 @@ tags:
 ## 相关论文
 
 - [An Orthogonal Learner for Individualized Outcomes in Markov Decision Processes](../../ICLR2026/medical_imaging/an_orthogonal_learner_for_individualized_outcomes_in_markov_decision_processes.md)
+- [Model-Agnostic Meta Learning for Class Imbalance Adaptation](../../ACL2026/medical_imaging/model-agnostic_meta_learning_for_class_imbalance_adaptation.md)
 - [SECRET: Semi-supervised Clinical Trial Document Similarity Search](../../ACL2025/medical_imaging/secret_semi-supervised_clinical_trial_document_similarity_search.md)
-- [Meta-learning In-Context Enables Training-Free Cross Subject Brain Decoding](../../CVPR2026/medical_imaging/meta-learning_in-context_enables_training-free_cross_subject_brain_decoding.md)
 - [Bayesian Inference for Correlated Human Experts and Classifiers](../../ICML2025/medical_imaging/bayesian_inference_for_correlated_human_experts_and_classifiers.md)
-- [How Do Medical MLLMs Fail? A Study on Visual Grounding in Medical Images](../../ICLR2026/medical_imaging/how_do_medical_mllms_fail_a_study_on_visual_grounding_in_medical_images.md)
+- [Meta-learning In-Context Enables Training-Free Cross Subject Brain Decoding](../../CVPR2026/medical_imaging/meta-learning_in-context_enables_training-free_cross_subject_brain_decoding.md)
 
 <!-- RELATED:END -->

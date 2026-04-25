@@ -157,6 +157,6 @@ ZeroAttention将所有输出变为"无变化"（变化准确率降为0%，无变
 - [Dita: Scaling Diffusion Transformer for Generalist Vision-Language-Action Policy](dita_scaling_diffusion_transformer_for_generalist_visionlang.md)
 - [ONLY: One-Layer Intervention Sufficiently Mitigates Hallucinations in Large Vision-Language Models](only_onelayer_intervention_sufficiently_mitigates_hallucinat.md)
 - [Mitigating Object Hallucinations via Sentence-Level Early Intervention](mitigating_object_hallucinations_via_sentence-level_early_intervention.md)
-- [CleanSight: Test-Time Attention Purification for Backdoored Large Vision Language Models](../../CVPR2025/multimodal_vlm/test-time_attention_purification_for_backdoored_large_vision_language_models.md)
+- [RollingQ: Reviving the Cooperation Dynamics in Multimodal Transformer](../../ICML2025/multimodal_vlm/rollingq_reviving_the_cooperation_dynamics_in_multimodal_transformer.md)
 
 <!-- RELATED:END -->

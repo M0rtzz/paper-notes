@@ -165,7 +165,7 @@ tags:
 - [Virus Infection Attack on LLMs: Your Poisoning Can Spread "VIA" Synthetic Data](../../NeurIPS2025/ai_safety/virus_infection_attack_on_llms_your_poisoning_can_spread_via_synthetic_data.md)
 - [Quadratic Upper Bound for Boosting Robustness](../../ICML2025/ai_safety/quadratic_upper_bound_for_boosting_robustness.md)
 - [Boosting Adversarial Transferability with Spatial Adversarial Alignment](../../NeurIPS2025/ai_safety/boosting_adversarial_transferability_with_spatial_adversarial_alignment.md)
-- [Semantic Alignment and Reinforcement for Data-Free Quantization of Vision Transformers](semantic_alignment_and_reinforcement_for_data-free_quantization_of_vision_transf.md)
 - [Robust Watermarking on Gradient Boosting Decision Trees](../../AAAI2026/ai_safety/robust_watermarking_on_gradient_boosting_decision_trees.md)
+- [Semantic Alignment and Reinforcement for Data-Free Quantization of Vision Transformers](semantic_alignment_and_reinforcement_for_data-free_quantization_of_vision_transf.md)
 
 <!-- RELATED:END -->

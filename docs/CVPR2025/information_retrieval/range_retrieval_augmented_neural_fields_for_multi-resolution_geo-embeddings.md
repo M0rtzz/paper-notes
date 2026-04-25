@@ -128,10 +128,10 @@ $$L_i = (L_i^{loc} + L_i^{img}) / 2$$
 
 ## 相关论文
 
-- [MAIN-RAG: Multi-Agent Filtering Retrieval-Augmented Generation](../../ACL2025/information_retrieval/main-rag_multi-agent_filtering_retrieval-augmented_generation.md)
 - [Logical Consistency is Vital: Neural-Symbolic Information Retrieval for Negative-Constraint Queries](../../ACL2025/information_retrieval/logical_consistency_is_vital_neural-symbolic_information_retrieval_for_negative-.md)
+- [MAIN-RAG: Multi-Agent Filtering Retrieval-Augmented Generation](../../ACL2025/information_retrieval/main-rag_multi-agent_filtering_retrieval-augmented_generation.md)
 - [From Ambiguity to Accuracy: The Transformative Effect of Coreference Resolution on RAG Systems](../../ACL2025/information_retrieval/from_ambiguity_to_accuracy_the_transformative_effect_of_coreference_resolution_o.md)
 - [GRAF: Graph Retrieval Augmented by Facts for Romanian Legal Multi-Choice Question Answering](../../ACL2025/information_retrieval/graf_graph_retrieval_augmented_by_facts_for_romanian_legal_multi-choice_question.md)
-- [LangBridge: Interpreting Image as a Combination of Language Embeddings](../../ICCV2025/information_retrieval/langbridge_interpreting_image_as_a_combination_of_language_embeddings.md)
+- [MASS-RAG: Multi-Agent Synthesis Retrieval-Augmented Generation](../../ACL2026/information_retrieval/mass-rag_multi-agent_synthesis_retrieval-augmented_generation.md)
 
 <!-- RELATED:END -->

@@ -181,6 +181,6 @@ ChainRAG 为**无训练方法（train-free）**，所有组件使用现成模型
 - [MAIN-RAG: Multi-Agent Filtering Retrieval-Augmented Generation](main-rag_multi-agent_filtering_retrieval-augmented_generation.md)
 - [Typed-RAG: Type-Aware Decomposition of Non-Factoid Questions for Retrieval-Augmented Generation](typed-rag_type-aware_decomposition_of_non-factoid_questions_for_retrieval-augmen.md)
 - [HELIOS: Harmonizing Early Fusion, Late Fusion, and LLM Reasoning for Multi-Granular Table-Text Retrieval](helios_harmonizing_early_fusion_late_fusion_and_llm_reasoning_for_multi-granular.md)
-- [The Distracting Effect: Understanding Irrelevant Passages in RAG](the_distracting_effect_understanding_irrelevant_passages_in_rag.md)
+- [SetR: Shifting from Ranking to Set Selection for Retrieval Augmented Generation](setr_set_selection_rag.md)
 
 <!-- RELATED:END -->

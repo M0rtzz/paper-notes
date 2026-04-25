@@ -146,6 +146,6 @@ tags:
 - [Magnitude-Modulated Equivariant Adapter for Parameter-Efficient Fine-Tuning of Equivariant Graph Neural Networks](../../AAAI2026/graph_learning/magnitude-modulated_equivariant_adapter_for_parameter-efficient_fine-tuning_of_e.md)
 - [Graph Attention is Not Always Beneficial: A Theoretical Analysis of Graph Attention Mechanisms via Contextual Stochastic Block Models](../../ICML2025/graph_learning/graph_attention_is_not_always_beneficial_a_theoretical_analysis_of_graph_attenti.md)
 - [Table as a Modality for Large Language Models](../../NeurIPS2025/graph_learning/table_as_a_modality_for_large_language_models.md)
-- [Graph-constrained Reasoning: Faithful Reasoning on Knowledge Graphs with Large Language Models](../../ICML2025/graph_learning/graph-constrained_reasoning_faithful_reasoning_on_knowledge_graphs_with_large_la.md)
+- [ARK: Answer-Centric Retriever Tuning via KG-augmented Curriculum Learning](../../ACL2026/graph_learning/ark_answer-centric_retriever_tuning_via_kg-augmented_curriculum_learning.md)
 
 <!-- RELATED:END -->

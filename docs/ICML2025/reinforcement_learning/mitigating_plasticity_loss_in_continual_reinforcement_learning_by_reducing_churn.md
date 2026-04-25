@@ -171,6 +171,6 @@ C-CHAIN 的 churn 减少梯度对学习动态有两重作用：
 - [Continual Reinforcement Learning by Planning with Online World Models](continual_reinforcement_learning_by_planning_with_online_world_models.md)
 - [Continual Knowledge Adaptation for Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/continual_knowledge_adaptation_for_reinforcement_learning.md)
 - [Temporal-Difference Variational Continual Learning](../../NeurIPS2025/reinforcement_learning/temporal-difference_variational_continual_learning.md)
-- [Principled Fast and Meta Knowledge Learners for Continual Reinforcement Learning](../../ICLR2026/reinforcement_learning/principled_fast_and_meta_knowledge_learners_for_continual_reinforcement_learning.md)
+- [Cross-modal Identity Mapping: Minimizing Information Loss in Modality Conversion via Reinforcement Learning](../../CVPR2026/reinforcement_learning/cross-modal_identity_mapping_minimizing_information_loss_in_modality_conversion_.md)
 
 <!-- RELATED:END -->

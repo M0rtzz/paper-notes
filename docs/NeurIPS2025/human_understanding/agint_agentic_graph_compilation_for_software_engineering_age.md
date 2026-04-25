@@ -218,8 +218,8 @@ tags:
 ## 相关论文
 
 - [Distribution Learning Meets Graph Structure Sampling](distribution_learning_meets_graph_structure_sampling.md)
-- [Agentic Conversational Search with Contextualized Reasoning via Reinforcement Learning](../../ACL2026/human_understanding/agentic_conversational_search_with_contextualized_reasoning_via_reinforcement_le.md)
 - [Stealthy Yet Effective: Distribution-Preserving Backdoor Attacks on Graph Classification](stealthy_yet_effective_distribution-preserving_backdoor_attacks_on_graph_classif.md)
+- [Agentic Conversational Search with Contextualized Reasoning via Reinforcement Learning](../../ACL2026/human_understanding/agentic_conversational_search_with_contextualized_reasoning_via_reinforcement_le.md)
 - [TopInG: Topologically Interpretable Graph Learning via Persistent Rationale Filtration](../../ICML2025/human_understanding/toping_topologically_interpretable_graph_learning_via_persistent_rationale_filtr.md)
 - [GraphChain: Large Language Models for Large-scale Graph Analysis via Tool Chaining](graphchain_large_language_models_for_large-scale_graph_analysis_via_tool_chainin.md)
 

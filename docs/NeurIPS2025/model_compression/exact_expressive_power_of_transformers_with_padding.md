@@ -138,8 +138,8 @@ tags:
 
 - [Deterministic Continuous Replacement: Fast and Stable Module Replacement in Pretrained Transformers](deterministic_continuous_replacement_fast_and_stable_module_replacement_in_pretr.md)
 - [ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models](../../ICLR2026/model_compression/abba-adapters_efficient_and_expressive_fine-tuning_of_foundation_models.md)
+- [Stronger Normalization-Free Transformers](../../CVPR2026/model_compression/stronger_normalization-free_transformers.md)
 - [TurboBoA: Faster and Exact Attention-aware Quantization without Backpropagation](../../ICLR2026/model_compression/turboboa_faster_and_exact_attention-aware_quantization_without_backpropagation.md)
 - [FedEx-LoRA: Exact Aggregation for Federated and Efficient Fine-Tuning of Large Language Models](../../ACL2025/model_compression/fedex_lora_federated_exact_aggregation.md)
-- [Stronger Normalization-Free Transformers](../../CVPR2026/model_compression/stronger_normalization-free_transformers.md)
 
 <!-- RELATED:END -->

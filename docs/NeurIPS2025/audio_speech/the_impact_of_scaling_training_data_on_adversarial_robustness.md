@@ -148,6 +148,6 @@ $$\text{ASR} = -0.46 \log_{10}(x_{\text{data}}) - 12.53 \log_{10}(x_{\text{model
 - [AdaptDel: Adaptable Deletion Rate Randomized Smoothing for Certified Robustness](adaptdel_adaptable_deletion_rate_randomized_smoothing_for_ce.md)
 - [AVRobustBench: Benchmarking the Robustness of Audio-Visual Recognition Models at Test-Time](textttavrobustbench_benchmarking_the_robustness_of_audio-visual_recognition_mode.md)
 - [SpeechWeave: Diverse Multilingual Synthetic Text & Audio Data Generation Pipeline for Training Text to Speech Models](../../ACL2025/audio_speech/speechweave_diverse_multilingual_synthetic_text_audio_data_generation_pipeline_f.md)
-- [Unlocking Strong Supervision: A Data-Centric Study of General-Purpose Audio Pre-Training Methods](../../CVPR2026/audio_speech/unlocking_strong_supervision_a_data-centric_study_of_general-purpose_audio_pre-t.md)
+- [E2E-VGuard: Adversarial Prevention for Production LLM-based End-To-End Speech Synthesis](e2e-vguard_adversarial_prevention_for_production_llm-based_end-to-end_speech_syn.md)
 
 <!-- RELATED:END -->

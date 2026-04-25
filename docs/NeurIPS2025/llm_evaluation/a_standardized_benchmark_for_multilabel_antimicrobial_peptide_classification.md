@@ -150,8 +150,8 @@ ESCAPE 的贡献分三个层级：
 
 - [BESSTIE: A Benchmark for Sentiment and Sarcasm Classification for Varieties of English](../../ACL2025/llm_evaluation/besstie_a_benchmark_for_sentiment_and_sarcasm_classification_for_varieties_of_en.md)
 - [Runtime Analysis of Evolutionary NAS for Multiclass Classification](../../ICML2025/llm_evaluation/runtime_analysis_of_evolutionary_nas_for_multiclass_classification.md)
+- [MADE: A Living Benchmark for Multi-Label Text Classification with Uncertainty Quantification](../../ACL2026/llm_evaluation/made_a_living_benchmark_for_multi-label_text_classification_with_uncertainty_qua.md)
 - [RGB-to-Polarization Estimation: A New Task and Benchmark Study](rgb-to-polarization_estimation_a_new_task_and_benchmark_study.md)
 - [CLIMB: Class-Imbalanced Learning Benchmark on Tabular Data](climb_class-imbalanced_learning_benchmark_on_tabular_data.md)
-- [HouseLayout3D: A Benchmark and Training-Free Baseline for 3D Layout Estimation in the Wild](houselayout3d_a_benchmark_and_training-free_baseline_for_3d_layout_estimation_in.md)
 
 <!-- RELATED:END -->

@@ -152,8 +152,8 @@ MAPD 基于 LLaVA v1.5 架构，包含三个核心组件：
 
 - [MacVQA: Adaptive Memory Allocation and Global Noise Filtering for Continual Visual Question Answering](../../AAAI2026/multimodal_vlm/macvqa_adaptive_memory_allocation_and_global_noise_filtering_for_continual_visua.md)
 - [Revisit Visual Prompt Tuning: The Expressiveness of Prompt Experts](revisit_visual_prompt_tuning_the_expressiveness_of_prompt_experts.md)
+- [WikiSeeker: Rethinking the Role of Vision-Language Models in Knowledge-Based Visual Question Answering](../../ACL2026/multimodal_vlm/wikiseeker_rethinking_the_role_of_vision-language_models_in_knowledge-based_visu.md)
 - [Noise-Aware Few-Shot Learning through Bi-directional Multi-View Prompt Alignment](../../CVPR2026/multimodal_vlm/noiseaware_fewshot_learning_through_bidirectional.md)
 - [Meta-Prompting for Automating Zero-shot Visual Recognition with LLMs](../../ECCV2024/multimodal_vlm/metaprompting_for_automating_zeroshot_visual_recognitio.md)
-- [AgilePruner: An Empirical Study of Attention and Diversity for Adaptive Visual Token Pruning in LVLMs](agilepruner_an_empirical_study_of_attention_and_diversity_for_adaptive_visual_to.md)
 
 <!-- RELATED:END -->

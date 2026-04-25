@@ -110,8 +110,8 @@ tags:
 
 - [Protein as a Second Language for LLMs](protein_as_a_second_language_for_llms.md)
 - [Thompson Sampling via Fine-Tuning of LLMs](thompson_sampling_via_fine-tuning_of_llms.md)
+- [HCFD: A Benchmark for Audio Deepfake Detection in Healthcare](../../ACL2026/medical_imaging/hcfd_a_benchmark_for_audio_deepfake_detection_in_healthcare.md)
 - [Moving Beyond Medical Exams: A Clinician-Annotated Fairness Dataset of Real-World Tasks and Ambiguity in Mental Healthcare](moving_beyond_medical_exams_a_clinician-annotated_fairness_dataset_of_real-world.md)
 - [Efficient and Effective Internal Memory Retrieval for LLM-Based Healthcare Prediction](../../ACL2026/medical_imaging/efficient_and_effective_internal_memory_retrieval_for_llm-based_healthcare_predi.md)
-- [Can Natural Image Autoencoders Compactly Tokenize fMRI Volumes for Long-Range Dynamics Modeling?](../../CVPR2026/medical_imaging/can_natural_image_autoencoders_compactly_tokenize_fmri_volumes_for_long-range_dy.md)
 
 <!-- RELATED:END -->

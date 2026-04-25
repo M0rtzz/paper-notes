@@ -129,6 +129,6 @@ CountVid 采用三阶段 pipeline：(1) 帧级检测：在采样的关键帧上�
 - [Measuring Stability Beyond Accuracy in Small Open-Source Medical Large Language Models for Pediatric Endocrinology](measuring_stability_beyond_accuracy_in_small_open-source_medical_large_language_.md)
 - [Coarse-to-Fine Open-Set Graph Node Classification with Large Language Models](coarse-to-fine_open-set_graph_node_classification_with_large_language_models.md)
 - [Event-Level Detection of Surgical Instrument Handovers in Videos](../../CVPR2026/medical_imaging/event_level_detection_of_surgical_instrument_handovers_in_videos.md)
-- [MRI Contrast Enhancement Kinetics World Model](../../CVPR2026/medical_imaging/mri_contrast_enhancement_kinetics_world_model.md)
+- [Mitigating Object Hallucination in LVLMs via Attention Imbalance Rectification](../../CVPR2026/medical_imaging/mitigating_object_hallucinations_in_lvlms_via_attention_imbalance_rectification.md)
 
 <!-- RELATED:END -->

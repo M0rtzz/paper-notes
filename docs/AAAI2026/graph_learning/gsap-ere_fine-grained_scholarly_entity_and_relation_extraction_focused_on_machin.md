@@ -154,10 +154,10 @@ GSAP-ERE在实体数、关系数、类型丰富度和标注密度上全面超越
 
 ## 相关论文
 
+- [LLMs Underperform Graph-Based Parsers on Supervised Relation Extraction for Complex Graphs](../../ACL2026/graph_learning/llms_underperform_graph-based_parsers_on_supervised_relation_extraction_for_comp.md)
 - [MyGram: Modality-aware Graph Transformer with Global Distribution for Multi-modal Entity Alignment](mygram_modality-aware_graph_transformer_with_global_distribution_for_multi-modal.md)
-- [RSCF: Relation-Semantics Consistent Filter for Entity Embedding of Knowledge Graph](../../ACL2025/graph_learning/rscf_relationsemantics_consistent_filter_for_entity.md)
 - [Fine-Grained Scene Graph Generation via Sample-Level Bias Prediction](../../ECCV2024/graph_learning/fine-grained_scene_graph_generation_via_sample-level_bias_prediction.md)
+- [RSCF: Relation-Semantics Consistent Filter for Entity Embedding of Knowledge Graph](../../ACL2025/graph_learning/rscf_relationsemantics_consistent_filter_for_entity.md)
 - [RFKG-CoT: Relation-Driven Adaptive Hop-count Selection and Few-Shot Path Guidance for Knowledge-Aware QA](rfkg-cot_relation-driven_adaptive_hop-count_selection_and_few-shot_path_guidance.md)
-- [Relatron: Automating Relational Machine Learning over Relational Databases](../../ICLR2026/graph_learning/relatron_automating_relational_machine_learning_over_relational_databases.md)
 
 <!-- RELATED:END -->

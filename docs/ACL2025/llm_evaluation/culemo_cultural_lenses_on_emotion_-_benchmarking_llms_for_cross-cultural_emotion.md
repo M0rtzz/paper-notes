@@ -185,9 +185,9 @@ CuLEmo 包含 400 个文化相关事件/场景，每个场景以"How would you f
 ## 相关论文
 
 - [CulturalBench: A Robust, Diverse, and Challenging Cultural Benchmark by Human-AI CulturalTeaming](culturalbench_a_robust_diverse_and_challenging_cultural_benchmark_by_human-ai_cu.md)
+- [Common to Whom? Regional Cultural Commonsense and LLM Bias in India](../../ACL2026/llm_evaluation/common_to_whom_regional_cultural_commonsense_and_llm_bias_in_india.md)
 - [WebWalker: Benchmarking LLMs in Web Traversal](webwalker_benchmarking_llms_in_web_traversal.md)
 - [VoxEval: Benchmarking the Knowledge Understanding Capabilities of End-to-End Spoken Language Models](voxeval_benchmarking_the_knowledge_understanding_capabilities_of_end-to-end_spok.md)
 - [PARROT: A Benchmark for Evaluating LLMs in Cross-System SQL Translation](../../NeurIPS2025/llm_evaluation/parrot_a_benchmark_for_evaluating_llms_in_cross-system_sql_translation.md)
-- [PATCH: Psychometrics-Assisted Benchmarking of LLMs Against Human Populations](patch_psychometrics-assisted_benchmarking_of_large_language_models_against_human.md)
 
 <!-- RELATED:END -->

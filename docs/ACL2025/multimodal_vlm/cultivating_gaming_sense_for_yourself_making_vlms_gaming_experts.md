@@ -135,7 +135,7 @@ GameSense 的整体架构分为两层：上层是 VLM 作为"高级开发者"，
 - [VisNumBench: Evaluating Number Sense of Multimodal Large Language Models](../../ICCV2025/multimodal_vlm/visnumbench_evaluating_number_sense_of_multimodal_large_language_models.md)
 - [Chart-based Reasoning: Transferring Capabilities from LLMs to VLMs](chart-based_reasoning_transferring_capabilities_from_llms_to_vlms.md)
 - [VLM2-Bench: A Closer Look at How Well VLMs Implicitly Link Explicit Matching Visual Cues](vlm2-bench_a_closer_look_at_how_well_vlms_implicitly_link_explicit_matching_visu.md)
-- [AntiGrounding: Lifting Robotic Actions into VLM Representation Space for Decision Making](../../NeurIPS2025/multimodal_vlm/antigrounding_lifting_robotic_actions_into_vlm_representatio.md)
 - [Quant Experts: Token-aware Adaptive Error Reconstruction with Mixture of Experts for Large Vision-Language Models Quantization](../../CVPR2026/multimodal_vlm/quant_experts_token-aware_adaptive_error_reconstruction_with_mixture_of_experts_.md)
+- [AntiGrounding: Lifting Robotic Actions into VLM Representation Space for Decision Making](../../NeurIPS2025/multimodal_vlm/antigrounding_lifting_robotic_actions_into_vlm_representatio.md)
 
 <!-- RELATED:END -->

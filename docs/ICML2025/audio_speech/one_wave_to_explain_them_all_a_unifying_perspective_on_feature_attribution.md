@@ -139,7 +139,7 @@ WAM$_{\text{IG}}$ 继承了 Integrated Gradients 的灵敏度（Sensitivity）�
 - [From Generation to Attribution: Music AI Agent Architectures for the Post-Streaming Era](../../NeurIPS2025/audio_speech/from_generation_to_attribution_music_ai_agent_architectures_for_the_post-streami.md)
 - [Everything is a Video: Unifying Modalities through Next-Frame Prediction](../../ICCV2025/audio_speech/everything_is_a_video_unifying_modalities_through_next-frame_prediction.md)
 - [Unifying Symbolic Music Arrangement: Track-Aware Reconstruction and Structured Tokenization](../../NeurIPS2025/audio_speech/unifying_symbolic_music_arrangement_track-aware_reconstruction_and_structured_to.md)
+- [Learning Invariant Modality Representation for Robust Multimodal Learning from a Causal Inference Perspective](../../ACL2026/audio_speech/learning_invariant_modality_representation_for_robust_multimodal_learning_from_a.md)
 - [FLAM: Frame-Wise Language-Audio Modeling](flam_frame-wise_language-audio_modeling.md)
-- [Bridging the Language Gap: Synthetic Voice Diversity via Latent Mixup for Equitable Speech Recognition](bridging_the_language_gap_synthetic_voice_diversity_via_latent_mixup_for_equitab.md)
 
 <!-- RELATED:END -->

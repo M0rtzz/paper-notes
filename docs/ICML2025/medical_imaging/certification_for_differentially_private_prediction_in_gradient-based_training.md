@@ -154,6 +154,6 @@ $$z \sim \text{Cauchy}\left(\frac{6 \exp(-\epsilon k'/6)}{\epsilon}\right)$$
 - [FedVG: Gradient-Guided Aggregation for Enhanced Federated Learning](../../CVPR2026/medical_imaging/fedvg_gradient-guided_aggregation_for_enhanced_federated_learning.md)
 - [DeltaSHAP: Explaining Prediction Evolutions in Online Patient Monitoring with Shapley Values](deltashap_explaining_prediction_evolutions_in_online_patient_monitoring_with_sha.md)
 - [SGD Jittering: A Training Strategy for Robust and Accurate Model-Based Architectures](sgd_jittering_a_training_strategy_for_robust_and_accurate_model-based_architectu.md)
-- [Training Flexible Models of Genetic Variant Effects from Functional Annotations using Accelerated Linear Algebra](training_flexible_models_of_genetic_variant_effects_from_functional_annotations_.md)
+- [Few-Shot Personalized Scanpath Prediction](../../CVPR2025/medical_imaging/few-shot_personalized_scanpath_prediction.md)
 
 <!-- RELATED:END -->

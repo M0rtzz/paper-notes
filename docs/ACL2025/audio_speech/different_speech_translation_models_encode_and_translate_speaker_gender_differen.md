@@ -146,6 +146,6 @@ tags:
 - [SimulMEGA: MoE Routers are Advanced Policy Makers for Simultaneous Speech Translation](../../NeurIPS2025/audio_speech/simulmega_moe_routers_are_advanced_policy_makers_for_simultaneous_speech_transla.md)
 - [DNCASR: End-to-End Training for Speaker-Attributed ASR](dncasr_end-to-end_training_for_speaker-attributed_asr.md)
 - [Scalable Multilingual Multimodal Machine Translation with Speech-Text Fusion](../../ICLR2026/audio_speech/scalable_multilingual_multimodal_machine_translation_with_speech-text_fusion.md)
-- [Sortformer: A Novel Approach for Permutation-Resolved Speaker Supervision in Speech-to-Text Systems](../../ICML2025/audio_speech/sortformer_a_novel_approach_for_permutation-resolved_speaker_supervision_in_spee.md)
+- [ControlSpeech: Towards Simultaneous and Independent Zero-shot Speaker Cloning and Zero-shot Language Style Control](controlspeech_zero_shot.md)
 
 <!-- RELATED:END -->

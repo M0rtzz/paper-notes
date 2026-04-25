@@ -197,8 +197,8 @@ $$a = \begin{cases} \text{随机动作}, & \text{if } rand < \epsilon \\ \text{L
 
 - [ToolSpectrum: Towards Personalized Tool Utilization for Large Language Models](../../ACL2025/signal_comm/toolspectrum_towards_personalized_tool_utilization_for_large_language_models.md)
 - [SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator](sepllm_accelerate_large_language_models_by_compressing_one_segment_into_one_sepa.md)
+- [UCS: Estimating Unseen Coverage for Improved In-Context Learning](../../ACL2026/signal_comm/ucs_estimating_unseen_coverage_for_improved_in-context_learning.md)
+- [PolicyLLM: Towards Excellent Comprehension of Public Policy for Large Language Models](../../ACL2026/signal_comm/policyllm_towards_excellent_comprehension_of_public_policy_for_large_language_mo.md)
 - [The Surprising Effectiveness of Negative Reinforcement in LLM Reasoning](../../NeurIPS2025/signal_comm/the_surprising_effectiveness_of_negative_reinforcement_in_llm_reasoning.md)
-- [Neural Video Compression with Context Modulation](../../CVPR2025/signal_comm/neural_video_compression_with_context_modulation.md)
-- [WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications](../../ACL2025/signal_comm/wirelessmathbench_a_mathematical_modeling_benchmark_for_llms_in_wireless_communi.md)
 
 <!-- RELATED:END -->

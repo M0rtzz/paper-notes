@@ -123,9 +123,9 @@ tags:
 ## 相关论文
 
 - [FINER: MLLMs Hallucinate under Fine-grained Negative Queries](finer_mllms_hallucinate_under_fine-grained_negative_queries.md)
-- [Hallucination Begins Where Saliency Drops](../../ICLR2026/interpretability/hallucination_begins_where_saliency_drops.md)
 - [EmoVerse: A MLLMs-Driven Emotion Representation Dataset for Interpretable Visual Emotion Analysis](emoverse_mllm_emotion_representation_dataset.md)
+- [Hallucination Begins Where Saliency Drops](../../ICLR2026/interpretability/hallucination_begins_where_saliency_drops.md)
+- [Reasoning Fails Where Step Flow Breaks](../../ACL2026/interpretability/reasoning_fails_where_step_flow_breaks.md)
 - [Provably Explaining Neural Additive Models](../../ICLR2026/interpretability/provably_explaining_neural_additive_models.md)
-- [What Makes an Ensemble (Un)interpretable?](../../ICML2025/interpretability/what_makes_an_ensemble_un_interpretable.md)
 
 <!-- RELATED:END -->

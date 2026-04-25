@@ -1,0 +1,128 @@
+---
+title: >-
+  [论文解读] Mitigating Extrinsic Gender Bias for Bangla Classification Tasks
+description: >-
+  [ACL 2026][性别偏见缓解] 针对孟加拉语预训练模型在下游分类任务中的外在性别偏见，提出 RandSymKL 方法，通过随机化交叉熵损失和对称 KL 散度联合优化，在保持分类准确率的同时有效缩小性别间预测差异。
+tags:
+  - ACL 2026
+  - 性别偏见缓解
+  - 孟加拉语NLP
+  - KL散度正则化
+  - 反事实数据增强
+  - 分类公平性
+---
+
+# Mitigating Extrinsic Gender Bias for Bangla Classification Tasks
+
+**会议**: ACL 2026  
+**arXiv**: [2411.10636](https://arxiv.org/abs/2411.10636)  
+**代码**: [GitHub](https://github.com/sajib-kumar/Mitigating-Bangla-Extrinsic-Gender-Bias)  
+**领域**: 多语言/公平性  
+**关键词**: 性别偏见缓解、孟加拉语NLP、KL散度正则化、反事实数据增强、分类公平性
+
+## 一句话总结
+针对孟加拉语预训练模型在下游分类任务中的外在性别偏见，提出 RandSymKL 方法，通过随机化交叉熵损失和对称 KL 散度联合优化，在保持分类准确率的同时有效缩小性别间预测差异。
+
+## 研究背景与动机
+
+**领域现状**：大模型虽然能力强，但在孟加拉语等低资源语言中部署成本过高，因此实际应用中更多使用 BERT、ELECTRA 等任务特定的预训练语言模型（PLM）进行情感分析、仇恨言论检测等分类任务。
+
+**现有痛点**：这些 PLM 对男性相关和女性相关文本会产生不一致的预测结果——即"外在性别偏见"（extrinsic gender bias）。例如，一个仇恨言论检测模型可能将女性中心的句子正确分类为"辱骂"，却将语义完全等价的男性中心句子误判为"正常"。
+
+**核心矛盾**：现有的偏见研究主要聚焦在英语和内在偏见（模型嵌入层面），对孟加拉语的外在偏见（下游任务预测层面）几乎没有系统性研究。此外，孟加拉语的性别编码方式更加隐式（通过社会角色、亲属称谓、人名体现），模型更难处理反事实替换后的语义一致性。
+
+**本文目标**：(1) 构建孟加拉语性别偏见评估基准；(2) 提出一种通用的去偏训练策略，在保持分类性能的同时降低性别间预测差异。
+
+**切入角度**：作者观察到，如果在训练时随机选择男性或女性版本计算交叉熵损失，同时用对称 KL 散度拉近两个版本的输出分布，模型可以学到性别无关的分类表征。
+
+**核心 idea**：用随机化交叉熵 + 对称 KL 散度联合优化（RandSymKL），在输出分布层面对齐性别变体的预测，无需依赖 token 级别的性别标记。
+
+## 方法详解
+
+### 整体框架
+训练时同时输入男性中心文本和对应的女性中心文本，分别获得输出概率分布 $P_{\text{male}}$ 和 $P_{\text{female}}$，然后通过联合损失函数同时优化分类准确率和分布对齐。推理时只需输入单个文本，无需生成性别对。
+
+### 关键设计
+
+1. **反事实数据构造**:
+
+    - 功能：生成语义等价但性别相反的文本对，用于评估和训练
+    - 核心思路：构建包含 573 个孟加拉语性别词对的词典（如"儿子/女儿"、"哥哥/姐姐"），结合 NER 替换人名，并经人工审核确保质量。考虑了一词多义（如 dada 可指"哥哥"或"爷爷"）和拼写变体等孟加拉语特有问题
+    - 设计动机：孟加拉语没有语法性别但有隐式性别编码，简单的词替换无法覆盖所有情况，需要语言学专家参与的词典和人工校验
+
+2. **随机化交叉熵损失**:
+
+    - 功能：防止模型过拟合到特定性别表达
+    - 核心思路：每个训练步骤随机选择男性或女性版本的 logits $\mathbf{z}_1$ 或 $\mathbf{z}_2$ 计算标准交叉熵损失，而非固定使用某一个版本
+    - 设计动机：如果总是用男性版本计算 CE，模型可能隐式学到男性文本的分布偏好；随机化消除了这种系统性偏差
+
+3. **对称KL散度正则化**:
+
+    - 功能：显式拉近男性和女性版本的预测分布
+    - 核心思路：计算 $\mathcal{L}_{\text{KL}} = \text{KL}(P_{\text{male}} \| P_{\text{female}}) + \text{KL}(P_{\text{female}} \| P_{\text{male}})$，惩罚两个方向的分布不对称
+    - 设计动机：单向 KL 是不对称的，使用对称版本确保模型不偏向任何一个性别方向
+
+### 损失函数 / 训练策略
+总损失为 $\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{CE}} + \lambda \cdot \mathcal{L}_{\text{KL}}$，其中 $\lambda$ 控制去偏强度。训练使用 batch size 4，学习率 $1 \times 10^{-4}$，Adam 优化器，15 个 epoch 后根据验证集调整 dropout 再微调 3-5 个 epoch。
+
+## 实验关键数据
+
+### 主实验
+
+| 任务 | 方法 | 平均准确率 | 准确率差距(AG) | FairScore |
+|------|------|-----------|---------------|-----------|
+| 全部4任务 | OSI (未微调) | 56.17% | 3.39% | 22.06% |
+| 全部4任务 | FOD (仅微调) | 91.10% | 2.50% | 5.97% |
+| 全部4任务 | Token Masking | 87.46% | 0.00% | 0.00% |
+| 全部4任务 | FOA (数据增强) | 90.46% | 0.32% | 3.16% |
+| 全部4任务 | CSD (余弦相似) | 90.58% | 1.10% | 3.31% |
+| 全部4任务 | RandSymKL (本文) | 90.66% | **0.29%** | **1.69%** |
+
+### 消融实验
+
+| 配置 | 平均FairScore | 平均AG | 说明 |
+|------|-------------|--------|------|
+| RandSymKL (完整) | 1.69% | 0.29% | 完整模型 |
+| NonRandSymKL_M (不随机化) | 2.31% | 0.52% | 去掉随机化，CE只用男性版本 |
+| AvgSymKL_MF (平均logits) | 2.30% | 0.33% | 用平均logits替代随机选择 |
+| Token Masking | 0.00% | 0.00% | 完全去偏但准确率降3% |
+
+### 关键发现
+- RandSymKL 在排除 Token Masking 的情况下，FairScore 最低（1.69%），比最强基线 AvgSymKL_MF 低 0.61 个百分点，且整体统计显著（$p = 0.012$）
+- Token Masking 虽然可以完全消除偏见（FairScore = 0），但准确率代价过大（87.46% vs 90.66%）
+- 随机化是关键——去掉随机化（NonRandSymKL_M）后 FairScore 从 1.69% 升至 2.31%
+- 在 EOD 和 SPD 等群组公平性指标上，RandSymKL 同样表现最优
+
+## 亮点与洞察
+- **随机化+对称KL的组合简洁有效**：不需要修改模型结构或引入额外模型，仅通过训练策略改变即可实现去偏，方法可以直接迁移到其他语言和分类任务
+- **573个性别词对词典**：这是孟加拉语性别偏见研究的重要资源，考虑了一词多义和文化特定的性别角色表达
+- **输出分布对齐而非嵌入对齐**：相比 CSD 在嵌入空间做余弦相似度约束，RandSymKL 在输出概率层面对齐更直接有效
+
+## 局限与展望
+- 仅在4个二分类任务上验证，未涉及多分类、序列标注等更复杂场景
+- 孟加拉语的性别编码很大程度依赖上下文（如亲属关系链），当前词典方法可能遗漏部分隐式性别信息
+- 实验仅使用 BERT 和 ELECTRA 级别模型，未验证在更大模型上的效果
+- 未来可以扩展到其他低资源语言（如印地语、泰米尔语），验证方法的跨语言泛化性
+
+## 相关工作与启发
+- **vs CSD (Igbaria & Belinkov 2024)**: CSD 在嵌入空间用余弦相似度对齐，本文在输出概率空间用对称KL对齐，后者更直接且效果更好（FairScore 3.31% vs 1.69%）
+- **vs FOA (数据增强)**: FOA 简单翻倍训练数据但效果有限（FairScore 3.16%），本文通过损失函数设计更有效地利用了反事实数据
+- **vs Patel & Kisku 2024**: 他们用 KL 散度将预测拉向均匀分布，本文则在性别对之间做对称 KL，更有针对性
+
+## 评分
+- 新颖性: ⭐⭐⭐ 方法组件都不新，但组合和应用场景（孟加拉语去偏）有价值
+- 实验充分度: ⭐⭐⭐⭐ 4个任务、多个基线、统计显著性检验和消融实验
+- 写作质量: ⭐⭐⭐⭐ 问题动机清晰，方法描述详细
+- 价值: ⭐⭐⭐ 对低资源语言公平性研究有参考价值，方法可迁移
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [MORPHOGEN: A Multilingual Benchmark for Evaluating Gender-Aware Morphological Generation](morphogen_a_multilingual_benchmark_for_evaluating_gender-aware_morphological_gen.md)
+- [Mitigating Content Effects on Reasoning in Language Models through Fine-Grained Activation Steering](../../AAAI2026/multilingual_mt/mitigating_content_effects_on_reasoning_in_language_models_through_fine-grained_.md)
+- [Watching the Watchers: Exposing Gender Disparities in Machine Translation Quality Estimation](../../ACL2025/multilingual_mt/watching_the_watchers_exposing_gender_disparities_in_machine_translation_quality.md)
+- [HelpSteer3-Preference: Open Human-Annotated Preference Data across Diverse Tasks and Languages](../../NeurIPS2025/multilingual_mt/helpsteer3-preference_open_human-annotated_preference_data_across_diverse_tasks_.md)
+- [Delving into Multilingual Ethical Bias: The MSQAD with Statistical Hypothesis Tests for Large Language Models](../../ACL2025/multilingual_mt/msqad_multilingual_ethical_bias.md)
+
+<!-- RELATED:END -->

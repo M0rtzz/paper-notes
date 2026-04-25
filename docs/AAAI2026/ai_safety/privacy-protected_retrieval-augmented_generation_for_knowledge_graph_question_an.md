@@ -185,9 +185,9 @@ ARoG 是纯推理时框架，不涉及模型训练。关键配置：
 ## 相关论文
 
 - [Estimating Privacy Leakage of Augmented Contextual Knowledge in Language Models](../../ACL2025/ai_safety/estimating_privacy_leakage_of_augmented_contextual_knowledge_in_language_models.md)
-- [Ask and Remember: A Questions-Only Replay Strategy for Continual Visual Question Answering](../../ICCV2025/ai_safety/ask_and_remember_a_questions-only_replay_strategy_for_continual_visual_question_.md)
 - [Privacy Auditing of Multi-Domain Graph Pre-Trained Model under Membership Inference Attack](privacy_auditing_of_multi-domain_graph_pre-trained_model_under_membership_infere.md)
-- [Resource-Adaptive Federated Text Generation with Differential Privacy](../../ICLR2026/ai_safety/resource-adaptive_federated_text_generation_with_differential_privacy.md)
+- [Ask and Remember: A Questions-Only Replay Strategy for Continual Visual Question Answering](../../ICCV2025/ai_safety/ask_and_remember_a_questions-only_replay_strategy_for_continual_visual_question_.md)
 - [PRISM: Privacy-Aware Routing for Adaptive Cloud-Edge LLM Inference via Semantic Sketch Collaboration](prism_privacy-aware_routing_for_adaptive_cloud-edge_llm_inference_via_semantic_s.md)
+- [Resource-Adaptive Federated Text Generation with Differential Privacy](../../ICLR2026/ai_safety/resource-adaptive_federated_text_generation_with_differential_privacy.md)
 
 <!-- RELATED:END -->

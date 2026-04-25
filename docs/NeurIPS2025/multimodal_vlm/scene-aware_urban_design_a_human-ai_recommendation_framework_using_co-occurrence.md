@@ -117,6 +117,6 @@ tags:
 - [CoreMatching: A Co-adaptive Sparse Inference Framework with Token and Neuron Pruning for Comprehensive Acceleration of Vision-Language Models](../../ICML2025/multimodal_vlm/corematching_a_co-adaptive_sparse_inference_framework_with_token_and_neuron_prun.md)
 - [ViSpec: Accelerating Vision-Language Models with Vision-Aware Speculative Decoding](vispec_accelerating_vision-language_models_with_vision-aware_speculative_decodin.md)
 - [Zero-Shot Robustness of Vision Language Models Via Confidence-Aware Weighting](zero-shot_robustness_of_vision_language_models_via_confidence-aware_weighting.md)
-- [ELEMENTAL: Interactive Learning from Demonstrations and Vision-Language Models for Reward Design in Robotics](../../ICML2025/multimodal_vlm/elemental_interactive_learning_from_demonstrations_and_vision-language_models_fo.md)
+- [Embodied Scene Understanding for Vision Language Models via MetaVQA](../../CVPR2025/multimodal_vlm/embodied_scene_understanding_for_vision_language_models_via_metavqa.md)
 
 <!-- RELATED:END -->

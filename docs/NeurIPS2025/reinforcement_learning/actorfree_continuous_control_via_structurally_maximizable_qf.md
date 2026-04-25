@@ -139,8 +139,8 @@ Q3C 由三个组件构成：(1) 控制点生成器 $g_\phi(s)$ 输出 $N$ 个候
 
 - [Test-driven Reinforcement Learning in Continuous Control](../../AAAI2026/reinforcement_learning/test-driven_reinforcement_learning_in_continuous_control.md)
 - [WIMLE: Uncertainty-Aware World Models with IMLE for Sample-Efficient Continuous Control](../../ICLR2026/reinforcement_learning/wimle_uncertainty-aware_world_models_with_imle_for_sample-efficient_continuous_c.md)
-- [Parameter-Free Algorithms for the Stochastically Extended Adversarial Model](parameter-free_algorithms_for_the_stochastically_extended_adversarial_model.md)
 - [Sequential Monte Carlo for Policy Optimization in Continuous POMDPs](sequential_monte_carlo_for_policy_optimization_in_continuous_pomdps.md)
+- [Parameter-Free Algorithms for the Stochastically Extended Adversarial Model](parameter-free_algorithms_for_the_stochastically_extended_adversarial_model.md)
 - [When Can Model-Free Reinforcement Learning be Enough for Thinking?](when_can_model-free_reinforcement_learning_be_enough_for_thinking.md)
 
 <!-- RELATED:END -->

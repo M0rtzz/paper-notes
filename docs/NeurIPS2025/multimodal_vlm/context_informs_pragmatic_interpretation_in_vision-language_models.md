@@ -149,6 +149,6 @@ tags:
 - [MMLongBench: Benchmarking Long-Context Vision-Language Models Effectively and Thoroughly](mmlongbench_benchmarking_longcontext_visionlanguage_models_e.md)
 - [ExGra-Med: Extended Context Graph Alignment for Medical Vision-Language Models](exgra-med_extended_context_graph_alignment_for_medical_vision-language_models.md)
 - [NeedleInATable: Exploring Long-Context Capability of Large Language Models towards Long-Structured Tables](needleinatable_exploring_long-context_capability_of_large_language_models_toward.md)
-- [Physics Context Builders: A Modular Framework for Physical Reasoning in Vision-Language Models](../../ICCV2025/multimodal_vlm/physics_context_builders_a_modular_framework_for_physical_reasoning_in_vision-la.md)
+- [CArtBench: Evaluating Vision-Language Models on Chinese Art Understanding, Interpretation, and Authenticity](../../ACL2026/multimodal_vlm/cartbench_evaluating_vision-language_models_on_chinese_art_understanding_interpr.md)
 
 <!-- RELATED:END -->

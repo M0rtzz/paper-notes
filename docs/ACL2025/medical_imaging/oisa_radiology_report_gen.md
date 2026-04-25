@@ -271,7 +271,7 @@ OISA 的四阶段循环：(1) **Self-Generation**——让 RRG 模型在不同�
 - [Automated Structured Radiology Report Generation](automated_structured_radiology_report_generation.md)
 - [Radar: Enhancing Radiology Report Generation with Supplementary Knowledge Injection](radar_radiology_report_gen.md)
 - [CSTRL: Context-Driven Sequential Transfer Learning for Abstractive Radiology Report Summarization](cstrl_context-driven_sequential_transfer_learning_for_abstractive_radiology_repo.md)
+- [MARCH: Multi-Agent Radiology Clinical Hierarchy for CT Report Generation](../../ACL2026/medical_imaging/march_multi-agent_radiology_clinical_hierarchy_for_ct_report_generation.md)
 - [Self Iterative Label Refinement via Robust Unlabeled Learning](../../NeurIPS2025/medical_imaging/self_iterative_label_refinement_via_robust_unlabeled_learning.md)
-- [Self-supervised Learning of Echocardiographic Video Representations via Online Cluster Distillation](../../NeurIPS2025/medical_imaging/self-supervised_learning_of_echocardiographic_video_representations_via_online_c.md)
 
 <!-- RELATED:END -->

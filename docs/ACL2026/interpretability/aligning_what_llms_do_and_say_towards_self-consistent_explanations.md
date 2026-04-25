@@ -1,3 +1,17 @@
+---
+title: >-
+  [论文解读] Aligning What LLMs Do and Say: Towards Self-Consistent Explanations
+description: >-
+  [ACL 2026][自一致性] 构建大规模Post-hoc Self-Consistency Bank（PSCB，85K决策×428K解释），量化LLM答案与其解释之间的特征归因差距，并通过DPO优化在不损害准确率的前提下提升解释的归因一致性。
+tags:
+  - ACL 2026
+  - 自一致性
+  - 特征归因
+  - 解释忠实性
+  - DPO优化
+  - 归因对齐
+---
+
 # Aligning What LLMs Do and Say: Towards Self-Consistent Explanations
 
 **会议**: ACL 2026  
@@ -57,12 +71,14 @@ PSCB构建流程：(1) 对QA决策计算特征归因向量；(2) 对每个决策
 ## 实验关键数据
 
 ### 主实验
+
 | 模型 | 数据集 | CC-Sp(优化前) | CC-Sp(DPO后) | 准确率变化 |
 |------|--------|-------------|-------------|----------|
 | LLaMA3.1-8B | ECQA | 18.47(mean) | 显著提升 | 不降 |
 | LLaMA3.2-3B | ECQA | 9.75(mean) | 显著提升 | 不降 |
 
 ### 消融实验
+
 | 配置 | 关键指标 | 说明 |
 |------|---------|------|
 | DPO vs SFT | DPO显著优于SFT | SFT无法学到归因偏好 |
@@ -97,3 +113,15 @@ PSCB构建流程：(1) 对QA决策计算特征归因向量；(2) 对每个决策
 - 实验充分度: ⭐⭐⭐⭐ 大规模benchmark、跨域泛化、DPO vs SFT对比
 - 写作质量: ⭐⭐⭐⭐ 形式化严谨，实验设计清晰
 - 价值: ⭐⭐⭐⭐⭐ 对LLM可解释性和可信AI有深远影响
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [Do LLMs Know Tool Irrelevance? Demystifying Structural Alignment Bias in Tool Invocations](do_llms_know_tool_irrelevance_demystifying_structural_alignment_bias_in_tool_inv.md)
+- [Revitalizing Black-Box Interpretability: Actionable Interpretability for LLMs via Proxy Models](revitalizing_black-box_interpretability_actionable_interpretability_for_llms_via.md)
+- [Llama See, Llama Do: A Mechanistic Perspective on Contextual Entrainment and Distraction in LLMs](../../ACL2025/interpretability/llama_see_llama_do_entrainment.md)
+- [LLM Circuit Analyses Are Consistent Across Training and Scale](../../AAAI2026/interpretability/llm_circuit_analyses_consistent_across_training_and_scale.md)
+- [Understanding New-Knowledge-Induced Factual Hallucinations in LLMs: Analysis and Interpretation](understanding_new-knowledge-induced_factual_hallucinations_in_llms_analysis_and_.md)
+
+<!-- RELATED:END -->

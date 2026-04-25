@@ -138,6 +138,6 @@ tags:
 - [G2S: A General-to-Specific Learning Framework for Temporal Knowledge Graph Forecasting with Large Language Models](g2s_a_general-to-specific_learning_framework_for_temporal_knowledge_graph_foreca.md)
 - [How Foundational are Foundation Models for Time Series Forecasting?](../../NeurIPS2025/time_series/how_foundational_are_foundation_models_for_time_series_forecasting.md)
 - [CausalDynamics: A Large-Scale Benchmark for Structural Discovery of Dynamical Causal Models](../../NeurIPS2025/time_series/causaldynamics_a_large-scale_benchmark_for_structural_discovery_of_dynamical_cau.md)
-- [SEMPO: Lightweight Foundation Models for Time Series Forecasting](../../NeurIPS2025/time_series/sempo_lightweight_foundation_models_for_time_series_forecasting.md)
+- [Learning Uncertainty from Sequential Internal Dispersion in Large Language Models](../../ACL2026/time_series/learning_uncertainty_from_sequential_internal_dispersion_in_large_language_model.md)
 
 <!-- RELATED:END -->

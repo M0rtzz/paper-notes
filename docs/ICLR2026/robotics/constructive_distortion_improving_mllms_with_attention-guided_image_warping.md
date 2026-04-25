@@ -129,6 +129,6 @@ Qwen2.5-VL 上同样一致提升 (+2.1~3.6%)。
 - [On the Generalization Capacities of MLLMs for Spatial Intelligence](on_the_generalization_capacities_of_mllms_for_spatial_intelligence.md)
 - [Let's Think in Two Steps: Mitigating Agreement Bias in MLLMs with Self-Grounded Verification](lets_think_in_two_steps_mitigating_agreement_bias_in_mllms_with_self-grounded_ve.md)
 - [Attention as Binding: A Vector-Symbolic Perspective on Transformer Reasoning](../../AAAI2026/robotics/attention_as_binding_a_vector-symbolic_perspective_on_transformer_reasoning.md)
-- [UrbanNav: Learning Language-Guided Urban Navigation from Web-Scale Human Trajectories](../../AAAI2026/robotics/urbannav_learning_language-guided_urban_navigation_from_web-scale_human_trajecto.md)
+- [ENC-Bench: A Benchmark for Evaluating MLLMs in Electronic Navigational Chart Understanding](../../CVPR2026/robotics/enc-bench_a_benchmark_for_evaluating_multimodal_large_language_models_in_electro.md)
 
 <!-- RELATED:END -->

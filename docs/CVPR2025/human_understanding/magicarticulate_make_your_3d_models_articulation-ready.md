@@ -164,7 +164,7 @@ tags:
 - [Towards High-fidelity 3D Talking Avatar with Personalized Dynamic Texture](towards_high-fidelity_3d_talking_avatar_with_personalized_dynamic_texture.md)
 - [AutoFigure: Generating and Refining Publication-Ready Scientific Illustrations](../../ICLR2026/human_understanding/autofigure_generating_and_refining_publication-ready_scientific_illustrations.md)
 - [How Video Meetings Change Your Expression](../../ECCV2024/human_understanding/how_video_meetings_change_your_expression.md)
-- [Pose Priors from Language Models](pose_priors_from_language_models.md)
 - [3D Face Reconstruction From Radar Images](3d_face_reconstruction_from_radar_images.md)
+- [Pose Priors from Language Models](pose_priors_from_language_models.md)
 
 <!-- RELATED:END -->
