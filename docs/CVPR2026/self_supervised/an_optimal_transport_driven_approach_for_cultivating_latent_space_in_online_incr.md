@@ -1,0 +1,134 @@
+---
+title: >-
+  [论文解读] An Optimal Transport-driven Approach for Cultivating Latent Space in Online Incremental Learning
+description: >-
+  [CVPR 2026][自监督学习][在线类增量学习] 提出基于最优传输理论的在线混合模型学习框架 (MMOT)，通过为每个类别维护多个自适应质心来更精确地表征在线数据流的多模态特性，结合动态保持策略增强类别区分能力，在在线类增量学习 (OCIL) 中有效缓解灾难性遗忘。
+tags:
+  - CVPR 2026
+  - 自监督学习
+  - 在线类增量学习
+  - 最优传输
+  - 高斯混合模型
+  - 灾难性遗忘
+  - 潜在空间
+---
+
+# An Optimal Transport-driven Approach for Cultivating Latent Space in Online Incremental Learning
+
+**会议**: CVPR 2026  
+**arXiv**: [2211.16780](https://arxiv.org/abs/2211.16780)  
+**代码**: 无  
+**领域**: 持续学习 / 在线增量学习  
+**关键词**: 在线类增量学习, 最优传输, 高斯混合模型, 灾难性遗忘, 潜在空间
+
+## 一句话总结
+
+提出基于最优传输理论的在线混合模型学习框架 (MMOT)，通过为每个类别维护多个自适应质心来更精确地表征在线数据流的多模态特性，结合动态保持策略增强类别区分能力，在在线类增量学习 (OCIL) 中有效缓解灾难性遗忘。
+
+## 研究背景与动机
+
+在线类增量学习 (OCIL) 是持续学习中最具挑战性的场景：数据分布动态变化，模型只能对每个到达的小批量数据进行单次迭代更新，且推理时没有任务 ID 可用。这要求模型在极其有限的回放条件下持续适应新类别，同时保持对旧类别的记忆。
+
+现有方法面临两个核心痛点。第一，大多数方法使用单个分类头或单个原型（质心）来表示潜在空间中的每个类别，但实际数据流天然具有多模态特性——一个类别可能由多个聚类组成，单个质心无法捕捉这种复杂性。第二，虽然有些方法使用高斯混合模型 (GMM) 来表示每个类别，但它们的均值和方差在计算后就被固定不再更新，随着骨干网络不断适应新数据导致特征漂移，这些固定的质心会变得越来越不准确。
+
+这两个问题的根本矛盾在于：OCIL 环境中数据不断到达且分布持续变化，但现有的类别表征方式要么过于简单（单质心），要么过于僵化（固定 GMM）。作者的核心观察是：如果能够利用最优传输 (OT) 理论的丰富数学工具，设计一种能够随数据流增量更新的混合模型，就能同时解决多模态表征和特征漂移两个问题。
+
+核心 idea：利用 Wasserstein 距离的熵正则化对偶形式，将 GMM 参数学习转化为期望形式的优化问题，使其天然适配 OCIL 中基于小批量的在线更新场景，用梯度下降替代传统 EM 算法来增量更新多个自适应质心。
+
+## 方法详解
+
+### 整体框架
+
+OTC 框架在每个时间步接收新数据批次和从记忆缓冲区检索的旧数据批次，经过三个阶段处理：(1) 用交叉熵损失进行初始训练使同类样本初步聚集；(2) 通过 MMOT 框架为每个类别增量估计混合模型分布；(3) 利用 MMOT 学到的分布信息执行动态保持策略，增强表示学习。最终更新记忆缓冲区。
+
+### 关键设计
+
+1. **MMOT (基于最优传输的多模态建模)**:
+
+    - 功能：为每个类别学习并增量更新多个自适应质心和协方差矩阵
+    - 核心思路：对每个类别 $c$，用 GMM $\mathbb{Q}_c = \sum_{k=1}^K \pi_{k,c} \mathcal{N}(\mu_{k,c}, \text{diag}(\sigma_{k,c}^2))$ 来近似数据分布 $\mathbb{P}_c$，通过最小化两者间的 Wasserstein 距离来学习 GMM 参数。利用熵正则化对偶形式将 WS 距离转化为期望形式 $\max_\phi \{ \mathbb{E}_{\mathbb{P}_c}[\phi(z^c)] + \mathbb{E}_{\mathbb{Q}_c}[\tilde{\phi}(\tilde{z}^c)] \}$，配合 Gumbel-Softmax 重参数化技巧使混合比例可微分，从而通过梯度下降在线更新所有 GMM 参数。这种方法避免了传统 EM 算法的多次迭代开销，且 WS 距离相比 KL 散度在分布支撑不重叠时仍保持数值稳定
+    - 设计动机：选择 OT 而非 KL 散度有四个理由：KL 对应的 EM 算法计算开销大、WS 距离是连续可微的度量、在分布支撑不交时数值稳定、尊重数据的几何结构
+
+2. **Dynamic Preservation (动态保持策略)**:
+
+    - 功能：利用 MMOT 学到的多质心信息增强模型的类别区分能力
+    - 核心思路：设计对比学习式的损失函数 $\mathcal{L}_{DP}$，其中正样本项 $g_{cen}^c$ 通过计算特征与该类所有 $K$ 个质心的相似度之和，将同类表示拉向各自质心；负样本项同时包含其他类的质心项和特征项，推开不同类别间的表示。相比单原型方法，多质心提供了更精细的类别边界信息
+    - 设计动机：使用多个质心而非单个原型，类别边界上的质心特别有助于增强类间分离，弥补了单原型无法表达类内多模态结构的不足
+
+3. **基于质心的记忆缓冲区选择和推理策略**:
+
+    - 功能：利用质心信息改善记忆样本的多样性，并在推理时提升分类准确率
+    - 核心思路：记忆选择时，对每个质心选择当前批次中距离最近的数据点加入缓冲区，确保所选样本能覆盖类别的多个子分布。推理时，计算测试样本到每个类别各高斯分量的马氏距离，取最小距离对应的类别作为预测结果
+    - 设计动机：传统随机选择容易遗漏少数子分布的样本，基于质心选择可确保缓冲区的代表性；马氏距离推理考虑了协方差信息，比欧氏距离更能适应不同形状的类别分布
+
+### 损失函数 / 训练策略
+
+整体训练损失包含三部分：交叉熵损失（初始分离）、MMOT 的 Wasserstein 距离损失（GMM 参数学习）、以及动态保持损失 $\mathcal{L}_{DP}$（增强类别区分）。训练时先用 CE 损失做初始训练，然后执行 MMOT 更新质心，最后用动态保持策略精细化表示空间。
+
+## 实验关键数据
+
+### 主实验
+
+| 数据集 | 指标 | OTC (本文) | BiC+AC (之前最佳) | GSA | MOSE |
+|--------|------|------|----------|------|------|
+| CIFAR-10 (M=0.2k) | Avg Acc↑ | **64.8** | 63.5 | 58.0 | 53.3 |
+| CIFAR-10 (M=1k) | Avg Acc↑ | **76.1** | 75.8 | 69.1 | 70.7 |
+| CIFAR-100 (M=2k) | Avg Acc↑ | **48.5** | 47.3 | 39.7 | 45.1 |
+| CIFAR-100 (M=5k) | Avg Acc↑ | **56.5** | 54.2 | 49.7 | 54.5 |
+| Tiny-ImageNet (M=2k) | Avg Acc↑ | **19.5** | 17.6 | 18.5 | 18.2 |
+| Tiny-ImageNet (M=5k) | Avg Acc↑ | **31.6** | 22.6 | 26.0 | 30.9 |
+| Tiny-ImageNet (M=10k) | Avg Acc↑ | **39.5** | 26.5 | 33.2 | 38.7 |
+
+### 消融实验
+
+| 配置 | Avg Acc (CIFAR-10, M=1k) | 说明 |
+|------|---------|------|
+| 1 centroid + random buffer | 71.6 | 单质心+随机选择 |
+| 4 centroids + random buffer | 75.3 | 多质心但随机选择 |
+| 4 centroids + centroid-based buffer | **75.9** | 完整模型 |
+| 1 centroid + centroid-based buffer | 71.6 | 单质心+质心选择 |
+
+### 关键发现
+
+- **多质心贡献最大**：从 1 到 4 个质心，CIFAR-10 上准确率从 71.6% 提升到 75.9%，验证了多模态建模的必要性
+- **最优质心数与记忆大小相关**：记忆越小，最优质心数越少（M=200 时最优为 3，M=1k 时最优为 4），超过阈值后性能下降
+- **Tiny-ImageNet 上优势最明显**：20 个任务的长序列学习中，OTC 在 M=5k 和 M=10k 时比第二名分别高出 0.7% 和 0.8%，说明多质心在长任务序列中更有优势
+- **遗忘方面表现稳定**：在 CIFAR-10 和 CIFAR-100 上遗忘率排名前二，Tiny-ImageNet 上遗忘排名前三
+
+## 亮点与洞察
+
+- **OT 替代 EM 做 GMM 学习**是核心创新——将计算开销大的多次迭代 EM 替换为几步梯度下降更新，这在在线学习场景中特别关键。巧妙之处在于利用了 WS 距离的熵对偶形式天然具有期望形式，完美适配小批量更新
+- **质心参与训练和推理的双重作用**：不仅用于训练时的动态保持，还用于推理时的马氏距离分类和记忆选择，一套表征服务于多个环节
+- **多质心思路可迁移**：在联邦学习、域自适应等需要处理数据分布漂移的场景中，多自适应质心 + OT 更新的框架都可能有价值
+
+## 局限与展望
+
+- 质心数量 $K$ 仍然是需要手动设置的超参数，没有自适应确定机制
+- 在 Tiny-ImageNet 上遗忘仍然较高（16.5%），说明 20 个任务的超长序列对质心更新的稳定性有更高要求
+- Kantorovich 网络 $\phi$ 的参数量和更新次数对性能的影响未充分分析
+- 未在更大规模数据集（如 ImageNet-1k）上验证可扩展性
+
+## 相关工作与启发
+
+- **vs CoPE**: CoPE 使用单个自适应质心，遗忘低但初始准确率差；OTC 用多质心获得更高准确率，但遗忘略高。t-SNE 可视化清楚显示 CoPE 的类间分离度不如 OTC
+- **vs MOSE**: MOSE 在大记忆时性能接近 OTC，但在小记忆时差距明显，说明 OTC 的多质心策略在资源受限时更有效
+- **vs GSA**: GSA 使用固定 GMM + EM，OTC 的自适应 GMM + OT 更新在所有设置下都优于 GSA
+
+## 评分
+
+- 新颖性: ⭐⭐⭐⭐ 首次将 OT 用于 OCIL 中 GMM 的在线参数学习，理论贡献扎实
+- 实验充分度: ⭐⭐⭐⭐ 三个数据集、多种记忆大小、详细消融，但缺少大规模实验
+- 写作质量: ⭐⭐⭐⭐ 理论推导清晰，动机链条完整，图表丰富
+- 价值: ⭐⭐⭐⭐ 多自适应质心 + OT 的范式对持续学习领域有启发，但实际性能提升幅度有限
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [\[CVPR 2026\] TALO: Pushing 3D Vision Foundation Models Towards Globally Consistent Online Reconstruction](talo_pushing_3d_vision_foundation_models_towards_globally_consistent_online_reco.md)
+- [\[CVPR 2026\] LaS-Comp: Zero-shot 3D Completion with Latent-Spatial Consistency](las-comp_zero-shot_3d_completion_with_latent-spatial_consistency.md)
+- [\[CVPR 2026\] TrackMAE: Video Representation Learning via Track, Mask, and Predict](trackmae_video_representation_learning_via_track_mask_and_predict.md)
+- [\[CVPR 2026\] A Stitch in Time: Learning Procedural Workflow via Self-Supervised Plackett-Luce Ranking](a_stitch_in_time_learning_procedural_workflow_via_self_supervised_plackett_luce_r.md)
+- [\[CVPR 2026\] Group-DINOmics: Incorporating People Dynamics into DINO for Self-supervised Group Activity Feature Learning](group_dinomics_incorporating_people_dynamics_into_dino_for_self_supervised_group_activity_feature_learning.md)
+
+<!-- RELATED:END -->

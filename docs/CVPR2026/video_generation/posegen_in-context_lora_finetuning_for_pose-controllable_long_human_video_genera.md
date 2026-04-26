@@ -1,0 +1,114 @@
+---
+title: >-
+  [论文解读] PoseGen: In-Context LoRA Finetuning for Pose-Controllable Long Human Video Generation
+description: >-
+  [CVPR 2026][人体视频生成] PoseGen 通过 in-context LoRA 微调实现双重条件注入（token级外观 + 通道级姿态），并提出分段交错生成策略（KV共享+姿态感知插帧），仅用33小时视频数据即可生成高保真长时人体视频。
+tags:
+  - CVPR 2026
+  - 人体视频生成
+  - 姿态控制
+  - LoRA微调
+  - 长视频生成
+  - 扩散模型
+---
+
+# PoseGen: In-Context LoRA Finetuning for Pose-Controllable Long Human Video Generation
+
+**会议**: CVPR 2026  
+**arXiv**: [2508.05091](https://arxiv.org/abs/2508.05091)  
+**代码**: https://github.com/Jessie459/PoseGen  
+**领域**: 图像生成  
+**关键词**: 人体视频生成, 姿态控制, LoRA微调, 长视频生成, 扩散模型
+
+## 一句话总结
+PoseGen 通过 in-context LoRA 微调实现双重条件注入（token级外观 + 通道级姿态），并提出分段交错生成策略（KV共享+姿态感知插帧），仅用33小时视频数据即可生成高保真长时人体视频。
+
+## 研究背景与动机
+1. **领域现状**：基于扩散模型的可控视频生成取得显著进展，但在身份保持、运动精度和视频时长三方面仍存在严重挑战。
+2. **现有痛点**：（i）身份漂移：人物外观随时间推移发生变形；（ii）运动不精确：精确运动控制常伴随视觉伪影；（iii）时长受限：多数方法限于10秒以内的短片段，长时生成导致严重的累积误差。
+3. **核心矛盾**：现有方法要么需要大规模私有数据集（>10K小时），要么依赖复杂的架构设计（如专用姿态编码器），在效率、数据需求和生成质量间难以兼顾。
+4. **本文目标**：设计高效、低数据需求的长时人体视频生成框架，同时保持身份一致性和运动精确性。
+5. **切入角度**：利用LoRA的参数高效特性，通过最小架构修改实现双重条件注入；设计无需架构改动的长视频生成策略。
+6. **核心idea**：token维度注入外观+通道维度注入姿态的双重条件机制，搭配基于KV共享的分段交错生成实现长视频。
+
+## 方法详解
+
+### 整体框架
+基于预训练视频扩散模型（Wan2.1），通过两个具有不同角色的LoRA模块实现：第一个LoRA优化非重叠段生成，第二个LoRA专注于相邻段拼接，实现时间连贯的长视频。
+
+### 关键设计
+
+1. **In-Context LoRA 双重条件机制**:
+    - 功能：同时实现外观身份保持和姿态运动控制
+    - 核心思路：（1）**运动控制**：采用骨架姿态图和手部表面法线作为控制信号，在潜空间中沿通道维度与噪声视频拼接。手部法线提供丰富的几何线索，可解决手部重叠等复杂场景。（2）**参考注入**：将参考图像编码为VAE潜在表示，沿token维度与噪声潜在表示拼接，通过DiT block的共享参数处理图像和视频token，LoRA应用于自注意力、交叉注意力和前馈层。
+    - 设计动机：通道级姿态注入无需额外的重量级姿态编码器；token级外观注入利用了DiT自注意力的跨token交互能力，避免了专门的身份编码模块。
+
+2. **分段交错生成策略**:
+    - 功能：突破视频时长限制，生成长时连贯视频
+    - 核心思路：分两步进行——（1）先生成多个非重叠短片段，通过缓存和复用源段自注意力层的Key-Value（KV）对来保持背景一致性；（2）使用第二个LoRA模块，通过姿态感知的插帧生成将相邻段拼接成连续视频。引入二值掩码指定哪些帧需要合成。
+    - 设计动机：直接生成长视频会导致严重的累积误差；基于重叠段融合的方法容易出现边界不一致。KV共享提供了隐式的背景一致性约束。
+
+3. **手部表面法线辅助**:
+    - 功能：提升手部区域的生成质量
+    - 核心思路：使用表面法线预测模型结合人体部位分割模型估计手部法线，作为骨架姿态之外的辅助控制信号。
+    - 设计动机：手部由于高频纹理和快速运动，是视频生成中质量下降最严重的区域。法线提供了比骨架更丰富的几何信息，且在手部重叠等场景中比mesh估计更鲁棒。
+
+### 损失函数 / 训练策略
+标准的扩散模型去噪损失，仅训练LoRA参数。使用33小时视频数据集训练，远少于同类方法（>10K小时）。
+
+## 实验关键数据
+
+### 主实验
+
+| 数据集/指标 | 本文 | DreamActor-M1 | VACE | 说明 |
+|------------|------|--------------|------|------|
+| 身份保真度 | 最优 | 次优 | - | Face similarity指标 |
+| 姿态精度 | 最优 | - | 次优 | Pose error指标 |
+| 时间一致性 | 最优 | - | - | 长视频FVD |
+
+### 消融实验
+
+| 配置 | 关键指标 | 说明 |
+|------|---------|------|
+| Full PoseGen | 最优 | 完整模型 |
+| w/o 手部法线 | 手部质量下降 | 法线对手部生成关键 |
+| w/o KV共享 | 背景不一致 | KV缓存保持背景连贯 |
+| w/o 分段交错 | 长视频质量差 | 交错策略对长视频必需 |
+
+### 关键发现
+- 仅33小时数据即可超越使用>10K小时数据的方法，说明in-context LoRA的参数效率极高。
+- 手部法线的引入对手部生成质量有显著提升，尤其在手指交叉等复杂场景。
+- KV共享机制有效保持了非重叠段之间的背景一致性，是长视频生成的关键。
+
+## 亮点与洞察
+- **极低数据需求**（33小时 vs >10K小时）是最大亮点，大幅降低了实际部署门槛。
+- **双维度条件注入**的设计非常简洁：通道级做运动控制、token级做外观保持，各自利用了最自然的维度。
+- 分段交错策略可迁移到其他需要长视频生成的场景。
+
+## 局限与展望
+- 依赖预训练的姿态估计和法线预测模型，其准确性会影响最终结果。
+- 非重叠段之间的过渡区域仍可能存在微妙的不连续。
+- 仅支持单人场景，多人交互场景尚未探索。
+
+## 相关工作与启发
+- **vs DreamActor-M1**: 使用复杂的注意力机制注入身份特征，本文用更简单的in-context拼接实现了更好效果。
+- **vs AnimateDiff**: 需要专门的运动模块，本文直接通过通道拼接实现运动控制。
+- **vs MAGI-1/SkyReels-V2**: 这些方法需要从头训练，本文仅微调LoRA即可。
+
+## 评分
+- 新颖性: ⭐⭐⭐⭐ 双维度条件注入+交错生成的组合新颖实用
+- 实验充分度: ⭐⭐⭐⭐ 定量定性评估全面，但公开基准相对有限
+- 写作质量: ⭐⭐⭐⭐ 方法描述清晰，动机充分
+- 价值: ⭐⭐⭐⭐ 高效的人体视频生成方案，实用价值高
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [\[AAAI 2026\] MotionCharacter: Fine-Grained Motion Controllable Human Video Generation](../../AAAI2026/video_generation/motioncharacter_fine-grained_motion_controllable_human_video_generation.md)
+- [\[ICLR 2026\] LoRA-Edit: Controllable First-Frame-Guided Video Editing via Mask-Aware LoRA Fine-Tuning](../../ICLR2026/video_generation/lora-edit_controllable_first-frame-guided_video_editing_via_mask-aware_lora_fine.md)
+- [\[CVPR 2026\] Geometry-as-context: Modulating Explicit 3D in Scene-consistent Video Generation to Geometry Context](geometry-as-context_modulating_explicit_3d_in_scene-consistent_video_generation_.md)
+- [\[CVPR 2026\] PAM: A Pose-Appearance-Motion Engine for Sim-to-Real HOI Video Generation](pam_a_pose-appearance-motion_engine_for_sim-to-real_hoi_video_generation.md)
+- [\[CVPR 2026\] Free-Lunch Long Video Generation via Layer-Adaptive O.O.D Correction](free-lunch_long_video_generation_via_layer-adaptive_ood_correction.md)
+
+<!-- RELATED:END -->

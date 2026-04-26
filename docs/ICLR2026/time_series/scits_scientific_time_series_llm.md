@@ -1,0 +1,134 @@
+---
+title: >-
+  [论文解读] SciTS: Scientific Time Series Understanding and Generation with LLMs
+description: >-
+  [ICLR 2026][时间序列][科学时间序列] 本文提出 SciTS——一个覆盖 12 个科学领域、43 个任务、54K+ 样本的科学时间序列基准，并构建 TimeOmni 框架通过多 patch expert 路由和 LLM 骨干统一处理理解和生成两类时间序列任务，在全基准上取得最佳综合表现。
+tags:
+  - ICLR 2026
+  - 时间序列
+  - 科学时间序列
+  - LLM
+  - benchmark
+  - 多任务统一模型
+  - patch expert
+---
+
+# SciTS: Scientific Time Series Understanding and Generation with LLMs
+
+**会议**: ICLR 2026  
+**arXiv**: [2510.03255](https://arxiv.org/abs/2510.03255)  
+**代码**: [https://github.com/OpenTSLab/TimeOmni](https://github.com/OpenTSLab/TimeOmni)  
+**领域**: 时间序列  
+**关键词**: 科学时间序列, LLM, benchmark, 多任务统一模型, patch expert
+
+## 一句话总结
+
+本文提出 SciTS——一个覆盖 12 个科学领域、43 个任务、54K+ 样本的科学时间序列基准，并构建 TimeOmni 框架通过多 patch expert 路由和 LLM 骨干统一处理理解和生成两类时间序列任务，在全基准上取得最佳综合表现。
+
+## 研究背景与动机
+
+**领域现状**：LLM 的科学推理能力备受关注，但时间序列作为科学数据的基础模态被严重忽视。现有多模态 LLM 要么将数值序列编码为文本（序列过长），要么转为图像（丢失数值精度），都不足以全面理解科学时间序列。
+
+**现有痛点**：现有统一时间序列模型通常只专注于预测或分析单一任务类型。更重要的是，它们主要在周期性商业数据（天气、交通、金融）上训练和评估，面对非周期性、异质性极强的科学信号（引力波、脑电图、生物声学）时效果不明。
+
+**核心矛盾**：科学时间序列的多样性极端——频率从日级到 MHz 级，长度从几个点到百万级，维度从单变量到 58 通道，任务从分类到合成。现有模型和基准都无法覆盖这种多样性。
+
+**本文目标**：(1) 构建覆盖面最广的科学时间序列基准；(2) 全面评测 17 个 SOTA 模型的科学时间序列处理能力；(3) 提出 TimeOmni 作为工作示例探索 LLM 处理科学时间序列的关键要素。
+
+**切入角度**：科学领域的时间序列（天文光变曲线、地震波、EEG 等）与商业领域有本质不同，需要专门的基准和方法。通用 LLM 的泛化能力可能比专用时间序列模型更强。
+
+**核心 idea**：构建大规模科学时间序列基准 SciTS 全面评估，同时提出 TimeOmni 作为探索方案——通过多 patch expert 自适应选择 patch 大小处理不同尺度的信号，统一理解和生成任务。
+
+## 方法详解
+
+### 整体框架
+
+TimeOmni 接收时间序列信号 $\mathbf{X} \in \mathbb{R}^{T' \times N}$ 和任务 prompt。时间序列先沿时间维度展平，经 Time Series Encoder（Router + Patch Expert + Patch Reprogramming）编码为 $\mathbf{X}_{enc} \in \mathbb{R}^{T_{enc} \times D_{llm}}$（其中 $T_{enc}$ 通常 100-200）。Prompt 经文本 tokenizer 编码。两者拼接输入预训练 LLM。理解任务通过 softmax 输出文本，生成任务通过线性回归头输出时间序列。
+
+### 关键设计
+
+1. **Router + Patch Expert Family**:
+
+    - 功能：自适应地为不同长度和分辨率的科学信号选择合适的 patch 大小
+    - 核心思路：对展平后长度为 $T = NT'$ 的输入，Router 选择 patch 大小 $D_{patch}$ 使得编码后序列长度落在 100-200 之间，即 $T/200 < D_{patch} < T/100$。Patch Expert 先将输入 reshape 为 $\mathbb{R}^{\lceil T/D_{patch} \rceil \times D_{patch}}$，再用 1D 卷积映射到统一维度 $D_{enc}$。不同 patch 大小对应不同的 Patch Expert
+    - 设计动机：科学信号长度跨越 $10^0$ 到 $10^7$，固定 patch 大小无法兼顾。多 patch expert 确保编码后 token 数可控（100-200），既不超出 LLM 上下文也保留足够信息
+
+2. **Patch Reprogramming**:
+
+    - 功能：将时间序列嵌入重编程到 LLM 的词汇空间中
+    - 核心思路：取 LLM 的词汇嵌入 $\mathbf{E} \in \mathbb{R}^{vocab\_size \times D_{llm}}$，先线性投射到 $\mathbb{R}^{1000 \times D_{llm}}$，然后用多头交叉注意力让 $\mathbf{X}_{patch}$ 作为 query、$\mathbf{E}$ 作为 key/value，最终线性投射产生编码输出。这相当于用 LLM 的语义空间来"重新表示"时间序列
+    - 设计动机：直接将时间序列嵌入输入 LLM 会导致模态鸿沟；通过 LLM 词汇嵌入做交叉注意力，隐式对齐了时间序列和语言的表示空间
+
+3. **双输出头 + Prompt 顺序策略**:
+
+    - 功能：统一处理理解（输出文本）和生成（输出时间序列）两类任务
+    - 核心思路：理解任务采用 Prompt-as-suffix（信号在前，提示在后），输出经 softmax 生成文本 token。生成任务采用 Prompt-as-prefix（提示在前，信号在后），输出经展平+线性层映射为目标长度的时间序列。预定义多个回归头覆盖不同输出长度，模型自动选最接近的
+    - 设计动机：不同任务类型对输入信息的依赖方式不同——理解需要先看数据再看问题，生成需要先理解任务要求再处理数据
+
+### 损失函数 / 训练策略
+
+TimeOmni 基于 Qwen3-8B 初始化，使用 DoRA 微调。理解任务用标准语言模型的交叉熵损失，生成任务用回归损失。训练数据为 SciTS 的 54K+ 样本。
+
+## 实验关键数据
+
+### 主实验
+
+| 模型类别 | 代表模型 | 理解 AvgRk | 生成 AvgRk | 任务覆盖率 | 成功率 |
+|---------|---------|-----------|-----------|----------|--------|
+| Text LLM | GPT-4.1-mini | 6.1 | 6.7 | ~90% | 中等 |
+| MLLM | Gemini2.5-Flash | 5.8 | - | ~95% | 中等 |
+| 时序模型 | UniTS | 7.9 | - | ~30% | 高(支持的任务) |
+| TimeOmni | Qwen3-8B base | **1.9** | **1.4** | **100%** | **100%** |
+
+### 消融实验
+
+| 分析维度 | 关键发现 |
+|---------|---------|
+| 文本 vs 图像输入 LLM | 图像输入在理解任务上通常更好（压缩长序列效果更好） |
+| 通用 LLM vs 专用时序模型 | 在未见科学域上 LLM 泛化能力更强 |
+| 开源 vs 闭源 LLM | 闭源模型任务覆盖率和成功率更高 |
+| 多 Patch Expert vs 固定 patch | 多 expert 路由对不同尺度信号至关重要 |
+
+### 关键发现
+
+- SciTS 极具挑战性：即使是最强的闭源 LLM，在天文学、神经科学等域的 F1 也很低（<15%），生物声学和雷达几乎低于 10%
+- 通用 LLM 在未见过的科学域上泛化能力优于专用时间序列模型——专用模型虽然在支持的任务上成功率高，但任务覆盖面极窄
+- TimeOmni 是唯一实现 100% 任务覆盖和 100% 实例成功率的模型，证明了显式时间建模+LLM 骨干的优势
+
+## 亮点与洞察
+
+- **SciTS 基准**本身是一项重要贡献——12 个科学领域、7 种任务类型、频率/长度/维度跨越多个数量级，填补了科学时间序列评估的空白
+- **多 Patch Expert 路由**的设计简洁有效，通过控制编码后 token 数在 100-200 之间，优雅地解决了科学信号长度跨度大的问题
+- **"通用 LLM 泛化强于专用模型"**这个发现很重要——说明在数据稀缺的科学领域，LLM 的预训练知识比专用架构更有价值
+
+## 局限与展望
+
+- TimeOmni 需要在 SciTS 上微调，零样本能力未验证——是否能泛化到 SciTS 未覆盖的科学领域尚不清楚
+- 展平多变量信号为单维度的方式可能丢失通道间的相关性信息
+- 生成任务预定义固定的回归头集合，缺乏灵活性
+- 基准中合成数据的比例和质量可能影响评估的代表性
+
+## 相关工作与启发
+
+- **vs UniTS (Gao et al., 2024)**: UniTS 也统一问答和预测，但架构独立不兼容 LLM 训练；TimeOmni 可直接嵌入通用 LLM
+- **vs Time-MoE (Shi et al., 2025)**: Time-MoE 用 MoE 做时间序列预测，但只支持预测任务；TimeOmni 覆盖 7 种任务
+- **vs SFE (Zhou et al., 2025)**: SFE 用图像格式的科学基准，丢失了数值精度；SciTS 直接用时间序列格式保留完整信息
+
+## 评分
+
+- 新颖性: ⭐⭐⭐⭐ 基准贡献突出，TimeOmni 方法部分偏增量式组合
+- 实验充分度: ⭐⭐⭐⭐⭐ 17个模型、43个任务、12个领域的全面对比
+- 写作质量: ⭐⭐⭐⭐ 结构清晰，基准描述详尽
+- 价值: ⭐⭐⭐⭐⭐ SciTS 基准对科学 AI 领域有长期价值
+
+<!-- RELATED:START -->
+
+## 相关论文
+
+- [\[ICLR 2026\] scits scientific time series understanding and generation with llms](scits_scientific_time_series_understanding_and_generation_with_llms.md)
+- [\[ICLR 2026\] EDINET-Bench: Evaluating LLMs on Complex Financial Tasks using Japanese Financial Statements](edinet-bench_evaluating_llms_on_complex_financial_tasks_using_japanese_financial.md)
+- [\[ICLR 2026\] Delta-XAI: A Unified Framework for Explaining Prediction Changes in Online Time Series Monitoring](delta-xai_a_unified_framework_for_explaining_prediction_changes_in_online_time_s.md)
+- [\[ICLR 2026\] Test-Time Efficient Pretrained Model Portfolios for Time Series Forecasting](test-time_efficient_pretrained_model_portfolios_for_time_series_forecasting.md)
+- [\[ICLR 2026\] Contextual and Seasonal LSTMs for Time Series Anomaly Detection](contextual_and_seasonal_lstms_for_time_series_anomaly_detection.md)
+
+<!-- RELATED:END -->
