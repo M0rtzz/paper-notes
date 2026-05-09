@@ -10,7 +10,7 @@ description: >-
 
 **💬 ACL2025** · **4** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🔬 ICLR2026 (1)](../../ICLR2026/moe/) · [🧠 NeurIPS2025 (1)](../../NeurIPS2025/moe/)
+📌 **同领域跨会议浏览：** [🔬 ICLR2026 (1)](../../ICLR2026/moe/index.md) · [🧠 NeurIPS2025 (1)](../../NeurIPS2025/moe/index.md)
 
 🔥 **高频主题：** LLM ×2
 

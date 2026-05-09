@@ -10,7 +10,7 @@ description: >-
 
 **🤖 AAAI2026** · **1** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧠 NeurIPS2025 (5)](../../NeurIPS2025/earth_science/) · [🎞️ ECCV2024 (1)](../../ECCV2024/earth_science/)
+📌 **同领域跨会议浏览：** [🧠 NeurIPS2025 (5)](../../NeurIPS2025/earth_science/index.md) · [🎞️ ECCV2024 (1)](../../ECCV2024/earth_science/index.md)
 
 **[MdaIF: Robust One-Stop Multi-Degradation-Aware Image Fusion with Language-Driven Semantics](mdaif_robust_one-stop_multi-degradation-aware_image_fusion_with_language-driven_.md)**
 

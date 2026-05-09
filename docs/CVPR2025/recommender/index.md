@@ -10,7 +10,7 @@ description: >-
 
 **📷 CVPR2025** · **1** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (13)](../../ACL2026/recommender/) · [🔬 ICLR2026 (10)](../../ICLR2026/recommender/) · [🤖 AAAI2026 (26)](../../AAAI2026/recommender/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/recommender/) · [🧪 ICML2025 (17)](../../ICML2025/recommender/) · [💬 ACL2025 (7)](../../ACL2025/recommender/)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (13)](../../ACL2026/recommender/index.md) · [🔬 ICLR2026 (10)](../../ICLR2026/recommender/index.md) · [🤖 AAAI2026 (26)](../../AAAI2026/recommender/index.md) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/recommender/index.md) · [🧪 ICML2025 (17)](../../ICML2025/recommender/index.md) · [💬 ACL2025 (7)](../../ACL2025/recommender/index.md)
 
 **[FineVQ: Fine-Grained User Generated Content Video Quality Assessment](finevq_fine-grained_user_generated_content_video_quality_assessment.md)**
 

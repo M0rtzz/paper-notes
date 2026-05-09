@@ -10,7 +10,7 @@ description: >-
 
 **🧠 NeurIPS2025** · **1** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🔬 ICLR2026 (1)](../../ICLR2026/moe/) · [💬 ACL2025 (4)](../../ACL2025/moe/)
+📌 **同领域跨会议浏览：** [🔬 ICLR2026 (1)](../../ICLR2026/moe/index.md) · [💬 ACL2025 (4)](../../ACL2025/moe/index.md)
 
 **[MoRE-Brain: Routed Mixture of Experts for Interpretable and Generalizable Cross-Subject fMRI Visual Decoding](more-brain_routed_mixture_of_experts_for_interpretable_and_generalizable_cross-s.md)**
 

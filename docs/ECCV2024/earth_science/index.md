@@ -10,7 +10,7 @@ description: >-
 
 **🎞️ ECCV2024** · **1** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🤖 AAAI2026 (1)](../../AAAI2026/earth_science/) · [🧠 NeurIPS2025 (5)](../../NeurIPS2025/earth_science/)
+📌 **同领域跨会议浏览：** [🤖 AAAI2026 (1)](../../AAAI2026/earth_science/index.md) · [🧠 NeurIPS2025 (5)](../../NeurIPS2025/earth_science/index.md)
 
 **[Semi-supervised Video Desnowing Network via Temporal Decoupling Experts and Distribution-Driven Contrastive Regularization](semi-supervised_video_desnowing_network_via_temporal_decoupling_experts_and_dist.md)**
 

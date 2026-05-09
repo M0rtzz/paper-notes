@@ -10,7 +10,7 @@ description: >-
 
 **🔬 ICLR2026** · **1** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧠 NeurIPS2025 (1)](../../NeurIPS2025/moe/) · [💬 ACL2025 (4)](../../ACL2025/moe/)
+📌 **同领域跨会议浏览：** [🧠 NeurIPS2025 (1)](../../NeurIPS2025/moe/index.md) · [💬 ACL2025 (4)](../../ACL2025/moe/index.md)
 
 **[MoE-GS: Mixture of Experts for Dynamic Gaussian Splatting](moe-gs_mixture_of_experts_for_dynamic_gaussian_splatting.md)**
 

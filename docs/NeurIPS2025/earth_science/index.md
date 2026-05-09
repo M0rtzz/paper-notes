@@ -10,7 +10,7 @@ description: >-
 
 **🧠 NeurIPS2025** · **5** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🤖 AAAI2026 (1)](../../AAAI2026/earth_science/) · [🎞️ ECCV2024 (1)](../../ECCV2024/earth_science/)
+📌 **同领域跨会议浏览：** [🤖 AAAI2026 (1)](../../AAAI2026/earth_science/index.md) · [🎞️ ECCV2024 (1)](../../ECCV2024/earth_science/index.md)
 
 **[A Probabilistic U-Net Approach to Downscaling Climate Simulations](a_probabilistic_unet_approach_to_downscaling_climate_simulat.md)**
 

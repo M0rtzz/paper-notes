@@ -10,7 +10,7 @@ description: >-
 
 **📷 CVPR2026** · **1** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🔬 ICLR2026 (2)](../../ICLR2026/physics/) · [🤖 AAAI2026 (2)](../../AAAI2026/physics/) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/physics/) · [📹 ICCV2025 (1)](../../ICCV2025/physics/) · [🧪 ICML2025 (6)](../../ICML2025/physics/) · [📷 CVPR2025 (1)](../../CVPR2025/physics/)
+📌 **同领域跨会议浏览：** [🔬 ICLR2026 (2)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (2)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (6)](../../ICML2025/physics/index.md) · [📷 CVPR2025 (1)](../../CVPR2025/physics/index.md)
 
 **[QKD: Quantum-Gated Task-interaction Knowledge Distillation for Class-Incremental Learning](qkd_quantum_gated_incremental_learning.md)**
 
