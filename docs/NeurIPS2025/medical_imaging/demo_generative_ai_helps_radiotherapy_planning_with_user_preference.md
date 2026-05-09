@@ -127,6 +127,8 @@ FDP 在 15/15 个 OAR 的 std 指标上优于 RapidPlan，14/15 个 OAR 的 mean
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] GEM: Generative Entropy-Guided Preference Modeling for Few-shot Alignment of LLMs](../../AAAI2026/medical_imaging/gem_generative_entropy-guided_preference_modeling_for_few-shot_alignment_of_llms.md)
@@ -134,5 +136,7 @@ FDP 在 15/15 个 OAR 的 std 指标上优于 RapidPlan，14/15 个 OAR 的 mean
 - [\[AAAI 2026\] Rethinking Bias in Generative Data Augmentation for Medical AI: a Frequency Recalibration Approach](../../AAAI2026/medical_imaging/rethinking_bias_in_generative_data_augmentation_for_medical_ai_a_frequency_recal.md)
 - [\[NeurIPS 2025\] Mind the Gap: Aligning Knowledge Bases with User Needs to Enhance Mental Health Retrieval](mind_the_gap_aligning_knowledge_bases_with_user_needs_to_enhance_mental_health_r.md)
 - [\[ICML 2025\] DeepSeq: High-Throughput Single-Cell RNA Sequencing Data Labeling via Web Search-Augmented Agentic Generative AI Foundation Models](../../ICML2025/medical_imaging/deepseq_high-throughput_single-cell_rna_sequencing_data_labeling_via_web_search-.md)
+
+</div>
 
 <!-- RELATED:END -->

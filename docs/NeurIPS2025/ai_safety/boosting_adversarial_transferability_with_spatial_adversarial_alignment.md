@@ -135,6 +135,8 @@ $$\mathcal{L}_{SAA} = \mathcal{L}_{SA}(x;\theta_s) + \kappa \cdot \mathcal{L}_{A
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Towards Adversarial Robustness via Debiased High-Confidence Logit Alignment](../../ICCV2025/ai_safety/towards_adversarial_robustness_via_debiased_high-confidence_logit_alignment.md)
@@ -142,5 +144,7 @@ $$\mathcal{L}_{SAA} = \mathcal{L}_{SA}(x;\theta_s) + \kappa \cdot \mathcal{L}_{A
 - [\[NeurIPS 2025\] Distributional Adversarial Attacks and Training in Deep Hedging](distributional_adversarial_attacks_and_training_in_deep_hedging.md)
 - [\[NeurIPS 2025\] Understanding and Improving Adversarial Robustness of Neural Probabilistic Circuits](understanding_and_improving_adversarial_robustness_of_neural_probabilistic_circu.md)
 - [\[NeurIPS 2025\] Keep It Real: Challenges in Attacking Compression-Based Adversarial Purification](keep_it_real_challenges_in_attacking_compression-based_adversarial_purification.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -132,6 +132,8 @@ CollabCoder 是无训练的推理时框架，不涉及梯度更新。核心超�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] StoryCoder: Narrative Reformulation for Structured Reasoning in LLM Code Generation](storycoder_narrative_reformulation_for_structured_reasoning_in_llm_code_generati.md)
@@ -139,5 +141,7 @@ CollabCoder 是无训练的推理时框架，不涉及梯度更新。核心超�
 - [\[ACL 2025\] Tree-of-Evolution: Tree-Structured Instruction Evolution for Code Generation in Large Language Models](../../ACL2025/code_intelligence/tree_of_evolution_code_gen.md)
 - [\[ACL 2026\] MARS2: Scaling Multi-Agent Tree Search via Reinforcement Learning for Code Generation](mars2_scaling_multi-agent_tree_search_via_reinforcement_learning_for_code_genera.md)
 - [\[ACL 2026\] EET: Experience-Driven Early Termination for Cost-Efficient Software Engineering Agents](eet_experience-driven_early_termination_for_cost-efficient_software_engineering_.md)
+
+</div>
 
 <!-- RELATED:END -->

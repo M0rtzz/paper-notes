@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **31** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/graph_learning/) · [📷 CVPR2026 (9)](../../CVPR2026/graph_learning/) · [🔬 ICLR2026 (21)](../../ICLR2026/graph_learning/) · [🤖 AAAI2026 (38)](../../AAAI2026/graph_learning/) · [🧠 NeurIPS2025 (52)](../../NeurIPS2025/graph_learning/) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/)
+
+🔥 **高频主题：** 图神经网络 ×6 · LLM ×3 · RAG ×2
+
 **[A Cognac Shot To Forget Bad Memories: Corrective Unlearning for Graph Neural Networks](a_cognac_shot_to_forget_bad_memories_corrective_unlearning_for_graph_neural_netw.md)**
 
 :   提出 Cognac——首个有效的 GNN 纠正性遗忘方法，通过交替执行图邻域对比遗忘（CoGN）和解耦梯度上升/下降（AC⚡DC），在仅识别 5% 被操纵实体时即可恢复接近 oracle（完全干净数据训练）的性能，比从头重训高效 8×。

@@ -145,6 +145,8 @@ LoReTTA 分两步走：**Step 1 稀疏化**（移除高影响力边）→ **Step
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Task-Aware Retrieval Augmentation for Dynamic Recommendation](task-aware_retrieval_augmentation_for_dynamic_recommendation.md)
@@ -152,5 +154,7 @@ LoReTTA 分两步走：**Step 1 稀疏化**（移除高影响力边）→ **Step
 - [\[AAAI 2026\] GAICo: A Deployed and Extensible Framework for Evaluating Diverse and Multimodal Generative AI Outputs](gaico_a_deployed_and_extensible_framework_for_evaluating_diverse_and_multimodal_.md)
 - [\[NeurIPS 2025\] MAESTRO: Adaptive Sparse Attention and Robust Learning for Multimodal Dynamic Time Series](../../NeurIPS2025/time_series/maestro_adaptive_sparse_attention_and_robust_learning_for_multimodal_dynamic_tim.md)
 - [\[ICLR 2026\] Towards Robust Real-World Multivariate Time Series Forecasting: A Unified Framework](../../ICLR2026/time_series/towards_robust_real-world_multivariate_time_series_forecasting_a_unified_framewo.md)
+
+</div>
 
 <!-- RELATED:END -->

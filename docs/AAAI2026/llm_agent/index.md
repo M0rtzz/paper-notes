@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **44** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (41)](../../ACL2026/llm_agent/) · [📷 CVPR2026 (21)](../../CVPR2026/llm_agent/) · [🔬 ICLR2026 (47)](../../ICLR2026/llm_agent/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_agent/) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/) · [🧪 ICML2025 (15)](../../ICML2025/llm_agent/)
+
+🔥 **高频主题：** Agent ×19 · LLM ×18 · 推理 ×5 · 对齐/RLHF ×3 · 多模态 ×3
+
 **[A2Flow: Automating Agentic Workflow Generation via Self-Adaptive Abstraction Operators](a2flow_automating_agentic_workflow_generation_via_self-adaptive_abstraction_oper.md)**
 
 :   提出 A2Flow 框架，通过三阶段流水线（案例生成→功能聚类→深度提取）从专家数据中全自动提取可复用的抽象执行算子，替代人工预定义算子，并引入算子记忆机制累积中间输出辅助节点决策，在 8 个基准上整体超越 AFLOW 等 SOTA，资源消耗降低 37%。

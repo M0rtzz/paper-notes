@@ -173,6 +173,8 @@ $$\hat{\mathbf{a}}_t \sim P_\theta(\mathbf{a}_t | \{\mathbf{r}_t^{(j)}\}, \{\mat
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Out of Sight, Out of Track: Adversarial Attacks on Propagation-based Multi-Object Trackers via Query State Manipulation](../../CVPR2026/video_understanding/out_of_sight_out_of_track_adversarial_attacks_on_propagation-based_multi-object_.md)
@@ -180,5 +182,7 @@ $$\hat{\mathbf{a}}_t \sim P_\theta(\mathbf{a}_t | \{\mathbf{r}_t^{(j)}\}, \{\mat
 - [\[CVPR 2026\] SlotVTG: Object-Centric Adapter for Generalizable Video Temporal Grounding](../../CVPR2026/video_understanding/slotvtg_object-centric_adapter_for_generalizable_video_temporal_grounding.md)
 - [\[AAAI 2026\] MambaMia: State-Space Hierarchical Compression for Hour-Long Video Understanding in Large Multimodal Models](state-space_hierarchical_compression_with_gated_attention_an.md)
 - [\[AAAI 2026\] KineST: A Kinematics-guided Spatiotemporal State Space Model for Human Motion Tracking from Sparse Signals](kinest_a_kinematics-guided_spatiotemporal_state_space_model_for_human_motion_tra.md)
+
+</div>
 
 <!-- RELATED:END -->

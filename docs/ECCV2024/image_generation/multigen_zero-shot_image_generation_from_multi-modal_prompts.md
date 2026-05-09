@@ -121,6 +121,8 @@ MultiGen 基于预训练的文本到图像扩散模型（如 Stable Diffusion）
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] OmniSSR: Zero-shot Omnidirectional Image Super-Resolution using Stable Diffusion Model](omnissr_zero-shot_omnidirectional_image_super-resolution_using_stable_diffusion_.md)
@@ -128,5 +130,7 @@ MultiGen 基于预训练的文本到图像扩散模型（如 Stable Diffusion）
 - [\[ECCV 2024\] FreeCompose: Generic Zero-Shot Image Composition with Diffusion Prior](freecompose_generic_zero-shot_image_composition_with_diffusion_prior.md)
 - [\[CVPR 2025\] T2ICount: Enhancing Cross-modal Understanding for Zero-Shot Counting](../../CVPR2025/image_generation/t2icount_enhancing_cross-modal_understanding_for_zero-shot_counting.md)
 - [\[ECCV 2024\] Be Yourself: Bounded Attention for Multi-Subject Text-to-Image Generation](be_yourself_bounded_attention_for_multisubject_texttoimage_g.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -182,6 +182,8 @@ L_score = ReLU(S'_nm) + ReLU(m - S'_mat)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] DADM: Dual Alignment of Domain and Modality for Face Anti-Spoofing](dadm_dual_alignment_of_domain_and_modality_for_face_anti-spoofing.md)
@@ -189,5 +191,7 @@ L_score = ReLU(S'_nm) + ReLU(m - S'_mat)
 - [\[ICCV 2025\] G2D: Boosting Multimodal Learning with Gradient-Guided Distillation](g2d_boosting_multimodal_learning_with_gradient-guided_distillation.md)
 - [\[ICCV 2025\] PhysSplat: Efficient Physics Simulation for 3D Scenes via MLLM-Guided Gaussian Splatting](physsplat_efficient_physics_simulation_for_3d_scenes_via_mllm-guided_gaussian_sp.md)
 - [\[ICCV 2025\] GTR: Guided Thought Reinforcement Prevents Thought Collapse in RL-Based VLM Agent](gtr_guided_thought_reinforcement_prevents_thought_collapse_in_rl-based_vlm_agent.md)
+
+</div>
 
 <!-- RELATED:END -->

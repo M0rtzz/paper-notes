@@ -135,6 +135,8 @@ PoseEst.显著优于所有基线方法，PoseRefine.在PoseEst.基础上进一�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Benchmarking Endoscopic Surgical Image Restoration and Beyond](../../CVPR2026/medical_imaging/benchmarking_endoscopic_surgical_image_restoration_and_beyond.md)
@@ -142,5 +144,7 @@ PoseEst.显著优于所有基线方法，PoseRefine.在PoseEst.基础上进一�
 - [\[ECCV 2024\] Pathology-knowledge Enhanced Multi-instance Prompt Learning for Few-shot Whole Slide Image Classification](pathologyknowledge_enhanced_multiinstance_prompt_learni.md)
 - [\[CVPR 2026\] Unlocking Positive Transfer in Incrementally Learning Surgical Instruments: A Self-reflection Hierarchical Prompt Framework](../../CVPR2026/medical_imaging/unlocking_positive_transfer_in_incrementally_learning_surgical_instruments_a_sel.md)
 - [\[CVPR 2026\] Learning Generalizable 3D Medical Image Representations from Mask-Guided Self-Supervision](../../CVPR2026/medical_imaging/learning_generalizable_3d_medical_image_representations_from_mask-guided_self-su.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **4** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (103)](../../CVPR2026/segmentation/) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/) · [🤖 AAAI2026 (31)](../../AAAI2026/segmentation/) · [🧠 NeurIPS2025 (48)](../../NeurIPS2025/segmentation/) · [📹 ICCV2025 (78)](../../ICCV2025/segmentation/) · [🧪 ICML2025 (22)](../../ICML2025/segmentation/)
+
+🔥 **高频主题：** 语义分割 ×2 · 推理 ×2
+
 **[AnchorSeg: Language Grounded Query Banks for Reasoning Segmentation](anchorseg_language_grounded_query_banks_for_reasoning_segmentation.md)**
 
 :   提出AnchorSeg，将推理分割重构为基于语言引导查询库的结构化条件生成过程，通过锚点查询显式解耦空间定位与语义推理，配合Token-Mask循环一致性训练目标，在ReasonSeg上达到SOTA（67.7% gIoU, 68.1% cIoU）。

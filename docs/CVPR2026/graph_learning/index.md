@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **9** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/graph_learning/) · [🔬 ICLR2026 (21)](../../ICLR2026/graph_learning/) · [🤖 AAAI2026 (38)](../../AAAI2026/graph_learning/) · [🧠 NeurIPS2025 (52)](../../NeurIPS2025/graph_learning/) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/) · [🧪 ICML2025 (31)](../../ICML2025/graph_learning/)
+
+🔥 **高频主题：** 多模态 ×4 · RAG ×2 · 推理 ×2
+
 **[Adaptive Learned Image Compression with Graph Neural Networks](adaptive_learned_image_compression_with_graph_neural_networks.md)**
 
 :   GLIC 把学习图像压缩里的非线性变换从固定卷积或窗口注意力，改造成由图神经网络驱动的内容自适应连接：先用双尺度图决定“连到哪里”，再用复杂度感知机制决定“连多少”，从而更好地建模局部与远程冗余，在三个标准数据集上都显著超过传统编解码器和近期 LIC 强基线。

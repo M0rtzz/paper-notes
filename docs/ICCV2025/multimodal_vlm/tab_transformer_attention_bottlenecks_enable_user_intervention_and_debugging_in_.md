@@ -151,6 +151,8 @@ ZeroAttention将所有输出变为"无变化"（变化准确率降为0%，无变
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] ONLY: One-Layer Intervention Sufficiently Mitigates Hallucinations in Large Vision-Language Models](only_onelayer_intervention_sufficiently_mitigates_hallucinat.md)
@@ -158,5 +160,7 @@ ZeroAttention将所有输出变为"无变化"（变化准确率降为0%，无变
 - [\[ICCV 2025\] MaTVLM: Hybrid Mamba-Transformer for Efficient Vision-Language Modeling](matvlm_hybrid_mamba-transformer_for_efficient_vision-language_modeling.md)
 - [\[ICCV 2025\] Dita: Scaling Diffusion Transformer for Generalist Vision-Language-Action Policy](dita_scaling_diffusion_transformer_for_generalist_visionlang.md)
 - [\[ICCV 2025\] Vision-Language Models Can't See the Obvious](vision-language_models_cant_see_the_obvious.md)
+
+</div>
 
 <!-- RELATED:END -->

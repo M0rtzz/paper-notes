@@ -164,6 +164,8 @@ $$L_{\text{STTA}}(\psi) = \mathbb{E}\left[w_L N_{\tau_i} + w_{KL} \sum_{t=0}^{N_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Incentivizing Reasoning for Advanced Instruction-Following of Large Language Models](incentivizing_reasoning_for_advanced_instruction-following_of_large_language_mod.md)
@@ -171,5 +173,7 @@ $$L_{\text{STTA}}(\psi) = \mathbb{E}\left[w_L N_{\tau_i} + w_{KL} \sum_{t=0}^{N_
 - [\[ICLR 2026\] GraphOmni: A Comprehensive and Extensible Benchmark Framework for Large Language Models on Graph-theoretic Tasks](../../ICLR2026/reinforcement_learning/graphomni_a_comprehensive_and_extensible_benchmark_framework_for_large_language_.md)
 - [\[NeurIPS 2025\] Kimina Lean Server: A High-Performance Lean Server for Large-Scale Verification](kimina_lean_server_a_high-performance_lean_server_for_large-scale_verification.md)
 - [\[ICML 2025\] Enhancing Decision-Making of Large Language Models via Actor-Critic](../../ICML2025/reinforcement_learning/enhancing_decision-making_of_large_language_models_via_actor-critic.md)
+
+</div>
 
 <!-- RELATED:END -->

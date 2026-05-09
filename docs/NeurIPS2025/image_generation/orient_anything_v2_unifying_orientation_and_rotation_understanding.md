@@ -159,6 +159,8 @@ V2 在所有数据集上显著优于 V1，ARKitScenes 上中位误差从 77.58°
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Kuramoto Orientation Diffusion Models](kuramoto_orientation_diffusion_models.md)
@@ -166,5 +168,7 @@ V2 在所有数据集上显著优于 V1，ARKitScenes 上中位误差从 77.58°
 - [\[NeurIPS 2025\] Co-Reinforcement Learning for Unified Multimodal Understanding and Generation](coreinforcement_learning_for_unified_multimodal_understandin.md)
 - [\[NeurIPS 2025\] Understanding Representation Dynamics of Diffusion Models via Low-Dimensional Models](understanding_representation_dynamics_of_diffusion_models_via_low-dimensional_mo.md)
 - [\[NeurIPS 2025\] Toward a Unified Geometry Understanding: Riemannian Diffusion Framework for Graph Generation and Prediction](toward_a_unified_geometry_understanding_riemannian_diffusion_framework_for_graph.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -212,6 +212,8 @@ PDE 残差损失 + 表面拟合损失（点云约束）。理论分析证明 $\k
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Locally Orderless Images for Optimization in Differentiable Rendering](locally_orderless_images_for_optimization_in_differentiable_rendering.md)
@@ -219,5 +221,7 @@ PDE 残差损失 + 表面拟合损失（点云约束）。理论分析证明 $\k
 - [\[AAAI 2026\] Learning Compact Latent Space for Representing Neural Signed Distance Functions with High-fidelity Geometry Details](../../AAAI2026/others/learning_compact_latent_space_for_representing_neural_signed_distance_functions_.md)
 - [\[NeurIPS 2025\] Learning to Condition: A Neural Heuristic for Scalable MPE Inference](../../NeurIPS2025/others/learning_to_condition_a_neural_heuristic_for_scalable_mpe_inference.md)
 - [\[ACL 2025\] CONFETTI: Conversational Function-Calling Evaluation Through Turn-Level Interactions](../../ACL2025/others/confetti_conversational_function-calling_evaluation_through_turn-level_interacti.md)
+
+</div>
 
 <!-- RELATED:END -->

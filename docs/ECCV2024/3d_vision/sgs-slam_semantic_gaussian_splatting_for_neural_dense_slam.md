@@ -109,6 +109,8 @@ SGS-SLAM在语义分割上超越所有NeRF-based语义SLAM方法10%以上。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] I²-SLAM: Inverting Imaging Process for Robust Photorealistic Dense SLAM](i2-slam_inverting_imaging_process_for_robust_photorealistic_dense_slam.md)
@@ -116,5 +118,7 @@ SGS-SLAM在语义分割上超越所有NeRF-based语义SLAM方法10%以上。
 - [\[ECCV 2024\] VersatileGaussian: Real-Time Neural Rendering for Versatile Tasks Using Gaussian Splatting](versatilegaussian_real-time_neural_rendering_for_versatile_tasks_using_gaussian_.md)
 - [\[CVPR 2026\] Unblur-SLAM: Dense Neural SLAM for Blurry Inputs](../../CVPR2026/3d_vision/unblur-slam_dense_neural_slam_for_blurry_inputs.md)
 - [\[ECCV 2024\] Deep Patch Visual SLAM](deep_patch_visual_slam.md)
+
+</div>
 
 <!-- RELATED:END -->

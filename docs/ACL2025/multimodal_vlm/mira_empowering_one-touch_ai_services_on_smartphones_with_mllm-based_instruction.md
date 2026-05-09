@@ -154,6 +154,8 @@ MIRA 包含三个核心模块：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] A Survey on Patent Analysis: From NLP to Multimodal AI](patent_analysis_survey.md)
@@ -161,5 +163,7 @@ MIRA 包含三个核心模块：
 - [\[ACL 2025\] VisuoThink: Empowering LVLM Reasoning with Multimodal Tree Search](visuothink_empowering_lvlm_reasoning_with_multimodal_tree_search.md)
 - [\[ACL 2025\] Enhancing Multimodal Continual Instruction Tuning with BranchLoRA](branchlora_continual_instruction.md)
 - [\[NeurIPS 2025\] GEM: Empowering MLLM for Grounded ECG Understanding with Time Series and Images](../../NeurIPS2025/multimodal_vlm/gem_empowering_mllm_for_grounded_ecg_understanding_with_time_series_and_images.md)
+
+</div>
 
 <!-- RELATED:END -->

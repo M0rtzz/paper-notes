@@ -196,6 +196,8 @@ $$\mathcal{J}_{\text{VI}}(\theta) = \mathbb{E}_{x \sim q_x}[\log \tilde{p}(x) - 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Adjustment for Confounding using Pre-Trained Representations](adjustment_for_confounding_using_pre-trained_representations.md)
@@ -203,5 +205,7 @@ $$\mathcal{J}_{\text{VI}}(\theta) = \mathbb{E}_{x \sim q_x}[\log \tilde{p}(x) - 
 - [\[ICML 2025\] GCAL: Adapting Graph Models to Evolving Domain Shifts](gcal_adapting_graph_models_to_evolving_domain_shifts.md)
 - [\[ICML 2025\] Autoformulation of Mathematical Optimization Models Using LLMs](autoformulation_of_mathematical_optimization_models_using_llms.md)
 - [\[ICML 2025\] Optimization over Sparse Support-Preserving Sets: Two-Step Projection with Global Optimality Guarantees](optimization_over_sparse_support-preserving_sets_two-step_projection_with_global.md)
+
+</div>
 
 <!-- RELATED:END -->

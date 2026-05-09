@@ -126,6 +126,8 @@ DEFOM-Stereo 基于 RAFT-Stereo 框架，整合 Depth Anything V2 (DEFOM)，包�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Consistency-aware Self-Training for Iterative-based Stereo Matching](consistency-aware_self-training_for_iterative-based_stereo_matching.md)
@@ -133,5 +135,7 @@ DEFOM-Stereo 基于 RAFT-Stereo 框架，整合 Depth Anything V2 (DEFOM)，包�
 - [\[CVPR 2026\] Lite Any Stereo: Efficient Zero-Shot Stereo Matching](../../CVPR2026/3d_vision/lite_any_stereo_efficient_zero-shot_stereo_matching.md)
 - [\[ECCV 2024\] TC-Stereo: Temporally Consistent Stereo Matching](../../ECCV2024/3d_vision/temporally_consistent_stereo_matching.md)
 - [\[ICCV 2025\] Stereo Any Video: Temporally Consistent Stereo Matching](../../ICCV2025/3d_vision/stereo_any_video_temporally_consistent_stereo_matching.md)
+
+</div>
 
 <!-- RELATED:END -->

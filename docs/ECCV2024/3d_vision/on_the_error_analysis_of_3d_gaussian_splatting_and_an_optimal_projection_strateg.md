@@ -233,6 +233,8 @@ $$\mathbf{x}_{2D} = \varphi_p\left(\begin{bmatrix}(u-c_x)/f_x \\ (v-c_y)/f_y \\ 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] SAGS: Structure-Aware 3D Gaussian Splatting](sags_structure-aware_3d_gaussian_splatting.md)
@@ -240,5 +242,7 @@ $$\mathbf{x}_{2D} = \varphi_p\left(\begin{bmatrix}(u-c_x)/f_x \\ (v-c_y)/f_y \\ 
 - [\[ECCV 2024\] Per-Gaussian Embedding-Based Deformation for Deformable 3D Gaussian Splatting](per-gaussian_embedding-based_deformation_for_deformable_3d_gaussian_splatting.md)
 - [\[ECCV 2024\] Analysis-by-Synthesis Transformer for Single-View 3D Reconstruction](analysis-by-synthesis_transformer_for_single-view_3d_reconstruction.md)
 - [\[ECCV 2024\] HeadGaS: Real-Time Animatable Head Avatars via 3D Gaussian Splatting](headgas_real-time_animatable_head_avatars_via_3d_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

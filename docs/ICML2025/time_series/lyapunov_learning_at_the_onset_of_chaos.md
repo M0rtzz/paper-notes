@@ -137,6 +137,8 @@ Lyapunov Learning 的整体思路可以分为三步：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] SynTSBench: Rethinking Temporal Pattern Learning in Deep Learning Models for Time Series](../../NeurIPS2025/time_series/syntsbench_rethinking_temporal_pattern_learning_in_deep_learning_models_for_time.md)
@@ -144,5 +146,7 @@ Lyapunov Learning 的整体思路可以分为三步：
 - [\[ICML 2025\] TimePoint: Accelerated Time Series Alignment via Self-Supervised Keypoint and Descriptor Learning](timepoint_accelerated_time_series_alignment_via_self-supervised_keypoint_and_des.md)
 - [\[ICML 2025\] Learning Soft Sparse Shapes for Efficient Time-Series Classification](learning_soft_sparse_shapes_for_efficient_time-series_classification.md)
 - [\[NeurIPS 2025\] Selective Learning for Deep Time Series Forecasting](../../NeurIPS2025/time_series/selective_learning_for_deep_time_series_forecasting.md)
+
+</div>
 
 <!-- RELATED:END -->

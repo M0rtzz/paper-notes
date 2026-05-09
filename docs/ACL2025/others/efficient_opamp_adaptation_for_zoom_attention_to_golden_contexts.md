@@ -142,6 +142,8 @@ $$\bar{M} = A_d(M^+ - M^-) + \frac{A_c}{2}(M^+ + M^-)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] EpMAN: Episodic Memory AttentioN for Generalizing to Longer Contexts](epman_episodic_memory_attention_for_generalizing_to_longer_contexts.md)
@@ -149,5 +151,7 @@ $$\bar{M} = A_d(M^+ - M^-) + \frac{A_c}{2}(M^+ + M^-)$$
 - [\[ACL 2025\] Towards Robust and Efficient Federated Low-Rank Adaptation with Heterogeneous Clients](federated_lora_heterogeneous.md)
 - [\[ACL 2025\] CoLA: Collaborative Low-Rank Adaptation](cola_collaborative_low-rank_adaptation.md)
 - [\[ACL 2025\] The Hidden Attention of Mamba Models](the_hidden_attention_of_mamba_models.md)
+
+</div>
 
 <!-- RELATED:END -->

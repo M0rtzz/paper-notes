@@ -134,6 +134,8 @@ BLADE是一个三阶段pipeline：(1) 骨盆深度估计器$F_{T_z}$从裁剪图
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Relative Pose Estimation through Affine Corrections of Monocular Depth Priors](relative_pose_estimation_through_affine_corrections_of_monocular_depth_priors.md)
@@ -141,5 +143,7 @@ BLADE是一个三阶段pipeline：(1) 骨盆深度估计器$F_{T_z}$从裁剪图
 - [\[CVPR 2025\] Multi-view Reconstruction via SfM-guided Monocular Depth Estimation](multi-view_reconstruction_via_sfm-guided_monocular_depth_estimation.md)
 - [\[CVPR 2025\] Murre: Multi-view Reconstruction via SfM-guided Monocular Depth Estimation](murre_sfm_guided_depth_reconstruction.md)
 - [\[CVPR 2025\] Blurry-Edges: Photon-Limited Depth Estimation from Defocused Boundaries](blurry-edges_photon-limited_depth_estimation_from_defocused_boundaries.md)
+
+</div>
 
 <!-- RELATED:END -->

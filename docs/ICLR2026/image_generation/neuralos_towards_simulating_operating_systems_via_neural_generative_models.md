@@ -149,6 +149,8 @@ NeuralOS 将 OS 界面模拟建模为自回归生成问题：$P(x_{1:T}|a_{1:T};
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] AccuQuant: Simulating Multiple Denoising Steps for Quantizing Diffusion Models](../../NeurIPS2025/image_generation/accuquant_simulating_multiple_denoising_steps_for_quantizing.md)
@@ -156,5 +158,7 @@ NeuralOS 将 OS 界面模拟建模为自回归生成问题：$P(x_{1:T}|a_{1:T};
 - [\[NeurIPS 2025\] Neural Entropy](../../NeurIPS2025/image_generation/neural_entropy.md)
 - [\[ICLR 2026\] Amortising Inference and Meta-Learning Priors in Neural Networks (BNNP)](amortising_inference_and_meta-learning_priors_in_neural_networks.md)
 - [\[ICLR 2026\] Beyond Confidence: The Rhythms of Reasoning in Generative Models](beyond_confidence_the_rhythms_of_reasoning_in_generative_models.md)
+
+</div>
 
 <!-- RELATED:END -->

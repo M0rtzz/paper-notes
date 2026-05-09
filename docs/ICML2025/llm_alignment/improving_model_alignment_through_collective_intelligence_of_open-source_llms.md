@@ -130,6 +130,8 @@ Pipeline:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence](model_swarms_collaborative_search_to_adapt_llm_experts_via_swarm_intelligence.md)
@@ -137,5 +139,7 @@ Pipeline:
 - [\[ICML 2025\] On the Robustness of Reward Models for Language Model Alignment](on_the_robustness_of_reward_models_for_language_model_alignment.md)
 - [\[ACL 2025\] MTSA: Multi-Turn Safety Alignment for LLMs through Multi-Round Red-Teaming](../../ACL2025/llm_alignment/mtsa_multi-turn_safety_alignment_for_llms_through_multi-round_red-teaming.md)
 - [\[ACL 2025\] Rethinking Reward Model Evaluation Through the Lens of Reward Overoptimization](../../ACL2025/llm_alignment/rethinking_reward_model_evaluation_through_the_lens_of_reward_overoptimization.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -124,6 +124,8 @@ Video-Bench 包含两个层面：(1) 评估维度体系，分为视频-条件对
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] VMBench: A Benchmark for Perception-Aligned Video Motion Generation](../../ICCV2025/video_generation/vmbench_a_benchmark_for_perception-aligned_video_motion_generation.md)
@@ -131,5 +133,7 @@ Video-Bench 包含两个层面：(1) 评估维度体系，分为视频-条件对
 - [\[CVPR 2025\] HOIGen-1M: A Large-Scale Dataset for Human-Object Interaction Video Generation](hoigen-1m_a_large-scale_dataset_for_human-object_interaction_video_generation.md)
 - [\[CVPR 2025\] TokenMotion: Decoupled Motion Control via Token Disentanglement for Human-centric Video Generation](tokenmotion_decoupled_motion_control_via_token_disentanglement_for_human-centric.md)
 - [\[CVPR 2025\] IDOL: Instant Photorealistic 3D Human Creation from a Single Image](idol_instant_photorealistic_3d_human_creation_from_a_single_image.md)
+
+</div>
 
 <!-- RELATED:END -->

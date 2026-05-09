@@ -164,6 +164,8 @@ $$\mathcal{A}_x = \mathcal{W}^{(h_1)} \text{diag}((\mathcal{W}^{(x)})^\top x) (\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] DeltaProduct: Improving State-Tracking in Linear RNNs via Householder Products](deltaproduct_improving_state-tracking_in_linear_rnns_via_householder_products.md)
@@ -171,5 +173,7 @@ $$\mathcal{A}_x = \mathcal{W}^{(h_1)} \text{diag}((\mathcal{W}^{(x)})^\top x) (\
 - [\[NeurIPS 2025\] Structured Sparse Transition Matrices to Enable State Tracking in State-Space Models](structured_sparse_transition_matrices_to_enable_state_tracking_in_state-space_mo.md)
 - [\[NeurIPS 2025\] Neural Stochastic Flows: Solver-Free Modelling and Inference for SDE Solutions](neural_stochastic_flows_solver-free_modelling_and_inference_for_sde_solutions.md)
 - [\[NeurIPS 2025\] PASS: Path-Selective State Space Model for Event-Based Recognition](pass_path-selective_state_space_model_for_event-based_recognition.md)
+
+</div>
 
 <!-- RELATED:END -->

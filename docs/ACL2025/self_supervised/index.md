@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **6** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/self_supervised/) · [📷 CVPR2026 (38)](../../CVPR2026/self_supervised/) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/) · [🤖 AAAI2026 (14)](../../AAAI2026/self_supervised/) · [🧠 NeurIPS2025 (36)](../../NeurIPS2025/self_supervised/) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/)
+
+🔥 **高频主题：** 自监督学习 ×4
+
 **[Improving Low-Resource Morphological Inflection via Self-Supervised Objectives](improving_low-resource_morphological_inflection_via_self-supervised_objectives.md)**
 
 :   系统探索 13 种自监督辅助目标（自编码、CMLM、T5-style 等）在极低资源形态变化任务中的效果，发现无标注数据极少时自编码最优，数据增多后字符级 MLM 更好，按形态素边界采样掩码是最有前景的方向。

@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2026** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (45)](../../CVPR2026/object_detection/) · [🔬 ICLR2026 (9)](../../ICLR2026/object_detection/) · [🤖 AAAI2026 (17)](../../AAAI2026/object_detection/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/object_detection/) · [📹 ICCV2025 (30)](../../ICCV2025/object_detection/) · [🧪 ICML2025 (8)](../../ICML2025/object_detection/)
+
 **[E2E-GMNER: End-to-End Generative Grounded Multimodal Named Entity Recognition](e2e-gmner_end-to-end_generative_grounded_multimodal_named_entity_recognition.md)**
 
 :   提出E2E-GMNER，首个将实体识别、语义分类、视觉定位和隐式知识推理统一在单一多模态大语言模型中的端到端GMNER框架，通过CoT推理自适应判断视觉/知识线索的可用性，并引入高斯风险感知框扰动（GRBP）提升生成式框预测的鲁棒性。

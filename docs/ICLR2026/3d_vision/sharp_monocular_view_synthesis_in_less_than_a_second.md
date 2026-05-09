@@ -155,6 +155,8 @@ $$\bar{D} = \mathbf{S}(\hat{D}, D) \odot \hat{D}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] MoVieS: Motion-Aware 4D Dynamic View Synthesis in One Second](../../CVPR2026/3d_vision/movies_motion-aware_4d_dynamic_view_synthesis_in_one_second.md)
@@ -162,5 +164,7 @@ $$\bar{D} = \mathbf{S}(\hat{D}, D) \odot \hat{D}$$
 - [\[ICLR 2026\] Dynamic Novel View Synthesis in High Dynamic Range](dynamic_novel_view_synthesis_in_high_dynamic_range.md)
 - [\[CVPR 2026\] DMAligner: Enhancing Image Alignment via Diffusion Model Based View Synthesis](../../CVPR2026/3d_vision/dmaligner_enhancing_image_alignment_via_diffusion_model_based_view_synthesis.md)
 - [\[ECCV 2024\] Generative Camera Dolly: Extreme Monocular Dynamic Novel View Synthesis](../../ECCV2024/3d_vision/generative_camera_dolly_extreme_monocular_dynamic_novel_view_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

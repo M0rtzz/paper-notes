@@ -144,6 +144,8 @@ $$\mathcal{L}^{\text{QRD}}(\theta) = \alpha_t \cdot \mathbb{E}_{\tau_i \sim \mat
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Risk-Aware Self-Consistent Imitation Learning for Trajectory Planning in Autonomous Driving](../../ECCV2024/autonomous_driving/risk-aware_self-consistent_imitation_learning_for_trajectory_planning_in_autonom.md)
@@ -151,5 +153,7 @@ $$\mathcal{L}^{\text{QRD}}(\theta) = \alpha_t \cdot \mathbb{E}_{\tau_i \sim \mat
 - [\[ICCV 2025\] Resonance: Learning to Predict Social-Aware Pedestrian Trajectories as Co-Vibrations](resonance_learning_to_predict_social_aware_pedestrian_trajectories_as_co_vibrations.md)
 - [\[ICCV 2025\] Wavelet Policy: Lifting Scheme for Policy Learning in Long-Horizon Tasks](wavelet_policy_lifting_scheme_for_policy_learning_in_long-horizon_tasks.md)
 - [\[ICCV 2025\] Future-Aware Interaction Network For Motion Forecasting](future-aware_interaction_network_for_motion_forecasting.md)
+
+</div>
 
 <!-- RELATED:END -->

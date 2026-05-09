@@ -122,6 +122,8 @@ SPARCL框架分为两阶段：数据生成阶段和模型训练阶段。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Font-Agent: Enhancing Font Understanding with Large Language Models](font-agent_enhancing_font_understanding_with_large_language_models.md)
@@ -129,5 +131,7 @@ SPARCL框架分为两阶段：数据生成阶段和模型训练阶段。
 - [\[CVPR 2025\] Yo'Chameleon: Personalized Vision and Language Generation](yochameleon_personalized_vision_and_language_generation.md)
 - [\[ICML 2025\] Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models](../../ICML2025/image_generation/understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)
 - [\[CVPR 2025\] TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation](tokenflow_unified_image_tokenizer_for_multimodal_understanding_and_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -112,6 +112,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Benchmarking Quantum Reinforcement Learning](benchmarking_quantum_reinforcement_learning.md)
@@ -119,5 +121,7 @@ tags:
 - [\[ICML 2025\] Position: Lifetime Tuning is Incompatible with Continual Reinforcement Learning](position_lifetime_tuning_is_incompatible_with_continual_reinforcement_learning.md)
 - [\[ICML 2025\] Craftium: An Extensible Framework for Creating Reinforcement Learning Environments](craftium_bridging_flexibility_and_efficiency_for_rich_3d_single-_and_multi-agent.md)
 - [\[ICML 2025\] Maximum Total Correlation Reinforcement Learning](maximum_total_correlation_reinforcement_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

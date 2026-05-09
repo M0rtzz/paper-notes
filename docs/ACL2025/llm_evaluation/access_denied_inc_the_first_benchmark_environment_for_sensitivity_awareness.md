@@ -114,6 +114,8 @@ Access Denied Inc 是一个完整的三阶段评估 pipeline：(1) 从 Adult 数
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home Agents](../../ICLR2026/llm_evaluation/simuhome_a_temporal-_and_environment-aware_benchmark_for_smart_home_agents.md)
@@ -121,5 +123,7 @@ Access Denied Inc 是一个完整的三阶段评估 pipeline：(1) 从 Adult 数
 - [\[ACL 2025\] HalluLens: LLM Hallucination Benchmark](hallulens_llm_hallucination_benchmark.md)
 - [\[ACL 2025\] Movie101v2: Improved Movie Narration Benchmark](movie101v2_improved_movie_narration_benchmark.md)
 - [\[ACL 2025\] PhysReason: A Comprehensive Benchmark towards Physics-Based Reasoning](physreason_a_comprehensive_benchmark_towards_physics-based_reasoning.md)
+
+</div>
 
 <!-- RELATED:END -->

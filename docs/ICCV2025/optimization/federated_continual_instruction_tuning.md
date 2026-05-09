@@ -183,6 +183,8 @@ Softmax 归一化最优；直接拼接引入过多无关信息性能骤降。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] The Butterfly Effect: Neural Network Training Trajectories Are Highly Sensitive to Initial Conditions](../../ICML2025/optimization/the_butterfly_effect_neural_network_training_trajectories_are_highly_sensitive_t.md)
@@ -190,5 +192,7 @@ Softmax 归一化最优；直接拼接引入过多无关信息性能骤降。
 - [\[ICML 2025\] Widening the Network Mitigates the Impact of Data Heterogeneity on FedAvg](../../ICML2025/optimization/widening_the_network_mitigates_the_impact_of_data_heterogeneity_on_fedavg.md)
 - [\[ICCV 2025\] Federated Prompt-Tuning with Heterogeneous and Incomplete Multimodal Client Data](federated_prompt-tuning_with_heterogeneous_and_incomplete_multimodal_client_data.md)
 - [\[ICCV 2025\] Zeroth-Order Fine-Tuning of LLMs in Random Subspaces](zeroth-order_fine-tuning_of_llms_in_random_subspaces.md)
+
+</div>
 
 <!-- RELATED:END -->

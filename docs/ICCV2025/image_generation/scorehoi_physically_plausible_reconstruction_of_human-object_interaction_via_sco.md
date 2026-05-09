@@ -150,6 +150,8 @@ ScoreHOI 利用 score-based 扩散模型作为优化器，结合 DDIM 逆向-正
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] HOI-IDiff: An Image-like Diffusion Method for Human-Object Interaction Detection](../../CVPR2025/image_generation/an_image-like_diffusion_method_for_human-object_interaction_detection.md)
@@ -157,5 +159,7 @@ ScoreHOI 利用 score-based 扩散模型作为优化器，结合 DDIM 逆向-正
 - [\[ICCV 2025\] A Unified Framework for Motion Reasoning and Generation in Human Interaction](a_unified_framework_for_motion_reasoning_and_generation_in_human_interaction.md)
 - [\[ICCV 2025\] HPSv3: Towards Wide-Spectrum Human Preference Score](hpsv3_towards_wide-spectrum_human_preference_score.md)
 - [\[ICLR 2026\] Does FLUX Already Know How to Perform Physically Plausible Image Composition?](../../ICLR2026/image_generation/does_flux_already_know_how_to_perform_physically_plausible_image_composition.md)
+
+</div>
 
 <!-- RELATED:END -->

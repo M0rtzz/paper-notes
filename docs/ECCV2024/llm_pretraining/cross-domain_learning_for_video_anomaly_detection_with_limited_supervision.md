@@ -154,6 +154,8 @@ $$\mathcal{L}_{\text{ext}} = \mathbb{E}[S \cdot \mathcal{L}_{\text{bce}} - \lamb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Anomize: Better Open Vocabulary Video Anomaly Detection](../../CVPR2025/llm_pretraining/anomize_better_open_vocabulary_video_anomaly_detection.md)
@@ -161,5 +163,7 @@ $$\mathcal{L}_{\text{ext}} = \mathbb{E}[S \cdot \mathcal{L}_{\text{bce}} - \lamb
 - [\[ECCV 2024\] DragAPart: Learning a Part-Level Motion Prior for Articulated Objects](dragapart_learning_a_part-level_motion_prior_for_articulated_objects.md)
 - [\[ECCV 2024\] Learning to Obstruct Few-Shot Image Classification over Restricted Classes](learning_to_obstruct_few-shot_image_classification_over_restricted_classes.md)
 - [\[ECCV 2024\] Prompting Language-Informed Distribution for Compositional Zero-Shot Learning](prompting_language-informed_distribution_for_compositional_zero-shot_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

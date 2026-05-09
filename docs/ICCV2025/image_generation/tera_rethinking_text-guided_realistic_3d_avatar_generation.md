@@ -172,6 +172,8 @@ $$L_{dist} = \sum_{i=1}^{N} (\|I_{pred} - I_{gt}\|^2 + \lambda_{vgg}L_{vgg}) + \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] FaceCraft4D: Animated 3D Facial Avatar Generation from a Single Image](facecraft4d_animated_3d_facial_avatar_generation_from_a_single_image.md)
@@ -179,5 +181,7 @@ $$L_{dist} = \sum_{i=1}^{N} (\|I_{pred} - I_{gt}\|^2 + \lambda_{vgg}L_{vgg}) + \
 - [\[ICCV 2025\] Rethink Sparse Signals for Pose-guided Text-to-Image Generation](rethink_sparse_signals_for_pose-guided_text-to-image_generation.md)
 - [\[CVPR 2025\] Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction](../../CVPR2025/image_generation/nonisotropic_gaussian_diffusion_for_realistic_3d_human_motion_prediction.md)
 - [\[ICCV 2025\] 3DSR: Bridging Diffusion Models and 3D Representations for 3D Consistent Super-Resolution](bridging_diffusion_models_and_3d_representations_a_3d_consis.md)
+
+</div>
 
 <!-- RELATED:END -->

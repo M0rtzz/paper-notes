@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **51** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/video_understanding/) · [📷 CVPR2026 (92)](../../CVPR2026/video_understanding/) · [🔬 ICLR2026 (24)](../../ICLR2026/video_understanding/) · [🤖 AAAI2026 (33)](../../AAAI2026/video_understanding/) · [🧠 NeurIPS2025 (61)](../../NeurIPS2025/video_understanding/) · [📹 ICCV2025 (58)](../../ICCV2025/video_understanding/)
+
+🔥 **高频主题：** 目标跟踪 ×12 · 人体姿态 ×4 · 对齐/RLHF ×3 · 自监督学习 ×2 · 推理 ×2
+
 **[ActionSwitch: Class-agnostic Detection of Simultaneous Actions in Streaming Videos](actionswitch_class-agnostic_detection_of_simultaneous_actions_in_streaming_video.md)**
 
 :   提出 ActionSwitch——首个无需类别信息即可检测流式视频中重叠动作实例的在线时序动作定位（On-TAL）框架，核心将多动作检测建模为有限状态机的状态分类问题，并辅以 conservativeness loss 减少碎片化误检，在 THUMOS14、FineAction、Epic-Kitchens 100 等数据集上在 OAD 扩展方法中达到 SOTA。

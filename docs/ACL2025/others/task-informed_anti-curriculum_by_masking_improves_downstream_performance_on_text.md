@@ -137,6 +137,8 @@ RoBERTa 上也有一致提升，所有结果均通过 Cochran's Q 检验（p < 0
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Segment-Based Attention Masking for GPTs](segment-based_attention_masking_for_gpts.md)
@@ -144,5 +146,7 @@ RoBERTa 上也有一致提升，所有结果均通过 Cochran's Q 检验（p < 0
 - [\[ACL 2025\] Towards Text-Image Interleaved Retrieval](towards_text-image_interleaved_retrieval.md)
 - [\[ACL 2025\] MoRE: A Mixture of Low-Rank Experts for Adaptive Multi-Task Learning](more_a_mixture_of_low-rank_experts_for_adaptive_multi-task_learning.md)
 - [\[ACL 2025\] FRACTAL: Fine-Grained Scoring from Aggregate Text Labels](fractal_fine-grained_scoring_from_aggregate_text_labels.md)
+
+</div>
 
 <!-- RELATED:END -->

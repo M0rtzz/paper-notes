@@ -130,6 +130,8 @@ General Verification 场景：AHAN 达到 99.1% Acc / 99.8% AUC / 97.2% TAR@1%FA
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] MVGD-Net: A Novel Motion-aware Video Glass Surface Detection Network](mvgd-net_a_novel_motion-aware_video_glass_surface_detection_network.md)
@@ -137,5 +139,7 @@ General Verification 场景：AHAN 达到 99.1% Acc / 99.8% AUC / 97.2% TAR@1%FA
 - [\[ECCV 2024\] Upper-Body Hierarchical Graph for Skeleton Based Emotion Recognition in Assistive Driving](../../ECCV2024/human_understanding/upper-body_hierarchical_graph_for_skeleton_based_emotion_recognition_in_assistiv.md)
 - [\[ECCV 2024\] PoseSOR: Human Pose Can Guide Our Attention](../../ECCV2024/human_understanding/posesor_human_pose_can_guide_our_attention.md)
 - [\[AAAI 2026\] CLIP-FTI: Fine-Grained Face Template Inversion via CLIP-Driven Attribute Conditioning](clip-fti_fine-grained_face_template_inversion_via_clip-driven_attribute_conditio.md)
+
+</div>
 
 <!-- RELATED:END -->

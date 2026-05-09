@@ -105,6 +105,8 @@ AdaLog作用于标准ViT block中的post-Softmax层(MatMul2)和post-GELU层(FC2)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Vision Transformers with Self-Distilled Registers](../../NeurIPS2025/segmentation/vision_transformers_with_self-distilled_registers.md)
@@ -112,5 +114,7 @@ AdaLog作用于标准ViT block中的post-Softmax层(MatMul2)和post-GELU层(FC2)
 - [\[CVPR 2026\] MPM: Mutual Pair Merging for Efficient Vision Transformers](../../CVPR2026/segmentation/mpm_mutual_pair_merging_for_efficient_vision_transformers.md)
 - [\[ICLR 2026\] Revisiting \[CLS\] and Patch Token Interaction in Vision Transformers](../../ICLR2026/segmentation/revisiting_cls_and_patch_token_interaction_in_vision_transformers.md)
 - [\[ECCV 2024\] Rotary Position Embedding for Vision Transformer](rotary_position_embedding_for_vision_transformer.md)
+
+</div>
 
 <!-- RELATED:END -->

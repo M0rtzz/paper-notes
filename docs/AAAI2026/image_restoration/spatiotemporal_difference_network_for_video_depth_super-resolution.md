@@ -185,6 +185,8 @@ $$\mathcal{L}_{total} = \mathcal{L}_{rec} + \beta \mathcal{L}_{diff}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Temporal Inconsistency Guidance for Super-resolution Video Quality Assessment](temporal_inconsistency_guidance_for_super-resolution_video_quality_assessment.md)
@@ -192,5 +194,7 @@ $$\mathcal{L}_{total} = \mathcal{L}_{rec} + \beta \mathcal{L}_{diff}$$
 - [\[CVPR 2026\] UCAN: Unified Convolutional Attention Network for Expansive Receptive Fields in Lightweight Super-Resolution](../../CVPR2026/image_restoration/ucan_unified_convolutional_attention_network_for_expansive_receptive_fields_in_l.md)
 - [\[AAAI 2026\] SD-PSFNet: Sequential and Dynamic Point Spread Function Network for Image Deraining](sd-psfnet_sequential_and_dynamic_point_spread_function_netwo.md)
 - [\[CVPR 2026\] SelfHVD: Self-Supervised Handheld Video Deblurring](../../CVPR2026/image_restoration/selfhvd_self-supervised_handheld_video_deblurring.md)
+
+</div>
 
 <!-- RELATED:END -->

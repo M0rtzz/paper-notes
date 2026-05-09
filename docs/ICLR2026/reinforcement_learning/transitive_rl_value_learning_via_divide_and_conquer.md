@@ -164,6 +164,8 @@ $$\mathcal{L}(\theta) = \mathbb{E}_{(s, m, g) \sim \mathcal{D}} \left[ \left( V_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Divide, Harmonize, Then Conquer It: Shooting Multi-Commodity Flow Problems with Multimodal Language Models](divide_harmonize_then_conquer_it_shooting_multi-commodity_flow_problems_with_mul.md)
@@ -171,5 +173,7 @@ $$\mathcal{L}(\theta) = \mathbb{E}_{(s, m, g) \sim \mathcal{D}} \left[ \left( V_
 - [\[ICML 2025\] Divide and Conquer: Grounding LLMs as Efficient Decision-Making Agents via Offline Hierarchical Reinforcement Learning](../../ICML2025/reinforcement_learning/divide_and_conquer_grounding_llms_as_efficient_decision-making_agents_via_offlin.md)
 - [\[ICLR 2026\] Value Flows](value_flows.md)
 - [\[ICLR 2026\] Distributionally Robust Cooperative Multi-Agent Reinforcement Learning via Robust Value Factorization](distributionally_robust_cooperative_multi-agent_reinforcement_learning_via_robus.md)
+
+</div>
 
 <!-- RELATED:END -->

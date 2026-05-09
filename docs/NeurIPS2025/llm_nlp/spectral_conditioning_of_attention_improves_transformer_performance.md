@@ -165,6 +165,8 @@ $$\mathbf{SpecA}(X) = \text{softmax}(X(W_Q + C_Q)(W_K + C_K)^T X^T) X(W_V + C_V)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Spiking Transformer with Spatial-Temporal Attention](../../CVPR2025/llm_nlp/spiking_transformer_with_spatial-temporal_attention.md)
@@ -172,5 +174,7 @@ $$\mathbf{SpecA}(X) = \text{softmax}(X(W_Q + C_Q)(W_K + C_K)^T X^T) X(W_V + C_V)
 - [\[NeurIPS 2025\] Strassen Attention, Split VC Dimension and Compositionality in Transformers](strassen_attention_split_vc_dimension_and_compositionality_in_transformers.md)
 - [\[NeurIPS 2025\] On the Role of Hidden States of Modern Hopfield Network in Transformer](on_the_role_of_hidden_states_of_modern_hopfield_network_in_transformer.md)
 - [\[NeurIPS 2025\] Characterizing the Expressivity of Fixed-Precision Transformer Language Models](characterizing_the_expressivity_of_fixed-precision_transformer_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

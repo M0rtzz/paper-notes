@@ -149,6 +149,8 @@ $$\mathcal{L} = \mathbf{W_{exp}} \cdot \text{EMD} + \alpha \cdot \mathcal{L}_{re
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Cautious Next Token Prediction](cautious_next_token_prediction.md)
@@ -156,5 +158,7 @@ $$\mathcal{L} = \mathbf{W_{exp}} \cdot \text{EMD} + \alpha \cdot \mathcal{L}_{re
 - [\[ACL 2025\] Why Are Positional Encodings Nonessential for Deep Autoregressive Transformers? Revisiting a Petroglyph](why_are_positional_encodings_nonessential_for_deep_autoregressive_transformers_r.md)
 - [\[CVPR 2026\] Next-Scale Autoregressive Models for Text-to-Motion Generation](../../CVPR2026/others/next-scale_autoregressive_models_for_text-to-motion_generation.md)
 - [\[ACL 2025\] The Hidden Attention of Mamba Models](the_hidden_attention_of_mamba_models.md)
+
+</div>
 
 <!-- RELATED:END -->

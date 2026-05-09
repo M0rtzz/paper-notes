@@ -120,6 +120,8 @@ $$\mathbb{E}_{X_0, Y_0, \epsilon, t}\left[\|\epsilon_\theta(X_t, Y_0, V_t, t) - 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Perceptual Inductive Bias is What You Need Before Contrastive Learning](perceptual_inductive_bias_is_what_you_need_before_contrastive_learning.md)
@@ -127,5 +129,7 @@ $$\mathbb{E}_{X_0, Y_0, \epsilon, t}\left[\|\epsilon_\theta(X_t, Y_0, V_t, t) - 
 - [\[ICCV 2025\] Do It Yourself: Learning Semantic Correspondence from Pseudo-Labels](../../ICCV2025/3d_vision/do_it_yourself_learning_semantic_correspondence_from_pseudo-labels.md)
 - [\[CVPR 2025\] SelfSplat: Pose-Free and 3D Prior-Free Generalizable 3D Gaussian Splatting](selfsplat_pose-free_and_3d_prior-free_generalizable_3d_gaussian_splatting.md)
 - [\[CVPR 2025\] IncEventGS: Pose-Free Gaussian Splatting from a Single Event Camera](inceventgs_pose-free_gaussian_splatting_from_a_single_event_camera.md)
+
+</div>
 
 <!-- RELATED:END -->

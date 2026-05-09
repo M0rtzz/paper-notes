@@ -130,6 +130,8 @@ Protocol 1（数据集增量，4任务后平均 AUC）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Forensics Adapter: Adapting CLIP for Generalizable Face Forgery Detection](forensics_adapter_adapting_clip_for_generalizable_face_forgery_detection.md)
@@ -137,5 +139,7 @@ Protocol 1（数据集增量，4任务后平均 AUC）：
 - [\[AAAI 2026\] Fine-Grained DINO Tuning with Dual Supervision for Face Forgery Detection](../../AAAI2026/ai_safety/fine-grained_dino_tuning_with_dual_supervision_for_face_forgery_detection.md)
 - [\[CVPR 2025\] Dynamic Integration of Task-Specific Adapters for Class Incremental Learning](dynamic_integration_of_task-specific_adapters_for_class_incremental_learning.md)
 - [\[CVPR 2025\] A Simple Data Augmentation for Feature Distribution Skewed Federated Learning](a_simple_data_augmentation_for_feature_distribution_skewed_federated_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

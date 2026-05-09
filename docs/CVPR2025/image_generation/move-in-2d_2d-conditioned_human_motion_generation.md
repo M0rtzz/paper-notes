@@ -142,6 +142,8 @@ MSE 重建损失 $\mathcal{L}_{mse} = \mathbb{E}_{x_0, t} \| x_0 - \mathcal{M}(x
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Lifting Motion to the 3D World via 2D Diffusion](lifting_motion_to_the_3d_world_via_2d_diffusion.md)
@@ -149,5 +151,7 @@ MSE 重建损失 $\mathcal{L}_{mse} = \mathbb{E}_{x_0, t} \| x_0 - \mathcal{M}(x
 - [\[CVPR 2025\] MixerMDM: Learnable Composition of Human Motion Diffusion Models](mixermdm_learnable_composition_of_human_motion_diffusion_models.md)
 - [\[CVPR 2025\] Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction](nonisotropic_gaussian_diffusion_for_realistic_3d_human_motion_prediction.md)
 - [\[CVPR 2025\] LaVin-DiT: Large Vision Diffusion Transformer](lavin-dit_large_vision_diffusion_transformer.md)
+
+</div>
 
 <!-- RELATED:END -->

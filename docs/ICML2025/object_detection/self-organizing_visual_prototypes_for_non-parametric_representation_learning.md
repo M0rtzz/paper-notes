@@ -143,6 +143,8 @@ $$\mathcal{L}_{\text{[CLS]}} = -\sum_{\mathbf{x} \sim \mathbf{X}} P^{\text{[CLS]
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Understanding the Emergence of Multimodal Representation Alignment](understanding_the_emergence_of_multimodal_representation_alignment.md)
@@ -150,5 +152,7 @@ $$\mathcal{L}_{\text{[CLS]}} = -\sum_{\mathbf{x} \sim \mathbf{X}} P^{\text{[CLS]
 - [\[CVPR 2025\] Learning Class Prototypes for Unified Sparse-Supervised 3D Object Detection](../../CVPR2025/object_detection/learning_class_prototypes_for_unified_sparse-supervised_3d_object_detection.md)
 - [\[NeurIPS 2025\] DETree: DEtecting Human-AI Collaborative Texts via Tree-Structured Hierarchical Representation Learning](../../NeurIPS2025/object_detection/detree_detecting_human-ai_collaborative_texts_via_tree-structured_hierarchical_r.md)
 - [\[CVPR 2026\] Learning Multi-Modal Prototypes for Cross-Domain Few-Shot Object Detection](../../CVPR2026/object_detection/learning_multi-modal_prototypes_for_cross-domain_few-shot_object_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -115,6 +115,8 @@ NRR阶段：$\mathcal{L}_C = \mathcal{L}_{ce} + \alpha_{bn}\mathcal{L}_{bn}$。�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Emphasizing Discriminative Features for Dataset Distillation in Complex Scenarios](emphasizing_discriminative_features_for_dataset_distillation_in_complex_scenario.md)
@@ -122,5 +124,7 @@ NRR阶段：$\mathcal{L}_C = \mathcal{L}_{ce} + \alpha_{bn}\mathcal{L}_{bn}$。�
 - [\[CVPR 2025\] Curriculum Coarse-to-Fine Selection for High-IPC Dataset Distillation](curriculum_coarse-to-fine_selection_for_high-ipc_dataset_distillation.md)
 - [\[CVPR 2025\] DELT: A Simple Diversity-driven EarlyLate Training for Dataset Distillation](delt_a_simple_diversity-driven_earlylate_training_for_dataset_distillation.md)
 - [\[ICLR 2026\] Grounding and Enhancing Informativeness and Utility in Dataset Distillation](../../ICLR2026/model_compression/grounding_and_enhancing_informativeness_and_utility_in_dataset_distillation.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -145,6 +145,8 @@ SOLD在MFE和SS优化上比DDPO快**23倍**，比DPOK快**30倍**。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] RIDER: 3D RNA Inverse Design with Reinforcement Learning-Guided Diffusion](../../ICLR2026/image_generation/rider_3d_rna_inverse_design_with_reinforcement_learning-guided_diffusion.md)
@@ -152,5 +154,7 @@ SOLD在MFE和SS优化上比DDPO快**23倍**，比DPOK快**30倍**。
 - [\[ICML 2025\] Piloting Structure-Based Drug Design via Modality-Specific Optimal Schedule](../../ICML2025/image_generation/piloting_structure-based_drug_design_via_modality-specific_optimal_schedule.md)
 - [\[ICML 2025\] PPO-MI: Efficient Black-Box Model Inversion via Proximal Policy Optimization](../../ICML2025/image_generation/ppo-mi_efficient_black-box_model_inversion_via_proximal_policy_optimization.md)
 - [\[ICLR 2026\] Latent Diffusion Model without Variational Autoencoder](../../ICLR2026/image_generation/latent_diffusion_model_without_variational_autoencoder.md)
+
+</div>
 
 <!-- RELATED:END -->

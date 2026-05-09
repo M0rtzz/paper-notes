@@ -118,6 +118,8 @@ PreLAR在RSSM(Recurrent State Space Model)世界模型架构基础上进行扩�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] POA: Pre-training Once for Models of All Sizes](poa_pre-training_once_for_models_of_all_sizes.md)
@@ -125,5 +127,7 @@ PreLAR在RSSM(Recurrent State Space Model)世界模型架构基础上进行扩�
 - [\[ECCV 2024\] DreamLIP: Language-Image Pre-training with Long Captions](dreamlip_language-image_pre-training_with_long_captions.md)
 - [\[ICML 2025\] Metadata Conditioning Accelerates Language Model Pre-training](../../ICML2025/llm_pretraining/metadata_conditioning_accelerates_language_model_pre-training.md)
 - [\[ECCV 2024\] Scaling Backwards: Minimal Synthetic Pre-training?](scaling_backwards_minimal_synthetic_pre-training.md)
+
+</div>
 
 <!-- RELATED:END -->

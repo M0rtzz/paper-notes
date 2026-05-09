@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **24** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (13)](../../ACL2026/recommender/) · [🔬 ICLR2026 (10)](../../ICLR2026/recommender/) · [🤖 AAAI2026 (26)](../../AAAI2026/recommender/) · [🧪 ICML2025 (17)](../../ICML2025/recommender/) · [💬 ACL2025 (7)](../../ACL2025/recommender/) · [📷 CVPR2025 (1)](../../CVPR2025/recommender/)
+
+🔥 **高频主题：** LLM ×8 · 推荐系统 ×6 · 人脸/视线 ×3 · 个性化生成 ×2 · 对齐/RLHF ×2
+
 **[ASAP: An Agentic Solution to Auto-Optimize Performance of Large-Scale LLM Training](asap_an_agentic_solution_to_auto-optimize_performance_of_large-scale_llm_trainin.md)**
 
 :   ASAP 是一个多 Agent 系统（Coordinator + Analyzer + Proposal），自动化诊断大规模 LLM 分布式训练的瓶颈类型（计算/内存/通信）并提出 sharding 配置方案，在 3 个实验场景中均匹配人类专家方案，实现最高 2.58× 吞吐量提升。

@@ -121,6 +121,8 @@ $$a_t = \arg\max_{a_t \in A} \mathbb{E}_{o_{t+1} \sim E(h_t, a_t)} [I(Y; y_{t+1}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] AffordBot: 3D Fine-grained Embodied Reasoning via Multimodal Large Language Models](affordbot_3d_fine-grained_embodied_reasoning_via_multimodal_large_language_model.md)
@@ -128,5 +130,7 @@ $$a_t = \arg\max_{a_t \in A} \mathbb{E}_{o_{t+1} \sim E(h_t, a_t)} [I(Y; y_{t+1}
 - [\[NeurIPS 2025\] FlexAC: Towards Flexible Control of Associative Reasoning in Multimodal Large Language Models](flexac_towards_flexible_control_of_associative_reasoning_in_multimodal_large_lan.md)
 - [\[CVPR 2025\] Active Data Curation Effectively Distills Large-Scale Multimodal Models](../../CVPR2025/multimodal_vlm/active_data_curation_effectively_distills_large-scale_multimodal_models.md)
 - [\[ICCV 2025\] Physics Context Builders: A Modular Framework for Physical Reasoning in Vision-Language Models](../../ICCV2025/multimodal_vlm/physics_context_builders_a_modular_framework_for_physical_reasoning_in_vision-la.md)
+
+</div>
 
 <!-- RELATED:END -->

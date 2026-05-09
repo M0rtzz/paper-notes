@@ -169,6 +169,8 @@ LLM 的内部表征本质上是一组随层动态演化的点云——每个 pro
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Unveiling Language-Specific Features in Large Language Models via Sparse Autoencoders](../../ACL2025/model_compression/language_specific_features.md)
@@ -176,5 +178,7 @@ LLM 的内部表征本质上是一组随层动态演化的点云——每个 pro
 - [\[ICML 2025\] DLP: Dynamic Layerwise Pruning in Large Language Models](dlp_dynamic_layerwise_pruning_in_large_language_models.md)
 - [\[ICML 2025\] From Language Models over Tokens to Language Models over Characters](from_language_models_over_tokens_to_language_models_over_characters.md)
 - [\[ICML 2025\] Instruction-Following Pruning for Large Language Models](instruction-following_pruning_for_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

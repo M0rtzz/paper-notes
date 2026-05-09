@@ -117,6 +117,8 @@ HarDiff 基于扩散模型进行稠密视觉预测，核心创新是引入离散
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Easy3D: A Simple Yet Effective Method for 3D Interactive Segmentation](easy3d_a_simple_yet_effective_method_for_3d_interactive_segmentation.md)
@@ -124,5 +126,7 @@ HarDiff 基于扩散模型进行稠密视觉预测，核心创新是引入离散
 - [\[CVPR 2025\] Scaling Properties of Diffusion Models for Perceptual Tasks](../../CVPR2025/3d_vision/scaling_properties_of_diffusion_models_for_perceptual_tasks.md)
 - [\[CVPR 2025\] Olympus: A Universal Task Router for Computer Vision Tasks](../../CVPR2025/3d_vision/olympus_a_universal_task_router_for_computer_vision_tasks.md)
 - [\[ICCV 2025\] Boost 3D Reconstruction using Diffusion-based Monocular Camera Calibration](boost_3d_reconstruction_using_diffusion-based_monocular_camera_calibration.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,8 @@ description: >-
 
 **🧪 ICML2025** · **7** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/video_understanding/) · [📷 CVPR2026 (92)](../../CVPR2026/video_understanding/) · [🔬 ICLR2026 (24)](../../ICLR2026/video_understanding/) · [🤖 AAAI2026 (33)](../../AAAI2026/video_understanding/) · [🧠 NeurIPS2025 (61)](../../NeurIPS2025/video_understanding/) · [📹 ICCV2025 (58)](../../ICCV2025/video_understanding/)
+
 **[FastCAV: Efficient Computation of Concept Activation Vectors for Explaining Deep Neural Networks](fastcav_efficient_computation_of_concept_activation_vectors_for_explaining_deep_.md)**
 
 :   提出 FastCAV，通过计算概念样本激活的归一化均值向量来替代 SVM 训练提取概念激活向量（CAV），在理论上等价于 Fisher 判别分析的简化形式，实测加速高达 63.6 倍（平均 46.4 倍），同时保持与 SVM-CAV 相当的分类精度和下游解释质量。

@@ -154,6 +154,8 @@ $$\epsilon_T(h) \leq \hat{\epsilon}_S(h) + C\sqrt{\epsilon_1} + L\sqrt{\epsilon_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] The Butterfly Effect: Neural Network Training Trajectories Are Highly Sensitive to Initial Conditions](the_butterfly_effect_neural_network_training_trajectories_are_highly_sensitive_t.md)
@@ -161,5 +163,7 @@ $$\epsilon_T(h) \leq \hat{\epsilon}_S(h) + C\sqrt{\epsilon_1} + L\sqrt{\epsilon_
 - [\[ICCV 2025\] Federated Continual Instruction Tuning](../../ICCV2025/optimization/federated_continual_instruction_tuning.md)
 - [\[ICML 2025\] GCAL: Adapting Graph Models to Evolving Domain Shifts](gcal_adapting_graph_models_to_evolving_domain_shifts.md)
 - [\[NeurIPS 2025\] Deep Taxonomic Networks for Unsupervised Hierarchical Prototype Discovery](../../NeurIPS2025/optimization/deep_taxonomic_networks_for_unsupervised_hierarchical_prototype_discovery.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -128,6 +128,8 @@ COIN++集成：达到~24.2dB PSNR，COIN++需>1.5 bpp，加SINR后<1.0 bpp。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] End-to-End Implicit Neural Representations for Classification](end-to-end_implicit_neural_representations_for_classification.md)
@@ -135,5 +137,7 @@ COIN++集成：达到~24.2dB PSNR，COIN++需>1.5 bpp，加SINR后<1.0 bpp。
 - [\[CVPR 2025\] Flow-NeRF: Joint Learning of Geometry, Poses, and Dense Flow within Unified Neural Representations](flow-nerf_joint_learning_of_geometry_poses_and_dense_flow_within_unified_neural_.md)
 - [\[CVPR 2026\] NTK-Guided Implicit Neural Teaching](../../CVPR2026/3d_vision/ntk-guided_implicit_neural_teaching.md)
 - [\[ICCV 2025\] SL2A-INR: Single-Layer Learnable Activation for Implicit Neural Representation](../../ICCV2025/3d_vision/sl2a-inr_single-layer_learnable_activation_for_implicit_neural_representation.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,8 @@ description: >-
 
 **📹 ICCV2025** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/signal_comm/) · [📷 CVPR2026 (5)](../../CVPR2026/signal_comm/) · [🔬 ICLR2026 (8)](../../ICLR2026/signal_comm/) · [🤖 AAAI2026 (3)](../../AAAI2026/signal_comm/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/signal_comm/) · [🧪 ICML2025 (6)](../../ICML2025/signal_comm/)
+
 **[Boosting Multimodal Learning via Disentangled Gradient Learning](boosting_multimodal_learning_via_disentangled_gradient_learning.md)**
 
 :   本文揭示了多模态学习中模态编码器和融合模块之间的优化冲突——融合模块会抑制回传到各模态编码器的梯度，导致即使是优势模态也比单模态模型表现差，并提出解耦梯度学习（DGL）框架通过截断融合模块到编码器的梯度并用独立的单模态损失替代来解决此问题。

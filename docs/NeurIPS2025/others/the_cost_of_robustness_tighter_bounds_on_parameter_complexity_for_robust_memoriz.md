@@ -164,6 +164,8 @@ $$W(N, d, \rho) = \Omega\left(N \cdot d \cdot \rho^2\right) \quad \text{当} \qu
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] The Computational Complexity of Counting Linear Regions in ReLU Neural Networks](the_computational_complexity_of_counting_linear_regions_in_relu_neural_networks.md)
@@ -171,5 +173,7 @@ $$W(N, d, \rho) = \Omega\left(N \cdot d \cdot \rho^2\right) \quad \text{当} \qu
 - [\[NeurIPS 2025\] Obliviator Reveals the Cost of Nonlinear Guardedness in Concept Erasure](obliviator_reveals_the_cost_of_nonlinear_guardedness_in_concept_erasure.md)
 - [\[NeurIPS 2025\] Distributionally Robust Feature Selection](distributionally_robust_feature_selection.md)
 - [\[ICLR 2026\] LipNeXt: Scaling up Lipschitz-based Certified Robustness to Billion-parameter Models](../../ICLR2026/others/lipnext_scaling_up_lipschitz-based_certified_robustness_to_billion-parameter_mod.md)
+
+</div>
 
 <!-- RELATED:END -->

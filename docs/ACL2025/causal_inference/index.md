@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **10** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/causal_inference/) · [📷 CVPR2026 (4)](../../CVPR2026/causal_inference/) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/) · [🧠 NeurIPS2025 (21)](../../NeurIPS2025/causal_inference/) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/)
+
+🔥 **高频主题：** 推理 ×3 · LLM ×2
+
 **[Causal Graph based Event Reasoning using Semantic Relation Experts](causal_graph_based_event_reasoning_using_semantic_relation_experts.md)**
 
 :   提出基于四类语义关系专家（时间、篇章、条件、常识）多轮协作讨论的因果事件图生成框架，在零样本设置下于事件预测、事件预报等多个下游任务上取得与微调模型竞争的结果，并提供可解释的因果事件链。

@@ -131,6 +131,8 @@ $$L_{diffusion} = E_{z_t, t, c_{id}, \epsilon}[||\epsilon - \epsilon_\theta(z_t,
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] LCM-Lookahead for Encoder-based Text-to-Image Personalization](lcm-lookahead_for_encoder-based_text-to-image_personalization.md)
@@ -138,5 +140,7 @@ $$L_{diffusion} = E_{z_t, t, c_{id}, \epsilon}[||\epsilon - \epsilon_\theta(z_t,
 - [\[ECCV 2024\] Unveiling Advanced Frequency Disentanglement Paradigm for Low-Light Image Enhancement](unveiling_advanced_frequency_disentanglement_paradigm_for_low-light_image_enhanc.md)
 - [\[ECCV 2024\] DiffiT: Diffusion Vision Transformers for Image Generation](diffit_diffusion_vision_transformers_for_image_generation.md)
 - [\[ECCV 2024\] OMG: Occlusion-friendly Personalized Multi-concept Generation in Diffusion Models](omg_occlusion-friendly_personalized_multi-concept_generation_in_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

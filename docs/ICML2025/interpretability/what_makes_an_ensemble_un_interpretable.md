@@ -123,6 +123,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Measuring the (Un)Faithfulness of Concept-Based Explanations](../../CVPR2026/interpretability/measuring_the_unfaithfulness_of_concept-based_explanations.md)
@@ -130,5 +132,7 @@ tags:
 - [\[NeurIPS 2025\] What Happens During the Loss Plateau? Understanding Abrupt Learning in Transformers](../../NeurIPS2025/interpretability/what_happens_during_the_loss_plateau_understanding_abrupt_learning_in_transforme.md)
 - [\[ICML 2025\] Foundation Molecular Grammar: Multi-Modal Foundation Models Induce Interpretable Molecular Grammar](foundation_molecular_grammar_multi-modal_foundation_models_induce_interpretable_.md)
 - [\[ACL 2026\] Aligning What LLMs Do and Say: Towards Self-Consistent Explanations](../../ACL2026/interpretability/aligning_what_llms_do_and_say_towards_self-consistent_explanations.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -139,6 +139,8 @@ UniPose 由三个核心组件构成：(1) Pose Tokenizer —— 基于 VQ-VAE �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] UniHOPE: A Unified Approach for Hand-Only and Hand-Object Pose Estimation](unihope_a_unified_approach_for_hand-only_and_hand-object_pose_estimation.md)
@@ -146,5 +148,7 @@ UniPose 由三个核心组件构成：(1) Pose Tokenizer —— 基于 VQ-VAE �
 - [\[ECCV 2024\] FreeMotion: A Unified Framework for Number-free Text-to-Motion Synthesis](../../ECCV2024/human_understanding/freemotion_a_unified_framework_for_number-free_text-to-motion_synthesis.md)
 - [\[CVPR 2025\] MotionReFit: Dynamic Motion Blending for Versatile Motion Editing](motionrefit_motion_editing.md)
 - [\[CVPR 2025\] ChatGarment: Garment Estimation, Generation and Editing via Large Language Models](chatgarment_garment_estimation_generation_and_editing_via_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

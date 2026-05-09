@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **71** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (34)](../../ACL2026/reinforcement_learning/) · [📷 CVPR2026 (22)](../../CVPR2026/reinforcement_learning/) · [🔬 ICLR2026 (142)](../../ICLR2026/reinforcement_learning/) · [🧠 NeurIPS2025 (173)](../../NeurIPS2025/reinforcement_learning/) · [📹 ICCV2025 (7)](../../ICCV2025/reinforcement_learning/) · [🧪 ICML2025 (82)](../../ICML2025/reinforcement_learning/)
+
+🔥 **高频主题：** 强化学习 ×22 · Agent ×11 · 推理 ×11 · LLM ×6 · 对抗鲁棒 ×5
+
 **[A Course Correction in Steerability Evaluation: Revealing Miscalibration and Side Effects in LLMs](a_course_correction_in_steerability_evaluation_revealing_mis.md)**
 
 :   本文提出了一个基于多维目标空间的 LLM 可操控性（steerability）评估框架，将 steering error 分解为校准偏差（miscalibration）和副作用（side effects/orthogonality），在文本改写任务上发现即使是最强的 LLM 也会产生严重副作用，prompt engineering 无效、best-of-N 采样代价高、RL 微调有改善但仍未彻底解决。

@@ -244,6 +244,8 @@ $$\mathbf{S}(i,f) = \left|\sum_{k=0}^{L-1} \mathbf{y}(k) w(k-i) e^{-j2\pi fk/N_w
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] PromptHMR: Promptable Human Mesh Recovery](../../CVPR2025/human_understanding/prompthmr_promptable_human_mesh_recovery.md)
@@ -251,5 +253,7 @@ $$\mathbf{S}(i,f) = \left|\sum_{k=0}^{L-1} \mathbf{y}(k) w(k-i) e^{-j2\pi fk/N_w
 - [\[CVPR 2025\] HeatFormer: A Neural Optimizer for Multiview Human Mesh Recovery](../../CVPR2025/human_understanding/heatformer_a_neural_optimizer_for_multiview_human_mesh_recovery.md)
 - [\[CVPR 2025\] MEGA: Masked Generative Autoencoder for Human Mesh Recovery](../../CVPR2025/human_understanding/mega_masked_generative_autoencoder_for_human_mesh_recovery.md)
 - [\[AAAI 2026\] PressTrack-HMR: Pressure-Based Top-Down Multi-Person Global Human Mesh Recovery](../../AAAI2026/human_understanding/presstrack-hmr_pressure-based_top-down_multi-person_global_human_mesh_recovery.md)
+
+</div>
 
 <!-- RELATED:END -->

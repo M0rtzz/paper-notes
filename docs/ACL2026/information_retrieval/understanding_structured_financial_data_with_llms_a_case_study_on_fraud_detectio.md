@@ -127,6 +127,8 @@ FinFRE-RAG 不需要训练 LLM。使用 Qwen3-14B/80B、Gemma 3-12B/27B、GPT-OS
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] VideoStir: Understanding Long Videos via Spatio-Temporally Structured and Intent-Aware RAG](videostir_understanding_long_videos_via_spatio-temporally_structured_and_intent-.md)
@@ -134,5 +136,7 @@ FinFRE-RAG 不需要训练 LLM。使用 Qwen3-14B/80B、Gemma 3-12B/27B、GPT-OS
 - [\[ACL 2025\] RAEmoLLM: Retrieval Augmented LLMs for Cross-Domain Misinformation Detection Using In-Context Learning Based on Emotional Information](../../ACL2025/information_retrieval/raemollm_retrieval_augmented_llms_for_cross-domain_misinformation_detection_usin.md)
 - [\[ACL 2026\] All Languages Matter: Understanding and Mitigating Language Bias in Multilingual RAG](all_languages_matter_understanding_and_mitigating_language_bias_in_multilingual_.md)
 - [\[ACL 2025\] Contradiction Detection in RAG-Based Chatbots](../../ACL2025/information_retrieval/contradiction_detection_in_rag-based_chatbots.md)
+
+</div>
 
 <!-- RELATED:END -->

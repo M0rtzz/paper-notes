@@ -140,6 +140,8 @@ SFTMix 是一个三步流程：(1) 用参考 LLM 在 SFT 数据上做一轮 NTP 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Federated Data-Efficient Instruction Tuning for Large Language Models](../../ACL2025/llm_alignment/federated_data-efficient_instruction_tuning_for_large_language_models.md)
@@ -147,5 +149,7 @@ SFTMix 是一个三步流程：(1) 用参考 LLM 在 SFT 数据上做一轮 NTP 
 - [\[ICML 2025\] Instruction Tuning of Large Language Models for Tabular Data Generation—in One Day](../../ICML2025/llm_alignment/instruction_tuning_of_large_language_models_for_tabular_data_generation-in_one_d.md)
 - [\[AAAI 2026\] Importance-Aware Data Selection for Efficient LLM Instruction Tuning](../../AAAI2026/llm_alignment/importance-aware_data_selection_for_efficient_llm_instruction_tuning.md)
 - [\[ACL 2025\] Call for Rigor in Reporting Quality of Instruction Tuning Data](../../ACL2025/llm_alignment/call_for_rigor_in_reporting_quality_of_instruction_tuning_data.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -125,6 +125,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Aligning Spoken Dialogue Models from User Interactions](../../ICML2025/segmentation/aligning_spoken_dialogue_models_from_user_interactions.md)
@@ -132,5 +134,7 @@ tags:
 - [\[ACL 2025\] InstructPart: Task-Oriented Part Segmentation with Instruction Reasoning](instructpart_task-oriented_part_segmentation_with_instruction_reasoning.md)
 - [\[ACL 2025\] Pixel-Level Reasoning Segmentation via Multi-turn Conversations](pixel-level_reasoning_segmentation_via_multi-turn_conversations.md)
 - [\[NeurIPS 2025\] COS3D: Collaborative Open-Vocabulary 3D Segmentation](../../NeurIPS2025/segmentation/cos3d_collaborative_open-vocabulary_3d_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

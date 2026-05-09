@@ -127,6 +127,8 @@ Gradiend 使用 MSE 重构损失 $\|\text{dec}(\text{enc}(\nabla^A W_m)) - \nabl
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Do Sparse Autoencoders Generalize? A Case Study of Answerability](../../ICML2025/interpretability/do_sparse_autoencoders_generalize_a_case_study_of_answerability.md)
@@ -134,5 +136,7 @@ Gradiend 使用 MSE 重构损失 $\|\text{dec}(\text{enc}(\nabla^A W_m)) - \nabl
 - [\[ACL 2026\] Rhetorical Questions in LLM Representations: A Linear Probing Study](rhetorical_questions_in_llm_representations_a_linear_probing_study.md)
 - [\[ACL 2026\] Tracing Relational Knowledge Recall in Large Language Models](tracing_relational_knowledge_recall_in_large_language_models.md)
 - [\[ACL 2026\] Experiments or Outcomes? Probing Scientific Feasibility in Large Language Models](experiments_or_outcomes_probing_scientific_feasibility_in_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

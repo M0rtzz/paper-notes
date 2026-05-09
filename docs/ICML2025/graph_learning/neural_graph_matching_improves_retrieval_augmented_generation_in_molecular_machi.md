@@ -168,6 +168,8 @@ Top-1 准确率相比无 RAG 的 ICEBERG 提升 **47%**（0.189→0.278），相
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Knowledge Graph Retrieval-Augmented Generation for LLM-based Recommendation (K-RagRec)](../../ACL2025/graph_learning/kg_rag_recommendation.md)
@@ -175,5 +177,7 @@ Top-1 准确率相比无 RAG 的 ICEBERG 提升 **47%**（0.189→0.278），相
 - [\[ICML 2025\] Beyond Message Passing: Neural Graph Pattern Machine](beyond_message_passing_neural_graph_pattern_machine.md)
 - [\[ACL 2025\] SimGRAG: Leveraging Similar Subgraphs for Knowledge Graphs Driven Retrieval-Augmented Generation](../../ACL2025/graph_learning/simgrag_leveraging_similar_subgraphs_for_knowledge_graphs_driven_retrieval-augme.md)
 - [\[NeurIPS 2025\] Sketch-Augmented Features Improve Learning Long-Range Dependencies in Graph Neural Networks](../../NeurIPS2025/graph_learning/sketch-augmented_features_improve_learning_long-range_dependencies_in_graph_neur.md)
+
+</div>
 
 <!-- RELATED:END -->

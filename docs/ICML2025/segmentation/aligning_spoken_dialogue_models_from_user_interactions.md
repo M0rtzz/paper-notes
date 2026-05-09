@@ -119,6 +119,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] What If: Understanding Motion Through Sparse Interactions](../../ICCV2025/segmentation/what_if_understanding_motion_through_sparse_interactions.md)
@@ -126,5 +128,7 @@ tags:
 - [\[ACL 2025\] DEF-DTS: Deductive Reasoning for Open-domain Dialogue Topic Segmentation](../../ACL2025/segmentation/def-dts_deductive_reasoning_for_open-domain_dialogue_topic_segmentation.md)
 - [\[ICCV 2025\] Can Generative Geospatial Diffusion Models Excel as Discriminative Geospatial Foundation Models?](../../ICCV2025/segmentation/can_generative_geospatial_diffusion_models_excel_as_discriminative_geospatial_fo.md)
 - [\[ACL 2025\] BERT-like Models for Slavic Morpheme Segmentation](../../ACL2025/segmentation/bert-like_models_for_slavic_morpheme_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

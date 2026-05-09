@@ -112,6 +112,8 @@ $\mathcal{L} = \mathcal{L}_{real} + \mathcal{L}_{syn}$，T cycle 用 token-level
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] WeGen: A Unified Model for Interactive Multimodal Generation as We Chat](wegen_a_unified_model_for_interactive_multimodal_generation_as_we_chat.md)
@@ -119,5 +121,7 @@ $\mathcal{L} = \mathcal{L}_{real} + \mathcal{L}_{syn}$，T cycle 用 token-level
 - [\[CVPR 2025\] TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation](tokenflow_unified_image_tokenizer_for_multimodal_understanding_and_generation.md)
 - [\[NeurIPS 2025\] Diffusion-Driven Progressive Target Manipulation for Source-Free Domain Adaptation](../../NeurIPS2025/image_generation/diffusion-driven_progressive_target_manipulation_for_source-free_domain_adaptati.md)
 - [\[CVPR 2025\] Generative Multimodal Pretraining with Discrete Diffusion Timestep Tokens](generative_multimodal_pretraining_with_discrete_diffusion_timestep_tokens.md)
+
+</div>
 
 <!-- RELATED:END -->

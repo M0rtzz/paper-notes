@@ -224,6 +224,8 @@ $$\mathcal{L}_{total} = \mathcal{L}_{2D} + \mathcal{L}_{3D} + \lambda \mathcal{L
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Towards Intrinsic-Aware Monocular 3D Object Detection](../../CVPR2026/object_detection/towards_intrinsic-aware_monocular_3d_object_detection.md)
@@ -231,5 +233,7 @@ $$\mathcal{L}_{total} = \mathcal{L}_{2D} + \mathcal{L}_{3D} + \lambda \mathcal{L
 - [\[CVPR 2026\] MonoSAOD: Monocular 3D Object Detection with Sparsely Annotated Label](../../CVPR2026/object_detection/monosaod_monocular_3d_object_detection_with_sparsely_annotated_label.md)
 - [\[AAAI 2026\] Temporal Object-Aware Vision Transformer for Few-Shot Video Object Detection](temporal_object-aware_vision_transformer_for_few-shot_video_object_detection.md)
 - [\[ICCV 2025\] 3D-MOOD: Lifting 2D to 3D for Monocular Open-Set Object Detection](../../ICCV2025/object_detection/3dmood_lifting_2d_to_3d_for_monocular_openset_object_detecti.md)
+
+</div>
 
 <!-- RELATED:END -->

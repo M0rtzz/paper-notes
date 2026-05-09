@@ -141,6 +141,8 @@ LH-Deception 是一个三角色多智能体仿真系统：**执行者**（perfor
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Understanding Sensitivity of Differential Attention through the Lens of Adversarial Robustness](understanding_sensitivity_of_differential_attention_through_the_lens_of_adversar.md)
@@ -148,5 +150,7 @@ LH-Deception 是一个三角色多智能体仿真系统：**执行者**（perfor
 - [\[AAAI 2026\] From Single to Societal: Analyzing Persona-Induced Bias in Multi-Agent Interactions](../../AAAI2026/llm_safety/from_single_to_societal_analyzing_persona-induced_bias_in_multi-agent_interactio.md)
 - [\[ACL 2025\] When Backdoors Speak: Understanding LLM Backdoor Attacks Through Model-Generated Explanations](../../ACL2025/llm_safety/when_backdoors_speak_understanding_llm_backdoor_attacks_through_model-generated_.md)
 - [\[ICLR 2026\] RedSage: A Cybersecurity Generalist LLM](redsage_a_cybersecurity_generalist_llm.md)
+
+</div>
 
 <!-- RELATED:END -->

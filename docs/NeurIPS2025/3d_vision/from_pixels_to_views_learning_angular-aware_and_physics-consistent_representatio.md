@@ -280,6 +280,8 @@ PSNR提升7.7%（54.04 vs 50.16），在所有6个测试样本上全面超越。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] PhysicsNeRF: Physics-Guided 3D Reconstruction from Sparse Views](../../ICML2025/3d_vision/physicsnerf_physics-guided_3d_reconstruction_from_sparse_views.md)
@@ -287,5 +289,7 @@ PSNR提升7.7%（54.04 vs 50.16），在所有6个测试样本上全面超越。
 - [\[ICLR 2026\] LiTo: Surface Light Field Tokenization](../../ICLR2026/3d_vision/lito_surface_light_field_tokenization.md)
 - [\[ECCV 2024\] Flying with Photons: Rendering Novel Views of Propagating Light](../../ECCV2024/3d_vision/flying_with_photons_rendering_novel_views_of_propagating_light.md)
 - [\[CVPR 2026\] Neural Field-Based 3D Surface Reconstruction of Microstructures from Multi-Detector Signals in Scanning Electron Microscopy](../../CVPR2026/3d_vision/neural_field-based_3d_surface_reconstruction_of_microstructures_from_multi-detec.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -135,6 +135,8 @@ TabFact benchmark（小测试集，~2k 条事实-表对）的准确率对比：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] AI4Reading: Chinese Audiobook Interpretation System Based on Multi-Agent Collaboration](../../ACL2025/audio_speech/ai4reading_chinese_audiobook_interpretation_system_based_on_multi-agent_collabor.md)
@@ -142,5 +144,7 @@ TabFact benchmark（小测试集，~2k 条事实-表对）的准确率对比：
 - [\[AAAI 2026\] DeepDebater: A Superpersuasive Autonomous Policy Debating System](a_superpersuasive_autonomous_policy_debating_system.md)
 - [\[AAAI 2026\] A Mind Cannot Be Smeared Across Time](a_mind_cannot_be_smeared_across_time.md)
 - [\[NeurIPS 2025\] Sensorium Arc: AI Agent System for Oceanic Data Exploration and Interactive Eco-Art](../../NeurIPS2025/audio_speech/sensorium_arc_ai_agent_system_for_oceanic_data_exploration_and_interactive_eco-a.md)
+
+</div>
 
 <!-- RELATED:END -->

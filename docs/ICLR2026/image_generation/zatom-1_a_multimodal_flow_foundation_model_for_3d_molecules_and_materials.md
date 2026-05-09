@@ -133,6 +133,8 @@ Zatom-1在QM9多任务属性预测上达到SOTA，证明生成预训练可以为
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] All-atom Diffusion Transformers: Unified Generative Modelling of Molecules and Materials](../../ICML2025/image_generation/all-atom_diffusion_transformers_unified_generative_modelling_of_molecules_and_ma.md)
@@ -140,5 +142,7 @@ Zatom-1在QM9多任务属性预测上达到SOTA，证明生成预训练可以为
 - [\[ICLR 2026\] RMFlow: Refined Mean Flow by a Noise-Injection Step for Multimodal Generation](rmflow_refined_mean_flow_by_a_noise-injection_step_for_multimodal_generation.md)
 - [\[ICLR 2026\] Unified Multi-Modal Interactive & Reactive 3D Motion Generation via Rectified Flow](unified_multi-modal_interactive_reactive_3d_motion_generation_via_rectified_flow.md)
 - [\[ICLR 2026\] AlignTok: Aligning Visual Foundation Encoders to Tokenizers for Diffusion Models](aligntok_aligning_visual_foundation_encoders_to_tokenizers_for_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

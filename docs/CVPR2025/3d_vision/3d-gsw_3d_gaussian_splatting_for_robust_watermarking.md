@@ -120,6 +120,8 @@ $\lambda_{rec}=1, \lambda_{lpips}=0.2, \lambda_w=0.3, \lambda_m=0.4$。Adam优�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] GuardSplat: Efficient and Robust Watermarking for 3D Gaussian Splatting](guardsplat_efficient_and_robust_watermarking_for_3d_gaussian_splatting.md)
@@ -127,5 +129,7 @@ $\lambda_{rec}=1, \lambda_{lpips}=0.2, \lambda_w=0.3, \lambda_m=0.4$。Adam优�
 - [\[CVPR 2025\] VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM](varsplat_uncertainty-aware_3d_gaussian_splatting_for_robust_rgb-d_slam.md)
 - [\[CVPR 2025\] 3D-HGS: 3D Half-Gaussian Splatting](3d-hgs_3d_half-gaussian_splatting.md)
 - [\[CVPR 2025\] HyperGS: Hyperspectral 3D Gaussian Splatting](hypergs_hyperspectral_3d_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

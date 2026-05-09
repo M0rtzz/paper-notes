@@ -149,6 +149,8 @@ $$\mathcal{L}_D = -\lambda_z z + \lambda_{\text{wm}} \mathcal{L}_{\text{wm\_rati
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] From Trade-off to Synergy: A Versatile Symbiotic Watermarking Framework for Large Language Models](../../ACL2025/llm_safety/from_tradeoff_to_synergy_a_versatile.md)
@@ -156,5 +158,7 @@ $$\mathcal{L}_D = -\lambda_z z + \lambda_{\text{wm}} \mathcal{L}_{\text{wm\_rati
 - [\[ACL 2025\] Improved Unbiased Watermark for Large Language Models](../../ACL2025/llm_safety/improved_unbiased_watermark_for_large_language.md)
 - [\[NeurIPS 2025\] On the Empirical Power of Goodness-of-Fit Tests in Watermark Detection](on_the_empirical_power_of_goodness-of-fit_tests_in_watermark_detection.md)
 - [\[ACL 2025\] MorphMark: Flexible Adaptive Watermarking for Large Language Models](../../ACL2025/llm_safety/morphmark_adaptive_watermarking.md)
+
+</div>
 
 <!-- RELATED:END -->

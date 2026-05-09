@@ -169,6 +169,8 @@ Flex-VL-7B 配合多数投票，总体性能超过 GPT-4o。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Towards Robust Zero-Shot Reinforcement Learning](towards_robust_zero-shot_reinforcement_learning.md)
@@ -176,5 +178,7 @@ Flex-VL-7B 配合多数投票，总体性能超过 GPT-4o。
 - [\[NeurIPS 2025\] Semantic Surgery: Zero-Shot Concept Erasure in Diffusion Models](semantic_surgery_zero-shot_concept_erasure_in_diffusion_models.md)
 - [\[CVPR 2025\] Emuru: Zero-Shot Styled Text Image Generation, but Make It Autoregressive](../../CVPR2025/image_generation/zero-shot_styled_text_image_generation_but_make_it_autoregressive.md)
 - [\[ICCV 2025\] AnyPortal: Zero-Shot Consistent Video Background Replacement](../../ICCV2025/image_generation/anyportal_zero-shot_consistent_video_background_replacement.md)
+
+</div>
 
 <!-- RELATED:END -->

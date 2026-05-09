@@ -140,6 +140,8 @@ MVCustom 是唯一在相机位姿精度和多视角一致性上同时取得高�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] LaTexBlend: Scaling Multi-concept Customized Generation with Latent Textual Blending](../../CVPR2025/image_generation/latexblend_scaling_multi-concept_customized_generation_with_latent_textual_blend.md)
@@ -147,5 +149,7 @@ MVCustom 是唯一在相机位姿精度和多视角一致性上同时取得高�
 - [\[ICLR 2026\] SSCP: Flow-Based Single-Step Completion for Efficient and Expressive Policy Learning](flow-based_single-step_completion_for_efficient_and_expressive_policy_learning.md)
 - [\[ICLR 2026\] Latent Diffusion Model without Variational Autoencoder](latent_diffusion_model_without_variational_autoencoder.md)
 - [\[CVPR 2025\] DiffSensei: Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation](../../CVPR2025/image_generation/diffsensei_bridging_multi-modal_llms_and_diffusion_models_for_customized_manga_g.md)
+
+</div>
 
 <!-- RELATED:END -->

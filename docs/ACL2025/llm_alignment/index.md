@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **72** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/llm_alignment/) · [📷 CVPR2026 (12)](../../CVPR2026/llm_alignment/) · [🔬 ICLR2026 (42)](../../ICLR2026/llm_alignment/) · [🤖 AAAI2026 (20)](../../AAAI2026/llm_alignment/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_alignment/) · [📹 ICCV2025 (2)](../../ICCV2025/llm_alignment/)
+
+🔥 **高频主题：** 对齐/RLHF ×34 · LLM ×11 · 对抗鲁棒 ×11 · 多模态 ×4 · 推理 ×4
+
 **[AGD: Adversarial Game Defense Against Jailbreak Attacks in Large Language Models](agd_adversarial_game_defense_against_jailbreak_attacks_in_large_language_models.md)**
 
 :   本文提出AGD（Adversarial Game Defense），一种基于对抗博弈的LLM越狱攻击防御方法，通过动态调整模型内部表示在有用性和无害性之间取得平衡，利用IQR异常检测、双层优化博弈和专家模型采样三个阶段显著提升LLM安全性。

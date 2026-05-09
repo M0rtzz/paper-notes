@@ -132,6 +132,8 @@ $$y(\tilde{\mathbf{X}}) \leftarrow \text{debias}(\tilde{\mathbf{X}}, \mathbf{X})
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Rethinking Target Label Conditioning in Adversarial Attacks: A 2D Tensor-Guided Generative Approach](rethinking_target_label_conditioning_in_adversarial_attacks_a_2d_tensor-guided_g.md)
@@ -139,5 +141,7 @@ $$y(\tilde{\mathbf{X}}) \leftarrow \text{debias}(\tilde{\mathbf{X}}, \mathbf{X})
 - [\[AAAI 2026\] Learning to Collaborate: An Orchestrated-Decentralized Framework for Peer-to-Peer Collaborative Learning](learning_to_collaborate_an_orchestrated-decentralized_framework_for_peer-to-peer.md)
 - [\[AAAI 2026\] Robust Watermarking on Gradient Boosting Decision Trees](robust_watermarking_on_gradient_boosting_decision_trees.md)
 - [\[ICLR 2026\] Skirting Additive Error Barriers for Private Turnstile Streams](../../ICLR2026/ai_safety/skirting_additive_error_barriers_for_private_turnstile_streaming.md)
+
+</div>
 
 <!-- RELATED:END -->

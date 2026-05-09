@@ -139,6 +139,8 @@ $\lambda=0.5$，$\tau=0.1$（对比温度），均通过敏感性分析确定，
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Parallax to Align Them All: An OmniParallax Attention Mechanism for Distributed Multi-View Image Compression](../../CVPR2026/model_compression/parallax_to_align_them_all_an_omniparallax_attention_mechanism_for_distributed_m.md)
@@ -146,5 +148,7 @@ $\lambda=0.5$，$\tau=0.1$（对比温度），均通过敏感性分析确定，
 - [\[ICLR 2026\] Multi-View Encoders for Performance Prediction in LLM-Based Agentic Workflows](../../ICLR2026/model_compression/multi-view_encoders_for_performance_prediction_in_llm-based_agentic_workflows.md)
 - [\[CVPR 2025\] Layered Image Vectorization via Semantic Simplification](layered_image_vectorization_via_semantic_simplification.md)
 - [\[CVPR 2025\] Targeted Forgetting of Image Subgroups in CLIP Models](targeted_forgetting_of_image_subgroups_in_clip_models.md)
+
+</div>
 
 <!-- RELATED:END -->

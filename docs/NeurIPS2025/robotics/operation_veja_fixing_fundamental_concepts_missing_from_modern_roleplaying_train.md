@@ -129,6 +129,8 @@ LLM评判A/B偏好测试（N=100，Gemini 2.5 Flash盲审）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] HiMaCon: Discovering Hierarchical Manipulation Concepts from Unlabeled Multi-Modal Data](himacon_discovering_hierarchical_manipulation_concepts_from_unlabeled_multi-moda.md)
@@ -136,5 +138,7 @@ LLM评判A/B偏好测试（N=100，Gemini 2.5 Flash盲审）：
 - [\[CVPR 2026\] Towards Training-Free Scene Text Editing](../../CVPR2026/robotics/towards_training-free_scene_text_editing.md)
 - [\[ICML 2025\] Sketch-Plan-Generalize: Learning and Planning with Neuro-Symbolic Programmatic Representations for Inductive Spatial Concepts](../../ICML2025/robotics/sketch-plan-generalize_learning_and_planning_with_neuro-symbolic_programmatic_re.md)
 - [\[CVPR 2025\] Mitigating the Human-Robot Domain Discrepancy in Visual Pre-training for Robotic Manipulation](../../CVPR2025/robotics/mitigating_the_human-robot_domain_discrepancy_in_visual_pre-training_for_robotic.md)
+
+</div>
 
 <!-- RELATED:END -->

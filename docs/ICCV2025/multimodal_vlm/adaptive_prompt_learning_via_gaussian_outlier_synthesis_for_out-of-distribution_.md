@@ -198,6 +198,8 @@ $$\mathcal{L} = \xi_1[\gamma_1 \tau \mathcal{L}_{align}^{id} + \gamma_2(1-\tau)\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] FA: Forced Prompt Learning of Vision-Language Models for Out-of-Distribution Detection](fa_forced_prompt_learning_of_vision-language_models_for_out-of-distribution_dete.md)
@@ -205,5 +207,7 @@ $$\mathcal{L} = \xi_1[\gamma_1 \tau \mathcal{L}_{align}^{id} + \gamma_2(1-\tau)\
 - [\[ICCV 2025\] Exploiting Vision Language Model for Training-Free 3D Point Cloud OOD Detection](exploiting_vision_language_model_for_training-free_3d_point_cloud_ood_detection_.md)
 - [\[ICCV 2025\] CoA-VLA: Improving Vision-Language-Action Models via Visual-Textual Chain-of-Affordance](coavla_improving_visionlanguageaction_models_via_visualtext.md)
 - [\[ICCV 2025\] One Perturbation is Enough: On Generating Universal Adversarial Perturbations against Vision-Language Pre-training Models](one_perturbation_is_enough_on_generating_universal_adversarial_perturbations_aga.md)
+
+</div>
 
 <!-- RELATED:END -->

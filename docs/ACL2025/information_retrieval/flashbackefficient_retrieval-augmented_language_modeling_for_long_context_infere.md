@@ -118,6 +118,8 @@ FlashBack 的 PPL 接近 prepending 上限（差距 <0.5），但推理速度提
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Accelerating Adaptive Retrieval Augmented Generation via Instruction-Driven Representation Reduction of Retrieval Overlaps](accelerating_adaptive_retrieval_augmented_generation_via_instruction-driven_repr.md)
@@ -125,5 +127,7 @@ FlashBack 的 PPL 接近 prepending 上限（差距 <0.5），但推理速度提
 - [\[ICLR 2026\] RAEE: A Robust Retrieval-Augmented Early Exit Framework for Efficient Inference](../../ICLR2026/information_retrieval/raee_a_robust_retrieval-augmented_early_exit_framework_for_efficient_inference.md)
 - [\[ICML 2025\] RAPID: Long-Context Inference with Retrieval-Augmented Speculative Decoding](../../ICML2025/information_retrieval/rapid_long-context_inference_with_retrieval-augmented_speculative_decoding.md)
 - [\[ACL 2025\] VISA: Retrieval Augmented Generation with Visual Source Attribution](visa_retrieval_augmented_generation_with_visual_source_attribution.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -187,6 +187,8 @@ $$\mathcal{L}^{\text{emb\_reg}} = \frac{1}{k|\mathcal{S}|} \sum_{i \in \mathcal{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] SAGS: Structure-Aware 3D Gaussian Splatting](sags_structure-aware_3d_gaussian_splatting.md)
@@ -194,5 +196,7 @@ $$\mathcal{L}^{\text{emb\_reg}} = \frac{1}{k|\mathcal{S}|} \sum_{i \in \mathcal{
 - [\[ECCV 2024\] CoR-GS: Sparse-View 3D Gaussian Splatting via Co-Regularization](cor-gs_sparse-view_3d_gaussian_splatting_via_co-regularization.md)
 - [\[ECCV 2024\] MVSplat: Efficient 3D Gaussian Splatting from Sparse Multi-View Images](mvsplat_efficient_3d_gaussian_splatting_from_sparse_multi-view_images.md)
 - [\[ECCV 2024\] Pixel-GS: Density Control with Pixel-aware Gradient for 3D Gaussian Splatting](pixel-gs_density_control_with_pixel-aware_gradient_for_3d_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

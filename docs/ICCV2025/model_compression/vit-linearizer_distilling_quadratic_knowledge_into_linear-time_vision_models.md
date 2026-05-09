@@ -167,6 +167,8 @@ $$\mathcal{L}_{\text{mask}} = \frac{1}{aL}\sum_{i \in \Omega}\text{Smooth}\ell_1
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] EA-ViT: Efficient Adaptation for Elastic Vision Transformer](ea-vit_efficient_adaptation_for_elastic_vision_transformer.md)
@@ -174,5 +176,7 @@ $$\mathcal{L}_{\text{mask}} = \frac{1}{aL}\sum_{i \in \Omega}\text{Smooth}\ell_1
 - [\[CVPR 2026\] Distilling Balanced Knowledge from a Biased Teacher](../../CVPR2026/model_compression/distilling_balanced_knowledge_from_a_biased_teacher.md)
 - [\[NeurIPS 2025\] REOrdering Patches Improves Vision Models](../../NeurIPS2025/model_compression/reordering_patches_improves_vision_models.md)
 - [\[ACL 2025\] Towards the Law of Capacity Gap in Distilling Language Models](../../ACL2025/model_compression/law_of_capacity_gap_distilling_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

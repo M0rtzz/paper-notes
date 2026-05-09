@@ -136,6 +136,8 @@ BADF 作为偏见关联发现框架，包含三个核心阶段：(1) **关联提
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] SceneJailEval: A Scenario-Adaptive Multi-Dimensional Framework for Jailbreak Evaluation](scenejaileval_a_scenario-adaptive_multi-dimensional_framework_for_jailbreak_eval.md)
@@ -143,5 +145,7 @@ BADF 作为偏见关联发现框架，包含三个核心阶段：(1) **关联提
 - [\[AAAI 2026\] Argumentative Debates for Transparent Bias Detection](argumentative_debates_for_transparent_bias_detection_technic.md)
 - [\[NeurIPS 2025\] Active Slice Discovery in Large Language Models](../../NeurIPS2025/social_computing/active_slice_discovery_in_large_language_models.md)
 - [\[CVPR 2026\] Revisiting Unknowns: Towards Effective and Efficient Open-Set Active Learning](../../CVPR2026/social_computing/revisiting_unknowns_towards_effective_and_efficient_open-set_active_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

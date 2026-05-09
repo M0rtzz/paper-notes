@@ -150,6 +150,8 @@ $$\mathcal{M}(\mathcal{T}_i, \mathcal{T}_j) = \frac{1}{N} \sum_{n=1}^{N} [\alpha
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] MagicMirror: ID-Preserved Video Generation in Video Diffusion Transformers](magicmirror_id-preserved_video_generation_in_video_diffusion_transformers.md)
@@ -157,5 +159,7 @@ $$\mathcal{M}(\mathcal{T}_i, \mathcal{T}_j) = \frac{1}{N} \sum_{n=1}^{N} [\alpha
 - [\[CVPR 2025\] ConMo: Controllable Motion Disentanglement and Recomposition for Zero-Shot Motion Transfer](../../CVPR2025/video_generation/conmo_controllable_motion_disentanglement_and_recomposition_for_zero-shot_motion.md)
 - [\[ICCV 2025\] MotionShot: Adaptive Motion Transfer across Arbitrary Objects for Text-to-Video Generation](motionshot_adaptive_motion_transfer_across_arbitrary_objects_for_text-to-video_g.md)
 - [\[CVPR 2025\] Mimir: Improving Video Diffusion Models for Precise Text Understanding](../../CVPR2025/video_generation/mimir_improving_video_diffusion_models_for_precise_text_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

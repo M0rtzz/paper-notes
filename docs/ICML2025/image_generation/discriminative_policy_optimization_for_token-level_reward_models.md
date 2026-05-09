@@ -144,6 +144,8 @@ $$p(\tau^w \succeq \tau^l) = \sigma\left[\beta\left(\frac{1}{N}\sum_{t=0}^{N-1}Z
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] PPO-MI: Efficient Black-Box Model Inversion via Proximal Policy Optimization](ppo-mi_efficient_black-box_model_inversion_via_proximal_policy_optimization.md)
@@ -151,5 +153,7 @@ $$p(\tau^w \succeq \tau^l) = \sigma\left[\beta\left(\frac{1}{N}\sum_{t=0}^{N-1}Z
 - [\[ICML 2025\] ToMA: Token Merge with Attention for Diffusion Models](toma_token_merge_with_attention_for_diffusion_models.md)
 - [\[ICLR 2026\] PCPO: Proportionate Credit Policy Optimization for Aligning Image Generation Models](../../ICLR2026/image_generation/pcpo_proportionate_credit_policy_optimization_for_aligning_image_generation_mode.md)
 - [\[CVPR 2026\] Neighbor GRPO: Contrastive ODE Policy Optimization Aligns Flow Models](../../CVPR2026/image_generation/neighbor_grpo_contrastive_ode_policy_optimization_aligns_flow_models.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -115,6 +115,8 @@ $\mathcal{L} = a(\mathcal{L}_{SMPL} + \mathcal{L}_{orient}) + b \cdot \mathcal{L
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] AJAHR: Amputated Joint Aware 3D Human Mesh Recovery](ajahr_amputated_joint_aware_3d_human_mesh_recovery.md)
@@ -122,5 +124,7 @@ $\mathcal{L} = a(\mathcal{L}_{SMPL} + \mathcal{L}_{orient}) + b \cdot \mathcal{L
 - [\[ICCV 2025\] Bring Your Rear Cameras for Egocentric 3D Human Pose Estimation](bring_your_rear_cameras_for_egocentric_3d_human_pose_estimation.md)
 - [\[CVPR 2025\] MEGA: Masked Generative Autoencoder for Human Mesh Recovery](../../CVPR2025/human_understanding/mega_masked_generative_autoencoder_for_human_mesh_recovery.md)
 - [\[CVPR 2025\] HeatFormer: A Neural Optimizer for Multiview Human Mesh Recovery](../../CVPR2025/human_understanding/heatformer_a_neural_optimizer_for_multiview_human_mesh_recovery.md)
+
+</div>
 
 <!-- RELATED:END -->

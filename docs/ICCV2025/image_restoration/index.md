@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **30** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/image_restoration/) · [📷 CVPR2026 (47)](../../CVPR2026/image_restoration/) · [🔬 ICLR2026 (15)](../../ICLR2026/image_restoration/) · [🤖 AAAI2026 (13)](../../AAAI2026/image_restoration/) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/image_restoration/) · [🧪 ICML2025 (5)](../../ICML2025/image_restoration/)
+
+🔥 **高频主题：** 图像恢复 ×14 · 超分辨率 ×5 · 扩散模型 ×3
+
 **[Benchmarking Burst Super-Resolution for Polarization Images: Noise Dataset and Analysis](benchmarking_burst_super-resolution_for_polarization_images_noise_dataset_and_an.md)**
 
 :   本文针对偏振图像 burst 超分辨率的缺乏数据集和噪声模型的问题，构建了两个专用数据集 PolarNS（噪声统计）和 PolarBurstSR（超分基准），提出了偏振噪声传播分析模型，并系统比较了现有 burst SR 方法在偏振场景下的表现，为偏振图像重建领域建立了标准化评测基准。

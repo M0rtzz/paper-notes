@@ -139,6 +139,8 @@ $$F(W^k) \leq \left(1 - 4\eta \frac{\beta_0^2}{\beta^2} \delta_4 \alpha_0^2\righ
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Multi-head Transformers Provably Learn Symbolic Multi-step Reasoning via Gradient Descent](multi-head_transformers_provably_learn_symbolic_multi-step_reasoning_via_gradien.md)
@@ -146,5 +148,7 @@ $$F(W^k) \leq \left(1 - 4\eta \frac{\beta_0^2}{\beta^2} \delta_4 \alpha_0^2\righ
 - [\[NeurIPS 2025\] Gradient Descent as Loss Landscape Navigation: a Normative Framework for Deriving Learning Rules](gradient_descent_as_loss_landscape_navigation_a_normative_framework_for_deriving.md)
 - [\[NeurIPS 2025\] OrthoGrad Improves Neural Calibration](orthograd_improves_neural_calibration.md)
 - [\[NeurIPS 2025\] Large Stepsizes Accelerate Gradient Descent for Regularized Logistic Regression](large_stepsizes_accelerate_gradient_descent_for_regularized_logistic_regression.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -115,6 +115,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Structure-based RNA Design by Step-wise Optimization of Latent Diffusion Model](../../AAAI2026/image_generation/structure-based_rna_design_by_step-wise_optimization_of_latent_diffusion_model.md)
@@ -122,5 +124,7 @@ tags:
 - [\[ICML 2025\] ETTA: Elucidating the Design Space of Text-to-Audio Models](etta_elucidating_the_design_space_of_text-to-audio_models.md)
 - [\[ICML 2025\] Compositional Flows for 3D Molecule and Synthesis Pathway Co-design](compositional_flows_for_3d_molecule_and_synthesis_pathway_co-design.md)
 - [\[CVPR 2025\] From Elements to Design: A Layered Approach for Automatic Graphic Design Composition](../../CVPR2025/image_generation/from_elements_to_design_a_layered_approach_for_automatic_graphic_design_composit.md)
+
+</div>
 
 <!-- RELATED:END -->

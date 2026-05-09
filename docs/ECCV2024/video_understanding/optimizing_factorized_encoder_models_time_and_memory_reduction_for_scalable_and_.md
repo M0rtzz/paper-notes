@@ -120,6 +120,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Referring Atomic Video Action Recognition](referring_atomic_video_action_recognition.md)
@@ -127,5 +129,7 @@ tags:
 - [\[ECCV 2024\] Efficient Few-Shot Action Recognition via Multi-Level Post-Reasoning](efficient_few-shot_action_recognition_via_multi-level_post-reasoning.md)
 - [\[ECCV 2024\] Leveraging Temporal Contextualization for Video Action Recognition](leveraging_temporal_contextualization_for_video_action_recognition.md)
 - [\[ECCV 2024\] Vamos: Versatile Action Models for Video Understanding](vamos_versatile_action_models_for_video_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

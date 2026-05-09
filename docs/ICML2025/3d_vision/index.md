@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (252)](../../CVPR2026/3d_vision/) · [🔬 ICLR2026 (65)](../../ICLR2026/3d_vision/) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/) · [🧠 NeurIPS2025 (116)](../../NeurIPS2025/3d_vision/) · [📹 ICCV2025 (268)](../../ICCV2025/3d_vision/) · [💬 ACL2025 (1)](../../ACL2025/3d_vision/)
+
+🔥 **高频主题：** 3D 高斯渲染 ×3
+
 **[EvoMesh: Adaptive Physical Simulation with Hierarchical Graph Evolutions](evomesh_adaptive_physical_simulation_with_hierarchical_graph_evolutions.md)**
 
 :   EvoMesh 提出一种全可微的层次图演化框架，通过各向异性消息传递（AMP）和基于 Gumbel-Softmax 的可微节点选择（DiffSELECT），根据物理输入自适应构建随时间演化的多尺度图层次结构，在五个物理仿真基准上平均超越固定层次方法约 20%。

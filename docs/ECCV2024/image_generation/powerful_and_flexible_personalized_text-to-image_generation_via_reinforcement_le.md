@@ -148,6 +148,8 @@ $$\nabla_\theta \frac{1}{B}\sum_B(\lambda Q_\phi(x_t, \epsilon_\theta(x_t, t, \t
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] OMG: Occlusion-friendly Personalized Multi-concept Generation in Diffusion Models](omg_occlusion-friendly_personalized_multi-concept_generation_in_diffusion_models.md)
@@ -155,5 +157,7 @@ $$\nabla_\theta \frac{1}{B}\sum_B(\lambda Q_\phi(x_t, \epsilon_\theta(x_t, t, \t
 - [\[ECCV 2024\] LCM-Lookahead for Encoder-based Text-to-Image Personalization](lcm-lookahead_for_encoder-based_text-to-image_personalization.md)
 - [\[ECCV 2024\] M2D2M: Multi-Motion Generation from Text with Discrete Diffusion Models](m2d2m_multi-motion_generation_from_text_with_discrete_diffusion_models.md)
 - [\[ECCV 2024\] Local Action-Guided Motion Diffusion Model for Text-to-Motion Generation](local_action-guided_motion_diffusion_model_for_text-to-motion_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

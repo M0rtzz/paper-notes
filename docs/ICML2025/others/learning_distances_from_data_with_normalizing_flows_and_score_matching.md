@@ -107,6 +107,8 @@ $$\ddot{\varphi} - \beta(s(\varphi)\cdot\dot{\varphi})\dot{\varphi} + \beta s(\v
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Score Matching with Missing Data](score_matching_with_missing_data.md)
@@ -114,5 +116,7 @@ $$\ddot{\varphi} - \beta(s(\varphi)\cdot\dot{\varphi})\dot{\varphi} + \beta s(\v
 - [\[ICML 2025\] Diversity By Design: Leveraging Distribution Matching for Offline Model-Based Optimization](diversity_by_design_leveraging_distribution_matching_for_offline_model-based_opt.md)
 - [\[ICML 2025\] Fully Dynamic Euclidean Bi-Chromatic Matching in Sublinear Update Time](fully_dynamic_euclidean_bi-chromatic_matching_in_sublinear_update_time.md)
 - [\[ICML 2025\] Curvature Enhanced Data Augmentation for Regression](curvature_enhanced_data_augmentation_for_regression.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -152,6 +152,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Subnet-Aware Dynamic Supernet Training for Neural Architecture Search](../../CVPR2025/others/subnet-aware_dynamic_supernet_training_for_neural_architecture_search.md)
@@ -159,5 +161,7 @@ tags:
 - [\[ICCV 2025\] Joint Asymmetric Loss for Learning with Noisy Labels](joint_asymmetric_loss_for_learning_with_noisy_labels.md)
 - [\[ICLR 2026\] On the Lipschitz Continuity of Set Aggregation Functions and Neural Networks for Sets](../../ICLR2026/others/on_the_lipschitz_continuity_of_set_aggregation_functions_and_neural_networks_for.md)
 - [\[ACL 2025\] Neural Parameter Search for Slimmer Fine-Tuned Models and Better Transfer](../../ACL2025/others/neural_parameter_search_for_slimmer_fine-tuned_models_and_better_transfer.md)
+
+</div>
 
 <!-- RELATED:END -->

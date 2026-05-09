@@ -153,6 +153,8 @@ $$\mathcal{D}_{\text{gen}} = \mathcal{F}(\mathcal{D}) = \bigcup_{d_i \in \mathca
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Enhancing the Comprehensibility of Text Explanations via Unsupervised Concept Discovery](enhancing_the_comprehensibility_of_text_explanations_via_unsupervised_concept_di.md)
@@ -160,5 +162,7 @@ $$\mathcal{D}_{\text{gen}} = \mathcal{F}(\mathcal{D}) = \bigcup_{d_i \in \mathca
 - [\[ACL 2025\] Predicting Implicit Arguments in Procedural Video Instructions](implicit_arguments_video_instructions.md)
 - [\[ACL 2025\] Evaluating the Evaluation of Diversity in Commonsense Generation](evaluating_the_evaluation_of_diversity_in_commonsense_generation.md)
 - [\[ACL 2025\] Towards Text-Image Interleaved Retrieval](towards_text-image_interleaved_retrieval.md)
+
+</div>
 
 <!-- RELATED:END -->

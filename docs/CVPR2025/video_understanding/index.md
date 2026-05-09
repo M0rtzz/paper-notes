@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **77** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/video_understanding/) · [📷 CVPR2026 (92)](../../CVPR2026/video_understanding/) · [🔬 ICLR2026 (24)](../../ICLR2026/video_understanding/) · [🤖 AAAI2026 (33)](../../AAAI2026/video_understanding/) · [🧠 NeurIPS2025 (61)](../../NeurIPS2025/video_understanding/) · [📹 ICCV2025 (58)](../../ICCV2025/video_understanding/)
+
+🔥 **高频主题：** 目标跟踪 ×9 · LLM ×9 · 多模态 ×6 · 压缩/编码 ×4 · 推理 ×3
+
 **[BehaviorVLM: Unified Finetuning-Free Behavioral Understanding with Vision-Language Reasoning](behaviorvlm_unified_finetuning-free_behavioral_understanding_with_vision-languag.md)**
 
 :   提出 BehaviorVLM，一个统一的无需微调的视觉语言框架，通过多阶段结构化推理管线同时解决动物姿态估计和行为理解两大任务，仅需 3 帧人工标注即可实现可靠的关键点追踪，并通过深度嵌入聚类 + VLM 描述 + LLM 语义合并实现可解释的多动物行为分割。

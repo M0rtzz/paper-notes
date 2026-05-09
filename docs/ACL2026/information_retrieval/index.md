@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **43** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/) · [🤖 AAAI2026 (28)](../../AAAI2026/information_retrieval/) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/) · [📹 ICCV2025 (8)](../../ICCV2025/information_retrieval/) · [🧪 ICML2025 (5)](../../ICML2025/information_retrieval/)
+
+🔥 **高频主题：** RAG ×16 · LLM ×5 · 问答 ×4 · 对抗鲁棒 ×3 · 推理 ×3
+
 **[All Languages Matter: Understanding and Mitigating Language Bias in Multilingual RAG](all_languages_matter_understanding_and_mitigating_language_bias_in_multilingual_.md)**
 
 :   系统揭示多语言 RAG 系统在重排序阶段存在严重的语言偏差（偏好英语和查询语言），提出 LAURA 框架通过下游生成质量驱动的监督信号对齐重排序器，有效缓解偏差并提升生成性能。

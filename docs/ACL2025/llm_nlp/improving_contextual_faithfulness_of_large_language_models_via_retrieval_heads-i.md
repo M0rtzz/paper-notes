@@ -127,6 +127,8 @@ Rhio-7B相比SFT-7B提升12.84%忠实度，Rhio-13B超越GPT-4o达1.74%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Does Time Have Its Place? Temporal Heads Where Language Models Recall Time-specific Information](does_time_have_its_place_temporal_heads_where_language_models_recall_time-specif.md)
@@ -134,5 +136,7 @@ Rhio-7B相比SFT-7B提升12.84%忠实度，Rhio-13B超越GPT-4o达1.74%。
 - [\[ACL 2025\] RetroLLM: Empowering Large Language Models to Retrieve Fine-grained Evidence within Generation](retrollm_empowering_large_language_models_to_retrieve_fine-grained_evidence_with.md)
 - [\[ACL 2025\] Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models](salience_sparse_fine_tuning.md)
 - [\[ACL 2025\] Language Models Grow Less Humanlike beyond Phase Transition](language_models_grow_less_humanlike_beyond_phase_transition.md)
+
+</div>
 
 <!-- RELATED:END -->

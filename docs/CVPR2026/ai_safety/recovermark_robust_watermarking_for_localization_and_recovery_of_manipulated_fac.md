@@ -122,6 +122,8 @@ ID 数据集上人脸恢复质量对比（PSNR/MS-SSIM）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] ClusterMark: Towards Robust Watermarking for Autoregressive Image Generators with Visual Token Clustering](clustermark_towards_robust_watermarking_for_autoregressive_image_generators_with.md)
@@ -129,5 +131,7 @@ ID 数据集上人脸恢复质量对比（PSNR/MS-SSIM）：
 - [\[CVPR 2026\] AdvMark: Decoupling Defense Strategies for Robust Image Watermarking](decoupling_defense_strategies_for_robust_image_watermarking.md)
 - [\[ACL 2025\] Robust and Minimally Invasive Watermarking for EaaS](../../ACL2025/ai_safety/robust_and_minimally_invasive_watermarking_for_eaas.md)
 - [\[CVPR 2026\] TIACam: Text-Anchored Invariant Feature Learning with Auto-Augmentation for Camera-Robust Zero-Watermarking](tiacam_text-anchored_invariant_feature_learning_with_auto-augmentation_for_camer.md)
+
+</div>
 
 <!-- RELATED:END -->

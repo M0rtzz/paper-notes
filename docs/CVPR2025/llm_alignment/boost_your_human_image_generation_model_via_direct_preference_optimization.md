@@ -123,6 +123,8 @@ Win-rate: vs Diffusion-DPO **99.97%**, vs Pick-a-Pic v2 **86.03%**
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization](../../ICML2025/llm_alignment/adhmr_aligning_diffusion-based_human_mesh_recovery_via_direct_preference_optimiz.md)
@@ -130,5 +132,7 @@ Win-rate: vs Diffusion-DPO **99.97%**, vs Pick-a-Pic v2 **86.03%**
 - [\[NeurIPS 2025\] DP²O-SR: Direct Perceptual Preference Optimization for Real-World Image Super-Resolution](../../NeurIPS2025/llm_alignment/dp2o-sr_direct_perceptual_preference_optimization_for_real-world_image_super-res.md)
 - [\[CVPR 2025\] InPO: Inversion Preference Optimization with Reparametrized DDIM for Efficient Diffusion Model Alignment](inpo_inversion_preference_optimization_diffusion_alignment.md)
 - [\[CVPR 2025\] SymDPO: Boosting In-Context Learning of Large Multimodal Models with Symbol Demonstration Direct Preference Optimization](symdpo_boosting_in-context_learning_of_large_multimodal_models_with_symbol_demon.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -172,6 +172,8 @@ $$\ell = \mathbb{E}_{\Delta L'_k, L^I, C, \epsilon, k} \left[\|\epsilon - \epsil
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SA-LUT: Spatial Adaptive 4D Look-Up Table for Photorealistic Style Transfer](sa-lut_spatial_adaptive_4d_look-up_table_for_photorealistic_style_transfer.md)
@@ -179,5 +181,7 @@ $$\ell = \mathbb{E}_{\Delta L'_k, L^I, C, \epsilon, k} \left[\|\epsilon - \epsil
 - [\[ICCV 2025\] AnyPortal: Zero-Shot Consistent Video Background Replacement](anyportal_zero-shot_consistent_video_background_replacement.md)
 - [\[ICCV 2025\] Bitrate-Controlled Diffusion for Disentangling Motion and Content in Video](bitrate-controlled_diffusion_for_disentangling_motion_and_content_in_video.md)
 - [\[CVPR 2025\] GCC: Generative Color Constancy via Diffusing a Color Checker](../../CVPR2025/image_generation/gcc_generative_color_constancy_via_diffusing_a_color_checker.md)
+
+</div>
 
 <!-- RELATED:END -->

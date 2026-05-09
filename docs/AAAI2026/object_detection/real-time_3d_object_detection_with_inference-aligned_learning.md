@@ -194,6 +194,8 @@ RAS 显著优于 QFL (+1.3 AP25) 和 VFL (+1.5 AP25)。作者分析原因：3D �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] YOLO-IOD: Towards Real Time Incremental Object Detection](yolo-iod_towards_real_time_incremental_object_detection.md)
@@ -201,5 +203,7 @@ RAS 显著优于 QFL (+1.3 AP25) 和 VFL (+1.5 AP25)。作者分析原因：3D �
 - [\[AAAI 2026\] SAGA: Learning Signal-Aligned Distributions for Improved Text-to-Image Generation](saga_learning_signal-aligned_distributions_for_improved_text-to-image_generation.md)
 - [\[ICCV 2025\] YOLOE: Real-Time Seeing Anything](../../ICCV2025/object_detection/yoloe_realtime_seeing_anything.md)
 - [\[AAAI 2026\] MonoCLUE: Object-Aware Clustering Enhances Monocular 3D Object Detection](monoclue_object-aware_clustering_enhances_monocular_3d_object_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -119,6 +119,8 @@ UCAN-L 在 Manga109 ×4 上以 48.4G MACs 达 31.63 dB，超越 MambaIRV2 0.39 d
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] SAT: Selective Aggregation Transformer for Image Super-Resolution](sat_selective_aggregation_transformer_for_image_super_resolution.md)
@@ -126,5 +128,7 @@ UCAN-L 在 Manga109 ×4 上以 48.4G MACs 达 31.63 dB，超越 MambaIRV2 0.39 d
 - [\[CVPR 2026\] Flickerformer: A Duet of Periodicity and Directionality for Burst Flicker Removal](it_takes_two_a_duet_of_periodicity_and_directionality_for_burst_flicker_removal.md)
 - [\[CVPR 2026\] Toward Real-world Infrared Image Super-Resolution: A Unified Autoregressive Framework and Benchmark Dataset](toward_real-world_infrared_image_super-resolution_a_unified_autoregressive_frame.md)
 - [\[CVPR 2026\] Disentangled Textual Priors for Diffusion-based Image Super-Resolution](disentangled_textual_priors_for_diffusion-based_image_super-resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

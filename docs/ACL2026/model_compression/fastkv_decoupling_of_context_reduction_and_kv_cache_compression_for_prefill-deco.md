@@ -125,6 +125,8 @@ FastKV 为无训练方法，仅需在推理时应用。主要在 LLaMA-3.1-8B-In
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] HeteroCache: A Dynamic Retrieval Approach to Heterogeneous KV Cache Compression for Long-Context LLM Inference](heterocache_a_dynamic_retrieval_approach_to_heterogeneous_kv_cache_compression_f.md)
@@ -132,5 +134,7 @@ FastKV 为无训练方法，仅需在推理时应用。主要在 LLaMA-3.1-8B-In
 - [\[NeurIPS 2025\] KVzip: Query-Agnostic KV Cache Compression with Context Reconstruction](../../NeurIPS2025/model_compression/kvzip_query-agnostic_kv_cache_compression_with_context_reconstruction.md)
 - [\[ICML 2025\] RocketKV: Accelerating Long-Context LLM Inference via Two-Stage KV Cache Compression](../../ICML2025/model_compression/rocketkv_accelerating_long-context_llm_inference_via_two-stage_kv_cache_compress.md)
 - [\[ACL 2025\] TaDA: Training-free recipe for Decoding with Adaptive KV Cache Compression and Mean-centering](../../ACL2025/model_compression/tada_training-free_recipe_for_decoding_with_adaptive_kv_cache_compression_and_me.md)
+
+</div>
 
 <!-- RELATED:END -->

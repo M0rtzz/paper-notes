@@ -189,6 +189,8 @@ VLM 使用 Qwen2.5-VL-72B-Instruct（推理模式，不微调）。MAB 奖励函
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] GauDP: Reinventing Multi-Agent Collaboration through Gaussian-Image Synergy in Diffusion Policies](gaudp_reinventing_multi-agent_collaboration_through_gaussian-image_synergy_in_di.md)
@@ -196,5 +198,7 @@ VLM 使用 Qwen2.5-VL-72B-Instruct（推理模式，不微调）。MAB 奖励函
 - [\[CVPR 2025\] MNE-SLAM: Multi-Agent Neural SLAM for Mobile Robots](../../CVPR2025/3d_vision/mne-slam_multi-agent_neural_slam_for_mobile_robots.md)
 - [\[CVPR 2025\] MAGiC-SLAM: Multi-Agent Gaussian Globally Consistent SLAM](../../CVPR2025/3d_vision/magic-slam_multi-agent_gaussian_globally_consistent_slam.md)
 - [\[CVPR 2025\] MAC-Ego3D: Multi-Agent Gaussian Consensus for Real-Time Collaborative Ego-Motion and Photorealistic 3D Reconstruction](../../CVPR2025/3d_vision/mac-ego3d_multi-agent_gaussian_consensus_for_real-time_collaborative_ego-motion_.md)
+
+</div>
 
 <!-- RELATED:END -->

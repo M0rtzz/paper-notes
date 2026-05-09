@@ -143,6 +143,8 @@ DCE 采用双阶段训练范式。每到达一个新域时：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Dual Consolidation for Pre-Trained Model-Based Domain-Incremental Learning](../../CVPR2025/llm_evaluation/dual_consolidation_for_pre-trained_model-based_domain-incremental_learning.md)
@@ -150,5 +152,7 @@ DCE 采用双阶段训练范式。每到达一个新域时：
 - [\[ICML 2025\] Random Registers for Cross-Domain Few-Shot Learning](random_registers_for_cross-domain_few-shot_learning.md)
 - [\[ICML 2025\] CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering](costfilter-ad_enhancing_anomaly_detection_through_matching_cost_filtering.md)
 - [\[ICML 2025\] FEDTAIL: Federated Long-Tailed Domain Generalization with Sharpness-Guided Gradient Matching](fedtail_federated_long-tailed_domain_generalization_with_sharpness-guided_gradie.md)
+
+</div>
 
 <!-- RELATED:END -->

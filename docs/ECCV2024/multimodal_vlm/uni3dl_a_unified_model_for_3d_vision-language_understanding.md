@@ -189,6 +189,8 @@ Uni3DL 在 6 大任务上的表现（Table 3）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Large Motion Model for Unified Multi-Modal Motion Generation](large_motion_model_for_unified_multi-modal_motion_generation.md)
@@ -196,5 +198,7 @@ Uni3DL 在 6 大任务上的表现（Table 3）：
 - [\[ECCV 2024\] UMBRAE: Unified Multimodal Brain Decoding](umbrae_unified_multimodal_brain_decoding.md)
 - [\[ICLR 2026\] UniHM: Unified Dexterous Hand Manipulation with Vision Language Model](../../ICLR2026/multimodal_vlm/unihm_unified_dexterous_hand_manipulation_with_vision_language_model.md)
 - [\[NeurIPS 2025\] UniTok: A Unified Tokenizer for Visual Generation and Understanding](../../NeurIPS2025/multimodal_vlm/unitok_a_unified_tokenizer_for_visual_generation_and_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

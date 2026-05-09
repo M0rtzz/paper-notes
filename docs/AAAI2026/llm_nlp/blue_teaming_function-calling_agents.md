@@ -121,6 +121,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Scalable and Accurate Graph Reasoning with LLM-Based Multi-Agents](scalable_and_accurate_graph_reasoning_with_llm-based_multi-agents.md)
@@ -128,5 +130,7 @@ tags:
 - [\[AAAI 2026\] Scaling Equitable Reflection Assessment in Education via Large Language Models and Role-Based Feedback Agents](scaling_equitable_reflection_assessment_in_education_via_large_language_models_a.md)
 - [\[ICLR 2026\] Meta-RL Induces Exploration in Language Agents](../../ICLR2026/llm_nlp/meta-rl_induces_exploration_in_language_agents.md)
 - [\[ICML 2025\] Build Agent Advocates, Not Platform Agents](../../ICML2025/llm_nlp/build_agent_advocates_not_platform_agents.md)
+
+</div>
 
 <!-- RELATED:END -->

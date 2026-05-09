@@ -147,6 +147,8 @@ Sharpness（Hessian 最大特征值）在 EoS 阶段振荡在 $2/\eta$ 附近，
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Benefits of Early Stopping in Gradient Descent for Overparameterized Logistic Regression](../../ICML2025/optimization/benefits_of_early_stopping_in_gradient_descent_for_overparameterized_logistic_re.md)
@@ -154,5 +156,7 @@ Sharpness（Hessian 最大特征值）在 EoS 阶段振荡在 $2/\eta$ 附近，
 - [\[NeurIPS 2025\] Optimal Rates for Generalization of Gradient Descent for Deep ReLU Classification](optimal_rates_for_generalization_of_gradient_descent_for_deep_relu_classificatio.md)
 - [\[NeurIPS 2025\] Natural Gradient Descent for Improving Variational Inference Based Classification of Radio Galaxies](natural_gradient_descent_for_improving_variational_inference_based_classificatio.md)
 - [\[NeurIPS 2025\] Do Neural Networks Need Gradient Descent to Generalize? A Theoretical Study](do_neural_networks_need_gradient_descent_to_generalize_a_theoretical_study.md)
+
+</div>
 
 <!-- RELATED:END -->

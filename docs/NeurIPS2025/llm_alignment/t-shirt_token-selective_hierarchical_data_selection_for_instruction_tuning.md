@@ -175,6 +175,8 @@ $$\hat{\sigma}^2(x,y) = \frac{1}{M}\sum_{i=1}^M (\text{S-IFD}_k(\ldots) - \hat{\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Importance-Aware Data Selection for Efficient LLM Instruction Tuning](../../AAAI2026/llm_alignment/importance-aware_data_selection_for_efficient_llm_instruction_tuning.md)
@@ -182,5 +184,7 @@ $$\hat{\sigma}^2(x,y) = \frac{1}{M}\sum_{i=1}^M (\text{S-IFD}_k(\ldots) - \hat{\
 - [\[NeurIPS 2025\] Improving Data Efficiency for LLM Reinforcement Fine-tuning Through Difficulty-targeted Online Data Selection and Rollout Replay](improving_data_efficiency_for_llm_reinforcement_fine-tuning_through_difficulty-t.md)
 - [\[ACL 2025\] Call for Rigor in Reporting Quality of Instruction Tuning Data](../../ACL2025/llm_alignment/call_for_rigor_in_reporting_quality_of_instruction_tuning_data.md)
 - [\[ACL 2025\] Federated Data-Efficient Instruction Tuning for Large Language Models](../../ACL2025/llm_alignment/federated_data-efficient_instruction_tuning_for_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

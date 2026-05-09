@@ -138,6 +138,8 @@ AGD20K 和 HICO-IIF 数据集上的性能对比：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Weakly-Supervised Learning of Dense Functional Correspondences](weakly-supervised_learning_of_dense_functional_correspondences.md)
@@ -145,5 +147,7 @@ AGD20K 和 HICO-IIF 数据集上的性能对比：
 - [\[ICCV 2025\] COSMO: Combination of Selective Memorization for Low-cost Vision-and-Language Navigation](cosmo_combination_of_selective_memorization_for_low-cost_vision-and-language_nav.md)
 - [\[CVPR 2025\] PanoAffordanceNet: Towards Holistic Affordance Grounding in 360° Indoor Environments](../../CVPR2025/robotics/panoaffordancenet_towards_holistic_affordance_grounding_in_360_indoor_environmen.md)
 - [\[ICCV 2025\] Rep-MTL: Unleashing the Power of Representation-Level Task Saliency for Multi-Task Learning](rep-mtl_unleashing_the_power_of_representation-level_task_saliency_for_multi-tas.md)
+
+</div>
 
 <!-- RELATED:END -->

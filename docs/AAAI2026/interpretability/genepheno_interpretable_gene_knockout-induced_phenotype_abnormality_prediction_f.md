@@ -139,6 +139,8 @@ GenePheno 接受两种输入：(1) 基因序列嵌入 $\mathbf{e}_i$（由 GENER
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Interpretable Next-token Prediction via the Generalized Induction Head](../../NeurIPS2025/interpretability/interpretable_next-token_prediction_via_the_generalized_induction_head.md)
@@ -146,5 +148,7 @@ GenePheno 接受两种输入：(1) 基因序列嵌入 $\mathbf{e}_i$（由 GENER
 - [\[ICML 2025\] Conformal Prediction as Bayesian Quadrature](../../ICML2025/interpretability/conformal_prediction_as_bayesian_quadrature.md)
 - [\[ACL 2026\] IDEA: An Interpretable and Editable Decision-Making Framework for LLMs via Verbal-to-Numeric Calibration](../../ACL2026/interpretability/idea_an_interpretable_and_editable_decision-making_framework_for_llms_via_verbal.md)
 - [\[ACL 2026\] Understanding New-Knowledge-Induced Factual Hallucinations in LLMs: Analysis and Interpretation](../../ACL2026/interpretability/understanding_new-knowledge-induced_factual_hallucinations_in_llms_analysis_and_.md)
+
+</div>
 
 <!-- RELATED:END -->

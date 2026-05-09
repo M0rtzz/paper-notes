@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **140** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (50)](../../ACL2026/multimodal_vlm/) · [📷 CVPR2026 (288)](../../CVPR2026/multimodal_vlm/) · [🔬 ICLR2026 (93)](../../ICLR2026/multimodal_vlm/) · [🤖 AAAI2026 (92)](../../AAAI2026/multimodal_vlm/) · [🧠 NeurIPS2025 (155)](../../NeurIPS2025/multimodal_vlm/) · [📹 ICCV2025 (159)](../../ICCV2025/multimodal_vlm/)
+
+🔥 **高频主题：** 多模态 ×115 · LLM ×19 · 推理 ×19 · 对抗鲁棒 ×6 · 对齐/RLHF ×5
+
 **[A Parameter-Efficient and Fine-Grained Prompt Learning for Vision-Language Models](a_parameter-efficient_and_fine-grained_prompt_learning_for_vision-language_model.md)**
 
 :   本文提出 DoPL（Detail-oriented Prompt Learning）方法，通过低熵信息集中理论发现文本-视觉兴趣共享 token，并以此构建对齐权重增强文本和视觉提示，仅用 0.25M（0.12%）可训练参数即实现细粒度多模态语义对齐，在六个基准上超越全参数微调方法。

@@ -153,6 +153,8 @@ ICL-Router 平均 76.30，超越最佳单模型 3.11 分，超越 EmbedLLM 2.14 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] IROTE: Human-like Traits Elicitation of Large Language Model via In-Context Self-Reflective Optimization](irote_human-like_traits_elicitation_of_large_language_model_via_in-context_self-.md)
@@ -160,5 +162,7 @@ ICL-Router 平均 76.30，超越最佳单模型 3.11 分，超越 EmbedLLM 2.14 
 - [\[ICLR 2026\] Near-Optimal Online Deployment and Routing for Streaming LLMs](../../ICLR2026/llm_nlp/near-optimal_online_deployment_and_routing_for_streaming_llms.md)
 - [\[ACL 2025\] On the Mutual Influence of Gender and Occupation in LLM Representations](../../ACL2025/llm_nlp/on_the_mutual_influence_of_gender_and_occupation_in_llm_representations.md)
 - [\[ACL 2025\] Cross-model Transferability among Large Language Models on the Platonic Representations of Concepts](../../ACL2025/llm_nlp/cross_model_transferability_sv.md)
+
+</div>
 
 <!-- RELATED:END -->

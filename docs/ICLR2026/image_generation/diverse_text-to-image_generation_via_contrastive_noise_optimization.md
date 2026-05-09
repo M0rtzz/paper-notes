@@ -147,6 +147,8 @@ $$\mathcal{L}_{\text{CNO}} = -\frac{1}{B}\sum_{i=1}^{B}\log\frac{\exp(\text{sim}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Learning to Sample Effective and Diverse Prompts for Text-to-Image Generation](../../CVPR2025/image_generation/learning_to_sample_effective_and_diverse_prompts_for_text-to-image_generation.md)
@@ -154,5 +156,7 @@ $$\mathcal{L}_{\text{CNO}} = -\frac{1}{B}\sum_{i=1}^{B}\log\frac{\exp(\text{sim}
 - [\[CVPR 2026\] Neighbor GRPO: Contrastive ODE Policy Optimization Aligns Flow Models](../../CVPR2026/image_generation/neighbor_grpo_contrastive_ode_policy_optimization_aligns_flow_models.md)
 - [\[ICCV 2025\] Straighten Viscous Rectified Flow via Noise Optimization](../../ICCV2025/image_generation/straighten_viscous_rectified_flow_via_noise_optimization.md)
 - [\[ICLR 2026\] Improved Object-Centric Diffusion Learning with Registers and Contrastive Alignment (CODA)](improved_object-centric_diffusion_learning_with_registers_and_contrastive_alignm.md)
+
+</div>
 
 <!-- RELATED:END -->

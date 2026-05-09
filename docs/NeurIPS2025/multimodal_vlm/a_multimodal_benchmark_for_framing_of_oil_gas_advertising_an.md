@@ -130,6 +130,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] A3: Towards Advertising Aesthetic Assessment](../../CVPR2026/multimodal_vlm/a3_towards_advertising_aesthetic_assessment.md)
@@ -137,5 +139,7 @@ tags:
 - [\[NeurIPS 2025\] MoniTor: Exploiting Large Language Models with Instruction for Online Video Anomaly Detection](monitor_exploiting_large_language_models_with_instruction_for_online_video_anoma.md)
 - [\[ICML 2025\] LEMoN: Label Error Detection using Multimodal Neighbors](../../ICML2025/multimodal_vlm/lemon_label_error_detection_using_multimodal_neighbors.md)
 - [\[NeurIPS 2025\] Are Vision Language Models Ready for Clinical Diagnosis? A 3D Medical Benchmark for Tumor-centric Visual Question Answering](are_vision_language_models_ready_for_clinical_diagnosis_a_3d_medical_benchmark_f.md)
+
+</div>
 
 <!-- RELATED:END -->

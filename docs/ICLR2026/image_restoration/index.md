@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **15** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/image_restoration/) · [📷 CVPR2026 (47)](../../CVPR2026/image_restoration/) · [🤖 AAAI2026 (13)](../../AAAI2026/image_restoration/) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/image_restoration/) · [📹 ICCV2025 (30)](../../ICCV2025/image_restoration/) · [🧪 ICML2025 (5)](../../ICML2025/image_restoration/)
+
+🔥 **高频主题：** 扩散模型 ×7 · 语音 ×2
+
 **[Activation Steering for Masked Diffusion Language Models](activation_steering_for_masked_diffusion_language_models.md)**
 
 :   首次将激活引导（activation steering）应用于 Masked Diffusion 语言模型（MDLM），发现 MDLM 的拒绝行为也受单一低维方向控制，通过在去噪过程中全局投影可完全绕过安全对齐，且与自回归模型不同，有效方向可从指令前的 token 中提取——反映了扩散模型的非因果并行处理特性。

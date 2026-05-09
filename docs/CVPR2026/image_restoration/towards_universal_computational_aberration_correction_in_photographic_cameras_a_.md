@@ -123,6 +123,8 @@ $$O.P. = 4 \times \frac{PSNR}{50} + 3 \times \frac{SSIM-0.5}{0.5} + 4 \times \fr
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] UniCAC: Towards Universal Computational Aberration Correction in Photographic Cameras](unicac_universal_computational_aberration_correction.md)
@@ -130,5 +132,7 @@ $$O.P. = 4 \times \frac{PSNR}{50} + 3 \times \frac{SSIM-0.5}{0.5} + 4 \times \fr
 - [\[CVPR 2026\] Toward Real-world Infrared Image Super-Resolution: A Unified Autoregressive Framework and Benchmark Dataset](toward_real-world_infrared_image_super-resolution_a_unified_autoregressive_frame.md)
 - [\[CVPR 2026\] DRFusion: Degradation-Robust Fusion via Degradation-Aware Diffusion Framework](drfusion_degradation_robust_fusion_via_degradation_aware_diffusion_framework.md)
 - [\[CVPR 2026\] BluRef: Unsupervised Image Deblurring with Dense-Matching References](bluref_unsupervised_image_deblurring_with_dense-matching_references.md)
+
+</div>
 
 <!-- RELATED:END -->

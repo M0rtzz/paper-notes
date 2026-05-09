@@ -160,6 +160,8 @@ $$\mathcal{L} = \mathcal{L}_{KD}\left(\hat{\mathcal{M}}_m \oplus \left(\bigoplus
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] PYRA: Parallel Yielding Re-Activation for Training-Inference Efficient Task Adaptation](pyra_parallel_yielding_re-activation_for_training-inference_efficient_task_adapt.md)
@@ -167,5 +169,7 @@ $$\mathcal{L} = \mathcal{L}_{KD}\left(\hat{\mathcal{M}}_m \oplus \left(\bigoplus
 - [\[ECCV 2024\] Isomorphic Pruning for Vision Models](isomorphic_pruning_for_vision_models.md)
 - [\[ECCV 2024\] Uncertainty-Driven Spectral Compressive Imaging with Spatial-Frequency Transformer](uncertainty-driven_spectral_compressive_imaging_with_spatial-frequency_transform.md)
 - [\[ICCV 2025\] EA-ViT: Efficient Adaptation for Elastic Vision Transformer](../../ICCV2025/model_compression/ea-vit_efficient_adaptation_for_elastic_vision_transformer.md)
+
+</div>
 
 <!-- RELATED:END -->

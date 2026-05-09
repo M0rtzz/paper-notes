@@ -130,6 +130,8 @@ InfoGrowth 本身不改变下游模型的训练损失。BLIP 使用对比损失 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] MMAT-1M: A Large Reasoning Dataset for Multimodal Agent Tuning](../../ICCV2025/multimodal_vlm/mmat1m_a_large_reasoning_dataset_for_multimodal_agent_tuning.md)
@@ -137,5 +139,7 @@ InfoGrowth 本身不改变下游模型的训练损失。BLIP 使用对比损失 
 - [\[ICCV 2025\] ToolVQA: A Dataset for Multi-step Reasoning VQA with External Tools](../../ICCV2025/multimodal_vlm/toolvqa_a_dataset_for_multistep_reasoning_vqa_with_external.md)
 - [\[ACL 2025\] ViGiL3D: A Linguistically Diverse Dataset for 3D Visual Grounding](../../ACL2025/multimodal_vlm/vigil3d_a_linguistically_diverse_dataset_for_3d_visual_grounding.md)
 - [\[ACL 2025\] iNews: A Multimodal Dataset for Modeling Personalized Affective Responses to News](../../ACL2025/multimodal_vlm/inews_a_multimodal_dataset_for_modeling_personalized_affective_responses_to_news.md)
+
+</div>
 
 <!-- RELATED:END -->

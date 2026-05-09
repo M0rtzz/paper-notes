@@ -118,6 +118,8 @@ AutoMixer 通过两步过程优化预训练数据：(1) **数据重新分组（D
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] FACE: Faithful Automatic Concept Extraction](../../NeurIPS2025/others/face_faithful_automatic_concept_extraction.md)
@@ -125,5 +127,7 @@ AutoMixer 通过两步过程优化预训练数据：(1) **数据重新分组（D
 - [\[ICML 2025\] Efficient Network Automatic Relevance Determination](../../ICML2025/others/efficient_network_automatic_relevance_determination.md)
 - [\[ACL 2025\] VAQUUM: Are Vague Quantifiers Grounded in Visual Data?](vaquum_are_vague_quantifiers_grounded_in_visual_data.md)
 - [\[ACL 2025\] FastMCTS: A Simple Sampling Strategy for Data Synthesis](fastmcts_a_simple_sampling_strategy_for_data_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

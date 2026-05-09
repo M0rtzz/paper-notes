@@ -132,6 +132,8 @@ $$\ddot{x} + \delta\dot{x} + \alpha x + \beta x^3 = F_0 \cos(\omega t)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] One-Shot Transfer Learning for Nonlinear PDEs with Perturbative PINNs](../../NeurIPS2025/scientific_computing/oneshot_transfer_learning_nonlinear_pdes_perturbative_pinns.md)
@@ -139,5 +141,7 @@ $$\ddot{x} + \delta\dot{x} + \alpha x + \beta x^3 = F_0 \cos(\omega t)$$
 - [\[NeurIPS 2025\] A Regularized Newton Method for Nonconvex Optimization with Global and Local Complexity Guarantees](../../NeurIPS2025/scientific_computing/a_regularized_newton_method_for_nonconvex_optimization_with.md)
 - [\[AAAI 2026\] PIMRL: Physics-Informed Multi-Scale Recurrent Learning for Burst-Sampled Spatiotemporal Dynamics](../../AAAI2026/scientific_computing/pimrl_physics-informed_multi-scale_recurrent_learning_for_burst-sampled_spatiote.md)
 - [\[NeurIPS 2025\] Towards Universal Neural Operators through Multiphysics Pretraining](../../NeurIPS2025/scientific_computing/towards_universal_neural_operators_through_multiphysics_pretraining.md)
+
+</div>
 
 <!-- RELATED:END -->

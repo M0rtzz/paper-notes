@@ -149,6 +149,8 @@ Critic-V包含三个核心阶段：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] LLaVA-Critic: Learning to Evaluate Multimodal Models](llava-critic_learning_to_evaluate_multimodal_models.md)
@@ -156,5 +158,7 @@ Critic-V包含三个核心阶段：
 - [\[CVPR 2025\] DocVLM: Make Your VLM an Efficient Reader](docvlm_make_your_vlm_an_efficient_reader.md)
 - [\[NeurIPS 2025\] Visual Structures Help Visual Reasoning: Addressing the Binding Problem in LVLMs](../../NeurIPS2025/multimodal_vlm/visual_structures_helps_visual_reasoning_addressing_the_binding_problem_in_vlms.md)
 - [\[NeurIPS 2025\] VAGEN: Reinforcing World Model Reasoning for Multi-Turn VLM Agents](../../NeurIPS2025/multimodal_vlm/vagen_reinforcing_world_model_reasoning_for_multi-turn_vlm_agents.md)
+
+</div>
 
 <!-- RELATED:END -->

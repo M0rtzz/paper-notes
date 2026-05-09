@@ -180,6 +180,8 @@ RGB 提升 0.5dB，热成像提升 0.4dB，且仅使用 ThermalGaussian **三分
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] OMGM: Orchestrate Multiple Granularities and Modalities for Efficient Multimodal Retrieval](../../ACL2025/multimodal_vlm/omgm_orchestrate_multiple_granularities_and_modalities_for_efficient_multimodal_.md)
@@ -187,5 +189,7 @@ RGB 提升 0.5dB，热成像提升 0.4dB，且仅使用 ThermalGaussian **三分
 - [\[ICCV 2025\] ONLY: One-Layer Intervention Sufficiently Mitigates Hallucinations in Large Vision-Language Models](only_onelayer_intervention_sufficiently_mitigates_hallucinat.md)
 - [\[ICCV 2025\] One Perturbation is Enough: On Generating Universal Adversarial Perturbations against Vision-Language Pre-training Models](one_perturbation_is_enough_on_generating_universal_adversarial_perturbations_aga.md)
 - [\[ICCV 2025\] Synergistic Prompting for Robust Visual Recognition with Missing Modalities](synergistic_prompting_for_robust_visual_recognition_with_missing_modalities.md)
+
+</div>
 
 <!-- RELATED:END -->

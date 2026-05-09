@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **20** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (2)](../../CVPR2026/code_intelligence/) · [🔬 ICLR2026 (23)](../../ICLR2026/code_intelligence/) · [🤖 AAAI2026 (10)](../../AAAI2026/code_intelligence/) · [🧠 NeurIPS2025 (22)](../../NeurIPS2025/code_intelligence/) · [📹 ICCV2025 (1)](../../ICCV2025/code_intelligence/) · [🧪 ICML2025 (11)](../../ICML2025/code_intelligence/)
+
+🔥 **高频主题：** 代码智能 ×9 · LLM ×3 · 推理 ×2
+
 **[Across Programming Language Silos: A Study on Cross-Lingual Retrieval-Augmented Code Generation](across_programming_language_silos_a_study_on_cross-lingual_retrieval-augmented_c.md)**
 
 :   首次系统研究跨编程语言的检索增强代码生成（RACG），构建覆盖13种编程语言的14K实例数据集，揭示跨语言知识迁移的不对等性及其与语言亲缘性和预训练多样性的关系。

@@ -154,6 +154,8 @@ PENCIL在所有规模上均达100%准确率，trace rate也维持100%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Let Me Think! A Long Chain-of-Thought Can Be Worth Exponentially Many Short Ones](../../NeurIPS2025/llm_reasoning/let_me_think_a_long_chainofthought_can_be_worth_exponentiall.md)
@@ -161,5 +163,7 @@ PENCIL在所有规模上均达100%准确率，trace rate也维持100%。
 - [\[ACL 2025\] DRT: Deep Reasoning Translation via Long Chain-of-Thought](../../ACL2025/llm_reasoning/drt_deep_reasoning_translation_via_long_chain-of-thought.md)
 - [\[NeurIPS 2025\] Atom of Thoughts for Markov LLM Test-Time Scaling](../../NeurIPS2025/llm_reasoning/atom_of_thoughts_for_markov_llm_testtime_scaling.md)
 - [\[ACL 2025\] Critic-CoT: Boosting the Reasoning Abilities of Large Language Model via Chain-of-Thoughts Critic](../../ACL2025/llm_reasoning/critic-cot_boosting_the_reasoning_abilities_of_large_language_model_via_chain-of.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -143,6 +143,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] OmniStyle: Filtering High Quality Style Transfer Data at Scale](../../CVPR2025/image_generation/omnistyle_filtering_high_quality_style_transfer_data_at_scale.md)
@@ -150,5 +152,7 @@ tags:
 - [\[NeurIPS 2025\] Hephaestus: Mixture Generative Modeling with Energy Guidance for Large-scale QoS Degradation](hephaestus_mixture_generative_modeling_with_energy_guidance_for_large-scale_qos_.md)
 - [\[ICCV 2025\] Enhancing Reward Models for High-quality Image Generation: Beyond Text-Image Alignment](../../ICCV2025/image_generation/enhancing_reward_models_for_high-quality_image_generation_beyond_text-image_alig.md)
 - [\[NeurIPS 2025\] RepLDM: Reprogramming Pretrained Latent Diffusion Models for High-Quality, High-Efficiency, High-Resolution Image Generation](repldm_reprogramming_pretrained_latent_diffusion_models_for_high-quality_high-ef.md)
+
+</div>
 
 <!-- RELATED:END -->

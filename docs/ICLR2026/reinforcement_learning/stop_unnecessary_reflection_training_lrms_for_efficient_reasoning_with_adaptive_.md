@@ -145,6 +145,8 @@ $$r(o_i^k) = \mathcal{C}(o_i^k) \cdot \left(1 - \alpha_1 f(\text{RTC}(o_i^k)) - 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning](rea-rl_reflection-aware_online_reinforcement_learning_for_efficient_reasoning.md)
@@ -152,5 +154,7 @@ $$r(o_i^k) = \mathcal{C}(o_i^k) \cdot \left(1 - \alpha_1 f(\text{RTC}(o_i^k)) - 
 - [\[ICLR 2026\] Learning from Synthetic Data Improves Multi-hop Reasoning](learning_from_synthetic_data_improves_multi-hop_reasoning.md)
 - [\[ICLR 2026\] Controllable Exploration in Hybrid-Policy RLVR for Multi-Modal Reasoning](controllable_exploration_in_hybrid-policy_rlvr_for_multi-modal_reasoning.md)
 - [\[ICLR 2026\] $\textbf{Re}^{2}$: Unlocking LLM Reasoning via Reinforcement Learning with Re-solving](textbfre2_unlocking_llm_reasoning_via_reinforcement_learning_with_re-solving.md)
+
+</div>
 
 <!-- RELATED:END -->

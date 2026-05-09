@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **36** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/ai_safety/) · [📷 CVPR2026 (24)](../../CVPR2026/ai_safety/) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/) · [🤖 AAAI2026 (44)](../../AAAI2026/ai_safety/) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/) · [📹 ICCV2025 (22)](../../ICCV2025/ai_safety/)
+
+🔥 **高频主题：** 对抗鲁棒 ×9 · 联邦学习 ×7 · 强化学习 ×2 · 语音 ×2
+
 **[A Certified Unlearning Approach without Access to Source Data](a_certified_unlearning_approach_without_access_to_source_data.md)**
 
 :   提出首个无需访问原始训练数据的认证遗忘框架，利用代理数据集（surrogate dataset）近似原始数据统计特性，通过基于源分布与代理分布之间统计距离的噪声缩放机制，实现可证明的数据删除保证。

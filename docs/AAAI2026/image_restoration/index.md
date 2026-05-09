@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **13** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/image_restoration/) · [📷 CVPR2026 (47)](../../CVPR2026/image_restoration/) · [🔬 ICLR2026 (15)](../../ICLR2026/image_restoration/) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/image_restoration/) · [📹 ICCV2025 (30)](../../ICCV2025/image_restoration/) · [🧪 ICML2025 (5)](../../ICML2025/image_restoration/)
+
+🔥 **高频主题：** 图像恢复 ×4 · LLM ×2 · 超分辨率 ×2
+
 **[Blur-Robust Detection via Feature Restoration: An End-to-End Framework for Prior-Guided Infrared UAV Target Detection](blur-robust_detection_via_feature_restoration_an_end-to-end_framework_for_prior-.md)**
 
 :   提出 JFD3 端到端双分支框架，在特征域而非图像域进行去模糊，并利用频率结构先验引导检测网络，实现运动模糊条件下红外无人机目标的高精度实时检测。

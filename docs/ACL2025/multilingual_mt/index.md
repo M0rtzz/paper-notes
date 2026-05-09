@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **88** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (23)](../../ACL2026/multilingual_mt/) · [📷 CVPR2026 (2)](../../CVPR2026/multilingual_mt/) · [🔬 ICLR2026 (7)](../../ICLR2026/multilingual_mt/) · [🤖 AAAI2026 (11)](../../AAAI2026/multilingual_mt/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/multilingual_mt/) · [📹 ICCV2025 (1)](../../ICCV2025/multilingual_mt/)
+
+🔥 **高频主题：** 翻译 ×22 · LLM ×14 · 对齐/RLHF ×5 · 少样本学习 ×3 · 语音 ×3
+
 **[A Case Study of Cross-Lingual Zero-Shot Generalization for Classical Languages in LLMs](a_case_study_of_cross-lingual_zero-shot_generalization_for_classical_languages_i.md)**
 
 :   系统评估 LLM 在三种古典语言（梵语、古希腊语、拉丁语）上的零样本跨语言泛化能力，涵盖 NER、机器翻译和问答三个 NLU 任务，同时贡献 1501 对梵语问答数据集并验证 RAG 策略的有效性，揭示模型规模是跨语言泛化的决定性因素。

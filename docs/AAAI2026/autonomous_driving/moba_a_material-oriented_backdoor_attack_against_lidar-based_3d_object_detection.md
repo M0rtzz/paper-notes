@@ -224,6 +224,8 @@ MOBA平均ASR 92.7%，超过baseline 41%以上，同时clean mAP保持~90%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Invisible Triggers, Visible Threats! Road-Style Adversarial Creation Attack for Visual 3D Detection in Autonomous Driving](invisible_triggers_visible_threats_road-style_adversarial_creation_attack_for_vi.md)
@@ -231,5 +233,7 @@ MOBA平均ASR 92.7%，超过baseline 41%以上，同时clean mAP保持~90%。
 - [\[AAAI 2026\] Exploring Surround-View Fisheye Camera 3D Object Detection](exploring_surround-view_fisheye_camera_3d_object_detection.md)
 - [\[ICCV 2025\] PBCAT: Patch-Based Composite Adversarial Training against Physically Realizable Attacks on Object Detection](../../ICCV2025/autonomous_driving/pbcat_patch-based_composite_adversarial_training_against_physically_realizable_a.md)
 - [\[AAAI 2026\] DriveFlow: Rectified Flow Adaptation for Robust 3D Object Detection in Autonomous Driving](driveflow_rectified_flow_adaptation_for_robust_3d_object_detection_in_autonomous.md)
+
+</div>
 
 <!-- RELATED:END -->

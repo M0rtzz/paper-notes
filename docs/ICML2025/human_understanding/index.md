@@ -10,6 +10,8 @@ description: >-
 
 **🧪 ICML2025** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/human_understanding/) · [📷 CVPR2026 (61)](../../CVPR2026/human_understanding/) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/) · [🤖 AAAI2026 (16)](../../AAAI2026/human_understanding/) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/human_understanding/) · [📹 ICCV2025 (49)](../../ICCV2025/human_understanding/)
+
 **[LLaVA-ReID: Selective Multi-Image Questioner for Interactive Person Re-Identification](llava-reid_selective_multi-image_questioner_for_interactive_person_re-identifica.md)**
 
 :   本文定义了交互式行人重识别（Inter-ReID）新任务，构建了 Interactive-PEDES 多轮对话数据集，并提出 LLaVA-ReID——一个基于选择性多图像上下文和前瞻性监督的大多模态问题生成模型，通过迭代对话逐步细化目标人物描述。

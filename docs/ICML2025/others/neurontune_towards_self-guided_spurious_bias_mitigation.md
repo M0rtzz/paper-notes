@@ -135,12 +135,16 @@ $$\theta_2^* = \arg\min_{\theta_2} \mathbb{E}_{\mathcal{B} \sim \mathcal{D}_{\te
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Are Bias Evaluation Methods Biased?](../../ACL2025/others/are_bias_evaluation_methods_biased.md)
 - [\[ACL 2025\] Causal Estimation of Tokenisation Bias](../../ACL2025/others/causal_tokenisation_bias.md)
-- [\[ECCV 2024\] Rethinking Data Bias: Dataset Copyright Protection via Embedding Class-Wise Hidden Bias](../../ECCV2024/others/rethinking_data_bias_dataset_copyright_protection_via_embedding_class-wise_hidde.md)
 - [\[ICML 2025\] Truly Self-Improving Agents Require Intrinsic Metacognitive Learning](truly_self-improving_agents_require_intrinsic_metacognitive_learning.md)
+- [\[ECCV 2024\] Rethinking Data Bias: Dataset Copyright Protection via Embedding Class-Wise Hidden Bias](../../ECCV2024/others/rethinking_data_bias_dataset_copyright_protection_via_embedding_class-wise_hidde.md)
 - [\[NeurIPS 2025\] Training the Untrainable: Introducing Inductive Bias via Representational Alignment](../../NeurIPS2025/others/training_the_untrainable_introducing_inductive_bias_via_representational_alignme.md)
+
+</div>
 
 <!-- RELATED:END -->

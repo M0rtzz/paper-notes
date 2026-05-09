@@ -203,6 +203,8 @@ $$\mathcal{F}_t = \left(\frac{1}{J}\sum_{i=1}^J\|rela(\hat{p}_t^i) - rela(p_t^i)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] TopoTTA: Topology-Enhanced Test-Time Adaptation for Tubular Structure Segmentation](topotta_topology-enhanced_test-time_adaptation_for_tubular_structure_segmentatio.md)
@@ -210,5 +212,7 @@ $$\mathcal{F}_t = \left(\frac{1}{J}\sum_{i=1}^J\|rela(\hat{p}_t^i) - rela(p_t^i)
 - [\[ICCV 2025\] Correspondence as Video: Test-Time Adaption on SAM2 for Reference Segmentation in the Wild](correspondence_as_video_testtime_adaption_on_sam2_for_refere.md)
 - [\[ICCV 2025\] What If: Understanding Motion Through Sparse Interactions](what_if_understanding_motion_through_sparse_interactions.md)
 - [\[ICCV 2025\] Temporal Rate Reduction Clustering for Human Motion Segmentation](temporal_rate_reduction_clustering_for_human_motion_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

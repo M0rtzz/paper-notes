@@ -125,6 +125,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] InterAct: Advancing Large-Scale Versatile 3D Human-Object Interaction Generation](interact_advancing_large-scale_versatile_3d_human-object_interaction_generation.md)
@@ -132,5 +134,7 @@ tags:
 - [\[CVPR 2025\] BootPlace: Bootstrapped Object Placement with Detection Transformers](bootplace_bootstrapped_object_placement_with_detection_transformers.md)
 - [\[CVPR 2025\] ObjectMover: Generative Object Movement with Video Prior](objectmover_generative_object_movement_with_video_prior.md)
 - [\[CVPR 2025\] MetaShadow: Object-Centered Shadow Detection, Removal, and Synthesis](metashadow_object-centered_shadow_detection_removal_and_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

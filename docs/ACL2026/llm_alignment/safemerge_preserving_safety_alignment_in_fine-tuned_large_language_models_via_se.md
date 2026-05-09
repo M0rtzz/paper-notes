@@ -126,6 +126,8 @@ SafeMERGE 分三步：(1) 训练一个安全 LoRA 模型（使用公开安全数
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Layer-wise Alignment: Examining Safety Alignment Across Image Encoder Layers in Vision Language Models](../../ICML2025/llm_alignment/layer-wise_alignment_examining_safety_alignment_across_image_encoder_layers_in_v.md)
@@ -133,5 +135,7 @@ SafeMERGE 分三步：(1) 训练一个安全 LoRA 模型（使用公开安全数
 - [\[AAAI 2026\] EASE: Practical and Efficient Safety Alignment for Small Language Models](../../AAAI2026/llm_alignment/ease_practical_and_efficient_safety_alignment_for_small_language_models.md)
 - [\[ICLR 2026\] GuardAlign: Test-time Safety Alignment in Multimodal Large Language Models](../../ICLR2026/llm_alignment/guardalign_test-time_safety_alignment_in_multimodal_large_language_models.md)
 - [\[ICLR 2026\] Antibody: Strengthening Defense Against Harmful Fine-Tuning for Large Language Models via Attenuating Harmful Gradient Influence](../../ICLR2026/llm_alignment/antibody_strengthening_defense_against_harmful_fine-tuning_for_large_language_mo.md)
+
+</div>
 
 <!-- RELATED:END -->

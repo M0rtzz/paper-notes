@@ -126,6 +126,8 @@ $$\mathcal{L}_{total} = \frac{1}{M}\sum_{I_i \in \mathcal{G}}(\mathcal{L}_{corr}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Sharp-It: A Multi-view to Multi-view Diffusion Model for 3D Synthesis and Manipulation](sharp-it_a_multi-view_to_multi-view_diffusion_model_for_3d_synthesis_and_manipul.md)
@@ -133,5 +135,7 @@ $$\mathcal{L}_{total} = \frac{1}{M}\sum_{I_i \in \mathcal{G}}(\mathcal{L}_{corr}
 - [\[CVPR 2025\] MAC-Ego3D: Multi-Agent Gaussian Consensus for Real-Time Collaborative Ego-Motion and Photorealistic 3D Reconstruction](mac-ego3d_multi-agent_gaussian_consensus_for_real-time_collaborative_ego-motion_.md)
 - [\[CVPR 2025\] ColabSfM: Collaborative Structure-from-Motion by Point Cloud Registration](colabsfm_collaborative_structure-from-motion_by_point_cloud_registration.md)
 - [\[CVPR 2025\] MVSAnywhere: Zero-Shot Multi-View Stereo](mvsanywhere_zero-shot_multi-view_stereo.md)
+
+</div>
 
 <!-- RELATED:END -->

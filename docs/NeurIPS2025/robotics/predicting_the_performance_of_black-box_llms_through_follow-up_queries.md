@@ -161,6 +161,8 @@ QueRE（Follow-up Question Representation Elicitation）的工作流程：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Foundations of the Theory of Performance-Based Ranking](../../CVPR2025/robotics/foundations_of_the_theory_of_performance_based_ranking.md)
@@ -168,5 +170,7 @@ QueRE（Follow-up Question Representation Elicitation）的工作流程：
 - [\[NeurIPS 2025\] Zero-Shot Embedding Drift Detection: A Lightweight Defense Against Prompt Injections in LLMs](zero-shot_embedding_drift_detection_a_lightweight_defense_against_prompt_injecti.md)
 - [\[ACL 2025\] Rolling the DICE on Idiomaticity: How LLMs Fail to Grasp Context](../../ACL2025/robotics/dice_idiomaticity.md)
 - [\[ICML 2025\] STAR: Learning Diverse Robot Skill Abstractions through Rotation-Augmented Vector Quantization](../../ICML2025/robotics/star_learning_diverse_robot_skill_abstractions_through_rotation-augmented_vector.md)
+
+</div>
 
 <!-- RELATED:END -->

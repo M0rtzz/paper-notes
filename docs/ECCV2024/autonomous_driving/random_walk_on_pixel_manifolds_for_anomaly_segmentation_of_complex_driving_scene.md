@@ -127,6 +127,8 @@ RWPM 不需要任何额外训练，仅在推理阶段使用。直接应用于已
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] ClimaOoD: Improving Anomaly Segmentation via Physically Realistic Synthetic Data](../../CVPR2026/autonomous_driving/climaood_improving_anomaly_segmentation_via_physically_realistic_synthetic_data.md)
@@ -134,5 +136,7 @@ RWPM 不需要任何额外训练，仅在推理阶段使用。直接应用于已
 - [\[ECCV 2024\] TOD³Cap: Towards 3D Dense Captioning in Outdoor Scenes](tod3cap_towards_3d_dense_captioning_in_outdoor_scenes.md)
 - [\[ECCV 2024\] Reliability in Semantic Segmentation: Can We Use Synthetic Data?](reliability_in_semantic_segmentation_can_we_use_synthetic_data.md)
 - [\[ECCV 2024\] Rethinking Data Augmentation for Robust LiDAR Semantic Segmentation in Adverse Weather](rethinking_data_augmentation_for_robust_lidar_semantic_segmentation_in_adverse_w.md)
+
+</div>
 
 <!-- RELATED:END -->

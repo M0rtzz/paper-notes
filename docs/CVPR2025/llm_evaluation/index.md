@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **31** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/llm_evaluation/) · [📷 CVPR2026 (28)](../../CVPR2026/llm_evaluation/) · [🔬 ICLR2026 (60)](../../ICLR2026/llm_evaluation/) · [🤖 AAAI2026 (39)](../../AAAI2026/llm_evaluation/) · [🧠 NeurIPS2025 (79)](../../NeurIPS2025/llm_evaluation/) · [📹 ICCV2025 (29)](../../ICCV2025/llm_evaluation/)
+
+🔥 **高频主题：** 持续学习 ×2 · Agent ×2
+
 **[ComfyBench: Benchmarking LLM-based Agents in ComfyUI for Autonomously Designing Collaborative AI Systems](comfybench_benchmarking_llm-based_agents_in_comfyui_for_autonomously_designing_c.md)**
 
 :   ComfyBench 提出了首个评估LLM Agent在ComfyUI中自主设计协作AI系统能力的综合性Benchmark（200个任务、3205个节点文档、20个课程工作流），并提出ComfyAgent框架通过代码化工作流表示和多Agent协作，达到了与o1-preview相当的解决率，但在创意任务上仅解决15%，揭示了LLM Agent在自主系统设计上的巨大差距。

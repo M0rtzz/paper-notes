@@ -134,6 +134,8 @@ $$\mathbf{x}_0 = \alpha \hat{\mathbf{x}}_0 + \sqrt{1-\alpha^2}\xi, \quad \xi \si
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Tokenisation is NP-Complete](../../ACL2025/others/tokenisation_is_np-complete.md)
@@ -141,5 +143,7 @@ $$\mathbf{x}_0 = \alpha \hat{\mathbf{x}}_0 + \sqrt{1-\alpha^2}\xi, \quad \xi \si
 - [\[CVPR 2025\] 4Deform: Neural Surface Deformation for Robust Shape Interpolation](../../CVPR2025/others/4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
 - [\[CVPR 2025\] Multi-Sensor Object Anomaly Detection: Unifying Appearance, Geometry, and Internal Properties](../../CVPR2025/others/multi-sensor_object_anomaly_detection_unifying_appearance_geometry_and_internal_.md)
 - [\[ACL 2025\] Meta-Learning Neural Mechanisms rather than Bayesian Priors](../../ACL2025/others/meta-learning_neural_mechanisms_rather_than_bayesian_priors.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -127,6 +127,8 @@ Vid2Sim 提出一个从单目视频到真实感+可交互仿真环境的 real2si
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] RoomTour3D: Geometry-Aware Video-Instruction Tuning for Embodied Navigation](roomtour3d_geometry-aware_video-instruction_tuning_for_embodied_navigation.md)
@@ -134,5 +136,7 @@ Vid2Sim 提出一个从单目视频到真实感+可交互仿真环境的 real2si
 - [\[CVPR 2025\] Towards Realistic Example-Based Modeling via 3D Gaussian Stitching](towards_realistic_example-based_modeling_via_3d_gaussian_stitching.md)
 - [\[CVPR 2025\] iSegMan: Interactive Segment-and-Manipulate 3D Gaussians](isegman_interactive_segment-and-manipulate_3d_gaussians.md)
 - [\[CVPR 2025\] Video Depth Without Video Models](video_depth_without_video_models.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -186,6 +186,8 @@ RAG在LooGLE v2上普遍导致性能下降。Llama-3.1-8B在top-128 RAG下从26.
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] LADM: Long-context Training Data Selection with Attention-based Dependency Measurement for LLMs](../../ACL2025/llm_efficiency/ladm_long_context_data.md)
@@ -193,5 +195,7 @@ RAG在LooGLE v2上普遍导致性能下降。Llama-3.1-8B在top-128 RAG下从26.
 - [\[NeurIPS 2025\] Long-Context Modeling with Dynamic Hierarchical Sparse Attention for On-Device LLMs](long-context_modeling_with_dynamic_hierarchical_sparse_attention_for_on-device_l.md)
 - [\[ICML 2025\] Long-Short Alignment for Effective Long-Context Modeling in LLMs](../../ICML2025/llm_efficiency/long-short_alignment_for_effective_long-context_modeling_in_llms.md)
 - [\[NeurIPS 2025\] Silent Tokens, Loud Effects: Padding in LLMs](silent_tokens_loud_effects_padding_in_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

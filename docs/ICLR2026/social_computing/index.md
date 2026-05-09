@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/social_computing/) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/social_computing/) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/) · [🧪 ICML2025 (7)](../../ICML2025/social_computing/)
+
+🔥 **高频主题：** LLM ×3 · 对抗鲁棒 ×2 · Agent ×2
+
 **[Adaptive Debiasing Tsallis Entropy for Test-Time Adaptation](adaptive_debiasing_tsallis_entropy_for_test-time_adaptation.md)**
 
 :   提出将 Tsallis 熵（SE 的广义形式）引入 VLM 的 Test-Time Adaptation，并进一步发展为自适应去偏 Tsallis 熵（ADTE），为每个类别定制去偏参数 $q^l$，在不引入分布特定超参数的情况下比 Shannon 熵选择更可靠的高置信视图，在 ImageNet 及其 5 个变体和 10 个跨域 benchmark 上均超越 SOTA。

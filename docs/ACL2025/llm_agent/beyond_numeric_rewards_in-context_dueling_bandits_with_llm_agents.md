@@ -139,6 +139,8 @@ LEAD 采用两阶段自适应切换：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] CORE: Full-Path Evaluation of LLM Agents Beyond Final State](../../NeurIPS2025/llm_agent/core_full-path_evaluation_of_llm_agents_beyond_final_state.md)
@@ -146,5 +148,7 @@ LEAD 采用两阶段自适应切换：
 - [\[ACL 2026\] Scaling External Knowledge Input Beyond Context Windows of LLMs via Multi-Agent Collaboration](../../ACL2026/llm_agent/scaling_external_knowledge_input_beyond_context_windows_of_llms_via_multi-agent_.md)
 - [\[NeurIPS 2025\] ContextAgent: Context-Aware Proactive LLM Agents with Open-World Sensory Perceptions](../../NeurIPS2025/llm_agent/contextagent_context-aware_proactive_llm_agents_with_open-world_sensory_percepti.md)
 - [\[ACL 2025\] LLM Agents Making Agent Tools](llm_agents_making_agent_tools.md)
+
+</div>
 
 <!-- RELATED:END -->

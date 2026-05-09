@@ -138,6 +138,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Towards Practical Defect-Focused Automated Code Review](towards_practical_defect-focused_automated_code_review.md)
@@ -145,5 +147,7 @@ tags:
 - [\[ICML 2025\] DyCodeEval: Dynamic Benchmarking of Reasoning Capabilities in Code Large Language Models Under Data Contamination](dynamic_benchmarking_of_reasoning_capabilities_in_code_large_language_models_und.md)
 - [\[ICML 2025\] AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence](adaptivestep_automatically_dividing_reasoning_step_through_model_confidence.md)
 - [\[ICML 2025\] Training Software Engineering Agents and Verifiers with SWE-Gym](training_software_engineering_agents_and_verifiers_with_swe-gym.md)
+
+</div>
 
 <!-- RELATED:END -->

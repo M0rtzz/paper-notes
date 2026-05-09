@@ -211,6 +211,8 @@ $$e^{-j2\pi(\frac{p'·m}{d_h·M} + \frac{q'·n}{d_w·N})} = e^{-j2\pi(\frac{pm}{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] PixelRush: Ultra-Fast, Training-Free High-Resolution Image Generation via One-step Diffusion](../../CVPR2026/image_generation/pixelrush_ultra-fast_training-free_high-resolution_image_generation_via_one-step.md)
@@ -218,5 +220,7 @@ $$e^{-j2\pi(\frac{p'·m}{d_h·M} + \frac{q'·n}{d_w·N})} = e^{-j2\pi(\frac{pm}{
 - [\[ECCV 2024\] FreeDiff: Progressive Frequency Truncation for Image Editing with Diffusion Models](freediff_progressive_frequency_truncation_for_image_editing_with_diffusion_model.md)
 - [\[ECCV 2024\] Unveiling Advanced Frequency Disentanglement Paradigm for Low-Light Image Enhancement](unveiling_advanced_frequency_disentanglement_paradigm_for_low-light_image_enhanc.md)
 - [\[ECCV 2024\] Editable Image Elements for Controllable Synthesis](editable_image_elements_for_controllable_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -175,6 +175,8 @@ MF-LAL 在 40 个生成化合物的扩展评估中：BRD4(2) 平均 ABFE **-6.3*
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Amortized Active Generation of Pareto Sets](../../NeurIPS2025/medical_imaging/amortized_active_generation_of_pareto_sets.md)
@@ -182,5 +184,7 @@ MF-LAL 在 40 个生成化合物的扩展评估中：BRD4(2) 平均 ABFE **-6.3*
 - [\[CVPR 2025\] ZoomLDM: Latent Diffusion Model for Multi-Scale Image Generation](../../CVPR2025/medical_imaging/zoomldm_latent_diffusion_model_for_multi-scale_image_generation.md)
 - [\[NeurIPS 2025\] Towards Unified and Lossless Latent Space for 3D Molecular Latent Diffusion Modeling](../../NeurIPS2025/medical_imaging/towards_unified_and_lossless_latent_space_for_3d_molecular_latent_diffusion_mode.md)
 - [\[NeurIPS 2025\] GFlowNets for Learning Better Drug-Drug Interaction Representations](../../NeurIPS2025/medical_imaging/gflownets_for_learning_better_drug-drug_interaction_representations.md)
+
+</div>
 
 <!-- RELATED:END -->

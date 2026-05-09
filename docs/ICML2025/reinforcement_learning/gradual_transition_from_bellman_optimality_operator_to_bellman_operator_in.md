@@ -126,6 +126,8 @@ AQ-L 的 Critic 损失统一为：$L(\theta) = \mathbb{E}[L_2^{\tau(t)}(r + \gam
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Gradual Transition from Bellman Optimality Operator to Bellman Operator in Online Reinforcement Learning](gradual_transition_from_bellman_optimality_operator_to_bellman_operator_in_onlin.md)
@@ -133,5 +135,7 @@ AQ-L 的 Critic 损失统一为：$L(\theta) = \mathbb{E}[L_2^{\tau(t)}(r + \gam
 - [\[ICML 2025\] Action-Dependent Optimality-Preserving Reward Shaping (ADOPS)](action-dependent_optimality-preserving_reward_shaping.md)
 - [\[ICML 2025\] A Theoretical Study of (Hyper) Self-Attention through the Lens of Interactions: Representation, Training, Generalization](a_theoretical_study_of_hyper_self-attention_through_the_lens_of_interactions_rep.md)
 - [\[ICML 2025\] BRITE: Bootstrapping Reinforced Thinking Process to Enhance Language Model Reasoning](brite_bootstrapping_reinforced_thinking_process_to_enhance_language_model_reason.md)
+
+</div>
 
 <!-- RELATED:END -->

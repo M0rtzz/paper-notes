@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **38** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/self_supervised/) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/) · [🤖 AAAI2026 (14)](../../AAAI2026/self_supervised/) · [🧠 NeurIPS2025 (36)](../../NeurIPS2025/self_supervised/) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/) · [🧪 ICML2025 (24)](../../ICML2025/self_supervised/)
+
+🔥 **高频主题：** 自监督学习 ×7 · 持续学习 ×2 · 异常检测 ×2
+
 **[A Stitch in Time: Learning Procedural Workflow via Self-Supervised Plackett-Luce Ranking](a_stitch_in_time_learning_procedural_workflow_via_self_supervised_plackett_luce_r.md)**
 
 :   提出 PL-Stitch 自监督框架，利用 Plackett-Luce 概率排序模型将视频帧的时序排序作为预训练信号，学习具有"程序感知"能力的视频表示，在手术阶段识别和烹饪动作分割上全面超越现有自监督方法。

@@ -172,6 +172,8 @@ $$\theta_m = \arg\max_\theta \sum_{i \in [1,16]} \sum_{x_j \in C_i} \log P(y_j |
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] CulFiT: A Fine-grained Cultural-aware LLM Training Paradigm via Multilingual Critique Data Synthesis](../../ACL2025/multilingual_mt/culfit_a_fine-grained_cultural-aware_llm_training_paradigm_via_multilingual_crit.md)
@@ -179,5 +181,7 @@ $$\theta_m = \arg\max_\theta \sum_{i \in [1,16]} \sum_{x_j \in C_i} \log P(y_j |
 - [\[NeurIPS 2025\] XIFBench: Evaluating Large Language Models on Multilingual Instruction Following](../../NeurIPS2025/multilingual_mt/xifbench_evaluating_large_language_models_on_multilingual_instruction_following.md)
 - [\[ACL 2025\] SIFT-50M: A Large-Scale Multilingual Dataset for Speech Instruction Fine-Tuning](../../ACL2025/multilingual_mt/sift-50m_a_large-scale_multilingual_dataset_for_speech_instruction_fine-tuning.md)
 - [\[ACL 2025\] Marco-Bench-MIF: On Multilingual Instruction-Following Capability of Large Language Models](../../ACL2025/multilingual_mt/marco_bench_multilingual_if.md)
+
+</div>
 
 <!-- RELATED:END -->

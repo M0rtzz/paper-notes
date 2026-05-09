@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (41)](../../ACL2026/llm_agent/) · [📷 CVPR2026 (21)](../../CVPR2026/llm_agent/) · [🔬 ICLR2026 (47)](../../ICLR2026/llm_agent/) · [🤖 AAAI2026 (44)](../../AAAI2026/llm_agent/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_agent/) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/)
+
+🔥 **高频主题：** Agent ×3
+
 **[Agent3D-Zero: An Agent for Zero-shot 3D Understanding](agent3d-zero_an_agent_for_zero-shot_3d_understanding.md)**
 
 :   Agent3D-Zero 提出一个基于 VLM 的零样本 3D 场景理解 Agent 框架，通过鸟瞰图上的 Set-of-Line 视觉提示引导 VLM 主动选择观察视角，并综合多视角图像进行 3D 推理，在 ScanQA 等任务上超越了需要微调的 3D-LLM 方法。

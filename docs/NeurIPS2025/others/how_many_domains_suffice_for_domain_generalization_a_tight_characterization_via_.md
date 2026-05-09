@@ -129,6 +129,8 @@ Min-Max ERM 需要每个领域的近似误差估计 $\widehat{\text{err}}_\mathc
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] The Parameterized Complexity of Computing the VC-Dimension](the_parameterized_complexity_of_computing_the_vc-dimension.md)
@@ -136,5 +138,7 @@ Min-Max ERM 需要每个领域的近似误差估计 $\widehat{\text{err}}_\mathc
 - [\[NeurIPS 2025\] A Generalized Label Shift Perspective for Cross-Domain Gaze Estimation](a_generalized_label_shift_perspective_for_crossdomain_gaze_e.md)
 - [\[NeurIPS 2025\] Tight Bounds On the Distortion of Randomized and Deterministic Distributed Voting](tight_bounds_on_the_distortion_of_randomized_and_deterministic_distributed_votin.md)
 - [\[ACL 2025\] How to Mitigate Overfitting in Weak-to-Strong Generalization?](../../ACL2025/others/how_to_mitigate_overfitting_in_weak-to-strong_generalization.md)
+
+</div>
 
 <!-- RELATED:END -->

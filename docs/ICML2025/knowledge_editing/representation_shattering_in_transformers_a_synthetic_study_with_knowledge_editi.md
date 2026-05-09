@@ -138,6 +138,8 @@ $$R(D_*) = \frac{\|D_* - D_\varnothing\|_F}{\|D_\varnothing\|_F}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Bilinear Representation Mitigates Reversal Curse and Enables Consistent Model Editing](../../ICLR2026/knowledge_editing/bilinear_representation_mitigates_reversal_curse_and_enables_consistent_model_ed.md)
@@ -145,5 +147,7 @@ $$R(D_*) = \frac{\|D_* - D_\varnothing\|_F}{\|D_\varnothing\|_F}$$
 - [\[NeurIPS 2025\] UniEdit: A Unified Knowledge Editing Benchmark for Large Language Models](../../NeurIPS2025/knowledge_editing/uniedit_a_unified_knowledge_editing_benchmark_for_large_language_models.md)
 - [\[NeurIPS 2025\] Edit Less, Achieve More: Dynamic Sparse Neuron Masking for Lifelong Knowledge Editing in LLMs](../../NeurIPS2025/knowledge_editing/edit_less_achieve_more_dynamic_sparse_neuron_masking_for_lifelong_knowledge_edit.md)
 - [\[ACL 2025\] ScEdit: Script-based Assessment of Knowledge Editing](../../ACL2025/knowledge_editing/scedit_script-based_assessment_of_knowledge_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

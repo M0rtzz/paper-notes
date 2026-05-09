@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **50** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (41)](../../ACL2026/llm_agent/) · [📷 CVPR2026 (21)](../../CVPR2026/llm_agent/) · [🔬 ICLR2026 (47)](../../ICLR2026/llm_agent/) · [🤖 AAAI2026 (44)](../../AAAI2026/llm_agent/) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/) · [🧪 ICML2025 (15)](../../ICML2025/llm_agent/)
+
+🔥 **高频主题：** LLM ×24 · Agent ×18 · 对抗鲁棒 ×3 · 推理 ×2
+
 **[A-MEM: Agentic Memory for LLM Agents](a-mem_agentic_memory_for_llm_agents.md)**
 
 :   提出 A-Mem，一种受 Zettelkasten 启发的 LLM Agent 智能记忆系统，每条记忆自动生成结构化笔记（关键词/标签/上下文描述），动态建立记忆间链接，并在新记忆加入时触发旧记忆的演化更新，在 LoCoMo 长对话 QA 上显著超越 MemGPT 等基线。

@@ -147,6 +147,8 @@ TSAM 的 Hessian 最大特征值仅为 ERM 的 41%，远比 SAM 更平坦。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Sassha: Sharpness-aware Adaptive Second-order Optimization with Stable Hessian Approximation](sassha_sharpness-aware_adaptive_second-order_optimization_with_stable_hessian_ap.md)
@@ -154,5 +156,7 @@ TSAM 的 Hessian 最大特征值仅为 ERM 的 41%，远比 SAM 更平坦。
 - [\[ICML 2025\] Generalization and Robustness of the Tilted Empirical Risk](generalization_and_robustness_of_the_tilted_empirical_risk.md)
 - [\[NeurIPS 2025\] Unveiling m-Sharpness Through the Structure of Stochastic Gradient Noise](../../NeurIPS2025/optimization/unveiling_m-sharpness_through_the_structure_of_stochastic_gradient_noise.md)
 - [\[ICML 2025\] Efficient Curvature-Aware Hypergradient Approximation for Bilevel Optimization](efficient_curvature-aware_hypergradient_approximation_for_bilevel_optimization.md)
+
+</div>
 
 <!-- RELATED:END -->

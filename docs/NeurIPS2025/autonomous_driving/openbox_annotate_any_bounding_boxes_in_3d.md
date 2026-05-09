@@ -185,6 +185,8 @@ OpenBox 本身是标注流水线，不涉及端到端训练。生成的标注用
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] LabelAny3D: Label Any Object 3D in the Wild](labelany3d_label_any_object_3d_in_the_wild.md)
@@ -192,5 +194,7 @@ OpenBox 本身是标注流水线，不涉及端到端训练。生成的标注用
 - [\[CVPR 2026\] HorizonForge: Driving Scene Editing with Any Trajectories and Any Vehicles](../../CVPR2026/autonomous_driving/horizonforge_driving_scene_editing_with_any_trajectories_and_any_vehicles.md)
 - [\[ECCV 2024\] Adaptive Bounding Box Uncertainties via Two-Step Conformal Prediction](../../ECCV2024/autonomous_driving/adaptive_bounding_box_uncertainties_via_twostep_conformal_pr.md)
 - [\[ICLR 2026\] SEAL: Segment Any Events with Language](../../ICLR2026/autonomous_driving/segment_any_events_with_language.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -135,6 +135,8 @@ $$\mathcal{L}_{final} = \mathcal{L}_{BCE} + \lambda_{SIC} \cdot \mathcal{L}_{SIC
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Synchronization of Multiple Videos](../../ICCV2025/llm_pretraining/synchronization_of_multiple_videos.md)
@@ -142,5 +144,7 @@ $$\mathcal{L}_{final} = \mathcal{L}_{BCE} + \lambda_{SIC} \cdot \mathcal{L}_{SIC
 - [\[CVPR 2026\] Watch and Learn: Learning to Use Computers from Online Videos](../../CVPR2026/llm_pretraining/watch_and_learn_computer_use_from_videos.md)
 - [\[AAAI 2026\] No-Regret Strategy Solving in Imperfect-Information Games via Pre-Trained Embedding](../../AAAI2026/llm_pretraining/no-regret_strategy_solving_in_imperfect-information_games_via_pre-trained_embedd.md)
 - [\[ICLR 2026\] Reducing Class-Wise Performance Disparity via Margin Regularization](../../ICLR2026/llm_pretraining/reducing_class-wise_performance_disparity_via_margin_regularization.md)
+
+</div>
 
 <!-- RELATED:END -->

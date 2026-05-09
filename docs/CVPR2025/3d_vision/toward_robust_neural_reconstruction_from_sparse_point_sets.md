@@ -133,6 +133,8 @@ Neural Pull 基础损失 $\mathcal{L}(\theta, q) = \|q - f_\theta(q) \cdot \frac
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] SIR-DIFF: Sparse Image Sets Restoration with Multi-View Diffusion Model](sir-diff_sparse_image_sets_restoration_with_multi-view_diffusion_model.md)
@@ -140,5 +142,7 @@ Neural Pull 基础损失 $\mathcal{L}(\theta, q) = \|q - f_\theta(q) \cdot \frac
 - [\[CVPR 2025\] Spectral Informed Mamba for Robust Point Cloud Processing](spectral_informed_mamba_for_robust_point_cloud_processing.md)
 - [\[CVPR 2025\] Sparse Point Cloud Patches Rendering via Splitting 2D Gaussians](sparse_point_cloud_patches_rendering_via_splitting_2d_gaussians.md)
 - [\[CVPR 2025\] ShapeShifter: 3D Variations Using Multiscale and Sparse Point-Voxel Diffusion](shapeshifter_3d_variations_using_multiscale_and_sparse_point-voxel_diffusion.md)
+
+</div>
 
 <!-- RELATED:END -->

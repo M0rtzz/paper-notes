@@ -151,6 +151,8 @@ MAGIC-VQA采用三阶段流水线架构：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Answering Complex Geographic Questions by Adaptive Reasoning with Visual Context and External Commonsense Knowledge](answering_complex_geographic_questions_by_adaptive_reasoning_with_visual_context.md)
@@ -158,5 +160,7 @@ MAGIC-VQA采用三阶段流水线架构：
 - [\[ICCV 2025\] ReasonVQA: A Multi-hop Reasoning Benchmark with Structural Knowledge for Visual Question Answering](../../ICCV2025/multimodal_vlm/reasonvqa_a_multi-hop_reasoning_benchmark_with_structural_knowledge_for_visual_q.md)
 - [\[ACL 2026\] WikiSeeker: Rethinking the Role of Vision-Language Models in Knowledge-Based Visual Question Answering](../../ACL2026/multimodal_vlm/wikiseeker_rethinking_the_role_of_vision-language_models_in_knowledge-based_visu.md)
 - [\[CVPR 2025\] MARTEN: Visual Question Answering with Mask Generation for Multi-Modal Document Understanding](../../CVPR2025/multimodal_vlm/marten_visual_question_answering_with_mask_generation_for_multi-modal_document_u.md)
+
+</div>
 
 <!-- RELATED:END -->

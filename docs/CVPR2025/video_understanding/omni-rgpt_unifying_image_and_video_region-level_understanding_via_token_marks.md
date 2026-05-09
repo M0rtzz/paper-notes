@@ -120,6 +120,8 @@ $\mathcal{L} = \mathcal{L}_{\text{LLM}} + \alpha\mathcal{L}_{\text{aux}}$，其�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] MMVU: Measuring Expert-Level Multi-Discipline Video Understanding](mmvu_measuring_expert-level_multi-discipline_video_understanding.md)
@@ -127,5 +129,7 @@ $\mathcal{L} = \mathcal{L}_{\text{LLM}} + \alpha\mathcal{L}_{\text{aux}}$，其�
 - [\[ICML 2025\] Unifying Specialized Visual Encoders for Video Language Models](../../ICML2025/video_understanding/unifying_specialized_visual_encoders_for_video_language_models.md)
 - [\[CVPR 2025\] MLVU: Benchmarking Multi-task Long Video Understanding](mlvu_benchmarking_multi-task_long_video_understanding.md)
 - [\[CVPR 2025\] DivPrune: Diversity-Based Visual Token Pruning for Large Multimodal Models](divprune_diversity-based_visual_token_pruning_for_large_multimodal_models.md)
+
+</div>
 
 <!-- RELATED:END -->

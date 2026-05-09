@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **154** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/image_generation/) · [📷 CVPR2026 (240)](../../CVPR2026/image_generation/) · [🤖 AAAI2026 (78)](../../AAAI2026/image_generation/) · [🧠 NeurIPS2025 (250)](../../NeurIPS2025/image_generation/) · [📹 ICCV2025 (219)](../../ICCV2025/image_generation/) · [🧪 ICML2025 (115)](../../ICML2025/image_generation/)
+
+🔥 **高频主题：** 扩散模型 ×48 · 文生图 ×11 · 对抗鲁棒 ×7 · 对齐/RLHF ×7 · 布局/合成 ×6
+
 **[A Hidden Semantic Bottleneck in Conditional Embeddings of Diffusion Transformers](a_hidden_semantic_bottleneck_in_conditional_embeddings_of_diffusion_transformers.md)**
 
 :   对扩散 Transformer 的条件嵌入进行首次系统分析，发现极端的角度相似性（类间余弦相似度>99%）和维度稀疏性（仅 1-2% 的维度携带语义信息），裁剪掉 2/3 的低幅维度后生成质量基本不变，揭示了条件嵌入中隐藏的语义瓶颈。

@@ -164,6 +164,8 @@ $$r = \begin{cases} 1.0, & \text{if } epoch < start \\ 0.0, & \text{if } epoch >
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Autoregressive Image Generation with Randomized Parallel Decoding](../../ICLR2026/image_generation/autoregressive_image_generation_with_randomized_parallel_decoding.md)
@@ -171,5 +173,7 @@ $$r = \begin{cases} 1.0, & \text{if } epoch < start \\ 0.0, & \text{if } epoch >
 - [\[ICCV 2025\] Grouped Speculative Decoding for Autoregressive Image Generation](grouped_speculative_decoding_for_autoregressive_image_generation.md)
 - [\[ICML 2025\] Continuous Visual Autoregressive Generation via Score Maximization](../../ICML2025/image_generation/continuous_visual_autoregressive_generation_via_score_maximization.md)
 - [\[NeurIPS 2025\] Watermarking Autoregressive Image Generation](../../NeurIPS2025/image_generation/watermarking_autoregressive_image_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

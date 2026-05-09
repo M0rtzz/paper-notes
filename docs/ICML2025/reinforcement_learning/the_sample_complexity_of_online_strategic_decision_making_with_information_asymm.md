@@ -152,6 +152,8 @@ $$\tilde{O}\left(\sum_{h=1}^H B^2 d_{V,h} \tau_h C_h^f \log(|\mathcal{R} \times 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Enhancing Decision-Making of Large Language Models via Actor-Critic](enhancing_decision-making_of_large_language_models_via_actor-critic.md)
@@ -159,5 +161,7 @@ $$\tilde{O}\left(\sum_{h=1}^H B^2 d_{V,h} \tau_h C_h^f \log(|\mathcal{R} \times 
 - [\[NeurIPS 2025\] Sample Complexity of Distributionally Robust Average-Reward Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/sample_complexity_of_distributionally_robust_average-reward_reinforcement_learni.md)
 - [\[ICML 2025\] Counterfactual Effect Decomposition in Multi-Agent Sequential Decision Making](counterfactual_effect_decomposition_in_multi-agent_sequential_decision_making.md)
 - [\[ICML 2025\] Online Pre-Training for Offline-to-Online Reinforcement Learning](online_pre-training_for_offline-to-online_reinforcement_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

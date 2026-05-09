@@ -147,6 +147,8 @@ Ground-V的五个维度对不同测试子集贡献明确，删除任一维度会
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] RoboSpatial: Teaching Spatial Understanding to 2D and 3D Vision-Language Models for Robotics](robospatial_teaching_spatial_understanding_to_2d_and_3d_vision-language_models_f.md)
@@ -154,5 +156,7 @@ Ground-V的五个维度对不同测试子集贡献明确，删除任一维度会
 - [\[AAAI 2026\] Ground What You See: Hallucination-Resistant MLLMs via Caption Feedback, Diversity-Aware Sampling, and Conflict Regularization](../../AAAI2026/multimodal_vlm/ground_what_you_see_hallucination-resistant_mllms_via_caption_feedback_diversity.md)
 - [\[ACL 2025\] Aria-UI: Visual Grounding for GUI Instructions](../../ACL2025/multimodal_vlm/aria-ui_visual_grounding_for_gui_instructions.md)
 - [\[CVPR 2025\] MoVE-KD: Knowledge Distillation for VLMs with Mixture of Visual Encoders](move-kd_knowledge_distillation_for_vlms_with_mixture_of_visual_encoders.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -205,6 +205,8 @@ $$\eta^{\mathcal{M}}(\boldsymbol{\pi}) = \frac{1}{2}(RQS(\boldsymbol{\pi}, \bold
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring](hierarchical_pedagogical_oversight_a_multi-agent_adversarial_framework_for_relia.md)
@@ -212,5 +214,7 @@ $$\eta^{\mathcal{M}}(\boldsymbol{\pi}) = \frac{1}{2}(RQS(\boldsymbol{\pi}, \bold
 - [\[ICCV 2025\] Learned Image Compression with Hierarchical Progressive Context Modeling](../../ICCV2025/model_compression/learned_image_compression_with_hierarchical_progressive_context_modeling.md)
 - [\[AAAI 2026\] DynaQuant: Dynamic Mixed-Precision Quantization for Learned Image Compression](dynaquant_dynamic_mixed-precision_quantization_for_learned_i.md)
 - [\[AAAI 2026\] CAMERA: Multi-Matrix Joint Compression for MoE Models via Micro-Expert Redundancy Analysis](camera_multi-matrix_joint_compression_for_moe_models_via_mic.md)
+
+</div>
 
 <!-- RELATED:END -->

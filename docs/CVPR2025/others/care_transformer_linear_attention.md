@@ -124,6 +124,8 @@ CARE-S0/S1/S2块配置⟨2,4,8,4⟩/⟨3,6,10,6⟩/⟨3,6,10,6⟩。非对称比
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] LATTE-MV: Learning to Anticipate Table Tennis Hits from Monocular Videos](latte-mv_learning_to_anticipate_table_tennis_hits_from_monocular_videos.md)
@@ -131,5 +133,7 @@ CARE-S0/S1/S2块配置⟨2,4,8,4⟩/⟨3,6,10,6⟩/⟨3,6,10,6⟩。非对称比
 - [\[CVPR 2025\] STRAP-ViT: Segregated Tokens with Randomized Transformations for Defense against Adversarial Patches in ViTs](strap-vit_segregated_tokens_with_randomized_--_transformations_for_defense_again.md)
 - [\[CVPR 2025\] RandAR: Decoder-only Autoregressive Visual Generation in Random Orders](randar_decoder-only_autoregressive_visual_generation_in_random_orders.md)
 - [\[NeurIPS 2025\] 4DGT: Learning a 4D Gaussian Transformer Using Real-World Monocular Videos](../../NeurIPS2025/others/4dgt_learning_a_4d_gaussian_transformer_using_realworld_mono.md)
+
+</div>
 
 <!-- RELATED:END -->

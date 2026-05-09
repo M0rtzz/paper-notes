@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **40** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (28)](../../CVPR2026/llm_evaluation/) · [🔬 ICLR2026 (60)](../../ICLR2026/llm_evaluation/) · [🤖 AAAI2026 (39)](../../AAAI2026/llm_evaluation/) · [🧠 NeurIPS2025 (79)](../../NeurIPS2025/llm_evaluation/) · [📹 ICCV2025 (29)](../../ICCV2025/llm_evaluation/) · [🧪 ICML2025 (49)](../../ICML2025/llm_evaluation/)
+
+🔥 **高频主题：** LLM ×13 · 推理 ×6 · 对话系统 ×4 · 翻译 ×2 · 语音 ×2
+
 **[Abstain-R1: Calibrated Abstention and Post-Refusal Clarification via Verifiable RL](abstain-r1_calibrated_abstention_and_post-refusal_clarification_via_verifiable_r.md)**
 
 :   Abstain-R1 提出一种**澄清感知的 RLVR 奖励**，在不可回答查询上联合优化"明确拒答"和"拒答后给出有用澄清（指出缺失信息）"，使 3B 模型在拒答和澄清质量上接近甚至超越 DeepSeek-R1 等大模型。

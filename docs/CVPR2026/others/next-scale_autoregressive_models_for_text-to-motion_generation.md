@@ -152,6 +152,8 @@ KIT-ML：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Do Vision Models Perceive Illusory Motion in Static Images Like Humans?](do_vision_models_perceive_illusory_motion_in_static_images_like_humans.md)
@@ -159,5 +161,7 @@ KIT-ML：
 - [\[CVPR 2025\] RandAR: Decoder-only Autoregressive Visual Generation in Random Orders](../../CVPR2025/others/randar_decoder-only_autoregressive_visual_generation_in_random_orders.md)
 - [\[CVPR 2026\] SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design](sldprtnet_a_largescale_multimodal_dataset_for_cad.md)
 - [\[ACL 2025\] Map&Make: Schema Guided Text to Table Generation](../../ACL2025/others/mapmake_schema_guided_text_to_table_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

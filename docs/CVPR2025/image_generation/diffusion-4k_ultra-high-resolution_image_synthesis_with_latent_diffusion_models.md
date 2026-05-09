@@ -121,6 +121,8 @@ Aesthetic-Eval@2048 评估：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] UltraFusion: Ultra High Dynamic Imaging using Exposure Fusion](ultrafusion_ultra_high_dynamic_imaging_using_exposure_fusion.md)
@@ -128,5 +130,7 @@ Aesthetic-Eval@2048 评估：
 - [\[CVPR 2025\] Multi-focal Conditioned Latent Diffusion for Person Image Synthesis](multi-focal_conditioned_latent_diffusion_for_person_image_synthesis.md)
 - [\[NeurIPS 2025\] RepLDM: Reprogramming Pretrained Latent Diffusion Models for High-Quality, High-Efficiency, High-Resolution Image Generation](../../NeurIPS2025/image_generation/repldm_reprogramming_pretrained_latent_diffusion_models_for_high-quality_high-ef.md)
 - [\[CVPR 2025\] FaithDiff: Unleashing Diffusion Priors for Faithful Image Super-Resolution](faithdiff_unleashing_diffusion_priors_for_faithful_image_super-resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

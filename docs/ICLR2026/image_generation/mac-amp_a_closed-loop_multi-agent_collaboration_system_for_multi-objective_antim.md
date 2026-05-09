@@ -133,6 +133,8 @@ $$L = L_{policy} + c_v L_{value} - c_e L_{ent}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Multi-agent Coordination via Flow Matching](multi-agent_coordination_via_flow_matching.md)
@@ -140,5 +142,7 @@ $$L = L_{policy} + c_v L_{value} - c_e L_{ent}$$
 - [\[ICLR 2026\] JointDiff: Bridging Continuous and Discrete in Multi-Agent Trajectory Generation](jointdiff_bridging_continuous_and_discrete_in_multi-agent_trajectory_generation.md)
 - [\[CVPR 2026\] coDrawAgents: A Multi-Agent Dialogue Framework for Compositional Image Generation](../../CVPR2026/image_generation/codrawagents_a_multi-agent_dialogue_framework_for_compositional_image_generation.md)
 - [\[ACL 2026\] BookAgent: Orchestrating Safety-Aware Visual Narratives via Multi-Agent Cognitive Calibration](../../ACL2026/image_generation/bookagent_orchestrating_safety-aware_visual_narratives_via_multi-agent_cognitive.md)
+
+</div>
 
 <!-- RELATED:END -->

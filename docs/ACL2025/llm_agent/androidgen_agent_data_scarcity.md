@@ -135,6 +135,8 @@ AndroidGen包含三个阶段：预备阶段（Preliminary）→ 任务执行（T
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] OS Agents: A Survey on MLLM-based Agents for General Computing Devices Use](os_agents_survey_mllm.md)
@@ -142,5 +144,7 @@ AndroidGen包含三个阶段：预备阶段（Preliminary）→ 任务执行（T
 - [\[NeurIPS 2025\] Ground-Compose-Reinforce: Grounding Language in Agentic Behaviours using Limited Data](../../NeurIPS2025/llm_agent/ground-compose-reinforce_grounding_language_in_agentic_behaviours_using_limited_.md)
 - [\[NeurIPS 2025\] EU-Agent-Bench: Measuring Illegal Behavior of LLM Agents Under EU Law](../../NeurIPS2025/llm_agent/eu-agent-bench_measuring_illegal_behavior_of_llm_agents_under_eu_law.md)
 - [\[NeurIPS 2025\] R&D-Agent-Quant: A Multi-Agent Framework for Data-Centric Factors and Model Joint Optimization](../../NeurIPS2025/llm_agent/rd-agent-quant_a_multi-agent_framework_for_data-centric_factors_and_model_joint_.md)
+
+</div>
 
 <!-- RELATED:END -->

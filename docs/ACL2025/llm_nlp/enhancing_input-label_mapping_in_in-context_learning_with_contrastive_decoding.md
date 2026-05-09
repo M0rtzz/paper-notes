@@ -166,6 +166,8 @@ ICCD 在 Llama3.2-1B/3B-Instruct 和 Llama3.1-8B-Instruct 上同样有效，说�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Can Input Attributions Explain Inductive Reasoning in In-Context Learning?](can_input_attributions_explain_inductive_reasoning_in_in-context_learning.md)
@@ -173,5 +175,7 @@ ICCD 在 Llama3.2-1B/3B-Instruct 和 Llama3.1-8B-Instruct 上同样有效，说�
 - [\[ACL 2025\] Leveraging In-Context Learning for Political Bias Testing of LLMs](leveraging_in-context_learning_for_political_bias_testing_of_llms.md)
 - [\[ACL 2025\] Beyond Output Matching: Bidirectional Alignment for Enhanced In-Context Learning](beyond_output_matching_bidirectional_alignment_for_enhanced_in-context_learning.md)
 - [\[ACL 2025\] Mapping 1,000+ Language Models via the Log-Likelihood Vector](mapping_1000_models_loglikelihood.md)
+
+</div>
 
 <!-- RELATED:END -->

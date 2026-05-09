@@ -118,6 +118,8 @@ BootPlace 分两个模块。**模块一（区域检测）**：将场景图像中
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] MetaShadow: Object-Centered Shadow Detection, Removal, and Synthesis](metashadow_object-centered_shadow_detection_removal_and_synthesis.md)
@@ -125,5 +127,7 @@ BootPlace 分两个模块。**模块一（区域检测）**：将场景图像中
 - [\[CVPR 2025\] ORIDa: Object-Centric Real-World Image Composition Dataset](orida_object-centric_real-world_image_composition_dataset.md)
 - [\[CVPR 2025\] Composing Parts for Expressive Object Generation](composing_parts_for_expressive_object_generation.md)
 - [\[CVPR 2025\] TinyFusion: Diffusion Transformers Learned Shallow](tinyfusion_diffusion_transformers_learned_shallow.md)
+
+</div>
 
 <!-- RELATED:END -->

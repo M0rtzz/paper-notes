@@ -192,6 +192,8 @@ MXFP dequantized tensor的$r^2$ goodness-of-fit随block数增加渐近趋向1。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] LottieGPT: Tokenizing Vector Animation for Autoregressive Generation](lottiegpt_vector_animation_generation.md)
@@ -199,5 +201,7 @@ MXFP dequantized tensor的$r^2$ goodness-of-fit随block数增加渐近趋向1。
 - [\[CVPR 2026\] Watch and Learn: Learning to Use Computers from Online Videos](watch_and_learn_computer_use_from_videos.md)
 - [\[CVPR 2026\] Evidential Transformation Network: Turning Pretrained Models into Evidential Models for Post-hoc Uncertainty Estimation](evidential_transformation_network_post_hoc_uncertainty_estimation.md)
 - [\[CVPR 2026\] Model Merging in the Essential Subspace](model_merging_in_the_essential_subspace.md)
+
+</div>
 
 <!-- RELATED:END -->

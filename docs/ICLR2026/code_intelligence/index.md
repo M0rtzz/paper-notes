@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **23** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (20)](../../ACL2026/code_intelligence/) · [📷 CVPR2026 (2)](../../CVPR2026/code_intelligence/) · [🤖 AAAI2026 (10)](../../AAAI2026/code_intelligence/) · [🧠 NeurIPS2025 (22)](../../NeurIPS2025/code_intelligence/) · [📹 ICCV2025 (1)](../../ICCV2025/code_intelligence/) · [🧪 ICML2025 (11)](../../ICML2025/code_intelligence/)
+
+🔥 **高频主题：** LLM ×5 · 推理 ×4 · 代码智能 ×3 · 对抗鲁棒 ×3 · 强化学习 ×2
+
 **[A Problem-Oriented Perspective and Anchor Verification for Code Optimization](a_problem-oriented_perspective_and_anchor_verification_for_code_optimization.md)**
 
 :   提出以问题为导向（而非用户为导向）的优化对构建方法来整合多程序员的策略多样性，并设计锚点验证框架利用"慢但正确的代码"生成测试用例来缓解"优化税"（正确性损失），将优化比从 31.24% 提升到 71.06%，加速比从 2.95x 提升到 6.08x。

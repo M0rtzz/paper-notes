@@ -127,6 +127,8 @@ WeSTAR 在所有数据集上均达到最优，Sintel 上 δ₁ 提升 7.4%（74.
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Improving Domain Generalization in Self-Supervised Monocular Depth Estimation via Stabilized Adversarial Training](../../ECCV2024/3d_vision/improving_domain_generalization_in_self-supervised_monocular_depth_estimation_vi.md)
@@ -134,5 +136,7 @@ WeSTAR 在所有数据集上均达到最优，Sintel 上 δ₁ 提升 7.4%（74.
 - [\[CVPR 2026\] Rewis3d: Reconstruction Improves Weakly-Supervised Semantic Segmentation](../../CVPR2026/3d_vision/rewis3d_reconstruction_improves_weaklysupervised_s.md)
 - [\[AAAI 2026\] Adapt-As-You-Walk Through the Clouds: Training-Free Online Test-Time Adaptation of 3D Vision-Language Foundation Models](adapt-as-you-walk_through_the_clouds_training-free_online_te.md)
 - [\[CVPR 2025\] DEFOM-Stereo: Depth Foundation Model Based Stereo Matching](../../CVPR2025/3d_vision/defom-stereo_depth_foundation_model_based_stereo_matching.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -195,6 +195,8 @@ HiLoMix 在所有指标上全面领先，MRR 提升最显著（15.61%），表�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Robust Tabular Foundation Models](robust_tabular_foundation_models.md)
@@ -202,5 +204,7 @@ HiLoMix 在所有指标上全面领先，MRR 提升最显著（15.61%），表�
 - [\[AAAI 2026\] Let the Void Be Void: Robust Open-Set Semi-Supervised Learning via Selective Non-Alignment](let_the_void_be_void_robust_open-set_semi-supervised_learning_via_selective_non-.md)
 - [\[ICML 2025\] Griffin: Towards a Graph-Centric Relational Database Foundation Model](../../ICML2025/self_supervised/griffin_towards_a_graph-centric_relational_database_foundation_model.md)
 - [\[ACL 2025\] Improving Low-Resource Morphological Inflection via Self-Supervised Objectives](../../ACL2025/self_supervised/improving_low-resource_morphological_inflection_via_self-supervised_objectives.md)
+
+</div>
 
 <!-- RELATED:END -->

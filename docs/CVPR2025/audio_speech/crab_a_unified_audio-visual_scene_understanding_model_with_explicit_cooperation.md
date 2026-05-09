@@ -121,6 +121,8 @@ Visual 子类别上提升显著（90.73 vs. 83.61），可能受益于显式推�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Object-aware Sound Source Localization via Audio-Visual Scene Understanding](object-aware_sound_source_localization_via_audio-visual_scene_understanding.md)
@@ -128,5 +130,7 @@ Visual 子类别上提升显著（90.73 vs. 83.61），可能受益于显式推�
 - [\[AAAI 2026\] USE: A Unified Model for Universal Sound Separation and Extraction](../../AAAI2026/audio_speech/use_a_unified_model_for_universal_sound_separation_and_extraction.md)
 - [\[CVPR 2025\] UWAV: Uncertainty-Weighted Weakly-Supervised Audio-Visual Video Parsing](uwav_uncertainty-weighted_weakly-supervised_audio-visual_video_parsing.md)
 - [\[CVPR 2025\] Learning to Highlight Audio by Watching Movies](learning_to_highlight_audio_by_watching_movies.md)
+
+</div>
 
 <!-- RELATED:END -->

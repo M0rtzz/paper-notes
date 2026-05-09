@@ -130,6 +130,8 @@ L-DiffER 基于预训练的语言引导扩散模型（如 Stable Diffusion）构
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Implicit Concept Removal of Diffusion Models](implicit_concept_removal_of_diffusion_models.md)
@@ -137,5 +139,7 @@ L-DiffER 基于预训练的语言引导扩散模型（如 Stable Diffusion）构
 - [\[ECCV 2024\] StyleTokenizer: Defining Image Style by a Single Instance for Controlling Diffusion Models](styletokenizer_defining_image_style_by_a_single_instance_for_controlling_diffusi.md)
 - [\[ECCV 2024\] DCDM: Diffusion-Conditioned-Diffusion Model for Scene Text Image Super-Resolution](dcdm_diffusion-conditioned-diffusion_model_for_scene_text_image_super-resolution.md)
 - [\[NeurIPS 2025\] Continuous Diffusion Model for Language Modeling](../../NeurIPS2025/image_generation/continuous_diffusion_model_for_language_modeling.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -121,6 +121,8 @@ TP-as-a-Judge 包含三个关键阶段：(1) LLM 数据生成，通过 Reverse Q
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] TARGA: Targeted Synthetic Data Generation for Practical Reasoning over Structured Data](targa_targeted_synthetic_data_generation_for_practical_reasoning_over_structured.md)
@@ -128,5 +130,7 @@ TP-as-a-Judge 包含三个关键阶段：(1) LLM 数据生成，通过 Reverse Q
 - [\[ACL 2025\] Literature Meets Data: A Synergistic Approach to Hypothesis Generation](literature_meets_data_hypothesis.md)
 - [\[ACL 2025\] A Little Human Data Goes A Long Way](a_little_human_data_goes_a_long_way.md)
 - [\[ACL 2025\] Generating Synthetic Relational Tabular Data via Structural Causal Models](generating_synthetic_relational_tabular_data_via_structural_causal_models.md)
+
+</div>
 
 <!-- RELATED:END -->

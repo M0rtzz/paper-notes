@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/social_computing/) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/social_computing/) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/) · [🧪 ICML2025 (7)](../../ICML2025/social_computing/)
+
+🔥 **高频主题：** Agent ×2 · 推理 ×2
+
 **[Argumentative Debates for Transparent Bias Detection](argumentative_debates_for_transparent_bias_detection_technic.md)**
 
 :   提出 ABIDE（Argumentative BIas Detection by DEbate），通过基于邻域属性的论证方案（argument schemes）构建量化双极论证框架（QBAF），将偏见检测过程建模为结构化辩论，实现从单邻域到全局的透明偏见推理，并形式化证明 QBAF 语义与偏见检测期望行为之间的对应关系。

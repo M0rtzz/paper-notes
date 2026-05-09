@@ -113,6 +113,8 @@ AndroidLab包含三个组件：(1) 标准化操作环境，统一LLM和LMM的动
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Benchmarking LLMs and LLM-based Agents in Practical Vulnerability Detection for Code Repositories](benchmarking_llms_and_llm-based_agents_in_practical_vulnerability_detection_for_.md)
@@ -120,5 +122,7 @@ AndroidLab包含三个组件：(1) 标准化操作环境，统一LLM和LMM的动
 - [\[ICLR 2026\] AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite](../../ICLR2026/llm_evaluation/astabench_benchmarking_ai_agents.md)
 - [\[AAAI 2026\] MicroEvoEval: A Systematic Evaluation Framework for Image-Based Microstructure Evolution Prediction](../../AAAI2026/llm_evaluation/microevoeval_a_systematic_evaluation_framework_for_image-based_microstructure_ev.md)
 - [\[ICML 2025\] Communicating Activations Between Language Model Agents](../../ICML2025/llm_evaluation/communicating_activations_between_language_model_agents.md)
+
+</div>
 
 <!-- RELATED:END -->

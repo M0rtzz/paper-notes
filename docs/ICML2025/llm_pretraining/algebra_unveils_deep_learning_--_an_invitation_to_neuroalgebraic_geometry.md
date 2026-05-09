@@ -203,6 +203,8 @@ $$\min_{f \in \mathcal{M}} \mathcal{L}_\mathcal{D}(f)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] The Double-Ellipsoid Geometry of CLIP](the_double-ellipsoid_geometry_of_clip.md)
@@ -210,5 +212,7 @@ $$\min_{f \in \mathcal{M}} \mathcal{L}_\mathcal{D}(f)$$
 - [\[NeurIPS 2025\] Predict Training Data Quality via Its Geometry in Metric Space](../../NeurIPS2025/llm_pretraining/predict_training_data_quality_via_its_geometry_in_metric_space.md)
 - [\[NeurIPS 2025\] Deep Compositional Phase Diffusion for Long Motion Sequence Generation](../../NeurIPS2025/llm_pretraining/deep_compositional_phase_diffusion_for_long_motion_sequence_generation.md)
 - [\[ICML 2025\] On the Role of Label Noise in the Feature Learning Process](on_the_role_of_label_noise_in_the_feature_learning_process.md)
+
+</div>
 
 <!-- RELATED:END -->

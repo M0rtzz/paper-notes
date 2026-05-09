@@ -206,6 +206,8 @@ $$R^{true}(W) = \|W\Sigma_{xx}^{1/2} - \Sigma_{xy}^T\Sigma_{xx}^{-1/2}\|_F^2 - \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Generalization Bounds for Semi-supervised Matrix Completion with Distributional Side Information](../../AAAI2026/recommender/generalization_bounds_for_semi-supervised_matrix_completion_with_distributional_.md)
@@ -213,5 +215,7 @@ $$R^{true}(W) = \|W\Sigma_{xx}^{1/2} - \Sigma_{xy}^T\Sigma_{xx}^{-1/2}\|_F^2 - \
 - [\[NeurIPS 2025\] Who You Are Matters: Bridging Topics and Social Roles via LLM-Enhanced Logical Recommendation](who_you_are_matters_bridging_topics_and_social_roles_via_llm-enhanced_logical_re.md)
 - [\[NeurIPS 2025\] Inference-Time Reward Hacking in Large Language Models](inference-time_reward_hacking_in_large_language_models.md)
 - [\[NeurIPS 2025\] Measuring What Matters: Construct Validity in Large Language Model Benchmarks](measuring_what_matters_construct_validity_in_large_language_model_benchmarks.md)
+
+</div>
 
 <!-- RELATED:END -->

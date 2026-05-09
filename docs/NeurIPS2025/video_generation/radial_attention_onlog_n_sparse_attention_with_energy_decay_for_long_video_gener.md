@@ -145,6 +145,8 @@ Radial Attention 是一种静态稀疏注意力机制，使用预定义的掩码
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] VSA: Faster Video Diffusion with Trainable Sparse Attention](vsa_faster_video_diffusion_with_trainable_sparse_attention.md)
@@ -152,5 +154,7 @@ Radial Attention 是一种静态稀疏注意力机制，使用预定义的掩码
 - [\[NeurIPS 2025\] S²Q-VDiT: Accurate Quantized Video Diffusion Transformer with Salient Data and Sparse Token Distillation](s2q-vdit_accurate_quantized_video_diffusion_transformer_with_salient_data_and_sp.md)
 - [\[CVPR 2025\] Presto: Long Video Diffusion Generation with Segmented Cross-Attention and Content-Rich Video Data Curation](../../CVPR2025/video_generation/long_video_diffusion_generation_with_segmented_cross-attention_and_content-rich_.md)
 - [\[NeurIPS 2025\] Scaling RL to Long Videos](scaling_rl_to_long_videos.md)
+
+</div>
 
 <!-- RELATED:END -->

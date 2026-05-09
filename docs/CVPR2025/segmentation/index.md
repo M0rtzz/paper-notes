@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **98** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/segmentation/) · [📷 CVPR2026 (103)](../../CVPR2026/segmentation/) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/) · [🤖 AAAI2026 (31)](../../AAAI2026/segmentation/) · [🧠 NeurIPS2025 (48)](../../NeurIPS2025/segmentation/) · [📹 ICCV2025 (78)](../../ICCV2025/segmentation/)
+
+🔥 **高频主题：** 语义分割 ×41 · 多模态 ×6 · 语音 ×5 · 目标检测 ×5 · 对齐/RLHF ×4
+
 **[2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification](2dmamba_efficient_state_space_model_for_image_representation_with_applications_o.md)**
 
 :   提出2DMamba，首个具有高效并行算法的**原生2D选择性状态空间模型**，通过保持2D空间连续性（而非展平为1D序列）来建模WSI中的patch间关系，在10个公共病理数据集上全面超越1D Mamba方法，并在ImageNet分类和ADE20K分割上也有提升。

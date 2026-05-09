@@ -143,6 +143,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] PromptIQA: Boosting the Performance and Generalization for No-Reference Image Quality Assessment via Prompts](promptiqa_boosting_the_performance_and_generalization_for_no-reference_image_qua.md)
@@ -150,5 +152,7 @@ tags:
 - [\[NeurIPS 2025\] Post Hoc Regression Refinement via Pairwise Rankings](../../NeurIPS2025/llm_nlp/post_hoc_regression_refinement_via_pairwise_rankings.md)
 - [\[ACL 2025\] P3: Prompts Promote Prompting](../../ACL2025/llm_nlp/p3_prompts_promote_prompting.md)
 - [\[ECCV 2024\] SLIMER: Show Less, Instruct More - Enriching Prompts with Definitions and Guidelines for Zero-Shot NER](slimer_zero_shot_ner.md)
+
+</div>
 
 <!-- RELATED:END -->

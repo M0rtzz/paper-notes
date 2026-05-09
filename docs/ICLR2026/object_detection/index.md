@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **9** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/object_detection/) · [📷 CVPR2026 (45)](../../CVPR2026/object_detection/) · [🤖 AAAI2026 (17)](../../AAAI2026/object_detection/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/object_detection/) · [📹 ICCV2025 (30)](../../ICCV2025/object_detection/) · [🧪 ICML2025 (8)](../../ICML2025/object_detection/)
+
+🔥 **高频主题：** 目标检测 ×3
+
 **[AdaRank: Adaptive Rank Pruning for Enhanced Model Merging](adarank_adaptive_rank_pruning_for_enhanced_model_merging.md)**
 
 :   提出 AdaRank，用可学习二值掩码自适应选择 task vector 的奇异分量（取代启发式 top-k），结合测试时熵最小化优化，大幅缓解多任务模型合并中的任务间干扰，在 ViT-B/32 上达到 89.4% 准确率。

@@ -153,6 +153,8 @@ $$\psi(\boldsymbol{q}_j, i, i') = \frac{1}{2}\min(0, -(d(\boldsymbol{q}_j, i) + 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Guiding Human-Object Interactions with Rich Geometry and Relations](../../CVPR2025/3d_vision/guiding_human-object_interactions_with_rich_geometry_and_relations.md)
@@ -160,5 +162,7 @@ $$\psi(\boldsymbol{q}_j, i, i') = \frac{1}{2}\min(0, -(d(\boldsymbol{q}_j, i) + 
 - [\[ICCV 2025\] REPARO: Compositional 3D Assets Generation with Differentiable 3D Layout Alignment](reparo_compositional_3d_assets_generation_with_differentiable_3d_layout_alignmen.md)
 - [\[ICCV 2025\] AR-1-to-3: Single Image to Consistent 3D Object Generation via Next-View Prediction](ar1to3_single_image_to_consistent_3d_object_via_nextview_pre.md)
 - [\[ICCV 2025\] MaterialMVP: Illumination-Invariant Material Generation via Multi-view PBR Diffusion](materialmvp_illumination-invariant_material_generation_via_multi-view_pbr_diffus.md)
+
+</div>
 
 <!-- RELATED:END -->

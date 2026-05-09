@@ -125,6 +125,8 @@ $$\mathbb{E}[T_\delta^\nu(\mathcal{A})] \gtrsim \max\{M(K-M),\; N\} \cdot \frac{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Fixing the Loose Brake: Exponential-Tailed Stopping Time in Best Arm Identification](fixing_the_loose_brake_exponential-tailed_stopping_time_in_best_arm_identificati.md)
@@ -132,5 +134,7 @@ $$\mathbb{E}[T_\delta^\nu(\mathcal{A})] \gtrsim \max\{M(K-M),\; N\} \cdot \frac{
 - [\[ICML 2025\] Provably Efficient Algorithm for Best Scoring Rule Identification in Online Principal-Agent Information Acquisition](provably_efficient_algorithm_for_best_scoring_rule_identification_in_online_prin.md)
 - [\[ICML 2025\] Near-Optimal Consistency-Robustness Trade-Offs for Learning-Augmented Online Knapsack Problems](near-optimal_consistency-robustness_trade-offs_for_learning-augmented_online_kna.md)
 - [\[ICML 2025\] Heavy-Tailed Linear Bandits: Huber Regression with One-Pass Update](heavy-tailed_linear_bandits_huber_regression_with_one-pass_update.md)
+
+</div>
 
 <!-- RELATED:END -->

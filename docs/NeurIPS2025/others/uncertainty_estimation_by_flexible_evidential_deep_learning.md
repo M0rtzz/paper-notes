@@ -126,6 +126,8 @@ $$\mathcal{L} = \mathbb{E}_{\boldsymbol{\pi} \sim \text{FD}} [\|\mathbf{y} - \bo
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Deep Learning for Continuous-Time Stochastic Control with Jumps](deep_learning_for_continuous-time_stochastic_control_with_jumps.md)
@@ -133,5 +135,7 @@ $$\mathcal{L} = \mathbb{E}_{\boldsymbol{\pi} \sim \text{FD}} [\|\mathbf{y} - \bo
 - [\[NeurIPS 2025\] Position: There Is No Free Bayesian Uncertainty Quantification](position_there_is_no_free_bayesian_uncertainty_quantification.md)
 - [\[NeurIPS 2025\] Uncertainty Quantification for Reduced-Order Surrogate Models Applied to Cloud Microphysics](uncertainty_quantification_for_reduced-order_surrogate_models_applied_to_cloud_m.md)
 - [\[NeurIPS 2025\] Deep Legendre Transform](deep_legendre_transform.md)
+
+</div>
 
 <!-- RELATED:END -->

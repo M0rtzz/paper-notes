@@ -129,6 +129,8 @@ $$\mathcal{R}(T) = \mathbb{E}\left[\sum_{t=1}^{T}(\bar{r}(a^*) - \bar{r}(a_t))\r
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Probing Neural Combinatorial Optimization Models](probing_neural_combinatorial_optimization_models.md)
@@ -136,5 +138,7 @@ $$\mathcal{R}(T) = \mathbb{E}\left[\sum_{t=1}^{T}(\bar{r}(a^*) - \bar{r}(a_t))\r
 - [\[NeurIPS 2025\] FedRTS: Federated Robust Pruning via Combinatorial Thompson Sampling](fedrts_federated_robust_pruning_via_combinatorial_thompson_sampling.md)
 - [\[NeurIPS 2025\] Efficient Adaptive Experimentation with Noncompliance](efficient_adaptive_experimentation_with_noncompliance.md)
 - [\[NeurIPS 2025\] Efficient Adaptive Federated Optimization](efficient_adaptive_federated_optimization.md)
+
+</div>
 
 <!-- RELATED:END -->

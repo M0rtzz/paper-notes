@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **31** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (34)](../../ACL2026/interpretability/) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/) · [🧠 NeurIPS2025 (86)](../../NeurIPS2025/interpretability/) · [📹 ICCV2025 (11)](../../ICCV2025/interpretability/) · [🧪 ICML2025 (33)](../../ICML2025/interpretability/)
+
+🔥 **高频主题：** 多模态 ×5 · 布局/合成 ×2 · 水印/隐写 ×2 · 推理 ×2
+
 **[Beyond Semantics: Disentangling Information Scope in Sparse Autoencoders for CLIP](beyond_semantics_disentangling_information_scope_in_sparse_autoencoders_for_clip.md)**
 
 :   提出"信息范围"（information scope）作为SAE特征可解释性的新维度，通过Contextual Dependency Score（CDS）将CLIP的SAE特征分为局部特征（低CDS）和全局特征（高CDS），揭示两类特征在分类、分割、深度估计中的差异化功能角色。

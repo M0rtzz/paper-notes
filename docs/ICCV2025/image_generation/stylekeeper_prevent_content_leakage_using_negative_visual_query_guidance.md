@@ -181,6 +181,8 @@ $$\ddot{\epsilon}_\theta(x_t, Q_\emptyset, KV_{\text{visual}}^{\text{content}}) 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] ReNeg: Learning Negative Embedding with Reward Guidance](../../CVPR2025/image_generation/reneg_learning_negative_embedding_with_reward_guidance.md)
@@ -188,5 +190,7 @@ $$\ddot{\epsilon}_\theta(x_t, Q_\emptyset, KV_{\text{visual}}^{\text{content}}) 
 - [\[ICCV 2025\] Addressing Text Embedding Leakage in Diffusion-based Image Editing](addressing_text_embedding_leakage_in_diffusion_based_image_editing.md)
 - [\[ICML 2025\] Visual Generation Without Guidance](../../ICML2025/image_generation/visual_generation_without_guidance.md)
 - [\[ICCV 2025\] Bitrate-Controlled Diffusion for Disentangling Motion and Content in Video](bitrate-controlled_diffusion_for_disentangling_motion_and_content_in_video.md)
+
+</div>
 
 <!-- RELATED:END -->

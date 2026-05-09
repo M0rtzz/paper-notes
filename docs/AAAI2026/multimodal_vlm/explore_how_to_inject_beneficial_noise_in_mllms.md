@@ -138,6 +138,8 @@ $$L \approx \frac{1}{n \cdot m} \sum_{i=1}^{n} \sum_{j=1}^{m} [-\log q(A_i | X_V
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] FlySearch: Exploring how vision-language models explore](../../NeurIPS2025/multimodal_vlm/flysearch_exploring_how_vision-language_models_explore.md)
@@ -145,5 +147,7 @@ $$L \approx \frac{1}{n \cdot m} \sum_{i=1}^{n} \sum_{j=1}^{m} [-\log q(A_i | X_V
 - [\[AAAI 2026\] AbductiveMLLM: Boosting Visual Abductive Reasoning Within MLLMs](abductivemllm_boosting_visual_abductive_reasoning_within_mll.md)
 - [\[AAAI 2026\] MacVQA: Adaptive Memory Allocation and Global Noise Filtering for Continual Visual Question Answering](macvqa_adaptive_memory_allocation_and_global_noise_filtering_for_continual_visua.md)
 - [\[AAAI 2026\] When Eyes and Ears Disagree: Can MLLMs Discern Audio-Visual Confusion?](when_eyes_and_ears_disagree_can_mllms_discern_audio-visual_confusion.md)
+
+</div>
 
 <!-- RELATED:END -->

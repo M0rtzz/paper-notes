@@ -170,6 +170,8 @@ GestSync 在此任务上最优（因其有强帧级同步监督），JEGAL 紧�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] HOP: Heterogeneous Topology-based Multimodal Entanglement for Co-Speech Gesture Generation](../../CVPR2025/audio_speech/hop_heterogeneous_topology-based_multimodal_entanglement_for_co-speech_gesture_g.md)
@@ -177,5 +179,7 @@ GestSync 在此任务上最优（因其有强帧级同步监督），JEGAL 紧�
 - [\[ACL 2025\] In-the-wild Audio Spatialization with Flexible Text-guided Localization](../../ACL2025/audio_speech/tas_audio_spatialization.md)
 - [\[ACL 2026\] Computational Narrative Understanding for Expressive Text-to-Speech](../../ACL2026/audio_speech/computational_narrative_understanding_for_expressive_text-to-speech.md)
 - [\[AAAI 2026\] DualSpeechLM: Towards Unified Speech Understanding and Generation via Dual Speech Token Modeling](../../AAAI2026/audio_speech/dualspeechlm_towards_unified_speech_understanding_and_generation_via_dual_speech.md)
+
+</div>
 
 <!-- RELATED:END -->

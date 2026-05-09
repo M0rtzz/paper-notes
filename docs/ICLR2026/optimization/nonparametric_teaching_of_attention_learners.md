@@ -147,6 +147,8 @@ Soft策略(Gumbel-Top-k概率采样)在时间和性能间取得最佳平衡：Ra
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Nonparametric Teaching for Graph Property Learners](../../ICML2025/optimization/nonparametric_teaching_for_graph_property_learners.md)
@@ -154,5 +156,7 @@ Soft策略(Gumbel-Top-k概率采样)在时间和性能间取得最佳平衡：Ra
 - [\[ICLR 2026\] Unifying Formal Explanations: A Complexity-Theoretic Perspective](unifying_formal_explanations_a_complexity-theoretic_perspective.md)
 - [\[ICLR 2026\] Provable and Practical In-Context Policy Optimization for Self-Improvement](provable_and_practical_in-context_policy_optimization_for_self-improvement.md)
 - [\[ICLR 2026\] Rapid Training of Hamiltonian Graph Networks using Random Features](rapid_training_of_hamiltonian_graph_networks_using_random_features.md)
+
+</div>
 
 <!-- RELATED:END -->

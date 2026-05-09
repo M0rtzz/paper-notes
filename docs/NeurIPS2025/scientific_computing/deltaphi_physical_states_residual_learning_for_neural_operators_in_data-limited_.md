@@ -137,6 +137,8 @@ $$\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} \| \mathcal{N}_\theta(a_i, a_{k_i}) -
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Towards Universal Neural Operators through Multiphysics Pretraining](towards_universal_neural_operators_through_multiphysics_pretraining.md)
@@ -144,5 +146,7 @@ $$\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} \| \mathcal{N}_\theta(a_i, a_{k_i}) -
 - [\[NeurIPS 2025\] Hamiltonian Neural PDE Solvers through Functional Approximation](hamiltonian_neural_pde_solvers_through_functional_approximation.md)
 - [\[NeurIPS 2025\] Enforcing Governing Equation Constraints in Neural PDE Solvers via Training-free Projections](enforcing_governing_equation_constraints_in_neural_pde_solvers_via_training-free.md)
 - [\[CVPR 2025\] Accurate Differential Operators for Hybrid Neural Fields](../../CVPR2025/scientific_computing/accurate_differential_operators_for_hybrid_neural_fields.md)
+
+</div>
 
 <!-- RELATED:END -->

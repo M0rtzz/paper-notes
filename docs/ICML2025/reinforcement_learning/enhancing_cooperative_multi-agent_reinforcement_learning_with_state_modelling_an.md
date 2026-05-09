@@ -202,6 +202,8 @@ $$L_\text{actor}(\psi^i) = -\beta_H \cdot H(\pi_{\psi^i}(a_t^i \mid h_t^i, z_t^i
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Adversarial Cooperative Rationalization: The Risk of Spurious Correlations in Even Clean Datasets](adversarial_cooperative_rationalization_the_risk_of_spurious_correlations_in_eve.md)
@@ -209,5 +211,7 @@ $$L_\text{actor}(\psi^i) = -\beta_H \cdot H(\pi_{\psi^i}(a_t^i \mid h_t^i, z_t^i
 - [\[ICLR 2026\] Distributionally Robust Cooperative Multi-Agent Reinforcement Learning via Robust Value Factorization](../../ICLR2026/reinforcement_learning/distributionally_robust_cooperative_multi-agent_reinforcement_learning_via_robus.md)
 - [\[ICML 2025\] Learning to Incentivize in Repeated Principal-Agent Problems with Adversarial Agent Arrivals](learning_to_incentivize_in_repeated_principal-agent_problems_with_adversarial_ag.md)
 - [\[NeurIPS 2025\] Mean-Field Sampling for Cooperative Multi-Agent Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/mean-field_sampling_for_cooperative_multi-agent_reinforcement_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

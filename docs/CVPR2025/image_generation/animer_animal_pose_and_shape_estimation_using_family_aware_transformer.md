@@ -114,6 +114,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Can Generative Video Models Help Pose Estimation?](can_generative_video_models_help_pose_estimation.md)
@@ -121,5 +123,7 @@ tags:
 - [\[CVPR 2025\] Free-viewpoint Human Animation with Pose-correlated Reference Selection](free-viewpoint_human_animation_with_pose-correlated_reference_selection.md)
 - [\[ECCV 2024\] Harnessing Text-to-Image Diffusion Models for Category-Agnostic Pose Estimation](../../ECCV2024/image_generation/harnessing_text-to-image_diffusion_models_for_category-agnostic_pose_estimation.md)
 - [\[CVPR 2025\] Towards Transformer-Based Aligned Generation with Self-Coherence Guidance](towards_transformer-based_aligned_generation_with_self-coherence_guidance.md)
+
+</div>
 
 <!-- RELATED:END -->

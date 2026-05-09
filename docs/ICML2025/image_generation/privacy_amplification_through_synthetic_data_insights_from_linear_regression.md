@@ -157,6 +157,8 @@ $$D_\alpha(G_v, G_w) \leq \frac{\alpha nl \Delta^2}{4(d-n)\sigma_\theta^2} + o(d
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Increasing the Utility of Synthetic Images through Chamfer Guidance](../../NeurIPS2025/image_generation/increasing_the_utility_of_synthetic_images_through_chamfer_guidance.md)
@@ -164,5 +166,7 @@ $$D_\alpha(G_v, G_w) \leq \frac{\alpha nl \Delta^2}{4(d-n)\sigma_\theta^2} + o(d
 - [\[CVPR 2025\] Training Data Provenance Verification: Did Your Model Use Synthetic Data from My Generative Model for Training?](../../CVPR2025/image_generation/training_data_provenance_verification_did_your_model_use_synthetic_data_from_my_.md)
 - [\[ICLR 2026\] SMOTE and Mirrors: Exposing Privacy Leakage from Synthetic Minority Oversampling](../../ICLR2026/image_generation/smote_and_mirrors_exposing_privacy_leakage_from_synthetic_minority_oversampling.md)
 - [\[ICCV 2025\] Generating Multi-Image Synthetic Data for Text-to-Image Customization](../../ICCV2025/image_generation/generating_multi-image_synthetic_data_for_text-to-image_customization.md)
+
+</div>
 
 <!-- RELATED:END -->

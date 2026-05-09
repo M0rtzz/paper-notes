@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **39** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/object_detection/) · [📷 CVPR2026 (45)](../../CVPR2026/object_detection/) · [🔬 ICLR2026 (9)](../../ICLR2026/object_detection/) · [🤖 AAAI2026 (17)](../../AAAI2026/object_detection/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/object_detection/) · [📹 ICCV2025 (30)](../../ICCV2025/object_detection/)
+
+🔥 **高频主题：** 目标检测 ×7 · 少样本学习 ×4 · 3D 目标检测 ×3 · 自监督学习 ×2 · 布局/合成 ×2
+
 **[A Multimodal Benchmark Dataset and Model for Crop Disease Diagnosis](a_multimodal_benchmark_dataset_and_model_for_crop_disease_di.md)**
 
 :   构建了包含13.7万张作物病害图像和100万问答对的CDDM数据集，并提出同时对视觉编码器、adapter和语言模型施加LoRA微调的策略，使Qwen-VL-Chat和LLaVA在作物病害诊断准确率上从个位数跃升至90%以上。

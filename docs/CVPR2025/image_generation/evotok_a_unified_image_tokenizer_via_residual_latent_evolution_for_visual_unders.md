@@ -133,6 +133,8 @@ $$\mathcal{L}_{\text{total}} = \underbrace{(\mathcal{L}_R + \lambda_P \mathcal{L
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation](tokenflow_unified_image_tokenizer_for_multimodal_understanding_and_generation.md)
@@ -140,5 +142,7 @@ $$\mathcal{L}_{\text{total}} = \underbrace{(\mathcal{L}_R + \lambda_P \mathcal{L
 - [\[CVPR 2025\] JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation](janusflow_harmonizing_autoregression_and_rectified_flow_for_unified_multimodal_u.md)
 - [\[CVPR 2025\] OmniGen: Unified Image Generation](omnigen_unified_image_generation.md)
 - [\[CVPR 2025\] Towards Understanding and Quantifying Uncertainty for Text-to-Image Generation](towards_understanding_and_quantifying_uncertainty_for_text-to-image_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

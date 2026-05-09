@@ -146,6 +146,8 @@ $$\mathbb{E}[W_1(\mu_S, \mu_{S_T})] \leq \tilde{O}\left(dD\left(\frac{\sqrt{\log
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] PersonaBench: Evaluating AI Models on Understanding Personal Information through Accessing (Synthetic) Private User Data](../../ACL2025/others/personabench_evaluating_ai_models_on_understanding_personal_information_through_.md)
@@ -153,5 +155,7 @@ $$\mathbb{E}[W_1(\mu_S, \mu_{S_T})] \leq \tilde{O}\left(dD\left(\frac{\sqrt{\log
 - [\[AAAI 2026\] Improved Differentially Private Algorithms for Rank Aggregation](../../AAAI2026/others/improved_differentially_private_algorithms_for_rank_aggregation.md)
 - [\[ICLR 2026\] Missing Mass for Differentially Private Domain Discovery](../../ICLR2026/others/missing_mass_for_differentially_private_domain_discovery.md)
 - [\[ICLR 2026\] Learning Structure-Semantic Evolution Trajectories for Graph Domain Adaptation](../../ICLR2026/others/learning_structure-semantic_evolution_trajectories_for_graph_domain_adaptation.md)
+
+</div>
 
 <!-- RELATED:END -->

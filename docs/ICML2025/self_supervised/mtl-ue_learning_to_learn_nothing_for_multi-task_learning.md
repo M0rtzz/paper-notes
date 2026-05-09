@@ -144,6 +144,8 @@ $$\mathcal{L} = \mathcal{L}_b(F'_{MTL}, \mathbf{x}+\delta, \mathbf{y}) + \lambda
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Soft Task-Aware Routing of Experts for Equivariant Representation Learning](../../NeurIPS2025/self_supervised/soft_task-aware_routing_of_experts_for_equivariant_representation_learning.md)
@@ -151,5 +153,7 @@ $$\mathcal{L} = \mathcal{L}_b(F'_{MTL}, \mathbf{x}+\delta, \mathbf{y}) + \lambda
 - [\[ICML 2025\] Update Your Transformer to the Latest Release: Re-Basin of Task Vectors](update_your_transformer_to_the_latest_release_re-basin_of_task_vectors.md)
 - [\[ICML 2025\] AdaWorld: Learning Adaptable World Models with Latent Actions](adaworld_learning_adaptable_world_models_with_latent_actions.md)
 - [\[ACL 2025\] SHuBERT: Self-Supervised Sign Language Representation Learning via Multi-Stream Cluster Prediction](../../ACL2025/self_supervised/shubert_self-supervised_sign_language_representation_learning_via_multi-stream_c.md)
+
+</div>
 
 <!-- RELATED:END -->

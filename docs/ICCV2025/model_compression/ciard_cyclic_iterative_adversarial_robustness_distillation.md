@@ -129,6 +129,8 @@ CIARD包含固定的clean teacher + 持续更新的robust teacher + push loss机
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] OPAD: Adversarial Concept Distillation for One-Step Diffusion Personalization](../../CVPR2026/model_compression/opad_adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
@@ -136,5 +138,7 @@ CIARD包含固定的clean teacher + 持续更新的robust teacher + push loss机
 - [\[ICCV 2025\] Knowledge Distillation with Refined Logits](knowledge_distillation_with_refined_logits.md)
 - [\[ICCV 2025\] A Good Teacher Adapts Their Knowledge for Distillation](a_good_teacher_adapts_their_knowledge_for_distillation.md)
 - [\[ICCV 2025\] Perspective-Aware Teaching: Adapting Knowledge for Heterogeneous Distillation](perspective-aware_teaching_adapting_knowledge_for_heterogeneous_distillation.md)
+
+</div>
 
 <!-- RELATED:END -->

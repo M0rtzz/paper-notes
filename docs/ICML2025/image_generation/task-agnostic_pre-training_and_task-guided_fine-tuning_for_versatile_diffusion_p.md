@@ -124,6 +124,8 @@ $$\mathcal{L}_{\text{BC}}(\theta) = \mathbb{E}_{k, \mathbf{a}_\mu^k \sim p_\mu} 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] LIFT: Latent Implicit Functions for Task- and Data-Agnostic Encoding](../../ICCV2025/image_generation/lift_latent_implicit_functions_for_task-_and_data-agnostic_encoding.md)
@@ -131,5 +133,7 @@ $$\mathcal{L}_{\text{BC}}(\theta) = \mathbb{E}_{k, \mathbf{a}_\mu^k \sim p_\mu} 
 - [\[ICML 2025\] Zero-Shot Adaptation of Parameter-Efficient Fine-Tuning in Diffusion Models](zero-shot_adaptation_of_parameter-efficient_fine-tuning_in_diffusion_models.md)
 - [\[ICML 2025\] Revisiting Diffusion Models: From Generative Pre-training to One-Step Generation](revisiting_diffusion_models_from_generative_pre-training_to_one-step_generation.md)
 - [\[NeurIPS 2025\] UtilGen: Utility-Centric Generative Data Augmentation with Dual-Level Task Adaptation](../../NeurIPS2025/image_generation/utilgen_utility-centric_generative_data_augmentation_with_dual-level_task_adapta.md)
+
+</div>
 
 <!-- RELATED:END -->

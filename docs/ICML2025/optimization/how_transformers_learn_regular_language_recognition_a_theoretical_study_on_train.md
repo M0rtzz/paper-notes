@@ -146,6 +146,8 @@ $$\mathcal{L}(u,W) = \sum_{L=1}^{L_{\max}} \frac{1}{|I_L|} \sum_{n \in I_L} \log
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Can Transformers Learn Full Bayesian Inference In Context?](can_transformers_learn_full_bayesian_inference_in_context.md)
@@ -153,5 +155,7 @@ $$\mathcal{L}(u,W) = \sum_{L=1}^{L_{\max}} \frac{1}{|I_L|} \sum_{n \in I_L} \log
 - [\[ICML 2025\] Training Dynamics of In-Context Learning in Linear Attention](training_dynamics_of_in-context_learning_in_linear_attention.md)
 - [\[NeurIPS 2025\] Multi-head Transformers Provably Learn Symbolic Multi-step Reasoning via Gradient Descent](../../NeurIPS2025/optimization/multi-head_transformers_provably_learn_symbolic_multi-step_reasoning_via_gradien.md)
 - [\[NeurIPS 2025\] A Theoretical Study on Bridging Internal Probability and Self-Consistency for LLM Reasoning](../../NeurIPS2025/optimization/a_theoretical_study_on_bridging_internal_probability_and_sel.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -123,6 +123,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Beyond World Models: Rethinking Understanding in AI Models](beyond_world_models_rethinking_understanding_in_ai_models.md)
@@ -130,5 +132,7 @@ tags:
 - [\[ACL 2025\] Predicting Through Generation: Why Generation Is Better for Prediction](../../ACL2025/others/predicting_through_generation_why_generation_is_better_for_prediction.md)
 - [\[AAAI 2026\] Bandit Learning in Housing Markets](bandit_learning_in_housing_markets.md)
 - [\[ICML 2025\] General Agents Contain World Models](../../ICML2025/others/general_agents_contain_world_models.md)
+
+</div>
 
 <!-- RELATED:END -->

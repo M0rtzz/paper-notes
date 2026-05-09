@@ -126,6 +126,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] YIELD: A Large-Scale Dataset and Evaluation Framework for Information Elicitation Agents](yield_a_large-scale_dataset_and_evaluation_framework_for_information_elicitation.md)
@@ -133,5 +135,7 @@ tags:
 - [\[NeurIPS 2025\] Offline Policy Evaluation of Multi-Turn LLM Health Coaching with Real Users](../../NeurIPS2025/model_compression/offline_policy_evaluation_of_multi-turn_llm_health_coaching_with_real_users.md)
 - [\[ACL 2026\] Supplement Generation Training for Enhancing Agentic Task Performance](supplement_generation_training_for_enhancing_agentic_task_performance.md)
 - [\[ACL 2026\] No-Worse Context-Aware Decoding: Preventing Neutral Regression in Context-Conditioned Generation](no-worse_context-aware_decoding_preventing_neutral_regression_in_context-conditi.md)
+
+</div>
 
 <!-- RELATED:END -->

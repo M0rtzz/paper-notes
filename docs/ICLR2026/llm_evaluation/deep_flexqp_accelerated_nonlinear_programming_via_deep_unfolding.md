@@ -106,6 +106,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Potential Field Based Deep Metric Learning](../../CVPR2025/llm_evaluation/potential_field_based_deep_metric_learning.md)
@@ -113,5 +115,7 @@ tags:
 - [\[AAAI 2026\] Deep Incomplete Multi-View Clustering via Hierarchical Imputation and Alignment](../../AAAI2026/llm_evaluation/deep_incomplete_multi-view_clustering_via_hierarchical_imputation_and_alignment.md)
 - [\[ICML 2025\] On Temperature Scaling and Conformal Prediction of Deep Classifiers](../../ICML2025/llm_evaluation/on_temperature_scaling_and_conformal_prediction_of_deep_classifiers.md)
 - [\[CVPR 2025\] Improving Accuracy and Calibration via Differentiated Deep Mutual Learning](../../CVPR2025/llm_evaluation/improving_accuracy_and_calibration_via_differentiated_deep_mutual_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

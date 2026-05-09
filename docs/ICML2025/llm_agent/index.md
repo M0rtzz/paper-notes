@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **15** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (41)](../../ACL2026/llm_agent/) · [📷 CVPR2026 (21)](../../CVPR2026/llm_agent/) · [🔬 ICLR2026 (47)](../../ICLR2026/llm_agent/) · [🤖 AAAI2026 (44)](../../AAAI2026/llm_agent/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_agent/) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/)
+
+🔥 **高频主题：** LLM ×7 · Agent ×6 · 推理 ×4
+
 **[AdvAgent: Controllable Blackbox Red-teaming on Web Agents](advagent_controllable_blackbox_red-teaming_on_web_agents.md)**
 
 :   提出 AdvAgent，一个基于强化学习（DPO）的黑盒红队测试框架，训练一个对抗 prompter 模型自动生成不可见的 HTML 对抗 prompt，注入网页后可误导 GPT-4V 驱动的 Web Agent 执行攻击者指定的目标动作（如将买微软股票改为买英伟达），在 440 个任务上达到 97.5% 攻击成功率，且对现有防御手段仍保持 88.8% 以上的有效性。

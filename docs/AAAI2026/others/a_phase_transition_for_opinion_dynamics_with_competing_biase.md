@@ -121,6 +121,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Dynamics of Cognitive Heterogeneity: Investigating Behavioral Biases in Multi-Stage Supply Chains with LLM-Based Simulation](../../ACL2026/others/dynamics_of_cognitive_heterogeneity_investigating_behavioral_biases_in_multi-sta.md)
@@ -128,5 +130,7 @@ tags:
 - [\[AAAI 2026\] LILAD: Learning In-context Lyapunov-stable Adaptive Dynamics Models](lilad_learning_in-context_lyapunov-stable_adaptive_dynamics_models.md)
 - [\[ACL 2025\] Cooperating and Competing Through Natural Language](../../ACL2025/others/cooperating_and_competing_through_natural_language.md)
 - [\[NeurIPS 2025\] Normalization in Attention Dynamics](../../NeurIPS2025/others/normalization_in_attention_dynamics.md)
+
+</div>
 
 <!-- RELATED:END -->

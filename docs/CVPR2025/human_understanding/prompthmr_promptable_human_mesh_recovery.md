@@ -128,6 +128,8 @@ PromptHMR 提出了一种基于 Transformer 的可提示式人体姿态与形状
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] HeatFormer: A Neural Optimizer for Multiview Human Mesh Recovery](heatformer_a_neural_optimizer_for_multiview_human_mesh_recovery.md)
@@ -135,5 +137,7 @@ PromptHMR 提出了一种基于 Transformer 的可提示式人体姿态与形状
 - [\[ICCV 2025\] AJAHR: Amputated Joint Aware 3D Human Mesh Recovery](../../ICCV2025/human_understanding/ajahr_amputated_joint_aware_3d_human_mesh_recovery.md)
 - [\[ECCV 2024\] Global-to-Pixel Regression for Human Mesh Recovery](../../ECCV2024/human_understanding/global-to-pixel_regression_for_human_mesh_recovery.md)
 - [\[ECCV 2024\] Multi-HMR: Multi-Person Whole-Body Human Mesh Recovery in a Single Shot](../../ECCV2024/human_understanding/multi-hmr_multi-person_whole-body_human_mesh_recovery_in_a_single_shot.md)
+
+</div>
 
 <!-- RELATED:END -->

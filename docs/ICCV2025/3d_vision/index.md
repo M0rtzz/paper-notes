@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **268** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (252)](../../CVPR2026/3d_vision/) · [🔬 ICLR2026 (65)](../../ICLR2026/3d_vision/) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/) · [🧠 NeurIPS2025 (116)](../../NeurIPS2025/3d_vision/) · [🧪 ICML2025 (11)](../../ICML2025/3d_vision/) · [💬 ACL2025 (1)](../../ACL2025/3d_vision/)
+
+🔥 **高频主题：** 3D 高斯渲染 ×50 · 扩散模型 ×28 · 点云 ×18 · 动态场景 ×15 · 对抗鲁棒 ×12
+
 **[TRAN-D: 2D Gaussian Splatting-based Sparse-view Transparent Object Depth Reconstruction via Physics Simulation for Scene Update](2d_gaussian_splattingbased_sparseview_transparent_object_dep.md)**
 
 :   提出TRAN-D，一种基于2D Gaussian Splatting的稀疏视角透明物体深度重建方法，通过分割引导的object-aware损失优化遮挡区域Gaussian分布，并利用物理仿真（MPM）实现物体移除后的场景动态更新，仅需单张图像即可完成场景刷新。

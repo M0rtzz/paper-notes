@@ -150,6 +150,8 @@ $$|\text{AUC}_k - \widehat{\text{AUC}}_k| \leq \Phi\left(\frac{\mathbf{c}_k}{\sq
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] DATE-LM: Benchmarking Data Attribution Evaluation for Large Language Models](date-lm_benchmarking_data_attribution_evaluation_for_large_language_models.md)
@@ -157,5 +159,7 @@ $$|\text{AUC}_k - \widehat{\text{AUC}}_k| \leq \Phi\left(\frac{\mathbf{c}_k}{\sq
 - [\[ICML 2025\] When Bad Data Leads to Good Models](../../ICML2025/social_computing/when_bad_data_leads_to_good_models.md)
 - [\[AAAI 2026\] Multi-modal Dynamic Proxy Learning for Personalized Multiple Clustering](../../AAAI2026/social_computing/multi-modal_dynamic_proxy_learning_for_personalized_multiple_clustering.md)
 - [\[NeurIPS 2025\] Active Slice Discovery in Large Language Models](active_slice_discovery_in_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

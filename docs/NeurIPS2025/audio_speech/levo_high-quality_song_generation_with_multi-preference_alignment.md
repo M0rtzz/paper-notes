@@ -161,6 +161,8 @@ DPO 多偏好对齐策略对比：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] A TRIANGLE Enables Multimodal Alignment Beyond Cosine Similarity](a_triangle_enables_multimodal_alignment_beyond_cosine_simila.md)
@@ -168,5 +170,7 @@ DPO 多偏好对齐策略对比：
 - [\[NeurIPS 2025\] MEGADance: Mixture-of-Experts Architecture for Genre-Aware 3D Dance Generation](megadance_mixture-of-experts_architecture_for_genre-aware_3d_dance_generation.md)
 - [\[NeurIPS 2025\] Resounding Acoustic Fields with Reciprocity](resounding_acoustic_fields_with_reciprocity.md)
 - [\[NeurIPS 2025\] SimulMEGA: MoE Routers are Advanced Policy Makers for Simultaneous Speech Translation](simulmega_moe_routers_are_advanced_policy_makers_for_simultaneous_speech_transla.md)
+
+</div>
 
 <!-- RELATED:END -->

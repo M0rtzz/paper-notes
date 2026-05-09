@@ -111,6 +111,8 @@ $\mathcal{L} = \lambda_{\text{ta}}\mathcal{L}_{\text{ta}} + \lambda_{\text{mcls}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] AnalyticKWS: Towards Exemplar-Free Analytic Class Incremental Learning for Small-footprint Keyword Spotting](../../ACL2025/others/analytickws_towards_exemplar-free_analytic_class_incremental_learning_for_small-.md)
@@ -118,5 +120,7 @@ $\mathcal{L} = \lambda_{\text{ta}}\mathcal{L}_{\text{ta}} + \lambda_{\text{mcls}
 - [\[ACL 2025\] AIDE: Attribute-Guided Multi-Hop Data Expansion for Data Scarcity in Task-Specific Fine-tuning](../../ACL2025/others/aide_attribute-guided_multi-hop_data_expansion_for_data_scarcity_in_task-specifi.md)
 - [\[ACL 2025\] Graph-guided Cross-composition Feature Disentanglement for Compositional Zero-shot Learning](../../ACL2025/others/graph-guided_cross-composition_feature_disentanglement_for_compositional_zero-sh.md)
 - [\[ECCV 2024\] STSP: Spatial-Temporal Subspace Projection for Video Class-Incremental Learning](../../ECCV2024/others/stsp_spatial-temporal_subspace_projection_for_video_class-incremental_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -172,6 +172,8 @@ Agent3D-Zero 是完全零样本的方法，**不需要任何训练或微调**。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Play2Prompt: Zero-shot Tool Instruction Optimization for LLM Agents via Tool Play](../../ACL2025/llm_agent/play2prompt_zero-shot_tool_instruction_optimization_for_llm_agents_via_tool_play.md)
@@ -179,5 +181,7 @@ Agent3D-Zero 是完全零样本的方法，**不需要任何训练或微调**。
 - [\[ACL 2025\] The Behavior Gap: Evaluating Zero-shot LLM Agents in Complex Task-Oriented Dialogs](../../ACL2025/llm_agent/the_behavior_gap_evaluating_zero-shot_llm_agents_in_complex_task-oriented_dialog.md)
 - [\[ECCV 2024\] VideoAgent: A Memory-augmented Multimodal Agent for Video Understanding](videoagent_a_memory-augmented_multimodal_agent_for_video_understanding.md)
 - [\[ICLR 2026\] ZeroDayBench: Evaluating LLM Agents on Unseen Zero-Day Vulnerabilities for Cyberdefense](../../ICLR2026/llm_agent/zerodaybench_evaluating_llm_agents_on_unseen_zero-day_vulnerabilities_for_cyberd.md)
+
+</div>
 
 <!-- RELATED:END -->

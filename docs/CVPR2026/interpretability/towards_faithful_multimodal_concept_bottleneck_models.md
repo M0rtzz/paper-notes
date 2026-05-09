@@ -115,6 +115,8 @@ $\mathcal{L} = \mathcal{L}_{\text{cls}} + \tilde{\lambda}\mathcal{L}_C + \tilde{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Rethinking Concept Bottleneck Models: From Pitfalls to Solutions](rethinking_concept_bottleneck_models_from_pitfalls_to_solutions.md)
@@ -122,5 +124,7 @@ $\mathcal{L} = \mathcal{L}_{\text{cls}} + \tilde{\lambda}\mathcal{L}_C + \tilde{
 - [\[AAAI 2026\] Flexible Concept Bottleneck Model](../../AAAI2026/interpretability/flexible_concept_bottleneck_model.md)
 - [\[AAAI 2026\] Concepts from Representations: Post-hoc Concept Bottleneck Models via Sparse Decomposition of Visual Representations](../../AAAI2026/interpretability/concepts_from_representations_post-hoc_concept_bottleneck_models_via_sparse_deco.md)
 - [\[ICLR 2026\] Concepts' Information Bottleneck Models](../../ICLR2026/interpretability/concepts_information_bottleneck_models.md)
+
+</div>
 
 <!-- RELATED:END -->

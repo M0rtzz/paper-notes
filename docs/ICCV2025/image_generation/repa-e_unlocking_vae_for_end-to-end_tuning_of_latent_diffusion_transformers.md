@@ -164,6 +164,8 @@ REPA-E 仅用 80 epochs 即超越 REPA 800 epochs 的最终结果（4.07 vs 5.90
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] End-to-End Multi-Modal Diffusion Mamba](end-to-end_multi-modal_diffusion_mamba.md)
@@ -171,5 +173,7 @@ REPA-E 仅用 80 epochs 即超越 REPA 800 epochs 的最终结果（4.07 vs 5.90
 - [\[ICCV 2025\] Contrastive Flow Matching (ΔFM)](contrastive_flow_matching.md)
 - [\[ICCV 2025\] InfGen: A Resolution-Agnostic Paradigm for Scalable Image Synthesis](infgen_a_resolution-agnostic_paradigm_for_scalable_image_synthesis.md)
 - [\[ICCV 2025\] Unlocking the Potential of Diffusion Priors in Blind Face Restoration](unlocking_the_potential_of_diffusion_priors_in_blind_face_restoration.md)
+
+</div>
 
 <!-- RELATED:END -->

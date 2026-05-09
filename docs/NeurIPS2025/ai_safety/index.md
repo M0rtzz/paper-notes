@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **73** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/ai_safety/) · [📷 CVPR2026 (24)](../../CVPR2026/ai_safety/) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/) · [🤖 AAAI2026 (44)](../../AAAI2026/ai_safety/) · [📹 ICCV2025 (22)](../../ICCV2025/ai_safety/) · [🧪 ICML2025 (36)](../../ICML2025/ai_safety/)
+
+🔥 **高频主题：** 对抗鲁棒 ×16 · 联邦学习 ×7 · 对齐/RLHF ×2 · 图神经网络 ×2 · 语音 ×2
+
 **[A Set of Generalized Components to Achieve Effective Poison-only Clean-label Backdoor Attacks with Collaborative Sample Selection and Triggers](a_set_of_generalized_components_to_achieve_effective_poison-only_clean-label_bac.md)**
 
 :   提出一组通用化组件（Component A/B/C），通过充分挖掘样本选择与触发器之间的双向协作关系，同时提升 Poison-only Clean-label 后门攻击的攻击成功率（ASR）和隐蔽性，并在多种攻击类型上展现了良好的泛化能力。

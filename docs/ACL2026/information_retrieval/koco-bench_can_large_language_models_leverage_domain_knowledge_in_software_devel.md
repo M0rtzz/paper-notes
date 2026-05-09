@@ -122,6 +122,8 @@ KoCo-Bench 是基准而非模型，构建耗时 28.5 人月。评估了直接生
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] TokMem: One-Token Procedural Memory for Large Language Models](../../ICLR2026/information_retrieval/tokmem_one-token_procedural_memory_for_large_language_models.md)
@@ -129,5 +131,7 @@ KoCo-Bench 是基准而非模型，构建耗时 28.5 人月。评估了直接生
 - [\[ICLR 2026\] Query-Level Uncertainty in Large Language Models](../../ICLR2026/information_retrieval/query-level_uncertainty_in_large_language_models.md)
 - [\[NeurIPS 2025\] MIR-Bench: Can Your LLM Recognize Complicated Patterns via Many-Shot In-Context Reasoning?](../../NeurIPS2025/information_retrieval/mir-bench_can_your_llm_recognize_complicated_patterns_via_many-shot_in-context_r.md)
 - [\[ACL 2025\] Enhancing Lexicon-Based Text Embeddings with Large Language Models](../../ACL2025/information_retrieval/enhancing_lexicon-based_text_embeddings_with_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

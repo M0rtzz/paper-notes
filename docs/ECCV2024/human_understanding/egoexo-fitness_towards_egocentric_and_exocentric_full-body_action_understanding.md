@@ -165,6 +165,8 @@ EgoExo-Fitness 是一个**数据集+基准**贡献，核心包含三个部分：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] 3D Hand Pose Estimation in Everyday Egocentric Images](3d_hand_pose_estimation_in_everyday_egocentric_images.md)
@@ -172,5 +174,7 @@ EgoExo-Fitness 是一个**数据集+基准**贡献，核心包含三个部分：
 - [\[ECCV 2024\] HUMOS: Human Motion Model Conditioned on Body Shape](humos_human_motion_model_conditioned_on_body_shape.md)
 - [\[ECCV 2024\] Modeling and Driving Human Body Soundfields through Acoustic Primitives](modeling_and_driving_human_body_soundfields_through_acoustic_primitives.md)
 - [\[ECCV 2024\] Upper-Body Hierarchical Graph for Skeleton Based Emotion Recognition in Assistive Driving](upper-body_hierarchical_graph_for_skeleton_based_emotion_recognition_in_assistiv.md)
+
+</div>
 
 <!-- RELATED:END -->

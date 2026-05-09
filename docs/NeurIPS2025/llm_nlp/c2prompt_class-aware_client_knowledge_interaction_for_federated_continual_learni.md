@@ -133,6 +133,8 @@ ImageNet-R上Avg超Powder 2.51%，DomainNet上超2.90%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] One-stage Prompt-based Continual Learning](../../ECCV2024/llm_nlp/one-stage_prompt-based_continual_learning.md)
@@ -140,5 +142,7 @@ ImageNet-R上Avg超Powder 2.51%，DomainNet上超2.90%。
 - [\[ACL 2025\] Recurrent Knowledge Identification and Fusion for Language Model Continual Learning](../../ACL2025/llm_nlp/recurrent_kif_continual_learning.md)
 - [\[CVPR 2025\] SEC-Prompt: SEmantic Complementary Prompting for Few-Shot Class-Incremental Learning](../../CVPR2025/llm_nlp/sec-promptsemantic_complementary_prompting_for_few-shot_class-incremental_learni.md)
 - [\[ACL 2025\] GAPO: Learning Preferential Prompt through Generative Adversarial Policy Optimization](../../ACL2025/llm_nlp/gapo_preferential_prompt.md)
+
+</div>
 
 <!-- RELATED:END -->

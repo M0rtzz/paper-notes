@@ -171,6 +171,8 @@ $$\mathbf{s} = s_{min} \cdot \sigma(\mathbf{s}_o) + s_{max} \cdot (1 - \sigma(\m
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] GS-LRM: Large Reconstruction Model for 3D Gaussian Splatting](gs-lrm_large_reconstruction_model_for_3d_gaussian_splatting.md)
@@ -178,5 +180,7 @@ $$\mathbf{s} = s_{min} \cdot \sigma(\mathbf{s}_o) + s_{max} \cdot (1 - \sigma(\m
 - [\[ECCV 2024\] SplatFields: Neural Gaussian Splats for Sparse 3D and 4D Reconstruction](splatfields_neural_gaussian_splats_for_sparse_3d_and_4d_reconstruction.md)
 - [\[ECCV 2024\] CRM: Single Image to 3D Textured Mesh with Convolutional Reconstruction Model](crm_single_image_to_3d_textured_mesh_with_convolutional_reconstruction_model.md)
 - [\[ECCV 2024\] LaRa: Efficient Large-Baseline Radiance Fields](lara_efficient_large-baseline_radiance_fields.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -133,6 +133,8 @@ $$\beta_i = \frac{1}{2}\left(\frac{f_i^b}{f_i} + \frac{e_i^b}{e_i}\right)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] VeriMaAS: Automated Multi-Agent Workflows for RTL Design](automated_multi-agent_workflows_for_rtl_design.md)
@@ -140,5 +142,7 @@ $$\beta_i = \frac{1}{2}\left(\frac{f_i^b}{f_i} + \frac{e_i^b}{e_i}\right)$$
 - [\[ICLR 2026\] Sharing State Between Prompts and Programs](../../ICLR2026/code_intelligence/sharing_state_between_prompts_and_programs.md)
 - [\[ICLR 2026\] CARD: Towards Conditional Design of Multi-agent Topological Structures](../../ICLR2026/code_intelligence/card_towards_conditional_design_of_multi-agent_topological_structures.md)
 - [\[NeurIPS 2025\] Learning to Solve Complex Problems via Dataset Decomposition](learning_to_solve_complex_problems_via_dataset_decomposition.md)
+
+</div>
 
 <!-- RELATED:END -->

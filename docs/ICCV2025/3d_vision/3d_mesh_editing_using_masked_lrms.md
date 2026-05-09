@@ -120,6 +120,8 @@ ABO上超过MeshLRM 2.56 dB PSNR！GSO上与SOTA持平。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] MaskHand: Generative Masked Modeling for Robust Hand Mesh Reconstruction in the Wild](maskhand_generative_masked_modeling_for_robust_hand_mesh_reconstruction_in_the_w.md)
@@ -127,5 +129,7 @@ ABO上超过MeshLRM 2.56 dB PSNR！GSO上与SOTA持平。
 - [\[CVPR 2025\] Instant3dit: Multiview Inpainting for Fast Editing of 3D Objects](../../CVPR2025/3d_vision/instant3dit_multiview_inpainting_for_fast_editing_of_3d_objects.md)
 - [\[ICCV 2025\] Monocular Semantic Scene Completion via Masked Recurrent Networks](monocular_semantic_scene_completion_via_masked_recurrent_networks.md)
 - [\[ICML 2025\] FlowDrag: 3D-aware Drag-based Image Editing with Mesh-guided Deformation Vector Flow Fields](../../ICML2025/3d_vision/flowdrag_3d-aware_drag-based_image_editing_with_mesh-guided_deformation_vector_f.md)
+
+</div>
 
 <!-- RELATED:END -->

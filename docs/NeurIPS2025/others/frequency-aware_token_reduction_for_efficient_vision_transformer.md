@@ -125,6 +125,8 @@ Proposition 3.1 证明：无论 pruning 还是 merging 都使 $\|H_f[SA(MX)]\|_F
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Verbosity-Aware Rationale Reduction: Effective Reduction of Redundant Rationale](../../ACL2025/others/verbosity-aware_rationale_reduction_effective_reduction_of_redundant_rationale_v.md)
@@ -132,5 +134,7 @@ Proposition 3.1 证明：无论 pruning 还是 merging 都使 $\|H_f[SA(MX)]\|_F
 - [\[ACL 2025\] LaTIM: Measuring Latent Token-to-Token Interactions in Mamba Models](../../ACL2025/others/latim_measuring_latent_token-to-token_interactions_in_mamba_models.md)
 - [\[ECCV 2024\] AttnZero: Efficient Attention Discovery for Vision Transformers](../../ECCV2024/others/attnzero_efficient_attention_discovery_for_vision_transformers.md)
 - [\[NeurIPS 2025\] 4DGT: Learning a 4D Gaussian Transformer Using Real-World Monocular Videos](4dgt_learning_a_4d_gaussian_transformer_using_realworld_mono.md)
+
+</div>
 
 <!-- RELATED:END -->

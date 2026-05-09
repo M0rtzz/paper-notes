@@ -259,6 +259,8 @@ VSRM 在 REDS4 上比 IART 提升 0.21dB（16帧设置），在 Vid4 上提升 0
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] VideoGigaGAN: Towards Detail-rich Video Super-Resolution](../../CVPR2025/video_generation/videogigagan_towards_detail-rich_video_super-resolution.md)
@@ -266,5 +268,7 @@ VSRM 在 REDS4 上比 IART 提升 0.21dB（16帧设置），在 Vid4 上提升 0
 - [\[CVPR 2025\] PatchVSR: Breaking Video Diffusion Resolution Limits with Patch-Wise Video Super-Resolution](../../CVPR2025/video_generation/patchvsr_breaking_video_diffusion_resolution_limits_with_patch-wise_video_super-.md)
 - [\[ICCV 2025\] FuXi-RTM: A Physics-Guided Prediction Framework with Radiative Transfer Modeling](fuxi-rtm_a_physics-guided_prediction_framework_with_radiative_transfer_modeling.md)
 - [\[ECCV 2024\] Kalman-Inspired Feature Propagation for Video Face Super-Resolution](../../ECCV2024/video_generation/kalman-inspired_feature_propagation_for_video_face_super-resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

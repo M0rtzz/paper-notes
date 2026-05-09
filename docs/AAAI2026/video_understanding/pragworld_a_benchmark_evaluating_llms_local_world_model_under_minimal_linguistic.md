@@ -159,6 +159,8 @@ $$DE(R_\ell^{\hat{x}} \rightarrow R_\ell^x) = P(\hat{y}^{gold} \mid x+q; \text{p
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] RecToM: A Benchmark for Evaluating Machine Theory of Mind in LLM-based Conversational Recommender Systems](rectom_a_benchmark_for_evaluating_machine_theory_of_mind_in_llm-based_conversati.md)
@@ -166,5 +168,7 @@ $$DE(R_\ell^{\hat{x}} \rightarrow R_\ell^x) = P(\hat{y}^{gold} \mid x+q; \text{p
 - [\[AAAI 2026\] UVLM: Benchmarking Video Language Model for Underwater World Understanding](uvlm_benchmarking_video_language_model_for_underwater_world_understanding.md)
 - [\[CVPR 2026\] VirtueBench: Evaluating Trustworthiness under Uncertainty in Long Video Understanding](../../CVPR2026/video_understanding/virtuebench_evaluating_trustworthiness_under_uncertainty_in_long_video_understan.md)
 - [\[AAAI 2026\] Distillation Dynamics: Towards Understanding Feature-Based Distillation in Vision Transformers](distillation_dynamics_towards_understanding_feature-based_di.md)
+
+</div>
 
 <!-- RELATED:END -->

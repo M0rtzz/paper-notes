@@ -173,6 +173,8 @@ DictPFL 包含两个核心模块：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Enabling Differentially Private Federated Learning for Speech Recognition: Benchmarks, Adaptive Optimizers and Gradient Clipping](enabling_differentially_private_federated_learning_for_speech_recognition_benchm.md)
@@ -180,5 +182,7 @@ DictPFL 包含两个核心模块：
 - [\[NeurIPS 2025\] DESIGN: Encrypted GNN Inference via Server-Side Input Graph Pruning](design_encrypted_gnn_inference_via_server-side_input_graph_pruning.md)
 - [\[NeurIPS 2025\] MARS: A Malignity-Aware Backdoor Defense in Federated Learning](mars_a_malignity-aware_backdoor_defense_in_federated_learning.md)
 - [\[ICML 2025\] An Efficient Private GPT Never Autoregressively Decodes](../../ICML2025/ai_safety/an_efficient_private_gpt_never_autoregressively_decodes.md)
+
+</div>
 
 <!-- RELATED:END -->

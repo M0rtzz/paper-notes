@@ -157,6 +157,8 @@ Vireo包含三个核心模块：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Open-Vocabulary Domain Generalization in Urban-Scene Segmentation](../../CVPR2026/autonomous_driving/open-vocabulary_domain_generalization_in_urban-scene_segmentation.md)
@@ -164,5 +166,7 @@ Vireo包含三个核心模块：
 - [\[CVPR 2025\] A Dataset for Semantic Segmentation in the Presence of Unknowns](../../CVPR2025/autonomous_driving/a_dataset_for_semantic_segmentation_in_the_presence_of_unknowns.md)
 - [\[CVPR 2025\] O3N: Omnidirectional Open-Vocabulary Occupancy Prediction](../../CVPR2025/autonomous_driving/o3n_omnidirectional_open-vocabulary_occupancy_prediction.md)
 - [\[NeurIPS 2025\] SDTagNet: Leveraging Text-Annotated Navigation Maps for Online HD Map Construction](sdtagnet_leveraging_text-annotated_navigation_maps_for_online_hd_map_constructio.md)
+
+</div>
 
 <!-- RELATED:END -->

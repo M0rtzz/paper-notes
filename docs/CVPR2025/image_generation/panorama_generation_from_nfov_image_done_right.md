@@ -110,6 +110,8 @@ PanoDecouple 基于 Latent Diffusion + 双 ControlNet 架构。冻结的预训�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] CamFreeDiff: Camera-free Image to Panorama Generation with Diffusion Model](camfreediff_camera-free_image_to_panorama_generation_with_diffusion_model.md)
@@ -117,5 +119,7 @@ PanoDecouple 基于 Latent Diffusion + 双 ControlNet 架构。冻结的预训�
 - [\[CVPR 2025\] OmniGen: Unified Image Generation](omnigen_unified_image_generation.md)
 - [\[CVPR 2025\] GPS as a Control Signal for Image Generation](gps_as_a_control_signal_for_image_generation.md)
 - [\[CVPR 2025\] Improving Editability in Image Generation with Layer-wise Memory](improving_editability_in_image_generation_with_layer-wise_memory.md)
+
+</div>
 
 <!-- RELATED:END -->

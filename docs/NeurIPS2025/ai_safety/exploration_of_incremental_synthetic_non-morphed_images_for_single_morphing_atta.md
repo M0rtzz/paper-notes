@@ -141,6 +141,8 @@ $$S_{(SMDD,j)} \subset D_{SMDD}, \quad |S_{(SMDD,j)}| = m < n$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Stacking Brick by Brick: Aligned Feature Isolation for Incremental Face Forgery Detection](../../CVPR2025/ai_safety/stacking_brick_by_brick_aligned_feature_isolation_for_incremental_face_forgery_d.md)
@@ -148,5 +150,7 @@ $$S_{(SMDD,j)} \subset D_{SMDD}, \quad |S_{(SMDD,j)}| = m < n$$
 - [\[NeurIPS 2025\] Influence Functions for Edge Edits in Non-Convex Graph Neural Networks](influence_functions_for_edge_edits_in_non-convex_graph_neural_networks.md)
 - [\[CVPR 2025\] Dynamic Integration of Task-Specific Adapters for Class Incremental Learning](../../CVPR2025/ai_safety/dynamic_integration_of_task-specific_adapters_for_class_incremental_learning.md)
 - [\[CVPR 2025\] MOS-Attack: A Scalable Multi-Objective Adversarial Attack Framework](../../CVPR2025/ai_safety/mos-attack_a_scalable_multi-objective_adversarial_attack_framework.md)
+
+</div>
 
 <!-- RELATED:END -->

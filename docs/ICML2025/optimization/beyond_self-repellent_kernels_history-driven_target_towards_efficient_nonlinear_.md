@@ -174,6 +174,8 @@ $$\hat{x}_j = \tilde{\mu}_j \cdot |\bar{\mathcal{N}}(i) \cap \mathcal{C}|^{-1} \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Co-Layout: LLM-driven Co-optimization for Interior Layout](../../AAAI2026/optimization/co-layout_llm-driven_co-optimization_for_interior_layout.md)
@@ -181,5 +183,7 @@ $$\hat{x}_j = \tilde{\mu}_j \cdot |\bar{\mathcal{N}}(i) \cap \mathcal{C}|^{-1} \
 - [\[ICLR 2026\] Test-Time Meta-Adaptation with Self-Synthesis](../../ICLR2026/optimization/test-time_meta-adaptation_with_self-synthesis.md)
 - [\[NeurIPS 2025\] From Linear to Nonlinear: Provable Weak-to-Strong Generalization through Feature Learning](../../NeurIPS2025/optimization/from_linear_to_nonlinear_provable_weak-to-strong_generalization_through_feature_.md)
 - [\[NeurIPS 2025\] A Theoretical Study on Bridging Internal Probability and Self-Consistency for LLM Reasoning](../../NeurIPS2025/optimization/a_theoretical_study_on_bridging_internal_probability_and_sel.md)
+
+</div>
 
 <!-- RELATED:END -->

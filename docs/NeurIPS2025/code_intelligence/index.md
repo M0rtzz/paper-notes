@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **22** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (20)](../../ACL2026/code_intelligence/) · [📷 CVPR2026 (2)](../../CVPR2026/code_intelligence/) · [🔬 ICLR2026 (23)](../../ICLR2026/code_intelligence/) · [🤖 AAAI2026 (10)](../../AAAI2026/code_intelligence/) · [📹 ICCV2025 (1)](../../ICCV2025/code_intelligence/) · [🧪 ICML2025 (11)](../../ICML2025/code_intelligence/)
+
+🔥 **高频主题：** 代码智能 ×5 · LLM ×3 · 推理 ×3 · Agent ×2 · 布局/合成 ×2
+
 **[A Self-Improving Coding Agent](a_selfimproving_coding_agent.md)**
 
 :   提出SICA（Self-Improving Coding Agent），一个能自主编辑自身代码库来提升性能的编程Agent——消除了meta-agent和target-agent的区分，通过迭代式自我改进在SWE-Bench Verified子集上从17%提升到53%。

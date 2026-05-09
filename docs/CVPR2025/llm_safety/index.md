@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (21)](../../ACL2026/llm_safety/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_safety/) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_safety/) · [🤖 AAAI2026 (29)](../../AAAI2026/llm_safety/) · [🧠 NeurIPS2025 (60)](../../NeurIPS2025/llm_safety/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_safety/)
+
+🔥 **高频主题：** 持续学习 ×2
+
 **[Low-Rank Adaptation in Multilinear Operator Networks for Security-Preserving Incremental Learning](low-rank_adaptation_in_multilinear_operator_networks_for_security-preserving_inc.md)**
 
 :   针对全同态加密（Leveled FHE）场景下多线性算子网络的灾难性遗忘问题，提出了一种结合低秩适应（LoRA）和梯度投影记忆（GPM）机制的增量学习方法，在保障数据安全的前提下实现持续学习。

@@ -137,6 +137,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Text-Phase Synergy Network with Dual Priors for Unsupervised Cross-Domain Image Retrieval](text-phase_synergy_network_with_dual_priors_for_unsupervised_cross-domain_image_.md)
@@ -144,5 +146,7 @@ tags:
 - [\[ECCV 2024\] MarineInst: A Foundation Model for Marine Image Analysis with Instance Visual Description](../../ECCV2024/self_supervised/marineinst_a_foundation_model_for_marine_image_analysis_with_instance_visual_des.md)
 - [\[ECCV 2024\] COHO: Context-Sensitive City-Scale Hierarchical Urban Layout Generation](../../ECCV2024/self_supervised/coho_context-sensitive_city-scale_hierarchical_urban_layout_generation.md)
 - [\[ICCV 2025\] A Token-level Text Image Foundation Model for Document Understanding (TokenFD/TokenVL)](../../ICCV2025/self_supervised/a_tokenlevel_text_image_foundation_model_for_document_unders.md)
+
+</div>
 
 <!-- RELATED:END -->

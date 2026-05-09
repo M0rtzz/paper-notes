@@ -10,6 +10,8 @@ description: >-
 
 **📷 CVPR2026** · **4** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/llm_efficiency/) · [🔬 ICLR2026 (19)](../../ICLR2026/llm_efficiency/) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_efficiency/) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/llm_efficiency/) · [📹 ICCV2025 (1)](../../ICCV2025/llm_efficiency/) · [🧪 ICML2025 (13)](../../ICML2025/llm_efficiency/)
+
 **[GeoCodeBench: Benchmarking PhD-Level Coding in 3D Geometric Computer Vision](benchmarking_phd-level_coding_in_3d_geometric_computer_vision.md)**
 
 :   首个面向3D几何计算机视觉的PhD级代码生成基准GeoCodeBench，包含100个从2025年顶会论文+代码库中精选的函数补全任务，配套自动化多样化单元测试，最强模型GPT-5仅36.6%通过率，揭示LLM在科学级3D代码实现上的巨大差距。

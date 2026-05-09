@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/segmentation/) · [📷 CVPR2026 (103)](../../CVPR2026/segmentation/) · [🤖 AAAI2026 (31)](../../AAAI2026/segmentation/) · [🧠 NeurIPS2025 (48)](../../NeurIPS2025/segmentation/) · [📹 ICCV2025 (78)](../../ICCV2025/segmentation/) · [🧪 ICML2025 (22)](../../ICML2025/segmentation/)
+
+🔥 **高频主题：** 扩散模型 ×2
+
 **[AMLRIS: Alignment-aware Masked Learning for Referring Image Segmentation](amlris_alignment-aware_masked_learning_for_referring_image_segmentation.md)**
 
 :   提出对齐感知遮蔽学习(AML)策略，通过量化视觉-语言 patch 级对齐度并过滤低对齐像素，让 RIS 模型在训练时聚焦可靠区域，无需架构改动即在 RefCOCO 全部 8 个 split 上达到 SOTA。

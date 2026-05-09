@@ -119,6 +119,8 @@ Assumption 1.4 的条件 2（$\max_p \text{dist}(p, C^*)^z \leq 4k \cdot \text{a
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Distributionally Robust Feature Selection](distributionally_robust_feature_selection.md)
@@ -126,5 +128,7 @@ Assumption 1.4 的条件 2（$\max_p \text{dist}(p, C^*)^z \leq 4k \cdot \text{a
 - [\[ACL 2025\] Hierarchical Bracketing Encodings for Dependency Parsing as Tagging](../../ACL2025/others/hierarchical_bracketing_dep_parsing.md)
 - [\[ICML 2025\] Lightspeed Geometric Dataset Distance via Sliced Optimal Transport](../../ICML2025/others/lightspeed_geometric_dataset_distance_via_sliced_optimal_transport.md)
 - [\[NeurIPS 2025\] One Sample is Enough to Make Conformal Prediction Robust](one_sample_is_enough_to_make_conformal_prediction_robust.md)
+
+</div>
 
 <!-- RELATED:END -->

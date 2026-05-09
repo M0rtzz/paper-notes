@@ -114,6 +114,8 @@ DSA-IGN的总损失为 $\mathcal{L} = \mathcal{L}_{\text{div}} + \mathcal{L}_{\t
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] FLUX: Efficient Descriptor-Driven Clustered Federated Learning under Arbitrary Distribution Shifts](../../NeurIPS2025/ai_safety/flux_efficient_descriptor-driven_clustered_federated_learning_under_arbitrary_di.md)
@@ -121,5 +123,7 @@ DSA-IGN的总损失为 $\mathcal{L} = \mathcal{L}_{\text{div}} + \mathcal{L}_{\t
 - [\[CVPR 2025\] A Simple Data Augmentation for Feature Distribution Skewed Federated Learning](../../CVPR2025/ai_safety/a_simple_data_augmentation_for_feature_distribution_skewed_federated_learning.md)
 - [\[NeurIPS 2025\] MARS: A Malignity-Aware Backdoor Defense in Federated Learning](../../NeurIPS2025/ai_safety/mars_a_malignity-aware_backdoor_defense_in_federated_learning.md)
 - [\[CVPR 2025\] Geometric Knowledge-Guided Localized Global Distribution Alignment for Federated Learning](../../CVPR2025/ai_safety/geometric_knowledge-guided_localized_global_distribution_alignment_for_federated.md)
+
+</div>
 
 <!-- RELATED:END -->

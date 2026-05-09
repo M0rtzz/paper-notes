@@ -153,6 +153,8 @@ $$\boldsymbol{Z}'_i = \text{MLP}\left(\sum_{j\in\mathcal{N}(i)} \boldsymbol{A}_{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Efficient Molecular Conformer Generation with SO(3)-Averaged Flow Matching and Reflow](efficient_molecular_conformer_generation_with_so3-averaged_flow_matching_and_ref.md)
@@ -160,5 +162,7 @@ $$\boldsymbol{Z}'_i = \text{MLP}\left(\sum_{j\in\mathcal{N}(i)} \boldsymbol{A}_{
 - [\[ICML 2025\] Flexibility-conditioned Protein Structure Design with Flow Matching](flexibility-conditioned_protein_structure_design_with_flow_matching.md)
 - [\[AAAI 2026\] SpaCRD: Multimodal Deep Fusion of Histology and Spatial Transcriptomics for Cancer Region Detection](../../AAAI2026/medical_imaging/spacrd_multimodal_deep_fusion_of_histology_and_spatial_transcriptomics_for_cance.md)
 - [\[ICML 2025\] Scalable Non-Equivariant 3D Molecule Generation via Rotational Alignment](scalable_non-equivariant_3d_molecule_generation_via_rotational_alignment.md)
+
+</div>
 
 <!-- RELATED:END -->

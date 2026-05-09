@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **32** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (21)](../../ACL2026/llm_safety/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_safety/) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_safety/) · [🤖 AAAI2026 (29)](../../AAAI2026/llm_safety/) · [🧠 NeurIPS2025 (60)](../../NeurIPS2025/llm_safety/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_safety/)
+
+🔥 **高频主题：** LLM ×11 · 对抗鲁棒 ×6 · 持续学习 ×4 · 水印/隐写 ×3 · 对齐/RLHF ×2
+
 **[Activation Space Interventions Can Be Transferred Between Large Language Models](activation_space_interventions_can_be_transferred_between_large_language_models.md)**
 
 :   本文证明了 LLM 之间存在共享的激活空间结构，通过训练自编码器（autoencoder）学习模型间的激活映射，可以将安全干预（如后门移除、有害拒绝转向向量）从源模型迁移到目标模型，实现"小模型对齐大模型"的高效安全干预范式。

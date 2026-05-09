@@ -128,6 +128,8 @@ $$(\hat{\mathbf{T}}_1, \ldots, \hat{\mathbf{T}}_K) = \arg\max_{\mathbf{T}_1, \ld
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Marker-Based 3D Reconstruction of Aggregates with a Comparative Analysis of 2D and 3D Morphologies](../../CVPR2026/medical_imaging/markerbased_3d_reconstruction_of_aggregates_with_a.md)
@@ -135,5 +137,7 @@ $$(\hat{\mathbf{T}}_1, \ldots, \hat{\mathbf{T}}_K) = \arg\max_{\mathbf{T}_1, \ld
 - [\[NeurIPS 2025\] Multimodal 3D Genome Pre-training](multimodal_3d_genome_pre-training.md)
 - [\[ICML 2025\] Raptor: Scalable Train-Free Embeddings for 3D Medical Volumes Leveraging Pretrained 2D Foundation Models](../../ICML2025/medical_imaging/raptor_scalable_train-free_embeddings_for_3d_medical_volumes_leveraging_pretrain.md)
 - [\[NeurIPS 2025\] 3D-RAD: A Comprehensive 3D Radiology Med-VQA Dataset with Multi-Temporal Analysis and Diverse Diagnostic Tasks](3drad_a_comprehensive_3d_radiology_medvqa_dataset_with_multi.md)
+
+</div>
 
 <!-- RELATED:END -->

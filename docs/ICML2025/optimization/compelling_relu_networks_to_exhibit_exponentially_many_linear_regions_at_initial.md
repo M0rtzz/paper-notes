@@ -155,6 +155,8 @@ $$s_{i+1} = s_i (1 - a_{i+1}) \cdot a_{i+2}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Training Dynamics of In-Context Learning in Linear Attention](training_dynamics_of_in-context_learning_in_linear_attention.md)
@@ -162,5 +164,7 @@ $$s_{i+1} = s_i (1 - a_{i+1}) \cdot a_{i+2}$$
 - [\[NeurIPS 2025\] Better NTK Conditioning: A Free Lunch from ReLU Nonlinear Activation in Wide Neural Networks](../../NeurIPS2025/optimization/better_ntk_conditioning_a_free_lunch_from_relu_nonlinear_activation_in_wide_neur.md)
 - [\[ICML 2025\] Grokking at the Edge of Linear Separability](grokking_at_the_edge_of_linear_separability.md)
 - [\[NeurIPS 2025\] Training Robust Graph Neural Networks by Modeling Noise Dependencies](../../NeurIPS2025/optimization/training_robust_graph_neural_networks_by_modeling_noise_dependencies.md)
+
+</div>
 
 <!-- RELATED:END -->

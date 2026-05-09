@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **79** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/llm_evaluation/) · [📷 CVPR2026 (28)](../../CVPR2026/llm_evaluation/) · [🔬 ICLR2026 (60)](../../ICLR2026/llm_evaluation/) · [🤖 AAAI2026 (39)](../../AAAI2026/llm_evaluation/) · [📹 ICCV2025 (29)](../../ICCV2025/llm_evaluation/) · [🧪 ICML2025 (49)](../../ICML2025/llm_evaluation/)
+
+🔥 **高频主题：** LLM ×12 · 对齐/RLHF ×7 · 对抗鲁棒 ×4 · 域适应 ×2 · 少样本学习 ×2
+
 **[A High-Dimensional Statistical Method for Optimizing Transfer Quantities in Multi-Source Transfer Learning](a_highdimensional_statistical_method_for_optimizing_transfer.md)**
 
 :   提出基于K-L散度和高维统计分析的理论框架，用于确定多源迁移学习中每个源任务的最优样本迁移数量，避免"用所有源数据"带来的负迁移问题，在DomainNet和Office-Home上超过SOTA 1.0-1.5%的同时减少47.85%的样本使用量和35.19%的训练时间。

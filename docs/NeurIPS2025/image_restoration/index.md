@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **26** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/image_restoration/) · [📷 CVPR2026 (47)](../../CVPR2026/image_restoration/) · [🔬 ICLR2026 (15)](../../ICLR2026/image_restoration/) · [🤖 AAAI2026 (13)](../../AAAI2026/image_restoration/) · [📹 ICCV2025 (30)](../../ICCV2025/image_restoration/) · [🧪 ICML2025 (5)](../../ICML2025/image_restoration/)
+
+🔥 **高频主题：** 图像恢复 ×10 · 超分辨率 ×4 · 对抗鲁棒 ×3 · 扩散模型 ×3 · 模型压缩 ×2
+
 **[Adaptive Discretization for Consistency Models](adaptive_discretization_for_consistency_models.md)**
 
 :   提出ADCM——通过将一致性模型的离散化步长形式化为局部一致性（可训练性）与全局一致性（稳定性）的约束优化问题，并用Gauss-Newton法求闭式解，实现自适应离散化，在CIFAR-10上用不到25%训练预算超越所有先前CM。

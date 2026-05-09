@@ -177,6 +177,8 @@ LinTS/dTS 累积 regret 比值随 $K$ 从 10 增到 $5 \times 10^4$ 而单调增
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Contextual Thompson Sampling via Generation of Missing Data](contextual_thompson_sampling_via_generation_of_missing_data.md)
@@ -184,5 +186,7 @@ LinTS/dTS 累积 regret 比值随 $K$ 从 10 增到 $5 \times 10^4$ 而单调增
 - [\[NeurIPS 2025\] When Are Concepts Erased From Diffusion Models?](when_are_concepts_erased_from_diffusion_models.md)
 - [\[NeurIPS 2025\] Token Perturbation Guidance for Diffusion Models](token_perturbation_guidance_for_diffusion_models.md)
 - [\[ICLR 2026\] Efficient Adversarial Attacks on High-dimensional Offline Bandits](../../ICLR2026/image_generation/efficient_adversarial_attacks_on_high-dimensional_offline_bandits.md)
+
+</div>
 
 <!-- RELATED:END -->

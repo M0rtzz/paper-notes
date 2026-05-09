@@ -174,6 +174,8 @@ $$\mathbb{G}^{II} = \text{HDBSCAN}(\{\mathbf{c}_1, \mathbf{c}_2, \ldots\})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Instruction Tuning of Large Language Models for Tabular Data Generation—in One Day](../../ICML2025/llm_alignment/instruction_tuning_of_large_language_models_for_tabular_data_generation-in_one_d.md)
@@ -181,5 +183,7 @@ $$\mathbb{G}^{II} = \text{HDBSCAN}(\{\mathbf{c}_1, \mathbf{c}_2, \ldots\})$$
 - [\[AAAI 2026\] Importance-Aware Data Selection for Efficient LLM Instruction Tuning](../../AAAI2026/llm_alignment/importance-aware_data_selection_for_efficient_llm_instruction_tuning.md)
 - [\[ACL 2025\] Rethinking Table Instruction Tuning](rethinking_table_instruction_tuning.md)
 - [\[NeurIPS 2025\] T-SHIRT: Token-Selective Hierarchical Data Selection for Instruction Tuning](../../NeurIPS2025/llm_alignment/t-shirt_token-selective_hierarchical_data_selection_for_instruction_tuning.md)
+
+</div>
 
 <!-- RELATED:END -->

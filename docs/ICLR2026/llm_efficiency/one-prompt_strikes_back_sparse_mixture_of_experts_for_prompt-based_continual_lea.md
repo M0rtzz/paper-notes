@@ -136,6 +136,8 @@ SMoPE 的输入是 ViT 的 patch token 序列 $\mathbf{X} \in \mathbb{R}^{N \tim
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Resource Efficient Sleep Staging via Multi-Level Masking and Prompt Learning](../../AAAI2026/llm_efficiency/resource_efficient_sleep_staging_via_multi-level_masking_and_prompt_learning.md)
@@ -143,5 +145,7 @@ SMoPE 的输入是 ViT 的 patch token 序列 $\mathbf{X} \in \mathbb{R}^{N \tim
 - [\[ICML 2025\] Mixture of Lookup Experts](../../ICML2025/llm_efficiency/mixture_of_lookup_experts.md)
 - [\[ICLR 2026\] Expert Divergence Learning for MoE-based Language Models](expert_divergence_learning_for_moe-based_language_models.md)
 - [\[ICLR 2026\] Understanding and Improving Length Generalization in Hierarchical Sparse Attention Models](understanding_and_improving_length_generalization_in_hierarchical_sparse_attenti.md)
+
+</div>
 
 <!-- RELATED:END -->

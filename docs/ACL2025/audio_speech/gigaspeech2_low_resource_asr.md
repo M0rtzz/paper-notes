@@ -137,6 +137,8 @@ NST 迭代效果（泰语）:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Multimodal In-Context Learning for ASR of Low-Resource Languages](../../ACL2026/audio_speech/multimodal_in-context_learning_for_asr_of_low-resource_languages.md)
@@ -144,5 +146,7 @@ NST 迭代效果（泰语）:
 - [\[NeurIPS 2025\] A Multi-Task Benchmark for Abusive Language Detection in Low-Resource Settings](../../NeurIPS2025/audio_speech/a_multitask_benchmark_for_abusive_language_detection_in_lowr.md)
 - [\[ACL 2025\] On the Robust Approximation of ASR Metrics](on_the_robust_approximation_of_asr_metrics.md)
 - [\[ACL 2025\] UniCodec: Unified Audio Codec with Single Domain-Adaptive Codebook](unicodec_unified_audio_codec_with_single_domain-adaptive_codebook.md)
+
+</div>
 
 <!-- RELATED:END -->

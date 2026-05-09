@@ -115,6 +115,8 @@ FedGEM 包含两个阶段：(1) 迭代协作训练阶段——客户端本地 EM
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Federated ADMM from Bayesian Duality](federated_admm_from_bayesian_duality.md)
@@ -122,5 +124,7 @@ FedGEM 包含两个阶段：(1) 迭代协作训练阶段——客户端本地 EM
 - [\[ICLR 2026\] Neural Force Field: Few-shot Learning of Generalized Physical Reasoning](neural_force_field_few-shot_learning_of_generalized_physical_reasoning.md)
 - [\[ICLR 2026\] An Efficient, Provably Optimal Algorithm for the 0-1 Loss Linear Classification Problem](an_efficient_provably_optimal_algorithm_for_the_0-1_loss_linear_classification_p.md)
 - [\[ACL 2025\] Mixture of Small and Large Models for Chinese Spelling Check](../../ACL2025/others/mixture_of_small_and_large_models_for_chinese_spelling_check.md)
+
+</div>
 
 <!-- RELATED:END -->

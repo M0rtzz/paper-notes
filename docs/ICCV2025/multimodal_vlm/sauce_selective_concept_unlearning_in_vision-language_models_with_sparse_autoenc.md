@@ -127,6 +127,8 @@ SAE 训练使用标准的重建损失加 L1 稀疏惩罚：$\mathcal{L} = \|x - 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Sparse Autoencoders Learn Monosemantic Features in Vision-Language Models](../../NeurIPS2025/multimodal_vlm/sparse_autoencoders_learn_monosemantic_features_in_visionlan.md)
@@ -134,5 +136,7 @@ SAE 训练使用标准的重建损失加 L1 稀疏惩罚：$\mathcal{L} = \|x - 
 - [\[ICCV 2025\] Vision-Language Models Can't See the Obvious](vision-language_models_cant_see_the_obvious.md)
 - [\[ICCV 2025\] Growing a Twig to Accelerate Large Vision-Language Models](growing_a_twig_to_accelerate_large_vision-language_models.md)
 - [\[ICCV 2025\] GEOBench-VLM: Benchmarking Vision-Language Models for Geospatial Tasks](geobench-vlm_benchmarking_vision-language_models_for_geospatial_tasks.md)
+
+</div>
 
 <!-- RELATED:END -->

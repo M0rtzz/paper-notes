@@ -133,6 +133,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Steering Generative Models with Experimental Data for Protein Fitness Optimization](../../NeurIPS2025/medical_imaging/steering_generative_models_with_experimental_data_for_protein_fitness_optimizati.md)
@@ -140,5 +142,7 @@ tags:
 - [\[ACL 2025\] Concept Bottleneck Language Models For Protein Design](../../ACL2025/medical_imaging/concept_bottleneck_language_models_for_protein_design.md)
 - [\[ICML 2025\] Elucidating the Design Space of Multimodal Protein Language Models](elucidating_the_design_space_of_multimodal_protein_language_models.md)
 - [\[ICLR 2026\] Controlling Repetition in Protein Language Models](../../ICLR2026/medical_imaging/controlling_repetition_in_protein_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

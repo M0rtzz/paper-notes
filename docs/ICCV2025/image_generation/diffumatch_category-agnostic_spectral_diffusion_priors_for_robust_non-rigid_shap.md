@@ -134,6 +134,8 @@ $$\mathcal{L}_{total}(C_{raw}) = \mathcal{L}_{proper}(C_{raw}) + \mathcal{L}_{SD
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] SGMatch: Semantic-Guided Non-Rigid Shape Matching with Flow Regularization](../../CVPR2025/image_generation/sgmatch_semantic-guided_non-rigid_shape_matching_with_flow_regularization.md)
@@ -141,5 +143,7 @@ $$\mathcal{L}_{total}(C_{raw}) = \mathcal{L}_{proper}(C_{raw}) + \mathcal{L}_{SD
 - [\[ICCV 2025\] Spectral Image Tokenizer](spectral_image_tokenizer.md)
 - [\[ICCV 2025\] Balanced Image Stylization with Style Matching Score](balanced_image_stylization_with_style_matching_score.md)
 - [\[ICCV 2025\] Dual Recursive Feedback on Generation and Appearance Latents for Pose-Robust Text-to-Image Diffusion](dual_recursive_feedback_on_generation_and_appearance_latents_for_pose-robust_tex.md)
+
+</div>
 
 <!-- RELATED:END -->

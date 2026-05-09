@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **37** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (16)](../../CVPR2026/llm_reasoning/) · [🔬 ICLR2026 (71)](../../ICLR2026/llm_reasoning/) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_reasoning/) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/llm_reasoning/) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/) · [🧪 ICML2025 (17)](../../ICML2025/llm_reasoning/)
+
+🔥 **高频主题：** 推理 ×21 · LLM ×7 · 对齐/RLHF ×2 · Agent ×2
+
 **[AIM-CoT: Active Information-driven Multimodal Chain-of-Thought for Vision-Language Reasoning](aim-cot_active_information-driven_multimodal_chain-of-thought_for_vision-languag.md)**
 
 :   提出 AIM-CoT 框架，通过信息觅食理论驱动的主动视觉证据选择(AVP)和基于注意力偏移的动态触发机制(DAT)，解决交错模态思维链(I-MCoT)中"看什么"和"何时看"两个核心问题。

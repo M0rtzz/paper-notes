@@ -142,6 +142,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Reinforcement Learning with Backtracking Feedback](reinforcement_learning_with_backtracking_feedback.md)
@@ -149,5 +151,7 @@ tags:
 - [\[NeurIPS 2025\] Reverse Engineering Human Preferences with Reinforcement Learning](reverse_engineering_human_preferences_with_reinforcement_learning.md)
 - [\[NeurIPS 2025\] LLM Strategic Reasoning: Agentic Study through Behavioral Game Theory](llm_strategic_reasoning_agentic_study_through_behavioral_gam.md)
 - [\[ACL 2025\] Estimating Privacy Leakage of Augmented Contextual Knowledge in Language Models](../../ACL2025/llm_safety/estimating_privacy_leakage_of_augmented_contextual_knowledge_in_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

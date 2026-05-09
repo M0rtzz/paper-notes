@@ -130,6 +130,8 @@ NeSTR 是纯 prompting 策略，完全不需要训练或微调。所有实验在
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Closing the Modality Reasoning Gap for Speech Large Language Models](../../ACL2026/llm_evaluation/closing_the_modality_reasoning_gap_for_speech_large_language_models.md)
@@ -137,5 +139,7 @@ NeSTR 是纯 prompting 策略，完全不需要训练或微调。所有实验在
 - [\[ICLR 2026\] Prompt and Parameter Co-Optimization for Large Language Models](../../ICLR2026/llm_evaluation/prompt_and_parameter_co-optimization_for_large_language_models.md)
 - [\[AAAI 2026\] Towards a Common Framework for Autoformalization](towards_a_common_framework_for_autoformalization.md)
 - [\[ACL 2025\] Com2: A Causal-Guided Benchmark for Exploring Complex Commonsense Reasoning in Large Language Models](../../ACL2025/llm_evaluation/com2_causal_commonsense.md)
+
+</div>
 
 <!-- RELATED:END -->

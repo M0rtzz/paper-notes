@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **20** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/llm_alignment/) · [📷 CVPR2026 (12)](../../CVPR2026/llm_alignment/) · [🔬 ICLR2026 (42)](../../ICLR2026/llm_alignment/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_alignment/) · [📹 ICCV2025 (2)](../../ICCV2025/llm_alignment/) · [🧪 ICML2025 (27)](../../ICML2025/llm_alignment/)
+
+🔥 **高频主题：** 对齐/RLHF ×13 · LLM ×8 · 对抗鲁棒 ×2 · 推理 ×2 · 扩散模型 ×2
+
 **[Align to Structure: Aligning Large Language Models with Structural Information](align_to_structure_aligning_large_language_models_with_struc.md)**
 
 :   提出 Structural Alignment 方法，通过将语言学篇章结构框架（表层文本结构评分 + 基于RST的篇章motif分类器）融入PPO强化学习训练，并设计基于篇章motif的密集奖励机制，使LLM生成更连贯、更具人类写作风格的长文本，在论文写作和长文档摘要任务上均优于标准RLHF模型。

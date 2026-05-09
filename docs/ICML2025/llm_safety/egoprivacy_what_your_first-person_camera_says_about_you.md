@@ -141,6 +141,8 @@ $$f^{\text{RAA}}(\mathbf{x}^E, \{\mathbf{x}_{1:M}^X\}) = \mathcal{A}\big(f(\math
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Improving Your Model Ranking on Chatbot Arena by Vote Rigging](improving_your_model_ranking_on_chatbot_arena_by_vote_rigging.md)
@@ -148,5 +150,7 @@ $$f^{\text{RAA}}(\mathbf{x}^E, \{\mathbf{x}_{1:M}^X\}) = \mathcal{A}\big(f(\math
 - [\[ICLR 2026\] Attention Smoothing Is All You Need For Unlearning](../../ICLR2026/llm_safety/attention_smoothing_is_all_you_need_for_unlearning.md)
 - [\[ICCV 2025\] Oasis: One Image is All You Need for Multimodal Instruction Data Synthesis](../../ICCV2025/llm_safety/oasis_one_image_is_all_you_need_for_multimodal_instruction_data_synthesis.md)
 - [\[ICML 2025\] Watch Out Your Album! On the Inadvertent Privacy Memorization in Multi-Modal Large Language Models](watch_out_your_album_on_the_inadvertent_privacy_memorization_in_multi-modal_larg.md)
+
+</div>
 
 <!-- RELATED:END -->

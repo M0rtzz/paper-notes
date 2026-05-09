@@ -129,6 +129,8 @@ URWKV 仅 2.25M 参数、18.34G FLOPs，远低于 Restormer (26.11M/140.99G) 和
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] DarkIR: Robust Low-Light Image Restoration](darkir_robust_low-light_image_restoration.md)
@@ -136,5 +138,7 @@ URWKV 仅 2.25M 参数、18.34G FLOPs，远低于 Restormer (26.11M/140.99G) 和
 - [\[CVPR 2025\] HVI: A New Color Space for Low-light Image Enhancement](hvi_a_new_color_space_for_low-light_image_enhancement.md)
 - [\[CVPR 2025\] Efficient Diffusion as Low Light Enhancer (ReDDiT)](efficient_diffusion_as_low_light_enhancer.md)
 - [\[CVPR 2025\] QMambaBSR: Burst Image Super-Resolution with Query State Space Model](qmambabsr_burst_image_super-resolution_with_query_state_space_model.md)
+
+</div>
 
 <!-- RELATED:END -->

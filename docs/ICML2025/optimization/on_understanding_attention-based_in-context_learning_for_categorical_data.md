@@ -139,6 +139,8 @@ $$f_{j,k+1} = f_{j,k} + \frac{\alpha}{N} \sum_{i=1}^N \left[ w_{e,y_i} - \mathbb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Training Dynamics of In-Context Learning in Linear Attention](training_dynamics_of_in-context_learning_in_linear_attention.md)
@@ -146,5 +148,7 @@ $$f_{j,k+1} = f_{j,k} + \frac{\alpha}{N} \sum_{i=1}^N \left[ w_{e,y_i} - \mathbb
 - [\[NeurIPS 2025\] Generalization or Hallucination? Understanding Out-of-Context Reasoning in Transformers](../../NeurIPS2025/optimization/generalization_or_hallucination_understanding_out-of-context_reasoning_in_transf.md)
 - [\[ICML 2025\] Provable In-Context Vector Arithmetic via Retrieving Task Concepts](provable_in-context_vector_arithmetic_via_retrieving_task_concepts.md)
 - [\[ICML 2025\] Understanding the Statistical Accuracy-Communication Trade-off in Personalized Federated Learning with Minimax Guarantees](understanding_the_statistical_accuracy-communication_trade-off_in_personalized_f.md)
+
+</div>
 
 <!-- RELATED:END -->

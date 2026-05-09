@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **12** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/llm_alignment/) · [🔬 ICLR2026 (42)](../../ICLR2026/llm_alignment/) · [🤖 AAAI2026 (20)](../../AAAI2026/llm_alignment/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_alignment/) · [📹 ICCV2025 (2)](../../ICCV2025/llm_alignment/) · [🧪 ICML2025 (27)](../../ICML2025/llm_alignment/)
+
+🔥 **高频主题：** 对齐/RLHF ×8 · 多模态 ×2
+
 **[Bases of Steerable Kernels for Equivariant CNNs: From 2D Rotations to the Lorentz Group](bases_of_steerable_kernels_for_equivariant_cnns_fr.md)**
 
 :   提出一种绕过 Clebsch-Gordan 系数计算、直接从群表示矩阵元素构造可操纵核显式基的方法，通过"稳定子约束 + Schur 引理 + Steering"三步策略统一覆盖 SO(2)、O(2)、SO(3)、O(3) 和非紧致 Lorentz 群，大幅简化等变 CNN 的核设计流程。

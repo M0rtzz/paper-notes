@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **23** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/dialogue/) · [📷 CVPR2026 (1)](../../CVPR2026/dialogue/) · [🔬 ICLR2026 (5)](../../ICLR2026/dialogue/) · [🤖 AAAI2026 (5)](../../AAAI2026/dialogue/) · [🧠 NeurIPS2025 (5)](../../NeurIPS2025/dialogue/) · [🧪 ICML2025 (3)](../../ICML2025/dialogue/)
+
+🔥 **高频主题：** 对话系统 ×21 · 情感分析 ×3 · 对齐/RLHF ×2 · 个性化生成 ×2
+
 **[Beyond Dialogue: A Profile-Dialogue Alignment Framework Towards General Role-Playing Language Model](beyond_dialogue_a_profile-dialogue_alignment_framework_towards_general_role-play.md)**
 
 :   提出 Beyond Dialogue 框架，通过 Profile-Dialogue 对齐消除角色扮演训练中 profile 与对话之间的偏差，并引入句子级细粒度对齐任务，使模型更好地理解和表现角色特质。

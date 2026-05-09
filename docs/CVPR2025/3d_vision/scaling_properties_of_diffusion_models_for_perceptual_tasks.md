@@ -133,6 +133,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] A Simple yet Mighty Hartley Diffusion Versatilist for Generalizable Dense Vision Tasks](../../ICCV2025/3d_vision/a_simple_yet_mighty_hartley_diffusion_versatilist_for_genera.md)
@@ -140,5 +142,7 @@ tags:
 - [\[CVPR 2025\] Denoising Functional Maps: Diffusion Models for Shape Correspondence](denoising_functional_maps_diffusion_models_for_shape_correspondence.md)
 - [\[CVPR 2025\] Novel View Synthesis with Pixel-Space Diffusion Models](novel_view_synthesis_with_pixel-space_diffusion_models.md)
 - [\[CVPR 2025\] Perceptual Inductive Bias is What You Need Before Contrastive Learning](perceptual_inductive_bias_is_what_you_need_before_contrastive_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

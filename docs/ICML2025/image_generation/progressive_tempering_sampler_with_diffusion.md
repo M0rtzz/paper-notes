@@ -161,6 +161,8 @@ PTSD 与 PT+DM 效率相当，但在 Fig. 6 的详细对比中，相同评估预
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Learnable Sampler Distillation for Discrete Diffusion Models](../../NeurIPS2025/image_generation/learnable_sampler_distillation_for_discrete_diffusion_models.md)
@@ -168,5 +170,7 @@ PTSD 与 PT+DM 效率相当，但在 Fig. 6 的详细对比中，相同评估预
 - [\[NeurIPS 2025\] Diffusion-Driven Progressive Target Manipulation for Source-Free Domain Adaptation](../../NeurIPS2025/image_generation/diffusion-driven_progressive_target_manipulation_for_source-free_domain_adaptati.md)
 - [\[CVPR 2025\] AMO Sampler: Enhancing Text Rendering with Overshooting](../../CVPR2025/image_generation/amo_sampler_enhancing_text_rendering_with_overshooting.md)
 - [\[CVPR 2025\] ProReflow: Progressive Reflow with Decomposed Velocity](../../CVPR2025/image_generation/proreflow_progressive_reflow_with_decomposed_velocity.md)
+
+</div>
 
 <!-- RELATED:END -->

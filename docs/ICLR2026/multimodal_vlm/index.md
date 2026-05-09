@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **93** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (50)](../../ACL2026/multimodal_vlm/) · [📷 CVPR2026 (288)](../../CVPR2026/multimodal_vlm/) · [🤖 AAAI2026 (92)](../../AAAI2026/multimodal_vlm/) · [🧠 NeurIPS2025 (155)](../../NeurIPS2025/multimodal_vlm/) · [📹 ICCV2025 (159)](../../ICCV2025/multimodal_vlm/) · [🧪 ICML2025 (53)](../../ICML2025/multimodal_vlm/)
+
+🔥 **高频主题：** 多模态 ×45 · 推理 ×22 · LLM ×5 · Agent ×4 · 机器人 ×4
+
 **[A-TPT: Angular Diversity Calibration Properties for Test-Time Prompt Tuning of Vision-Language Models](a-tpt_angular_diversity_calibration_properties_for_test-time_prompt_tuning_of_vi.md)**
 
 :   提出 A-TPT 框架，通过最大化归一化文本特征在单位超球面上的最小成对角距离来促进角度多样性，解决测试时提示调优 (TPT) 中 VLM 预测过度自信导致的校准不良问题，在自然分布偏移和医学数据集上均优于现有 TPT 校准方法。

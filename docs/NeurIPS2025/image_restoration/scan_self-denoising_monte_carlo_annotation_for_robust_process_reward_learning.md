@@ -131,6 +131,8 @@ $$\mathcal{L}_{\text{SCAN}}(\theta) = -\mathbb{E}_{(x_{\leq t}, y_t) \sim D_{\te
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] A Self-Denoising Model for Robust Few-Shot Relation Extraction](../../ACL2025/image_restoration/a_self-denoising_model_for_robust_few-shot_relation_extraction.md)
@@ -138,5 +140,7 @@ $$\mathcal{L}_{\text{SCAN}}(\theta) = -\mathbb{E}_{(x_{\leq t}, y_t) \sim D_{\te
 - [\[CVPR 2026\] Learning to Translate Noise for Robust Image Denoising](../../CVPR2026/image_restoration/learning_to_translate_noise_for_robust_image_denoising.md)
 - [\[NeurIPS 2025\] MRO: Enhancing Reasoning in Diffusion Language Models via Multi-Reward Optimization](mro_enhancing_reasoning_in_diffusion_language_models_via_multi-reward_optimizati.md)
 - [\[CVPR 2025\] Classic Video Denoising in a Machine Learning World: Robust, Fast, and Controllable](../../CVPR2025/image_restoration/classic_video_denoising_in_a_machine_learning_world_robust_fast_and_controllable.md)
+
+</div>
 
 <!-- RELATED:END -->

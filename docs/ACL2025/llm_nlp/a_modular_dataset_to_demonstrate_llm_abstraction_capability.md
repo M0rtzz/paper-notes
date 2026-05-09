@@ -114,6 +114,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] ScaleQuest: Unleashing LLM Reasoning Capability via Scalable Question Synthesis from Scratch](unleashing_llm_reasoning_capability_via_scalable.md)
@@ -121,5 +123,7 @@ tags:
 - [\[ACL 2025\] Circuit Compositions: Exploring Modular Structures in Transformer-Based Language Models](circuit_compositions_modular_structures.md)
 - [\[ACL 2026\] Detoxification for LLM from Dataset Itself](../../ACL2026/llm_nlp/detoxification_for_llm_from_dataset_itself.md)
 - [\[ACL 2025\] LazyReview: A Dataset for Uncovering Lazy Thinking in NLP Peer Reviews](lazyreview_peer_review.md)
+
+</div>
 
 <!-- RELATED:END -->

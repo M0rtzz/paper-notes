@@ -127,6 +127,8 @@ OneDC由两部分组成：(1) **潜变量压缩模块**：分析变换 $g_a$ 将
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Adversarial Concept Distillation for One-Step Diffusion Personalization](../../CVPR2026/model_compression/adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
@@ -134,5 +136,7 @@ OneDC由两部分组成：(1) **潜变量压缩模块**：分析变换 $g_a$ 将
 - [\[NeurIPS 2025\] ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference](chunkkv_semanticpreserving_kv_cache_compression_for_efficien.md)
 - [\[CVPR 2026\] On the Robustness of Diffusion-Based Image Compression to Bit-Flip Errors](../../CVPR2026/model_compression/on_the_robustness_of_diffusion-based_image_compression_to_bit-flip_errors.md)
 - [\[NeurIPS 2025\] Mitigating Semantic Collapse in Partially Relevant Video Retrieval](mitigating_semantic_collapse_in_partially_relevant_video_retrieval.md)
+
+</div>
 
 <!-- RELATED:END -->

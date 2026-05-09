@@ -129,6 +129,8 @@ UnionST 是一个渲染式合成引擎，核心流程：(a) 从增强语料库�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Theorem Prover as a Judge for Synthetic Data Generation](../../ACL2025/others/theorem_prover_as_a_judge_for_synthetic_data_generation.md)
@@ -136,5 +138,7 @@ UnionST 是一个渲染式合成引擎，核心流程：(a) 从增强语料库�
 - [\[CVPR 2026\] BenDFM: A taxonomy and synthetic CAD dataset for manufacturability assessment in sheet metal bending](bendfm_a_taxonomy_and_synthetic_cad_dataset_for_manufacturability_assessment_in_.md)
 - [\[ACL 2025\] TARGA: Targeted Synthetic Data Generation for Practical Reasoning over Structured Data](../../ACL2025/others/targa_targeted_synthetic_data_generation_for_practical_reasoning_over_structured.md)
 - [\[ICML 2025\] Provably Improving Generalization of Few-Shot Models with Synthetic Data](../../ICML2025/others/provably_improving_generalization_of_few-shot_models_with_synthetic_data.md)
+
+</div>
 
 <!-- RELATED:END -->

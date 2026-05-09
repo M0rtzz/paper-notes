@@ -149,6 +149,8 @@ $$\mathcal{L} = \mathcal{L}_{TRI} + λ_{GD}\mathcal{L}_{GD} + λ_{ISD}\mathcal{L
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] NeighborRetr: Balancing Hub Centrality in Cross-Modal Retrieval](../../CVPR2025/information_retrieval/neighborretr_balancing_hub_centrality_in_cross-modal_retrieval.md)
@@ -156,5 +158,7 @@ $$\mathcal{L} = \mathcal{L}_{TRI} + λ_{GD}\mathcal{L}_{GD} + λ_{ISD}\mathcal{L
 - [\[ACL 2025\] RPO: Retrieval Preference Optimization for Robust Retrieval-Augmented Generation](rpo_retrieval_preference_optimization_for_robust_retrieval-augmented_generation.md)
 - [\[AAAI 2026\] Neighbor-aware Instance Refining with Noisy Labels for Cross-Modal Retrieval](../../AAAI2026/information_retrieval/neighbor-aware_instance_refining_with_noisy_labels_for_cross-modal_retrieval.md)
 - [\[ACL 2025\] Cross-Lingual Relevance Transfer for Document Retrieval](cross-lingual_relevance_transfer_for_document_retrieval.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -174,6 +174,8 @@ T-MAE 的完整 pipeline：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] UniM2AE: Multi-modal Masked Autoencoders with Unified 3D Representation for 3D Perception in Autonomous Driving](unim2ae_multi-modal_masked_autoencoders_with_unified_3d_representation_for_3d_pe.md)
@@ -181,5 +183,7 @@ T-MAE 的完整 pipeline：
 - [\[NeurIPS 2025\] CuMoLoS-MAE: A Masked Autoencoder for Remote Sensing Data Reconstruction](../../NeurIPS2025/autonomous_driving/cumolos-mae_a_masked_autoencoder_for_remote_sensing_data_reconstruction.md)
 - [\[ECCV 2024\] Equivariant Spatio-Temporal Self-Supervision for LiDAR Object Detection](equivariant_spatio-temporal_self-supervision_for_lidar_object_detection.md)
 - [\[AAAI 2026\] Dual-branch Spatial-Temporal Self-supervised Representation for Enhanced Road Network Learning](../../AAAI2026/autonomous_driving/dual-branch_spatial-temporal_self-supervised_representation_for_enhanced_road_ne.md)
+
+</div>
 
 <!-- RELATED:END -->

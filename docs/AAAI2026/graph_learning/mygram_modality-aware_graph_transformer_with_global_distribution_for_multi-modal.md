@@ -178,6 +178,8 @@ $$\mathcal{L}_{InfoNCE} = \sum_{(e_i,e_j) \in \mathcal{S}} -\log \frac{\exp(\tex
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Relational Graph Transformer](../../ICLR2026/graph_learning/relational_graph_transformer.md)
@@ -185,5 +187,7 @@ $$\mathcal{L}_{InfoNCE} = \sum_{(e_i,e_j) \in \mathcal{S}} -\log \frac{\exp(\tex
 - [\[AAAI 2026\] GSAP-ERE: Fine-Grained Scholarly Entity and Relation Extraction Focused on Machine Learning](gsap-ere_fine-grained_scholarly_entity_and_relation_extraction_focused_on_machin.md)
 - [\[AAAI 2026\] GT-SNT: A Linear-Time Transformer for Large-Scale Graphs via Spiking Node Tokenization](gt-snt_a_linear-time_transformer_for_large-scale_graphs_via_spiking_node_tokeniz.md)
 - [\[AAAI 2026\] PCoKG: Personality-aware Commonsense Reasoning with Debate](pcokg_personality-aware_commonsense_reasoning_with_debate.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -127,6 +127,8 @@ ReferSplat 含三个核心组件：(1) 3D Gaussian Referring Fields；(2) 位置
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Dr. Splat: Directly Referring 3D Gaussian Splatting via Direct Language Embedding Registration](../../CVPR2025/3d_vision/dr_splat_directly_referring_3d_gaussian_splatting_via_direct_language_embedding_.md)
@@ -134,5 +136,7 @@ ReferSplat 含三个核心组件：(1) 3D Gaussian Referring Fields；(2) 位置
 - [\[CVPR 2026\] NG-GS: NeRF-Guided 3D Gaussian Splatting Segmentation](../../CVPR2026/3d_vision/ng_gs_nerf_guided_3d_gaussian_splatting_segmentation.md)
 - [\[CVPR 2026\] MVGGT: Multimodal Visual Geometry Grounded Transformer for Multiview 3D Referring Expression Segmentation](../../CVPR2026/3d_vision/mvggt_multimodal_visual_geometry_grounded_transformer_for_multiview_3d_referring.md)
 - [\[CVPR 2025\] Rethinking End-to-End 2D to 3D Scene Segmentation in Gaussian Splatting](../../CVPR2025/3d_vision/rethinking_end-to-end_2d_to_3d_scene_segmentation_in_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

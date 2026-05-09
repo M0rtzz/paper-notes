@@ -10,6 +10,8 @@ description: >-
 
 **🧠 NeurIPS2025** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [🤖 AAAI2026 (1)](../../AAAI2026/earth_science/) · [🎞️ ECCV2024 (1)](../../ECCV2024/earth_science/)
+
 **[A Probabilistic U-Net Approach to Downscaling Climate Simulations](a_probabilistic_unet_approach_to_downscaling_climate_simulat.md)**
 
 :   首次将概率 U-Net 应用于气候统计降尺度（16× 超分辨率），通过变分隐空间采样生成集合预报来量化降尺度不确定性，并系统比较了 WMSE、MS-SSIM、WMSE-MS-SSIM 和 afCRPS 四种训练目标在捕捉极端事件与保留细尺度空间变异性方面的互补权衡。

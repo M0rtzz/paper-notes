@@ -142,6 +142,8 @@ DynamicLimit-Exp 在 Argument Structure（67.7% vs 44.8%）、Case（95.2% vs 70
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] If Attention Serves as a Cognitive Model of Human Memory Retrieval, What is the Plausible Memory Representation?](if_attention_serves_as_a_cognitive.md)
@@ -149,5 +151,7 @@ DynamicLimit-Exp 在 Argument Structure（67.7% vs 44.8%）、Case（95.2% vs 70
 - [\[ACL 2025\] STRICTA: Structured Reasoning in Critical Text Assessment for Peer Review and Beyond](stricta_structured_reasoning_in_critical_text_assessment_for_peer_review_and_bey.md)
 - [\[ACL 2025\] Generating Plausible Distractors for Multiple-Choice Questions via Student Choice Prediction](distractor_gen_multiple_choice.md)
 - [\[ACL 2025\] EpMAN: Episodic Memory AttentioN for Generalizing to Longer Contexts](epman_episodic_memory_attention_for_generalizing_to_longer_contexts.md)
+
+</div>
 
 <!-- RELATED:END -->

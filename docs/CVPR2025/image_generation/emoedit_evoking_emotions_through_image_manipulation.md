@@ -129,6 +129,8 @@ EmoEdit 分两大步：(1) 构建 EmoEditSet 数据集——从 EmoSet 做聚类
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Make Me Happier: Evoking Emotions Through Image Diffusion Models](../../ICCV2025/image_generation/make_me_happier_evoking_emotions_through_image_diffusion_models.md)
@@ -136,5 +138,7 @@ EmoEdit 分两大步：(1) 构建 EmoEditSet 数据集——从 EmoSet 做聚类
 - [\[CVPR 2025\] Interpretable Generative Models through Post-hoc Concept Bottlenecks](interpretable_generative_models_through_post-hoc_concept_bottlenecks.md)
 - [\[CVPR 2025\] Visual Lexicon: Rich Image Features in Language Space](visual_lexicon_rich_image_features_in_language_space.md)
 - [\[CVPR 2025\] TurboFill: Adapting Few-Step Text-to-Image Model for Fast Image Inpainting](turbofill_adapting_few-step_text-to-image_model_for_fast_image_inpainting.md)
+
+</div>
 
 <!-- RELATED:END -->

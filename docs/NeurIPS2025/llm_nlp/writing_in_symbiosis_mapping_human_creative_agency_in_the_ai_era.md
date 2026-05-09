@@ -193,6 +193,8 @@ $$y_{it} = \beta \cdot PostLLM_t + \gamma \cdot len_{it} + \delta_c + \alpha_i +
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Towards Enhanced Immersion and Agency for LLM-based Interactive Drama](../../ACL2025/llm_nlp/towards_enhanced_immersion_and_agency_for_llm-based_interactive_drama.md)
@@ -200,5 +202,7 @@ $$y_{it} = \beta \cdot PostLLM_t + \gamma \cdot len_{it} + \delta_c + \alpha_i +
 - [\[ACL 2025\] Educators' Perceptions of Large Language Models as Tutors: Comparing Human and AI Tutors in a Blind Text-only Setting](../../ACL2025/llm_nlp/educators_perceptions_of_large_language_models_as_tutors_comparing_human_and_ai_.md)
 - [\[ACL 2025\] Mapping 1,000+ Language Models via the Log-Likelihood Vector](../../ACL2025/llm_nlp/mapping_1000_models_loglikelihood.md)
 - [\[ACL 2026\] XtraGPT: Context-Aware and Controllable Academic Paper Revision via Human-AI Collaboration](../../ACL2026/llm_nlp/xtragpt_context-aware_and_controllable_academic_paper_revision_via_human-ai_coll.md)
+
+</div>
 
 <!-- RELATED:END -->

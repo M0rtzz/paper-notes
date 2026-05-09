@@ -127,6 +127,8 @@ $$\mathcal{L}_{total} = \mathcal{L}_{train} + \lambda \cdot \mathcal{L}_{reward}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] SegGen: Supercharging Segmentation Models with Text2Mask and Mask2Img Synthesis](seggen_supercharging_segmentation_models_with_text2mask_and_mask2img_synthesis.md)
@@ -134,5 +136,7 @@ $$\mathcal{L}_{total} = \mathcal{L}_{train} + \lambda \cdot \mathcal{L}_{reward}
 - [\[ECCV 2024\] Diffusion Models for Open-Vocabulary Segmentation](diffusion_models_for_open-vocabulary_segmentation.md)
 - [\[ECCV 2024\] CPM: Class-Conditional Prompting Machine for Audio-Visual Segmentation](cpm_class-conditional_prompting_machine_for_audio-visual_segmentation.md)
 - [\[ECCV 2024\] Efficient and Versatile Robust Fine-Tuning of Zero-shot Models](efficient_and_versatile_robust_fine-tuning_of_zero-shot_models.md)
+
+</div>
 
 <!-- RELATED:END -->

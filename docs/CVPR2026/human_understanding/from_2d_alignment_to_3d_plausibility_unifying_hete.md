@@ -130,6 +130,8 @@ Stage 1：$\mathcal{L}_{total} = \mathcal{L}_{hand}$ (MANO 参数 + 3D/2.5D 关�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] HandDreamer: Zero-Shot Text to 3D Hand Model Generation](handdreamer_zero_shot_text_to_3d_hand_model_generation.md)
@@ -137,5 +139,7 @@ Stage 1：$\mathcal{L}_{total} = \mathcal{L}_{hand}$ (MANO 参数 + 3D/2.5D 关�
 - [\[CVPR 2026\] HumanOrbit: 3D Human Reconstruction as 360° Orbit Generation](humanorbit_3d_human_reconstruction_as_360_orbit_generation.md)
 - [\[CVPR 2026\] MoLingo: Motion-Language Alignment for Text-to-Human Motion Generation](molingo_motion-language_alignment_for_text-to-motion_generation.md)
 - [\[CVPR 2026\] A Two-Stage Dual-Modality Model for Facial Expression Recognition](a_two_stage_dual_modality_model_for_facial_expression_recognition.md)
+
+</div>
 
 <!-- RELATED:END -->

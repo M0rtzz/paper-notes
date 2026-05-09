@@ -143,6 +143,8 @@ $$\mathcal{A}'(\bm{p}) = \mathcal{A}^{\text{opt}}(2\bm{p}^* - \bm{p})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Efficient Kernelized Learning in Polyhedral Games Beyond Full-Information: From Colonel Blotto to Congestion Games](efficient_kernelized_learning_in_polyhedral_games_beyond_full-information_from_c.md)
@@ -150,5 +152,7 @@ $$\mathcal{A}'(\bm{p}) = \mathcal{A}^{\text{opt}}(2\bm{p}^* - \bm{p})$$
 - [\[ACL 2025\] Cautious Next Token Prediction](../../ACL2025/others/cautious_next_token_prediction.md)
 - [\[NeurIPS 2025\] Optimism Without Regularization: Constant Regret in Zero-Sum Games](optimism_without_regularization_constant_regret_in_zero-sum_games.md)
 - [\[NeurIPS 2025\] FlashMD: Long-Stride, Universal Prediction of Molecular Dynamics](flashmd_long-stride_universal_prediction_of_molecular_dynamics.md)
+
+</div>
 
 <!-- RELATED:END -->

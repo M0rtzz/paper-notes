@@ -163,6 +163,8 @@ PaPr 在 MAE 模型上优势尤为明显（ViT-B 上比 ToMe 高 **4.5%** 精度
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] SpaceJAM: a Lightweight and Regularization-free Method for Fast Joint Alignment of Images](spacejam_a_lightweight_and_regularization-free_method_for_fast_joint_alignment_o.md)
@@ -170,5 +172,7 @@ PaPr 在 MAE 模型上优势尤为明显（ViT-B 上比 ToMe 高 **4.5%** 精度
 - [\[CVPR 2026\] Adversarial Concept Distillation for One-Step Diffusion Personalization](../../CVPR2026/model_compression/adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
 - [\[ECCV 2024\] Isomorphic Pruning for Vision Models](isomorphic_pruning_for_vision_models.md)
 - [\[ECCV 2024\] Auto-DAS: Automated Proxy Discovery for Training-free Distillation-aware Architecture Search](auto-das_automated_proxy_discovery_for_training-free_distillation-aware_architec.md)
+
+</div>
 
 <!-- RELATED:END -->

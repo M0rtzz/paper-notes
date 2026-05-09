@@ -120,6 +120,8 @@ Parenting 在 LLaMA2-7B 上相比最强 baseline，adherence 提升 15+%，robus
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] SetR: Shifting from Ranking to Set Selection for Retrieval Augmented Generation](setr_set_selection_rag.md)
@@ -127,5 +129,7 @@ Parenting 在 LLaMA2-7B 上相比最强 baseline，adherence 提升 15+%，robus
 - [\[ACL 2025\] RARE: Retrieval-Augmented Reasoning Enhancement for Large Language Models](rare_retrieval_augmented_reasoning.md)
 - [\[ACL 2025\] Astute RAG: Overcoming Imperfect Retrieval Augmentation and Knowledge Conflicts for Large Language Models](astute_rag_knowledge_conflicts.md)
 - [\[ACL 2025\] Retrieval-Augmented Fine-Tuning With Preference Optimization For Visual Program Generation](retrieval-augmented_fine-tuning_with_preference_optimization_for_visual_program_.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -171,6 +171,8 @@ PokéAgent Challenge 包含两个互补赛道：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Technical Debt in In-Context Learning: Diminishing Efficiency in Long Context](technical_debt_in_in-context_learning_diminishing_efficiency_in_long_context.md)
@@ -178,5 +180,7 @@ PokéAgent Challenge 包含两个互补赛道：
 - [\[ACL 2025\] On Many-Shot In-Context Learning for Long-Context Evaluation](../../ACL2025/llm_efficiency/on_many-shot_in-context_learning_for_long-context_evaluation.md)
 - [\[NeurIPS 2025\] Mozart: Modularized and Efficient MoE Training on 3.5D Wafer-Scale Chiplet Architectures](mozart_modularized_and_efficient_moe_training_on_35d_wafer-scale_chiplet_archite.md)
 - [\[NeurIPS 2025\] Hierarchical Balance Packing: Towards Efficient Supervised Fine-tuning for Long-Context LLM](hierarchical_balance_packing_towards_efficient_supervised_fine-tuning_for_long-c.md)
+
+</div>
 
 <!-- RELATED:END -->

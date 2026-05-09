@@ -122,6 +122,8 @@ Planner 提供强安全但大幅牺牲 utility；Validator 恢复 utility（+22%
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents](../../ICLR2026/llm_agent/chatinject_abusing_chat_templates_for_prompt_injection_in_llm_agents.md)
@@ -129,5 +131,7 @@ Planner 提供强安全但大幅牺牲 utility；Validator 恢复 utility（+22%
 - [\[NeurIPS 2025\] A-MEM: Agentic Memory for LLM Agents](a-mem_agentic_memory_for_llm_agents.md)
 - [\[NeurIPS 2025\] LLM Agents for Knowledge Discovery in Atomic Layer Processing](llm_agents_for_knowledge_discovery_in_atomic_layer_processing.md)
 - [\[NeurIPS 2025\] Crucible: Quantifying the Potential of Control Algorithms through LLM Agents](crucible_quantifying_the_potential_of_control_algorithms_through_llm_agents.md)
+
+</div>
 
 <!-- RELATED:END -->

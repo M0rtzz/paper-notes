@@ -126,6 +126,8 @@ $$\max_\pi \mathbb{E}\left[\sum_t \gamma^t \left(\mathbb{E}_{\mathbf{a}\sim\pi}[
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Extreme Value Policy Optimization for Safe Reinforcement Learning](extreme_value_policy_optimization_for_safe_reinforcement_learning.md)
@@ -133,5 +135,7 @@ $$\max_\pi \mathbb{E}\left[\sum_t \gamma^t \left(\mathbb{E}_{\mathbf{a}\sim\pi}[
 - [\[ICLR 2026\] Latent Wasserstein Adversarial Imitation Learning](../../ICLR2026/reinforcement_learning/latent_wasserstein_adversarial_imitation_learning.md)
 - [\[ACL 2025\] Bypass Back-propagation: Optimization-based Structural Pruning for Large Language Models via Policy Gradient](../../ACL2025/reinforcement_learning/bypass_back-propagation_optimization-based_structural_pruning_for_large_language.md)
 - [\[AAAI 2026\] Behaviour Policy Optimization: Provably Lower Variance Return Estimates for Off-Policy Reinforcement Learning](../../AAAI2026/reinforcement_learning/behaviour_policy_optimization_provably_lower_variance_return_estimates_for_off-p.md)
+
+</div>
 
 <!-- RELATED:END -->

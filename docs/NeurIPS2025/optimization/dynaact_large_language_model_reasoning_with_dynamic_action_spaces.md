@@ -141,6 +141,8 @@ DynaAct 延迟仅比 rStar 多 5%，但精度高 6.8%。比 RAP 更快（RAP 实
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Large Language Bayes](large_language_bayes.md)
@@ -148,5 +150,7 @@ DynaAct 延迟仅比 rStar 多 5%，但精度高 6.8%。比 RAP 更快（RAP 实
 - [\[NeurIPS 2025\] Constrained Network Slice Assignment via Large Language Models](constrained_network_slice_assignment_via_llms.md)
 - [\[NeurIPS 2025\] VERA: Variational Inference Framework for Jailbreaking Large Language Models](vera_variational_inference_framework_for_jailbreaking_large_language_models.md)
 - [\[NeurIPS 2025\] Training-Free Bayesianization for Low-Rank Adapters of Large Language Models](training-free_bayesianization_for_low-rank_adapters_of_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

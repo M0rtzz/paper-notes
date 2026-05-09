@@ -152,6 +152,8 @@ CIGPose-x 仅用 COCO-WholeBody 训练就超过了依赖两阶段蒸馏+额外 U
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Upper-Body Hierarchical Graph for Skeleton Based Emotion Recognition in Assistive Driving](../../ECCV2024/human_understanding/upper-body_hierarchical_graph_for_skeleton_based_emotion_recognition_in_assistiv.md)
@@ -159,5 +161,7 @@ CIGPose-x 仅用 COCO-WholeBody 训练就超过了依赖两阶段蒸馏+额外 U
 - [\[ECCV 2024\] Multi-HMR: Multi-Person Whole-Body Human Mesh Recovery in a Single Shot](../../ECCV2024/human_understanding/multi-hmr_multi-person_whole-body_human_mesh_recovery_in_a_single_shot.md)
 - [\[CVPR 2026\] COG: Confidence-aware Optimal Geometric Correspondence for Unsupervised Single-reference Novel Object Pose Estimation](cog_confidence-aware_optimal_geometric_correspondence_for_unsupervised_single-re.md)
 - [\[CVPR 2026\] ViBES: A Conversational Agent with Behaviorally-Intelligent 3D Virtual Body](vibes_a_conversational_agent_with_behaviorally_intelligent_3d_virtual_body.md)
+
+</div>
 
 <!-- RELATED:END -->

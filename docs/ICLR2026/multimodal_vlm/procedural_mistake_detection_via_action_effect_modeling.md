@@ -124,6 +124,8 @@ L = L_seg（动作分割）+ L_eff（效果对齐 L2）+ L_CL（视觉-文本对
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Don't Act Blindly: Robust GUI Automation via Action-Effect Verification and Self-Correction](../../ACL2026/multimodal_vlm/don39t_act_blindly_robust_gui_automation_via_action-effect_verification_and_self.md)
@@ -131,5 +133,7 @@ L = L_seg（动作分割）+ L_eff（效果对齐 L2）+ L_CL（视觉-文本对
 - [\[ICLR 2026\] Capacity-Aware Inference: Mitigating the Straggler Effect in Mixture of Experts](capacity-aware_inference_mitigating_the_straggler_effect_in_mixture_of_experts.md)
 - [\[CVPR 2025\] SOLAMI: Social Vision-Language-Action Modeling for Immersive Interaction with 3D Autonomous Characters](../../CVPR2025/multimodal_vlm/solami_social_vision-language-action_modeling_for_immersive_interaction_with_3d_.md)
 - [\[ICLR 2026\] Zero-shot HOI Detection with MLLM-based Detector-agnostic Interaction Recognition](zero-shot_hoi_detection_with_mllm-based_detector-agnostic_interaction_recognitio.md)
+
+</div>
 
 <!-- RELATED:END -->

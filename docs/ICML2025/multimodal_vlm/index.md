@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **53** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (50)](../../ACL2026/multimodal_vlm/) · [📷 CVPR2026 (288)](../../CVPR2026/multimodal_vlm/) · [🔬 ICLR2026 (93)](../../ICLR2026/multimodal_vlm/) · [🤖 AAAI2026 (92)](../../AAAI2026/multimodal_vlm/) · [🧠 NeurIPS2025 (155)](../../NeurIPS2025/multimodal_vlm/) · [📹 ICCV2025 (159)](../../ICCV2025/multimodal_vlm/)
+
+🔥 **高频主题：** 多模态 ×34 · 推理 ×7 · LLM ×4 · 对齐/RLHF ×4 · 机器人 ×2
+
 **[Bring Reason to Vision: Understanding Perception and Reasoning through Model Merging](bring_reason_to_vision_understanding_perception_and_reasoning_through_model_merg.md)**
 
 :   通过将数学推理 LLM 的参数与 VLM 的文本部分直接加权平均（模型融合），在无需训练的情况下将推理能力迁移到 VLM，并发现感知能力集中在前层、推理能力集中在中后层的层级分布规律。

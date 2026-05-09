@@ -146,6 +146,8 @@ $$\text{Reg}_T \leq \widetilde{\mathcal{O}}\!\left(d\, T^{\frac{1-\varepsilon}{2
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Infrequent Exploration in Linear Bandits](../../NeurIPS2025/others/infrequent_exploration_in_linear_bandits.md)
@@ -153,5 +155,7 @@ $$\text{Reg}_T \leq \widetilde{\mathcal{O}}\!\left(d\, T^{\frac{1-\varepsilon}{2
 - [\[ACL 2025\] One for All: Update Parameterized Knowledge Across Multiple Models with Once Edit](../../ACL2025/others/one_for_all_update_parameterized_knowledge_across_multiple_models_with_once_edit.md)
 - [\[ICML 2025\] Near Optimal Best Arm Identification for Clustered Bandits](near_optimal_best_arm_identification_for_clustered_bandits.md)
 - [\[ICML 2025\] Fixing the Loose Brake: Exponential-Tailed Stopping Time in Best Arm Identification](fixing_the_loose_brake_exponential-tailed_stopping_time_in_best_arm_identificati.md)
+
+</div>
 
 <!-- RELATED:END -->

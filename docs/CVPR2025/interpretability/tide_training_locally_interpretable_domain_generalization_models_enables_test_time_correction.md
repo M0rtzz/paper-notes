@@ -104,6 +104,8 @@ L = L_c(类别交叉熵) + L_k(概念交叉熵) + L_CSA(概念显著性对齐, L
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Scaling Vision Pre-Training to 4K Resolution](scaling_vision_pre-training_to_4k_resolution.md)
@@ -111,5 +113,7 @@ L = L_c(类别交叉熵) + L_k(概念交叉熵) + L_CSA(概念显著性对齐, L
 - [\[CVPR 2025\] Prompt-CAM: Making Vision Transformers Interpretable for Fine-Grained Analysis](prompt-cam_making_vision_transformers_interpretable_for_fine-grained_analysis.md)
 - [\[CVPR 2025\] Towards Faithful Multimodal Concept Bottleneck Models](towards_faithful_multimodal_concept_bottleneck_models.md)
 - [\[CVPR 2025\] Towards Human-Understandable Multi-Dimensional Concept Discovery](towards_human-understandable_multi-dimensional_concept_discovery.md)
+
+</div>
 
 <!-- RELATED:END -->

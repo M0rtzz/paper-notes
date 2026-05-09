@@ -119,6 +119,8 @@ SFT 使用标准因果语言建模损失：$\mathcal{L}_{SFT}(\theta) = \sum_{s'
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Do Large Language Models Think Like the Brain? Sentence-Level Evidences from Layer-Wise Embeddings and fMRI](../../AAAI2026/llm_nlp/do_large_language_models_think_like_the_brain_sentence-level_evidences_from_laye.md)
@@ -126,5 +128,7 @@ SFT 使用标准因果语言建模损失：$\mathcal{L}_{SFT}(\theta) = \sum_{s'
 - [\[ACL 2026\] FastDiSS: Few-step Match Many-step Diffusion Language Model on Sequence-to-Sequence Generation](fastdiss_few-step_match_many-step_diffusion_language_model_on_sequence-to-sequen.md)
 - [\[ACL 2025\] ExpliCa: Evaluating Explicit Causal Reasoning in Large Language Models](../../ACL2025/llm_nlp/explica_evaluating_explicit_causal_reasoning_in_large_language_models.md)
 - [\[ACL 2025\] PlanGenLLMs: A Modern Survey of LLM Planning Capabilities](../../ACL2025/llm_nlp/plangenllms_planning_survey.md)
+
+</div>
 
 <!-- RELATED:END -->

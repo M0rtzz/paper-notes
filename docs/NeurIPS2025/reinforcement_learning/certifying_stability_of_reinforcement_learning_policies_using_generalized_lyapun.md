@@ -130,6 +130,8 @@ $$V(\mathbf{x};\boldsymbol{\theta}_1) = |J_\gamma^{\boldsymbol{\pi}_{\text{RL}}}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Single Index Bandits: Generalized Linear Contextual Bandits with Unknown Reward Functions](../../ICLR2026/reinforcement_learning/single_index_bandits_generalized_linear_contextual_bandits_with_unknown_reward_f.md)
@@ -137,5 +139,7 @@ $$V(\mathbf{x};\boldsymbol{\theta}_1) = |J_\gamma^{\boldsymbol{\pi}_{\text{RL}}}
 - [\[NeurIPS 2025\] Actor-Free Continuous Control via Structurally Maximizable Q-Functions](actorfree_continuous_control_via_structurally_maximizable_qf.md)
 - [\[NeurIPS 2025\] Learning Intractable Multimodal Policies with Reparameterization and Diversity Regularization](learning_intractable_multimodal_policies_with_reparameterization_and_diversity_r.md)
 - [\[ICLR 2026\] Offline Reinforcement Learning with Generative Trajectory Policies](../../ICLR2026/reinforcement_learning/offline_reinforcement_learning_with_generative_trajectory_policies.md)
+
+</div>
 
 <!-- RELATED:END -->

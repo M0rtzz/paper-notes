@@ -139,6 +139,8 @@ $$\mathbf{W}' = \mathbf{W}_0 + \tilde{\mathbf{B}} \tilde{\mathbf{A}}, \quad \til
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Faster Parameter-Efficient Tuning with Token Redundancy Reduction (FPET)](../../CVPR2025/model_compression/faster_parameter-efficient_tuning_with_token_redundancy_reduction.md)
@@ -146,5 +148,7 @@ $$\mathbf{W}' = \mathbf{W}_0 + \tilde{\mathbf{B}} \tilde{\mathbf{A}}, \quad \til
 - [\[ACL 2025\] IAM: Efficient Inference through Attention Mapping between Different-scale LLMs](iam_efficient_inference_through_attention_mapping_between_different-scale_llms.md)
 - [\[ACL 2025\] L4Q: Parameter Efficient Quantization-Aware Fine-Tuning on Large Language Models](l4q_parameter_efficient_quantization_aware_finetuning.md)
 - [\[ICLR 2026\] Cut Less, Fold More: Model Compression through the Lens of Projection Geometry](../../ICLR2026/model_compression/cut_less_fold_more_model_compression_through_the_lens_of_projection_geometry.md)
+
+</div>
 
 <!-- RELATED:END -->

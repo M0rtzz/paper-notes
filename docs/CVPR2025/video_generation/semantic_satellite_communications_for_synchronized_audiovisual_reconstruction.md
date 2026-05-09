@@ -131,6 +131,8 @@ V2A-L2 在 12dB SNR 下 AKD=5.8，接近 L3 的 4.8，但带宽仅为 L3 的 50%
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Pathways on the Image Manifold: Image Editing via Video Generation](pathways_on_the_image_manifold_image_editing_via_video_generation.md)
@@ -138,5 +140,7 @@ V2A-L2 在 12dB SNR 下 AKD=5.8，接近 L3 的 4.8，但带宽仅为 L3 的 50%
 - [\[CVPR 2025\] TokenMotion: Decoupled Motion Control via Token Disentanglement for Human-centric Video Generation](tokenmotion_decoupled_motion_control_via_token_disentanglement_for_human-centric.md)
 - [\[CVPR 2025\] LongDiff: Training-Free Long Video Generation in One Go](longdiff_training-free_long_video_generation_in_one_go.md)
 - [\[CVPR 2025\] Articulated Kinematics Distillation from Video Diffusion Models](articulated_kinematics_distillation_from_video_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

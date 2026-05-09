@@ -132,6 +132,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Beyond Zero Initialization: Investigating the Impact of Non-Zero Initialization on LoRA Fine-Tuning Dynamics](beyond_zero_initialization_investigating_the_impact_of_non-zero_initialization_o.md)
@@ -139,5 +141,7 @@ tags:
 - [\[ICML 2025\] Neutral Residues: Revisiting Adapters for Model Extension](neutral_residues_revisiting_adapters_for_model_extension.md)
 - [\[AAAI 2026\] Put the Space of LoRA Initialization to the Extreme to Preserve Pre-trained Knowledge](../../AAAI2026/model_compression/put_the_space_of_lora_initialization_to_the_extreme_to_preserve_pre-trained_know.md)
 - [\[ACL 2025\] Limited-Resource Adapters Are Regularizers, Not Linguists](../../ACL2025/model_compression/limited-resource_adapters_are_regularizers_not_linguists.md)
+
+</div>
 
 <!-- RELATED:END -->

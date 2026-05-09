@@ -126,6 +126,8 @@ $$h^* = \arg\min_h \left[2n\hat{\text{Var}}(h) - h\log(n)\right]$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Log-Sum-Exponential Estimator for Off-Policy Evaluation and Learning](log-sum-exponential_estimator_for_off-policy_evaluation_and_learning.md)
@@ -133,5 +135,7 @@ $$h^* = \arg\min_h \left[2n\hat{\text{Var}}(h) - h\log(n)\right]$$
 - [\[ICML 2025\] Wasserstein Policy Optimization](wasserstein_policy_optimization.md)
 - [\[NeurIPS 2025\] Bootstrap Off-policy with World Model](../../NeurIPS2025/reinforcement_learning/boundary-to-region_supervision_for_offline_safe_reinforcement_learning.md)
 - [\[NeurIPS 2025\] Bootstrap Off-policy with World Model (BOOM)](../../NeurIPS2025/reinforcement_learning/bootstrap_off-policy_with_world_model.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -125,6 +125,8 @@ CANVAS 数据集构建流程：小鼠脑组织 → SHIELD 保存 → 脱脂 → 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding](mrd_multi-resolution_retrieval-detection_fusion_for_high-resolution_image_unders.md)
@@ -132,5 +134,7 @@ CANVAS 数据集构建流程：小鼠脑组织 → SHIELD 保存 → 脱脂 → 
 - [\[ICLR 2026\] CORDS: Continuous Representations of Discrete Structures](../../ICLR2026/object_detection/cords_continuous_representations_of_discrete_structures.md)
 - [\[CVPR 2026\] Show, Don't Tell: Detecting Novel Objects by Watching Human Videos](show_dont_tell_detecting_novel_objects_by_watching.md)
 - [\[NeurIPS 2025\] Generalizable Insights for Graph Transformers in Theory and Practice](../../NeurIPS2025/object_detection/generalizable_insights_for_graph_transformers_in_theory_and_practice.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -119,6 +119,8 @@ BCNN 使用负对数似然损失（同时学习预测均值和方差）。SQuAT 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Predicting Kernel Regression Learning Curves from Only Raw Data Statistics](../../ICLR2026/others/predicting_kernel_regression_learning_curves_from_only_raw_data_statistics.md)
@@ -126,5 +128,7 @@ BCNN 使用负对数似然损失（同时学习预测均值和方差）。SQuAT 
 - [\[NeurIPS 2025\] Directional Non-Commutative Monoidal Structures for Compositional Embeddings in Machine Learning](../../NeurIPS2025/others/directional_non-commutative_monoidal_structures_for_compositional_embeddings_in_.md)
 - [\[ACL 2025\] Predicting Implicit Arguments in Procedural Video Instructions](../../ACL2025/others/implicit_arguments_video_instructions.md)
 - [\[AAAI 2026\] Extreme Value Monte Carlo Tree Search for Classical Planning](extreme_value_monte_carlo_tree_search_for_classical_planning.md)
+
+</div>
 
 <!-- RELATED:END -->

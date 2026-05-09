@@ -135,6 +135,8 @@ SciScore 分类准确率（Science-T2I-S / Science-T2I-C）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] The Art of Deception: Color Visual Illusions and Diffusion Models](the_art_of_deception_color_visual_illusions_and_diffusion_models.md)
@@ -142,5 +144,7 @@ SciScore 分类准确率（Science-T2I-S / Science-T2I-C）：
 - [\[ICCV 2025\] Addressing Text Embedding Leakage in Diffusion-based Image Editing](../../ICCV2025/image_generation/addressing_text_embedding_leakage_in_diffusion_based_image_editing.md)
 - [\[CVPR 2025\] Multi-focal Conditioned Latent Diffusion for Person Image Synthesis](multi-focal_conditioned_latent_diffusion_for_person_image_synthesis.md)
 - [\[CVPR 2025\] Noise Diffusion for Enhancing Semantic Faithfulness in Text-to-Image Synthesis](noise_diffusion_for_enhancing_semantic_faithfulness_in_text-to-image_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

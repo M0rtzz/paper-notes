@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2026** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (92)](../../CVPR2026/video_understanding/) · [🔬 ICLR2026 (24)](../../ICLR2026/video_understanding/) · [🤖 AAAI2026 (33)](../../AAAI2026/video_understanding/) · [🧠 NeurIPS2025 (61)](../../NeurIPS2025/video_understanding/) · [📹 ICCV2025 (58)](../../ICCV2025/video_understanding/) · [🧪 ICML2025 (7)](../../ICML2025/video_understanding/)
+
 **[ArrowGEV: Grounding Events in Video via Learning the Arrow of Time](arrowgev_grounding_events_in_video_via_learning_the_arrow_of_time.md)**
 
 :   提出 ArrowGEV，一个受物理学"时间之箭"启发的强化学习框架，通过区分时间敏感和时间不敏感事件来建模视频中的时间方向性，提升 VLM 的事件定位精度和时序理解能力。

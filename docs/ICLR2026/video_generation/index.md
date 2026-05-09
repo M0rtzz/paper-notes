@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **19** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/video_generation/) · [📷 CVPR2026 (59)](../../CVPR2026/video_generation/) · [🤖 AAAI2026 (11)](../../AAAI2026/video_generation/) · [🧠 NeurIPS2025 (23)](../../NeurIPS2025/video_generation/) · [📹 ICCV2025 (51)](../../ICCV2025/video_generation/) · [🧪 ICML2025 (7)](../../ICML2025/video_generation/)
+
+🔥 **高频主题：** 视频生成 ×11 · 扩散模型 ×6 · 机器人 ×2 · 语音 ×2 · 压缩/编码 ×2
+
 **[Arbitrary Generative Video Interpolation](arbitrary_generative_video_interpolation.md)**
 
 :   ArbInterp 提出了一种支持任意时间戳、任意长度的生成式视频帧插值框架，通过时间戳感知旋转位置编码（TaRoPE）实现精准时间控制，并通过外观-运动解耦的条件注入策略实现长序列的无缝拼接。

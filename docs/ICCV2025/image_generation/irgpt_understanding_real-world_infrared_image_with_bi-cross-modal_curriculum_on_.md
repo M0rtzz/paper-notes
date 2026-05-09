@@ -151,6 +151,8 @@ Lesson 2（图文对齐）对 psum 更敏感，Lesson 1（图像质量）对 nsu
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] T2ICount: Enhancing Cross-modal Understanding for Zero-Shot Counting](../../CVPR2025/image_generation/t2icount_enhancing_cross-modal_understanding_for_zero-shot_counting.md)
@@ -158,5 +160,7 @@ Lesson 2（图文对齐）对 psum 更敏感，Lesson 1（图像质量）对 nsu
 - [\[ICCV 2025\] StyleMotif: Multi-Modal Motion Stylization using Style-Content Cross Fusion](stylemotif_multi-modal_motion_stylization_using_style-content_cross_fusion.md)
 - [\[CVPR 2025\] ORIDa: Object-Centric Real-World Image Composition Dataset](../../CVPR2025/image_generation/orida_object-centric_real-world_image_composition_dataset.md)
 - [\[ICCV 2025\] Invisible Watermarks, Visible Gains: Steering Machine Unlearning with Bi-Level Watermarking Design](invisible_watermarks_visible_gains_steering_machine_unlearning_with_bi-level_wat.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -140,6 +140,8 @@ $$\mathcal{L} = \sum_{i=1}^{m}\beta_i \mathcal{L}_{inv}(M(\mathbf{t}, G(w), y_{<
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] AdaptVision: Efficient Vision-Language Models via Adaptive Visual Acquisition](adaptvision_efficient_vision-language_models_via_adaptive_visual_acquisition.md)
@@ -147,5 +149,7 @@ $$\mathcal{L} = \sum_{i=1}^{m}\beta_i \mathcal{L}_{inv}(M(\mathbf{t}, G(w), y_{<
 - [\[CVPR 2026\] Scene-VLM: Multimodal Video Scene Segmentation via Vision-Language Models](scene-vlm_multimodal_video_scene_segmentation_via_vision-language_models.md)
 - [\[CVPR 2026\] Aligning What Vision-Language Models See and Perceive with Adaptive Information Flow](aif_adaptive_information_flow_vlm.md)
 - [\[CVPR 2026\] DUET-VLM: Dual Stage Unified Efficient Token Reduction for VLM Training and Inference](duet-vlm_dual_stage_unified_efficient_token_reduction_for_vlm_training_and_infer.md)
+
+</div>
 
 <!-- RELATED:END -->

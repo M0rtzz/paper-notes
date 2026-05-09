@@ -126,6 +126,8 @@ Pipeline：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Sampling from Binary Quadratic Distributions via Stochastic Localization](sampling_from_binary_quadratic_distributions_via_stochastic_localization.md)
@@ -133,5 +135,7 @@ Pipeline：
 - [\[ICML 2025\] Learning-Augmented Algorithms for MTS with Bandit Access to Multiple Predictors](learning-augmented_algorithms_for_mts_with_bandit_access_to_multiple_predictors.md)
 - [\[ACL 2025\] An Analysis of Datasets, Metrics and Models in Keyphrase Generation](../../ACL2025/others/an_analysis_of_datasets_metrics_and_models_in_keyphrase_generation.md)
 - [\[ACL 2025\] Principled Understanding of Generalization for Generative Transformer Models in Arithmetic Reasoning Tasks](../../ACL2025/others/principled_generalization_arithmetic.md)
+
+</div>
 
 <!-- RELATED:END -->

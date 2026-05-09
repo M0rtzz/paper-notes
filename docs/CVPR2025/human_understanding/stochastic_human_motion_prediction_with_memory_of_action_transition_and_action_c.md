@@ -130,6 +130,8 @@ ARM 使用交叉熵损失训练 500 个 epoch，对大于阈值 $\tau$ 的每一
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] SimMotionEdit: Text-Based Human Motion Editing with Motion Similarity Prediction](simmotionedit_text-based_human_motion_editing_with_motion_similarity_prediction.md)
@@ -137,5 +139,7 @@ ARM 使用交叉熵损失训练 500 个 epoch，对大于阈值 $\tau$ 的每一
 - [\[CVPR 2025\] Human Motion Instruction Tuning](human_motion_instruction_tuning.md)
 - [\[CVPR 2025\] HSEmotion Team at ABAW-10 Competition: Facial Expression Recognition, Valence-Arousal Estimation, Action Unit Detection and Fine-Grained Violence Classification](hsemotion_team_at_abaw-10_competition_facial_expression_recognition_valence-arou.md)
 - [\[AAAI 2026\] mmPred: Radar-based Human Motion Prediction in the Dark](../../AAAI2026/human_understanding/mmpred_radar-based_human_motion_prediction_in_the_dark.md)
+
+</div>
 
 <!-- RELATED:END -->

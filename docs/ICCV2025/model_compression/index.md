@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **48** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (42)](../../ACL2026/model_compression/) · [📷 CVPR2026 (57)](../../CVPR2026/model_compression/) · [🔬 ICLR2026 (92)](../../ICLR2026/model_compression/) · [🤖 AAAI2026 (54)](../../AAAI2026/model_compression/) · [🧠 NeurIPS2025 (137)](../../NeurIPS2025/model_compression/) · [🧪 ICML2025 (71)](../../ICML2025/model_compression/)
+
+🔥 **高频主题：** 模型压缩 ×10 · 压缩/编码 ×4 · 持续学习 ×3 · LLM ×2 · 对抗鲁棒 ×2
+
 **[A Good Teacher Adapts Their Knowledge for Distillation](a_good_teacher_adapts_their_knowledge_for_distillation.md)**
 
 :   本文揭示了知识蒸馏中教师-学生容量差距问题的本质原因在于**输出分布的类内分布不匹配**，并提出 AID（Adapted Intra-class Distribution）方法，在蒸馏前对教师模型进行微调以优化其类内分布使之更符合学生的学习能力，在多种架构组合上取得了SOTA性能。

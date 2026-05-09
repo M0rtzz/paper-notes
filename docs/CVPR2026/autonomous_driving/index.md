@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **105** 篇论文解读
 
+📌 **同领域跨会议浏览：** [🔬 ICLR2026 (18)](../../ICLR2026/autonomous_driving/) · [🤖 AAAI2026 (58)](../../AAAI2026/autonomous_driving/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/autonomous_driving/) · [📹 ICCV2025 (98)](../../ICCV2025/autonomous_driving/) · [🧪 ICML2025 (11)](../../ICML2025/autonomous_driving/) · [💬 ACL2025 (1)](../../ACL2025/autonomous_driving/)
+
+🔥 **高频主题：** 自动驾驶 ×17 · 对抗鲁棒 ×10 · 3D 目标检测 ×8 · 多模态 ×8 · 语义分割 ×6
+
 **[A Prediction-as-Perception Framework for 3D Object Detection](a_prediction-as-perception_framework_for_3d_object_detection.md)**
 
 :   受人脑"预测性感知"机制启发，提出 PAP 框架——将历史帧的轨迹预测结果作为 query 注入当前帧的感知模块，在 UniAD 上实现跟踪精度提升 10%、推理速度提升 15%。

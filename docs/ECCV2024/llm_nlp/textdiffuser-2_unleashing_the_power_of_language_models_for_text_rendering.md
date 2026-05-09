@@ -271,6 +271,8 @@ TextDiffuser-2 在 FID、OCR 准确率、用户研究等大多数指标上取得
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Classifying Unreliable Narrators with Large Language Models](../../ACL2025/llm_nlp/classifying_unreliable_narrators.md)
@@ -278,5 +280,7 @@ TextDiffuser-2 在 FID、OCR 准确率、用户研究等大多数指标上取得
 - [\[ACL 2025\] KazMMLU: Evaluating Language Models on Kazakh, Russian, and Regional Knowledge of Kazakhstan](../../ACL2025/llm_nlp/kazmmlu_evaluating_language_models_on_kazakh_russian_and_regional_knowledge_of_k.md)
 - [\[ECCV 2024\] ControlLLM: Augment Language Models with Tools by Searching on Graphs](controlllm_augment_language_models_with_tools.md)
 - [\[ECCV 2024\] Meta-Prompting for Automating Zero-shot Visual Recognition with LLMs](metaprompting_for_automating_zeroshot_visual_recognitio.md)
+
+</div>
 
 <!-- RELATED:END -->

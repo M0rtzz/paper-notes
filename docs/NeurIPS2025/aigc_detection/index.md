@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/aigc_detection/) · [📷 CVPR2026 (1)](../../CVPR2026/aigc_detection/) · [🔬 ICLR2026 (6)](../../ICLR2026/aigc_detection/) · [🤖 AAAI2026 (3)](../../AAAI2026/aigc_detection/) · [💬 ACL2025 (17)](../../ACL2025/aigc_detection/) · [📷 CVPR2025 (3)](../../CVPR2025/aigc_detection/)
+
+🔥 **高频主题：** LLM ×4 · Agent ×2
+
 **[ASCIIBench: Evaluating Language-Model-Based Understanding of Visually-Oriented Text](asciibench_evaluating_language-model-based_understanding_of_visually-oriented_te.md)**
 
 :   提出 ASCIIBench，首个公开可用的 ASCII 艺术理解与生成基准（5,315 张图像，752 类），系统评估发现视觉模态显著优于文本模态，多模态融合反而不帮忙，且 CLIP 对 ASCII 结构的表征能力存在根本性瓶颈——只有内部一致性高的类别才能被有效区分。

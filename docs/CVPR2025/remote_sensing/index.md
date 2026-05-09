@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **10** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/remote_sensing/) · [📷 CVPR2026 (19)](../../CVPR2026/remote_sensing/) · [🔬 ICLR2026 (6)](../../ICLR2026/remote_sensing/) · [🤖 AAAI2026 (8)](../../AAAI2026/remote_sensing/) · [🧠 NeurIPS2025 (11)](../../NeurIPS2025/remote_sensing/) · [📹 ICCV2025 (11)](../../ICCV2025/remote_sensing/)
+
+🔥 **高频主题：** 遥感 ×4
+
 **[Dense Dispersed Structured Light for Hyperspectral 3D Imaging of Dynamic Scenes](dense_dispersed_structured_light_for_hyperspectral_3d_imaging_of_dynamic_scenes.md)**
 
 :   提出 Dense Dispersed Structured Light（DDSL）方法，利用廉价衍射光栅薄膜（<\$20）+ 立体 RGB 相机 + RGB 投影仪，设计光谱复用 DDSL 图案大幅减少所需投影帧数，实现 6.6fps 实时高光谱 3D 成像，光谱分辨率 15.5nm FWHM，深度误差 4mm。

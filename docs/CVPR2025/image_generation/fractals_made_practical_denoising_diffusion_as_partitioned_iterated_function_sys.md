@@ -136,6 +136,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Optimizing for the Shortest Path in Denoising Diffusion Model](optimizing_for_the_shortest_path_in_denoising_diffusion_model.md)
@@ -143,5 +145,7 @@ tags:
 - [\[CVPR 2025\] Visual Lexicon: Rich Image Features in Language Space](visual_lexicon_rich_image_features_in_language_space.md)
 - [\[CVPR 2025\] Tiled Diffusion](tiled_diffusion.md)
 - [\[CVPR 2025\] Color Alignment in Diffusion](color_alignment_in_diffusion.md)
+
+</div>
 
 <!-- RELATED:END -->

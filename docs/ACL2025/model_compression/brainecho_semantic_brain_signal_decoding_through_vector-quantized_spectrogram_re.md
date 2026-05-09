@@ -169,6 +169,8 @@ $$L_2 = \|m - Dec(Q(z_\varepsilon))\|_2^2 + \gamma\|z_m - z_\varepsilon\|_2^2 + 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] VQ-SGen: A Vector Quantized Stroke Representation for Creative Sketch Generation](../../ICCV2025/model_compression/vq-sgen_a_vector_quantized_stroke_representation_for_creative_sketch_generation.md)
@@ -176,5 +178,7 @@ $$L_2 = \|m - Dec(Q(z_\varepsilon))\|_2^2 + \gamma\|z_m - z_\varepsilon\|_2^2 + 
 - [\[ECCV 2024\] AnimatableDreamer: Text-Guided Non-rigid 3D Model Generation and Reconstruction with Canonical Score Distillation](../../ECCV2024/model_compression/animatabledreamer_text-guided_non-rigid_3d_model_generation_and_reconstruction_w.md)
 - [\[ACL 2025\] IAM: Efficient Inference through Attention Mapping between Different-scale LLMs](iam_efficient_inference_through_attention_mapping_between_different-scale_llms.md)
 - [\[ACL 2025\] TaDA: Training-free recipe for Decoding with Adaptive KV Cache Compression and Mean-centering](tada_training-free_recipe_for_decoding_with_adaptive_kv_cache_compression_and_me.md)
+
+</div>
 
 <!-- RELATED:END -->

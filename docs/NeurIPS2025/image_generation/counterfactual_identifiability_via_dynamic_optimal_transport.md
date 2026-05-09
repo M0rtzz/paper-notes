@@ -137,6 +137,8 @@ $$\min_{\theta} \int_0^1 \mathbb{E}_{X_1 \sim p_{\text{data}}} \left[\|v_t(X_t; 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] On the Relation between Rectified Flows and Optimal Transport](on_the_relation_between_rectified_flows_and_optimal_transport.md)
@@ -144,5 +146,7 @@ $$\min_{\theta} \int_0^1 \mathbb{E}_{X_1 \sim p_{\text{data}}} \left[\|v_t(X_t; 
 - [\[ICCV 2025\] The Curse of Conditions: Analyzing and Improving Optimal Transport for Conditional Flow-Based Generation](../../ICCV2025/image_generation/the_curse_of_conditions_analyzing_and_improving_optimal_transport_for_conditiona.md)
 - [\[NeurIPS 2025\] V-CECE: Visual Counterfactual Explanations via Conceptual Edits](v-cece_visual_counterfactual_explanations_via_conceptual_edits.md)
 - [\[NeurIPS 2025\] On Optimal Steering to Achieve Exact Fairness](on_optimal_steering_to_achieve_exact_fairness.md)
+
+</div>
 
 <!-- RELATED:END -->

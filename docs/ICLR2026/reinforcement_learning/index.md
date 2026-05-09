@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **142** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (34)](../../ACL2026/reinforcement_learning/) · [📷 CVPR2026 (22)](../../CVPR2026/reinforcement_learning/) · [🤖 AAAI2026 (71)](../../AAAI2026/reinforcement_learning/) · [🧠 NeurIPS2025 (173)](../../NeurIPS2025/reinforcement_learning/) · [📹 ICCV2025 (7)](../../ICCV2025/reinforcement_learning/) · [🧪 ICML2025 (82)](../../ICML2025/reinforcement_learning/)
+
+🔥 **高频主题：** 强化学习 ×44 · 推理 ×23 · LLM ×15 · 对抗鲁棒 ×14 · Agent ×13
+
 **[A Unifying View of Coverage in Linear Off-Policy Evaluation](a_unifying_view_of_coverage_in_linear_off-policy_evaluation.md)**
 
 :   提出了一种新的覆盖性参数——**特征-动态覆盖**（feature-dynamics coverage），通过工具变量视角对经典算法 LSTDQ 进行新颖的有限样本分析，统一了线性离策略评估中各种不同覆盖性定义，解决了该领域长期存在的碎片化问题。

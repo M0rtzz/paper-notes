@@ -162,6 +162,8 @@ $$\mathcal{L}_{glb}^v = -\sum_{i=1}^{N_b} \frac{1}{|P(z_i)|} \sum_{p \in P(z_i)}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Multi-Memory Matching for Unsupervised Visible-Infrared Person Re-Identification](../../ECCV2024/human_understanding/multi-memory_matching_for_unsupervised_visible-infrared_person_re-identification.md)
@@ -169,5 +171,7 @@ $$\mathcal{L}_{glb}^v = -\sum_{i=1}^{N_b} \frac{1}{|P(z_i)|} \sum_{p \in P(z_i)}
 - [\[CVPR 2026\] Vision-Language Attribute Disentanglement and Reinforcement for Lifelong Person Re-Identification](../../CVPR2026/human_understanding/vision-language_attribute_disentanglement_and_reinforcement_for_lifelong_person_.md)
 - [\[AAAI 2026\] Spatiotemporal-Untrammelled Mixture of Experts for Multi-Person Motion Prediction](spatiotemporal-untrammelled_mixture_of_experts_for_multi-person_motion_predictio.md)
 - [\[AAAI 2026\] Generating Attribute-Aware Human Motions from Textual Prompt](generating_attribute-aware_human_motions_from_textual_prompt.md)
+
+</div>
 
 <!-- RELATED:END -->

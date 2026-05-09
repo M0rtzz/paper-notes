@@ -130,6 +130,8 @@ $$\mathcal{L} = (1-\lambda)\mathcal{L}_1 + \lambda \mathcal{L}_2$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Genetic Instruct: Scaling up Synthetic Generation of Coding Instructions for Large Language Models](genetic_instruct_scaling_up_synthetic_generation_of_coding_instructions_for_larg.md)
@@ -137,5 +139,7 @@ $$\mathcal{L} = (1-\lambda)\mathcal{L}_1 + \lambda \mathcal{L}_2$$
 - [\[ACL 2025\] TrimLLM: Progressive Layer Dropping for Domain-Specific LLMs](trimllm_layer_dropping.md)
 - [\[ACL 2025\] AutoGUI: Scaling GUI Grounding with Automatic Functionality Annotations from LLMs](autogui_scaling_gui_grounding_with_automatic.md)
 - [\[ACL 2025\] Growing Through Experience: Scaling Episodic Grounding in Language Models](episodic_grounding_experience.md)
+
+</div>
 
 <!-- RELATED:END -->

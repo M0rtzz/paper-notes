@@ -123,6 +123,8 @@ $$\mathcal{L}_{\text{DT}}(\theta) = -\mathbb{E}[\log \pi_\theta(a_t | \tau_{0:t-
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Emergent World Beliefs: Exploring Transformers in Stochastic Games](emergent_world_beliefs_exploring_transformers_in_stochastic_games.md)
@@ -130,5 +132,7 @@ $$\mathcal{L}_{\text{DT}}(\theta) = -\mathbb{E}[\log \pi_\theta(a_t | \tau_{0:t-
 - [\[NeurIPS 2025\] Incremental Sequence Classification with Temporal Consistency](incremental_sequence_classification_with_temporal_consistency.md)
 - [\[NeurIPS 2025\] Sample Complexity of Distributionally Robust Average-Reward Reinforcement Learning](sample_complexity_of_distributionally_robust_average-reward_reinforcement_learni.md)
 - [\[NeurIPS 2025\] Finite-Sample Analysis of Policy Evaluation for Robust Average Reward Reinforcement Learning](finite-sample_analysis_of_policy_evaluation_for_robust_average_reward_reinforcem.md)
+
+</div>
 
 <!-- RELATED:END -->

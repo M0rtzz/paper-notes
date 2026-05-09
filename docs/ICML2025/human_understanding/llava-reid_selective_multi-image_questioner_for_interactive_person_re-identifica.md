@@ -121,6 +121,8 @@ $$\mathcal{L}_{\text{NLL}} = -\log p(Q_t^* | \mathcal{C}_{t-1}, \mathcal{D}_{t-1
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Scaling Large Motion Models with Million-Level Human Motions](scaling_large_motion_models_with_million-level_human_motions.md)
@@ -128,5 +130,7 @@ $$\mathcal{L}_{\text{NLL}} = -\log p(Q_t^* | \mathcal{C}_{t-1}, \mathcal{D}_{t-1
 - [\[ECCV 2024\] Multi-Memory Matching for Unsupervised Visible-Infrared Person Re-Identification](../../ECCV2024/human_understanding/multi-memory_matching_for_unsupervised_visible-infrared_person_re-identification.md)
 - [\[ICCV 2025\] One-Shot Knowledge Transfer for Scalable Person Re-Identification](../../ICCV2025/human_understanding/one-shot_knowledge_transfer_for_scalable_person_re-identification.md)
 - [\[ICCV 2025\] Weakly Supervised Visible-Infrared Person Re-Identification via Heterogeneous Expert Collaborative Consistency Learning](../../ICCV2025/human_understanding/weakly_supervised_visible-infrared_person_re-identification_via_heterogeneous_ex.md)
+
+</div>
 
 <!-- RELATED:END -->

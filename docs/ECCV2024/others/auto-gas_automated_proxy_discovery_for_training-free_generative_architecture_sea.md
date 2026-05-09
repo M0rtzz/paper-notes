@@ -125,6 +125,8 @@ Auto-GAS 的整体流程分为两个阶段：(1) **代理发现阶段**——构
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] VKDNW: Training-free Neural Architecture Search through Variance of Knowledge of Deep Network Weights](../../CVPR2025/others/training-free_neural_architecture_search_through_variance_of_knowledge_of_deep_n.md)
@@ -132,5 +134,7 @@ Auto-GAS 的整体流程分为两个阶段：(1) **代理发现阶段**——构
 - [\[CVPR 2025\] Subnet-Aware Dynamic Supernet Training for Neural Architecture Search](../../CVPR2025/others/subnet-aware_dynamic_supernet_training_for_neural_architecture_search.md)
 - [\[ECCV 2024\] AttnZero: Efficient Attention Discovery for Vision Transformers](attnzero_efficient_attention_discovery_for_vision_transformers.md)
 - [\[ECCV 2024\] FreeAugment: Data Augmentation Search Across All Degrees of Freedom](freeaugment_data_augmentation_search_across_all_degrees_of_freedom.md)
+
+</div>
 
 <!-- RELATED:END -->

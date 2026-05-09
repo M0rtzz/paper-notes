@@ -143,6 +143,8 @@ $$\mathcal{L}(\theta) = \frac{1}{N} \sum_i^N \frac{1}{|\mathcal{C}_i^*|} \sum_{c
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] OASIS: Order-Augmented Strategy for Improved Code Search](oasis_order-augmented_strategy_for_improved_code_search.md)
@@ -150,5 +152,7 @@ $$\mathcal{L}(\theta) = \frac{1}{N} \sum_i^N \frac{1}{|\mathcal{C}_i^*|} \sum_{c
 - [\[ECCV 2024\] CoMo: Controllable Motion Generation Through Language Guided Pose Code Editing](../../ECCV2024/code_intelligence/como_controllable_motion_generation_through_language_guided_pose_code_editing.md)
 - [\[ACL 2025\] DynaCode: A Dynamic Complexity-Aware Code Benchmark for Evaluating Large Language Models in Code Generation](dynacode_a_dynamic_complexity-aware_code_benchmark_for_evaluating_large_language.md)
 - [\[ACL 2025\] CodeDPO: Aligning Code Models with Self Generated and Verified Source Code](codedpo_code_alignment.md)
+
+</div>
 
 <!-- RELATED:END -->

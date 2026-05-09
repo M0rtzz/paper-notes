@@ -186,6 +186,8 @@ $$\mathcal{L}_{total} = \mathcal{L}_{pred} + \alpha \cdot \mathcal{L}_{inter}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] SAQ-SAM: Semantically-Aligned Quantization for Segment Anything Model](saq-sam_semantically-aligned_quantization_for_segment_anything_model.md)
@@ -193,5 +195,7 @@ $$\mathcal{L}_{total} = \mathcal{L}_{pred} + \alpha \cdot \mathcal{L}_{inter}$$
 - [\[AAAI 2026\] Segment and Matte Anything in a Unified Model (SAMA)](segment_and_matte_anything_in_a_unified_model.md)
 - [\[AAAI 2026\] Segment Anything Across Shots: A Method and Benchmark](segment_anything_across_shots_a_method_and_benchmark.md)
 - [\[AAAI 2026\] Vista: Scene-Aware Optimization for Streaming Video Question Answering Under Post-Hoc Queries](vista_scene-aware_optimization_for_streaming_video_question_answering_under_post.md)
+
+</div>
 
 <!-- RELATED:END -->

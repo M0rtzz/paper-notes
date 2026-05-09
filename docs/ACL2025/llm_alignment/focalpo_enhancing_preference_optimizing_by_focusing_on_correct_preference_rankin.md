@@ -144,6 +144,8 @@ $\mathcal{L}_{FocalPO}(\pi_\theta; \pi_{ref}) = -\mathbb{E}_{(x,y_w,y_l)} \left[
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Enhancing Safe and Controllable Protein Generation via Knowledge Preference Optimization](kpo_protein_safety.md)
@@ -151,5 +153,7 @@ $\mathcal{L}_{FocalPO}(\pi_\theta; \pi_{ref}) = -\mathbb{E}_{(x,y_w,y_l)} \left[
 - [\[ACL 2025\] AgentRM: Enhancing Agent Generalization with Reward Modeling](agentrm_enhancing_agent_generalization_with_reward_modeling.md)
 - [\[ACL 2025\] Probability-Consistent Preference Optimization for Enhanced LLM Reasoning](probability-consistent_preference_optimization_for_enhanced_llm_reasoning.md)
 - [\[ICML 2025\] TGDPO: Harnessing Token-Level Reward Guidance for Enhancing Direct Preference Optimization](../../ICML2025/llm_alignment/tgdpo_harnessing_token-level_reward_guidance_for_enhancing_direct_preference_opt.md)
+
+</div>
 
 <!-- RELATED:END -->

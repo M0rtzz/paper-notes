@@ -135,6 +135,8 @@ $$\mathcal{L}_\text{total} = \underbrace{\min_k \text{MSE}(\hat{\tau}_f^k, \tau_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Certified Human Trajectory Prediction](certified_human_trajectory_prediction.md)
@@ -142,5 +144,7 @@ $$\mathcal{L}_\text{total} = \underbrace{\min_k \text{MSE}(\hat{\tau}_f^k, \tau_
 - [\[CVPR 2025\] Tra-MoE: Learning Trajectory Prediction Model from Multiple Domains for Adaptive Policy Conditioning](tra-moe_learning_trajectory_prediction_model_from_multiple_domains_for_adaptive_.md)
 - [\[CVPR 2025\] SocialMOIF: Multi-Order Intention Fusion for Pedestrian Trajectory Prediction](socialmoif_multi-order_intention_fusion_for_pedestrian_trajectory_prediction.md)
 - [\[ICCV 2025\] DONUT: A Decoder-Only Model for Trajectory Prediction](../../ICCV2025/autonomous_driving/donut_a_decoder-only_model_for_trajectory_prediction.md)
+
+</div>
 
 <!-- RELATED:END -->

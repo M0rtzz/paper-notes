@@ -147,6 +147,8 @@ VISAGE基于Mask2Former检测器构建，分为三个核心组件：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Dataset Enhancement with Instance-Level Augmentations](dataset_enhancement_with_instance-level_augmentations.md)
@@ -154,5 +156,7 @@ VISAGE基于Mask2Former检测器构建，分为三个核心组件：
 - [\[ECCV 2024\] General and Task-Oriented Video Segmentation](general_and_task-oriented_video_segmentation.md)
 - [\[ECCV 2024\] Unleashing the Power of Prompt-driven Nucleus Instance Segmentation](unleashing_the_power_of_prompt-driven_nucleus_instance_segmentation.md)
 - [\[ECCV 2024\] Part2Object: Hierarchical Unsupervised 3D Instance Segmentation](part2object_hierarchical_unsupervised_3d_instance_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

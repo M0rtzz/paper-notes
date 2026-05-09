@@ -175,6 +175,8 @@ DSL 通过选择性查询和标签精炼迭代提升攻击效率：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] GenQ: Quantization in Low Data Regimes with Generative Synthetic Data](../../ECCV2024/model_compression/genq_quantization_in_low_data_regimes_with_generative_synthetic_data.md)
@@ -182,5 +184,7 @@ DSL 通过选择性查询和标签精炼迭代提升攻击效率：
 - [\[ICCV 2025\] OuroMamba: A Data-Free Quantization Framework for Vision Mamba](ouromamba_a_data-free_quantization_framework_for_vision_mamba.md)
 - [\[NeurIPS 2025\] Toward Efficient Inference Attacks: Shadow Model Sharing via Mixture-of-Experts](../../NeurIPS2025/model_compression/toward_efficient_inference_attacks_shadow_model_sharing_via_mixture-of-experts.md)
 - [\[ICML 2025\] Predictive Data Selection: The Data That Predicts Is the Data That Teaches](../../ICML2025/model_compression/predictive_data_selection_the_data_that_predicts_is_the_data_that_teaches.md)
+
+</div>
 
 <!-- RELATED:END -->

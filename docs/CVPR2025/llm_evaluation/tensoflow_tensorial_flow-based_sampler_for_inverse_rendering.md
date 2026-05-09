@@ -113,6 +113,8 @@ TensoFlow 分两阶段：(1) 几何重建阶段：沿用 TensoSDF 的张量化 S
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] A Real-world Display Inverse Rendering Dataset](../../ICCV2025/llm_evaluation/a_realworld_display_inverse_rendering_dataset.md)
@@ -120,5 +122,7 @@ TensoFlow 分两阶段：(1) 几何重建阶段：沿用 TensoSDF 的张量化 S
 - [\[NeurIPS 2025\] PFΔ: A Benchmark Dataset for Power Flow under Load, Generation, and Topology Variations](../../NeurIPS2025/llm_evaluation/pfδ_a_benchmark_dataset_for_power_flow_under_load_generation_and_topology_variat.md)
 - [\[CVPR 2025\] TraF-Align: Trajectory-aware Feature Alignment for Asynchronous Multi-agent Perception](traf-align_trajectory-aware_feature_alignment_for_asynchronous_multi-agent_perce.md)
 - [\[CVPR 2025\] Gradient-Guided Annealing for Domain Generalization](gradient-guided_annealing_for_domain_generalization.md)
+
+</div>
 
 <!-- RELATED:END -->

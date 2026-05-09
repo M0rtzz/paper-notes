@@ -154,6 +154,8 @@ $$\mathcal{L}_{\text{TSCL}}(x;\theta) = \frac{1}{d_c} \sum_{i=0}^{d_c-1} \mathca
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Show, Don't Tell: Detecting Novel Objects by Watching Human Videos](../../CVPR2025/object_detection/show_dont_tell_detecting_novel_objects_by_watching_human_videos.md)
@@ -161,5 +163,7 @@ $$\mathcal{L}_{\text{TSCL}}(x;\theta) = \frac{1}{d_c} \sum_{i=0}^{d_c-1} \mathca
 - [\[ICML 2025\] BlueGlass: A Framework for Composite AI Safety](../../ICML2025/object_detection/blueglass_a_framework_for_composite_ai_safety.md)
 - [\[ICML 2025\] Understanding the Emergence of Multimodal Representation Alignment](../../ICML2025/object_detection/understanding_the_emergence_of_multimodal_representation_alignment.md)
 - [\[ICML 2025\] Few-Shot Learner Generalizes Across AI-Generated Image Detection](../../ICML2025/object_detection/few-shot_learner_generalizes_across_ai-generated_image_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

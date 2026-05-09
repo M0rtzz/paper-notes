@@ -127,6 +127,8 @@ $$H_i = H_- + J_i^T J_i, \quad J = \frac{\partial h}{\partial \theta}\bigg|_{\th
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] DiET-GS: Diffusion Prior and Event Stream-Assisted Motion Deblurring 3D Gaussian Splatting](diet-gs_diffusion_prior_and_event_stream-assisted_motion_deblurring_3d_gaussian_.md)
@@ -134,5 +136,7 @@ $$H_i = H_- + J_i^T J_i, \quad J = \frac{\partial h}{\partial \theta}\bigg|_{\th
 - [\[CVPR 2025\] Mani-GS: Gaussian Splatting Manipulation with Triangular Mesh](mani-gs_gaussian_splatting_manipulation_with_triangular_mesh.md)
 - [\[CVPR 2025\] Ref-GS: Directional Factorization for 2D Gaussian Splatting](ref-gs_directional_factorization_for_2d_gaussian_splatting.md)
 - [\[CVPR 2025\] DropGaussian: Structural Regularization for Sparse-view Gaussian Splatting](dropgaussian_structural_regularization_for_sparse-view_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

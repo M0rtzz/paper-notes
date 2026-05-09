@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **4** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/causal_inference/) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/) · [🧠 NeurIPS2025 (21)](../../NeurIPS2025/causal_inference/) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/) · [🧪 ICML2025 (16)](../../ICML2025/causal_inference/)
+
+🔥 **高频主题：** 扩散模型 ×3
+
 **[Fighting Hallucinations with Counterfactuals: Diffusion-Guided Perturbations for LVLM Hallucination Suppression](cipher_counterfactual_diffusion_hallucination_sup.md)**
 
 :   提出 CIPHER，一种免训练的 test-time 幻觉抑制方法——通过扩散模型生成语义篡改但结构保持的反事实图像，将其与原图在 LVLM 隐层中的表示差异做 SVD 分解提取幻觉子空间，推理时将隐状态投影到该子空间的正交补空间，首次从视觉模态入手定位和消除 LVLM 幻觉。

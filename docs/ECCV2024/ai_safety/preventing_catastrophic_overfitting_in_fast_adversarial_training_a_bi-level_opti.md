@@ -147,6 +147,8 @@ $$\mathcal{L}_{PCO} = \mathcal{L}_{CE}(f_\theta(\boldsymbol{x}_{train}), \mathbf
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Efficient Resource-Constrained Training of Transformers via Subspace Optimization](../../ICLR2026/ai_safety/efficient_resource-constrained_training_of_transformers_via_subspace_optimizatio.md)
@@ -154,5 +156,7 @@ $$\mathcal{L}_{PCO} = \mathcal{L}_{CE}(f_\theta(\boldsymbol{x}_{train}), \mathbf
 - [\[NeurIPS 2025\] Distributional Adversarial Attacks and Training in Deep Hedging](../../NeurIPS2025/ai_safety/distributional_adversarial_attacks_and_training_in_deep_hedging.md)
 - [\[ICML 2025\] Identifying and Understanding Cross-Class Features in Adversarial Training](../../ICML2025/ai_safety/identifying_and_understanding_cross-class_features_in_adversarial_training.md)
 - [\[ECCV 2024\] Unveiling Privacy Risks in Stochastic Neural Networks Training: Effective Image Reconstruction from Gradients](unveiling_privacy_risks_in_stochastic_neural_networks_training_effective_image_r.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -101,6 +101,8 @@ HFLS-Weather 数据集的构建使用了来自 Snow100K、RESIDE-OTS、Google La
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] MoDEM: A Morton-Order Degradation Estimation Mechanism for Adverse Weather Image Restoration](modem_a_morton-order_degradation_estimation_mechanism_for_adverse_weather_image_.md)
@@ -108,5 +110,7 @@ HFLS-Weather 数据集的构建使用了来自 Snow100K、RESIDE-OTS、Google La
 - [\[CVPR 2026\] Beyond Ground-Truth: Leveraging Image Quality Priors for Real-World Image Restoration](../../CVPR2026/image_restoration/beyond_ground-truth_leveraging_image_quality_priors_for_real-world_image_restora.md)
 - [\[ACL 2026\] Learning to Extract Rational Evidence via Reinforcement Learning for Retrieval-Augmented Generation](../../ACL2026/image_restoration/learning_to_extract_rational_evidence_via_reinforcement_learning_for_retrieval-a.md)
 - [\[ICCV 2025\] Robust Adverse Weather Removal via Spectral-based Spatial Grouping (SSGformer)](../../ICCV2025/image_restoration/robust_adverse_weather_removal_via_spectral-based_spatial_grouping.md)
+
+</div>
 
 <!-- RELATED:END -->

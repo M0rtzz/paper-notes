@@ -170,6 +170,8 @@ $$\mathcal{L} = w_f \mathcal{L}_f + w_\phi \mathcal{L}_\phi + w_Q \mathcal{L}_Q$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] EddyFormer: Accelerated Neural Simulations of Three-Dimensional Turbulence at Scale](eddyformer_accelerated_neural_simulations_of_three-dimensional_turbulence_at_sca.md)
@@ -177,5 +179,7 @@ $$\mathcal{L} = w_f \mathcal{L}_f + w_\phi \mathcal{L}_\phi + w_Q \mathcal{L}_Q$
 - [\[NeurIPS 2025\] Physics-Guided Machine Learning for Uncertainty Quantification in Turbulence Models](physics-guided_machine_learning_for_uncertainty_quantification_in_turbulence_mod.md)
 - [\[NeurIPS 2025\] Symbolic Regression Is All You Need: From Simulations to Scaling Laws in Binary Neutron Star Mergers](symbolic_regression_is_all_you_need_from_simulations_to_scaling_laws_in_binary_n.md)
 - [\[CVPR 2025\] Learning Phase Distortion with Selective State Space Models for Video Turbulence Mitigation](../../CVPR2025/scientific_computing/learning_phase_distortion_with_selective_state_space_models_for_video_turbulence.md)
+
+</div>
 
 <!-- RELATED:END -->

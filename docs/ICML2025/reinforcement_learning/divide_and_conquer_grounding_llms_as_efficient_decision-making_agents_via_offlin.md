@@ -163,6 +163,8 @@ $$\mathcal{L}_{\text{AWAC}} = -\mathbb{E}_{(s,a) \sim \mathcal{D}} \left[ \frac{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Counterfactual Effect Decomposition in Multi-Agent Sequential Decision Making](counterfactual_effect_decomposition_in_multi-agent_sequential_decision_making.md)
@@ -170,5 +172,7 @@ $$\mathcal{L}_{\text{AWAC}} = -\mathbb{E}_{(s,a) \sim \mathcal{D}} \left[ \frac{
 - [\[ICLR 2026\] Transitive RL: Value Learning via Divide and Conquer](../../ICLR2026/reinforcement_learning/transitive_rl_value_learning_via_divide_and_conquer.md)
 - [\[ICML 2025\] Graph-Assisted Stitching for Offline Hierarchical Reinforcement Learning](graph-assisted_stitching_for_offline_hierarchical_reinforcement_learning.md)
 - [\[ICML 2025\] Enhancing Decision-Making of Large Language Models via Actor-Critic](enhancing_decision-making_of_large_language_models_via_actor-critic.md)
+
+</div>
 
 <!-- RELATED:END -->

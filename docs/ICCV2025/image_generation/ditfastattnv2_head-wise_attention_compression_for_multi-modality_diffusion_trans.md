@@ -146,6 +146,8 @@ DiTFastAttnV2是一个训练后压缩框架，包含三个组件：Head-wise Arr
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Head Pursuit: Probing Attention Specialization in Multimodal Transformers](../../NeurIPS2025/image_generation/head_pursuit_probing_attention_specialization_in_multimodal.md)
@@ -153,5 +155,7 @@ DiTFastAttnV2是一个训练后压缩框架，包含三个组件：Head-wise Arr
 - [\[ICCV 2025\] EDiT: Efficient Diffusion Transformers with Linear Compressed Attention](edit_efficient_diffusion_transformers_with_linear_compressed_attention.md)
 - [\[ICCV 2025\] FreeCus: Free Lunch Subject-driven Customization in Diffusion Transformers](freecus_free_lunch_subject-driven_customization_in_diffusion_transformers.md)
 - [\[ICCV 2025\] UniCombine: Unified Multi-Conditional Combination with Diffusion Transformer](unicombine_unified_multi-conditional_combination_with_diffusion_transformer.md)
+
+</div>
 
 <!-- RELATED:END -->

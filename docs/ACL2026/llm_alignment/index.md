@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (12)](../../CVPR2026/llm_alignment/) · [🔬 ICLR2026 (42)](../../ICLR2026/llm_alignment/) · [🤖 AAAI2026 (20)](../../AAAI2026/llm_alignment/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_alignment/) · [📹 ICCV2025 (2)](../../ICCV2025/llm_alignment/) · [🧪 ICML2025 (27)](../../ICML2025/llm_alignment/)
+
+🔥 **高频主题：** LLM ×3 · Agent ×2 · 对抗鲁棒 ×2 · 对齐/RLHF ×2
+
 **[Aligning Agents via Planning: A Benchmark for Trajectory-Level Reward Modeling](aligning_agents_via_planning_a_benchmark_for_trajectory-level_reward_modeling.md)**
 
 :   提出 Plan-RewardBench，一个面向复杂工具增强场景的轨迹级偏好基准，用于评估奖励模型在多步规划、工具使用和错误恢复等场景下区分优劣智能体轨迹的能力。

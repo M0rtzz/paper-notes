@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **27** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/social_computing/) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/social_computing/) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/)
+
+🔥 **高频主题：** LLM ×8 · 语音 ×4 · 多模态 ×3 · 推理 ×2
+
 **[A Survey on Proactive Defense Strategies Against Misinformation in Large Language Models](a_survey_on_proactive_defense_strategies_against_misinformation_in_large_languag.md)**
 
 :   提出从被动检测到主动防御的范式转换，构建知识可信度、推理可靠性、输入鲁棒性"三支柱"框架，将 127 种防御技术系统映射到三支柱中，元分析 48 项基准研究表明主动防御相比传统方法提升 42-63%，同时识别了计算开销和跨域泛化的非平凡权衡。

@@ -122,6 +122,8 @@ $$\mathcal{L} = \lambda_{bbox}\mathcal{L}_{bbox} + \lambda_{tgt}\mathcal{L}_{tgt
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] LLAVIDAL: A Large Language Vision Model for Daily Activities of Living](llavidal_a_large_language_vision_model_for_daily_activities_of_living.md)
@@ -129,5 +131,7 @@ $$\mathcal{L} = \lambda_{bbox}\mathcal{L}_{bbox} + \lambda_{tgt}\mathcal{L}_{tgt
 - [\[CVPR 2025\] GG-SSMs: Graph-Generating State Space Models](gg-ssms_graph-generating_state_space_models.md)
 - [\[CVPR 2025\] Learning Occlusion-Robust Vision Transformers for Real-Time UAV Tracking](learning_occlusion-robust_vision_transformers_for_real-time_uav_tracking.md)
 - [\[ECCV 2024\] VideoMamba: State Space Model for Efficient Video Understanding](../../ECCV2024/video_understanding/videomamba_state_space_model_for_efficient_video_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

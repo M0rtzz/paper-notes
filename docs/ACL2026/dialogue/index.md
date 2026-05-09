@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **9** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (1)](../../CVPR2026/dialogue/) · [🔬 ICLR2026 (5)](../../ICLR2026/dialogue/) · [🤖 AAAI2026 (5)](../../AAAI2026/dialogue/) · [🧠 NeurIPS2025 (5)](../../NeurIPS2025/dialogue/) · [🧪 ICML2025 (3)](../../ICML2025/dialogue/) · [💬 ACL2025 (23)](../../ACL2025/dialogue/)
+
+🔥 **高频主题：** 对话系统 ×7
+
 **[Agentic Conversational Search with Contextualized Reasoning via Reinforcement Learning](agentic_conversational_search_with_contextualized_reasoning_via_reinforcement_le.md)**
 
 :   提出ConvAgent，通过将RL训练奖励分解为结果奖励、信息增益奖励和混合主动行为奖励三个互补组件，训练对话式搜索智能体在多轮交互中交替进行搜索和推理。

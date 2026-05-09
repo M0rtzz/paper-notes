@@ -194,6 +194,8 @@ Table 4 对比了不同 loss (CE, Focal, SupCon, CoA-loss) × 不同 mixing (nai
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Context-Aware Multimodal Pretraining](../../CVPR2025/multimodal_vlm/context-aware_multimodal_pretraining.md)
@@ -201,5 +203,7 @@ Table 4 对比了不同 loss (CE, Focal, SupCon, CoA-loss) × 不同 mixing (nai
 - [\[CVPR 2026\] CAPT: Confusion-Aware Prompt Tuning for Reducing Vision-Language Misalignment](../../CVPR2026/multimodal_vlm/capt_confusion-aware_prompt_tuning_for_reducing_vision-language_misalignment.md)
 - [\[NeurIPS 2025\] Zero-Shot Robustness of Vision Language Models Via Confidence-Aware Weighting](../../NeurIPS2025/multimodal_vlm/zero-shot_robustness_of_vision_language_models_via_confidence-aware_weighting.md)
 - [\[ICML 2025\] MMInference: Accelerating Pre-filling for Long-Context VLMs via Modality-Aware Permutation Sparse Attention](mminference_accelerating_pre-filling_for_long-context_vlms_via_modality-aware_pe.md)
+
+</div>
 
 <!-- RELATED:END -->

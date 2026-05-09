@@ -129,6 +129,8 @@ MAESTRO 在标准 GRPO 流程上增加了一个 Conductor 层。给定 prompt $q
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] SAMoRA: Semantic-Aware Mixture of LoRA Experts for Task-Adaptive Learning](samora_semantic-aware_mixture_of_lora_experts_for_task-adaptive_learning.md)
@@ -136,5 +138,7 @@ MAESTRO 在标准 GRPO 流程上增加了一个 Conductor 层。给定 prompt $q
 - [\[ACL 2025\] "Give Me BF16 or Give Me Death"? Accuracy-Performance Trade-Offs in LLM Quantization](../../ACL2025/model_compression/bf16_or_death_quantization_tradeoffs.md)
 - [\[ACL 2026\] Reason Only When Needed: Efficient Generative Reward Modeling via Model-Internal Uncertainty](reason_only_when_needed_efficient_generative_reward_modeling_via_model-internal_.md)
 - [\[ACL 2026\] Meta-Tool: Efficient Few-Shot Tool Adaptation for Small Language Models](meta-tool_efficient_few-shot_tool_adaptation_for_small_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

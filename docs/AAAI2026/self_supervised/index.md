@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **14** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/self_supervised/) · [📷 CVPR2026 (38)](../../CVPR2026/self_supervised/) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/) · [🧠 NeurIPS2025 (36)](../../NeurIPS2025/self_supervised/) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/) · [🧪 ICML2025 (24)](../../ICML2025/self_supervised/)
+
+🔥 **高频主题：** 对抗鲁棒 ×4 · 对齐/RLHF ×3 · 自监督学习 ×3
+
 **[BCE3S: Binary Cross-Entropy Based Tripartite Synergistic Learning for Long-tailed Recognition](bce3s_binary_cross-entropy_based_tripartite_synergistic_learning_for_long-tailed.md)**
 
 :   提出 BCE3S，一种基于二元交叉熵（BCE）的三方协同学习框架，将 BCE 式联合学习、BCE 式对比学习和 BCE 式分类器均匀性学习集成在一起，通过 Sigmoid 解耦不同类别的度量来抑制长尾不平衡效应，在 CIFAR10/100-LT、ImageNet-LT 和 iNaturalist2018 上均取得 SOTA。

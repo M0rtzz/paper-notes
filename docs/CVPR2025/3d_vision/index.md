@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **359** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (252)](../../CVPR2026/3d_vision/) · [🔬 ICLR2026 (65)](../../ICLR2026/3d_vision/) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/) · [🧠 NeurIPS2025 (116)](../../NeurIPS2025/3d_vision/) · [📹 ICCV2025 (268)](../../ICCV2025/3d_vision/) · [🧪 ICML2025 (11)](../../ICML2025/3d_vision/)
+
+🔥 **高频主题：** 3D 高斯渲染 ×61 · 扩散模型 ×28 · 三维重建 ×18 · 点云 ×16 · 对抗鲁棒 ×14
+
 **[3D-GRAND: A Million-Scale Dataset for 3D-LLMs with Better Grounding and Less Hallucination](3d-grand_a_million-scale_dataset_for_3d-llms_with_better_grounding_and_less_hall.md)**
 
 :   构建了3D-GRAND——首个百万级**密集接地**的3D场景-语言数据集（40K场景、6.2M指令），并提出3D-POPE幻觉评估基准，证明密集接地的指令微调能显著提升3D-LLM的接地能力并减少幻觉，还展示了合成数据到真实场景的迁移效果。

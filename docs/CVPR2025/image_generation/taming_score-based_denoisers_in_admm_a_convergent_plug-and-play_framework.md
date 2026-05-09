@@ -148,6 +148,8 @@ $$z_{\text{tw}}^{(k)} = z_{\text{dc}}^{(k)} + (\sigma^{(k)})^2 s_\theta(z_{\text
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Decoupling Training-Free Guided Diffusion by ADMM](decoupling_training-free_guided_diffusion_by_admm.md)
@@ -155,5 +157,7 @@ $$z_{\text{tw}}^{(k)} = z_{\text{dc}}^{(k)} + (\sigma^{(k)})^2 s_\theta(z_{\text
 - [\[CVPR 2025\] Traversing Distortion-Perception Tradeoff Using a Single Score-Based Generative Model](traversing_distortion-perception_tradeoff_using_a_single_score-based_generative_.md)
 - [\[CVPR 2025\] SVFR: A Unified Framework for Generalized Video Face Restoration](svfr_a_unified_framework_for_generalized_video_face_restoration.md)
 - [\[CVPR 2025\] SCSA: A Plug-and-Play Semantic Continuous-Sparse Attention for Arbitrary Semantic Style Transfer](scsa_a_plug-and-play_semantic_continuous-sparse_attention_for_arbitrary_semantic.md)
+
+</div>
 
 <!-- RELATED:END -->

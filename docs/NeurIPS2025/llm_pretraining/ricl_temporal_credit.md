@@ -124,6 +124,8 @@ RICL 先收集轨迹→反思 LLM 生成反馈→上下文更新策略→比较 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] The Atlas of In-Context Learning: How Attention Heads Shape In-Context Retrieval Augmentation](the_atlas_of_in-context_learning_how_attention_heads_shape_in-context_retrieval_.md)
@@ -131,5 +133,7 @@ RICL 先收集轨迹→反思 LLM 生成反馈→上下文更新策略→比较 
 - [\[NeurIPS 2025\] Scalable Fingerprinting of Large Language Models](scalable_fingerprinting_of_large_language_models.md)
 - [\[NeurIPS 2025\] Leveraging Importance Sampling to Detach Alignment Modules from Large Language Models](leveraging_importance_sampling_to_detach_alignment_modules_from_large_language_m.md)
 - [\[NeurIPS 2025\] Memory Mosaics at Scale](memory_mosaics_at_scale.md)
+
+</div>
 
 <!-- RELATED:END -->

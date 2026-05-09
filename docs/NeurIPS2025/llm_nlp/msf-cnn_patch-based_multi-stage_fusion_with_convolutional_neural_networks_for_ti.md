@@ -168,6 +168,8 @@ RAM 压缩比：msf-CNN 相比 Vanilla 减少 87%–96%，相比 MCUNetV2/Stream
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] STAA-SNN: Spatial-Temporal Attention Aggregator for Spiking Neural Networks](../../CVPR2025/llm_nlp/staa-snn_spatial-temporal_attention_aggregator_for_spiking_neural_networks.md)
@@ -175,5 +177,7 @@ RAM 压缩比：msf-CNN 相比 Vanilla 减少 87%–96%，相比 MCUNetV2/Stream
 - [\[NeurIPS 2025\] Opinion Maximization in Social Networks by Modifying Internal Opinions](opinion_maximization_in_social_networks_by_modifying_internal_opinions.md)
 - [\[NeurIPS 2025\] Large Language Models Miss the Multi-Agent Mark](large_language_models_miss_the_multi-agent_mark.md)
 - [\[NeurIPS 2025\] PluralisticBehaviorSuite: Stress-Testing Multi-Turn Adherence to Custom Behavioral Policies](pluralistic_behavior_suite_stress-testing_multi-turn_adherence_to_custom_behavio.md)
+
+</div>
 
 <!-- RELATED:END -->

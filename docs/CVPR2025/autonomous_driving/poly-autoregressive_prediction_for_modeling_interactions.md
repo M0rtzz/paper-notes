@@ -125,6 +125,8 @@ PAR框架将$N$个智能体在$T$个时间步的状态表示为$N \times T$个to
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] DriveGPT: Scaling Autoregressive Behavior Models for Driving](../../ICML2025/autonomous_driving/drivegpt_scaling_autoregressive_behavior_models_for_driving.md)
@@ -132,5 +134,7 @@ PAR框架将$N$个智能体在$T$个时间步的状态表示为$N \times T$个to
 - [\[CVPR 2025\] Certified Human Trajectory Prediction](certified_human_trajectory_prediction.md)
 - [\[ICCV 2025\] Epona: Autoregressive Diffusion World Model for Autonomous Driving](../../ICCV2025/autonomous_driving/epona_autoregressive_diffusion_world_model_for_autonomous_driving.md)
 - [\[CVPR 2025\] Modeling Thousands of Human Annotators for Generalizable Text-to-Image Person Re-identification](modeling_thousands_of_human_annotators_for_generalizable_text-to-image_person_re.md)
+
+</div>
 
 <!-- RELATED:END -->

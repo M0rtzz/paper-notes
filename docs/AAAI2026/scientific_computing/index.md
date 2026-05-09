@@ -10,6 +10,8 @@ description: >-
 
 **🤖 AAAI2026** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (4)](../../CVPR2026/scientific_computing/) · [🔬 ICLR2026 (10)](../../ICLR2026/scientific_computing/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/scientific_computing/) · [📹 ICCV2025 (1)](../../ICCV2025/scientific_computing/) · [🧪 ICML2025 (8)](../../ICML2025/scientific_computing/) · [📷 CVPR2025 (3)](../../CVPR2025/scientific_computing/)
+
 **[Just Few States are Enough: Randomized Sparse Feedback for Stability of Dynamical Systems](just_few_states_are_enough_randomized_sparse_feedback_for_stability_of_dynamical.md)**
 
 :   提出随机稀疏反馈控制框架：控制器在每个时间步仅访问状态向量的随机子集，通过 LMI 联合设计反馈增益矩阵和 Bernoulli 稀疏化参数，在保证渐近均方稳定性（AMSS）的同时最小化所需传感器数量，实验中仅用 0.3% 的状态分量即可达到与全状态反馈可比的性能。

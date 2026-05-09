@@ -150,6 +150,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Token Prepending: A Training-Free Approach for Eliciting Better Sentence Embeddings from LLMs](../../ACL2025/llm_nlp/token_prepending_training_free.md)
@@ -157,5 +159,7 @@ tags:
 - [\[NeurIPS 2025\] Reparameterized LLM Training via Orthogonal Equivalence Transformation](../../NeurIPS2025/llm_nlp/reparameterized_llm_training_via_orthogonal_equivalence_transformation.md)
 - [\[ACL 2025\] The Impact of Token Granularity on the Predictive Power of Language Model Surprisal](../../ACL2025/llm_nlp/token_granularity_impact.md)
 - [\[ACL 2025\] Contrastive Prompting Enhances Sentence Embeddings in LLMs through Inference-Time Steering](../../ACL2025/llm_nlp/contrastive_prompting_embeddings.md)
+
+</div>
 
 <!-- RELATED:END -->

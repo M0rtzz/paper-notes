@@ -132,6 +132,8 @@ $$\sum_{\tau=t+1}^{T} \alpha_\tau \leq \alpha - \sum_{\tau=0}^{t} \beta_\tau$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] On Temperature Scaling and Conformal Prediction of Deep Classifiers](../../ICML2025/llm_evaluation/on_temperature_scaling_and_conformal_prediction_of_deep_classifiers.md)
@@ -139,5 +141,7 @@ $$\sum_{\tau=t+1}^{T} \alpha_\tau \leq \alpha - \sum_{\tau=0}^{t} \beta_\tau$$
 - [\[ICLR 2026\] Conformal Prediction Adaptive to Unknown Subpopulation Shifts](../../ICLR2026/llm_evaluation/conformal_prediction_adaptive_to_unknown_subpopulation_shifts.md)
 - [\[CVPR 2026\] Semi-Supervised Conformal Prediction With Unlabeled Nonconformity Score](../../CVPR2026/llm_evaluation/semi-supervised_conformal_prediction_with_unlabeled_nonconformity_score.md)
 - [\[NeurIPS 2025\] Asymmetric Duos: Sidekicks Improve Uncertainty](asymmetric_duos_sidekicks_improve_uncertainty.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **38** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/graph_learning/) · [📷 CVPR2026 (9)](../../CVPR2026/graph_learning/) · [🔬 ICLR2026 (21)](../../ICLR2026/graph_learning/) · [🧠 NeurIPS2025 (52)](../../NeurIPS2025/graph_learning/) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/) · [🧪 ICML2025 (31)](../../ICML2025/graph_learning/)
+
+🔥 **高频主题：** 图神经网络 ×7 · 多模态 ×3 · 推理 ×3 · Agent ×2 · 少样本学习 ×2
+
 **[Adaptive Initial Residual Connections for GNNs with Theoretical Guarantees](adaptive_initial_residual_connections_for_gnns_with_theoretical_guarantees.md)**
 
 :   提出自适应初始残差连接（Adaptive IRC），允许每个节点拥有基于初始特征学习的个性化残差强度，首次证明带激活函数的初始残差连接的 Dirichlet 能量有正下界（保证不过平滑），并提出基于 PageRank 的启发式变体在避免学习额外参数的同时达到可比甚至更优性能。

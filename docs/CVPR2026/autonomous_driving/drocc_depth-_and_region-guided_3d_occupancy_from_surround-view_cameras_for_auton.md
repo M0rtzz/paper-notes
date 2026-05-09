@@ -190,6 +190,8 @@ Dr.Occ 在 BEVDet4D 基线上提升 **+7.43% mIoU** 和 **+3.09% IoU**，集成�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] ProOOD: Prototype-Guided Out-of-Distribution 3D Occupancy Prediction](proood_prototype-guided_out-of-distribution_3d_occupancy_prediction.md)
@@ -197,5 +199,7 @@ Dr.Occ 在 BEVDet4D 基线上提升 **+7.43% mIoU** 和 **+3.09% IoU**，集成�
 - [\[CVPR 2026\] OccAny: Generalized Unconstrained Urban 3D Occupancy](occany_generalized_unconstrained_urban_3d_occupancy.md)
 - [\[CVPR 2026\] An Instance-Centric Panoptic Occupancy Prediction Benchmark for Autonomous Driving](an_instance-centric_panoptic_occupancy_prediction_benchmark_for_autonomous_drivi.md)
 - [\[CVPR 2026\] KnowVal: A Knowledge-Augmented and Value-Guided Autonomous Driving System](knowval_a_knowledge-augmented_and_value-guided_autonomous_driving_system.md)
+
+</div>
 
 <!-- RELATED:END -->

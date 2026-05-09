@@ -119,6 +119,8 @@ $$\mathcal{V}^* = \arg\min_{\mathcal{V}} \mathbb{E}[\mathcal{L}_{rec} + \lambda 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Diff-Tracker: Text-to-Image Diffusion Models are Unsupervised Trackers](difftracker_texttoimage_diffusion_models_are_unsupervised_tr.md)
@@ -126,5 +128,7 @@ $$\mathcal{V}^* = \arg\min_{\mathcal{V}} \mathbb{E}[\mathcal{L}_{rec} + \lambda 
 - [\[ECCV 2024\] Be Yourself: Bounded Attention for Multi-Subject Text-to-Image Generation](be_yourself_bounded_attention_for_multisubject_texttoimage_g.md)
 - [\[ECCV 2024\] Source Prompt Disentangled Inversion for Boosting Image Editability with Diffusion Models](source_prompt_disentangled_inversion_for_boosting_image_editability_with_diffusi.md)
 - [\[ECCV 2024\] ShapeFusion: A 3D Diffusion Model for Localized Shape Editing](shapefusion_a_3d_diffusion_model_for_localized_shape_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

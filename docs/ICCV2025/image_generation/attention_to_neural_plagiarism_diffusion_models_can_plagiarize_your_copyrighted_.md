@@ -157,6 +157,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Your Text Encoder Can Be An Object-Level Watermarking Controller](your_text_encoder_can_be_an_object-level_watermarking_controller.md)
@@ -164,5 +166,7 @@ tags:
 - [\[CVPR 2025\] Reanimating Images using Neural Representations of Dynamic Stimuli](../../CVPR2025/image_generation/reanimating_images_using_neural_representations_of_dynamic_stimuli.md)
 - [\[CVPR 2025\] PhysicsGen: Can Generative Models Learn from Images to Predict Complex Physical Relations?](../../CVPR2025/image_generation/physicsgen_can_generative_models_learn_from_images_to_predict_complex_physical_r.md)
 - [\[ICCV 2025\] ReFlex: Text-Guided Editing of Real Images in Rectified Flow via Mid-Step Feature Extraction and Attention Adaptation](reflex_text-guided_editing_of_real_images_in_rectified_flow_via_mid-step_feature.md)
+
+</div>
 
 <!-- RELATED:END -->

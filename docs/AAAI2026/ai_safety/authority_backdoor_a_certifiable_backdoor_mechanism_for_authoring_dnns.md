@@ -140,6 +140,8 @@ $Gain_{att} \approx 0$ 表明自适应攻击完全被中和，攻击者无法从
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Transferable Backdoor Attacks for Code Models via Sharpness-Aware Adversarial Perturbation](transferable_backdoor_attacks_for_code_models_via_sharpness-aware_adversarial_pe.md)
@@ -147,5 +149,7 @@ $Gain_{att} \approx 0$ 表明自适应攻击完全被中和，攻击者无法从
 - [\[ICCV 2025\] Backdoor Mitigation by Distance-Driven Detoxification](../../ICCV2025/ai_safety/backdoor_mitigation_by_distance-driven_detoxification.md)
 - [\[ECCV 2024\] Event Trojan: Asynchronous Event-Based Backdoor Attacks](../../ECCV2024/ai_safety/event_trojan_asynchronous_event-based_backdoor_attacks.md)
 - [\[ICLR 2026\] Beware Untrusted Simulators -- Reward-Free Backdoor Attacks in Reinforcement Learning](../../ICLR2026/ai_safety/beware_untrusted_simulators_--_reward-free_backdoor_attacks_in_reinforcement_lea.md)
+
+</div>
 
 <!-- RELATED:END -->

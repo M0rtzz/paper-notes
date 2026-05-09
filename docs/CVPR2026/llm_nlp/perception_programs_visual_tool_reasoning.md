@@ -124,6 +124,8 @@ P2 不涉及任何训练。它是一个纯推理时的表示转换模块。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Language Models and Logic Programs for Trustworthy Tax Reasoning](../../AAAI2026/llm_nlp/language_models_and_logic_programs_for_trustworthy_tax_reasoning.md)
@@ -131,5 +133,7 @@ P2 不涉及任何训练。它是一个纯推理时的表示转换模块。
 - [\[ECCV 2024\] Self-Adapting Large Visual-Language Models to Edge Devices across Visual Modalities](../../ECCV2024/llm_nlp/self-adapting_large_visual-language_models_to_edge_devices_across_visual_modalit.md)
 - [\[ICLR 2026\] How Far Are LLMs from Professional Poker Players? Revisiting Game-Theoretic Reasoning with Agentic Tool Use](../../ICLR2026/llm_nlp/how_far_are_llms_from_professional_poker_players_revisiting_game-theoretic_reaso.md)
 - [\[ACL 2025\] ToolSpectrum: Towards Personalized Tool Utilization for Large Language Models](../../ACL2025/llm_nlp/toolspectrum_towards_personalized_tool_utilization_for_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

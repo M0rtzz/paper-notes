@@ -123,6 +123,8 @@ CLIP编码语言→DINOv2+Q-Former提取图像特征→拼接[语言, 图像, ti
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] CoA-VLA: Improving Vision-Language-Action Models via Visual-Textual Chain-of-Affordance](coa-vla_improving_vision-language-action_models_via_visual-text_chain-of-afforda.md)
@@ -130,5 +132,7 @@ CLIP编码语言→DINOv2+Q-Former提取图像特征→拼接[语言, 图像, ti
 - [\[ICCV 2025\] MaTVLM: Hybrid Mamba-Transformer for Efficient Vision-Language Modeling](matvlm_hybrid_mamba-transformer_for_efficient_vision-language_modeling.md)
 - [\[ICCV 2025\] TAB: Transformer Attention Bottlenecks enable User Intervention and Debugging in Vision-Language Models](tab_transformer_attention_bottlenecks_enable_user_intervention_and_debugging_in_.md)
 - [\[ICCV 2025\] Chimera: Improving Generalist Model with Domain-Specific Experts](chimera_improving_generalist_model_with_domain-specific_experts.md)
+
+</div>
 
 <!-- RELATED:END -->

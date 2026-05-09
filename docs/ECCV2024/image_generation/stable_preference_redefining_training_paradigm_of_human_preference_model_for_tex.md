@@ -135,6 +135,8 @@ Stable Preference在标准的偏好模型训练框架上进行改进。输入仍
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] OmniSSR: Zero-shot Omnidirectional Image Super-Resolution using Stable Diffusion Model](omnissr_zero-shot_omnidirectional_image_super-resolution_using_stable_diffusion_.md)
@@ -142,5 +144,7 @@ Stable Preference在标准的偏好模型训练框架上进行改进。输入仍
 - [\[ICCV 2025\] HPSv3: Towards Wide-Spectrum Human Preference Score](../../ICCV2025/image_generation/hpsv3_towards_wide-spectrum_human_preference_score.md)
 - [\[ECCV 2024\] Text2Place: Affordance-aware Text Guided Human Placement](text2place_affordance-aware_text_guided_human_placement.md)
 - [\[ICML 2025\] Preference Adaptive and Sequential Text-to-Image Generation](../../ICML2025/image_generation/preference_adaptive_and_sequential_text-to-image_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

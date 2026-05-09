@@ -140,6 +140,8 @@ AMR 遵循标准的 DETR 框架流程：视频特征通过 CLIP + SlowFast 提�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] The Devil is in the Spurious Correlations: Boosting Moment Retrieval with Dynamic Learning](the_devil_is_in_the_spurious_correlations_boosting_moment_retrieval_with_dynamic.md)
@@ -147,5 +149,7 @@ AMR 遵循标准的 DETR 框架流程：视频特征通过 CLIP + SlowFast 提�
 - [\[ICCV 2025\] UPRE: Zero-Shot Domain Adaptation for Object Detection via Unified Prompt and Representation Enhancement](upre_zero-shot_domain_adaptation_for_object_detection_via_unified_prompt_and_rep.md)
 - [\[ECCV 2024\] Spherical Linear Interpolation and Text-Anchoring for Zero-shot Composed Image Retrieval](../../ECCV2024/object_detection/spherical_linear_interpolation_and_text-anchoring_for_zero-shot_composed_image_r.md)
 - [\[ICCV 2025\] Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning](accelerate_3d_object_detection_models_via_zero-shot_attention_key_pruning.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -118,6 +118,8 @@ SABA 是纯提示框架，无需训练。使用 DeepSeek-V3 和 Gemini-1.5-Flash
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Access Denied Inc: The First Benchmark Environment for Sensitivity Awareness](../../ACL2025/llm_evaluation/access_denied_inc_the_first_benchmark_environment_for_sensitivity_awareness.md)
@@ -125,5 +127,7 @@ SABA 是纯提示框架，无需训练。使用 DeepSeek-V3 和 Gemini-1.5-Flash
 - [\[ICLR 2026\] Mitigating Spurious Correlation via Distributionally Robust Learning with Hierarchical Ambiguity Sets](../../ICLR2026/llm_evaluation/mitigating_spurious_correlation_via_distributionally_robust_learning_with_hierar.md)
 - [\[AAAI 2026\] Beyond Accuracy: A Cognitive Load Framework for Mapping the Capability Boundaries of Tool-use Agents](../../AAAI2026/llm_evaluation/beyond_accuracy_a_cognitive_load_framework_for_mapping_the_c.md)
 - [\[NeurIPS 2025\] Risk Management for Mitigating Benchmark Failure Modes: BenchRisk](../../NeurIPS2025/llm_evaluation/risk_management_for_mitigating_benchmark_failure_modes_benchrisk.md)
+
+</div>
 
 <!-- RELATED:END -->

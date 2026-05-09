@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **22** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/segmentation/) · [📷 CVPR2026 (103)](../../CVPR2026/segmentation/) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/) · [🤖 AAAI2026 (31)](../../AAAI2026/segmentation/) · [🧠 NeurIPS2025 (48)](../../NeurIPS2025/segmentation/) · [📹 ICCV2025 (78)](../../ICCV2025/segmentation/)
+
+🔥 **高频主题：** 语义分割 ×7 · 推荐系统 ×2 · 少样本学习 ×2 · 遥感 ×2
+
 **[ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation](actionpiece_contextually_tokenizing_action_sequences_for_generative_recommendati.md)**
 
 :   提出 ActionPiece，首个上下文感知的动作序列分词器，将用户行为序列建模为"特征集合的序列"，通过类 BPE 的合并策略在集合内部和相邻集合之间发现高频特征模式，使同一动作在不同上下文中被分词为不同 token，显著提升生成式推荐性能。

@@ -120,6 +120,8 @@ NeuSA 将经典谱方法与 Neural ODE 结合，先将 PDE 投影到谱基（Fou
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Causal-PIK: Causality-based Physical Reasoning with a Physics-Informed Kernel](../../ICML2025/scientific_computing/causal-pik_causality-based_physical_reasoning_with_a_physics-informed_kernel.md)
@@ -127,5 +129,7 @@ NeuSA 将经典谱方法与 Neural ODE 结合，先将 PDE 投影到谱基（Fou
 - [\[NeurIPS 2025\] Physics-Informed Neural Networks with Fourier Features and Attention-Driven Decoding](physics-informed_neural_networks_with_fourier_features_and_attention-driven_deco.md)
 - [\[ICLR 2026\] Astral: Training Physics-Informed Neural Networks with Error Majorants](../../ICLR2026/scientific_computing/astral_training_physics-informed_neural_networks_with_error_majorants.md)
 - [\[NeurIPS 2025\] Multi-Trajectory Physics-Informed Neural Networks for HJB Equations with Hard-Zero Terminal Inventory: Optimal Execution on Synthetic & SPY Data](multi-trajectory_physics-informed_neural_networks_for_hjb_equations_with_hard-ze.md)
+
+</div>
 
 <!-- RELATED:END -->

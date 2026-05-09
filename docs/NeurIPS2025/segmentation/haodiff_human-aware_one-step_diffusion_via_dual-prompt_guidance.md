@@ -156,6 +156,8 @@ HMB-R（运动模糊残留比）仅0.1167，是OSDHuman的一半，说明HAODiff
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Prompt Guidance and Human Proximal Perception for HOT Prediction with Regional Joint Loss](../../ICCV2025/segmentation/prompt_guidance_and_human_proximal_perception_for_hot_prediction_with_regional_j.md)
@@ -163,5 +165,7 @@ HMB-R（运动模糊残留比）仅0.1167，是OSDHuman的一半，说明HAODiff
 - [\[NeurIPS 2025\] FAST: Foreground-aware Diffusion with Accelerated Sampling Trajectory for Segmentation-oriented Anomaly Synthesis](fast_foreground-aware_diffusion_with_accelerated_sampling_trajectory_for_segment.md)
 - [\[NeurIPS 2025\] STEP: A Unified Spiking Transformer Evaluation Platform for Fair and Reproducible Benchmarking](step_a_unified_spiking_transformer_evaluation_platform_for_fair_and_reproducible.md)
 - [\[CVPR 2025\] DPSeg: Dual-Prompt Cost Volume Learning for Open-Vocabulary Semantic Segmentation](../../CVPR2025/segmentation/dpseg_dual-prompt_cost_volume_learning_for_open-vocabulary_semantic_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

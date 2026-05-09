@@ -114,6 +114,8 @@ Sapiens 采用 pretrain-then-finetune 范式：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] VGGT-DP: Generalizable Robot Control via Vision Foundation Models](../../AAAI2026/3d_vision/vggt-dp_generalizable_robot_control_via_vision_foundation_models.md)
@@ -121,5 +123,7 @@ Sapiens 采用 pretrain-then-finetune 范式：
 - [\[CVPR 2026\] AVA-Bench: Atomic Visual Ability Benchmark for Vision Foundation Models](../../CVPR2026/3d_vision/ava_bench_atomic_visual_ability_vfm.md)
 - [\[ECCV 2024\] When Do We Not Need Larger Vision Models?](when_do_we_not_need_larger_vision_models.md)
 - [\[ECCV 2024\] Transferable 3D Adversarial Shape Completion using Diffusion Models](transferable_3d_adversarial_shape_completion_using_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

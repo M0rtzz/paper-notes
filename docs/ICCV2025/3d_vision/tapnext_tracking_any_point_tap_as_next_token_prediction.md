@@ -139,6 +139,8 @@ TAP-Vid Query First 基准测试（Average Jaccard，越高越好）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Multi-View 3D Point Tracking](multi-view_3d_point_tracking.md)
@@ -146,5 +148,7 @@ TAP-Vid Query First 基准测试（Average Jaccard，越高越好）：
 - [\[NeurIPS 2025\] TAPIP3D: Tracking Any Point in Persistent 3D Geometry](../../NeurIPS2025/3d_vision/tapip3d_tracking_any_point_in_persistent_3d_geometry.md)
 - [\[ICCV 2025\] TAR3D: Creating High-Quality 3D Assets via Next-Part Prediction](tar3d_creating_high-quality_3d_assets_via_next-part_prediction.md)
 - [\[ICCV 2025\] AllTracker: Efficient Dense Point Tracking at High Resolution](alltracker_efficient_dense_point_tracking_at_high_resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

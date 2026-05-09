@@ -128,6 +128,8 @@ Index Concat方法在总体上表现最佳，而Recurrent在高层数(Layer 5, 7
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Bootstrap3D: Improving Multi-view Diffusion Model with Synthetic Data](bootstrap3d_improving_multi-view_diffusion_model_with_synthetic_data.md)
@@ -135,5 +137,7 @@ Index Concat方法在总体上表现最佳，而Recurrent在高层数(Layer 5, 7
 - [\[CVPR 2025\] Seeing A 3D World in A Grain of Sand](../../CVPR2025/3d_vision/seeing_a_3d_world_in_a_grain_of_sand.md)
 - [\[ICCV 2025\] Amodal Depth Anything: Amodal Depth Estimation in the Wild](amodal_depth_anything_amodal_depth_estimation_in_the_wild.md)
 - [\[ICCV 2025\] FlashDepth: Real-time Streaming Video Depth Estimation at 2K Resolution](flashdepth_real-time_streaming_video_depth_estimation_at_2k_resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

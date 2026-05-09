@@ -157,6 +157,8 @@ $$[\psi(x, w)]_+^{2\theta} \leq \mu \|\nabla_x \psi(x, w) [\psi(x, w)]_+\|, \qua
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Learning (Approximately) Equivariant Networks via Constrained Optimization](learning_approximately_equivariant_networks_via_constrained_optimization.md)
@@ -164,5 +166,7 @@ $$[\psi(x, w)]_+^{2\theta} \leq \mu \|\nabla_x \psi(x, w) [\psi(x, w)]_+\|, \qua
 - [\[NeurIPS 2025\] FSNet: Feasibility-Seeking Neural Network for Constrained Optimization with Guarantees](fsnet_feasibility-seeking_neural_network_for_constrained_optimization_with_guara.md)
 - [\[ICML 2025\] Continuous-Time Analysis of Heavy Ball Momentum in Min-Max Games](../../ICML2025/others/continuous-time_analysis_of_heavy_ball_momentum_in_min-max_games.md)
 - [\[NeurIPS 2025\] Semi-supervised Graph Anomaly Detection via Robust Homophily Learning](semi-supervised_graph_anomaly_detection_via_robust_homophily_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

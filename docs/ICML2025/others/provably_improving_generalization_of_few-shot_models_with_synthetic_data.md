@@ -143,6 +143,8 @@ $$\mathcal{L} = \lambda F(\boldsymbol{S}, h) + F(\boldsymbol{G}, h) + \lambda_1 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Generating Synthetic Relational Tabular Data via Structural Causal Models](../../ACL2025/others/generating_synthetic_relational_tabular_data_via_structural_causal_models.md)
@@ -150,5 +152,7 @@ $$\mathcal{L} = \lambda F(\boldsymbol{S}, h) + F(\boldsymbol{G}, h) + \lambda_1 
 - [\[ACL 2025\] Theorem Prover as a Judge for Synthetic Data Generation](../../ACL2025/others/theorem_prover_as_a_judge_for_synthetic_data_generation.md)
 - [\[ACL 2025\] TARGA: Targeted Synthetic Data Generation for Practical Reasoning over Structured Data](../../ACL2025/others/targa_targeted_synthetic_data_generation_for_practical_reasoning_over_structured.md)
 - [\[NeurIPS 2025\] Improving Forecasts of Suicide Attempts for Patients with Little Data](../../NeurIPS2025/others/improving_forecasts_of_suicide_attempts_for_patients_with_little_data.md)
+
+</div>
 
 <!-- RELATED:END -->

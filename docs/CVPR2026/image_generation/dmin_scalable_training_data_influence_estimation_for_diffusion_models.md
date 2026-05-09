@@ -153,6 +153,8 @@ DMin 本身不训练模型，而是对已训练好的扩散模型进行后分析
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Diffusion Reconstruction-Based Data Likelihood Estimation for Core-Set Selection](../../AAAI2026/image_generation/diffusion_reconstruction-based_data_likelihood_estimation_for_core-set_selection.md)
@@ -160,5 +162,7 @@ DMin 本身不训练模型，而是对已训练好的扩散模型进行后分析
 - [\[CVPR 2025\] Erasing Undesirable Influence in Diffusion Models (EraseDiff)](../../CVPR2025/image_generation/erasing_undesirable_influence_in_diffusion_models.md)
 - [\[CVPR 2026\] HAM: A Training-Free Style Transfer Approach via Heterogeneous Attention Modulation for Diffusion Models](ham_a_training-free_style_transfer_approach_via_heterogeneous_attention_modulati.md)
 - [\[AAAI 2026\] Difficulty Controlled Diffusion Model for Synthesizing Effective Training Data](../../AAAI2026/image_generation/difficulty_controlled_diffusion_model_for_synthesizing_effec.md)
+
+</div>
 
 <!-- RELATED:END -->

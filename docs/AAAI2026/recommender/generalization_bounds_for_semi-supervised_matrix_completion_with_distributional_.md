@@ -122,6 +122,8 @@ DAMC（Distributionally Aware Matrix Completion）算法分两步：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Semi-Supervised Synthetic Data Generation with Fine-Grained Relevance Control for Short Video Search Relevance Modeling](semi-supervised_synthetic_data_generation_with_fine-grained_relevance_control_fo.md)
@@ -129,5 +131,7 @@ DAMC（Distributionally Aware Matrix Completion）算法分两步：
 - [\[NeurIPS 2025\] PAC-Bayes Bounds for Multivariate Linear Regression and Linear Autoencoders](../../NeurIPS2025/recommender/pac-bayes_bounds_for_multivariate_linear_regression_and_linear_autoencoders.md)
 - [\[ACL 2026\] Content Fuzzing for Escaping Information Cocoons on Social Media](../../ACL2026/recommender/content_fuzzing_for_escaping_information_cocoons_on_digital_social_media.md)
 - [\[ICLR 2026\] CollectiveKV: Decoupling and Sharing Collaborative Information in Sequential Recommendation](../../ICLR2026/recommender/collectivekv_decoupling_and_sharing_collaborative_information_in_sequential_reco.md)
+
+</div>
 
 <!-- RELATED:END -->

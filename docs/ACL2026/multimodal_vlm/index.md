@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **50** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (288)](../../CVPR2026/multimodal_vlm/) · [🔬 ICLR2026 (93)](../../ICLR2026/multimodal_vlm/) · [🤖 AAAI2026 (92)](../../AAAI2026/multimodal_vlm/) · [🧠 NeurIPS2025 (155)](../../NeurIPS2025/multimodal_vlm/) · [📹 ICCV2025 (159)](../../ICCV2025/multimodal_vlm/) · [🧪 ICML2025 (53)](../../ICML2025/multimodal_vlm/)
+
+🔥 **高频主题：** 多模态 ×34 · 推理 ×11 · LLM ×11 · 对抗鲁棒 ×4 · Agent ×3
+
 **[A Survey on MLLM-based Visually Rich Document Understanding: Methods, Challenges, and Emerging Trends](a_survey_on_mllm-based_visually_rich_document_understanding_methods_challenges_a.md)**
 
 :   系统综述基于多模态大语言模型（MLLM）的视觉丰富文档理解（VRDU），从特征表示/融合和训练范式两个维度梳理OCR-based和OCR-free方法，并讨论数据稀缺、多页文档、多语言支持、RAG和智能体等新兴方向。

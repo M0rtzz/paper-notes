@@ -135,6 +135,8 @@ NeRF 蒸馏可在不重训练的情况下实现高达 **26%** 推理加速。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] A Unified Image-Dense Annotation Generation Model for Underwater Scenes](../../CVPR2025/3d_vision/a_unified_image-dense_annotation_generation_model_for_underwater_scenes.md)
@@ -142,5 +144,7 @@ NeRF 蒸馏可在不重训练的情况下实现高达 **26%** 推理加速。
 - [\[ICCV 2025\] AllTracker: Efficient Dense Point Tracking at High Resolution](../../ICCV2025/3d_vision/alltracker_efficient_dense_point_tracking_at_high_resolution.md)
 - [\[CVPR 2025\] Generative Omnimatte: Learning to Decompose Video into Layers](../../CVPR2025/3d_vision/generative_omnimatte_learning_to_decompose_video_into_layers.md)
 - [\[NeurIPS 2025\] Locality-Sensitive Hashing-Based Efficient Point Transformer for Charged Particle Reconstruction](locality-sensitive_hashing-based_efficient_point_transformer_for_charged_particl.md)
+
+</div>
 
 <!-- RELATED:END -->

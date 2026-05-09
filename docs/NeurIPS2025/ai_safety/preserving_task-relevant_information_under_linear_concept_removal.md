@@ -131,6 +131,8 @@ SPLINCE是一种线性代数方法，计算一个投影矩阵 $\mathbf{P}^*_{SPL
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Causally Reliable Concept Bottleneck Models](causally_reliable_concept_bottleneck_models.md)
@@ -138,5 +140,7 @@ SPLINCE是一种线性代数方法，计算一个投影矩阵 $\mathbf{P}^*_{SPL
 - [\[NeurIPS 2025\] Nearly-Linear Time Private Hypothesis Selection with the Optimal Approximation Factor](nearly-linear_time_private_hypothesis_selection_with_the_optimal_approximation_f.md)
 - [\[NeurIPS 2025\] Fairness under Competition](fairness_under_competition.md)
 - [\[NeurIPS 2025\] Stealthy Yet Effective: Distribution-Preserving Backdoor Attacks on Graph Classification](stealthy_yet_effective_distribution-preserving_backdoor_attacks_on_graph_classif.md)
+
+</div>
 
 <!-- RELATED:END -->

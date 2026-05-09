@@ -131,6 +131,8 @@ GenEval 文生图基准（$1024 \times 1024$）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Matrix3D: Large Photogrammetry Model All-in-One](matrix3d_large_photogrammetry_model_all-in-one.md)
@@ -138,5 +140,7 @@ GenEval 文生图基准（$1024 \times 1024$）：
 - [\[NeurIPS 2025\] SceneWeaver: All-in-One 3D Scene Synthesis with an Extensible and Self-Reflective Agent](../../NeurIPS2025/3d_vision/sceneweaver_all-in-one_3d_scene_synthesis_with_an_extensible_and_self-reflective.md)
 - [\[CVPR 2025\] HandOS: 3D Hand Reconstruction in One Stage](handos_3d_hand_reconstruction_in_one_stage.md)
 - [\[CVPR 2025\] Odd-One-Out: Anomaly Detection by Comparing with Neighbors](odd-one-out_anomaly_detection_by_comparing_with_neighbors.md)
+
+</div>
 
 <!-- RELATED:END -->

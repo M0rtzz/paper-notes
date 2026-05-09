@@ -103,6 +103,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Representation Bending for Large Language Model Safety](repbend_representation_bending_safety.md)
@@ -110,5 +112,7 @@ tags:
 - [\[ACL 2025\] Unintended Harms of Value-Aligned LLMs: Psychological and Empirical Insights](unintended_harms_of_value-aligned_llms_psychological_and_empirical_insights.md)
 - [\[ICML 2025\] Emergent Symbolic Mechanisms Support Abstract Reasoning in Large Language Models](../../ICML2025/llm_nlp/emergent_symbolic_mechanisms_support_abstract_reasoning_in_large_language_models.md)
 - [\[ACL 2025\] Why Not Act on What You Know? Unleashing Safety Potential of LLMs via Self-Aware Guard Enhancement](why_not_act_on_what_you_know_unleashing_safety_potential_of_llms_via_self-aware_.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -168,6 +168,8 @@ mesh 重建和缩放模块对最终性能影响最大。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] PIMRL: Physics-Informed Multi-Scale Recurrent Learning for Burst-Sampled Spatiotemporal Dynamics](pimrl_physics-informed_multi-scale_recurrent_learning_for_burst-sampled_spatiote.md)
@@ -175,5 +177,7 @@ mesh 重建和缩放模块对最终性能影响最大。
 - [\[ICML 2025\] Differentiable Stellar Atmospheres with Physics-Informed Neural Networks](../../ICML2025/scientific_computing/differentiable_stellar_atmospheres_with_physics-informed_neural_networks.md)
 - [\[NeurIPS 2025\] Neuro-Spectral Architectures for Causal Physics-Informed Networks](../../NeurIPS2025/scientific_computing/neuro-spectral_architectures_for_causal_physics-informed_networks.md)
 - [\[ICML 2025\] Causal-PIK: Causality-based Physical Reasoning with a Physics-Informed Kernel](../../ICML2025/scientific_computing/causal-pik_causality-based_physical_reasoning_with_a_physics-informed_kernel.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -118,6 +118,8 @@ $$\frac{1}{2}L\lambda \|X\|_{S_{2/L}}^{2/L} = \min \{\text{正则化项}\}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] CoLA: Collaborative Low-Rank Adaptation](../../ACL2025/others/cola_collaborative_low-rank_adaptation.md)
@@ -125,5 +127,7 @@ $$\frac{1}{2}L\lambda \|X\|_{S_{2/L}}^{2/L} = \min \{\text{正则化项}\}$$
 - [\[CVPR 2025\] Detecting Out-of-Distribution through the Lens of Neural Collapse](../../CVPR2025/others/detecting_out-of-distribution_through_the_lens_of_neural_collapse.md)
 - [\[ICLR 2026\] Consistent Low-Rank Approximation](../../ICLR2026/others/consistent_low-rank_approximation.md)
 - [\[NeurIPS 2025\] Neural Collapse in Cumulative Link Models for Ordinal Regression: An Analysis with Unconstrained Feature Model](neural_collapse_in_cumulative_link_models_for_ordinal_regression_an_analysis_wit.md)
+
+</div>
 
 <!-- RELATED:END -->

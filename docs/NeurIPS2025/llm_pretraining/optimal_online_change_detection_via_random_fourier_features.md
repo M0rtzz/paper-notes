@@ -146,6 +146,8 @@ $$\inf_{N: \mathbb{P}_\infty(N<\infty)\leq\alpha} \sup_{\eta, \mathbb{P}, \mathb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] A Law of Data Reconstruction for Random Features (and Beyond)](../../ICLR2026/llm_pretraining/a_law_of_data_reconstruction_for_random_features_and_beyond.md)
@@ -153,5 +155,7 @@ $$\inf_{N: \mathbb{P}_\infty(N<\infty)\leq\alpha} \sup_{\eta, \mathbb{P}, \mathb
 - [\[NeurIPS 2025\] Mouse-Guided Gaze: Semi-Supervised Learning of Intention-Aware Representations for Reading Detection](mouse-guided_gaze_semi-supervised_learning_of_intention-aware_representations_fo.md)
 - [\[CVPR 2025\] Anomize: Better Open Vocabulary Video Anomaly Detection](../../CVPR2025/llm_pretraining/anomize_better_open_vocabulary_video_anomaly_detection.md)
 - [\[NeurIPS 2025\] Breaking the Frozen Subspace: Importance Sampling for Low-Rank Optimization in LLM Pretraining](breaking_the_frozen_subspace_importance_sampling_for_low-rank_optimization_in_ll.md)
+
+</div>
 
 <!-- RELATED:END -->

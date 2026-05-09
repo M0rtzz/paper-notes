@@ -126,6 +126,8 @@ IMPACT 的流程分为三个阶段：(1) 无条件预训练——在大量未标
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] BRIDGE: Bootstrapping Text to Control Time-Series Generation via Multi-Agent Iterative Optimization and Diffusion Modeling](bridge_bootstrapping_text_to_control_time-series_generation_via_multi-agent_iter.md)
@@ -133,5 +135,7 @@ IMPACT 的流程分为三个阶段：(1) 无条件预训练——在大量未标
 - [\[ICML 2025\] Generative Audio Language Modeling with Continuous-Valued Tokens and Masked Next-Token Prediction](generative_audio_language_modeling_with_continuous-valued_tokens_and_masked_next.md)
 - [\[ICML 2025\] Progressive Tempering Sampler with Diffusion](progressive_tempering_sampler_with_diffusion.md)
 - [\[ICML 2025\] Towards a Mechanistic Explanation of Diffusion Model Generalization](towards_a_mechanistic_explanation_of_diffusion_model_generalization.md)
+
+</div>
 
 <!-- RELATED:END -->

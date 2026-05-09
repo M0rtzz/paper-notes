@@ -122,6 +122,8 @@ ASL 任务（EasyCom）：EgoAdapt 达到 89.74% mAP，仅 0.070 GMACs 和 0.39M
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Stabilizing Policy Gradients for Sample-Efficient Reinforcement Learning in LLM Reasoning](../../ICLR2026/video_understanding/stabilizing_policy_gradients_for_sample-efficient_reinforcement_learning_in_llm_.md)
@@ -129,5 +131,7 @@ ASL 任务（EasyCom）：EgoAdapt 达到 89.74% mAP，仅 0.070 GMACs 和 0.39M
 - [\[ICCV 2025\] General Compression Framework for Efficient Transformer Object Tracking](general_compression_framework_for_efficient_transformer_object_tracking.md)
 - [\[ICCV 2025\] MobileViCLIP: An Efficient Video-Text Model for Mobile Devices](mobileviclip_an_efficient_video-text_model_for_mobile_devices.md)
 - [\[ICCV 2025\] Fine-grained Spatiotemporal Grounding on Egocentric Videos](fine-grained_spatiotemporal_grounding_on_egocentric_videos.md)
+
+</div>
 
 <!-- RELATED:END -->

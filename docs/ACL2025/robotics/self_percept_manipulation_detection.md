@@ -137,6 +137,8 @@ SELF-PERCEPT 是一个两阶段 prompting 框架，模拟人类"行为观察→�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] ASAP: Advancing Semantic Alignment for Multi-Modal Manipulation Detection](../../CVPR2025/robotics/asap_advancing_semantic_alignment_promotes_multi-modal_manipulation_detecting_an.md)
@@ -144,5 +146,7 @@ SELF-PERCEPT 是一个两阶段 prompting 框架，模拟人类"行为观察→�
 - [\[ACL 2025\] Vulnerability of LLMs to Vertically Aligned Text Manipulations](vulnerability_of_llms_to_vertically_aligned_text_manipulations.md)
 - [\[NeurIPS 2025\] Zero-Shot Embedding Drift Detection: A Lightweight Defense Against Prompt Injections in LLMs](../../NeurIPS2025/robotics/zero-shot_embedding_drift_detection_a_lightweight_defense_against_prompt_injecti.md)
 - [\[ACL 2025\] Rolling the DICE on Idiomaticity: How LLMs Fail to Grasp Context](dice_idiomaticity.md)
+
+</div>
 
 <!-- RELATED:END -->

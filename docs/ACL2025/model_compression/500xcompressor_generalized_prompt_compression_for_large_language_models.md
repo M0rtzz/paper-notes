@@ -180,6 +180,8 @@ $$\mathcal{L}_F = -\sum_{j=1}^{n} \log P(a_j | H_C, q_{1:m}, a_{1:j-1}; \Theta_{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Wanda++: Pruning Large Language Models via Regional Gradients](wanda_pruning_large_language_models_via_regional_gradients.md)
@@ -187,5 +189,7 @@ $$\mathcal{L}_F = -\sum_{j=1}^{n} \log P(a_j | H_C, q_{1:m}, a_{1:j-1}; \Theta_{
 - [\[ACL 2025\] DAC: A Dynamic Attention-aware Approach for Task-Agnostic Prompt Compression](dac_prompt_compression.md)
 - [\[ACL 2025\] Unveiling Language-Specific Features in Large Language Models via Sparse Autoencoders](language_specific_features.md)
 - [\[ACL 2025\] BlockPruner: Fine-grained Pruning for Large Language Models](blockpruner_fine-grained_pruning_for_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -152,6 +152,8 @@ $$\min_{\omega_{f_d}, \omega_r} \beta \sum_{d=1}^{N} \mathbb{E}_{(q,a)\sim\mathc
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Reference-Guided Machine Unlearning](../../ICLR2026/model_compression/reference-guided_machine_unlearning.md)
@@ -159,5 +161,7 @@ $$\min_{\omega_{f_d}, \omega_r} \beta \sum_{d=1}^{N} \mathbb{E}_{(q,a)\sim\mathc
 - [\[AAAI 2026\] Towards Test-time Efficient Visual Place Recognition via Asymmetric Query Processing](towards_test-time_efficient_visual_place_recognition_via_asymmetric_query_proces.md)
 - [\[ICCV 2025\] Context Guided Transformer Entropy Modeling for Video Compression](../../ICCV2025/model_compression/context_guided_transformer_entropy_modeling_for_video_compression.md)
 - [\[AAAI 2026\] Renormalization Group Guided Tensor Network Structure Search](renormalization_group_guided_tensor_network_structure_search.md)
+
+</div>
 
 <!-- RELATED:END -->

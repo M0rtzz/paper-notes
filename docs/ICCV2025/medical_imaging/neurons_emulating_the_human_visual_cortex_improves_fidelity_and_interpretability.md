@@ -183,6 +183,8 @@ $$\mathcal{L}_{total} = w_1 \mathcal{L}_{seg} + w_2 \mathcal{L}_{cls} + w_3 \mat
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Beyond Brain Decoding: Visual-Semantic Reconstructions to Mental Creation Extension Based on fMRI](beyond_brain_decoding_visualsemantic_reconstructions_to_ment.md)
@@ -190,5 +192,7 @@ $$\mathcal{L}_{total} = w_1 \mathcal{L}_{seg} + w_2 \mathcal{L}_{cls} + w_3 \mat
 - [\[ICCV 2025\] PVChat: Personalized Video Chat with One-Shot Learning](pvchat_personalized_video_chat_with_one-shot_learning.md)
 - [\[ICCV 2025\] SciVid: Cross-Domain Evaluation of Video Models in Scientific Applications](scivid_cross-domain_evaluation_of_video_models_in_scientific_applications.md)
 - [\[ICCV 2025\] CryoFastAR: Fast Cryo-EM Ab initio Reconstruction Made Easy](cryofastar_fast_cryoem_ab_initio_reconstruction_made_easy.md)
+
+</div>
 
 <!-- RELATED:END -->

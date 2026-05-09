@@ -124,6 +124,8 @@ QME 包含三个阶段的 pipeline：(1) 各模态预训练骨干网络提取特
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Controlling Multimodal LLMs via Reward-guided Decoding](controlling_multimodal_llms_via_rewardguided_decoding.md)
@@ -131,5 +133,7 @@ QME 包含三个阶段的 pipeline：(1) 各模态预训练骨干网络提取特
 - [\[ICCV 2025\] PhysSplat: Efficient Physics Simulation for 3D Scenes via MLLM-Guided Gaussian Splatting](physsplat_efficient_physics_simulation_for_3d_scenes_via_mllm-guided_gaussian_sp.md)
 - [\[ICCV 2025\] GTR: Guided Thought Reinforcement Prevents Thought Collapse in RL-Based VLM Agent](gtr_guided_thought_reinforcement_prevents_thought_collapse_in_rl-based_vlm_agent.md)
 - [\[ICCV 2025\] Dynamic-VLM: Simple Dynamic Visual Token Compression for VideoLLM](dynamic-vlm_simple_dynamic_visual_token_compression_for_videollm.md)
+
+</div>
 
 <!-- RELATED:END -->

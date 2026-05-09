@@ -138,6 +138,8 @@ CoE 在所有 5 个数据集上均取得最优，且标准差最低（如 ACM ±
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Small Language Models as Compiler Experts: Auto-Parallelization for Heterogeneous Systems](../../NeurIPS2025/llm_evaluation/small_language_models_as_compiler_experts_auto-parallelization_for_heterogeneous.md)
@@ -145,5 +147,7 @@ CoE 在所有 5 个数据集上均取得最优，且标准差最低（如 ACM ±
 - [\[NeurIPS 2025\] Heterogeneous Adversarial Play in Interactive Environments](../../NeurIPS2025/llm_evaluation/heterogeneous_adversarial_play_in_interactive_environments.md)
 - [\[ICML 2025\] Addressing Imbalanced Domain-Incremental Learning through Dual-Balance Collaborative Experts (DCE)](addressing_imbalanced_domain-incremental_learning_through_dual-balance_collabora.md)
 - [\[ICML 2025\] Fleet of Agents: Coordinated Problem Solving with Large Language Models](fleet_of_agents_coordinated_problem_solving_with_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

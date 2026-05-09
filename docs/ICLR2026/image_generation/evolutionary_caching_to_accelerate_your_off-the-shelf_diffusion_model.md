@@ -202,12 +202,16 @@ ECAD 的 "fastest" 在 2.58x 加速下 COCO FID 仅 19.54，比 ToCa 的 2.35x �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Image Can Bring Your Memory Back: A Novel Multi-Modal Guided Attack against Image Generation Model Unlearning](image_can_bring_your_memory_back_a_novel_multi-modal_guided_attack_against_image.md)
 - [\[ICLR 2026\] Compose Your Policies! Improving Diffusion-based or Flow-based Robot Policies via Test-time Distribution-level Composition](compose_your_policies_improving_diffusion-based_or_flow-based_robot_policies_via.md)
 - [\[ECCV 2024\] ByteEdit: Boost, Comply and Accelerate Generative Image Editing](../../ECCV2024/image_generation/byteedit_boost_comply_and_accelerate_generative_image_editing.md)
+- [\[ICLR 2026\] Follow-Your-Shape: Shape-Aware Image Editing via Trajectory-Guided Region Control](follow-your-shape_shape-aware_image_editing_via_trajectory-guided_region_control.md)
 - [\[AAAI 2026\] ProCache: Constraint-Aware Feature Caching with Selective Computation for Diffusion Transformer Acceleration](../../AAAI2026/image_generation/procache_constraint-aware_feature_caching_with_selective_computation_for_diffusi.md)
-- [\[CVPR 2026\] RAISE: Requirement-Adaptive Evolutionary Refinement for Training-Free Text-to-Image Alignment](../../CVPR2026/image_generation/raise_requirement-adaptive_evolutionary_refinement_for_training-free_text-to-ima.md)
+
+</div>
 
 <!-- RELATED:END -->

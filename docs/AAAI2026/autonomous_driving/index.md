@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **58** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (105)](../../CVPR2026/autonomous_driving/) · [🔬 ICLR2026 (18)](../../ICLR2026/autonomous_driving/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/autonomous_driving/) · [📹 ICCV2025 (98)](../../ICCV2025/autonomous_driving/) · [🧪 ICML2025 (11)](../../ICML2025/autonomous_driving/) · [💬 ACL2025 (1)](../../ACL2025/autonomous_driving/)
+
+🔥 **高频主题：** 自动驾驶 ×8 · 3D 目标检测 ×6 · 对抗鲁棒 ×5 · 扩散模型 ×5 · Agent ×4
+
 **[A Data-Driven Model Predictive Control Framework for Multi-Aircraft TMA Routing Under Travel Time Uncertainty](a_data-driven_model_predictive_control_framework_for_multi-aircraft_tma_routing_.md)**
 
 :   提出闭环 MPC 框架用于樟宜机场 50 海里半径终端区（TMA）的多飞机无冲突路径规划与调度，集成 XGBoost 预测 TMA 边界到达时间、MILP 优化（含路径选择/速度调整/等待控制/安全间隔约束）和滚动时域仿真器，在峰值 36 架/小时拥堵场景下实现 7 倍计算加速且 Monte Carlo 鲁棒性验证中可行性远优于 Dijkstra 基线。

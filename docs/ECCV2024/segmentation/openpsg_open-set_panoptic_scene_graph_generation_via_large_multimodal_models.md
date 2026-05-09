@@ -136,6 +136,8 @@ OpenPSG 包含三个组件：(1) Object Segmenter：使用预训练的 OpenSeeD 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] VISA: Reasoning Video Object Segmentation via Large Language Models](visa_reasoning_video_object_segmentation_via_large_language_models.md)
@@ -143,5 +145,7 @@ OpenPSG 包含三个组件：(1) Object Segmenter：使用预训练的 OpenSeeD 
 - [\[ECCV 2024\] Diffusion Models for Open-Vocabulary Segmentation](diffusion_models_for_open-vocabulary_segmentation.md)
 - [\[ECCV 2024\] A Simple Latent Diffusion Approach for Panoptic Segmentation and Mask Inpainting](a_simple_latent_diffusion_approach_for_panoptic_segmentation_and_mask_inpainting.md)
 - [\[ECCV 2024\] SegGen: Supercharging Segmentation Models with Text2Mask and Mask2Img Synthesis](seggen_supercharging_segmentation_models_with_text2mask_and_mask2img_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

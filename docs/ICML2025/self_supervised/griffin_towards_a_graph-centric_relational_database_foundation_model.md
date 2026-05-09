@@ -193,6 +193,8 @@ Griffin-unpretrained 仅凭架构改进已超越所有基线的平均排名；�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] What Has a Foundation Model Found? Using Inductive Bias to Probe for World Models](what_has_a_foundation_model_found_using_inductive_bias_to_probe_for_world_models.md)
@@ -200,5 +202,7 @@ Griffin-unpretrained 仅凭架构改进已超越所有基线的平均排名；�
 - [\[ICML 2025\] A Bayesian Model Selection Criterion for Selecting Pretraining Checkpoints](a_bayesian_model_selection_criterion_for_selecting_pretraining_checkpoints.md)
 - [\[ECCV 2024\] InfMAE: A Foundation Model in the Infrared Modality](../../ECCV2024/self_supervised/infmae_a_foundation_model_in_the_infrared_modality.md)
 - [\[CVPR 2026\] MOMO: Mars Orbital Model — Foundation Model for Mars Orbital Applications](../../CVPR2026/self_supervised/momo_mars_orbital_model_foundation_model_for_mars_orbital_applications.md)
+
+</div>
 
 <!-- RELATED:END -->

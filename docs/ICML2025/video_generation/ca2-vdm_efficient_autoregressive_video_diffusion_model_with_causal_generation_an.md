@@ -187,6 +187,8 @@ $$\widetilde{\mathcal{L}}_{\text{simple}}(\theta) = \mathbb{E}_{\mathbf{z}, \bol
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model](../../CVPR2025/video_generation/timestep_embedding_tells_its_time_to_cache_for_video_diffusion_model.md)
@@ -194,5 +196,7 @@ $$\widetilde{\mathcal{L}}_{\text{simple}}(\theta) = \mathbb{E}_{\mathbf{z}, \bol
 - [\[AAAI 2026\] FilmWeaver: Weaving Consistent Multi-Shot Videos with Cache-Guided Autoregressive Diffusion](../../AAAI2026/video_generation/filmweaver_weaving_consistent_multi-shot_videos_with_cache-guided_autoregressive.md)
 - [\[ICCV 2025\] Dual-Expert Consistency Model for Efficient and High-Quality Video Generation](../../ICCV2025/video_generation/dual-expert_consistency_model_for_efficient_and_high-quality_video_generation.md)
 - [\[CVPR 2025\] Parallelized Autoregressive Visual Generation](../../CVPR2025/video_generation/parallelized_autoregressive_visual_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

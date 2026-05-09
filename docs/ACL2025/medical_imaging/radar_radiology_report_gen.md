@@ -117,6 +117,8 @@ Radar 在 B-4、ROUGE-L、14-class Macro-F1 和 5-class Micro-F1 上均取得最
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Automated Structured Radiology Report Generation](automated_structured_radiology_report_generation.md)
@@ -124,5 +126,7 @@ Radar 在 B-4、ROUGE-L、14-class Macro-F1 和 5-class Micro-F1 上均取得最
 - [\[ACL 2025\] Enhancing Medical Dialogue Generation through Knowledge Refinement and Dynamic Prompt Adjustment](enhancing_medical_dialogue_generation_through_knowledge_refinement_and_dynamic_p.md)
 - [\[ACL 2025\] CSTRL: Context-Driven Sequential Transfer Learning for Abstractive Radiology Report Summarization](cstrl_context-driven_sequential_transfer_learning_for_abstractive_radiology_repo.md)
 - [\[CVPR 2026\] OraPO: Oracle-educated Reinforcement Learning for Data-efficient and Factual Radiology Report Generation](../../CVPR2026/medical_imaging/orapo_oracle_rl_radiology_report_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

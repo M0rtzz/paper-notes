@@ -166,6 +166,8 @@ DC4GS 使用仅约 70% 的原语数量，在所有渲染质量指标上均优于
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Steepest Descent Density Control for Compact 3D Gaussian Splatting](../../CVPR2025/3d_vision/steepest_descent_density_control_for_compact_3d_gaussian_splatting.md)
@@ -173,5 +175,7 @@ DC4GS 使用仅约 70% 的原语数量，在所有渲染质量指标上均优于
 - [\[ECCV 2024\] Pixel-GS: Density Control with Pixel-aware Gradient for 3D Gaussian Splatting](../../ECCV2024/3d_vision/pixel-gs_density_control_with_pixel-aware_gradient_for_3d_gaussian_splatting.md)
 - [\[NeurIPS 2025\] EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting](ef-3dgs_event-aided_free-trajectory_3d_gaussian_splatting.md)
 - [\[CVPR 2025\] Ref-GS: Directional Factorization for 2D Gaussian Splatting](../../CVPR2025/3d_vision/ref-gs_directional_factorization_for_2d_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

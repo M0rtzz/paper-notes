@@ -162,6 +162,8 @@ $$\max_{\{\mathbf{W}_{l,k}\}} \sum_{k=1}^{K} \bar{R}_k, \quad \text{s.t. } \sum_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Are Pretrained Image Matchers Good Enough for SAR-Optical Satellite Registration?](pretrained_image_matchers_for_sar_optical_satellite_registration.md)
@@ -169,5 +171,7 @@ $$\max_{\{\mathbf{W}_{l,k}\}} \sum_{k=1}^{K} \bar{R}_k, \quad \text{s.t. } \sum_
 - [\[CVPR 2026\] RHO: Robust Holistic OSM-Based Metric Cross-View Geo-Localization](rho_robust_holistic_osm-based_metric_cross-view_geo-localization.md)
 - [\[CVPR 2026\] GeoFlow: Real-Time Fine-Grained Cross-View Geolocalization via Iterative Flow Prediction](geoflow_real-time_fine-grained_cross-view_geolocalization.md)
 - [\[CVPR 2026\] Lumosaic: Hyperspectral Video via Active Illumination and Coded-Exposure Pixels](lumosaic_hyperspectral_video_via_active_illumination_and_coded-exposure_pixels.md)
+
+</div>
 
 <!-- RELATED:END -->

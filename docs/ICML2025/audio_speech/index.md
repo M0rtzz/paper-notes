@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **7** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (29)](../../ACL2026/audio_speech/) · [📷 CVPR2026 (17)](../../CVPR2026/audio_speech/) · [🔬 ICLR2026 (32)](../../ICLR2026/audio_speech/) · [🤖 AAAI2026 (31)](../../AAAI2026/audio_speech/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/audio_speech/) · [📹 ICCV2025 (13)](../../ICCV2025/audio_speech/)
+
+🔥 **高频主题：** 语音 ×4
+
 **[Bridging the Language Gap: Synthetic Voice Diversity via Latent Mixup for Equitable Speech Recognition](bridging_the_language_gap_synthetic_voice_diversity_via_latent_mixup_for_equitab.md)**
 
 :   本文提出 LatentVoiceMix，在语音转换模型 Diff-HierVC 的说话人风格编码器潜在空间中进行 mixup 插值，生成具有新颖声音特征的合成语音数据用于增强 ASR 训练，在低资源语言 Wolof 上取得了优于波形增强、频谱增强和标准语音转换的 WER 改善效果。

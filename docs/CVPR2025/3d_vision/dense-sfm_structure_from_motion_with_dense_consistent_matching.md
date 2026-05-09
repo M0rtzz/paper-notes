@@ -127,6 +127,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Light3R-SfM: Towards Feed-forward Structure-from-Motion](light3r-sfm_towards_feed-forward_structure-from-motion.md)
@@ -134,5 +136,7 @@ tags:
 - [\[ICCV 2025\] ArgMatch: Adaptive Refinement Gathering for Efficient Dense Matching](../../ICCV2025/3d_vision/argmatch_adaptive_refinement_gathering_for_efficient_dense_matching.md)
 - [\[CVPR 2025\] A Unified Image-Dense Annotation Generation Model for Underwater Scenes](a_unified_image-dense_annotation_generation_model_for_underwater_scenes.md)
 - [\[CVPR 2025\] ColabSfM: Collaborative Structure-from-Motion by Point Cloud Registration](colabsfm_collaborative_structure-from-motion_by_point_cloud_registration.md)
+
+</div>
 
 <!-- RELATED:END -->

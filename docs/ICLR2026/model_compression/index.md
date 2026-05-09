@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **92** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (42)](../../ACL2026/model_compression/) · [📷 CVPR2026 (57)](../../CVPR2026/model_compression/) · [🤖 AAAI2026 (54)](../../AAAI2026/model_compression/) · [🧠 NeurIPS2025 (137)](../../NeurIPS2025/model_compression/) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/) · [🧪 ICML2025 (71)](../../ICML2025/model_compression/)
+
+🔥 **高频主题：** LLM ×19 · 模型压缩 ×16 · 推理 ×11 · 压缩/编码 ×8 · 持续学习 ×5
+
 **[A Fano-Style Accuracy Upper Bound for LLM Single-Pass Reasoning in Multi-Hop QA](a_fano-style_accuracy_upper_bound_for_llm_single-pass_reasoning_in_multi-hop_qa.md)**
 
 :   用信息论推导出 LLM 单次推理在多跳 QA 中的 Fano 式准确率上界，揭示当任务信息需求超过模型输出容量时准确率会"悬崖式"骤降的现象，并据此设计多轮推理框架 InfoQA，通过容量感知分解、依赖显式工作流和迭代查询压缩来突破单次推理瓶颈。

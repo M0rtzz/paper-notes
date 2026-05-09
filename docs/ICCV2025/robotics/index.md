@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **26** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (7)](../../ACL2026/robotics/) · [📷 CVPR2026 (49)](../../CVPR2026/robotics/) · [🔬 ICLR2026 (47)](../../ICLR2026/robotics/) · [🤖 AAAI2026 (38)](../../AAAI2026/robotics/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/robotics/) · [🧪 ICML2025 (16)](../../ICML2025/robotics/)
+
+🔥 **高频主题：** 机器人 ×8 · 多模态 ×3 · 导航 ×3 · 对齐/RLHF ×2 · 自监督学习 ×2
+
 **[Adaptive Articulated Object Manipulation On The Fly with Foundation Model Reasoning and Part Grounding](adaptive_articulated_object_manipulation_on_the_fly_with_foundation_model_reason.md)**
 
 :   本文提出 AdaRPG 框架，利用基础视觉-语言模型对铰接物体进行零件级分割和可操作性推理，并借助 GPT-4o 生成高层控制代码以自适应调度原子操作技能，在仿真和真实环境中实现了跨类别零样本泛化操作。

@@ -173,6 +173,8 @@ $$\mathcal{L}(\mathcal{D}^k; \theta, \mathbf{P}_b) = -\sum_i \sum_j \log P(y_j |
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] One-Shot Knowledge Transfer for Scalable Person Re-Identification](../../ICCV2025/human_understanding/one-shot_knowledge_transfer_for_scalable_person_re-identification.md)
@@ -180,5 +182,7 @@ $$\mathcal{L}(\mathcal{D}^k; \theta, \mathbf{P}_b) = -\sum_i \sum_j \log P(y_j |
 - [\[CVPR 2025\] ESC: Erasing Space Concept for Knowledge Deletion](../../CVPR2025/human_understanding/esc_erasing_space_concept_for_knowledge_deletion.md)
 - [\[NeurIPS 2025\] Part-Aware Bottom-Up Group Reasoning for Fine-Grained Social Interaction Detection](part-aware_bottom-up_group_reasoning_for_fine-grained_social_interaction_detecti.md)
 - [\[ICCV 2025\] CleanPose: Category-Level Object Pose Estimation via Causal Learning and Knowledge Distillation](../../ICCV2025/human_understanding/cleanpose_category-level_object_pose_estimation_via_causal_learning_and_knowledg.md)
+
+</div>
 
 <!-- RELATED:END -->

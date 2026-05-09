@@ -133,6 +133,8 @@ $$z_i = \sum_j e(x_{i,j}; j) \odot (1 - m_{i,j})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Modulated Diffusion: Accelerating Generative Modeling with Modulated Quantization](modulated_diffusion_accelerating_generative_modeling_with_modulated_quantization.md)
@@ -140,5 +142,7 @@ $$z_i = \sum_j e(x_{i,j}; j) \odot (1 - m_{i,j})$$
 - [\[ICML 2025\] Action-Minimization Meets Generative Modeling: Efficient Transition Path Sampling with the Onsager-Machlup Functional](action-minimization_meets_generative_modeling_efficient_transition_path_sampling.md)
 - [\[ICML 2025\] Compositional Scene Understanding through Inverse Generative Modeling](compositional_scene_understanding_through_inverse_generative_modeling.md)
 - [\[ICML 2025\] DCTdiff: Intriguing Properties of Image Generative Modeling in the DCT Space](dctdiff_intriguing_properties_of_image_generative_modeling_in_the_dct_space.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -151,6 +151,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Towards Precise Scaling Laws for Video Diffusion Transformers](../../CVPR2025/video_generation/towards_precise_scaling_laws_for_video_diffusion_transformers.md)
@@ -158,5 +160,7 @@ tags:
 - [\[ICCV 2025\] Long Context Tuning for Video Generation](../../ICCV2025/video_generation/long_context_tuning_for_video_generation.md)
 - [\[CVPR 2025\] Tracktention: Leveraging Point Tracking to Attend Videos Faster and Better](../../CVPR2025/video_generation/tracktention_leveraging_point_tracking_to_attend_videos_faster_and_better.md)
 - [\[CVPR 2026\] ActivityForensics: A Comprehensive Benchmark for Localizing Manipulated Activity in Videos](../../CVPR2026/video_generation/activityforensics_a_comprehensive_benchmark_for_localizing_manipulated_activity_.md)
+
+</div>
 
 <!-- RELATED:END -->

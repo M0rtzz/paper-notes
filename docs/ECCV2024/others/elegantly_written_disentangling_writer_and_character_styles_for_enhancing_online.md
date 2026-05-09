@@ -126,6 +126,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] ET: The Exceptional Trajectories - Text-to-Camera-Trajectory Generation with Character Awareness](et_the_exceptional_trajectories_text-to-camera-trajectory_generation_with_charac.md)
@@ -133,5 +135,7 @@ tags:
 - [\[ECCV 2024\] Enhancing Optimization Robustness in 1-bit Neural Networks through Stochastic Sign Descent](enhancing_optimization_robustness_in_1-bit_neural_networks_through_stochastic_si.md)
 - [\[ACL 2025\] Mixture of Small and Large Models for Chinese Spelling Check](../../ACL2025/others/mixture_of_small_and_large_models_for_chinese_spelling_check.md)
 - [\[AAAI 2026\] ParaMETA: Towards Learning Disentangled Paralinguistic Speaking Styles Representations](../../AAAI2026/others/parameta_towards_learning_disentangled_paralinguistic_speaking_styles_representa.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -125,6 +125,8 @@ Amazon Q 是面向 Java 8/11→17 升级的生产级工具，聚焦单一语言�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Can You Really Trust Code Copilots? Evaluating Large Language Models from a Code Security Perspective](cov-eval-code-security-evaluation-benchmark.md)
@@ -132,5 +134,7 @@ Amazon Q 是面向 Java 8/11→17 升级的生产级工具，聚焦单一语言�
 - [\[ACL 2025\] CoV-Eval: Can You Really Trust Code Copilots? Evaluating Large Language Models from a Code Security Perspective](cov_eval_evaluating_llms_from_code_security_perspective.md)
 - [\[ACL 2025\] AD-LLM: Benchmarking Large Language Models for Anomaly Detection](ad-llm_benchmarking_large_language_models_for_anomaly_detection.md)
 - [\[ACL 2025\] WXImpactBench: A Disruptive Weather Impact Understanding Benchmark for Evaluating Large Language Models](wximpactbench_a_disruptive_weather_impact_understanding_benchmark_for_evaluating.md)
+
+</div>
 
 <!-- RELATED:END -->

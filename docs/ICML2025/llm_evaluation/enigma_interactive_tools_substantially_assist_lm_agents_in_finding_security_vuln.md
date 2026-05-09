@@ -135,6 +135,8 @@ EnIGMA 是一个用于自主解决 Capture The Flag (CTF) 挑战的 LM agent，�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] AAAR-1.0: Assessing AI's Potential to Assist Research](aaar-10_assessing_ais_potential_to_assist_research.md)
@@ -142,5 +144,7 @@ EnIGMA 是一个用于自主解决 Capture The Flag (CTF) 挑战的 LM agent，�
 - [\[ICML 2025\] Communicating Activations Between Language Model Agents](communicating_activations_between_language_model_agents.md)
 - [\[NeurIPS 2025\] Heterogeneous Adversarial Play in Interactive Environments](../../NeurIPS2025/llm_evaluation/heterogeneous_adversarial_play_in_interactive_environments.md)
 - [\[ICML 2025\] UI-Evol: Automatic Knowledge Evolving for Computer Use Agents](ui-evol_automatic_knowledge_evolving_for_computer_use_agents.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -106,6 +106,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Exploring Guided Sampling of Conditional GANs](exploring_guided_sampling_of_conditional_gans.md)
@@ -113,5 +115,7 @@ tags:
 - [\[NeurIPS 2025\] Active Measurement: Efficient Estimation at Scale](../../NeurIPS2025/others/active_measurement_efficient_estimation_at_scale.md)
 - [\[ECCV 2024\] De-confounded Gaze Estimation](de-confounded_gaze_estimation.md)
 - [\[ECCV 2024\] An Incremental Unified Framework for Small Defect Inspection](an_incremental_unified_framework_for_small_defect_inspection.md)
+
+</div>
 
 <!-- RELATED:END -->

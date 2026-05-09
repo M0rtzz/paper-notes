@@ -129,6 +129,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] SynthesizeMe! Inducing Persona-Guided Prompts for Personalized Reward Models in LLMs](synthesizeme_persona_prompts.md)
@@ -136,5 +138,7 @@ tags:
 - [\[ACL 2026\] Reward Modeling for Scientific Writing Evaluation](../../ACL2026/llm_alignment/reward_modeling_for_scientific_writing_evaluation.md)
 - [\[ACL 2025\] Robust Preference Optimization via Dynamic Target Margins](robust_preference_optimization_via_dynamic_target_margins.md)
 - [\[NeurIPS 2025\] Provably Efficient Online RLHF with One-Pass Reward Modeling](../../NeurIPS2025/llm_alignment/provably_efficient_online_rlhf_with_one-pass_reward_modeling.md)
+
+</div>
 
 <!-- RELATED:END -->

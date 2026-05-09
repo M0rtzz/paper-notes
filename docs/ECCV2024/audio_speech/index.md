@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **9** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (29)](../../ACL2026/audio_speech/) · [📷 CVPR2026 (17)](../../CVPR2026/audio_speech/) · [🔬 ICLR2026 (32)](../../ICLR2026/audio_speech/) · [🤖 AAAI2026 (31)](../../AAAI2026/audio_speech/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/audio_speech/) · [📹 ICCV2025 (13)](../../ICCV2025/audio_speech/)
+
+🔥 **高频主题：** 语音 ×5
+
 **[Action2Sound: Ambient-Aware Generation of Action Sounds from Egocentric Videos](action2sound_ambientaware_generation_of_action_sounds_from_e.md)**
 
 :   提出 AV-LDM，通过在训练时引入同一视频不同时间段的音频作为环境音条件，隐式解耦前景动作声和背景环境音，结合检索增强生成(RAG)在推理时选择合适的环境音条件，在 Ego4D 和 EPIC-KITCHENS 上大幅超越已有方法。

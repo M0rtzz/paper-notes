@@ -122,6 +122,8 @@ MPC生成候选滚出时采用交叉熵方法(CEM)迭代优化动作序列分布
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] BEAST: Efficient Tokenization of B-Splines Encoded Action Sequences for Imitation Learning](../../NeurIPS2025/reinforcement_learning/beast_efficient_tokenization_of_b-splines_encoded_action_sequences_for_imitation.md)
@@ -129,5 +131,7 @@ MPC生成候选滚出时采用交叉熵方法(CEM)迭代优化动作序列分布
 - [\[NeurIPS 2025\] Automaton Constrained Q-Learning](../../NeurIPS2025/reinforcement_learning/automaton_constrained_q-learning.md)
 - [\[NeurIPS 2025\] Reinforcement Learning with Action Chunking](../../NeurIPS2025/reinforcement_learning/reinforcement_learning_with_action_chunking.md)
 - [\[NeurIPS 2025\] Adaptive Neighborhood-Constrained Q Learning for Offline Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/adaptive_neighborhoodconstrained_q_learning_for_offline_rein.md)
+
+</div>
 
 <!-- RELATED:END -->

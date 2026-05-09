@@ -128,6 +128,8 @@ Student 模型将源图像的 latent 直接 concat 到去噪 latent 中（而非
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] HorizonForge: Driving Scene Editing with Any Trajectories and Any Vehicles](../../CVPR2026/autonomous_driving/horizonforge_driving_scene_editing_with_any_trajectories_and_any_vehicles.md)
@@ -135,5 +137,7 @@ Student 模型将源图像的 latent 直接 concat 到去噪 latent 中（而非
 - [\[CVPR 2025\] MITracker: Multi-View Integration for Visual Object Tracking](mitracker_multi-view_integration_for_visual_object_tracking.md)
 - [\[CVPR 2025\] Generating Multimodal Driving Scenes via Next-Scene Prediction](generating_multimodal_driving_scenes_via_next-scene_prediction.md)
 - [\[CVPR 2025\] UniScene: Unified Occupancy-centric Driving Scene Generation](uniscene_unified_occupancy-centric_driving_scene_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

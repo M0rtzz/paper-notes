@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2026** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (9)](../../CVPR2026/graph_learning/) · [🔬 ICLR2026 (21)](../../ICLR2026/graph_learning/) · [🤖 AAAI2026 (38)](../../AAAI2026/graph_learning/) · [🧠 NeurIPS2025 (52)](../../NeurIPS2025/graph_learning/) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/) · [🧪 ICML2025 (31)](../../ICML2025/graph_learning/)
+
 **[AgentGL: Towards Agentic Graph Learning with LLMs via Reinforcement Learning](agentgl_towards_agentic_graph_learning_with_llms_via_reinforcement_learning.md)**
 
 :   提出 AgentGL，首个基于强化学习的智能体图学习（AGL）框架，让 LLM 智能体通过图原生搜索工具自主导航文本属性图（TAG），在节点分类和链接预测任务上分别实现最高 17.5% 和 28.4% 的绝对准确率提升。

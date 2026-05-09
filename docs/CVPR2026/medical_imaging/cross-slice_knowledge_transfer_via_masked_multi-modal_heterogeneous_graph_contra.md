@@ -121,6 +121,8 @@ SpaHGC 分四步：(1) 用 UNI 病理基础模型提取 patch 嵌入；(2) 构�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] HiFusion: Hierarchical Intra-Spot Alignment and Regional Context Fusion for Spatial Gene Expression Prediction from Histopathology](../../AAAI2026/medical_imaging/hifusion_hierarchical_intra-spot_alignment_and_regional_context_fusion_for_spati.md)
@@ -128,5 +130,7 @@ SpaHGC 分四步：(1) 用 UNI 病理基础模型提取 patch 嵌入；(2) 构�
 - [\[AAAI 2026\] Dual-Path Knowledge-Augmented Contrastive Alignment Network for Spatially Resolved Transcriptomics](../../AAAI2026/medical_imaging/dual-path_knowledge-augmented_contrastive_alignment_network_for_spatially_resolv.md)
 - [\[CVPR 2026\] Forecasting Epileptic Seizures from Contactless Camera via Cross-Species Transfer Learning](forecasting_epileptic_seizures_from_contactless_ca.md)
 - [\[ICLR 2026\] HistoPrism: Unlocking Functional Pathway Analysis from Pan-Cancer Histology via Gene Expression Prediction](../../ICLR2026/medical_imaging/histoprism_unlocking_functional_pathway_analysis_from_pan-cancer_histology_via_g.md)
+
+</div>
 
 <!-- RELATED:END -->

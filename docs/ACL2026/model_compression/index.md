@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **42** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (57)](../../CVPR2026/model_compression/) · [🔬 ICLR2026 (92)](../../ICLR2026/model_compression/) · [🤖 AAAI2026 (54)](../../AAAI2026/model_compression/) · [🧠 NeurIPS2025 (137)](../../NeurIPS2025/model_compression/) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/) · [🧪 ICML2025 (71)](../../ICML2025/model_compression/)
+
+🔥 **高频主题：** LLM ×9 · 模型压缩 ×3 · Agent ×3 · 压缩/编码 ×3 · 推理 ×3
+
 **[A Computational Method for Measuring "Open Codes" in Qualitative Analysis](a_computational_method_for_measuring_34open_codes34_in_qualitative_analysis.md)**
 
 :   提出一种基于理论的计算方法，通过LLM增强的代码合并算法和四个无需ground truth的指标（Coverage, Overlap, Novelty, Divergence），系统评估人类和AI在归纳定性编码中的表现。

@@ -124,6 +124,8 @@ $$\mathcal{L} = (1-\lambda)\mathcal{L}_1(I, I^*) + \lambda\mathcal{L}_{D\text{-}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] S2Gaussian: Sparse-View Super-Resolution 3D Gaussian Splatting](s2gaussian_sparse-view_super-resolution_3d_gaussian_splatting.md)
@@ -131,5 +133,7 @@ $$\mathcal{L} = (1-\lambda)\mathcal{L}_1(I, I^*) + \lambda\mathcal{L}_{D\text{-}
 - [\[CVPR 2025\] Novel View Synthesis with Pixel-Space Diffusion Models](novel_view_synthesis_with_pixel-space_diffusion_models.md)
 - [\[ICCV 2025\] Self-Ensembling Gaussian Splatting for Few-Shot Novel View Synthesis](../../ICCV2025/3d_vision/self-ensembling_gaussian_splatting_for_few-shot_novel_view_synthesis.md)
 - [\[CVPR 2025\] DropGaussian: Structural Regularization for Sparse-view Gaussian Splatting](dropgaussian_structural_regularization_for_sparse-view_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

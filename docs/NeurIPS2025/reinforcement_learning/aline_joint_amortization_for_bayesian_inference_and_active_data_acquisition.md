@@ -113,6 +113,8 @@ Aline 在 CES 上取得最高 EIG，推断时间合理。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Stochastic Encodings for Active Feature Acquisition](../../ICML2025/reinforcement_learning/stochastic_encodings_for_active_feature_acquisition.md)
@@ -120,5 +122,7 @@ Aline 在 CES 上取得最高 EIG，推断时间合理。
 - [\[NeurIPS 2025\] Real-World Reinforcement Learning of Active Perception Behaviors](real-world_reinforcement_learning_of_active_perception_behaviors.md)
 - [\[NeurIPS 2025\] Optimizing the Unknown: Black Box Bayesian Optimization with Energy-Based Model and Reinforcement Learning](optimizing_the_unknown_black_box_bayesian_optimization_with_energy-based_model_a.md)
 - [\[NeurIPS 2025\] NoisyRollout: Reinforcing Visual Reasoning with Data Augmentation](noisyrollout_reinforcing_visual_reasoning_with_data_augmenta.md)
+
+</div>
 
 <!-- RELATED:END -->

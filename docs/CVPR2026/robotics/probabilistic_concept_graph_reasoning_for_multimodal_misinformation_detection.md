@@ -121,6 +121,8 @@ PCGR遵循"先构建后推理"（build-then-infer）范式：(1)概念生长—�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] DeepSketcher: Internalizing Visual Manipulation for Multimodal Reasoning](deepsketcher_internalizing_visual_manipulation_for_multimodal_reasoning.md)
@@ -128,5 +130,7 @@ PCGR遵循"先构建后推理"（build-then-infer）范式：(1)概念生长—�
 - [\[ACL 2026\] Debating the Unspoken: Role-Anchored Multi-Agent Reasoning for Half-Truth Detection](../../ACL2026/robotics/debating_the_unspoken_role-anchored_multi-agent_reasoning_for_half-truth_detecti.md)
 - [\[CVPR 2026\] FineCog-Nav: Integrating Fine-grained Cognitive Modules for Zero-shot Multimodal UAV Navigation](finecog_nav_fine_grained_cognitive_modules_for_zero_shot_uav_navigation.md)
 - [\[AAAI 2026\] Neural Graph Navigation for Intelligent Subgraph Matching](../../AAAI2026/robotics/neural_graph_navigation_for_intelligent_subgraph_matching.md)
+
+</div>
 
 <!-- RELATED:END -->

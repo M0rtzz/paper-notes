@@ -169,6 +169,8 @@ $J=1, h=0.1, \beta_{\text{high}}=0.28$，状态空间 $|\mathcal{X}_0| = 2^{16} 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Estimation of Stochastic Optimal Transport Maps](estimation_of_stochastic_optimal_transport_maps.md)
@@ -176,5 +178,7 @@ $J=1, h=0.1, \beta_{\text{high}}=0.28$，状态空间 $|\mathcal{X}_0| = 2^{16} 
 - [\[NeurIPS 2025\] Memory-Augmented Potential Field Theory: A Framework for Adaptive Control in Non-Convex Domains](memory-augmented_potential_field_theory_a_framework_for_adaptive_control_in_non-.md)
 - [\[NeurIPS 2025\] Optimal Rates for Generalization of Gradient Descent for Deep ReLU Classification](optimal_rates_for_generalization_of_gradient_descent_for_deep_relu_classificatio.md)
 - [\[NeurIPS 2025\] VIKING: Deep Variational Inference with Stochastic Projections](viking_deep_variational_inference_with_stochastic_projections.md)
+
+</div>
 
 <!-- RELATED:END -->

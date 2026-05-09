@@ -120,6 +120,8 @@ Event Fields 的数学框架建立在全光函数 $L(\vec{x}, \vec{\omega}, \lam
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] HDR-NSFF: High Dynamic Range Neural Scene Flow Fields](../../ICLR2026/3d_vision/hdr-nsff_high_dynamic_range_neural_scene_flow_fields.md)
@@ -127,5 +129,7 @@ Event Fields 的数学框架建立在全光函数 $L(\vec{x}, \vec{\omega}, \lam
 - [\[CVPR 2025\] Exploiting Deblurring Networks for Radiance Fields](exploiting_deblurring_networks_for_radiance_fields.md)
 - [\[CVPR 2025\] RelationField: Relate Anything in Radiance Fields](relationfield_relate_anything_in_radiance_fields.md)
 - [\[CVPR 2025\] Preconditioners for the Stochastic Training of Neural Fields](preconditioners_for_the_stochastic_training_of_neural_fields.md)
+
+</div>
 
 <!-- RELATED:END -->

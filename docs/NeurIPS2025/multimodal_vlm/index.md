@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **155** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (50)](../../ACL2026/multimodal_vlm/) · [📷 CVPR2026 (288)](../../CVPR2026/multimodal_vlm/) · [🔬 ICLR2026 (93)](../../ICLR2026/multimodal_vlm/) · [🤖 AAAI2026 (92)](../../AAAI2026/multimodal_vlm/) · [📹 ICCV2025 (159)](../../ICCV2025/multimodal_vlm/) · [🧪 ICML2025 (53)](../../ICML2025/multimodal_vlm/)
+
+🔥 **高频主题：** 多模态 ×87 · 推理 ×27 · LLM ×18 · 对齐/RLHF ×9 · 机器人 ×8
+
 **[A Frustratingly Simple Yet Highly Effective Attack Baseline: Over 90% Success Rate Against the Strong Black-box Models of GPT-4.5/4o/o1](a_frustratingly_simple_yet_highly_effective_attack_baseline.md)**
 
 :   提出 M-Attack，通过对源图像做随机裁剪后与目标图像在嵌入空间做局部-全局/局部-局部匹配，配合多 CLIP 模型集成，使对抗扰动自然聚集在语义关键区域形成清晰的语义细节，在 GPT-4.5/4o/o1 等商业黑盒 LVLM 上实现 >90% 的定向攻击成功率。

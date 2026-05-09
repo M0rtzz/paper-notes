@@ -108,6 +108,8 @@ AC3 建立在 DDPG 风格的 off-policy actor-critic 框架之上。输入是多
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] ManiLong-Shot: Interaction-Aware One-Shot Imitation Learning for Long-Horizon Manipulation](manilong-shot_interaction-aware_one-shot_imitation_learning_for_long-horizon_man.md)
@@ -115,5 +117,7 @@ AC3 建立在 DDPG 风格的 off-policy actor-critic 框架之上。输入是多
 - [\[AAAI 2026\] Risk-Sensitive Exponential Actor Critic](risk-sensitive_exponential_actor_critic.md)
 - [\[AAAI 2026\] Intention-Guided Cognitive Reasoning for Egocentric Long-Term Action Anticipation](intention-guided_cognitive_reasoning_for_egocentric_long-term_action_anticipatio.md)
 - [\[NeurIPS 2025\] DISCOVER: Automated Curricula for Sparse-Reward Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/discover_automated_curricula_for_sparse-reward_reinforcement_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

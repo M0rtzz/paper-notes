@@ -123,6 +123,8 @@ $$\mathcal{F}(R_i|C,Q_{[1:i]},\hat{R}_{[1:i-1]}) \rightarrow \mathbb{I}\{R_i≠\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] FineReason: Evaluating and Improving LLMs' Deliberate Reasoning through Reflective Puzzle Solving](../../ACL2025/llm_reasoning/finereason_evaluating_and_improving_llms_deliberate_reasoning_through_reflective.md)
@@ -130,5 +132,7 @@ $$\mathcal{F}(R_i|C,Q_{[1:i]},\hat{R}_{[1:i-1]}) \rightarrow \mathbb{I}\{R_i≠\
 - [\[NeurIPS 2025\] The Hawthorne Effect in Reasoning Models: Evaluating and Steering Test Awareness](the_hawthorne_effect_in_reasoning_models_evaluating_and_steering_test_awareness.md)
 - [\[NeurIPS 2025\] RealMath: A Continuous Benchmark for Evaluating Language Models on Research-Level Mathematics](realmath_a_continuous_benchmark_for_evaluating_language_models_on_research-level.md)
 - [\[ACL 2025\] Understanding the Dark Side of LLMs' Intrinsic Self-Correction](../../ACL2025/llm_reasoning/understanding_the_dark_side_of_llms_intrinsic_self-correction.md)
+
+</div>
 
 <!-- RELATED:END -->

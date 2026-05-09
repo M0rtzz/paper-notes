@@ -126,6 +126,8 @@ Visual-RFT将DeepSeek R1的强化学习+可验证奖励(RLVR)范式从数学/代
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] FG-CLIP: Fine-Grained Visual and Textual Alignment](../../ICML2025/object_detection/fg-clip_fine-grained_visual_and_textual_alignment.md)
@@ -133,5 +135,7 @@ Visual-RFT将DeepSeek R1的强化学习+可验证奖励(RLVR)范式从数学/代
 - [\[ICCV 2025\] VisRL: Intention-Driven Visual Perception via Reinforced Reasoning](visrl_intention-driven_visual_perception_via_reinforced_reasoning.md)
 - [\[ICCV 2025\] Visual Modality Prompt for Adapting Vision-Language Object Detectors](visual_modality_prompt_for_adapting_vision-language_object_detectors.md)
 - [\[CVPR 2025\] ROICtrl: Boosting Instance Control for Visual Generation](../../CVPR2025/object_detection/roictrl_boosting_instance_control_for_visual_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

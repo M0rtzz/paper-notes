@@ -145,6 +145,8 @@ $$(1-\varepsilon) \mathcal{L}(\theta) \leq \mathcal{L}_\mathcal{S}(\theta) \leq 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Tree-Sliced Wasserstein Distance with Nonlinear Projection](tree-sliced_wasserstein_distance_with_nonlinear_projection.md)
@@ -152,5 +154,7 @@ $$(1-\varepsilon) \mathcal{L}(\theta) \leq \mathcal{L}_\mathcal{S}(\theta) \leq 
 - [\[ICML 2025\] Annealing Flow Generative Models Towards Sampling High-Dimensional and Multi-Modal Distributions](annealing_flow_generative_models_towards_sampling_high-dimensional_and_multi-mod.md)
 - [\[NeurIPS 2025\] Amortized Sampling with Transferable Normalizing Flows](../../NeurIPS2025/image_generation/amortized_sampling_with_transferable_normalizing_flows.md)
 - [\[NeurIPS 2025\] PID-controlled Langevin Dynamics for Faster Sampling of Generative Models](../../NeurIPS2025/image_generation/pid-controlled_langevin_dynamics_for_faster_sampling_of_generative_models.md)
+
+</div>
 
 <!-- RELATED:END -->

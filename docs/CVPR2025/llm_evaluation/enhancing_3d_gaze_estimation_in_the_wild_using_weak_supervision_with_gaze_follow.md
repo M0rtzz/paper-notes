@@ -124,6 +124,8 @@ ST-WSGE 是一个两阶段训练流程，输入包括 3D 注视数据集（Gaze3
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Towards In-the-Wild 3D Plane Reconstruction from a Single Image](towards_in-the-wild_3d_plane_reconstruction_from_a_single_image.md)
@@ -131,5 +133,7 @@ ST-WSGE 是一个两阶段训练流程，输入包括 3D 注视数据集（Gaze3
 - [\[AAAI 2026\] GazeInterpreter: Parsing Eye Gaze to Generate Eye-Body-Coordinated Narrations](../../AAAI2026/llm_evaluation/gazeinterpreter_parsing_eye_gaze_to_generate_eye-body-coordinated_narrations.md)
 - [\[ICLR 2026\] Truthfulness Despite Weak Supervision: Evaluating and Training LLMs Using Peer Prediction](../../ICLR2026/llm_evaluation/truthfulness_despite_weak_supervision_evaluating_and_training_llms_using_peer_pr.md)
 - [\[CVPR 2025\] SATA: Spatial Autocorrelation Token Analysis for Enhancing the Robustness of Vision Transformers](sata_spatial_autocorrelation_token_analysis_for_enhancing_the_robustness_of_visi.md)
+
+</div>
 
 <!-- RELATED:END -->

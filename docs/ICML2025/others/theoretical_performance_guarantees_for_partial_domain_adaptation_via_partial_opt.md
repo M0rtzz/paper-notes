@@ -126,6 +126,8 @@ $$\mathcal{L} = \sum_i w_i \cdot \text{CE}(h(g(x_i^S)), y_i^S) + \lambda \cdot \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Hierarchical Refinement: Optimal Transport to Infinity and Beyond](hierarchical_refinement_optimal_transport_to_infinity_and_beyond.md)
@@ -133,5 +135,7 @@ $$\mathcal{L} = \sum_i w_i \cdot \text{CE}(h(g(x_i^S)), y_i^S) + \lambda \cdot \
 - [\[ICML 2025\] Lightspeed Geometric Dataset Distance via Sliced Optimal Transport](lightspeed_geometric_dataset_distance_via_sliced_optimal_transport.md)
 - [\[ICCV 2025\] LaCoOT: Layer Collapse through Optimal Transport](../../ICCV2025/others/lacoot_layer_collapse_through_optimal_transport.md)
 - [\[ACL 2025\] Theoretical Guarantees for Minimum Bayes Risk Decoding](../../ACL2025/others/theoretical_guarantees_for_minimum_bayes_risk_decoding.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -146,6 +146,8 @@ Qwen3-4B 的显著提升：MATH500 从 60.2% 提升到 78.5%
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] ReVISE: Learning to Refine at Test-Time via Intrinsic Self-Verification](../../ICML2025/reinforcement_learning/revise_learning_to_refine_at_test-time_via_intrinsic_self-verification.md)
@@ -153,5 +155,7 @@ Qwen3-4B 的显著提升：MATH500 从 60.2% 提升到 78.5%
 - [\[ICLR 2026\] Self-Improving Skill Learning for Robust Skill-based Meta-Reinforcement Learning](self-improving_skill_learning_for_robust_skill-based_meta-reinforcement_learning.md)
 - [\[ICLR 2026\] SPELL: Self-Play Reinforcement Learning for Evolving Long-Context Language Models](spell_self-play_reinforcement_learning_for_evolving_long-context_language_models.md)
 - [\[ICLR 2026\] Co-rewarding: Stable Self-supervised RL for Eliciting Reasoning in Large Language Models](co-rewarding_stable_self-supervised_rl_for_eliciting_reasoning_in_large_language.md)
+
+</div>
 
 <!-- RELATED:END -->

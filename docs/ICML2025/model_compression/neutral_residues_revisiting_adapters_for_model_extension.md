@@ -154,6 +154,8 @@ $$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Random Initialization of Gated Sparse Adapters (RIGSA)](random_initialization_of_gated_sparse_adapters.md)
@@ -161,5 +163,7 @@ $$
 - [\[ACL 2025\] Limited-Resource Adapters Are Regularizers, Not Linguists](../../ACL2025/model_compression/limited-resource_adapters_are_regularizers_not_linguists.md)
 - [\[NeurIPS 2025\] Revisiting Semi-Supervised Learning in the Era of Foundation Models](../../NeurIPS2025/model_compression/revisiting_semi-supervised_learning_in_the_era_of_foundation_models.md)
 - [\[ICLR 2026\] FreqKV: Key-Value Compression in Frequency Domain for Context Window Extension](../../ICLR2026/model_compression/freqkv_key-value_compression_in_frequency_domain_for_context_window_extension.md)
+
+</div>
 
 <!-- RELATED:END -->

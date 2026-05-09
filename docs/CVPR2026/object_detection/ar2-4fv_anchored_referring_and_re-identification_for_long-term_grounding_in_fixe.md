@@ -187,6 +187,8 @@ mAP +6.7%，mIoU +4.2%，在高 IoU 阈值（P@0.8, P@0.9）下优势更明显�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] SDF-Net: Structure-Aware Disentangled Feature Learning for Optical–SAR Ship Re-Identification](sdf-net_structure-aware_disentangled_feature_learning_for_opticall-sar_ship_re-i.md)
@@ -194,5 +196,7 @@ mAP +6.7%，mIoU +4.2%，在高 IoU 阈值（P@0.8, P@0.9）下优势更明显�
 - [\[CVPR 2026\] HeROD: Heuristic-inspired Reasoning Priors Facilitate Data-Efficient Referring Object Detection](herod_heuristic_inspired_reasoning_data_efficient_rod.md)
 - [\[CVPR 2026\] PET-DINO: Unifying Visual Cues into Grounding DINO with Prompt-Enriched Training](pet-dino_unifying_visual_cues_into_grounding_dino_with_prompt-enriched_training.md)
 - [\[ECCV 2024\] BAM-DETR: Boundary-Aligned Moment Detection Transformer for Temporal Sentence Grounding in Videos](../../ECCV2024/object_detection/bam-detr_boundary-aligned_moment_detection_transformer_for_temporal_sentence_gro.md)
+
+</div>
 
 <!-- RELATED:END -->

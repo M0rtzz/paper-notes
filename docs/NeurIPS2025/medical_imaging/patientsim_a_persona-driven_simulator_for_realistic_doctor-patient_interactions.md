@@ -149,6 +149,8 @@ Llama系列在情感表达（性格、混乱）方面表现突出；通用基准
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Doctor Approved: Generating Medically Accurate Skin Disease Images through AI-Expert Feedback](doctor_approved_generating_medically_accurate_skin_disease_images_through_ai-exp.md)
@@ -156,5 +158,7 @@ Llama系列在情感表达（性格、混乱）方面表现突出；通用基准
 - [\[NeurIPS 2025\] SMMILE: An Expert-Driven Benchmark for Multimodal Medical In-Context Learning](smmile_an_expert-driven_benchmark_for_multimodal_medical_in-context_learning.md)
 - [\[ICML 2025\] DeltaSHAP: Explaining Prediction Evolutions in Online Patient Monitoring with Shapley Values](../../ICML2025/medical_imaging/deltashap_explaining_prediction_evolutions_in_online_patient_monitoring_with_sha.md)
 - [\[CVPR 2025\] Unraveling Normal Anatomy via Fluid-Driven Anomaly Randomization](../../CVPR2025/medical_imaging/unraveling_normal_anatomy_via_fluid-driven_anomaly_randomization.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -138,6 +138,8 @@ H-MoRe 包含两个核心组成部分：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Heterogeneous Skeleton-Based Action Representation Learning](heterogeneous_skeleton-based_action_representation_learning.md)
@@ -145,5 +147,7 @@ H-MoRe 包含两个核心组成部分：
 - [\[CVPR 2025\] Temporally Consistent Object-Centric Learning by Contrasting Slots](temporally_consistent_object-centric_learning_by_contrasting_slots.md)
 - [\[CVPR 2025\] Ego4o: Egocentric Human Motion Capture and Understanding from Multi-Modal Input](ego4o_egocentric_human_motion_capture_and_understanding_from_multi-modal_input.md)
 - [\[CVPR 2025\] SEAL: SEmantic Attention Learning for Long Video Representation](seal_semantic_attention_learning_for_long_video_representation.md)
+
+</div>
 
 <!-- RELATED:END -->

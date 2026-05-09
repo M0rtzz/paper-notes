@@ -133,6 +133,8 @@ CE 检测器 $g$ 采用 3 层 GRU（256 单元）多标签 RNN，处理 5-token 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Beyond Linear Probes: Dynamic Safety Monitoring for Language Models](beyond_linear_probes_dynamic_safety_monitoring_for_language_models.md)
@@ -140,5 +142,7 @@ CE 检测器 $g$ 采用 3 层 GRU（256 单元）多标签 RNN，处理 5-token 
 - [\[ICLR 2026\] Narrow Finetuning Leaves Clearly Readable Traces in Activation Differences](narrow_finetuning_leaves_clearly_readable_traces_in_activation_differences.md)
 - [\[ICLR 2026\] Universal Properties of Activation Sparsity in Modern Large Language Models](universal_properties_of_activation_sparsity_in_modern_large_language_models.md)
 - [\[ACL 2026\] PV-SQL: Synergizing Database Probing and Rule-based Verification for Text-to-SQL Agents](../../ACL2026/interpretability/pv-sql_synergizing_database_probing_and_rule-based_verification_for_text-to-sql_.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -141,6 +141,8 @@ for k = 1 to K:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Reimagining Parameter Space Exploration with Diffusion Models](reimagining_parameter_space_exploration_with_diffusion_models.md)
@@ -148,5 +150,7 @@ for k = 1 to K:
 - [\[NeurIPS 2025\] Neural Entropy](../../NeurIPS2025/image_generation/neural_entropy.md)
 - [\[ICML 2025\] Local Manifold Approximation and Projection for Manifold-Aware Diffusion Planning](local_manifold_approximation_and_projection_for_manifold-aware_diffusion_plannin.md)
 - [\[NeurIPS 2025\] Breaking AR's Sampling Bottleneck: Provable Acceleration via Diffusion Language Models](../../NeurIPS2025/image_generation/breaking_ars_sampling_bottleneck_provable_acceleration_via_d.md)
+
+</div>
 
 <!-- RELATED:END -->

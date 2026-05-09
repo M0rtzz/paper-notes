@@ -122,6 +122,8 @@ $$\mathcal{L} = \alpha\|\delta_s - \hat{\delta}_s\|_1 + \gamma\|\delta_a \cdot \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_for_unified_image_generation_and_understanding.md)
@@ -129,5 +131,7 @@ $$\mathcal{L} = \alpha\|\delta_s - \hat{\delta}_s\|_1 + \gamma\|\delta_a \cdot \
 - [\[CVPR 2025\] Dual Prompting Image Restoration with Diffusion Transformers (DPIR)](dual_prompting_image_restoration_with_diffusion_transformers.md)
 - [\[CVPR 2025\] FineLIP: Extending CLIP's Reach via Fine-Grained Alignment with Longer Text Inputs](finelip_extending_clips_reach_via_fine-grained_alignment_with_longer_text_inputs.md)
 - [\[CVPR 2025\] FilmComposer: LLM-Driven Music Production for Silent Film Clips](filmcomposer_llm-driven_music_production_for_silent_film_clips.md)
+
+</div>
 
 <!-- RELATED:END -->

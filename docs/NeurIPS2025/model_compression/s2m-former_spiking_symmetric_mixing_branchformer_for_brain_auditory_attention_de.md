@@ -133,6 +133,8 @@ $$H[t,c,n] = V[t-1,c,n] + \frac{1}{\tau_l[c]}(X[t,c,n] - (V[t-1,c,n] - V_{reset}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Spiking Brain Compression: Post-Training Second-Order Compression for Spiking Neural Networks](spiking_brain_compression_post-training_second-order_compression_for_spiking_neu.md)
@@ -140,5 +142,7 @@ $$H[t,c,n] = V[t-1,c,n] + \frac{1}{\tau_l[c]}(X[t,c,n] - (V[t-1,c,n] - V_{reset}
 - [\[NeurIPS 2025\] AI-Generated Video Detection via Perceptual Straightening](ai-generated_video_detection_via_perceptual_straightening.md)
 - [\[NeurIPS 2025\] BaRISTA: Brain-Scale Informed Spatiotemporal Representation of Human Intracranial EEG](barista_brain_scale_informed_spatiotemporal_representation_of_human_intracranial.md)
 - [\[NeurIPS 2025\] DRAGON: Guard LLM Unlearning in Context via Negative Detection and Reasoning](dragon_guard_llm_unlearning_in_context_via_negative_detection_and_reasoning.md)
+
+</div>
 
 <!-- RELATED:END -->

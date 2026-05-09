@@ -163,6 +163,8 @@ ViLU 在 13 个数据集的平均 AUC 上超越所有方法（+8.2 vs LVU），F
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Joint Vision-Language Social Bias Removal for CLIP](../../CVPR2025/information_retrieval/joint_vision-language_social_bias_removal_for_clip.md)
@@ -170,5 +172,7 @@ ViLU 在 13 个数据集的平均 AUC 上超越所有方法（+8.2 vs LVU），F
 - [\[ICCV 2025\] Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation](aligning_information_capacity_between_vision_and_language_via_dense-to-sparse_fe.md)
 - [\[ICLR 2026\] Revela: Dense Retriever Learning via Language Modeling](../../ICLR2026/information_retrieval/revela_dense_retriever_learning_via_language_modeling.md)
 - [\[ECCV 2024\] ArtVLM: Attribute Recognition Through Vision-Based Prefix Language Modeling](../../ECCV2024/information_retrieval/artvlm_attribute_recognition_through_vision-based_prefix_language_modeling.md)
+
+</div>
 
 <!-- RELATED:END -->

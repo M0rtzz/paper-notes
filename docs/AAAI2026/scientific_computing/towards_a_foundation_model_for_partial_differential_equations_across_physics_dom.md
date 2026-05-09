@@ -241,6 +241,8 @@ $$\hat{u}(x) = \sum_{|k| \leq m} W_k \cdot \mathcal{F}[z](k) e^{2\pi i k \cdot x
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] OmniArch: Building Foundation Model For Scientific Computing](../../ICML2025/scientific_computing/omniarch_building_foundation_model_for_scientific_computing.md)
@@ -248,5 +250,7 @@ $$\hat{u}(x) = \sum_{|k| \leq m} W_k \cdot \mathcal{F}[z](k) e^{2\pi i k \cdot x
 - [\[AAAI 2026\] SAOT: An Enhanced Locality-Aware Spectral Transformer for Solving PDEs](saot_an_enhanced_locality-aware_spectral_transformer_for_solving_pdes.md)
 - [\[AAAI 2026\] PIMRL: Physics-Informed Multi-Scale Recurrent Learning for Burst-Sampled Spatiotemporal Dynamics](pimrl_physics-informed_multi-scale_recurrent_learning_for_burst-sampled_spatiote.md)
 - [\[AAAI 2026\] Phys-Liquid: A Physics-Informed Dataset for Estimating 3D Geometry and Volume of Transparent Deformable Liquids](phys-liquid_a_physics-informed_dataset_for_estimating_3d_geometry_and_volume_of_.md)
+
+</div>
 
 <!-- RELATED:END -->

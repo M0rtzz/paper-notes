@@ -112,6 +112,8 @@ Object HalBench幻觉减少约92%，AMBER减少约65%，同时在VQAv2、Science
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] ONLY: One-Layer Intervention Sufficiently Mitigates Hallucinations in Large Vision-Language Models](only_onelayer_intervention_sufficiently_mitigates_hallucinat.md)
@@ -119,5 +121,7 @@ Object HalBench幻觉减少约92%，AMBER减少约65%，同时在VQAv2、Science
 - [\[ACL 2025\] DALR: Dual-level Alignment Learning for Multimodal Sentence Representation Learning](../../ACL2025/multimodal_vlm/dalr_dual-level_alignment_learning_for_multimodal_sentence_representation_learni.md)
 - [\[CVPR 2025\] HalLoc: Token-Level Localization of Hallucinations for Vision Language Models](../../CVPR2025/multimodal_vlm/halloc_token-level_localization_of_hallucinations_for_vision_language_models.md)
 - [\[NeurIPS 2025\] GLSim: Detecting Object Hallucinations in LVLMs via Global-Local Similarity](../../NeurIPS2025/multimodal_vlm/glsim_detecting_object_hallucinations_in_lvlms_via_globalloc.md)
+
+</div>
 
 <!-- RELATED:END -->

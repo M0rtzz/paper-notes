@@ -125,6 +125,8 @@ ToolSpectrum的构建分为四个阶段：(1) 工具集收集——从9个常用
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] SepLLM: Accelerate Large Language Models by Compressing One Segment into One Separator](../../ICML2025/signal_comm/sepllm_accelerate_large_language_models_by_compressing_one_segment_into_one_sepa.md)
@@ -132,5 +134,7 @@ ToolSpectrum的构建分为四个阶段：(1) 工具集收集——从9个常用
 - [\[NeurIPS 2025\] Artificial Hivemind: The Open-Ended Homogeneity of Language Models (and Beyond)](../../NeurIPS2025/signal_comm/artificial_hivemind_the_open-ended_homogeneity_of_language_models_and_beyond.md)
 - [\[ICML 2025\] Large Language Model (LLM)-enabled In-context Learning for Wireless Network Optimization](../../ICML2025/signal_comm/large_language_model_llm-enabled_in-context_learning_for_wireless_network_optimi.md)
 - [\[ACL 2025\] WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications](wirelessmathbench_a_mathematical_modeling_benchmark_for_llms_in_wireless_communi.md)
+
+</div>
 
 <!-- RELATED:END -->

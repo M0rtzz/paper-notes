@@ -122,6 +122,8 @@ ImitSAT 在几乎所有变量范围上取得最低 MRPP，且 1% 胜率 $W_{1\%}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Latent Wasserstein Adversarial Imitation Learning](latent_wasserstein_adversarial_imitation_learning.md)
@@ -129,5 +131,7 @@ ImitSAT 在几乎所有变量范围上取得最低 MRPP，且 1% 胜率 $W_{1\%}
 - [\[ICML 2025\] Action-Constrained Imitation Learning](../../ICML2025/reinforcement_learning/action-constrained_imitation_learning.md)
 - [\[NeurIPS 2025\] Quantifying Generalisation in Imitation Learning](../../NeurIPS2025/reinforcement_learning/quantifying_generalisation_in_imitation_learning.md)
 - [\[ICLR 2026\] Model Predictive Adversarial Imitation Learning for Planning from Observation](model_predictive_adversarial_imitation_learning_for_planning_from_observation.md)
+
+</div>
 
 <!-- RELATED:END -->

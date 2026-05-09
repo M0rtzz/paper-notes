@@ -145,6 +145,8 @@ E-LDA 非并行 Python 实现仅需 2-3 秒，约等于高度优化的 MALLET Ja
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] From Black-box to Causal-box: Towards Building More Interpretable Models](../../NeurIPS2025/causal_inference/from_black-box_to_causal-box_towards_building_more_interpretable_models.md)
@@ -152,5 +154,7 @@ E-LDA 非并行 Python 实现仅需 2-3 秒，约等于高度优化的 MALLET Ja
 - [\[ACL 2026\] Parallel Universes, Parallel Languages: A Comprehensive Study on LLM-based Multilingual Counterfactual Example Generation](../../ACL2026/causal_inference/parallel_universes_parallel_languages_a_comprehensive_study_on_llm-based_multili.md)
 - [\[ICML 2025\] Learning Time-Aware Causal Representation for Model Generalization in Evolving Domains](learning_time-aware_causal_representation_for_model_generalization_in_evolving_d.md)
 - [\[ICML 2025\] Position: Causal Machine Learning Requires Rigorous Synthetic Experiments for Broader Adoption](position_causal_machine_learning_requires_rigorous_synthetic_experiments_for_bro.md)
+
+</div>
 
 <!-- RELATED:END -->

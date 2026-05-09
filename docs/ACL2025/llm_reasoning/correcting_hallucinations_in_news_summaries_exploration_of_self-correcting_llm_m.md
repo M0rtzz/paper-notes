@@ -151,6 +151,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Commonsense Abductive Reasoning using Knowledge from Multiple Sources](commonsense_abductive_reasoning_using_knowledge_from_multiple_sources.md)
@@ -158,5 +160,7 @@ tags:
 - [\[ACL 2025\] Complex Reasoning with Natural Language Contexts and Background Knowledge](complex_reasoning_with_natural_language_contexts_and_background_knowledge.md)
 - [\[ACL 2025\] PCoT: Persuasion-Augmented Chain of Thought for Detecting Fake News and Social Media Disinformation](pcot_persuasion-augmented_chain_of_thought_for_detecting_fake_news_and_social_me.md)
 - [\[ACL 2025\] Self-Correction is More than Refinement: A Learning Framework for Visual and Language Reasoning Tasks](self-correction_is_more_than_refinement_a_learning_framework_for_visual_and_lang.md)
+
+</div>
 
 <!-- RELATED:END -->

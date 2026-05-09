@@ -141,6 +141,8 @@ EpiCoDe 本身不涉及额外训练。底层微调使用标准设置：AdamW 优
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Model Extrapolation Expedites Alignment](expo_model_extrapolation.md)
@@ -148,5 +150,7 @@ EpiCoDe 本身不涉及额外训练。底层微调使用标准设置：AdamW 优
 - [\[ACL 2025\] CoachMe: Decoding Sport Elements with a Reference-Based Coaching Instruction Generation Model](coachme_sport_instruction.md)
 - [\[ACL 2025\] Decoding Reading Goals from Eye Movements](decoding_reading_goals_from_eye_movements.md)
 - [\[ACL 2025\] Rationales Are Not Silver Bullets: Measuring the Impact of Rationales on Model Performance and Reliability](rationales_are_not_silver_bullets_measuring_the_impact_of_rationales_on_model_pe.md)
+
+</div>
 
 <!-- RELATED:END -->

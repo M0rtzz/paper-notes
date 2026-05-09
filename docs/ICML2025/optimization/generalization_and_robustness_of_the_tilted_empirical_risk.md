@@ -149,6 +149,8 @@ $$\gamma_{\text{data}} = \arg\min_{\gamma < 0}\left[|\gamma|^\epsilon \kappa_u^{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Tilted Sharpness-Aware Minimization](tilted_sharpness-aware_minimization.md)
@@ -156,5 +158,7 @@ $$\gamma_{\text{data}} = \arg\min_{\gamma < 0}\left[|\gamma|^\epsilon \kappa_u^{
 - [\[CVPR 2025\] Leveraging Perturbation Robustness to Enhance Out-of-Distribution Detection](../../CVPR2025/optimization/leveraging_perturbation_robustness_to_enhance_out-of-distribution_detection.md)
 - [\[NeurIPS 2025\] MeCeFO: Enhancing LLM Training Robustness via Fault-Tolerant Optimization](../../NeurIPS2025/optimization/mecefo_enhancing_llm_training_robustness_via_fault-tolerant_optimization.md)
 - [\[ICML 2025\] Generalization in Federated Learning: A Conditional Mutual Information Framework](generalization_in_federated_learning_a_conditional_mutual_information_framework.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -147,6 +147,8 @@ $$L_y(\theta, C) = \sum_{i \notin G_y} \max\{0, 1+h_y^\theta(X_i)\} + \sum_{e} \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Gradient-Guided Annealing for Domain Generalization](../../CVPR2025/llm_evaluation/gradient-guided_annealing_for_domain_generalization.md)
@@ -154,5 +156,7 @@ $$L_y(\theta, C) = \sum_{i \notin G_y} \max\{0, 1+h_y^\theta(X_i)\} + \sum_{e} \
 - [\[ICML 2025\] FEDTAIL: Federated Long-Tailed Domain Generalization with Sharpness-Guided Gradient Matching](fedtail_federated_long-tailed_domain_generalization_with_sharpness-guided_gradie.md)
 - [\[ICML 2025\] Improving Generalization with Flat Hilbert Bayesian Inference](improving_generalization_with_flat_hilbert_bayesian_inference.md)
 - [\[CVPR 2025\] On the Generalization of Handwritten Text Recognition Models](../../CVPR2025/llm_evaluation/on_the_generalization_of_handwritten_text_recognition_models.md)
+
+</div>
 
 <!-- RELATED:END -->

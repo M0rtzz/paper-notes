@@ -135,6 +135,8 @@ ReWind 将长视频理解分为两个阶段。第一阶段（Stage-1），视频
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Goldfish: Vision-Language Understanding of Arbitrarily Long Videos](../../ECCV2024/video_understanding/goldfish_vision-language_understanding_of_arbitrarily_long_videos.md)
@@ -142,5 +144,7 @@ ReWind 将长视频理解分为两个阶段。第一阶段（Stage-1），视频
 - [\[CVPR 2025\] MLVU: Benchmarking Multi-task Long Video Understanding](mlvu_benchmarking_multi-task_long_video_understanding.md)
 - [\[CVPR 2025\] VCBench: A Streaming Counting Benchmark for Spatial-Temporal State Maintenance in Long Videos](vcbench_a_streaming_counting_benchmark_for_spatial-temporal_state_maintenance_in.md)
 - [\[CVPR 2025\] DrVideo: Document Retrieval Based Long Video Understanding](drvideo_document_retrieval_based_long_video_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

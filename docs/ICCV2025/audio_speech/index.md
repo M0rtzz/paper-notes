@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **13** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (29)](../../ACL2026/audio_speech/) · [📷 CVPR2026 (17)](../../CVPR2026/audio_speech/) · [🔬 ICLR2026 (32)](../../ICLR2026/audio_speech/) · [🤖 AAAI2026 (31)](../../AAAI2026/audio_speech/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/audio_speech/) · [🧪 ICML2025 (7)](../../ICML2025/audio_speech/)
+
+🔥 **高频主题：** 语音 ×6 · 多模态 ×3
+
 **[2.5 Years in Class: A Multimodal Textbook for Vision-Language Pretraining](25_years_in_class_a_multimodal_textbook_for_vision-language_pretraining.md)**
 
 :   从YouTube教学视频中提取关键帧和文本（ASR+OCR），构建高质量交错图文格式的"多模态教材"数据集，用于VLM预训练，在知识密集型和推理任务上大幅领先网页爬取的交错数据集。

@@ -116,6 +116,8 @@ Re-FORC由两部分组成：(1) **冻结的推理LLM** $\pi$（如Qwen3系列）
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] ARM: Adaptive Reasoning Model](arm_adaptive_reasoning_model.md)
@@ -123,5 +125,7 @@ Re-FORC由两部分组成：(1) **冻结的推理LLM** $\pi$（如Qwen3系列）
 - [\[NeurIPS 2025\] Adaptive Dual Reasoner: Large Reasoning Models Can Think Efficiently by Hybrid Reasoning](adaptive_dual_reasoner_large_reasoning_models_can_think_efficiently_by_hybrid_re.md)
 - [\[NeurIPS 2025\] Latent Chain-of-Thought for Visual Reasoning](latent_chain-of-thought_for_visual_reasoning.md)
 - [\[ACL 2025\] SoftCoT: Soft Chain-of-Thought for Efficient Reasoning with LLMs](../../ACL2025/llm_reasoning/softcot_soft_chain_of_thought.md)
+
+</div>
 
 <!-- RELATED:END -->

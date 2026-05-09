@@ -125,6 +125,8 @@ OmniBal 从三个紧密关联的角度解决计算不平衡：数据→模型→
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Parrot: Multilingual Visual Instruction Tuning](parrot_multilingual_visual_instruction_tuning.md)
@@ -132,5 +134,7 @@ OmniBal 从三个紧密关联的角度解决计算不平衡：数据→模型→
 - [\[NeurIPS 2025\] Visual Instruction Bottleneck Tuning](../../NeurIPS2025/multimodal_vlm/visual_instruction_bottleneck_tuning.md)
 - [\[ICML 2025\] Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models](understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)
 - [\[NeurIPS 2025\] Learning to Instruct for Visual Instruction Tuning](../../NeurIPS2025/multimodal_vlm/learning_to_instruct_for_visual_instruction_tuning.md)
+
+</div>
 
 <!-- RELATED:END -->

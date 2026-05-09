@@ -154,6 +154,8 @@ PASS提出路径选择性事件聚合与扫描（PEAS）模块和多面选择引
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] VideoMamba: Spatio-Temporal Selective State Space Model](../../ECCV2024/video_understanding/videomamba_spatio-temporal_selective_state_space_model.md)
@@ -161,5 +163,7 @@ PASS提出路径选择性事件聚合与扫描（PEAS）模块和多面选择引
 - [\[CVPR 2025\] MambaVLT: Time-Evolving Multimodal State Space Model for Vision-Language Tracking](../../CVPR2025/video_understanding/mambavlt_time-evolving_multimodal_state_space_model_for_vision-language_tracking.md)
 - [\[ECCV 2024\] VideoMamba: State Space Model for Efficient Video Understanding](../../ECCV2024/video_understanding/videomamba_state_space_model_for_efficient_video_understanding.md)
 - [\[ICLR 2026\] Mamba-3: Improved Sequence Modeling using State Space Principles](../../ICLR2026/video_understanding/mamba-3_improved_sequence_modeling_using_state_space_principles.md)
+
+</div>
 
 <!-- RELATED:END -->

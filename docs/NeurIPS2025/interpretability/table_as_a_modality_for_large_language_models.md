@@ -144,6 +144,8 @@ Frozen LLM 设置下 TaMo 平均提升 **42.65%**；在 StructQA 和 WikiSQL 上
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] The Trilemma of Truth in Large Language Models](the_trilemma_of_truth_in_large_language_models.md)
@@ -151,5 +153,7 @@ Frozen LLM 设置下 TaMo 平均提升 **42.65%**；在 StructQA 和 WikiSQL 上
 - [\[NeurIPS 2025\] Probabilistic Token Alignment for Large Language Model Fusion](probabilistic_token_alignment_for_large_language_model_fusion.md)
 - [\[ACL 2025\] Mechanistic Interpretability of Emotion Inference in Large Language Models](../../ACL2025/interpretability/mechanistic_interpretability_of_emotion_inference_in_large_language_models.md)
 - [\[NeurIPS 2025\] Encoding and Understanding Astrophysical Information in Large Language Model-Generated Summaries](encoding_and_understanding_astrophysical_information_in_large_language_model-gen.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -125,6 +125,8 @@ PIDG由三个核心模块组成：(1) 正则哈希空间中的动态建模——
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] DiffWind: Physics-Informed Differentiable Modeling of Wind-Driven Object Dynamics](../../ICLR2026/3d_vision/diffwind_physics-informed_differentiable_modeling_of_wind-driven_object_dynamics.md)
@@ -132,5 +134,7 @@ PIDG由三个核心模块组成：(1) 正则哈希空间中的动态建模——
 - [\[ECCV 2024\] Per-Gaussian Embedding-Based Deformation for Deformable 3D Gaussian Splatting](../../ECCV2024/3d_vision/per-gaussian_embedding-based_deformation_for_deformable_3d_gaussian_splatting.md)
 - [\[CVPR 2026\] Dynamic Black-hole Emission Tomography with Physics-informed Neural Fields](../../CVPR2026/3d_vision/dynamic_black-hole_emission_tomography_with_physics-informed_neural_fields.md)
 - [\[ICLR 2026\] Augmented Radiance Field: A General Framework for Enhanced Gaussian Splatting](../../ICLR2026/3d_vision/augmented_radiance_field_a_general_framework_for_enhanced_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

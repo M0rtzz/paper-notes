@@ -10,6 +10,8 @@ description: >-
 
 **🧪 ICML2025** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/knowledge_editing/) · [📷 CVPR2026 (3)](../../CVPR2026/knowledge_editing/) · [🔬 ICLR2026 (9)](../../ICLR2026/knowledge_editing/) · [🤖 AAAI2026 (5)](../../AAAI2026/knowledge_editing/) · [🧠 NeurIPS2025 (6)](../../NeurIPS2025/knowledge_editing/) · [💬 ACL2025 (20)](../../ACL2025/knowledge_editing/)
+
 **[Representation Shattering in Transformers: A Synthetic Study with Knowledge Editing](representation_shattering_in_transformers_a_synthetic_study_with_knowledge_editi.md)**
 
 :   通过在环形结构知识图谱上训练Transformer的合成实验，发现知识编辑（KE）会"粉碎"模型内部学到的几何表示流形，且粉碎程度与编辑距离正相关（$r^2=0.905$），从而提出"表示粉碎"（representation shattering）作为KE损害模型能力的机制性假说，并在Llama 3和Mamba上验证了该现象的普遍性。

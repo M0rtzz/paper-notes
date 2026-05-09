@@ -181,6 +181,8 @@ $$L_{ORPO} = L_{SFT} + \lambda \cdot L_{OR}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Human-assisted Robotic Policy Refinement via Action Preference Optimization](human-assisted_robotic_policy_refinement_via_action_preference_optimization.md)
@@ -188,5 +190,7 @@ $$L_{ORPO} = L_{SFT} + \lambda \cdot L_{OR}$$
 - [\[NeurIPS 2025\] Simplicity Prevails: Rethinking Negative Preference Optimization for LLM Unlearning](simplicity_prevails_rethinking_negative_preference_optimization_for_llm_unlearni.md)
 - [\[ICML 2025\] ConfPO: Exploiting Policy Model Confidence for Critical Token Selection in Preference Optimization](../../ICML2025/llm_alignment/confpo_exploiting_policy_model_confidence_for_critical_token_selection_in_prefer.md)
 - [\[NeurIPS 2025\] GVPO: Group Variance Policy Optimization for Large Language Model Post-Training](gvpo_group_variance_policy_optimization_for_large_language_model_post-training.md)
+
+</div>
 
 <!-- RELATED:END -->

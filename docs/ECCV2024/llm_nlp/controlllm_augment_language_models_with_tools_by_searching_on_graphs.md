@@ -163,6 +163,8 @@ Adaptive 策略在性能和效率间取得最佳平衡：平均访问 236 个工
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Meta-Prompting for Automating Zero-Shot Visual Recognition with LLMs](meta-prompting_for_automating_zero-shot_visual_recognition_with_llms.md)
@@ -170,5 +172,7 @@ Adaptive 策略在性能和效率间取得最佳平衡：平均访问 236 个工
 - [\[ECCV 2024\] Self-Adapting Large Visual-Language Models to Edge Devices across Visual Modalities](self-adapting_large_visual-language_models_to_edge_devices_across_visual_modalit.md)
 - [\[ECCV 2024\] Cultural Value Differences of LLMs: Prompt, Language, and Model Size](cultural_value_differences_llms.md)
 - [\[ECCV 2024\] One-stage Prompt-based Continual Learning](one-stage_prompt-based_continual_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

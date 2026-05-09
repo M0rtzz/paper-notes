@@ -179,6 +179,8 @@ Soft Reasoning 是一种**纯推理时方法（test-time method）**，不需要
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Improving Rationality in the Reasoning Process of Language Models through Self-playing Game](improving_rationality_in_the_reasoning_process_of_language_models_through_self-p.md)
@@ -186,5 +188,7 @@ Soft Reasoning 是一种**纯推理时方法（test-time method）**，不需要
 - [\[ICML 2025\] MARGE: Improving Math Reasoning for LLMs with Guided Exploration](marge_improving_math_reasoning_for_llms_with_guided_exploration.md)
 - [\[AAAI 2026\] Efficient Thought Space Exploration Through Strategic Intervention](../../AAAI2026/llm_reasoning/efficient_thought_space_exploration_through_strategic_intervention.md)
 - [\[NeurIPS 2025\] One Token Embedding Is Enough to Deadlock Your Large Reasoning Model](../../NeurIPS2025/llm_reasoning/one_token_embedding_is_enough_to_deadlock_your_large_reasoning_model.md)
+
+</div>
 
 <!-- RELATED:END -->

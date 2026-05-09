@@ -171,6 +171,8 @@ Oral 论文，概念新颖，理论贡献扎实。但实验规模有限（DMC）
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Scalable Exploration for High-Dimensional Continuous Control via Value-Guided Flow](../../ICLR2026/reinforcement_learning/scalable_exploration_for_high-dimensional_continuous_control_via_value-guided_fl.md)
@@ -178,5 +180,7 @@ Oral 论文，概念新颖，理论贡献扎实。但实验规模有限（DMC）
 - [\[ICLR 2026\] Learning to Generate Unit Test via Adversarial Reinforcement Learning](../../ICLR2026/reinforcement_learning/learning_to_generate_unit_test_via_adversarial_reinforcement_learning.md)
 - [\[AAAI 2026\] DiffOP: Reinforcement Learning of Optimization-Based Control Policies via Implicit Policy Gradients](diffop_reinforcement_learning_of_optimization-based_control_policies_via_implici.md)
 - [\[ICLR 2026\] PolicyFlow: Policy Optimization with Continuous Normalizing Flow in Reinforcement Learning](../../ICLR2026/reinforcement_learning/policyflow_policy_optimization_with_continuous_normalizing_flow_in_reinforcement.md)
+
+</div>
 
 <!-- RELATED:END -->

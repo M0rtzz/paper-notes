@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **87** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (43)](../../ACL2026/information_retrieval/) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/) · [🤖 AAAI2026 (28)](../../AAAI2026/information_retrieval/) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/) · [📹 ICCV2025 (8)](../../ICCV2025/information_retrieval/)
+
+🔥 **高频主题：** RAG ×56 · LLM ×13 · 对抗鲁棒 ×6 · 问答 ×5 · 对齐/RLHF ×4
+
 **[A Reality Check on Context Utilisation for Retrieval-Augmented Generation](a_reality_check_on_context_utilisation_for_retrieval-augmented_generation.md)**
 
 :   提出DRUID真实世界事实验证数据集和ACU评估指标，揭示合成数据集（CounterFact、ConflictQA）夸大了上下文特征的影响，导致对LLM上下文利用能力的过度乐观评估，呼吁使用真实检索数据研究RAG。

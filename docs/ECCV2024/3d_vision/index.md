@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **172** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (252)](../../CVPR2026/3d_vision/) · [🔬 ICLR2026 (65)](../../ICLR2026/3d_vision/) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/) · [🧠 NeurIPS2025 (116)](../../NeurIPS2025/3d_vision/) · [📹 ICCV2025 (268)](../../ICCV2025/3d_vision/) · [🧪 ICML2025 (11)](../../ICML2025/3d_vision/)
+
+🔥 **高频主题：** 3D 高斯渲染 ×34 · 点云 ×20 · 扩散模型 ×20 · NeRF ×16 · Text-to-3D ×12
+
 **[3D Congealing: 3D-Aware Image Alignment in the Wild](3d_congealing_3d-aware_image_alignment_in_the_wild.md)**
 
 :   3D Congealing将一组语义相似的无标注互联网图像对齐到共享的3D canonical空间，通过结合预训练扩散模型的SDS指导获得3D形状 + DINO语义特征匹配估计位姿和坐标映射，无需模板、位姿标注或相机参数。

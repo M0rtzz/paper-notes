@@ -134,6 +134,8 @@ temporal_style 的 95% bootstrap CI 包含零，p=0.1687，不显著。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Does FLUX Already Know How to Perform Physically Plausible Image Composition?](does_flux_already_know_how_to_perform_physically_plausible_image_composition.md)
@@ -141,5 +143,7 @@ temporal_style 的 95% bootstrap CI 包含零，p=0.1687，不显著。
 - [\[ICLR 2026\] Conjuring Semantic Similarity](conjuring_semantic_similarity.md)
 - [\[CVPR 2025\] SCSA: A Plug-and-Play Semantic Continuous-Sparse Attention for Arbitrary Semantic Style Transfer](../../CVPR2025/image_generation/scsa_a_plug-and-play_semantic_continuous-sparse_attention_for_arbitrary_semantic.md)
 - [\[CVPR 2025\] Noise Diffusion for Enhancing Semantic Faithfulness in Text-to-Image Synthesis](../../CVPR2025/image_generation/noise_diffusion_for_enhancing_semantic_faithfulness_in_text-to-image_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

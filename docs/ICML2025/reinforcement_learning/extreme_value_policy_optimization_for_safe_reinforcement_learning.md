@@ -153,6 +153,8 @@ $$A'_R = \frac{\pi(a|s)}{\pi_0(a|s)} A_R, \quad C' = \frac{\pi(a|s)}{\pi_0(a|s)}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Scaling Value Iteration Networks to 5000 Layers for Extreme Long-Term Planning](scaling_value_iteration_networks_to_5000_layers_for_extreme_long-term_planning.md)
@@ -160,5 +162,7 @@ $$A'_R = \frac{\pi(a|s)}{\pi_0(a|s)} A_R, \quad C' = \frac{\pi(a|s)}{\pi_0(a|s)}
 - [\[NeurIPS 2025\] Online Optimization for Offline Safe Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/online_optimization_for_offline_safe_reinforcement_learning.md)
 - [\[ICML 2025\] Controlling Underestimation Bias in Constrained Reinforcement Learning for Safe Exploration](controlling_underestimation_bias_in_constrained_reinforcement_learning_for_safe_.md)
 - [\[NeurIPS 2025\] Boundary-to-Region Supervision for Offline Safe Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/boundary_to_region_supervision_for_offline_safe_rl.md)
+
+</div>
 
 <!-- RELATED:END -->

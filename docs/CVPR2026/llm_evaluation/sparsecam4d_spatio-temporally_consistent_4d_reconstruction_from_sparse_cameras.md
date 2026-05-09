@@ -140,6 +140,8 @@ STDF 消融（Train/Jumping 场景 LPIPS↓ / SSIM↑）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] TripCraft: A Benchmark for Spatio-Temporally Fine Grained Travel Planning](../../ACL2025/llm_evaluation/tripcraft_a_benchmark_for_spatio-temporally_fine_grained_travel_planning.md)
@@ -147,5 +149,7 @@ STDF 消融（Train/Jumping 场景 LPIPS↓ / SSIM↑）：
 - [\[CVPR 2026\] Anchoring and Rescaling Attention for Semantically Coherent Inbetweening](anchoring_and_rescaling_attention_for_semantically_coherent_inbetweening.md)
 - [\[CVPR 2025\] Practical Solutions to the Relative Pose of Three Calibrated Cameras](../../CVPR2025/llm_evaluation/practical_solutions_to_the_relative_pose_of_three_calibrated_cameras.md)
 - [\[CVPR 2025\] Towards In-the-Wild 3D Plane Reconstruction from a Single Image](../../CVPR2025/llm_evaluation/towards_in-the-wild_3d_plane_reconstruction_from_a_single_image.md)
+
+</div>
 
 <!-- RELATED:END -->

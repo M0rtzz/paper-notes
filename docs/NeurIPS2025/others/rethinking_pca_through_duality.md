@@ -152,6 +152,8 @@ PCA 算法的运行时间比较 (n=10000, d=1000, k=50):
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Federated ADMM from Bayesian Duality](../../ICLR2026/others/federated_admm_from_bayesian_duality.md)
@@ -159,5 +161,7 @@ PCA 算法的运行时间比较 (n=10000, d=1000, k=50):
 - [\[NeurIPS 2025\] Improving Decision Trees through the Lens of Parameterized Local Search](improving_decision_trees_through_the_lens_of_parameterized_local_search.md)
 - [\[NeurIPS 2025\] AutoSciDACT: Automated Scientific Discovery through Contrastive Embedding and Hypothesis Testing](autoscidact_automated_scientific_discovery_through_contrastive_embedding_and_hyp.md)
 - [\[ACL 2025\] Cooperating and Competing Through Natural Language](../../ACL2025/others/cooperating_and_competing_through_natural_language.md)
+
+</div>
 
 <!-- RELATED:END -->

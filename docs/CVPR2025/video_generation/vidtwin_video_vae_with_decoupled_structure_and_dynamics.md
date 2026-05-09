@@ -127,6 +127,8 @@ $$\mathcal{L} = \mathcal{L}_{rec} + \lambda_p \mathcal{L}_p + \lambda_{GAN} \mat
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Improved Video VAE for Latent Video Diffusion Model](improved_video_vae_for_latent_video_diffusion_model.md)
@@ -134,5 +136,7 @@ $$\mathcal{L} = \mathcal{L}_{rec} + \lambda_p \mathcal{L}_p + \lambda_{GAN} \mat
 - [\[CVPR 2025\] TokenMotion: Decoupled Motion Control via Token Disentanglement for Human-centric Video Generation](tokenmotion_decoupled_motion_control_via_token_disentanglement_for_human-centric.md)
 - [\[CVPR 2025\] MotionStone: Decoupled Motion Intensity Modulation with Diffusion Transformer for Image-to-Video Generation](motionstone_decoupled_motion_intensity_modulation_with_diffusion_transformer_for.md)
 - [\[ICCV 2025\] LeanVAE: An Ultra-Efficient Reconstruction VAE for Video Diffusion Models](../../ICCV2025/video_generation/leanvae_an_ultra-efficient_reconstruction_vae_for_video_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

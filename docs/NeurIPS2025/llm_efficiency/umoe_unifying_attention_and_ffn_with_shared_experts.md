@@ -139,6 +139,8 @@ Large 模型（1.1B dense → 3.6B MoE）：UMoE PPL 15.95 vs FFN-MoE 16.09 vs M
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Let the Experts Speak: Improving Survival Prediction & Calibration via Mixture-of-Experts Heads](let_the_experts_speak_improving_survival_prediction_calibration_via_mixture-of-e.md)
@@ -146,5 +148,7 @@ Large 模型（1.1B dense → 3.6B MoE）：UMoE PPL 15.95 vs FFN-MoE 16.09 vs M
 - [\[ICML 2025\] Mixture of Lookup Experts](../../ICML2025/llm_efficiency/mixture_of_lookup_experts.md)
 - [\[ICML 2025\] Autonomy-of-Experts Models (AoE)](../../ICML2025/llm_efficiency/autonomy-of-experts_models.md)
 - [\[NeurIPS 2025\] Scale-invariant Attention](scale-invariant_attention.md)
+
+</div>
 
 <!-- RELATED:END -->

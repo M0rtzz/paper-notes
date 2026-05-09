@@ -178,6 +178,8 @@ $$R_{\text{Boundary}} = \exp\left(-\sigma^2\left[(t_c^l - y_c^l)^2 + (t_c^r - y_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] When Thinking Drifts: Evidential Grounding for Robust Video Reasoning](../../NeurIPS2025/video_understanding/when_thinking_drifts_evidential_grounding_for_robust_video_reasoning.md)
@@ -185,5 +187,7 @@ $$R_{\text{Boundary}} = \exp\left(-\sigma^2\left[(t_c^l - y_c^l)^2 + (t_c^r - y_
 - [\[NeurIPS 2025\] TempSamp-R1: Effective Temporal Sampling with Reinforcement Fine-Tuning for Video LLMs](../../NeurIPS2025/video_understanding/tempsamp_r1_temporal_grounding.md)
 - [\[CVPR 2025\] Seq2Time: Sequential Knowledge Transfer for Video LLM Temporal Grounding](../../CVPR2025/video_understanding/seq2time_sequential_knowledge_transfer_for_video_llm_temporal_grounding.md)
 - [\[ICCV 2025\] Moment Quantization for Video Temporal Grounding](../../ICCV2025/video_understanding/moment_quantization_for_video_temporal_grounding.md)
+
+</div>
 
 <!-- RELATED:END -->

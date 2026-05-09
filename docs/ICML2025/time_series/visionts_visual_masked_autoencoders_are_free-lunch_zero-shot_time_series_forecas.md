@@ -141,6 +141,8 @@ VisionTS 在 GIFT-Eval 排行榜上同样取得与专用时序基础模型可比
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Revisiting LLMs as Zero-Shot Time-Series Forecasters: Small Noise Can Break Large Models](../../ACL2025/time_series/revisiting_llms_as_zero-shot_time_series_forecasters_small_noise_can_break_large.md)
@@ -148,5 +150,7 @@ VisionTS 在 GIFT-Eval 排行榜上同样取得与专用时序基础模型可比
 - [\[NeurIPS 2025\] Rotary Masked Autoencoders are Versatile Learners](../../NeurIPS2025/time_series/rotary_masked_autoencoders_are_versatile_learners.md)
 - [\[ICLR 2026\] Relational Transformer: Toward Zero-Shot Foundation Models for Relational Data](../../ICLR2026/time_series/relational_transformer_toward_zero-shot_foundation_models_for_relational_data.md)
 - [\[ICML 2025\] LightGTS: A Lightweight General Time Series Forecasting Model](lightgts_a_lightweight_general_time_series_forecasting_model.md)
+
+</div>
 
 <!-- RELATED:END -->

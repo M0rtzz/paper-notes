@@ -126,6 +126,8 @@ ENMP 框架包含两个核心阶段：(1) 通过 CMA-ES 进化搜索在连续潜
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] AdaRank: Adaptive Rank Pruning for Enhanced Model Merging](../../ICLR2026/object_detection/adarank_adaptive_rank_pruning_for_enhanced_model_merging.md)
@@ -133,5 +135,7 @@ ENMP 框架包含两个核心阶段：(1) 通过 CMA-ES 进化搜索在连续潜
 - [\[AAAI 2026\] T-Rex-Omni: Integrating Negative Visual Prompt in Generic Object Detection](../../AAAI2026/object_detection/t-rex-omni_integrating_negative_visual_prompt_in_generic_object_detection.md)
 - [\[ECCV 2024\] SHINE: Saliency-aware HIerarchical NEgative Ranking for Compositional Temporal Grounding](../../ECCV2024/object_detection/shine_saliency-aware_hierarchical_negative_ranking_for_compositional_temporal_gr.md)
 - [\[ECCV 2024\] Portrait4D-v2: Pseudo Multi-View Data Creates Better 4D Head Synthesizer](../../ECCV2024/object_detection/portrait4d-v2_pseudo_multi-view_data_creates_better_4d_head_synthesizer.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -125,6 +125,8 @@ SO(3) 数据集 MMD↓（×10⁻²）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] See Further When Clear: Curriculum Consistency Model](../../CVPR2025/image_generation/see_further_when_clear_curriculum_consistency_model.md)
@@ -132,5 +134,7 @@ SO(3) 数据集 MMD↓（×10⁻²）：
 - [\[NeurIPS 2025\] How to Build a Consistency Model: Learning Flow Maps via Self-Distillation](how_to_build_a_consistency_model_learning_flow_maps_via_self-distillation.md)
 - [\[NeurIPS 2025\] Riemannian Flow Matching for Brain Connectivity Matrices via Pullback Geometry](riemannian_flow_matching_for_brain_connectivity_matrices_via_pullback_geometry.md)
 - [\[CVPR 2025\] PCM: Picard Consistency Model for Fast Parallel Sampling of Diffusion Models](../../CVPR2025/image_generation/pcm_picard_consistency_model_for_fast_parallel_sampling_of_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

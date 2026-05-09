@@ -172,6 +172,8 @@ $$r_{\text{info}} = \beta \log(\mu + \max(\epsilon, \sum_i^N g(k_{\text{info}}^i
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Fine-grained Hallucination Detection and Mitigation in Long-form Question Answering](localizing_and_mitigating_errors_in_long-form_question_answering.md)
@@ -179,5 +181,7 @@ $$r_{\text{info}} = \beta \log(\mu + \max(\epsilon, \sum_i^N g(k_{\text{info}}^i
 - [\[ACL 2025\] Real-time Factuality Assessment from Adversarial Feedback](real-time_factuality_assessment_from_adversarial_feedback.md)
 - [\[ACL 2025\] Cracking the Code of Hallucination in LVLMs with Vision-aware Head Divergence](cracking_hallucination_vhd.md)
 - [\[ACL 2025\] Improving Model Factuality with Fine-grained Critique-based Evaluator](improving_model_factuality_with_fine-grained_critique-based_evaluator.md)
+
+</div>
 
 <!-- RELATED:END -->

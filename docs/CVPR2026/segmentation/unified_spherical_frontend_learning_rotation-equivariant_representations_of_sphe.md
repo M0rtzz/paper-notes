@@ -137,6 +137,8 @@ USF pipeline 包含六个阶段：(i) 将平面图像与镜头法线图（lens n
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] REL-SF4PASS: Panoramic Semantic Segmentation with REL Depth Representation and Spherical Fusion](rel-sf4pass_panoramic_semantic_segmentation_with_rel_depth_representation_and_sp.md)
@@ -144,5 +146,7 @@ USF pipeline 包含六个阶段：(i) 将平面图像与镜头法线图（lens n
 - [\[CVPR 2026\] SAP: Segment Any 4K Panorama](sap_segment_any_4k_panorama.md)
 - [\[CVPR 2026\] 3M-TI: High-Quality Mobile Thermal Imaging via Calibration-free Multi-Camera Cross-Modal Diffusion](3m-ti_high-quality_mobile_thermal_imaging_via_calibration-free_multi-camera_cros.md)
 - [\[CVPR 2026\] SPAR: Single-Pass Any-Resolution ViT for Open-Vocabulary Segmentation](spar_single-pass_any-resolution_vit_for_open-vocabulary_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

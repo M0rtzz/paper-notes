@@ -131,6 +131,8 @@ $$\mathcal{L} = \lambda_{layer\_prior} \mathcal{L}_{layer\_prior} + \lambda_{cyc
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Implicit Style-Content Separation using B-LoRA](../../ECCV2024/model_compression/implicit_style-content_separation_using_b-lora.md)
@@ -138,5 +140,7 @@ $$\mathcal{L} = \lambda_{layer\_prior} \mathcal{L}_{layer\_prior} + \lambda_{cyc
 - [\[ICCV 2025\] PLAN: Proactive Low-Rank Allocation for Continual Learning](plan_proactive_low-rank_allocation_for_continual_learning.md)
 - [\[CVPR 2025\] Style Quantization for Data-Efficient GAN Training](../../CVPR2025/model_compression/style_quantization_for_data-efficient_gan_training.md)
 - [\[ICCV 2025\] StolenLoRA: Exploring LoRA Extraction Attacks via Synthetic Data](stolenlora_exploring_lora_extraction_attacks_via_synthetic_data.md)
+
+</div>
 
 <!-- RELATED:END -->

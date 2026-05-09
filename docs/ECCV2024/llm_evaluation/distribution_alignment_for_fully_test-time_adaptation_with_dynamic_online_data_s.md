@@ -159,6 +159,8 @@ DA 损失提供稳定的优化方向（所有批次对齐到同一目标），EM
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] BATCLIP: Bimodal Online Test-Time Adaptation for CLIP](../../ICCV2025/llm_evaluation/batclip_bimodal_online_test-time_adaptation_for_clip.md)
@@ -166,5 +168,7 @@ DA 损失提供稳定的优化方向（所有批次对齐到同一目标），EM
 - [\[NeurIPS 2025\] Test-Time Adaptation by Causal Trimming](../../NeurIPS2025/llm_evaluation/test-time_adaptation_by_causal_trimming.md)
 - [\[ICML 2025\] Ranked Entropy Minimization for Continual Test-Time Adaptation](../../ICML2025/llm_evaluation/ranked_entropy_minimization_for_continual_test-time_adaptation.md)
 - [\[ECCV 2024\] Learn from the Learnt: Source-Free Active Domain Adaptation via Contrastive Sampling and Visual Persistence](learn_from_the_learnt_source-free_active_domain_adaptation_via_contrastive_sampl.md)
+
+</div>
 
 <!-- RELATED:END -->

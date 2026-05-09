@@ -184,6 +184,8 @@ $$\text{CI}_{1-\alpha}(\theta) = \frac{\hat{\theta} + \frac{z_{\alpha/2}^2}{2N}}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Position: The Right to AI](the_right_to_ai.md)
@@ -191,5 +193,7 @@ $$\text{CI}_{1-\alpha}(\theta) = \frac{\hat{\theta} + \frac{z_{\alpha/2}^2}{2N}}
 - [\[ICML 2025\] RLTHF: Targeted Human Feedback for LLM Alignment](rlthf_targeted_human_feedback_for_llm_alignment.md)
 - [\[AAAI 2026\] Preference is More Than Comparisons: Rethinking Dueling Bandits with Augmented Human Feedback](../../AAAI2026/recommender/preference_is_more_than_comparisons_rethinking_dueling_bandits_with_augmented_hu.md)
 - [\[NeurIPS 2025\] Validating LLM-as-a-Judge Systems under Rating Indeterminacy](../../NeurIPS2025/recommender/validating_llm-as-a-judge_systems_under_rating_indeterminacy.md)
+
+</div>
 
 <!-- RELATED:END -->

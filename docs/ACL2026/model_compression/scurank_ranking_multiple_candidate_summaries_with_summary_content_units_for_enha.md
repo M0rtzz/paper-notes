@@ -126,6 +126,8 @@ SCURank 三步流程：(1) SCU 提取——用 gpt-4o-mini 从每个候选摘要
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Calibrated Speculative Decoding: Frequency-Guided Candidate Selection for Efficient Inference](calibrated_speculative_decoding_frequency-guided_candidate_selection_for_efficie.md)
@@ -133,5 +135,7 @@ SCURank 三步流程：(1) SCU 提取——用 gpt-4o-mini 从每个候选摘要
 - [\[ICCV 2025\] Local Dense Logit Relations for Enhanced Knowledge Distillation](../../ICCV2025/model_compression/local_dense_logit_relations_for_enhanced_knowledge_distillation.md)
 - [\[ICCV 2025\] DuoLoRA: Cycle-Consistent and Rank-Disentangled Content-Style Personalization](../../ICCV2025/model_compression/duolora_cycle-consistent_and_rank-disentangled_content-style_personalization.md)
 - [\[CVPR 2025\] Embracing Collaboration Over Competition: Condensing Multiple Prompts for Visual In-Context Learning](../../CVPR2025/model_compression/embracing_collaboration_over_competition_condensing_multiple_prompts_for_visual_.md)
+
+</div>
 
 <!-- RELATED:END -->

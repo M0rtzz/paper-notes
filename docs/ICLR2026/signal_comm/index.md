@@ -10,6 +10,8 @@ description: >-
 
 **🔬 ICLR2026** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/signal_comm/) · [📷 CVPR2026 (5)](../../CVPR2026/signal_comm/) · [🤖 AAAI2026 (3)](../../AAAI2026/signal_comm/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/signal_comm/) · [📹 ICCV2025 (3)](../../ICCV2025/signal_comm/) · [🧪 ICML2025 (6)](../../ICML2025/signal_comm/)
+
 **[Deterministic Bounds and Random Estimates of Metric Tensors on Neuromanifolds](deterministic_bounds_and_random_estimates_of_metric_tensors_on_neuromanifolds.md)**
 
 :   本文通过分析低维概率分布核空间的Fisher信息矩阵(FIM)谱性质，为神经网络参数空间(神经流形)上的度量张量建立了确定性上下界，并基于Hutchinson迹估计器引入了一族有界方差的无偏随机估计方法，仅需单次反向传播即可高效计算。

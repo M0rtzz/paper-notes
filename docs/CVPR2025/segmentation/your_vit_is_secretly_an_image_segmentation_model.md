@@ -119,6 +119,8 @@ EoMT 的输入为图像经 patch embedding 后的 token 序列。前 $L_1$ 个 V
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] VidEoMT: Your ViT is Secretly Also a Video Segmentation Model](../../CVPR2026/segmentation/videomt_encoder_only_video_segmentation.md)
@@ -126,5 +128,7 @@ EoMT 的输入为图像经 patch embedding 后的 token 序列。前 $L_1$ 个 V
 - [\[ICML 2025\] FeatSharp: Your Vision Model Features, Sharper](../../ICML2025/segmentation/featsharp_your_vision_model_features_sharper.md)
 - [\[CVPR 2025\] DINOv2 Meets Text: A Unified Framework for Image- and Pixel-Level Vision-Language Alignment](dinov2_meets_text_a_unified_framework_for_image-_and_pixel-level_vision-language.md)
 - [\[CVPR 2025\] 2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification](2dmamba_efficient_state_space_model_for_image_representation_with_applications_o.md)
+
+</div>
 
 <!-- RELATED:END -->

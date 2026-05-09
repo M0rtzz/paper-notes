@@ -170,6 +170,8 @@ AI/ML for Social Impact (AISI) 领域近十年发展迅速，已有 AAAI Special
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] SOTOPIA-Ω: Dynamic Strategy Injection Learning and Social Instruction Following Evaluation for Social Agents](../../ACL2025/others/sotopia-ensuremathomega_dynamic_strategy_injection_learning_and_social_instructi.md)
@@ -177,5 +179,7 @@ AI/ML for Social Impact (AISI) 领域近十年发展迅速，已有 AAAI Special
 - [\[NeurIPS 2025\] Emergency Response Measures for Catastrophic AI Risk](emergency_response_measures_for_catastrophic_ai_risk.md)
 - [\[NeurIPS 2025\] Evaluating In Silico Creativity: An Expert Review of AI Chess Compositions](evaluating_in_silico_creativity_an_expert_review_of_ai_chess_compositions.md)
 - [\[ACL 2025\] Mapping the Podcast Ecosystem with the Structured Podcast Research Corpus](../../ACL2025/others/mapping_the_podcast_ecosystem_with_the_structured_podcast_research_corpus.md)
+
+</div>
 
 <!-- RELATED:END -->

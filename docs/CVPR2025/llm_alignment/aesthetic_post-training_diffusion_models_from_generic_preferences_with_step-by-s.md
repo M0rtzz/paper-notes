@@ -142,6 +142,8 @@ $\mathcal{L}(\theta) = -\mathbb{E}_{t, c, x_{t-1}^w, x_{t-1}^l} \left[ \log\sigm
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Calibrated Multi-Preference Optimization for Aligning Diffusion Models](capo_multi_preference.md)
@@ -149,5 +151,7 @@ $\mathcal{L}(\theta) = -\mathbb{E}_{t, c, x_{t-1}^w, x_{t-1}^l} \left[ \log\sigm
 - [\[CVPR 2025\] Do We Really Need Curated Malicious Data for Safety Alignment in Multi-Modal LLMs?](do_we_really_need_curated_malicious_data_for_safety_alignment_in_multi-modal_lar.md)
 - [\[CVPR 2025\] InPO: Inversion Preference Optimization with Reparametrized DDIM for Efficient Diffusion Model Alignment](inpo_inversion_preference_optimization_diffusion_alignment.md)
 - [\[CVPR 2025\] Debiasing Multimodal Large Language Models via Noise-Aware Preference Optimization](debiasing_multimodal_large_language_models_via_noise-aware_preference_optimizati.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -145,6 +145,8 @@ MergePrint 采用两阶段优化流程：**输入优化（OptI）** → **参数
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Length Controlled Generation for Black-box LLMs](length_controlled_generation_for_black-box_llms.md)
@@ -152,5 +154,7 @@ MergePrint 采用两阶段优化流程：**输入优化（OptI）** → **参数
 - [\[ACL 2025\] Self-Instructed Derived Prompt Generation Meets In-Context Learning: Unlocking New Potential of Black-Box LLMs](self-instructed_derived_prompt_generation_meets_in-context_learning_unlocking_ne.md)
 - [\[ICML 2025\] Towards Universal Offline Black-Box Optimization via Learning Language Model Embeddings](../../ICML2025/llm_nlp/towards_universal_offline_black-box_optimization_via_learning_language_model_emb.md)
 - [\[NeurIPS 2025\] PRESTO: Preimage-Informed Instruction Optimization for Prompting Black-Box LLMs](../../NeurIPS2025/llm_nlp/presto_preimage-informed_instruction_optimization_for_prompting_black-box_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

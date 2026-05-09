@@ -129,6 +129,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] SiLC: Improving Vision Language Pretraining with Self-Distillation](silc_improving_vision_language_pretraining_with_self-distillation.md)
@@ -136,5 +138,7 @@ tags:
 - [\[ECCV 2024\] Simple Unsupervised Knowledge Distillation With Space Similarity](simple_unsupervised_knowledge_distillation_with_space_similarity.md)
 - [\[ECCV 2024\] Improving Zero-Shot Generalization for CLIP with Variational Adapter](improving_zero-shot_generalization_for_clip_with_variational_adapter.md)
 - [\[ECCV 2024\] Leveraging Hierarchical Feature Sharing for Efficient Dataset Condensation](leveraging_hierarchical_feature_sharing_for_efficient_dataset_condensation.md)
+
+</div>
 
 <!-- RELATED:END -->

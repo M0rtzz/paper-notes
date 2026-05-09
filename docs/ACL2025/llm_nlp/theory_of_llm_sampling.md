@@ -130,6 +130,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Can Graph Descriptive Order Affect Solving Graph Problems with LLMs?](graph_descriptive_order_llm.md)
@@ -137,5 +139,7 @@ tags:
 - [\[ACL 2025\] Brevity is the soul of sustainability: Characterizing LLM response lengths](brevity_is_the_soul_of_sustainability_characterizing_llm_response_lengths.md)
 - [\[ACL 2025\] Theory of Mind in Large Language Models: Assessment and Enhancement](theory_of_mind_llm.md)
 - [\[ACL 2025\] Culture is Not Trivia: Sociocultural Theory for Cultural NLP](culture_is_not_trivia_sociocultural_theory_for_cultural_nlp.md)
+
+</div>
 
 <!-- RELATED:END -->

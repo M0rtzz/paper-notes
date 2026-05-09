@@ -120,6 +120,8 @@ UniCAC 基准的构建包含三个阶段：(1) 通过扩展的自动光学设计
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] UniCAC: Towards Universal Computational Aberration Correction in Photographic Cameras](unicac_universal_computational_aberration_correction.md)
@@ -127,5 +129,7 @@ UniCAC 基准的构建包含三个阶段：(1) 通过扩展的自动光学设计
 - [\[CVPR 2026\] Toward Real-world Infrared Image Super-Resolution: A Unified Autoregressive Framework and Benchmark Dataset](toward_real-world_infrared_image_super-resolution_a_unified_autoregressive_frame.md)
 - [\[CVPR 2026\] DRFusion: Degradation-Robust Fusion via Degradation-Aware Diffusion Framework](drfusion_degradation_robust_fusion_via_degradation_aware_diffusion_framework.md)
 - [\[CVPR 2026\] UCAN: Unified Convolutional Attention Network for Expansive Receptive Fields in Lightweight Super-Resolution](ucan_unified_convolutional_attention_lightweight_sr.md)
+
+</div>
 
 <!-- RELATED:END -->

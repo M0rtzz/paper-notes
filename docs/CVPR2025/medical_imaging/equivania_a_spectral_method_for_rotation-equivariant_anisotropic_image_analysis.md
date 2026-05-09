@@ -116,6 +116,8 @@ EquivAnIA 分三步进行各向异性分析：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Transformer-Based Multi-Region Segmentation and Radiomic Analysis of HR-pQCT Imaging for Osteoporosis Classification](transformer-based_multi-region_segmentation_and_radiomic_analysis_of_hr-pqct_ima.md)
@@ -123,5 +125,7 @@ EquivAnIA 分三步进行各向异性分析：
 - [\[CVPR 2025\] Semantic Class Distribution Learning for Debiasing Semi-Supervised Medical Image Segmentation](semantic_class_distribution_learning_for_debiasing_semi-supervised_medical_image.md)
 - [\[CVPR 2025\] GIIM: Graph-based Learning of Inter- and Intra-view Dependencies for Multi-view Medical Image Diagnosis](giim_graph-based_learning_of_inter-_and_intra-view_dependencies_for_multi-view_m.md)
 - [\[CVPR 2025\] Nyxus: A Next Generation Image Feature Extraction Library for the Big Data and AI Era](nyxus_a_next_generation_image_feature_extraction_library_for_the_big_data_and_ai.md)
+
+</div>
 
 <!-- RELATED:END -->

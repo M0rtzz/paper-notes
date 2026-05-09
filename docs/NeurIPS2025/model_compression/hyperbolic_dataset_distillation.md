@@ -123,6 +123,8 @@ DM+HDD 同样有效：SVHN IPC=1 从 21.9% → 25.0% (+3.1%)，CIFAR-10 IPC=1 �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Beyond Random: Automatic Inner-Loop Optimization in Dataset Distillation](beyond_random_automatic_inner-loop_optimization_in_dataset_distillation.md)
@@ -130,5 +132,7 @@ DM+HDD 同样有效：SVHN IPC=1 从 21.9% → 25.0% (+3.1%)，CIFAR-10 IPC=1 �
 - [\[NeurIPS 2025\] Rectifying Soft-Label Entangled Bias in Long-Tailed Dataset Distillation](rectifying_soft-label_entangled_bias_in_long-tailed_dataset_distillation.md)
 - [\[ICCV 2025\] Dataset Distillation via the Wasserstein Metric](../../ICCV2025/model_compression/dataset_distillation_via_the_wasserstein_metric.md)
 - [\[ICLR 2026\] Understanding Dataset Distillation via Spectral Filtering](../../ICLR2026/model_compression/understanding_dataset_distillation_via_spectral_filtering.md)
+
+</div>
 
 <!-- RELATED:END -->

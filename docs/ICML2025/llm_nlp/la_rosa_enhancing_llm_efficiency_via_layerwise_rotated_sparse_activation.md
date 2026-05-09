@@ -117,6 +117,8 @@ LaRoSA 方法优雅且实用，通过正交旋转巧妙解决了非 ReLU LLM 的
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models](../../ACL2025/llm_nlp/salience_sparse_fine_tuning.md)
@@ -124,5 +126,7 @@ LaRoSA 方法优雅且实用，通过正交旋转巧妙解决了非 ReLU LLM 的
 - [\[ICML 2025\] QuEst: Enhancing Estimates of Quantile-Based Distributional Measures Using Model Predictions](quest_enhancing_estimates_of_quantile-based_distributional_measures_using_model_.md)
 - [\[ACL 2025\] PlanGenLLMs: A Modern Survey of LLM Planning Capabilities](../../ACL2025/llm_nlp/plangenllms_planning_survey.md)
 - [\[NeurIPS 2025\] Detecting High-Stakes Interactions with Activation Probes](../../NeurIPS2025/llm_nlp/detecting_high-stakes_interactions_with_activation_probes.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -130,6 +130,8 @@ Segment then Splat 的流程分为四个阶段：（1）鲁棒目标跟踪模块
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] JOPP-3D: Joint Open Vocabulary Semantic Segmentation on Point Clouds and Panoramas](../../CVPR2025/3d_vision/jopp-3d_joint_open_vocabulary_semantic_segmentation_on_point_clouds_and_panorama.md)
@@ -137,5 +139,7 @@ Segment then Splat 的流程分为四个阶段：（1）鲁棒目标跟踪模块
 - [\[CVPR 2026\] OnlinePG: Online Open-Vocabulary Panoptic Mapping with 3D Gaussian Splatting](../../CVPR2026/3d_vision/onlinepg_online_open-vocabulary_panoptic_mapping_with_3d_gaussian_splatting.md)
 - [\[ECCV 2024\] Open-Vocabulary 3D Semantic Segmentation with Text-to-Image Diffusion Models](../../ECCV2024/3d_vision/open-vocabulary_3d_semantic_segmentation_with_text-to-image_diffusion_models.md)
 - [\[CVPR 2025\] Reconstructing In-the-Wild Open-Vocabulary Human-Object Interactions](../../CVPR2025/3d_vision/reconstructing_in-the-wild_open-vocabulary_human-object_interactions.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -138,6 +138,8 @@ $$\min_\pi \mathbb{E}_{s \sim d_{\pi_0}}\left[D_{KL}\left(\frac{1}{Z(s)} \odot \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Scalable Fingerprinting of Large Language Models](scalable_fingerprinting_of_large_language_models.md)
@@ -145,5 +147,7 @@ $$\min_\pi \mathbb{E}_{s \sim d_{\pi_0}}\left[D_{KL}\left(\frac{1}{Z(s)} \odot \
 - [\[NeurIPS 2025\] Leveraging Importance Sampling to Detach Alignment Modules from Large Language Models](leveraging_importance_sampling_to_detach_alignment_modules_from_large_language_m.md)
 - [\[NeurIPS 2025\] Learning the Wrong Lessons: Syntactic-Domain Spurious Correlations in Language Models](learning_the_wrong_lessons_syntactic-domain_spurious_correlations_in_language_mo.md)
 - [\[NeurIPS 2025\] Scaling Embedding Layers in Language Models](scaling_embedding_layers_in_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

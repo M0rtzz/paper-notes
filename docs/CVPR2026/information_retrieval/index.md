@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (43)](../../ACL2026/information_retrieval/) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/) · [🤖 AAAI2026 (28)](../../AAAI2026/information_retrieval/) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/) · [📹 ICCV2025 (8)](../../ICCV2025/information_retrieval/) · [🧪 ICML2025 (5)](../../ICML2025/information_retrieval/)
+
+🔥 **高频主题：** 多模态 ×5 · RAG ×2
+
 **[Beyond Global Similarity: Towards Fine-Grained, Multi-Condition Multimodal Retrieval](beyond_global_similarity_towards_fine-grained_multi-condition_multimodal_retriev.md)**
 
 :   提出MCMR（Multi-Conditional Multimodal Retrieval）大规模基准，通过双证据设计（部分属性仅可从图像推断、部分仅可从文本获取）确保检索任务不可被单模态解决，系统评估5个检索器和7个MLLM重排器，揭示模态不对称性和细粒度推理差距。

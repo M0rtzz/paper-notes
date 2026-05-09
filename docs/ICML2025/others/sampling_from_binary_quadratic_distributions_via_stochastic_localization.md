@@ -142,6 +142,8 @@ $$P_q\left[\left|\frac{1}{n}\sum_{i=1}^n X_i - \mathbb{E}_{\nu_{\beta,h}}[X]\rig
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Principled Algorithms for Optimizing Generalized Metrics in Binary Classification](principled_algorithms_for_optimizing_generalized_metrics_in_binary_classificatio.md)
@@ -149,5 +151,7 @@ $$P_q\left[\left|\frac{1}{n}\sum_{i=1}^n X_i - \mathbb{E}_{\nu_{\beta,h}}[X]\rig
 - [\[AAAI 2026\] Provably Data-Driven Projection Method for Quadratic Programming](../../AAAI2026/others/provably_data-driven_projection_method_for_quadratic_programming.md)
 - [\[CVPR 2025\] TAET: Two-Stage Adversarial Equalization Training on Long-Tailed Distributions](../../CVPR2025/others/taet_two-stage_adversarial_equalization_training_on_long-tailed_distributions.md)
 - [\[CVPR 2025\] Less is More: Efficient Model Merging with Binary Task Switch](../../CVPR2025/others/less_is_more_efficient_model_merging_with_binary_task_switch.md)
+
+</div>
 
 <!-- RELATED:END -->

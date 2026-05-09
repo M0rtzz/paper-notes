@@ -115,6 +115,8 @@ NCE 对比损失（温度 τ=0.1）在 50 万+语音段上训练，数据来自 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Contrastive Learning on LLM Back Generation Treebank for Cross-domain Constituency Parsing](llm_back_gen_treebank.md)
@@ -122,5 +124,7 @@ NCE 对比损失（温度 τ=0.1）在 50 万+语音段上训练，数据来自 
 - [\[ICML 2025\] Discovering Global False Negatives On the Fly for Self-supervised Contrastive Learning](../../ICML2025/self_supervised/discovering_global_false_negatives_on_the_fly_for_self-supervised_contrastive_le.md)
 - [\[ICML 2025\] Collapse-Proof Non-Contrastive Self-Supervised Learning](../../ICML2025/self_supervised/collapse-proof_non-contrastive_self-supervised_learning.md)
 - [\[ACL 2025\] Improving Low-Resource Morphological Inflection via Self-Supervised Objectives](improving_low-resource_morphological_inflection_via_self-supervised_objectives.md)
+
+</div>
 
 <!-- RELATED:END -->

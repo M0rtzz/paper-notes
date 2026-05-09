@@ -149,6 +149,8 @@ NeRF Synthetic数据集（8个输入视图）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] SC4D: Sparse-Controlled Video-to-4D Generation and Motion Transfer](sc4d_sparse-controlled_video-to-4d_generation_and_motion_transfer.md)
@@ -156,5 +158,7 @@ NeRF Synthetic数据集（8个输入视图）：
 - [\[ECCV 2024\] GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation](grm_large_gaussian_reconstruction_model_for_efficient_3d_reconstruction_and_gene.md)
 - [\[ECCV 2024\] SGS-SLAM: Semantic Gaussian Splatting for Neural Dense SLAM](sgs-slam_semantic_gaussian_splatting_for_neural_dense_slam.md)
 - [\[ECCV 2024\] GS-LRM: Large Reconstruction Model for 3D Gaussian Splatting](gs-lrm_large_reconstruction_model_for_3d_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

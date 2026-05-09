@@ -113,6 +113,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Layered Image Vectorization via Semantic Simplification](layered_image_vectorization_via_semantic_simplification.md)
@@ -120,5 +122,7 @@ tags:
 - [\[ACL 2025\] Assigning Distinct Roles to Quantized and Low-Rank Matrices Toward Optimal Weight Decomposition](../../ACL2025/model_compression/assigning_distinct_roles_to_quantized_and_low-rank_matrices_toward_optimal_weigh.md)
 - [\[CVPR 2025\] MobileMamba: Lightweight Multi-Receptive Visual Mamba Network](mobilemamba_lightweight_multi-receptive_visual_mamba_network.md)
 - [\[CVPR 2025\] PrunNet: Learning Compatible Multi-Prize Subnetworks for Asymmetric Retrieval](learning_compatible_multi-prize_subnetworks_for_asymmetric_retrieval.md)
+
+</div>
 
 <!-- RELATED:END -->

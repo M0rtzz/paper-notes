@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **22** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/llm_alignment/) · [📷 CVPR2026 (12)](../../CVPR2026/llm_alignment/) · [🔬 ICLR2026 (42)](../../ICLR2026/llm_alignment/) · [🤖 AAAI2026 (20)](../../AAAI2026/llm_alignment/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_alignment/) · [📹 ICCV2025 (2)](../../ICCV2025/llm_alignment/)
+
+🔥 **高频主题：** 对齐/RLHF ×18 · 扩散模型 ×7 · 多模态 ×5 · LLM ×4 · 语义分割 ×3
+
 **[Aesthetic Post-Training Diffusion Models from Generic Preferences with Step-by-step Preference Optimization](aesthetic_post-training_diffusion_models_from_generic_preferences_with_step-by-s.md)**
 
 :   本文提出 Step-by-step Preference Optimization（SPO），在每个去噪步中从同一噪声潜变量采样多个候选，用 step-aware 偏好模型选择 win/lose 对来指导扩散模型微调，从通用偏好数据中隐式蒸馏美学信息，在 SD-1.5 和 SDXL 上显著提升美学质量且收敛速度远快于 DPO。

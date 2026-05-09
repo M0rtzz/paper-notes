@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **38** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (36)](../../ACL2026/llm_nlp/) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/) · [🔬 ICLR2026 (46)](../../ICLR2026/llm_nlp/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_nlp/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_nlp/) · [🧪 ICML2025 (28)](../../ICML2025/llm_nlp/)
+
+🔥 **高频主题：** LLM ×17 · 推理 ×7 · 对抗鲁棒 ×2 · 对齐/RLHF ×2 · 少样本学习 ×2
+
 **[A Content-Preserving Secure Linguistic Steganography](a_content-preserving_secure_linguistic_steganography.md)**
 
 :   提出首个内容保持型语言隐写术范式CLstega，通过微调掩码语言模型（MLM）来可控地变换预测分布，将秘密信息嵌入到不做任何修改的原始文本中，实现了100%提取成功率和近乎完美的安全性（隐写分析检测准确率接近随机猜测的0.5）。

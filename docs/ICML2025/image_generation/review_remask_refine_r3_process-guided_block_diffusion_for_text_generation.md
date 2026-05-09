@@ -156,6 +156,8 @@ $$P_R(S_b) = p_{\min} + (1 - p_{\min}) \cdot \frac{q_b - \min_{b' \in W} q_{b'}}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] TeRA: Rethinking Text-guided Realistic 3D Avatar Generation](../../ICCV2025/image_generation/tera_rethinking_text-guided_realistic_3d_avatar_generation.md)
@@ -163,5 +165,7 @@ $$P_R(S_b) = p_{\min} + (1 - p_{\min}) \cdot \frac{q_b - \min_{b' \in W} q_{b'}}
 - [\[ICLR 2026\] DiffusionNFT: Online Diffusion Reinforcement with Forward Process](../../ICLR2026/image_generation/diffusionnft_online_diffusion_reinforcement_with_forward_process.md)
 - [\[ICCV 2025\] Rethink Sparse Signals for Pose-guided Text-to-Image Generation](../../ICCV2025/image_generation/rethink_sparse_signals_for_pose-guided_text-to-image_generation.md)
 - [\[ECCV 2024\] Local Action-Guided Motion Diffusion Model for Text-to-Motion Generation](../../ECCV2024/image_generation/local_action-guided_motion_diffusion_model_for_text-to-motion_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

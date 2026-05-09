@@ -127,6 +127,8 @@ POLISH++ F₁ 相比 CLEAN 提升 **158%**（0.2750→0.7107），相比 POLISH 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] POLISH'ing the Sky: Wide-Field and High-Dynamic Range Interferometric Image Reconstruction](../../CVPR2026/image_restoration/polishing_the_sky_wide-field_and_high-dynamic_range_interferometric_image_recons.md)
@@ -134,5 +136,7 @@ POLISH++ F₁ 相比 CLEAN 提升 **158%**（0.2750→0.7107），相比 POLISH 
 - [\[CVPR 2025\] Augmenting Perceptual Super-Resolution via Image Quality Predictors](augmenting_perceptual_super-resolution_via_image_quality_predictors.md)
 - [\[CVPR 2025\] PIDSR: Complementary Polarized Image Demosaicing and Super-Resolution](pidsr_complementary_polarized_image_demosaicing_and_super-resolution.md)
 - [\[CVPR 2025\] DiffFNO: Diffusion Fourier Neural Operator](difffno_diffusion_fourier_neural_operator.md)
+
+</div>
 
 <!-- RELATED:END -->

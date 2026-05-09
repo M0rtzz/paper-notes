@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **252** 篇论文解读
 
+📌 **同领域跨会议浏览：** [🔬 ICLR2026 (65)](../../ICLR2026/3d_vision/) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/) · [🧠 NeurIPS2025 (116)](../../NeurIPS2025/3d_vision/) · [📹 ICCV2025 (268)](../../ICCV2025/3d_vision/) · [🧪 ICML2025 (11)](../../ICML2025/3d_vision/) · [💬 ACL2025 (1)](../../ACL2025/3d_vision/)
+
+🔥 **高频主题：** 3D 高斯渲染 ×48 · 三维重建 ×24 · 动态场景 ×22 · 点云 ×18 · 少样本学习 ×13
+
 **[3D-Fixer: Coarse-to-Fine In-place Completion for 3D Scenes from a Single Image](3d-fixer_coarse-to-fine_in-place_completion_for_3d_scenes_from_a_single_image.md)**
 
 :   提出"就地补全"（in-place completion）新范式，将预训练物体级生成先验扩展到场景级，直接在原始位置对碎片化几何进行补全，无需显式位姿对齐，同时构建110K规模场景级数据集 ARSG-110K，大幅超越 MIDI 和 Gen3DSR 等基线。

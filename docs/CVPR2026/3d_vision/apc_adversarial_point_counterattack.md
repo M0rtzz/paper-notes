@@ -124,6 +124,8 @@ APC 是一个轻量级的编码器-解码器架构。编码器由三个模块组
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] 3D-ANC: Adaptive Neural Collapse for Robust 3D Point Cloud Recognition](../../AAAI2026/3d_vision/3d-anc_adaptive_neural_collapse_for_robust_3d_point_cloud_re.md)
@@ -131,5 +133,7 @@ APC 是一个轻量级的编码器-解码器架构。编码器由三个模块组
 - [\[ICCV 2025\] TurboReg: TurboClique for Robust and Efficient Point Cloud Registration](../../ICCV2025/3d_vision/turboreg_turboclique_for_robust_and_efficient_point_cloud_registration.md)
 - [\[ICCV 2025\] Efficient Spiking Point Mamba for Point Cloud Analysis](../../ICCV2025/3d_vision/efficient_spiking_point_mamba_for_point_cloud_analysis.md)
 - [\[CVPR 2026\] AnyPcc: Compressing Any Point Cloud with a Single Universal Model](anypcc_compressing_any_point_cloud_with_a_single_universal_model.md)
+
+</div>
 
 <!-- RELATED:END -->

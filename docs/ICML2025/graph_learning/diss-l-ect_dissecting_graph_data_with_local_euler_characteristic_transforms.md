@@ -145,6 +145,8 @@ $$d_{\text{ECT}}(X, Y) := \inf_{\rho \in \text{SO}(n)} \|\text{ECT}(X) - \text{E
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Does Graph Prompt Work? A Data Operation Perspective with Theoretical Analysis](does_graph_prompt_work_a_data_operation_perspective_with_theoretical_analysis.md)
@@ -152,5 +154,7 @@ $$d_{\text{ECT}}(X, Y) := \inf_{\rho \in \text{SO}(n)} \|\text{ECT}(X) - \text{E
 - [\[NeurIPS 2025\] Principled Data Augmentation for Learning to Solve Quadratic Programming Problems](../../NeurIPS2025/graph_learning/principled_data_augmentation_for_learning_to_solve_quadratic_programming_problem.md)
 - [\[AAAI 2026\] Self-Correction Distillation for Structured Data Question Answering](../../AAAI2026/graph_learning/self-correction_distillation_for_structured_data_question_answering.md)
 - [\[AAAI 2026\] Format as a Prior: Quantifying and Analyzing Bias in LLMs for Heterogeneous Data](../../AAAI2026/graph_learning/format_as_a_prior_quantifying_and_analyzing_bias_in_llms_for_heterogeneous_data.md)
+
+</div>
 
 <!-- RELATED:END -->

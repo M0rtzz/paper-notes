@@ -123,6 +123,8 @@ ADASAP 比 SDD-10 快 45%（节省 14 小时），PCG 因内存不足无法运�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Streaming Generated Gaussian Process Experts for Online Learning and Control: Extended Version](../../AAAI2026/llm_evaluation/streaming_generated_gaussian_process_experts_for_online_learning_and_control_ext.md)
@@ -130,5 +132,7 @@ ADASAP 比 SDD-10 快 45%（节省 14 小时），PCG 因内存不足无法运�
 - [\[ACL 2025\] MisMatched: A Benchmark for Scientific Natural Language Inference](../../ACL2025/llm_evaluation/a_mismatched_benchmark_for_scientific_natural_language_inference.md)
 - [\[ICML 2025\] Improving Generalization with Flat Hilbert Bayesian Inference](../../ICML2025/llm_evaluation/improving_generalization_with_flat_hilbert_bayesian_inference.md)
 - [\[ICML 2025\] Unlocking Post-hoc Dataset Inference with Synthetic Data](../../ICML2025/llm_evaluation/unlocking_post-hoc_dataset_inference_with_synthetic_data.md)
+
+</div>
 
 <!-- RELATED:END -->

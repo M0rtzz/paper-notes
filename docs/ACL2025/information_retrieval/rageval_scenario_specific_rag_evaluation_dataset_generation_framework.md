@@ -133,6 +133,8 @@ RAGEval 是一个评估框架，不涉及模型训练。框架中的文档生成
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] MT-RAIG: Novel Benchmark and Evaluation Framework for Retrieval-Augmented Insight Generation over Multiple Tables](mt-raig_novel_benchmark_and_evaluation_framework_for_retrieval-augmented_insight.md)
@@ -140,5 +142,7 @@ RAGEval 是一个评估框架，不涉及模型训练。框架中的文档生成
 - [\[ACL 2025\] Unanswerability Evaluation for Retrieval Augmented Generation](unanswerability_evaluation_for_retrieval_augmented_generation.md)
 - [\[ACL 2025\] GaRAGe: A Benchmark with Grounding Annotations for RAG Evaluation](garage_a_benchmark_with_grounding_annotations_for_rag_evaluation.md)
 - [\[ACL 2025\] SGIC: A Self-Guided Iterative Calibration Framework for RAG](sgic_a_self-guided_iterative_calibration_framework_for_rag.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -157,6 +157,8 @@ $$L(\lambda, \epsilon) = L_0(\epsilon) + \lambda L_1(\epsilon)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Symmetry-Aware GFlowNets](symmetry-aware_gflownets.md)
@@ -164,5 +166,7 @@ $$L(\lambda, \epsilon) = L_0(\epsilon) + \lambda L_1(\epsilon)$$
 - [\[ICML 2025\] Understanding Mode Connectivity via Parameter Space Symmetry](understanding_mode_connectivity_via_parameter_space_symmetry.md)
 - [\[ACL 2025\] Length-Induced Embedding Collapse in PLM-based Models](../../ACL2025/others/length-induced_embedding_collapse_in_plm-based_models.md)
 - [\[ICML 2025\] Sparse Training from Random Initialization: Aligning Lottery Ticket Masks using Weight Symmetry](sparse_training_from_random_initialization_aligning_lottery_ticket_masks_using_w.md)
+
+</div>
 
 <!-- RELATED:END -->

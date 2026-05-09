@@ -148,6 +148,8 @@ $$\mathcal{L}_{\text{align}}(\theta) = \mathbb{E}\left[\mathcal{L}_{\text{CE}}(f
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Blind Strong Gravitational Lensing Inversion: Joint Inference of Source and Lens Mass with Score-Based Models](blind_strong_gravitational_lensing_inversion_joint_inference_of_source_and_lens_.md)
@@ -155,5 +157,7 @@ $$\mathcal{L}_{\text{align}}(\theta) = \mathbb{E}\left[\mathcal{L}_{\text{CE}}(f
 - [\[NeurIPS 2025\] What We Don't C: Manifold Disentanglement for Structured Discovery](what_we_dont_c_manifold_disentanglement_for_structured_discovery.md)
 - [\[NeurIPS 2025\] Enhancing Diffusion Model Guidance through Calibration and Regularization](enhancing_diffusion_model_guidance_through_calibration_and_regularization.md)
 - [\[ECCV 2024\] ReNoise: Real Image Inversion Through Iterative Noising](../../ECCV2024/image_generation/renoise_real_image_inversion_through_iterative_noising.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2026** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (5)](../../CVPR2026/signal_comm/) · [🔬 ICLR2026 (8)](../../ICLR2026/signal_comm/) · [🤖 AAAI2026 (3)](../../AAAI2026/signal_comm/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/signal_comm/) · [📹 ICCV2025 (3)](../../ICCV2025/signal_comm/) · [🧪 ICML2025 (6)](../../ICML2025/signal_comm/)
+
 **[PolicyLLM: Towards Excellent Comprehension of Public Policy for Large Language Models](policyllm_towards_excellent_comprehension_of_public_policy_for_large_language_mo.md)**
 
 :   本文提出 PolicyBench（21K 题的中美跨体制政策理解基准）和 PolicyMoE（基于认知层次的混合专家模型），系统评估 11 个 SOTA LLM 在政策记忆/理解/应用三层次上的能力，发现模型在结构化推理上表现好但在抽象政策概念上仍然薄弱。

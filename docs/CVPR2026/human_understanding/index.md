@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **61** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/human_understanding/) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/) · [🤖 AAAI2026 (16)](../../AAAI2026/human_understanding/) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/human_understanding/) · [📹 ICCV2025 (49)](../../ICCV2025/human_understanding/) · [🧪 ICML2025 (2)](../../ICML2025/human_understanding/)
+
+🔥 **高频主题：** 人体姿态 ×9 · 人脸/视线 ×5 · 多模态 ×5 · 虚拟人 ×4 · 对齐/RLHF ×3
+
 **[A Two-Stage Dual-Modality Model for Facial Expression Recognition](a_two_stage_dual_modality_model_for_facial_expression_recognition.md)**
 
 :   提出两阶段双模态面部表情识别框架：Stage I 通过填充感知增强和训练期 MoE 头在外部数据集上适配 DINOv2 编码器；Stage II 通过多尺度面部裁剪、Wav2Vec 2.0 音频特征提取和门控融合实现帧级音视觉表情分类，在 ABAW 2026 竞赛中取得 0.5368 Macro-F1。

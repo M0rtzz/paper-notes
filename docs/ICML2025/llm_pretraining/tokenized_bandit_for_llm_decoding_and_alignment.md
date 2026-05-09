@@ -190,6 +190,8 @@ $$|u(x_t, \mathbf{y}:\tau) - u(x_t, \mathbf{z}:\tau)| \leq |u(x_t, \mathbf{y}) -
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Evaluating Morphological Alignment of Tokenizers in 70 Languages](evaluating_morphological_alignment_of_tokenizers_in_70_languages.md)
@@ -197,5 +199,7 @@ $$|u(x_t, \mathbf{y}:\tau) - u(x_t, \mathbf{z}:\tau)| \leq |u(x_t, \mathbf{y}) -
 - [\[ACL 2025\] TokAlign: Efficient Vocabulary Adaptation via Token Alignment](../../ACL2025/llm_pretraining/tokalign_vocab_adaptation.md)
 - [\[ICML 2025\] LLM Data Selection and Utilization via Dynamic Bi-level Optimization](llm_data_selection_and_utilization_via_dynamic_bi-level_optimization.md)
 - [\[NeurIPS 2025\] Gradient-Weight Alignment as a Train-Time Proxy for Generalization in Classification Tasks](../../NeurIPS2025/llm_pretraining/gradient-weight_alignment_as_a_train-time_proxy_for_generalization_in_classifica.md)
+
+</div>
 
 <!-- RELATED:END -->

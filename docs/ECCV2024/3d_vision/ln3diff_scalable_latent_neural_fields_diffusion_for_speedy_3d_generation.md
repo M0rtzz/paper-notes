@@ -156,6 +156,8 @@ $$\mathcal{L}(\phi, \psi) = \mathcal{L}_{\text{render}} + \lambda_{\text{geo}}\m
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] MALD-NeRF: Taming Latent Diffusion Model for Neural Radiance Field Inpainting](taming_latent_diffusion_model_for_neural_radiance_field_inpainting.md)
@@ -163,5 +165,7 @@ $$\mathcal{L}(\phi, \psi) = \mathcal{L}_{\text{render}} + \lambda_{\text{geo}}\m
 - [\[ECCV 2024\] Compress3D: a Compressed Latent Space for 3D Generation from a Single Image](compress3d_a_compressed_latent_space_for_3d_generation_from_a_single_image.md)
 - [\[ECCV 2024\] MeshFeat: Multi-Resolution Features for Neural Fields on Meshes](meshfeat_multi-resolution_features_for_neural_fields_on_meshes.md)
 - [\[ECCV 2024\] IDOL: Unified Dual-Modal Latent Diffusion for Human-Centric Joint Video-Depth Generation](idol_unified_dual-modal_latent_diffusion_for_human-centric_joint_video-depth_gen.md)
+
+</div>
 
 <!-- RELATED:END -->

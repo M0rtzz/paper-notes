@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **21** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (36)](../../ACL2026/llm_nlp/) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/) · [🔬 ICLR2026 (46)](../../ICLR2026/llm_nlp/) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_nlp/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_nlp/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_nlp/)
+
+🔥 **高频主题：** 少样本学习 ×4
+
 **[APL: Anchor-based Prompt Learning for One-stage Weakly Supervised Referring Expression Comprehension](apl_anchor-based_prompt_learning_for_one-stage_weakly_supervised_referring_expre.md)**
 
 :   本文提出锚框提示学习方法 APL，通过设计锚框提示编码器（APE）生成位置、颜色、类别三类判别性提示，动态融入锚框特征以丰富视觉语义，再配合文本重构损失和视觉对齐损失实现精确的视觉-语言对齐，在四个 REC 基准上超越现有弱监督方法（如 RefCOCO 上比 RefCLIP 高 6.44%）。

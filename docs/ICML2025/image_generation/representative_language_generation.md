@@ -121,6 +121,8 @@ $$\|\mathcal{G}(x_{1:t})|_{\mathcal{A}} - \overline{x_{1:t}}|_{\mathcal{A}}\|_{\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Long-Form Speech Generation with Spoken Language Models](long-form_speech_generation_with_spoken_language_models.md)
@@ -128,5 +130,7 @@ $$\|\mathcal{G}(x_{1:t})|_{\mathcal{A}} - \overline{x_{1:t}}|_{\mathcal{A}}\|_{\
 - [\[CVPR 2025\] Yo'Chameleon: Personalized Vision and Language Generation](../../CVPR2025/image_generation/yochameleon_personalized_vision_and_language_generation.md)
 - [\[ICML 2025\] Visual Language Models as Zero-Shot Deepfake Detectors](visual_language_models_as_zero-shot_deepfake_detectors.md)
 - [\[ICML 2025\] Understanding and Mitigating Miscalibration in Prompt Tuning for Vision-Language Models](understanding_and_mitigating_miscalibration_in_prompt_tuning_for_vision-language.md)
+
+</div>
 
 <!-- RELATED:END -->

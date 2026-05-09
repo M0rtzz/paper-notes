@@ -169,6 +169,8 @@ Phi(I) = Phi_DINO(I) + Phi_Delta(I)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Self-Supervised Any-Point Tracking by Contrastive Random Walks](self-supervised_any-point_tracking_by_contrastive_random_walks.md)
@@ -176,5 +178,7 @@ Phi(I) = Phi_DINO(I) + Phi_Delta(I)
 - [\[ECCV 2024\] TAPTR: Tracking Any Point with Transformers as Detection](taptr_tracking_any_point_with_transformers_as_detection.md)
 - [\[ECCV 2024\] Boosting 3D Single Object Tracking with 2D Matching Distillation and 3D Pre-training](boosting_3d_single_object_tracking_with_2d_matching_distillation_and_3d_pre-trai.md)
 - [\[ECCV 2024\] TimeCraft: Navigate Weakly-Supervised Temporal Grounded Video Question Answering via Bi-directional Reasoning](timecraft_navigate_weakly-supervised_temporal_grounded_video_question_answering_.md)
+
+</div>
 
 <!-- RELATED:END -->

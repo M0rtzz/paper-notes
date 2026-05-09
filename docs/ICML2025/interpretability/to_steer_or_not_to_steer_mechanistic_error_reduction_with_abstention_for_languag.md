@@ -167,6 +167,8 @@ MERA 在各error percentile上均表现出正面或中性影响，尤其对高er
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Mechanistic Interpretability of Emotion Inference in Large Language Models](../../ACL2025/interpretability/mechanistic_interpretability_of_emotion_inference_in_large_language_models.md)
@@ -174,5 +176,7 @@ MERA 在各error percentile上均表现出正面或中性影响，尤其对高er
 - [\[ICML 2025\] Validating Mechanistic Interpretations: An Axiomatic Approach](validating_mechanistic_interpretations_an_axiomatic_approach.md)
 - [\[ICML 2025\] MIB: A Mechanistic Interpretability Benchmark](mib_a_mechanistic_interpretability_benchmark.md)
 - [\[NeurIPS 2025\] The Trilemma of Truth in Large Language Models](../../NeurIPS2025/interpretability/the_trilemma_of_truth_in_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

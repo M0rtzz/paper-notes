@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **71** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (37)](../../ACL2026/llm_reasoning/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_reasoning/) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_reasoning/) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/llm_reasoning/) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/) · [🧪 ICML2025 (17)](../../ICML2025/llm_reasoning/)
+
+🔥 **高频主题：** 推理 ×47 · LLM ×10 · 多模态 ×3 · Agent ×2 · 对抗鲁棒 ×2
+
 **[Adaptive Social Learning via Mode Policy Optimization for Language Agents](adaptive_social_learning_via_mode_policy_optimization_for_language_agents.md)**
 
 :   提出 Adaptive Social Learning（ASL）框架，设计四种层次化推理模式（从直觉回应到深度推演），并通过 AMPO 算法（融合模式级和样本级优势估计）让 LLM agent 根据社交场景复杂度自适应切换推理深度，在社交智能任务上比 GPT-4o 高 15.6%，比 GRPO 高 7.0% 且 token 用量减少 32.8%。

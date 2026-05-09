@@ -151,6 +151,8 @@ SynGraph是一个三阶段框架：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Dynamic Order Template Prediction for Generative Aspect-Based Sentiment Analysis](dot_absa_template.md)
@@ -158,5 +160,7 @@ SynGraph是一个三阶段框架：
 - [\[ACL 2025\] LLM as Effective Streaming Processor: Bridging Streaming-Batch Mismatches with Group Position Encoding](llm_as_effective_streaming_processor_bridging_streaming-batch_mismatches_with_gr.md)
 - [\[ACL 2025\] Analyzing Political Bias in LLMs via Target-Oriented Sentiment Classification](analyzing_political_bias_in_llms_via_target-oriented_sentiment_classification.md)
 - [\[ACL 2025\] Sentiment Reasoning for Healthcare](sentiment_reasoning_for_healthcare.md)
+
+</div>
 
 <!-- RELATED:END -->

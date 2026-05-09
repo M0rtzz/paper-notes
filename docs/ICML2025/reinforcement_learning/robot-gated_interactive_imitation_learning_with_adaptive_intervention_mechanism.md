@@ -126,6 +126,8 @@ $$J^{\text{TD}}(\theta) = \mathbb{E}_{(s,a,s')\sim\mathcal{B}_h\cup\mathcal{B}_r
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Interactive and Hybrid Imitation Learning: Provably Beating Behavior Cloning](../../NeurIPS2025/reinforcement_learning/interactive_and_hybrid_imitation_learning_provably_beating_behavior_cloning.md)
@@ -133,5 +135,7 @@ $$J^{\text{TD}}(\theta) = \mathbb{E}_{(s,a,s')\sim\mathcal{B}_h\cup\mathcal{B}_r
 - [\[ICML 2025\] Reward-free World Models for Online Imitation Learning](reward-free_world_models_for_online_imitation_learning.md)
 - [\[ICML 2025\] Learning to Trust Bellman Updates: Selective State-Adaptive Regularization for Offline RL](learning_to_trust_bellman_updates_selective_state-adaptive_regularization_for_of.md)
 - [\[ICML 2025\] Robust Noise Attenuation via Adaptive Pooling of Transformer Outputs](robust_noise_attenuation_via_adaptive_pooling_of_transformer_outputs.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -132,6 +132,8 @@ Auto-PRE 在所有三个任务上均超越现有方法，相比 PRE (Auto-Exam) 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Author-in-the-Loop Response Generation and Evaluation: Integrating Author Expertise and Intent in Responses to Peer Review](../../ACL2026/dialogue/author-in-the-loop_response_generation_and_evaluation_integrating_author_experti.md)
@@ -139,5 +141,7 @@ Auto-PRE 在所有三个任务上均超越现有方法，相比 PRE (Auto-Exam) 
 - [\[AAAI 2026\] Canoe: Teaching LLMs to Maintain Contextual Faithfulness via Synthetic Tasks and RL](teaching_large_language_models_to_maintain_contextual_faithfulness_via_synthetic.md)
 - [\[AAAI 2026\] Chatsparent: An Interactive System for Detecting and Mitigating Cognitive Fatigue in LLMs](chatsparent_an_interactive_system_for_detecting_and_mitigating_cognitive_fatigue.md)
 - [\[AAAI 2026\] TalkSketch: Multimodal Generative AI for Real-time Sketch Ideation with Speech](talksketch_multimodal_generative_ai_for_real-time_sketch_ideation_with_speech.md)
+
+</div>
 
 <!-- RELATED:END -->

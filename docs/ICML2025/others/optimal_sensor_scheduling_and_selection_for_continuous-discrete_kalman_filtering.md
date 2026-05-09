@@ -166,6 +166,8 @@ $$\bar{t}_i^s = \mathbb{E}[\tau_s \mid \tau_s \in [a_{i-1}^s, a_i^s]] = \frac{\i
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Unifying Continuous and Discrete Text Diffusion with Non-simultaneous Diffusion Processes](../../ACL2025/others/neodiff_unified_text_diffusion.md)
@@ -173,5 +175,7 @@ $$\bar{t}_i^s = \mathbb{E}[\tau_s \mid \tau_s \in [a_{i-1}^s, a_i^s]] = \frac{\i
 - [\[ICML 2025\] Continuous-Time Analysis of Heavy Ball Momentum in Min-Max Games](continuous-time_analysis_of_heavy_ball_momentum_in_min-max_games.md)
 - [\[ICML 2025\] Optimal Auction Design in the Joint Advertising](optimal_auction_design_in_the_joint_advertising.md)
 - [\[NeurIPS 2025\] Continuous Thought Machines](../../NeurIPS2025/others/continuous_thought_machines.md)
+
+</div>
 
 <!-- RELATED:END -->

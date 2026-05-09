@@ -145,6 +145,8 @@ CIFAR-10 IPC=50 上 D³HR 较最优基线 RDED 提升 **12.5%**（ResNet-18）�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] CaO2: Rectifying Inconsistencies in Diffusion-Based Dataset Distillation](../../ICCV2025/image_generation/cao2_rectifying_inconsistencies_in_diffusion-based_dataset_distillation.md)
@@ -152,5 +154,7 @@ CIFAR-10 IPC=50 上 D³HR 较最优基线 RDED 提升 **12.5%**（ResNet-18）�
 - [\[ICCV 2025\] DiffSim: Taming Diffusion Models for Evaluating Visual Similarity](../../ICCV2025/image_generation/diffsim_taming_diffusion_models_for_evaluating_visual_similarity.md)
 - [\[ECCV 2024\] A High-Quality Robust Diffusion Framework for Corrupted Dataset](../../ECCV2024/image_generation/a_highquality_robust_diffusion_framework_for_corrupted_datas.md)
 - [\[ICML 2025\] Taming Rectified Flow for Inversion and Editing](taming_rectified_flow_for_inversion_and_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

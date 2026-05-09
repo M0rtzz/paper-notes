@@ -122,6 +122,8 @@ SudoLM 将模型知识分为 $\kappa_{pub}$（公开知识）和 $\kappa_{priv}$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Learning-Augmented Algorithms for MTS with Bandit Access to Multiple Predictors](../../ICML2025/others/learning-augmented_algorithms_for_mts_with_bandit_access_to_multiple_predictors.md)
@@ -129,5 +131,7 @@ SudoLM 将模型知识分为 $\kappa_{pub}$（公开知识）和 $\kappa_{priv}$
 - [\[ACL 2025\] Model Extrapolation Expedites Alignment](expo_model_extrapolation.md)
 - [\[ACL 2025\] Towards Style Alignment in Cross-Cultural Translation](towards_style_alignment_in_cross-cultural_translation.md)
 - [\[ACL 2025\] Knowledge Tracing in Programming Education Integrating Students' Questions](knowledge_tracing_in_programming_education_integrating_students_questions.md)
+
+</div>
 
 <!-- RELATED:END -->

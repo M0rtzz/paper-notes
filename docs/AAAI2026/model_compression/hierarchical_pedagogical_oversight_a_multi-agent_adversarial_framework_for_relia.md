@@ -190,6 +190,8 @@ HPO是一个三阶段流水线：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] HCF: Hierarchical Cascade Framework for Distributed Multi-Stage Image Compression](hcf_hierarchical_cascade_framework_for_distributed_multi-stage_image_compression.md)
@@ -197,5 +199,7 @@ HPO是一个三阶段流水线：
 - [\[AAAI 2026\] AgentODRL: A Large Language Model-based Multi-agent System for ODRL Generation](agentodrl_a_large_language_model-based_multi-agent_system_fo.md)
 - [\[ICML 2025\] A Mathematical Framework for AI-Human Integration in Work](../../ICML2025/model_compression/a_mathematical_framework_for_ai-human_integration_in_work.md)
 - [\[AAAI 2026\] Sharp Eyes and Memory for VideoLLMs: Information-Aware Visual Token Pruning for Efficient and Reliable VideoLLM Reasoning](sharp_eyes_and_memory_for_videollms_information-aware_visual_token_pruning_for_e.md)
+
+</div>
 
 <!-- RELATED:END -->

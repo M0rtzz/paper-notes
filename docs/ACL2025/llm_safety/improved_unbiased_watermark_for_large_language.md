@@ -164,6 +164,8 @@ MCmark 在无偏水印中 TPR@FPR=0.1% 提升超 14%（98.38% vs 81.79%），且
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Ensemble Watermarks for Large Language Models](ensemble_watermarks_llm.md)
@@ -171,5 +173,7 @@ MCmark 在无偏水印中 TPR@FPR=0.1% 提升超 14%（98.38% vs 81.79%），且
 - [\[NeurIPS 2025\] Learning to Watermark: A Selective Watermarking Framework for Large Language Models via Multi-Objective Optimization](../../NeurIPS2025/llm_safety/learning_to_watermark_a_selective_watermarking_framework_for_large_language_mode.md)
 - [\[ACL 2025\] MorphMark: Flexible Adaptive Watermarking for Large Language Models](morphmark_adaptive_watermarking.md)
 - [\[ACL 2025\] Improving Fairness of Large Language Models in Multi-document Summarization](improving_fairness_of_large_language_models_in_multi-document_summarization.md)
+
+</div>
 
 <!-- RELATED:END -->

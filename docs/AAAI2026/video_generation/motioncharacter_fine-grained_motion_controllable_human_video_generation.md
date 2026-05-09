@@ -161,6 +161,8 @@ $$\mathcal{L}_R = \frac{1}{NH'W'} \sum_i \sum_{x,y} M_{i,\text{norm}} \cdot [\ep
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] MotionAgent: Fine-grained Controllable Video Generation via Motion Field Agent](../../ICCV2025/video_generation/motionagent_fine-grained_controllable_video_generation_via_motion_field_agent.md)
@@ -168,5 +170,7 @@ $$\mathcal{L}_R = \frac{1}{NH'W'} \sum_i \sum_{x,y} M_{i,\text{norm}} \cdot [\ep
 - [\[CVPR 2026\] PoseGen: In-Context LoRA Finetuning for Pose-Controllable Long Human Video Generation](../../CVPR2026/video_generation/posegen_in-context_lora_finetuning_for_pose-controllable_long_human_video_genera.md)
 - [\[CVPR 2026\] LAMP: Language-Assisted Motion Planning for Controllable Video Generation](../../CVPR2026/video_generation/lamp_language-assisted_motion_planning_for_controllable_video_generation.md)
 - [\[AAAI 2026\] OmniVDiff: Omni Controllable Video Diffusion for Generation and Understanding](omnivdiff_omni_controllable_video_diffusion_for_generation_and_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

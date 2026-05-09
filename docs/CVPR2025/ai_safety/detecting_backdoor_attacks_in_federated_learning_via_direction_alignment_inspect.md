@@ -136,6 +136,8 @@ AlignIns 在 cross-device（大规模客户端）设置下同样有效。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Geometric Knowledge-Guided Localized Global Distribution Alignment for Federated Learning](geometric_knowledge-guided_localized_global_distribution_alignment_for_federated.md)
@@ -143,5 +145,7 @@ AlignIns 在 cross-device（大规模客户端）设置下同样有效。
 - [\[ICML 2025\] Adversarial Inception Backdoor Attacks against Reinforcement Learning](../../ICML2025/ai_safety/adversarial_inception_backdoor_attacks_against_reinforcement_learning.md)
 - [\[CVPR 2025\] DeDe: Detecting Backdoor Samples for SSL Encoders via Decoders](dede_detecting_backdoor_samples_for_ssl_encoders_via_decoders.md)
 - [\[CVPR 2025\] Mind the Gap: Detecting Black-box Adversarial Attacks in the Making through Query Update Analysis](mind_the_gap_detecting_black-box_adversarial_attacks_in_the_making_through_query.md)
+
+</div>
 
 <!-- RELATED:END -->

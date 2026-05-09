@@ -163,6 +163,8 @@ $$x_i = \lambda \hat{x}_i + (1 - \lambda) \tilde{x}_i, \quad \lambda \in (0,1)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Learning-Augmented Online Bipartite Fractional Matching](../../NeurIPS2025/others/learning-augmented_online_bipartite_fractional_matching.md)
@@ -170,5 +172,7 @@ $$x_i = \lambda \hat{x}_i + (1 - \lambda) \tilde{x}_i, \quad \lambda \in (0,1)$$
 - [\[ICML 2025\] Learning-Augmented Algorithms for MTS with Bandit Access to Multiple Predictors](learning-augmented_algorithms_for_mts_with_bandit_access_to_multiple_predictors.md)
 - [\[ACL 2025\] Balancing the Budget: Understanding Trade-offs Between Supervised and Preference-Based Finetuning](../../ACL2025/others/balancing_the_budget_understanding_trade-offs_between_supervised_and_preference-.md)
 - [\[ICML 2025\] Avoiding Catastrophe in Online Learning by Asking for Help](avoiding_catastrophe_in_online_learning_by_asking_for_help.md)
+
+</div>
 
 <!-- RELATED:END -->

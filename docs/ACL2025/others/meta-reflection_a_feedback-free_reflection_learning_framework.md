@@ -127,6 +127,8 @@ Meta-Reflection 包含三个阶段：(a) LLM-based 反思生成——使用标�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Learning to Reason Over Time: Timeline Self-Reflection for Temporal Reasoning](tiser_timeline_self_reflection_temporal.md)
@@ -134,5 +136,7 @@ Meta-Reflection 包含三个阶段：(a) LLM-based 反思生成——使用标�
 - [\[ACL 2025\] Learning to Reason from Feedback at Test-Time](learning_to_reason_from_feedback_at_test-time.md)
 - [\[ACL 2025\] Interlocking-free Selective Rationalization Through Genetic-based Learning](interlocking-free_selective_rationalization_through_genetic-based_learning.md)
 - [\[ACL 2025\] FEAT: A Preference Feedback Dataset through a Cost-Effective Auto-Generation and Labeling Framework for English AI Tutoring](feat_a_preference_feedback_dataset_through_a_cost-effective_auto-generation_and_.md)
+
+</div>
 
 <!-- RELATED:END -->

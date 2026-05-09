@@ -131,6 +131,8 @@ SF-RecSAM继承了SAM的整体架构（ViT图像编码器+prompt编码器+掩码
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Decoding with Structured Awareness: Integrating Directional, Frequency-Spatial, and Structural Attention for Medical Image Segmentation](../../AAAI2026/medical_imaging/decoding_with_structured_awareness_integrating_directional_frequency-spatial_and.md)
@@ -138,5 +140,7 @@ SF-RecSAM继承了SAM的整体架构（ViT图像编码器+prompt编码器+掩码
 - [\[ECCV 2024\] Architecture-Agnostic Untrained Network Priors for Image Reconstruction with Frequency Regularization](architecture-agnostic_untrained_network_priors_for_image_reconstruction_with_fre.md)
 - [\[ECCV 2024\] I-MedSAM: Implicit Medical Image Segmentation with Segment Anything](i-medsam_implicit_medical_image_segmentation_with_segment_anything.md)
 - [\[ECCV 2024\] Alternate Diverse Teaching for Semi-supervised Medical Image Segmentation](alternate_diverse_teaching_for_semi-supervised_medical_image_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

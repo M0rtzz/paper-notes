@@ -142,6 +142,8 @@ TopoMaskV3 的输入是多视角 RGB 图像，经过 backbone 提取透视视角
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] TOD³Cap: Towards 3D Dense Captioning in Outdoor Scenes](../../ECCV2024/autonomous_driving/tod3cap_towards_3d_dense_captioning_in_outdoor_scenes.md)
@@ -149,5 +151,7 @@ TopoMaskV3 的输入是多视角 RGB 图像，经过 backbone 提取透视视角
 - [\[ICLR 2026\] Multi-Head Low-Rank Attention (MLRA)](../../ICLR2026/autonomous_driving/multi-head_low-rank_attention.md)
 - [\[AAAI 2026\] Minimum-Cost Network Flow with Dual Predictions](../../AAAI2026/autonomous_driving/minimum-cost_network_flow_with_dual_predictions.md)
 - [\[CVPR 2025\] T²SG: Traffic Topology Scene Graph for Topology Reasoning in Autonomous Driving](../../CVPR2025/autonomous_driving/t2sg_traffic_topology_scene_graph_for_topology_reasoning_in_autonomous_driving.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -130,6 +130,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] HYDRA: A Hyper Agent for Dynamic Compositional Visual Reasoning](../../ECCV2024/llm_agent/hydra_a_hyper_agent_for_dynamic_compositional_visual_reasoning.md)
@@ -137,5 +139,7 @@ tags:
 - [\[CVPR 2025\] Feature4X: Bridging Any Monocular Video to 4D Agentic AI with Versatile Gaussian Feature Fields](feature4x_bridging_any_monocular_video_to_4d_agentic_ai_with_versatile_gaussian_.md)
 - [\[ACL 2025\] Agentic Reasoning: A Streamlined Framework for Enhancing LLM Reasoning with Agentic Tools](../../ACL2025/llm_agent/agentic_reasoning_tools.md)
 - [\[CVPR 2025\] TANGO: Training-free Embodied AI Agents for Open-world Tasks](tango_training-free_embodied_ai_agents_for_open-world_tasks.md)
+
+</div>
 
 <!-- RELATED:END -->

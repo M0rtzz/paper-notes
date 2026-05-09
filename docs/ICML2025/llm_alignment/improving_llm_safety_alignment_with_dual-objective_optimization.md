@@ -154,6 +154,8 @@ $$\mathcal{L}_{\text{Total}} = \alpha\mathcal{L}_{\text{Align}} + (1-\alpha)\mat
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] BOPO: Neural Combinatorial Optimization via Best-anchored and Objective-guided Preference Optimization](bopo_neural_combinatorial_optimization_via_best-anchored_and_objective-guided_pr.md)
@@ -161,5 +163,7 @@ $$\mathcal{L}_{\text{Total}} = \alpha\mathcal{L}_{\text{Align}} + (1-\alpha)\mat
 - [\[ICML 2025\] Safety Alignment Can Be Not Superficial With Explicit Safety Signals](safety_alignment_can_be_not_superficial_with_explicit_safety_signals.md)
 - [\[ACL 2025\] Safety Alignment via Constrained Knowledge Unlearning](../../ACL2025/llm_alignment/safety_alignment_via_constrained_knowledge_unlearning.md)
 - [\[ICML 2025\] Improving Model Alignment through Collective Intelligence of Open-Source LLMs](improving_model_alignment_through_collective_intelligence_of_open-source_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

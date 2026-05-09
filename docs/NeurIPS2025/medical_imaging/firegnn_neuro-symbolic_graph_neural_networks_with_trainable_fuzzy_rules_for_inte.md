@@ -151,6 +151,8 @@ GCN 权重、模糊规则参数 $\{\theta_i, \alpha_i\}$、融合权重 $(W_r, W
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SIC: Similarity-Based Interpretable Image Classification with Neural Networks](../../ICCV2025/medical_imaging/sic_similarity-based_interpretable_image_classification_with_neural_networks.md)
@@ -158,5 +160,7 @@ GCN 权重、模糊规则参数 $\{\theta_i, \alpha_i\}$、融合权重 $(W_r, W
 - [\[NeurIPS 2025\] MuSLR: Multimodal Symbolic Logical Reasoning](muslr_multimodal_symbolic_logical_reasoning.md)
 - [\[NeurIPS 2025\] Towards Multiscale Graph-based Protein Learning with Geometric Secondary Structural Motifs](towards_multiscale_graph-based_protein_learning_with_geometric_secondary_structu.md)
 - [\[NeurIPS 2025\] DIsoN: Decentralized Isolation Networks for Out-of-Distribution Detection in Medical Imaging](dison_decentralized_isolation_networks_for_out-of-distribution_detection_in_medi.md)
+
+</div>
 
 <!-- RELATED:END -->

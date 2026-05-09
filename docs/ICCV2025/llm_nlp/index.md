@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (36)](../../ACL2026/llm_nlp/) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/) · [🔬 ICLR2026 (46)](../../ICLR2026/llm_nlp/) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_nlp/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_nlp/) · [🧪 ICML2025 (28)](../../ICML2025/llm_nlp/)
+
+🔥 **高频主题：** LLM ×3 · 持续学习 ×2
+
 **[Any-SSR: How Recursive Least Squares Works in Continual Learning of Large Language Models](any-ssr_how_recursive_least_squares_works_in_continual_learning_of_large_languag.md)**
 
 :   提出Analytic Subspace Routing（Any-SSR）框架，通过为每个任务分配独立的LoRA子空间消除任务间干扰，并利用递归最小二乘（RLS）闭式解训练一个零遗忘的解析路由器，实现LLM的无回放持续学习。

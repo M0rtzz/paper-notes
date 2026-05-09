@@ -10,6 +10,8 @@ description: >-
 
 **🧠 NeurIPS2025** · **1** 篇论文解读
 
+📌 **同领域跨会议浏览：** [🔬 ICLR2026 (1)](../../ICLR2026/moe/) · [💬 ACL2025 (4)](../../ACL2025/moe/)
+
 **[MoRE-Brain: Routed Mixture of Experts for Interpretable and Generalizable Cross-Subject fMRI Visual Decoding](more-brain_routed_mixture_of_experts_for_interpretable_and_generalizable_cross-s.md)**
 
 :   提出 MoRE-Brain，一种神经科学启发的 fMRI 视觉解码框架，采用层级混合专家（MoE）架构模拟大脑视觉通路的专门化处理，配合动态时间-空间双路由机制引导扩散模型生成图像，在保持高保真重建的同时实现了高效跨被试泛化和前所未有的机制可解释性。

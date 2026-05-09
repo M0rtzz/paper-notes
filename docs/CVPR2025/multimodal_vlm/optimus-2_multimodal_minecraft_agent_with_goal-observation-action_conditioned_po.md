@@ -91,6 +91,8 @@ Optimus-2采用规划器-策略架构：MLLM规划器（GPT-4V）将复杂任务
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] From Observation to Action: Latent Action-based Primitive Segmentation for VLA Pre-training in Industrial Settings](../../CVPR2026/multimodal_vlm/from_observation_to_action_latent_action-based_primitive_segmentation_for_vla_pr.md)
@@ -98,5 +100,7 @@ Optimus-2采用规划器-策略架构：MLLM规划器（GPT-4V）将复杂任务
 - [\[NeurIPS 2025\] GoalLadder: Incremental Goal Discovery with Vision-Language Models](../../NeurIPS2025/multimodal_vlm/goalladder_incremental_goal_discovery_with_vision-language_models.md)
 - [\[CVPR 2025\] HomeSafe-Bench: Evaluating Vision-Language Models on Unsafe Action Detection for Embodied Agents in Household Scenarios](homesafe-bench_evaluating_vision-language_models_on_unsafe_action_detection_for_.md)
 - [\[ICCV 2025\] MMAT-1M: A Large Reasoning Dataset for Multimodal Agent Tuning](../../ICCV2025/multimodal_vlm/mmat1m_a_large_reasoning_dataset_for_multimodal_agent_tuning.md)
+
+</div>
 
 <!-- RELATED:END -->

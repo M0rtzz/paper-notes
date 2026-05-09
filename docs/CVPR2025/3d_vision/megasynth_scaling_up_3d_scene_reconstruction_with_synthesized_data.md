@@ -128,6 +128,8 @@ MegaSynth 的数据生成流程分为三步：(1) 生成场景平面图——确
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] TokenUnify: Scaling Up Autoregressive Pretraining for Neuron Segmentation](../../ICCV2025/3d_vision/tokenunify_scaling_up_autoregressive_pretraining_for_neuron_segmentation.md)
@@ -135,5 +137,7 @@ MegaSynth 的数据生成流程分为三步：(1) 生成场景平面图——确
 - [\[CVPR 2025\] Scaling Mesh Generation via Compressive Tokenization](scaling_mesh_generation_via_compressive_tokenization.md)
 - [\[CVPR 2025\] Scaling Properties of Diffusion Models for Perceptual Tasks](scaling_properties_of_diffusion_models_for_perceptual_tasks.md)
 - [\[CVPR 2025\] Pow3R: Empowering Unconstrained 3D Reconstruction with Camera and Scene Priors](pow3r_empowering_unconstrained_3d_reconstruction_with_camera_and_scene_priors.md)
+
+</div>
 
 <!-- RELATED:END -->

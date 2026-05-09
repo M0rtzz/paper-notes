@@ -170,6 +170,8 @@ INT4 量化后生成精度保持 94.4%，log-likelihood 完全不变；与自推
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Compute-Optimal Quantization-Aware Training](compute-optimal_quantization-aware_training.md)
@@ -177,5 +179,7 @@ INT4 量化后生成精度保持 94.4%，log-likelihood 完全不变；与自推
 - [\[ICLR 2026\] Draft-based Approximate Inference for LLMs](draft-based_approximate_inference_for_llms.md)
 - [\[NeurIPS 2025\] Matryoshka Pilot: Learning to Drive Black-Box LLMs with LLMs](../../NeurIPS2025/model_compression/matryoshka_pilot_learning_to_drive_black-box_llms_with_llms.md)
 - [\[CVPR 2025\] What Makes a Good Dataset for Knowledge Distillation?](../../CVPR2025/model_compression/what_makes_a_good_dataset_for_knowledge_distillation.md)
+
+</div>
 
 <!-- RELATED:END -->

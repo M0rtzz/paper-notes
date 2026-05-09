@@ -243,6 +243,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Foundation Model Insights and a Multi-Model Approach for Superior Fine-Grained One-shot Subset Selection](../../ICML2025/self_supervised/foundation_model_insights_and_a_multi-model_approach_for_superior_fine-grained_o.md)
@@ -250,5 +252,7 @@ tags:
 - [\[CVPR 2025\] Few-Shot Implicit Function Generation via Equivariance](../../CVPR2025/self_supervised/few-shot_implicit_function_generation_via_equivariance.md)
 - [\[ICCV 2025\] MoSiC: Optimal-Transport Motion Trajectory for Dense Self-Supervised Learning](../../ICCV2025/self_supervised/mosic_optimal-transport_motion_trajectory_for_dense_self-supervised_learning.md)
 - [\[ECCV 2024\] COHO: Context-Sensitive City-Scale Hierarchical Urban Layout Generation](../../ECCV2024/self_supervised/coho_context-sensitive_city-scale_hierarchical_urban_layout_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

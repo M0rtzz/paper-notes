@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **141** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/medical_imaging/) · [📷 CVPR2026 (153)](../../CVPR2026/medical_imaging/) · [🔬 ICLR2026 (72)](../../ICLR2026/medical_imaging/) · [🤖 AAAI2026 (105)](../../AAAI2026/medical_imaging/) · [📹 ICCV2025 (40)](../../ICCV2025/medical_imaging/) · [🧪 ICML2025 (63)](../../ICML2025/medical_imaging/)
+
+🔥 **高频主题：** 医学影像 ×45 · 生物分子 ×23 · 多模态 ×12 · 扩散模型 ×11 · LLM ×8
+
 **[3D-RAD: A Comprehensive 3D Radiology Med-VQA Dataset with Multi-Temporal Analysis and Diverse Diagnostic Tasks](3drad_a_comprehensive_3d_radiology_medvqa_dataset_with_multi.md)**
 
 :   提出 3D-RAD——首个大规模3D医学VQA基准，包含170K条CT影像问答数据，覆盖六类临床任务（含创新性的多时相诊断任务），并配套136K训练集，揭示了现有VLM在3D时序推理上的严重不足。

@@ -145,6 +145,8 @@ $$\ell_{\text{TAL}}(y, z, Q[N]) = -\log \frac{e^{z_y}}{e^{z_y} + \alpha \sum_{k 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Versatile Incremental Learning: Towards Class and Domain-Agnostic Incremental Learning](../../ECCV2024/llm_evaluation/versatile_incremental_learning_towards_class_and_domain-agnostic_incremental_lea.md)
@@ -152,5 +154,7 @@ $$\ell_{\text{TAL}}(y, z, Q[N]) = -\log \frac{e^{z_y}}{e^{z_y} + \alpha \sum_{k 
 - [\[ICLR 2026\] Accessible, Realistic, and Fair Evaluation of Positive-Unlabeled Learning Algorithms](../../ICLR2026/llm_evaluation/accessible_realistic_and_fair_evaluation_of_positive-unlabeled_learning_algorith.md)
 - [\[ICLR 2026\] In-Context Learning of Temporal Point Processes with Foundation Inference Models](../../ICLR2026/llm_evaluation/in-context_learning_of_temporal_point_processes_with_foundation_inference_models.md)
 - [\[CVPR 2026\] Flow3r: Factored Flow Prediction for Scalable Visual Geometry Learning](flow3r_factored_flow_prediction_for_scalable_visual_geometry_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -122,6 +122,8 @@ RTV-Bench 是一个面向实时视频分析的细粒度 benchmark，包含 552 �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] MadaKV: Adaptive Modality-Perception KV Cache Eviction for Efficient Multimodal Long-Context Inference](../../ACL2025/multimodal_vlm/madakv_adaptive_modality-perception_kv_cache_eviction_for_efficient_multimodal_l.md)
@@ -129,5 +131,7 @@ RTV-Bench 是一个面向实时视频分析的细粒度 benchmark，包含 552 �
 - [\[ICCV 2025\] Training-Free Personalization via Retrieval and Reasoning on Fingerprints](../../ICCV2025/multimodal_vlm/training-free_personalization_via_retrieval_and_reasoning_on_fingerprints.md)
 - [\[CVPR 2025\] Document Haystacks: Vision-Language Reasoning Over Piles of 1000+ Documents](../../CVPR2025/multimodal_vlm/document_haystacks_vision-language_reasoning_over_piles_of_1000_documents.md)
 - [\[ACL 2025\] MAmmoTH-VL: Eliciting Multimodal Reasoning with Instruction Tuning at Scale](../../ACL2025/multimodal_vlm/mammoth_vl_multimodal_reasoning.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -116,6 +116,8 @@ LUMINA 的工作流分为三步：(1) 数据收集与整理——来自 6 个厂
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification](milpf_multiple_instance_learning_on_precomputed_fe.md)
@@ -123,5 +125,7 @@ LUMINA 的工作流分为三步：(1) 数据收集与整理——来自 6 个厂
 - [\[CVPR 2026\] MedGEN-Bench: Contextually Entangled Benchmark for Open-Ended Multimodal Medical Generation](medgen-bench_contextually_entangled_benchmark_for_open-ended_multimodal_medical_.md)
 - [\[NeurIPS 2025\] Pancakes: Consistent Multi-Protocol Image Segmentation Across Biomedical Domains](../../NeurIPS2025/medical_imaging/pancakes_consistent_multi-protocol_image_segmentation_across_biomedical_domains.md)
 - [\[ECCV 2024\] Energy-induced Explicit Quantification for Multi-modality MRI Fusion](../../ECCV2024/medical_imaging/energy-induced_explicit_quantification_for_multi-modality_mri_fusion.md)
+
+</div>
 
 <!-- RELATED:END -->

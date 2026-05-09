@@ -168,6 +168,8 @@ $$\mathcal{L}_{\text{PV}} = \|\mathbf{p} - \hat{\mathbf{IoU}}\|_2^2 + \mathcal{L
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Moment Quantization for Video Temporal Grounding](../../ICCV2025/video_understanding/moment_quantization_for_video_temporal_grounding.md)
@@ -175,5 +177,7 @@ $$\mathcal{L}_{\text{PV}} = \|\mathbf{p} - \hat{\mathbf{IoU}}\|_2^2 + \mathcal{L
 - [\[NeurIPS 2025\] Token Bottleneck: One Token to Remember Dynamics](token_bottleneck_one_token_to_remember_dynamics.md)
 - [\[NeurIPS 2025\] When Thinking Drifts: Evidential Grounding for Robust Video Reasoning](when_thinking_drifts_evidential_grounding_for_robust_video_reasoning.md)
 - [\[NeurIPS 2025\] Steering When Necessary: Flexible Steering Large Language Models with Backtracking](steering_when_necessary_flexible_steering_large_language_models_with_backtrackin.md)
+
+</div>
 
 <!-- RELATED:END -->

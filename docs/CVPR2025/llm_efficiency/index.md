@@ -10,6 +10,8 @@ description: >-
 
 **📷 CVPR2025** · **6** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/llm_efficiency/) · [📷 CVPR2026 (4)](../../CVPR2026/llm_efficiency/) · [🔬 ICLR2026 (19)](../../ICLR2026/llm_efficiency/) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_efficiency/) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/llm_efficiency/) · [📹 ICCV2025 (1)](../../ICCV2025/llm_efficiency/)
+
 **[Associative Transformer](associative_transformer.md)**
 
 :   提出 Associative Transformer (AiT)，通过在 Transformer 中引入可学习的显式记忆模块和 Hopfield 网络进行 token 重建，以更少的参数实现优于 ViT 的分类和关系推理性能。

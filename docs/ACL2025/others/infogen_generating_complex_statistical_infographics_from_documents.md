@@ -135,6 +135,8 @@ Infogen 包含两个主要模块：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] ACT: Knowledgeable Agents to Design and Perform Complex Tasks](act_knowledgeable_agents_to_design_and_perform_complex_tasks.md)
@@ -142,5 +144,7 @@ Infogen 包含两个主要模块：
 - [\[ACL 2025\] Generating Plausible Distractors for Multiple-Choice Questions via Student Choice Prediction](distractor_gen_multiple_choice.md)
 - [\[ACL 2025\] ASPERA: A Simulated Environment to Evaluate Planning for Complex Action Execution](aspera_a_simulated_environment_to_evaluate_planning_for_complex_action_execution.md)
 - [\[ACL 2025\] Re-identification of De-identified Documents with Autoregressive Infilling](reidentification_deidentified.md)
+
+</div>
 
 <!-- RELATED:END -->

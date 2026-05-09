@@ -123,6 +123,8 @@ $$\text{草图大小} = \tilde{O}(\gamma^{-2/(p-1)}), \quad \text{近似比} = (
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Randomized Dimensionality Reduction for Euclidean Maximization and Diversity Measures](randomized_dimensionality_reduction_for_euclidean_maximization_and_diversity_mea.md)
@@ -130,5 +132,7 @@ $$\text{草图大小} = \tilde{O}(\gamma^{-2/(p-1)}), \quad \text{近似比} = (
 - [\[ICML 2025\] Improved Generalization Bounds for Transductive Learning by Transductive Local Complexity and Its Applications](improved_generalization_bounds_for_transductive_learning_by_transductive_local_c.md)
 - [\[CVPR 2026\] IrisFP: Adversarial-Example-based Model Fingerprinting with Enhanced Uniqueness and Robustness](../../CVPR2026/others/irisfp_adversarial-example-based_model_fingerprinting_with_enhanced_uniqueness_a.md)
 - [\[ICLR 2026\] CaDrift: A Time-dependent Causal Generator of Drifting Data Streams](../../ICLR2026/others/cadrift_a_time-dependent_causal_generator_of_drifting_data_streams.md)
+
+</div>
 
 <!-- RELATED:END -->

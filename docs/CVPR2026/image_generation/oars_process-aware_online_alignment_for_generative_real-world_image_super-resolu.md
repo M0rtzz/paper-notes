@@ -227,6 +227,8 @@ $$\mathcal{L}_{RL}(\theta) = \mathbb{E}\left[r\|v_\theta^+ - v\|_2^2 + (1-r)\|v_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] VOSR: A Vision-Only Generative Model for Image Super-Resolution](vosr_a_vision_only_generative_model_for_image_super_resolution.md)
@@ -234,5 +236,7 @@ $$\mathcal{L}_{RL}(\theta) = \mathbb{E}\left[r\|v_\theta^+ - v\|_2^2 + (1-r)\|v_
 - [\[ICLR 2026\] DiffusionNFT: Online Diffusion Reinforcement with Forward Process](../../ICLR2026/image_generation/diffusionnft_online_diffusion_reinforcement_with_forward_process.md)
 - [\[AAAI 2026\] Continuous Degradation Modeling via Latent Flow Matching for Real-World Super-Resolution](../../AAAI2026/image_generation/continuous_degradation_modeling_via_latent_flow_matching_for_real-world_super-re.md)
 - [\[CVPR 2026\] AlignVAR: Towards Globally Consistent Visual Autoregression for Image Super-Resolution](alignvar_towards_globally_consistent_visual_autoregression_for_image_super-resol.md)
+
+</div>
 
 <!-- RELATED:END -->

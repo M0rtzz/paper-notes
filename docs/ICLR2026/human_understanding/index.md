@@ -10,6 +10,8 @@ description: >-
 
 **🔬 ICLR2026** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/human_understanding/) · [📷 CVPR2026 (61)](../../CVPR2026/human_understanding/) · [🤖 AAAI2026 (16)](../../AAAI2026/human_understanding/) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/human_understanding/) · [📹 ICCV2025 (49)](../../ICCV2025/human_understanding/) · [🧪 ICML2025 (2)](../../ICML2025/human_understanding/)
+
 **[BAH Dataset for Ambivalence/Hesitancy Recognition in Videos for Digital Behaviour Analysis](bah_dataset_for_ambivalencehesitancy_recognition_in_videos_for_digital_behaviour.md)**
 
 :   提出首个面向视频中矛盾/犹豫（A/H）识别的多模态数据集 BAH，包含来自加拿大9省224名参与者的1,118段视频共8.26小时，由行为科学专家标注，并提供了帧级和视频级的基线实验结果。

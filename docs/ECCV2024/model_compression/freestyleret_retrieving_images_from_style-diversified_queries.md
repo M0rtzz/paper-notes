@@ -155,6 +155,8 @@ FreestyleRet-BLIP在所有4种查询风格上均取得最优R@1，Sketch提升14
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] ZipLoRA: Any Subject in Any Style by Effectively Merging LoRAs](ziplora_any_subject_in_any_style_by_effectively_merging_loras.md)
@@ -162,5 +164,7 @@ FreestyleRet-BLIP在所有4种查询风格上均取得最优R@1，Sketch提升14
 - [\[ECCV 2024\] SpaceJAM: a Lightweight and Regularization-free Method for Fast Joint Alignment of Images](spacejam_a_lightweight_and_regularization-free_method_for_fast_joint_alignment_o.md)
 - [\[CVPR 2025\] Style Quantization for Data-Efficient GAN Training](../../CVPR2025/model_compression/style_quantization_for_data-efficient_gan_training.md)
 - [\[ICCV 2025\] DuoLoRA: Cycle-Consistent and Rank-Disentangled Content-Style Personalization](../../ICCV2025/model_compression/duolora_cycle-consistent_and_rank-disentangled_content-style_personalization.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -186,6 +186,8 @@ FaCT 的概念一致性显著优于所有基线方法。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Towards Faithful Multimodal Concept Bottleneck Models](../../CVPR2025/interpretability/towards_faithful_multimodal_concept_bottleneck_models.md)
@@ -193,5 +195,7 @@ FaCT 的概念一致性显著优于所有基线方法。
 - [\[NeurIPS 2025\] Explaining Similarity in Vision-Language Encoders with Weighted Banzhaf Interactions](explaining_similarity_in_vision-language_encoders_with_weighted_banzhaf_interact.md)
 - [\[NeurIPS 2025\] Towards Interpretability Without Sacrifice: Faithful Dense Layer Decomposition with Mixture of Decoders](towards_interpretability_without_sacrifice_faithful_dense_layer_decomposition_wi.md)
 - [\[NeurIPS 2025\] Tropical Attention: Neural Algorithmic Reasoning for Combinatorial Algorithms](tropical_attention_neural_algorithmic_reasoning_for_combinatorial_algorithms.md)
+
+</div>
 
 <!-- RELATED:END -->

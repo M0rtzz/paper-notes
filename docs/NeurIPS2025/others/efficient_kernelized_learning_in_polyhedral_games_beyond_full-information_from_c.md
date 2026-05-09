@@ -180,6 +180,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Evolutionary Prediction Games](evolutionary_prediction_games.md)
@@ -187,5 +189,7 @@ tags:
 - [\[AAAI 2026\] Deviation Dynamics in Cardinal Hedonic Games](../../AAAI2026/others/deviation_dynamics_in_cardinal_hedonic_games.md)
 - [\[ACL 2025\] Persona Dynamics: Unveiling the Impact of Personality Traits on Agents in Text-Based Games](../../ACL2025/others/persona_dynamics_unveiling_the_impact_of_persona_traits_on_agents_in_text-based_.md)
 - [\[ICML 2025\] Continuous-Time Analysis of Heavy Ball Momentum in Min-Max Games](../../ICML2025/others/continuous-time_analysis_of_heavy_ball_momentum_in_min-max_games.md)
+
+</div>
 
 <!-- RELATED:END -->

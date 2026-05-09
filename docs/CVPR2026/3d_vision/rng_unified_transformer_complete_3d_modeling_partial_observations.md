@@ -118,6 +118,8 @@ $\mathcal{L} = \mathcal{L}_{RGB} + \lambda_{pmap}\mathcal{L}_{pmap} + \lambda_c\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Learning 3D Reconstruction with Priors in Test Time](tco_learning_3d_reconstruction_with_priors_in_test_time.md)
@@ -125,5 +127,7 @@ $\mathcal{L} = \mathcal{L}_{RGB} + \lambda_{pmap}\mathcal{L}_{pmap} + \lambda_c\
 - [\[CVPR 2026\] PR-IQA: Partial-Reference Image Quality Assessment for Diffusion-Based Novel View Synthesis](pr-iqa_partial-reference_image_quality_assessment_for_diffusion-based_novel_view.md)
 - [\[CVPR 2026\] GGPT: Geometry-Grounded Point Transformer](ggpt_geometry_grounded_point_transformer.md)
 - [\[CVPR 2026\] LitePT: Lighter Yet Stronger Point Transformer](litept_lighter_yet_stronger_point_transformer.md)
+
+</div>
 
 <!-- RELATED:END -->

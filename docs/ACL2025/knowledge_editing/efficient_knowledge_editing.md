@@ -124,6 +124,8 @@ MEMIT 等方法的闭式解为 $\hat{W} = W_0 + (V_E - W_0 K_E) K_E^T (\lambda C
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] EvoEdit: Evolving Null-space Alignment for Robust and Efficient Knowledge Editing](../../ACL2026/knowledge_editing/evoedit_evolving_null-space_alignment_for_robust_and_efficient_knowledge_editing.md)
@@ -131,5 +133,7 @@ MEMIT 等方法的闭式解为 $\hat{W} = W_0 + (V_E - W_0 K_E) K_E^T (\lambda C
 - [\[ACL 2025\] Context-Robust Knowledge Editing for Language Models](context-robust_knowledge_editing_for_language_models.md)
 - [\[ACL 2025\] Towards a Principled Evaluation of Knowledge Editors](towards_a_principled_evaluation_of_knowledge_editors.md)
 - [\[NeurIPS 2025\] Rethinking Residual Distribution in Locate-then-Edit Model Editing](../../NeurIPS2025/knowledge_editing/rethinking_residual_distribution_in_locate-then-edit_model_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

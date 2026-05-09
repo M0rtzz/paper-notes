@@ -130,6 +130,8 @@ $$\mathbb{E}\|\tilde{\mathbf{w}}^{(i)} - \mathbf{w}_\star^{(i)}\|^2 \le C_3 \cdo
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Statistical and Computational Guarantees of Kernel Max-Sliced Wasserstein Distances](statistical_and_computational_guarantees_of_kernel_max-sliced_wasserstein_distan.md)
@@ -137,5 +139,7 @@ $$\mathbb{E}\|\tilde{\mathbf{w}}^{(i)} - \mathbf{w}_\star^{(i)}\|^2 \le C_3 \cdo
 - [\[NeurIPS 2025\] Personalized Subgraph Federated Learning with Differentiable Auxiliary Projections](../../NeurIPS2025/optimization/personalized_subgraph_federated_learning_with_differentiable_auxiliary_projectio.md)
 - [\[ICML 2025\] On Understanding Attention-Based In-Context Learning for Categorical Data](on_understanding_attention-based_in-context_learning_for_categorical_data.md)
 - [\[NeurIPS 2025\] Multiplayer Federated Learning: Reaching Equilibrium with Less Communication](../../NeurIPS2025/optimization/multiplayer_federated_learning_reaching_equilibrium_with_less_communication.md)
+
+</div>
 
 <!-- RELATED:END -->

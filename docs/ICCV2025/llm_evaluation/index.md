@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **29** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/llm_evaluation/) · [📷 CVPR2026 (28)](../../CVPR2026/llm_evaluation/) · [🔬 ICLR2026 (60)](../../ICLR2026/llm_evaluation/) · [🤖 AAAI2026 (39)](../../AAAI2026/llm_evaluation/) · [🧠 NeurIPS2025 (79)](../../NeurIPS2025/llm_evaluation/) · [🧪 ICML2025 (49)](../../ICML2025/llm_evaluation/)
+
+🔥 **高频主题：** 少样本学习 ×4 · 布局/合成 ×3 · 推理 ×2 · 扩散模型 ×2 · 对抗鲁棒 ×2
+
 **[3DSRBench: A Comprehensive 3D Spatial Reasoning Benchmark](3dsrbench_a_comprehensive_3d_spatial_reasoning_benchmark.md)**
 
 :   提出首个全面的3D空间推理基准3DSRBench，包含2,772个人工标注的VQA对（12种问题类型），通过平衡数据分布和新型FlipEval策略实现鲁棒评估，揭示SOTA LMM（包括GPT-4o、Gemini）在3D空间推理上远落后于人类水平（≈52% vs 95.7%），且在非常规视角下性能显著退化。

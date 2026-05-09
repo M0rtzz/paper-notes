@@ -194,6 +194,8 @@ OT-PCA+ICL 在 ESOL 上提升 **16.6%** Pearson r。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] VT-FSL: Bridging Vision and Text with LLMs for Few-Shot Learning](vt-fsl_bridging_vision_and_text_with_llms_for_few-shot_learning.md)
@@ -201,5 +203,7 @@ OT-PCA+ICL 在 ESOL 上提升 **16.6%** Pearson r。
 - [\[ACL 2025\] Table Understanding and (Multimodal) LLMs: A Cross-Domain Case Study on Scientific Tables](../../ACL2025/multimodal_vlm/table_understanding_and_multimodal_llms_a_cross-domain_case_study_on_scientific_.md)
 - [\[NeurIPS 2025\] Training-free Online Video Step Grounding](training-free_online_video_step_grounding.md)
 - [\[ACL 2025\] Can LLMs Deceive CLIP? Benchmarking Adversarial Compositionality of Pre-trained Multimodal Representation via Text Updates](../../ACL2025/multimodal_vlm/adversarial_compositionality_clip.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,8 @@ description: >-
 
 **🔬 ICLR2026** · **9** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/knowledge_editing/) · [📷 CVPR2026 (3)](../../CVPR2026/knowledge_editing/) · [🤖 AAAI2026 (5)](../../AAAI2026/knowledge_editing/) · [🧠 NeurIPS2025 (6)](../../NeurIPS2025/knowledge_editing/) · [🧪 ICML2025 (2)](../../ICML2025/knowledge_editing/) · [💬 ACL2025 (20)](../../ACL2025/knowledge_editing/)
+
 **[Bilinear Representation Mitigates Reversal Curse and Enables Consistent Model Editing](bilinear_representation_mitigates_reversal_curse_and_enables_consistent_model_ed.md)**
 
 :   通过在合成关系知识图谱上从头训练 Transformer，发现适当正则化会使模型隐层涌现出双线性关系结构（bilinear relational structure），该结构不仅能克服逆向诅咒（reversal curse），还能实现编辑单个事实后逻辑一致地传播到相关事实。

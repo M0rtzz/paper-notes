@@ -134,6 +134,8 @@ $$\text{regularization} = \mathbb{E}\left\|\sum_{i=0}^{K-1} \eta(1-\eta)^{K-1-i}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] DiN: Diffusion Model for Robust Medical VQA with Semantic Noisy Labels](../../CVPR2025/medical_imaging/din_diffusion_model_for_robust_medical_vqa_with_semantic_noisy_labels.md)
@@ -141,5 +143,7 @@ $$\text{regularization} = \mathbb{E}\left\|\sum_{i=0}^{K-1} \eta(1-\eta)^{K-1-i}
 - [\[CVPR 2025\] Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation](../../CVPR2025/medical_imaging/multi-resolution_pathology-language_pre-training_model_with_text-guided_visual_r.md)
 - [\[CVPR 2025\] UniVAD: A Training-free Unified Model for Few-shot Visual Anomaly Detection](../../CVPR2025/medical_imaging/univad_a_training-free_unified_model_for_few-shot_visual_anomaly_detection.md)
 - [\[ICML 2025\] Certification for Differentially Private Prediction in Gradient-Based Training](certification_for_differentially_private_prediction_in_gradient-based_training.md)
+
+</div>
 
 <!-- RELATED:END -->

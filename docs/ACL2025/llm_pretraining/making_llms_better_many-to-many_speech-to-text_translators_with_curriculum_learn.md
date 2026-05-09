@@ -179,6 +179,8 @@ LLM-SRT 在大 batch 下推理速度约为 Qwen2-Audio 的 **3倍**，且不会 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] An Effective Incorporating Heterogeneous Knowledge Curriculum Learning for Sequence Labeling](dual_stage_curriculum_learning_sequence_labeling.md)
@@ -186,5 +188,7 @@ LLM-SRT 在大 batch 下推理速度约为 Qwen2-Audio 的 **3倍**，且不会 
 - [\[ACL 2025\] InSerter: Speech Instruction Following with Unsupervised Interleaved Pre-training](inserter_speech_instruction.md)
 - [\[ACL 2025\] LEANCODE: Understanding Models Better for Code Simplification of Pre-trained Large Language Models](leancode_understanding_models_better_for_code_simplification_of_pre-trained_larg.md)
 - [\[ACL 2025\] Splintering Nonconcatenative Languages for Better Tokenization](splintering_nonconcatenative_languages_for_better_tokenization.md)
+
+</div>
 
 <!-- RELATED:END -->

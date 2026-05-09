@@ -130,6 +130,8 @@ $$\max \text{R2C}(S) = (\varkappa \cdot \text{REV}(S)) / \text{COST}(S)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Bi-Level Contextual Bandits for Individualized Resource Allocation under Delayed Feedback](../../AAAI2026/reinforcement_learning/bi-level_contextual_bandits_for_individualized_resource_allocation_under_delayed.md)
@@ -137,5 +139,7 @@ $$\max \text{R2C}(S) = (\varkappa \cdot \text{REV}(S)) / \text{COST}(S)$$
 - [\[ICLR 2026\] How LLMs Learn to Reason: A Complex Network Perspective](how_llms_learn_to_reason_a_complex_network_perspective.md)
 - [\[NeurIPS 2025\] Meta-World+: An Improved, Standardized, RL Benchmark](../../NeurIPS2025/reinforcement_learning/meta-world_an_improved_standardized_rl_benchmark.md)
 - [\[AAAI 2026\] Discounted Cuts: A Stackelberg Approach to Network Disruption](../../AAAI2026/reinforcement_learning/discounted_cuts_a_stackelberg_approach_to_network_disruption.md)
+
+</div>
 
 <!-- RELATED:END -->

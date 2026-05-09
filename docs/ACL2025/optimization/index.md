@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2025** · **1** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/optimization/) · [📷 CVPR2026 (10)](../../CVPR2026/optimization/) · [🔬 ICLR2026 (45)](../../ICLR2026/optimization/) · [🤖 AAAI2026 (24)](../../AAAI2026/optimization/) · [🧠 NeurIPS2025 (117)](../../NeurIPS2025/optimization/) · [📹 ICCV2025 (8)](../../ICCV2025/optimization/)
+
 **[ScaleBiO: Scalable Bilevel Optimization for LLM Data Reweighting](scalebio_bilevel_data_reweighting.md)**
 
 :   ScaleBiO 提出基于罚函数重构的全一阶双层优化算法，首次将双层优化应用于 30B+ 参数 LLM 的数据源重加权，在 Qwen-2.5-32B 上实现 GSM8K +9%、MATH +5.8% 的提升。

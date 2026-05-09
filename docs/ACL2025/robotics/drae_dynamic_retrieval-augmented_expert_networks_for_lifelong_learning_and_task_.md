@@ -123,6 +123,8 @@ DRAE 由四个核心组件组成：(1) MoE 动态路由——根据输入选择 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Think Small, Act Big: Primitive Prompt Learning for Lifelong Robot Manipulation](../../CVPR2025/robotics/think_small_act_big_primitive_prompt_learning_for_lifelong_robot_manipulation.md)
@@ -130,5 +132,7 @@ DRAE 由四个核心组件组成：(1) MoE 动态路由——根据输入选择 
 - [\[ICLR 2026\] All-day Multi-scenes Lifelong Vision-and-Language Navigation with Tucker Adaptation](../../ICLR2026/robotics/all-day_multi-scenes_lifelong_vision-and-language_navigation_with_tucker_adaptat.md)
 - [\[NeurIPS 2025\] Task-Optimized Convolutional Recurrent Networks Align with Tactile Processing in the Rodent Brain](../../NeurIPS2025/robotics/task-optimized_convolutional_recurrent_networks_align_with_tactile_processing_in.md)
 - [\[NeurIPS 2025\] MindForge: Empowering Embodied Agents with Theory of Mind for Lifelong Cultural Learning](../../NeurIPS2025/robotics/mindforge_empowering_embodied_agents_with_theory_of_mind_for_lifelong_cultural_l.md)
+
+</div>
 
 <!-- RELATED:END -->

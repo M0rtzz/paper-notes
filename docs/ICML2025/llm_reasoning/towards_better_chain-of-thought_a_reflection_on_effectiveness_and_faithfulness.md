@@ -153,6 +153,8 @@ $$MIF(C, A) = 1 - \frac{6\sum_{i=1}^{n}[n+1-i-R(AAE(c_i, A))]^2}{n(n^2-1)}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] PCoT: Persuasion-Augmented Chain of Thought for Detecting Fake News and Social Media Disinformation](pcot_persuasion_disinfo.md)
@@ -160,5 +162,7 @@ $$MIF(C, A) = 1 - \frac{6\sum_{i=1}^{n}[n+1-i-R(AAE(c_i, A))]^2}{n(n^2-1)}$$
 - [\[ICML 2025\] Improving Rationality in the Reasoning Process of Language Models through Self-playing Game](improving_rationality_in_the_reasoning_process_of_language_models_through_self-p.md)
 - [\[ICML 2025\] Soft Reasoning: Navigating Solution Spaces in Large Language Models through Controlled Embedding Exploration](soft_reasoning_navigating_solution_spaces_in_large_language_models_through_contr.md)
 - [\[ICML 2025\] MARGE: Improving Math Reasoning for LLMs with Guided Exploration](marge_improving_math_reasoning_for_llms_with_guided_exploration.md)
+
+</div>
 
 <!-- RELATED:END -->

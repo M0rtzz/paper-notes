@@ -143,6 +143,8 @@ $$\mathcal{L}_{eik} = \mathbb{E}_{\mathbf{x}}[(|\nabla f(\mathbf{x})| - 1)^2]$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Marker-Based 3D Reconstruction of Aggregates with a Comparative Analysis of 2D and 3D Morphologies](../../CVPR2026/medical_imaging/marker-based_3d_reconstruction_of_aggregates_with_a_comparative_analysis_of_2d_a.md)
@@ -150,5 +152,7 @@ $$\mathcal{L}_{eik} = \mathbb{E}_{\mathbf{x}}[(|\nabla f(\mathbf{x})| - 1)^2]$$
 - [\[CVPR 2025\] vesselFM: A Foundation Model for Universal 3D Blood Vessel Segmentation](vesselfm_a_foundation_model_for_universal_3d_blood_vessel_segmentation.md)
 - [\[CVPR 2025\] Revisiting MAE Pre-Training for 3D Medical Image Segmentation](revisiting_mae_pre-training_for_3d_medical_image_segmentation.md)
 - [\[CVPR 2025\] SeaLion: Semantic Part-Aware Latent Point Diffusion Models for 3D Generation](sealion_semantic_part-aware_latent_point_diffusion_models_for_3d_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

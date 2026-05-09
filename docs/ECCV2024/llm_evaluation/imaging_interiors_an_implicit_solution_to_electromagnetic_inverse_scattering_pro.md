@@ -143,6 +143,8 @@ $$\mathcal{L} = \lambda_{\text{data}} \mathcal{L}_{\text{data}} + \lambda_{\text
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Event Ellipsometer: Event-based Mueller-Matrix Video Imaging](../../CVPR2025/llm_evaluation/event_ellipsometer_event-based_mueller-matrix_video_imaging.md)
@@ -150,5 +152,7 @@ $$\mathcal{L} = \lambda_{\text{data}} \mathcal{L}_{\text{data}} + \lambda_{\text
 - [\[CVPR 2025\] TensoFlow: Tensorial Flow-based Sampler for Inverse Rendering](../../CVPR2025/llm_evaluation/tensoflow_tensorial_flow-based_sampler_for_inverse_rendering.md)
 - [\[ICML 2025\] DiLQR: Differentiable Iterative Linear Quadratic Regulator via Implicit Differentiation](../../ICML2025/llm_evaluation/dilqr_differentiable_iterative_linear_quadratic_regulator_via_implicit_different.md)
 - [\[ICML 2025\] Leveraging Online Olympiad-Level Math Problems for LLMs Training and Contamination-Resistant Evaluation](../../ICML2025/llm_evaluation/leveraging_online_olympiad-level_math_problems_for_llms_training_and_contaminati.md)
+
+</div>
 
 <!-- RELATED:END -->

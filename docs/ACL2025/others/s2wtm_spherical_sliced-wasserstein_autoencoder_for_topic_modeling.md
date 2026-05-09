@@ -159,6 +159,8 @@ S2WTM 在全部 7 个数据集上的 NPMI 均为最高，大幅领先。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Understanding Cross-Domain Adaptation in Low-Resource Topic Modeling](understanding_cross-domain_adaptation_in_low-resource_topic_modeling.md)
@@ -166,5 +168,7 @@ S2WTM 在全部 7 个数据集上的 NPMI 均为最高，大幅领先。
 - [\[ACL 2025\] Persistent Homology of Topic Networks for the Prediction of Reader Curiosity](persistent_homology_of_topic_networks_for_the_prediction_of_reader_curiosity.md)
 - [\[ACL 2025\] Improving Language and Modality Transfer in Translation by Character-level Modeling](improving_language_and_modality_transfer_in.md)
 - [\[ACL 2025\] QG-SMS: Enhancing Test Item Analysis via Student Modeling and Simulation](qg-sms_enhancing_test_item_analysis_via_student_modeling_and_simulation.md)
+
+</div>
 
 <!-- RELATED:END -->

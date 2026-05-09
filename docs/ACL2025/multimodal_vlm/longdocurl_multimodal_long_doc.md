@@ -140,6 +140,8 @@ LongDocURL 的构建包含四模块半自动流水线：(1) **Extract & Filter**
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] MMMU-Pro: A More Robust Multi-discipline Multimodal Understanding Benchmark](mmmupro_a_more_robust_multidiscipline_multimodal.md)
@@ -147,5 +149,7 @@ LongDocURL 的构建包含四模块半自动流水线：(1) **Extract & Filter**
 - [\[NeurIPS 2025\] Towards Comprehensive Scene Understanding: Integrating First and Third-Person Views for LVLMs](../../NeurIPS2025/multimodal_vlm/towards_comprehensive_scene_understanding_integrating_first_and_third-person_vie.md)
 - [\[ACL 2025\] CrafText Benchmark: Advancing Instruction Following in Complex Multimodal Open-Ended World](craftext_benchmark_advancing_instruction_following_in_complex_multimodal_open-en.md)
 - [\[ACL 2025\] EffiVLM-Bench: A Comprehensive Benchmark for Evaluating Training-Free Acceleration in Large Vision-Language Models](effivlm_bench_vlm_acceleration.md)
+
+</div>
 
 <!-- RELATED:END -->

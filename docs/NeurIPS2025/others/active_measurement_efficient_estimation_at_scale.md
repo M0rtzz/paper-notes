@@ -113,6 +113,8 @@ $$\hat{F}_t = F(\mathcal{D}_t) + \frac{f(s_t)}{q_t(s_t)}, \quad s_t \sim q_t$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Robust Sampling for Active Statistical Inference](robust_sampling_for_active_statistical_inference.md)
@@ -120,5 +122,7 @@ $$\hat{F}_t = F(\mathcal{D}_t) + \frac{f(s_t)}{q_t(s_t)}, \quad s_t \sim q_t$$
 - [\[ECCV 2024\] A Framework for Efficient Model Evaluation through Stratification, Sampling, and Estimation](../../ECCV2024/others/a_framework_for_efficient_model_evaluation_through_stratific.md)
 - [\[NeurIPS 2025\] Learning Dense Hand Contact Estimation from Imbalanced Data](learning_dense_hand_contact_estimation_from_imbalanced_data.md)
 - [\[NeurIPS 2025\] A Generalized Label Shift Perspective for Cross-Domain Gaze Estimation](a_generalized_label_shift_perspective_for_crossdomain_gaze_e.md)
+
+</div>
 
 <!-- RELATED:END -->

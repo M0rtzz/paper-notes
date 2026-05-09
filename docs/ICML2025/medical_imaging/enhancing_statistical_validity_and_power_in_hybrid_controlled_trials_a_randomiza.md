@@ -159,6 +159,8 @@ $$\hat{\tau}_\gamma = \frac{1}{n_\mathcal{R}} \sum_{i=1}^n \left[S_i \hat{\mu}_{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Doubly Protected Estimation for Survival Outcomes Utilizing External Controls for Randomized Clinical Trials](doubly_protected_estimation_for_survival_outcomes_utilizing_external_controls_fo.md)
@@ -166,5 +168,7 @@ $$\hat{\tau}_\gamma = \frac{1}{n_\mathcal{R}} \sum_{i=1}^n \left[S_i \hat{\mu}_{
 - [\[AAAI 2026\] Radiation-Preserving Selective Imaging for Pediatric Hip Dysplasia: A Cross-Modal Approach](../../AAAI2026/medical_imaging/radiation-preserving_selective_imaging_for_pediatric_hip_dysplasia_a_cross-modal.md)
 - [\[ICML 2025\] Bayesian Inference for Correlated Human Experts and Classifiers](bayesian_inference_for_correlated_human_experts_and_classifiers.md)
 - [\[ICML 2025\] From Token to Rhythm: A Multi-Scale Approach for ECG-Language Pretraining](from_token_to_rhythm_a_multi-scale_approach_for_ecg-language_pretraining.md)
+
+</div>
 
 <!-- RELATED:END -->

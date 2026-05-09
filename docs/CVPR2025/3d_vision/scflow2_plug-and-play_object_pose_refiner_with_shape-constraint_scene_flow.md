@@ -139,6 +139,8 @@ $$\mathcal{L} = \sum_{k=1}^{N} \gamma^{N-k} (\mathcal{L}_{pose}^k + \alpha \math
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Zero-Shot Monocular Scene Flow Estimation in the Wild](zero-shot_monocular_scene_flow_estimation_in_the_wild.md)
@@ -146,5 +148,7 @@ $$\mathcal{L} = \sum_{k=1}^{N} \gamma^{N-k} (\mathcal{L}_{pose}^k + \alpha \math
 - [\[CVPR 2025\] DualPM: Dual Posed-Canonical Point Maps for 3D Shape and Pose Reconstruction](dualpm_dual_point_maps_shape_pose.md)
 - [\[CVPR 2025\] Floxels: Fast Unsupervised Voxel Based Scene Flow Estimation](floxels_fast_unsupervised_voxel_based_scene_flow_estimation.md)
 - [\[CVPR 2025\] Flow-NeRF: Joint Learning of Geometry, Poses, and Dense Flow within Unified Neural Representations](flow-nerf_joint_learning_of_geometry_poses_and_dense_flow_within_unified_neural_.md)
+
+</div>
 
 <!-- RELATED:END -->

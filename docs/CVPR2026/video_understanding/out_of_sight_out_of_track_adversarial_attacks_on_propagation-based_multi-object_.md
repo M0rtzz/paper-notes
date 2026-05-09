@@ -144,6 +144,8 @@ MOT20 高密度场景（约150目标/帧）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] FC-Track: Overlap-Aware Post-Association Correction for Online Multi-Object Tracking](fc-track_overlap-aware_post-association_correction_for_online_multi-object_track.md)
@@ -151,5 +153,7 @@ MOT20 高密度场景（约150目标/帧）：
 - [\[CVPR 2026\] Occlusion-Aware SORT: Observing Occlusion for Robust Multi-Object Tracking](occlusion-aware_sort_observing_occlusion_for_robust_multi-object_tracking.md)
 - [\[CVPR 2026\] TCEI: Dual-level Adaptation for Multi-Object Tracking via Test-Time Calibration](tcei_dual_level_adaptation_multi_object_tracking.md)
 - [\[CVPR 2025\] DPU: Dynamic Prototype Updating for Multimodal Out-of-Distribution Detection](../../CVPR2025/video_understanding/dpu_dynamic_prototype_updating_for_multimodal_out-of-distribution_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

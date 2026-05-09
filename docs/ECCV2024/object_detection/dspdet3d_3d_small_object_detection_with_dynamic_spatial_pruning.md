@@ -126,6 +126,8 @@ DSPDet3D 基于 TR3D 的多级 FCOS 风格架构，使用稀疏卷积 backbone �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Approaching Outside: Scaling Unsupervised 3D Object Detection from 2D Scene](approaching_outside_scaling_unsupervised_3d_object_detection_from_2d_scene.md)
@@ -133,5 +135,7 @@ DSPDet3D 基于 TR3D 的多级 FCOS 风格架构，使用稀疏卷积 backbone �
 - [\[CVPR 2026\] SPAN: Spatial-Projection Alignment for Monocular 3D Object Detection](../../CVPR2026/object_detection/span_spatial-projection_alignment_for_monocular_3d_object_detection.md)
 - [\[ICCV 2025\] Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning](../../ICCV2025/object_detection/accelerate_3d_object_detection_models_via_zero-shot_attention_key_pruning.md)
 - [\[ECCV 2024\] ReGround: Improving Textual and Spatial Grounding at No Cost](reground_improving_textual_and_spatial_grounding_at_no_cost.md)
+
+</div>
 
 <!-- RELATED:END -->

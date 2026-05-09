@@ -121,6 +121,8 @@ $$\mathcal{L}_{task} = -\frac{1}{b}\sum_{i=1}^{N}\log\frac{\sum_j \exp(-D_{ij}/\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] InsightEdit: Towards Better Instruction Following for Image Editing](../../CVPR2025/image_generation/insightedit_towards_better_instruction_following_for_image_editing.md)
@@ -128,5 +130,7 @@ $$\mathcal{L}_{task} = -\frac{1}{b}\sum_{i=1}^{N}\log\frac{\sum_j \exp(-D_{ij}/\
 - [\[ICLR 2026\] Visual Autoregressive Modeling for Instruction-Guided Image Editing](../../ICLR2026/image_generation/visual_autoregressive_modeling_for_instruction-guided_image_editing.md)
 - [\[ICCV 2025\] SuperEdit: Rectifying and Facilitating Supervision for Instruction-Based Image Editing](../../ICCV2025/image_generation/superedit_rectifying_and_facilitating_supervision_for_instruction-based_image_ed.md)
 - [\[ICLR 2026\] EditReward: A Human-Aligned Reward Model for Instruction-Guided Image Editing](../../ICLR2026/image_generation/editreward_a_human-aligned_reward_model_for_instruction-guided_image_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

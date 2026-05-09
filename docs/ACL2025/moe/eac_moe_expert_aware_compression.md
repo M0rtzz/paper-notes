@@ -123,6 +123,8 @@ Expert-shift 单独造成的 PPL 增加（0.33）与量化误差本身（0.37）
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] DIVE into MoE: Diversity-Enhanced Reconstruction of Large Language Models from Dense into Mixture-of-Experts](dive_moe_reconstruction.md)
@@ -130,5 +132,7 @@ Expert-shift 单独造成的 PPL 增加（0.33）与量化误差本身（0.37）
 - [\[ACL 2025\] STUN: Structured-Then-Unstructured Pruning for Scalable MoE Pruning](stun_moe_pruning.md)
 - [\[ICLR 2026\] MoE-GS: Mixture of Experts for Dynamic Gaussian Splatting](../../ICLR2026/moe/moe-gs_mixture_of_experts_for_dynamic_gaussian_splatting.md)
 - [\[NeurIPS 2025\] MoRE-Brain: Routed Mixture of Experts for Interpretable and Generalizable Cross-Subject fMRI Visual Decoding](../../NeurIPS2025/moe/more-brain_routed_mixture_of_experts_for_interpretable_and_generalizable_cross-s.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -129,6 +129,8 @@ OOD-Chameleon 接近 Oracle 上界（86.3% vs 100%），WG 误差仅比 Oracle �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] ELogitNorm: Enhancing OOD Detection with Extended Logit Normalization](../../CVPR2026/others/enhancing_outofdistribution_detection_with_extende.md)
@@ -136,5 +138,7 @@ OOD-Chameleon 接近 Oracle 上界（86.3% vs 100%），WG 误差仅比 Oracle �
 - [\[ICML 2025\] Modified K-means Algorithm with Local Optimality Guarantees](modified_k-means_algorithm_with_local_optimality_guarantees.md)
 - [\[ICML 2025\] Provably Improving Generalization of Few-Shot Models with Synthetic Data](provably_improving_generalization_of_few-shot_models_with_synthetic_data.md)
 - [\[NeurIPS 2025\] Distributionally Robust Feature Selection](../../NeurIPS2025/others/distributionally_robust_feature_selection.md)
+
+</div>
 
 <!-- RELATED:END -->

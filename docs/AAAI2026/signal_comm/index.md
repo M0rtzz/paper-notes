@@ -10,6 +10,8 @@ description: >-
 
 **🤖 AAAI2026** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/signal_comm/) · [📷 CVPR2026 (5)](../../CVPR2026/signal_comm/) · [🔬 ICLR2026 (8)](../../ICLR2026/signal_comm/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/signal_comm/) · [📹 ICCV2025 (3)](../../ICCV2025/signal_comm/) · [🧪 ICML2025 (6)](../../ICML2025/signal_comm/)
+
 **[Task Aware Modulation Using Representation Learning for Upscaling of Terrestrial Carbon Fluxes](task_aware_modulation_using_representation_learning_for_upsaling_of_terrestrial_.md)**
 
 :   提出 TAM-RL 框架，将陆地碳通量升尺度问题建模为零样本回归迁移学习任务，用 BiLSTM 任务编码器+FiLM 调制结合碳平衡方程知识引导损失，在 150+ 通量塔站点上将 GPP RMSE 降低 9.6%、NEE R² 提升 43.8%（相较 FLUXCOM-X-BASE）。

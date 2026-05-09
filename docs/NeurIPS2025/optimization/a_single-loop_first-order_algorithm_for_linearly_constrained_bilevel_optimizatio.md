@@ -133,6 +133,8 @@ $$\min_{x, y' \in \mathcal{P}_y, v} \max_{z' \in \mathcal{P}_y, u} K(x, y', z', 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] An Adaptive Algorithm for Bilevel Optimization on Riemannian Manifolds](an_adaptive_algorithm_for_bilevel_optimization_on_riemannian_manifolds.md)
@@ -140,5 +142,7 @@ $$\min_{x, y' \in \mathcal{P}_y, v} \max_{z' \in \mathcal{P}_y, u} K(x, y', z', 
 - [\[NeurIPS 2025\] Problem-Parameter-Free Decentralized Bilevel Optimization](problem-parameter-free_decentralized_bilevel_optimization.md)
 - [\[NeurIPS 2025\] Learning Theory for Kernel Bilevel Optimization](learning_theory_for_kernel_bilevel_optimization.md)
 - [\[NeurIPS 2025\] Set Smoothness Unlocks Clarke Hyper-stationarity in Bilevel Optimization](set_smoothness_unlocks_clarke_hyper-stationarity_in_bilevel_optimization.md)
+
+</div>
 
 <!-- RELATED:END -->

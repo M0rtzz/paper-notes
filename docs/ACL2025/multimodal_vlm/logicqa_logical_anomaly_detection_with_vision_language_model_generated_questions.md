@@ -182,6 +182,8 @@ LogicQA 在 AUROC 上提升 1.6%，F1-max 上提升 3.3%。在 splicing connecto
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Harnessing Vision-Language Models for Time Series Anomaly Detection](../../AAAI2026/multimodal_vlm/harnessing_vision-language_models_for_time_series_anomaly_detection.md)
@@ -189,5 +191,7 @@ LogicQA 在 AUROC 上提升 1.6%，F1-max 上提升 3.3%。在 splicing connecto
 - [\[NeurIPS 2025\] MoniTor: Exploiting Large Language Models with Instruction for Online Video Anomaly Detection](../../NeurIPS2025/multimodal_vlm/monitor_exploiting_large_language_models_with_instruction_for_online_video_anoma.md)
 - [\[ICCV 2025\] AIGI-Holmes: Towards Explainable and Generalizable AI-Generated Image Detection via Multimodal Large Language Models](../../ICCV2025/multimodal_vlm/aigi_holmes_towards_explainable_and_generalizable_ai_generated_image_detection_via_mllm.md)
 - [\[ACL 2025\] Teaching Vision-Language Models to Ask: Resolving Ambiguity in Visual Questions](teaching_vlm_ask_ambiguity.md)
+
+</div>
 
 <!-- RELATED:END -->

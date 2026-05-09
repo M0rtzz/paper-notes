@@ -115,6 +115,8 @@ Position paper 通过调研 1400+ 篇论文，系统论证当前 MAS LLMs 在四
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] SYMPHONY: Synergistic Multi-agent Planning with Heterogeneous Language Model Assemblies](symphony_synergistic_multi-agent_planning_with_heterogeneous_language_model_asse.md)
@@ -122,5 +124,7 @@ Position paper 通过调研 1400+ 篇论文，系统论证当前 MAS LLMs 在四
 - [\[ACL 2025\] AI as a Novel Ethical Agent: Exploring Moral Judgments by Large Language Models](../../ACL2025/llm_nlp/ai_as_a_novel_ethical_agent_exploring_moral_judgments_by_large_language_models.md)
 - [\[ACL 2026\] Towards Robust Real-World Spreadsheet Understanding with Multi-Agent Multi-Format Collaboration](../../ACL2026/llm_nlp/towards_robust_real-world_spreadsheet_understanding_with_multi-agent_multi-forma.md)
 - [\[ACL 2025\] BELLE: A Bi-Level Multi-Agent Reasoning Framework for Multi-Hop Question Answering](../../ACL2025/llm_nlp/belle_a_bi-level_multi-agent_reasoning_framework_for_multi-hop_question_answerin.md)
+
+</div>
 
 <!-- RELATED:END -->

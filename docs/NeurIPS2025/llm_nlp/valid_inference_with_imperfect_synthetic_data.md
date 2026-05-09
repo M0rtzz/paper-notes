@@ -180,6 +180,8 @@ $$\sqrt{T}(\hat{\theta}_T - \theta) \xrightarrow{d} \mathcal{N}(0, V)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Evaluating Language Models as Synthetic Data Generators](../../ACL2025/llm_nlp/evaluating_lms_synthetic_data_gen.md)
@@ -187,5 +189,7 @@ $$\sqrt{T}(\hat{\theta}_T - \theta) \xrightarrow{d} \mathcal{N}(0, V)$$
 - [\[NeurIPS 2025\] Wider or Deeper: Scaling LLM Inference-Time Compute with Adaptive Branching Tree Search](wider_or_deeper_scaling_llm_inference-time_compute_with_adaptive_branching_tree_.md)
 - [\[ECCV 2024\] DreamStruct: Understanding Slides and User Interfaces via Synthetic Data Generation](../../ECCV2024/llm_nlp/dreamstruct_understanding_slides_and_user_interfaces_via_synthetic_data_generati.md)
 - [\[ACL 2025\] Value Portrait: Assessing Language Models' Values through Psychometrically and Ecologically Valid Items](../../ACL2025/llm_nlp/value_portrait_assessing_language_models_values_through_psychometrically_and_eco.md)
+
+</div>
 
 <!-- RELATED:END -->

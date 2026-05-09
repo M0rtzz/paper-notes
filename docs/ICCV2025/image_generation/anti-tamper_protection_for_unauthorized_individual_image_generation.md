@@ -145,6 +145,8 @@ ATP由两个组件构成：保护扰动$P_{Prot}$和授权扰动$P_{Auth}$。整
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Perturb a Model, Not an Image: Towards Robust Privacy Protection via Anti-Personalized Diffusion Models](../../NeurIPS2025/image_generation/perturb_a_model_not_an_image_towards_robust_privacy_protection_via_anti-personal.md)
@@ -152,5 +154,7 @@ ATP由两个组件构成：保护扰动$P_{Prot}$和授权扰动$P_{Auth}$。整
 - [\[NeurIPS 2025\] ImageSentinel: Protecting Visual Datasets from Unauthorized Retrieval-Augmented Image Generation](../../NeurIPS2025/image_generation/imagesentinel_protecting_visual_datasets_from_unauthorized_retrieval-augmented_i.md)
 - [\[NeurIPS 2025\] BlurGuard: A Simple Approach for Robustifying Image Protection Against AI-Powered Edit](../../NeurIPS2025/image_generation/blurguard_a_simple_approach_for_robustifying_image_protection_against_ai-powered.md)
 - [\[ICCV 2025\] Holistic Tokenizer for Autoregressive Image Generation](holistic_tokenizer_for_autoregressive_image_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

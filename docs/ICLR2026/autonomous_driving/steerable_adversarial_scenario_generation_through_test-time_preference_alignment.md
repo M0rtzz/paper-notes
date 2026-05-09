@@ -129,6 +129,8 @@ $$\mathcal{L}_{\text{HGPO}}(\theta) = \mathbb{E}\left[-\log\sigma\left(\beta\lef
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation](../../CVPR2026/autonomous_driving/composing_driving_worlds_through_disentangled_cont.md)
@@ -136,5 +138,7 @@ $$\mathcal{L}_{\text{HGPO}}(\theta) = \mathbb{E}\left[-\log\sigma\left(\beta\lef
 - [\[CVPR 2026\] Drive My Way: Preference Alignment of Vision-Language-Action Model for Personalized Driving](../../CVPR2026/autonomous_driving/drive_my_way_preference_alignment_of_vision-language-action_model_for_personaliz.md)
 - [\[CVPR 2026\] TT-Occ: Test-Time 3D Occupancy Prediction](../../CVPR2026/autonomous_driving/test-time_3d_occupancy_prediction.md)
 - [\[CVPR 2026\] MetaDAT: Generalizable Trajectory Prediction via Meta Pre-training and Data-Adaptive Test-Time Updating](../../CVPR2026/autonomous_driving/metadat_generalizable_trajectory_prediction_via_me.md)
+
+</div>
 
 <!-- RELATED:END -->

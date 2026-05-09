@@ -114,6 +114,8 @@ $L_{PADG} = L_{simple} + \alpha_1 L_{SPF} + \alpha_2 L_{ERF} + \alpha_3 L_{SRF}$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] InterMimic: Towards Universal Whole-Body Control for Physics-Based Human-Object Interactions](intermimic_towards_universal_whole-body_control_for_physics-based_human-object_i.md)
@@ -121,5 +123,7 @@ $L_{PADG} = L_{simple} + \alpha_1 L_{SPF} + \alpha_2 L_{ERF} + \alpha_3 L_{SRF}$
 - [\[CVPR 2025\] UIBDiffusion: Universal Imperceptible Backdoor Attack for Diffusion Models](uibdiffusion_universal_imperceptible_backdoor_attack_for_diffusion_models.md)
 - [\[CVPR 2025\] VerbDiff: Text-Only Diffusion Models with Enhanced Interaction Awareness](verbdiff_text-only_diffusion_models_with_enhanced_interaction_awareness.md)
 - [\[CVPR 2025\] UniReal: Universal Image Generation and Editing via Learning Real-world Dynamics](unireal_universal_image_generation_and_editing_via_learning_real-world_dynamics.md)
+
+</div>
 
 <!-- RELATED:END -->

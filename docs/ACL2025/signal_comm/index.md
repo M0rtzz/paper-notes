@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2025** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/signal_comm/) · [📷 CVPR2026 (5)](../../CVPR2026/signal_comm/) · [🔬 ICLR2026 (8)](../../ICLR2026/signal_comm/) · [🤖 AAAI2026 (3)](../../AAAI2026/signal_comm/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/signal_comm/) · [📹 ICCV2025 (3)](../../ICCV2025/signal_comm/)
+
 **[ToolSpectrum: Towards Personalized Tool Utilization for Large Language Models](toolspectrum_towards_personalized_tool_utilization_for_large_language_models.md)**
 
 :   提出ToolSpectrum基准，首次定义并评估LLM的个性化工具使用能力——根据用户画像和环境因素选择最合适的工具，实验表明个性化显著提升用户体验，但现有LLM在联合推理用户和环境因素时能力有限。

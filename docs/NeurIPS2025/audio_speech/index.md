@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **50** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (29)](../../ACL2026/audio_speech/) · [📷 CVPR2026 (17)](../../CVPR2026/audio_speech/) · [🔬 ICLR2026 (32)](../../ICLR2026/audio_speech/) · [🤖 AAAI2026 (31)](../../AAAI2026/audio_speech/) · [📹 ICCV2025 (13)](../../ICCV2025/audio_speech/) · [🧪 ICML2025 (7)](../../ICML2025/audio_speech/)
+
+🔥 **高频主题：** 语音 ×12 · 对抗鲁棒 ×4 · 多模态 ×3 · 对齐/RLHF ×3 · 推荐系统 ×2
+
 **[A Controllable Examination for Long-Context Language Models](a_controllable_examination_for_longcontext_language_models.md)**
 
 :   提出LongBioBench，通过生成虚构传记作为可控的needle和haystack，构建满足"无缝上下文、可控设置、可靠评估"三大原则的长上下文LLM评估框架，测试18个模型后揭示当前LCLM在检索能力尚可的情况下推理和可信性仍有显著短板。

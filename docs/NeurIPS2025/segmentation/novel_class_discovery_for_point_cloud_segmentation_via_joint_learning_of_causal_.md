@@ -162,6 +162,8 @@ $$\mathbf{n}_j^{(t+1)} = \sigma\left(\sum_{i=1}^M \frac{w_{ij}}{\sqrt{d_i d_j}} 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] FineRS: Fine-grained Reasoning and Segmentation of Small Objects with Reinforcement Learning](finers_fine-grained_reasoning_and_segmentation_of_small_objects_with_reinforceme.md)
@@ -169,5 +171,7 @@ $$\mathbf{n}_j^{(t+1)} = \sigma\left(\sum_{i=1}^M \frac{w_{ij}}{\sqrt{d_i d_j}} 
 - [\[NeurIPS 2025\] Robust Egocentric Referring Video Object Segmentation via Dual-Modal Causal Intervention](robust_egocentric_referring_video_object_segmentation_via_dual-modal_causal_inte.md)
 - [\[ICCV 2025\] Joint Self-Supervised Video Alignment and Action Segmentation](../../ICCV2025/segmentation/joint_self-supervised_video_alignment_and_action_segmentation.md)
 - [\[CVPR 2026\] SARMAE: Masked Autoencoder for SAR Representation Learning](../../CVPR2026/segmentation/sarmae_masked_autoencoder_for_sar_representation_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **98** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (105)](../../CVPR2026/autonomous_driving/) · [🔬 ICLR2026 (18)](../../ICLR2026/autonomous_driving/) · [🤖 AAAI2026 (58)](../../AAAI2026/autonomous_driving/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/autonomous_driving/) · [🧪 ICML2025 (11)](../../ICML2025/autonomous_driving/) · [💬 ACL2025 (1)](../../ACL2025/autonomous_driving/)
+
+🔥 **高频主题：** 3D 高斯渲染 ×14 · 自动驾驶 ×13 · 扩散模型 ×8 · 3D 目标检测 ×5 · 对抗鲁棒 ×4
+
 **[3D Gaussian Splatting Driven Multi-View Robust Physical Adversarial Camouflage Generation](3d_gaussian_splatting_driven_multi-view_robust_physical_adversarial_camouflage_g.md)**
 
 :   提出PGA，首个基于3DGS的物理对抗攻击框架，通过快速准确重建目标+解决Gaussians互/自遮挡问题+min-max背景对抗优化策略，生成跨视角鲁棒的物理对抗迷彩，在数字和物理域均超越SOTA方法。

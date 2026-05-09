@@ -124,6 +124,8 @@ $$z_t' = z_t - \alpha_t \cdot \nabla_{z_t}(\mathcal{L}^{cross} + \mathcal{L}^{se
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Synthesizing Near-Boundary OOD Samples for Out-of-Distribution Detection](synthesizing_near-boundary_ood_samples_for_out-of-distribution_detection.md)
@@ -131,5 +133,7 @@ $$z_t' = z_t - \alpha_t \cdot \nabla_{z_t}(\mathcal{L}^{cross} + \mathcal{L}^{se
 - [\[ICCV 2025\] ScoreHOI: Physically Plausible Reconstruction of Human-Object Interaction via Score-Guided Diffusion](scorehoi_physically_plausible_reconstruction_of_human-object_interaction_via_sco.md)
 - [\[CVPR 2026\] Verify Claimed Text-to-Image Models via Boundary-Aware Prompt Optimization](../../CVPR2026/image_generation/verify_claimed_text-to-image_models_via_boundary-aware_prompt_optimization.md)
 - [\[ICCV 2025\] Your Text Encoder Can Be An Object-Level Watermarking Controller](your_text_encoder_can_be_an_object-level_watermarking_controller.md)
+
+</div>
 
 <!-- RELATED:END -->

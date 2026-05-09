@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **82** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (34)](../../ACL2026/reinforcement_learning/) · [📷 CVPR2026 (22)](../../CVPR2026/reinforcement_learning/) · [🔬 ICLR2026 (142)](../../ICLR2026/reinforcement_learning/) · [🤖 AAAI2026 (71)](../../AAAI2026/reinforcement_learning/) · [🧠 NeurIPS2025 (173)](../../NeurIPS2025/reinforcement_learning/) · [📹 ICCV2025 (7)](../../ICCV2025/reinforcement_learning/)
+
+🔥 **高频主题：** 强化学习 ×26 · Agent ×8 · 对抗鲁棒 ×6 · 推理 ×5 · 少样本学习 ×3
+
 **[A Theoretical Study of (Hyper) Self-Attention through the Lens of Interactions: Representation, Training, Generalization](a_theoretical_study_of_hyper_self-attention_through_the_lens_of_interactions_rep.md)**
 
 :   从"交互实体"统一视角出发，证明单层线性 self-attention 以 $\Theta(|\mathcal{S}|^2)$ 参数高效表示、学习并泛化成对交互函数（全连接网络需 $\Omega(L^2|\mathcal{S}|^2)$），并在此理论基础上提出 HyperFeatureAttention（特征级交互耦合）和 HyperAttention（高阶多实体交互）两个新模块，在语言建模中降低了 perplexity。

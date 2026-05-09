@@ -137,6 +137,8 @@ $$\mathcal{L} = \alpha \cdot \mathcal{L}_{\text{static}} + (1 - \alpha) \cdot \m
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] WaSt-3D: Wasserstein-2 Distance for Scene-to-Scene Stylization on 3D Gaussians](wast-3d_wasserstein-2_distance_for_scene-to-scene_stylization_on_3d_gaussians.md)
@@ -144,5 +146,7 @@ $$\mathcal{L} = \alpha \cdot \mathcal{L}_{\text{static}} + (1 - \alpha) \cdot \m
 - [\[ECCV 2024\] SceneVerse: Scaling 3D Vision-Language Learning for Grounded Scene Understanding](sceneverse_scaling_3d_vision-language_learning_for_grounded_scene_understanding.md)
 - [\[ECCV 2024\] Heterogeneous Graph Learning for Scene Graph Prediction in 3D Point Clouds](heterogeneous_graph_learning_for_scene_graph_prediction_in_3d_point_clouds.md)
 - [\[ECCV 2024\] The NeRFect Match: Exploring NeRF Features for Visual Localization](the_nerfect_match_exploring_nerf_features_for_visual_localization.md)
+
+</div>
 
 <!-- RELATED:END -->

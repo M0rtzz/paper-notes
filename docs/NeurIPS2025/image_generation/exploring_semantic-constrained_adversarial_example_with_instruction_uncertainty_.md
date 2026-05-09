@@ -146,6 +146,8 @@ $$A_{\text{Text}} = \{\text{label}_{\text{Adv}} \mid \text{AbstractedLabel} \not
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Composition and Alignment of Diffusion Models using Constrained Learning](composition_and_alignment_of_diffusion_models_using_constrai.md)
@@ -153,5 +155,7 @@ $$A_{\text{Text}} = \{\text{label}_{\text{Adv}} \mid \text{AbstractedLabel} \not
 - [\[NeurIPS 2025\] Training-Free Constrained Generation with Stable Diffusion Models](training-free_constrained_generation_with_stable_diffusion_models.md)
 - [\[NeurIPS 2025\] Epistemic Uncertainty for Generated Image Detection](epistemic_uncertainty_for_generated_image_detection.md)
 - [\[CVPR 2025\] CustAny: Customizing Anything from A Single Example](../../CVPR2025/image_generation/custany_customizing_anything_from_a_single_example.md)
+
+</div>
 
 <!-- RELATED:END -->

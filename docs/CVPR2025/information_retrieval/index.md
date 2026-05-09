@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **17** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (43)](../../ACL2026/information_retrieval/) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/) · [🤖 AAAI2026 (28)](../../AAAI2026/information_retrieval/) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/) · [📹 ICCV2025 (8)](../../ICCV2025/information_retrieval/)
+
+🔥 **高频主题：** 多模态 ×4 · RAG ×4 · 少样本学习 ×3
+
 **[Advancing Myopia To Holism: Fully Contrastive Language-Image Pre-training](advancing_myopia_to_holism_fully_contrastive_language-image_pre-training.md)**
 
 :   将CLIP从传统的一对一(image, text)对比学习升级为多对多(multi-image-embeddings, multi-texts)对比学习范式，通过VLM生成多视角多层次的描述文本、多分支视觉编码器输出多种视觉embedding，实现更全面的视觉语言对齐，在检索/分类/密集任务上大幅超越baseline。

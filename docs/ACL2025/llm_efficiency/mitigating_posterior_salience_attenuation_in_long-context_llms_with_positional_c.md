@@ -165,6 +165,8 @@ PCD在真实长文本任务上平均提升0.89，在中文多领域QA上提升4.
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Consistency-Preserving Contrastive Decoding for Faithful Document-Grounded Dialogue](consistency-preserving_contrastive_decoding_for_faithful_document-grounded_dial.md)
@@ -172,5 +174,7 @@ PCD在真实长文本任务上平均提升0.89，在中文多领域QA上提升4.
 - [\[ACL 2025\] Distance between Relevant Information Pieces Causes Bias in Long-Context LLMs](distance_between_relevant_information_pieces_causes_bias_in_long-context_llms.md)
 - [\[ACL 2025\] LADM: Long-context Training Data Selection with Attention-based Dependency Measurement for LLMs](ladm_long_context_data.md)
 - [\[ACL 2025\] What Really Matters in Many-Shot Attacks? An Empirical Study of Long-Context Vulnerabilities in LLMs](many_shot_attacks_long_context.md)
+
+</div>
 
 <!-- RELATED:END -->

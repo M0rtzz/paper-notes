@@ -157,6 +157,8 @@ $$\mathcal{L}_{all} = \alpha \mathcal{L}_{2D} + \beta \mathcal{L}_{3D} + \gamma 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] HybriDLA: Hybrid Generation for Document Layout Analysis](hybridla_hybrid_generation_for_document_layout_analysis.md)
@@ -164,5 +166,7 @@ $$\mathcal{L}_{all} = \alpha \mathcal{L}_{2D} + \beta \mathcal{L}_{3D} + \gamma 
 - [\[NeurIPS 2025\] Document Summarization with Conformal Importance Guarantees](../../NeurIPS2025/llm_evaluation/document_summarization_with_conformal_importance_guarantees.md)
 - [\[ACL 2025\] READoc: A Unified Benchmark for Realistic Document Structured Extraction](../../ACL2025/llm_evaluation/readoc_a_unified_benchmark_for_realistic_document_structured_extraction.md)
 - [\[ICCV 2025\] ForCenNet: Foreground-Centric Network for Document Image Rectification](../../ICCV2025/llm_evaluation/forcennet_foreground-centric_network_for_document_image_rectification.md)
+
+</div>
 
 <!-- RELATED:END -->

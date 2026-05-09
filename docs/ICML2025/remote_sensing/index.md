@@ -10,6 +10,8 @@ description: >-
 
 **🧪 ICML2025** · **7** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/remote_sensing/) · [📷 CVPR2026 (19)](../../CVPR2026/remote_sensing/) · [🔬 ICLR2026 (6)](../../ICLR2026/remote_sensing/) · [🤖 AAAI2026 (8)](../../AAAI2026/remote_sensing/) · [🧠 NeurIPS2025 (11)](../../NeurIPS2025/remote_sensing/) · [📹 ICCV2025 (11)](../../ICCV2025/remote_sensing/)
+
 **[Causal Foundation Models: Disentangling Physics from Instrument Properties](causal_foundation_models_disentangling_physics_from_instrument_properties.md)**
 
 :   提出因果驱动的基础模型，通过双编码器架构和结构化对比学习从天文时间序列中解耦物理信号和仪器效应，利用自然存在的观测三元组（同一目标不同仪器/同一仪器不同目标），在低数据场景下显著优于单一潜空间方法。

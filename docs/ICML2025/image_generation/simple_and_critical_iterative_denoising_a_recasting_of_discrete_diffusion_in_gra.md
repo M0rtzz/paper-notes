@@ -158,6 +158,8 @@ $$C^*({\hat{z}_{1|t}}) = \frac{\alpha_t \cdot p_{\text{data}}(\hat{z}_{1|t})}{\a
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Graph Generative Pre-trained Transformer (G2PT)](graph_generative_pre-trained_transformer.md)
@@ -165,5 +167,7 @@ $$C^*({\hat{z}_{1|t}}) = \frac{\alpha_t \cdot p_{\text{data}}(\hat{z}_{1|t})}{\a
 - [\[ICCV 2025\] LiT: Delving into a Simple Linear Diffusion Transformer for Image Generation](../../ICCV2025/image_generation/lit_delving_into_a_simple_linear_diffusion_transformer_for_image_generation.md)
 - [\[NeurIPS 2025\] Constrained Discrete Diffusion](../../NeurIPS2025/image_generation/constrained_discrete_diffusion.md)
 - [\[ICML 2025\] PepTune: De Novo Generation of Therapeutic Peptides with Multi-Objective-Guided Discrete Diffusion](peptune_de_novo_generation_of_therapeutic_peptides_with_multi-objective-guided_d.md)
+
+</div>
 
 <!-- RELATED:END -->

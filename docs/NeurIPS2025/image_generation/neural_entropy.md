@@ -143,6 +143,8 @@ $$S_\text{neural} = \int_0^T \mathbb{E}_{x_t} \left[ \| \nabla_{x_t} \log p_t(x_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] EVODiff: Entropy-aware Variance Optimized Diffusion Inference](evodiff_entropy-aware_variance_optimized_diffusion_inference.md)
@@ -150,5 +152,7 @@ $$S_\text{neural} = \int_0^T \mathbb{E}_{x_t} \left[ \| \nabla_{x_t} \log p_t(x_
 - [\[NeurIPS 2025\] Flow Matching Neural Processes](flow_matching_neural_processes.md)
 - [\[ICML 2025\] Provable Maximum Entropy Manifold Exploration via Diffusion Models](../../ICML2025/image_generation/provable_maximum_entropy_manifold_exploration_via_diffusion_models.md)
 - [\[NeurIPS 2025\] Score-informed Neural Operator for Enhancing Ordering-based Causal Discovery](score-informed_neural_operator_for_enhancing_ordering-based_causal_discovery.md)
+
+</div>
 
 <!-- RELATED:END -->

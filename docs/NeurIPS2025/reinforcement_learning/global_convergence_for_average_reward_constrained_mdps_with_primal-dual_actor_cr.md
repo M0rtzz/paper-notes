@@ -172,6 +172,8 @@ $$\frac{1}{K}\sum_k (\mathcal{L}(\pi^*, \lambda_k) - \mathcal{L}(\theta_k, \lamb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Sample Complexity of Distributionally Robust Average-Reward Reinforcement Learning](sample_complexity_of_distributionally_robust_average-reward_reinforcement_learni.md)
@@ -179,5 +181,7 @@ $$\frac{1}{K}\sum_k (\mathcal{L}(\pi^*, \lambda_k) - \mathcal{L}(\theta_k, \lamb
 - [\[NeurIPS 2025\] Automaton Constrained Q-Learning](automaton_constrained_q-learning.md)
 - [\[AAAI 2026\] Risk-Sensitive Exponential Actor Critic](../../AAAI2026/reinforcement_learning/risk-sensitive_exponential_actor_critic.md)
 - [\[ICML 2025\] Enhancing Decision-Making of Large Language Models via Actor-Critic](../../ICML2025/reinforcement_learning/enhancing_decision-making_of_large_language_models_via_actor-critic.md)
+
+</div>
 
 <!-- RELATED:END -->

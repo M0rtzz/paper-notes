@@ -126,6 +126,8 @@ $$P_{inv}(c|\mathbf{x}) = \frac{\exp(S(A_{inv}f_I(\mathbf{x}), A_{inv}f_T(\mathb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Causal-LLaVA: Causal Disentanglement for Mitigating Hallucination in Multimodal Large Language Models](../../NeurIPS2025/multimodal_vlm/causalllava_causal_disentanglement_for_mitigating_hallucinat.md)
@@ -133,5 +135,7 @@ $$P_{inv}(c|\mathbf{x}) = \frac{\exp(S(A_{inv}f_I(\mathbf{x}), A_{inv}f_T(\mathb
 - [\[ACL 2025\] VReST: Enhancing Reasoning in Large Vision-Language Models through Tree Search and Self-Reward Mechanism](../../ACL2025/multimodal_vlm/vrest_tree_search_vlm_reasoning.md)
 - [\[ICML 2025\] Kernel-based Unsupervised Embedding Alignment for Enhanced Visual Representation in Vision-language Models](kernel-based_unsupervised_embedding_alignment_for_enhanced_visual_representation.md)
 - [\[ACL 2026\] From Heads to Neurons: Causal Attribution and Steering in Multi-Task Vision-Language Models](../../ACL2026/multimodal_vlm/from_heads_to_neurons_causal_attribution_and_steering_in_multi-task_vision-langu.md)
+
+</div>
 
 <!-- RELATED:END -->

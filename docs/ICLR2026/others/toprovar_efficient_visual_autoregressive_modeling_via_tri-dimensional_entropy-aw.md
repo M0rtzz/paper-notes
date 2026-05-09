@@ -155,6 +155,8 @@ People 类别 FID 甚至从 58.91 降至 58.84（边加速边提升），Landsca
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SemTalk: Holistic Co-speech Motion Generation with Frame-level Semantic Emphasis](../../ICCV2025/others/semtalk_holistic_co-speech_motion_generation_with_frame-level_semantic_emphasis.md)
@@ -162,5 +164,7 @@ People 类别 FID 甚至从 58.91 降至 58.84（边加速边提升），Landsca
 - [\[AAAI 2026\] OR-R1: Automating Modeling and Solving of Operations Research Optimization Problems](../../AAAI2026/others/or-r1_automating_modeling_and_solving_of_operations_research_optimization_proble.md)
 - [\[CVPR 2025\] RandAR: Decoder-only Autoregressive Visual Generation in Random Orders](../../CVPR2025/others/randar_decoder-only_autoregressive_visual_generation_in_random_orders.md)
 - [\[ICLR 2026\] SEED: Towards More Accurate Semantic Evaluation for Visual Brain Decoding](seed_towards_more_accurate_semantic_evaluation_for_visual_brain_decoding.md)
+
+</div>
 
 <!-- RELATED:END -->

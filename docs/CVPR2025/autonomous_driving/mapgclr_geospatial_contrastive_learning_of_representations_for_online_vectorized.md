@@ -125,6 +125,8 @@ $\mathcal{L}_\text{GCLR} = -\log\frac{\exp(\text{sim}(\mathbf{z}_i, \mathbf{z}_i
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] InteractionMap: Improving Online Vectorized HDMap Construction with Interaction](interactionmap_improving_online_vectorized_hdmap_construction_with_interaction.md)
@@ -132,5 +134,7 @@ $\mathcal{L}_\text{GCLR} = -\log\frac{\exp(\text{sim}(\mathbf{z}_i, \mathbf{z}_i
 - [\[CVPR 2025\] Driving by the Rules: A Benchmark for Integrating Traffic Sign Regulations into Vectorized HD Map](driving_by_the_rules_a_benchmark_for_integrating_traffic_sign_regulations_into_v.md)
 - [\[CVPR 2025\] PSA-SSL: Pose and Size-aware Self-Supervised Learning on LiDAR Point Clouds](psa-ssl_pose_and_size-aware_self-supervised_learning_on_lidar_point_clouds.md)
 - [\[CVPR 2025\] Unlocking Generalization Power in LiDAR Point Cloud Registration](unlocking_generalization_power_in_lidar_point_cloud_registration.md)
+
+</div>
 
 <!-- RELATED:END -->

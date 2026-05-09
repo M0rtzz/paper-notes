@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **7** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/time_series/) · [📷 CVPR2026 (8)](../../CVPR2026/time_series/) · [🔬 ICLR2026 (39)](../../ICLR2026/time_series/) · [🤖 AAAI2026 (35)](../../AAAI2026/time_series/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/time_series/) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/)
+
+🔥 **高频主题：** 时序预测 ×6 · LLM ×2
+
 **[ANRE: Analogical Replay for Temporal Knowledge Graph Forecasting](anre_analogical_replay_for_temporal_knowledge_graph_forecasting.md)**
 
 :   本文提出ANRE（Analogical Replay）方法，通过检索历史知识图谱快照中与当前查询结构类似的"类比事件"，将其作为推理线索辅助时序知识图谱的未来事件预测，在多个基准数据集上取得了显著的性能提升。

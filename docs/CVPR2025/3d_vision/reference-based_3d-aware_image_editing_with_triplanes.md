@@ -130,6 +130,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] GeoComplete: Geometry-Aware Diffusion for Reference-Driven Image Completion](../../NeurIPS2025/3d_vision/geocomplete_geometry-aware_diffusion_for_reference-driven_image_completion.md)
@@ -137,5 +139,7 @@ tags:
 - [\[CVPR 2025\] PrEditor3D: Fast and Precise 3D Shape Editing](preditor3d_fast_and_precise_3d_shape_editing.md)
 - [\[ICML 2025\] FlowDrag: 3D-aware Drag-based Image Editing with Mesh-guided Deformation Vector Flow Fields](../../ICML2025/3d_vision/flowdrag_3d-aware_drag-based_image_editing_with_mesh-guided_deformation_vector_f.md)
 - [\[CVPR 2025\] Perturb-and-Revise: Flexible 3D Editing with Generative Trajectories](perturb-and-revise_flexible_3d_editing_with_generative_trajectories.md)
+
+</div>
 
 <!-- RELATED:END -->

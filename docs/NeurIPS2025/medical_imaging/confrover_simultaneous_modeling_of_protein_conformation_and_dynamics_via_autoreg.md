@@ -172,6 +172,8 @@ ConfRover 生成构象的几何质量和能量水平均接近 MD 参考，远优
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Aligning Protein Conformation Ensemble Generation with Physical Feedback](../../ICML2025/medical_imaging/aligning_protein_conformation_ensemble_generation_with_physical_feedback.md)
@@ -179,5 +181,7 @@ ConfRover 生成构象的几何质量和能量水平均接近 MD 参考，远优
 - [\[NeurIPS 2025\] Consistent Sampling and Simulation: Molecular Dynamics with Energy-Based Diffusion Models](consistent_sampling_and_simulation_molecular_dynamics_with_energy-based_diffusio.md)
 - [\[NeurIPS 2025\] Generative Modeling of Full-Atom Protein Conformations using Latent Diffusion on Graph Embeddings](generative_modeling_of_full-atom_protein_conformations_using_latent_diffusion_on.md)
 - [\[NeurIPS 2025\] Protein Design with Dynamic Protein Vocabulary](protein_design_with_dynamic_protein_vocabulary.md)
+
+</div>
 
 <!-- RELATED:END -->

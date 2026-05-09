@@ -108,6 +108,8 @@ GGA的核心价值：可以即插即用地与任何DG方法组合，为其提供
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] FEDTAIL: Federated Long-Tailed Domain Generalization with Sharpness-Guided Gradient Matching](../../ICML2025/llm_evaluation/fedtail_federated_long-tailed_domain_generalization_with_sharpness-guided_gradie.md)
@@ -115,5 +117,7 @@ GGA的核心价值：可以即插即用地与任何DG方法组合，为其提供
 - [\[ICLR 2026\] Noise-Aware Generalization: Robustness to In-Domain Noise and Out-of-Domain Generalization](../../ICLR2026/llm_evaluation/noise-aware_generalization_robustness_to_in-domain_noise_and_out-of-domain_gener.md)
 - [\[ICML 2025\] Set-Valued Predictions for Robust Domain Generalization](../../ICML2025/llm_evaluation/set_valued_predictions_for_robust_domain_generalization.md)
 - [\[CVPR 2025\] Dual Consolidation for Pre-Trained Model-Based Domain-Incremental Learning](dual_consolidation_for_pre-trained_model-based_domain-incremental_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

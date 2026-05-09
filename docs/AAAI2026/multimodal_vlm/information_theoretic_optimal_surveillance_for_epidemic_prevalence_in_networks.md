@@ -129,6 +129,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Learning Optimal Multimodal Information Bottleneck Representations](../../ICML2025/multimodal_vlm/learning_optimal_multimodal_information_bottleneck_representations.md)
@@ -136,5 +138,7 @@ tags:
 - [\[AAAI 2026\] Conditional Information Bottleneck for Multimodal Fusion: Overcoming Shortcut Learning in Sarcasm Detection](conditional_information_bottleneck_for_multimodal_fusion_overcoming_shortcut_lea.md)
 - [\[ICCV 2025\] Evading Data Provenance in Deep Neural Networks](../../ICCV2025/multimodal_vlm/evading_data_provenance_in_deep_neural_networks.md)
 - [\[NeurIPS 2025\] Multimodal Bandits: Regret Lower Bounds and Optimal Algorithms](../../NeurIPS2025/multimodal_vlm/multimodal_bandits_regret_lower_bounds_and_optimal_algorithms.md)
+
+</div>
 
 <!-- RELATED:END -->

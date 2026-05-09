@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **15** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/self_supervised/) · [📷 CVPR2026 (38)](../../CVPR2026/self_supervised/) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/) · [🤖 AAAI2026 (14)](../../AAAI2026/self_supervised/) · [🧠 NeurIPS2025 (36)](../../NeurIPS2025/self_supervised/) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/)
+
+🔥 **高频主题：** 自监督学习 ×5
+
 **[COHO: Context-Sensitive City-Scale Hierarchical Urban Layout Generation](coho_context-sensitive_city-scale_hierarchical_urban_layout_generation.md)**
 
 :   提出基于图掩码自编码器 (GMAE) 的城市级 2.5D 布局生成方法，通过规范图表示捕获建筑-街区-社区的多层语义上下文，结合优先级调度的迭代采样，在 330 个美国城市上实现了兼具真实感、语义一致性和正确性的大规模城市布局生成。

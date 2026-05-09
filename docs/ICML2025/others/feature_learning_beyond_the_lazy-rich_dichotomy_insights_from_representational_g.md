@@ -151,6 +151,8 @@ VGG-11 在 CIFAR-10 上训练，尽管训练 / 测试精度快速饱和，流形
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Johnson-Lindenstrauss Lemma Beyond Euclidean Geometry](../../NeurIPS2025/others/johnson-lindenstrauss_lemma_beyond_euclidean_geometry.md)
@@ -158,5 +160,7 @@ VGG-11 在 CIFAR-10 上训练，尽管训练 / 测试精度快速饱和，流形
 - [\[NeurIPS 2025\] On a Geometry of Interbrain Networks](../../NeurIPS2025/others/on_a_geometry_of_interbrain_networks.md)
 - [\[ICML 2025\] Hierarchical Refinement: Optimal Transport to Infinity and Beyond](hierarchical_refinement_optimal_transport_to_infinity_and_beyond.md)
 - [\[CVPR 2025\] Task-Agnostic Guided Feature Expansion for Class-Incremental Learning](../../CVPR2025/others/task-agnostic_guided_feature_expansion_for_class-incremental_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

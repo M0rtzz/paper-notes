@@ -127,6 +127,8 @@ $$U \mapsto \{(I_1: U_1), (I_2: U_2), \ldots, (I_n: U_n)\}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Cross-Modal Alignment for LLM-Enhanced Spoken Language Understanding](cross-modal_alignment_for_llm-enhanced_spoken_language_understanding.md)
@@ -134,5 +136,7 @@ $$U \mapsto \{(I_1: U_1), (I_2: U_2), \ldots, (I_n: U_n)\}$$
 - [\[ACL 2025\] Logical Forms Complement Probability in Understanding Language Model (and Human) Performance](logical_forms_complement_probability_in_understanding_language_model_and_human_p.md)
 - [\[ACL 2025\] LR²Bench: Evaluating Long-chain Reflective Reasoning Capabilities of Large Language Models via Constraint Satisfaction Problems](lr2bench_evaluating_long-chain_reflective_reasoning_capabilities_of_large_langua.md)
 - [\[ACL 2025\] Enhancing Spoken Discourse Modeling in Language Models Using Gestural Cues](enhancing_spoken_discourse_modeling_in_language_models_using_gestural_cues.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -139,6 +139,8 @@ T2SMark 是 training-free 的水印方案，无需额外训练。关键超参数
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] GaussMarker: Robust Dual-Domain Watermark for Diffusion Models](../../ICML2025/image_generation/gaussmarker_robust_dual-domain_watermark_for_diffusion_models.md)
@@ -146,5 +148,7 @@ T2SMark 是 training-free 的水印方案，无需额外训练。关键超参数
 - [\[NeurIPS 2025\] Robustness in Both Domains: CLIP Needs a Robust Text Encoder](robustness_in_both_domains_clip_needs_a_robust_text_encoder.md)
 - [\[CVPR 2025\] SleeperMark: Towards Robust Watermark against Fine-Tuning Text-to-Image Diffusion Models](../../CVPR2025/image_generation/sleepermark_towards_robust_watermark_against_fine-tuning_text-to-image_diffusion.md)
 - [\[NeurIPS 2025\] Understanding Representation Dynamics of Diffusion Models via Low-Dimensional Models](understanding_representation_dynamics_of_diffusion_models_via_low-dimensional_mo.md)
+
+</div>
 
 <!-- RELATED:END -->

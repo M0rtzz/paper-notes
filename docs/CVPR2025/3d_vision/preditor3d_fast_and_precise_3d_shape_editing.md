@@ -116,6 +116,8 @@ PrEditor3D 是免训练方法，不涉及损失函数训练。编辑过程在推
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Instant3dit: Multiview Inpainting for Fast Editing of 3D Objects](instant3dit_multiview_inpainting_for_fast_editing_of_3d_objects.md)
@@ -123,5 +125,7 @@ PrEditor3D 是免训练方法，不涉及损失函数训练。编辑过程在推
 - [\[CVPR 2025\] PreciseCam: Precise Camera Control for Text-to-Image Generation](precisecam_precise_camera_control_for_text-to-image_generation.md)
 - [\[ICCV 2025\] Unleashing Vecset Diffusion Model for Fast Shape Generation (FlashVDM)](../../ICCV2025/3d_vision/unleashing_vecset_diffusion_model_for_fast_shape_generation.md)
 - [\[CVPR 2025\] Reference-Based 3D-Aware Image Editing with Triplanes](reference-based_3d-aware_image_editing_with_triplanes.md)
+
+</div>
 
 <!-- RELATED:END -->

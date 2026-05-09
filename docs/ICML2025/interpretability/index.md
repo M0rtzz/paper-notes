@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **33** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (34)](../../ACL2026/interpretability/) · [📷 CVPR2026 (31)](../../CVPR2026/interpretability/) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/) · [🧠 NeurIPS2025 (86)](../../NeurIPS2025/interpretability/) · [📹 ICCV2025 (11)](../../ICCV2025/interpretability/)
+
+🔥 **高频主题：** LLM ×3 · 推理 ×2
+
 **[A Cross Modal Knowledge Distillation & Data Augmentation Recipe for Improving Transcriptomics Representations through Morphological Features](a_cross_modal_knowledge_distillation_data_augmentation_recipe_for_improving_tran.md)**
 
 :   提出 Semi-Clipped（基于 CLIP 的跨模态蒸馏方法）和 PEA（扰动嵌入增强），在弱配对数据场景下将显微镜图像的丰富形态学特征蒸馏到转录组学表征中，在保持基因表达可解释性的同时显著提升其预测能力。

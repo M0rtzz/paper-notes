@@ -132,6 +132,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Spectral Attention Steering for Prompt Highlighting](../../ICLR2026/llm_evaluation/spectral_attention_steering_for_prompt_highlighting.md)
@@ -139,5 +141,7 @@ tags:
 - [\[ICML 2025\] Feedforward Few-shot Species Range Estimation](../../ICML2025/llm_evaluation/feedforward_few-shot_species_range_estimation.md)
 - [\[NeurIPS 2025\] RGB-to-Polarization Estimation: A New Task and Benchmark Study](../../NeurIPS2025/llm_evaluation/rgb-to-polarization_estimation_a_new_task_and_benchmark_study.md)
 - [\[CVPR 2026\] HeSS: Head Sensitivity Score for Sparsity Redistribution in VGGT](../../CVPR2026/llm_evaluation/hess_head_sensitivity_score_for_sparsity_redistribution_in_vggt.md)
+
+</div>
 
 <!-- RELATED:END -->

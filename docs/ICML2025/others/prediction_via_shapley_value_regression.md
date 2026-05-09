@@ -148,6 +148,8 @@ $$\mathcal{L}(\theta) = \sum_{x \in X}\sum_{j \in M}\left(\beta \cdot \mathbb{E}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Faithful Group Shapley Value](../../NeurIPS2025/others/faithful_group_shapley_value.md)
@@ -155,5 +157,7 @@ $$\mathcal{L}(\theta) = \sum_{x \in X}\sum_{j \in M}\left(\beta \cdot \mathbb{E}
 - [\[ICML 2025\] Heavy-Tailed Linear Bandits: Huber Regression with One-Pass Update](heavy-tailed_linear_bandits_huber_regression_with_one-pass_update.md)
 - [\[ICML 2025\] Curvature Enhanced Data Augmentation for Regression](curvature_enhanced_data_augmentation_for_regression.md)
 - [\[ICML 2025\] Prediction-Powered Adaptive Shrinkage Estimation](prediction-powered_adaptive_shrinkage_estimation.md)
+
+</div>
 
 <!-- RELATED:END -->

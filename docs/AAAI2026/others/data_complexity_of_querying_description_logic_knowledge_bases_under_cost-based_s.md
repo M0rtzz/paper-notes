@@ -186,6 +186,8 @@ $$\mathsf{core}(\mathcal{A}) = \mathsf{pc}(\mathcal{A}) \cup \{b \mid a \leadsto
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Model Change for Description Logic Concepts](model_change_for_description_logic_concepts.md)
@@ -193,5 +195,7 @@ $$\mathsf{core}(\mathcal{A}) = \mathsf{pc}(\mathcal{A}) \cup \{b \mid a \leadsto
 - [\[AAAI 2026\] Cost-Free Neutrality for the River Method](cost-free_neutrality_for_the_river_method.md)
 - [\[AAAI 2026\] From Decision Trees to Boolean Logic: A Fast and Unified SHAP Algorithm](from_decision_trees_to_boolean_logic_a_fast_and_unified_shap_algorithm.md)
 - [\[AAAI 2026\] ShortageSim: Simulating Drug Shortages under Information Asymmetry](shortagesim_simulating_drug_shortages_under_information_asymmetry.md)
+
+</div>
 
 <!-- RELATED:END -->

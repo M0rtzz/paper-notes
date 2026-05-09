@@ -159,6 +159,8 @@ Llama3.1-8B-Instruct 结果：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Adaptive Retrieval without Self-Knowledge? Bringing Uncertainty Back Home](adaptive_retrieval_without_self-knowledge_bringing_uncertainty_back_home.md)
@@ -166,5 +168,7 @@ Llama3.1-8B-Instruct 结果：
 - [\[ACL 2025\] GeAR: Generation Augmented Retrieval](gear_generation_augmented_retrieval.md)
 - [\[ACL 2025\] Theoretical Guarantees for Minimum Bayes Risk Decoding](theoretical_guarantees_for_minimum_bayes_risk_decoding.md)
 - [\[ACL 2025\] Commonsense Reasoning in Arab Culture](commonsense_arab_culture.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -189,6 +189,8 @@ $$r_t^{j, tele} = w_4 \cdot WR_{i^*, j, t} \cdot (1 - \min(1, \xi_t^j))$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] CoLC: Communication-Efficient Collaborative Perception with LiDAR Completion](../../CVPR2026/autonomous_driving/colc_communication-efficient_collaborative_perception_with_lidar_completion.md)
@@ -196,5 +198,7 @@ $$r_t^{j, tele} = w_4 \cdot WR_{i^*, j, t} \cdot (1 - \min(1, \xi_t^j))$$
 - [\[NeurIPS 2025\] Continuous Simplicial Neural Networks](../../NeurIPS2025/autonomous_driving/continuous_simplicial_neural_networks.md)
 - [\[ICCV 2025\] CoLMDriver: LLM-based Negotiation Benefits Cooperative Autonomous Driving](../../ICCV2025/autonomous_driving/colmdriver_llm-based_negotiation_benefits_cooperative_autonomous_driving.md)
 - [\[ICCV 2025\] Saliency-Aware Quantized Imitation Learning for Efficient Robotic Control](../../ICCV2025/autonomous_driving/saliency-aware_quantized_imitation_learning_for_efficient_robotic_control.md)
+
+</div>
 
 <!-- RELATED:END -->

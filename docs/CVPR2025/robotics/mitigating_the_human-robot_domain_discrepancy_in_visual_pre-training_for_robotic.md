@@ -151,6 +151,8 @@ $$\mathcal{L} = \frac{1}{2M}\sum_{i=1}^{M} -\log\frac{\mathcal{S}(\bar{h}_i^f, \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Robotic Visual Instruction](robotic_visual_instruction.md)
@@ -158,5 +160,7 @@ $$\mathcal{L} = \frac{1}{2M}\sum_{i=1}^{M} -\log\frac{\mathcal{S}(\bar{h}_i^f, \
 - [\[CVPR 2025\] 3D-MVP: 3D Multiview Pretraining for Robotic Manipulation](3d-mvp_3d_multiview_pretraining_for_manipulation.md)
 - [\[NeurIPS 2025\] Generalizable Domain Adaptation for Sim-and-Real Policy Co-Training](../../NeurIPS2025/robotics/generalizable_domain_adaptation_for_sim-and-real_policy_co-training.md)
 - [\[CVPR 2025\] RoboGround: Robotic Manipulation with Grounded Vision-Language Priors](roboground_robotic_manipulation_with_grounded_vision-language_priors.md)
+
+</div>
 
 <!-- RELATED:END -->

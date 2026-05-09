@@ -128,6 +128,8 @@ IntCLIP 采用双分支图像编码和文本对齐的架构。输入图像同时
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Processing and Acquisition Traces in Visual Encoders: What Does CLIP Know About Your Camera?](../../ICCV2025/others/processing_and_acquisition_traces_in_visual_encoders_what_does_clip_know_about_y.md)
@@ -135,5 +137,7 @@ IntCLIP 采用双分支图像编码和文本对齐的架构。输入图像同时
 - [\[ECCV 2024\] GazeXplain: Learning to Predict Natural Language Explanations of Visual Scanpaths](gazexplain_learning_to_predict_natural_language_explanations_of_visual_scanpaths.md)
 - [\[ECCV 2024\] Dropout Mixture Low-Rank Adaptation for Visual Parameters-Efficient Fine-Tuning](dropout_mixture_low-rank_adaptation_for_visual_parameters-efficient_fine-tuning.md)
 - [\[AAAI 2026\] Data Complexity of Querying Description Logic Knowledge Bases under Cost-Based Semantics](../../AAAI2026/others/data_complexity_of_querying_description_logic_knowledge_bases_under_cost-based_s.md)
+
+</div>
 
 <!-- RELATED:END -->

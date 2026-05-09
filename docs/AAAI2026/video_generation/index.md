@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/video_generation/) · [📷 CVPR2026 (59)](../../CVPR2026/video_generation/) · [🔬 ICLR2026 (19)](../../ICLR2026/video_generation/) · [🧠 NeurIPS2025 (23)](../../NeurIPS2025/video_generation/) · [📹 ICCV2025 (51)](../../ICCV2025/video_generation/) · [🧪 ICML2025 (7)](../../ICML2025/video_generation/)
+
+🔥 **高频主题：** 视频生成 ×6 · 扩散模型 ×3
+
 **[3D4D: An Interactive Editable 4D World Model via 3D Video Generation](3d4d_an_interactive_editable_4d_world_model_via_3d_video_generation.md)**
 
 :   提出3D4D交互式4D可视化框架，集成WebGL与Supersplat渲染，通过四模块后端管线将静态图片/文本转化为可编辑4D场景，引入VLM引导的注视点渲染策略实现60fps实时交互，在CLIP Consistency和CLIP Score上达到SOTA。

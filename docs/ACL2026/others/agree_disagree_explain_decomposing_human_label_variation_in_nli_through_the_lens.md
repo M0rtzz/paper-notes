@@ -117,6 +117,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Detecting Out-of-Distribution through the Lens of Neural Collapse](../../CVPR2025/others/detecting_out-of-distribution_through_the_lens_of_neural_collapse.md)
@@ -124,5 +126,7 @@ tags:
 - [\[AAAI 2026\] Formal Abductive Latent Explanations for Prototype-Based Networks](../../AAAI2026/others/formal_abductive_latent_explanations_for_prototype-based_networks.md)
 - [\[ICCV 2025\] LayerD: Decomposing Raster Graphic Designs into Layers](../../ICCV2025/others/layerd_decomposing_raster_graphic_designs_into_layers.md)
 - [\[ACL 2025\] Entailed Between the Lines: Incorporating Implication into NLI](../../ACL2025/others/entailed_between_the_lines_incorporating_implication_into_nli.md)
+
+</div>
 
 <!-- RELATED:END -->

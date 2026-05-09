@@ -125,6 +125,8 @@ $$W_q = \mathcal{C}[A] \circ \text{sign}(L_s)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Task Vector Quantization for Memory-Efficient Model Merging](task_vector_quantization_for_memory-efficient_model_merging.md)
@@ -132,5 +134,7 @@ $$W_q = \mathcal{C}[A] \circ \text{sign}(L_s)$$
 - [\[AAAI 2026\] SIGN: Schema-Induced Games for Naming](../../AAAI2026/model_compression/sign_schema-induced_games_for_naming.md)
 - [\[ICCV 2025\] VQ-SGen: A Vector Quantized Stroke Representation for Creative Sketch Generation](vq-sgen_a_vector_quantized_stroke_representation_for_creative_sketch_generation.md)
 - [\[ACL 2025\] Direct Behavior Optimization: Unlocking the Potential of Lightweight LLMs](../../ACL2025/model_compression/direct_behavior_optimization_unlocking_the_potential_of_lightweight_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

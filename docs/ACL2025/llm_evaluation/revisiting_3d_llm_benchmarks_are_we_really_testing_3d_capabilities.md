@@ -132,6 +132,8 @@ VLM 仅用单视角图像就全面超越 3D SOTA → 这些物体基准存在严
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] 3DSRBench: A Comprehensive 3D Spatial Reasoning Benchmark](../../ICCV2025/llm_evaluation/3dsrbench_a_comprehensive_3d_spatial_reasoning_benchmark.md)
@@ -139,5 +141,7 @@ VLM 仅用单视角图像就全面超越 3D SOTA → 这些物体基准存在严
 - [\[CVPR 2025\] MagicArticulate: Make Your 3D Models Articulation-Ready](../../CVPR2025/llm_evaluation/magicarticulate_make_your_3d_models_articulation-ready.md)
 - [\[CVPR 2025\] Dora: Sampling and Benchmarking for 3D Shape Variational Auto-Encoders](../../CVPR2025/llm_evaluation/dora_sampling_and_benchmarking_for_3d_shape_variational_auto-encoders.md)
 - [\[ICCV 2025\] SketchSplat: 3D Edge Reconstruction via Differentiable Multi-view Sketch Splatting](../../ICCV2025/llm_evaluation/sketchsplat_3d_edge_reconstruction_via_differentiable_multi-view_sketch_splattin.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -125,6 +125,8 @@ $$g(y^{(0)}) = \sum_{i=1}^T \left\| \frac{\partial \epsilon_\theta(y^{(i-1)}, i)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Controllable Financial Market Generation with Diffusion Guided Meta Agent](../../AAAI2026/others/controllable_financial_market_generation_with_diffusion_guided_meta_agent.md)
@@ -132,5 +134,7 @@ $$g(y^{(0)}) = \sum_{i=1}^T \left\| \frac{\partial \epsilon_\theta(y^{(i-1)}, i)
 - [\[ICLR 2026\] Harpoon: Generalised Manifold Guidance for Conditional Tabular Diffusion](harpoon_generalised_manifold_guidance_for_conditional_tabular_diffusion.md)
 - [\[ACL 2025\] Graph-guided Cross-composition Feature Disentanglement for Compositional Zero-shot Learning](../../ACL2025/others/graph-guided_cross-composition_feature_disentanglement_for_compositional_zero-sh.md)
 - [\[ICLR 2026\] Hilbert-Guided Sparse Local Attention](hilbert-guided_sparse_local_attention.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **27** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/time_series/) · [📷 CVPR2026 (8)](../../CVPR2026/time_series/) · [🔬 ICLR2026 (39)](../../ICLR2026/time_series/) · [🤖 AAAI2026 (35)](../../AAAI2026/time_series/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/time_series/) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/)
+
+🔥 **高频主题：** 时序预测 ×21 · 异常检测 ×2 · 自监督学习 ×2
+
 **[A Generalizable Physics-Enhanced State Space Model for Long-Term Dynamics Forecasting in Complex Environments](a_generalizable_physics-enhanced_state_space_model_for_long-term_dynamics_foreca.md)**
 
 :   提出 Phy-SSM，将部分已知的物理知识融入深度状态空间模型（SSM），通过动力学分解（已知/未知矩阵）和物理状态正则化，实现对噪声大、不规则采样数据的长期动力学精准预测与外推。

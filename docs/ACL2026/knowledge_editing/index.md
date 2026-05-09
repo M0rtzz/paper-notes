@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2026** · **4** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (3)](../../CVPR2026/knowledge_editing/) · [🔬 ICLR2026 (9)](../../ICLR2026/knowledge_editing/) · [🤖 AAAI2026 (5)](../../AAAI2026/knowledge_editing/) · [🧠 NeurIPS2025 (6)](../../NeurIPS2025/knowledge_editing/) · [🧪 ICML2025 (2)](../../ICML2025/knowledge_editing/) · [💬 ACL2025 (20)](../../ACL2025/knowledge_editing/)
+
 **[Aligning Language Models with Real-time Knowledge Editing](aligning_language_models_with_real-time_knowledge_editing.md)**
 
 :   引入CRAFT（持续更新的中文金融知识编辑数据集）和KEDAS（基于多样化编辑增强和自适应推理的知识编辑对齐范式），解决现有知识编辑方法在实时场景中成功率-局部性-可迁移性难以兼顾的问题。

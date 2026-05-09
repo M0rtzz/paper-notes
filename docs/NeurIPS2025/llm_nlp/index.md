@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **53** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (36)](../../ACL2026/llm_nlp/) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/) · [🔬 ICLR2026 (46)](../../ICLR2026/llm_nlp/) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_nlp/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_nlp/) · [🧪 ICML2025 (28)](../../ICML2025/llm_nlp/)
+
+🔥 **高频主题：** LLM ×15 · Agent ×4 · 少样本学习 ×2
+
 **[AceSearcher: Bootstrapping Reasoning and Search for LLMs via Reinforced Self-Play](acesearcher_bootstrapping_reasoning_and_search_for_llms_via_reinforced_self-play.md)**
 
 :   提出 AceSearcher——一种协作式自我博弈框架，让单个 LLM 同时扮演**问题分解者**（将复杂查询拆解为子问题引导检索）和**求解者**（整合检索上下文生成答案），通过 SFT + 迭代 DPO 两阶段训练，仅用最终答案作为奖励信号，在 10 个数据集上平均 EM 提升 7.6%，32B 模型匹配 DeepSeek-V3（<5% 参数）。

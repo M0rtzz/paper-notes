@@ -162,6 +162,8 @@ $$\mathcal{L}_{align} = \mathcal{L}_{SoftCLIP}(\mathbf{e}, \hat{\mathbf{e}}) + \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] CAT-Net: A Cross-Attention Tone Network for Cross-Subject EEG-EMG Fusion Tone Decoding](cat-net_a_cross-attention_tone_network_for_cross-subject_eeg-emg_fusion_tone_dec.md)
@@ -169,5 +171,7 @@ $$\mathcal{L}_{align} = \mathcal{L}_{SoftCLIP}(\mathbf{e}, \hat{\mathbf{e}}) + \
 - [\[ECCV 2024\] Brain Netflix: Scaling Data to Reconstruct Videos from Brain Signals](../../ECCV2024/others/brain_netflix_scaling_data_to_reconstruct_videos_from_brain_signals.md)
 - [\[AAAI 2026\] DFDT: Dynamic Fast Decision Tree for IoT Data Stream Mining on Edge Devices](dfdt_dynamic_fast_decision_tree_for_iot_data_stream_mining_on_edge_devices.md)
 - [\[AAAI 2026\] RcAE: Recursive Reconstruction Framework for Unsupervised Industrial Anomaly Detection](rcae_recursive_reconstruction_framework_for_unsupervised_industrial_anomaly_dete.md)
+
+</div>
 
 <!-- RELATED:END -->

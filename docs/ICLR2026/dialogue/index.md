@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/dialogue/) · [📷 CVPR2026 (1)](../../CVPR2026/dialogue/) · [🤖 AAAI2026 (5)](../../AAAI2026/dialogue/) · [🧠 NeurIPS2025 (5)](../../NeurIPS2025/dialogue/) · [🧪 ICML2025 (3)](../../ICML2025/dialogue/) · [💬 ACL2025 (23)](../../ACL2025/dialogue/)
+
+🔥 **高频主题：** 推理 ×2
+
 **[AQuA: Toward Strategic Response Generation for Ambiguous Visual Questions](aqua_toward_strategic_response_generation_for_ambiguous_visual_questions.md)**
 
 :   提出 AQuA，首个按模糊度细粒度分级（4 级）的视觉问答数据集（7.2K 样本），为每级定义最优回应策略（直接回答/推断/列举/请求澄清），发现 GPT-5 和 Gemini 在模糊 VQA 上都过度自信地直接回答，通过 SFT+GRPO 训练的 3B 模型反而能超越闭源大模型的策略适应能力。

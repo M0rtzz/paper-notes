@@ -139,6 +139,8 @@ MM-VAP 在所有沉默时长上都优于 VAP，且两者性能均随沉默时长
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Enhancing Conversational Agents with Theory of Mind: Aligning Beliefs, Desires, and Intentions for Human-Like Interaction](enhancing_conversational_agents_with_theory_of_mind_aligning_beliefs_desires_and.md)
@@ -146,5 +148,7 @@ MM-VAP 在所有沉默时长上都优于 VAP，且两者性能均随沉默时长
 - [\[ICCV 2025\] SyncDiff: Synchronized Motion Diffusion for Multi-Body Human-Object Interaction Synthesis](../../ICCV2025/others/syncdiff_synchronized_motion_diffusion_for_multi-body_human-object_interaction_s.md)
 - [\[CVPR 2025\] CARE Transformer: Mobile-Friendly Linear Visual Transformer via Decoupled Dual Interaction](../../CVPR2025/others/care_transformer_mobile-friendly_linear_visual_transformer_via_decoupled_dual_in.md)
 - [\[ACL 2025\] A Little Human Data Goes A Long Way](a_little_human_data_goes_a_long_way.md)
+
+</div>
 
 <!-- RELATED:END -->

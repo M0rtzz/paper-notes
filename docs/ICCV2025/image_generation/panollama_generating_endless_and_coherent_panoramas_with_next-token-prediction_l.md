@@ -132,6 +132,8 @@ $$v_i^j = f_\mathcal{G}(v_{i-1, \epsilon(v_{i-1}^j) - \sqrt{p} + c}, \ldots, v_{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] TAP: A Token-Adaptive Predictor Framework for Training-Free Diffusion Acceleration](../../CVPR2026/image_generation/tap_a_token-adaptive_predictor_framework_for_training-free_diffusion_acceleratio.md)
@@ -139,5 +141,7 @@ $$v_i^j = f_\mathcal{G}(v_{i-1, \epsilon(v_{i-1}^j) - \sqrt{p} + c}, \ldots, v_{
 - [\[ICCV 2025\] Joint Diffusion Models in Continual Learning](joint_diffusion_models_in_continual_learning.md)
 - [\[ICCV 2025\] EmotiCrafter: Text-to-Emotional-Image Generation based on Valence-Arousal Model](emoticrafter_text-to-emotional-image_generation_based_on_valence-arousal_model.md)
 - [\[ICCV 2025\] LoRAverse: A Submodular Framework to Retrieve Diverse Adapters for Diffusion Models](loraverse_a_submodular_framework_to_retrieve_diverse_adapters_for_diffusion_mode.md)
+
+</div>
 
 <!-- RELATED:END -->

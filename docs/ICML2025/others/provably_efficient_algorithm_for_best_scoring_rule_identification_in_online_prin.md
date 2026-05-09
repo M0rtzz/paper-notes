@@ -177,6 +177,8 @@ $$C(k, k') = v_S(k) - v_S(k'), \quad \forall S \in V_k \cap V_{k'}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Near Optimal Best Arm Identification for Clustered Bandits](near_optimal_best_arm_identification_for_clustered_bandits.md)
@@ -184,5 +186,7 @@ $$C(k, k') = v_S(k) - v_S(k'), \quad \forall S \in V_k \cap V_{k'}$$
 - [\[ICML 2025\] Fixing the Loose Brake: Exponential-Tailed Stopping Time in Best Arm Identification](fixing_the_loose_brake_exponential-tailed_stopping_time_in_best_arm_identificati.md)
 - [\[ICML 2025\] OOD-Chameleon: Is Algorithm Selection for OOD Generalization Learnable?](ood-chameleon_is_algorithm_selection_for_ood_generalization_learnable.md)
 - [\[ICML 2025\] Online Sparsification of Bipartite-Like Clusters in Graphs](online_sparsification_of_bipartite-like_clusters_in_graphs.md)
+
+</div>
 
 <!-- RELATED:END -->

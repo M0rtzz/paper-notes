@@ -179,6 +179,8 @@ $$\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (\lambda_1 \mathcal{L}_{proj} + \lamb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Stepwise Multi-grained Boundary Detector for Point-Supervised Temporal Action Localization](stepwise_multi-grained_boundary_detector_for_point-supervised_temporal_action_lo.md)
@@ -186,5 +188,7 @@ $$\mathcal{L} = \frac{1}{N} \sum_{i=1}^{N} (\lambda_1 \mathcal{L}_{proj} + \lamb
 - [\[ICLR 2026\] SPWOOD: Sparse Partial Weakly-Supervised Oriented Object Detection](../../ICLR2026/object_detection/spwood_sparse_partial_weakly-supervised_oriented_object_detection.md)
 - [\[ECCV 2024\] MutDet: Mutually Optimizing Pre-training for Remote Sensing Object Detection](mutdet_mutually_optimizing_pre-training_for_remote_sensing_object_detection.md)
 - [\[ECCV 2024\] GRA: Detecting Oriented Objects Through Group-Wise Rotating and Attention](gra_detecting_oriented_objects_through_group-wise_rotating_and_attention.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -177,6 +177,8 @@ $$L = L_{diff} + \alpha \cdot L_{ntp}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] AIGI-Holmes: Towards Explainable and Generalizable AI-Generated Image Detection via Multimodal Large Language Models](../../ICCV2025/multimodal_vlm/aigi-holmes_towards_explainable_and_generalizable_ai-generated_image_detection_v.md)
@@ -184,5 +186,7 @@ $$L = L_{diff} + \alpha \cdot L_{ntp}$$
 - [\[CVPR 2025\] Revisiting Model Stitching in the Foundation Model Era](../../CVPR2025/multimodal_vlm/revisiting_model_stitching_in_the_foundation_model_era.md)
 - [\[ICML 2025\] The Devil Is in the Details: Tackling Unimodal Spurious Correlations for Generalizable Multimodal Reward Models](the_devil_is_in_the_details_tackling_unimodal_spurious_correlations_for_generali.md)
 - [\[ACL 2025\] LogicQA: Logical Anomaly Detection with Vision Language Model Generated Questions](../../ACL2025/multimodal_vlm/logicqa_logical_anomaly_detection_with_vision_language_model_generated_questions.md)
+
+</div>
 
 <!-- RELATED:END -->

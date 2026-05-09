@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **30** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (37)](../../ACL2026/llm_reasoning/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_reasoning/) · [🔬 ICLR2026 (71)](../../ICLR2026/llm_reasoning/) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/llm_reasoning/) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/) · [🧪 ICML2025 (17)](../../ICML2025/llm_reasoning/)
+
+🔥 **高频主题：** 推理 ×17 · LLM ×5 · 对抗鲁棒 ×3 · 代码智能 ×2 · 强化学习 ×2
+
 **[A Reasoning Paradigm for Named Entity Recognition](a_reasoning_paradigm_for_named_entity_recognition.md)**
 
 :   提出 ReasoningNER，将命名实体识别从"隐式模式匹配"转变为"显式推理"范式，通过三阶段流程（CoT数据构建→CoT微调→GRPO强化增强）让模型先推理再抽取实体，在零样本设定下F1超GPT-4达12.3个百分点，8B模型在CrossNER上达72.4平均F1。

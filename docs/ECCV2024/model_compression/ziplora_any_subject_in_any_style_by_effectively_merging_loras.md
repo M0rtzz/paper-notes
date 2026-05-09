@@ -149,6 +149,8 @@ $$+ \lambda \sum_i |m_c^{(i)} \cdot m_s^{(i)}|$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Implicit Style-Content Separation using B-LoRA](implicit_style-content_separation_using_b-lora.md)
@@ -156,5 +158,7 @@ $$+ \lambda \sum_i |m_c^{(i)} \cdot m_s^{(i)}|$$
 - [\[ICCV 2025\] UniConvNet: Expanding Effective Receptive Field while Maintaining Asymptotically Gaussian Distribution for ConvNets of Any Scale](../../ICCV2025/model_compression/uniconvnet_expanding_effective_receptive_field_while_maintaining_asymptotically_.md)
 - [\[ACL 2025\] Sci-LoRA: Mixture of Scientific LoRAs for Cross-Domain Lay Paraphrasing](../../ACL2025/model_compression/sci-lora_mixture_of_scientific_loras_for_cross-domain_lay_paraphrasing.md)
 - [\[ECCV 2024\] Adversarially Robust Distillation by Reducing the Student-Teacher Variance Gap](adversarially_robust_distillation_by_reducing_the_student-teacher_variance_gap.md)
+
+</div>
 
 <!-- RELATED:END -->

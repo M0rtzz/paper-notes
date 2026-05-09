@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **18** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/causal_inference/) · [📷 CVPR2026 (4)](../../CVPR2026/causal_inference/) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/) · [🧠 NeurIPS2025 (21)](../../NeurIPS2025/causal_inference/) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/) · [🧪 ICML2025 (16)](../../ICML2025/causal_inference/)
+
+🔥 **高频主题：** 对抗鲁棒 ×3 · 推理 ×2
+
 **[Action-Guided Attention for Video Action Anticipation](action-guided_attention_for_video_action_anticipation.md)**
 
 :   提出动作引导注意力 (AGA) 机制，用模型自身的动作预测序列作为注意力的 Query 和 Key（而非像素特征），结合自适应门控融合历史上下文和当前帧特征，在 EPIC-Kitchens-100 上实现从验证集到测试集的良好泛化，同时支持训练后的可解释性分析。

@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (20)](../../ACL2026/code_intelligence/) · [📷 CVPR2026 (2)](../../CVPR2026/code_intelligence/) · [🔬 ICLR2026 (23)](../../ICLR2026/code_intelligence/) · [🤖 AAAI2026 (10)](../../AAAI2026/code_intelligence/) · [🧠 NeurIPS2025 (22)](../../NeurIPS2025/code_intelligence/) · [📹 ICCV2025 (1)](../../ICCV2025/code_intelligence/)
+
+🔥 **高频主题：** 推理 ×3 · LLM ×3 · 代码智能 ×3 · 对抗鲁棒 ×2
+
 **[AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence](adaptivestep_automatically_dividing_reasoning_step_through_model_confidence.md)**
 
 :   提出 AdaptiveStep，基于模型预测下一个 token 的置信度自动划分推理步骤，替代传统基于规则（如换行符）的粗粒度划分方式，训练出的 PRM (ASPRM) 在数学推理和代码生成任务上达到 SOTA 的 Best-of-N 性能，且数据构建成本降低超 30%。

@@ -168,6 +168,8 @@ $$\mathcal{B}[\theta_A, \theta_B] = \sup_{\lambda \in [0,1]} \left[ \mathcal{L}[
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Understanding Mode Connectivity via Parameter Space Symmetry](../../ICML2025/others/understanding_mode_connectivity_via_parameter_space_symmetry.md)
@@ -175,5 +177,7 @@ $$\mathcal{B}[\theta_A, \theta_B] = \sup_{\lambda \in [0,1]} \left[ \mathcal{L}[
 - [\[NeurIPS 2025\] Scalable Inference of Functional Neural Connectivity at Submillisecond Timescales](scalable_inference_of_functional_neural_connectivity_at_submillisecond_timescale.md)
 - [\[NeurIPS 2025\] Infrequent Exploration in Linear Bandits](infrequent_exploration_in_linear_bandits.md)
 - [\[NeurIPS 2025\] A Generalized Label Shift Perspective for Cross-Domain Gaze Estimation](a_generalized_label_shift_perspective_for_crossdomain_gaze_e.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -155,6 +155,8 @@ MPVR 采用两阶段提示生成：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] TextDiffuser-2: Unleashing the Power of Language Models for Text Rendering](textdiffuser-2_unleashing_the_power_of_language_models_for_text_rendering.md)
@@ -162,5 +164,7 @@ MPVR 采用两阶段提示生成：
 - [\[ECCV 2024\] PromptIQA: Boosting the Performance and Generalization for No-Reference Image Quality Assessment via Prompts](promptiqa_boosting_the_performance_and_generalization_for_no-reference_image_qua.md)
 - [\[ECCV 2024\] APL: Anchor-based Prompt Learning for One-stage Weakly Supervised Referring Expression Comprehension](apl_anchor-based_prompt_learning_for_one-stage_weakly_supervised_referring_expre.md)
 - [\[ECCV 2024\] One-stage Prompt-based Continual Learning](one-stage_prompt-based_continual_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

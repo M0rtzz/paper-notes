@@ -208,6 +208,8 @@ $$\mathcal{L}_{ft} = \frac{1}{|\mathcal{D}_{est}|}\sum_{(x,y)\in\mathcal{D}_{est
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Sampling Control for Imbalanced Calibration in Semi-Supervised Learning](sampling_control_for_imbalanced_calibration_in_semi-supervised_learning.md)
@@ -215,5 +217,7 @@ $$\mathcal{L}_{ft} = \frac{1}{|\mathcal{D}_{est}|}\sum_{(x,y)\in\mathcal{D}_{est
 - [\[NeurIPS 2025\] Semi-Supervised Regression with Heteroscedastic Pseudo-Labels](../../NeurIPS2025/llm_evaluation/semi-supervised_regression_with_heteroscedastic_pseudo-labels.md)
 - [\[CVPR 2026\] Semi-Supervised Conformal Prediction With Unlabeled Nonconformity Score](../../CVPR2026/llm_evaluation/semi-supervised_conformal_prediction_with_unlabeled_nonconformity_score.md)
 - [\[AAAI 2026\] SpikCommander: A High-Performance Spiking Transformer with Multi-View Learning for Efficient Speech Command Recognition](spikcommander_a_high-performance_spiking_transformer_with_multi-view_learning_fo.md)
+
+</div>
 
 <!-- RELATED:END -->

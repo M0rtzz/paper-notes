@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **56** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/segmentation/) · [📷 CVPR2026 (103)](../../CVPR2026/segmentation/) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/) · [🤖 AAAI2026 (31)](../../AAAI2026/segmentation/) · [🧠 NeurIPS2025 (48)](../../NeurIPS2025/segmentation/) · [📹 ICCV2025 (78)](../../ICCV2025/segmentation/)
+
+🔥 **高频主题：** 语义分割 ×33 · 目标检测 ×4 · 多模态 ×4 · 少样本学习 ×3 · 扩散模型 ×2
+
 **[A Semantic Space is Worth 256 Language Descriptions: Make Stronger Segmentation Models with Descriptive Properties](a_semantic_space_is_worth_256_language_descriptions_make_str.md)**
 
 :   ProLab 用 LLM 生成类别的常识性描述，通过句子嵌入和 K-Means 聚类将其压缩为 256 个可解释的描述性属性，构建属性级多热标签空间替代传统 one-hot 类别标签来监督分割模型，在五个经典基准上一致超越类别级监督且涌现出域外泛化能力。

@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (4)](../../CVPR2026/llm_efficiency/) · [🔬 ICLR2026 (19)](../../ICLR2026/llm_efficiency/) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_efficiency/) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/llm_efficiency/) · [📹 ICCV2025 (1)](../../ICCV2025/llm_efficiency/) · [🧪 ICML2025 (13)](../../ICML2025/llm_efficiency/)
+
+🔥 **高频主题：** 对齐/RLHF ×2
+
 **[BOSCH: Black-Box Binary Optimization for Short-Context Attention-Head Selection in LLMs](bosch_black-box_binary_optimization_for_short-context_attention-head_selection_i.md)**
 
 :   提出 BOSCH，一种免训练的注意力头级别 SWA 混合方法，将 SWA 头选择建模为大邻域搜索问题并分解为三阶段优化（层重要性探测→自适应比例分配→分组头选择），在 4 个模型 4 种比例设置下系统性超越层级启发式和 6 种静态头级别方法。

@@ -165,6 +165,8 @@ $$\mathbf{K}_{ij}^t = l(p_i, p_j)^\top L^{-1} S L^{-1} l(p_j, p_i)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] ShieldedCode: Learning Robust Representations for Virtual Machine Protected Code](shieldedcode_learning_robust_representations_for_virtual_machine_protected_code.md)
@@ -172,5 +174,7 @@ $$\mathbf{K}_{ij}^t = l(p_i, p_j)^\top L^{-1} S L^{-1} l(p_j, p_i)$$
 - [\[ICLR 2026\] Training Large Language Models To Reason In Parallel With Global Forking Tokens](training_large_language_models_to_reason_in_parallel_with_global_forking_tokens.md)
 - [\[ICLR 2026\] The Limits of Long-Context Reasoning in Automated Bug Fixing](the_limits_of_long-context_reasoning_in_automated_bug_fixing.md)
 - [\[ICLR 2026\] Learning to Reason without External Rewards](learning_to_reason_without_external_rewards.md)
+
+</div>
 
 <!-- RELATED:END -->

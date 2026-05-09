@@ -117,6 +117,8 @@ $$\mathcal{L} = \mathbb{E}_{\mathbf{z}_0, t, \mathbf{C}_S, \mathbf{C}_T, \epsilo
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Generative Image Layer Decomposition with Visual Effects](generative_image_layer_decomposition_with_visual_effects.md)
@@ -124,5 +126,7 @@ $$\mathcal{L} = \mathbb{E}_{\mathbf{z}_0, t, \mathbf{C}_S, \mathbf{C}_T, \epsilo
 - [\[CVPR 2025\] Divot: Diffusion Powers Video Tokenizer for Comprehension and Generation](divot_diffusion_powers_video_tokenizer_for_comprehension_and_generation.md)
 - [\[NeurIPS 2025\] MGAudio: Model-Guided Dual-Role Alignment for High-Fidelity Open-Domain Video-to-Audio Generation](../../NeurIPS2025/image_generation/model-guided_dual-role_alignment_for_high-fidelity_open-domain_video-to-audio_ge.md)
 - [\[CVPR 2025\] Q-DiT: Accurate Post-Training Quantization for Diffusion Transformers](q-dit_accurate_post-training_quantization_for_diffusion_transformers.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -125,6 +125,8 @@ LUSD 不涉及额外训练，完全依赖预训练扩散模型的生成先验。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] ALE: Attribute-Leakage-free Editing for Text-based Image Editing](ale_attribute_leakage_free_editing.md)
@@ -132,5 +134,7 @@ LUSD 不涉及额外训练，完全依赖预训练扩散模型的生成先验。
 - [\[ECCV 2024\] ScaleDreamer: Scalable Text-to-3D Synthesis with Asynchronous Score Distillation](../../ECCV2024/image_generation/scaledreamer_scalable_text-to-3d_synthesis_with_asynchronous_score_distillation.md)
 - [\[ICCV 2025\] Addressing Text Embedding Leakage in Diffusion-based Image Editing](addressing_text_embedding_leakage_in_diffusion_based_image_editing.md)
 - [\[ICCV 2025\] Early Timestep Zero-Shot Candidate Selection for Instruction-Guided Image Editing](early_timestep_zero-shot_candidate_selection_for_instruction-guided_image_editin.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -137,6 +137,8 @@ SketchyNetV1 训练：$\mathcal{L}_{trn}^{st*} = \frac{1}{4}\sum_{i=1}^4 \mathca
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Sketch to Adapt: Fine-Tunable Sketches for Efficient LLM Adaptation](../../ICML2025/model_compression/sketch_to_adapt_fine-tunable_sketches_for_efficient_llm_adaptation.md)
@@ -144,5 +146,7 @@ SketchyNetV1 训练：$\mathcal{L}_{trn}^{st*} = \frac{1}{4}\sum_{i=1}^4 \mathca
 - [\[ICCV 2025\] VQ-SGen: A Vector Quantized Stroke Representation for Creative Sketch Generation](../../ICCV2025/model_compression/vq-sgen_a_vector_quantized_stroke_representation_for_creative_sketch_generation.md)
 - [\[ICML 2025\] Lego Sketch: A Scalable Memory-augmented Neural Network for Sketching Data Streams](../../ICML2025/model_compression/lego_sketch_a_scalable_memory-augmented_neural_network_for_sketching_data_stream.md)
 - [\[CVPR 2025\] Alternating Gradient Flow Utility: A Unified Metric for Structural Pruning and Dynamic Routing in Deep Networks](alternating_gradient_flow_utility_a_unified_metric_for_structural_pruning_and_dy.md)
+
+</div>
 
 <!-- RELATED:END -->

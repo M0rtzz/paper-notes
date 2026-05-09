@@ -122,6 +122,8 @@ $Loss_{ep} = \frac{1}{M} \sum (\|\hat{\boldsymbol{s}}_i - \boldsymbol{s}_i\|_1 +
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] GLane3D: Detecting Lanes with Graph of 3D Keypoints](glane3d_detecting_lanes_with_graph_of_3d_keypoints.md)
@@ -129,5 +131,7 @@ $Loss_{ep} = \frac{1}{M} \sum (\|\hat{\boldsymbol{s}}_i - \boldsymbol{s}_i\|_1 +
 - [\[CVPR 2025\] GDFusion: Rethinking Temporal Fusion with a Unified Gradient Descent View for 3D Semantic Occupancy Prediction](gdfusion_temporal_fusion_occupancy.md)
 - [\[ECCV 2024\] Detecting As Labeling: Rethinking LiDAR-camera Fusion in 3D Object Detection](../../ECCV2024/autonomous_driving/detecting_as_labeling_rethinking_lidar-camera_fusion_in_3d_object_detection.md)
 - [\[CVPR 2025\] Cubify Anything: Scaling Indoor 3D Object Detection](cubify_anything_scaling_indoor_3d_object_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -144,6 +144,8 @@ $$\mathbf{x}_i' = \text{Normalize}(\mathbf{x}_i - \bar{\mathbf{x}}), \quad \math
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] The AI Gap: How Socioeconomic Status Affects Language Technology Interactions](the_ai_gap_how_socioeconomic_status_affects_language_technology_interactions.md)
@@ -151,5 +153,7 @@ $$\mathbf{x}_i' = \text{Normalize}(\mathbf{x}_i - \bar{\mathbf{x}}), \quad \math
 - [\[ACL 2025\] Zero-Shot Conversational Stance Detection: Dataset and Approaches](zero-shot_conversational_stance_detection_dataset_and_approaches.md)
 - [\[ACL 2025\] Towards Comprehensive Argument Analysis in Education: Dataset, Tasks, and Method](towards_comprehensive_argument_analysis_in_education_dataset_tasks_and_method.md)
 - [\[ACL 2025\] Improving Language and Modality Transfer in Translation by Character-level Modeling](improving_language_and_modality_transfer_in.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -129,6 +129,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Towards Smart Point-and-Shoot Photography](towards_smart_point-and-shoot_photography.md)
@@ -136,5 +138,7 @@ tags:
 - [\[CVPR 2025\] GOAL: Global-Local Object Alignment Learning](goal_global-local_object_alignment_learning.md)
 - [\[CVPR 2025\] Few-Shot Recognition via Stage-Wise Retrieval-Augmented Finetuning](few-shot_recognition_via_stage-wise_retrieval-augmented_finetuning.md)
 - [\[CVPR 2025\] GENIUS: A Generative Framework for Universal Multimodal Search](genius_a_generative_framework_for_universal_multimodal_search.md)
+
+</div>
 
 <!-- RELATED:END -->

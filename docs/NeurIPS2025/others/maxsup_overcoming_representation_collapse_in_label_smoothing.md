@@ -128,6 +128,8 @@ MaxSup 在所有 CNN 和 Transformer 架构上均一致超越 LS 和其他变体
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] The Persistence of Neural Collapse Despite Low-Rank Bias](the_persistence_of_neural_collapse_despite_low-rank_bias.md)
@@ -135,5 +137,7 @@ MaxSup 在所有 CNN 和 Transformer 架构上均一致超越 LS 和其他变体
 - [\[NeurIPS 2025\] Neural Collapse in Cumulative Link Models for Ordinal Regression: An Analysis with Unconstrained Feature Model](neural_collapse_in_cumulative_link_models_for_ordinal_regression_an_analysis_wit.md)
 - [\[NeurIPS 2025\] ADPretrain: Advancing Industrial Anomaly Detection via Anomaly Representation Pretraining](adpretrain_advancing_industrial_anomaly_detection_via_anomaly_representation_pre.md)
 - [\[ACL 2025\] ConECT Dataset: Overcoming Data Scarcity in Context-Aware E-Commerce MT](../../ACL2025/others/conect_dataset_overcoming_data_scarcity_in_context-aware_e-commerce_mt.md)
+
+</div>
 
 <!-- RELATED:END -->

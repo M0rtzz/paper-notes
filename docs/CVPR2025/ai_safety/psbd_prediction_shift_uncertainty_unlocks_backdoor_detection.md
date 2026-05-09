@@ -122,6 +122,8 @@ CIFAR-10 数据集（10% 投毒率，TPR↑ / FPR↓）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Disparate Conditional Prediction in Multiclass Classifiers](../../ICML2025/ai_safety/disparate_conditional_prediction_in_multiclass_classifiers.md)
@@ -129,5 +131,7 @@ CIFAR-10 数据集（10% 投毒率，TPR↑ / FPR↓）：
 - [\[CVPR 2025\] Forensics Adapter: Adapting CLIP for Generalizable Face Forgery Detection](forensics_adapter_adapting_clip_for_generalizable_face_forgery_detection.md)
 - [\[CVPR 2025\] Infighting in the Dark: Multi-Label Backdoor Attack in Federated Learning](infighting_in_the_dark_multi-label_backdoor_attack_in_federated_learning.md)
 - [\[CVPR 2025\] INACTIVE: Invisible Backdoor Attack against Self-supervised Learning](invisible_backdoor_attack_against_self-supervised_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

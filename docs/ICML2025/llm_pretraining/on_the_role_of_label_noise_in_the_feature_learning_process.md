@@ -125,6 +125,8 @@ Logistic loss $\ell(f, \tilde{y}) = \log(1 + \exp(-f \cdot \tilde{y}))$，全批
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Alternating Gradient Flows: A Theory of Feature Learning in Two-layer Neural Networks](../../NeurIPS2025/llm_pretraining/alternating_gradient_flows_a_theory_of_feature_learning_in_two-layer_neural_netw.md)
@@ -132,5 +134,7 @@ Logistic loss $\ell(f, \tilde{y}) = \log(1 + \exp(-f \cdot \tilde{y}))$，全批
 - [\[ICML 2025\] Density Ratio Estimation-based Bayesian Optimization with Semi-Supervised Learning](density_ratio_estimation-based_bayesian_optimization_with_semi-supervised_learni.md)
 - [\[ICML 2025\] Revisiting Continuity of Image Tokens for Cross-Domain Few-Shot Learning](revisiting_continuity_of_image_tokens_for_cross-domain_few-shot_learning.md)
 - [\[ICML 2025\] When Can In-Context Learning Generalize Out of Task Distribution?](when_can_in-context_learning_generalize_out_of_task_distribution.md)
+
+</div>
 
 <!-- RELATED:END -->

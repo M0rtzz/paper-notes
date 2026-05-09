@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **33** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/video_understanding/) · [📷 CVPR2026 (92)](../../CVPR2026/video_understanding/) · [🔬 ICLR2026 (24)](../../ICLR2026/video_understanding/) · [🧠 NeurIPS2025 (61)](../../NeurIPS2025/video_understanding/) · [📹 ICCV2025 (58)](../../ICCV2025/video_understanding/) · [🧪 ICML2025 (7)](../../ICML2025/video_understanding/)
+
+🔥 **高频主题：** 对话系统 ×4 · 多模态 ×3 · 人体姿态 ×3 · 目标跟踪 ×3 · LLM ×3
+
 **[APVR: Hour-Level Long Video Understanding with Adaptive Pivot Visual Information Retrieval](apvr_hour-level_long_video_understanding_with_adaptive_pivot.md)**
 
 :   提出APVR，一个训练免费的双粒度视觉信息检索框架：帧级别通过查询扩展+时空语义置信度打分迭代检索关键帧（最多1024帧），token级别通过查询感知的注意力驱动选择压缩视觉token，突破内存墙限制处理小时级长视频，在LongVideoBench/VideoMME/MLVU上分别提升最高9.5%/4.6%/9.7%。

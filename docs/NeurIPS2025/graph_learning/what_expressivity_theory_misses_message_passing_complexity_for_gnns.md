@@ -127,6 +127,8 @@ lossyWL：标准 WL 的概率化版本，每条消息 $m_{u \to v}$ 以概率 $I
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Beyond Message Passing: Neural Graph Pattern Machine](../../ICML2025/graph_learning/beyond_message_passing_neural_graph_pattern_machine.md)
@@ -134,5 +136,7 @@ lossyWL：标准 WL 的概率化版本，每条消息 $m_{u \to v}$ 以概率 $I
 - [\[ICML 2025\] GlycanAA: Modeling All-Atom Glycan Structures via Hierarchical Message Passing and Multi-Scale Pre-training](../../ICML2025/graph_learning/modeling_all-atom_glycan_structures_via_hierarchical_message_passing_and_multi-s.md)
 - [\[NeurIPS 2025\] Moscat: Mixture of Scope Experts at Test for Generalizing Deeper GNNs](mixture_of_scope_experts_at_test_generalizing_deeper_graph_neural_networks_with_.md)
 - [\[NeurIPS 2025\] Making Classic GNNs Strong Baselines Across Varying Homophily: A Smoothness-Generalization Perspective](making_classic_gnns_strong_baselines_across_varying_homophily_a_smoothness-gener.md)
+
+</div>
 
 <!-- RELATED:END -->

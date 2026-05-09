@@ -151,6 +151,8 @@ SENSEI 在 KeyRoom-S15 上比 PPO 快约 **两个数量级**。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Foundation Models as World Models: A Foundational Study in Text-Based GridWorlds](../../NeurIPS2025/reinforcement_learning/foundation_models_as_world_models_a_foundational_study_in_text-based_gridworlds.md)
@@ -158,5 +160,7 @@ SENSEI 在 KeyRoom-S15 上比 PPO 快约 **两个数量级**。
 - [\[ICML 2025\] PIGDreamer: Privileged Information Guided World Models for Safe Partially Observable RL](pigdreamer_privileged_information_guided_world_models_for_safe_partially_observa.md)
 - [\[NeurIPS 2025\] Self-Improving Embodied Foundation Models](../../NeurIPS2025/reinforcement_learning/self-improving_embodied_foundation_models.md)
 - [\[ICML 2025\] Reward-free World Models for Online Imitation Learning](reward-free_world_models_for_online_imitation_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

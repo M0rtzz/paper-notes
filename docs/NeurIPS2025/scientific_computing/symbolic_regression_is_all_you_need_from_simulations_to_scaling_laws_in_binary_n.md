@@ -140,6 +140,8 @@ PyOperon 以复杂度仅 9 的表达式 $M_{\text{disk}} = 0.1188 - 0.1430 \time
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] GyroSwin: 5D Surrogates for Gyrokinetic Plasma Turbulence Simulations](gyroswin_5d_surrogates_for_gyrokinetic_plasma_turbulence_simulations.md)
@@ -147,5 +149,7 @@ PyOperon 以复杂度仅 9 的表达式 $M_{\text{disk}} = 0.1188 - 0.1430 \time
 - [\[ICLR 2026\] Deep Learning for Subspace Regression](../../ICLR2026/scientific_computing/deep_learning_for_subspace_regression.md)
 - [\[CVPR 2025\] Improve Representation for Imbalanced Regression through Geometric Constraints](../../CVPR2025/scientific_computing/improve_representation_for_imbalanced_regression_through_geometric_constraints.md)
 - [\[ICML 2025\] Closed-form Symbolic Solutions: A New Perspective on Solving Partial Differential Equations](../../ICML2025/scientific_computing/closed-form_solutions_a_new_perspective_on_solving_differential_equations.md)
+
+</div>
 
 <!-- RELATED:END -->

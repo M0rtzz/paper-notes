@@ -127,6 +127,8 @@ DSFlash 采用两阶段架构：第一阶段用冻结的 EoMT backbone 做全景
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] SAP: Segment Any 4K Panorama](sap_segment_any_4k_panorama.md)
@@ -134,5 +136,7 @@ DSFlash 采用两阶段架构：第一阶段用冻结的 EoMT backbone 做全景
 - [\[CVPR 2026\] SCOPE: Scene-Contextualized Incremental Few-Shot 3D Segmentation](scope_scene-contextualized_incremental_few-shot_3d_segmentation.md)
 - [\[CVPR 2026\] Efficient RGB-D Scene Understanding via Multi-task Adaptive Learning and Cross-dimensional Feature Guidance](efficient_rgbd_scene_understanding_via_multitask_a.md)
 - [\[CVPR 2026\] GenMask: Adapting DiT for Segmentation via Direct Mask Generation](genmask_adapting_dit_for_segmentation_via_direct_mask_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

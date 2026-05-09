@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **51** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/video_generation/) · [📷 CVPR2026 (59)](../../CVPR2026/video_generation/) · [🔬 ICLR2026 (19)](../../ICLR2026/video_generation/) · [🤖 AAAI2026 (11)](../../AAAI2026/video_generation/) · [🧠 NeurIPS2025 (23)](../../NeurIPS2025/video_generation/) · [🧪 ICML2025 (7)](../../ICML2025/video_generation/)
+
+🔥 **高频主题：** 视频生成 ×22 · 扩散模型 ×12 · 对抗鲁棒 ×5 · 个性化生成 ×3 · 动态场景 ×3
+
 **[Adversarial Distribution Matching for Diffusion Distillation Towards Efficient Image and Video Synthesis](adversarial_distribution_matching_for_diffusion_distillation_towards_efficient_i.md)**
 
 :   本文提出对抗分布匹配（ADM）框架，通过基于扩散模型的判别器以对抗方式对齐真假分数估计器的潜在预测，替代DMD中预定义的KL散度，结合对抗蒸馏预训练（ADP），在SDXL上实现一步生成超越DMD2，并在SD3和CogVideoX上刷新多步蒸馏基准。

@@ -130,6 +130,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Optimal Rates for Generalization of Gradient Descent for Deep ReLU Classification](optimal_rates_for_generalization_of_gradient_descent_for_deep_relu_classificatio.md)
@@ -137,5 +139,7 @@ tags:
 - [\[NeurIPS 2025\] Brain-like Variational Inference](brain-like_variational_inference.md)
 - [\[NeurIPS 2025\] Least Squares Variational Inference](least_squares_variational_inference.md)
 - [\[NeurIPS 2025\] NeuSymEA: Neuro-symbolic Entity Alignment via Variational Inference](neuro-symbolic_entity_alignment_via_variational_inference.md)
+
+</div>
 
 <!-- RELATED:END -->

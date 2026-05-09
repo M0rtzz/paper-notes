@@ -116,6 +116,8 @@ VAE 训练：$\mathcal{L}_{\text{VAE}} = \mathcal{L}_\mathbf{m} + \lambda_{\text
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] PersonaBooth: Personalized Text-to-Motion Generation](personabooth_personalized_text-to-motion_generation.md)
@@ -123,5 +125,7 @@ VAE 训练：$\mathcal{L}_{\text{VAE}} = \mathcal{L}_\mathbf{m} + \lambda_{\text
 - [\[CVPR 2025\] InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing](interedit_navigating_text-guided_multi-human_3d_motion_editing.md)
 - [\[ICCV 2025\] FLOAT: Generative Motion Latent Flow Matching for Audio-driven Talking Portrait](../../ICCV2025/image_generation/float_generative_motion_latent_flow_matching_for_audio-driven_talking_portrait.md)
 - [\[CVPR 2025\] Focus-N-Fix: Region-Aware Fine-Tuning for Text-to-Image Generation](focus-n-fix_region-aware_fine-tuning_for_text-to-image_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

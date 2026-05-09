@@ -129,6 +129,8 @@ Validator 不只做二分类（通过/拒绝），而是给出结构化批评，
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Visual Agentic AI for Spatial Reasoning with a Dynamic API](../../CVPR2025/llm_agent/visual_agentic_ai_for_spatial_reasoning_with_a_dynamic_api.md)
@@ -136,5 +138,7 @@ Validator 不只做二分类（通过/拒绝），而是给出结构化批评，
 - [\[ACL 2025\] MEDDxAgent: A Unified Modular Agent Framework for Explainable Automatic Differential Diagnosis](../../ACL2025/llm_agent/meddxagent_a_unified_modular_agent_framework_for_explainable_automatic_different.md)
 - [\[ACL 2026\] How Adversarial Environments Mislead Agentic AI](../../ACL2026/llm_agent/how_adversarial_environments_mislead_agentic_ai.md)
 - [\[ACL 2025\] REPRO-Bench: Can Agentic AI Systems Assess the Reproducibility of Social Science Research?](../../ACL2025/llm_agent/repro-bench_can_agentic_ai_systems_assess_the_reproducibility_of_research_claims.md)
+
+</div>
 
 <!-- RELATED:END -->

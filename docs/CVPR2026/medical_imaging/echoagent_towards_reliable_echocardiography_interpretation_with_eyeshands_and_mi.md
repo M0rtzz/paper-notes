@@ -152,6 +152,8 @@ EchoAgent 在所有 7 大类解剖结构上 Acc 均超过 70%，比最优 MLLM �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Bridging the Skill Gap in Clinical CBCT Interpretation with CBCTRepD](bridging_the_skill_gap_in_clinical_cbct_interpretation_with_cbctrepd.md)
@@ -159,5 +161,7 @@ EchoAgent 在所有 7 大类解剖结构上 Acc 均超过 70%，比最优 MLLM �
 - [\[ICLR 2026\] Causal Interpretation of Neural Network Computations with Contribution Decomposition](../../ICLR2026/medical_imaging/causal_interpretation_of_neural_network_computations_with_contribution_decomposi.md)
 - [\[CVPR 2025\] EchoWorld: Learning Motion-Aware World Models for Echocardiography Probe Guidance](../../CVPR2025/medical_imaging/echoworld_learning_motion-aware_world_models_for_echocardiography_probe_guidance.md)
 - [\[ICML 2025\] Reliable Algorithm Selection for Machine Learning-Guided Design](../../ICML2025/medical_imaging/reliable_algorithm_selection_for_machine_learning-guided_design.md)
+
+</div>
 
 <!-- RELATED:END -->

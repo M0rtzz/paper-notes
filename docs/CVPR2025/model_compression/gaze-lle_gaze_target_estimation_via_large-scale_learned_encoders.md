@@ -123,6 +123,8 @@ $\mathcal{L}_\text{hm}$ 是像素级 BCE 损失，GT 为高斯热图（$\sigma=3
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Learned Image Compression with Dictionary-based Entropy Model](learned_image_compression_with_dictionary-based_entropy_model.md)
@@ -130,5 +132,7 @@ $\mathcal{L}_\text{hm}$ 是像素级 BCE 损失，GT 为高斯热图（$\sigma=3
 - [\[CVPR 2025\] LALIC: Linear Attention Modeling for Learned Image Compression](linear_attention_modeling_for_learned_image_compression.md)
 - [\[NeurIPS 2025\] C-LoRA: Contextual Low-Rank Adaptation for Uncertainty Estimation in Large Language Models](../../NeurIPS2025/model_compression/c-lora_contextual_low-rank_adaptation_for_uncertainty_estimation_in_large_langua.md)
 - [\[CVPR 2025\] MambaIC: State Space Models for High-Performance Learned Image Compression](mambaic_state_space_models_for_high-performance_learned_image_compression.md)
+
+</div>
 
 <!-- RELATED:END -->

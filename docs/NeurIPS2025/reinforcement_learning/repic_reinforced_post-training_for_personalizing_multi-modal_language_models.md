@@ -143,6 +143,8 @@ RL 后训练各组件的贡献:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Training Language Models to Reason Efficiently](training_language_models_to_reason_efficiently.md)
@@ -150,5 +152,7 @@ RL 后训练各组件的贡献:
 - [\[NeurIPS 2025\] EvoLM: In Search of Lost Language Model Training Dynamics](evolm_in_search_of_lost_language_model_training_dynamics.md)
 - [\[NeurIPS 2025\] Checklists Are Better Than Reward Models For Aligning Language Models](checklists_are_better_than_reward_models_for_aligning_langua.md)
 - [\[NeurIPS 2025\] Teaching Language Models to Evolve with Users: Dynamic Profile Modeling for Personalized Alignment](teaching_language_models_to_evolve_with_users_dynamic_profile_modeling_for_perso.md)
+
+</div>
 
 <!-- RELATED:END -->

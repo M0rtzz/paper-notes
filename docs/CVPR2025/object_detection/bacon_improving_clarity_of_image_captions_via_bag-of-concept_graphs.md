@@ -123,6 +123,8 @@ LLaVA微调采用标准的自回归语言建模损失。GPT-4V标注阶段通过
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Search and Detect: Training-Free Long Tail Object Detection via Web-Image Retrieval](search_and_detect_training-free_long_tail_object_detection_via_web-image_retriev.md)
@@ -130,5 +132,7 @@ LLaVA微调采用标准的自回归语言建模损失。GPT-4V标注阶段通过
 - [\[ECCV 2024\] ReGround: Improving Textual and Spatial Grounding at No Cost](../../ECCV2024/object_detection/reground_improving_textual_and_spatial_grounding_at_no_cost.md)
 - [\[ICCV 2025\] Intervening in Black Box: Concept Bottleneck Model for Enhancing Human-Neural Network Mutual Understanding](../../ICCV2025/object_detection/intervening_in_black_box_concept_bottleneck_model_for_enhancing_human_neural_net.md)
 - [\[CVPR 2025\] MCCD: Multi-Agent Collaboration-based Compositional Diffusion for Complex Text-to-Image Generation](mccd_multi-agent_collaboration-based_compositional_diffusion_for_complex_text-to.md)
+
+</div>
 
 <!-- RELATED:END -->

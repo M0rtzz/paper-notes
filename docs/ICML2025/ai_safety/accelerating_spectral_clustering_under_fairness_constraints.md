@@ -110,6 +110,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Fairness under Competition](../../NeurIPS2025/ai_safety/fairness_under_competition.md)
@@ -117,5 +119,7 @@ tags:
 - [\[ICML 2025\] Relative Error Fair Clustering in the Weak-Strong Oracle Model](relative_error_fair_clustering_in_the_weak-strong_oracle_model.md)
 - [\[AAAI 2026\] Truth, Justice, and Secrecy: Cake Cutting Under Privacy Constraints](../../AAAI2026/ai_safety/truth_justice_and_secrecy_cake_cutting_under_privacy_constraints.md)
 - [\[NeurIPS 2025\] Cost Efficient Fairness Audit Under Partial Feedback](../../NeurIPS2025/ai_safety/cost_efficient_fairness_audit_under_partial_feedback.md)
+
+</div>
 
 <!-- RELATED:END -->

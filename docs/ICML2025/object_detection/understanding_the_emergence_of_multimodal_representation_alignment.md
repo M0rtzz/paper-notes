@@ -143,6 +143,8 @@ $$\text{ALIGN}_{\text{MKNN}}(Z_1, Z_2) = \sum_i \sum_j \mathbf{1}[Z_{1,j} \in kn
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Self-Organizing Visual Prototypes for Non-Parametric Representation Learning](self-organizing_visual_prototypes_for_non-parametric_representation_learning.md)
@@ -150,5 +152,7 @@ $$\text{ALIGN}_{\text{MKNN}}(Z_1, Z_2) = \sum_i \sum_j \mathbf{1}[Z_{1,j} \in kn
 - [\[NeurIPS 2025\] DetectiumFire: A Comprehensive Multi-modal Dataset Bridging Vision and Language for Fire Understanding](../../NeurIPS2025/object_detection/detectiumfire_a_comprehensive_multi-modal_dataset_bridging_vision_and_language_f.md)
 - [\[NeurIPS 2025\] ReCon: Region-Controllable Data Augmentation with Rectification and Alignment for Object Detection](../../NeurIPS2025/object_detection/recon_region-controllable_data_augmentation_with_rectification_and_alignment_for.md)
 - [\[ICCV 2025\] LMM-Det: Make Large Multimodal Models Excel in Object Detection](../../ICCV2025/object_detection/lmm-det_make_large_multimodal_models_excel_in_object_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

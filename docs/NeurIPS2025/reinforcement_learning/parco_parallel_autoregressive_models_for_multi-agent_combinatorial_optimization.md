@@ -125,6 +125,8 @@ $$\nabla_\theta \mathcal{L} \approx \frac{1}{B \cdot S} \sum_{i=1}^{B} \sum_{j=1
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Complexity Scaling Laws for Neural Models using Combinatorial Optimization](complexity_scaling_laws_for_neural_models_using_combinatorial_optimization.md)
@@ -132,5 +134,7 @@ $$\nabla_\theta \mathcal{L} \approx \frac{1}{B \cdot S} \sum_{i=1}^{B} \sum_{j=1
 - [\[ICML 2025\] Graph-Supported Dynamic Algorithm Configuration for Multi-Objective Combinatorial Optimization](../../ICML2025/reinforcement_learning/graph-supported_dynamic_algorithm_configuration_for_multi-objective_combinatoria.md)
 - [\[NeurIPS 2025\] Multi-Agent Collaboration via Evolving Orchestration](multi-agent_collaboration_via_evolving_orchestration.md)
 - [\[NeurIPS 2025\] A Theory of Multi-Agent Generative Flow Networks](a_theory_of_multi-agent_generative_flow_networks.md)
+
+</div>
 
 <!-- RELATED:END -->

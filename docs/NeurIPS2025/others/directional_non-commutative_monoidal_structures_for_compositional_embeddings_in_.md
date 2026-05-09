@@ -119,6 +119,8 @@ SSM 是注意力权重退化为隐式（均匀）且交互受限为递归结构�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Directional Sheaf Hypergraph Networks: Unifying Learning on Directed and Undirected Hypergraphs](../../ICLR2026/others/directional_sheaf_hypergraph_networks_unifying_learning_on_directed_and_undirect.md)
@@ -126,5 +128,7 @@ SSM 是注意力权重退化为隐式（均匀）且交互受限为递归结构�
 - [\[ACL 2025\] Better Embeddings with Coupled Adam](../../ACL2025/others/better_embeddings_with_coupled_adam.md)
 - [\[NeurIPS 2025\] Learning non-equilibrium diffusions with Schrödinger bridges: from exactly solvable to simulation-free](learning_non-equilibrium_diffusions_with_schrödinger_bridges_from_exactly_solvab.md)
 - [\[NeurIPS 2025\] Equivariance by Contrast: Identifiable Equivariant Embeddings from Unlabeled Finite Group Actions](equivariance_by_contrast_identifiable_equivariant_embeddings_from_unlabeled_fini.md)
+
+</div>
 
 <!-- RELATED:END -->

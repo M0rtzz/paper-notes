@@ -125,6 +125,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] PanoAffordanceNet: Towards Holistic Affordance Grounding in 360° Indoor Environments](panoaffordancenet_towards_holistic_affordance_grounding_in_360_indoor_environmen.md)
@@ -132,5 +134,7 @@ tags:
 - [\[ECCV 2024\] GraspXL: Generating Grasping Motions for Diverse Objects at Scale](../../ECCV2024/robotics/graspxl_generating_grasping_motions_for_diverse_objects_at_scale.md)
 - [\[ICCV 2025\] Self-supervised Learning of Hybrid Part-aware 3D Representations of 2D Gaussians and Superquadrics](../../ICCV2025/robotics/self-supervised_learning_of_hybrid_part-aware_3d_representations_of_2d_gaussians.md)
 - [\[ECCV 2024\] Hierarchically Structured Neural Bones for Reconstructing Animatable Objects from Casual Videos](../../ECCV2024/robotics/hierarchically_structured_neural_bones_for_reconstructing_animatable_objects_fro.md)
+
+</div>
 
 <!-- RELATED:END -->

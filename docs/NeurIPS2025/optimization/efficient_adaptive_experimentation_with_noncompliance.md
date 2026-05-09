@@ -161,6 +161,8 @@ $$|\hat{\tau}_T^{\text{AMRIV}} - \tau| = O_p(T^{-1/2}) + O_p(\|\hat{\delta}_T^A 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Efficient Adaptive Federated Optimization](efficient_adaptive_federated_optimization.md)
@@ -168,5 +170,7 @@ $$|\hat{\tau}_T^{\text{AMRIV}} - \tau| = O_p(T^{-1/2}) + O_p(\|\hat{\delta}_T^A 
 - [\[NeurIPS 2025\] Oracle-Efficient Combinatorial Semi-Bandits](oracle-efficient_combinatorial_semi-bandits.md)
 - [\[NeurIPS 2025\] Adaptive Algorithms with Sharp Convergence Rates for Stochastic Hierarchical Optimization](adaptive_algorithms_with_sharp_convergence_rates_for_stochas.md)
 - [\[NeurIPS 2025\] Kernel Learning with Adversarial Features: Numerical Efficiency and Adaptive Regularization](kernel_learning_with_adversarial_features_numerical_efficiency_and_adaptive_regu.md)
+
+</div>
 
 <!-- RELATED:END -->

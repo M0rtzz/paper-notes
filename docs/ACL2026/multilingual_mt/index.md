@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **23** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (2)](../../CVPR2026/multilingual_mt/) · [🔬 ICLR2026 (7)](../../ICLR2026/multilingual_mt/) · [🤖 AAAI2026 (11)](../../AAAI2026/multilingual_mt/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/multilingual_mt/) · [📹 ICCV2025 (1)](../../ICCV2025/multilingual_mt/) · [🧪 ICML2025 (1)](../../ICML2025/multilingual_mt/)
+
+🔥 **高频主题：** 翻译 ×6 · 语音 ×2 · LLM ×2
+
 **[A Multilingual Dataset and Empirical Validation for the Mutual Reinforcement Effect in Information Extraction](a_multilingual_dataset_and_empirical_validation_for_the_mutual_reinforcement_eff.md)**
 
 :   构建首个多语言MRE Mix数据集（MMM，21个子集覆盖英中日），并通过大规模消融实验系统验证了词级与文本级信息抽取任务的互增强效应（MRE）跨语言普遍存在。

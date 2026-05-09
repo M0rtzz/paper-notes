@@ -102,6 +102,8 @@ $$w_{k+1} = \arg\max_{\bar{w}} \left[\mathbb{E}_{s,M\sim\bar{w}} A(M|s) - C \cdo
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] DiffOP: Reinforcement Learning of Optimization-Based Control Policies via Implicit Policy Gradients](diffop_reinforcement_learning_of_optimization-based_control_policies_via_implici.md)
@@ -109,5 +111,7 @@ $$w_{k+1} = \arg\max_{\bar{w}} \left[\mathbb{E}_{s,M\sim\bar{w}} A(M|s) - C \cdo
 - [\[AAAI 2026\] Explaining Decentralized Multi-Agent Reinforcement Learning Policies](explaining_decentralized_multi-agent_reinforcement_learning_policies.md)
 - [\[AAAI 2026\] Behaviour Policy Optimization: Provably Lower Variance Return Estimates for Off-Policy Reinforcement Learning](behaviour_policy_optimization_provably_lower_variance_return_estimates_for_off-p.md)
 - [\[AAAI 2026\] MARS: Multi-Agent Adaptive Reasoning with Socratic Guidance for Automated Prompt Optimization](mars_multi-agent_adaptive_reasoning_with_socratic_guidance_f.md)
+
+</div>
 
 <!-- RELATED:END -->

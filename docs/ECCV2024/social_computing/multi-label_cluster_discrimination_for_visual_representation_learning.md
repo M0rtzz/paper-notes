@@ -176,6 +176,8 @@ Zero-shot 分类比 OpenCLIP 提升 **3.9%**，比 FLIP 提升 **1.5%**。MSCOCO
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] PropVG: End-to-End Proposal-Driven Visual Grounding with Multi-Granularity Discrimination](../../ICCV2025/social_computing/propvg_end-to-end_proposal-driven_visual_grounding_with_multi-granularity_discri.md)
@@ -183,5 +185,7 @@ Zero-shot 分类比 OpenCLIP 提升 **3.9%**，比 FLIP 提升 **1.5%**。MSCOCO
 - [\[ICCV 2025\] Gradient Extrapolation for Debiased Representation Learning](../../ICCV2025/social_computing/gradient_extrapolation_for_debiased_representation_learning.md)
 - [\[ECCV 2024\] GRACE: Graph-Based Contextual Debiasing for Fair Visual Question Answering](grace_graph-based_contextual_debiasing_for_fair_visual_question_answering.md)
 - [\[CVPR 2025\] Classifier-guided CLIP Distillation for Unsupervised Multi-label Classification](../../CVPR2025/social_computing/classifier-guided_clip_distillation_for_unsupervised_multi-label_classification.md)
+
+</div>
 
 <!-- RELATED:END -->

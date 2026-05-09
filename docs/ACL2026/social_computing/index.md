@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **9** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (5)](../../CVPR2026/social_computing/) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/social_computing/) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/) · [🧪 ICML2025 (7)](../../ICML2025/social_computing/)
+
+🔥 **高频主题：** LLM ×2 · 推理 ×2
+
 **[Among Us: Language of Conspiracy Theorists on Mainstream Reddit](among_us_language_of_conspiracy_theorists_on_mainstream_reddit.md)**
 
 :   分析5亿条Reddit评论的10年纵向数据，发现活跃于阴谋论社区的用户在主流社区中也展现出可检测的独特语言模式（平均87%分类准确率），但这些模式高度依赖社区上下文，社区特定模型比全局模型高出最多17个百分点。

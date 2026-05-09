@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **20** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/knowledge_editing/) · [📷 CVPR2026 (3)](../../CVPR2026/knowledge_editing/) · [🔬 ICLR2026 (9)](../../ICLR2026/knowledge_editing/) · [🤖 AAAI2026 (5)](../../AAAI2026/knowledge_editing/) · [🧠 NeurIPS2025 (6)](../../NeurIPS2025/knowledge_editing/) · [🧪 ICML2025 (2)](../../ICML2025/knowledge_editing/)
+
+🔥 **高频主题：** LLM ×4 · 对抗鲁棒 ×2
+
 **[A General Knowledge Injection Framework for ICD Coding](a_general_knowledge_injection_framework_for_icd_coding.md)**
 
 :   > 本文提出 GKI-ICD，一个通用的知识注入框架，通过指南合成和多任务学习机制，无需额外网络模块即可同时整合 ICD Description、Synonym 和 Hierarchy 三种知识，在 MIMIC-III 基准上取得 SOTA 性能。

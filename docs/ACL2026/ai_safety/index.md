@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2026** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (24)](../../CVPR2026/ai_safety/) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/) · [🤖 AAAI2026 (44)](../../AAAI2026/ai_safety/) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/) · [📹 ICCV2025 (22)](../../ICCV2025/ai_safety/) · [🧪 ICML2025 (36)](../../ICML2025/ai_safety/)
+
 **[When Bigger Isn't Better: A Comprehensive Fairness Evaluation of Political Bias in Multi-News Summarisation](when_bigger_isn39t_better_a_comprehensive_fairness_evaluation_of_political_bias_.md)**
 
 :   本文构建了首个带政治倾向标签的多文档新闻摘要数据集 FairNews，并通过五维公平性评估框架对 13 个 LLM 进行评估，发现中等规模模型在公平性和效率上优于大模型，且实体情感相似性是最难通过提示去偏的维度。

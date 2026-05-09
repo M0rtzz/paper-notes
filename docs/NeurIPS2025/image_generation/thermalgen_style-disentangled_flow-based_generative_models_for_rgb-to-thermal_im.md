@@ -149,6 +149,8 @@ ThermalGen 基于 SiT（Scalable Interpolant Transformer）架构，在潜空间
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SCFlow: Implicitly Learning Style and Content Disentanglement with Flow Models](../../ICCV2025/image_generation/scflow_implicitly_learning_style_and_content_disentanglement_with_flow_models.md)
@@ -156,5 +158,7 @@ ThermalGen 基于 SiT（Scalable Interpolant Transformer）架构，在潜空间
 - [\[NeurIPS 2025\] Physics-Constrained Flow Matching: Sampling Generative Models with Hard Constraints](physics-constrained_flow_matching_sampling_generative_models_with_hard_constrain.md)
 - [\[ICCV 2025\] Deeply Supervised Flow-Based Generative Models](../../ICCV2025/image_generation/deeply_supervised_flow-based_generative_models.md)
 - [\[NeurIPS 2025\] EditInfinity: Image Editing with Binary-Quantized Generative Models](editinfinity_image_editing_with_binary-quantized_generative_models.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -136,6 +136,8 @@ $$\frac{\partial \rho}{\partial t} = -\nabla_\mathbf{x} \cdot \left[\left(\mathb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Adjoint Schrödinger Bridge Sampler](adjoint_schrödinger_bridge_sampler.md)
@@ -143,5 +145,7 @@ $$\frac{\partial \rho}{\partial t} = -\nabla_\mathbf{x} \cdot \left[\left(\mathb
 - [\[NeurIPS 2025\] Inferring Stochastic Dynamics with Growth from Cross-Sectional Data](inferring_stochastic_dynamics_with_growth_from_cross-sectional_data.md)
 - [\[NeurIPS 2025\] Normalization in Attention Dynamics](normalization_in_attention_dynamics.md)
 - [\[NeurIPS 2025\] Variational Regularized Unbalanced Optimal Transport: Single Network, Least Action](variational_regularized_unbalanced_optimal_transport_single_network_least_action.md)
+
+</div>
 
 <!-- RELATED:END -->

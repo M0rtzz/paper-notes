@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **24** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/graph_learning/) · [📷 CVPR2026 (9)](../../CVPR2026/graph_learning/) · [🔬 ICLR2026 (21)](../../ICLR2026/graph_learning/) · [🤖 AAAI2026 (38)](../../AAAI2026/graph_learning/) · [🧠 NeurIPS2025 (52)](../../NeurIPS2025/graph_learning/) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/)
+
+🔥 **高频主题：** 问答 ×6 · 推理 ×4 · LLM ×4 · RAG ×3 · 图神经网络 ×2
+
 **[A Generative Adaptive Replay Continual Learning Model for Temporal Knowledge Graph Reasoning](a_generative_adaptive_replay_continual_learning_model_for_temporal_knowledge_gra.md)**
 
 :   本文提出深度生成自适应重放（DGAR）方法，利用预训练扩散模型生成历史实体分布表示、通过增强历史分布与当前分布的共同特征来缓解分布冲突，并设计逐层自适应重放机制整合历史与当前知识，在时序知识图谱推理的持续学习场景中显著缓解了灾难性遗忘问题。

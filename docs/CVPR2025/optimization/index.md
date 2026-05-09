@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **9** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/optimization/) · [📷 CVPR2026 (10)](../../CVPR2026/optimization/) · [🔬 ICLR2026 (45)](../../ICLR2026/optimization/) · [🤖 AAAI2026 (24)](../../AAAI2026/optimization/) · [🧠 NeurIPS2025 (117)](../../NeurIPS2025/optimization/) · [📹 ICCV2025 (8)](../../ICCV2025/optimization/)
+
+🔥 **高频主题：** 联邦学习 ×4 · 对抗鲁棒 ×3
+
 **[Automatic Joint Structured Pruning and Quantization for Efficient Neural Network Training and Compression](automatic_joint_structured_pruning_and_quantization_for_efficient_neural_network.md)**
 
 :   提出 GETA 框架实现自动联合结构化剪枝和量化感知训练：量化感知依赖图（QADG）构建通用剪枝搜索空间 + 部分投影 SGD 保证逐层比特约束 + 可解释的联合学习策略，在 CNN 和 Transformer 上均达到竞争力或领先的压缩性能。

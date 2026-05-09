@@ -110,6 +110,8 @@ Burst超分辨率是一种通过融合多帧低分辨率图像来同时降噪和
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Emulating Self-Attention with Convolution for Efficient Image Super-Resolution](emulating_self-attention_with_convolution_for_efficient_image_super-resolution.md)
@@ -117,5 +119,7 @@ Burst超分辨率是一种通过融合多帧低分辨率图像来同时降噪和
 - [\[ICCV 2025\] IM-LUT: Interpolation Mixing Look-Up Tables for Image Super-Resolution](im-lut_interpolation_mixing_look-up_tables_for_image_super-resolution.md)
 - [\[ICCV 2025\] Devil is in the Uniformity: Exploring Diverse Learners within Transformer for Image Restoration](devil_is_in_the_uniformity_exploring_diverse_learners_within_transformer_for_ima.md)
 - [\[ICCV 2025\] UniPhys: Unified Planner and Controller with Diffusion for Flexible Physics-Based Character Control](uniphys_unified_planner_and_controller_with_diffusion_for_flexible_physics-based.md)
+
+</div>
 
 <!-- RELATED:END -->

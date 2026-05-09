@@ -117,6 +117,8 @@ PRO-Motion 由三个模块组成，形成一个流水线：（1）**Motion Plann
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Anomize: Better Open Vocabulary Video Anomaly Detection](../../CVPR2025/llm_pretraining/anomize_better_open_vocabulary_video_anomaly_detection.md)
@@ -124,5 +126,7 @@ PRO-Motion 由三个模块组成，形成一个流水线：（1）**Motion Plann
 - [\[ECCV 2024\] DragAPart: Learning a Part-Level Motion Prior for Articulated Objects](dragapart_learning_a_part-level_motion_prior_for_articulated_objects.md)
 - [\[CVPR 2025\] ScaMo: Exploring the Scaling Law in Autoregressive Motion Generation Model](../../CVPR2025/llm_pretraining/scamo_exploring_the_scaling_law_in_autoregressive_motion_generation_model.md)
 - [\[CVPR 2025\] DreamText: High Fidelity Scene Text Synthesis](../../CVPR2025/llm_pretraining/dreamtext_high_fidelity_scene_text_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

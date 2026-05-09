@@ -118,6 +118,8 @@ $\mathcal{L} = \mathcal{L}_{align}(f_g, f_v) + \mathcal{L}_{align}(f_a, f_v) + \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Doppelgangers++: Improved Visual Disambiguation with Geometric 3D Features](doppelgangers_improved_visual_disambiguation_with_geometric_3d_features.md)
@@ -125,5 +127,7 @@ $\mathcal{L} = \mathcal{L}_{align}(f_g, f_v) + \mathcal{L}_{align}(f_a, f_v) + \
 - [\[CVPR 2025\] Text-Guided Sparse Voxel Pruning for Efficient 3D Visual Grounding](text-guided_sparse_voxel_pruning_for_efficient_3d_visual_grounding.md)
 - [\[CVPR 2025\] SeeGround: See and Ground for Zero-Shot Open-Vocabulary 3D Visual Grounding](seeground_see_and_ground_for_zero-shot_open-vocabulary_3d_visual_grounding.md)
 - [\[CVPR 2025\] ProxyTransformation: Preshaping Point Cloud Manifold with Proxy Attention for 3D Visual Grounding](proxytransformation_preshaping_point_cloud_manifold_with_proxy_attention_for_3d_.md)
+
+</div>
 
 <!-- RELATED:END -->

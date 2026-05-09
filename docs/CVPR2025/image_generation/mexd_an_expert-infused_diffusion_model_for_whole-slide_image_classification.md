@@ -117,6 +117,8 @@ MExD 首次将生成式扩散模型应用于全切片图像（WSI）分类，通
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] BiGain: Unified Token Compression for Joint Generation and Classification](bigain_unified_token_compression_for_joint_generation_and_classification.md)
@@ -124,5 +126,7 @@ MExD 首次将生成式扩散模型应用于全切片图像（WSI）分类，通
 - [\[CVPR 2025\] InterMimic: Towards Universal Whole-Body Control for Physics-Based Human-Object Interactions](intermimic_towards_universal_whole-body_control_for_physics-based_human-object_i.md)
 - [\[NeurIPS 2025\] CaMiT: A Time-Aware Car Model Dataset for Classification and Generation](../../NeurIPS2025/image_generation/camit_a_time-aware_car_model_dataset_for_classification_and_generation.md)
 - [\[ECCV 2024\] Active Generation for Image Classification](../../ECCV2024/image_generation/active_generation_for_image_classification.md)
+
+</div>
 
 <!-- RELATED:END -->

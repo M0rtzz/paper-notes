@@ -164,6 +164,8 @@ $$L_{\text{total}} = \mathcal{L}_{\text{LM}} + \alpha \cdot L_{\text{cons}}^{\te
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Learning Safety Constraints for Large Language Models](learning_safety_constraints_for_large_language_models.md)
@@ -171,5 +173,7 @@ $$L_{\text{total}} = \mathcal{L}_{\text{LM}} + \alpha \cdot L_{\text{cons}}^{\te
 - [\[ACL 2025\] Ensemble Watermarks for Large Language Models](../../ACL2025/llm_safety/ensemble_watermarks_llm.md)
 - [\[ICML 2025\] Watch Out Your Album! On the Inadvertent Privacy Memorization in Multi-Modal Large Language Models](watch_out_your_album_on_the_inadvertent_privacy_memorization_in_multi-modal_larg.md)
 - [\[ICML 2025\] Activation Space Interventions Can Be Transferred Between Large Language Models](activation_space_interventions_can_be_transferred_between_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

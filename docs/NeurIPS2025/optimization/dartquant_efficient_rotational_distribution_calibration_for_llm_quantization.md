@@ -139,6 +139,8 @@ DartQuant 流程：(1) 少量校准数据前向传播得到各层激活值；(2)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] OrthoGrad Improves Neural Calibration](orthograd_improves_neural_calibration.md)
@@ -146,5 +148,7 @@ DartQuant 流程：(1) 少量校准数据前向传播得到各层激活值；(2)
 - [\[NeurIPS 2025\] Efficient Adaptive Federated Optimization](efficient_adaptive_federated_optimization.md)
 - [\[NeurIPS 2025\] Efficient Adaptive Experimentation with Noncompliance](efficient_adaptive_experimentation_with_noncompliance.md)
 - [\[NeurIPS 2025\] Oracle-Efficient Combinatorial Semi-Bandits](oracle-efficient_combinatorial_semi-bandits.md)
+
+</div>
 
 <!-- RELATED:END -->

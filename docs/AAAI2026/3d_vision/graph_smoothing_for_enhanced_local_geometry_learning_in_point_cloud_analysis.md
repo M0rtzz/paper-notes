@@ -223,6 +223,8 @@ $$\mathbf{x}_i^{(l+1)} = \mathcal{A}\left(\sigma\left(\psi'([\mathbf{x}_j^{(l)} 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Adapting Point Cloud Analysis via Multimodal Bayesian Distribution Learning](../../CVPR2026/3d_vision/adapting_point_cloud_analysis_via_multimodal_bayesian_distribution_learning.md)
@@ -230,5 +232,7 @@ $$\mathbf{x}_i^{(l+1)} = \mathcal{A}\left(\sigma\left(\psi'([\mathbf{x}_j^{(l)} 
 - [\[AAAI 2026\] DeepRAHT: Learning Predictive RAHT for Point Cloud Attribute Compression](deepraht_learning_predictive_raht_for_point_cloud_attribute_compression.md)
 - [\[ICCV 2025\] Efficient Spiking Point Mamba for Point Cloud Analysis](../../ICCV2025/3d_vision/efficient_spiking_point_mamba_for_point_cloud_analysis.md)
 - [\[ICCV 2025\] UPP: Unified Point-Level Prompting for Robust Point Cloud Analysis](../../ICCV2025/3d_vision/upp_unified_point-level_prompting_for_robust_point_cloud_analysis.md)
+
+</div>
 
 <!-- RELATED:END -->

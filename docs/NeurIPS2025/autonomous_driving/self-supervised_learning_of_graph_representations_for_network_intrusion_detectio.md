@@ -123,6 +123,8 @@ GraphIDS 分三步：(1) 构建网络流量的局部通信图；(2) 归纳式 GN
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Dual-branch Spatial-Temporal Self-supervised Representation for Enhanced Road Network Learning](../../AAAI2026/autonomous_driving/dual-branch_spatial-temporal_self-supervised_representation_for_enhanced_road_ne.md)
@@ -130,5 +132,7 @@ GraphIDS 分三步：(1) 构建网络流量的局部通信图；(2) 归纳式 GN
 - [\[CVPR 2025\] PSA-SSL: Pose and Size-aware Self-Supervised Learning on LiDAR Point Clouds](../../CVPR2025/autonomous_driving/psa-ssl_pose_and_size-aware_self-supervised_learning_on_lidar_point_clouds.md)
 - [\[NeurIPS 2025\] BayesG: Bayesian Ego-Graph Inference for Networked Multi-Agent Reinforcement Learning](bayesian_ego-graph_inference_for_networked_multi-agent_reinforcement_learning.md)
 - [\[CVPR 2025\] VoteFlow: Enforcing Local Rigidity in Self-Supervised Scene Flow](../../CVPR2025/autonomous_driving/voteflow_enforcing_local_rigidity_in_self-supervised_scene_flow.md)
+
+</div>
 
 <!-- RELATED:END -->

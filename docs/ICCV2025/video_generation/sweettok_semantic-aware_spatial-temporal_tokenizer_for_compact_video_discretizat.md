@@ -180,6 +180,8 @@ SweetTok 包含两个核心组件：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] BF-STVSR: B-Splines and Fourier—Best Friends for High Fidelity Spatial-Temporal Video Super-Resolution](../../CVPR2025/video_generation/bf-stvsr_b-splines_and_fourier---best_friends_for_high_fidelity_spatia.md)
@@ -187,5 +189,7 @@ SweetTok 包含两个核心组件：
 - [\[ICCV 2025\] Disentangled World Models: Learning to Transfer Semantic Knowledge from Distracting Videos for Reinforcement Learning](disentangled_world_models_learning_to_transfer_semantic_knowledge_from_distracti.md)
 - [\[CVPR 2025\] Semantic Satellite Communications for Synchronized Audiovisual Reconstruction](../../CVPR2025/video_generation/semantic_satellite_communications_for_synchronized_audiovisual_reconstruction.md)
 - [\[CVPR 2026\] AutoCut: End-to-end Advertisement Video Editing Based on Multimodal Discretization and Controllable Generation](../../CVPR2026/video_generation/autocut_end-to-end_advertisement_video_editing_based_on_multimodal_discretizatio.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -142,6 +142,8 @@ OmniHuman 基于 MMDiT 架构的 text-to-video 预训练模型，通过三阶段
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Multi-identity Human Image Animation with Structural Video Diffusion](multi-identity_human_image_animation_with_structural_video_diffusion.md)
@@ -149,5 +151,7 @@ OmniHuman 基于 MMDiT 架构的 text-to-video 预训练模型，通过三阶段
 - [\[ICCV 2025\] VACE: All-in-One Video Creation and Editing](vace_all-in-one_video_creation_and_editing.md)
 - [\[ICCV 2025\] X-Dancer: Expressive Music to Human Dance Video Generation](x-dancer_expressive_music_to_human_dance_video_generation.md)
 - [\[NeurIPS 2025\] Scaling RL to Long Videos](../../NeurIPS2025/video_generation/scaling_rl_to_long_videos.md)
+
+</div>
 
 <!-- RELATED:END -->

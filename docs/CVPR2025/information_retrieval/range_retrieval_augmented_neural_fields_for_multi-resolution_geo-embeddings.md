@@ -126,6 +126,8 @@ $$L_i = (L_i^{loc} + L_i^{img}) / 2$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] From Ambiguity to Accuracy: The Transformative Effect of Coreference Resolution on RAG Systems](../../ACL2025/information_retrieval/from_ambiguity_to_accuracy_the_transformative_effect_of_coreference_resolution_o.md)
@@ -133,5 +135,7 @@ $$L_i = (L_i^{loc} + L_i^{img}) / 2$$
 - [\[ACL 2025\] NeuSym-RAG: Hybrid Neural Symbolic Retrieval with Multiview Structuring for PDF Question Answering](../../ACL2025/information_retrieval/neusym_rag_pdf_qa.md)
 - [\[ACL 2025\] GRAF: Graph Retrieval Augmented by Facts for Romanian Legal Multi-Choice Question Answering](../../ACL2025/information_retrieval/graf_graph_retrieval_augmented_by_facts_for_romanian_legal_multi-choice_question.md)
 - [\[ACL 2026\] MASS-RAG: Multi-Agent Synthesis Retrieval-Augmented Generation](../../ACL2026/information_retrieval/mass-rag_multi-agent_synthesis_retrieval-augmented_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

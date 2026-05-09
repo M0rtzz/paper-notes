@@ -127,6 +127,8 @@ LION-FS 的整体流程分为两条路径。Fast Path：用双编码器（SigLIP
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] FastVID: Dynamic Density Pruning for Fast Video Large Language Models](../../NeurIPS2025/video_understanding/fastvid_dynamic_density_pruning_for_fast_video_large_languag.md)
@@ -134,5 +136,7 @@ LION-FS 的整体流程分为两条路径。Fast Path：用双编码器（SigLIP
 - [\[CVPR 2025\] EgoLife: Towards Egocentric Life Assistant](egolife_towards_egocentric_life_assistant.md)
 - [\[CVPR 2025\] OVO-Bench: How Far is Your Video-LLMs from Real-World Online Video Understanding?](ovo-bench_how_far_is_your_video-llms_from_real-world_online_video_understanding.md)
 - [\[CVPR 2025\] Video Summarization with Large Language Models](video_summarization_with_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

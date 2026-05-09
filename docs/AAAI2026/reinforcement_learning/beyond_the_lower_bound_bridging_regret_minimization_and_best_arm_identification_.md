@@ -142,6 +142,8 @@ $$R^i(t) \leq \sum_{\Delta^i(a) > 0} \min_{j \in [m]} \left\{ \frac{(\Lambda^j(\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Deep (Predictive) Discounted Counterfactual Regret Minimization](deep_predictive_discounted_counterfactual_regret_minimization.md)
@@ -149,5 +151,7 @@ $$R^i(t) \leq \sum_{\Delta^i(a) > 0} \min_{j \in [m]} \left\{ \frac{(\Lambda^j(\
 - [\[AAAI 2026\] Perturbing Best Responses in Zero-Sum Games](perturbing_best_responses_in_zero-sum_games.md)
 - [\[NeurIPS 2025\] Gaussian Process Upper Confidence Bound Achieves Nearly-Optimal Regret in Noise-Free Gaussian Process Bandits](../../NeurIPS2025/reinforcement_learning/gaussian_process_upper_confidence_bound_achieves_nearly-optimal_regret_in_noise-.md)
 - [\[NeurIPS 2025\] Simultaneous Swap Regret Minimization via KL-Calibration](../../NeurIPS2025/reinforcement_learning/simultaneous_swap_regret_minimization_via_kl-calibration.md)
+
+</div>
 
 <!-- RELATED:END -->

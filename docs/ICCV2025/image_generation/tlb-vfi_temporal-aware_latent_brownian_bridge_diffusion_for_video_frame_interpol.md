@@ -158,6 +158,8 @@ $$\hat{I}_n = M \odot \text{warp}(I_0) + (1-M) \odot \text{warp}(I_1) + \Delta$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] EDEN: Enhanced Diffusion for High-quality Large-motion Video Frame Interpolation](../../CVPR2025/image_generation/eden_enhanced_diffusion_for_high-quality_large-motion_video_frame_interpolation.md)
@@ -165,5 +167,7 @@ $$\hat{I}_n = M \odot \text{warp}(I_0) + (1-M) \odot \text{warp}(I_1) + \Delta$$
 - [\[ICCV 2025\] Video Motion Graphs](video_motion_graphs.md)
 - [\[ICCV 2025\] What's in a Latent? Leveraging Diffusion Latent Space for Domain Generalization](whats_in_a_latent_leveraging_diffusion_latent_space_for_domain_generalization.md)
 - [\[ICCV 2025\] MaskControl: Spatio-Temporal Control for Masked Motion Synthesis](maskcontrol_spatio-temporal_control_for_masked_motion_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

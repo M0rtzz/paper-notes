@@ -152,6 +152,8 @@ ViT-Base 在 ImageNet-1k 微调：1p-frac（1 张图）达到 82.1%，超越 Ima
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] POA: Pre-training Once for Models of All Sizes](poa_pre-training_once_for_models_of_all_sizes.md)
@@ -159,5 +161,7 @@ ViT-Base 在 ImageNet-1k 微调：1p-frac（1 张图）达到 82.1%，超越 Ima
 - [\[ECCV 2024\] Formula-Supervised Visual-Geometric Pre-training (FSVGP)](formula-supervised_visual-geometric_pre-training.md)
 - [\[ECCV 2024\] PreLAR: World Model Pre-training with Learnable Action Representation](prelar_world_model_pre-training_with_learnable_action_representation.md)
 - [\[NeurIPS 2025\] Power Lines: Scaling Laws for Weight Decay and Batch Size in LLM Pre-training](../../NeurIPS2025/llm_pretraining/power_lines_scaling_laws_for_weight_decay_and_batch_size_in_llm_pre-training.md)
+
+</div>
 
 <!-- RELATED:END -->

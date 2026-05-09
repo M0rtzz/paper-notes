@@ -156,6 +156,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] SGS-SLAM: Semantic Gaussian Splatting for Neural Dense SLAM](sgs-slam_semantic_gaussian_splatting_for_neural_dense_slam.md)
@@ -163,5 +165,7 @@ tags:
 - [\[CVPR 2026\] VarSplat: Uncertainty-aware 3D Gaussian Splatting for Robust RGB-D SLAM](../../CVPR2026/3d_vision/varsplat_uncertainty-aware_3d_gaussian_splatting_for_robust_rgb-d_slam.md)
 - [\[ECCV 2024\] Deep Patch Visual SLAM](deep_patch_visual_slam.md)
 - [\[ECCV 2024\] Hyperion: A Fast, Versatile Symbolic Gaussian Belief Propagation Framework for Continuous-Time SLAM](hyperion_-_a_fast_versatile_symbolic_gaussian_belief_propagation_framework_for_c.md)
+
+</div>
 
 <!-- RELATED:END -->

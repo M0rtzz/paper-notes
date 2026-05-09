@@ -118,6 +118,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] What One Cannot, Two Can: Two-Layer Transformers Provably Represent Induction Heads on Any-Order Markov Chains](../../NeurIPS2025/llm_nlp/what_one_cannot_two_can_two-layer_transformers_provably_represent_induction_head.md)
@@ -125,5 +127,7 @@ tags:
 - [\[ACL 2025\] PerSphere: A Comprehensive Framework for Multi-Faceted Perspective Retrieval and Summarization](../../ACL2025/llm_nlp/persphere_a_comprehensive_framework_for_multi-faceted_perspective_retrieval_and_.md)
 - [\[ACL 2025\] DTCRS: Dynamic Tree Construction for Recursive Summarization](../../ACL2025/llm_nlp/dtcrs_dynamic_tree_construction_for_recursive_summarization.md)
 - [\[ACL 2025\] Pre³: Enabling Deterministic Pushdown Automata for Faster Structured LLM Generation](../../ACL2025/llm_nlp/pre3_deterministic_pda_structured_gen.md)
+
+</div>
 
 <!-- RELATED:END -->

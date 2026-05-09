@@ -127,6 +127,8 @@ $\mathcal{L} = \mathcal{L}_{CE} + \lambda_A \mathcal{L}_{ACGD} + \lambda_T \math
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Cropper: Vision-Language Model for Image Cropping through In-Context Learning](cropper_vision-language_model_for_image_cropping_through_in-context_learning.md)
@@ -134,5 +136,7 @@ $\mathcal{L} = \mathcal{L}_{CE} + \lambda_A \mathcal{L}_{ACGD} + \lambda_T \math
 - [\[CVPR 2025\] Calico: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models](calico_part-focused_semantic_co-segmentation_with_large_vision-language_models.md)
 - [\[CVPR 2025\] Can Large Vision-Language Models Correct Semantic Grounding Errors By Themselves?](can_large_vision-language_models_correct_semantic_grounding_errors_by_themselves.md)
 - [\[CVPR 2025\] Spatial Reasoning is Not a Free Lunch: A Controlled Study on LLaVA](spatial_reasoning_is_not_a_free_lunch_a_controlled_study_on_llava.md)
+
+</div>
 
 <!-- RELATED:END -->

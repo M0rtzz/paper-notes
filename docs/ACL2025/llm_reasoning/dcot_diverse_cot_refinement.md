@@ -137,6 +137,8 @@ Response: [Answer 1] CoT₁ [Answer 2] CoT₂ ... [Answer k] CoTₖ [Final answe
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] TRACT: Regression-Aware Fine-tuning Meets Chain-of-Thought Reasoning](tract_regression_cot.md)
@@ -144,5 +146,7 @@ Response: [Answer 1] CoT₁ [Answer 2] CoT₂ ... [Answer k] CoTₖ [Final answe
 - [\[ACL 2025\] CoT-Valve: Length-Compressible Chain-of-Thought Tuning](cot-valve_length-compressible_chain-of-thought_tuning.md)
 - [\[ACL 2025\] CoT-UQ: Improving Response-wise Uncertainty Quantification in LLMs with Chain-of-Thought](cot-uq_improving_response-wise_uncertainty_quantification_in_llms_with_chain-of-.md)
 - [\[ACL 2025\] Enhancing Retrieval Systems with Inference-Time Logical Reasoning](enhancing_retrieval_systems_with_inference-time_logical_reasoning.md)
+
+</div>
 
 <!-- RELATED:END -->

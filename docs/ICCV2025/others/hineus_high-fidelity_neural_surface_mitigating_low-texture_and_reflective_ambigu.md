@@ -148,6 +148,8 @@ $$\mathcal{L}_{eikonal} = \frac{1}{|\mathcal{S}|}\sum_{\mathbf{x}\in\mathcal{S}}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Hi3DGen: High-fidelity 3D Geometry Generation from Images via Normal Bridging](hi3dgen_high-fidelity_3d_geometry_generation_from_images_via_normal_bridging.md)
@@ -155,5 +157,7 @@ $$\mathcal{L}_{eikonal} = \frac{1}{|\mathcal{S}|}\sum_{\mathbf{x}\in\mathcal{S}}
 - [\[ECCV 2024\] PISR: Polarimetric Neural Implicit Surface Reconstruction for Textureless and Specular Objects](../../ECCV2024/others/pisr_polarimetric_neural_implicit_surface_reconstruction_for_textureless_and_spe.md)
 - [\[ECCV 2024\] High-Fidelity 3D Textured Shapes Generation by Sparse Encoding and Adversarial Decoding](../../ECCV2024/others/high-fidelity_3d_textured_shapes_generation_by_sparse_encoding_and_adversarial_d.md)
 - [\[AAAI 2026\] Learning Compact Latent Space for Representing Neural Signed Distance Functions with High-fidelity Geometry Details](../../AAAI2026/others/learning_compact_latent_space_for_representing_neural_signed_distance_functions_.md)
+
+</div>
 
 <!-- RELATED:END -->

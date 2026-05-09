@@ -186,6 +186,8 @@ OSP 与所有 PTQ 方法互补，组合后进一步提升——因为 OSP 消除
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] EfficientQAT: Efficient Quantization-Aware Training for Large Language Models](efficientqat.md)
@@ -193,5 +195,7 @@ OSP 与所有 PTQ 方法互补，组合后进一步提升——因为 OSP 消除
 - [\[ACL 2025\] Pre-training Distillation for Large Language Models: A Design Space Exploration](pre-training_distillation_for_large_language_models_a_design_space_exploration.md)
 - [\[ACL 2025\] Accurate KV Cache Quantization with Outlier Tokens Tracing](accurate_kv_cache_quantization_with_outlier_tokens_tracing.md)
 - [\[ACL 2025\] UniQuanF: Unifying Uniform and Binary-coding Quantization for Accurate Compression of Large Language Models](uniquanf_unified_quantization.md)
+
+</div>
 
 <!-- RELATED:END -->

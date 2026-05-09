@@ -135,6 +135,8 @@ R2D2 提出了一个结合 Remember（经验回放缓冲区 + A* 搜索导航）
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] LLM Agents Making Agent Tools](llm_agents_making_agent_tools.md)
@@ -142,5 +144,7 @@ R2D2 提出了一个结合 Remember（经验回放缓冲区 + A* 搜索导航）
 - [\[CVPR 2026\] WorldMM: Dynamic Multimodal Memory Agent for Long Video Reasoning](../../CVPR2026/llm_agent/worldmm_dynamic_multimodal_memory_agent_for_long_video_reasoning.md)
 - [\[CVPR 2025\] Visual Agentic AI for Spatial Reasoning with a Dynamic API](../../CVPR2025/llm_agent/visual_agentic_ai_for_spatial_reasoning_with_a_dynamic_api.md)
 - [\[ACL 2025\] Unveiling Privacy Risks in LLM Agent Memory](mextra_agent_memory_privacy.md)
+
+</div>
 
 <!-- RELATED:END -->

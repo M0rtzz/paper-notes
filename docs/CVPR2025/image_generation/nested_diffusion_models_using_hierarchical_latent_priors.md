@@ -116,6 +116,8 @@ $\mathcal{L} = \sum_{l=1}^{L-1} \mathbb{E}[||\epsilon_l - D_{\theta_l}(\alpha^{(
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Hierarchical Flow Diffusion for Efficient Frame Interpolation](hierarchical_flow_diffusion_for_efficient_frame_interpolation.md)
@@ -123,5 +125,7 @@ $\mathcal{L} = \sum_{l=1}^{L-1} \mathbb{E}[||\epsilon_l - D_{\theta_l}(\alpha^{(
 - [\[ICML 2025\] Learning Single Index Models with Diffusion Priors](../../ICML2025/image_generation/learning_single_index_models_with_diffusion_priors.md)
 - [\[CVPR 2025\] FaithDiff: Unleashing Diffusion Priors for Faithful Image Super-Resolution](faithdiff_unleashing_diffusion_priors_for_faithful_image_super-resolution.md)
 - [\[CVPR 2025\] LumiNet: Latent Intrinsics Meets Diffusion Models for Indoor Scene Relighting](luminet_latent_intrinsics_meets_diffusion_models_for_indoor_scene_relighting.md)
+
+</div>
 
 <!-- RELATED:END -->

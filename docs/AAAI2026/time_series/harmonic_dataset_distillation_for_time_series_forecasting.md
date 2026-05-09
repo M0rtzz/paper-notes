@@ -186,6 +186,8 @@ $$\underset{\mathcal{F_S}}{\text{argmin}} \; \mathcal{L}_{\text{grad}} + \lambda
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] FeDaL: Federated Dataset Learning for General Time Series Foundation Models](../../ICLR2026/time_series/fedal_federated_dataset_learning_for_general_time_series_foundation_models.md)
@@ -193,5 +195,7 @@ $$\underset{\mathcal{F_S}}{\text{argmin}} \; \mathcal{L}_{\text{grad}} + \lambda
 - [\[NeurIPS 2025\] Time-IMM: A Dataset and Benchmark for Irregular Multimodal Multivariate Time Series](../../NeurIPS2025/time_series/time-imm_a_dataset_and_benchmark_for_irregular_multimodal_multivariate_time_seri.md)
 - [\[AAAI 2026\] DeepBooTS: Dual-Stream Residual Boosting for Drift-Resilient Time-Series Forecasting](deepboots_dual-stream_residual_boosting_for_drift-resilient_time-series_forecast.md)
 - [\[AAAI 2026\] HN-MVTS: HyperNetwork-based Multivariate Time Series Forecasting](hn-mvts_hypernetwork-based_multivariate_time_series_forecasting.md)
+
+</div>
 
 <!-- RELATED:END -->

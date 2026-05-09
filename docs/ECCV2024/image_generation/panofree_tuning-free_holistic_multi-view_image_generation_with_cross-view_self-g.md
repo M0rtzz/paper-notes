@@ -124,6 +124,8 @@ PanoFree是完全无训练的推理时方法，不涉及传统的损失函数。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] MVDD: Multi-View Depth Diffusion Models](mvdd_multi-view_depth_diffusion_models.md)
@@ -131,5 +133,7 @@ PanoFree是完全无训练的推理时方法，不涉及传统的损失函数。
 - [\[CVPR 2025\] Pippo: High-Resolution Multi-View Humans from a Single Image](../../CVPR2025/image_generation/pippo_high-resolution_multi-view_humans_from_a_single_image.md)
 - [\[ECCV 2024\] Realistic Human Motion Generation with Cross-Diffusion Models](realistic_human_motion_generation_with_cross-diffusion_models.md)
 - [\[ECCV 2024\] Be Yourself: Bounded Attention for Multi-Subject Text-to-Image Generation](be_yourself_bounded_attention_for_multisubject_texttoimage_g.md)
+
+</div>
 
 <!-- RELATED:END -->

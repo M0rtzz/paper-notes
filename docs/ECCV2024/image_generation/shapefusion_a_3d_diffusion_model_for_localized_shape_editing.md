@@ -119,6 +119,8 @@ $$\mathcal{L}_t = \|\epsilon_t - \epsilon_\theta(\mathbf{x}, t, \mathbf{M})\|_2$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] NeuSDFusion: A Spatial-Aware Generative Model for 3D Shape Completion, Reconstruction, and Generation](neusdfusion_a_spatial-aware_generative_model_for_3d_shape_completion_reconstruct.md)
@@ -126,5 +128,7 @@ $$\mathcal{L}_t = \|\epsilon_t - \epsilon_\theta(\mathbf{x}, t, \mathbf{M})\|_2$
 - [\[ECCV 2024\] Lazy Diffusion Transformer for Interactive Image Editing](lazy_diffusion_transformer_for_interactive_image_editing.md)
 - [\[ECCV 2024\] SMooDi: Stylized Motion Diffusion Model](smoodi_stylized_motion_diffusion_model.md)
 - [\[ECCV 2024\] ZigMa: A DiT-style Zigzag Mamba Diffusion Model](zigma_a_dit-style_zigzag_mamba_diffusion_model.md)
+
+</div>
 
 <!-- RELATED:END -->

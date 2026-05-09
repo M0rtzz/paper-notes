@@ -126,6 +126,8 @@ PRSS 在推理阶段修改 CFG 方程，无需训练或微调。流程：(1) 用
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Conditional Balance: Improving Multi-Conditioning Trade-Offs in Image Generation](conditional_balance_improving_multi-conditioning_trade-offs_in_image_generation.md)
@@ -133,5 +135,7 @@ PRSS 在推理阶段修改 CFG 方程，无需训练或微调。流程：(1) 用
 - [\[ICCV 2025\] Trade-offs in Image Generation: How Do Different Dimensions Interact?](../../ICCV2025/image_generation/trade-offs_in_image_generation_how_do_different_dimensions_interact.md)
 - [\[CVPR 2025\] Enhancing Creative Generation on Stable Diffusion-based Models](enhancing_creative_generation_on_stable_diffusion-based_models.md)
 - [\[CVPR 2025\] Classifier-Free Guidance inside the Attraction Basin May Cause Memorization](classifier-free_guidance_inside_the_attraction_basin_may_cause_memorization.md)
+
+</div>
 
 <!-- RELATED:END -->

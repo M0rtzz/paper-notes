@@ -201,6 +201,8 @@ $$L_{\text{SLP}} = \mathbb{E}_{X \sim p(X)}[-\log p(X|c)]$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] PetFace: A Large-Scale Dataset and Benchmark for Animal Identification](petface_a_large-scale_dataset_and_benchmark_for_animal_identification.md)
@@ -208,5 +210,7 @@ $$L_{\text{SLP}} = \mathbb{E}_{X \sim p(X)}[-\log p(X|c)]$$
 - [\[ECCV 2024\] Sync from the Sea: Retrieving Alignable Videos from Large-Scale Datasets](sync_from_the_sea_retrieving_alignable_videos_from_large-scale_datasets.md)
 - [\[CVPR 2026\] PRISM: Video Dataset Condensation with Progressive Refinement and Insertion for Sparse Motion](../../CVPR2026/llm_evaluation/prism_video_dataset_condensation_with_progressive_refinement_and_insertion_for_s.md)
 - [\[ACL 2025\] HellaSwag-Pro: A Large-Scale Bilingual Benchmark for Evaluating the Robustness of LLMs in Commonsense Reasoning](../../ACL2025/llm_evaluation/hellaswag-pro_a_large-scale_bilingual_benchmark_for_evaluating_the_robustness_of.md)
+
+</div>
 
 <!-- RELATED:END -->

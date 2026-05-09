@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **22** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/ai_safety/) · [📷 CVPR2026 (24)](../../CVPR2026/ai_safety/) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/) · [🤖 AAAI2026 (44)](../../AAAI2026/ai_safety/) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/) · [🧪 ICML2025 (36)](../../ICML2025/ai_safety/)
+
+🔥 **高频主题：** 联邦学习 ×7 · 对抗鲁棒 ×4 · 对齐/RLHF ×3 · 问答 ×2
+
 **[A Framework for Double-Blind Federated Adaptation of Foundation Models](a_framework_for_double-blind_federated_adaptation_of_foundation_models.md)**
 
 :   本文提出BlindFed框架，通过全同态加密（FHE）友好的架构改造、两阶段分割学习和隐私增强策略，实现了基础模型的"双盲"联邦适配——数据方看不到模型，服务方看不到数据，在CIFAR-10上达到94.28%准确率，接近LoRA的95.92%。

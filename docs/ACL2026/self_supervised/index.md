@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2026** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (38)](../../CVPR2026/self_supervised/) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/) · [🤖 AAAI2026 (14)](../../AAAI2026/self_supervised/) · [🧠 NeurIPS2025 (36)](../../NeurIPS2025/self_supervised/) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/) · [🧪 ICML2025 (24)](../../ICML2025/self_supervised/)
+
 **[[b] = [d] − [t] + [p]: Self-supervised Speech Models Discover Phonological Vector Arithmetic](bd-tp_self-supervised_speech_models_discover_phonological_vector_arithmetic.md)**
 
 :   系统性地证明自监督语音模型（S3M）的表示空间中存在线性的音韵特征向量，这些向量满足类似 word2vec 的向量算术关系，且其缩放比例与声学测量呈连续相关性。

@@ -128,6 +128,8 @@ $$E_{SNN} = E_{AC} \times \Big(\sum_{i=2}^N SOP_{Conv}^i + \sum_{j=1}^M SOP_{SSA
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Maximizing Asynchronicity in Event-based Neural Networks](../../ICLR2026/self_supervised/maximizing_asynchronicity_in_event-based_neural_networks.md)
@@ -135,5 +137,7 @@ $$E_{SNN} = E_{AC} \times \Big(\sum_{i=2}^N SOP_{Conv}^i + \sum_{j=1}^M SOP_{SSA
 - [\[AAAI 2026\] Robust Tabular Foundation Models](robust_tabular_foundation_models.md)
 - [\[CVPR 2026\] MOMO: Mars Orbital Model — Foundation Model for Mars Orbital Applications](../../CVPR2026/self_supervised/momo_mars_orbital_model_foundation_model_for_mars_orbital_applications.md)
 - [\[CVPR 2026\] SpHOR: A Representation Learning Perspective on Open-set Recognition for Identifying Unknown Classes in Deep Neural Networks](../../CVPR2026/self_supervised/sphor_a_representation_learning_perspective_on_open-set_recognition_for_identify.md)
+
+</div>
 
 <!-- RELATED:END -->

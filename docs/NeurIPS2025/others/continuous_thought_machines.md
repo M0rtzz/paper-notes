@@ -145,6 +145,8 @@ $$L = \frac{\mathcal{L}^{t_1} + \mathcal{L}^{t_2}}{2}, \quad t_1 = \arg\min_t \m
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Deep Learning for Continuous-Time Stochastic Control with Jumps](deep_learning_for_continuous-time_stochastic_control_with_jumps.md)
@@ -152,5 +154,7 @@ $$L = \frac{\mathcal{L}^{t_1} + \mathcal{L}^{t_2}}{2}, \quad t_1 = \arg\min_t \m
 - [\[ACL 2025\] Unifying Continuous and Discrete Text Diffusion with Non-simultaneous Diffusion Processes](../../ACL2025/others/neodiff_unified_text_diffusion.md)
 - [\[ICML 2025\] Continuous-Time Analysis of Heavy Ball Momentum in Min-Max Games](../../ICML2025/others/continuous-time_analysis_of_heavy_ball_momentum_in_min-max_games.md)
 - [\[ICML 2025\] Optimal Sensor Scheduling and Selection for Continuous-Discrete Kalman Filtering with Auxiliary Dynamics](../../ICML2025/others/optimal_sensor_scheduling_and_selection_for_continuous-discrete_kalman_filtering.md)
+
+</div>
 
 <!-- RELATED:END -->

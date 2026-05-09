@@ -175,6 +175,8 @@ $$\mathbf{f_i} = \text{GeoAttn}(F_p(\mathbf{p_i}), F_d(\mathbf{d_i}), F_n(\mathb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Generative Modeling of Shape-Dependent Self-Contact Human Poses](generative_modeling_of_shape-dependent_self-contact_human_poses.md)
@@ -182,5 +184,7 @@ $$\mathbf{f_i} = \text{GeoAttn}(F_p(\mathbf{p_i}), F_d(\mathbf{d_i}), F_n(\mathb
 - [\[CVPR 2025\] Lifting Motion to the 3D World via 2D Diffusion](../../CVPR2025/image_generation/lifting_motion_to_the_3d_world_via_2d_diffusion.md)
 - [\[ICLR 2026\] Direct Reward Fine-Tuning on Poses for Single Image to 3D Human in the Wild](../../ICLR2026/image_generation/direct_reward_fine-tuning_on_poses_for_single_image_to_3d_human_in_the_wild.md)
 - [\[ICCV 2025\] DPoser-X: Diffusion Model as Robust 3D Whole-Body Human Pose Prior](dposer-x_diffusion_model_as_robust_3d_whole-body_human_pose_prior.md)
+
+</div>
 
 <!-- RELATED:END -->

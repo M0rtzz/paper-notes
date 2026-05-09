@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **240** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/image_generation/) · [🔬 ICLR2026 (154)](../../ICLR2026/image_generation/) · [🤖 AAAI2026 (78)](../../AAAI2026/image_generation/) · [🧠 NeurIPS2025 (250)](../../NeurIPS2025/image_generation/) · [📹 ICCV2025 (219)](../../ICCV2025/image_generation/) · [🧪 ICML2025 (115)](../../ICML2025/image_generation/)
+
+🔥 **高频主题：** 扩散模型 ×85 · 文生图 ×19 · 多模态 ×12 · 人脸/视线 ×11 · 布局/合成 ×11
+
 **[2ndMatch: Finetuning Pruned Diffusion Models via Second-Order Jacobian Matching](2ndmatch_finetuning_pruned_diffusion_models_via_second-order_jacobian_matching.md)**
 
 :   提出2ndMatch微调框架，通过对齐剪枝模型与原始模型的二阶Jacobian矩阵 $J^\top J$（灵感来自有限时间Lyapunov指数），匹配两者对输入扰动的时间敏感性，从而显著缩小剪枝扩散模型与原始模型的生成质量差距。

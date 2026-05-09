@@ -127,6 +127,8 @@ $\mathcal{L}_{total} = c_1 \mathcal{L}_{\text{det}} + c_2 \mathcal{L}_{SR}$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images](../../ICCV2025/object_detection/openrsd_towards_open-prompts_for_object_detection_in_remote_sensing_images.md)
@@ -134,5 +136,7 @@ $\mathcal{L}_{total} = c_1 \mathcal{L}_{\text{det}} + c_2 \mathcal{L}_{SR}$
 - [\[ICCV 2025\] Uncertainty-Aware Gradient Stabilization for Small Object Detection](../../ICCV2025/object_detection/uncertainty-aware_gradient_stabilization_for_small_object_detection.md)
 - [\[CVPR 2025\] Efficient Event-Based Object Detection: A Hybrid Neural Network with Spatial and Temporal Attention](efficient_event-based_object_detection_a_hybrid_neural_network_with_spatial_and_.md)
 - [\[CVPR 2025\] Test-Time Backdoor Detection for Object Detection Models](test-time_backdoor_detection_for_object_detection_models.md)
+
+</div>
 
 <!-- RELATED:END -->

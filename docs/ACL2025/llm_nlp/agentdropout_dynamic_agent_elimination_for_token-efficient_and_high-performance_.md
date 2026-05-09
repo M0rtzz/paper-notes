@@ -123,6 +123,8 @@ AgentDropout将MAS的通信结构建模为多轮有向图。输入是一组Agent
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] AXIS: Efficient Human-Agent-Computer Interaction with API-First LLM-Based Agents](axis_efficient_human-agent-computer_interaction_with_api-first_llm-based_agents.md)
@@ -130,5 +132,7 @@ AgentDropout将MAS的通信结构建模为多轮有向图。输入是一组Agent
 - [\[ACL 2026\] Towards Robust Real-World Spreadsheet Understanding with Multi-Agent Multi-Format Collaboration](../../ACL2026/llm_nlp/towards_robust_real-world_spreadsheet_understanding_with_multi-agent_multi-forma.md)
 - [\[ACL 2025\] LLMs Can Simulate Standardized Patients via Agent Coevolution](evopatient_standardized_patient.md)
 - [\[ACL 2025\] AI as a Novel Ethical Agent: Exploring Moral Judgments by Large Language Models](ai_as_a_novel_ethical_agent_exploring_moral_judgments_by_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

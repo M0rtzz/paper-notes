@@ -151,6 +151,8 @@ DM4CT从贝叶斯视角组织扩散方法：后验分布 $p(\boldsymbol{x}|\bold
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] InvAD: Inversion-based Reconstruction-Free Anomaly Detection with Diffusion Models](../../CVPR2026/medical_imaging/invad_inversionbased_reconstructionfree_anomaly_de.md)
@@ -158,5 +160,7 @@ DM4CT从贝叶斯视角组织扩散方法：后验分布 $p(\boldsymbol{x}|\bold
 - [\[ICLR 2026\] Fine-Tuning Diffusion Models via Intermediate Distribution Shaping](fine-tuning_diffusion_models_via_intermediate_distribution_shaping.md)
 - [\[ICLR 2026\] Protein Counterfactuals via Diffusion-Guided Latent Optimization](protein_counterfactuals_via_diffusion-guided_latent_optimization.md)
 - [\[ICLR 2026\] DriftLite: Lightweight Drift Control for Inference-Time Scaling of Diffusion Models](driftlite_lightweight_drift_control_for_inference-time_scaling_of_diffusion_mode.md)
+
+</div>
 
 <!-- RELATED:END -->

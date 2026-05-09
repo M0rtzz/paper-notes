@@ -140,6 +140,8 @@ CAW使用冻结的原始CLIP模型和可微调的目标CLIP模型（仅微调图
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] iFinder: Structured Zero-Shot VLM Grounding for Dash-Cam Video Reasoning](ifinder_structured_zero-shot_vision-based_llm_grounding_for_dash-cam_video_reaso.md)
@@ -147,5 +149,7 @@ CAW使用冻结的原始CLIP模型和可微调的目标CLIP模型（仅微调图
 - [\[CVPR 2025\] Conformal Prediction for Zero-Shot Models](../../CVPR2025/multimodal_vlm/conformal_prediction_for_zero-shot_models.md)
 - [\[CVPR 2026\] AGFT: Alignment-Guided Fine-Tuning for Zero-Shot Adversarial Robustness of Vision-Language Models](../../CVPR2026/multimodal_vlm/agft_alignment-guided_fine-tuning_for_zero-shot_adversarial_robustness_of_vision.md)
 - [\[ACL 2025\] RATE-Nav: Region-Aware Termination Enhancement for Zero-shot Object Navigation with Vision-Language Models](../../ACL2025/multimodal_vlm/rate-nav_region-aware_termination_enhancement_for_zero-shot_object_navigation_wi.md)
+
+</div>
 
 <!-- RELATED:END -->

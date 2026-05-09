@@ -111,6 +111,8 @@ $\mathcal{L} = \mathcal{L}_{TP} + \lambda \cdot \mathcal{L}_{PA}$。MAE-VQGAN ba
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] TeamLoRA: Boosting Low-Rank Adaptation with Expert Collaboration and Competition](../../ACL2025/model_compression/teamlora_boosting_low-rank_adaptation_with_expert_collaboration_and_competition.md)
@@ -118,5 +120,7 @@ $\mathcal{L} = \mathcal{L}_{TP} + \lambda \cdot \mathcal{L}_{PA}$。MAE-VQGAN ba
 - [\[CVPR 2025\] Mamba-Adaptor: State Space Model Adaptor for Visual Recognition](mamba-adaptor_state_space_model_adaptor_for_visual_recognition.md)
 - [\[CVPR 2025\] MobileMamba: Lightweight Multi-Receptive Visual Mamba Network](mobilemamba_lightweight_multi-receptive_visual_mamba_network.md)
 - [\[ICML 2025\] Context Tuning for In-Context Optimization](../../ICML2025/model_compression/context_tuning_for_in-context_optimization.md)
+
+</div>
 
 <!-- RELATED:END -->

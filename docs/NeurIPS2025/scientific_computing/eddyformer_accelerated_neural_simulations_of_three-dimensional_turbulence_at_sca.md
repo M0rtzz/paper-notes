@@ -111,6 +111,8 @@ EddyFormer 将 PDE 初始条件用 SEM 插值，分成 LES stream（全局大尺
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] GyroSwin: 5D Surrogates for Gyrokinetic Plasma Turbulence Simulations](gyroswin_5d_surrogates_for_gyrokinetic_plasma_turbulence_simulations.md)
@@ -118,5 +120,7 @@ EddyFormer 将 PDE 初始条件用 SEM 插值，分成 LES stream（全局大尺
 - [\[NeurIPS 2025\] Towards Universal Neural Operators through Multiphysics Pretraining](towards_universal_neural_operators_through_multiphysics_pretraining.md)
 - [\[NeurIPS 2025\] Hamiltonian Neural PDE Solvers through Functional Approximation](hamiltonian_neural_pde_solvers_through_functional_approximation.md)
 - [\[ICML 2025\] Erwin: A Tree-based Hierarchical Transformer for Large-scale Physical Systems](../../ICML2025/scientific_computing/erwin_a_tree-based_hierarchical_transformer_for_large-scale_physical_systems.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -124,6 +124,8 @@ Stage 2: DPO损失, 30 epochs。Adam, lr=1e-4, 每10 epoch减半。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] InPO: Inversion Preference Optimization with Reparametrized DDIM for Efficient Diffusion Model Alignment](inpo_inversion_preference_optimization_diffusion_alignment.md)
@@ -131,5 +133,7 @@ Stage 2: DPO损失, 30 epochs。Adam, lr=1e-4, 每10 epoch减半。
 - [\[CVPR 2025\] Calibrated Multi-Preference Optimization for Aligning Diffusion Models](capo_multi_preference.md)
 - [\[CVPR 2025\] Aesthetic Post-Training Diffusion Models from Generic Preferences with Step-by-step Preference Optimization](spo_aesthetic_post_training.md)
 - [\[CVPR 2025\] SymDPO: Boosting In-Context Learning of Large Multimodal Models with Symbol Demonstration Direct Preference Optimization](symdpo_symbol_icl.md)
+
+</div>
 
 <!-- RELATED:END -->

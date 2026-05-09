@@ -148,6 +148,8 @@ $\epsilon$ 阶从 $3/2$ 降至 $1/2$，解耦 $d$ 与 $\epsilon$，得益于 RFD
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Online Minimization of Polarization and Disagreement via Low-Rank Matrix Bandits](online_minimization_of_polarization_and_disagreement_via_low-rank_matrix_bandits.md)
@@ -155,5 +157,7 @@ $\epsilon$ 阶从 $3/2$ 降至 $1/2$，解耦 $d$ 与 $\epsilon$，得益于 RFD
 - [\[NeurIPS 2025\] Generalized Linear Bandits: Almost Optimal Regret with One-Pass Update](../../NeurIPS2025/reinforcement_learning/generalized_linear_bandits_almost_optimal_regret_with_one-pass_update.md)
 - [\[ICLR 2026\] AWM: Accurate Weight-Matrix Fingerprint for Large Language Models](awm_accurate_weight-matrix_fingerprint_for_large_language_models.md)
 - [\[ICLR 2026\] A Unifying View of Coverage in Linear Off-Policy Evaluation](a_unifying_view_of_coverage_in_linear_off-policy_evaluation.md)
+
+</div>
 
 <!-- RELATED:END -->

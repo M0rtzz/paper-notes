@@ -165,6 +165,8 @@ $$\mathcal{L} = -\sum_{t=1}^{T_c+T_e} \log P(x_t|x_{<t}, q; \theta) - \gamma \su
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] BehaviorBox: Automated Discovery of Fine-Grained Performance Differences Between Language Models](behaviorbox_automated_discovery_of_fine-grained_performance_differences_between_.md)
@@ -172,5 +174,7 @@ $$\mathcal{L} = -\sum_{t=1}^{T_c+T_e} \log P(x_t|x_{<t}, q; \theta) - \gamma \su
 - [\[ACL 2025\] HFT: Half Fine-Tuning for Large Language Models](hft_half_fine-tuning_for_large_language_models.md)
 - [\[ACL 2025\] Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models](salience_sparse_fine_tuning.md)
 - [\[ACL 2025\] Investigating Context-Faithfulness in Large Language Models: The Roles of Memory Strength and Evidence Style](investigating_context-faithfulness_in_large_language_models_the_roles_of_memory_.md)
+
+</div>
 
 <!-- RELATED:END -->

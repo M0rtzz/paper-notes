@@ -107,6 +107,8 @@ UniGeoCLIP 首次通过纯对比学习将五种互补的地理空间模态（航
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] BD-Merging: Bias-Aware Dynamic Model Merging with Evidence-Guided Contrastive Learning](bd-merging_bias-aware_dynamic_model_merging_with_evidence-guided_contrastive_lea.md)
@@ -114,5 +116,7 @@ UniGeoCLIP 首次通过纯对比学习将五种互补的地理空间模态（航
 - [\[ECCV 2024\] FlowCon: Out-of-Distribution Detection using Flow-Based Contrastive Learning](../../ECCV2024/self_supervised/flowcon_out-of-distribution_detection_using_flow-based_contrastive_learning.md)
 - [\[ICML 2025\] CLARIFY: Contrastive Preference Reinforcement Learning for Untangling Ambiguous Queries](../../ICML2025/self_supervised/clarify_contrastive_preference_reinforcement_learning_for_untangling_ambiguous_q.md)
 - [\[CVPR 2025\] UniSTD: Towards Unified Spatio-Temporal Learning Across Diverse Disciplines](../../CVPR2025/self_supervised/unistd_towards_unified_spatio-temporal_learning_across_diverse_disciplines.md)
+
+</div>
 
 <!-- RELATED:END -->

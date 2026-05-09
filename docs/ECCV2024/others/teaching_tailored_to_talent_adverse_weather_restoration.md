@@ -143,6 +143,8 @@ T3-DiffWeather 在多个合成和真实世界数据集上达到 SOTA，且采样
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Active Generation for Image Classification](active_generation_for_image_classification.md)
@@ -150,5 +152,7 @@ T3-DiffWeather 在多个合成和真实世界数据集上达到 SOTA，且采样
 - [\[ECCV 2024\] Shifted Autoencoders for Point Annotation Restoration in Object Counting](shifted_autoencoders_for_point_annotation_restoration_in_object_counting.md)
 - [\[ECCV 2024\] Functional Transform-Based Low-Rank Tensor Factorization for Multi-Dimensional Data Recovery](functional_transform-based_low-rank_tensor_factorization_for_multi-dimensional_d.md)
 - [\[ECCV 2024\] Event-based Mosaicing Bundle Adjustment](event-based_mosaicing_bundle_adjustment.md)
+
+</div>
 
 <!-- RELATED:END -->

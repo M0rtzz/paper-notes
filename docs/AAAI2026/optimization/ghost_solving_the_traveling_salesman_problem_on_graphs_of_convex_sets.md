@@ -209,6 +209,8 @@ $$\min_{y_{\hat{p}}} \sum_{\hat{p} \in \hat{\mathcal{P}}} b(\hat{p}) y_{\hat{p}}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] AutoOpt: A Dataset and a Unified Framework for Automating Optimization Problem Solving](../../NeurIPS2025/optimization/autoopt_a_dataset_and_a_unified_framework_for_automating_optimization_problem_so.md)
@@ -216,5 +218,7 @@ $$\min_{y_{\hat{p}}} \sum_{\hat{p} \in \hat{\mathcal{P}}} b(\hat{p}) y_{\hat{p}}
 - [\[AAAI 2026\] Convex Clustering Redefined: Robust Learning with the Median of Means Estimator](convex_clustering_redefined_robust_learning_with_higher_order_norms_and_beyond.md)
 - [\[ICLR 2026\] Learning to Solve Orienteering Problem with Time Windows and Variable Profits](../../ICLR2026/optimization/learning_to_solve_orienteering_problem_with_time_windows_and_variable_profits.md)
 - [\[NeurIPS 2025\] Problem-Parameter-Free Decentralized Bilevel Optimization](../../NeurIPS2025/optimization/problem-parameter-free_decentralized_bilevel_optimization.md)
+
+</div>
 
 <!-- RELATED:END -->

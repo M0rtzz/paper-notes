@@ -138,6 +138,8 @@ GLMR 在 Weight-based 库上 Recall@1 比 JESTR 提升约 **46 个百分点**。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] IRGen: Generative Modeling for Image Retrieval](../../ECCV2024/image_generation/irgen_generative_modeling_for_image_retrieval.md)
@@ -145,5 +147,7 @@ GLMR 在 Weight-based 库上 Recall@1 比 JESTR 提升约 **46 个百分点**。
 - [\[AAAI 2026\] Mass Concept Erasure in Diffusion Models with Concept Hierarchy](mass_concept_erasure_in_diffusion_models_with_concept_hierarchy.md)
 - [\[AAAI 2026\] Hyperbolic Hierarchical Alignment Reasoning Network for Text-3D Retrieval](hyperbolic_hierarchical_alignment_reasoning_network_for_text-3d_retrieval.md)
 - [\[AAAI 2026\] Enhancing Multimodal Misinformation Detection by Replaying the Whole Story from Image Modality Perspective](enhancing_multimodal_misinformation_detection_by_replaying_the_whole_story_from_.md)
+
+</div>
 
 <!-- RELATED:END -->

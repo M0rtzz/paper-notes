@@ -201,6 +201,8 @@ SMGDiff 在几乎所有指标上都显著优于基线方法，尤其是技能准
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Elucidated Rolling Diffusion Models for Probabilistic Forecasting of Complex Dynamics](../../NeurIPS2025/image_generation/elucidated_rolling_diffusion_models_for_probabilistic_forecasting_of_complex_dyn.md)
@@ -208,5 +210,7 @@ SMGDiff 在几乎所有指标上都显著优于基线方法，尤其是技能准
 - [\[ICCV 2025\] Diffusion-based 3D Hand Motion Recovery with Intuitive Physics](diffusion-based_3d_hand_motion_recovery_with_intuitive_physics.md)
 - [\[ICCV 2025\] Bitrate-Controlled Diffusion for Disentangling Motion and Content in Video](bitrate-controlled_diffusion_for_disentangling_motion_and_content_in_video.md)
 - [\[ECCV 2024\] EMDM: Efficient Motion Diffusion Model for Fast and High-Quality Motion Generation](../../ECCV2024/image_generation/emdm_efficient_motion_diffusion_model_for_fast_and_high.md)
+
+</div>
 
 <!-- RELATED:END -->

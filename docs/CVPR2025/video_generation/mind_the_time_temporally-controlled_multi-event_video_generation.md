@@ -128,6 +128,8 @@ MinT 在事件文本对齐（TA +0.55 vs Concat）和时序一致性（TC +0.29 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] One-Minute Video Generation with Test-Time Training](one-minute_video_generation_with_test-time_training.md)
@@ -135,5 +137,7 @@ MinT 在事件文本对齐（TA +0.55 vs Concat）和时序一致性（TC +0.29 
 - [\[CVPR 2026\] U-Mind: A Unified Framework for Real-Time Multimodal Interaction with Audiovisual Generation](../../CVPR2026/video_generation/u-mind_a_unified_framework_for_real-time_multimodal_interaction_with_audiovisual.md)
 - [\[CVPR 2025\] Learning Temporally Consistent Video Depth from Video Diffusion Priors](learning_temporally_consistent_video_depth_from_video_diffusion_priors.md)
 - [\[CVPR 2025\] Multi-subject Open-set Personalization in Video Generation](multi-subject_open-set_personalization_in_video_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

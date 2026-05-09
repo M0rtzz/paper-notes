@@ -204,6 +204,8 @@ $$\hat{e}^L = (\hat{x}, \hat{y}, \hat{p}, \hat{t}), \quad \hat{e}^R = (\hat{x}',
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] DVLO: Deep Visual-LiDAR Odometry with Local-to-Global Feature Fusion](dvlo_deep_visuallidar_odometry_with_localtoglobal_featu.md)
@@ -211,5 +213,7 @@ $$\hat{e}^L = (\hat{x}, \hat{y}, \hat{p}, \hat{t}), \quad \hat{e}^R = (\hat{x}',
 - [\[ECCV 2024\] MapDistill: Boosting Efficient Camera-based HD Map Construction via Camera-LiDAR Fusion Model Distillation](mapdistill_boosting_efficient_camera-based_hd_map_construction_via_camera-lidar_.md)
 - [\[ECCV 2024\] Monocular Occupancy Prediction for Scalable Indoor Scenes](monocular_occupancy_prediction_for_scalable_indoor_scenes.md)
 - [\[ECCV 2024\] OPEN: Object-wise Position Embedding for Multi-view 3D Object Detection](open_object-wise_position_embedding_for_multi-view_3d_object_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

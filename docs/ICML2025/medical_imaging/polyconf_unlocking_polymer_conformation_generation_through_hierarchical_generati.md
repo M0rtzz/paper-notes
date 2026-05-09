@@ -214,6 +214,8 @@ $$\mathcal{L}_{\text{phase-2}} = \frac{1}{N_u}\sum_{i=1}^{N_u}\|\hat{R}_i^{(0)} 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Aligning Protein Conformation Ensemble Generation with Physical Feedback](aligning_protein_conformation_ensemble_generation_with_physical_feedback.md)
@@ -221,5 +223,7 @@ $$\mathcal{L}_{\text{phase-2}} = \frac{1}{N_u}\sum_{i=1}^{N_u}\|\hat{R}_i^{(0)} 
 - [\[ICML 2025\] DeepSeq: High-Throughput Single-Cell RNA Sequencing Data Labeling via Web Search-Augmented Agentic Generative AI Foundation Models](deepseq_high-throughput_single-cell_rna_sequencing_data_labeling_via_web_search-.md)
 - [\[CVPR 2026\] Unlocking Positive Transfer in Incrementally Learning Surgical Instruments: A Self-reflection Hierarchical Prompt Framework](../../CVPR2026/medical_imaging/unlocking_positive_transfer_in_incrementally_learning_surgical_instruments_a_sel.md)
 - [\[ICML 2025\] ComRecGC: Global Graph Counterfactual Explainer through Common Recourse](comrecgc_global_graph_counterfactual_explainer_through_common_recourse.md)
+
+</div>
 
 <!-- RELATED:END -->

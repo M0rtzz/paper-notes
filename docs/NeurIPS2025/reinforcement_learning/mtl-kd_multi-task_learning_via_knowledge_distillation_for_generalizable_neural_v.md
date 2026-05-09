@@ -126,6 +126,8 @@ $$\mathcal{L}_{KD}^{(t)} = \sum_{m=1}^{M} \text{KL}\left(\pi_{\theta^{T_m}}(a_t|
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Router-R1: Teaching LLMs Multi-Round Routing and Aggregation via Reinforcement Learning](router-r1_teaching_llms_multi-round_routing_and_aggregation_via_reinforcement_le.md)
@@ -133,5 +135,7 @@ $$\mathcal{L}_{KD}^{(t)} = \sum_{m=1}^{M} \text{KL}\left(\pi_{\theta^{T_m}}(a_t|
 - [\[NeurIPS 2025\] Complexity Scaling Laws for Neural Models using Combinatorial Optimization](complexity_scaling_laws_for_neural_models_using_combinatorial_optimization.md)
 - [\[NeurIPS 2025\] Continual Knowledge Adaptation for Reinforcement Learning](continual_knowledge_adaptation_for_reinforcement_learning.md)
 - [\[NeurIPS 2025\] Provable Ordering and Continuity in Vision-Language Pretraining for Generalizable Embodied Agents](provable_ordering_and_continuity_in_vision-language_pretraining_for_generalizabl.md)
+
+</div>
 
 <!-- RELATED:END -->

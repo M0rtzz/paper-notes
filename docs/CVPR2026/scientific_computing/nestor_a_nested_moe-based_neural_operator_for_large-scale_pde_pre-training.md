@@ -175,6 +175,8 @@ PDEBench 六个子任务上的消融（FT-500，Avg L2RE↓）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] One Operator to Rule Them All? On Boundary-Indexed Operator Families in Neural PDE Solvers](../../ICLR2026/scientific_computing/one_operator_to_rule_them_all_on_boundary-indexed_operator_families_in_neural_pd.md)
@@ -182,5 +184,7 @@ PDEBench 六个子任务上的消融（FT-500，Avg L2RE↓）：
 - [\[ICLR 2026\] DRIFT-Net: A Spectral--Coupled Neural Operator for PDEs Learning](../../ICLR2026/scientific_computing/drift-net_a_spectral--coupled_neural_operator_for_pdes_learning.md)
 - [\[ICML 2025\] Erwin: A Tree-based Hierarchical Transformer for Large-scale Physical Systems](../../ICML2025/scientific_computing/erwin_a_tree-based_hierarchical_transformer_for_large-scale_physical_systems.md)
 - [\[NeurIPS 2025\] Enforcing Governing Equation Constraints in Neural PDE Solvers via Training-free Projections](../../NeurIPS2025/scientific_computing/enforcing_governing_equation_constraints_in_neural_pde_solvers_via_training-free.md)
+
+</div>
 
 <!-- RELATED:END -->

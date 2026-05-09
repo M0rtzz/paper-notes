@@ -143,6 +143,8 @@ Jasmine在零样本泛化上全面超越有监督SD方法+传统SSMDE方法。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] High-Precision Self-Supervised Monocular Depth Estimation with Rich-Resource Prior](../../ECCV2024/3d_vision/high-precision_self-supervised_monocular_depth_estimation_with_rich-resource_pri.md)
@@ -150,5 +152,7 @@ Jasmine在零样本泛化上全面超越有监督SD方法+传统SSMDE方法。
 - [\[NeurIPS 2025\] More Than Generation: Unifying Generation and Depth Estimation via Text-to-Image Diffusion Models](more_than_generation_unifying_generation_and_depth_estimation_via_text-to-image_.md)
 - [\[NeurIPS 2025\] 3D Visual Illusion Depth Estimation](3d_visual_illusion_depth_estimation.md)
 - [\[CVPR 2026\] Regularizing INR with Diffusion Prior for Self-Supervised 3D Reconstruction of Neutron Computed Tomography Data](../../CVPR2026/3d_vision/regularizing_inr_with_diffusion_prior_selfsupervis.md)
+
+</div>
 
 <!-- RELATED:END -->

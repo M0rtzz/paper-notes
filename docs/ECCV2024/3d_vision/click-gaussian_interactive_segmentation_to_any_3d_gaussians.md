@@ -151,6 +151,8 @@ $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{cont}} + \lambda_1 \mathcal{L}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] iSegMan: Interactive Segment-and-Manipulate 3D Gaussians](../../CVPR2025/3d_vision/isegman_interactive_segment-and-manipulate_3d_gaussians.md)
@@ -158,5 +160,7 @@ $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{cont}} + \lambda_1 \mathcal{L}
 - [\[ECCV 2024\] CoherentGS: Sparse Novel View Synthesis with Coherent 3D Gaussians](coherentgs_sparse_novel_view_synthesis_with_coherent_3d_gaussians.md)
 - [\[ECCV 2024\] FlashSplat: 2D to 3D Gaussian Splatting Segmentation Solved Optimally](flashsplat_2d_to_3d_gaussian_splatting_segmentation_solved_optimally.md)
 - [\[ICCV 2025\] Easy3D: A Simple Yet Effective Method for 3D Interactive Segmentation](../../ICCV2025/3d_vision/easy3d_a_simple_yet_effective_method_for_3d_interactive_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

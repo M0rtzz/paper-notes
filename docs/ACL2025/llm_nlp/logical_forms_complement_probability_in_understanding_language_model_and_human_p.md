@@ -158,6 +158,8 @@ $$\text{Acc}_\text{soft} \sim \text{Modality} + \text{ArgForm} + \text{Perplexit
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Exploring Graph Representations of Logical Forms for Language Modeling](exploring_graph_representations_of_logical_forms_for_language_modeling.md)
@@ -165,5 +167,7 @@ $$\text{Acc}_\text{soft} \sim \text{Modality} + \text{ArgForm} + \text{Perplexit
 - [\[ACL 2025\] Collaborative Performance Prediction for Large Language Models](collaborative_performance_prediction_for_large_language_models.md)
 - [\[ACL 2025\] BehaviorBox: Automated Discovery of Fine-Grained Performance Differences Between Language Models](behaviorbox_automated_discovery_of_fine-grained_performance_differences_between_.md)
 - [\[ACL 2025\] HumT DumT: Measuring and Controlling Human-like Language in LLMs](humt_dumt_measuring_and_controlling_human-like_language_in_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -114,6 +114,8 @@ TCFG 不需要训练或微调，它是一个纯推理时的采样策略修改。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Classifier-Free Guidance inside the Attraction Basin May Cause Memorization](classifier-free_guidance_inside_the_attraction_basin_may_cause_memorization.md)
@@ -121,5 +123,7 @@ TCFG 不需要训练或微调，它是一个纯推理时的采样策略修改。
 - [\[ICCV 2025\] TeEFusion: Blending Text Embeddings to Distill Classifier-Free Guidance](../../ICCV2025/image_generation/teefusion_blending_text_embeddings_to_distill_classifier-free_guidance.md)
 - [\[NeurIPS 2025\] Towards a Golden Classifier-Free Guidance Path via Foresight Fixed Point Iterations](../../NeurIPS2025/image_generation/towards_a_golden_classifier-free_guidance_path_via_foresight_fixed_point_iterati.md)
 - [\[AAAI 2026\] DICE: Distilling Classifier-Free Guidance into Text Embeddings](../../AAAI2026/image_generation/dice_distilling_classifier-free_guidance_into_text_embedding.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -107,6 +107,8 @@ $$\mathcal{L}_{IFT} = \mathbb{E}\left[-\sum_{n=0}^{N}\sum_{i=n}^{N} \log \mathca
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] A Spatio-Temporal Point Process for Fine-Grained Modeling of Reading Behavior](a_spatio-temporal_point_process_for_fine-grained_modeling_of_reading_behavior.md)
@@ -114,5 +116,7 @@ $$\mathcal{L}_{IFT} = \mathbb{E}\left[-\sum_{n=0}^{N}\sum_{i=n}^{N} \log \mathca
 - [\[ACL 2025\] SDD: Self-Degraded Defense against Malicious Fine-tuning](sdd_self-degraded_defense_against_malicious_fine-tuning.md)
 - [\[ACL 2025\] DoMIX: An Efficient Framework for Exploiting Domain Knowledge in Fine-Tuning](domix_an_efficient_framework_for_exploiting.md)
 - [\[ACL 2025\] AIDE: Attribute-Guided Multi-Hop Data Expansion for Data Scarcity in Task-Specific Fine-tuning](aide_attribute-guided_multi-hop_data_expansion_for_data_scarcity_in_task-specifi.md)
+
+</div>
 
 <!-- RELATED:END -->

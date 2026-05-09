@@ -142,6 +142,8 @@ $$p_{\lambda,\delta}(t) = \lambda \left[ (|t| - \frac{t^2}{2\delta}) \mathbb{1}(
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] CaDyT: Causal Structure Learning for Dynamical Systems with Theoretical Score Analysis](../../AAAI2026/causal_inference/causal_structure_learning_for_dynamical_systems_with_theoretical_score_analysis.md)
@@ -149,5 +151,7 @@ $$p_{\lambda,\delta}(t) = \lambda \left[ (|t| - \frac{t^2}{2\delta}) \mathbb{1}(
 - [\[ACL 2025\] On the Reliability of Large Language Models for Causal Discovery](../../ACL2025/causal_inference/llm_causal_discovery_reliability.md)
 - [\[ICML 2025\] Causal Discovery of Latent Variables in Galactic Archaeology](../../ICML2025/causal_inference/causal_discovery_of_latent_variables_in_galactic_archaeology.md)
 - [\[NeurIPS 2025\] An Analysis of Causal Effect Estimation Using Outcome Invariant Data Augmentation](an_analysis_of_causal_effect_estimation_using_outcome_invariant_data_augmentatio.md)
+
+</div>
 
 <!-- RELATED:END -->

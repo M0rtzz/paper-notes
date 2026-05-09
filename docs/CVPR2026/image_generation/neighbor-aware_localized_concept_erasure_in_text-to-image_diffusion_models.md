@@ -136,6 +136,8 @@ Stage 逐步添加的效果（从论文 Figure 9 提取）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] GrOCE: Graph-Guided Online Concept Erasure for Text-to-Image Diffusion Models](groce_graph-guided_online_concept_erasure_for_text-to-image_diffusion_models.md)
@@ -143,5 +145,7 @@ Stage 逐步添加的效果（从论文 Figure 9 提取）：
 - [\[CVPR 2026\] Prototype-Guided Concept Erasure in Diffusion Models](prototype-guided_concept_erasure_in_diffusion_models.md)
 - [\[ICLR 2026\] Localized Concept Erasure in Text-to-Image Diffusion Models via High-Level Representation Misdirection](../../ICLR2026/image_generation/localized_concept_erasure_in_text-to-image_diffusion_models_via_high-level_repre.md)
 - [\[AAAI 2026\] Mass Concept Erasure in Diffusion Models with Concept Hierarchy](../../AAAI2026/image_generation/mass_concept_erasure_in_diffusion_models_with_concept_hierarchy.md)
+
+</div>
 
 <!-- RELATED:END -->

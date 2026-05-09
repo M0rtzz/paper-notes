@@ -118,6 +118,8 @@ VLog 基于轻量级 GPT-2-medium 和 SigLIP 构建。核心创新包括：(1) �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Goku: Flow Based Video Generative Foundation Models](goku_flow_based_video_generative_foundation_models.md)
@@ -125,5 +127,7 @@ VLog 基于轻量级 GPT-2-medium 和 SigLIP 构建。核心创新包括：(1) �
 - [\[CVPR 2025\] ObjectMover: Generative Object Movement with Video Prior](objectmover_generative_object_movement_with_video_prior.md)
 - [\[ECCV 2024\] IRGen: Generative Modeling for Image Retrieval](../../ECCV2024/image_generation/irgen_generative_modeling_for_image_retrieval.md)
 - [\[CVPR 2025\] Articulated Kinematics Distillation from Video Diffusion Models](articulated_kinematics_distillation_from_video_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

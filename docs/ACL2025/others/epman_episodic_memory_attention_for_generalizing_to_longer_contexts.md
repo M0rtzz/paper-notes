@@ -164,6 +164,8 @@ $$L = \mathbb{E}_\mathcal{D} [\alpha \ln p(l|q, C) + \ln(a|q, C, a_{mem})]$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Efficient OpAmp Adaptation for Zoom Attention to Golden Contexts](efficient_opamp_adaptation_for_zoom_attention_to_golden_contexts.md)
@@ -171,5 +173,7 @@ $$L = \mathbb{E}_\mathcal{D} [\alpha \ln p(l|q, C) + \ln(a|q, C, a_{mem})]$$
 - [\[ACL 2025\] Hierarchical Memory Organization for Wikipedia Generation](hierarchical_memory_wikipedia_gen.md)
 - [\[ACL 2025\] HATA: Trainable and Hardware-Efficient Hash-Aware Top-k Attention for Scalable Large Model Inference](hata_trainable_and_hardware-efficient_hash-aware_top-k_attention_for_scalable_la.md)
 - [\[ACL 2025\] The Hidden Attention of Mamba Models](the_hidden_attention_of_mamba_models.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **27** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/llm_pretraining/) · [📷 CVPR2026 (10)](../../CVPR2026/llm_pretraining/) · [🤖 AAAI2026 (6)](../../AAAI2026/llm_pretraining/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_pretraining/) · [📹 ICCV2025 (10)](../../ICCV2025/llm_pretraining/) · [🧪 ICML2025 (30)](../../ICML2025/llm_pretraining/)
+
+🔥 **高频主题：** LLM ×3
+
 **[A Law of Data Reconstruction for Random Features (and Beyond)](a_law_of_data_reconstruction_for_random_features_and_beyond.md)**
 
 :   从信息论和代数角度证明随机特征模型中存在数据重构定律：当参数量 $p \gg dn$（$d$ 为数据维度，$n$ 为样本数）时，训练数据可被完整重构，并通过投影损失优化方法在 RF、两层网络和 ResNet 上验证了该阈值的普适性。

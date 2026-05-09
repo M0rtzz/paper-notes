@@ -132,6 +132,8 @@ FG-CLIP 采用两阶段训练：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Visual-RFT: Visual Reinforcement Fine-Tuning](../../ICCV2025/object_detection/visual-rft_visual_reinforcement_fine-tuning.md)
@@ -139,5 +141,7 @@ FG-CLIP 采用两阶段训练：
 - [\[ICML 2025\] Understanding the Emergence of Multimodal Representation Alignment](understanding_the_emergence_of_multimodal_representation_alignment.md)
 - [\[ICML 2025\] UI-Vision: A Desktop-centric GUI Benchmark for Visual Perception and Interaction](ui-vision_a_desktop-centric_gui_benchmark_for_visual_perception_and_interaction.md)
 - [\[ICML 2025\] Self-Organizing Visual Prototypes for Non-Parametric Representation Learning](self-organizing_visual_prototypes_for_non-parametric_representation_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

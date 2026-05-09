@@ -149,6 +149,8 @@ SBDC在类条件指标（CW-FID、CW-Density、CW-Coverage）上全面超越TDSM
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] UniCombine: Unified Multi-Conditional Combination with Diffusion Transformer](unicombine_unified_multi-conditional_combination_with_diffusion_transformer.md)
@@ -156,5 +158,7 @@ SBDC在类条件指标（CW-FID、CW-Density、CW-Coverage）上全面超越TDSM
 - [\[CVPR 2026\] Guiding Diffusion Models with Semantically Degraded Conditions](../../CVPR2026/image_generation/guiding_diffusion_models_with_semantically_degraded_conditions.md)
 - [\[CVPR 2026\] Guiding Diffusion Models with Semantically Degraded Conditions (CDG)](../../CVPR2026/image_generation/cdg_condition_degradation_guidance_diffusion.md)
 - [\[ICCV 2025\] HPSv3: Towards Wide-Spectrum Human Preference Score](hpsv3_towards_wide-spectrum_human_preference_score.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **126** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/others/) · [📷 CVPR2026 (54)](../../CVPR2026/others/) · [🔬 ICLR2026 (76)](../../ICLR2026/others/) · [🧠 NeurIPS2025 (154)](../../NeurIPS2025/others/) · [📹 ICCV2025 (48)](../../ICCV2025/others/) · [🧪 ICML2025 (93)](../../ICML2025/others/)
+
+🔥 **高频主题：** Agent ×10 · 对抗鲁棒 ×5 · 扩散模型 ×5 · 对齐/RLHF ×3 · 推理 ×2
+
 **[A Fast Heuristic Search Approach for Energy-Optimal Profile Routing for Electric Vehicles](a_fast_heuristic_search_approach_for_energy-optimal_profile_.md)**
 
 :   提出基于多目标A*搜索的label-setting方法（Pr-A*），在初始电量未知时高效求解电动车能耗最优路径（profile搜索），通过profile支配关系剪枝避免传统方法中复杂的profile合并操作，在大规模路网上性能接近已知初始电量的标准A*搜索。

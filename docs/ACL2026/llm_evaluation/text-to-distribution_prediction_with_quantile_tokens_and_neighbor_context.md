@@ -122,6 +122,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Subject-level Inference for Realistic Text Anonymization Evaluation](subject-level_inference_for_realistic_text_anonymization_evaluation.md)
@@ -129,5 +131,7 @@ tags:
 - [\[CVPR 2025\] ConText-CIR: Learning from Concepts in Text for Composed Image Retrieval](../../CVPR2025/llm_evaluation/context-cir_learning_from_concepts_in_text_for_composed_image_retrieval.md)
 - [\[ACL 2025\] Improving the Calibration of Confidence Scores in Text Generation Using the Output Distribution's Characteristics](../../ACL2025/llm_evaluation/calibration_confidence_text_gen.md)
 - [\[ACL 2025\] CalibraEval: Calibrating Prediction Distribution to Mitigate Selection Bias in LLMs-as-Judges](../../ACL2025/llm_evaluation/calibraeval_calibrating_prediction_distribution_to_mitigate_selection_bias_in_ll.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -136,6 +136,8 @@ $$\sum_j \left[ \partial_j(J_{ji}^+) + J_{ji}^+ \partial_j[\log q(\vec{z})] \rig
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Variational Autoencoder with Normalizing Flow for X-ray Spectral Fitting](variational_autoencoder_with_normalizing_flow_for_x-ray_spectral_fitting.md)
@@ -143,5 +145,7 @@ $$\sum_j \left[ \partial_j(J_{ji}^+) + J_{ji}^+ \partial_j[\log q(\vec{z})] \rig
 - [\[NeurIPS 2025\] H-DDx: A Hierarchical Evaluation Framework for Differential Diagnosis](h-ddx_a_hierarchical_evaluation_framework_for_differential_diagnosis.md)
 - [\[NeurIPS 2025\] FOXES: A Framework For Operational X-ray Emission Synthesis](foxes_a_framework_for_operational_x-ray_emission_synthesis.md)
 - [\[ICLR 2026\] Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling](../../ICLR2026/medical_imaging/overthinking_reduction_with_decoupled_rewards_and_curriculum_data_scheduling.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **45** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/object_detection/) · [🔬 ICLR2026 (9)](../../ICLR2026/object_detection/) · [🤖 AAAI2026 (17)](../../AAAI2026/object_detection/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/object_detection/) · [📹 ICCV2025 (30)](../../ICCV2025/object_detection/) · [🧪 ICML2025 (8)](../../ICML2025/object_detection/)
+
+🔥 **高频主题：** 目标检测 ×19 · 少样本学习 ×6 · 对齐/RLHF ×4 · 3D 目标检测 ×4 · 多模态 ×4
+
 **[A Closer Look at Cross-Domain Few-Shot Object Detection: Fine-Tuning Matters and Parallel Decoder Helps](a_closer_look_at_cross-domain_few-shot_object_detection_fine-tuning_matters_and_.md)**
 
 :   提出混合集成解码器(HED)和渐进微调策略用于跨域少样本目标检测，通过并行化部分解码层并随机初始化去噪查询引入预测多样性，在CD-FSOD/ODinW-13/RF100-VL三个基准上达到SOTA，不引入额外参数。

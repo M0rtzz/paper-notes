@@ -143,6 +143,8 @@ $ε \in \{1, 2, 4, 8, 16\}$，$δ = n^{-1.1}$，使用 LoRA 微调 + DP-Adam。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] On the Empirical Power of Goodness-of-Fit Tests in Watermark Detection](../../NeurIPS2025/llm_safety/on_the_empirical_power_of_goodness-of-fit_tests_in_watermark_detection.md)
@@ -150,5 +152,7 @@ $ε \in \{1, 2, 4, 8, 16\}$，$δ = n^{-1.1}$，使用 LoRA 微调 + DP-Adam。
 - [\[ICML 2025\] Cape: Context-Aware Prompt Perturbation Mechanism with Differential Privacy](cape_context-aware_prompt_perturbation_mechanism_with_differential_privacy.md)
 - [\[ICML 2025\] The Canary's Echo: Auditing Privacy Risks of LLM-Generated Synthetic Text](the_canarys_echo_auditing_privacy_risks_of_llm-generated_synthetic_text.md)
 - [\[ACL 2025\] Estimating Privacy Leakage of Augmented Contextual Knowledge in Language Models](../../ACL2025/llm_safety/estimating_privacy_leakage_of_augmented_contextual_knowledge_in_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

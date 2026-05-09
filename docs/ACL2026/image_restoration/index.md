@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (47)](../../CVPR2026/image_restoration/) · [🔬 ICLR2026 (15)](../../ICLR2026/image_restoration/) · [🤖 AAAI2026 (13)](../../AAAI2026/image_restoration/) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/image_restoration/) · [📹 ICCV2025 (30)](../../ICCV2025/image_restoration/) · [🧪 ICML2025 (5)](../../ICML2025/image_restoration/)
+
+🔥 **高频主题：** 扩散模型 ×3 · LLM ×2
+
 **[CreditDecoding: Accelerating Parallel Decoding in Diffusion Large Language Models with Trace Credit](creditdecoding_accelerating_parallel_decoding_in_diffusion_large_language_models.md)**
 
 :   本文提出 CreditDecoding，一种无需训练的并行解码加速方法，通过累积 token 级历史证据（轨迹信用）来增强正确但置信度不足的 token，在 LLaDA-8B-Instruct 上实现最高 5.48 倍加速且准确率提升 0.48。

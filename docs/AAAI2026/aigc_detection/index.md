@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/aigc_detection/) · [📷 CVPR2026 (1)](../../CVPR2026/aigc_detection/) · [🔬 ICLR2026 (6)](../../ICLR2026/aigc_detection/) · [🧠 NeurIPS2025 (8)](../../NeurIPS2025/aigc_detection/) · [💬 ACL2025 (17)](../../ACL2025/aigc_detection/) · [📷 CVPR2025 (3)](../../CVPR2025/aigc_detection/)
+
+🔥 **高频主题：** LLM ×2
+
 **[ActiShade: Activating Overshadowed Knowledge to Guide Multi-Hop Reasoning in Large Language Models](actishade_activating_overshadowed_knowledge_to_guide_multi-h.md)**
 
 :   提出ActiShade框架，通过高斯噪声扰动检测LLM在多跳推理中被"遮蔽"的关键短语，结合定制对比学习检索器获取补充文档，迭代重构查询以减少知识遮蔽导致的错误累积，在HotpotQA/2WikiMQA/MuSiQue上显著超越DRAGIN等SOTA。

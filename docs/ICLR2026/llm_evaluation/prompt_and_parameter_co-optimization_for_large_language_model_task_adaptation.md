@@ -183,6 +183,8 @@ MetaTuner 在所有 4 个数据集上大幅领先：MATH +4.89（vs DPO），GSM
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Prompt and Parameter Co-Optimization for Large Language Models](prompt_and_parameter_co-optimization_for_large_language_models.md)
@@ -190,5 +192,7 @@ MetaTuner 在所有 4 个数据集上大幅领先：MATH +4.89（vs DPO），GSM
 - [\[ICLR 2026\] Revisiting the Past: Data Unlearning with Model State History](revisiting_the_past_data_unlearning_with_model_state_history.md)
 - [\[ICLR 2026\] Predicting LLM Reasoning Performance with Small Proxy Model](predicting_llm_reasoning_performance_with_small_proxy_model.md)
 - [\[ICLR 2026\] ASIDE: Architectural Separation of Instructions and Data in Language Models](aside_architectural_separation_of_instructions_and_data_in_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

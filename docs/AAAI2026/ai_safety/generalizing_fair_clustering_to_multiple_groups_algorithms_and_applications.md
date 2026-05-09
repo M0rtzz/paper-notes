@@ -123,6 +123,8 @@ $$\text{dist}(\mathcal{D}, \mathcal{F}) \leq O(|\chi|^{3.81}) \cdot \text{dist}(
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Fair Model-Based Clustering](fair_model-based_clustering.md)
@@ -130,5 +132,7 @@ $$\text{dist}(\mathcal{D}, \mathcal{F}) \leq O(|\chi|^{3.81}) \cdot \text{dist}(
 - [\[ICML 2025\] Relative Error Fair Clustering in the Weak-Strong Oracle Model](../../ICML2025/ai_safety/relative_error_fair_clustering_in_the_weak-strong_oracle_model.md)
 - [\[NeurIPS 2025\] Unifying Proportional Fairness in Centroid and Non-Centroid Clustering](../../NeurIPS2025/ai_safety/unifying_proportional_fairness_in_centroid_and_non-centroid_clustering.md)
 - [\[ICML 2025\] Accelerating Spectral Clustering under Fairness Constraints](../../ICML2025/ai_safety/accelerating_spectral_clustering_under_fairness_constraints.md)
+
+</div>
 
 <!-- RELATED:END -->

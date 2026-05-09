@@ -166,6 +166,8 @@ Morph-1B 以仅 12 层的超浅架构，在保持 0.52 平均精度（与 v1/v2 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Scaling Embedding Layers in Language Models](../../NeurIPS2025/llm_pretraining/scaling_embedding_layers_in_language_models.md)
@@ -173,5 +175,7 @@ Morph-1B 以仅 12 层的超浅架构，在保持 0.52 平均精度（与 v1/v2 
 - [\[ICML 2025\] Large Language Models are Demonstration Pre-Selectors for Themselves](large_language_models_are_demonstration_pre-selectors_for_themselves.md)
 - [\[ICML 2025\] Does Data Scaling Lead to Visual Compositional Generalization?](does_data_scaling_lead_to_visual_compositional_generalization.md)
 - [\[ACL 2025\] Diversity Explains Inference Scaling Laws: Through a Case Study of Minimum Bayes Risk Decoding](../../ACL2025/llm_pretraining/diversity_explains_inference_scaling_laws_through_a_case_study_of_minimum_bayes_.md)
+
+</div>
 
 <!-- RELATED:END -->

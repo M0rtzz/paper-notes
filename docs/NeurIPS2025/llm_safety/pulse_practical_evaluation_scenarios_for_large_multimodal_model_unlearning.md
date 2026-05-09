@@ -136,6 +136,8 @@ PULSE 在传统"先微调、再遗忘"的评估管线之上，增加了两个新
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] A Reliable Cryptographic Framework for Empirical Machine Unlearning Evaluation](a_reliable_cryptographic_framework_for_empirical_machine_unl.md)
@@ -143,5 +145,7 @@ PULSE 在传统"先微调、再遗忘"的评估管线之上，增加了两个新
 - [\[ICML 2025\] Is Your Model Fairly Certain? Uncertainty-Aware Fairness Evaluation for LLMs](../../ICML2025/llm_safety/is_your_model_fairly_certain_uncertainty-aware_fairness_evaluation_for_llms.md)
 - [\[NeurIPS 2025\] Music Arena: Live Evaluation for Text-to-Music](music_arena_live_evaluation_for_text-to-music.md)
 - [\[ACL 2025\] ZJUKLAB at SemEval-2025 Task 4: Unlearning via Model Merging](../../ACL2025/llm_safety/zjuklab_at_semeval-2025_task_4_unlearning_via_model_merging.md)
+
+</div>
 
 <!-- RELATED:END -->

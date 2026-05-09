@@ -10,6 +10,8 @@ description: >-
 
 **🔬 ICLR2026** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (1)](../../CVPR2026/physics/) · [🤖 AAAI2026 (2)](../../AAAI2026/physics/) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/physics/) · [📹 ICCV2025 (1)](../../ICCV2025/physics/) · [🧪 ICML2025 (6)](../../ICML2025/physics/) · [📷 CVPR2025 (1)](../../CVPR2025/physics/)
+
 **[Feedback-driven Recurrent Quantum Neural Network Universality](feedback-driven_recurrent_quantum_neural_network_universality.md)**
 
 :   本文首次为基于反馈的循环量子神经网络 (RQNN) 建立了定量逼近误差界和普适性证明，表明 RQNN 可在 qubit 数仅以 $\lceil\log_2(\varepsilon^{-1})\rceil$ 对数增长的条件下，以线性读出层逼近任意 fading memory 滤波器，且不受维度灾难影响。

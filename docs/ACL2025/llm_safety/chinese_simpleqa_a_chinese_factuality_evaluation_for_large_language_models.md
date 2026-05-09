@@ -225,6 +225,8 @@ Claude-3.5-Sonnet 拒绝率最高（27.4%），但也因此避免了大量错误
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] UAlign: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models](ualign_leveraging_uncertainty_estimations_for_factuality_alignment_on_large_lang.md)
@@ -232,5 +234,7 @@ Claude-3.5-Sonnet 拒绝率最高（27.4%），但也因此避免了大量错误
 - [\[ACL 2025\] Real-time Factuality Assessment from Adversarial Feedback](real-time_factuality_assessment_from_adversarial_feedback.md)
 - [\[ACL 2025\] Beyond Facts: Evaluating Intent Hallucination in Large Language Models](intent_hallucination_eval.md)
 - [\[ACL 2025\] Ensemble Watermarks for Large Language Models](ensemble_watermarks_llm.md)
+
+</div>
 
 <!-- RELATED:END -->

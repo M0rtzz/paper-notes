@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **19** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/remote_sensing/) · [🔬 ICLR2026 (6)](../../ICLR2026/remote_sensing/) · [🤖 AAAI2026 (8)](../../AAAI2026/remote_sensing/) · [🧠 NeurIPS2025 (11)](../../NeurIPS2025/remote_sensing/) · [📹 ICCV2025 (11)](../../ICCV2025/remote_sensing/) · [🧪 ICML2025 (7)](../../ICML2025/remote_sensing/)
+
+🔥 **高频主题：** 遥感 ×9 · 多模态 ×3 · 人脸/视线 ×2
+
 **[ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery](acpv-net_all-class_polygonal_vectorization_for_seamless_vector_map_generation_fr.md)**
 
 :   提出 ACPV-Net，首个从航空影像一次性生成拓扑一致的全类别多边形矢量地图的框架，通过语义监督条件化扩散模型生成顶点热图，并借助命题驱动的 PSLG 重建确保零间隙/零重叠。

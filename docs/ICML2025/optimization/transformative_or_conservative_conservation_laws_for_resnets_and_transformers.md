@@ -144,6 +144,8 @@ $$\mathbb{E}|h(\theta_k) - h(\theta_0)| \leq \frac{C_h C_L}{2}\sum_{i=0}^{k-1}\t
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Can Transformers Learn Full Bayesian Inference In Context?](can_transformers_learn_full_bayesian_inference_in_context.md)
@@ -151,5 +153,7 @@ $$\mathbb{E}|h(\theta_k) - h(\theta_0)| \leq \frac{C_h C_L}{2}\sum_{i=0}^{k-1}\t
 - [\[NeurIPS 2025\] Generalization or Hallucination? Understanding Out-of-Context Reasoning in Transformers](../../NeurIPS2025/optimization/generalization_or_hallucination_understanding_out-of-context_reasoning_in_transf.md)
 - [\[NeurIPS 2025\] Emergence and Scaling Laws in SGD Learning of Shallow Neural Networks](../../NeurIPS2025/optimization/emergence_and_scaling_laws_in_sgd_learning_of_shallow_neural_networks.md)
 - [\[ICLR 2026\] Learning to Recall with Transformers Beyond Orthogonal Embeddings](../../ICLR2026/optimization/learning_to_recall_with_transformers_beyond_orthogonal_embeddings.md)
+
+</div>
 
 <!-- RELATED:END -->

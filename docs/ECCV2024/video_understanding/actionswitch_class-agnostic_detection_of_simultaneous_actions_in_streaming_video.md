@@ -109,6 +109,8 @@ $$\mathcal{L} = CE(p_t, y_t) + \alpha \cdot \mathcal{L}_c(p_t, s_{t-1})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Classification Matters: Improving Video Action Detection with Class-Specific Attention](classification_matters_improving_video_action_detection_with_class-specific_atte.md)
@@ -116,5 +118,7 @@ $$\mathcal{L} = CE(p_t, y_t) + \alpha \cdot \mathcal{L}_c(p_t, s_{t-1})$$
 - [\[ECCV 2024\] TAPTR: Tracking Any Point with Transformers as Detection](taptr_tracking_any_point_with_transformers_as_detection.md)
 - [\[ECCV 2024\] Bayesian Evidential Deep Learning for Online Action Detection](bayesian_evidential_deep_learning_for_online_action_detection.md)
 - [\[ECCV 2024\] Occluded Gait Recognition with Mixture of Experts: An Action Detection Perspective](occluded_gait_recognition_with_mixture_of_experts_an_action_detection_perspectiv.md)
+
+</div>
 
 <!-- RELATED:END -->

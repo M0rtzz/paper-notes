@@ -144,6 +144,8 @@ VRAG 检测 pipeline（如 Figure 2 所示）分四步：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Contradiction Detection in RAG-Based Chatbots](../../ACL2025/information_retrieval/contradiction_detection_in_rag-based_chatbots.md)
@@ -151,5 +153,7 @@ VRAG 检测 pipeline（如 Figure 2 所示）分四步：
 - [\[ACL 2026\] CRAFT: Training-Free Cascaded Retrieval for Tabular QA](../../ACL2026/information_retrieval/craft_training-free_cascaded_retrieval_for_tabular_qa.md)
 - [\[ACL 2025\] VoxRAG: A Step Toward Transcription-Free RAG Systems in Spoken Question Answering](../../ACL2025/information_retrieval/voxrag_a_step_toward_transcription-free_rag_systems_in_spoken_question_answering.md)
 - [\[ICLR 2026\] Q-RAG: Long Context Multi-Step Retrieval via Value-Based Embedder Training](../../ICLR2026/information_retrieval/q_rag_long_context_multi_step_retrieval.md)
+
+</div>
 
 <!-- RELATED:END -->

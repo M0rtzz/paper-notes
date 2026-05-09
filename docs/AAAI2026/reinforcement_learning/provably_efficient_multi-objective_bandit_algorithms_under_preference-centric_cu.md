@@ -187,6 +187,8 @@ $$R(T) = O(KN\delta \log T + KN\delta D^2)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] A Multi-Agent Conversational Bandit Approach to Online Evaluation and Selection of User-Aligned LLM Responses](a_multi-agent_conversational_bandit_approach_to_online_evaluation_and_selection_.md)
@@ -194,5 +196,7 @@ $$R(T) = O(KN\delta \log T + KN\delta D^2)$$
 - [\[AAAI 2026\] Scalable Multi-Objective and Meta Reinforcement Learning via Gradient Estimation](scalable_multi-objective_and_meta_reinforcement_learning_via_gradient_estimation.md)
 - [\[AAAI 2026\] Object-Centric Latent Action Learning](object-centric_latent_action_learning.md)
 - [\[AAAI 2026\] Object-Centric World Models for Causality-Aware Reinforcement Learning](object-centric_world_models_for_causality-aware_reinforcement_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -183,6 +183,8 @@ $$R(s_t, \pi(s_{t-1})) = C_\pi(T_{\text{step}} \cdot (t+1)) - C_\pi(T_{\text{ste
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Succeed or Learn Slowly: Sample Efficient Off-Policy Reinforcement Learning for Mobile App Control](../../NeurIPS2025/reinforcement_learning/succeed_or_learn_slowly_sample_efficient_off-policy_reinforcement_learning_for_m.md)
@@ -190,5 +192,7 @@ $$R(s_t, \pi(s_{t-1})) = C_\pi(T_{\text{step}} \cdot (t+1)) - C_\pi(T_{\text{ste
 - [\[ICML 2025\] SENSEI: Semantic Exploration Guided by Foundation Models to Learn Versatile World Models](sensei_semantic_exploration_guided_by_foundation_models_to_learn_versatile_world.md)
 - [\[ICML 2025\] Stochastic Encodings for Active Feature Acquisition](stochastic_encodings_for_active_feature_acquisition.md)
 - [\[NeurIPS 2025\] Real-World Reinforcement Learning of Active Perception Behaviors](../../NeurIPS2025/reinforcement_learning/real-world_reinforcement_learning_of_active_perception_behaviors.md)
+
+</div>
 
 <!-- RELATED:END -->

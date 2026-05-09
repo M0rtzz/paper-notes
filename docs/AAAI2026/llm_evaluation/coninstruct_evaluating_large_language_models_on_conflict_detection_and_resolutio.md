@@ -129,6 +129,8 @@ Claude-4.5-Sonnet 冲突解决行为最佳：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] ASIDE: Architectural Separation of Instructions and Data in Language Models](../../ICLR2026/llm_evaluation/aside_architectural_separation_of_instructions_and_data_in_language_models.md)
@@ -136,5 +138,7 @@ Claude-4.5-Sonnet 冲突解决行为最佳：
 - [\[ACL 2025\] Batayan: A Filipino NLP Benchmark for Evaluating Large Language Models](../../ACL2025/llm_evaluation/batayan_a_filipino_nlp_benchmark_for_evaluating_large_language_models.md)
 - [\[NeurIPS 2025\] LTD-Bench: Evaluating Large Language Models by Letting Them Draw](../../NeurIPS2025/llm_evaluation/ltd-bench_evaluating_large_language_models_by_letting_them_draw.md)
 - [\[ACL 2025\] AD-LLM: Benchmarking Large Language Models for Anomaly Detection](../../ACL2025/llm_evaluation/ad-llm_benchmarking_large_language_models_for_anomaly_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

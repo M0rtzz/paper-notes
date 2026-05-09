@@ -158,6 +158,8 @@ VIST3A在物体级(T3Bench)和场景级(SceneBench)合成上全面超越所有ba
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Geometry-guided Online 3D Video Synthesis with Multi-View Temporal Consistency](../../CVPR2025/video_generation/geometry-guided_online_3d_video_synthesis_with_multi-view_temporal_consistency.md)
@@ -165,5 +167,7 @@ VIST3A在物体级(T3Bench)和场景级(SceneBench)合成上全面超越所有ba
 - [\[ECCV 2024\] SV3D: Novel Multi-view Synthesis and 3D Generation from a Single Image using Latent Video Diffusion](../../ECCV2024/video_generation/sv3d_novel_multi-view_synthesis_and_3d_generation_from_a_single_image_using_late.md)
 - [\[ICCV 2025\] Geo4D: Leveraging Video Generators for Geometric 4D Scene Reconstruction](../../ICCV2025/video_generation/geo4d_leveraging_video_generators_for_geometric_4d_scene_reconstruction.md)
 - [\[CVPR 2026\] Semantic Satellite Communications for Synchronized Audiovisual Reconstruction](../../CVPR2026/video_generation/semantic_satellite_communications_for_synchronized_audiovisual_reconstruction.md)
+
+</div>
 
 <!-- RELATED:END -->

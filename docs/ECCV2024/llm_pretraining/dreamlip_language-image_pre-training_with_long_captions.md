@@ -164,6 +164,8 @@ DreamLIP 30M 在语义分割上平均超越 CLIP 400M 2.5%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] POA: Pre-training Once for Models of All Sizes](poa_pre-training_once_for_models_of_all_sizes.md)
@@ -171,5 +173,7 @@ DreamLIP 30M 在语义分割上平均超越 CLIP 400M 2.5%。
 - [\[ECCV 2024\] Formula-Supervised Visual-Geometric Pre-training (FSVGP)](formula-supervised_visual-geometric_pre-training.md)
 - [\[ECCV 2024\] PreLAR: World Model Pre-training with Learnable Action Representation](prelar_world_model_pre-training_with_learnable_action_representation.md)
 - [\[ECCV 2024\] Scaling Backwards: Minimal Synthetic Pre-training?](scaling_backwards_minimal_synthetic_pre-training.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -123,6 +123,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] HiMo-CLIP: Modeling Semantic Hierarchy and Monotonicity in Vision-Language Alignment](himo-clip_modeling_semantic_hierarchy_and_monotonicity_in_vi.md)
@@ -130,5 +132,7 @@ tags:
 - [\[CVPR 2026\] Beyond Global Similarity: Towards Fine-Grained, Multi-Condition Multimodal Retrieval](../../CVPR2026/information_retrieval/beyond_global_similarity_towards_fine-grained_multi-condition_multimodal_retriev.md)
 - [\[ICLR 2026\] Mapping Semantic & Syntactic Relationships with Geometric Rotation](../../ICLR2026/information_retrieval/mapping_semantic_syntactic_relationships_with_geometric_rotation.md)
 - [\[NeurIPS 2025\] Improving Consistency in Retrieval-Augmented Systems with Group Similarity Rewards](../../NeurIPS2025/information_retrieval/improving_consistency_in_retrieval-augmented_systems_with_group_similarity_rewar.md)
+
+</div>
 
 <!-- RELATED:END -->

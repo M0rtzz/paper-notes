@@ -136,6 +136,8 @@ DMLoRA的整体框架是一个针对预训练视觉Transformer（如ViT）的参
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Low-Rank Interconnected Adaptation across Layers](../../ACL2025/others/low-rank_interconnected_adaptation_across_layers.md)
@@ -143,5 +145,7 @@ DMLoRA的整体框架是一个针对预训练视觉Transformer（如ViT）的参
 - [\[ACL 2025\] CoLA: Collaborative Low-Rank Adaptation](../../ACL2025/others/cola_collaborative_low-rank_adaptation.md)
 - [\[ACL 2025\] MoRE: A Mixture of Low-Rank Experts for Adaptive Multi-Task Learning](../../ACL2025/others/more_a_mixture_of_low-rank_experts_for_adaptive_multi-task_learning.md)
 - [\[ECCV 2024\] Functional Transform-Based Low-Rank Tensor Factorization for Multi-Dimensional Data Recovery](functional_transform-based_low-rank_tensor_factorization_for_multi-dimensional_d.md)
+
+</div>
 
 <!-- RELATED:END -->

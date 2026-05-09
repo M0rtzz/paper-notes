@@ -168,6 +168,8 @@ $$x_{E,j} \sim \begin{cases} \mathcal{N}(\mu, \sigma^2), & j=i \\ 0, & j \neq i 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Understanding Model Ensemble in Transferable Adversarial Attack](understanding_model_ensemble_in_transferable_adversarial_attack.md)
@@ -175,5 +177,7 @@ $$x_{E,j} \sim \begin{cases} \mathcal{N}(\mu, \sigma^2), & j=i \\ 0, & j \neq i 
 - [\[NeurIPS 2025\] Understanding and Improving Adversarial Robustness of Neural Probabilistic Circuits](../../NeurIPS2025/ai_safety/understanding_and_improving_adversarial_robustness_of_neural_probabilistic_circu.md)
 - [\[CVPR 2026\] Generative Adversarial Perturbations with Cross-paradigm Transferability on Localized Crowd Counting](../../CVPR2026/ai_safety/generative_adversarial_perturbations_with_cross-paradigm_transferability_on_loca.md)
 - [\[ACL 2025\] Efficiently Identifying Watermarked Segments in Mixed-Source Texts](../../ACL2025/ai_safety/watermark_segment_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

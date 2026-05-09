@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2026** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (4)](../../CVPR2026/causal_inference/) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/) · [🧠 NeurIPS2025 (21)](../../NeurIPS2025/causal_inference/) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/) · [🧪 ICML2025 (16)](../../ICML2025/causal_inference/)
+
 **[Better and Worse with Scale: How Contextual Entrainment Diverges with Model Size](better_and_worse_with_scale_how_contextual_entrainment_diverges_with_model_size.md)**
 
 :   本文首次为"上下文夹带效应"（contextual entrainment）建立缩放定律，发现更大的模型在语义上下文中更能抵抗虚假信息（负指数），但在非语义上下文中更容易复制无关 token（正指数），揭示了语义过滤和机械复制两种功能的对立缩放行为。

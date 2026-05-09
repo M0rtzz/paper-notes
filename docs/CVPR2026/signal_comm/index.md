@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/signal_comm/) · [🔬 ICLR2026 (8)](../../ICLR2026/signal_comm/) · [🤖 AAAI2026 (3)](../../AAAI2026/signal_comm/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/signal_comm/) · [📹 ICCV2025 (3)](../../ICCV2025/signal_comm/) · [🧪 ICML2025 (6)](../../ICML2025/signal_comm/)
+
+🔥 **高频主题：** 多模态 ×2
+
 **[AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation](actta_rethinking_test-time_adaptation_via_dynamic_activation.md)**
 
 :   本文提出 AcTTA，一种基于动态激活函数调制的测试时自适应框架，通过将传统固定激活函数重参数化为可学习形式（包含激活中心偏移和非对称梯度斜率），在推理时自适应调整激活行为以应对分布偏移，在 CIFAR10-C/CIFAR100-C/ImageNet-C 上一致超越基于归一化层的 TTA 方法。

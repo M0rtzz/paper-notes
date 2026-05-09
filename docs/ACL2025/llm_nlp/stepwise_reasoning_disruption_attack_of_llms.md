@@ -120,6 +120,8 @@ $$\arg\max_{R_{att}} LLM_{a'}(I_{solve} || D || p || R_{att}), \quad s.t. \; a' 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Problem-Solving Logic Guided Curriculum In-Context Learning for LLMs Complex Reasoning](problem-solving_logic_guided_curriculum_in-context_learning_for_llms_complex_rea.md)
@@ -127,5 +129,7 @@ $$\arg\max_{R_{att}} LLM_{a'}(I_{solve} || D || p || R_{att}), \quad s.t. \; a' 
 - [\[ACL 2025\] Zero-Shot Belief: A Hard Problem for LLMs](zero-shot_belief_a_hard_problem_for_llms.md)
 - [\[ACL 2025\] Unintended Harms of Value-Aligned LLMs: Psychological and Empirical Insights](unintended_harms_of_value-aligned_llms_psychological_and_empirical_insights.md)
 - [\[ACL 2025\] Can LLMs Interpret and Leverage Structured Linguistic Representations? A Case Study with AMRs](can_llms_interpret_and_leverage_structured_linguistic_representations_a_case_stu.md)
+
+</div>
 
 <!-- RELATED:END -->

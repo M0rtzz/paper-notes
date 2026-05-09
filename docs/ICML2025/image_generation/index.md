@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **115** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/image_generation/) · [📷 CVPR2026 (240)](../../CVPR2026/image_generation/) · [🔬 ICLR2026 (154)](../../ICLR2026/image_generation/) · [🤖 AAAI2026 (78)](../../AAAI2026/image_generation/) · [🧠 NeurIPS2025 (250)](../../NeurIPS2025/image_generation/) · [📹 ICCV2025 (219)](../../ICCV2025/image_generation/)
+
+🔥 **高频主题：** 扩散模型 ×47 · 语音 ×7 · 对齐/RLHF ×3 · 时序预测 ×3 · 对抗鲁棒 ×3
+
 **[Action-Minimization Meets Generative Modeling: Efficient Transition Path Sampling with the Onsager-Machlup Functional](action-minimization_meets_generative_modeling_efficient_transition_pat.md)**
 
 :   将预训练扩散/flow matching模型的score函数解释为随机动力学的漂移项，通过最小化Onsager-Machlup (OM)作用量泛函实现零样本转移路径采样，无需任务特定训练即可在分子系统上高效生成多样且物理真实的转移路径。

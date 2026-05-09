@@ -139,6 +139,8 @@ GenEval 结果与 T2I-CompBench++ 趋势高度一致。Infinity-8B 在所有维�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Beyond Confidence: The Rhythms of Reasoning in Generative Models](beyond_confidence_the_rhythms_of_reasoning_in_generative_models.md)
@@ -146,5 +148,7 @@ GenEval 结果与 T2I-CompBench++ 趋势高度一致。Infinity-8B 在所有维�
 - [\[ICLR 2026\] Diffusion Blend: Inference-Time Multi-Preference Alignment for Diffusion Models](diffusion_blend_inference-time_multi-preference_alignment_for_diffusion_models.md)
 - [\[CVPR 2025\] Navigating Image Restoration with VAR's Distribution Alignment Prior](../../CVPR2025/image_generation/navigating_image_restoration_with_vars_distribution_alignment_prior.md)
 - [\[ICLR 2026\] Diffusion Alignment as Variational Expectation-Maximization](diffusion_alignment_as_variational_expectation-maximization.md)
+
+</div>
 
 <!-- RELATED:END -->

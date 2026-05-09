@@ -143,6 +143,8 @@ RefAtomNet 包含三个 token 流：(1) 视觉流——ViT 编码视频帧，QFo
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Leveraging Temporal Contextualization for Video Action Recognition](leveraging_temporal_contextualization_for_video_action_recognition.md)
@@ -150,5 +152,7 @@ RefAtomNet 包含三个 token 流：(1) 视觉流——ViT 编码视频帧，QFo
 - [\[ECCV 2024\] Masked Video and Body-worn IMU Autoencoder for Egocentric Action Recognition](masked_video_and_body-worn_imu_autoencoder_for_egocentric_action_recognition.md)
 - [\[ECCV 2024\] Optimizing Factorized Encoder Models: Time and Memory Reduction for Scalable and Efficient Action Recognition](optimizing_factorized_encoder_models_time_and_memory_reduction_for_scalable_and_.md)
 - [\[ECCV 2024\] Occluded Gait Recognition with Mixture of Experts: An Action Detection Perspective](occluded_gait_recognition_with_mixture_of_experts_an_action_detection_perspectiv.md)
+
+</div>
 
 <!-- RELATED:END -->

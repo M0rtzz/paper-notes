@@ -120,6 +120,8 @@ ARM将3D重建任务分为几何阶段和外观阶段，几何由GeoRM生成mesh
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] RNG: Relightable Neural Gaussians](rng_relightable_neural_gaussians.md)
@@ -127,5 +129,7 @@ ARM将3D重建任务分为几何阶段和外观阶段，几何由GeoRM生成mesh
 - [\[CVPR 2025\] High-fidelity 3D Object Generation from Single Image with RGBN-Volume Gaussian Reconstruction Model](high-fidelity_3d_object_generation_from_single_image_with_rgbn-volume_gaussian_r.md)
 - [\[CVPR 2025\] 4DEquine: Disentangling Motion and Appearance for 4D Equine Reconstruction from Monocular Video](4dequine_disentangling_motion_and_appearance_for_4d_equine_reconstruction_from_m.md)
 - [\[CVPR 2025\] GenFusion: Closing the Loop between Reconstruction and Generation via Videos](genfusion_closing_the_loop_between_reconstruction_and_generation_via_videos.md)
+
+</div>
 
 <!-- RELATED:END -->

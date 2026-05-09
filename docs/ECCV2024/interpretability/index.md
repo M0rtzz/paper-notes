@@ -10,6 +10,8 @@ description: >-
 
 **🎞️ ECCV2024** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (34)](../../ACL2026/interpretability/) · [📷 CVPR2026 (31)](../../CVPR2026/interpretability/) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/) · [🧠 NeurIPS2025 (86)](../../NeurIPS2025/interpretability/) · [📹 ICCV2025 (11)](../../ICCV2025/interpretability/)
+
 **[DetailSemNet: Elevating Signature Verification through Detail-Semantic Integration](detailsemnet_elevating_signature_verification_through_detail-semantic_integratio.md)**
 
 :   提出DetailSemNet用于离线签名验证，通过Detail-Semantics Integrator将特征解耦为细节和语义两个分支分别处理，并引入基于EMD的局部结构匹配，在多个多语言签名数据集上取得SOTA。

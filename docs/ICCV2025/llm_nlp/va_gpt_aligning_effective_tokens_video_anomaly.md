@@ -96,6 +96,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] MEraser: An Effective Fingerprint Erasure Approach for Large Language Models](../../ACL2025/llm_nlp/meraser_fingerprint_erasure.md)
@@ -103,5 +105,7 @@ tags:
 - [\[ACL 2025\] Direct Confidence Alignment: Aligning Verbalized Confidence with Internal Confidence In Large Language Models](../../ACL2025/llm_nlp/direct_confidence_alignment_aligning_verbalized_confidence_with_internal_confide.md)
 - [\[AAAI 2026\] Identifying and Analyzing Performance-Critical Tokens in Large Language Models](../../AAAI2026/llm_nlp/identifying_and_analyzing_performance-critical_tokens_in_large_language_models.md)
 - [\[ACL 2025\] BQA: Body Language Question Answering Dataset for Video Large Language Models](../../ACL2025/llm_nlp/bqa_body_language_question_answering_dataset_for_video_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

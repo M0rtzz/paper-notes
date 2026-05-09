@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **9** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (41)](../../ACL2026/llm_agent/) · [📷 CVPR2026 (21)](../../CVPR2026/llm_agent/) · [🔬 ICLR2026 (47)](../../ICLR2026/llm_agent/) · [🤖 AAAI2026 (44)](../../AAAI2026/llm_agent/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_agent/) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/)
+
+🔥 **高频主题：** Agent ×4
+
 **[ATA: Adaptive Transformation Agent for Text-Guided Subject-Position Variable Background Generation](ata_adaptive_transformation_agent_for_text-guided_subject-position_variable_back.md)**
 
 :   提出 ATA（Adaptive Transformation Agent）框架，在文本引导的背景生成中实现对主体位置和姿态的精确控制，通过自适应变换模块动态调整主体在背景中的放置，兼顾视觉一致性和语义合理性。

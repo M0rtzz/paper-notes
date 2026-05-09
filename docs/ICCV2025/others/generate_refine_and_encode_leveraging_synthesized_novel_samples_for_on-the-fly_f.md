@@ -195,6 +195,8 @@ $$\mathcal{L} = \mathcal{L}_{sup} + \mathcal{L}_{reg} + \alpha \cdot \mathcal{L}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] A Hidden Stumbling Block in Generalized Category Discovery: Distracted Attention](a_hidden_stumbling_block_in_generalized_category_discovery_d.md)
@@ -202,5 +204,7 @@ $$\mathcal{L} = \mathcal{L}_{sup} + \mathcal{L}_{reg} + \alpha \cdot \mathcal{L}
 - [\[ACL 2025\] ChartLens: Fine-Grained Visual Attribution in Charts](../../ACL2025/others/chartlens_fine-grained_visual_attribution_in_charts.md)
 - [\[ACL 2025\] FRACTAL: Fine-Grained Scoring from Aggregate Text Labels](../../ACL2025/others/fractal_fine-grained_scoring_from_aggregate_text_labels.md)
 - [\[ICML 2025\] On Fine-Grained Distinct Element Estimation](../../ICML2025/others/on_fine-grained_distinct_element_estimation.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -143,6 +143,8 @@ $$\mathcal{N} = \frac{\gamma \cdot \mathcal{V}}{v}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Referring Expression Comprehension for Small Objects](referring_expression_comprehension_for_small_objects.md)
@@ -150,5 +152,7 @@ $$\mathcal{N} = \frac{\gamma \cdot \mathcal{V}}{v}$$
 - [\[CVPR 2025\] Point-to-Region Loss for Semi-Supervised Point-Based Crowd Counting](../../CVPR2025/autonomous_driving/point-to-region_loss_for_semi-supervised_point-based_crowd_counting.md)
 - [\[CVPR 2025\] Learning to Detect Objects from Multi-Agent LiDAR Scans without Manual Labels](../../CVPR2025/autonomous_driving/learning_to_detect_objects_from_multi-agent_lidar_scans_without_manual_labels.md)
 - [\[CVPR 2026\] SABER: Spatially Consistent 3D Universal Adversarial Objects for BEV Detectors](../../CVPR2026/autonomous_driving/saber_spatially_consistent_3d_universal_adversarial_objects_for_bev_detectors.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -112,6 +112,8 @@ SkeletonDiffusion 提出非各向同性高斯扩散模型用于 3D 人体运动�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing](interedit_navigating_text-guided_multi-human_3d_motion_editing.md)
@@ -119,5 +121,7 @@ SkeletonDiffusion 提出非各向同性高斯扩散模型用于 3D 人体运动�
 - [\[CVPR 2025\] Lifting Motion to the 3D World via 2D Diffusion](lifting_motion_to_the_3d_world_via_2d_diffusion.md)
 - [\[CVPR 2025\] MixerMDM: Learnable Composition of Human Motion Diffusion Models](mixermdm_learnable_composition_of_human_motion_diffusion_models.md)
 - [\[CVPR 2025\] Move-in-2D: 2D-Conditioned Human Motion Generation](move-in-2d_2d-conditioned_human_motion_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

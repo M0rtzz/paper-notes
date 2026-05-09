@@ -154,6 +154,8 @@ DiffeoCFM在所有fMRI数据集上$\alpha,\beta$-F1大幅领先；在EEG上与Ri
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Toward a Unified Geometry Understanding: Riemannian Diffusion Framework for Graph Generation and Prediction](toward_a_unified_geometry_understanding_riemannian_diffusion_framework_for_graph.md)
@@ -161,5 +163,7 @@ DiffeoCFM在所有fMRI数据集上$\alpha,\beta$-F1大幅领先；在EEG上与Ri
 - [\[ICML 2025\] Elucidating Flow Matching ODE Dynamics via Data Geometry and Denoisers](../../ICML2025/image_generation/elucidating_flow_matching_ode_dynamics_with_respect_to_data_geometries_and_denoi.md)
 - [\[NeurIPS 2025\] Flow Matching Neural Processes](flow_matching_neural_processes.md)
 - [\[NeurIPS 2025\] LeapFactual: Reliable Visual Counterfactual Explanation Using Conditional Flow Matching](leapfactual_reliable_visual_counterfactual_explanation_using_conditional_flow_ma.md)
+
+</div>
 
 <!-- RELATED:END -->

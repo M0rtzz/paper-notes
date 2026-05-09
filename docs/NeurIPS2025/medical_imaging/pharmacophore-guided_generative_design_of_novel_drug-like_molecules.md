@@ -134,6 +134,8 @@ AI驱动的早期药物发现正在变革制药范式，但现有方法存在明
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] UniMoMo: Unified Generative Modeling of 3D Molecules for De Novo Binder Design](../../ICML2025/medical_imaging/unimomo_unified_generative_modeling_of_3d_molecules_for_de_novo_binder_design.md)
@@ -141,5 +143,7 @@ AI驱动的早期药物发现正在变革制药范式，但现有方法存在明
 - [\[NeurIPS 2025\] Manipulating 3D Molecules in a Fixed-Dimensional E(3)-Equivariant Latent Space](manipulating_3d_molecules_in_a_fixed-dimensional_e3-equivariant_latent_space.md)
 - [\[NeurIPS 2025\] GFlowNets for Learning Better Drug-Drug Interaction Representations](gflownets_for_learning_better_drug-drug_interaction_representations.md)
 - [\[NeurIPS 2025\] Prior-Guided Flow Matching for Target-Aware Molecule Design with Learnable Atom Number](prior-guided_flow_matching_for_target-aware_molecule_design_with_learnable_atom_.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -181,6 +181,8 @@ JFT memory 在 IN-R、IN-Sketch 上大幅超越 linear probe；Gemini re-ranking
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Flexible Concept Bottleneck Model](../../AAAI2026/interpretability/flexible_concept_bottleneck_model.md)
@@ -188,5 +190,7 @@ JFT memory 在 IN-R、IN-Sketch 上大幅超越 linear probe；Gemini re-ranking
 - [\[CVPR 2025\] KVQ: Boosting Video Quality Assessment via Saliency-Guided Local Perception](../../CVPR2025/interpretability/kvq_boosting_video_quality_assessment_via_saliency-guided_local_perception.md)
 - [\[NeurIPS 2025\] Steering Information Utility in Key-Value Memory for Language Model Post-Training](../../NeurIPS2025/interpretability/steering_information_utility_in_key-value_memory_for_language_model_post-trainin.md)
 - [\[ACL 2026\] ChemVLR: Prioritizing Reasoning in Perception for Chemical Vision-Language Understanding](../../ACL2026/interpretability/chemvlr_prioritizing_reasoning_in_perception_for_chemical_vision-language_unders.md)
+
+</div>
 
 <!-- RELATED:END -->

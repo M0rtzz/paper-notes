@@ -111,6 +111,8 @@ PhD Loss = 按去噪时步加权的三段式损失。CelebV-HQ 视频训练。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] InterActHuman: Multi-Concept Human Animation with Layout-Aligned Audio Conditions](../../ICLR2026/image_restoration/interacthuman_multi-concept_human_animation_with_layout-aligned_audio_conditions.md)
@@ -118,5 +120,7 @@ PhD Loss = 按去噪时步加权的三段式损失。CelebV-HQ 视频训练。
 - [\[CVPR 2025\] AdcSR: Adversarial Diffusion Compression for Real-World Image Super-Resolution](adversarial_diffusion_compression_for_real-world_image_super-resolution.md)
 - [\[AAAI 2026\] ClearAIR: A Human-Visual-Perception-Inspired All-in-One Image Restoration](../../AAAI2026/image_restoration/clearair_a_human-visual-perception-inspired_all-in-one_image_restoration.md)
 - [\[CVPR 2026\] UDAPose: Unsupervised Domain Adaptation for Low-Light Human Pose Estimation](../../CVPR2026/image_restoration/udapose_unsupervised_domain_adaptation_for_low_light_human_pose_estimation.md)
+
+</div>
 
 <!-- RELATED:END -->

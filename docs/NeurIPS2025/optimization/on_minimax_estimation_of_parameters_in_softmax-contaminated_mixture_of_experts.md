@@ -231,6 +231,8 @@ $$p_{G_*}(y|x) = \frac{1}{1+\exp(\beta^{*\top}x + \tau^*)} f_0(y|h_0(x,\eta_0), 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Estimation of Stochastic Optimal Transport Maps](estimation_of_stochastic_optimal_transport_maps.md)
@@ -238,5 +240,7 @@ $$p_{G_*}(y|x) = \frac{1}{1+\exp(\beta^{*\top}x + \tau^*)} f_0(y|h_0(x,\eta_0), 
 - [\[NeurIPS 2025\] Robust Estimation Under Heterogeneous Corruption Rates](robust_estimation_under_heterogeneous_corruption_rates.md)
 - [\[NeurIPS 2025\] Near-Exponential Savings for Mean Estimation with Active Learning](near-exponential_savings_for_mean_estimation_with_active_learning.md)
 - [\[ICML 2025\] Understanding the Statistical Accuracy-Communication Trade-off in Personalized Federated Learning with Minimax Guarantees](../../ICML2025/optimization/understanding_the_statistical_accuracy-communication_trade-off_in_personalized_f.md)
+
+</div>
 
 <!-- RELATED:END -->

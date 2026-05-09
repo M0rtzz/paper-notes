@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **54** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/others/) · [🔬 ICLR2026 (76)](../../ICLR2026/others/) · [🤖 AAAI2026 (126)](../../AAAI2026/others/) · [🧠 NeurIPS2025 (154)](../../NeurIPS2025/others/) · [📹 ICCV2025 (48)](../../ICCV2025/others/) · [🧪 ICML2025 (93)](../../ICML2025/others/)
+
+🔥 **高频主题：** 异常检测 ×3 · 对抗鲁棒 ×3 · 多模态 ×3 · 少样本学习 ×2
+
 **[AdaSFormer: Adaptive Serialized Transformers for Monocular Semantic Scene Completion from Indoor Environments](adasformer_adaptive_serialized_transformers_for_monocular_semantic_scene_complet.md)**
 
 :   提出AdaSFormer，一种针对室内单目语义场景补全(MSSC)的序列化Transformer框架，通过自适应序列化注意力(可学习偏移量)、中心相对位置编码和卷积调制层归一化三个核心设计，在NYUv2和Occ-ScanNet上达到SOTA。

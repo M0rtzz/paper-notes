@@ -154,6 +154,8 @@ $$\min_{\theta_g, \theta_p} \{L_{plan} + L_{rev} + L_{int} + L_{prot}\}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] AdvAgent: Controllable Blackbox Red-teaming on Web Agents](../../ICML2025/llm_agent/advagent_controllable_blackbox_red-teaming_on_web_agents.md)
@@ -161,5 +163,7 @@ $$\min_{\theta_g, \theta_p} \{L_{plan} + L_{rev} + L_{int} + L_{prot}\}$$
 - [\[NeurIPS 2025\] What AI Speaks for Your Community: Polling AI Agents for Public Opinion on Data Center Projects](what_ai_speaks_for_your_community_polling_ai_agents_for_public_opinion_on_data_c.md)
 - [\[ACL 2025\] Towards Safety Reasoning in LLMs: AI-agentic Deliberation for Policy-embedded CoT Data Creation](../../ACL2025/llm_agent/towards_safety_reasoning_in_llms_ai-agentic_deliberation_for_policy-embedded_cot.md)
 - [\[NeurIPS 2025\] SuffixDecoding: Extreme Speculative Decoding for Emerging AI Applications](suffixdecoding_extreme_speculative_decoding_for_emerging_ai_applications.md)
+
+</div>
 
 <!-- RELATED:END -->

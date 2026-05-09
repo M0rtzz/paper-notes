@@ -131,6 +131,8 @@ ProDVa 在 pLDDT 提升 4.63%，PAE 降低 2.71%，pLDDT>70 比例提升 13.66%�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] PROSPERO: Active Learning for Robust Protein Design Beyond Wild-Type Neighborhood](prospero_active_learning_for_robust_protein_design_beyond_wild-type_neighborhood.md)
@@ -138,5 +140,7 @@ ProDVa 在 pLDDT 提升 4.63%，PAE 降低 2.71%，pLDDT>70 比例提升 13.66%�
 - [\[ICML 2025\] Flexibility-conditioned Protein Structure Design with Flow Matching](../../ICML2025/medical_imaging/flexibility-conditioned_protein_structure_design_with_flow_matching.md)
 - [\[ICML 2025\] Elucidating the Design Space of Multimodal Protein Language Models](../../ICML2025/medical_imaging/elucidating_the_design_space_of_multimodal_protein_language_models.md)
 - [\[NeurIPS 2025\] ConfRover: Simultaneous Modeling of Protein Conformation and Dynamics via Autoregression](confrover_simultaneous_modeling_of_protein_conformation_and_dynamics_via_autoreg.md)
+
+</div>
 
 <!-- RELATED:END -->

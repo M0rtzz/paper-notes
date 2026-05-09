@@ -160,6 +160,8 @@ $C_{\text{all}}$衡量模型在同一三段论4个变体上的完全一致比例
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] RULEBREAKERS: Challenging LLMs at the Crossroads between Formal Logic and Human-like Reasoning](../../ICML2025/llm_nlp/rulebreakers_challenging_llms_at_the_crossroads_between_formal_logic_and_human-l.md)
@@ -167,5 +169,7 @@ $C_{\text{all}}$衡量模型在同一三段论4个变体上的完全一致比例
 - [\[AAAI 2026\] TEMPLE: Incentivizing Temporal Understanding of Video LLMs via Progressive Pre-SFT Alignment](temple_incentivizing_temporal_understanding_of_video_large_language_models_via_p.md)
 - [\[AAAI 2026\] Uncertainty Under the Curve: A Sequence-Level Entropy Area Metric for Reasoning LLMs](uncertainty_under_the_curve_a_sequence-level_entropy_area_metric_for_reasoning_l.md)
 - [\[ACL 2025\] Structural Reasoning Improves Molecular Understanding of LLM](../../ACL2025/llm_nlp/structural_reasoning_improves_molecular_understanding_of_llm.md)
+
+</div>
 
 <!-- RELATED:END -->

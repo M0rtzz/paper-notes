@@ -130,6 +130,8 @@ ViHOI由两个核心组件构成：VLM-based Prior Extractor和Vision-aware HOI 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] HOI-IDiff: An Image-like Diffusion Method for Human-Object Interaction Detection](../../CVPR2025/image_generation/an_image-like_diffusion_method_for_human-object_interaction_detection.md)
@@ -137,5 +139,7 @@ ViHOI由两个核心组件构成：VLM-based Prior Extractor和Vision-aware HOI 
 - [\[CVPR 2026\] Object-WIPER: Training-Free Object and Associated Effect Removal in Videos](object-wiper_training-free_object_and_associated_effect_removal_in_videos.md)
 - [\[CVPR 2026\] HaltNav: Reactive Visual Halting over Lightweight Topological Priors for Robust Vision-Language Navigation](haltnav_reactive_visual_halting_over_lightweight_topological_priors_for_robust_v.md)
 - [\[CVPR 2025\] InterAct: Advancing Large-Scale Versatile 3D Human-Object Interaction Generation](../../CVPR2025/image_generation/interact_advancing_large-scale_versatile_3d_human-object_interaction_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

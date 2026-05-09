@@ -195,6 +195,8 @@ $$y \in Q_I^{hc} \iff y \in Q \land \mathcal{L}(A'_z, z) < \mathcal{L}(A_z, z)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Collaborative Tree Search for Enhancing Embodied Multi-Agent Collaboration](../../CVPR2025/robotics/collaborative_tree_search_for_enhancing_embodied_multi-agent_collaboration.md)
@@ -202,5 +204,7 @@ $$y \in Q_I^{hc} \iff y \in Q \land \mathcal{L}(A'_z, z) < \mathcal{L}(A_z, z)$$
 - [\[ICLR 2026\] WebOperator: Action-Aware Tree Search for Autonomous Agents in Web Environment](../../ICLR2026/robotics/weboperator_action-aware_tree_search_for_autonomous_agents_in_web_environment.md)
 - [\[CVPR 2026\] IGen: Scalable Data Generation for Robot Learning from Open-World Images](../../CVPR2026/robotics/igen_scalable_data_generation_for_robot_learning_from_open-world_images.md)
 - [\[AAAI 2026\] Theory of Mind for Explainable Human-Robot Interaction](theory_of_mind_for_explainable_human-robot_interaction.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **49** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/llm_evaluation/) · [📷 CVPR2026 (28)](../../CVPR2026/llm_evaluation/) · [🔬 ICLR2026 (60)](../../ICLR2026/llm_evaluation/) · [🤖 AAAI2026 (39)](../../AAAI2026/llm_evaluation/) · [🧠 NeurIPS2025 (79)](../../NeurIPS2025/llm_evaluation/) · [📹 ICCV2025 (29)](../../ICCV2025/llm_evaluation/)
+
+🔥 **高频主题：** LLM ×6 · 域适应 ×3 · 对抗鲁棒 ×3 · 少样本学习 ×2
+
 **[AAAR-1.0: Assessing AI's Potential to Assist Research](aaar-10_assessing_ais_potential_to_assist_research.md)**
 
 :   提出 AAAR-1.0 基准，通过公式推断、实验设计、论文弱点发现、审稿质量鉴别四个专家级任务，系统评估 LLM 辅助科研的真实能力，揭示当前模型在深度研究任务上仍有显著不足。

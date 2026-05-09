@@ -319,6 +319,8 @@ $$E(\hat{\mathbf{y}}, \mathbf{y}) = \sum_{i} h_i^{\text{LF}}(\mathbf{y}) \hat{\m
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] LinEAS: End-to-end Learning of Activation Steering with a Distributional Loss](lineas_end-to-end_learning_of_activation_steering_with_a_distributional_loss.md)
@@ -326,5 +328,7 @@ $$E(\hat{\mathbf{y}}, \mathbf{y}) = \sum_{i} h_i^{\text{LF}}(\mathbf{y}) \hat{\m
 - [\[CVPR 2025\] Hiding Images in Diffusion Models by Editing Learned Score Functions](../../CVPR2025/image_generation/hiding_images_in_diffusion_models_by_editing_learned_score_functions.md)
 - [\[NeurIPS 2025\] Hephaestus: Mixture Generative Modeling with Energy Guidance for Large-scale QoS Degradation](hephaestus_mixture_generative_modeling_with_energy_guidance_for_large-scale_qos_.md)
 - [\[ACL 2025\] Planning with Diffusion Models for Target-Oriented Dialogue Systems](../../ACL2025/image_generation/difftod_diffusion_dialogue_planning.md)
+
+</div>
 
 <!-- RELATED:END -->

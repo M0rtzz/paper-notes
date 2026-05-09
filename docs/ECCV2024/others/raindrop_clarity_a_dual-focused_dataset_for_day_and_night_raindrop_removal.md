@@ -141,6 +141,8 @@ $$\tilde{\mathbf{x}} = (1 - \mathbf{M}) \odot \mathbf{x}_0 + \mathbf{D}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Spatio-Temporal Proximity-Aware Dual-Path Model for Panoramic Activity Recognition](spatio-temporal_proximity-aware_dual-path_model_for_panoramic_activity_recogniti.md)
@@ -148,5 +150,7 @@ $$\tilde{\mathbf{x}} = (1 - \mathbf{M}) \odot \mathbf{x}_0 + \mathbf{D}$$
 - [\[AAAI 2026\] From Sequential to Recursive: Enhancing Decision-Focused Learning with Bidirectional Feedback](../../AAAI2026/others/from_sequential_to_recursive_enhancing_decision-focused_learning_with_bidirectio.md)
 - [\[AAAI 2026\] Depth-Synergized Mamba Meets Memory Experts for All-Day Image Reflection Separation](../../AAAI2026/others/depth-synergized_mamba_meets_memory_experts_for_all-day_image_reflection_separat.md)
 - [\[ACL 2025\] A Dual-Mind Framework for Strategic and Expressive Negotiation Agent](../../ACL2025/others/a_dual-mind_framework_for_strategic_and_expressive_negotiation_agent.md)
+
+</div>
 
 <!-- RELATED:END -->

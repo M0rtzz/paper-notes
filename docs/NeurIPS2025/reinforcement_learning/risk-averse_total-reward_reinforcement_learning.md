@@ -140,6 +140,8 @@ $$(\pi^*, \beta^*) \in \arg\max_{(\pi,\beta) \in \Pi \times \mathcal{B}(\beta_0,
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Risk-Averse Constrained Reinforcement Learning with Optimized Certainty Equivalents](risk-averse_constrained_reinforcement_learning_with_optimized_certainty_equivale.md)
@@ -147,5 +149,7 @@ $$(\pi^*, \beta^*) \in \arg\max_{(\pi,\beta) \in \Pi \times \mathcal{B}(\beta_0,
 - [\[ICML 2025\] Maximum Total Correlation Reinforcement Learning](../../ICML2025/reinforcement_learning/maximum_total_correlation_reinforcement_learning.md)
 - [\[NeurIPS 2025\] DISCOVER: Automated Curricula for Sparse-Reward Reinforcement Learning](discover_automated_curricula_for_sparse-reward_reinforcement_learning.md)
 - [\[NeurIPS 2025\] Sample Complexity of Distributionally Robust Average-Reward Reinforcement Learning](sample_complexity_of_distributionally_robust_average-reward_reinforcement_learni.md)
+
+</div>
 
 <!-- RELATED:END -->

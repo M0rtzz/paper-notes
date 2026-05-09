@@ -115,6 +115,8 @@ ImToClass和PartsToClass使用交叉熵损失；ImToParts使用Chamfer MSE损失
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] KodCode: A Diverse, Challenging, and Verifiable Synthetic Dataset for Coding](../../ACL2025/others/kodcode_a_diverse_challenging_and_verifiable_synthetic_dataset_for_coding.md)
@@ -122,5 +124,7 @@ ImToClass和PartsToClass使用交叉熵损失；ImToParts使用Chamfer MSE损失
 - [\[CVPR 2025\] BenDFM: A taxonomy and synthetic CAD dataset for manufacturability assessment in sheet metal bending](../../CVPR2025/others/bendfm_a_taxonomy_and_synthetic_cad_dataset_for_manufacturability_assessment_in_.md)
 - [\[ACL 2025\] PersonaBench: Evaluating AI Models on Understanding Personal Information through Accessing (Synthetic) Private User Data](../../ACL2025/others/personabench_evaluating_ai_models_on_understanding_personal_information_through_.md)
 - [\[ICML 2025\] Learning-Augmented Hierarchical Clustering](learning-augmented_hierarchical_clustering.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -123,6 +123,8 @@ Perturb-and-Revise 包含三个阶段：(1) 参数扰动——将源 NeRF 参数
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] PrEditor3D: Fast and Precise 3D Shape Editing](preditor3d_fast_and_precise_3d_shape_editing.md)
@@ -130,5 +132,7 @@ Perturb-and-Revise 包含三个阶段：(1) 参数扰动——将源 NeRF 参数
 - [\[CVPR 2025\] Reference-Based 3D-Aware Image Editing with Triplanes](reference-based_3d-aware_image_editing_with_triplanes.md)
 - [\[CVPR 2025\] PERSE: Personalized 3D Generative Avatars from A Single Portrait](perse_personalized_3d_generative_avatars_from_a_single_portrait.md)
 - [\[CVPR 2025\] Instant3dit: Multiview Inpainting for Fast Editing of 3D Objects](instant3dit_multiview_inpainting_for_fast_editing_of_3d_objects.md)
+
+</div>
 
 <!-- RELATED:END -->

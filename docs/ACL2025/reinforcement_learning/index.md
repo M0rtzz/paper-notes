@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **6** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (34)](../../ACL2026/reinforcement_learning/) · [📷 CVPR2026 (22)](../../CVPR2026/reinforcement_learning/) · [🔬 ICLR2026 (142)](../../ICLR2026/reinforcement_learning/) · [🤖 AAAI2026 (71)](../../AAAI2026/reinforcement_learning/) · [🧠 NeurIPS2025 (173)](../../NeurIPS2025/reinforcement_learning/) · [📹 ICCV2025 (7)](../../ICCV2025/reinforcement_learning/)
+
+🔥 **高频主题：** 强化学习 ×5 · LLM ×3
+
 **[Align-SLM: Textless Spoken Language Models with Reinforcement Learning from AI Feedback](align-slm_textless_spoken_language_models_with_reinforcement_learning_from_ai_fe.md)**
 
 :   本文提出 Align-SLM 框架，首次将偏好优化（DPO + RLAIF）应用于纯语音语言模型（无文本注入），通过 LLM 自动评估生成的语音续写质量构建偏好数据，结合课程学习迭代提升 SLM 的语义理解能力，在 ZeroSpeech 和 StoryCloze 等基准上达到 SLM 的 SOTA。

@@ -202,6 +202,8 @@ TinyBeauty 获得 86.56% 的 Rank-1 票数，遥遥领先。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SynFER: Towards Boosting Facial Expression Recognition with Synthetic Data](../../ICCV2025/human_understanding/synfer_towards_boosting_facial_expression_recognition_with_synthetic_data.md)
@@ -209,5 +211,7 @@ TinyBeauty 获得 86.56% 的 Rank-1 票数，遥遥领先。
 - [\[ECCV 2024\] Facial Affective Behavior Analysis with Instruction Tuning](facial_affective_behavior_analysis_with_instruction_tuning.md)
 - [\[CVPR 2026\] Mobile-VTON: High-Fidelity On-Device Virtual Try-On](../../CVPR2026/human_understanding/mobile-vton_high-fidelity_on-device_virtual_try-on.md)
 - [\[ECCV 2024\] Pose-Aware Self-Supervised Learning with Viewpoint Trajectory Regularization](pose-aware_self-supervised_learning_with_viewpoint_trajectory_regularization.md)
+
+</div>
 
 <!-- RELATED:END -->

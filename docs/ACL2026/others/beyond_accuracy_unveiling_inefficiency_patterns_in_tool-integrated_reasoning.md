@@ -110,6 +110,8 @@ PTE 本身是评估指标而非训练目标，但论文指出可作为 RL 奖励
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] STRICTA: Structured Reasoning in Critical Text Assessment for Peer Review and Beyond](../../ACL2025/others/stricta_structured_reasoning_in_critical_text_assessment_for_peer_review_and_bey.md)
@@ -117,5 +119,7 @@ PTE 本身是评估指标而非训练目标，但论文指出可作为 RL 奖励
 - [\[ACL 2025\] Divide-Then-Aggregate: An Efficient Tool Learning Method via Parallel Tool Invocation](../../ACL2025/others/dta_llama_parallel_tool_invocation.md)
 - [\[ACL 2025\] PopAlign: Diversifying Contrasting Patterns for a More Comprehensive Alignment](../../ACL2025/others/popalign_diversifying_contrasting_patterns_for_a_more_comprehensive_alignment.md)
 - [\[AAAI 2026\] Verification-Guided Context Optimization for Tool Calling via Hierarchical LLMs-as-editors](../../AAAI2026/others/verification-guided_context_optimization_for_tool_calling_via_hierarchical_llms-.md)
+
+</div>
 
 <!-- RELATED:END -->

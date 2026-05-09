@@ -157,6 +157,8 @@ $$\mathcal{M}(\mathbf{p}, X) = \mathcal{M}_L(\mathbf{p}, \mathcal{M}_V^p(\mathbf
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding](../../ACL2025/llm_evaluation/kitab-bench_a_comprehensive_multi-domain_benchmark_for_arabic_ocr_and_document_u.md)
@@ -164,5 +166,7 @@ $$\mathcal{M}(\mathbf{p}, X) = \mathcal{M}_L(\mathbf{p}, \mathcal{M}_V^p(\mathbf
 - [\[ECCV 2024\] OGNI-DC: Robust Depth Completion with Optimization-Guided Neural Iterations](ogni-dc_robust_depth_completion_with_optimization-guided_neural_iterations.md)
 - [\[ECCV 2024\] Learn from the Learnt: Source-Free Active Domain Adaptation via Contrastive Sampling and Visual Persistence](learn_from_the_learnt_source-free_active_domain_adaptation_via_contrastive_sampl.md)
 - [\[ECCV 2024\] Deep Cost Ray Fusion for Sparse Depth Video Completion](deep_cost_ray_fusion_for_sparse_depth_video_completion.md)
+
+</div>
 
 <!-- RELATED:END -->

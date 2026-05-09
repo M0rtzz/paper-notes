@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **126** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/image_generation/) · [📷 CVPR2026 (240)](../../CVPR2026/image_generation/) · [🔬 ICLR2026 (154)](../../ICLR2026/image_generation/) · [🤖 AAAI2026 (78)](../../AAAI2026/image_generation/) · [🧠 NeurIPS2025 (250)](../../NeurIPS2025/image_generation/) · [📹 ICCV2025 (219)](../../ICCV2025/image_generation/)
+
+🔥 **高频主题：** 扩散模型 ×61 · 文生图 ×21 · 个性化生成 ×10 · 图像编辑 ×8 · 少样本学习 ×6
+
 **[2S-ODIS: Two-Stage Omni-Directional Image Synthesis by Geometric Distortion Correction](2s-odis_two-stage_omni-directional_image_synthesis_by_geometric_distortion_corre.md)**
 
 :   2S-ODIS通过两阶段结构利用预训练VQGAN（无需微调）合成全景图像：第一阶段生成低分辨率粗略ERP图，第二阶段通过生成26个NFoV局部图像并融合来校正几何畸变，训练时间从14天缩短到4天且图像质量更优。

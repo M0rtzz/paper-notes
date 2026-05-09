@@ -145,6 +145,8 @@ GLane3D-Large在OpenLane上以66.0% F1超越所有先前方法，严格阈值0.5
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Rethinking Lanes and Points in Complex Scenarios for Monocular 3D Lane Detection](rethinking_lanes_and_points_in_complex_scenarios_for_monocular_3d_lane_detection.md)
@@ -152,5 +154,7 @@ GLane3D-Large在OpenLane上以66.0% F1超越所有先前方法，严格阈值0.5
 - [\[CVPR 2025\] T²SG: Traffic Topology Scene Graph for Topology Reasoning in Autonomous Driving](t2sg_traffic_topology_scene_graph_for_topology_reasoning_in_autonomous_driving.md)
 - [\[CVPR 2025\] Towards Satellite Image Road Graph Extraction: A Global-Scale Dataset and A Novel Method](towards_satellite_image_road_graph_extraction_a_global-scale_dataset_and_a_novel.md)
 - [\[ICCV 2025\] SeqGrowGraph: Learning Lane Topology as a Chain of Graph Expansions](../../ICCV2025/autonomous_driving/seqgrowgraph_learning_lane_topology_as_a_chain_of_graph_expansions.md)
+
+</div>
 
 <!-- RELATED:END -->

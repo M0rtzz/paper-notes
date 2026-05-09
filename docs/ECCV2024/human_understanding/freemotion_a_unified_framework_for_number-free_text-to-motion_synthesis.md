@@ -149,6 +149,8 @@ FreeMotion在单人和双人生成上全面超越InterGen*，FID分别降低44.6
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] ParTY: Part-Guidance for Expressive Text-to-Motion Synthesis](../../CVPR2026/human_understanding/party_part-guidance_for_expressive_text-to-motion_synthesis.md)
@@ -156,5 +158,7 @@ FreeMotion在单人和双人生成上全面超越InterGen*，FID分别降低44.6
 - [\[CVPR 2025\] UniPose: A Unified Multimodal Framework for Human Pose Comprehension, Generation and Editing](../../CVPR2025/human_understanding/unipose_a_unified_multimodal_framework_for_human_pose_comprehension_generation_a.md)
 - [\[ECCV 2024\] Towards Unified Representation of Invariant-Specific Features in Missing Modality Face Anti-Spoofing](towards_unified_representation_of_invariant-specific_features_in_missing_modalit.md)
 - [\[CVPR 2025\] SimMotionEdit: Text-Based Human Motion Editing with Motion Similarity Prediction](../../CVPR2025/human_understanding/simmotionedit_text-based_human_motion_editing_with_motion_similarity_prediction.md)
+
+</div>
 
 <!-- RELATED:END -->

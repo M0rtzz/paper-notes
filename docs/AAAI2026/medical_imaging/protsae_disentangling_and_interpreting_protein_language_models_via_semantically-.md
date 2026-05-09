@@ -140,6 +140,8 @@ ProtSAE 在所有指标上大幅超越 SAE 基线，AUC 从 TopK SAE 的 0.565 �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] From Black Box to Biomarker: Sparse Autoencoders for Interpreting Speech Models of Parkinson's Disease](../../NeurIPS2025/medical_imaging/from_black_box_to_biomarker_sparse_autoencoders_for_interpreting_speech_models_o.md)
@@ -147,5 +149,7 @@ ProtSAE 在所有指标上大幅超越 SAE 基线，AUC 从 TopK SAE 的 0.565 �
 - [\[ICML 2025\] Steering Protein Language Models](../../ICML2025/medical_imaging/steering_protein_language_models.md)
 - [\[CVPR 2026\] Multimodal Protein Language Models for Enzyme Kinetic Parameters: From Substrate Recognition to Conformational Adaptation](../../CVPR2026/medical_imaging/multimodal_protein_language_models_for_enzyme_kinetic_parameters_from_substrate_.md)
 - [\[ACL 2025\] Concept Bottleneck Language Models For Protein Design](../../ACL2025/medical_imaging/concept_bottleneck_language_models_for_protein_design.md)
+
+</div>
 
 <!-- RELATED:END -->

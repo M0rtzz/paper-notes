@@ -128,6 +128,8 @@ DRPO 借鉴因果推断中的双重稳健估计方法，提出一种偏好优化
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Constrained Network Slice Assignment via Large Language Models](constrained_network_slice_assignment_via_llms.md)
@@ -135,5 +137,7 @@ DRPO 借鉴因果推断中的双重稳健估计方法，提出一种偏好优化
 - [\[NeurIPS 2025\] Large Language Bayes](large_language_bayes.md)
 - [\[NeurIPS 2025\] Training-Free Bayesianization for Low-Rank Adapters of Large Language Models](training-free_bayesianization_for_low-rank_adapters_of_large_language_models.md)
 - [\[ICML 2025\] Subspace Optimization for Large Language Models with Convergence Guarantees](../../ICML2025/optimization/subspace_optimization_for_large_language_models_with_convergence_guarantees.md)
+
+</div>
 
 <!-- RELATED:END -->

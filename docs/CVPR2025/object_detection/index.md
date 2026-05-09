@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **31** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/object_detection/) · [📷 CVPR2026 (45)](../../CVPR2026/object_detection/) · [🔬 ICLR2026 (9)](../../ICLR2026/object_detection/) · [🤖 AAAI2026 (17)](../../AAAI2026/object_detection/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/object_detection/) · [📹 ICCV2025 (30)](../../ICCV2025/object_detection/)
+
+🔥 **高频主题：** 目标检测 ×10 · 扩散模型 ×4 · 3D 目标检测 ×3 · 文生图 ×2
+
 **[ABRA: Teleporting Fine-Tuned Knowledge Across Domains for Open-Vocabulary Object Detection](abra_teleporting_fine-tuned_knowledge_across_domains_for_open-vocabulary_object_.md)**
 
 :   提出 ABRA（Aligned Basis Relocation for Adaptation），通过在权重空间中进行 SVD 分解与正交旋转对齐，将源域的类别特定检测知识"传送"到无标注数据的目标域，实现零样本跨域目标检测。

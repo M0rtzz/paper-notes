@@ -172,6 +172,8 @@ FlashDepth精度仅次于VidDepthAny（处理32帧批次），且超过处理110
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] QuartDepth: Post-Training Quantization for Real-Time Depth Estimation on the Edge](../../CVPR2025/3d_vision/quartdepth_post-training_quantization_for_real-time_depth_estimation_on_the_edge.md)
@@ -179,5 +181,7 @@ FlashDepth精度仅次于VidDepthAny（处理32帧批次），且超过处理110
 - [\[ICCV 2025\] Seeing and Seeing Through the Glass: Real and Synthetic Data for Multi-Layer Depth Estimation](seeing_and_seeing_through_the_glass_real_and_synthetic_data_for_multi-layer_dept.md)
 - [\[ICCV 2025\] Amodal Depth Anything: Amodal Depth Estimation in the Wild](amodal_depth_anything_amodal_depth_estimation_in_the_wild.md)
 - [\[AAAI 2026\] StreamSTGS: Streaming Spatial and Temporal Gaussian Grids for Real-Time Free-Viewpoint Video](../../AAAI2026/3d_vision/streamstgs_streaming_spatial_and_temporal_gaussian_grids_for_real-time_free-view.md)
+
+</div>
 
 <!-- RELATED:END -->

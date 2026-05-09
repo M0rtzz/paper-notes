@@ -117,6 +117,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Gyro-based Neural Single Image Deblurring](gyro-based_neural_single_image_deblurring.md)
@@ -124,5 +126,7 @@ tags:
 - [\[ECCV 2024\] Adaptive Selection of Sampling-Reconstruction in Fourier Compressed Sensing](../../ECCV2024/image_restoration/adaptive_selection_of_samplingreconstruction_in_fourier_comp.md)
 - [\[CVPR 2025\] Detail-Preserving Latent Diffusion for Stable Shadow Removal](detail-preserving_latent_diffusion_for_stable_shadow_removal.md)
 - [\[CVPR 2025\] AdcSR: Adversarial Diffusion Compression for Real-World Image Super-Resolution](adversarial_diffusion_compression_for_real-world_image_super-resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

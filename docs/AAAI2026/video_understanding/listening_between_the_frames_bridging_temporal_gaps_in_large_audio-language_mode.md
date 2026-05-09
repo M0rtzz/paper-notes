@@ -214,6 +214,8 @@ $$\hat{\mathbf{W}}_i = \mathbf{W}_i + \mathbf{e}_t(t_i)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Quantifying Conversational Reliability of Large Language Models under Multi-Turn Interaction](quantifying_conversational_reliability_of_large_language_models_under_multi-turn.md)
@@ -221,5 +223,7 @@ $$\hat{\mathbf{W}}_i = \mathbf{W}_i + \mathbf{e}_t(t_i)$$
 - [\[AAAI 2026\] Uncovering Zero-Shot Generalization Gaps in Time-Series Foundation Models Using Real-World Videos](uncovering_zero-shot_generalization_gaps_in_time-series_foundation_models_using_.md)
 - [\[NeurIPS 2025\] Video Finetuning Improves Reasoning Between Frames](../../NeurIPS2025/video_understanding/video_finetuning_improves_reasoning_between_frames.md)
 - [\[CVPR 2025\] On the Consistency of Video Large Language Models in Temporal Comprehension](../../CVPR2025/video_understanding/on_the_consistency_of_video_large_language_models_in_temporal_comprehension.md)
+
+</div>
 
 <!-- RELATED:END -->

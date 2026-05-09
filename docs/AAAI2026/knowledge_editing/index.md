@@ -10,6 +10,8 @@ description: >-
 
 **🤖 AAAI2026** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/knowledge_editing/) · [📷 CVPR2026 (3)](../../CVPR2026/knowledge_editing/) · [🔬 ICLR2026 (9)](../../ICLR2026/knowledge_editing/) · [🧠 NeurIPS2025 (6)](../../NeurIPS2025/knowledge_editing/) · [🧪 ICML2025 (2)](../../ICML2025/knowledge_editing/) · [💬 ACL2025 (20)](../../ACL2025/knowledge_editing/)
+
 **[Catastrophic Forgetting in Kolmogorov-Arnold Networks](catastrophic_forgetting_in_kolmogorov-arnold_networks.md)**
 
 :   首个系统性研究KAN（Kolmogorov-Arnold Networks）中灾难性遗忘行为的工作：建立了遗忘与激活支持重叠和数据内禀维度之间的理论框架，并提出KAN-LoRA用于语言模型的持续微调知识编辑。

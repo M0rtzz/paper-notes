@@ -122,6 +122,8 @@ $$\mathcal{L} = \sum_{k=1}^{K} 0.8^{K-k} \|\mathbf{f}^{gt} - \mathbf{f}^k\|_1$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] DPFlow: Adaptive Optical Flow Estimation with a Dual-Pyramid Framework](dpflow_adaptive_optical_flow_estimation_with_a_dual-pyramid_framework.md)
@@ -129,5 +131,7 @@ $$\mathcal{L} = \sum_{k=1}^{K} 0.8^{K-k} \|\mathbf{f}^{gt} - \mathbf{f}^k\|_1$$
 - [\[CVPR 2026\] U2Flow: Uncertainty-Aware Unsupervised Optical Flow Estimation](../../CVPR2026/video_understanding/u2flow_uncertainty_aware_unsupervised_optical_flow_estimation.md)
 - [\[ICCV 2025\] MEMFOF: High-Resolution Training for Memory-Efficient Multi-Frame Optical Flow Estimation](../../ICCV2025/video_understanding/memfof_high-resolution_training_for_memory-efficient_multi-frame_optical_flow_es.md)
 - [\[ICCV 2025\] Simultaneous Motion And Noise Estimation with Event Cameras](../../ICCV2025/video_understanding/simultaneous_motion_and_noise_estimation_with_event_cameras.md)
+
+</div>
 
 <!-- RELATED:END -->

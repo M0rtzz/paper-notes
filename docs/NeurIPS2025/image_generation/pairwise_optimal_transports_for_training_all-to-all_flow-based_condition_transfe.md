@@ -142,6 +142,8 @@ $$\int \|x_1 - x_2\|^2 d\Pi^*(x_1, x_2 | c_1, c_2) = W_2^2(P_{c_1}, P_{c_2})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] GuideFlow3D: Optimization-Guided Rectified Flow For Appearance Transfer](guideflow3d_optimization-guided_rectified_flow_for_appearance_transfer.md)
@@ -149,5 +151,7 @@ $$\int \|x_1 - x_2\|^2 d\Pi^*(x_1, x_2 | c_1, c_2) = W_2^2(P_{c_1}, P_{c_2})$$
 - [\[NeurIPS 2025\] On the Relation between Rectified Flows and Optimal Transport](on_the_relation_between_rectified_flows_and_optimal_transport.md)
 - [\[ICML 2025\] Position: All Current Generative Fidelity and Diversity Metrics are Flawed](../../ICML2025/image_generation/position_all_current_generative_fidelity_and_diversity_metrics_are_flawed.md)
 - [\[ICML 2025\] Model Immunization from a Condition Number Perspective](../../ICML2025/image_generation/model_immunization_from_a_condition_number_perspective.md)
+
+</div>
 
 <!-- RELATED:END -->

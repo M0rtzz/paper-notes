@@ -122,6 +122,8 @@ $\mathcal{L}_{id\text{-}classify}$ 为身份分类交叉熵损失，$\mathcal{L}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation?](are_general-purpose_vision_models_all_we_need_for_2d_medical_image_segmentation_.md)
@@ -129,5 +131,7 @@ $\mathcal{L}_{id\text{-}classify}$ 为身份分类交叉熵损失，$\mathcal{L}
 - [\[ICLR 2026\] Learning Domain-Aware Task Prompt Representations for Multi-Domain All-in-One Image Restoration](../../ICLR2026/medical_imaging/learning_domain-aware_task_prompt_representations_for_multi-domain_all-in-one_im.md)
 - [\[CVPR 2025\] EchoONE: Segmenting Multiple Echocardiography Planes in One Model](echoone_segmenting_multiple_echocardiography_planes_in_one_model.md)
 - [\[ICCV 2025\] UKBOB: One Billion MRI Labeled Masks for Generalizable 3D Medical Image Segmentation](../../ICCV2025/medical_imaging/ukbob_one_billion_mri_labeled_masks_for_generalizable_3d_medical_image_segmentat.md)
+
+</div>
 
 <!-- RELATED:END -->

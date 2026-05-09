@@ -121,6 +121,8 @@ LCIM使用MSE+频域损失训练：$\mathcal{L}_\mathcal{D} = \mathcal{L}_{MSE}(
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] BluRef: Unsupervised Image Deblurring with Dense-Matching References](bluref_unsupervised_image_deblurring_with_dense-matching_references.md)
@@ -128,5 +130,7 @@ LCIM使用MSE+频域损失训练：$\mathcal{L}_\mathcal{D} = \mathcal{L}_{MSE}(
 - [\[CVPR 2025\] Efficient Diffusion as Low Light Enhancer (ReDDiT)](../../CVPR2025/image_restoration/efficient_diffusion_as_low_light_enhancer.md)
 - [\[CVPR 2026\] RAW-Domain Degradation Models for Realistic Smartphone Super-Resolution](raw-domain_degradation_models_for_realistic_smartphone_super-resolution.md)
 - [\[CVPR 2026\] IA-CLAHE: Image-Adaptive Clip Limit Estimation for CLAHE](ia_clahe_image_adaptive_clip_limit.md)
+
+</div>
 
 <!-- RELATED:END -->

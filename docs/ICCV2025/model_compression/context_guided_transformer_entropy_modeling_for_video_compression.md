@@ -126,6 +126,8 @@ BD-Rate (MS-SSIM)：CGT平均-74.7%，大幅超越MIMT的-65.3%和DMC的-55.4%�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Learned Image Compression with Hierarchical Progressive Context Modeling](learned_image_compression_with_hierarchical_progressive_context_modeling.md)
@@ -133,5 +135,7 @@ BD-Rate (MS-SSIM)：CGT平均-74.7%，大幅超越MIMT的-65.3%和DMC的-55.4%�
 - [\[ICCV 2025\] MotionFollower: Editing Video Motion via Lightweight Score-Guided Diffusion](motionfollower_editing_video_motion_via_score-guided_diffusion.md)
 - [\[ICCV 2025\] EA-ViT: Efficient Adaptation for Elastic Vision Transformer](ea-vit_efficient_adaptation_for_elastic_vision_transformer.md)
 - [\[ICML 2025\] Core Context Aware Transformers for Long Context Language Modeling](../../ICML2025/model_compression/core_context_aware_transformers_for_long_context_language_modeling.md)
+
+</div>
 
 <!-- RELATED:END -->

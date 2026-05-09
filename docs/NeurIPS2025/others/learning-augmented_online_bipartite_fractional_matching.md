@@ -120,6 +120,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Online Sparsification of Bipartite-Like Clusters in Graphs](../../ICML2025/others/online_sparsification_of_bipartite-like_clusters_in_graphs.md)
@@ -127,5 +129,7 @@ tags:
 - [\[NeurIPS 2025\] Stable Matching with Ties: Approximation Ratios and Learning](stable_matching_with_ties_approximation_ratios_and_learning.md)
 - [\[NeurIPS 2025\] Learning-Augmented Streaming Algorithms for Correlation Clustering](learning-augmented_streaming_algorithms_for_correlation_clustering.md)
 - [\[ICML 2025\] Learning-Augmented Algorithms for MTS with Bandit Access to Multiple Predictors](../../ICML2025/others/learning-augmented_algorithms_for_mts_with_bandit_access_to_multiple_predictors.md)
+
+</div>
 
 <!-- RELATED:END -->

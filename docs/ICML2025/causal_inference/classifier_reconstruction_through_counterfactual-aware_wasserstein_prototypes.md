@@ -177,6 +177,8 @@ $$\min_{\mathbb{Q}_0, \mathbb{Q}_1} \sum_{c \in \{0,1\}} \left( W_2^2(\mathbb{Q}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] A Visual Leap in CLIP Compositionality Reasoning through Generation of Counterfactual Sets](../../ICCV2025/causal_inference/a_visual_leap_in_clip_compositionality_reasoning_through_gen.md)
@@ -184,5 +186,7 @@ $$\min_{\mathbb{Q}_0, \mathbb{Q}_1} \sum_{c \in \{0,1\}} \left( W_2^2(\mathbb{Q}
 - [\[ICLR 2026\] Validating Interpretability in siRNA Efficacy Prediction: A Perturbation-Based, Dataset-Aware Protocol](../../ICLR2026/causal_inference/validating_interpretability_in_sirna_efficacy_prediction_a_perturbation-based_da.md)
 - [\[ICML 2025\] Exogenous Isomorphism for Counterfactual Identifiability](exogenous_isomorphism_for_counterfactual_identifiability.md)
 - [\[ACL 2025\] Counterfactual Explanations for Aspect-Based Sentiment Analysis](../../ACL2025/causal_inference/counterfactual_explanations_for_aspect-based_sentiment_analysis.md)
+
+</div>
 
 <!-- RELATED:END -->

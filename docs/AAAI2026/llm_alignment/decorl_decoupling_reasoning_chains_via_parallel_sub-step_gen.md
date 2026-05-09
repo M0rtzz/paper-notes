@@ -135,6 +135,8 @@ DeCoRL 将 CoT 推理从单体顺序处理转变为"交响乐团式"的模块化
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Trajectory Balance with Asynchrony: Decoupling Exploration and Learning for Fast, Scalable LLM Post-Training](../../NeurIPS2025/llm_alignment/trajectory_balance_with_asynchrony_decoupling_exploration_and_learning_for_fast_.md)
@@ -142,5 +144,7 @@ DeCoRL 将 CoT 推理从单体顺序处理转变为"交响乐团式"的模块化
 - [\[AAAI 2026\] On the Exponential Convergence for Offline RLHF with Pairwise Comparisons](on_the_exponential_convergence_for_offline_rlhf_with_pairwise_comparisons.md)
 - [\[AAAI 2026\] GRAM-R²: Self-Training Generative Foundation Reward Models for Reward Reasoning](gram-r2_self-training_generative_foundation_reward_models_for_reward_reasoning.md)
 - [\[AAAI 2026\] When Human Preferences Flip: An Instance-Dependent Robust Loss for RLHF](when_human_preferences_flip_an_instance-dependent_robust_loss_for_rlhf.md)
+
+</div>
 
 <!-- RELATED:END -->

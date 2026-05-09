@@ -142,6 +142,8 @@ PerturbPE建立在MöbiusGCN之上。整体流程：(1) 给定可能有边缺失
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] RePOSE: 3D Human Pose Estimation via Spatio-Temporal Depth Relational Consistency](repose_3d_human_pose_estimation_via_spatio-temporal_depth_relational_consistency.md)
@@ -149,5 +151,7 @@ PerturbPE建立在MöbiusGCN之上。整体流程：(1) 给定可能有边缺失
 - [\[ECCV 2024\] WorldPose: A World Cup Dataset for Global 3D Human Pose Estimation](worldpose_a_world_cup_dataset_for_global_3d_human_pose_estimation.md)
 - [\[ICCV 2025\] PersPose: 3D Human Pose Estimation with Perspective Encoding and Perspective Rotation](../../ICCV2025/human_understanding/perspose_3d_human_pose_estimation_with_perspective_encoding_and_perspective_rota.md)
 - [\[ECCV 2024\] UPose3D: Uncertainty-Aware 3D Human Pose Estimation with Cross-View and Temporal Cues](upose3d_uncertainty-aware_3d_human_pose_estimation_with_cross-view_and_temporal_.md)
+
+</div>
 
 <!-- RELATED:END -->

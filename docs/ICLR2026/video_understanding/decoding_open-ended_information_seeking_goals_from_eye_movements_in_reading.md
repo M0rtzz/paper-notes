@@ -94,6 +94,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] MovieRecapsQA: A Multimodal Open-Ended Video Question-Answering Benchmark](../../CVPR2026/video_understanding/movierecapsqa_a_multimodal_open-ended_video_question-answering_benchmark.md)
@@ -101,5 +103,7 @@ tags:
 - [\[ACL 2026\] Probing for Reading Times](../../ACL2026/video_understanding/probing_for_reading_times.md)
 - [\[ICLR 2026\] Map the Flow: Revealing Hidden Pathways of Information in VideoLLMs](map_the_flow_revealing_hidden_pathways_of_information_in_videollms.md)
 - [\[CVPR 2026\] GoalForce: Teaching Video Models to Accomplish Physics-Conditioned Goals](../../CVPR2026/video_understanding/goal_force_teaching_video_models_to_accomplish_physics-conditioned_goals.md)
+
+</div>
 
 <!-- RELATED:END -->

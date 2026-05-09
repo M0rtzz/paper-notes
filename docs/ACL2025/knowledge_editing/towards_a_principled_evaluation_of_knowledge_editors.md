@@ -236,6 +236,8 @@ LLM-as-a-judge（Qwen-32B）在人工评估真值上略优于精确匹配。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] The Mirage of Model Editing: Revisiting Evaluation in the Wild](the_mirage_of_model_editing_revisiting_evaluation_in_the_wild.md)
@@ -243,5 +245,7 @@ LLM-as-a-judge（Qwen-32B）在人工评估真值上略优于精确匹配。
 - [\[ACL 2025\] SAKE: Steering Activations for Knowledge Editing](sake_steering_activations_for_knowledge_editing.md)
 - [\[ACL 2025\] Efficient Knowledge Editing via Minimal Precomputation](efficient_knowledge_editing.md)
 - [\[ACL 2025\] ScEdit: Script-based Assessment of Knowledge Editing](scedit_script-based_assessment_of_knowledge_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

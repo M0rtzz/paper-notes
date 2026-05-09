@@ -115,6 +115,8 @@ $$H_{cwr}^{(t)} = \sigma((I - \hat{L})(H_{cwr}^{(t-1)} \odot K)W_{cwr}^{(t)})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] ADPretrain: Advancing Industrial Anomaly Detection via Anomaly Representation Pretraining](adpretrain_advancing_industrial_anomaly_detection_via_anomaly_representation_pre.md)
@@ -122,5 +124,7 @@ $$H_{cwr}^{(t)} = \sigma((I - \hat{L})(H_{cwr}^{(t-1)} \odot K)W_{cwr}^{(t)})$$
 - [\[NeurIPS 2025\] Prediction-Powered Semi-Supervised Learning with Online Power Tuning](prediction-powered_semi-supervised_learning_with_online_power_tuning.md)
 - [\[NeurIPS 2025\] Redundancy-Aware Test-Time Graph Out-of-Distribution Detection](redundancy-aware_test-time_graph_out-of-distribution_detection.md)
 - [\[AAAI 2026\] CASL: Curvature-Augmented Self-supervised Learning for 3D Anomaly Detection](../../AAAI2026/others/casl_curvature-augmented_self-supervised_learning_for_3d_anomaly_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

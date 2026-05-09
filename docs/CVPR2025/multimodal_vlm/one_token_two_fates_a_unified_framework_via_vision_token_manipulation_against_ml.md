@@ -146,6 +146,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] VLA-Cache: Efficient Vision-Language-Action Manipulation via Adaptive Token Caching](../../NeurIPS2025/multimodal_vlm/vla-cache_efficient_vision-language-action_manipulation_via_adaptive_token_cachi.md)
@@ -153,5 +155,7 @@ tags:
 - [\[CVPR 2025\] Rethinking Few-Shot Adaptation of Vision-Language Models in Two Stages](rethinking_few-shot_adaptation_of_vision-language_models_in_two_stages.md)
 - [\[CVPR 2025\] Reasoning to Attend: Try to Understand How \<SEG\> Token Works](reasoning_to_attend_try_to_understand_how_seg_token_works.md)
 - [\[CVPR 2025\] Octopus: Alleviating Hallucination via Dynamic Contrastive Decoding](octopus_alleviating_hallucination_via_dynamic_contrastive_decoding.md)
+
+</div>
 
 <!-- RELATED:END -->

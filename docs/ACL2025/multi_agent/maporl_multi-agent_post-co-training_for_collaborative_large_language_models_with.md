@@ -153,6 +153,8 @@ Phi-3 (3.4B) + Qwen2.5 (3B) 和 Phi-3 + Llama-3 (8B) 的异构配对通过 MAPoR
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Auto-TA: Towards Scalable Automated Thematic Analysis (TA) via Multi-Agent Large Language Models with Reinforcement Learning](auto-ta_towards_scalable_automated_thematic_analysis_ta_via_multi-agent_large_la.md)
@@ -160,5 +162,7 @@ Phi-3 (3.4B) + Qwen2.5 (3B) 和 Phi-3 + Llama-3 (8B) 的异构配对通过 MAPoR
 - [\[ACL 2025\] Theorem-of-Thought: A Multi-Agent Framework for Abductive, Deductive, and Inductive Reasoning in Language Models](theorem-of-thought_a_multi-agent_framework_for_abductive_deductive_and_inductive.md)
 - [\[ACL 2025\] MasRouter: Learning to Route LLMs for Multi-Agent Systems](masrouter_learning_to_route_llms_for_multi-agent_systems.md)
 - [\[ACL 2025\] Table-Critic: A Multi-Agent Framework for Collaborative Criticism and Refinement in Table Reasoning](table_critic_multi_agent.md)
+
+</div>
 
 <!-- RELATED:END -->

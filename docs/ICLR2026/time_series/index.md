@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **39** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/time_series/) · [📷 CVPR2026 (8)](../../CVPR2026/time_series/) · [🤖 AAAI2026 (35)](../../AAAI2026/time_series/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/time_series/) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/) · [🧪 ICML2025 (27)](../../ICML2025/time_series/)
+
+🔥 **高频主题：** 时序预测 ×29 · LLM ×4 · 少样本学习 ×4 · 异常检测 ×2 · 推理 ×2
+
 **[Adapt Data to Model: Adaptive Transformation Optimization for Domain-shared Time Series Foundation Models](adapt_data_to_model_adaptive_transformation_optimization_for_domain-shared_time_.md)**
 
 :   提出TATO框架，通过自动优化数据预处理 pipeline（包括上下文裁切、尺度归一化、异常值校正），让冻结的大型时序模型（LTM）在不微调的情况下适配不同下游领域，平均降低MSE 13.6%，最高65.4%。

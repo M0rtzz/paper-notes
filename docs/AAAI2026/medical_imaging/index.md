@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **105** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/medical_imaging/) · [📷 CVPR2026 (153)](../../CVPR2026/medical_imaging/) · [🔬 ICLR2026 (72)](../../ICLR2026/medical_imaging/) · [🧠 NeurIPS2025 (141)](../../NeurIPS2025/medical_imaging/) · [📹 ICCV2025 (40)](../../ICCV2025/medical_imaging/) · [🧪 ICML2025 (63)](../../ICML2025/medical_imaging/)
+
+🔥 **高频主题：** 医学影像 ×43 · 语义分割 ×11 · 对齐/RLHF ×9 · 多模态 ×8 · LLM ×7
+
 **[A Disease-Aware Dual-Stage Framework for Chest X-ray Report Generation](a_disease-aware_dual-stage_framework_for_chest_x-ray_report_.md)**
 
 :   提出一种两阶段疾病感知框架，通过学习14个与病理类别对应的疾病感知语义token（DASTs）实现显式的疾病表征，再利用疾病-视觉注意力融合（DVAF）和双模态相似性检索（DMSR）机制辅助LLM生成临床准确的胸部X光报告，在CheXpert Plus、IU X-Ray和MIMIC-CXR三个数据集上取得SOTA。

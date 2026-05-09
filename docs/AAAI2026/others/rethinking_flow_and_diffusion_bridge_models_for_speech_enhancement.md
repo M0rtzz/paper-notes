@@ -166,6 +166,8 @@ $$\mathbf{x}_{t_0} = \sum_{n=1}^{N} w_n \mathbf{s}_{t_n} + w_y \mathbf{y}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Beyond World Models: Rethinking Understanding in AI Models](beyond_world_models_rethinking_understanding_in_ai_models.md)
@@ -173,5 +175,7 @@ $$\mathbf{x}_{t_0} = \sum_{n=1}^{N} w_n \mathbf{s}_{t_n} + w_y \mathbf{y}$$
 - [\[AAAI 2026\] Controllable Financial Market Generation with Diffusion Guided Meta Agent](controllable_financial_market_generation_with_diffusion_guided_meta_agent.md)
 - [\[AAAI 2026\] Cash Flow Underwriting with Bank Transaction Data: Advancing MSME Financial Inclusion in Malaysia](cash_flow_underwriting_with_bank_transaction_data_advancing_msme_financial_inclu.md)
 - [\[AAAI 2026\] TaylorPODA: A Taylor Expansion-Based Method to Improve Post-Hoc Attributions for Opaque Models](taylorpoda_a_taylor_expansion-based_method_to_improve_post-hoc_attributions_for_.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -155,6 +155,8 @@ $$p_\theta(\mathcal{S}_c|c,\mathcal{G}) = \sum_{\mathcal{P}_c} p_\theta(\mathcal
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Supplement Generation Training for Enhancing Agentic Task Performance](../../ACL2026/model_compression/supplement_generation_training_for_enhancing_agentic_task_performance.md)
@@ -162,5 +164,7 @@ $$p_\theta(\mathcal{S}_c|c,\mathcal{G}) = \sum_{\mathcal{P}_c} p_\theta(\mathcal
 - [\[NeurIPS 2025\] Traversal Verification for Speculative Tree Decoding](../../NeurIPS2025/model_compression/traversal_verification_for_speculative_tree_decoding.md)
 - [\[ACL 2025\] Direct Behavior Optimization: Unlocking the Potential of Lightweight LLMs](direct_behavior_optimization_unlocking_the_potential_of_lightweight_llms.md)
 - [\[ACL 2025\] BrainECHO: Semantic Brain Signal Decoding through Vector-Quantized Spectrogram Reconstruction for Whisper-Enhanced Text Generation](brainecho_semantic_brain_signal_decoding_through_vector-quantized_spectrogram_re.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -171,6 +171,8 @@ $$\mathcal{L} = \mathcal{L}_{\text{SG}} + \lambda\mathcal{L}_{\text{Xing}}, \qua
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Long-Tail Temporal Action Segmentation with Group-wise Temporal Logit Adjustment](long-tail_temporal_action_segmentation_with_group-wise_temporal_logit_adjustment.md)
@@ -178,5 +180,7 @@ $$\mathcal{L} = \mathcal{L}_{\text{SG}} + \lambda\mathcal{L}_{\text{Xing}}, \qua
 - [\[ICCV 2025\] LayerAnimate: Layer-level Control for Animation](../../ICCV2025/segmentation/layeranimate_layer-level_control_for_animation.md)
 - [\[ECCV 2024\] ReMamber: Referring Image Segmentation with Mamba Twister](remamber_referring_image_segmentation_with_mamba_twister.md)
 - [\[AAAI 2026\] CtrlFuse: Mask-Prompt Guided Controllable Infrared and Visible Image Fusion](../../AAAI2026/segmentation/ctrlfuse_mask-prompt_guided_controllable_infrared_and_visible_image_fusion.md)
+
+</div>
 
 <!-- RELATED:END -->

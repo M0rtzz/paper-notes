@@ -125,6 +125,8 @@ HSI-Detect 是一个两阶段 pipeline：输入为标准 RGB 图像，（1）第
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Beyond Semantic Features: Pixel-Level Mapping for Generalized AI-Generated Image Detection](beyond_semantic_features_pixel-level_mapping_for_generalized_ai-generated_image_.md)
@@ -132,5 +134,7 @@ HSI-Detect 是一个两阶段 pipeline：输入为标准 RGB 图像，（1）第
 - [\[ICLR 2026\] SMOTE and Mirrors: Exposing Privacy Leakage from Synthetic Minority Oversampling](../../ICLR2026/image_generation/smote_and_mirrors_exposing_privacy_leakage_from_synthetic_minority_oversampling.md)
 - [\[AAAI 2026\] DogFit: Domain-guided Fine-tuning for Efficient Transfer Learning of Diffusion Models](dogfit_domain-guided_fine-tuning_for_efficient_transfer_learning_of_diffusion_mo.md)
 - [\[ICLR 2026\] Exposing Hidden Biases in Text-to-Image Models via Automated Prompt Search](../../ICLR2026/image_generation/exposing_hidden_biases_in_text-to-image_models_via_automated_prompt_search.md)
+
+</div>
 
 <!-- RELATED:END -->

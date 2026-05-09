@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **37** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/llm_efficiency/) · [📷 CVPR2026 (4)](../../CVPR2026/llm_efficiency/) · [🔬 ICLR2026 (19)](../../ICLR2026/llm_efficiency/) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_efficiency/) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/llm_efficiency/) · [📹 ICCV2025 (1)](../../ICCV2025/llm_efficiency/)
+
+🔥 **高频主题：** LLM ×9
+
 **[A Drop-In Solution for On-the-Fly Adaptation of Speculative Decoding in Large Language Models](a_drop-in_solution_for_on-the-fly_adaptation_of_speculative_decoding_in_large_la.md)**
 
 :   本文提出一种即插即用的推测解码自适应方案，能够在推理过程中动态调整草稿模型的推测窗口大小γ（以及可能的草稿模型选择），从而在不同输入分布下最大化推测解码的端到端加速比。

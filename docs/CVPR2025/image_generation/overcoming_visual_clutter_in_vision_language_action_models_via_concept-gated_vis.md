@@ -143,6 +143,8 @@ CGVD 是**无训练框架**，不涉及任何参数优化。所有组件（SAM3�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Do Visual Imaginations Improve Vision-and-Language Navigation Agents?](do_visual_imaginations_improve_vision-and-language_navigation_agents.md)
@@ -150,5 +152,7 @@ CGVD 是**无训练框架**，不涉及任何参数优化。所有组件（SAM3�
 - [\[CVPR 2025\] Unseen Visual Anomaly Generation](unseen_visual_anomaly_generation.md)
 - [\[CVPR 2025\] CTRL-O: Language-Controllable Object-Centric Visual Representation Learning](ctrl-o_language-controllable_object-centric_visual_representation_learning.md)
 - [\[ICCV 2025\] Rethinking the Embodied Gap in Vision-and-Language Navigation: A Holistic Study of Physical and Visual Disparities](../../ICCV2025/image_generation/rethinking_the_embodied_gap_in_vision-and-language_navigation_a_holistic_study_o.md)
+
+</div>
 
 <!-- RELATED:END -->

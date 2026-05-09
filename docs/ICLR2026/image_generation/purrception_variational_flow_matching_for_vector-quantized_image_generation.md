@@ -186,6 +186,8 @@ $$\mathcal{L}_{cat} = -\mathbb{E}\left[\sum_k q(k|x_t) \log p_\theta(k|x_t, t)\r
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] SenseFlow: Scaling Distribution Matching for Flow-based Text-to-Image Distillation](senseflow_scaling_distribution_matching_for_flow-based_text-to-image_distillatio.md)
@@ -193,5 +195,7 @@ $$\mathcal{L}_{cat} = -\mathbb{E}\left[\sum_k q(k|x_t) \log p_\theta(k|x_t, t)\r
 - [\[ICLR 2026\] Diffusion Alignment as Variational Expectation-Maximization](diffusion_alignment_as_variational_expectation-maximization.md)
 - [\[ICLR 2026\] Latent Diffusion Model without Variational Autoencoder](latent_diffusion_model_without_variational_autoencoder.md)
 - [\[CVPR 2026\] Frequency-Aware Flow Matching for High-Quality Image Generation](../../CVPR2026/image_generation/freqflow_frequency_aware_flow_matching.md)
+
+</div>
 
 <!-- RELATED:END -->

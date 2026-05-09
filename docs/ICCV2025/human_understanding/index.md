@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **49** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/human_understanding/) · [📷 CVPR2026 (61)](../../CVPR2026/human_understanding/) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/) · [🤖 AAAI2026 (16)](../../AAAI2026/human_understanding/) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/human_understanding/) · [🧪 ICML2025 (2)](../../ICML2025/human_understanding/)
+
+🔥 **高频主题：** 人体姿态 ×11 · 人脸/视线 ×7 · 扩散模型 ×6 · 重识别 ×4 · 语音 ×3
+
 **[AdaHuman: Animatable Detailed 3D Human Generation with Compositional Multiview Diffusion](adahuman_animatable_detailed_3d_human_generation_with_compositional_multiview_di.md)**
 
 :   提出AdaHuman框架，通过姿态条件化的3D联合扩散模型和组合式3DGS细化模块，从单张图片生成高精度、可动画化的3D人体虚拟人。

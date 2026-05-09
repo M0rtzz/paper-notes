@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **38** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (7)](../../ACL2026/robotics/) · [📷 CVPR2026 (49)](../../CVPR2026/robotics/) · [🔬 ICLR2026 (47)](../../ICLR2026/robotics/) · [🤖 AAAI2026 (38)](../../AAAI2026/robotics/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/robotics/) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/)
+
+🔥 **高频主题：** 机器人 ×18 · 多模态 ×7 · 导航 ×3 · 对齐/RLHF ×2 · Agent ×2
+
 **[3D-MVP: 3D Multiview Pretraining for Robotic Manipulation](3d-mvp_3d_multiview_pretraining_for_manipulation.md)**
 
 :   提出3D-MVP，将Masked Autoencoder预训练从2D扩展到3D多视角设定——在Objaverse的200K个3D物体上预训练RVT的多视角Transformer编码器，下游微调后在RLBench上平均成功率从62.9%提升到67.5%，在COLOSSEUM上显著提升对纹理、大小、光照等环境变化的鲁棒性。

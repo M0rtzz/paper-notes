@@ -122,6 +122,8 @@ Tensor Product Attention (TPA) 将传统注意力中的 Q/K/V 矩阵分解为两
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Scale-invariant Attention](scale-invariant_attention.md)
@@ -129,5 +131,7 @@ Tensor Product Attention (TPA) 将传统注意力中的 Q/K/V 矩阵分解为两
 - [\[NeurIPS 2025\] The Emergence of Sparse Attention: Impact of Data Distribution and Benefits of Repetition](the_emergence_of_sparse_attention_impact_of_data_distribution_and_benefits_of_re.md)
 - [\[NeurIPS 2025\] Dynamics of Spontaneous Topic Changes in Next Token Prediction with Self-Attention](dynamics_of_spontaneous_topic_changes_in_next_token_prediction_with_self-attenti.md)
 - [\[ICLR 2026\] Universe Routing: Why Self-Evolving Agents Need Epistemic Control](../../ICLR2026/llm_efficiency/universe_routing_why_self-evolving_agents_need_epistemic_control.md)
+
+</div>
 
 <!-- RELATED:END -->

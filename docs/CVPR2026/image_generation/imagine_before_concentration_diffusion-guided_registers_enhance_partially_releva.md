@@ -137,6 +137,8 @@ DreamPRVR 包含四个核心组件：(1) 文本语义结构学习，构建有序
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] OpenDPR: Open-Vocabulary Change Detection via Vision-Centric Diffusion-Guided Prototype Retrieval for Remote Sensing Imagery](opendpr_open-vocabulary_change_detection_via_vision-centric_diffusion-guided_pro.md)
@@ -144,5 +146,7 @@ DreamPRVR 包含四个核心组件：(1) 文本语义结构学习，构建有序
 - [\[ICCV 2025\] DiffDoctor: Diagnosing Image Diffusion Models Before Treating](../../ICCV2025/image_generation/diffdoctor_diagnosing_image_diffusion_models_before_treating.md)
 - [\[CVPR 2026\] Enhancing Image Aesthetics with Dual-Conditioned Diffusion Models Guided by Multimodal Perception](enhancing_image_aesthetics_with_dual-conditioned_diffusion_models_guided_by_mult.md)
 - [\[CVPR 2026\] GrOCE: Graph-Guided Online Concept Erasure for Text-to-Image Diffusion Models](groce_graph-guided_online_concept_erasure_for_text-to-image_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

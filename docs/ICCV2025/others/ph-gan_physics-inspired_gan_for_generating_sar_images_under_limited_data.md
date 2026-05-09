@@ -157,6 +157,8 @@ $$\mathbf{p}^{(k)} = S_{\rho^{(k)}}(\mathbf{p}^{(k-1)} + t^{(k)} \mathbf{\Psi}^H
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Auto-Regressively Generating Multi-View Consistent Images (MV-AR)](autoregressively_generating_multiview_consistent_images.md)
@@ -164,5 +166,7 @@ $$\mathbf{p}^{(k)} = S_{\rho^{(k)}}(\mathbf{p}^{(k-1)} + t^{(k)} \mathbf{\Psi}^H
 - [\[ECCV 2024\] HiEI: A Universal Framework for Generating High-quality Emerging Images from Natural Images](../../ECCV2024/others/hiei_a_universal_framework_for_generating_high-quality_emerging_images_from_natu.md)
 - [\[CVPR 2025\] CADCrafter: Generating Computer-Aided Design Models from Unconstrained Images](../../CVPR2025/others/cadcrafter_generating_computer-aided_design_models_from_unconstrained_images.md)
 - [\[ICCV 2025\] Hi3DGen: High-fidelity 3D Geometry Generation from Images via Normal Bridging](hi3dgen_high-fidelity_3d_geometry_generation_from_images_via_normal_bridging.md)
+
+</div>
 
 <!-- RELATED:END -->

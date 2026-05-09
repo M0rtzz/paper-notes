@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **154** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (50)](../../ACL2026/multimodal_vlm/) · [📷 CVPR2026 (288)](../../CVPR2026/multimodal_vlm/) · [🔬 ICLR2026 (93)](../../ICLR2026/multimodal_vlm/) · [🤖 AAAI2026 (92)](../../AAAI2026/multimodal_vlm/) · [🧠 NeurIPS2025 (155)](../../NeurIPS2025/multimodal_vlm/) · [📹 ICCV2025 (159)](../../ICCV2025/multimodal_vlm/)
+
+🔥 **高频主题：** 多模态 ×95 · LLM ×18 · 推理 ×12 · 少样本学习 ×8 · 布局/合成 ×4
+
 **[4D LangSplat: 4D Language Gaussian Splatting via Multimodal Large Language Models](4d_langsplat_4d_language_gaussian_splatting_via_multimodal_large_language_models.md)**
 
 :   提出4D LangSplat，通过多模态大语言模型生成逐物体视频caption来构建4D语言场，结合状态可变形网络建模语义的时间连续演变，首次实现动态场景中时间敏感和时间无关的开放词汇查询。

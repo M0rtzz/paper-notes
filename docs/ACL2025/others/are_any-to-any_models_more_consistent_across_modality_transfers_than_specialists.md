@@ -151,6 +151,8 @@ Any-to-any 生成模型旨在用统一框架同时理解和生成多种模态（
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] CORAL: Learning Consistent Representations across Multi-step Training with Lighter Speculative Drafter](coral_speculative_drafting.md)
@@ -158,5 +160,7 @@ Any-to-any 生成模型旨在用统一框架同时理解和生成多种模态（
 - [\[ACL 2025\] I0T: Embedding Standardization Method Towards Zero Modality Gap](i0t_embedding_standardization_method_towards_zero_modality_gap.md)
 - [\[ACL 2025\] Low-Rank Interconnected Adaptation across Layers](low-rank_interconnected_adaptation_across_layers.md)
 - [\[ACL 2025\] Consistent Client Simulation for Motivational Interviewing-based Counseling](consistent_client_simulation_for_motivational_interviewing-based_counseling.md)
+
+</div>
 
 <!-- RELATED:END -->

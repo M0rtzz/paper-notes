@@ -123,6 +123,8 @@ ImageNet-1K 上不同尺寸模型初始化后训练 10 epoch 的 Top-1 准确率
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Beyond Zero Initialization: Investigating the Impact of Non-Zero Initialization on LoRA Fine-Tuning Dynamics](../../ICML2025/model_compression/beyond_zero_initialization_investigating_the_impact_of_non-zero_initialization_o.md)
@@ -130,5 +132,7 @@ ImageNet-1K 上不同尺寸模型初始化后训练 10 epoch 的 Top-1 准确率
 - [\[ICML 2025\] Random Initialization of Gated Sparse Adapters (RIGSA)](../../ICML2025/model_compression/random_initialization_of_gated_sparse_adapters.md)
 - [\[CVPR 2025\] Sampling Innovation-Based Adaptive Compressive Sensing](sampling_innovation-based_adaptive_compressive_sensing.md)
 - [\[CVPR 2025\] HyperLoRA: Parameter-Efficient Adaptive Generation for Portrait Synthesis](hyperlora_parameter-efficient_adaptive_generation_for_portrait_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

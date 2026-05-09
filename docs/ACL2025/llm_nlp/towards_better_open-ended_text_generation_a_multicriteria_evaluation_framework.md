@@ -123,6 +123,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Odysseus Navigates the Sirens' Song: Dynamic Focus Decoding for Factual and Diverse Open-Ended Text Generation](odysseus_dynamic_focus_decoding.md)
@@ -130,5 +132,7 @@ tags:
 - [\[ACL 2025\] Balancing Diversity and Risk in LLM Sampling: How to Select Your Method and Parameter for Open-Ended Text Generation](balancing_diversity_and_risk_in_llm_sampling_how_to_select_your_method_and_param.md)
 - [\[ACL 2025\] TagRouter: Learning Route to LLMs through Tags for Open-Domain Text Generation Tasks](tagrouter_learning_route_to_llms_through_tags_for_open-domain_text_generation_ta.md)
 - [\[NeurIPS 2025\] Cultural Alien Sampler: Open-ended Art Generation Balancing Originality and Coherence](../../NeurIPS2025/llm_nlp/cultural_alien_sampler_open-ended_art_generation_balancing_originality_and_coher.md)
+
+</div>
 
 <!-- RELATED:END -->

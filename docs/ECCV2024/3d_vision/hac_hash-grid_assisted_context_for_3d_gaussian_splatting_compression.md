@@ -141,6 +141,8 @@ $$\mathcal{L} = L_{\text{Scaffold}} + \lambda_e \frac{1}{N(D^a+6+3K)}(L_{\text{e
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] GaussianImage: 1000 FPS Image Representation and Compression by 2D Gaussian Splatting](gaussianimage_1000_fps_image_representation_and_compression_by_2d_gaussian_splat.md)
@@ -148,5 +150,7 @@ $$\mathcal{L} = L_{\text{Scaffold}} + \lambda_e \frac{1}{N(D^a+6+3K)}(L_{\text{e
 - [\[ECCV 2024\] SAGS: Structure-Aware 3D Gaussian Splatting](sags_structure-aware_3d_gaussian_splatting.md)
 - [\[ECCV 2024\] 3iGS: Factorised Tensorial Illumination for 3D Gaussian Splatting](3igs_factorised_tensorial_illumination_for_3d_gaussian_splatting.md)
 - [\[ECCV 2024\] G2fR: Frequency Regularization in Grid-Based Feature Encoding Neural Radiance Fields](g2fr_frequency_regularization_in_grid-based_feature_encoding_neural_radiance_fie.md)
+
+</div>
 
 <!-- RELATED:END -->

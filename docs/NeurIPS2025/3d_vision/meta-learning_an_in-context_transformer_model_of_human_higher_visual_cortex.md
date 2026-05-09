@@ -131,6 +131,8 @@ $$\alpha_{\text{scaled}} = \frac{\log(l) \cdot q \cdot k}{\sqrt{d_k}}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] MaNGO: Adaptable Graph Network Simulators via Meta-Learning](mango_-_adaptable_graph_network_simulators_via_meta-learning.md)
@@ -138,5 +140,7 @@ $$\alpha_{\text{scaled}} = \frac{\log(l) \cdot q \cdot k}{\sqrt{d_k}}$$
 - [\[NeurIPS 2025\] MetaGS: A Meta-Learned Gaussian-Phong Model for Out-of-Distribution 3D Scene Relighting](metags_a_meta-learned_gaussian-phong_model_for_out-of-distribution_3d_scene_reli.md)
 - [\[ICLR 2026\] LaVCa: LLM-assisted Visual Cortex Captioning](../../ICLR2026/3d_vision/lavca_llm-assisted_visual_cortex_captioning.md)
 - [\[NeurIPS 2025\] PointMAC: Meta-Learned Adaptation for Robust Test-Time Point Cloud Completion](pointmac_meta-learned_adaptation_for_robust_test-time_point_cloud_completion.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **60** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (21)](../../ACL2026/llm_safety/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_safety/) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_safety/) · [🤖 AAAI2026 (29)](../../AAAI2026/llm_safety/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_safety/) · [🧪 ICML2025 (32)](../../ICML2025/llm_safety/)
+
+🔥 **高频主题：** 对抗鲁棒 ×13 · LLM ×11 · 联邦学习 ×4 · 推理 ×3 · 强化学习 ×3
+
 **[A Cramér–von Mises Approach to Incentivizing Truthful Data Sharing](a_cramrvon_mises_approach_to_incentivizing_truthful_data_sha.md)**
 
 :   提出一种基于 Cramér-von Mises 两样本检验统计量的激励机制，在贝叶斯和无先验两种设定下均能证明"如实提交数据"构成（近似）Nash 均衡，同时鼓励参与者提交更多真实数据，且不依赖对数据分布的强假设（如高斯、伯努利）。

@@ -113,6 +113,8 @@ LLM 驱动的假设生成（hypothesis generation）是 AI for Science 的重要
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] TARGA: Targeted Synthetic Data Generation for Practical Reasoning over Structured Data](targa_targeted_synthetic_data_generation_for_practical_reasoning_over_structured.md)
@@ -120,5 +122,7 @@ LLM 驱动的假设生成（hypothesis generation）是 AI for Science 的重要
 - [\[ACL 2025\] Bone Soups: A Seek-and-Soup Model Merging Approach for Controllable Multi-Objective Generation](bone_soups_multi_objective_gen.md)
 - [\[ACL 2025\] Consultant Decoding: Yet Another Synergistic Mechanism](consultant_decoding_yet_another_synergistic_mechanism.md)
 - [\[ACL 2025\] Synergistic Weak-Strong Collaboration by Aligning Preferences](synergistic_weak-strong_collaboration_by_aligning_preferences.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -135,6 +135,8 @@ $$C_{\text{KE}} \mapsto C_{\text{TL}}, \quad O_{\text{KE}} \mapsto O_{\text{TL}}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] MERIT: Multilingual Semantic Retrieval with Interleaved Multi-Condition Query](../../NeurIPS2025/multilingual_mt/merit_multilingual_semantic_retrieval_with_interleaved_multi-condition_query.md)
@@ -142,5 +144,7 @@ $$C_{\text{KE}} \mapsto C_{\text{TL}}, \quad O_{\text{KE}} \mapsto O_{\text{TL}}
 - [\[ICLR 2026\] ASSESS: A Semantic and Structural Evaluation Framework for Statement Similarity](../../ICLR2026/multilingual_mt/assess_autoformalization_eval.md)
 - [\[ACL 2025\] Modular Sentence Encoders: Separating Language Specialization from Cross-Lingual Alignment](../../ACL2025/multilingual_mt/modular_sentence_encoders.md)
 - [\[ACL 2025\] ShifCon: Enhancing Non-Dominant Language Capabilities with a Shift-based Multilingual Contrastive Framework](../../ACL2025/multilingual_mt/shifcon_nondominant_language.md)
+
+</div>
 
 <!-- RELATED:END -->

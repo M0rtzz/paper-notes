@@ -128,6 +128,8 @@ OPTS 可以同时与 EvoPrompt(DE) 和 EvoPrompt(GA) 集成。在 DE 变体中�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Why Prompt Design Matters and Works: A Complexity Analysis of Prompt Search Space in LLMs](why_prompt_design_matters_and_works_a_complexity_analysis_of_prompt_search_space.md)
@@ -135,5 +137,7 @@ OPTS 可以同时与 EvoPrompt(DE) 和 EvoPrompt(GA) 集成。在 DE 变体中�
 - [\[ACL 2025\] RiOT: Efficient Prompt Refinement with Residual Optimization Tree](riot_efficient_prompt_refinement_with_residual_optimization_tree.md)
 - [\[ACL 2025\] Efficient and Accurate Prompt Optimization: the Benefit of Memory in Exemplar-Guided Reflection](erm_prompt_optimization_memory.md)
 - [\[ACL 2025\] SEE: Strategic Exploration and Exploitation for Cohesive In-Context Prompt Optimization](see_strategic_exploration_exploitation_prompt_optimization.md)
+
+</div>
 
 <!-- RELATED:END -->

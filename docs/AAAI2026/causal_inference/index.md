@@ -10,6 +10,8 @@ description: >-
 
 **🤖 AAAI2026** · **10** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/causal_inference/) · [📷 CVPR2026 (4)](../../CVPR2026/causal_inference/) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/) · [🧠 NeurIPS2025 (21)](../../NeurIPS2025/causal_inference/) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/) · [🧪 ICML2025 (16)](../../ICML2025/causal_inference/)
+
 **[CaDyT: Causal Structure Learning for Dynamical Systems with Theoretical Score Analysis](causal_structure_learning_for_dynamical_systems_with_theoretical_score_analysis.md)**
 
 :   提出 CaDyT，结合高斯过程连续时间动力学建模（Adams-Bashforth 积分器实现精确推断）和 MDL 最小描述长度原则进行结构搜索，同时解决不规则采样和因果结构识别两个挑战，在双质点弹簧/菱形图/Rössler 振荡器上大幅超越所有基线（AUPRC 0.79 vs 次优 0.39）。

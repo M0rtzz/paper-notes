@@ -111,6 +111,8 @@ $$\arg\min_{\alpha_s^*, \alpha_r^*} \big(\mathbb{E}(\mathcal{F}(X,W), \mathcal{F
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] EfficientQAT: Efficient Quantization-Aware Training for Large Language Models](efficientqat.md)
@@ -118,5 +120,7 @@ $$\arg\min_{\alpha_s^*, \alpha_r^*} \big(\mathbb{E}(\mathcal{F}(X,W), \mathcal{F
 - [\[ACL 2025\] Outlier-Safe Pre-Training for Robust 4-Bit Quantization of Large Language Models](outlier-safe_pre-training_for_robust_4-bit_quantization_of_large_language_models.md)
 - [\[ACL 2025\] UniQuanF: Unifying Uniform and Binary-coding Quantization for Accurate Compression of Large Language Models](uniquanf_unified_quantization.md)
 - [\[NeurIPS 2025\] ParetoQ: Improving Scaling Laws in Extremely Low-bit LLM Quantization](../../NeurIPS2025/model_compression/paretoq_improving_scaling_laws_in_extremely_low-bit_llm_quantization.md)
+
+</div>
 
 <!-- RELATED:END -->

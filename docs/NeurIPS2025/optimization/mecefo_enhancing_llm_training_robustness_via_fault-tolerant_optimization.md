@@ -130,6 +130,8 @@ MeCeFO 采用**邻居代做**（Neighbor-Do-Both, NDB）策略：当一个节点
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Scaf-GRPO: Scaffolded Group Relative Policy Optimization for Enhancing LLM Reasoning](../../ICLR2026/optimization/scaf-grpo_scaffolded_group_relative_policy_optimization_for_enhancing_llm_reason.md)
@@ -137,5 +139,7 @@ MeCeFO 采用**邻居代做**（Neighbor-Do-Both, NDB）策略：当一个节点
 - [\[NeurIPS 2025\] DartQuant: Efficient Rotational Distribution Calibration for LLM Quantization](dartquant_efficient_rotational_distribution_calibration_for_llm_quantization.md)
 - [\[ACL 2025\] ScaleBiO: Scalable Bilevel Optimization for LLM Data Reweighting](../../ACL2025/optimization/scalebio_bilevel_data_reweighting.md)
 - [\[ICML 2025\] Generalization and Robustness of the Tilted Empirical Risk](../../ICML2025/optimization/generalization_and_robustness_of_the_tilted_empirical_risk.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -144,6 +144,8 @@ FreeSim在3m偏移时FID仅18.6，相比PVG baseline降低了**60.8%**。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Generating Multimodal Driving Scenes via Next-Scene Prediction](generating_multimodal_driving_scenes_via_next-scene_prediction.md)
@@ -151,5 +153,7 @@ FreeSim在3m偏移时FID仅18.6，相比PVG baseline降低了**60.8%**。
 - [\[CVPR 2025\] SceneDiffuser++: City-Scale Traffic Simulation via a Generative World Model](scenediffuser_city-scale_traffic_simulation_via_a_generative_world_model.md)
 - [\[CVPR 2025\] M²-Occ: Resilient 3D Semantic Occupancy Prediction for Autonomous Driving with Incomplete Camera Inputs](m2-occ_resilient_3d_semantic_occupancy_prediction_for_autonomous_driving_with_in.md)
 - [\[CVPR 2025\] LiMoE: Mixture of LiDAR Representation Learners from Automotive Scenes](limoe_mixture_of_lidar_representation_learners_from_automotive_scenes.md)
+
+</div>
 
 <!-- RELATED:END -->

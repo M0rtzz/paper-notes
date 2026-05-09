@@ -125,6 +125,8 @@ FFSE将编辑过程形式化为状态转换问题：场景状态空间 $S$、操
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] FE2E: From Editor to Dense Geometry Estimator](../../CVPR2026/3d_vision/from_editor_to_dense_geometry_estimator.md)
@@ -132,5 +134,7 @@ FFSE将编辑过程形式化为状态转换问题：场景状态空间 $S$、操
 - [\[AAAI 2026\] Multi-Modal Assistance for Unsupervised Domain Adaptation on Point Cloud 3D Object Detection](multi-modal_assistance_for_unsupervised_domain_adaptation_on_point_cloud_3d_obje.md)
 - [\[ICLR 2026\] Ctrl&Shift: High-Quality Geometry-Aware Object Manipulation in Visual Generation](../../ICLR2026/3d_vision/ctrlshift_high-quality_geometry-aware_object_manipulation_in_visual_generation.md)
 - [\[ICCV 2025\] DriveX: Driving View Synthesis on Free-form Trajectories with Generative Prior](../../ICCV2025/3d_vision/driving_view_synthesis_on_free-form_trajectories_with_generative_prior.md)
+
+</div>
 
 <!-- RELATED:END -->

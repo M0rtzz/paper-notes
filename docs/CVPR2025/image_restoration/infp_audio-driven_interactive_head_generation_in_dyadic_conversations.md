@@ -126,6 +126,8 @@ INFP 在所有指标上大幅领先 DIM，SyncScore (7.188 vs 4.778) 接近于 G
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Vision-Language Gradient Descent-driven All-in-One Deep Unfolding Networks](vision-language_gradient_descent-driven_all-in-one_deep_unfolding_networks.md)
@@ -133,5 +135,7 @@ INFP 在所有指标上大幅领先 DIM，SyncScore (7.188 vs 4.778) 接近于 G
 - [\[CVPR 2025\] One-Step Event-Driven High-Speed Autofocus](one-step_event-driven_high-speed_autofocus.md)
 - [\[NeurIPS 2025\] Audio Super-Resolution with Latent Bridge Models](../../NeurIPS2025/image_restoration/audio_super-resolution_with_latent_bridge_models.md)
 - [\[CVPR 2025\] DiTFlow: Video Motion Transfer with Diffusion Transformers](video_motion_transfer_with_diffusion_transformers.md)
+
+</div>
 
 <!-- RELATED:END -->

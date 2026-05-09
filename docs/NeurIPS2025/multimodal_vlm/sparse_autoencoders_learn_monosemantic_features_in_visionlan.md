@@ -129,6 +129,8 @@ SAE 训练使用重构目标加稀疏正则：$\mathcal{L}(\mathbf{v}) = \mathca
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SAUCE: Selective Concept Unlearning in Vision-Language Models with Sparse Autoencoders](../../ICCV2025/multimodal_vlm/sauce_selective_concept_unlearning_in_vision-language_models_with_sparse_autoenc.md)
@@ -136,5 +138,7 @@ SAE 训练使用重构目标加稀疏正则：$\mathcal{L}(\mathbf{v}) = \mathca
 - [\[ICML 2025\] Enhancing Target-unspecific Tasks through a Features Matrix](../../ICML2025/multimodal_vlm/enhancing_target-unspecific_tasks_through_a_features_matrix.md)
 - [\[NeurIPS 2025\] Mint: A Simple Test-Time Adaptation of Vision-Language Models against Common Corruptions](mint_a_simple_testtime_adaptation_of_visionlanguage_models_a.md)
 - [\[NeurIPS 2025\] Adapting Vision-Language Models for Evaluating World Models](adapting_visionlanguage_models_for_evaluating_world_models.md)
+
+</div>
 
 <!-- RELATED:END -->

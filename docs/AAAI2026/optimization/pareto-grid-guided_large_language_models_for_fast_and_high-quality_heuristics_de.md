@@ -110,6 +110,8 @@ $$\text{SemClust}(P) = \{C_1, C_2, \ldots, C_m\}, \quad \bigcup C_i = P, \quad C
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] MOTIF: Multi-strategy Optimization via Turn-based Interactive Framework](motif_multi-strategy_optimization_via_turn-based_interactive_framework.md)
@@ -117,5 +119,7 @@ $$\text{SemClust}(P) = \{C_1, C_2, \ldots, C_m\}, \quad \bigcup C_i = P, \quad C
 - [\[NeurIPS 2025\] Constrained Network Slice Assignment via Large Language Models](../../NeurIPS2025/optimization/constrained_network_slice_assignment_via_llms.md)
 - [\[NeurIPS 2025\] Doubly Robust Alignment for Large Language Models](../../NeurIPS2025/optimization/doubly_robust_alignment_for_large_language_models.md)
 - [\[NeurIPS 2025\] Large Language Bayes](../../NeurIPS2025/optimization/large_language_bayes.md)
+
+</div>
 
 <!-- RELATED:END -->

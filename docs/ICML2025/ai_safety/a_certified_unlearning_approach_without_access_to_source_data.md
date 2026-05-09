@@ -202,6 +202,8 @@ $$\|\boldsymbol{w}_r^* - \hat{\boldsymbol{w}}_r\|_2 \leq \Delta = \frac{2\gamma 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Rewind-to-Delete: Certified Machine Unlearning for Nonconvex Functions](../../NeurIPS2025/ai_safety/rewind-to-delete_certified_machine_unlearning_for_nonconvex_functions.md)
@@ -209,5 +211,7 @@ $$\|\boldsymbol{w}_r^* - \hat{\boldsymbol{w}}_r\|_2 \leq \Delta = \frac{2\gamma 
 - [\[ICML 2025\] Do Not Mimic My Voice: Speaker Identity Unlearning for Zero-Shot Text-to-Speech](do_not_mimic_my_voice_speaker_identity_unlearning_for_zero-shot_text-to-speech.md)
 - [\[CVPR 2025\] NoT: Federated Unlearning via Weight Negation](../../CVPR2025/ai_safety/not_federated_unlearning_via_weight_negation.md)
 - [\[NeurIPS 2025\] Private Zeroth-Order Optimization with Public Data](../../NeurIPS2025/ai_safety/private_zeroth-order_optimization_with_public_data.md)
+
+</div>
 
 <!-- RELATED:END -->

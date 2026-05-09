@@ -130,6 +130,8 @@ $$\min_{X \succeq 0} -\text{tr}(NX) \quad \text{s.t.} \quad X_{ii} = I, \quad X_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Learning to Stop: Deep Learning for Mean Field Optimal Stopping](../../ICML2025/robotics/learning_to_stop_deep_learning_for_mean_field_optimal_stopping.md)
@@ -137,5 +139,7 @@ $$\min_{X \succeq 0} -\text{tr}(NX) \quad \text{s.t.} \quad X_{ii} = I, \quad X_
 - [\[AAAI 2026\] To Align or Not to Align: Strategic Multimodal Representation Alignment for Optimal Performance](../../AAAI2026/robotics/to_align_or_not_to_align_strategic_multimodal_representation_alignment_for_optim.md)
 - [\[ICCV 2025\] GUIOdyssey: A Comprehensive Dataset for Cross-App GUI Navigation on Mobile Devices](guiodyssey_a_comprehensive_dataset_for_cross-app_gui_navigation_on_mobile_device.md)
 - [\[ICCV 2025\] Rep-MTL: Unleashing the Power of Representation-Level Task Saliency for Multi-Task Learning](rep-mtl_unleashing_the_power_of_representation-level_task_saliency_for_multi-tas.md)
+
+</div>
 
 <!-- RELATED:END -->

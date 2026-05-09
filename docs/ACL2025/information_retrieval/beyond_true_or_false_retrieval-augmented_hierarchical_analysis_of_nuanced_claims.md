@@ -152,6 +152,8 @@ $$n(s_i, T_{\neq i}^h) = 0.5 \times \text{mean}_j(p(s_i, W_j)) + 0.5 \times \max
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Hierarchical Document Refinement for Long-context Retrieval-augmented Generation](hierarchical_document_refinement_for_long-context_retrieval-augmented_generation.md)
@@ -159,5 +161,7 @@ $$n(s_i, T_{\neq i}^h) = 0.5 \times \text{mean}_j(p(s_i, W_j)) + 0.5 \times \max
 - [\[ACL 2025\] VISA: Retrieval Augmented Generation with Visual Source Attribution](visa_retrieval_augmented_generation_with_visual_source_attribution.md)
 - [\[ACL 2025\] Accelerating Adaptive Retrieval Augmented Generation via Instruction-Driven Representation Reduction of Retrieval Overlaps](accelerating_adaptive_retrieval_augmented_generation_via_instruction-driven_repr.md)
 - [\[ACL 2025\] FlashBack: Efficient Retrieval-Augmented Language Modeling for Fast Inference](flashbackefficient_retrieval-augmented_language_modeling_for_long_context_infere.md)
+
+</div>
 
 <!-- RELATED:END -->

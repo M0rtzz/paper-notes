@@ -141,6 +141,8 @@ DV搜索架构包含两个主引擎：**残差计算引擎**（从DRAM获取IPC 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Targeted Forgetting of Image Subgroups in CLIP Models](targeted_forgetting_of_image_subgroups_in_clip_models.md)
@@ -148,5 +150,7 @@ DV搜索架构包含两个主引擎：**残差计算引擎**（从DRAM获取IPC 
 - [\[CVPR 2025\] AutoSSVH: Exploring Automated Frame Sampling for Efficient Self-Supervised Video Hashing](autossvh_exploring_automated_frame_sampling_for_efficient_self-supervised_video_h.md)
 - [\[CVPR 2025\] Embracing Collaboration Over Competition: Condensing Multiple Prompts for Visual In-Context Learning](embracing_collaboration_over_competition_condensing_multiple_prompts_for_visual_.md)
 - [\[CVPR 2025\] DeRS: Towards Extremely Efficient Upcycled Mixture-of-Experts Models](ders_towards_extremely_efficient_upcycled_mixture-of-experts_models.md)
+
+</div>
 
 <!-- RELATED:END -->

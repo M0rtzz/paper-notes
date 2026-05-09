@@ -129,6 +129,8 @@ PLM 使用标准微调流程（分类头 + 交叉熵损失）。LLM 基于 promp
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] A Unified Framework for Provably Efficient Algorithms to Estimate Shapley Values](a_unified_framework_for_provably_efficient_algorithms_to_estimate_shapley_values.md)
@@ -136,5 +138,7 @@ PLM 使用标准微调流程（分类头 + 交叉熵损失）。LLM 基于 promp
 - [\[ACL 2025\] READoc: A Unified Benchmark for Realistic Document Structured Extraction](../../ACL2025/llm_evaluation/readoc_a_unified_benchmark_for_realistic_document_structured_extraction.md)
 - [\[ACL 2025\] TUMLU: A Unified and Native Language Understanding Benchmark for Turkic Languages](../../ACL2025/llm_evaluation/tumlu_a_unified_and_native_language_understanding_benchmark_for_turkic_languages.md)
 - [\[NeurIPS 2025\] scMRDR: A Scalable and Flexible Framework for Unpaired Single-Cell Multi-Omics Data Integration](scmrdr_a_scalable_and_flexible_framework_for_unpaired_single-cell_multi-omics_da.md)
+
+</div>
 
 <!-- RELATED:END -->

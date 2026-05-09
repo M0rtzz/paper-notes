@@ -10,6 +10,8 @@ description: >-
 
 **🎞️ ECCV2024** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/social_computing/) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/social_computing/) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/)
+
 **[Distribution-Aware Robust Learning from Long-Tailed Data with Noisy Labels](distribution-aware_robust_learning_from_long-tailed_data_with_noisy_labels.md)**
 
 :   提出 DaSC 框架，通过分布感知的类中心估计（DaCC）和置信度感知的对比学习（SBCL + MIDL），同时解决长尾分布和噪声标签的联合问题，在 CIFAR 和真实噪声数据集上达到 SOTA。

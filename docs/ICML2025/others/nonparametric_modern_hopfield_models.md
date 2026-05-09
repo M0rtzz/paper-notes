@@ -133,6 +133,8 @@ $$\min_{\mathbf{W}, \boldsymbol{\eta}, \tilde{\boldsymbol{\eta}}} \frac{1}{2}\|\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] General Agents Contain World Models](general_agents_contain_world_models.md)
@@ -140,5 +142,7 @@ $$\min_{\mathbf{W}, \boldsymbol{\eta}, \tilde{\boldsymbol{\eta}}} \frac{1}{2}\|\
 - [\[AAAI 2026\] Bridging the Skills Gap: A Course Model for Modern Generative AI Education](../../AAAI2026/others/bridging_the_skills_gap_a_course_model_for_modern_generative_ai_education.md)
 - [\[AAAI 2026\] Judging by the Rules: Compliance-Aligned Framework for Modern Slavery Statement Monitoring](../../AAAI2026/others/judging_by_the_rules_compliance-aligned_framework_for_modern_slavery_statement_m.md)
 - [\[ACL 2025\] Length-Induced Embedding Collapse in PLM-based Models](../../ACL2025/others/length-induced_embedding_collapse_in_plm-based_models.md)
+
+</div>
 
 <!-- RELATED:END -->

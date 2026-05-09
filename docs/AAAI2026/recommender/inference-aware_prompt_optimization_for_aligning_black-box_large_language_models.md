@@ -124,6 +124,8 @@ IAPO（Inference-Aware Prompt Optimization）框架定义臂 $a = (p, N) \in \ma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Inference-Time Reward Hacking in Large Language Models](../../NeurIPS2025/recommender/inference-time_reward_hacking_in_large_language_models.md)
@@ -131,5 +133,7 @@ IAPO（Inference-Aware Prompt Optimization）框架定义臂 $a = (p, N) \in \ma
 - [\[AAAI 2026\] Moral Change or Noise? On Problems of Aligning AI With Temporally Unstable Human Feedback](moral_change_or_noise_on_problems_of_aligning_ai_with_temporally_unstable_human_.md)
 - [\[AAAI 2026\] TraveLLaMA: A Multimodal Travel Assistant with Large-Scale Dataset and Structured Reasoning](travellama_a_multimodal_travel_assistant_with_large-scale_dataset_and_structured.md)
 - [\[ICLR 2026\] GoalRank: Group-Relative Optimization for a Large Ranking Model](../../ICLR2026/recommender/goalrank_group-relative_optimization_for_a_large_ranking_model.md)
+
+</div>
 
 <!-- RELATED:END -->

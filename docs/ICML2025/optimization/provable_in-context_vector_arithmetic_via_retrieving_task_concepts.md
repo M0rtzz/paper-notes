@@ -153,6 +153,8 @@ $$\mathbf{h}_\theta = \mathbf{W}_O \text{LN}(\mathbf{h}_{\theta,0}(\mathbf{T})) 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] On Understanding Attention-Based In-Context Learning for Categorical Data](on_understanding_attention-based_in-context_learning_for_categorical_data.md)
@@ -160,5 +162,7 @@ $$\mathbf{h}_\theta = \mathbf{W}_O \text{LN}(\mathbf{h}_{\theta,0}(\mathbf{T})) 
 - [\[ICML 2025\] Training Dynamics of In-Context Learning in Linear Attention](training_dynamics_of_in-context_learning_in_linear_attention.md)
 - [\[ICML 2025\] Emergence in Non-Neural Models: Grokking Modular Arithmetic via Average Gradient Outer Product](emergence_in_non-neural_models_grokking_modular_arithmetic_via_average_gradient_.md)
 - [\[ICML 2025\] Can Transformers Learn Full Bayesian Inference In Context?](can_transformers_learn_full_bayesian_inference_in_context.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -200,6 +200,8 @@ PhysSkin 比 FEM 快 6.5-230 倍，比 MPM 快 11.5-18.3 倍，且时间几乎�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Continuous Exposure-Time Modeling for Realistic Atmospheric Turbulence Synthesis](continuous_exposure-time_modeling_for_realistic_atmospheric_turbulence_synthesis.md)
@@ -207,5 +209,7 @@ PhysSkin 比 FEM 快 6.5-230 倍，比 MPM 快 11.5-18.3 倍，且时间几乎�
 - [\[AAAI 2026\] Towards a Foundation Model for Partial Differential Equations Across Physics Domains](../../AAAI2026/scientific_computing/towards_a_foundation_model_for_partial_differential_equations_across_physics_dom.md)
 - [\[ICML 2025\] Differentiable Stellar Atmospheres with Physics-Informed Neural Networks](../../ICML2025/scientific_computing/differentiable_stellar_atmospheres_with_physics-informed_neural_networks.md)
 - [\[AAAI 2026\] PIMRL: Physics-Informed Multi-Scale Recurrent Learning for Burst-Sampled Spatiotemporal Dynamics](../../AAAI2026/scientific_computing/pimrl_physics-informed_multi-scale_recurrent_learning_for_burst-sampled_spatiote.md)
+
+</div>
 
 <!-- RELATED:END -->

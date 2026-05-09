@@ -139,6 +139,8 @@ Mirror-CFE 在所有数据集上同时达到最优或次优的接近性（L1/LPI
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] LeapFactual: Reliable Visual Counterfactual Explanation Using Conditional Flow Matching](../../NeurIPS2025/image_generation/leapfactual_reliable_visual_counterfactual_explanation_using_conditional_flow_ma.md)
@@ -146,5 +148,7 @@ Mirror-CFE 在所有数据集上同时达到最优或次优的接近性（L1/LPI
 - [\[ICCV 2025\] DC-AR: Efficient Masked Autoregressive Image Generation with Deep Compression Hybrid Tokenizer](dc-ar_efficient_masked_autoregressive_image_generation_with_deep_compression_hyb.md)
 - [\[NeurIPS 2025\] V-CECE: Visual Counterfactual Explanations via Conceptual Edits](../../NeurIPS2025/image_generation/v-cece_visual_counterfactual_explanations_via_conceptual_edits.md)
 - [\[CVPR 2025\] HOI-IDiff: An Image-like Diffusion Method for Human-Object Interaction Detection](../../CVPR2025/image_generation/an_image-like_diffusion_method_for_human-object_interaction_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

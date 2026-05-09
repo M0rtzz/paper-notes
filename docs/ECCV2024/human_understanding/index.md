@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **58** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/human_understanding/) · [📷 CVPR2026 (61)](../../CVPR2026/human_understanding/) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/) · [🤖 AAAI2026 (16)](../../AAAI2026/human_understanding/) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/human_understanding/) · [📹 ICCV2025 (49)](../../ICCV2025/human_understanding/)
+
+🔥 **高频主题：** 人体姿态 ×16 · 人脸/视线 ×10 · 自监督学习 ×4 · 虚拟人 ×3 · 异常检测 ×3
+
 **[3D Hand Pose Estimation in Everyday Egocentric Images](3d_hand_pose_estimation_in_everyday_egocentric_images.md)**
 
 :   通过系统研究裁剪输入、相机内参感知位置编码(KPE)、辅助监督(手部分割+抓握标签)和多数据集联合训练这四个实践，提出WildHands系统，在仅用ResNet50和少量数据的条件下，实现了对野外第一人称图像中3D手部姿态的鲁棒估计，零样本泛化超过FrankMocap全部指标且与10倍大的HaMeR竞争。

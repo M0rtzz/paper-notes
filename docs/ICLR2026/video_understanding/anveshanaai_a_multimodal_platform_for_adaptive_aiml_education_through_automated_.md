@@ -140,6 +140,8 @@ AnveshanaAI 是一个全栈教育平台，包含以下核心模块：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] A.I.R.: Adaptive, Iterative, and Reasoning-based Frame Selection For Video Question Answering](air_enabling_adaptive_iterative_and_reasoning-based_frame_selection_for_video_qu.md)
@@ -147,5 +149,7 @@ AnveshanaAI 是一个全栈教育平台，包含以下核心模块：
 - [\[AAAI 2026\] EmoVid: A Multimodal Emotion Video Dataset for Emotion-Centric Video Understanding and Generation](../../AAAI2026/video_understanding/emovid_a_multimodal_emotion_video_dataset_for_emotion-centric_video_understandin.md)
 - [\[CVPR 2026\] MovieRecapsQA: A Multimodal Open-Ended Video Question-Answering Benchmark](../../CVPR2026/video_understanding/movierecapsqa_a_multimodal_open-ended_video_question-answering_benchmark.md)
 - [\[ACL 2026\] VISTA: Verification In Sequential Turn-based Assessment](../../ACL2026/video_understanding/vista_verification_in_sequential_turn-based_assessment.md)
+
+</div>
 
 <!-- RELATED:END -->

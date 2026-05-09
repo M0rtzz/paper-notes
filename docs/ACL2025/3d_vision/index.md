@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2025** · **1** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (252)](../../CVPR2026/3d_vision/) · [🔬 ICLR2026 (65)](../../ICLR2026/3d_vision/) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/) · [🧠 NeurIPS2025 (116)](../../NeurIPS2025/3d_vision/) · [📹 ICCV2025 (268)](../../ICCV2025/3d_vision/) · [🧪 ICML2025 (11)](../../ICML2025/3d_vision/)
+
 **[Slamming: Training a Speech Language Model on One GPU in a Day](slamming_training_a_speech_language_model_on_one_gpu_in_a_day.md)**
 
 :   提出 Slam 训练配方，通过系统化的模型初始化、架构选择、合成数据、偏好优化等环节优化，在单张 A5000 GPU 上 24 小时内训练出性能媲美大规模 SLM 的语音语言模型。

@@ -139,6 +139,8 @@ Hita 在所有尺寸下均显著优于 LlamaGen，2B 模型以更少参数超越
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Spectral Image Tokenizer](spectral_image_tokenizer.md)
@@ -146,5 +148,7 @@ Hita 在所有尺寸下均显著优于 LlamaGen，2B 模型以更少参数超越
 - [\[ICCV 2025\] Grouped Speculative Decoding for Autoregressive Image Generation](grouped_speculative_decoding_for_autoregressive_image_generation.md)
 - [\[ICCV 2025\] Music-Aligned Holistic 3D Dance Generation via Hierarchical Motion Modeling](music-aligned_holistic_3d_dance_generation_via_hierarchical_motion_modeling.md)
 - [\[ICCV 2025\] Efficient Autoregressive Shape Generation via Octree-Based Adaptive Tokenization](efficient_autoregressive_shape_generation_via_octree-based_adaptive_tokenization.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -150,6 +150,8 @@ $$\boldsymbol{x}_s = \boldsymbol{x}_t + (s-t) \boldsymbol{f}_\theta(\boldsymbol{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Composition and Alignment of Diffusion Models using Constrained Learning](composition_and_alignment_of_diffusion_models_using_constrai.md)
@@ -157,5 +159,7 @@ $$\boldsymbol{x}_s = \boldsymbol{x}_t + (s-t) \boldsymbol{f}_\theta(\boldsymbol{
 - [\[ICCV 2025\] Joint Diffusion Models in Continual Learning](../../ICCV2025/image_generation/joint_diffusion_models_in_continual_learning.md)
 - [\[NeurIPS 2025\] Towards Robust Zero-Shot Reinforcement Learning](towards_robust_zero-shot_reinforcement_learning.md)
 - [\[ICCV 2025\] Golden Noise for Diffusion Models: A Learning Framework](../../ICCV2025/image_generation/golden_noise_for_diffusion_models_a_learning_framework.md)
+
+</div>
 
 <!-- RELATED:END -->

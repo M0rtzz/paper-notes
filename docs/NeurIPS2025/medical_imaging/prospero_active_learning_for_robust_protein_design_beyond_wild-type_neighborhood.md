@@ -113,6 +113,8 @@ ProSpero 遵循主动学习循环：每轮 (1) 在当前数据集上训练代理
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Protein Design with Dynamic Protein Vocabulary](protein_design_with_dynamic_protein_vocabulary.md)
@@ -120,5 +122,7 @@ ProSpero 遵循主动学习循环：每轮 (1) 在当前数据集上训练代理
 - [\[ACL 2025\] Concept Bottleneck Language Models For Protein Design](../../ACL2025/medical_imaging/concept_bottleneck_language_models_for_protein_design.md)
 - [\[NeurIPS 2025\] Self Iterative Label Refinement via Robust Unlabeled Learning](self_iterative_label_refinement_via_robust_unlabeled_learning.md)
 - [\[NeurIPS 2025\] Towards Multiscale Graph-based Protein Learning with Geometric Secondary Structural Motifs](towards_multiscale_graph-based_protein_learning_with_geometric_secondary_structu.md)
+
+</div>
 
 <!-- RELATED:END -->

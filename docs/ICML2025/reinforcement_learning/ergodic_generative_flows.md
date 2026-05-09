@@ -160,6 +160,8 @@ $$\mathcal{L}^{\text{div}}_{\text{FM}} = \mathbb{E}_{\underline{s}} \sum_{t=1}^\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Value Flows](../../ICLR2026/reinforcement_learning/value_flows.md)
@@ -167,5 +169,7 @@ $$\mathcal{L}^{\text{div}}_{\text{FM}} = \mathbb{E}_{\underline{s}} \sum_{t=1}^\
 - [\[ICML 2025\] Action-Constrained Imitation Learning](action-constrained_imitation_learning.md)
 - [\[ICLR 2026\] UME-R1: Exploring Reasoning-Driven Generative Multimodal Embeddings](../../ICLR2026/reinforcement_learning/ume-r1_exploring_reasoning-driven_generative_multimodal_embeddings.md)
 - [\[ICLR 2026\] ReFORM: Reflected Flows for On-support Offline RL via Noise Manipulation](../../ICLR2026/reinforcement_learning/reform_reflected_flows_for_on-support_offline_rl_via_noise_manipulation.md)
+
+</div>
 
 <!-- RELATED:END -->

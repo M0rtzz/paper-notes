@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/image_generation/) · [📷 CVPR2026 (240)](../../CVPR2026/image_generation/) · [🔬 ICLR2026 (154)](../../ICLR2026/image_generation/) · [🤖 AAAI2026 (78)](../../AAAI2026/image_generation/) · [🧠 NeurIPS2025 (250)](../../NeurIPS2025/image_generation/) · [📹 ICCV2025 (219)](../../ICCV2025/image_generation/)
+
+🔥 **高频主题：** 语音 ×3 · 文生图 ×2 · 少样本学习 ×2
+
 **[A Unified Agentic Framework for Evaluating Conditional Image Generation](a_unified_agentic_framework_for_evaluating_conditional_image_generation.md)**
 
 :   提出 CIGEval，一个基于大型多模态模型（LMM）的统一 Agent 评估框架，通过工具集成（Grounding、Highlight、Difference、Scene Graph）和分而治之的评估策略，在 7 种条件图像生成任务上达到与人类标注者相当的相关性（0.4625 vs 人类间 0.47），且仅用 2.3K 训练数据微调 7B 模型即超越 GPT-4o 版 SOTA。

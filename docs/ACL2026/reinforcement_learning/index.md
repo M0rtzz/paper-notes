@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **34** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (22)](../../CVPR2026/reinforcement_learning/) · [🔬 ICLR2026 (142)](../../ICLR2026/reinforcement_learning/) · [🤖 AAAI2026 (71)](../../AAAI2026/reinforcement_learning/) · [🧠 NeurIPS2025 (173)](../../NeurIPS2025/reinforcement_learning/) · [📹 ICCV2025 (7)](../../ICCV2025/reinforcement_learning/) · [🧪 ICML2025 (82)](../../ICML2025/reinforcement_learning/)
+
+🔥 **高频主题：** LLM ×10 · 强化学习 ×10 · 推理 ×8 · Agent ×3 · 对话系统 ×3
+
 **[A Survey of Reinforcement Learning for Large Language Models under Data Scarcity: Challenges and Solutions](a_survey_of_reinforcement_learning_for_large_language_models_under_data_scarcity.md)**
 
 :   首篇系统综述数据稀缺条件下LLM强化学习的工作，提出数据中心、训练中心、框架中心三层分类体系，覆盖数据剪枝/合成/压缩、轨迹生成/奖励工程/策略优化、以及自演化/协同演化/多智能体演化等方向。

@@ -150,6 +150,8 @@ $$\mathcal{L}_{un} = 2 \cdot \mathcal{L}'_{pixel} + 0.1 \cdot \mathcal{L}_{cl} +
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] MdaIF: Robust One-Stop Multi-Degradation-Aware Image Fusion with Language-Driven Semantics](../../AAAI2026/earth_science/mdaif_robust_one-stop_multi-degradation-aware_image_fusion_with_language-driven_.md)
@@ -157,5 +159,7 @@ $$\mathcal{L}_{un} = 2 \cdot \mathcal{L}'_{pixel} + 0.1 \cdot \mathcal{L}_{cl} +
 - [\[NeurIPS 2025\] Adaptive Online Emulation for Accelerating Complex Physical Simulations](../../NeurIPS2025/earth_science/adaptive_online_emulation_for_accelerating_complex_physical_simulations.md)
 - [\[NeurIPS 2025\] Predicting Public Health Impacts of Electricity Usage](../../NeurIPS2025/earth_science/predicting_public_health_impacts_of_electricity_usage.md)
 - [\[NeurIPS 2025\] A Probabilistic U-Net Approach to Downscaling Climate Simulations](../../NeurIPS2025/earth_science/a_probabilistic_unet_approach_to_downscaling_climate_simulat.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -200,6 +200,8 @@ $$\mathcal{L} = \mathbb{E}_{z,S,\epsilon,t}[\|w \odot (\epsilon - \epsilon_\thet
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Through-The-Mask: Mask-based Motion Trajectories for Image-to-Video Generation](../../CVPR2025/video_generation/through-the-mask_mask-based_motion_trajectories_for_image-to-video_generation.md)
@@ -207,5 +209,7 @@ $$\mathcal{L} = \mathbb{E}_{z,S,\epsilon,t}[\|w \odot (\epsilon - \epsilon_\thet
 - [\[CVPR 2026\] Chain of Event-Centric Causal Thought for Physically Plausible Video Generation](../../CVPR2026/video_generation/chain_of_event-centric_causal_thought_for_physically_plausible_video_generation.md)
 - [\[AAAI 2026\] OmniVDiff: Omni Controllable Video Diffusion for Generation and Understanding](omnivdiff_omni_controllable_video_diffusion_for_generation_and_understanding.md)
 - [\[CVPR 2026\] U-Mind: A Unified Framework for Real-Time Multimodal Interaction with Audiovisual Generation](../../CVPR2026/video_generation/u-mind_a_unified_framework_for_real-time_multimodal_interaction_with_audiovisual.md)
+
+</div>
 
 <!-- RELATED:END -->

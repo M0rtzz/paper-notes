@@ -155,6 +155,8 @@ MS-Bart 在 NPLIB1 上相似度指标全面领先：MCES 改善 19.16%，Tanimot
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] UniBlendNet: Unified Global, Multi-Scale, and Region-Adaptive Modeling for Ambient Lighting Normalization](../../CVPR2026/image_restoration/uniblendnet_unified_global_multi_scale_and_region_adaptive_modeling_for_ambient_lighting_normalization.md)
@@ -162,5 +164,7 @@ MS-Bart 在 NPLIB1 上相似度指标全面领先：MCES 改善 19.16%，Tanimot
 - [\[ECCV 2024\] TTT-MIM: Test-Time Training with Masked Image Modeling for Denoising Distribution Shifts](../../ECCV2024/image_restoration/ttt-mim_test-time_training_with_masked_image_modeling_for_denoising_distribution.md)
 - [\[ICLR 2026\] Skip to the Good Part: Representation Structure & Inference-Time Layer Skipping in Diffusion vs. Autoregressive LLMs](../../ICLR2026/image_restoration/skip_to_the_good_part_representation_structure_inference-time_layer_skipping_in_.md)
 - [\[NeurIPS 2025\] DenoiseRotator: Enhance Pruning Robustness for LLMs via Importance Concentration](denoiserotator_enhance_pruning_robustness_for_llms_via_importance_concentration.md)
+
+</div>
 
 <!-- RELATED:END -->

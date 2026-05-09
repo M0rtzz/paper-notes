@@ -135,6 +135,8 @@ GsiT 相比 MulT：参数量减少 67.7%，Acc-2 提升 4+%，Acc-7 提升 11.2%
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Unifying and Enhancing Graph Transformers via a Hierarchical Mask Framework](../../NeurIPS2025/graph_learning/unifying_and_enhancing_graph_transformers_via_a_hierarchical_mask_framework.md)
@@ -142,5 +144,7 @@ GsiT 相比 MulT：参数量减少 67.7%，Acc-2 提升 4+%，Acc-7 提升 11.2%
 - [\[ACL 2025\] Fast-and-Frugal Text-Graph Transformers are Effective Link Predictors](fast-and-frugal_text-graph_transformers_are_effective_link_predictors.md)
 - [\[ICLR 2026\] Graph Tokenization for Bridging Graphs and Transformers](../../ICLR2026/graph_learning/graph_tokenization_for_bridging_graphs_and_transformers.md)
 - [\[NeurIPS 2025\] Relieving the Over-Aggregating Effect in Graph Transformers](../../NeurIPS2025/graph_learning/relieving_the_over-aggregating_effect_in_graph_transformers.md)
+
+</div>
 
 <!-- RELATED:END -->

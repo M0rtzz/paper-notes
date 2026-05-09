@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **46** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (36)](../../ACL2026/llm_nlp/) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_nlp/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_nlp/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_nlp/) · [🧪 ICML2025 (28)](../../ICML2025/llm_nlp/)
+
+🔥 **高频主题：** LLM ×13 · 推理 ×5 · 扩散模型 ×5 · Agent ×2
+
 **[AP-OOD: Attention Pooling for Out-of-Distribution Detection](ap-ood_attention_pooling_for_out-of-distribution_detection.md)**
 
 :   提出AP-OOD，将Mahalanobis距离的均值池化替换为可学习的注意力池化，解决了均值池化丢失token级异常信息的问题，在文本OOD检测中将XSUM摘要的FPR95从27.84%降至4.67%，支持无监督到半监督的平滑过渡。

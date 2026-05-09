@@ -148,6 +148,8 @@ UIPro 采用两阶段训练：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Aguvis: Unified Pure Vision Agents for Autonomous GUI Interaction](../../ICML2025/llm_agent/aguvis_unified_pure_vision_agents_for_autonomous_gui_interaction.md)
@@ -155,5 +157,7 @@ UIPro 采用两阶段训练：
 - [\[ACL 2026\] LPO: Towards Accurate GUI Agent Interaction via Location Preference Optimization](../../ACL2026/llm_agent/lpo_towards_accurate_gui_agent_interaction_via_location_preference_optimization.md)
 - [\[ICCV 2025\] Less is More: Empowering GUI Agent with Context-Aware Simplification](less_is_more_empowering_gui_agent_with_context-aware_simplification.md)
 - [\[ACL 2025\] GUI Agents: A Survey](../../ACL2025/llm_agent/gui_agents_a_survey.md)
+
+</div>
 
 <!-- RELATED:END -->

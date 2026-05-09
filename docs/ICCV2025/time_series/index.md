@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **4** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/time_series/) · [📷 CVPR2026 (8)](../../CVPR2026/time_series/) · [🔬 ICLR2026 (39)](../../ICLR2026/time_series/) · [🤖 AAAI2026 (35)](../../AAAI2026/time_series/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/time_series/) · [🧪 ICML2025 (27)](../../ICML2025/time_series/)
+
+🔥 **高频主题：** 时序预测 ×2
+
 **[I²-World: Intra-Inter Tokenization for Efficient Dynamic 4D Scene Forecasting](i2-world_intra-inter_tokenization_for_efficient_dynamic_4d_scene_forecasting.md)**
 
 :   提出 I²-World，通过将 3D 场景 tokenization 解耦为帧内（intra-scene）多尺度残差量化和帧间（inter-scene）时序量化两个互补过程，在保持 3D tokenizer 高压缩率的同时获得 4D tokenizer 的时序建模能力，实现高效且高质量的 4D occupancy 预测。

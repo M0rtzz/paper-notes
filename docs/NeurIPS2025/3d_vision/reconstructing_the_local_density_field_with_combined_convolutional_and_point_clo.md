@@ -103,6 +103,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] DANCE: Density-Agnostic and Class-Aware Network for Point Cloud Completion](../../AAAI2026/3d_vision/dance_density-agnostic_and_class-aware_network_for_point_cloud_completion.md)
@@ -110,5 +112,7 @@ tags:
 - [\[CVPR 2026\] ECKConv: Learning Coordinate-based Convolutional Kernels for Continuous SE(3) Equivariant Point Cloud Analysis](../../CVPR2026/3d_vision/learning_coordinate-based_convolutional_kernels_for_continuous_se3_equivariant_a.md)
 - [\[ECCV 2024\] GPSFormer: A Global Perception and Local Structure Fitting-Based Transformer for Point Cloud Understanding](../../ECCV2024/3d_vision/gpsformer_a_global_perception_and_local_structure_fitting-based_transformer_for_.md)
 - [\[NeurIPS 2025\] Rectified Point Flow: Generic Point Cloud Pose Estimation](rectified_point_flow_generic_point_cloud_pose_estimation.md)
+
+</div>
 
 <!-- RELATED:END -->

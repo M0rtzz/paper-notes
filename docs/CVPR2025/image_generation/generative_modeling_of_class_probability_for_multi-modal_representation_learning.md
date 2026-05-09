@@ -119,6 +119,8 @@ $\mathcal{L} = \mathcal{L}_{rec} + 0.1 \cdot \mathcal{L}_{KL} + \mathcal{L}_{tas
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] MMAR: Towards Lossless Multi-Modal Auto-Regressive Probabilistic Modeling](mmar_towards_lossless_multi-modal_auto-regressive_probabilistic_modeling.md)
@@ -126,5 +128,7 @@ $\mathcal{L} = \mathcal{L}_{rec} + 0.1 \cdot \mathcal{L}_{KL} + \mathcal{L}_{tas
 - [\[CVPR 2025\] Symbolic Representation for Any-to-Any Generative Tasks](symbolic_representation_for_any-to-any_generative_tasks.md)
 - [\[CVPR 2025\] Multi-Group Proportional Representation for Text-to-Image Models](multi-group_proportional_representations_for_text-to-image_models.md)
 - [\[CVPR 2025\] DiffSensei: Bridging Multi-Modal LLMs and Diffusion Models for Customized Manga Generation](diffsensei_bridging_multi-modal_llms_and_diffusion_models_for_customized_manga_g.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -111,6 +111,8 @@ CTS/CTG扩展到CogVideoX-2B和Latte后也取得一致显著提升。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Adversarial Distribution Matching for Diffusion Distillation Towards Efficient Image and Video Synthesis](adversarial_distribution_matching_for_diffusion_distillation_towards_efficient_image_and_video_synthesis.md)
@@ -118,5 +120,7 @@ CTS/CTG扩展到CogVideoX-2B和Latte后也取得一致显著提升。
 - [\[ECCV 2024\] DragAnything: Motion Control for Anything using Entity Representation](../../ECCV2024/video_generation/draganything_motion_control_for_anything_using_entity_representation.md)
 - [\[ICML 2025\] Ca2-VDM: Efficient Autoregressive Video Diffusion Model with Causal Generation and Cache Sharing](../../ICML2025/video_generation/ca2-vdm_efficient_autoregressive_video_diffusion_model_with_causal_generation_an.md)
 - [\[CVPR 2026\] Chain of Event-Centric Causal Thought for Physically Plausible Video Generation](../../CVPR2026/video_generation/chain_of_event-centric_causal_thought_for_physically_plausible_video_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

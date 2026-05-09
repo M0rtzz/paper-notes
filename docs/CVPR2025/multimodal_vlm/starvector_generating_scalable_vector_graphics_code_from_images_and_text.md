@@ -126,6 +126,8 @@ StarVector 由三部分组成：(1) 图像编码器（CLIP ViT）将输入图像
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Reason-SVG: Enhancing Structured Reasoning for Vector Graphics Generation with Reinforcement Learning](../../CVPR2026/multimodal_vlm/reason-svg_enhancing_structured_reasoning_for_vector_graphics_generation_with_re.md)
@@ -133,5 +135,7 @@ StarVector 由三部分组成：(1) 图像编码器（CLIP ViT）将输入图像
 - [\[CVPR 2025\] Recognition-Synergistic Scene Text Editing](recognition-synergistic_scene_text_editing.md)
 - [\[ACL 2025\] Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation](../../ACL2025/multimodal_vlm/code_guided_text_rich_image.md)
 - [\[CVPR 2025\] CodePercept: Code-Grounded Visual STEM Perception for MLLMs](codepercept_code-grounded_visual_stem_perception_for_mllms.md)
+
+</div>
 
 <!-- RELATED:END -->

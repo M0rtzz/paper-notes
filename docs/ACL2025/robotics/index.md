@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **7** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (7)](../../ACL2026/robotics/) · [📷 CVPR2026 (49)](../../CVPR2026/robotics/) · [🔬 ICLR2026 (47)](../../ICLR2026/robotics/) · [🤖 AAAI2026 (38)](../../AAAI2026/robotics/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/robotics/) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/)
+
+🔥 **高频主题：** 机器人 ×5 · 情感分析 ×2
+
 **[CHEER-Ekman: Fine-grained Embodied Emotion Classification](cheer-ekman_fine-grained_embodied_emotion_classification.md)**
 
 :   本文提出CHEER-Ekman数据集，将CHEER数据集的二元具身情感标注扩展为Ekman六类基础情绪，并采用基于LLM的自动Best-Worst Scaling（BWS）技术实现无需任务特定训练的细粒度情感分类，性能超越有监督BERT。

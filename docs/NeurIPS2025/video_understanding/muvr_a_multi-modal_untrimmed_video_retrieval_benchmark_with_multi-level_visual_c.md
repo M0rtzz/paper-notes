@@ -159,6 +159,8 @@ $$S_{tv} = (S_t + S_v)/2, \quad S_{tag} = S_{tv} + p \times \text{Score}(T_{\tex
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] PixFoundation 2.0: Do Video Multi-Modal LLMs Use Motion in Visual Grounding?](pixfoundation_20_do_video_multi-modal_llms_use_motion_in_visual_grounding.md)
@@ -166,5 +168,7 @@ $$S_{tv} = (S_t + S_v)/2, \quad S_{tag} = S_{tv} + p \times \text{Score}(T_{\tex
 - [\[NeurIPS 2025\] When One Moment Isn't Enough: Multi-Moment Retrieval with Cross-Moment Interactions](when_one_moment_isnt_enough_multi-moment_retrieval_with_cross-moment_interaction.md)
 - [\[ICCV 2025\] DynImg: Key Frames with Visual Prompts are Good Representation for Multi-Modal Video Understanding](../../ICCV2025/video_understanding/dynimg_key_frames_with_visual_prompts_are_good_representation_for_multi-modal_vi.md)
 - [\[CVPR 2025\] MMVU: Measuring Expert-Level Multi-Discipline Video Understanding](../../CVPR2025/video_understanding/mmvu_measuring_expert-level_multi-discipline_video_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

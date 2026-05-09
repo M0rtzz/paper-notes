@@ -131,6 +131,8 @@ X-Transfer 在 OpenFlamingo-3B、LLaVA-7B、MiniGPT-4、BLIP2 等大型VLM上同
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] ToxicTextCLIP: Text-Based Poisoning and Backdoor Attacks on CLIP Pre-training](../../NeurIPS2025/llm_safety/toxictextclip_text-based_poisoning_and_backdoor_attacks_on_clip_pre-training.md)
@@ -138,5 +140,7 @@ X-Transfer 在 OpenFlamingo-3B、LLaVA-7B、MiniGPT-4、BLIP2 等大型VLM上同
 - [\[ICML 2025\] The Ripple Effect: On Unforeseen Complications of Backdoor Attacks](the_ripple_effect_on_unforeseen_complications_of_backdoor_attacks.md)
 - [\[ACL 2025\] TIP of the Iceberg: Task-in-Prompt Adversarial Attacks on LLMs](../../ACL2025/llm_safety/tip_iceberg_adversarial_attacks.md)
 - [\[ICML 2025\] ICLShield: Exploring and Mitigating In-Context Learning Backdoor Attacks](iclshield_exploring_and_mitigating_in-context_learning_backdoor_attacks.md)
+
+</div>
 
 <!-- RELATED:END -->

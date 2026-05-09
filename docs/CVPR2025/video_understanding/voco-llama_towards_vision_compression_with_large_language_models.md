@@ -117,6 +117,8 @@ VoCo-LLaMA 的核心创新是：**让 LLM 自己来做视觉压缩**。通过在
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Video Summarization with Large Language Models](video_summarization_with_large_language_models.md)
@@ -124,5 +126,7 @@ VoCo-LLaMA 的核心创新是：**让 LLM 自己来做视觉压缩**。通过在
 - [\[CVPR 2025\] On the Consistency of Video Large Language Models in Temporal Comprehension](on_the_consistency_of_video_large_language_models_in_temporal_comprehension.md)
 - [\[CVPR 2025\] PAVE: Patching and Adapting Video Large Language Models](pave_patching_and_adapting_video_large_language_models.md)
 - [\[NeurIPS 2025\] FastVID: Dynamic Density Pruning for Fast Video Large Language Models](../../NeurIPS2025/video_understanding/fastvid_dynamic_density_pruning_for_fast_video_large_languag.md)
+
+</div>
 
 <!-- RELATED:END -->

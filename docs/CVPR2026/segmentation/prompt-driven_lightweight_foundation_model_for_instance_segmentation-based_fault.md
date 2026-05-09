@@ -124,6 +124,8 @@ SAM FTI-FDet 在 AP^box 和 AP^mask 上均取得最优，同时参数量仅为 S
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] CrossEarth-SAR: A SAR-Centric and Billion-Scale Geospatial Foundation Model for Domain Generalizable Semantic Segmentation](crossearth-sar_a_sar-centric_and_billion-scale_geospatial_foundation_model_for_d.md)
@@ -131,5 +133,7 @@ SAM FTI-FDet 在 AP^box 和 AP^mask 上均取得最优，同时参数量仅为 S
 - [\[ECCV 2024\] Unleashing the Power of Prompt-driven Nucleus Instance Segmentation](../../ECCV2024/segmentation/unleashing_the_power_of_prompt-driven_nucleus_instance_segmentation.md)
 - [\[CVPR 2026\] LoD-Loc v3: Generalized Aerial Localization in Dense Cities using Instance Silhouette Alignment](lod-loc_v3_generalized_aerial_localization_in_dense_cities_using_instance_silhou.md)
 - [\[CVPR 2026\] FCL-COD: Weakly Supervised Camouflaged Object Detection with Frequency-aware and Contrastive Learning](fcl-cod_weakly_supervised_camouflaged_object_detection_with_frequency-aware_and_.md)
+
+</div>
 
 <!-- RELATED:END -->

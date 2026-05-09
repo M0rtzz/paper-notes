@@ -10,6 +10,8 @@ description: >-
 
 **🤖 AAAI2026** · **1** 篇论文解读
 
+📌 **同领域跨会议浏览：** [🧠 NeurIPS2025 (5)](../../NeurIPS2025/earth_science/) · [🎞️ ECCV2024 (1)](../../ECCV2024/earth_science/)
+
 **[MdaIF: Robust One-Stop Multi-Degradation-Aware Image Fusion with Language-Driven Semantics](mdaif_robust_one-stop_multi-degradation-aware_image_fusion_with_language-driven_.md)**
 
 :   提出 MdaIF 框架，利用视觉语言模型（VLM）提取退化感知语义先验来引导混合专家（MoE）路由和通道注意力调制，实现无需退化类型标注的一站式多退化场景红外-可见光图像融合。

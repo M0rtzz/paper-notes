@@ -175,6 +175,8 @@ $$\mathcal{L}_{\text{hybrid}} = -\mathbb{E}_{\mathbf{X} \in p(\mathbf{X})}\left[
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Spatially-Variant Degradation Model for Dataset-free Super-resolution](spatially-variant_degradation_model_for_dataset-free_super-resolution.md)
@@ -182,5 +184,7 @@ $$\mathcal{L}_{\text{hybrid}} = -\mathbb{E}_{\mathbf{X} \in p(\mathbf{X})}\left[
 - [\[CVPR 2025\] DiTFlow: Video Motion Transfer with Diffusion Transformers](../../CVPR2025/image_restoration/video_motion_transfer_with_diffusion_transformers.md)
 - [\[ECCV 2024\] Joint RGB-Spectral Decomposition Model Guided Image Enhancement in Mobile Photography](joint_rgb-spectral_decomposition_model_guided_image_enhancement_in_mobile_photog.md)
 - [\[CVPR 2026\] MAD-Avatar: Motion-Aware Animatable Gaussian Avatars Deblurring](../../CVPR2026/image_restoration/motionaware_animatable_gaussian_avatars_deblurring.md)
+
+</div>
 
 <!-- RELATED:END -->

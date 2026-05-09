@@ -120,6 +120,8 @@ A3包含四个组件：(1) A3-Law理论范式定义三阶段评估规则；(2) A
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Venus: Benchmarking and Empowering Multimodal Large Language Models for Aesthetic Guidance and Cropping](venus_benchmarking_and_empowering_multimodal_large_language_models_for_aesthetic.md)
@@ -127,5 +129,7 @@ A3包含四个组件：(1) A3-Law理论范式定义三阶段评估规则；(2) A
 - [\[ICLR 2026\] Self-Evolving Vision-Language Models for Image Quality Assessment via Voting and Ranking](../../ICLR2026/multimodal_vlm/self-evolving_vision-language_models_for_image_quality_assessment_via_voting_and.md)
 - [\[CVPR 2026\] BriMA: Bridged Modality Adaptation for Multi-Modal Continual Action Quality Assessment](brima_bridged_modality_adaptation_for_multi-modal_continual_action_quality_asses.md)
 - [\[NeurIPS 2025\] A Multimodal Benchmark for Framing of Oil & Gas Advertising and Potential Greenwashing Detection](../../NeurIPS2025/multimodal_vlm/a_multimodal_benchmark_for_framing_of_oil_gas_advertising_an.md)
+
+</div>
 
 <!-- RELATED:END -->

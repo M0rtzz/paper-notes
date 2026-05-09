@@ -148,6 +148,8 @@ Deblur e-NeRF 基于 Robust e-NeRF 的 Analysis-by-Synthesis 框架，核心扩�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Invertible Neural Warp for NeRF](invertible_neural_warp_for_nerf.md)
@@ -155,5 +157,7 @@ Deblur e-NeRF 基于 Robust e-NeRF 的 Analysis-by-Synthesis 框架，核心扩�
 - [\[ECCV 2024\] Deceptive-NeRF/3DGS: Diffusion-Generated Pseudo-observations for High-Quality Sparse-View Reconstruction](deceptive-nerf3dgs_diffusion-generated_pseudo-observations_for_high-quality_spar.md)
 - [\[ECCV 2024\] RoGUENeRF: A Robust Geometry-Consistent Universal Enhancer for NeRF](roguenerf_a_robust_geometry-consistent_universal_enhancer_for_nerf.md)
 - [\[ECCV 2024\] The NeRFect Match: Exploring NeRF Features for Visual Localization](the_nerfect_match_exploring_nerf_features_for_visual_localization.md)
+
+</div>
 
 <!-- RELATED:END -->

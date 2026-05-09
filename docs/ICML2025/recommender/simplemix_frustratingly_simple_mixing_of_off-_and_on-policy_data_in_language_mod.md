@@ -186,6 +186,8 @@ $$\mathcal{L}_{\text{DPO}}(\pi_\theta; \pi_{\text{ref}}) = -\mathbb{E}_{(x, y_w,
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] PARM: Multi-Objective Test-Time Alignment via Preference-Aware Autoregressive Reward Model](parm_multi-objective_test-time_alignment_via_preference-aware_autoregressive_rew.md)
@@ -193,5 +195,7 @@ $$\mathcal{L}_{\text{DPO}}(\pi_\theta; \pi_{\text{ref}}) = -\mathbb{E}_{(x, y_w,
 - [\[ICML 2025\] Adaptive Elicitation of Latent Information Using Natural Language](adaptive_elicitation_of_latent_information_using_natural_language.md)
 - [\[ICML 2025\] Recommendations with Sparse Comparison Data: Provably Fast Convergence for Nonconvex Matrix Factorization](recommendations_with_sparse_comparison_data_provably_fast_convergence_for_noncon.md)
 - [\[ICML 2025\] LCRON: Learning Cascade Ranking as One Network](learning_cascade_ranking_as_one_network.md)
+
+</div>
 
 <!-- RELATED:END -->

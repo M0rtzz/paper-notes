@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **16** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (7)](../../ACL2026/robotics/) · [📷 CVPR2026 (49)](../../CVPR2026/robotics/) · [🔬 ICLR2026 (47)](../../ICLR2026/robotics/) · [🤖 AAAI2026 (38)](../../AAAI2026/robotics/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/robotics/) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/)
+
+🔥 **高频主题：** 机器人 ×5 · Agent ×3 · 模型压缩 ×2
+
 **[BiAssemble: Learning Collaborative Affordance for Bimanual Geometric Assembly](biassemble_learning_collaborative_affordance_for_bimanual_geometric_assembly.md)**
 
 :   提出 BiAssemble 框架，通过学习感知双臂协作的点级可供性（affordance），将几何装配任务分解为抓取→对齐→装配三步，在破碎物体重组任务上超越现有可供性和模仿学习方法，并在真实世界基准上验证。

@@ -188,6 +188,8 @@ $$L_{dct} = -\sum_{L \sim \mathcal{U}(\mathbf{L})} \log p(\mathbf{y} \mid \mathb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Compress, Gather, and Recompute: REFORMing Long-Context Processing in Transformers](compress_gather_and_recompute_reforming_long-context_processing_in_transformers.md)
@@ -195,5 +197,7 @@ $$L_{dct} = -\sum_{L \sim \mathcal{U}(\mathbf{L})} \log p(\mathbf{y} \mid \mathb
 - [\[ICML 2025\] LaCache: Ladder-Shaped KV Caching for Efficient Long-Context Modeling of Large Language Models](../../ICML2025/model_compression/lacache_ladder-shaped_kv_caching_for_efficient_long-context_modeling_of_large_la.md)
 - [\[NeurIPS 2025\] Correlation Dimension of Auto-Regressive Large Language Models](correlation_dimension_of_auto-regressive_large_language_models.md)
 - [\[NeurIPS 2025\] Restoring Pruned Large Language Models via Lost Component Compensation](restoring_pruned_large_language_models_via_lost_component_compensation.md)
+
+</div>
 
 <!-- RELATED:END -->

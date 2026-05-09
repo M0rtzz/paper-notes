@@ -149,6 +149,8 @@ $$\min_{0 \leq \alpha \leq \|\vec{e}_{\mathcal{A}_\parallel}\|} \sup_{w_1+w_2=1}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Interpretable Debiasing of Vision-Language Models for Social Fairness](interpretable_debiasing_of_vision-language_models_for_social_fairness.md)
@@ -156,5 +158,7 @@ $$\min_{0 \leq \alpha \leq \|\vec{e}_{\mathcal{A}_\parallel}\|} \sup_{w_1+w_2=1}
 - [\[CVPR 2026\] Proof-of-Perception: Certified Tool-Using Multimodal Reasoning with Compositional Conformal Guarantees](pop_proof_of_perception_conformal_reasoning.md)
 - [\[CVPR 2026\] MSJoE: Jointly Evolving MLLM and Sampler for Efficient Long-Form Video Understanding](msjoe_jointly_evolving_mllm_and_sampler_for_efficient_long-form_video_understand.md)
 - [\[CVPR 2026\] Towards Calibrating Prompt Tuning of Vision-Language Models](towards_calibrating_prompt_tuning_of_vision-language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **18** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (105)](../../CVPR2026/autonomous_driving/) · [🤖 AAAI2026 (58)](../../AAAI2026/autonomous_driving/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/autonomous_driving/) · [📹 ICCV2025 (98)](../../ICCV2025/autonomous_driving/) · [🧪 ICML2025 (11)](../../ICML2025/autonomous_driving/) · [💬 ACL2025 (1)](../../ACL2025/autonomous_driving/)
+
+🔥 **高频主题：** 自动驾驶 ×3 · 对抗鲁棒 ×2 · Agent ×2 · 多模态 ×2
+
 **[Adaptive Augmentation-Aware Latent Learning for Robust LiDAR Semantic Segmentation](adaptive_augmentation-aware_latent_learning_for_robust_lidar_semantic_segmentati.md)**
 
 :   提出 A3Point（Adaptive Augmentation-Aware Latent Learning）框架，通过语义混淆先验(SCP)隐式学习和语义偏移区域(SSR)定位两大核心组件，解耦模型固有的语义混淆与数据增强引入的语义偏移，对不同干扰程度自适应优化，在多个恶劣天气 LiDAR 分割泛化基准上取得 SOTA。

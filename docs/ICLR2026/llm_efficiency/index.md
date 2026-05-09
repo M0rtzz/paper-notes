@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **19** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/llm_efficiency/) · [📷 CVPR2026 (4)](../../CVPR2026/llm_efficiency/) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_efficiency/) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/llm_efficiency/) · [📹 ICCV2025 (1)](../../ICCV2025/llm_efficiency/) · [🧪 ICML2025 (13)](../../ICML2025/llm_efficiency/)
+
+🔥 **高频主题：** LLM ×5
+
 **[Did You Check the Right Pocket? Cost-Sensitive Store Routing for Memory-Augmented Agents](did_you_check_the_right_pocket_cost-sensitive_store_routing_for_memory-augmented.md)**
 
 :   将记忆增强 Agent 的多存储检索形式化为代价敏感的存储路由问题（store routing），证明选择性检索相比全量检索可在减少 62% context token 的同时提升 QA 准确率（86% vs 81%），并提出基于语义信号的启发式路由基线。

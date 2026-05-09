@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **42** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/llm_alignment/) · [📷 CVPR2026 (12)](../../CVPR2026/llm_alignment/) · [🤖 AAAI2026 (20)](../../AAAI2026/llm_alignment/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_alignment/) · [📹 ICCV2025 (2)](../../ICCV2025/llm_alignment/) · [🧪 ICML2025 (27)](../../ICML2025/llm_alignment/)
+
+🔥 **高频主题：** 对齐/RLHF ×22 · LLM ×10 · 对抗鲁棒 ×5 · 推理 ×3 · 多模态 ×2
+
 **[A2D: Any-Order, Any-Step Safety Alignment for Diffusion Language Models](a2d_any-order_any-step_safety_alignment_for_diffusion_language_models.md)**
 
 :   提出 A2D，一种针对扩散语言模型（dLLM）的 token 级安全对齐方法，通过训练模型在遇到有害内容的 mask 位置输出 [EOS] token 来实现任意解码顺序、任意解码步的安全防御，将 DIJA 模板攻击成功率从 80%+ 降到近零（1.3%/0.0%），并支持早期拒绝实现 19.3x 加速。

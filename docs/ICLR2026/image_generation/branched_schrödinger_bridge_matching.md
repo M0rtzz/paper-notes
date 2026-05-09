@@ -144,6 +144,8 @@ BranchSBM 的整体架构采用四阶段训练策略：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Schrödinger Bridge Matching for Tree-Structured Costs and Entropic Wasserstein Barycentres](../../NeurIPS2025/image_generation/schrödinger_bridge_matching_for_tree-structured_costs_and_entropic_wasserstein_b.md)
@@ -151,5 +153,7 @@ BranchSBM 的整体架构采用四阶段训练策略：
 - [\[ICLR 2026\] SeMoBridge: Semantic Modality Bridge for Efficient Few-Shot Adaptation of CLIP](semobridge_semantic_modality_bridge_for_efficient_few-shot_adaptation_of_clip.md)
 - [\[ICLR 2026\] Discrete Adjoint Matching](discrete_adjoint_matching.md)
 - [\[ICLR 2026\] Multi-agent Coordination via Flow Matching](multi-agent_coordination_via_flow_matching.md)
+
+</div>
 
 <!-- RELATED:END -->

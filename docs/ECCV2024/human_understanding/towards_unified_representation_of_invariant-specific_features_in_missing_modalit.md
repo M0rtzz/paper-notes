@@ -125,6 +125,8 @@ MMA-FAS基于预训练的ViT构建。输入为多模态人脸图像（RGB、Dept
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] TF-FAS: Twofold-Element Fine-Grained Semantic Guidance for Generalizable Face Anti-Spoofing](tf-fas_twofold-element_fine-grained_semantic_guidance_for_generalizable_face_ant.md)
@@ -132,5 +134,7 @@ MMA-FAS基于预训练的ViT构建。输入为多模态人脸图像（RGB、Dept
 - [\[ECCV 2024\] FreeMotion: A Unified Framework for Number-free Text-to-Motion Synthesis](freemotion_a_unified_framework_for_number-free_text-to-motion_synthesis.md)
 - [\[NeurIPS 2025\] Switchable Token-Specific Codebook Quantization for Face Image Compression](../../NeurIPS2025/human_understanding/switchable_token-specific_codebook_quantization_for_face_image_compression.md)
 - [\[ECCV 2024\] AdaDistill: Adaptive Knowledge Distillation for Deep Face Recognition](adadistill_adaptive_knowledge_distillation_for_deep_face_rec.md)
+
+</div>
 
 <!-- RELATED:END -->

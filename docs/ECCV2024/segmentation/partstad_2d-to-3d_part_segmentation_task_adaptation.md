@@ -160,6 +160,8 @@ GLIP 和 SAM 均冻结，仅训练权重预测网络（per category，few-shot 8
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] General and Task-Oriented Video Segmentation](general_and_task-oriented_video_segmentation.md)
@@ -167,5 +169,7 @@ GLIP 和 SAM 均冻结，仅训练权重预测网络（per category，few-shot 8
 - [\[ACL 2025\] InstructPart: Task-Oriented Part Segmentation with Instruction Reasoning](../../ACL2025/segmentation/instructpart_task-oriented_part_segmentation_with_instruction_reasoning.md)
 - [\[ECCV 2024\] Part2Object: Hierarchical Unsupervised 3D Instance Segmentation](part2object_hierarchical_unsupervised_3d_instance_segmentation.md)
 - [\[CVPR 2025\] Leveraging 3D Geometric Priors in 2D Rotation Symmetry Detection](../../CVPR2025/segmentation/leveraging_3d_geometric_priors_in_2d_rotation_symmetry_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

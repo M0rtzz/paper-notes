@@ -131,6 +131,8 @@ Decoder 模型（Mistral-7B）的结果：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Large Vocabulary Size Improves Large Language Models](large_vocabulary_size_improves_large_language_models.md)
@@ -138,5 +140,7 @@ Decoder 模型（Mistral-7B）的结果：
 - [\[ACL 2025\] DavIR: Data Selection via Implicit Reward for Large Language Models](davir_data_selection_via_implicit_reward_for_large_language_models.md)
 - [\[ACL 2025\] Adversarial Tokenization](adversarial_tokenization.md)
 - [\[ACL 2025\] Stealing Training Data from Large Language Models in Decentralized Training through Activation Inversion Attack](activation-inversion-attack-stealing-training-data-in-decentralized-training.md)
+
+</div>
 
 <!-- RELATED:END -->

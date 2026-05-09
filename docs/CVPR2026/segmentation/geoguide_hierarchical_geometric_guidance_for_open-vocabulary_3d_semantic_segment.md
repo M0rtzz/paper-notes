@@ -145,6 +145,8 @@ GeoGuide 在 ScanNet v2 上超出 SAS(stage1) +5.6 mIoU，在 nuScenes 上超出
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Universal 3D Shape Matching via Coarse-to-Fine Language Guidance](universal_3d_shape_matching_via_coarse-to-fine_language_guidance.md)
@@ -152,5 +154,7 @@ GeoGuide 在 ScanNet v2 上超出 SAS(stage1) +5.6 mIoU，在 nuScenes 上超出
 - [\[CVPR 2026\] PCA-Seg: Revisiting Cost Aggregation for Open-Vocabulary Semantic and Part Segmentation](pca_seg_parallel_cost_aggregation_open_vocabulary_segmentation.md)
 - [\[CVPR 2026\] Direct Segmentation without Logits Optimization for Training-Free Open-Vocabulary Semantic Segmentation](direct_segmentation_without_logits_optimization_for_training-free_open-vocabular.md)
 - [\[CVPR 2026\] GeomPrompt: Geometric Prompt Learning for RGB-D Semantic Segmentation Under Missing and Degraded Depth](geomprompt_rgbd_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -116,6 +116,8 @@ CoPrUS 是一个推理时框架，不需要额外训练。NLI 验证器使用现
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] READoc: A Unified Benchmark for Realistic Document Structured Extraction](readoc_a_unified_benchmark_for_realistic_document_structured_extraction.md)
@@ -123,5 +125,7 @@ CoPrUS 是一个推理时框架，不需要额外训练。NLI 验证器使用现
 - [\[ACL 2025\] WiCkeD: A Simple Method to Make Multiple Choice Benchmarks More Challenging](wicked_a_simple_method_to_make_multiple_choice_benchmarks_more_challenging.md)
 - [\[ACL 2025\] FinanceReasoning: Benchmarking Financial Numerical Reasoning More Credible, Comprehensive and Challenging](financereasoning_benchmarking_financial_numerical_reasoning_more.md)
 - [\[ICML 2025\] Consistency in Language Models: Current Landscape, Challenges, and Future Directions](../../ICML2025/llm_evaluation/consistency_in_language_models_current_landscape_challenges_and_future_direction.md)
+
+</div>
 
 <!-- RELATED:END -->

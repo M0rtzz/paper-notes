@@ -170,6 +170,8 @@ ToC 将专利权利要求优化建模为**序贯决策问题**：给定初始权
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] iMAD: Intelligent Multi-Agent Debate for Efficient and Accurate LLM Inference](imad_intelligent_multi-agent_debate_for_efficient_and_accura.md)
@@ -177,5 +179,7 @@ ToC 将专利权利要求优化建模为**序贯决策问题**：给定初始权
 - [\[ICLR 2026\] MATA: A Trainable Hierarchical Automaton System for Multi-Agent Visual Reasoning](../../ICLR2026/interpretability/mata_a_trainable_hierarchical_automaton_system_for_multi-agent_visual_reasoning.md)
 - [\[ACL 2026\] To Trust or Not to Trust: Attention-Based Trust Management for LLM Multi-Agent Systems](../../ACL2026/interpretability/to_trust_or_not_to_trust_attention-based_trust_management_for_llm_multi-agent_sy.md)
 - [\[ICLR 2026\] Auditing Cascading Risks in Multi-Agent Systems via Semantic–Geometric Co-evolution](../../ICLR2026/interpretability/auditing_cascading_risks_in_multi-agent_systems_via_semanti-geometric_co-evolut.md)
+
+</div>
 
 <!-- RELATED:END -->

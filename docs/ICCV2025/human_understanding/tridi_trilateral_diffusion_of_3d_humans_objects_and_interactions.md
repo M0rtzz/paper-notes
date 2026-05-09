@@ -127,12 +127,16 @@ TriDi 在 1-NNA 接近理想值 50、COV 提升最高 47% 的同时，几何一�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] PHD: Personalized 3D Human Body Fitting with Point Diffusion](phd_personalized_3d_human_body_fitting_with_point_diffusion.md)
 - [\[ICCV 2025\] AdaHuman: Animatable Detailed 3D Human Generation with Compositional Multiview Diffusion](adahuman_animatable_detailed_3d_human_generation_with_compositional_multiview_di.md)
 - [\[ICCV 2025\] HUMOTO: A 4D Dataset of Mocap Human Object Interactions](humoto_a_4d_dataset_of_mocap_human_object_interactions.md)
 - [\[ECCV 2024\] TRAM: Global Trajectory and Motion of 3D Humans from in-the-wild Videos](../../ECCV2024/human_understanding/tram_global_trajectory_and_motion_of_3d_humans_from_in-the-wild_videos.md)
-- [\[CVPR 2025\] Homogeneous Dynamics Space for Heterogeneous Humans](../../CVPR2025/human_understanding/homogeneous_dynamics_space_for_heterogeneous_humans.md)
+- [\[ICCV 2025\] DynFaceRestore: Balancing Fidelity and Quality in Diffusion-Guided Blind Face Restoration](dynfacerestore_balancing_fidelity_and_quality_in_diffusion-guided_blind_face_res.md)
+
+</div>
 
 <!-- RELATED:END -->

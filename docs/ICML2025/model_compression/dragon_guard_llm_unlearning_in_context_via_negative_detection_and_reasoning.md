@@ -121,6 +121,8 @@ DRAGON 在所有 forget 比例下 Deviation Score 最低，模型效用完全无
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] MKA: Memory-Keyed Attention for Efficient Long-Context Reasoning](mka_memory-keyed_attention_for_efficient_long-context_reasoning.md)
@@ -128,5 +130,7 @@ DRAGON 在所有 forget 比例下 Deviation Score 最低，模型效用完全无
 - [\[ICML 2025\] Steer LLM Latents for Hallucination Detection](steer_llm_latents_for_hallucination_detection.md)
 - [\[ICML 2025\] ParallelComp: Parallel Long-Context Compressor for Length Extrapolation](parallelcomp_parallel_long-context_compressor_for_length_extrapolation.md)
 - [\[ICML 2025\] FlatQuant: Flatness Matters for LLM Quantization](flatquant_flatness_matters_for_llm_quantization.md)
+
+</div>
 
 <!-- RELATED:END -->

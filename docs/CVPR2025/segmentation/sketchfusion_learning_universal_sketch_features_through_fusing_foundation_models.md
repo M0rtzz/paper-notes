@@ -125,6 +125,8 @@ SketchFusion 保持 SD 和 CLIP 模型冻结，仅训练三个轻量组件：(1)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Assessing and Learning Alignment of Unimodal Vision and Language Models (SAIL)](assessing_and_learning_alignment_of_unimodal_vision_and_language_model.md)
@@ -132,5 +134,7 @@ SketchFusion 保持 SD 和 CLIP 模型冻结，仅训练三个轻量组件：(1)
 - [\[ICCV 2025\] Can Generative Geospatial Diffusion Models Excel as Discriminative Geospatial Foundation Models?](../../ICCV2025/segmentation/can_generative_geospatial_diffusion_models_excel_as_discriminative_geospatial_fo.md)
 - [\[CVPR 2026\] Seeing Through the Tool: A Controlled Benchmark for Occlusion Robustness in Foundation Segmentation Models](../../CVPR2026/segmentation/occsam_bench_occlusion_robustness_segmentation.md)
 - [\[CVPR 2025\] Universal Domain Adaptation for Semantic Segmentation](universal_domain_adaptation_for_semantic_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

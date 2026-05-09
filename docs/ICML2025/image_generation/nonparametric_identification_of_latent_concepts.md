@@ -134,6 +134,8 @@ $$\mathcal{L}(\theta) = \mathbb{E}_{(\mathbf{x},\mathbf{c})} \left[ -\log p_{\ha
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Memories of Forgotten Concepts](../../CVPR2025/image_generation/memories_of_forgotten_concepts.md)
@@ -141,5 +143,7 @@ $$\mathcal{L}(\theta) = \mathbb{E}_{(\mathbf{x},\mathbf{c})} \left[ -\log p_{\ha
 - [\[ICML 2025\] Origin Identification for Text-Guided Image-to-Image Diffusion Models](origin_identification_for_text-guided_image-to-image_diffusion_models.md)
 - [\[NeurIPS 2025\] When Are Concepts Erased From Diffusion Models?](../../NeurIPS2025/image_generation/when_are_concepts_erased_from_diffusion_models.md)
 - [\[CVPR 2025\] FDeID-Toolbox: Face De-Identification Toolbox](../../CVPR2025/image_generation/fdeid-toolbox_face_de-identification_toolbox.md)
+
+</div>
 
 <!-- RELATED:END -->

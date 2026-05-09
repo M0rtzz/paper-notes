@@ -152,6 +152,8 @@ $$dx_t = \left(v_t + \frac{\sigma_t^2}{2t}(x_t + (1-t)v_t)\right)dt + \sigma_t\,
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] AMO Sampler: Enhancing Text Rendering with Overshooting](../../CVPR2025/image_generation/amo_sampler_enhancing_text_rendering_with_overshooting.md)
@@ -159,5 +161,7 @@ $$dx_t = \left(v_t + \frac{\sigma_t^2}{2t}(x_t + (1-t)v_t)\right)dt + \sigma_t\,
 - [\[CVPR 2025\] Unseen Visual Anomaly Generation](../../CVPR2025/image_generation/unseen_visual_anomaly_generation.md)
 - [\[CVPR 2026\] RenderFlow: Single-Step Neural Rendering via Flow Matching](renderflow_single-step_neural_rendering_via_flow_matching.md)
 - [\[CVPR 2026\] Enhancing Spatial Understanding in Image Generation via Reward Modeling](enhancing_spatial_understanding_in_image_generation_via_reward_modeling.md)
+
+</div>
 
 <!-- RELATED:END -->

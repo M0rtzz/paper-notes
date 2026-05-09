@@ -143,6 +143,8 @@ $$\mathcal{L}(\gamma_t) = \|\tilde{s}_\theta(x_t; w, \gamma_t) - s_\theta(x_t, \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Precise Object and Effect Removal with Adaptive Target-Aware Attention](precise_object_and_effect_removal_with_adaptive_target-aware_attention.md)
@@ -150,5 +152,7 @@ $$\mathcal{L}(\gamma_t) = \|\tilde{s}_\theta(x_t; w, \gamma_t) - s_\theta(x_t, \
 - [\[CVPR 2026\] MAGIC: Few-Shot Mask-Guided Anomaly Inpainting with Prompt Perturbation, Spatially Adaptive Guidance, and Context Awareness](magic_few-shot_mask-guided_anomaly_inpainting_with_prompt_perturbation_spatially.md)
 - [\[CVPR 2026\] EVATok: Adaptive Length Video Tokenization for Efficient Visual Autoregressive Generation](evatok_adaptive_length_video_tokenization_for_efficient_visual_autoregressive_ge.md)
 - [\[ACL 2025\] Planning with Diffusion Models for Target-Oriented Dialogue Systems](../../ACL2025/image_generation/difftod_diffusion_dialogue_planning.md)
+
+</div>
 
 <!-- RELATED:END -->

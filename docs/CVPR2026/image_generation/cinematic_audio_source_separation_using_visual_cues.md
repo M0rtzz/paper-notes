@@ -121,6 +121,8 @@ Vision Extractor（面部编码器+场景编码器→融合视觉条件 $\mathbf
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Preserving Source Video Realism: High-Fidelity Face Swapping for Cinematic Quality](preserving_source_video_realism_high-fidelity_face_swapping_for_cinematic_qualit.md)
@@ -128,5 +130,7 @@ Vision Extractor（面部编码器+场景编码器→融合视觉条件 $\mathbf
 - [\[NeurIPS 2025\] A Data-Driven Prism: Multi-View Source Separation with Diffusion Model Priors](../../NeurIPS2025/image_generation/a_data-driven_prism_multi-view_source_separation_with_diffusion_model_priors.md)
 - [\[CVPR 2026\] Probing and Bridging Geometry–Interaction Cues for Affordance Reasoning in Vision Foundation Models](probing_and_bridging_geometry-interaction_cues_for_affordance_reasoning_in_visio.md)
 - [\[ECCV 2024\] Learning Trimodal Relation for Audio-Visual Question Answering with Missing Modality](../../ECCV2024/image_generation/learning_trimodal_relation_for_audio-visual_question_answering_with_missing_moda.md)
+
+</div>
 
 <!-- RELATED:END -->

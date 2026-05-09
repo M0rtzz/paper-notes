@@ -164,6 +164,8 @@ $$f^{self} = \text{SelfAttn}(f^{in}) + \text{MultiViewAttn}(f^{in}) + \text{Imag
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] FlexGen: Flexible Multi-View Generation from Text and Image Inputs](flexgen_flexible_multi-view_generation_from_text_and_image_inputs.md)
@@ -171,5 +173,7 @@ $$f^{self} = \text{SelfAttn}(f^{in}) + \text{MultiViewAttn}(f^{in}) + \text{Imag
 - [\[ICCV 2025\] SpinMeRound: Consistent Multi-View Identity Generation Using Diffusion Models](spinmeround_consistent_multi-view_identity_generation_using_diffusion_models.md)
 - [\[ICCV 2025\] PanSt3R: Multi-view Consistent Panoptic Segmentation](panst3r_multi-view_consistent_panoptic_segmentation.md)
 - [\[ICCV 2025\] LACONIC: A 3D Layout Adapter for Controllable Image Creation](laconic_a_3d_layout_adapter_for_controllable_image_creation.md)
+
+</div>
 
 <!-- RELATED:END -->

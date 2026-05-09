@@ -127,6 +127,8 @@ GP-UCB在每步选择使 $\mu(\bm{x}; \mathbf{X}_{t-1}) + \beta^{1/2}\sigma(\bm{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Reward Redistribution via Gaussian Process Likelihood Estimation](../../AAAI2026/others/reward_redistribution_via_gaussian_process_likelihood_estimation.md)
@@ -134,5 +136,7 @@ GP-UCB在每步选择使 $\mu(\bm{x}; \mathbf{X}_{t-1}) + \beta^{1/2}\sigma(\bm{
 - [\[NeurIPS 2025\] Optimism Without Regularization: Constant Regret in Zero-Sum Games](optimism_without_regularization_constant_regret_in_zero-sum_games.md)
 - [\[NeurIPS 2025\] Infrequent Exploration in Linear Bandits](infrequent_exploration_in_linear_bandits.md)
 - [\[NeurIPS 2025\] Coresets for Clustering Under Stochastic Noise](coresets_for_clustering_under_stochastic_noise.md)
+
+</div>
 
 <!-- RELATED:END -->

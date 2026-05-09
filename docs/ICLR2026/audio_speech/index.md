@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **32** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (29)](../../ACL2026/audio_speech/) · [📷 CVPR2026 (17)](../../CVPR2026/audio_speech/) · [🤖 AAAI2026 (31)](../../AAAI2026/audio_speech/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/audio_speech/) · [📹 ICCV2025 (13)](../../ICCV2025/audio_speech/) · [🧪 ICML2025 (7)](../../ICML2025/audio_speech/)
+
+🔥 **高频主题：** 语音 ×14 · 推理 ×4 · LLM ×3 · 情感分析 ×3 · 对抗鲁棒 ×3
+
 **[AC-Foley: Reference-Audio-Guided Video-to-Audio Synthesis with Acoustic Transfer](ac-foley_reference-audio-guided_video-to-audio_synthesis_with_acoustic_transfer.md)**
 
 :   提出 AC-Foley，一种参考音频引导的视频到音频合成框架，通过两阶段训练（声学特征学习+时序适应）和多模态条件流匹配实现了细粒度音色控制、音色迁移和零样本音效生成，在音频质量和声学保真度上显著优于现有方法。

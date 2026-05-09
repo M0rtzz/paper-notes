@@ -157,6 +157,8 @@ CPM是TiRex的核心创新之一，解决多步预测中的误差累积问题：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Frequency-Semantic Enhanced Variational Autoencoder for Zero-Shot Skeleton-based Action Recognition](../../ICCV2025/video_understanding/frequency-semantic_enhanced_variational_autoencoder_for_zero-shot_skeleton-based.md)
@@ -164,5 +166,7 @@ CPM是TiRex的核心创新之一，解决多步预测中的误差累积问题：
 - [\[CVPR 2025\] Context-Enhanced Memory-Refined Transformer for Online Action Detection](../../CVPR2025/video_understanding/context-enhanced_memory-refined_transformer_for_online_action_detection.md)
 - [\[CVPR 2025\] Object-Shot Enhanced Grounding Network for Egocentric Video](../../CVPR2025/video_understanding/object-shot_enhanced_grounding_network_for_egocentric_video.md)
 - [\[ICCV 2025\] RainbowPrompt: Diversity-Enhanced Prompt-Evolving for Continual Learning](../../ICCV2025/video_understanding/rainbowprompt_diversity-enhanced_prompt-evolving_for_continual_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

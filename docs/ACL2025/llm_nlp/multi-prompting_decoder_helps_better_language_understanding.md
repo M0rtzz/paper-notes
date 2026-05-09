@@ -124,6 +124,8 @@ MPD 仅需 3 次查询（P=3 个提示）和 3.5 秒训练，比 BBT 快 462 倍
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Training Language Model to Critique for Better Refinement](training_language_model_to_critique_for_better_refinement.md)
@@ -131,5 +133,7 @@ MPD 仅需 3 次查询（P=3 个提示）和 3.5 秒训练，比 BBT 快 462 倍
 - [\[ACL 2025\] Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting](dolphin_document_image_parsing_via_heterogeneous_anchor_prompting.md)
 - [\[ACL 2025\] ChronoSense: Exploring Temporal Understanding in Large Language Models with Time Intervals of Events](chronosense_exploring_temporal_understanding_in_large_language_models_with_time_.md)
 - [\[ACL 2025\] P3: Prompts Promote Prompting](p3_prompts_promote_prompting.md)
+
+</div>
 
 <!-- RELATED:END -->

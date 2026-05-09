@@ -125,6 +125,8 @@ MOS在SSB三个数据集上的平均准确率达到65.1%，超出SimGCD 9%，超
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] A Hidden Stumbling Block in Generalized Category Discovery: Distracted Attention](../../ICCV2025/others/a_hidden_stumbling_block_in_generalized_category_discovery_d.md)
@@ -132,5 +134,7 @@ MOS在SSB三个数据集上的平均准确率达到65.1%，超出SimGCD 9%，超
 - [\[CVPR 2025\] Joint Out-of-Distribution Filtering and Data Discovery Active Learning](joint_out-of-distribution_filtering_and_data_discovery_active_learning.md)
 - [\[ICCV 2025\] Generate, Refine, and Encode: Leveraging Synthesized Novel Samples for On-the-Fly Fine-Grained Category Discovery](../../ICCV2025/others/generate_refine_and_encode_leveraging_synthesized_novel_samples_for_on-the-fly_f.md)
 - [\[NeurIPS 2025\] MetaFind: Scene-Aware 3D Asset Retrieval for Coherent Metaverse Scene Generation](../../NeurIPS2025/others/metafind_scene-aware_3d_asset_retrieval_for_coherent_metaverse_scene_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

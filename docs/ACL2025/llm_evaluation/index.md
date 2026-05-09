@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **89** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/llm_evaluation/) · [📷 CVPR2026 (28)](../../CVPR2026/llm_evaluation/) · [🔬 ICLR2026 (60)](../../ICLR2026/llm_evaluation/) · [🤖 AAAI2026 (39)](../../AAAI2026/llm_evaluation/) · [🧠 NeurIPS2025 (79)](../../NeurIPS2025/llm_evaluation/) · [📹 ICCV2025 (29)](../../ICCV2025/llm_evaluation/)
+
+🔥 **高频主题：** LLM ×34 · 推理 ×11 · 对抗鲁棒 ×3 · Agent ×3 · 情感分析 ×2
+
 **[A Conformal Risk Control Framework for Granular Word Assessment and Uncertainty Calibration of CLIPScore Quality Estimates](a_conformal_risk_control_framework_for_granular_word_assessment_and_uncertainty_.md)**
 
 :   提出基于 conformal risk control 框架对 CLIPScore 进行细粒度词级错误检测和不确定性校准，通过简单的注意力掩码采样生成分数分布，在保持模型无关性的同时提供形式化的风险控制保证。

@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **30** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/llm_pretraining/) · [📷 CVPR2026 (10)](../../CVPR2026/llm_pretraining/) · [🔬 ICLR2026 (27)](../../ICLR2026/llm_pretraining/) · [🤖 AAAI2026 (6)](../../AAAI2026/llm_pretraining/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_pretraining/) · [📹 ICCV2025 (10)](../../ICCV2025/llm_pretraining/)
+
+🔥 **高频主题：** LLM ×4 · 对齐/RLHF ×2 · 对抗鲁棒 ×2
+
 **[A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning](a_square_peg_in_a_square_hole_meta-expert_for_long-tailed_semi-supervised_learni.md)**
 
 :   提出 Meta-Expert 算法，通过动态专家分配（DEA）模块根据样本的类别归属（头/中/尾）自动选择最擅长的专家生成伪标签，并利用多深度特征融合（MFF）模块缓解模型对头类的偏向，实现"方枘方凿"——让每个专家处理它最擅长的样本区间。

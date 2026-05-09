@@ -148,6 +148,8 @@ SketchDeco采用两阶段的分治策略（图2）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Token Prepending: A Training-Free Approach for Eliciting Better Sentence Embeddings from LLMs](../../ACL2025/llm_nlp/token_prepending_training_free.md)
@@ -155,5 +157,7 @@ SketchDeco采用两阶段的分治策略（图2）：
 - [\[ACL 2025\] A Training-free LLM-based Approach to General Chinese Character Error Correction](../../ACL2025/llm_nlp/a_training-free_llm-based_approach_to_general_chinese_character_error_correction.md)
 - [\[NeurIPS 2025\] SubSpec: Speculate Deep and Accurate — Lossless and Training-Free Acceleration for Offloaded LLMs](../../NeurIPS2025/llm_nlp/speculate_deep_and_accurate_lossless_and_training-free_acceleration_for_offloade.md)
 - [\[ACL 2025\] GradOT: Training-free Gradient-preserving Offsite-tuning for Large Language Models](../../ACL2025/llm_nlp/gradot_offsite_tuning.md)
+
+</div>
 
 <!-- RELATED:END -->

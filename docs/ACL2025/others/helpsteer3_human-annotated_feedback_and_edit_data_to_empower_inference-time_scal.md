@@ -154,6 +154,8 @@ Feedback-Edit 系统在所有三个指标上显著提升基础模型表现，且
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Learning to Reason from Feedback at Test-Time](learning_to_reason_from_feedback_at_test-time.md)
@@ -161,5 +163,7 @@ Feedback-Edit 系统在所有三个指标上显著提升基础模型表现，且
 - [\[ACL 2025\] A Little Human Data Goes A Long Way](a_little_human_data_goes_a_long_way.md)
 - [\[ACL 2025\] Hybrid Preferences: Learning to Route Instances for Human vs. AI Feedback](hybrid_preferences_learning_to_route_instances_for_human_vs_ai_feedback.md)
 - [\[ACL 2025\] One for All: Update Parameterized Knowledge Across Multiple Models with Once Edit](one_for_all_update_parameterized_knowledge_across_multiple_models_with_once_edit.md)
+
+</div>
 
 <!-- RELATED:END -->

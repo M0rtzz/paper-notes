@@ -144,6 +144,8 @@ $$\mathcal{L} = \frac{1}{K_\mathcal{B}} \sum_{\hat{I} \in \hat{\mathcal{I}}_\mat
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] HumanOLAT: A Large-Scale Dataset for Full-Body Human Relighting and Novel-View Synthesis](humanolat_a_large-scale_dataset_for_full-body_human_relighting_and_novel-view_sy.md)
@@ -151,5 +153,7 @@ $$\mathcal{L} = \frac{1}{K_\mathcal{B}} \sum_{\hat{I} \in \hat{\mathcal{I}}_\mat
 - [\[ICCV 2025\] SHeaP: Self-Supervised Head Geometry Predictor Learned via 2D Gaussians](sheap_self-supervised_head_geometry_predictor_learned_via_2d_gaussians.md)
 - [\[ICCV 2025\] Self-Ensembling Gaussian Splatting for Few-Shot Novel View Synthesis](self-ensembling_gaussian_splatting_for_few-shot_novel_view_synthesis.md)
 - [\[ICCV 2025\] S3E: Self-Supervised State Estimation for Radar-Inertial System](s3e_self-supervised_state_estimation_for_radar-inertial_system.md)
+
+</div>
 
 <!-- RELATED:END -->

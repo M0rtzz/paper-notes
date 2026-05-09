@@ -152,6 +152,8 @@ CoWest 相对最优单模型的提升：Counterfactuals +6.14 EM，Medicine +2.0
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] How to Mitigate Overfitting in Weak-to-Strong Generalization?](how_to_mitigate_overfitting_in_weak-to-strong_generalization.md)
@@ -159,5 +161,7 @@ CoWest 相对最优单模型的提升：Counterfactuals +6.14 EM，Medicine +2.0
 - [\[ACL 2025\] Revisiting Weak-to-Strong Generalization: Reverse KL vs. Forward KL](revisiting_weak-to-strong_generalization_in_theory_and_practice_reverse_kl_vs_fo.md)
 - [\[ACL 2025\] Consultant Decoding: Yet Another Synergistic Mechanism](consultant_decoding_yet_another_synergistic_mechanism.md)
 - [\[ACL 2025\] Literature Meets Data: A Synergistic Approach to Hypothesis Generation](literature_meets_data_hypothesis.md)
+
+</div>
 
 <!-- RELATED:END -->

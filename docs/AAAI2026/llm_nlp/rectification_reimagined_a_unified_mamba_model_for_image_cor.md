@@ -123,6 +123,8 @@ $$\mathcal{L}_{DM} = \sum_{j=0}^{1} \gamma^j (\mathcal{L}_a^j + \alpha_1 \mathca
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] TransMamba: A Sequence-Level Hybrid Transformer-Mamba Language Model](transmamba_a_sequence-level_hybrid_transformer-mamba_language_model.md)
@@ -130,5 +132,7 @@ $$\mathcal{L}_{DM} = \sum_{j=0}^{1} \gamma^j (\mathcal{L}_a^j + \alpha_1 \mathca
 - [\[ACL 2025\] gec-metrics: A Unified Library for Grammatical Error Correction Evaluation](../../ACL2025/llm_nlp/gec-metrics_a_unified_library_for_grammatical_error_correction_evaluation.md)
 - [\[ECCV 2024\] PromptIQA: Boosting the Performance and Generalization for No-Reference Image Quality Assessment via Prompts](../../ECCV2024/llm_nlp/promptiqa_boosting_the_performance_and_generalization_for_no-reference_image_qua.md)
 - [\[ICCV 2025\] Balancing Task-Invariant Interaction and Task-Specific Adaptation for Unified Image Fusion](../../ICCV2025/llm_nlp/balancing_task-invariant_interaction_and_task-specific_adaptation_for_unified_im.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -116,6 +116,8 @@ WISE 是一个纯算法无训练的压缩方法，不涉及深度学习训练。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] CARL: A Framework for Equivariant Image Registration](carl_a_framework_for_equivariant_image_registration.md)
@@ -123,5 +125,7 @@ WISE 是一个纯算法无训练的压缩方法，不涉及深度学习训练。
 - [\[CVPR 2026\] Act Like a Pathologist: Tissue-Aware Whole Slide Image Reasoning](../../CVPR2026/medical_imaging/act_like_a_pathologist_tissue-aware_whole_slide_image_reasoning.md)
 - [\[AAAI 2026\] Towards Effective and Efficient Context-aware Nucleus Detection in Histopathology Whole Slide Images](../../AAAI2026/medical_imaging/towards_effective_and_efficient_context-aware_nucleus_detection_in_histopatholog.md)
 - [\[ICML 2025\] Scalable Generation of Spatial Transcriptomics from Histology Images via Whole-Slide Flow Matching](../../ICML2025/medical_imaging/scalable_generation_of_spatial_transcriptomics_from_histology_images_via_whole-s.md)
+
+</div>
 
 <!-- RELATED:END -->

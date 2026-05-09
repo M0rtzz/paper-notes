@@ -117,6 +117,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Fish2Mesh Transformer: 3D Human Mesh Recovery from Egocentric Vision](fish2mesh_transformer_3d_human_mesh_recovery_from_egocentric_vision.md)
@@ -124,5 +126,7 @@ tags:
 - [\[CVPR 2025\] MEGA: Masked Generative Autoencoder for Human Mesh Recovery](../../CVPR2025/human_understanding/mega_masked_generative_autoencoder_for_human_mesh_recovery.md)
 - [\[CVPR 2025\] HeatFormer: A Neural Optimizer for Multiview Human Mesh Recovery](../../CVPR2025/human_understanding/heatformer_a_neural_optimizer_for_multiview_human_mesh_recovery.md)
 - [\[ECCV 2024\] Global-to-Pixel Regression for Human Mesh Recovery](../../ECCV2024/human_understanding/global-to-pixel_regression_for_human_mesh_recovery.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -166,6 +166,8 @@ MEXMA-base (277M) 以 LaBSE 58.8% 的参数量即超越 LaBSE，并接近 SONAR�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Guidelines for Fine-grained Sentence-level Arabic Readability Annotation](guidelines_for_fine-grained_sentence-level_arabic_readability_annotation.md)
@@ -173,5 +175,7 @@ MEXMA-base (277M) 以 LaBSE 58.8% 的参数量即超越 LaBSE，并接近 SONAR�
 - [\[ACL 2025\] Cautious Next Token Prediction](cautious_next_token_prediction.md)
 - [\[ACL 2025\] Improve Rule Retrieval and Reasoning with Self-Induction and Relevance ReEstimate](improve_rule_retrieval_and_reasoning_with_self-induction_and_relevance_reestimat.md)
 - [\[ACL 2025\] CONFETTI: Conversational Function-Calling Evaluation Through Turn-Level Interactions](confetti_conversational_function-calling_evaluation_through_turn-level_interacti.md)
+
+</div>
 
 <!-- RELATED:END -->

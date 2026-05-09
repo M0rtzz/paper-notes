@@ -144,6 +144,8 @@ $$\mathbf{S}_T = \text{resize}\left(\sigma(W_{up} \cdot \sigma(W_{down} \cdot A)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Leveraging In-Context Learning for Political Bias Testing of LLMs](leveraging_in-context_learning_for_political_bias_testing_of_llms.md)
@@ -151,5 +153,7 @@ $$\mathbf{S}_T = \text{resize}\left(\sigma(W_{up} \cdot \sigma(W_{down} \cdot A)
 - [\[ACL 2025\] Contrastive Prompting Enhances Sentence Embeddings in LLMs through Inference-Time Steering](contrastive_prompting_embeddings.md)
 - [\[ACL 2025\] Self-Tuning: Instructing LLMs to Effectively Acquire New Knowledge through Self-Teaching](self-tuning_instructing_llms_to_effectively_acquire_new_knowledge_through_self-t.md)
 - [\[ACL 2025\] AIMSCheck: Leveraging LLMs for AI-Assisted Review of Modern Slavery Statements Across Jurisdictions](aimscheck_modern_slavery.md)
+
+</div>
 
 <!-- RELATED:END -->

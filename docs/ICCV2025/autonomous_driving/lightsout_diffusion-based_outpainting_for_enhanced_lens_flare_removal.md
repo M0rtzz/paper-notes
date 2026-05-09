@@ -153,6 +153,8 @@ $$\mathcal{L} = \frac{1}{2\sigma_1^2}\mathcal{L}_{\text{pos}} + \frac{1}{2\sigma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Epona: Autoregressive Diffusion World Model for Autonomous Driving](epona_autoregressive_diffusion_world_model_for_autonomous_driving.md)
@@ -160,5 +162,7 @@ $$\mathcal{L} = \frac{1}{2\sigma_1^2}\mathcal{L}_{\text{pos}} + \frac{1}{2\sigma
 - [\[NeurIPS 2025\] Neurosymbolic Diffusion Models](../../NeurIPS2025/autonomous_driving/neurosymbolic_diffusion_models.md)
 - [\[AAAI 2026\] Global-Lens Transformers: Adaptive Token Mixing for Dynamic Link Prediction](../../AAAI2026/autonomous_driving/global-lens_transformers_adaptive_token_mixing_for_dynamic_link_prediction.md)
 - [\[ICCV 2025\] Generative Active Learning for Long-tail Trajectory Prediction via Controllable Diffusion Model](generative_active_learning_for_long-tail_trajectory_prediction_via_controllable_.md)
+
+</div>
 
 <!-- RELATED:END -->

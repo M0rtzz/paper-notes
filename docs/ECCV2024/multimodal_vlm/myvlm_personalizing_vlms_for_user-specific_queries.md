@@ -121,6 +121,8 @@ MyVLM采用两阶段pipeline：(1) 外部概念头识别图像中是否存在目
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] FlexAttention for Efficient High-Resolution Vision-Language Models](flexattention_for_efficient_highresolution_visionlanguage_mo.md)
@@ -128,5 +130,7 @@ MyVLM采用两阶段pipeline：(1) 外部概念头识别图像中是否存在目
 - [\[ECCV 2024\] X-Former: Unifying Contrastive and Reconstruction Learning for MLLMs](xformer_unifying_contrastive_and_reconstruction_learning_for.md)
 - [\[ECCV 2024\] Large Motion Model for Unified Multi-Modal Motion Generation](large_motion_model_for_unified_multi-modal_motion_generation.md)
 - [\[ECCV 2024\] SQ-LLaVA: Self-Questioning for Large Vision-Language Assistant](sqllava_selfquestioning_for_large_visionlanguage_assistant.md)
+
+</div>
 
 <!-- RELATED:END -->

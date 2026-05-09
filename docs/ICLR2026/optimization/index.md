@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **45** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/optimization/) · [📷 CVPR2026 (10)](../../CVPR2026/optimization/) · [🤖 AAAI2026 (24)](../../AAAI2026/optimization/) · [🧠 NeurIPS2025 (117)](../../NeurIPS2025/optimization/) · [📹 ICCV2025 (8)](../../ICCV2025/optimization/) · [🧪 ICML2025 (58)](../../ICML2025/optimization/)
+
+🔥 **高频主题：** 推理 ×3 · LLM ×3 · 联邦学习 ×3
+
 **[A Convergence Analysis of Adaptive Optimizers under Floating-Point Quantization](a_convergence_analysis_of_adaptive_optimizers_under_floating-point_quantization.md)**
 
 :   本文建立了首个在浮点量化下分析自适应优化器收敛性的理论框架，对梯度、权重和优化器状态（动量、二阶矩）同时施加相对误差量化模型，证明了量化 Adam 和 Muon 在尾数长度仅需对数增长于迭代次数时即可保持与全精度相同的 $\tilde{O}(T^{-1/4})$ 收敛率，并揭示了 Adam 对权重和二阶矩量化高度敏感而 Muon 更为鲁棒的理论机制。

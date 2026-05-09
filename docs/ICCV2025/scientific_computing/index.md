@@ -10,6 +10,8 @@ description: >-
 
 **📹 ICCV2025** · **1** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (4)](../../CVPR2026/scientific_computing/) · [🔬 ICLR2026 (10)](../../ICLR2026/scientific_computing/) · [🤖 AAAI2026 (8)](../../AAAI2026/scientific_computing/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/scientific_computing/) · [🧪 ICML2025 (8)](../../ICML2025/scientific_computing/) · [📷 CVPR2025 (3)](../../CVPR2025/scientific_computing/)
+
 **[JPEG Processing Neural Operator for Backward-Compatible Coding](jpeg_processing_neural_operator_for_backward-compatible_coding.md)**
 
 :   提出JPNeO，一个完全后向兼容JPEG格式的下一代编解码器，通过在编码和解码阶段分别引入神经算子(JENO和JDNO)以及可训练量化矩阵，显著提升JPEG重建质量（尤其是色度分量），同时保持低内存和少参数量的优势。

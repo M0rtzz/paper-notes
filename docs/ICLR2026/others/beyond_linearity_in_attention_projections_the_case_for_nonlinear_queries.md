@@ -114,6 +114,8 @@ $$Q(X) = (X + f_\theta(X)) / 2$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Hilbert-Guided Sparse Local Attention](hilbert-guided_sparse_local_attention.md)
@@ -121,5 +123,7 @@ $$Q(X) = (X + f_\theta(X)) / 2$$
 - [\[ACL 2025\] LAQuer: Localized Attribution Queries in Content-grounded Generation](../../ACL2025/others/laquer_localized_attribution.md)
 - [\[CVPR 2026\] NaiLIA: Multimodal Nail Design Retrieval Based on Dense Intent Descriptions and Palette Queries](../../CVPR2026/others/nailia_multimodal_nail_design_retrieval_based_on_dense_intent_descriptions_and_p.md)
 - [\[ACL 2025\] AceCoder: Acing Coder RL via Automated Test-Case Synthesis](../../ACL2025/others/acecoder_acing_coder_rl_via_automated.md)
+
+</div>
 
 <!-- RELATED:END -->

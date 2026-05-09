@@ -149,6 +149,8 @@ ConspEmoLLM 是唯一利用情感 LLM 检测虚假信息的先前工作，但它
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Understanding Structured Financial Data with LLMs: A Case Study on Fraud Detection](../../ACL2026/information_retrieval/understanding_structured_financial_data_with_llms_a_case_study_on_fraud_detectio.md)
@@ -156,5 +158,7 @@ ConspEmoLLM 是唯一利用情感 LLM 检测虚假信息的先前工作，但它
 - [\[ICML 2025\] RAPID: Long-Context Inference with Retrieval-Augmented Speculative Decoding](../../ICML2025/information_retrieval/rapid_long-context_inference_with_retrieval-augmented_speculative_decoding.md)
 - [\[ACL 2025\] REFIND at SemEval-2025 Task 3: Retrieval-Augmented Factuality Hallucination Detection in Large Language Models](refind_at_semeval-2025_task_3_retrieval-augmented_factuality_hallucination_detec.md)
 - [\[ACL 2025\] Automatic Benchmark Generation from Scientific Papers via Retrieval-Augmented LLMs](automatic_benchmark_generation_from_scientific_papers_via_retrieval-augmented_ll.md)
+
+</div>
 
 <!-- RELATED:END -->

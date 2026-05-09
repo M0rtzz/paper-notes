@@ -154,6 +154,8 @@ LLaVA-NeXT-Mistral实现了超100%的安全恢复率（HSR后ASR甚至低于未�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] VLSBench: Unveiling Visual Leakage in Multimodal Safety](vlsbench_unveiling_visual_leakage_in_multimodal_safety.md)
@@ -161,5 +163,7 @@ LLaVA-NeXT-Mistral实现了超100%的安全恢复率（HSR后ASR甚至低于未�
 - [\[CVPR 2025\] Hyperbolic Safety-Aware Vision-Language Models](../../CVPR2025/multimodal_vlm/hyperbolic_safety-aware_vision-language_models.md)
 - [\[NeurIPS 2025\] JailBound: Jailbreaking Internal Safety Boundaries of Vision-Language Models](../../NeurIPS2025/multimodal_vlm/jailbound_jailbreaking_internal_safety_boundaries_of_vision-language_models.md)
 - [\[ACL 2025\] MMSafeAware: Can't See the Forest for the Trees: Benchmarking Multimodal Safety Awareness for Multimodal LLMs](cant_see_the_forest_for_the.md)
+
+</div>
 
 <!-- RELATED:END -->

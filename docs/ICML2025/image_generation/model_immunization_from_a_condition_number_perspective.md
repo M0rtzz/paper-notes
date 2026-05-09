@@ -158,6 +158,8 @@ $$\min_{\omega,\theta} \mathcal{R}_{\text{ill}}(H_H(\theta)) + \mathcal{R}_{\tex
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Broadband Ground Motion Synthesis by Diffusion Model with Minimal Condition](broadband_ground_motion_synthesis_by_diffusion_model_with_minimal_condition.md)
@@ -165,5 +167,7 @@ $$\min_{\omega,\theta} \mathcal{R}_{\text{ill}}(H_H(\theta)) + \mathcal{R}_{\tex
 - [\[NeurIPS 2025\] Pairwise Optimal Transports for Training All-to-All Flow-Based Condition Transfer Model](../../NeurIPS2025/image_generation/pairwise_optimal_transports_for_training_all-to-all_flow-based_condition_transfe.md)
 - [\[ICML 2025\] Tree-Sliced Wasserstein Distance: A Geometric Perspective](tree-sliced_wasserstein_distance_a_geometric_perspective.md)
 - [\[CVPR 2025\] Make It Count: Text-to-Image Generation with an Accurate Number of Objects](../../CVPR2025/image_generation/make_it_count_text-to-image_generation_with_an_accurate_number_of_objects.md)
+
+</div>
 
 <!-- RELATED:END -->

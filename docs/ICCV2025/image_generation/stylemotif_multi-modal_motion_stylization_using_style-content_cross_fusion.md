@@ -167,6 +167,8 @@ $$\mathcal{L}_{align} = -\frac{1}{2}\sum_{(i,j)} \log\frac{\exp(\mathcal{F}_t^i 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Balanced Image Stylization with Style Matching Score](balanced_image_stylization_with_style_matching_score.md)
@@ -174,5 +176,7 @@ $$\mathcal{L}_{align} = -\frac{1}{2}\sum_{(i,j)} \log\frac{\exp(\mathcal{F}_t^i 
 - [\[ICCV 2025\] End-to-End Multi-Modal Diffusion Mamba](end-to-end_multi-modal_diffusion_mamba.md)
 - [\[ICCV 2025\] CSD-VAR: Content-Style Decomposition in Visual Autoregressive Models](csd-var_content-style_decomposition_in_visual_autoregressive_models.md)
 - [\[ICCV 2025\] AIComposer: Any Style and Content Image Composition via Feature Integration](aicomposer_any_style_and_content_image_composition_via_feature_integration.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -121,6 +121,8 @@ Affectron 以纯语言语音预训练的 VoiceCraft（330M 参数）为骨干，
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] EDTalk: Efficient Disentanglement for Emotional Talking Head Synthesis](../../ECCV2024/audio_speech/edtalk_efficient_disentanglement_for_emotional_talking_head_synthesis.md)
@@ -128,5 +130,7 @@ Affectron 以纯语言语音预训练的 VoiceCraft（330M 参数）为骨干，
 - [\[ACL 2026\] An Exploration of Mamba for Speech Self-Supervised Models](an_exploration_of_mamba_for_speech_self-supervised_models.md)
 - [\[ACL 2026\] Computational Narrative Understanding for Expressive Text-to-Speech](computational_narrative_understanding_for_expressive_text-to-speech.md)
 - [\[ACL 2025\] Autoregressive Speech Synthesis without Vector Quantization](../../ACL2025/audio_speech/autoregressive_speech_synthesis_without_vq.md)
+
+</div>
 
 <!-- RELATED:END -->

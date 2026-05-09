@@ -112,6 +112,8 @@ $\mathcal{L} = \mathcal{L}_{SDS} + \lambda_1 \mathcal{L}_{smooth} + \lambda_2 \m
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] StreetCrafter: Street View Synthesis with Controllable Video Diffusion Models](streetcrafter_street_view_synthesis_with_controllable_video_diffusion_models.md)
@@ -119,5 +121,7 @@ $\mathcal{L} = \mathcal{L}_{SDS} + \lambda_1 \mathcal{L}_{smooth} + \lambda_2 \m
 - [\[CVPR 2025\] InterDyn: Controllable Interactive Dynamics with Video Diffusion Models](interdyn_controllable_interactive_dynamics_with_video_diffusion_models.md)
 - [\[CVPR 2025\] From Slow Bidirectional to Fast Autoregressive Video Diffusion Models](from_slow_bidirectional_to_fast_autoregressive_video_diffusion_models.md)
 - [\[ICCV 2025\] V.I.P.: Iterative Online Preference Distillation for Efficient Video Diffusion Models](../../ICCV2025/video_generation/vip_iterative_online_preference_distillation_for_efficient_video_diffusion_model.md)
+
+</div>
 
 <!-- RELATED:END -->

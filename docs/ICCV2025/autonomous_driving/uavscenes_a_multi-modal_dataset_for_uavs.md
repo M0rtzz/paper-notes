@@ -163,6 +163,8 @@ LiDAR 分割整体 mIoU 远低于图像分割（~33% vs ~68%），说明航拍 L
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] ClimbingCap: Multi-Modal Dataset and Method for Rock Climbing in World Coordinate](../../CVPR2025/autonomous_driving/climbingcap_multi-modal_dataset_and_method_for_rock_climbing_in_world_coordinate.md)
@@ -170,5 +172,7 @@ LiDAR 分割整体 mIoU 远低于图像分割（~33% vs ~68%），说明航拍 L
 - [\[ICCV 2025\] EVT: Efficient View Transformation for Multi-Modal 3D Object Detection](evt_efficient_view_transformation_for_multi-modal_3d_object_detection.md)
 - [\[CVPR 2025\] Multi-modal Knowledge Distillation-based Human Trajectory Forecasting](../../CVPR2025/autonomous_driving/multi-modal_knowledge_distillation-based_human_trajectory_forecasting.md)
 - [\[CVPR 2025\] Distilling Multi-modal Large Language Models for Autonomous Driving](../../CVPR2025/autonomous_driving/distilling_multi-modal_large_language_models_for_autonomous_driving.md)
+
+</div>
 
 <!-- RELATED:END -->

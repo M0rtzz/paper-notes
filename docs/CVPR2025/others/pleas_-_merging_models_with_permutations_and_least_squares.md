@@ -131,6 +131,8 @@ DomainNet 共享标签空间（ResNet-50, 1x 大小）:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Less is More: Efficient Model Merging with Binary Task Switch](less_is_more_efficient_model_merging_with_binary_task_switch.md)
@@ -138,5 +140,7 @@ DomainNet 共享标签空间（ResNet-50, 1x 大小）:
 - [\[CVPR 2025\] Feature Selection for Latent Factor Models](feature_selection_for_latent_factor_models.md)
 - [\[ACL 2025\] Bone Soups: A Seek-and-Soup Model Merging Approach for Controllable Multi-Objective Generation](../../ACL2025/others/bone_soups_multi_objective_gen.md)
 - [\[CVPR 2025\] 4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
+
+</div>
 
 <!-- RELATED:END -->

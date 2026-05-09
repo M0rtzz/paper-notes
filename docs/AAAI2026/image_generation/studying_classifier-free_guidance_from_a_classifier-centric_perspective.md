@@ -149,6 +149,8 @@ $$\min_{v_\theta} \int_0^1 \mathbb{E}_{\mathcal{X}} [\|(\hat{\mathbf{x}} - \text
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] DICE: Distilling Classifier-Free Guidance into Text Embeddings](dice_distilling_classifier-free_guidance_into_text_embedding.md)
@@ -156,5 +158,7 @@ $$\min_{v_\theta} \int_0^1 \mathbb{E}_{\mathcal{X}} [\|(\hat{\mathbf{x}} - \text
 - [\[CVPR 2025\] TCFG: Tangential Damping Classifier-Free Guidance](../../CVPR2025/image_generation/tcfg_tangential_damping_classifier-free_guidance.md)
 - [\[ICCV 2025\] TeEFusion: Blending Text Embeddings to Distill Classifier-Free Guidance](../../ICCV2025/image_generation/teefusion_blending_text_embeddings_to_distill_classifier-free_guidance.md)
 - [\[NeurIPS 2025\] Towards a Golden Classifier-Free Guidance Path via Foresight Fixed Point Iterations](../../NeurIPS2025/image_generation/towards_a_golden_classifier-free_guidance_path_via_foresight_fixed_point_iterati.md)
+
+</div>
 
 <!-- RELATED:END -->

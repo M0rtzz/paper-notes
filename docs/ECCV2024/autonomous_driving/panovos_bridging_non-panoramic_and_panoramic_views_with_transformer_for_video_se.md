@@ -164,6 +164,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots](../../CVPR2026/autonomous_driving/panoramic_multimodal_semantic_occupancy_prediction.md)
@@ -171,5 +173,7 @@ tags:
 - [\[CVPR 2026\] Learning Geometric and Photometric Features from Panoramic LiDAR Scans for Outdoor Place Categorization](../../CVPR2026/autonomous_driving/learning_geometric_and_photometric_features_from_panoramic_lidar_scans_for_outdo.md)
 - [\[ECCV 2024\] Reliability in Semantic Segmentation: Can We Use Synthetic Data?](reliability_in_semantic_segmentation_can_we_use_synthetic_data.md)
 - [\[ECCV 2024\] Random Walk on Pixel Manifolds for Anomaly Segmentation of Complex Driving Scenes](random_walk_on_pixel_manifolds_for_anomaly_segmentation_of_complex_driving_scene.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -113,6 +113,8 @@ SpectRe 在所有 Cayley 图上达到 100% 区分率，且在 BREC 基准上是�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] A General Graph Spectral Wavelet Convolution via Chebyshev Order Decomposition](../../ICML2025/graph_learning/a_general_graph_spectral_wavelet_convolution_via_chebyshev_order_decomposition.md)
@@ -120,5 +122,7 @@ SpectRe 在所有 Cayley 图上达到 100% 区分率，且在 BREC 基准上是�
 - [\[AAAI 2026\] Sheaf Graph Neural Networks via PAC-Bayes Spectral Optimization](../../AAAI2026/graph_learning/sheaf_graph_neural_networks_via_pac-bayes_spectral_optimization.md)
 - [\[NeurIPS 2025\] Over-squashing in Spatiotemporal Graph Neural Networks](over-squashing_in_spatiotemporal_graph_neural_networks.md)
 - [\[NeurIPS 2025\] The Underappreciated Power of Vision Models for Graph Structural Understanding](the_underappreciated_power_of_vision_models_for_graph_structural_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

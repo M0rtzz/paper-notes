@@ -101,6 +101,8 @@ ArgMatch采用特征提取→全局匹配→迭代细化的三阶段流程，核
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] AllTracker: Efficient Dense Point Tracking at High Resolution](alltracker_efficient_dense_point_tracking_at_high_resolution.md)
@@ -108,5 +110,7 @@ ArgMatch采用特征提取→全局匹配→迭代细化的三阶段流程，核
 - [\[ICCV 2025\] CasP: Improving Semi-Dense Feature Matching Pipeline Leveraging Cascaded Correspondence Priors for Guidance](casp_improving_semi-dense_feature_matching_pipeline_leveraging_cascaded_correspo.md)
 - [\[NeurIPS 2025\] EUGens: Efficient, Unified, and General Dense Layers](../../NeurIPS2025/3d_vision/eugens_efficient_unified_and_general_dense_layers.md)
 - [\[ICCV 2025\] BANet: Bilateral Aggregation Network for Mobile Stereo Matching](banet_bilateral_aggregation_network_for_mobile_stereo_matching.md)
+
+</div>
 
 <!-- RELATED:END -->

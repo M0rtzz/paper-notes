@@ -123,6 +123,8 @@ MEGState 以 MEG 信号 $\mathbf{X} \in \mathbb{R}^{M \times T}$（$M$ 个传感
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Zebra: Towards Zero-Shot Cross-Subject Generalization for Universal Brain Visual Decoding](zebra_towards_zero-shot_cross-subject_generalization_for_universal_brain_visual_.md)
@@ -130,5 +132,7 @@ MEGState 以 MEG 信号 $\mathbf{X} \in \mathbb{R}^{M \times T}$（$M$ 个传感
 - [\[ECCV 2024\] Brain Netflix: Scaling Data to Reconstruct Videos from Brain Signals](../../ECCV2024/others/brain_netflix_scaling_data_to_reconstruct_videos_from_brain_signals.md)
 - [\[ACL 2025\] Theoretical Guarantees for Minimum Bayes Risk Decoding](../../ACL2025/others/theoretical_guarantees_for_minimum_bayes_risk_decoding.md)
 - [\[ACL 2025\] Consultant Decoding: Yet Another Synergistic Mechanism](../../ACL2025/others/consultant_decoding_yet_another_synergistic_mechanism.md)
+
+</div>
 
 <!-- RELATED:END -->

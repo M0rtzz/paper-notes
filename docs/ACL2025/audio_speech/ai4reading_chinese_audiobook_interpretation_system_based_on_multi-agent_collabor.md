@@ -140,6 +140,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Thucy: An LLM-based Multi-Agent System for Claim Verification across Relational Databases](../../AAAI2026/audio_speech/thucy_an_llm-based_multi-agent_system_for_claim_verification_across_relational_d.md)
@@ -147,5 +149,7 @@ tags:
 - [\[ACL 2025\] Double Entendre: Robust Audio-Based AI-Generated Lyrics Detection via Multi-View Fusion](double_entendre_robust_audio-based_ai-generated_lyrics_detection_via_multi-view_.md)
 - [\[ACL 2025\] Autoregressive Speech Synthesis without Vector Quantization](autoregressive_speech_synthesis_without_vq.md)
 - [\[AAAI 2026\] DeepDebater: A Superpersuasive Autonomous Policy Debating System](../../AAAI2026/audio_speech/a_superpersuasive_autonomous_policy_debating_system.md)
+
+</div>
 
 <!-- RELATED:END -->

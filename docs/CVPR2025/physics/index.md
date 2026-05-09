@@ -10,6 +10,8 @@ description: >-
 
 **📷 CVPR2025** · **1** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (1)](../../CVPR2026/physics/) · [🔬 ICLR2026 (2)](../../ICLR2026/physics/) · [🤖 AAAI2026 (2)](../../AAAI2026/physics/) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/physics/) · [📹 ICCV2025 (1)](../../ICCV2025/physics/) · [🧪 ICML2025 (6)](../../ICML2025/physics/)
+
 **[ATP: Adaptive Threshold Pruning for Efficient Data Encoding in Quantum Neural Networks](atp_adaptive_threshold_pruning_for_efficient_data_encoding_in_quantum_neural_net.md)**
 
 :   提出 ATP（Adaptive Threshold Pruning），在量子数据编码前自适应地剪除低信息量的数据特征，通过 L-BFGS-B 优化阈值，在 MNIST/FashionMNIST/CIFAR/PneumoniaMNIST 四个数据集的二分类任务上取得最高准确率的同时显著降低纠缠熵。

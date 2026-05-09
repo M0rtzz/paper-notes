@@ -133,6 +133,8 @@ $$r_{\text{int}} = \|f(s; \theta) - \hat{f}(s; \hat{\theta})\|^2$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Neighbour-Driven Gaussian Process Variational Autoencoders for Scalable Structured Latent Modelling](../../ICML2025/self_supervised/neighbour-driven_gaussian_process_variational_autoencoders_for_scalable_structur.md)
@@ -140,5 +142,7 @@ $$r_{\text{int}} = \|f(s; \theta) - \hat{f}(s; \hat{\theta})\|^2$$
 - [\[NeurIPS 2025\] Understanding Ice Crystal Habit Diversity with Self-Supervised Learning](understanding_ice_crystal_habit_diversity_with_self-supervised_learning.md)
 - [\[NeurIPS 2025\] TRIDENT: Tri-Modal Molecular Representation Learning with Taxonomic Annotations and Structural Relationships](trident_tri-modal_molecular_representation_learning_with_taxonomic_annotations_a.md)
 - [\[NeurIPS 2025\] Manifolds and Modules: How Function Develops in a Neural Foundation Model](manifolds_and_modules_how_function_develops_in_a_neural_foundation_model.md)
+
+</div>
 
 <!-- RELATED:END -->

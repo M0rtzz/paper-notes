@@ -179,6 +179,8 @@ Section 3.3 展示 Lego Sketch 可作为核心结构替换 CM-Sketch 等，与 f
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] LightMem: Lightweight and Efficient Memory-Augmented Generation](../../ICLR2026/model_compression/lightmem_lightweight_and_efficient_memory-augmented_generation.md)
@@ -186,5 +188,7 @@ Section 3.3 展示 Lego Sketch 可作为核心结构替换 CM-Sketch 等，与 f
 - [\[NeurIPS 2025\] GraSS: Scalable Data Attribution with Gradient Sparsification and Sparse Projection](../../NeurIPS2025/model_compression/grass_scalable_data_attribution_with_gradient_sparsification_and_sparse_projecti.md)
 - [\[NeurIPS 2025\] On the Creation of Narrow AI: Hierarchy and Nonlocality of Neural Network Skills](../../NeurIPS2025/model_compression/on_the_creation_of_narrow_ai_hierarchy_and_nonlocality_of_neural_network_skills.md)
 - [\[CVPR 2025\] Sketch Down the FLOPs: Towards Efficient Networks for Human Sketch](../../CVPR2025/model_compression/sketch_down_the_flops_towards_efficient_networks_for_human_sketch.md)
+
+</div>
 
 <!-- RELATED:END -->

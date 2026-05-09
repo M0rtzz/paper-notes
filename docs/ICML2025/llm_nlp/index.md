@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **28** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (36)](../../ACL2026/llm_nlp/) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/) · [🔬 ICLR2026 (46)](../../ICLR2026/llm_nlp/) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_nlp/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_nlp/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_nlp/)
+
+🔥 **高频主题：** LLM ×7 · 少样本学习 ×2 · 推理 ×2
+
 **[Adaptive Multi-prompt Contrastive Network for Few-shot Out-of-distribution Detection](adaptive_multi-prompt_contrastive_network_for_few-shot_out-of-distribution_detec.md)**
 
 :   提出 AMCN（Adaptive Multi-prompt Contrastive Network），通过生成三类自适应文本 prompt（可学习 ID prompt、标签固定 OOD prompt、标签自适应 OOD prompt）并结合类别自适应阈值，在仅有少量 ID 标注样本的条件下实现高质量 OOD 检测，显著超越现有 few-shot OOD 检测方法。

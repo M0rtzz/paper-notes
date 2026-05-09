@@ -126,6 +126,8 @@ $\mathcal{L}_{SR} = (1-\beta)\mathcal{L}_1(R_{HR}^{blur}, I_{SR}^{IM}) + \beta \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] CoMapGS: Covisibility Map-based Gaussian Splatting for Sparse Novel View Synthesis](comapgs_covisibility_map-based_gaussian_splatting_for_sparse_novel_view_synthesi.md)
@@ -133,5 +135,7 @@ $\mathcal{L}_{SR} = (1-\beta)\mathcal{L}_1(R_{HR}^{blur}, I_{SR}^{IM}) + \beta \
 - [\[CVPR 2025\] DropGaussian: Structural Regularization for Sparse-view Gaussian Splatting](dropgaussian_structural_regularization_for_sparse-view_gaussian_splatting.md)
 - [\[AAAI 2026\] Arbitrary-Scale 3D Gaussian Super-Resolution](../../AAAI2026/3d_vision/arbitrary-scale_3d_gaussian_super-resolution.md)
 - [\[CVPR 2025\] SfM-Free 3D Gaussian Splatting via Hierarchical Training](sfm-free_3d_gaussian_splatting_via_hierarchical_training.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -117,6 +117,8 @@ DiffTOD 将对话规划建模为轨迹生成问题，利用掩码扩散语言模
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] CoDial: Interpretable Task-Oriented Dialogue Systems Through Dialogue Flow Alignment](../../ACL2026/image_generation/codial_interpretable_task-oriented_dialogue_systems_through_dialogue_flow_alignm.md)
@@ -124,5 +126,7 @@ DiffTOD 将对话规划建模为轨迹生成问题，利用掩码扩散语言模
 - [\[ACL 2025\] Multimodal Pragmatic Jailbreak on Text-to-image Models](multimodal_pragmatic_jailbreak_on_text-to-image_models.md)
 - [\[NeurIPS 2025\] Diffusion-Driven Progressive Target Manipulation for Source-Free Domain Adaptation](../../NeurIPS2025/image_generation/diffusion-driven_progressive_target_manipulation_for_source-free_domain_adaptati.md)
 - [\[NeurIPS 2025\] Energy Loss Functions for Physical Systems](../../NeurIPS2025/image_generation/energy_loss_functions_for_physical_systems.md)
+
+</div>
 
 <!-- RELATED:END -->

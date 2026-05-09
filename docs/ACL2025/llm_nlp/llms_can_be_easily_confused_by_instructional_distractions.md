@@ -133,6 +133,8 @@ DIM-Bench（Distractive Instruction Misunderstanding Benchmark）是一个 2000 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Can LLMs Interpret and Leverage Structured Linguistic Representations? A Case Study with AMRs](can_llms_interpret_and_leverage_structured_linguistic_representations_a_case_stu.md)
@@ -140,5 +142,7 @@ DIM-Bench（Distractive Instruction Misunderstanding Benchmark）是一个 2000 
 - [\[ACL 2025\] Biased LLMs Can Influence Political Decision-Making](biased_llms_can_influence_political_decision-making.md)
 - [\[ACL 2025\] Can LLMs Understand Unvoiced Speech? Exploring EMG-to-Text Conversion with LLMs](can_llms_understand_unvoiced_speech_exploring_emg-to-text_conversion_with_llms.md)
 - [\[ACL 2025\] Enough Coin Flips Can Make LLMs Act Bayesian](coin_flips_bayesian.md)
+
+</div>
 
 <!-- RELATED:END -->

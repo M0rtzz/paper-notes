@@ -194,6 +194,8 @@ JAX 加速效果：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Fine-Tuning Diffusion Models via Intermediate Distribution Shaping](../../ICLR2026/medical_imaging/fine-tuning_diffusion_models_via_intermediate_distribution_shaping.md)
@@ -201,5 +203,7 @@ JAX 加速效果：
 - [\[ICML 2025\] CFP-Gen: Combinatorial Functional Protein Generation via Diffusion Language Models](cfp-gen_combinatorial_functional_protein_generation_via_diffusion_language_model.md)
 - [\[ICML 2025\] MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding](medxpertqa_benchmarking_expert-level_medical_reasoning_and_understanding.md)
 - [\[ICML 2025\] ComRecGC: Global Graph Counterfactual Explainer through Common Recourse](comrecgc_global_graph_counterfactual_explainer_through_common_recourse.md)
+
+</div>
 
 <!-- RELATED:END -->

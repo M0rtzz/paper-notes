@@ -155,6 +155,8 @@ $$\min_{\lambda \in \Lambda} \left\{\hat{F}(\lambda) = \sum_k \hat{p}_k \hat{F}_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Fisher Calibration for Backdoor-Robust Heterogeneous Federated Learning](../../ECCV2024/ai_safety/fisher_calibration_for_backdoor-robust_heterogeneous_federated_learning.md)
@@ -162,5 +164,7 @@ $$\min_{\lambda \in \Lambda} \left\{\hat{F}(\lambda) = \sum_k \hat{p}_k \hat{F}_
 - [\[ICML 2025\] Generalization in Federated Learning: A Conditional Mutual Information Framework](../../ICML2025/ai_safety/generalization_in_federated_learning_a_conditional_mutual_information_framework.md)
 - [\[NeurIPS 2025\] Provable Watermarking for Data Poisoning Attacks](provable_watermarking_for_data_poisoning_attacks.md)
 - [\[NeurIPS 2025\] Fair Representation Learning with Controllable High Confidence Guarantees via Adversarial Inference](fair_representation_learning_with_controllable_high_confidence_guarantees_via_ad.md)
+
+</div>
 
 <!-- RELATED:END -->

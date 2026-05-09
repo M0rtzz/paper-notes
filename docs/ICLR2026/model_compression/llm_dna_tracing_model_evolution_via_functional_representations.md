@@ -122,6 +122,8 @@ RepTrace 完全无需训练。唯一需要的是采样输入集和预计算的�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Who Taught You That? Tracing Teachers in Model Distillation](../../ACL2025/model_compression/who_taught_you_that_tracing_teachers_in_model_distillation.md)
@@ -129,5 +131,7 @@ RepTrace 完全无需训练。唯一需要的是采样输入集和预计算的�
 - [\[ICLR 2026\] A State-Transition Framework for Efficient LLM Reasoning](a_state-transition_framework_for_efficient_llm_reasoning.md)
 - [\[ICML 2025\] Generalization Bounds via Meta-Learned Model Representations: PAC-Bayes and Sample Compression Hypernetworks](../../ICML2025/model_compression/generalization_bounds_via_meta-learned_model_representations_pac-bayes_and_sampl.md)
 - [\[ICLR 2026\] ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference](paroquant_pairwise_rotation_quantization_for_efficient_reasoning_llm_inference.md)
+
+</div>
 
 <!-- RELATED:END -->

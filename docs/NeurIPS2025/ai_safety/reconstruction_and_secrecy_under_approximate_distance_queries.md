@@ -152,6 +152,8 @@ $$\frac{1}{2}(2+\epsilon)\delta \leq \mathrm{OPT}_X(\epsilon,\delta) \leq (2+\ep
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] OmniFC: Rethinking Federated Clustering via Lossless and Secure Distance Reconstruction](omnifc_rethinking_federated_clustering_via_lossless_and_secure_distance_reconstr.md)
@@ -159,5 +161,7 @@ $$\frac{1}{2}(2+\epsilon)\delta \leq \mathrm{OPT}_X(\epsilon,\delta) \leq (2+\ep
 - [\[NeurIPS 2025\] Fairness under Competition](fairness_under_competition.md)
 - [\[NeurIPS 2025\] Unifying Re-Identification, Attribute Inference, and Data Reconstruction Risks in Differential Privacy](unifying_re-identification_attribute_inference_and_data_reconstruction_risks_in_.md)
 - [\[NeurIPS 2025\] Matchings Under Biased and Correlated Evaluations](matchings_under_biased_and_correlated_evaluations.md)
+
+</div>
 
 <!-- RELATED:END -->

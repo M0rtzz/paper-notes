@@ -155,6 +155,8 @@ $$\mathcal{L}_{\text{Reg}} = \gamma_d \mathcal{L}_d + \gamma_n \mathcal{L}_n$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] GeometrySticker: Enabling Ownership Claim of Recolorized Neural Radiance Fields](geometrysticker_enabling_ownership_claim_of_recolorized_neural_radiance_fields.md)
@@ -162,5 +164,7 @@ $$\mathcal{L}_{\text{Reg}} = \gamma_d \mathcal{L}_d + \gamma_n \mathcal{L}_n$$
 - [\[ECCV 2024\] BeNeRF: Neural Radiance Fields from a Single Blurry Image and Event Stream](benerf_neural_radiance_fields_from_a_single_blurry_image_and_event_stream.md)
 - [\[ECCV 2024\] SlotLifter: Slot-guided Feature Lifting for Learning Object-centric Radiance Fields](slotlifter_slot-guided_feature_lifting_for_learning_object-centric_radiance_fiel.md)
 - [\[ECCV 2024\] Omni-Recon: Harnessing Image-Based Rendering for General-Purpose Neural Radiance Fields](omni-recon_harnessing_image-based_rendering_for_general-purpose_neural_radiance_.md)
+
+</div>
 
 <!-- RELATED:END -->

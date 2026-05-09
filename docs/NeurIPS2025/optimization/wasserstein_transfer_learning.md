@@ -125,6 +125,8 @@ $$m_G^{(0)}(x) = \arg\min_{\mu \in \mathcal{W}} E\{s_G^{(0)}(x) d_{\mathcal{W}}^
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Statistical and Computational Guarantees of Kernel Max-Sliced Wasserstein Distances](../../ICML2025/optimization/statistical_and_computational_guarantees_of_kernel_max-sliced_wasserstein_distan.md)
@@ -132,5 +134,7 @@ $$m_G^{(0)}(x) = \arg\min_{\mu \in \mathcal{W}} E\{s_G^{(0)}(x) d_{\mathcal{W}}^
 - [\[NeurIPS 2025\] Learning from Interval Targets](learning_from_interval_targets.md)
 - [\[NeurIPS 2025\] Learning Parameterized Skills from Demonstrations](learning_parameterized_skills_from_demonstrations.md)
 - [\[NeurIPS 2025\] Streaming Federated Learning with Markovian Data](streaming_federated_learning_with_markovian_data.md)
+
+</div>
 
 <!-- RELATED:END -->

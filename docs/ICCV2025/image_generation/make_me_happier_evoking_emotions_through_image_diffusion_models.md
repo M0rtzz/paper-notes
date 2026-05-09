@@ -154,6 +154,8 @@ EmoEditor = EmoPair 数据集构建 + 双分支潜在扩散模型 + 迭代情感
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] EmoEdit: Evoking Emotions through Image Manipulation](../../CVPR2025/image_generation/emoedit_evoking_emotions_through_image_manipulation.md)
@@ -161,5 +163,7 @@ EmoEditor = EmoPair 数据集构建 + 双分支潜在扩散模型 + 迭代情感
 - [\[ICCV 2025\] CoMPaSS: Enhancing Spatial Understanding in Text-to-Image Diffusion Models](compass_enhancing_spatial_understanding_in_text-to-image_diffusion_models.md)
 - [\[ICCV 2025\] DIIP: Diffusion Image Prior](diffusion_image_prior.md)
 - [\[ICCV 2025\] Golden Noise for Diffusion Models: A Learning Framework](golden_noise_for_diffusion_models_a_learning_framework.md)
+
+</div>
 
 <!-- RELATED:END -->

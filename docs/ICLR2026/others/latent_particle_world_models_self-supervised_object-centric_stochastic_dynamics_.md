@@ -142,6 +142,8 @@ LPWM 在 PandaPush 和 OGBench 的多任务上显著超越基线。OGBench task3
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Latent Equivariant Operators for Robust Object Recognition: Promises and Challenges](latent_equivariant_operators_for_robust_object_recognition_promises_and_challeng.md)
@@ -149,5 +151,7 @@ LPWM 在 PandaPush 和 OGBench 的多任务上显著超越基线。OGBench task3
 - [\[ICML 2025\] General Agents Contain World Models](../../ICML2025/others/general_agents_contain_world_models.md)
 - [\[ICLR 2026\] Lipschitz Bandits with Stochastic Delayed Feedback](lipschitz_bandits_with_stochastic_delayed_feedback.md)
 - [\[CVPR 2025\] Feature Selection for Latent Factor Models](../../CVPR2025/others/feature_selection_for_latent_factor_models.md)
+
+</div>
 
 <!-- RELATED:END -->

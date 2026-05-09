@@ -10,6 +10,8 @@ description: >-
 
 **📷 CVPR2025** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/causal_inference/) · [📷 CVPR2026 (4)](../../CVPR2026/causal_inference/) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/) · [🧠 NeurIPS2025 (21)](../../NeurIPS2025/causal_inference/) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/)
+
 **[Adventurer: Optimizing Vision Mamba Architecture Designs for Efficiency](adventurer_optimizing_vision_mamba_architecture_designs_for_efficiency.md)**
 
 :   提出 Adventurer 系列视觉模型，通过"头部平均池化 token"和"层间翻转"两个简单设计将图像输入适配到单向因果扫描框架中，使 Mamba 架构在视觉任务上实现 4-6 倍于现有 Vision Mamba 的训练速度，同时保持与 ViT 相当甚至更优的精度。

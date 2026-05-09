@@ -135,6 +135,8 @@ MAD 从无 CoT 到详细 CoT 下降了一个数量级以上，说明慢思考显
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] What Makes a Good Natural Language Prompt?](good_natural_language_prompt.md)
@@ -142,5 +144,7 @@ MAD 从无 CoT 到详细 CoT 下降了一个数量级以上，说明慢思考显
 - [\[ACL 2025\] LazyReview: A Dataset for Uncovering Lazy Thinking in NLP Peer Reviews](lazyreview_peer_review.md)
 - [\[ACL 2025\] GORP: Continual Gradient Low-Rank Projection Fine-Tuning for LLMs](gorp_continual_gradient_projection.md)
 - [\[ACL 2025\] Unlocking Recursive Thinking of LLMs: Alignment via Refinement](unlocking_recursive_thinking_of_llms_alignment_via_refinement.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -126,6 +126,8 @@ OuroMamba 包含两个阶段：OuroMamba-Gen（合成数据生成）和 OuroMamb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] EfficientViM: Efficient Vision Mamba with Hidden State Mixer based State Space Duality](../../CVPR2025/model_compression/efficientvim_efficient_vision_mamba_with_hidden_state_mixer_based_state_space_du.md)
@@ -133,5 +135,7 @@ OuroMamba 包含两个阶段：OuroMamba-Gen（合成数据生成）和 OuroMamb
 - [\[ECCV 2024\] GenQ: Quantization in Low Data Regimes with Generative Synthetic Data](../../ECCV2024/model_compression/genq_quantization_in_low_data_regimes_with_generative_synthetic_data.md)
 - [\[ICCV 2025\] MSQ: Memory-Efficient Bit Sparsification Quantization](msq_memory-efficient_bit_sparsification_quantization.md)
 - [\[CVPR 2025\] Style Quantization for Data-Efficient GAN Training](../../CVPR2025/model_compression/style_quantization_for_data-efficient_gan_training.md)
+
+</div>
 
 <!-- RELATED:END -->

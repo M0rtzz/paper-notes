@@ -164,6 +164,8 @@ PMG通过**递归应用图像变换**生成视频：从变换集合中随机选�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Text-Guided Video Masked Autoencoder](text-guided_video_masked_autoencoder.md)
@@ -171,5 +173,7 @@ PMG通过**递归应用图像变换**生成视频：从变换集合中随机选�
 - [\[NeurIPS 2025\] Web-Scale Collection of Video Data for 4D Animal Reconstruction](../../NeurIPS2025/video_understanding/web-scale_collection_of_video_data_for_4d_animal_reconstruction.md)
 - [\[ECCV 2024\] Rethinking Video-Text Understanding: Retrieval from Counterfactually Augmented Data](rethinking_video-text_understanding_retrieval_from_counterfactually_augmented_da.md)
 - [\[ICCV 2025\] Towards Efficient General Feature Prediction in Masked Skeleton Modeling](../../ICCV2025/video_understanding/towards_efficient_general_feature_prediction_in_masked_skeleton_modeling.md)
+
+</div>
 
 <!-- RELATED:END -->

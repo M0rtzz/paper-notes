@@ -133,6 +133,8 @@ Biogen 各子指标: HLM 33.7(vs 39.7), RLM 39.8(vs 48.4), ER 35.2(vs 39.2), 溶
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Hierarchical Schedule Optimization for Fast and Robust Diffusion Model Sampling](hierarchical_schedule_optimization_for_fast_and_robust_diffusion_model_sampling.md)
@@ -140,5 +142,7 @@ Biogen 各子指标: HLM 33.7(vs 39.7), RLM 39.8(vs 48.4), ER 35.2(vs 39.2), 溶
 - [\[ICLR 2026\] Learning Domain-Aware Task Prompt Representations for Multi-Domain All-in-One Image Restoration](../../ICLR2026/medical_imaging/learning_domain-aware_task_prompt_representations_for_multi-domain_all-in-one_im.md)
 - [\[AAAI 2026\] PulseMind: A Multi-Modal Medical Model for Real-World Clinical Diagnosis](pulsemind_a_multi-modal_medical_model_for_real-world_clinical_diagnosis.md)
 - [\[ACL 2026\] AROMA: Augmented Reasoning Over a Multimodal Architecture for Virtual Cell Genetic Perturbation Modeling](../../ACL2026/medical_imaging/aroma_augmented_reasoning_over_a_multimodal_architecture_for_virtual_cell_geneti.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -166,6 +166,8 @@ Full Fine-tuning 效果差可能因灾难性遗忘；AquaStyle Aligner 通过显
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] UniFS: Universal Few-Shot Instance Perception with Point Representations](../../ECCV2024/segmentation/unifs_universal_few-shot_instance_perception_with_point_representations.md)
@@ -173,5 +175,7 @@ Full Fine-tuning 效果差可能因灾难性遗忘；AquaStyle Aligner 通过显
 - [\[CVPR 2026\] ELVIS: Enhance Low-Light for Video Instance Segmentation in the Dark](../../CVPR2026/segmentation/elvis_enhance_low-light_for_video_instance_segmentation_in_the_dark.md)
 - [\[CVPR 2026\] Phrase-Instance Alignment for Generalized Referring Segmentation](../../CVPR2026/segmentation/phrase-instance_alignment_for_generalized_referring_segmentation.md)
 - [\[CVPR 2025\] Foveated Instance Segmentation](../../CVPR2025/segmentation/foveated_instance_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

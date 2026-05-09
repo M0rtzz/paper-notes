@@ -133,6 +133,8 @@ ACE-Merging 是纯闭式方法，不涉及任何训练/优化迭代。超参固�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Revisiting the Past: Data Unlearning with Model State History](../../ICLR2026/llm_evaluation/revisiting_the_past_data_unlearning_with_model_state_history.md)
@@ -140,5 +142,7 @@ ACE-Merging 是纯闭式方法，不涉及任何训练/优化迭代。超参固�
 - [\[ICML 2025\] Cross-regularization: Adaptive Model Complexity through Validation Gradients](../../ICML2025/llm_evaluation/cross-regularization_adaptive_model_complexity_through_validation_gradients.md)
 - [\[CVPR 2026\] Free-Grained Hierarchical Visual Recognition](free-grained_hierarchical_visual_recognition.md)
 - [\[NeurIPS 2025\] HouseLayout3D: A Benchmark and Training-Free Baseline for 3D Layout Estimation in the Wild](../../NeurIPS2025/llm_evaluation/houselayout3d_a_benchmark_and_training-free_baseline_for_3d_layout_estimation_in.md)
+
+</div>
 
 <!-- RELATED:END -->

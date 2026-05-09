@@ -172,6 +172,8 @@ $$\mathcal{L}_{\text{ins}} = -\frac{1}{|\Omega|} \sum_{\Omega_j \in \Omega} \sum
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Mosaic3D: Foundation Dataset and Model for Open-Vocabulary 3D Segmentation](../../CVPR2025/segmentation/mosaic3d_foundation_dataset_and_model_for_open-vocabulary_3d_segmentation.md)
@@ -179,5 +181,7 @@ $$\mathcal{L}_{\text{ins}} = -\frac{1}{|\Omega|} \sum_{\Omega_j \in \Omega} \sum
 - [\[NeurIPS 2025\] Seg4Diff: Unveiling Open-Vocabulary Segmentation in Text-to-Image Diffusion Transformers](seg4diff_unveiling_open-vocabulary_segmentation_in_text-to-image_diffusion_trans.md)
 - [\[CVPR 2026\] GeoGuide: Hierarchical Geometric Guidance for Open-Vocabulary 3D Semantic Segmentation](../../CVPR2026/segmentation/geoguide_hierarchical_geometric_guidance_for_open-vocabulary_3d_semantic_segment.md)
 - [\[CVPR 2025\] Exploring Simple Open-Vocabulary Semantic Segmentation](../../CVPR2025/segmentation/exploring_simple_open-vocabulary_semantic_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

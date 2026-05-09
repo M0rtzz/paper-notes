@@ -190,6 +190,8 @@ $$R_{\text{ST}}(s_{t-1}, s_t) = \begin{cases} \mathbb{I}[f_t \in s_t \setminus s
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Shallow Robustness, Deep Vulnerabilities: Multi-Turn Evaluation of Medical LLMs](../../NeurIPS2025/medical_imaging/shallow_robustness_deep_vulnerabilities_multi-turn_evaluation_of_medical_llms.md)
@@ -197,5 +199,7 @@ $$R_{\text{ST}}(s_{t-1}, s_t) = \begin{cases} \mathbb{I}[f_t \in s_t \setminus s
 - [\[ICLR 2026\] ATPO: Adaptive Tree Policy Optimization for Multi-Turn Medical Dialogue](../../ICLR2026/medical_imaging/atpo_adaptive_tree_policy_optimization_for_multi-turn_medical_dialogue.md)
 - [\[AAAI 2026\] MAMA-Memeia! Multi-Aspect Multi-Agent Collaboration for Depressive Symptoms Identification in Memes](mama-memeia_multi-aspect_multi-agent_collaboration_for_depressive_symptoms_ident.md)
 - [\[ACL 2025\] Improving Automatic Evaluation of LLMs in Biomedical Relation Extraction via LLMs-as-the-Judge](../../ACL2025/medical_imaging/biore_llm_judge_evaluation.md)
+
+</div>
 
 <!-- RELATED:END -->

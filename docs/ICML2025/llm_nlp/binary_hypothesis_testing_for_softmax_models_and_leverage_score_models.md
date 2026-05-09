@@ -146,6 +146,8 @@ $$H^2(P, Q) = O(\epsilon^2), \quad \text{TV}(P, Q) = O(\epsilon)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] B-score: Detecting biases in large language models using response history](b-score_detecting_biases_in_large_language_models_using_response_history.md)
@@ -153,5 +155,7 @@ $$H^2(P, Q) = O(\epsilon^2), \quad \text{TV}(P, Q) = O(\epsilon)$$
 - [\[NeurIPS 2025\] Scaling Up Active Testing to Large Language Models](../../NeurIPS2025/llm_nlp/scaling_up_active_testing_to_large_language_models.md)
 - [\[ICLR 2026\] The Lattice Representation Hypothesis of Large Language Models](../../ICLR2026/llm_nlp/the_lattice_representation_hypothesis_of_large_language_models.md)
 - [\[ACL 2025\] Binary Classifier Optimization for Large Language Model Alignment](../../ACL2025/llm_nlp/bco_binary_classifier_alignment.md)
+
+</div>
 
 <!-- RELATED:END -->

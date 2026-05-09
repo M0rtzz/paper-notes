@@ -153,6 +153,8 @@ ARM 在 Bird 上比标准 RAG 高 2.6pt，比 ReAct 高 11.1pt；OTT-QA 上比�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] RetroLLM: Empowering Large Language Models to Retrieve Fine-grained Evidence within Generation](retrollm_empowering_large_language_models_to_retrieve_fine-grained_evidence_with.md)
@@ -160,5 +162,7 @@ ARM 在 Bird 上比标准 RAG 高 2.6pt，比 ReAct 高 11.1pt；OTT-QA 上比�
 - [\[ACL 2025\] Improving Contextual Faithfulness of Large Language Models via Retrieval Heads-Induced Optimization](improving_contextual_faithfulness_of_large_language_models_via_retrieval_heads-i.md)
 - [\[ACL 2025\] Pre³: Enabling Deterministic Pushdown Automata for Faster Structured LLM Generation](pre3_deterministic_pda_structured_gen.md)
 - [\[ACL 2025\] Zero-Shot Belief: A Hard Problem for LLMs](zero-shot_belief_a_hard_problem_for_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

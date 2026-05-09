@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **39** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/llm_pretraining/) · [📷 CVPR2026 (10)](../../CVPR2026/llm_pretraining/) · [🔬 ICLR2026 (27)](../../ICLR2026/llm_pretraining/) · [🤖 AAAI2026 (6)](../../AAAI2026/llm_pretraining/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_pretraining/) · [📹 ICCV2025 (10)](../../ICCV2025/llm_pretraining/)
+
+🔥 **高频主题：** LLM ×9 · 对抗鲁棒 ×3 · 少样本学习 ×2 · 语音 ×2
+
 **[Stealing Training Data from Large Language Models in Decentralized Training through Activation Inversion Attack](activation-inversion-attack-stealing-training-data-in-decentralized-training.md)**
 
 :   本文首次提出针对去中心化训练的激活反转攻击（AIA），通过构建影子数据集训练攻击模型，恶意阶段可以从传输的激活值中重建训练数据，在 GPT2-XL 上实现了 62% 的邮件地址窃取准确率。

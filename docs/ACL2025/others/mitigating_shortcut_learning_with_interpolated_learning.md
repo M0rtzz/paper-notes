@@ -128,6 +128,8 @@ $$J_{\text{ERM}}(\theta) = \frac{1}{n} \sum_{i=1}^{n} \ell(f_{\text{cls}}(z_i), 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Mitigating Instance Entanglement in Instance-Dependent Partial Label Learning](../../CVPR2026/others/mitigating_instance_entanglement_in_instance-dependent_partial_label_learning.md)
@@ -135,5 +137,7 @@ $$J_{\text{ERM}}(\theta) = \frac{1}{n} \sum_{i=1}^{n} \ell(f_{\text{cls}}(z_i), 
 - [\[ACL 2025\] Learning to Reason from Feedback at Test-Time](learning_to_reason_from_feedback_at_test-time.md)
 - [\[ACL 2025\] Detecting Sockpuppetry on Wikipedia Using Meta-Learning](detecting_sockpuppetry_on_wikipedia_using_meta-learning.md)
 - [\[ACL 2025\] Meta-Reflection: A Feedback-Free Reflection Learning Framework](meta-reflection_a_feedback-free_reflection_learning_framework.md)
+
+</div>
 
 <!-- RELATED:END -->

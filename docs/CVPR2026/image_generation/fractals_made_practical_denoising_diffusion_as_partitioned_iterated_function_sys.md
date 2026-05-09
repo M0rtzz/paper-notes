@@ -180,6 +180,8 @@ Crossover发生在 $t \in [160, 200]$，约40步窗口。Regime I全面违反(PC
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Smoothing the Score Function for Generalization in Diffusion Models: An Optimization-based Explanation Framework](smoothing_score_function_generalization_diffusion_models.md)
@@ -187,5 +189,7 @@ Crossover发生在 $t \in [160, 200]$，约40步窗口。Regime I全面违反(PC
 - [\[CVPR 2026\] Reviving ConvNeXt for Efficient Convolutional Diffusion Models](reviving_convnext_for_efficient_convolutional_diffusion_models.md)
 - [\[CVPR 2026\] Diffusion Mental Averages](diffusion_mental_averages.md)
 - [\[CVPR 2026\] Learnability-Guided Diffusion for Dataset Distillation](learnability-guided_diffusion_for_dataset_distillation.md)
+
+</div>
 
 <!-- RELATED:END -->

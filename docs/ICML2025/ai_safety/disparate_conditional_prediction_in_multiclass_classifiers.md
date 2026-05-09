@@ -169,6 +169,8 @@ $$\min_{\boldsymbol{\beta}, \{\mathbf{M}_a\}} \sum_{a \in \mathcal{A}} w_a \sum_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Generalization in Federated Learning: A Conditional Mutual Information Framework](generalization_in_federated_learning_a_conditional_mutual_information_framework.md)
@@ -176,5 +178,7 @@ $$\min_{\boldsymbol{\beta}, \{\mathbf{M}_a\}} \sum_{a \in \mathcal{A}} w_a \sum_
 - [\[CVPR 2025\] PSBD: Prediction Shift Uncertainty Unlocks Backdoor Detection](../../CVPR2025/ai_safety/psbd_prediction_shift_uncertainty_unlocks_backdoor_detection.md)
 - [\[NeurIPS 2025\] Mitigating Disparate Impact of Differentially Private Learning through Bounded Adaptive Clipping](../../NeurIPS2025/ai_safety/mitigating_disparate_impact_of_differentially_private_learning_through_bounded_a.md)
 - [\[NeurIPS 2025\] Taught Well, Learned Ill: Towards Distillation-Conditional Backdoor Attack](../../NeurIPS2025/ai_safety/taught_well_learned_ill_towards_distillation-conditional_backdoor_attack.md)
+
+</div>
 
 <!-- RELATED:END -->

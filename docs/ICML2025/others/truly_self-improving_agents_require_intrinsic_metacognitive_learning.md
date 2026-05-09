@@ -133,6 +133,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Contextual Experience Replay for Self-Improvement of Language Agents](../../ACL2025/others/contextual_experience_replay_for_self-improvement_of_language_agents.md)
@@ -140,5 +142,7 @@ tags:
 - [\[NeurIPS 2025\] Exact Learning of Arithmetic with Differentiable Agents](../../NeurIPS2025/others/exact_learning_of_arithmetic_with_differentiable_agents.md)
 - [\[ACL 2025\] Learning to Reason Over Time: Timeline Self-Reflection for Temporal Reasoning](../../ACL2025/others/tiser_timeline_self_reflection_temporal.md)
 - [\[ICML 2025\] NeuronTune: Towards Self-Guided Spurious Bias Mitigation](neurontune_towards_self-guided_spurious_bias_mitigation.md)
+
+</div>
 
 <!-- RELATED:END -->

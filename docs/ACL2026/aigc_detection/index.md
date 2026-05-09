@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **9** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (1)](../../CVPR2026/aigc_detection/) · [🔬 ICLR2026 (6)](../../ICLR2026/aigc_detection/) · [🤖 AAAI2026 (3)](../../AAAI2026/aigc_detection/) · [🧠 NeurIPS2025 (8)](../../NeurIPS2025/aigc_detection/) · [💬 ACL2025 (17)](../../ACL2025/aigc_detection/) · [📷 CVPR2025 (3)](../../CVPR2025/aigc_detection/)
+
+🔥 **高频主题：** LLM ×5
+
 **[Beyond the Final Actor: Modeling the Dual Roles of Creator and Editor for Fine-Grained LLM-Generated Text Detection](beyond_the_final_actor_modeling_the_dual_roles_of_creator_and_editor_for_fine-gr.md)**
 
 :   提出 RACE（Rhetorical Analysis for Creator-Editor Modeling），利用修辞结构理论(RST)构建逻辑图来建模文本"创作者"的思维架构，同时提取篇章单元级特征捕获"编辑者"的语言风格，实现四类细粒度 LLM 生成文本检测（人写/LLM写/LLM润色人文/人改写LLM文）。

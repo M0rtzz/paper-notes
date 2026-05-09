@@ -106,6 +106,8 @@ GLSGE框架分三步：(1) 估计重要性权重函数ω(y)，用重加权后的
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Multi-view Gaze Target Estimation](../../ICCV2025/others/multi-view_gaze_target_estimation.md)
@@ -113,5 +115,7 @@ GLSGE框架分三步：(1) 估计重要性权重函数ω(y)，用重加权后的
 - [\[CVPR 2025\] Open Set Label Shift with Test Time Out-of-Distribution Reference](../../CVPR2025/others/open_set_label_shift_with_test_time_out-of-distribution_reference.md)
 - [\[ACL 2025\] Understanding Cross-Domain Adaptation in Low-Resource Topic Modeling](../../ACL2025/others/understanding_cross-domain_adaptation_in_low-resource_topic_modeling.md)
 - [\[NeurIPS 2025\] Uncertainty Estimation by Flexible Evidential Deep Learning](uncertainty_estimation_by_flexible_evidential_deep_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

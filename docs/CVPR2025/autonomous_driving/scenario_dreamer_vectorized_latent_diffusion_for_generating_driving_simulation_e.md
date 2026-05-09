@@ -100,6 +100,8 @@ VAE: $L_{VAE} = \mathbb{E}[\|x - \text{decode}(z)\|^2] + \beta D_{KL}$。扩散:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Generating Multimodal Driving Scenes via Next-Scene Prediction](generating_multimodal_driving_scenes_via_next-scene_prediction.md)
@@ -107,5 +109,7 @@ VAE: $L_{VAE} = \mathbb{E}[\|x - \text{decode}(z)\|^2] + \beta D_{KL}$。扩散:
 - [\[ICCV 2025\] Long-term Traffic Simulation with Interleaved Autoregressive Motion and Scenario Generation](../../ICCV2025/autonomous_driving/long-term_traffic_simulation_with_interleaved_autoregressive_motion_and_scenario.md)
 - [\[CVPR 2025\] CompoSIA: Composing Driving Worlds through Disentangled Control for Adversarial Scenario Generation](composing_driving_worlds_through_disentangled_control_for_adversarial_scenario_g.md)
 - [\[CVPR 2025\] Driving by the Rules: A Benchmark for Integrating Traffic Sign Regulations into Vectorized HD Map](driving_by_the_rules_a_benchmark_for_integrating_traffic_sign_regulations_into_v.md)
+
+</div>
 
 <!-- RELATED:END -->

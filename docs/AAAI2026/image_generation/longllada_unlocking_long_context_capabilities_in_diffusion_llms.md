@@ -181,6 +181,8 @@ $$\lambda = 10^{-4} \cdot \left(\frac{t}{2\pi}\right)^{d/d_{extra}}, \quad d_{ex
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Long-Context State-Space Video World Models](../../ICCV2025/image_generation/long-context_state-space_video_world_models.md)
@@ -188,5 +190,7 @@ $$\lambda = 10^{-4} \cdot \left(\frac{t}{2\pi}\right)^{d/d_{extra}}, \quad d_{ex
 - [\[AAAI 2026\] DiffA: Large Language Diffusion Models Can Listen and Understand](diffa_large_language_diffusion_models_can_listen_and_understand.md)
 - [\[AAAI 2026\] LongT2IBench: A Benchmark for Evaluating Long Text-to-Image Generation with Graph-structured Annotations](longt2ibench_a_benchmark_for_evaluating_long_text-to-image_generation_with_graph.md)
 - [\[ICCV 2025\] SliderSpace: Decomposing the Visual Capabilities of Diffusion Models](../../ICCV2025/image_generation/sliderspace_decomposing_the_visual_capabilities_of_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -137,6 +137,8 @@ FACE 在所有类别上保持 100% 重建后 top-1 准确率，而 CRAFT 在 "Tr
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Faithful Group Shapley Value](faithful_group_shapley_value.md)
@@ -144,5 +146,7 @@ FACE 在所有类别上保持 100% 重建后 top-1 准确率，而 CRAFT 在 "Tr
 - [\[ACL 2025\] AutoMixer: Checkpoint Artifacts as Automatic Data Mixers](../../ACL2025/others/automixer_checkpoint_artifacts_as_automatic_data_mixers.md)
 - [\[ACL 2025\] Graph-Structured Trajectory Extraction from Travelogues](../../ACL2025/others/graph-structured_trajectory_extraction_from_travelogues.md)
 - [\[ICML 2025\] Efficient Network Automatic Relevance Determination](../../ICML2025/others/efficient_network_automatic_relevance_determination.md)
+
+</div>
 
 <!-- RELATED:END -->

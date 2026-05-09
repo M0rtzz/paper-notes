@@ -121,12 +121,16 @@ Self-Certainty = -1/(nV) * ∑∑ log(V·p(j|x,y≤i))
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Sampling-Efficient Test-Time Scaling: Self-Estimating the Best-of-N Sampling in Early Decoding](sampling-efficient_test-time_scaling_self-estimating_the_best-of-n_sampling_in_e.md)
 - [\[ACL 2025\] Ranked Voting based Self-Consistency of Large Language Models](../../ACL2025/llm_reasoning/ranked_voting_based_self-consistency_of_large_language_models.md)
-- [\[ACL 2025\] ProgCo: Program Helps Self-Correction of Large Language Models](../../ACL2025/llm_reasoning/progco_program_helps_self-correction_of_large_language_models.md)
 - [\[NeurIPS 2025\] Provable Scaling Laws for the Test-Time Compute of Large Language Models](provable_scaling_laws_for_the_testtime_compute_of_large_lang.md)
+- [\[ACL 2025\] ProgCo: Program Helps Self-Correction of Large Language Models](../../ACL2025/llm_reasoning/progco_program_helps_self-correction_of_large_language_models.md)
 - [\[NeurIPS 2025\] ProofSketch: Efficient Verified Reasoning for Large Language Models](proofsketch_efficient_verified_reasoning_for_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

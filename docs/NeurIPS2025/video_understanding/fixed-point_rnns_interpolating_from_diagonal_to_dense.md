@@ -185,6 +185,8 @@ $b_t$ 和 $c_t$ 的隐状态依赖是解锁拷贝能力的关键。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Online Dense Point Tracking with Streaming Memory](../../ICCV2025/video_understanding/online_dense_point_tracking_with_streaming_memory.md)
@@ -192,5 +194,7 @@ $b_t$ 和 $c_t$ 的隐状态依赖是解锁拷贝能力的关键。
 - [\[NeurIPS 2025\] DeltaProduct: Improving State-Tracking in Linear RNNs via Householder Products](deltaproduct_improving_state-tracking_in_linear_rnns_via_householder_products.md)
 - [\[NeurIPS 2025\] Dense SAE Latents Are Features, Not Bugs](dense_sae_latents_are_features_not_bugs.md)
 - [\[ICLR 2026\] The Expressive Limits of Diagonal SSMs for State-Tracking](../../ICLR2026/video_understanding/the_expressive_limits_of_diagonal_ssms_for_state-tracking.md)
+
+</div>
 
 <!-- RELATED:END -->

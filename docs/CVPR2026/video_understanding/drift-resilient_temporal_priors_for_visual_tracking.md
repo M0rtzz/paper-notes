@@ -142,6 +142,8 @@ DTPTrack 作为即插即用模块集成到现有跟踪器中，工作在主 Tran
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] SpikeTrack: A Spike-driven Framework for Efficient Visual Tracking](spiketrack_a_spike-driven_framework_for_efficient_visual_tracking.md)
@@ -149,5 +151,7 @@ DTPTrack 作为即插即用模块集成到现有跟踪器中，工作在主 Tran
 - [\[CVPR 2026\] CineSRD: Leveraging Visual, Acoustic, and Linguistic Cues for Open-World Visual Media Speaker Diarization](cinesrd_leveraging_visual_acoustic_and_linguistic_cues_for_open-world_visual_med.md)
 - [\[CVPR 2025\] Dynamic Updates for Language Adaptation in Visual-Language Tracking](../../CVPR2025/video_understanding/dynamic_updates_for_language_adaptation_in_visual-language_tracking.md)
 - [\[CVPR 2026\] VRR-QA: Visual Relational Reasoning in Videos Beyond Explicit Cues](vrr-qa_visual_relational_reasoning_in_videos_beyond_explicit_cues.md)
+
+</div>
 
 <!-- RELATED:END -->

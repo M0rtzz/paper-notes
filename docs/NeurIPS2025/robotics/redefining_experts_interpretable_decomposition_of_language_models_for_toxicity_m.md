@@ -169,6 +169,8 @@ $$\text{TPH}(T,P) = \frac{2 \cdot T \cdot \frac{1}{1+|P|}}{T + \frac{1}{1+|P|}}$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Uncovering Strategic Egoism Behaviors in Large Language Models](uncovering_strategic_egoism_behaviors_in_large_language_models.md)
@@ -176,5 +178,7 @@ $$\text{TPH}(T,P) = \frac{2 \cdot T \cdot \frac{1}{1+|P|}}{T + \frac{1}{1+|P|}}$
 - [\[NeurIPS 2025\] Bridging Embodiment Gaps: Deploying Vision-Language-Action Models on Soft Robots](bridging_embodiment_gaps_deploying_vision-language-action_models_on_soft_robots.md)
 - [\[NeurIPS 2025\] Breaking the Gradient Barrier: Unveiling Large Language Models for Strategic Classification](breaking_the_gradient_barrier_unveiling_large_language_models_for_strategic_clas.md)
 - [\[ICLR 2026\] When Agents Persuade: Propaganda Generation and Mitigation in LLMs](../../ICLR2026/robotics/when_agents_persuade_propaganda_generation_and_mitigation_in_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

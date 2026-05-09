@@ -128,6 +128,8 @@ $\mathcal{L} = \mathcal{L}_{MSE} + \alpha \cdot \mathcal{L}_{cos}$，其中 $\ma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] VeCoR — Velocity Contrastive Regularization for Flow Matching](../../CVPR2026/image_generation/vecor_--_velocity_contrastive_regularization_for_flow_matching.md)
@@ -135,5 +137,7 @@ $\mathcal{L} = \mathcal{L}_{MSE} + \alpha \cdot \mathcal{L}_{cos}$，其中 $\ma
 - [\[NeurIPS 2025\] Diffusion-Driven Progressive Target Manipulation for Source-Free Domain Adaptation](../../NeurIPS2025/image_generation/diffusion-driven_progressive_target_manipulation_for_source-free_domain_adaptati.md)
 - [\[NeurIPS 2025\] Progressive Inference-Time Annealing of Diffusion Models for Sampling from Boltzmann Densities](../../NeurIPS2025/image_generation/progressive_inference-time_annealing_of_diffusion_models_for_sampling_from_boltz.md)
 - [\[ECCV 2024\] BrushNet: A Plug-and-Play Image Inpainting Model with Decomposed Dual-Branch Diffusion](../../ECCV2024/image_generation/brushnet_a_plug-and-play_image_inpainting_model_with_decomposed_dual-branch_diff.md)
+
+</div>
 
 <!-- RELATED:END -->

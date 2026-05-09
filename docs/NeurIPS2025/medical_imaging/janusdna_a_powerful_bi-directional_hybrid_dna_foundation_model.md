@@ -165,6 +165,8 @@ JanusDNA包含三个核心组件：(1) **Janus Modeling**——高效双向预�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] SPACE: Your Genomic Profile Predictor is a Powerful DNA Foundation Model](../../ICML2025/medical_imaging/space_your_genomic_profile_predictor_is_a_powerful_dna_foundation_model.md)
@@ -172,5 +174,7 @@ JanusDNA包含三个核心组件：(1) **Janus Modeling**——高效双向预�
 - [\[NeurIPS 2025\] MIRA: Medical Time Series Foundation Model for Real-World Health Data](mira_medical_time_series_foundation_model_for_real-world_health_data.md)
 - [\[NeurIPS 2025\] Iterative Foundation Model Fine-Tuning on Multiple Rewards](iterative_foundation_model_fine-tuning_on_multiple_rewards.md)
 - [\[NeurIPS 2025\] Brain Harmony: A Multimodal Foundation Model Unifying Morphology and Function into 1D Tokens](brain_harmony_a_multimodal_foundation_model_unifying_morphology_and_function_int.md)
+
+</div>
 
 <!-- RELATED:END -->

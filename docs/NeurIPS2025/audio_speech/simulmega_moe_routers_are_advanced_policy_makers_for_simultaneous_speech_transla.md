@@ -133,6 +133,8 @@ $$\text{Action} = \begin{cases} \text{Write} & \text{if } p_{t,i} < \lambda \\ \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] REINA: Regularized Entropy Information-Based Loss for Efficient Simultaneous Speech Translation](../../AAAI2026/audio_speech/reina_regularized_entropy_information-based_loss_for_efficient_simultaneous_spee.md)
@@ -140,5 +142,7 @@ $$\text{Action} = \begin{cases} \text{Write} & \text{if } p_{t,i} < \lambda \\ \
 - [\[ACL 2025\] Different Speech Translation Models Encode and Translate Speaker Gender Differently](../../ACL2025/audio_speech/different_speech_translation_models_encode_and_translate_speaker_gender_differen.md)
 - [\[NeurIPS 2025\] MoME: Mixture of Matryoshka Experts for Audio-Visual Speech Recognition](mome_mixture_of_matryoshka_experts_for_audio-visual_speech_recognition.md)
 - [\[NeurIPS 2025\] VITA-1.5: Towards GPT-4o Level Real-Time Vision and Speech Interaction](vita-15_towards_gpt-4o_level_real-time_vision_and_speech_interaction.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -138,6 +138,8 @@ IAC 无需训练。在似然改进阶段使用经验估计的标签概率 $\hat{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Enhancing Certified Robustness via Block Reflector Orthogonal Layers and Logit Annealing Loss](enhancing_certified_robustness_via_block_reflector_orthogonal_layers_and_logit_a.md)
@@ -145,5 +147,7 @@ IAC 无需训练。在似然改进阶段使用经验估计的标签概率 $\hat{
 - [\[CVPR 2026\] Mitigating Instance Entanglement in Instance-Dependent Partial Label Learning](../../CVPR2026/others/mitigating_instance_entanglement_in_instance-dependent_partial_label_learning.md)
 - [\[NeurIPS 2025\] Revisiting Agnostic Boosting](../../NeurIPS2025/others/revisiting_agnostic_boosting.md)
 - [\[NeurIPS 2025\] Ultrametric Cluster Hierarchies: I Want 'em All!](../../NeurIPS2025/others/ultrametric_cluster_hierarchies_i_want_em_all.md)
+
+</div>
 
 <!-- RELATED:END -->

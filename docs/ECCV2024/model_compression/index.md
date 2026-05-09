@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **31** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (42)](../../ACL2026/model_compression/) · [📷 CVPR2026 (57)](../../CVPR2026/model_compression/) · [🔬 ICLR2026 (92)](../../ICLR2026/model_compression/) · [🤖 AAAI2026 (54)](../../AAAI2026/model_compression/) · [🧠 NeurIPS2025 (137)](../../NeurIPS2025/model_compression/) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/)
+
+🔥 **高频主题：** 压缩/编码 ×7 · 模型压缩 ×6 · 知识蒸馏 ×2
+
 **[A Simple Low-bit Quantization Framework for Video Snapshot Compressive Imaging](a_simple_lowbit_quantization_framework_for_video_snapshot_co.md)**
 
 :   首个面向视频快照压缩成像（Video SCI）重建任务的低比特量化框架Q-SCI，通过高质量特征提取模块、精确视频重建模块和Transformer分支的query/key分布偏移操作，在4-bit量化下实现7.8倍理论加速且性能仅下降2.3%。

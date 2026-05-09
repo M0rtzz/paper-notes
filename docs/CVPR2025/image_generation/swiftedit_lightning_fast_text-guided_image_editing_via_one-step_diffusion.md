@@ -129,6 +129,8 @@ PIE-Bench 上的编辑质量和速度对比：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Towards Scalable Human-Aligned Benchmark for Text-Guided Image Editing](towards_scalable_human-aligned_benchmark_for_text-guided_image_editing.md)
@@ -136,5 +138,7 @@ PIE-Bench 上的编辑质量和速度对比：
 - [\[CVPR 2025\] TurboFill: Adapting Few-Step Text-to-Image Model for Fast Image Inpainting](turbofill_adapting_few-step_text-to-image_model_for_fast_image_inpainting.md)
 - [\[CVPR 2026\] ChordEdit: One-Step Low-Energy Transport for Image Editing](../../CVPR2026/image_generation/chordedit_one-step_low-energy_transport_for_image_editing.md)
 - [\[CVPR 2025\] InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing](interedit_navigating_text-guided_multi-human_3d_motion_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

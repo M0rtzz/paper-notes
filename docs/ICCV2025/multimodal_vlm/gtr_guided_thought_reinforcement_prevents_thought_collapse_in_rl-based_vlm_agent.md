@@ -165,6 +165,8 @@ GTR 相比 SOTA 方法（RL4VLM）成功率提升 **7 倍**，且超越了作为
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] ERL-VLM: Enhancing Rating-Based RL to Leverage Feedback from Large VLMs](../../ICML2025/multimodal_vlm/enhancing_rating-based_reinforcement_learning_to_effectively_leverage_feedback_f.md)
@@ -172,5 +174,7 @@ GTR 相比 SOTA 方法（RL4VLM）成功率提升 **7 倍**，且超越了作为
 - [\[ICML 2025\] Towards Efficient Online Tuning of VLM Agents via Counterfactual Soft Reinforcement Learning](../../ICML2025/multimodal_vlm/towards_efficient_online_tuning_of_vlm_agents_via_counterfactual_soft_reinforcem.md)
 - [\[CVPR 2026\] GTR-Turbo: Merged Checkpoint is Secretly a Free Teacher for Agentic VLM Training](../../CVPR2026/multimodal_vlm/gtr_turbo_merged_checkpoint_free_teacher.md)
 - [\[ICCV 2025\] Controlling Multimodal LLMs via Reward-guided Decoding](controlling_multimodal_llms_via_rewardguided_decoding.md)
+
+</div>
 
 <!-- RELATED:END -->

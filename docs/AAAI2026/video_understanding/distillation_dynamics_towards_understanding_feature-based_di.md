@@ -133,6 +133,8 @@ ProjectorKD：$\mathcal{L}_{\text{Proj}} = \text{MSE}(\text{Projector}(\mathbf{A
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Beyond Single-Sample: Reliable Multi-Sample Distillation for Video Understanding](../../CVPR2026/video_understanding/beyond_single-sample_reliable_multi-sample_distillation_for_video_understanding.md)
@@ -140,5 +142,7 @@ ProjectorKD：$\mathcal{L}_{\text{Proj}} = \text{MSE}(\text{Projector}(\mathbf{A
 - [\[CVPR 2025\] ViTED: Video Temporal Evidence Distillation](../../CVPR2025/video_understanding/vited_video_temporal_evidence_distillation.md)
 - [\[ACL 2025\] From Teacher to Student: Tracking Memorization Through Model Distillation](../../ACL2025/video_understanding/from_teacher_to_student_tracking_memorization_through_model_distillation.md)
 - [\[CVPR 2025\] Enhancing Video-LLM Reasoning via Agent-of-Thoughts Distillation](../../CVPR2025/video_understanding/enhancing_video-llm_reasoning_via_agent-of-thoughts_distillation.md)
+
+</div>
 
 <!-- RELATED:END -->

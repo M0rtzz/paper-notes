@@ -168,6 +168,8 @@ PCoT vs 推理模型（o1-mini / o3-mini）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Towards Better Chain-of-Thought: A Reflection on Effectiveness and Faithfulness](quire_better_cot.md)
@@ -175,5 +177,7 @@ PCoT vs 推理模型（o1-mini / o3-mini）：
 - [\[ICML 2025\] AdaDecode: Accelerating LLM Decoding with Adaptive Layer Parallelism](adadecode_accelerating_llm_decoding_with_adaptive_layer_parallelism.md)
 - [\[ICML 2025\] Improving Rationality in the Reasoning Process of Language Models through Self-playing Game](improving_rationality_in_the_reasoning_process_of_language_models_through_self-p.md)
 - [\[ICML 2025\] MARGE: Improving Math Reasoning for LLMs with Guided Exploration](marge_improving_math_reasoning_for_llms_with_guided_exploration.md)
+
+</div>
 
 <!-- RELATED:END -->

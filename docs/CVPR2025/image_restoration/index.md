@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **43** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/image_restoration/) · [📷 CVPR2026 (47)](../../CVPR2026/image_restoration/) · [🔬 ICLR2026 (15)](../../ICLR2026/image_restoration/) · [🤖 AAAI2026 (13)](../../AAAI2026/image_restoration/) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/image_restoration/) · [📹 ICCV2025 (30)](../../ICCV2025/image_restoration/)
+
+🔥 **高频主题：** 图像恢复 ×15 · 扩散模型 ×8 · 超分辨率 ×6 · 对抗鲁棒 ×3 · 自监督学习 ×2
+
 **[A Flag Decomposition for Hierarchical Datasets](a_flag_decomposition_for_hierarchical_datasets.md)**
 
 :   本文提出Flag Decomposition (FD)，一种将层次结构数据分解为保持层级关系的flag流形表示（Stiefel坐标）的算法，在去噪、聚类和少样本学习任务中展示了相比SVD等标准方法的优势。

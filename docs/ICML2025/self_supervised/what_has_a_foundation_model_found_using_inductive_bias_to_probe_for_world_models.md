@@ -136,6 +136,8 @@ R-IB 和 D-IB 在格问题（5状态）和 Othello 上的表现（1为完美，0
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] AdaWorld: Learning Adaptable World Models with Latent Actions](adaworld_learning_adaptable_world_models_with_latent_actions.md)
@@ -143,5 +145,7 @@ R-IB 和 D-IB 在格问题（5状态）和 Othello 上的表现（1为完美，0
 - [\[CVPR 2025\] OCRT: Boosting Foundation Models in the Open World with Object-Concept-Relation Triad](../../CVPR2025/self_supervised/ocrt_boosting_foundation_models_in_the_open_world_with_object-concept-relation_t.md)
 - [\[ICML 2025\] Griffin: Towards a Graph-Centric Relational Database Foundation Model](griffin_towards_a_graph-centric_relational_database_foundation_model.md)
 - [\[ICML 2025\] Test-Time Canonicalization by Foundation Models for Robust Perception](test-time_canonicalization_by_foundation_models_for_robust_perception.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -124,6 +124,8 @@ VLM2-Bench 包含3大类9个子任务，3060个测试用例，覆盖判断题、
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Can Vision-Language Models Evaluate Handwritten Math?](can_vision-language_models_evaluate_handwritten_math.md)
@@ -131,5 +133,7 @@ VLM2-Bench 包含3大类9个子任务，3060个测试用例，覆盖判断题、
 - [\[ACL 2025\] Chart-based Reasoning: Transferring Capabilities from LLMs to VLMs](chart-based_reasoning_transferring_capabilities_from_llms_to_vlms.md)
 - [\[ACL 2025\] Exploring How Generative MLLMs Perceive More Than CLIP with the Same Vision Encoder](exploring_how_generative_mllms_perceive_more.md)
 - [\[ACL 2025\] EffiVLM-Bench: A Comprehensive Benchmark for Evaluating Training-Free Acceleration in Large Vision-Language Models](effivlm_bench_acceleration.md)
+
+</div>
 
 <!-- RELATED:END -->

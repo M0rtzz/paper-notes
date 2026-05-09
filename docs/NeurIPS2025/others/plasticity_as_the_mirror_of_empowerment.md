@@ -151,6 +151,8 @@ $$\mathfrak{E}_{a:b}^{c:d}(\lambda, e) + \mathfrak{P}_{c:d}^{a:b}(\lambda, e) \l
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Meta-learning three-factor plasticity rules for structured credit assignment with sparse feedback](meta-learning_three-factor_plasticity_rules_for_structured_credit_assignment_wit.md)
@@ -158,5 +160,7 @@ $$\mathfrak{E}_{a:b}^{c:d}(\lambda, e) + \mathfrak{P}_{c:d}^{a:b}(\lambda, e) \l
 - [\[NeurIPS 2025\] A Theoretical Framework for Grokking: Interpolation followed by Riemannian Norm Minimisation](a_theoretical_framework_for_grokking_interpolation_followed_by_riemannian_norm_m.md)
 - [\[NeurIPS 2025\] Evolutionary Prediction Games](evolutionary_prediction_games.md)
 - [\[NeurIPS 2025\] Structure-Aware Spectral Sparsification via Uniform Edge Sampling](structure-aware_spectral_sparsification_via_uniform_edge_sampling.md)
+
+</div>
 
 <!-- RELATED:END -->

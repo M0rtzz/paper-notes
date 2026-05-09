@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **19** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (29)](../../ACL2026/audio_speech/) · [📷 CVPR2026 (17)](../../CVPR2026/audio_speech/) · [🔬 ICLR2026 (32)](../../ICLR2026/audio_speech/) · [🤖 AAAI2026 (31)](../../AAAI2026/audio_speech/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/audio_speech/) · [📹 ICCV2025 (13)](../../ICCV2025/audio_speech/)
+
+🔥 **高频主题：** 语音 ×10 · 多模态 ×4
+
 **[Contextual AD Narration with Interleaved Multimodal Sequence](contextual_ad_narration_with_interleaved_multimodal_sequence.md)**
 
 :   提出 Uni-AD 统一框架，以交错多模态序列（视频特征+文本+角色库+上下文）作为输入，通过视觉映射网络对齐特征 + 角色精化模块识别主要角色 + 对比损失增强上下文一致性，在 MAD-eval-Named 上达到 SOTA。

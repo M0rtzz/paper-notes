@@ -119,6 +119,8 @@ $$z^* = \arg\min_{z} \| D(z, a, c) - x \|^2$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation](../../ICML2025/segmentation/actionpiece_contextually_tokenizing_action_sequences_for_generative_recommendati.md)
@@ -126,5 +128,7 @@ $$z^* = \arg\min_{z} \| D(z, a, c) - x \|^2$$
 - [\[CVPR 2025\] Generative Video Propagation](generative_video_propagation.md)
 - [\[CVPR 2025\] Golden Cudgel Network for Real-Time Semantic Segmentation](golden_cudgel_network_for_real-time_semantic_segmentation.md)
 - [\[CVPR 2025\] RSONet: Region-guided Selective Optimization Network for RGB-T Salient Object Detection](rsonet_region-guided_selective_optimization_network_for_rgb-t_salient_object_det.md)
+
+</div>
 
 <!-- RELATED:END -->

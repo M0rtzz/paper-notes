@@ -138,6 +138,8 @@ $$\mathcal{L}_\mathcal{G} = \mathcal{L}_{diff} + \mathcal{L}_{style} + \lambda \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Evaluating Text-to-Visual Generation with Image-to-Text Generation](../../ECCV2024/llm_nlp/evaluating_text-to-visual_generation_with_image-to-text_generation.md)
@@ -145,5 +147,7 @@ $$\mathcal{L}_\mathcal{G} = \mathcal{L}_{diff} + \mathcal{L}_{style} + \lambda \
 - [\[ACL 2025\] ATGen: A Framework for Active Text Generation](../../ACL2025/llm_nlp/atgen_a_framework_for_active_text_generation.md)
 - [\[ICLR 2026\] FS-DFM: Fast and Accurate Long Text Generation with Few-Step Diffusion Language Model](../../ICLR2026/llm_nlp/fs-dfm_fast_and_accurate_long_text_generation_with_few-step_diffusion_language_m.md)
 - [\[ACL 2025\] EdiText: Controllable Coarse-to-Fine Text Editing with Diffusion Language Models](../../ACL2025/llm_nlp/editext_diffusion_text_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

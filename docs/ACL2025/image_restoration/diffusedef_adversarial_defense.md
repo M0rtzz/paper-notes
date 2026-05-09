@@ -173,6 +173,8 @@ DiffuseDef 在编码器与分类器之间插入一个扩散去噪层，训练时
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Are Deep Speech Denoising Models Robust to Adversarial Noise?](../../ICLR2026/image_restoration/are_deep_speech_denoising_models_robust_to_adversarial_noise.md)
@@ -180,5 +182,7 @@ DiffuseDef 在编码器与分类器之间插入一个扩散去噪层，训练时
 - [\[NeurIPS 2025\] DenoiseRotator: Enhance Pruning Robustness for LLMs via Importance Concentration](../../NeurIPS2025/image_restoration/denoiserotator_enhance_pruning_robustness_for_llms_via_importance_concentration.md)
 - [\[NeurIPS 2025\] Spend Wisely: Maximizing Post-Training Gains in Iterative Synthetic Data Bootstrapping](../../NeurIPS2025/image_restoration/spend_wisely_maximizing_post-training_gains_in_iterative_synthetic_data_bootstra.md)
 - [\[ICML 2025\] ε-VAE: Denoising as Visual Decoding](../../ICML2025/image_restoration/epsilon-vae_denoising_as_visual_decoding.md)
+
+</div>
 
 <!-- RELATED:END -->

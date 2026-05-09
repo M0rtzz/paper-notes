@@ -161,6 +161,8 @@ IndieValueReasoner 较零样本 Llama-3.1-8B 提升 **46.6%**，较最优 GPT-4o
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Can LLMs Reason About Program Semantics? A Comprehensive Evaluation of LLMs on Formal Specification Inference](can_llms_reason_about_program_semantics_a_comprehensive_evaluation_of_llms_on_fo.md)
@@ -168,5 +170,7 @@ IndieValueReasoner 较零样本 Llama-3.1-8B 提升 **46.6%**，较最优 GPT-4o
 - [\[ACL 2025\] Aligning Large Language Models with Implicit Preferences from User-Generated Content](pugc_align_implicit_pref_ugc.md)
 - [\[ACL 2025\] PapersPlease: A Benchmark for Evaluating Motivational Values of Large Language Models Based on ERG Theory](papersplease_a_benchmark_for_evaluating_motivational_values_of_large_language_mo.md)
 - [\[ACL 2025\] Can Language Models Replace Programmers for Coding? RepoCod Says 'Not Yet'](can_language_models_replace_programmers_for_coding_repocod_says_not_yet.md)
+
+</div>
 
 <!-- RELATED:END -->

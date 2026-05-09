@@ -144,6 +144,8 @@ SliderSpace 仅用 10 个方向就匹配了 64 个手动 Concept Sliders 的 FID
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] DiffSim: Taming Diffusion Models for Evaluating Visual Similarity](diffsim_taming_diffusion_models_for_evaluating_visual_similarity.md)
@@ -151,5 +153,7 @@ SliderSpace 仅用 10 个方向就匹配了 64 个手动 Concept Sliders 的 FID
 - [\[ICCV 2025\] CSD-VAR: Content-Style Decomposition in Visual Autoregressive Models](csd-var_content-style_decomposition_in_visual_autoregressive_models.md)
 - [\[CVPR 2025\] The Art of Deception: Color Visual Illusions and Diffusion Models](../../CVPR2025/image_generation/the_art_of_deception_color_visual_illusions_and_diffusion_models.md)
 - [\[ICCV 2025\] VisualCloze: A Universal Image Generation Framework via Visual In-Context Learning](visualcloze_a_universal_image_generation_framework_via_visual_in-context_learnin.md)
+
+</div>
 
 <!-- RELATED:END -->

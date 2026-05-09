@@ -156,6 +156,8 @@ $$\mathcal{L} = \mathcal{L}_{cls} + \lambda \mathcal{L}_{seg}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] RefineVAD: Semantic-Guided Feature Recalibration for Weakly Supervised Video Anomaly Detection](../../AAAI2026/llm_evaluation/refinevad_semantic-guided_feature_recalibration_for_weakly_supervised_video_anom.md)
@@ -163,5 +165,7 @@ $$\mathcal{L} = \mathcal{L}_{cls} + \lambda \mathcal{L}_{seg}$$
 - [\[ICML 2025\] CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering](../../ICML2025/llm_evaluation/costfilter-ad_enhancing_anomaly_detection_through_matching_cost_filtering.md)
 - [\[NeurIPS 2025\] Rethinking Evaluation of Infrared Small Target Detection](rethinking_evaluation_of_infrared_small_target_detection.md)
 - [\[NeurIPS 2025\] Robust Hallucination Detection in LLMs via Adaptive Token Selection](robust_hallucination_detection_in_llms_via_adaptive_token_selection.md)
+
+</div>
 
 <!-- RELATED:END -->

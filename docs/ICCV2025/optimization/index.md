@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/optimization/) · [📷 CVPR2026 (10)](../../CVPR2026/optimization/) · [🔬 ICLR2026 (45)](../../ICLR2026/optimization/) · [🤖 AAAI2026 (24)](../../AAAI2026/optimization/) · [🧠 NeurIPS2025 (117)](../../NeurIPS2025/optimization/) · [🧪 ICML2025 (58)](../../ICML2025/optimization/)
+
+🔥 **高频主题：** 联邦学习 ×4
+
 **[Addressing Representation Collapse in Vector Quantized Models with One Linear Layer](addressing_representation_collapse_in_vector_quantized_models_with_one_linear_la.md)**
 
 :   提出SimVQ方法，通过一个可学习的线性变换层对码本向量进行重参数化（$\bm{C}\bm{W}$），将码本的不相交优化转化为联合空间优化，从根本上解决VQ模型中的表示崩塌问题，实现接近100%的码本利用率。

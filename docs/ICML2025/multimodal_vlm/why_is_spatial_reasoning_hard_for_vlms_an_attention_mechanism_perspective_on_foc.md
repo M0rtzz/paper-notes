@@ -137,6 +137,8 @@ $$A_{n,j}^{(l,h)} = \begin{cases} \alpha \cdot A_{n,j}^{(l,h)} & \text{if } j \i
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] SpinBench: Perspective and Rotation as a Lens on Spatial Reasoning in VLMs](../../ICLR2026/multimodal_vlm/spinbench_perspective_and_rotation_as_a_lens_on_spatial_reasoning_in_vlms.md)
@@ -144,5 +146,7 @@ $$A_{n,j}^{(l,h)} = \begin{cases} \alpha \cdot A_{n,j}^{(l,h)} & \text{if } j \i
 - [\[NeurIPS 2025\] SSR: Enhancing Depth Perception in VLMs via Rationale-Guided Spatial Reasoning](../../NeurIPS2025/multimodal_vlm/ssr_enhancing_depth_perception_in_vision-language_models_via_rationale-guided_sp.md)
 - [\[ICML 2025\] MODA: MOdular Duplex Attention for Multimodal Perception, Cognition, and Emotion Understanding](moda_modular_duplex_attention_for_multimodal_perception_cognition_and_emotion_un.md)
 - [\[NeurIPS 2025\] MMPerspective: Do MLLMs Understand Perspective? A Comprehensive Benchmark for Perspective Perception, Reasoning, and Robustness](../../NeurIPS2025/multimodal_vlm/mmperspective_do_mllms_understand_perspective_a_comprehensive_benchmark_for_pers.md)
+
+</div>
 
 <!-- RELATED:END -->

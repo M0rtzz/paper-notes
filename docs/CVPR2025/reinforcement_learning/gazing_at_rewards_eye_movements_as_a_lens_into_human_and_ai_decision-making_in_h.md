@@ -105,6 +105,8 @@ PPO强化学习，奖励信号为成功拾取目标的价值、步数惩罚$-0.0
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Decision SpikeFormer: Spike-Driven Transformer for Decision Making](decision_spikeformer_spike-driven_transformer_for_decision_making.md)
@@ -112,5 +114,7 @@ PPO强化学习，奖励信号为成功拾取目标的价值、步数惩罚$-0.0
 - [\[ICML 2025\] Enhancing Decision-Making of Large Language Models via Actor-Critic](../../ICML2025/reinforcement_learning/enhancing_decision-making_of_large_language_models_via_actor-critic.md)
 - [\[NeurIPS 2025\] Spatial-Aware Decision-Making with Ring Attractors in Reinforcement Learning Systems](../../NeurIPS2025/reinforcement_learning/spatial-aware_decision-making_with_ring_attractors_in_reinforcement_learning_sys.md)
 - [\[NeurIPS 2025\] Structured Reinforcement Learning for Combinatorial Decision-Making](../../NeurIPS2025/reinforcement_learning/structured_reinforcement_learning_for_combinatorial_decision-making.md)
+
+</div>
 
 <!-- RELATED:END -->

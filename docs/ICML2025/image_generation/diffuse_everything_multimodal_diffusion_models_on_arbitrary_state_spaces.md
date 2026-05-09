@@ -135,6 +135,8 @@ $$\mathcal{L} = \mathbb{E}_{t, x_0, \epsilon} \left[ \lambda_c(t) \|\hat{x}_c - 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Parameter-Efficient Fine-Tuning of State Space Models](parameter-efficient_fine-tuning_of_state_space_models.md)
@@ -142,5 +144,7 @@ $$\mathcal{L} = \mathbb{E}_{t, x_0, \epsilon} \left[ \lambda_c(t) \|\hat{x}_c - 
 - [\[NeurIPS 2025\] Shallow Diffuse: Robust and Invisible Watermarking through Low-Dimensional Subspaces in Diffusion Models](../../NeurIPS2025/image_generation/shallow_diffuse_robust_and_invisible_watermarking_through_low-dimensional_subspa.md)
 - [\[ICML 2025\] LIVS: A Pluralistic Alignment Dataset for Inclusive Public Spaces](livs_a_pluralistic_alignment_dataset_for_inclusive_public_spaces.md)
 - [\[NeurIPS 2025\] State-Covering Trajectory Stitching for Diffusion Planners](../../NeurIPS2025/image_generation/state-covering_trajectory_stitching_for_diffusion_planners.md)
+
+</div>
 
 <!-- RELATED:END -->

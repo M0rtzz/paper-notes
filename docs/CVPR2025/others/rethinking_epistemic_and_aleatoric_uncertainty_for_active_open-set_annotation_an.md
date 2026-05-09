@@ -139,6 +139,8 @@ $$\mathcal{L}_{detector} = \mathcal{L}_{ce} + \lambda_e \mathcal{L}_{energy}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Rethinking Aleatoric and Epistemic Uncertainty](../../ICML2025/others/rethinking_aleatoric_and_epistemic_uncertainty.md)
@@ -146,5 +148,7 @@ $$\mathcal{L}_{detector} = \mathcal{L}_{ce} + \lambda_e \mathcal{L}_{energy}$$
 - [\[ECCV 2024\] Bidirectional Uncertainty-Based Active Learning for Open-Set Annotation](../../ECCV2024/others/bidirectional_uncertainty-based_active_learning_for_open-set_annotation.md)
 - [\[CVPR 2025\] Open Set Label Shift with Test Time Out-of-Distribution Reference](open_set_label_shift_with_test_time_out-of-distribution_reference.md)
 - [\[CVPR 2025\] Distribution Prototype Diffusion Learning for Open-set Supervised Anomaly Detection](distribution_prototype_diffusion_learning_for_open-set_supervised_anomaly_detect.md)
+
+</div>
 
 <!-- RELATED:END -->

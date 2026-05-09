@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **23** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/ai_safety/) · [📷 CVPR2026 (24)](../../CVPR2026/ai_safety/) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/) · [🤖 AAAI2026 (44)](../../AAAI2026/ai_safety/) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/) · [📹 ICCV2025 (22)](../../ICCV2025/ai_safety/)
+
+🔥 **高频主题：** 对抗鲁棒 ×8 · 联邦学习 ×6 · 人脸/视线 ×4 · 对齐/RLHF ×2
+
 **[A Simple Data Augmentation for Feature Distribution Skewed Federated Learning](a_simple_data_augmentation_for_feature_distribution_skewed_federated_learning.md)**
 
 :   提出FedRDN——一种极其简单的联邦学习数据增强方法，在训练时随机使用其他客户端的通道级均值/标准差做数据归一化（而非固定用本地统计），仅需几行代码即可显著缓解特征分布偏移问题，在多种FL方法上一致提升性能。

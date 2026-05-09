@@ -127,6 +127,8 @@ $$L = \frac{1}{n} \sum_{\ell=1}^{n} \|f_{S_\ell} - \sum_{j=1}^{k} c_j^\ell g_j\|
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Function Spaces Without Kernels: Learning Compact Hilbert Space Representations](../../ICLR2026/llm_evaluation/function_spaces_without_kernels_learning_compact_hilbert_space_representations.md)
@@ -134,5 +136,7 @@ $$L = \frac{1}{n} \sum_{\ell=1}^{n} \|f_{S_\ell} - \sum_{j=1}^{k} c_j^\ell g_j\|
 - [\[NeurIPS 2025\] Unlocking Transfer Learning for Open-World Few-Shot Recognition](../../NeurIPS2025/llm_evaluation/unlocking_transfer_learning_for_open-world_few-shot_recognition.md)
 - [\[NeurIPS 2025\] A High-Dimensional Statistical Method for Optimizing Transfer Quantities in Multi-Source Transfer Learning](../../NeurIPS2025/llm_evaluation/a_highdimensional_statistical_method_for_optimizing_transfer.md)
 - [\[ICML 2025\] Learning Safe Strategies for Value Maximizing Buyers in Uniform Price Auctions](learning_safe_strategies_for_value_maximizing_buyers_in_uniform_price_auctions.md)
+
+</div>
 
 <!-- RELATED:END -->

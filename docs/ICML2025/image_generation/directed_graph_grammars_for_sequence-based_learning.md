@@ -156,6 +156,8 @@ DIGGED 在 FoM 优化上超越 CktGNN 9 倍以上（310.26 vs 33.44），甚至�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] GSPN-2: Efficient Parallel Sequence Modeling](../../NeurIPS2025/image_generation/gspn-2_efficient_parallel_sequence_modeling.md)
@@ -163,5 +165,7 @@ DIGGED 在 FoM 优化上超越 CktGNN 9 倍以上（310.26 vs 33.44），甚至�
 - [\[CVPR 2025\] Parallel Sequence Modeling via Generalized Spatial Propagation Network](../../CVPR2025/image_generation/parallel_sequence_modeling_via_generalized_spatial_propagation_network.md)
 - [\[ICML 2025\] Graph Generative Pre-trained Transformer (G2PT)](graph_generative_pre-trained_transformer.md)
 - [\[ICLR 2026\] Generating Directed Graphs with Dual Attention and Asymmetric Encoding](../../ICLR2026/image_generation/generating_directed_graphs_with_dual_attention_and_asymmetric_encoding.md)
+
+</div>
 
 <!-- RELATED:END -->

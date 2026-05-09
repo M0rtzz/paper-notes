@@ -122,6 +122,8 @@ Phase I：对比损失（帧嵌入与GPS嵌入的相似度矩阵 vs 单位矩阵
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Temporally Consistent Long-Term Memory for 3D Single Object Tracking](chronotrack_temporally_consistent_long_term_memory_for_3d_single_object_tracking.md)
@@ -129,5 +131,7 @@ Phase I：对比损失（帧嵌入与GPS嵌入的相似度矩阵 vs 单位矩阵
 - [\[ICCV 2025\] ResidualViT for Efficient Temporally Dense Video Encoding](../../ICCV2025/video_understanding/residualvit_for_efficient_temporally_dense_video_encoding.md)
 - [\[ICCV 2025\] Factorized Learning for Temporally Grounded Video-Language Models](../../ICCV2025/video_understanding/factorized_learning_for_temporally_grounded_video-language_models.md)
 - [\[ICCV 2025\] TOGA: Temporally Grounded Open-Ended Video QA with Weak Supervision](../../ICCV2025/video_understanding/toga_temporally_grounded_open-ended_video_qa_with_weak_supervision.md)
+
+</div>
 
 <!-- RELATED:END -->

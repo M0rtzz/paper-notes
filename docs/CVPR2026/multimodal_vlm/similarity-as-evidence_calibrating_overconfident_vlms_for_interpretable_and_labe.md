@@ -136,6 +136,8 @@ SEH 贡献最大的增量提升 (+3.95%)，证明校准是关键。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Towards Calibrating Prompt Tuning of Vision-Language Models](towards_calibrating_prompt_tuning_of_vision-language_models.md)
@@ -143,5 +145,7 @@ SEH 贡献最大的增量提升 (+3.95%)，证明校准是关键。
 - [\[CVPR 2026\] Relational Visual Similarity](relational_visual_similarity.md)
 - [\[ACL 2026\] Tree-of-Evidence: Efficient "System 2" Search for Faithful Multimodal Grounding](../../ACL2026/multimodal_vlm/tree-of-evidence_efficient_34system_234_search_for_faithful_multimodal_grounding.md)
 - [\[CVPR 2026\] CLIP-Free, Label-Free, Unsupervised Concept Bottleneck Models](clip-free_label_free_unsupervised_concept_bottleneck_models.md)
+
+</div>
 
 <!-- RELATED:END -->

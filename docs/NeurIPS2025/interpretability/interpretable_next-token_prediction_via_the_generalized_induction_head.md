@@ -166,6 +166,8 @@ $$P_{\text{induction(fuzzy)}}(w_i | x) = \frac{c_{\text{fuzzy}}(w_{i-k-1:i-1} w_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Bigram Subnetworks: Mapping to Next Tokens in Transformer Language Models](bigram_subnetworks_mapping_to_next_tokens_in_transformer_language_models.md)
@@ -173,5 +175,7 @@ $$P_{\text{induction(fuzzy)}}(w_i | x) = \frac{c_{\text{fuzzy}}(w_{i-k-1:i-1} w_
 - [\[AAAI 2026\] GenePheno: Interpretable Gene Knockout-Induced Phenotype Abnormality Prediction Framework](../../AAAI2026/interpretability/genepheno_interpretable_gene_knockout-induced_phenotype_abnormality_prediction_f.md)
 - [\[ICML 2025\] Conformal Prediction as Bayesian Quadrature](../../ICML2025/interpretability/conformal_prediction_as_bayesian_quadrature.md)
 - [\[NeurIPS 2025\] Beyond Token Probes: Hallucination Detection via Activation Tensors with ACT-ViT](beyond_token_probes_hallucination_detection_via_activation_tensors_with_act-vit.md)
+
+</div>
 
 <!-- RELATED:END -->

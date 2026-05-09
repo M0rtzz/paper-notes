@@ -146,6 +146,8 @@ Gemma-2 9B 上:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Byte Latent Transformer: Patches Scale Better Than Tokens](byte_latent_transformer.md)
@@ -153,5 +155,7 @@ Gemma-2 9B 上:
 - [\[ACL 2025\] Neuron Empirical Gradient: Discovering and Quantifying Neurons' Global Linear Controllability](neuron_empirical_gradient_discovering_and_quantifying_neurons_global_linear_cont.md)
 - [\[ACL 2025\] Hierarchical Attention Generates Better Proofs](hierarchical_attention_generates_better_proofs.md)
 - [\[ACL 2025\] Towards Better Evaluation for Generated Patent Claims](patclaimeval_patent_evaluation.md)
+
+</div>
 
 <!-- RELATED:END -->

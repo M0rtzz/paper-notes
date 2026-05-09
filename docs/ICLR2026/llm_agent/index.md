@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **47** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (41)](../../ACL2026/llm_agent/) · [📷 CVPR2026 (21)](../../CVPR2026/llm_agent/) · [🤖 AAAI2026 (44)](../../AAAI2026/llm_agent/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_agent/) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/) · [🧪 ICML2025 (15)](../../ICML2025/llm_agent/)
+
+🔥 **高频主题：** LLM ×18 · Agent ×15 · 推理 ×7 · 对抗鲁棒 ×2
+
 **[A Benchmark for Deep Information Synthesis (DeepSynth)](a_benchmark_for_deep_information_synthesis.md)**
 
 :   提出 DeepSynth 基准，包含 120 个跨 7 领域 67 国的真实信息综合任务（平均需 5.5 小时人工标注），要求 agent 从多个网页收集信息并进行结构化推理，当前最强 agent（o3-deep-research）仅获 8.97 F1 / 17.5% LLM-Judge，揭示了 LLM agent 在信息综合方面的严重不足。

@@ -148,6 +148,8 @@ $$\mathcal{L}_{\text{MD}}(\mathbf{x}) = \text{MSE}(\text{SSD}(f_{\theta_1}(\math
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] ActionSwitch: Class-agnostic Detection of Simultaneous Actions in Streaming Videos](actionswitch_class-agnostic_detection_of_simultaneous_actions_in_streaming_video.md)
@@ -155,5 +157,7 @@ $$\mathcal{L}_{\text{MD}}(\mathbf{x}) = \text{MSE}(\text{SSD}(f_{\theta_1}(\math
 - [\[ECCV 2024\] VideoMamba: State Space Model for Efficient Video Understanding](videomamba_state_space_model_for_efficient_video_understanding.md)
 - [\[CVPR 2025\] Heterogeneous Skeleton-Based Action Representation Learning](../../CVPR2025/video_understanding/heterogeneous_skeleton-based_action_representation_learning.md)
 - [\[ECCV 2024\] VideoMamba: Spatio-Temporal Selective State Space Model](videomamba_spatio-temporal_selective_state_space_model.md)
+
+</div>
 
 <!-- RELATED:END -->

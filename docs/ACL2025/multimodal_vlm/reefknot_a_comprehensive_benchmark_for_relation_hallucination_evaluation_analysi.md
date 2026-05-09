@@ -142,6 +142,8 @@ $$\mathbb{P}(\mathcal{H}_j | \mathcal{H}_{j-1}) = \text{softmax}(\phi(\mathcal{H
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Can Multimodal Large Language Models Understand Spatial Relations?](spatialmqa_mllm_spatial_relations.md)
@@ -149,5 +151,7 @@ $$\mathbb{P}(\mathcal{H}_j | \mathcal{H}_{j-1}) = \text{softmax}(\phi(\mathcal{H
 - [\[ACL 2025\] Multimodal Coreference Resolution for Chinese Social Media Dialogues: Dataset and Benchmark Approach](multimodal_coreference_resolution_for_chinese_social_media_dialogues_dataset_and.md)
 - [\[CVPR 2025\] Multi-Layer Visual Feature Fusion in Multimodal LLMs: Methods, Analysis, and Best Practices](../../CVPR2025/multimodal_vlm/multi-layer_visual_feature_fusion_in_multimodal_llms_methods_analysis_and_best_p.md)
 - [\[ACL 2025\] Can Vision Language Models Understand Mimed Actions?](can_vision_language_models_understand_mimed_actions.md)
+
+</div>
 
 <!-- RELATED:END -->

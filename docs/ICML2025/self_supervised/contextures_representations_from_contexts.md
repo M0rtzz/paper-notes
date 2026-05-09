@@ -168,6 +168,8 @@ $$\tau_d = \sum_{i > d} s_i^2$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Contrastive Representations for Temporal Reasoning](../../NeurIPS2025/self_supervised/contrastive_representations_for_temporal_reasoning.md)
@@ -175,5 +177,7 @@ $$\tau_d = \sum_{i > d} s_i^2$$
 - [\[ICML 2025\] Test-Time Training Provably Improves Transformers as In-Context Learners](test-time_training_provably_improves_transformers_as_in-context_learners.md)
 - [\[ICML 2025\] ReSA: Clustering Properties of Self-Supervised Learning](clustering_properties_of_self-supervised_learning.md)
 - [\[ICML 2025\] MTL-UE: Learning to Learn Nothing for Multi-Task Learning](mtl-ue_learning_to_learn_nothing_for_multi-task_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

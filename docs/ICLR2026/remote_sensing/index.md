@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **6** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/remote_sensing/) · [📷 CVPR2026 (19)](../../CVPR2026/remote_sensing/) · [🤖 AAAI2026 (8)](../../AAAI2026/remote_sensing/) · [🧠 NeurIPS2025 (11)](../../NeurIPS2025/remote_sensing/) · [📹 ICCV2025 (11)](../../ICCV2025/remote_sensing/) · [🧪 ICML2025 (7)](../../ICML2025/remote_sensing/)
+
+🔥 **高频主题：** 多模态 ×2
+
 **[AutoFly: Vision-Language-Action Model for UAV Autonomous Navigation in the Wild](autofly_vision-language-action_model_for_uav_autonomous_navigation_in_the_wild.md)**
 
 :   提出 AutoFly，一个面向无人机野外自主导航的端到端 VLA 模型，通过伪深度编码器从 RGB 输入推断空间信息，配合新构建的自主导航数据集（13K+ 轨迹含 1K 真实飞行），在模拟和真实环境中比 OpenVLA 成功率高 3.9%，碰撞率低 2.6%。

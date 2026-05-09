@@ -155,6 +155,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Scalable Video-to-Dataset Generation for Cross-Platform Mobile Agents](../../CVPR2025/robotics/scalable_video-to-dataset_generation_for_cross-platform_mobile_agents.md)
@@ -162,5 +164,7 @@ tags:
 - [\[ICCV 2025\] COSMO: Combination of Selective Memorization for Low-cost Vision-and-Language Navigation](cosmo_combination_of_selective_memorization_for_low-cost_vision-and-language_nav.md)
 - [\[ICCV 2025\] NavMorph: A Self-Evolving World Model for Vision-and-Language Navigation in Continuous Environments](navmorph_a_self-evolving_world_model_for_vision-and-language_navigation_in_conti.md)
 - [\[NeurIPS 2025\] Enginuity: Building an Open Multi-Domain Dataset of Complex Engineering Diagrams](../../NeurIPS2025/robotics/enginuity_building_an_open_multi-domain_dataset_of_complex_engineering_diagrams.md)
+
+</div>
 
 <!-- RELATED:END -->

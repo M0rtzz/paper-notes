@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **72** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/medical_imaging/) · [📷 CVPR2026 (153)](../../CVPR2026/medical_imaging/) · [🤖 AAAI2026 (105)](../../AAAI2026/medical_imaging/) · [🧠 NeurIPS2025 (141)](../../NeurIPS2025/medical_imaging/) · [📹 ICCV2025 (40)](../../ICCV2025/medical_imaging/) · [🧪 ICML2025 (63)](../../ICML2025/medical_imaging/)
+
+🔥 **高频主题：** 医学影像 ×14 · 扩散模型 ×10 · 生物分子 ×9 · LLM ×5 · 推理 ×4
+
 **[Adaptive Domain Shift in Diffusion Models for Cross-Modality Image Translation](adaptive_domain_shift_in_diffusion_models_for_cross-modality_image_translation.md)**
 
 :   提出CDTSDE框架，在扩散模型的逆向SDE中嵌入可学习的空间自适应域混合场 $\Lambda_t$，使跨模态翻译路径沿低能量流形前进，在MRI模态转换、SAR→光学、工业缺陷语义映射任务上以更少去噪步数实现更高保真度。

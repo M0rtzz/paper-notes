@@ -159,6 +159,8 @@ $$\mathcal{L}_{\mathcal{X}}^{(l)} = \mathbb{E}\left[-\lambda_r^{(l)} \log p_{\ha
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Revisiting Unbiased Implicit Variational Inference](revisiting_unbiased_implicit_variational_inference.md)
@@ -166,5 +168,7 @@ $$\mathcal{L}_{\mathcal{X}}^{(l)} = \mathbb{E}\left[-\lambda_r^{(l)} \log p_{\ha
 - [\[NeurIPS 2025\] Brain-like Variational Inference](../../NeurIPS2025/optimization/brain-like_variational_inference.md)
 - [\[NeurIPS 2025\] VIKING: Deep Variational Inference with Stochastic Projections](../../NeurIPS2025/optimization/viking_deep_variational_inference_with_stochastic_projections.md)
 - [\[NeurIPS 2025\] NeuSymEA: Neuro-symbolic Entity Alignment via Variational Inference](../../NeurIPS2025/optimization/neuro-symbolic_entity_alignment_via_variational_inference.md)
+
+</div>
 
 <!-- RELATED:END -->

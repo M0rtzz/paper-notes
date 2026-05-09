@@ -10,6 +10,8 @@ description: >-
 
 **📹 ICCV2025** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (43)](../../ACL2026/information_retrieval/) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/) · [🤖 AAAI2026 (28)](../../AAAI2026/information_retrieval/) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/) · [🧪 ICML2025 (5)](../../ICML2025/information_retrieval/)
+
 **[Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation](aligning_information_capacity_between_vision_and_language_via_dense-to-sparse_fe.md)**
 
 :   提出D2S-VSE框架，通过两阶段训练（稠密文本预训练+稠密到稀疏特征蒸馏微调）增强视觉语义嵌入的信息容量，解决图文匹配中图像与文本信息密度不对称的核心问题。

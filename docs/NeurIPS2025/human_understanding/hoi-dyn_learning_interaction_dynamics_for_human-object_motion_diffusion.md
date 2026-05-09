@@ -160,6 +160,8 @@ $$\mathcal{L}_{\text{dyn}} = \mathbb{E}_t \left[\|\Phi(\Delta\hat{o}_t^*, \Delta
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] RayPose: Ray Bundling Diffusion for Template Views in Unseen 6D Object Pose Estimation](../../ICCV2025/human_understanding/raypose_ray_bundling_diffusion_for_template_views_in_unseen_6d_object_pose_estim.md)
@@ -167,5 +169,7 @@ $$\mathcal{L}_{\text{dyn}} = \mathbb{E}_t \left[\|\Phi(\Delta\hat{o}_t^*, \Delta
 - [\[CVPR 2026\] ReMoGen: Real-time Human Interaction-to-Reaction Generation via Modular Learning from Diverse Data](../../CVPR2026/human_understanding/remogen_real-time_human_interaction-to-reaction_generation_via_modular_learning_.md)
 - [\[CVPR 2026\] HandX: Scaling Bimanual Motion and Interaction Generation](../../CVPR2026/human_understanding/handx_scaling_bimanual_motion_and_interaction_generation.md)
 - [\[NeurIPS 2025\] MOSPA: Human Motion Generation Driven by Spatial Audio](mospa_human_motion_generation_driven_by_spatial_audio.md)
+
+</div>
 
 <!-- RELATED:END -->

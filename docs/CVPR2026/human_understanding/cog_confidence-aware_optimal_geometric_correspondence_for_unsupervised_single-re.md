@@ -147,6 +147,8 @@ COG 采用**粗到精(coarse-to-fine)**两阶段架构：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Co-op: Correspondence-based Novel Object Pose Estimation](../../CVPR2025/human_understanding/co-op_correspondence-based_novel_object_pose_estimation.md)
@@ -154,5 +156,7 @@ COG 采用**粗到精(coarse-to-fine)**两阶段架构：
 - [\[ECCV 2024\] GS-Pose: Category-Level Object Pose Estimation via Geometric and Semantic Correspondence](../../ECCV2024/human_understanding/gs-pose_category-level_object_pose_estimation_via_geometric_and_semantic_corresp.md)
 - [\[CVPR 2025\] Structure-Aware Correspondence Learning for Relative Pose Estimation](../../CVPR2025/human_understanding/structure-aware_correspondence_learning_for_relative_pose_estimation.md)
 - [\[CVPR 2025\] UNOPose: Unseen Object Pose Estimation with an Unposed RGB-D Reference Image](../../CVPR2025/human_understanding/unopose_unseen_object_pose_estimation_with_an_unposed_rgb-d_reference_image.md)
+
+</div>
 
 <!-- RELATED:END -->

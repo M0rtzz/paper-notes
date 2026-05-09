@@ -125,6 +125,8 @@ VQVAE 训练损失：$\mathcal{L} = \lambda_{\text{render}}\mathcal{L}_{\text{re
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Compass Control: Multi Object Orientation Control for Text-to-Image Generation](compass_control_multi_object_orientation_control_for_text-to-image_generation.md)
@@ -132,5 +134,7 @@ VQVAE 训练损失：$\mathcal{L} = \lambda_{\text{render}}\mathcal{L}_{\text{re
 - [\[CVPR 2025\] Digital Twin Catalog: A Large-Scale Photorealistic 3D Object Digital Twin Dataset](digital_twin_catalog_a_large-scale_photorealistic_3d_object_digital_twin_dataset.md)
 - [\[CVPR 2025\] Scalable Autoregressive Monocular Depth Estimation](scalable_autoregressive_monocular_depth_estimation.md)
 - [\[CVPR 2025\] FruitNinja: 3D Object Interior Texture Generation with Gaussian Splatting](fruitninja_3d_object_interior_texture_generation_with_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -174,6 +174,8 @@ One Model for All统一VTON和VTOFF为单一框架，在LPIPS(22.50)和DISTS(19.
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] ForgeryTalker: Generating Attribution Reports for Manipulated Facial Images](../../ACL2026/human_understanding/generating_attribution_reports_for_manipulated_facial_images_a_dataset_and_basel.md)
@@ -181,5 +183,7 @@ One Model for All统一VTON和VTOFF为单一框架，在LPIPS(22.50)和DISTS(19.
 - [\[CVPR 2026\] Mobile-VTON: High-Fidelity On-Device Virtual Try-On](../../CVPR2026/human_understanding/mobile_vton_ondevice_virtual_tryon.md)
 - [\[CVPR 2026\] Reference-Free Image Quality Assessment for Virtual Try-On via Human Feedback](../../CVPR2026/human_understanding/referencefree_image_quality_assessment_for_virtual.md)
 - [\[ECCV 2024\] CanonicalFusion: Generating Drivable 3D Human Avatars from Multiple Images](../../ECCV2024/human_understanding/canonicalfusion_generating_drivable_3d_human_avatars_from_multiple_images.md)
+
+</div>
 
 <!-- RELATED:END -->

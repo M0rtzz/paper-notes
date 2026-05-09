@@ -107,6 +107,8 @@ $$r = \begin{cases} \text{F1}(a_{pred}, a_{gt}) & \text{if F1}>0\\ 0.1 & \text{i
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Research Borderlands: Analysing Writing Across Research Cultures](../../ACL2025/others/research_borderlands_analysing_writing_across_research_cultures.md)
@@ -114,5 +116,7 @@ $$r = \begin{cases} \text{F1}(a_{pred}, a_{gt}) & \text{if F1}>0\\ 0.1 & \text{i
 - [\[ACL 2025\] Mapping the Podcast Ecosystem with the Structured Podcast Research Corpus](../../ACL2025/others/mapping_the_podcast_ecosystem_with_the_structured_podcast_research_corpus.md)
 - [\[ACL 2025\] All That Glitters is Not Novel: Plagiarism in AI Generated Research](../../ACL2025/others/plagiarism_ai_generated_research.md)
 - [\[ACL 2025\] IRIS: Interactive Research Ideation System for Accelerating Scientific Discovery](../../ACL2025/others/iris_interactive_research_ideation_system_for_accelerating_scientific_discovery.md)
+
+</div>
 
 <!-- RELATED:END -->

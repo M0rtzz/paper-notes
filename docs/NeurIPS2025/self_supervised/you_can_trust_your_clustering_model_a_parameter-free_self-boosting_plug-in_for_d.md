@@ -163,6 +163,8 @@ $$L_{ins} = \|g(f_o(\mathcal{T}^1(x)) + \sigma\varepsilon) - f_t(\mathcal{T}^2(x
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Angular Constraint Embedding via SpherePair Loss for Constrained Clustering](angular_constraint_embedding_via_spherepair_loss_for_constrained_clustering.md)
@@ -170,5 +172,7 @@ $$L_{ins} = \|g(f_o(\mathcal{T}^1(x)) + \sigma\varepsilon) - f_t(\mathcal{T}^2(x
 - [\[NeurIPS 2025\] Manifolds and Modules: How Function Develops in a Neural Foundation Model](manifolds_and_modules_how_function_develops_in_a_neural_foundation_model.md)
 - [\[NeurIPS 2025\] Understanding Ice Crystal Habit Diversity with Self-Supervised Learning](understanding_ice_crystal_habit_diversity_with_self-supervised_learning.md)
 - [\[NeurIPS 2025\] BrainOmni: A Brain Foundation Model for Unified EEG and MEG Signals](brainomni_a_brain_foundation_model_for_unified_eeg_and_meg_signals.md)
+
+</div>
 
 <!-- RELATED:END -->

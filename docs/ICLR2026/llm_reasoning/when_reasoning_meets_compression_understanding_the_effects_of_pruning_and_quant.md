@@ -162,6 +162,8 @@ $\mathbf{I}_{m\ell}^c$ 越高表示该模块与推理行为 $c$ 的因果关系�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Towards Safe Reasoning in Large Reasoning Models via Corrective Intervention](towards_safe_reasoning_in_large_reasoning_models_via_correct-by-construction_gu.md)
@@ -169,5 +171,7 @@ $\mathbf{I}_{m\ell}^c$ 越高表示该模块与推理行为 $c$ 的因果关系�
 - [\[ICLR 2026\] Training Large Reasoning Models Efficiently via Progressive Thought Encoding](training_large_reasoning_models_efficiently_via_progressive_solution_complexity.md)
 - [\[ICLR 2026\] TopoBench: Benchmarking LLMs on Hard Topological Reasoning](topobench_benchmarking_llms_on_hard_topological_reasoning.md)
 - [\[ICLR 2026\] Understanding the Role of Training Data in Test-Time Scaling](understanding_the_role_of_training_data_in_test-time_scaling.md)
+
+</div>
 
 <!-- RELATED:END -->

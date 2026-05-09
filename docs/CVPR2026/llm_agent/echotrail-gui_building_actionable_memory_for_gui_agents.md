@@ -159,6 +159,8 @@ GPT-4o 底座下，AndroidLab SR 从 31.2% 提升至 48.1%（+16.9%）。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] HATS: Hardness-Aware Trajectory Synthesis for GUI Agents](hats_hardnessaware_trajectory_synthesis_gui_agent.md)
@@ -166,5 +168,7 @@ GPT-4o 底座下，AndroidLab SR 从 31.2% 提升至 48.1%（+16.9%）。
 - [\[CVPR 2026\] GUI-CEval: A Hierarchical and Comprehensive Chinese Benchmark for Mobile GUI Agents](gui-ceval_a_hierarchical_and_comprehensive_chinese_benchmark_for_mobile_gui_agen.md)
 - [\[CVPR 2026\] WorldMM: Dynamic Multimodal Memory Agent for Long Video Reasoning](worldmm_dynamic_multimodal_memory_agent_for_long_video_reasoning.md)
 - [\[ACL 2026\] RISK: A Framework for GUI Agents in E-commerce Risk Management](../../ACL2026/llm_agent/risk_a_framework_for_gui_agents_in_e-commerce_risk_management.md)
+
+</div>
 
 <!-- RELATED:END -->

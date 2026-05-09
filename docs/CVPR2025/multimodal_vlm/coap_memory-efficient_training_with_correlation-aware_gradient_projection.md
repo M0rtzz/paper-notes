@@ -115,6 +115,8 @@ COAP 通过观察投影矩阵间的高相关性，设计了一种高效的两阶
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Efficient Motion-Aware Video MLLM](efficient_motion-aware_video_mllm.md)
@@ -122,5 +124,7 @@ COAP 通过观察投影矩阵间的高相关性，设计了一种高效的两阶
 - [\[ICML 2025\] Targeted Unlearning with Single Layer Unlearning Gradient](../../ICML2025/multimodal_vlm/targeted_unlearning_with_single_layer_unlearning_gradient.md)
 - [\[ICCV 2025\] G2D: Boosting Multimodal Learning with Gradient-Guided Distillation](../../ICCV2025/multimodal_vlm/g2d_boosting_multimodal_learning_with_gradient-guided_distillation.md)
 - [\[ACL 2025\] Activating Distributed Visual Region within LLMs for Efficient and Effective Vision-Language Training and Inference](../../ACL2025/multimodal_vlm/activating_distributed_visual_region_within_llms_for_efficient_and_effective_vis.md)
+
+</div>
 
 <!-- RELATED:END -->

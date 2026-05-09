@@ -126,6 +126,8 @@ $$k \leq w - \exp\left(O\left(\frac{\log^2(\epsilon \cdot w)}{R^2}\right)\right)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Core Context Aware Transformers for Long Context Language Modeling](core_context_aware_transformers_for_long_context_language_modeling.md)
@@ -133,5 +135,7 @@ $$k \leq w - \exp\left(O\left(\frac{\log^2(\epsilon \cdot w)}{R^2}\right)\right)
 - [\[ICML 2025\] RocketKV: Accelerating Long-Context LLM Inference via Two-Stage KV Cache Compression](rocketkv_accelerating_long-context_llm_inference_via_two-stage_kv_cache_compress.md)
 - [\[NeurIPS 2025\] KeyDiff: Key Similarity-Based KV Cache Eviction for Long-Context LLM Inference in Resource-Constrained Environments](../../NeurIPS2025/model_compression/keydiff_key_similarity-based_kv_cache_eviction_for_long-context_llm_inference_in.md)
 - [\[ICML 2025\] Context Tuning for In-Context Optimization](context_tuning_for_in-context_optimization.md)
+
+</div>
 
 <!-- RELATED:END -->

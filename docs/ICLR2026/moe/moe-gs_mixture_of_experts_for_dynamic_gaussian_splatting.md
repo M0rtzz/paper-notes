@@ -133,6 +133,8 @@ MoE-GS (N=3) 比最强单专家 E-D3DGS 提升 0.9 dB PSNR。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] EAC-MoE: Expert-Selection Aware Compressor for Mixture-of-Experts Large Language Models](../../ACL2025/moe/eac_moe_expert_aware_compression.md)
@@ -140,5 +142,7 @@ MoE-GS (N=3) 比最强单专家 E-D3DGS 提升 0.9 dB PSNR。
 - [\[ACL 2025\] GigaChat Family: Efficient Russian Language Modeling Through Mixture of Experts Architecture](../../ACL2025/moe/gigachat_family_efficient_russian_language_modeling_through_mixture_of_experts_a.md)
 - [\[NeurIPS 2025\] MoRE-Brain: Routed Mixture of Experts for Interpretable and Generalizable Cross-Subject fMRI Visual Decoding](../../NeurIPS2025/moe/more-brain_routed_mixture_of_experts_for_interpretable_and_generalizable_cross-s.md)
 - [\[ACL 2025\] STUN: Structured-Then-Unstructured Pruning for Scalable MoE Pruning](../../ACL2025/moe/stun_moe_pruning.md)
+
+</div>
 
 <!-- RELATED:END -->

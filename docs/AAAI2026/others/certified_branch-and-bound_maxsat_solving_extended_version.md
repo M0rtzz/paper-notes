@@ -173,6 +173,8 @@ $$v_\eta \Rightarrow \sum_{i \geq k} v_i b_i \leq l \quad \text{且} \quad v_\et
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Certified but Fooled! Breaking Certified Defences with Ghost Certificates](certified_but_fooled_breaking_certified_defences_with_ghost_certificates.md)
@@ -180,5 +182,7 @@ $$v_\eta \Rightarrow \sum_{i \geq k} v_i b_i \leq l \quad \text{且} \quad v_\et
 - [\[AAAI 2026\] OR-R1: Automating Modeling and Solving of Operations Research Optimization Problems](or-r1_automating_modeling_and_solving_of_operations_research_optimization_proble.md)
 - [\[CVPR 2026\] ELogitNorm: Enhancing OOD Detection with Extended Logit Normalization](../../CVPR2026/others/enhancing_outofdistribution_detection_with_extende.md)
 - [\[ICLR 2026\] LipNeXt: Scaling up Lipschitz-based Certified Robustness to Billion-parameter Models](../../ICLR2026/others/lipnext_scaling_up_lipschitz-based_certified_robustness_to_billion-parameter_mod.md)
+
+</div>
 
 <!-- RELATED:END -->

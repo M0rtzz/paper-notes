@@ -173,6 +173,8 @@ SS 均值超越 Rein **+1.2%**。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] FreqKV: Key-Value Compression in Frequency Domain for Context Window Extension](../../ICLR2026/model_compression/freqkv_key-value_compression_in_frequency_domain_for_context_window_extension.md)
@@ -180,5 +182,7 @@ SS 均值超越 Rein **+1.2%**。
 - [\[NeurIPS 2025\] Towards Unsupervised Open-Set Graph Domain Adaptation via Dual Reprogramming](../../NeurIPS2025/model_compression/towards_unsupervised_open-set_graph_domain_adaptation_via_dual_reprogramming.md)
 - [\[AAAI 2026\] AdaFuse: Accelerating Dynamic Adapter Inference via Token-Level Pre-Gating and Fused Kernel Optimization](adafuse_accelerating_dynamic_adapter_inference_via_token-lev.md)
 - [\[ICML 2025\] Merge-Friendly Post-Training Quantization for Multi-Target Domain Adaptation](../../ICML2025/model_compression/merge-friendly_post-training_quantization_for_multi-target_domain_adaptation.md)
+
+</div>
 
 <!-- RELATED:END -->

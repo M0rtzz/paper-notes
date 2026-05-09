@@ -141,6 +141,8 @@ Parallel GCNN (R&S) 在所有扰动强度下取得最优对抗准确率，10 层
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Enhancing Graph Classification Robustness with Singular Pooling](enhancing_graph_classification_robustness_with_singular_pooling.md)
@@ -148,5 +150,7 @@ Parallel GCNN (R&S) 在所有扰动强度下取得最优对抗准确率，10 层
 - [\[ICCV 2025\] Towards Adversarial Robustness via Debiased High-Confidence Logit Alignment](../../ICCV2025/ai_safety/towards_adversarial_robustness_via_debiased_high-confidence_logit_alignment.md)
 - [\[ICML 2025\] Quadratic Upper Bound for Boosting Robustness](../../ICML2025/ai_safety/quadratic_upper_bound_for_boosting_robustness.md)
 - [\[NeurIPS 2025\] FairContrast: Enhancing Fairness through Contrastive Learning and Customized Augmentation](faircontrast_enhancing_fairness_through_contrastive_learning_and_customized_augm.md)
+
+</div>
 
 <!-- RELATED:END -->

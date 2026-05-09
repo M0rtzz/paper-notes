@@ -151,6 +151,8 @@ PSNR 超越最佳单图方法 1.27 dB，超越最佳陀螺仪方法 1.79 dB。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Progressive Focused Transformer for Single Image Super-Resolution](progressive_focused_transformer_for_single_image_super-resolution.md)
@@ -158,5 +160,7 @@ PSNR 超越最佳单图方法 1.27 dB，超越最佳陀螺仪方法 1.79 dB。
 - [\[CVPR 2025\] Reversible Decoupling Network for Single Image Reflection Removal](reversible_decoupling_network_for_single_image_reflection_removal.md)
 - [\[CVPR 2025\] Efficient Visual State Space Model for Image Deblurring](efficient_visual_state_space_model_for_image_deblurring.md)
 - [\[CVPR 2025\] Proximal Algorithm Unrolling: Flexible and Efficient Reconstruction Networks for Single-Pixel Imaging](proximal_algorithm_unrolling_flexible_and_efficient_reconstruction_networks_for_.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -161,6 +161,8 @@ $$\mathcal{L} = \mathcal{L}_d + \mathcal{L}_\rho + \mathcal{L}_r + \mathcal{L}_S
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] LiNeXt: Revisiting LiDAR Completion with Efficient Non-Diffusion Architectures](linext_revisiting_lidar_completion_with_efficient_non-diffusion_architectures.md)
@@ -168,5 +170,7 @@ $$\mathcal{L} = \mathcal{L}_d + \mathcal{L}_\rho + \mathcal{L}_r + \mathcal{L}_S
 - [\[ICCV 2025\] GS-LIVM: Real-Time Photo-Realistic LiDAR-Inertial-Visual Mapping with Gaussian Splatting](../../ICCV2025/autonomous_driving/gs-livm_real-time_photo-realistic_lidar-inertial-visual_mapping_with_gaussian_sp.md)
 - [\[ICCV 2025\] GS-Occ3D: Scaling Vision-only Occupancy Reconstruction with Gaussian Splatting](../../ICCV2025/autonomous_driving/gs-occ3d_scaling_vision-only_occupancy_reconstruction_with_gaussian_splatting.md)
 - [\[CVPR 2025\] LiDAR-RT: Gaussian-based Ray Tracing for Dynamic LiDAR Re-Simulation](../../CVPR2025/autonomous_driving/lidar-rt_gaussian-based_ray_tracing_for_dynamic_lidar_re-simulation.md)
+
+</div>
 
 <!-- RELATED:END -->

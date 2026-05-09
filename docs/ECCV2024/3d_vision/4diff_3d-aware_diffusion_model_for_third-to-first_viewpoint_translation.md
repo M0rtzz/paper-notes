@@ -131,6 +131,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] ComboVerse: Compositional 3D Assets Creation Using Spatially-Aware Diffusion Guidance](comboverse_compositional_3d_assets_creation_using_spatially-aware_diffusion_guid.md)
@@ -138,5 +140,7 @@ tags:
 - [\[ECCV 2024\] View Selection for 3D Captioning via Diffusion Ranking](view_selection_for_3d_captioning_via_diffusion_ranking.md)
 - [\[ECCV 2024\] Transferable 3D Adversarial Shape Completion using Diffusion Models](transferable_3d_adversarial_shape_completion_using_diffusion_models.md)
 - [\[ECCV 2024\] MVDiffusion++: A Dense High-Resolution Multi-View Diffusion Model for Single or Sparse-View 3D Object Reconstruction](mvdiffusion_a_dense_high-resolution_multi-view_diffusion_model_for_single_or_spa.md)
+
+</div>
 
 <!-- RELATED:END -->

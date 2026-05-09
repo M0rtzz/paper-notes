@@ -116,6 +116,8 @@ Random Forest使用网格搜索和5折交叉验证调参，80/20训练-测试划
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Conspiracy Theories and Where to Find Them on TikTok](../../ACL2025/social_computing/conspiracy_theories_and_where_to_find_them_on_tiktok.md)
@@ -123,5 +125,7 @@ Random Forest使用网格搜索和5折交叉验证调参，80/20训练-测试划
 - [\[ACL 2026\] How Language Models Conflate Logical Validity with Plausibility: A Representational Analysis of Content Effects](how_language_models_conflate_logical_validity_with_plausibility_a_representation.md)
 - [\[ICLR 2026\] BiasFreeBench: a Benchmark for Mitigating Bias in Large Language Model Responses](../../ICLR2026/social_computing/biasfreebench_a_benchmark_for_mitigating_bias_in_large_language_model_responses.md)
 - [\[ICLR 2026\] Propaganda AI: An Analysis of Semantic Divergence in Large Language Models](../../ICLR2026/social_computing/propaganda_ai_an_analysis_of_semantic_divergence_in_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

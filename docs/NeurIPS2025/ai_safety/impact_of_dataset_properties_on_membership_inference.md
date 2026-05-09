@@ -154,6 +154,8 @@ $$\log_{10}(\text{tpr} - \text{fpr}) = \beta_S \log_{10}(S) + \beta_C \log_{10}(
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Mitigating Disparate Impact of Differentially Private Learning through Bounded Adaptive Clipping](mitigating_disparate_impact_of_differentially_private_learning_through_bounded_a.md)
@@ -161,5 +163,7 @@ $$\log_{10}(\text{tpr} - \text{fpr}) = \beta_S \log_{10}(S) + \beta_C \log_{10}(
 - [\[NeurIPS 2025\] Environment Inference for Learning Generalizable Dynamical System](environment_inference_for_learning_generalizable_dynamical_system.md)
 - [\[NeurIPS 2025\] Distributional Adversarial Attacks and Training in Deep Hedging](distributional_adversarial_attacks_and_training_in_deep_hedging.md)
 - [\[NeurIPS 2025\] Fair Representation Learning with Controllable High Confidence Guarantees via Adversarial Inference](fair_representation_learning_with_controllable_high_confidence_guarantees_via_ad.md)
+
+</div>
 
 <!-- RELATED:END -->

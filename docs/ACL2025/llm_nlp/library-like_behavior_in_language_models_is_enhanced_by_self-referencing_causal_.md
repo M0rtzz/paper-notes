@@ -153,6 +153,8 @@ $$S_l = \arg\max_{s \in S_{l_c}} P_\mathcal{M}(S_r|s) P_\mathcal{M}(s)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] ExpliCa: Evaluating Explicit Causal Reasoning in Large Language Models](explica_evaluating_explicit_causal_reasoning_in_large_language_models.md)
@@ -160,5 +162,7 @@ $$S_l = \arg\max_{s \in S_{l_c}} P_\mathcal{M}(S_r|s) P_\mathcal{M}(s)$$
 - [\[ACL 2025\] SQLong: Enhanced NL2SQL for Longer Contexts with LLMs](sqlong_enhanced_nl2sql_for_longer_contexts_with_llms.md)
 - [\[ACL 2025\] Unveiling Attractor Cycles in Large Language Models: A Dynamical Systems View of Successive Paraphrasing](unveiling_attractor_cycles_in_large_language_models_a_dynamical_systems_view_of_.md)
 - [\[ACL 2025\] Self-Training Elicits Concise Reasoning in Large Language Models](self-training_elicits_concise_reasoning_in_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

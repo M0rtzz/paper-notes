@@ -136,12 +136,16 @@ DEVIANT骨干同样有效：ΔH=+0.76m时AP3D_70从6.25升至26.24。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Boost 3D Reconstruction using Diffusion-based Monocular Camera Calibration](boost_3d_reconstruction_using_diffusionbased_monocular_camer.md)
-- [\[ICCV 2025\] BezierGS: Dynamic Urban Scene Reconstruction with Bézier Curve Gaussian Splatting](beziergs_dynamic_urban_scene_reconstruction_with_bezier_curve_gaussian_splatting.md)
-- [\[ICCV 2025\] TimeFormer: Capturing Temporal Relationships of Deformable 3D Gaussians for Robust Reconstruction](timeformer_capturing_temporal_relationships_of_deformable_3d_gaussians_for_robus.md)
-- [\[ICCV 2025\] StealthAttack: Robust 3D Gaussian Splatting Poisoning via Density-Guided Illusions](stealthattack_robust_3d_gaussian_splatting_poisoning_via_density-guided_illusion.md)
-- [\[ICCV 2025\] Estimating 2D Camera Motion with Hybrid Motion Basis](estimating_2d_camera_motion_with_hybrid_motion_basis.md)
+- [\[CVPR 2025\] RDD: Robust Feature Detector and Descriptor Using Deformable Transformer](../../CVPR2025/3d_vision/rdd_robust_feature_detector_and_descriptor_using_deformable_transformer.md)
+- [\[ECCV 2024\] Camera Height Doesn't Change: Unsupervised Training for Metric Monocular Road-Scene Depth Estimation](../../ECCV2024/3d_vision/camera_height_doesnapost_change_unsupervised_training_for_metric_monocular_road-.md)
+- [\[CVPR 2025\] UniK3D: Universal Camera Monocular 3D Estimation](../../CVPR2025/3d_vision/unik3d_universal_camera_monocular_3d_estimation.md)
+- [\[ICCV 2025\] Robust and Efficient 3D Gaussian Splatting for Urban Scene Reconstruction](robust_and_efficient_3d_gaussian_splatting_for_urban_scene_reconstruction.md)
+
+</div>
 
 <!-- RELATED:END -->

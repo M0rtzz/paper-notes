@@ -152,6 +152,8 @@ FilmWeaver 在一致性和角色文本对齐指标上取得 SOTA，同时 Incept
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] ShotAdapter: Text-to-Multi-Shot Video Generation with Diffusion Models](../../CVPR2025/video_generation/shotadapter_text-to-multi-shot_video_generation_with_diffusion_models.md)
@@ -159,5 +161,7 @@ FilmWeaver 在一致性和角色文本对齐指标上取得 SOTA，同时 Incept
 - [\[CVPR 2026\] Rethinking Position Embedding as a Context Controller for Multi-Reference and Multi-Shot Video Generation](../../CVPR2026/video_generation/rethinking_position_embedding_as_a_context_controller_for_multi-reference_and_mu.md)
 - [\[CVPR 2026\] MoVieDrive: Urban Scene Synthesis with Multi-Modal Multi-View Video Diffusion Transformer](../../CVPR2026/video_generation/moviedrive_urban_scene_synthesis_with_multi-modal_multi-view_video_diffusion_tra.md)
 - [\[AAAI 2026\] MoFu: Scale-Aware Modulation and Fourier Fusion for Multi-Subject Video Generation](mofu_scale-aware_modulation_and_fourier_fusion_for_multi-subject_video_generatio.md)
+
+</div>
 
 <!-- RELATED:END -->

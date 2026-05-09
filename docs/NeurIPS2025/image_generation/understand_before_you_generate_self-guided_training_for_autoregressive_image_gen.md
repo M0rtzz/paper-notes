@@ -140,6 +140,8 @@ ST-AR 使 LlamaGen-XL (775M) 仅训练 50 epoch 就接近 LlamaGen-3B (3.1B) 训
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Watermarking Autoregressive Image Generation](watermarking_autoregressive_image_generation.md)
@@ -147,5 +149,7 @@ ST-AR 使 LlamaGen-XL (775M) 仅训练 50 epoch 就接近 LlamaGen-3B (3.1B) 训
 - [\[NeurIPS 2025\] Conditional Panoramic Image Generation via Masked Autoregressive Modeling](conditional_panoramic_image_generation_via_masked_autoregres.md)
 - [\[ICCV 2025\] Holistic Tokenizer for Autoregressive Image Generation](../../ICCV2025/image_generation/holistic_tokenizer_for_autoregressive_image_generation.md)
 - [\[CVPR 2026\] RewardFlow: Generate Images by Optimizing What You Reward](../../CVPR2026/image_generation/rewardflow_generate_images_by_optimizing_what_you_reward.md)
+
+</div>
 
 <!-- RELATED:END -->

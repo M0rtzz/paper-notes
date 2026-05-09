@@ -10,6 +10,8 @@ description: >-
 
 **📹 ICCV2025** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/causal_inference/) · [📷 CVPR2026 (4)](../../CVPR2026/causal_inference/) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/) · [🧠 NeurIPS2025 (21)](../../NeurIPS2025/causal_inference/) · [🧪 ICML2025 (16)](../../ICML2025/causal_inference/)
+
 **[A Visual Leap in CLIP Compositionality Reasoning through Generation of Counterfactual Sets](a_visual_leap_in_clip_compositionality_reasoning_through_gen.md)**
 
 :   提出基于LLM+扩散模型的block-based diffusion方法自动生成高质量反事实图文对数据集，配套设计set-aware损失函数，无需人工标注即可显著提升CLIP的组合推理能力，在ARO/VL-Checklist等benchmark上以更少数据超越SOTA。

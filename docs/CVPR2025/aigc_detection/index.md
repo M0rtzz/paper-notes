@@ -10,6 +10,8 @@ description: >-
 
 **📷 CVPR2025** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/aigc_detection/) · [📷 CVPR2026 (1)](../../CVPR2026/aigc_detection/) · [🔬 ICLR2026 (6)](../../ICLR2026/aigc_detection/) · [🤖 AAAI2026 (3)](../../AAAI2026/aigc_detection/) · [🧠 NeurIPS2025 (8)](../../NeurIPS2025/aigc_detection/) · [💬 ACL2025 (17)](../../ACL2025/aigc_detection/)
+
 **[Enhancing Few-Shot Class-Incremental Learning via Training-Free Bi-Level Modality Calibration](enhancing_few-shot_class-incremental_learning_via_training-free_bi-level_modalit.md)**
 
 :   提出 BiMC（Bi-level Modality Calibration）框架，基于冻结 CLIP 模型，通过模态内校准（结合 LLM 生成的细粒度类别描述与视觉原型）和模态间校准（融合预训练语言知识与任务特定视觉先验），在无需任何参数训练的情况下实现 FSCIL SOTA，在 CIFAR-100 上超越最优对比方法 4.25%。

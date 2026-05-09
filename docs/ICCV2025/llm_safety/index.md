@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (21)](../../ACL2026/llm_safety/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_safety/) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_safety/) · [🤖 AAAI2026 (29)](../../AAAI2026/llm_safety/) · [🧠 NeurIPS2025 (60)](../../NeurIPS2025/llm_safety/) · [🧪 ICML2025 (32)](../../ICML2025/llm_safety/)
+
+🔥 **高频主题：** 对抗鲁棒 ×3 · 联邦学习 ×2
+
 **[Adversarial Robust Memory-Based Continual Learner](adversarial_robust_memory-based_continual_learner.md)**
 
 :   揭示持续学习与对抗训练结合时的双重挑战（加速遗忘 + 梯度混淆），提出抗遗忘 Logit 校准（AFLC）和鲁棒感知经验回放（RAER）两个即插即用模块，在 Split-CIFAR10/100 和 Split-Tiny-ImageNet 上有效提升对抗鲁棒性达 8.13%。

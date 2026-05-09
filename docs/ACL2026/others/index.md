@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (54)](../../CVPR2026/others/) · [🔬 ICLR2026 (76)](../../ICLR2026/others/) · [🤖 AAAI2026 (126)](../../AAAI2026/others/) · [🧠 NeurIPS2025 (154)](../../NeurIPS2025/others/) · [📹 ICCV2025 (48)](../../ICCV2025/others/) · [🧪 ICML2025 (93)](../../ICML2025/others/)
+
+🔥 **高频主题：** LLM ×2
+
 **[Agree, Disagree, Explain: Decomposing Human Label Variation in NLI through the Lens of Explanations](agree_disagree_explain_decomposing_human_label_variation_in_nli_through_the_lens.md)**
 
 :   将LiTEx推理分类法从"标签一致下的解释变异"扩展到"标签不一致"场景，发现标注者可能标签不同但推理类似，推理类别的一致性比标签一致性更好地反映解释的语义相似度。

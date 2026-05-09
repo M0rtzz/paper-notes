@@ -117,6 +117,8 @@ $$\mathbf{D} = \begin{bmatrix} D^{\text{img}_1} & D^{\text{img}_2} & D^{\text{im
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] A0: An Affordance-Aware Hierarchical Model for General Robotic Manipulation](../../ICCV2025/image_generation/a0_affordance_aware_hierarchical_model_robotic_manipulation.md)
@@ -124,5 +126,7 @@ $$\mathbf{D} = \begin{bmatrix} D^{\text{img}_1} & D^{\text{img}_2} & D^{\text{im
 - [\[ICLR 2026\] Self-Improving Loops for Visual Robotic Planning](../../ICLR2026/image_generation/self-improving_loops_for_visual_robotic_planning.md)
 - [\[CVPR 2026\] Exploring Conditions for Diffusion Models in Robotic Control](exploring_conditions_for_diffusion_models_in_robotic_control.md)
 - [\[CVPR 2026\] Editing Away the Evidence: Diffusion-Based Image Manipulation and the Failure Modes of Robust Watermarking](editing_away_the_evidence_diffusionbased_image_man.md)
+
+</div>
 
 <!-- RELATED:END -->

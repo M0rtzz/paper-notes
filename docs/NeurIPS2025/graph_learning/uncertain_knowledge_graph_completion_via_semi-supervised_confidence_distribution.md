@@ -128,6 +128,8 @@ CDL-RL 总损失：$\mathcal{L} = \frac{1}{2\lambda_{CP}^2}\mathcal{L}_{CP} + \f
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Geometric Imbalance in Semi-Supervised Node Classification](geometric_imbalance_in_semi-supervised_node_classification.md)
@@ -135,5 +137,7 @@ CDL-RL 总损失：$\mathcal{L} = \frac{1}{2\lambda_{CP}^2}\mathcal{L}_{CP} + \f
 - [\[ACL 2025\] Extending Complex Logical Queries on Uncertain Knowledge Graphs](../../ACL2025/graph_learning/extending_complex_logical_queries_uncertain_knowledge_graphs.md)
 - [\[ACL 2025\] Beyond Completion: A Foundation Model for General Knowledge Graph Reasoning](../../ACL2025/graph_learning/beyond_completion_a_foundation_model_for_general_knowledge_graph_reasoning.md)
 - [\[NeurIPS 2025\] Self-Supervised Discovery of Neural Circuits in Spatially Patterned Neural Responses with Graph Neural Networks](self-supervised_discovery_of_neural_circuits_in_spatially_patterned_neural_respo.md)
+
+</div>
 
 <!-- RELATED:END -->

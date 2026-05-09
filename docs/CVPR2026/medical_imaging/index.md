@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **153** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/medical_imaging/) · [🔬 ICLR2026 (72)](../../ICLR2026/medical_imaging/) · [🤖 AAAI2026 (105)](../../AAAI2026/medical_imaging/) · [🧠 NeurIPS2025 (141)](../../NeurIPS2025/medical_imaging/) · [📹 ICCV2025 (40)](../../ICCV2025/medical_imaging/) · [🧪 ICML2025 (63)](../../ICML2025/medical_imaging/)
+
+🔥 **高频主题：** 医学影像 ×52 · 语义分割 ×30 · 多模态 ×20 · 扩散模型 ×12 · 对抗鲁棒 ×11
+
 **[A protocol for evaluating robustness to H&E staining variation in computational pathology models](a_protocol_for_evaluating_robustness_to_he_stainin.md)**
 
 :   提出三步评估协议（选参考染色条件→表征测试集染色属性→模拟染色条件推理），系统量化306个MSI分类模型对H&E染色差异的鲁棒性，发现鲁棒性与分类性能呈弱负相关(r=-0.28)，高性能不代表高鲁棒性。

@@ -174,6 +174,8 @@ $$\text{IG}(d, \theta) = H(Y) - \sum_{s \in \{L, R\}} \frac{|S_s|}{|S|} H(Y_s)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] WILTing Trees: Interpreting the Distance Between MPNN Embeddings](wilting_trees_interpreting_the_distance_between_mpnn_embeddings.md)
@@ -181,5 +183,7 @@ $$\text{IG}(d, \theta) = H(Y) - \sum_{s \in \{L, R\}} \frac{|S_s|}{|S|} H(Y_s)$$
 - [\[ICML 2025\] TopInG: Topologically Interpretable Graph Learning via Persistent Rationale Filtration](toping_topologically_interpretable_graph_learning_via_persistent_rationale_filtr.md)
 - [\[ICML 2025\] TINED: GNNs-to-MLPs by Teacher Injection and Dirichlet Energy Distillation](tined_gnns-to-mlps_by_teacher_injection_and_dirichlet_energy_distillation.md)
 - [\[ICML 2025\] From RAG to Memory: Non-Parametric Continual Learning for Large Language Models](from_rag_to_memory_non-parametric_continual_learning_for_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

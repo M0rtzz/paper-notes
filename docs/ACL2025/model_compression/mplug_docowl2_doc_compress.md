@@ -139,6 +139,8 @@ DocOwl2的编码流程：高分辨率图片 → Shape-adaptive Cropping切为$R 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Understanding Multi-layered Transmission Matrices](../../CVPR2025/model_compression/understanding_multi-layered_transmission_matrices.md)
@@ -146,5 +148,7 @@ DocOwl2的编码流程：高分辨率图片 → Shape-adaptive Cropping切为$R 
 - [\[ICCV 2025\] Variance-Based Pruning for Accelerating and Compressing Trained Networks](../../ICCV2025/model_compression/variance-based_pruning_for_accelerating_and_compressing_trained_networks.md)
 - [\[NeurIPS 2025\] AdmTree: Compressing Lengthy Context with Adaptive Semantic Trees](../../NeurIPS2025/model_compression/admtree_compressing_lengthy_context_with_adaptive_semantic_trees.md)
 - [\[CVPR 2025\] Curriculum Coarse-to-Fine Selection for High-IPC Dataset Distillation](../../CVPR2025/model_compression/curriculum_coarse-to-fine_selection_for_high-ipc_dataset_distillation.md)
+
+</div>
 
 <!-- RELATED:END -->

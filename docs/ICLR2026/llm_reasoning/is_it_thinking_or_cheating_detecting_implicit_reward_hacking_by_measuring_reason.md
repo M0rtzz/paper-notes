@@ -159,6 +159,8 @@ $$\mathcal{L}_{\text{RLOO}} = -\mathbb{E}_{\pi_\theta}\left[\left(R(x, y) - \fra
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Thinking in Latents: Adaptive Anchor Refinement for Implicit Reasoning in LLMs](thinking_in_latents_adaptive_anchor_refinement_for_implicit_reasoning_in_llms.md)
@@ -166,5 +168,7 @@ $$\mathcal{L}_{\text{RLOO}} = -\mathbb{E}_{\pi_\theta}\left[\left(R(x, y) - \fra
 - [\[ICLR 2026\] The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs](the_illusion_of_diminishing_returns_measuring_long_horizon_execution_in_llms.md)
 - [\[ICLR 2026\] I Can't Believe It's Not Robust: Catastrophic Collapse of Safety Classifiers under Embedding Drift](i_cant_believe_its_not_robust_catastrophic_collapse_of_safety_classifiers_under_.md)
 - [\[ICLR 2026\] mR3: Multilingual Rubric-Agnostic Reward Reasoning Models](mr3_multilingual_rubric-agnostic_reward_reasoning_models.md)
+
+</div>
 
 <!-- RELATED:END -->

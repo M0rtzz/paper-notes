@@ -158,6 +158,8 @@ $$\{(\bar{\mathbf{v}}_c^t, \bar{\mathbf{a}}_c^t), (\mathbf{w}_p^t, \boldsymbol{\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] MPMAvatar: Learning 3D Gaussian Avatars with Accurate and Robust Physics-Based Dynamics](../../NeurIPS2025/3d_vision/mpmavatar_learning_3d_gaussian_avatars_with_accurate_and_robust_physics-based_dy.md)
@@ -165,5 +167,7 @@ $$\{(\bar{\mathbf{v}}_c^t, \bar{\mathbf{a}}_c^t), (\mathbf{w}_p^t, \boldsymbol{\
 - [\[CVPR 2025\] HOT3D: Hand and Object Tracking in 3D from Egocentric Multi-View Videos](../../CVPR2025/3d_vision/hot3d_hand_and_object_tracking_in_3d_from_egocentric_multi-view_videos.md)
 - [\[CVPR 2025\] FreeGave: 3D Physics Learning from Dynamic Videos by Gaussian Velocity](../../CVPR2025/3d_vision/freegave_3d_physics_learning_from_dynamic_videos_by_gaussian_velocity.md)
 - [\[ICCV 2025\] Benchmarking and Learning Multi-Dimensional Quality Evaluator for Text-to-3D Generation](benchmarking_and_learning_multidimensional_quality_evaluator.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -168,6 +168,8 @@ BOFA的核心创新在于**将适应限制在已有层而非引入新模块**，
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Branch, or Layer? Zeroth-Order Optimization for Continual Learning of Vision-Language Models](branch_or_layer_zeroth-order_optimization_for_continual_lear.md)
@@ -175,5 +177,7 @@ BOFA的核心创新在于**将适应限制在已有层而非引入新模块**，
 - [\[ICCV 2025\] Sparsity Outperforms Low-Rank Projections in Few-Shot Adaptation](../../ICCV2025/multimodal_vlm/sparsity_outperforms_low-rank_projections_in_few-shot_adaptation.md)
 - [\[CVPR 2025\] Improving Personalized Search with Regularized Low-Rank Parameter Updates](../../CVPR2025/multimodal_vlm/improving_personalized_search_with_regularized_low-rank_parameter_updates.md)
 - [\[ICLR 2026\] Enhanced Continual Learning of Vision-Language Models with Model Fusion](../../ICLR2026/multimodal_vlm/enhanced_continual_learning_of_vision-language_models_with_model_fusion.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -131,6 +131,8 @@ $$\tilde{O}\!\left(\alpha \log n + \max\!\left(\frac{1}{F_0(S)},\, \varepsilon^2
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] ChartLens: Fine-Grained Visual Attribution in Charts](../../ACL2025/others/chartlens_fine-grained_visual_attribution_in_charts.md)
@@ -138,5 +140,7 @@ $$\tilde{O}\!\left(\alpha \log n + \max\!\left(\frac{1}{F_0(S)},\, \varepsilon^2
 - [\[ACL 2025\] Guidelines for Fine-grained Sentence-level Arabic Readability Annotation](../../ACL2025/others/guidelines_for_fine-grained_sentence-level_arabic_readability_annotation.md)
 - [\[ACL 2025\] Barec: A Large and Balanced Corpus for Fine-grained Arabic Readability Assessment](../../ACL2025/others/a_large_and_balanced_corpus_for_fine-grained_arabic_readability_assessment.md)
 - [\[ACL 2025\] A Spatio-Temporal Point Process for Fine-Grained Modeling of Reading Behavior](../../ACL2025/others/a_spatio-temporal_point_process_for_fine-grained_modeling_of_reading_behavior.md)
+
+</div>
 
 <!-- RELATED:END -->

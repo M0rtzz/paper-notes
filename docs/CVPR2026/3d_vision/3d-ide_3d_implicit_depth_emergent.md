@@ -122,6 +122,8 @@ $$\mathcal{L}_{\text{total}} = \mathcal{L}_{ce} + \mathcal{L}_{\text{geometry}} 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] NTK-Guided Implicit Neural Teaching](ntk-guided_implicit_neural_teaching.md)
@@ -129,5 +131,7 @@ $$\mathcal{L}_{\text{total}} = \mathcal{L}_{ce} + \mathcal{L}_{\text{geometry}} 
 - [\[CVPR 2026\] No Calibration, No Depth, No Problem: Cross-Sensor View Synthesis with 3D Consistency](no_calibration_no_depth_no_problem_cross-sensor_view_synthesis_with_3d_consisten.md)
 - [\[ECCV 2024\] LEIA: Latent View-Invariant Embeddings for Implicit 3D Articulation](../../ECCV2024/3d_vision/leia_latent_view-invariant_embeddings_for_implicit_3d_articulation.md)
 - [\[ECCV 2024\] Implicit Filtering for Learning Neural Signed Distance Functions from 3D Point Clouds](../../ECCV2024/3d_vision/implicit_filtering_for_learning_neural_signed_distance_functions_from_3d_point_c.md)
+
+</div>
 
 <!-- RELATED:END -->

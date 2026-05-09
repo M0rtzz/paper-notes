@@ -140,6 +140,8 @@ GDT 基于标准 Transformer 编码器层，支持两种 token 化：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Adversarial Attention Perturbations for Large Object Detection Transformers](../../ICCV2025/object_detection/adversarial_attention_perturbations_for_large_object_detection_transformers.md)
@@ -147,5 +149,7 @@ GDT 基于标准 Transformer 编码器层，支持两种 token 化：
 - [\[CVPR 2025\] DiffVsgg: Diffusion-Driven Online Video Scene Graph Generation](../../CVPR2025/object_detection/diffvsgg_diffusion-driven_online_video_scene_graph_generation.md)
 - [\[AAAI 2026\] LampQ: Towards Accurate Layer-wise Mixed Precision Quantization for Vision Transformers](../../AAAI2026/object_detection/lampq_towards_accurate_layer-wise_mixed_precision_quantization_for_vision_transf.md)
 - [\[CVPR 2026\] Toward Generalizable Whole Brain Representations with High-Resolution Light-Sheet Data](../../CVPR2026/object_detection/toward_generalizable_whole_brain_representations_with_high-resolution_light-shee.md)
+
+</div>
 
 <!-- RELATED:END -->

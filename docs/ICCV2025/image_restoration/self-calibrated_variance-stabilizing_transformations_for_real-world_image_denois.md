@@ -151,6 +151,8 @@ $$\hat{\boldsymbol{s}} = (f^{\text{inv}}_{\boldsymbol{\theta},\alpha,\beta} \cir
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] TM-BSN: Triangular-Masked Blind-Spot Network for Real-World Self-Supervised Image Denoising](../../CVPR2026/image_restoration/tm-bsn_triangular-masked_blind-spot_network_for_real-world_self-supervised_image.md)
@@ -158,5 +160,7 @@ $$\hat{\boldsymbol{s}} = (f^{\text{inv}}_{\boldsymbol{\theta},\alpha,\beta} \cir
 - [\[ICCV 2025\] Blind2Sound: Self-Supervised Image Denoising without Residual Noise](blind2sound_self-supervised_image_denoising_without_residual_noise.md)
 - [\[CVPR 2025\] Rotation-Equivariant Self-Supervised Method in Image Denoising](../../CVPR2025/image_restoration/rotation-equivariant_self-supervised_method_in_image_denoising.md)
 - [\[ICCV 2025\] Emulating Self-Attention with Convolution for Efficient Image Super-Resolution](emulating_self-attention_with_convolution_for_efficient_image_super-resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

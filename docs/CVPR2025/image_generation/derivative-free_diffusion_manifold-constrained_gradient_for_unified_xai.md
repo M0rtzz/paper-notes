@@ -114,6 +114,8 @@ FreeMCG 无需训练。使用预训练扩散模型和分类器，仅涉及推理
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Training-Free Constrained Generation with Stable Diffusion Models](../../NeurIPS2025/image_generation/training-free_constrained_generation_with_stable_diffusion_models.md)
@@ -121,5 +123,7 @@ FreeMCG 无需训练。使用预训练扩散模型和分类器，仅涉及推理
 - [\[CVPR 2025\] OmniGen: Unified Image Generation](omnigen_unified_image_generation.md)
 - [\[ICML 2025\] Local Manifold Approximation and Projection for Manifold-Aware Diffusion Planning](../../ICML2025/image_generation/local_manifold_approximation_and_projection_for_manifold-aware_diffusion_plannin.md)
 - [\[CVPR 2025\] Unified Uncertainty-Aware Diffusion for Multi-Agent Trajectory Modeling](unified_uncertainty-aware_diffusion_for_multi-agent_trajectory_modeling.md)
+
+</div>
 
 <!-- RELATED:END -->

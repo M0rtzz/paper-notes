@@ -139,6 +139,8 @@ MulSen-TripleAD 基于 PatchCore 的距离度量评分，使用 OCSVM 进行决�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SemTalk: Holistic Co-speech Motion Generation with Frame-level Semantic Emphasis](../../ICCV2025/others/semtalk_holistic_co-speech_motion_generation_with_frame-level_semantic_emphasis.md)
@@ -146,5 +148,7 @@ MulSen-TripleAD 基于 PatchCore 的距离度量评分，使用 OCSVM 进行决�
 - [\[NeurIPS 2025\] ADPretrain: Advancing Industrial Anomaly Detection via Anomaly Representation Pretraining](../../NeurIPS2025/others/adpretrain_advancing_industrial_anomaly_detection_via_anomaly_representation_pre.md)
 - [\[CVPR 2025\] Distribution Prototype Diffusion Learning for Open-set Supervised Anomaly Detection](distribution_prototype_diffusion_learning_for_open-set_supervised_anomaly_detect.md)
 - [\[CVPR 2025\] TailedCore: Few-Shot Sampling for Unsupervised Long-Tail Noisy Anomaly Detection](tailedcore_few-shot_sampling_for_unsupervised_long-tail_noisy_anomaly_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

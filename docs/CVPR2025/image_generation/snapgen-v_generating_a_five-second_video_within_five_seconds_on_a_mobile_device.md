@@ -124,6 +124,8 @@ SnapGen-V 提出了一套完整的移动端视频扩散模型加速框架，通�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] REDUCIO! Generating 1K Video within 16 Seconds using Extremely Compressed Motion Latents](../../ICCV2025/image_generation/reducio_generating_1k_video_within_16_seconds_using_extremely_compressed_motion_.md)
@@ -131,5 +133,7 @@ SnapGen-V 提出了一套完整的移动端视频扩散模型加速框架，通�
 - [\[CVPR 2025\] Articulated Kinematics Distillation from Video Diffusion Models](articulated_kinematics_distillation_from_video_diffusion_models.md)
 - [\[CVPR 2025\] MobilePortrait: Real-Time One-Shot Neural Head Avatars on Mobile Devices](mobileportrait_real-time_one-shot_neural_head_avatars_on_mobile_devices.md)
 - [\[CVPR 2025\] DiffLocks: Generating 3D Hair from a Single Image using Diffusion Models](difflocks_generating_3d_hair_from_a_single_image_using_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

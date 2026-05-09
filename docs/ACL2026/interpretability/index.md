@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **34** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (31)](../../CVPR2026/interpretability/) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/) · [🧠 NeurIPS2025 (86)](../../NeurIPS2025/interpretability/) · [📹 ICCV2025 (11)](../../ICCV2025/interpretability/) · [🧪 ICML2025 (33)](../../ICML2025/interpretability/)
+
+🔥 **高频主题：** LLM ×11 · 推理 ×6
+
 **[A Structured Clustering Approach for Inducing Media Narratives](a_structured_clustering_approach_for_inducing_media_narratives.md)**
 
 :   提出一个从大规模新闻语料中自动归纳媒体叙事模式的框架，通过联合建模事件因果链和角色（英雄/威胁/受害者）信息，使用角色约束的聚类算法将叙事链组织成语义连贯的叙事模式，在移民和枪支控制两个领域生成了可解释且与框架理论一致的叙事模式。

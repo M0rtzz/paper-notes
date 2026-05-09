@@ -128,6 +128,8 @@ LIxP在标准的图文对比预训练（CLIP或SigLIP）基础上，增加了一
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Mimic In-Context Learning for Multimodal Tasks](mimic_in-context_learning_for_multimodal_tasks.md)
@@ -135,5 +137,7 @@ LIxP在标准的图文对比预训练（CLIP或SigLIP）基础上，增加了一
 - [\[CVPR 2026\] CoVFT: Context-aware Visual Fine-tuning for Multimodal Large Language Models](../../CVPR2026/multimodal_vlm/covft_context-aware_visual_fine-tuning_for_multimodal_large_language_models.md)
 - [\[CVPR 2025\] Hyperbolic Safety-Aware Vision-Language Models](hyperbolic_safety-aware_vision-language_models.md)
 - [\[CVPR 2025\] Taxonomy-Aware Evaluation of Vision-Language Models](taxonomy-aware_evaluation_of_vision-language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

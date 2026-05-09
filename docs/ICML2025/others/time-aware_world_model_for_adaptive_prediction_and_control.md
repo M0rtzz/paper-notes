@@ -135,6 +135,8 @@ TAWM 基于 TD-MPC2 架构进行修改。编码器 $h$ 将观测 $o_t$ 映射到
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Prediction-Powered Adaptive Shrinkage Estimation](prediction-powered_adaptive_shrinkage_estimation.md)
@@ -142,5 +144,7 @@ TAWM 基于 TD-MPC2 架构进行修改。编码器 $h$ 将观测 $o_t$ 映射到
 - [\[ICML 2025\] General Agents Contain World Models](general_agents_contain_world_models.md)
 - [\[AAAI 2026\] UniShape: A Unified Shape-Aware Foundation Model for Time Series Classification](../../AAAI2026/others/a_unified_shape-aware_foundation_model_for_time_series_class.md)
 - [\[ICML 2025\] Symmetry-Aware GFlowNets](symmetry-aware_gflownets.md)
+
+</div>
 
 <!-- RELATED:END -->

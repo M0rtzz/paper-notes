@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **52** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/graph_learning/) · [📷 CVPR2026 (9)](../../CVPR2026/graph_learning/) · [🔬 ICLR2026 (21)](../../ICLR2026/graph_learning/) · [🤖 AAAI2026 (38)](../../AAAI2026/graph_learning/) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/) · [🧪 ICML2025 (31)](../../ICML2025/graph_learning/)
+
+🔥 **高频主题：** 图神经网络 ×10 · LLM ×5 · 推理 ×5 · RAG ×3 · 少样本学习 ×3
+
 **[Agint: Agentic Graph Compilation for Software Engineering Agents](agint_agentic_graph_compilation_for_software_engineering_age.md)**
 
 :   提出 Agint 图编译器，将自然语言意图通过六层类型地板（TEXT→TYPED→SPEC→STUB→SHIM→PURE）渐进编译为类型化DAG，配合混合JIT运行时和Unix风格工具链，使AI代码生成从脆弱的单次文本预测变为结构化、可并行、可复现的编译过程。

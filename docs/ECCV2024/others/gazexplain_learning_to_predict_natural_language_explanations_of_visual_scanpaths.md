@@ -170,6 +170,8 @@ $$\mathcal{L} = \mathcal{L}_{fix} + \mathcal{L}_{exp} + \mathcal{L}_{aln}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Cooperating and Competing Through Natural Language](../../ACL2025/others/cooperating_and_competing_through_natural_language.md)
@@ -177,5 +179,7 @@ $$\mathcal{L} = \mathcal{L}_{fix} + \mathcal{L}_{exp} + \mathcal{L}_{aln}$$
 - [\[ACL 2025\] QualiSpeech: A Speech Quality Assessment Dataset with Natural Language Reasoning](../../ACL2025/others/qualispeech_a_speech_quality_assessment_dataset_with_natural_language_reasoning_.md)
 - [\[ACL 2025\] SPOT: Bridging Natural Language and Geospatial Search for Investigative Journalists](../../ACL2025/others/spot_bridging_natural_language_and_geospatial_search_for_investigative_journalis.md)
 - [\[ECCV 2024\] Gaze Target Detection Based on Head-Local-Global Coordination](gaze_target_detection_based_on_head-local-global_coordination.md)
+
+</div>
 
 <!-- RELATED:END -->

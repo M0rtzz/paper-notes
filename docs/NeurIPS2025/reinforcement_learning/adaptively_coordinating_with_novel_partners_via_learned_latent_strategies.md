@@ -144,6 +144,8 @@ $$\mathcal{L}(\theta, \phi; \tau) = \mathbb{E}_{z \sim q_\phi}[\log p_\theta(a_{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] KEA: Keeping Exploration Alive by Proactively Coordinating Exploration Strategies](../../ICML2025/reinforcement_learning/kea_keeping_exploration_alive_by_proactively_coordinating_exploration_strategies.md)
@@ -151,5 +153,7 @@ $$\mathcal{L}(\theta, \phi; \tau) = \mathbb{E}_{z \sim q_\phi}[\log p_\theta(a_{
 - [\[NeurIPS 2025\] Hybrid Latent Reasoning via Reinforcement Learning](hybrid_latent_reasoning_via_reinforcement_learning.md)
 - [\[NeurIPS 2025\] Dynamics-Aligned Latent Imagination in Contextual World Models for Zero-Shot Generalization](dynamics-aligned_latent_imagination_in_contextual_world_models_for_zero-shot_gen.md)
 - [\[NeurIPS 2025\] VIKI-R: Coordinating Embodied Multi-Agent Cooperation via Reinforcement Learning](viki-r_coordinating_embodied_multi-agent_cooperation_via_reinforcement_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

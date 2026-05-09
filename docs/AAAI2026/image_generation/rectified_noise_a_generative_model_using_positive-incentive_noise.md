@@ -209,6 +209,8 @@ ImageNet-1k 256×256（无 CFG）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Straighten Viscous Rectified Flow via Noise Optimization](../../ICCV2025/image_generation/straighten_viscous_rectified_flow_via_noise_optimization.md)
@@ -216,5 +218,7 @@ ImageNet-1k 256×256（无 CFG）：
 - [\[ICLR 2026\] Diverse Text-to-Image Generation via Contrastive Noise Optimization](../../ICLR2026/image_generation/diverse_text-to-image_generation_via_contrastive_noise_optimization.md)
 - [\[ICLR 2026\] Flow Matching with Injected Noise for Offline-to-Online Reinforcement Learning](../../ICLR2026/image_generation/flow_matching_with_injected_noise_for_offline-to-online_reinforcement_learning.md)
 - [\[ICML 2025\] Editable Noise Map Inversion: Encoding Target-image into Noise For High-Fidelity Image Manipulation](../../ICML2025/image_generation/editable_noise_map_inversion_encoding_target-image_into_noise_for_high-fidelity_.md)
+
+</div>
 
 <!-- RELATED:END -->

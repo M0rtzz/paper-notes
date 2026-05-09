@@ -126,6 +126,8 @@ $$a_i^{(\text{TaylorPODA})} = f(\mathbf{x}) - f_{G\setminus\{i\}}(\mathbf{x}) - 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Regression for the Mean: Auto-Evaluation and Inference with Few Labels through Post-hoc Regression](../../ICML2025/others/regression_for_the_mean_auto-evaluation_and_inference_with_few_labels_through_po.md)
@@ -133,5 +135,7 @@ $$a_i^{(\text{TaylorPODA})} = f(\mathbf{x}) - f_{G\setminus\{i\}}(\mathbf{x}) - 
 - [\[AAAI 2026\] Cost-Free Neutrality for the River Method](cost-free_neutrality_for_the_river_method.md)
 - [\[NeurIPS 2025\] EPHAD: An Evidence-Based Post-Hoc Adjustment Framework for Anomaly Detection Under Data Contamination](../../NeurIPS2025/others/an_evidence-based_post-hoc_adjustment_framework_for_anomaly_detection_under_data.md)
 - [\[AAAI 2026\] Rethinking Flow and Diffusion Bridge Models for Speech Enhancement](rethinking_flow_and_diffusion_bridge_models_for_speech_enhancement.md)
+
+</div>
 
 <!-- RELATED:END -->

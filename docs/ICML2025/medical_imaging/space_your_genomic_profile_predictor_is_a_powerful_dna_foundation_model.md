@@ -149,6 +149,8 @@ SPACE 在 18 项任务中 **11 项 SOTA**，且参数量远少于 NT-Multispecie
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] JanusDNA: A Powerful Bi-directional Hybrid DNA Foundation Model](../../NeurIPS2025/medical_imaging/janusdna_a_powerful_bi-directional_hybrid_dna_foundation_model.md)
@@ -156,5 +158,7 @@ SPACE 在 18 项任务中 **11 项 SOTA**，且参数量远少于 NT-Multispecie
 - [\[ICML 2025\] Elucidating the Design Space of Multimodal Protein Language Models](elucidating_the_design_space_of_multimodal_protein_language_models.md)
 - [\[ICML 2025\] Foundation Models for Clinical Records at Health System Scale](foundation_models_for_clinical_records_at_health_system_scale.md)
 - [\[NeurIPS 2025\] NeurIPT: Foundation Model for Neural Interfaces](../../NeurIPS2025/medical_imaging/neuript_foundation_model_for_neural_interfaces.md)
+
+</div>
 
 <!-- RELATED:END -->

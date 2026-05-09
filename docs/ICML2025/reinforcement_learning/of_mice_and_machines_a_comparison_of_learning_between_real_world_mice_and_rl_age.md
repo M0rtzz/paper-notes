@@ -142,6 +142,8 @@ $$TD_{\text{target}} = r_t + \gamma \left( Q(s_{t+1}, \pi(s_{t+1})) - \alpha \te
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Real-World Reinforcement Learning of Active Perception Behaviors](../../NeurIPS2025/reinforcement_learning/real-world_reinforcement_learning_of_active_perception_behaviors.md)
@@ -149,5 +151,7 @@ $$TD_{\text{target}} = r_t + \gamma \left( Q(s_{t+1}, \pi(s_{t+1})) - \alpha \te
 - [\[ICML 2025\] PIGDreamer: Privileged Information Guided World Models for Safe Partially Observable RL](pigdreamer_privileged_information_guided_world_models_for_safe_partially_observa.md)
 - [\[NeurIPS 2025\] Meta-World+: An Improved, Standardized, RL Benchmark](../../NeurIPS2025/reinforcement_learning/meta-world_an_improved_standardized_rl_benchmark.md)
 - [\[NeurIPS 2025\] Learning Human-Like RL Agents through Trajectory Optimization with Action Quantization](../../NeurIPS2025/reinforcement_learning/learning_human-like_rl_agents_through_trajectory_optimization_with_action_quanti.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -170,6 +170,8 @@ DSFN 是最快的方法——尽管引入了深度估计和推理过程。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Momentum Auxiliary Network for Supervised Local Learning](../../ECCV2024/others/momentum_auxiliary_network_for_supervised_local_learning.md)
@@ -177,5 +179,7 @@ DSFN 是最快的方法——尽管引入了深度估计和推理过程。
 - [\[ICCV 2025\] Revisiting Image Fusion for Multi-Illuminant White-Balance Correction](../../ICCV2025/others/revisiting_image_fusion_for_multi-illuminant_white-balance_correction.md)
 - [\[NeurIPS 2025\] FSNet: Feasibility-Seeking Neural Network for Constrained Optimization with Guarantees](fsnet_feasibility-seeking_neural_network_for_constrained_optimization_with_guara.md)
 - [\[NeurIPS 2025\] Neural Network for Simulating Radio Emission from Extensive Air Showers](neural_network_for_simulating_radio_emission_from_extensive_air_showers.md)
+
+</div>
 
 <!-- RELATED:END -->

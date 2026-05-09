@@ -10,6 +10,8 @@ description: >-
 
 **🔬 ICLR2026** · **7** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (23)](../../ACL2026/multilingual_mt/) · [📷 CVPR2026 (2)](../../CVPR2026/multilingual_mt/) · [🤖 AAAI2026 (11)](../../AAAI2026/multilingual_mt/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/multilingual_mt/) · [📹 ICCV2025 (1)](../../ICCV2025/multilingual_mt/) · [🧪 ICML2025 (1)](../../ICML2025/multilingual_mt/)
+
 **[ASSESS: A Semantic and Structural Evaluation Framework for Statement Similarity](assess_a_semantic_and_structural_evaluation_framework_for_statement_similarity.md)**
 
 :   提出 ASSESS 框架，其核心是 TransTED Similarity 指标——通过将形式化数学命题解析为算子树 (Operator Tree)，并在标准树编辑距离 (TED) 基础上融入 Lean 证明策略驱动的语义变换，实现了在 EPLA 基准上 70.16% 准确率和 0.35 Kappa 分数的 SOTA 性能，同时仅需 CPU 资源即可复现。

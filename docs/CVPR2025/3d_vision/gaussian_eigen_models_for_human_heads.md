@@ -127,6 +127,8 @@ CNN 模型训练：$\mathcal{L}_{Color}=(1-\omega)\mathcal{L}_1+\omega\mathcal{L
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] ViT-Split: Unleashing the Power of Vision Foundation Models via Efficient Splitting Heads](../../ICCV2025/3d_vision/vit-split_unleashing_the_power_of_vision_foundation_models_via_efficient_splitti.md)
@@ -134,5 +136,7 @@ CNN 模型训练：$\mathcal{L}_{Color}=(1-\omega)\mathcal{L}_1+\omega\mathcal{L
 - [\[ECCV 2024\] Sapiens: Foundation for Human Vision Models](../../ECCV2024/3d_vision/sapiens_foundation_for_human_vision_models.md)
 - [\[CVPR 2025\] Guiding Human-Object Interactions with Rich Geometry and Relations](guiding_human-object_interactions_with_rich_geometry_and_relations.md)
 - [\[CVPR 2025\] Reconstructing In-the-Wild Open-Vocabulary Human-Object Interactions](reconstructing_in-the-wild_open-vocabulary_human-object_interactions.md)
+
+</div>
 
 <!-- RELATED:END -->

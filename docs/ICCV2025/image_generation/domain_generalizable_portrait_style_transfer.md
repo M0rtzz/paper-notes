@@ -144,6 +144,8 @@ DGPST 提出了一个基于扩散模型的人像风格迁移框架，通过 sema
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] HSI: A Holistic Style Injector for Arbitrary Style Transfer](../../CVPR2025/image_generation/hsi_a_holistic_style_injector_for_arbitrary_style_transfer.md)
@@ -151,5 +153,7 @@ DGPST 提出了一个基于扩散模型的人像风格迁移框架，通过 sema
 - [\[CVPR 2025\] StyleStudio: Text-Driven Style Transfer with Selective Control of Style Elements](../../CVPR2025/image_generation/stylestudio_text-driven_style_transfer_with_selective_control_of_style_elements.md)
 - [\[ICCV 2025\] Balanced Image Stylization with Style Matching Score](balanced_image_stylization_with_style_matching_score.md)
 - [\[CVPR 2025\] SaMam: Style-aware State Space Model for Arbitrary Image Style Transfer](../../CVPR2025/image_generation/samam_style-aware_state_space_model_for_arbitrary_image_style_transfer.md)
+
+</div>
 
 <!-- RELATED:END -->

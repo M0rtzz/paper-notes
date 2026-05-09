@@ -110,6 +110,8 @@ SPOT 包含四个核心组件：(1) OSM 标签捆绑构建与索引 → (2) 合�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Cooperating and Competing Through Natural Language](cooperating_and_competing_through_natural_language.md)
@@ -117,5 +119,7 @@ SPOT 包含四个核心组件：(1) OSM 标签捆绑构建与索引 → (2) 合�
 - [\[ECCV 2024\] GazeXplain: Learning to Predict Natural Language Explanations of Visual Scanpaths](../../ECCV2024/others/gazexplain_learning_to_predict_natural_language_explanations_of_visual_scanpaths.md)
 - [\[ACL 2025\] ARise: Towards Knowledge-Augmented Reasoning via Risk-Adaptive Search](arise_risk_adaptive_search.md)
 - [\[ACL 2025\] Inducing Lexicons of In-Group Language with Socio-Temporal Context](inducing_lexicons_of_in-group_language_with_socio-temporal_context.md)
+
+</div>
 
 <!-- RELATED:END -->

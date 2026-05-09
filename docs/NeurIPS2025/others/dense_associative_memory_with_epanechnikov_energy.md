@@ -122,6 +122,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Learning Dense Hand Contact Estimation from Imbalanced Data](learning_dense_hand_contact_estimation_from_imbalanced_data.md)
@@ -129,5 +131,7 @@ tags:
 - [\[ACL 2025\] Hierarchical Memory Organization for Wikipedia Generation](../../ACL2025/others/hierarchical_memory_wikipedia_gen.md)
 - [\[ACL 2025\] If Attention Serves as a Cognitive Model of Human Memory Retrieval, What is the Plausible Memory Representation?](../../ACL2025/others/if_attention_serves_as_a_cognitive.md)
 - [\[CVPR 2025\] EDM: Equirectangular Projection-Oriented Dense Kernelized Feature Matching](../../CVPR2025/others/edm_equirectangular_projection-oriented_dense_kernelized_feature_matching.md)
+
+</div>
 
 <!-- RELATED:END -->

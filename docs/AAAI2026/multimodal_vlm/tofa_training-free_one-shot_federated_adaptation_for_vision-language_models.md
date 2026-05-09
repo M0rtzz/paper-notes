@@ -137,6 +137,8 @@ CIFAR-10/100 (100 clients, Dir(0.3)):
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] ReHARK: Refined Hybrid Adaptive RBF Kernels for Robust One-Shot Vision-Language Adaptation](../../CVPR2026/multimodal_vlm/rehark_refined_hybrid_adaptive_rbf_kernels_for_robust_one-shot_vision-language_a.md)
@@ -144,5 +146,7 @@ CIFAR-10/100 (100 clients, Dir(0.3)):
 - [\[CVPR 2025\] Rethinking Few-Shot Adaptation of Vision-Language Models in Two Stages](../../CVPR2025/multimodal_vlm/rethinking_few-shot_adaptation_of_vision-language_models_in_two_stages.md)
 - [\[AAAI 2026\] Filter, Correlate, Compress: Training-Free Token Reduction for MLLM Acceleration](filter_correlate_compress_training-free_token_reduction_for_.md)
 - [\[CVPR 2026\] Evolving Prompt Adaptation for Vision-Language Models](../../CVPR2026/multimodal_vlm/evolving_prompt_adaptation_for_visionlanguage_mode.md)
+
+</div>
 
 <!-- RELATED:END -->

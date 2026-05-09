@@ -155,6 +155,8 @@ $$\mathcal{L}_{pretrain} = \mathcal{L}_{feat} + \mathcal{L}_{topo} + \text{codeb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Graver: Generative Graph Vocabularies for Robust Graph Foundation Models Fine-tuning](graver_generative_graph_vocabularies_for_robust_graph_foundation_models_fine-tun.md)
@@ -162,5 +164,7 @@ $$\mathcal{L}_{pretrain} = \mathcal{L}_{feat} + \mathcal{L}_{topo} + \text{codeb
 - [\[NeurIPS 2025\] Graph Your Own Prompt](graph_your_own_prompt.md)
 - [\[NeurIPS 2025\] Robust Federated Finetuning of LLMs via Alternating Optimization of LoRA](robust_federated_finetuning_of_llms_via_alternating_optimization_of_lora.md)
 - [\[NeurIPS 2025\] Mitigating Semantic Collapse in Partially Relevant Video Retrieval](mitigating_semantic_collapse_in_partially_relevant_video_retrieval.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -131,6 +131,8 @@ Chameleon 的 pipeline：(1) 用均匀权重训练一个小型代理模型；(2)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Metadata Conditioning Accelerates Language Model Pre-training](metadata_conditioning_accelerates_language_model_pre-training.md)
@@ -138,5 +140,7 @@ Chameleon 的 pipeline：(1) 用均匀权重训练一个小型代理模型；(2)
 - [\[ACL 2025\] Data Caricatures: On the Representation of African American Language in Pretraining Corpora](../../ACL2025/llm_pretraining/data_caricatures_on_the_representation_of_african_american_language_in_pretraini.md)
 - [\[ICML 2025\] How to Synthesize Text Data without Model Collapse?](how_to_synthesize_text_data_without_model_collapse.md)
 - [\[NeurIPS 2025\] Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale](../../NeurIPS2025/llm_pretraining/language_model_behavioral_phases_are_consistent_across_archi.md)
+
+</div>
 
 <!-- RELATED:END -->

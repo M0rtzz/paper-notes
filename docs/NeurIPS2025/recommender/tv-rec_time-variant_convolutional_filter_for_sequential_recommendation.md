@@ -137,6 +137,8 @@ $$\mathcal{L} = -\sum_{t} \log \frac{\exp(s_{y_{t+1}})}{\sum_{j} \exp(s_j)}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Semantic Retrieval Augmented Contrastive Learning for Sequential Recommendation](semantic_retrieval_augmented_contrastive_learning_for_sequential_recommendation.md)
@@ -144,5 +146,7 @@ $$\mathcal{L} = -\sum_{t} \log \frac{\exp(s_{y_{t+1}})}{\sum_{j} \exp(s_j)}$$
 - [\[AAAI 2026\] HyMoERec: Hybrid Mixture-of-Experts for Sequential Recommendation](../../AAAI2026/recommender/hymoerec_hybrid_mixture-of-experts_for_sequential_recommendation.md)
 - [\[NeurIPS 2025\] MMPB: It's Time for Multi-Modal Personalization](mmpb_its_time_for_multi-modal_personalization.md)
 - [\[NeurIPS 2025\] Inference-Time Reward Hacking in Large Language Models](inference-time_reward_hacking_in_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

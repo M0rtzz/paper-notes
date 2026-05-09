@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **4** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (41)](../../ACL2026/llm_agent/) · [📷 CVPR2026 (21)](../../CVPR2026/llm_agent/) · [🔬 ICLR2026 (47)](../../ICLR2026/llm_agent/) · [🤖 AAAI2026 (44)](../../AAAI2026/llm_agent/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_agent/) · [🧪 ICML2025 (15)](../../ICML2025/llm_agent/)
+
+🔥 **高频主题：** Agent ×2
+
 **[Embodied Image Captioning: Self-supervised Learning Agents for Spatially Coherent Image Descriptions](embodied_image_captioning_self-supervised_learning_agents_for_spatially_coherent.md)**
 
 :   提出一个三阶段自监督框架，通过agent自主导航收集多视角观测、LLM共识机制生成伪标注、对比学习微调captioner，显著提升室内环境中同一物体跨视角描述的一致性和准确性。

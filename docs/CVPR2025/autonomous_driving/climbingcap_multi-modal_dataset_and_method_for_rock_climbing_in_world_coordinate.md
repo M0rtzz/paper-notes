@@ -124,6 +124,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] LiSu: A Dataset and Method for LiDAR Surface Normal Estimation](lisu_a_dataset_and_method_for_lidar_surface_normal_estimation.md)
@@ -131,5 +133,7 @@ tags:
 - [\[CVPR 2025\] Multi-modal Knowledge Distillation-based Human Trajectory Forecasting](multi-modal_knowledge_distillation-based_human_trajectory_forecasting.md)
 - [\[CVPR 2025\] Neural Inverse Rendering from Propagating Light](neural_inverse_rendering_from_propagating_light.md)
 - [\[CVPR 2025\] Open-Canopy: Towards Very High Resolution Forest Monitoring](open-canopy_towards_very_high_resolution_forest_monitoring.md)
+
+</div>
 
 <!-- RELATED:END -->

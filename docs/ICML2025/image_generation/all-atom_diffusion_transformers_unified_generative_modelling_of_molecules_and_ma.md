@@ -178,6 +178,8 @@ ADiT 从 ~30M 扩展至 ~500M 参数，在数据规模不变的情况下：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Position: All Current Generative Fidelity and Diversity Metrics are Flawed](position_all_current_generative_fidelity_and_diversity_metrics_are_flawed.md)
@@ -185,5 +187,7 @@ ADiT 从 ~30M 扩展至 ~500M 参数，在数据规模不变的情况下：
 - [\[ICML 2025\] Kinetic Langevin Diffusion for Crystalline Materials Generation](kinetic_langevin_diffusion_for_crystalline_materials_generation.md)
 - [\[ICML 2025\] Normalizing Flows are Capable Generative Models](normalizing_flows_are_capable_generative_models.md)
 - [\[CVPR 2026\] Quantization with Unified Adaptive Distillation to enable multi-LoRA based one-for-all Generative Vision Models on edge](../../CVPR2026/image_generation/quantization_with_unified_adaptive_distillation_to_enable_multi-lora_based_one-f.md)
+
+</div>
 
 <!-- RELATED:END -->

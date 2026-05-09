@@ -129,6 +129,8 @@ ZOODiP 基于 Textual Inversion 框架：输入是少量参考图片和包含新
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Memory-Efficient Fine-Tuning for Quantized Diffusion Model](../../ECCV2024/image_generation/memory-efficient_fine-tuning_for_quantized_diffusion_model.md)
@@ -136,5 +138,7 @@ ZOODiP 基于 Textual Inversion 框架：输入是少量参考图片和包含新
 - [\[CVPR 2025\] Learning Visual Generative Priors without Text](learning_visual_generative_priors_without_text.md)
 - [\[CVPR 2025\] Data-Free Group-Wise Fully Quantized Winograd Convolution via Learnable Scales](data-free_group-wise_fully_quantized_winograd_convolution_via_learnable_scales.md)
 - [\[CVPR 2025\] Hierarchical Flow Diffusion for Efficient Frame Interpolation](hierarchical_flow_diffusion_for_efficient_frame_interpolation.md)
+
+</div>
 
 <!-- RELATED:END -->

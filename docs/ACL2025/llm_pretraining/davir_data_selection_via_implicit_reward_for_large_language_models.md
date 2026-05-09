@@ -172,6 +172,8 @@ $$\mathcal{L}_{\text{DavIR-DPO}} = -\mathbb{E}\left[\log \sigma\left(\beta \frac
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Large Vocabulary Size Improves Large Language Models](large_vocabulary_size_improves_large_language_models.md)
@@ -179,5 +181,7 @@ $$\mathcal{L}_{\text{DavIR-DPO}} = -\mathbb{E}\left[\log \sigma\left(\beta \frac
 - [\[ACL 2025\] SCAR: Data Selection via Style Consistency-Aware Response Ranking for Efficient Instruction-Tuning](scar_style_consistency_data_selection.md)
 - [\[ACL 2025\] Retrofitting Large Language Models with Dynamic Tokenization](retrofitting_large_language_models_with_dynamic_tokenization.md)
 - [\[ACL 2025\] Stealing Training Data from Large Language Models in Decentralized Training through Activation Inversion Attack](activation-inversion-attack-stealing-training-data-in-decentralized-training.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -137,6 +137,8 @@ WFS-SB 是一个免训练的三阶段帧选择框架：(1) 基于小波变换的
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] DIvide, then Ground: Adapting Frame Selection to Query Types for Long-Form Video Understanding](divide_then_ground_adapting_frame_selection_to_query_types_for_long-form_video_u.md)
@@ -144,5 +146,7 @@ WFS-SB 是一个免训练的三阶段帧选择框架：(1) 基于小波变换的
 - [\[CVPR 2025\] M-LLM Based Video Frame Selection for Efficient Video Understanding](../../CVPR2025/video_understanding/m-llm_based_video_frame_selection_for_efficient_video_understanding.md)
 - [\[ACL 2025\] Generative Frame Sampler for Long Video Understanding](../../ACL2025/video_understanding/generative_frame_sampler_for_long_video_understanding.md)
 - [\[CVPR 2026\] Question-guided Visual Compression with Memory Feedback for Long-Term Video Understanding](question-guided_visual_compression_with_memory_feedback_for_long-term_video_unde.md)
+
+</div>
 
 <!-- RELATED:END -->

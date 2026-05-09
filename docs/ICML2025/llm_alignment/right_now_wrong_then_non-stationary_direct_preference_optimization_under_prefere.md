@@ -144,6 +144,8 @@ NS-DPO 的核心思路非常优雅：在标准 DPO 损失函数中引入一个**
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] D-Fusion: Direct Preference Optimization for Aligning Diffusion Models with Visually Consistent Samples](d-fusion_direct_preference_optimization_for_aligning_diffusion_models_with_visua.md)
@@ -151,5 +153,7 @@ NS-DPO 的核心思路非常优雅：在标准 DPO 损失函数中引入一个**
 - [\[NeurIPS 2025\] Rethinking Direct Preference Optimization in Diffusion Models](../../NeurIPS2025/llm_alignment/rethinking_direct_preference_optimization_in_diffusion_models.md)
 - [\[ICML 2025\] ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization](adhmr_aligning_diffusion-based_human_mesh_recovery_via_direct_preference_optimiz.md)
 - [\[NeurIPS 2025\] On Extending Direct Preference Optimization to Accommodate Ties](../../NeurIPS2025/llm_alignment/on_extending_direct_preference_optimization_to_accommodate_ties.md)
+
+</div>
 
 <!-- RELATED:END -->

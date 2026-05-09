@@ -137,6 +137,8 @@ Reason-SVG 采用"先规划后绘制"的范式，给定文本提示 $\mathcal{T}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] StarVector: Generating Scalable Vector Graphics Code from Images and Text](../../CVPR2025/multimodal_vlm/starvector_generating_scalable_vector_graphics_code_from_images_and_text.md)
@@ -144,5 +146,7 @@ Reason-SVG 采用"先规划后绘制"的范式，给定文本提示 $\mathcal{T}
 - [\[CVPR 2026\] EMO-R3: Reflective Reinforcement Learning for Emotional Reasoning in Multimodal Large Language Models](emo-r3_reflective_reinforcement_learning_for_emotional_reasoning_in_multimodal_l.md)
 - [\[CVPR 2026\] VecGlypher: Unified Vector Glyph Generation with Language Models](vecglypher_unified_vector_glyph_generation_with_language_models.md)
 - [\[CVPR 2026\] DocSeeker: Structured Visual Reasoning with Evidence Grounding for Long Document Understanding](docseeker_long_document_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

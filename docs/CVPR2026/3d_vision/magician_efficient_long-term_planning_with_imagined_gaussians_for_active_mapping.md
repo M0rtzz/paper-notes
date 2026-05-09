@@ -129,6 +129,8 @@ MAGICIAN在每一步执行感知-规划-行动循环：(1) 用预训练占据度
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] ActiveGAMER: Active GAussian Mapping through Efficient Rendering](../../CVPR2025/3d_vision/activegamer_active_gaussian_mapping_through_efficient_rendering.md)
@@ -136,5 +138,7 @@ MAGICIAN在每一步执行感知-规划-行动循环：(1) 用预训练占据度
 - [\[CVPR 2026\] PCSTracker: Long-Term Scene Flow Estimation for Point Cloud Sequences](pcstracker_long-term_scene_flow_estimation_for_point_cloud_sequences.md)
 - [\[CVPR 2026\] OnlinePG: Online Open-Vocabulary Panoptic Mapping with 3D Gaussian Splatting](onlinepg_online_open-vocabulary_panoptic_mapping_with_3d_gaussian_splatting.md)
 - [\[AAAI 2026\] MeshA*: Efficient Path Planning With Motion Primitives](../../AAAI2026/3d_vision/mesha_efficient_path_planning_with_motion_primitives.md)
+
+</div>
 
 <!-- RELATED:END -->

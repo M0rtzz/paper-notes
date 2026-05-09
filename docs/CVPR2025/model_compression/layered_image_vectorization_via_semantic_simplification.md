@@ -126,6 +126,8 @@ VeC（Vector Compactness）衡量矢量图元被语义 mask 高度包含（>85% 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Understanding Multi-layered Transmission Matrices](understanding_multi-layered_transmission_matrices.md)
@@ -133,5 +135,7 @@ VeC（Vector Compactness）衡量矢量图元被语义 mask 高度包含（>85% 
 - [\[CVPR 2025\] Targeted Forgetting of Image Subgroups in CLIP Models](targeted_forgetting_of_image_subgroups_in_clip_models.md)
 - [\[CVPR 2025\] CoA: Towards Real Image Dehazing via Compression-and-Adaptation](coa_towards_real_image_dehazing_via_compression-and-adaptation.md)
 - [\[CVPR 2025\] Learned Image Compression with Dictionary-based Entropy Model](learned_image_compression_with_dictionary-based_entropy_model.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **21** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (34)](../../ACL2026/interpretability/) · [📷 CVPR2026 (31)](../../CVPR2026/interpretability/) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/) · [🧠 NeurIPS2025 (86)](../../NeurIPS2025/interpretability/) · [📹 ICCV2025 (11)](../../ICCV2025/interpretability/)
+
+🔥 **高频主题：** 域适应 ×3 · 少样本学习 ×2
+
 **[Attribute-formed Class-specific Concept Space: Endowing Language Bottleneck Model with Better Interpretability and Scalability](albm_attribute_concept_space.md)**
 
 :   本文提出ALBM（属性形成的语言瓶颈模型），通过构建属性引导的类特异概念空间避免虚假线索推理问题，并利用视觉属性提示学习提取细粒度属性特征，结合描述-摘要-补充（DSS）策略自动生成高质量概念集，在9个基准上实现了更好的可解释性和可扩展性。

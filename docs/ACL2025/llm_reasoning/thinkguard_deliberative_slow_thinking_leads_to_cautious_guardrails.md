@@ -148,6 +148,8 @@ ThinkGuard 分三步：(1) 用 GPT-4o/DeepSeek-R1 对已标注的安全数据生
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Rethinking External Slow-Thinking: From Snowball Errors to Probability of Correct Reasoning](../../ICML2025/llm_reasoning/rethinking_external_slow-thinking_from_snowball_errors_to_probability_of_correct.md)
@@ -155,5 +157,7 @@ ThinkGuard 分三步：(1) 用 GPT-4o/DeepSeek-R1 对已标注的安全数据生
 - [\[ACL 2025\] Unlocking General Long Chain-of-Thought Reasoning Capabilities of Large Language Models via Representation Engineering](glore_long_cot_representation.md)
 - [\[ACL 2025\] Unveiling the Key Factors for Distilling Chain-of-Thought Reasoning](unveiling_the_key_factors_for_distilling_chain-of-thought_reasoning.md)
 - [\[ACL 2025\] Improve Vision Language Model Chain-of-thought Reasoning](improve_vlm_cot_reasoning.md)
+
+</div>
 
 <!-- RELATED:END -->

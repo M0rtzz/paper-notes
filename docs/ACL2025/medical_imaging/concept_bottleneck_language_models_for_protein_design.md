@@ -118,6 +118,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Elucidating the Design Space of Multimodal Protein Language Models](../../ICML2025/medical_imaging/elucidating_the_design_space_of_multimodal_protein_language_models.md)
@@ -125,5 +127,7 @@ tags:
 - [\[NeurIPS 2025\] Protein Design with Dynamic Protein Vocabulary](../../NeurIPS2025/medical_imaging/protein_design_with_dynamic_protein_vocabulary.md)
 - [\[ICLR 2026\] Controlling Repetition in Protein Language Models](../../ICLR2026/medical_imaging/controlling_repetition_in_protein_language_models.md)
 - [\[ICML 2025\] CFP-Gen: Combinatorial Functional Protein Generation via Diffusion Language Models](../../ICML2025/medical_imaging/cfp-gen_combinatorial_functional_protein_generation_via_diffusion_language_model.md)
+
+</div>
 
 <!-- RELATED:END -->

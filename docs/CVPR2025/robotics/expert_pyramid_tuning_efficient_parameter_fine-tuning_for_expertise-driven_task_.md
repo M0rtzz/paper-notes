@@ -158,6 +158,8 @@ EPT 的整体架构类似参数金字塔，由三个核心组件构成：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Phoenix: A Motion-based Self-Reflection Framework for Fine-grained Robotic Action Correction](phoenix_a_motion-based_self-reflection_framework_for_fine-grained_robotic_action.md)
@@ -165,5 +167,7 @@ EPT 的整体架构类似参数金字塔，由三个核心组件构成：
 - [\[CVPR 2025\] Mitigating the Human-Robot Domain Discrepancy in Visual Pre-training for Robotic Manipulation](mitigating_the_human-robot_domain_discrepancy_in_visual_pre-training_for_robotic.md)
 - [\[CVPR 2025\] Let Humanoids Hike! Integrative Skill Development on Complex Trails](let_humanoids_hike_integrative_skill_development_on_complex_trails.md)
 - [\[CVPR 2025\] Towards Long-Horizon Vision-Language Navigation: Platform, Benchmark and Method](towards_long-horizon_vision-language_navigation_platform_benchmark_and_method.md)
+
+</div>
 
 <!-- RELATED:END -->

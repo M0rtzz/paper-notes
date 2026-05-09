@@ -119,6 +119,8 @@ G-NLL 不需要任何训练，是纯推理时方法。关键发现：不应对 G
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Uncertainty Under the Curve: A Sequence-Level Entropy Area Metric for Reasoning LLMs](../../AAAI2026/llm_nlp/uncertainty_under_the_curve_a_sequence-level_entropy_area_metric_for_reasoning_l.md)
@@ -126,5 +128,7 @@ G-NLL 不需要任何训练，是纯推理时方法。关键发现：不应对 G
 - [\[ACL 2025\] Reconsidering LLM Uncertainty Estimation Methods in the Wild](../../ACL2025/llm_nlp/reconsidering_llm_uncertainty_estimation_methods_in_the_wild.md)
 - [\[ICLR 2026\] Rethinking Code Similarity for Automated Algorithm Design with LLMs](rethinking_code_similarity_for_automated_algorithm_design_with_llms.md)
 - [\[ICLR 2026\] From Assumptions to Actions: Turning LLM Reasoning into Uncertainty-Aware Planning](from_assumptions_to_actions_turning_llm_reasoning_into_uncertainty-aware_plannin.md)
+
+</div>
 
 <!-- RELATED:END -->

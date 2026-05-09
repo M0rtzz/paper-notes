@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (43)](../../ACL2026/information_retrieval/) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/) · [🤖 AAAI2026 (28)](../../AAAI2026/information_retrieval/) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/) · [📹 ICCV2025 (8)](../../ICCV2025/information_retrieval/)
+
+🔥 **高频主题：** RAG ×3
+
 **[Don't Lag, RAG: Training-Free Adversarial Detection Using RAG](dont_lag_rag_training-free_adversarial_detection_using_rag.md)**
 
 :   本文提出 VRAG 框架，通过构建对抗补丁数据库 + 视觉检索增强生成（VRAG）+ VLM 推理的免训练 pipeline，实现对多种对抗补丁攻击的高效检测，Gemini-2.0 达到 98% 准确率，开源模型 UI-TARS-72B-DPO 达 95%。

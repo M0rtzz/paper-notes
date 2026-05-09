@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **31** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (20)](../../ACL2026/code_intelligence/) · [📷 CVPR2026 (2)](../../CVPR2026/code_intelligence/) · [🔬 ICLR2026 (23)](../../ICLR2026/code_intelligence/) · [🤖 AAAI2026 (10)](../../AAAI2026/code_intelligence/) · [🧠 NeurIPS2025 (22)](../../NeurIPS2025/code_intelligence/) · [📹 ICCV2025 (1)](../../ICCV2025/code_intelligence/)
+
+🔥 **高频主题：** 代码智能 ×14 · LLM ×8 · Agent ×4
+
 **[LongCodeU: Benchmarking Long-Context Language Models on Long Code Understanding](benchmarking_long-context_language_models_on_long_code_understanding.md)**
 
 :   提出 LongCodeU 基准，从代码单元感知、单元内理解、单元间关系理解和长文档理解四个维度设计 8 个任务，评估 9 个长上下文语言模型在真实仓库级长代码上的理解能力，揭示 32K token 是当前 LCLM 长代码理解的实际上限。

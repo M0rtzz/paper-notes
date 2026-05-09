@@ -131,6 +131,8 @@ MSE 排序一致：FBP > LASSO > VG，且 VG 方差更小。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] FiRe: Fixed-points of Restoration Priors for Solving Inverse Problems](fire_fixed-points_of_restoration_priors_for_solving_inverse_problems.md)
@@ -138,5 +140,7 @@ MSE 排序一致：FBP > LASSO > VG，且 VG 方差更小。
 - [\[NeurIPS 2025\] Learning Cocoercive Conservative Denoisers via Helmholtz Decomposition for Poisson Inverse Problems](../../NeurIPS2025/image_restoration/learning_cocoercive_conservative_denoisers_via_helmholtz_decomposition_for_poiss.md)
 - [\[CVPR 2025\] DiTFlow: Video Motion Transfer with Diffusion Transformers](video_motion_transfer_with_diffusion_transformers.md)
 - [\[CVPR 2025\] AdcSR: Adversarial Diffusion Compression for Real-World Image Super-Resolution](adversarial_diffusion_compression_for_real-world_image_super-resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **26** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (13)](../../ACL2026/recommender/) · [🔬 ICLR2026 (10)](../../ICLR2026/recommender/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/recommender/) · [🧪 ICML2025 (17)](../../ICML2025/recommender/) · [💬 ACL2025 (7)](../../ACL2025/recommender/) · [📷 CVPR2025 (1)](../../CVPR2025/recommender/)
+
+🔥 **高频主题：** 推荐系统 ×11 · LLM ×4
+
 **[Align³GR: Unified Multi-Level Alignment for LLM-based Generative Recommendation](align3gr_unified_multi-level_alignment_for_llm-based_generat.md)**
 
 :   提出统一三层对齐框架 Align³GR，在 token 级（双端 SCID）、行为建模级（多任务 SFT）和偏好级（渐进式 DPO）系统性弥合 LLM 与推荐系统之间的语义-行为鸿沟。

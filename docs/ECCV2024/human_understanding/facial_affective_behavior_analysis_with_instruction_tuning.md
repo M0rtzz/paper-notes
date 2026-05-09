@@ -154,6 +154,8 @@ $$p(X_A|X_V, Z_P, X_Q) = \prod_{i=1}^{L} p_\Theta(x_i | X_V, Z_P, X_Q, X_{A,<i})
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Human Motion Instruction Tuning](../../CVPR2025/human_understanding/human_motion_instruction_tuning.md)
@@ -161,5 +163,7 @@ $$p(X_A|X_V, Z_P, X_Q) = \prod_{i=1}^{L} p_\Theta(x_i | X_V, Z_P, X_Q, X_{A,<i})
 - [\[AAAI 2026\] Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis](../../AAAI2026/human_understanding/facial-r1_aligning_reasoning_and_recognition_for_facial_emotion_analysis.md)
 - [\[ECCV 2024\] Toward Tiny and High-quality Facial Makeup with Data Amplify Learning](toward_tiny_and_high-quality_facial_makeup_with_data_amplify_learning.md)
 - [\[ECCV 2024\] ScanTalk: 3D Talking Heads from Unregistered Scans](scantalk_3d_talking_heads_from_unregistered_scans.md)
+
+</div>
 
 <!-- RELATED:END -->

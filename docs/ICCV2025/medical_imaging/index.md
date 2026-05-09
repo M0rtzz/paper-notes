@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **40** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/medical_imaging/) · [📷 CVPR2026 (153)](../../CVPR2026/medical_imaging/) · [🔬 ICLR2026 (72)](../../ICLR2026/medical_imaging/) · [🤖 AAAI2026 (105)](../../AAAI2026/medical_imaging/) · [🧠 NeurIPS2025 (141)](../../NeurIPS2025/medical_imaging/) · [🧪 ICML2025 (63)](../../ICML2025/medical_imaging/)
+
+🔥 **高频主题：** 医学影像 ×15 · 语义分割 ×12 · 自监督学习 ×3 · 少样本学习 ×2
+
 **[AcZeroTS: Active Learning for Zero-shot Tissue Segmentation in Pathology Images](aczerots_active_learning_for_zeroshot_tissue_segmentation_in.md)**
 
 :   提出AcZeroTS框架，将主动学习与基于VLM的原型引导零样本分割模型ProZS结合，通过同时考虑不确定性、多样性和原型覆盖unseen类的能力来选择最有价值的标注样本，以最少标注实现seen和unseen组织类型的高质量分割。

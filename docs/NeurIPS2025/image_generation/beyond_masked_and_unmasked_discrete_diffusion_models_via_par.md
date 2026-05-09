@@ -121,6 +121,8 @@ MDM-Prime包含三步：(1) 用可逆函数 $f$ 将每个token $x_0^i \in \mathc
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Learnable Sampler Distillation for Discrete Diffusion Models](learnable_sampler_distillation_for_discrete_diffusion_models.md)
@@ -128,5 +130,7 @@ MDM-Prime包含三步：(1) 用可逆函数 $f$ 将每个token $x_0^i \in \mathc
 - [\[NeurIPS 2025\] Non-Markovian Discrete Diffusion with Causal Language Models](non-markovian_discrete_diffusion_with_causal_language_models.md)
 - [\[NeurIPS 2025\] Constrained Discrete Diffusion](constrained_discrete_diffusion.md)
 - [\[NeurIPS 2025\] Information-Theoretic Discrete Diffusion](information-theoretic_discrete_diffusion.md)
+
+</div>
 
 <!-- RELATED:END -->

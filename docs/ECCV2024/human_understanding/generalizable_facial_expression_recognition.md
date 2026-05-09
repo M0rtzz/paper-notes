@@ -169,6 +169,8 @@ CAFE 的跨域均值达到 63.48%，相比最佳基线 EAC（53.70%）提升 **+
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SynFER: Towards Boosting Facial Expression Recognition with Synthetic Data](../../ICCV2025/human_understanding/synfer_towards_boosting_facial_expression_recognition_with_synthetic_data.md)
@@ -176,5 +178,7 @@ CAFE 的跨域均值达到 63.48%，相比最佳基线 EAC（53.70%）提升 **+
 - [\[ECCV 2024\] TF-FAS: Twofold-Element Fine-Grained Semantic Guidance for Generalizable Face Anti-Spoofing](tf-fas_twofold-element_fine-grained_semantic_guidance_for_generalizable_face_ant.md)
 - [\[ECCV 2024\] How Video Meetings Change Your Expression](how_video_meetings_change_your_expression.md)
 - [\[ECCV 2024\] Facial Affective Behavior Analysis with Instruction Tuning](facial_affective_behavior_analysis_with_instruction_tuning.md)
+
+</div>
 
 <!-- RELATED:END -->

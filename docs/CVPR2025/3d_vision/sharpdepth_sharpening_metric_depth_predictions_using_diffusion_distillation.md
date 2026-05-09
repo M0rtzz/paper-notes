@@ -117,6 +117,8 @@ $$\mathcal{L}_{total} = \lambda_{SDS} \cdot \mathcal{L}_{SDS} + \lambda_{recons}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Depth Any Camera: Zero-Shot Metric Depth Estimation from Any Camera](depth_any_camera_zero-shot_metric_depth_estimation_from_any_camera.md)
@@ -124,5 +126,7 @@ $$\mathcal{L}_{total} = \lambda_{SDS} \cdot \mathcal{L}_{SDS} + \lambda_{recons}
 - [\[CVPR 2025\] Seurat: From Moving Points to Depth](seurat_from_moving_points_to_depth.md)
 - [\[CVPR 2025\] Scalable Autoregressive Monocular Depth Estimation](scalable_autoregressive_monocular_depth_estimation.md)
 - [\[CVPR 2025\] Vision-Language Embodiment for Monocular Depth Estimation](vision-language_embodiment_for_monocular_depth_estimation.md)
+
+</div>
 
 <!-- RELATED:END -->

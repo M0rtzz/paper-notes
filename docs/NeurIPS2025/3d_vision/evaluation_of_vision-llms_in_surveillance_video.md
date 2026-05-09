@@ -130,6 +130,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] NerfBaselines: Consistent and Reproducible Evaluation of Novel View Synthesis Methods](nerfbaselines_consistent_and_reproducible_evaluation_of_novel_view_synthesis_met.md)
@@ -137,5 +139,7 @@ tags:
 - [\[CVPR 2026\] Ego-1K: A Large-Scale Multiview Video Dataset for Egocentric Vision](../../CVPR2026/3d_vision/ego-1k_--_a_large-scale_multiview_video_dataset_for_egocentric_vision.md)
 - [\[CVPR 2025\] Gen3DEval: Using vLLMs for Automatic Evaluation of Generated 3D Objects](../../CVPR2025/3d_vision/gen3deval_using_vllms_for_automatic_evaluation_of_generated_3d_objects.md)
 - [\[CVPR 2025\] Eval3D: Interpretable and Fine-grained Evaluation for 3D Generation](../../CVPR2025/3d_vision/eval3d_interpretable_and_fine-grained_evaluation_for_3d_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

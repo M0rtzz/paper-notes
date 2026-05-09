@@ -157,6 +157,8 @@ $$\hat{\sigma}^{-2}\hat{d}_m^\top \hat{\Xi}_n^{-1} \hat{d}_m \sim \chi_m^2$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Statistical Inference Under Performativity](statistical_inference_under_performativity.md)
@@ -164,5 +166,7 @@ $$\hat{\sigma}^{-2}\hat{d}_m^\top \hat{\Xi}_n^{-1} \hat{d}_m \sim \chi_m^2$$
 - [\[NeurIPS 2025\] Revisiting Agnostic Boosting](revisiting_agnostic_boosting.md)
 - [\[ICML 2025\] Regression for the Mean: Auto-Evaluation and Inference with Few Labels through Post-hoc Regression](../../ICML2025/others/regression_for_the_mean_auto-evaluation_and_inference_with_few_labels_through_po.md)
 - [\[NeurIPS 2025\] Regression Trees Know Calculus](regression_trees_know_calculus.md)
+
+</div>
 
 <!-- RELATED:END -->

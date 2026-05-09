@@ -123,6 +123,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] From Lists to Emojis: How Format Bias Affects Model Alignment](from_lists_to_emojis_how_format_bias_affects_model_alignment.md)
@@ -130,5 +132,7 @@ tags:
 - [\[ACL 2025\] Retrospective Learning from Interactions](retrospective_learning_from_interactions.md)
 - [\[ACL 2025\] I0T: Embedding Standardization Method Towards Zero Modality Gap](i0t_embedding_standardization_method_towards_zero_modality_gap.md)
 - [\[ACL 2025\] FastDraft: How to Train Your Draft](fastdraft_how_to_train_your_draft.md)
+
+</div>
 
 <!-- RELATED:END -->

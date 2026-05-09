@@ -193,6 +193,8 @@ $$\text{原始数据} \xrightarrow{\text{过滤}} \text{清洗后数据} \xright
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] scSSL-Bench: Benchmarking Self-Supervised Learning for Single-Cell Data](scssl-bench_benchmarking_self-supervised_learning_for_single-cell_data.md)
@@ -200,5 +202,7 @@ $$\text{原始数据} \xrightarrow{\text{过滤}} \text{清洗后数据} \xright
 - [\[CVPR 2026\] cryoSENSE: Compressive Sensing Enables High-throughput Microscopy with Sparse and Generative Priors on the Protein Cryo-EM Image Manifold](../../CVPR2026/medical_imaging/cryosense_compressive_sensing_enables_high-throughput_microscopy_with_sparse_and.md)
 - [\[ICML 2025\] PolyConf: Unlocking Polymer Conformation Generation through Hierarchical Generative Models](polyconf_unlocking_polymer_conformation_generation_through_hierarchical_generati.md)
 - [\[ICML 2025\] Foundation Models for Clinical Records at Health System Scale](foundation_models_for_clinical_records_at_health_system_scale.md)
+
+</div>
 
 <!-- RELATED:END -->

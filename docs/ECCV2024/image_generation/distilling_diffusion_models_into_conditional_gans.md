@@ -168,6 +168,8 @@ $$d_{\text{E-LatentLPIPS}}(\mathbf{x}_0, \mathbf{x}_1) = \mathbb{E}_{\mathcal{T}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] MacDiff: Unified Skeleton Modeling with Masked Conditional Diffusion](macdiff_unified_skeleton_modeling_with_masked_conditional_diffusion.md)
@@ -175,5 +177,7 @@ $$d_{\text{E-LatentLPIPS}}(\mathbf{x}_0, \mathbf{x}_1) = \mathbb{E}_{\mathcal{T}
 - [\[AAAI 2026\] DICE: Distilling Classifier-Free Guidance into Text Embeddings](../../AAAI2026/image_generation/dice_distilling_classifier-free_guidance_into_text_embedding.md)
 - [\[ECCV 2024\] Realistic Human Motion Generation with Cross-Diffusion Models](realistic_human_motion_generation_with_cross-diffusion_models.md)
 - [\[ECCV 2024\] Learning Differentially Private Diffusion Models via Stochastic Adversarial Distillation](learning_differentially_private_diffusion_models_via_stochastic_adversarial_dist.md)
+
+</div>
 
 <!-- RELATED:END -->

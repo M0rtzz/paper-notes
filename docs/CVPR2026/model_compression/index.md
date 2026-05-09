@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **57** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (42)](../../ACL2026/model_compression/) · [🔬 ICLR2026 (92)](../../ICLR2026/model_compression/) · [🤖 AAAI2026 (54)](../../AAAI2026/model_compression/) · [🧠 NeurIPS2025 (137)](../../NeurIPS2025/model_compression/) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/) · [🧪 ICML2025 (71)](../../ICML2025/model_compression/)
+
+🔥 **高频主题：** 压缩/编码 ×8 · 模型压缩 ×8 · 扩散模型 ×7 · 对抗鲁棒 ×4 · 个性化生成 ×2
+
 **[4D-RGPT: Toward Region-level 4D Understanding via Perceptual Distillation](4d_rgpt_toward_region_level_4d_understanding_via_perceptual_distillation.md)**
 
 :   提出4D-RGPT和感知4D蒸馏（P4D）框架，通过从冻结的4D感知专家模型中蒸馏深度和光流等知识到MLLM中增强4D感知，同时构建R4D-Bench——首个区域级4D视频问答基准。

@@ -162,6 +162,8 @@ $$R_{\text{QMA}} = \text{InsFollowing} \cdot (0.4 + 0.6 \cdot \text{Quality})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Visual-ERM: Reward Modeling for Visual Equivalence](visual-erm_reward_modeling_for_visual_equivalence.md)
@@ -169,5 +171,7 @@ $$R_{\text{QMA}} = \text{InsFollowing} \cdot (0.4 + 0.6 \cdot \text{Quality})$$
 - [\[NeurIPS 2025\] Towards Robust Zero-Shot Reinforcement Learning](../../NeurIPS2025/image_generation/towards_robust_zero-shot_reinforcement_learning.md)
 - [\[CVPR 2025\] Reward Fine-Tuning Two-Step Diffusion Models via Learning Differentiable Latent-Space Surrogate Reward](reward_fine-tuning_two-step_diffusion_models_via_learning_differentiable_latent-.md)
 - [\[CVPR 2025\] ReNeg: Learning Negative Embedding with Reward Guidance](reneg_learning_negative_embedding_with_reward_guidance.md)
+
+</div>
 
 <!-- RELATED:END -->

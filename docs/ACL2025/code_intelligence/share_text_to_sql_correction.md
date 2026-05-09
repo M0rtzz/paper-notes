@@ -138,6 +138,8 @@ SHARE-8B 在 BIRD 上实现 14.80% 的相对提升，且推理成本仅为最经
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] STaR-SQL: Self-Taught Reasoner for Text-to-SQL](star-sql_self-taught_reasoner_for_text-to-sql.md)
@@ -145,5 +147,7 @@ SHARE-8B 在 BIRD 上实现 14.80% 的相对提升，且推理成本仅为最经
 - [\[ACL 2025\] CoRet: Improved Retriever for Code Editing](coret_improved_retriever_for_code_editing.md)
 - [\[ACL 2025\] Rethinking Repetition Problems of LLMs in Code Generation](rethinking_repetition_problems_of_llms_in_code_generation.md)
 - [\[ACL 2025\] Revisit Self-Debugging with Self-Generated Tests for Code Generation](revisit_self-debugging_with_self-generated_tests_for_code_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

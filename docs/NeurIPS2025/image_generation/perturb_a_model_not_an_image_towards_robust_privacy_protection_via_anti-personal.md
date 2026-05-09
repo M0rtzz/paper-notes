@@ -156,6 +156,8 @@ APDM的DINO仅为0.1167（vs 最优基线0.4411），即使所有输入图像均
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Anti-Tamper Protection for Unauthorized Individual Image Generation](../../ICCV2025/image_generation/anti-tamper_protection_for_unauthorized_individual_image_generation.md)
@@ -163,5 +165,7 @@ APDM的DINO仅为0.1167（vs 最优基线0.4411），即使所有输入图像均
 - [\[NeurIPS 2025\] ObCLIP: Oblivious Cloud-Device Hybrid Image Generation with Privacy Preservation](obclip_oblivious_cloud-device_hybrid_image_generation_with_privacy_preservation.md)
 - [\[CVPR 2025\] Enhancing Facial Privacy Protection via Weakening Diffusion Purification](../../CVPR2025/image_generation/enhancing_facial_privacy_protection_via_weakening_diffusion_purification.md)
 - [\[NeurIPS 2025\] Vicinity-Guided Discriminative Latent Diffusion for Privacy-Preserving Domain Adaptation](vicinity-guided_discriminative_latent_diffusion_for_privacy-preserving_domain_ad.md)
+
+</div>
 
 <!-- RELATED:END -->

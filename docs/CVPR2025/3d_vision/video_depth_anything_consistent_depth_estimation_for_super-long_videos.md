@@ -121,6 +121,8 @@ $\mathcal{L}_{\text{all}} = \alpha\mathcal{L}_{\text{TGM}} + \beta\mathcal{L}_{\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] DepthCrafter: Generating Consistent Long Depth Sequences for Open-world Videos](depthcrafter_generating_consistent_long_depth_sequences_for_open-world_videos.md)
@@ -128,5 +130,7 @@ $\mathcal{L}_{\text{all}} = \alpha\mathcal{L}_{\text{TGM}} + \beta\mathcal{L}_{\
 - [\[ICCV 2025\] Amodal Depth Anything: Amodal Depth Estimation in the Wild](../../ICCV2025/3d_vision/amodal_depth_anything_amodal_depth_estimation_in_the_wild.md)
 - [\[CVPR 2025\] Scalable Autoregressive Monocular Depth Estimation](scalable_autoregressive_monocular_depth_estimation.md)
 - [\[CVPR 2025\] Depth Any Camera: Zero-Shot Metric Depth Estimation from Any Camera](depth_any_camera_zero-shot_metric_depth_estimation_from_any_camera.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -208,6 +208,8 @@ $$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Chameleon: A Flexible Data-mixing Framework for Language Model Pretraining and Finetuning](chameleon_a_flexible_data-mixing_framework_for_language_model_pretraining_and_fi.md)
@@ -215,5 +217,7 @@ $$
 - [\[CVPR 2025\] DreamText: High Fidelity Scene Text Synthesis](../../CVPR2025/llm_pretraining/dreamtext_high_fidelity_scene_text_synthesis.md)
 - [\[ACL 2025\] Model Performance-Guided Evaluation Data Selection for Effective Prompt Optimization](../../ACL2025/llm_pretraining/model_performance-guided_evaluation_data_selection_for_effective_prompt_optimiza.md)
 - [\[NeurIPS 2025\] Final-Model-Only Data Attribution with a Unifying View of Gradient-Based Methods](../../NeurIPS2025/llm_pretraining/final-model-only_data_attribution_with_a_unifying_view_of_gradient-based_methods.md)
+
+</div>
 
 <!-- RELATED:END -->

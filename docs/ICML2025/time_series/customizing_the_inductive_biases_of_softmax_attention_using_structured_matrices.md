@@ -199,6 +199,8 @@ MLR attention 的层级结构天然适合时间序列中的多尺度时间依赖
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] TransPL: VQ-Code Transition Matrices for Pseudo-Labeling of Time Series Unsupervised Domain Adaptation](transpl_vq-code_transition_matrices_for_pseudo-labeling_of_time_series_unsupervi.md)
@@ -206,5 +208,7 @@ MLR attention 的层级结构天然适合时间序列中的多尺度时间依赖
 - [\[NeurIPS 2025\] Structured Temporal Causality for Interpretable Multivariate Time Series Anomaly Detection](../../NeurIPS2025/time_series/structured_temporal_causality_for_interpretable_multivariate_time_series_anomaly.md)
 - [\[NeurIPS 2025\] Less is More: Unlocking Specialization of Time Series Foundation Models via Structured Pruning](../../NeurIPS2025/time_series/less_is_more_unlocking_specialization_of_time_series_foundation_models_via_struc.md)
 - [\[NeurIPS 2025\] MAESTRO: Adaptive Sparse Attention and Robust Learning for Multimodal Dynamic Time Series](../../NeurIPS2025/time_series/maestro_adaptive_sparse_attention_and_robust_learning_for_multimodal_dynamic_tim.md)
+
+</div>
 
 <!-- RELATED:END -->

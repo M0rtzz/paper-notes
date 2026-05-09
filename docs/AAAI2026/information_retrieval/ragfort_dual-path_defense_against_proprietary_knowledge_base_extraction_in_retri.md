@@ -196,6 +196,8 @@ $$\hat{r}(x_{<t}, z) = 1 \iff \max_y q_t(y) < \max_y p_t(y) - \alpha \cdot D_{\t
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Detecting RAG Extraction Attack via Dual-Path Runtime Integrity Game](../../ACL2026/information_retrieval/detecting_rag_extraction_attack_via_dual-path_runtime_integrity_game.md)
@@ -203,5 +205,7 @@ $$\hat{r}(x_{<t}, z) = 1 \iff \max_y q_t(y) < \max_y p_t(y) - \alpha \cdot D_{\t
 - [\[AAAI 2026\] Knowledge Completes the Vision: A Multimodal Entity-aware Retrieval-Augmented Generation Framework for News Image Captioning](knowledge_completes_the_vision_a_multimodal_entity-aware_retrieval-augmented_gen.md)
 - [\[AAAI 2026\] Exposing the Cracks: Vulnerabilities of Retrieval-Augmented LLM-Based Machine Translation](exposing_the_cracks_vulnerabilities_of_retrieval-augmented_llm-based_machine_tra.md)
 - [\[AAAI 2026\] SR-KI: Scalable and Real-Time Knowledge Integration into LLMs via Supervised Attention](sr-ki_scalable_and_real-time_knowledge_integration_into_llms_via_supervised_atte.md)
+
+</div>
 
 <!-- RELATED:END -->

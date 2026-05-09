@@ -102,6 +102,8 @@ Dynamic-DINO基于复现的Grounding DINO 1.5 Edge（EfficientViT-L1 + BERT-base
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] YOLOE: Real-Time Seeing Anything](yoloe_realtime_seeing_anything.md)
@@ -109,5 +111,7 @@ Dynamic-DINO基于复现的Grounding DINO 1.5 Edge（EfficientViT-L1 + BERT-base
 - [\[CVPR 2025\] ABRA: Teleporting Fine-Tuned Knowledge Across Domains for Open-Vocabulary Object Detection](../../CVPR2025/object_detection/abra_teleporting_fine-tuned_knowledge_across_domains_for_open-vocabulary_object_.md)
 - [\[NeurIPS 2025\] DitHub: A Modular Framework for Incremental Open-Vocabulary Object Detection](../../NeurIPS2025/object_detection/dithub_a_modular_framework_for_incremental_openvocabulary_ob.md)
 - [\[ICML 2025\] FG-CLIP: Fine-Grained Visual and Textual Alignment](../../ICML2025/object_detection/fg-clip_fine-grained_visual_and_textual_alignment.md)
+
+</div>
 
 <!-- RELATED:END -->

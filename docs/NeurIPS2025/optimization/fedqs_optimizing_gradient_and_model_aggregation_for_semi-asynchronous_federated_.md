@@ -172,6 +172,8 @@ $$w_{i,e}^t = w_{i,e-1}^t - \eta_i^t \left[\sum_{r=1}^{e}(m_i^t)^r \nabla F_{i,e
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Layer-wise Update Aggregation with Recycling for Communication-Efficient Federated Learning](layer-wise_update_aggregation_with_recycling_for_communication-efficient_federat.md)
@@ -179,5 +181,7 @@ $$w_{i,e}^t = w_{i,e-1}^t - \eta_i^t \left[\sum_{r=1}^{e}(m_i^t)^r \nabla F_{i,e
 - [\[NeurIPS 2025\] Streaming Federated Learning with Markovian Data](streaming_federated_learning_with_markovian_data.md)
 - [\[NeurIPS 2025\] Oracle-Efficient Combinatorial Semi-Bandits](oracle-efficient_combinatorial_semi-bandits.md)
 - [\[NeurIPS 2025\] Learning Reconfigurable Representations for Multimodal Federated Learning with Missing Data](learning_reconfigurable_representations_for_multimodal_federated_learning_with_m.md)
+
+</div>
 
 <!-- RELATED:END -->

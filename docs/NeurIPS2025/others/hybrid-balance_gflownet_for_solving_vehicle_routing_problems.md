@@ -137,6 +137,8 @@ CVRP基准测试（Gap%相对于LKH）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] OR-R1: Automating Modeling and Solving of Operations Research Optimization Problems](../../AAAI2026/others/or-r1_automating_modeling_and_solving_of_operations_research_optimization_proble.md)
@@ -144,5 +146,7 @@ CVRP基准测试（Gap%相对于LKH）：
 - [\[ACL 2025\] You need to MIMIC to get FAME: Solving Meeting Transcript Scarcity with Multi-Agent Conversations](../../ACL2025/others/you_need_to_mimic_to_get_fame_solving_meeting_transcript_scarcity_with_a_multi-a.md)
 - [\[ACL 2025\] Hanging in the Balance: Pivotal Moments in Crisis Counseling Conversations](../../ACL2025/others/hanging_in_the_balance_pivotal_moments_in_crisis_counseling_conversations.md)
 - [\[ACL 2025\] MIR: Methodology Inspiration Retrieval for Scientific Research Problems](../../ACL2025/others/mir_methodology_inspiration_retrieval_for_scientific_research_problems.md)
+
+</div>
 
 <!-- RELATED:END -->

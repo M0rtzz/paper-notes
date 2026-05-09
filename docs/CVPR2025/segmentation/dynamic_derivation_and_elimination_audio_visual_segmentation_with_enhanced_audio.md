@@ -141,6 +141,8 @@ DDESeg (HTSAT) vs 次优方法：S4 +3.7, MS3 +3.9, **Semantic +6.4**
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Robust Audio-Visual Segmentation via Audio-Guided Visual Convergent Alignment](robust_audio-visual_segmentation_via_audio-guided_visual_convergent_alignment.md)
@@ -148,5 +150,7 @@ DDESeg (HTSAT) vs 次优方法：S4 +3.7, MS3 +3.9, **Semantic +6.4**
 - [\[CVPR 2025\] Audio-Visual Instance Segmentation](audio-visual_instance_segmentation.md)
 - [\[CVPR 2025\] SAM2-LOVE: Segment Anything Model 2 in Language-Aided Audio-Visual Scenes](sam2-love_segment_anything_model_2_in_language-aided_audio-visual_scenes.md)
 - [\[ICCV 2025\] Implicit Counterfactual Learning for Audio-Visual Segmentation](../../ICCV2025/segmentation/implicit_counterfactual_learning_for_audio-visual_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -157,6 +157,8 @@ $$a_{ijk} = \text{Softmax}_{j,k}\left(\frac{f_i g_j + g_j h_k + h_k f_i}{\sqrt{d
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] CAT: Circular-Convolutional Attention for Sub-Quadratic Transformers](cat_circular-convolutional_attention_for_sub-quadratic_transformers.md)
@@ -164,5 +166,7 @@ $$a_{ijk} = \text{Softmax}_{j,k}\left(\frac{f_i g_j + g_j h_k + h_k f_i}{\sqrt{d
 - [\[AAAI 2026\] Vision Transformers are Circulant Attention Learners](../../AAAI2026/llm_nlp/vision_transformers_are_circulant_attention_learners.md)
 - [\[NeurIPS 2025\] Linear Transformers Implicitly Discover Unified Numerical Algorithms](linear_transformers_implicitly_discover_unified_numerical_algorithms.md)
 - [\[NeurIPS 2025\] In-Context Learning of Linear Dynamical Systems with Transformers: Approximation Bounds and Depth-Separation](in-context_learning_of_linear_dynamical_systems_with_transformers_approximation_.md)
+
+</div>
 
 <!-- RELATED:END -->

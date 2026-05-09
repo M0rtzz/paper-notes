@@ -181,6 +181,8 @@ $$\hat{r}_{c,b,t} = \hat{r}_c + b_t$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] LungNoduleAgent: A Collaborative Multi-Agent System for Precision Diagnosis of Lung Nodules](lungnoduleagent_a_collaborative_multi-agent_system_for_precision_diagnosis_of_lu.md)
@@ -188,5 +190,7 @@ $$\hat{r}_{c,b,t} = \hat{r}_c + b_t$$
 - [\[AAAI 2026\] From Policy to Logic for Efficient and Interpretable Coverage Assessment](from_policy_to_logic_for_efficient_and_interpretable_coverage_assessment.md)
 - [\[ICML 2025\] SPACE: Your Genomic Profile Predictor is a Powerful DNA Foundation Model](../../ICML2025/medical_imaging/space_your_genomic_profile_predictor_is_a_powerful_dna_foundation_model.md)
 - [\[AAAI 2026\] Federated CLIP for Resource-Efficient Heterogeneous Medical Image Classification](federated_clip_for_resource-efficient_heterogeneous_medical_image_classification.md)
+
+</div>
 
 <!-- RELATED:END -->

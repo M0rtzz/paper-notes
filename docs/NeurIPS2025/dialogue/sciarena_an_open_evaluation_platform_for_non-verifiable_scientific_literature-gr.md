@@ -118,6 +118,8 @@ SciArena 采用"人类偏好投票 + 自动评估元基准"的双层框架。底
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Investigating Non-Transitivity in LLM-as-a-Judge](../../ICML2025/dialogue/investigating_non-transitivity_in_llm-as-a-judge.md)
@@ -125,5 +127,7 @@ SciArena 采用"人类偏好投票 + 自动评估元基准"的双层框架。底
 - [\[ICLR 2026\] Non-Collaborative User Simulators for Tool Agents](../../ICLR2026/dialogue/non-collaborative_user_simulators_for_tool_agents.md)
 - [\[AAAI 2026\] Canoe: Teaching LLMs to Maintain Contextual Faithfulness via Synthetic Tasks and RL](../../AAAI2026/dialogue/teaching_large_language_models_to_maintain_contextual_faithfulness_via_synthetic.md)
 - [\[ACL 2025\] Detecting Referring Expressions in Visually Grounded Dialogue with Autoregressive Language Models](../../ACL2025/dialogue/detecting_referring_expressions_in_visually_grounded_dialogue_with_autoregressiv.md)
+
+</div>
 
 <!-- RELATED:END -->

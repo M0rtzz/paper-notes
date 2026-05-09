@@ -167,6 +167,8 @@ ScanNet 上 AUC@5° 比 PRISM 提升 24.6%，IMIM 多实例匹配提升 ~12% 相
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] AlignTok: Aligning Visual Foundation Encoders to Tokenizers for Diffusion Models](../../ICLR2026/image_generation/aligntok_aligning_visual_foundation_encoders_to_tokenizers_for_diffusion_models.md)
@@ -174,5 +176,7 @@ ScanNet 上 AUC@5° 比 PRISM 提升 24.6%，IMIM 多实例匹配提升 ~12% 相
 - [\[ICCV 2025\] GAP: Gaussianize Any Point Clouds with Text Guidance](gap_gaussianize_any_point_clouds_with_text_guidance.md)
 - [\[ICCV 2025\] Balanced Image Stylization with Style Matching Score](balanced_image_stylization_with_style_matching_score.md)
 - [\[ICCV 2025\] LazyMAR: Accelerating Masked Autoregressive Models via Feature Caching](lazymar_accelerating_masked_autoregressive_models_via_feature_caching.md)
+
+</div>
 
 <!-- RELATED:END -->

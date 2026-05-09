@@ -128,6 +128,8 @@ GNN 面临局部与全局信息的根本矛盾：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] On Measuring Long-Range Interactions in Graph Neural Networks](../../ICML2025/graph_learning/on_measuring_long-range_interactions_in_graph_neural_networks.md)
@@ -135,5 +137,7 @@ GNN 面临局部与全局信息的根本矛盾：
 - [\[NeurIPS 2025\] Sketch-Augmented Features Improve Learning Long-Range Dependencies in Graph Neural Networks](../../NeurIPS2025/graph_learning/sketch-augmented_features_improve_learning_long-range_dependencies_in_graph_neur.md)
 - [\[NeurIPS 2025\] What Expressivity Theory Misses: Message Passing Complexity for GNNs](../../NeurIPS2025/graph_learning/what_expressivity_theory_misses_message_passing_complexity_for_gnns.md)
 - [\[CVPR 2025\] Hypergraph Vision Transformers: Images are More than Nodes, More than Edges](../../CVPR2025/graph_learning/hypergraph_vision_transformers_images_are_more_than_nodes_more_than_edges.md)
+
+</div>
 
 <!-- RELATED:END -->

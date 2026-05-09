@@ -172,6 +172,8 @@ $$\mathcal{L}(\theta; \mathcal{D}) = \mathbb{E}_{(x,y)\sim\mathcal{D}}[\beta \ma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Memorization Inheritance in Sequence-Level Knowledge Distillation for Neural Machine Translation](memorization_inheritance_seqkd.md)
@@ -179,5 +181,7 @@ $$\mathcal{L}(\theta; \mathcal{D}) = \mathbb{E}_{(x,y)\sim\mathcal{D}}[\beta \ma
 - [\[ACL 2025\] Registering Source Tokens to Target Language Spaces in Multilingual Neural Machine Translation](registering_source_tokens_to_target_language_spaces_in_multilingual_neural_machi.md)
 - [\[ACL 2025\] Watching the Watchers: Exposing Gender Disparities in Machine Translation Quality Estimation](watching_the_watchers_exposing_gender_disparities_in_machine_translation_quality.md)
 - [\[ACL 2025\] Team ACK at SemEval-2025 Task 2: Beyond Word-for-Word Machine Translation for English-Korean Pairs](team_ack_at_semeval-2025_task_2_beyond_word-for-word_machine_translation_for_eng.md)
+
+</div>
 
 <!-- RELATED:END -->

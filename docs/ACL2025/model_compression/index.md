@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **64** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (42)](../../ACL2026/model_compression/) · [📷 CVPR2026 (57)](../../CVPR2026/model_compression/) · [🔬 ICLR2026 (92)](../../ICLR2026/model_compression/) · [🤖 AAAI2026 (54)](../../AAAI2026/model_compression/) · [🧠 NeurIPS2025 (137)](../../NeurIPS2025/model_compression/) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/)
+
+🔥 **高频主题：** 模型压缩 ×19 · LLM ×18 · 压缩/编码 ×14 · 知识蒸馏 ×4 · 对抗鲁棒 ×3
+
 **[500xCompressor: Generalized Prompt Compression for Large Language Models](500xcompressor_generalized_prompt_compression_for_large_language_models.md)**
 
 :   提出 500xCompressor，将最多约 500 个自然语言 token 压缩为最少 1 个特殊 token 的 KV 值，实现 6x 到 480x 的压缩比，仅增加约 0.25% 的参数，LLM 在压缩后保留 62.26%-72.89% 的原始能力，显著超越 ICAE 基线。

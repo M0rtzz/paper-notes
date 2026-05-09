@@ -117,6 +117,8 @@ $$R_N \leq \mathcal{O}\left(\sqrt{\mathcal{I}_N^3(\bm{f}^*, S) \cdot N}\right)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Scalable Exploration for High-Dimensional Continuous Control via Value-Guided Flow](scalable_exploration_for_high-dimensional_continuous_control_via_value-guided_fl.md)
@@ -124,5 +126,7 @@ $$R_N \leq \mathcal{O}\left(\sqrt{\mathcal{I}_N^3(\bm{f}^*, S) \cdot N}\right)$$
 - [\[ICLR 2026\] Continuous-Time Value Iteration for Multi-Agent Reinforcement Learning](continuous-time_value_iteration_for_multi-agent_reinforcement_learning.md)
 - [\[ICLR 2026\] Safe Continuous-time Multi-Agent Reinforcement Learning via Epigraph Form](safe_continuous-time_multi-agent_reinforcement_learning_via_epigraph_form.md)
 - [\[ICLR 2026\] Spectral Bellman Method: Unifying Representation and Exploration in RL](spectral_bellman_method_unifying_representation_and_exploration_in_rl.md)
+
+</div>
 
 <!-- RELATED:END -->

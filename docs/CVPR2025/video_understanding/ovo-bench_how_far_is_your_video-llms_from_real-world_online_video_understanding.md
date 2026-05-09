@@ -120,6 +120,8 @@ OVO-Bench 是评估基准，不涉及训练。标注通过 GPT-4o 和 Gemini-1.5
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] LiveStar: Live Streaming Assistant for Real-World Online Video Understanding](../../NeurIPS2025/video_understanding/livestar_live_streaming_assistant_for_real-world_online_video_understanding.md)
@@ -127,5 +129,7 @@ OVO-Bench 是评估基准，不涉及训练。标注通过 GPT-4o 和 Gemini-1.5
 - [\[CVPR 2025\] DynFocus: Dynamic Cooperative Network Empowers LLMs with Video Understanding](dynfocus_dynamic_cooperative_network_empowers_llms_with_video_understanding.md)
 - [\[CVPR 2025\] LION-FS: Fast & Slow Video-Language Thinker as Online Video Assistant](lion-fs_fast_slow_video-language_thinker_as_online_video_assistant.md)
 - [\[CVPR 2025\] Bootstrap Your Own Views: Masked Ego-Exo Modeling for Fine-Grained View-Invariant Video Representations](bootstrap_your_own_views_masked_ego-exo_modeling_for_fine-grained_view-invariant.md)
+
+</div>
 
 <!-- RELATED:END -->

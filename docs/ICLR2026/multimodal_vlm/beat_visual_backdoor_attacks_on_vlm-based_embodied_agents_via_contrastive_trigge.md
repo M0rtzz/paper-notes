@@ -115,6 +115,8 @@ Stage 1: 标准SFT（交叉熵）。Stage 2: DPO + NLL 混合对比损失，$\be
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] MindPower: Enabling Theory-of-Mind Reasoning in VLM-based Embodied Agents](../../CVPR2026/multimodal_vlm/mindpower_enabling_theoryofmind_reasoning_in_vlmba.md)
@@ -122,5 +124,7 @@ Stage 1: 标准SFT（交叉熵）。Stage 2: DPO + NLL 混合对比损失，$\be
 - [\[ICLR 2026\] K-Sort Eval: Efficient Preference Evaluation for Visual Generation via Corrected VLM-as-a-Judge](k-sort_eval_efficient_preference_evaluation_for_visual_generation_via_corrected_.md)
 - [\[CVPR 2025\] From Multimodal LLMs to Generalist Embodied Agents: Methods and Lessons](../../CVPR2025/multimodal_vlm/from_multimodal_llms_to_generalist_embodied_agents_methods_and_lessons.md)
 - [\[CVPR 2026\] AVR: Adaptive VLM Routing for Computer Use Agents](../../CVPR2026/multimodal_vlm/adaptive_vision-language_model_routing_for_computer_use_agents.md)
+
+</div>
 
 <!-- RELATED:END -->

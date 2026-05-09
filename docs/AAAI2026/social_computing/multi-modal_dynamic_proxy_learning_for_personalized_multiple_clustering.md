@@ -171,6 +171,8 @@ $$\mathcal{L} = \underbrace{\frac{1}{D}\sum_{i=1}^{D}(1-\cos(\mathbf{f}_i, \math
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Cross-modal Prompting for Balanced Incomplete Multi-modal Emotion Recognition](cross-modal_prompting_for_balanced_incomplete_multi-modal_emotion_recognition.md)
@@ -178,5 +180,7 @@ $$\mathcal{L} = \underbrace{\frac{1}{D}\sum_{i=1}^{D}(1-\cos(\mathbf{f}_i, \math
 - [\[ECCV 2024\] Multi-Label Cluster Discrimination for Visual Representation Learning](../../ECCV2024/social_computing/multi-label_cluster_discrimination_for_visual_representation_learning.md)
 - [\[AAAI 2026\] SceneJailEval: A Scenario-Adaptive Multi-Dimensional Framework for Jailbreak Evaluation](scenejaileval_a_scenario-adaptive_multi-dimensional_framework_for_jailbreak_eval.md)
 - [\[AAAI 2026\] Beyond Detection: Exploring Evidence-based Multi-Agent Debate for Misinformation Intervention and Persuasion](beyond_detection_exploring_evidence-based_multi-agent_debate_for_misinformation_.md)
+
+</div>
 
 <!-- RELATED:END -->

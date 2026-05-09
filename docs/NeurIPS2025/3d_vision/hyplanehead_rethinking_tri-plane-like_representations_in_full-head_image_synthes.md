@@ -159,6 +159,8 @@ HyPlaneHead 是一个 3D 感知 GAN，生成器输出单通道统一特征图，
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Learning to Generate Conditional Tri-Plane for 3D-Aware Expression Controllable Portrait Animation](../../ECCV2024/3d_vision/learning_to_generate_conditional_tri-plane_for_3d-aware_expression_controllable_.md)
@@ -166,5 +168,7 @@ HyPlaneHead 是一个 3D 感知 GAN，生成器输出单通道统一特征图，
 - [\[ICCV 2025\] From Image to Video: An Empirical Study of Diffusion Representations](../../ICCV2025/3d_vision/from_image_to_video_an_empirical_study_of_diffusion_representations.md)
 - [\[ICCV 2025\] HumanOLAT: A Large-Scale Dataset for Full-Body Human Relighting and Novel-View Synthesis](../../ICCV2025/3d_vision/humanolat_a_large-scale_dataset_for_full-body_human_relighting_and_novel-view_sy.md)
 - [\[NeurIPS 2025\] 3D-Agent: Tri-Modal Multi-Agent Collaboration for Scalable 3D Object Annotation](3d-agenttri-modal_multi-agent_collaboration_for_scalable_3d_object_annotation.md)
+
+</div>
 
 <!-- RELATED:END -->

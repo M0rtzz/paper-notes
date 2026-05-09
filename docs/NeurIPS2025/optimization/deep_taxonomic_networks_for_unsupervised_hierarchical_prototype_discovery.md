@@ -129,6 +129,8 @@ Fashion 上 ACC 超 TreeVAE 17.6%，CIFAR-10 上超 15.0%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Sparse Causal Discovery with Generative Intervention for Unsupervised Graph Domain Adaptation](../../ICML2025/optimization/sparse_causal_discovery_with_generative_intervention_for_unsupervised_graph_doma.md)
@@ -136,5 +138,7 @@ Fashion 上 ACC 超 TreeVAE 17.6%，CIFAR-10 上超 15.0%。
 - [\[NeurIPS 2025\] Adaptive Algorithms with Sharp Convergence Rates for Stochastic Hierarchical Optimization](adaptive_algorithms_with_sharp_convergence_rates_for_stochas.md)
 - [\[NeurIPS 2025\] Training Robust Graph Neural Networks by Modeling Noise Dependencies](training_robust_graph_neural_networks_by_modeling_noise_dependencies.md)
 - [\[NeurIPS 2025\] Auto-Compressing Networks](auto-compressing_networks.md)
+
+</div>
 
 <!-- RELATED:END -->

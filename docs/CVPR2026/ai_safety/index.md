@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **24** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/ai_safety/) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/) · [🤖 AAAI2026 (44)](../../AAAI2026/ai_safety/) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/) · [📹 ICCV2025 (22)](../../ICCV2025/ai_safety/) · [🧪 ICML2025 (36)](../../ICML2025/ai_safety/)
+
+🔥 **高频主题：** 对抗鲁棒 ×12 · 联邦学习 ×10 · 水印/隐写 ×5 · 机器人 ×3 · 多模态 ×3
+
 **[A Unified Perspective on Adversarial Membership Manipulation in Vision Models](a_unified_perspective_on_adversarial_membership_manipulation_in_vision_models.md)**
 
 :   首次揭示视觉模型成员推断攻击(MIA)面临的对抗性成员操纵漏洞——不可感知扰动可将非成员伪造为成员欺骗审计，发现伪造成员的梯度范数塌缩特征签名，并提出基于梯度几何的检测策略和对抗鲁棒推断框架。

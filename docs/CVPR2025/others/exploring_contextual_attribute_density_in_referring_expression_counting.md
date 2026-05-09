@@ -122,6 +122,8 @@ $$\mathcal{L} = \mathcal{L}_{\text{loc}} + \alpha \cdot \mathcal{L}_{\text{densi
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Contextual Dynamic Pricing with Heterogeneous Buyers](../../NeurIPS2025/others/contextual_dynamic_pricing_with_heterogeneous_buyers.md)
@@ -129,5 +131,7 @@ $$\mathcal{L} = \mathcal{L}_{\text{loc}} + \alpha \cdot \mathcal{L}_{\text{densi
 - [\[ICML 2025\] Multiple-Policy Evaluation via Density Estimation](../../ICML2025/others/multiple-policy_evaluation_via_density_estimation.md)
 - [\[CVPR 2025\] SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design](sldprtnet_a_large-scale_multimodal_dataset_for_cad_generation_in_language-driven.md)
 - [\[ACL 2025\] Contextual Experience Replay for Self-Improvement of Language Agents](../../ACL2025/others/contextual_experience_replay_for_self-improvement_of_language_agents.md)
+
+</div>
 
 <!-- RELATED:END -->

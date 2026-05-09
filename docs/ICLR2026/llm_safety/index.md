@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **39** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (21)](../../ACL2026/llm_safety/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_safety/) · [🤖 AAAI2026 (29)](../../AAAI2026/llm_safety/) · [🧠 NeurIPS2025 (60)](../../NeurIPS2025/llm_safety/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_safety/) · [🧪 ICML2025 (32)](../../ICML2025/llm_safety/)
+
+🔥 **高频主题：** LLM ×9 · 对抗鲁棒 ×8 · 联邦学习 ×4 · 推理 ×2 · 水印/隐写 ×2
+
 **[Attention Smoothing Is All You Need For Unlearning](attention_smoothing_is_all_you_need_for_unlearning.md)**
 
 :   提出Attention Smoothing Unlearning (ASU)，通过提高自注意力softmax温度构造forget-teacher，将遗忘问题转化为自蒸馏——平滑注意力分布以削弱词汇级和语义级关联，从而在擦除记忆知识的同时保持模型输出连贯性，在TOFU、MUSE、WMDP等多个基准上超越现有遗忘方法。

@@ -126,6 +126,8 @@ PressureFormer 的损失：$\mathcal{L}_{\mathcal{PF}} = w_1 \mathcal{L}_c + w_2
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] HD-EPIC: A Highly-Detailed Egocentric Video Dataset](hd-epic_a_highly-detailed_egocentric_video_dataset.md)
@@ -133,5 +135,7 @@ PressureFormer 的损失：$\mathcal{L}_{\mathcal{PF}} = w_1 \mathcal{L}_c + w_2
 - [\[CVPR 2025\] HOT3D: Hand and Object Tracking in 3D from Egocentric Multi-View Videos](hot3d_hand_and_object_tracking_in_3d_from_egocentric_multi-view_videos.md)
 - [\[CVPR 2025\] Vision-Language Embodiment for Monocular Depth Estimation](vision-language_embodiment_for_monocular_depth_estimation.md)
 - [\[CVPR 2026\] Ego-1K: A Large-Scale Multiview Video Dataset for Egocentric Vision](../../CVPR2026/3d_vision/ego-1k_--_a_large-scale_multiview_video_dataset_for_egocentric_vision.md)
+
+</div>
 
 <!-- RELATED:END -->

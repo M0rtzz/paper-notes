@@ -160,6 +160,8 @@ BiasScope 是一个两阶段迭代框架：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Talk, Evaluate, Diagnose: User-aware Agent Evaluation with Automated Error Analysis](talk_evaluate_diagnose_user-aware_agent_evaluation_with_automated_error_analysis.md)
@@ -167,5 +169,7 @@ BiasScope 是一个两阶段迭代框架：
 - [\[ICLR 2026\] Preference Leakage: A Contamination Problem in LLM-as-a-judge](preference_leakage_a_contamination_problem_in_llm-as-a-judge.md)
 - [\[ACL 2026\] Common to Whom? Regional Cultural Commonsense and LLM Bias in India](../../ACL2026/llm_evaluation/common_to_whom_regional_cultural_commonsense_and_llm_bias_in_india.md)
 - [\[ICLR 2026\] LLM Unlearning with LLM Beliefs](llm_unlearning_with_llm_beliefs.md)
+
+</div>
 
 <!-- RELATED:END -->

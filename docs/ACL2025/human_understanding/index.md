@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/human_understanding/) · [📷 CVPR2026 (61)](../../CVPR2026/human_understanding/) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/) · [🤖 AAAI2026 (16)](../../AAAI2026/human_understanding/) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/human_understanding/) · [📹 ICCV2025 (49)](../../ICCV2025/human_understanding/)
+
+🔥 **高频主题：** 人脸/视线 ×2
+
 **[Beyond Surface Simplicity: Revealing Hidden Reasoning Attributes for Precise Commonsense Diagnosis](beyond_surface_simplicity_revealing_hidden_reasoning_attributes_for_precise_comm.md)**
 
 :   本文揭示了常识推理基准中表面简单但实际隐含复杂推理属性的问题，提出了一种基于隐藏推理属性的细粒度诊断框架，能够更精确地分析和评估模型的常识推理能力。

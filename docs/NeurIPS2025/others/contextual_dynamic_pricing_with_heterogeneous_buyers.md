@@ -122,6 +122,8 @@ $d=1$ 时，结合方差感知置信区间的自适应离散化：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Brain-Like Processing Pathways Form in Models With Heterogeneous Experts](brain-like_processing_pathways_form_in_models_with_heterogeneous_experts.md)
@@ -129,5 +131,7 @@ $d=1$ 时，结合方差感知置信区间的自适应离散化：
 - [\[ICCV 2025\] You Share Beliefs, I Adapt: Progressive Heterogeneous Collaborative Perception](../../ICCV2025/others/you_share_beliefs_i_adapt_progressive_heterogeneous_collaborative_perception.md)
 - [\[ACL 2025\] ConceptCarve: Dynamic Realization of Evidence](../../ACL2025/others/conceptcarve_dynamic_realization_of_evidence.md)
 - [\[ACL 2025\] Towards Robust and Efficient Federated Low-Rank Adaptation with Heterogeneous Clients](../../ACL2025/others/federated_lora_heterogeneous.md)
+
+</div>
 
 <!-- RELATED:END -->

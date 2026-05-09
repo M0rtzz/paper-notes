@@ -188,6 +188,8 @@ $$\mathcal{L}_{\text{IOPO}}(\pi_\theta) = -\mathbb{E}_{i \sim D}\left\{\log\left
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Reverse Preference Optimization for Complex Instruction Following](reverse_preference_optimization_for_complex_instruction_following.md)
@@ -195,5 +197,7 @@ $$\mathcal{L}_{\text{IOPO}}(\pi_\theta) = -\mathbb{E}_{i \sim D}\left\{\log\left
 - [\[ACL 2025\] Whose Boat Does it Float? Improving Personalization in Preference Tuning via Inferred User Personas](personalized_preference_opt.md)
 - [\[ACL 2025\] Probability-Consistent Preference Optimization for Enhanced LLM Reasoning](probability-consistent_preference_optimization_for_enhanced_llm_reasoning.md)
 - [\[NeurIPS 2025\] On Extending Direct Preference Optimization to Accommodate Ties](../../NeurIPS2025/llm_alignment/on_extending_direct_preference_optimization_to_accommodate_ties.md)
+
+</div>
 
 <!-- RELATED:END -->

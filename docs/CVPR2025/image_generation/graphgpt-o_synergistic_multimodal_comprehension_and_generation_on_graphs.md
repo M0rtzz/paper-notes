@@ -164,6 +164,8 @@ $$\mathcal{L} = \mathcal{L}_{MLLM}^{GraphGPT-o} + \mathcal{L}_{SD}^{GraphGPT-o}$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Divot: Diffusion Powers Video Tokenizer for Comprehension and Generation](divot_diffusion_powers_video_tokenizer_for_comprehension_and_generation.md)
@@ -171,5 +173,7 @@ $$\mathcal{L} = \mathcal{L}_{MLLM}^{GraphGPT-o} + \mathcal{L}_{SD}^{GraphGPT-o}$
 - [\[NeurIPS 2025\] Janus-Pro-R1: Advancing Collaborative Visual Comprehension and Generation via Reinforcement Learning](../../NeurIPS2025/image_generation/janus-pro-r1_advancing_collaborative_visual_comprehension_and_generation_via_rei.md)
 - [\[ICCV 2025\] Video Motion Graphs](../../ICCV2025/image_generation/video_motion_graphs.md)
 - [\[CVPR 2025\] TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation](tokenflow_unified_image_tokenizer_for_multimodal_understanding_and_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

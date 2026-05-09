@@ -181,6 +181,8 @@ MetaAug 不仅测试准确率最高，训练-测试差距最小（23.42 vs PD-Qu
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] PQ-SAM: Post-training Quantization for Segment Anything Model](pq-sam_post-training_quantization_for_segment_anything_model.md)
@@ -188,5 +190,7 @@ MetaAug 不仅测试准确率最高，训练-测试差距最小（23.42 vs PD-Qu
 - [\[ECCV 2024\] GenQ: Quantization in Low Data Regimes with Generative Synthetic Data](genq_quantization_in_low_data_regimes_with_generative_synthetic_data.md)
 - [\[ICML 2025\] BoA: Attention-aware Post-training Quantization without Backpropagation](../../ICML2025/model_compression/boa_attention-aware_post-training_quantization_without_backpropagation.md)
 - [\[NeurIPS 2025\] Quantization Error Propagation: Revisiting Layer-Wise Post-Training Quantization](../../NeurIPS2025/model_compression/quantization_error_propagation_revisiting_layer-wise_post-training_quantization.md)
+
+</div>
 
 <!-- RELATED:END -->

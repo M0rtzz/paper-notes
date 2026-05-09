@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **30** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/object_detection/) · [📷 CVPR2026 (45)](../../CVPR2026/object_detection/) · [🔬 ICLR2026 (9)](../../ICLR2026/object_detection/) · [🤖 AAAI2026 (17)](../../AAAI2026/object_detection/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/object_detection/) · [🧪 ICML2025 (8)](../../ICML2025/object_detection/)
+
+🔥 **高频主题：** 目标检测 ×10 · 3D 目标检测 ×4 · 少样本学习 ×2 · 对抗鲁棒 ×2 · 扩散模型 ×2
+
 **[3D-MOOD: Lifting 2D to 3D for Monocular Open-Set Object Detection](3dmood_lifting_2d_to_3d_for_monocular_openset_object_detecti.md)**
 
 :   提出首个端到端的单目开放集3D目标检测器3D-MOOD，通过将开放集2D检测"提升"到3D空间，结合几何感知3D query生成与canonical image space设计，在Omni3D闭集和Argoverse 2/ScanNet开集基准上均达到SOTA。

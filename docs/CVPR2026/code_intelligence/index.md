@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (20)](../../ACL2026/code_intelligence/) · [🔬 ICLR2026 (23)](../../ICLR2026/code_intelligence/) · [🤖 AAAI2026 (10)](../../AAAI2026/code_intelligence/) · [🧠 NeurIPS2025 (22)](../../NeurIPS2025/code_intelligence/) · [📹 ICCV2025 (1)](../../ICCV2025/code_intelligence/) · [🧪 ICML2025 (11)](../../ICML2025/code_intelligence/)
+
+🔥 **高频主题：** 代码智能 ×2
+
 **[GeoTikzBridge: Advancing Multimodal Code Generation for Geometric Perception and Reasoning](geotikzbridge_advancing_multimodal_code_generation_for_geometric_perception_and_.md)**
 
 :   GeoTikzBridge 通过构建最大的 2.5M 图像-TikZ 代码数据集和首个辅助线指令数据集，训练出能精准重建几何图形的代码生成模型，并可作为即插即用模块增强任意 MLLM/LLM 的几何推理能力。

@@ -116,6 +116,8 @@ Bandit设定下每轮观察1-sub-Gaussian奖励$X_i(t)$，均值$\mathbf{U}(w_i,
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Learning-Augmented Online Bipartite Fractional Matching](learning-augmented_online_bipartite_fractional_matching.md)
@@ -123,5 +125,7 @@ Bandit设定下每轮观察1-sub-Gaussian奖励$X_i(t)$，均值$\mathbf{U}(w_i,
 - [\[ICML 2025\] Learning Distances from Data with Normalizing Flows and Score Matching](../../ICML2025/others/learning_distances_from_data_with_normalizing_flows_and_score_matching.md)
 - [\[AAAI 2026\] LILAD: Learning In-context Lyapunov-stable Adaptive Dynamics Models](../../AAAI2026/others/lilad_learning_in-context_lyapunov-stable_adaptive_dynamics_models.md)
 - [\[ICML 2025\] Score Matching with Missing Data](../../ICML2025/others/score_matching_with_missing_data.md)
+
+</div>
 
 <!-- RELATED:END -->

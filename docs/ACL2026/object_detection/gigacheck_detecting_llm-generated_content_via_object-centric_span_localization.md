@@ -118,6 +118,8 @@ GigaCheck 采用共享骨干+双头架构：(1) 统一骨干：LoRA 微调的 Mi
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] SPAN: Spatial-Projection Alignment for Monocular 3D Object Detection](../../CVPR2026/object_detection/span_spatial-projection_alignment_for_monocular_3d_object_detection.md)
@@ -125,5 +127,7 @@ GigaCheck 采用共享骨干+双头架构：(1) 统一骨干：LoRA 微调的 Mi
 - [\[ECCV 2024\] Zero-Shot Detection of AI-Generated Images](../../ECCV2024/object_detection/zero-shot_detection_of_ai-generated_images.md)
 - [\[CVPR 2026\] Detecting Unknown Objects via Energy-based Separation for Open World Object Detection](../../CVPR2026/object_detection/detecting_unknown_objects_via_energy-based_separation_for_open_world_object_dete.md)
 - [\[ECCV 2024\] Online Temporal Action Localization with Memory-Augmented Transformer](../../ECCV2024/object_detection/online_temporal_action_localization_with_memory-augmented_transformer.md)
+
+</div>
 
 <!-- RELATED:END -->

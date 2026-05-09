@@ -175,6 +175,8 @@ Split-Layer 在 6 种 INR 骨干、4 个任务上进行了全面评估。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SL2A-INR: Single-Layer Learnable Activation for Implicit Neural Representation](../../ICCV2025/3d_vision/sl2a-inr_single-layer_learnable_activation_for_implicit_neural_representation.md)
@@ -182,5 +184,7 @@ Split-Layer 在 6 种 INR 骨干、4 个任务上进行了全面评估。
 - [\[AAAI 2026\] Point-SRA: Self-Representation Alignment for 3D Representation Learning](point-sra_self-representation_alignment_for_3d_representation_learning.md)
 - [\[CVPR 2026\] NTK-Guided Implicit Neural Teaching](../../CVPR2026/3d_vision/ntk-guided_implicit_neural_teaching.md)
 - [\[AAAI 2026\] Enhancing Generalization of Depth Estimation Foundation Model via Weakly-Supervised Adaptation with Regularization](enhancing_generalization_of_depth_estimation_foundation_model_via_weakly-supervi.md)
+
+</div>
 
 <!-- RELATED:END -->

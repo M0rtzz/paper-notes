@@ -152,6 +152,8 @@ Canon层组件消融（Figure 10）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] A Controllable Examination for Long-Context Language Models](a_controllable_examination_for_longcontext_language_models.md)
@@ -159,5 +161,7 @@ Canon层组件消融（Figure 10）：
 - [\[NeurIPS 2025\] AudSemThinker: Enhancing Audio-Language Models through Reasoning over Semantics of Sound](audsemthinker_enhancing_audio-language_models_through_reasoning_over_semantics_o.md)
 - [\[CVPR 2025\] EMoVA: Empowering Language Models to See, Hear and Speak with Vivid Emotions](../../CVPR2025/audio_speech/emova_empowering_language_models_to_see_hear_and_speak_with_vivid_emotions.md)
 - [\[ACL 2025\] Investigating and Enhancing Vision-Audio Capability in Omnimodal Large Language Models](../../ACL2025/audio_speech/investigating_and_enhancing_vision-audio_capability_in_omnimodal_large_language_.md)
+
+</div>
 
 <!-- RELATED:END -->

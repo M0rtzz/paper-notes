@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **14** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/ai_safety/) · [📷 CVPR2026 (24)](../../CVPR2026/ai_safety/) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/) · [🤖 AAAI2026 (44)](../../AAAI2026/ai_safety/) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/) · [📹 ICCV2025 (22)](../../ICCV2025/ai_safety/)
+
+🔥 **高频主题：** 水印/隐写 ×4 · 对抗鲁棒 ×3 · 语音 ×2
+
 **[Building a Long Text Privacy Policy Corpus with Multi-Class Labels](building_a_long_text_privacy_policy_corpus_with_multi-class_labels.md)**
 
 :   本文构建了一个包含149家公司隐私政策的多维度标注语料库（64个标注维度），涵盖欧盟和美国隐私法规中的争议条款和法律规则，并使用当前大语言模型建立了分类基准。

@@ -144,6 +144,8 @@ $$\langle m_\sigma(x) - x, \text{proj}_\Omega(x) - x \rangle > 0$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Improving Flow Matching by Aligning Flow Divergence](improving_flow_matching_by_aligning_flow_divergence.md)
@@ -151,5 +153,7 @@ $$\langle m_\sigma(x) - x, \text{proj}_\Omega(x) - x \rangle > 0$$
 - [\[ICML 2025\] Gaussian Mixture Flow Matching Models](gaussian_mixture_flow_matching_models.md)
 - [\[ICML 2025\] ContinualFlow: Learning and Unlearning with Neural Flow Matching](continualflow_learning_and_unlearning_with_neural_flow_matching.md)
 - [\[ICML 2025\] ETTA: Elucidating the Design Space of Text-to-Audio Models](etta_elucidating_the_design_space_of_text-to-audio_models.md)
+
+</div>
 
 <!-- RELATED:END -->

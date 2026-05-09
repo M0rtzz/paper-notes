@@ -136,6 +136,8 @@ $$\hat{\mathbf{p}} = \arg\min_{\|\mathbf{b}-\mathbf{q}\|_1 \leq r} \frac{1}{n}\s
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Radar: Benchmarking Language Models on Imperfect Tabular Data](radar_benchmarking_language_models_on_imperfect_tabular_data.md)
@@ -143,5 +145,7 @@ $$\hat{\mathbf{p}} = \arg\min_{\|\mathbf{b}-\mathbf{q}\|_1 \leq r} \frac{1}{n}\s
 - [\[NeurIPS 2025\] Redundancy-Aware Test-Time Graph Out-of-Distribution Detection](redundancy-aware_test-time_graph_out-of-distribution_detection.md)
 - [\[NeurIPS 2025\] Out-of-distribution Generalisation is Hard: Evidence from ARC-like Tasks](out-of-distribution_generalisation_is_hard_evidence_from_arc-like_tasks.md)
 - [\[CVPR 2025\] Distribution Prototype Diffusion Learning for Open-set Supervised Anomaly Detection](../../CVPR2025/others/distribution_prototype_diffusion_learning_for_open-set_supervised_anomaly_detect.md)
+
+</div>
 
 <!-- RELATED:END -->

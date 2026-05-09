@@ -120,6 +120,8 @@ NegBench 包含两个核心任务：(1) Retrieval-Neg：在原始描述中加入
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] NegVQA: Can Vision Language Models Understand Negation?](../../ACL2025/multimodal_vlm/negvqa_can_vision_language_models_understand_negation.md)
@@ -127,5 +129,7 @@ NegBench 包含两个核心任务：(1) Retrieval-Neg：在原始描述中加入
 - [\[CVPR 2025\] VisionZip: Longer is Better but Not Necessary in Vision Language Models](visionzip_longer_is_better_but_not_necessary_in_vision_language_models.md)
 - [\[CVPR 2025\] ForensicZip: More Tokens are Better but Not Necessary in Forensic Vision-Language Models](forensiczip_more_tokens_are_better_but_not_necessary_in_forensic_vision-language.md)
 - [\[CVPR 2025\] Hyperbolic Safety-Aware Vision-Language Models](hyperbolic_safety-aware_vision-language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

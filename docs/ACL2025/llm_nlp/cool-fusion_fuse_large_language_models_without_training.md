@@ -159,6 +159,8 @@ $$PPL_u(s) = \exp\left(\frac{1}{|s|}\sum_{s_i \in s} -\log p_u(s_i)\right)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Do Large Language Models Perform Latent Multi-Hop Reasoning without Exploiting Shortcuts?](do_large_language_models_perform_latent_multi-hop_reasoning_without_exploiting_s.md)
@@ -166,5 +168,7 @@ $$PPL_u(s) = \exp\left(\frac{1}{|s|}\sum_{s_i \in s} -\log p_u(s_i)\right)$$
 - [\[ACL 2025\] GradOT: Training-free Gradient-preserving Offsite-tuning for Large Language Models](gradot_offsite_tuning.md)
 - [\[ACL 2025\] Recurrent Knowledge Identification and Fusion for Language Model Continual Learning](recurrent_kif_continual_learning.md)
 - [\[AAAI 2026\] ProFuser: Progressive Fusion of Large Language Models](../../AAAI2026/llm_nlp/profuser_progressive_fusion_of_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

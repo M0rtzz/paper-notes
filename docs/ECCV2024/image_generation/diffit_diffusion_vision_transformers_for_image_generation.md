@@ -171,6 +171,8 @@ DiffiT提供两种变体：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Diffusion Model is a Good Pose Estimator from 3D RF-Vision](diffusion_model_is_a_good_pose_estimator_from_3d_rf-vision.md)
@@ -178,5 +180,7 @@ DiffiT提供两种变体：
 - [\[CVPR 2026\] PixelDiT: Pixel Diffusion Transformers for Image Generation](../../CVPR2026/image_generation/pixeldit_pixel_diffusion_transformers_for_image_generation.md)
 - [\[ECCV 2024\] Latent Guard: a Safety Framework for Text-to-Image Generation](latent_guard_a_safety_framework_for_text-to-image_generation.md)
 - [\[ECCV 2024\] Powerful and Flexible: Personalized Text-to-Image Generation via Reinforcement Learning](powerful_and_flexible_personalized_text-to-image_generation_via_reinforcement_le.md)
+
+</div>
 
 <!-- RELATED:END -->

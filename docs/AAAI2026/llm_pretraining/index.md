@@ -10,6 +10,8 @@ description: >-
 
 **🤖 AAAI2026** · **6** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/llm_pretraining/) · [📷 CVPR2026 (10)](../../CVPR2026/llm_pretraining/) · [🔬 ICLR2026 (27)](../../ICLR2026/llm_pretraining/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_pretraining/) · [📹 ICCV2025 (10)](../../ICCV2025/llm_pretraining/) · [🧪 ICML2025 (30)](../../ICML2025/llm_pretraining/)
+
 **[ELSPR: Evaluator LLM Training Data Self-Purification on Non-Transitive Preferences](elspr_evaluator_llm_training_data_self-purification_on_non-transitive_preference.md)**
 
 :   ELSPR 将 LLM 评估器的成对偏好建模为锦标赛图，通过强连通分量 (SCC) 识别非传递偏好，提出归一化有向图结构熵指标，并基于图重构过滤有问题的训练数据——过滤后的评估器非传递性降低 13.8%、结构熵降低 0.088，且丢弃数据的人类一致性仅 34.4%（vs 保留数据 52.6%）。

@@ -141,6 +141,8 @@ MILP 在不同 $(m,k)$ 参数下的最优值：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Automated Reproducibility Has a Problem Statement Problem](automated_reproducibility_has_a_problem_statement_problem.md)
@@ -148,5 +150,7 @@ MILP 在不同 $(m,k)$ 参数下的最优值：
 - [\[AAAI 2026\] Structural Approach to Guiding a Present-Biased Agent](structural_approach_to_guiding_a_present-biased_agent.md)
 - [\[ACL 2025\] InspireDebate: Multi-Dimensional Evaluation-Guided Reasoning for Debating](../../ACL2025/others/inspiredebate_multidim_evaluation_debating.md)
 - [\[AAAI 2026\] Parameterized Approximation Algorithms for TSP on Non-Metric Graphs](parameterized_approximation_algorithms_for_tsp_on_non-metric_graphs.md)
+
+</div>
 
 <!-- RELATED:END -->

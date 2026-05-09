@@ -117,6 +117,8 @@ CAMU 由三个层次化模块组成：(1) 视觉 grounding 上下文增强：用
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Yes FLoReNce, I Will Do Better Next Time! Agentic Feedback Reasoning for Humorous Meme Detection](yes_florence_i_will_do_better_next_time_agentic_feedback_reasoning_for_humorous_.md)
@@ -124,5 +126,7 @@ CAMU 由三个层次化模块组成：(1) 视觉 grounding 上下文增强：用
 - [\[ICLR 2026\] Context Tokens are Anchors: Understanding the Repetition Curse in dMLLMs from an Information Flow Perspective](../../ICLR2026/multimodal_vlm/context_tokens_are_anchors_understanding_the_repetition_curse_in_dmllms_from_an_.md)
 - [\[CVPR 2026\] Text-Only Training for Image Captioning with Retrieval Augmentation and Modality Gap Correction](../../CVPR2026/multimodal_vlm/text-only_training_for_image_captioning_with_retrieval_augmentation_and_modality.md)
 - [\[AAAI 2026\] Exo2Ego: Exocentric Knowledge Guided MLLM for Egocentric Video Understanding](exo2ego_exocentric_knowledge_guided_mllm_for_egocentric_vide.md)
+
+</div>
 
 <!-- RELATED:END -->

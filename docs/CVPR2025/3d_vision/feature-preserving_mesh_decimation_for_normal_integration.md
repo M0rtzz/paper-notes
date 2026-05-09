@@ -133,6 +133,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Gaussian Splatting Feature Fields for Privacy-Preserving Visual Localization](gaussian_splatting_feature_fields_for_privacy-preserving_visual_localization.md)
@@ -140,5 +142,7 @@ tags:
 - [\[CVPR 2025\] 3D Dental Model Segmentation with Geometrical Boundary Preserving](3d_dental_model_segmentation_with_geometrical_boundary_preserving.md)
 - [\[CVPR 2025\] Identity-preserving Distillation Sampling by Fixed-Point Iterator](identity-preserving_distillation_sampling_by_fixed-point_iterator.md)
 - [\[CVPR 2025\] CoMatcher: Multi-View Collaborative Feature Matching](comatcher_multi-view_collaborative_feature_matching.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -153,6 +153,8 @@ GPU 加速幅度：acasxu 82.8%、safenlp 89.8%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Learning Compact Latent Space for Representing Neural Signed Distance Functions with High-fidelity Geometry Details](../../AAAI2026/others/learning_compact_latent_space_for_representing_neural_signed_distance_functions_.md)
@@ -160,5 +162,7 @@ GPU 加速幅度：acasxu 82.8%、safenlp 89.8%。
 - [\[ICLR 2026\] Latent Equivariant Operators for Robust Object Recognition: Promises and Challenges](latent_equivariant_operators_for_robust_object_recognition_promises_and_challeng.md)
 - [\[ICLR 2026\] Latent Fourier Transform](latent_fourier_transform.md)
 - [\[ICLR 2026\] A Single Architecture for Representing Invariance Under Any Space Group](a_single_architecture_for_representing_invariance_under_any_space_group.md)
+
+</div>
 
 <!-- RELATED:END -->

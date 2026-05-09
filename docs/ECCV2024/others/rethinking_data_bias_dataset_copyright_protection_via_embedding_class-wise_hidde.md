@@ -124,6 +124,8 @@ Undercover Bias 的工作流程分为三个阶段：(1) 水印嵌入：为数据
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Are Bias Evaluation Methods Biased?](../../ACL2025/others/are_bias_evaluation_methods_biased.md)
@@ -131,5 +133,7 @@ Undercover Bias 的工作流程分为三个阶段：(1) 水印嵌入：为数据
 - [\[ICML 2025\] NeuronTune: Towards Self-Guided Spurious Bias Mitigation](../../ICML2025/others/neurontune_towards_self-guided_spurious_bias_mitigation.md)
 - [\[NeurIPS 2025\] Training the Untrainable: Introducing Inductive Bias via Representational Alignment](../../NeurIPS2025/others/training_the_untrainable_introducing_inductive_bias_via_representational_alignme.md)
 - [\[ECCV 2024\] ABC Easy as 123: A Blind Counter for Exemplar-Free Multi-Class Class-Agnostic Counting](abc_easy_as_123_a_blind_counter_for_exemplar-free_multi-class_class-agnostic_cou.md)
+
+</div>
 
 <!-- RELATED:END -->

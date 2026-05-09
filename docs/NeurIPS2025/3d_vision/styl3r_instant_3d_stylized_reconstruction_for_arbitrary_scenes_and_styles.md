@@ -149,6 +149,8 @@ $$\mathcal{L} = \begin{cases} \mathcal{L}_{photo}(\mathcal{G}^c), & \text{NVS预
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] A3GS: Arbitrary Artistic Style into Arbitrary 3D Gaussian Splatting](../../ICCV2025/3d_vision/a3gs_arbitrary_artistic_style_into_arbitrary_3d_gaussian_spl.md)
@@ -156,5 +158,7 @@ $$\mathcal{L} = \begin{cases} \mathcal{L}_{photo}(\mathcal{G}^c), & \text{NVS预
 - [\[NeurIPS 2025\] D$^2$USt3R: Enhancing 3D Reconstruction for Dynamic Scenes](d2ust3r_enhancing_3d_reconstruction_for_dynamic_scenes.md)
 - [\[CVPR 2025\] Wonderland: Navigating 3D Scenes from a Single Image](../../CVPR2025/3d_vision/wonderland_navigating_3d_scenes_from_a_single_image.md)
 - [\[ICCV 2025\] InstaScene: Towards Complete 3D Instance Decomposition and Reconstruction from Cluttered Scenes](../../ICCV2025/3d_vision/instascene_towards_complete_3d_instance_decomposition_and_reconstruction_from_cl.md)
+
+</div>
 
 <!-- RELATED:END -->

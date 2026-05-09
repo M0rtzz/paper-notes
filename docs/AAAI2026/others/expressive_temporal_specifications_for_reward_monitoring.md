@@ -164,6 +164,8 @@ QRM 定义为带寄存器的有限状态机 $\mathcal{A} = (Q, q_0, \delta_q, \m
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Reward Redistribution via Gaussian Process Likelihood Estimation](reward_redistribution_via_gaussian_process_likelihood_estimation.md)
@@ -171,5 +173,7 @@ QRM 定义为带寄存器的有限状态机 $\mathcal{A} = (Q, q_0, \delta_q, \m
 - [\[AAAI 2026\] A New Strategy for Verifying Reach-Avoid Specifications in Neural Feedback Systems](a_new_strategy_for_verifying_reach-avoid_specifications_in_neural_feedback_syste.md)
 - [\[ACL 2025\] A Dual-Mind Framework for Strategic and Expressive Negotiation Agent](../../ACL2025/others/a_dual-mind_framework_for_strategic_and_expressive_negotiation_agent.md)
 - [\[ICLR 2026\] Enhancing Generative Auto-bidding with Offline Reward Evaluation and Policy Search](../../ICLR2026/others/enhancing_generative_auto_bidding.md)
+
+</div>
 
 <!-- RELATED:END -->

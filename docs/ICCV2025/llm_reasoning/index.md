@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (37)](../../ACL2026/llm_reasoning/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_reasoning/) · [🔬 ICLR2026 (71)](../../ICLR2026/llm_reasoning/) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_reasoning/) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/llm_reasoning/) · [🧪 ICML2025 (17)](../../ICML2025/llm_reasoning/)
+
+🔥 **高频主题：** 推理 ×2
+
 **[CoRVid: Improving Multimodal Large Language Models Towards Chain-of-Thought Reasoning](corvid_improving_multimodal_large_language_models_towards_chain-of-thought_reaso.md)**
 
 :   提出 Corvid，通过混合视觉编码器 + GateMixer 连接器 + 高质量 CoT 数据集 + 推理时自验证策略，全面提升 MLLM 的链式推理能力，在数学推理和科学问题求解上超越同参数量级的开源模型。

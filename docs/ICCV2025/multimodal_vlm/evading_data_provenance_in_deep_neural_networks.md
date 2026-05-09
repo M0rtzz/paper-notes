@@ -141,6 +141,8 @@ Escaping DOV 是唯一能**同时**规避所有 4 种 DOV 方法的攻击，且�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Importance Corrected Neural JKO Sampling](../../ICML2025/multimodal_vlm/importance_corrected_neural_jko_sampling.md)
@@ -148,5 +150,7 @@ Escaping DOV 是唯一能**同时**规避所有 4 种 DOV 方法的攻击，且�
 - [\[ICCV 2025\] Effective Training Data Synthesis for Improving MLLM Chart Understanding](effective_training_data_synthesis_for_improving_mllm_chart_understanding.md)
 - [\[CVPR 2025\] What's in the Image? A Deep-Dive into the Vision of Vision Language Models](../../CVPR2025/multimodal_vlm/whats_in_the_image_a_deep-dive_into_the_vision_of_vision_language_models.md)
 - [\[ACL 2025\] Can MLLMs Understand the Deep Implication Behind Chinese Images?](../../ACL2025/multimodal_vlm/can_mllms_understand_the_deep_implication_behind_chinese_images.md)
+
+</div>
 
 <!-- RELATED:END -->

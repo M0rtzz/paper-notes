@@ -156,6 +156,8 @@ $$\langle x \rangle_{\bar{k}} \mapsto \frac{\langle x \rangle_{\bar{k}}}{\sigma(
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Heavy-Tailed Linear Bandits: Huber Regression with One-Pass Update](heavy-tailed_linear_bandits_huber_regression_with_one-pass_update.md)
@@ -163,5 +165,7 @@ $$\langle x \rangle_{\bar{k}} \mapsto \frac{\langle x \rangle_{\bar{k}}}{\sigma(
 - [\[ICML 2025\] Diverse Prototypical Ensembles Improve Robustness to Subpopulation Shift](diverse_prototypical_ensembles_improve_robustness_to_subpopulation_shift.md)
 - [\[ICML 2025\] Understanding Mode Connectivity via Parameter Space Symmetry](understanding_mode_connectivity_via_parameter_space_symmetry.md)
 - [\[ICML 2025\] Sparse-Pivot: Dynamic Correlation Clustering for Node Insertions](sparse-pivot_dynamic_correlation_clustering_for_node_insertions.md)
+
+</div>
 
 <!-- RELATED:END -->

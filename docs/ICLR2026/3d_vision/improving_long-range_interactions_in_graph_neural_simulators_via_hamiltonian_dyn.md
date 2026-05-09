@@ -109,6 +109,8 @@ IGNS 接收初始节点状态 $\bar{\mathbf{X}}$，首先执行 $l$ 步 **warmup
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Can Natural Image Autoencoders Compactly Tokenize fMRI Volumes for Long-Range Dynamics Modeling?](../../CVPR2026/3d_vision/can_natural_image_autoencoders_compactly_tokenize_fmri_volumes_for_long-range_dy.md)
@@ -116,5 +118,7 @@ IGNS 接收初始节点状态 $\bar{\mathbf{X}}$，首先执行 $l$ 步 **warmup
 - [\[CVPR 2026\] LumiMotion: Improving Gaussian Relighting with Scene Dynamics](../../CVPR2026/3d_vision/lumimotion_gaussian_relighting_dynamics.md)
 - [\[ICLR 2026\] Learning Physics-Grounded 4D Dynamics with Neural Gaussian Force Fields](learning_physics-grounded_4d_dynamics_with_neural_gaussian_force_fields.md)
 - [\[NeurIPS 2025\] MaNGO: Adaptable Graph Network Simulators via Meta-Learning](../../NeurIPS2025/3d_vision/mango_-_adaptable_graph_network_simulators_via_meta-learning.md)
+
+</div>
 
 <!-- RELATED:END -->

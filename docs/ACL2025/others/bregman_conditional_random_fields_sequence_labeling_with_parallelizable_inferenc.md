@@ -122,6 +122,8 @@ Bcrf 用 $B_Y(\mathbf{w}) = \max_{\mathbf{q} \in \text{conv}(Y)} \langle \mathbf
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] DSP: Dynamic Sequence Parallelism for Multi-Dimensional Transformers](../../ICML2025/others/dsp_dynamic_sequence_parallelism_for_multi-dimensional_transformers.md)
@@ -129,5 +131,7 @@ Bcrf 用 $B_Y(\mathbf{w}) = \max_{\mathbf{q} \in \text{conv}(Y)} \langle \mathbf
 - [\[NeurIPS 2025\] Kernel Conditional Tests from Learning-Theoretic Bounds](../../NeurIPS2025/others/kernel_conditional_tests_from_learning-theoretic_bounds.md)
 - [\[ACL 2025\] HelpSteer3: Human-Annotated Feedback and Edit Data to Empower Inference-Time Scaling](helpsteer3_human-annotated_feedback_and_edit_data_to_empower_inference-time_scal.md)
 - [\[NeurIPS 2025\] Statistical Inference Under Performativity](../../NeurIPS2025/others/statistical_inference_under_performativity.md)
+
+</div>
 
 <!-- RELATED:END -->

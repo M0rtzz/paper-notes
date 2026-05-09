@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **173** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (34)](../../ACL2026/reinforcement_learning/) · [📷 CVPR2026 (22)](../../CVPR2026/reinforcement_learning/) · [🔬 ICLR2026 (142)](../../ICLR2026/reinforcement_learning/) · [🤖 AAAI2026 (71)](../../AAAI2026/reinforcement_learning/) · [📹 ICCV2025 (7)](../../ICCV2025/reinforcement_learning/) · [🧪 ICML2025 (82)](../../ICML2025/reinforcement_learning/)
+
+🔥 **高频主题：** 强化学习 ×63 · Agent ×16 · 推理 ×12 · 对抗鲁棒 ×11 · LLM ×5
+
 **[A Differential and Pointwise Control Approach to Reinforcement Learning](a_differential_and_pointwise_control_approach_to_reinforceme.md)**
 
 :   将RL问题通过连续时间控制的微分对偶形式重新表述，利用哈密顿结构嵌入物理先验，提出dfPO算法实现逐点策略优化，在科学计算任务（曲面建模、网格控制、分子动力学）上以更少样本超越12个RL基线。

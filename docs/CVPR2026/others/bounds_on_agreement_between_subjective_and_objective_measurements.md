@@ -134,6 +134,8 @@ $$\hat{\sigma}_{BV}^2 = \frac{n_v}{n_m-1}\left((\hat{\mu}_X-s_L)(s_H-\hat{\mu}_X
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Shoe Style-Invariant and Ground-Aware Learning for Dense Foot Contact Estimation](shoe_style-invariant_and_ground-aware_learning_for_dense_foot_contact_estimation.md)
@@ -141,5 +143,7 @@ $$\hat{\sigma}_{BV}^2 = \frac{n_v}{n_m-1}\left((\hat{\mu}_X-s_L)(s_H-\hat{\mu}_X
 - [\[CVPR 2026\] Coded-E2LF: Coded Aperture Light Field Imaging from Events](coded-e2lf_coded_aperture_light_field_imaging_from_events.md)
 - [\[CVPR 2026\] SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design](sldprtnet_a_large-scale_multimodal_dataset_for_cad_generation_in_language-driven.md)
 - [\[CVPR 2026\] NaiLIA: Multimodal Nail Design Retrieval Based on Dense Intent Descriptions and Palette Queries](nailia_multimodal_nail_design_retrieval_based_on_dense_intent_descriptions_and_p.md)
+
+</div>
 
 <!-- RELATED:END -->

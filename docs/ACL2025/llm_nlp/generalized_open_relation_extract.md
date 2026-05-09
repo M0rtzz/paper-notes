@@ -173,6 +173,8 @@ $$\mathcal{L}_c = -\frac{1}{D_c}\sum_{i=1}^{D_c}\sum_{r=1}^{|\mathcal{C}_u|} y_r
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] A Variational Approach for Mitigating Entity Bias in Relation Extraction](a_variational_approach_for_mitigating_entity_bias_in_relation_extraction.md)
@@ -180,5 +182,7 @@ $$\mathcal{L}_c = -\frac{1}{D_c}\sum_{i=1}^{D_c}\sum_{r=1}^{|\mathcal{C}_u|} y_r
 - [\[ACL 2025\] Beyond Prompting: An Efficient Embedding Framework for Open-Domain Question Answering](embqa_embedding_odqa.md)
 - [\[ACL 2025\] Language Models, Graph Searching, and Supervision Adulteration: When More Supervision is Less and How to Make More More](lm_graph_search_supervision.md)
 - [\[ACL 2025\] Hierarchical Retrieval with Evidence Curation for Open-Domain Financial QA](hierarchical_retrieval_with_evidence_curation_for_open-domain_financial_question.md)
+
+</div>
 
 <!-- RELATED:END -->

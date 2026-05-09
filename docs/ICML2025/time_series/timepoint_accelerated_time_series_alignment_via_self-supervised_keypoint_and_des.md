@@ -153,6 +153,8 @@ $$\mathcal{L} = \mathcal{L}_{det} + \lambda \mathcal{L}_{desc}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Universal Spectral Tokenization via Self-Supervised Panchromatic Representation Learning](../../NeurIPS2025/time_series/universal_spectral_tokenization_via_self-supervised_panchromatic_representation_.md)
@@ -160,5 +162,7 @@ $$\mathcal{L} = \mathcal{L}_{det} + \lambda \mathcal{L}_{desc}$$
 - [\[ICML 2025\] Causality-Aware Contrastive Learning for Robust Multivariate Time-Series Anomaly Detection](causality-aware_contrastive_learning_for_robust_multivariate_time-series_anomaly.md)
 - [\[NeurIPS 2025\] Time-O1: Time-Series Forecasting Needs Transformed Label Alignment](../../NeurIPS2025/time_series/time-o1_time-series_forecasting_needs_transformed_label_alignment.md)
 - [\[ICML 2025\] Lyapunov Learning at the Onset of Chaos](lyapunov_learning_at_the_onset_of_chaos.md)
+
+</div>
 
 <!-- RELATED:END -->

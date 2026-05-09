@@ -130,6 +130,8 @@ Stage 1：$\mathcal{L}_{\text{implicit}} = \|2D_e(x_{\text{vis}}) - 2D_e^{\text{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] 3D-MVP: 3D Multiview Pretraining for Robotic Manipulation](3d-mvp_3d_multiview_pretraining_for_manipulation.md)
@@ -137,5 +139,7 @@ Stage 1：$\mathcal{L}_{\text{implicit}} = \|2D_e(x_{\text{vis}}) - 2D_e^{\text{
 - [\[CVPR 2025\] UniAct: Universal Actions for Enhanced Embodied Foundation Models](universal_actions_for_enhanced_embodied_foundation_models.md)
 - [\[ICCV 2025\] Self-supervised Learning of Hybrid Part-aware 3D Representations of 2D Gaussians and Superquadrics](../../ICCV2025/robotics/self-supervised_learning_of_hybrid_part-aware_3d_representations_of_2d_gaussians.md)
 - [\[CVPR 2025\] RoboGround: Robotic Manipulation with Grounded Vision-Language Priors](roboground_robotic_manipulation_with_grounded_vision-language_priors.md)
+
+</div>
 
 <!-- RELATED:END -->

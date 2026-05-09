@@ -135,6 +135,8 @@ NavGPT-2 由两大组件构成：(1) 大型视觉语言模型 (VLM)，基于 Ins
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] SQ-LLaVA: Self-Questioning for Large Vision-Language Assistant](sq-llava_self-questioning_for_large_vision-language_assistant.md)
@@ -142,5 +144,7 @@ NavGPT-2 由两大组件构成：(1) 大型视觉语言模型 (VLM)，基于 Ins
 - [\[ECCV 2024\] Robust Calibration of Large Vision-Language Adapters](robust_calibration_of_large_visionlanguage_adapters.md)
 - [\[ECCV 2024\] UniCode: Learning a Unified Codebook for Multimodal Large Language Models](unicode_learning_a_unified_codebook_for_multimodal_large_language_models.md)
 - [\[ECCV 2024\] Quantized Prompt for Efficient Generalization of Vision-Language Models](quantized_prompt_for_efficient_generalization_of_visionlangu.md)
+
+</div>
 
 <!-- RELATED:END -->

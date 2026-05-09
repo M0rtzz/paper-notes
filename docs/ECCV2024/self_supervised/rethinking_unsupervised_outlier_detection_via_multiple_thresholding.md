@@ -185,6 +185,8 @@ Multi-T 对所有方法（统计型和深度学习型）都有提升，弱方法
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] FlowCon: Out-of-Distribution Detection using Flow-Based Contrastive Learning](flowcon_out-of-distribution_detection_using_flow-based_contrastive_learning.md)
@@ -192,5 +194,7 @@ Multi-T 对所有方法（统计型和深度学习型）都有提升，弱方法
 - [\[CVPR 2025\] ScaleLSD: Scalable Deep Line Segment Detection Streamlined](../../CVPR2025/self_supervised/scalelsd_scalable_deep_line_segment_detection_streamlined.md)
 - [\[CVPR 2026\] Chain-of-Models Pre-Training: Rethinking Training Acceleration of Vision Foundation Models](../../CVPR2026/self_supervised/com_pt_chain_of_models_pretraining.md)
 - [\[CVPR 2026\] AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation](../../CVPR2026/self_supervised/actta_rethinking_test-time_adaptation_via_dynamic_activation.md)
+
+</div>
 
 <!-- RELATED:END -->

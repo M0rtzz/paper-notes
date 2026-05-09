@@ -108,6 +108,8 @@ $$\frac{\|\Delta \mathbf{Y}\|}{\|\mathbf{Y}\|} = \frac{\alpha_{\Delta W}}{\alpha
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Learning Spatial Decay for Vision Transformers](../../AAAI2026/llm_nlp/learning_spatial_decay_for_vision_transformers.md)
@@ -115,5 +117,7 @@ $$\frac{\|\Delta \mathbf{Y}\|}{\|\mathbf{Y}\|} = \frac{\alpha_{\Delta W}}{\alpha
 - [\[ICLR 2026\] First is Not Really Better Than Last: Evaluating Layer Choice and Aggregation Strategies in Language Model Data Influence Estimation](first_is_not_really_better_than_last_evaluating_layer_choice_and_aggregation_str.md)
 - [\[ACL 2025\] Multilingual Encoder Knows more than You Realize: Shared Weights Pretraining for Extremely Low-Resource Languages](../../ACL2025/llm_nlp/multilingual_encoder_knows_more_than_you_realize_shared_weights_pretraining_for_.md)
 - [\[ACL 2025\] ExpeTrans: LLMs Are Experiential Transfer Learners](../../ACL2025/llm_nlp/expetrans_llms_are_experiential_transfer_learners.md)
+
+</div>
 
 <!-- RELATED:END -->

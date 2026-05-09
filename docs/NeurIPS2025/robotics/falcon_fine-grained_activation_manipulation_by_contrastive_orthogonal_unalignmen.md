@@ -122,6 +122,8 @@ $$\nabla\mathcal{L}_\mathcal{F}^{\text{proj}} = \nabla\mathcal{L}_\mathcal{F} - 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] PoisonBench: Assessing Large Language Model Vulnerability to Data Poisoning](../../ICML2025/robotics/poisonbench_assessing_large_language_model_vulnerability_to_data_poisoning.md)
@@ -129,5 +131,7 @@ $$\nabla\mathcal{L}_\mathcal{F}^{\text{proj}} = \nabla\mathcal{L}_\mathcal{F} - 
 - [\[NeurIPS 2025\] Uncovering Strategic Egoism Behaviors in Large Language Models](uncovering_strategic_egoism_behaviors_in_large_language_models.md)
 - [\[ACL 2025\] CHEER-Ekman: Fine-grained Embodied Emotion Classification](../../ACL2025/robotics/cheer-ekman_fine-grained_embodied_emotion_classification.md)
 - [\[NeurIPS 2025\] RoboCerebra: A Large-scale Benchmark for Long-horizon Robotic Manipulation Evaluation](robocerebra_a_large-scale_benchmark_for_long-horizon_robotic_manipulation_evalua.md)
+
+</div>
 
 <!-- RELATED:END -->

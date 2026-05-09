@@ -125,6 +125,8 @@ $$Q^* = \arg\min_Q \lambda_a L_a(J, A) + \lambda_r L_r(J, R)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] HuMoCon: Concept Discovery for Human Motion Understanding](humocon_concept_discovery_for_human_motion_understanding.md)
@@ -132,5 +134,7 @@ $$Q^* = \arg\min_Q \lambda_a L_a(J, A) + \lambda_r L_r(J, R)$$
 - [\[CVPR 2025\] FRAME: Floor-aligned Representation for Avatar Motion from Egocentric Video](frame_floor-aligned_representation_for_avatar_motion_from_egocentric_video.md)
 - [\[NeurIPS 2025\] PixFoundation 2.0: Do Video Multi-Modal LLMs Use Motion in Visual Grounding?](../../NeurIPS2025/video_understanding/pixfoundation_20_do_video_multi-modal_llms_use_motion_in_visual_grounding.md)
 - [\[CVPR 2025\] MLVU: Benchmarking Multi-task Long Video Understanding](mlvu_benchmarking_multi-task_long_video_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

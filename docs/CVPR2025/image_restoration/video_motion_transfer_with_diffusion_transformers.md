@@ -115,6 +115,8 @@ AMF损失：$\mathcal{L}_{\text{AMF}}(z_{\text{ref}}, z_t) = \|\text{AMF}(z_{\te
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] DPIR: Dual Prompting Image Restoration with Diffusion Transformers](dpir_dual_prompting_restoration_dit.md)
@@ -122,5 +124,7 @@ AMF损失：$\mathcal{L}_{\text{AMF}}(z_{\text{ref}}, z_t) = \|\text{AMF}(z_{\te
 - [\[CVPR 2025\] Efficient Diffusion as Low Light Enhancer (ReDDiT)](efficient_diffusion_as_low_light_enhancer.md)
 - [\[ICCV 2025\] Closed-Loop Transfer for Weakly-supervised Affordance Grounding](../../ICCV2025/image_restoration/closed-loop_transfer_for_weakly-supervised_affordance_grounding.md)
 - [\[CVPR 2025\] Prior Does Matter: Visual Navigation via Denoising Diffusion Bridge Models](prior_does_matter_visual_navigation_via_denoising_diffusion_bridge_models.md)
+
+</div>
 
 <!-- RELATED:END -->

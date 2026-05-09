@@ -130,6 +130,8 @@ $\boldsymbol{\phi}$-SfT 数据集上 Chamfer 距离 ($\times 10^4$)：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] 4DTAM: Non-Rigid Tracking and Mapping via Dynamic Surface Gaussians](4dtam_non-rigid_tracking_and_mapping_via_dynamic_surface_gaussians.md)
@@ -137,5 +139,7 @@ $\boldsymbol{\phi}$-SfT 数据集上 Chamfer 距离 ($\times 10^4$)：
 - [\[CVPR 2025\] Geometry in Style: 3D Stylization via Surface Normal Deformation](geometry_in_style_3d_stylization_via_surface_normal_deformation.md)
 - [\[CVPR 2025\] GauSTAR: Gaussian Surface Tracking and Reconstruction](gaustar_gaussian_surface_tracking_and_reconstruction.md)
 - [\[CVPR 2025\] Fine-Grained Erasure in Text-to-Image Diffusion-based Foundation Models](fine-grained_erasure_in_text-to-image_diffusion-based_foundation_models.md)
+
+</div>
 
 <!-- RELATED:END -->

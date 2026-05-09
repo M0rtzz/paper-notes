@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (8)](../../CVPR2026/time_series/) · [🔬 ICLR2026 (39)](../../ICLR2026/time_series/) · [🤖 AAAI2026 (35)](../../AAAI2026/time_series/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/time_series/) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/) · [🧪 ICML2025 (27)](../../ICML2025/time_series/)
+
+🔥 **高频主题：** LLM ×2 · 时序预测 ×2
+
 **[A Unified Framework for Modeling Heterogeneous Financial Data via Dual-Granularity Prompting](a_unified_framework_for_modeling_heterogeneous_financial_data_via_dual-granulari.md)**
 
 :   提出FinLangNet框架，通过双模块架构（DeepFM处理静态特征 + 双粒度提示机制的Transformer处理时序行为）实现多尺度信用风险预测，在滴滴金融平台部署后实现KS提升6.3pp和坏账率下降9.9%。

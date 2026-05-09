@@ -146,6 +146,8 @@ Positional Transformer 在所有五个算法任务上**OOD 泛化显著优于标
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Discrete Neural Algorithmic Reasoning](discrete_neural_algorithmic_reasoning.md)
@@ -153,5 +155,7 @@ Positional Transformer 在所有五个算法任务上**OOD 泛化显著优于标
 - [\[ICML 2025\] The Price of Freedom: Exploring Expressivity and Runtime Tradeoffs in Equivariant Networks](the_price_of_freedom_exploring_expressivity_and_runtime_tradeoffs_in_equivariant.md)
 - [\[ACL 2025\] Unique Hard Attention: A Tale of Two Sides](../../ACL2025/others/unique_hard_attention_a_tale_of_two_sides.md)
 - [\[ACL 2025\] Why Are Positional Encodings Nonessential for Deep Autoregressive Transformers? Revisiting a Petroglyph](../../ACL2025/others/why_are_positional_encodings_nonessential_for_deep_autoregressive_transformers_r.md)
+
+</div>
 
 <!-- RELATED:END -->

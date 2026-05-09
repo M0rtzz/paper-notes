@@ -143,6 +143,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] ThinkGuard: Deliberative Slow Thinking Leads to Cautious Guardrails](../../ACL2025/llm_reasoning/thinkguard_deliberative_slow_thinking_leads_to_cautious_guardrails.md)
@@ -150,5 +152,7 @@ tags:
 - [\[NeurIPS 2025\] Controlling Thinking Speed in Reasoning Models](../../NeurIPS2025/llm_reasoning/controlling_thinking_speed_in_reasoning_models.md)
 - [\[ACL 2025\] ProcessBench: Identifying Process Errors in Mathematical Reasoning](../../ACL2025/llm_reasoning/processbench_identifying_process_errors_in_mathematical_reasoning.md)
 - [\[ACL 2025\] Self-Error-Instruct: Generalizing from Errors for LLMs Mathematical Reasoning](../../ACL2025/llm_reasoning/self-error-instruct_generalizing_from_errors_for_llms_mathematical_reasoning.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -187,6 +187,8 @@ SPG 的独特贡献在于将 LLM 代码生成、MCTS 搜索和神经视觉表征
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Towards Reliable Code-as-Policies: A Neuro-Symbolic Framework for Embodied Task Planning](../../NeurIPS2025/robotics/towards_reliable_code-as-policies_a_neuro-symbolic_framework_for_embodied_task_p.md)
@@ -194,5 +196,7 @@ SPG 的独特贡献在于将 LLM 代码生成、MCTS 搜索和神经视觉表征
 - [\[NeurIPS 2025\] MineAnyBuild: Benchmarking Spatial Planning for Open-world AI Agents](../../NeurIPS2025/robotics/mineanybuild_benchmarking_spatial_planning_for_openworld_ai.md)
 - [\[NeurIPS 2025\] Learning Spatial-Aware Manipulation Ordering](../../NeurIPS2025/robotics/learning_spatial-aware_manipulation_ordering.md)
 - [\[ICML 2025\] Machine Learning from Explanations](machine_learning_from_explanations.md)
+
+</div>
 
 <!-- RELATED:END -->

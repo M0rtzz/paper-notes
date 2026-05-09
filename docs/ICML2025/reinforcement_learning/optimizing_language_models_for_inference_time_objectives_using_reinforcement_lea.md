@@ -205,6 +205,8 @@ $$A_{(k)} = r_{(k)} - r_{(k-1)}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] T1: Advancing Language Model Reasoning through Reinforcement Learning and Inference Scaling](t1_advancing_language_model_reasoning_through_reinforcement_learning_and_inferen.md)
@@ -212,5 +214,7 @@ $$A_{(k)} = r_{(k)} - r_{(k-1)}$$
 - [\[ICML 2025\] Enhancing Decision-Making of Large Language Models via Actor-Critic](enhancing_decision-making_of_large_language_models_via_actor-critic.md)
 - [\[NeurIPS 2025\] Behavior Injection: Preparing Language Models for Reinforcement Learning](../../NeurIPS2025/reinforcement_learning/behavior_injection_preparing_language_models_for_reinforcement_learning.md)
 - [\[ICML 2025\] ReVISE: Learning to Refine at Test-Time via Intrinsic Self-Verification](revise_learning_to_refine_at_test-time_via_intrinsic_self-verification.md)
+
+</div>
 
 <!-- RELATED:END -->

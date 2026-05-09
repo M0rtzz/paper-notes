@@ -149,6 +149,8 @@ $$\mathcal{L}_a = -\log \frac{\exp(s(i, v_a^+)/\tau)}{\exp(s(i, v_a^+)/\tau) + \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Divide-Then-Aggregate: An Efficient Tool Learning Method via Parallel Tool Invocation](dta_llama_parallel_tool_invocation.md)
@@ -156,5 +158,7 @@ $$\mathcal{L}_a = -\log \frac{\exp(s(i, v_a^+)/\tau)}{\exp(s(i, v_a^+)/\tau) + \
 - [\[ACL 2025\] Value Residual Learning](value_residual_learning.md)
 - [\[ACL 2025\] Uni-Retrieval: A Multi-Style Retrieval Framework for STEM's Education](uni-retrieval_a_multi-style_retrieval_framework_for_stems_education.md)
 - [\[ACL 2025\] ACORD: An Expert-Annotated Retrieval Dataset for Legal Contract Clause Retrieval](acord_an_expert-annotated_retrieval_dataset_for_legal_contract_drafting.md)
+
+</div>
 
 <!-- RELATED:END -->

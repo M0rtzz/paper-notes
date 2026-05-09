@@ -167,6 +167,8 @@ LoRA vs 全微调（LaSOT SUC / P）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Local All-Pair Correspondence for Point Tracking](local_all-pair_correspondence_for_point_tracking.md)
@@ -174,5 +176,7 @@ LoRA vs 全微调（LaSOT SUC / P）：
 - [\[ECCV 2024\] Self-Supervised Any-Point Tracking by Contrastive Random Walks](self-supervised_any-point_tracking_by_contrastive_random_walks.md)
 - [\[ECCV 2024\] Exploring the Feature Extraction and Relation Modeling For Light-Weight Transformer Tracking](exploring_the_feature_extraction_and_relation_modeling_for_light-weight_transfor.md)
 - [\[ECCV 2024\] Optimizing Factorized Encoder Models: Time and Memory Reduction for Scalable and Efficient Action Recognition](optimizing_factorized_encoder_models_time_and_memory_reduction_for_scalable_and_.md)
+
+</div>
 
 <!-- RELATED:END -->

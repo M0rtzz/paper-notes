@@ -186,6 +186,8 @@ $$\max_\theta \mathbb{E}_{q \sim \mathcal{Q}, s \sim \pi_\theta(q)} [J(M(a_p^s, 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] AudioTrust: Benchmarking the Multifaceted Trustworthiness of Audio Large Language Models](../../ICLR2026/llm_safety/audiotrust_benchmarking_the_multifaceted_trustworthiness_of_audio_large_language.md)
@@ -193,5 +195,7 @@ $$\max_\theta \mathbb{E}_{q \sim \mathcal{Q}, s \sim \pi_\theta(q)} [J(M(a_p^s, 
 - [\[AAAI 2026\] Gender Bias in Emotion Recognition by Large Language Models](gender_bias_in_emotion_recognition_by_large_language_models.md)
 - [\[AAAI 2026\] SproutBench: A Benchmark for Safe and Ethical Large Language Models for Youth](sproutbench_a_benchmark_for_safe_and_ethical_large_language_models_for_youth.md)
 - [\[AAAI 2026\] Anti-adversarial Learning: Desensitizing Prompts for Large Language Models](anti-adversarial_learning_desensitizing_prompts_for_large_la.md)
+
+</div>
 
 <!-- RELATED:END -->

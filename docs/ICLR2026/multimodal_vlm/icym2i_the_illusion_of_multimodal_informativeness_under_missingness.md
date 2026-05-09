@@ -138,6 +138,8 @@ Observed 方法在 XOR 中严重高估 X2 的 AUC（0.80 vs 真实 0.49）和 Un
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] COUNTS: Benchmarking Object Detectors and Multimodal Large Language Models under Distribution Shifts](../../CVPR2025/multimodal_vlm/counts_benchmarking_object_detectors_and_multimodal_large_language_models_under_.md)
@@ -145,5 +147,7 @@ Observed 方法在 XOR 中严重高估 X2 的 AUC（0.80 vs 真实 0.49）和 Un
 - [\[ACL 2026\] When Vision-Language Models Judge Without Seeing: Exposing Informativeness Bias](../../ACL2026/multimodal_vlm/when_vision-language_models_judge_without_seeing_exposing_informativeness_bias.md)
 - [\[CVPR 2026\] BALM: A Model-Agnostic Framework for Balanced Multimodal Learning under Imbalanced Missing Rates](../../CVPR2026/multimodal_vlm/balm_a_model-agnostic_framework_for_balanced_multimodal_learning_under_imbalance.md)
 - [\[AAAI 2026\] Rethinking Visual Token Reduction in LVLMs under Cross-Modal Misalignment](../../AAAI2026/multimodal_vlm/rethinking_visual_token_reduction_in_lvlms_under_cross-modal_misalignment.md)
+
+</div>
 
 <!-- RELATED:END -->

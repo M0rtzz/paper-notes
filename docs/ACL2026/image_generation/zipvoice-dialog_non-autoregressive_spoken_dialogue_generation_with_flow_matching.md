@@ -127,6 +127,8 @@ ZipVoice-Dialog 以仅 123M 参数实现了全面碾压：推理速度快 15 倍
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] CoDial: Interpretable Task-Oriented Dialogue Systems Through Dialogue Flow Alignment](codial_interpretable_task-oriented_dialogue_systems_through_dialogue_flow_alignm.md)
@@ -134,5 +136,7 @@ ZipVoice-Dialog 以仅 123M 参数实现了全面碾压：推理速度快 15 倍
 - [\[CVPR 2026\] Frequency-Aware Flow Matching for High-Quality Image Generation](../../CVPR2026/image_generation/freqflow_frequency_aware_flow_matching.md)
 - [\[CVPR 2025\] SGMatch: Semantic-Guided Non-Rigid Shape Matching with Flow Regularization](../../CVPR2025/image_generation/sgmatch_semantic-guided_non-rigid_shape_matching_with_flow_regularization.md)
 - [\[CVPR 2026\] RenderFlow: Single-Step Neural Rendering via Flow Matching](../../CVPR2026/image_generation/renderflow_single-step_neural_rendering_via_flow_matching.md)
+
+</div>
 
 <!-- RELATED:END -->

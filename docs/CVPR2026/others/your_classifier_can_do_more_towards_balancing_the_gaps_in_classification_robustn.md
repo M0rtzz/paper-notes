@@ -132,6 +132,8 @@ $$p_\theta(\mathbf{x}, \tilde{\mathbf{x}}, y) = p_\theta(y|\tilde{\mathbf{x}}, \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] IrisFP: Adversarial-Example-based Model Fingerprinting with Enhanced Uniqueness and Robustness](irisfp_adversarial-example-based_model_fingerprinting_with_enhanced_uniqueness_a.md)
@@ -139,5 +141,7 @@ $$p_\theta(\mathbf{x}, \tilde{\mathbf{x}}, y) = p_\theta(y|\tilde{\mathbf{x}}, \
 - [\[CVPR 2026\] Order Matters: 3D Shape Generation from Sequential VR Sketches](order_matters_3d_shape_generation_from_sequential_vr_sketches.md)
 - [\[CVPR 2026\] DirPA: Addressing Prior Shift in Imbalanced Few-shot Crop-type Classification](dirpa_addressing_prior_shift_in_imbalanced_few-shot_crop-type_classification.md)
 - [\[CVPR 2026\] UniSpector: Towards Universal Open-set Defect Recognition via Spectral-Contrastive Visual Prompting](unispector_towards_universal_open-set_defect_recognition_via_spectral-contrastiv.md)
+
+</div>
 
 <!-- RELATED:END -->

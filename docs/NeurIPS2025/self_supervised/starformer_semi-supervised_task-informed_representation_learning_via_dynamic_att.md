@@ -118,6 +118,8 @@ Siamese 架构：左塔处理原始序列做下游任务，右塔处理掩码序
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Soft Task-Aware Routing of Experts for Equivariant Representation Learning](soft_task-aware_routing_of_experts_for_equivariant_representation_learning.md)
@@ -125,5 +127,7 @@ Siamese 架构：左塔处理原始序列做下游任务，右塔处理掩码序
 - [\[ECCV 2024\] Self-supervised Video Copy Localization with Regional Token Representation](../../ECCV2024/self_supervised/self-supervised_video_copy_localization_with_regional_token_representation.md)
 - [\[NeurIPS 2025\] Adv-SSL: Adversarial Self-Supervised Representation Learning with Theoretical Guarantees](adv-ssl_adversarial_self-supervised_representation_learning_with_theoretical_gua.md)
 - [\[ICCV 2025\] Always Skip Attention](../../ICCV2025/self_supervised/always_skip_attention.md)
+
+</div>
 
 <!-- RELATED:END -->

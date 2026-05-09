@@ -144,6 +144,8 @@ AdaBet 是一个两阶段流程：(1) 层重要性评估——对未标注数据
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Improving Set Function Approximation with Quasi-Arithmetic Neural Networks](../../ICLR2026/llm_evaluation/improving_set_function_approximation_with_quasi-arithmetic_neural_networks.md)
@@ -151,5 +153,7 @@ AdaBet 是一个两阶段流程：(1) 层重要性评估——对未标注数据
 - [\[ICML 2025\] Improving the Effective Receptive Field of Message-Passing Neural Networks](../../ICML2025/llm_evaluation/improving_the_effective_receptive_field_of_message-passing_neural_networks.md)
 - [\[CVPR 2026\] HyCal: A Training-Free Prototype Calibration Method for Cross-Discipline Few-Shot Class-Incremental Learning](hycal_training_free_prototype_calibration_for_cross_discipline_fscil.md)
 - [\[ICML 2025\] Fully Heteroscedastic Count Regression with Deep Double Poisson Networks](../../ICML2025/llm_evaluation/fully_heteroscedastic_count_regression_with_deep_double_poisson_networks.md)
+
+</div>
 
 <!-- RELATED:END -->

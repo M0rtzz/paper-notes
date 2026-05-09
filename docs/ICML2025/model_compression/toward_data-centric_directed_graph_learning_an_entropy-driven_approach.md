@@ -142,6 +142,8 @@ EDEN 的 pipeline 分为三步：(1) **知识发现**——先用有向拓扑结
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] CodeGEMM: A Codebook-Centric Approach to Efficient GEMM in Quantized LLMs](../../NeurIPS2025/model_compression/codegemm_a_codebook-centric_approach_to_efficient_gemm_in_quantized_llms.md)
@@ -149,5 +151,7 @@ EDEN 的 pipeline 分为三步：(1) **知识发现**——先用有向拓扑结
 - [\[ACL 2025\] Prompt Candidates, then Distill: A Teacher-Student Framework for LLM-driven Data Annotation](../../ACL2025/model_compression/prompt_distill_teacher_student.md)
 - [\[ICML 2025\] Predictive Data Selection: The Data That Predicts Is the Data That Teaches](predictive_data_selection_the_data_that_predicts_is_the_data_that_teaches.md)
 - [\[NeurIPS 2025\] Learning to Factorize and Adapt: A Versatile Approach Toward Universal Spatio-Temporal Foundation Models](../../NeurIPS2025/model_compression/learning_to_factorize_and_adapt_a_versatile_approach_toward_universal_spatio-tem.md)
+
+</div>
 
 <!-- RELATED:END -->

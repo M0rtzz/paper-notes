@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **116** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (252)](../../CVPR2026/3d_vision/) · [🔬 ICLR2026 (65)](../../ICLR2026/3d_vision/) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/) · [📹 ICCV2025 (268)](../../ICCV2025/3d_vision/) · [🧪 ICML2025 (11)](../../ICML2025/3d_vision/) · [💬 ACL2025 (1)](../../ACL2025/3d_vision/)
+
+🔥 **高频主题：** 3D 高斯渲染 ×19 · 扩散模型 ×10 · 动态场景 ×9 · 新视角合成 ×7 · 三维重建 ×6
+
 **[3D-Agent: Tri-Modal Multi-Agent Collaboration for Scalable 3D Object Annotation](3d-agenttri-modal_multi-agent_collaboration_for_scalable_3d_object_annotation.md)**
 
 :   提出 Tri-MARF 三模态多智能体框架，通过 VLM 标注 Agent（多视角多候选描述）+ 信息聚合 Agent（BERT 聚类 + CLIP 加权 + UCB1 多臂赌博机选择）+ 点云门控 Agent（Uni3D 文本-点云对齐过滤幻觉），实现 CLIPScore 88.7（超越人类标注 82.4）、吞吐量 12k 物体/小时，已标注约 200 万 3D 模型。

@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2026** · **1** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (10)](../../CVPR2026/optimization/) · [🔬 ICLR2026 (45)](../../ICLR2026/optimization/) · [🤖 AAAI2026 (24)](../../AAAI2026/optimization/) · [🧠 NeurIPS2025 (117)](../../NeurIPS2025/optimization/) · [📹 ICCV2025 (8)](../../ICCV2025/optimization/) · [🧪 ICML2025 (58)](../../ICML2025/optimization/)
+
 **[CLewR: Curriculum Learning with Restarts for Machine Translation Preference Learning](clewr_curriculum_learning_with_restarts_for_machine_translation_preference_learn.md)**
 
 :   本文提出 CLewR（Curriculum Learning with Restarts），一种在偏好优化训练中按易到难排序并在每个 epoch 重启课程的策略，有效缓解灾难性遗忘问题，在多个模型家族（Gemma2、Qwen2.5、Llama3.1）和多种偏好优化算法（DPO、CPO、ARPO）上持续提升机器翻译性能。

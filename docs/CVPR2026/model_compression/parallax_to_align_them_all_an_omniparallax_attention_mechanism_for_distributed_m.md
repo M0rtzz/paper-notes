@@ -119,6 +119,8 @@ R-D 损失：$L = \lambda D + R = \lambda \sum_k d(x_k, \hat{x}_k) + \sum_k (R(\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] HCF: Hierarchical Cascade Framework for Distributed Multi-Stage Image Compression](../../AAAI2026/model_compression/hcf_hierarchical_cascade_framework_for_distributed_multi-stage_image_compression.md)
@@ -126,5 +128,7 @@ R-D 损失：$L = \lambda D + R = \lambda \sum_k d(x_k, \hat{x}_k) + \sum_k (R(\
 - [\[CVPR 2026\] Frequency Switching Mechanism for Parameter-Efficient Multi-Task Learning](frequency_switching_mechanism_for_parameter-ecient_multi-task_learning.md)
 - [\[CVPR 2026\] On the Robustness of Diffusion-Based Image Compression to Bit-Flip Errors](on_the_robustness_of_diffusion-based_image_compression_to_bit-flip_errors.md)
 - [\[CVPR 2025\] MuTri: Multi-view Tri-alignment for OCT to OCTA 3D Image Translation](../../CVPR2025/model_compression/mutri_multi-view_tri-alignment_for_oct_to_octa_3d_image_translation.md)
+
+</div>
 
 <!-- RELATED:END -->

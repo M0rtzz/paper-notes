@@ -143,6 +143,8 @@ $$\mathcal{L} = w_d \mathcal{L}_d + w_b \mathcal{L}_b + w_l \mathcal{L}_l + w_c 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Event-Driven Storytelling with Multiple Lifelike Humans in a 3D Scene](event-driven_storytelling_with_multiple_lifelike_humans_in_a_3d_scene.md)
@@ -150,5 +152,7 @@ $$\mathcal{L} = w_d \mathcal{L}_d + w_b \mathcal{L}_b + w_l \mathcal{L}_l + w_c 
 - [\[ICCV 2025\] GUAVA: Generalizable Upper Body 3D Gaussian Avatar](guava_generalizable_upper_body_3d_gaussian_avatar.md)
 - [\[ICCV 2025\] VolumetricSMPL: A Neural Volumetric Body Model for Efficient Interactions, Contacts, and Collisions](volumetricsmpl_a_neural_volumetric_body_model_for_efficient_interactions_contact.md)
 - [\[ICCV 2025\] RapVerse: Coherent Vocals and Whole-Body Motion Generation from Text](rapverse_coherent_vocals_and_whole-body_motion_generation_from_text.md)
+
+</div>
 
 <!-- RELATED:END -->

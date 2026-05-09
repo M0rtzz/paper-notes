@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **16** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (21)](../../ACL2026/llm_safety/) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_safety/) · [🤖 AAAI2026 (29)](../../AAAI2026/llm_safety/) · [🧠 NeurIPS2025 (60)](../../NeurIPS2025/llm_safety/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_safety/) · [🧪 ICML2025 (32)](../../ICML2025/llm_safety/)
+
+🔥 **高频主题：** 对抗鲁棒 ×4
+
 **[Association and Consolidation: Evolutionary Memory-Enhanced Incremental Multi-View Clustering](association_and_consolidation_evolutionary_memory-enhanced_incremental_multi-vie.md)**
 
 :   提出 EMIMC 框架，受大脑海马-前额叶协作记忆机制启发，通过 Rapid Associative Module (正交映射保证可塑性)、Cognitive Forgetting Module (幂律衰减模拟遗忘曲线) 和 Knowledge Consolidation Module (时序张量低秩分解提炼长期记忆) 三模块协同，解决增量多视图聚类中的稳定性-可塑性困境。

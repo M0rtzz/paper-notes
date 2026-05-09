@@ -185,6 +185,8 @@ RoG 将任务分解为：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] MC-Bench: A Benchmark for Multi-Context Visual Grounding in the Era of MLLMs](mc-bench_a_benchmark_for_multi-context_visual_grounding_in_the_era_of_mllms.md)
@@ -192,5 +194,7 @@ RoG 将任务分解为：
 - [\[CVPR 2026\] HAMMER: Harnessing MLLM via Cross-Modal Integration for Intention-Driven 3D Affordance Grounding](../../CVPR2026/multimodal_vlm/hammer_harnessing_mllm_via_cross-modal_integration_for_intention-driven_3d_affor.md)
 - [\[ICCV 2025\] ProbRes: Probabilistic Jump Diffusion for Open-World Egocentric Activity Recognition](probres_probabilistic_jump_diffusion_for_open-world_egocentric_activity_recognit.md)
 - [\[ACL 2025\] Evaluating Multimodal Language Models as Visual Assistants for Visually Impaired Users](../../ACL2025/multimodal_vlm/evaluating_multimodal_language_models_as_visual_assistants_for_visually_impaired.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -136,6 +136,8 @@ Llama-3-8B-Instruct on AlpacaEval2：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Finding the Sweet Spot: Preference Data Construction for Scaling Preference Optimization](../../ACL2025/llm_alignment/finding_the_sweet_spot_preference_data_construction_for_scaling_preference_optim.md)
@@ -143,5 +145,7 @@ Llama-3-8B-Instruct on AlpacaEval2：
 - [\[NeurIPS 2025\] KL Penalty Control via Perturbation for Direct Preference Optimization](kl_penalty_control_via_perturbation_for_direct_preference_optimization.md)
 - [\[NeurIPS 2025\] ResponseRank: Data-Efficient Reward Modeling through Preference Strength Learning](responserank_data-efficient_reward_modeling_through_preference_strength_learning.md)
 - [\[NeurIPS 2025\] Limited Preference Data? Learning Better Reward Model with Latent Space Synthesis](limited_preference_data_learning_better_reward_model_with_latent_space_synthesis.md)
+
+</div>
 
 <!-- RELATED:END -->

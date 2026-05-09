@@ -135,6 +135,8 @@ REPARO在显存≤8GB的约束下完成全流程，具有较好的实用性。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] ComboVerse: Compositional 3D Assets Creation Using Spatially-Aware Diffusion Guidance](../../ECCV2024/3d_vision/comboverse_compositional_3d_assets_creation_using_spatially-aware_diffusion_guid.md)
@@ -142,5 +144,7 @@ REPARO在显存≤8GB的约束下完成全流程，具有较好的实用性。
 - [\[ICCV 2025\] Radiant Foam: Real-Time Differentiable Ray Tracing](radiant_foam_real-time_differentiable_ray_tracing.md)
 - [\[ICCV 2025\] HairCUP: Hair Compositional Universal Prior for 3D Gaussian Avatars](haircup_hair_compositional_universal_prior_for_3d_gaussian_avatars.md)
 - [\[ICCV 2025\] GeoProg3D: Compositional Visual Reasoning for City-Scale 3D Language Fields](geoprog3d_compositional_visual_reasoning_for_city-scale_3d_language_fields.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -123,6 +123,8 @@ $$hR = \frac{1}{N}\sum_{n=1}^{N}\frac{|anc(v_n^{pr}) \cap anc(v_n^{gt})|}{|anc(v
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Hyperbolic Safety-Aware Vision-Language Models](hyperbolic_safety-aware_vision-language_models.md)
@@ -130,5 +132,7 @@ $$hR = \frac{1}{N}\sum_{n=1}^{N}\frac{|anc(v_n^{pr}) \cap anc(v_n^{gt})|}{|anc(v
 - [\[CVPR 2026\] Taxonomy-Aware Representation Alignment for Hierarchical Visual Recognition with Large Multimodal Models](../../CVPR2026/multimodal_vlm/taxonomy-aware_representation_alignment_for_hierarchical_visual_recognition_with.md)
 - [\[CVPR 2025\] UPME: An Unsupervised Peer Review Framework for Multimodal Large Language Model Evaluation](upme_an_unsupervised_peer_review_framework_for_multimodal_large_language_model_e.md)
 - [\[CVPR 2025\] HomeSafe-Bench: Evaluating Vision-Language Models on Unsafe Action Detection for Embodied Agents in Household Scenarios](homesafe-bench_evaluating_vision-language_models_on_unsafe_action_detection_for_.md)
+
+</div>
 
 <!-- RELATED:END -->

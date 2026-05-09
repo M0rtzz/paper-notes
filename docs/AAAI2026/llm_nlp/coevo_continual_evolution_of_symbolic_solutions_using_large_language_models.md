@@ -196,6 +196,8 @@ CoEvo在Oscillation 2和E. coli Growth上比LLM-SR好**数个数量级**。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Emergent Symbolic Mechanisms Support Abstract Reasoning in Large Language Models](../../ICML2025/llm_nlp/emergent_symbolic_mechanisms_support_abstract_reasoning_in_large_language_models.md)
@@ -203,5 +205,7 @@ CoEvo在Oscillation 2和E. coli Growth上比LLM-SR好**数个数量级**。
 - [\[AAAI 2026\] Identifying and Analyzing Performance-Critical Tokens in Large Language Models](identifying_and_analyzing_performance-critical_tokens_in_large_language_models.md)
 - [\[AAAI 2026\] Control Illusion: The Failure of Instruction Hierarchies in Large Language Models](control_illusion_the_failure_of_instruction_hierarchies_in_large_language_models.md)
 - [\[AAAI 2026\] LoKI: Low-damage Knowledge Implanting of Large Language Models](loki_low-damage_knowledge_implanting_of_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

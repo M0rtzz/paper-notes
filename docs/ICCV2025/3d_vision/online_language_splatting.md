@@ -181,6 +181,8 @@ $$C = \sum_{i} c_i \alpha_i^c \prod_{j<i}(1 - \alpha_j^c), \quad F = \sum_{i} f_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] CLIP-GS: Unifying Vision-Language Representation with 3D Gaussian Splatting](clip-gs_unifying_vision-language_representation_with_3d_gaussian_splatting.md)
@@ -188,5 +190,7 @@ $$C = \sum_{i} c_i \alpha_i^c \prod_{j<i}(1 - \alpha_j^c), \quad F = \sum_{i} f_
 - [\[CVPR 2026\] ReLaGS: Relational Language Gaussian Splatting](../../CVPR2026/3d_vision/relags_relational_language_gaussian_splatting.md)
 - [\[ICCV 2025\] AutoOcc: Automatic Open-Ended Semantic Occupancy Annotation via Vision-Language Guided Gaussian Splatting](autoocc_automatic_openended_semantic_occupancy_annotation_vi.md)
 - [\[CVPR 2026\] OnlinePG: Online Open-Vocabulary Panoptic Mapping with 3D Gaussian Splatting](../../CVPR2026/3d_vision/onlinepg_online_open-vocabulary_panoptic_mapping_with_3d_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

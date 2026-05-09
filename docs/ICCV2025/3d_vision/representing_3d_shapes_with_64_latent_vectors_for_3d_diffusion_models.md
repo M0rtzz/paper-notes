@@ -193,6 +193,8 @@ Triplane解码器重建速度达42.68 sample/s，是VecSet CrossAttn的12.4×，
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] χ: Symmetry Understanding of 3D Shapes via Chirality Disentanglement](kh_symmetry_understanding_of_3d_shapes_via_chirality_disentanglement.md)
@@ -200,5 +202,7 @@ Triplane解码器重建速度达42.68 sample/s，是VecSet CrossAttn的12.4×，
 - [\[ICCV 2025\] Bridging Diffusion Models and 3D Representations: A 3D Consistent Super-Resolution Framework](bridging_diffusion_models_and_3d_representations_a_3d_consistent_super-resolutio.md)
 - [\[ICCV 2025\] Repurposing 2D Diffusion Models with Gaussian Atlas for 3D Generation](repurposing_2d_diffusion_models_with_gaussian_atlas_for_3d_generation.md)
 - [\[ICCV 2025\] Learning 3D Object Spatial Relationships from Pre-trained 2D Diffusion Models](learning_3d_object_spatial_relationships_from_pre-trained_2d_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

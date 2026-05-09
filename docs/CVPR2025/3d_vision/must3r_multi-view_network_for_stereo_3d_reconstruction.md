@@ -129,6 +129,8 @@ $$\mathcal{L} = \sum_{i=1}^{n+N} \ell_{regr}(i,1) + \ell_{regr}(i,i)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] MVSAnywhere: Zero-Shot Multi-View Stereo](mvsanywhere_zero-shot_multi-view_stereo.md)
@@ -136,5 +138,7 @@ $$\mathcal{L} = \sum_{i=1}^{n+N} \ell_{regr}(i,1) + \ell_{regr}(i,i)$$
 - [\[CVPR 2025\] Sharp-It: A Multi-view to Multi-view Diffusion Model for 3D Synthesis and Manipulation](sharp-it_a_multi-view_to_multi-view_diffusion_model_for_3d_synthesis_and_manipul.md)
 - [\[CVPR 2025\] MEt3R: Measuring Multi-View Consistency in Generated Images](met3r_measuring_multi-view_consistency_in_generated_images.md)
 - [\[CVPR 2025\] Murre: Multi-view Reconstruction via SfM-guided Monocular Depth Estimation](murre_sfm_guided_depth_reconstruction.md)
+
+</div>
 
 <!-- RELATED:END -->

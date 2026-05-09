@@ -130,6 +130,8 @@ $$\mathcal{L}_\rho(w;\mu) = -\text{rev}(w) + \sum_{e \in E}\mu_e \cdot \widehat{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Joint Asymmetric Loss for Learning with Noisy Labels](../../ICCV2025/others/joint_asymmetric_loss_for_learning_with_noisy_labels.md)
@@ -137,5 +139,7 @@ $$\mathcal{L}_\rho(w;\mu) = -\text{rev}(w) + \sum_{e \in E}\mu_e \cdot \widehat{
 - [\[ICML 2025\] Lightspeed Geometric Dataset Distance via Sliced Optimal Transport](lightspeed_geometric_dataset_distance_via_sliced_optimal_transport.md)
 - [\[CVPR 2025\] Joint Out-of-Distribution Filtering and Data Discovery Active Learning](../../CVPR2025/others/joint_out-of-distribution_filtering_and_data_discovery_active_learning.md)
 - [\[ICML 2025\] Hierarchical Refinement: Optimal Transport to Infinity and Beyond](hierarchical_refinement_optimal_transport_to_infinity_and_beyond.md)
+
+</div>
 
 <!-- RELATED:END -->

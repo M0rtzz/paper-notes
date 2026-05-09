@@ -135,6 +135,8 @@ RULEBREAKERS 是一个包含 25,600 个实例的评估数据集，由 12,800 个
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] HumT DumT: Measuring and Controlling Human-like Language in LLMs](../../ACL2025/llm_nlp/humt_dumt_measuring_and_controlling_human-like_language_in_llms.md)
@@ -142,5 +144,7 @@ RULEBREAKERS 是一个包含 25,600 个实例的评估数据集，由 12,800 个
 - [\[ACL 2025\] Can We Further Elicit Reasoning in LLMs? Critic-Guided Planning with Retrieval-Augmentation for Solving Challenging Tasks](../../ACL2025/llm_nlp/can_we_further_elicit_reasoning_in_llms_critic-guided_planning_with_retrieval-au.md)
 - [\[AAAI 2026\] Understanding Syllogistic Reasoning in LLMs from Formal and Natural Language Perspectives](../../AAAI2026/llm_nlp/understanding_syllogistic_reasoning_in_llms_from_formal_and_natural_language_per.md)
 - [\[ICML 2025\] Regress, Don't Guess — A Regression-like Loss on Number Tokens for Language Models](regress_dont_guess_--_a_regression-like_loss_on_number_tokens_for_language_model.md)
+
+</div>
 
 <!-- RELATED:END -->

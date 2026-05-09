@@ -117,6 +117,8 @@ $$L_{track} = L_{cls} + \lambda_{giou}L_{giou} + \lambda_{L_1}L_1 + \lambda_{bev
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] SceneCrafter: Controllable Multi-View Driving Scene Editing](scenecrafter_controllable_multi-view_driving_scene_editing.md)
@@ -124,5 +126,7 @@ $$L_{track} = L_{cls} + \lambda_{giou}L_{giou} + \lambda_{L_1}L_1 + \lambda_{bev
 - [\[ECCV 2024\] OPEN: Object-wise Position Embedding for Multi-view 3D Object Detection](../../ECCV2024/autonomous_driving/open_object-wise_position_embedding_for_multi-view_3d_object_detection.md)
 - [\[CVPR 2025\] ZeroVO: Visual Odometry with Minimal Assumptions](zerovo_visual_odometry_with_minimal_assumptions.md)
 - [\[ECCV 2024\] FSD-BEV: Foreground Self-Distillation for Multi-View 3D Object Detection](../../ECCV2024/autonomous_driving/fsd-bev_foreground_self-distillation_for_multi-view_3d_object_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

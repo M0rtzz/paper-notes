@@ -180,6 +180,8 @@ $$v = \frac{1}{|\mathcal{X}_+|}\sum_{x \in \mathcal{X}_+} a_L(x) - \frac{1}{|\ma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Wanda++: Pruning Large Language Models via Regional Gradients](wanda_pruning_large_language_models_via_regional_gradients.md)
@@ -187,5 +189,7 @@ $$v = \frac{1}{|\mathcal{X}_+|}\sum_{x \in \mathcal{X}_+} a_L(x) - \frac{1}{|\ma
 - [\[ACL 2025\] 500xCompressor: Generalized Prompt Compression for Large Language Models](500xcompressor_generalized_prompt_compression_for_large_language_models.md)
 - [\[ACL 2025\] BlockPruner: Fine-grained Pruning for Large Language Models](blockpruner_fine-grained_pruning_for_large_language_models.md)
 - [\[ACL 2025\] EfficientQAT: Efficient Quantization-Aware Training for Large Language Models](efficientqat.md)
+
+</div>
 
 <!-- RELATED:END -->

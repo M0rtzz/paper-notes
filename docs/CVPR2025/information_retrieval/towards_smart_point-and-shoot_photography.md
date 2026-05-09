@@ -104,6 +104,8 @@ CCQA：$L_{CCQA} = L_{MSE} + L_{rank} + 0.1 \cdot L_{consistency}$。CPAM：$L_{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Think Straight, Stop Smart: Structured Reasoning for Efficient Multi-Hop RAG](../../NeurIPS2025/information_retrieval/think_straight_stop_smart_structured_reasoning_for_efficient_multi-hop_rag.md)
@@ -111,5 +113,7 @@ CCQA：$L_{CCQA} = L_{MSE} + L_{rank} + 0.1 \cdot L_{consistency}$。CPAM：$L_{
 - [\[CVPR 2025\] DocoPilot: Improving Multimodal Models for Document-Level Understanding](docopilot_improving_multimodal_models_for_document-level_understanding.md)
 - [\[CVPR 2025\] EZSR: Event-based Zero-Shot Recognition](ezsr_event-based_zero-shot_recognition.md)
 - [\[CVPR 2025\] LamRA: Large Multimodal Model as Your Advanced Retrieval Assistant](lamra_large_multimodal_model_as_your_advanced_retrieval_assistant.md)
+
+</div>
 
 <!-- RELATED:END -->

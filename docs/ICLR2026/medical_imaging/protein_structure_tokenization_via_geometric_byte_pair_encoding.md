@@ -127,6 +127,8 @@ GeoBPE 的 BPR 仅为 ProToken 的 27-36%（>10× 压缩优势），ESM3 的 1.6
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Protein Structure Tokenization: Benchmarking and New Recipe](../../ICML2025/medical_imaging/protein_structure_tokenization_benchmarking_and_new_recipe.md)
@@ -134,5 +136,7 @@ GeoBPE 的 BPR 仅为 ProToken 的 27-36%（>10× 压缩优势），ESM3 的 1.6
 - [\[ICLR 2026\] Protein Counterfactuals via Diffusion-Guided Latent Optimization](protein_counterfactuals_via_diffusion-guided_latent_optimization.md)
 - [\[ICLR 2026\] Protein as a Second Language for LLMs](protein_as_a_second_language_for_llms.md)
 - [\[ICLR 2026\] Reverse Distillation: Consistently Scaling Protein Language Model Representations](reverse_distillation_consistently_scaling_protein_language_model_representations.md)
+
+</div>
 
 <!-- RELATED:END -->

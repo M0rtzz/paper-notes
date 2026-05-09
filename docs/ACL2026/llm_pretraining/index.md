@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2026** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (10)](../../CVPR2026/llm_pretraining/) · [🔬 ICLR2026 (27)](../../ICLR2026/llm_pretraining/) · [🤖 AAAI2026 (6)](../../AAAI2026/llm_pretraining/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_pretraining/) · [📹 ICCV2025 (10)](../../ICCV2025/llm_pretraining/) · [🧪 ICML2025 (30)](../../ICML2025/llm_pretraining/)
+
 **[Commonsense Knowledge with Negation: A Resource to Enhance Negation Understanding](commonsense_knowledge_with_negation_a_resource_to_enhance_negation_understanding.md)**
 
 :   提出自动为现有常识知识库增添否定的方法，构建超过 200 万三元组的否定常识语料库（¬Atomic 和 ¬Anion），并证明在其上预训练可以提升 LLM 的否定理解能力。

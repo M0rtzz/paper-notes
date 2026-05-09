@@ -167,6 +167,8 @@ $$\Theta_t = \lambda \cdot \Theta_{t-1} + (1 - \lambda) \cdot \theta_t \quad (T_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] 3D-MOOD: Lifting 2D to 3D for Monocular Open-Set Object Detection](../../ICCV2025/object_detection/3dmood_lifting_2d_to_3d_for_monocular_openset_object_detecti.md)
@@ -174,5 +176,7 @@ $$\Theta_t = \lambda \cdot \Theta_{t-1} + (1 - \lambda) \cdot \theta_t \quad (T_
 - [\[ECCV 2024\] Interactive 3D Object Detection with Prompts](interactive_3d_object_detection_with_prompts.md)
 - [\[ECCV 2024\] Weakly Supervised 3D Object Detection via Multi-Level Visual Guidance](weakly_supervised_3d_object_detection_via_multi-level_visual_guidance.md)
 - [\[ECCV 2024\] Bridge Past and Future: Overcoming Information Asymmetry in Incremental Object Detection](bridge_past_and_future_overcoming_information_asymmetry_in_incremental_object_de.md)
+
+</div>
 
 <!-- RELATED:END -->

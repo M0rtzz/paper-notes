@@ -116,6 +116,8 @@ ProAPO 分两阶段：(1) 模板优化阶段——从初始模板"a photo of a {
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Enhancing Few-Shot Class-Incremental Learning via Training-Free Bi-Level Modality Calibration](enhancing_few-shot_class-incremental_learning_via_training-free_bi-level_modalit.md)
@@ -123,5 +125,7 @@ ProAPO 分两阶段：(1) 模板优化阶段——从初始模板"a photo of a {
 - [\[ACL 2026\] Beyond the Final Actor: Modeling the Dual Roles of Creator and Editor for Fine-Grained LLM-Generated Text Detection](../../ACL2026/aigc_detection/beyond_the_final_actor_modeling_the_dual_roles_of_creator_and_editor_for_fine-gr.md)
 - [\[ACL 2025\] HACo-Det: A Study Towards Fine-Grained Machine-Generated Text Detection under Human-AI Coauthoring](../../ACL2025/aigc_detection/haco-det_a_study_towards_fine-grained_machine-generated_text_detection_under_hum.md)
 - [\[NeurIPS 2025\] "Jutters"](../../NeurIPS2025/aigc_detection/jutters.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -156,6 +156,8 @@ $$\mathcal{L} = \frac{1}{2N} \sum_{i=1}^{2N} \lambda \cdot \mathbb{I}_{[i \leq N
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Semi-supervised Graph Anomaly Detection via Robust Homophily Learning](semi-supervised_graph_anomaly_detection_via_robust_homophily_learning.md)
@@ -163,5 +165,7 @@ $$\mathcal{L} = \frac{1}{2N} \sum_{i=1}^{2N} \lambda \cdot \mathbb{I}_{[i \leq N
 - [\[AAAI 2026\] RcAE: Recursive Reconstruction Framework for Unsupervised Industrial Anomaly Detection](../../AAAI2026/others/rcae_recursive_reconstruction_framework_for_unsupervised_industrial_anomaly_dete.md)
 - [\[CVPR 2025\] Multi-Sensor Object Anomaly Detection: Unifying Appearance, Geometry, and Internal Properties](../../CVPR2025/others/multi-sensor_object_anomaly_detection_unifying_appearance_geometry_and_internal_.md)
 - [\[NeurIPS 2025\] EPHAD: An Evidence-Based Post-Hoc Adjustment Framework for Anomaly Detection Under Data Contamination](an_evidence-based_post-hoc_adjustment_framework_for_anomaly_detection_under_data.md)
+
+</div>
 
 <!-- RELATED:END -->

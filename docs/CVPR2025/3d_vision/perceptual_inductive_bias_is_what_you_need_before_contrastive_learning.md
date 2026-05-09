@@ -132,6 +132,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] You See it, You Got it: Learning 3D Creation on Pose-Free Videos at Scale](you_see_it_you_got_it_learning_3d_creation_on_pose-free_videos_at_scale.md)
@@ -139,5 +141,7 @@ tags:
 - [\[AAAI 2026\] UniC-Lift: Unified 3D Instance Segmentation via Contrastive Learning](../../AAAI2026/3d_vision/unic-lift_unified_3d_instance_segmentation_via_contrastive_learning.md)
 - [\[ECCV 2024\] PCF-Lift: Panoptic Lifting by Probabilistic Contrastive Fusion](../../ECCV2024/3d_vision/pcf-lift_panoptic_lifting_by_probabilistic_contrastive_fusion.md)
 - [\[CVPR 2025\] Generative Omnimatte: Learning to Decompose Video into Layers](generative_omnimatte_learning_to_decompose_video_into_layers.md)
+
+</div>
 
 <!-- RELATED:END -->

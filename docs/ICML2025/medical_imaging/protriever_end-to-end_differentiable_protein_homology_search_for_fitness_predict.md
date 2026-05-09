@@ -177,6 +177,8 @@ $$\mathcal{L}_{\text{reader}} = -\sum_{t=1}^{T} \log p(\mathbf{q}_t \mid \mathbf
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Revisiting End-to-End Learning with Slide-level Supervision in Computational Pathology](../../NeurIPS2025/medical_imaging/revisiting_end-to-end_learning_with_slide-level_supervision_in_computational_pat.md)
@@ -184,5 +186,7 @@ $$\mathcal{L}_{\text{reader}} = -\sum_{t=1}^{T} \log p(\mathbf{q}_t \mid \mathbf
 - [\[NeurIPS 2025\] Steering Generative Models with Experimental Data for Protein Fitness Optimization](../../NeurIPS2025/medical_imaging/steering_generative_models_with_experimental_data_for_protein_fitness_optimizati.md)
 - [\[ICML 2025\] Steering Protein Language Models](steering_protein_language_models.md)
 - [\[NeurIPS 2025\] GraphFLA: Augmenting Biological Fitness Prediction Benchmarks with Landscape Features](../../NeurIPS2025/medical_imaging/augmenting_biological_fitness_prediction_benchmarks_with_landscapes_features_fro.md)
+
+</div>
 
 <!-- RELATED:END -->

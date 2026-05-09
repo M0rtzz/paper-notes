@@ -122,6 +122,8 @@ $\mathcal{L}_{total} = \mathcal{L}_{sem} + \mathcal{L}_{VQ} + \mathcal{L}_{pix}$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] EvoTok: A Unified Image Tokenizer via Residual Latent Evolution for Visual Understanding and Generation](evotok_a_unified_image_tokenizer_via_residual_latent_evolution_for_visual_unders.md)
@@ -129,5 +131,7 @@ $\mathcal{L}_{total} = \mathcal{L}_{sem} + \mathcal{L}_{VQ} + \mathcal{L}_{pix}$
 - [\[CVPR 2025\] Dual Diffusion for Unified Image Generation and Understanding](dual_diffusion_unified_generation_understanding.md)
 - [\[NeurIPS 2025\] Co-Reinforcement Learning for Unified Multimodal Understanding and Generation](../../NeurIPS2025/image_generation/coreinforcement_learning_for_unified_multimodal_understandin.md)
 - [\[CVPR 2025\] WeGen: A Unified Model for Interactive Multimodal Generation as We Chat](wegen_a_unified_model_for_interactive_multimodal_generation_as_we_chat.md)
+
+</div>
 
 <!-- RELATED:END -->

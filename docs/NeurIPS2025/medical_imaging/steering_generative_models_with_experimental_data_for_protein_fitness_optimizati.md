@@ -251,6 +251,8 @@ SGPO 分为两阶段：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Steering Protein Language Models](../../ICML2025/medical_imaging/steering_protein_language_models.md)
@@ -258,5 +260,7 @@ SGPO 分为两阶段：
 - [\[NeurIPS 2025\] Is Sequence Information All You Need for Bayesian Optimization of Antibodies?](is_sequence_information_all_you_need_for_bayesian_optimization_of_antibodies.md)
 - [\[NeurIPS 2025\] Generative Modeling of Full-Atom Protein Conformations using Latent Diffusion on Graph Embeddings](generative_modeling_of_full-atom_protein_conformations_using_latent_diffusion_on.md)
 - [\[ICML 2025\] Protriever: End-to-End Differentiable Protein Homology Search for Fitness Prediction](../../ICML2025/medical_imaging/protriever_end-to-end_differentiable_protein_homology_search_for_fitness_predict.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **62** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/others/) · [📷 CVPR2026 (54)](../../CVPR2026/others/) · [🔬 ICLR2026 (76)](../../ICLR2026/others/) · [🤖 AAAI2026 (126)](../../AAAI2026/others/) · [🧠 NeurIPS2025 (154)](../../NeurIPS2025/others/) · [📹 ICCV2025 (48)](../../ICCV2025/others/)
+
+🔥 **高频主题：** 对抗鲁棒 ×4 · 人脸/视线 ×4
+
 **[3DFG-PIFu: 3D Feature Grids for Human Digitization from Sparse Views](3dfg-pifu_3d_feature_grids_for_human_digitization_from_sparse_views.md)**
 
 :   本文提出 3DFG-PIFu，通过引入3D特征网格（3D Feature Grids）在整个 pipeline 中全局融合多视图特征，替代传统逐点局部融合方式，并结合迭代网格精炼机制和基于 SDF 的 SMPL-X 特征，显著超越现有稀疏视图人体数字化 SOTA 方法。

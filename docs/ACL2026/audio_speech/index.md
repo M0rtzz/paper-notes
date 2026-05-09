@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **29** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (17)](../../CVPR2026/audio_speech/) · [🔬 ICLR2026 (32)](../../ICLR2026/audio_speech/) · [🤖 AAAI2026 (31)](../../AAAI2026/audio_speech/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/audio_speech/) · [📹 ICCV2025 (13)](../../ICCV2025/audio_speech/) · [🧪 ICML2025 (7)](../../ICML2025/audio_speech/)
+
+🔥 **高频主题：** 语音 ×18 · 问答 ×3 · 多模态 ×3 · 对抗鲁棒 ×3 · LLM ×2
+
 **[Affectron: Emotional Speech Synthesis with Affective and Contextually Aligned Nonverbal Vocalizations](affectron_emotional_speech_synthesis_with_affective_and_contextually_aligned_non.md)**
 
 :   本文提出 Affectron 框架，通过情感驱动的 Top-K NV 匹配和情感感知的 Top-K 路由两个训练时增强策略，在小规模开源解耦语料上实现了多样且情感对齐的非语言发声（如笑声、叹息）合成，显著超越了基于纯语言预训练的 VoiceCraft 基线。

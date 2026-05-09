@@ -129,6 +129,8 @@ $$\mathcal{L}_\text{EBFR}(\theta) = \mathbb{E}_t \lambda(t) \mathbb{E}_{\bar{\ma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Hessian Geometry of Latent Space in Generative Models](hessian_geometry_of_latent_space_in_generative_models.md)
@@ -136,5 +138,7 @@ $$\mathcal{L}_\text{EBFR}(\theta) = \mathbb{E}_t \lambda(t) \mathbb{E}_{\bar{\ma
 - [\[NeurIPS 2025\] Boosting Generative Image Modeling via Joint Image-Feature Synthesis](../../NeurIPS2025/image_generation/boosting_generative_image_modeling_via_joint_imagefeature_sy.md)
 - [\[ICML 2025\] Action-Minimization Meets Generative Modeling: Efficient Transition Path Sampling with the Onsager-Machlup Functional](action-minimization_meets_generative_modeling_efficient_transition_path_sampling.md)
 - [\[ICML 2025\] Efficient Generative Modeling with Residual Vector Quantization-Based Tokens](efficient_generative_modeling_with_residual_vector_quantization-based_tokens.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **24** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/self_supervised/) · [📷 CVPR2026 (38)](../../CVPR2026/self_supervised/) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/) · [🤖 AAAI2026 (14)](../../AAAI2026/self_supervised/) · [🧠 NeurIPS2025 (36)](../../NeurIPS2025/self_supervised/) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/)
+
+🔥 **高频主题：** 自监督学习 ×3
+
 **[A Bayesian Model Selection Criterion for Selecting Pretraining Checkpoints](a_bayesian_model_selection_criterion_for_selecting_pretraining_checkpoints.md)**
 
 :   引入"下游自由能"作为预训练检查点可适应性的贝叶斯模型选择准则，证明"预训练自由能"可作为其上界代理（无需下游数据），并实验验证大学习率/小 batch/高 momentum 通过降低预训练自由能改善下游迁移性能。

@@ -374,6 +374,8 @@ $$\overline{\text{DIV}} = \frac{1}{K}\sum_{k=1}^K \left[\log\left(\frac{1}{N}\su
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Learning Conformational Ensembles of Proteins Based on Backbone Geometry](../../NeurIPS2025/medical_imaging/learning_conformational_ensembles_of_proteins_based_on_backbone_geometry.md)
@@ -381,5 +383,7 @@ $$\overline{\text{DIV}} = \frac{1}{K}\sum_{k=1}^K \left[\log\left(\frac{1}{N}\su
 - [\[ICML 2025\] Network Sparsity Unlocks the Scaling Potential of Deep Reinforcement Learning](network_sparsity_unlocks_the_scaling_potential_of_deep_reinforcement_learning.md)
 - [\[ICML 2025\] Efficient Noise Calculation in Deep Learning-based MRI Reconstructions](efficient_noise_calculation_in_deep_learning-based_mri_reconstructions.md)
 - [\[NeurIPS 2025\] DCA: Graph-Guided Deep Embedding Clustering for Brain Atlases](../../NeurIPS2025/medical_imaging/dca_graph-guided_deep_embedding_clustering_for_brain_atlases.md)
+
+</div>
 
 <!-- RELATED:END -->

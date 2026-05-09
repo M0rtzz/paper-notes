@@ -124,6 +124,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Model-Agnostic Meta Learning for Class Imbalance Adaptation](../../ACL2026/medical_imaging/model-agnostic_meta_learning_for_class_imbalance_adaptation.md)
@@ -131,5 +133,7 @@ tags:
 - [\[ACL 2025\] SECRET: Semi-supervised Clinical Trial Document Similarity Search](../../ACL2025/medical_imaging/secret_semi-supervised_clinical_trial_document_similarity_search.md)
 - [\[ICML 2025\] Bayesian Inference for Correlated Human Experts and Classifiers](../../ICML2025/medical_imaging/bayesian_inference_for_correlated_human_experts_and_classifiers.md)
 - [\[NeurIPS 2025\] Unlearned but Not Forgotten: Data Extraction after Exact Unlearning in LLM](../../NeurIPS2025/medical_imaging/unlearned_but_not_forgotten_data_extraction_after_exact_unlearning_in_llm.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -128,6 +128,8 @@ RLVR 目标 $\mathcal{L} = -\mathbb{E}[r(\bm{x}, \bm{y})]$（$r \in \{-1, +1\}$�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Large Language Model (LLM)-enabled In-context Learning for Wireless Network Optimization](../../ICML2025/signal_comm/large_language_model_llm-enabled_in-context_learning_for_wireless_network_optimi.md)
@@ -135,5 +137,7 @@ RLVR 目标 $\mathcal{L} = -\mathbb{E}[r(\bm{x}, \bm{y})]$（$r \in \{-1, +1\}$�
 - [\[NeurIPS 2025\] Bispectral OT: Dataset Comparison using Symmetry-Aware Optimal Transport](bispectral_ot_dataset_comparison_using_symmetry-aware_optimal_transport.md)
 - [\[NeurIPS 2025\] The Last Vote: A Multi-Stakeholder Framework for Language Model Governance](the_last_vote_a_multi-stakeholder_framework_for_language_model_governance.md)
 - [\[NeurIPS 2025\] Contrastive Consolidation of Top-Down Modulations Achieves Sparsely Supervised Continual Learning](contrastive_consolidation_of_top-down_modulations_achieves_sparsely_supervised_c.md)
+
+</div>
 
 <!-- RELATED:END -->

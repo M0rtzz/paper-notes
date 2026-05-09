@@ -176,6 +176,8 @@ UEC泛化性最强，跨数据集PSNR提升3.1dB（vs ECM-MSEC）。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Optimizing Illuminant Estimation in Dual-Exposure HDR Imaging](optimizing_illuminant_estimation_in_dual-exposure_hdr_imaging.md)
@@ -183,5 +185,7 @@ UEC泛化性最强，跨数据集PSNR提升3.1dB（vs ECM-MSEC）。
 - [\[ECCV 2024\] RAW-Adapter: Adapting Pre-trained Visual Model to Camera RAW Images](raw-adapter_adapting_pre-trained_visual_model_to_camera_raw_images.md)
 - [\[ECCV 2024\] PYRA: Parallel Yielding Re-Activation for Training-Inference Efficient Task Adaptation](pyra_parallel_yielding_re-activation_for_training-inference_efficient_task_adapt.md)
 - [\[ECCV 2024\] QueryCDR: Query-based Controllable Distortion Rectification Network for Fisheye Images](querycdr_query-based_controllable_distortion_rectification_network_for_fisheye_i.md)
+
+</div>
 
 <!-- RELATED:END -->

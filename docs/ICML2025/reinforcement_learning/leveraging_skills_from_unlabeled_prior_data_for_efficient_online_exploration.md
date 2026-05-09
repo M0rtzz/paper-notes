@@ -163,6 +163,8 @@ $$r_{\mathrm{UCB}}(s, z) = r_\zeta(s, z) + \alpha \|g_\phi(s, z) - \bar{g}(s, z)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Online Pre-Training for Offline-to-Online Reinforcement Learning](online_pre-training_for_offline-to-online_reinforcement_learning.md)
@@ -170,5 +172,7 @@ $$r_{\mathrm{UCB}}(s, z) = r_\zeta(s, z) + \alpha \|g_\phi(s, z) - \bar{g}(s, z)
 - [\[ICML 2025\] KEA: Keeping Exploration Alive by Proactively Coordinating Exploration Strategies](kea_keeping_exploration_alive_by_proactively_coordinating_exploration_strategies.md)
 - [\[CVPR 2025\] SkillMimic: Learning Basketball Interaction Skills from Demonstrations](../../CVPR2025/reinforcement_learning/skillmimic_learning_basketball_interaction_skills_from_demonstrations.md)
 - [\[ICLR 2026\] REA-RL: Reflection-Aware Online Reinforcement Learning for Efficient Reasoning](../../ICLR2026/reinforcement_learning/rea-rl_reflection-aware_online_reinforcement_learning_for_efficient_reasoning.md)
+
+</div>
 
 <!-- RELATED:END -->

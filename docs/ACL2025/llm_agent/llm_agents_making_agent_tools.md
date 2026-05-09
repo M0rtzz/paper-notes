@@ -126,6 +126,8 @@ ToolMaker不涉及模型训练，完全基于现有LLM（如GPT-4）的零样本
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Agentic Reasoning: A Streamlined Framework for Enhancing LLM Reasoning with Agentic Tools](agentic_reasoning_tools.md)
@@ -133,5 +135,7 @@ ToolMaker不涉及模型训练，完全基于现有LLM（如GPT-4）的零样本
 - [\[NeurIPS 2025\] Distilling LLM Agent into Small Models with Retrieval and Code Tools](../../NeurIPS2025/llm_agent/distilling_llm_agent_into_small_models_with_retrieval_and_co.md)
 - [\[NeurIPS 2025\] Attractive Metadata Attack: Inducing LLM Agents to Invoke Malicious Tools](../../NeurIPS2025/llm_agent/attractive_metadata_attack_inducing_llm_agents_to_invoke_malicious_tools.md)
 - [\[ACL 2025\] Unveiling Privacy Risks in LLM Agent Memory](mextra_agent_memory_privacy.md)
+
+</div>
 
 <!-- RELATED:END -->

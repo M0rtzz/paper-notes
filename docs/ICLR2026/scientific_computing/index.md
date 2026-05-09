@@ -10,6 +10,8 @@ description: >-
 
 **🔬 ICLR2026** · **10** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (4)](../../CVPR2026/scientific_computing/) · [🤖 AAAI2026 (8)](../../AAAI2026/scientific_computing/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/scientific_computing/) · [📹 ICCV2025 (1)](../../ICCV2025/scientific_computing/) · [🧪 ICML2025 (8)](../../ICML2025/scientific_computing/) · [📷 CVPR2025 (3)](../../CVPR2025/scientific_computing/)
+
 **[Astral: Training Physics-Informed Neural Networks with Error Majorants](astral_training_physics-informed_neural_networks_with_error_majorants.md)**
 
 :   提出 Astral 损失函数（基于函数型后验误差上界/error majorant），替代传统 PiNN 中的残差损失来训练物理信息神经网络，实现训练过程中可靠的误差估计，并在扩散方程、Maxwell 方程等多种 PDE 上取得了更好或相当的精度。

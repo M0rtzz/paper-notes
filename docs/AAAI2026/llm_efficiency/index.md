@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **9** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/llm_efficiency/) · [📷 CVPR2026 (4)](../../CVPR2026/llm_efficiency/) · [🔬 ICLR2026 (19)](../../ICLR2026/llm_efficiency/) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/llm_efficiency/) · [📹 ICCV2025 (1)](../../ICCV2025/llm_efficiency/) · [🧪 ICML2025 (13)](../../ICML2025/llm_efficiency/)
+
+🔥 **高频主题：** LLM ×2
+
 **[Connectivity-Guided Sparsification of 2-FWL GNNs Preserving Full Expressivity](connectivity-guided_sparsification_of_2-fwl_gnns_preserving_full_expressivity_wi.md)**
 
 :   Co-Sparsify 提出一种基于连通性感知的稀疏化框架，通过将 3-节点交互限制在双连通分量内、2-节点交互限制在连通分量内，消除可证明冗余的计算，在保持完整 2-FWL 表达力的同时显著提升效率，在合成子结构计数任务和 ZINC、QM9 等基准上取得 SOTA。

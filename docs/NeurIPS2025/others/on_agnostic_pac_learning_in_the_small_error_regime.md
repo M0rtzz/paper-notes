@@ -149,6 +149,8 @@ ERM 最小化经验风险：$\hat{h}_{\text{ERM}} = \arg\min_{h \in \mathcal{H}}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Revisiting Agnostic Boosting](revisiting_agnostic_boosting.md)
@@ -156,5 +158,7 @@ ERM 最小化经验风险：$\hat{h}_{\text{ERM}} = \arg\min_{h \in \mathcal{H}}
 - [\[NeurIPS 2025\] Recurrent Self-Attention Dynamics: An Energy-Agnostic Perspective from Jacobians](recurrent_self-attention_dynamics_an_energy-agnostic_perspective_from_jacobians.md)
 - [\[NeurIPS 2025\] Product Distribution Learning with Imperfect Advice](product_distribution_learning_with_imperfect_advice.md)
 - [\[ACL 2025\] LADDER: Language-Driven Slice Discovery and Error Rectification in Vision Classifiers](../../ACL2025/others/ladder_language-driven_slice_discovery_and_error_rectification_in_vision_classif.md)
+
+</div>
 
 <!-- RELATED:END -->

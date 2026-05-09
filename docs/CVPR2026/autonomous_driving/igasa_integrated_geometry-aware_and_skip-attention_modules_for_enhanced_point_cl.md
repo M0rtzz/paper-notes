@@ -148,6 +148,8 @@ IGASA 采用三阶段流水线：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] VIRD: View-Invariant Representation through Dual-Axis Transformation for Cross-View Pose Estimation](vird_view-invariant_representation_through_dual-axis_transformation_for_cross-vi.md)
@@ -155,5 +157,7 @@ IGASA 采用三阶段流水线：
 - [\[CVPR 2026\] Points-to-3D: Structure-Aware 3D Generation with Point Cloud Priors](points-to-3d_structure-aware_3d_generation_with_point_cloud_priors.md)
 - [\[CVPR 2026\] DriverGaze360: OmniDirectional Driver Attention with Object-Level Guidance](drivergaze360_omnidirectional_driver_attention_with_object-level_guidance.md)
 - [\[CVPR 2026\] WalkGPT: Grounded Vision-Language Conversation with Depth-Aware Segmentation for Pedestrian Navigation](walkgpt_grounded_vision-language_conversation_with_depth-aware_segmentation_for_.md)
+
+</div>
 
 <!-- RELATED:END -->

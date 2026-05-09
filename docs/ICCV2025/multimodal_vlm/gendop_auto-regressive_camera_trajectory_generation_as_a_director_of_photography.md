@@ -141,6 +141,8 @@ $$L = \mathrm{CrossEntropy}(S[1:], \hat{S}[:,-1]) + \lambda \|\mathbf{Z}\|_2^2$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Self-Consistency for LLM-Based Motion Trajectory Generation and Verification](../../CVPR2026/multimodal_vlm/self-consistency_for_llm-based_motion_trajectory_generation_and_verification.md)
@@ -148,5 +150,7 @@ $$L = \mathrm{CrossEntropy}(S[1:], \hat{S}[:,-1]) + \lambda \|\mathbf{Z}\|_2^2$$
 - [\[ICCV 2025\] MetaMorph: Multimodal Understanding and Generation via Instruction Tuning](metamorph_multimodal_understanding_and_generation_via_instruction_tuning.md)
 - [\[ICCV 2025\] Harmonizing Visual Representations for Unified Multimodal Understanding and Generation](harmonizing_visual_representations_for_unified_multimodal_un.md)
 - [\[ICCV 2025\] AutoComPose: Automatic Generation of Pose Transition Descriptions for Composed Pose Retrieval Using Multimodal LLMs](autocompose_automatic_generation_of_pose_transition_descriptions_for_composed_po.md)
+
+</div>
 
 <!-- RELATED:END -->

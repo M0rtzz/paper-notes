@@ -10,6 +10,8 @@ description: >-
 
 **💬 ACL2025** · **34** 篇论文解读
 
+🔥 **高频主题：** Agent ×32 · LLM ×8 · 推理 ×5 · 对抗鲁棒 ×2 · 强化学习 ×2
+
 **[A Multi-Agent Framework for Mitigating Dialect Biases in Privacy Policy Question-Answering Systems](a_multi-agent_framework_for_mitigating_dialect_biases_in_privacy_policy_question.md)**
 
 :   提出一个双agent协作框架(方言Agent + 隐私政策Agent)，通过将非标准英语方言翻译为标准美式英语(SAE)并进行迭代验证，在不需要重训练或方言特定微调的前提下，显著降低隐私政策问答中的方言偏差并提升整体性能。

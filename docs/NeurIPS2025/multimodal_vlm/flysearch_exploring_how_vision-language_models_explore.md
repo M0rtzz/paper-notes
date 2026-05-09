@@ -166,6 +166,8 @@ FS-Anomaly-1 评测结果：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Exploring How Generative MLLMs Perceive More Than CLIP with the Same Vision Encoder](../../ACL2025/multimodal_vlm/exploring_how_generative_mllms_perceive_more.md)
@@ -173,5 +175,7 @@ FS-Anomaly-1 评测结果：
 - [\[CVPR 2025\] Towards Understanding How Knowledge Evolves in Large Vision-Language Models](../../CVPR2025/multimodal_vlm/towards_understanding_how_knowledge_evolves_in_large_vision-language_models.md)
 - [\[NeurIPS 2025\] NeedleInATable: Exploring Long-Context Capability of Large Language Models towards Long-Structured Tables](needleinatable_exploring_long-context_capability_of_large_language_models_toward.md)
 - [\[NeurIPS 2025\] HoPE: Hybrid of Position Embedding for Long Context Vision-Language Models](hope_hybrid_of_position_embedding_for_long_context_visionlan.md)
+
+</div>
 
 <!-- RELATED:END -->

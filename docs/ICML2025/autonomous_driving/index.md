@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (105)](../../CVPR2026/autonomous_driving/) · [🔬 ICLR2026 (18)](../../ICLR2026/autonomous_driving/) · [🤖 AAAI2026 (58)](../../AAAI2026/autonomous_driving/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/autonomous_driving/) · [📹 ICCV2025 (98)](../../ICCV2025/autonomous_driving/) · [💬 ACL2025 (1)](../../ACL2025/autonomous_driving/)
+
+🔥 **高频主题：** 点云 ×2 · 多模态 ×2 · 强化学习 ×2 · Agent ×2
+
 **[Don't be so Negative! Score-based Generative Modeling with Oracle-assisted Guidance](dont_be_so_negative_score-based_generative_modeling_with_oracle-assisted_guidanc.md)**
 
 :   提出 Gen-neG 方法，通过迭代地在扩散模型的合成数据上训练贝叶斯最优分类器并用其引导采样，将生成分布从约束违规区域引导至正支撑域。关键创新在于正确处理类先验概率的重要性采样，交通场景生成中碰撞+越界率从 29.3% 降至 5.6%。

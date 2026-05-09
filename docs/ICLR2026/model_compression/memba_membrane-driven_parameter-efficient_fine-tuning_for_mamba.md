@@ -116,6 +116,8 @@ Theorem 1 表明LIM具有双重效果：均值膜成分通过泄漏动态提供�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Parameter-Efficient Fine-Tuning of State Space Models](../../ICML2025/model_compression/parameter-efficient_fine-tuning_of_state_space_models.md)
@@ -123,5 +125,7 @@ Theorem 1 表明LIM具有双重效果：均值膜成分通过泄漏动态提供�
 - [\[ACL 2025\] C3A: Parameter-Efficient Fine-Tuning via Circular Convolution](../../ACL2025/model_compression/parameter-efficient_fine-tuning_via_circular_convolution.md)
 - [\[CVPR 2025\] Parameter Efficient Mamba Tuning via Projector-targeted Diagonal-centric Linear Transformation](../../CVPR2025/model_compression/parameter_efficient_mamba_tuning_via_projector-targeted_diagonal-centric_linear_.md)
 - [\[ICLR 2026\] ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models](abba-adapters_efficient_and_expressive_fine-tuning_of_foundation_models.md)
+
+</div>
 
 <!-- RELATED:END -->

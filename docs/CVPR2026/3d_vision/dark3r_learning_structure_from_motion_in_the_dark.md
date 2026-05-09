@@ -142,6 +142,8 @@ Dark3R位姿 + Dark3R-NeRF组合在无Oracle条件下取得最优综合表现。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] PromptStereo: Zero-Shot Stereo Matching via Structure and Motion Prompts](promptstereo_zero-shot_stereo_matching_via_structure_and_motion_prompts.md)
@@ -149,5 +151,7 @@ Dark3R位姿 + Dark3R-NeRF组合在无Oracle条件下取得最优综合表现。
 - [\[CVPR 2026\] Learning Explicit Continuous Motion Representation for Dynamic Gaussian Splatting from Monocular Videos](learning_explicit_continuous_motion_representation_for_dynamic_gaussian_splattin.md)
 - [\[CVPR 2026\] AnthroTAP: Learning Point Tracking with Real-World Motion](anthrotap_learning_point_tracking_with_real-world_motion.md)
 - [\[CVPR 2025\] Light3R-SfM: Towards Feed-forward Structure-from-Motion](../../CVPR2025/3d_vision/light3r-sfm_towards_feed-forward_structure-from-motion.md)
+
+</div>
 
 <!-- RELATED:END -->

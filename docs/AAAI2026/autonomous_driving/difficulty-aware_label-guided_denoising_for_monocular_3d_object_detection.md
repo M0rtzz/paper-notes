@@ -156,6 +156,8 @@ $$L = L_{recon} + L_{det}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] A Prediction-as-Perception Framework for 3D Object Detection](../../CVPR2026/autonomous_driving/a_prediction-as-perception_framework_for_3d_object_detection.md)
@@ -163,5 +165,7 @@ $$L = L_{recon} + L_{det}$$
 - [\[CVPR 2025\] V2X-R: Cooperative LiDAR-4D Radar Fusion with Denoising Diffusion for 3D Object Detection](../../CVPR2025/autonomous_driving/v2x-r_cooperative_lidar-4d_radar_fusion_with_denoising_diffusion_for_3d_object_d.md)
 - [\[ECCV 2024\] MonoWAD: Weather-Adaptive Diffusion Model for Robust Monocular 3D Object Detection](../../ECCV2024/autonomous_driving/monowad_weather-adaptive_diffusion_model_for_robust_monocular_3d_object_detectio.md)
 - [\[AAAI 2026\] Exploring Surround-View Fisheye Camera 3D Object Detection](exploring_surround-view_fisheye_camera_3d_object_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -131,6 +131,8 @@ Llama3.2-3B 同样的趋势但整体更低：8-shot metric-specific 的 CF loc �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Context-Robust Knowledge Editing for Language Models](context-robust_knowledge_editing_for_language_models.md)
@@ -138,5 +140,7 @@ Llama3.2-3B 同样的趋势但整体更低：8-shot metric-specific 的 CF loc �
 - [\[ACL 2025\] ScEdit: Script-based Assessment of Knowledge Editing](scedit_script-based_assessment_of_knowledge_editing.md)
 - [\[ACL 2025\] SAKE: Steering Activations for Knowledge Editing](sake_steering_activations_for_knowledge_editing.md)
 - [\[ACL 2025\] Revealing the Deceptiveness of Knowledge Editing: A Mechanistic Analysis of Superficial Editing](revealing_the_deceptiveness_of_knowledge_editing_a_mechanistic_analysis_of_super.md)
+
+</div>
 
 <!-- RELATED:END -->

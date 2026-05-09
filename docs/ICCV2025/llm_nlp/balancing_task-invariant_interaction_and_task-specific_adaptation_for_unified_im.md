@@ -155,6 +155,8 @@ TITA 在不使用任务标识的前提下，多项指标超越专用方法和通
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Cheaper and Better Diffusion Language Model via Task-Specific Training](../../ACL2025/llm_nlp/cheaper_and_better_diffusion_language_model_via_task-specific_training.md)
@@ -162,5 +164,7 @@ TITA 在不使用任务标识的前提下，多项指标超越专用方法和通
 - [\[ICLR 2026\] BOTS: A Unified Framework for Bayesian Online Task Selection in LLM Reinforcement Finetuning](../../ICLR2026/llm_nlp/bots_a_unified_framework_for_bayesian_online_task_selection_in_llm_reinforcement.md)
 - [\[ACL 2025\] QQSUM: A Novel Task and Model of Quantitative Query-Focused Summarization for Review-based Product Question Answering](../../ACL2025/llm_nlp/qqsum_a_novel_task_and_model_of_quantitative_query-focused_summarization_for_rev.md)
 - [\[ACL 2025\] Pitfalls of Scale: Investigating the Inverse Task of Redefinition in Large Language Models](../../ACL2025/llm_nlp/pitfalls_of_scale_investigating_the_inverse_task_of_redefinition_in_large_langua.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -149,6 +149,8 @@ $$\frac{d\mathbf{x}(t)}{dt} = v_\theta^{(1)}(t, \mathbf{x}(t), f_{\text{partial}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Energy Matching: Unifying Flow Matching and Energy-Based Models for Generative Modeling](energy_matching_unifying_flow_matching_and_energy-based_models_for_generative_mo.md)
@@ -156,5 +158,7 @@ $$\frac{d\mathbf{x}(t)}{dt} = v_\theta^{(1)}(t, \mathbf{x}(t), f_{\text{partial}
 - [\[NeurIPS 2025\] Multimodal 3D Genome Pre-training](multimodal_3d_genome_pre-training.md)
 - [\[ICML 2025\] Flexibility-conditioned Protein Structure Design with Flow Matching](../../ICML2025/medical_imaging/flexibility-conditioned_protein_structure_design_with_flow_matching.md)
 - [\[NeurIPS 2025\] 3D-RAD: A Comprehensive 3D Radiology Med-VQA Dataset with Multi-Temporal Analysis and Diverse Diagnostic Tasks](3drad_a_comprehensive_3d_radiology_medvqa_dataset_with_multi.md)
+
+</div>
 
 <!-- RELATED:END -->

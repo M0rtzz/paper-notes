@@ -124,6 +124,8 @@ $$\frac{\sigma}{2}\|\boldsymbol{\zeta} - \boldsymbol{\zeta}^\star\|^2 \leq \Phi(
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Enhancing Transformers for Generalizable First-Order Logical Entailment](../../ACL2025/others/enhancing_fol_entailment.md)
@@ -131,5 +133,7 @@ $$\frac{\sigma}{2}\|\boldsymbol{\zeta} - \boldsymbol{\zeta}^\star\|^2 \leq \Phi(
 - [\[CVPR 2025\] ZO-SAM: Zero-Order Sharpness-Aware Minimization for Efficient Sparse Training](../../CVPR2025/others/zo-sam_zero-order_sharpness-aware_minimization_for_efficient_sparse_training.md)
 - [\[ICML 2025\] Position: Solve Layerwise Linear Models First to Understand Neural Dynamical Phenomena](position_solve_layerwise_linear_models_first_to_understand_neural_dynamical_phen.md)
 - [\[AAAI 2026\] Tractable Weighted First-Order Model Counting with Bounded Treewidth Binary Evidence](../../AAAI2026/others/tractable_weighted_first-order_model_counting_with_bounded_treewidth_binary_evid.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -124,6 +124,8 @@ $$\mathcal{L}_{\text{ver}} = \mathbb{E}_{T \sim \Pi} \frac{1}{NM} \sum_{n,m} [-\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] T-LoRA: Single Image Diffusion Model Customization Without Overfitting](../../AAAI2026/image_generation/t-lora_single_image_diffusion_model_customization_without_overfitting.md)
@@ -131,5 +133,7 @@ $$\mathcal{L}_{\text{ver}} = \mathbb{E}_{T \sim \Pi} \frac{1}{NM} \sum_{n,m} [-\
 - [\[ICML 2025\] Gaussian Mixture Flow Matching Models](../../ICML2025/image_generation/gaussian_mixture_flow_matching_models.md)
 - [\[ICML 2025\] Flat-LoRA: Low-Rank Adaptation over a Flat Loss Landscape](../../ICML2025/image_generation/flat-lora_low-rank_adaptation_over_a_flat_loss_landscape.md)
 - [\[CVPR 2026\] Mixture of States: Routing Token-Level Dynamics for Multimodal Generation](../../CVPR2026/image_generation/mixture_of_states_routing_token-level_dynamics_for_multimodal_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

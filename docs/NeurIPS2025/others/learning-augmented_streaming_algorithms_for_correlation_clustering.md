@@ -188,6 +188,8 @@ $$\text{近似比} = f(\eta), \quad f(0) < 3, \quad f(\infty) = 3$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Improved Approximation Algorithms for Chromatic and Pseudometric-Weighted Correlation Clustering](improved_approximation_algorithms_for_chromatic_and_pseudometric-weighted_correl.md)
@@ -195,5 +197,7 @@ $$\text{近似比} = f(\eta), \quad f(0) < 3, \quad f(\infty) = 3$$
 - [\[ICML 2025\] Sparse-Pivot: Dynamic Correlation Clustering for Node Insertions](../../ICML2025/others/sparse-pivot_dynamic_correlation_clustering_for_node_insertions.md)
 - [\[NeurIPS 2025\] Learning-Augmented Online Bipartite Fractional Matching](learning-augmented_online_bipartite_fractional_matching.md)
 - [\[ICML 2025\] Learning-Augmented Algorithms for MTS with Bandit Access to Multiple Predictors](../../ICML2025/others/learning-augmented_algorithms_for_mts_with_bandit_access_to_multiple_predictors.md)
+
+</div>
 
 <!-- RELATED:END -->

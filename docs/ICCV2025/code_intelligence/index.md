@@ -10,6 +10,8 @@ description: >-
 
 **📹 ICCV2025** · **1** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (20)](../../ACL2026/code_intelligence/) · [📷 CVPR2026 (2)](../../CVPR2026/code_intelligence/) · [🔬 ICLR2026 (23)](../../ICLR2026/code_intelligence/) · [🤖 AAAI2026 (10)](../../AAAI2026/code_intelligence/) · [🧠 NeurIPS2025 (22)](../../NeurIPS2025/code_intelligence/) · [🧪 ICML2025 (11)](../../ICML2025/code_intelligence/)
+
 **[TikZero: Zero-Shot Text-Guided Graphics Program Synthesis](tikzero_zero-shot_text-guided_graphics_program_synthesis.md)**
 
 :   提出 TikZero，通过将图像表示作为中间桥梁，将图形程序生成与文本理解解耦，实现零样本文本引导的 TikZ 图形程序合成，在无需文本对齐训练数据的情况下大幅超越基线方法，经端到端微调后的 TikZero+ 达到甚至超越 GPT-4o 等大型商业模型的性能。

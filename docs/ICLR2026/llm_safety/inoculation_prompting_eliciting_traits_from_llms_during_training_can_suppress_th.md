@@ -128,6 +128,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Buffer Layers for Test-Time Adaptation](../../NeurIPS2025/llm_safety/buffer_layers_for_test-time_adaptation.md)
@@ -135,5 +137,7 @@ tags:
 - [\[AAAI 2026\] Can Editing LLMs Inject Harm?](../../AAAI2026/llm_safety/can_editing_llms_inject_harm.md)
 - [\[ICML 2025\] Emergent Misalignment: Narrow Finetuning Can Produce Broadly Misaligned LLMs](../../ICML2025/llm_safety/emergent_misalignment_narrow_finetuning_can_produce_broadly_misaligned_llms.md)
 - [\[ICLR 2026\] Purifying Generative LLMs from Backdoors without Prior Knowledge or Clean Reference](purifying_generative_llms_from_backdoors_without_prior_knowledge_or_clean_refere.md)
+
+</div>
 
 <!-- RELATED:END -->

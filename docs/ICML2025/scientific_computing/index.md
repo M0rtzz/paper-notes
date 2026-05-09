@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (4)](../../CVPR2026/scientific_computing/) · [🔬 ICLR2026 (10)](../../ICLR2026/scientific_computing/) · [🤖 AAAI2026 (8)](../../AAAI2026/scientific_computing/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/scientific_computing/) · [📹 ICCV2025 (1)](../../ICCV2025/scientific_computing/) · [📷 CVPR2025 (3)](../../CVPR2025/scientific_computing/)
+
+🔥 **高频主题：** 少样本学习 ×2
+
 **[Causal-PIK: Causality-based Physical Reasoning with a Physics-Informed Kernel](causal-pik_causality-based_physical_reasoning_with_a_physics-informed_kernel.md)**
 
 :   提出 Causal-PIK，通过将物理因果相似性编码为贝叶斯优化的核函数（Physics-Informed Kernel），使智能体在物理推理任务中仅需极少次尝试即可找到最优动作，在 Virtual Tools 和 PHYRE 基准上超越 SOTA。

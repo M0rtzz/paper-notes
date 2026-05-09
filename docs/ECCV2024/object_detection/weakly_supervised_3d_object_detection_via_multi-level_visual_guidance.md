@@ -132,6 +132,8 @@ VG-W3D 由两个分支构成：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Interactive 3D Object Detection with Prompts](interactive_3d_object_detection_with_prompts.md)
@@ -139,5 +141,7 @@ VG-W3D 由两个分支构成：
 - [\[ECCV 2024\] Stepwise Multi-grained Boundary Detector for Point-Supervised Temporal Action Localization](stepwise_multi-grained_boundary_detector_for_point-supervised_temporal_action_lo.md)
 - [\[CVPR 2025\] Learning Class Prototypes for Unified Sparse-Supervised 3D Object Detection](../../CVPR2025/object_detection/learning_class_prototypes_for_unified_sparse-supervised_3d_object_detection.md)
 - [\[CVPR 2025\] Interpreting Object-level Foundation Models via Visual Precision Search](../../CVPR2025/object_detection/interpreting_object-level_foundation_models_via_visual_precision_search.md)
+
+</div>
 
 <!-- RELATED:END -->

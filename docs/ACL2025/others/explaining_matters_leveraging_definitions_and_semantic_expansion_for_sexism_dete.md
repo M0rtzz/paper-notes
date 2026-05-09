@@ -162,6 +162,8 @@ DDA 在 Task C 上的改善最为显著：从 0.5601 提升至 0.6018（+4.17 F1
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] SEOE: A Scalable and Reliable Semantic Evaluation Framework for Open Domain Event Detection](seoe_semantic_eval.md)
@@ -169,5 +171,7 @@ DDA 在 Task C 上的改善最为显著：从 0.5601 提升至 0.6018（+4.17 F1
 - [\[ACL 2025\] What Matters in Evaluating Book-Length Stories? A Systematic Study of Long Story Evaluation](what_matters_in_evaluating_book-length_stories_a_systematic_study_of_long_story_.md)
 - [\[ACL 2025\] S3 - Semantic Signal Separation](s3_-_semantic_signal_separation.md)
 - [\[ACL 2025\] Inner Thinking Transformer: Leveraging Dynamic Depth Scaling to Foster Adaptive Internal Thinking](inner_thinking_transformer_leveraging_dynamic_depth_scaling_to_foster_adaptive_i.md)
+
+</div>
 
 <!-- RELATED:END -->

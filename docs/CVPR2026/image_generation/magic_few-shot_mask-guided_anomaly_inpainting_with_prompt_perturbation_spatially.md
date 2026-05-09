@@ -163,6 +163,8 @@ GPP 单独使用显著降低 KID 并提升分类~3%；MGNI 增加多样性虽略
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] MTADiffusion: Mask Text Alignment Diffusion Model for Object Inpainting](../../CVPR2025/image_generation/mtadiffusion_mask_text_alignment_diffusion_model_for_object_inpainting.md)
@@ -170,5 +172,7 @@ GPP 单独使用显著降低 KID 并提升分类~3%；MGNI 增加多样性虽略
 - [\[AAAI 2026\] FreeInpaint: Tuning-free Prompt Alignment and Visual Rationality Enhancement in Image Inpainting](../../AAAI2026/image_generation/freeinpaint_tuning-free_prompt_alignment_and_visual_rationality_enhancement_in_i.md)
 - [\[CVPR 2025\] Z-Magic: Zero-shot Multiple Attributes Guided Image Creator](../../CVPR2025/image_generation/z-magic_zero-shot_multiple_attributes_guided_image_creator.md)
 - [\[CVPR 2026\] Adaptive Auxiliary Prompt Blending for Target-Faithful Diffusion Generation](adaptive_auxiliary_prompt_blending_for_target-faithful_diffusion_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

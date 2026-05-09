@@ -127,6 +127,8 @@ BaSIC 将 NIC 的计算可扩展性问题分解为两个贝叶斯网络结构学
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Basic Reading Distillation](../../ACL2025/model_compression/basic_reading_distillation.md)
@@ -134,5 +136,7 @@ BaSIC 将 NIC 的计算可扩展性问题分解为两个贝叶斯网络结构学
 - [\[ICLR 2026\] Rethinking Continual Learning with Progressive Neural Collapse](../../ICLR2026/model_compression/rethinking_continual_learning_with_progressive_neural_collapse.md)
 - [\[ICML 2025\] Lego Sketch: A Scalable Memory-augmented Neural Network for Sketching Data Streams](../../ICML2025/model_compression/lego_sketch_a_scalable_memory-augmented_neural_network_for_sketching_data_stream.md)
 - [\[ECCV 2024\] Lagrangian Hashing for Compressed Neural Field Representations](lagrangian_hashing_for_compressed_neural_field_representations.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -127,6 +127,8 @@ $$\mathcal{L}_{\text{LineCNet}} = \|\Phi_{bg} - \Phi^{gt}_{bg}\|_2^2 + \lambda_3
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Pose Priors from Language Models](../../CVPR2025/human_understanding/pose_priors_from_language_models.md)
@@ -134,5 +136,7 @@ $$\mathcal{L}_{\text{LineCNet}} = \|\Phi_{bg} - \Phi^{gt}_{bg}\|_2^2 + \lambda_3
 - [\[CVPR 2025\] Sonic: Shifting Focus to Global Audio Perception in Portrait Animation](../../CVPR2025/human_understanding/sonic_shifting_focus_to_global_audio_perception_in_portrait_animation.md)
 - [\[AAAI 2026\] New Synthetic Goldmine: Hand Joint Angle-Driven EMG Data Generation Framework for Micro-Gesture Recognition](../../AAAI2026/human_understanding/new_synthetic_goldmine_hand_joint_angle-driven_emg_data_generation_framework_for.md)
 - [\[CVPR 2025\] Omni-ID: Holistic Identity Representation Designed for Generative Tasks](../../CVPR2025/human_understanding/omni-id_holistic_identity_representation_designed_for_generative_tasks.md)
+
+</div>
 
 <!-- RELATED:END -->

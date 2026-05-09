@@ -136,6 +136,8 @@ $$\mathcal{L} = \mathbb{E}_{x_0 \sim P_{\text{data}}} \mathbb{E}_{x \sim P(x_t |
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Elucidating the Design Space of Arbitrary-Noise-Based Diffusion Models](eda_arbitrary_noise_diffusion_design_space.md)
@@ -143,5 +145,7 @@ $$\mathcal{L} = \mathbb{E}_{x_0 \sim P_{\text{data}}} \mathbb{E}_{x \sim P(x_t |
 - [\[ICML 2025\] Elucidating the Design Space of Multimodal Protein Language Models](../../ICML2025/medical_imaging/elucidating_the_design_space_of_multimodal_protein_language_models.md)
 - [\[CVPR 2026\] Accelerating Stroke MRI with Diffusion Probabilistic Models through Large-Scale Pre-training and Target-Specific Fine-Tuning](accelerating_stroke_mri_with_diffusion_probabilist.md)
 - [\[CVPR 2026\] MRI Contrast Enhancement Kinetics World Model](mri_contrast_enhancement_kinetics_world_model.md)
+
+</div>
 
 <!-- RELATED:END -->

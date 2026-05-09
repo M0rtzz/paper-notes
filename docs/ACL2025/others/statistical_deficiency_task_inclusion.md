@@ -137,6 +137,8 @@ IS成功捕捉到：$\mathcal{IS}(F \to L) \leq \mathcal{IS}(F\vee L \to L)$，$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Infogen: Generating Complex Statistical Infographics from Documents](infogen_generating_complex_statistical_infographics_from_documents.md)
@@ -144,5 +146,7 @@ IS成功捕捉到：$\mathcal{IS}(F \to L) \leq \mathcal{IS}(F\vee L \to L)$，$
 - [\[ACL 2025\] Causal Estimation of Tokenisation Bias](causal_tokenisation_bias.md)
 - [\[ACL 2025\] MoRE: A Mixture of Low-Rank Experts for Adaptive Multi-Task Learning](more_a_mixture_of_low-rank_experts_for_adaptive_multi-task_learning.md)
 - [\[ACL 2025\] Task-Informed Anti-Curriculum by Masking Improves Downstream Performance on Text](task-informed_anti-curriculum_by_masking_improves_downstream_performance_on_text.md)
+
+</div>
 
 <!-- RELATED:END -->

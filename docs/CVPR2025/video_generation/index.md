@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **85** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/video_generation/) · [📷 CVPR2026 (59)](../../CVPR2026/video_generation/) · [🔬 ICLR2026 (19)](../../ICLR2026/video_generation/) · [🤖 AAAI2026 (11)](../../AAAI2026/video_generation/) · [🧠 NeurIPS2025 (23)](../../NeurIPS2025/video_generation/) · [📹 ICCV2025 (51)](../../ICCV2025/video_generation/)
+
+🔥 **高频主题：** 视频生成 ×35 · 扩散模型 ×25 · 超分辨率 ×4 · 布局/合成 ×4 · 压缩/编码 ×3
+
 **[4Real-Video: Learning Generalizable Photo-Realistic 4D Video Diffusion](4real-video_learning_generalizable_photo-realistic_4d_video_diffusion.md)**
 
 :   提出4Real-Video，一种基于双流架构的4D视频生成框架，通过将视频token分为时间流和视角流并行处理，引入hard/soft同步层协调两流信息，约1分钟即可生成8×8的高质量时空视频网格，在视觉质量和多视角一致性上超越现有方法。

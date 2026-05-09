@@ -150,6 +150,8 @@ $$\mathcal{L}_{PDR} = \frac{1}{|\mathcal{M}_2|}\sum_{(j,k) \in \mathcal{M}_2}(\|
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Pixel-Level Reasoning Segmentation via Multi-turn Conversations](../../ACL2025/segmentation/pixel-level_reasoning_segmentation_via_multi-turn_conversations.md)
@@ -157,5 +159,7 @@ $$\mathcal{L}_{PDR} = \frac{1}{|\mathcal{M}_2|}\sum_{(j,k) \in \mathcal{M}_2}(\|
 - [\[CVPR 2025\] CrossEarth-SAR: A SAR-Centric and Billion-Scale Geospatial Foundation Model for Domain Generalizable Semantic Segmentation](../../CVPR2025/segmentation/crossearth-sar_a_sar-centric_and_billion-scale_geospatial_foundation_model_for_d.md)
 - [\[CVPR 2025\] Mosaic3D: Foundation Dataset and Model for Open-Vocabulary 3D Segmentation](../../CVPR2025/segmentation/mosaic3d_foundation_dataset_and_model_for_open-vocabulary_3d_segmentation.md)
 - [\[ICCV 2025\] Advancing Visual Large Language Model for Multi-granular Versatile Perception](../../ICCV2025/segmentation/advancing_visual_large_language_model_for_multi-granular_versatile_perception.md)
+
+</div>
 
 <!-- RELATED:END -->

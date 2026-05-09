@@ -128,6 +128,8 @@ TSG Bench 基于叙事文本和对应的动态场景图序列构建，包含 120
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] AAD-LLM: Neural Attention-Driven Auditory Scene Understanding](aad-llm_neural_attention-driven_auditory_scene_understanding.md)
@@ -135,5 +137,7 @@ TSG Bench 基于叙事文本和对应的动态场景图序列构建，包含 120
 - [\[ACL 2025\] Can Graph Descriptive Order Affect Solving Graph Problems with LLMs?](graph_descriptive_order_llm.md)
 - [\[ACL 2025\] Can Large Language Models Accurately Generate Answer Keys for Health-related Questions?](can_large_language_models_accurately_generate_answer_keys_for_health-related_que.md)
 - [\[ACL 2025\] Past Meets Present: Creating Historical Analogy with Large Language Models](past_meets_present_creating_historical_analogy_with_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

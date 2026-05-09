@@ -139,6 +139,8 @@ NameTag 3 基于预训练语言模型（XLM-R Large 355M 或 RobeCzech Base 126M
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] LexGen: Domain-aware Multilingual Lexicon Generation](lexgen_domain-aware_multilingual_lexicon_generation.md)
@@ -146,5 +148,7 @@ NameTag 3 基于预训练语言模型（XLM-R Large 355M 或 RobeCzech Base 126M
 - [\[ACL 2025\] EXECUTE: A Multilingual Benchmark for LLM Token Understanding](execute_a_multilingual_benchmark_for_llm_token_understanding.md)
 - [\[ACL 2025\] M-RewardBench: Evaluating Reward Models in Multilingual Settings](m_rewardbench.md)
 - [\[ACL 2025\] KnowCoder-X: Boosting Multilingual Information Extraction via Code](knowcoder-x_boosting_multilingual_information_extraction_via_code.md)
+
+</div>
 
 <!-- RELATED:END -->

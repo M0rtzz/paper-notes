@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **49** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (7)](../../ACL2026/robotics/) · [🔬 ICLR2026 (47)](../../ICLR2026/robotics/) · [🤖 AAAI2026 (38)](../../AAAI2026/robotics/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/robotics/) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/) · [🧪 ICML2025 (16)](../../ICML2025/robotics/)
+
+🔥 **高频主题：** 机器人 ×23 · 多模态 ×12 · 推理 ×9 · 导航 ×5 · Agent ×3
+
 **[Action–Geometry Prediction with 3D Geometric Prior for Bimanual Manipulation](actiongeometry_prediction_with_3d_geometric_prior.md)**
 
 :   利用预训练3D几何基础模型π3作为感知骨干，融合3D几何、2D语义和本体感知特征，通过扩散模型联合预测未来动作chunk和未来3D Pointmap，仅使用RGB输入就在RoboTwin双臂基准上全面超越点云方法。

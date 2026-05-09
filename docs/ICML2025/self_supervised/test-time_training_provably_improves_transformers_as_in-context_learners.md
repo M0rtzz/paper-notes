@@ -134,6 +134,8 @@ $$W^* = \arg\min_W \mathbb{E} [(y - \text{SM}(Z, W))^2]$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Test-Time Canonicalization by Foundation Models for Robust Perception](test-time_canonicalization_by_foundation_models_for_robust_perception.md)
@@ -141,5 +143,7 @@ $$W^* = \arg\min_W \mathbb{E} [(y - \text{SM}(Z, W))^2]$$
 - [\[CVPR 2026\] AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation](../../CVPR2026/self_supervised/actta_rethinking_test-time_adaptation_via_dynamic_activation.md)
 - [\[ICLR 2026\] Spectrum Tuning: Post-Training for Distributional Coverage and In-Context Steerability](../../ICLR2026/self_supervised/spectrum_tuning_post-training_for_distributional_coverage_and_in-context_steerab.md)
 - [\[CVPR 2025\] Transformers without Normalization](../../CVPR2025/self_supervised/transformers_without_normalization.md)
+
+</div>
 
 <!-- RELATED:END -->

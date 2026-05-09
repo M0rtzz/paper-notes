@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **219** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/image_generation/) · [📷 CVPR2026 (240)](../../CVPR2026/image_generation/) · [🔬 ICLR2026 (154)](../../ICLR2026/image_generation/) · [🤖 AAAI2026 (78)](../../AAAI2026/image_generation/) · [🧠 NeurIPS2025 (250)](../../NeurIPS2025/image_generation/) · [🧪 ICML2025 (115)](../../ICML2025/image_generation/)
+
+🔥 **高频主题：** 扩散模型 ×90 · 文生图 ×17 · 图像编辑 ×15 · 对抗鲁棒 ×12 · 少样本学习 ×9
+
 **[A0: An Affordance-Aware Hierarchical Model for General Robotic Manipulation](a0_affordance_aware_hierarchical_model_robotic_manipulation.md)**
 
 :   提出 A₀，一个可供性感知的分层扩散模型，通过将操作任务分解为高层空间可供性理解（预测接触点和轨迹）和低层动作执行，在100万接触点数据上预训练后仅需少量任务数据微调即可跨平台(Franka/Kinova/Realman/Dobot)部署，在擦白板等复杂轨迹任务中成功率达45%。

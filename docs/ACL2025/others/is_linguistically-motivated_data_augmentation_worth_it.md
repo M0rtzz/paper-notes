@@ -165,6 +165,8 @@ Perm 的负面效果不是因为模型学会了"错误的词序"，而是因为�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Curvature Enhanced Data Augmentation for Regression](../../ICML2025/others/curvature_enhanced_data_augmentation_for_regression.md)
@@ -172,5 +174,7 @@ Perm 的负面效果不是因为模型学会了"错误的词序"，而是因为�
 - [\[ECCV 2024\] FreeAugment: Data Augmentation Search Across All Degrees of Freedom](../../ECCV2024/others/freeaugment_data_augmentation_search_across_all_degrees_of_freedom.md)
 - [\[ICCV 2025\] Adversarial Data Augmentation for Single Domain Generalization via Lyapunov Exponents](../../ICCV2025/others/adversarial_data_augmentation_for_single_domain_generalization_via_lyapunov_expo.md)
 - [\[ACL 2025\] It's Not a Walk in the Park! Challenges of Idiom Translation in Speech-to-text Systems](its_not_a_walk_in_the_park_challenges_of_idiom_translation_in_speech-to-text_sys.md)
+
+</div>
 
 <!-- RELATED:END -->

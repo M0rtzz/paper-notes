@@ -295,6 +295,8 @@ mT5-XXL 微调 SOTA 为 64.4%，DeepSeek r1 Hybrid 达 63.6%，o3-mini 达 62.6%
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Unintended Harms of Value-Aligned LLMs: Psychological and Empirical Insights](unintended_harms_of_value-aligned_llms_psychological_and_empirical_insights.md)
@@ -302,5 +304,7 @@ mT5-XXL 微调 SOTA 为 64.4%，DeepSeek r1 Hybrid 达 63.6%，o3-mini 达 62.6%
 - [\[ACL 2025\] Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models](salience_sparse_fine_tuning.md)
 - [\[ACL 2025\] Mind the (Belief) Gap: Group Identity in the World of LLMs](mind_the_belief_gap_group_identity_in_the_world_of_llms.md)
 - [\[AAAI 2026\] Soft Filtering: Guiding Zero-Shot Composed Image Retrieval with Prescriptive and Proscriptive Prompts](../../AAAI2026/llm_nlp/soft_filtering_guiding_zero-shot_composed_image_retrieval_with_prescriptive_and_.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -166,6 +166,8 @@ WinoBias 36 种职业评估（$\mathcal{T}_{basic}$ / $\mathcal{T}_{complex}$ �
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] LaRender: Training-Free Occlusion Control in Image Generation via Latent Rendering](larender_training-free_occlusion_control_in_image_generation_via_latent_renderin.md)
@@ -173,5 +175,7 @@ WinoBias 36 种职业评估（$\mathcal{T}_{basic}$ / $\mathcal{T}_{complex}$ �
 - [\[ICCV 2025\] VIGFace: Virtual Identity Generation for Privacy-Free Face Recognition Dataset](vigface_virtual_identity_generation_for_privacy-free_face_recognition_dataset.md)
 - [\[ECCV 2024\] Be Yourself: Bounded Attention for Multi-Subject Text-to-Image Generation](../../ECCV2024/image_generation/be_yourself_bounded_attention_for_multisubject_texttoimage_g.md)
 - [\[ICCV 2025\] Addressing Text Embedding Leakage in Diffusion-Based Image Editing](addressing_text_embedding_leakage_in_diffusion-based_image_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

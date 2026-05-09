@@ -129,6 +129,8 @@ Separation 证明构造了一个"evil sequence"类：对每个 total 学习器 $
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Learning-Augmented Online Bipartite Fractional Matching](learning-augmented_online_bipartite_fractional_matching.md)
@@ -136,5 +138,7 @@ Separation 证明构造了一个"evil sequence"类：对每个 total 学习器 $
 - [\[ICML 2025\] Avoiding Catastrophe in Online Learning by Asking for Help](../../ICML2025/others/avoiding_catastrophe_in_online_learning_by_asking_for_help.md)
 - [\[NeurIPS 2025\] FlashMD: Long-Stride, Universal Prediction of Molecular Dynamics](flashmd_long-stride_universal_prediction_of_molecular_dynamics.md)
 - [\[NeurIPS 2025\] Zebra: Towards Zero-Shot Cross-Subject Generalization for Universal Brain Visual Decoding](zebra_towards_zero-shot_cross-subject_generalization_for_universal_brain_visual_.md)
+
+</div>
 
 <!-- RELATED:END -->

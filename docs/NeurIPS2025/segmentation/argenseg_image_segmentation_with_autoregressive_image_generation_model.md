@@ -118,6 +118,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Seg-VAR: Image Segmentation with Visual Autoregressive Modeling](seg-var_image_segmentation_with_visual_autoregressive_modeling.md)
@@ -125,5 +127,7 @@ tags:
 - [\[CVPR 2025\] EditAR: Unified Conditional Generation with Autoregressive Models](../../CVPR2025/segmentation/editar_unified_conditional_generation_with_autoregressive_models.md)
 - [\[CVPR 2025\] Your ViT is Secretly an Image Segmentation Model](../../CVPR2025/segmentation/your_vit_is_secretly_an_image_segmentation_model.md)
 - [\[ICCV 2025\] Latent Expression Generation for Referring Image Segmentation and Grounding](../../ICCV2025/segmentation/latent_expression_generation_for_referring_image_segmentation_and_grounding.md)
+
+</div>
 
 <!-- RELATED:END -->

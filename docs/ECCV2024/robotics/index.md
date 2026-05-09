@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **17** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (7)](../../ACL2026/robotics/) · [📷 CVPR2026 (49)](../../CVPR2026/robotics/) · [🔬 ICLR2026 (47)](../../ICLR2026/robotics/) · [🤖 AAAI2026 (38)](../../AAAI2026/robotics/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/robotics/) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/)
+
+🔥 **高频主题：** 机器人 ×6 · 导航 ×5 · 多模态 ×2 · 少样本学习 ×2
+
 **[AFF-ttention! Affordances and Attention models for Short-Term Object Interaction Anticipation](aff-ttention_affordances_and_attention_models_for_short-term_object_interaction_.md)**
 
 :   提出 STAformer 架构和两个基于 affordance 的模块（环境 affordance 数据库 + 交互热点），将第一人称视频中的短期物体交互预测（STA）在 Ego4D 和 EPIC-Kitchens 上提升了 30-45% 的相对性能。

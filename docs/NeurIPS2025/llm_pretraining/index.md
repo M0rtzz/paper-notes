@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **50** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/llm_pretraining/) · [📷 CVPR2026 (10)](../../CVPR2026/llm_pretraining/) · [🔬 ICLR2026 (27)](../../ICLR2026/llm_pretraining/) · [🤖 AAAI2026 (6)](../../AAAI2026/llm_pretraining/) · [📹 ICCV2025 (10)](../../ICCV2025/llm_pretraining/) · [🧪 ICML2025 (30)](../../ICML2025/llm_pretraining/)
+
+🔥 **高频主题：** LLM ×8 · 对齐/RLHF ×4 · 扩散模型 ×2 · 人脸/视线 ×2
+
 **[A Practical Guide for Incorporating Symmetry in Diffusion Policy](a_practical_guide_for_incorporating_symmetry_in_diffusion_policy.md)**
 
 :   本文提出了一套将对称性融入扩散策略的实用指南——通过不变性表征（相对轨迹动作 + 手眼感知）、等变视觉编码器和 Frame Averaging 三种简单方法，在 MimicGen 12 个任务上达到了接近甚至超越完全等变扩散策略的性能，同时实现复杂度大幅降低。

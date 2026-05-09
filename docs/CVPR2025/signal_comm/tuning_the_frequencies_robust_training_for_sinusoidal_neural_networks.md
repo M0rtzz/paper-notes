@@ -115,6 +115,8 @@ TUNER 针对三层正弦 MLP $f(\mathbf{x}) = \mathbf{C} \circ \mathbf{S} \circ 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Neural Video Compression with Context Modulation](neural_video_compression_with_context_modulation.md)
@@ -122,5 +124,7 @@ TUNER 针对三层正弦 MLP $f(\mathbf{x}) = \mathbf{C} \circ \mathbf{S} \circ 
 - [\[CVPR 2025\] DiTASK: Multi-Task Fine-Tuning with Diffeomorphic Transformations](ditask_multi-task_fine-tuning_with_diffeomorphic_transformations.md)
 - [\[CVPR 2025\] Radio Frequency Ray Tracing with Neural Object Representation for Enhanced RF Modeling](radio_frequency_ray_tracing_with_neural_object_representation_for_enhanced_rf_mo.md)
 - [\[ICLR 2026\] Robust Preference Alignment via Directional Neighborhood Consensus](../../ICLR2026/signal_comm/robust_preference_alignment_via_directional_neighborhood_consensus.md)
+
+</div>
 
 <!-- RELATED:END -->

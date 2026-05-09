@@ -132,6 +132,8 @@ STGNN 的输入为时空张量 $X \in \mathbb{R}^{N \times T \times F}$，输出
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] STCast: Adaptive Boundary Alignment for Global and Regional Weather Forecasting](stcast_adaptive_boundary_alignment_for_global_and_regional_weather_forecasting.md)
@@ -139,5 +141,7 @@ STGNN 的输入为时空张量 $X \in \mathbb{R}^{N \times T \times F}$，输出
 - [\[CVPR 2026\] L2GTX: From Local to Global Time Series Explanations](l2gtx_from_local_to_global_time_series_explanations.md)
 - [\[CVPR 2026\] A Frame is Worth One Token: Efficient Generative World Modeling with Delta Tokens](a_frame_is_worth_one_token_efficient_generative_world_modeling_with_delta_tokens.md)
 - [\[ICLR 2026\] Test-Time Efficient Pretrained Model Portfolios for Time Series Forecasting](../../ICLR2026/time_series/test-time_efficient_pretrained_model_portfolios_for_time_series_forecasting.md)
+
+</div>
 
 <!-- RELATED:END -->

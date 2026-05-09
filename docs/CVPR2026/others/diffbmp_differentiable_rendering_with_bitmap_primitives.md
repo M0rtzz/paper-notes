@@ -132,6 +132,8 @@ DiffBMP 的流程：**输入**一组位图图元和目标图像 → 通过可微
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Locally Orderless Images for Optimization in Differentiable Rendering](../../CVPR2025/others/locally_orderless_images_for_optimization_in_differentiable_rendering.md)
@@ -139,5 +141,7 @@ DiffBMP 的流程：**输入**一组位图图元和目标图像 → 通过可微
 - [\[NeurIPS 2025\] Exact Learning of Arithmetic with Differentiable Agents](../../NeurIPS2025/others/exact_learning_of_arithmetic_with_differentiable_agents.md)
 - [\[NeurIPS 2025\] A Differentiable Model of Supply-Chain Shocks](../../NeurIPS2025/others/a_differentiable_model_of_supply-chain_shocks.md)
 - [\[CVPR 2025\] NeISF++: Neural Incident Stokes Field for Polarized Inverse Rendering of Conductors and Dielectrics](../../CVPR2025/others/neisf_neural_incident_stokes_field_for_polarized_inverse_rendering_of_conductors.md)
+
+</div>
 
 <!-- RELATED:END -->

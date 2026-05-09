@@ -153,6 +153,8 @@ $$\mathcal{L}_{\theta,n} = -\frac{1}{G}\sum_{g=1}^{G}\frac{\pi_{\theta,n}(x_n^g|
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] MMaDA: Multimodal Large Diffusion Language Models](mmada_multimodal_large_diffusion_language_models.md)
@@ -160,5 +162,7 @@ $$\mathcal{L}_{\theta,n} = -\frac{1}{G}\sum_{g=1}^{G}\frac{\pi_{\theta,n}(x_n^g|
 - [\[NeurIPS 2025\] Encoder-Decoder Diffusion Language Models for Efficient Training and Inference](encoder-decoder_diffusion_language_models_for_efficient_training_and_inference.md)
 - [\[NeurIPS 2025\] Next Semantic Scale Prediction via Hierarchical Diffusion Language Models](next_semantic_scale_prediction_via_hierarchical_diffusion_language_models.md)
 - [\[NeurIPS 2025\] Continuous Diffusion Model for Language Modeling](continuous_diffusion_model_for_language_modeling.md)
+
+</div>
 
 <!-- RELATED:END -->

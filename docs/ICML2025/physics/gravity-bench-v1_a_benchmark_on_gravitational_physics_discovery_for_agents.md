@@ -141,6 +141,8 @@ Gravity-Bench-v1 由三部分组成：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Unsupervised Discovery of High-Redshift Galaxy Populations with Variational Autoencoders](../../NeurIPS2025/physics/unsupervised_discovery_of_high-redshift_galaxy_populations_with_variational_auto.md)
@@ -148,5 +150,7 @@ Gravity-Bench-v1 由三部分组成：
 - [\[ICML 2025\] Finetuning Stellar Spectra Foundation Models with LoRA](finetuning_stellar_spectra_foundation_models_with_lora.md)
 - [\[ICML 2025\] Mixture-of-Expert Variational Autoencoders for Cross-Modality Embedding of Type Ia Supernova Data](mixture-of-expert_variational_autoencoders_for_cross-modality_embedding_of_type_.md)
 - [\[ICML 2025\] Teaching LLMs to Speak Spectroscopy](teaching_llms_to_speak_spectroscopy.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/video_generation/) · [📷 CVPR2026 (59)](../../CVPR2026/video_generation/) · [🔬 ICLR2026 (19)](../../ICLR2026/video_generation/) · [🤖 AAAI2026 (11)](../../AAAI2026/video_generation/) · [🧠 NeurIPS2025 (23)](../../NeurIPS2025/video_generation/) · [📹 ICCV2025 (51)](../../ICCV2025/video_generation/)
+
+🔥 **高频主题：** 视频生成 ×2
+
 **[Q2E: Query-to-Event Decomposition for Zero-Shot Multilingual Text-to-Video Retrieval](q2e_query-to-event_decomposition_for_zero-shot_multilingual_text-to-video_retrie.md)**
 
 :   Q2E 提出了一种零样本的查询到事件分解方法，利用 LLM 和 VLM 的参数化世界知识将简单查询分解为前因/当前/后果事件，并结合视频的视觉描述和语音转录，通过逆熵融合排序实现 SOTA 的多语言文本到视频检索性能。

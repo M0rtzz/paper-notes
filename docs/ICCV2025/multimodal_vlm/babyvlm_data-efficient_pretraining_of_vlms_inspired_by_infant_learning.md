@@ -126,6 +126,8 @@ BabyLLaVA沿用LLaVA的标准训练流程，在编译的发展数据上训练。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] AdaLRS: Loss-Guided Adaptive Learning Rate Search for Efficient Foundation Model Pretraining](../../NeurIPS2025/multimodal_vlm/adalrs_lossguided_adaptive_learning_rate_search_for_efficien.md)
@@ -133,5 +135,7 @@ BabyLLaVA沿用LLaVA的标准训练流程，在编译的发展数据上训练。
 - [\[CVPR 2025\] Context-Aware Multimodal Pretraining](../../CVPR2025/multimodal_vlm/context-aware_multimodal_pretraining.md)
 - [\[ICCV 2025\] LATTE: Collaborative Test-Time Adaptation of Vision-Language Models in Federated Learning](latte_collaborative_test-time_adaptation_of_vision-language_models_in_federated_.md)
 - [\[ICCV 2025\] Evading Data Provenance in Deep Neural Networks](evading_data_provenance_in_deep_neural_networks.md)
+
+</div>
 
 <!-- RELATED:END -->

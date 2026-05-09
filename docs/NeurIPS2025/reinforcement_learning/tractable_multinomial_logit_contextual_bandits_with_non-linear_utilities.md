@@ -167,6 +167,8 @@ $$\mathrm{Regret}_T = \widetilde{\mathcal{O}}\left(\kappa^{-3/2}d_w\sqrt{T} + \k
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Exploration via Feature Perturbation in Contextual Bandits](exploration_via_feature_perturbation_in_contextual_bandits.md)
@@ -174,5 +176,7 @@ $$\mathrm{Regret}_T = \widetilde{\mathcal{O}}\left(\kappa^{-3/2}d_w\sqrt{T} + \k
 - [\[NeurIPS 2025\] Variance-Aware Feel-Good Thompson Sampling for Contextual Bandits](variance-aware_feel-good_thompson_sampling_for_contextual_bandits.md)
 - [\[NeurIPS 2025\] Improved Regret and Contextual Linear Extension for Pandora's Box and Prophet Inequality](improved_regret_and_contextual_linear_extension_for_pandoras_box_and_prophet_ine.md)
 - [\[NeurIPS 2025\] Generalized Linear Bandits: Almost Optimal Regret with One-Pass Update](generalized_linear_bandits_almost_optimal_regret_with_one-pass_update.md)
+
+</div>
 
 <!-- RELATED:END -->

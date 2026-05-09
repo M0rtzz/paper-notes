@@ -149,6 +149,8 @@ $$L_{\text{swepo}}(\theta) = -\log\left(\frac{\sum_{i \in S^+} \exp[s'_\theta(y_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Self-Consistency Preference Optimization](self-consistency_preference_optimization.md)
@@ -156,5 +158,7 @@ $$L_{\text{swepo}}(\theta) = -\log\left(\frac{\sum_{i \in S^+} \exp[s'_\theta(y_
 - [\[ICML 2025\] Preference Optimization for Combinatorial Optimization Problems](preference_optimization_for_combinatorial_optimization_problems.md)
 - [\[CVPR 2025\] Calibrated Multi-Preference Optimization for Aligning Diffusion Models](../../CVPR2025/llm_alignment/capo_multi_preference.md)
 - [\[NeurIPS 2025\] LongVPO: From Anchored Cues to Self-Reasoning for Long-Form Video Preference Optimization](../../NeurIPS2025/llm_alignment/longvpo_from_anchored_cues_to_selfreasoning_for_longform_vid.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -150,6 +150,8 @@ $$\mathbf{s}^{(t+1)} = \mathbf{s}^{(t)} \oplus \sum_k \mathbf{r}_k^{(t)} \otimes
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] TouchFormer: A Robust Transformer-based Framework for Multimodal Material Perception](touchformer_a_robust_transformer-based_framework_for_multimodal_material_percept.md)
@@ -157,5 +159,7 @@ $$\mathbf{s}^{(t+1)} = \mathbf{s}^{(t)} \oplus \sum_k \mathbf{r}_k^{(t)} \otimes
 - [\[CVPR 2025\] Solving Instance Detection from an Open-World Perspective](../../CVPR2025/robotics/solving_instance_detection_from_an_open-world_perspective.md)
 - [\[AAAI 2026\] EvoEmpirBench: Dynamic Spatial Reasoning with Agent-ExpVer](evoempirbench_dynamic_spatial_reasoning_with_agent-expver.md)
 - [\[ICCV 2025\] Beyond Losses Reweighting: Empowering Multi-Task Learning via the Generalization Perspective](../../ICCV2025/robotics/beyond_losses_reweighting_empowering_multi-task_learning_via_the_generalization_.md)
+
+</div>
 
 <!-- RELATED:END -->

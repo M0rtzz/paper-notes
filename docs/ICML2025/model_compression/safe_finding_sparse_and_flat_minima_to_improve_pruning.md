@@ -146,6 +146,8 @@ Safe 在标签噪声下比 ADMM 高出 **+10% ~ +30%** 准确率。同时在 CIF
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Sparse Spectral Training and Inference on Euclidean and Hyperbolic Neural Networks](sparse_spectral_training_and_inference_on_euclidean_and_hyperbolic_neural_networ.md)
@@ -153,5 +155,7 @@ Safe 在标签噪声下比 ADMM 高出 **+10% ~ +30%** 准确率。同时在 CIF
 - [\[ICML 2025\] Random Initialization of Gated Sparse Adapters (RIGSA)](random_initialization_of_gated_sparse_adapters.md)
 - [\[NeurIPS 2025\] SpecAttn: Speculating Sparse Attention](../../NeurIPS2025/model_compression/specattn_speculating_sparse_attention.md)
 - [\[ICML 2025\] Instruction-Following Pruning for Large Language Models](instruction-following_pruning_for_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

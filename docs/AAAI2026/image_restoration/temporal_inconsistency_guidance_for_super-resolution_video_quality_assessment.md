@@ -175,6 +175,8 @@ TIG-SVQA 在 FLOPs 上仅次于 FAST-VQA，参数量与 VSR-QAD 相当，但性�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] SpatioTemporal Difference Network for Video Depth Super-Resolution](spatiotemporal_difference_network_for_video_depth_super-resolution.md)
@@ -182,5 +184,7 @@ TIG-SVQA 在 FLOPs 上仅次于 FAST-VQA，参数量与 VSR-QAD 相当，但性�
 - [\[AAAI 2026\] HQ-SVC: Towards High-Quality Zero-Shot Singing Voice Conversion in Low-Resource Scenarios](hq-svc_towards_high-quality_zero-shot_singing_voice_conversion_in_low-resource_s.md)
 - [\[CVPR 2026\] SAT: Selective Aggregation Transformer for Image Super-Resolution](../../CVPR2026/image_restoration/sat_selective_aggregation_transformer_for_image_super_resolution.md)
 - [\[AAAI 2026\] MFmamba: A Multi-function Network for Panchromatic Image Resolution Restoration Based on State-Space Model](mfmamba_a_multi-function_network_for_panchromatic_image_resolution_restoration_b.md)
+
+</div>
 
 <!-- RELATED:END -->

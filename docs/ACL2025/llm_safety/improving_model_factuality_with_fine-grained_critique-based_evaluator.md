@@ -208,6 +208,8 @@ FenCE 仅8B参数即超越 Mistral-123B 和 Claude-3 Opus，接近 GPT-4。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Ewe: Improving Factuality with Explicit Working Memory](improving_factuality_with_explicit_working_memory.md)
@@ -215,5 +217,7 @@ FenCE 仅8B参数即超越 Mistral-123B 和 Claude-3 Opus，接近 GPT-4。
 - [\[ACL 2025\] On-Policy Self-Alignment with Fine-grained Knowledge Feedback for Hallucination Mitigation](on-policy_self-alignment_with_fine-grained_knowledge_feedback_for_hallucination_.md)
 - [\[ICML 2025\] Improving Your Model Ranking on Chatbot Arena by Vote Rigging](../../ICML2025/llm_safety/improving_your_model_ranking_on_chatbot_arena_by_vote_rigging.md)
 - [\[ACL 2025\] UAlign: Leveraging Uncertainty Estimations for Factuality Alignment on Large Language Models](ualign_leveraging_uncertainty_estimations_for_factuality_alignment_on_large_lang.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -179,6 +179,8 @@ $$\mathcal{L} = \frac{1}{K+1}\left(\mathcal{L}_{\text{CD}}(P_c, P_{gt}) + \sum_{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] DAPointMamba: Domain Adaptive Point Mamba for Point Cloud Completion](dapointmamba_domain_adaptive_point_mamba_for_point_cloud_completion.md)
@@ -186,5 +188,7 @@ $$\mathcal{L} = \frac{1}{K+1}\left(\mathcal{L}_{\text{CD}}(P_c, P_{gt}) + \sum_{
 - [\[CVPR 2025\] PCDreamer: Point Cloud Completion Through Multi-view Diffusion Priors](../../CVPR2025/3d_vision/pcdreamer_point_cloud_completion_through_multi-view_diffusion_priors.md)
 - [\[AAAI 2026\] TOSC: Task-Oriented Shape Completion for Open-World Dexterous Grasp Generation from Partial Point Clouds](tosc_task-oriented_shape_completion_for_open-world_dexterous_grasp_generation_fr.md)
 - [\[AAAI 2026\] DANCE: Density-Agnostic and Class-Aware Network for Point Cloud Completion](dance_density-agnostic_and_class-aware_network_for_point_cloud_completion.md)
+
+</div>
 
 <!-- RELATED:END -->

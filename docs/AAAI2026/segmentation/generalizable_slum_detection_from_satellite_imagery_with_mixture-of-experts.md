@@ -167,6 +167,8 @@ GRAM 在所有城市全面领先，特别是在 Dar es Salaam 提升最为显著
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Spatio-Semantic Expert Routing Architecture with Mixture-of-Experts for Referring Image Segmentation](../../CVPR2026/segmentation/spatio-semantic_expert_routing_architecture_with_mixture-of-experts_for_referrin.md)
@@ -174,5 +176,7 @@ GRAM 在所有城市全面领先，特别是在 Dar es Salaam 提升最为显著
 - [\[ICML 2025\] Alberta Wells Dataset: Pinpointing Oil and Gas Wells from Satellite Imagery](../../ICML2025/segmentation/alberta_wells_dataset_pinpointing_oil_and_gas_wells_from_satellite_imagery.md)
 - [\[CVPR 2025\] Towards Generalizable Scene Change Detection](../../CVPR2025/segmentation/towards_generalizable_scene_change_detection.md)
 - [\[ICML 2025\] Using Multiple Input Modalities Can Improve Data-Efficiency and O.O.D. Generalization for ML with Satellite Imagery](../../ICML2025/segmentation/using_multiple_input_modalities_can_improve_data-efficiency_and_ood_generalizati.md)
+
+</div>
 
 <!-- RELATED:END -->

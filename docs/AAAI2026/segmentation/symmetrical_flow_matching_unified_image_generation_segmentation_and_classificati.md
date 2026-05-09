@@ -188,6 +188,8 @@ SymmFlow仅用25步即超越Diffusion Classifier在CIFAR-10上的表现，而后
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] EditAR: Unified Conditional Generation with Autoregressive Models](../../CVPR2025/segmentation/editar_unified_conditional_generation_with_autoregressive_models.md)
@@ -195,5 +197,7 @@ SymmFlow仅用25步即超越Diffusion Classifier在CIFAR-10上的表现，而后
 - [\[AAAI 2026\] Segment and Matte Anything in a Unified Model (SAMA)](segment_and_matte_anything_in_a_unified_model.md)
 - [\[AAAI 2026\] Breaking the Stealth-Potency Trade-off in Clean-Image Backdoors with Generative Trigger Optimization](breaking_the_stealth-potency_trade-off_in_clean-image_backdoors_with_generative_.md)
 - [\[AAAI 2026\] Text-guided Controllable Diffusion for Realistic Camouflage Images Generation](text-guided_controllable_diffusion_for_realistic_camouflage_images_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

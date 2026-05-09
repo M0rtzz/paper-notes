@@ -125,6 +125,8 @@ $$\mathcal{L}_{CBL} = -\sum_{m=1}^{M} \sum_{h,w} sim(q[m,h,w], p[m,h,w])$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Deep Nets with Subsampling Layers Unwittingly Discard Useful Activations at Test-Time](../../ECCV2024/segmentation/deep_nets_with_subsampling_layers_unwittingly_discard_useful_activations_at_test.md)
@@ -132,5 +134,7 @@ $$\mathcal{L}_{CBL} = -\sum_{m=1}^{M} \sum_{h,w} sim(q[m,h,w], p[m,h,w])$$
 - [\[CVPR 2026\] ConceptPrism: Concept Disentanglement in Personalized Diffusion Models via Residual Token Optimization](../../CVPR2026/segmentation/conceptprism_concept_disentanglement_in_personalized_diffusion_models_via_residu.md)
 - [\[CVPR 2025\] F-LMM: Grounding Frozen Large Multimodal Models](f-lmm_grounding_frozen_large_multimodal_models.md)
 - [\[CVPR 2025\] EditAR: Unified Conditional Generation with Autoregressive Models](editar_unified_conditional_generation_with_autoregressive_models.md)
+
+</div>
 
 <!-- RELATED:END -->

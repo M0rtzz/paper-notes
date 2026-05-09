@@ -118,6 +118,8 @@ $\mathcal{L} = \mathcal{L}_1 + \lambda_{\text{lpips}}\mathcal{L}_{\text{lpips}} 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Synthetic Prior for Few-Shot Drivable Head Avatar Inversion](synthetic_prior_for_few-shot_drivable_head_avatar_inversion.md)
@@ -125,5 +127,7 @@ $\mathcal{L} = \mathcal{L}_1 + \lambda_{\text{lpips}}\mathcal{L}_{\text{lpips}} 
 - [\[CVPR 2025\] Reconstructing Animals and the Wild](reconstructing_animals_and_the_wild.md)
 - [\[CVPR 2025\] SPARS3R: Semantic Prior Alignment and Regularization for Sparse 3D Reconstruction](spars3r_semantic_prior_alignment_and_regularization_for_sparse_3d_reconstruction.md)
 - [\[CVPR 2025\] DroneSplat: 3D Gaussian Splatting for Robust 3D Reconstruction from In-the-Wild Drone Imagery](dronesplat_3d_gaussian_splatting_for_robust_3d_reconstruction_from_in-the-wild_d.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -140,6 +140,8 @@ $$\mathcal{L} = -\sum_u \sum_i \log p_{\text{LLM}}(y_i^u | \mathbf{X}_i^u)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] HiCUPID: Exploring the Potential of LLMs as Personalized Assistants](exploring_the_potential_of_llms_as.md)
@@ -147,5 +149,7 @@ $$\mathcal{L} = -\sum_u \sum_i \log p_{\text{LLM}}(y_i^u | \mathbf{X}_i^u)$$
 - [\[ACL 2025\] Zero-Shot Belief: A Hard Problem for LLMs](zero-shot_belief_a_hard_problem_for_llms.md)
 - [\[ACL 2025\] Personalized Text Generation with Contrastive Activation Steering](personalized_text_generation_with_contrastive_activation_steering.md)
 - [\[ACL 2025\] ToolSpectrum: Towards Personalized Tool Utilization for Large Language Models](toolspectrum_towards_personalized_tool_utilization_for_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

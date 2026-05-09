@@ -139,6 +139,8 @@ $$\|(\tilde{A}^{-1})_p - A_p^{-1}\| \leq \frac{4\|E\|}{\lambda_n^2} + \frac{5\|E
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Breaking the Low-Rank Dilemma of Linear Attention](../../CVPR2025/signal_comm/breaking_the_low-rank_dilemma_of_linear_attention.md)
@@ -146,5 +148,7 @@ $$\|(\tilde{A}^{-1})_p - A_p^{-1}\| \leq \frac{4\|E\|}{\lambda_n^2} + \frac{5\|E
 - [\[ICLR 2026\] Deterministic Bounds and Random Estimates of Metric Tensors on Neuromanifolds](../../ICLR2026/signal_comm/deterministic_bounds_and_random_estimates_of_metric_tensors_on_neuromanifolds.md)
 - [\[NeurIPS 2025\] Masked Symbol Modeling for Demodulation of Oversampled Baseband Communication Signals](masked_symbol_modeling_for_demodulation_of_oversampled_baseband_communication_si.md)
 - [\[NeurIPS 2025\] Estimation of Stochastic Optimal Transport Maps](estimation_of_stochastic_optimal_transport_maps.md)
+
+</div>
 
 <!-- RELATED:END -->

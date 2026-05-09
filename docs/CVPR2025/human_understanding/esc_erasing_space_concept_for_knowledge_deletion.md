@@ -127,6 +127,8 @@ CIFAR-10 知识删除对比（All-CNN）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Homogeneous Dynamics Space for Heterogeneous Humans](homogeneous_dynamics_space_for_heterogeneous_humans.md)
@@ -134,5 +136,7 @@ CIFAR-10 知识删除对比（All-CNN）：
 - [\[ICCV 2025\] One-Shot Knowledge Transfer for Scalable Person Re-Identification](../../ICCV2025/human_understanding/one-shot_knowledge_transfer_for_scalable_person_re-identification.md)
 - [\[ICCV 2025\] CleanPose: Category-Level Object Pose Estimation via Causal Learning and Knowledge Distillation](../../ICCV2025/human_understanding/cleanpose_category-level_object_pose_estimation_via_causal_learning_and_knowledg.md)
 - [\[NeurIPS 2025\] Foundation Cures Personalization: Improving Personalized Models' Prompt Consistency via Hidden Foundation Knowledge](../../NeurIPS2025/human_understanding/foundation_cures_personalization_improving_personalized_models_prompt_consistenc.md)
+
+</div>
 
 <!-- RELATED:END -->

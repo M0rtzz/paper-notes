@@ -140,6 +140,8 @@ MoDE在冻结的UMGM线性层上集成两类轻量级适配器：处理文本tok
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Co-Reinforcement Learning for Unified Multimodal Understanding and Generation](coreinforcement_learning_for_unified_multimodal_understandin.md)
@@ -147,5 +149,7 @@ MoDE在冻结的UMGM线性层上集成两类轻量级适配器：处理文本tok
 - [\[NeurIPS 2025\] Show-o2: Improved Native Unified Multimodal Models](show-o2_improved_native_unified_multimodal_models.md)
 - [\[CVPR 2025\] ConceptGuard: Continual Personalized Text-to-Image Generation with Forgetting and Confusion Mitigation](../../CVPR2025/image_generation/conceptguard_continual_personalized_text-to-image_generation_with_forgetting_and.md)
 - [\[ECCV 2024\] Diffusion-Driven Data Replay: A Novel Approach to Combat Forgetting in Federated Class Continual Learning](../../ECCV2024/image_generation/diffusion-driven_data_replay_a_novel_approach_to_combat_forgetting_in_federated_.md)
+
+</div>
 
 <!-- RELATED:END -->

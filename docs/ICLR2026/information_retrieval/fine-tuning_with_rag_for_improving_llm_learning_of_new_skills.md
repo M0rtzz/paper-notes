@@ -172,6 +172,8 @@ k=3 在两个环境中均衡最优；k=9 时 hint 过多反而有害。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] FedRAG: A Framework for Fine-Tuning Retrieval-Augmented Generation Systems](../../ICML2025/information_retrieval/fedrag_a_framework_for_fine-tuning_retrieval-augmented_generation_systems.md)
@@ -179,5 +181,7 @@ k=3 在两个环境中均衡最优；k=9 时 hint 过多反而有害。
 - [\[ACL 2026\] Bayesian Active Learning with Gaussian Processes Guided by LLM Relevance Scoring](../../ACL2026/information_retrieval/bayesian_active_learning_with_gaussian_processes_guided_by_llm_relevance_scoring.md)
 - [\[ICLR 2026\] LightRetriever: A LLM-based Text Retrieval Architecture with Extremely Faster Query Inference](lightretriever_a_llm-based_text_retrieval_architecture_with_extremely_faster_que.md)
 - [\[ACL 2025\] Retrieval-Augmented Fine-Tuning With Preference Optimization For Visual Program Generation](../../ACL2025/information_retrieval/retrieval-augmented_fine-tuning_with_preference_optimization_for_visual_program_.md)
+
+</div>
 
 <!-- RELATED:END -->

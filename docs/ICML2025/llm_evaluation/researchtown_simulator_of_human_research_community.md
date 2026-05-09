@@ -195,6 +195,8 @@ $$\mathbf{r}_v = f_g\Big([\mathbf{h}_v, \{f_a([\mathbf{h}_a, \mathbf{h}_v, \math
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] AAAR-1.0: Assessing AI's Potential to Assist Research](aaar-10_assessing_ais_potential_to_assist_research.md)
@@ -202,5 +204,7 @@ $$\mathbf{r}_v = f_g\Big([\mathbf{h}_v, \{f_a([\mathbf{h}_a, \mathbf{h}_v, \math
 - [\[ICLR 2026\] AstaBench: Rigorous Benchmarking of AI Agents with a Scientific Research Suite](../../ICLR2026/llm_evaluation/astabench_benchmarking_ai_agents.md)
 - [\[ACL 2025\] Navigating Rifts in Human-LLM Grounding: Study and Benchmark](../../ACL2025/llm_evaluation/navigating_rifts_in_human-llm_grounding_study_and_benchmark.md)
 - [\[ACL 2025\] PATCH: Psychometrics-Assisted Benchmarking of LLMs Against Human Populations](../../ACL2025/llm_evaluation/patch_psychometrics-assisted_benchmarking_of_large_language_models_against_human.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **17** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/object_detection/) · [📷 CVPR2026 (45)](../../CVPR2026/object_detection/) · [🔬 ICLR2026 (9)](../../ICLR2026/object_detection/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/object_detection/) · [📹 ICCV2025 (30)](../../ICCV2025/object_detection/) · [🧪 ICML2025 (8)](../../ICML2025/object_detection/)
+
+🔥 **高频主题：** 目标检测 ×8 · 遥感 ×3 · 目标跟踪 ×2 · 3D 目标检测 ×2
+
 **[AerialMind: Towards Referring Multi-Object Tracking in UAV Scenarios](aerialmind_towards_referring_multi-object_tracking_in_uav_sc.md)**
 
 :   构建了首个面向无人机场景的大规模 Referring Multi-Object Tracking（RMOT）基准数据集 AerialMind，并提出 HawkEyeTrack（HETrack）方法，通过视觉-语言共进化融合编码器和尺度自适应上下文精炼模块，在无人机航拍场景中实现语言引导的多目标跟踪。

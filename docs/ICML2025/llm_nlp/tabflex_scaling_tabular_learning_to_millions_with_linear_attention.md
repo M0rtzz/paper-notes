@@ -129,6 +129,8 @@ poker-hand (100 万+ 样本) 上，TabFlex 仅用 **4.88 秒**完成分类，第
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] In-Context Learning of Linear Dynamical Systems with Transformers: Approximation Bounds and Depth-Separation](../../NeurIPS2025/llm_nlp/in-context_learning_of_linear_dynamical_systems_with_transformers_approximation_.md)
@@ -136,5 +138,7 @@ poker-hand (100 万+ 样本) 上，TabFlex 仅用 **4.88 秒**完成分类，第
 - [\[CVPR 2025\] Exposure-slot: Exposure-centric Representations Learning with Slot-in-Slot Attention](../../CVPR2025/llm_nlp/exposure-slot_exposure-centric_representations_learning_with_slot-in-slot_attent.md)
 - [\[ICML 2025\] Star Attention: Efficient LLM Inference over Long Sequences](star_attention_efficient_llm_inference_over_long_sequences.md)
 - [\[NeurIPS 2025\] Unifying Attention Heads and Task Vectors via Hidden State Geometry in In-Context Learning](../../NeurIPS2025/llm_nlp/unifying_attention_heads_and_task_vectors_via_hidden_state_geometry_in_in-contex.md)
+
+</div>
 
 <!-- RELATED:END -->

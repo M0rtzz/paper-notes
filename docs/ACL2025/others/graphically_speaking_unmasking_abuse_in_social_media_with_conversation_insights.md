@@ -190,6 +190,8 @@ L 层 GAT 后，将目标节点的图嵌入 $\mathbf{x}_i^{(L)}$ 与原始文本
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Temporal Reasoning for Timeline Summarisation in Social Media](temporal_reasoning_for_timeline_summarisation_in_social_media.md)
@@ -197,5 +199,7 @@ L 层 GAT 后，将目标节点的图嵌入 $\mathbf{x}_i^{(L)}$ 与原始文本
 - [\[ACL 2025\] GA-S3: Comprehensive Social Network Simulation with Group Agents](ga-s3_comprehensive_social_network_simulation_with_group_agents.md)
 - [\[ACL 2025\] SOTOPIA-Ω: Dynamic Strategy Injection Learning and Social Instruction Following Evaluation for Social Agents](sotopia-ensuremathomega_dynamic_strategy_injection_learning_and_social_instructi.md)
 - [\[ACL 2025\] Explicit and Implicit Data Augmentation for Social Event Detection](explicit_and_implicit_data_augmentation_for_social_event_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

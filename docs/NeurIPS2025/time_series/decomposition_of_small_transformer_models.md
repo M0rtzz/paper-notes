@@ -119,6 +119,8 @@ $\mathcal{L}_{faithful} = 3 \times 10^{-9}$，$\mathcal{L}_{recon} = 1 \times 10
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Transformer Embeddings for Fast Microlensing Inference](transformer_embeddings_for_fast_microlensing_inference.md)
@@ -126,5 +128,7 @@ $\mathcal{L}_{faithful} = 3 \times 10^{-9}$，$\mathcal{L}_{recon} = 1 \times 10
 - [\[ACL 2025\] Revisiting LLMs as Zero-Shot Time-Series Forecasters: Small Noise Can Break Large Models](../../ACL2025/time_series/revisiting_llms_as_zero-shot_time_series_forecasters_small_noise_can_break_large.md)
 - [\[NeurIPS 2025\] Diffusion Transformers as Open-World Spatiotemporal Foundation Models](diffusion_transformers_as_open-world_spatiotemporal_foundation_models.md)
 - [\[NeurIPS 2025\] SEMPO: Lightweight Foundation Models for Time Series Forecasting](sempo_lightweight_foundation_models_for_time_series_forecasting.md)
+
+</div>
 
 <!-- RELATED:END -->

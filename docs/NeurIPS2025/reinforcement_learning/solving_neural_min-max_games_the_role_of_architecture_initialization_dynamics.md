@@ -134,6 +134,8 @@ $$\phi^{(t)} = \phi^{(t-1)} + \eta_\phi \nabla_\phi \mathcal{L}(\theta^{(t)}, \p
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Solving Continuous Mean Field Games: Deep Reinforcement Learning for Non-Stationary Dynamics](solving_continuous_mean_field_games_deep_reinforcement_learning_for_non-stationa.md)
@@ -141,5 +143,7 @@ $$\phi^{(t)} = \phi^{(t-1)} + \eta_\phi \nabla_\phi \mathcal{L}(\theta^{(t)}, \p
 - [\[NeurIPS 2025\] Complexity Scaling Laws for Neural Models using Combinatorial Optimization](complexity_scaling_laws_for_neural_models_using_combinatorial_optimization.md)
 - [\[NeurIPS 2025\] Thompson Sampling in Function Spaces via Neural Operators](thompson_sampling_in_function_spaces_via_neural_operators.md)
 - [\[NeurIPS 2025\] TensorRL-QAS: Reinforcement Learning with Tensor Networks for Improved Quantum Architecture Search](tensorrl-qas_reinforcement_learning_with_tensor_networks_for_improved_quantum_ar.md)
+
+</div>
 
 <!-- RELATED:END -->

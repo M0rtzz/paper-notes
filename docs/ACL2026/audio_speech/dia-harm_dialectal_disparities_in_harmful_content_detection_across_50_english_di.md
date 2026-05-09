@@ -124,6 +124,8 @@ DIA-HARM 是评估基准，不涉及新模型训练。微调模型在 SAE 数据
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] HalluAudio: A Comprehensive Benchmark for Hallucination Detection in Large Audio-Language Models](halluaudio_a_comprehensive_benchmark_for_hallucination_detection_in_large_audio-.md)
@@ -131,5 +133,7 @@ DIA-HARM 是评估基准，不涉及新模型训练。微调模型在 SAE 数据
 - [\[AAAI 2026\] A Mind Cannot Be Smeared Across Time](../../AAAI2026/audio_speech/a_mind_cannot_be_smeared_across_time.md)
 - [\[ACL 2025\] Amplifying Trans and Nonbinary Voices: A Community-Centred Harm Taxonomy for LLMs](../../ACL2025/audio_speech/amplifying_trans_and_nonbinary_voices_a_community-centred_harm_taxonomy_for_llms.md)
 - [\[ACL 2025\] Dialectal Coverage and Generalization in Arabic Speech Recognition](../../ACL2025/audio_speech/dialectal_coverage_and_generalization_in_arabic_speech_recognition.md)
+
+</div>
 
 <!-- RELATED:END -->

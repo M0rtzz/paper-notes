@@ -144,6 +144,8 @@ CUB-200（鸟类分类，不同类型OOD偏移）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Reactivation: Empirical NTK Dynamics Under Task Shifts](reactivation_empirical_ntk_dynamics_under_task_shifts.md)
@@ -151,5 +153,7 @@ CUB-200（鸟类分类，不同类型OOD偏移）：
 - [\[ICML 2025\] Towards Long-Horizon Interpretability: Efficient and Faithful Multi-Token Attribution for Reasoning LLMs](towards_long-horizon_interpretability_efficient_and_faithful_multi-token_attribu.md)
 - [\[ICML 2025\] Sum-of-Parts: Self-Attributing Neural Networks with End-to-End Learning of Feature Groups](sum-of-parts_self-attributing_neural_networks_with_end-to-end_learning_of_featur.md)
 - [\[NeurIPS 2025\] Conditional Distribution Compression via the Kernel Conditional Mean Embedding](../../NeurIPS2025/interpretability/conditional_distribution_compression_via_the_kernel_conditional_mean_embedding.md)
+
+</div>
 
 <!-- RELATED:END -->

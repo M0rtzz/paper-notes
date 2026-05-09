@@ -126,6 +126,8 @@ GPT-o3-mini和GPT-o1在多数博弈中领先，但不同博弈类型的优势模
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] When AI Democratizes Exploitation: LLM-Assisted Strategic Manipulation of Fair Division Algorithms](when_ai_democratizes_exploitation_llm-assisted_strategic_manipulation_of_fair_di.md)
@@ -133,5 +135,7 @@ GPT-o3-mini和GPT-o1在多数博弈中领先，但不同博弈类型的优势模
 - [\[ACL 2025\] Language Models Can Subtly Deceive Without Lying: A Case Study on Strategic Phrasing](../../ACL2025/llm_safety/language_models_can_subtly_deceive_without_lying_a_case_study_on_strategic_phras.md)
 - [\[NeurIPS 2025\] Probabilistic Reasoning with LLMs for K-Anonymity Estimation](probabilistic_reasoning_with_llms_for_k-anonymity_estimation.md)
 - [\[NeurIPS 2025\] Contextual Integrity in LLMs via Reasoning and Reinforcement Learning](contextual_integrity_in_llms_via_reasoning_and_reinforcement_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

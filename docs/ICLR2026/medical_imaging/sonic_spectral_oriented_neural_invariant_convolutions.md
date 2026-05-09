@@ -149,6 +149,8 @@ SONIC 以 SonicNet 架构（用 SONIC block 替换 nnU-Net 中的空间卷积）
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Intrinsic Lorentz Neural Network](intrinsic_lorentz_neural_network.md)
@@ -156,5 +158,7 @@ SONIC 以 SonicNet 架构（用 SONIC block 替换 nnU-Net 中的空间卷积）
 - [\[CVPR 2025\] SACB-Net: Spatial-Awareness Convolutions for Medical Image Registration](../../CVPR2025/medical_imaging/sacb-net_spatial-awareness_convolutions_for_medical_image_registration.md)
 - [\[ICLR 2026\] Causal Interpretation of Neural Network Computations with Contribution Decomposition](causal_interpretation_of_neural_network_computations_with_contribution_decomposi.md)
 - [\[CVPR 2026\] EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis](../../CVPR2026/medical_imaging/equivania_a_spectral_method_for_rotationequivarian.md)
+
+</div>
 
 <!-- RELATED:END -->

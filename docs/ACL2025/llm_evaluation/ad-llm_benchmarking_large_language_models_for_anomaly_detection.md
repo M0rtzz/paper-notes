@@ -132,6 +132,8 @@ GPT-4o在Normal+Anomaly设置下4/5数据集超越最优基线，IMDB上AUROC从
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Ad-hoc Concept Forming in the Game Codenames as a Means for Evaluating Large Language Models](ad-hoc_concept_forming_in_the_game_codenames_as_a_means_for_evaluating_large_lan.md)
@@ -139,5 +141,7 @@ GPT-4o在Normal+Anomaly设置下4/5数据集超越最优基线，IMDB上AUROC从
 - [\[ICML 2025\] CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering](../../ICML2025/llm_evaluation/costfilter-ad_enhancing_anomaly_detection_through_matching_cost_filtering.md)
 - [\[ACL 2025\] Mis-prompt: Benchmarking Large Language Models for Proactive Error Handling](mis-prompt_benchmarking_large_language_models_for_proactive_error_handling.md)
 - [\[ACL 2025\] Benchmarking LLMs and LLM-based Agents in Practical Vulnerability Detection for Code Repositories](benchmarking_llms_and_llm-based_agents_in_practical_vulnerability_detection_for_.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **16** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/video_generation/) · [📷 CVPR2026 (59)](../../CVPR2026/video_generation/) · [🔬 ICLR2026 (19)](../../ICLR2026/video_generation/) · [🤖 AAAI2026 (11)](../../AAAI2026/video_generation/) · [🧠 NeurIPS2025 (23)](../../NeurIPS2025/video_generation/) · [📹 ICCV2025 (51)](../../ICCV2025/video_generation/)
+
+🔥 **高频主题：** 扩散模型 ×9 · 视频生成 ×4 · 语义分割 ×2 · 超分辨率 ×2
+
 **[BlazeBVD: Make Scale-Time Equalization Great Again for Blind Video Deflickering](blazebvd_make_scale-time_equalization_great_again_for_blind_video_deflickering.md)**
 
 :   提出 BlazeBVD，利用经典 Scale-Time Equalization (STE) 在光照直方图空间提取 deflickering 先验（滤波光照图、曝光图、闪烁帧索引），将复杂的视频时空学习简化为 2D 空间网络逐帧处理 + 轻量 3D 时序一致性网络，在盲视频去闪烁任务上实现 SOTA 质量且推理速度比基线快 10 倍以上。

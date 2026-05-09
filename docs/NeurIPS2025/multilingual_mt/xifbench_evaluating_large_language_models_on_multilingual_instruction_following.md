@@ -141,6 +141,8 @@ $$\text{RFR}^{(l)}=\frac{\sum_{i}\sum_{r}e^{(l)}_{i,r}}{\sum_{i}|\mathcal{R}_{i}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Marco-Bench-MIF: On Multilingual Instruction-Following Capability of Large Language Models](../../ACL2025/multilingual_mt/marco_bench_multilingual_if.md)
@@ -148,5 +150,7 @@ $$\text{RFR}^{(l)}=\frac{\sum_{i}\sum_{r}e^{(l)}_{i,r}}{\sum_{i}|\mathcal{R}_{i}
 - [\[NeurIPS 2025\] Exploring the Translation Mechanism of Large Language Models](exploring_the_translation_mechanism_of_large_language_models.md)
 - [\[ACL 2025\] MaXIFE: Multilingual and Cross-lingual Instruction Following Evaluation](../../ACL2025/multilingual_mt/maxife_multilingual_and_cross-lingual_instruction_following_evaluation.md)
 - [\[ACL 2025\] Do Large Language Models Have an English Accent? Evaluating and Improving the Naturalness of Multilingual LLMs](../../ACL2025/multilingual_mt/multilingual_llm_english_accent.md)
+
+</div>
 
 <!-- RELATED:END -->

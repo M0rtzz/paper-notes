@@ -146,6 +146,8 @@ TEA 的总 FLOPs 为 $3ND^2 + 2NDk^2 + 2Nw^2D + 2NN_dD$，当超参数 $w=15, k=
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Devil is in the Uniformity: Exploring Diverse Learners within Transformer for Image Restoration](devil_is_in_the_uniformity_exploring_diverse_learners_within_transformer_for_ima.md)
@@ -153,5 +155,7 @@ TEA 的总 FLOPs 为 $3ND^2 + 2NDk^2 + 2Nw^2D + 2NN_dD$，当超参数 $w=15, k=
 - [\[CVPR 2025\] Progressive Focused Transformer for Single Image Super-Resolution](../../CVPR2025/image_restoration/progressive_focused_transformer_for_single_image_super-resolution.md)
 - [\[ICCV 2025\] Metric Convolutions: A Unifying Theory to Adaptive Image Convolutions](metric_convolutions_a_unifying_theory_to_adaptive_image_convolutions.md)
 - [\[ICCV 2025\] Learning Pixel-adaptive Multi-layer Perceptrons for Real-time Image Enhancement](learning_pixel-adaptive_multi-layer_perceptrons_for_real-time_image_enhancement.md)
+
+</div>
 
 <!-- RELATED:END -->

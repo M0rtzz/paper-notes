@@ -143,6 +143,8 @@ DualGround在两个基准上的MR和HD任务均达到SOTA。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] DualGround: Structured Phrase and Sentence-Level Temporal Grounding](dualground_phrase_temporal.md)
@@ -150,5 +152,7 @@ DualGround在两个基准上的MR和HD任务均达到SOTA。
 - [\[NeurIPS 2025\] When One Moment Isn't Enough: Multi-Moment Retrieval with Cross-Moment Interactions](when_one_moment_isnt_enough_multi-moment_retrieval_with_cross-moment_interaction.md)
 - [\[NeurIPS 2025\] MUVR: A Multi-Modal Untrimmed Video Retrieval Benchmark with Multi-Level Visual Correspondence](muvr_a_multi-modal_untrimmed_video_retrieval_benchmark_with_multi-level_visual_c.md)
 - [\[NeurIPS 2025\] When Thinking Drifts: Evidential Grounding for Robust Video Reasoning](when_thinking_drifts_evidential_grounding_for_robust_video_reasoning.md)
+
+</div>
 
 <!-- RELATED:END -->

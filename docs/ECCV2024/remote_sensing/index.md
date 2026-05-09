@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **7** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/remote_sensing/) · [📷 CVPR2026 (19)](../../CVPR2026/remote_sensing/) · [🔬 ICLR2026 (6)](../../ICLR2026/remote_sensing/) · [🤖 AAAI2026 (8)](../../AAAI2026/remote_sensing/) · [🧠 NeurIPS2025 (11)](../../NeurIPS2025/remote_sensing/) · [📹 ICCV2025 (11)](../../ICCV2025/remote_sensing/)
+
+🔥 **高频主题：** 遥感 ×3
+
 **[Adapting Fine-Grained Cross-View Localization to Areas without Fine Ground Truth](adapting_fine-grained_cross-view_localization_to_areas_without_fine_ground_truth.md)**
 
 :   针对细粒度跨视角定位模型在新区域部署时精度下降的问题，提出基于知识自蒸馏的弱监督学习方法——通过模式化伪GT生成、粗粒度监督和离群值过滤三个策略，仅使用目标区域的地面-航拍图像对（无需精确GT），即可在VIGOR和KITTI上将定位误差降低12%~20%。

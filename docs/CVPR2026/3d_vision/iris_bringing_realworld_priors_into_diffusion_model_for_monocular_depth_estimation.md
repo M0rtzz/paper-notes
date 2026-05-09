@@ -122,6 +122,8 @@ Iris 在多数真实图像基准上取得最佳综合性能，特别是跨域泛
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] DiffusionDepth: Diffusion Denoising Approach for Monocular Depth Estimation](../../ECCV2024/3d_vision/diffusiondepth_diffusion_denoising_approach_for_monocular_depth_estimation.md)
@@ -129,5 +131,7 @@ Iris 在多数真实图像基准上取得最佳综合性能，特别是跨域泛
 - [\[CVPR 2026\] DuoMo: Dual Motion Diffusion for World-Space Human Reconstruction](duomo_dual_motion_diffusion_for_world-space_human_reconstruction.md)
 - [\[CVPR 2026\] AnthroTAP: Learning Point Tracking with Real-World Motion](anthrotap_learning_point_tracking_with_real-world_motion.md)
 - [\[CVPR 2025\] Scalable Autoregressive Monocular Depth Estimation](../../CVPR2025/3d_vision/scalable_autoregressive_monocular_depth_estimation.md)
+
+</div>
 
 <!-- RELATED:END -->

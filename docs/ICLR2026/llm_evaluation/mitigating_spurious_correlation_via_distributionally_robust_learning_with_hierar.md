@@ -103,6 +103,8 @@ Algorithm 1：z'的PGD + β的mirror descent + θ的SGD。ε的选择使用启�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Breaking the Correlation Plateau: On the Optimization and Capacity Limits of Attention-Based Regressors](breaking_the_correlation_plateau_on_the_optimization_and_capacity_limits_of_atte.md)
@@ -110,5 +112,7 @@ Algorithm 1：z'的PGD + β的mirror descent + θ的SGD。ε的选择使用启�
 - [\[NeurIPS 2025\] Risk Management for Mitigating Benchmark Failure Modes: BenchRisk](../../NeurIPS2025/llm_evaluation/risk_management_for_mitigating_benchmark_failure_modes_benchrisk.md)
 - [\[NeurIPS 2025\] Aggregation Hides OOD Generalization Failures from Spurious Correlations](../../NeurIPS2025/llm_evaluation/aggregation_hides_out-of-distribution_generalization_failures_from_spurious_corr.md)
 - [\[ACL 2026\] Self-Awareness before Action: Mitigating Logical Inertia via Proactive Cognitive Awareness](../../ACL2026/llm_evaluation/self-awareness_before_action_mitigating_logical_inertia_via_proactive_cognitive_.md)
+
+</div>
 
 <!-- RELATED:END -->

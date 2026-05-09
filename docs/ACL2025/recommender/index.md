@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **7** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (13)](../../ACL2026/recommender/) · [🔬 ICLR2026 (10)](../../ICLR2026/recommender/) · [🤖 AAAI2026 (26)](../../AAAI2026/recommender/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/recommender/) · [🧪 ICML2025 (17)](../../ICML2025/recommender/) · [📷 CVPR2025 (1)](../../CVPR2025/recommender/)
+
+🔥 **高频主题：** 推荐系统 ×6 · LLM ×4
+
 **[Beyond Single Labels: Improving Conversational Recommendation through LLM-Powered Data Augmentation](beyond_single_labels_improving_conversational_recommendation_through_llm-powered.md)**
 
 :   针对对话推荐系统中的假阴性问题（用户可能喜欢的item被错误标记为负样本），提出基于LLM的数据增强框架，通过语义检索+相关性打分生成合成标签，再通过两阶段训练策略平衡语义相关性和协同信息。

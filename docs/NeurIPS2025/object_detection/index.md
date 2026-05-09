@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **18** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/object_detection/) · [📷 CVPR2026 (45)](../../CVPR2026/object_detection/) · [🔬 ICLR2026 (9)](../../ICLR2026/object_detection/) · [🤖 AAAI2026 (17)](../../AAAI2026/object_detection/) · [📹 ICCV2025 (30)](../../ICCV2025/object_detection/) · [🧪 ICML2025 (8)](../../ICML2025/object_detection/)
+
+🔥 **高频主题：** 目标检测 ×6 · 动态场景 ×2 · 布局/合成 ×2
+
 **[Ascent Fails to Forget](ascent_fails_to_forget.md)**
 
 :   本文从遗忘集与保留集之间的统计依赖出发，理论结合实验证明广泛使用的梯度上升/Descent-Ascent（DA）类机器遗忘方法在存在数据相关性时会系统性失败——在 logistic 回归中 DA 解甚至会比原始模型更远离 oracle，且在非凸设置下会将模型困在劣质局部最小值中。

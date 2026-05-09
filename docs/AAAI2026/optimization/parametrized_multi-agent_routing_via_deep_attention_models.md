@@ -136,6 +136,8 @@ $$\widehat{\nabla_{\mathcal{Y}^t} F_\beta} = \sum_{i=1}^N \rho_i \sum_{q=1}^L \h
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] MetaAgent: Automatically Constructing Multi-Agent Systems Based on Finite State Machines](../../ICML2025/optimization/metaagent_automatically_constructing_multi-agent_systems_based_on_finite_state_m.md)
@@ -143,5 +145,7 @@ $$\widehat{\nabla_{\mathcal{Y}^t} F_\beta} = \sum_{i=1}^N \rho_i \sum_{q=1}^L \h
 - [\[ICML 2025\] In-Context Linear Regression Demystified: Training Dynamics and Mechanistic Interpretability of Multi-Head Softmax Attention](../../ICML2025/optimization/in-context_linear_regression_demystified_training_dynamics_and_mechanistic_inter.md)
 - [\[ICLR 2026\] Nonparametric Teaching of Attention Learners](../../ICLR2026/optimization/nonparametric_teaching_of_attention_learners.md)
 - [\[AAAI 2026\] MOTIF: Multi-strategy Optimization via Turn-based Interactive Framework](motif_multi-strategy_optimization_via_turn-based_interactive_framework.md)
+
+</div>
 
 <!-- RELATED:END -->

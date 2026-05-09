@@ -184,6 +184,8 @@ DocHelper 是整个系统的知识基座，负责为任务感知的问答提供�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Aligning LLMs by Predicting Preferences from User Writing Samples](aligning_llms_by_predicting_preferences_from_user_writing_samples.md)
@@ -191,5 +193,7 @@ DocHelper 是整个系统的知识基座，负责为任务感知的问答提供�
 - [\[ICML 2025\] Recommendations and Reporting Checklist for Rigorous & Transparent Human Baselines in Model Evaluations](recommendations_and_reporting_checklist_for_rigorous_transparent_human_baselines.md)
 - [\[ICML 2025\] RLTHF: Targeted Human Feedback for LLM Alignment](rlthf_targeted_human_feedback_for_llm_alignment.md)
 - [\[ICML 2025\] Deprecating Benchmarks: Criteria and Framework](deprecating_benchmarks_criteria_and_framework.md)
+
+</div>
 
 <!-- RELATED:END -->

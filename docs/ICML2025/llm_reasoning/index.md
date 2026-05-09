@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **17** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (37)](../../ACL2026/llm_reasoning/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_reasoning/) · [🔬 ICLR2026 (71)](../../ICLR2026/llm_reasoning/) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_reasoning/) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/llm_reasoning/) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/)
+
+🔥 **高频主题：** 推理 ×11 · LLM ×4
+
 **[Ad-Hoc Human-AI Coordination Challenge (AH2AC2)](ad-hoc_human-ai_coordination_challenge.md)**
 
 :   提出 AH2AC2 挑战——基于 Hanabi 合作卡牌游戏，通过行为克隆+正则化强化学习构建人类代理智能体，并开源有限人类数据集，为 Human-AI 临时协作研究提供标准化、可复现的评估框架。

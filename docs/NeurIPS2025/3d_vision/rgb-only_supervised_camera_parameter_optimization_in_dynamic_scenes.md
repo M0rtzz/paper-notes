@@ -122,6 +122,8 @@ ROS-Cam 提出仅用单个RGB视频作为监督的动态场景相机参数（焦
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] D$^2$USt3R: Enhancing 3D Reconstruction for Dynamic Scenes](d2ust3r_enhancing_3d_reconstruction_for_dynamic_scenes.md)
@@ -129,5 +131,7 @@ ROS-Cam 提出仅用单个RGB视频作为监督的动态场景相机参数（焦
 - [\[CVPR 2025\] Joint Optimization of Neural Radiance Fields and Continuous Camera Motion from a Monocular Video](../../CVPR2025/3d_vision/joint_optimization_of_neural_radiance_fields_and_continuous_camera_motion_from_a.md)
 - [\[NeurIPS 2025\] Galactification: Painting Galaxies onto Dark Matter Only Simulations Using a Transformer-Based Model](galactification_painting_galaxies_onto_dark_matter_only_simulations_using_a_tran.md)
 - [\[NeurIPS 2025\] On Geometry-Enhanced Parameter-Efficient Fine-Tuning for 3D Scene Segmentation](on_geometry-enhanced_parameter-efficient_fine-tuning_for_3d_scene_segmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

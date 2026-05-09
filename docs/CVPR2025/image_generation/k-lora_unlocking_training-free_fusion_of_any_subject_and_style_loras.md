@@ -143,6 +143,8 @@ K-LoRA 在主题保真度（CLIP +5%, DINO +11.2%）上大幅领先，风格相�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Symbolic Representation for Any-to-Any Generative Tasks](symbolic_representation_for_any-to-any_generative_tasks.md)
@@ -150,5 +152,7 @@ K-LoRA 在主题保真度（CLIP +5%, DINO +11.2%）上大幅领先，风格相�
 - [\[ICCV 2025\] IntroStyle: Training-Free Introspective Style Attribution using Diffusion Features](../../ICCV2025/image_generation/introstyle_training-free_introspective_style_attribution_using_diffusion_feature.md)
 - [\[CVPR 2025\] OmniFlow: Any-to-Any Generation with Multi-Modal Rectified Flows](omniflow_any-to-any_generation_with_multi-modal_rectified_flows.md)
 - [\[CVPR 2025\] Decoupling Training-Free Guided Diffusion by ADMM](decoupling_training-free_guided_diffusion_by_admm.md)
+
+</div>
 
 <!-- RELATED:END -->

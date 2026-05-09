@@ -137,6 +137,8 @@ TRCE(T+V) 在所有 5 种攻击下 ASR 均达到约 1%，同时 FID_real 和 CLI
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] FlowTok: Flowing Seamlessly Across Text and Image Tokens](flowtok_flowing_seamlessly_across_text_and_image_tokens.md)
@@ -144,5 +146,7 @@ TRCE(T+V) 在所有 5 种攻击下 ASR 均达到约 1%，同时 FID_real 和 CLI
 - [\[ICCV 2025\] Joint Diffusion Models in Continual Learning](joint_diffusion_models_in_continual_learning.md)
 - [\[ICCV 2025\] What Makes for Text to 360-degree Panorama Generation with Stable Diffusion?](what_makes_for_text_to_360-degree_panorama_generation_with_stable_diffusion.md)
 - [\[ICCV 2025\] Less is More: Improving Motion Diffusion Models with Sparse Keyframes](less_is_more_improving_motion_diffusion_models_with_sparse_keyframes.md)
+
+</div>
 
 <!-- RELATED:END -->

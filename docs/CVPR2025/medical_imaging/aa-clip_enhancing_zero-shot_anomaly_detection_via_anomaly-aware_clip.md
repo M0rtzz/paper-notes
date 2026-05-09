@@ -141,6 +141,8 @@ AA-CLIP 采用两阶段训练流程，CLIP 原始参数始终冻结：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] AdaCLIP: Adapting CLIP with Hybrid Learnable Prompts for Zero-Shot Anomaly Detection](../../ECCV2024/medical_imaging/adaclip_adapting_clip_with_hybrid_learnable_prompts_for_zero.md)
@@ -148,5 +150,7 @@ AA-CLIP 采用两阶段训练流程，CLIP 原始参数始终冻结：
 - [\[CVPR 2026\] MoECLIP: Patch-Specialized Experts for Zero-shot Anomaly Detection](../../CVPR2026/medical_imaging/moeclip_patch-specialized_experts_for_zero-shot_anomaly_detection.md)
 - [\[CVPR 2026\] VisualAD: Language-Free Zero-Shot Anomaly Detection via Vision Transformer](../../CVPR2026/medical_imaging/visualad_language-free_zero-shot_anomaly_detection_via_vision_transformer.md)
 - [\[CVPR 2025\] Unraveling Normal Anatomy via Fluid-Driven Anomaly Randomization](unraveling_normal_anatomy_via_fluid-driven_anomaly_randomization.md)
+
+</div>
 
 <!-- RELATED:END -->

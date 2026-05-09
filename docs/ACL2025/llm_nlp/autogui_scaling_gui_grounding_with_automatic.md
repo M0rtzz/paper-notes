@@ -118,6 +118,8 @@ VLM微调用LoRA，在8×A100上训练1 epoch。Qwen-VL和Qwen2-VL用LoRA，SliM
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Growing Through Experience: Scaling Episodic Grounding in Language Models](episodic_grounding_experience.md)
@@ -125,5 +127,7 @@ VLM微调用LoRA，在8×A100上训练1 epoch。Qwen-VL和Qwen2-VL用LoRA，SliM
 - [\[ACL 2025\] Mitigate Position Bias in LLMs via Scaling a Single Hidden States Channel](mitigate_position_bias_in_large_language_models_via_scaling_a_single_dimension.md)
 - [\[ACL 2025\] NewsInterview: a Dataset and a Playground to Evaluate LLMs' Grounding Gap via Informational Interviews](newsinterview_a_dataset_and_a_playground_to_evaluate_llms_grounding_gap_via_info.md)
 - [\[ACL 2025\] LESA: Learnable LLM Layer Scaling-Up](lesa_learnable_llm_layer_scaling-up.md)
+
+</div>
 
 <!-- RELATED:END -->

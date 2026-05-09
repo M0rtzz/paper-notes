@@ -138,6 +138,8 @@ OHSGPR 比 OSGPR 快 **300-450倍**，因为不需要优化诱导点位置。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Flow Matching Neural Processes](flow_matching_neural_processes.md)
@@ -145,5 +147,7 @@ OHSGPR 比 OSGPR 快 **300-450倍**，因为不需要优化诱导点位置。
 - [\[ICML 2025\] Modern Methods in Associative Memory](../../ICML2025/image_generation/modern_methods_in_associative_memory.md)
 - [\[ICML 2025\] Quantum Algorithms for Finite-horizon Markov Decision Processes](../../ICML2025/image_generation/quantum_algorithms_for_finite-horizon_markov_decision_processes.md)
 - [\[CVPR 2025\] Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction](../../CVPR2025/image_generation/nonisotropic_gaussian_diffusion_for_realistic_3d_human_motion_prediction.md)
+
+</div>
 
 <!-- RELATED:END -->

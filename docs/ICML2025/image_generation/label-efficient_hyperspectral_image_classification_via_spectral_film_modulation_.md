@@ -170,6 +170,8 @@ FiLM (Feature-wise Linear Modulation) 融合机制的核心流程：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] IntLoRA: Integral Low-rank Adaptation of Quantized Diffusion Models](intlora_integral_low-rank_adaptation_of_quantized_diffusion_models.md)
@@ -177,5 +179,7 @@ FiLM (Feature-wise Linear Modulation) 融合机制的核心流程：
 - [\[ICCV 2025\] Spectral Image Tokenizer](../../ICCV2025/image_generation/spectral_image_tokenizer.md)
 - [\[ICCV 2025\] Efficient Input-Level Backdoor Defense on Text-to-Image Synthesis via Neuron Activation Variation](../../ICCV2025/image_generation/efficient_input-level_backdoor_defense_on_text-to-image_synthesis_via_neuron_act.md)
 - [\[CVPR 2025\] Visual Lexicon: Rich Image Features in Language Space](../../CVPR2025/image_generation/visual_lexicon_rich_image_features_in_language_space.md)
+
+</div>
 
 <!-- RELATED:END -->

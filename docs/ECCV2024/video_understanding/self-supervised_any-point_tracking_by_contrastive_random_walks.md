@@ -157,6 +157,8 @@ GMRW 在自监督方法中全面领先，Kubric AJ 超过 FlowWalk 4.8 点，DAV
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] TAPTR: Tracking Any Point with Transformers as Detection](taptr_tracking_any_point_with_transformers_as_detection.md)
@@ -164,5 +166,7 @@ GMRW 在自监督方法中全面领先，Kubric AJ 超过 FlowWalk 4.8 点，DAV
 - [\[ECCV 2024\] Local All-Pair Correspondence for Point Tracking](local_all-pair_correspondence_for_point_tracking.md)
 - [\[CVPR 2025\] ETAP: Event-based Tracking of Any Point](../../CVPR2025/video_understanding/etap_event-based_tracking_of_any_point.md)
 - [\[ECCV 2024\] TimeCraft: Navigate Weakly-Supervised Temporal Grounded Video Question Answering via Bi-directional Reasoning](timecraft_navigate_weakly-supervised_temporal_grounded_video_question_answering_.md)
+
+</div>
 
 <!-- RELATED:END -->

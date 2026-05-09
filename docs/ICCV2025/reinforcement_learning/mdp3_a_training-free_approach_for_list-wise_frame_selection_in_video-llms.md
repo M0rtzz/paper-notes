@@ -163,6 +163,8 @@ $$\mathcal{P}(S_t | S_{t-1}) = \frac{\det(\tilde{\mathbf{L}}_{S_{t-1} \cup S_t})
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] VinePPO: Refining Credit Assignment in RL Training of LLMs](../../ICML2025/reinforcement_learning/vineppo_refining_credit_assignment_in_rl_training_of_llms.md)
@@ -170,5 +172,7 @@ $$\mathcal{P}(S_t | S_{t-1}) = \frac{\det(\tilde{\mathbf{L}}_{S_{t-1} \cup S_t})
 - [\[ICCV 2025\] RL-Selector: Reinforcement Learning-Guided Data Selection via Redundancy Assessment](reinforcement_learning-guided_data_selection_via_redundancy_assessment.md)
 - [\[AAAI 2026\] A Multi-Agent Conversational Bandit Approach to Online Evaluation and Selection of User-Aligned LLM Responses](../../AAAI2026/reinforcement_learning/a_multi-agent_conversational_bandit_approach_to_online_evaluation_and_selection_.md)
 - [\[CVPR 2025\] ThinkStream: Thinking in Streaming Video](../../CVPR2025/reinforcement_learning/thinking_in_streaming_video.md)
+
+</div>
 
 <!-- RELATED:END -->

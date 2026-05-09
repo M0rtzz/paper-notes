@@ -155,6 +155,8 @@ $\mathbf{x}_i$ 是第 $i$ 步裁剪后的图像区域。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Counting Stacked Objects](counting_stacked_objects.md)
@@ -162,5 +164,7 @@ $\mathbf{x}_i$ 是第 $i$ 步裁剪后的图像区域。
 - [\[CVPR 2026\] SABER: Spatially Consistent 3D Universal Adversarial Objects for BEV Detectors](../../CVPR2026/autonomous_driving/saber_spatially_consistent_3d_universal_adversarial_objects_for_bev_detectors.md)
 - [\[ICCV 2025\] TrackAny3D: Transferring Pretrained 3D Models for Category-unified 3D Point Cloud Tracking](trackany3d_transferring_pretrained_3d_models_for_category-unified_3d_point_cloud.md)
 - [\[ICCV 2025\] Occupancy Learning with Spatiotemporal Memory](occupancy_learning_with_spatiotemporal_memory.md)
+
+</div>
 
 <!-- RELATED:END -->

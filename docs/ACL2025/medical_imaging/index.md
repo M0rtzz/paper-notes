@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **32** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/medical_imaging/) · [📷 CVPR2026 (153)](../../CVPR2026/medical_imaging/) · [🔬 ICLR2026 (72)](../../ICLR2026/medical_imaging/) · [🤖 AAAI2026 (105)](../../AAAI2026/medical_imaging/) · [🧠 NeurIPS2025 (141)](../../NeurIPS2025/medical_imaging/) · [📹 ICCV2025 (40)](../../ICCV2025/medical_imaging/)
+
+🔥 **高频主题：** 医学影像 ×26 · RAG ×5 · LLM ×4 · 问答 ×3 · 对话系统 ×3
+
 **[A Modular Approach for Clinical SLMs Driven by Synthetic Data with Pre-Instruction Tuning, Model Merging, and Clinical-Tasks Alignment](a_modular_approach_for_clinical_slms_driven_by_synthetic_data_with_pre-instructi.md)**
 
 :   本文提出一种将小型语言模型（SLM）高效适配为临床领域模型的模块化框架，包含领域专家预指令微调（在医学语料上训练多个专家模型）、模型合并（将多个专家合并为统一的 MediPhi）、以及基于 250 万条合成指令（MediFlow）的临床任务对齐，最终 3.8B 参数的 MediPhi 在多项临床任务上超越 GPT-4。

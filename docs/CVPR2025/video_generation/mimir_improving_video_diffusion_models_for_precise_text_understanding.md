@@ -120,6 +120,8 @@ Mimir 在标准 T2V 扩散模型（3D Causal VAE + DiT）基础上，增加 deco
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] VideoDirector: Precise Video Editing via Text-to-Video Models](videodirector_precise_video_editing_via_text-to-video_models.md)
@@ -127,5 +129,7 @@ Mimir 在标准 T2V 扩散模型（3D Causal VAE + DiT）基础上，增加 deco
 - [\[CVPR 2025\] Towards Precise Scaling Laws for Video Diffusion Transformers](towards_precise_scaling_laws_for_video_diffusion_transformers.md)
 - [\[CVPR 2025\] VEU-Bench: Towards Comprehensive Understanding of Video Editing](veu-bench_towards_comprehensive_understanding_of_video_editing.md)
 - [\[CVPR 2025\] ShotAdapter: Text-to-Multi-Shot Video Generation with Diffusion Models](shotadapter_text-to-multi-shot_video_generation_with_diffusion_models.md)
+
+</div>
 
 <!-- RELATED:END -->

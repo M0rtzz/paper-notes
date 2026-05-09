@@ -127,6 +127,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Do Emotions Really Affect Argument Convincingness? A Dynamic Approach with LLM-based Manipulation Checks](../../ACL2025/robotics/do_emotions_really_affect_argument_convincingness_a_dynamic_approach_with_llm-ba.md)
@@ -134,5 +136,7 @@ tags:
 - [\[NeurIPS 2025\] Toward Engineering AGI: Benchmarking the Engineering Design Capabilities of LLMs](../../NeurIPS2025/robotics/toward_engineering_agi_benchmarking_the_engineering_design_capabilities_of_llms.md)
 - [\[AAAI 2026\] When Hallucination Costs Millions: Benchmarking AI Agents in High-Stakes Adversarial Financial Markets](when_hallucination_costs_millions_benchmarking_ai_agents_in_high-stakes_adversar.md)
 - [\[ICLR 2026\] SocialHarmBench: Revealing LLM Vulnerabilities to Socially Harmful Requests](../../ICLR2026/robotics/socialharmbench_revealing_llm_vulnerabilities_to_socially_harmful_requests.md)
+
+</div>
 
 <!-- RELATED:END -->

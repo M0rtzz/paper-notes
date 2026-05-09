@@ -137,6 +137,8 @@ $$\mathcal{L}_{mask} = \lambda_{obj}\mathcal{L}_{obj} + \lambda_{dice}\mathcal{L
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] COS3D: Collaborative Open-Vocabulary 3D Segmentation](../../NeurIPS2025/segmentation/cos3d_collaborative_open-vocabulary_3d_segmentation.md)
@@ -144,5 +146,7 @@ $$\mathcal{L}_{mask} = \lambda_{obj}\mathcal{L}_{obj} + \lambda_{dice}\mathcal{L
 - [\[CVPR 2025\] Effective SAM Combination for Open-Vocabulary Semantic Segmentation](effective_sam_combination_for_open-vocabulary_semantic_segmentation.md)
 - [\[CVPR 2025\] Mask-Adapter: The Devil is in the Masks for Open-Vocabulary Segmentation](mask-adapter_the_devil_is_in_the_masks_for_open-vocabulary_segmentation.md)
 - [\[CVPR 2025\] Prompt-Driven Lightweight Foundation Model for Instance Segmentation-Based Fault Detection in Freight Trains](prompt-driven_lightweight_foundation_model_for_instance_segmentation-based_fault.md)
+
+</div>
 
 <!-- RELATED:END -->

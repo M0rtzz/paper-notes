@@ -170,6 +170,8 @@ StreamMind 解耦了感知和认知两个阶段：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Event Ellipsometer: Event-based Mueller-Matrix Video Imaging](../../CVPR2025/llm_evaluation/event_ellipsometer_event-based_mueller-matrix_video_imaging.md)
@@ -177,5 +179,7 @@ StreamMind 解耦了感知和认知两个阶段：
 - [\[ICML 2025\] Unlocking Post-hoc Dataset Inference with Synthetic Data](../../ICML2025/llm_evaluation/unlocking_post-hoc_dataset_inference_with_synthetic_data.md)
 - [\[ICML 2025\] Cross-regularization: Adaptive Model Complexity through Validation Gradients](../../ICML2025/llm_evaluation/cross-regularization_adaptive_model_complexity_through_validation_gradients.md)
 - [\[ICML 2025\] CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering](../../ICML2025/llm_evaluation/costfilter-ad_enhancing_anomaly_detection_through_matching_cost_filtering.md)
+
+</div>
 
 <!-- RELATED:END -->

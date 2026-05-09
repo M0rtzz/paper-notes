@@ -122,6 +122,8 @@ Transformer 架构在形态学变形任务上取得了 SOTA 性能，但其跨�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Probing the Geometry of Truth: Consistency and Generalization of Truth Directions](probing_the_geometry_of_truth_consistency_and_generalization_of_truth_directions.md)
@@ -129,5 +131,7 @@ Transformer 架构在形态学变形任务上取得了 SOTA 性能，但其跨�
 - [\[NeurIPS 2025\] Fantastic Features and Where to Find Them: A Probing Method to Combine Features from Multiple Foundation Models](../../NeurIPS2025/interpretability/fantastic_features_and_where_to_find_them_a_probing_method_to_combine_features_f.md)
 - [\[AAAI 2026\] Probing Preference Representations: A Multi-Dimensional Evaluation and Analysis Method for Reward Models](../../AAAI2026/interpretability/probing_preference_representations_a_multi-dimensional_evaluation_and_analysis_m.md)
 - [\[ACL 2025\] Around the World in 24 Hours: Probing LLM Knowledge of Time and Place](around_the_world_in_24_hours_probing_llm_knowledge_of_time_and_place.md)
+
+</div>
 
 <!-- RELATED:END -->

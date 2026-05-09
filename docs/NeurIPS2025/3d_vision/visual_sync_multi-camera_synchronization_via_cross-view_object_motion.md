@@ -158,6 +158,8 @@ VisualSync不是学习型方法，而是基于优化的框架：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Estimating 2D Camera Motion with Hybrid Motion Basis](../../ICCV2025/3d_vision/estimating_2d_camera_motion_with_hybrid_motion_basis.md)
@@ -165,5 +167,7 @@ VisualSync不是学习型方法，而是基于优化的框架：
 - [\[ICCV 2025\] Image as an IMU: Estimating Camera Motion from a Single Motion-Blurred Image](../../ICCV2025/3d_vision/image_as_an_imu_estimating_camera_motion_from_a_single_motion-blurred_image.md)
 - [\[NeurIPS 2025\] WildCAT3D: Appearance-Aware Multi-View Diffusion in the Wild](wildcat3d_appearance-aware_multi-view_diffusion_in_the_wild.md)
 - [\[CVPR 2025\] Dyn-HaMR: Recovering 4D Interacting Hand Motion from a Dynamic Camera](../../CVPR2025/3d_vision/dyn_hamr_recovering_4d_interacting_hand_motion_from_a_dynamic_camera.md)
+
+</div>
 
 <!-- RELATED:END -->

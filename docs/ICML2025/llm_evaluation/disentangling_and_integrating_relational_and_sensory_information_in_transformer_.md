@@ -126,6 +126,8 @@ DAT 保持 Transformer 结构（注意力 + MLP 交替堆叠），将多头注�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Cooperation of Experts: Fusing Heterogeneous Information with Large Margin](cooperation_of_experts_fusing_heterogeneous_information_with_large_margin.md)
@@ -133,5 +135,7 @@ DAT 保持 Transformer 结构（注意力 + MLP 交替堆叠），将多头注�
 - [\[ACL 2026\] Revisiting the Uniform Information Density Hypothesis in LLM Reasoning](../../ACL2026/llm_evaluation/revisiting_the_uniform_information_density_hypothesis_in_llm_reasoning.md)
 - [\[NeurIPS 2025\] Towards Implicit Aggregation: Robust Image Representation for Place Recognition in the Transformer Era](../../NeurIPS2025/llm_evaluation/towards_implicit_aggregation_robust_image_representation_for_place_recognition_i.md)
 - [\[NeurIPS 2025\] HybridNorm: Towards Stable and Efficient Transformer Training via Hybrid Normalization](../../NeurIPS2025/llm_evaluation/hybridnorm_towards_stable_and_efficient_transformer_training_via_hybrid_normaliz.md)
+
+</div>
 
 <!-- RELATED:END -->

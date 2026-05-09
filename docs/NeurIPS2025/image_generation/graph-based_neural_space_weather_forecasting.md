@@ -224,6 +224,8 @@ $$p(X^t | X^{t-2:t-1}) = \int p(X^t | Z^t, X^{t-2:t-1}) \, p(Z^t | X^{t-2:t-1}) 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] OmniCast: A Masked Latent Diffusion Model for Weather Forecasting Across Time Scales](omnicast_a_masked_latent_diffusion_model_for_weather_forecasting_across_time_sca.md)
@@ -231,5 +233,7 @@ $$p(X^t | X^{t-2:t-1}) = \int p(X^t | Z^t, X^{t-2:t-1}) \, p(Z^t | X^{t-2:t-1}) 
 - [\[NeurIPS 2025\] Neural Entropy](neural_entropy.md)
 - [\[NeurIPS 2025\] Elucidated Rolling Diffusion Models for Probabilistic Forecasting of Complex Dynamics](elucidated_rolling_diffusion_models_for_probabilistic_forecasting_of_complex_dyn.md)
 - [\[NeurIPS 2025\] Exploring Variational Graph Autoencoders for Distribution Grid Data Generation](exploring_variational_graph_autoencoders_for_distribution_grid_data_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

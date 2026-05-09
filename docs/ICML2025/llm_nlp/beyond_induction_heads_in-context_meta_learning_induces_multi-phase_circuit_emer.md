@@ -204,6 +204,8 @@ $$\mathcal{L} = -\sum_{i=1}^{L} y_i \log \hat{y}_i$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Unifying Attention Heads and Task Vectors via Hidden State Geometry in In-Context Learning](../../NeurIPS2025/llm_nlp/unifying_attention_heads_and_task_vectors_via_hidden_state_geometry_in_in-contex.md)
@@ -211,5 +213,7 @@ $$\mathcal{L} = -\sum_{i=1}^{L} y_i \log \hat{y}_i$$
 - [\[ACL 2025\] Beyond In-Context Learning: Aligning Long-form Generation of LLMs via Task-Inherent Attribute Guidelines](../../ACL2025/llm_nlp/beyond_in-context_learning_aligning_long-form_generation_of_large_language_model.md)
 - [\[ACL 2025\] Beyond Output Matching: Bidirectional Alignment for Enhanced In-Context Learning](../../ACL2025/llm_nlp/beyond_output_matching_bidirectional_alignment_for_enhanced_in-context_learning.md)
 - [\[ACL 2025\] Language Models Grow Less Humanlike beyond Phase Transition](../../ACL2025/llm_nlp/language_models_grow_less_humanlike_beyond_phase_transition.md)
+
+</div>
 
 <!-- RELATED:END -->

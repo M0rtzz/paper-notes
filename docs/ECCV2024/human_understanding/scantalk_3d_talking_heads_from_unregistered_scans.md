@@ -140,6 +140,8 @@ $$\mathcal{L}_{MSE} = \frac{1}{T_i} \sum_{j=0}^{T_i-1} \frac{1}{V_i} \sum_{k=0}^
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Talking Together: Synthesizing Co-Located 3D Conversations from Audio](../../CVPR2026/human_understanding/talking_together_synthesizing_co-located_3d_conversations_from_audio.md)
@@ -147,5 +149,7 @@ $$\mathcal{L}_{MSE} = \frac{1}{T_i} \sum_{j=0}^{T_i-1} \frac{1}{V_i} \sum_{k=0}^
 - [\[ECCV 2024\] Audio-Driven Talking Face Generation with Stabilized Synchronization Loss](audio-driven_talking_face_generation_with_stabilized_synchronization_loss.md)
 - [\[ECCV 2024\] 3DSA: Multi-view 3D Human Pose Estimation With 3D Space Attention Mechanisms](3dsa_multi-view_3d_human_pose_estimation_with_3d_space_attention_mechanisms.md)
 - [\[ECCV 2024\] 3D Hand Pose Estimation in Everyday Egocentric Images](3d_hand_pose_estimation_in_everyday_egocentric_images.md)
+
+</div>
 
 <!-- RELATED:END -->

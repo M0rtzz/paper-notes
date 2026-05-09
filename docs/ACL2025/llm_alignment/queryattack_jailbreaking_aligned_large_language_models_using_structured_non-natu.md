@@ -148,6 +148,8 @@ QueryAttack 是一个三步 pipeline：**输入**为自然语言恶意查询（�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Red Queen: Safeguarding Large Language Models against Concealed Multi-Turn Jailbreaking](red_queen_safeguarding_large_language_models_against_concealed_multi-turn_jailbr.md)
@@ -155,5 +157,7 @@ QueryAttack 是一个三步 pipeline：**输入**为自然语言恶意查询（�
 - [\[NeurIPS 2025\] Adjacent Words, Divergent Intents: Jailbreaking Large Language Models via Task Concurrency](../../NeurIPS2025/llm_alignment/adjacent_words_divergent_intents_jailbreaking_large_language_models_via_task_con.md)
 - [\[ACL 2025\] SQL Injection Jailbreak: A Structural Disaster of Large Language Models](sql_injection_jailbreak_a_structural_disaster_of_large_language_models.md)
 - [\[ACL 2025\] AGD: Adversarial Game Defense Against Jailbreak Attacks in Large Language Models](agd_adversarial_game_defense_against_jailbreak_attacks_in_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

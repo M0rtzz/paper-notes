@@ -10,6 +10,8 @@ description: >-
 
 **📷 CVPR2025** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (4)](../../CVPR2026/scientific_computing/) · [🔬 ICLR2026 (10)](../../ICLR2026/scientific_computing/) · [🤖 AAAI2026 (8)](../../AAAI2026/scientific_computing/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/scientific_computing/) · [📹 ICCV2025 (1)](../../ICCV2025/scientific_computing/) · [🧪 ICML2025 (8)](../../ICML2025/scientific_computing/)
+
 **[Accurate Differential Operators for Hybrid Neural Fields](accurate_differential_operators_for_hybrid_neural_fields.md)**
 
 :   揭示混合神经场（如 Instant NGP）中自动微分产生的梯度和曲率存在严重高频噪声问题，提出基于局部多项式拟合的后处理微分算子和自监督微调方法，将梯度误差降低 4 倍、曲率误差降低 4 倍，在渲染和物理模拟中显著消除伪影。

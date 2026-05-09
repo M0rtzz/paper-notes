@@ -157,6 +157,8 @@ Monte Carlo 模拟验证：$p \geq p^\star$ 时所有轨迹均方收敛至零；
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Erwin: A Tree-based Hierarchical Transformer for Large-scale Physical Systems](../../ICML2025/scientific_computing/erwin_a_tree-based_hierarchical_transformer_for_large-scale_physical_systems.md)
@@ -164,5 +166,7 @@ Monte Carlo 模拟验证：$p \geq p^\star$ 时所有轨迹均方收敛至零；
 - [\[NeurIPS 2025\] From Black Hole to Galaxy: Neural Operator Framework for Accretion and Feedback Dynamics](../../NeurIPS2025/scientific_computing/from_black_hole_to_galaxy_neural_operator_framework_for_accretion_and_feedback_d.md)
 - [\[NeurIPS 2025\] DeltaPhi: Physical States Residual Learning for Neural Operators in Data-Limited PDE Solving](../../NeurIPS2025/scientific_computing/deltaphi_physical_states_residual_learning_for_neural_operators_in_data-limited_.md)
 - [\[AAAI 2026\] SAOT: An Enhanced Locality-Aware Spectral Transformer for Solving PDEs](saot_an_enhanced_locality-aware_spectral_transformer_for_solving_pdes.md)
+
+</div>
 
 <!-- RELATED:END -->

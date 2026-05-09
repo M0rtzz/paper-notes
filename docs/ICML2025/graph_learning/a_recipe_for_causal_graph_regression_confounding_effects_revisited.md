@@ -173,6 +173,8 @@ $$L = L_c + \alpha \cdot L_{\text{reg}} + \beta \cdot L_s + \lambda \cdot L_{\te
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] LLM Enhancers for GNNs: An Analysis from the Perspective of Causal Mechanism Identification](llm_enhancers_for_gnns_an_analysis_from_the_perspective_of_causal_mechanism_iden.md)
@@ -180,5 +182,7 @@ $$L = L_c + \alpha \cdot L_{\text{reg}} + \beta \cdot L_s + \lambda \cdot L_{\te
 - [\[ICML 2025\] Graph Attention is Not Always Beneficial: A Theoretical Analysis of Graph Attention Mechanisms via Contextual Stochastic Block Models](graph_attention_is_not_always_beneficial_a_theoretical_analysis_of_graph_attenti.md)
 - [\[ICML 2025\] On Measuring Long-Range Interactions in Graph Neural Networks](on_measuring_long-range_interactions_in_graph_neural_networks.md)
 - [\[ICML 2025\] A General Graph Spectral Wavelet Convolution via Chebyshev Order Decomposition](a_general_graph_spectral_wavelet_convolution_via_chebyshev_order_decomposition.md)
+
+</div>
 
 <!-- RELATED:END -->

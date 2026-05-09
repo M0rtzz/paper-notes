@@ -10,6 +10,8 @@ description: >-
 
 **🧪 ICML2025** · **16** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/causal_inference/) · [📷 CVPR2026 (4)](../../CVPR2026/causal_inference/) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/) · [🧠 NeurIPS2025 (21)](../../NeurIPS2025/causal_inference/) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/)
+
 **[Causal Abstraction Inference under Lossy Representations](causal_abstraction_inference_under_lossy_representations.md)**
 
 :   提出 **投影抽象（Projected Abstraction）** 框架，突破现有因果抽象理论对"抽象不变性条件（AIC）"的依赖，使得在有损/降维表示下仍能进行数学一致的因果推断，并给出图模型层面的可识别性判据。

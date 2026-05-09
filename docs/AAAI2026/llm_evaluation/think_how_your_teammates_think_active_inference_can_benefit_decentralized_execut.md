@@ -140,6 +140,8 @@ $$\mathcal{L}_{tot} = \mathcal{L}_{TD} + \mathcal{L}_{MD} + \mathcal{L}_{DF}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Think in Latent Thoughts: A New Paradigm for Gloss-Free Sign Language Translation](../../ACL2026/llm_evaluation/think_in_latent_thoughts_a_new_paradigm_for_gloss-free_sign_language_translation.md)
@@ -147,5 +149,7 @@ $$\mathcal{L}_{tot} = \mathcal{L}_{TD} + \mathcal{L}_{MD} + \mathcal{L}_{DF}$$
 - [\[ICML 2025\] How Much Can We Forget about Data Contamination?](../../ICML2025/llm_evaluation/how_much_can_we_forget_about_data_contamination.md)
 - [\[AAAI 2026\] MCTS-SQL: Light-Weight LLMs can Master the Text-to-SQL through Monte Carlo Tree Search](mcts-sql_light-weight_llms_can_master_the_text-to-sql_through_monte_carlo_tree_s.md)
 - [\[ACL 2025\] From Tools to Teammates: Evaluating LLMs in Multi-Session Coding Interactions](../../ACL2025/llm_evaluation/from_tools_to_teammates_evaluating_llms_in_multi-session_coding_interactions.md)
+
+</div>
 
 <!-- RELATED:END -->

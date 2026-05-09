@@ -124,6 +124,8 @@ UniShape采用预训练+微调范式：(1) Shape-Aware Adapter将变长子序列
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Time-Aware World Model for Adaptive Prediction and Control](../../ICML2025/others/time-aware_world_model_for_adaptive_prediction_and_control.md)
@@ -131,5 +133,7 @@ UniShape采用预训练+微调范式：(1) Shape-Aware Adapter将变长子序列
 - [\[AAAI 2026\] Agent-SAMA: State-Aware Mobile Assistant](agent-sama_state-aware_mobile_assistant.md)
 - [\[ACL 2025\] SSUF: A Semi-supervised Scalable Unified Framework for E-commerce Query Classification](../../ACL2025/others/a_semi-supervised_scalable_unified_framework_for_e-commerce_query_classification.md)
 - [\[AAAI 2026\] DeToNATION: Decoupled Torch Network-Aware Training on Interlinked Online Nodes](detonation_decoupled_torch_network-aware_training_on_interlinked_online_nodes.md)
+
+</div>
 
 <!-- RELATED:END -->

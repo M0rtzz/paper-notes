@@ -166,6 +166,8 @@ $$\mathcal{L}_{2\text{-stage}} = \mathcal{L}_{mse} + \mathcal{L}_{vel} + \lambda
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Identity Preserving 3D Head Stylization with Multiview Score Distillation](identity_preserving_3d_head_stylization_with_multiview_score_distillation.md)
@@ -173,5 +175,7 @@ $$\mathcal{L}_{2\text{-stage}} = \mathcal{L}_{mse} + \mathcal{L}_{vel} + \lambda
 - [\[CVPR 2025\] Multi-view Reconstruction via SfM-guided Monocular Depth Estimation](../../CVPR2025/3d_vision/multi-view_reconstruction_via_sfm-guided_monocular_depth_estimation.md)
 - [\[ICCV 2025\] SplatTalk: 3D VQA with Gaussian Splatting](splattalk_3d_vqa_with_gaussian_splatting.md)
 - [\[ICCV 2025\] GaussianProperty: Integrating Physical Properties to 3D Gaussians with LMMs](gaussianproperty_integrating_physical_properties_to_3d_gaussians_with_lmms.md)
+
+</div>
 
 <!-- RELATED:END -->

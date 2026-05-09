@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **67** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (37)](../../ACL2026/llm_reasoning/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_reasoning/) · [🔬 ICLR2026 (71)](../../ICLR2026/llm_reasoning/) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_reasoning/) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/) · [🧪 ICML2025 (17)](../../ICML2025/llm_reasoning/)
+
+🔥 **高频主题：** 推理 ×44 · LLM ×12 · 多模态 ×4 · 强化学习 ×4 · 模型压缩 ×2
+
 **[AbbIE: Autoregressive Block-Based Iterative Encoder for Efficient Sequence Modeling](abbie_autoregressive_block-based_iterative_encoder_for_efficient_sequence_modeli.md)**
 
 :   提出 AbbIE，一种将 decoder-only Transformer 的中间层（Body）进行递归迭代的架构，只需训练时用 2 次迭代，推理时即可通过增加迭代次数实现 upward generalization，在语言建模困惑度和 zero-shot ICL 任务上均超过标准 Transformer，且可作为标准 Transformer 的 drop-in 替代。

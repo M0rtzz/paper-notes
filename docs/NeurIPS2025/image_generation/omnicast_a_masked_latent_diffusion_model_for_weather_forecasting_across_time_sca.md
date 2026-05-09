@@ -146,6 +146,8 @@ OmniCast 推理速度比 Gencast 快 **10-20 倍**（且使用更弱的硬件）
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Graph-based Neural Space Weather Forecasting](graph-based_neural_space_weather_forecasting.md)
@@ -153,5 +155,7 @@ OmniCast 推理速度比 Gencast 快 **10-20 倍**（且使用更弱的硬件）
 - [\[ICCV 2025\] Latent Diffusion Models with Masked AutoEncoders](../../ICCV2025/image_generation/latent_diffusion_models_with_masked_autoencoders.md)
 - [\[NeurIPS 2025\] StableGuard: Towards Unified Copyright Protection and Tamper Localization in Latent Diffusion Models](stableguard_towards_unified_copyright_protection_and_tamper_localization_in_late.md)
 - [\[NeurIPS 2025\] MGE-LDM: Joint Latent Diffusion for Simultaneous Music Generation and Source Extraction](mge-ldm_joint_latent_diffusion_for_simultaneous_music_generation_and_source_extr.md)
+
+</div>
 
 <!-- RELATED:END -->

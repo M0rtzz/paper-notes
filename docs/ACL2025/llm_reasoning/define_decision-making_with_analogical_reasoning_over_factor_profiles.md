@@ -122,6 +122,8 @@ DeFine 在 F1 (23.73) 和 Accuracy (29.64) 上均显著领先，F1 比最佳基�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] I-RAVEN-X: Benchmarking Generalization and Robustness of Analogical and Mathematical Reasoning in Large Language and Reasoning Models](../../NeurIPS2025/llm_reasoning/i-raven-x_benchmarking_generalization_and_robustness_of_analogical_and_mathemati.md)
@@ -129,5 +131,7 @@ DeFine 在 F1 (23.73) 和 Accuracy (29.64) 上均显著领先，F1 比最佳基�
 - [\[ACL 2025\] Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models via a Multi-Paradigm Perspective](chain_of_reasoning_unified_math.md)
 - [\[ACL 2025\] Entropy-based Exploration Conduction for Multi-step Reasoning](entropy-based_exploration_conduction_for_multi-step_reasoning.md)
 - [\[ACL 2025\] ProcessBench: Identifying Process Errors in Mathematical Reasoning](processbench_identifying_process_errors_in_mathematical_reasoning.md)
+
+</div>
 
 <!-- RELATED:END -->

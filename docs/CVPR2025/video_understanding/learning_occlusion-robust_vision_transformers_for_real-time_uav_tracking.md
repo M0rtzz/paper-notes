@@ -129,6 +129,8 @@ ORTrack-D-DeiT（蒸馏版）在4个基准平均 Prec. 83.7%、Succ. 63.7%，速
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Similarity-Guided Layer-Adaptive Vision Transformer for UAV Tracking](similarity-guided_layer-adaptive_vision_transformer_for_uav_tracking.md)
@@ -136,5 +138,7 @@ ORTrack-D-DeiT（蒸馏版）在4个基准平均 Prec. 83.7%、Succ. 63.7%，速
 - [\[CVPR 2025\] MambaVLT: Time-Evolving Multimodal State Space Model for Vision-Language Tracking](mambavlt_time-evolving_multimodal_state_space_model_for_vision-language_tracking.md)
 - [\[CVPR 2026\] Occlusion-Aware SORT: Observing Occlusion for Robust Multi-Object Tracking](../../CVPR2026/video_understanding/occlusion-aware_sort_observing_occlusion_for_robust_multi-object_tracking.md)
 - [\[AAAI 2026\] Distillation Dynamics: Towards Understanding Feature-Based Distillation in Vision Transformers](../../AAAI2026/video_understanding/distillation_dynamics_towards_understanding_feature-based_di.md)
+
+</div>
 
 <!-- RELATED:END -->

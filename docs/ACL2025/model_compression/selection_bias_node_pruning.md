@@ -152,6 +152,8 @@ AOI 在无法获取模型参数的黑盒场景同样有效：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Disentangling the Roles of Representation and Selection in Data Pruning](disentangling_the_roles_of_representation_and_selection_in_data_pruning.md)
@@ -159,5 +161,7 @@ AOI 在无法获取模型参数的黑盒场景同样有效：
 - [\[ACL 2025\] Wanda++: Pruning Large Language Models via Regional Gradients](wanda_pruning_large_language_models_via_regional_gradients.md)
 - [\[ACL 2025\] LongReD: Mitigating Short-Text Degradation of Long-Context Large Language Models via Restoration Distillation](longred_mitigating_short-text_degradation_of_long-context_large_language_models_.md)
 - [\[ICML 2025\] Best Subset Selection: Optimal Pursuit for Feature Selection and Elimination](../../ICML2025/model_compression/best_subset_selection_optimal_pursuit_for_feature_selection_and_elimination.md)
+
+</div>
 
 <!-- RELATED:END -->

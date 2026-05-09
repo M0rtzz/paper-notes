@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **4** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/segmentation/) · [📷 CVPR2026 (103)](../../CVPR2026/segmentation/) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/) · [🤖 AAAI2026 (31)](../../AAAI2026/segmentation/) · [🧠 NeurIPS2025 (48)](../../NeurIPS2025/segmentation/) · [📹 ICCV2025 (78)](../../ICCV2025/segmentation/)
+
+🔥 **高频主题：** 语义分割 ×4 · 推理 ×3 · 对话系统 ×2
+
 **[BERT-like Models for Slavic Morpheme Segmentation](bert-like_models_for_slavic_morpheme_segmentation.md)**
 
 :   本文探索使用 BERT 类预训练语言模型来完成斯拉夫语系语言的形态素分割任务，通过将形态素分割建模为序列标注问题，在多个斯拉夫语言上取得了优于传统方法的结果。

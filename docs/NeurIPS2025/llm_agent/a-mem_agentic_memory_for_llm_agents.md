@@ -124,6 +124,8 @@ A-Mem 在 Temporal QA 上显著领先（39.41 vs MemGPT 17.29），整体排名�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] CAM: A Constructivist View of Agentic Memory for LLM-Based Reading Comprehension](cam_a_constructivist_view_of_agentic_memory_for_llm-based_reading_comprehension.md)
@@ -131,5 +133,7 @@ A-Mem 在 Temporal QA 上显著领先（39.41 vs MemGPT 17.29），整体排名�
 - [\[ACL 2025\] Unveiling Privacy Risks in LLM Agent Memory](../../ACL2025/llm_agent/mextra_agent_memory_privacy.md)
 - [\[ACL 2025\] R2D2: Remembering, Replaying and Dynamic Decision Making with a Reflective Agentic Memory](../../ACL2025/llm_agent/r2d2_reflective_agentic_memory.md)
 - [\[NeurIPS 2025\] Orchestration Framework for Financial Agents: From Algorithmic Trading to Agentic Trading](orchestration_framework_for_financial_agents_from_algorithmic_trading_to_agentic.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -125,6 +125,8 @@ $$\mathbf{X}(t_{m+1}) = (2\mathbf{I} + \tau^2 P(\mathbf{L}, t_m)) \mathbf{X}(t_m
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Hyperbolic Busemann Neural Networks](../../CVPR2026/graph_learning/hyperbolic_busemann_neural_networks.md)
@@ -132,5 +134,7 @@ $$\mathbf{X}(t_{m+1}) = (2\mathbf{I} + \tau^2 P(\mathbf{L}, t_m)) \mathbf{X}(t_m
 - [\[ICML 2025\] LLM Enhancers for GNNs: An Analysis from the Perspective of Causal Mechanism Identification](llm_enhancers_for_gnns_an_analysis_from_the_perspective_of_causal_mechanism_iden.md)
 - [\[ICML 2025\] Open Your Eyes: Vision Enhances Message Passing Neural Networks in Link Prediction](open_your_eyes_vision_enhances_message_passing_neural_networks_in_link_predictio.md)
 - [\[ICML 2025\] Beyond Message Passing: Neural Graph Pattern Machine](beyond_message_passing_neural_graph_pattern_machine.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **29** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (21)](../../ACL2026/llm_safety/) · [📷 CVPR2026 (16)](../../CVPR2026/llm_safety/) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_safety/) · [🧠 NeurIPS2025 (60)](../../NeurIPS2025/llm_safety/) · [📹 ICCV2025 (8)](../../ICCV2025/llm_safety/) · [🧪 ICML2025 (32)](../../ICML2025/llm_safety/)
+
+🔥 **高频主题：** LLM ×12 · 对抗鲁棒 ×5 · 持续学习 ×3 · 水印/隐写 ×2
+
 **[Anti-adversarial Learning: Desensitizing Prompts for Large Language Models](anti-adversarial_learning_desensitizing_prompts_for_large_la.md)**
 
 :   提出 PromptObfus，通过"反对抗学习"思路将用户 prompt 中的敏感词替换为语义不同但不影响任务输出的词，从而在不降低远端 LLM 任务表现的前提下彻底消除显式隐私泄露，并将隐式隐私推理攻击成功率降低 62.70%。

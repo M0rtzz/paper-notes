@@ -115,6 +115,8 @@ MangaNinja 在所有指标上大幅领先，尤其 DINO 相似度（+6.12 vs Any
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] InsightEdit: Towards Better Instruction Following for Image Editing](insightedit_towards_better_instruction_following_for_image_editing.md)
@@ -122,5 +124,7 @@ MangaNinja 在所有指标上大幅领先，尤其 DINO 相似度（+6.12 vs Any
 - [\[CVPR 2025\] The Art of Deception: Color Visual Illusions and Diffusion Models](the_art_of_deception_color_visual_illusions_and_diffusion_models.md)
 - [\[CVPR 2025\] Free-viewpoint Human Animation with Pose-correlated Reference Selection](free-viewpoint_human_animation_with_pose-correlated_reference_selection.md)
 - [\[CVPR 2025\] Precise, Fast, and Low-cost Concept Erasure in Value Space: Orthogonal Complement Matters](precise_fast_and_low-cost_concept_erasure_in_value_space_orthogonal_complement_m.md)
+
+</div>
 
 <!-- RELATED:END -->

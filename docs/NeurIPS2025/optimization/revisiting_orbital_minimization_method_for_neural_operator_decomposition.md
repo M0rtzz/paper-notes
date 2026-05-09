@@ -132,6 +132,8 @@ $$\mathcal{L}_{\text{omm}}(V) = \text{tr}((I_d - VV^\top)^2 A) - \text{tr}(A)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Extragradient Method for $(L_0, L_1)$-Lipschitz Root-finding Problems](extragradient_method_for_l_0_l_1-lipschitz_root-finding_problems.md)
@@ -139,5 +141,7 @@ $$\mathcal{L}_{\text{omm}}(V) = \text{tr}((I_d - VV^\top)^2 A) - \text{tr}(A)$$
 - [\[NeurIPS 2025\] Learning Single-Index Models via Harmonic Decomposition](learning_single-index_models_via_harmonic_decomposition.md)
 - [\[ICML 2025\] Tilted Sharpness-Aware Minimization](../../ICML2025/optimization/tilted_sharpness-aware_minimization.md)
 - [\[NeurIPS 2025\] OrthoGrad Improves Neural Calibration](orthograd_improves_neural_calibration.md)
+
+</div>
 
 <!-- RELATED:END -->

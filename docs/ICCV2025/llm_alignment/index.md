@@ -10,6 +10,8 @@ description: >-
 
 **📹 ICCV2025** · **2** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/llm_alignment/) · [📷 CVPR2026 (12)](../../CVPR2026/llm_alignment/) · [🔬 ICLR2026 (42)](../../ICLR2026/llm_alignment/) · [🤖 AAAI2026 (20)](../../AAAI2026/llm_alignment/) · [🧠 NeurIPS2025 (53)](../../NeurIPS2025/llm_alignment/) · [🧪 ICML2025 (27)](../../ICML2025/llm_alignment/)
+
 **[Heuristic-Induced Multimodal Risk Distribution Jailbreak Attack for Multimodal Large Language Models](heuristic-induced_multimodal_risk_distribution_jailbreak_attack_for_multimodal_l.md)**
 
 :   本文提出 HIMRD，一种黑盒多模态越狱攻击方法，通过将恶意语义分散到多个模态来绕过单模态防护，并用启发式搜索策略寻找理解增强提示和诱导提示，在开源和闭源多模态大模型上分别达到约 90% 和 68% 的平均攻击成功率。

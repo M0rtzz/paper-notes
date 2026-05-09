@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **44** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (2)](../../ACL2026/ai_safety/) · [📷 CVPR2026 (24)](../../CVPR2026/ai_safety/) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/) · [📹 ICCV2025 (22)](../../ICCV2025/ai_safety/) · [🧪 ICML2025 (36)](../../ICML2025/ai_safety/)
+
+🔥 **高频主题：** 对抗鲁棒 ×18 · 水印/隐写 ×6 · 联邦学习 ×3 · 语音 ×2 · 推荐系统 ×2
+
 **[Alternative Fairness and Accuracy Optimization in Criminal Justice](alternative_fairness_and_accuracy_optimization_in_criminal_j.md)**
 
 :   本文系统综述了算法公平性的三大维度（群体公平、个体公平、过程公平），提出了一种基于容差约束的改进群体公平性优化公式，并构建了面向公共决策系统的"公平三支柱"部署框架。

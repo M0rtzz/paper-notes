@@ -134,6 +134,8 @@ DRR-Net 在 Nyx 上 PSNR 最高（44.69 vs FA-INR 42.79），推理速度比 FA-
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Probabilistic Kernel Function for Fast Angle Testing](probabilistic_kernel_function_for_fast_angle_testing.md)
@@ -141,5 +143,7 @@ DRR-Net 在 Nyx 上 PSNR 最高（44.69 vs FA-INR 42.79），推理速度比 FA-
 - [\[CVPR 2025\] EVOS: Efficient Implicit Neural Training via EVOlutionary Selector](../../CVPR2025/others/evos_efficient_implicit_neural_training_via_evolutionary_selector.md)
 - [\[ICLR 2026\] Neuro-Symbolic Decoding of Neural Activity](neuro-symbolic_decoding_of_neural_activity.md)
 - [\[ICLR 2026\] Fast and Stable Riemannian Metrics on SPD Manifolds via Cholesky Product Geometry](fast_and_stable_riemannian_metrics_on_spd_manifolds_via_cholesky_product_geometr.md)
+
+</div>
 
 <!-- RELATED:END -->

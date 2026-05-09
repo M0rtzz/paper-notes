@@ -126,6 +126,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] ProofCompass: Enhancing Specialized Provers with LLM Guidance](../../ICML2025/llm_reasoning/proofcompass_enhancing_specialized_provers_with_llm_guidance.md)
@@ -133,5 +135,7 @@ tags:
 - [\[ACL 2025\] Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models](marco-o1_v2_towards_widening_the_distillation_bottleneck_for_reasoning_models.md)
 - [\[ACL 2025\] Safe: Enhancing Mathematical Reasoning in Large Language Models via Retrospective Step-aware Formal Verification](safe_math_reasoning.md)
 - [\[ACL 2025\] Improve Vision Language Model Chain-of-thought Reasoning](improve_vlm_cot_reasoning.md)
+
+</div>
 
 <!-- RELATED:END -->

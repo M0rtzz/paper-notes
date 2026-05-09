@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **86** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (34)](../../ACL2026/interpretability/) · [📷 CVPR2026 (31)](../../CVPR2026/interpretability/) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/) · [📹 ICCV2025 (11)](../../ICCV2025/interpretability/) · [🧪 ICML2025 (33)](../../ICML2025/interpretability/)
+
+🔥 **高频主题：** 推理 ×10 · LLM ×10 · 多模态 ×4 · 模型压缩 ×3 · 布局/合成 ×3
+
 **[A is for Absorption: Studying Feature Splitting and Absorption in Sparse Autoencoders](a_is_for_absorption_studying_feature_splitting_and_absorption_in_sparse_autoenco.md)**
 
 :   发现并系统研究了 SAE 中的"特征吸收"现象：看似单义的 SAE latent 会在特定 token 上不激活，其特征方向被更具体的子 latent "吸收"，这是层级特征+稀疏性损失的必然结果，对 SAE 用于可靠解释 LLM 构成根本挑战。

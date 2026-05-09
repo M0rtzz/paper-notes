@@ -173,6 +173,8 @@ $$\text{2D标注} \xrightarrow{\text{投影到网格}} \text{3D网格标注} \xr
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] G2SF: Geometry-Guided Score Fusion for Multimodal Industrial Anomaly Detection](g2sf_geometry-guided_score_fusion_for_multimodal_industrial_anomaly_detection.md)
@@ -180,5 +182,7 @@ $$\text{2D标注} \xrightarrow{\text{投影到网格}} \text{3D网格标注} \xr
 - [\[ICCV 2025\] PASDF: Bridging 3D Anomaly Localization and Repair via High-Quality Continuous Geometric Representation](bridging_3d_anomaly_localization_and_repair_via_highquality.md)
 - [\[CVPR 2025\] Odd-One-Out: Anomaly Detection by Comparing with Neighbors](../../CVPR2025/3d_vision/odd-one-out_anomaly_detection_by_comparing_with_neighbors.md)
 - [\[CVPR 2026\] A Semantically Disentangled Unified Model for Multi-category 3D Anomaly Detection](../../CVPR2026/3d_vision/a_semantically_disentangled_unified_model_for_multi-category_3d_anomaly_detectio.md)
+
+</div>
 
 <!-- RELATED:END -->

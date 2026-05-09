@@ -143,6 +143,8 @@ $$|(\gamma_2^0 - \gamma_2^1)\beta_1 + (\gamma_1^0 - \gamma_1^1)\beta_2 + (\gamma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Cost Efficient Fairness Audit Under Partial Feedback](cost_efficient_fairness_audit_under_partial_feedback.md)
@@ -150,5 +152,7 @@ $$|(\gamma_2^0 - \gamma_2^1)\beta_1 + (\gamma_1^0 - \gamma_1^1)\beta_2 + (\gamma
 - [\[NeurIPS 2025\] Matchings Under Biased and Correlated Evaluations](matchings_under_biased_and_correlated_evaluations.md)
 - [\[NeurIPS 2025\] Reconstruction and Secrecy under Approximate Distance Queries](reconstruction_and_secrecy_under_approximate_distance_queries.md)
 - [\[NeurIPS 2025\] It's Complicated: The Relationship of Algorithmic Fairness and Non-Discrimination Provisions for High-Risk Systems in the EU AI Act](its_complicated_the_relationship_of_algorithmic_fairness_and_non-discrimination_.md)
+
+</div>
 
 <!-- RELATED:END -->

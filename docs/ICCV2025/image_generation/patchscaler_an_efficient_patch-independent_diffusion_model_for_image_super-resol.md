@@ -137,6 +137,8 @@ $$q(\mathbf{x}_\tau|\mathbf{y}_0) \approx \mathcal{N}(\mathbf{x}_\tau; \sqrt{\ba
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Uncertainty-guided Perturbation for Image Super-Resolution Diffusion Model](../../CVPR2025/image_generation/uncertainty-guided_perturbation_for_image_super-resolution_diffusion_model.md)
@@ -144,5 +146,7 @@ $$q(\mathbf{x}_\tau|\mathbf{y}_0) \approx \mathcal{N}(\mathbf{x}_\tau; \sqrt{\ba
 - [\[CVPR 2025\] FaithDiff: Unleashing Diffusion Priors for Faithful Image Super-Resolution](../../CVPR2025/image_generation/faithdiff_unleashing_diffusion_priors_for_faithful_image_super-resolution.md)
 - [\[ICCV 2025\] 3DSR: Bridging Diffusion Models and 3D Representations for 3D Consistent Super-Resolution](bridging_diffusion_models_and_3d_representations_a_3d_consis.md)
 - [\[CVPR 2026\] VOSR: A Vision-Only Generative Model for Image Super-Resolution](../../CVPR2026/image_generation/vosr_a_vision_only_generative_model_for_image_super_resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

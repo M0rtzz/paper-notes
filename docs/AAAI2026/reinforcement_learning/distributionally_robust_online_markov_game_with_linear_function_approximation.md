@@ -171,6 +171,8 @@ $$\text{Regret}(K) = \max_{i \in [n]} \sum_{k=1}^K [V_{i,1}^{\star, \pi_{-i}^k, 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Is Pure Exploitation Sufficient in Exogenous MDPs with Linear Function Approximation?](../../ICLR2026/reinforcement_learning/is_pure_exploitation_sufficient_in_exogenous_mdps_with_linear_function_approxima.md)
@@ -178,5 +180,7 @@ $$\text{Regret}(K) = \max_{i \in [n]} \sum_{k=1}^K [V_{i,1}^{\star, \pi_{-i}^k, 
 - [\[AAAI 2026\] TowerMind: A Tower Defence Game Learning Environment and Benchmark for LLM as Agents](towermind_a_tower_defence_game_learning_environment_and_benchmark_for_llm_as_age.md)
 - [\[NeurIPS 2025\] A Unifying View of Linear Function Approximation in Off-Policy RL Through Matrix Splitting and Preconditioning](../../NeurIPS2025/reinforcement_learning/a_unifying_view_of_linear_function_approximation_in_offpolic.md)
 - [\[AAAI 2026\] Constrained and Robust Policy Synthesis with Satisfiability-Modulo-Probabilistic-Model-Checking](constrained_and_robust_policy_synthesis_with_satisfiability-modulo-probabilistic.md)
+
+</div>
 
 <!-- RELATED:END -->

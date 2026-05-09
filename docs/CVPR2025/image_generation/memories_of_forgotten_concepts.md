@@ -121,6 +121,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Meta-Unlearning on Diffusion Models: Preventing Relearning Unlearned Concepts](../../ICCV2025/image_generation/meta-unlearning_on_diffusion_models_preventing_relearning_unlearned_concepts.md)
@@ -128,5 +130,7 @@ tags:
 - [\[CVPR 2025\] Concept Replacer: Replacing Sensitive Concepts in Diffusion Models via Precision Localization](concept_replacer_replacing_sensitive_concepts_in_diffusion_models_via_precision_.md)
 - [\[ICML 2025\] Nonparametric Identification of Latent Concepts](../../ICML2025/image_generation/nonparametric_identification_of_latent_concepts.md)
 - [\[NeurIPS 2025\] Emergence and Evolution of Interpretable Concepts in Diffusion Models](../../NeurIPS2025/image_generation/emergence_and_evolution_of_interpretable_concepts_in_diffusi.md)
+
+</div>
 
 <!-- RELATED:END -->

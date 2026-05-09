@@ -159,6 +159,8 @@ CAI 用 AI 反馈替代人类反馈实现安全对齐，但缺乏显式的策略
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] AgentAlign: Navigating Safety Alignment in the Shift from Informative to Agentic LLMs](agentalign_navigating_safety_alignment_in_the_shift_from_informative_to_agentic_.md)
@@ -166,5 +168,7 @@ CAI 用 AI 反馈替代人类反馈实现安全对齐，但缺乏显式的策略
 - [\[CVPR 2025\] Visual Agentic AI for Spatial Reasoning with a Dynamic API](../../CVPR2025/llm_agent/visual_agentic_ai_for_spatial_reasoning_with_a_dynamic_api.md)
 - [\[ACL 2025\] Agentic Reasoning: A Streamlined Framework for Enhancing LLM Reasoning with Agentic Tools](agentic_reasoning_tools.md)
 - [\[NeurIPS 2025\] Enhancing Demand-Oriented Regionalization with Agentic AI and Local Heterogeneous Data for Adaptation Planning](../../NeurIPS2025/llm_agent/enhancing_demand-oriented_regionalization_with_agentic_ai_and_local_heterogeneou.md)
+
+</div>
 
 <!-- RELATED:END -->

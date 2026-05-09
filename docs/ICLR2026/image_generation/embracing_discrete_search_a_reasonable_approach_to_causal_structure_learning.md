@@ -150,6 +150,8 @@ $$\text{BIC}(G) = -2 \log L(G | \mathcal{D}) + k \log n$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Discrete Adjoint Matching](discrete_adjoint_matching.md)
@@ -157,5 +159,7 @@ $$\text{BIC}(G) = -2 \log L(G | \mathcal{D}) + k \log n$$
 - [\[ICLR 2026\] Exposing Hidden Biases in Text-to-Image Models via Automated Prompt Search](exposing_hidden_biases_in_text-to-image_models_via_automated_prompt_search.md)
 - [\[ICLR 2026\] Loopholing Discrete Diffusion: Deterministic Bypass of the Sampling Wall](loopholing_discrete_diffusion_deterministic_bypass_of_the_sampling_wall.md)
 - [\[ICLR 2026\] JointDiff: Bridging Continuous and Discrete in Multi-Agent Trajectory Generation](jointdiff_bridging_continuous_and_discrete_in_multi-agent_trajectory_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

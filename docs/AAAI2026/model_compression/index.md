@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **54** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (42)](../../ACL2026/model_compression/) · [📷 CVPR2026 (57)](../../CVPR2026/model_compression/) · [🔬 ICLR2026 (92)](../../ICLR2026/model_compression/) · [🧠 NeurIPS2025 (137)](../../NeurIPS2025/model_compression/) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/) · [🧪 ICML2025 (71)](../../ICML2025/model_compression/)
+
+🔥 **高频主题：** 模型压缩 ×9 · 压缩/编码 ×7 · LLM ×6 · Agent ×4 · 推理 ×3
+
 **[AdaFuse: Accelerating Dynamic Adapter Inference via Token-Level Pre-Gating and Fused Kernel Optimization](adafuse_accelerating_dynamic_adapter_inference_via_token-lev.md)**
 
 :   针对动态MoE-LoRA适配器推理延迟暴增（250%-950%）的问题，提出了一种token级预门控架构，只在第一层做一次全局路由决策，配合自研的SGMM融合CUDA内核将所有激活的LoRA适配器一次性合并进骨干网络，在保持精度的同时将解码延迟降低2.4倍。

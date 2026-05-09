@@ -126,6 +126,8 @@ StD是完全无训练的方法。超参数设置：KV缓存总量 $K + m_t = 102
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Sparse-Dense Side-Tuner for Efficient Video Temporal Grounding](../../ICCV2025/video_understanding/sparse-dense_side-tuner_for_efficient_video_temporal_grounding.md)
@@ -133,5 +135,7 @@ StD是完全无训练的方法。超参数设置：KV缓存总量 $K + m_t = 102
 - [\[ICLR 2026\] VideoNSA: Native Sparse Attention Scales Video Understanding](../../ICLR2026/video_understanding/videonsa_native_sparse_attention_scales_video_understanding.md)
 - [\[NeurIPS 2025\] Enhancing Temporal Understanding in Video-LLMs through Stacked Temporal Attention in Vision Encoders](../../NeurIPS2025/video_understanding/enhancing_temporal_understanding_in_videollms_through_stacke.md)
 - [\[CVPR 2025\] DynFocus: Dynamic Cooperative Network Empowers LLMs with Video Understanding](../../CVPR2025/video_understanding/dynfocus_dynamic_cooperative_network_empowers_llms_with_video_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

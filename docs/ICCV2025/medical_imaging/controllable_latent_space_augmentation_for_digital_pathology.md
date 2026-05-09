@@ -139,6 +139,8 @@ $$\mathcal{L} = \|\rho(\mathbf{z}, (T_k, \alpha_k)) - \mathcal{E}(\tau(\mathbf{x
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Towards Unified and Lossless Latent Space for 3D Molecular Latent Diffusion Modeling](../../NeurIPS2025/medical_imaging/towards_unified_and_lossless_latent_space_for_3d_molecular_latent_diffusion_mode.md)
@@ -146,5 +148,7 @@ $$\mathcal{L} = \|\rho(\mathbf{z}, (T_k, \alpha_k)) - \mathcal{E}(\tau(\mathbf{x
 - [\[NeurIPS 2025\] Generating Multi-Table Time Series EHR from Latent Space with Minimal Preprocessing](../../NeurIPS2025/medical_imaging/generating_multi-table_time_series_ehr_from_latent_space_with_minimal_preprocess.md)
 - [\[ICML 2025\] MF-LAL: Drug Compound Generation Using Multi-Fidelity Latent Space Active Learning](../../ICML2025/medical_imaging/mf-lal_drug_compound_generation_using_multi-fidelity_latent_space_active_learnin.md)
 - [\[ICML 2025\] LDMol: A Text-to-Molecule Diffusion Model with Structurally Informative Latent Space Surpasses AR Models](../../ICML2025/medical_imaging/ldmol_a_text-to-molecule_diffusion_model_with_structurally_informative_latent_sp.md)
+
+</div>
 
 <!-- RELATED:END -->

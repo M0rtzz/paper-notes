@@ -119,6 +119,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Robotic Visual Instruction](robotic_visual_instruction.md)
@@ -126,5 +128,7 @@ tags:
 - [\[ICCV 2025\] UnZipLoRA: Separating Content and Style from a Single Image](../../ICCV2025/robotics/unziplora_separating_content_and_style_from_a_single_image.md)
 - [\[ICLR 2026\] UrbanVerse: Scaling Urban Simulation by Watching City-Tour Videos](../../ICLR2026/robotics/urbanverse_scaling_urban_simulation_by_watching_city-tour_videos.md)
 - [\[NeurIPS 2025\] MIP against Agent: Malicious Image Patches Hijacking Multimodal OS Agents](../../NeurIPS2025/robotics/mip_against_agent_malicious_image_patches_hijacking_multimod.md)
+
+</div>
 
 <!-- RELATED:END -->

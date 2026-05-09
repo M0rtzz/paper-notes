@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **7** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/social_computing/) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/social_computing/) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/)
+
+🔥 **高频主题：** LLM ×3
+
 **[DEFAME: Dynamic Evidence-based FAct-checking with Multimodal Experts](defame_dynamic_evidence-based_fact-checking_with_multimodal_experts.md)**
 
 :   提出 DEFAME，一个模块化零样本多模态 LLM 流水线，通过六阶段动态流程（规划→执行→摘要→推理→判决→解释）结合外部多模态工具检索证据，实现端到端的文本-图像联合事实核查，在 AVeriTeC、MOCHEG、VERITE 三个基准上均达到新 SOTA。

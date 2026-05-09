@@ -129,6 +129,8 @@ $f_\mathcal{X} = Q_\mathcal{X} \circ S_\mathcal{X}$，$f_\mathcal{Y} = F_\theta 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Guiding Cross-Modal Representations with MLLM Priors via Preference Alignment](guiding_cross-modal_representations_with_mllm_priors_via_preference_alignment.md)
@@ -136,5 +138,7 @@ $f_\mathcal{X} = Q_\mathcal{X} \circ S_\mathcal{X}$，$f_\mathcal{Y} = F_\theta 
 - [\[ICML 2025\] Learning Optimal Multimodal Information Bottleneck Representations](../../ICML2025/multimodal_vlm/learning_optimal_multimodal_information_bottleneck_representations.md)
 - [\[ICCV 2025\] BabyVLM: Data-Efficient Pretraining of VLMs Inspired by Infant Learning](../../ICCV2025/multimodal_vlm/babyvlm_data-efficient_pretraining_of_vlms_inspired_by_infant_learning.md)
 - [\[NeurIPS 2025\] Breaking the Compression Ceiling: Data-Free Pipeline for Ultra-Efficient Delta Compression](breaking_the_compression_ceiling_data-free_pipeline_for_ultra-efficient_delta_co.md)
+
+</div>
 
 <!-- RELATED:END -->

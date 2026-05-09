@@ -119,6 +119,8 @@ CPE 角度间隔对比损失 + 标准检测/分割损失。缩放因子 $\alpha$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Operational Open-Set Recognition and PostMax Refinement](../../ECCV2024/others/operational_open-set_recognition_and_postmax_refinement.md)
@@ -126,5 +128,7 @@ CPE 角度间隔对比损失 + 标准检测/分割损失。缩放因子 $\alpha$
 - [\[CVPR 2026\] SHREC: A Spectral Embedding-Based Approach for Ab-Initio Reconstruction of Helical Molecules](shrec_a_spectral_embeddingbased_approach_for_abini.md)
 - [\[ICCV 2025\] Kaputt: A Large-Scale Dataset for Visual Defect Detection](../../ICCV2025/others/kaputt_a_large-scale_dataset_for_visual_defect_detection.md)
 - [\[CVPR 2025\] Distribution Prototype Diffusion Learning for Open-set Supervised Anomaly Detection](../../CVPR2025/others/distribution_prototype_diffusion_learning_for_open-set_supervised_anomaly_detect.md)
+
+</div>
 
 <!-- RELATED:END -->

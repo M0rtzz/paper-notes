@@ -119,6 +119,8 @@ $$\mathcal{L}_S = \ell_\mathcal{M}(\mathcal{I}_a, \hat{\mathcal{I}}_a) + \ell_\m
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] MotionAnyMesh: Physics-Grounded Articulation for Simulation-Ready Digital Twins](motionanymesh_physics-grounded_articulation_for_simulation-ready_digital_twins.md)
@@ -126,5 +128,7 @@ $$\mathcal{L}_S = \ell_\mathcal{M}(\mathcal{I}_a, \hat{\mathcal{I}}_a) + \ell_\m
 - [\[CVPR 2025\] ProbeSDF: Light Field Probes for Neural Surface Reconstruction](probesdf_light_field_probes_for_neural_surface_reconstruction.md)
 - [\[CVPR 2025\] Synthetic Prior for Few-Shot Drivable Head Avatar Inversion](synthetic_prior_for_few-shot_drivable_head_avatar_inversion.md)
 - [\[CVPR 2025\] Event Fields: Capturing Light Fields at High Speed, Resolution, and Dynamic Range](event_fields_capturing_light_fields_at_high_speed_resolution_and_dynamic_range.md)
+
+</div>
 
 <!-- RELATED:END -->

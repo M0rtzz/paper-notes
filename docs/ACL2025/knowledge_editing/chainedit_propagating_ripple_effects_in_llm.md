@@ -123,6 +123,8 @@ LG（逻辑泛化）指标：MEMIT 从 18.6% → 58.7%（**+40.1%**），FT 从 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] CLaRE-ty Amid Chaos: Quantifying Representational Entanglement to Predict Ripple Effects in LLM Editing](../../ACL2026/knowledge_editing/clare-ty_amid_chaos_quantifying_representational_entanglement_to_predict_ripple_.md)
@@ -130,5 +132,7 @@ LG（逻辑泛化）指标：MEMIT 从 18.6% → 58.7%（**+40.1%**），FT 从 
 - [\[ACL 2025\] Mitigating Negative Interference in Multilingual Sequential Knowledge Editing through Null-Space Constraints](mitigating_negative_interference_in_multilingual_sequential_knowledge_editing_th.md)
 - [\[ACL 2025\] Memorizing is Not Enough: Deep Knowledge Injection Through Reasoning](memorizing_is_not_enough_deep_knowledge_injection_through_reasoning.md)
 - [\[ACL 2025\] CompKe: Complex Question Answering under Knowledge Editing](compke_complex_question_answering_under_knowledge_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

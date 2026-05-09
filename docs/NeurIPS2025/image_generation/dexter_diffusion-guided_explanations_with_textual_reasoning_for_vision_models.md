@@ -144,6 +144,8 @@ $$\mathcal{L} = \sum_{k=1}^K l_\text{act}(n_k) - \sum_{i=1}^N \log s_{i, y_i}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Diff-ICMH: Harmonizing Machine and Human Vision in Image Compression with Generative Prior](diff-icmh_harmonizing_machine_and_human_vision_in_image_compression_with_generat.md)
@@ -151,5 +153,7 @@ $$\mathcal{L} = \sum_{k=1}^K l_\text{act}(n_k) - \sum_{i=1}^N \log s_{i, y_i}$$
 - [\[ICCV 2025\] Rethinking the Embodied Gap in Vision-and-Language Navigation: A Holistic Study of Physical and Visual Disparities](../../ICCV2025/image_generation/rethinking_the_embodied_gap_in_vision-and-language_navigation_a_holistic_study_o.md)
 - [\[CVPR 2025\] FlipSketch: Flipping Static Drawings to Text-Guided Sketch Animations](../../CVPR2025/image_generation/flipsketch_flipping_static_drawings_to_text-guided_sketch_animations.md)
 - [\[ICCV 2025\] Joint Diffusion Models in Continual Learning](../../ICCV2025/image_generation/joint_diffusion_models_in_continual_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

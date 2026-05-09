@@ -133,6 +133,8 @@ LMM 生成答案时每个 token 都有 softmax 概率分布。利用这些概率
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Re-ranking Reasoning Context with Tree Search Makes Large Vision-Language Models Stronger](re-ranking_reasoning_context_with_tree_search_makes_large_vision-language_models.md)
@@ -140,5 +142,7 @@ LMM 生成答案时每个 token 都有 softmax 概率分布。利用这些概率
 - [\[CVPR 2025\] Quantization without Tears](../../CVPR2025/multimodal_vlm/quantization_without_tears.md)
 - [\[ICML 2025\] Robust Multimodal Large Language Models Against Modality Conflict](robust_multimodal_large_language_models_against_modality_conflict.md)
 - [\[ACL 2026\] Mitigating Hallucinations in Large Vision-Language Models without Performance Degradation](../../ACL2026/multimodal_vlm/mitigating_hallucinations_in_large_vision-language_models_without_performance_de.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -152,6 +152,8 @@ $$o'_\ell(S) = \begin{cases} \frac{2}{\epsilon} \cdot o_\ell, & \text{if } S = \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Improved Unbiased Watermark for Large Language Models](../../ACL2025/llm_safety/improved_unbiased_watermark_for_large_language.md)
@@ -159,5 +161,7 @@ $$o'_\ell(S) = \begin{cases} \frac{2}{\epsilon} \cdot o_\ell, & \text{if } S = \
 - [\[NeurIPS 2025\] A Cramér–von Mises Approach to Incentivizing Truthful Data Sharing](a_cramrvon_mises_approach_to_incentivizing_truthful_data_sha.md)
 - [\[NeurIPS 2025\] TRUST -- Transformer-Driven U-Net for Sparse Target Recovery](trust_--_transformer-driven_u-net_for_sparse_target_recovery.md)
 - [\[NeurIPS 2025\] A Reliable Cryptographic Framework for Empirical Machine Unlearning Evaluation](a_reliable_cryptographic_framework_for_empirical_machine_unl.md)
+
+</div>
 
 <!-- RELATED:END -->

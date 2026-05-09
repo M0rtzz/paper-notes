@@ -165,6 +165,8 @@ G2L 在所有 $k$ 值上均取得最高鲁棒性指数，超越教师模型和�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Small but Mighty: Dynamic Wavelet Expert-Guided Fine-Tuning of Large-Scale Models for Optical Remote Sensing Object Segmentation](small_but_mighty_dynamic_wavelet_expert-guided_fine-tuning_of_large-scale_models.md)
@@ -172,5 +174,7 @@ G2L 在所有 $k$ 值上均取得最高鲁棒性指数，超越教师模型和�
 - [\[CVPR 2026\] Accelerating Stroke MRI with Diffusion Probabilistic Models through Large-Scale Pre-training and Target-Specific Fine-Tuning](../../CVPR2026/medical_imaging/accelerating_stroke_mri_with_diffusion_probabilist.md)
 - [\[AAAI 2026\] Investigating Data Pruning for Pretraining Biological Foundation Models at Scale](investigating_data_pruning_for_pretraining_biological_foundation_models_at_scale.md)
 - [\[AAAI 2026\] Personalization of Large Foundation Models for Health Interventions](personalization_of_large_foundation_models_for_health_interventions.md)
+
+</div>
 
 <!-- RELATED:END -->

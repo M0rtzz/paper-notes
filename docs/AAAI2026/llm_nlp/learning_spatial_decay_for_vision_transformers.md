@@ -124,6 +124,8 @@ ImageNet-1K 上标准训练，300 epochs，AdamW 优化器。结合 RoPE 和 Loc
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Vision Transformers are Circulant Attention Learners](vision_transformers_are_circulant_attention_learners.md)
@@ -131,5 +133,7 @@ ImageNet-1K 上标准训练，300 epochs，AdamW 优化器。结合 RoPE 和 Loc
 - [\[AAAI 2026\] Conversational Learning Diagnosis via Reasoning Multi-Turn Interactive Learning](conversational_learning_diagnosis_via_reasoning_multi-turn_interactive_learning.md)
 - [\[NeurIPS 2025\] In-Context Learning of Linear Dynamical Systems with Transformers: Approximation Bounds and Depth-Separation](../../NeurIPS2025/llm_nlp/in-context_learning_of_linear_dynamical_systems_with_transformers_approximation_.md)
 - [\[NeurIPS 2025\] Strassen Attention, Split VC Dimension and Compositionality in Transformers](../../NeurIPS2025/llm_nlp/strassen_attention_split_vc_dimension_and_compositionality_in_transformers.md)
+
+</div>
 
 <!-- RELATED:END -->

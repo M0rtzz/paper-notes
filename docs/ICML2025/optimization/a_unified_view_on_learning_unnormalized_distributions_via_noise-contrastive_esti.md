@@ -112,6 +112,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] A Unified Approach to Submodular Maximization Under Noise](../../NeurIPS2025/optimization/a_unified_approach_to_submodular_maximization_under_noise.md)
@@ -119,5 +121,7 @@ tags:
 - [\[NeurIPS 2025\] Covariances for Free: Exploiting Mean Distributions for Training-free Federated Learning](../../NeurIPS2025/optimization/covariances_for_free_exploiting_mean_distributions_for_training-free_federated_l.md)
 - [\[ICML 2025\] Clipping Improves Adam-Norm and AdaGrad-Norm when the Noise Is Heavy-Tailed](clipping_improves_adam-norm_and_adagrad-norm_when_the_noise_is_heavy-tailed.md)
 - [\[NeurIPS 2025\] Near-Exponential Savings for Mean Estimation with Active Learning](../../NeurIPS2025/optimization/near-exponential_savings_for_mean_estimation_with_active_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

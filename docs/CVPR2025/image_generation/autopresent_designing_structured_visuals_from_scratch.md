@@ -187,6 +187,8 @@ AutoPresent的pipeline：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] From Words to Structured Visuals: A Benchmark and Framework for Text-to-Diagram Generation and Editing](from_words_to_structured_visuals_a_benchmark_and_framework_for_text-to-diagram_g.md)
@@ -194,5 +196,7 @@ AutoPresent的pipeline：
 - [\[CVPR 2025\] IDEA-Bench: How Far are Generative Models from Professional Designing?](idea-bench_how_far_are_generative_models_from_professional_designing.md)
 - [\[CVPR 2025\] Stretching Each Dollar: Diffusion Training from Scratch on a Micro-Budget](stretching_each_dollar_diffusion_training_from_scratch_on_a_micro-budget.md)
 - [\[CVPR 2025\] Beyond Convolution: A Taxonomy of Structured Operators for Learning-Based Image Processing](beyond_convolution_a_taxonomy_of_structured_operators_for_learning-based_image_p.md)
+
+</div>
 
 <!-- RELATED:END -->

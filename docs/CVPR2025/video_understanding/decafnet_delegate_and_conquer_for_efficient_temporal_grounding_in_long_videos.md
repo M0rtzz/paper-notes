@@ -121,6 +121,8 @@ DeCafNet由三部分组成：(1) **Sidekick Encoder** $\Psi_D$：高效提取所
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Number it: Temporal Grounding Videos like Flipping Manga](number_it_temporal_grounding_videos_like_flipping_manga.md)
@@ -128,5 +130,7 @@ DeCafNet由三部分组成：(1) **Sidekick Encoder** $\Psi_D$：高效提取所
 - [\[CVPR 2025\] VideoGEM: Training-Free Action Grounding in Videos](videogem_training-free_action_grounding_in_videos.md)
 - [\[CVPR 2025\] ReWind: Understanding Long Videos with Instructed Learnable Memory](rewind_understanding_long_videos_with_instructed_learnable_memory.md)
 - [\[ICCV 2025\] Sparse-Dense Side-Tuner for Efficient Video Temporal Grounding](../../ICCV2025/video_understanding/sparse-dense_side-tuner_for_efficient_video_temporal_grounding.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -158,6 +158,8 @@ $$\vec{v}(t) = \text{MLP}_v(\mathcal{G}_f \oplus \Psi(t))$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] 6DOPE-GS: Online 6D Object Pose Estimation using Gaussian Splatting](6dopegs_online_6d_object_pose_estimation_using_gaussian_spla.md)
@@ -165,5 +167,7 @@ $$\vec{v}(t) = \text{MLP}_v(\mathcal{G}_f \oplus \Psi(t))$$
 - [\[ICCV 2025\] GS-Occ3D: Scaling Vision-only Occupancy Reconstruction with Gaussian Splatting](gs-occ3d_scaling_vision-only_occupancy_reconstruction_with_gaussian_splatting.md)
 - [\[ICCV 2025\] Self-Supervised Sparse Sensor Fusion for Long Range Perception](self-supervised_sparse_sensor_fusion_for_long_range_perception.md)
 - [\[ICCV 2025\] 3D Gaussian Splatting Driven Multi-View Robust Physical Adversarial Camouflage Generation](3d_gaussian_splatting_driven_multi-view_robust_physical_adversarial_camouflage_g.md)
+
+</div>
 
 <!-- RELATED:END -->

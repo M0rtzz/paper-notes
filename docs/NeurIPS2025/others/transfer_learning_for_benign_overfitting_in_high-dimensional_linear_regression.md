@@ -152,6 +152,8 @@ $$\text{SSR}_q < 1 \quad \text{且} \quad \text{SNR}_q(1 - \text{SSR}_q) > \frac
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Information-Computation Tradeoffs for Noiseless Linear Regression with Oblivious Contamination](information-computation_tradeoffs_for_noiseless_linear_regression_with_oblivious.md)
@@ -159,5 +161,7 @@ $$\text{SSR}_q < 1 \quad \text{且} \quad \text{SNR}_q(1 - \text{SSR}_q) > \frac
 - [\[NeurIPS 2025\] Overfitting in Adaptive Robust Optimization](overfitting_in_adaptive_robust_optimization.md)
 - [\[NeurIPS 2025\] Regression Trees Know Calculus](regression_trees_know_calculus.md)
 - [\[AAAI 2026\] Online Linear Regression with Paid Stochastic Features](../../AAAI2026/others/online_linear_regression_with_paid_stochastic_features.md)
+
+</div>
 
 <!-- RELATED:END -->

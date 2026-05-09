@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (240)](../../CVPR2026/image_generation/) · [🔬 ICLR2026 (154)](../../ICLR2026/image_generation/) · [🤖 AAAI2026 (78)](../../AAAI2026/image_generation/) · [🧠 NeurIPS2025 (250)](../../NeurIPS2025/image_generation/) · [📹 ICCV2025 (219)](../../ICCV2025/image_generation/) · [🧪 ICML2025 (115)](../../ICML2025/image_generation/)
+
+🔥 **高频主题：** 对话系统 ×2 · 语音 ×2 · 文生图 ×2
+
 **[AFMRL: Attribute-Enhanced Fine-Grained Multi-Modal Representation Learning in E-commerce](afmrl_attribute-enhanced_fine-grained_multi-modal_representation_learning_in_e-c.md)**
 
 :   提出 AFMRL 框架，将电商产品的细粒度理解定义为属性生成任务，通过 MLLM 生成关键属性来增强对比学习（AGCL），并用检索性能作为奖励信号反向优化属性生成器（RAR），在大规模电商数据集上实现 SOTA 检索性能。

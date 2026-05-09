@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/image_restoration/) · [📷 CVPR2026 (47)](../../CVPR2026/image_restoration/) · [🔬 ICLR2026 (15)](../../ICLR2026/image_restoration/) · [🤖 AAAI2026 (13)](../../AAAI2026/image_restoration/) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/image_restoration/) · [📹 ICCV2025 (30)](../../ICCV2025/image_restoration/)
+
+🔥 **高频主题：** 扩散模型 ×2
+
 **[Adaptive Estimation and Learning under Temporal Distribution Shift](adaptive_estimation_and_learning_under_temporal_distribution_shift.md)**
 
 :   提出基于小波软阈值的估计算法，在无需先验知识的情况下实现时间分布偏移下的最优逐点估计误差界，将序列非平稳性与小波域稀疏性建立联系，并应用于分布偏移下的二分类和全变分去噪问题。

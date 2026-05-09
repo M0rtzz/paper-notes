@@ -129,6 +129,8 @@ $$\text{下游贝叶斯测试误差} \lesssim \text{下游自由能} \lesssim \t
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Foundation Model Insights and a Multi-Model Approach for Superior Fine-Grained One-shot Subset Selection](foundation_model_insights_and_a_multi-model_approach_for_superior_fine-grained_o.md)
@@ -136,5 +138,7 @@ $$\text{下游贝叶斯测试误差} \lesssim \text{下游自由能} \lesssim \t
 - [\[NeurIPS 2025\] Uncertainty-Guided Model Selection for Tabular Foundation Models in Biomolecule Efficacy Prediction](../../NeurIPS2025/self_supervised/uncertainty-guided_model_selection_for_tabular_foundation_models_in_biomolecule_.md)
 - [\[ICML 2025\] What Has a Foundation Model Found? Using Inductive Bias to Probe for World Models](what_has_a_foundation_model_found_using_inductive_bias_to_probe_for_world_models.md)
 - [\[NeurIPS 2025\] Towards Reliable and Holistic Visual In-Context Learning Prompt Selection](../../NeurIPS2025/self_supervised/towards_reliable_and_holistic_visual_in-context_learning_prompt_selection.md)
+
+</div>
 
 <!-- RELATED:END -->

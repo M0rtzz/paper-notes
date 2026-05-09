@@ -208,6 +208,8 @@ MACRec 有效降低了两种模态的 ID 冲突率。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] From Past To Path: Masked History Learning for Next-Item Prediction in Generative Recommendation](../../ACL2026/image_generation/from_past_to_path_masked_history_learning_for_next-item_prediction_in_generative.md)
@@ -215,5 +217,7 @@ MACRec 有效降低了两种模态的 ID 冲突率。
 - [\[AAAI 2026\] Multi-Metric Preference Alignment for Generative Speech Restoration](multi-metric_preference_alignment_for_generative_speech_restoration.md)
 - [\[CVPR 2026\] Cross-Modal Emotion Transfer for Emotion Editing in Talking Face Video](../../CVPR2026/image_generation/cross-modal_emotion_transfer_for_emotion_editing_in_talking_face_video.md)
 - [\[CVPR 2026\] Quantization with Unified Adaptive Distillation to enable multi-LoRA based one-for-all Generative Vision Models on edge](../../CVPR2026/image_generation/quantization_with_unified_adaptive_distillation_to_enable_multi-lora_based_one-f.md)
+
+</div>
 
 <!-- RELATED:END -->

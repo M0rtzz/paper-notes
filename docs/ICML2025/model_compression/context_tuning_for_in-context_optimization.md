@@ -163,6 +163,8 @@ $$\Theta_{\text{CT}}^* = \arg\min_{\Theta_{\text{CT}}} \sum_{i=1}^{k} -\log p_\p
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Core Context Aware Transformers for Long Context Language Modeling](core_context_aware_transformers_for_long_context_language_modeling.md)
@@ -170,5 +172,7 @@ $$\Theta_{\text{CT}}^* = \arg\min_{\Theta_{\text{CT}}} \sum_{i=1}^{k} -\log p_\p
 - [\[ICML 2025\] DRAGON: Guard LLM Unlearning in Context via Negative Detection and Reasoning](dragon_guard_llm_unlearning_in_context_via_negative_detection_and_reasoning.md)
 - [\[NeurIPS 2025\] Skrull: Towards Efficient Long Context Fine-tuning through Dynamic Data Scheduling](../../NeurIPS2025/model_compression/skrull_towards_efficient_long_context_fine-tuning_through_dynamic_data_schedulin.md)
 - [\[ICML 2025\] RocketKV: Accelerating Long-Context LLM Inference via Two-Stage KV Cache Compression](rocketkv_accelerating_long-context_llm_inference_via_two-stage_kv_cache_compress.md)
+
+</div>
 
 <!-- RELATED:END -->

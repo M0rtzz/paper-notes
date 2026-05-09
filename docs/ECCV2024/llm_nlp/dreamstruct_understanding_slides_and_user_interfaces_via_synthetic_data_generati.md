@@ -117,6 +117,8 @@ DreamStruct的核心pipeline分为三个阶段：(1) 利用大语言模型（LLM
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] DiffLM: Controllable Synthetic Data Generation via Diffusion Language Models](../../ACL2025/llm_nlp/difflm_controllable_synthetic_data_generation_via_diffusion_language_models.md)
@@ -124,5 +126,7 @@ DreamStruct的核心pipeline分为三个阶段：(1) 利用大语言模型（LLM
 - [\[NeurIPS 2025\] Valid Inference with Imperfect Synthetic Data](../../NeurIPS2025/llm_nlp/valid_inference_with_imperfect_synthetic_data.md)
 - [\[ACL 2025\] Evaluating Language Models as Synthetic Data Generators](../../ACL2025/llm_nlp/evaluating_lms_synthetic_data_gen.md)
 - [\[ACL 2025\] Understanding Silent Data Corruption in LLM Training](../../ACL2025/llm_nlp/understanding_silent_data_corruption_in_llm_training.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -124,6 +124,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Multi-HMR: Multi-Person Whole-Body Human Mesh Recovery in a Single Shot](multi-hmr_multi-person_whole-body_human_mesh_recovery_in_a_single_shot.md)
@@ -131,5 +133,7 @@ tags:
 - [\[CVPR 2025\] PromptHMR: Promptable Human Mesh Recovery](../../CVPR2025/human_understanding/prompthmr_promptable_human_mesh_recovery.md)
 - [\[CVPR 2025\] MEGA: Masked Generative Autoencoder for Human Mesh Recovery](../../CVPR2025/human_understanding/mega_masked_generative_autoencoder_for_human_mesh_recovery.md)
 - [\[CVPR 2025\] HeatFormer: A Neural Optimizer for Multiview Human Mesh Recovery](../../CVPR2025/human_understanding/heatformer_a_neural_optimizer_for_multiview_human_mesh_recovery.md)
+
+</div>
 
 <!-- RELATED:END -->

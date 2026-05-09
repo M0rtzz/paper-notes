@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **35** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/time_series/) · [📷 CVPR2026 (8)](../../CVPR2026/time_series/) · [🔬 ICLR2026 (39)](../../ICLR2026/time_series/) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/time_series/) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/) · [🧪 ICML2025 (27)](../../ICML2025/time_series/)
+
+🔥 **高频主题：** 时序预测 ×25 · LLM ×2
+
 **[A Theoretical Analysis of Detecting Large Model-Generated Time Series](a_theoretical_analysis_of_detecting_large_model-generated_time_series.md)**
 
 :   首次提出时间序列大模型（TSLM）生成内容检测理论框架，通过收缩假说（Contraction Hypothesis）揭示TSLM生成序列在递归预测下不确定性指数级衰减的本质特征，据此设计UCE检测器，在32个数据集上In-Distribution AUROC达0.855，显著超越10种文本检测baseline。

@@ -132,6 +132,8 @@ PRaDA 初始化 + GLOMAP vs 纯 GLOMAP（ScanNet++ 稀疏测试集）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Deformable Radial Kernel Splatting](deformable_radial_kernel_splatting.md)
@@ -139,5 +141,7 @@ PRaDA 初始化 + GLOMAP vs 纯 GLOMAP（ScanNet++ 稀疏测试集）：
 - [\[NeurIPS 2025\] Temporal Smoothness-Aware Rate-Distortion Optimized 4D Gaussian Splatting](../../NeurIPS2025/3d_vision/temporal_smoothness-aware_rate-distortion_optimized_4d_gaussian_splatting.md)
 - [\[CVPR 2025\] Cross-View Completion Models are Zero-shot Correspondence Estimators](cross-view_completion_models_are_zero-shot_correspondence_estimators.md)
 - [\[CVPR 2025\] TriTex: Learning Texture from a Single Mesh via Triplane Semantic Features](tritex_learning_texture_from_a_single_mesh_via_triplane_semantic_features.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -132,6 +132,8 @@ $$\hat{\mathcal{P}} = \mathcal{M} \odot \mathcal{P} \oplus \mathcal{T}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Text-Guided Sparse Voxel Pruning for Efficient 3D Visual Grounding](text-guided_sparse_voxel_pruning_for_efficient_3d_visual_grounding.md)
@@ -139,5 +141,7 @@ $$\hat{\mathcal{P}} = \mathcal{M} \odot \mathcal{P} \oplus \mathcal{T}$$
 - [\[CVPR 2025\] Grounding 3D Object Affordance with Language Instructions, Visual Observations and Interactions](grounding_3d_object_affordance_with_language_instructions_visual_observations_an.md)
 - [\[NeurIPS 2025\] From Objects to Anywhere: A Holistic Benchmark for Multi-level Visual Grounding in 3D Scenes](../../NeurIPS2025/3d_vision/from_objects_to_anywhere_a_holistic_benchmark_for_multi-level_visual_grounding_i.md)
 - [\[CVPR 2025\] PO3AD: Predicting Point Offsets toward Better 3D Point Cloud Anomaly Detection](po3ad_predicting_point_offsets_toward_better_3d_point_cloud_anomaly_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

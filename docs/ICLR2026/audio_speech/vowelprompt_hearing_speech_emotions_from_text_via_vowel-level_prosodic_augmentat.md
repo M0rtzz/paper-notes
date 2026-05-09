@@ -123,6 +123,8 @@ SFT: 标准 CE loss。GRPO: 组内相对优势 + KL 正则，accuracy 和 format
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Scalable Multilingual Multimodal Machine Translation with Speech-Text Fusion](scalable_multilingual_multimodal_machine_translation_with_speech-text_fusion.md)
@@ -130,5 +132,7 @@ SFT: 标准 CE loss。GRPO: 组内相对优势 + KL 正则，accuracy 和 format
 - [\[ICLR 2026\] Latent Speech-Text Transformer](latent_speech_text_transformer.md)
 - [\[AAAI 2026\] HPSU: A Benchmark for Human-Level Perception in Real-World Spoken Speech Understanding](../../AAAI2026/audio_speech/hpsu_a_benchmark_for_human-level_perception_in_real-world_spoken_speech_understa.md)
 - [\[ACL 2026\] Computational Narrative Understanding for Expressive Text-to-Speech](../../ACL2026/audio_speech/computational_narrative_understanding_for_expressive_text-to-speech.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -120,6 +120,8 @@ SPAR3D 提出两阶段单图 3D 物体重建方法：第一阶段用轻量点云
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Stable-SCore: A Stable Registration-Based Framework for 3D Shape Correspondence](stable-score_a_stable_registration-based_framework_for_3d_shape_correspondence.md)
@@ -127,5 +129,7 @@ SPAR3D 提出两阶段单图 3D 物体重建方法：第一阶段用轻量点云
 - [\[CVPR 2025\] UnCommon Objects in 3D](uncommon_objects_in_3d.md)
 - [\[CVPR 2025\] CADDreamer: CAD Object Generation from Single-view Images](caddreamer_cad_object_generation_from_single-view_images.md)
 - [\[CVPR 2025\] Fast3R: Towards 3D Reconstruction of 1000+ Images in One Forward Pass](fast3r_towards_3d_reconstruction_of_1000_images_in_one_forward_pass.md)
+
+</div>
 
 <!-- RELATED:END -->

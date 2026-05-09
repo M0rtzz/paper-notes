@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2026** · **10** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/optimization/) · [🔬 ICLR2026 (45)](../../ICLR2026/optimization/) · [🤖 AAAI2026 (24)](../../AAAI2026/optimization/) · [🧠 NeurIPS2025 (117)](../../NeurIPS2025/optimization/) · [📹 ICCV2025 (8)](../../ICCV2025/optimization/) · [🧪 ICML2025 (58)](../../ICML2025/optimization/)
+
+🔥 **高频主题：** 联邦学习 ×6 · 对抗鲁棒 ×2
+
 **[BlazeFL: Fast and Deterministic Federated Learning Simulation](blazefl_fast_and_deterministic_federated_learning_simulation.md)**
 
 :   提出 BlazeFL，一个基于 Python free-threading 的轻量级单机联邦学习仿真框架，通过共享内存执行和客户端隔离 RNG 流实现最高 3.1× 加速与比特级可复现。

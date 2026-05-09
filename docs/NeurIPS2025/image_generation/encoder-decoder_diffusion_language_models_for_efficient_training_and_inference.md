@@ -152,6 +152,8 @@ E2D2 比 AR 吞吐量高 ~75%，ROUGE-L 更高；比 MDLM 快 ~3×。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] KLASS: KL-Guided Fast Inference in Masked Diffusion Models](klass_kl-guided_fast_inference_in_masked_diffusion_models.md)
@@ -159,5 +161,7 @@ E2D2 比 AR 吞吐量高 ~75%，ROUGE-L 更高；比 MDLM 快 ~3×。
 - [\[NeurIPS 2025\] RLZero: Direct Policy Inference from Language Without In-Domain Supervision](rlzero_direct_policy_inference_from_language_without_in-domain_supervision.md)
 - [\[NeurIPS 2025\] Training-Free Constrained Generation with Stable Diffusion Models](training-free_constrained_generation_with_stable_diffusion_models.md)
 - [\[NeurIPS 2025\] Continuous Diffusion Model for Language Modeling](continuous_diffusion_model_for_language_modeling.md)
+
+</div>
 
 <!-- RELATED:END -->

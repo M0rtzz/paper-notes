@@ -170,6 +170,8 @@ $$\min_{\mathbf{E}} \left[\overline{|\mathbf{g}_v|} \cdot \|WX_v - Q(W*E)Q(E^{-1
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Quantization without Tears](quantization_without_tears.md)
@@ -177,5 +179,7 @@ $$\min_{\mathbf{E}} \left[\overline{|\mathbf{g}_v|} \cdot \|WX_v - Q(W*E)Q(E^{-1
 - [\[CVPR 2026\] MASQuant: Modality-Aware Smoothing Quantization for Multimodal Large Language Models](../../CVPR2026/multimodal_vlm/masquant_modality-aware_smoothing_quantization_for_multimodal_large_language_mod.md)
 - [\[CVPR 2025\] VLsI: Verbalized Layers-to-Interactions from Large to Small Vision Language Models](vlsi_verbalized_layers-to-interactions_from_large_to_small_vision_language_model.md)
 - [\[CVPR 2026\] Fine-Grained Post-Training Quantization for Large Vision Language Models with Quantization-Aware Integrated Gradients](../../CVPR2026/multimodal_vlm/fine-grained_post-training_quantization_for_large_vision_language_models_with_qu.md)
+
+</div>
 
 <!-- RELATED:END -->

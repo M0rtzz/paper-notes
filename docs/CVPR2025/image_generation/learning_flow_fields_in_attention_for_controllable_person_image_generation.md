@@ -146,6 +146,8 @@ Paired FID 从 3.99 降至 **2.06** (−48.4%)，提升极为显著。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] DNF: Unconditional 4D Generation with Dictionary-Based Neural Fields](dnf_unconditional_4d_generation_with_dictionary-based_neural_fields.md)
@@ -153,5 +155,7 @@ Paired FID 从 3.99 降至 **2.06** (−48.4%)，提升极为显著。
 - [\[CVPR 2025\] BootComp: Controllable Human Image Generation with Personalized Multi-Garments](controllable_human_image_generation_with_personalized_multi-garments.md)
 - [\[CVPR 2025\] Multi-focal Conditioned Latent Diffusion for Person Image Synthesis](multi-focal_conditioned_latent_diffusion_for_person_image_synthesis.md)
 - [\[CVPR 2025\] MCA-Ctrl: Multi-party Collaborative Attention Control for Image Customization](mca_ctrl_attention_control_customization.md)
+
+</div>
 
 <!-- RELATED:END -->

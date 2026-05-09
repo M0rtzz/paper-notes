@@ -134,6 +134,8 @@ SVC 2026包含两个赛道：(1) **跨域多模态欺骗检测挑战（MMDD）**
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Personality-guided Public-Private Domain Disentangled Hypergraph-Former Network for Multimodal Depression Detection](../../AAAI2026/medical_imaging/personality-guided_public-private_domain_disentangled_hypergraph-former_network_.md)
@@ -141,5 +143,7 @@ SVC 2026包含两个赛道：(1) **跨域多模态欺骗检测挑战（MMDD）**
 - [\[CVPR 2026\] Adaptive Confidence Regularization for Multimodal Failure Detection](adaptive_confidence_regularization_for_multimodal_failure_detection.md)
 - [\[CVPR 2026\] Bidirectional Multimodal Prompt Learning with Scale-Aware Training for Few-Shot Multi-Class Anomaly Detection](bidirectional_multimodal_prompt_learning_with_scale-aware_training_for_few-shot_.md)
 - [\[CVPR 2026\] Interpretable Cross-Domain Few-Shot Learning with Rectified Target-Domain Local Alignment](interpretable_cross-domain_few-shot_learning_with_rectified_target-domain_local_.md)
+
+</div>
 
 <!-- RELATED:END -->

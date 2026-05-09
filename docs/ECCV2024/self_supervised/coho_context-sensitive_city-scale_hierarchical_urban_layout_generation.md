@@ -164,6 +164,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Few-Shot Implicit Function Generation via Equivariance](../../CVPR2025/self_supervised/few-shot_implicit_function_generation_via_equivariance.md)
@@ -171,5 +173,7 @@ tags:
 - [\[CVPR 2026\] CraterBench-R: Instance-Level Crater Retrieval for Planetary Scale](../../CVPR2026/self_supervised/craterbench-r_instance-level_crater_retrieval_for_planetary_scale.md)
 - [\[ACL 2025\] Contrastive Learning on LLM Back Generation Treebank for Cross-domain Constituency Parsing](../../ACL2025/self_supervised/llm_back_gen_treebank.md)
 - [\[AAAI 2026\] Towards LLM-Empowered Knowledge Tracing via LLM-Student Hierarchical Behavior Alignment in Hyperbolic Space](../../AAAI2026/self_supervised/towards_llm-empowered_knowledge_tracing_via_llm-student_hierarchical_behavior_al.md)
+
+</div>
 
 <!-- RELATED:END -->

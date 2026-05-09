@@ -131,6 +131,8 @@ $$L_{\Omega_T}(\boldsymbol{\theta}, y) = \min_{\boldsymbol{\pi}\in\Delta^N}\Omeg
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Non-stationary Online Learning for Curved Losses: Improved Dynamic Regret via Mixability](../../ICML2025/reinforcement_learning/non-stationary_online_learning_for_curved_losses_improved_dynamic_regret_via_mix.md)
@@ -138,5 +140,7 @@ $$L_{\Omega_T}(\boldsymbol{\theta}, y) = \min_{\boldsymbol{\pi}\in\Delta^N}\Omeg
 - [\[NeurIPS 2025\] Generalized Linear Bandits: Almost Optimal Regret with One-Pass Update](generalized_linear_bandits_almost_optimal_regret_with_one-pass_update.md)
 - [\[NeurIPS 2025\] Improved Regret and Contextual Linear Extension for Pandora's Box and Prophet Inequality](improved_regret_and_contextual_linear_extension_for_pandoras_box_and_prophet_ine.md)
 - [\[NeurIPS 2025\] Dynamic Regret Reduces to Kernelized Static Regret](dynamic_regret_reduces_to_kernelized_static_regret.md)
+
+</div>
 
 <!-- RELATED:END -->

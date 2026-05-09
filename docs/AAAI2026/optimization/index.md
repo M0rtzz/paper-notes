@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **24** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/optimization/) · [📷 CVPR2026 (10)](../../CVPR2026/optimization/) · [🔬 ICLR2026 (45)](../../ICLR2026/optimization/) · [🧠 NeurIPS2025 (117)](../../NeurIPS2025/optimization/) · [📹 ICCV2025 (8)](../../ICCV2025/optimization/) · [🧪 ICML2025 (58)](../../ICML2025/optimization/)
+
+🔥 **高频主题：** 联邦学习 ×5 · LLM ×4 · 对抗鲁棒 ×3 · 个性化生成 ×2
+
 **[A Distributed Asynchronous Generalized Momentum Algorithm Without Delay Bounds](a_distributed_asynchronous_generalized_momentum_algorithm_wi.md)**
 
 :   提出一种完全异步（totally asynchronous）的广义动量（Generalized Momentum）分布式优化算法，无需假设通信/计算延迟的上界即可保证线性收敛，在 Fashion-MNIST 分类任务上比梯度下降快 71%、比 Heavy Ball 快 41%、比 Nesterov 加速梯度法快 19%。

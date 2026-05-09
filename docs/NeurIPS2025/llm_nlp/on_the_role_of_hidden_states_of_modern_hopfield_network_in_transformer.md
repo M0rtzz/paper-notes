@@ -182,6 +182,8 @@ $$\|\text{Res}(\text{AttnNet}(\bm{X}))\|_{1,\infty} \leq \max_{m=0}^{L} (r(1-\al
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Mitigate Position Bias in LLMs via Scaling a Single Hidden States Channel](../../ACL2025/llm_nlp/mitigate_position_bias_in_large_language_models_via_scaling_a_single_dimension.md)
@@ -189,5 +191,7 @@ $$\|\text{Res}(\text{AttnNet}(\bm{X}))\|_{1,\infty} \leq \max_{m=0}^{L} (r(1-\al
 - [\[NeurIPS 2025\] Characterizing the Expressivity of Fixed-Precision Transformer Language Models](characterizing_the_expressivity_of_fixed-precision_transformer_language_models.md)
 - [\[NeurIPS 2025\] Unifying Attention Heads and Task Vectors via Hidden State Geometry in In-Context Learning](unifying_attention_heads_and_task_vectors_via_hidden_state_geometry_in_in-contex.md)
 - [\[ACL 2025\] PlanGenLLMs: A Modern Survey of LLM Planning Capabilities](../../ACL2025/llm_nlp/plangenllms_planning_survey.md)
+
+</div>
 
 <!-- RELATED:END -->

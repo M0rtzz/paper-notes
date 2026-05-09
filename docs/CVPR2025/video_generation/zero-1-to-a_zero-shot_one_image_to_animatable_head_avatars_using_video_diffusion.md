@@ -116,6 +116,8 @@ $$\mathcal{L} = \lambda_1 \mathcal{L}_1 + \lambda_{lpips} \mathcal{L}_{LPIPS} + 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] ConMo: Controllable Motion Disentanglement and Recomposition for Zero-Shot Motion Transfer](conmo_controllable_motion_disentanglement_and_recomposition_for_zero-shot_motion.md)
@@ -123,5 +125,7 @@ $$\mathcal{L} = \lambda_1 \mathcal{L}_1 + \lambda_{lpips} \mathcal{L}_{LPIPS} + 
 - [\[CVPR 2025\] Visual Prompting for One-Shot Controllable Video Editing Without Inversion](visual_prompting_for_one-shot_controllable_video_editing_without_inversion.md)
 - [\[ECCV 2024\] DreamMotion: Space-Time Self-Similar Score Distillation for Zero-Shot Video Editing](../../ECCV2024/video_generation/dreammotion_space-time_self-similar_score_distillation_for_zero-shot_video_editi.md)
 - [\[CVPR 2025\] OSV: One Step is Enough for High-Quality Image to Video Generation](osv_one_step_is_enough_for_high-quality_image_to_video_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

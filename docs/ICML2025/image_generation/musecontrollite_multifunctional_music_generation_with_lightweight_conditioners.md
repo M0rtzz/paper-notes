@@ -136,6 +136,8 @@ MuseControlLite 基于 Stable Audio Open（一个 24 层扩散 Transformer）进
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] DreamCache: Finetuning-Free Lightweight Personalized Image Generation via Feature Caching](../../CVPR2025/image_generation/dreamcache_finetuning-free_lightweight_personalized_image_generation_via_feature.md)
@@ -143,5 +145,7 @@ MuseControlLite 基于 Stable Audio Open（一个 24 层扩散 Transformer）进
 - [\[ICCV 2025\] Music-Aligned Holistic 3D Dance Generation via Hierarchical Motion Modeling](../../ICCV2025/image_generation/music-aligned_holistic_3d_dance_generation_via_hierarchical_motion_modeling.md)
 - [\[NeurIPS 2025\] MGE-LDM: Joint Latent Diffusion for Simultaneous Music Generation and Source Extraction](../../NeurIPS2025/image_generation/mge-ldm_joint_latent_diffusion_for_simultaneous_music_generation_and_source_extr.md)
 - [\[AAAI 2026\] AnoStyler: Text-Driven Localized Anomaly Generation via Lightweight Style Transfer](../../AAAI2026/image_generation/anostyler_text-driven_localized_anomaly_generation_via_light.md)
+
+</div>
 
 <!-- RELATED:END -->

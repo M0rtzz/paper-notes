@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/dialogue/) · [📷 CVPR2026 (1)](../../CVPR2026/dialogue/) · [🔬 ICLR2026 (5)](../../ICLR2026/dialogue/) · [🤖 AAAI2026 (5)](../../AAAI2026/dialogue/) · [🧪 ICML2025 (3)](../../ICML2025/dialogue/) · [💬 ACL2025 (23)](../../ACL2025/dialogue/)
+
+🔥 **高频主题：** LLM ×2
+
 **[AC-LoRA: (Almost) Training-Free Access Control-Aware Multi-Modal LLMs](aclora_almost_trainingfree_access_controlaware_multimodal_ll.md)**
 
 :   设计 AC-LoRA 端到端系统，为不同权限数据集训练独立的 LoRA 适配器，推理时根据用户查询的 cosine 相似度和权限动态检索并无训练合并多个 LoRA 输出，在保证强信息隔离的同时匹配或超越 SOTA LoRA 混合方法的回答质量。

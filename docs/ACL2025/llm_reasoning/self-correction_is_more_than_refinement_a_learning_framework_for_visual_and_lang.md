@@ -150,6 +150,8 @@ $$\mathcal{L}(\pi_\theta; \pi_{\text{ref}}) = -\mathbb{E}[\log\sigma(\beta(\log\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] ProgCo: Program Helps Self-Correction of Large Language Models](progco_program_helps_self-correction_of_large_language_models.md)
@@ -157,5 +159,7 @@ $$\mathcal{L}(\pi_\theta; \pi_{\text{ref}}) = -\mathbb{E}[\log\sigma(\beta(\log\
 - [\[NeurIPS 2025\] Many LLMs Are More Utilitarian Than One](../../NeurIPS2025/llm_reasoning/many_llms_are_more_utilitarian_than_one.md)
 - [\[ACL 2025\] Enhancing Mathematical Reasoning in LLMs by Stepwise Correction](enhancing_mathematical_reasoning_in_llms_by_stepwise_correction.md)
 - [\[ACL 2025\] CoT-ICL Lab: A Synthetic Framework for Studying Chain-of-Thought Learning from In-Context Demonstrations](cot-icl_lab_a_synthetic_framework_for_studying_chain-of-thought_learning_from_in.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -129,6 +129,8 @@ $$\mathcal{J}(\theta) = \mathbb{E}_{s,t,i}\left[\min\left(A_i\rho_t^{(i)}, A_i\l
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] VeCoR — Velocity Contrastive Regularization for Flow Matching](vecor_--_velocity_contrastive_regularization_for_flow_matching.md)
@@ -136,5 +138,7 @@ $$\mathcal{J}(\theta) = \mathbb{E}_{s,t,i}\left[\min\left(A_i\rho_t^{(i)}, A_i\l
 - [\[ICLR 2026\] Diverse Text-to-Image Generation via Contrastive Noise Optimization](../../ICLR2026/image_generation/diverse_text-to-image_generation_via_contrastive_noise_optimization.md)
 - [\[CVPR 2026\] Neighbor-Aware Localized Concept Erasure in Text-to-Image Diffusion Models](neighbor-aware_localized_concept_erasure_in_text-to-image_diffusion_models.md)
 - [\[ICLR 2026\] PCPO: Proportionate Credit Policy Optimization for Aligning Image Generation Models](../../ICLR2026/image_generation/pcpo_proportionate_credit_policy_optimization_for_aligning_image_generation_mode.md)
+
+</div>
 
 <!-- RELATED:END -->

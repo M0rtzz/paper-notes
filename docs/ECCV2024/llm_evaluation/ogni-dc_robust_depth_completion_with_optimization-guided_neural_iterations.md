@@ -146,6 +146,8 @@ $$\mathcal{L}_\mathbf{G} = \sum_{t=1}^T \gamma^{T-t} \|\hat{\mathbf{G}}_t - \mat
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Deep Cost Ray Fusion for Sparse Depth Video Completion](deep_cost_ray_fusion_for_sparse_depth_video_completion.md)
@@ -153,5 +155,7 @@ $$\mathcal{L}_\mathbf{G} = \sum_{t=1}^T \gamma^{T-t} \|\hat{\mathbf{G}}_t - \mat
 - [\[ECCV 2024\] VisFocus: Prompt-Guided Vision Encoders for OCR-Free Dense Document Understanding](visfocus_promptguided_vision_encoders_for_ocrfree_dense.md)
 - [\[NeurIPS 2025\] Leveraging Robust Optimization for LLM Alignment under Distribution Shifts](../../NeurIPS2025/llm_evaluation/leveraging_robust_optimization_for_llm_alignment_under_distribution_shifts.md)
 - [\[NeurIPS 2025\] Learning Generalizable Shape Completion with SIM(3) Equivariance](../../NeurIPS2025/llm_evaluation/learning_generalizable_shape_completion_with_sim3_equivariance.md)
+
+</div>
 
 <!-- RELATED:END -->

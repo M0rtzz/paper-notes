@@ -187,6 +187,8 @@ $$\mathcal{L} = \mathcal{L}_{MSE}(x, x^{GT}) + \lambda_{LPIPS}\mathcal{L}_{LPIPS
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Vista3D: Unravel the 3D Darkside of a Single Image](vista3d_unravel_the_3d_darkside_of_a_single_image.md)
@@ -194,5 +196,7 @@ $$\mathcal{L} = \mathcal{L}_{MSE}(x, x^{GT}) + \lambda_{LPIPS}\mathcal{L}_{LPIPS
 - [\[ECCV 2024\] Compress3D: a Compressed Latent Space for 3D Generation from a Single Image](compress3d_a_compressed_latent_space_for_3d_generation_from_a_single_image.md)
 - [\[ECCV 2024\] ZeST: Zero-Shot Material Transfer from a Single Image](zest_zero-shot_material_transfer_from_a_single_image.md)
 - [\[CVPR 2025\] Mesh Mamba: A Unified State Space Model for Saliency Prediction in Non-Textured and Textured Meshes](../../CVPR2025/3d_vision/mesh_mamba_a_unified_state_space_model_for_saliency_prediction_in_non-textured_a.md)
+
+</div>
 
 <!-- RELATED:END -->

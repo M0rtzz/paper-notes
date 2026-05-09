@@ -138,6 +138,8 @@ BAD-Gaussians 的绝对轨迹误差（ATE）在大多数场景上优于 COLMAP-b
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Analytic-Splatting: Anti-Aliased 3D Gaussian Splatting via Analytic Integration](analytic-splatting_anti-aliased_3d_gaussian_splatting_via_analytic_integration.md)
@@ -145,5 +147,7 @@ BAD-Gaussians 的绝对轨迹误差（ATE）在大多数场景上优于 COLMAP-b
 - [\[CVPR 2026\] SGAD-SLAM: Splatting Gaussians at Adjusted Depth for Better Radiance Fields in RGBD SLAM](../../CVPR2026/3d_vision/sgad-slam_splatting_gaussians_at_adjusted_depth_for_better_radiance_fields_in_rg.md)
 - [\[ECCV 2024\] Click-Gaussian: Interactive Segmentation to Any 3D Gaussians](click-gaussian_interactive_segmentation_to_any_3d_gaussians.md)
 - [\[ECCV 2024\] 3iGS: Factorised Tensorial Illumination for 3D Gaussian Splatting](3igs_factorised_tensorial_illumination_for_3d_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

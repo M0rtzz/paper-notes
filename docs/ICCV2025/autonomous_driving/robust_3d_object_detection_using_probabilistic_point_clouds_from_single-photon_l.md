@@ -148,6 +148,8 @@ $$NPD(p_i) = \frac{\sum_{p_j \in \mathcal{BQ}_{L,r}(p_i)} Pr(p_j)}{L}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Free-running vs. Synchronous: Single-Photon Lidar for High-flux 3D Imaging](free-running_vs_synchronous_single-photon_lidar_for_high-flux_3d_imaging.md)
@@ -155,5 +157,7 @@ $$NPD(p_i) = \frac{\sum_{p_j \in \mathcal{BQ}_{L,r}(p_i)} Pr(p_j)}{L}$$
 - [\[AAAI 2026\] DriveFlow: Rectified Flow Adaptation for Robust 3D Object Detection in Autonomous Driving](../../AAAI2026/autonomous_driving/driveflow_rectified_flow_adaptation_for_robust_3d_object_detection_in_autonomous.md)
 - [\[ICCV 2025\] CVFusion: Cross-View Fusion of 4D Radar and Camera for 3D Object Detection](cvfusion_cross-view_fusion_of_4d_radar_and_camera_for_3d_object_detection.md)
 - [\[ECCV 2024\] SimPB: A Single Model for 2D and 3D Object Detection from Multiple Cameras](../../ECCV2024/autonomous_driving/simpb_a_single_model_for_2d_and_3d_object_detection_from_multiple_cameras.md)
+
+</div>
 
 <!-- RELATED:END -->

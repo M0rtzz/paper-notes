@@ -156,6 +156,8 @@ MASS在DomainBed四个视觉域泛化数据集上均优于DynMoE，在VLCS上取
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Mixture of Lookup Experts](../../ICML2025/llm_efficiency/mixture_of_lookup_experts.md)
@@ -163,5 +165,7 @@ MASS在DomainBed四个视觉域泛化数据集上均优于DynMoE，在VLCS上取
 - [\[ICLR 2026\] One-Prompt Strikes Back: Sparse Mixture of Experts for Prompt-based Continual Learning](../../ICLR2026/llm_efficiency/one-prompt_strikes_back_sparse_mixture_of_experts_for_prompt-based_continual_lea.md)
 - [\[ICML 2025\] Autonomy-of-Experts Models (AoE)](../../ICML2025/llm_efficiency/autonomy-of-experts_models.md)
 - [\[NeurIPS 2025\] Let the Experts Speak: Improving Survival Prediction & Calibration via Mixture-of-Experts Heads](../../NeurIPS2025/llm_efficiency/let_the_experts_speak_improving_survival_prediction_calibration_via_mixture-of-e.md)
+
+</div>
 
 <!-- RELATED:END -->

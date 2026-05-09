@@ -139,6 +139,8 @@ $$\|\Delta(Z_t)\|_F^2 \leq \left(1 - \frac{\alpha\eta}{4}\right)^t \|\Delta(Z_0)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Recommendations and Reporting Checklist for Rigorous & Transparent Human Baselines in Model Evaluations](recommendations_and_reporting_checklist_for_rigorous_transparent_human_baselines.md)
@@ -146,5 +148,7 @@ $$\|\Delta(Z_t)\|_F^2 \leq \left(1 - \frac{\alpha\eta}{4}\right)^t \|\Delta(Z_0)
 - [\[ICML 2025\] SIMPLEMIX: Frustratingly Simple Mixing of Off- and On-policy Data in Language Model Preference Learning](simplemix_frustratingly_simple_mixing_of_off-_and_on-policy_data_in_language_mod.md)
 - [\[ACL 2025\] Beyond Single Labels: Improving Conversational Recommendation through LLM-Powered Data Augmentation](../../ACL2025/recommender/beyond_single_labels_improving_conversational_recommendation_through_llm-powered.md)
 - [\[ICML 2025\] Aligning LLMs by Predicting Preferences from User Writing Samples](aligning_llms_by_predicting_preferences_from_user_writing_samples.md)
+
+</div>
 
 <!-- RELATED:END -->

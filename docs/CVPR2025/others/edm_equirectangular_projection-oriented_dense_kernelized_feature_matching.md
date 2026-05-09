@@ -109,6 +109,8 @@ EDM在Matterport3D上超越最强透视方法DKM 26.72 AUC@5°点，在Stanford2
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Feature Selection for Latent Factor Models](feature_selection_for_latent_factor_models.md)
@@ -116,5 +118,7 @@ EDM在Matterport3D上超越最强透视方法DKM 26.72 AUC@5°点，在Stanford2
 - [\[CVPR 2025\] Task-Agnostic Guided Feature Expansion for Class-Incremental Learning](task-agnostic_guided_feature_expansion_for_class-incremental_learning.md)
 - [\[NeurIPS 2025\] Dense Associative Memory with Epanechnikov Energy](../../NeurIPS2025/others/dense_associative_memory_with_epanechnikov_energy.md)
 - [\[NeurIPS 2025\] Distributionally Robust Feature Selection](../../NeurIPS2025/others/distributionally_robust_feature_selection.md)
+
+</div>
 
 <!-- RELATED:END -->

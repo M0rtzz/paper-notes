@@ -142,6 +142,8 @@ $$R_R^\ell(\boldsymbol{g}) = \sum_{1 \leq j < k \leq q}\left((1-\pi_j)\mathbb{E}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] A Convergence Analysis of Adaptive Optimizers under Floating-Point Quantization](a_convergence_analysis_of_adaptive_optimizers_under_floating-point_quantization.md)
@@ -149,5 +151,7 @@ $$R_R^\ell(\boldsymbol{g}) = \sum_{1 \leq j < k \leq q}\left((1-\pi_j)\mathbb{E}
 - [\[AAAI 2026\] On the Learning Dynamics of Two-Layer Linear Networks with Label Noise SGD](../../AAAI2026/optimization/on_the_learning_dynamics_of_two-layer_linear_networks_with_label_noise_sgd.md)
 - [\[ICCV 2025\] Cooperative Pseudo Labeling for Unsupervised Federated Classification](../../ICCV2025/optimization/cooperative_pseudo_labeling_for_unsupervised_federated_classification.md)
 - [\[ICML 2025\] Nearly Optimal Sample Complexity for Learning with Label Proportions](../../ICML2025/optimization/nearly_optimal_sample_complexity_for_learning_with_label_proportions.md)
+
+</div>
 
 <!-- RELATED:END -->

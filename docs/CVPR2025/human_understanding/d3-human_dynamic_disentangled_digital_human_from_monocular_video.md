@@ -145,6 +145,8 @@ D3-Human 的输入是一段包含运动中穿衣人物的短视频序列 $\{I_t 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] X-Dyna: Expressive Dynamic Human Image Animation](x-dyna_expressive_dynamic_human_image_animation.md)
@@ -152,5 +154,7 @@ D3-Human 的输入是一段包含运动中穿衣人物的短视频序列 $\{I_t 
 - [\[CVPR 2025\] SemGeoMo: Dynamic Contextual Human Motion Generation with Semantic and Geometric Guidance](semgeomo_dynamic_contextual_human_motion_generation_with_semantic_and_geometric_.md)
 - [\[ACL 2025\] TransBench: Breaking Barriers for Transferable Graphical User Interface Agents in Dynamic Digital Environments](../../ACL2025/human_understanding/transbench_breaking_barriers_for_transferable_graphical_user_interface_agents_in.md)
 - [\[ECCV 2024\] ReLoo: Reconstructing Humans Dressed in Loose Garments from Monocular Video in the Wild](../../ECCV2024/human_understanding/reloo_reconstructing_humans_dressed_in_loose_garments_from_monocular_video_in_th.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -165,6 +165,8 @@ $$\mathcal{L} = -\sum_{t} \log P(x_t | x_{<t}; \{B_k, \alpha_k\})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] AnyBCQ: Hardware Efficient Flexible Binary-Coded Quantization for Multi-Precision LLMs](anybcq_hardware_efficient_flexible_binary-coded_quantization_for_multi-precision.md)
@@ -172,5 +174,7 @@ $$\mathcal{L} = -\sum_{t} \log P(x_t | x_{<t}; \{B_k, \alpha_k\})$$
 - [\[ICLR 2026\] Draft-based Approximate Inference for LLMs](draft-based_approximate_inference_for_llms.md)
 - [\[ICLR 2026\] Steering MoE LLMs via Expert (De)Activation](steering_moe_llms_via_expert_deactivation.md)
 - [\[ICLR 2026\] AMiD: Knowledge Distillation for LLMs with α-mixture Assistant Distribution](amid_knowledge_distillation_for_llms_with_α-mixture_assistant_distribution.md)
+
+</div>
 
 <!-- RELATED:END -->

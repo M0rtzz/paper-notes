@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **154** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/others/) · [📷 CVPR2026 (54)](../../CVPR2026/others/) · [🔬 ICLR2026 (76)](../../ICLR2026/others/) · [🤖 AAAI2026 (126)](../../AAAI2026/others/) · [📹 ICCV2025 (48)](../../ICCV2025/others/) · [🧪 ICML2025 (93)](../../ICML2025/others/)
+
+🔥 **高频主题：** 对抗鲁棒 ×7 · 异常检测 ×3 · 对齐/RLHF ×3 · 人脸/视线 ×2 · 布局/合成 ×2
+
 **[3DID: Direct 3D Inverse Design for Aerodynamics with Physics-Aware Optimization](3did_direct_3d_inverse_design_for_aerodynamics_with_physics-aware_optimization.md)**
 
 :   提出 3DID 框架，通过学习物理-几何统一的三平面隐空间表示 + 目标梯度引导扩散采样 + 拓扑保持精炼的两阶段策略，从随机噪声开始直接在完整 3D 空间中进行逆向设计，在车辆气动外形优化上，模拟阻力（Sim-Drag）相比最优基线降低 13.6%。

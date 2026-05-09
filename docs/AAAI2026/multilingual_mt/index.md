@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (23)](../../ACL2026/multilingual_mt/) · [📷 CVPR2026 (2)](../../CVPR2026/multilingual_mt/) · [🔬 ICLR2026 (7)](../../ICLR2026/multilingual_mt/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/multilingual_mt/) · [📹 ICCV2025 (1)](../../ICCV2025/multilingual_mt/) · [🧪 ICML2025 (1)](../../ICML2025/multilingual_mt/)
+
+🔥 **高频主题：** LLM ×3 · 对齐/RLHF ×2 · 翻译 ×2
+
 **[Bridging the Multilingual Safety Divide: Efficient, Culturally-Aware Alignment for Global South Languages](bridging_the_multilingual_safety_divide_efficient_culturally-aware_alignment_for.md)**
 
 :   本文综合多项实证研究，揭示LLM安全机制在低资源语言和代码混合场景下的严重失效，并提出基于参数高效安全引导、文化驱动偏好数据和社区参与式对齐的资源感知蓝图。

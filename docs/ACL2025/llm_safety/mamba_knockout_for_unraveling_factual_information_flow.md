@@ -151,6 +151,8 @@ $$\mathbf{M}_{i,j} = Q_i \cdot H_{i,j} \cdot K_j$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Towards Effective Extraction and Evaluation of Factual Claims](towards_effective_extraction_and_evaluation_of_factual_claims.md)
@@ -158,5 +160,7 @@ $$\mathbf{M}_{i,j} = Q_i \cdot H_{i,j} \cdot K_j$$
 - [\[ACL 2025\] REVS: Unlearning Sensitive Information in Language Models via Rank Editing in the Vocabulary Space](revs_unlearning_sensitive_information_in_language_models_via_rank_editing_in_the.md)
 - [\[ICML 2025\] Revealing Weaknesses in Text Watermarking Through Self-Information Rewrite Attacks](../../ICML2025/llm_safety/revealing_weaknesses_in_text_watermarking_through_self-information_rewrite_attac.md)
 - [\[NeurIPS 2025\] Bits Leaked per Query: Information-Theoretic Bounds on Adversarial Attacks Against LLMs](../../NeurIPS2025/llm_safety/bits_leaked_per_query_information-theoretic_bounds_on_adversarial_attacks_agains.md)
+
+</div>
 
 <!-- RELATED:END -->

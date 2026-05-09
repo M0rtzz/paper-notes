@@ -167,6 +167,8 @@ FlashMD 训练时仅学习 NVE（微正则）轨迹。但论文利用 **split-op
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Normalization in Attention Dynamics](normalization_in_attention_dynamics.md)
@@ -174,5 +176,7 @@ FlashMD 训练时仅学习 NVE（微正则）轨迹。但论文利用 **split-op
 - [\[NeurIPS 2025\] Computable Universal Online Learning](computable_universal_online_learning.md)
 - [\[NeurIPS 2025\] Zebra: Towards Zero-Shot Cross-Subject Generalization for Universal Brain Visual Decoding](zebra_towards_zero-shot_cross-subject_generalization_for_universal_brain_visual_.md)
 - [\[NeurIPS 2025\] Learning Dynamics of RNNs in Closed-Loop Environments](learning_dynamics_of_rnns_in_closed-loop_environments.md)
+
+</div>
 
 <!-- RELATED:END -->

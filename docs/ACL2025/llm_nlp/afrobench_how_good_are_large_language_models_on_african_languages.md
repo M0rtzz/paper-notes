@@ -132,6 +132,8 @@ Few-shot效果(GPT-4o, 0-shot vs 5-shot)：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Large Language Models are Good Relational Learners](large_language_models_are_good_relational_learners.md)
@@ -139,5 +141,7 @@ Few-shot效果(GPT-4o, 0-shot vs 5-shot)：
 - [\[ACL 2025\] What Makes a Good Natural Language Prompt?](good_natural_language_prompt.md)
 - [\[ACL 2025\] MIRAGE: Exploring How Large Language Models Perform in Complex Social Interactive Environments](mirage_exploring_how_large_language_models_perform_in_complex_social_interactive.md)
 - [\[ACL 2025\] TigerLLM - A Family of Bangla Large Language Models](tigerllm_-_a_family_of_bangla_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

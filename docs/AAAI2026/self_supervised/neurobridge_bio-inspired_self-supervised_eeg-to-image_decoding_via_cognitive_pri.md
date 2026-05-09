@@ -155,6 +155,8 @@ Image Prior贡献最大（+19.5% Top-1），是性能飞跃的关键；EEG Prior
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Self-Supervised Inductive Logic Programming](self-supervised_inductive_logic_programming.md)
@@ -162,5 +164,7 @@ Image Prior贡献最大（+19.5% Top-1），是性能飞跃的关键；EEG Prior
 - [\[AAAI 2026\] Let the Void Be Void: Robust Open-Set Semi-Supervised Learning via Selective Non-Alignment](let_the_void_be_void_robust_open-set_semi-supervised_learning_via_selective_non-.md)
 - [\[CVPR 2026\] Text-Phase Synergy Network with Dual Priors for Unsupervised Cross-Domain Image Retrieval](../../CVPR2026/self_supervised/text-phase_synergy_network_with_dual_priors_for_unsupervised_cross-domain_image_.md)
 - [\[AAAI 2026\] Towards LLM-Empowered Knowledge Tracing via LLM-Student Hierarchical Behavior Alignment in Hyperbolic Space](towards_llm-empowered_knowledge_tracing_via_llm-student_hierarchical_behavior_al.md)
+
+</div>
 
 <!-- RELATED:END -->

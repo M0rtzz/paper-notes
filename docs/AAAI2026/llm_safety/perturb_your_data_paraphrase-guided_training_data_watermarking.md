@@ -178,6 +178,8 @@ Min-K%++在500M tokens训练时表现最优（AUC 0.72-0.85），但在5B tokens
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Robust Data Watermarking in Language Models by Injecting Fictitious Knowledge](../../ACL2025/llm_safety/robust_data_watermarking_in_language_models_by_injecting_fictitious_knowledge.md)
@@ -185,5 +187,7 @@ Min-K%++在500M tokens训练时表现最优（AUC 0.72-0.85），但在5B tokens
 - [\[AAAI 2026\] Principles2Plan: LLM-Guided System for Operationalising Ethical Principles into Plans](principles2plan_llm-guided_system_for_operationalising_ethical_principles_into_p.md)
 - [\[ACL 2026\] Synthia: Scalable Grounded Persona Generation from Social Media Data](../../ACL2026/llm_safety/synthia_scalable_grounded_persona_generation_from_social_media_data.md)
 - [\[AAAI 2026\] Uncovering Bias Paths with LLM-guided Causal Discovery: An Active Learning and Dynamic Scoring Approach](uncovering_bias_paths_with_llm-guided_causal_discovery_an_active_learning_and_dy.md)
+
+</div>
 
 <!-- RELATED:END -->

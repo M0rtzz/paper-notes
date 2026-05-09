@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **17** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/aigc_detection/) · [📷 CVPR2026 (1)](../../CVPR2026/aigc_detection/) · [🔬 ICLR2026 (6)](../../ICLR2026/aigc_detection/) · [🤖 AAAI2026 (3)](../../AAAI2026/aigc_detection/) · [🧠 NeurIPS2025 (8)](../../NeurIPS2025/aigc_detection/) · [📷 CVPR2025 (3)](../../CVPR2025/aigc_detection/)
+
+🔥 **高频主题：** LLM ×6 · 对抗鲁棒 ×2 · 少样本学习 ×2
+
 **[A Rose by Any Other Name: LLM-Generated Explanations Are Good Proxies for Human Explanations to Collect Label Distributions on NLI](a_rose_by_any_other_name_llm-generated_explanations_are_good_proxies_for_human_e.md)**
 
 :   提出用 LLM 生成的 NLI 解释替代昂贵的人工解释来近似人工判断分布（HJD），实验表明在提供人工标签引导的条件下，LLM 生成的解释与人工解释在 KL 散度、JSD 等指标上效果相当，并可推广到无人工解释的数据集（MNLI）和域外测试集（ANLI）。

@@ -146,6 +146,8 @@ $$\mathcal{L}_{\theta_Y} = \sum_{i: e_i=1} \rho_i - \log\left(\sum_{j: y_j > y_i
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] DeCaFlow: A Deconfounding Causal Generative Model](decaflow_a_deconfounding_causal_generative_model.md)
@@ -153,5 +155,7 @@ $$\mathcal{L}_{\theta_Y} = \sum_{i: e_i=1} \rho_i - \log\left(\sum_{j: y_j > y_i
 - [\[NeurIPS 2025\] System-Embedded Diffusion Bridge Models](system-embedded_diffusion_bridge_models.md)
 - [\[NeurIPS 2025\] Non-Markovian Discrete Diffusion with Causal Language Models](non-markovian_discrete_diffusion_with_causal_language_models.md)
 - [\[NeurIPS 2025\] Hephaestus: Mixture Generative Modeling with Energy Guidance for Large-scale QoS Degradation](hephaestus_mixture_generative_modeling_with_energy_guidance_for_large-scale_qos_.md)
+
+</div>
 
 <!-- RELATED:END -->

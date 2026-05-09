@@ -116,6 +116,8 @@ PUGC 的流水线：(1) 从 UGC 自动生成用户查询（通过反向提问）
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Can Large Language Models Understand Internet Buzzwords Through User-Generated Content](buzzword_understanding_ugc.md)
@@ -123,5 +125,7 @@ PUGC 的流水线：(1) 从 UGC 自动生成用户查询（通过反向提问）
 - [\[ACL 2025\] Evaluating Implicit Bias in Large Language Models by Attacking from a Psychometric Perspective](evaluating_implicit_bias_in_large_language_models_by_attacking_from_a_psychometr.md)
 - [\[ACL 2025\] HFT: Half Fine-Tuning for Large Language Models](hft_half_fine-tuning_for_large_language_models.md)
 - [\[ACL 2025\] Diversity-oriented Data Augmentation with Large Language Models](diversity_data_augmentation.md)
+
+</div>
 
 <!-- RELATED:END -->

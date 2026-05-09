@@ -226,6 +226,8 @@ $$\mathbb{E}[\ell_{\hat{P}}(\boldsymbol{\pi})] \leq \inf_{\boldsymbol{P}} \mathb
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Provably Improving Generalization of Few-Shot Models with Synthetic Data](../../ICML2025/others/provably_improving_generalization_of_few-shot_models_with_synthetic_data.md)
@@ -233,5 +235,7 @@ $$\mathbb{E}[\ell_{\hat{P}}(\boldsymbol{\pi})] \leq \inf_{\boldsymbol{P}} \mathb
 - [\[AAAI 2026\] TaylorPODA: A Taylor Expansion-Based Method to Improve Post-Hoc Attributions for Opaque Models](taylorpoda_a_taylor_expansion-based_method_to_improve_post-hoc_attributions_for_.md)
 - [\[AAAI 2026\] Cost-Free Neutrality for the River Method](cost-free_neutrality_for_the_river_method.md)
 - [\[ICLR 2026\] t-SNE Exaggerates Clusters, Provably](../../ICLR2026/others/t-sne_exaggerates_clusters_provably.md)
+
+</div>
 
 <!-- RELATED:END -->

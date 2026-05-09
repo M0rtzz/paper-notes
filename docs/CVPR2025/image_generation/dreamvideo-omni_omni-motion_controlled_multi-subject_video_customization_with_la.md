@@ -181,6 +181,8 @@ DreamVideo-Omni 基于 Wan2.1-1.3B T2V DiT，采用两阶段训练：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] StableAnimator: High-Quality Identity-Preserving Human Image Animation](stableanimator_high-quality_identity-preserving_human_image_animation.md)
@@ -188,5 +190,7 @@ DreamVideo-Omni 基于 Wan2.1-1.3B T2V DiT，采用两阶段训练：
 - [\[CVPR 2025\] Multitwine: Multi-Object Compositing with Text and Layout Control](multitwine_multi-object_compositing_with_text_and_layout_control.md)
 - [\[CVPR 2025\] CustAny: Customizing Anything from A Single Example](custany_customizing_anything_from_a_single_example.md)
 - [\[CVPR 2025\] ArtiFade: Learning to Generate High-quality Subject from Blemished Images](artifade_learning_to_generate_high-quality_subject_from_blemished_images.md)
+
+</div>
 
 <!-- RELATED:END -->

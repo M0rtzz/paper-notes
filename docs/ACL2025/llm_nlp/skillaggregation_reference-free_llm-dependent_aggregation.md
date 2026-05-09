@@ -150,6 +150,8 @@ SkillAggregation-X在HaluEval上获得4.9%、TruthfulQA上1.3%、Chatbot Arena�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] IMPARA-GED: Grammatical Error Detection is Boosting Reference-free Grammatical Error Quality Estimator](impara-ged_grammatical_error_detection_is_boosting_reference-free_grammatical_er.md)
@@ -157,5 +159,7 @@ SkillAggregation-X在HaluEval上获得4.9%、TruthfulQA上1.3%、Chatbot Arena�
 - [\[ACL 2025\] Training-free LLM Merging for Multi-task Learning](training-free_llm_merging_for_multi-task_learning.md)
 - [\[ACL 2025\] Cuckoo: An IE Free Rider Hatched by Massive Nutrition in LLM's Nest](cuckoo_an_ie_free_rider_hatched_by_massive_nutrition_in_llms_nest.md)
 - [\[ACL 2025\] A Training-free LLM-based Approach to General Chinese Character Error Correction](a_training-free_llm-based_approach_to_general_chinese_character_error_correction.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2026** · **13** 篇论文解读
 
+📌 **同领域跨会议浏览：** [🔬 ICLR2026 (10)](../../ICLR2026/recommender/) · [🤖 AAAI2026 (26)](../../AAAI2026/recommender/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/recommender/) · [🧪 ICML2025 (17)](../../ICML2025/recommender/) · [💬 ACL2025 (7)](../../ACL2025/recommender/) · [📷 CVPR2025 (1)](../../CVPR2025/recommender/)
+
+🔥 **高频主题：** 个性化生成 ×4 · 推荐系统 ×4 · 对话系统 ×3 · 推理 ×2
+
 **[Beyond Itinerary Planning: A Real-World Benchmark for Multi-Turn and Tool-Using Travel Tasks](beyond_itinerary_planning-a_real-world_benchmark_for_multi-turn_and_tool-using_t.md)**
 
 :   提出 TravelBench，首个融合真实用户查询、隐式用户偏好、多轮交互、不可解任务识别和10种真实工具的旅行规划基准，通过沙箱环境实现可复现评估，揭示前沿模型在不同能力维度上表现不均衡。

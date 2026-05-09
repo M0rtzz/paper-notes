@@ -126,6 +126,8 @@ $$L = \mathbb{E}_{z_{Y,t}, \epsilon, t, C_T, C_H^*}\left[\|\epsilon - \epsilon_\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] DeClotH: Decomposable 3D Cloth and Human Body Reconstruction from a Single Image](decloth_decomposable_3d_cloth_and_human_body_reconstruction_from_a_single_image.md)
@@ -133,5 +135,7 @@ $$L = \mathbb{E}_{z_{Y,t}, \epsilon, t, C_T, C_H^*}\left[\|\epsilon - \epsilon_\
 - [\[CVPR 2025\] InterMimic: Towards Universal Whole-Body Control for Physics-Based Human-Object Interactions](intermimic_towards_universal_whole-body_control_for_physics-based_human-object_i.md)
 - [\[ICCV 2025\] DPoser-X: Diffusion Model as Robust 3D Whole-Body Human Pose Prior](../../ICCV2025/image_generation/dposer-x_diffusion_model_as_robust_3d_whole-body_human_pose_prior.md)
 - [\[CVPR 2025\] MCA-Ctrl: Multi-party Collaborative Attention Control for Image Customization](mca_ctrl_attention_control_customization.md)
+
+</div>
 
 <!-- RELATED:END -->

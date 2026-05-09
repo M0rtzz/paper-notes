@@ -115,6 +115,8 @@ Stage A使用惩罚对数似然（含ℓ1均值惩罚和adaptive glasso精度矩
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] MutualVPR: A Mutual Learning Framework for Resolving Supervision Inconsistencies via Adaptive Clustering](mutualvpr_a_mutual_learning_framework_for_resolving_supervision_inconsistencies_.md)
@@ -122,5 +124,7 @@ Stage A使用惩罚对数似然（含ℓ1均值惩罚和adaptive glasso精度矩
 - [\[ACL 2025\] Learning to Align Multi-Faceted Evaluation: A Unified and Robust Framework](../../ACL2025/others/learning_to_align_multi-faceted_evaluation_a_unified_and_robust_framework.md)
 - [\[CVPR 2025\] UniPhy: Learning a Unified Constitutive Model for Inverse Physics Simulation](../../CVPR2025/others/uniphy_learning_a_unified_constitutive_model_for_inverse_physics_simulation.md)
 - [\[ECCV 2024\] An Incremental Unified Framework for Small Defect Inspection](../../ECCV2024/others/an_incremental_unified_framework_for_small_defect_inspection.md)
+
+</div>
 
 <!-- RELATED:END -->

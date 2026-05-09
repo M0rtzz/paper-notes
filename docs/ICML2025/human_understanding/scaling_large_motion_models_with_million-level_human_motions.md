@@ -131,6 +131,8 @@ $$\mathcal{L}(\Theta) = -\sum_{j=1}^{L}\log P_\Theta(y_j | desc, \hat{y}_{1:j-1}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] LLaVA-ReID: Selective Multi-Image Questioner for Interactive Person Re-Identification](llava-reid_selective_multi-image_questioner_for_interactive_person_re-identifica.md)
@@ -138,5 +140,7 @@ $$\mathcal{L}(\Theta) = -\sum_{j=1}^{L}\log P_\Theta(y_j | desc, \hat{y}_{1:j-1}
 - [\[CVPR 2026\] HandX: Scaling Bimanual Motion and Interaction Generation](../../CVPR2026/human_understanding/handx_scaling_bimanual_motion_and_interaction_generation.md)
 - [\[NeurIPS 2025\] VimoRAG: Video-based Retrieval-augmented 3D Motion Generation for Motion Language Models](../../NeurIPS2025/human_understanding/vimorag_video-based_retrieval-augmented_3d_motion_generation_for_motion_language.md)
 - [\[CVPR 2025\] ChatGarment: Garment Estimation, Generation and Editing via Large Language Models](../../CVPR2025/human_understanding/chatgarment_garment_estimation_generation_and_editing_via_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

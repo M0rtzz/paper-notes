@@ -159,6 +159,8 @@ $$\mathcal{L}^{RB-Sig}(\theta, \phi; t, b_{rel}) = \sum_{i} \log(1+\exp(-t\langl
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Training Dynamics Underlying Language Model Scaling Laws: Loss Deceleration and Zero-Sum Learning](../../ACL2025/llm_pretraining/training_dynamics_underlying_language_model_scaling_laws_loss_deceleration_and_z.md)
@@ -166,5 +168,7 @@ $$\mathcal{L}^{RB-Sig}(\theta, \phi; t, b_{rel}) = \sum_{i} \log(1+\exp(-t\langl
 - [\[NeurIPS 2025\] Breaking the Frozen Subspace: Importance Sampling for Low-Rank Optimization in LLM Pretraining](breaking_the_frozen_subspace_importance_sampling_for_low-rank_optimization_in_ll.md)
 - [\[NeurIPS 2025\] Superposition Yields Robust Neural Scaling](superposition_yields_robust_neural_scaling.md)
 - [\[NeurIPS 2025\] Scaling Embedding Layers in Language Models](scaling_embedding_layers_in_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

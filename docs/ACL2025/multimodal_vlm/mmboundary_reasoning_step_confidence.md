@@ -125,6 +125,8 @@ SFT 使用标准交叉熵损失。RL 使用 PPO 算法，带 GAE 优势估计。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Answering Complex Geographic Questions by Adaptive Reasoning with Visual Context and External Commonsense Knowledge](answering_complex_geographic_questions_by_adaptive_reasoning_with_visual_context.md)
@@ -132,5 +134,7 @@ SFT 使用标准交叉熵损失。RL 使用 PPO 算法，带 GAE 优势估计。
 - [\[ACL 2025\] ChartCoder: Advancing Multimodal Large Language Model for Chart-to-Code Generation](chartcoder_chart_to_code.md)
 - [\[ACL 2025\] Don't Miss the Forest for the Trees: Attentional Vision Calibration for Large Vision Language Models](dont_miss_the_forest_for_the_trees_attentional_vision_calibration_for_large_visi.md)
 - [\[ACL 2025\] CrafText Benchmark: Advancing Instruction Following in Complex Multimodal Open-Ended World](craftext_benchmark_advancing_instruction_following_in_complex_multimodal_open-en.md)
+
+</div>
 
 <!-- RELATED:END -->

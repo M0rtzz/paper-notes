@@ -124,6 +124,8 @@ $$\mathcal{L} = \mathcal{L}_{CE} + \alpha \mathcal{L}_{CC}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Video-Panda: Parameter-efficient Alignment for Encoder-free Video-Language Models](video-panda_parameter-efficient_alignment_for_encoder-free_video-language_models.md)
@@ -131,5 +133,7 @@ $$\mathcal{L} = \mathcal{L}_{CE} + \alpha \mathcal{L}_{CC}$$
 - [\[CVPR 2025\] Video Summarization with Large Language Models](video_summarization_with_large_language_models.md)
 - [\[CVPR 2025\] PAVE: Patching and Adapting Video Large Language Models](pave_patching_and_adapting_video_large_language_models.md)
 - [\[CVPR 2025\] On the Consistency of Video Large Language Models in Temporal Comprehension](on_the_consistency_of_video_large_language_models_in_temporal_comprehension.md)
+
+</div>
 
 <!-- RELATED:END -->

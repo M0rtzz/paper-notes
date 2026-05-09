@@ -136,6 +136,8 @@ SOLACE 叠加外部奖励（FlowGRPO + GenEval 奖励 + SOLACE）：GenEval 达�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] SOLACE: Improving Text-to-Image Generation with Intrinsic Self-Confidence Rewards](solace_self_confidence_rewards_t2i.md)
@@ -143,5 +145,7 @@ SOLACE 叠加外部奖励（FlowGRPO + GenEval 奖励 + SOLACE）：GenEval 达�
 - [\[CVPR 2026\] Self-Corrected Image Generation with Explainable Latent Rewards](self-corrected_image_generation_with_explainable_latent_rewards.md)
 - [\[CVPR 2026\] Neighbor GRPO: Contrastive ODE Policy Optimization Aligns Flow Models](neighbor_grpo_contrastive_ode_policy_optimization_aligns_flow_models.md)
 - [\[CVPR 2026\] Extending One-Step Image Generation from Class Labels to Text via Discriminative Text Representation](emf_meanflow_text_to_image.md)
+
+</div>
 
 <!-- RELATED:END -->

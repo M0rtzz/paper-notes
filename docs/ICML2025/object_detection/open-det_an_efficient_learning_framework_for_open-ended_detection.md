@@ -160,6 +160,8 @@ Open-Det 包含四个协作组件：**(1) Object Detector (ODR)** 负责生成 b
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] VK-Det: Visual Knowledge Guided Prototype Learning for Open-Vocabulary Aerial Object Detection](../../AAAI2026/object_detection/vk-det_visual_knowledge_guided_prototype_learning_for_open-vocabulary_aerial_obj.md)
@@ -167,5 +169,7 @@ Open-Det 包含四个协作组件：**(1) Object Detector (ODR)** 负责生成 b
 - [\[CVPR 2026\] Parameter-Efficient Semantic Augmentation for Enhancing Open-Vocabulary Object Detection](../../CVPR2026/object_detection/parameter-efficient_semantic_augmentation_for_enhancing_open-vocabulary_object_d.md)
 - [\[ICML 2025\] BlueGlass: A Framework for Composite AI Safety](blueglass_a_framework_for_composite_ai_safety.md)
 - [\[ICCV 2025\] OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images](../../ICCV2025/object_detection/openrsd_towards_open-prompts_for_object_detection_in_remote_sensing_images.md)
+
+</div>
 
 <!-- RELATED:END -->

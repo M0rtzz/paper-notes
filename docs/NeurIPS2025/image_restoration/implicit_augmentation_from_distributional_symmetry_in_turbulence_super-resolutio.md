@@ -153,6 +153,8 @@ $$\overline{\mathcal{E}} = \frac{1}{|G|N} \sum_{g \in G} \sum_{n=1}^{N} \mathcal
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Latent Harmony: Synergistic Unified UHD Image Restoration via Latent Space Regularization and Controllable Refinement](latent_harmony_synergistic_unified_uhd_image_restoration_with_pre-trained_diffus.md)
@@ -160,5 +162,7 @@ $$\overline{\mathcal{E}} = \frac{1}{|G|N} \sum_{g \in G} \sum_{n=1}^{N} \mathcal
 - [\[CVPR 2026\] The Surprising Effectiveness of Noise Pretraining for Implicit Neural Representations](../../CVPR2026/image_restoration/the_surprising_effectiveness_of_noise_pretraining_for_implicit_neural_representa.md)
 - [\[NeurIPS 2025\] FIPER: Factorized Features for Robust Image Super-Resolution and Compression](fiper_factorized_features_for_robust_image_super-resolution_and_compression.md)
 - [\[CVPR 2025\] PIDSR: Complementary Polarized Image Demosaicing and Super-Resolution](../../CVPR2025/image_restoration/pidsr_complementary_polarized_image_demosaicing_and_super-resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

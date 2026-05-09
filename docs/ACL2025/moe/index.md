@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **4** 篇论文解读
 
+📌 **同领域跨会议浏览：** [🔬 ICLR2026 (1)](../../ICLR2026/moe/) · [🧠 NeurIPS2025 (1)](../../NeurIPS2025/moe/)
+
+🔥 **高频主题：** LLM ×2
+
 **[DIVE into MoE: Diversity-Enhanced Reconstruction of Large Language Models from Dense into Mixture-of-Experts](dive_moe_reconstruction.md)**
 
 :   提出 DIVE，一种将 Dense LLM 重构为 MoE 架构的方法，核心洞察是不同领域的校准数据集会让结构化剪枝产生不同的剪枝结果，利用这种多样性构建领域特异的专家，配合高效的两阶段重训练（router dense训练 + expert LoRA稀疏训练），在仅调不到 1% 参数的情况下实现优于现有剪枝和 MoE 重构方法的效果。

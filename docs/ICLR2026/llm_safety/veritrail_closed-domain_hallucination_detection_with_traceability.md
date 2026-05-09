@@ -135,6 +135,8 @@ VeriTrail 对最终输出提取的每个 claim 独立执行以下迭代过程，
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Enhancing Hallucination Detection through Noise Injection](enhancing_hallucination_detection_through_noise_injection.md)
@@ -142,5 +144,7 @@ VeriTrail 对最终输出提取的每个 claim 独立执行以下迭代过程，
 - [\[ICLR 2026\] LH-Deception: Simulating and Understanding LLM Deceptive Behaviors in Long-Horizon Interactions](lh-deception_simulating_and_understanding_llm_deceptive_behaviors_in_long-horizo.md)
 - [\[ICLR 2026\] Self-Destructive Language Model](self-destructive_language_model.md)
 - [\[ICLR 2026\] Perturbation-Induced Linearization: Constructing Unlearnable Data with Solely Linear Classifiers](perturbation-induced_linearization_constructing_unlearnable_data_with_solely_lin.md)
+
+</div>
 
 <!-- RELATED:END -->

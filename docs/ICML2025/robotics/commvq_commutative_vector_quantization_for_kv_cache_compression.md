@@ -118,6 +118,8 @@ LLaMA-3.1 8B 长上下文基准：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] STAR: Learning Diverse Robot Skill Abstractions through Rotation-Augmented Vector Quantization](star_learning_diverse_robot_skill_abstractions_through_rotation-augmented_vector.md)
@@ -125,5 +127,7 @@ LLaMA-3.1 8B 长上下文基准：
 - [\[AAAI 2026\] Attention as Binding: A Vector-Symbolic Perspective on Transformer Reasoning](../../AAAI2026/robotics/attention_as_binding_a_vector-symbolic_perspective_on_transformer_reasoning.md)
 - [\[ECCV 2024\] Decomposed Vector-Quantized Variational Autoencoder for Human Grasp Generation](../../ECCV2024/robotics/decomposed_vector-quantized_variational_autoencoder_for_human_grasp_generation.md)
 - [\[ICLR 2026\] PERSONA: Dynamic and Compositional Inference-Time Personality Control via Activation Vector Algebra](../../ICLR2026/robotics/persona_dynamic_and_compositional_inference-time_personality_control_via_activat.md)
+
+</div>
 
 <!-- RELATED:END -->

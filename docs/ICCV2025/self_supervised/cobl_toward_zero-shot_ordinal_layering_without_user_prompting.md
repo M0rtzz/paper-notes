@@ -152,6 +152,8 @@ CObL 在**不使用任何额外掩码**的情况下，全面超越了使用 orac
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Alpha-SQL: Zero-Shot Text-to-SQL using Monte Carlo Tree Search](../../ICML2025/self_supervised/alpha-sql_zero-shot_text-to-sql_using_monte_carlo_tree_search.md)
@@ -159,5 +161,7 @@ CObL 在**不使用任何额外掩码**的情况下，全面超越了使用 orac
 - [\[CVPR 2025\] Transformers without Normalization](../../CVPR2025/self_supervised/transformers_without_normalization.md)
 - [\[CVPR 2025\] Few-Shot Implicit Function Generation via Equivariance](../../CVPR2025/self_supervised/few-shot_implicit_function_generation_via_equivariance.md)
 - [\[AAAI 2026\] From Pretrain to Pain: Adversarial Vulnerability of Video Foundation Models without Finetuning](../../AAAI2026/self_supervised/from_pretrain_to_pain_adversarial_vulnerability_of_video_foundation_models_witho.md)
+
+</div>
 
 <!-- RELATED:END -->

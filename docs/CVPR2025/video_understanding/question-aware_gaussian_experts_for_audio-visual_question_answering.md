@@ -123,6 +123,8 @@ QA-TIGER 由三个模块组成：(1) Question-Aware Fusion——在编码早期�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] EgoTextVQA: Towards Egocentric Scene-Text Aware Video Question Answering](egotextvqa_towards_egocentric_scene-text_aware_video_question_answering.md)
@@ -130,5 +132,7 @@ QA-TIGER 由三个模块组成：(1) Question-Aware Fusion——在编码早期�
 - [\[CVPR 2025\] Cross-modal Causal Relation Alignment for Video Question Grounding](cross-modal_causal_relation_alignment_for_video_question_grounding.md)
 - [\[NeurIPS 2025\] EgoGazeVQA: Egocentric Gaze-Guided Video Question Answering Benchmark](../../NeurIPS2025/video_understanding/egogazevqa_egocentric_gaze_guided_video_question_answering.md)
 - [\[NeurIPS 2025\] Tool-Augmented Spatiotemporal Reasoning for Streamlining Video Question Answering Task](../../NeurIPS2025/video_understanding/toolaugmented_spatiotemporal_reasoning_for_streamlining_vide.md)
+
+</div>
 
 <!-- RELATED:END -->

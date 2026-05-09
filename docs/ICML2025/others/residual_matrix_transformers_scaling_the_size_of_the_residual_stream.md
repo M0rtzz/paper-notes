@@ -130,6 +130,8 @@ $$\text{MHA}(\mathbf{X}) = \sum_{h=1}^{R} \mathbf{w}_O^{(h)} \otimes \text{SHA}(
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Value Residual Learning](../../ACL2025/others/value_residual_learning.md)
@@ -137,5 +139,7 @@ $$\text{MHA}(\mathbf{X}) = \sum_{h=1}^{R} \mathbf{w}_O^{(h)} \otimes \text{SHA}(
 - [\[ICML 2025\] Softmax is not Enough (for Sharp Size Generalisation)](softmax_is_not_enough_for_sharp_size_generalisation.md)
 - [\[ICCV 2025\] HyTIP: Hybrid Temporal Information Propagation for Masked Conditional Residual Video Coding](../../ICCV2025/others/hytip_hybrid_temporal_information_propagation_for_masked_conditional_residual_vi.md)
 - [\[ICML 2025\] DSP: Dynamic Sequence Parallelism for Multi-Dimensional Transformers](dsp_dynamic_sequence_parallelism_for_multi-dimensional_transformers.md)
+
+</div>
 
 <!-- RELATED:END -->

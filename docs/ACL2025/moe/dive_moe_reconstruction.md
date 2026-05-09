@@ -147,6 +147,8 @@ DIVE 1/8 在 WikiText2 上比次优的 FLAP 低 0.99 PPL，LAMBADA 上低 8.38 P
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] EAC-MoE: Expert-Selection Aware Compressor for Mixture-of-Experts Large Language Models](eac_moe_expert_aware_compression.md)
@@ -154,5 +156,7 @@ DIVE 1/8 在 WikiText2 上比次优的 FLAP 低 0.99 PPL，LAMBADA 上低 8.38 P
 - [\[ACL 2025\] STUN: Structured-Then-Unstructured Pruning for Scalable MoE Pruning](stun_moe_pruning.md)
 - [\[ICLR 2026\] MoE-GS: Mixture of Experts for Dynamic Gaussian Splatting](../../ICLR2026/moe/moe-gs_mixture_of_experts_for_dynamic_gaussian_splatting.md)
 - [\[NeurIPS 2025\] MoRE-Brain: Routed Mixture of Experts for Interpretable and Generalizable Cross-Subject fMRI Visual Decoding](../../NeurIPS2025/moe/more-brain_routed_mixture_of_experts_for_interpretable_and_generalizable_cross-s.md)
+
+</div>
 
 <!-- RELATED:END -->

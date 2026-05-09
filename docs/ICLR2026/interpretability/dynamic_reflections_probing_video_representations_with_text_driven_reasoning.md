@@ -163,6 +163,8 @@ $$\text{score}(n_f, n_c) = S_\infty - (C_f n_f^{-\alpha} + C_c n_c^{-\beta})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Dynamic Reflections: Probing Video Representations with Text Alignment](dynamic_reflections_probing_video_representations_with_text_alignment.md)
@@ -170,5 +172,7 @@ $$\text{score}(n_f, n_c) = S_\infty - (C_f n_f^{-\alpha} + C_c n_c^{-\beta})$$
 - [\[ICLR 2026\] Beyond Linear Probes: Dynamic Safety Monitoring for Language Models](beyond_linear_probes_dynamic_safety_monitoring_for_language_models.md)
 - [\[ICLR 2026\] Uncovering Grounding IDs: How External Cues Shape Multimodal Binding](uncovering_grounding_ids_how_external_cues_shape_multimodal_binding.md)
 - [\[ICLR 2026\] The Reasoning Trap — Logical Reasoning as a Mechanistic Pathway to Situational Awareness](the_reasoning_trap_--_logical_reasoning_as_a_mechanistic_pathway_to_situational_.md)
+
+</div>
 
 <!-- RELATED:END -->

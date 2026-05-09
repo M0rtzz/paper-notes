@@ -141,6 +141,8 @@ DTU：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] LiTo: Surface Light Field Tokenization](../../ICLR2026/3d_vision/lito_surface_light_field_tokenization.md)
@@ -148,5 +150,7 @@ DTU：
 - [\[CVPR 2025\] Depth-Guided Bundle Sampling for Efficient Generalizable Neural Radiance Field Reconstruction](depth-guided_bundle_sampling_for_efficient_generalizable_neural_radiance_field_r.md)
 - [\[CVPR 2025\] GauSTAR: Gaussian Surface Tracking and Reconstruction](gaustar_gaussian_surface_tracking_and_reconstruction.md)
 - [\[CVPR 2025\] OffsetOPT: Explicit Surface Reconstruction without Normals](offsetopt_explicit_surface_reconstruction_without_normals.md)
+
+</div>
 
 <!-- RELATED:END -->

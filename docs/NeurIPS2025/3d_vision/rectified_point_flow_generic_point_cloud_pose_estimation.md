@@ -122,6 +122,8 @@ Pipeline 分为两个阶段：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] PCSTracker: Long-Term Scene Flow Estimation for Point Cloud Sequences](../../CVPR2026/3d_vision/pcstracker_long-term_scene_flow_estimation_for_point_cloud_sequences.md)
@@ -129,5 +131,7 @@ Pipeline 分为两个阶段：
 - [\[NeurIPS 2025\] U-CAN: Unsupervised Point Cloud Denoising with Consistency-Aware Noise2Noise Matching](u-can_unsupervised_point_cloud_denoising_with_consistency-aware_noise2noise_matc.md)
 - [\[NeurIPS 2025\] PointMAC: Meta-Learned Adaptation for Robust Test-Time Point Cloud Completion](pointmac_meta-learned_adaptation_for_robust_test-time_point_cloud_completion.md)
 - [\[ECCV 2024\] milliFlow: Scene Flow Estimation on mmWave Radar Point Cloud for Human Motion Sensing](../../ECCV2024/3d_vision/milliflow_scene_flow_estimation_on_mmwave_radar_point_cloud_for_human_motion_sen.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -127,6 +127,8 @@ OmniSegmentor 包含两大创新：(1) ImageNeXt 数据集——基于 ImageNet-
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Torch-Uncertainty: A Deep Learning Framework for Uncertainty Quantification](torch-uncertainty_a_deep_learning_framework_for_uncertainty_quantification.md)
@@ -134,5 +136,7 @@ OmniSegmentor 包含两大创新：(1) ImageNeXt 数据集——基于 ImageNet-
 - [\[NeurIPS 2025\] Diffusion-Driven Two-Stage Active Learning for Low-Budget Semantic Segmentation](diffusion-driven_two-stage_active_learning_for_low-budget_semantic_segmentation.md)
 - [\[NeurIPS 2025\] Robust Egocentric Referring Video Object Segmentation via Dual-Modal Causal Intervention](robust_egocentric_referring_video_object_segmentation_via_dual-modal_causal_inte.md)
 - [\[ECCV 2024\] OLAF: A Plug-and-Play Framework for Enhanced Multi-object Multi-part Scene Parsing](../../ECCV2024/segmentation/olaf_a_plug-and-play_framework_for_enhanced_multi-object_multi-part_scene_parsin.md)
+
+</div>
 
 <!-- RELATED:END -->

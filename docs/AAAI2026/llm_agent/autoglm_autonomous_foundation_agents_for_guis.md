@@ -116,6 +116,8 @@ AutoGLM 的整体 pipeline 由三大部分组成：（1）**中间接口设计**
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Co-EPG: A Framework for Co-Evolution of Planning and Grounding in Autonomous GUI Agents](co-epg_a_framework_for_co-evolution_of_planning_and_groundin.md)
@@ -123,5 +125,7 @@ AutoGLM 的整体 pipeline 由三大部分组成：（1）**中间接口设计**
 - [\[ICML 2025\] Aguvis: Unified Pure Vision Agents for Autonomous GUI Interaction](../../ICML2025/llm_agent/aguvis_unified_pure_vision_agents_for_autonomous_gui_interaction.md)
 - [\[AAAI 2026\] History-Aware Reasoning for GUI Agents](history-aware_reasoning_for_gui_agents.md)
 - [\[NeurIPS 2025\] AgentDAM: Privacy Leakage Evaluation for Autonomous Web Agents](../../NeurIPS2025/llm_agent/agentdam_privacy_leakage_evaluation_for_autonomous_web_agent.md)
+
+</div>
 
 <!-- RELATED:END -->

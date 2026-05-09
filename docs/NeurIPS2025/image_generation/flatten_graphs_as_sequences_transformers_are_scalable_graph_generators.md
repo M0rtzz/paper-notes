@@ -177,6 +177,8 @@ $$p(s) = \sum_{i=1}^{n} \log p_\theta(s_i \mid s_1, \ldots, s_{i-1})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Video Motion Graphs](../../ICCV2025/image_generation/video_motion_graphs.md)
@@ -184,5 +186,7 @@ $$p(s) = \sum_{i=1}^{n} \log p_\theta(s_i \mid s_1, \ldots, s_{i-1})$$
 - [\[NeurIPS 2025\] Graph Distance as Surprise: Free Energy Minimization in Knowledge Graph Reasoning](graph_distance_as_surprise_free_energy_minimization_in_knowledge_graph_reasoning.md)
 - [\[NeurIPS 2025\] Scaling Diffusion Transformers Efficiently via μP](scaling_diffusion_transformers_efficiently_via_μp.md)
 - [\[NeurIPS 2025\] Exploring Variational Graph Autoencoders for Distribution Grid Data Generation](exploring_variational_graph_autoencoders_for_distribution_grid_data_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

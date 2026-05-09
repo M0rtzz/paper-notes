@@ -143,6 +143,8 @@ $$\mathcal{L}_{total} = \sum_{d \in D} w_d \cdot \mathcal{L}_d + \gamma_{ftx} \c
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Margin-aware Preference Optimization for Aligning Diffusion Models without Reference](../../AAAI2026/llm_alignment/margin-aware_preference_optimization_for_aligning_diffusion_models_without_refer.md)
@@ -150,5 +152,7 @@ $$\mathcal{L}_{total} = \sum_{d \in D} w_d \cdot \mathcal{L}_d + \gamma_{ftx} \c
 - [\[CVPR 2025\] Calibrated Multi-Preference Optimization for Aligning Diffusion Models](../../CVPR2025/llm_alignment/capo_multi_preference.md)
 - [\[ACL 2025\] Robust Preference Optimization via Dynamic Target Margins](robust_preference_optimization_via_dynamic_target_margins.md)
 - [\[ACL 2025\] T-REG: Preference Optimization with Token-Level Reward Regularization](t-reg_preference_optimization_with_token-level_reward_regularization.md)
+
+</div>
 
 <!-- RELATED:END -->

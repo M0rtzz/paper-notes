@@ -126,6 +126,8 @@ GAE（Generalized Advantage Estimation）通过 $\lambda$ 参数在 TD(0) 和 MC
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Optimal Sparsity of Mixture-of-Experts Language Models for Reasoning Tasks](optimal_sparsity_of_mixture-of-experts_language_models_for_reasoning_tasks.md)
@@ -133,5 +135,7 @@ GAE（Generalized Advantage Estimation）通过 $\lambda$ 参数在 TD(0) 和 MC
 - [\[ICLR 2026\] Mitigating the Safety Alignment Tax with Null-Space Constrained Policy Optimization](mitigating_the_safety_alignment_tax_with_null-space_constrained_policy_optimizat.md)
 - [\[ICLR 2026\] Slow-Fast Policy Optimization: Reposition-Before-Update for LLM Reasoning](slow-fast_policy_optimization_reposition-before-update_for_llm_reasoning.md)
 - [\[ICLR 2026\] Is On-Policy Data always the Best Choice for Direct Preference Optimization-based LM Alignment?](is_on-policy_data_always_the_best_choice_for_direct_preference_optimization-base.md)
+
+</div>
 
 <!-- RELATED:END -->

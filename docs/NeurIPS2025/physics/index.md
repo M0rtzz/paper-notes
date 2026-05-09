@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **20** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (1)](../../CVPR2026/physics/) · [🔬 ICLR2026 (2)](../../ICLR2026/physics/) · [🤖 AAAI2026 (2)](../../AAAI2026/physics/) · [📹 ICCV2025 (1)](../../ICCV2025/physics/) · [🧪 ICML2025 (6)](../../ICML2025/physics/) · [📷 CVPR2025 (1)](../../CVPR2025/physics/)
+
+🔥 **高频主题：** 域适应 ×2
+
 **[AstroCo: Self-Supervised Conformer-Style Transformers for Light-Curve Embeddings](astroco_self-supervised_conformer-style_transformers_for_light-curve_embeddings.md)**
 
 :   提出 AstroCo，一种将 Conformer（注意力 + 深度可分离卷积 + 门控）引入天文不规则光变曲线的自监督编码器，在 MACHO 数据集上重建误差比 Astromer v1/v2 降低 61-70%，少样本分类 macro-F1 提升约 7%。

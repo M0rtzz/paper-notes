@@ -135,6 +135,8 @@ CIFAR-100 / ImageNet 上的 ECE (Expected Calibration Error)↓：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Enhancing Diffusion Model Guidance through Calibration and Regularization](../../NeurIPS2025/image_generation/enhancing_diffusion_model_guidance_through_calibration_and_regularization.md)
@@ -142,5 +144,7 @@ CIFAR-100 / ImageNet 上的 ECE (Expected Calibration Error)↓：
 - [\[CVPR 2025\] One-for-More: Continual Diffusion Model for Anomaly Detection](../../CVPR2025/image_generation/one-for-more_continual_diffusion_model_for_anomaly_detection.md)
 - [\[CVPR 2026\] Extending One-Step Image Generation from Class Labels to Text via Discriminative Text Representation](../../CVPR2026/image_generation/emf_meanflow_text_to_image.md)
 - [\[ICML 2025\] Towards a Mechanistic Explanation of Diffusion Model Generalization](towards_a_mechanistic_explanation_of_diffusion_model_generalization.md)
+
+</div>
 
 <!-- RELATED:END -->

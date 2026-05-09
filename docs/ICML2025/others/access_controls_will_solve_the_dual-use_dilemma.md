@@ -157,6 +157,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Learning-Augmented Algorithms for MTS with Bandit Access to Multiple Predictors](learning-augmented_algorithms_for_mts_with_bandit_access_to_multiple_predictors.md)
@@ -164,5 +166,7 @@ tags:
 - [\[ACL 2025\] Using Shapley Interactions to Understand How Models Use Structure](../../ACL2025/others/using_shapley_interactions_to_understand_how_models_use_structure.md)
 - [\[ACL 2025\] ProxAnn: Use-Oriented Evaluations of Topic Models and Document Clustering](../../ACL2025/others/proxann_topic_model_eval.md)
 - [\[ICML 2025\] Position: Solve Layerwise Linear Models First to Understand Neural Dynamical Phenomena](position_solve_layerwise_linear_models_first_to_understand_neural_dynamical_phen.md)
+
+</div>
 
 <!-- RELATED:END -->

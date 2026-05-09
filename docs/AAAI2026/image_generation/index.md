@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **78** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/image_generation/) · [📷 CVPR2026 (240)](../../CVPR2026/image_generation/) · [🔬 ICLR2026 (154)](../../ICLR2026/image_generation/) · [🧠 NeurIPS2025 (250)](../../NeurIPS2025/image_generation/) · [📹 ICCV2025 (219)](../../ICCV2025/image_generation/) · [🧪 ICML2025 (115)](../../ICML2025/image_generation/)
+
+🔥 **高频主题：** 扩散模型 ×32 · 文生图 ×7 · 对齐/RLHF ×6 · 布局/合成 ×5 · 超分辨率 ×5
+
 **[AEDR: Training-Free AI-Generated Image Attribution via Autoencoder Double-Reconstruction](aedr_training-free_ai-generated_image_attribution_via_autoen.md)**
 
 :   提出一种基于自编码器双重重建损失比值的免训练图像归因方法，通过图像均匀度校准消除纹理复杂度偏差，在8个主流扩散模型上平均准确率达95.1%，比最强基线高24.7%，且速度快约100倍。

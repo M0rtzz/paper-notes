@@ -205,6 +205,8 @@ $$\mathcal{L}_{total} = \mathcal{L}_{pro} + \mathcal{L}_{den} + \mathcal{L}_{cls
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Momentum Memory for Knowledge Distillation in Computational Pathology](../../CVPR2026/medical_imaging/momentum_memory_for_knowledge_distillation_in_computational_pathology.md)
@@ -212,5 +214,7 @@ $$\mathcal{L}_{total} = \mathcal{L}_{pro} + \mathcal{L}_{den} + \mathcal{L}_{cls
 - [\[AAAI 2026\] A Principle-Driven Adaptive Policy for Group Cognitive Stimulation Dialogue for Elderly with Cognitive Impairment](a_principle-driven_adaptive_policy_for_group_cognitive_stimu.md)
 - [\[NeurIPS 2025\] FGBench: A Dataset and Benchmark for Molecular Property Reasoning at Functional Group-Level in Large Language Models](../../NeurIPS2025/medical_imaging/fgbench_a_dataset_and_benchmark_for_molecular_property_reasoning_at_functional_g.md)
 - [\[CVPR 2026\] Diffusion-Based Feature Denoising and Using NNMF for Robust Brain Tumor Classification](../../CVPR2026/medical_imaging/diffusionbased_feature_denoising_and_using_nnmf_fo.md)
+
+</div>
 
 <!-- RELATED:END -->

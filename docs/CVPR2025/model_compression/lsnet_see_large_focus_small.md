@@ -140,6 +140,8 @@ LSNet-T 在 0.3G FLOPs 即达 74.9%，超越同 FLOPs 所有模型；LSNet-B 80.
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Colors See Colors Ignore: Clothes Changing ReID with Color Disentanglement](../../ICCV2025/model_compression/colors_see_colors_ignore_clothes_changing_reid_with_color_disentanglement.md)
@@ -147,5 +149,7 @@ LSNet-T 在 0.3G FLOPs 即达 74.9%，超越同 FLOPs 所有模型；LSNet-B 80.
 - [\[NeurIPS 2025\] Find your Needle: Small Object Image Retrieval via Multi-Object Attention Optimization](../../NeurIPS2025/model_compression/find_your_needle_small_object_image_retrieval_via_multi-object_attention_optimiz.md)
 - [\[CVPR 2025\] DyCoke: Dynamic Compression of Tokens for Fast Video Large Language Models](dycoke_dynamic_compression_of_tokens_for_fast_video_large_language_models.md)
 - [\[CVPR 2025\] Gaze-LLE: Gaze Target Estimation via Large-Scale Learned Encoders](gaze-lle_gaze_target_estimation_via_large-scale_learned_encoders.md)
+
+</div>
 
 <!-- RELATED:END -->

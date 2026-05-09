@@ -123,6 +123,8 @@ OpenFunGraph定义$\mathcal{G} = (\mathcal{O}, \mathcal{I}, \mathcal{R})$，$\ma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Masked Point-Entity Contrast for Open-Vocabulary 3D Scene Understanding](masked_point-entity_contrast_for_open-vocabulary_3d_scene_understanding.md)
@@ -130,5 +132,7 @@ OpenFunGraph定义$\mathcal{G} = (\mathcal{O}, \mathcal{I}, \mathcal{R})$，$\ma
 - [\[ICCV 2025\] Open-Vocabulary Octree-Graph for 3D Scene Understanding](../../ICCV2025/3d_vision/open-vocabulary_octree-graph_for_3d_scene_understanding.md)
 - [\[CVPR 2025\] SeeGround: See and Ground for Zero-Shot Open-Vocabulary 3D Visual Grounding](seeground_see_and_ground_for_zero-shot_open-vocabulary_3d_visual_grounding.md)
 - [\[CVPR 2025\] Open-World Amodal Appearance Completion](open-world_amodal_appearance_completion.md)
+
+</div>
 
 <!-- RELATED:END -->

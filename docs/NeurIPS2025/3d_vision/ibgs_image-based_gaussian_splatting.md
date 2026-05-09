@@ -159,6 +159,8 @@ Shiny数据集上PSNR提升超过**5.2 dB**，同时高斯数量更少。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Anti-Aliased 2D Gaussian Splatting](anti-aliased_2d_gaussian_splatting.md)
@@ -166,5 +168,7 @@ Shiny数据集上PSNR提升超过**5.2 dB**，同时高斯数量更少。
 - [\[NeurIPS 2025\] Dynamic Gaussian Splatting from Defocused and Motion-blurred Monocular Videos](dynamic_gaussian_splatting_from_defocused_and_motion-blurred_monocular_videos.md)
 - [\[NeurIPS 2025\] Quantifying and Alleviating Co-Adaptation in Sparse-View 3D Gaussian Splatting](quantifying_and_alleviating_co-adaptation_in_sparse-view_3d_gaussian_splatting.md)
 - [\[NeurIPS 2025\] EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting](ef-3dgs_event-aided_free-trajectory_3d_gaussian_splatting.md)
+
+</div>
 
 <!-- RELATED:END -->

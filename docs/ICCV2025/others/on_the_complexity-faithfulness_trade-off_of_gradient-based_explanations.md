@@ -183,6 +183,8 @@ $$\Delta \operatorname{EF}(e_f) \coloneq |\operatorname{EF}(\nabla f) - \operato
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Failure Cases Are Better Learned But Boundary Says Sorry: Facilitating Smooth Perception Change for Accuracy-Robustness Trade-Off in Adversarial Training](failure_cases_are_better_learned_but_boundary_says_sorry_facilitating_smooth_per.md)
@@ -190,5 +192,7 @@ $$\Delta \operatorname{EF}(e_f) \coloneq |\operatorname{EF}(\nabla f) - \operato
 - [\[NeurIPS 2025\] The Cost of Robustness: Tighter Bounds on Parameter Complexity for Robust Memorization in ReLU Nets](../../NeurIPS2025/others/the_cost_of_robustness_tighter_bounds_on_parameter_complexity_for_robust_memoriz.md)
 - [\[ACL 2025\] Enhancing the Comprehensibility of Text Explanations via Unsupervised Concept Discovery](../../ACL2025/others/enhancing_the_comprehensibility_of_text_explanations_via_unsupervised_concept_di.md)
 - [\[ACL 2025\] ConSim: Measuring Concept-Based Explanations' Effectiveness with Automated Simulatability](../../ACL2025/others/consim_measuring_concept-based_explanations_effectiveness_with_automated_simulat.md)
+
+</div>
 
 <!-- RELATED:END -->

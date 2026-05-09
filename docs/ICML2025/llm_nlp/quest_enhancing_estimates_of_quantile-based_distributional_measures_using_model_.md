@@ -189,6 +189,8 @@ QuEst 是纯推断框架，不涉及模型训练，其核心"优化"在于：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] LaRoSA: Enhancing LLM Efficiency via Layerwise Rotated Sparse Activation](la_rosa_enhancing_llm_efficiency_via_layerwise_rotated_sparse_activation.md)
@@ -196,5 +198,7 @@ QuEst 是纯推断框架，不涉及模型训练，其核心"优化"在于：
 - [\[ACL 2025\] Not Quite Sherlock Holmes: Language Model Predictions Do Not Reliably Differentiate Impossible from Improbable Events](../../ACL2025/llm_nlp/not_quite_sherlock_holmes_language_model_predictions_do_not_reliably_differentia.md)
 - [\[ACL 2025\] LLM Braces: Straightening Out LLM Predictions with Relevant Sub-Updates](../../ACL2025/llm_nlp/llm_braces_straightening.md)
 - [\[ACL 2025\] Enhancing the Rule Learning Ability of Large Language Model Agent through Induction, Deduction, and Abduction](../../ACL2025/llm_nlp/idea_enhancing_the_rule_learning_ability_of_large_language_model_agent_through_i.md)
+
+</div>
 
 <!-- RELATED:END -->

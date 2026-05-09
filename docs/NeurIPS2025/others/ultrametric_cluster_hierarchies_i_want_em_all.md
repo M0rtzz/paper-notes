@@ -150,6 +150,8 @@ $$\min_{\mathcal{P} \in \text{Cuts}(T)} \sum_{C \in \mathcal{P}} \text{cost}(C)$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Learning Visual Hierarchies in Hyperbolic Space for Image Retrieval](../../ICCV2025/others/learning_visual_hierarchies_in_hyperbolic_space_for_image_retrieval.md)
@@ -157,5 +159,7 @@ $$\min_{\mathcal{P} \in \text{Cuts}(T)} \sum_{C \in \mathcal{P}} \text{cost}(C)$
 - [\[ICML 2025\] Revisiting Instance-Optimal Cluster Recovery in the Labeled Stochastic Block Model](../../ICML2025/others/revisiting_instance-optimal_cluster_recovery_in_the_labeled_stochastic_block_mod.md)
 - [\[ACL 2025\] All That Glitters is Not Novel: Plagiarism in AI Generated Research](../../ACL2025/others/plagiarism_ai_generated_research.md)
 - [\[ACL 2025\] One for All: Update Parameterized Knowledge Across Multiple Models with Once Edit](../../ACL2025/others/one_for_all_update_parameterized_knowledge_across_multiple_models_with_once_edit.md)
+
+</div>
 
 <!-- RELATED:END -->

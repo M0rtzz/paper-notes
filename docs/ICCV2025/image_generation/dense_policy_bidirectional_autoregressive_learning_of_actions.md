@@ -163,6 +163,8 @@ $$P(A|O) = \prod_{i=1}^{n} P(A^i | A^{i-1}, A^{i-2}, ..., A^0, O)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Inpaint4Drag: Repurposing Inpainting Models for Drag-Based Image Editing via Bidirectional Warping](inpaint4drag_repurposing_inpainting_models_for_drag-based_image_editing_via_bidi.md)
@@ -170,5 +172,7 @@ $$P(A|O) = \prod_{i=1}^{n} P(A^i | A^{i-1}, A^{i-2}, ..., A^0, O)$$
 - [\[ECCV 2024\] AdaGen: Learning Adaptive Policy for Image Synthesis](../../ECCV2024/image_generation/adagen_learning_adaptive_policy_for_image_synthesis.md)
 - [\[ICCV 2025\] Grouped Speculative Decoding for Autoregressive Image Generation](grouped_speculative_decoding_for_autoregressive_image_generation.md)
 - [\[ICCV 2025\] LazyMAR: Accelerating Masked Autoregressive Models via Feature Caching](lazymar_accelerating_masked_autoregressive_models_via_feature_caching.md)
+
+</div>
 
 <!-- RELATED:END -->

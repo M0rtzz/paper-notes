@@ -143,6 +143,8 @@ $$q(x) = \text{clip}\left(\frac{1}{r_P} p(x); \frac{\gamma+1}{\gamma+e^\varepsil
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Beyond Last-Click: An Optimal Mechanism for Ad Attribution](beyond_last-click_an_optimal_mechanism_for_ad_attribution.md)
@@ -150,5 +152,7 @@ $$q(x) = \text{clip}\left(\frac{1}{r_P} p(x); \frac{\gamma+1}{\gamma+e^\varepsil
 - [\[NeurIPS 2025\] Differentially Private Bilevel Optimization: Efficient Algorithms with Near-Optimal Rates](differentially_private_bilevel_optimization_efficient_algorithms_with_near-optim.md)
 - [\[NeurIPS 2025\] Private Zeroth-Order Optimization with Public Data](private_zeroth-order_optimization_with_public_data.md)
 - [\[NeurIPS 2025\] Optimal Adjustment Sets for Nonparametric Estimation of Weighted Controlled Direct Effect](optimal_adjustment_sets_for_nonparametric_estimation_of_weighted_controlled_dire.md)
+
+</div>
 
 <!-- RELATED:END -->

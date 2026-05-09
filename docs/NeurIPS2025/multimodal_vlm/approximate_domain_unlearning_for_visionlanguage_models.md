@@ -156,6 +156,8 @@ DDL 内部 CE 与 MMD 的消融（Office-Home，$|\mathcal{D}_{\text{forget}}|=1
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Targeted Unlearning with Single Layer Unlearning Gradient](../../ICML2025/multimodal_vlm/targeted_unlearning_with_single_layer_unlearning_gradient.md)
@@ -163,5 +165,7 @@ DDL 内部 CE 与 MMD 的消融（Office-Home，$|\mathcal{D}_{\text{forget}}|=1
 - [\[ICCV 2025\] SAUCE: Selective Concept Unlearning in Vision-Language Models with Sparse Autoencoders](../../ICCV2025/multimodal_vlm/sauce_selective_concept_unlearning_in_vision-language_models_with_sparse_autoenc.md)
 - [\[ACL 2025\] Modality-Aware Neuron Pruning for Unlearning in Multimodal Large Language Models](../../ACL2025/multimodal_vlm/manu_modality_aware_unlearning.md)
 - [\[NeurIPS 2025\] Sparse Autoencoders Learn Monosemantic Features in Vision-Language Models](sparse_autoencoders_learn_monosemantic_features_in_visionlan.md)
+
+</div>
 
 <!-- RELATED:END -->

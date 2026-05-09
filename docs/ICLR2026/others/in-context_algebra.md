@@ -183,6 +183,8 @@ $$\text{IE}(l,h) = P(v_{\text{target}} \mid a_{s_{\text{clean}}}^{(l,h)} \to s_{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Verification-Guided Context Optimization for Tool Calling via Hierarchical LLMs-as-editors](../../AAAI2026/others/verification-guided_context_optimization_for_tool_calling_via_hierarchical_llms-.md)
@@ -190,5 +192,7 @@ $$\text{IE}(l,h) = P(v_{\text{target}} \mid a_{s_{\text{clean}}}^{(l,h)} \to s_{
 - [\[ACL 2025\] Autalic: A Dataset for Anti-Autistic Ableist Language In Context](../../ACL2025/others/autalic_a_dataset_for_anti-autistic_ableist_language_in_context.md)
 - [\[AAAI 2026\] LILAD: Learning In-context Lyapunov-stable Adaptive Dynamics Models](../../AAAI2026/others/lilad_learning_in-context_lyapunov-stable_adaptive_dynamics_models.md)
 - [\[ACL 2025\] ConECT Dataset: Overcoming Data Scarcity in Context-Aware E-Commerce MT](../../ACL2025/others/conect_dataset_overcoming_data_scarcity_in_context-aware_e-commerce_mt.md)
+
+</div>
 
 <!-- RELATED:END -->

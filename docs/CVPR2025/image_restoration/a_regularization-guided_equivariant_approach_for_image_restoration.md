@@ -145,6 +145,8 @@ $$\mathcal{L}_{ch}^{(l)} = \mathbb{E}_{x, k} \left[ \| f_l(\sigma_k(x)) - \sigma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Rotation-Equivariant Self-Supervised Method in Image Denoising](rotation-equivariant_self-supervised_method_in_image_denoising.md)
@@ -152,5 +154,7 @@ $$\mathcal{L}_{ch}^{(l)} = \mathbb{E}_{x, k} \left[ \| f_l(\sigma_k(x)) - \sigma
 - [\[ECCV 2024\] Seeing the Unseen: A Frequency Prompt Guided Transformer for Image Restoration](../../ECCV2024/image_restoration/seeing_the_unseen_a_frequency_prompt_guided_transformer_for_image_restoration.md)
 - [\[CVPR 2025\] Pixel-level and Semantic-level Adjustable Super-resolution: A Dual-LoRA Approach](pixel-level_and_semantic-level_adjustable_super-resolution_a_dual-lora_approach.md)
 - [\[CVPR 2025\] DarkIR: Robust Low-Light Image Restoration](darkir_robust_low-light_image_restoration.md)
+
+</div>
 
 <!-- RELATED:END -->

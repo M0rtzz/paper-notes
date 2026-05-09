@@ -125,6 +125,8 @@ AMA（Attractive Metadata Attack）证明仅通过精心设计恶意工具的元
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] LLM Agents Making Agent Tools](../../ACL2025/llm_agent/llm_agents_making_agent_tools.md)
@@ -132,5 +134,7 @@ AMA（Attractive Metadata Attack）证明仅通过精心设计恶意工具的元
 - [\[NeurIPS 2025\] It's LIT! Reliability-Optimized LLMs with Inspectable Tools](its_lit_reliability-optimized_llms_with_inspectable_tools.md)
 - [\[ACL 2025\] Agentic Reasoning: A Streamlined Framework for Enhancing LLM Reasoning with Agentic Tools](../../ACL2025/llm_agent/agentic_reasoning_tools.md)
 - [\[NeurIPS 2025\] A-MEM: Agentic Memory for LLM Agents](a-mem_agentic_memory_for_llm_agents.md)
+
+</div>
 
 <!-- RELATED:END -->

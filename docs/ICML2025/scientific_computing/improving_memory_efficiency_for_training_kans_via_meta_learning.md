@@ -153,6 +153,8 @@ MetaKAGNConv 在 MNIST 上以约 1/5 参数量反超 KAGNConv。MetaKANConv 在 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Neural Emulator Superiority: When Machine Learning for PDEs Surpasses its Training Data](../../NeurIPS2025/scientific_computing/neural_emulator_superiority_when_machine_learning_for_pdes_surpasses_its_trainin.md)
@@ -160,5 +162,7 @@ MetaKAGNConv 在 MNIST 上以约 1/5 参数量反超 KAGNConv。MetaKANConv 在 
 - [\[ICLR 2026\] Astral: Training Physics-Informed Neural Networks with Error Majorants](../../ICLR2026/scientific_computing/astral_training_physics-informed_neural_networks_with_error_majorants.md)
 - [\[AAAI 2026\] PhysicsCorrect: A Training-Free Approach for Stable Neural PDE Simulations](../../AAAI2026/scientific_computing/physicscorrect_a_training-free_approach_for_stable_neural_pde_simulations.md)
 - [\[NeurIPS 2025\] Integration Matters for Learning PDEs with Backward SDEs](../../NeurIPS2025/scientific_computing/integration_matters_for_learning_pdes_with_backward_sdes.md)
+
+</div>
 
 <!-- RELATED:END -->

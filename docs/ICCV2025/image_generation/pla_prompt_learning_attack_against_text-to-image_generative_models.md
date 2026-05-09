@@ -139,6 +139,8 @@ PLA 包含三个核心组件：(1) 敏感知识引导编码（Sensitive Knowledg
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Implicit Bias Injection Attacks against Text-to-Image Diffusion Models](../../CVPR2025/image_generation/implicit_bias_injection_attacks_against_text-to-image_diffusion_models.md)
@@ -146,5 +148,7 @@ PLA 包含三个核心组件：(1) 敏感知识引导编码（Sensitive Knowledg
 - [\[ICML 2025\] PAK-UCB Contextual Bandit: An Online Learning Approach to Prompt-Aware Selection of Generative Models and LLMs](../../ICML2025/image_generation/pak-ucb_contextual_bandit_an_online_learning_approach_to_prompt-aware_selection_.md)
 - [\[ICCV 2025\] FedDifRC: Unlocking the Potential of Text-to-Image Diffusion Models in Heterogeneous Federated Learning](feddifrc_unlocking_the_potential_of_text-to-image_diffusion_models_in_heterogene.md)
 - [\[CVPR 2025\] Minority-Focused Text-to-Image Generation via Prompt Optimization](../../CVPR2025/image_generation/minority-focused_text-to-image_generation_via_prompt_optimization.md)
+
+</div>
 
 <!-- RELATED:END -->

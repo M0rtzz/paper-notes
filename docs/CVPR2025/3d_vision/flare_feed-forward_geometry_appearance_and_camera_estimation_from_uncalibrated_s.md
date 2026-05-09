@@ -126,6 +126,8 @@ $$\mathcal{L}_{total} = \lambda_{pose}\mathcal{L}_{pose} + \lambda_{geo}\mathcal
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Dyn-HaMR: Recovering 4D Interacting Hand Motion from a Dynamic Camera](dyn_hamr_recovering_4d_interacting_hand_motion_from_a_dynamic_camera.md)
@@ -133,5 +135,7 @@ $$\mathcal{L}_{total} = \lambda_{pose}\mathcal{L}_{pose} + \lambda_{geo}\mathcal
 - [\[CVPR 2025\] Multi-View Pose-Agnostic Change Localization with Zero Labels](multi-view_pose-agnostic_change_localization_with_zero_labels.md)
 - [\[CVPR 2025\] Fine-Grained Erasure in Text-to-Image Diffusion-based Foundation Models](fine-grained_erasure_in_text-to-image_diffusion-based_foundation_models.md)
 - [\[CVPR 2025\] DUNE: Distilling a Universal Encoder from Heterogeneous 2D and 3D Teachers](dune_distilling_a_universal_encoder_from_heterogeneous_2d_and_3d_teachers.md)
+
+</div>
 
 <!-- RELATED:END -->

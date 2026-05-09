@@ -147,6 +147,8 @@ Nemotron-CC-HQ 在 1T 短训练中就超 DCLM **+5.6 MMLU**、**+3.1 均分**；
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Data Caricatures: On the Representation of African American Language in Pretraining Corpora](data_caricatures_on_the_representation_of_african_american_language_in_pretraini.md)
@@ -154,5 +156,7 @@ Nemotron-CC-HQ 在 1T 短训练中就超 DCLM **+5.6 MMLU**、**+3.1 均分**；
 - [\[ACL 2025\] Between Circuits and Chomsky: Pre-pretraining on Formal Languages Imparts Linguistic Biases](between_circuits_chomsky.md)
 - [\[ACL 2025\] Emergent Abilities of Large Language Models under Continued Pretraining for Language Adaptation](emergent_abilities_continued_pt.md)
 - [\[ICLR 2026\] FictionalQA: A Dataset for Studying Memorization and Knowledge Acquisition](../../ICLR2026/llm_pretraining/fictionalqa_a_dataset_for_studying_memorization_and_knowledge_acquisition.md)
+
+</div>
 
 <!-- RELATED:END -->

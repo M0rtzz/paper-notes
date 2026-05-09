@@ -177,6 +177,8 @@ $$\mathcal{L} = \sqrt{2} \exp(-\mu) \mathcal{L}_{3D} + \mu$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] OpenBox: Annotate Any Bounding Boxes in 3D](openbox_annotate_any_bounding_boxes_in_3d.md)
@@ -184,5 +186,7 @@ $$\mathcal{L} = \sqrt{2} \exp(-\mu) \mathcal{L}_{3D} + \mu$$
 - [\[NeurIPS 2025\] Towards Predicting Any Human Trajectory in Context](towards_predicting_any_human_trajectory_in_context.md)
 - [\[AAAI 2026\] Difficulty-Aware Label-Guided Denoising for Monocular 3D Object Detection](../../AAAI2026/autonomous_driving/difficulty-aware_label-guided_denoising_for_monocular_3d_object_detection.md)
 - [\[ICCV 2025\] MonoSOWA: Scalable Monocular 3D Object Detector Without Human Annotations](../../ICCV2025/autonomous_driving/monosowa_scalable_monocular_3d_object_detector_without_human_annotations.md)
+
+</div>
 
 <!-- RELATED:END -->

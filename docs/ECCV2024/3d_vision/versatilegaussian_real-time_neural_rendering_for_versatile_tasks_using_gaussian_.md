@@ -121,6 +121,8 @@ VersatileGaussian 在标准 3DGS 的基础上，为每个高斯球增加一个�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] HeadGaS: Real-Time Animatable Head Avatars via 3D Gaussian Splatting](headgas_real-time_animatable_head_avatars_via_3d_gaussian_splatting.md)
@@ -128,5 +130,7 @@ VersatileGaussian 在标准 3DGS 的基础上，为每个高斯球增加一个�
 - [\[ECCV 2024\] A Compact Dynamic 3D Gaussian Representation for Real-Time Dynamic View Synthesis](a_compact_dynamic_3d_gaussian_representation_for_realtime_dy.md)
 - [\[ECCV 2024\] Hyperion: A Fast, Versatile Symbolic Gaussian Belief Propagation Framework for Continuous-Time SLAM](hyperion_-_a_fast_versatile_symbolic_gaussian_belief_propagation_framework_for_c.md)
 - [\[ECCV 2024\] CityGaussian: Real-Time High-Quality Large-Scale Scene Rendering with Gaussians](citygaussian_real-time_high-quality_large-scale_scene_rendering_with_gaussians.md)
+
+</div>
 
 <!-- RELATED:END -->

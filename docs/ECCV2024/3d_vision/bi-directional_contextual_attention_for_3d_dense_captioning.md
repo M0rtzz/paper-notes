@@ -161,6 +161,8 @@ Vote2Cap-DETR++ 虽然解耦了定位和描述 query，但其解耦 query 仍是
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] View Selection for 3D Captioning via Diffusion Ranking](view_selection_for_3d_captioning_via_diffusion_ranking.md)
@@ -168,5 +170,7 @@ Vote2Cap-DETR++ 虽然解耦了定位和描述 query，但其解耦 query 仍是
 - [\[ECCV 2024\] ScatterFormer: Efficient Voxel Transformer with Scattered Linear Attention](scatterformer_efficient_voxel_transformer_with_scattered_linear_attention.md)
 - [\[ECCV 2024\] FALIP: Visual Prompt as Foveal Attention Boosts CLIP Zero-Shot Performance](falip_visual_prompt_as_foveal_attention_boosts_clip_zero-shot_performance.md)
 - [\[ICCV 2025\] From One to More: Contextual Part Latents for 3D Generation](../../ICCV2025/3d_vision/from_one_to_more_contextual_part_latents_for_3d_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

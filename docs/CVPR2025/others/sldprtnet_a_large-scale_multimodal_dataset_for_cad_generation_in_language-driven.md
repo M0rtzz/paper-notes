@@ -118,6 +118,8 @@ SldprtNet 的构建 pipeline 包含四个阶段：(1) 从 GrabCAD、McMaster-Car
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] 4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)
@@ -125,5 +127,7 @@ SldprtNet 的构建 pipeline 包含四个阶段：(1) 从 GrabCAD、McMaster-Car
 - [\[CVPR 2025\] Regor: Progressive Correspondence Regenerator for Robust 3D Registration](progressive_correspondence_regenerator_for_robust_3d_registration.md)
 - [\[CVPR 2025\] Towards Million-Scale Adversarial Robustness Evaluation With Stronger Individual Attacks](towards_million-scale_adversarial_robustness_evaluation_with_stronger_individual.md)
 - [\[CVPR 2025\] Exploring Contextual Attribute Density in Referring Expression Counting (CAD-GD)](exploring_contextual_attribute_density_in_referring_expression_counting.md)
+
+</div>
 
 <!-- RELATED:END -->

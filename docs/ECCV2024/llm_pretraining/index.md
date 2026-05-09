@@ -10,6 +10,10 @@ description: >-
 
 **🎞️ ECCV2024** · **11** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/llm_pretraining/) · [📷 CVPR2026 (10)](../../CVPR2026/llm_pretraining/) · [🔬 ICLR2026 (27)](../../ICLR2026/llm_pretraining/) · [🤖 AAAI2026 (6)](../../AAAI2026/llm_pretraining/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_pretraining/) · [📹 ICCV2025 (10)](../../ICCV2025/llm_pretraining/)
+
+🔥 **高频主题：** 少样本学习 ×2
+
 **[Cross-Domain Learning for Video Anomaly Detection with Limited Supervision](cross-domain_learning_for_video_anomaly_detection_with_limited_supervision.md)**
 
 :   提出弱监督跨域学习（CDL）框架，通过不确定性驱动的伪标签机制将无标注外部视频整合到训练中，显著提升视频异常检测的跨域泛化能力。

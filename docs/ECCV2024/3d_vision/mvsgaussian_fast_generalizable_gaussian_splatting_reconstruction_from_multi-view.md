@@ -95,6 +95,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] GaussReg: Fast 3D Registration with Gaussian Splatting](gaussreg_fast_3d_registration_with_gaussian_splatting.md)
@@ -102,5 +104,7 @@ tags:
 - [\[ECCV 2024\] GaussCtrl: Multi-View Consistent Text-Driven 3D Gaussian Splatting Editing](gaussctrl_multi-view_consistent_text-driven_3d_gaussian_splatting_editing.md)
 - [\[ICCV 2025\] MuGS: Multi-Baseline Generalizable Gaussian Splatting Reconstruction](../../ICCV2025/3d_vision/mugs_multi-baseline_generalizable_gaussian_splatting_reconstruction.md)
 - [\[ECCV 2024\] G3R: Gradient Guided Generalizable Reconstruction](g3r_gradient_guided_generalizable_reconstruction.md)
+
+</div>
 
 <!-- RELATED:END -->

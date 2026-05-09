@@ -115,6 +115,8 @@ GUIDE 的构建分为三个阶段：(1) 视频收集——54 名新手用户在 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] MP-GUI: Modality Perception with MLLMs for GUI Understanding](../../CVPR2025/multimodal_vlm/mp-gui_modality_perception_with_mllms_for_gui_understanding.md)
@@ -122,5 +124,7 @@ GUIDE 的构建分为三个阶段：(1) 视频收集——54 名新手用户在 
 - [\[CVPR 2025\] OpenING: A Comprehensive Benchmark for Judging Open-ended Interleaved Image-Text Generation](../../CVPR2025/multimodal_vlm/opening_a_comprehensive_benchmark_for_judging_open-ended_interleaved_image-text_.md)
 - [\[ECCV 2024\] Towards Open-Ended Visual Quality Comparison](../../ECCV2024/multimodal_vlm/towards_openended_visual_quality_comparison.md)
 - [\[CVPR 2026\] ENC-Bench: A Benchmark for Evaluating MLLMs in Electronic Navigational Chart Understanding](enc-bench_a_benchmark_for_evaluating_multimodal_large_language_models_in_electro.md)
+
+</div>
 
 <!-- RELATED:END -->

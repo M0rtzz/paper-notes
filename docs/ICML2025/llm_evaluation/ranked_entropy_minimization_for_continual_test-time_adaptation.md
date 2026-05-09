@@ -197,6 +197,8 @@ $$\mathcal{L}_{REM} = \mathcal{L}_{MCL} + \lambda \cdot \mathcal{L}_{ERL}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Decoupled Entropy Minimization](../../NeurIPS2025/llm_evaluation/decoupled_entropy_minimization.md)
@@ -204,5 +206,7 @@ $$\mathcal{L}_{REM} = \mathcal{L}_{MCL} + \lambda \cdot \mathcal{L}_{ERL}$$
 - [\[ICCV 2025\] BATCLIP: Bimodal Online Test-Time Adaptation for CLIP](../../ICCV2025/llm_evaluation/batclip_bimodal_online_test-time_adaptation_for_clip.md)
 - [\[ECCV 2024\] Distribution Alignment for Fully Test-Time Adaptation with Dynamic Online Data Streams](../../ECCV2024/llm_evaluation/distribution_alignment_for_fully_test-time_adaptation_with_dynamic_online_data_s.md)
 - [\[CVPR 2025\] OODD: Test-time Out-of-Distribution Detection with Dynamic Dictionary](../../CVPR2025/llm_evaluation/oodd_test-time_out-of-distribution_detection_with_dynamic_dictionary.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **📹 ICCV2025** · **48** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/others/) · [📷 CVPR2026 (54)](../../CVPR2026/others/) · [🔬 ICLR2026 (76)](../../ICLR2026/others/) · [🤖 AAAI2026 (126)](../../AAAI2026/others/) · [🧠 NeurIPS2025 (154)](../../NeurIPS2025/others/) · [🧪 ICML2025 (93)](../../ICML2025/others/)
+
+🔥 **高频主题：** 对抗鲁棒 ×6 · 动态场景 ×2 · 少样本学习 ×2 · 人脸/视线 ×2 · 扩散模型 ×2
+
 **[A Hidden Stumbling Block in Generalized Category Discovery: Distracted Attention](a_hidden_stumbling_block_in_generalized_category_discovery_d.md)**
 
 :   发现GCD中未标注数据（尤其是未知类别）的ViT注意力会分散到背景区域（distracted attention），提出Attention Focusing（AF）模块通过多尺度token重要性度量+自适应剪枝来纠正注意力，作为即插即用模块在SimGCD上最高带来15.4%的性能提升。

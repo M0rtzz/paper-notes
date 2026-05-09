@@ -120,6 +120,8 @@ FlashMotion 在 FlashBench（作者新提出的基准）和已有基准上进行
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] OSV: One Step is Enough for High-Quality Image to Video Generation](osv_one_step_is_enough_for_high-quality_image_to_video_generation.md)
@@ -127,5 +129,7 @@ FlashMotion 在 FlashBench（作者新提出的基准）和已有基准上进行
 - [\[CVPR 2025\] VideoDPO: Omni-Preference Alignment for Video Diffusion Generation](videodpo_omni-preference_alignment_for_video_diffusion_generation.md)
 - [\[CVPR 2025\] TokenMotion: Decoupled Motion Control via Token Disentanglement for Human-centric Video Generation](tokenmotion_decoupled_motion_control_via_token_disentanglement_for_human-centric.md)
 - [\[CVPR 2025\] Learning Temporally Consistent Video Depth from Video Diffusion Priors](learning_temporally_consistent_video_depth_from_video_diffusion_priors.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -145,6 +145,8 @@ PA-Tool 完全无训练。仅需一次性的 Schema 映射：使用 32 个候选
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] ControlLLM: Augment Language Models with Tools by Searching on Graphs](../../ECCV2024/llm_nlp/controlllm_augment_language_models_with_tools.md)
@@ -152,5 +154,7 @@ PA-Tool 完全无训练。仅需一次性的 Schema 映射：使用 32 个候选
 - [\[ICLR 2026\] Predicting LLM Reasoning Performance with Small Proxy Models](../../ICLR2026/llm_nlp/predicting_llm_reasoning_performance_with_small_proxy_models.md)
 - [\[CVPR 2026\] Perception Programs: Unlocking Visual Tool Reasoning in Language Models](../../CVPR2026/llm_nlp/perception_programs_visual_tool_reasoning.md)
 - [\[NeurIPS 2025\] Nemotron-Flash: Towards Latency-Optimal Hybrid Small Language Models](../../NeurIPS2025/llm_nlp/nemotron-flash_towards_latency-optimal_hybrid_small_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

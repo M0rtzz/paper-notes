@@ -159,6 +159,8 @@ $$\mathcal{L}_{\text{ndc}} = \sum_{i=1}^{n}\sum_t \text{ReLU}(\mathcal{P}(B_i(t)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Escaping Plato's Cave: Towards the Alignment of 3D and Text Latent Spaces](../../CVPR2025/self_supervised/escaping_platos_cave_towards_the_alignment_of_3d_and_text_latent_spaces.md)
@@ -166,5 +168,7 @@ $$\mathcal{L}_{\text{ndc}} = \sum_{i=1}^{n}\sum_t \text{ReLU}(\mathcal{P}(B_i(t)
 - [\[ICML 2025\] Global Context-aware Representation Learning for Spatially Resolved Transcriptomics](../../ICML2025/self_supervised/global_context-aware_representation_learning_for_spatially_resolved_transcriptom.md)
 - [\[CVPR 2025\] Learning to Normalize on the SPD Manifold under Bures-Wasserstein Geometry](../../CVPR2025/self_supervised/learning_to_normalize_on_the_spd_manifold_under_bures-wasserstein_geometry.md)
 - [\[ICCV 2025\] Manual-PA: Learning 3D Part Assembly from Instruction Diagrams](manual-pa_learning_3d_part_assembly_from_instruction_diagrams.md)
+
+</div>
 
 <!-- RELATED:END -->

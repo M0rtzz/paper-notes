@@ -129,12 +129,16 @@ RepTRFD 由三个核心组件构成：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] QuadSync: Quadrifocal Tensor Synchronization via Tucker Decomposition](quadsync_quadrifocal_tensor_synchronization_via_tucker_decomposition.md)
 - [\[ECCV 2024\] MIGS: Multi-Identity Gaussian Splatting via Tensor Decomposition](../../ECCV2024/3d_vision/migs_multi-identity_gaussian_splatting_via_tensor_decomposition.md)
 - [\[CVPR 2026\] PAD-Hand: Physics-Aware Diffusion for Hand Motion Recovery](pad-hand_physics-aware_diffusion_for_hand_motion_recovery.md)
 - [\[CVPR 2026\] FunREC: Reconstructing Functional 3D Scenes from Egocentric Interaction Videos](funrec_reconstructing_functional_3d_scenes_from_egocentric_interaction_videos.md)
-- [\[CVPR 2026\] DeepShapeMatchingKit: Accelerated Functional Map Solver and Shape Matching Pipelines Revisited](deepshapematchingkit_accelerated_functional_map_solver.md)
+- [\[CVPR 2026\] What Makes Good Synthetic Training Data for Zero-Shot Stereo Matching?](what_makes_good_synthetic_training_data_for_zero-shot_stereo_matching.md)
+
+</div>
 
 <!-- RELATED:END -->

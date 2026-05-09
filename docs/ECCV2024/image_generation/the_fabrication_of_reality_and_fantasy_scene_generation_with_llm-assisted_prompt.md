@@ -194,6 +194,8 @@ RFNet 在 GPT4Score 上比 Stable Diffusion 提升 33%，在 Creativity & Imagin
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] EchoScene: Indoor Scene Generation via Information Echo over Scene Graph Diffusion](echoscene_indoor_scene_generation_via_information_echo_over_scene_graph_diffusio.md)
@@ -201,5 +203,7 @@ RFNet 在 GPT4Score 上比 Stable Diffusion 提升 33%，在 Creativity & Imagin
 - [\[ECCV 2024\] Soft Prompt Generation for Domain Generalization](soft_prompt_generation_for_domain_generalization.md)
 - [\[ECCV 2024\] Mutual Learning for Acoustic Matching and Dereverberation via Visual Scene-driven Diffusion](mutual_learning_for_acoustic_matching_and_dereverberation_via_visual_scene-drive.md)
 - [\[ECCV 2024\] DCDM: Diffusion-Conditioned-Diffusion Model for Scene Text Image Super-Resolution](dcdm_diffusion-conditioned-diffusion_model_for_scene_text_image_super-resolution.md)
+
+</div>
 
 <!-- RELATED:END -->

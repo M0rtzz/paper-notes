@@ -160,6 +160,8 @@ Posterior Net 对稳定训练和提升性能至关重要。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Hiding Images in Diffusion Models by Editing Learned Score Functions](../../CVPR2025/image_generation/hiding_images_in_diffusion_models_by_editing_learned_score_functions.md)
@@ -167,5 +169,7 @@ Posterior Net 对稳定训练和提升性能至关重要。
 - [\[ACL 2025\] OZSpeech: One-step Zero-shot Speech Synthesis with Learned-Prior-Conditioned Flow Matching](../../ACL2025/image_generation/ozspeech_one-step_zero-shot_speech_synthesis_with_learned-prior-conditioned_flow.md)
 - [\[ICCV 2025\] MoFRR: Mixture of Diffusion Models for Face Retouching Restoration](../../ICCV2025/image_generation/mofrr_mixture_of_diffusion_models_for_face_retouching_restoration.md)
 - [\[ICCV 2025\] DIIP: Diffusion Image Prior](../../ICCV2025/image_generation/diffusion_image_prior.md)
+
+</div>
 
 <!-- RELATED:END -->

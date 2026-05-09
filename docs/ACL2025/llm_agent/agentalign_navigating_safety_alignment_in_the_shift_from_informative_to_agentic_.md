@@ -148,6 +148,8 @@ AgentAlign 由四个环环相扣的模块组成：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Towards Safety Reasoning in LLMs: AI-agentic Deliberation for Policy-embedded CoT Data Creation](towards_safety_reasoning_in_llms_ai-agentic_deliberation_for_policy-embedded_cot.md)
@@ -155,5 +157,7 @@ AgentAlign 由四个环环相扣的模块组成：
 - [\[ACL 2025\] Enhancing LLM Agent Safety via Causal Influence Prompting](enhancing_llm_agent_safety_via_causal_influence_prompting.md)
 - [\[NeurIPS 2025\] AgentChangeBench: A Multi-Dimensional Evaluation Framework for Goal-Shift Robustness](../../NeurIPS2025/llm_agent/agentchangebench_a_multi-dimensional_evaluation_framework_for_goal-shift_robustn.md)
 - [\[ACL 2025\] Agentic Reasoning: A Streamlined Framework for Enhancing LLM Reasoning with Agentic Tools](agentic_reasoning_tools.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -146,6 +146,8 @@ $$\mathcal{L}(\phi) = -\mathbb{E}_{p \sim \pi_\phi}[R(p)] + \beta \text{KL}(\pi_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Reinforcement Learning with Backtracking Feedback](reinforcement_learning_with_backtracking_feedback.md)
@@ -153,5 +155,7 @@ $$\mathcal{L}(\phi) = -\mathbb{E}_{p \sim \pi_\phi}[R(p)] + \beta \text{KL}(\pi_
 - [\[NeurIPS 2025\] TRAP: Targeted Redirecting of Agentic Preferences](trap_targeted_redirecting_of_agentic_preferences.md)
 - [\[NeurIPS 2025\] Distributive Fairness in Large Language Models: Evaluating Alignment with Human Values](distributive_fairness_in_large_language_models_evaluating_alignment_with_human_v.md)
 - [\[NeurIPS 2025\] FedSVD: Adaptive Orthogonalization for Private Federated Learning with LoRA](fedsvd_adaptive_orthogonalization_for_private_federated_learning_with_lora.md)
+
+</div>
 
 <!-- RELATED:END -->

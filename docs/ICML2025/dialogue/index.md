@@ -10,6 +10,8 @@ description: >-
 
 **🧪 ICML2025** · **3** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/dialogue/) · [📷 CVPR2026 (1)](../../CVPR2026/dialogue/) · [🔬 ICLR2026 (5)](../../ICLR2026/dialogue/) · [🤖 AAAI2026 (5)](../../AAAI2026/dialogue/) · [🧠 NeurIPS2025 (5)](../../NeurIPS2025/dialogue/) · [💬 ACL2025 (23)](../../ACL2025/dialogue/)
+
 **[Agent WARPP: Workflow Adherence via Runtime Parallel Personalization](agent_warpp_workflow_adherence_via_runtime_parallel_personalization.md)**
 
 :   提出 WARPP，一个无需训练的多智能体框架，在运行时根据用户属性动态剪枝条件分支工作流，并通过并行化的 Personalizer 智能体与模块化域特定智能体协同执行，在提升工具调用精度和参数保真度的同时减少 token 消耗。

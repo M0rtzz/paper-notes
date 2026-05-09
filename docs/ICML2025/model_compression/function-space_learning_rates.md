@@ -158,6 +158,8 @@ $$\eta^\ell = \eta_0 \cdot \frac{\|\Delta_\ell \mathbf{f}\|_{\text{RMS}}^{\text{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] LoRA Subtraction for Drift-Resistant Space in Exemplar-Free Continual Learning](../../CVPR2025/model_compression/lora_subtraction_for_drift-resistant_space_in_exemplar-free_continual_learning.md)
@@ -165,5 +167,7 @@ $$\eta^\ell = \eta_0 \cdot \frac{\|\Delta_\ell \mathbf{f}\|_{\text{RMS}}^{\text{
 - [\[CVPR 2025\] Tripartite Weight-Space Ensemble for Few-Shot Class-Incremental Learning](../../CVPR2025/model_compression/tripartite_weight-space_ensemble_for_few-shot_class-incremental_learning.md)
 - [\[ICML 2025\] Parameter-Efficient Fine-Tuning of State Space Models](parameter-efficient_fine-tuning_of_state_space_models.md)
 - [\[ICLR 2026\] Topology and Geometry of the Learning Space of ReLU Networks: Connectivity and Size](../../ICLR2026/model_compression/topology_and_geometry_of_the_learning_space_of_relu_networks_connectivity_and_si.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -127,6 +127,8 @@ VLM 在图像理解任务上表现优异，但一个关键问题被忽略了：*
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Vision-Language Models Struggle to Align Entities across Modalities](vision-language_models_struggle_to_align_entities_across_modalities.md)
@@ -134,5 +136,7 @@ VLM 在图像理解任务上表现优异，但一个关键问题被忽略了：*
 - [\[ACL 2025\] Weaving Context Across Images: Improving Vision-Language Models through Focus-Centric Visual Chains](weaving_context_across_images_improving_vision-language_models_through_focus-cen.md)
 - [\[ACL 2025\] RATE-Nav: Region-Aware Termination Enhancement for Zero-shot Object Navigation with Vision-Language Models](rate-nav_region-aware_termination_enhancement_for_zero-shot_object_navigation_wi.md)
 - [\[CVPR 2025\] A Closed-Form Solution for Debiasing Vision-Language Models with Utility Guarantees Across Modalities and Tasks](../../CVPR2025/multimodal_vlm/a_closed-form_solution_for_debiasing_vision-language_models_with_utility_guarant.md)
+
+</div>
 
 <!-- RELATED:END -->

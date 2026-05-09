@@ -160,6 +160,8 @@ $$\mathbb{E}[F(x_\tau) - \min_x F(x)] \leq \frac{8(d+6)L_1\|x_0 - x_F^*\|^2}{T} 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Trust Region Reward Optimization and Proximal Inverse Reward Optimization Algorithm](trust_region_reward_optimization_and_proximal_inverse_reward_optimization_algori.md)
@@ -167,5 +169,7 @@ $$\mathbb{E}[F(x_\tau) - \min_x F(x)] \leq \frac{8(d+6)L_1\|x_0 - x_F^*\|^2}{T} 
 - [\[NeurIPS 2025\] Complexity Scaling Laws for Neural Models using Combinatorial Optimization](complexity_scaling_laws_for_neural_models_using_combinatorial_optimization.md)
 - [\[NeurIPS 2025\] Improved Regret Bounds for GP-UCB in Bayesian Optimization](improved_regret_bounds_for_gaussian_process_upper_confidence_bound_in_bayesian_o.md)
 - [\[NeurIPS 2025\] PARCO: Parallel AutoRegressive Models for Multi-Agent Combinatorial Optimization](parco_parallel_autoregressive_models_for_multi-agent_combinatorial_optimization.md)
+
+</div>
 
 <!-- RELATED:END -->

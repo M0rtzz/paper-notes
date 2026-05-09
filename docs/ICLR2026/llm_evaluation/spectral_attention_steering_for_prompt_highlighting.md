@@ -176,6 +176,8 @@ SEKA 几乎零开销，PASTA 内存翻倍、延迟翻三倍。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] vCache: Verified Semantic Prompt Caching](vcache_verified_semantic_prompt_caching.md)
@@ -183,5 +185,7 @@ SEKA 几乎零开销，PASTA 内存翻倍、延迟翻三倍。
 - [\[ICLR 2026\] GuidedSampling: Steering LLMs Towards Diverse Candidate Solutions at Inference-Time](guidedsampling_steering_llms_towards_diverse_candidate_solutions_at_inference-ti.md)
 - [\[ICLR 2026\] Breaking the Correlation Plateau: On the Optimization and Capacity Limits of Attention-Based Regressors](breaking_the_correlation_plateau_on_the_optimization_and_capacity_limits_of_atte.md)
 - [\[NeurIPS 2025\] PaTH Attention: Position Encoding via Accumulating Householder Transformations](../../NeurIPS2025/llm_evaluation/path_attention_position_encoding_via_accumulating_householder_transformations.md)
+
+</div>
 
 <!-- RELATED:END -->

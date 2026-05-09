@@ -131,6 +131,8 @@ MathFimer 框架分为两个阶段：(1) 训练 FIM 模型；(2) 使用训练好
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] FractalBench: Diagnosing Visual-Mathematical Reasoning Through Recursive Program Synthesis](../../NeurIPS2025/code_intelligence/fractalbench_diagnosing_visual-mathematical_reasoning_through_recursive_program_.md)
@@ -138,5 +140,7 @@ MathFimer 框架分为两个阶段：(1) 训练 FIM 模型；(2) 使用训练好
 - [\[ICLR 2026\] Supervised Reinforcement Learning: From Expert Trajectories to Step-wise Reasoning](supervised_reinforcement_learning_from_expert_trajectories_to_step-wise_reasonin.md)
 - [\[ICLR 2026\] ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory](reasoningbank_scaling_agent_self-evolving_with_reasoning_memory.md)
 - [\[ICML 2025\] AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence](../../ICML2025/code_intelligence/adaptivestep_automatically_dividing_reasoning_step_through_model_confidence.md)
+
+</div>
 
 <!-- RELATED:END -->

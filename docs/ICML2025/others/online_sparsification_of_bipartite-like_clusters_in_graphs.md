@@ -221,6 +221,8 @@ $$1 - \frac{1}{1-c} \cdot \rho_{H^*}(k) \le \bar{\rho}_{\overrightarrow{G^*}}(k)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Learning-Augmented Online Bipartite Fractional Matching](../../NeurIPS2025/others/learning-augmented_online_bipartite_fractional_matching.md)
@@ -228,5 +230,7 @@ $$1 - \frac{1}{1-c} \cdot \rho_{H^*}(k) \le \bar{\rho}_{\overrightarrow{G^*}}(k)
 - [\[NeurIPS 2025\] Adjusted Count Quantification Learning on Graphs](../../NeurIPS2025/others/adjusted_count_quantification_learning_on_graphs.md)
 - [\[ICML 2025\] Provably Efficient Algorithm for Best Scoring Rule Identification in Online Principal-Agent Information Acquisition](provably_efficient_algorithm_for_best_scoring_rule_identification_in_online_prin.md)
 - [\[ICML 2025\] Avoiding Catastrophe in Online Learning by Asking for Help](avoiding_catastrophe_in_online_learning_by_asking_for_help.md)
+
+</div>
 
 <!-- RELATED:END -->

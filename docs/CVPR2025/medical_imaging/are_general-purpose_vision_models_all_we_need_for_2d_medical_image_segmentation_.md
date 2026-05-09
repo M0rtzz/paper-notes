@@ -124,6 +124,8 @@ ISIC'18使用二元交叉熵损失，BKAI-IGH和CAMUS使用标准交叉熵损失
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation? A Cross-Dataset Empirical Study](../../CVPR2026/medical_imaging/are_generalpurpose_vision_models_all_we_need_for_2.md)
@@ -131,5 +133,7 @@ ISIC'18使用二元交叉熵损失，BKAI-IGH和CAMUS使用标准交叉熵损失
 - [\[CVPR 2025\] BiCLIP: Bidirectional and Consistent Language-Image Processing for Robust Medical Image Segmentation](biclip_bidirectional_and_consistent_language-image_processing_for_robust_medical.md)
 - [\[CVPR 2025\] Show and Segment: Universal Medical Image Segmentation via In-Context Learning](show_and_segment_universal_medical_image_segmentation_via_in-context_learning.md)
 - [\[CVPR 2025\] Towards All-in-One Medical Image Re-Identification](towards_all-in-one_medical_image_re-identification.md)
+
+</div>
 
 <!-- RELATED:END -->

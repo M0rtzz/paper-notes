@@ -137,6 +137,8 @@ $$\forall i: \Pr_{x \sim \mathcal{D}}[t(x) = d_t[i{+}1:] \circ \gamma_i \circ d_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] A Reasoning-Based Approach to Cryptic Crossword Clue Solving](a_reasoning-based_approach_to_cryptic_crossword_clue_solving.md)
@@ -144,5 +146,7 @@ $$\forall i: \Pr_{x \sim \mathcal{D}}[t(x) = d_t[i{+}1:] \circ \gamma_i \circ d_
 - [\[NeurIPS 2025\] Additive Models Explained: A Computational Complexity Approach](../../NeurIPS2025/interpretability/additive_models_explained_a_computational_complexity_approach.md)
 - [\[NeurIPS 2025\] SpEx: A Spectral Approach to Explainable Clustering](../../NeurIPS2025/interpretability/spex_a_spectral_approach_to_explainable_clustering.md)
 - [\[ICML 2025\] To Steer or Not to Steer? Mechanistic Error Reduction with Abstention for Language Models](to_steer_or_not_to_steer_mechanistic_error_reduction_with_abstention_for_languag.md)
+
+</div>
 
 <!-- RELATED:END -->

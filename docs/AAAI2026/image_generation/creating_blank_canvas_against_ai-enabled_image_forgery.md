@@ -169,6 +169,8 @@ $$\delta^* = \arg\max_{\|\delta\|_\infty \leq \epsilon} \mathcal{L}_{\text{attac
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Towards Robust Content Watermarking Against Removal and Forgery Attacks](../../CVPR2026/image_generation/towards_robust_content_watermarking_against_removal_and_forgery_attacks.md)
@@ -176,5 +178,7 @@ $$\delta^* = \arg\max_{\|\delta\|_\infty \leq \epsilon} \mathcal{L}_{\text{attac
 - [\[AAAI 2026\] MacPrompt: Maraconic-guided Jailbreak against Text-to-Image Models](macprompt_maraconic-guided_jailbreak_against_text-to-image_models.md)
 - [\[AAAI 2026\] Aggregating Diverse Cue Experts for AI-Generated Image Detection](aggregating_diverse_cue_experts_for_ai-generated_image_detec.md)
 - [\[AAAI 2026\] AEDR: Training-Free AI-Generated Image Attribution via Autoencoder Double-Reconstruction](aedr_training-free_ai-generated_image_attribution_via_autoen.md)
+
+</div>
 
 <!-- RELATED:END -->

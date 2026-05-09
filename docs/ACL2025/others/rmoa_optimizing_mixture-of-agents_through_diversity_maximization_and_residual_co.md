@@ -160,6 +160,8 @@ RMoA 是一个纯推理框架，无需训练。关键超参数：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] A New Formulation of Zipf's Meaning-Frequency Law through Contextual Diversity](a_new_formulation_of_zipfs_meaning-frequency_law_through_contextual_diversity.md)
@@ -167,5 +169,7 @@ RMoA 是一个纯推理框架，无需训练。关键超参数：
 - [\[ACL 2025\] Optimizing Decomposition for Optimal Claim Verification](optimizing_decomposition_for_optimal_claim_verification.md)
 - [\[ACL 2025\] Evaluating the Evaluation of Diversity in Commonsense Generation](evaluating_the_evaluation_of_diversity_in_commonsense_generation.md)
 - [\[ACL 2025\] Value Residual Learning](value_residual_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -131,6 +131,8 @@ $$\min_\Phi \mathbb{E}\left[D_\Phi^+ + D_\Phi^-\right]$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Compiling Activation Steering into Weights via Null-Space Constraints for Stealthy Backdoors](../../ACL2026/llm_safety/compiling_activation_steering_into_weights_via_null-space_constraints_for_stealt.md)
@@ -138,5 +140,7 @@ $$\min_\Phi \mathbb{E}\left[D_\Phi^+ + D_\Phi^-\right]$$
 - [\[ACL 2025\] Faithful and Robust LLM-Driven Theorem Proving for NLI Explanations](../../ACL2025/llm_safety/faithful_and_robust_llm-driven_theorem_proving_for_nli_explanations.md)
 - [\[NeurIPS 2025\] SAEMark: Steering Personalized Multilingual LLM Watermarks with Sparse Autoencoders](../../NeurIPS2025/llm_safety/saemark_steering_personalized_multilingual_llm_watermarks_with_sparse_autoencode.md)
 - [\[ICLR 2026\] Self-Destructive Language Model](self-destructive_language_model.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -128,6 +128,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] COMPASS: Robust Feature Conformal Prediction for Medical Segmentation Metrics](compass_robust_feature_conformal_prediction_for_medical_segmentation_metrics.md)
@@ -135,5 +137,7 @@ tags:
 - [\[ICML 2025\] UniMoMo: Unified Generative Modeling of 3D Molecules for De Novo Binder Design](../../ICML2025/medical_imaging/unimomo_unified_generative_modeling_of_3d_molecules_for_de_novo_binder_design.md)
 - [\[ICLR 2026\] AFD-INSTRUCTION: A Comprehensive Antibody Instruction Dataset with Functional Annotations for LLM-Based Understanding and Design](afd-instruction_a_comprehensive_antibody_instruction_dataset_with_functional_ann.md)
 - [\[ICML 2025\] Multivariate Conformal Selection](../../ICML2025/medical_imaging/multivariate_conformal_selection.md)
+
+</div>
 
 <!-- RELATED:END -->

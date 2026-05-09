@@ -122,6 +122,8 @@ $$d_{\max} = \frac{1}{\kappa_{\max}} \left(1 - \sqrt{1 - \left(\frac{\kappa_{\ma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Generalized Linear Mode Connectivity for Transformers](../../NeurIPS2025/others/generalized_linear_mode_connectivity_for_transformers.md)
@@ -129,5 +131,7 @@ $$d_{\max} = \frac{1}{\kappa_{\max}} \left(1 - \sqrt{1 - \left(\frac{\kappa_{\ma
 - [\[ICML 2025\] Symmetry-Robust 3D Orientation Estimation](symmetry-robust_3d_orientation_estimation.md)
 - [\[ICML 2025\] Symmetry-Aware GFlowNets](symmetry-aware_gflownets.md)
 - [\[ICML 2025\] TANGO: Clustering with Typicality-Aware Nonlocal Mode-Seeking and Graph-Cut Optimization](tango_clustering_with_typicality-aware_nonlocal_mode-seeking_and_graph-cut_optim.md)
+
+</div>
 
 <!-- RELATED:END -->

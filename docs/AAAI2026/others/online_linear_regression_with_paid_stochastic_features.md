@@ -186,6 +186,8 @@ $$\text{Reg}(T) = \widetilde{\mathcal{O}}\left((S^2(R^2 d + S^2))^{2/3} \lambda^
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Transfer Learning for Benign Overfitting in High-Dimensional Linear Regression](../../NeurIPS2025/others/transfer_learning_for_benign_overfitting_in_high-dimensional_linear_regression.md)
@@ -193,5 +195,7 @@ $$\text{Reg}(T) = \widetilde{\mathcal{O}}\left((S^2(R^2 d + S^2))^{2/3} \lambda^
 - [\[ICML 2025\] Heavy-Tailed Linear Bandits: Huber Regression with One-Pass Update](../../ICML2025/others/heavy-tailed_linear_bandits_huber_regression_with_one-pass_update.md)
 - [\[AAAI 2026\] A Switching Framework for Online Interval Scheduling with Predictions](a_switching_framework_for_online_interval_scheduling_with_pr.md)
 - [\[AAAI 2026\] DeToNATION: Decoupled Torch Network-Aware Training on Interlinked Online Nodes](detonation_decoupled_torch_network-aware_training_on_interlinked_online_nodes.md)
+
+</div>
 
 <!-- RELATED:END -->

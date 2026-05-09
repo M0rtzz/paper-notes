@@ -175,6 +175,8 @@ PAG 中的不同边类型携带不同的因果信息：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Causal Discovery of Latent Variables in Galactic Archaeology](causal_discovery_of_latent_variables_in_galactic_archaeology.md)
@@ -182,5 +184,7 @@ PAG 中的不同边类型携带不同的因果信息：
 - [\[ICML 2025\] Latent Variable Causal Discovery under Selection Bias](latent_variable_causal_discovery_under_selection_bias.md)
 - [\[ICML 2025\] Causal Effect Identification in lvLiNGAM from Higher-Order Cumulants](causal_effect_identification_in_lvlingam_from_higher-order_cumulants.md)
 - [\[ICML 2025\] Isolated Causal Effects of Natural Language](isolated_causal_effects_of_natural_language.md)
+
+</div>
 
 <!-- RELATED:END -->

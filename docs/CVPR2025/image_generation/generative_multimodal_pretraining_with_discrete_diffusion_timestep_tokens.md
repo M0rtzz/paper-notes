@@ -118,6 +118,8 @@ Tokenizer 训练：重建损失 $\mathcal{L} = \mathbb{E}[\|d(t\epsilon + (1-t)x
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Efficient Generative Modeling with Residual Vector Quantization-Based Tokens](../../ICML2025/image_generation/efficient_generative_modeling_with_residual_vector_quantization-based_tokens.md)
@@ -125,5 +127,7 @@ Tokenizer 训练：重建损失 $\mathcal{L} = \mathbb{E}[\|d(t\epsilon + (1-t)x
 - [\[ICCV 2025\] Timestep-Aware Diffusion Model for Extreme Image Rescaling](../../ICCV2025/image_generation/timestep-aware_diffusion_model_for_extreme_image_rescaling.md)
 - [\[CVPR 2025\] VLOGGER: Multimodal Diffusion for Embodied Avatar Synthesis](vlogger_multimodal_diffusion_for_embodied_avatar_synthesis.md)
 - [\[NeurIPS 2025\] Multimodal Generative Flows for LHC Jets](../../NeurIPS2025/image_generation/multimodal_generative_flows_for_lhc_jets.md)
+
+</div>
 
 <!-- RELATED:END -->

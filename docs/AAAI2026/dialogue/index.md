@@ -10,6 +10,8 @@ description: >-
 
 **🤖 AAAI2026** · **5** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/dialogue/) · [📷 CVPR2026 (1)](../../CVPR2026/dialogue/) · [🔬 ICLR2026 (5)](../../ICLR2026/dialogue/) · [🧠 NeurIPS2025 (5)](../../NeurIPS2025/dialogue/) · [🧪 ICML2025 (3)](../../ICML2025/dialogue/) · [💬 ACL2025 (23)](../../ACL2025/dialogue/)
+
 **[Auto-PRE: An Automatic and Cost-Efficient Peer-Review Framework for Language Generation Evaluation](auto-pre_an_automatic_and_cost-efficient_peer-review_framework_for_language_gene.md)**
 
 :   提出 Auto-PRE 框架，通过自动资格考试从一致性、相关性、自信度三个维度筛选合格的 LLM 评估者，在无需人工标注的前提下实现了 SOTA 评估性能并大幅降低成本。

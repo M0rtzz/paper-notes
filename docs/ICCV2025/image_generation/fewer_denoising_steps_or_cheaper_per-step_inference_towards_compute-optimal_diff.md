@@ -158,6 +158,8 @@ PostDiff 完全是**训练无关**（training-free）的——不需要任何微
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Inference-Time Diffusion Model Distillation](inference-time_diffusion_model_distillation.md)
@@ -165,5 +167,7 @@ PostDiff 完全是**训练无关**（training-free）的——不需要任何微
 - [\[NeurIPS 2025\] AccuQuant: Simulating Multiple Denoising Steps for Quantizing Diffusion Models](../../NeurIPS2025/image_generation/accuquant_simulating_multiple_denoising_steps_for_quantizing.md)
 - [\[CVPR 2025\] Optimizing for the Shortest Path in Denoising Diffusion Model](../../CVPR2025/image_generation/optimizing_for_the_shortest_path_in_denoising_diffusion_model.md)
 - [\[ICCV 2025\] Compression-Aware One-Step Diffusion Model for JPEG Artifact Removal](compression-aware_one-step_diffusion_model_for_jpeg_artifact_removal.md)
+
+</div>
 
 <!-- RELATED:END -->

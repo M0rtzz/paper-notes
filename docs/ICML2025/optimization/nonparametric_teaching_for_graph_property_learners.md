@@ -137,6 +137,8 @@ GraNT 时间减半且 MAE 降低两个数量级。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Nonparametric Teaching of Attention Learners](../../ICLR2026/optimization/nonparametric_teaching_of_attention_learners.md)
@@ -144,5 +146,7 @@ GraNT 时间减半且 MAE 降低两个数量级。
 - [\[ICML 2025\] GCAL: Adapting Graph Models to Evolving Domain Shifts](gcal_adapting_graph_models_to_evolving_domain_shifts.md)
 - [\[ICML 2025\] Enhancing Parallelism in Decentralized Stochastic Convex Optimization](enhancing_parallelism_in_decentralized_stochastic_convex_optimization.md)
 - [\[ICML 2025\] The Panaceas for Improving Low-Rank Decomposition in Communication-Efficient Federated Learning](the_panaceas_for_improving_low-rank_decomposition_in_communication-efficient_fed.md)
+
+</div>
 
 <!-- RELATED:END -->

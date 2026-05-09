@@ -156,6 +156,8 @@ $$\phi(\mathbf{X}) = \text{ReLU}(\mathbf{W}_{qk}^{(h)} \mathbf{X}), \quad \psi(\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] TOMCAT: Test-time Comprehensive Knowledge Accumulation for Compositional Zero-Shot Learning](tomcat_test-time_comprehensive_knowledge_accumulation_for_compositional_zero-sho.md)
@@ -163,5 +165,7 @@ $$\phi(\mathbf{X}) = \text{ReLU}(\mathbf{W}_{qk}^{(h)} \mathbf{X}), \quad \psi(\
 - [\[CVPR 2025\] HiFICL: High-Fidelity In-Context Learning for Multimodal Tasks](../../CVPR2025/multimodal_vlm/hificl_high-fidelity_in-context_learning_for_multimodal_tasks.md)
 - [\[ICML 2025\] MMInference: Accelerating Pre-filling for Long-Context VLMs via Modality-Aware Permutation Sparse Attention](../../ICML2025/multimodal_vlm/mminference_accelerating_pre-filling_for_long-context_vlms_via_modality-aware_pe.md)
 - [\[NeurIPS 2025\] Advancing Compositional Awareness in CLIP with Efficient Fine-Tuning](advancing_compositional_awareness_in_clip_with_efficient_fin.md)
+
+</div>
 
 <!-- RELATED:END -->

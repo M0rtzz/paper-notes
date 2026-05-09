@@ -117,6 +117,8 @@ InterRetro作为Agent与树结构MDP交互：(1) **探索**——用当前策略
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] TreeRL: LLM Reinforcement Learning with On-Policy Tree Search](../../ACL2025/reinforcement_learning/treerl_tree_search_rl.md)
@@ -124,5 +126,7 @@ InterRetro作为Agent与树结构MDP交互：(1) **探索**——用当前策略
 - [\[NeurIPS 2025\] Scalable Policy-Based RL Algorithms for POMDPs](scalable_policy-based_rl_algorithms_for_pomdps.md)
 - [\[NeurIPS 2025\] Structured Reinforcement Learning for Combinatorial Decision-Making](structured_reinforcement_learning_for_combinatorial_decision-making.md)
 - [\[NeurIPS 2025\] Bandit and Delayed Feedback in Online Structured Prediction](bandit_and_delayed_feedback_in_online_structured_prediction.md)
+
+</div>
 
 <!-- RELATED:END -->

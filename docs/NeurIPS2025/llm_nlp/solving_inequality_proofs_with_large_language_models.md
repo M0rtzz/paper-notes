@@ -150,6 +150,8 @@ $$C^* = \sup\{C \in \mathbb{R} : f(\mathbf{x}) \geq C \cdot g(\mathbf{x}), \fora
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Perspective Transition of Large Language Models for Solving Subjective Tasks](../../ACL2025/llm_nlp/perspective_transition_of_large_language_models_for_solving_subjective_tasks.md)
@@ -157,5 +159,7 @@ $$C^* = \sup\{C \in \mathbb{R} : f(\mathbf{x}) \geq C \cdot g(\mathbf{x}), \fora
 - [\[NeurIPS 2025\] Scaling Up Active Testing to Large Language Models](scaling_up_active_testing_to_large_language_models.md)
 - [\[ACL 2025\] Semantic Exploration with Adaptive Gating for Efficient Problem Solving with Language Models](../../ACL2025/llm_nlp/semantic_exploration_adaptive_gating.md)
 - [\[NeurIPS 2025\] The Rise of Parameter Specialization for Knowledge Storage in Large Language Models](the_rise_of_parameter_specialization_for_knowledge_storage_in_large_language_mod.md)
+
+</div>
 
 <!-- RELATED:END -->

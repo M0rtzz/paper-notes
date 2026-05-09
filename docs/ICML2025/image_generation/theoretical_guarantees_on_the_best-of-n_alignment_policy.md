@@ -121,6 +121,8 @@ $$\hat{D}_{\text{KL}}(\varepsilon_n) = (1-\varepsilon_n)^n \left(\log n + (n-1)\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Video Prediction Policy: A Generalist Robot Policy with Predictive Visual Representations](video_prediction_policy_a_generalist_robot_policy_with_predictive_visual_represe.md)
@@ -128,5 +130,7 @@ $$\hat{D}_{\text{KL}}(\varepsilon_n) = (1-\varepsilon_n)^n \left(\log n + (n-1)\
 - [\[ICML 2025\] Discriminative Policy Optimization for Token-Level Reward Models](discriminative_policy_optimization_for_token-level_reward_models.md)
 - [\[NeurIPS 2025\] Flattening Hierarchies with Policy Bootstrapping](../../NeurIPS2025/image_generation/flattening_hierarchies_with_policy_bootstrapping.md)
 - [\[ICML 2025\] LIVS: A Pluralistic Alignment Dataset for Inclusive Public Spaces](livs_a_pluralistic_alignment_dataset_for_inclusive_public_spaces.md)
+
+</div>
 
 <!-- RELATED:END -->

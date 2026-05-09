@@ -143,6 +143,8 @@ Q-chunking 通过将动作空间从单步动作 $a_t$ 扩展为动作序列 $\ma
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] BEAST: Efficient Tokenization of B-Splines Encoded Action Sequences for Imitation Learning](beast_efficient_tokenization_of_b-splines_encoded_action_sequences_for_imitation.md)
@@ -150,5 +152,7 @@ Q-chunking 通过将动作空间从单步动作 $a_t$ 扩展为动作序列 $\ma
 - [\[ICML 2025\] Action-Constrained Imitation Learning](../../ICML2025/reinforcement_learning/action-constrained_imitation_learning.md)
 - [\[AAAI 2026\] Object-Centric Latent Action Learning](../../AAAI2026/reinforcement_learning/object-centric_latent_action_learning.md)
 - [\[NeurIPS 2025\] Hybrid Latent Reasoning via Reinforcement Learning](hybrid_latent_reasoning_via_reinforcement_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

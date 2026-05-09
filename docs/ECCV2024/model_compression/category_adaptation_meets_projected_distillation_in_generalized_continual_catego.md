@@ -165,6 +165,8 @@ $$\mathcal{L}_{PA} = \sum_{i \in B} \| \mathcal{F}^t(x_i) - \psi^{(t-1) \to t}(\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] TALON: Test-time Adaptive Learning for On-the-Fly Category Discovery](../../CVPR2026/model_compression/talon_test-time_adaptive_learning_for_on-the-fly_category_discovery.md)
@@ -172,5 +174,7 @@ $$\mathcal{L}_{PA} = \sum_{i \in B} \| \mathcal{F}^t(x_i) - \psi^{(t-1) \to t}(\
 - [\[ECCV 2024\] Anytime Continual Learning for Open Vocabulary Classification](anytime_continual_learning_for_open_vocabulary_classification.md)
 - [\[ECCV 2024\] Auto-DAS: Automated Proxy Discovery for Training-free Distillation-aware Architecture Search](auto-das_automated_proxy_discovery_for_training-free_distillation-aware_architec.md)
 - [\[ECCV 2024\] Adversarially Robust Distillation by Reducing the Student-Teacher Variance Gap](adversarially_robust_distillation_by_reducing_the_student-teacher_variance_gap.md)
+
+</div>
 
 <!-- RELATED:END -->

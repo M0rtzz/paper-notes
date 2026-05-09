@@ -159,6 +159,8 @@ $$F \approx 1 - (1-R)^2 = 2R - R^2$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Revisiting Logit Distributions for Reliable Out-of-Distribution Detection](revisiting_logit_distributions_for_reliable_out-of-distribution_detection.md)
@@ -166,5 +168,7 @@ $$F \approx 1 - (1-R)^2 = 2R - R^2$$
 - [\[CVPR 2025\] PEACE: Empowering Geologic Map Holistic Understanding with MLLMs](../../CVPR2025/multimodal_vlm/peace_empowering_geologic_map_holistic_understanding_with_mllms.md)
 - [\[ICCV 2025\] From Holistic to Localized: Local Enhanced Adapters for Efficient Visual Instruction Fine-Tuning](../../ICCV2025/multimodal_vlm/from_holistic_to_localized_local_enhanced_adapters_for_efficient_visual_instruct.md)
 - [\[NeurIPS 2025\] Context Informs Pragmatic Interpretation in Vision-Language Models](context_informs_pragmatic_interpretation_in_vision-language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

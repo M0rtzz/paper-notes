@@ -150,6 +150,8 @@ HAP 在 CRAFT Hard 任务上比 DreamerV3 高 15%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Small Language Models as Compiler Experts: Auto-Parallelization for Heterogeneous Systems](small_language_models_as_compiler_experts_auto-parallelization_for_heterogeneous.md)
@@ -157,5 +159,7 @@ HAP 在 CRAFT Hard 任务上比 DreamerV3 高 15%。
 - [\[ICML 2025\] IBDR: Promoting Ensemble Diversity with Interactive Bayesian Distributional Robustness](../../ICML2025/llm_evaluation/promoting_ensemble_diversity_with_interactive_bayesian_distributional_robustness.md)
 - [\[ICML 2025\] Provably Cost-Sensitive Adversarial Defense via Randomized Smoothing](../../ICML2025/llm_evaluation/provably_cost-sensitive_adversarial_defense_via_randomized_smoothing.md)
 - [\[ICML 2025\] EnIGMA: Interactive Tools Substantially Assist LM Agents in Finding Security Vulnerabilities](../../ICML2025/llm_evaluation/enigma_interactive_tools_substantially_assist_lm_agents_in_finding_security_vuln.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -120,6 +120,8 @@ Instruct版本始终优于对应Base版本，模型间差距超过28分。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Think in Sentences: Explicit Sentence Boundaries Enhance Language Model's Capabilities](../../ACL2026/llm_nlp/think_in_sentences_explicit_sentence_boundaries_enhance_language_model39s_capabi.md)
@@ -127,5 +129,7 @@ Instruct版本始终优于对应Base版本，模型间差距超过28分。
 - [\[AAAI 2026\] TransMamba: A Sequence-Level Hybrid Transformer-Mamba Language Model](transmamba_a_sequence-level_hybrid_transformer-mamba_language_model.md)
 - [\[ACL 2026\] GRASS: Gradient-based Adaptive Layer-wise Importance Sampling for Memory-Efficient LLM Fine-tuning](../../ACL2026/llm_nlp/grass_gradient-based_adaptive_layer-wise_importance_sampling_for_memory-efficien.md)
 - [\[AAAI 2026\] ProFuser: Progressive Fusion of Large Language Models](profuser_progressive_fusion_of_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

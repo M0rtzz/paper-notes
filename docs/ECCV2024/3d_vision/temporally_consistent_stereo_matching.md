@@ -114,6 +114,8 @@ TC-Stereo排名第二，同时效率优于其他SOTA方法。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Stereo Any Video: Temporally Consistent Stereo Matching](../../ICCV2025/3d_vision/stereo_any_video_temporally_consistent_stereo_matching.md)
@@ -121,5 +123,7 @@ TC-Stereo排名第二，同时效率优于其他SOTA方法。
 - [\[ECCV 2024\] TCC-Det: Temporarily Consistent Cues for Weakly-Supervised 3D Detection](tcc-det_temporarily_consistent_cues_for_weakly-supervised_3d_detection.md)
 - [\[CVPR 2026\] Lite Any Stereo: Efficient Zero-Shot Stereo Matching](../../CVPR2026/3d_vision/lite_any_stereo_efficient_zero-shot_stereo_matching.md)
 - [\[ECCV 2024\] MVSGaussian: Fast Generalizable Gaussian Splatting Reconstruction from Multi-View Stereo](mvsgaussian_fast_generalizable_gaussian_splatting_reconstruction_from_multi-view.md)
+
+</div>
 
 <!-- RELATED:END -->

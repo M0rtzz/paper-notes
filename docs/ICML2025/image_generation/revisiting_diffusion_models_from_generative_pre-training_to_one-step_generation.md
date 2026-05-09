@@ -162,6 +162,8 @@ $$\mathbf{S}_\phi(x_{t_i}, t_i, t_{i-1}) = \frac{t_i - t_{i-1}}{t_i}(\mathbf{g}_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Graph Generative Pre-trained Transformer (G2PT)](graph_generative_pre-trained_transformer.md)
@@ -169,5 +171,7 @@ $$\mathbf{S}_\phi(x_{t_i}, t_i, t_{i-1}) = \frac{t_i - t_{i-1}}{t_i}(\mathbf{g}_
 - [\[CVPR 2025\] OSDFace: One-Step Diffusion Model for Face Restoration](../../CVPR2025/image_generation/osdface_one-step_diffusion_model_for_face_restoration.md)
 - [\[ICML 2025\] Task-Agnostic Pre-training and Task-Guided Fine-tuning for Versatile Diffusion Planner](task-agnostic_pre-training_and_task-guided_fine-tuning_for_versatile_diffusion_p.md)
 - [\[ICLR 2026\] SoFlow: Solution Flow Models for One-Step Generative Modeling](../../ICLR2026/image_generation/soflow_solution_flow_models_for_one-step_generative_modeling.md)
+
+</div>
 
 <!-- RELATED:END -->

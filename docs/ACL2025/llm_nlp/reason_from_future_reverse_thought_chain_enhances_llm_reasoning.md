@@ -173,6 +173,8 @@ RFF 用 Llama3-8B 达到 89%，超越 GPT-4+CR(n=1) 的 84%，且访问状态数
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Reversal of Thought: Enhancing Large Language Models with Preference-Guided Reverse Reasoning Warm-up](reversal_of_thought_enhancing_large_language.md)
@@ -180,5 +182,7 @@ RFF 用 Llama3-8B 达到 89%，超越 GPT-4+CR(n=1) 的 84%，且访问状态数
 - [\[ACL 2025\] A Survey of Large Language Models in Psychotherapy: Current Landscape and Future Directions](a_survey_of_large_language_models_in_psychotherapy_current_landscape_and_future_.md)
 - [\[ACL 2025\] Structural Reasoning Improves Molecular Understanding of LLM](structural_reasoning_improves_molecular_understanding_of_llm.md)
 - [\[ACL 2025\] Contrastive Prompting Enhances Sentence Embeddings in LLMs through Inference-Time Steering](contrastive_prompting_embeddings.md)
+
+</div>
 
 <!-- RELATED:END -->

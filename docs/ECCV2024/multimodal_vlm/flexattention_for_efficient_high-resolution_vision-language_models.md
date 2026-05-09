@@ -175,6 +175,8 @@ FlexAttention的TFLOPs比LLaVA-HD降低约31%，比LLaVA-XAttn降低约37%。实
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] FlexAttention for Efficient High-Resolution Vision-Language Models](flexattention_for_efficient_highresolution_visionlanguage_mo.md)
@@ -182,5 +184,7 @@ FlexAttention的TFLOPs比LLaVA-HD降低约31%，比LLaVA-XAttn降低约37%。实
 - [\[ECCV 2024\] Bad Students Make Great Teachers: Active Learning Accelerates Large-Scale Visual Understanding](classact_active_learning.md)
 - [\[ECCV 2024\] Zero-shot Object Counting with Good Exemplars (VA-Count)](zero-shot_object_counting_with_good_exemplars.md)
 - [\[ECCV 2024\] Merlin: Empowering Multimodal LLMs with Foresight Minds](merlin_empowering_multimodal_llms_with_foresight_minds.md)
+
+</div>
 
 <!-- RELATED:END -->

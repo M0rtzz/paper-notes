@@ -125,6 +125,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Auto-DAS: Automated Proxy Discovery for Training-free Distillation-aware Architecture Search](../../ECCV2024/model_compression/auto-das_automated_proxy_discovery_for_training-free_distillation-aware_architec.md)
@@ -132,5 +134,7 @@ tags:
 - [\[ICCV 2025\] Scheduling Weight Transitions for Quantization-Aware Training](scheduling_weight_transitions_for_quantization-aware_training.md)
 - [\[ICCV 2025\] Perspective-Aware Teaching: Adapting Knowledge for Heterogeneous Distillation](perspective-aware_teaching_adapting_knowledge_for_heterogeneous_distillation.md)
 - [\[NeurIPS 2025\] Correlation Dimension of Auto-Regressive Large Language Models](../../NeurIPS2025/model_compression/correlation_dimension_of_auto-regressive_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

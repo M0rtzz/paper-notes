@@ -124,6 +124,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] STEM Faculty Perspectives on Generative AI in Higher Education](stem_faculty_perspectives_on_generative_ai_in_higher_education.md)
@@ -131,5 +133,7 @@ tags:
 - [\[ACL 2025\] The AI Gap: How Socioeconomic Status Affects Language Technology Interactions](../../ACL2025/others/the_ai_gap_how_socioeconomic_status_affects_language_technology_interactions.md)
 - [\[ICLR 2026\] The Hot Mess of AI: How Does Misalignment Scale With Model Intelligence and Task Complexity?](../../ICLR2026/others/the_hot_mess_of_ai_how_does_misalignment_scale_with_model_intelligence_and_task_.md)
 - [\[AAAI 2026\] Beyond World Models: Rethinking Understanding in AI Models](beyond_world_models_rethinking_understanding_in_ai_models.md)
+
+</div>
 
 <!-- RELATED:END -->

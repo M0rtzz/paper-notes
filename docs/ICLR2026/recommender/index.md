@@ -10,6 +10,10 @@ description: >-
 
 **🔬 ICLR2026** · **10** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (13)](../../ACL2026/recommender/) · [🤖 AAAI2026 (26)](../../AAAI2026/recommender/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/recommender/) · [🧪 ICML2025 (17)](../../ICML2025/recommender/) · [💬 ACL2025 (7)](../../ACL2025/recommender/) · [📷 CVPR2025 (1)](../../CVPR2025/recommender/)
+
+🔥 **高频主题：** 推荐系统 ×4 · LLM ×3
+
 **[C2AL: Cohort-Contrastive Auxiliary Learning for Large-scale Recommendation Systems](c2al_cohort-contrastive_auxiliary_learning_for_large-scale_recommendation_system.md)**
 
 :   提出 C2AL（Cohort-Contrastive Auxiliary Learning），通过数据驱动地发现分布差异最大的用户群体对，构建对比性辅助二分类任务正则化共享编码器，使 FM 注意力权重从稀疏变为稠密，缓解大规模推荐系统中少数群体的表征偏差，在 Meta 6 个生产模型（数十亿数据点）上验证有效。

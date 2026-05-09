@@ -211,6 +211,8 @@ RepoCod 有超过一半的任务需要仓库级上下文——远超其他基准
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Genetic Instruct: Scaling up Synthetic Generation of Coding Instructions for Large Language Models](genetic_instruct_scaling_up_synthetic_generation_of_coding_instructions_for_larg.md)
@@ -218,5 +220,7 @@ RepoCod 有超过一半的任务需要仓库级上下文——远超其他基准
 - [\[ACL 2025\] Can Language Models Reason about Individualistic Human Values and Preferences?](can_language_models_reason_about_individualistic_human_values_and_preferences.md)
 - [\[ACL 2025\] Can Large Language Models Address Open-Target Stance Detection?](can_large_language_models_address_open-target_stance_detection.md)
 - [\[ACL 2025\] Not Quite Sherlock Holmes: Language Model Predictions Do Not Reliably Differentiate Impossible from Improbable Events](not_quite_sherlock_holmes_language_model_predictions_do_not_reliably_differentia.md)
+
+</div>
 
 <!-- RELATED:END -->

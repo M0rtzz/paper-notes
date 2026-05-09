@@ -136,6 +136,8 @@ $$\mathbb{E}[\|\boldsymbol{\epsilon} \odot \mathbf{m}_{\text{down}}^{1:N} - \eps
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SteerX: Creating Any Camera-Free 3D and 4D Scenes with Geometric Steering](steerx_creating_any_camera-free_3d_and_4d_scenes_with_geometric_steering.md)
@@ -143,5 +145,7 @@ $$\mathbb{E}[\|\boldsymbol{\epsilon} \odot \mathbf{m}_{\text{down}}^{1:N} - \eps
 - [\[ICLR 2026\] Geometry-aware 4D Video Generation for Robot Manipulation](../../ICLR2026/video_generation/geometry-aware_4d_video_generation_for_robot_manipulation.md)
 - [\[ICCV 2025\] ReCamMaster: Camera-Controlled Generative Rendering from A Single Video](recammaster_camera-controlled_generative_rendering_from_a_single_video.md)
 - [\[AAAI 2026\] 3D4D: An Interactive Editable 4D World Model via 3D Video Generation](../../AAAI2026/video_generation/3d4d_an_interactive_editable_4d_world_model_via_3d_video_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -122,6 +122,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Adaptive Test-Time Training for Predicting Need for Invasive Mechanical Ventilation in Multi-Center Cohorts](../../ICLR2026/medical_imaging/adaptive_test-time_training_for_predicting_need_for_invasive_mechanical_ventilat.md)
@@ -129,5 +131,7 @@ tags:
 - [\[ICLR 2026\] MMedAgent-RL: Optimizing Multi-Agent Collaboration for Multimodal Medical Reasoning](../../ICLR2026/medical_imaging/mmedagent-rl_optimizing_multi-agent_collaboration_for_multimodal_medical_reasoni.md)
 - [\[ICLR 2026\] Exo-Plore: Exploring Exoskeleton Control Space through Human-Aligned Simulation](../../ICLR2026/medical_imaging/exo-plore_exploring_exoskeleton_control_space_through_human-aligned_simulation.md)
 - [\[NeurIPS 2025\] BarcodeMamba+: Advancing State-Space Models for Fungal Biodiversity Research](../../NeurIPS2025/medical_imaging/barcodemamba_advancing_state-space_models_for_fungal_biodiversity_research.md)
+
+</div>
 
 <!-- RELATED:END -->

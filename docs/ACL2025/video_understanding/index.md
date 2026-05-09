@@ -10,6 +10,10 @@ description: >-
 
 **💬 ACL2025** · **10** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (11)](../../ACL2026/video_understanding/) · [📷 CVPR2026 (92)](../../CVPR2026/video_understanding/) · [🔬 ICLR2026 (24)](../../ICLR2026/video_understanding/) · [🤖 AAAI2026 (33)](../../AAAI2026/video_understanding/) · [🧠 NeurIPS2025 (61)](../../NeurIPS2025/video_understanding/) · [📹 ICCV2025 (58)](../../ICCV2025/video_understanding/)
+
+🔥 **高频主题：** 目标跟踪 ×4 · 问答 ×2
+
 **[A Thousand Words Paint a Picture: Multimodal Goal Tracking for Grounded Social Intelligence](a_thousand_words_paint_a_picture_multimodal_goal_tracking_for_grounded_social_in.md)**
 
 :   本文提出了一个多模态目标追踪框架，通过结合视觉与语言线索来推理社交场景中参与者的隐含目标，从而提升模型对社交情境的理解能力（即"落地的社会智能"）。

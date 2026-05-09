@@ -118,6 +118,8 @@ TexTok 在 512 分辨率下仅用 32 个 token 就超越了原始 DiT 使用 409
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Yo'Chameleon: Personalized Vision and Language Generation](yochameleon_personalized_vision_and_language_generation.md)
@@ -125,5 +127,7 @@ TexTok 在 512 分辨率下仅用 32 个 token 就超越了原始 DiT 使用 409
 - [\[ICCV 2025\] Efficient Autoregressive Shape Generation via Octree-Based Adaptive Tokenization](../../ICCV2025/image_generation/efficient_autoregressive_shape_generation_via_octree-based_adaptive_tokenization.md)
 - [\[CVPR 2025\] Visual Lexicon: Rich Image Features in Language Space](visual_lexicon_rich_image_features_in_language_space.md)
 - [\[ICML 2025\] Representative Language Generation](../../ICML2025/image_generation/representative_language_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

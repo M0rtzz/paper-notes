@@ -10,6 +10,8 @@ description: >-
 
 **📷 CVPR2026** · **4** 篇论文解读
 
+📌 **同领域跨会议浏览：** [🔬 ICLR2026 (10)](../../ICLR2026/scientific_computing/) · [🤖 AAAI2026 (8)](../../AAAI2026/scientific_computing/) · [🧠 NeurIPS2025 (24)](../../NeurIPS2025/scientific_computing/) · [📹 ICCV2025 (1)](../../ICCV2025/scientific_computing/) · [🧪 ICML2025 (8)](../../ICML2025/scientific_computing/) · [📷 CVPR2025 (3)](../../CVPR2025/scientific_computing/)
+
 **[Continuous Exposure-Time Modeling for Realistic Atmospheric Turbulence Synthesis](continuous_exposure-time_modeling_for_realistic_atmospheric_turbulence_synthesis.md)**
 
 :   提出曝光时间依赖的调制传递函数（ET-MTF），将曝光时间建模为连续变量，构建了大规模合成湍流数据集 ET-Turb（5083视频、200万帧），显著提升湍流复原模型在真实数据上的泛化能力。

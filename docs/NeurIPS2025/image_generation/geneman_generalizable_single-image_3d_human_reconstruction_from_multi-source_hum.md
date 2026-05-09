@@ -223,6 +223,8 @@ $$\mathcal{L}_{\text{fine}} = \|I_{\text{fine}} - I_{\text{coarse}}\|_2 + \lambd
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] DeClotH: Decomposable 3D Cloth and Human Body Reconstruction from a Single Image](../../CVPR2025/image_generation/decloth_decomposable_3d_cloth_and_human_body_reconstruction_from_a_single_image.md)
@@ -230,5 +232,7 @@ $$\mathcal{L}_{\text{fine}} = \|I_{\text{fine}} - I_{\text{coarse}}\|_2 + \lambd
 - [\[NeurIPS 2025\] Dual Data Alignment Makes AI-Generated Image Detector Easier Generalizable](dual_data_alignment_makes_ai-generated_image_detector_easier_generalizable.md)
 - [\[CVPR 2025\] InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing](../../CVPR2025/image_generation/interedit_navigating_text-guided_multi-human_3d_motion_editing.md)
 - [\[CVPR 2025\] Comprehensive Relighting: Generalizable and Consistent Monocular Human Relighting and Harmonization](../../CVPR2025/image_generation/comprehensive_relighting_generalizable_and_consistent_monocular_human_relighting.md)
+
+</div>
 
 <!-- RELATED:END -->

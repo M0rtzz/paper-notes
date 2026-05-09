@@ -131,6 +131,8 @@ Mip-NeRF360 + Tanks&Temples + Deep Blending综合结果：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Depth-Guided Bundle Sampling for Efficient Generalizable Neural Radiance Field Reconstruction](../../CVPR2025/3d_vision/depth-guided_bundle_sampling_for_efficient_generalizable_neural_radiance_field_r.md)
@@ -138,5 +140,7 @@ Mip-NeRF360 + Tanks&Temples + Deep Blending综合结果：
 - [\[ICCV 2025\] MuGS: Multi-Baseline Generalizable Gaussian Splatting Reconstruction](../../ICCV2025/3d_vision/mugs_multi-baseline_generalizable_gaussian_splatting_reconstruction.md)
 - [\[CVPR 2025\] Identity-preserving Distillation Sampling by Fixed-Point Iterator](../../CVPR2025/3d_vision/identity-preserving_distillation_sampling_by_fixed-point_iterator.md)
 - [\[CVPR 2026\] Sampling-Aware 3D Spatial Analysis in Multiplexed Imaging](../../CVPR2026/3d_vision/sampling-aware_3d_spatial_analysis_in_multiplexed_imaging.md)
+
+</div>
 
 <!-- RELATED:END -->

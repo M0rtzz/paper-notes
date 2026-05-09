@@ -98,6 +98,8 @@ PURE (Process sUpervised Reinforcement lEarning) 保持标准 PPO/GRPO 框架，
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] DreamPRM: Domain-Reweighted Process Reward Model for Multimodal Reasoning](dreamprm_domain-reweighted_process_reward_model_for_multimodal_reasoning.md)
@@ -105,5 +107,7 @@ PURE (Process sUpervised Reinforcement lEarning) 保持标准 PPO/GRPO 框架，
 - [\[NeurIPS 2025\] Segment Policy Optimization: Effective Segment-Level Credit Assignment in RL for Large Language Models](segment_policy_optimization_effective_segment-level_credit_assignment_in_rl_for_.md)
 - [\[NeurIPS 2025\] Know What You Don't Know: Uncertainty Calibration of Process Reward Models](know_what_you_dont_know_uncertainty_calibration_of_process_reward_models.md)
 - [\[ACL 2025\] EpicPRM: An Efficient and Precise Training Data Construction Framework for Process-supervised Reward Model in Mathematical Reasoning](../../ACL2025/llm_reasoning/epicprm-efficient-precise-training-data-for-process-reward-model.md)
+
+</div>
 
 <!-- RELATED:END -->

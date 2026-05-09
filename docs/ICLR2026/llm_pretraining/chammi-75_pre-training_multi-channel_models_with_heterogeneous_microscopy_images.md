@@ -124,6 +124,8 @@ DINO-BoC 自监督学习：单通道输入 ViT-small，student-teacher 框架。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Pre-Training Curriculum for Multi-Token Prediction in Language Models](../../ACL2025/llm_pretraining/pre-training_curriculum_for_multi-token_prediction_in_language_models.md)
@@ -131,5 +133,7 @@ DINO-BoC 自监督学习：单通道输入 ViT-small，student-teacher 框架。
 - [\[ACL 2025\] Meta-rater: A Multi-dimensional Data Selection Method for Pre-training Language Models](../../ACL2025/llm_pretraining/metarater_a_multidimensional_data_selection_method.md)
 - [\[CVPR 2026\] Linking Modality Isolation in Heterogeneous Collaborative Perception](../../CVPR2026/llm_pretraining/linking_modality_isolation_in_heterogeneous_collaborative_perception.md)
 - [\[ECCV 2024\] POA: Pre-training Once for Models of All Sizes](../../ECCV2024/llm_pretraining/poa_pre-training_once_for_models_of_all_sizes.md)
+
+</div>
 
 <!-- RELATED:END -->

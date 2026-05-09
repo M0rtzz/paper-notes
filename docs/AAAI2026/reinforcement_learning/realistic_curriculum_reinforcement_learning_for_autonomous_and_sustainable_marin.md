@@ -207,6 +207,8 @@ $$d_{\text{safe}} = \max\left(\tau \cdot \frac{L_s + B_s + L_t + B_t}{2 \times 1
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Start Small, Think Big: Curriculum-based Relative Policy Optimization for Visual Grounding](start_small_think_big_curriculum-based_relative_policy_optimization_for_visual_g.md)
@@ -214,5 +216,7 @@ $$d_{\text{safe}} = \max\left(\tau \cdot \frac{L_s + B_s + L_t + B_t}{2 \times 1
 - [\[ICCV 2025\] NavQ: Learning a Q-Model for Foresighted Vision-and-Language Navigation](../../ICCV2025/reinforcement_learning/navq_learning_a_q-model_for_foresighted_vision-and-language_navigation.md)
 - [\[CVPR 2025\] CityWalker: Learning Embodied Urban Navigation from Web-Scale Videos](../../CVPR2025/reinforcement_learning/citywalker_learning_embodied_urban_navigation_from_web-scale_videos.md)
 - [\[AAAI 2026\] Speculative Sampling with Reinforcement Learning](speculative_sampling_with_reinforcement_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

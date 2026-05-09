@@ -132,6 +132,8 @@ GP-UCB：$\mathbf{x}_t = \arg\max \mu(\mathbf{x}) + \beta_t^{1/2} \sigma(\mathbf
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Improved Regret and Contextual Linear Extension for Pandora's Box and Prophet Inequality](improved_regret_and_contextual_linear_extension_for_pandoras_box_and_prophet_ine.md)
@@ -139,5 +141,7 @@ GP-UCB：$\mathbf{x}_t = \arg\max \mu(\mathbf{x}) + \beta_t^{1/2} \sigma(\mathbf
 - [\[NeurIPS 2025\] Establishing Linear Surrogate Regret Bounds for Convex Smooth Losses via Convolutional Fenchel–Young Losses](establishing_linear_surrogate_regret_bounds_for_convex_smooth_losses_via_convolu.md)
 - [\[NeurIPS 2025\] Dynamic Regret Reduces to Kernelized Static Regret](dynamic_regret_reduces_to_kernelized_static_regret.md)
 - [\[NeurIPS 2025\] Meta-World+: An Improved, Standardized, RL Benchmark](meta-world_an_improved_standardized_rl_benchmark.md)
+
+</div>
 
 <!-- RELATED:END -->

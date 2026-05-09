@@ -194,6 +194,8 @@ $$\max_{p_\theta} \mathbb{E}[r(\mathbf{c}, \mathbf{x}_0)] - \beta \mathbb{D}_{\t
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] SummDiff: Generative Modeling of Video Summarization with Diffusion](summdiff_generative_modeling_of_video_summarization_with_diffusion.md)
@@ -201,5 +203,7 @@ $$\max_{p_\theta} \mathbb{E}[r(\mathbf{c}, \mathbf{x}_0)] - \beta \mathbb{D}_{\t
 - [\[ICCV 2025\] CaO2: Rectifying Inconsistencies in Diffusion-Based Dataset Distillation](cao2_rectifying_inconsistencies_in_diffusion-based_dataset_distillation.md)
 - [\[NeurIPS 2025\] DeCaFlow: A Deconfounding Causal Generative Model](../../NeurIPS2025/image_generation/decaflow_a_deconfounding_causal_generative_model.md)
 - [\[ICCV 2025\] Generative Modeling of Shape-Dependent Self-Contact Human Poses](generative_modeling_of_shape-dependent_self-contact_human_poses.md)
+
+</div>
 
 <!-- RELATED:END -->

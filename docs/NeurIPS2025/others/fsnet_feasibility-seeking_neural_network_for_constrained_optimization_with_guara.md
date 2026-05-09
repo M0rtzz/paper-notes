@@ -146,6 +146,8 @@ $F = f(\hat{y}_\theta; x) + \frac{\rho}{2}\|y_\theta - \hat{y}_\theta\|_2^2$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Learning (Approximately) Equivariant Networks via Constrained Optimization](learning_approximately_equivariant_networks_via_constrained_optimization.md)
@@ -153,5 +155,7 @@ $F = f(\hat{y}_\theta; x) + \frac{\rho}{2}\|y_\theta - \hat{y}_\theta\|_2^2$
 - [\[NeurIPS 2025\] Neural Network for Simulating Radio Emission from Extensive Air Showers](neural_network_for_simulating_radio_emission_from_extensive_air_showers.md)
 - [\[ICML 2025\] TANGO: Clustering with Typicality-Aware Nonlocal Mode-Seeking and Graph-Cut Optimization](../../ICML2025/others/tango_clustering_with_typicality-aware_nonlocal_mode-seeking_and_graph-cut_optim.md)
 - [\[NeurIPS 2025\] MiCADangelo: Fine-Grained Reconstruction of Constrained CAD Models from 3D Scans](micadangelo_fine-grained_reconstruction_of_constrained_cad_models_from_3d_scans.md)
+
+</div>
 
 <!-- RELATED:END -->

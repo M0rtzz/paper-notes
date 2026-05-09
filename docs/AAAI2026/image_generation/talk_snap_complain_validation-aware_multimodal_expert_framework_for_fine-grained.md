@@ -152,6 +152,8 @@ Validation MoE带来 **+8.2%** Aspect准确率提升（73.74%→81.94%）。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] CharaConsist: Fine-Grained Consistent Character Generation](../../ICCV2025/image_generation/characonsist_fine-grained_consistent_character_generation.md)
@@ -159,5 +161,7 @@ Validation MoE带来 **+8.2%** Aspect准确率提升（73.74%→81.94%）。
 - [\[CVPR 2025\] FineLIP: Extending CLIP's Reach via Fine-Grained Alignment with Longer Text Inputs](../../CVPR2025/image_generation/finelip_extending_clips_reach_via_fine-grained_alignment_with_longer_text_inputs.md)
 - [\[CVPR 2026\] BeautyGRPO: Aesthetic Alignment for Face Retouching via Dynamic Path Guidance and Fine-Grained Preference Modeling](../../CVPR2026/image_generation/beautygrpo_aesthetic_alignment_for_face_retouching_via_dynamic_path_guidance_and.md)
 - [\[ECCV 2024\] FineMatch: Aspect-based Fine-grained Image and Text Mismatch Detection and Correction](../../ECCV2024/image_generation/finematch_aspect-based_fine-grained_image_and_text_mismatch_detection_and_correc.md)
+
+</div>
 
 <!-- RELATED:END -->

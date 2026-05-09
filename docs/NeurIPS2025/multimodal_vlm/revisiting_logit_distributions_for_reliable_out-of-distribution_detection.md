@@ -133,6 +133,8 @@ LogitGap 可以作为插件替换现有方法的评分函数，与 CoOp、ID-Lik
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Adaptive Prompt Learning via Gaussian Outlier Synthesis for Out-of-distribution Detection](../../ICCV2025/multimodal_vlm/adaptive_prompt_learning_via_gaussian_outlier_synthesis_for_out_of_distribution_detection.md)
@@ -140,5 +142,7 @@ LogitGap 可以作为插件替换现有方法的评分函数，与 CoOp、ID-Lik
 - [\[ICML 2025\] LAION-C: An Out-of-Distribution Benchmark for Web-Scale Vision Models](../../ICML2025/multimodal_vlm/laion-c_an_out-of-distribution_benchmark_for_web-scale_vision_models.md)
 - [\[CVPR 2025\] Playing the Fool: Jailbreaking LLMs and Multimodal LLMs with Out-of-Distribution Strategy](../../CVPR2025/multimodal_vlm/playing_the_fool_jailbreaking_llms_and_multimodal_llms_with_out-of-distribution_.md)
 - [\[NeurIPS 2025\] AQuaMaM: An Autoregressive, Quaternion Manifold Model for Rapidly Estimating Complex SO(3) Distributions](aquamam_an_autoregressive_quaternion_manifold_model_for_rapidly_estimating_compl.md)
+
+</div>
 
 <!-- RELATED:END -->

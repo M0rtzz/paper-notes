@@ -130,6 +130,8 @@ IC-BIN数据集上不同编码方法消融（ADD(-S) AR%）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] PoseSyn: Synthesizing Diverse 3D Pose Data from In-the-Wild 2D Data](posesyn_synthesizing_diverse_3d_pose_data_from_in-the-wild_2d_data.md)
@@ -137,5 +139,7 @@ IC-BIN数据集上不同编码方法消融（ADD(-S) AR%）：
 - [\[CVPR 2025\] Learning Affine Correspondences by Integrating Geometric Constraints](../../CVPR2025/human_understanding/learning_affine_correspondences_by_integrating_geometric_constraints.md)
 - [\[ICCV 2025\] High-Resolution Spatiotemporal Modeling with Global-Local State Space Models for Video-Based Human Pose Estimation](high-resolution_spatiotemporal_modeling_with_global-local_state_space_models_for.md)
 - [\[ICCV 2025\] Bring Your Rear Cameras for Egocentric 3D Human Pose Estimation](bring_your_rear_cameras_for_egocentric_3d_human_pose_estimation.md)
+
+</div>
 
 <!-- RELATED:END -->

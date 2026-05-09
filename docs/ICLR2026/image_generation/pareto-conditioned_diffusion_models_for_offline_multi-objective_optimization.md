@@ -127,6 +127,8 @@ $$\theta = \arg\min_\theta \mathbb{E} [w(\boldsymbol{y}) \lambda(\sigma) \|D_\th
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] MAC-AMP: A Closed-Loop Multi-Agent Collaboration System for Multi-Objective Antimicrobial Peptide Design](mac-amp_a_closed-loop_multi-agent_collaboration_system_for_multi-objective_antim.md)
@@ -134,5 +136,7 @@ $$\theta = \arg\min_\theta \mathbb{E} [w(\boldsymbol{y}) \lambda(\sigma) \|D_\th
 - [\[ICLR 2026\] Intention-Conditioned Flow Occupancy Models](intention-conditioned_flow_occupancy_models.md)
 - [\[ICLR 2026\] Offline Reinforcement Learning with Generative Trajectory Policies](offline_reinforcement_learning_with_generative_trajectory_policies.md)
 - [\[ICLR 2026\] Efficient Adversarial Attacks on High-dimensional Offline Bandits](efficient_adversarial_attacks_on_high-dimensional_offline_bandits.md)
+
+</div>
 
 <!-- RELATED:END -->

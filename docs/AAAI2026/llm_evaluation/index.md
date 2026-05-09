@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **39** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/llm_evaluation/) · [📷 CVPR2026 (28)](../../CVPR2026/llm_evaluation/) · [🔬 ICLR2026 (60)](../../ICLR2026/llm_evaluation/) · [🧠 NeurIPS2025 (79)](../../NeurIPS2025/llm_evaluation/) · [📹 ICCV2025 (29)](../../ICCV2025/llm_evaluation/) · [🧪 ICML2025 (49)](../../ICML2025/llm_evaluation/)
+
+🔥 **高频主题：** LLM ×5 · 推理 ×4 · 对齐/RLHF ×3 · Agent ×2 · 压缩/编码 ×2
+
 **[Axis-Aligned Document Dewarping](axis-aligned_document_dewarping.md)**
 
 :   提出利用平面文档固有的"轴对齐"几何性质，在训练、推理和评估三个阶段系统性地引入轴对齐约束，实现了SOTA文档矫正效果并提出新评估指标AAD。

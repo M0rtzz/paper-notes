@@ -158,6 +158,8 @@ $$\min_\theta \sum_{t \in [1...T]} -\log \pi_{unconditional}(a_t | o_{1:t})$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] ROCKET-1: Mastering Open-World Interaction with Visual-Temporal Context Prompting](../../CVPR2025/segmentation/rocket-1_mastering_open-world_interaction_with_visual-temporal_context_prompting.md)
@@ -165,5 +167,7 @@ $$\min_\theta \sum_{t \in [1...T]} -\log \pi_{unconditional}(a_t | o_{1:t})$$
 - [\[ICCV 2025\] ReferEverything: Towards Segmenting Everything We Can Speak of in Videos](refereverything_towards_segmenting_everything_we_can_speak_of_in_videos.md)
 - [\[ICCV 2025\] Learning Precise Affordances from Egocentric Videos for Robotic Manipulation](learning_precise_affordances_from_egocentric_videos_for_robotic_manipulation.md)
 - [\[ICCV 2025\] Ensemble Foreground Management for Unsupervised Object Discovery](ensemble_foreground_management_for_unsupervised_object_discovery.md)
+
+</div>
 
 <!-- RELATED:END -->

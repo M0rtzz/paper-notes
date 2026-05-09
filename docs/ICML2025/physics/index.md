@@ -10,6 +10,8 @@ description: >-
 
 **🧪 ICML2025** · **6** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (1)](../../CVPR2026/physics/) · [🔬 ICLR2026 (2)](../../ICLR2026/physics/) · [🤖 AAAI2026 (2)](../../AAAI2026/physics/) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/physics/) · [📹 ICCV2025 (1)](../../ICCV2025/physics/) · [📷 CVPR2025 (1)](../../CVPR2025/physics/)
+
 **[Compact Matrix Quantum Group Equivariant Neural Networks](compact_matrix_quantum_group_equivariant_neural_networks.md)**
 
 :   本文将群等变神经网络扩展到**紧致矩阵量子群**的设定下，利用 Woronowicz 形式的 Tannaka-Krein 对偶理论刻画了该类网络的权重矩阵，为非交换几何上的数据学习提供了理论基础。

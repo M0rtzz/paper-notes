@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **35** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (8)](../../ACL2026/llm_efficiency/) · [📷 CVPR2026 (4)](../../CVPR2026/llm_efficiency/) · [🔬 ICLR2026 (19)](../../ICLR2026/llm_efficiency/) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_efficiency/) · [📹 ICCV2025 (1)](../../ICCV2025/llm_efficiency/) · [🧪 ICML2025 (13)](../../ICML2025/llm_efficiency/)
+
+🔥 **高频主题：** LLM ×5
+
 **[3-Model Speculative Decoding (PyramidSD)](3model_speculative_decoding.md)**
 
 :   在标准的draft-target两模型推测解码的中间插入一个"qualifier"模型，构成三层金字塔式解码架构（PyramidSD），利用模型家族天然的熵梯度来分级过滤token，以模糊接受准则放宽匹配阈值，实现最高1.91×的速度提升（在RTX 4090上达到124 tok/s）。

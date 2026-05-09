@@ -116,6 +116,8 @@ Step 0: 服务器用 LLM 生成类别描述并用 PLM 编码为嵌入。Step 1-4
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] The Power of Decaying Steps: Enhancing Attack Stability and Transferability for Sign-based Optimizers](the_power_of_decaying_steps_enhancing_attack_stability_and_transferability_for_s.md)
@@ -123,5 +125,7 @@ Step 0: 服务器用 LLM 生成类别描述并用 PLM 编码为嵌入。Step 1-4
 - [\[CVPR 2026\] Dynamic Momentum Recalibration in Online Gradient Learning](dynamic_momentum_recalibration_in_online_gradient_learning.md)
 - [\[CVPR 2026\] OTPrune: Distribution-Aligned Visual Token Pruning via Optimal Transport](otprune_distribution-aligned_visual_token_pruning_via_optimal_transport.md)
 - [\[CVPR 2026\] BlazeFL: Fast and Deterministic Federated Learning Simulation](blazefl_fast_and_deterministic_federated_learning_simulation.md)
+
+</div>
 
 <!-- RELATED:END -->

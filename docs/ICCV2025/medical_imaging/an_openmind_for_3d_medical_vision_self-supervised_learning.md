@@ -154,6 +154,8 @@ Sawtooth 策略总体最优；Frozen 策略大幅下降说明当前 SSL 表征�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Vector Contrastive Learning for Pixel-wise Pretraining in Medical Vision](vector_contrastive_learning_for_pixel-wise_pretraining_in_medical_vision.md)
@@ -161,5 +163,7 @@ Sawtooth 策略总体最优；Frozen 策略大幅下降说明当前 SSL 表征�
 - [\[ICML 2025\] scSSL-Bench: Benchmarking Self-Supervised Learning for Single-Cell Data](../../ICML2025/medical_imaging/scssl-bench_benchmarking_self-supervised_learning_for_single-cell_data.md)
 - [\[ICCV 2025\] UKBOB: One Billion MRI Labeled Masks for Generalizable 3D Medical Image Segmentation](ukbob_one_billion_mri_labeled_masks_for_generalizable_3d_medical_image_segmentat.md)
 - [\[ICCV 2025\] SegAnyPET: Universal Promptable Segmentation from Positron Emission Tomography Images](seganypet_universal_promptable_segmentation_from_positron_emission_tomography_im.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **63** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (40)](../../ACL2026/medical_imaging/) · [📷 CVPR2026 (153)](../../CVPR2026/medical_imaging/) · [🔬 ICLR2026 (72)](../../ICLR2026/medical_imaging/) · [🤖 AAAI2026 (105)](../../AAAI2026/medical_imaging/) · [🧠 NeurIPS2025 (141)](../../NeurIPS2025/medical_imaging/) · [📹 ICCV2025 (40)](../../ICCV2025/medical_imaging/)
+
+🔥 **高频主题：** 生物分子 ×11 · 医学影像 ×8 · 扩散模型 ×4 · 多模态 ×3 · 强化学习 ×3
+
 **[ADIOS: Antibody Development via Opponent Shaping](adios_antibody_development_via_opponent_shaping.md)**
 
 :   将多智能体强化学习中的对手塑形（Opponent Shaping）引入抗体设计，提出 ADIOS 元学习框架：外层循环优化抗体，内层循环模拟病毒适应性逃逸，使设计出的"塑形抗体"（shapers）不仅能对抗当前病毒变种，还能主动引导病毒向更弱、更易被靶向的方向进化。

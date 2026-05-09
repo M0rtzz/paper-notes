@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **8** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/object_detection/) · [📷 CVPR2026 (45)](../../CVPR2026/object_detection/) · [🔬 ICLR2026 (9)](../../ICLR2026/object_detection/) · [🤖 AAAI2026 (17)](../../AAAI2026/object_detection/) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/object_detection/) · [📹 ICCV2025 (30)](../../ICCV2025/object_detection/)
+
+🔥 **高频主题：** 对齐/RLHF ×2
+
 **[BlueGlass: A Framework for Composite AI Safety](blueglass_a_framework_for_composite_ai_safety.md)**
 
 :   提出 BlueGlass 复合 AI 安全框架，通过统一基础设施整合分布式评估、近似探针和稀疏自编码器三种安全分析工具，对视觉语言模型（VLM）在目标检测任务上的能力边界、层级动态和内部概念表示进行系统性安全分析。

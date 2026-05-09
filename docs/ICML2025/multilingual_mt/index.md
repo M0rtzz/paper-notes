@@ -10,6 +10,8 @@ description: >-
 
 **🧪 ICML2025** · **1** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (23)](../../ACL2026/multilingual_mt/) · [📷 CVPR2026 (2)](../../CVPR2026/multilingual_mt/) · [🔬 ICLR2026 (7)](../../ICLR2026/multilingual_mt/) · [🤖 AAAI2026 (11)](../../AAAI2026/multilingual_mt/) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/multilingual_mt/) · [📹 ICCV2025 (1)](../../ICCV2025/multilingual_mt/)
+
 **[KELPS: A Framework for Verified Multi-Language Autoformalization via Semantic-Syntactic Alignment](kelps_a_framework_for_verified_multi-language_autoformalization_via_semantic-syn.md)**
 
 :   提出基于断言逻辑的中间表示——知识方程(Knowledge Equation)，实现自然语言数学命题到多种形式语言(Lean4/Coq/Isabelle)的规则化翻译，在 MiniF2F 上 pass@1 句法准确率达 88.9%，超越 DeepSeek-V3 和 Herald。

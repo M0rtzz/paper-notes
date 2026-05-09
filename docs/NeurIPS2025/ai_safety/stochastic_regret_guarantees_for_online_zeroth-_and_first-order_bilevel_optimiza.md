@@ -151,6 +151,8 @@ $$\text{Regret}_T = \sum_{t=1}^{T} \mathbb{E}[f_t(x_t, y^*(x_t))] - \min_{x \in 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Private Zeroth-Order Optimization with Public Data](private_zeroth-order_optimization_with_public_data.md)
@@ -158,5 +160,7 @@ $$\text{Regret}_T = \sum_{t=1}^{T} \mathbb{E}[f_t(x_t, y^*(x_t))] - \min_{x \in 
 - [\[NeurIPS 2025\] Fairness-Regularized Online Optimization with Switching Costs](fairness-regularized_online_optimization_with_switching_costs.md)
 - [\[NeurIPS 2025\] Fair Representation Learning with Controllable High Confidence Guarantees via Adversarial Inference](fair_representation_learning_with_controllable_high_confidence_guarantees_via_ad.md)
 - [\[NeurIPS 2025\] Dual-Flow: Transferable Multi-Target, Instance-Agnostic Attacks via In-the-wild Cascading Flow Optimization](dual-flow_transferable_multi-target_instance-agnostic_attacks_via_in-the-wild_ca.md)
+
+</div>
 
 <!-- RELATED:END -->

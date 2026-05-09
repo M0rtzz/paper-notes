@@ -142,6 +142,8 @@ $$\mathbf{X}^{(l)} = \text{FFN}(\text{LN}(\mathbf{X}'^{(l)})) + \mathbf{X}'^{(l)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Relieving the Over-Aggregating Effect in Graph Transformers](../../NeurIPS2025/graph_learning/relieving_the_over-aggregating_effect_in_graph_transformers.md)
@@ -149,5 +151,7 @@ $$\mathbf{X}^{(l)} = \text{FFN}(\text{LN}(\mathbf{X}'^{(l)})) + \mathbf{X}'^{(l)
 - [\[ICLR 2026\] Graph Tokenization for Bridging Graphs and Transformers](../../ICLR2026/graph_learning/graph_tokenization_for_bridging_graphs_and_transformers.md)
 - [\[ACL 2025\] Fast-and-Frugal Text-Graph Transformers are Effective Link Predictors](../../ACL2025/graph_learning/fast-and-frugal_text-graph_transformers_are_effective_link_predictors.md)
 - [\[NeurIPS 2025\] From Sequence to Structure: Uncovering Substructure Reasoning in Transformers](../../NeurIPS2025/graph_learning/from_sequence_to_structure_uncovering_substructure_reasoning_in_transformers.md)
+
+</div>
 
 <!-- RELATED:END -->

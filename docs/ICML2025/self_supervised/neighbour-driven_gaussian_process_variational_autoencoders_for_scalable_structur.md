@@ -174,6 +174,8 @@ $$q(\mathbf{z}_*|\mathbf{Y}) = \int p(\mathbf{z}_*|\mathbf{Z}_{n(*)}) q(\mathbf{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] An Optimal Transport-driven Approach for Cultivating Latent Space in Online Incremental Learning](../../CVPR2026/self_supervised/otc_optimal_transport_cultivating_latent_space_online_incremental_learning.md)
@@ -181,5 +183,7 @@ $$q(\mathbf{z}_*|\mathbf{Y}) = \int p(\mathbf{z}_*|\mathbf{Z}_{n(*)}) q(\mathbf{
 - [\[CVPR 2025\] ScaleLSD: Scalable Deep Line Segment Detection Streamlined](../../CVPR2025/self_supervised/scalelsd_scalable_deep_line_segment_detection_streamlined.md)
 - [\[ICLR 2026\] InfoNCE Induces Gaussian Distribution](../../ICLR2026/self_supervised/infonce_induces_gaussian_distribution.md)
 - [\[NeurIPS 2025\] Curiosity-driven RL for Symbolic Equation Solving](../../NeurIPS2025/self_supervised/curiosity-driven_rl_for_symbolic_equation_solving.md)
+
+</div>
 
 <!-- RELATED:END -->

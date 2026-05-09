@@ -141,6 +141,8 @@ Obliviator是一个**后处理、迭代式**的概念擦除方法，分两步交
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] FACE: Faithful Automatic Concept Extraction](face_faithful_automatic_concept_extraction.md)
@@ -148,5 +150,7 @@ Obliviator是一个**后处理、迭代式**的概念擦除方法，分两步交
 - [\[ICML 2025\] Practical Principles for AI Cost and Compute Accounting](../../ICML2025/others/practical_principles_for_ai_cost_and_compute_accounting.md)
 - [\[ICLR 2026\] Beyond Linearity in Attention Projections: The Case for Nonlinear Queries](../../ICLR2026/others/beyond_linearity_in_attention_projections_the_case_for_nonlinear_queries.md)
 - [\[ACL 2025\] Synthia: Novel Concept Design with Affordance Composition](../../ACL2025/others/synthia_novel_concept_design_with_affordance_composition.md)
+
+</div>
 
 <!-- RELATED:END -->

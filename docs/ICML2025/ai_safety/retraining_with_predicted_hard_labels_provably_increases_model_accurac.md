@@ -147,6 +147,8 @@ AG News 上 $\epsilon=0.5$ 时 consensus RT 比 baseline 提升 11.7%，共识�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Private Model Personalization Revisited](private_model_personalization_revisited.md)
@@ -154,5 +156,7 @@ AG News 上 $\epsilon=0.5$ 时 consensus RT 比 baseline 提升 11.7%，共识�
 - [\[ICML 2025\] Relative Error Fair Clustering in the Weak-Strong Oracle Model](relative_error_fair_clustering_in_the_weak-strong_oracle_model.md)
 - [\[ICML 2025\] Rethinking the Bias of Foundation Model under Long-tailed Distribution](rethinking_the_bias_of_foundation_model_under_long-tailed_distribution.md)
 - [\[ICML 2025\] FicGCN: Unveiling the Homomorphic Encryption Efficiency from Irregular Graph Convolutional Networks](ficgcn_unveiling_the_homomorphic_encryption_efficiency_from_irregular_graph_conv.md)
+
+</div>
 
 <!-- RELATED:END -->

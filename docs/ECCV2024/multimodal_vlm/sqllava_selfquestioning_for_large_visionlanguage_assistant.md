@@ -136,6 +136,8 @@ SQ-LLaVA在LLaVA架构上增加两个核心设计：(1) 视觉自提问指令—
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Towards Open-ended Visual Quality Comparison](towards_open-ended_visual_quality_comparison.md)
@@ -143,5 +145,7 @@ SQ-LLaVA在LLaVA架构上增加两个核心设计：(1) 视觉自提问指令—
 - [\[ECCV 2024\] NavGPT-2: Unleashing Navigational Reasoning Capability for Large Vision-Language Models](navgpt-2_unleashing_navigational_reasoning_capability_for_large_vision-language_.md)
 - [\[ECCV 2024\] IVTP: Instruction-Guided Visual Token Pruning for Large Vision-Language Models](ivtp_instruction-guided_visual_token_pruning_for_large_vision-language_models.md)
 - [\[ECCV 2024\] UniCode: Learning a Unified Codebook for Multimodal Large Language Models](unicode_learning_a_unified_codebook_for_multimodal_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

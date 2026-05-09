@@ -157,6 +157,8 @@ VQ_{M+R} 比 baseline 提升 7.45%。数据不足时（VQ_M）性能大幅下降
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] CoA-VLA: Improving Vision-Language-Action Models via Visual-Textual Chain-of-Affordance](coavla_improving_visionlanguageaction_models_via_visualtext.md)
@@ -164,5 +166,7 @@ VQ_{M+R} 比 baseline 提升 7.45%。数据不足时（VQ_M）性能大幅下降
 - [\[NeurIPS 2025\] VLA-Cache: Efficient Vision-Language-Action Manipulation via Adaptive Token Caching](../../NeurIPS2025/multimodal_vlm/vla-cache_efficient_vision-language-action_manipulation_via_adaptive_token_cachi.md)
 - [\[CVPR 2026\] AVA-VLA: Improving Vision-Language-Action models with Active Visual Attention](../../CVPR2026/multimodal_vlm/ava_vla_improving_vision_language_action_models_with_active_visual_attention.md)
 - [\[ECCV 2024\] QUAR-VLA: Vision-Language-Action Model for Quadruped Robots](../../ECCV2024/multimodal_vlm/quar-vla_vision-language-action_model_for_quadruped_robots.md)
+
+</div>
 
 <!-- RELATED:END -->

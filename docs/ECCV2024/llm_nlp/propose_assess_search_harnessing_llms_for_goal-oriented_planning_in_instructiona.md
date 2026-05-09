@@ -164,6 +164,8 @@ VidAssist是零/少样本框架，**不需要训练**。核心是prompt设计和
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Planning without Search: Refining Frontier LLMs with Offline Goal-Conditioned RL](../../NeurIPS2025/llm_nlp/planning_without_search_refining_frontier_llms_with_offline_goal-conditioned_rl.md)
@@ -171,5 +173,7 @@ VidAssist是零/少样本框架，**不需要训练**。核心是prompt设计和
 - [\[ECCV 2024\] TextDiffuser-2: Unleashing the Power of Language Models for Text Rendering](textdiffuser-2_unleashing_the_power_of_language_models_for_text_rendering.md)
 - [\[ACL 2025\] LLMs Can Be Easily Confused by Instructional Distractions](../../ACL2025/llm_nlp/llms_can_be_easily_confused_by_instructional_distractions.md)
 - [\[ECCV 2024\] Meta-Prompting for Automating Zero-shot Visual Recognition with LLMs](metaprompting_for_automating_zeroshot_visual_recognitio.md)
+
+</div>
 
 <!-- RELATED:END -->

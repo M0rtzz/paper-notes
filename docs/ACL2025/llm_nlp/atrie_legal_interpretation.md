@@ -118,6 +118,8 @@ ATRIE 包含两个核心模块：**法律概念解释器 (Legal Concept Interpre
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] CoCoLex: Confidence-guided Copy-based Decoding for Grounded Legal Text Generation](cocolex_legal_text_gen.md)
@@ -125,5 +127,7 @@ ATRIE 包含两个核心模块：**法律概念解释器 (Legal Concept Interpre
 - [\[ACL 2025\] SkillVerse: Assessing and Enhancing LLMs with Tree Evaluation](skillverse_tree_eval.md)
 - [\[ACL 2025\] Leveraging Human Production-Interpretation Asymmetries to Test LLM Cognitive Plausibility](leveraging_human_production-interpretation_asymmetries_to_test_llm_cognitive_pla.md)
 - [\[ECCV 2024\] Meta-Prompting for Automating Zero-Shot Visual Recognition with LLMs](../../ECCV2024/llm_nlp/meta-prompting_for_automating_zero-shot_visual_recognition_with_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

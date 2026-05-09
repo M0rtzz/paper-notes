@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **58** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/others/) · [📷 CVPR2026 (54)](../../CVPR2026/others/) · [🔬 ICLR2026 (76)](../../ICLR2026/others/) · [🤖 AAAI2026 (126)](../../AAAI2026/others/) · [🧠 NeurIPS2025 (154)](../../NeurIPS2025/others/) · [📹 ICCV2025 (48)](../../ICCV2025/others/)
+
+🔥 **高频主题：** 对抗鲁棒 ×6 · 异常检测 ×4 · 少样本学习 ×2
+
 **[4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)**
 
 :   提出 4Deform 框架，基于神经隐式表示和连续速度场学习实现鲁棒形状插值，通过修改的 level-set 方程链接隐式场与速度场，首次在噪声、部分、拓扑变化和非等距变形场景中均取得 SOTA，并支持真实世界 Kinect 点云序列的时间超分辨率。

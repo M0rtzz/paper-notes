@@ -151,6 +151,8 @@ NcPU 在 BYOL 非对比学习框架基础上构建。输入为正样本集 $\mat
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] ANO: Faster is Better in Noisy Landscapes](ano_faster_is_better_in_noisy_landscape.md)
@@ -158,5 +160,7 @@ NcPU 在 BYOL 非对比学习框架基础上构建。输入为正样本集 $\mat
 - [\[ECCV 2024\] Foster Adaptivity and Balance in Learning with Noisy Labels](../../ECCV2024/others/foster_adaptivity_and_balance_in_learning_with_noisy_labels.md)
 - [\[ICCV 2025\] Joint Asymmetric Loss for Learning with Noisy Labels](../../ICCV2025/others/joint_asymmetric_loss_for_learning_with_noisy_labels.md)
 - [\[ACL 2025\] Minimal Pair-Based Evaluation of Code-Switching](../../ACL2025/others/minimal_pair-based_evaluation_of_code-switching.md)
+
+</div>
 
 <!-- RELATED:END -->

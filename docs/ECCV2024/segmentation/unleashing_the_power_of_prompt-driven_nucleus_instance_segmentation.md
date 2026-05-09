@@ -173,6 +173,8 @@ CPM-17 上 AJI 超前最优 +1.9，PQ 超前最优 +2.8。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Prompt-Driven Lightweight Foundation Model for Instance Segmentation-Based Fault Detection in Freight Trains](../../CVPR2026/segmentation/promptdriven_lightweight_foundation_model_for_inst.md)
@@ -180,5 +182,7 @@ CPM-17 上 AJI 超前最优 +1.9，PQ 超前最优 +2.8。
 - [\[ECCV 2024\] Part2Object: Hierarchical Unsupervised 3D Instance Segmentation](part2object_hierarchical_unsupervised_3d_instance_segmentation.md)
 - [\[ECCV 2024\] VISA: Reasoning Video Object Segmentation via Large Language Models](visa_reasoning_video_object_segmentation_via_large_language_models.md)
 - [\[ECCV 2024\] VISAGE: Video Instance Segmentation with Appearance-Guided Enhancement](visage_video_instance_segmentation_with_appearance-guided_enhancement.md)
+
+</div>
 
 <!-- RELATED:END -->

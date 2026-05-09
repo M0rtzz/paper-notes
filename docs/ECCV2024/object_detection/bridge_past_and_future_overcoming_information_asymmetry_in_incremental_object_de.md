@@ -150,6 +150,8 @@ BPF 基于 Faster R-CNN 构建，包含三个核心组件：桥接过去（Bridg
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] YOLO-IOD: Towards Real Time Incremental Object Detection](../../AAAI2026/object_detection/yolo-iod_towards_real_time_incremental_object_detection.md)
@@ -157,5 +159,7 @@ BPF 基于 Faster R-CNN 构建，包含三个核心组件：桥接过去（Bridg
 - [\[ECCV 2024\] YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information](yolov9_learning_what_you_want_to_learn_using_programmable_gradient_information.md)
 - [\[NeurIPS 2025\] DitHub: A Modular Framework for Incremental Open-Vocabulary Object Detection](../../NeurIPS2025/object_detection/dithub_a_modular_framework_for_incremental_openvocabulary_ob.md)
 - [\[CVPR 2026\] EW-DETR: Evolving World Object Detection via Incremental Low-Rank DEtection TRansformer](../../CVPR2026/object_detection/ewdetr_evolving_world_object_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

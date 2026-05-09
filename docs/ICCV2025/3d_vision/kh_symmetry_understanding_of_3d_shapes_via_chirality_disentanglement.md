@@ -130,6 +130,8 @@ $$\mathcal{L}_{fif} = \frac{1}{|V|}(\frac{|\chi^\top\mathbf{1}_{|V|}|}{\|\chi\|_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Symmetry Strikes Back: From Single-Image Symmetry Detection to 3D Generation](../../CVPR2025/3d_vision/symmetry_strikes_back_from_single-image_symmetry_detection_to_3d_generation.md)
@@ -137,5 +139,7 @@ $$\mathcal{L}_{fif} = \frac{1}{|V|}(\frac{|\chi^\top\mathbf{1}_{|V|}|}{\|\chi\|_
 - [\[ICCV 2025\] DMesh++: An Efficient Differentiable Mesh for Complex Shapes](dmesh_an_efficient_differentiable_mesh_for_complex_shapes.md)
 - [\[ICCV 2025\] NeuraLeaf: Neural Parametric Leaf Models with Shape and Deformation Disentanglement](neuraleaf_neural_parametric_leaf_models_with_shape_and_deformation_disentangleme.md)
 - [\[ICCV 2025\] Open-Vocabulary Octree-Graph for 3D Scene Understanding](open-vocabulary_octree-graph_for_3d_scene_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

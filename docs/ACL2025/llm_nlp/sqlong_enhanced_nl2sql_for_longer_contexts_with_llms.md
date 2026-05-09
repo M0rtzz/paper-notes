@@ -124,6 +124,8 @@ Spider-Syn 和 Spider-Realistic 通过同义词替换和移除显式列名来测
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] CER: Confidence Enhanced Reasoning in LLMs](cer_confidence_enhanced_reasoning.md)
@@ -131,5 +133,7 @@ Spider-Syn 和 Spider-Realistic 通过同义词替换和移除显式列名来测
 - [\[ACL 2025\] ReCall: Library-Like Behavior In Language Models is Enhanced by Self-Referencing Causal Cycles](library-like_behavior_in_language_models_is_enhanced_by_self-referencing_causal_.md)
 - [\[ACL 2025\] Cross-Modal Alignment for LLM-Enhanced Spoken Language Understanding](cross-modal_alignment_for_llm-enhanced_spoken_language_understanding.md)
 - [\[ACL 2025\] Beyond Output Matching: Bidirectional Alignment for Enhanced In-Context Learning](beyond_output_matching_bidirectional_alignment_for_enhanced_in-context_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

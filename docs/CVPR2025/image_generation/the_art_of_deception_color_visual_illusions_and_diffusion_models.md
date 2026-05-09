@@ -123,6 +123,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Color Alignment in Diffusion](color_alignment_in_diffusion.md)
@@ -130,5 +132,7 @@ tags:
 - [\[CVPR 2025\] MangaNinja: Line Art Colorization with Precise Reference Following](manganinja_line_art_colorization_with_precise_reference_following.md)
 - [\[CVPR 2025\] Science-T2I: Addressing Scientific Illusions in Image Synthesis](science-t2i_addressing_scientific_illusions_in_image_synthesis.md)
 - [\[ECCV 2024\] ColorPeel: Color Prompt Learning with Diffusion Models via Color and Shape Disentanglement](../../ECCV2024/image_generation/colorpeel_color_prompt_learning_with_diffusion_models_v.md)
+
+</div>
 
 <!-- RELATED:END -->

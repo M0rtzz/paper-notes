@@ -146,6 +146,8 @@ $$\mathcal{L} = \lambda(\sigma)\mathcal{L}_{\text{MSE}}(\hat{\mathbf{X}}_0, \mat
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] One Small Step with Fingerprints, One Giant Leap for De Novo Molecule Generation from Mass Spectra](one_small_step_with_fingerprints_one_giant_leap_for_de_novo_molecule_generation_.md)
@@ -153,5 +155,7 @@ $$\mathcal{L} = \lambda(\sigma)\mathcal{L}_{\text{MSE}}(\hat{\mathbf{X}}_0, \mat
 - [\[NeurIPS 2025\] Consistent Sampling and Simulation: Molecular Dynamics with Energy-Based Diffusion Models](consistent_sampling_and_simulation_molecular_dynamics_with_energy-based_diffusio.md)
 - [\[NeurIPS 2025\] Posterior Sampling by Combining Diffusion Models with Annealed Langevin Dynamics](posterior_sampling_by_combining_diffusion_models_with_annealed_langevin_dynamics.md)
 - [\[NeurIPS 2025\] Unified All-Atom Molecule Generation with Neural Fields](unified_all-atom_molecule_generation_with_neural_fields.md)
+
+</div>
 
 <!-- RELATED:END -->

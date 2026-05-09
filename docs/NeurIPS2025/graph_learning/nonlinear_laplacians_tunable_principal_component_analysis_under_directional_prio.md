@@ -137,6 +137,8 @@ $$\mathbb{E}_{g \sim \mathcal{N}(0,1)}\left[\frac{1}{(\theta_\sigma(\beta^*) - \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] A Mutual Information Perspective on Knowledge Graph Embedding](../../ACL2025/graph_learning/a_mutual_information_perspective_on_knowledge_graph_embedding.md)
@@ -144,5 +146,7 @@ $$\mathbb{E}_{g \sim \mathcal{N}(0,1)}\left[\frac{1}{(\theta_\sigma(\beta^*) - \
 - [\[ICCV 2025\] PASTA: Part-Aware Sketch-to-3D Shape Generation with Text-Aligned Prior](../../ICCV2025/graph_learning/pasta_part-aware_sketch-to-3d_shape_generation_with_text-aligned_prior.md)
 - [\[ICML 2025\] Does Graph Prompt Work? A Data Operation Perspective with Theoretical Analysis](../../ICML2025/graph_learning/does_graph_prompt_work_a_data_operation_perspective_with_theoretical_analysis.md)
 - [\[ACL 2026\] Comparing Human and Large Language Model Interpretation of Implicit Information](../../ACL2026/graph_learning/comparing_human_and_large_language_model_interpretation_of_implicit_information.md)
+
+</div>
 
 <!-- RELATED:END -->

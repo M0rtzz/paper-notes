@@ -123,6 +123,8 @@ M-Attack 包含两个核心组件：(1) Local Matching (LM)——每步对源图
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] InternLM-XComposer2.5-Reward: A Simple Yet Effective Multi-Modal Reward Model](../../ACL2025/multimodal_vlm/internlm-xcomposer25-reward_a_simple_yet_effective_multi-modal_reward_model.md)
@@ -130,5 +132,7 @@ M-Attack 包含两个核心组件：(1) Local Matching (LM)——每步对源图
 - [\[ICCV 2025\] Visual Interestingness Decoded: How GPT-4o Mirrors Human Interests](../../ICCV2025/multimodal_vlm/visual_interestingness_decoded_how_gpt-4o_mirrors_human_interests.md)
 - [\[NeurIPS 2025\] AdaLRS: Loss-Guided Adaptive Learning Rate Search for Efficient Foundation Model Pretraining](adalrs_lossguided_adaptive_learning_rate_search_for_efficien.md)
 - [\[CVPR 2026\] Prime Once, then Reprogram Locally: An Efficient Alternative to Black-Box Service Model Adaptation](../../CVPR2026/multimodal_vlm/prime_once_then_reprogram_locally_an_efficient_alternative_to_black-box_service_.md)
+
+</div>
 
 <!-- RELATED:END -->

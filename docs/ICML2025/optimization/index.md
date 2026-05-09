@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **58** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/optimization/) · [📷 CVPR2026 (10)](../../CVPR2026/optimization/) · [🔬 ICLR2026 (45)](../../ICLR2026/optimization/) · [🤖 AAAI2026 (24)](../../AAAI2026/optimization/) · [🧠 NeurIPS2025 (117)](../../NeurIPS2025/optimization/) · [📹 ICCV2025 (8)](../../ICCV2025/optimization/)
+
+🔥 **高频主题：** 联邦学习 ×6 · 布局/合成 ×2 · 对抗鲁棒 ×2 · LLM ×2
+
 **[A Generalization Result for Convergence in Learning-to-Optimize](a_generalization_result_for_convergence_in_learning-to-optimize.md)**
 
 :   提出一个概率框架，将 PAC-Bayesian 泛化理论与变分分析中的 Kurdyka-Łojasiewicz (KL) 收敛定理相结合，首次在不限制学习算法设计的前提下，以高概率证明了学习型优化算法收敛到临界点。

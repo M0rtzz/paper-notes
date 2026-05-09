@@ -174,6 +174,8 @@ $$\mathcal{L}_{NCT} = \underbrace{\frac{1}{K^2}\sum_{i,j}\|S_{PL}[i] - S_P[j]\|^
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Radar: Benchmarking Language Models on Imperfect Tabular Data](../../NeurIPS2025/others/radar_benchmarking_language_models_on_imperfect_tabular_data.md)
@@ -181,5 +183,7 @@ $$\mathcal{L}_{NCT} = \underbrace{\frac{1}{K^2}\sum_{i,j}\|S_{PL}[i] - S_P[j]\|^
 - [\[CVPR 2026\] U-F²-CBM: CLIP-Free, Label Free, Unsupervised Concept Bottleneck Models](../../CVPR2026/others/clipfree_label_free_unsupervised_concept_bottlenec.md)
 - [\[AAAI 2026\] Predict and Resist: Long-Term Accident Anticipation under Sensor Noise](predict_and_resist_long-term_accident_anticipation_under_sensor_noise.md)
 - [\[AAAI 2026\] Enhancing Noise Resilience in Face Clustering via Sparse Differential Transformer](enhancing_noise_resilience_in_face_clustering_via_sparse_differential_transforme.md)
+
+</div>
 
 <!-- RELATED:END -->

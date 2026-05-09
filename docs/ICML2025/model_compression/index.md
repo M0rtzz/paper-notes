@@ -10,6 +10,10 @@ description: >-
 
 **🧪 ICML2025** · **71** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (42)](../../ACL2026/model_compression/) · [📷 CVPR2026 (57)](../../CVPR2026/model_compression/) · [🔬 ICLR2026 (92)](../../ICLR2026/model_compression/) · [🤖 AAAI2026 (54)](../../AAAI2026/model_compression/) · [🧠 NeurIPS2025 (137)](../../NeurIPS2025/model_compression/) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/)
+
+🔥 **高频主题：** LLM ×19 · 模型压缩 ×16 · 压缩/编码 ×8 · 知识蒸馏 ×3 · 持续学习 ×3
+
 **[A Mathematical Framework for AI-Human Integration in Work](a_mathematical_framework_for_ai-human_integration_in_work.md)**
 
 :   本文提出了一个评估 AI-人类工作集成的数学框架，将技能分解为决策层和执行层两类子技能，理论证明了工作成功概率存在相变效应、互补技能融合可带来超加性收益，并解释了 GenAI 辅助中低技能工人获益更大的"生产力压缩"现象，通过 O*NET 和 Big-bench Lite 数据验证了框架的实用性。

@@ -194,6 +194,8 @@ CCA-Attention 支持三种训练策略：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] LaCache: Ladder-Shaped KV Caching for Efficient Long-Context Modeling of Large Language Models](lacache_ladder-shaped_kv_caching_for_efficient_long-context_modeling_of_large_la.md)
@@ -201,5 +203,7 @@ CCA-Attention 支持三种训练策略：
 - [\[ICML 2025\] RocketKV: Accelerating Long-Context LLM Inference via Two-Stage KV Cache Compression](rocketkv_accelerating_long-context_llm_inference_via_two-stage_kv_cache_compress.md)
 - [\[ICML 2025\] Context Tuning for In-Context Optimization](context_tuning_for_in-context_optimization.md)
 - [\[NeurIPS 2025\] Compress, Gather, and Recompute: REFORMing Long-Context Processing in Transformers](../../NeurIPS2025/model_compression/compress_gather_and_recompute_reforming_long-context_processing_in_transformers.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -129,6 +129,8 @@ $$\mathcal{R}_{\text{ECPv2},f}(n) \leq k \cdot \text{diam}(\mathcal{X}) \cdot \l
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] ScaleBiO: Scalable Bilevel Optimization for LLM Data Reweighting](../../ACL2025/optimization/scalebio_bilevel_data_reweighting.md)
@@ -136,5 +138,7 @@ $$\mathcal{R}_{\text{ECPv2},f}(n) \leq k \cdot \text{diam}(\mathcal{X}) \cdot \l
 - [\[NeurIPS 2025\] Efficient Adaptive Federated Optimization](../../NeurIPS2025/optimization/efficient_adaptive_federated_optimization.md)
 - [\[CVPR 2026\] BlazeFL: Fast and Deterministic Federated Learning Simulation](../../CVPR2026/optimization/blazefl_fast_and_deterministic_federated_learning_simulation.md)
 - [\[AAAI 2026\] Efficient and Reliable Hitting-Set Computations for the Implicit Hitting Set Approach](efficient_and_reliable_hitting-set_computations_for_the_implicit_hitting_set_app.md)
+
+</div>
 
 <!-- RELATED:END -->

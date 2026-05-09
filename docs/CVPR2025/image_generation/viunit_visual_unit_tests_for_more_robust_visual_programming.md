@@ -113,6 +113,8 @@ RL训练使用奖励加权的负对数似然损失：$J(w) = \mathbb{E}_{(v,q,p,
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Visual-ERM: Reward Modeling for Visual Equivalence](visual-erm_reward_modeling_for_visual_equivalence.md)
@@ -120,5 +122,7 @@ RL训练使用奖励加权的负对数似然损失：$J(w) = \mathbb{E}_{(v,q,p,
 - [\[CVPR 2025\] Overcoming Visual Clutter in Vision Language Action Models via Concept-Gated Visual Distillation](overcoming_visual_clutter_in_vision_language_action_models_via_concept-gated_vis.md)
 - [\[CVPR 2025\] Learning Visual Generative Priors without Text](learning_visual_generative_priors_without_text.md)
 - [\[CVPR 2025\] Generative Image Layer Decomposition with Visual Effects](generative_image_layer_decomposition_with_visual_effects.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -176,6 +176,8 @@ $m_{\text{FRM}}$ 敏感性分析：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Unsupervised Motion-Compensated Decomposition for Cardiac MRI Reconstruction via Neural Representation](unsupervised_motion-compensated_decomposition_for_cardiac_mri_reconstruction_via.md)
@@ -183,5 +185,7 @@ $m_{\text{FRM}}$ 敏感性分析：
 - [\[CVPR 2026\] InvAD: Inversion-based Reconstruction-Free Anomaly Detection with Diffusion Models](../../CVPR2026/medical_imaging/invad_inversionbased_reconstructionfree_anomaly_de.md)
 - [\[AAAI 2026\] WDT-MD: Wavelet Diffusion Transformers for Microaneurysm Detection in Fundus Images](wdt-md_wavelet_diffusion_transformers_for_microaneurysm_detection_in_fundus_imag.md)
 - [\[CVPR 2026\] Virtual Full-stack Scanning of Brain MRI via Imputing Any Quantised Code](../../CVPR2026/medical_imaging/virtual_full-stack_scanning_of_brain_mri_via_imputing_any_quantised_code.md)
+
+</div>
 
 <!-- RELATED:END -->

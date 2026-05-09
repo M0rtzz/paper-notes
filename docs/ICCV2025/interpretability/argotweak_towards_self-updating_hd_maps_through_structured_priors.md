@@ -142,6 +142,8 @@ ArgoTweak 训练模型的 sim2real 差距降低了 10 倍以上。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] CE-FAM: Concept-Based Explanation via Fusion of Activation Maps](ce-fam_concept-based_explanation_via_fusion_of_activation_maps.md)
@@ -149,5 +151,7 @@ ArgoTweak 训练模型的 sim2real 差距降低了 10 倍以上。
 - [\[NeurIPS 2025\] Geometric Priors for Generalizable World Models via Vector Symbolic Architecture](../../NeurIPS2025/interpretability/geometric_priors_for_generalizable_world_models_via_vector_symbolic_architecture.md)
 - [\[ICCV 2025\] VITAL: More Understandable Feature Visualization through Distribution Alignment and Relevant Information Flow](vital_more_understandable_feature_visualization_through_distribution_alignment_a.md)
 - [\[CVPR 2025\] Learning Visual Composition through Improved Semantic Guidance](../../CVPR2025/interpretability/learning_visual_composition_through_improved_semantic_guidance.md)
+
+</div>
 
 <!-- RELATED:END -->

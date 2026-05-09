@@ -171,6 +171,8 @@ $$\mathcal{L}_G = \alpha_1 \mathcal{L}^{\text{APA}} + \mathcal{L}^{\text{SL}} + 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Data-free Universal Adversarial Perturbation with Pseudo-Semantic Prior](../../CVPR2025/ai_safety/data-free_universal_adversarial_perturbation_with_pseudo-semantic_prior.md)
@@ -178,5 +180,7 @@ $$\mathcal{L}_G = \alpha_1 \mathcal{L}^{\text{APA}} + \mathcal{L}^{\text{SL}} + 
 - [\[CVPR 2025\] Split Adaptation for Pre-trained Vision Transformers](../../CVPR2025/ai_safety/split_adaptation_for_pre-trained_vision_transformers.md)
 - [\[ICCV 2025\] Backdooring Self-Supervised Contrastive Learning by Noisy Alignment](backdooring_self-supervised_contrastive_learning_by_noisy_alignment.md)
 - [\[ICCV 2025\] Controllable Feature Whitening for Hyperparameter-Free Bias Mitigation](controllable_feature_whitening_for_hyperparameter-free_bias_mitigation.md)
+
+</div>
 
 <!-- RELATED:END -->

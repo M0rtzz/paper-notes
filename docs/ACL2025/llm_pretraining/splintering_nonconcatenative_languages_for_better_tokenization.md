@@ -123,6 +123,8 @@ Schmidt et al. 指出压缩率不应是评估分词器的唯一标准。Splinter
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Adversarial Tokenization](adversarial_tokenization.md)
@@ -130,5 +132,7 @@ Schmidt et al. 指出压缩率不应是评估分词器的唯一标准。Splinter
 - [\[ICML 2025\] Evaluating Morphological Alignment of Tokenizers in 70 Languages](../../ICML2025/llm_pretraining/evaluating_morphological_alignment_of_tokenizers_in_70_languages.md)
 - [\[ACL 2025\] Between Circuits and Chomsky: Pre-pretraining on Formal Languages Imparts Linguistic Biases](between_circuits_chomsky.md)
 - [\[ACL 2025\] Incorporating Domain Knowledge into Materials Tokenization](incorporating_domain_knowledge_into_materials_tokenization.md)
+
+</div>
 
 <!-- RELATED:END -->

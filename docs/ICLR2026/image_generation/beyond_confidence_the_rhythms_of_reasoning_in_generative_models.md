@@ -118,6 +118,8 @@ LLM 最后一层隐状态 $\mathbf{h} \in \mathbb{R}^d$ 经输出权重矩阵 $\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Infinity and Beyond: Compositional Alignment in VAR and Diffusion T2I Models](infinity_and_beyond_compositional_alignment_in_var_and_diffusion_t2i_models.md)
@@ -125,5 +127,7 @@ LLM 最后一层隐状态 $\mathbf{h} \in \mathbb{R}^d$ 经输出权重矩阵 $\
 - [\[NeurIPS 2025\] DEXTER: Diffusion-Guided EXplanations with TExtual Reasoning for Vision Models](../../NeurIPS2025/image_generation/dexter_diffusion-guided_explanations_with_textual_reasoning_for_vision_models.md)
 - [\[CVPR 2026\] Improving Text-to-Image Generation with Intrinsic Self-Confidence Rewards](../../CVPR2026/image_generation/improving_text-to-image_generation_with_intrinsic_self-confidence_rewards.md)
 - [\[ICLR 2026\] Improving Discrete Diffusion Unmasking Policies Beyond Explicit Reference Policies (UPO)](improving_discrete_diffusion_unmasking_policies_beyond_explicit_reference_polici.md)
+
+</div>
 
 <!-- RELATED:END -->

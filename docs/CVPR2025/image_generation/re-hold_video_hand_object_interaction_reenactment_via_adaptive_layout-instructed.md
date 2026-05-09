@@ -131,6 +131,8 @@ $$\mathbf{F}^a = \text{Att}(\mathbf{F}, \mathbf{B}, \mathbf{B}) * M + \mathbf{F}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Multitwine: Multi-Object Compositing with Text and Layout Control](multitwine_multi-object_compositing_with_text_and_layout_control.md)
@@ -138,5 +140,7 @@ $$\mathbf{F}^a = \text{Att}(\mathbf{F}, \mathbf{B}, \mathbf{B}) * M + \mathbf{F}
 - [\[CVPR 2025\] Pursuing Temporal-Consistent Video Virtual Try-On via Dynamic Pose Interaction](pursuing_temporal-consistent_video_virtual_try-on_via_dynamic_pose_interaction.md)
 - [\[CVPR 2025\] MTADiffusion: Mask Text Alignment Diffusion Model for Object Inpainting](mtadiffusion_mask_text_alignment_diffusion_model_for_object_inpainting.md)
 - [\[CVPR 2025\] ObjectMover: Generative Object Movement with Video Prior](objectmover_generative_object_movement_with_video_prior.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -134,6 +134,8 @@ PCB 在稳定性任务上为 GPT-4o 带来 **+25.5%** 的塔稳定性提升。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Document Haystacks: Vision-Language Reasoning Over Piles of 1000+ Documents](../../CVPR2025/multimodal_vlm/document_haystacks_vision-language_reasoning_over_piles_of_1000_documents.md)
@@ -141,5 +143,7 @@ PCB 在稳定性任务上为 GPT-4o 带来 **+25.5%** 的塔稳定性提升。
 - [\[ICCV 2025\] MaTVLM: Hybrid Mamba-Transformer for Efficient Vision-Language Modeling](matvlm_hybrid_mamba-transformer_for_efficient_vision-language_modeling.md)
 - [\[ACL 2025\] Can Vision Language Models Understand Mimed Actions?](../../ACL2025/multimodal_vlm/can_vision_language_models_understand_mimed_actions.md)
 - [\[AAAI 2026\] FT-NCFM: An Influence-Aware Data Distillation Framework for Efficient VLA Models](../../AAAI2026/multimodal_vlm/ft-ncfm_an_influence-aware_data_distillation_framework_for_efficient_vla_models.md)
+
+</div>
 
 <!-- RELATED:END -->

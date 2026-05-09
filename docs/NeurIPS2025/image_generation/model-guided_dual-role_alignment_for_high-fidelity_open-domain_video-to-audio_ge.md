@@ -162,6 +162,8 @@ FAD降至0.40，相比次优MMAudio(0.71)提升43%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] FlashAudio: Rectified Flows for Fast and High-Fidelity Text-to-Audio Generation](../../ACL2025/image_generation/flashaudio_rectified_flow_tta.md)
@@ -169,5 +171,7 @@ FAD降至0.40，相比次优MMAudio(0.71)提升43%。
 - [\[NeurIPS 2025\] Vicinity-Guided Discriminative Latent Diffusion for Privacy-Preserving Domain Adaptation](vicinity-guided_discriminative_latent_diffusion_for_privacy-preserving_domain_ad.md)
 - [\[NeurIPS 2025\] Dual Data Alignment Makes AI-Generated Image Detector Easier Generalizable](dual_data_alignment_makes_ai-generated_image_detector_easier_generalizable.md)
 - [\[NeurIPS 2025\] From Cradle to Cane: A Two-Pass Framework for High-Fidelity Lifespan Face Aging](from_cradle_to_cane_a_two-pass_framework_for_high-fidelity_lifespan_face_aging.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -139,6 +139,8 @@ $$\Delta_1(g,a,b) = w_g\big(D(x_g, c_b^*) - D(x_g, c_a^*)\big) - \big((s_a - w_g
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Approximation Algorithm for Constrained k-Center Clustering: A Local Search Approach](../../AAAI2026/others/approximation_algorithm_for_constrained_k-center_clustering_.md)
@@ -146,5 +148,7 @@ $$\Delta_1(g,a,b) = w_g\big(D(x_g, c_b^*) - D(x_g, c_a^*)\big) - \big((s_a - w_g
 - [\[ICML 2025\] Theoretical Performance Guarantees for Partial Domain Adaptation via Partial Optimal Transport](theoretical_performance_guarantees_for_partial_domain_adaptation_via_partial_opt.md)
 - [\[ICML 2025\] Improved Generalization Bounds for Transductive Learning by Transductive Local Complexity and Its Applications](improved_generalization_bounds_for_transductive_learning_by_transductive_local_c.md)
 - [\[NeurIPS 2025\] FSNet: Feasibility-Seeking Neural Network for Constrained Optimization with Guarantees](../../NeurIPS2025/others/fsnet_feasibility-seeking_neural_network_for_constrained_optimization_with_guara.md)
+
+</div>
 
 <!-- RELATED:END -->

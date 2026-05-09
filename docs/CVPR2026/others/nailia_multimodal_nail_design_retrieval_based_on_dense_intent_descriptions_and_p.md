@@ -155,6 +155,8 @@ $$\mathcal{L}_{\text{CRC}} = \mathcal{L}_P + \lambda_{UP} \mathcal{L}_{UP} + \la
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design](sldprtnet_a_large-scale_multimodal_dataset_for_cad_generation_in_language-driven.md)
@@ -162,5 +164,7 @@ $$\mathcal{L}_{\text{CRC}} = \mathcal{L}_P + \lambda_{UP} \mathcal{L}_{UP} + \la
 - [\[ICLR 2026\] Beyond Linearity in Attention Projections: The Case for Nonlinear Queries](../../ICLR2026/others/beyond_linearity_in_attention_projections_the_case_for_nonlinear_queries.md)
 - [\[ACL 2025\] GeAR: Generation Augmented Retrieval](../../ACL2025/others/gear_generation_augmented_retrieval.md)
 - [\[ACL 2025\] LAQuer: Localized Attribution Queries in Content-grounded Generation](../../ACL2025/others/laquer_localized_attribution.md)
+
+</div>
 
 <!-- RELATED:END -->

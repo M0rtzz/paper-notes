@@ -122,6 +122,8 @@ MGE-LDM 将三个潜在变量——混合 z^(m)、子混合 z^(u)、源 z^(s)—
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Enhancing Dance-to-Music Generation via Negative Conditioning Latent Diffusion Model](../../CVPR2025/image_generation/enhancing_dance-to-music_generation_via_negative_conditioning_latent_diffusion_m.md)
@@ -129,5 +131,7 @@ MGE-LDM 将三个潜在变量——混合 z^(m)、子混合 z^(u)、源 z^(s)—
 - [\[NeurIPS 2025\] Large-Scale Training Data Attribution for Music Generative Models via Unlearning](large-scale_training_data_attribution_for_music_generative_models_via_unlearning.md)
 - [\[NeurIPS 2025\] Diffusion-Driven Progressive Target Manipulation for Source-Free Domain Adaptation](diffusion-driven_progressive_target_manipulation_for_source-free_domain_adaptati.md)
 - [\[NeurIPS 2025\] StableGuard: Towards Unified Copyright Protection and Tamper Localization in Latent Diffusion Models](stableguard_towards_unified_copyright_protection_and_tamper_localization_in_late.md)
+
+</div>
 
 <!-- RELATED:END -->

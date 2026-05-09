@@ -118,6 +118,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] BEST-Route: Adaptive LLM Routing with Test-Time Optimal Compute](../../ICML2025/llm_nlp/best-route_adaptive_llm_routing_with_test-time_optimal_compute.md)
@@ -125,5 +127,7 @@ tags:
 - [\[ACL 2025\] LLM-Powered Test Case Generation for Detecting Bugs in Plausible Programs](../../ACL2025/llm_nlp/llm_test_case_gen_bugs.md)
 - [\[ACL 2025\] Leveraging Human Production-Interpretation Asymmetries to Test LLM Cognitive Plausibility](../../ACL2025/llm_nlp/leveraging_human_production-interpretation_asymmetries_to_test_llm_cognitive_pla.md)
 - [\[ACL 2025\] Leveraging In-Context Learning for Political Bias Testing of LLMs](../../ACL2025/llm_nlp/leveraging_in-context_learning_for_political_bias_testing_of_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

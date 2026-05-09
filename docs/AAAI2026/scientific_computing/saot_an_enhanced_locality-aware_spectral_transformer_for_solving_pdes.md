@@ -174,6 +174,8 @@ SAOT 在 Darcy、NS、Airfoil、Plasticity 上均取得最优，NS 和 Plasticit
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Knowledge-Guided Masked Autoencoder with Linear Spectral Mixing and Spectral-Angle-Aware Reconstruction](knowledge-guided_masked_autoencoder_with_linear_spectral_mixing_and_spectral-ang.md)
@@ -181,5 +183,7 @@ SAOT 在 Darcy、NS、Airfoil、Plasticity 上均取得最优，NS 和 Plasticit
 - [\[NeurIPS 2025\] DeltaPhi: Physical States Residual Learning for Neural Operators in Data-Limited PDE Solving](../../NeurIPS2025/scientific_computing/deltaphi_physical_states_residual_learning_for_neural_operators_in_data-limited_.md)
 - [\[ICML 2025\] Erwin: A Tree-based Hierarchical Transformer for Large-scale Physical Systems](../../ICML2025/scientific_computing/erwin_a_tree-based_hierarchical_transformer_for_large-scale_physical_systems.md)
 - [\[AAAI 2026\] Towards a Foundation Model for Partial Differential Equations Across Physics Domains](towards_a_foundation_model_for_partial_differential_equations_across_physics_dom.md)
+
+</div>
 
 <!-- RELATED:END -->

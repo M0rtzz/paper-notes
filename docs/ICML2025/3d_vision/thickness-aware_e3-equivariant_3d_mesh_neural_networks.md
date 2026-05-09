@@ -181,6 +181,8 @@ $$\mathbf{z}_i^{(l+1)} \leftarrow f_{\text{thick}}^V(\mathbf{z}_i^{\text{surf},(
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] SE(3)-Equivariant Diffusion Policy in Spherical Fourier Space](se3-equivariant_diffusion_policy_in_spherical_fourier_space.md)
@@ -188,5 +190,7 @@ $$\mathbf{z}_i^{(l+1)} \leftarrow f_{\text{thick}}^V(\mathbf{z}_i^{\text{surf},(
 - [\[ICML 2025\] FlowDrag: 3D-aware Drag-based Image Editing with Mesh-guided Deformation Vector Flow Fields](flowdrag_3d-aware_drag-based_image_editing_with_mesh-guided_deformation_vector_f.md)
 - [\[ICCV 2025\] Nautilus: Locality-aware Autoencoder for Scalable Mesh Generation](../../ICCV2025/3d_vision/nautilus_locality-aware_autoencoder_for_scalable_mesh_generation.md)
 - [\[ICML 2025\] FreeMesh: Boosting Mesh Generation with Coordinates Merging](freemesh_boosting_mesh_generation_with_coordinates_merging.md)
+
+</div>
 
 <!-- RELATED:END -->

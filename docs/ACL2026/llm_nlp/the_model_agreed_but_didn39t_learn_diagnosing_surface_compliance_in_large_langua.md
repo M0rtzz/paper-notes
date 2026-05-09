@@ -123,6 +123,8 @@ SA-MCQ 是纯评估框架，不涉及训练。测试的编辑器包括 AlphaEdit
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2026\] Revisiting Non-Verbatim Memorization in Large Language Models: The Role of Entity Surface Forms](revisiting_non-verbatim_memorization_in_large_language_models_the_role_of_entity.md)
@@ -130,5 +132,7 @@ SA-MCQ 是纯评估框架，不涉及训练。测试的编辑器包括 AlphaEdit
 - [\[ACL 2026\] Foresight Optimization for Strategic Reasoning in Large Language Models](foresight_optimization_for_strategic_reasoning_in_large_language_models.md)
 - [\[ACL 2025\] From Data to Knowledge: Evaluating How Efficiently Language Models Learn Facts](../../ACL2025/llm_nlp/from_data_to_knowledge_evaluating_how_efficiently_language_models_learn_facts.md)
 - [\[ACL 2026\] Adam's Law: Textual Frequency Law on Large Language Models](adam39s_law_textual_frequency_law_on_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

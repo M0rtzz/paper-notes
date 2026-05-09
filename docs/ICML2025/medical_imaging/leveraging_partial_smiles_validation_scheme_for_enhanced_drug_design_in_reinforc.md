@@ -151,6 +151,8 @@ $$L^{\text{HD}}_{PSV}(\theta) = \mathbb{E}_t \left[ \text{HD} \left[ \pi_{\theta
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Improved Off-policy Reinforcement Learning in Biological Sequence Design](improved_off-policy_reinforcement_learning_in_biological_sequence_design.md)
@@ -158,5 +160,7 @@ $$L^{\text{HD}}_{PSV}(\theta) = \mathbb{E}_t \left[ \text{HD} \left[ \pi_{\theta
 - [\[NeurIPS 2025\] Pharmacophore-Guided Generative Design of Novel Drug-Like Molecules](../../NeurIPS2025/medical_imaging/pharmacophore-guided_generative_design_of_novel_drug-like_molecules.md)
 - [\[NeurIPS 2025\] GFlowNets for Learning Better Drug-Drug Interaction Representations](../../NeurIPS2025/medical_imaging/gflownets_for_learning_better_drug-drug_interaction_representations.md)
 - [\[ICML 2025\] GenMol: A Drug Discovery Generalist with Discrete Diffusion](genmol_a_drug_discovery_generalist_with_discrete_diffusion.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -147,6 +147,8 @@ $$z_{i,k}^l = \frac{\exp((\log \pi_{i,k}^l + g_{i,k}^l) / \tau)}{\sum_{k'=0}^{1}
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Pb4U-GNet: Resolution-Adaptive Garment Simulation via Propagation-before-Update Graph Network](../../AAAI2026/3d_vision/pb4u-gnet_resolution-adaptive_garment_simulation_via_propagation-before-update_g.md)
@@ -154,5 +156,7 @@ $$z_{i,k}^l = \frac{\exp((\log \pi_{i,k}^l + g_{i,k}^l) / \tau)}{\sum_{k'=0}^{1}
 - [\[ICCV 2025\] GaussianProperty: Integrating Physical Properties to 3D Gaussians with LMMs](../../ICCV2025/3d_vision/gaussianproperty_integrating_physical_properties_to_3d_gaussians_with_lmms.md)
 - [\[NeurIPS 2025\] MaNGO: Adaptable Graph Network Simulators via Meta-Learning](../../NeurIPS2025/3d_vision/mango_-_adaptable_graph_network_simulators_via_meta-learning.md)
 - [\[ICCV 2025\] Hierarchical Material Recognition from Local Appearance](../../ICCV2025/3d_vision/hierarchical_material_recognition_from_local_appearance.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -179,6 +179,8 @@ $$\mathcal{L}_{det}^{aux} = \mathcal{L}_{ca}^{aux} + \mathcal{L}_{cls}^{aux} + \
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Fourier Angle Alignment for Oriented Object Detection in Remote Sensing](../../CVPR2026/object_detection/fourier_angle_alignment_for_oriented_object_detection_in_remote_sensing.md)
@@ -186,5 +188,7 @@ $$\mathcal{L}_{det}^{aux} = \mathcal{L}_{ca}^{aux} + \mathcal{L}_{cls}^{aux} + \
 - [\[ECCV 2024\] Projecting Points to Axes: Oriented Object Detection via Point-Axis Representation](projecting_points_to_axes_oriented_object_detection_via_point-axis_representatio.md)
 - [\[AAAI 2026\] SM3Det: A Unified Model for Multi-Modal Remote Sensing Object Detection](../../AAAI2026/object_detection/sm3det_a_unified_model_for_multi-modal_remote_sensing_object_detection.md)
 - [\[ICCV 2025\] Large-scale Pre-training for Grounded Video Caption Generation](../../ICCV2025/object_detection/large-scale_pre-training_for_grounded_video_caption_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

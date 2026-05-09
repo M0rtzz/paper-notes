@@ -125,6 +125,8 @@ $$\lambda_i = \frac{1/d_i}{\sum_{k=1}^L 1/d_k} \cdot (\mathbf{n}_i \cdot \mathbf
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Bridging the Skeleton-Text Modality Gap: Diffusion-Powered Modality Alignment for Zero-shot Skeleton-based Action Recognition](bridging_the_skeleton-text_modality_gap_diffusion-powered_modality_alignment_for.md)
@@ -132,5 +134,7 @@ $$\lambda_i = \frac{1/d_i}{\sum_{k=1}^L 1/d_k} \cdot (\mathbf{n}_i \cdot \mathbf
 - [\[ICCV 2025\] Mind the Gap: Aligning Vision Foundation Models to Image Feature Matching](mind_the_gap_aligning_vision_foundation_models_to_image_feature_matching.md)
 - [\[ICCV 2025\] TeEFusion: Blending Text Embeddings to Distill Classifier-Free Guidance](teefusion_blending_text_embeddings_to_distill_classifier-free_guidance.md)
 - [\[CVPR 2025\] Symbolic Representation for Any-to-Any Generative Tasks](../../CVPR2025/image_generation/symbolic_representation_for_any-to-any_generative_tasks.md)
+
+</div>
 
 <!-- RELATED:END -->

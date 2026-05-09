@@ -183,6 +183,8 @@ $$I_\tau = \frac{1}{|\tau|} \sum_{(s,a)\in\tau} \Delta Q(s) \times R(s,a)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Offline Reinforcement Learning with Generative Trajectory Policies](../../ICLR2026/reinforcement_learning/offline_reinforcement_learning_with_generative_trajectory_policies.md)
@@ -190,5 +192,7 @@ $$I_\tau = \frac{1}{|\tau|} \sum_{(s,a)\in\tau} \Delta Q(s) \times R(s,a)$$
 - [\[AAAI 2026\] Speculative Sampling with Reinforcement Learning](speculative_sampling_with_reinforcement_learning.md)
 - [\[AAAI 2026\] Vision-Language Reasoning for Geolocalization: A Reinforcement Learning Approach](vision-language_reasoning_for_geolocalization_a_reinforcement_learning_approach.md)
 - [\[AAAI 2026\] Revealing POMDPs: Qualitative and Quantitative Analysis for Parity Objectives](revealing_pomdps_qualitative_and_quantitative_analysis_for_parity_objectives.md)
+
+</div>
 
 <!-- RELATED:END -->

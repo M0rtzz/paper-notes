@@ -160,6 +160,8 @@ CoSp-PPGN 在所有子结构计数任务上匹配或超过 PPGN。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Language Guided Concept Bottleneck Models for Interpretable Continual Learning](../../CVPR2025/llm_efficiency/language_guided_concept_bottleneck_models_for_interpretable_continual_learning.md)
@@ -167,5 +169,7 @@ CoSp-PPGN 在所有子结构计数任务上匹配或超过 PPGN。
 - [\[ACL 2025\] Entailment-Preserving First-order Logic Representations in Natural Language Entailment](../../ACL2025/llm_efficiency/entailment-preserving_first-order_logic_representations_in_natural_language_enta.md)
 - [\[ACL 2025\] Boosting Long-Context Information Seeking via Query-Guided Activation Refilling](../../ACL2025/llm_efficiency/boosting_long-context_information_seeking_via_query-guided_activation_refilling.md)
 - [\[ACL 2025\] Sliding Windows Are Not the End: Exploring Full Ranking with Long-Context Large Language Models](../../ACL2025/llm_efficiency/sliding_windows_full_ranking.md)
+
+</div>
 
 <!-- RELATED:END -->

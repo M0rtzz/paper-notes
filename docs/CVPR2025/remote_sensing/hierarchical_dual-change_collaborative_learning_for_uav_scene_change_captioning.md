@@ -129,6 +129,8 @@ $\mathcal{L} = \mathcal{L}_{cap} + \lambda(\mathcal{L}_{con} + \mathcal{L}_{alig
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Information-Bottleneck Driven Binary Neural Network for Change Detection](../../ICCV2025/remote_sensing/information-bottleneck_driven_binary_neural_network_for_change_detection.md)
@@ -136,5 +138,7 @@ $\mathcal{L} = \mathcal{L}_{cap} + \lambda(\mathcal{L}_{con} + \mathcal{L}_{alig
 - [\[ICLR 2026\] TAMMs: Change Understanding and Forecasting in Satellite Image Time Series with Temporal-Aware Multimodal Models](../../ICLR2026/remote_sensing/tamms_change_understanding_and_forecasting_in_satellite_image_time_series_with_t.md)
 - [\[CVPR 2025\] SGFormer: Satellite-Ground Fusion for 3D Semantic Scene Completion](sgformer_satellite-ground_fusion_for_3d_semantic_scene_completion.md)
 - [\[NeurIPS 2025\] OrthoLoC: UAV 6-DoF Localization and Calibration Using Orthographic Geodata](../../NeurIPS2025/remote_sensing/ortholoc_uav_6-dof_localization_and_calibration_using_orthographic_geodata.md)
+
+</div>
 
 <!-- RELATED:END -->

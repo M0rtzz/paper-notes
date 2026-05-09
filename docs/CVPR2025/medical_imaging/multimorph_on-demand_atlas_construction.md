@@ -128,6 +128,8 @@ $$\mathcal{L}(\phi_i) = \mathcal{L}_{sim}(\mathbf{t}, \mathbf{x}_i \circ \phi_i)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] Human Behavior Atlas: Benchmarking Unified Psychological and Social Behavior Understanding](../../ICLR2026/medical_imaging/human_behavior_atlas_benchmarking_unified_psychological_and_social_behavior_unde.md)
@@ -135,5 +137,7 @@ $$\mathcal{L}(\phi_i) = \mathcal{L}_{sim}(\mathbf{t}, \mathbf{x}_i \circ \phi_i)
 - [\[CVPR 2025\] UniVAD: A Training-free Unified Model for Few-shot Visual Anomaly Detection](univad_a_training-free_unified_model_for_few-shot_visual_anomaly_detection.md)
 - [\[CVPR 2025\] BiCLIP: Bidirectional and Consistent Language-Image Processing for Robust Medical Image Segmentation](biclip_bidirectional_and_consistent_language-image_processing_for_robust_medical.md)
 - [\[CVPR 2025\] Unsupervised Foundation Model-Agnostic Slide-Level Representation Learning](unsupervised_foundation_model-agnostic_slide-level_representation_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

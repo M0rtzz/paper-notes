@@ -161,6 +161,8 @@ Echo 以 7B 开源模型超越 GPT-4o-Audio (+5.9%) 和 Gemini-2.0-Flash (+2.1%)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] LoongRL: Reinforcement Learning for Advanced Reasoning over Long Contexts](loongrl_rl_for_reasoning_long_contexts.md)
@@ -168,5 +170,7 @@ Echo 以 7B 开源模型超越 GPT-4o-Audio (+5.9%) 和 Gemini-2.0-Flash (+2.1%)
 - [\[NeurIPS 2025\] Incentivizing Reasoning for Advanced Instruction-Following of Large Language Models](../../NeurIPS2025/reinforcement_learning/incentivizing_reasoning_for_advanced_instruction-following_of_large_language_mod.md)
 - [\[ICLR 2026\] RM-R1: Reward Modeling as Reasoning](rm-r1_reward_modeling_as_reasoning.md)
 - [\[ICLR 2026\] Reasoning Boosts Opinion Alignment in LLMs](reasoning_boosts_opinion_alignment_in_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

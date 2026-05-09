@@ -10,6 +10,8 @@ description: >-
 
 **🎞️ ECCV2024** · **1** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (1)](../../CVPR2026/physics/) · [🔬 ICLR2026 (2)](../../ICLR2026/physics/) · [🤖 AAAI2026 (2)](../../AAAI2026/physics/) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/physics/) · [📹 ICCV2025 (1)](../../ICCV2025/physics/) · [🧪 ICML2025 (6)](../../ICML2025/physics/)
+
 **[Robust Fitting on a Gate Quantum Computer](robust_fitting_on_a_gate_quantum_computer.md)**
 
 :   首次在真实门量子计算机（IonQ Aria）上实现鲁棒拟合：提出用于一维 $\ell_\infty$ 可行性检验的量子电路，填补了 Bernstein-Vazirani（BV）电路计算 Boolean influence 的关键空缺，并展示如何将一维 influence 累积到高维非线性模型（如基础矩阵估计）。

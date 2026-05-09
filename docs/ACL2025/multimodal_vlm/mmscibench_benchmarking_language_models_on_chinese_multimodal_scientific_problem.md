@@ -194,6 +194,8 @@ MMSciBench 在中文科学基准中独特地结合了多模态评估、三级知
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] AlignMMBench: Evaluating Chinese Multimodal Alignment in Large Vision-Language Models](alignmmbench_evaluating_chinese_multimodal_alignment_in_large_vision-language_mo.md)
@@ -201,5 +203,7 @@ MMSciBench 在中文科学基准中独特地结合了多模态评估、三级知
 - [\[ACL 2025\] MMINA: Benchmarking Multihop Multimodal Internet Agents](mmina_benchmarking_multihop_multimodal_internet_agents.md)
 - [\[ICML 2025\] Reasoning Limitations of Multimodal Large Language Models. A Case Study of Bongard Problems](../../ICML2025/multimodal_vlm/reasoning_limitations_of_multimodal_large_language_models_a_case_study_of_bongar.md)
 - [\[ACL 2025\] Can MLLMs Understand the Deep Implication Behind Chinese Images?](can_mllms_understand_the_deep_implication_behind_chinese_images.md)
+
+</div>
 
 <!-- RELATED:END -->

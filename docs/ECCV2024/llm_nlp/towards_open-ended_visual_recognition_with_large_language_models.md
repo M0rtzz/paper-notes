@@ -228,6 +228,8 @@ OSM 在6个数据集上评估 mask 分类准确率（Acc）和词表外预测比
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Meta-Prompting for Automating Zero-shot Visual Recognition with LLMs](metaprompting_for_automating_zeroshot_visual_recognitio.md)
@@ -235,5 +237,7 @@ OSM 在6个数据集上评估 mask 分类准确率（Acc）和词表外预测比
 - [\[NeurIPS 2025\] AutoDiscovery: Open-ended Scientific Discovery via Bayesian Surprise](../../NeurIPS2025/llm_nlp/autodiscovery_open-ended_scientific_discovery_via_bayesian_surprise.md)
 - [\[ECCV 2024\] Evaluating Text-to-Visual Generation with Image-to-Text Generation](evaluating_text-to-visual_generation_with_image-to-text_generation.md)
 - [\[ECCV 2024\] Cultural Value Differences of LLMs: Prompt, Language, and Model Size](cultural_value_differences_llms.md)
+
+</div>
 
 <!-- RELATED:END -->

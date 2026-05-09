@@ -155,6 +155,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Synthetic Data is an Elegant GIFT for Continual Vision-Language Models](synthetic_data_is_an_elegant_gift_for_continual_vision-language_models.md)
@@ -162,5 +164,7 @@ tags:
 - [\[ACL 2025\] SpaRE: Enhancing Spatial Reasoning in Vision-Language Models with Synthetic Data](../../ACL2025/multimodal_vlm/spare_enhancing_spatial_reasoning_in_vision-language_models_with_synthetic_data.md)
 - [\[ICML 2025\] SK-VQA: Synthetic Knowledge Generation at Scale for Training Context-Augmented Multimodal LLMs](../../ICML2025/multimodal_vlm/sk-vqa_synthetic_knowledge_generation_at_scale_for_training_context-augmented_mu.md)
 - [\[ACL 2025\] Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation](../../ACL2025/multimodal_vlm/code_guided_text_rich_image.md)
+
+</div>
 
 <!-- RELATED:END -->

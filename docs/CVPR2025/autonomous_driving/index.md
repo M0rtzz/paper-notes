@@ -10,6 +10,10 @@ description: >-
 
 **📷 CVPR2025** · **95** 篇论文解读
 
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (105)](../../CVPR2026/autonomous_driving/) · [🔬 ICLR2026 (18)](../../ICLR2026/autonomous_driving/) · [🤖 AAAI2026 (58)](../../AAAI2026/autonomous_driving/) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/autonomous_driving/) · [📹 ICCV2025 (98)](../../ICCV2025/autonomous_driving/) · [🧪 ICML2025 (11)](../../ICML2025/autonomous_driving/)
+
+🔥 **高频主题：** 自动驾驶 ×8 · 3D 目标检测 ×6 · 扩散模型 ×5 · 3D 高斯渲染 ×5 · 点云 ×5
+
 **[3D-AVS: LiDAR-based 3D Auto-Vocabulary Segmentation](3d-avs_lidar-based_3d_auto-vocabulary_segmentation.md)**
 
 :   提出3D-AVS，首个针对LiDAR点云的**自动词表分割**方法：无需用户指定目标类别，系统自动从图像和点云中识别场景中存在的语义实体并生成词表，再用开放词表分割器完成逐点语义分割，在nuScenes和ScanNet200上展示了生成精细语义类别的能力。

@@ -126,6 +126,8 @@ $$\mathbb{E}_{q_\phi(z|c)}[\log p_\theta(c|z)] - D_{KL}(q_\phi(z|c), p_\psi(z|x)
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] ARGenSeg: Image Segmentation with Autoregressive Image Generation Model](argenseg_image_segmentation_with_autoregressive_image_generation_model.md)
@@ -133,5 +135,7 @@ $$\mathbb{E}_{q_\phi(z|c)}[\log p_\theta(c|z)] - D_{KL}(q_\phi(z|c), p_\psi(z|x)
 - [\[CVPR 2025\] Uni4D: Unifying Visual Foundation Models for 4D Modeling from a Single Video](../../CVPR2025/segmentation/uni4d_unifying_visual_foundation_models_for_4d_modeling_from_a_single_video.md)
 - [\[NeurIPS 2025\] Towards Unsupervised Domain Bridging via Image Degradation in Semantic Segmentation](towards_unsupervised_domain_bridging_via_image_degradation_in_semantic_segmentat.md)
 - [\[NeurIPS 2025\] UniPixel: Unified Object Referring and Segmentation for Pixel-Level Visual Reasoning](unipixel_unified_object_referring_and_segmentation_for_pixel-level_visual_reason.md)
+
+</div>
 
 <!-- RELATED:END -->

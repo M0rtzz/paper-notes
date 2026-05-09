@@ -150,6 +150,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Radial Attention: O(n log n) Sparse Attention with Energy Decay for Long Video Generation](radial_attention_onlog_n_sparse_attention_with_energy_decay_for_long_video_gener.md)
@@ -157,5 +159,7 @@ tags:
 - [\[CVPR 2025\] VideoDirector: Precise Video Editing via Text-to-Video Models](../../CVPR2025/video_generation/videodirector_precise_video_editing_via_text-to-video_models.md)
 - [\[CVPR 2025\] Multi-subject Open-set Personalization in Video Generation](../../CVPR2025/video_generation/multi-subject_open-set_personalization_in_video_generation.md)
 - [\[CVPR 2025\] Mimir: Improving Video Diffusion Models for Precise Text Understanding](../../CVPR2025/video_generation/mimir_improving_video_diffusion_models_for_precise_text_understanding.md)
+
+</div>
 
 <!-- RELATED:END -->

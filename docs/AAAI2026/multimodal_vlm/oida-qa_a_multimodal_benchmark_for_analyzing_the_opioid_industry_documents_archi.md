@@ -168,6 +168,8 @@ $$\mathcal{L}_{\text{MNRL}} = -\frac{1}{B}\sum_{b=1}^B \log \frac{\exp(s_{b,b}/\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Multimodal OCR: Parse Anything from Documents](../../CVPR2026/multimodal_vlm/multimodal_ocr_parse_anything_from_documents.md)
@@ -175,5 +177,7 @@ $$\mathcal{L}_{\text{MNRL}} = -\frac{1}{B}\sum_{b=1}^B \log \frac{\exp(s_{b,b}/\
 - [\[AAAI 2026\] VP-Bench: A Comprehensive Benchmark for Visual Prompting in Multimodal Large Language Models](vp-bench_a_comprehensive_benchmark_for_visual_prompting_in_m.md)
 - [\[AAAI 2026\] CrossVid: A Comprehensive Benchmark for Evaluating Cross-Video Reasoning in Multimodal Large Language Models](crossvid_a_comprehensive_benchmark_for_evaluating_cross-vide.md)
 - [\[ICCV 2025\] Analyzing Finetuning Representation Shift for Multimodal LLMs Steering](../../ICCV2025/multimodal_vlm/analyzing_finetuning_representation_shift_for_multimodal_llms_steering.md)
+
+</div>
 
 <!-- RELATED:END -->

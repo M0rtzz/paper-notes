@@ -281,6 +281,8 @@ E-SSL3D 仅预训练 3D backbone，而 ALSO 还训练了 2D 卷积层，因此 E
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] CSOT: Cross-Scan Object Transfer for Semi-Supervised LiDAR Object Detection](csot_cross-scan_object_transfer_for_semi-supervised_lidar_object_detection.md)
@@ -288,5 +290,7 @@ E-SSL3D 仅预训练 3D backbone，而 ALSO 还训练了 2D 卷积层，因此 E
 - [\[ECCV 2024\] Detecting As Labeling: Rethinking LiDAR-camera Fusion in 3D Object Detection](detecting_as_labeling_rethinking_lidar-camera_fusion_in_3d_object_detection.md)
 - [\[NeurIPS 2025\] How Different from the Past? Spatio-Temporal Time Series Forecasting with Self-Supervised Deviation Learning](../../NeurIPS2025/autonomous_driving/how_different_from_the_past_spatio-temporal_time_series_forecasting_with_self-su.md)
 - [\[ECCV 2024\] OPEN: Object-wise Position Embedding for Multi-view 3D Object Detection](open_object-wise_position_embedding_for_multi-view_3d_object_detection.md)
+
+</div>
 
 <!-- RELATED:END -->

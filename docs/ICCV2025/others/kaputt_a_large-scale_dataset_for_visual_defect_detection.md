@@ -151,6 +151,8 @@ Kaputt 发布了一个包含 23 万+ 图像、4.8 万+ 独立商品的大规模�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design](../../CVPR2025/others/sldprtnet_a_large-scale_multimodal_dataset_for_cad_generation_in_language-driven.md)
@@ -158,5 +160,7 @@ Kaputt 发布了一个包含 23 万+ 图像、4.8 万+ 独立商品的大规模�
 - [\[ACL 2025\] Zero-Shot Conversational Stance Detection: Dataset and Approaches](../../ACL2025/others/zero-shot_conversational_stance_detection_dataset_and_approaches.md)
 - [\[CVPR 2026\] UniSpector: Towards Universal Open-set Defect Recognition via Spectral-Contrastive Visual Prompting](../../CVPR2026/others/unispector_towards_universal_open-set_defect_recognition_via_spectral-contrastiv.md)
 - [\[ECCV 2024\] Power Variable Projection for Initialization-Free Large-Scale Bundle Adjustment](../../ECCV2024/others/power_variable_projection_for_initialization-free_large-scale_bundle_adjustment.md)
+
+</div>
 
 <!-- RELATED:END -->

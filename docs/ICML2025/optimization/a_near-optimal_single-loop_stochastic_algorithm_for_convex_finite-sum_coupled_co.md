@@ -122,6 +122,8 @@ $$\min_{x} F(x) = h\left(\frac{1}{n}\sum_{i=1}^{n} f_i(g_i(x))\right) + r(x)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Stochastic Momentum Methods for Non-smooth Non-Convex Finite-Sum Coupled Compositional Optimization](../../NeurIPS2025/optimization/stochastic_momentum_methods_for_non-smooth_non-convex_finite-sum_coupled_composi.md)
@@ -129,5 +131,7 @@ $$\min_{x} F(x) = h\left(\frac{1}{n}\sum_{i=1}^{n} f_i(g_i(x))\right) + r(x)$$
 - [\[ICML 2025\] Enhancing Parallelism in Decentralized Stochastic Convex Optimization](enhancing_parallelism_in_decentralized_stochastic_convex_optimization.md)
 - [\[ICML 2025\] Improved Last-Iterate Convergence of Shuffling Gradient Methods for Nonsmooth Convex Optimization](improved_last-iterate_convergence_of_shuffling_gradient_methods_for_nonsmooth_co.md)
 - [\[ICML 2025\] MetaAgent: Automatically Constructing Multi-Agent Systems Based on Finite State Machines](metaagent_automatically_constructing_multi-agent_systems_based_on_finite_state_m.md)
+
+</div>
 
 <!-- RELATED:END -->

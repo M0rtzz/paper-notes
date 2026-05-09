@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **117** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/optimization/) · [📷 CVPR2026 (10)](../../CVPR2026/optimization/) · [🔬 ICLR2026 (45)](../../ICLR2026/optimization/) · [🤖 AAAI2026 (24)](../../AAAI2026/optimization/) · [📹 ICCV2025 (8)](../../ICCV2025/optimization/) · [🧪 ICML2025 (58)](../../ICML2025/optimization/)
+
+🔥 **高频主题：** 联邦学习 ×12 · LLM ×11 · 对抗鲁棒 ×9 · 推理 ×7 · 对齐/RLHF ×3
+
 **[A Single-Loop First-Order Algorithm for Linearly Constrained Bilevel Optimization](a_single-loop_first-order_algorithm_for_linearly_constrained_bilevel_optimizatio.md)**
 
 :   针对下层问题带耦合线性约束的双层优化问题，提出单循环一阶算法 SFLCB，通过罚函数 + 增广拉格朗日重构消除 Hessian 依赖，将迭代复杂度从 $O(\epsilon^{-3}\log(\epsilon^{-1}))$ 改进至 $O(\epsilon^{-3})$。

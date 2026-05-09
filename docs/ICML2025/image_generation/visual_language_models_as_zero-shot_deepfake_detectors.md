@@ -114,6 +114,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Zero-Shot Adaptation of Parameter-Efficient Fine-Tuning in Diffusion Models](zero-shot_adaptation_of_parameter-efficient_fine-tuning_in_diffusion_models.md)
@@ -121,5 +123,7 @@ tags:
 - [\[NeurIPS 2025\] Semantic Surgery: Zero-Shot Concept Erasure in Diffusion Models](../../NeurIPS2025/image_generation/semantic_surgery_zero-shot_concept_erasure_in_diffusion_models.md)
 - [\[CVPR 2025\] Visual Lexicon: Rich Image Features in Language Space](../../CVPR2025/image_generation/visual_lexicon_rich_image_features_in_language_space.md)
 - [\[CVPR 2025\] Overcoming Visual Clutter in Vision Language Action Models via Concept-Gated Visual Distillation](../../CVPR2025/image_generation/overcoming_visual_clutter_in_vision_language_action_models_via_concept-gated_vis.md)
+
+</div>
 
 <!-- RELATED:END -->

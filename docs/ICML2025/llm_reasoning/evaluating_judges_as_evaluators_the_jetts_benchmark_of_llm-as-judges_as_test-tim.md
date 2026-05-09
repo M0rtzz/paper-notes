@@ -149,6 +149,8 @@ $$y_{\text{refined}} = \text{Generator}(x, y_{\text{initial}}, \text{critique})$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Atom of Thoughts for Markov LLM Test-Time Scaling](../../NeurIPS2025/llm_reasoning/atom_of_thoughts_for_markov_llm_testtime_scaling.md)
@@ -156,5 +158,7 @@ $$y_{\text{refined}} = \text{Generator}(x, y_{\text{initial}}, \text{critique})$
 - [\[ACL 2025\] Revisiting the Test-Time Scaling of o1-like Models: Do they Truly Possess Test-Time Scaling Capabilities?](../../ACL2025/llm_reasoning/revisiting_the_test-time_scaling_of_o1-like_models_do_they_truly_possess_test-ti.md)
 - [\[NeurIPS 2025\] Are Large Reasoning Models Good Translation Evaluators? Analysis and Performance Boost](../../NeurIPS2025/llm_reasoning/are_large_reasoning_models_good_translation_evaluators_analysis_and_performance_.md)
 - [\[ACL 2025\] Linguistic Generalizability of Test-Time Scaling in Mathematical Reasoning](../../ACL2025/llm_reasoning/mclm_multilingual_test_time_scaling.md)
+
+</div>
 
 <!-- RELATED:END -->

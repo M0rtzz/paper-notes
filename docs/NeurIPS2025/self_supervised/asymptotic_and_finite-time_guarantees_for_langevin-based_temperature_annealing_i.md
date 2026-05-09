@@ -149,6 +149,8 @@ $$\lim_{t \to \infty} P(z_t \in \mathcal{M}^* \setminus B_\delta) = 0, \quad \fo
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] InfoNCE Induces Gaussian Distribution](../../ICLR2026/self_supervised/infonce_induces_gaussian_distribution.md)
@@ -156,5 +158,7 @@ $$\lim_{t \to \infty} P(z_t \in \mathcal{M}^* \setminus B_\delta) = 0, \quad \fo
 - [\[ICML 2025\] Test-Time Canonicalization by Foundation Models for Robust Perception](../../ICML2025/self_supervised/test-time_canonicalization_by_foundation_models_for_robust_perception.md)
 - [\[ICML 2025\] Test-Time Training Provably Improves Transformers as In-Context Learners](../../ICML2025/self_supervised/test-time_training_provably_improves_transformers_as_in-context_learners.md)
 - [\[CVPR 2026\] Re-Depth Anything: Test-Time Depth Refinement via Self-Supervised Re-lighting](../../CVPR2026/self_supervised/redepth_anything_test-time_depth_refinement_via_self-supervised_re-lighting.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -126,6 +126,8 @@ GRPO with CPR-Curriculum，权重 $a_w=0.65, s_w=0.35$（通过 6 组配置消�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] FinMME: Benchmark Dataset for Financial Multi-Modal Reasoning Evaluation](../../ACL2025/multimodal_vlm/finmme_benchmark_dataset_for_financial_multi-modal_reasoning_evaluation.md)
@@ -133,5 +135,7 @@ GRPO with CPR-Curriculum，权重 $a_w=0.65, s_w=0.35$（通过 6 组配置消�
 - [\[CVPR 2025\] ESPIRE: A Diagnostic Benchmark for Embodied Spatial Reasoning of Vision-Language Models](espire_a_diagnostic_benchmark_for_embodied_spatial_reasoning_of_vision-language_.md)
 - [\[CVPR 2025\] UPME: An Unsupervised Peer Review Framework for Multimodal Large Language Model Evaluation](upme_an_unsupervised_peer_review_framework_for_multimodal_large_language_model_e.md)
 - [\[CVPR 2025\] Mosaic of Modalities: A Comprehensive Benchmark for Multimodal Graph Learning](mosaic_of_modalities_a_comprehensive_benchmark_for_multimodal_graph_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

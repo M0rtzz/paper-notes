@@ -123,6 +123,8 @@ $$\mathcal{L} = \mathcal{L}_{\text{recon}} + \lambda_{\text{amb}}\mathcal{L}_{\t
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Collapse-Proof Non-Contrastive Self-Supervised Learning](collapse-proof_non-contrastive_self-supervised_learning.md)
@@ -130,5 +132,7 @@ $$\mathcal{L} = \mathcal{L}_{\text{recon}} + \lambda_{\text{amb}}\mathcal{L}_{\t
 - [\[NeurIPS 2025\] Contrastive Representations for Temporal Reasoning](../../NeurIPS2025/self_supervised/contrastive_representations_for_temporal_reasoning.md)
 - [\[ICML 2025\] Discovering Global False Negatives On the Fly for Self-supervised Contrastive Learning](discovering_global_false_negatives_on_the_fly_for_self-supervised_contrastive_le.md)
 - [\[ACL 2025\] Contrastive Learning on LLM Back Generation Treebank for Cross-domain Constituency Parsing](../../ACL2025/self_supervised/llm_back_gen_treebank.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -218,6 +218,8 @@ Ground truth: $-0.056c + 3.51$。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Machine Translation Models are Zero-Shot Detectors of Translation Direction](../../ACL2025/multilingual_mt/machine_translation_models_are_zero-shot_detectors_of_translation_direction.md)
@@ -225,5 +227,7 @@ Ground truth: $-0.056c + 3.51$。
 - [\[ICLR 2026\] ATLAS: Adaptive Transfer Scaling Laws for Multilingual Pretraining, Finetuning, and Decoding the Curse of Multilinguality](../../ICLR2026/multilingual_mt/atlas_adaptive_transfer_scaling_laws_for_multilingual_pretraining_finetuning_and.md)
 - [\[ACL 2025\] Translation and Fusion Improves Zero-shot Cross-lingual Information Extraction](../../ACL2025/multilingual_mt/translation_and_fusion_improves_cross-lingual_information_extraction.md)
 - [\[CVPR 2025\] SMTPD: A New Benchmark for Temporal Prediction of Social Media Popularity](../../CVPR2025/multilingual_mt/smtpd_a_new_benchmark_for_temporal_prediction_of_social_media_popularity.md)
+
+</div>
 
 <!-- RELATED:END -->

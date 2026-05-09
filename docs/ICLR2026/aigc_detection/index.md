@@ -10,6 +10,8 @@ description: >-
 
 **🔬 ICLR2026** · **6** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (9)](../../ACL2026/aigc_detection/) · [📷 CVPR2026 (1)](../../CVPR2026/aigc_detection/) · [🤖 AAAI2026 (3)](../../AAAI2026/aigc_detection/) · [🧠 NeurIPS2025 (8)](../../NeurIPS2025/aigc_detection/) · [💬 ACL2025 (17)](../../ACL2025/aigc_detection/) · [📷 CVPR2025 (3)](../../CVPR2025/aigc_detection/)
+
 **[Calibrating Verbalized Confidence with Self-Generated Distractors](calibrating_verbalized_confidence_with_self-generated_distractors.md)**
 
 :   提出 DiNCo 方法，通过让 LLM **独立**评估自动生成的干扰选项（合理但错误的替代答案）来暴露其"暗示性偏差"，用干扰项上的总置信度进行归一化，并融合生成一致性与验证一致性两个互补维度，在短文本 QA 和长文本生成任务上显著改善置信度校准。

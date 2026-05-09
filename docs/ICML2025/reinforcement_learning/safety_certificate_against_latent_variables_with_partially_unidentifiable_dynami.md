@@ -159,6 +159,8 @@ $$\arg\min_{u} J(U^n, u) \quad \text{s.t.} \quad S(X_t, u, t) \ge 0$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Dynamics-Aligned Latent Imagination in Contextual World Models for Zero-Shot Generalization](../../NeurIPS2025/reinforcement_learning/dynamics-aligned_latent_imagination_in_contextual_world_models_for_zero-shot_gen.md)
@@ -166,5 +168,7 @@ $$\arg\min_{u} J(U^n, u) \quad \text{s.t.} \quad S(X_t, u, t) \ge 0$$
 - [\[ICML 2025\] Embedding Safety into RL: A New Take on Trust Region Methods](embedding_safety_into_rl_a_new_take_on_trust_region_methods.md)
 - [\[ICML 2025\] PIGDreamer: Privileged Information Guided World Models for Safe Partially Observable RL](pigdreamer_privileged_information_guided_world_models_for_safe_partially_observa.md)
 - [\[ICML 2025\] Learning Dynamics under Environmental Constraints via Measurement-Induced Bundle Structures](learning_dynamics_under_environmental_constraints_via_measurement-induced_bundle.md)
+
+</div>
 
 <!-- RELATED:END -->

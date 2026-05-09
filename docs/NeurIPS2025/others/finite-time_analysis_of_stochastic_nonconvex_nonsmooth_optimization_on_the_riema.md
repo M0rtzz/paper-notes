@@ -126,6 +126,8 @@ RO2NC 基于双层循环结构：外层 epoch $k=1,...,K$，内层迭代 $t=0,..
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Semi-infinite Nonconvex Constrained Min-Max Optimization](semi-infinite_nonconvex_constrained_min-max_optimization.md)
@@ -133,5 +135,7 @@ RO2NC 基于双层循环结构：外层 epoch $k=1,...,K$，内层迭代 $t=0,..
 - [\[NeurIPS 2025\] Deep Learning for Continuous-Time Stochastic Control with Jumps](deep_learning_for_continuous-time_stochastic_control_with_jumps.md)
 - [\[ICML 2025\] Efficient Optimization with Orthogonality Constraint: a Randomized Riemannian Submanifold Method](../../ICML2025/others/efficient_optimization_with_orthogonality_constraint_a_randomized_riemannian_sub.md)
 - [\[NeurIPS 2025\] Equivariance by Contrast: Identifiable Equivariant Embeddings from Unlabeled Finite Group Actions](equivariance_by_contrast_identifiable_equivariant_embeddings_from_unlabeled_fini.md)
+
+</div>
 
 <!-- RELATED:END -->

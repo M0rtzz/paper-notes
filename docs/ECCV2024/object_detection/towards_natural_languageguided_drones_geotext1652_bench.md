@@ -139,6 +139,8 @@ $\mathcal{L}_{total} = \mathcal{L}_{itc} + \mathcal{L}_{itm} + \lambda(\mathcal{
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] ReGround: Improving Textual and Spatial Grounding at No Cost](reground_improving_textual_and_spatial_grounding_at_no_cost.md)
@@ -146,5 +148,7 @@ $\mathcal{L}_{total} = \mathcal{L}_{itc} + \mathcal{L}_{itm} + \lambda(\mathcal{
 - [\[ECCV 2024\] LaMI-DETR: Open-Vocabulary Detection with Language Model Instruction](lami-detr_open-vocabulary_detection_with_language_model_instruction.md)
 - [\[ECCV 2024\] A Multimodal Benchmark Dataset and Model for Crop Disease Diagnosis](a_multimodal_benchmark_dataset_and_model_for_crop_disease_di.md)
 - [\[ECCV 2024\] Weak-to-Strong Compositional Learning from Generative Models for Language-based Object Detection](weak-to-strong_compositional_learning_from_generative_models_for_language-based_.md)
+
+</div>
 
 <!-- RELATED:END -->

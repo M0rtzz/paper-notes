@@ -122,6 +122,8 @@ RRID的输入是配对的RAW图像 $\mathbf{I}_{raw} \in \mathbb{R}^{H/2 \times 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] Active Generation for Image Classification](active_generation_for_image_classification.md)
@@ -129,5 +131,7 @@ RRID的输入是配对的RAW图像 $\mathbf{I}_{raw} \in \mathbb{R}^{H/2 \times 
 - [\[ECCV 2024\] Intrinsic Single-Image HDR Reconstruction](intrinsic_single-image_hdr_reconstruction.md)
 - [\[ECCV 2024\] COIN-Matting: Confounder Intervention for Image Matting](coin-matting_confounder_intervention_for_image_matting.md)
 - [\[CVPR 2025\] Removing Reflections from RAW Photos](../../CVPR2025/others/removing_reflections_from_raw_photos.md)
+
+</div>
 
 <!-- RELATED:END -->

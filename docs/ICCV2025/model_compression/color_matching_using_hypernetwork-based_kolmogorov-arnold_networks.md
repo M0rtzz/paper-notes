@@ -137,6 +137,8 @@ y_hat_j = sum_i (u_ij·silu(x_i) + v_ij · sum_m c_ijm·B_ijm(x_i))
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Colors See Colors Ignore: Clothes Changing ReID with Color Disentanglement](colors_see_colors_ignore_clothes_changing_reid_with_color_disentanglement.md)
@@ -144,5 +146,7 @@ y_hat_j = sum_i (u_ij·silu(x_i) + v_ij · sum_m c_ijm·B_ijm(x_i))
 - [\[ICCV 2025\] Variance-Based Pruning for Accelerating and Compressing Trained Networks](variance-based_pruning_for_accelerating_and_compressing_trained_networks.md)
 - [\[NeurIPS 2025\] Universal Cross-Tokenizer Distillation via Approximate Likelihood Matching](../../NeurIPS2025/model_compression/universal_cross-tokenizer_distillation_via_approximate_likelihood_matching.md)
 - [\[CVPR 2025\] JamMa: Ultra-lightweight Local Feature Matching with Joint Mamba](../../CVPR2025/model_compression/jamma_ultra-lightweight_local_feature_matching_with_joint_mamba.md)
+
+</div>
 
 <!-- RELATED:END -->

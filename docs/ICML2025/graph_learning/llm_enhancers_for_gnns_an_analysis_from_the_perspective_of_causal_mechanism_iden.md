@@ -142,6 +142,8 @@ $$\mathcal{L}_{\text{II}} = \frac{1}{|\mathcal{G}|^2} \sum_{G^{\text{orig}}} \su
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Does Graph Prompt Work? A Data Operation Perspective with Theoretical Analysis](does_graph_prompt_work_a_data_operation_perspective_with_theoretical_analysis.md)
@@ -149,5 +151,7 @@ $$\mathcal{L}_{\text{II}} = \frac{1}{|\mathcal{G}|^2} \sum_{G^{\text{orig}}} \su
 - [\[ICML 2025\] Machines and Mathematical Mutations: Using GNNs to Characterize Quiver Mutation Classes](machines_and_mathematical_mutations_using_gnns_to_characterize_quiver_mutation_c.md)
 - [\[ICML 2025\] Hyperbolic-PDE GNN: Spectral Graph Neural Networks in the Perspective of A System of Hyperbolic Partial Differential Equations](hyperbolic-pde_gnn_spectral_graph_neural_networks_in_the_perspective_of_a_system.md)
 - [\[ICML 2025\] A Recipe for Causal Graph Regression: Confounding Effects Revisited](a_recipe_for_causal_graph_regression_confounding_effects_revisited.md)
+
+</div>
 
 <!-- RELATED:END -->

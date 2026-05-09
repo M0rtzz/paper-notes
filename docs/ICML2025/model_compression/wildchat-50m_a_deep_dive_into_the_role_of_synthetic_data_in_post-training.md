@@ -134,6 +134,8 @@ LLM 后训练（SFT、DPO、蒸馏）是解锁模型能力的关键步骤。Open
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] GenQ: Quantization in Low Data Regimes with Generative Synthetic Data](../../ECCV2024/model_compression/genq_quantization_in_low_data_regimes_with_generative_synthetic_data.md)
@@ -141,5 +143,7 @@ LLM 后训练（SFT、DPO、蒸馏）是解锁模型能力的关键步骤。Open
 - [\[ICML 2025\] Merge-Friendly Post-Training Quantization for Multi-Target Domain Adaptation](merge-friendly_post-training_quantization_for_multi-target_domain_adaptation.md)
 - [\[ECCV 2024\] MetaAug: Meta-Data Augmentation for Post-Training Quantization](../../ECCV2024/model_compression/metaaug_meta-data_augmentation_for_post-training_quantization.md)
 - [\[ICCV 2025\] StolenLoRA: Exploring LoRA Extraction Attacks via Synthetic Data](../../ICCV2025/model_compression/stolenlora_exploring_lora_extraction_attacks_via_synthetic_data.md)
+
+</div>
 
 <!-- RELATED:END -->

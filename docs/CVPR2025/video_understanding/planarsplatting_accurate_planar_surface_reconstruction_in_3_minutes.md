@@ -137,6 +137,8 @@ Splatting 函数对比：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] EBS-EKF: Accurate and High Frequency Event-based Star Tracking](ebs-ekf_accurate_and_high_frequency_event-based_star_tracking.md)
@@ -144,5 +146,7 @@ Splatting 函数对比：
 - [\[NeurIPS 2025\] Web-Scale Collection of Video Data for 4D Animal Reconstruction](../../NeurIPS2025/video_understanding/web-scale_collection_of_video_data_for_4d_animal_reconstruction.md)
 - [\[ICCV 2025\] Hierarchical Event Memory for Accurate and Low-latency Online Video Temporal Grounding](../../ICCV2025/video_understanding/hierarchical_event_memory_for_accurate_and_low-latency_online_video_temporal_gro.md)
 - [\[ECCV 2024\] SEA-RAFT: Simple, Efficient, Accurate RAFT for Optical Flow](../../ECCV2024/video_understanding/sea-raft_simple_efficient_accurate_raft_for_optical_flow.md)
+
+</div>
 
 <!-- RELATED:END -->

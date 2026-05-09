@@ -119,6 +119,8 @@ GOAL 分为基础 session 和增量 session。基础 session 用有标注数据�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Consistent Supervised-Unsupervised Alignment for Generalized Category Discovery](../../NeurIPS2025/llm_evaluation/consistent_supervised-unsupervised_alignment_for_generalized_category_discovery.md)
@@ -126,5 +128,7 @@ GOAL 分为基础 session 和增量 session。基础 session 用有标注数据�
 - [\[AAAI 2026\] Break the Tie: Learning Cluster-Customized Category Relationships for Categorical Data Clustering](break_the_tie_learning_cluster-customized_category_relationships_for_categorical.md)
 - [\[AAAI 2026\] GranAlign: Granularity-Aware Alignment Framework for Zero-Shot Video Moment Retrieval](granalign_granularity-aware_alignment_framework_for_zero-shot_video_moment_retri.md)
 - [\[ICLR 2026\] LCA: Local Classifier Alignment for Continual Learning](../../ICLR2026/llm_evaluation/lca_local_classifier_alignment_for_continual_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

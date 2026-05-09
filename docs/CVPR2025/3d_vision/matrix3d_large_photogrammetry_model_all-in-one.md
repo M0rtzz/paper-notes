@@ -114,6 +114,8 @@ Matrix3D 的输入是一组稀疏视角图像（最多 8 视角），输出可�
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] One Diffusion to Generate Them All](one_diffusion_to_generate_them_all.md)
@@ -121,5 +123,7 @@ Matrix3D 的输入是一组稀疏视角图像（最多 8 视角），输出可�
 - [\[CVPR 2025\] LIM: Large Interpolator Model for Dynamic Reconstruction](lim_large_interpolator_model_for_dynamic_reconstruction.md)
 - [\[CVPR 2025\] Gaussian Splatting for Efficient Satellite Image Photogrammetry (EOGS)](gaussian_splatting_for_efficient_satellite_image_photogrammetry.md)
 - [\[CVPR 2025\] PartRM: Modeling Part-Level Dynamics with Large Cross-State Reconstruction Model](partrm_modeling_part-level_dynamics_with_large_cross-state_reconstruction_model.md)
+
+</div>
 
 <!-- RELATED:END -->

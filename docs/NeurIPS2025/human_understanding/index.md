@@ -10,6 +10,10 @@ description: >-
 
 **🧠 NeurIPS2025** · **19** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/human_understanding/) · [📷 CVPR2026 (61)](../../CVPR2026/human_understanding/) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/) · [🤖 AAAI2026 (16)](../../AAAI2026/human_understanding/) · [📹 ICCV2025 (49)](../../ICCV2025/human_understanding/) · [🧪 ICML2025 (2)](../../ICML2025/human_understanding/)
+
+🔥 **高频主题：** 人体姿态 ×3 · 人脸/视线 ×3 · 推理 ×2 · 语音 ×2
+
 **[BEDLAM2.0: Synthetic Humans and Cameras in Motion](bedlam20_synthetic_humans_and_cameras_in_motion.md)**
 
 :   BEDLAM2.0 在 BEDLAM 基础上全面升级——引入多样化相机运动（合成平移/追踪/环绕 + 手持/头戴设备捕捉）、更广体型覆盖（BMI 18-41）、strand-based 发型、鞋子、分级服装和更多3D环境，构建 27K+ 序列 / 8M+ 帧的合成数据集，仅用合成数据训练即可在世界坐标系人体运动估计上超越 SOTA。

@@ -123,6 +123,8 @@ K-CAST 对静态转向无效的 Llama 3.2 3b 实现 Acc 从 77.79% 提升到 92.
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Consensus-Aligned Neuron Efficient Fine-Tuning Large Language Models for Multi-Domain Machine Translation](consensus-aligned_neuron_efficient_fine-tuning_large_language_models_for_multi-d.md)
@@ -130,5 +132,7 @@ K-CAST 对静态转向无效的 Llama 3.2 3b 实现 Acc 从 77.79% 提升到 92.
 - [\[ACL 2026\] Mitigating Extrinsic Gender Bias for Bangla Classification Tasks](../../ACL2026/multilingual_mt/mitigating_extrinsic_gender_bias_for_bangla_classification_tasks.md)
 - [\[ACL 2026\] Language Models Entangle Language and Culture](../../ACL2026/multilingual_mt/language_models_entangle_language_and_culture.md)
 - [\[ACL 2026\] Exploring Two-Phase Continual Instruction Fine-tuning for Multilingual Adaptation in Large Language Models](../../ACL2026/multilingual_mt/exploring_continual_fine-tuning_for_enhancing_language_ability_in_large_language.md)
+
+</div>
 
 <!-- RELATED:END -->

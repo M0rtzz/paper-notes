@@ -117,6 +117,8 @@ CIFAR-10 数据集蒸馏性能（IPC=合成图片/类）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] AutoOpt: A Dataset and a Unified Framework for Automating Optimization Problem Solving](../../NeurIPS2025/optimization/autoopt_a_dataset_and_a_unified_framework_for_automating_optimization_problem_so.md)
@@ -124,5 +126,7 @@ CIFAR-10 数据集蒸馏性能（IPC=合成图片/类）：
 - [\[NeurIPS 2025\] Stable Coresets via Posterior Sampling: Aligning Induced and Full Loss Landscapes](../../NeurIPS2025/optimization/stable_coresets_via_posterior_sampling_aligning_induced_and_full_loss_landscapes.md)
 - [\[NeurIPS 2025\] Efficient Adaptive Federated Optimization](../../NeurIPS2025/optimization/efficient_adaptive_federated_optimization.md)
 - [\[NeurIPS 2025\] Efficient Adaptive Experimentation with Noncompliance](../../NeurIPS2025/optimization/efficient_adaptive_experimentation_with_noncompliance.md)
+
+</div>
 
 <!-- RELATED:END -->

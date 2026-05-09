@@ -164,6 +164,8 @@ $$\hat{\boldsymbol{\beta}} = \arg\max_{\boldsymbol{\beta}} \sum_i \sum_{j \neq i
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Bridging Human and LLM Judgments: Understanding and Narrowing the Gap](../../NeurIPS2025/dialogue/bridging_human_and_llm_judgments_understanding_and_narrowing_the_gap.md)
@@ -171,5 +173,7 @@ $$\hat{\boldsymbol{\beta}} = \arg\max_{\boldsymbol{\beta}} \sum_i \sum_{j \neq i
 - [\[NeurIPS 2025\] SciArena: An Open Evaluation Platform for Non-Verifiable Scientific Literature-Grounded Tasks](../../NeurIPS2025/dialogue/sciarena_an_open_evaluation_platform_for_non-verifiable_scientific_literature-gr.md)
 - [\[NeurIPS 2025\] HyGen: Efficient LLM Serving via Elastic Online-Offline Request Co-location](../../NeurIPS2025/dialogue/hygen_efficient_llm_serving_via_elastic_online-offline_request_co-location.md)
 - [\[ICML 2025\] Position: Uncertainty Quantification Needs Reassessment for Large-language Model Agents](position_uncertainty_quantification_needs_reassessment_for_large-language_model_.md)
+
+</div>
 
 <!-- RELATED:END -->

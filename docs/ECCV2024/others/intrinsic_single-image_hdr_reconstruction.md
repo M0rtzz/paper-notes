@@ -142,6 +142,8 @@ $$\mathcal{L} = \mathcal{L}_{shading} + \mathcal{L}_{albedo}$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] Image Reconstruction from Readout-Multiplexed Single-Photon Detector Arrays](../../CVPR2025/others/image_reconstruction_from_readout-multiplexed_single-photon_detector_arrays.md)
@@ -149,5 +151,7 @@ $$\mathcal{L} = \mathcal{L}_{shading} + \mathcal{L}_{albedo}$$
 - [\[ECCV 2024\] Image Demoiréing in RAW and sRGB Domains](image_demoiréing_in_raw_and_srgb_domains.md)
 - [\[ECCV 2024\] COIN-Matting: Confounder Intervention for Image Matting](coin-matting_confounder_intervention_for_image_matting.md)
 - [\[ECCV 2024\] PISR: Polarimetric Neural Implicit Surface Reconstruction for Textureless and Specular Objects](pisr_polarimetric_neural_implicit_surface_reconstruction_for_textureless_and_spe.md)
+
+</div>
 
 <!-- RELATED:END -->

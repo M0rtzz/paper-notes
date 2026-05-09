@@ -156,6 +156,8 @@ $$\mathcal{L} = \mathcal{L}_{CE}(R, p(\hat{R})) + \alpha_{KL} D_{KL} + \alpha_{A
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] REINA: Regularized Entropy Information-Based Loss for Efficient Simultaneous Speech Translation](reina_regularized_entropy_information-based_loss_for_efficient_simultaneous_spee.md)
@@ -163,5 +165,7 @@ $$\mathcal{L} = \mathcal{L}_{CE}(R, p(\hat{R})) + \alpha_{KL} D_{KL} + \alpha_{A
 - [\[AAAI 2026\] Say More with Less: Variable-Frame-Rate Speech Tokenization via Adaptive Clustering and Implicit Duration Coding](say_more_with_less_variable-frame-rate_speech_tokenization_via_adaptive_clusteri.md)
 - [\[CVPR 2025\] Hearing Anywhere in Any Environment](../../CVPR2025/audio_speech/hearing_anywhere_in_any_environment.md)
 - [\[ICLR 2026\] Toward Complex-Valued Neural Networks for Waveform Generation](../../ICLR2026/audio_speech/toward_complex-valued_neural_networks_for_waveform_generation.md)
+
+</div>
 
 <!-- RELATED:END -->

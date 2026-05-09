@@ -153,6 +153,8 @@ CCFQA 包含两个正交维度：**基准构建**（诊断问题）和 **LLM-SQA
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Cross-Space Synergy: A Unified Framework for Multimodal Emotion Recognition in Conversation](cross-space_synergy_a_unified_framework_for_multimodal_emotion_recognition_in_co.md)
@@ -160,5 +162,7 @@ CCFQA 包含两个正交维度：**基准构建**（诊断问题）和 **LLM-SQA
 - [\[AAAI 2026\] End-to-end Contrastive Language-Speech Pretraining Model For Long-form Spoken Question Answering](end-to-end_contrastive_language-speech_pretraining_model_for_long-form_spoken_qu.md)
 - [\[AAAI 2026\] Hearing More with Less: Multi-Modal Retrieval-and-Selection Augmented Conversational LLM-Based ASR](hearing_more_with_less_multi-modal_retrieval-and-selection_augmented_conversatio.md)
 - [\[AAAI 2026\] TEXT: 文本路由稀疏专家混合模型——融合解释增强与时序对齐的多模态情感分析](text-routed_sparse_mixture-of-experts_model_with_explanation_and_temporal_alignm.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -158,6 +158,8 @@ $$\mathcal{L}_{adv} = -\log\sigma\left(\beta\log\frac{\pi_{t+1}^{adv}(q_w|s_h^{a
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] M2S: Multi-turn to Single-turn jailbreak in Red Teaming for LLMs](m2s_multiturn_to_singleturn_jailbreak_in.md)
@@ -165,5 +167,7 @@ $$\mathcal{L}_{adv} = -\log\sigma\left(\beta\log\frac{\pi_{t+1}^{adv}(q_w|s_h^{a
 - [\[ACL 2025\] Red Queen: Safeguarding Large Language Models against Concealed Multi-Turn Jailbreaking](red_queen_safeguarding_large_language_models_against_concealed_multi-turn_jailbr.md)
 - [\[ACL 2025\] Constitutional Classifiers: Defending Against Universal Jailbreaks Across Thousands of Hours of Red Teaming](constitutional_classifiers_defending_against_universal_jailbreaks_across_thousan.md)
 - [\[ACL 2025\] JailbreakRadar: Comprehensive Assessment of Jailbreak Attacks Against LLMs](jailbreakradar_comprehensive_assessment_jailbreak_attacks.md)
+
+</div>
 
 <!-- RELATED:END -->

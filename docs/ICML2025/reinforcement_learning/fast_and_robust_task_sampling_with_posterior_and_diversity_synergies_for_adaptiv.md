@@ -133,6 +133,8 @@ $$\boldsymbol{z}_t \sim q_{\boldsymbol{\phi}}(\boldsymbol{z}_t | H_t), \quad \ha
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Robust Noise Attenuation via Adaptive Pooling of Transformer Outputs](robust_noise_attenuation_via_adaptive_pooling_of_transformer_outputs.md)
@@ -140,5 +142,7 @@ $$\boldsymbol{z}_t \sim q_{\boldsymbol{\phi}}(\boldsymbol{z}_t | H_t), \quad \ha
 - [\[NeurIPS 2025\] Modulation of Temporal Decision-Making in a Deep Reinforcement Learning Agent under the Dual-Task Paradigm](../../NeurIPS2025/reinforcement_learning/modulation_of_temporal_decision-making_in_a_deep_reinforcement_learning_agent_un.md)
 - [\[NeurIPS 2025\] Learning Intractable Multimodal Policies with Reparameterization and Diversity Regularization](../../NeurIPS2025/reinforcement_learning/learning_intractable_multimodal_policies_with_reparameterization_and_diversity_r.md)
 - [\[AAAI 2026\] TAdaRAG: Task Adaptive Retrieval-Augmented Generation via On-the-Fly Knowledge Graph Construction](../../AAAI2026/reinforcement_learning/tadarag_task_adaptive_retrieval-augmented_generation_via_on-the-fly_knowledge_gr.md)
+
+</div>
 
 <!-- RELATED:END -->

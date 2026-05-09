@@ -118,6 +118,8 @@ ResNet-18 on CIFAR-10/100 100 epochs, SGD momentum=0.9, lr=0.1, weight decay 5e-
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] Stronger Normalization-Free Transformers](stronger_normalization-free_transformers.md)
@@ -125,5 +127,7 @@ ResNet-18 on CIFAR-10/100 100 epochs, SGD momentum=0.9, lr=0.1, weight decay 5e-
 - [\[ICML 2025\] OOD-Chameleon: Is Algorithm Selection for OOD Generalization Learnable?](../../ICML2025/others/ood-chameleon_is_algorithm_selection_for_ood_generalization_learnable.md)
 - [\[AAAI 2026\] Certified Branch-and-Bound MaxSAT Solving (Extended Version)](../../AAAI2026/others/certified_branch-and-bound_maxsat_solving_extended_version.md)
 - [\[NeurIPS 2025\] Normalization in Attention Dynamics](../../NeurIPS2025/others/normalization_in_attention_dynamics.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -134,6 +134,8 @@ DiME 在不使用先验得分的情况下达到与 SMC 可比的精度。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] Diffusion Reconstruction-Based Data Likelihood Estimation for Core-Set Selection](../../AAAI2026/image_generation/diffusion_reconstruction-based_data_likelihood_estimation_for_core-set_selection.md)
@@ -141,5 +143,7 @@ DiME 在不使用先验得分的情况下达到与 SMC 可比的精度。
 - [\[ICLR 2026\] Learning a Distance Measure from the Information-Estimation Geometry of Data](learning_a_distance_measure_from_the_information-estimation_geometry_of_data.md)
 - [\[CVPR 2025\] DiverseFlow: Sample-Efficient Diverse Mode Coverage in Flows](../../CVPR2025/image_generation/diverseflow_sample-efficient_diverse_mode_coverage_in_flows.md)
 - [\[ICLR 2026\] DragFlow: Unleashing DiT Priors with Region Based Supervision for Drag Editing](dragflow_unleashing_dit_priors_with_region_based_supervision_for_drag_editing.md)
+
+</div>
 
 <!-- RELATED:END -->

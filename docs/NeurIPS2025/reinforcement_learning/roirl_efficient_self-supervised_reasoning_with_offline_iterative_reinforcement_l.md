@@ -123,6 +123,8 @@ $$\theta_m = \arg\max_{\theta} \sum_{i=1}^{n} \mathbb{E}_{(c,y) \sim \pi_{m-1}(\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Sample-Efficient Tabular Self-Play for Offline Robust Reinforcement Learning](sample-efficient_tabular_self-play_for_offline_robust_reinforcement_learning.md)
@@ -130,5 +132,7 @@ $$\theta_m = \arg\max_{\theta} \sum_{i=1}^{n} \mathbb{E}_{(c,y) \sim \pi_{m-1}(\
 - [\[NeurIPS 2025\] Adaptive Neighborhood-Constrained Q Learning for Offline Reinforcement Learning](adaptive_neighborhoodconstrained_q_learning_for_offline_rein.md)
 - [\[NeurIPS 2025\] Online Optimization for Offline Safe Reinforcement Learning](online_optimization_for_offline_safe_reinforcement_learning.md)
 - [\[NeurIPS 2025\] Structural Information-based Hierarchical Diffusion for Offline Reinforcement Learning](structural_information-based_hierarchical_diffusion_for_offline_reinforcement_le.md)
+
+</div>
 
 <!-- RELATED:END -->

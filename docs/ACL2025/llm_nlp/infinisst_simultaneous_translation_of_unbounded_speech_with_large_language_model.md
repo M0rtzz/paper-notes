@@ -113,6 +113,8 @@ InfiniSST 由三个核心组件构成：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Locate-and-Focus: Enhancing Terminology Translation in Speech Language Models](locateandfocus_enhancing_terminology_translation_in_speech.md)
@@ -120,5 +122,7 @@ InfiniSST 由三个核心组件构成：
 - [\[ACL 2025\] Recent Advances in Speech Language Models: A Survey](recent_advances_in_speech_language_models_a_survey.md)
 - [\[ACL 2025\] Language-Codec: Bridging Discrete Codec Representations and Speech Language Models](language_codec_bridging_discrete_codec_speech_language_models.md)
 - [\[ACL 2025\] Representation Bending for Large Language Model Safety](repbend_representation_bending_safety.md)
+
+</div>
 
 <!-- RELATED:END -->

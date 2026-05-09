@@ -177,6 +177,8 @@ $$\mathbf{S}(u,v) = \frac{\sum_i \sum_j \mathbf{F}_s(u+i, v+j) \hat{\mathbf{F}_g
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] GeoDistill: Geometry-Guided Self-Distillation for Weakly Supervised Cross-View Localization](../../ICCV2025/remote_sensing/geodistill_geometry-guided_self-distillation_for_weakly_supervised_cross-view_lo.md)
@@ -184,5 +186,7 @@ $$\mathbf{S}(u,v) = \frac{\sum_i \sum_j \mathbf{F}_s(u+i, v+j) \hat{\mathbf{F}_g
 - [\[ECCV 2024\] ConGeo: Robust Cross-View Geo-Localization Across Ground View Variations](congeo_robust_cross-view_geo-localization_across_ground_view_variations.md)
 - [\[ECCV 2024\] Adapting Fine-Grained Cross-View Localization to Areas without Fine Ground Truth](adapting_fine-grained_cross-view_localization_to_areas_without_fine_ground_truth.md)
 - [\[ECCV 2024\] Learning Representations of Satellite Images From Metadata Supervision](learning_representations_of_satellite_images_from_metadata_supervision.md)
+
+</div>
 
 <!-- RELATED:END -->

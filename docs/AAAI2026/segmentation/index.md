@@ -10,6 +10,10 @@ description: >-
 
 **🤖 AAAI2026** · **31** 篇论文解读
 
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/segmentation/) · [📷 CVPR2026 (103)](../../CVPR2026/segmentation/) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/) · [🧠 NeurIPS2025 (48)](../../NeurIPS2025/segmentation/) · [📹 ICCV2025 (78)](../../ICCV2025/segmentation/) · [🧪 ICML2025 (22)](../../ICML2025/segmentation/)
+
+🔥 **高频主题：** 语义分割 ×14 · 遥感 ×5 · 少样本学习 ×3 · 域适应 ×2 · 扩散模型 ×2
+
 **[A²LC: Active and Automated Label Correction for Semantic Segmentation](a2lc_active_and_automated_label_correction_for_semantic_segm.md)**
 
 :   提出 A²LC 框架，在传统主动标签校正（人工逐一纠错）的基础上增加一个自动校正阶段（Label Correction Module），利用标注员的反馈自动修正相似的错误mask，并设计自适应平衡采集函数缓解类别不平衡，在 Cityscapes 上仅用 20% 预算即超越前 SOTA，同等预算下 mIoU 提升 27.23%。

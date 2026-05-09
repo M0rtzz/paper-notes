@@ -140,6 +140,8 @@ $$L(S) = -\sum_{y_i \in Y} \mathbb{1}_{Hall(i)} \cdot \log P(y_i | X, y_1, ..., 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Trust but Verify: Programmatic VLM Evaluation in the Wild](../../ICCV2025/multimodal_vlm/trust_but_verify_programmatic_vlm_evaluation_in_the_wild.md)
@@ -147,5 +149,7 @@ $$L(S) = -\sum_{y_i \in Y} \mathbb{1}_{Hall(i)} \cdot \log P(y_i | X, y_1, ..., 
 - [\[NeurIPS 2025\] Causal-LLaVA: Causal Disentanglement for Mitigating Hallucination in Multimodal Large Language Models](causalllava_causal_disentanglement_for_mitigating_hallucinat.md)
 - [\[CVPR 2025\] VisionZip: Longer is Better but Not Necessary in Vision Language Models](../../CVPR2025/multimodal_vlm/visionzip_longer_is_better_but_not_necessary_in_vision_language_models.md)
 - [\[ICCV 2025\] GTA-CLIP: Generate, Transduct, Adapt — Iterative Transduction with VLMs](../../ICCV2025/multimodal_vlm/generate_transduct_adapt_iterative_transduction_with_vlms.md)
+
+</div>
 
 <!-- RELATED:END -->

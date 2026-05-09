@@ -124,6 +124,8 @@ $N=50$ 时单单元成功率 >99%，$N=10$ 时仍达61%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Can LLM Watermarks Robustly Prevent Unauthorized Knowledge Distillation?](../../ACL2025/llm_safety/llm_watermark_distillation_robustness.md)
@@ -131,5 +133,7 @@ $N=50$ 时单单元成功率 >99%，$N=10$ 时仍达61%。
 - [\[NeurIPS 2025\] Angular Steering: Behavior Control via Rotation in Activation Space](angular_steering_behavior_control_via_rotation_in_activation_space.md)
 - [\[ACL 2025\] Ensemble Watermarks for Large Language Models](../../ACL2025/llm_safety/ensemble_watermarks_llm.md)
 - [\[ACL 2026\] Topic-Based Watermarks for Large Language Models](../../ACL2026/llm_safety/topic-based_watermarks_for_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

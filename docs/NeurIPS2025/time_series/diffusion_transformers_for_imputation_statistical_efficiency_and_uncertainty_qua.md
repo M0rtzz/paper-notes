@@ -154,6 +154,8 @@ $$\tilde{O}\left(\frac{\sqrt{Hd^2\kappa^5}}{\sqrt{n}}\right)$$
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] Diffusion Transformers as Open-World Spatiotemporal Foundation Models](diffusion_transformers_as_open-world_spatiotemporal_foundation_models.md)
@@ -161,5 +163,7 @@ $$\tilde{O}\left(\frac{\sqrt{Hd^2\kappa^5}}{\sqrt{n}}\right)$$
 - [\[ICLR 2026\] Relational Feature Caching for Accelerating Diffusion Transformers](../../ICLR2026/time_series/relational_feature_caching_for_accelerating_diffusion_transformers.md)
 - [\[NeurIPS 2025\] Statistical Guarantees for High-Dimensional Stochastic Gradient Descent](statistical_guarantees_for_high-dimensional_stochastic_gradient_descent.md)
 - [\[NeurIPS 2025\] PlanU: Large Language Model Reasoning through Planning under Uncertainty](planu_large_language_model_reasoning_through_planning_under_uncertainty.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -120,6 +120,8 @@ $$\Omega(c_i) = \begin{cases} 1 + \beta \cdot e^{\frac{iter_{num}}{max_{iter}}},
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] SeqAfford: Sequential 3D Affordance Reasoning via Multimodal Large Language Model](seqafford_sequential_3d_affordance_reasoning_via_multimodal_large_language_model.md)
@@ -127,5 +129,7 @@ $$\Omega(c_i) = \begin{cases} 1 + \beta \cdot e^{\frac{iter_{num}}{max_{iter}}},
 - [\[CVPR 2025\] UPME: An Unsupervised Peer Review Framework for Multimodal Large Language Model Evaluation](upme_an_unsupervised_peer_review_framework_for_multimodal_large_language_model_e.md)
 - [\[CVPR 2025\] CoLLM: A Large Language Model for Composed Image Retrieval](collm_a_large_language_model_for_composed_image_retrieval.md)
 - [\[CVPR 2025\] VideoGLaMM: A Large Multimodal Model for Pixel-Level Visual Grounding in Videos](videoglamm_a_large_multimodal_model_for_pixel-level_visual_grounding_in_videos.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -275,6 +275,8 @@ $$\mathcal{L}_{DP}(\phi) = \frac{1}{|B_g|} \sum_{(g, \xi, \tilde{d}) \in B_g} (\
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICLR 2026\] How Far Can Unsupervised RLVR Scale LLM Training?](how_far_can_unsupervised_rlvr_scale_llm_training.md)
@@ -282,5 +284,7 @@ $$\mathcal{L}_{DP}(\phi) = \frac{1}{|B_g|} \sum_{(g, \xi, \tilde{d}) \in B_g} (\
 - [\[ICML 2025\] Online Pre-Training for Offline-to-Online Reinforcement Learning](../../ICML2025/reinforcement_learning/online_pre-training_for_offline-to-online_reinforcement_learning.md)
 - [\[ACL 2026\] Data Mixing Agent: Learning to Re-weight Domains for Continual Pre-training](../../ACL2026/reinforcement_learning/data_mixing_agent_learning_to_re-weight_domains_for_continual_pre-training.md)
 - [\[ICLR 2026\] Sample-efficient and Scalable Exploration in Continuous-Time RL](sample-efficient_and_scalable_exploration_in_continuous-time_rl.md)
+
+</div>
 
 <!-- RELATED:END -->

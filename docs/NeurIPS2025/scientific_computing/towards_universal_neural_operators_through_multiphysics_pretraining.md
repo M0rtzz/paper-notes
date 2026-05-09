@@ -157,6 +157,8 @@ $$\text{NMAE}(\theta) = \frac{1}{|\mathcal{D}^{\text{test}}|} \sum_{(\mathbf{a},
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[NeurIPS 2025\] DeltaPhi: Physical States Residual Learning for Neural Operators in Data-Limited PDE Solving](deltaphi_physical_states_residual_learning_for_neural_operators_in_data-limited_.md)
@@ -164,5 +166,7 @@ $$\text{NMAE}(\theta) = \frac{1}{|\mathcal{D}^{\text{test}}|} \sum_{(\mathbf{a},
 - [\[ICML 2025\] Universal Neural Optimal Transport](../../ICML2025/scientific_computing/universal_neural_optimal_transport.md)
 - [\[CVPR 2025\] Accurate Differential Operators for Hybrid Neural Fields](../../CVPR2025/scientific_computing/accurate_differential_operators_for_hybrid_neural_fields.md)
 - [\[ICML 2025\] Maximal Update Parametrization and Zero-Shot Hyperparameter Transfer for Fourier Neural Operators](../../ICML2025/scientific_computing/maximal_update_parametrization_and_zero-shot_hyperparameter_transfer_for_fourier.md)
+
+</div>
 
 <!-- RELATED:END -->

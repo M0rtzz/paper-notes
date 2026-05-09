@@ -149,6 +149,8 @@ $$p_\theta^u(u_{t-1}|u_t) = p_\theta^i(i_{t-1}|u_t) \cdot p_\theta^d(d_{t-1}|u_t
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] TopoCellGen: Generating Histopathology Cell Topology with a Diffusion Model](../../CVPR2025/medical_imaging/topocellgen_generating_histopathology_cell_topology_with_a_diffusion_model.md)
@@ -156,5 +158,7 @@ $$p_\theta^u(u_{t-1}|u_t) = p_\theta^i(i_{t-1}|u_t) \cdot p_\theta^d(d_{t-1}|u_t
 - [\[NeurIPS 2025\] Semantic and Visual Crop-Guided Diffusion Models for Heterogeneous Tissue Synthesis in Histopathology](../../NeurIPS2025/medical_imaging/semantic_and_visual_crop-guided_diffusion_models_for_heterogeneous_tissue_synthe.md)
 - [\[CVPR 2025\] Noise-Consistent Siamese-Diffusion for Medical Image Synthesis and Segmentation](../../CVPR2025/medical_imaging/noise-consistent_siamese-diffusion_for_medical_image_synthesis_and_segmentation.md)
 - [\[AAAI 2026\] Virtual Multiplex Staining for Histological Images Using a Marker-wise Conditioned Diffusion Model](../../AAAI2026/medical_imaging/virtual_multiplex_staining_for_histological_images_using_a_marker-wise_condition.md)
+
+</div>
 
 <!-- RELATED:END -->

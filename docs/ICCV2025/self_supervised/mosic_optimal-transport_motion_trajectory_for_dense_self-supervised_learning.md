@@ -137,6 +137,8 @@ MoSiC-B14（85M 参数）进一步提升：Pascal VOC in-context (1/128) 达 65.
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] An Optimal Transport-driven Approach for Cultivating Latent Space in Online Incremental Learning](../../CVPR2026/self_supervised/otc_optimal_transport_cultivating_latent_space_online_incremental_learning.md)
@@ -144,5 +146,7 @@ MoSiC-B14（85M 参数）进一步提升：Pascal VOC in-context (1/128) 达 65.
 - [\[NeurIPS 2025\] Understanding Ice Crystal Habit Diversity with Self-Supervised Learning](../../NeurIPS2025/self_supervised/understanding_ice_crystal_habit_diversity_with_self-supervised_learning.md)
 - [\[NeurIPS 2025\] Adv-SSL: Adversarial Self-Supervised Representation Learning with Theoretical Guarantees](../../NeurIPS2025/self_supervised/adv-ssl_adversarial_self-supervised_representation_learning_with_theoretical_gua.md)
 - [\[ICML 2025\] ReSA: Clustering Properties of Self-Supervised Learning](../../ICML2025/self_supervised/clustering_properties_of_self-supervised_learning.md)
+
+</div>
 
 <!-- RELATED:END -->

@@ -184,6 +184,8 @@ $$\mathcal{B}^* = \arg\max_{\mathcal{B}_m, m \in \{1,...,M\}} \text{Acc}(\theta_
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] TrackMAE: Video Representation Learning via Track, Mask, and Predict](trackmae_video_representation_learning_via_track_mask_and_predict.md)
@@ -191,5 +193,7 @@ $$\mathcal{B}^* = \arg\max_{\mathcal{B}_m, m \in \{1,...,M\}} \text{Acc}(\theta_
 - [\[CVPR 2026\] DiverseDiT: Towards Diverse Representation Learning in Diffusion Transformers](diversedit_towards_diverse_representation_learning_in_diffusion_transformers.md)
 - [\[CVPR 2026\] MINE-JEPA: In-Domain Self-Supervised Learning for Mineral Exploration](mine-jepa_in-domain_self-supervised_learning_for_mine-like_object_classification.md)
 - [\[CVPR 2026\] LaS-Comp: Zero-shot 3D Completion with Latent-Spatial Consistency](las-comp_zero-shot_3d_completion_with_latent-spatial_consistency.md)
+
+</div>
 
 <!-- RELATED:END -->

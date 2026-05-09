@@ -120,6 +120,8 @@ Top-10排名最频繁的模型（按进入Top-10的任务数排列）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] TUMLU: A Unified and Native Language Understanding Benchmark for Turkic Languages](tumlu_a_unified_and_native_language_understanding_benchmark_for_turkic_languages.md)
@@ -127,5 +129,7 @@ Top-10排名最频繁的模型（按进入Top-10的任务数排列）：
 - [\[ACL 2025\] Where Are We? Evaluating LLM Performance on African Languages](where_are_we_evaluating_llm_performance_on_african_languages.md)
 - [\[ACL 2025\] Batayan: A Filipino NLP Benchmark for Evaluating Large Language Models](batayan_a_filipino_nlp_benchmark_for_evaluating_large_language_models.md)
 - [\[ACL 2025\] Language Model Probabilities are Not Calibrated in Numeric Contexts](language_model_probabilities_are_not_calibrated_in_numeric_contexts.md)
+
+</div>
 
 <!-- RELATED:END -->

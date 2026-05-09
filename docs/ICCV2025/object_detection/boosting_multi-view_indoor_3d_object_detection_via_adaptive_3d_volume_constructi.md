@@ -172,6 +172,8 @@ SGCDet-L 甚至超越了使用更高分辨率和真实几何监督的 CN-RMA。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Boosting Multi-View Indoor 3D Object Detection via Adaptive 3D Volume Construction](boosting_multi-view_indoor_3d_object_detection_via_adaptive_3d_volume.md)
@@ -179,5 +181,7 @@ SGCDet-L 甚至超越了使用更高分辨率和真实几何监督的 CN-RMA。
 - [\[ICCV 2025\] 3D-MOOD: Lifting 2D to 3D for Monocular Open-Set Object Detection](3dmood_lifting_2d_to_3d_for_monocular_openset_object_detecti.md)
 - [\[CVPR 2026\] Few-Shot Incremental 3D Object Detection in Dynamic Indoor Environments](../../CVPR2026/object_detection/few-shot_incremental_3d_object_detection_in_dynamic_indoor_environments.md)
 - [\[CVPR 2025\] GO-N3RDet: Geometry Optimized NeRF-enhanced 3D Object Detector](../../CVPR2025/object_detection/go-n3rdet_geometry_optimized_nerf-enhanced_3d_object_detector.md)
+
+</div>
 
 <!-- RELATED:END -->

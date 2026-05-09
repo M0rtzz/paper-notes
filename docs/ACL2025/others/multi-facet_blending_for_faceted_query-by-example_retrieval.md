@@ -138,6 +138,8 @@ $$L(D^{f;Q}, D^{f+}, D^{f-}) = \max\{d(D^{f;Q}, D^{f+}) - d(D^{f;Q}, D^{f-}) + m
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] Learning to Align Multi-Faceted Evaluation: A Unified and Robust Framework](learning_to_align_multi-faceted_evaluation_a_unified_and_robust_framework.md)
@@ -145,5 +147,7 @@ $$L(D^{f;Q}, D^{f+}, D^{f-}) = \max\{d(D^{f;Q}, D^{f+}) - d(D^{f;Q}, D^{f-}) + m
 - [\[ACL 2025\] ACORD: An Expert-Annotated Retrieval Dataset for Legal Contract Clause Retrieval](acord_an_expert-annotated_retrieval_dataset_for_legal_contract_drafting.md)
 - [\[ACL 2025\] Unlocking Speech Instruction Data Potential with Query Rewriting](unlocking_speech_instruction_data_potential_with_query_rewriting.md)
 - [\[ACL 2025\] GeAR: Generation Augmented Retrieval](gear_generation_augmented_retrieval.md)
+
+</div>
 
 <!-- RELATED:END -->

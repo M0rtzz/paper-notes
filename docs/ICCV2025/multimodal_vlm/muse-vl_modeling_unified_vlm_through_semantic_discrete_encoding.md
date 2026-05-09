@@ -173,6 +173,8 @@ SDE 比 VQGAN 提升 +26.2% (AVG)，比 SEED/LaVIT 提升 +6.4~7.5%。
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICCV 2025\] Unified Multimodal Understanding via Byte-Pair Visual Encoding](unified_multimodal_understanding_via_byte-pair_visual_encoding.md)
@@ -180,5 +182,7 @@ SDE 比 VQGAN 提升 +26.2% (AVG)，比 SEED/LaVIT 提升 +6.4~7.5%。
 - [\[ICCV 2025\] WikiAutoGen: Towards Multi-Modal Wikipedia-Style Article Generation](wikiautogen_towards_multi-modal_wikipedia-style_article_generation.md)
 - [\[ICCV 2025\] Multimodal LLMs as Customized Reward Models for Text-to-Image Generation](multimodal_llms_as_customized_reward_models_for_text-to-image_generation.md)
 - [\[ICCV 2025\] Dynamic-VLM: Simple Dynamic Visual Token Compression for VideoLLM](dynamic-vlm_simple_dynamic_visual_token_compression_for_videollm.md)
+
+</div>
 
 <!-- RELATED:END -->

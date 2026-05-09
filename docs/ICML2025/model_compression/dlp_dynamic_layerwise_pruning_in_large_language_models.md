@@ -198,6 +198,8 @@ LOD（离群值保留率）对比（LLaMA1-13B，70% 稀疏率）：
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ICML 2025\] Instruction-Following Pruning for Large Language Models](instruction-following_pruning_for_large_language_models.md)
@@ -205,5 +207,7 @@ LOD（离群值保留率）对比（LLaMA1-13B，70% 稀疏率）：
 - [\[ACL 2025\] Wanda++: Pruning Large Language Models via Regional Gradients](../../ACL2025/model_compression/wanda_pruning_large_language_models_via_regional_gradients.md)
 - [\[ICML 2025\] Persistent Topological Features in Large Language Models](persistent_topological_features_in_large_language_models.md)
 - [\[ICML 2025\] Weak-to-Strong Jailbreaking on Large Language Models](weak-to-strong_jailbreaking_on_large_language_models.md)
+
+</div>
 
 <!-- RELATED:END -->

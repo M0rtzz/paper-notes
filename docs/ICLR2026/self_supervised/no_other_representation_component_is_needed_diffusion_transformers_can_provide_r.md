@@ -148,6 +148,8 @@ SRA 在高分辨率和文本到图像场景同样有效，512×512 上 IS 和 sF
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2026\] DiverseDiT: Towards Diverse Representation Learning in Diffusion Transformers](../../CVPR2026/self_supervised/diversedit_towards_diverse_representation_learning_in_diffusion_transformers.md)
@@ -155,5 +157,7 @@ SRA 在高分辨率和文本到图像场景同样有效，512×512 上 IS 和 sF
 - [\[CVPR 2026\] TrackMAE: Video Representation Learning via Track, Mask, and Predict](../../CVPR2026/self_supervised/trackmae_video_representation_learning_via_track_mask_and_predict.md)
 - [\[CVPR 2026\] SpHOR: A Representation Learning Perspective on Open-set Recognition](../../CVPR2026/self_supervised/sphor_a_representation_learning_perspective_on_ope.md)
 - [\[AAAI 2026\] Explanation-Preserving Augmentation for Semi-Supervised Graph Representation Learning](../../AAAI2026/self_supervised/explanation-preserving_augmentation_for_semi-supervised_graph_representation_lea.md)
+
+</div>
 
 <!-- RELATED:END -->

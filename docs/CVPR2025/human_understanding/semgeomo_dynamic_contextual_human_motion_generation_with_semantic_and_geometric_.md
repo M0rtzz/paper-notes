@@ -110,6 +110,8 @@ tags:
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[CVPR 2025\] MotionReFit: Dynamic Motion Blending for Versatile Motion Editing](motionrefit_motion_editing.md)
@@ -117,5 +119,7 @@ tags:
 - [\[CVPR 2025\] D3-Human: Dynamic Disentangled Digital Human from Monocular Video](d3-human_dynamic_disentangled_digital_human_from_monocular_video.md)
 - [\[CVPR 2025\] Exploring Timeline Control for Facial Motion Generation](exploring_timeline_control_for_facial_motion_generation.md)
 - [\[CVPR 2025\] Human Motion Instruction Tuning](human_motion_instruction_tuning.md)
+
+</div>
 
 <!-- RELATED:END -->

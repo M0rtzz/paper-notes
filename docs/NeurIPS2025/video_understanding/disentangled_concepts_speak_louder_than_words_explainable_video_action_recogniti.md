@@ -174,6 +174,8 @@ $$\mathcal{L}_{cls} = -\frac{1}{K}\sum_k y_k\log\hat{y}_k + \lambda[(1-\alpha)\f
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ECCV 2024\] SA-DVAE: Improving Zero-Shot Skeleton-Based Action Recognition by Disentangled Variational Autoencoders](../../ECCV2024/video_understanding/sa-dvae_improving_zero-shot_skeleton-based_action_recognition_by_disentangled_va.md)
@@ -181,5 +183,7 @@ $$\mathcal{L}_{cls} = -\frac{1}{K}\sum_k y_k\log\hat{y}_k + \lambda[(1-\alpha)\f
 - [\[NeurIPS 2025\] Seeing Beyond the Scene: Analyzing and Mitigating Background Bias in Action Recognition](seeing_beyond_the_scene_analyzing_and_mitigating_background_bias_in_action_recog.md)
 - [\[NeurIPS 2025\] Empower Words: DualGround for Structured Phrase and Sentence-Level Temporal Grounding](empower_words_dualground_for_structured_phrase_and_sentencel.md)
 - [\[ECCV 2024\] Referring Atomic Video Action Recognition](../../ECCV2024/video_understanding/referring_atomic_video_action_recognition.md)
+
+</div>
 
 <!-- RELATED:END -->

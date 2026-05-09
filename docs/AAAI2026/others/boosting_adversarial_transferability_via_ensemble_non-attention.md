@@ -190,6 +190,8 @@ NAMEA 在 DI-MI-FGSM 基础攻击下平均 ASR 达 80.6%，超越最强基线 SM
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[AAAI 2026\] ASAG: Toward the Frontiers of Reliable Diffusion Sampling via Adversarial Sinkhorn Attention Guidance](toward_the_frontiers_of_reliable_diffusion_sampling_via_adversarial_sinkhorn_att.md)
@@ -197,5 +199,7 @@ NAMEA 在 DI-MI-FGSM 基础攻击下平均 ASR 达 80.6%，超越最强基线 SM
 - [\[ACL 2025\] Battling against Tough Resister: Strategy Planning with Adversarial Game for Non-collaborative Dialogues](../../ACL2025/others/battling_against_tough_resister_strategy_planning_with_adversarial_game_for_non-.md)
 - [\[AAAI 2026\] On the Edge of Core (Non-)Emptiness: An Automated Reasoning Approach to Approval-Based Multi-Winner Voting](on_the_edge_of_core_non-emptiness_an_automated_reasoning_approach_to_approval-ba.md)
 - [\[CVPR 2026\] MyoVision: A Mobile Research Tool and NEATBoost-Attention Ensemble Framework for Real Time Chicken Breast Myopathy Detection](../../CVPR2026/others/myovision_a_mobile_research_tool_and_neatboost_attention_ensemble_framework.md)
+
+</div>
 
 <!-- RELATED:END -->

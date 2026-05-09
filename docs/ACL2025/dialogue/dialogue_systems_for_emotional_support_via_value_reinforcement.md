@@ -137,6 +137,8 @@ ES-VR (DPO) 在 Experience（4.20 vs 3.11）和价值强化（Supporter 0.56 vs 
 
 <!-- RELATED:START -->
 
+<div class="related-papers" markdown="1">
+
 ## 相关论文
 
 - [\[ACL 2025\] EnSToM: Enhancing Dialogue Systems with Entropy-Scaled Steering Vectors for Topic Maintenance](enstom_enhancing_dialogue_systems_with_entropy-scaled_steering_vectors_for_topic.md)
@@ -144,5 +146,7 @@ ES-VR (DPO) 在 Experience（4.20 vs 3.11）和价值强化（Supporter 0.56 vs 
 - [\[ACL 2025\] An Efficient Task-Oriented Dialogue Policy: Evolutionary Reinforcement Learning Injected by Elite Individuals](eierl_dialogue_policy.md)
 - [\[ACL 2026\] ETHICMIND: A Risk-Aware Framework for Ethical-Emotional Alignment in Multi-Turn Dialogue](../../ACL2026/dialogue/ethicmind_a_risk-aware_framework_for_ethical-emotional_alignment_in_multi-turn_d.md)
 - [\[ACL 2026\] Towards Proactive Information Probing: Customer Service Chatbots Harvesting Value from Conversation](../../ACL2026/dialogue/towards_proactive_information_probing_customer_service_chatbots_harvesting_value.md)
+
+</div>
 
 <!-- RELATED:END -->
