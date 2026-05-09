@@ -22,6 +22,13 @@
 
 > ⚠️ **关于 ACL 2026**：本仓库收录的 ACL 2026 论文均来自 arXiv 上 Comments 标注为 "Accepted to ACL 2026" 的论文，并非官方 AC 结果，仅供参考。官方接收列表待公布 [ACL 2026 Accepted Papers](https://2026.aclweb.org/program/accepted_papers/)。
 
+## 💬 问题反馈
+
+🎉 **GitHub 200 ⭐ 成就达成 — 反馈系统解锁**
+
+Paper Notes 交流群: `1094559400`  
+<img src="docs/assets/qq-group-qr.png" width="180" alt="Paper Notes QQ 群二维码">
+
 ## 🎉 版本发布
 
 - **v1.1.0**（2026-04-25）：新增 ACL 2026 论文解读
