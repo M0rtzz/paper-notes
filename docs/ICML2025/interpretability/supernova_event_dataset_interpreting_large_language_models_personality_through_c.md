@@ -54,7 +54,7 @@ tags:
 | 类别 | 数据源 | 最低字数 | 最低浏览量 | 额外筛选 | 文章数 |
 |------|--------|---------|-----------|---------|--------|
 | 传记 | 英文 Wikipedia | 3000 | 50000 | Infobox 模板过滤 | 150 |
-| 历史事件 | 英文 Wikipedia | 500 | 5000 | ORES ≥B + LLM 验证 + 年份&lt;2000 | 150 |
+| 历史事件 | 英文 Wikipedia | 500 | 5000 | ORES ≥B + LLM 验证 + 年份<2000 | 150 |
 | 新闻事件 | 英文 Wikipedia | 500 | 5000 | ORES ≥B + LLM 验证 + 年份>2000 | 150 |
 | 科学发现 | Gemini Deep Research | - | - | Nobel Prize API + Gemini 扩写 | 25 |
 

@@ -96,7 +96,7 @@ $$V_{[t_b,t_e]}^{\theta,\mathbf{g}_t}(i,j,k) = \mathcal{I}(|\{p_i \in \cup_{t} Q
 
 ### 损失函数 / 训练策略
 
-由于视觉跨度仅占空间极小区域（中央凹 &lt;1%），传统交叉熵难以学习有意义信号。采用 **Dice Loss**：
+由于视觉跨度仅占空间极小区域（中央凹 <1%），传统交叉熵难以学习有意义信号。采用 **Dice Loss**：
 
 $$\mathcal{L} = 1 - \frac{2 \times \sum \tilde{Y}_{ijk} \odot Y_{ijk}}{\sum \tilde{Y}_{ijk} + \sum Y_{ijk} + 1}$$
 

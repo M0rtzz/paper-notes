@@ -66,7 +66,7 @@ $$\mathcal{L}^{Sig}(\theta, \phi; t, b) = \sum_{i=1}^{N} \log(1+\exp(-t\langle U
 
 通过与球面码（spherical codes）的联系，刻画给定维度 d 下可容纳的最大 N：
 
-**定理 3.3（下界）**：当 m+b_rel&lt;1 且 3m&lt;1+b_rel 时，存在指数大小的 Constellation：
+**定理 3.3（下界）**：当 m+b_rel<1 且 3m<1+b_rel 时，存在指数大小的 Constellation：
 $$E_{MRB}(m, b_{rel}) \geq -\frac{1}{2}\log_2(1-(\frac{1+b_{rel}-3m}{1+b_{rel}+m})^2)$$
 
 **定理 3.4（上界/必要条件）**：m+b_rel ≤ 1 且 3m ≤ 1+b_rel 是必要条件

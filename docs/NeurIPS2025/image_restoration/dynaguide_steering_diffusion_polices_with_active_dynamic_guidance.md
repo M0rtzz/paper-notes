@@ -107,7 +107,7 @@ $$\hat{\epsilon}(\mathbf{a}^k, o_t) = \epsilon(\mathbf{a}^k, o_t) - s\sqrt{1-\ba
 |------|-----------|-----|-----|------|
 | ArticulatedParts（固定物体） | **70%** | ~95% | 较低 | GC 在分布内表现最佳，DynaGuide 比 base policy 提升 8.7× |
 | MovableObjects（随机物体） | **显著优于 GPC** | 大幅下降 | ≈ base policy | 物体随机化导致 GC 分布外失效，GPC 采样方差过大 |
-| UnderspecifiedObjectives（低质量引导） | 比 GC 高 **5.4×** | &lt;10% | 中等 | 机器人状态随机化+场景不匹配时 DynaGuide 最鲁棒 |
+| UnderspecifiedObjectives（低质量引导） | 比 GC 高 **5.4×** | <10% | 中等 | 机器人状态随机化+场景不匹配时 DynaGuide 最鲁棒 |
 | MultiObjectives（多目标+负目标） | 正目标 **80%** 成功 | 不适用 | 较低 | GPC 在回避负目标时失败率更高 |
 | UnderrepresentedBehaviors（1% 数据） | **40%** | - | 更低 | 仅 1% 训练数据的行为仍可通过引导激活 |
 

@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Empowering Small VLMs to Think with Dynamic Memorization and Exploration
 description: >-
-  [ICLR 2026][多模态VLM][小规模视觉语言模型] 提出 DyME（Dynamic Memorize-Explore），通过逐步动态切换 SFT 记忆模式与 GRPO 探索模式，首次赋予小规模视觉语言模型（&lt;1B 参数）在特定任务上的思维推理能力。
+  [ICLR 2026][多模态VLM][小规模视觉语言模型] 提出 DyME（Dynamic Memorize-Explore），通过逐步动态切换 SFT 记忆模式与 GRPO 探索模式，首次赋予小规模视觉语言模型（<1B 参数）在特定任务上的思维推理能力。
 tags:
   - "ICLR 2026"
   - "多模态VLM"
@@ -22,10 +22,10 @@ tags:
 **关键词**: 小规模视觉语言模型, 思维能力, 动态切换, SFT与RLVR融合, 视觉监督
 
 ## 一句话总结
-提出 DyME（Dynamic Memorize-Explore），通过逐步动态切换 SFT 记忆模式与 GRPO 探索模式，首次赋予小规模视觉语言模型（&lt;1B 参数）在特定任务上的思维推理能力。
+提出 DyME（Dynamic Memorize-Explore），通过逐步动态切换 SFT 记忆模式与 GRPO 探索模式，首次赋予小规模视觉语言模型（<1B 参数）在特定任务上的思维推理能力。
 
 ## 研究背景与动机
-- 大模型（如 Qwen2.5-VL-32B）可通过 SFT 或 RLVR 获得推理能力，但**小模型（SVLM，&lt;1B）两种范式都失败**：
+- 大模型（如 Qwen2.5-VL-32B）可通过 SFT 或 RLVR 获得推理能力，但**小模型（SVLM，<1B）两种范式都失败**：
     - SFT 失败：CoT 数据冗长且含大量与视觉无关内容，SVLM 容量不足以吸收，导致"伪思维轨迹"
     - RLVR 失败：SVLM 指令遵循能力差，频繁生成无法验证的输出，引发"优势坍塌"（advantage collapse）
 - 两阶段训练（SFT→RL）的静态平衡窗口极窄，SVLM 几乎不可能成功

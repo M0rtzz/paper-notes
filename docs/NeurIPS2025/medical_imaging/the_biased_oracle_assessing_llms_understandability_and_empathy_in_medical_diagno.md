@@ -61,7 +61,7 @@ tags:
 
     - 功能：识别 LLM 自评的系统性偏差
     - 核心思路：GPT 评 GPT vs Claude 评 GPT，比较分数差异；同理 Claude 评 Claude vs GPT 评 Claude。配合人类评注做三方交叉验证
-    - 设计动机：发现 GPT 对自身情感共情评分膨胀 ~0.3 分（2.5→2.2 by Claude），评注者间一致性低（r&lt;0.5），说明 LLM-as-Judge 在主观评估上不可靠
+    - 设计动机：发现 GPT 对自身情感共情评分膨胀 ~0.3 分（2.5→2.2 by Claude），评注者间一致性低（r<0.5），说明 LLM-as-Judge 在主观评估上不可靠
 
 ### 损失函数 / 训练策略
 - 评估研究，无训练

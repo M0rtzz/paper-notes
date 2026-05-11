@@ -82,7 +82,7 @@ tags:
 | 直接输出vs CoT | 影响倍率 | CoT使LLM更容易被Player 1影响(>60%) |
 | Agent角色vs助手角色 | DeepSeek $r$ | Agent: 0.793 → 助手: -0.141 (完全丧失警觉) |
 | 小模型(3B/8B) | Bayesian $r$ | 0.29~0.61——规模决定警觉能力 |
-| 默认prompt vs 警觉steering | 真实场景 $r$ | Steering平均提升0.1-0.2，多数显著(p&lt;.05) |
+| 默认prompt vs 警觉steering | 真实场景 $r$ | Steering平均提升0.1-0.2，多数显著(p<.05) |
 
 ### 关键发现
 - 前沿非推理LLM在控制场景中比理性模型更像人类($r_{LLM-Human} > r_{Bayesian-Human}$)——暗示LLM捕获了人类警觉中超理性的启发式偏差

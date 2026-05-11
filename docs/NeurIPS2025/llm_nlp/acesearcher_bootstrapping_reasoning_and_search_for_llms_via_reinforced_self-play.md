@@ -22,7 +22,7 @@ tags:
 **关键词**: 搜索增强LLM, 多跳推理, 问题分解, 自我博弈, 迭代DPO  
 
 ## 一句话总结
-提出 AceSearcher——一种协作式自我博弈框架，让单个 LLM 同时扮演**问题分解者**（将复杂查询拆解为子问题引导检索）和**求解者**（整合检索上下文生成答案），通过 SFT + 迭代 DPO 两阶段训练，仅用最终答案作为奖励信号，在 10 个数据集上平均 EM 提升 7.6%，32B 模型匹配 DeepSeek-V3（&lt;5% 参数）。
+提出 AceSearcher——一种协作式自我博弈框架，让单个 LLM 同时扮演**问题分解者**（将复杂查询拆解为子问题引导检索）和**求解者**（整合检索上下文生成答案），通过 SFT + 迭代 DPO 两阶段训练，仅用最终答案作为奖励信号，在 10 个数据集上平均 EM 提升 7.6%，32B 模型匹配 DeepSeek-V3（<5% 参数）。
 
 ## 研究背景与动机
 
@@ -93,7 +93,7 @@ tags:
 | DeepResearcher | 7B | 基线 | 基线 | 基线 |
 | **AceSearcher-8B** | 8B | +显著 | +显著 | **+7.6% avg** |
 | AceSearcher-1.5B | 1.5B | 超过 9× 参数的方法 | - | 极高效 |
-| AceSearcher-32B | 32B | 匹配 DeepSeek-V3 | - | &lt;5% 参数 |
+| AceSearcher-32B | 32B | 匹配 DeepSeek-V3 | - | <5% 参数 |
 
 ### Document-level Reasoning (DocMath-Eval)
 

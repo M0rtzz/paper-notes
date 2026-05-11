@@ -93,7 +93,7 @@ LSVI 的迭代流程：
 | 方法 | 收敛速度 | 特点 |
 |------|---------|------|
 | LSVI (Algorithm 1) | ~1 步 | 本质上一步收敛，但需要 Fisher 矩阵求逆 |
-| LSVI-FC (Algorithm 3) | &lt;100 步 | 高效，$O(d^3)$ |
+| LSVI-FC (Algorithm 3) | <100 步 | 高效，$O(d^3)$ |
 | NGD | ~100 步 | 需要自动微分 |
 | ADVI (pyMC3/Blackjax) | >100 步 | 需要步长调节 |
 | GMMVI | ~100 步 | 无梯度但仅适合低维 |

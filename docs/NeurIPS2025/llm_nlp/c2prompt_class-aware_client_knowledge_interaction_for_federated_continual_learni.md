@@ -105,7 +105,7 @@ ImageNet-R上Avg超Powder 2.51%，DomainNet上超2.90%。
 
 ### 关键发现
 - LCDC和CPA分别在输入层面和参数层面解决知识不一致，两者互补性强
-- C²Prompt是唯一在DomainNet大规模数据集上实现负遗忘率（FM&lt;0）的方法
+- C²Prompt是唯一在DomainNet大规模数据集上实现负遗忘率（FM<0）的方法
 - 前向迁移（FT）提升最大：ImageNet-R +3.15%，DomainNet +2.59%——说明全局分布估计有效帮助了新任务学习
 - 通信开销仅比Powder增加0.6%，推理时无额外参数/计算
 

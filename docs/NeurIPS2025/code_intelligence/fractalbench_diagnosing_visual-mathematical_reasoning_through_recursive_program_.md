@@ -90,7 +90,7 @@ FractalBench 包含 12 种经典分形（Cantor 集、Koch 曲线、Sierpiński 
 | Sierpiński 结构 | 多尺度自相似 | 3-18% |
 | Cantor 集 | 线性递归 | 中等 |
 | Dragon 曲线 | 空间填充 | 低 |
-| Tree 分形 | 分支递归 | &lt;2% |
+| Tree 分形 | 分支递归 | <2% |
 
 ### 消融实验（提示策略对比）
 

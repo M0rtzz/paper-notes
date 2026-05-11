@@ -95,7 +95,7 @@ EMR-AGENT是基于推理的Agent框架，不涉及训练，而是依赖：
 | REACT | 0.308 | 0.524 | 0.503 |
 | ICL(SeqSQL) | 0.040 | 0.000 | 0.040 |
 
-EMR-AGENT在所有数据库上大幅领先。eICU和SICdb上基线方法几乎完全失败（F1&lt;0.53），而EMR-AGENT保持>0.81。
+EMR-AGENT在所有数据库上大幅领先。eICU和SICdb上基线方法几乎完全失败（F1<0.53），而EMR-AGENT保持>0.81。
 
 **代码映射（F1/Balanced Accuracy）**
 

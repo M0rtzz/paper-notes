@@ -135,7 +135,7 @@ SRA 在高分辨率和文本到图像场景同样有效，512×512 上 IS 和 sF
 
 ## 相关工作与启发
 
-- **vs REPA**: REPA 用冻结的 DINOv2 做 patch-wise 对齐目标，在早期训练（&lt;200 epoch）收敛极快，但后期引导饱和甚至有害（被 concurrent work 证实）。SRA 不依赖外部模型，EMA 教师持续改善，200 epoch 后仍能持续降低 FID。两者有明确的互补潜力
+- **vs REPA**: REPA 用冻结的 DINOv2 做 patch-wise 对齐目标，在早期训练（<200 epoch）收敛极快，但后期引导饱和甚至有害（被 concurrent work 证实）。SRA 不依赖外部模型，EMA 教师持续改善，200 epoch 后仍能持续降低 FID。两者有明确的互补潜力
 - **vs MaskDiT/SD-DiT/TREAD**: 这类方法引入 MAE/IBOT 判别损失或 token routing 策略，需要额外设计 masking 机制和辅助分支，架构侵入性强。SRA 不改变原始架构，更加即插即用
 - **vs BYOL/DINO 自蒸馏**: SSL 中的 EMA 教师需要精心的稳定性设计（动态 momentum schedule、centering、BN）来防止模式坍塌。SRA 中固定 $\alpha=0.9999$ 即可稳定训练，可能是因为生成损失本身提供了足够强的梯度信号，自动防止坍塌——这一差异值得进一步研究
 

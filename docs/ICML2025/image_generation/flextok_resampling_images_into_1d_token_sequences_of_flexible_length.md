@@ -22,7 +22,7 @@ tags:
 **关键词**: 可变长度 Tokenizer, 1D Token 序列, Nested Dropout, Rectified Flow 解码器, 粗到细生成
 
 ## 一句话总结
-提出 FlexTok——一种将 2D 图像重采样为可变长度、有序的 1D 离散 token 序列的 tokenizer，通过 nested dropout 学习层次化编码，配合 rectified flow 解码器在任意 token 数量下生成高质量重建，在 ImageNet 上用 8~128 个 token 即可实现 FID&lt;2 的自回归图像生成。
+提出 FlexTok——一种将 2D 图像重采样为可变长度、有序的 1D 离散 token 序列的 tokenizer，通过 nested dropout 学习层次化编码，配合 rectified flow 解码器在任意 token 数量下生成高质量重建，在 ImageNet 上用 8~128 个 token 即可实现 FID<2 的自回归图像生成。
 
 ## 研究背景与动机
 
@@ -92,11 +92,11 @@ tags:
 | LlamaGen (2D grid) | 256 | ~2.2 | 固定 256 token，光栅扫描 |
 | TiTok-S-128 | 128 | 1.97 | 固定 128 token |
 | TiTok-L-32 | 32 | 2.77 | 固定 32 token，另一个模型 |
-| **FlexTok d18-d28** | **8** | **&lt;2** | 单一模型，8 token |
-| **FlexTok d18-d28** | **32** | **&lt;2** | 单一模型，32 token |
-| **FlexTok d18-d28** | **128** | **&lt;2** | 单一模型，128 token |
+| **FlexTok d18-d28** | **8** | **<2** | 单一模型，8 token |
+| **FlexTok d18-d28** | **32** | **<2** | 单一模型，32 token |
+| **FlexTok d18-d28** | **128** | **<2** | 单一模型，128 token |
 
-FlexTok 在 8-128 token 范围内均实现 FID&lt;2，且是**单一模型**。
+FlexTok 在 8-128 token 范围内均实现 FID<2，且是**单一模型**。
 
 ### 消融实验
 

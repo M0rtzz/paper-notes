@@ -48,8 +48,8 @@ tags:
 1. **Top-R 方法 (Algorithm 1)**:
 
     - 功能：从修改后的指数机制中采样支撑集
-    - 核心思路：先用 MIP 求解器找到目标值最小的前 R 个支撑集，对 k &lt;= R 使用真实目标值，对 k > R 统一用第 R 个的目标值作下界
-    - 采样分布：P_0(k) 正比于 exp(-eps * R(S_k, D)/(2*Delta)) 对 k &lt;= R；P_0(R+1) 正比于 (C(p,s)-R)*exp(-eps*R(S_R, D)/(2*Delta))
+    - 核心思路：先用 MIP 求解器找到目标值最小的前 R 个支撑集，对 k <= R 使用真实目标值，对 k > R 统一用第 R 个的目标值作下界
+    - 采样分布：P_0(k) 正比于 exp(-eps * R(S_k, D)/(2*Delta)) 对 k <= R；P_0(R+1) 正比于 (C(p,s)-R)*exp(-eps*R(S_R, D)/(2*Delta))
     - 隐私保证：当 T -> inf 时为纯 eps-DP（Theorem 1），仅需标准数据有界假设
 
 2. **Mistakes 方法**:
@@ -78,7 +78,7 @@ tags:
 | Top-R (本文) | ~15% | ~55% | ~85% | ~95% | 纯 eps-DP |
 | Mistakes (本文) | ~25% | ~70% | ~92% | ~98% | 纯 eps-DP |
 | MCMC (Roy & Tewari) | ~5% | ~20% | ~45% | ~60% | 近似 DP |
-| Samp-Agg (Lasso) | &lt;5% | ~10% | ~15% | ~20% | 纯 eps-DP |
+| Samp-Agg (Lasso) | <5% | ~10% | ~15% | ~20% | 纯 eps-DP |
 
 ### 理论恢复条件对比
 

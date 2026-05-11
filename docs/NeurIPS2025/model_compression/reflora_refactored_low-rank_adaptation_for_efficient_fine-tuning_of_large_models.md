@@ -108,7 +108,7 @@ $$A_{t+1} = A_t - \eta \nabla \ell(W_t) B_t \tilde{S}_t^{-1}, \quad B_{t+1} = B_
 | LoRA-Pro | 60.2% | +134 MB |
 | LoRA-RITE | 72.6% | +140 MB |
 | **RefLoRA** | **88.5%** | +132 MB |
-| **RefLoRA-S** | **98.7%** | **&lt;1 MB** |
+| **RefLoRA-S** | **98.7%** | **<1 MB** |
 
 ## 亮点
 

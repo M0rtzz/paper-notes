@@ -92,7 +92,7 @@ tags:
 | Subspace rotation | -48.9% 降幅 | - | 旋转变换最差 |
 
 ### 关键发现
-- **阈值效应**：漂移存在 sharp cliff——$\sigma < 0.01$ 时几乎无影响（&lt;5% AUC 下降），$\sigma > 0.02$ 时近随机，转变发生在极窄的 1% 窗口内
+- **阈值效应**：漂移存在 sharp cliff——$\sigma < 0.01$ 时几乎无影响（<5% AUC 下降），$\sigma > 0.02$ 时近随机，转变发生在极窄的 1% 窗口内
 - **Silent failure 是最大威胁**：分类器报告 90% 置信度时，实际准确率仅 56%（比随机猜还没用）
 - **Alignment 的反直觉效应**：instruction-tuned 模型的 Silhouette score 从 0.245 降至 0.198（-19%），Fisher ratio 从 4.23 降至 3.12（-26%），class overlap 从 12.3% 升至 18.7%——RLHF 让 embedding 空间中的类别边界更模糊
 - **漂移机制无关性**：三种漂移类型差异不超过 6 个百分点，说明脆弱性是结构性的而非特定扰动的

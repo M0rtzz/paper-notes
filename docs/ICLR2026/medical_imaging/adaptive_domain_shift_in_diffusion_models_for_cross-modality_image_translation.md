@@ -100,7 +100,7 @@ CDTSDE在几乎所有指标上居首，在效率方面仅需5个采样步（1.8s
 ### 关键发现
 - 从Linear→Dynamic，Dice提升6.1%，Hausdorff降低33%，说明空间自适应域调度的核心价值
 - Channel Non-linear已能显著改善边界质量（Hausdorff 59.5→43.0），但区域重叠不变，空间维度的自适应提供了额外的overlap提升
-- Bridge-based方法（BBDM、ABridge、DBIM）在高度异质的PSCDE任务上几乎完全失效（Dice&lt;0.17），而CDTSDE和DOSSR因显式域迁移设计表现远好
+- Bridge-based方法（BBDM、ABridge、DBIM）在高度异质的PSCDE任务上几乎完全失效（Dice<0.17），而CDTSDE和DOSSR因显式域迁移设计表现远好
 
 ## 亮点与洞察
 - **理论驱动的设计**：Theorem 1从路径能量泛函角度严格证明了逐像素调度优于全局调度，这个理论结果不仅支撑了方法设计，还具有更广泛的启示——在任何需要学习两个分布间过渡路径的生成任务中，空间自适应调度都可能有益

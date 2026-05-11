@@ -33,7 +33,7 @@ tags:
 
 **单模态方法**（PointNetVLAD、MinkLoc3D等）需要可靠的先验3D地图
 
-**跨模态方法**（LIP-Loc、VXP等）将LiDAR与其他模态对齐，但检索范围局限于已知路线或极小区域（&lt;2km²）
+**跨模态方法**（LIP-Loc、VXP等）将LiDAR与其他模态对齐，但检索范围局限于已知路线或极小区域（<2km²）
 
 **基于地图的方法**（OSM方案）受限于地图信息的稀疏性
 
@@ -104,7 +104,7 @@ $$P(x,y) = \sum_{m=1}^{M} A_m \cdot \exp\left(-\frac{(x-\mu_{xm})^2}{2\sigma_{xm
 
 ### 主实验
 
-在 LiRSI-XA 不同规模数据库上的 Recall@1 (&lt;30m)：
+在 LiRSI-XA 不同规模数据库上的 Recall@1 (<30m)：
 
 | 方法 | 4km² | 9km² | 16km² | 100km² |
 |------|------|------|-------|--------|

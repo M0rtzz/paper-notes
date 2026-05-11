@@ -154,9 +154,9 @@ $$y_{it} = \beta \cdot PostLLM_t + \gamma \cdot len_{it} + \delta_c + \alpha_i +
 
 - 交叉验证准确率: 89.3% (95% CI: 87.1-91.5)
 - Held-out arXiv 数据: 89.1% (86.8-91.4)
-- 空模型对比: silhouette 0.31 vs 0.43（p&lt;0.001）
+- 空模型对比: silhouette 0.31 vs 0.43（p<0.001）
 - 时间边界鲁棒性: 84% 原型分配一致性（极端变化 91%）
-- AI-likeness 在控制 FKGL/TTR/句长后仍显著: 偏相关 r=0.34, p&lt;0.001
+- AI-likeness 在控制 FKGL/TTR/句长后仍显著: 偏相关 r=0.34, p<0.001
 
 ## 亮点与洞察
 

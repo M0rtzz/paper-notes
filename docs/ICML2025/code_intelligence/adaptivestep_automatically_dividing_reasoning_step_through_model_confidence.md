@@ -73,7 +73,7 @@ $$\mathcal{L}_{PRM}^\theta = -\sum_{k=1}^{K} (r_k^e \log r_k^\theta + (1-r_k^e) 
 
 | 数据集 | 指标 | ASPRM | 之前SOTA | 提升 |
 |--------|------|-------|----------|------|
-| GSM8k (BoN) | Accuracy | ASPRM-L 最优 | Math-Shepherd, ER-PRM | 成本&lt;70%下超越 |
+| GSM8k (BoN) | Accuracy | ASPRM-L 最优 | Math-Shepherd, ER-PRM | 成本<70%下超越 |
 | MATH500 (TVD) | Accuracy | 28.60% (ASPRM-L) | 27.80% (ER-PRM) | +0.8% |
 | GSM8k (TVD) | Accuracy | 79.53% | 77.10% (greedy) | +3.15% |
 | MATH500 (TVD) | Accuracy | 42.00% (ASPRM-L) | 38.80% (greedy) | +14.4% (相对) |

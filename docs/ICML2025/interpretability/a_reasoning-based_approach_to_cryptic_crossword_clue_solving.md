@@ -111,7 +111,7 @@ AssertionError: action_type('goes crazy', Action.ANAGRAM):
 4. **仅6个**wordplay→Python形式化示例
 5. 待形式化的实际问题
 
-在训练数据极度稀缺（&lt;10个"好证明"可用）的情况下，通过精心设计的ICL prompt使LLM能可靠地生成正确格式的Python代码。
+在训练数据极度稀缺（<10个"好证明"可用）的情况下，通过精心设计的ICL prompt使LLM能可靠地生成正确格式的Python代码。
 
 **4. Base模型优于Instruct模型的发现**
 

@@ -139,7 +139,7 @@ $$\mathcal{L}_{total} = \lambda_1 \mathcal{L}_{rec} + \lambda_2 \mathcal{L}_{per
 ### 关键发现
 
 1. **AICG 在所有数据集上一致优于其他门控方案**：验证了隐式相关性建模的有效性
-2. **鲁棒性优势**：当 LQ-Ref 对齐比率 &lt;0.7 时，SUPIR+ReFIR 低于其 baseline，而本文方法始终超越 baseline
+2. **鲁棒性优势**：当 LQ-Ref 对齐比率 <0.7 时，SUPIR+ReFIR 低于其 baseline，而本文方法始终超越 baseline
 3. **摘要 token 的可解释性**：不同token捕获不同语义区域（人体部位、天空、草地、鸟类特征等）
 4. **16个摘要token是最佳选择**：8和32个token均不如16个
 

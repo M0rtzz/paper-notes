@@ -37,31 +37,31 @@ tags:
 ### 置信度Token设计
 
 向VLM词表添加3个特殊token：
-- <code>&lt;SPAN&gt;</code>: 标记关键短语的开始
-- <code>&lt;/CN&gt;</code>: 标记置信的、有依据的短语结束
-- <code>&lt;/UN&gt;</code>: 标记不置信的、幻觉短语结束
+- `<SPAN>`: 标记关键短语的开始
+- `</CN>`: 标记置信的、有依据的短语结束
+- `</UN>`: 标记不置信的、幻觉短语结束
 
 ### 1.3M半合成幻觉感知训练数据
 
 基于LLaVA-v1.5-665k扩展，包含6.8M QA对（3.8M正确答案+2.9M幻觉答案）：
-- 正例短语用<code>&lt;SPAN&gt;</code>和<code>&lt;/CN&gt;</code>包围
-- 负例短语用<code>&lt;SPAN&gt;</code>和<code>&lt;/UN&gt;</code>包围，且在<code>&lt;/UN&gt;</code>后立即截断
+- 正例短语用`<SPAN>`和`</CN>`包围
+- 负例短语用`<SPAN>`和`</UN>`包围，且在`</UN>`后立即截断
 - 二值Yes/No和计数题用规则方法生成负例，通用答案用GPT-4o-mini生成
 - 20%数据注入query rewriting提示以支持回溯修正
 
 ### 幻觉感知训练损失
 
-改进的交叉熵损失，对<code>&lt;SPAN&gt;</code>和<code>&lt;/UN&gt;</code>之间的token进行target masking（权重设为0），避免在幻觉内容上强化语言先验：
+改进的交叉熵损失，对`<SPAN>`和`</UN>`之间的token进行target masking（权重设为0），避免在幻觉内容上强化语言先验：
 
 $$L(S) = -\sum_{y_i \in Y} \mathbb{1}_{Hall(i)} \cdot \log P(y_i | X, y_1, ..., y_{i-1}; \theta)$$
 
-其中 $\mathbb{1}_{Hall(i)}=0$ 仅当token在<code>&lt;SPAN&gt;</code>和<code>&lt;/UN&gt;</code>之间时。
+其中 $\mathbb{1}_{Hall(i)}=0$ 仅当token在`<SPAN>`和`</UN>`之间时。
 
 ### 回溯重采样（Retrospective Resampling）
 
-推理时持续监控<code>&lt;/UN&gt;</code>的生成概率 $P(\text{</UN>})$。当超过阈值 $\tau$ 时触发分层回退策略：
+推理时持续监控`</UN>`的生成概率 $P(\text{</UN>})$。当超过阈值 $\tau$ 时触发分层回退策略：
 
-1. **局部回溯**: 回退到最近的<code>&lt;/CN&gt;</code>（置信检查点），尝试局部修正
+1. **局部回溯**: 回退到最近的`</CN>`（置信检查点），尝试局部修正
 2. **句子级回溯**: 若局部修正失败K次（K=10），回退到上一个句子边界
 3. **包含提示的Query Rewriting**: 在输入中添加"Hint: potential incorrect phrases → \<placeholder\>"提示
 4. **终止**: 若N次（N=50）修正后仍失败，返回当前输出并标记可能存在幻觉

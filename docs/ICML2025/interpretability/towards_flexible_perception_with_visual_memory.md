@@ -133,9 +133,9 @@ JFT memory 在 IN-R、IN-Sketch 上大幅超越 linear probe；Gemini re-ranking
 
 #### 5. 机器遗忘：完美保证
 
-从 Visual Memory 删除数据点即可实现**完美遗忘**（&lt;20ms/sample），三项核心指标全优：
+从 Visual Memory 删除数据点即可实现**完美遗忘**（<20ms/sample），三项核心指标全优：
 
-- **效率**：删除一个样本 &lt;20ms vs. 重训练数小时
+- **效率**：删除一个样本 <20ms vs. 重训练数小时
 - **模型效用**：保留数据性能不受任何影响（by design）
 - **遗忘质量**：100% 完全遗忘（by design）
 

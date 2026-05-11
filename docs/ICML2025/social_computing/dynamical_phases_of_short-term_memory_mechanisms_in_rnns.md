@@ -68,7 +68,7 @@ tags:
 
     - SP模型：鞍节分岔 dx/dt = x² + r
     - LC模型：x(t) = sin(2*pi*r*t)，r 可学习
-    - 关键发现：beta_LC &lt;= beta_SP，极限环在大延迟时允许更大学习率
+    - 关键发现：beta_LC <= beta_SP，极限环在大延迟时允许更大学习率
 
 5. **机制判别指数**: 
 

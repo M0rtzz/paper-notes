@@ -37,7 +37,7 @@ Quality Diversity (QD) 优化旨在找到一组既高质量又多样化的解集
 
 1. **高维 distortion 放大效应**：measure space 维度增高时，每个 cell 体积指数增大，更多具有相近 measure 的解被归入同一 cell，CMA-MAE 给予它们相同 discount 值，导致 CMA-ES 无法识别最大 archive improvement 方向
 2. **增大 archive 分辨率不可行**：虽然更小的 cell 可缓解 distortion，但所需内存随维度指数增长
-3. **缺乏高维 measure 的应用范式**：传统 QD 仅考虑 &lt;10D 的手设 measure，难以扩展到以图像等高维数据作为 measure 的场景
+3. **缺乏高维 measure 的应用范式**：传统 QD 仅考虑 <10D 的手设 measure，难以扩展到以图像等高维数据作为 measure 的场景
 
 ## 方法详解
 

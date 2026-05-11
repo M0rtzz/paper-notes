@@ -85,7 +85,7 @@ tags:
 |------|-----------|-----------|
 | RANDOM | ~85% | ~65% |
 | Perinucleus | ~80% | ~60% |
-| ENGLISH-RANDOM | ~40% | &lt;20% |
+| ENGLISH-RANDOM | ~40% | <20% |
 
 ### 跨模型通用性
 

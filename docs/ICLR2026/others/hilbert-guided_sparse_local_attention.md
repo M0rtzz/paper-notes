@@ -108,7 +108,7 @@ tags:
 - 加速依赖FlexAttention等框架，不同硬件/CUDA版本效果可能变化
 
 ## 相关工作与启发
-- **vs Swin Transformer**: HWT用Hilbert重排加速Swin的WSA，精度损失&lt;0.3%
+- **vs Swin Transformer**: HWT用Hilbert重排加速Swin的WSA，精度损失<0.3%
 - **vs NAT/NATTEN**: HNT将2D邻域注意力转化为1D——可直接用1D优化kernel
 - **vs FlashAttention**: FlashAttention针对dense注意力优化，HWA/HSA利用稀疏性进一步加速
 

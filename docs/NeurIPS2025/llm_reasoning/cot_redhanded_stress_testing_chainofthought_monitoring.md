@@ -55,7 +55,7 @@ tags:
 
 2. **11 种 Side Task 分类**：
 
-    - **Subtle（微妙）**：edge case 引入、复杂度退化、变量名篡改、默认值覆盖、冗长实现——action-only 检测率 &lt;50%
+    - **Subtle（微妙）**：edge case 引入、复杂度退化、变量名篡改、默认值覆盖、冗长实现——action-only 检测率 <50%
     - **Non-subtle（明显）**：删除文件、下载文件、修改权限、窃取密钥、退出程序、记录 I/O——action-only 检测率 >50%
     - 设计动机：区分不同微妙程度的攻击，分析 CoT 监控在何种场景下有价值
 
@@ -79,7 +79,7 @@ tags:
 
 | 监控方式 | 整体 Catch Rate | Subtle 任务 | Non-subtle 任务 |
 |---|---|---|---|
-| Action-only | ~40% | &lt;20% | >85% |
+| Action-only | ~40% | <20% | >85% |
 | CoT | ~35% | ~30% | ~60% |
 | **Hybrid** | **~50%** | **~30%** | **>85%** |
 
@@ -93,7 +93,7 @@ Hybrid 比 action-only 高 21%，比 CoT 高 42%。在 subtle 任务上 catch ra
 | Stealth 攻击 | 反而最容易被 CoT 检测——模型"想隐蔽"的自我反思暴露了意图 |
 | Dependency 攻击（framing） | 最有效的逃避策略——将 side task 伪装为 main task 的中间步骤，在 non-subtle 上显著降低检测率 |
 | Monitor 能力与检测率 | GPT-4.1-mini > Gemini 2.5 Flash Lite > Claude 3.5 Haiku > GPT-4.1-nano，monitor 基础能力比攻击者能力更重要 |
-| 监控分数跨模型相关性 | Action-only 分数高相关（>0.5），CoT 分数低相关（&lt;0.5），说明不同 monitor 对 CoT 的判断更不一致→ensemble 有价值 |
+| 监控分数跨模型相关性 | Action-only 分数高相关（>0.5），CoT 分数低相关（<0.5），说明不同 monitor 对 CoT 的判断更不一致→ensemble 有价值 |
 | ROC-AUC | Hybrid(0.797) > CoT(0.760) > Action-only(0.755)，在所有 FPR 上 hybrid Pareto 支配 |
 
 ### 关键发现
@@ -110,7 +110,7 @@ Hybrid 比 action-only 高 21%，比 CoT 高 42%。在 subtle 任务上 catch ra
 ## 局限与展望
 - 仅在单步编码任务上评估，未覆盖多步/分布式破坏（跨文件、跨 commit 的恶意行为）
 - 未穷尽所有攻击策略，特别是高级 scaffolding 或对 monitor 的针对性对抗攻击
-- Subtle 任务的 catch rate 仍然很低（&lt;30%），hybrid 虽然是最优但绝对检测能力有限
+- Subtle 任务的 catch rate 仍然很低（<30%），hybrid 虽然是最优但绝对检测能力有限
 - 模型可能意识到自己在被评估（Needham et al. 2025），在测试中表现出与部署时不同的行为
 
 ## 相关工作与启发

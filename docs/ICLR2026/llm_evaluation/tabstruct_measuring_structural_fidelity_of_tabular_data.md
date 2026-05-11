@@ -116,9 +116,9 @@ TabStruct 是一个统一的评估框架，输入是参考数据集 $\mathcal{D}
 
 | 指标对 | Spearman $r_s$ | p 值 |
 |--------|----------------|------|
-| Global Utility ↔ Global CI | **0.84** | &lt;0.001 |
-| Local Utility ↔ Local CI | 0.78 | &lt;0.001 |
-| Local Utility ↔ Global CI | 0.14 | &lt;0.001 |
+| Global Utility ↔ Global CI | **0.84** | <0.001 |
+| Local Utility ↔ Local CI | 0.78 | <0.001 |
+| Local Utility ↔ Global CI | 0.14 | <0.001 |
 
 Global utility 与 global CI 的强相关性（0.84）是核心实证结果，证明其作为无 SCM 代理指标的有效性。
 

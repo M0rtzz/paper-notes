@@ -122,7 +122,7 @@ $$\Theta_{\text{CT}}^* = \arg\min_{\Theta_{\text{CT}}} \sum_{i=1}^{k} -\log p_\p
 | CT-KV (完整) | 最优 | Leave-One-Out + Token Dropout 均启用 |
 | 去掉 Leave-One-Out | 显著下降 | 模型直接从上下文中检索答案，无法泛化 |
 | 去掉 Token Dropout | 轻微下降 | 过拟合风险增加，尤其示例数少时 |
-| ARC 上关闭 Leave-One-Out | 反而提升 | ARC 示例极少（&lt;4），mask 反而丢失关键信息 |
+| ARC 上关闭 Leave-One-Out | 反而提升 | ARC 示例极少（<4），mask 反而丢失关键信息 |
 | CT-KV 随机初始化 | 大幅下降 | 验证了 ICL 初始化的必要性 |
 
 ### 关键发现

@@ -98,7 +98,7 @@ Draft-based Approximate Inference 是一个统一框架：先用小型 draft 模
 ## 局限与展望
 
 - Draft 模型引入额外的内存开销（虽然可以 offload 到 CPU）
-- 在非常短的上下文（&lt;4K）下，draft 开销可能不值得
+- 在非常短的上下文（<4K）下，draft 开销可能不值得
 - 目前仅验证了同系列模型做 draft（如 Qwen2.5-0.5B→32B），跨系列有效性未知
 - Prompt 压缩会重新分配 position ID，可能影响依赖绝对位置的模型
 

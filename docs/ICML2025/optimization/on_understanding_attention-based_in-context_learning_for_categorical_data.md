@@ -79,9 +79,9 @@ $$f_{j,k+1} = f_{j,k} + \frac{\alpha}{N} \sum_{i=1}^N \left[ w_{e,y_i} - \mathbb
 
 | 模型 | 注意力类型 | Top-1 准确率趋势 |
 |------|-----------|-----------------|
-| GD (1层) | RBF / Softmax | 少量训练集（L&lt;5000）即收敛 |
+| GD (1层) | RBF / Softmax | 少量训练集（L<5000）即收敛 |
 | Trained TF (1层) | RBF / Softmax | 需大量训练集（L>10000）才与 GD 匹配 |
-| GD (2层) | Softmax | L&lt;5000 即收敛，优于 1 层 |
+| GD (2层) | Softmax | L<5000 即收敛，优于 1 层 |
 | Trained TF (2层) | Softmax | 需 L>25000 才与 GD 匹配 |
 
 - 增加注意力层数（2→6 blocks）持续提升 GD 模型的 Top-1 准确率和 NLL

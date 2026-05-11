@@ -64,7 +64,7 @@ Sprint 包含两部分：（1）训练时的数据整理 pipeline，把普通的
 
     - 功能：最优化地将步骤分配到 stage，最大化并行度
     - 核心思路：stage 编号的计算公式为 $\sigma(S_i) = \max_{S_p \in \text{Parents}(S_i)} (\sigma(S_p) + \mathbb{1}(E_p \neq \emptyset))$，关键在于如果父节点 $S_p$ 是 plan-only 步骤（$E_p = \emptyset$），子节点不需要等待其执行结果，可以归入同一 stage
-    - 设计动机：贪心地压缩 stage 数量，同时短执行（&lt;3行）被合并为 plan-only，减少 executor 调用开销
+    - 设计动机：贪心地压缩 stage 数量，同时短执行（<3行）被合并为 plan-only，减少 executor 调用开销
 
 ### 训练策略
 
@@ -92,7 +92,7 @@ Sprint 包含两部分：（1）训练时的数据整理 pipeline，把普通的
 
 | RFT 顺序Token范围 | Sprint 顺序Token减少比例 |
 |-------------------|-------------------------|
-| &lt;2000 tokens | +5%（轻微开销） |
+| <2000 tokens | +5%（轻微开销） |
 | 4000-6000 tokens | ~20% 减少 |
 | >8000 tokens | **39% 减少** |
 | Countdown 长轨迹 | **65% 减少** |

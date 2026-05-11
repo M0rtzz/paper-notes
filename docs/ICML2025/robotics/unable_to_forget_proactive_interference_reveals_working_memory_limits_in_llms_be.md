@@ -94,7 +94,7 @@ $$\text{IES} = \text{AUC}(\text{accuracy vs. log(update count)})$$
 | 策略 | 效果 | 说明 |
 |------|------|------|
 | Per-key forget | 无效/负效果 | 错误反而聚集在forget指令的位置 |
-| Forward focus | 边际改善 | &lt;10百分点改善 |
+| Forward focus | 边际改善 | <10百分点改善 |
 | Relevance meta-prompt | 无效 | 模型能正确说出答案位置但仍检索错误 |
 | Soft session reset | 无效 | 自然语言重置信号无法改变检索行为 |
 | Mock QA reset（hack） | **有效** | 模拟对话轮次边界，大幅改善准确率 |

@@ -116,7 +116,7 @@ $\epsilon$ 阶从 $3/2$ 降至 $1/2$，解耦 $d$ 与 $\epsilon$，得益于 RFD
 | DBSLinUCB-RFD | $\epsilon=4, l_0=50$ | ~210 | ~60% | ~80% |
 | DBSLinUCB-FD | $\epsilon=25, l_0=50$ | ~300 | ~80% | ~90% |
 
-关键发现：(1) DBSLinUCB 在 Pareto 前沿（遗憾 vs 时间/空间）全面优于 SOFUL，最多减少 40% 遗憾或同遗憾下减少 60% 时间 + 80% 空间。(2) 遗憾始终 &lt;300，而 SOFUL 小草图下超 500。(3) $\epsilon$ 很小时不同 $l_0$ 表现趋同（Invariant 2 约束下更多依赖精确更新）。
+关键发现：(1) DBSLinUCB 在 Pareto 前沿（遗憾 vs 时间/空间）全面优于 SOFUL，最多减少 40% 遗憾或同遗憾下减少 60% 时间 + 80% 空间。(2) 遗憾始终 <300，而 SOFUL 小草图下超 500。(3) $\epsilon$ 很小时不同 $l_0$ 表现趋同（Invariant 2 约束下更多依赖精确更新）。
 
 ## 亮点与洞察
 

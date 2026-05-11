@@ -85,7 +85,7 @@ MEGState 以 MEG 信号 $\mathbf{X} \in \mathbb{R}^{M \times T}$（$M$ 个传感
 
 ### 关键发现
 
-- MEGState 在所有指标上显著超越基线(p&lt;0.05)：Accuracy +6.73，Kappa +8.48，Macro-F1 +6.29
+- MEGState 在所有指标上显著超越基线(p<0.05)：Accuracy +6.73，Kappa +8.48，Macro-F1 +6.29
 - 两个模块都不可或缺：去除多分辨率卷积影响更大(尤其是 Kappa 从 54.19 骤降至 37.90)
 - 音素级分析显示：MEGState 在 39 个音素中的 19 个上优于基线，10 个达到统计显著
 - Leaderboard 上通过 5 模型集成策略进一步将 Macro-F1 提升至 68.41%

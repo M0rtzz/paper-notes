@@ -98,10 +98,10 @@ $$\boldsymbol{K}_{\mathcal{B},:}\boldsymbol{\alpha} = \boldsymbol{\psi}(\boldsym
 
 | 方法 | 类型 | 内存 | 时间 | 支持模型 |
 |------|------|------|------|---------|
-| Falkon | 近似核 | >50GB | &lt;1h | KRR |
-| LogFalkon | 近似核 | >50GB | &lt;1h | KLR |
+| Falkon | 近似核 | >50GB | <1h | KRR |
+| LogFalkon | 近似核 | >50GB | <1h | KLR |
 | EigenPro3 | 近似核 | ~7GB | >15h | KRR |
-| LIBSVM | 精确核 | &lt;2GB | >1周 | SVC/SVR |
+| LIBSVM | 精确核 | <2GB | >1周 | SVC/SVR |
 | ThunderSVM | 精确核 | ~8GB | >1周 | SVC/SVR |
 | **Joker** | **混合** | **~2GB** | **~1h** | **KRR/KLR/SVM 等** |
 

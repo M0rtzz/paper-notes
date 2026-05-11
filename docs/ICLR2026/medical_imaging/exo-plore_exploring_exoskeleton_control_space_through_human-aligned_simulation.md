@@ -126,7 +126,7 @@ $$r_{\text{HEI}} = 1 + \frac{1}{\kappa} \sum_{k \in \{L,R\}} \min(0, P_k)$$
 
 | 方法 | 特点 | 局限 |
 |------|------|------|
-| HILO (Zhang et al., 2017; Slade et al., 2024) | 基于真人实验的迭代优化 | 需数小时行走，不适合行障患者，迭代次数 &lt;30 |
+| HILO (Zhang et al., 2017; Slade et al., 2024) | 基于真人实验的迭代优化 | 需数小时行走，不适合行障患者，迭代次数 <30 |
 | Luo et al. (2024) | Deep RL + 外骨骼，发表于 Nature | 依赖模仿策略，限制了对未见条件的适应，未与真人数据验证相关性 |
 | Generative GaitNet (Park et al., 2022) | Deep RL 步态生成 | 未考虑外骨骼辅助和病理步态 |
 | **Exo-plore（本文）** | 拟合+预测统一框架，HEI 奖励，代理优化 | 尚无真人验证，肌肉模型简化 |

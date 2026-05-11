@@ -80,9 +80,9 @@ tags:
 
 | 对比 | $\chi^2$ | p值 | 结论 |
 |------|---------|------|------|
-| VLM vs. Rule-based | 38.11 | &lt;0.001 | VLM显著优于规则 |
-| VLM vs. Random | 137.11 | &lt;0.001 | VLM显著优于随机 |
-| Rule-based vs. Random | 88.17 | &lt;0.001 | 规则优于随机 |
+| VLM vs. Rule-based | 38.11 | <0.001 | VLM显著优于规则 |
+| VLM vs. Random | 137.11 | <0.001 | VLM显著优于随机 |
+| Rule-based vs. Random | 88.17 | <0.001 | 规则优于随机 |
 
 所有比较经Bonferroni校正后仍显著（$p^* < 0.017$）。
 

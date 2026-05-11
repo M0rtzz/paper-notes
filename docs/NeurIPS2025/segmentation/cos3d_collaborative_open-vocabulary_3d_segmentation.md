@@ -59,7 +59,7 @@ COS3D 基于 3D Gaussian Splatting 构建，包含三个技术组件：
 
 构建从实例特征到语言特征的映射函数 $\Phi: L = \Phi(I)$。论文提供两种实现：
 
-- **浅层 MLP**：学习映射函数 $\Phi_{\text{network}}$，损失为 $\mathcal{L}_{\text{mapping}} = |L^m - \Phi_{\text{network}}(I^m)|$，训练仅需 &lt;3 分钟
+- **浅层 MLP**：学习映射函数 $\Phi_{\text{network}}$，损失为 $\mathcal{L}_{\text{mapping}} = |L^m - \Phi_{\text{network}}(I^m)|$，训练仅需 <3 分钟
 - **核回归**：使用 Nadaraya-Watson 估计器，无需训练，$\sigma=0.1$
 
 论文发现因为实例特征已具有判别性，映射任务本质上是简单的回归问题，核回归方法反而效果最优。

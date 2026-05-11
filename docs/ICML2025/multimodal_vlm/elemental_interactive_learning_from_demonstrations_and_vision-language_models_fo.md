@@ -93,7 +93,7 @@ ELEMENTAL 将视觉语言模型 (VLM) 与逆强化学习 (IRL) 融合，通过 V
 | w/o Norm 2 (权重归一化) | 下降 | 奖励尺度不一致 |
 
 ### 关键发现
-- GPT-4o 的特征代码执行率 (~80%) 远高于 EUREKA 的奖励代码执行率 (&lt;50%)
+- GPT-4o 的特征代码执行率 (~80%) 远高于 EUREKA 的奖励代码执行率 (<50%)
 - 泛化实验：ELEMENTAL 在 4 个 Ant 变体上比 EUREKA 提升 41.3%——EUREKA 可能记忆了标准 IsaacGym 奖励
 - 这是首次成功将 IRL 应用于 IsaacGym 的高维任务
 

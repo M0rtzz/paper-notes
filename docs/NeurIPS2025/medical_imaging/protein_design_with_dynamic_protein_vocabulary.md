@@ -71,7 +71,7 @@ $$\mathcal{L}_{\text{DESC}} = -\frac{1}{\sum_i |S_i|} \sum_i \sum_j \log \frac{\
 
 ### 主实验 1：CAMEO 子集（功能关键词生成）
 
-| 模型 | #训练对 | pLDDT↑ | %>70↑ | PAE↓ | %&lt;10↑ | ProTrek↑ | Keyword Recovery↑ |
+| 模型 | #训练对 | pLDDT↑ | %>70↑ | PAE↓ | %<10↑ | ProTrek↑ | Keyword Recovery↑ |
 |------|--------|--------|-------|------|-------|---------|-------------------|
 | Random+(E) | - | 62.38 | 32.65% | 17.23 | 9.28% | 3.29% | 0.00% |
 | ProteinDT | 541K | 38.70 | 0.20% | 26.25 | 0.00% | 7.43% | 0.05% |
@@ -81,7 +81,7 @@ $$\mathcal{L}_{\text{DESC}} = -\frac{1}{\sum_i |S_i|} \sum_i \sum_j \log \frac{\
 
 ### 主实验 2：Mol-Instructions（自然语言描述生成）
 
-| 模型 | pLDDT↑ | %>70↑ | PAE↓ | %&lt;10↑ | ProTrek↑ | EvoLlama↑ |
+| 模型 | pLDDT↑ | %>70↑ | PAE↓ | %<10↑ | ProTrek↑ | EvoLlama↑ |
 |------|--------|-------|------|-------|---------|----------|
 | Pinal | 75.25 | 68.97% | 10.96 | 58.44% | 17.50% | 53.42% |
 | Chroma | 59.18 | 20.17% | 15.03 | 28.62% | 2.10% | 40.10% |
@@ -89,7 +89,7 @@ $$\mathcal{L}_{\text{DESC}} = -\frac{1}{\sum_i |S_i|} \sum_i \sum_j \log \frac{\
 
 ### 消融实验（Vanilla Multimodal Baseline 对比）
 
-| 配置 | pLDDT | %>70 | PAE | %&lt;10 | ProTrek Score | 说明 |
+| 配置 | pLDDT | %>70 | PAE | %<10 | ProTrek Score | 说明 |
 |------|-------|------|-----|------|--------------|------|
 | Vanilla (无片段) | ~72 | ~63% | ~11 | ~58% | ~10% | 仅用GPT-2+ProtGPT2 |
 | ProDVa | 76.86 | 76.35% | 8.66 | 68.06% | 17.40% | 完整模型 |

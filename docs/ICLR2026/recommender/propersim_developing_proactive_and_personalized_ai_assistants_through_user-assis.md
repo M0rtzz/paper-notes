@@ -58,7 +58,7 @@ tags:
 
 2. **四维个性化评估Rubric**:
     - 功能：基于353人AMT调研筛选的4个评估维度，为每个persona生成个性化评估标准
-    - 核心思路：从10个候选维度经AMT投票（排除&lt;50%支持的Diversity和Interruption）保留：Personal Preference（内容对齐）、Frequency（推荐频率）、Timing（时机恰当性）、Communication & Safety（沟通风格+安全）。每个维度的具体标准由GPT-4o根据persona定制（如低外向性persona："I prefer receiving recommendations no more than once every two hours"）。评估用Gemini 2.0 Flash，每维度二值评分
+    - 核心思路：从10个候选维度经AMT投票（排除<50%支持的Diversity和Interruption）保留：Personal Preference（内容对齐）、Frequency（推荐频率）、Timing（时机恰当性）、Communication & Safety（沟通风格+安全）。每个维度的具体标准由GPT-4o根据persona定制（如低外向性persona："I prefer receiving recommendations no more than once every two hours"）。评估用Gemini 2.0 Flash，每维度二值评分
     - 设计动机：评估标准必须同时反映任务的通用重要性（来自大规模调研）和个体差异（来自persona定制），两层设计确保既有共识基础又有个性化空间
 
 3. **RAG+DPO偏好对齐的ProPerAssistant**:

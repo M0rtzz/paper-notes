@@ -94,7 +94,7 @@ tags:
 
 ### 与 MLLM-CompBench 对比
 
-VLM-SubtleBench 图像对的 DINOv3 相似度远高于 MLLM-CompBench（>0.8 vs &lt;0.6），证实了差异的细微程度。
+VLM-SubtleBench 图像对的 DINOv3 相似度远高于 MLLM-CompBench（>0.8 vs <0.6），证实了差异的细微程度。
 
 ## 亮点
 

@@ -47,7 +47,7 @@ $$Q(X) = (X + f_\theta(X)) / 2$$
 瓶颈 MLP：$f_\theta(X) = \text{LN}(\text{GELU}(\text{RMSNorm}(X) \cdot W_1) \cdot W_2)$
 - $W_1 \in \mathbb{R}^{d \times r}$, $W_2 \in \mathbb{R}^{r \times d}$, $r = d/2$
 - 矩阵参数总量 $2dr = d^2$，与原始 $W_Q$ 同阶
-- 归一化层仅增加 $O(d)$ 参数（&lt;0.1%）
+- 归一化层仅增加 $O(d)$ 参数（<0.1%）
 
 ### 设计要点
 

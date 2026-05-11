@@ -119,7 +119,7 @@ $$y_{c,l} = f([q_{c,l}\tilde{K}_{:,-1}^\top; q_{c,l}\tilde{k}_{c,l}^\top])[\tild
 
 - Chunk 边界处可能存在信息不连续——当一个语义单元跨越两个 Chunk 时，RNN 只能部分捕捉。
 - 仅使用最简单的线性 RNN（EMA 门控），未探索更强的 RNN 变体（如非线性 RNN、2D 递归）。
-- 短序列（&lt;4K）时训练速度略慢于注意力，因为 flex attention 在少量 Chunk 上 GPU 并行不充分。
+- 短序列（<4K）时训练速度略慢于注意力，因为 flex attention 在少量 Chunk 上 GPU 并行不充分。
 - 目前验证规模限于 1.3B（主实验），7B/13B 仅报告了吞吐量，缺少对应的精度数据。
 
 ## 相关工作与启发

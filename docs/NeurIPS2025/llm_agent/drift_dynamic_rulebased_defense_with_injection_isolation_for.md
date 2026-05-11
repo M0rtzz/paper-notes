@@ -95,7 +95,7 @@ Planner 提供强安全但大幅牺牲 utility；Validator 恢复 utility（+22%
 ### 关键发现
 - **跨模型泛化强**：GPT-4o ASR 51.7%→1.5%，Claude-3.5-sonnet 37.1%→4.4%，Qwen2.5-7B 15.1%→0.0%（fine-tuned 后）
 - **动态策略在复杂任务上必要**：轨迹长度 ≤2 时静态/动态差异不大，但 ≥3 时静态策略 utility 急剧下降，动态策略保持稳定
-- **对自适应攻击鲁棒**：多种adaptive attack（手工设计+PAIR 自动攻击）仅造成 ASR 增加 &lt;1%
+- **对自适应攻击鲁棒**：多种adaptive attack（手工设计+PAIR 自动攻击）仅造成 ASR 增加 <1%
 - **计算开销合理**：DRIFT 消耗约 1.89× token（vs 无防御），低于 CaMeL 的 7× token
 
 ## 亮点与洞察

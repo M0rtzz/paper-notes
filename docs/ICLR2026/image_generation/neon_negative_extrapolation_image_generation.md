@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Neon: Negative Extrapolation From Self-Training Improves Image Generation
 description: >-
-  [ICLR 2026 Oral][图像生成][self-training] 提出 Neon，一种仅需 &lt;1% 额外训练计算的后处理方法：先用模型自身生成的合成数据微调导致退化，再反向外推远离退化权重，证明 mode-seeking 采样器导致合成/真实数据梯度反对齐，因此负外推等价于向真实数据分布优化…
+  [ICLR 2026 Oral][图像生成][self-training] 提出 Neon，一种仅需 <1% 额外训练计算的后处理方法：先用模型自身生成的合成数据微调导致退化，再反向外推远离退化权重，证明 mode-seeking 采样器导致合成/真实数据梯度反对齐，因此负外推等价于向真实数据分布优化…
 tags:
   - "ICLR 2026 Oral"
   - "图像生成"
@@ -22,7 +22,7 @@ tags:
 **关键词**: self-training, model collapse, weight merging, negative extrapolation, FID
 
 ## 一句话总结
-提出 Neon，一种仅需 &lt;1% 额外训练计算的后处理方法：先用模型自身生成的合成数据微调导致退化，再反向外推远离退化权重，证明 mode-seeking 采样器导致合成/真实数据梯度反对齐，因此负外推等价于向真实数据分布优化，在 ImageNet 256×256 上将 xAR-L 提升至 SOTA FID 1.02。
+提出 Neon，一种仅需 <1% 额外训练计算的后处理方法：先用模型自身生成的合成数据微调导致退化，再反向外推远离退化权重，证明 mode-seeking 采样器导致合成/真实数据梯度反对齐，因此负外推等价于向真实数据分布优化，在 ImageNet 256×256 上将 xAR-L 提升至 SOTA FID 1.02。
 
 ## 研究背景与动机
 
@@ -34,7 +34,7 @@ tags:
 
 **本文目标** 能否将自训练的退化信号转化为自改进信号？提供理论保证？
 
-**切入角度**：作者观察到 mode-seeking 采样器（temperature &lt;1、top-k、有限步 ODE solver）会使合成数据偏向模型分布的高概率区域，导致合成数据和真实数据的群体梯度 **反对齐**（$\cos\varphi < 0$）。因此，反向利用自训练梯度等价于向真实数据分布优化。
+**切入角度**：作者观察到 mode-seeking 采样器（temperature <1、top-k、有限步 ODE solver）会使合成数据偏向模型分布的高概率区域，导致合成数据和真实数据的群体梯度 **反对齐**（$\cos\varphi < 0$）。因此，反向利用自训练梯度等价于向真实数据分布优化。
 
 **核心 idea**：自训练会让模型变差，但"变差的方向"恰好是"变好的反方向"，所以反向外推就能改进模型。
 

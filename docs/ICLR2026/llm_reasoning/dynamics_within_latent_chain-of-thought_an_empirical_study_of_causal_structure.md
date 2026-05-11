@@ -87,7 +87,7 @@ $$\mathrm{KL}_{t \to s}^{(i)} = \frac{1}{|y_i^*|}\sum_{u=1}^{|y_i^*|}\mathrm{KL}
 | CODI (Llama3-1B) | GSM8K | 中等 | 相对Coconut更稳定 |
 | Coconut (Qwen3-4B) | GSM8K | 较低 | 强backbone显著抑制flip |
 | CODI (Qwen3-4B) | GSM8K | 最低 | 强backbone+CODI最稳定 |
-| 各范式 | CommonsenseQA | 普遍&lt;0.1 | 常识任务对干预更鲁棒 |
+| 各范式 | CommonsenseQA | 普遍<0.1 | 常识任务对干预更鲁棒 |
 
 ### 表2: RQ2 信息流结构指标对比 (GSM8K)
 

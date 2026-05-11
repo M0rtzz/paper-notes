@@ -89,7 +89,7 @@ $$\mathcal{L}_{\text{CSD}} = \frac{1}{2} \sum_{y_t \in \mathcal{V}} \sum_{x \in 
 
 ### 关键发现
 
-- softmax 在大词表 LLM 中损失了大量 teacher 知识（99.99%+ token 概率 &lt;0.01）
+- softmax 在大词表 LLM 中损失了大量 teacher 知识（99.99%+ token 概率 <0.01）
 - logit 偏移不变性是 DLD 的核心缺陷，CSD 通过差分结构自然解决
 - mode-seeking 损失（RKL, SKL）在小数据蒸馏中容易崩溃，CSD 通过权重选择避免此问题
 - CSD 与 on-policy 方法正交互补，尤其在纯 on-policy 设置下提升最大

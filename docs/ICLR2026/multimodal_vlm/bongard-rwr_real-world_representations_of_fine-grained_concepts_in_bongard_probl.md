@@ -88,7 +88,7 @@ N/A（benchmark 论文，评估现有模型）
 ### 关键发现
 - **二分类接近随机**：所有 VLM 在 I1S/I2S 上准确率约 50%，等同随机猜测！说明 VLM 几乎无法从 few-shot 图像中推断细粒度抽象概念
 - **概念选择尚可但退化快**：InternVL2.5 在 K=2 时 91%（区分能力尚在），但 K=16 时降到 57%（干扰项增多后崩溃）
-- **语义组差异显著**：Shape/Size/Branching 易（~75%），Contour/Rotation/Angle 难（&lt;50%）——后者依赖精确空间关系
+- **语义组差异显著**：Shape/Size/Branching 易（~75%），Contour/Rotation/Angle 难（<50%）——后者依赖精确空间关系
 - DeepSeek-R1 在纯文本 D2S 上达 0.56，说明文本推理比视觉推理更有效——VLM 的瓶颈在视觉感知而非推理
 - 彩色 vs 灰度无显著差异，确认概念是结构性的不依赖颜色
 - 小模型（MiniCPM-8B）和大模型（LLaVA-110B）性能持平，模型大小不是决定因素

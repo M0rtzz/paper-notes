@@ -52,7 +52,7 @@ tags:
 
 **1. 概率树嵌入**
 
-采用 Fakcharoenphol-Rao-Talwar (FRT) 算法：任意 n 点度量空间可嵌入到树度量分布上，期望拉伸因子 O(log n)，此界是紧的。核心性质：对所有 x,y 有 d(x,y) &lt;= d_T(x,y)（支配性）和 E[d_T(x,y)] &lt;= O(log n) * d(x,y)（期望拉伸）。将 FML 在一般图上的求解转化为在树上的 DP 求解，利用了树结构的简洁性。
+采用 Fakcharoenphol-Rao-Talwar (FRT) 算法：任意 n 点度量空间可嵌入到树度量分布上，期望拉伸因子 O(log n)，此界是紧的。核心性质：对所有 x,y 有 d(x,y) <= d_T(x,y)（支配性）和 E[d_T(x,y)] <= O(log n) * d(x,y)（期望拉伸）。将 FML 在一般图上的求解转化为在树上的 DP 求解，利用了树结构的简洁性。
 
 **2. 精确树 DP 算法（Section 5.1）**
 
@@ -70,7 +70,7 @@ tags:
 - 将 [0,n] 分为几何间隔，每个桶对只保留最小代价标签
 - 标签数降至 O(eps^{-2} * log^2 n)
 - 覆盖违约因子：xi = (1+eps)^{H+1}，H 为树高
-- 近似保证：代价 c' &lt;= c_opt，覆盖 b' >= b_opt/xi
+- 近似保证：代价 c' <= c_opt，覆盖 b' >= b_opt/xi
 - 复杂度：O(n^2 + n * eps^{-4} * log^4 n)
 
 **4. 树解到图解的投影**

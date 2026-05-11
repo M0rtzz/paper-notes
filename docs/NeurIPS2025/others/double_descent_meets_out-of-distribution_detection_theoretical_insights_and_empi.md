@@ -95,7 +95,7 @@ tags:
 ### 关键发现
 - 所有架构和所有 logit-based OOD 方法都展现 double descent，AUC 在插值阈值附近出现谷值
 - Feature-based 方法在某些架构上 double descent 不明显，说明现象依赖评分函数类型和架构
-- CNN 在欠参数化区间 OOD 检测更好（NC1_u/o=0.88&lt;1），ResNet/ViT/Swin 在过参数化区间更好
+- CNN 在欠参数化区间 OOD 检测更好（NC1_u/o=0.88<1），ResNet/ViT/Swin 在过参数化区间更好
 - NC1_u/o 是比 Acc_o/u 更可靠的 OOD 检测区间预测指标
 
 ## 亮点与洞察

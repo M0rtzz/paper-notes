@@ -117,7 +117,7 @@ OpenWebText（DiT 架构，GPT-2 tokenizer，131B tokens）：
 - 最优聚类数约 sqrt(|V|)，将生成分为两个等复杂度阶段
 - 随机扰动是杀手锏：Gen PPL 从 144.2 暴降至 54.15
 - MDLM 是 HDLM 的特例（n=1），理论和实验均验证
-- Force transition 在 xi&lt;1 时仍有效，上下文鲁棒性比就地纠错更重要
+- Force transition 在 xi<1 时仍有效，上下文鲁棒性比就地纠错更重要
 
 ## 亮点与洞察
 

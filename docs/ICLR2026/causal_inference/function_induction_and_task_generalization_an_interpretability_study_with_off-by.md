@@ -115,7 +115,7 @@ tags:
 ### 关键发现
 
 1. **分布式函数编码**：+1 函数不是由单个注意力头实现，而是由 6-9 个 FI heads 协作完成，每个头写出函数的不同"碎片"（促进 $x+1$、抑制 $x$、抑制 $x-1$ 等）。
-2. **FI Heads ≠ FV Heads**：与 Todd et al. (2024) 发现的 function vector heads 完全不重叠——FV heads 位于模型早中层（&lt;20 层），FI heads 位于晚期层（29-31 层），说明 FI heads 是多步任务中后续步骤的专属机制。
+2. **FI Heads ≠ FV Heads**：与 Todd et al. (2024) 发现的 function vector heads 完全不重叠——FV heads 位于模型早中层（<20 层），FI heads 位于晚期层（29-31 层），说明 FI heads 是多步任务中后续步骤的专属机制。
 3. **跨模型普遍性**：在 Gemma-2、Llama-2、Llama-3、Mistral 四个模型中均发现了三组头的结构，证明 function induction 是一种普遍涌现的机制。
 
 ## 亮点与洞察

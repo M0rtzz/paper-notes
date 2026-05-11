@@ -50,9 +50,9 @@ CoopRAG分为五个阶段：
 
 LLM生成：
 - 子问题集 S = {s_1, s_2, ..., s_|S|}
-- 不确定推理链 R = {(e_1, r_1, e_1'), ...,(e_|R|, r_t, &lt;FILL>)}
+- 不确定推理链 R = {(e_1, r_1, e_1'), ...,(e_|R|, r_t, <FILL>)}
 
-关键创新：使用&lt;UNCERTAIN>掩码代替不确定实体，避免hallucination：
+关键创新：使用<UNCERTAIN>掩码代替不确定实体，避免hallucination：
 
 U = Q || S || R
 
@@ -73,7 +73,7 @@ score_o(U, D) = ω_{U,D} · avg_i max_j <q_i, d_j^(L)>
 
 **推理链补全 (Section 3.5)**:
 
-LLM利用top-k文档，填充&lt;UNCERTAIN>和&lt;FILL>占位符，重构推理链
+LLM利用top-k文档，填充<UNCERTAIN>和<FILL>占位符，重构推理链
 
 **难度感知训练 (Section 3.6)**:
 

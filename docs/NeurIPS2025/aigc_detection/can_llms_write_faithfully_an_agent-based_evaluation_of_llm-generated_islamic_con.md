@@ -64,7 +64,7 @@ tags:
 
 **3. 定性比较Agent**
 
-- 同时处理三个模型的回复（用 XML 标签 <code>&lt;R1&gt;/&lt;R2&gt;/&lt;R3&gt;</code> 分隔），进行 side-by-side 对比
+- 同时处理三个模型的回复（用 XML 标签 `<R1>/<R2>/<R3>` 分隔），进行 side-by-side 对比
 - 在 5 个维度评估：Clarity & Structure、Islamic Accuracy、Tone & Appropriateness、Depth & Originality、Comparative Reflection
 - 每个维度识别最强/最弱回复，用具体文本摘录作为依据
 - 使用与定量Agent相同的验证工具链，确保一致性

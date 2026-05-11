@@ -39,7 +39,7 @@ tags:
 ## 方法详解
 
 ### 整体框架
-给定 teacher 模型（如 Qwen2.5-3B-Instruct），LRC 训练一组低秩投影矩阵 $\mathbf{W}_m^p \in \mathbb{R}^{d^T \times d^S}$，每个前向传播：(1) 投影 teacher 权重得到 student 权重 → (2) 两个模型分别前向 → (3) 对齐中间激活 + KL 散度 + LM loss。仅训练投影矩阵和 RMSNorm 参数（&lt;1% 总参数）。
+给定 teacher 模型（如 Qwen2.5-3B-Instruct），LRC 训练一组低秩投影矩阵 $\mathbf{W}_m^p \in \mathbb{R}^{d^T \times d^S}$，每个前向传播：(1) 投影 teacher 权重得到 student 权重 → (2) 两个模型分别前向 → (3) 对齐中间激活 + KL 散度 + LM loss。仅训练投影矩阵和 RMSNorm 参数（<1% 总参数）。
 
 ### 关键设计
 

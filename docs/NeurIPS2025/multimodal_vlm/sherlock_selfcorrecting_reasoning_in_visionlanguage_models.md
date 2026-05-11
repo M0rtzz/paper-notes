@@ -2,7 +2,7 @@
 title: >-
   [论文解读] Sherlock: Self-Correcting Reasoning in Vision-Language Models
 description: >-
-  [NeurIPS 2025][多模态VLM][自我纠正] 首个系统研究VLM推理自纠正能力的框架：发现现有推理VLM几乎不能自纠正（&lt;10%出现aha moment），提出Sherlock三阶段训练框架（SFT冷启动→离线轨迹级偏好学习→在线自我迭代）仅用20K标注数据超越使用100K-260K数据的LLaV…
+  [NeurIPS 2025][多模态VLM][自我纠正] 首个系统研究VLM推理自纠正能力的框架：发现现有推理VLM几乎不能自纠正（<10%出现aha moment），提出Sherlock三阶段训练框架（SFT冷启动→离线轨迹级偏好学习→在线自我迭代）仅用20K标注数据超越使用100K-260K数据的LLaV…
 tags:
   - "NeurIPS 2025"
   - "多模态VLM"
@@ -22,7 +22,7 @@ tags:
 **关键词**: 自我纠正, 偏好学习, trajectory-level, VLM reasoning, 自我改进
 
 ## 一句话总结
-首个系统研究VLM推理自纠正能力的框架：发现现有推理VLM几乎不能自纠正（&lt;10%出现aha moment），提出Sherlock三阶段训练框架（SFT冷启动→离线轨迹级偏好学习→在线自我迭代）仅用20K标注数据超越使用100K-260K数据的LLaVA-CoT/Mulberry/LlamaV-o1。
+首个系统研究VLM推理自纠正能力的框架：发现现有推理VLM几乎不能自纠正（<10%出现aha moment），提出Sherlock三阶段训练框架（SFT冷启动→离线轨迹级偏好学习→在线自我迭代）仅用20K标注数据超越使用100K-260K数据的LLaVA-CoT/Mulberry/LlamaV-o1。
 
 ## 背景与动机
 推理VLM（如LLaVA-CoT、VL-Rethinker）虽然能做长链推理，但存在三个关键问题：(1) 对推理错误极其敏感——一步错则链式传播导致最终错误；(2) 需要海量标注数据（100K-260K）；(3) 泛化性差，难以超越训练领域。作者的关键洞察：**自纠正**可以同时解决这三个问题——部分正确的推理通过纠正比从头生成更容易，纠正前后的response自然形成偏好对，减少对外部标注的依赖。
@@ -42,7 +42,7 @@ tags:
 
 1. **深入分析现有VLM的自纠正能力（Section 3）**：
 
-    - Step-wise：在LLaVA-CoT/VL-Rethinker上修改一个推理步后让模型续写，&lt;10%出现aha moment（反思信号），且即使出现也仅约50%能纠正到正确答案
+    - Step-wise：在LLaVA-CoT/VL-Rethinker上修改一个推理步后让模型续写，<10%出现aha moment（反思信号），且即使出现也仅约50%能纠正到正确答案
     - Response-wise：无论是用self-correction prompt还是外部critic（Critic-V、Qwen2.5-VL），都无法有效改善推理，甚至可能下降
     - 结论：当前推理VLM本质上不具备自纠正能力
 
@@ -98,7 +98,7 @@ tags:
 - vs **LLaVA-CoT**：LLaVA-CoT只做SFT无自纠正，自纠正后性能轻微下降；Sherlock用1/5数据超越且自纠正有效
 - vs **Mulberry**：Mulberry用MCTS生成260K CoT数据+step-wise反思SFT，但自纠正仍失败；Sherlock的轨迹级偏好学习更effective
 - vs **NoisyRollout (2504.13055)**：NoisyRollout用视觉扰动增强RL exploration，Sherlock用视觉扰动构造偏好数据——同一策略的不同应用场景
-- vs **VL-Rethinker**：RL-based但自纠正也失败（&lt;10% aha），说明RL alone不够
+- vs **VL-Rethinker**：RL-based但自纠正也失败（<10% aha），说明RL alone不够
 
 ## 与我的研究方向的关联
 - 与NoisyRollout互补：NoisyRollout在RL阶段加视觉扰动做exploration，Sherlock在偏好学习阶段用视觉扰动做数据构造，可组合

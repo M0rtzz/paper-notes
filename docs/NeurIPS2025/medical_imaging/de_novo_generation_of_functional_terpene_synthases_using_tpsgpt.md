@@ -22,7 +22,7 @@ tags:
 **关键词**: 萜烯合酶, 蛋白质语言模型, ProtGPT2, 从头设计, 湿实验验证
 
 ## 一句话总结
-TpsGPT 通过在 79K 萜烯合酶（TPS）序列上微调蒸馏版 ProtGPT2 Tiny（38.9M 参数），生成 28K 候选序列，经多阶段过滤（困惑度/pLDDT/EnzymeExplorer/CLEAN/InterPro/Foldseek）筛选出 7 条进化距离远（&lt;60% 序列相似度）但结构保守的从头 TPS 序列，湿实验验证其中 2 条具有 TPS 酶活性——以不到 $200 GPU 成本实现功能酶从头设计。
+TpsGPT 通过在 79K 萜烯合酶（TPS）序列上微调蒸馏版 ProtGPT2 Tiny（38.9M 参数），生成 28K 候选序列，经多阶段过滤（困惑度/pLDDT/EnzymeExplorer/CLEAN/InterPro/Foldseek）筛选出 7 条进化距离远（<60% 序列相似度）但结构保守的从头 TPS 序列，湿实验验证其中 2 条具有 TPS 酶活性——以不到 $200 GPU 成本实现功能酶从头设计。
 
 ## 研究背景与动机
 
@@ -133,7 +133,7 @@ TpsGPT 通过在 79K 萜烯合酶（TPS）序列上微调蒸馏版 ProtGPT2 Tiny
 ## 相关工作与启发
 - **vs RFdiffusion（结构导向设计）**：需要催化位点的详细结构知识，对 TPS 不实用；TpsGPT 仅需序列数据
 - **vs ProGEN（大规模 PLM 微调）**：ProGEN 280M 参数，需要大数据集+控制标签；TpsGPT 用 38.9M 蒸馏模型+无控制标签，更轻量
-- **vs HMMER 数据库挖掘**：只能发现自然界已有的序列；TpsGPT 生成进化远端（&lt;60% 相似度）的新序列
+- **vs HMMER 数据库挖掘**：只能发现自然界已有的序列；TpsGPT 生成进化远端（<60% 相似度）的新序列
 - **启发**：PLM 微调对"小数据酶族"特别有价值——只需 ~1000 种子序列+数据挖掘扩展即可训练有效生成模型
 
 ## 评分

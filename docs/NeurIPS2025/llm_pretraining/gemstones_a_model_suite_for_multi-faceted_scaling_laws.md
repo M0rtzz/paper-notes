@@ -101,7 +101,7 @@ Gemstones项目包含三个核心部分：(1) 设计并训练覆盖多种宽度-
 2. **宽度-深度存在明显权衡**: 深模型以FLOP计更优（更低损失），但宽模型以GPU时间计更优（张量并行下通信开销更低）
 3. **嵌入参数是否计入是Kaplan-Hoffmann分歧主因**: 与Pearce and Song (2024)和Porian et al. (2024)的结论一致
 4. **验证集分布不影响模型排序**: 在Dolma、FineWeb、FineWeb-Edu、DCLM上的损失仅是y轴偏移，相对排序完全一致
-5. **Approach 3比Approach 1更稳定**: Approach 3的斜率变化（Δ&lt;0.07）远小于Approach 1（Δ最高0.34）
+5. **Approach 3比Approach 1更稳定**: Approach 3的斜率变化（Δ<0.07）远小于Approach 1（Δ最高0.34）
 
 ## 亮点与洞察
 

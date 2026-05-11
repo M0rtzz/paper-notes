@@ -87,7 +87,7 @@ $\mathcal{L}_{total} = \mathcal{L}_{pred} + \lambda(t) \mathcal{L}_{bio} + \lamb
 | +BioPrior（完整） | 0.86 | +0.01 | 忠实性提升 |
 | Baseline（无BioPrior） | 0.77 | 基线 | |
 | 随机权重 | -0.45~0.03 | N/A | 负控制，确认失败 |
-| 打乱标签 | &lt;0.03 | N/A | 负控制 |
+| 打乱标签 | <0.03 | N/A | 负控制 |
 | 底部-k（低显著性） | 失败 | N/A | 反向控制 |
 
 ### 关键发现

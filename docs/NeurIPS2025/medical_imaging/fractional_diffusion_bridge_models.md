@@ -84,7 +84,7 @@ $$\mathcal{L}_{\text{FDBM}}^{\text{paired}}(\theta) = \int_0^1 \mathbb{E}_{\math
 
 ### 配对数据：蛋白质构象预测（D3PM 数据集）
 
-| 方法 | Median RMSD(Å)↓ | Mean RMSD(Å)↓ | RMSD&lt;2Å(%)↑ | RMSD&lt;5Å(%)↑ | Δ RMSD Mean↑ |
+| 方法 | Median RMSD(Å)↓ | Mean RMSD(Å)↓ | RMSD<2Å(%)↑ | RMSD<5Å(%)↑ | Δ RMSD Mean↑ |
 |------|-----------------|---------------|-------------|-------------|-------------|
 | SBALIGN | 3.67 | 4.82 | 0% | 71% | 1.92 |
 | Sesame | 2.87 | 3.65 | 38% | 82% | 3.11 |
@@ -118,7 +118,7 @@ $$\mathcal{L}_{\text{FDBM}}^{\text{paired}}(\theta) = \int_0^1 \mathbb{E}_{\math
 
 ### 关键发现
 
-1. **粗糙轨迹（H&lt;0.5）在蛋白质预测中更优**：RMSD&lt;2Å 比例从 ABM 的 43% 提升到 48%，中位 RMSD 从 2.40Å 降至 2.12Å
+1. **粗糙轨迹（H<0.5）在蛋白质预测中更优**：RMSD<2Å 比例从 ABM 的 43% 提升到 48%，中位 RMSD 从 2.40Å 降至 2.12Å
 2. **ABM 已是很强的基线**，优于此前所有方法（SBALIGN、Sesame）
 3. **FDBM 保持耦合**（Proposition 5），与 SBALIGN 不同
 4. **非配对设置中 H 远离 0.5 时微调不稳定**，表明 fBM SB 问题存在前向-后向不对称挑战

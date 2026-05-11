@@ -2,7 +2,7 @@
 title: >-
   [论文解读] SimulMEGA: MoE Routers are Advanced Policy Makers for Simultaneous Speech Translation
 description: >-
-  [NeurIPS 2025][音频/语音][同时语音翻译] 提出SimulMEGA框架，结合前缀训练与混合专家(MoE)精炼模块，实现无监督的读/写策略学习，使500M参数模型在6种语言的同时语音翻译中以1.5秒延迟仅损失&lt;7% BLEU，并扩展到流式TTS。
+  [NeurIPS 2025][音频/语音][同时语音翻译] 提出SimulMEGA框架，结合前缀训练与混合专家(MoE)精炼模块，实现无监督的读/写策略学习，使500M参数模型在6种语言的同时语音翻译中以1.5秒延迟仅损失<7% BLEU，并扩展到流式TTS。
 tags:
   - "NeurIPS 2025"
   - "音频/语音"
@@ -22,7 +22,7 @@ tags:
 **关键词**: 同时语音翻译, MoE, 无监督策略学习, 流式TTS, 多语言翻译
 
 ## 一句话总结
-提出SimulMEGA框架，结合前缀训练与混合专家(MoE)精炼模块，实现无监督的读/写策略学习，使500M参数模型在6种语言的同时语音翻译中以1.5秒延迟仅损失&lt;7% BLEU，并扩展到流式TTS。
+提出SimulMEGA框架，结合前缀训练与混合专家(MoE)精炼模块，实现无监督的读/写策略学习，使500M参数模型在6种语言的同时语音翻译中以1.5秒延迟仅损失<7% BLEU，并扩展到流式TTS。
 
 ## 研究背景与动机
 - 同时语音翻译(SimulST)需要在严格延迟约束下联合优化语音识别和机器翻译
@@ -103,10 +103,10 @@ $$\text{Action} = \begin{cases} \text{Write} & \text{if } p_{t,i} < \lambda \\ \
 
 ### 关键发现
 - SimulMEGA在所有三种评估场景中一致性优于所有基线方法
-- 在2秒AL下仅3-5%退化，3秒AL下&lt;3%退化
+- 在2秒AL下仅3-5%退化，3秒AL下<3%退化
 - Seamless在相同条件下退化9-17%
-- SimulMEGA-TTS实现了文本单元级(&lt;1.2秒AL)的极端流式条件，且WER与离线CosyVoice2相当
-- 端到端S2ST中，SimulMEGA-S2S仅比S2TT增加&lt;200ms AL
+- SimulMEGA-TTS实现了文本单元级(<1.2秒AL)的极端流式条件，且WER与离线CosyVoice2相当
+- 端到端S2ST中，SimulMEGA-S2S仅比S2TT增加<200ms AL
 
 ## 亮点与洞察
 1. **推理零开销**：MoE精炼器仅在训练时使用，推理时结构与离线模型完全相同

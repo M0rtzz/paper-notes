@@ -90,7 +90,7 @@ tags:
 ### 关键发现
 
 - GAE-Retriever 在全部 5 个数据源的 R@1/5/10 上均最优，最大提升在 GUIAct（R@1 +13.5, R@10 +27.3）
-- 多模态 backbone 模型（Qwen2-VL/Qwen2.5-VL）的检索能力极弱（R@1&lt;4.0），说明检索需要专门训练
+- 多模态 backbone 模型（Qwen2-VL/Qwen2.5-VL）的检索能力极弱（R@1<4.0），说明检索需要专门训练
 - Qwen2.5-VL-3B 反而弱于更小的 Qwen2-VL-2B，表明模型规模不等于检索能力
 - 轨迹规划模型（ShowUI、UI-TARS、TongUI）的检索能力与 backbone 无显著差异，planning 能力不迁移到 retrieval
 - VLM2Vec 系列一致优于其他检索模型，说明融合模态数据+交叉 batch 训练对检索至关重要

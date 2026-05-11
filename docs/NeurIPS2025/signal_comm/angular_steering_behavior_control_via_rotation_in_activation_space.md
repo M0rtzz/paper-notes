@@ -31,7 +31,7 @@ tags:
 
 作者的关键洞察来自现代LLM（LLaMA 3, Qwen 2.5, Gemma 2）普遍使用的RMSNorm。RMSNorm先将激活映射到缩放单位球面 $\bar{\mathbf{h}} = \mathbf{h}/\text{RMS}(\mathbf{h}) \odot \mathbf{g}$，再通过固定向量$\mathbf{g}$做方向性缩放。这意味着激活的**方向而非幅度**才是核心表示单元。因此，**旋转**——作为唯一同时保持范数和连续可调的几何变换——是行为控制的自然选择。
 
-更进一步，作者证明了在归一化前对激活做向量加法或正交投影，效果与在归一化后做旋转完全等价。也就是说，现有的激活加法是&lt;180°旋转的特例，方向消融是恰好90°旋转的特例。Angular Steering统一并扩展了它们。
+更进一步，作者证明了在归一化前对激活做向量加法或正交投影，效果与在归一化后做旋转完全等价。也就是说，现有的激活加法是<180°旋转的特例，方向消融是恰好90°旋转的特例。Angular Steering统一并扩展了它们。
 
 ## 方法详解
 
@@ -115,7 +115,7 @@ tags:
 
 ## 相关工作与启发
 
-- **vs Activation Addition (ActAdd)**：ActAdd等价于&lt;180°的旋转，系数α的选择困难根源在于它实际上同时改变了旋转角度和幅度——Angular Steering将两者解耦，只调角度
+- **vs Activation Addition (ActAdd)**：ActAdd等价于<180°的旋转，系数α的选择困难根源在于它实际上同时改变了旋转角度和幅度——Angular Steering将两者解耦，只调角度
 - **vs Directional Ablation (RepE)**：方向消融等价于恰好90°的旋转。但90°可能不是最优角度，且消融无法利用负向投影的信息
 - **vs Spectral Editing of Activations**：在PCA空间构造方向，Angular Steering更进一步定义了旋转操作
 - **vs Householder Pseudo-Rotation**：类似的范数保持思路，但Householder限于反射变换，不如旋转灵活

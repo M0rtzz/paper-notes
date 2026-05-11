@@ -57,7 +57,7 @@ VideoMind 基于 Qwen2-VL 架构，定义四个专职角色：
 
 **Timestamp Decoder（时间戳解码器）**——Grounder的核心组件：
 
-不使用语言建模直接预测时间戳，而是引入 <code>&lt;REG&gt;</code> token，当生成时将其与所有视觉token的隐状态送入专用解码器：
+不使用语言建模直接预测时间戳，而是引入 `<REG>` token，当生成时将其与所有视觉token的隐状态送入专用解码器：
 
 1. 1D平均池化：将视觉token压缩为每帧一个 $\mathbf{h}_v' \in \mathbb{R}^{T \times D_L}$
 2. 线性投影降维：$\mathbf{e}_v = E_v(\mathbf{h}_v') \in \mathbb{R}^{T \times D}$
@@ -71,7 +71,7 @@ VideoMind 基于 Qwen2-VL 架构，定义四个专职角色：
 
 **Verifier（验证器）的 Zoom-in 策略**：
 - 对每个候选片段向两侧扩展50%边界
-- 插入 <code>&lt;SEG-START&gt;</code> 和 <code>&lt;SEG-END&gt;</code> 特殊token标记边界
+- 插入 `<SEG-START>` 和 `<SEG-END>` 特殊token标记边界
 - 二值判断（Yes/No），teacher forcing获取token概率，$\text{Sigmoid}(L_y - L_n)$ 计算置信度
 
 **Chain-of-LoRA 机制**：

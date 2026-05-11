@@ -88,7 +88,7 @@ $$h_t = \text{ReLU}(h_{t-1} W_{hh}^\top + x_t W_{ih}^\top), \quad y_t = h_t A^\t
 **Transitions（驻留时间 < 2）**：
 - 跨过 kick-zone 后进入的短暂通道
 - 几乎确定性地向下一个 cluster 运动
-- logit 梯度变化极少（&lt;1），流场稳定且有方向性
+- logit 梯度变化极少（<1），流场稳定且有方向性
 
 **噪声敏感性验证**：Transition 区域对噪声条件几乎不敏感——一旦跨过 kick-zone，轨迹准确定性地前进。而 Cluster 区域高度噪声敏感——不同噪声条件下轨迹分歧显著。
 

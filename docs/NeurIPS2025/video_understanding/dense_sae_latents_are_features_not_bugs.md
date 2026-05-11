@@ -61,7 +61,7 @@ tags:
 
     - **位置latent**：通过Spearman秩相关检测，分为句子/段落/上下文位置追踪三类，主要出现在前10层
     - **上下文绑定latent**：在中间层发现，激活依赖上下文语义而非固定概念。通过steering实验验证因果效应
-    - **零空间latent**：与unembedding矩阵的最后k个左奇异向量对齐。99.6%的latent对齐分数&lt;0.2，异常值中75%是dense，占全部dense的40%。部分通过RMSNorm调控输出熵
+    - **零空间latent**：与unembedding矩阵的最后k个左奇异向量对齐。99.6%的latent对齐分数<0.2，异常值中75%是dense，占全部dense的40%。部分通过RMSNorm调控输出熵
     - **字母latent**：在最后一层，选择性提升或抑制以特定字母开头的token的logit。Layer 25有114个，21个是dense
     - **有意义词latent**：通过POS标注的AUC-ROC检测，"有意义词"（名词/动词/形容词/副词）预测firing的AUC达~0.8
     - **PCA latent**：一对反极对稳定重建第一主成分方向（余弦相似度>0.75）

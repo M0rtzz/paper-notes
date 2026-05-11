@@ -45,7 +45,7 @@ tags:
 
 ### 整体框架
 
-采用80M参数的Decoder-only Transformer。先在大规模MIDI数据集(Los Angeles MIDI, 405K文件)上进行标准next-token预训练，然后通过统一的重建目标在Slakh2100数据集上微调，实现多种编排任务。输入序列格式为 <code>[condition]&lt;SEP&gt;[target]</code>，仅在target子序列上计算交叉熵损失。
+采用80M参数的Decoder-only Transformer。先在大规模MIDI数据集(Los Angeles MIDI, 405K文件)上进行标准next-token预训练，然后通过统一的重建目标在Slakh2100数据集上微调，实现多种编排任务。输入序列格式为 `[condition]<SEP>[target]`，仅在target子序列上计算交叉熵损失。
 
 ### 关键设计
 
@@ -118,7 +118,7 @@ tags:
 | REMI-z | 151.68 | 2.77 | **84.11** |
 
 ### 关键发现
-- REMI-z相对REMI+在所有客观指标上统计显著(p&lt;0.001)，验证了结构化token化的优势
+- REMI-z相对REMI+在所有客观指标上统计显著(p<0.001)，验证了结构化token化的优势
 - 预训练知识迁移主要提升了乐器级别建模(Notei F1 +9.5%)和旋律保持(Mel F1 +6.7%)
 - 在鼓编排中，模型接近Ground Truth的音乐性评分(3.57 vs 3.78)
 - REMI-z不仅在编排任务中更好，在无条件生成中也有更低的音符级困惑度

@@ -35,7 +35,7 @@ tags:
 
 **切入角度**：统计发现 >85% 的有害 response token 出现在 top-5 概率中——对齐只是压低了它们的采样概率而非消除知识。
 
-**核心 idea**：用轻量 BiasNet（&lt;1% 目标模型参数）学习 logit bias 来提升有害 token 采样概率，仅需 100 条有害数据训练。
+**核心 idea**：用轻量 BiasNet（<1% 目标模型参数）学习 logit bias 来提升有害 token 采样概率，仅需 100 条有害数据训练。
 
 ## 方法详解
 
@@ -46,7 +46,7 @@ BiasNet $F_\theta$ 接收目标 LLM 的 log probability 输出 $\log p_\alpha(x_
 
 1. **Token 泄露发现**：对多个对齐 LLM 统计，>85% 的有害 response token 出现在 top-5 预测概率中——对齐训练未消除有害知识，仅降低了概率排名。核心洞察：对齐是"概率压低"而非"知识擦除"。
 
-2. **BiasNet 架构**：&lt;1% 目标模型参数（~$10^7$），三层结构：
+2. **BiasNet 架构**：<1% 目标模型参数（~$10^7$），三层结构：
 
     - 投影层 1：token 空间 → 隐藏空间（白盒：复用 LLM head 的伪逆；黑盒：随机正交矩阵）
     - 中间变换层（可学习）
@@ -79,7 +79,7 @@ BiasNet $F_\theta$ 接收目标 LLM 的 log probability 输出 $\log p_\alpha(x_
 
 ### 关键发现
 - 对齐 LLM 的 top-5 token 概率足以恢复有害输出——对齐是概率压低而非知识擦除
-- 仅 100 条训练数据 + &lt;1% 参数的插件即可攻破 SOTA 防御（Circuit Breaker + DeepAlign）
+- 仅 100 条训练数据 + <1% 参数的插件即可攻破 SOTA 防御（Circuit Breaker + DeepAlign）
 - 比 LINT 快 140 倍（0.71s vs 99.7s），harmfulness 提升 ~2 倍（3.44 vs 2.25）
 - 新提出的 Harmful Info Score 与人类判断的相关性高于传统 BERT Score 和 Harmful Score
 

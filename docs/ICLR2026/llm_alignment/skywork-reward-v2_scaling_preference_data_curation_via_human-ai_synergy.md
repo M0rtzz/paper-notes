@@ -104,7 +104,7 @@ $$k = \begin{cases} k_{\max}, & \text{if } p \le 0.5 \text{（预测错误）} \
 
 - **RM-Bench 风格偏差抵抗力**：大多数基线模型在 Easy/Normal/Hard 三种风格条件下性能差距巨大（如 INF-ORM-70B 的 Normal 80.0 vs Hard 54.0，差距 26 点）。Skywork-V2-8B-40M 在 Hard 条件下仍达 93.5（差距仅 4.1 点），表明 SynPref-40M 训练出的偏好表征更去偏化
 - **Best-of-N 缩放**：在 RMB 的 BoN 评估中，所有 8 个 Skywork-V2 变体均超越 GPT-4o（最高差距 +20 点），且在 PPE Correctness 的 5 个任务上展现正向缩放曲线
-- **RewardBench v2 精确指令遵循**：所有已有 RM 在此维度得分 &lt;50，Skywork-V2-8B-40M 达 67.8，超越 Claude-3.7-Sonnet（54.4）和 Gemini-2.5-Flash（55.3）
+- **RewardBench v2 精确指令遵循**：所有已有 RM 在此维度得分 <50，Skywork-V2-8B-40M 达 67.8，超越 Claude-3.7-Sonnet（54.4）和 Gemini-2.5-Flash（55.3）
 - **JudgeBench 数学推理**：Skywork-V2-Llama-3B 在数学子任务上达 87.5，等同于 o3-mini (high)；8B-40M 达 89.3 超越之
 
 ## 亮点与洞察

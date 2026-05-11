@@ -63,10 +63,10 @@ $$\mathcal{L}(x, y; \theta) = -\log F_\theta(y|x) - \lambda \cdot \text{TVI}(l^*
 
 | 模型 × 数据集 | TVI与正确率的Spearman相关 | p值 |
 |--------------|-------------------------|-----|
-| Qwen2.5-VL-7B (post-VIP) | 0.7241 | &lt;0.001 |
-| Gemma3-4B (post-VIP) | 0.7174 | &lt;0.001 |
+| Qwen2.5-VL-7B (post-VIP) | 0.7241 | <0.001 |
+| Gemma3-4B (post-VIP) | 0.7174 | <0.001 |
 | Qwen2.5-VL-7B (pre-VIP) | 0.1489 | 0.002 |
-| Gemma3-4B (pre-VIP) | 0.4659 | &lt;0.001 |
+| Gemma3-4B (pre-VIP) | 0.4659 | <0.001 |
 
 | 指标 | Qwen2.5-VL-7B VLind | Qwen2.5-VL-7B ViLP | InternVL-3-8B VLind | InternVL-3-8B ViLP |
 |------|---------------------|---------------------|---------------------|--------------------|

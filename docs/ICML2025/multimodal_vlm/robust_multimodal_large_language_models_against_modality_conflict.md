@@ -107,7 +107,7 @@ $$\pi_\theta^* = \arg\min_\theta \mathbb{E}[-\log \pi_\theta(\mathcal{A}|\mathca
 | Qwen-VL-Chat | 38.2 | 33.6 | 30.1 | 34.0 |
 | GPT-4o | 62.5 | 55.3 | 48.7 | 55.5 |
 
-大多数 MLLM 在模态冲突场景下准确率极低（&lt;40%），即使 GPT-4o 也仅 ~55%。
+大多数 MLLM 在模态冲突场景下准确率极低（<40%），即使 GPT-4o 也仅 ~55%。
 
 ### 三种方法对比（以 LLaVA-1.5 为例）
 

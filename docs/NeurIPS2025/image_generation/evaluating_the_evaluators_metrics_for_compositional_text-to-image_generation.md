@@ -119,7 +119,7 @@ tags:
 2. **CLIPScore 表现平庸**：尽管使用最广泛，但从未进入任何类别的 top-2
 3. **VQA 类指标并非总是最优**：在 Shape、Texture、Non-Spatial 等类别上被 embedding 类超越
 4. **ImageReward 和 HPS 表现突出**：各在 6 个和 4 个类别中进入 top-3
-5. **纯图像指标无效**：CLIP-IQA 和 Aesthetic 在所有类别上相关系数极低（&lt;0.2）
+5. **纯图像指标无效**：CLIP-IQA 和 Aesthetic 在所有类别上相关系数极低（<0.2）
 6. **VQA 指标饱和问题**：分值集中在 1.0 附近，难以区分优劣
 7. **Embedding 指标压缩问题**：分值集中在中间范围，难以反映质量差异
 

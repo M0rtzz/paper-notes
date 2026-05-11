@@ -84,7 +84,7 @@ BNN通过最小化ELBO训练：$\text{KL}(q_t(\boldsymbol{\theta}) \| \mathcal{P
 | 不同LLM骨干(GPT-5) | MLP平均85.9→86.5 | GPT-5骨干下Ours(w/ human)最优 |
 | 不同LLM骨干(GPT-3.5) | MLP平均84.6→85.1 | 弱骨干也能保持优势 |
 | 用户研究(ALG vs Control) | 性能: p=0.011 | ALG框架显著提升用户性能 |
-| 用户研究(ALG vs Control) | 完成时间: p&lt;0.001 | ALG框架显著减少完成时间 |
+| 用户研究(ALG vs Control) | 完成时间: p<0.001 | ALG框架显著减少完成时间 |
 
 ### 关键发现
 

@@ -116,7 +116,7 @@ LHA对GraphMixer贡献更大（因GraphMixer邻居聚合较弱），LTE对DyGFor
 ### 按交互频率分组的性能
 
 UCI数据集上GraphMixer按平均交互间隔分组：
-- 间隔&lt;100的节点对：原始AP高，TAMI提升小
+- 间隔<100的节点对：原始AP高，TAMI提升小
 - 间隔>10000的节点对：原始AP极低，**LHA提升高达25%+**，LTE进一步提升
 
 ### 关键发现

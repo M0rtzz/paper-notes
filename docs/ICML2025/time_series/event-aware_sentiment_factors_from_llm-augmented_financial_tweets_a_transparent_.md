@@ -116,7 +116,7 @@ tags:
 | 事件类别 | 指标 | 本文结果 | 基线(简单情感极性) | 说明 |
 |---------|------|---------|-------------------|------|
 | Rumor/Speculation | Sharpe Ratio | **-0.38** | ~0 | 最强负Alpha信号 |
-| Rumor/Speculation | IC | **>0.05** | &lt;0.03 | 95%置信水平显著 |
+| Rumor/Speculation | IC | **>0.05** | <0.03 | 95%置信水平显著 |
 | Retail Investor Buzz | Sharpe Ratio | 负值 | ~0 | 显著反向指标 |
 | Brand Boycott | Sharpe Ratio | 负值 | ~0 | 事件级信号更强 |
 | 整体事件因子 | 统计显著性 | 95%置信 | 不稳定 | 多周期验证 |

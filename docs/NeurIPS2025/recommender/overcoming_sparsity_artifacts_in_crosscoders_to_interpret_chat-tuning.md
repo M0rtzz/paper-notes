@@ -82,9 +82,9 @@ $$\mathcal{L}_{\text{BatchTopK}}(\mathcal{X}) = \frac{1}{n}\sum_i \left[\frac{1}
 | 指标 | L1 Crosscoder | BatchTopK Crosscoder |
 |------|--------------|---------------------|
 | chat-only 潜变量数 (Δnorm>0.9) | 3,176 | 134 |
-| base-only 潜变量数 (Δnorm&lt;0.1) | 1,437 | 5 |
+| base-only 潜变量数 (Δnorm<0.1) | 1,437 | 5 |
 | shared 潜变量数 (Δnorm 0.4-0.6) | 53,569 | 62,373 |
-| 真正 chat-specific 比例（ν_ε&lt;0.2 且 ν_r&lt;0.5） | 极低（大部分受伪影影响） | 绝大多数 |
+| 真正 chat-specific 比例（ν_ε<0.2 且 ν_r<0.5） | 极低（大部分受伪影影响） | 绝大多数 |
 | 全量替换 KL 降低（所有 token） | ~59% | ~59% |
 | 全量替换 KL 降低（前 9 token） | ~78% | ~78% |
 | Top-50% Δnorm vs Bottom-50% KL（所有 token） | 0.241 vs 0.242（失败） | 0.230 vs 0.267（成功区分） |
@@ -99,7 +99,7 @@ $$\mathcal{L}_{\text{BatchTopK}}(\mathcal{X}) = \frac{1}{n}\sum_i \left[\frac{1}
 | 仅替换 template token 位置激活 | KL 0.239 / 0.507，≈ top-50% chat-specific 潜变量 |
 | 独立训练的 L1 Crosscoder (Kissane et al.) 验证 | 17.7% chat-only 落入 shared 分布的 95% 区间，结果一致 |
 | Latent Decoupling 余弦相似度 | 109 对 cosim>0.9 的 (chat-only, base-only) 潜变量对，60% 在不同上下文激活 |
-| BatchTopK 中高余弦相似度耦合对 | 0 对（Δnorm&lt;0.6 区间无 cosim>0.9 的配对） |
+| BatchTopK 中高余弦相似度耦合对 | 0 对（Δnorm<0.6 区间无 cosim>0.9 的配对） |
 
 ### 关键发现
 

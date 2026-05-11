@@ -23,7 +23,7 @@ tags:
 
 ## 一句话总结
 
-提出 ToMA，将 token merge 重新建模为子模优化问题并以 attention-like 线性变换实现 merge/unmerge，使其与 FlashAttention 等 GPU 优化方案兼容，在 SDXL/Flux 上分别实现 24%/23% 的实际端到端加速，同时图像质量损失极小（DINO Δ&lt;0.07）。
+提出 ToMA，将 token merge 重新建模为子模优化问题并以 attention-like 线性变换实现 merge/unmerge，使其与 FlashAttention 等 GPU 优化方案兼容，在 SDXL/Flux 上分别实现 24%/23% 的实际端到端加速，同时图像质量损失极小（DINO Δ<0.07）。
 
 ## 研究背景与动机
 
@@ -101,8 +101,8 @@ ToMA 利用扩散模型的两个固有特性进一步减少计算开销：
 | SDXL-base | 原始 | 1.00× | — | baseline |
 | SDXL-base | +FlashAttention2 | — | — | 注意力已优化 |
 | SDXL-base | +ToMeSD (on FA2) | ≈1.00× | — | 开销抵消加速，**无实际提升** |
-| SDXL-base | **+ToMA (ratio=0.5, on FA2)** | **1.24×** | **&lt;0.07** | 24% 实际端到端加速 |
-| Flux.1-dev | **+ToMA** | **1.23×** | **&lt;0.07** | 23% 实际加速 |
+| SDXL-base | **+ToMA (ratio=0.5, on FA2)** | **1.24×** | **<0.07** | 24% 实际端到端加速 |
+| Flux.1-dev | **+ToMA** | **1.23×** | **<0.07** | 23% 实际加速 |
 
 ### 跨 GPU 架构验证
 
@@ -117,7 +117,7 @@ ToMA 在多种 GPU 架构上均取得了 SOTA 的加速结果，表明其 GPU-al
 ### 关键观察
 
 - **ToMeSD 失效场景**：在配合 FlashAttention2 时，ToMeSD 的排序和分散写入开销主导了计算时间，导致实际速度甚至可能低于未做 token reduction 的 FA2 baseline
-- **质量保持**：ToMA 在 merge ratio=0.5（即缩减 50% token）时 DINO 分数变化 &lt;0.07，图像质量几乎无可感知退化
+- **质量保持**：ToMA 在 merge ratio=0.5（即缩减 50% token）时 DINO 分数变化 <0.07，图像质量几乎无可感知退化
 - **实际加速 vs 理论加速**：本文强调的核心发现是理论 FLOPs 降低不等于实际 wall-clock 加速，系统级优化与算法设计的协同至关重要
 
 ## 亮点与洞察

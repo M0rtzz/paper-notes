@@ -75,7 +75,7 @@ Transformer使用GPT-2架构，训练目标为 $\mathcal{L}(\theta) = \mathbb{E}
 | 配置 | 关键指标 | 说明 |
 |------|---------|------|
 | ICL vs AIC/BIC/BMC ($\mathcal{Q} \leq 0.3$) | ICL完美profile ($\rho=1$ at $\tau=1$) | ICL在少射下全面压制原理性方法 |
-| ICL vs AIC/BIC/BMC ($\mathcal{Q} \geq 0.8$) | ICL profile&lt;0.8 at $\tau=3$ | 多射下所有原理性方法反超ICL |
+| ICL vs AIC/BIC/BMC ($\mathcal{Q} \geq 0.8$) | ICL profile<0.8 at $\tau=3$ | 多射下所有原理性方法反超ICL |
 | $L^2$距BMA距离 | ICL曲线平坦化vs BIC/BMC趋零 | ICL缺乏一致性（不收敛到BMA） |
 | 扩大模型/加长预训练prompt | 过剩风险值降低但非递减形状不变 | 扩展计算无法根本解决问题 |
 

@@ -75,7 +75,7 @@ SWE-RL 整体流程：(1) 从 GitHub 收集 273K 高质量 PR 作为 seed 数据
 | Llama3-SWE-SFT-70B | Agentless Mini | 36.2% |
 | **Llama3-SWE-RL-70B** | **Agentless Mini** | **41.0%** |
 
-→ 中等规模 (&lt;100B) 模型 SOTA，与 GPT-4o (38.8%) 和 o1-preview (41.3%) 相当，显著超越所有开源同级别模型。
+→ 中等规模 (<100B) 模型 SOTA，与 GPT-4o (38.8%) 和 o1-preview (41.3%) 相当，显著超越所有开源同级别模型。
 
 ### 消融：修复能力对比 (oracle 文件定位，贪心解码)
 

@@ -37,7 +37,7 @@ Trinity设计了一个轻量级coordinator（0.6B SLM + ~10K可训练参数的he
 
 **切入角度**：利用SLM隐藏状态（而非生成文本）作为上下文表示，用极轻量级head做routing决策，通过进化策略而非RL进行优化。
 
-**核心 idea**：小模型的hidden states包含足够的语义信号，一个&lt;20K参数的head就能协调多个顶级LLM超越任何单一模型。
+**核心 idea**：小模型的hidden states包含足够的语义信号，一个<20K参数的head就能协调多个顶级LLM超越任何单一模型。
 
 ## 方法详解
 
@@ -108,7 +108,7 @@ LiveCodeBench SOTA: **86.2% pass@1**（V1 train → V6 test）。
 - sep-CMA-ES vs REINFORCE vs random search vs imitation learning：CMA-ES在此regime下大幅领先
 
 ## 亮点与洞察
-- **极端参数效率**：&lt;20K可训练参数协调7个顶级LLM（含GPT-5、Claude-4-Sonnet），这一参数量级令人惊叹
+- **极端参数效率**：<20K可训练参数协调7个顶级LLM（含GPT-5、Claude-4-Sonnet），这一参数量级令人惊叹
 - **Hidden states的语义密度**：证明即使0.6B SLM的internal representation也足以为coordination提供丰富的上下文信号
 - **进化策略 vs RL的niche**：在高维、弱耦合、稀疏奖励、高per-step成本的特定regime下，CMA-ES理论和实证上优于policy gradient——打破了"RL万能"的思维定式
 - **三角色设计的优雅性**：T/W/V分工将coordinator从complex skill acquisition中解放出来，只需做assignment

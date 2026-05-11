@@ -90,7 +90,7 @@ tags:
 ### 关键发现
 - DTO 将 rejection rate 从理论值 66% 降到约 30%，证明梯度优化确实有效改进了每一步的策略
 - 计算效率优势：transformer 的并行执行使梯度计算接近一次前向传播的开销；confidence/gradient-guided selection 跳过大量不需要优化的 token
-- 对 reward model 质量不敏感（4B vs 8B 差距 &lt;1%）
+- 对 reward model 质量不敏感（4B vs 8B 差距 <1%）
 - test-time scaling 曲线上，∇-Reasoner 的帕累托前沿始终优于 BoN 和 SC
 
 ## 亮点与洞察

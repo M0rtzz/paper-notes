@@ -65,7 +65,7 @@ tags:
 | GPT-5 (Horizon) thinking | **>2100** | 远超所有竞争者 |
 | Claude-4 Sonnet thinking | 432 | 第二名 |
 | DeepSeek-R1 (thinking) | >100 | thinking 显著帮助 |
-| DeepSeek-V3 (no thinking) | &lt;4 | 无 thinking 几乎无法执行 |
+| DeepSeek-V3 (no thinking) | <4 | 无 thinking 几乎无法执行 |
 
 ### 自我条件化效应
 

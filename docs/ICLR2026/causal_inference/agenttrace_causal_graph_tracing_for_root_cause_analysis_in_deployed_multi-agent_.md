@@ -85,7 +85,7 @@ AgentTrace分三步：(1) 从执行日志构建因果DAG；(2) 从错误节点BF
 | LLM Analysis (GPT-4) | 68.5% | 81.4% | 0.74 |
 | **AgentTrace** | **94.9%** | **98.4%** | **0.97** |
 
-McNemar检验证实AgentTrace显著优于所有基线（p&lt;0.001），与LLM Analysis的Cohen's h=0.77（大效应量）。
+McNemar检验证实AgentTrace显著优于所有基线（p<0.001），与LLM Analysis的Cohen's h=0.77（大效应量）。
 
 ### 消融实验
 

@@ -91,7 +91,7 @@ WPR 将标准 RLHF 目标中的 KL 正则化项替换为熵正则化 Wasserstein
 - FKL 和 TV 在 TL;DR 上训练不稳定（概率比爆炸），WPR 即使在 support 不匹配时也良定义
 - MT-Bench 评估中 WPR 也取得最高分（4.272 vs RKL 4.000）
 - 在代码生成（APPS + CodeGemma-7B）上同样有效
-- Wasserstein 惩罚与 KL 惩罚呈强正相关（r=0.917），但斜率&lt;1说明 WPR 更宽容
+- Wasserstein 惩罚与 KL 惩罚呈强正相关（r=0.917），但斜率<1说明 WPR 更宽容
 - WPR 训练的模型 top-10 候选 token 语义一致性显著更高
 - 计算开销仅增加 2.5%（每千步），内存增加约 15GB（A100）
 

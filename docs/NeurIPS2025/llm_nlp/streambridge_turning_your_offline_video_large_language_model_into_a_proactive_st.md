@@ -69,8 +69,8 @@ StreamBridge由三个即插即用组件构成：
 3. **解耦激活模型 (Plug-and-play Activation Model)**:
 
     - 使用独立的小型MLLM（如LLaVA-OV-0.5B）作为激活判断器
-    - 架构修改：将语言建模头替换为分数头做二分类，引入可学习的<code>&lt;ACT&gt;</code>激活token
-    - 输入格式：<code>&lt;Q&gt; &lt;V1&gt; &lt;A1&gt; &lt;V2&gt; &lt;A2&gt; ...</code>，对视觉token激进池化以提高效率
+    - 架构修改：将语言建模头替换为分数头做二分类，引入可学习的`<ACT>`激活token
+    - 输入格式：`<Q> <V1> <A1> <V2> <A2> ...`，对视觉token激进池化以提高效率
     - 训练数据：从密集视频描述、顺序步骤识别、基础视频QA等多种时序标注数据集收集
     - 标注策略：只将每个视频片段最后P%的帧标记为正样本（P动态采样0%-50%）
     - 推理时：预测分数>阈值α时触发主LLM响应
@@ -78,7 +78,7 @@ StreamBridge由三个即插即用组件构成：
 
 4. **Stream-IT数据集**:
 
-    - **主动理解数据**：收集密集视频描述、顺序步骤识别、基础VideoQA等公开数据集，统一为<code>&lt;Q&gt; &lt;V1&gt; &lt;A1&gt; &lt;V2&gt; &lt;A2&gt;</code>交错格式
+    - **主动理解数据**：收集密集视频描述、顺序步骤识别、基础VideoQA等公开数据集，统一为`<Q> <V1> <A1> <V2> <A2>`交错格式
     - **StreamingQA-120K**：从WebVid-10M、Panda-70M、InternVid-10M筛选128万短片段，按语义相似度拼接为长视频（平均150s+），用GPT-4o生成8种任务的多轮QA
     - 数据增强：Random QA Drop（Pdrop=0.55）防止过拟合固定QA位置；QA Interval Shift（Pshift=0.1）模拟主动响应场景
 

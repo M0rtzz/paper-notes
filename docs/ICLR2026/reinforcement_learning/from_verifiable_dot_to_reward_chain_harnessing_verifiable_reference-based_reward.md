@@ -53,7 +53,7 @@ RLVRR 两阶段：
 1. **两级层次关键词提取（内容奖励）**:
 
     - 功能：从参考答案中提取核心内容的可验证关键词
-    - 核心思路：LLM 先提取 M 个 key points（如"解释风险"、"拒绝有害请求"），每个 key point 下再提取具体关键词（&lt;3 词）。内容奖励用 LCS（最长公共子序列）计算 rollout 与参考关键词的对齐度：$r_c = \frac{1}{M}\sum_{m=1}^{M}\frac{\text{len}(\text{LCS}(K_z^m, K_y^m))}{\max(\text{len}(K_z^m), \text{len}(K_y^m))}$
+    - 核心思路：LLM 先提取 M 个 key points（如"解释风险"、"拒绝有害请求"），每个 key point 下再提取具体关键词（<3 词）。内容奖励用 LCS（最长公共子序列）计算 rollout 与参考关键词的对齐度：$r_c = \frac{1}{M}\sum_{m=1}^{M}\frac{\text{len}(\text{LCS}(K_z^m, K_y^m))}{\max(\text{len}(K_z^m), \text{len}(K_y^m))}$
     - 设计动机：两级提取比直接提关键词覆盖更广更系统；LCS 保留了关键词顺序和重复，比 bag-of-words 更精细；关键词仅占参考的约 15%，保持灵活的表达空间
 
 2. **Python 验证函数（风格奖励）**:

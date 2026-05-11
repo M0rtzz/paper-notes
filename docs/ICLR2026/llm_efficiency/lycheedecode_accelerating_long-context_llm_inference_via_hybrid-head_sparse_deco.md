@@ -44,7 +44,7 @@ LycheeDecode 是一个头级稀疏解码框架，包含两个核心组件：
 
 2. **Sparse Heads（稀疏头）**: 继承上一层传来的 token 集合 $\mathcal{S}_h^{(l)}$，只在该子集上计算注意力 $O_h^{(l)} = \text{softmax}\left(\frac{q_h^{(l)} (K_h^{(l)}[\mathcal{S}_h^{(l)}])^T}{\sqrt{d_k}}\right) V_h^{(l)}[\mathcal{S}_h^{(l)}]$，不更新 token 集合（直接传递）。这大幅减少计算量和 KV 缓存加载开销。
 
-3. **HardKuma 头特化机制**: 头的角色分配本质上是离散优化问题（二值变量）。DuoAttention 用连续变量学习后取整，存在训练-推理不一致。作者引入 Hard Kumaraswamy 分布：通过 (1) 从均匀分布采样经 Kuma 逆 CDF 变换 → (2) 线性拉伸到 (p,q) 区间（p&lt;0, q>1）→ (3) 硬截断到 [0,1]，使得输出自然集中在 0 和 1 附近且全程可微。每个 head 学习参数 $\alpha_h^{(l)}, \beta_h^{(l)}$，推理时 $\mathbb{E}[z_h^{(l)}] > 0.5$ 则为 retrieval head。
+3. **HardKuma 头特化机制**: 头的角色分配本质上是离散优化问题（二值变量）。DuoAttention 用连续变量学习后取整，存在训练-推理不一致。作者引入 Hard Kumaraswamy 分布：通过 (1) 从均匀分布采样经 Kuma 逆 CDF 变换 → (2) 线性拉伸到 (p,q) 区间（p<0, q>1）→ (3) 硬截断到 [0,1]，使得输出自然集中在 0 和 1 附近且全程可微。每个 head 学习参数 $\alpha_h^{(l)}, \beta_h^{(l)}$，推理时 $\mathbb{E}[z_h^{(l)}] > 0.5$ 则为 retrieval head。
 
 ### 损失函数 / 训练策略
 训练时每个 head 同时计算 sparse 和 full 两份注意力图，用 HardKuma 采样值 $z_h^{(l)}$ 线性组合：$\tilde{A}_h^{(l)} = z_h^{(l)} \cdot A_{R,h}^{(l)} + (1 - z_h^{(l)}) \cdot A_{S,h}^{(l)}$。

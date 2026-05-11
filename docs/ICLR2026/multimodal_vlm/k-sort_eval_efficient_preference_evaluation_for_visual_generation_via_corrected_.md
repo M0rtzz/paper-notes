@@ -80,7 +80,7 @@ $$i^* = \arg\max_i (U_{\text{unc}}^i + \alpha U_{\text{div}}^i)$$
 | w/o Rule增强 | 9 | 28.13 | 119 |
 
 ### 关键发现
-- K-Sort Eval 的评估结果与完全基于人类偏好的 K-Sort Arena 高度一致（分数偏差&lt;0.1）
+- K-Sort Eval 的评估结果与完全基于人类偏好的 K-Sort Arena 高度一致（分数偏差<0.1）
 - 91% 的图像模型和 93% 的视频模型评估在 90 次运行内完成，远优于 FID（50K 次）和 GenAI-Bench（1600 次）
 - GPT-4o 作为评判始终优于 CLIP-based 评分方法，校正后相关性进一步提升
 - 可用于评估压缩模型（蒸馏、量化），提供绝对分数和相对排名

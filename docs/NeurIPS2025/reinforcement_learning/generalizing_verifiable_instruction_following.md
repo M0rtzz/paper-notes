@@ -85,9 +85,9 @@ $$\text{Instance Reward} = \sum_{i=1}^{n} \text{verifiable\_reward}_i \cdot \tex
 | 模型 | IFEval (%) | IFBench (%) |
 |------|-----------|-------------|
 | o3 | ~95 | ~55 |
-| Claude 4 Sonnet | ~90 | &lt;50 |
-| Qwen3-32B | ~90 | &lt;50 |
-| GPT-4.1 | ~88 | &lt;50 |
+| Claude 4 Sonnet | ~90 | <50 |
+| Qwen3-32B | ~90 | <50 |
+| GPT-4.1 | ~88 | <50 |
 
 **IF-RLVR训练效果**：
 

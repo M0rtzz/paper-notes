@@ -64,7 +64,7 @@ tags:
     - 设计动机：检索场景中 chunk 数量可达数千，replay buffer 每次采样都需重计算所有 chunk 的 Q 值，PQN 的在线特性避免了这一瓶头
 
 ### 损失函数 / 训练策略
-$\mathcal{L}_Q = \mathbb{E}[(Q_\theta(s_t, a_t) - G_t^\lambda)^2]$，AdamW 优化器，lr=1.5e-5，温度 $\alpha=0.05$ 退火到 0，$\lambda=0.5$，单卡 A100-80GB 训练 &lt;12 小时。
+$\mathcal{L}_Q = \mathbb{E}[(Q_\theta(s_t, a_t) - G_t^\lambda)^2]$，AdamW 优化器，lr=1.5e-5，温度 $\alpha=0.05$ 退火到 0，$\lambda=0.5$，单卡 A100-80GB 训练 <12 小时。
 
 ## 实验关键数据
 

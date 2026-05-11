@@ -84,7 +84,7 @@ MathVista 排行榜: o4-mini + DreamPRM 达到 **85.2%** (top-1)，超越 VL-Ret
 | 移除结构化思维 (ST) | MathVision -1.8% |
 
 ### 关键发现
-- **域权重收敛**: M3CoT 和 FigureQA 获得最高权重(~1.5)，AI2D 和 IconQA 获得最低权重(&lt;0.8)——高权重数据集需要更深推理，低权重数据集过于简单
+- **域权重收敛**: M3CoT 和 FigureQA 获得最高权重(~1.5)，AI2D 和 IconQA 获得最低权重(<0.8)——高权重数据集需要更深推理，低权重数据集过于简单
 - **可扩展性**: CoT 候选数从 2→4→8 时性能单调递增，说明 DreamPRM 能可靠地从更大候选池中筛选
 - **跨模型泛化**: 用 InternVL 训练的 PRM 在 GPT-4.1-mini 和 o4-mini 上也能持续提升性能
 

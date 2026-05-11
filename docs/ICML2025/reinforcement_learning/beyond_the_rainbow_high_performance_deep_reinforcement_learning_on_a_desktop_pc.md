@@ -84,7 +84,7 @@ Atari-60 benchmark（200M frames）：
 | DQN | 0.5 | ~35h | 桌面PC |
 | Rainbow DQN | 1.9 | 35h | 桌面PC |
 | Dreamer-v3 | 2.5 | - | GPU集群 |
-| **BTR** | **7.4** | **&lt;12h** | **桌面PC** |
+| **BTR** | **7.4** | **<12h** | **桌面PC** |
 
 超过人类水平：52/60 游戏
 

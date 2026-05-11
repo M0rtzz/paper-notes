@@ -74,12 +74,12 @@ tags:
 
 | 数据集 | 类型 | WGM 表现 |
 |--------|------|---------|
-| Reddit | 大型 | MM 与策略机制差距 &lt;5% |
-| Amazon Games | 大型 | MM 与策略机制差距 &lt;5% |
-| Movie Reviews | 大型 | MM 与策略机制差距 &lt;5% |
-| Steam Games | 小型 | MM 与策略机制差距 &lt;5% |
-| Amazon Magazine | 小型 | MM 与策略机制差距 &lt;5% |
-| Amazon Pantry | 小型 | MM 与策略机制差距 &lt;5% |
+| Reddit | 大型 | MM 与策略机制差距 <5% |
+| Amazon Games | 大型 | MM 与策略机制差距 <5% |
+| Movie Reviews | 大型 | MM 与策略机制差距 <5% |
+| Steam Games | 小型 | MM 与策略机制差距 <5% |
+| Amazon Magazine | 小型 | MM 与策略机制差距 <5% |
+| Amazon Pantry | 小型 | MM 与策略机制差距 <5% |
 
 注：WGM 在所有数据集上的缺失质量与计算密集度更高的 Policy Gaussian/Policy Greedy 机制的差距均在 5% 以内，而之前基于基数（cardinality）度量的实验中，顺序方法通常输出约 2 倍以上的唯一项。
 

@@ -102,11 +102,11 @@ tags:
 
 | 目标模型 | 数据集 | ASR (%) | 基线 ASR (%) | 说明 |
 |---------|--------|---------|-------------|------|
-| Llama-2-70B-Chat | AdvBench | >99% | &lt;5% | 对齐模型几乎完全被攻破 |
-| Llama-2-70B-Chat | HarmBench | >99% | &lt;5% | 另一有害请求基准 |
-| Llama-2-13B-Chat | AdvBench | >99% | &lt;5% | 中型模型同样有效 |
+| Llama-2-70B-Chat | AdvBench | >99% | <5% | 对齐模型几乎完全被攻破 |
+| Llama-2-70B-Chat | HarmBench | >99% | <5% | 另一有害请求基准 |
+| Llama-2-13B-Chat | AdvBench | >99% | <5% | 中型模型同样有效 |
 | Vicuna-33B | AdvBench | >98% | ~10% | 不同对齐方法也被攻破 |
-| Mixtral-8x7B | AdvBench | >97% | &lt;8% | 跨架构迁移 |
+| Mixtral-8x7B | AdvBench | >97% | <8% | 跨架构迁移 |
 
 ### 与其他攻击方法对比
 

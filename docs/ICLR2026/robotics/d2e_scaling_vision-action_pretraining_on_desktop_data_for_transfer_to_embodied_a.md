@@ -52,7 +52,7 @@ tags:
 
 2. **Generalist-IDM**:
 
-    - **时间戳事件标记化**: 每个事件序列化为 <code>&lt;EVENT_START&gt;{TYPE}{TIMESTAMP}{DETAIL}&lt;EVENT_END&gt;</code>，不依赖固定 tick 间隔
+    - **时间戳事件标记化**: 每个事件序列化为 `<EVENT_START>{TYPE}{TIMESTAMP}{DETAIL}<EVENT_END>`，不依赖固定 tick 间隔
     - **NEP-τ (带时间偏移的下一事件预测)**: 将观测窗口向前移动 $\tau$ 步，提供未来上下文：
     $\mathcal{L}_{\text{NEP-}\tau} = -\mathbb{E}\left[\sum_t \log P_\theta(a_t | o_{1:\min(t+\tau,T)}, a_{1:t-1})\right]$
       $\tau=100$ms 为最优，$\tau=0$ 时 Pearson 相关性几乎为零

@@ -67,7 +67,7 @@ $$P_\phi(a, \boldsymbol{w}_z | q) = \underbrace{P_\phi(a|q, \boldsymbol{w}_z)}_{
 
 $$\mathcal{C}_\mathcal{G}(w_{z_i}|w_{z_{1:i-1}}) = \begin{cases} 1, & \exists \text{prefix}(w_{z_{1:i}}, \boldsymbol{w}_z), \boldsymbol{w}_z \in \mathcal{W}_z \\ 0, & \text{otherwise} \end{cases}$$
 
-在生成推理路径（<code>&lt;PATH&gt;...&lt;/PATH&gt;</code> 标记之间）时施加 Trie 约束，路径生成完毕后切回常规解码生成假设答案。
+在生成推理路径（`<PATH>...</PATH>` 标记之间）时施加 Trie 约束，路径生成完毕后切回常规解码生成假设答案。
 
 **训练**：微调一个轻量 KG 专用 LLM（如 Qwen2-0.5B 至 Llama-3.1-8B），损失函数为标准自回归：
 

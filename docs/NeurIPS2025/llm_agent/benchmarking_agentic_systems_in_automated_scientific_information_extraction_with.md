@@ -54,7 +54,7 @@ ChemX 包含两个层面：(1) **基准数据集层**——10 个手工标注数
 2. **单 Agent 方法（本文提出）**：
 
     - 功能：在 LLM 提取之前先做结构化文档预处理，解决 OpenAI 黑盒 PDF 处理不可控的问题
-    - 核心思路：使用 marker-pdf SDK 将论文 PDF 拆解为文本块、表格和图片三类元素，保持文档结构语义完整性。文本和表格转为 Markdown，图片替换为本地路径后由 GPT-4o 生成描述性文本，插入 <code>&lt;DESCRIPTION_FROM_IMAGE&gt;</code> 标签。最终的结构化 Markdown 文件交由 GPT-4.1/GPT-5/GPT-OSS-20b 进行提取，结果汇总为 CSV
+    - 核心思路：使用 marker-pdf SDK 将论文 PDF 拆解为文本块、表格和图片三类元素，保持文档结构语义完整性。文本和表格转为 Markdown，图片替换为本地路径后由 GPT-4o 生成描述性文本，插入 `<DESCRIPTION_FROM_IMAGE>` 标签。最终的结构化 Markdown 文件交由 GPT-4.1/GPT-5/GPT-OSS-20b 进行提取，结果汇总为 CSV
     - 设计动机：ChatGPT Agent 等系统直接处理 PDF/截图，但预处理过程不透明、不可重复——论文图表被截图后 OCR 质量不稳定，导致提取结果波动。通过显式控制预处理流程，可以确保可复现性和语义完整性
 
 3. **系统化评估体系**：

@@ -92,7 +92,7 @@ tags:
 
 ### 关键发现
 - **CXR 中 75% OOD 数据受虚假相关影响**——聚合后 R 从 -0.60 变成 +0.86 完全因为 25% 干净样本的稀释
-- **虚假相关不等于样本困难**：最难样本 R~0，OODSelect 样本 R&lt;0——两者本质不同
+- **虚假相关不等于样本困难**：最难样本 R~0，OODSelect 样本 R<0——两者本质不同
 - **CXR 语义连贯**：OODSelect 子集富含 Pleural Other 和 Support Devices——已知虚假预测因子
 - **跨架构一致**：ResNet 选出子集在 ViT 上仍显示负相关
 - **VLM 不一定鲁棒**：VLM 零样本的 ID-OODSelect 仍正相关（两侧对 VLM 都是 OOD）

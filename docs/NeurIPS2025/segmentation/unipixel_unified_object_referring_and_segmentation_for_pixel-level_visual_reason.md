@@ -41,15 +41,15 @@ UniPixel 的核心创新在于通过 Object Memory Bank 统一了引用和分割
 
 ### 整体框架
 
-UniPixel 基于 Qwen2.5-VL 框架构建，包含 LLM 骨干和支持动态分辨率的 ViT 视觉编码器。在此基础上引入三个关键组件：Prompt Encoder（支持点/框/掩码三种视觉提示）、Object Memory Bank（存储和注入对象信息）、Mask Decoder（基于 SAM 2.1 生成时空掩码）。扩展 LLM 词汇表，添加 <code>&lt;REF&gt;</code>、<code>&lt;MEM&gt;</code>、<code>&lt;SEG&gt;</code> 三个特殊 token。
+UniPixel 基于 Qwen2.5-VL 框架构建，包含 LLM 骨干和支持动态分辨率的 ViT 视觉编码器。在此基础上引入三个关键组件：Prompt Encoder（支持点/框/掩码三种视觉提示）、Object Memory Bank（存储和注入对象信息）、Mask Decoder（基于 SAM 2.1 生成时空掩码）。扩展 LLM 词汇表，添加 `<REF>`、`<MEM>`、`<SEG>` 三个特殊 token。
 
 ### 关键设计
 
 1. **Prompt Encoder（视觉提示编码器）**：将每种视觉提示编码为单个 token 送入 LLM。对于稀疏提示（点和框），使用 2D Fourier 嵌入编码空间坐标加可学习类型嵌入，创新性地扩展加入 1D Fourier 时间编码表示帧索引，最后通过 GELU→Linear 投影到 LLM 嵌入空间。对于稠密提示（掩码），直接在视觉编码器输出上做 masked pooling，通过 M→L 投影器映射。设计动机：受 SAM 启发但有两个关键差异——加入时间信息并去掉负向点。
 
-2. **Object Memory Bank（对象记忆库）**：这是核心创新——一个以对象 ID 为键、时空掩码为值的 hashmap，每个对话会话初始化为空，按需动态更新。包含两个操作：(a) **Memory Pre-filling**：当输入中检测到 <code>&lt;REF&gt;</code> token 时触发，模型生成对象 ID 和 <code>&lt;SEG&gt;</code> token 预测时空掩码并存入记忆库；(b) **Memory Injection**：将存储的对象掩码下采样后做 masked pooling，每帧掩码压缩为单个特征 token 通过投影器映射后替换 <code>&lt;MEM&gt;</code> token，将对象级信息注入后续推理。设计动机：直接在 <code>&lt;REF&gt;</code> 后追加 <code>&lt;SEG&gt;</code> 的替代方案存在两个问题——因果自注意力使掩码无法获取完整上下文导致质量差，以及引用和分割无法解耦训练。
+2. **Object Memory Bank（对象记忆库）**：这是核心创新——一个以对象 ID 为键、时空掩码为值的 hashmap，每个对话会话初始化为空，按需动态更新。包含两个操作：(a) **Memory Pre-filling**：当输入中检测到 `<REF>` token 时触发，模型生成对象 ID 和 `<SEG>` token 预测时空掩码并存入记忆库；(b) **Memory Injection**：将存储的对象掩码下采样后做 masked pooling，每帧掩码压缩为单个特征 token 通过投影器映射后替换 `<MEM>` token，将对象级信息注入后续推理。设计动机：直接在 `<REF>` 后追加 `<SEG>` 的替代方案存在两个问题——因果自注意力使掩码无法获取完整上下文导致质量差，以及引用和分割无法解耦训练。
 
-3. **Mask Decoder（掩码解码器）**：采用 SAM 2.1 解耦离散语言建模和连续掩码预测。对每个 <code>&lt;SEG&gt;</code> token 提取最后层隐状态，通过 L→M 投影器下采样并 reshape 为两个 token（确保信息在高→低维通道空间下采样时更好保留），用这些 token 提示 SAM 2.1 在首帧预测掩码后传播到其他帧。
+3. **Mask Decoder（掩码解码器）**：采用 SAM 2.1 解耦离散语言建模和连续掩码预测。对每个 `<SEG>` token 提取最后层隐状态，通过 L→M 投影器下采样并 reshape 为两个 token（确保信息在高→低维通道空间下采样时更好保留），用这些 token 提示 SAM 2.1 在首帧预测掩码后传播到其他帧。
 
 ### 损失函数 / 训练策略
 
@@ -98,7 +98,7 @@ UniPixel 基于 Qwen2.5-VL 框架构建，包含 LLM 骨干和支持动态分辨
 - **首个端到端统一引用+分割的方法**：通过 Object Memory Bank 的优雅设计，避免了外部帧采样器、掩码生成器或目标追踪器
 - **PixelQA 新任务**：提出了需要同时完成引用、分割和 QA 的新范式，弥合了像素级感知和语言推理的鸿沟
 - **对象级测试时扩展**：可以被视为一种 object-centric test-time scaling 方法——先分割关键对象再编码以辅助推理
-- **记忆库的解耦设计**：解决了因果自注意力限制下 <code>&lt;SEG&gt;</code> token 无法获取完整上下文的根本问题
+- **记忆库的解耦设计**：解决了因果自注意力限制下 `<SEG>` token 无法获取完整上下文的根本问题
 
 ## 局限与展望
 

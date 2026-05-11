@@ -87,8 +87,8 @@ NLL + L1 正则化。先用 $\lambda=0$ 拟合初始化 $G$，再分别用 $\lam
 
 | 任务 | Always Facilitating | Always Interfering | 说明 |
 |------|--------------------|--------------------|------|
-| Syntax | &lt;5% | ~0% | 紧凑稀疏电路 |
-| Common Sense | &lt;5% | ~0% | 紧凑稀疏电路 |
+| Syntax | <5% | ~0% | 紧凑稀疏电路 |
+| Common Sense | <5% | ~0% | 紧凑稀疏电路 |
 | Math | 38.3% (3B) | 1.3% (3B) | 更大更刚性的电路 |
 
 ### 消融实验：Contrastive CHG

@@ -48,7 +48,7 @@ tags:
 1. **无监督噪声（Ours-Unsup）**:
 
     - 功能：在语言化概率上加均匀噪声，最大化噪声幅度同时保持性能
-    - 核心思路：max w s.t. sum(loss(y_i, clip(z_i*w + y_vrb_i))) &lt;= sum(loss(y_i, y_vrb_i))，z ~ U(0,1)。本质上是在性能不退化的约束下找到最大的噪声幅度。
+    - 核心思路：max w s.t. sum(loss(y_i, clip(z_i*w + y_vrb_i))) <= sum(loss(y_i, y_vrb_i))，z ~ U(0,1)。本质上是在性能不退化的约束下找到最大的噪声幅度。
     - 设计动机：无需任何标注数据，纯无监督。将基数从 16 提升到 5,614。
 
 2. **有监督噪声+MLP（Ours-Sup）**:

@@ -82,7 +82,7 @@ $Q''$ 通过交叉注意力注入 Diffusion Transformer 块，用扩散策略生
 
 $$\mathcal{L}_{diff}(\psi; A) = \mathbb{E}_{a_0, \epsilon, k} \| D_\psi(a_k, l_{emb}, Q'') - a_0 \|^2$$
 
-采用 action chunking（10步），整体推理仅需 TVP 单次前向（&lt;160ms），在 RTX 4090 上达到 **7-10 Hz** 控制频率。
+采用 action chunking（10步），整体推理仅需 TVP 单次前向（<160ms），在 RTX 4090 上达到 **7-10 Hz** 控制频率。
 
 ## 实验关键数据
 

@@ -2,7 +2,7 @@
 title: >-
   [论文解读] VINCIE: Unlocking In-context Image Editing from Video
 description: >-
-  [ICLR 2026][语义分割][in-context编辑] 提出VINCIE框架，首次证明in-context图像编辑模型可以完全从原生视频数据中学习，通过将视频标注为交错多模态序列并设计三个代理任务（NIP/CSP/NSP），在多轮编辑基准上达到SOTA，5轮编辑成功率从基线&lt;2%提升至25%。
+  [ICLR 2026][语义分割][in-context编辑] 提出VINCIE框架，首次证明in-context图像编辑模型可以完全从原生视频数据中学习，通过将视频标注为交错多模态序列并设计三个代理任务（NIP/CSP/NSP），在多轮编辑基准上达到SOTA，5轮编辑成功率从基线<2%提升至25%。
 tags:
   - "ICLR 2026"
   - "语义分割"
@@ -23,7 +23,7 @@ tags:
 
 ## 一句话总结
 
-提出VINCIE框架，首次证明in-context图像编辑模型可以完全从原生视频数据中学习，通过将视频标注为交错多模态序列并设计三个代理任务（NIP/CSP/NSP），在多轮编辑基准上达到SOTA，5轮编辑成功率从基线&lt;2%提升至25%。
+提出VINCIE框架，首次证明in-context图像编辑模型可以完全从原生视频数据中学习，通过将视频标注为交错多模态序列并设计三个代理任务（NIP/CSP/NSP），在多轮编辑基准上达到SOTA，5轮编辑成功率从基线<2%提升至25%。
 
 ## 研究背景与动机
 
@@ -54,7 +54,7 @@ tags:
 
 2. **DiT架构与上下文组合学习**:
     - 做什么：基于Diffusion Transformer框架学习上下文条件下的图像生成
-    - 核心思路：建模目标为$\log p(S) = \sum_{i=1}^{M} \log p(I_i | I_0, \ldots, T_{i-1}, I_{i-1})$。引入可学习<code>&lt;TURN&gt;</code>标记分隔多轮，文本用1D RoPE、图像用3D RoPE。提供全注意力和块级因果注意力两种变体。对上下文（帧、掩码）施加随机dropout增强泛化
+    - 核心思路：建模目标为$\log p(S) = \sum_{i=1}^{M} \log p(I_i | I_0, \ldots, T_{i-1}, I_{i-1})$。引入可学习`<TURN>`标记分隔多轮，文本用1D RoPE、图像用3D RoPE。提供全注意力和块级因果注意力两种变体。对上下文（帧、掩码）施加随机dropout增强泛化
     - 设计动机：视频基础模型的预训练权重提供强初始化；上下文dropout让模型学会灵活利用不同组合的上下文信息
 
 3. **三代理任务学习框架**:

@@ -132,7 +132,7 @@ $$\mathcal{L}_{\text{ScPO}}(y^+, y^- | x) = \underbrace{-w(x) \log \sigma\left(\
 
 ### 关键发现
 
-1. **无监督ScPO与有金标签的IRPO差距&lt;1%**：在GSM8K上greedy准确率仅差0.38%，证明自一致性可以有效替代金标签
+1. **无监督ScPO与有金标签的IRPO差距<1%**：在GSM8K上greedy准确率仅差0.38%，证明自一致性可以有效替代金标签
 2. **8B模型通过ScPO训练后超越70B模型**：ZebraLogic上ScPO训练的8B模型超越Llama-3 70B (+0.9%)、Gemma-2 27B (+1.8%)、Claude-3 Haiku (+3.8%)
 3. **自一致性比外部RM更可靠**：分析显示ArmoRM在分类偏好对时比自一致性产生了更多错误排序（尤其在OOD场景ZebraLogic上多12.3%错误排序）
 4. **模型一致性随迭代递增**：投票份额在每轮训练后显著提升，说明ScPO有效地将self-consistency分布蒸馏进了模型的单样本分布

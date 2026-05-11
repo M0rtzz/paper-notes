@@ -88,7 +88,7 @@ $$\mathcal{L} = \frac{1}{2B} \sum_{i=1}^{B} \left(\log(\sigma_i^2) + \frac{(y_i 
 | LLM Co-attention | 0.4048 | 2.9812 | 0.6120 |
 | **Solar-GECO** | **0.4179** | **2.9361** | **0.6192** |
 
-所有与Solar-GECO的差异均通过t检验达到统计显著(p&lt;0.05)。
+所有与Solar-GECO的差异均通过t检验达到统计显著(p<0.05)。
 
 ### 消融实验
 
