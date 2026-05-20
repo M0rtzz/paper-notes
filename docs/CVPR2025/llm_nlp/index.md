@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 LLM / NLP方向19篇论文解读
+  CVPR2025 LLM / NLP方向18篇论文解读
 description: >-
-  19篇CVPR2025的 LLM / NLP 方向论文解读，涵盖对抗鲁棒、对齐/RLHF、对话系统、文本摘要、水印/隐写、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  18篇CVPR2025的 LLM / NLP 方向论文解读，涵盖对抗鲁棒、对齐/RLHF、对话系统、文本摘要、水印/隐写、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "LLM / NLP"
@@ -19,9 +19,9 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM / NLP
 
-**📷 CVPR2025** · **19** 篇论文解读
+**📷 CVPR2025** · **18** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (50)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (32)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (50)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (32)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_nlp/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×2
 
@@ -60,10 +60,6 @@ tags:
 **[Learning Textual Prompts for Open-World Semi-Supervised Learning](learning_textual_prompts_for_open-world_semi-supervised_learning.md)**
 
 :   本文提出了一种针对开放世界半监督学习（OWSSL）的新方法，通过全局-局部文本提示学习策略增强图文对齐效果，并设计前向-反向策略降低无标签样本中图文匹配的噪声，在多个细粒度数据集上显著超越SOTA。
-
-**[Let Samples Speak: Mitigating Spurious Correlation by Exploiting the Clusterness](let_samples_speak_mitigating_spurious_correlation_by_exploiting_the_clusterness_.md)**
-
-:   提出NSF方法，通过利用样本在特征空间中的聚类特性自动识别依赖虚假特征的样本组，无需组标注即可训练出对虚假相关性鲁棒的分类器，最差组准确度显著超越ERM基线。
 
 **[MG-MotionLLM: A Unified Framework for Motion Comprehension and Generation across Multiple Granularities](mg-motionllm_a_unified_framework_for_motion_comprehension_and_generation_across_.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 多语言/翻译方向90篇论文解读
+  ACL2025 多语言/翻译方向89篇论文解读
 description: >-
-  90篇ACL2025的多语言/翻译方向论文解读，涵盖翻译、LLM、对齐/RLHF、少样本学习、语音、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  89篇ACL2025的多语言/翻译方向论文解读，涵盖翻译、LLM、对齐/RLHF、少样本学习、语音、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ACL2025"
   - "多语言/翻译"
@@ -19,7 +19,7 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🌐 多语言/翻译
 
-**💬 ACL2025** · **90** 篇论文解读
+**💬 ACL2025** · **89** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/multilingual_mt/index.md) · [💬 ACL2026 (52)](../../ACL2026/multilingual_mt/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/multilingual_mt/index.md) · [🔬 ICLR2026 (5)](../../ICLR2026/multilingual_mt/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/multilingual_mt/index.md) · [🧠 NeurIPS2025 (14)](../../NeurIPS2025/multilingual_mt/index.md)
 
@@ -308,10 +308,6 @@ tags:
 **[Registering Source Tokens to Target Language Spaces in Multilingual Neural Machine Translation](registering_source_tokens_to_target_language_spaces_in_multilingual_neural_machi.md)**
 
 :   提出 Registering 方法：在源语言和目标语言 token 之间插入一组目标语言标记（registers），通过修改注意力掩码使目标生成仅依赖 registers 的激活，彻底解决多语言翻译中的 off-target 问题，使小模型 MITRE-913M 超越 NLLB-3.3B。
-
-**[Rethinking Evaluation Metrics for Grammatical Error Correction: Why Use a Different Evaluation Process than Human?](rethinking_evaluation_metrics_for_grammatical_error_correction_why_use_a_differe.md)**
-
-:   指出自动 GEC 评估与人类评估在聚合方式上的差距（人类用 TrueSkill 做成对比较后聚合，自动评估用平均/求和后排序），提出对所有自动指标统一使用 TrueSkill 聚合，在 SEEDA 基准上大幅提升多数指标与人类评估的相关性。
 
 **[Semantic Aware Linear Transfer by Recycling Pre-trained Language Models for Cross-Lingual Transfer](semantic_aware_linear_transfer_by_recycling_pre-trained_language_models_for_cros.md)**
 

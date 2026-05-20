@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 预训练方向47篇论文解读
+  NeurIPS2025 预训练方向46篇论文解读
 description: >-
-  47篇NeurIPS2025的预训练方向论文解读，涵盖 LLM、对齐/RLHF、扩散模型、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  46篇NeurIPS2025的预训练方向论文解读，涵盖 LLM、对齐/RLHF、扩散模型、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "预训练"
@@ -17,7 +17,7 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**🧠 NeurIPS2025** · **47** 篇论文解读
+**🧠 NeurIPS2025** · **46** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (17)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (10)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (5)](../../AAAI2026/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
 
@@ -34,10 +34,6 @@ tags:
 **[Alternating Gradient Flows: A Theory of Feature Learning in Two-layer Neural Networks](alternating_gradient_flows_a_theory_of_feature_learning_in_two-layer_neural_netw.md)**
 
 :   提出交替梯度流（AGF）理论框架解释神经网络的逐步"鞍到鞍"特征学习动力学——将训练建模为休眠神经元的效用最大化和活跃神经元的代价最小化的交替过程，统一了对角线性网络、注意力模型和模块加法的特征选择分析，预测与实际梯度流高度一致。
-
-**[An Empirical Investigation of Neural ODEs and Symbolic Regression for Dynamical Systems](an_empirical_investigation_of_neural_odes_and_symbolic_regression_for_dynamical_.md)**
-
-:   系统实证研究 Neural ODE (NODE) 在动力系统中的外推能力和 Symbolic Regression (SR) 的方程恢复能力，发现 NODE 在动态相似条件下可外推到新边界条件，并提出 NODE→SR 流水线：仅用 10% 原始数据训练 NODE 生成增强数据，SR 即可恢复 2/3 的控制方程和 1/3 的良好近似。
 
 **[Beyond Benign Overfitting in Nadaraya-Watson Interpolators](beyond_benign_overfitting_in_nadaraya-watson_interpolators.md)**
 

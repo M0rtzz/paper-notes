@@ -1,8 +1,8 @@
 ---
 title: >-
-  1383 篇 AAAI2026 论文解读 · 每篇 5 分钟读懂
+  1380 篇 AAAI2026 论文解读 · 每篇 5 分钟读懂
 description: >-
-  1383篇AAAI2026论文解读，涵盖医学图像(106篇)、多模态 VLM(88篇)、图像生成(78篇)、3D 视觉(76篇)、强化学习(71篇)、自动驾驶(58篇)、模型压缩(53篇)、AI 安全(44篇)等 46个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  1380篇AAAI2026论文解读，涵盖医学图像(106篇)、多模态 VLM(88篇)、图像生成(78篇)、3D 视觉(76篇)、强化学习(70篇)、自动驾驶(57篇)、模型压缩(53篇)、AI 安全(44篇)等 46个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "AAAI2026"
   - "AI顶会"
@@ -21,7 +21,7 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 AAAI2026 论文笔记
 
-1383篇AAAI2026论文解读，涵盖医学图像(106篇)、多模态 VLM(88篇)、图像生成(78篇)、3D 视觉(76篇)、强化学习(71篇)、自动驾驶(58篇)、模型压缩(53篇)、AI 安全(44篇)等 46个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+1380篇AAAI2026论文解读，涵盖医学图像(106篇)、多模态 VLM(88篇)、图像生成(78篇)、3D 视觉(76篇)、强化学习(70篇)、自动驾驶(57篇)、模型压缩(53篇)、AI 安全(44篇)等 46个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 
 <div class="conf-index" markdown>
 
@@ -1445,10 +1445,6 @@ tags:
 
 :   提出 reMARL 框架，利用图像处理领域知识（active contour model）设计多智能体强化学习奖励函数，实现无人机集群的协作避碰，相比传统元启发式方法反应时间缩短 98.75%、能耗降低 85.37%。
 
-**[A Multi-Agent Conversational Bandit Approach to Online Evaluation and Selection of User-Aligned LLM Responses](reinforcement_learning/a_multi-agent_conversational_bandit_approach_to_online_evaluation_and_selection_.md)**
-
-:   提出 MACO 多智能体会话式 Bandit 框架，通过本地 agent 的在线淘汰和云服务器的自适应偏好查询机制，实现 LLM 响应的在线评估与用户偏好对齐，达到 $\tilde{O}(\sqrt{dMT})$ 的近优 regret 界。
-
 **[Actor-Critic for Continuous Action Chunks: A Reinforcement Learning Framework for Long-Horizon Robotic Manipulation with Sparse Reward](reinforcement_learning/actor-critic_for_continuous_action_chunks_a_reinforcement_le.md)**
 
 :   AC3 提出了一个直接学习连续动作序列（action chunk）的 actor-critic 框架，通过"仅从成功轨迹更新 actor"的非对称更新规则和基于自监督锚点的内在奖励来稳定稀疏奖励下的长时域机器人操作学习，在 BiGym 和 RLBench 的 25 个任务上取得优于现有方法的成功率。
@@ -1748,10 +1744,6 @@ tags:
 **[CaTFormer: Causal Temporal Transformer with Dynamic Contextual Fusion for Driving Intention Prediction](autonomous_driving/catformer_causal_temporal_transformer_with_dynamic_contextual_fusion_for_driving.md)**
 
 :   提出 CaTFormer，通过因果时序 Transformer 显式建模驾驶员行为与环境上下文之间的因果交互，在 Brain4Cars 数据集上以 98.6% F1 达到 SOTA。
-
-**[CompTrack: Information Bottleneck-Guided Low-Rank Dynamic Token Compression for Point Cloud Tracking](autonomous_driving/comptrack_information_bottleneckguided_lowrank_dynamic_token_compres.md)**
-
-:   提出 CompTrack 框架首次同时解决 LiDAR 点云中的双重冗余问题：SFP 通过信息熵分析滤除背景噪声解决空间冗余；IB-DTC 通过在线 SVD 估计有效秩、自适应确定压缩率将前景压缩为低秩代理 token 解决信息冗余。在 nuScenes 上 SOTA（61.04% Success），以 90 FPS 实时运行。
 
 **[Debiased Dual-Invariant Defense for Adversarially Robust Person Re-Identification](autonomous_driving/debiased_dual-invariant_defense_for_adversarially_robust_person_re-identificatio.md)**
 
@@ -5264,10 +5256,6 @@ tags:
 **[A Topological Rewriting of Tarski's Mereogeometry](others/a_topological_rewriting_of_tarskis_mereogeometry.md)**
 
 :   在 Coq 定理证明器中扩展 λ-MM 库，将基于 Leśniewski 部分学（mereology）的 Tarski 固体几何重写为具备完整拓扑结构的形式化系统，证明部分学类对应正则开集、满足 Kuratowski 内部公理且具有 Hausdorff（T2）性质，从而为定性空间推理提供了统一的部分学-几何-拓扑理论框架。
-
-**[UniShape: A Unified Shape-Aware Foundation Model for Time Series Classification](others/a_unified_shape-aware_foundation_model_for_time_series_class.md)**
-
-:   提出UniShape——首个面向时间序列分类(TSC)的形状感知基础模型：通过多尺度子序列(shape)自适应聚合的shape-aware adapter捕获类别判别性时序模式，结合原型预训练模块在实例级和shape级联合学习可迁移的shapelet表示；在189万样本上预训练后，128个UCR数据集上达到0.8708平均准确率，超越所有基线。
 
 **[Agent-SAMA: State-Aware Mobile Assistant](others/agent-sama_state-aware_mobile_assistant.md)**
 

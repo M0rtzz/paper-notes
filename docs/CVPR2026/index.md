@@ -1,8 +1,8 @@
 ---
 title: >-
-  1645 篇 CVPR2026 论文解读 · 每篇 5 分钟读懂
+  1644 篇 CVPR2026 论文解读 · 每篇 5 分钟读懂
 description: >-
-  1645篇CVPR2026论文解读，涵盖 3D 视觉(230篇)、多模态 VLM(230篇)、图像生成(209篇)、医学图像(119篇)、自动驾驶(88篇)、语义分割(83篇)、视频理解(77篇)、视频生成(54篇)等 42个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  1644篇CVPR2026论文解读，涵盖 3D 视觉(230篇)、多模态 VLM(230篇)、图像生成(209篇)、医学图像(119篇)、自动驾驶(88篇)、语义分割(83篇)、视频理解(77篇)、视频生成(54篇)等 42个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2026"
   - "AI顶会"
@@ -21,7 +21,7 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📷 CVPR2026 论文笔记
 
-1645篇CVPR2026论文解读，涵盖 3D 视觉(230篇)、多模态 VLM(230篇)、图像生成(209篇)、医学图像(119篇)、自动驾驶(88篇)、语义分割(83篇)、视频理解(77篇)、视频生成(54篇)等 42个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+1644篇CVPR2026论文解读，涵盖 3D 视觉(230篇)、多模态 VLM(230篇)、图像生成(209篇)、医学图像(119篇)、自动驾驶(88篇)、语义分割(83篇)、视频理解(77篇)、视频生成(54篇)等 42个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 
 <div class="conf-index" markdown>
 
@@ -5120,10 +5120,6 @@ tags:
 **[PULSE: Privileged Knowledge Transfer from Rich to Deployable Sensors for Embodied Multi-Sensory Learning](robotics/pulse_privileged_knowledge_transfer_from_rich_to_deployable_sensors_for_embodied.md)**
 
 :   本文提出 PULSE 框架，通过冻结的特权传感器（如 EDA）教师模型向廉价可部署传感器（如 ECG、BVP、加速度计）学生模型进行知识蒸馏，引入共享-私有嵌入分解和重建防崩塌机制，在不使用 EDA 推理的情况下达到 0.994 AUROC 的压力检测性能，甚至超越使用全部传感器的模型。
-
-**[QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](robotics/quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)**
-
-:   提出 QuantVLA，首个面向 Vision-Language-Action (VLA) 模型的免训练后量化框架，通过选择性量化布局和两个轻量级标定机制（注意力温度匹配 ATM 和输出头平衡 OHB），在 W4A8 精度下实现约 70% 的内存节省，同时任务成功率超过全精度基线。
 
 **[RC-NF: Robot-Conditioned Normalizing Flow for Real-Time Anomaly Detection in Robotic Manipulation](robotics/rc-nf_robot-conditioned_normalizing_flow_for_real-time_anomaly_detection_in_robo.md)**
 

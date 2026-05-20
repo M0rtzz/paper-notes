@@ -1,8 +1,8 @@
 ---
 title: >-
-  1822 篇 CVPR2025 论文解读 · 每篇 5 分钟读懂
+  1819 篇 CVPR2025 论文解读 · 每篇 5 分钟读懂
 description: >-
-  1822篇CVPR2025论文解读，涵盖 3D 视觉(367篇)、图像生成(304篇)、多模态 VLM(147篇)、语义分割(96篇)、自动驾驶(94篇)、医学图像(84篇)、视频生成(82篇)、视频理解(77篇)等 42个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  1819篇CVPR2025论文解读，涵盖 3D 视觉(367篇)、图像生成(303篇)、多模态 VLM(147篇)、语义分割(96篇)、自动驾驶(94篇)、医学图像(84篇)、视频生成(81篇)、视频理解(77篇)等 42个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "AI顶会"
@@ -21,7 +21,7 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📷 CVPR2025 论文笔记
 
-1822篇CVPR2025论文解读，涵盖 3D 视觉(367篇)、图像生成(304篇)、多模态 VLM(147篇)、语义分割(96篇)、自动驾驶(94篇)、医学图像(84篇)、视频生成(82篇)、视频理解(77篇)等 42个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+1819篇CVPR2025论文解读，涵盖 3D 视觉(367篇)、图像生成(303篇)、多模态 VLM(147篇)、语义分割(96篇)、自动驾驶(94篇)、医学图像(84篇)、视频生成(81篇)、视频理解(77篇)等 42个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 
 <div class="conf-index" markdown>
 
@@ -1530,10 +1530,6 @@ tags:
 **[Arbitrary-Steps Image Super-Resolution via Diffusion Inversion](image_generation/arbitrary-steps_image_super-resolution_via_diffusion_inversion.md)**
 
 :   本文提出InvSR，通过训练一个噪声预测网络来实现扩散反演（Diffusion Inversion），利用预训练扩散模型的图像先验进行超分辨率，支持1-5步任意步数采样，即使单步采样也能达到或超过现有SOTA方法的效果。
-
-**[Articulated Kinematics Distillation from Video Diffusion Models](image_generation/articulated_kinematics_distillation_from_video_diffusion_models.md)**
-
-:   AKD 提出用骨骼关节参数化（低自由度）替代 4D 神经变形场来从视频扩散模型中蒸馏运动，结合 PD 控制器的物理模拟实现自然地面接触，在 29 个角色资产上用户偏好率均超过 50%（运动量 51%、物理合理性 53%、文本一致性 53%）。
 
 **[ArtiFade: Learning to Generate High-quality Subject from Blemished Images](image_generation/artifade_learning_to_generate_high-quality_subject_from_blemished_images.md)**
 
@@ -4709,10 +4705,6 @@ tags:
 
 :   提出 VidTwin，将视频解耦为 Structure Latent（全局内容和整体运动）和 Dynamics Latent（细粒度细节和快速运动）两个独立潜空间，以 0.20% 的极高压缩率实现 28.14 PSNR 的高质量重建。
 
-**[ViReS: Video Instance Repainting via Sketch and Text Guided Generation](video_generation/vires_video_instance_repainting_via_sketch_and_text_guided_generation.md)**
-
-:   提出ViReS框架，通过草图和文本双重引导实现视频中特定实例的重绘，利用时序注意力和实例掩码保持背景不变和时间一致性，在多种视频编辑场景下生成高质量结果。
-
 **[Visual Prompting for One-Shot Controllable Video Editing Without Inversion](video_generation/visual_prompting_for_one-shot_controllable_video_editing_without_inversion.md)**
 
 :   本文从视觉提示（Visual Prompting）的全新视角解决一次性可控视频编辑（OCVE）问题，通过图像修复扩散模型完成编辑传播，并提出内容一致性采样（CCS）和时序-内容一致性采样（TCS）两种采样策略，无需 DDIM 反演即可实现高质量可控视频编辑。
@@ -6480,10 +6472,6 @@ tags:
 **[Learning Textual Prompts for Open-World Semi-Supervised Learning](llm_nlp/learning_textual_prompts_for_open-world_semi-supervised_learning.md)**
 
 :   本文提出了一种针对开放世界半监督学习（OWSSL）的新方法，通过全局-局部文本提示学习策略增强图文对齐效果，并设计前向-反向策略降低无标签样本中图文匹配的噪声，在多个细粒度数据集上显著超越SOTA。
-
-**[Let Samples Speak: Mitigating Spurious Correlation by Exploiting the Clusterness](llm_nlp/let_samples_speak_mitigating_spurious_correlation_by_exploiting_the_clusterness_.md)**
-
-:   提出NSF方法，通过利用样本在特征空间中的聚类特性自动识别依赖虚假特征的样本组，无需组标注即可训练出对虚假相关性鲁棒的分类器，最差组准确度显著超越ERM基线。
 
 **[MG-MotionLLM: A Unified Framework for Motion Comprehension and Generation across Multiple Granularities](llm_nlp/mg-motionllm_a_unified_framework_for_motion_comprehension_and_generation_across_.md)**
 

@@ -15,7 +15,7 @@ tags:
 
 **🧪 ICML2026** · **1** 篇论文解读
 
-📌 **同领域跨会议浏览：** [📷 CVPR2026 (1)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (2)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (2)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (6)](../../ICML2025/physics/index.md)
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (1)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (2)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (2)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (18)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (6)](../../ICML2025/physics/index.md)
 
 **[Neural QAOA$^2$: Differentiable Joint Graph Partitioning and Parameter Initialization for Quantum Combinatorial Optimization](neural_qaoa2_differentiable_joint_graph_partitioning_and_parameter_initializatio.md)**
 

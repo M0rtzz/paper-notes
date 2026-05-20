@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 代码智能方向22篇论文解读
+  NeurIPS2025 代码智能方向21篇论文解读
 description: >-
-  22篇NeurIPS2025的代码智能方向论文解读，涵盖代码智能、LLM、推理、Agent、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  21篇NeurIPS2025的代码智能方向论文解读，涵盖代码智能、LLM、推理、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "代码智能"
@@ -10,18 +10,17 @@ tags:
   - "论文笔记"
   - "LLM"
   - "推理"
-  - "Agent"
   - "布局/合成"
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💻 代码智能
 
-**🧠 NeurIPS2025** · **22** 篇论文解读
+**🧠 NeurIPS2025** · **21** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/code_intelligence/index.md) · [💬 ACL2026 (48)](../../ACL2026/code_intelligence/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/code_intelligence/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/code_intelligence/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/code_intelligence/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/code_intelligence/index.md)
 
-🔥 **高频主题：** 代码智能 ×5 · LLM ×3 · 推理 ×3 · Agent ×2 · 布局/合成 ×2
+🔥 **高频主题：** 代码智能 ×5 · LLM ×3 · 推理 ×3 · 布局/合成 ×2
 
 **[A Self-Improving Coding Agent](a_selfimproving_coding_agent.md)**
 
@@ -34,10 +33,6 @@ tags:
 **[AstroVisBench: A Code Benchmark for Scientific Computing and Visualization in Astronomy](astrovisbench_a_code_benchmark_for_scientific_computing_and_visualization_in_ast.md)**
 
 :   AstroVisBench 构建了首个评估 LLM 天文科学计算和可视化能力的代码基准——从 110 个 Jupyter Notebook 提取 864 个任务（处理+可视化），设计双重评估管线（执行式变量检查 + VLM-as-Judge 可视化评分，与专家 Spearman ρ=0.822），评测 8 个 SOTA 模型后发现 Gemini 2.5 Pro 最佳但无错误率仅 15.7%，FileNotFoundError 占 43% 错误。
-
-**[VeriMaAS: Automated Multi-Agent Workflows for RTL Design](automated_multi-agent_workflows_for_rtl_design.md)**
-
-:   VeriMaAS 提出自动组合多 Agent 工作流的框架用于 RTL 代码生成，核心创新是将 HDL 工具的形式化验证反馈（Yosys 综合 + OpenSTA 时序分析）直接整合到工作流编排中，在 VeriThoughts 上 pass@1 提升 2-12%，且仅需数百样本做控制器调优，比全量微调训练数据少一个量级。
 
 **[Co-Evolving LLM Coder and Unit Tester via Reinforcement Learning](co-evolving_llm_coder_and_unit_tester_via_reinforcement_learning.md)**
 

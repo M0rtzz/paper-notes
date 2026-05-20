@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICCV2025 3D 视觉方向265篇论文解读
+  ICCV2025 3D 视觉方向263篇论文解读
 description: >-
-  265篇ICCV2025的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、扩散模型、点云、动态场景、对抗鲁棒、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  263篇ICCV2025的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、扩散模型、点云、动态场景、对抗鲁棒、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ICCV2025"
   - "3D 视觉"
@@ -19,7 +19,7 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D 视觉
 
-**📹 ICCV2025** · **265** 篇论文解读
+**📹 ICCV2025** · **263** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/3d_vision/index.md) · [📷 CVPR2026 (230)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (63)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (76)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (112)](../../NeurIPS2025/3d_vision/index.md) · [🧪 ICML2025 (12)](../../ICML2025/3d_vision/index.md)
 
@@ -113,10 +113,6 @@ tags:
 
 :   首个面向截肢者的3D人体网格恢复框架——通过合成100万+截肢者图像(A3D)、设计BPAC-Net截肢分类器区分截肢与遮挡、以及双Tokenizer切换策略分别编码截肢/正常位姿先验，在截肢者数据上大幅领先(ITW-amputee上MVE比TokenHMR低16.87)，非截肢者数据上也保持竞争力。
 
-**[AllTracker: Efficient Dense Point Tracking at High Resolution](alltracker_efficient_dense_point_tracking_at_high_resolution.md)**
-
-:   提出AllTracker，将点跟踪问题转化为多帧长距离光流估计问题，通过低分辨率迭代推理（2D卷积+时间注意力）加高分辨率上采样，以16M参数实现高分辨率(768-1024像素)全像素稠密点跟踪的SOTA精度。
-
 **[Amodal3R: Amodal 3D Reconstruction from Occluded 2D Images](amodal3r_amodal_3d_reconstruction_from_occluded_2d_images.md)**
 
 :   提出Amodal3R，一个端到端的遮挡感知3D重建模型，通过在TRELLIS基础上引入mask加权交叉注意力和遮挡感知注意力层，直接在3D潜空间中从部分遮挡的2D图像重建完整的3D物体形状和外观，大幅超越先前"2D补全→3D重建"的两阶段方法。
@@ -136,10 +132,6 @@ tags:
 **[AR-1-to-3: Single Image to Consistent 3D Object Generation via Next-View Prediction](ar1to3_single_image_to_consistent_3d_object_via_nextview_pre.md)**
 
 :   提出AR-1-to-3，一种基于扩散模型的自回归下一视角预测框架，通过"先近后远"的渐进式生成策略，配合Stacked-LE（堆叠局部特征编码）和LSTM-GE（全局特征编码）两种条件注入机制，显著提升了单图到多视角生成的一致性，在GSO数据集上PSNR达13.18（相比InstantMesh的10.67提升23.5%），Chamfer Distance降至0.063（InstantMesh为0.117）。
-
-**[ArgMatch: Adaptive Refinement Gathering for Efficient Dense Matching](argmatch_adaptive_refinement_gathering_for_efficient_dense_matching.md)**
-
-:   提出自适应细化聚合(Adaptive Refinement Gathering)管线，通过内容感知偏移估计器、局部一致性匹配校正器和局部一致性上采样器，大幅降低对重型特征提取器和全局匹配器的依赖，以轻量级网络实现与SOTA竞争的稠密匹配性能。
 
 **[Articulate3D: Holistic Understanding of 3D Scenes as Universal Scene Description](articulate3d_holistic_understanding_of_3d_scenes_as_universal_scene_description.md)**
 

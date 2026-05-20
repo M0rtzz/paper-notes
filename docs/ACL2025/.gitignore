@@ -52,7 +52,7 @@
 !video_generation/
 !video_understanding/
 
-# 已完成笔记 (1686 篇)
+# 已完成笔记 (1683 篇)
 !3d_vision/slamming_training_a_speech_language_model_on_one_gpu_in_a_day.md
 !ai_safety/building_a_long_text_privacy_policy_corpus_with_multi-class_labels.md
 !ai_safety/centaur_bridging_the_impossible_trinity_of.md
@@ -374,7 +374,6 @@
 !llm_agent/toolhop_multi_hop_tool_use.md
 !llm_alignment/agd_adversarial_game_defense_against_jailbreak_attacks_in_large_language_models.md
 !llm_alignment/agentrm_enhancing_agent_generalization_with_reward_modeling.md
-!llm_alignment/aligned_but_blind_implicit_bias.md
 !llm_alignment/aligning_to_what_limits_to_rlhf_based_alignment.md
 !llm_alignment/amopo_adaptive_multi-objective_preference_optimization_without_reward_models_and.md
 !llm_alignment/aspo_adaptive_sentence-level_preference_optimization_for_fine-grained_multimodal.md
@@ -811,7 +810,6 @@
 !llm_nlp/moral_values_western.md
 !llm_nlp/multi-prompting_decoder_helps_better_language_understanding.md
 !llm_nlp/multi_attribute_steering.md
-!llm_nlp/multilingual_encoder_knows_more_than_you_realize_shared_weights_pretraining_for_.md
 !llm_nlp/multiple_choice_eval.md
 !llm_nlp/natural_language_processing_in_support_of_evidence-based_medicine_a_scoping_revi.md
 !llm_nlp/neko_cross-modality_post-recognition_error_correction_with_tasks-guided_mixture-.md
@@ -829,7 +827,6 @@
 !llm_nlp/p3_prompts_promote_prompting.md
 !llm_nlp/palm_a_culturally_inclusive_and_linguistically_diverse_dataset_for_arabic_llms.md
 !llm_nlp/paper_2312_17294.md
-!llm_nlp/papersplease_a_benchmark_for_evaluating_motivational_values_of_large_language_mo.md
 !llm_nlp/past_meets_present_creating_historical_analogy_with_large_language_models.md
 !llm_nlp/perspective_transition_of_large_language_models_for_solving_subjective_tasks.md
 !llm_nlp/pitfalls_of_scale_investigating_the_inverse_task_of_redefinition_in_large_langua.md

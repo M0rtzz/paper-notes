@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 多模态 VLM方向48篇论文解读
+  ECCV2024 多模态 VLM方向47篇论文解读
 description: >-
-  48篇ECCV2024的多模态 VLM 方向论文解读，涵盖多模态、LLM、对抗鲁棒、少样本学习、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  47篇ECCV2024的多模态 VLM 方向论文解读，涵盖多模态、LLM、对抗鲁棒、少样本学习、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "多模态 VLM"
@@ -18,15 +18,11 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态 VLM
 
-**🎞️ ECCV2024** · **48** 篇论文解读
+**🎞️ ECCV2024** · **47** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (83)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (230)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (88)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (88)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (149)](../../NeurIPS2025/multimodal_vlm/index.md)
 
-🔥 **高频主题：** 多模态 ×31 · LLM ×9 · 对抗鲁棒 ×3 · 少样本学习 ×3 · 模型压缩 ×2
-
-**[A Multimodal Benchmark Dataset and Model for Crop Disease Diagnosis](a_multimodal_benchmark_dataset_and_model_for_crop_disease_di.md)**
-
-:   本文构建了一个包含13.7万张作物病害图像和100万条问答对的多模态数据集CDDM，并提出同时对视觉编码器、适配器和语言模型进行LoRA微调的策略，在作物病害诊断任务上将病害分类准确率从5%提升至91.8%。
+🔥 **高频主题：** 多模态 ×30 · LLM ×9 · 对抗鲁棒 ×3 · 少样本学习 ×3 · 模型压缩 ×2
 
 **[AdaShield: Safeguarding Multimodal Large Language Models from Structure-based Attack via Adaptive Shield Prompting](adashield_safeguarding_multimodal_large_language_models_from_structure-based_att.md)**
 

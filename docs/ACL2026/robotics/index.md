@@ -19,7 +19,7 @@ tags:
 
 **💬 ACL2026** · **6** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (12)](../../ICML2026/robotics/index.md) · [📷 CVPR2026 (38)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (47)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (55)](../../NeurIPS2025/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (12)](../../ICML2026/robotics/index.md) · [📷 CVPR2026 (37)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (47)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (55)](../../NeurIPS2025/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
 
 🔥 **高频主题：** 导航 ×4 · 推理 ×2
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 物理学方向19篇论文解读
+  NeurIPS2025 物理学方向18篇论文解读
 description: >-
-  19篇NeurIPS2025的物理学方向论文解读，涵盖域适应、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  18篇NeurIPS2025的物理学方向论文解读，涵盖域适应、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "物理学"
@@ -15,7 +15,7 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚛️ 物理学
 
-**🧠 NeurIPS2025** · **19** 篇论文解读
+**🧠 NeurIPS2025** · **18** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (1)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (2)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (2)](../../AAAI2026/physics/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (6)](../../ICML2025/physics/index.md)
 
@@ -48,10 +48,6 @@ tags:
 **[Latent Representation Learning in Heavy-Ion Collisions with MaskPoint Transformer](latent_representation_learning_in_heavy-ion_collisions_with_maskpoint_transforme.md)**
 
 :   将掩码点云 Transformer 自编码器引入重离子碰撞分析，通过自监督预训练+监督微调的两阶段范式，学习到比 PointNet 更强的非线性潜在表征（PC1 分布重叠从 2.42% 降至 0.27%），为 QGP 性质研究提供了通用特征学习框架。
-
-**[Multi-Modal Masked Autoencoders for Learning Image-Spectrum Associations for Galaxy Evolution and Cosmology](multi-modal_masked_autoencoders_for_learning_image-spectrum_associations_for_gal.md)**
-
-:   将多模态掩码自编码器（MMAE）应用于星系图像（HSC-PDR2五波段）和光谱（DESI-DR1）的联合建模，构建134,533个星系的跨模态数据集GalaxiesML-Spectra，在75%掩码率下重建光谱主要发射线和图像形态，在光谱完全缺失时仅用图像实现 $\sigma_{\text{NMAD}}=0.016$ 的红移预测，优于AstroCLIP且红移范围首次扩展到 $z \sim 4$。
 
 **[Neural Deprojection of Galaxy Stellar Mass Profiles](neural_deprojection_of_galaxy_stellar_mass_profiles.md)**
 

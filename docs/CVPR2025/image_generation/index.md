@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 图像生成方向304篇论文解读
+  CVPR2025 图像生成方向303篇论文解读
 description: >-
-  304篇CVPR2025的图像生成方向论文解读，涵盖扩散模型、文生图、个性化生成、对抗鲁棒、布局/合成、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  303篇CVPR2025的图像生成方向论文解读，涵盖扩散模型、文生图、个性化生成、对抗鲁棒、布局/合成、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "图像生成"
@@ -19,11 +19,11 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**📷 CVPR2025** · **304** 篇论文解读
+**📷 CVPR2025** · **303** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (2)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (209)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (149)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (78)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (244)](../../NeurIPS2025/image_generation/index.md)
 
-🔥 **高频主题：** 扩散模型 ×112 · 文生图 ×21 · 个性化生成 ×19 · 对抗鲁棒 ×13 · 布局/合成 ×11
+🔥 **高频主题：** 扩散模型 ×111 · 文生图 ×21 · 个性化生成 ×19 · 对抗鲁棒 ×13 · 布局/合成 ×11
 
 **[3DTopia-XL: Scaling High-Quality 3D Asset Generation via Primitive Diffusion](3dtopia-xl_scaling_high-quality_3d_asset_generation_via_primitive_diffusion.md)**
 
@@ -56,10 +56,6 @@ tags:
 **[Arbitrary-Steps Image Super-Resolution via Diffusion Inversion](arbitrary-steps_image_super-resolution_via_diffusion_inversion.md)**
 
 :   本文提出InvSR，通过训练一个噪声预测网络来实现扩散反演（Diffusion Inversion），利用预训练扩散模型的图像先验进行超分辨率，支持1-5步任意步数采样，即使单步采样也能达到或超过现有SOTA方法的效果。
-
-**[Articulated Kinematics Distillation from Video Diffusion Models](articulated_kinematics_distillation_from_video_diffusion_models.md)**
-
-:   AKD 提出用骨骼关节参数化（低自由度）替代 4D 神经变形场来从视频扩散模型中蒸馏运动，结合 PD 控制器的物理模拟实现自然地面接触，在 29 个角色资产上用户偏好率均超过 50%（运动量 51%、物理合理性 53%、文本一致性 53%）。
 
 **[ArtiFade: Learning to Generate High-quality Subject from Blemished Images](artifade_learning_to_generate_high-quality_subject_from_blemished_images.md)**
 

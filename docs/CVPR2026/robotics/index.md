@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 机器人/具身智能方向38篇论文解读
+  CVPR2026 机器人/具身智能方向37篇论文解读
 description: >-
-  38篇CVPR2026的机器人/具身智能方向论文解读，涵盖机器人、多模态、推理、导航、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  37篇CVPR2026的机器人/具身智能方向论文解读，涵盖机器人、多模态、推理、导航、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "机器人/具身智能"
@@ -18,11 +18,11 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 机器人/具身智能
 
-**📷 CVPR2026** · **38** 篇论文解读
+**📷 CVPR2026** · **37** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (12)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (6)](../../ACL2026/robotics/index.md) · [🔬 ICLR2026 (47)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (55)](../../NeurIPS2025/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
 
-🔥 **高频主题：** 机器人 ×17 · 多模态 ×10 · 推理 ×9 · 导航 ×5 · Agent ×2
+🔥 **高频主题：** 机器人 ×17 · 多模态 ×9 · 推理 ×9 · 导航 ×5 · Agent ×2
 
 **[Action–Geometry Prediction with 3D Geometric Prior for Bimanual Manipulation](actiongeometry_prediction_with_3d_geometric_prior.md)**
 
@@ -147,10 +147,6 @@ tags:
 **[PULSE: Privileged Knowledge Transfer from Rich to Deployable Sensors for Embodied Multi-Sensory Learning](pulse_privileged_knowledge_transfer_from_rich_to_deployable_sensors_for_embodied.md)**
 
 :   本文提出 PULSE 框架，通过冻结的特权传感器（如 EDA）教师模型向廉价可部署传感器（如 ECG、BVP、加速度计）学生模型进行知识蒸馏，引入共享-私有嵌入分解和重建防崩塌机制，在不使用 EDA 推理的情况下达到 0.994 AUROC 的压力检测性能，甚至超越使用全部传感器的模型。
-
-**[QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models](quantvla_scale-calibrated_post-training_quantization_for_vision-language-action_.md)**
-
-:   提出 QuantVLA，首个面向 Vision-Language-Action (VLA) 模型的免训练后量化框架，通过选择性量化布局和两个轻量级标定机制（注意力温度匹配 ATM 和输出头平衡 OHB），在 W4A8 精度下实现约 70% 的内存节省，同时任务成功率超过全精度基线。
 
 **[RC-NF: Robot-Conditioned Normalizing Flow for Real-Time Anomaly Detection in Robotic Manipulation](rc-nf_robot-conditioned_normalizing_flow_for_real-time_anomaly_detection_in_robo.md)**
 

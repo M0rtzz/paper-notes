@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 其他方向147篇论文解读
+  NeurIPS2025 其他方向145篇论文解读
 description: >-
-  147篇NeurIPS2025的其他方向论文解读，涵盖对抗鲁棒、异常检测、对齐/RLHF、人脸/视线、布局/合成、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  145篇NeurIPS2025的其他方向论文解读，涵盖对抗鲁棒、异常检测、对齐/RLHF、人脸/视线、布局/合成、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "其他"
@@ -19,9 +19,9 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🧠 NeurIPS2025** · **147** 篇论文解读
+**🧠 NeurIPS2025** · **145** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (27)](../../ICML2026/others/index.md) · [📷 CVPR2026 (44)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (74)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (125)](../../AAAI2026/others/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/others/index.md) · [🧪 ICML2025 (92)](../../ICML2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (27)](../../ICML2026/others/index.md) · [📷 CVPR2026 (44)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (74)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (124)](../../AAAI2026/others/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/others/index.md) · [🧪 ICML2025 (92)](../../ICML2025/others/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×7 · 异常检测 ×3 · 对齐/RLHF ×3 · 人脸/视线 ×2 · 布局/合成 ×2
 
@@ -420,14 +420,6 @@ tags:
 **[Optimized Learned Count-Min Sketch](optimized_learned_count-min_sketch.md)**
 
 :   提出 OptLCMS，通过将分数空间分区并用 KKT 条件解析求解 CMS 参数、动态规划优化阈值，大幅加速构建过程，同时提供不可容忍误差概率的理论保证。
-
-**[OrbitZoo: Real Orbital Systems Challenges for Reinforcement Learning](orbitzoo_real_orbital_systems_challenges_for_reinforcement_learning.md)**
-
-:   提出 OrbitZoo，一个基于工业级天体动力学库 Orekit 的多智能体 RL 环境，集成高保真轨道动力学（含大气阻力、太阳辐射压、三体效应等）、PettingZoo 多智能体接口和实时 3D 可视化，在 Starlink 真实星历验证中均值 MAPE 仅 0.16%。
-
-**[OrthoLoC: UAV 6-DoF Localization and Calibration Using Orthographic Geodata](ortholoc_uav_6-dof_localization_and_calibration_using_orthographic_geodata.md)**
-
-:   OrthoLoC构建了首个面向正射地理数据（DOP+DSM）的大规模UAV 6-DoF定位基准数据集，包含16425张真实UAV图像覆盖德国和美国47个区域，并引入AdHoP（自适应单应性预处理）匹配改进技术，在不修改特征匹配器的情况下将匹配性能提升95%、平移误差降低63%。
 
 **[Out-of-distribution Generalisation is Hard: Evidence from ARC-like Tasks](out-of-distribution_generalisation_is_hard_evidence_from_arc-like_tasks.md)**
 

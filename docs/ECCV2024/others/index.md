@@ -19,7 +19,7 @@ tags:
 
 **🎞️ ECCV2024** · **66** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (27)](../../ICML2026/others/index.md) · [📷 CVPR2026 (44)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (74)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (125)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (147)](../../NeurIPS2025/others/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (27)](../../ICML2026/others/index.md) · [📷 CVPR2026 (44)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (74)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (124)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (145)](../../NeurIPS2025/others/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/others/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×4 · 人脸/视线 ×4 · 异常检测 ×3 · 自监督学习 ×2
 

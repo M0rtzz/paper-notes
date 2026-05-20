@@ -55,7 +55,7 @@
 !video_generation/
 !video_understanding/
 
-# 已完成笔记 (969 篇)
+# 已完成笔记 (967 篇)
 !3d_vision/evomesh_adaptive_physical_simulation_with_hierarchical_graph_evolutions.md
 !3d_vision/flowdrag_3d-aware_drag-based_image_editing_with_mesh-guided_deformation_vector_f.md
 !3d_vision/freemesh_boosting_mesh_generation_with_coordinates_merging.md
@@ -141,7 +141,6 @@
 !code_intelligence/reasoning_through_execution_unifying_process_and_outcome_rewards_for_code_genera.md
 !code_intelligence/robust_learning_of_diverse_code_edits.md
 !code_intelligence/sparselora_accelerating_llm_fine-tuning_with_contextual_sparsity.md
-!code_intelligence/towards_practical_defect-focused_automated_code_review.md
 !code_intelligence/training_software_engineering_agents_and_verifiers_with_swe-gym.md
 !dialogue/agent_warpp_workflow_adherence_via_runtime_parallel_personalization.md
 !dialogue/investigating_non-transitivity_in_llm-as-a-judge.md
@@ -410,7 +409,6 @@
 !llm_evaluation/runtime_analysis_of_evolutionary_nas_for_multiclass_classification.md
 !llm_evaluation/set_valued_predictions_for_robust_domain_generalization.md
 !llm_evaluation/the_best_of_both_worlds_bridging_quality_and_diversity_in_data_selection_with_bi.md
-!llm_evaluation/ui-evol_automatic_knowledge_evolving_for_computer_use_agents.md
 !llm_evaluation/unlocking_post-hoc_dataset_inference_with_synthetic_data.md
 !llm_nlp/adaptive_multi-prompt_contrastive_network_for_few-shot_out-of-distribution_detec.md
 !llm_nlp/b-score_detecting_biases_in_large_language_models_using_response_history.md

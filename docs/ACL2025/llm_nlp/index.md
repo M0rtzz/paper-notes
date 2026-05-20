@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 LLM / NLP方向394篇论文解读
+  ACL2025 LLM / NLP方向392篇论文解读
 description: >-
-  394篇ACL2025的 LLM / NLP 方向论文解读，涵盖 LLM、推理、Agent、对齐/RLHF、对抗鲁棒、对话系统等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  392篇ACL2025的 LLM / NLP 方向论文解读，涵盖 LLM、推理、Agent、对齐/RLHF、对抗鲁棒、对话系统等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "LLM / NLP"
@@ -19,11 +19,11 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM / NLP
 
-**💬 ACL2025** · **394** 篇论文解读
+**💬 ACL2025** · **392** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (50)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (32)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (50)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (32)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_nlp/index.md)
 
-🔥 **高频主题：** LLM ×177 · 推理 ×30 · Agent ×16 · 对齐/RLHF ×16 · 对抗鲁棒 ×12
+🔥 **高频主题：** LLM ×176 · 推理 ×30 · Agent ×16 · 对齐/RLHF ×16 · 对抗鲁棒 ×12
 
 **[A Large-Scale Real-World Evaluation of an LLM-Based Virtual Teaching Assistant](a_large-scale_real-world_evaluation_of_llm-based_virtual_teaching_assistant.md)**
 
@@ -1079,10 +1079,6 @@ tags:
 
 :   提出 MAT-Steer，通过属性感知的 token 级 gating 机制和正交性约束，实现推理时对 LLM 多属性（如真实性、毒性、偏见）的同时精准干预，在 QA 和生成任务上全面超越现有 ITI 和微调方法。
 
-**[Multilingual Encoder Knows more than You Realize: Shared Weights Pretraining for Extremely Low-Resource Languages](multilingual_encoder_knows_more_than_you_realize_shared_weights_pretraining_for_.md)**
-
-:   提出权重共享框架，通过在编码器和解码器之间共享和交错权重，将多语言编码器高效适配为文本生成模型，在藏语、维吾尔语、哈萨克语和蒙古语四种极低资源语言上显著超越基线。
-
 **[Which of These Best Describes Multiple Choice Evaluation with LLMs?](multiple_choice_eval.md)**
 
 :   系统论证 MCQA 作为 LLM 标准评估格式存在三大类问题：(1) 格式缺陷——无法测试生成/主观性、不匹配 LLM 真实使用场景、不能充分测试知识深度；(2) 数据集缺陷——泄露、不可回答、捷径和饱和；(3) 模型行为问题——鲁棒性差、选项偏置和不忠实解释。借鉴教育测试学提出 Constructed Response、Explanation MCQA、IRT 分析等系统化修复方案。
@@ -1150,10 +1146,6 @@ tags:
 **[Enhancing Open-Domain Task-Solving Capability of LLMs via Autonomous Tool Integration from GitHub](paper_2312_17294.md)**
 
 :   提出OpenAgent系统，通过Search→Setup→Apply→Store四阶段流程自主从GitHub搜索、配置、使用和存储仓库作为工具，解决LLM在金融、化学、生物等专业领域的开放域任务，平均成功率69.4%。
-
-**[PapersPlease: A Benchmark for Evaluating Motivational Values of Large Language Models Based on ERG Theory](papersplease_a_benchmark_for_evaluating_motivational_values_of_large_language_mo.md)**
-
-:   提出 PapersPlease 基准（3,700 个道德困境场景），基于 ERG 动机理论评估 LLM 在角色扮演情境中的价值观优先级排序和社会身份偏见，发现 LLM 对不同层级需求的优先序差异显著，且社会身份线索会影响决策公平性。
 
 **[Past Meets Present: Creating Historical Analogy with Large Language Models](past_meets_present_creating_historical_analogy_with_large_language_models.md)**
 

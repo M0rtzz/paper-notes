@@ -1,28 +1,28 @@
 ---
 title: >-
-  AAAI2026 强化学习方向71篇论文解读
+  AAAI2026 强化学习方向70篇论文解读
 description: >-
-  71篇AAAI2026的强化学习方向论文解读，涵盖强化学习、Agent、推理、LLM、对抗鲁棒、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  70篇AAAI2026的强化学习方向论文解读，涵盖强化学习、推理、Agent、对抗鲁棒、LLM、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "强化学习"
   - "论文解读"
   - "论文笔记"
-  - "Agent"
   - "推理"
-  - "LLM"
+  - "Agent"
   - "对抗鲁棒"
+  - "LLM"
   - "多模态"
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎮 强化学习
 
-**🤖 AAAI2026** · **71** 篇论文解读
+**🤖 AAAI2026** · **70** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (20)](../../ICML2026/reinforcement_learning/index.md) · [💬 ACL2026 (34)](../../ACL2026/reinforcement_learning/index.md) · [📷 CVPR2026 (19)](../../CVPR2026/reinforcement_learning/index.md) · [🔬 ICLR2026 (138)](../../ICLR2026/reinforcement_learning/index.md) · [🧠 NeurIPS2025 (172)](../../NeurIPS2025/reinforcement_learning/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/reinforcement_learning/index.md)
 
-🔥 **高频主题：** 强化学习 ×22 · Agent ×11 · 推理 ×11 · LLM ×6 · 对抗鲁棒 ×5
+🔥 **高频主题：** 强化学习 ×22 · 推理 ×11 · Agent ×10 · 对抗鲁棒 ×5 · LLM ×5
 
 **[A Course Correction in Steerability Evaluation: Revealing Miscalibration and Side Effects in LLMs](a_course_correction_in_steerability_evaluation_revealing_mis.md)**
 
@@ -31,10 +31,6 @@ tags:
 **[A Learning Framework For Cooperative Collision Avoidance of UAV Swarms Leveraging Domain Knowledge](a_learning_framework_for_cooperative_collision_avoidance_of_uav_swarms_leveragin.md)**
 
 :   提出 reMARL 框架，利用图像处理领域知识（active contour model）设计多智能体强化学习奖励函数，实现无人机集群的协作避碰，相比传统元启发式方法反应时间缩短 98.75%、能耗降低 85.37%。
-
-**[A Multi-Agent Conversational Bandit Approach to Online Evaluation and Selection of User-Aligned LLM Responses](a_multi-agent_conversational_bandit_approach_to_online_evaluation_and_selection_.md)**
-
-:   提出 MACO 多智能体会话式 Bandit 框架，通过本地 agent 的在线淘汰和云服务器的自适应偏好查询机制，实现 LLM 响应的在线评估与用户偏好对齐，达到 $\tilde{O}(\sqrt{dMT})$ 的近优 regret 界。
 
 **[Actor-Critic for Continuous Action Chunks: A Reinforcement Learning Framework for Long-Horizon Robotic Manipulation with Sparse Reward](actor-critic_for_continuous_action_chunks_a_reinforcement_le.md)**
 

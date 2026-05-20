@@ -21,7 +21,7 @@ tags:
 
 **🧪 ICML2026** · **8** 篇论文解读
 
-📌 **同领域跨会议浏览：** [📷 CVPR2026 (230)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (63)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (76)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (112)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (265)](../../ICCV2025/3d_vision/index.md) · [🧪 ICML2025 (12)](../../ICML2025/3d_vision/index.md)
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (230)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (63)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (76)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (112)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (263)](../../ICCV2025/3d_vision/index.md) · [🧪 ICML2025 (12)](../../ICML2025/3d_vision/index.md)
 
 🔥 **高频主题：** 布局/合成 ×2
 

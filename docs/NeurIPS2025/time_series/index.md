@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 时间序列方向57篇论文解读
+  NeurIPS2025 时间序列方向56篇论文解读
 description: >-
-  57篇NeurIPS2025的时间序列方向论文解读，涵盖时序预测、扩散模型、推理、图神经网络、对抗鲁棒、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  56篇NeurIPS2025的时间序列方向论文解读，涵盖时序预测、扩散模型、推理、图神经网络、对抗鲁棒、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "时间序列"
@@ -19,11 +19,11 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📈 时间序列
 
-**🧠 NeurIPS2025** · **57** 篇论文解读
+**🧠 NeurIPS2025** · **56** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (10)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (6)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (36)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (35)](../../AAAI2026/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
 
-🔥 **高频主题：** 时序预测 ×32 · 扩散模型 ×3 · 推理 ×3 · 图神经网络 ×2 · 对抗鲁棒 ×2
+🔥 **高频主题：** 时序预测 ×31 · 扩散模型 ×3 · 推理 ×3 · 图神经网络 ×2 · 对抗鲁棒 ×2
 
 **[A Graph Neural Network Approach for Localized and High-Resolution Temperature Forecasting](a_graph_neural_network_approach_for_localized_and_high-resolution_temperature_fo.md)**
 
@@ -60,10 +60,6 @@ tags:
 **[Channel Matters: Estimating Channel Influence for Multivariate Time Series](channel_matters_estimating_channel_influence_for_multivariate_time_series.md)**
 
 :   提出 Channel-wise Influence (ChInf)——首个能量化多变量时间序列中不同通道对模型性能影响的影响函数方法，将 TracIn 从整体样本级分解到通道级，衍生出通道级异常检测和通道剪枝两个应用，在 5 个异常检测基准上排名第一。
-
-**[Connecting the Dots: A Machine Learning Ready Dataset for Ionospheric Forecasting Models](connecting_the_dots_a_machine_learning_ready_dataset_for_ionospheric_forecasting.md)**
-
-:   本文构建了一个开放的、机器学习就绪的电离层预测数据集，融合了8种异构数据源（太阳观测、地磁指数、TEC地图等），覆盖2010-2024年约14年时间，并基于此训练了LSTM、SFNO、GraphCast三种时空模型作为基准，实现了最长12小时的TEC预测。
 
 **[Decomposition of Small Transformer Models](decomposition_of_small_transformer_models.md)**
 

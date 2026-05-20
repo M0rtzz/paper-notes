@@ -21,7 +21,7 @@ tags:
 
 **💬 ACL2026** · **50** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/llm_nlp/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (32)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_nlp/index.md) · [📹 ICCV2025 (6)](../../ICCV2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/llm_nlp/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (32)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_nlp/index.md) · [📹 ICCV2025 (6)](../../ICCV2025/llm_nlp/index.md)
 
 🔥 **高频主题：** LLM ×16 · Agent ×3 · 扩散模型 ×3 · 推理 ×3 · 少样本学习 ×2
 

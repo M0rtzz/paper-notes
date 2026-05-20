@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 对齐 / RLHF方向77篇论文解读
+  ACL2025 对齐 / RLHF方向76篇论文解读
 description: >-
-  77篇ACL2025的对齐 / RLHF 方向论文解读，涵盖对齐/RLHF、LLM、对抗鲁棒、Agent、多模态、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  76篇ACL2025的对齐 / RLHF 方向论文解读，涵盖对齐/RLHF、LLM、对抗鲁棒、Agent、多模态、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "对齐 / RLHF"
@@ -19,11 +19,11 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐 / RLHF
 
-**💬 ACL2025** · **77** 篇论文解读
+**💬 ACL2025** · **76** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (7)](../../ICML2026/llm_alignment/index.md) · [💬 ACL2026 (26)](../../ACL2026/llm_alignment/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_alignment/index.md) · [🔬 ICLR2026 (41)](../../ICLR2026/llm_alignment/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/llm_alignment/index.md) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_alignment/index.md)
 
-🔥 **高频主题：** 对齐/RLHF ×39 · LLM ×11 · 对抗鲁棒 ×11 · Agent ×4 · 多模态 ×4
+🔥 **高频主题：** 对齐/RLHF ×38 · LLM ×11 · 对抗鲁棒 ×11 · Agent ×4 · 多模态 ×4
 
 **[AGD: Adversarial Game Defense Against Jailbreak Attacks in Large Language Models](agd_adversarial_game_defense_against_jailbreak_attacks_in_large_language_models.md)**
 
@@ -36,10 +36,6 @@ tags:
 **[AgentRM: Enhancing Agent Generalization with Reward Modeling](agentrm_enhancing_agent_generalization_with_reward_modeling.md)**
 
 :   提出 AgentRM，一个可泛化的奖励模型，通过显式/隐式/LLM-as-Judge 三种方式构建，用测试时搜索（Best-of-N / Beam Search）引导策略模型，在 9 个 Agent 任务上平均提升 8.8 分并超越最佳通用 Agent 4.0 分。
-
-**[Aligned but Blind: Alignment Increases Implicit Bias by Reducing Awareness of Race](aligned_but_blind_implicit_bias.md)**
-
-:   发现 LLM 对齐训练的矛盾效应：对齐成功消除了显式偏见（Llama 3 70B 降至 8.13%），但反而放大了隐式偏见（从 64.1% 升至 91.4%），机制是对齐使模型在歧义上下文中不再表征种族概念（"种族盲视"），导致安全护栏无法在隐性场景中激活。通过在早期层注入种族感知激活可将隐式偏见从 97.3% 降至 71.2%。
 
 **[Aligning to What? Limits to RLHF Based Alignment](aligning_to_what_limits_to_rlhf_based_alignment.md)**
 

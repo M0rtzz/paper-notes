@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 视频理解方向49篇论文解读
+  ECCV2024 视频理解方向47篇论文解读
 description: >-
-  49篇ECCV2024的视频理解方向论文解读，涵盖目标跟踪、人体姿态、自监督学习、推理、少样本学习、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  47篇ECCV2024的视频理解方向论文解读，涵盖目标跟踪、人体姿态、自监督学习、推理、少样本学习、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ECCV2024"
   - "视频理解"
@@ -13,13 +13,13 @@ tags:
   - "自监督学习"
   - "推理"
   - "少样本学习"
-  - "多模态"
+  - "对齐/RLHF"
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🎞️ ECCV2024** · **49** 篇论文解读
+**🎞️ ECCV2024** · **47** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/video_understanding/index.md) · [💬 ACL2026 (11)](../../ACL2026/video_understanding/index.md) · [📷 CVPR2026 (77)](../../CVPR2026/video_understanding/index.md) · [🔬 ICLR2026 (22)](../../ICLR2026/video_understanding/index.md) · [🤖 AAAI2026 (33)](../../AAAI2026/video_understanding/index.md) · [🧠 NeurIPS2025 (59)](../../NeurIPS2025/video_understanding/index.md)
 
@@ -73,10 +73,6 @@ tags:
 
 :   提出 EgoPoser，仅从头显设备的头部和手部稀疏且间歇性追踪信号中，鲁棒地估计全身姿态，通过全局运动分解、真实视野建模、SlowFast时序融合和体型感知优化四大核心设计，在大规模真实场景中实现SOTA性能，推理速度超600fps。
 
-**[Evaluating Text-to-Visual Generation with Image-to-Text Generation](evaluating_text-to-visual_generation_with_image-to-text_generation.md)**
-
-:   提出VQAScore，利用VQA模型替代CLIP来评估文本-视觉生成质量，在复杂组合性提示上大幅超越CLIPScore，并发布GenAI-Bench基准。
-
 **[Exploring the Feature Extraction and Relation Modeling For Light-Weight Transformer Tracking](exploring_the_feature_extraction_and_relation_modeling_for_light-weight_transfor.md)**
 
 :   本文提出FERMT（Feature Extraction and Relation Modeling Tracker），通过将one-stream tracker中的注意力机制分解为四个功能不同的子模块——浅层专注特征提取、深层专注关系建模——并引入双注意力单元进行特征预处理，在GOT-10k上以69.6%的AO分数超越领先实时跟踪器5.6%，同时CPU速度提升54%。
@@ -116,10 +112,6 @@ tags:
 **[Motion-prior Contrast Maximization for Dense Continuous-Time Motion Estimation](motion-prior_contrast_maximization_for_dense_continuous-time_motion_estimation.md)**
 
 :   本文提出一种将非线性运动先验（轨迹参数函数）引入对比度最大化框架的自监督方法，用于事件相机的稠密连续时间运动估计，在真实世界数据集 EVIMO2 上将合成数据预训练模型的零样本性能提升了 29%。
-
-**[Nymeria: A Massive Collection of Multimodal Egocentric Daily Motion in the Wild](nymeria_a_massive_collection_of_multimodal_egocentric_daily_motion_in_the_wild.md)**
-
-:   提出 Nymeria 数据集——目前最大规模的野外多模态自我中心人体日常运动数据集，包含 300 小时、264 人、50 个场景，提供全身精确动作捕捉、多设备同步多模态数据和 310.5K 句分层语言描述，并在 body tracking、motion synthesis 等任务上建立 baseline。
 
 **[Occluded Gait Recognition with Mixture of Experts: An Action Detection Perspective](occluded_gait_recognition_with_mixture_of_experts_an_action_detection_perspectiv.md)**
 

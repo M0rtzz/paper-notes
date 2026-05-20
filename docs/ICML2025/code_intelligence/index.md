@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 代码智能方向11篇论文解读
+  ICML2025 代码智能方向10篇论文解读
 description: >-
-  11篇ICML2025的代码智能方向论文解读，涵盖推理、LLM、代码智能、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  10篇ICML2025的代码智能方向论文解读，涵盖推理、LLM、代码智能、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "代码智能"
@@ -16,9 +16,9 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💻 代码智能
 
-**🧪 ICML2025** · **11** 篇论文解读
+**🧪 ICML2025** · **10** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/code_intelligence/index.md) · [💬 ACL2026 (48)](../../ACL2026/code_intelligence/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/code_intelligence/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/code_intelligence/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/code_intelligence/index.md) · [🧠 NeurIPS2025 (22)](../../NeurIPS2025/code_intelligence/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/code_intelligence/index.md) · [💬 ACL2026 (48)](../../ACL2026/code_intelligence/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/code_intelligence/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/code_intelligence/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/code_intelligence/index.md) · [🧠 NeurIPS2025 (21)](../../NeurIPS2025/code_intelligence/index.md)
 
 🔥 **高频主题：** 推理 ×3 · LLM ×3 · 代码智能 ×3 · 对抗鲁棒 ×2
 
@@ -57,10 +57,6 @@ tags:
 **[SparseLoRA: Accelerating LLM Fine-Tuning with Contextual Sparsity](sparselora_accelerating_llm_fine-tuning_with_contextual_sparsity.md)**
 
 :   提出 SparseLoRA，通过**上下文稀疏性 (contextual sparsity)** 动态选择权重子集进行前向/梯度计算，首次将推理时的稀疏加速思路迁移到 LLM 微调阶段，实现最高 2.2× FLOPs 降低和 1.6× 实测加速，同时保持精度。
-
-**[Towards Practical Defect-Focused Automated Code Review](towards_practical_defect-focused_automated_code_review.md)**
-
-:   提出面向真实生产环境的端到端自动代码审查框架，通过AST代码切片提取上下文、多角色LLM协作审查、三层冗余评论过滤和内联行号定位四大模块，在近4亿日活公司的工业级C++代码库历史故障数据上实现KBI(关键缺陷包含率)2倍于标准LLM、10倍于先前基线的显著提升。
 
 **[Training Software Engineering Agents and Verifiers with SWE-Gym](training_software_engineering_agents_and_verifiers_with_swe-gym.md)**
 

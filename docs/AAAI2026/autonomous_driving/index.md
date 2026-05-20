@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 自动驾驶方向58篇论文解读
+  AAAI2026 自动驾驶方向57篇论文解读
 description: >-
-  58篇AAAI2026的自动驾驶方向论文解读，涵盖自动驾驶、3D 目标检测、扩散模型、Agent、对抗鲁棒、重识别等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  57篇AAAI2026的自动驾驶方向论文解读，涵盖自动驾驶、3D 目标检测、扩散模型、Agent、对抗鲁棒、重识别等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "AAAI2026"
   - "自动驾驶"
@@ -18,7 +18,7 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**🤖 AAAI2026** · **58** 篇论文解读
+**🤖 AAAI2026** · **57** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (1)](../../ICML2026/autonomous_driving/index.md) · [📷 CVPR2026 (88)](../../CVPR2026/autonomous_driving/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/autonomous_driving/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/autonomous_driving/index.md) · [📹 ICCV2025 (93)](../../ICCV2025/autonomous_driving/index.md) · [🧪 ICML2025 (11)](../../ICML2025/autonomous_driving/index.md)
 
@@ -47,10 +47,6 @@ tags:
 **[CaTFormer: Causal Temporal Transformer with Dynamic Contextual Fusion for Driving Intention Prediction](catformer_causal_temporal_transformer_with_dynamic_contextual_fusion_for_driving.md)**
 
 :   提出 CaTFormer，通过因果时序 Transformer 显式建模驾驶员行为与环境上下文之间的因果交互，在 Brain4Cars 数据集上以 98.6% F1 达到 SOTA。
-
-**[CompTrack: Information Bottleneck-Guided Low-Rank Dynamic Token Compression for Point Cloud Tracking](comptrack_information_bottleneckguided_lowrank_dynamic_token_compres.md)**
-
-:   提出 CompTrack 框架首次同时解决 LiDAR 点云中的双重冗余问题：SFP 通过信息熵分析滤除背景噪声解决空间冗余；IB-DTC 通过在线 SVD 估计有效秩、自适应确定压缩率将前景压缩为低秩代理 token 解决信息冗余。在 nuScenes 上 SOTA（61.04% Success），以 90 FPS 实时运行。
 
 **[Debiased Dual-Invariant Defense for Adversarially Robust Person Re-Identification](debiased_dual-invariant_defense_for_adversarially_robust_person_re-identificatio.md)**
 

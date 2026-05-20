@@ -21,7 +21,7 @@ tags:
 
 **🔬 ICLR2026** · **63** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/3d_vision/index.md) · [📷 CVPR2026 (230)](../../CVPR2026/3d_vision/index.md) · [🤖 AAAI2026 (76)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (112)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (265)](../../ICCV2025/3d_vision/index.md) · [🧪 ICML2025 (12)](../../ICML2025/3d_vision/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/3d_vision/index.md) · [📷 CVPR2026 (230)](../../CVPR2026/3d_vision/index.md) · [🤖 AAAI2026 (76)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (112)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (263)](../../ICCV2025/3d_vision/index.md) · [🧪 ICML2025 (12)](../../ICML2025/3d_vision/index.md)
 
 🔥 **高频主题：** 3D 高斯渲染 ×11 · 机器人 ×4 · 动态场景 ×4 · 三维重建 ×4 · 新视角合成 ×3
 

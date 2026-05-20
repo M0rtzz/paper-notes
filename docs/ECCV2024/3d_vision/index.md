@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 3D 视觉方向182篇论文解读
+  ECCV2024 3D 视觉方向181篇论文解读
 description: >-
-  182篇ECCV2024的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、扩散模型、点云、NeRF、新视角合成、Text-to-3D等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  181篇ECCV2024的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、扩散模型、点云、NeRF、新视角合成、Text-to-3D等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ECCV2024"
   - "3D 视觉"
@@ -19,11 +19,11 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D 视觉
 
-**🎞️ ECCV2024** · **182** 篇论文解读
+**🎞️ ECCV2024** · **181** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/3d_vision/index.md) · [📷 CVPR2026 (230)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (63)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (76)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (112)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (265)](../../ICCV2025/3d_vision/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/3d_vision/index.md) · [📷 CVPR2026 (230)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (63)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (76)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (112)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (263)](../../ICCV2025/3d_vision/index.md)
 
-🔥 **高频主题：** 3D 高斯渲染 ×32 · 扩散模型 ×24 · 点云 ×20 · NeRF ×16 · 新视角合成 ×11
+🔥 **高频主题：** 3D 高斯渲染 ×32 · 扩散模型 ×23 · 点云 ×20 · NeRF ×16 · 新视角合成 ×10
 
 **[3D Congealing: 3D-Aware Image Alignment in the Wild](3d_congealing_3d-aware_image_alignment_in_the_wild.md)**
 
@@ -656,10 +656,6 @@ tags:
 **[Surface Reconstruction from 3D Gaussian Splatting via Local Structural Hints](surface_reconstruction_from_3d_gaussian_splatting_via_local_structural_hints.md)**
 
 :   针对3DGS在表面重建质量差的问题，提出利用单目法向/深度先验来增强高斯原语的几何组织性，并通过移动最小二乘（MLS）构建局部符号距离场，再联合学习神经隐式网络进行正则化，显著提升了3DGS的表面重建精度。
-
-**[SV3D: Novel Multi-view Synthesis and 3D Generation from a Single Image using Latent Video Diffusion](sv3d_novel_multi-view_synthesis_and_3d_generation_from_a_single_image_using_late.md)**
-
-:   提出SV3D，将图像到视频扩散模型适配为多视图合成和3D生成，利用视频模型的泛化能力和多视图一致性，并引入显式相机控制。
 
 **[T-MAE: Temporal Masked Autoencoders for Point Cloud Representation Learning](t-mae_temporal_masked_autoencoders_for_point_cloud_representation_learning.md)**
 

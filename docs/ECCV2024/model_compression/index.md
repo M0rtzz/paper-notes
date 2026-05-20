@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 模型压缩方向24篇论文解读
+  ECCV2024 模型压缩方向23篇论文解读
 description: >-
-  24篇ECCV2024的模型压缩方向论文解读，涵盖压缩/编码、模型压缩、知识蒸馏等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  23篇ECCV2024的模型压缩方向论文解读，涵盖压缩/编码、模型压缩、知识蒸馏等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "模型压缩"
@@ -15,11 +15,11 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**🎞️ ECCV2024** · **24** 篇论文解读
+**🎞️ ECCV2024** · **23** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (21)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (49)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (50)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (90)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (53)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (134)](../../NeurIPS2025/model_compression/index.md)
 
-🔥 **高频主题：** 压缩/编码 ×6 · 模型压缩 ×6 · 知识蒸馏 ×2
+🔥 **高频主题：** 压缩/编码 ×6 · 模型压缩 ×5 · 知识蒸馏 ×2
 
 **[A Simple Low-bit Quantization Framework for Video Snapshot Compressive Imaging](a_simple_lowbit_quantization_framework_for_video_snapshot_co.md)**
 
@@ -60,10 +60,6 @@ tags:
 **[ELSE: Efficient Deep Neural Network Inference through Line-based Sparsity Exploration](else_efficient_deep_neural_network_inference_through_line-based_sparsity_explora.md)**
 
 :   提出基于行稀疏性探索的事件抑制方法ELSE，利用激活图中相邻行的空间相关性来减少非零激活（事件）数量，在目标检测和姿态估计任务上实现3.14~6.49倍的计算节省，且可与现有事件抑制方法互补。
-
-**[GenQ: Quantization in Low Data Regimes with Generative Synthetic Data](genq_quantization_in_low_data_regimes_with_generative_synthetic_data.md)**
-
-:   提出 GenQ，首次利用 Stable Diffusion 生成的高质量合成数据进行神经网络量化，通过能量分数过滤和BN分布过滤两种机制确保合成数据的分布对齐，在无数据和少数据量化场景下大幅超越现有方法，4-bit QAT ResNet-50 在ImageNet上达到76.10%准确率。
 
 **[Improving Knowledge Distillation via Regularizing Feature Direction and Norm](improving_knowledge_distillation_via_regularizing_feature_direction_and_norm.md)**
 

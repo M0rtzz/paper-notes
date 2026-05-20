@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 其他方向125篇论文解读
+  AAAI2026 其他方向124篇论文解读
 description: >-
-  125篇AAAI2026的其他方向论文解读，涵盖 Agent、对抗鲁棒、扩散模型、对齐/RLHF、推理、异常检测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  124篇AAAI2026的其他方向论文解读，涵盖 Agent、对抗鲁棒、扩散模型、对齐/RLHF、推理、异常检测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "AAAI2026"
   - "其他"
@@ -19,9 +19,9 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🤖 AAAI2026** · **125** 篇论文解读
+**🤖 AAAI2026** · **124** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (27)](../../ICML2026/others/index.md) · [📷 CVPR2026 (44)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (74)](../../ICLR2026/others/index.md) · [🧠 NeurIPS2025 (147)](../../NeurIPS2025/others/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/others/index.md) · [🧪 ICML2025 (92)](../../ICML2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (27)](../../ICML2026/others/index.md) · [📷 CVPR2026 (44)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (74)](../../ICLR2026/others/index.md) · [🧠 NeurIPS2025 (145)](../../NeurIPS2025/others/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/others/index.md) · [🧪 ICML2025 (92)](../../ICML2025/others/index.md)
 
 🔥 **高频主题：** Agent ×10 · 对抗鲁棒 ×5 · 扩散模型 ×5 · 对齐/RLHF ×3 · 推理 ×2
 
@@ -48,10 +48,6 @@ tags:
 **[A Topological Rewriting of Tarski's Mereogeometry](a_topological_rewriting_of_tarskis_mereogeometry.md)**
 
 :   在 Coq 定理证明器中扩展 λ-MM 库，将基于 Leśniewski 部分学（mereology）的 Tarski 固体几何重写为具备完整拓扑结构的形式化系统，证明部分学类对应正则开集、满足 Kuratowski 内部公理且具有 Hausdorff（T2）性质，从而为定性空间推理提供了统一的部分学-几何-拓扑理论框架。
-
-**[UniShape: A Unified Shape-Aware Foundation Model for Time Series Classification](a_unified_shape-aware_foundation_model_for_time_series_class.md)**
-
-:   提出UniShape——首个面向时间序列分类(TSC)的形状感知基础模型：通过多尺度子序列(shape)自适应聚合的shape-aware adapter捕获类别判别性时序模式，结合原型预训练模块在实例级和shape级联合学习可迁移的shapelet表示；在189万样本上预训练后，128个UCR数据集上达到0.8708平均准确率，超越所有基线。
 
 **[Agent-SAMA: State-Aware Mobile Assistant](agent-sama_state-aware_mobile_assistant.md)**
 

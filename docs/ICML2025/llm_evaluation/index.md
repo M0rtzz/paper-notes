@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 LLM 评测方向50篇论文解读
+  ICML2025 LLM 评测方向49篇论文解读
 description: >-
-  50篇ICML2025的 LLM 评测方向论文解读，涵盖 LLM、域适应、对抗鲁棒、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  49篇ICML2025的 LLM 评测方向论文解读，涵盖 LLM、域适应、对抗鲁棒、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "LLM 评测"
@@ -17,7 +17,7 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM 评测
 
-**🧪 ICML2025** · **50** 篇论文解读
+**🧪 ICML2025** · **49** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/llm_evaluation/index.md) · [💬 ACL2026 (79)](../../ACL2026/llm_evaluation/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/llm_evaluation/index.md) · [🔬 ICLR2026 (53)](../../ICLR2026/llm_evaluation/index.md) · [🤖 AAAI2026 (39)](../../AAAI2026/llm_evaluation/index.md) · [🧠 NeurIPS2025 (79)](../../NeurIPS2025/llm_evaluation/index.md)
 
@@ -214,10 +214,6 @@ tags:
 **[The Best of Both Worlds: Bridging Quality and Diversity in Data Selection with Bipartite Graph](the_best_of_both_worlds_bridging_quality_and_diversity_in_data_selection_with_bi.md)**
 
 :   提出 GraphFilter 方法，将 SFT 数据集建模为句子-n-gram 的二部图，通过乘法优先级函数同时优化数据质量和多样性，在 3 个模型 6 个基准上全面超越 9 种基线方法。
-
-**[UI-Evol: Automatic Knowledge Evolving for Computer Use Agents](ui-evol_automatic_knowledge_evolving_for_computer_use_agents.md)**
-
-:   提出UI-Evol即插即用模块，通过Retrace（从截图还原实际动作序列）和Critique（对比外部知识诊断偏差并修正）两阶段自主进化GUI任务知识，在OSWorld基准上将Agent S2的成功率从19.5%提升到22%+，同时将行为标准差降低约4倍，显著增强了计算机操作代理的可靠性。
 
 **[Unlocking Post-hoc Dataset Inference with Synthetic Data](unlocking_post-hoc_dataset_inference_with_synthetic_data.md)**
 

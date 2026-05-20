@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 LLM / NLP方向12篇论文解读
+  ECCV2024 LLM / NLP方向11篇论文解读
 description: >-
-  12篇ECCV2024的 LLM / NLP 方向论文解读，涵盖少样本学习、异常检测、人脸/视线、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  11篇ECCV2024的 LLM / NLP 方向论文解读，涵盖少样本学习、异常检测、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "LLM / NLP"
@@ -10,16 +10,15 @@ tags:
   - "论文笔记"
   - "少样本学习"
   - "异常检测"
-  - "人脸/视线"
   - "Agent"
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM / NLP
 
-**🎞️ ECCV2024** · **12** 篇论文解读
+**🎞️ ECCV2024** · **11** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (50)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (32)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (50)](../../NeurIPS2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (50)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (32)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_nlp/index.md)
 
 🔥 **高频主题：** 少样本学习 ×2
 
@@ -34,10 +33,6 @@ tags:
 **[Cultural Value Differences of LLMs: Prompt, Language, and Model Size](cultural_value_differences_llms.md)**
 
 :   本文使用 Hofstede 文化维度问卷系统性地研究 LLM 表达文化价值观的行为模式，发现提示语言（中文 vs 英文）和模型规模对文化价值差异的影响远大于模型架构差异和问题顺序变化。
-
-**[DreamStruct: Understanding Slides and User Interfaces via Synthetic Data Generation](dreamstruct_understanding_slides_and_user_interfaces_via_synthetic_data_generati.md)**
-
-:   提出利用代码生成合成结构化视觉数据（幻灯片和UI），用于训练理解模型，减少人工标注需求。
 
 **[FreestyleRet: Retrieving Images from Style-Diversified Queries](freestyleret_retrieving_images_from_style-diversified_queries.md)**
 

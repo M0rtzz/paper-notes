@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 视频生成方向82篇论文解读
+  CVPR2025 视频生成方向81篇论文解读
 description: >-
-  82篇CVPR2025的视频生成方向论文解读，涵盖视频生成、扩散模型、布局/合成、超分辨率、压缩/编码、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  81篇CVPR2025的视频生成方向论文解读，涵盖视频生成、扩散模型、布局/合成、超分辨率、压缩/编码、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "视频生成"
@@ -18,7 +18,7 @@ tags:
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频生成
 
-**📷 CVPR2025** · **82** 篇论文解读
+**📷 CVPR2025** · **81** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/video_generation/index.md) · [💬 ACL2026 (4)](../../ACL2026/video_generation/index.md) · [📷 CVPR2026 (54)](../../CVPR2026/video_generation/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/video_generation/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/video_generation/index.md) · [🧠 NeurIPS2025 (22)](../../NeurIPS2025/video_generation/index.md)
 
@@ -327,10 +327,6 @@ tags:
 **[VidTwin: Video VAE with Decoupled Structure and Dynamics](vidtwin_video_vae_with_decoupled_structure_and_dynamics.md)**
 
 :   提出 VidTwin，将视频解耦为 Structure Latent（全局内容和整体运动）和 Dynamics Latent（细粒度细节和快速运动）两个独立潜空间，以 0.20% 的极高压缩率实现 28.14 PSNR 的高质量重建。
-
-**[ViReS: Video Instance Repainting via Sketch and Text Guided Generation](vires_video_instance_repainting_via_sketch_and_text_guided_generation.md)**
-
-:   提出ViReS框架，通过草图和文本双重引导实现视频中特定实例的重绘，利用时序注意力和实例掩码保持背景不变和时间一致性，在多种视频编辑场景下生成高质量结果。
 
 **[Visual Prompting for One-Shot Controllable Video Editing Without Inversion](visual_prompting_for_one-shot_controllable_video_editing_without_inversion.md)**
 
