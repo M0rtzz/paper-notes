@@ -45,36 +45,27 @@ tags:
 
 ### 整体框架
 
-框架分两阶段：(1) 利用 Material Point Method (MPM) 物理仿真生成参考运动轨迹作为先验；(2) 训练循环神经动力学模型，通过 Physics-Guided Score Distillation 联合优化运动和外观。
+这篇论文要解决的是：在已经重建好的静态 3DGS 场景里，添加降雪、降雨、雾、沙尘暴这类需要粒子持续发射和累积的动态天气效果，且既要运动物理合理、又要外观真实。难点在于物理仿真能给出合理运动却不够逼真，视频扩散（Video-SDS）能生成真实外观却学不会复杂的多粒子运动——二者各有一半。
 
-### 物理运动先验 (Physics-Based Motion Prior)
+本文的做法是把两者串成两阶段：先用 Material Point Method（MPM）物理仿真把动态粒子的参考运动轨迹算出来当先验，再训练一个循环神经动力学模型，通过 Physics-Guided Score Distillation 在这个先验的"软约束"下联合优化运动和外观。
 
-- 用 3DGS 重建静态场景后提取 mesh，将静态高斯映射为 MPM 粒子作为障碍物
-- 引入动态粒子（设定发射区域、速率、初速度、材料属性），用 MPM 仿真计算运动轨迹
-- **主动粒子追踪**：粒子静止或出界后自动从仿真中移除，支持大规模粒子仿真
-- **Mesh 碰撞精修**：针对 MPM 粗网格不足，设计不同天气的碰撞处理——雪投影到表面并插值附近高斯实现自然堆积；雨用 3D 湿度网格追踪水分带高斯平滑与时间衰减；沙尘沿法线位移并各向异性缩放
+### 关键设计
 
-### 循环神经动力学模型 (Recurrent Neural Dynamics Model)
+**1. 物理运动先验：用 MPM 仿真给天气粒子一条物理合理的运动轨迹**
 
-- 输入：上一时刻渲染状态（位置、旋转、外观）+ 物理仿真速度 + 时间步
-- 为 active 和 collided 两种物理状态分别设 MLP
-- 位置/速度用 Fourier 特征编码，时间用正弦编码
-- 输出：速度修正 $\Delta \mathbf{v}$、角速度 $\boldsymbol{\omega}$、外观增量 $\Delta \mathcal{A}$
-- 运动更新：$\mathbf{v}_g(t) = \mathbf{v}_g^{\text{init}}(t) + \Delta \mathbf{v}_g$，$\mathbf{x}_g(t) = \mathbf{x}_g(t{-}1) + \mathbf{v}_g(t)$
-- 外观参数由 LLM 根据天气文本描述初始化
+Video-SDS 单独无法学会"粒子从哪发射、怎么下落、如何堆积"这类持续多粒子运动，因此先用物理仿真把运动骨架定下来。具体是先对静态场景做 3DGS 重建并提取 mesh，把静态高斯映射成 MPM 粒子当作障碍物；再引入动态粒子（设定发射区域、速率、初速度、材料属性），用 MPM 仿真出运动轨迹。为支撑大规模粒子，设计了主动粒子追踪——粒子静止或出界后自动从仿真中移除。针对 MPM 粗网格表达碰撞不足，还按天气定制了 mesh 碰撞精修：雪投影到表面并插值附近高斯实现自然堆积，雨用 3D 湿度网格追踪水分、带高斯平滑与时间衰减，沙尘沿法线位移并各向异性缩放。
 
-### 损失函数
+**2. 循环神经动力学模型：在物理先验之上联合修正运动与外观**
 
-总损失：
+物理轨迹解决了"动得合不合理"，但新引入的粒子还没有真实外观，仿真轨迹与扩散模型期望的画面之间也需要弥合。该模型以上一时刻的渲染状态（位置、旋转、外观）、物理仿真速度和时间步为输入，为 active 和 collided 两种物理状态分别配一个 MLP（位置/速度用 Fourier 特征编码、时间用正弦编码），输出速度修正 $\Delta\mathbf{v}$、角速度 $\boldsymbol{\omega}$ 和外观增量 $\Delta\mathcal{A}$；运动按 $\mathbf{v}_g(t)=\mathbf{v}_g^{\text{init}}(t)+\Delta\mathbf{v}_g$、$\mathbf{x}_g(t)=\mathbf{x}_g(t{-}1)+\mathbf{v}_g(t)$ 递推更新，外观参数则由 LLM 依据天气文本描述初始化。这样物理先验只作为可被网络微调的"软约束"，既保住运动合理性，又让 Video-SDS 能把外观推向真实。
+
+### 损失函数 / 训练策略
+
+总损失为
 
 $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{Video-SDS}} + \lambda_{\text{xyz}}\mathcal{L}_{\text{xyz}} + \lambda_{\text{vel}}\mathcal{L}_{\text{vel}} + \lambda_{\text{rot}}\mathcal{L}_{\text{rot}} + \lambda_{\text{app}}\mathcal{L}_{\text{app}}$$
 
-- **Video-SDS 损失**：利用文本-视频扩散模型提供真实感监督
-- **位置正则** $\mathcal{L}_{\text{xyz}}$：学习轨迹与仿真轨迹的 L2 距离
-- **速度正则** $\mathcal{L}_{\text{vel}}$：学习速度与仿真速度的 L2 距离
-- **旋转正则** $\mathcal{L}_{\text{rot}}$：四元数角距离，防止旋转漂移
-- **外观正则** $\mathcal{L}_{\text{app}}$：惩罚过大的外观增量，抑制循环累积误差
-- **SDS 自适应权重**：所有正则项权重乘以 $|\mathcal{L}_{\text{Video-SDS}}|$ 动态缩放——扩散模型不确定时加强物理引导，确信时放松约束
+其中 Video-SDS 损失借文本-视频扩散模型提供真实感监督；$\mathcal{L}_{\text{xyz}}$、$\mathcal{L}_{\text{vel}}$ 分别把学习到的轨迹、速度用 L2 拉向仿真值，$\mathcal{L}_{\text{rot}}$ 用四元数角距离防旋转漂移，$\mathcal{L}_{\text{app}}$ 惩罚过大的外观增量以抑制循环累积误差。关键的一招是 SDS 自适应权重：所有正则项权重都乘上 $|\mathcal{L}_{\text{Video-SDS}}|$ 动态缩放——扩散模型不确定时加强物理引导，确信时放松约束，免去手工调参。
 
 ## 实验
 

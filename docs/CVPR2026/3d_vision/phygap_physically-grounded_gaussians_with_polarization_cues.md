@@ -41,27 +41,25 @@ tags:
 
 ### 整体框架
 
-PhyGaP 基于 2DGS + Ref-Gaussian 框架，对每个高斯原语维护可学习属性：albedo $\boldsymbol{\lambda}$、折射率（IoR）$\eta$、表面法线 $\mathbf{n}$ 和粗糙度 $r$，以及一个可学习环境立方体 mipmap $E$。通过 α-blending 将属性溅射为 2D 材质图后，送入 PolarDR 计算每像素 Stokes 向量，再用真值偏振信息监督优化。
+PhyGaP 要解决的是光泽/反射物体的逆渲染：普通 RGB 不编码法线、反射率、粗糙度这些物理量，导致 albedo 与反射光分解失败、重光照时出现色偏和伪影。它基于 2DGS + Ref-Gaussian，给每个高斯原语维护可学习的 albedo $\boldsymbol{\lambda}$、折射率 $\eta$、法线 $\mathbf{n}$、粗糙度 $r$，外加一个可学习的环境立方体 mipmap $E$。流程是：先用 α-blending 把这些属性溅射成 2D 材质图，送入 PolarDR 算出每像素的偏振 Stokes 向量，再用真值偏振图直接监督优化——偏振线索充当了 RGB 给不出的物理约束。
 
-### PolarDR：偏振延迟渲染
+### 关键设计
 
-- 光的偏振状态用 Stokes 向量 $\mathbf{s}=[s_0, s_1, s_2, s_3]^\top$ 表示；光与表面交互通过 Mueller 矩阵建模。
-- **镜面偏振**：利用 Fresnel 系数 $R^\perp, R^\parallel$ 计算偏振度 $\beta_s$，结合镜面辐射度 $L_s$ 得到镜面 Stokes 分量。
-- **漫反射偏振**：利用透射 Fresnel 系数 $T^\perp, T^\parallel$ 计算偏振度 $\beta_d$，结合漫反射辐射度 $L_d$ 得到漫反射 Stokes 分量。
-- 两者之和构成渲染 Stokes 向量，与 GT 偏振图直接对比优化，从而显式约束镜面与漫反射分解。
-- **不使用球谐函数表示颜色**，因为 albedo 应与视角无关。
+**1. PolarDR：用偏振 Stokes 向量直接监督，破解 albedo-光照歧义**
 
-### GridMap：自遮挡感知环境图
+普通 RGB 只能看到混在一起的颜色，分不清哪部分是 albedo、哪部分是反射光。PhyGaP 抓住偏振的物理规律——镜面反射强线偏、漫反射弱偏且偏振角偏移 90°——把 pBRDF 嵌进 GS 延迟渲染：光的偏振态用 Stokes 向量 $\mathbf{s}=[s_0, s_1, s_2, s_3]^\top$ 表示，与表面交互用 Mueller 矩阵建模。镜面分量用 Fresnel 系数 $R^\perp, R^\parallel$ 算偏振度 $\beta_s$ 再乘镜面辐射度 $L_s$，漫反射分量用透射 Fresnel 系数 $T^\perp, T^\parallel$ 算 $\beta_d$ 再乘漫反射辐射度 $L_d$，两者相加得到渲染 Stokes 向量，与 GT 偏振图逐像素比对。这样镜面/漫反射的分解被偏振显式约束住，不再退化成歧义解；颜色也刻意不用球谐表示，因为 albedo 本该与视角无关。
 
-- 在物体包围盒每面划分 3×3 网格，在网格节点放置锚点相机（底面除外，共 $N=52$ 个）。
-- 对每个锚点相机执行单步光线追踪，构建局部立方体图 $\tilde{E}_i$，混合物体自身颜色与全局环境。
-- 渲染时按距离加权融合所有局部立方体图的 Stokes 结果：
+**2. GridMap：自遮挡感知环境图，处理非凸物体的间接光照**
+
+传统环境立方体图假设光源在无穷远，碰到非凸物体的自遮挡和互反射就会渲染出错误阴影。PhyGaP 在物体包围盒每个面划 3×3 网格、在节点放锚点相机（底面除外，共 $N=52$ 个），对每个锚点做一次单步光线追踪，构出一张混合了自身颜色与全局环境的局部立方体图 $\tilde{E}_i$；渲染时按距离加权融合所有局部图的 Stokes 结果
 
 $$\tilde{S}_d = \frac{\sum_{i=1}^{N} \|\mathbf{p}-\mathbf{c}_i\|_2 \cdot \tilde{S}_d^{(i)}}{\sum_{i=1}^{N} \|\mathbf{p}-\mathbf{c}_i\|_2}$$
 
-- 局部立方体图无需梯度且仅需低频更新，开销远低于多次弹射光线追踪。
+局部立方体图不需要梯度、只需低频更新，开销远低于多次弹射光追，却把"近处物体挡光"这类局部遮挡信息补了回来。
 
 ### 损失函数
+
+总损失把 RGB 重建和偏振、几何约束合到一起：
 
 $$\mathcal{L} = \mathcal{L}_{\mathrm{rgb}} + \lambda_1 \mathcal{L}_{\mathrm{pol}} + \lambda_2 \mathcal{L}_{\mathrm{mask}} + \lambda_3 \mathcal{L}_{\mathrm{depth}} + \lambda_4 \mathcal{L}_{\mathrm{smooth}}$$
 

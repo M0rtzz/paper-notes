@@ -26,7 +26,7 @@ hide:
 <p class="hero-subtitle">AI · LLM · NLP · CV 顶会论文解读，每篇 5 分钟读懂核心思想。<br>覆盖 ACL · CVPR · ICLR · AAAI · NeurIPS · ICCV · ICML · ECCV 等会议<br>持续更新中</p>
 
 <div class="hero-stats">
-<div class="stat"><span class="stat-number">16824</span><span class="stat-label">篇笔记</span></div>
+<div class="stat"><span class="stat-number">16826</span><span class="stat-label">篇笔记</span></div>
 <div class="stat"><span class="stat-number">11</span><span class="stat-label">个会议</span></div>
 <div class="stat"><span class="stat-number">48</span><span class="stat-label">个领域</span></div>
 </div>
@@ -323,7 +323,7 @@ hide:
 
 ### 🔬 [ICLR2026](ICLR2026/index.md)
 
-<div class="conf-count">1527 篇 · 47 个领域</div>
+<div class="conf-count">1529 篇 · 47 个领域</div>
 
 <div class="area-groups">
 <div class="area-group">
@@ -400,7 +400,7 @@ hide:
 <div class="area-tags">
 <a class="area-tag" href="ICLR2026/computational_biology/">计算生物 38</a>
 <a class="area-tag" href="ICLR2026/ai_safety/">AI 安全 27</a>
-<a class="area-tag" href="ICLR2026/medical_imaging/">医学图像 19</a>
+<a class="area-tag" href="ICLR2026/medical_imaging/">医学图像 21</a>
 <a class="area-tag" href="ICLR2026/physics/">物理/科学计算 16</a>
 <a class="area-tag" href="ICLR2026/medical_nlp/">医疗 NLP 13</a>
 <a class="area-tag" href="ICLR2026/social_computing/">社会计算 12</a>

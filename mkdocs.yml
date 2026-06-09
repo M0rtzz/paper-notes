@@ -6479,11 +6479,13 @@ nav:
     - 'VPI-Bench: Visual Prompt Injection Attacks for Computer-Use Agents': ICLR2026/ai_safety/vpi-bench_visual_prompt_injection_attacks_for_computer-use_agents.md
     - Watermark-based Detection and Attribution of AI-Generated Content: ICLR2026/ai_safety/watermark-based_attribution_of_ai-generated_content.md
     - 'Why Do Unlearnable Examples Work: A Novel Perspective of Mutual Information': ICLR2026/ai_safety/why_do_unlearnable_examples_work_a_novel_perspective_of_mutual_information.md
-  - 🏥 医学图像 (19):
+  - 🏥 医学图像 (21):
     - 🏥 医学图像: ICLR2026/medical_imaging/index.md
     - Adaptive Domain Shift in Diffusion Models for Cross-Modality Image Translation: ICLR2026/medical_imaging/adaptive_domain_shift_in_diffusion_models_for_cross-modality_image_translation.md
+    - 'Biologically Plausible Online Hebbian Meta-Learning: Two-Timescale Local Rules for Spiking Neural Brain Interfaces': ICLR2026/medical_imaging/biologically_plausible_online_hebbian_meta-learning_two-timescale_local_rules_fo.md
     - Boosting Medical Visual Understanding From Multi-Granular Language Learning: ICLR2026/medical_imaging/boosting_medical_visual_understanding_from_multi-granular_language_learning.md
     - 'Brain-IT: Image Reconstruction from fMRI via Brain-Interaction Transformer': ICLR2026/medical_imaging/brain-it_image_reconstruction_from_fmri_via_brain-interaction_transformer.md
+    - 'Brain-Semantoks: Learning Semantic Tokens of Brain Dynamics with a Self-Distilled Foundation Model': ICLR2026/medical_imaging/brain-semantoks_learning_semantic_tokens_of_brain_dynamics_with_a_self-distilled.md
     - 'CARE: Towards Clinical Accountability in Multi-Modal Medical Reasoning with an Evidence-Grounded Agentic Framework': ICLR2026/medical_imaging/care_towards_clinical_accountability_in_multi-modal_medical_reasoning_with_an_ev.md
     - Characterizing Human Semantic Navigation in Concept Production as Trajectories in Embedding Space: ICLR2026/medical_imaging/characterizing_human_semantic_navigation_in_concept_production_as_trajectories_i.md
     - 'COMPASS: Robust Feature Conformal Prediction for Medical Segmentation Metrics': ICLR2026/medical_imaging/compass_robust_feature_conformal_prediction_for_medical_segmentation_metrics.md
