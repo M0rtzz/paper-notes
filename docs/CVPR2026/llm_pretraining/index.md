@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 预训练方向3篇论文解读
+  CVPR2026 预训练论文汇总 · 3篇论文解读
 description: >-
   3篇CVPR2026的预训练方向论文解读，收录 Evidential Transformation Network、Linking Modality Isolation in 、Watch and Learn等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -8,6 +8,14 @@ tags:
   - "预训练"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "evidential_transformation_network_post_hoc_uncertainty_estimation/"
+    t: "Evidential Transformation Network: Turning Pretrained Models into Evidential Models for Post-hoc Uncertainty Estimation"
+  - u: "linking_modality_isolation_in_heterogeneous_collaborative_perception/"
+    t: "Linking Modality Isolation in Heterogeneous Collaborative Perception"
+  - u: "watch_and_learn_learning_to_use_computers_from_online_videos/"
+    t: "Watch and Learn: Learning to Use Computers from Online Videos"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -15,7 +23,7 @@ tags:
 
 **📷 CVPR2026** · **3** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (8)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
 
 **[Evidential Transformation Network: Turning Pretrained Models into Evidential Models for Post-hoc Uncertainty Estimation](evidential_transformation_network_post_hoc_uncertainty_estimation.md)**
 

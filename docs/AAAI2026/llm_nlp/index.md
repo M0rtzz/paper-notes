@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 LLM / NLP方向28篇论文解读
+  AAAI2026 LLM/NLP论文汇总 · 28篇论文解读
 description: >-
   28篇AAAI2026的 LLM / NLP 方向论文解读，涵盖 LLM、推理、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,64 @@ tags:
   - "LLM"
   - "推理"
   - "对齐/RLHF"
+item_list:
+  - u: "a_content-preserving_secure_linguistic_steganography/"
+    t: "A Content-Preserving Secure Linguistic Steganography"
+  - u: "an_invariant_latent_space_perspective_on_language_model_inve/"
+    t: "An Invariant Latent Space Perspective on Language Model Inversion"
+  - u: "blue_teaming_function-calling_agents/"
+    t: "Blue Teaming Function-Calling Agents"
+  - u: "clicare_grounding_large_language_models_in_clinical_guidelines_for_decision_supp/"
+    t: "CliCARE: Grounding Large Language Models in Clinical Guidelines for Decision Support over Longitudinal Cancer Electronic Health Records"
+  - u: "coevo_continual_evolution_of_symbolic_solutions_using_large_language_models/"
+    t: "CoEvo: Continual Evolution of Symbolic Solutions Using Large Language Models"
+  - u: "collaborative_llm_numerical_reasoning_with_local_data_protection/"
+    t: "Collaborative LLM Numerical Reasoning with Local Data Protection"
+  - u: "control_illusion_the_failure_of_instruction_hierarchies_in_large_language_models/"
+    t: "Control Illusion: The Failure of Instruction Hierarchies in Large Language Models"
+  - u: "guess_or_recall_training_cnns_to_classify_and_localize_memorization_in_llms/"
+    t: "Guess or Recall? Training CNNs to Classify and Localize Memorization in LLMs"
+  - u: "icl-router_in-context_learned_model_representations_for_llm_routing/"
+    t: "ICL-Router: In-Context Learned Model Representations for LLM Routing"
+  - u: "identifying_and_analyzing_performance-critical_tokens_in_large_language_models/"
+    t: "Identifying and Analyzing Performance-Critical Tokens in Large Language Models"
+  - u: "irote_human-like_traits_elicitation_of_large_language_model_via_in-context_self-/"
+    t: "IROTE: Human-like Traits Elicitation of Large Language Model via In-Context Self-Reflective Optimization"
+  - u: "learning_spatial_decay_for_vision_transformers/"
+    t: "Learning Spatial Decay for Vision Transformers"
+  - u: "loki_low-damage_knowledge_implanting_of_large_language_models/"
+    t: "LoKI: Low-damage Knowledge Implanting of Large Language Models"
+  - u: "loopllm_transferable_energy-latency_attacks_in_llms_via_repetitive_generation/"
+    t: "LoopLLM: Transferable Energy-Latency Attacks in LLMs via Repetitive Generation"
+  - u: "paretohqd_fast_offline_multiobjective_alignment_of_large_language_models_using_p/"
+    t: "ParetoHqD: Fast Offline Multiobjective Alignment of Large Language Models Using Pareto High-Quality Data"
+  - u: "persistent_instability_in_llms_personality_measurements_effects_of_scale_reasoni/"
+    t: "PERSIST: Persistent Instability in LLM's Personality Measurements"
+  - u: "position_on_llm-assisted_peer_review_addressing_reviewer_gap_through_mentoring_a/"
+    t: "Position on LLM-Assisted Peer Review: Addressing Reviewer Gap through Mentoring and Feedback"
+  - u: "profuser_progressive_fusion_of_large_language_models/"
+    t: "ProFuser: Progressive Fusion of Large Language Models"
+  - u: "quantifying_conversational_reliability_of_large_language_models_under_multi-turn/"
+    t: "Quantifying Conversational Reliability of Large Language Models under Multi-Turn Interaction"
+  - u: "rectification_reimagined_a_unified_mamba_model_for_image_cor/"
+    t: "Rectification Reimagined: A Unified Mamba Model for Image Correction and Rectangling with Prompts"
+  - u: "scaling_equitable_reflection_assessment_in_education_via_large_language_models_a/"
+    t: "Scaling Equitable Reflection Assessment in Education via Large Language Models and Role-Based Feedback Agents"
+  - u: "soft_filtering_guiding_zero-shot_composed_image_retrieval_with_prescriptive_and_/"
+    t: "Soft Filtering: Guiding Zero-Shot Composed Image Retrieval with Prescriptive and Proscriptive Prompts"
+  - u: "stem_efficient_relative_capability_evaluation_of_llms_through_structured_transit/"
+    t: "STEM: Efficient Relative Capability Evaluation of LLMs through Structured Transitive Evaluation Model"
+  - u: "temple_incentivizing_temporal_understanding_of_video_large_language_models_via_p/"
+    t: "TEMPLE: Incentivizing Temporal Understanding of Video LLMs via Progressive Pre-SFT Alignment"
+  - u: "transmamba_a_sequence-level_hybrid_transformer-mamba_language_model/"
+    t: "TransMamba: A Sequence-Level Hybrid Transformer-Mamba Language Model"
+  - u: "uncertainty_under_the_curve_a_sequence-level_entropy_area_metric_for_reasoning_l/"
+    t: "Uncertainty Under the Curve: A Sequence-Level Entropy Area Metric for Reasoning LLMs"
+  - u: "vision_transformers_are_circulant_attention_learners/"
+    t: "Vision Transformers are Circulant Attention Learners"
+  - u: "vspo_validating_semantic_pitfalls_in_ontology_via_llm-based_cq_generation/"
+    t: "VSPO: Validating Semantic Pitfalls in Ontology via LLM-Based CQ Generation"
+item_total: 28
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +76,7 @@ tags:
 
 **🤖 AAAI2026** · **28** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/llm_nlp/index.md) · [📹 ICCV2025 (6)](../../ICCV2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_nlp/index.md) · [📹 ICCV2025 (6)](../../ICCV2025/llm_nlp/index.md)
 
 🔥 **高频主题：** LLM ×15 · 推理 ×2 · 对齐/RLHF ×2
 

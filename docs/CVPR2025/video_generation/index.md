@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 视频生成方向84篇论文解读
+  CVPR2025 视频生成论文汇总 · 83篇论文解读
 description: >-
-  84篇CVPR2025的视频生成方向论文解读，涵盖视频生成、扩散模型、布局/合成、超分辨率、压缩/编码、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  83篇CVPR2025的视频生成方向论文解读，涵盖视频生成、扩散模型、布局/合成、超分辨率、压缩/编码、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "视频生成"
@@ -12,13 +12,75 @@ tags:
   - "布局/合成"
   - "超分辨率"
   - "压缩/编码"
-  - "语音"
+  - "对齐/RLHF"
+item_list:
+  - u: "4real-video_learning_generalizable_photo-realistic_4d_video_diffusion/"
+    t: "4Real-Video: Learning Generalizable Photo-Realistic 4D Video Diffusion"
+  - u: "animateanything_consistent_and_controllable_animation_for_video_generation/"
+    t: "AnimateAnything: Consistent and Controllable Animation for Video Generation"
+  - u: "articulated_kinematics_distillation_from_video_diffusion_models/"
+    t: "Articulated Kinematics Distillation from Video Diffusion Models"
+  - u: "bf-stvsr_b-splines_and_fourier---best_friends_for_high_fidelity_spatia/"
+    t: "BF-STVSR: B-Splines and Fourier—Best Friends for High Fidelity Spatial-Temporal Video Super-Resolution"
+  - u: "can_text-to-video_generation_help_video-language_alignment/"
+    t: "Can Text-to-Video Generation Help Video-Language Alignment?"
+  - u: "conmo_controllable_motion_disentanglement_and_recomposition_for_zero-shot_motion/"
+    t: "ConMo: Controllable Motion Disentanglement and Recomposition for Zero-Shot Motion Transfer"
+  - u: "dynamic_camera_poses_and_where_to_find_them/"
+    t: "Dynamic Camera Poses and Where to Find Them"
+  - u: "dynamicscaler_panoramic_video/"
+    t: "DynamicScaler: Seamless and Scalable Video Generation for Panoramic Scenes"
+  - u: "dynamicscaler_seamless_and_scalable_video_generation_for_panoramic_scenes/"
+    t: "DynamicScaler: Seamless and Scalable Video Generation for Panoramic Scenes"
+  - u: "exploring_temporally-aware_features_for_point_tracking/"
+    t: "Exploring Temporally-Aware Features for Point Tracking"
+  - u: "fade_frequency-aware_diffusion_model_factorization_for_video_editing/"
+    t: "FADE: Frequency-Aware Diffusion Model Factorization for Video Editing"
+  - u: "flashmotion_few-step_controllable_video_generation_with_trajectory_guidance/"
+    t: "FlashMotion: Few-Step Controllable Video Generation with Trajectory Guidance"
+  - u: "from_slow_bidirectional_to_fast_autoregressive_video_diffusion_models/"
+    t: "From Slow Bidirectional to Fast Autoregressive Video Diffusion Models"
+  - u: "gen3c_3d-informed_world-consistent_video_generation_with_precise_camera_control/"
+    t: "GEN3C: 3D-Informed World-Consistent Video Generation with Precise Camera Control"
+  - u: "generative_inbetweening_through_frame-wise_conditions-driven_video_generation/"
+    t: "Generative Inbetweening through Frame-wise Conditions-Driven Video Generation"
+  - u: "geometry-guided_online_3d_video_synthesis_with_multi-view_temporal_consistency/"
+    t: "Geometry-guided Online 3D Video Synthesis with Multi-View Temporal Consistency"
+  - u: "hoigen-1m_a_large-scale_dataset_for_human-object_interaction_video_generation/"
+    t: "HOIGen-1M: A Large-Scale Dataset for Human-Object Interaction Video Generation"
+  - u: "hunyuanportrait_implicit_condition_control_for_enhanced_portrait_animation/"
+    t: "HunyuanPortrait: Implicit Condition Control for Enhanced Portrait Animation"
+  - u: "hypernvd_accelerating_neural_video_decomposition_via_hypernetworks/"
+    t: "HyperNVD: Accelerating Neural Video Decomposition via Hypernetworks"
+  - u: "identity-preserving_text-to-video_generation_by_frequency_decomposition/"
+    t: "Identity-Preserving Text-to-Video Generation by Frequency Decomposition"
+  - u: "idol_instant_photorealistic_3d_human_creation_from_a_single_image/"
+    t: "IDOL: Instant Photorealistic 3D Human Creation from a Single Image"
+  - u: "improved_video_vae_for_latent_video_diffusion_model/"
+    t: "Improved Video VAE for Latent Video Diffusion Model"
+  - u: "interdyn_controllable_interactive_dynamics_with_video_diffusion_models/"
+    t: "InterDyn: Controllable Interactive Dynamics with Video Diffusion Models"
+  - u: "learning_from_streaming_video_with_orthogonal_gradients/"
+    t: "Learning from Streaming Video with Orthogonal Gradients"
+  - u: "learning_temporally_consistent_video_depth_from_video_diffusion_priors/"
+    t: "Learning Temporally Consistent Video Depth from Video Diffusion Priors"
+  - u: "levitor_3d_trajectory_oriented_image-to-video_synthesis/"
+    t: "LeviTor: 3D Trajectory Oriented Image-to-Video Synthesis"
+  - u: "long_video_diffusion_generation_with_segmented_cross-attention_and_content-rich_/"
+    t: "Presto: Long Video Diffusion Generation with Segmented Cross-Attention and Content-Rich Video Data Curation"
+  - u: "longdiff_training-free_long_video_generation_in_one_go/"
+    t: "LongDiff: Training-Free Long Video Generation in One Go"
+  - u: "mimir_improving_video_diffusion_models_for_precise_text_understanding/"
+    t: "Mimir: Improving Video Diffusion Models for Precise Text Understanding"
+  - u: "mimo_controllable_character_video_synthesis_with_spatial_decomposed_modeling/"
+    t: "MIMO: Controllable Character Video Synthesis with Spatial Decomposed Modeling"
+item_total: 83
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频生成
 
-**📷 CVPR2025** · **84** 篇论文解读
+**📷 CVPR2025** · **83** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (28)](../../ICML2026/video_generation/index.md) · [💬 ACL2026 (4)](../../ACL2026/video_generation/index.md) · [📷 CVPR2026 (65)](../../CVPR2026/video_generation/index.md) · [🔬 ICLR2026 (19)](../../ICLR2026/video_generation/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/video_generation/index.md) · [🧠 NeurIPS2025 (23)](../../NeurIPS2025/video_generation/index.md)
 
@@ -339,10 +401,6 @@ tags:
 **[Visual Prompting for One-Shot Controllable Video Editing Without Inversion](visual_prompting_for_one-shot_controllable_video_editing_without_inversion.md)**
 
 :   本文从视觉提示（Visual Prompting）的全新视角解决一次性可控视频编辑（OCVE）问题，通过图像修复扩散模型完成编辑传播，并提出内容一致性采样（CCS）和时序-内容一致性采样（TCS）两种采样策略，无需 DDIM 反演即可实现高质量可控视频编辑。
-
-**[Wav2Sem: Plug-and-Play Audio Semantic Decoupling for 3D Speech-Driven Facial Animation](wav2sem_plug-and-play_audio_semantic_decoupling_for_3d_speech-driven_facial_anim.md)**
-
-:   提出即插即用的音频语义解耦模块 Wav2Sem，通过从完整音频序列中提取全局语义特征并与现有自监督音频模型（HuBERT/Wav2Vec 2.0）融合，解决近同音音节在特征空间中的耦合问题，显著缓解唇形生成中的"平均化效应"，在 6 种不同架构的面部动画模型上均取得一致的性能提升。
 
 **[When to Lock Attention: Training-Free KV Control in Video Diffusion](when_to_lock_attention_training-free_kv_control_in_video_diffusion.md)**
 

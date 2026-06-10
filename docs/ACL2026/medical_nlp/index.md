@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 医疗 NLP方向47篇论文解读
+  ACL2026 医疗NLP论文汇总 · 47篇论文解读
 description: >-
   47篇ACL2026的医疗 NLP 方向论文解读，涵盖医学影像、LLM、推理、强化学习、问答、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "强化学习"
   - "问答"
   - "对齐/RLHF"
+item_list:
+  - u: "34excuse_me_may_i_say_something34_colabscience_a_proactive_ai_assistant_for_biom/"
+    t: "\"Excuse Me, May I Say Something…\" CoLabScience: A Proactive AI Assistant for Biomedical Discovery"
+  - u: "anonpsy_a_graph-based_framework_for_structure-preserving_de-identification_of_ps/"
+    t: "Anonpsy: A Graph-Based Framework for Structure-Preserving De-identification of Psychiatric Narratives"
+  - u: "beyond_prompt_fine-grained_simulation_of_cognitively_impaired_standardized_patie/"
+    t: "Beyond Prompt: Fine-grained Simulation of Cognitively Impaired Standardized Patients via Stochastic Steering"
+  - u: "beyond_the_individual_virtualizing_multi-disciplinary_reasoning_for_clinical_int/"
+    t: "Beyond the Individual: Virtualizing Multi-Disciplinary Reasoning for Clinical Intake via Collaborative Agents"
+  - u: "beyond_the_leaderboard_rethinking_medical_benchmarks_for_large_language_models/"
+    t: "Beyond the Leaderboard: Rethinking Medical Benchmarks for Large Language Models"
+  - u: "biohicl_hierarchical_multi-label_contrastive_learning_for_biomedical_retrieval_w/"
+    t: "BioHiCL: Hierarchical Multi-Label Contrastive Learning for Biomedical Retrieval with MeSH Labels"
+  - u: "calibrated_not_for_everyone_how_sexual_orientation_and_religious_markers_distort/"
+    t: "Calibrated? Not for Everyone: How Sexual Orientation and Religious Markers Distort LLM Accuracy and Confidence in Medical QA"
+  - u: "can_continual_pre-training_bridge_the_performance_gap_between_general-purpose_an/"
+    t: "Can Continual Pre-training Bridge the Performance Gap between General-purpose and Specialized Language Models in the Medical Domain?"
+  - u: "ct-finebench_a_diagnostic_fidelity_benchmark_for_fine-grained_evaluation_of_ct_r/"
+    t: "CT-FineBench: A Diagnostic Fidelity Benchmark for Fine-Grained Evaluation of CT Report Generation"
+  - u: "ct-flow_orchestrating_ct_interpretation_workflow_with_model_context_protocol_ser/"
+    t: "CT-Flow: Orchestrating CT Interpretation Workflow with Model Context Protocol Servers"
+  - u: "cura_clinical_uncertainty_risk_alignment_for_language_model-based_risk_predictio/"
+    t: "CURA: Clinical Uncertainty Risk Alignment for Language Model-Based Risk Prediction"
+  - u: "cure-med_curriculum-informed_reinforcement_learning_for_multilingual_medical_rea/"
+    t: "CURE-Med: Curriculum-Informed Reinforcement Learning for Multilingual Medical Reasoning"
+  - u: "dr_assistant_enhancing_clinical_diagnostic_inquiry_via_structured_diagnostic_rea/"
+    t: "Dr. Assistant: Enhancing Clinical Diagnostic Inquiry via Structured Diagnostic Reasoning Data and Reinforcement Learning"
+  - u: "efficient_and_effective_internal_memory_retrieval_for_llm-based_healthcare_predi/"
+    t: "Efficient and Effective Internal Memory Retrieval for LLM-Based Healthcare Prediction"
+  - u: "eliciting_medical_reasoning_with_knowledge-enhanced_data_synthesis_a_semi-superv/"
+    t: "Eliciting Medical Reasoning with Knowledge-enhanced Data Synthesis: A Semi-Supervised Reinforcement Learning Approach"
+  - u: "empathy_applicability_modeling_for_general_health_queries/"
+    t: "Empathy Applicability Modeling for General Health Queries"
+  - u: "faithfulness_vs_safety_evaluating_llm_behavior_under_counterfactual_medical_evid/"
+    t: "Faithfulness vs. Safety: Evaluating LLM Behavior Under Counterfactual Medical Evidence"
+  - u: "forgotten_words_benchmarking_neobert_for_dementia_detection_in_low-resource_conv/"
+    t: "Forgotten Words: Benchmarking NeoBERT for Dementia Detection in Low-Resource Conversational Filipino and English Speech"
+  - u: "from_answers_to_arguments_toward_trustworthy_clinical_diagnostic_reasoning_with_/"
+    t: "From Answers to Arguments: Toward Trustworthy Clinical Diagnostic Reasoning with Toulmin-Guided Curriculum Goal-Conditioned Learning"
+  - u: "heterorag_a_heterogeneous_retrieval-augmented_generation_framework_for_medical_v/"
+    t: "HeteroRAG: A Heterogeneous Retrieval-Augmented Generation Framework for Medical Vision Language Tasks"
+  - u: "hypehr_hyperbolic_modeling_of_electronic_health_records_for_efficient_question_a/"
+    t: "HypEHR: Hyperbolic Modeling of Electronic Health Records for Efficient Question Answering"
+  - u: "indicmeddialog_a_parallel_multi-turn_medical_dialogue_dataset_for_accessible_hea/"
+    t: "IndicMedDialog: A Parallel Multi-Turn Medical Dialogue Dataset for Accessible Healthcare in Indic Languages"
+  - u: "inflated_excellence_or_true_performance_rethinking_medical_diagnostic_benchmarks/"
+    t: "Inflated Excellence or True Performance? Rethinking Medical Diagnostic Benchmarks with Dynamic Evaluation"
+  - u: "language_reconstruction_with_brain_predictive_coding_from_fmri_data/"
+    t: "Language Reconstruction with Brain Predictive Coding from fMRI Data"
+  - u: "learning_dynamic_representations_and_policies_from_multimodal_clinical_time-seri/"
+    t: "Learning Dynamic Representations and Policies from Multimodal Clinical Time-Series with Informative Missingness"
+  - u: "linguiutics_at_psydefdetect_iterative_imbalance-aware_fine-tuning_of_qwen3-8b_fo/"
+    t: "LinguIUTics at PsyDefDetect: Iterative Imbalance-Aware Fine-tuning of Qwen3-8B for Psychological Defense Mechanism Classification"
+  - u: "march_multi-agent_radiology_clinical_hierarchy_for_ct_report_generation/"
+    t: "MARCH: Multi-Agent Radiology Clinical Hierarchy for CT Report Generation"
+  - u: "measuring_what_matters_assessing_therapeutic_principles_in_mental-health_convers/"
+    t: "Measuring What Matters!! Assessing Therapeutic Principles in Mental-Health Conversation"
+  - u: "medfact_benchmarking_the_fact-checking_capabilities_of_large_language_models_on_/"
+    t: "MedFact: Benchmarking the Fact-Checking Capabilities of Large Language Models on Chinese Medical Texts"
+  - u: "mhgraphbench_knowledge_graph-grounded_benchmarking_of_mental_health_knowledge_in/"
+    t: "MHGraphBench: Knowledge Graph-Grounded Benchmarking of Mental Health Knowledge in Large Language Models"
+item_total: 47
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **💬 ACL2026** · **47** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (13)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (12)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (15)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
 
 🔥 **高频主题：** 医学影像 ×31 · LLM ×12 · 推理 ×8 · 强化学习 ×4 · 问答 ×3
 

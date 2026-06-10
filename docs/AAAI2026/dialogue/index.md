@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 对话系统方向5篇论文解读
+  AAAI2026 对话系统论文汇总 · 5篇论文解读
 description: >-
   5篇AAAI2026的对话系统方向论文解读，涵盖多模态、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,18 @@ tags:
   - "论文笔记"
   - "多模态"
   - "语音"
+item_list:
+  - u: "auto-pre_an_automatic_and_cost-efficient_peer-review_framework_for_language_gene/"
+    t: "Auto-PRE: An Automatic and Cost-Efficient Peer-Review Framework for Language Generation Evaluation"
+  - u: "chatsparent_an_interactive_system_for_detecting_and_mitigating_cognitive_fatigue/"
+    t: "Chatsparent: An Interactive System for Detecting and Mitigating Cognitive Fatigue in LLMs"
+  - u: "emergent_persuasion_will_llms_persuade_without_being_prompted/"
+    t: "Emergent Persuasion: Will LLMs Persuade Without Being Prompted?"
+  - u: "talksketch_multimodal_generative_ai_for_real-time_sketch_ideation_with_speech/"
+    t: "TalkSketch: Multimodal Generative AI for Real-time Sketch Ideation with Speech"
+  - u: "teaching_large_language_models_to_maintain_contextual_faithfulness_via_synthetic/"
+    t: "Canoe: Teaching LLMs to Maintain Contextual Faithfulness via Synthetic Tasks and RL"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

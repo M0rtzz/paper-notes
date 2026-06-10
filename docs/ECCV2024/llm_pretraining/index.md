@@ -1,6 +1,6 @@
 ---
 title: >-
-  ECCV2024 预训练方向8篇论文解读
+  ECCV2024 预训练论文汇总 · 8篇论文解读
 description: >-
   8篇ECCV2024的预训练方向论文解读，涵盖少样本学习、异常检测、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,24 @@ tags:
   - "少样本学习"
   - "异常检测"
   - "布局/合成"
+item_list:
+  - u: "cross-domain_learning_for_video_anomaly_detection_with_limited_supervision/"
+    t: "Cross-Domain Learning for Video Anomaly Detection with Limited Supervision"
+  - u: "dragapart_learning_a_part-level_motion_prior_for_articulated_objects/"
+    t: "DragAPart: Learning a Part-Level Motion Prior for Articulated Objects"
+  - u: "i_canapost_believe_itaposs_not_scene_flow/"
+    t: "I Can't Believe It's Not Scene Flow!"
+  - u: "learning_to_obstruct_few-shot_image_classification_over_restricted_classes/"
+    t: "Learning to Obstruct Few-Shot Image Classification over Restricted Classes"
+  - u: "plan_posture_and_go_towards_open-vocabulary_text-to-motion_generation/"
+    t: "Plan, Posture and Go: Towards Open-Vocabulary Text-to-Motion Generation"
+  - u: "prelar_world_model_pre-training_with_learnable_action_representation/"
+    t: "PreLAR: World Model Pre-training with Learnable Action Representation"
+  - u: "prompting_language-informed_distribution_for_compositional_zero-shot_learning/"
+    t: "Prompting Language-Informed Distribution for Compositional Zero-Shot Learning"
+  - u: "scaling_backwards_minimal_synthetic_pre-training/"
+    t: "Scaling Backwards: Minimal Synthetic Pre-training?"
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +36,7 @@ tags:
 
 **🎞️ ECCV2024** · **8** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (8)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_pretraining/index.md)
 
 🔥 **高频主题：** 少样本学习 ×2
 

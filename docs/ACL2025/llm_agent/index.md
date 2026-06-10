@@ -1,28 +1,89 @@
 ---
 title: >-
-  ACL2025 LLM Agent方向56篇论文解读
+  ACL2025 LLMAgent论文汇总 · 44篇论文解读
 description: >-
-  56篇ACL2025的 LLM Agent 方向论文解读，涵盖 Agent、LLM、多模态、推理、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  44篇ACL2025的 LLM Agent 方向论文解读，涵盖 LLM、Agent、多模态、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ACL2025"
   - "LLM Agent"
   - "论文解读"
   - "论文笔记"
-  - "Agent"
   - "LLM"
+  - "Agent"
   - "多模态"
-  - "推理"
   - "少样本学习"
+item_list:
+  - u: "agentic_knowledgeable_self-awareness/"
+    t: "Agentic Knowledgeable Self-Awareness"
+  - u: "agentic_reasoning_tools/"
+    t: "Agentic Reasoning: A Streamlined Framework for Enhancing LLM Reasoning with Agentic Tools"
+  - u: "agentic_reward_modeling_integrating_human_preferences_with_verifiable_correctnes/"
+    t: "Agentic Reward Modeling: Integrating Human Preferences with Verifiable Correctness Signals for Reliable Reward Systems"
+  - u: "an_empirical_study_on_llm-based_agents_for_automated_bug_fixing/"
+    t: "An Empirical Study on LLM-based Agents for Automated Bug Fixing"
+  - u: "androidgen_agent_data_scarcity/"
+    t: "AndroidGen: Building an Android Language Agent under Data Scarcity"
+  - u: "beyond_numeric_rewards_in-context_dueling_bandits_with_llm_agents/"
+    t: "Beyond Numeric Rewards: In-Context Dueling Bandits with LLM Agents"
+  - u: "bookworld_from_novels_to_interactive_agent_societies_for_story_creation/"
+    t: "BookWorld: From Novels to Interactive Agent Societies for Story Creation"
+  - u: "browsing_like_human_a_multimodal_web_agent_with_experiential_fast-and-slow_think/"
+    t: "Browsing Like Human: A Multimodal Web Agent with Experiential Fast-and-Slow Thinking"
+  - u: "can_a_single_model_master_both_multi-turn_conversations_and_tool_use_coalm_a_uni/"
+    t: "Can a Single Model Master Both Multi-turn Conversations and Tool Use? CoALM: A Unified Conversational Agentic Language Model"
+  - u: "caution_environment_gui_agent_distractions/"
+    t: "Caution for the Environment: Multimodal LLM Agents are Susceptible to Environmental Distractions"
+  - u: "dpt_agent_dual_process/"
+    t: "Leveraging Dual Process Theory in Language Agent Framework for Real-time Simultaneous Human-AI Collaboration"
+  - u: "enhancing_llm_agent_safety_via_causal_influence_prompting/"
+    t: "Enhancing LLM Agent Safety via Causal Influence Prompting"
+  - u: "explorer_scaling_exploration-driven_web_trajectory_synthesis_for_multimodal_web_/"
+    t: "Explorer: Scaling Exploration-Driven Web Trajectory Synthesis for Multimodal Web Agents"
+  - u: "fact_audit_factcheck/"
+    t: "FACT-AUDIT: An Adaptive Multi-Agent Framework for Dynamic Fact-Checking Evaluation of Large Language Models"
+  - u: "gear_graph-enhanced_agent_for_retrieval-augmented_generation/"
+    t: "GeAR: Graph-enhanced Agent for Retrieval-augmented Generation"
+  - u: "gui_agents_a_survey/"
+    t: "GUI Agents: A Survey"
+  - u: "gui_explorer_autonomous/"
+    t: "GUI-explorer: Autonomous Exploration and Mining of Transition-aware Knowledge for GUI Agent"
+  - u: "guicourse_from_general_vision_language_model_to_versatile_gui_agent/"
+    t: "GUICourse: From General Vision Language Model to Versatile GUI Agent"
+  - u: "guidebench_guideline_following/"
+    t: "GuideBench: Benchmarking Domain-Oriented Guideline Following for LLM Agents"
+  - u: "gödel_agent_a_self-referential_agent_framework_for_recursive_self-improvement/"
+    t: "Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement"
+  - u: "iagent_llm_agent_as_a_shield_between_user_and_recommender_systems/"
+    t: "iAgent: LLM Agent as a Shield between User and Recommender Systems"
+  - u: "legalagentbench_evaluating_llm_agents_in_legal_domain/"
+    t: "LegalAgentBench: Evaluating LLM Agents in Legal Domain"
+  - u: "llm_agent_image_classification/"
+    t: "Enhancing Interpretable Image Classification Through LLM Agents and Conditional Concept Bottleneck Models"
+  - u: "llm_agents_making_agent_tools/"
+    t: "LLM Agents Making Agent Tools"
+  - u: "locagent_graph-guided_llm_agents_for_code_localization/"
+    t: "LocAgent: Graph-Guided LLM Agents for Code Localization"
+  - u: "meco_metacognition_tool_use/"
+    t: "Adaptive Tool Use in Large Language Models with Meta-Cognition Trigger"
+  - u: "meddxagent_a_unified_modular_agent_framework_for_explainable_automatic_different/"
+    t: "MEDDxAgent: A Unified Modular Agent Framework for Explainable Automatic Differential Diagnosis"
+  - u: "metasynth_meta-prompting-driven_agentic_scaffolds_for_diverse_synthetic_data_gen/"
+    t: "MetaSynth: Meta-Prompting-Driven Agentic Scaffolds for Diverse Synthetic Data Generation"
+  - u: "multiple_llm_agents_debate_for_equitable/"
+    t: "Multiple LLM Agents Debate for Equitable Cultural Alignment"
+  - u: "nexussum_narrative_summarization/"
+    t: "NexusSum: Hierarchical LLM Agents for Long-Form Narrative Summarization"
+item_total: 44
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🦾 LLM Agent
 
-**💬 ACL2025** · **56** 篇论文解读
+**💬 ACL2025** · **44** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (40)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md)
 
-🔥 **高频主题：** Agent ×30 · LLM ×22 · 多模态 ×4 · 推理 ×3 · 少样本学习 ×3
+🔥 **高频主题：** LLM ×19 · Agent ×19 · 多模态 ×4 · 少样本学习 ×2
 
 **[Agentic Knowledgeable Self-Awareness](agentic_knowledgeable_self-awareness.md)**
 
@@ -36,10 +97,6 @@ tags:
 
 :   本文提出Agentic Reward Modeling范式和RewardAgent实现，将传统基于人类偏好的奖励模型与来自事实性验证和指令遵循验证的可验证正确性信号进行整合，通过Router-验证Agent-Judger三模块架构显著提升奖励模型的可靠性。
 
-**[Agents Under Siege: Breaking Pragmatic Multi-Agent LLM Systems with Optimized Prompt Attacks](agents_under_siege_breaking_pragmatic_multi-agent_llm_systems_with_optimized_pro.md)**
-
-:   本文首次系统研究了在带宽约束、延迟和安全机制的现实多智能体LLM系统中的对抗攻击问题，提出基于最大流最小费用的拓扑优化和排列不变蒙骗损失（PIEL）的攻击方法，在多个LLM架构上实现了高达7倍于传统攻击的成功率。
-
 **[An Empirical Study on LLM-based Agents for Automated Bug Fixing](an_empirical_study_on_llm-based_agents_for_automated_bug_fixing.md)**
 
 :   本文对SWE-bench Verified上排名前六的LLM-based bug修复系统进行了系统性分析，从整体修复能力、故障定位准确率和缺陷复现有效性三个维度揭示了当前Agent系统的能力边界和改进方向。
@@ -47,14 +104,6 @@ tags:
 **[AndroidGen: Building an Android Language Agent under Data Scarcity](androidgen_agent_data_scarcity.md)**
 
 :   提出 AndroidGen 框架，通过经验检索（ExpSearch）、反思规划（ReflectPlan）、自动校验（AutoCheck）和步骤级评判（StepCritic）四个模块，在高质量训练数据稀缺的条件下增强LLM的Android操作能力，并通过自动生成轨迹数据训练出无需人工标注的开源移动端agent。
-
-**[Auto-TA: Towards Scalable Automated Thematic Analysis (TA) via Multi-Agent Large Language Models with Reinforcement Learning](auto-ta_towards_scalable_automated_thematic_analysis_ta_via_multi-agent_large_la.md)**
-
-:   提出一个基于多智能体 LLM 的全自动主题分析（Thematic Analysis）流水线，通过专业角色分工和可选的 RLHF 微调，实现对临床叙事的端到端主题提取，消除了人工编码和全文审阅的需求。
-
-**[Bel Esprit: Multi-Agent Framework for Building AI Model Pipelines](bel_esprit_multi-agent_framework_for_building_ai_model_pipelines.md)**
-
-:   提出 Bel Esprit 多 Agent 对话框架，通过 Mentalist（需求澄清）→ Builder（管线构建）→ Inspector（验证）→ Matchmaker（模型分配）四步协作，将用户模糊的自然语言需求自动转化为多模型 AI 管线图，在 441 条管线数据上达到 25.2% EM 和 37.0 GED（GPT-4o Builder）。
 
 **[Beyond Numeric Rewards: In-Context Dueling Bandits with LLM Agents](beyond_numeric_rewards_in-context_dueling_bandits_with_llm_agents.md)**
 
@@ -79,10 +128,6 @@ tags:
 **[Leveraging Dual Process Theory in Language Agent Framework for Real-time Simultaneous Human-AI Collaboration](dpt_agent_dual_process.md)**
 
 :   提出 DPT-Agent，首个将双过程理论（Dual Process Theory）系统化地融入语言智能体框架的方法——用有限状态机(FSM)+code-as-policy 作为快速直觉的 System 1，用心智理论(ToM)+异步反思的 LLM 作为慢速深思的 System 2，首次实现了自主的实时同步人机协作（在 Overcooked 困难版中）。
-
-**[EMULATE: A Multi-Agent Framework for Determining the Veracity of Atomic Claims by Emulating Human Actions](emulate_a_multi-agent_framework_for_determining_the_veracity_of_atomic_claims_by.md)**
-
-:   提出 EMULATE 多智能体事实核查框架，通过 7 个专职 LLM agent 模拟人类验证声明的完整行为链（搜索→排序→内容评估→证据充分性判断→分类），在三个事实核查 benchmark 上的 Macro-F1 和 Weighted-F1 均超越现有方法。
 
 **[Enhancing LLM Agent Safety via Causal Influence Prompting](enhancing_llm_agent_safety_via_causal_influence_prompting.md)**
 
@@ -140,10 +185,6 @@ tags:
 
 :   LocAgent 将代码库解析为有向异构图（含 contain/import/invoke/inherit 四种关系），并设计统一工具（SearchEntity/TraverseGraph/RetrieveEntity）引导 LLM Agent 进行多跳推理，实现高精度代码定位，在文件级达到 92.7% 准确率，同时通过微调开源模型将成本降低 86%。
 
-**[MAM: Modular Multi-Agent Framework for Multi-Modal Medical Diagnosis via Role-Specialized Collaboration](mam_modular_multi-agent_framework_for_multi-modal_medical_diagnosis_via_role-spe.md)**
-
-:   提出模块化多智能体框架 MAM，将医学诊断过程分解为全科医生、专科团队、放射科医生、医学助手和主任医师五个角色，通过角色专业化协作实现多模态（文本/图像/音频/视频）医学诊断，在多个公开数据集上比基线模型提升 18%~365%。
-
 **[Adaptive Tool Use in Large Language Models with Meta-Cognition Trigger](meco_metacognition_tool_use.md)**
 
 :   提出 MeCo（Meta-Cognition Trigger），通过表示工程从 LLM 内部提取"元认知信号"——模型对自身能力的自我评估——来自适应决定是否需要调用外部工具，无需微调且计算开销极小，在多个骨干模型和基准上显著改善工具使用决策的准确性。
@@ -152,25 +193,9 @@ tags:
 
 :   提出 MEDDxAgent 框架，通过中央编排器 DDxDriver 协调病史采集模拟器、知识检索智能体和诊断策略智能体三个模块进行迭代式鉴别诊断（DDx），在交互式诊断场景下实现超过 10% 的准确率提升，同时提供完整的推理可解释性。
 
-**[METAL: A Multi-Agent Framework for Chart Generation with Test-Time Scaling](metal_a_multi-agent_framework_for_chart_generation_with_test-time_scaling.md)**
-
-:   提出 METAL，一个基于 VLM 的多智能体框架，将图表生成任务（chart-to-code）分解为生成、视觉评审、代码评审和修订四个专门化智能体的迭代协作，在 ChartMIMIC 基准上比现有最佳方法提升 5.2% F1，并展现了测试时缩放（test-time scaling）现象。
-
 **[MetaSynth: Meta-Prompting-Driven Agentic Scaffolds for Diverse Synthetic Data Generation](metasynth_meta-prompting-driven_agentic_scaffolds_for_diverse_synthetic_data_gen.md)**
 
 :   提出 MetaSynth，利用元提示（meta-prompting）驱动的多智能体协作框架生成高多样性的合成数据，仅用 25M tokens 合成数据（不混合真实数据）就能将 Mistral-7B 成功适配到金融和生物医学领域，分别提升 4.08% 和 13.75%，同时不损害通用能力。
-
-**[MIND: A Multi-agent Framework for Zero-shot Harmful Meme Detection](mind_a_multi-agent_framework_for_zero-shot_harmful_meme_detection.md)**
-
-:   提出 MIND 框架，通过相似样本检索、双向洞察推导和多智能体辩论三个阶段实现零样本有害梗图（meme）检测，无需标注数据即可在三个数据集上超越现有零样本方法，并在不同模型架构和规模上展现强泛化性。
-
-**[A Multi-Agent Framework for Mitigating Dialect Biases in Privacy Policy Question-Answering Systems](multi_agent_dialect_bias_privacy_qa.md)**
-
-:   构建 Dialect Agent（方言翻译+审查）与 Privacy Policy Agent（领域回答）的双 Agent 迭代协作框架，通过注入方言语言学知识的提示工程，在无需重训练的前提下同时提升隐私政策 QA 的整体准确率和跨方言公平性。
-
-**[MultiAgentBench: Evaluating the Collaboration and Competition of LLM Agents](multiagentbench_evaluating_the_collaboration_and_competition_of_llm_agents.md)**
-
-:   提出 MultiAgentBench 基准测试和 MARBLE 框架，系统评估 LLM 多智能体系统在协作与竞争场景中的表现，包含 6 种交互场景（研究、Minecraft、数据库、编程、讨价还价、狼人杀），引入基于里程碑的 KPI 指标和协调评分，发现 gpt-4o-mini 整体任务分最高、图结构协调协议在研究场景中表现最佳、认知规划可提升里程碑达成率 3%。
 
 **[Multiple LLM Agents Debate for Equitable Cultural Alignment](multiple_llm_agents_debate_for_equitable.md)**
 
@@ -212,10 +237,6 @@ tags:
 
 :   提出 REPRO-Bench，包含 112 个社会科学论文的可复现性评估任务，发现现有 AI Agent（最高准确率仅 21.4%）远不足以自动化该流程，并据此开发 REPRO-Agent 将准确率提升至 36.6%。
 
-**[Select, Read, and Write: A Multi-Agent Framework of Full-Text-based Related Work Generation](select_read_and_write_a_multi-agent_framework_of_full-text-based_related_work_ge.md)**
-
-:   提出 Select-Read-Write 三 Agent 协同框架，通过图感知的阅读顺序决策和共享工作记忆机制，实现基于论文全文（而非摘要）的 Related Work 自动生成，在 Llama3-8B / Claude-3-Haiku / GPT-4o 三个基座模型上均取得一致提升，Citation Graph 策略效果最优。
-
 **[Self-Taught Agentic Long-Context Understanding](self_taught_agentic_long_ctx.md)**
 
 :   提出 AgenticLU 框架，通过 Chain-of-Clarifications (CoC) 工作流让 LLM 自主生成澄清问题并检索相关上下文，再通过 SFT+DPO 两阶段微调将树搜索路径蒸馏到模型中，使 8B 模型在 128K 长上下文 QA 任务上大幅超越基线。
@@ -232,17 +253,9 @@ tags:
 
 :   SynWorld 提出让 Agent 在合成的虚拟场景中通过蒙特卡洛树搜索（MCTS）来探索和优化动作知识（工具描述和工作流），使 Agent 能够自主适应新环境的工具使用，在 ToolBench 上比 ReAct 基线提升约 9 个百分点。
 
-**[Table-Critic: A Multi-Agent Framework for Collaborative Criticism and Refinement in Table Reasoning](table_critic_multi_agent.md)**
-
-:   提出 Table-Critic 多智能体框架，通过 Judge-Critic-Refiner-Curator 四个专门化 Agent 的协作批评与迭代精化，配合自进化模板树累积批评知识，在 WikiTQ 和 TabFact 上分别实现 73.7% 和 91.7% 的准确率，大幅超越现有方法。
-
 **[The Behavior Gap: Evaluating Zero-shot LLM Agents in Complex Task-Oriented Dialogs](the_behavior_gap_evaluating_zero-shot_llm_agents_in_complex_task-oriented_dialog.md)**
 
 :   提出综合评估框架量化 LLM agent 与人类专家在任务导向对话中的"行为差距"，从 dialog acts、工具使用、知识利用三个维度系统诊断行为偏差，发现行为差距与任务复杂度高度相关（$r=0.963$），通过行为注入缩小差距可平均提升 24.3% 性能。
-
-**[Theorem-of-Thought: A Multi-Agent Framework for Abductive, Deductive, and Inductive Reasoning in Language Models](theorem-of-thought_a_multi-agent_framework_for_abductive_deductive_and_inductive.md)**
-
-:   提出 Theorem-of-Thought (ToTh) 框架，通过三个并行智能体分别模拟溯因、演绎和归纳推理，将推理轨迹构建为形式推理图并利用 NLI 校准的贝叶斯置信传播选出最连贯推理链，在符号和数值推理上一致优于 CoT、Self-Consistency 和 CoT-Decoding。
 
 **[ToolHop: A Query-Driven Benchmark for Evaluating Large Language Models in Multi-Hop Tool Use](toolhop_multi_hop_tool_use.md)**
 

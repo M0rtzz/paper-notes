@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 视频生成方向11篇论文解读
+  AAAI2026 视频生成论文汇总 · 11篇论文解读
 description: >-
   11篇AAAI2026的视频生成方向论文解读，涵盖视频生成、扩散模型、动态场景、布局/合成、RAG、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,30 @@ tags:
   - "布局/合成"
   - "RAG"
   - "对抗鲁棒"
+item_list:
+  - u: "3d4d_an_interactive_editable_4d_world_model_via_3d_video_generation/"
+    t: "3D4D: An Interactive Editable 4D World Model via 3D Video Generation"
+  - u: "dreamrunner_fine-grained_compositional_story-to-video_genera/"
+    t: "DreamRunner: Fine-Grained Compositional Story-to-Video Generation with Retrieval-Augmented Motion Adaptation"
+  - u: "filmweaver_weaving_consistent_multi-shot_videos_with_cache-guided_autoregressive/"
+    t: "FilmWeaver: Weaving Consistent Multi-Shot Videos with Cache-Guided Autoregressive Diffusion"
+  - u: "genvidbench_a_6-million_benchmark_for_ai-generated_video_detection/"
+    t: "GenVidBench: A 6-Million Benchmark for AI-Generated Video Detection"
+  - u: "mask2iv_interaction-centric_video_generation_via_mask_trajectories/"
+    t: "Mask2IV: Interaction-Centric Video Generation via Mask Trajectories"
+  - u: "mofu_scale-aware_modulation_and_fourier_fusion_for_multi-subject_video_generatio/"
+    t: "MoFu: Scale-Aware Modulation and Fourier Fusion for Multi-Subject Video Generation"
+  - u: "motioncharacter_fine-grained_motion_controllable_human_video_generation/"
+    t: "MotionCharacter: Fine-Grained Motion Controllable Human Video Generation"
+  - u: "omnivdiff_omni_controllable_video_diffusion_for_generation_and_understanding/"
+    t: "OmniVDiff: Omni Controllable Video Diffusion for Generation and Understanding"
+  - u: "phased_one-step_adversarial_equilibrium_for_video_diffusion_models/"
+    t: "Phased One-Step Adversarial Equilibrium for Video Diffusion Models"
+  - u: "seeing_the_unseen_zooming_in_the_dark_with_event_cameras/"
+    t: "Seeing the Unseen: Zooming in the Dark with Event Cameras"
+  - u: "spherediff_tuning-free_360_static_and_dynamic_panorama_generation_via_spherical_/"
+    t: "SphereDiff: Tuning-free Omnidirectional Panoramic Image and Video Generation via Spherical Latent Representation"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

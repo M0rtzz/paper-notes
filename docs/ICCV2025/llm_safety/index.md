@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 LLM 安全方向11篇论文解读
+  ICCV2025 LLM安全论文汇总 · 11篇论文解读
 description: >-
   11篇ICCV2025的 LLM 安全方向论文解读，涵盖联邦学习、对抗鲁棒、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,30 @@ tags:
   - "联邦学习"
   - "对抗鲁棒"
   - "多模态"
+item_list:
+  - u: "adversarial_robust_memory-based_continual_learner/"
+    t: "Adversarial Robust Memory-Based Continual Learner"
+  - u: "asynchronous_event_error-minimizing_noise_for_safeguarding_event_dataset/"
+    t: "Asynchronous Event Error-Minimizing Noise for Safeguarding Event Dataset"
+  - u: "chartcap_mitigating_hallucination_of_dense_chart_captioning/"
+    t: "ChartCap: Mitigating Hallucination of Dense Chart Captioning"
+  - u: "cooperative_pseudo_labeling_for_unsupervised_federated_classification/"
+    t: "Cooperative Pseudo Labeling for Unsupervised Federated Classification"
+  - u: "enhancing_adversarial_transferability_by_balancing_exploration_and_exploitation_/"
+    t: "Enhancing Adversarial Transferability by Balancing Exploration and Exploitation with Gradient-Guided Sampling"
+  - u: "forgetting_through_transforming_enabling_federated_unlearning_via_class-aware_re/"
+    t: "Forgetting Through Transforming: Enabling Federated Unlearning via Class-Aware Representation Transformation"
+  - u: "geminio_language-guided_gradient_inversion_attacks_in_federated_learning/"
+    t: "Geminio: Language-Guided Gradient Inversion Attacks in Federated Learning"
+  - u: "latte_collaborative_test-time_adaptation_of_vision-language_models_in_federated_/"
+    t: "LATTE: Collaborative Test-Time Adaptation of Vision-Language Models in Federated Learning"
+  - u: "munba_machine_unlearning_via_nash_bargaining/"
+    t: "MUNBa: Machine Unlearning via Nash Bargaining"
+  - u: "sauce_selective_concept_unlearning_in_vision-language_models_with_sparse_autoenc/"
+    t: "SAUCE: Selective Concept Unlearning in Vision-Language Models with Sparse Autoencoders"
+  - u: "temporal_unlearnable_examples_preventing_personal_video_data_from_unauthorized_e/"
+    t: "Temporal Unlearnable Examples: Preventing Personal Video Data from Unauthorized Exploitation"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +42,7 @@ tags:
 
 **📹 ICCV2025** · **11** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (42)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md)
 
 🔥 **高频主题：** 联邦学习 ×4 · 对抗鲁棒 ×3 · 多模态 ×2
 

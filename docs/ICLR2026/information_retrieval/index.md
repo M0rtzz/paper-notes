@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 信息检索/RAG方向33篇论文解读
+  ICLR2026 信息检索/RAG论文汇总 · 33篇论文解读
 description: >-
   33篇ICLR2026的信息检索/RAG 方向论文解读，涵盖 RAG、LLM、推理、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,68 @@ tags:
   - "LLM"
   - "推理"
   - "多模态"
+item_list:
+  - u: "amemgym_interactive_memory_benchmarking_for_assistants_in_long-horizon_conversat/"
+    t: "AMemGym: Interactive Memory Benchmarking for Assistants in Long-Horizon Conversations"
+  - u: "attributing_response_to_context_a_jensen-shannon_divergence_driven_mechanistic_s/"
+    t: "Attributing Response to Context: A Jensen-Shannon Divergence Driven Mechanistic Study of Context Attribution in Retrieval-Augmented Generation"
+  - u: "attribution-guided_decoding/"
+    t: "Attribution-Guided Decoding"
+  - u: "bayesian_attention_mechanism_a_probabilistic_framework_for_positional_encoding_a/"
+    t: "Bayesian Attention Mechanism: A Probabilistic Framework for Positional Encoding and Context Length Extrapolation"
+  - u: "beyond_rag_vs_long-context_learning_distraction-aware_retrieval_for_efficient_kn/"
+    t: "Beyond RAG vs. Long-Context: Learning Distraction-Aware Retrieval for Efficient Knowledge Grounding"
+  - u: "btzsc_a_benchmark_for_zero-shot_text_classification_across_cross-encoders_embedd/"
+    t: "BTZSC: A Benchmark for Zero-Shot Text Classification Across Cross-Encoders, Embedding Models, Rerankers and LLMs"
+  - u: "digging_deeper_learning_multi-level_concept_hierarchies/"
+    t: "Digging Deeper: Learning Multi-Level Concept Hierarchies"
+  - u: "efficient_discriminative_joint_encoders_for_large_scale_vision-language_rerankin/"
+    t: "Efficient Discriminative Joint Encoders for Large Scale Vision-Language Re-ranking"
+  - u: "embedding-based_context-aware_reranker/"
+    t: "Embedding-Based Context-Aware Reranker"
+  - u: "fine-tuning_with_rag_for_improving_llm_learning_of_new_skills/"
+    t: "Fine-tuning with RAG for Improving LLM Learning of New Skills"
+  - u: "flow_of_spans_generalizing_language_models_to_dynamic_span-vocabulary_via_gflown/"
+    t: "Flow of Spans: Generalizing Language Models to Dynamic Span-Vocabulary via GFlowNets"
+  - u: "g-reasoner_foundation_models_for_unified_reasoning_over_graph-structured_knowled/"
+    t: "G-reasoner: Foundation Models for Unified Reasoning over Graph-structured Knowledge"
+  - u: "hierarchical_concept-based_interpretable_models/"
+    t: "Hierarchical Concept-based Interpretable Models"
+  - u: "hume_measuring_the_human-model_performance_gap_in_text_embedding_tasks/"
+    t: "HUME: Measuring the Human-Model Performance Gap in Text Embedding Tasks"
+  - u: "hybrid_deep_searcher_scalable_parallel_and_sequential_search_reasoning/"
+    t: "Hybrid Deep Searcher: Scalable Parallel and Sequential Search Reasoning"
+  - u: "judges_verdict_a_comprehensive_analysis_of_llm_judge_capability_through_human_ag/"
+    t: "Judge's Verdict: A Comprehensive Analysis of LLM Judge Capability Through Human Agreement"
+  - u: "leveraging_data_to_say_no_memory_augmented_plug-and-play_selective_prediction/"
+    t: "Leveraging Data to Say No: Memory Augmented Plug-and-Play Selective Prediction"
+  - u: "lightretriever_a_llm-based_text_retrieval_architecture_with_extremely_faster_que/"
+    t: "LightRetriever: A LLM-based Text Retrieval Architecture with Extremely Faster Query Inference"
+  - u: "lumina_detecting_hallucinations_in_rag_system_with_context-knowledge_signals/"
+    t: "LUMINA: Detecting Hallucinations in RAG System with Context-Knowledge Signals"
+  - u: "mapping_semantic_syntactic_relationships_with_geometric_rotation/"
+    t: "Mapping Semantic & Syntactic Relationships with Geometric Rotation"
+  - u: "multimodal_dataset_distillation_made_simple_by_prototype-guided_data_synthesis/"
+    t: "Multimodal Dataset Distillation Made Simple by Prototype-Guided Data Synthesis"
+  - u: "on_the_wings_of_imagination_conflicting_script-based_multi-role_framework_for_hu/"
+    t: "On the Wings of Imagination: Conflicting Script-based Multi-role Framework for Humor Caption Generation"
+  - u: "q_rag_long_context_multi_step_retrieval/"
+    t: "Q-RAG: Long Context Multi-Step Retrieval via Value-Based Embedder Training"
+  - u: "query-level_uncertainty_in_large_language_models/"
+    t: "Query-Level Uncertainty in Large Language Models"
+  - u: "raee_a_robust_retrieval-augmented_early_exit_framework_for_efficient_inference/"
+    t: "RAEE: A Robust Retrieval-Augmented Early Exit Framework for Efficient Inference"
+  - u: "ravenea_a_benchmark_for_multimodal_retrieval-augmented_visual_culture_understand/"
+    t: "RAVENEA: A Benchmark for Multimodal Retrieval-Augmented Visual Culture Understanding"
+  - u: "reftool_reference-guided_tool_creation_for_knowledge-intensive_reasoning/"
+    t: "RefTool: Reference-Guided Tool Creation for Knowledge-Intensive Reasoning"
+  - u: "revela_dense_retriever_learning_via_language_modeling/"
+    t: "Revela: Dense Retriever Learning via Language Modeling"
+  - u: "summaries_as_centroids_for_interpretable_and_scalable_text_clustering/"
+    t: "Summaries as Centroids for Interpretable and Scalable Text Clustering"
+  - u: "synthworlds_controlled_parallel_worlds_for_disentangling_reasoning_and_knowledge/"
+    t: "SynthWorlds: Controlled Parallel Worlds for Disentangling Reasoning and Knowledge in Language Models"
+item_total: 33
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +81,7 @@ tags:
 
 **🔬 ICLR2026** · **33** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/information_retrieval/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/information_retrieval/index.md)
 
 🔥 **高频主题：** RAG ×7 · LLM ×5 · 推理 ×4 · 多模态 ×3
 

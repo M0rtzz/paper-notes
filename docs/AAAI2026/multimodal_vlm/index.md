@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 多模态 VLM方向87篇论文解读
+  AAAI2026 多模态VLM论文汇总 · 87篇论文解读
 description: >-
   87篇AAAI2026的多模态 VLM 方向论文解读，涵盖多模态、推理、LLM、对抗鲁棒、对齐/RLHF、压缩/编码等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "对抗鲁棒"
   - "对齐/RLHF"
   - "压缩/编码"
+item_list:
+  - u: "abductivemllm_boosting_visual_abductive_reasoning_within_mll/"
+    t: "AbductiveMLLM: Boosting Visual Abductive Reasoning Within MLLMs"
+  - u: "aligning_the_true_semantics_constrained_decoupling_and_distr/"
+    t: "Aligning the True Semantics: Constrained Decoupling and Distribution Sampling for Cross-Modal Alignment"
+  - u: "anyecg-chat_a_generalist_ecg-mllm_for_flexible_ecg_input_and/"
+    t: "anyECG-chat: A Generalist ECG-MLLM for Flexible ECG Input and Multi-Task Understanding"
+  - u: "are_we_done_yet_a_vision-based_judge_for_autonomous_task_completion_of_computer_/"
+    t: "\"Are We Done Yet?\": A Vision-Based Judge for Autonomous Task Completion of Computer Use Agents"
+  - u: "astar_boosting_multimodal_reasoning_with_automated_structure/"
+    t: "AStar: Boosting Multimodal Reasoning with Automated Structured Thinking"
+  - u: "biprompt_bilateral_prompt_optimization_for_visual_and_textual_debiasing_in_visio/"
+    t: "BiPrompt: Bilateral Prompt Optimization for Visual and Textual Debiasing in Vision-Language Models"
+  - u: "bofa_bridge-layer_orthogonal_low-rank_fusion_for_clip-based_/"
+    t: "BOFA: Bridge-Layer Orthogonal Low-Rank Fusion for CLIP-Based Class-Incremental Learning"
+  - u: "branch_or_layer_zeroth-order_optimization_for_continual_lear/"
+    t: "Branch, or Layer? Zeroth-Order Optimization for Continual Learning of Vision-Language Models"
+  - u: "bridging_modalities_via_progressive_re-alignment_for_multimo/"
+    t: "Bridging Modalities via Progressive Re-alignment for Multimodal Test-Time Adaptation (BriMPR)"
+  - u: "bridging_the_copyright_gap_do_large_vision-language_models_r/"
+    t: "Bridging the Copyright Gap: Do Large Vision-Language Models Recognize and Respect Copyrighted Content?"
+  - u: "clearair_a_human-visual-perception-inspired_all-in-one_image_restoration/"
+    t: "ClearAIR: A Human-Visual-Perception-Inspired All-in-One Image Restoration"
+  - u: "concept-rulenet_grounded_multi-agent_neurosymbolic_reasoning/"
+    t: "Concept-RuleNet: Grounded Multi-Agent Neurosymbolic Reasoning in Vision Language Models"
+  - u: "conditional_information_bottleneck_for_multimodal_fusion_overcoming_shortcut_lea/"
+    t: "Conditional Information Bottleneck for Multimodal Fusion: Overcoming Shortcut Learning in Sarcasm Detection"
+  - u: "crebench_human-aligned_creativity_evaluation_from_idea_to_process_to_product/"
+    t: "CreBench: Human-Aligned Creativity Evaluation from Idea to Process to Product"
+  - u: "cross-modal_proxy_evolving_for_ood_detection_with_vision-lan/"
+    t: "Cross-modal Proxy Evolving for OOD Detection with Vision-Language Models"
+  - u: "crossvid_a_comprehensive_benchmark_for_evaluating_cross-vide/"
+    t: "CrossVid: A Comprehensive Benchmark for Evaluating Cross-Video Reasoning in Multimodal Large Language Models"
+  - u: "deig_detail-enhanced_instance_generation_with_fine-grained_semantic_control/"
+    t: "DEIG: Detail-Enhanced Instance Generation with Fine-Grained Semantic Control"
+  - u: "difference_vector_equalization_for_robust_fine-tuning_of_vis/"
+    t: "Difference Vector Equalization for Robust Fine-tuning of Vision-Language Models"
+  - u: "discode_distribution-aware_score_decoder_for_robust_automatic_evaluation_of_imag/"
+    t: "DisCode: Distribution-Aware Score Decoder for Robust Automatic Evaluation of Image Captioning"
+  - u: "em-kd_distilling_efficient_multimodal_large_language_model_w/"
+    t: "EM-KD: Distilling Efficient Multimodal Large Language Model with Unbalanced Vision Tokens"
+  - u: "empowering_semantic-sensitive_underwater_image_enhancement_with_vlm/"
+    t: "Empowering Semantic-Sensitive Underwater Image Enhancement with VLM"
+  - u: "exo2ego_exocentric_knowledge_guided_mllm_for_egocentric_vide/"
+    t: "Exo2Ego: Exocentric Knowledge Guided MLLM for Egocentric Video Understanding"
+  - u: "explore_how_to_inject_beneficial_noise_in_mllms/"
+    t: "Explore How to Inject Beneficial Noise in MLLMs"
+  - u: "exploring_llms_for_scientific_information_extraction_using_the_sciex_framework/"
+    t: "Exploring LLMs for Scientific Information Extraction using the SciEx Framework"
+  - u: "few-shot_precise_event_spotting_via_unified_multi-entity_graph_and_distillation/"
+    t: "Few-Shot Precise Event Spotting via Unified Multi-Entity Graph and Distillation"
+  - u: "filter_correlate_compress_training-free_token_reduction_for_/"
+    t: "Filter, Correlate, Compress: Training-Free Token Reduction for MLLM Acceleration"
+  - u: "finmmdocr_benchmarking_financial_multimodal_reasoning_with_scenario_awareness_do/"
+    t: "FinMMDocR: Benchmarking Financial Multimodal Reasoning with Scenario Awareness, Document Understanding, and Multi-Step Computation"
+  - u: "format_matters_the_robustness_of_multimodal_llms_in_reviewing_evidence_from_tabl/"
+    t: "Format Matters: The Robustness of Multimodal LLMs in Reviewing Evidence from Tables and Charts"
+  - u: "ft-ncfm_an_influence-aware_data_distillation_framework_for_efficient_vla_models/"
+    t: "FT-NCFM: An Influence-Aware Data Distillation Framework for Efficient VLA Models"
+  - u: "global_compression_commander_plug-and-play_inference_acceler/"
+    t: "Global Compression Commander: Plug-and-Play Inference Acceleration for High-Resolution Large Vision-Language Models"
+item_total: 87
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🤖 AAAI2026** · **87** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (147)](../../NeurIPS2025/multimodal_vlm/index.md) · [📹 ICCV2025 (149)](../../ICCV2025/multimodal_vlm/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (146)](../../NeurIPS2025/multimodal_vlm/index.md) · [📹 ICCV2025 (148)](../../ICCV2025/multimodal_vlm/index.md)
 
 🔥 **高频主题：** 多模态 ×45 · 推理 ×10 · LLM ×8 · 对抗鲁棒 ×6 · 对齐/RLHF ×5
 

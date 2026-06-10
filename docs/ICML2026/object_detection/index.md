@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 目标检测方向6篇论文解读
+  ICML2026 目标检测论文汇总 · 6篇论文解读
 description: >-
   6篇ICML2026的目标检测方向论文解读，涵盖异常检测、对抗鲁棒、推理、强化学习、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,20 @@ tags:
   - "推理"
   - "强化学习"
   - "多模态"
+item_list:
+  - u: "adversarially_robust_approximate_furthest_neighbor/"
+    t: "Adversarially Robust Approximate Furthest Neighbor"
+  - u: "earl_towards_a_unified_analysis-guided_reinforcement_learning_framework_for_egoc/"
+    t: "EARL: Towards a Unified Analysis-Guided Reinforcement Learning Framework for Egocentric Interaction Reasoning and Pixel Grounding"
+  - u: "focus_forcing_in-context_object_localization_through_visual_support_constraints_/"
+    t: "FOCUS: Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization"
+  - u: "mixture_prototype_flow_matching_for_open-set_supervised_anomaly_detection/"
+    t: "Mixture Prototype Flow Matching for Open-Set Supervised Anomaly Detection"
+  - u: "omniverifier-m1_multimodal_meta-verifier_with_explicit_structured_recalibration/"
+    t: "OmniVerifier-M1: Multimodal Meta-Verifier with Explicit Structured Recalibration"
+  - u: "testing_the_test_score-direction_instability_in_class-split_anomaly_detection/"
+    t: "Testing the Test: Score-Direction Instability in Class-Split Anomaly Detection"
+item_total: 6
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +34,7 @@ tags:
 
 **🧪 ICML2026** · **6** 篇论文解读
 
-📌 **同领域跨会议浏览：** [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (12)](../../ICML2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (11)](../../ICML2025/object_detection/index.md)
 
 🔥 **高频主题：** 异常检测 ×2
 

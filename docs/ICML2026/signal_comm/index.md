@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 信号/通信方向2篇论文解读
+  ICML2026 信号/通信论文汇总 · 2篇论文解读
 description: >-
   2篇ICML2026的信号/通信方向论文解读，涵盖少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,12 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "少样本学习"
+item_list:
+  - u: "joint_model_and_data_sparsification_via_the_marginal_likelihood/"
+    t: "Joint Model and Data Sparsification via the Marginal Likelihood"
+  - u: "meta-learning_structure-preserving_dynamics/"
+    t: "Meta-learning Structure-Preserving Dynamics"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

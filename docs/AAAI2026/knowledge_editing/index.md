@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 知识编辑方向4篇论文解读
+  AAAI2026 知识编辑论文汇总 · 4篇论文解读
 description: >-
   4篇AAAI2026的知识编辑方向论文解读，涵盖多模态、推理、问答、对抗鲁棒、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,16 @@ tags:
   - "问答"
   - "对抗鲁棒"
   - "Agent"
+item_list:
+  - u: "hybrid-dmkg_a_hybrid_reasoning_framework_over_dynamic_multimodal_knowledge_graph/"
+    t: "Hybrid-DMKG: A Hybrid Reasoning Framework over Dynamic Multimodal Knowledge Graphs for Multimodal Multihop QA with Knowledge Editing"
+  - u: "is_the_information_bottleneck_robust_enough_towards_label-noise_resistant_inform/"
+    t: "Is the Information Bottleneck Robust Enough? Towards Label-Noise Resistant Information Bottleneck Learning"
+  - u: "model_editing_as_a_double-edged_sword_steering_agent_ethical_behavior_toward_ben/"
+    t: "Model Editing as a Double-Edged Sword: Steering Agent Ethical Behavior"
+  - u: "multiplicative_orthogonal_sequential_editing_for_language_models/"
+    t: "Multiplicative Orthogonal Sequential Editing for Language Models (MOSE)"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

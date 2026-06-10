@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 LLM 安全方向70篇论文解读
+  ACL2025 LLM安全论文汇总 · 69篇论文解读
 description: >-
-  70篇ACL2025的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、水印/隐写、对齐/RLHF、Agent、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  69篇ACL2025的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、水印/隐写、对齐/RLHF、Agent、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "LLM 安全"
@@ -14,16 +14,78 @@ tags:
   - "对齐/RLHF"
   - "Agent"
   - "多模态"
+item_list:
+  - u: "a_statistical_and_multi-perspective_revisiting_of_the_membership_inference_attac/"
+    t: "A Statistical and Multi-Perspective Revisiting of the Membership Inference Attack in Large Language Models"
+  - u: "agrail_a_lifelong_agent_guardrail_with_effective_and_adaptive_safety_detection/"
+    t: "AGrail: A Lifelong Agent Guardrail with Effective and Adaptive Safety Detection"
+  - u: "aligning_large_language_models_to_follow_instructions_and_hallucinate_less_via_e/"
+    t: "Aligning Large Language Models to Follow Instructions and Hallucinate Less via Effective Data Filtering"
+  - u: "alleviating_hallucinations_from_knowledge_misalignment_in_large_language_models_/"
+    t: "Alleviating Hallucinations from Knowledge Misalignment in Large Language Models via Selective Abstention Learning"
+  - u: "answer_when_needed_forget_when_not_language_models_pretend_to_forget_via_in-cont/"
+    t: "Answer When Needed, Forget When Not: Language Models Pretend to Forget via In-Context Knowledge Unlearning"
+  - u: "are_the_hidden_states_hiding_something_testing_the_limits_of_factuality-encoding/"
+    t: "Are the Hidden States Hiding Something? Testing the Limits of Factuality-Encoding Capabilities in LLMs"
+  - u: "automated_explanation_generation_and_hallucination_detection_for_heritage_image_/"
+    t: "Automated Explanation Generation and Hallucination Detection for Heritage Image Retrieval"
+  - u: "bias_in_the_mirror_are_llms_opinions_robust_to_their_own_adversarial_attacks/"
+    t: "Bias in the Mirror: Are LLMs' Opinions Robust to Their Own Adversarial Attacks"
+  - u: "cavgan_unifying_jailbreak_and_defense_of_llms_via_generative_adversarial_attacks/"
+    t: "CAVGAN: Unifying Jailbreak and Defense of LLMs via Generative Adversarial Attacks"
+  - u: "chinese_simpleqa_a_chinese_factuality_evaluation_for_large_language_models/"
+    t: "Chinese SimpleQA: A Chinese Factuality Evaluation for Large Language Models"
+  - u: "cliperase_efficient_unlearning_of_visual-textual_associations_in_clip/"
+    t: "CLIPErase: Efficient Unlearning of Visual-Textual Associations in CLIP"
+  - u: "comparisonqa_evaluating_factuality_robustness_of_llms_through_knowledge_frequenc/"
+    t: "ComparisonQA: Evaluating Factuality Robustness of LLMs Through Knowledge Frequency Control and Uncertainty"
+  - u: "core_robust_factual_precision_with_informative_sub-claim_identification/"
+    t: "Core: Robust Factual Precision with Informative Sub-Claim Identification"
+  - u: "cracking_hallucination_vhd/"
+    t: "Cracking the Code of Hallucination in LVLMs with Vision-aware Head Divergence"
+  - u: "defense_prompt_injection/"
+    t: "Defense Against Prompt Injection Attack by Leveraging Attack Techniques"
+  - u: "dialect_fairness_robustness/"
+    t: "ReDial: Assessing Dialect Fairness and Robustness of Large Language Models in Reasoning Tasks"
+  - u: "elba-bench_an_efficient_learning_backdoor_attacks_benchmark_for_large_language_m/"
+    t: "ELBA-Bench: An Efficient Learning Backdoor Attacks Benchmark for Large Language Models"
+  - u: "ensemble_watermarks_llm/"
+    t: "Ensemble Watermarks for Large Language Models"
+  - u: "estimating_privacy_leakage_of_augmented_contextual_knowledge_in_language_models/"
+    t: "Estimating Privacy Leakage of Augmented Contextual Knowledge in Language Models"
+  - u: "exploring_forgetting_in_large_language_model_pre-training/"
+    t: "Exploring Forgetting in Large Language Model Pre-Training"
+  - u: "fairness_difference_awareness/"
+    t: "Fairness through Difference Awareness: Measuring Desired Group Discrimination in LLMs"
+  - u: "faithful_and_robust_llm-driven_theorem_proving_for_nli_explanations/"
+    t: "Faithful and Robust LLM-Driven Theorem Proving for NLI Explanations"
+  - u: "from_misleading_queries_to_accurate_answers_a_three-stage_fine-tuning_method_for/"
+    t: "From Misleading Queries to Accurate Answers: A Three-Stage Fine-Tuning Method for LLMs"
+  - u: "from_tradeoff_to_synergy_a_versatile/"
+    t: "From Trade-off to Synergy: A Versatile Symbiotic Watermarking Framework for Large Language Models"
+  - u: "hallucination_detox_send/"
+    t: "Hallucination Detox: Sensitivity Dropout (SenD) for Large Language Model Training"
+  - u: "halogen_hallucinations/"
+    t: "HALoGEN: Fantastic LLM Hallucinations and Where to Find Them"
+  - u: "hd-ndes_neural_differential_equations_for_hallucination_detection_in_llms/"
+    t: "HD-NDEs: Neural Differential Equations for Hallucination Detection in LLMs"
+  - u: "how_does_response_length_affect_long-form_factuality/"
+    t: "How Does Response Length Affect Long-Form Factuality"
+  - u: "improved_unbiased_watermark_for_large_language/"
+    t: "Improved Unbiased Watermark for Large Language Models"
+  - u: "improving_factuality_with_explicit_working_memory/"
+    t: "Ewe: Improving Factuality with Explicit Working Memory"
+item_total: 69
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM 安全
 
-**💬 ACL2025** · **70** 篇论文解读
+**💬 ACL2025** · **69** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (42)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md)
 
-🔥 **高频主题：** LLM ×33 · 对抗鲁棒 ×19 · 水印/隐写 ×6 · 对齐/RLHF ×3 · Agent ×2
+🔥 **高频主题：** LLM ×32 · 对抗鲁棒 ×19 · 水印/隐写 ×6 · 对齐/RLHF ×3 · Agent ×2
 
 **[A Statistical and Multi-Perspective Revisiting of the Membership Inference Attack in Large Language Models](a_statistical_and_multi-perspective_revisiting_of_the_membership_inference_attac.md)**
 
@@ -76,10 +138,6 @@ tags:
 **[Core: Robust Factual Precision with Informative Sub-Claim Identification](core_robust_factual_precision_with_informative_sub-claim_identification.md)**
 
 :   本文提出 Core 框架，通过识别和过滤信息性子声明（informative sub-claims）来实现鲁棒的事实精度（factual precision）评估，解决了现有方法因无信息声明的稀释效应而导致评估不准确的问题。
-
-**[Correcting Hallucinations in News Summaries: Exploration of Self-Correcting LLM Methods with External Knowledge](correcting_hallucinations_in_news_summaries_exploration_of_self-correcting_llm_m.md)**
-
-:   系统性地探究了两种自纠正方法（CoVE 和 RARR）在新闻摘要幻觉纠正中的表现，比较了三种搜索引擎、多种检索设置和提示策略，发现 Bing 搜索片段 + RARR（few-shot）组合效果最佳，且 G-Eval 与人类评估高度一致。
 
 **[Cracking the Code of Hallucination in LVLMs with Vision-aware Head Divergence](cracking_hallucination_vhd.md)**
 

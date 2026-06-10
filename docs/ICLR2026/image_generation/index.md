@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 图像生成方向137篇论文解读
+  ICLR2026 图像生成论文汇总 · 136篇论文解读
 description: >-
-  137篇ICLR2026的图像生成方向论文解读，涵盖扩散模型、文生图、布局/合成、对齐/RLHF、图像编辑、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  136篇ICLR2026的图像生成方向论文解读，涵盖扩散模型、文生图、布局/合成、对齐/RLHF、图像编辑、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ICLR2026"
   - "图像生成"
@@ -14,14 +14,76 @@ tags:
   - "对齐/RLHF"
   - "图像编辑"
   - "多模态"
+item_list:
+  - u: "a_hidden_semantic_bottleneck_in_conditional_embeddings_of_diffusion_transformers/"
+    t: "A Hidden Semantic Bottleneck in Conditional Embeddings of Diffusion Transformers"
+  - u: "aligntok_aligning_visual_foundation_encoders_to_tokenizers_for_diffusion_models/"
+    t: "AlignTok: Aligning Visual Foundation Encoders to Tokenizers for Diffusion Models"
+  - u: "amortising_inference_and_meta-learning_priors_in_neural_networks/"
+    t: "Amortising Inference and Meta-Learning Priors in Neural Networks (BNNP)"
+  - u: "asynchronous_denoising_diffusion_models_for_aligning_text-to-image_generation/"
+    t: "Asynchronous Denoising Diffusion Models for Aligning Text-to-Image Generation"
+  - u: "autoregressive_image_generation_with_randomized_parallel_decoding/"
+    t: "Autoregressive Image Generation with Randomized Parallel Decoding"
+  - u: "beyond_confidence_the_rhythms_of_reasoning_in_generative_models/"
+    t: "Beyond Confidence: The Rhythms of Reasoning in Generative Models"
+  - u: "blueprint-bench_comparing_spatial_intelligence_of_llms_agents_and_image_models/"
+    t: "Blueprint-Bench: Comparing Spatial Intelligence of LLMs, Agents and Image Models"
+  - u: "branched_schrödinger_bridge_matching/"
+    t: "Branched Schrödinger Bridge Matching"
+  - u: "bridging_degradation_discrimination_and_generation_for_universal_image_restorati/"
+    t: "Bridging Degradation Discrimination and Generation for Universal Image Restoration"
+  - u: "bridging_generalization_gap_of_heterogeneous_federated_clients_using_generative_/"
+    t: "Bridging Generalization Gap of Heterogeneous Federated Clients Using Generative Models"
+  - u: "cmt_mid-training_for_efficient_learning_of_consistency_mean_flow_and_flow_map_mo/"
+    t: "CMT: Mid-Training for Efficient Learning of Consistency, Mean Flow, and Flow Map Models"
+  - u: "compose_your_policies_improving_diffusion-based_or_flow-based_robot_policies_via/"
+    t: "Compose Your Policies! Improving Diffusion-based or Flow-based Robot Policies via Test-time Distribution-level Composition"
+  - u: "compositional_amortized_inference_for_large-scale_hierarchical_bayesian_models/"
+    t: "Compositional amortized inference for large-scale hierarchical Bayesian models"
+  - u: "concept-trak_understanding_how_diffusion_models_learn_concepts_through_concept-l/"
+    t: "Concept-TRAK: Understanding how diffusion models learn concepts through concept-level attribution"
+  - u: "condition_errors_refinement_in_autoregressive_image_generation_with_diffusion_lo/"
+    t: "Condition Errors Refinement in Autoregressive Image Generation with Diffusion Loss"
+  - u: "conditionally_whitened_generative_models_for_probabilistic_time_series_forecasti/"
+    t: "Conditionally Whitened Generative Models for Probabilistic Time Series Forecasting"
+  - u: "consistent_text-to-image_generation_via_scene_de-contextualization/"
+    t: "Consistent Text-to-Image Generation via Scene De-Contextualization"
+  - u: "contextbench_modifying_contexts_for_targeted_latent_activation/"
+    t: "ContextBench: Modifying Contexts for Targeted Latent Activation"
+  - u: "continual_unlearning_for_text-to-image_diffusion_models_a_regularization_perspec/"
+    t: "Continual Unlearning for Text-to-Image Diffusion Models: A Regularization Perspective"
+  - u: "cosmo-inr_complex_sinusoidal_modulation_for_implicit_neural_representations/"
+    t: "COSMO-INR: Complex Sinusoidal Modulation for Implicit Neural Representations"
+  - u: "crepe_controlling_diffusion_with_replica_exchange/"
+    t: "CREPE: Controlling Diffusion with Replica Exchange"
+  - u: "densegrpo_from_sparse_to_dense_reward_for_flow_matching_model_alignment/"
+    t: "DenseGRPO: From Sparse to Dense Reward for Flow Matching Model Alignment"
+  - u: "detecting_and_mitigating_memorization_in_diffusion_models_through_anisotropy_of_/"
+    t: "Detecting and Mitigating Memorization in Diffusion Models through Anisotropy of the Log-Probability"
+  - u: "diffink_glyph-_and_style-aware_latent_diffusion_transformer_for_text_to_online_h/"
+    t: "DiffInk: Glyph- and Style-Aware Latent Diffusion Transformer for Text to Online Handwriting Generation"
+  - u: "diffusion_blend_inference-time_multi-preference_alignment_for_diffusion_models/"
+    t: "Diffusion Blend: Inference-Time Multi-Preference Alignment for Diffusion Models"
+  - u: "diffusion_fine-tuning_via_reparameterized_policy_gradient_of_the_soft_q-function/"
+    t: "Diffusion Fine-Tuning via Reparameterized Policy Gradient of the Soft Q-Function"
+  - u: "diffusionnft_online_diffusion_reinforcement_with_forward_process/"
+    t: "DiffusionNFT: Online Diffusion Reinforcement with Forward Process"
+  - u: "direct_reward_fine-tuning_on_poses_for_single_image_to_3d_human_in_the_wild/"
+    t: "Direct Reward Fine-Tuning on Poses for Single Image to 3D Human in the Wild"
+  - u: "directional_textual_inversion_for_personalized_text-to-image_generation/"
+    t: "Directional Textual Inversion for Personalized Text-to-Image Generation"
+  - u: "discrete_adjoint_matching/"
+    t: "Discrete Adjoint Matching"
+item_total: 136
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🔬 ICLR2026** · **137** 篇论文解读
+**🔬 ICLR2026** · **136** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (220)](../../CVPR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (222)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (219)](../../CVPR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (220)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
 
 🔥 **高频主题：** 扩散模型 ×45 · 文生图 ×10 · 布局/合成 ×6 · 对齐/RLHF ×6 · 图像编辑 ×6
 
@@ -524,10 +586,6 @@ tags:
 **[There and Back Again: On the Relation between Noise and Image Inversions in Diffusion Models](there_and_back_again_on_the_relation_between_noise_and_image_inversions_in_diffu.md)**
 
 :   深入分析 DDIM 反转的误差机制，发现潜在编码在平滑图像区域（如天空）呈现低多样性和高相关性，并追溯到反转初始步骤的噪声预测不准确，提出用正向扩散替代前几步反转的简单修复方案。
-
-**[ToProVAR: Efficient Visual Autoregressive Modeling via Tri-Dimensional Entropy-Aware Semantic Analysis and Sparsity Optimization](toprovar_efficient_visual_autoregressive_modeling_via_tri-dimensional_entropy-aw.md)**
-
-:   提出 ToProVAR 框架，利用注意力熵统一分析 VAR 模型的 token/层/尺度三个维度的稀疏性，实现最高 3.4× 加速且图像质量几乎无损，显著优于 FastVAR 和 SkipVAR。
 
 **[Training-Free Reward-Guided Image Editing via Trajectory Optimal Control](training-free_reward-guided_image_editing_via_trajectory_optimal_control.md)**
 

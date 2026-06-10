@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 模型压缩方向75篇论文解读
+  ICML2025 模型压缩论文汇总 · 75篇论文解读
 description: >-
   75篇ICML2025的模型压缩方向论文解读，涵盖 LLM、模型压缩、压缩/编码、知识蒸馏、持续学习、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "知识蒸馏"
   - "持续学习"
   - "推理"
+item_list:
+  - u: "a_cross_modal_knowledge_distillation_data_augmentation_recipe_for_improving_tran/"
+    t: "A Cross Modal Knowledge Distillation & Data Augmentation Recipe for Improving Transcriptomics Representations through Morphological Features"
+  - u: "a_mathematical_framework_for_ai-human_integration_in_work/"
+    t: "A Mathematical Framework for AI-Human Integration in Work"
+  - u: "abkd_pursuing_a_proper_allocation_of_the_probability_mass_in_knowledge_distillat/"
+    t: "ABKD: Pursuing a Proper Allocation of the Probability Mass in Knowledge Distillation via α-β-Divergence"
+  - u: "an_efficient_matrix_multiplication_algorithm_for_accelerating_inference_in_binar/"
+    t: "An Efficient Matrix Multiplication Algorithm for Accelerating Inference in Binary and Ternary Neural Networks"
+  - u: "any4_learned_4-bit_numeric_representation_for_llms/"
+    t: "any4: Learned 4-bit Numeric Representation for LLMs"
+  - u: "became_bayesian_continual_learning_with_adaptive_model_merging/"
+    t: "BECAME: BayEsian Continual Learning with Adaptive Model MErging"
+  - u: "best_subset_selection_optimal_pursuit_for_feature_selection_and_elimination/"
+    t: "Best Subset Selection: Optimal Pursuit for Feature Selection and Elimination"
+  - u: "beyond_communication_overhead_a_multilevel_monte_carlo_approach_for_mitigating_c/"
+    t: "Beyond Communication Overhead: A Multilevel Monte Carlo Approach for Mitigating Compression Bias in Distributed Learning"
+  - u: "beyond_zero_initialization_investigating_the_impact_of_non-zero_initialization_o/"
+    t: "Beyond Zero Initialization: Investigating the Impact of Non-Zero Initialization on LoRA Fine-Tuning Dynamics"
+  - u: "blockdialect_block-wise_fine-grained_mixed_format_quantization_for_energy-effici/"
+    t: "BlockDialect: Block-wise Fine-grained Mixed Format Quantization for Energy-Efficient LLM Inference"
+  - u: "boa_attention-aware_post-training_quantization_without_backpropagation/"
+    t: "BoA: Attention-aware Post-training Quantization without Backpropagation"
+  - u: "bring_reason_to_vision_understanding_perception_and_reasoning_through_model_merg/"
+    t: "Bring Reason to Vision: Understanding Perception and Reasoning through Model Merging"
+  - u: "come_together_but_not_right_now_a_progressive_strategy_to_boost_low-rank_adaptat/"
+    t: "Come Together, But Not Right Now: A Progressive Strategy to Boost Low-Rank Adaptation"
+  - u: "confpo_exploiting_policy_model_confidence_for_critical_token_selection_in_prefer/"
+    t: "ConfPO: Exploiting Policy Model Confidence for Critical Token Selection in Preference Optimization"
+  - u: "context_tuning_for_in-context_optimization/"
+    t: "Context Tuning for In-Context Optimization"
+  - u: "core_context_aware_transformers_for_long_context_language_modeling/"
+    t: "Core Context Aware Transformers for Long Context Language Modeling"
+  - u: "diffusion_sampling_correction_via_approximately_10_parameters/"
+    t: "Diffusion Sampling Correction via Approximately 10 Parameters"
+  - u: "distilling_tool_knowledge_into_language_models_via_back-translated_traces/"
+    t: "Distilling Tool Knowledge into Language Models via Back-Translated Traces"
+  - u: "dlp_dynamic_layerwise_pruning_in_large_language_models/"
+    t: "DLP: Dynamic Layerwise Pruning in Large Language Models"
+  - u: "efficient_logit-based_knowledge_distillation_of_deep_spiking_neural_networks_for/"
+    t: "Efficient Logit-based Knowledge Distillation of Deep Spiking Neural Networks for Full-Range Timestep Deployment"
+  - u: "eigenspectrum_analysis_of_neural_networks_without_aspect_ratio_bias/"
+    t: "Eigenspectrum Analysis of Neural Networks without Aspect Ratio Bias"
+  - u: "fgfp_a_fractional_gaussian_filter_and_pruning_for_deep_neural_networks_compressi/"
+    t: "FGFP: A Fractional Gaussian Filter and Pruning for Deep Neural Networks Compression"
+  - u: "flatquant_flatness_matters_for_llm_quantization/"
+    t: "FlatQuant: Flatness Matters for LLM Quantization"
+  - u: "floe_on-the-fly_moe_inference_on_memory-constrained_gpu/"
+    t: "FloE: On-the-Fly MoE Inference on Memory-constrained GPU"
+  - u: "from_language_models_over_tokens_to_language_models_over_characters/"
+    t: "From Language Models over Tokens to Language Models over Characters"
+  - u: "from_logits_to_hierarchies_hierarchical_clustering_made_simple/"
+    t: "From Logits to Hierarchies: Hierarchical Clustering made Simple"
+  - u: "from_low_rank_gradient_subspace_stabilization_to_low-rank_weights_observations_t/"
+    t: "From Low Rank Gradient Subspace Stabilization to Low-Rank Weights: Observations, Theories, and Applications"
+  - u: "function-space_learning_rates/"
+    t: "Function-Space Learning Rates"
+  - u: "generalization_bounds_via_meta-learned_model_representations_pac-bayes_and_sampl/"
+    t: "Generalization Bounds via Meta-Learned Model Representations: PAC-Bayes and Sample Compression Hypernetworks"
+  - u: "gptaq_efficient_finetuning-free_quantization_for_asymmetric_calibration/"
+    t: "GPTAQ: Efficient Finetuning-Free Quantization for Asymmetric Calibration"
+item_total: 75
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **🧪 ICML2025** · **75** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (54)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (100)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (61)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (99)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (60)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md)
 
 🔥 **高频主题：** LLM ×18 · 模型压缩 ×15 · 压缩/编码 ×8 · 知识蒸馏 ×4 · 持续学习 ×4
 

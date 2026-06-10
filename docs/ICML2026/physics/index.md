@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 物理/科学计算方向24篇论文解读
+  ICML2026 物理/科学计算论文汇总 · 24篇论文解读
 description: >-
   24篇ICML2026的物理/科学计算方向论文解读，涵盖生物分子、压缩/编码、扩散模型、LLM、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,56 @@ tags:
   - "扩散模型"
   - "LLM"
   - "布局/合成"
+item_list:
+  - u: "a_call_to_lagrangian_action_learning_population_mechanics_from_temporal_snapshot/"
+    t: "A Call to Lagrangian Action: Learning Population Mechanics from Temporal Snapshots"
+  - u: "antic_adaptive_neural_temporal_in-situ_compressor/"
+    t: "ANTIC: Adaptive Neural Temporal In-situ Compressor"
+  - u: "ballast_bayesian_active_learning_with_look-ahead_amendment_for_sea-drifter_traje/"
+    t: "BALLAST: Bayesian Active Learning with Look-ahead Amendment for Sea-drifter Trajectories under Spatio-Temporal Vector Fields"
+  - u: "distribution_transformers_fast_approximate_bayesian_inference_with_on-the-fly_pr/"
+    t: "Distribution Transformers: Fast Approximate Bayesian Inference With On-The-Fly Prior Adaptation"
+  - u: "eqgino_equivariant_geometry-informed_fourier_neural_operators_for_3d_pdes/"
+    t: "EqGINO: Equivariant Geometry-Informed Fourier Neural Operators for 3D PDEs"
+  - u: "generative_neural_operators_through_diffusion_last_layer/"
+    t: "Generative Neural Operators Through Diffusion Last Layer"
+  - u: "hermite-ngp_gradient-augmented_hash_encoding_for_learning_pdes/"
+    t: "Hermite-NGP: Gradient-Augmented Hash Encoding for Learning PDEs"
+  - u: "iterative_refinement_neural_operators_are_learned_fixed-point_solvers_a_principl/"
+    t: "Iterative Refinement Neural Operators are Learned Fixed-Point Solvers: A Principled Approach to Spectral Bias Mitigation"
+  - u: "learning_to_refine_spectral-decoupled_iterative_refinement_framework_for_precipi/"
+    t: "Learning to Refine: Spectral-Decoupled Iterative Refinement Framework for Precipitation Nowcasting"
+  - u: "mathbbr2k_is_theoretically_large_enough_for_embedding-based_top-k_retrieval/"
+    t: "$\\mathbb{R}^{2k}$ is Theoretically Large Enough for Embedding-based Top-$k$ Retrieval"
+  - u: "mesh_field_theory_port-hamiltonian_formulation_of_mesh-based_physics/"
+    t: "Mesh Field Theory: Port–Hamiltonian Formulation of Mesh-Based Physics"
+  - u: "mōle-λ_learning_the_coupled-cluster_response_state_for_energies_gradients_and_pr/"
+    t: "MōLe-Λ: Learning the Coupled-Cluster Response State for Energies, Gradients, and Properties"
+  - u: "pinnfluence_interpreting_pinns_through_influence_functions/"
+    t: "PINNfluence: Interpreting PINNs Through Influence Functions"
+  - u: "quiver_quantum-informed_views_for_enhanced_representations_in_large_ml_models/"
+    t: "Quiver: Quantum-Informed Views for Enhanced Representations in Large ML Models"
+  - u: "rex_a_family_of_reversible_exponential_stochastic_runge-kutta_solvers/"
+    t: "REX: A Family of Reversible Exponential Stochastic Runge-Kutta Solvers"
+  - u: "score_based_error_correcting_code_decoder/"
+    t: "Score-Based Error Correcting Code Decoder"
+  - u: "softplus_attention_with_re-weighting_boosts_length_extrapolation_in_large_langua/"
+    t: "Softplus Attention with Re-weighting Boosts Length Extrapolation in Large Language Models"
+  - u: "speculative_sampling_for_faster_molecular_dynamics/"
+    t: "Speculative Sampling for Faster Molecular Dynamics"
+  - u: "teaching_molecular_dynamics_to_a_non-autoregressive_ionic_transport_predictor/"
+    t: "Teaching Molecular Dynamics to a Non-Autoregressive Ionic Transport Predictor"
+  - u: "topology-preserving_neural_operator_learning_via_hodge_decomposition/"
+    t: "Topology-Preserving Neural Operator Learning via Hodge Decomposition"
+  - u: "triforces_augmenting_atomistic_gnns_for_transferable_representations/"
+    t: "TriForces: Augmenting Atomistic GNNs for Transferable Representations"
+  - u: "unbiased_and_second-order-free_training_for_high-dimensional_pdes/"
+    t: "Unbiased and Second-Order-Free Training for High-Dimensional PDEs"
+  - u: "understanding_catastrophic_forgetting_in_lora_via_mean-field_attention_dynamics/"
+    t: "Understanding Catastrophic Forgetting In LoRA via Mean-Field Attention Dynamics"
+  - u: "unveiling_multi-regime_patterns_in_sciml_distinct_failure_modes_and_regime-speci/"
+    t: "Unveiling Multi-Regime Patterns in SciML: 不同失败模式与域特异优化"
+item_total: 24
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +70,7 @@ tags:
 
 **🧪 ICML2026** · **24** 篇论文解读
 
-📌 **同领域跨会议浏览：** [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (55)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (20)](../../ICML2025/physics/index.md)
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (18)](../../ICML2025/physics/index.md)
 
 🔥 **高频主题：** 生物分子 ×2
 

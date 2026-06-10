@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 人体理解方向19篇论文解读
+  AAAI2026 人体理解论文汇总 · 17篇论文解读
 description: >-
-  19篇AAAI2026的人体理解方向论文解读，涵盖人脸/视线、人体姿态、推理、情感分析、目标跟踪、重识别等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  17篇AAAI2026的人体理解方向论文解读，涵盖人脸/视线、人体姿态、推理、情感分析、目标跟踪、重识别等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "人体理解"
@@ -14,16 +14,52 @@ tags:
   - "情感分析"
   - "目标跟踪"
   - "重识别"
+item_list:
+  - u: "ahan_asymmetric_hierarchical_attention_network_for_identical/"
+    t: "AHAN: Asymmetric Hierarchical Attention Network for Identical Twin Face Verification"
+  - u: "clip-fti_fine-grained_face_template_inversion_via_clip-driven_attribute_conditio/"
+    t: "CLIP-FTI: Fine-Grained Face Template Inversion via CLIP-Driven Attribute Conditioning"
+  - u: "coordar_one-reference_6d_pose_estimation_of_novel_objects_via_autoregressive_coo/"
+    t: "CoordAR: One-Reference 6D Pose Estimation of Novel Objects via Autoregressive Coordinate Map Generation"
+  - u: "facial-r1_aligning_reasoning_and_recognition_for_facial_emotion_analysis/"
+    t: "Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis"
+  - u: "generating_attribute-aware_human_motions_from_textual_prompt/"
+    t: "Generating Attribute-Aware Human Motions from Textual Prompt"
+  - u: "improving_sparse_imu-based_motion_capture_with_motion_label_smoothing/"
+    t: "Improving Sparse IMU-based Motion Capture with Motion Label Smoothing"
+  - u: "kinest_a_kinematics-guided_spatiotemporal_state_space_model_for_human_motion_tra/"
+    t: "KineST: A Kinematics-guided Spatiotemporal State Space Model for Human Motion Tracking from Sparse Signals"
+  - u: "mmpred_radar-based_human_motion_prediction_in_the_dark/"
+    t: "mmPred: Radar-based Human Motion Prediction in the Dark"
+  - u: "modality-aware_bias_mitigation_and_invariance_learning_for_unsupervised_visible-/"
+    t: "Modality-Aware Bias Mitigation and Invariance Learning for Unsupervised Visible-Infrared Person Re-Identification"
+  - u: "mvgd-net_a_novel_motion-aware_video_glass_surface_detection_network/"
+    t: "MVGD-Net: A Novel Motion-aware Video Glass Surface Detection Network"
+  - u: "new_synthetic_goldmine_hand_joint_angle-driven_emg_data_generation_framework_for/"
+    t: "New Synthetic Goldmine: Hand Joint Angle-Driven EMG Data Generation Framework for Micro-Gesture Recognition"
+  - u: "realign_text-to-motion_generation_via_step-aware_reward-guided_alignment/"
+    t: "ReAlign: Text-to-Motion Generation via Step-Aware Reward-Guided Alignment"
+  - u: "robust_long-term_test-time_adaptation_for_3d_human_pose_estimation_through_motio/"
+    t: "Robust Long-term Test-Time Adaptation for 3D Human Pose Estimation through Motion Discretization"
+  - u: "soscontrol_enhancing_human_motion_generation_through_saliency-aware_symbolic_ori/"
+    t: "SOSControl: Enhancing Human Motion Generation through Saliency-Aware Symbolic Orientation and Timing Control"
+  - u: "spatiotemporal-untrammelled_mixture_of_experts_for_multi-person_motion_predictio/"
+    t: "Spatiotemporal-Untrammelled Mixture of Experts for Multi-Person Motion Prediction"
+  - u: "streaming_generation_of_co-speech_gestures_via_accelerated_rolling_diffusion/"
+    t: "Streaming Generation of Co-Speech Gestures via Accelerated Rolling Diffusion"
+  - u: "vpho_joint_visual-physical_cue_learning_and_aggregation_for_hand-object_pose_est/"
+    t: "VPHO: Joint Visual-Physical Cue Learning and Aggregation for Hand-Object Pose Estimation"
+item_total: 17
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**🤖 AAAI2026** · **19** 篇论文解读
+**🤖 AAAI2026** · **17** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md) · [📹 ICCV2025 (39)](../../ICCV2025/human_understanding/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md) · [📹 ICCV2025 (38)](../../ICCV2025/human_understanding/index.md)
 
-🔥 **高频主题：** 人脸/视线 ×6 · 人体姿态 ×3
+🔥 **高频主题：** 人脸/视线 ×4 · 人体姿态 ×3
 
 **[AHAN: Asymmetric Hierarchical Attention Network for Identical Twin Face Verification](ahan_asymmetric_hierarchical_attention_network_for_identical.md)**
 
@@ -40,10 +76,6 @@ tags:
 **[Facial-R1: Aligning Reasoning and Recognition for Facial Emotion Analysis](facial-r1_aligning_reasoning_and_recognition_for_facial_emotion_analysis.md)**
 
 :   提出 Facial-R1，一个三阶段对齐训练框架（SFT → RL → 数据合成），通过将 AU 和情绪标签作为可验证奖励信号来对齐 VLM 的推理过程与情绪识别结果，在 8 个基准上达到 SOTA，并构建了 FEA-20K 数据集。
-
-**[GazeInterpreter: Parsing Eye Gaze to Generate Eye-Body-Coordinated Narrations](gazeinterpreter_parsing_eye_gaze_to_generate_eye-body-coordinated_narrations.md)**
-
-:   提出 GazeInterpreter，一种基于 LLM 的层次化框架，通过符号化眼动解析器将原始注视信号转化为文本叙述，再与身体运动叙述整合生成眼-体协调描述，并通过自我纠正循环迭代优化，显著提升文本驱动的运动生成、动作预测和行为摘要等下游任务的性能。
 
 **[Generating Attribute-Aware Human Motions from Textual Prompt](generating_attribute-aware_human_motions_from_textual_prompt.md)**
 
@@ -72,10 +104,6 @@ tags:
 **[New Synthetic Goldmine: Hand Joint Angle-Driven EMG Data Generation Framework for Micro-Gesture Recognition](new_synthetic_goldmine_hand_joint_angle-driven_emg_data_generation_framework_for.md)**
 
 :   提出 SeqEMG-GAN，一种基于手部关节角度序列驱动的条件对抗生成框架，通过角度编码器、双层上下文编码器（含新颖 Ang2Gist 单元）、深度卷积生成器和多视角判别器的联合设计，从关节运动学轨迹合成高保真 EMG 信号，实现对未见手势的零样本生成，合成数据与真实数据混合训练将分类精度从 57.77% 提升至 60.53%。
-
-**[PA-FAS: Towards Interpretable and Generalizable Multimodal Face Anti-Spoofing via Path-Augmented Reinforcement Learning](pa-fas_towards_interpretable_and_generalizable_multimodal_face_anti-spoofing_via.md)**
-
-:   提出PA-FAS框架，通过推理路径增强（Reasoning Path Augmentation）策略和答案打乱机制，解决了多模态FAS中SFT+RL范式的两大瓶颈（推理路径多样性不足和推理捷径问题），首次在统一框架中同时实现多模态融合、域泛化和可解释性。
 
 **[ReAlign: Text-to-Motion Generation via Step-Aware Reward-Guided Alignment](realign_text-to-motion_generation_via_step-aware_reward-guided_alignment.md)**
 

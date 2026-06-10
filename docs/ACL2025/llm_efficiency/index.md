@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 LLM 效率方向38篇论文解读
+  ACL2025 LLM效率论文汇总 · 36篇论文解读
 description: >-
-  38篇ACL2025的 LLM 效率方向论文解读，涵盖 LLM、文本摘要、对话系统、问答、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  36篇ACL2025的 LLM 效率方向论文解读，涵盖 LLM、文本摘要、对话系统、问答、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ACL2025"
   - "LLM 效率"
@@ -14,16 +14,78 @@ tags:
   - "问答"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "a_drop-in_solution_for_on-the-fly_adaptation_of_speculative_decoding_in_large_la/"
+    t: "A Drop-In Solution for On-the-Fly Adaptation of Speculative Decoding in Large Language Models"
+  - u: "accelerating_speculative_decoding_via_efficient_context-aware_draft_generation/"
+    t: "Accelerating Speculative Decoding via Efficient Context-Aware Draft Generation"
+  - u: "adaptive_grouped_pe_context_window/"
+    t: "LaMPE: Length-aware Multi-grained Positional Encoding for Adaptive Long-context Scaling Without Training"
+  - u: "boosting_long-context_information_seeking_via_query-guided_activation_refilling/"
+    t: "Boosting Long-Context Information Seeking via Query-Guided Activation Refilling"
+  - u: "clasp_self_speculative_decoding/"
+    t: "CLaSp: In-Context Layer Skip for Self-Speculative Decoding"
+  - u: "cnnsum_exploring_long-context_summarization_with_large_language_models_in_chines/"
+    t: "CNNSum: Exploring Long-Context Summarization with Large Language Models in Chinese Novels"
+  - u: "consistency-preserving_contrastive_decoding_for_faithful_document-grounded_dial/"
+    t: "Consistency-Preserving Contrastive Decoding for Faithful Document-Grounded Dialogue"
+  - u: "design_choices_for_extending_the_context_length_of_visual_language_models/"
+    t: "Giraffe: Design Choices for Extending the Context Length of Visual Language Models"
+  - u: "distance_between_relevant_information_pieces_causes_bias_in_long-context_llms/"
+    t: "Distance between Relevant Information Pieces Causes Bias in Long-Context LLMs"
+  - u: "dynamic_chunking_and_selection_for_reading_comprehension_of_ultra-long_context_i/"
+    t: "Dynamic Chunking and Selection for Reading Comprehension of Ultra-Long Context in Large Language Models"
+  - u: "efficient_many-shot_in-context_learning_with_dynamic_block-sparse_attention/"
+    t: "Efficient Many-Shot In-Context Learning with Dynamic Block-Sparse Attention"
+  - u: "entailment-preserving_first-order_logic_representations_in_natural_language_enta/"
+    t: "Entailment-Preserving First-order Logic Representations in Natural Language Entailment"
+  - u: "focusllm_precise_understanding_of_long_context_by_dynamic_condensing/"
+    t: "FocusLLM: Precise Understanding of Long Context by Dynamic Condensing"
+  - u: "fuel_unveiling_environmental_impacts_of_llm_serving/"
+    t: "FUEL: Unveiling Environmental Impacts of Large Language Model Serving: A Functional Unit View"
+  - u: "kv_latent_cache_reduction/"
+    t: "KV-Latent: Dimensional-level KV Cache Reduction with Frequency-aware Rotary Positional Embedding"
+  - u: "ladm_long_context_data/"
+    t: "LADM: Long-context Training Data Selection with Attention-based Dependency Measurement for LLMs"
+  - u: "literary_evidence_retrieval_via_long-context_language_models/"
+    t: "Literary Evidence Retrieval via Long-Context Language Models"
+  - u: "longbench_v2_towards_deeper_understanding_and_reasoning_on_realistic_long-contex/"
+    t: "LongBench v2: Towards Deeper Understanding and Reasoning on Realistic Long-context Multitasks"
+  - u: "longreward_improving_long-context_large_language_models_with_ai_feedback/"
+    t: "LongReward: Improving Long-context Large Language Models with AI Feedback"
+  - u: "longsafety_evaluating_long-context_safety_of_large_language_models/"
+    t: "LongSafety: Evaluating Long-Context Safety of Large Language Models"
+  - u: "many_shot_attacks_long_context/"
+    t: "What Really Matters in Many-Shot Attacks? An Empirical Study of Long-Context Vulnerabilities in LLMs"
+  - u: "mitigating_posterior_salience_attenuation_in_long-context_llms_with_positional_c/"
+    t: "Mitigating Posterior Salience Attenuation in Long-Context LLMs with Positional Contrastive Decoding"
+  - u: "native_sparse_attention/"
+    t: "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention"
+  - u: "on_many-shot_in-context_learning_for_long-context_evaluation/"
+    t: "On Many-Shot In-Context Learning for Long-Context Evaluation"
+  - u: "ref-long_benchmarking_the_long-context_referencing_capability_of_long-context_la/"
+    t: "Ref-Long: Benchmarking the Long-Context Referencing Capability of Long-Context Language Models"
+  - u: "refreshkv_updating_small_kv_cache_during_long-form_generation/"
+    t: "RefreshKV: Updating Small KV Cache During Long-form Generation"
+  - u: "sam_decoding_speculative_decoding_via_suffix_automaton/"
+    t: "SAM Decoding: Speculative Decoding via Suffix Automaton"
+  - u: "scaling_context_not_parameters_training_a_compact_7b_language_model_for_efficien/"
+    t: "Scaling Context, Not Parameters: Training a Compact 7B Language Model for Efficient Long-Context Processing"
+  - u: "seal_scaling_to_emphasize_attention_for_long-context_retrieval/"
+    t: "SEAL: Scaling to Emphasize Attention for Long-Context Retrieval"
+  - u: "sliding_windows_full_ranking/"
+    t: "Sliding Windows Are Not the End: Exploring Full Ranking with Long-Context Large Language Models"
+item_total: 36
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚡ LLM 效率
 
-**💬 ACL2025** · **38** 篇论文解读
+**💬 ACL2025** · **36** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/llm_efficiency/index.md) · [💬 ACL2026 (22)](../../ACL2026/llm_efficiency/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/llm_efficiency/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_efficiency/index.md) · [🧠 NeurIPS2025 (34)](../../NeurIPS2025/llm_efficiency/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/llm_efficiency/index.md)
 
-🔥 **高频主题：** LLM ×9
+🔥 **高频主题：** LLM ×8
 
 **[A Drop-In Solution for On-the-Fly Adaptation of Speculative Decoding in Large Language Models](a_drop-in_solution_for_on-the-fly_adaptation_of_speculative_decoding_in_large_la.md)**
 
@@ -61,10 +123,6 @@ tags:
 
 :   本文提出 LongPiBench 基准，首次系统研究当长上下文中存在多个相关信息片段时，LLM 对信息片段间距离（spacing）的敏感性，揭示了当前模型虽已基本克服"中间丢失"问题，但在相关信息间距变化时仍存在显著的位置偏差。
 
-**[DIVE into MoE: Diversity-Enhanced Reconstruction of Large Language Models from Dense into Mixture-of-Experts](dive_moe_reconstruction.md)**
-
-:   提出 DIVE，一种将 Dense LLM 重构为 MoE 架构的方法，核心洞察是不同领域的校准数据集会让结构化剪枝产生不同的剪枝结果，利用这种多样性构建领域特异的专家，配合高效的两阶段重训练（router dense训练 + expert LoRA稀疏训练），在仅调不到 1% 参数的情况下实现优于现有剪枝和 MoE 重构方法的效果。
-
 **[Dynamic Chunking and Selection for Reading Comprehension of Ultra-Long Context in Large Language Models](dynamic_chunking_and_selection_for_reading_comprehension_of_ultra-long_context_i.md)**
 
 :   提出 Dynamic Chunking and Selection (DCS)，通过基于语义相似度的动态分块和问题感知分类器的块选择，解决长文本固定分块导致的语义断裂问题，在 12 个长文本 QA 数据集上以 Llama3 为基座实现 single-hop 平均 35.50（+28.6%）和 multi-hop 平均 29.07（+20.0%）的提升，且在 256k token 输入下保持鲁棒。
@@ -84,10 +142,6 @@ tags:
 **[FUEL: Unveiling Environmental Impacts of Large Language Model Serving: A Functional Unit View](fuel_unveiling_environmental_impacts_of_llm_serving.md)**
 
 :   提出 FUEL 框架，首次引入生命周期评估中的"功能单元"（Functional Unit）概念作为标准化比较基准，在统一的质量、性能和工作负载约束下评估不同 LLM 服务配置的碳排放，通过模型大小、量化策略和硬件选择三个案例研究揭示了多个反直觉的绿色 AI 洞察。
-
-**[GigaChat Family: Efficient Russian Language Modeling Through Mixture of Experts Architecture](gigachat_family_efficient_russian_language_modeling_through_mixture_of_experts_a.md)**
-
-:   介绍 GigaChat 系列——首个从头为俄语设计并预训练的 MoE 架构 LLM 家族，包含 20B 总参数/3.3B 激活参数的基座和指令微调模型，在俄语 benchmark 上达到同规模 SOTA，训练速度是同量级 dense 模型的 2 倍，推理延迟降低 40%。
 
 **[KV-Latent: Dimensional-level KV Cache Reduction with Frequency-aware Rotary Positional Embedding](kv_latent_cache_reduction.md)**
 

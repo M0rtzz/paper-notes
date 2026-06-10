@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 自动驾驶方向6篇论文解读
+  ICML2026 自动驾驶论文汇总 · 6篇论文解读
 description: >-
   6篇ICML2026的自动驾驶方向论文解读，涵盖导航、强化学习、自动驾驶、扩散模型、LLM、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,20 @@ tags:
   - "扩散模型"
   - "LLM"
   - "推理"
+item_list:
+  - u: "constrained_multi-objective_reinforcement_learning_with_max-min_criterion/"
+    t: "Constrained Multi-Objective Reinforcement Learning with Max-Min Criterion"
+  - u: "deepsight_long-horizon_world_modeling_via_latent_states_prediction_for_end-to-en/"
+    t: "DeepSight: Long-Horizon World Modeling via Latent States Prediction for End-to-End Autonomous Driving"
+  - u: "mitigating_error_accumulation_in_continuous_navigation_via_memory-augmented_kalm/"
+    t: "Mitigating Error Accumulation in Continuous Navigation via Memory-Augmented Kalman Filtering"
+  - u: "plug-and-play_label_map_diffusion_for_universal_goal-oriented_navigation/"
+    t: "Plug-and-Play Label Map Diffusion for Universal Goal-Oriented Navigation"
+  - u: "threshold-based_exclusive_batching_for_llm_inference/"
+    t: "Threshold-Based Exclusive Batching for LLM Inference"
+  - u: "tsrbench_a_comprehensive_multi-task_multi-modal_time_series_reasoning_benchmark_/"
+    t: "TSRBench: A Comprehensive Multi-task Multi-modal Time Series Reasoning Benchmark for Generalist Models"
+item_total: 6
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

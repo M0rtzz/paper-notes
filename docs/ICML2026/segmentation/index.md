@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 语义分割方向13篇论文解读
+  ICML2026 语义分割论文汇总 · 13篇论文解读
 description: >-
   13篇ICML2026的语义分割方向论文解读，涵盖语义分割、目标跟踪、LLM、对齐/RLHF、语音、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,34 @@ tags:
   - "对齐/RLHF"
   - "语音"
   - "对抗鲁棒"
+item_list:
+  - u: "activation-free_backbones_for_image_recognition_polynomial_alternatives_within_m/"
+    t: "Activation-Free Backbones for Image Recognition: Polynomial Alternatives within MetaFormer-Style Vision Models"
+  - u: "beyond_detection_a_structure-aware_framework_for_scene_text_tracking/"
+    t: "Beyond Detection: A Structure-Aware Framework for Scene Text Tracking"
+  - u: "flowseg_dynamic_semantic_guidance_for_llm-conditioned_segmentation/"
+    t: "FlowSeg: Dynamic Semantic Guidance for LLM-Conditioned Segmentation"
+  - u: "functional_attention_from_pairwise_affinities_to_functional_correspondences/"
+    t: "Functional Attention: From Pairwise Affinities to Functional Correspondences"
+  - u: "geometry-preserving_unsupervised_alignment_for_heterogeneous_foundation_models/"
+    t: "Geometry-Preserving Unsupervised Alignment for Heterogeneous Foundation Models"
+  - u: "lightavseg_lightweight_audio-visual_segmentation/"
+    t: "LightAVSeg: Lightweight Audio-Visual Segmentation"
+  - u: "mvr-cache_optimizing_semantic_caching_via_multi-vector_retrieval_and_learned_pro/"
+    t: "MVR-cache: Optimizing Semantic Caching via Multi-Vector Retrieval and Learned Prompt Segmentation"
+  - u: "refining_context-entangled_content_segmentation_via_curriculum_selection_and_ant/"
+    t: "Refining Context-Entangled Content Segmentation via Curriculum Selection and Anti-Curriculum Promotion"
+  - u: "segment_anything_with_robust_uncertainty-accuracy_correlation/"
+    t: "Segment Anything with Robust Uncertainty-Accuracy Correlation"
+  - u: "supervise_less_see_more_training-free_nuclear_instance_segmentation_with_prototy/"
+    t: "SPROUT: Supervise Less, See More — Training-free Nuclear Instance Segmentation with Prototype-Guided Prompting"
+  - u: "uground_towards_unified_visual_grounding_with_unrolled_transformers/"
+    t: "UGround: Towards Unified Visual Grounding with Unrolled Transformers"
+  - u: "unsupervised_hierarchical_skill_discovery/"
+    t: "无监督层级技能发现"
+  - u: "what_makes_synthetic_data_effective_in_image_segmentation/"
+    t: "What Makes Synthetic Data Effective in Image Segmentation"
+item_total: 13
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +48,7 @@ tags:
 
 **🧪 ICML2026** · **13** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (45)](../../NeurIPS2025/segmentation/index.md) · [📹 ICCV2025 (74)](../../ICCV2025/segmentation/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (44)](../../NeurIPS2025/segmentation/index.md) · [📹 ICCV2025 (74)](../../ICCV2025/segmentation/index.md)
 
 🔥 **高频主题：** 语义分割 ×6
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 目标检测方向14篇论文解读
+  ICLR2026 目标检测论文汇总 · 14篇论文解读
 description: >-
   14篇ICLR2026的目标检测方向论文解读，涵盖异常检测、目标检测、少样本学习、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,36 @@ tags:
   - "异常检测"
   - "少样本学习"
   - "时序预测"
+item_list:
+  - u: "bootstrapping_mllm_for_weakly-supervised_class-agnostic_object_counting/"
+    t: "Bootstrapping MLLM for Weakly-Supervised Class-Agnostic Object Counting (WS-COC)"
+  - u: "cgsa_class-guided_slot-aware_adaptation_for_source-free_object_detection/"
+    t: "CGSA: Class-Guided Slot-Aware Adaptation for Source-Free Object Detection"
+  - u: "clip_behaves_like_a_bag-of-words_model_cross-modally_but_not_uni-modally/"
+    t: "CLIP Behaves like a Bag-of-Words Model Cross-modally but not Uni-modally"
+  - u: "contextual_and_seasonal_lstms_for_time_series_anomaly_detection/"
+    t: "Contextual and Seasonal LSTMs for Time Series Anomaly Detection"
+  - u: "dual_distillation_for_few-shot_anomaly_detection/"
+    t: "Dual Distillation for Few-Shot Anomaly Detection"
+  - u: "forestpersons_a_large-scale_dataset_for_under-canopy_missing_person_detection/"
+    t: "ForestPersons: A Large-Scale Dataset for Under-Canopy Missing Person Detection"
+  - u: "fsod-vfm_few-shot_object_detection_with_vision_foundation_models_and_graph_diffu/"
+    t: "FSOD-VFM: Few-Shot Object Detection with Vision Foundation Models and Graph Diffusion"
+  - u: "infodet_a_dataset_for_infographic_element_detection/"
+    t: "InfoDet: A Dataset for Infographic Element Detection"
+  - u: "long-context_generalization_with_sparse_attention/"
+    t: "Long-Context Generalization with Sparse Attention"
+  - u: "owleye_zero-shot_learner_for_cross-domain_graph_data_anomaly_detection/"
+    t: "OwlEye: Zero-Shot Learner for Cross-Domain Graph Data Anomaly Detection"
+  - u: "paano_patch-based_representation_learning_for_time-series_anomaly_detection/"
+    t: "PAANO: Patch-Based Representation Learning for Time-Series Anomaly Detection"
+  - u: "spwood_sparse_partial_weakly-supervised_oriented_object_detection/"
+    t: "SPWOOD: Sparse Partial Weakly-Supervised Oriented Object Detection"
+  - u: "towards_anomaly-aware_pre-training_and_fine-tuning_for_graph_anomaly_detection/"
+    t: "Towards Anomaly-Aware Pre-Training and Fine-Tuning for Graph Anomaly Detection"
+  - u: "traceable_evidence_enhanced_visual_grounded_reasoning_evaluation_and_methodology/"
+    t: "Traceable Evidence Enhanced Visual Grounded Reasoning: Evaluation and Method"
+item_total: 14
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +48,7 @@ tags:
 
 **🔬 ICLR2026** · **14** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (12)](../../ICML2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (11)](../../ICML2025/object_detection/index.md)
 
 🔥 **高频主题：** 异常检测 ×5 · 目标检测 ×3 · 少样本学习 ×3 · 时序预测 ×2
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 AI 安全方向14篇论文解读
+  ACL2025 AI安全论文汇总 · 14篇论文解读
 description: >-
   14篇ACL2025的 AI 安全方向论文解读，涵盖水印/隐写、对抗鲁棒、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,36 @@ tags:
   - "水印/隐写"
   - "对抗鲁棒"
   - "语音"
+item_list:
+  - u: "building_a_long_text_privacy_policy_corpus_with_multi-class_labels/"
+    t: "Building a Long Text Privacy Policy Corpus with Multi-Class Labels"
+  - u: "centaur_bridging_the_impossible_trinity_of/"
+    t: "CENTAUR: Bridging the Impossible Trinity of Privacy, Efficiency, and Performance in Privacy-Preserving Transformer Inference"
+  - u: "crafting_privacy-preserving_adversarial_examples_a_defense_against_membership_inf/"
+    t: "Crafting Privacy-Preserving Adversarial Examples: A Defense Against Membership Inference"
+  - u: "fairi_tales_evaluation_of_fairness_in_indian_contexts_with_a_focus_on_bias_and_s/"
+    t: "FairI Tales: Evaluation of Fairness in Indian Contexts with a Focus on Bias and Stereotypes"
+  - u: "gifi_gender_fairness/"
+    t: "Gender Inclusivity Fairness Index (GIFI): A Multilevel Framework"
+  - u: "multi-task_adversarial_attacks_against_black-box_model_with_few-shot_queries/"
+    t: "Multi-task Adversarial Attacks against Black-box Model with Few-shot Queries"
+  - u: "privacibench_evaluating_privacy_with_contextual_integrity/"
+    t: "PrivaCI-Bench: Evaluating Privacy with Contextual Integrity and Legal Compliance"
+  - u: "quantifying_misattribution_unfairness_in_authorship_attribution/"
+    t: "Quantifying Misattribution Unfairness in Authorship Attribution"
+  - u: "robust_and_minimally_invasive_watermarking_for_eaas/"
+    t: "Robust and Minimally Invasive Watermarking for EaaS"
+  - u: "sandcastles_watermarking_impossibility/"
+    t: "Sandcastles in the Storm: Revisiting Watermarking Impossibility"
+  - u: "speechfake_a_largescale_multilingual_speech_deepfake/"
+    t: "SpeechFake: A Large-Scale Multilingual Speech Deepfake Dataset Incorporating Cutting-Edge Generation Methods"
+  - u: "towards_fairness_assessment_of_dutch_hate_speech_detection/"
+    t: "Towards Fairness Assessment of Dutch Hate Speech Detection"
+  - u: "watermark_segment_detection/"
+    t: "Efficiently Identifying Watermarked Segments in Mixed-Source Texts"
+  - u: "wet_eaas_watermark/"
+    t: "WET: Overcoming Paraphrasing Vulnerabilities in Embeddings-as-a-Service with Linear Transformation Watermark"
+item_total: 14
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +48,7 @@ tags:
 
 **💬 ACL2025** · **14** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (72)](../../NeurIPS2025/ai_safety/index.md)
 
 🔥 **高频主题：** 水印/隐写 ×4 · 对抗鲁棒 ×3 · 语音 ×2
 

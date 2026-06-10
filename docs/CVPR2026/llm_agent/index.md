@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 LLM Agent方向15篇论文解读
+  CVPR2026 LLMAgent论文汇总 · 15篇论文解读
 description: >-
   15篇CVPR2026的 LLM Agent 方向论文解读，涵盖 Agent、推理、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,38 @@ tags:
   - "Agent"
   - "推理"
   - "多模态"
+item_list:
+  - u: "argos_agentic_multi_camera_person_search/"
+    t: "ARGOS: Who, Where, and When in Agentic Multi-Camera Person Search"
+  - u: "carepilot_a_multi-agent_framework_for_long-horizon_computer_task_automation_in_h/"
+    t: "CarePilot: A Multi-Agent Framework for Long-Horizon Computer Task Automation in Healthcare"
+  - u: "echotrail-gui_building_actionable_memory_for_gui_agents_via_critic-guided_self-e/"
+    t: "EchoTrail-GUI: Building Actionable Memory for GUI Agents via Critic-Guided Self-Exploration"
+  - u: "ego2web_a_web_agent_benchmark_grounded_in_egocentric_videos/"
+    t: "Ego2Web: A Web Agent Benchmark Grounded in Egocentric Videos"
+  - u: "epiagent_agent_centric_system_for_ancient_inscription_restoration/"
+    t: "EpiAgent: An Agent-Centric System for Ancient Inscription Restoration"
+  - u: "gen_n_val_agentic_image_data_generation_and_validation/"
+    t: "Gen-n-Val: Agentic Image Data Generation and Validation"
+  - u: "gui-ceval_a_hierarchical_and_comprehensive_chinese_benchmark_for_mobile_gui_agen/"
+    t: "GUI-CEval: A Hierarchical and Comprehensive Chinese Benchmark for Mobile GUI Agents"
+  - u: "hats_hardness-aware_trajectory_synthesis_for_gui_agents/"
+    t: "HATS: Hardness-Aware Trajectory Synthesis for GUI Agents"
+  - u: "haven_hierarchical_long_video_understanding_with_audiovisual_entity_cohesion/"
+    t: "HAVEN: Hierarchical Long Video Understanding with Audiovisual Entity Cohesion and Agentic Search"
+  - u: "nerfify_multiagent_nerf_paper_to_code/"
+    t: "Nerfify: A Multi-Agent Framework for Turning NeRF Papers into Code"
+  - u: "realm_mllm_agent_3d_reasoning_gaussian/"
+    t: "REALM: An MLLM-Agent Framework for Open World 3D Reasoning Segmentation and Editing on Gaussian Splatting"
+  - u: "sceneassistant_a_visual_feedback_agent_for_openvoc/"
+    t: "SceneAssistant: A Visual Feedback Agent for Open-Vocabulary 3D Scene Generation"
+  - u: "think_then_verify_a_hypothesis-verification_multi-agent_framework_for_long_video/"
+    t: "Think, Then Verify: A Hypothesis-Verification Multi-Agent Framework for Long Video Understanding"
+  - u: "towards_gui_agents_vision-language_diffusion_models_for_gui_grounding/"
+    t: "Towards GUI Agents: Vision-Language Diffusion Models for GUI Grounding"
+  - u: "worldmm_dynamic_multimodal_memory_agent_for_long_video_reasoning/"
+    t: "WorldMM: Dynamic Multimodal Memory Agent for Long Video Reasoning"
+item_total: 15
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +50,7 @@ tags:
 
 **📷 CVPR2026** · **15** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [🔬 ICLR2026 (40)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/index.md)
 
 🔥 **高频主题：** Agent ×8 · 推理 ×2 · 多模态 ×2
 

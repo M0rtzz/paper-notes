@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 对话系统方向18篇论文解读
+  ACL2025 对话系统论文汇总 · 18篇论文解读
 description: >-
   18篇ACL2025的对话系统方向论文解读，涵盖对话系统、情感分析、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,44 @@ tags:
   - "论文笔记"
   - "情感分析"
   - "个性化生成"
+item_list:
+  - u: "demo_reframing_dialogue_interaction_with_fine-grained_element_modeling/"
+    t: "DEMO: Reframing Dialogue Interaction with Fine-grained Element Modeling"
+  - u: "dialogue_systems_for_emotional_support_via_value_reinforcement/"
+    t: "Dialogue Systems for Emotional Support via Value Reinforcement"
+  - u: "dynamic_label_name_refinement_for_few-shot_dialogue_intent_classification/"
+    t: "Dynamic Label Name Refinement for Few-Shot Dialogue Intent Classification"
+  - u: "enabling_chatbots_with_eyes_and_ears_an_immersive_multimodal_conversation_system/"
+    t: "Enabling Chatbots with Eyes and Ears: An Immersive Multimodal Conversation System"
+  - u: "enhancing_goal-oriented_proactive_dialogue_systems_via_consistency_reflection_an/"
+    t: "Enhancing Goal-oriented Proactive Dialogue Systems via Consistency Reflection and Correction"
+  - u: "enstom_enhancing_dialogue_systems_with_entropy-scaled_steering_vectors_for_topic/"
+    t: "EnSToM: Enhancing Dialogue Systems with Entropy-Scaled Steering Vectors for Topic Maintenance"
+  - u: "know_you_first_and_be_you_better_modeling_human-like_user_simulators_via_implici/"
+    t: "Know You First and Be You Better: Modeling Human-Like User Simulators via Implicit Profiles"
+  - u: "know_your_mistakes_towards_preventing_overreliance_on_task-oriented_conversation/"
+    t: "Know Your Mistakes: Towards Preventing Overreliance on Task-Oriented Conversational AI Through Accountability Modeling"
+  - u: "kokorochat_a_japanese_psychological_counseling_dialogue/"
+    t: "KokoroChat: A Japanese Psychological Counseling Dialogue Dataset Collected via Role-Playing by Trained Counselors"
+  - u: "persona_sentiment_dialogue/"
+    t: "Exploring Persona Sentiment Sensitivity in Personalized Dialogue Generation"
+  - u: "personalens_a_benchmark_for_personalization_evaluation_in_conversational_ai_assi/"
+    t: "PersonaLens: A Benchmark for Personalization Evaluation in Conversational AI Assistants"
+  - u: "reflectdiffu_empathetic_response/"
+    t: "ReflectDiffu: Reflect between Emotion-intent Contagion and Mimicry for Empathetic Response Generation via a RL-Diffusion Framework"
+  - u: "share_shared_memory-aware_open-domain_long-term_dialogue_dataset_constructed_fro/"
+    t: "SHARE: Shared Memory-Aware Open-Domain Long-Term Dialogue Dataset Constructed from Movie Script"
+  - u: "single-_vs_dual-prompt_dialogue_generation_with_llms_for_job_interviews_in_human/"
+    t: "Single- vs. Dual-Prompt Dialogue Generation with LLMs for Job Interviews in Human Resources"
+  - u: "sparse_rewards_can_self-train_dialogue_agents/"
+    t: "Sparse Rewards Can Self-Train Dialogue Agents"
+  - u: "uniconv_retrieval_response_gen/"
+    t: "UniConv: Unifying Retrieval and Response Generation for Large Language Models in Conversations"
+  - u: "when_harry_meets_superman_the_role_of_the_interlocutor_in_persona-based_dialogue/"
+    t: "When Harry Meets Superman: The Role of The Interlocutor in Persona-Based Dialogue Generation"
+  - u: "wizard_of_shopping_target-oriented_e-commerce_dialogue_generation_with_decision_/"
+    t: "Wizard of Shopping: Target-Oriented E-commerce Dialogue Generation with Decision Tree Branching"
+item_total: 18
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

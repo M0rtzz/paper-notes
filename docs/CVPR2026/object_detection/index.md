@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 目标检测方向55篇论文解读
+  CVPR2026 目标检测论文汇总 · 53篇论文解读
 description: >-
-  55篇CVPR2026的目标检测方向论文解读，涵盖目标检测、异常检测、少样本学习、多模态、3D 目标检测、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  53篇CVPR2026的目标检测方向论文解读，涵盖目标检测、异常检测、少样本学习、多模态、3D 目标检测、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2026"
   - "目标检测"
@@ -13,16 +13,78 @@ tags:
   - "多模态"
   - "3D 目标检测"
   - "对齐/RLHF"
+item_list:
+  - u: "a_closer_look_at_cross-domain_few-shot_object_detection_fine-tuning_matters_and_/"
+    t: "A Closer Look at Cross-Domain Few-Shot Object Detection: Fine-Tuning Matters and Parallel Decoder Helps"
+  - u: "a_semantically_disentangled_unified_model_for_multi-category_3d_anomaly_detectio/"
+    t: "A Semantically Disentangled Unified Model for Multi-category 3D Anomaly Detection"
+  - u: "abra_teleporting_fine-tuned_knowledge_across_domains_for_open-vocabulary_object_/"
+    t: "ABRA: Teleporting Fine-Tuned Knowledge Across Domains for Open-Vocabulary Object Detection"
+  - u: "anomalyvfm_--_transforming_vision_foundation_models_into_zero-shot_anomaly_detec/"
+    t: "AnomalyVFM -- Transforming Vision Foundation Models into Zero-Shot Anomaly Detectors"
+  - u: "ar2-4fv_anchored_referring_and_re-identification_for_long-term_grounding_in_fixe/"
+    t: "AR²-4FV: Anchored Referring and Re-identification for Long-Term Grounding in Fixed-View Videos"
+  - u: "back_to_point_exploring_point-language_models_for_zero-shot_3d_anomaly_detection/"
+    t: "Back to Point: Exploring Point-Language Models for Zero-Shot 3D Anomaly Detection"
+  - u: "beyond_caption-based_queries_for_video_moment_retrieval/"
+    t: "Beyond Caption-Based Queries for Video Moment Retrieval"
+  - u: "beyond_prompt_degradation_prototype-guided_dual-pool_prompting_for_incremental_o/"
+    t: "Beyond Prompt Degradation: Prototype-Guided Dual-Pool Prompting for Incremental Object Detection"
+  - u: "beyond_semantic_search_towards_referential_anchoring_in_composed_image_retrieval/"
+    t: "Beyond Semantic Search: Towards Referential Anchoring in Composed Image Retrieval"
+  - u: "bidirectional_multimodal_prompt_learning_with_scale-aware_training_for_few-shot_/"
+    t: "Bidirectional Multimodal Prompt Learning with Scale-Aware Training for Few-Shot Multi-Class Anomaly Detection"
+  - u: "bussard_normalizing_flows_for_bijective_universal_scene-specific_anomalous_relat/"
+    t: "BUSSARD: Normalizing Flows for Bijective Universal Scene-Specific Anomalous Relationship Detection"
+  - u: "cd-buffer_complementary_dual-buffer_framework_for_test-time_adaptation_in_advers/"
+    t: "CD-Buffer: Complementary Dual-Buffer Framework for Test-Time Adaptation in Adverse Weather Object Detection"
+  - u: "compagent_an_agentic_framework_for_visual_compliance_verification/"
+    t: "CompAgent: An Agentic Framework for Visual Compliance Verification"
+  - u: "cops_conditional_prompt_synthesis_for_zero-shot_anomaly_detection/"
+    t: "CoPS: Conditional Prompt Synthesis for Zero-Shot Anomaly Detection"
+  - u: "da-mamba_learning_domain-aware_state_space_model_for_global-local_alignment_in_d/"
+    t: "DA-Mamba: Learning Domain-Aware State Space Model for Global-Local Alignment in Domain Adaptive Object Detection"
+  - u: "detecting_unknown_objects_via_energy-based_separation/"
+    t: "Detecting Unknown Objects via Energy-Based Separation for Open World Object Detection"
+  - u: "does_yolo_really_need_to_see_every_training_image_in_every_epoch/"
+    t: "Does YOLO Really Need to See Every Training Image in Every Epoch?"
+  - u: "evaluating_few-shot_pill_recognition_under_visual_domain_shift/"
+    t: "Evaluating Few-Shot Pill Recognition Under Visual Domain Shift"
+  - u: "ew-detr_evolving_world_object_detection_via_incremental_low-rank_detection_trans/"
+    t: "EW-DETR: Evolving World Object Detection via Incremental Low-Rank DEtection TRansformer"
+  - u: "foundation_model_priors_enhance_object_focus_in_feature_space_for_source-free_ob/"
+    t: "Foundation Model Priors Enhance Object Focus in Feature Space for Source-Free Object Detection"
+  - u: "fourier_angle_alignment_for_oriented_object_detection_in_remote_sensing/"
+    t: "Fourier Angle Alignment for Oriented Object Detection in Remote Sensing"
+  - u: "gs-clip_zero-shot_3d_anomaly_detection_by_geometry-aware_prompt_and_synergistic_/"
+    t: "GS-CLIP: Zero-shot 3D Anomaly Detection by Geometry-Aware Prompt and Synergistic View Representation Learning"
+  - u: "herod_heuristic_inspired_reasoning_data_efficient_rod/"
+    t: "HeROD: Heuristic-inspired Reasoning Priors Facilitate Data-Efficient Referring Object Detection"
+  - u: "integration_of_deep_generative_anomaly_detection_algorithm_in_high-speed_industr/"
+    t: "Integration of Deep Generative Anomaly Detection Algorithm in High-Speed Industrial Line"
+  - u: "invad_inversion-based_reconstruction-free_anomaly_detection_with_diffusion_model/"
+    t: "InvAD: Inversion-based Reconstruction-Free Anomaly Detection with Diffusion Models"
+  - u: "learning_multi-modal_prototypes_for_cross-domain_few-shot_object_detection/"
+    t: "Learning Multi-Modal Prototypes for Cross-Domain Few-Shot Object Detection"
+  - u: "mining_instance-centric_vision-language_contexts_for_human-object_interaction_de/"
+    t: "Mining Instance-Centric Vision-Language Contexts for Human-Object Interaction Detection"
+  - u: "mmrad_multimodal_anomaly_detection/"
+    t: "MMR-AD: A Large-Scale Multimodal Dataset for Benchmarking General Anomaly Detection with MLLMs"
+  - u: "moeclip_patch-specialized_experts_for_zero-shot_anomaly_detection/"
+    t: "MoECLIP: Patch-Specialized Experts for Zero-shot Anomaly Detection"
+  - u: "mrd_multi-resolution_retrieval-detection_fusion_for_high-resolution_image_unders/"
+    t: "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding"
+item_total: 53
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**📷 CVPR2026** · **55** 篇论文解读
+**📷 CVPR2026** · **53** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (12)](../../ICML2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (11)](../../ICML2025/object_detection/index.md)
 
-🔥 **高频主题：** 目标检测 ×16 · 异常检测 ×16 · 少样本学习 ×13 · 多模态 ×5 · 3D 目标检测 ×3
+🔥 **高频主题：** 目标检测 ×16 · 异常检测 ×16 · 少样本学习 ×12 · 多模态 ×4 · 3D 目标检测 ×3
 
 **[A Closer Look at Cross-Domain Few-Shot Object Detection: Fine-Tuning Matters and Parallel Decoder Helps](a_closer_look_at_cross-domain_few-shot_object_detection_fine-tuning_matters_and_.md)**
 
@@ -63,10 +125,6 @@ tags:
 **[Bidirectional Multimodal Prompt Learning with Scale-Aware Training for Few-Shot Multi-Class Anomaly Detection](bidirectional_multimodal_prompt_learning_with_scale-aware_training_for_few-shot_.md)**
 
 :   提出AnoPLe——一个轻量级多模态双向提示学习框架，无需手工异常描述或外部辅助模块，通过文本-视觉提示双向交互和尺度感知前缀实现少样本多类别异常检测，在MVTec-AD/VisA/Real-IAD上取得强竞争力的同时保持高效推理（~28 FPS）。
-
-**[Boosting Quantitive and Spatial Awareness for Zero-Shot Object Counting](boosting_quantitive_and_spatial_awareness_for_zero-shot_object_counting.md)**
-
-:   提出QICA框架解决零样本目标计数中的数量感知缺失和空间不敏感问题，通过数量条件化的协同提示策略（SPS）联合适配视觉-语言编码器，结合在相似度图上直接操作的代价聚合解码器（CAD）保持零样本迁移能力，在FSC-147上达到零样本SOTA（MAE 12.41）并展现强跨域泛化。
 
 **[BUSSARD: Normalizing Flows for Bijective Universal Scene-Specific Anomalous Relationship Detection](bussard_normalizing_flows_for_bijective_universal_scene-specific_anomalous_relat.md)**
 
@@ -211,10 +269,6 @@ tags:
 **[SpiralDiff: Spiral Diffusion with LoRA for RGB-to-RAW Conversion Across Cameras](spiraldiff_spiral_diffusion_with_lora_for_rgb-to-raw_conversion_across_cameras.md)**
 
 :   提出 SpiralDiff，一种面向 RGB-to-RAW 转换的扩散框架，通过信号依赖的噪声加权策略适应不同像素强度区域的重建难度，并引入 CamLoRA 模块实现单一模型跨多相机的轻量适配。
-
-**[SteelDefectX: A Coarse-to-Fine Vision-Language Dataset and Benchmark for Generalizable Steel Surface Defect Detection](steeldefectx_a_coarse-to-fine_vision-language_dataset_and_benchmark_for_generali.md)**
-
-:   提出 SteelDefectX，首个面向钢材表面缺陷检测的视觉-语言数据集（7778 张图像、25 类缺陷），包含从类级到样本级的粗到细文本标注，并建立了涵盖纯视觉分类、视觉-语言分类、零/少样本识别和零样本迁移的四任务基准，实验证明高质量文本标注显著提升模型的可解释性、泛化性和跨域迁移能力。
 
 **[SubspaceAD: Training-Free Few-Shot Anomaly Detection via Subspace Modeling](subspacead_training-free_few-shot_anomaly_detection_via_subspace_modeling.md)**
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 推荐系统方向7篇论文解读
+  ACL2025 推荐系统论文汇总 · 7篇论文解读
 description: >-
   7篇ACL2025的推荐系统方向论文解读，涵盖推荐系统、LLM、对话系统、压缩/编码、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,22 @@ tags:
   - "对话系统"
   - "压缩/编码"
   - "个性化生成"
+item_list:
+  - u: "beyond_single_labels_improving_conversational_recommendation_through_llm-powered/"
+    t: "Beyond Single Labels: Improving Conversational Recommendation through LLM-Powered Data Augmentation"
+  - u: "bi-tuning_with_collaborative_information_for_controllable_llm-based_sequential_r/"
+    t: "Laser: Bi-Tuning with Collaborative Information for Controllable LLM-Based Sequential Recommendation"
+  - u: "cove_compressed_vocabulary_expansion_makes_better_llm-based_recommender_systems/"
+    t: "CoVE: Compressed Vocabulary Expansion Makes Better LLM-based Recommender Systems"
+  - u: "gram_generative_recommendation/"
+    t: "GRAM: Generative Recommendation via Semantic-aware Multi-granular Late Fusion"
+  - u: "kerl_knowledge-enhanced_personalized_recipe_recommendation_using_large_language_/"
+    t: "KERL: Knowledge-Enhanced Personalized Recipe Recommendation using Large Language Models"
+  - u: "lotus_a_leaderboard_for_detailed_image_captioning_from_quality_to_societal_bias_/"
+    t: "LOTUS: A Leaderboard for Detailed Image Captioning from Quality to Societal Bias and User Preferences"
+  - u: "reclm_recommendation_instruction_tuning/"
+    t: "RecLM: Recommendation Instruction Tuning"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

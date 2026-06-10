@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 AIGC 检测方向6篇论文解读
+  ICLR2026 AIGC检测论文汇总 · 6篇论文解读
 description: >-
   6篇ICLR2026的 AIGC 检测方向论文解读，涵盖对抗鲁棒、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,20 @@ tags:
   - "论文笔记"
   - "对抗鲁棒"
   - "LLM"
+item_list:
+  - u: "calibrating_verbalized_confidence_with_self-generated_distractors/"
+    t: "Calibrating Verbalized Confidence with Self-Generated Distractors"
+  - u: "clarc_cc_benchmark_for_robust_code_search/"
+    t: "CLARC: C/C++ Benchmark for Robust Code Search"
+  - u: "death_of_the_novelty_beyond_n-gram_novelty_as_a_metric_for_textual_creativity/"
+    t: "Death of the Novel(ty): Beyond n-Gram Novelty as a Metric for Textual Creativity"
+  - u: "dmap_a_distribution_map_for_text/"
+    t: "DMAP: A Distribution Map for Text"
+  - u: "is_your_paper_being_reviewed_by_an_llm_benchmarking_ai_text_detection_in_peer_re/"
+    t: "Is Your Paper Being Reviewed by an LLM? Benchmarking AI Text Detection in Peer Review"
+  - u: "policon_evaluating_llms_on_achieving_diverse_political_consensus_objectives/"
+    t: "PoliCon: Evaluating LLMs on Achieving Diverse Political Consensus Objectives"
+item_total: 6
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

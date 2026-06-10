@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 图像生成方向79篇论文解读
+  AAAI2026 图像生成论文汇总 · 79篇论文解读
 description: >-
   79篇AAAI2026的图像生成方向论文解读，涵盖扩散模型、文生图、对齐/RLHF、布局/合成、语音、超分辨率等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "布局/合成"
   - "语音"
   - "超分辨率"
+item_list:
+  - u: "aedr_training-free_ai-generated_image_attribution_via_autoen/"
+    t: "AEDR: Training-Free AI-Generated Image Attribution via Autoencoder Double-Reconstruction"
+  - u: "aggregating_diverse_cue_experts_for_ai-generated_image_detec/"
+    t: "Aggregating Diverse Cue Experts for AI-Generated Image Detection"
+  - u: "annealed_relaxation_of_speculative_decoding_for_faster_autor/"
+    t: "Annealed Relaxation of Speculative Decoding for Faster Autoregressive Image Generation"
+  - u: "backdoors_in_conditional_diffusion_threats_to_responsible_synthetic_data_pipelin/"
+    t: "Backdoors in Conditional Diffusion: Threats to Responsible Synthetic Data Pipelines"
+  - u: "beautiful_images_toxic_words_understanding_and_addressing_offensive_text_in_gene/"
+    t: "Beautiful Images, Toxic Words: Understanding and Addressing Offensive Text in Generated Images"
+  - u: "beyond_semantic_features_pixel-level_mapping_for_generalized_ai-generated_image_/"
+    t: "Beyond Semantic Features: Pixel-Level Mapping for Generalized AI-Generated Image Detection"
+  - u: "breaking_the_modality_barrier_generative_modeling_for_accurate_molecule_retrieva/"
+    t: "Breaking the Modality Barrier: Generative Modeling for Accurate Molecule Retrieval from Mass Spectra"
+  - u: "cad-vae_leveraging_correlation-aware_latents_for_comprehensive_fair_disentanglem/"
+    t: "CAD-VAE: Leveraging Correlation-Aware Latents for Comprehensive Fair Disentanglement"
+  - u: "causalclip_causally-informed_feature_disentanglement_and_filtering_for_generaliz/"
+    t: "CausalCLIP: Causally-Informed Feature Disentanglement and Filtering for Generalizable Detection of Generated Images"
+  - u: "conditional_diffusion_model_for_multi-agent_dynamic_task_dec/"
+    t: "Conditional Diffusion Model for Multi-Agent Dynamic Task Decomposition"
+  - u: "constrained_particle_seeking_solving_diffusion_inverse_problems_with_just_forwar/"
+    t: "Constrained Particle Seeking: Solving Diffusion Inverse Problems with Just Forward Passes"
+  - u: "continuous_degradation_modeling_via_latent_flow_matching_for_real-world_super-re/"
+    t: "Continuous Degradation Modeling via Latent Flow Matching for Real-World Super-Resolution"
+  - u: "copyright_infringement_detection_in_text-to-image_diffusion_models_via_different/"
+    t: "Copyright Infringement Detection in Text-to-Image Diffusion Models via Differential Privacy"
+  - u: "creating_blank_canvas_against_ai-enabled_image_forgery/"
+    t: "Creating Blank Canvas Against AI-Enabled Image Forgery"
+  - u: "dice_distilling_classifier-free_guidance_into_text_embedding/"
+    t: "DICE: Distilling Classifier-Free Guidance into Text Embeddings"
+  - u: "difficulty_controlled_diffusion_model_for_synthesizing_effec/"
+    t: "Difficulty Controlled Diffusion Model for Synthesizing Effective Training Data"
+  - u: "diffusion_reconstruction-based_data_likelihood_estimation_for_core-set_selection/"
+    t: "Diffusion Reconstruction-Based Data Likelihood Estimation for Core-Set Selection"
+  - u: "dogfit_domain-guided_fine-tuning_for_efficient_transfer_learning_of_diffusion_mo/"
+    t: "DogFit: Domain-guided Fine-tuning for Efficient Transfer Learning of Diffusion Models"
+  - u: "dos_directional_object_separation_in_text_embeddings_for_mul/"
+    t: "DOS: Directional Object Separation in Text Embeddings for Multi-Object Image Generation"
+  - u: "echogen_cycle-consistent_learning_for_unified_layout-image_generation_and_unders/"
+    t: "EchoGen: Cycle-Consistent Learning for Unified Layout-Image Generation and Understanding"
+  - u: "efficientflow_efficient_equivariant_flow_policy_learning_for_embodied_ai/"
+    t: "EfficientFlow: Efficient Equivariant Flow Policy Learning for Embodied AI"
+  - u: "enhancing_multimodal_misinformation_detection_by_replaying_the_whole_story_from_/"
+    t: "Enhancing Multimodal Misinformation Detection by Replaying the Whole Story from Image Modality Perspective"
+  - u: "exposing_deepfakes_via_hyperspectral_domain_mapping/"
+    t: "Exposing DeepFakes via Hyperspectral Domain Mapping"
+  - u: "fgm-hd_boosting_generation_diversity_of_fractal_generative_models_through_hausdo/"
+    t: "FGM-HD: Boosting Generation Diversity of Fractal Generative Models through Hausdorff Dimension Induction"
+  - u: "flowing_backwards_improving_normalizing_flows_via_reverse_representation_alignme/"
+    t: "Flowing Backwards: Improving Normalizing Flows via Reverse Representation Alignment"
+  - u: "freeinpaint_tuning-free_prompt_alignment_and_visual_rationality_enhancement_in_i/"
+    t: "FreeInpaint: Tuning-free Prompt Alignment and Visual Rationality Enhancement in Image Inpainting"
+  - u: "gewdiff_geometric_enhanced_wavelet-based_diffusion_model_for_hyperspectral_image/"
+    t: "GEWDiff: Geometric Enhanced Wavelet-based Diffusion Model for Hyperspectral Image Super-resolution"
+  - u: "head-aware_kv_cache_compression_for_efficient_visual_autoreg/"
+    t: "HACK: Head-Aware KV Cache Compression for Efficient Visual Autoregressive Modeling"
+  - u: "hierarchical_schedule_optimization_for_fast_and_robust_diffusion_model_sampling/"
+    t: "Hierarchical Schedule Optimization for Fast and Robust Diffusion Model Sampling"
+  - u: "hierarchicalprune_position-aware_compression_for_large-scale_diffusion_models/"
+    t: "HierarchicalPrune: Position-Aware Compression for Large-Scale Diffusion Models"
+item_total: 79
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🤖 AAAI2026** · **79** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (220)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (137)](../../ICLR2026/image_generation/index.md) · [🧠 NeurIPS2025 (222)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (219)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (136)](../../ICLR2026/image_generation/index.md) · [🧠 NeurIPS2025 (220)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
 
 🔥 **高频主题：** 扩散模型 ×33 · 文生图 ×9 · 对齐/RLHF ×8 · 布局/合成 ×5 · 语音 ×5
 

@@ -1,26 +1,82 @@
 ---
 title: >-
-  ECCV2024 图像恢复方向28篇论文解读
+  ECCV2024 图像恢复论文汇总 · 27篇论文解读
 description: >-
-  28篇ECCV2024的图像恢复方向论文解读，涵盖图像恢复、超分辨率、扩散模型、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  27篇ECCV2024的图像恢复方向论文解读，涵盖图像恢复、超分辨率、对抗鲁棒、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "图像恢复"
   - "论文解读"
   - "论文笔记"
   - "超分辨率"
-  - "扩散模型"
   - "对抗鲁棒"
+  - "扩散模型"
+item_list:
+  - u: "a_new_dataset_and_framework_for_real-world_blurred_images_super-resolution/"
+    t: "A New Dataset and Framework for Real-World Blurred Images Super-Resolution"
+  - u: "accelerating_image_super-resolution_networks_with_pixel-level_classification/"
+    t: "Accelerating Image Super-Resolution Networks with Pixel-Level Classification"
+  - u: "asymmetric_mask_scheme_for_self-supervised_real_image_denoising/"
+    t: "Asymmetric Mask Scheme for Self-supervised Real Image Denoising"
+  - u: "bamm_bidirectional_autoregressive_motion_model/"
+    t: "BAMM: Bidirectional Autoregressive Motion Model"
+  - u: "blind_image_deblurring_with_noise-robust_kernel_estimation/"
+    t: "Blind Image Deblurring with Noise-Robust Kernel Estimation"
+  - u: "contourlet_residual_for_prompt_learning_enhanced_infrared_image_super-resolution/"
+    t: "Contourlet Residual for Prompt Learning Enhanced Infrared Image Super-Resolution"
+  - u: "denoisplit_a_method_for_joint_microscopy_image_splitting_and_unsupervised_denois/"
+    t: "DenoiSplit: A Method for Joint Microscopy Image Splitting and Unsupervised Denoising"
+  - u: "domain-adaptive_video_deblurring_via_test-time_blurring/"
+    t: "Domain-Adaptive Video Deblurring via Test-Time Blurring"
+  - u: "edformer_transformer-based_event_denoising_across_varied_noise_levels/"
+    t: "EDformer: Transformer-Based Event Denoising Across Varied Noise Levels"
+  - u: "efficient_cascaded_multiscale_adaptive_network_for_image_restoration/"
+    t: "Efficient Cascaded Multiscale Adaptive Network for Image Restoration"
+  - u: "efficient_diffusion_transformer_with_step-wise_dynamic_attention_mediators/"
+    t: "Efficient Diffusion Transformer with Step-wise Dynamic Attention Mediators"
+  - u: "exploiting_dual-correlation_for_multi-frame_time-of-flight_denoising/"
+    t: "Exploiting Dual-Correlation for Multi-frame Time-of-Flight Denoising"
+  - u: "joint_rgb-spectral_decomposition_model_guided_image_enhancement_in_mobile_photog/"
+    t: "Joint RGB-Spectral Decomposition Model Guided Image Enhancement in Mobile Photography"
+  - u: "learning_exhaustive_correlation_for_spectral_super-resolution_where_spatial-spec/"
+    t: "Learning Exhaustive Correlation for Spectral Super-Resolution: Where Spatial-Spectral Attention Meets Linear Dependence"
+  - u: "learning_to_robustly_reconstruct_dynamic_scenes_from_low-light_spike_streams/"
+    t: "Learning to Robustly Reconstruct Dynamic Scenes from Low-Light Spike Streams"
+  - u: "mambair_a_simple_baseline_for_image_restoration_with_state-space_model/"
+    t: "MambaIR: A Simple Baseline for Image Restoration with State-Space Model"
+  - u: "moe-diffir_task-customized_diffusion_priors_for_universal_compressed_image_resto/"
+    t: "MoE-DiffIR: Task-customized Diffusion Priors for Universal Compressed Image Restoration"
+  - u: "oapt_offset-aware_partition_transformer_for_double_jpeg_artifacts_removal/"
+    t: "OAPT: Offset-Aware Partition Transformer for Double JPEG Artifacts Removal"
+  - u: "overcoming_distribution_mismatch_in_quantizing_image_super-resolution_networks/"
+    t: "Overcoming Distribution Mismatch in Quantizing Image Super-Resolution Networks"
+  - u: "pairwise_distance_distillation_for_unsupervised_real-world_image_super-resolutio/"
+    t: "Pairwise Distance Distillation for Unsupervised Real-World Image Super-Resolution"
+  - u: "restoring_images_in_adverse_weather_conditions_via_histogram_transformer/"
+    t: "Restoring Images in Adverse Weather Conditions via Histogram Transformer"
+  - u: "rethinking_image_super-resolution_from_training_data_perspectives/"
+    t: "Rethinking Image Super-Resolution from Training Data Perspectives"
+  - u: "seeing_the_unseen_a_frequency_prompt_guided_transformer_for_image_restoration/"
+    t: "Seeing the Unseen: A Frequency Prompt Guided Transformer for Image Restoration"
+  - u: "spatially-variant_degradation_model_for_dataset-free_super-resolution/"
+    t: "Spatially-Variant Degradation Model for Dataset-free Super-resolution"
+  - u: "towards_real-world_event-guided_low-light_video_enhancement_and_deblurring/"
+    t: "Towards Real-world Event-guided Low-light Video Enhancement and Deblurring"
+  - u: "ttt-mim_test-time_training_with_masked_image_modeling_for_denoising_distribution/"
+    t: "TTT-MIM: Test-Time Training with Masked Image Modeling for Denoising Distribution Shifts"
+  - u: "unrolled_decomposed_unpaired_learning_for_controllable_low-light_video_enhanceme/"
+    t: "Unrolled Decomposed Unpaired Learning for Controllable Low-Light Video Enhancement"
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🖼️ 图像恢复
 
-**🎞️ ECCV2024** · **28** 篇论文解读
+**🎞️ ECCV2024** · **27** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/image_restoration/index.md) · [📷 CVPR2026 (41)](../../CVPR2026/image_restoration/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/image_restoration/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/image_restoration/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/image_restoration/index.md) · [📹 ICCV2025 (30)](../../ICCV2025/image_restoration/index.md)
 
-🔥 **高频主题：** 图像恢复 ×12 · 超分辨率 ×8 · 扩散模型 ×3 · 对抗鲁棒 ×2
+🔥 **高频主题：** 图像恢复 ×12 · 超分辨率 ×8 · 对抗鲁棒 ×2 · 扩散模型 ×2
 
 **[A New Dataset and Framework for Real-World Blurred Images Super-Resolution](a_new_dataset_and_framework_for_real-world_blurred_images_super-resolution.md)**
 
@@ -41,10 +97,6 @@ tags:
 **[Blind Image Deblurring with Noise-Robust Kernel Estimation](blind_image_deblurring_with_noise-robust_kernel_estimation.md)**
 
 :   本文提出一种基于噪声鲁棒核估计函数和深度图像先验（DIP）的盲去模糊方法，通过设计能在强噪声下仍能准确估计模糊核的核估计函数，结合多核估计方案处理未知噪声水平，在模拟和真实图像上取得了优越的去模糊性能。
-
-**[BrushNet: A Plug-and-Play Image Inpainting Model with Decomposed Dual-Branch Diffusion](brushnet_a_plug-and-play_image_inpainting_model_with_decomposed_dual-branch_diff.md)**
-
-:   提出 BrushNet，一种即插即用的双分支扩散模型图像修复架构，通过将遮罩图像特征提取与图像生成解耦到独立分支，实现逐层像素级特征注入，在图像质量、遮罩区域保持和文本对齐三方面全面超越已有方法。
 
 **[Contourlet Residual for Prompt Learning Enhanced Infrared Image Super-Resolution](contourlet_residual_for_prompt_learning_enhanced_infrared_image_super-resolution.md)**
 

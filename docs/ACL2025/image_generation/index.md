@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 图像生成方向8篇论文解读
+  ACL2025 图像生成论文汇总 · 8篇论文解读
 description: >-
   8篇ACL2025的图像生成方向论文解读，涵盖语音、文生图、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,24 @@ tags:
   - "语音"
   - "文生图"
   - "少样本学习"
+item_list:
+  - u: "a_unified_agentic_framework_for_evaluating_conditional_image_generation/"
+    t: "A Unified Agentic Framework for Evaluating Conditional Image Generation"
+  - u: "d-gen_automatic_distractor_generation_and_evaluation_for_reliable_assessment_of_/"
+    t: "D-GEN: Automatic Distractor Generation and Evaluation for Reliable Assessment of Generative Models"
+  - u: "difftod_diffusion_dialogue_planning/"
+    t: "Planning with Diffusion Models for Target-Oriented Dialogue Systems"
+  - u: "flashaudio_rectified_flow_tta/"
+    t: "FlashAudio: Rectified Flows for Fast and High-Fidelity Text-to-Audio Generation"
+  - u: "generating_pedagogically_meaningful_visuals_for_math_word_problems_a_new_benchma/"
+    t: "Generating Pedagogically Meaningful Visuals for Math Word Problems: A New Benchmark and Analysis of Text-to-Image Models"
+  - u: "multimodal_pragmatic_jailbreak_on_text-to-image_models/"
+    t: "Multimodal Pragmatic Jailbreak on Text-to-image Models"
+  - u: "ozspeech_one-step_zero-shot_speech_synthesis_with_learned-prior-conditioned_flow/"
+    t: "OZSpeech: One-step Zero-shot Speech Synthesis with Learned-Prior-Conditioned Flow Matching"
+  - u: "rvc_rhythm_voice_conversion/"
+    t: "R-VC: Rhythm Controllable and Efficient Zero-Shot Voice Conversion via Shortcut Flow Matching"
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +36,7 @@ tags:
 
 **💬 ACL2025** · **8** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (220)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (137)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (222)](../../NeurIPS2025/image_generation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (219)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (136)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (220)](../../NeurIPS2025/image_generation/index.md)
 
 🔥 **高频主题：** 语音 ×3 · 文生图 ×2 · 少样本学习 ×2
 

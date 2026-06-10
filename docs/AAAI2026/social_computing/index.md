@@ -1,29 +1,51 @@
 ---
 title: >-
-  AAAI2026 社会计算方向11篇论文解读
+  AAAI2026 社会计算论文汇总 · 10篇论文解读
 description: >-
-  11篇AAAI2026的社会计算方向论文解读，涵盖对抗鲁棒、推理、LLM、情感分析、个性化生成、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  10篇AAAI2026的社会计算方向论文解读，涵盖推理、LLM、情感分析、对抗鲁棒、个性化生成、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "社会计算"
   - "论文解读"
   - "论文笔记"
-  - "对抗鲁棒"
   - "推理"
   - "LLM"
   - "情感分析"
+  - "对抗鲁棒"
   - "个性化生成"
   - "多模态"
+item_list:
+  - u: "argumentative_debates_for_transparent_bias_detection_technic/"
+    t: "Argumentative Debates for Transparent Bias Detection"
+  - u: "bias_association_discovery_framework_for_open-ended_llm_generations/"
+    t: "Bias Association Discovery Framework for Open-Ended LLM Generations"
+  - u: "cross-modal_prompting_for_balanced_incomplete_multi-modal_emotion_recognition/"
+    t: "Cross-modal Prompting for Balanced Incomplete Multi-modal Emotion Recognition"
+  - u: "fact2fiction_targeted_poisoning_attack_to_agentic_fact-check/"
+    t: "Fact2Fiction: Targeted Poisoning Attack to Agentic Fact-checking System"
+  - u: "factguard_event-centric_and_commonsense-guided_fake_news_detection/"
+    t: "FactGuard: Event-Centric and Commonsense-Guided Fake News Detection"
+  - u: "from_imitation_to_discrimination_toward_a_generalized_curriculum_advantage_mecha/"
+    t: "From Imitation to Discrimination: Toward A Generalized Curriculum Advantage Mechanism Enhancing Cross-Domain Reasoning Tasks"
+  - u: "multi-modal_dynamic_proxy_learning_for_personalized_multiple_clustering/"
+    t: "Multi-modal Dynamic Proxy Learning for Personalized Multiple Clustering"
+  - u: "reasoning_about_the_unsaid_misinformation_detection_with_omission-aware_graph_in/"
+    t: "Reasoning About the Unsaid: Misinformation Detection with Omission-Aware Graph Inference"
+  - u: "scenejaileval_a_scenario-adaptive_multi-dimensional_framework_for_jailbreak_eval/"
+    t: "SceneJailEval: A Scenario-Adaptive Multi-Dimensional Framework for Jailbreak Evaluation"
+  - u: "t2agent_a_tool-augmented_multimodal_misinformation_detection_agent_with_monte_ca/"
+    t: "T2Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search"
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 👥 社会计算
 
-**🤖 AAAI2026** · **11** 篇论文解读
+**🤖 AAAI2026** · **10** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/social_computing/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
 
-🔥 **高频主题：** 对抗鲁棒 ×2 · 推理 ×2
+🔥 **高频主题：** 推理 ×2
 
 **[Argumentative Debates for Transparent Bias Detection](argumentative_debates_for_transparent_bias_detection_technic.md)**
 
@@ -64,7 +86,3 @@ tags:
 **[T2Agent: A Tool-augmented Multimodal Misinformation Detection Agent with Monte Carlo Tree Search](t2agent_a_tool-augmented_multimodal_misinformation_detection_agent_with_monte_ca.md)**
 
 :   提出 T2Agent，一个集成可扩展工具集与蒙特卡洛树搜索（MCTS）的虚假信息检测智能体，通过多源验证机制将检测任务分解为针对不同伪造源的子任务，在 MMfakebench 上以 GPT-4o 为骨干将基线 MMDAgent 的准确率提升 28.7%，达到新 SOTA。
-
-**[When Hallucination Costs Millions: Benchmarking AI Agents in High-Stakes Adversarial Financial Markets](when_hallucination_costs_millions_benchmarking_ai_agents_in_high-stakes_adversar.md)**
-
-:   提出 CAIA 基准测试，通过加密货币市场作为天然对抗性实验室，评估 17 个 SOTA 大模型在高风险对抗环境中的 agent 能力，揭示前沿模型仅达 67.4% 准确率（GPT-5）vs 人类 80%，并发现系统性工具选择灾难。

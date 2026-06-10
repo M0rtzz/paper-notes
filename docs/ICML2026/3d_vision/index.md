@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 3D 视觉方向24篇论文解读
+  ICML2026 3D视觉论文汇总 · 24篇论文解读
 description: >-
   24篇ICML2026的 3D 视觉方向论文解读，涵盖图像恢复、布局/合成、三维重建、点云等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,56 @@ tags:
   - "布局/合成"
   - "三维重建"
   - "点云"
+item_list:
+  - u: "avatar_learning_to_align_via_active_optimal_transport/"
+    t: "AvAtar: Learning to Align via Active Optimal Transport"
+  - u: "convex_distance_operator_transport_a_convex_and_geometry-preserving_formulation/"
+    t: "Convex Distance Operator Transport: A Convex and Geometry-Preserving Formulation"
+  - u: "distilling_neuro-symbolic_programs_into_3d_multi-modal_llms/"
+    t: "APEIRIA: Distilling Neuro-Symbolic Programs into 3D Multi-modal LLMs"
+  - u: "fast-sam3d_3dfy_anything_in_images_but_faster/"
+    t: "Fast-SAM3D: 3Dfy Anything in Images but Faster"
+  - u: "foundobj_self-supervised_foundation_models_as_rewards_for_label-free_3d_object_s/"
+    t: "FoundObj: Self-supervised Foundation Models as Rewards for Label-free 3D Object Segmentation"
+  - u: "fs-i2pa_hierarchical_focus-sweep_registration_network_with_dynamically_allocated/"
+    t: "FSI2P: A Hierarchical Focus–Sweep Registration Network with Dynamically Allocated Depth"
+  - u: "geodesic_flow_matching_for_denoising_high-dimensional_structured_representations/"
+    t: "Geodesic Flow Matching for Denoising High-Dimensional Structured Representations"
+  - u: "geometry-guided_modeling_of_foundation_features_enables_generalizable_object_sha/"
+    t: "Geometry-Guided Modeling of Foundation Features Enables Generalizable Object Shape Deformation Learning"
+  - u: "hoi-page_zero-shot_human-object_interaction_generation_with_part_affordance_guid/"
+    t: "HOI-PAGE: Zero-Shot Human-Object Interaction Generation with Part Affordance Guidance"
+  - u: "labbuilder_protocol-grounded_3d_layout_generation_for_interactable_and_safe_labo/"
+    t: "LabBuilder: Protocol-Grounded 3D Layout Generation for Interactable and Safe Laboratory"
+  - u: "physcene3d_physically_consistent_interactive_3d_tabletop_scene_generation/"
+    t: "PhyScene3D: Physically Consistent Interactive 3D Tabletop Scene Generation"
+  - u: "physhandi_physics-based_reconstruction_of_hand-deformable_object_interactions/"
+    t: "PhysHanDI: Physics-Based Reconstruction of Hand-Deformable Object Interactions"
+  - u: "plaid_a_unified_data_model_for_machine_learning_on_heterogeneous_physics_simulat/"
+    t: "PLAID: A Unified Data Model for Machine Learning on Heterogeneous Physics Simulations"
+  - u: "relaxflow_text-driven_amodal_3d_generation/"
+    t: "RelaxFlow: Text-Driven Amodal 3D Generation"
+  - u: "revisiting_photometric_ambiguity_for_accurate_gaussian-splatting_surface_reconst/"
+    t: "Revisiting Photometric Ambiguity for Accurate Gaussian-Splatting Surface Reconstruction"
+  - u: "simpc_learning_self-induced_mirror-point_consistency_for_unsupervised_point_clou/"
+    t: "SIMPC: Learning Self-Induced Mirror-Point Consistency for Unsupervised Point Cloud Denoising"
+  - u: "smoothness_errors_in_dynamics_models_and_how_to_avoid_them/"
+    t: "Smoothness Errors in Dynamics Models and How to Avoid Them"
+  - u: "splattn_bridging_2d_and_3d_with_gaussian_soft_splatting_and_attention_for_point_/"
+    t: "SplAttN: Bridging 2D and 3D with Gaussian Soft Splatting and Attention for Point Cloud Completion"
+  - u: "stable_simulation-ready_tabletop_layout_generation_via_a_semantics-physics_dual_/"
+    t: "STABLE: Simulation-Ready Tabletop Layout Generation via a Semantics–Physics Dual System"
+  - u: "streaming_sliced_optimal_transport/"
+    t: "Streaming Sliced Optimal Transport"
+  - u: "svl_spike-based_vision-language_pretraining_for_efficient_3d_open-world_understa/"
+    t: "SVL: Spike-based Vision-Language Pretraining for Efficient 3D Open-World Understanding"
+  - u: "the_structural_origin_of_attention_sink_variance_discrepancy_super_neurons_and_d/"
+    t: "The Structural Origin of Attention Sink: Variance Discrepancy, Super Neurons, and Dimension Disparity"
+  - u: "tidegs_scalable_training_of_over_one_billion_3d_gaussian_splatting_primitives_vi/"
+    t: "TideGS: Scalable Training of Over One Billion 3D Gaussian Splatting Primitives via Out-of-Core Optimization"
+  - u: "trust_it_or_not_evidential_uncertainty_for_feed-forward_3d_reconstruction_with_t/"
+    t: "Trust3R: Evidential Uncertainty for Feed-Forward 3D Reconstruction"
+item_total: 24
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +69,7 @@ tags:
 
 **🧪 ICML2026** · **24** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (236)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (61)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (78)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (113)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (264)](../../ICCV2025/3d_vision/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (227)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (111)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (252)](../../ICCV2025/3d_vision/index.md)
 
 🔥 **高频主题：** 图像恢复 ×2 · 布局/合成 ×2 · 三维重建 ×2 · 点云 ×2
 

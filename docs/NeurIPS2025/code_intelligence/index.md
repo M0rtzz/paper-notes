@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 代码智能方向20篇论文解读
+  NeurIPS2025 代码智能论文汇总 · 20篇论文解读
 description: >-
   20篇NeurIPS2025的代码智能方向论文解读，涵盖代码智能、LLM、Agent、推理、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,48 @@ tags:
   - "Agent"
   - "推理"
   - "布局/合成"
+item_list:
+  - u: "a_selfimproving_coding_agent/"
+    t: "A Self-Improving Coding Agent"
+  - u: "a_stochastic_differential_equation_framework_for_multi-objective_llm_interaction/"
+    t: "A Stochastic Differential Equation Framework for Multi-Objective LLM Interactions"
+  - u: "astrovisbench_a_code_benchmark_for_scientific_computing_and_visualization_in_ast/"
+    t: "AstroVisBench: A Code Benchmark for Scientific Computing and Visualization in Astronomy"
+  - u: "automated_multi-agent_workflows_for_rtl_design/"
+    t: "Automated Multi-Agent Workflows for RTL Design"
+  - u: "co-evolving_llm_coder_and_unit_tester_via_reinforcement_learning/"
+    t: "Co-Evolving LLM Coder and Unit Tester via Reinforcement Learning"
+  - u: "codecrash_exposing_llm_fragility_to_misleading_natural_language_in_code_reasonin/"
+    t: "CodeCrash: Exposing LLM Fragility to Misleading Natural Language in Code Reasoning"
+  - u: "embedding_alignment_in_code_generation_for_audio/"
+    t: "Embedding Alignment in Code Generation for Audio"
+  - u: "learning_from_design_procedure_to_generate_cad_programs_for_data_augmentation/"
+    t: "Learning From Design Procedure To Generate CAD Programs for Data Augmentation"
+  - u: "learning_to_solve_complex_problems_via_dataset_decomposition/"
+    t: "Learning to Solve Complex Problems via Dataset Decomposition"
+  - u: "maintaincoder_maintainable_code_generation_under_dynamic_requirements/"
+    t: "MaintainCoder: Maintainable Code Generation Under Dynamic Requirements"
+  - u: "mlr-bench_evaluating_ai_agents_on_open-ended_machine_learning_research/"
+    t: "MLR-Bench: Evaluating AI Agents on Open-Ended Machine Learning Research"
+  - u: "once_upon_an_input_reasoning_via_per-instance_program_synthesis/"
+    t: "Once Upon an Input: Reasoning via Per-Instance Program Synthesis"
+  - u: "preserving_llm_capabilities_through_calibration_data_curation_from_analysis_to_o/"
+    t: "Preserving LLM Capabilities through Calibration Data Curation: From Analysis to Optimization"
+  - u: "principled_fine-tuning_of_llms_from_user-edits_a_medley_of_preference_supervisio/"
+    t: "Principled Fine-tuning of LLMs from User-Edits: A Medley of Preference, Supervision, and Reward"
+  - u: "program_synthesis_via_test-time_transduction/"
+    t: "Program Synthesis via Test-Time Transduction"
+  - u: "qimeng-salv_signal-aware_learning_for_verilog_code_generation/"
+    t: "QiMeng-SALV: Signal-Aware Learning for Verilog Code Generation"
+  - u: "searching_latent_program_spaces/"
+    t: "Searching Latent Program Spaces"
+  - u: "swe-rebench_an_automated_pipeline_for_task_collection_and_decontaminated_evaluat/"
+    t: "SWE-rebench: An Automated Pipeline for Task Collection and Decontaminated Evaluation of Software Engineering Agents"
+  - u: "table2latex-rl_high-fidelity_latex_code_generation_from_table_images_via_reinfor/"
+    t: "Table2LaTeX-RL: High-Fidelity LaTeX Code Generation from Table Images via Reinforced Multimodal Language Models"
+  - u: "text-to-code_generation_for_modular_building_layouts_in_building_information_mod/"
+    t: "Text-to-Code Generation for Modular Building Layouts in Building Information Modeling"
+item_total: 20
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

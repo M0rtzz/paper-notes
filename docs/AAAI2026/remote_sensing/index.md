@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 遥感方向7篇论文解读
+  AAAI2026 遥感论文汇总 · 7篇论文解读
 description: >-
   7篇AAAI2026的遥感方向论文解读，涵盖推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,22 @@ tags:
   - "论文笔记"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "consistency-based_abductive_reasoning_over_perceptual_errors_of_multiple_pre-tra/"
+    t: "Consistency-based Abductive Reasoning over Perceptual Errors of Multiple Pre-trained Models in Novel Environments"
+  - u: "debiasing_machine_learning_predictions_for_causal_inference_without_additional_g/"
+    t: "Debiasing Machine Learning Predictions for Causal Inference Without Additional Ground Truth Data"
+  - u: "m3sr_multi-scale_multi-perceptual_mamba_for_efficient_spectral_reconstruction/"
+    t: "M3SR: Multi-Scale Multi-Perceptual Mamba for Efficient Spectral Reconstruction"
+  - u: "machine_learning_for_sustainable_rice_production_region-scale_monitoring_of_wate/"
+    t: "Machine Learning for Sustainable Rice Production: Region-Scale Monitoring of Water-Saving Practices in Punjab, India"
+  - u: "perceive_act_and_correct_confidence_is_not_enough_for_hyperspectral_classificati/"
+    t: "Perceive, Act and Correct: Confidence Is Not Enough for Hyperspectral Classification"
+  - u: "spatio-temporal_context_learning_with_temporal_difference_convolution_for_moving/"
+    t: "TDCNet: Spatio-Temporal Context Learning with Temporal Difference Convolution for Moving IRSTD"
+  - u: "uniabg_unified_adversarial_view_bridging_and_graph_correspondence_for_unsupervis/"
+    t: "UniABG: Unified Adversarial View Bridging and Graph Correspondence for Unsupervised Cross-View Geo-Localization"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

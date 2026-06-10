@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 AIGC 检测方向1篇论文解读
+  CVPR2026 AIGC检测论文汇总 · 1篇论文解读
 description: >-
   1篇CVPR2026的 AIGC 检测方向论文解读，收录 Fine-grained Image Aesthetic Assessment等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -8,6 +8,10 @@ tags:
   - "AIGC 检测"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "fine-grained_image_aesthetic_assessment_learning_discriminative_scores_from_rela/"
+    t: "Fine-grained Image Aesthetic Assessment: Learning Discriminative Scores from Relative Ranks"
+item_total: 1
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

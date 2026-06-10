@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 视频生成方向19篇论文解读
+  ICLR2026 视频生成论文汇总 · 19篇论文解读
 description: >-
   19篇ICLR2026的视频生成方向论文解读，涵盖视频生成、扩散模型、机器人、语音、压缩/编码等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,46 @@ tags:
   - "机器人"
   - "语音"
   - "压缩/编码"
+item_list:
+  - u: "arbitrary_generative_video_interpolation/"
+    t: "Arbitrary Generative Video Interpolation"
+  - u: "bindweave_subject-consistent_video_generation_via_cross-modal_integration/"
+    t: "BindWeave: Subject-Consistent Video Generation via Cross-Modal Integration"
+  - u: "drivinggen_a_comprehensive_benchmark_for_generative_video_world_models_in_autono/"
+    t: "DrivingGen: A Comprehensive Benchmark for Generative Video World Models in Autonomous Driving"
+  - u: "dual-ipo_dual-iterative_preference_optimization_for_text-to-video_generation/"
+    t: "Dual-IPO: Dual-Iterative Preference Optimization for Text-to-Video Generation"
+  - u: "frame_guidance_training-free_guidance_for_frame-level_control_in_video_diffusion/"
+    t: "Frame Guidance: Training-Free Guidance for Frame-Level Control in Video Diffusion Models"
+  - u: "geometry-aware_4d_video_generation_for_robot_manipulation/"
+    t: "Geometry-aware 4D Video Generation for Robot Manipulation"
+  - u: "javisdit_joint_audio-video_diffusion_transformer_with_hierarchical_spatio-tempor/"
+    t: "JavisDiT: Joint Audio-Video Diffusion Transformer with Hierarchical Spatio-Temporal Prior Synchronization"
+  - u: "javisdit_unified_modeling_and_optimization_for_joint_audio-video_generation/"
+    t: "JavisDiT++: Unified Modeling and Optimization for Joint Audio-Video Generation"
+  - u: "learning_video_generation_for_robotic_manipulation_with_collaborative_trajectory/"
+    t: "Learning Video Generation for Robotic Manipulation with Collaborative Trajectory Control"
+  - u: "lora-edit_controllable_first-frame-guided_video_editing_via_mask-aware_lora_fine/"
+    t: "LoRA-Edit: Controllable First-Frame-Guided Video Editing via Mask-Aware LoRA Fine-Tuning"
+  - u: "lumos-1_on_autoregressive_video_generation_with_discrete_diffusion_from_a_unifie/"
+    t: "Lumos-1: On Autoregressive Video Generation with Discrete Diffusion from a Unified Model Perspective"
+  - u: "mosa_motion-coherent_human_video_generation_via_structure-appearance_decoupling/"
+    t: "MoSA: Motion-Coherent Human Video Generation via Structure-Appearance Decoupling"
+  - u: "motionstream_real-time_video_generation_with_interactive_motion_controls/"
+    t: "MotionStream: Real-Time Video Generation with Interactive Motion Controls"
+  - u: "precisecache_precise_feature_caching_for_efficient_and_high-fidelity_video_gener/"
+    t: "PreciseCache: Precise Feature Caching for Efficient and High-fidelity Video Generation"
+  - u: "quantsparse_comprehensively_compressing_video_diffusion_transformer_with_model_q/"
+    t: "QuantSparse: Comprehensively Compressing Video Diffusion Transformer with Model Quantization and Attention Sparsification"
+  - u: "sigmark_scalable_in-generation_watermark_with_blind_extraction_for_video_diffusi/"
+    t: "SIGMark: Scalable In-Generation Watermark with Blind Extraction for Video Diffusion"
+  - u: "streaming_autoregressive_video_generation_via_diagonal_distillation/"
+    t: "Streaming Autoregressive Video Generation via Diagonal Distillation"
+  - u: "target-aware_video_diffusion_models/"
+    t: "Target-Aware Video Diffusion Models"
+  - u: "ttom_test-time_optimization_and_memorization_for_compositional_video_generation/"
+    t: "TTOM: Test-Time Optimization and Memorization for Compositional Video Generation"
+item_total: 19
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 因果推理方向18篇论文解读
+  ICLR2026 因果推理论文汇总 · 18篇论文解读
 description: >-
   18篇ICLR2026的因果推理方向论文解读，涵盖对抗鲁棒、推理、LLM、布局/合成、RAG、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,44 @@ tags:
   - "布局/合成"
   - "RAG"
   - "自监督学习"
+item_list:
+  - u: "action-guided_attention_for_video_action_anticipation/"
+    t: "Action-Guided Attention for Video Action Anticipation"
+  - u: "an_orthogonal_learner_for_individualized_outcomes_in_markov_decision_processes/"
+    t: "An Orthogonal Learner for Individualized Outcomes in Markov Decision Processes"
+  - u: "copy-paste_to_mitigate_large_language_model_hallucinations/"
+    t: "Copy-Paste to Mitigate Large Language Model Hallucinations"
+  - u: "counterfactual_explanations_on_robust_perceptual_geodesics/"
+    t: "Counterfactual Explanations on Robust Perceptual Geodesics"
+  - u: "direct_doubly_robust_estimation_of_conditional_quantile_contrasts/"
+    t: "Direct Doubly Robust Estimation of Conditional Quantile Contrasts"
+  - u: "distributional_equivalence_in_linear_non-gaussian_latent-variable_cyclic_causal_/"
+    t: "Distributional Equivalence in Linear Non-Gaussian Latent-Variable Cyclic Causal Models"
+  - u: "efficient_ensemble_conditional_independence_test_framework_for_causal_discovery/"
+    t: "Efficient Ensemble Conditional Independence Test Framework for Causal Discovery"
+  - u: "flattery_fluff_and_fog_diagnosing_and_mitigating_idiosyncratic_biases_in_prefere/"
+    t: "Flattery, Fluff, and Fog: Diagnosing and Mitigating Idiosyncratic Biases in Preference Models"
+  - u: "function_induction_and_task_generalization_an_interpretability_study_with_off-by/"
+    t: "Function Induction and Task Generalization: An Interpretability Study with Off-by-One Addition"
+  - u: "journey_to_the_centre_of_cluster_harnessing_interior_nodes_for_ab_testing_under_/"
+    t: "Journey to the Centre of Cluster: Harnessing Interior Nodes for A/B Testing under Network Interference"
+  - u: "learning_robust_intervention_representations_with_delta_embeddings/"
+    t: "Learning Robust Intervention Representations with Delta Embeddings"
+  - u: "on_the_eligibility_of_llms_for_counterfactual_reasoning_a_decompositional_study/"
+    t: "On the Eligibility of LLMs for Counterfactual Reasoning: A Decompositional Study"
+  - u: "resisting_contextual_interference_in_rag_via_parametric-knowledge_reinforcement/"
+    t: "Resisting Contextual Interference in RAG via Parametric-Knowledge Reinforcement"
+  - u: "rfeval_benchmarking_reasoning_faithfulness_under_counterfactual_perturbations/"
+    t: "RFEval: Benchmarking Reasoning Faithfulness under Counterfactual Perturbations"
+  - u: "self-supervised_learning_from_structural_invariance/"
+    t: "Self-Supervised Learning from Structural Invariance"
+  - u: "selfreflect_can_llms_communicate_their_internal_answer_distribution/"
+    t: "SelfReflect: Can LLMs Communicate Their Internal Answer Distribution?"
+  - u: "synthesising_counterfactual_explanations_via_label-conditional_gaussian_mixture_/"
+    t: "Synthesising Counterfactual Explanations via Label-Conditional Gaussian Mixture Variational Autoencoders"
+  - u: "validating_interpretability_in_sirna_efficacy_prediction_a_perturbation-based_da/"
+    t: "Validating Interpretability in siRNA Efficacy Prediction: A Perturbation-Based, Dataset-Aware Protocol"
+item_total: 18
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +59,7 @@ tags:
 
 **🔬 ICLR2026** · **18** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×3 · 推理 ×2
 

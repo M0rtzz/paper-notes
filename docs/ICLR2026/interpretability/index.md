@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 可解释性方向60篇论文解读
+  ICLR2026 可解释性论文汇总 · 59篇论文解读
 description: >-
-  60篇ICLR2026的可解释性方向论文解读，涵盖 LLM、推理、多模态、布局/合成、对齐/RLHF、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  59篇ICLR2026的可解释性方向论文解读，涵盖 LLM、推理、多模态、布局/合成、对齐/RLHF、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ICLR2026"
   - "可解释性"
@@ -14,14 +14,76 @@ tags:
   - "布局/合成"
   - "对齐/RLHF"
   - "Agent"
+item_list:
+  - u: "a_cortically_inspired_architecture_for_modular_perceptual_ai/"
+    t: "A Cortically Inspired Architecture for Modular Perceptual AI"
+  - u: "adaem_an_adaptively_and_automated_extensible_measurement_of_llms_value_differenc/"
+    t: "AdAEM: An Adaptively and Automated Extensible Measurement of LLMs' Value Difference"
+  - u: "anveshanaai_a_multimodal_platform_for_adaptive_aiml_education_through_automated_/"
+    t: "AnveshanaAI: A Multimodal Platform for Adaptive AI/ML Education through Automated Question Generation and Interactive Assessment"
+  - u: "behavior_learning_bl_learning_hierarchical_optimization_structures_from_data/"
+    t: "Behavior Learning (BL): Learning Hierarchical Optimization Structures from Data"
+  - u: "beyond_linear_probes_dynamic_safety_monitoring_for_language_models/"
+    t: "Beyond Linear Probes: Dynamic Safety Monitoring for Language Models"
+  - u: "bridging_explainability_and_embeddings_bee_aware_of_spuriousness/"
+    t: "Bridging Explainability and Embeddings: BEE Aware of Spuriousness"
+  - u: "causal_interpretation_of_neural_network_computations_with_contribution_decomposi/"
+    t: "Causal Interpretation of Neural Network Computations with Contribution Decomposition"
+  - u: "closing_the_curvature_gap_full_transformer_hessians_and_their_implications_for_s/"
+    t: "Closing the Curvature Gap: Full Transformer Hessians and Their Implications for Scaling Laws"
+  - u: "concepts_information_bottleneck_models/"
+    t: "Concepts' Information Bottleneck Models"
+  - u: "conjuring_semantic_similarity/"
+    t: "Conjuring Semantic Similarity"
+  - u: "cross-modal_redundancy_and_the_geometry_of_vision-language_embeddings/"
+    t: "Cross-Modal Redundancy and the Geometry of Vision-Language Embeddings"
+  - u: "decomposing_representation_space_into_interpretable_subspaces_with_unsupervised_/"
+    t: "Decomposing Representation Space into Interpretable Subspaces with Unsupervised Learning"
+  - u: "decoupling_dynamical_richness_from_representation_learning_towards_practical_mea/"
+    t: "Decoupling Dynamical Richness from Representation Learning: Towards Practical Measurement"
+  - u: "domain_expansion_a_latent_space_construction_framework_for_multi-task_learning/"
+    t: "Domain Expansion: A Latent Space Construction Framework for Multi-Task Learning"
+  - u: "dynamic_reflections_probing_video_representations_with_text_alignment/"
+    t: "Dynamic Reflections: Probing Video Representations with Text Alignment"
+  - u: "emergence_of_superposition_unveiling_the_training_dynamics_of_chain_of_continuou/"
+    t: "Emergence of Superposition: Unveiling the Training Dynamics of Chain of Continuous Thought"
+  - u: "evolution_of_concepts_in_language_model_pre-training/"
+    t: "Evolution of Concepts in Language Model Pre-Training"
+  - u: "exploring_interpretability_for_visual_prompt_tuning_with_cross-layer_concepts/"
+    t: "Exploring Interpretability for Visual Prompt Tuning with Cross-layer Concepts"
+  - u: "expo-hm_learning_to_explain-then-detect_for_hateful_meme_detection/"
+    t: "ExPO-HM: Learning to Explain-then-Detect for Hateful Meme Detection"
+  - u: "formal_mechanistic_interpretability_automated_circuit_discovery_with_provable_gu/"
+    t: "Formal Mechanistic Interpretability: Automated Circuit Discovery with Provable Guarantees"
+  - u: "gavel_towards_rule-based_safety_through_activation_monitoring/"
+    t: "GAVEL: Towards Rule-Based Safety through Activation Monitoring"
+  - u: "gepa_reflective_prompt_evolution_can_outperform_reinforcement_learning/"
+    t: "GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning"
+  - u: "grokking_in_llm_pretraining_monitor_memorization-to-generalization_without_test/"
+    t: "Grokking in LLM Pretraining? Monitor Memorization-to-Generalization without Test"
+  - u: "hallucination_begins_where_saliency_drops/"
+    t: "Hallucination Begins Where Saliency Drops"
+  - u: "hidden_breakthroughs_in_language_model_training/"
+    t: "Hidden Breakthroughs in Language Model Training"
+  - u: "how_do_transformers_learn_to_associate_tokens_gradient_leading_terms_bring_mecha/"
+    t: "How Do Transformers Learn to Associate Tokens: Gradient Leading Terms Bring Mechanistic Understanding"
+  - u: "implicit_statistical_inference_in_transformers_approximating_likelihood-ratio_te/"
+    t: "Implicit Statistical Inference in Transformers: Approximating Likelihood-Ratio Tests In-Context"
+  - u: "information_shapes_koopman_representation/"
+    t: "Information Shapes Koopman Representation"
+  - u: "internal_planning_in_language_models_characterizing_horizon_and_branch_awareness/"
+    t: "Internal Planning in Language Models: Characterizing Horizon and Branch Awareness"
+  - u: "layer_by_layer_module_by_module_choose_both_for_optimal_ood_probing_of_vit/"
+    t: "Layer by layer, module by module: Choose both for optimal OOD probing of ViT"
+item_total: 59
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**🔬 ICLR2026** · **60** 篇论文解读
+**🔬 ICLR2026** · **59** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
 
 🔥 **高频主题：** LLM ×5 · 推理 ×4 · 多模态 ×3 · 布局/合成 ×3 · 对齐/RLHF ×3
 
@@ -234,10 +296,6 @@ tags:
 **[TokenSeek: Memory Efficient Fine Tuning via Instance-Aware Token Ditching](tokenseek_memory_efficient_fine_tuning_via_instance-aware_token_ditching.md)**
 
 :   提出 TokenSeek，一个通用的 Transformer 微调内存优化插件，通过结合上下文注意力信息和梯度信息进行实例级 token 重要性评估，仅保留 10% 高价值 token 参与梯度更新，实现最高 65.7% 内存节省且性能持平甚至超越全 token 微调。
-
-**[Toward Faithful Retrieval-Augmented Generation with Sparse Autoencoders](toward_faithful_retrieval-augmented_generation_with_sparse_autoencoders.md)**
-
-:   提出 RAGLens，利用稀疏自编码器(SAE)从 LLM 内部激活中解耦出 RAG 幻觉专属特征，通过互信息特征选择 + 广义加性模型(GAM)构建轻量级可解释幻觉检测器，在多个基准上超越现有方法，并支持 token 级可解释反馈与幻觉缓解。
 
 **[Towards Understanding Subliminal Learning: When and How Hidden Biases Transfer](towards_understanding_subliminal_learning_when_and_how_hidden_biases_transfer.md)**
 

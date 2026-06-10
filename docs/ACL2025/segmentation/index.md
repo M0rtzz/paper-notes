@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 语义分割方向4篇论文解读
+  ACL2025 语义分割论文汇总 · 4篇论文解读
 description: >-
   4篇ACL2025的语义分割方向论文解读，涵盖语义分割、推理、对话系统等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,16 @@ tags:
   - "论文笔记"
   - "推理"
   - "对话系统"
+item_list:
+  - u: "bert-like_models_for_slavic_morpheme_segmentation/"
+    t: "BERT-like Models for Slavic Morpheme Segmentation"
+  - u: "def-dts_deductive_reasoning_for_open-domain_dialogue_topic_segmentation/"
+    t: "DEF-DTS: Deductive Reasoning for Open-domain Dialogue Topic Segmentation"
+  - u: "instructpart_task-oriented_part_segmentation_with_instruction_reasoning/"
+    t: "InstructPart: Task-Oriented Part Segmentation with Instruction Reasoning"
+  - u: "pixel-level_reasoning_segmentation_via_multi-turn_conversations/"
+    t: "Pixel-Level Reasoning Segmentation via Multi-turn Conversations"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +27,7 @@ tags:
 
 **💬 ACL2025** · **4** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (45)](../../NeurIPS2025/segmentation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (44)](../../NeurIPS2025/segmentation/index.md)
 
 🔥 **高频主题：** 语义分割 ×4 · 推理 ×3 · 对话系统 ×2
 

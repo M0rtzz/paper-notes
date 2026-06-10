@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 LLM 效率方向11篇论文解读
+  ICML2025 LLM效率论文汇总 · 11篇论文解读
 description: >-
   11篇ICML2025的 LLM 效率方向论文解读，涵盖 LLM、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,30 @@ tags:
   - "论文笔记"
   - "LLM"
   - "对齐/RLHF"
+item_list:
+  - u: "autonomy-of-experts_models/"
+    t: "Autonomy-of-Experts Models (AoE)"
+  - u: "curse_of_high_dimensionality_issue_in_transformer_for_long-context_modeling/"
+    t: "Curse of High Dimensionality Issue in Transformer for Long-context Modeling"
+  - u: "dssd_efficient_edge-device_llm_deployment_and_collaborative_inference_via_distri/"
+    t: "DSSD: Efficient Edge-Device LLM Deployment and Collaborative Inference via Distributed Split Speculative Decoding"
+  - u: "easyinv_toward_fast_and_better_ddim_inversion/"
+    t: "EasyInv: Toward Fast and Better DDIM Inversion"
+  - u: "efficient_length-generalizable_attention_via_causal_retrieval_for_long-context_l/"
+    t: "Efficient Length-Generalizable Attention via Causal Retrieval for Long-Context Language Modeling"
+  - u: "ladder-residual_parallelism-aware_architecture_for_accelerating_large_model_infe/"
+    t: "Ladder Residual: Parallelism-Aware Architecture for Accelerating Large Model Inference"
+  - u: "long-short_alignment_for_effective_long-context_modeling_in_llms/"
+    t: "Long-Short Alignment for Effective Long-Context Modeling in LLMs"
+  - u: "mixture_of_lookup_experts/"
+    t: "Mixture of Lookup Experts"
+  - u: "moh_multi-head_attention_as_mixture-of-head_attention/"
+    t: "MoH: Multi-Head Attention as Mixture-of-Head Attention"
+  - u: "nextlong_toward_effective_long-context_training_without_long_documents/"
+    t: "NExtLong: Toward Effective Long-Context Training without Long Documents"
+  - u: "retraining-free_merging_of_sparse_moe_via_hierarchical_clustering/"
+    t: "Retraining-Free Merging of Sparse MoE via Hierarchical Clustering"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

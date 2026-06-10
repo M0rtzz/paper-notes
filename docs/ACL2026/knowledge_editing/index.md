@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 知识编辑方向9篇论文解读
+  ACL2026 知识编辑论文汇总 · 9篇论文解读
 description: >-
   9篇ACL2026的知识编辑方向论文解读，涵盖 LLM、对齐/RLHF、对抗鲁棒、强化学习、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,26 @@ tags:
   - "对抗鲁棒"
   - "强化学习"
   - "人脸/视线"
+item_list:
+  - u: "aligning_language_models_with_real-time_knowledge_editing/"
+    t: "Aligning Language Models with Real-time Knowledge Editing"
+  - u: "clare-ty_amid_chaos_quantifying_representational_entanglement_to_predict_ripple_/"
+    t: "CLaRE-ty Amid Chaos: Quantifying Representational Entanglement to Predict Ripple Effects in LLM Editing"
+  - u: "evoedit_evolving_null-space_alignment_for_robust_and_efficient_knowledge_editing/"
+    t: "EvoEdit: Evolving Null-space Alignment for Robust and Efficient Knowledge Editing"
+  - u: "fable_fine-grained_fact_anchoring_for_unstructured_model_editing/"
+    t: "FABLE: Fine-grained Fact Anchoring for Unstructured Model Editing"
+  - u: "hiedit_lifelong_model_editing_with_hierarchical_reinforcement_learning/"
+    t: "HiEdit: Lifelong Model Editing with Hierarchical Reinforcement Learning"
+  - u: "one_mask_to_rule_them_all_on_hidden_facts_after_editing_and_how_to_find_them/"
+    t: "One Mask to Rule Them All: On Hidden Facts after Editing and How to Find Them"
+  - u: "representation_interventions_enable_lifelong_knowledge_memory_control_in_llms/"
+    t: "Representation Interventions Enable Lifelong Knowledge Memory Control in LLMs"
+  - u: "spectral_characterization_and_mitigation_of_sequential_knowledge_editing_collaps/"
+    t: "Spectral Characterization and Mitigation of Sequential Knowledge Editing Collapse"
+  - u: "the_model_agreed_but_didn39t_learn_diagnosing_surface_compliance_in_large_langua/"
+    t: "The Model Agreed, But Didn't Learn: Diagnosing Surface Compliance in Large Language Models"
+item_total: 9
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

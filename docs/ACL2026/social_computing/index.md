@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 社会计算方向43篇论文解读
+  ACL2026 社会计算论文汇总 · 43篇论文解读
 description: >-
   43篇ACL2026的社会计算方向论文解读，涵盖 LLM、语音、Agent、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,68 @@ tags:
   - "语音"
   - "Agent"
   - "多模态"
+item_list:
+  - u: "among_us_language_of_conspiracy_theorists_on_mainstream_reddit/"
+    t: "Among Us: Language of Conspiracy Theorists on Mainstream Reddit"
+  - u: "bayesian_social_deduction_with_graph-informed_language_models/"
+    t: "Bayesian Social Deduction with Graph-Informed Language Models"
+  - u: "beyond_the_crowd_llm-augmented_community_notes_for_governing_health_misinformati/"
+    t: "Beyond the Crowd: LLM-Augmented Community Notes for Governing Health Misinformation"
+  - u: "bits_pilani_at_semeval-2026_task_9_structured_supervised_fine-tuning_with_dpo_re/"
+    t: "BITS Pilani at SemEval-2026 Task 9: Structured Supervised Fine-Tuning with DPO Refinement for Polarization Detection"
+  - u: "building_arabic_nlp_from_the_ground_up_twenty_years_of_lessons_failures_and_open/"
+    t: "Building Arabic NLP from the Ground Up: Twenty Years of Lessons, Failures, and Open Problems"
+  - u: "claimdb_a_fact_verification_benchmark_over_large_structured_data/"
+    t: "ClaimDB: A Fact Verification Benchmark over Large Structured Data"
+  - u: "confident_calibrated_or_complicit_safety_alignment_and_ideological_bias_in_llm_h/"
+    t: "Confident, Calibrated, or Complicit: Safety Alignment and Ideological Bias in LLM Hate Speech Detection"
+  - u: "content_fuzzing_for_escaping_information_cocoons_on_digital_social_media/"
+    t: "Content Fuzzing for Escaping Information Cocoons on Social Media"
+  - u: "decide_less_communicate_more_on_the_construct_validity_of_end-to-end_fact-checki/"
+    t: "Decide less, communicate more: On the construct validity of end-to-end fact-checking in medicine"
+  - u: "dia-harm_dialectal_disparities_in_harmful_content_detection_across_50_english_di/"
+    t: "DIA-HARM: Dialectal Disparities in Harmful Content Detection Across 50 English Dialects"
+  - u: "dynamics_of_cognitive_heterogeneity_investigating_behavioral_biases_in_multi-sta/"
+    t: "Dynamics of Cognitive Heterogeneity: Investigating Behavioral Biases in Multi-Stage Supply Chains with LLM-Based Simulation"
+  - u: "estimating_the_black-box_llm_uncertainty_with_distribution-aligned_adversarial_d/"
+    t: "Estimating the Black-box LLM Uncertainty with Distribution-Aligned Adversarial Distillation"
+  - u: "explain_the_flag_contextualizing_hate_speech_beyond_censorship/"
+    t: "Explain the Flag: Contextualizing Hate Speech Beyond Censorship"
+  - u: "figsim_a_dataset_for_fine-grained_suicide_severity_and_figurative_language_in_su/"
+    t: "FigSIM: A Dataset for Fine-grained Suicide Severity and Figurative Language in Suicide Memes"
+  - u: "gknow_measuring_the_entanglement_of_gender_bias_and_factual_gender/"
+    t: "GKnow: Measuring the Entanglement of Gender Bias and Factual Gender"
+  - u: "imperfectly_cooperative_human-ai_interactions_comparing_the_impacts_of_human_and/"
+    t: "Imperfectly Cooperative Human-AI Interactions: Comparing the Impacts of Human and AI Attributes in Simulated and User Studies"
+  - u: "inertia_in_moral_and_value_judgments_of_large_language_models/"
+    t: "Inertia in Moral and Value Judgments of Large Language Models"
+  - u: "investigating_counterfactual_unfairness_in_llms_towards_identities_through_humor/"
+    t: "Investigating Counterfactual Unfairness in LLMs towards Identities through Humor"
+  - u: "is_this_chart_lying_to_me_automating_the_detection_of_misleading_visualizations/"
+    t: "Is this chart lying to me? Automating the detection of misleading visualizations"
+  - u: "justice_in_judgment_unveiling_hidden_bias_in_llm-assisted_peer_reviews/"
+    t: "Justice in Judgment: Unveiling (Hidden) Bias in LLM-assisted Peer Reviews"
+  - u: "livefact_a_dynamic_time-aware_benchmark_for_llm-driven_fake_news_detection/"
+    t: "LiveFact: A Dynamic, Time-Aware Benchmark for LLM-Driven Fake News Detection"
+  - u: "mdok-style_at_semeval-2026_task_9_finetuning_llms_for_multilingual_polarization_/"
+    t: "mdok-style at SemEval-2026 Task 9: Finetuning LLMs for Multilingual Polarization Detection"
+  - u: "mm-stancedet_retrieval-augmented_multi-modal_multi-agent_stance_detection/"
+    t: "MM-StanceDet: Retrieval-Augmented Multi-modal Multi-agent Stance Detection"
+  - u: "persona-e2_a_human-grounded_dataset_for_personality-shaped_emotional_responses_t/"
+    t: "Persona-E2: A Human-Grounded Dataset for Personality-Shaped Emotional Responses to Textual Events"
+  - u: "phase_transitions_in_affective_meaning_divergence_the_hidden_drift_before_the_br/"
+    t: "Phase Transitions in Affective Meaning Divergence: The Hidden Drift Before the Break"
+  - u: "point_of_order_action-aware_llm_persona_modeling_for_realistic_civic_simulation/"
+    t: "Point of Order: Action-Aware LLM Persona Modeling for Realistic Civic Simulation"
+  - u: "probing_multimodal_large_language_models_on_cognitive_biases_in_chinese_short-vi/"
+    t: "Probing Multimodal Large Language Models on Cognitive Biases in Chinese Short-Video Misinformation"
+  - u: "prompt-level_distillation_a_non-parametric_alternative_to_model_fine-tuning_for_/"
+    t: "Prompt-Level Distillation: A Non-Parametric Alternative to Model Fine-Tuning for Efficient Reasoning"
+  - u: "pskeeuca_2026_fine-tuning_large_language_models_with_synthetic_data_augmentation/"
+    t: "PSK@EEUCA 2026: Fine-Tuning Large Language Models with Synthetic Data Augmentation for Multi-Class Toxicity Detection in Gaming Chat"
+  - u: "reheat_nachos_for_dinner_evaluating_ai_support_for_cross-cultural_communication_/"
+    t: "Reheat Nachos for Dinner? Evaluating AI Support for Cross-Cultural Communication of Neologisms"
+item_total: 43
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +81,7 @@ tags:
 
 **💬 ACL2026** · **43** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
 
 🔥 **高频主题：** LLM ×14 · 语音 ×3 · Agent ×2 · 多模态 ×2
 

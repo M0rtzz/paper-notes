@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 LLM 效率方向1篇论文解读
+  ICCV2025 LLM效率论文汇总 · 1篇论文解读
 description: >-
   1篇ICCV2025的 LLM 效率方向论文解读，收录 MixANT等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -8,6 +8,10 @@ tags:
   - "LLM 效率"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "mixant_observation-dependent_memory_propagation_for_stochastic_dense_action_anti/"
+    t: "MixANT: Observation-dependent Memory Propagation for Stochastic Dense Action Anticipation"
+item_total: 1
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

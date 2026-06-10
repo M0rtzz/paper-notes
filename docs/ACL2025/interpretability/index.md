@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 可解释性方向21篇论文解读
+  ACL2025 可解释性论文汇总 · 21篇论文解读
 description: >-
   21篇ACL2025的可解释性方向论文解读，涵盖 LLM、推理、情感分析等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,50 @@ tags:
   - "LLM"
   - "推理"
   - "情感分析"
+item_list:
+  - u: "a_dual-perspective_nlg_meta-evaluation_framework_with_automatic_benchmark_and_be/"
+    t: "A Dual-Perspective NLG Meta-Evaluation Framework with Automatic Benchmark and Better Interpretability"
+  - u: "an_empirical_study_of_mechanistic_interpretability_approaches_for_factual_recall/"
+    t: "An Empirical Study of Mechanistic Interpretability Approaches for Factual Recall"
+  - u: "around_the_world_in_24_hours_probing_llm_knowledge_of_time_and_place/"
+    t: "Around the World in 24 Hours: Probing LLM Knowledge of Time and Place"
+  - u: "bias_attribution_in_filipino_language_models_extending_a_bias_interpretability_m/"
+    t: "Bias Attribution in Filipino Language Models: Extending a Bias Interpretability Metric for Application on Agglutinative Languages"
+  - u: "cleme2_gec_evaluation/"
+    t: "CLEME2.0: Towards Interpretable Evaluation by Disentangling Edits for Grammatical Error Correction"
+  - u: "degenerate_knowledge_neurons/"
+    t: "Cracking Factual Knowledge: A Comprehensive Analysis of Degenerate Knowledge Neurons in Large Language Models"
+  - u: "expert_an_explainable_image_captioning_evaluation_metric_with_structured_explana/"
+    t: "EXPERT: An Explainable Image Captioning Evaluation Metric with Structured Explanations"
+  - u: "irt_router_multi_llm/"
+    t: "IRT-Router: Effective and Interpretable Multi-LLM Routing via Item Response Theory"
+  - u: "llama_see_llama_do_entrainment/"
+    t: "Llama See, Llama Do: A Mechanistic Perspective on Contextual Entrainment and Distraction in LLMs"
+  - u: "mechanistic_interpretability_of_emotion_inference_in_large_language_models/"
+    t: "Mechanistic Interpretability of Emotion Inference in Large Language Models"
+  - u: "normalized_aopc_faithfulness_metrics/"
+    t: "Normalized AOPC: Fixing Misleading Faithfulness Metrics for Feature Attribution Explainability"
+  - u: "output_centric_interpretability/"
+    t: "Enhancing Automated Interpretability with Output-Centric Feature Descriptions"
+  - u: "position-aware_automatic_circuit_discovery/"
+    t: "Position-aware Automatic Circuit Discovery"
+  - u: "probing_subphonemes_in_morphology_models/"
+    t: "Probing Subphonemes in Morphology Models"
+  - u: "probing_the_geometry_of_truth_consistency_and_generalization_of_truth_directions/"
+    t: "Probing the Geometry of Truth: Consistency and Generalization of Truth Directions"
+  - u: "reasoning_circuits_in_language_models_a_mechanistic_interpretation_of_syllogisti/"
+    t: "Reasoning Circuits in Language Models: A Mechanistic Interpretation of Syllogistic Inference"
+  - u: "safety_is_not_only_about_refusal_reasoning-enhanced_fine-tuning_for_interpretabl/"
+    t: "Safety is Not Only About Refusal: Reasoning-Enhanced Fine-tuning for Interpretable LLM Safety"
+  - u: "separating_tongue_from_thought_activation_patching_reveals_language-agnostic_con/"
+    t: "Separating Tongue from Thought: Activation Patching Reveals Language-Agnostic Concept Representations in Transformers"
+  - u: "shortcut_neuron_eval/"
+    t: "Establishing Trustworthy LLM Evaluation via Shortcut Neuron Analysis"
+  - u: "the_anatomy_of_evidence_an_investigation_into_explainable_icd_coding/"
+    t: "The Anatomy of Evidence: An Investigation Into Explainable ICD Coding"
+  - u: "towards_explainable_temporal_reasoning_in_large_language_models_a_structure-awar/"
+    t: "Towards Explainable Temporal Reasoning in Large Language Models: A Structure-Aware Generative Framework"
+item_total: 21
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +62,7 @@ tags:
 
 **💬 ACL2025** · **21** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md)
 
 🔥 **高频主题：** LLM ×7 · 推理 ×3
 

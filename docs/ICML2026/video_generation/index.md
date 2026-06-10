@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 视频生成方向28篇论文解读
+  ICML2026 视频生成论文汇总 · 28篇论文解读
 description: >-
   28篇ICML2026的视频生成方向论文解读，涵盖视频生成、扩散模型、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,64 @@ tags:
   - "论文笔记"
   - "扩散模型"
   - "模型压缩"
+item_list:
+  - u: "aad-1_asymmetric_adversarial_distillation_for_one-step_autoregressive_video_gene/"
+    t: "AAD-1: Asymmetric Adversarial Distillation for One-Step Autoregressive Video Generation"
+  - u: "attention_sparsity_is_input-stable_training-free_sparse_attention_for_video_gene/"
+    t: "Attention Sparsity is Input-Stable: Training-Free Sparse Attention for Video Generation via Offline Sparsity Profiling and Online QK Co-Clustering"
+  - u: "camgeo_sparse_camera-conditioned_image-to-video_generation_with_3d_geometry_prio/"
+    t: "CamGeo: Sparse Camera-Conditioned Image-to-Video Generation with 3D Geometry Prior"
+  - u: "dfsattn_dynamic_fine-grained_sparse_attention_for_efficient_video_generation/"
+    t: "DFSAttn: Dynamic Fine-Grained Sparse Attention for Efficient Video Generation"
+  - u: "enhancing_train-free_infinite-frame_generation_for_consistent_long_videos/"
+    t: "Enhancing Train-Free Infinite-Frame Generation for Consistent Long Videos"
+  - u: "epic_efficient_video_camera_control_learning_with_precise_anchor-video_guidance/"
+    t: "EPiC: Efficient Video Camera Control Learning with Precise Anchor-Video Guidance"
+  - u: "explainable_forensics_of_manipulated_segments_in_untrimmed_long_videos/"
+    t: "Explainable Forensics of Manipulated Segments in Untrimmed Long Videos"
+  - u: "exploring_data-free_lora_transferability_for_video_diffusion_models/"
+    t: "Exploring Data-Free LoRA Transferability for Video Diffusion Models"
+  - u: "itryon_mastering_interactive_video_virtual_try-on_with_spatial-semantic_guidance/"
+    t: "iTryOn: Mastering Interactive Video Virtual Try-On with Spatial-Semantic Guidance"
+  - u: "light_forcing_accelerating_autoregressive_video_diffusion_via_sparse_attention/"
+    t: "Light Forcing: Accelerating Autoregressive Video Diffusion via Sparse Attention"
+  - u: "lightning_unified_video_editing_via_in-context_sparse_attention/"
+    t: "Lightning Unified Video Editing via In-Context Sparse Attention"
+  - u: "locot2v-bench_benchmarking_long-form_and_complex_text-to-video_generation/"
+    t: "LocoT2V-Bench: Benchmarking Long-form and Complex Text-to-Video Generation"
+  - u: "luve_latent-cascaded_ultra-high-resolution_video_generation_with_dual_frequency_/"
+    t: "LuVe: Latent-Cascaded Ultra-High-Resolution Video Generation with Dual Frequency Experts"
+  - u: "mive_multiscale_vision-language_features_for_reference-guided_video_editing/"
+    t: "MiVE: Multiscale Vision-language features for reference-guided video Editing"
+  - u: "motimotion_motion-controlled_video_generation_with_visual_reasoning/"
+    t: "MotiMotion: Motion-Controlled Video Generation with Visual Reasoning"
+  - u: "olaf-world_orienting_latent_actions_for_video_world_modeling/"
+    t: "OLAF-World: Orienting Latent Actions for Video World Modeling"
+  - u: "quant_videogen_auto-regressive_long_video_generation_via_2-bit_kv-cache_quantiza/"
+    t: "Quant VideoGen: Auto-Regressive Long Video Generation via 2-Bit KV-Cache Quantization"
+  - u: "quantized_keys_steal_attention_bias_correction_for_kv-cache_compression_in_video/"
+    t: "Quantized Keys Steal Attention: Bias Correction for KV-Cache Compression in Video Generation"
+  - u: "rays_as_pixels_learning_a_joint_distribution_of_videos_and_camera_trajectories/"
+    t: "Rays as Pixels: Learning A Joint Distribution of Videos and Camera Trajectories"
+  - u: "self-refining_video_sampling/"
+    t: "Self-Refining Video Sampling"
+  - u: "sgmd_score_gradient_matching_distillation_for_few-step_video_diffusion_distillat/"
+    t: "SGMD: Score Gradient Matching Distillation for Few-Step Video Diffusion"
+  - u: "t2av-compass_towards_unified_evaluation_for_text-to-audio-video_generation/"
+    t: "T2AV-Compass: Towards Unified Evaluation for Text-to-Audio-Video Generation"
+  - u: "vanim_rendering-aware_sparse_state_modeling_for_structure-preserving_vector_anim/"
+    t: "VAnim: Rendering-Aware Sparse State Modeling for Structure-Preserving Vector Animation"
+  - u: "veda_scalable_video_diffusion_via_distilled_sparse_attention/"
+    t: "VEDA: Scalable Video Diffusion via Distilled Sparse Attention"
+  - u: "where_concept_erasure_should_occur_concept-layer_alignment_in_text-to-video_diff/"
+    t: "Where Concept Erasure Should Occur: Concept-Layer Alignment in Text-to-Video Diffusion Models"
+  - u: "wind_weather_inverse_diffusion_for_zero-shot_atmospheric_modeling/"
+    t: "WIND: Weather Inverse Diffusion for Zero-Shot Atmospheric Modeling"
+  - u: "world-r1_reinforcing_3d_constraints_for_text-to-video_generation/"
+    t: "World-R1: Reinforcing 3D Constraints for Text-to-Video Generation"
+  - u: "worldcache_accelerating_world_models_for_free_via_heterogeneous_token_caching/"
+    t: "WorldCache: Accelerating World Models for Free via Heterogeneous Token Caching"
+item_total: 28
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

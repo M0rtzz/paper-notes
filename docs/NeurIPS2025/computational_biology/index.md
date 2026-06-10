@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 计算生物方向75篇论文解读
+  NeurIPS2025 计算生物论文汇总 · 74篇论文解读
 description: >-
-  75篇NeurIPS2025的计算生物方向论文解读，涵盖生物分子、扩散模型、LLM、推理、对齐/RLHF、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  74篇NeurIPS2025的计算生物方向论文解读，涵盖生物分子、扩散模型、LLM、推理、对齐/RLHF、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "计算生物"
@@ -14,14 +14,76 @@ tags:
   - "推理"
   - "对齐/RLHF"
   - "对抗鲁棒"
+item_list:
+  - u: "a_standardized_benchmark_for_multilabel_antimicrobial_peptide_classification/"
+    t: "A Standardized Benchmark for Multilabel Antimicrobial Peptide Classification"
+  - u: "a_unified_framework_for_variable_selection_in_modelbased_clu/"
+    t: "A Unified Framework for Variable Selection in Model-Based Clustering with Missing Not at Random"
+  - u: "aanet_virtual_screening_under_structural_uncertainty_via_alignment_and_aggregati/"
+    t: "AANet: Virtual Screening under Structural Uncertainty via Alignment and Aggregation"
+  - u: "amortized_active_generation_of_pareto_sets/"
+    t: "Amortized Active Generation of Pareto Sets"
+  - u: "amortized_sampling_with_transferable_normalizing_flows/"
+    t: "Amortized Sampling with Transferable Normalizing Flows"
+  - u: "atomic_diffusion_models_for_small_molecule_structure_elucidation_from_nmr_spectr/"
+    t: "Atomic Diffusion Models for Small Molecule Structure Elucidation from NMR Spectra"
+  - u: "augmenting_biological_fitness_prediction_benchmarks_with_landscapes_features_fro/"
+    t: "GraphFLA: Augmenting Biological Fitness Prediction Benchmarks with Landscape Features"
+  - u: "autoencoding_random_forests/"
+    t: "Autoencoding Random Forests"
+  - u: "barcodemamba_advancing_state-space_models_for_fungal_biodiversity_research/"
+    t: "BarcodeMamba+: Advancing State-Space Models for Fungal Biodiversity Research"
+  - u: "benchmarking_agentic_systems_in_automated_scientific_information_extraction_with/"
+    t: "Benchmarking Agentic Systems in Automated Scientific Information Extraction with ChemX"
+  - u: "beyond_chemical_qa_evaluating_llms_chemical_reasoning_with_modular_chemical_oper/"
+    t: "Beyond Chemical QA: Evaluating LLM's Chemical Reasoning with Modular Chemical Operations"
+  - u: "bidirectional_representations_augmented_autoregressive_biological_sequence_gener/"
+    t: "CrossNovo: Bidirectional Representations Augmented Autoregressive Biological Sequence Generation"
+  - u: "compressing_biology_evaluating_the_stable_diffusion_vae_for_phenotypic_drug_disc/"
+    t: "Compressing Biology: Evaluating the Stable Diffusion VAE for Phenotypic Drug Discovery"
+  - u: "confrover_simultaneous_modeling_of_protein_conformation_and_dynamics_via_autoreg/"
+    t: "ConfRover: Simultaneous Modeling of Protein Conformation and Dynamics via Autoregression"
+  - u: "consistent_sampling_and_simulation_molecular_dynamics_with_energy-based_diffusio/"
+    t: "Consistent Sampling and Simulation: Molecular Dynamics with Energy-Based Diffusion Models"
+  - u: "constrained_discrete_diffusion/"
+    t: "Constrained Discrete Diffusion"
+  - u: "curly_flow_matching_for_learning_non-gradient_field_dynamics/"
+    t: "Curly Flow Matching for Learning Non-gradient Field Dynamics"
+  - u: "de_novo_generation_of_functional_terpene_synthases_using_tpsgpt/"
+    t: "De novo generation of functional terpene synthases using TpsGPT"
+  - u: "designx_human-competitive_algorithm_designer_for_black-box_optimization/"
+    t: "DesignX: Human-Competitive Algorithm Designer for Black-Box Optimization"
+  - u: "diffusion_generative_modeling_on_lie_group_representations/"
+    t: "Diffusion Generative Modeling on Lie Group Representations"
+  - u: "edbench_large-scale_electron_density_data_for_molecular_modeling/"
+    t: "EDBench: Large-Scale Electron Density Data for Molecular Modeling"
+  - u: "energy_loss_functions_for_physical_systems/"
+    t: "Energy Loss Functions for Physical Systems"
+  - u: "energy_matching_unifying_flow_matching_and_energy-based_models_for_generative_mo/"
+    t: "Energy Matching: Unifying Flow Matching and Energy-Based Models for Generative Modeling"
+  - u: "evaluating_multiple_models_using_labeled_and_unlabeled_data/"
+    t: "Evaluating Multiple Models Using Labeled and Unlabeled Data"
+  - u: "fgbench_a_dataset_and_benchmark_for_molecular_property_reasoning_at_functional_g/"
+    t: "FGBench: A Dataset and Benchmark for Molecular Property Reasoning at Functional Group-Level in Large Language Models"
+  - u: "flow_density_control_generative_optimization_beyond_entropy-regularized_fine-tun/"
+    t: "Flow Density Control: Generative Optimization Beyond Entropy-Regularized Fine-Tuning"
+  - u: "fractional_diffusion_bridge_models/"
+    t: "Fractional Diffusion Bridge Models"
+  - u: "g-dpo_scalable_preference_optimization_for_protein_language_models/"
+    t: "g-DPO: Scalable Preference Optimization for Protein Language Models"
+  - u: "generalizable_insights_for_graph_transformers_in_theory_and_practice/"
+    t: "Generalizable Insights for Graph Transformers in Theory and Practice"
+  - u: "generative_distribution_embeddings_lifting_autoencoders_to_the_space_of_distribu/"
+    t: "Generative Distribution Embeddings: Lifting Autoencoders to the Space of Distributions for Multiscale Representation Learning"
+item_total: 74
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧬 计算生物
 
-**🧠 NeurIPS2025** · **75** 篇论文解读
+**🧠 NeurIPS2025** · **74** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (11)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (38)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (20)](../../AAAI2026/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
 
 🔥 **高频主题：** 生物分子 ×22 · 扩散模型 ×14 · LLM ×3 · 推理 ×3 · 对齐/RLHF ×2
 
@@ -200,10 +262,6 @@ tags:
 **[MEIcoder: Decoding Visual Stimuli from Neural Activity by Leveraging Most Exciting Inputs](meicoder_decoding_visual_stimuli_from_neural_activity_by_leveraging_most_excitin.md)**
 
 :   提出 MEIcoder，利用神经元特异性的最激励输入(MEI)作为生物学先验、SSIM 损失和对抗训练，从初级视觉皮层(V1)的神经群体活动中实现 SOTA 级别的视觉刺激重建，尤其在小数据集和少量神经元场景下表现突出。
-
-**[Modeling Microenvironment Trajectories on Spatial Transcriptomics with NicheFlow](modeling_microenvironment_trajectories_on_spatial_transcriptomics_with_nicheflow.md)**
-
-:   NicheFlow是一种基于Flow Matching的生成模型，将细胞微环境表示为点云，通过Variational Flow Matching和最优传输联合建模细胞状态与空间坐标的时间演化，在胚胎发育、脑发育和衰老数据集上显著优于单细胞级别的轨迹推断方法。
 
 **[Mol-LLaMA: Towards General Understanding of Molecules in Large Molecular Language Models](mol-llama_towards_general_understanding_of_molecules_in_large_molecular_language.md)**
 

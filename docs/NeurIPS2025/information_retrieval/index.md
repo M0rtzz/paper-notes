@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 信息检索/RAG方向30篇论文解读
+  NeurIPS2025 信息检索/RAG论文汇总 · 30篇论文解读
 description: >-
   30篇NeurIPS2025的信息检索/RAG 方向论文解读，涵盖 RAG、多模态、推理、问答、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "推理"
   - "问答"
   - "LLM"
+item_list:
+  - u: "acurank_uncertainty-aware_adaptive_computation_for_listwise_reranking/"
+    t: "AcuRank: Uncertainty-Aware Adaptive Computation for Listwise Reranking"
+  - u: "benchmarking_retrievalaugmented_multimodal_generation_for_do/"
+    t: "Benchmarking Retrieval-Augmented Multimodal Generation for Document Question Answering"
+  - u: "chain-of-retrieval_augmented_generation/"
+    t: "Chain-of-Retrieval Augmented Generation (CoRAG)"
+  - u: "cooperative_retrieval-augmented_generation_for_question_answering_mutual_informa/"
+    t: "Cooperative Retrieval-Augmented Generation for Question Answering: Mutual Information Exchange and Ranking by Contrasting Layers"
+  - u: "deep_research_brings_deeper_harm/"
+    t: "Deep Research Brings Deeper Harm"
+  - u: "dice_discrete_interpretable_comparative_evaluation_with_probabilistic_scoring_fo/"
+    t: "DICE: Discrete Interpretable Comparative Evaluation with Probabilistic Scoring for RAG"
+  - u: "enginuity_building_an_open_multi-domain_dataset_of_complex_engineering_diagrams/"
+    t: "Enginuity: Building an Open Multi-Domain Dataset of Complex Engineering Diagrams"
+  - u: "generalized_contrastive_learning_for_universal_multimodal_re/"
+    t: "Generalized Contrastive Learning for Universal Multimodal Retrieval"
+  - u: "hierarchical_retrieval_the_geometry_and_a_pretrain-finetune_recipe/"
+    t: "Hierarchical Retrieval: The Geometry and a Pretrain-Finetune Recipe"
+  - u: "hifi-rag_hierarchical_content_filtering_and_two-pass_generation_for_open-domain_/"
+    t: "HiFi-RAG: Hierarchical Content Filtering and Two-Pass Generation for Open-Domain RAG"
+  - u: "how_should_we_evaluate_data_deletion_in_graph-based_ann_indexes/"
+    t: "How Should We Evaluate Data Deletion in Graph-Based ANN Indexes?"
+  - u: "hypergraphrag_retrieval-augmented_generation_via_hypergraph-structured_knowledge/"
+    t: "HyperGraphRAG: Retrieval-Augmented Generation via Hypergraph-Structured Knowledge Representation"
+  - u: "improving_consistency_in_retrieval-augmented_systems_with_group_similarity_rewar/"
+    t: "Improving Consistency in Retrieval-Augmented Systems with Group Similarity Rewards"
+  - u: "is_prm_necessary_problem-solving_rl_implicitly_induces_prm_capability_in_llms/"
+    t: "Is PRM Necessary? Problem-Solving RL Implicitly Induces PRM Capability in LLMs"
+  - u: "learning_task-agnostic_representations_through_multi-teacher_distillation/"
+    t: "Learning Task-Agnostic Representations through Multi-Teacher Distillation"
+  - u: "mir-bench_can_your_llm_recognize_complicated_patterns_via_many-shot_in-context_r/"
+    t: "MIR-Bench: Can Your LLM Recognize Complicated Patterns via Many-Shot In-Context Reasoning?"
+  - u: "mitra_an_ai_assistant_for_knowledge_retrieval_in_physics_collaborations/"
+    t: "MITRA: An AI Assistant for Knowledge Retrieval in Physics Collaborations"
+  - u: "murating_a_high_quality_data_selecting_approach_to_multilingual_large_language_m/"
+    t: "MuRating: A High Quality Data Selecting Approach to Multilingual Large Language Model Pretraining"
+  - u: "reliable_decision_making_via_calibration_oriented_retrieval_augmented_generation/"
+    t: "Reliable Decision Making via Calibration Oriented Retrieval Augmented Generation"
+  - u: "retrieval-augmented_generation_for_reliable_interpretation_of_radio_regulations/"
+    t: "Retrieval-Augmented Generation for Reliable Interpretation of Radio Regulations"
+  - u: "retrieval_is_not_enough_enhancing_rag_reasoning_through_test-time_critique_and_o/"
+    t: "Retrieval is Not Enough: Enhancing RAG Reasoning through Test-Time Critique and Optimization"
+  - u: "rmit-adms_at_the_mmu-rag_neurips_2025_competition/"
+    t: "RMIT-ADM+S at the MMU-RAG NeurIPS 2025 Competition"
+  - u: "scaling_language-centric_omnimodal_representation_learning/"
+    t: "Scaling Language-Centric Omnimodal Representation Learning"
+  - u: "secon-rag_a_two-stage_semantic_filtering_and_conflict-free_framework_for_trustwo/"
+    t: "SeCon-RAG: A Two-Stage Semantic Filtering and Conflict-Free Framework for Trustworthy RAG"
+  - u: "superclip_clip_with_simple_classification_supervision/"
+    t: "SuperCLIP: CLIP with Simple Classification Supervision"
+  - u: "symrtlo_enhancing_rtl_code_optimization_with_llms_and_neuron-inspired_symbolic_r/"
+    t: "SymRTLO: Enhancing RTL Code Optimization with LLMs and Neuron-Inspired Symbolic Reasoning"
+  - u: "the_narrow_gate_localized_imagetext_communication_in_native/"
+    t: "The Narrow Gate: Localized Image-Text Communication in Native Multimodal Models"
+  - u: "the_transparent_earth_a_multimodal_foundation_model_for_the_earths_subsurface/"
+    t: "The Transparent Earth: A Multimodal Foundation Model for the Earth's Subsurface"
+  - u: "think_straight_stop_smart_structured_reasoning_for_efficient_multi-hop_rag/"
+    t: "Think Straight, Stop Smart: Structured Reasoning for Efficient Multi-Hop RAG"
+  - u: "windsock_is_dancing_adaptive_multimodal_retrieval-augmented_generation/"
+    t: "Windsock is Dancing: Adaptive Multimodal Retrieval-Augmented Generation"
+item_total: 30
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **🧠 NeurIPS2025** · **30** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/information_retrieval/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/information_retrieval/index.md)
 
 🔥 **高频主题：** RAG ×14 · 多模态 ×5 · 推理 ×4 · 问答 ×2 · LLM ×2
 

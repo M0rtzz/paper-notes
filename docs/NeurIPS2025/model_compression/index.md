@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 模型压缩方向143篇论文解读
+  NeurIPS2025 模型压缩论文汇总 · 143篇论文解读
 description: >-
   143篇NeurIPS2025的模型压缩方向论文解读，涵盖 LLM、压缩/编码、模型压缩、知识蒸馏、对抗鲁棒、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "知识蒸馏"
   - "对抗鲁棒"
   - "少样本学习"
+item_list:
+  - u: "4dgcpro_efficient_hierarchical_4d_gaussian_compression_for_p/"
+    t: "4DGCPro: Efficient Hierarchical 4D Gaussian Compression for Progressive Volumetric Video Streaming"
+  - u: "a-thought_efficient_reasoning_via_bidirectional_compression_for_low-resource_set/"
+    t: "A*-Thought: Efficient Reasoning via Bidirectional Compression for Low-Resource Settings"
+  - u: "a_granular_study_of_safety_pretraining_under_model_abliteration/"
+    t: "A Granular Study of Safety Pretraining under Model Abliteration"
+  - u: "a_partition_cover_approach_to_tokenization/"
+    t: "A Partition Cover Approach for Tokenization"
+  - u: "a_simple_linear_patch_revives_layerpruned_large_language_mod/"
+    t: "A Simple Linear Patch Revives Layer-Pruned Large Language Models"
+  - u: "a_token_is_worth_over_1000_tokens_efficient_knowledge_distillation_through_low-r/"
+    t: "A Token is Worth over 1,000 Tokens: Efficient Knowledge Distillation through Low-Rank Clone"
+  - u: "accurate_and_efficient_low-rank_model_merging_in_core_space/"
+    t: "Accurate and Efficient Low-Rank Model Merging in Core Space"
+  - u: "ada-kv_optimizing_kv_cache_eviction_by_adaptive_budget_allocation_for_efficient_/"
+    t: "Ada-KV: Optimizing KV Cache Eviction by Adaptive Budget Allocation for Efficient LLM Inference"
+  - u: "adaptive_predictionpowered_autoeval_with_reliability_and_eff/"
+    t: "Adaptive Prediction-Powered AutoEval with Reliability and Efficiency Guarantees"
+  - u: "admtree_compressing_lengthy_context_with_adaptive_semantic_trees/"
+    t: "AdmTree: Compressing Lengthy Context with Adaptive Semantic Trees"
+  - u: "ai-generated_video_detection_via_perceptual_straightening/"
+    t: "AI-Generated Video Detection via Perceptual Straightening"
+  - u: "all_you_need_is_one_capsule_prompt_tuning_with_a_single_vector/"
+    t: "All You Need is One: Capsule Prompt Tuning with a Single Vector"
+  - u: "atlas_autoformalizing_theorems_through_lifting_augmentation_and_synthesis_of_dat/"
+    t: "ATLAS: Autoformalizing Theorems through Lifting, Augmentation, and Synthesis of Data"
+  - u: "autojudge_judge_decoding_without_manual_annotation/"
+    t: "AutoJudge: Judge Decoding Without Manual Annotation"
+  - u: "barista_brain_scale_informed_spatiotemporal_representation_of_human_intracranial/"
+    t: "BaRISTA: Brain-Scale Informed Spatiotemporal Representation of Human Intracranial EEG"
+  - u: "benfords_curse_tracing_digit_bias_to_numerical_hallucination_in_llms/"
+    t: "Benford's Curse: Tracing Digit Bias to Numerical Hallucination in LLMs"
+  - u: "beyond_higher_rank_token-wise_input-output_projections_for_efficient_low-rank_ad/"
+    t: "Beyond Higher Rank: Token-wise Input-Output Projections for Efficient Low-Rank Adaptation"
+  - u: "beyond_random_automatic_inner-loop_optimization_in_dataset_distillation/"
+    t: "Beyond Random: Automatic Inner-Loop Optimization in Dataset Distillation"
+  - u: "bezier_splatting_for_fast_and_differentiable_vector_graphics_rendering/"
+    t: "Bézier Splatting for Fast and Differentiable Vector Graphics Rendering"
+  - u: "binary_quadratic_quantization_beyond_first-order_quantization_for_real-valued_ma/"
+    t: "Binary Quadratic Quantization: Beyond First-Order Quantization for Real-Valued Matrix Compression"
+  - u: "biobench_a_blueprint_to_move_beyond_imagenet_for_scientific_ml_benchmarks/"
+    t: "BioBench: A Blueprint to Move Beyond ImageNet for Scientific ML Benchmarks"
+  - u: "c-lora_contextual_low-rank_adaptation_for_uncertainty_estimation_in_large_langua/"
+    t: "C-LoRA: Contextual Low-Rank Adaptation for Uncertainty Estimation in Large Language Models"
+  - u: "casspec_cascade_adaptive_selfspeculative_decoding_for_onthef/"
+    t: "CAS-Spec: Cascade Adaptive Self-Speculative Decoding for On-the-Fly Lossless Inference Acceleration of LLMs"
+  - u: "chunkkv_semanticpreserving_kv_cache_compression_for_efficien/"
+    t: "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference"
+  - u: "codegemm_a_codebook-centric_approach_to_efficient_gemm_in_quantized_llms/"
+    t: "CodeGEMM: A Codebook-Centric Approach to Efficient GEMM in Quantized LLMs"
+  - u: "compress_gather_and_recompute_reforming_long-context_processing_in_transformers/"
+    t: "Compress, Gather, and Recompute: REFORMing Long-Context Processing in Transformers"
+  - u: "correlation_dimension_of_auto-regressive_large_language_models/"
+    t: "Correlation Dimension of Auto-Regressive Large Language Models"
+  - u: "data_efficient_adaptation_in_large_language_models_via_continuous_low-rank_fine-/"
+    t: "Data Efficient Adaptation in Large Language Models via Continuous Low-Rank Fine-Tuning"
+  - u: "deltaflow_an_efficient_multi-frame_scene_flow_estimation_method/"
+    t: "DeltaFlow: An Efficient Multi-frame Scene Flow Estimation Method"
+  - u: "denoiserotator_enhance_pruning_robustness_for_llms_via_importance_concentration/"
+    t: "DenoiseRotator: Enhance Pruning Robustness for LLMs via Importance Concentration"
+item_total: 143
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **🧠 NeurIPS2025** · **143** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (54)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (100)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (61)](../../AAAI2026/model_compression/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (99)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (60)](../../AAAI2026/model_compression/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/index.md)
 
 🔥 **高频主题：** LLM ×24 · 压缩/编码 ×20 · 模型压缩 ×16 · 知识蒸馏 ×8 · 对抗鲁棒 ×7
 

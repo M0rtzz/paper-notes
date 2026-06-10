@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 对话系统方向1篇论文解读
+  CVPR2026 对话系统论文汇总 · 1篇论文解读
 description: >-
   1篇CVPR2026的对话系统方向论文解读，涵盖多模态、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,10 @@ tags:
   - "论文笔记"
   - "多模态"
   - "推理"
+item_list:
+  - u: "evolutionary_multimodal_reasoning_via_hierarchical_semantic_representation_for_i/"
+    t: "Evolutionary Multimodal Reasoning via Hierarchical Semantic Representation for Intent Recognition"
+item_total: 1
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

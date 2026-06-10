@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 图像生成方向222篇论文解读
+  NeurIPS2025 图像生成论文汇总 · 220篇论文解读
 description: >-
-  222篇NeurIPS2025的图像生成方向论文解读，涵盖扩散模型、文生图、对抗鲁棒、布局/合成、多模态、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  220篇NeurIPS2025的图像生成方向论文解读，涵盖扩散模型、文生图、对抗鲁棒、布局/合成、多模态、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "图像生成"
@@ -14,16 +14,78 @@ tags:
   - "布局/合成"
   - "多模态"
   - "对齐/RLHF"
+item_list:
+  - u: "70_size_100_accuracy_lossless_llm_compression_for_efficient/"
+    t: "70% Size, 100% Accuracy: Lossless LLM Compression for Efficient GPU Inference via Dynamic-Length Float (DFloat11)"
+  - u: "a_closer_look_at_model_collapse_from_a_generalization-to-memorization_perspectiv/"
+    t: "A Closer Look at Model Collapse: From a Generalization-to-Memorization Perspective"
+  - u: "a_connection_between_score_matching_and_local_intrinsic_dimension/"
+    t: "A Connection Between Score Matching and Local Intrinsic Dimension"
+  - u: "a_data-driven_prism_multi-view_source_separation_with_diffusion_model_priors/"
+    t: "A Data-Driven Prism: Multi-View Source Separation with Diffusion Model Priors"
+  - u: "a_diffusion_model_for_regular_time_series_generation_from_irregular_data_with_co/"
+    t: "A Diffusion Model for Regular Time Series Generation from Irregular Data with Completion and Masking"
+  - u: "a_gradient_flow_approach_to_solving_inverse_problems_with_latent_diffusion_model/"
+    t: "A Gradient Flow Approach to Solving Inverse Problems with Latent Diffusion Models"
+  - u: "accelerating_parallel_diffusion_model_serving_with_residual_compression/"
+    t: "Accelerating Parallel Diffusion Model Serving with Residual Compression"
+  - u: "accuquant_simulating_multiple_denoising_steps_for_quantizing/"
+    t: "AccuQuant: Simulating Multiple Denoising Steps for Quantizing Diffusion Models"
+  - u: "alebench_a_benchmark_for_longhorizon_objectivedriven_algorit/"
+    t: "ALE-Bench: A Benchmark for Long-Horizon Objective-Driven Algorithm Engineering"
+  - u: "aligning_compound_ai_systems_via_system-level_dpo/"
+    t: "Aligning Compound AI Systems via System-level DPO"
+  - u: "aligning_text_to_image_in_diffusion_models_is_easier_than_you_think/"
+    t: "Aligning Text to Image in Diffusion Models is Easier Than You Think"
+  - u: "argenseg_image_segmentation_with_autoregressive_image_generation_model/"
+    t: "ARGenSeg: Image Segmentation with Autoregressive Image Generation Model"
+  - u: "auggen_synthetic_augmentation_using_diffusion_models_can_imp/"
+    t: "AugGen: Synthetic Augmentation using Diffusion Models Can Improve Recognition"
+  - u: "badiff_bandwidth_adaptive_diffusion_model/"
+    t: "BADiff: Bandwidth Adaptive Diffusion Model"
+  - u: "beyond_masked_and_unmasked_discrete_diffusion_models_via_par/"
+    t: "Beyond Masked and Unmasked: Discrete Diffusion Models via Partial Masking"
+  - u: "bitmark_watermarking_bitwise_autoregressive_image_generative_models/"
+    t: "BitMark: Watermarking Bitwise Autoregressive Image Generative Models"
+  - u: "blameless_users_in_a_clean_room_defining_copyright_protection_for_generative_mod/"
+    t: "Blameless Users in a Clean Room: Defining Copyright Protection for Generative Models"
+  - u: "blind_strong_gravitational_lensing_inversion_joint_inference_of_source_and_lens_/"
+    t: "Blind Strong Gravitational Lensing Inversion: Joint Inference of Source and Lens Mass with Score-Based Models"
+  - u: "blurdm_a_blur_diffusion_model_for_image_deblurring/"
+    t: "BlurDM: A Blur Diffusion Model for Image Deblurring"
+  - u: "blurguard_a_simple_approach_for_robustifying_image_protection_against_ai-powered/"
+    t: "BlurGuard: A Simple Approach for Robustifying Image Protection Against AI-Powered Edit"
+  - u: "boltznce_learning_likelihoods_for_boltzmann_generation_with_stochastic_interpola/"
+    t: "BoltzNCE: Learning Likelihoods for Boltzmann Generation with Stochastic Interpolants"
+  - u: "boosting_generative_image_modeling_via_joint_imagefeature_sy/"
+    t: "Boosting Generative Image Modeling via Joint Image-Feature Synthesis"
+  - u: "cadmorph_geometry-driven_parametric_cad_editing_via_a_plan-generate-verify_loop/"
+    t: "CADMorph: Geometry-Driven Parametric CAD Editing via a Plan-Generate-Verify Loop"
+  - u: "camila_contextaware_masking_for_image_editing_with_language/"
+    t: "CAMILA: Context-Aware Masking for Image Editing with Language Alignment"
+  - u: "camit_a_time-aware_car_model_dataset_for_classification_and_generation/"
+    t: "CaMiT: A Time-Aware Car Model Dataset for Classification and Generation"
+  - u: "can_knowledge-graph-based_retrieval_augmented_generation_really_retrieve_what_yo/"
+    t: "Can Knowledge-Graph-based Retrieval Augmented Generation Really Retrieve What You Need?"
+  - u: "cdflow_building_invertible_layers_with_circulant_and_diagonal_matrices/"
+    t: "CDFlow: Building Invertible Layers with Circulant and Diagonal Matrices"
+  - u: "composite_flow_matching_for_reinforcement_learning_with_shifted-dynamics_data/"
+    t: "Composite Flow Matching for Reinforcement Learning with Shifted-Dynamics Data"
+  - u: "conditional_panoramic_image_generation_via_masked_autoregres/"
+    t: "Conditional Panoramic Image Generation via Masked Autoregressive Modeling"
+  - u: "contextual_thompson_sampling_via_generation_of_missing_data/"
+    t: "Contextual Thompson Sampling via Generation of Missing Data"
+item_total: 220
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**🧠 NeurIPS2025** · **222** 篇论文解读
+**🧠 NeurIPS2025** · **220** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (220)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (137)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (219)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (136)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
 
-🔥 **高频主题：** 扩散模型 ×80 · 文生图 ×16 · 对抗鲁棒 ×8 · 布局/合成 ×8 · 多模态 ×7
+🔥 **高频主题：** 扩散模型 ×79 · 文生图 ×16 · 对抗鲁棒 ×8 · 布局/合成 ×8 · 多模态 ×7
 
 **[70% Size, 100% Accuracy: Lossless LLM Compression for Efficient GPU Inference via Dynamic-Length Float (DFloat11)](70_size_100_accuracy_lossless_llm_compression_for_efficient.md)**
 
@@ -253,10 +315,6 @@ tags:
 
 :   提出 Dual Data Alignment (DDA)，通过像素域和频域双重对齐生成训练用合成图像，消除数据集偏置导致的虚假相关性，使检测器仅学习伪造相关特征，在11个基准上平均准确率达到90.7%，大幅超越现有方法。
 
-**[Dynamic Diffusion Schrödinger Bridge in Astrophysical Observational Inversions](dynamic_diffusion_schrödinger_bridge_in_astrophysical_observational_inversions.md)**
-
-:   提出 Astro-DSB，一种基于 Diffusion Schrödinger Bridge 的天文物理反问题建模方法，直接学习观测量到真实物理分布的概率映射，训练成本仅为条件 DDPM 的 25%，且在分布外（OOD）测试中展现出显著的泛化优势，并成功应用于 Taurus B213 真实观测数据。
-
 **[EditInfinity: Image Editing with Binary-Quantized Generative Models](editinfinity_image_editing_with_binary-quantized_generative_models.md)**
 
 :   提出 EditInfinity，首次将经典"图像反演-图像编辑"范式应用于二值量化自回归生成模型 Infinity，利用量化表示可获取精确中间监督的优势实现高精度图像反演，配合分段线性平滑核实现高保真编辑效果，在 PIE-Bench 上全面超越扩散模型基线。
@@ -388,10 +446,6 @@ tags:
 **[Graph Distance as Surprise: Free Energy Minimization in Knowledge Graph Reasoning](graph_distance_as_surprise_free_energy_minimization_in_knowledge_graph_reasoning.md)**
 
 :   将神经科学的 Free Energy Principle (FEP) 与知识图谱推理连接，提出用图的最短路径距离作为 surprise 的度量，将 Murphy et al. 的树结构 surprise 理论推广到一般有向图，为 KG-based agent 的 entity grounding 提供了一个有原则的理论框架。
-
-**[Grasp2Grasp: Vision-Based Dexterous Grasp Translation via Schrödinger Bridges](grasp2grasp_vision-based_dexterous_grasp_translation_via_schrödinger_bridges.md)**
-
-:   提出将跨手形态的视觉灵巧抓取迁移建模为 Schrödinger Bridge 问题，通过在潜空间中学习得分与流匹配（[SF]²M），并设计物理感知的最优传输代价函数（位姿/接触图/力旋量空间/雅可比可操作性），在无需配对数据的条件下实现不同机械手之间抓取意图的分布级迁移。
 
 **[GSPN-2: Efficient Parallel Sequence Modeling](gspn-2_efficient_parallel_sequence_modeling.md)**
 

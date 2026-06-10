@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 医学图像方向27篇论文解读
+  ECCV2024 医学图像论文汇总 · 26篇论文解读
 description: >-
-  27篇ECCV2024的医学图像方向论文解读，涵盖医学影像、语义分割、扩散模型、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  26篇ECCV2024的医学图像方向论文解读，涵盖医学影像、语义分割、扩散模型、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "医学图像"
@@ -12,16 +12,70 @@ tags:
   - "语义分割"
   - "扩散模型"
   - "多模态"
+item_list:
+  - u: "a_cephalometric_landmark_regression_method_based_on_dual-encoder_for_high-resolu/"
+    t: "A Cephalometric Landmark Regression Method Based on Dual-Encoder for High-Resolution X-Ray Image"
+  - u: "a_rotation-invariant_texture_vit_for_fine-grained_recognition_of_esophageal_canc/"
+    t: "A Rotation-Invariant Texture ViT for Fine-Grained Recognition of Esophageal Cancer Endoscopic Ultrasound Images"
+  - u: "adaptive_correspondence_scoring_for_unsupervised_medical_ima/"
+    t: "Adaptive Correspondence Scoring for Unsupervised Medical Image Registration"
+  - u: "alternate_diverse_teaching_for_semi-supervised_medical_image_segmentation/"
+    t: "Alternate Diverse Teaching for Semi-supervised Medical Image Segmentation"
+  - u: "architecture-agnostic_untrained_network_priors_for_image_reconstruction_with_fre/"
+    t: "Architecture-Agnostic Untrained Network Priors for Image Reconstruction with Frequency Regularization"
+  - u: "brain-id_learning_contrast-agnostic_anatomical_representations_for_brain_imaging/"
+    t: "Brain-ID: Learning Contrast-agnostic Anatomical Representations for Brain Imaging"
+  - u: "cardiacnet_learning_to_reconstruct_abnormalities_for_cardiac_disease_assessment_/"
+    t: "CardiacNet: Learning to Reconstruct Abnormalities for Cardiac Disease Assessment from Echocardiogram Videos"
+  - u: "chameleon_a_data-efficient_generalist_for_dense_visual_prediction_in_the_wild/"
+    t: "Chameleon: A Data-Efficient Generalist for Dense Visual Prediction in the Wild"
+  - u: "chex_interactive_localization_and_region_description_in_chest_x-rays/"
+    t: "CheX: Interactive Localization and Region Description in Chest X-rays"
+  - u: "co-synthesis_of_histopathology_nuclei_image-label_pairs_using_a_context-conditio/"
+    t: "Co-synthesis of Histopathology Nuclei Image-Label Pairs using a Context-Conditioned Joint Diffusion Model"
+  - u: "domesticating_sam_for_breast_ultrasound_image_segmentation_via_spatial-frequency/"
+    t: "Domesticating SAM for Breast Ultrasound Image Segmentation via Spatial-Frequency Fusion and Uncertainty Correction"
+  - u: "energy-induced_explicit_quantification_for_multi-modality_mri_fusion/"
+    t: "Energy-induced Explicit Quantification for Multi-modality MRI Fusion"
+  - u: "gtp-4o_modality-prompted_heterogeneous_graph_learning_for_omni-modal_biomedical_/"
+    t: "GTP-4o: Modality-Prompted Heterogeneous Graph Learning for Omni-Modal Biomedical Representation"
+  - u: "i-medsam_implicit_medical_image_segmentation_with_segment_anything/"
+    t: "I-MedSAM: Implicit Medical Image Segmentation with Segment Anything"
+  - u: "improving_medical_multi-modal_contrastive_learning_with_expert_annotations/"
+    t: "Improving Medical Multi-modal Contrastive Learning with Expert Annotations"
+  - u: "is_user_feedback_always_informative_retrieval_latent_defending_for_semi-supervis/"
+    t: "Is User Feedback Always Informative? Retrieval Latent Defending for Semi-Supervised Domain Adaptation without Source Data"
+  - u: "ophnet_a_large-scale_video_benchmark_for_ophthalmic_surgical_workflow_understand/"
+    t: "OphNet: A Large-Scale Video Benchmark for Ophthalmic Surgical Workflow Understanding"
+  - u: "pathology-knowledge_enhanced_multi-instance_prompt_learning_for_few-shot_whole_s/"
+    t: "Pathology-knowledge Enhanced Multi-instance Prompt Learning for Few-shot Whole Slide Image Classification"
+  - u: "radedit_stress-testing_biomedical_vision_models_via_diffusion_image_editing/"
+    t: "RadEdit: Stress-Testing Biomedical Vision Models via Diffusion Image Editing"
+  - u: "radiative_gaussian_splatting_for_efficient_x-ray_novel_view_synthesis/"
+    t: "Radiative Gaussian Splatting for Efficient X-ray Novel View Synthesis"
+  - u: "shape-guided_configuration-aware_learning_for_endoscopic-image-based_pose_estima/"
+    t: "Shape-Guided Configuration-Aware Learning for Endoscopic-Image-Based Pose Estimation of Flexible Robotic Instruments"
+  - u: "textttnephi_neural_deformation_fields_for_approximately_diff/"
+    t: "NePhi: Neural Deformation Fields for Approximately Diffeomorphic Medical Image Registration"
+  - u: "tip_tabular-image_pre-training_for_multimodal_classification_with_incomplete_dat/"
+    t: "TIP: Tabular-Image Pre-training for Multimodal Classification with Incomplete Data"
+  - u: "topology-preserving_downsampling_of_binary_images/"
+    t: "Topology-Preserving Downsampling of Binary Images"
+  - u: "umbrae_unified_multimodal_brain_decoding/"
+    t: "UMBRAE: Unified Multimodal Brain Decoding"
+  - u: "unsupervised_multi-modal_medical_image_registration_via_invertible_translation/"
+    t: "Unsupervised Multi-modal Medical Image Registration via Invertible Translation"
+item_total: 26
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**🎞️ ECCV2024** · **27** 篇论文解读
+**🎞️ ECCV2024** · **26** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (100)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (21)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (73)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (97)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (71)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md)
 
-🔥 **高频主题：** 医学影像 ×14 · 语义分割 ×4 · 扩散模型 ×2 · 多模态 ×2
+🔥 **高频主题：** 医学影像 ×14 · 语义分割 ×3 · 扩散模型 ×2 · 多模态 ×2
 
 **[A Cephalometric Landmark Regression Method Based on Dual-Encoder for High-Resolution X-Ray Image](a_cephalometric_landmark_regression_method_based_on_dual-encoder_for_high-resolu.md)**
 
@@ -122,10 +176,6 @@ tags:
 **[UMBRAE: Unified Multimodal Brain Decoding](umbrae_unified_multimodal_brain_decoding.md)**
 
 :   提出UMBRAE，通过通用脑编码器将fMRI信号与图像特征对齐后送入冻结的MLLM，实现多模态脑解码（描述、定位、检索、视觉重建），并创新性地引入跨被试训练策略，使单一模型服务多个被试且优于单被试模型。
-
-**[Unleashing the Power of Prompt-driven Nucleus Instance Segmentation](unleashing_the_power_of_prompt-driven_nucleus_instance_segmentation.md)**
-
-:   提出 PromptNucSeg 框架，通过训练一个 prompter 自动生成细胞核中心点 prompt，并微调 SAM 进行逐核分割，同时引入相邻核作为 negative prompt 解决重叠核分割问题，无需复杂后处理即在三个 benchmark 上达到 SOTA。
 
 **[Unsupervised Multi-modal Medical Image Registration via Invertible Translation](unsupervised_multi-modal_medical_image_registration_via_invertible_translation.md)**
 

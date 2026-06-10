@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 视频生成方向23篇论文解读
+  NeurIPS2025 视频生成论文汇总 · 23篇论文解读
 description: >-
   23篇NeurIPS2025的视频生成方向论文解读，涵盖视频生成、扩散模型、对抗鲁棒、对齐/RLHF、布局/合成、推荐系统等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -13,6 +13,54 @@ tags:
   - "对齐/RLHF"
   - "布局/合成"
   - "推荐系统"
+item_list:
+  - u: "autoregressive_adversarial_posttraining_for_realtime_interac/"
+    t: "Autoregressive Adversarial Post-Training for Real-Time Interactive Video Generation"
+  - u: "densedpo_finegrained_temporal_preference_optimization_for_vi/"
+    t: "DenseDPO: Fine-Grained Temporal Preference Optimization for Video Diffusion Models"
+  - u: "dismo_disentangled_motion_representations_for_openworld_moti/"
+    t: "DisMo: Disentangled Motion Representations for Open-World Motion Transfer"
+  - u: "force_prompting_video_generation_models_can_learn_and_generalize_physics-based_c/"
+    t: "Force Prompting: Video Generation Models Can Learn and Generalize Physics-based Control Signals"
+  - u: "foresight_adaptive_layer_reuse_for_accelerated_and_highquali/"
+    t: "Foresight: Adaptive Layer Reuse for Accelerated and High-Quality Text-to-Video Generation"
+  - u: "lemica_lexicographic_minimax_path_caching_for_efficient_diffusion-based_video_ge/"
+    t: "LeMiCa: Lexicographic Minimax Path Caching for Efficient Diffusion-Based Video Generation"
+  - u: "magcache_fast_video_generation_with_magnitudeaware_cache/"
+    t: "MagCache: Fast Video Generation with Magnitude-Aware Cache"
+  - u: "photography_perspective_composition_towards_aesthetic_perspective_recommendation/"
+    t: "Photography Perspective Composition: Towards Aesthetic Perspective Recommendation"
+  - u: "physctrl_generative_physics_for_controllable_and_physicsgrou/"
+    t: "PhysCtrl: Generative Physics for Controllable and Physics-Grounded Video Generation"
+  - u: "posecrafter_extreme_pose_estimation_with_hybrid_video_synthesis/"
+    t: "PoseCrafter: Extreme Pose Estimation with Hybrid Video Synthesis"
+  - u: "radial_attention_onlog_n_sparse_attention_with_energy_decay_for_long_video_gener/"
+    t: "Radial Attention: O(n log n) Sparse Attention with Energy Decay for Long Video Generation"
+  - u: "rlgf_reinforcement_learning_with_geometric_feedback_for_autonomous_driving_video/"
+    t: "RLGF: Reinforcement Learning with Geometric Feedback for Autonomous Driving Video Generation"
+  - u: "s2q-vdit_accurate_quantized_video_diffusion_transformer_with_salient_data_and_sp/"
+    t: "S²Q-VDiT: Accurate Quantized Video Diffusion Transformer with Salient Data and Sparse Token Distillation"
+  - u: "safesora_safe_texttovideo_generation_via_graphical_watermark/"
+    t: "Safe-Sora: Safe Text-to-Video Generation via Graphical Watermarking"
+  - u: "scaling_rl_to_long_videos/"
+    t: "Scaling RL to Long Videos"
+  - u: "seeing_the_wind_from_a_falling_leaf/"
+    t: "Seeing the Wind from a Falling Leaf"
+  - u: "self_forcing_bridging_the_train-test_gap_in_autoregressive_video_diffusion/"
+    t: "Self Forcing: Bridging the Train-Test Gap in Autoregressive Video Diffusion"
+  - u: "stable_cinemetrics_structured_taxonomy_and_evaluation_for_professional_video_gen/"
+    t: "Stable Cinemetrics: Structured Taxonomy and Evaluation for Professional Video Generation"
+  - u: "training-free_efficient_video_generation_via_dynamic_token_carving/"
+    t: "Training-Free Efficient Video Generation via Dynamic Token Carving"
+  - u: "video_diffusion_models_excel_at_tracking_similar-looking_objects_without_supervi/"
+    t: "Video Diffusion Models Excel at Tracking Similar-Looking Objects Without Supervision"
+  - u: "video_killed_the_energy_budget_characterizing_the_latency_and_power_regimes_of_o/"
+    t: "Video Killed the Energy Budget: Characterizing the Latency and Power Regimes of Open Text-to-Video Models"
+  - u: "vorta_efficient_video_diffusion_via_routing_sparse_attention/"
+    t: "VORTA: Efficient Video Diffusion via Routing Sparse Attention"
+  - u: "vsa_faster_video_diffusion_with_trainable_sparse_attention/"
+    t: "VSA: Faster Video Diffusion with Trainable Sparse Attention"
+item_total: 23
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

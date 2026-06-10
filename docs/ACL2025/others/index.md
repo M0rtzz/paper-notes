@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 其他方向287篇论文解读
+  ACL2025 其他论文汇总 · 287篇论文解读
 description: >-
   287篇ACL2025的其他方向论文解读，涵盖推理、对话系统、对齐/RLHF、对抗鲁棒、Agent、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "对抗鲁棒"
   - "Agent"
   - "语音"
+item_list:
+  - u: "a3cg_esg_greenwashing/"
+    t: "Towards Robust ESG Analysis Against Greenwashing Risks: A3CG"
+  - u: "a_dual-mind_framework_for_strategic_and_expressive_negotiation_agent/"
+    t: "A Dual-Mind Framework for Strategic and Expressive Negotiation Agent"
+  - u: "a_large_and_balanced_corpus_for_fine-grained_arabic_readability_assessment/"
+    t: "Barec: A Large and Balanced Corpus for Fine-grained Arabic Readability Assessment"
+  - u: "a_little_human_data_goes_a_long_way/"
+    t: "A Little Human Data Goes A Long Way"
+  - u: "a_measure_of_the_system_dependence_of_automated_metrics/"
+    t: "A Measure of the System Dependence of Automated Metrics"
+  - u: "a_multi-persona_framework_for_argument_quality_assessment/"
+    t: "A Multi-Persona Framework for Argument Quality Assessment"
+  - u: "a_new_formulation_of_zipfs_meaning-frequency_law_through_contextual_diversity/"
+    t: "A New Formulation of Zipf's Meaning-Frequency Law through Contextual Diversity"
+  - u: "a_practical_approach_for_building_production-grade_conversational_agents_with_wo/"
+    t: "A Practical Approach for Building Production-Grade Conversational Agents with Workflow Graphs"
+  - u: "a_semi-supervised_scalable_unified_framework_for_e-commerce_query_classification/"
+    t: "SSUF: A Semi-supervised Scalable Unified Framework for E-commerce Query Classification"
+  - u: "a_spatio-temporal_point_process_for_fine-grained_modeling_of_reading_behavior/"
+    t: "A Spatio-Temporal Point Process for Fine-Grained Modeling of Reading Behavior"
+  - u: "acecoder_acing_coder_rl_via_automated/"
+    t: "AceCoder: Acing Coder RL via Automated Test-Case Synthesis"
+  - u: "achieving_certification-by-design_through_model-driven_development/"
+    t: "Achieving Certification-by-Design Through Model-Driven Development"
+  - u: "acord_an_expert-annotated_retrieval_dataset_for_legal_contract_drafting/"
+    t: "ACORD: An Expert-Annotated Retrieval Dataset for Legal Contract Clause Retrieval"
+  - u: "act_knowledgeable_agents_to_design_and_perform_complex_tasks/"
+    t: "ACT: Knowledgeable Agents to Design and Perform Complex Tasks"
+  - u: "adaptive_feature-based_low_rank_plus_sparse_decomposition_for_subspace_clusterin/"
+    t: "Adaptive Feature-based Low Rank Plus Sparse Decomposition for Subspace Clustering"
+  - u: "adaptive_retrieval_without_self-knowledge_bringing_uncertainty_back_home/"
+    t: "Adaptive Retrieval without Self-Knowledge? Bringing Uncertainty Back Home"
+  - u: "advancing_sequential_numerical_prediction_in_autoregressive_models/"
+    t: "Advancing Sequential Numerical Prediction in Autoregressive Models"
+  - u: "aide_attribute-guided_multi-hop_data_expansion_for_data_scarcity_in_task-specifi/"
+    t: "AIDE: Attribute-Guided Multi-Hop Data Expansion for Data Scarcity in Task-Specific Fine-tuning"
+  - u: "algen_few-shot_inversion_attacks_on_textual_embeddings_via_cross-model_alignment/"
+    t: "ALGEN: Few-Shot Inversion Attacks on Textual Embeddings via Cross-Model Alignment"
+  - u: "aligned_but_blind_implicit_bias/"
+    t: "Aligned but Blind: Alignment Increases Implicit Bias by Reducing Awareness of Race"
+  - u: "ambik_dataset_of_ambiguous_tasks_in_kitchen_environment/"
+    t: "AmbiK: Dataset of Ambiguous Tasks in Kitchen Environment"
+  - u: "an_analysis_of_datasets_metrics_and_models_in_keyphrase_generation/"
+    t: "An Analysis of Datasets, Metrics and Models in Keyphrase Generation"
+  - u: "analytickws_towards_exemplar-free_analytic_class_incremental_learning_for_small-/"
+    t: "AnalyticKWS: Towards Exemplar-Free Analytic Class Incremental Learning for Small-footprint Keyword Spotting"
+  - u: "anything_goes_a_crosslinguistic_study_of_impossible_language_learning_in_lms/"
+    t: "Anything Goes? A Crosslinguistic Study of (Im)possible Language Learning in LMs"
+  - u: "are_any-to-any_models_more_consistent_across_modality_transfers_than_specialists/"
+    t: "Are Any-to-Any Models More Consistent Across Modality Transfers Than Specialists?"
+  - u: "are_bias_evaluation_methods_biased/"
+    t: "Are Bias Evaluation Methods Biased?"
+  - u: "arise_risk_adaptive_search/"
+    t: "ARise: Towards Knowledge-Augmented Reasoning via Risk-Adaptive Search"
+  - u: "aspera_a_simulated_environment_to_evaluate_planning_for_complex_action_execution/"
+    t: "ASPERA: A Simulated Environment to Evaluate Planning for Complex Action Execution"
+  - u: "attention_entropy_parallel_encoding/"
+    t: "Attention Entropy is a Key Factor for Parallel Context Encoding"
+  - u: "autalic_a_dataset_for_anti-autistic_ableist_language_in_context/"
+    t: "Autalic: A Dataset for Anti-Autistic Ableist Language In Context"
+item_total: 287
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **💬 ACL2025** · **287** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (91)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (135)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (164)](../../NeurIPS2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (128)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (163)](../../NeurIPS2025/others/index.md)
 
 🔥 **高频主题：** 推理 ×16 · 对话系统 ×12 · 对齐/RLHF ×12 · 对抗鲁棒 ×7 · Agent ×7
 

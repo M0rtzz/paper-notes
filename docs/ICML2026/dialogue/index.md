@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 对话系统方向4篇论文解读
+  ICML2026 对话系统论文汇总 · 4篇论文解读
 description: >-
   4篇ICML2026的对话系统方向论文解读，涵盖 LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,16 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "LLM"
+item_list:
+  - u: "discoverllm_from_executing_intents_to_discovering_them/"
+    t: "DiscoverLLM: From Executing Intents to Discovering Them"
+  - u: "from_self-evolving_synthetic_data_to_verifiable-reward_rl_post-training_multi-tu/"
+    t: "From Self-Evolving Synthetic Data to Verifiable-Reward RL: Post-Training Multi-turn Interactive Tool-Using Agents"
+  - u: "is_your_llm_overcharging_you_tokenization_transparency_and_incentives/"
+    t: "Is Your LLM Overcharging You? Tokenization, Transparency, and Incentives"
+  - u: "not_all_prefills_are_equal_ppd_disaggregation_for_multi-turn_llm_serving/"
+    t: "Not All Prefills Are Equal: PPD Disaggregation for Multi-turn LLM Serving"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

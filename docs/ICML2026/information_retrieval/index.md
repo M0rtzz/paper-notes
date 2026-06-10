@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 信息检索/RAG方向22篇论文解读
+  ICML2026 信息检索/RAG论文汇总 · 22篇论文解读
 description: >-
   22篇ICML2026的信息检索/RAG 方向论文解读，涵盖 RAG、对抗鲁棒、少样本学习、强化学习、压缩/编码、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,52 @@ tags:
   - "强化学习"
   - "压缩/编码"
   - "对齐/RLHF"
+item_list:
+  - u: "blitzrank_principled_zero-shot_ranking_agents_with_tournament_graphs/"
+    t: "BlitzRank: Principled Zero-shot Ranking Agents with Tournament Graphs"
+  - u: "care_class-adaptive_expert_consensus_for_reliable_learning_with_long-tailed_nois/"
+    t: "CARE: Class-Adaptive Expert Consensus for Reliable Learning with Long-Tailed Noisy Labels"
+  - u: "graph-r1_towards_agentic_graphrag_framework_via_end-to-end_reinforcement_learnin/"
+    t: "Graph-R1: Towards Agentic GraphRAG Framework via End-to-end Reinforcement Learning"
+  - u: "hgmem_hypergraph-based_working_memory_to_improve_multi-step_rag_for_long-context/"
+    t: "HGMem: Hypergraph-based Working Memory to Improve Multi-step RAG for Long-Context Complex Relational Modeling"
+  - u: "hierarchical_abstract_tree_for_cross-document_retrieval-augmented_generation/"
+    t: "Hierarchical Abstract Tree for Cross-Document Retrieval-Augmented Generation"
+  - u: "how_can_embedding_models_bind_concepts/"
+    t: "How can embedding models bind concepts?"
+  - u: "lazyattention_efficient_retrieval-augmented_generation_with_deferred_positional_/"
+    t: "LazyAttention: Efficient Retrieval-Augmented Generation with Deferred Positional Encoding"
+  - u: "lemur_learned_multi-vector_retrieval/"
+    t: "LEMUR: Learned Multi-Vector Retrieval"
+  - u: "less_is_more_elevating_rag_via_performance-driven_context_compression/"
+    t: "Less Is More: Elevating RAG via Performance-Driven Context Compression"
+  - u: "ml-embed_inclusive_and_efficient_embeddings_for_a_multilingual_world/"
+    t: "ML-Embed: Inclusive and Efficient Embeddings for a Multilingual World"
+  - u: "pariskv_fast_and_drift-robust_kv-cache_retrieval_for_long-context_llms/"
+    t: "ParisKV: Fast and Drift-Robust KV-Cache Retrieval for Long-Context LLMs"
+  - u: "predictive_prefetching_for_retrieval-augmented_generation/"
+    t: "Predictive Prefetching for Retrieval-Augmented Generation"
+  - u: "ranking_free_rag_replacing_re-ranking_with_selection_in_rag_for_sensitive_domain/"
+    t: "Ranking-Free RAG: Replacing Re-Ranking with Selection in RAG for Sensitive Domains"
+  - u: "real_resolving_knowledge_conflicts_in_knowledge-intensive_visual_question_answer/"
+    t: "REAL: Resolving Knowledge Conflicts in Knowledge-Intensive Visual Question Answering via Reasoning-Pivot Alignment"
+  - u: "reseek_a_self-correcting_framework_for_search_agents_with_instructive_rewards/"
+    t: "ReSeek: A Self-Correcting Framework for Search Agents with Instructive Rewards"
+  - u: "retriever_portfolios_a_principled_approach_to_adaptive_rag/"
+    t: "Retriever Portfolios: A Principled Approach to Adaptive RAG"
+  - u: "seeing_to_generalize_how_visual_data_corrects_binding_shortcuts/"
+    t: "Seeing to Generalize: How Visual Data Corrects Binding Shortcuts"
+  - u: "through_the_stealth_lens_attention-aware_defenses_against_poisoning_in_rag/"
+    t: "Through the Stealth Lens: Attention-Aware Defenses Against Poisoning in RAG"
+  - u: "understand_and_accelerate_memory_processing_pipeline_for_disaggregated_llm_infer/"
+    t: "Understand and Accelerate Memory Processing Pipeline for Large Language Model Inference"
+  - u: "understanding_lora_as_knowledge_memory_an_empirical_analysis/"
+    t: "Understanding LoRA as Knowledge Memory: An Empirical Analysis"
+  - u: "vector_linking_via_cross-model_local_isometric_consistency/"
+    t: "基于跨模型局部等距一致性的向量链接"
+  - u: "very_efficient_listwise_multimodal_reranking_for_long_documents/"
+    t: "Very Efficient Listwise Multimodal Reranking for Long Documents"
+item_total: 22
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +67,7 @@ tags:
 
 **🧪 ICML2026** · **22** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/information_retrieval/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/information_retrieval/index.md)
 
 🔥 **高频主题：** RAG ×8 · 对抗鲁棒 ×2
 

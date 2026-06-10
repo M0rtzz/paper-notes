@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 图学习方向24篇论文解读
+  ACL2025 图学习论文汇总 · 24篇论文解读
 description: >-
   24篇ACL2025的图学习方向论文解读，涵盖问答、推理、LLM、RAG、图神经网络、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,56 @@ tags:
   - "RAG"
   - "图神经网络"
   - "多模态"
+item_list:
+  - u: "a_generative_adaptive_replay_continual_learning_model_for_temporal_knowledge_gra/"
+    t: "A Generative Adaptive Replay Continual Learning Model for Temporal Knowledge Graph Reasoning"
+  - u: "a_mutual_information_perspective_on_knowledge_graph_embedding/"
+    t: "A Mutual Information Perspective on Knowledge Graph Embedding"
+  - u: "agent_steerable_search_for_knowledge_graph_question_answering/"
+    t: "Agent Steerable Search for Knowledge Graph Question Answering"
+  - u: "beyond_completion_a_foundation_model_for_general_knowledge_graph_reasoning/"
+    t: "Beyond Completion: A Foundation Model for General Knowledge Graph Reasoning"
+  - u: "can_graph_neural_networks_learn_language/"
+    t: "Can Graph Neural Networks Learn Language with Extremely Weak Text Supervision?"
+  - u: "croppable_knowledge_graph_embedding/"
+    t: "Croppable Knowledge Graph Embedding"
+  - u: "cross-document_contextual_coreference_resolution_in_knowledge_graphs/"
+    t: "Cross-Document Contextual Coreference Resolution in Knowledge Graphs"
+  - u: "disentangled_multi-span_evolutionary_network_against_temporal_knowledge_graph_re/"
+    t: "Disentangled Multi-span Evolutionary Network against Temporal Knowledge Graph Reasoning"
+  - u: "extending_complex_logical_queries_uncertain_knowledge_graphs/"
+    t: "Extending Complex Logical Queries on Uncertain Knowledge Graphs"
+  - u: "fast-and-frugal_text-graph_transformers_are_effective_link_predictors/"
+    t: "Fast-and-Frugal Text-Graph Transformers are Effective Link Predictors"
+  - u: "fidelis_faithful_reasoning_in_large_language_model_for_knowledge_graph_question_/"
+    t: "FiDeLiS: Faithful Reasoning in Large Language Model for Knowledge Graph Question Answering"
+  - u: "graphcheck_breaking_long-term_text_barriers_with_extracted_knowledge_graph-power/"
+    t: "GraphCheck: Breaking Long-Term Text Barriers with Extracted Knowledge Graph-Powered Fact-Checking"
+  - u: "graphnarrator/"
+    t: "GraphNarrator: Generating Textual Explanations for Graph Neural Networks"
+  - u: "kg_llm_trustworthy_qa/"
+    t: "Can Knowledge Graphs Make Large Language Models More Trustworthy? An Empirical Study Over Open-ended Question Answering"
+  - u: "kg_rag_recommendation/"
+    t: "Knowledge Graph Retrieval-Augmented Generation for LLM-based Recommendation (K-RagRec)"
+  - u: "m3hg_multimodal_multi-scale_and_multi-type_node_heterogeneous_graph_for_emotion_/"
+    t: "M3HG: Multimodal, Multi-scale, and Multi-type Node Heterogeneous Graph for Emotion Cause Triplet Extraction in Conversations"
+  - u: "mrakl_multilingual_retrieval-augmented_knowledge_graph_construction_for_low-reso/"
+    t: "mRAKL: Multilingual Retrieval-Augmented Knowledge Graph Construction for Low-Resourced Languages"
+  - u: "multimodal_transformers_are_hierarchical_modal-wise_heterogeneous_graphs/"
+    t: "Multimodal Transformers are Hierarchical Modal-wise Heterogeneous Graphs"
+  - u: "ontology-guided_reverse_thinking_makes_large_language_models_stronger_on_knowled/"
+    t: "Ontology-Guided Reverse Thinking Makes Large Language Models Stronger on Knowledge Graph Question Answering"
+  - u: "paper_2401_14640/"
+    t: "Can LLMs Evaluate Complex Attribution in QA? Automatic Benchmarking using Knowledge Graphs"
+  - u: "predicate-conditional_conformalized_answer_sets_for_knowledge_graph_embeddings/"
+    t: "Predicate-Conditional Conformalized Answer Sets for Knowledge Graph Embeddings"
+  - u: "rscf_relationsemantics_consistent_filter_for_entity/"
+    t: "RSCF: Relation-Semantics Consistent Filter for Entity Embedding of Knowledge Graph"
+  - u: "simgrag_leveraging_similar_subgraphs_for_knowledge_graphs_driven_retrieval-augme/"
+    t: "SimGRAG: Leveraging Similar Subgraphs for Knowledge Graphs Driven Retrieval-Augmented Generation"
+  - u: "the_role_of_exploration_modules_in_small_language_models_for_knowledge_graph_que/"
+    t: "The Role of Exploration Modules in Small Language Models for Knowledge Graph Question Answering"
+item_total: 24
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +71,7 @@ tags:
 
 **💬 ACL2025** · **24** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (19)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md)
 
 🔥 **高频主题：** 问答 ×6 · 推理 ×4 · LLM ×4 · RAG ×3 · 图神经网络 ×2
 

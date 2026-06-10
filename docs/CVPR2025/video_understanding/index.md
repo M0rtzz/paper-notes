@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 视频理解方向69篇论文解读
+  CVPR2025 视频理解论文汇总 · 68篇论文解读
 description: >-
-  69篇CVPR2025的视频理解方向论文解读，涵盖 LLM、目标跟踪、多模态、压缩/编码、问答、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  68篇CVPR2025的视频理解方向论文解读，涵盖 LLM、目标跟踪、多模态、压缩/编码、问答、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "视频理解"
@@ -14,18 +14,78 @@ tags:
   - "压缩/编码"
   - "问答"
   - "对齐/RLHF"
+item_list:
+  - u: "behaviorvlm_unified_finetuning-free_behavioral_understanding_with_vision-languag/"
+    t: "BehaviorVLM: Unified Finetuning-Free Behavioral Understanding with Vision-Language Reasoning"
+  - u: "beyond_single-sample_reliable_multi-sample_distillation_for_video_understanding/"
+    t: "Beyond Single-Sample: Reliable Multi-Sample Distillation for Video Understanding"
+  - u: "bim-vfi_bidirectional_motion_field-guided_frame_interpolation_for_video_with_non/"
+    t: "BiM-VFI: Bidirectional Motion Field-Guided Frame Interpolation for Video with Non-uniform Motions"
+  - u: "bimba_selective-scan_compression_for_long-range_video_question_answering/"
+    t: "BIMBA: Selective-Scan Compression for Long-Range Video Question Answering"
+  - u: "bootstrap_your_own_views_masked_ego-exo_modeling_for_fine-grained_view-invariant/"
+    t: "Bootstrap Your Own Views: Masked Ego-Exo Modeling for Fine-Grained View-Invariant Video Representations"
+  - u: "context-enhanced_memory-refined_transformer_for_online_action_detection/"
+    t: "Context-Enhanced Memory-Refined Transformer for Online Action Detection"
+  - u: "cross-modal_causal_relation_alignment_for_video_question_grounding/"
+    t: "Cross-modal Causal Relation Alignment for Video Question Grounding"
+  - u: "decafnet_delegate_and_conquer_for_efficient_temporal_grounding_in_long_videos/"
+    t: "DeCafNet: Delegate and Conquer for Efficient Temporal Grounding in Long Videos"
+  - u: "divprune_diversity-based_visual_token_pruning_for_large_multimodal_models/"
+    t: "DivPrune: Diversity-Based Visual Token Pruning for Large Multimodal Models"
+  - u: "dpflow_adaptive_optical_flow_estimation_with_a_dual-pyramid_framework/"
+    t: "DPFlow: Adaptive Optical Flow Estimation with a Dual-Pyramid Framework"
+  - u: "dpu_dynamic_prototype_updating_for_multimodal_out-of-distribution_detection/"
+    t: "DPU: Dynamic Prototype Updating for Multimodal Out-of-Distribution Detection"
+  - u: "drvideo_document_retrieval_based_long_video_understanding/"
+    t: "DrVideo: Document Retrieval Based Long Video Understanding"
+  - u: "dynfocus_dynamic_cooperative_network_empowers_llms_with_video_understanding/"
+    t: "DynFocus: Dynamic Cooperative Network Empowers LLMs with Video Understanding"
+  - u: "edcflow_exploring_temporally_dense_difference_maps_for_event-based_optical_flow_/"
+    t: "EDCFlow: Exploring Temporally Dense Difference Maps for Event-based Optical Flow Estimation"
+  - u: "efficient_transfer_learning_for_video-language_foundation_models/"
+    t: "Efficient Transfer Learning for Video-language Foundation Models"
+  - u: "egolife_towards_egocentric_life_assistant/"
+    t: "EgoLife: Towards Egocentric Life Assistant"
+  - u: "egotextvqa_towards_egocentric_scene-text_aware_video_question_answering/"
+    t: "EgoTextVQA: Towards Egocentric Scene-Text Aware Video Question Answering"
+  - u: "etap_event-based_tracking_of_any_point/"
+    t: "ETAP: Event-based Tracking of Any Point"
+  - u: "expertaf_expert_actionable_feedback_from_video/"
+    t: "ExpertAF: Expert Actionable Feedback from Video"
+  - u: "fc-track_overlap-aware_post-association_correction_for_online_multi-object_track/"
+    t: "FC-Track: Overlap-Aware Post-Association Correction for Online Multi-Object Tracking"
+  - u: "frame_floor-aligned_representation_for_avatar_motion_from_egocentric_video/"
+    t: "FRAME: Floor-aligned Representation for Avatar Motion from Egocentric Video"
+  - u: "fsbench_a_figure_skating_benchmark_for_advancing_artistic_sports_understanding/"
+    t: "FSBench: A Figure Skating Benchmark for Advancing Artistic Sports Understanding"
+  - u: "gg-ssms_graph-generating_state_space_models/"
+    t: "GG-SSMs: Graph-Generating State Space Models"
+  - u: "h-more_learning_human-centric_motion_representation_for_action_analysis/"
+    t: "H-MoRe: Learning Human-centric Motion Representation for Action Analysis"
+  - u: "heterogeneous_skeleton-based_action_representation_learning/"
+    t: "Heterogeneous Skeleton-Based Action Representation Learning"
+  - u: "hierarq_task-aware_hierarchical_q-former_for_enhanced_video_understanding/"
+    t: "HierarQ: Task-Aware Hierarchical Q-Former for Enhanced Video Understanding"
+  - u: "holmes-vau_towards_long-term_video_anomaly_understanding_at_any_granularity/"
+    t: "Holmes-VAU: Towards Long-term Video Anomaly Understanding at Any Granularity"
+  - u: "humocon_concept_discovery_for_human_motion_understanding/"
+    t: "HuMoCon: Concept Discovery for Human Motion Understanding"
+  - u: "hyperglm_hypergraph_for_video_scene_graph_generation_and_anticipation/"
+    t: "HyperGLM: HyperGraph for Video Scene Graph Generation and Anticipation"
+  - u: "learning_audio-guided_video_representation_with_gated_attention_for_video-text_r/"
+    t: "Learning Audio-Guided Video Representation with Gated Attention for Video-Text Retrieval"
+item_total: 68
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**📷 CVPR2025** · **69** 篇论文解读
+**📷 CVPR2025** · **68** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (17)](../../ICML2026/video_understanding/index.md) · [💬 ACL2026 (17)](../../ACL2026/video_understanding/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/video_understanding/index.md) · [🔬 ICLR2026 (10)](../../ICLR2026/video_understanding/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/video_understanding/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/video_understanding/index.md)
 
 🔥 **高频主题：** LLM ×8 · 目标跟踪 ×6 · 多模态 ×5 · 压缩/编码 ×3 · 问答 ×3
-
-**[Anomize: Better Open Vocabulary Video Anomaly Detection](anomize_better_open_vocabulary_video_anomaly_detection.md)**
 
 **[BehaviorVLM: Unified Finetuning-Free Behavioral Understanding with Vision-Language Reasoning](behaviorvlm_unified_finetuning-free_behavioral_understanding_with_vision-languag.md)**
 

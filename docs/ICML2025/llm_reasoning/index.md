@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 LLM 推理方向19篇论文解读
+  ICML2025 LLM推理论文汇总 · 18篇论文解读
 description: >-
-  19篇ICML2025的 LLM 推理方向论文解读，涵盖推理、LLM、机器人、对抗鲁棒、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  18篇ICML2025的 LLM 推理方向论文解读，涵盖推理、LLM、机器人、对抗鲁棒、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "LLM 推理"
@@ -13,14 +13,52 @@ tags:
   - "机器人"
   - "对抗鲁棒"
   - "对齐/RLHF"
+item_list:
+  - u: "ad-hoc_human-ai_coordination_challenge/"
+    t: "Ad-Hoc Human-AI Coordination Challenge (AH2AC2)"
+  - u: "adadecode_accelerating_llm_decoding_with_adaptive_layer_parallelism/"
+    t: "AdaDecode: Accelerating LLM Decoding with Adaptive Layer Parallelism"
+  - u: "adversarial_manipulation_of_reasoning_models_using_internal_representations/"
+    t: "Adversarial Manipulation of Reasoning Models using Internal Representations"
+  - u: "dynamic_benchmarking_of_reasoning_capabilities_in_code_large_language_models_und/"
+    t: "DyCodeEval: Dynamic Benchmarking of Reasoning Capabilities in Code Large Language Models Under Data Contamination"
+  - u: "emergent_symbolic_mechanisms_support_abstract_reasoning_in_large_language_models/"
+    t: "Emergent Symbolic Mechanisms Support Abstract Reasoning in Large Language Models"
+  - u: "evaluating_judges_as_evaluators_the_jetts_benchmark_of_llm-as-judges_as_test-tim/"
+    t: "Evaluating Judges as Evaluators: The JETTS Benchmark of LLM-as-Judges as Test-Time Scaling Evaluators"
+  - u: "fmc_formalization_of_natural_language_mathematical_competition_problems/"
+    t: "FMC: Formalization of Natural Language Mathematical Competition Problems"
+  - u: "improving_rationality_in_the_reasoning_process_of_language_models_through_self-p/"
+    t: "Improving Rationality in the Reasoning Process of Language Models through Self-playing Game"
+  - u: "marge_improving_math_reasoning_for_llms_with_guided_exploration/"
+    t: "MARGE: Improving Math Reasoning for LLMs with Guided Exploration"
+  - u: "one_missing_piece_for_open-source_reasoning_models_a_dataset_to_mitigate_cold-st/"
+    t: "One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL"
+  - u: "pcot_persuasion-augmented_chain_of_thought_for_detecting_fake_news_and_social_me/"
+    t: "PCoT: Persuasion-Augmented Chain of Thought for Detecting Fake News and Social Media Disinformation"
+  - u: "pencil_long_thoughts_with_short_memory/"
+    t: "PENCIL: Long Thoughts with Short Memory"
+  - u: "proofcompass_enhancing_specialized_provers_with_llm_guidance/"
+    t: "ProofCompass: Enhancing Specialized Provers with LLM Guidance"
+  - u: "putnam-axiom_a_functional_and_static_benchmark_for_measuring_higher_level_mathem/"
+    t: "Putnam-AXIOM: A Functional & Static Benchmark for Measuring Higher Level Mathematical Reasoning in LLMs"
+  - u: "rethinking_external_slow-thinking_from_snowball_errors_to_probability_of_correct/"
+    t: "Rethinking External Slow-Thinking: From Snowball Errors to Probability of Correct Reasoning"
+  - u: "self-consistency_preference_optimization/"
+    t: "Self-Consistency Preference Optimization"
+  - u: "soft_reasoning_navigating_solution_spaces_in_large_language_models_through_contr/"
+    t: "Soft Reasoning: Navigating Solution Spaces in Large Language Models through Controlled Embedding Exploration"
+  - u: "towards_better_chain-of-thought_a_reflection_on_effectiveness_and_faithfulness/"
+    t: "Towards Better Chain-of-Thought: A Reflection on Effectiveness and Faithfulness"
+item_total: 18
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM 推理
 
-**🧪 ICML2025** · **19** 篇论文解读
+**🧪 ICML2025** · **18** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (82)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (83)](../../NeurIPS2025/llm_reasoning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (80)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_reasoning/index.md)
 
 🔥 **高频主题：** 推理 ×11 · LLM ×6
 
@@ -59,10 +97,6 @@ tags:
 **[MARGE: Improving Math Reasoning for LLMs with Guided Exploration](marge_improving_math_reasoning_for_llms_with_guided_exploration.md)**
 
 :   MARGE 提出了一种基于"命中引导探索"（hit-guided exploration）的方法来增强 LLM 的数学推理能力，通过系统地探索自生成解答中的中间推理状态，实现充分探索和更好的信用分配，无需外部标注或额外价值模型，同时提升了单次准确率和探索多样性。
-
-**[No Soundness in the Real World: On the Challenges of the Verification of Deployed Neural Networks](no_soundness_in_the_real_world_on_the_challenges_of_the_verification_of_deployed.md)**
-
-:   本文证明所有当前最先进的神经网络验证器都只提供"理论健全性"（约束全精度输出）而非"实际健全性"（约束部署环境中的浮点输出），并通过构造环境敏感的对抗性后门网络，实证验证了所有测试验证器均可被欺骗。
 
 **[One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL](one_missing_piece_for_open-source_reasoning_models_a_dataset_to_mitigate_cold-st.md)**
 

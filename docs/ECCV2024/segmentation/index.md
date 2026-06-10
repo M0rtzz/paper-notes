@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 语义分割方向53篇论文解读
+  ECCV2024 语义分割论文汇总 · 50篇论文解读
 description: >-
-  53篇ECCV2024的语义分割方向论文解读，涵盖语义分割、目标检测、少样本学习、多模态、扩散模型、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  50篇ECCV2024的语义分割方向论文解读，涵盖语义分割、目标检测、少样本学习、扩散模型、对抗鲁棒、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "语义分割"
@@ -10,19 +10,81 @@ tags:
   - "论文笔记"
   - "目标检测"
   - "少样本学习"
-  - "多模态"
   - "扩散模型"
   - "对抗鲁棒"
+  - "推理"
+item_list:
+  - u: "a_semantic_space_is_worth_256_language_descriptions_make_str/"
+    t: "A Semantic Space is Worth 256 Language Descriptions: Make Stronger Segmentation Models with Descriptive Properties"
+  - u: "a_simple_latent_diffusion_approach_for_panoptic_segmentation_and_mask_inpainting/"
+    t: "A Simple Latent Diffusion Approach for Panoptic Segmentation and Mask Inpainting"
+  - u: "actionvos_actions_as_prompts_for_video_object_segmentation/"
+    t: "ActionVOS: Actions as Prompts for Video Object Segmentation"
+  - u: "active_coarsetofine_segmentation_of_moveable_parts_from_real/"
+    t: "Active Coarse-to-Fine Segmentation of Moveable Parts from Real Images"
+  - u: "attention_decomposition_for_cross-domain_semantic_segmentation/"
+    t: "Attention Decomposition for Cross-Domain Semantic Segmentation"
+  - u: "cola_conditional_dropout_and_language-driven_robust_dual-modal_salient_object_de/"
+    t: "CoLA: Conditional Dropout and Language-Driven Robust Dual-Modal Salient Object Detection"
+  - u: "colormae_exploring_data-independent_masking_strategies_in_masked_autoencoders/"
+    t: "ColorMAE: Exploring Data-Independent Masking Strategies in Masked AutoEncoders"
+  - u: "controlnet_improving_conditional_controls_with_efficient_consistency_feedback/"
+    t: "ControlNet++: Improving Conditional Controls with Efficient Consistency Feedback"
+  - u: "cores_orchestrating_the_dance_of_reasoning_and_segmentation/"
+    t: "CoReS: Orchestrating the Dance of Reasoning and Segmentation"
+  - u: "cpm_class-conditional_prompting_machine_for_audio-visual_segmentation/"
+    t: "CPM: Class-Conditional Prompting Machine for Audio-Visual Segmentation"
+  - u: "cs2k_class-specific_and_class-shared_knowledge_guidance_for_incremental_semantic/"
+    t: "Cs2K: Class-Specific and Class-Shared Knowledge Guidance for Incremental Semantic Segmentation"
+  - u: "dataset_enhancement_with_instance-level_augmentations/"
+    t: "Dataset Enhancement with Instance-Level Augmentations"
+  - u: "deep_nets_with_subsampling_layers_unwittingly_discard_useful_activations_at_test/"
+    t: "Deep Nets with Subsampling Layers Unwittingly Discard Useful Activations at Test-Time"
+  - u: "densenets_reloaded_paradigm_shift_beyond_resnets_and_vits/"
+    t: "DenseNets Reloaded: Paradigm Shift Beyond ResNets and ViTs"
+  - u: "diffusion_models_for_open-vocabulary_segmentation/"
+    t: "Diffusion Models for Open-Vocabulary Segmentation"
+  - u: "eaformer_scene_text_segmentation_with_edge-aware_transformers/"
+    t: "EAFormer: Scene Text Segmentation with Edge-Aware Transformers"
+  - u: "early_preparation_pays_off_new_classifier_pre-tuning_for_class_incremental_seman/"
+    t: "Early Preparation Pays Off: New Classifier Pre-tuning for Class Incremental Semantic Segmentation"
+  - u: "efficient_and_versatile_robust_fine-tuning_of_zero-shot_models/"
+    t: "Efficient and Versatile Robust Fine-Tuning of Zero-shot Models"
+  - u: "eliminating_feature_ambiguity_for_few-shot_segmentation/"
+    t: "Eliminating Feature Ambiguity for Few-Shot Segmentation"
+  - u: "frequency-spatial_entanglement_learning_for_camouflaged_object_detection/"
+    t: "Frequency-Spatial Entanglement Learning for Camouflaged Object Detection"
+  - u: "frest_feature_restoration_for_semantic_segmentation_under_multiple_adverse_condi/"
+    t: "FREST: Feature Restoration for Semantic Segmentation under Multiple Adverse Conditions"
+  - u: "general_and_task-oriented_video_segmentation/"
+    t: "General and Task-Oriented Video Segmentation"
+  - u: "git_towards_generalist_vision_transformer_through_universal_language_interface/"
+    t: "GiT: Towards Generalist Vision Transformer through Universal Language Interface"
+  - u: "lass3d_language-assisted_semi-supervised_3d_semantic_segmentation_with_progressi/"
+    t: "LASS3D: Language-Assisted Semi-Supervised 3D Semantic Segmentation with Progressive Unreliable Data Exploitation"
+  - u: "learning_camouflaged_object_detection_from_noisy_pseudo_label/"
+    t: "Learning Camouflaged Object Detection from Noisy Pseudo Label"
+  - u: "learning_from_the_web_language_drives_weakly-supervised_incremental_learning_for/"
+    t: "Learning from the Web: Language Drives Weakly-Supervised Incremental Learning for Semantic Segmentation"
+  - u: "lift_a_surprisingly_simple_lightweight_feature_transform_for_dense_vit_descripto/"
+    t: "LiFT: A Surprisingly Simple Lightweight Feature Transform for Dense ViT Descriptors"
+  - u: "long-tail_temporal_action_segmentation_with_group-wise_temporal_logit_adjustment/"
+    t: "Long-Tail Temporal Action Segmentation with Group-wise Temporal Logit Adjustment"
+  - u: "occlusion-aware_seamless_segmentation/"
+    t: "Occlusion-Aware Seamless Segmentation"
+  - u: "olaf_a_plug-and-play_framework_for_enhanced_multi-object_multi-part_scene_parsin/"
+    t: "OLAF: A Plug-and-Play Framework for Enhanced Multi-object Multi-part Scene Parsing"
+item_total: 50
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**🎞️ ECCV2024** · **53** 篇论文解读
+**🎞️ ECCV2024** · **50** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (45)](../../NeurIPS2025/segmentation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (44)](../../NeurIPS2025/segmentation/index.md)
 
-🔥 **高频主题：** 语义分割 ×32 · 目标检测 ×4 · 少样本学习 ×3 · 多模态 ×3 · 扩散模型 ×2
+🔥 **高频主题：** 语义分割 ×31 · 目标检测 ×4 · 少样本学习 ×3 · 扩散模型 ×2 · 对抗鲁棒 ×2
 
 **[A Semantic Space is Worth 256 Language Descriptions: Make Stronger Segmentation Models with Descriptive Properties](a_semantic_space_is_worth_256_language_descriptions_make_str.md)**
 
@@ -83,10 +145,6 @@ tags:
 **[Diffusion Models for Open-Vocabulary Segmentation](diffusion_models_for_open-vocabulary_segmentation.md)**
 
 :   本文提出 OVDiff，利用预训练的文本到图像扩散模型为任意文本类别生成支持图像集，从中提取多层次原型（类级、实例级、部件级），结合背景原型实现无训练的开放词汇语义分割，在 PASCAL VOC 上超越先前方法 10% 以上。
-
-**[DreamLIP: Language-Image Pre-training with Long Captions](dreamlip_language-image_pre-training_with_long_captions.md)**
-
-:   通过 MLLM 为 30M 图像生成长文本描述，提出动态子描述采样的多正样本对比学习和子描述特定分组损失，实现细粒度视觉-语言对齐，仅用 30M 数据在检索和语义分割上达到甚至超越 CLIP 400M 的性能。
 
 **[EAFormer: Scene Text Segmentation with Edge-Aware Transformers](eaformer_scene_text_segmentation_with_edge-aware_transformers.md)**
 
@@ -152,10 +210,6 @@ tags:
 
 :   首次定义开放集全景场景图生成（OpenPSG）任务，利用 BLIP-2 作为多模态关系解码器，结合关系查询 Transformer（RelQ-Former）实现开放集关系预测，在 PSG 数据集 PredCls R@100 达到 79.3%，闭集场景超越先前 SOTA 26.6%。
 
-**[Part2Object: Hierarchical Unsupervised 3D Instance Segmentation](part2object_hierarchical_unsupervised_3d_instance_segmentation.md)**
-
-:   提出 Part2Object 层次聚类框架，利用自监督特征和3D物体性先验（objectness prior），从零件级过分割逐层合并到物体级实例，生成高质量伪标签用于自训练 Hi-Mask3D，实现无需人工标注的3D实例分割。
-
 **[PartSTAD: 2D-to-3D Part Segmentation Task Adaptation](partstad_2d-to-3d_part_segmentation_task_adaptation.md)**
 
 :   PartSTAD 提出了一种 2D-to-3D 部件分割的任务适配方法：通过为 GLIP 的 2D 检测框引入可学习权重预测网络（以 3D mRIoU 为目标优化），并集成 SAM 获取精确前景掩码，在 PartNet-Mobility 上实现了语义分割 mIoU 提升 7.0%p、实例分割 mAP50 提升 5.2%p（相对 PartSLIP）。
@@ -195,10 +249,6 @@ tags:
 **[Self-supervised Co-salient Object Detection via Feature Correspondences at Multiple Scales](self-supervised_co-salient_object_detection_via_feature_correspondences_at_multi.md)**
 
 :   提出 SCoSPARC——一个两阶段自监督共显著目标检测模型，通过 patch 级和 region 级 ViT 特征对应关系检测图像组中的共显著物体，在 CoCA 数据集上 F-measure 比无监督 SOTA 高 13.7%，甚至超越多个有监督方法。
-
-**[SiLC: Improving Vision Language Pretraining with Self-Distillation](silc_improving_vision_language_pretraining_with_self-distillation.md)**
-
-:   提出SiLC框架，在CLIP式图文对比学习中加入局部到全局的自蒸馏，显著提升密集预测任务（检测、分割）的性能，同时改善分类和检索。
 
 **[SOS: Segment Object System for Open-World Instance Segmentation With Object Priors](sos_segment_object_system_for_open-world_instance_segmentation_with_object_prior.md)**
 

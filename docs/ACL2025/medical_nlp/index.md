@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 医疗 NLP方向30篇论文解读
+  ACL2025 医疗NLP论文汇总 · 29篇论文解读
 description: >-
-  30篇ACL2025的医疗 NLP 方向论文解读，涵盖医学影像、LLM、对话系统、问答、RAG、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  29篇ACL2025的医疗 NLP 方向论文解读，涵盖医学影像、LLM、对话系统、问答、对齐/RLHF、RAG等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "医疗 NLP"
@@ -12,18 +12,78 @@ tags:
   - "LLM"
   - "对话系统"
   - "问答"
-  - "RAG"
   - "对齐/RLHF"
+  - "RAG"
+item_list:
+  - u: "a_modular_approach_for_clinical_slms_driven_by_synthetic_data_with_pre-instructi/"
+    t: "A Modular Approach for Clinical SLMs Driven by Synthetic Data with Pre-Instruction Tuning, Model Merging, and Clinical-Tasks Alignment"
+  - u: "a_retrieval-based_approach_to_medical_procedure_matching_in_romanian/"
+    t: "A Retrieval-Based Approach to Medical Procedure Matching in Romanian"
+  - u: "adaptive-vp_a_framework_for_llm-based_virtual_patients_that_adapts_to_trainees_d/"
+    t: "Adaptive-VP: A Framework for LLM-Based Virtual Patients that Adapts to Trainees' Dialogue to Facilitate Nurse Communication Training"
+  - u: "afrimed_qa_pan_african/"
+    t: "AfriMed-QA: A Pan-African, Multi-Specialty, Medical Question-Answering Benchmark Dataset"
+  - u: "arghitz_at_archehr-qa_2025_a_two-step_divide_and_conquer_approach_to_patient_que/"
+    t: "ArgHiTZ at ArchEHR-QA 2025: A Two-Step Divide and Conquer Approach to Patient Question Answering for Top Factuality"
+  - u: "automated_structured_radiology_report_generation/"
+    t: "Automated Structured Radiology Report Generation"
+  - u: "auxiliary_patient_data_xray/"
+    t: "The Impact of Auxiliary Patient Data on Automated Chest X-Ray Report Generation and How to Incorporate It"
+  - u: "biore_llm_judge_evaluation/"
+    t: "Improving Automatic Evaluation of LLMs in Biomedical Relation Extraction via LLMs-as-the-Judge"
+  - u: "chexalign_preference_finetuning/"
+    t: "CheXalign: Preference Fine-tuning in Chest X-ray Interpretation Models without Human Feedback"
+  - u: "clinical_coding_eight_recommendations/"
+    t: "Aligning AI Research with the Needs of Clinical Coding Workflows: Eight Recommendations Based on US Data Analysis and Critical Review"
+  - u: "clinidial_a_naturally_occurring_multimodal_dialogue_dataset_for_team_reflection_/"
+    t: "CliniDial: A Naturally Occurring Multimodal Dialogue Dataset for Team Reflection in Action During Clinical Operation"
+  - u: "cstrl_context-driven_sequential_transfer_learning_for_abstractive_radiology_repo/"
+    t: "CSTRL: Context-Driven Sequential Transfer Learning for Abstractive Radiology Report Summarization"
+  - u: "enhancing_medical_dialogue_generation_through_knowledge_refinement_and_dynamic_p/"
+    t: "Enhancing Medical Dialogue Generation through Knowledge Refinement and Dynamic Prompt Adjustment"
+  - u: "evaluation_of_llms_in_medical_text_summarization_the_role_of_vocabulary_adaptati/"
+    t: "Evaluation of LLMs in Medical Text Summarization: The Role of Vocabulary Adaptation in High OOV Settings"
+  - u: "evopatient_standardized_patient/"
+    t: "LLMs Can Simulate Standardized Patients via Agent Coevolution"
+  - u: "follow-up_question_generation_for_enhanced_patient-provider_conversations/"
+    t: "Follow-up Question Generation for Enhanced Patient-Provider Conversations"
+  - u: "learning_from_negative_samples_in_biomedical_generative_entity_linking/"
+    t: "ANGEL: Learning from Negative Samples in Biomedical Generative Entity Linking"
+  - u: "medbiorag_semantic_search_and_retrieval-augmented_generation_for_biomedical_lite/"
+    t: "MedBioRAG: Semantic Search and Retrieval-Augmented Generation with Large Language Models for Medical and Biological QA"
+  - u: "medbiorag_semantic_search_and_retrieval-augmented_generation_with_large_language/"
+    t: "MedBioRAG: Semantic Search and Retrieval-Augmented Generation with Large Language Models for Medical and Biological QA"
+  - u: "oisa_radiology_report_gen/"
+    t: "Online Iterative Self-Alignment for Radiology Report Generation"
+  - u: "omni_rag_medical/"
+    t: "Towards Omni-RAG: Comprehensive Retrieval-Augmented Generation for Large Language Models in Medical Applications"
+  - u: "one_size_fits_none_rethinking_fairness_in_medical_ai/"
+    t: "One Size Fits None: Rethinking Fairness in Medical AI"
+  - u: "pattern_recognition_or_medical_knowledge_the_problem_with_multiple-choice_questi/"
+    t: "Pattern Recognition or Medical Knowledge? The Problem with Multiple-Choice Questions in Medicine"
+  - u: "radar_radiology_report_gen/"
+    t: "Radar: Enhancing Radiology Report Generation with Supplementary Knowledge Injection"
+  - u: "redactor_an_llm-powered_framework_for_automatic_clinical_data_de-identification/"
+    t: "RedactX: An LLM-Powered Framework for Automatic Clinical Data De-Identification"
+  - u: "reflectool_clinical_agent/"
+    t: "ReflecTool: Towards Reflection-Aware Tool-Augmented Clinical Agents"
+  - u: "secret_semi-supervised_clinical_trial_document_similarity_search/"
+    t: "SECRET: Semi-supervised Clinical Trial Document Similarity Search"
+  - u: "urca_biomedical_evidence_extraction/"
+    t: "Query-driven Document-level Scientific Evidence Extraction from Biomedical Studies"
+  - u: "vital_pluralistic_alignment_healthcare/"
+    t: "VITAL: A New Dataset for Benchmarking Pluralistic Alignment in Healthcare"
+item_total: 29
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🩺 医疗 NLP
 
-**💬 ACL2025** · **30** 篇论文解读
+**💬 ACL2025** · **29** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (13)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (12)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (15)](../../NeurIPS2025/medical_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/medical_nlp/index.md)
 
-🔥 **高频主题：** 医学影像 ×24 · LLM ×5 · 对话系统 ×4 · 问答 ×4 · RAG ×4
+🔥 **高频主题：** 医学影像 ×24 · LLM ×5 · 对话系统 ×4 · 问答 ×4 · 对齐/RLHF ×3
 
 **[A Modular Approach for Clinical SLMs Driven by Synthetic Data with Pre-Instruction Tuning, Model Merging, and Clinical-Tasks Alignment](a_modular_approach_for_clinical_slms_driven_by_synthetic_data_with_pre-instructi.md)**
 
@@ -40,10 +100,6 @@ tags:
 **[AfriMed-QA: A Pan-African, Multi-Specialty, Medical Question-Answering Benchmark Dataset](afrimed_qa_pan_african.md)**
 
 :   构建首个大规模泛非洲医学问答基准 AfriMed-QA（15,275 题，16 国 60+ 医学院校、32 个专科），系统评估 30 个 LLM 并发现非洲医疗场景下存在显著的地域性能差距和生物医学模型反不如通用模型的反直觉现象。
-
-**[Are LLMs Effective Psychological Assessors? Leveraging Adaptive RAG for Interpretable Mental Health Screening through Psychometric Practice](are_llms_effective_psychological_assessors_leveraging_adaptive_rag_for_interpret.md)**
-
-:   本文提出了一种基于问卷引导的心理健康筛查框架，通过自适应RAG从用户Reddit帖子中检索相关内容，再用LLM代为填写标准化心理量表（如BDI-II），在无需训练数据的情况下匹配或超越有监督方法的性能，同时提供了临床可解释的评估结果。
 
 **[ArgHiTZ at ArchEHR-QA 2025: A Two-Step Divide and Conquer Approach to Patient Question Answering for Top Factuality](arghitz_at_archehr-qa_2025_a_two-step_divide_and_conquer_approach_to_patient_que.md)**
 

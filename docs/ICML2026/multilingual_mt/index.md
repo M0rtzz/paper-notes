@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 多语言/翻译方向3篇论文解读
+  ICML2026 多语言/翻译论文汇总 · 3篇论文解读
 description: >-
   3篇ICML2026的多语言/翻译方向论文解读，涵盖扩散模型、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,14 @@ tags:
   - "论文笔记"
   - "扩散模型"
   - "对抗鲁棒"
+item_list:
+  - u: "edit-based_refinement_for_parallel_masked_diffusion_language_models/"
+    t: "Edit-Based Refinement for Parallel Masked Diffusion Language Models"
+  - u: "optimizing_language_models_for_crosslingual_knowledge_consistency/"
+    t: "Optimizing Language Models for Crosslingual Knowledge Consistency"
+  - u: "toward_robust_multilingual_adaptation_of_llms_for_low-resource_languages/"
+    t: "Toward Robust Multilingual Adaptation of LLMs for Low-Resource Languages"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

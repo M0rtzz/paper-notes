@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 优化/理论方向124篇论文解读
+  NeurIPS2025 优化/理论论文汇总 · 124篇论文解读
 description: >-
   124篇NeurIPS2025的优化/理论方向论文解读，涵盖联邦学习、LLM、对抗鲁棒、推理、对齐/RLHF、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "推理"
   - "对齐/RLHF"
   - "布局/合成"
+item_list:
+  - u: "a_single-loop_first-order_algorithm_for_linearly_constrained_bilevel_optimizatio/"
+    t: "A Single-Loop First-Order Algorithm for Linearly Constrained Bilevel Optimization"
+  - u: "a_unified_approach_to_submodular_maximization_under_noise/"
+    t: "A Unified Approach to Submodular Maximization Under Noise"
+  - u: "a_unified_stability_analysis_of_sam_vs_sgd_role_of_data_cohe/"
+    t: "A Unified Stability Analysis of SAM vs SGD: Role of Data Coherence and Emergence of Simplicity Bias"
+  - u: "abstain_mask_retain_core_time_series_prediction_by_adaptive/"
+    t: "Abstain Mask Retain Core: Time Series Prediction by Adaptive Masking Loss with Representation Consistency"
+  - u: "adaptive_algorithms_with_sharp_convergence_rates_for_stochas/"
+    t: "Adaptive Algorithms with Sharp Convergence Rates for Stochastic Hierarchical Optimization"
+  - u: "an_adaptive_algorithm_for_bilevel_optimization_on_riemannian_manifolds/"
+    t: "An Adaptive Algorithm for Bilevel Optimization on Riemannian Manifolds"
+  - u: "auto-compressing_networks/"
+    t: "Auto-Compressing Networks"
+  - u: "automated_algorithm_design_via_nevanlinna-pick_interpolation/"
+    t: "Automated Algorithm Design via Nevanlinna-Pick Interpolation"
+  - u: "autoopt_a_dataset_and_a_unified_framework_for_automating_optimization_problem_so/"
+    t: "AutoOpt: A Dataset and a Unified Framework for Automating Optimization Problem Solving"
+  - u: "better_ntk_conditioning_a_free_lunch_from_relu_nonlinear_activation_in_wide_neur/"
+    t: "Better NTK Conditioning: A Free Lunch from ReLU Nonlinear Activation in Wide Neural Networks"
+  - u: "beyond_tildeosqrtt_constraint_violation_for_online_convex_optimization_with_adve/"
+    t: "Beyond Õ(√T) Constraint Violation for Online Convex Optimization with Adversarial Constraints"
+  - u: "chiqpm_calibrated_hierarchical_interpretable_image_classification/"
+    t: "CHiQPM: Calibrated Hierarchical Interpretable Image Classification"
+  - u: "clean_first_align_later_benchmarking_preference_data_cleaning_for_reliable_llm_a/"
+    t: "Clean First, Align Later: Benchmarking Preference Data Cleaning for Reliable LLM Alignment"
+  - u: "composing_global_solutions_to_reasoning_tasks_via_algebraic_objects_in_neural_ne/"
+    t: "Composing Global Solutions to Reasoning Tasks via Algebraic Objects in Neural Nets"
+  - u: "conformal_prediction_for_causal_effects_of_continuous_treatments/"
+    t: "Conformal Prediction for Causal Effects of Continuous Treatments"
+  - u: "conformal_prediction_in_the_loop_a_feedback-based_uncertainty_model_for_trajecto/"
+    t: "Conformal Prediction in The Loop: A Feedback-Based Uncertainty Model for Trajectory Optimization"
+  - u: "constrained_network_slice_assignment_via_llms/"
+    t: "Constrained Network Slice Assignment via Large Language Models"
+  - u: "contribution_of_task-irrelevant_stimuli_to_drift_of_neural_representations/"
+    t: "Contribution of Task-Irrelevant Stimuli to Drift of Neural Representations"
+  - u: "covariances_for_free_exploiting_mean_distributions_for_training-free_federated_l/"
+    t: "Covariances for Free: Exploiting Mean Distributions for Training-free Federated Learning"
+  - u: "dartquant_efficient_rotational_distribution_calibration_for_llm_quantization/"
+    t: "DartQuant: Efficient Rotational Distribution Calibration for LLM Quantization"
+  - u: "deep_taxonomic_networks_for_unsupervised_hierarchical_prototype_discovery/"
+    t: "Deep Taxonomic Networks for Unsupervised Hierarchical Prototype Discovery"
+  - u: "deltaproduct_improving_state-tracking_in_linear_rnns_via_householder_products/"
+    t: "DeltaProduct: Improving State-Tracking in Linear RNNs via Householder Products"
+  - u: "do_neural_networks_need_gradient_descent_to_generalize_a_theoretical_study/"
+    t: "Do Neural Networks Need Gradient Descent to Generalize? A Theoretical Study"
+  - u: "doubly_robust_alignment_for_large_language_models/"
+    t: "Doubly Robust Alignment for Large Language Models"
+  - u: "dynaact_large_language_model_reasoning_with_dynamic_action_spaces/"
+    t: "DynaAct: Large Language Model Reasoning with Dynamic Action Spaces"
+  - u: "effective_policy_learning_for_multi-agent_online_coordination_beyond_submodular_/"
+    t: "Effective Policy Learning for Multi-Agent Online Coordination Beyond Submodular Objectives"
+  - u: "efficient_adaptive_experimentation_with_noncompliance/"
+    t: "Efficient Adaptive Experimentation with Noncompliance"
+  - u: "efficient_adaptive_federated_optimization/"
+    t: "Efficient Adaptive Federated Optimization"
+  - u: "efficient_federated_learning_against_byzantine_attacks_and_data_heterogeneity_vi/"
+    t: "Efficient Federated Learning against Byzantine Attacks and Data Heterogeneity via Aggregating Normalized Gradients"
+  - u: "emergence_and_scaling_laws_in_sgd_learning_of_shallow_neural_networks/"
+    t: "Emergence and Scaling Laws in SGD Learning of Shallow Neural Networks"
+item_total: 124
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧠 NeurIPS2025** · **124** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (16)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
 
 🔥 **高频主题：** 联邦学习 ×13 · LLM ×12 · 对抗鲁棒 ×11 · 推理 ×5 · 对齐/RLHF ×4
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 目标检测方向26篇论文解读
+  NeurIPS2025 目标检测论文汇总 · 25篇论文解读
 description: >-
-  26篇NeurIPS2025的目标检测方向论文解读，涵盖异常检测、目标检测、对抗鲁棒、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  25篇NeurIPS2025的目标检测方向论文解读，涵盖异常检测、目标检测、对抗鲁棒、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "目标检测"
@@ -11,16 +11,68 @@ tags:
   - "异常检测"
   - "对抗鲁棒"
   - "时序预测"
+item_list:
+  - u: "adpretrain_advancing_industrial_anomaly_detection_via_anomaly_representation_pre/"
+    t: "ADPretrain: Advancing Industrial Anomaly Detection via Anomaly Representation Pretraining"
+  - u: "an_evidence-based_post-hoc_adjustment_framework_for_anomaly_detection_under_data/"
+    t: "EPHAD: An Evidence-Based Post-Hoc Adjustment Framework for Anomaly Detection Under Data Contamination"
+  - u: "ascent_fails_to_forget/"
+    t: "Ascent Fails to Forget"
+  - u: "automated_detection_of_visual_attribute_reliance_with_a_self-reflective_agent/"
+    t: "Automated Detection of Visual Attribute Reliance with a Self-Reflective Agent"
+  - u: "autoscidact_automated_scientific_discovery_through_contrastive_embedding_and_hyp/"
+    t: "AutoSciDACT: Automated Scientific Discovery through Contrastive Embedding and Hypothesis Testing"
+  - u: "burstdeflicker_a_benchmark_dataset_for_flicker_removal_in_dynamic_scenes/"
+    t: "BurstDeflicker: A Benchmark Dataset for Flicker Removal in Dynamic Scenes"
+  - u: "cq-dino_mitigating_gradient_dilution_via_category_queries_for_vast_vocabulary_ob/"
+    t: "CQ-DINO: Mitigating Gradient Dilution via Category Queries for Vast Vocabulary Object Detection"
+  - u: "dcad-2000_a_multilingual_dataset_across_2000_languages_with_data_cleaning_as_ano/"
+    t: "DCAD-2000: A Multilingual Dataset across 2000+ Languages with Data Cleaning as Anomaly Detection"
+  - u: "detectiumfire_a_comprehensive_multi-modal_dataset_bridging_vision_and_language_f/"
+    t: "DetectiumFire: A Comprehensive Multi-modal Dataset Bridging Vision and Language for Fire Understanding"
+  - u: "detree_detecting_human-ai_collaborative_texts_via_tree-structured_hierarchical_r/"
+    t: "DETree: DEtecting Human-AI Collaborative Texts via Tree-Structured Hierarchical Representation Learning"
+  - u: "dithub_a_modular_framework_for_incremental_openvocabulary_ob/"
+    t: "DitHub: A Modular Framework for Incremental Open-Vocabulary Object Detection"
+  - u: "flexevent_towards_flexible_event-frame_object_detection_at_varying_operational_f/"
+    t: "FlexEvent: Towards Flexible Event-Frame Object Detection at Varying Operational Frequencies"
+  - u: "lr_yolo_lipschitz_continuity_image_restoration_object_detection/"
+    t: "Delving into Cascaded Instability: A Lipschitz Continuity View on Image Restoration and Object Detection Synergy"
+  - u: "mstar_box-free_multi-query_scene_text_retrieval_with_attention_recycling/"
+    t: "MSTAR: Box-Free Multi-Query Scene Text Retrieval with Attention Recycling"
+  - u: "multimodal_generative_flows_for_lhc_jets/"
+    t: "Multimodal Generative Flows for LHC Jets"
+  - u: "normal-abnormal_guided_generalist_anomaly_detection/"
+    t: "Normal-Abnormal Guided Generalist Anomaly Detection"
+  - u: "recon-gs_continuum-preserved_gaussian_streaming_for_fast_and_compact_reconstruct/"
+    t: "ReCon-GS: Continuum-Preserved Gaussian Streaming for Fast and Compact Reconstruction"
+  - u: "recon_region-controllable_data_augmentation_with_rectification_and_alignment_for/"
+    t: "ReCon: Region-Controllable Data Augmentation with Rectification and Alignment for Object Detection"
+  - u: "scalable_explainable_and_provably_robust_anomaly_detection_with_one-step_flow_ma/"
+    t: "Scalable, Explainable and Provably Robust Anomaly Detection with One-Step Flow Matching"
+  - u: "scatterad_temporal-topological_scattering_mechanism_for_time_series_anomaly_dete/"
+    t: "ScatterAD: Temporal-Topological Scattering Mechanism for Time Series Anomaly Detection"
+  - u: "semi-supervised_graph_anomaly_detection_via_robust_homophily_learning/"
+    t: "Semi-supervised Graph Anomaly Detection via Robust Homophily Learning"
+  - u: "spatio-temporal_graphs_beyond_grids_benchmark_for_maritime_anomaly_detection/"
+    t: "Spatio-Temporal Graphs Beyond Grids: Benchmark for Maritime Anomaly Detection"
+  - u: "structured_temporal_causality_for_interpretable_multivariate_time_series_anomaly/"
+    t: "Structured Temporal Causality for Interpretable Multivariate Time Series Anomaly Detection"
+  - u: "test-time_adaptive_object_detection_with_foundation_model/"
+    t: "Test-Time Adaptive Object Detection with Foundation Model"
+  - u: "video-rag_visually-aligned_retrieval-augmented_long_video_comprehension/"
+    t: "Video-RAG: Visually-aligned Retrieval-Augmented Long Video Comprehension"
+item_total: 25
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🧠 NeurIPS2025** · **26** 篇论文解读
+**🧠 NeurIPS2025** · **25** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (12)](../../ICML2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (11)](../../ICML2025/object_detection/index.md)
 
-🔥 **高频主题：** 异常检测 ×9 · 目标检测 ×6 · 对抗鲁棒 ×3 · 时序预测 ×2
+🔥 **高频主题：** 异常检测 ×9 · 目标检测 ×6 · 对抗鲁棒 ×2 · 时序预测 ×2
 
 **[ADPretrain: Advancing Industrial Anomaly Detection via Anomaly Representation Pretraining](adpretrain_advancing_industrial_anomaly_detection_via_anomaly_representation_pre.md)**
 
@@ -109,10 +161,6 @@ tags:
 **[Spatio-Temporal Graphs Beyond Grids: Benchmark for Maritime Anomaly Detection](spatio-temporal_graphs_beyond_grids_benchmark_for_maritime_anomaly_detection.md)**
 
 :   提出首个面向非网格时空系统（海事领域）的图异常检测基准数据集，将OMTAD数据集扩展为支持节点/边/图三级异常检测的基准，并计划使用LLM智能体进行轨迹合成和异常注入。
-
-**[Stealthy Yet Effective: Distribution-Preserving Backdoor Attacks on Graph Classification](stealthy_yet_effective_distribution-preserving_backdoor_attacks_on_graph_classif.md)**
-
-:   提出 DPSBA，一种面向图分类的 clean-label 后门攻击框架，通过对抗训练生成分布内（in-distribution）触发子图，同时抑制结构异常和语义异常，在保持高攻击成功率的同时显著提升隐蔽性。
 
 **[Structured Temporal Causality for Interpretable Multivariate Time Series Anomaly Detection](structured_temporal_causality_for_interpretable_multivariate_time_series_anomaly.md)**
 

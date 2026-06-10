@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 LLM / NLP方向389篇论文解读
+  ACL2025 LLM/NLP论文汇总 · 378篇论文解读
 description: >-
-  389篇ACL2025的 LLM / NLP 方向论文解读，涵盖 LLM、推理、对齐/RLHF、Agent、对抗鲁棒、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  378篇ACL2025的 LLM / NLP 方向论文解读，涵盖 LLM、推理、对齐/RLHF、对抗鲁棒、Agent、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "LLM / NLP"
@@ -11,19 +11,81 @@ tags:
   - "LLM"
   - "推理"
   - "对齐/RLHF"
-  - "Agent"
   - "对抗鲁棒"
+  - "Agent"
   - "语音"
+item_list:
+  - u: "a_large-scale_real-world_evaluation_of_llm-based_virtual_teaching_assistant/"
+    t: "A Large-Scale Real-World Evaluation of an LLM-Based Virtual Teaching Assistant"
+  - u: "a_modular_dataset_to_demonstrate_llm_abstraction_capability/"
+    t: "A Modular Dataset to Demonstrate LLM Abstraction Capability"
+  - u: "a_semantic-aware_layer-freezing_approach_to_computation-efficient_fine-tuning_of/"
+    t: "A Semantic-Aware Layer-Freezing Approach to Computation-Efficient Fine-Tuning of Language Models"
+  - u: "a_survey_of_automatic_prompt_optimization_with_instruction-focused_heuristic-bas/"
+    t: "A Survey of Automatic Prompt Optimization with Instruction-focused Heuristic-based Search Algorithm"
+  - u: "a_survey_of_large_language_models_in_psychotherapy_current_landscape_and_future_/"
+    t: "A Survey of Large Language Models in Psychotherapy: Current Landscape and Future Directions"
+  - u: "a_survey_of_llm-based_agents_in_medicine_how_far_are_we_from_baymax/"
+    t: "A Survey of LLM-based Agents in Medicine: How Far Are We from Baymax?"
+  - u: "a_survey_on_efficient_large_language/"
+    t: "A Survey on Efficient Large Language Model Training: From Data-centric Perspectives"
+  - u: "a_systematic_study_of_compositional_syntactic_transformer_language_models/"
+    t: "A Systematic Study of Compositional Syntactic Transformer Language Models"
+  - u: "a_training-free_llm-based_approach_to_general_chinese_character_error_correction/"
+    t: "A Training-free LLM-based Approach to General Chinese Character Error Correction"
+  - u: "aad-llm_neural_attention-driven_auditory_scene_understanding/"
+    t: "AAD-LLM: Neural Attention-Driven Auditory Scene Understanding"
+  - u: "acquisition_and_application_of_novel_knowledge_in_large_language_models/"
+    t: "Acquisition and Application of Novel Knowledge in Large Language Models"
+  - u: "afrobench_how_good_are_large_language_models_on_african_languages/"
+    t: "AfroBench: How Good are Large Language Models on African Languages?"
+  - u: "agentdropout_dynamic_agent_elimination_for_token-efficient_and_high-performance_/"
+    t: "AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration"
+  - u: "agentgym_evaluating_and_training_large_language_model-based_agents_across_divers/"
+    t: "AgentGym: Evolving Large Language Model-based Agents across Diverse Environments"
+  - u: "ai_as_a_novel_ethical_agent_exploring_moral_judgments_by_large_language_models/"
+    t: "AI as a Novel Ethical Agent: Exploring Moral Judgments by Large Language Models"
+  - u: "aimscheck_modern_slavery/"
+    t: "AIMSCheck: Leveraging LLMs for AI-Assisted Review of Modern Slavery Statements Across Jurisdictions"
+  - u: "algorithmic_fidelity_german_opinion/"
+    t: "Algorithmic Fidelity of Large Language Models in Generating Synthetic German Public Opinions: A Case Study"
+  - u: "alignment_drift_in_cefr-prompted_llms_for_interactive_spanish_tutoring/"
+    t: "Alignment Drift in CEFR-prompted LLMs for Interactive Spanish Tutoring"
+  - u: "an_empirical_study_of_iterative_refinements_for_non-autoregressive_translation/"
+    t: "An Empirical Study of Iterative Refinements for Non-Autoregressive Translation"
+  - u: "an_empirical_study_of_large_language_models_for_automated_review_generation/"
+    t: "An Empirical Study of Large Language Models for Automated Review Generation"
+  - u: "analyzing_and_mitigating_inconsistency_in_discrete_speech_tokens_for_neural_code/"
+    t: "Analyzing and Mitigating Inconsistency in Discrete Speech Tokens for Neural Codec Language Models"
+  - u: "analyzing_the_rapid_generalization_of_sft_via_the_perspective_of_attention_head_/"
+    t: "Analyzing the Rapid Generalization of SFT via the Perspective of Attention Head Activation Patterns"
+  - u: "appl_a_prompt_programming_language_for_harmonious_integration_of_programs_and_la/"
+    t: "APPL: A Prompt Programming Language for Harmonious Integration of Programs and Large Language Model Prompts"
+  - u: "arabic_dialects_assumptions_revisited/"
+    t: "Revisiting Common Assumptions about Arabic Dialects in NLP"
+  - u: "are_optimal_algorithms_still_optimal_rethinking_sorting_in_llm-based_pairwise_ra/"
+    t: "Are Optimal Algorithms Still Optimal? Rethinking Sorting in LLM-Based Pairwise Ranking with Batching and Caching"
+  - u: "are_your_llms_capable_of_stable_reasoning/"
+    t: "Are Your LLMs Capable of Stable Reasoning?"
+  - u: "argument_mining_in_the_age_of_large_language_models/"
+    t: "Argument Mining in the Age of Large Language Models"
+  - u: "arithmattack_evaluating_robustness_of_llms_to_noisy_context_in_math_problem_solv/"
+    t: "ArithmAttack: Evaluating Robustness of LLMs to Noisy Context in Math Problem Solving"
+  - u: "assessing_and_enhancing_the_causal_reasoning_abilities_of_language_models_via_fai/"
+    t: "Assessing and Enhancing the Causal Reasoning Abilities of Language Models via Faithful Textual Interpretation"
+  - u: "assessing_the_vulnerability_of_llms_to_cognitive_biases_in_scientific_research/"
+    t: "Assessing the Vulnerability of LLMs to Cognitive Biases in Scientific Research"
+item_total: 378
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM / NLP
 
-**💬 ACL2025** · **389** 篇论文解读
+**💬 ACL2025** · **378** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_nlp/index.md)
 
-🔥 **高频主题：** LLM ×175 · 推理 ×30 · 对齐/RLHF ×16 · Agent ×15 · 对抗鲁棒 ×12
+🔥 **高频主题：** LLM ×169 · 推理 ×29 · 对齐/RLHF ×15 · 对抗鲁棒 ×11 · Agent ×9
 
 **[A Large-Scale Real-World Evaluation of an LLM-Based Virtual Teaching Assistant](a_large-scale_real-world_evaluation_of_llm-based_virtual_teaching_assistant.md)**
 
@@ -72,10 +134,6 @@ tags:
 **[AfroBench: How Good are Large Language Models on African Languages?](afrobench_how_good_are_large_language_models_on_african_languages.md)**
 
 :   提出AfroBench——覆盖64种非洲语言、15个NLP任务、22个数据集的综合评测基准，评估12个LLM发现闭源模型(GPT-4o)领先最佳开源模型(Gemma 2 27B)约12分，但所有LLM仍落后于微调基线，与英语的差距在开源模型上超过40分。
-
-**[AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](agentdropout-dynamic-agent-elimination-for-multi-agent-collaboration.md)**
-
-:   本文提出 AgentDropout，通过在多轮讨论中动态消除冗余 Agent（节点剪枝）和冗余通信边（边剪枝），在降低 21.6% prompt token 消耗的同时提升了 1.14 分的任务性能。
 
 **[AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration](agentdropout_dynamic_agent_elimination_for_token-efficient_and_high-performance_.md)**
 
@@ -201,10 +259,6 @@ tags:
 
 :   本文系统研究了 LLM 能否通过社会人口学属性（年龄、性别、种族、教育）来预测个体标注者的主观文本感知，发现微调后的改进主要来自学习个体标注者行为而非社会人口学模式，质疑了用 LLM 模拟社会人口学差异的可行性。
 
-**[Beyond Dialogue: A Profile-Dialogue Alignment Framework Towards General Role-Playing Language Model](beyond_dialogue_a_profile-dialogue_alignment_framework_towards_general_role-play.md)**
-
-:   提出 Beyond Dialogue 框架，通过 Profile-Dialogue 对齐消除角色扮演训练中 profile 与对话之间的偏差，并引入句子级细粒度对齐任务，使模型更好地理解和表现角色特质。
-
 **[Beyond In-Context Learning: Aligning Long-form Generation of LLMs via Task-Inherent Attribute Guidelines](beyond_in-context_learning_aligning_long-form_generation_of_large_language_model.md)**
 
 :   从理论和实验两方面证明 ICL 示例无法充分传递任务的语言和格式属性，提出 LongGuide 算法从少量训练数据中自动学习 Metric Guideline (MG) 和 Output Constraint Guideline (OCG) 两类指导规则，在 7 个长文本生成任务上平均提升超过 5% ROUGE-L。
@@ -316,10 +370,6 @@ tags:
 **[Can LLMs Reason About Program Semantics? A Comprehensive Evaluation of LLMs on Formal Specification Inference](can_llms_reason_about_program_semantics_a_comprehensive_evaluation_of_llms_on_fo.md)**
 
 :   提出 FormalBench 基准，通过形式化程序规格（formal specifications）推断任务系统评估LLM的程序语义推理能力，发现LLM在简单控制流上表现良好但在循环等复杂结构上挣扎，并设计了自修复提示（self-repair prompts）将成功率提升25%。
-
-**[Can LLMs Simulate L2-English Dialogue? An Information-Theoretic Analysis of L1-Dependent Biases](can_llms_simulate_l2-english_dialogue_an_information-theoretic_analysis_of_l1-de.md)**
-
-:   本文评估LLM模拟非母语英语使用者（L2学习者）对话的能力，通过信息论和分布密度度量分析LLM生成的L2英语是否能复现人类L2学习者的母语依赖性偏差（如时态一致性错误、回避行为等），发现现代LLM确实能复现部分L1依赖模式。
 
 **[Can LLMs Understand Unvoiced Speech? Exploring EMG-to-Text Conversion with LLMs](can_llms_understand_unvoiced_speech_exploring_emg-to-text_conversion_with_llms.md)**
 
@@ -504,14 +554,6 @@ tags:
 **[Refuse Whenever You Feel Unsafe: Improving Safety in LLMs via Decoupled Refusal Training](derta_decoupled_refusal.md)**
 
 :   发现标准安全微调数据存在"拒绝位置偏差"——模型只学会在回答开头拒绝，中途发现不安全时无法中断。提出 DeRTa（Decoupled Refusal Training），通过"有害前缀+安全拒绝"的 MLE 训练和在每个位置模拟"从有害到安全"转换的 RTO 训练，让 LLM 能在回答的任何位置感知到不安全时拒绝，在六种攻击场景下超越 GPT-4 和 LLaMA3-Instruct。
-
-**[Detecting Referring Expressions in Visually Grounded Dialogue with Autoregressive Language Models](detecting_referring_expressions_in_visually_grounded_dialogue_with_autoregressiv.md)**
-
-:   本文将视觉对话中的指称表达检测建模为自回归 token 预测任务，通过对 Llama 3.1-8B 进行参数高效微调 (QLoRA)，证明仅使用文本上下文即可有效检测视觉对话中的 mention span，在 AGOS 和 PhotoBook 数据集上 F1 达 0.90 和 0.94。
-
-**[DICE-Bench: Evaluating the Tool-Use Capabilities of Large Language Models in Multi-Round, Multi-Party Dialogues](dice-bench_evaluating_the_tool-use_capabilities_of_large_language_models_in_mult.md)**
-
-:   提出 DICE-Bench，一个面向多轮多方对话场景的函数调用评测基准，包含 1607 条高质量对话实例和量化信息分散度的 DICE-Score 指标，揭示当前 LLM 在复杂对话中工具调用能力的不足。
 
 **[DiffLM: Controllable Synthetic Data Generation via Diffusion Language Models](difflm_controllable_synthetic_data_generation_via_diffusion_language_models.md)**
 
@@ -726,10 +768,6 @@ tags:
 **[GradOT: Training-free Gradient-preserving Offsite-tuning for Large Language Models](gradot_offsite_tuning.md)**
 
 :   从优化理论角度首次系统分析 Offsite-tuning 问题，提出梯度保持压缩分数（GCS），并基于此设计了 GradOT 方法，对 MHA 使用动态秩分解（DRD）、对 MLP 使用选择性通道剪枝（SCP），在免训练条件下同时实现性能保持和隐私保护。
-
-**[Graph Counselor: Adaptive Graph Exploration via Multi-Agent Synergy to Enhance LLM Reasoning](graph_counselor_multiagent_graphrag.md)**
-
-:   Graph Counselor 提出了一个多智能体协作的 GraphRAG 推理框架，通过 Planning/Thought/Execution 三个 Agent 自适应提取图结构信息，并引入多视角自反思机制纠正推理偏差，在多个图推理任务上超越现有方法。
 
 **[Can Graph Descriptive Order Affect Solving Graph Problems with LLMs?](graph_descriptive_order_llm.md)**
 
@@ -999,10 +1037,6 @@ tags:
 
 :   通过系统性的文档排列实验和注意力权重分析，揭示因果掩码是 decoder-only LLM 在多跳问答中的结构性瓶颈，并证明将因果掩码替换为 prefix mask 可显著提升性能和鲁棒性。
 
-**[MasRouter: Learning to Route LLMs for Multi-Agent Systems](masrouter_learning_to_route_llms_for_multi-agent_systems.md)**
-
-:   首次提出多智能体系统路由（MASR）问题，设计 MasRouter 级联控制器网络，依次决定协作模式、角色分配和 LLM 路由，在保持高性能的同时将 MAS 的推理成本降低最高 52%，实现效果与效率的平衡。
-
 **[MathFusion: Enhancing Mathematical Problem-solving of LLM through Instruction Fusion](mathfusion_instruction_fusion.md)**
 
 :   提出 MathFusion 框架，通过三种问题融合策略（顺序/并行/条件融合）将数学问题两两合成新问题，仅用 45K 额外合成数据就在多个基准上实现平均 18 个百分点的数学推理提升。
@@ -1191,10 +1225,6 @@ tags:
 
 :   提出基于问题求解逻辑（Problem-Solving Logic）的课程式 ICL 策略，通过分析问题的求解步骤结构来选择和排序 demonstration examples，有效提升 LLM 的复杂推理能力。
 
-**[ProgCo: Program Helps Self-Correction of Large Language Models](progco_program_helps_self-correction_of_large_language_models.md)**
-
-:   ProgCo 提出用 LLM 自动生成并执行验证伪程序（ProgVe）来检查自身回答的正确性，再通过对回答和验证程序的双重反思与修正（ProgRe）来实现可靠的自我纠正，在指令遵循和数学推理任务上显著提升了纠正成功率。
-
 **[Psycholinguistic Word Features: A New Approach for the Evaluation of LLMs Alignment with Humans](psycholinguistic_word_features_a_new_approach_for_the_evaluation_of_llms_alignme.md)**
 
 :   首次系统提出使用心理语言学词汇规范（Glasgow 5,553词 × 7特征 + Lancaster 39,707词 × 6感知模态，共13种词汇特征）评估LLM与人类对齐，发现GPT-4o在Glasgow情感/概念特征上相关性较高，但所有模型在Lancaster感知觉特征上对齐极差，定量揭示LLM缺乏具身认知的根本局限。
@@ -1230,10 +1260,6 @@ tags:
 **[Recurrent Knowledge Identification and Fusion for Language Model Continual Learning](recurrent_kif_continual_learning.md)**
 
 :   提出Recurrent-KIF持续学习框架，通过内外循环迭代机制动态估计参数重要性分布，利用基于重要性的二值掩码进行知识融合，有效缓解灾难性遗忘并促进知识迁移。
-
-**[Red-Teaming LLM Multi-Agent Systems via Communication Attacks](red-teaming_llm_multi-agent_systems_via_communication_attacks.md)**
-
-:   提出 Agent-in-the-Middle (AiTM) 攻击，通过拦截和篡改 LLM 多智能体系统中的 agent 间通信消息（而非直接修改 agent 本身），利用一个带反思机制的对抗性 agent 生成上下文感知的恶意指令，在多种框架/通信结构/真实应用上均取得 40%~100% 的攻击成功率。
 
 **[Refining Salience-Aware Sparse Fine-Tuning Strategies for Language Models](refining_salience-aware_sparse_fine-tuning_strategies_for_language_models.md)**
 
@@ -1507,10 +1533,6 @@ tags:
 
 :   本文首次系统研究了真实世界静默数据损坏（SDC）对LLM训练的影响，通过将不健康节点与健康节点配对并引入同步机制，在子模块计算、单步梯度、累积训练三个层面揭示了SDC的特征和影响模式。
 
-**[Understanding the Dark Side of LLMs' Intrinsic Self-Correction](understanding_the_dark_side_of_llms_intrinsic_self-correction.md)**
-
-:   本文系统研究了 LLM 内在自我纠错（intrinsic self-correction）的失败现象，提出三种可解释性方法揭示失败原因——简单任务中的答案动摇和提示偏差、复杂任务中的类人认知偏差，并提出问题重复和少样本 SFT 两种简单有效的缓解策略。
-
 **[Understanding the Repeat Curse in Large Language Models from a Feature Perspective](understanding_the_repeat_curse_in_large_language_models_from_a_feature_perspecti.md)**
 
 :   从机制可解释性角度研究 LLM 重复生成问题（Repeat Curse），用 Sparse Autoencoder 提取单语义特征，定位中间层和最终层的"重复特征"，激活它们可诱导重复、关闭它们可缓解重复且不损害模型性能。
@@ -1542,10 +1564,6 @@ tags:
 **[Veracity Bias and Beyond: Uncovering LLMs' Hidden Beliefs in Problem-Solving Reasoning](veracity_bias_llm_hidden_beliefs.md)**
 
 :   揭示了 LLM 在推理任务中存在"真实性偏见"（Veracity Bias）——尽管显式对齐反对刻板印象，LLM 仍系统性地将正确答案归因于特定种族群体（归因偏差），并对相同解答因"作者"种族不同给出不同评价（评估偏差），在数学、编程、常识推理和写作任务中普遍存在。
-
-**[Many Heads Are Better Than One: Improved Scientific Idea Generation by A LLM-Based Multi-Agent System](virsci_multi_agent_idea_gen.md)**
-
-:   提出 VirSci 多 agent 系统，用真实科学家数据构建虚拟科研生态，通过 5 步协作流程和创新的组间+组内讨论机制生成科学 idea，在新颖性和潜在影响力上显著超越单 agent 系统。
 
 **[WarriorCoder: Learning from Expert Battles to Augment Code Large Language Models](warriorcoder_learning_from_expert_battles_to_augment_code_large_language_models.md)**
 

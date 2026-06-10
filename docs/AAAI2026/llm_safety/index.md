@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 LLM 安全方向42篇论文解读
+  AAAI2026 LLM安全论文汇总 · 41篇论文解读
 description: >-
-  42篇AAAI2026的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、联邦学习、多模态、持续学习、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  41篇AAAI2026的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、联邦学习、多模态、持续学习、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "AAAI2026"
   - "LLM 安全"
@@ -14,16 +14,78 @@ tags:
   - "多模态"
   - "持续学习"
   - "人脸/视线"
+item_list:
+  - u: "agentsense_virtual_sensor_data_generation_using_llm_agents_i/"
+    t: "AgentSense: Virtual Sensor Data Generation Using LLM Agents in Simulated Home Environments"
+  - u: "alter_asymmetric_lora_for_token-entropy-guided_unlearning_of/"
+    t: "ALTER: Asymmetric LoRA for Token-Entropy-Guided Unlearning of LLMs"
+  - u: "anti-adversarial_learning_desensitizing_prompts_for_large_la/"
+    t: "Anti-adversarial Learning: Desensitizing Prompts for Large Language Models"
+  - u: "attention_retention_for_continual_learning_with_vision_transformers/"
+    t: "Attention Retention for Continual Learning with Vision Transformers"
+  - u: "auvic_adversarial_unlearning_of_visual_concepts_for_multi-mo/"
+    t: "AUVIC: Adversarial Unlearning of Visual Concepts for Multi-modal Large Language Models"
+  - u: "badthink_triggered_overthinking_attacks_on_chain-of-thought_reasoning_in_large_l/"
+    t: "BadThink: Triggered Overthinking Attacks on Chain-of-Thought Reasoning in Large Language Models"
+  - u: "beyond_superficial_forgetting_thorough_unlearning_through_knowledge_density_esti/"
+    t: "Beyond Superficial Forgetting: Thorough Unlearning through Knowledge Density Estimation and Block Re-insertion"
+  - u: "can_editing_llms_inject_harm/"
+    t: "Can Editing LLMs Inject Harm?"
+  - u: "cross-modal_unlearning_via_influential_neuron_path_editing_i/"
+    t: "Cross-Modal Unlearning via Influential Neuron Path Editing in Multimodal Large Language Models"
+  - u: "democratizing_llm_efficiency_from_hyperscale_optimizations_to_universal_deployab/"
+    t: "Democratizing LLM Efficiency: From Hyperscale Optimizations to Universal Deployability"
+  - u: "designing_truthful_mechanisms_for_asymptotic_fair_division/"
+    t: "Designing Truthful Mechanisms for Asymptotic Fair Division"
+  - u: "fedalt_federated_fine-tuning_through_adaptive_local_training_with_rest-of-world_/"
+    t: "FedALT: Federated Fine-Tuning through Adaptive Local Training with Rest-of-World LoRA"
+  - u: "federated_clip_for_resource-efficient_heterogeneous_medical_image_classification/"
+    t: "Federated CLIP for Resource-Efficient Heterogeneous Medical Image Classification"
+  - u: "fedp2eft_federated_learning_to_personalize_peft_for_multilingual_llms/"
+    t: "FedP²EFT: Federated Learning to Personalize PEFT for Multilingual LLMs"
+  - u: "from_single_to_societal_analyzing_persona-induced_bias_in_multi-agent_interactio/"
+    t: "From Single to Societal: Analyzing Persona-Induced Bias in Multi-Agent Interactions"
+  - u: "gender_bias_in_emotion_recognition_by_large_language_models/"
+    t: "Gender Bias in Emotion Recognition by Large Language Models"
+  - u: "ghost_in_the_transformer_detecting_model_reuse_with_invariant_spectral_signature/"
+    t: "Ghost in the Transformer: Detecting Model Reuse with Invariant Spectral Signatures"
+  - u: "graphtextack_a_realistic_black-box_node_injection_attack_on_llm-enhanced_gnns/"
+    t: "GraphTextack: A Realistic Black-Box Node Injection Attack on LLM-Enhanced GNNs"
+  - u: "hallucination_stations_on_some_basic_limitations_of_transformer-based_language_m/"
+    t: "Hallucination Stations: On Some Basic Limitations of Transformer-Based Language Models"
+  - u: "invisible_triggers_visible_threats_road-style_adversarial_creation_attack_for_vi/"
+    t: "Invisible Triggers, Visible Threats! Road-Style Adversarial Creation Attack for Visual 3D Detection in Autonomous Driving"
+  - u: "iseal_encrypted_fingerprinting_for_reliable_llm_ownership_verification/"
+    t: "iSeal: Encrypted Fingerprinting for Reliable LLM Ownership Verification"
+  - u: "lamp_learning_universal_adversarial_perturbations_for_multi-image_tasks_via_pre-/"
+    t: "LAMP: Learning Universal Adversarial Perturbations for Multi-Image Tasks via Pre-trained Models"
+  - u: "learning_from_the_undesirable_robust_adaptation_of_language_models_without_forge/"
+    t: "Learning from the Undesirable: Robust Adaptation of Language Models without Forgetting"
+  - u: "llm_targeted_underperformance_disproportionately_impacts_vulnerable_users/"
+    t: "LLM Targeted Underperformance Disproportionately Impacts Vulnerable Users"
+  - u: "lost_in_translation_a_comparative_study_on_the_cross-lingual_transfer_of_composi/"
+    t: "Lost in Translation? A Comparative Study on the Cross-Lingual Transfer of Composite Harms"
+  - u: "multi-faceted_attack_exposing_cross-model_vulnerabilities_in_defense-equipped_vi/"
+    t: "Multi-Faceted Attack: Exposing Cross-Model Vulnerabilities in Defense-Equipped Vision-Language Models"
+  - u: "panda_--_patch_and_distribution-aware_augmentation_for_long-tailed_exemplar-free/"
+    t: "PANDA: Patch and Distribution-Aware Augmentation for Long-Tailed Exemplar-Free Continual Learning"
+  - u: "perturb_your_data_paraphrase-guided_training_data_watermarking/"
+    t: "Perturb Your Data: Paraphrase-Guided Training Data Watermarking"
+  - u: "principles2plan_llm-guided_system_for_operationalising_ethical_principles_into_p/"
+    t: "Principles2Plan: LLM-Guided System for Operationalising Ethical Principles into Plans"
+  - u: "prism_privacy-aware_routing_for_adaptive_cloud-edge_llm_inference_via_semantic_s/"
+    t: "PRISM: Privacy-Aware Routing for Adaptive Cloud-Edge LLM Inference via Semantic Sketch Collaboration"
+item_total: 41
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM 安全
 
-**🤖 AAAI2026** · **42** 篇论文解读
+**🤖 AAAI2026** · **41** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
 
-🔥 **高频主题：** LLM ×19 · 对抗鲁棒 ×8 · 联邦学习 ×4 · 多模态 ×3 · 持续学习 ×2
+🔥 **高频主题：** LLM ×18 · 对抗鲁棒 ×8 · 联邦学习 ×4 · 多模态 ×3 · 持续学习 ×2
 
 **[AgentSense: Virtual Sensor Data Generation Using LLM Agents in Simulated Home Environments](agentsense_virtual_sensor_data_generation_using_llm_agents_i.md)**
 
@@ -32,10 +94,6 @@ tags:
 **[ALTER: Asymmetric LoRA for Token-Entropy-Guided Unlearning of LLMs](alter_asymmetric_lora_for_token-entropy-guided_unlearning_of.md)**
 
 :   提出ALTER框架，利用非对称LoRA架构结合Token级别的Tsallis熵引导，实现LLM中目标知识的精准遗忘，同时通过参数隔离机制保留模型基础能力，在TOFU、WMDP和MUSE三个基准上达到SOTA。
-
-**[An LLM-Based Simulation Framework for Embodied Conversational Agents in Psychological Counseling](an_llm-based_simulation_framework_for_embodied_conversationa.md)**
-
-:   提出 ECAs 框架，基于认知行为治疗(CBT)等心理学理论，利用 LLM 将真实咨询案例扩展为具身认知记忆空间，模拟心理咨询中来访者的完整认知过程，生成高保真度的咨询对话数据，在专家评估和自动评估中均显著优于基线。
 
 **[Anti-adversarial Learning: Desensitizing Prompts for Large Language Models](anti-adversarial_learning_desensitizing_prompts_for_large_la.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 目标检测方向38篇论文解读
+  CVPR2025 目标检测论文汇总 · 37篇论文解读
 description: >-
-  38篇CVPR2025的目标检测方向论文解读，涵盖异常检测、目标检测、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  37篇CVPR2025的目标检测方向论文解读，涵盖异常检测、目标检测、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2025"
   - "目标检测"
@@ -11,16 +11,78 @@ tags:
   - "异常检测"
   - "少样本学习"
   - "扩散模型"
+item_list:
+  - u: "aa-clip_enhancing_zero-shot_anomaly_detection_via_anomaly-aware_clip/"
+    t: "AA-CLIP: Enhancing Zero-Shot Anomaly Detection via Anomaly-Aware CLIP"
+  - u: "abra_teleporting_fine-tuned_knowledge_across_domains_for_open-vocabulary_object_/"
+    t: "ABRA: Teleporting Fine-Tuned Knowledge Across Domains for Open-Vocabulary Object Detection"
+  - u: "anomalyncd_towards_novel_anomaly_class_discovery_in_industrial_scenarios/"
+    t: "AnomalyNCD: Towards Novel Anomaly Class Discovery in Industrial Scenarios"
+  - u: "bacon_improving_clarity_of_image_captions_via_bag-of-concept_graphs/"
+    t: "BACON: Improving Clarity of Image Captions via Bag-of-Concept Graphs"
+  - u: "boosting_domain_incremental_learning_selecting_the_optimal_parameters_is_all_you/"
+    t: "Boosting Domain Incremental Learning: Selecting the Optimal Parameters Is All You Need"
+  - u: "deim_detr_with_improved_matching_for_fast_convergence/"
+    t: "DEIM: DETR with Improved Matching for Fast Convergence"
+  - u: "distribution_prototype_diffusion_learning_for_open-set_supervised_anomaly_detect/"
+    t: "Distribution Prototype Diffusion Learning for Open-set Supervised Anomaly Detection"
+  - u: "efficient_event-based_object_detection_a_hybrid_neural_network_with_spatial_and_/"
+    t: "Efficient Event-Based Object Detection: A Hybrid Neural Network with Spatial and Temporal Attention"
+  - u: "efficient_test-time_adaptive_object_detection_via_sensitivity-guided_pruning/"
+    t: "Efficient Test-Time Adaptive Object Detection via Sensitivity-Guided Pruning"
+  - u: "generalized_diffusion_detector_mining_robust_features_from_diffusion_models_for_/"
+    t: "Generalized Diffusion Detector: Mining Robust Features from Diffusion Models for Domain-Generalized Detection"
+  - u: "integration_of_deep_generative_anomaly_detection_algorithm_in_high-speed_industr/"
+    t: "Integration of deep generative Anomaly Detection algorithm in high-speed industrial line"
+  - u: "interpreting_object-level_foundation_models_via_visual_precision_search/"
+    t: "Interpreting Object-level Foundation Models via Visual Precision Search"
+  - u: "large_self-supervised_models_bridge_the_gap_in_domain_adaptive_object_detection/"
+    t: "Large Self-Supervised Models Bridge the Gap in Domain Adaptive Object Detection"
+  - u: "mi-detr_an_object_detection_model_with_multi-time_inquiries_mechanism/"
+    t: "MI-DETR: An Object Detection Model with Multi-time Inquiries Mechanism"
+  - u: "mr_detr_instructive_multi-route_training_for_detection_transformers/"
+    t: "Mr. DETR++: Instructive Multi-Route Training for Detection Transformers with MoE"
+  - u: "mulsen_ad_multi_sensor_anomaly_detection/"
+    t: "MulSen-AD: Multi-Sensor Object Anomaly Detection"
+  - u: "multiple_object_tracking_as_id_prediction/"
+    t: "Multiple Object Tracking as ID Prediction"
+  - u: "object_detection_using_event_camera_a_moe_heat_conduction_based_detector_and_a_n/"
+    t: "Object Detection using Event Camera: A MoE Heat Conduction based Detector and A New Benchmark Dataset"
+  - u: "odd-one-out_anomaly_detection_by_comparing_with_neighbors/"
+    t: "Odd-One-Out: Anomaly Detection by Comparing with Neighbors"
+  - u: "one-for-more_continual_diffusion_model_for_anomaly_detection/"
+    t: "One-for-More: Continual Diffusion Model for Anomaly Detection"
+  - u: "po3ad_predicting_point_offsets_toward_better_3d_point_cloud_anomaly_detection/"
+    t: "PO3AD: Predicting Point Offsets toward Better 3D Point Cloud Anomaly Detection"
+  - u: "probpose_a_probabilistic_approach_to_2d_human_pose_estimation/"
+    t: "ProbPose: A Probabilistic Approach to 2D Human Pose Estimation"
+  - u: "roictrl_boosting_instance_control_for_visual_generation/"
+    t: "ROICtrl: Boosting Instance Control for Visual Generation"
+  - u: "rsar_restricted_state_angle_resolver_and_rotated_sar_benchmark/"
+    t: "RSAR: Restricted State Angle Resolver and Rotated SAR Benchmark"
+  - u: "search_and_detect_training-free_long_tail_object_detection_via_web-image_retriev/"
+    t: "Search and Detect: Training-Free Long Tail Object Detection via Web-Image Retrieval"
+  - u: "show_dont_tell_detecting_novel_objects_by_watching_human_videos/"
+    t: "Show, Don't Tell: Detecting Novel Objects by Watching Human Videos"
+  - u: "simltd_simple_supervised_and_semi-supervised_long-tailed_object_detection/"
+    t: "SimLTD: Simple Supervised and Semi-Supervised Long-Tailed Object Detection"
+  - u: "small_target_detection_based_on_mask-enhanced_attention_fusion_of_visible_and_in/"
+    t: "Small Target Detection Based on Mask-Enhanced Attention Fusion of Visible and Infrared Remote Sensing Images"
+  - u: "t2icount_enhancing_cross-modal_understanding_for_zero-shot_counting/"
+    t: "T2ICount: Enhancing Cross-modal Understanding for Zero-Shot Counting"
+  - u: "tailedcore_few-shot_sampling_for_unsupervised_long-tail_noisy_anomaly_detection/"
+    t: "TailedCore: Few-Shot Sampling for Unsupervised Long-Tail Noisy Anomaly Detection"
+item_total: 37
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**📷 CVPR2025** · **38** 篇论文解读
+**📷 CVPR2025** · **37** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md)
 
-🔥 **高频主题：** 异常检测 ×11 · 目标检测 ×10 · 少样本学习 ×5 · 扩散模型 ×3
+🔥 **高频主题：** 异常检测 ×10 · 目标检测 ×10 · 少样本学习 ×5 · 扩散模型 ×3
 
 **[AA-CLIP: Enhancing Zero-Shot Anomaly Detection via Anomaly-Aware CLIP](aa-clip_enhancing_zero-shot_anomaly_detection_via_anomaly-aware_clip.md)**
 
@@ -85,10 +147,6 @@ tags:
 **[MulSen-AD: Multi-Sensor Object Anomaly Detection](mulsen_ad_multi_sensor_anomaly_detection.md)**
 
 :   提出首个多传感器异常检测数据集 MulSen-AD，整合 RGB 相机、红外热成像和激光扫描三种模态，以及基线方法 MulSen-TripleAD，通过决策级融合实现 96.1% AUROC 的物体级异常检测。
-
-**[Multi-Sensor Object Anomaly Detection: Unifying Appearance, Geometry, and Internal Properties](multi-sensor_object_anomaly_detection_unifying_appearance_geometry_and_internal_.md)**
-
-:   提出 MulSen-AD，首个融合 RGB 相机、激光扫描仪和红外热成像三种传感器的工业物体异常检测数据集（15 类产品、14 种异常），并设计 MulSen-TripleAD 决策级融合基线方法，实现 96.1% AUROC，证明多传感器融合显著优于单传感器方法。
 
 **[Multiple Object Tracking as ID Prediction](multiple_object_tracking_as_id_prediction.md)**
 

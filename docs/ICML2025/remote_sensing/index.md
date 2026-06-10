@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 遥感方向7篇论文解读
+  ICML2025 遥感论文汇总 · 7篇论文解读
 description: >-
   7篇ICML2025的遥感方向论文解读，涵盖多模态、推理、自监督学习、时序预测、遥感等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,22 @@ tags:
   - "推理"
   - "自监督学习"
   - "时序预测"
+item_list:
+  - u: "causal_foundation_models_disentangling_physics_from_instrument_properties/"
+    t: "Causal Foundation Models: Disentangling Physics from Instrument Properties"
+  - u: "explora_parameter-efficient_extended_pre-training_to_adapt_vision_transformers_u/"
+    t: "ExPLoRA: Parameter-Efficient Extended Pre-Training to Adapt Vision Transformers under Domain Shifts"
+  - u: "high-resolution_live_fuel_moisture_content_lfmc_maps_for_wildfire_risk_from_mult/"
+    t: "High-Resolution Live Fuel Moisture Content (LFMC) Maps for Wildfire Risk from Multimodal Earth Observation Data"
+  - u: "lighthouse_fast_and_precise_distance_to_shoreline_calculations_from_anywhere_on_/"
+    t: "LIGHTHOUSE: Fast and Precise Distance to Shoreline Calculations from Anywhere on Earth"
+  - u: "mapeval_a_map-based_evaluation_of_geo-spatial_reasoning_in_foundation_models/"
+    t: "MapEval: A Map-Based Evaluation of Geo-Spatial Reasoning in Foundation Models"
+  - u: "neural_augmented_kalman_filters_for_road_network_assisted_gnss_positioning/"
+    t: "Neural Augmented Kalman Filters for Road Network Assisted GNSS Positioning"
+  - u: "resampling_augmentation_for_time_series_contrastive_learning_application_to_remo/"
+    t: "Resampling Augmentation for Time Series Contrastive Learning: Application to Remote Sensing"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

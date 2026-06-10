@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 时间序列方向21篇论文解读
+  ICML2025 时间序列论文汇总 · 21篇论文解读
 description: >-
   21篇ICML2025的时间序列方向论文解读，涵盖时序预测、个性化生成、LLM、情感分析、医学影像、图神经网络等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,50 @@ tags:
   - "情感分析"
   - "医学影像"
   - "图神经网络"
+item_list:
+  - u: "a_generalizable_physics-enhanced_state_space_model_for_long-term_dynamics_foreca/"
+    t: "A Generalizable Physics-Enhanced State Space Model for Long-Term Dynamics Forecasting in Complex Environments"
+  - u: "are_llms_prescient_a_continuous_evaluation_using_daily_news_as_the_oracle/"
+    t: "Are LLMs Prescient? A Continuous Evaluation using Daily News as the Oracle"
+  - u: "causal_discovery_from_conditionally_stationary_time_series/"
+    t: "Causal Discovery from Conditionally Stationary Time Series"
+  - u: "channel_normalization_for_time_series_channel_identification/"
+    t: "Channel Normalization for Time Series Channel Identification"
+  - u: "customizing_the_inductive_biases_of_softmax_attention_using_structured_matrices/"
+    t: "Customizing the Inductive Biases of Softmax Attention using Structured Matrices"
+  - u: "event-aware_sentiment_factors_from_llm-augmented_financial_tweets_a_transparent_/"
+    t: "Event-Aware Sentiment Factors from LLM-Augmented Financial Tweets: A Transparent Framework for Interpretable Quant Trading"
+  - u: "foundation_models_for_clinical_records_at_health_system_scale/"
+    t: "Foundation Models for Clinical Records at Health System Scale"
+  - u: "hyperimts_hypergraph_neural_network_for_irregular_multivariate_time_series_forec/"
+    t: "HyperIMTS: Hypergraph Neural Network for Irregular Multivariate Time Series Forecasting"
+  - u: "imts_is_worth_time_times_channel_patches_visual_masked_autoencoders_for_irregula/"
+    t: "IMTS is Worth Time × Channel Patches: Visual Masked Autoencoders for Irregular Multivariate Time Series Prediction"
+  - u: "learning_soft_sparse_shapes_for_efficient_time-series_classification/"
+    t: "Learning Soft Sparse Shapes for Efficient Time-Series Classification"
+  - u: "lyapunov_learning_at_the_onset_of_chaos/"
+    t: "Lyapunov Learning at the Onset of Chaos"
+  - u: "risk_and_cross_validation_in_ridge_regression_with_correlated_samples/"
+    t: "Risk and Cross Validation in Ridge Regression with Correlated Samples"
+  - u: "tcp-diffusion_a_multi-modal_diffusion_model_for_global_tropical_cyclone_precipit/"
+    t: "TCP-Diffusion: A Multi-modal Diffusion Model for Global Tropical Cyclone Precipitation Forecasting with Change Awareness"
+  - u: "temporal_query_network_for_efficient_multivariate_time_series_forecasting/"
+    t: "TQNet: Temporal Query Network for Efficient Multivariate Time Series Forecasting"
+  - u: "timepoint_accelerated_time_series_alignment_via_self-supervised_keypoint_and_des/"
+    t: "TimePoint: Accelerated Time Series Alignment via Self-Supervised Keypoint and Descriptor Learning"
+  - u: "timepro_efficient_multivariate_long-term_time_series_forecasting_with_variable-_/"
+    t: "TimePro: Efficient Multivariate Long-term Time Series Forecasting with Variable- and Time-Aware Hyper-state"
+  - u: "transpl_vq-code_transition_matrices_for_pseudo-labeling_of_time_series_unsupervi/"
+    t: "TransPL: VQ-Code Transition Matrices for Pseudo-Labeling of Time Series Unsupervised Domain Adaptation"
+  - u: "understanding_the_limits_of_deep_tabular_methods_with_temporal_shift/"
+    t: "Understanding the Limits of Deep Tabular Methods with Temporal Shift"
+  - u: "visionts_visual_masked_autoencoders_are_free-lunch_zero-shot_time_series_forecas/"
+    t: "VisionTS: Visual Masked Autoencoders Are Free-Lunch Zero-Shot Time Series Forecasters"
+  - u: "wave_weighted_autoregressive_varying_gate_for_time_series_forecasting/"
+    t: "WAVE: Weighted Autoregressive Varying Gate for Time Series Forecasting"
+  - u: "winner-takes-all_for_multivariate_probabilistic_time_series_forecasting/"
+    t: "Winner-takes-all for Multivariate Probabilistic Time Series Forecasting"
+item_total: 21
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +65,7 @@ tags:
 
 **🧪 ICML2025** · **21** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (36)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/time_series/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/time_series/index.md)
 
 🔥 **高频主题：** 时序预测 ×14
 

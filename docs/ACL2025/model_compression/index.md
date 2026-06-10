@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 模型压缩方向67篇论文解读
+  ACL2025 模型压缩论文汇总 · 63篇论文解读
 description: >-
-  67篇ACL2025的模型压缩方向论文解读，涵盖模型压缩、LLM、压缩/编码、知识蒸馏、Agent、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  63篇ACL2025的模型压缩方向论文解读，涵盖模型压缩、LLM、压缩/编码、知识蒸馏、对抗鲁棒、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "模型压缩"
@@ -11,18 +11,80 @@ tags:
   - "LLM"
   - "压缩/编码"
   - "知识蒸馏"
-  - "Agent"
   - "对抗鲁棒"
+  - "对齐/RLHF"
+item_list:
+  - u: "500xcompressor_generalized_prompt_compression_for_large_language_models/"
+    t: "500xCompressor: Generalized Prompt Compression for Large Language Models"
+  - u: "accurate_kv_cache_quantization_with_outlier_tokens_tracing/"
+    t: "Accurate KV Cache Quantization with Outlier Tokens Tracing"
+  - u: "aligndistil_token_level_alignment/"
+    t: "AlignDistil: Token-Level Language Model Alignment as Adaptive Policy Distillation"
+  - u: "apb_distributed_long_context/"
+    t: "APB: Accelerating Distributed Long-Context Inference by Passing Compressed Context Blocks across GPUs"
+  - u: "assigning_distinct_roles_to_quantized_and_low-rank_matrices_toward_optimal_weigh/"
+    t: "Assigning Distinct Roles to Quantized and Low-Rank Matrices Toward Optimal Weight Decomposition"
+  - u: "basic_reading_distillation/"
+    t: "Basic Reading Distillation"
+  - u: "beamlora_beam_constraint_lora/"
+    t: "BeamLoRA: Beam-Constraint Low-Rank Adaptation"
+  - u: "beyond_logits_aligning_feature_dynamics_for_effective_knowledge_distillation/"
+    t: "Beyond Logits: Aligning Feature Dynamics for Effective Knowledge Distillation"
+  - u: "beyond_text_compression_tokenizers/"
+    t: "Beyond Text Compression: Evaluating Tokenizers Across Scales"
+  - u: "bf16_or_death_quantization_tradeoffs/"
+    t: "\"Give Me BF16 or Give Me Death\"? Accuracy-Performance Trade-Offs in LLM Quantization"
+  - u: "blockpruner_fine-grained_pruning_for_large_language_models/"
+    t: "BlockPruner: Fine-grained Pruning for Large Language Models"
+  - u: "brainecho_semantic_brain_signal_decoding_through_vector-quantized_spectrogram_re/"
+    t: "BrainECHO: Semantic Brain Signal Decoding through Vector-Quantized Spectrogram Reconstruction for Whisper-Enhanced Text Generation"
+  - u: "cami_a_counselor_agent_supporting_motivational_interviewing_through_state_infere/"
+    t: "CAMI: A Counselor Agent Supporting Motivational Interviewing through State Inference and Topic Exploration"
+  - u: "capture_key_cot_distillation/"
+    t: "Capture the Key in Reasoning to Enhance CoT Distillation Generalization"
+  - u: "cfsp_an_efficient_structured_pruning_framework_for_llms_with_coarse-to-fine_acti/"
+    t: "CFSP: An Efficient Structured Pruning Framework for LLMs with Coarse-to-Fine Activation Information"
+  - u: "claimpkg_enhancing_claim_verification_via_pseudo-subgraph_generation_with_lightw/"
+    t: "ClaimPKG: Enhancing Claim Verification via Pseudo-Subgraph Generation with Lightweight Specialized LLM"
+  - u: "compact_and_compressible_representations_for_llms_using_structured_sparse_decom/"
+    t: "Compact and Compressible Representations for LLMs Using Structured Sparse Decomposition"
+  - u: "compression_in_transformer_language_models_has_a_surprising_relationship_with_pe/"
+    t: "Compression in Transformer Language Models Has a Surprising Relationship with Performance"
+  - u: "dac_prompt_compression/"
+    t: "DAC: A Dynamic Attention-aware Approach for Task-Agnostic Prompt Compression"
+  - u: "data_laundering_artificially_boosting_benchmark_results_through_knowledge_distil/"
+    t: "Data Laundering: Artificially Boosting Benchmark Results through Knowledge Distillation"
+  - u: "deepsolution_boosting_complex_engineering_solution_design_via_tree-based_explora/"
+    t: "DeepSolution: Boosting Complex Engineering Solution Design via Tree-based Exploration and Bi-point Thinking"
+  - u: "direct_behavior_optimization_unlocking_the_potential_of_lightweight_llms/"
+    t: "Direct Behavior Optimization: Unlocking the Potential of Lightweight LLMs"
+  - u: "disentangling_the_roles_of_representation_and_selection_in_data_pruning/"
+    t: "Disentangling the Roles of Representation and Selection in Data Pruning"
+  - u: "drpruning_robust_pruning/"
+    t: "DRPruning: Efficient Large Language Model Pruning through Distributionally Robust Optimization"
+  - u: "efficient_long_context_language_model_retrieval_with_compression/"
+    t: "Efficient Long Context Language Model Retrieval with Compression"
+  - u: "efficientqat/"
+    t: "EfficientQAT: Efficient Quantization-Aware Training for Large Language Models"
+  - u: "explaining_puzzle_solutions_in_natural_language_an_exploratory_study_on_6x6_sudo/"
+    t: "Explaining Puzzle Solutions in Natural Language: An Exploratory Study on 6×6 Sudoku"
+  - u: "fedex_lora_federated_exact_aggregation/"
+    t: "FedEx-LoRA: Exact Aggregation for Federated and Efficient Fine-Tuning of Large Language Models"
+  - u: "flipping_kd_small_to_large/"
+    t: "Flipping Knowledge Distillation: Leveraging Small Models' Expertise to Enhance LLMs in Text Matching"
+  - u: "gist_token_context_compression/"
+    t: "A Silver Bullet or a Compromise for Full Attention? A Comprehensive Study of Gist Token-based Context Compression"
+item_total: 63
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**💬 ACL2025** · **67** 篇论文解读
+**💬 ACL2025** · **63** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (54)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (100)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (61)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (99)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (60)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md)
 
-🔥 **高频主题：** 模型压缩 ×20 · LLM ×19 · 压缩/编码 ×15 · 知识蒸馏 ×4 · Agent ×3
+🔥 **高频主题：** 模型压缩 ×19 · LLM ×18 · 压缩/编码 ×14 · 知识蒸馏 ×4 · 对抗鲁棒 ×3
 
 **[500xCompressor: Generalized Prompt Compression for Large Language Models](500xcompressor_generalized_prompt_compression_for_large_language_models.md)**
 
@@ -120,10 +182,6 @@ tags:
 
 :   DRPruning 将分布稳健优化（DRO）引入 LLM 结构化剪枝，通过 scaling law 预测各领域最终 loss 作为参考、动态调整训练数据分布来平衡剪枝后各领域性能，在单语和多语设置下分别以 -5.59% PPL 和 +2.95% 下游任务的提升超越 Sheared LLaMA。
 
-**[EAC-MoE: Expert-Selection Aware Compressor for Mixture-of-Experts Large Language Models](eac_moe_expert_aware_compression.md)**
-
-:   EAC-MoE 深入分析 MoE 模型的专家选择特性，提出两个互补模块——量化时通过逐层校准路由器缓解 expert-shift 问题（QESC），推理时基于专家选择频率动态剪枝不重要专家（PESF），在 4 个 MoE 模型上实现显著的内存压缩和推理加速且精度损失极小。
-
 **[Efficient Long Context Language Model Retrieval with Compression](efficient_long_context_language_model_retrieval_with_compression.md)**
 
 :   提出 CoLoR（Compression for Long context Retrieval），通过偏好优化和长度正则化联合训练段落压缩模型，在保持长上下文语言模型检索性能提升 6% 的同时将上下文长度压缩 1.91 倍。
@@ -176,17 +234,9 @@ tags:
 
 :   本文将 adapter souping（权重平均）与交叉注意力微调结合用于低资源克里奥尔语机器翻译，发现虽然方法带来了显著提升（最高 +8 BLEU），但语言关联性与 adapter 性能无有意义的协变关系——随机初始化的未训练 adapter 表现同样优秀，表明 adapter 在此设定下的作用本质是**参数正则化而非语言信息迁移**。
 
-**[LLMSR@XLLM25: Less is More: Enhancing Structured Multi-Agent Reasoning via Quality-Guided Distillation](llmsrxllm25_less_is_more_enhancing_structured_multi-agent_reasoning_via_quality-.md)**
-
-:   本文提出 Less is More 框架，在仅有 24 个标注样本的极端低资源条件下，通过逆向提示归纳、GPT-4o 增强的检索式推理合成和双阶段奖励引导过滤三个阶段，蒸馏出高质量的结构化推理数据来微调 LLaMA3-8B 多智能体系统，在 XLLM@ACL2025 共享任务中获得第三名。
-
 **[LongReD: Mitigating Short-Text Degradation of Long-Context Large Language Models via Restoration Distillation](longred_mitigating_short-text_degradation_of_long-context_large_language_models_.md)**
 
 :   本文系统分析了长上下文LLM在短文本任务上性能退化的两个原因（分布漂移和灾难性遗忘），并提出LongReD方法，通过短文本蒸馏和短到长蒸馏两个训练目标来最小化扩展模型与原始模型之间的分布差异，在保持长文本建模能力的同时将短文本性能保留至原始模型的99.4%。
-
-**[Magnet: Multi-turn Tool-use Data Synthesis and Distillation via Graph Translation](magnet_multi-turn_tool-use_data_synthesis_and_distillation_via_graph_translation.md)**
-
-:   提出 Magnet 框架，基于函数依赖图的随机游走和节点操作（Insert/Merge/Split）构建高质量多轮 Function Calling 训练轨迹，结合基于提示的上下文蒸馏生成正负对比轨迹进行 SFT + mDPO 训练，使 14B 模型 Magnet-14B-mDPO 在 BFCL-v3 上达到 68.01（排名第 4），在多轮场景上大幅超越教师模型 Gemini-1.5-pro-002。
 
 **[MoQAE: Mixed-Precision Quantization for Long-Context LLM Inference via Mixture of Quantization-Aware Experts](moqae_mixed_precision_kv_cache.md)**
 
@@ -257,10 +307,6 @@ tags:
 **[State-offset Tuning: State-based Parameter-Efficient Fine-Tuning for State Space Models](state_offset_tuning_ssm_peft.md)**
 
 :   针对 SSM（如 Mamba）提出 State-offset Tuning，一种新的"状态基"PEFT 方法家族，通过在每个时间步直接注入可训练的状态偏移量 $h'$ 替代 Prefix-Tuning 的虚拟 token，解决了 prompt-based 方法在 SSM 上表达能力受限的问题，在更少参数量下持续优于 LoRA 和 Prefix-Tuning。
-
-**[STUN: Structured-Then-Unstructured Pruning for Scalable MoE Pruning](stun_moe_pruning.md)**
-
-:   STUN 提出"先结构化后非结构化"的两阶段 MoE 剪枝范式：第一阶段利用路由权重的行为相似性聚类冗余专家，以 $O(1)$ GPU 前向传播完成专家级剪枝；第二阶段在剩余专家内做非结构化权重剪枝，两者协同在 480B Snowflake Arctic 上以 40% 稀疏度几乎无性能损失。
 
 **[TaDA: Training-free recipe for Decoding with Adaptive KV Cache Compression and Mean-centering](tada_training-free_recipe_for_decoding_with_adaptive_kv_cache_compression_and_me.md)**
 

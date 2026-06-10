@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 遥感方向11篇论文解读
+  ICCV2025 遥感论文汇总 · 11篇论文解读
 description: >-
   11篇ICCV2025的遥感方向论文解读，涵盖遥感、对抗鲁棒、导航、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,30 @@ tags:
   - "对抗鲁棒"
   - "导航"
   - "对齐/RLHF"
+item_list:
+  - u: "astroloc_robust_space_to_ground_image_localizer/"
+    t: "AstroLoc: Robust Space to Ground Image Localizer"
+  - u: "citynav_a_large-scale_dataset_for_real-world_aerial_navigation/"
+    t: "CityNav: A Large-Scale Dataset for Real-World Aerial Navigation"
+  - u: "geodistill_geometry-guided_self-distillation_for_weakly_supervised_cross-view_lo/"
+    t: "GeoDistill: Geometry-Guided Self-Distillation for Weakly Supervised Cross-View Localization"
+  - u: "geoexplorer_active_geo-localization_with_curiosity-driven_exploration/"
+    t: "GeoExplorer: Active Geo-Localization with Curiosity-Driven Exploration"
+  - u: "information-bottleneck_driven_binary_neural_network_for_change_detection/"
+    t: "Information-Bottleneck Driven Binary Neural Network for Change Detection"
+  - u: "pan-crafter_learning_modality-consistent_alignment_for_pan-sharpening/"
+    t: "Pan-Crafter: Learning Modality-Consistent Alignment for Pan-Sharpening"
+  - u: "rs-vheat_heat_conduction_guided_efficient_remote_sensing_foundation_model/"
+    t: "RS-vHeat: Heat Conduction Guided Efficient Remote Sensing Foundation Model"
+  - u: "skysense_v2_a_unified_foundation_model_for_multi-modal_remote_sensing/"
+    t: "SkySense V2: A Unified Foundation Model for Multi-Modal Remote Sensing"
+  - u: "smarties_spectrum-aware_multi-sensor_auto-encoder_for_remote_sensing_images/"
+    t: "SMARTIES: Spectrum-Aware Multi-Sensor Auto-Encoder for Remote Sensing Images"
+  - u: "towards_a_unified_copernicus_foundation_model_for_earth_vision/"
+    t: "Towards a Unified Copernicus Foundation Model for Earth Vision"
+  - u: "wildsat_learning_satellite_image_representations_from_wildlife_observations/"
+    t: "WildSAT: Learning Satellite Image Representations from Wildlife Observations"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

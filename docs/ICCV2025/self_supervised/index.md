@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 自监督/表示学习方向11篇论文解读
+  ICCV2025 自监督/表示学习论文汇总 · 11篇论文解读
 description: >-
   11篇ICCV2025的自监督/表示学习方向论文解读，涵盖少样本学习、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,30 @@ tags:
   - "论文笔记"
   - "少样本学习"
   - "自监督学习"
+item_list:
+  - u: "a_tokenlevel_text_image_foundation_model_for_document_unders/"
+    t: "A Token-level Text Image Foundation Model for Document Understanding (TokenFD/TokenVL)"
+  - u: "always_skip_attention/"
+    t: "Always Skip Attention"
+  - u: "cobl_toward_zero-shot_ordinal_layering_without_user_prompting/"
+    t: "CObL: Toward Zero-Shot Ordinal Layering without User Prompting"
+  - u: "from_linearity_to_non-linearity_how_masked_autoencoders_capture_spatial_correlat/"
+    t: "From Linearity to Non-Linearity: How Masked Autoencoders Capture Spatial Correlations"
+  - u: "improving_large_vision_and_language_models_by_learning_from_a_panel_of_peers/"
+    t: "Improving Large Vision and Language Models by Learning from a Panel of Peers"
+  - u: "loftup_learning_a_coordinatebased_feature_upsampler_for_visi/"
+    t: "LoftUp: Learning a Coordinate-Based Feature Upsampler for Vision Foundation Models"
+  - u: "manual-pa_learning_3d_part_assembly_from_instruction_diagrams/"
+    t: "Manual-PA: Learning 3D Part Assembly from Instruction Diagrams"
+  - u: "mosic_optimal-transport_motion_trajectory_for_dense_self-supervised_learning/"
+    t: "MoSiC: Optimal-Transport Motion Trajectory for Dense Self-Supervised Learning"
+  - u: "scaling_languagefree_visual_representation_learning/"
+    t: "Scaling Language-Free Visual Representation Learning"
+  - u: "to_label_or_not_to_label_palm_-_a_predictive_model_for_evaluating_sample_efficie/"
+    t: "To Label or Not to Label: PALM – A Predictive Model for Evaluating Sample Efficiency in Active Learning Models"
+  - u: "wir3d_visually-informed_and_geometry-aware_3d_shape_abstraction/"
+    t: "WIR3D: Visually-Informed and Geometry-Aware 3D Shape Abstraction"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +41,7 @@ tags:
 
 **📹 ICCV2025** · **11** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (34)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (32)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (34)](../../NeurIPS2025/self_supervised/index.md)
 
 **[A Token-level Text Image Foundation Model for Document Understanding (TokenFD/TokenVL)](a_tokenlevel_text_image_foundation_model_for_document_unders.md)**
 

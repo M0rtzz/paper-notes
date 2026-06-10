@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 图像恢复方向15篇论文解读
+  ICLR2026 图像恢复论文汇总 · 15篇论文解读
 description: >-
   15篇ICLR2026的图像恢复方向论文解读，涵盖扩散模型、图像恢复、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,38 @@ tags:
   - "论文笔记"
   - "扩散模型"
   - "语音"
+item_list:
+  - u: "activation_steering_for_masked_diffusion_language_models/"
+    t: "Activation Steering for Masked Diffusion Language Models"
+  - u: "are_deep_speech_denoising_models_robust_to_adversarial_noise/"
+    t: "Are Deep Speech Denoising Models Robust to Adversarial Noise?"
+  - u: "beyond_scattered_acceptance_fast_and_coherent_inference_for_dlms_via_longest_sta/"
+    t: "Beyond Scattered Acceptance: Fast and Coherent Inference for DLMs via Longest Stable Prefixes"
+  - u: "breaking_scale_anchoring_frequency_representation_learning_for_accurate_high-res/"
+    t: "Breaking Scale Anchoring: Frequency Representation Learning for Accurate High-Resolution Inference from Low-Resolution Training"
+  - u: "diffusionblocks_block-wise_neural_network_training_via_diffusion_interpretation/"
+    t: "DiffusionBlocks: Block-wise Neural Network Training via Diffusion Interpretation"
+  - u: "generalizing_linear_autoencoder_recommenders_with_decoupled_expec/"
+    t: "Generalizing Linear Autoencoder Recommenders with Decoupled Expected Quadratic Loss"
+  - u: "horizon_imagination_efficient_on-policy_rollout_in_diffusion_world_models/"
+    t: "Horizon Imagination: Efficient On-Policy Rollout in Diffusion World Models"
+  - u: "interacthuman_multi-concept_human_animation_with_layout-aligned_audio_conditions/"
+    t: "InterActHuman: Multi-Concept Human Animation with Layout-Aligned Audio Conditions"
+  - u: "learning_domain-aware_task_prompt_representations_for_multi-domain_all-in-one_im/"
+    t: "Learning Domain-Aware Task Prompt Representations for Multi-Domain All-in-One Image Restoration"
+  - u: "mechanism_of_task-oriented_information_removal_in_in-context_learning/"
+    t: "Mechanism of Task-oriented Information Removal in In-context Learning"
+  - u: "protots_learning_hierarchical_prototypes_for_explainable_time_series_forecasting/"
+    t: "ProtoTS: Learning Hierarchical Prototypes for Explainable Time Series Forecasting"
+  - u: "sharpness-aware_machine_unlearning/"
+    t: "Sharpness-Aware Machine Unlearning"
+  - u: "skip_to_the_good_part_representation_structure_inference-time_layer_skipping_in_/"
+    t: "Skip to the Good Part: Representation Structure & Inference-Time Layer Skipping in Diffusion vs. Autoregressive LLMs"
+  - u: "soflow_solution_flow_models_for_one-step_generative_modeling/"
+    t: "SoFlow: Solution Flow Models for One-Step Generative Modeling"
+  - u: "trust_but_verify_adaptive_conditioning_for_reference-based_diffusion_super-resol/"
+    t: "Trust but Verify: Adaptive Conditioning for Reference-Based Diffusion Super-Resolution"
+item_total: 15
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

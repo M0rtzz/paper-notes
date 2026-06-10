@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 可解释性方向63篇论文解读
+  ACL2026 可解释性论文汇总 · 63篇论文解读
 description: >-
   63篇ACL2026的可解释性方向论文解读，涵盖 LLM、推理、布局/合成、对齐/RLHF、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "布局/合成"
   - "对齐/RLHF"
   - "多模态"
+item_list:
+  - u: "a_structured_clustering_approach_for_inducing_media_narratives/"
+    t: "A Structured Clustering Approach for Inducing Media Narratives"
+  - u: "a_systematic_comparison_between_extractive_self-explanations_and_human_rationale/"
+    t: "A Systematic Comparison between Extractive Self-Explanations and Human Rationales in Text Classification"
+  - u: "adaptivek_complexity-driven_sparse_autoencoders_for_interpretable_language_model/"
+    t: "AdaptiveK: Complexity-Driven Sparse Autoencoders for Interpretable Language Model Representations"
+  - u: "aligning_what_llms_do_and_say_towards_self-consistent_explanations/"
+    t: "Aligning What LLMs Do and Say: Towards Self-Consistent Explanations"
+  - u: "compositional_steering_of_large_language_models_with_steering_tokens/"
+    t: "Compositional Steering of Large Language Models with Steering Tokens"
+  - u: "constructing_interpretable_features_from_compositional_neuron_groups/"
+    t: "Constructing Interpretable Features from Compositional Neuron Groups"
+  - u: "crosscoding_through_time_tracking_emergence_consolidation_of_linguistic_represen/"
+    t: "Crosscoding Through Time: Tracking Emergence & Consolidation Of Linguistic Representations Throughout LLM Pretraining"
+  - u: "curing_miracle_steps_in_llm_mathematical_reasoning_with_rubric_rewards/"
+    t: "Curing \"Miracle Steps\" in LLM Mathematical Reasoning with Rubric Rewards"
+  - u: "diffusion-cam_faithful_visual_explanations_for_dmllms/"
+    t: "Diffusion-CAM: Faithful Visual Explanations for dMLLMs"
+  - u: "do_llms_capture_embodied_cognition_and_cultural_variation_cross-linguistic_evide/"
+    t: "Do LLMs Capture Embodied Cognition and Cultural Variation? Cross-Linguistic Evidence from Demonstratives"
+  - u: "do_llms_know_tool_irrelevance_demystifying_structural_alignment_bias_in_tool_inv/"
+    t: "Do LLMs Know Tool Irrelevance? Demystifying Structural Alignment Bias in Tool Invocations"
+  - u: "dpn-le_dual_personality_neuron_localization_and_editing_for_large_language_model/"
+    t: "DPN-LE: Dual Personality Neuron Localization and Editing for Large Language Models"
+  - u: "dual_alignment_between_language_model_layers_and_human_sentence_processing/"
+    t: "Dual Alignment Between Language Model Layers and Human Sentence Processing"
+  - u: "embracing_anisotropy_turning_massive_activations_into_interpretable_control_knob/"
+    t: "Embracing Anisotropy: Turning Massive Activations into Interpretable Control Knobs for Large Language Models"
+  - u: "evian_towards_explainable_visual_instruction-tuning_data_auditing/"
+    t: "Evian: Towards Explainable Visual Instruction-tuning Data Auditing"
+  - u: "experiments_or_outcomes_probing_scientific_feasibility_in_large_language_models/"
+    t: "Experiments or Outcomes? Probing Scientific Feasibility in Large Language Models"
+  - u: "fine-grained_analysis_of_shared_syntactic_mechanisms_in_language_models/"
+    t: "Fine-Grained Analysis of Shared Syntactic Mechanisms in Language Models"
+  - u: "finesteer_a_unified_framework_for_fine-grained_inference-time_steering_in_large_/"
+    t: "FineSteer: A Unified Framework for Fine-Grained Inference-Time Steering in Large Language Models"
+  - u: "flattery_in_motion_benchmarking_and_analyzing_sycophancy_in_video-llms/"
+    t: "Flattery in Motion: Benchmarking and Analyzing Sycophancy in Video-LLMs"
+  - u: "follow_the_flow_on_information_flow_across_textual_tokens_in_text-to-image_model/"
+    t: "Follow the Flow: On Information Flow Across Textual Tokens in Text-to-Image Models"
+  - u: "from_documents_to_segments_a_contextual_reformulation_for_topic_assignment/"
+    t: "From Documents to Segments: A Contextual Reformulation for Topic Assignment"
+  - u: "from_interpretability_to_performance_optimizing_retrieval_heads_for_long-context/"
+    t: "From Interpretability to Performance: Optimizing Retrieval Heads for Long-Context Language Models"
+  - u: "from_weights_to_activations_is_steering_the_next_frontier_of_adaptation/"
+    t: "From Weights to Activations: Is Steering the Next Frontier of Adaptation?"
+  - u: "histlens_mapping_idea_change_across_concepts_and_corpora/"
+    t: "HistLens: Mapping Idea Change across Concepts and Corpora"
+  - u: "how_language_models_conflate_logical_validity_with_plausibility_a_representation/"
+    t: "How Language Models Conflate Logical Validity with Plausibility: A Representational Analysis of Content Effects"
+  - u: "idea_an_interpretable_and_editable_decision-making_framework_for_llms_via_verbal/"
+    t: "IDEA: An Interpretable and Editable Decision-Making Framework for LLMs via Verbal-to-Numeric Calibration"
+  - u: "interpretability_from_the_ground_up_stakeholder-centric_design_of_automated_scor/"
+    t: "Interpretability from the Ground Up"
+  - u: "interpretable_coreference_resolution_evaluation_using_explicit_semantics/"
+    t: "Interpretable Coreference Resolution Evaluation Using Explicit Semantics"
+  - u: "interpretable_semantic_gradients_in_ssd_a_pca_sweep_approach_and_a_case_study_on/"
+    t: "Interpretable Semantic Gradients in SSD: A PCA Sweep Approach and a Case Study on AI Discourse"
+  - u: "interpretable_traces_unexpected_outcomes_investigating_the_disconnect_in_trace-b/"
+    t: "Interpretable Traces, Unexpected Outcomes: Investigating the Disconnect in Trace-Based Knowledge Distillation"
+item_total: 63
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **💬 ACL2026** · **63** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
 
 🔥 **高频主题：** LLM ×16 · 推理 ×5 · 布局/合成 ×3 · 对齐/RLHF ×3 · 多模态 ×3
 

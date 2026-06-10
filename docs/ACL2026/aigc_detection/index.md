@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 AIGC 检测方向16篇论文解读
+  ACL2026 AIGC检测论文汇总 · 16篇论文解读
 description: >-
   16篇ACL2026的 AIGC 检测方向论文解读，涵盖 LLM、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,40 @@ tags:
   - "论文笔记"
   - "LLM"
   - "个性化生成"
+item_list:
+  - u: "aegis_a_holistic_benchmark_for_evaluating_forensic_analysis_of_ai-generated_acad/"
+    t: "AEGIS: A Holistic Benchmark for Evaluating Forensic Analysis of AI-Generated Academic Images"
+  - u: "beyond_the_final_actor_modeling_the_dual_roles_of_creator_and_editor_for_fine-gr/"
+    t: "Beyond the Final Actor: Modeling the Dual Roles of Creator and Editor for Fine-Grained LLM-Generated Text Detection"
+  - u: "biasedtales-ml_a_multilingual_dataset_for_analyzing_narrative_attribute_distribu/"
+    t: "BIASEDTALES-ML: A Multilingual Dataset for Analyzing Narrative Attribute Distributions in LLM-Generated Stories"
+  - u: "c-red_a_comprehensive_chinese_benchmark_for_ai-generated_text_detection_derived_/"
+    t: "C-ReD: A Comprehensive Chinese Benchmark for AI-Generated Text Detection Derived from Real-World Prompts"
+  - u: "can_ai-generated_persuasion_be_detected_persuaficial_benchmark_and_ai_vs_human_l/"
+    t: "Can AI-Generated Persuasion Be Detected? Persuaficial Benchmark and AI vs. Human Linguistic Differences"
+  - u: "detectrl-x_towards_reliable_multilingual_and_real-world_llm-generated_text_detec/"
+    t: "DetectRL-X: Towards Reliable Multilingual and Real-World LLM-Generated Text Detection"
+  - u: "exagpt_example-based_machine-generated_text_detection_for_human_interpretability/"
+    t: "ExaGPT: Example-Based Machine-Generated Text Detection for Human Interpretability"
+  - u: "frame_in_frame_out_measuring_framing_bias_in_llm-generated_news_summaries/"
+    t: "Frame In, Frame Out: Measuring Framing Bias in LLM-Generated News Summaries"
+  - u: "from_scoring_to_explanations_evaluating_shap_and_llm_rationales_for_rubric-based/"
+    t: "From Scoring to Explanations: Evaluating SHAP and LLM Rationales for Rubric-based Teaching Quality Assessment"
+  - u: "gigacheck_detecting_llm-generated_content_via_object-centric_span_localization/"
+    t: "GigaCheck: Detecting LLM-generated Content via Object-Centric Span Localization"
+  - u: "mash_evading_black-box_ai-generated_text_detectors_via_style_humanization/"
+    t: "MASH: Evading Black-Box AI-Generated Text Detectors via Style Humanization"
+  - u: "mdok-style_at_semeval-2026_task_10_finetuning_llms_for_conspiracy_detection/"
+    t: "mdok-style at SemEval-2026 Task 10: Finetuning LLMs for Conspiracy Detection"
+  - u: "reflex_self-refining_explainable_fact-checking_via_verdict-anchored_style_contro/"
+    t: "REFLEX: Self-Refining Explainable Fact-Checking via Verdict-Anchored Style Control"
+  - u: "temporal_flattening_in_llm-generated_text_comparing_human_and_llm_writing_trajec/"
+    t: "Temporal Flattening in LLM-Generated Text: Comparing Human and LLM Writing Trajectories"
+  - u: "when_personalization_tricks_detectors_the_feature-inversion_trap_in_machine-gene/"
+    t: "When Personalization Tricks Detectors: The Feature-Inversion Trap in Machine-Generated Text Detection"
+  - u: "who_wrote_this_line_evaluating_the_detection_of_llm-generated_classical_chinese_/"
+    t: "Who Wrote This Line? Evaluating the Detection of LLM-Generated Classical Chinese Poetry"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

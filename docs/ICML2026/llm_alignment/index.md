@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 对齐 / RLHF方向24篇论文解读
+  ICML2026 对齐/RLHF论文汇总 · 24篇论文解读
 description: >-
   24篇ICML2026的对齐 / RLHF 方向论文解读，涵盖对齐/RLHF、对抗鲁棒、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,56 @@ tags:
   - "对齐/RLHF"
   - "对抗鲁棒"
   - "LLM"
+item_list:
+  - u: "adaptive_probe-based_steering_for_robust_llm_jailbreaking/"
+    t: "Adaptive Probe-based Steering for Robust LLM Jailbreaking"
+  - u: "alignment-aware_decoding/"
+    t: "Alignment-Aware Decoding"
+  - u: "curriculum_learning_for_safety_alignment/"
+    t: "Curriculum Learning for Safety Alignment"
+  - u: "decoupling_reasoning_and_confidence_resurrecting_calibration_in_reinforcement_le/"
+    t: "Decoupling Reasoning and Confidence: Resurrecting Calibration in Reinforcement Learning from Verifiable Rewards"
+  - u: "efficient_preference_poisoning_attack_on_offline_rlhf/"
+    t: "Efficient Preference Poisoning Attack on Offline RLHF"
+  - u: "f-divergence_regularized_rlhf_two_tales_of_sampling_and_unified_analyses/"
+    t: "$f$-Divergence Regularized RLHF: Two Tales of Sampling and Unified Analyses"
+  - u: "f-tis_harnessing_diverse_models_in_collaborative_grpo/"
+    t: "F-TIS: Harnessing Diverse Models in Collaborative GRPO"
+  - u: "gist_targeted_data_selection_for_instruction_tuning_via_coupled_optimization_geo/"
+    t: "GIST: 用梯度子空间投影做 instruction tuning 的 targeted 数据选择"
+  - u: "implicit_preference_alignment_for_human_image_animation/"
+    t: "Implicit Preference Alignment for Human Image Animation"
+  - u: "implicit_safety_alignment_from_crowd_preferences/"
+    t: "Implicit Safety Alignment from Crowd Preferences"
+  - u: "long_live_the_balance_information_bottleneck_driven_tree-based_policy_optimizati/"
+    t: "Long Live The Balance: Information Bottleneck Driven Tree-based Policy Optimization"
+  - u: "mesa_improving_moe_safety_alignment_via_decentralized_expertise/"
+    t: "MESA: Improving MoE Safety Alignment via Decentralized Expertise"
+  - u: "mitigating_reward_hacking_in_rlhf_via_bayesian_non-negative_reward_modeling/"
+    t: "Mitigating Reward Hacking in RLHF via Bayesian Non-negative Reward Modeling"
+  - u: "new_wide-net-casting_jailbreak_attacks_risk_large_models/"
+    t: "New Wide-Net-Casting Jailbreak Attacks Risk Large Models"
+  - u: "picaco_pluralistic_in-context_value_alignment_of_llms_via_total_correlation_opti/"
+    t: "PICACO: Pluralistic In-Context Value Alignment of LLMs via Total Correlation Optimization"
+  - u: "quantifying_the_salience_of_geo-cultural_values_for_pluralistic_safety_alignment/"
+    t: "Quantifying the Salience of Geo-Cultural Values for Pluralistic Safety Alignment"
+  - u: "safety_anchor_defending_harmful_fine-tuning_via_geometric_bottlenecks/"
+    t: "Safety Anchor: Defending Harmful Fine-tuning via Geometric Bottlenecks"
+  - u: "simultaneous_multi-objective_alignment_across_verifiable_and_non-verifiable_rewa/"
+    t: "Simultaneous Multi-objective Alignment Across Verifiable and Non-verifiable Rewards"
+  - u: "spard_defending_harmful_fine-tuning_attack_via_safety_projection_with_relevance-/"
+    t: "SPARD: Defending Harmful Fine-Tuning Attack via Safety Projection with Relevance-Diversity Data Selection"
+  - u: "steering_beyond_the_support_adversarial_training_on_unsupervised_jailbroken_acti/"
+    t: "Steering Beyond the Support: Adversarial Training on Unsupervised Jailbroken Activation Simulation"
+  - u: "toward_stable_value_alignment_introducing_independent_modules_for_consistent_val/"
+    t: "Toward Stable Value Alignment: Introducing Independent Modules for Consistent Value Guidance"
+  - u: "towards_context-invariant_safety_alignment_for_large_language_models/"
+    t: "Towards Context-Invariant Safety Alignment for Large Language Models"
+  - u: "transitivity_meets_cyclicity_explicit_preference_decomposition_for_dynamic_large/"
+    t: "HRC + DSPPO: 用博弈论分解把传递偏好和循环偏好分开学"
+  - u: "udm-grpo_stable_and_efficient_group_relative_policy_optimization_for_uniform_dis/"
+    t: "UDM-GRPO: 统一离散扩散模型的稳定高效 GRPO"
+item_total: 24
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

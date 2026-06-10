@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 LLM 推理方向3篇论文解读
+  ICCV2025 LLM推理论文汇总 · 3篇论文解读
 description: >-
   3篇ICCV2025的 LLM 推理方向论文解读，涵盖推理、LLM、多模态、对齐/RLHF、视频生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,14 @@ tags:
   - "多模态"
   - "对齐/RLHF"
   - "视频生成"
+item_list:
+  - u: "corvid_improving_multimodal_large_language_models_towards_chain-of-thought_reaso/"
+    t: "CoRVid: Improving Multimodal Large Language Models Towards Chain-of-Thought Reasoning"
+  - u: "unsupervised_visual_chain-of-thought_reasoning_via_preference_optimization/"
+    t: "Unsupervised Visual Chain-of-Thought Reasoning via Preference Optimization"
+  - u: "video-t1_test-time_scaling_for_video_generation/"
+    t: "Video-T1: Test-Time Scaling for Video Generation"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +28,7 @@ tags:
 
 **📹 ICCV2025** · **3** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (82)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (83)](../../NeurIPS2025/llm_reasoning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (80)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_reasoning/index.md)
 
 🔥 **高频主题：** 推理 ×2
 

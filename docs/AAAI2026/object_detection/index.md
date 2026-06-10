@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 目标检测方向29篇论文解读
+  AAAI2026 目标检测论文汇总 · 28篇论文解读
 description: >-
-  29篇AAAI2026的目标检测方向论文解读，涵盖异常检测、目标检测、遥感、少样本学习、目标跟踪、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  28篇AAAI2026的目标检测方向论文解读，涵盖异常检测、目标检测、遥感、少样本学习、目标跟踪、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "目标检测"
@@ -12,17 +12,75 @@ tags:
   - "遥感"
   - "少样本学习"
   - "目标跟踪"
-  - "自监督学习"
+  - "多模态"
+item_list:
+  - u: "aerialmind_towards_referring_multi-object_tracking_in_uav_sc/"
+    t: "AerialMind: Towards Referring Multi-Object Tracking in UAV Scenarios"
+  - u: "an_overall_real-time_mechanism_for_classification_and_quality_evaluation_of_rice/"
+    t: "An Overall Real-Time Mechanism for Classification and Quality Evaluation of Rice"
+  - u: "anostyler_text-driven_localized_anomaly_generation_via_light/"
+    t: "AnoStyler: Text-Driven Localized Anomaly Generation via Lightweight Style Transfer"
+  - u: "aquasentinel_next-generation_ai_system_integrating_sensor_ne/"
+    t: "AquaSentinel: Next-Generation AI System Integrating Sensor Networks for Urban Underground Water Pipeline Anomaly Detection via Collaborative MoE-LLM Agent Architecture"
+  - u: "beyond_boundaries_leveraging_vision_foundation_models_for_so/"
+    t: "Beyond Boundaries: Leveraging Vision Foundation Models for Source-Free Object Detection"
+  - u: "commonality_in_few_few-shot_multimodal_anomaly_detection_via_hypergraph-enhanced/"
+    t: "Commonality in Few: Few-Shot Multimodal Anomaly Detection via Hypergraph-Enhanced Memory"
+  - u: "connecting_the_dots_training-free_visual_grounding_via_agent/"
+    t: "Connecting the Dots: Training-Free Visual Grounding via Agentic Reasoning"
+  - u: "correcting_false_alarms_from_unseen_adapting_graph_anomaly_detectors_at_test_tim/"
+    t: "Correcting False Alarms from Unseen: Adapting Graph Anomaly Detectors at Test Time"
+  - u: "countsteer_steering_attention_for_object_counting_in_diffusion_models/"
+    t: "CountSteer: Steering Attention for Object Counting in Diffusion Models"
+  - u: "fdp_a_frequency-decomposition_preprocessing_pipeline_for_unsupervised_anomaly_de/"
+    t: "FDP: A Frequency-Decomposition Preprocessing Pipeline for Unsupervised Anomaly Detection in Brain MRI"
+  - u: "harnessing_vision-language_models_for_time_series_anomaly_detection/"
+    t: "Harnessing Vision-Language Models for Time Series Anomaly Detection"
+  - u: "lampq_towards_accurate_layer-wise_mixed_precision_quantization_for_vision_transf/"
+    t: "LampQ: Towards Accurate Layer-wise Mixed Precision Quantization for Vision Transformers"
+  - u: "loretta_a_low_resource_framework_to_poison_continuous_time_dynamic_graphs/"
+    t: "LoReTTA: A Low Resource Framework To Poison Continuous Time Dynamic Graphs"
+  - u: "movsemcl_movement-semantics_contrastive_learning_for_trajectory_similarity_exten/"
+    t: "MovSemCL: Movement-Semantics Contrastive Learning for Trajectory Similarity (Extension)"
+  - u: "open-world_object_counting_in_videos/"
+    t: "CountVid: Open-World Object Counting in Videos"
+  - u: "promptmoe_generalizable_zero-shot_anomaly_detection_via_visually-guided_prompt_m/"
+    t: "PromptMoE: Generalizable Zero-Shot Anomaly Detection via Visually-Guided Prompt Mixing of Experts"
+  - u: "rcae_recursive_reconstruction_framework_for_unsupervised_industrial_anomaly_dete/"
+    t: "RcAE: Recursive Reconstruction Framework for Unsupervised Industrial Anomaly Detection"
+  - u: "reimagining_anomalies_what_if_anomalies_were_normal/"
+    t: "Reimagining Anomalies: What if Anomalies Were Normal?"
+  - u: "rexo_indoor_multi-view_radar_object_detection_via_3d_bounding_box_diffusion/"
+    t: "REXO: Indoor Multi-View Radar Object Detection via 3D Bounding Box Diffusion"
+  - u: "simrod_a_simple_baseline_for_raw_object_detection_with_global_and_local_enhancem/"
+    t: "SimROD: A Simple Baseline for Raw Object Detection with Global and Local Enhancements"
+  - u: "sm3det_a_unified_model_for_multi-modal_remote_sensing_object_detection/"
+    t: "SM3Det: A Unified Model for Multi-Modal Remote Sensing Object Detection"
+  - u: "t-rex-omni_integrating_negative_visual_prompt_in_generic_object_detection/"
+    t: "T-Rex-Omni: Integrating Negative Visual Prompt in Generic Object Detection"
+  - u: "temporal_object-aware_vision_transformer_for_few-shot_video_object_detection/"
+    t: "Temporal Object-Aware Vision Transformer for Few-Shot Video Object Detection"
+  - u: "towards_multiple_missing_values-resistant_unsupervised_graph_anomaly_detection/"
+    t: "Towards Multiple Missing Values-Resistant Unsupervised Graph Anomaly Detection"
+  - u: "tubermc_tube-conditioned_reconstruction_with_mutual_constraints_for_weakly-super/"
+    t: "TubeRMC: Tube-conditioned Reconstruction with Mutual Constraints for Weakly-supervised Spatio-Temporal Video Grounding"
+  - u: "vk-det_visual_knowledge_guided_prototype_learning_for_open-vocabulary_aerial_obj/"
+    t: "VK-Det: Visual Knowledge Guided Prototype Learning for Open-Vocabulary Aerial Object Detection"
+  - u: "when_trackers_date_fish_a_benchmark_and_framework_for_underwater_multiple_fish_t/"
+    t: "When Trackers Date Fish: A Benchmark and Framework for Underwater Multiple Fish Tracking"
+  - u: "yolo-iod_towards_real_time_incremental_object_detection/"
+    t: "YOLO-IOD: Towards Real Time Incremental Object Detection"
+item_total: 28
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🤖 AAAI2026** · **29** 篇论文解读
+**🤖 AAAI2026** · **28** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (12)](../../ICML2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (11)](../../ICML2025/object_detection/index.md)
 
-🔥 **高频主题：** 异常检测 ×9 · 目标检测 ×8 · 遥感 ×3 · 少样本学习 ×3 · 目标跟踪 ×2
+🔥 **高频主题：** 异常检测 ×8 · 目标检测 ×8 · 遥感 ×3 · 少样本学习 ×3 · 目标跟踪 ×2
 
 **[AerialMind: Towards Referring Multi-Object Tracking in UAV Scenarios](aerialmind_towards_referring_multi-object_tracking_in_uav_sc.md)**
 
@@ -43,10 +101,6 @@ tags:
 **[Beyond Boundaries: Leveraging Vision Foundation Models for Source-Free Object Detection](beyond_boundaries_leveraging_vision_foundation_models_for_so.md)**
 
 :   提出利用VFM（DINOv2+Grounding DINO）增强无源域自适应目标检测（SFOD）的框架，通过全局特征对齐(PGFA)、实例级原型对比学习(PIFA)和双源伪标签融合(DEPF)三个模块，在6个跨域检测基准上取得SOTA，例如Cityscapes→Foggy Cityscapes达47.1% mAP（比DRU高3.5%），Sim10k→Cityscapes达67.4% AP（比DRU高8.7%）。
-
-**[CASL: Curvature-Augmented Self-supervised Learning for 3D Anomaly Detection](casl_curvature-augmented_self-supervised_learning_for_3d_anomaly_detection.md)**
-
-:   发现点云曲率本身就是强大的异常检测线索，提出曲率增强的自监督学习框架 CASL，通过多尺度曲率提示引导坐标重建来学习通用 3D 表征，无需任何异常检测专用机制即可在 Real3D-AD 上以 5.6% O-AUROC 优势刷新 SOTA。
 
 **[Commonality in Few: Few-Shot Multimodal Anomaly Detection via Hypergraph-Enhanced Memory](commonality_in_few_few-shot_multimodal_anomaly_detection_via_hypergraph-enhanced.md)**
 

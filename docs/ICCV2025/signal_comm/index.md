@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 信号/通信方向3篇论文解读
+  ICCV2025 信号/通信论文汇总 · 3篇论文解读
 description: >-
   3篇ICCV2025的信号/通信方向论文解读，涵盖多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,14 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "多模态"
+item_list:
+  - u: "boosting_multimodal_learning_via_disentangled_gradient_learning/"
+    t: "Boosting Multimodal Learning via Disentangled Gradient Learning"
+  - u: "generalizable_non-line-of-sight_imaging_with_learnable_physical_priors/"
+    t: "Generalizable Non-Line-of-Sight Imaging with Learnable Physical Priors"
+  - u: "rectifying_magnitude_neglect_in_linear_attention/"
+    t: "Rectifying Magnitude Neglect in Linear Attention"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

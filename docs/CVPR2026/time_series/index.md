@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 时间序列方向6篇论文解读
+  CVPR2026 时间序列论文汇总 · 6篇论文解读
 description: >-
   6篇CVPR2026的时间序列方向论文解读，涵盖时序预测、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,20 @@ tags:
   - "论文笔记"
   - "时序预测"
   - "对齐/RLHF"
+item_list:
+  - u: "competition-aware_cpc_forecasting_with_near-market_coverage/"
+    t: "Competition-Aware CPC Forecasting with Near-Market Coverage"
+  - u: "l2gtx_from_local_to_global_time_series_explanations/"
+    t: "L2GTX: From Local to Global Time Series Explanations"
+  - u: "pfgnet_a_fully_convolutional_frequency-guided_peripheral_gating_network_for_effi/"
+    t: "PFGNet: A Fully Convolutional Frequency-Guided Peripheral Gating Network for Efficient Spatiotemporal Predictive Learning"
+  - u: "sattc_structure-aware_label-free_test-time_calibration_for_cross-subject_eeg-to-/"
+    t: "SATTC: Structure-Aware Label-Free Test-Time Calibration for Cross-Subject EEG-to-Image Retrieval"
+  - u: "stable_spike_dual_consistency_optimization_via_bitwise_and_operations_for_spikin/"
+    t: "Stable Spike: Dual Consistency Optimization via Bitwise AND Operations for Spiking Neural Networks"
+  - u: "stcast_adaptive_boundary_alignment_for_global_and_regional_weather_forecasting/"
+    t: "STCast: Adaptive Boundary Alignment for Global and Regional Weather Forecasting"
+item_total: 6
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +31,7 @@ tags:
 
 **📷 CVPR2026** · **6** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [🔬 ICLR2026 (36)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
 
 🔥 **高频主题：** 时序预测 ×3
 

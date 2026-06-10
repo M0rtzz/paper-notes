@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 推荐系统方向1篇论文解读
+  CVPR2025 推荐系统论文汇总 · 1篇论文解读
 description: >-
   1篇CVPR2025的推荐系统方向论文解读，收录 FineVQ等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -8,6 +8,10 @@ tags:
   - "推荐系统"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "finevq_fine-grained_user_generated_content_video_quality_assessment/"
+    t: "FineVQ: Fine-Grained User Generated Content Video Quality Assessment"
+item_total: 1
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

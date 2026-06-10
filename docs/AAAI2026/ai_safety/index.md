@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 AI 安全方向45篇论文解读
+  AAAI2026 AI安全论文汇总 · 45篇论文解读
 description: >-
   45篇AAAI2026的 AI 安全方向论文解读，涵盖对抗鲁棒、水印/隐写、联邦学习、语音、推荐系统等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "联邦学习"
   - "语音"
   - "推荐系统"
+item_list:
+  - u: "alternative_fairness_and_accuracy_optimization_in_criminal_j/"
+    t: "Alternative Fairness and Accuracy Optimization in Criminal Justice"
+  - u: "an_improved_privacy_and_utility_analysis_of_differentially_p/"
+    t: "An Improved Privacy and Utility Analysis of Differentially Private SGD with Bounded Domain and Smooth Losses"
+  - u: "an_information_theoretic_evaluation_metric_for_strong_unlearning/"
+    t: "An Information Theoretic Evaluation Metric for Strong Unlearning"
+  - u: "angular_gradient_sign_method_uncovering_vulnerabilities_in_h/"
+    t: "Angular Gradient Sign Method: Uncovering Vulnerabilities in Hyperbolic Networks"
+  - u: "authority_backdoor_a_certifiable_backdoor_mechanism_for_authoring_dnns/"
+    t: "Authority Backdoor: A Certifiable Backdoor Mechanism for Authoring DNNs"
+  - u: "breaking_the_adversarial_robustness-performance_trade-off_in_text_classification/"
+    t: "Breaking the Adversarial Robustness-Performance Trade-off in Text Classification via Manifold Purification"
+  - u: "breaking_the_dyadic_barrier_rethinking_fairness_in_link_prediction_beyond_demogr/"
+    t: "Breaking the Dyadic Barrier: Rethinking Fairness in Link Prediction Beyond Demographic Parity"
+  - u: "core-fed_bridging_collaborative_and_representation_fairness_via_federated_embedd/"
+    t: "CoRe-Fed: Bridging Collaborative and Representation Fairness via Federated Embedding Distillation"
+  - u: "credal_ensemble_distillation_for_uncertainty_quantification/"
+    t: "Credal Ensemble Distillation for Uncertainty Quantification"
+  - u: "deeptracer_tracing_stolen_model_via_deep_coupled_watermarks/"
+    t: "DeepTracer: Tracing Stolen Model via Deep Coupled Watermarks"
+  - u: "detect_all-type_deepfake_audio_wavelet_prompt_tuning_for_enhanced_auditory_perce/"
+    t: "Detect All-Type Deepfake Audio: Wavelet Prompt Tuning for Enhanced Auditory Perception"
+  - u: "diversifying_counterattacks_orthogonal_exploration_for_robust_clip_inference/"
+    t: "Diversifying Counterattacks: Orthogonal Exploration for Robust CLIP Inference"
+  - u: "easy_to_learn_yet_hard_to_forget_towards_robust_unlearning_under_bias/"
+    t: "Easy to Learn, Yet Hard to Forget: Towards Robust Unlearning Under Bias"
+  - u: "efx_and_po_allocation_exists_for_two_types_of_goods/"
+    t: "EFX and PO Allocation Exists for Two Types of Goods"
+  - u: "enhancing_dpsgd_via_per-sample_momentum_and_low-pass_filtering/"
+    t: "Enhancing DPSGD via Per-Sample Momentum and Low-Pass Filtering"
+  - u: "fair_model-based_clustering/"
+    t: "Fair Model-Based Clustering"
+  - u: "fairgse_fairness-aware_graph_neural_network_without_high_false_positive_rates/"
+    t: "FairGSE: Fairness-Aware Graph Neural Network without High False Positive Rates"
+  - u: "fine-grained_dino_tuning_with_dual_supervision_for_face_forgery_detection/"
+    t: "Fine-Grained DINO Tuning with Dual Supervision for Face Forgery Detection"
+  - u: "generalizing_fair_clustering_to_multiple_groups_algorithms_and_applications/"
+    t: "Generalizing Fair Clustering to Multiple Groups: Algorithms and Applications"
+  - u: "graph_out-of-distribution_detection_via_test-time_calibration_with_dual_dynamic_/"
+    t: "Graph Out-of-Distribution Detection via Test-Time Calibration with Dual Dynamic Dictionaries"
+  - u: "hashed_watermark_as_a_filter_defeating_forging_and_overwriting_attacks_in_weight/"
+    t: "Hashed Watermark as a Filter: A Unified Defense Against Forging and Overwriting Attacks in Neural Network Watermarking"
+  - u: "healsplit_towards_self-healing_through_adversarial_distillation_in_split_federat/"
+    t: "HealSplit: Towards Self-Healing through Adversarial Distillation in Split Federated Learning"
+  - u: "improving_the_convergence_rate_of_ray_search_optimization_for_query-efficient_ha/"
+    t: "Improving the Convergence Rate of Ray Search Optimization for Query-Efficient Hard-Label Attacks"
+  - u: "infodecom_decomposing_information_for_defending_against_privacy_leakage_in_split/"
+    t: "InfoDecom: Decomposing Information for Defending Against Privacy Leakage in Split Inference"
+  - u: "learning_to_collaborate_an_orchestrated-decentralized_framework_for_peer-to-peer/"
+    t: "Learning to Collaborate: An Orchestrated-Decentralized Framework for Peer-to-Peer Collaborative Learning"
+  - u: "matrix-free_two-to-infinity_and_one-to-two_norms_estimation/"
+    t: "Matrix-Free Two-to-Infinity and One-to-Two Norms Estimation"
+  - u: "minimizing_inequity_in_facility_location_games/"
+    t: "Minimizing Inequity in Facility Location Games"
+  - u: "mpd-sgr_robust_spiking_neural_networks_with_membrane_potential_distribution-driv/"
+    t: "MPD-SGR: Robust Spiking Neural Networks with Membrane Potential Distribution-Driven Surrogate Gradient Regularization"
+  - u: "oad-promoter_enhancing_zero-shot_vqa_using_large_language_models_with_object_att/"
+    t: "OAD-Promoter: Enhancing Zero-shot VQA using Large Language Models with Object Attribute Description"
+  - u: "plug-and-play_parameter-efficient_tuning_of_embeddings_for_federated_recommendat/"
+    t: "Plug-and-Play Parameter-Efficient Tuning of Embeddings for Federated Recommendation"
+item_total: 45
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **🤖 AAAI2026** · **45** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/index.md) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/ai_safety/index.md) · [🧠 NeurIPS2025 (72)](../../NeurIPS2025/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×17 · 水印/隐写 ×5 · 联邦学习 ×3 · 语音 ×2 · 推荐系统 ×2
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 信息检索/RAG方向17篇论文解读
+  CVPR2025 信息检索/RAG论文汇总 · 17篇论文解读
 description: >-
   17篇CVPR2025的信息检索/RAG 方向论文解读，涵盖多模态、RAG、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,42 @@ tags:
   - "多模态"
   - "RAG"
   - "少样本学习"
+item_list:
+  - u: "advancing_myopia_to_holism_fully_contrastive_language-image_pre-training/"
+    t: "Advancing Myopia To Holism: Fully Contrastive Language-Image Pre-training"
+  - u: "chathuman_chatting_about_3d_humans_with_tools/"
+    t: "ChatHuman: Chatting about 3D Humans with Tools"
+  - u: "cobra_combinatorial_retrieval_augmentation_for_few-shot_adaptation/"
+    t: "COBRA: COmBinatorial Retrieval Augmentation for Few-Shot Adaptation"
+  - u: "docopilot_improving_multimodal_models_for_document-level_understanding/"
+    t: "DocoPilot: Improving Multimodal Models for Document-Level Understanding"
+  - u: "ezsr_event-based_zero-shot_recognition/"
+    t: "EZSR: Event-based Zero-Shot Recognition"
+  - u: "few-shot_recognition_via_stage-wise_retrieval-augmented_finetuning/"
+    t: "Few-Shot Recognition via Stage-Wise Retrieval-Augmented Finetuning"
+  - u: "genius_a_generative_framework_for_universal_multimodal_search/"
+    t: "GENIUS: A Generative Framework for Universal Multimodal Search"
+  - u: "goal_global-local_object_alignment_learning/"
+    t: "GOAL: Global-Local Object Alignment Learning"
+  - u: "joint_vision-language_social_bias_removal_for_clip/"
+    t: "Joint Vision-Language Social Bias Removal for CLIP"
+  - u: "lamra_large_multimodal_model_as_your_advanced_retrieval_assistant/"
+    t: "LamRA: Large Multimodal Model as Your Advanced Retrieval Assistant"
+  - u: "lotusfilter_fast_diverse_nearest_neighbor_search_via_a_learned_cutoff_table/"
+    t: "LotusFilter: Fast Diverse Nearest Neighbor Search via a Learned Cutoff Table"
+  - u: "neighborretr_balancing_hub_centrality_in_cross-modal_retrieval/"
+    t: "NeighborRetr: Balancing Hub Centrality in Cross-Modal Retrieval"
+  - u: "preserving_clusters_in_prompt_learning_for_unsupervised_domain_adaptation/"
+    t: "Preserving Clusters in Prompt Learning for Unsupervised Domain Adaptation"
+  - u: "range_retrieval_augmented_neural_fields_for_multi-resolution_geo-embeddings/"
+    t: "RANGE: Retrieval Augmented Neural Fields for Multi-Resolution Geo-Embeddings"
+  - u: "retrieving_semantics_from_the_deep_an_rag_solution_for_gesture_synthesis/"
+    t: "Retrieving Semantics from the Deep: an RAG Solution for Gesture Synthesis"
+  - u: "towards_smart_point-and-shoot_photography/"
+    t: "Towards Smart Point-and-Shoot Photography"
+  - u: "vdocrag_retrieval-augmented_generation_over_visually-rich_documents/"
+    t: "VDocRAG: Retrieval-Augmented Generation over Visually-Rich Documents"
+item_total: 17
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +54,7 @@ tags:
 
 **📷 CVPR2025** · **17** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md)
 
 🔥 **高频主题：** 多模态 ×4 · RAG ×4 · 少样本学习 ×3
 

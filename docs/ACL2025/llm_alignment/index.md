@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 对齐 / RLHF方向75篇论文解读
+  ACL2025 对齐/RLHF论文汇总 · 69篇论文解读
 description: >-
-  75篇ACL2025的对齐 / RLHF 方向论文解读，涵盖对齐/RLHF、LLM、对抗鲁棒、Agent、多模态、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  69篇ACL2025的对齐 / RLHF 方向论文解读，涵盖对齐/RLHF、LLM、对抗鲁棒、多模态、推理、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "对齐 / RLHF"
@@ -11,27 +11,85 @@ tags:
   - "对齐/RLHF"
   - "LLM"
   - "对抗鲁棒"
-  - "Agent"
   - "多模态"
   - "推理"
+  - "Agent"
+item_list:
+  - u: "agd_adversarial_game_defense_against_jailbreak_attacks_in_large_language_models/"
+    t: "AGD: Adversarial Game Defense Against Jailbreak Attacks in Large Language Models"
+  - u: "agentrm_enhancing_agent_generalization_with_reward_modeling/"
+    t: "AgentRM: Enhancing Agent Generalization with Reward Modeling"
+  - u: "aligning_to_what_limits_to_rlhf_based_alignment/"
+    t: "Aligning to What? Limits to RLHF Based Alignment"
+  - u: "amopo_adaptive_multi-objective_preference_optimization_without_reward_models_and/"
+    t: "AMoPO: Adaptive Multi-objective Preference Optimization without Reward Models and Reference Models"
+  - u: "aspo_adaptive_sentence-level_preference_optimization_for_fine-grained_multimodal/"
+    t: "ASPO: Adaptive Sentence-Level Preference Optimization for Fine-Grained Multimodal Reasoning"
+  - u: "atyaephyra_at_semeval-2025_task_4_low-rank_negative_preference_optimization/"
+    t: "Atyaephyra at SemEval-2025 Task 4: Low-Rank Negative Preference Optimization"
+  - u: "automixalign_adaptive_data_mixing/"
+    t: "AutoMixAlign: Adaptive Data Mixing for Multi-Task Preference Optimization in LLMs"
+  - u: "beyond_similarity_a_gradient-based_graph_method_for_instruction_tuning_data_sele/"
+    t: "Beyond Similarity: A Gradient-based Graph Method for Instruction Tuning Data Selection"
+  - u: "beyond_surface-level_patterns_an_essence-driven_defense_framework_against_jailbr/"
+    t: "Beyond Surface-Level Patterns: An Essence-Driven Defense Framework Against Jailbreak Attacks in LLMs"
+  - u: "beyond_the_tip_of_efficiency_uncovering_the_submerged_threats_of_jailbreak_attac/"
+    t: "Beyond the Tip of Efficiency: Uncovering the Submerged Threats of Jailbreak Attacks in Small Language Models"
+  - u: "boosting_vulnerability_detection_of_llms_via_curriculum_preference_optimization_/"
+    t: "Boosting Vulnerability Detection of LLMs via Curriculum Preference Optimization with Synthetic Reasoning Data"
+  - u: "breaking_the_ceiling_exploring_the_potential_of_jailbreak_attacks_through_expand/"
+    t: "Breaking the Ceiling: Exploring the Potential of Jailbreak Attacks through Expanding Strategy Space"
+  - u: "call_for_rigor_in_reporting_quality_of_instruction_tuning_data/"
+    t: "Call for Rigor in Reporting Quality of Instruction Tuning Data"
+  - u: "chain-of-jailbreak_attack_for_image_generation_models_via_editing_step_by_step/"
+    t: "Chain-of-Jailbreak Attack for Image Generation Models via Editing Step by Step"
+  - u: "cheems_chinese_reward_models/"
+    t: "Cheems: A Practical Guidance for Building and Evaluating Chinese Reward Models from Scratch"
+  - u: "constitutional_classifiers_defending_against_universal_jailbreaks_across_thousan/"
+    t: "Constitutional Classifiers: Defending Against Universal Jailbreaks Across Thousands of Hours of Red Teaming"
+  - u: "curiosity_driven_rlhf/"
+    t: "Curiosity-Driven Reinforcement Learning from Human Feedback"
+  - u: "diffpo_diffusion_alignment/"
+    t: "DiffPO: Diffusion Alignment with Direct Preference Optimization"
+  - u: "dont_say_no_jailbreaking_llm_by_suppressing_refusal/"
+    t: "Don't Say No: Jailbreaking LLM by Suppressing Refusal"
+  - u: "dynamic_scaling_of_unit_tests_for_code_reward_modeling/"
+    t: "Dynamic Scaling of Unit Tests for Code Reward Modeling"
+  - u: "expectation_confirmation_preference_optimization_for_multi-turn_conversational_r/"
+    t: "Expectation Confirmation Preference Optimization for Multi-Turn Conversational Recommendation Agent"
+  - u: "federated_data-efficient_instruction_tuning_for_large_language_models/"
+    t: "Federated Data-Efficient Instruction Tuning for Large Language Models"
+  - u: "finding_the_sweet_spot_preference_data_construction_for_scaling_preference_optim/"
+    t: "Finding the Sweet Spot: Preference Data Construction for Scaling Preference Optimization"
+  - u: "fine-grained_video_dubbing_duration_alignment_with_segment_supervised_preference/"
+    t: "Fine-grained Video Dubbing Duration Alignment with Segment Supervised Preference Optimization"
+  - u: "focalpo_enhancing_preference_optimizing_by_focusing_on_correct_preference_rankin/"
+    t: "FocalPO: Enhancing Preference Optimizing by Focusing on Correct Preference Rankings"
+  - u: "haf-rm_a_hybrid_alignment_framework_for_reward_model_training/"
+    t: "HAF-RM: A Hybrid Alignment Framework for Reward Model Training"
+  - u: "hiddendetect_detecting_jailbreak_attacks_against_multimodal_large_language_model/"
+    t: "HiddenDetect: Detecting Jailbreak Attacks against Large Vision-Language Models via Monitoring Hidden States"
+  - u: "influence_functions_rlhf/"
+    t: "Understanding Impact of Human Feedback via Influence Functions"
+  - u: "internal_value_alignment_in_large_language_models_through_controlled_value_vecto/"
+    t: "Internal Value Alignment in Large Language Models through Controlled Value Vector Activation"
+  - u: "intuitive_fine_tuning_simplifying_alignment_into_single_process/"
+    t: "Intuitive Fine-Tuning: Towards Simplifying Alignment into a Single Process"
+item_total: 69
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚖️ 对齐 / RLHF
 
-**💬 ACL2025** · **75** 篇论文解读
+**💬 ACL2025** · **69** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/llm_alignment/index.md) · [💬 ACL2026 (31)](../../ACL2026/llm_alignment/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_alignment/index.md) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_alignment/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/llm_alignment/index.md) · [🧠 NeurIPS2025 (36)](../../NeurIPS2025/llm_alignment/index.md)
 
-🔥 **高频主题：** 对齐/RLHF ×37 · LLM ×11 · 对抗鲁棒 ×11 · Agent ×4 · 多模态 ×4
+🔥 **高频主题：** 对齐/RLHF ×32 · LLM ×11 · 对抗鲁棒 ×10 · 多模态 ×4 · 推理 ×4
 
 **[AGD: Adversarial Game Defense Against Jailbreak Attacks in Large Language Models](agd_adversarial_game_defense_against_jailbreak_attacks_in_large_language_models.md)**
 
 :   本文提出AGD（Adversarial Game Defense），一种基于对抗博弈的LLM越狱攻击防御方法，通过动态调整模型内部表示在有用性和无害性之间取得平衡，利用IQR异常检测、双层优化博弈和专家模型采样三个阶段显著提升LLM安全性。
-
-**[AgentAlign: Navigating Safety Alignment in the Shift from Informative to Agentic LLMs](agentalign_navigating_safety_alignment_in_the_shift_from_informative_to_agentic_.md)**
-
-:   本文提出 AgentAlign 框架，利用抽象行为链作为中介，在模拟环境中合成高质量的 agent 安全对齐数据（有害+良性），通过 SFT 使三类开源模型的 agent 安全性提升35.8%-79.5%，同时保持甚至提升了任务能力。
 
 **[AgentRM: Enhancing Agent Generalization with Reward Modeling](agentrm_enhancing_agent_generalization_with_reward_modeling.md)**
 
@@ -97,10 +155,6 @@ tags:
 
 :   CD-RLHF 将好奇心驱动探索（curiosity-driven RL）引入 RLHF，通过前向动力学模型的预测误差作为内在奖励，结合 top-k 门控过滤与 reward whitening，在不损失对齐质量的前提下大幅提升 LLM 输出多样性（Llama-3.2-1B 上 Diversity 提升 40.26%，EAD 提升 8.92%）。
 
-**[Debate, Reflect, and Distill: Multi-Agent Feedback with Tree-Structured Preference Optimization for Efficient Language Model Enhancement](debate_reflect_and_distill_multi-agent_feedback_with_tree-structured_preference_.md)**
-
-:   提出 D&R 框架，让小模型（student）与多个大模型（teacher）进行多轮辩论并收集自我反思和教师反馈，然后将辩论日志组织为偏好树做 Tree-structured DPO (T-DPO) 蒸馏，在 MMLU Pro 和 MATH 上平均提升 14.18 分，且推理效率优于基线。
-
 **[DiffPO: Diffusion Alignment with Direct Preference Optimization](diffpo_diffusion_alignment.md)**
 
 :   提出 DiffPO，将 LLM 对齐重新建模为句子级扩散去噪过程，通过 parallel decoding 实现高效推理时对齐，作为即插即用模块可增强任意底座模型的对齐质量。
@@ -132,10 +186,6 @@ tags:
 **[FocalPO: Enhancing Preference Optimizing by Focusing on Correct Preference Rankings](focalpo_enhancing_preference_optimizing_by_focusing_on_correct_preference_rankin.md)**
 
 :   本文提出 FocalPO，一种 DPO 变体，通过引入受 Focal Loss 启发的调制因子来降低错误排序对的权重、优先强化模型已正确排序的偏好对的理解，在 AlpacaEval 2.0 等基准上超越 DPO 及其变体。
-
-**[Focused-DPO: Enhancing Code Generation Through Focused Preference Optimization on Error-Prone Points](focused-dpo_enhancing_code_generation_through_focused_preference_optimization_on.md)**
-
-:   发现代码生成模型的错误高度集中在特定"错误易发点"（error-prone points），前缀/后缀几乎不变而中间段决定正确性，提出 Focused-DPO：通过 PageRank 在代码-测试二部图上排序定位关键中间段，并在 DPO 损失中对该段加权放大（$w_{focused}=2$），仅用 5000 样本即可在 HumanEval+ 上提升 4.41%、LiveCodeBench-Hard 上相对提升 42.86%。
 
 **[HAF-RM: A Hybrid Alignment Framework for Reward Model Training](haf-rm_a_hybrid_alignment_framework_for_reward_model_training.md)**
 
@@ -241,10 +291,6 @@ tags:
 
 :   系统消融表格指令微调中被忽视的超参数选择（学习率、数据量、epoch），揭示现有表格 LLM 因学习率过大（2e-5）导致通用能力严重退化（MMLU 降 14 分、AI2ARC 降 21 分），提出仅需 13 个数据集各 200 条（共 2600 条）+ 学习率 1e-6 + 2 epoch 微调 LLaMA 3.1 8B Instruct 即可构建 TAMA，在 13 个表格任务上匹配/超越 GPT-3.5 和 GPT-4，同时完整保持通用能力。
 
-**[Retrieval-Augmented Fine-Tuning With Preference Optimization For Visual Program Generation](retrieval-augmented_fine-tuning_with_preference_optimization_for_visual_program_.md)**
-
-:   本文针对工业视觉编程语言（Ladder Diagram）的自动生成任务，提出了一种两阶段训练策略：先通过检索增强微调（Retrieval-Augmented Fine-Tuning）利用子程序复用特性，再通过基于图编辑操作构造偏好对的 DPO 训练进一步提升准确性，在真实 LD 数据上将程序级准确率提升超过 10%。
-
 **[Reverse Preference Optimization for Complex Instruction Following](reverse_preference_optimization_for_complex_instruction_following.md)**
 
 :   提出反向偏好优化（RPO），通过动态反转指令中未满足的约束将任意回复转化为"完美"chosen 样本，消除多约束偏好对中的噪声，在多轮复杂指令遵循任务上显著超越 DPO 基线。
@@ -268,10 +314,6 @@ tags:
 **[Robust Preference Optimization via Dynamic Target Margins](robust_preference_optimization_via_dynamic_target_margins.md)**
 
 :   本文提出 γ-PO，一种通过在偏好对级别动态调整目标奖励边际的方式来增强 DPO 鲁棒性的即插即用方法，在 AlpacaEval2 和 Arena-Hard 上平均提升 4.4%。
-
-**[RPO: Retrieval Preference Optimization for Robust Retrieval-Augmented Generation](rpo_retrieval_preference_optimization_for_robust_retrieval-augmented_generation.md)**
-
-:   提出 Retrieval Preference Optimization (RPO)，一种专为 RAG 设计的轻量级偏好对齐方法，通过将检索质量评估隐式地集成到生成过程中，使 LLM 能够自适应地在参数知识和检索知识之间做出选择，无需额外组件即可缓解知识冲突导致的幻觉问题。
 
 **[Safety Alignment via Constrained Knowledge Unlearning](safety_alignment_via_constrained_knowledge_unlearning.md)**
 
@@ -312,10 +354,6 @@ tags:
 **[Think&Cite: Improving Attributed Text Generation with Self-Guided Tree Search and Progress Reward Modeling](think_cite_attributed_text_gen.md)**
 
 :   将归因文本生成（带引用的文本生成）建模为多步推理问题，提出自引导蒙特卡洛树搜索（SG-MCTS）结合进度奖励建模（PRM），通过多路径搜索+中间状态反思+生成/归因双维度进度奖励，在 ALCE 基准三个数据集上显著超越所有基线。
-
-**[A Troublemaker with Contagious Jailbreak Makes Chaos in Honest Towns](tmcht_contagious_jailbreak_multiagent.md)**
-
-:   提出TMCHT（大规模多智能体多拓扑文本攻击评估框架）和ARCJ（对抗性复制传染越狱）方法——通过优化检索后缀提高毒性样本被检索概率+优化复制后缀使毒性信息具有自我复制传染能力，解决了多智能体系统中单智能体攻击方法面临的"毒性消散"问题。
 
 **[Upcycling Instruction Tuning from Dense to Mixture-of-Experts via Parameter Merging](upcycling_instruction_tuning_from_dense_to_mixture-of-experts_via_parameter_merg.md)**
 

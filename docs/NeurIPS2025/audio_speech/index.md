@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 音频/语音方向47篇论文解读
+  NeurIPS2025 音频/语音论文汇总 · 46篇论文解读
 description: >-
-  47篇NeurIPS2025的音频/语音方向论文解读，涵盖语音、对齐/RLHF、多模态、推理、推荐系统、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  46篇NeurIPS2025的音频/语音方向论文解读，涵盖语音、对齐/RLHF、多模态、推理、推荐系统、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "音频/语音"
@@ -14,16 +14,78 @@ tags:
   - "推理"
   - "推荐系统"
   - "LLM"
+item_list:
+  - u: "a_multitask_benchmark_for_abusive_language_detection_in_lowr/"
+    t: "A Multi-Task Benchmark for Abusive Language Detection in Low-Resource Settings"
+  - u: "a_triangle_enables_multimodal_alignment_beyond_cosine_simila/"
+    t: "A TRIANGLE Enables Multimodal Alignment Beyond Cosine Similarity"
+  - u: "accelerate_creation_of_product_claims_using_generative_ai/"
+    t: "Accelerate Creation of Product Claims Using Generative AI"
+  - u: "adapting_speech_language_model_to_singing_voice_synthesis/"
+    t: "Adapting Speech Language Model to Singing Voice Synthesis"
+  - u: "associative_syntax_and_maximal_repetitions_reveal_context-dependent_complexity_i/"
+    t: "Associative Syntax and Maximal Repetitions Reveal Context-Dependent Complexity in Fruit Bat Communication"
+  - u: "audsemthinker_enhancing_audio-language_models_through_reasoning_over_semantics_o/"
+    t: "AudSemThinker: Enhancing Audio-Language Models through Reasoning over Semantics of Sound"
+  - u: "bnmusic_blending_environmental_noises_into_personalized_music/"
+    t: "BNMusic: Blending Environmental Noises into Personalized Music"
+  - u: "can_llms_outshine_conventional_recommenders_a_comparative_evaluation/"
+    t: "Can LLMs Outshine Conventional Recommenders? A Comparative Evaluation"
+  - u: "data-juicer_20_cloud-scale_adaptive_data_processing_for_and_with_foundation_mode/"
+    t: "Data-Juicer 2.0: Cloud-Scale Adaptive Data Processing for and with Foundation Models"
+  - u: "deepasa_an_object-oriented_multi-purpose_network_for_auditory_scene_analysis/"
+    t: "DeepASA: An Object-Oriented Multi-Purpose Network for Auditory Scene Analysis"
+  - u: "e-bats_efficient_backpropagation-free_test-time_adaptation_for_speech_foundation/"
+    t: "E-BATS: Efficient Backpropagation-Free Test-Time Adaptation for Speech Foundation Models"
+  - u: "e2e-vguard_adversarial_prevention_for_production_llm-based_end-to-end_speech_syn/"
+    t: "E2E-VGuard: Adversarial Prevention for Production LLM-based End-To-End Speech Synthesis"
+  - u: "echoes_of_humanity_exploring_the_perceived_humanness_of_ai_music/"
+    t: "Echoes of Humanity: Exploring the Perceived Humanness of AI Music"
+  - u: "efficient_speech_language_modeling_via_energy_distance_in_continuous_latent_spac/"
+    t: "Efficient Speech Language Modeling via Energy Distance in Continuous Latent Space"
+  - u: "enabling_differentially_private_federated_learning_for_speech_recognition_benchm/"
+    t: "Enabling Differentially Private Federated Learning for Speech Recognition: Benchmarks, Adaptive Optimizers and Gradient Clipping"
+  - u: "ethics_statements_in_ai_music_papers_the_effective_and_the_ineffective/"
+    t: "Ethics Statements in AI Music Papers: The Effective and the Ineffective"
+  - u: "eurospeech_a_multilingual_speech_corpus/"
+    t: "EuroSpeech: A Multilingual Speech Corpus"
+  - u: "from_black_box_to_biomarker_sparse_autoencoders_for_interpreting_speech_models_o/"
+    t: "From Black Box to Biomarker: Sparse Autoencoders for Interpreting Speech Models of Parkinson's Disease"
+  - u: "from_generation_to_attribution_music_ai_agent_architectures_for_the_post-streami/"
+    t: "From Generation to Attribution: Music AI Agent Architectures for the Post-Streaming Era"
+  - u: "inductive_transfer_learning_for_graph-based_recommenders/"
+    t: "Inductive Transfer Learning for Graph-Based Recommenders"
+  - u: "instance-specific_test-time_training_for_speech_editing_in_the_wild/"
+    t: "Instance-Specific Test-Time Training for Speech Editing in the Wild"
+  - u: "latent_space_factorization_in_lora/"
+    t: "Latent Space Factorization in LoRA"
+  - u: "levo_high-quality_song_generation_with_multi-preference_alignment/"
+    t: "LeVo: High-Quality Song Generation with Multi-Preference Alignment"
+  - u: "levo_high-quality_song_generation_with_multi-processing_refined_supervision/"
+    t: "LeVo: High-Quality Song Generation with Multi-Preference Alignment"
+  - u: "megadance_mixture-of-experts_architecture_for_genre-aware_3d_dance_generation/"
+    t: "MEGADance: Mixture-of-Experts Architecture for Genre-Aware 3D Dance Generation"
+  - u: "mge-ldm_joint_latent_diffusion_for_simultaneous_music_generation_and_source_extr/"
+    t: "MGE-LDM: Joint Latent Diffusion for Simultaneous Music Generation and Source Extraction"
+  - u: "model-guided_dual-role_alignment_for_high-fidelity_open-domain_video-to-audio_ge/"
+    t: "MGAudio: Model-Guided Dual-Role Alignment for High-Fidelity Open-Domain Video-to-Audio Generation"
+  - u: "mome_mixture_of_matryoshka_experts_for_audio-visual_speech_recognition/"
+    t: "MoME: Mixture of Matryoshka Experts for Audio-Visual Speech Recognition"
+  - u: "multi-head_temporal_latent_attention/"
+    t: "Multi-head Temporal Latent Attention"
+  - u: "node-based_editing_for_multimodal_generation_of_text_audio_image_and_video/"
+    t: "Node-Based Editing for Multimodal Generation of Text, Audio, Image, and Video"
+item_total: 46
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**🧠 NeurIPS2025** · **47** 篇论文解读
+**🧠 NeurIPS2025** · **46** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
 
-🔥 **高频主题：** 语音 ×19 · 对齐/RLHF ×5 · 多模态 ×3 · 推理 ×2 · 推荐系统 ×2
+🔥 **高频主题：** 语音 ×18 · 对齐/RLHF ×4 · 多模态 ×3 · 推理 ×2 · 推荐系统 ×2
 
 **[A Multi-Task Benchmark for Abusive Language Detection in Low-Resource Settings](a_multitask_benchmark_for_abusive_language_detection_in_lowr.md)**
 
@@ -52,10 +114,6 @@ tags:
 **[BNMusic: Blending Environmental Noises into Personalized Music](bnmusic_blending_environmental_noises_into_personalized_music.md)**
 
 :   提出 BNMusic，一个两阶段框架将环境噪声融合到个性化生成音乐中：第一阶段通过 mel-spectrogram 的 outpainting + inpainting 生成与噪声节奏对齐的音乐，第二阶段利用听觉掩蔽理论自适应放大音乐信号以降低噪声感知，无需额外训练，在 EPIC-SOUNDS 和 ESC-50 上显著优于 baseline。
-
-**[Brain-tuning Improves Generalizability and Efficiency of Brain Alignment in Speech Models](brain-tuning_improves_generalizability_and_efficiency_of_brain_alignment_in_spee.md)**
-
-:   提出 Multi-brain-tuning 方法，通过联合多个被试的 fMRI 数据微调预训练语音模型，将脑对齐所需数据量降低 5 倍，同时脑对齐度提升最高 50%，并可泛化到全新被试和数据集。
 
 **[Can LLMs Outshine Conventional Recommenders? A Comparative Evaluation](can_llms_outshine_conventional_recommenders_a_comparative_evaluation.md)**
 

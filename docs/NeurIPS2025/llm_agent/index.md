@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 LLM Agent方向39篇论文解读
+  NeurIPS2025 LLMAgent论文汇总 · 39篇论文解读
 description: >-
   39篇NeurIPS2025的 LLM Agent 方向论文解读，涵盖 LLM、Agent、对抗鲁棒、对齐/RLHF、推理、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "对齐/RLHF"
   - "推理"
   - "问答"
+item_list:
+  - u: "a-mem_agentic_memory_for_llm_agents/"
+    t: "A-MEM: Agentic Memory for LLM Agents"
+  - u: "agentauditor_humanlevel_safety_and_security_evaluation_for_l/"
+    t: "AgentAuditor: Human-Level Safety and Security Evaluation for LLM Agents"
+  - u: "agentchangebench_a_multi-dimensional_evaluation_framework_for_goal-shift_robustn/"
+    t: "AgentChangeBench: A Multi-Dimensional Evaluation Framework for Goal-Shift Robustness"
+  - u: "agentic_nl2sql_to_reduce_computational_costs/"
+    t: "Agentic NL2SQL to Reduce Computational Costs"
+  - u: "agentic_plan_caching_test-time_memory_for_fast_and_cost-efficient_llm_agents/"
+    t: "Agentic Plan Caching: Test-Time Memory for Fast and Cost-Efficient LLM Agents"
+  - u: "agentmisalignment_measuring_the_propensity_for_misaligned_behaviour_in_llm-based/"
+    t: "AgentMisalignment: Measuring the Propensity for Misaligned Behaviour in LLM-Based Agents"
+  - u: "agenttts_large_language_model_agent_for_testtime_computeopti/"
+    t: "AgentTTS: Large Language Model Agent for Test-time Compute-optimal Scaling Strategy in Complex Tasks"
+  - u: "are_large_language_models_sensitive_to_the_motives_behind_communication/"
+    t: "Are Large Language Models Sensitive to the Motives Behind Communication?"
+  - u: "btlui_blinkthinklink_reasoning_model_for_gui_agent/"
+    t: "BTL-UI: Blink-Think-Link Reasoning Model for GUI Agent"
+  - u: "cam_a_constructivist_view_of_agentic_memory_for_llm-based_reading_comprehension/"
+    t: "CAM: A Constructivist View of Agentic Memory for LLM-Based Reading Comprehension"
+  - u: "contextagent_context-aware_proactive_llm_agents_with_open-world_sensory_percepti/"
+    t: "ContextAgent: Context-Aware Proactive LLM Agents with Open-World Sensory Perceptions"
+  - u: "core_full-path_evaluation_of_llm_agents_beyond_final_state/"
+    t: "CORE: Full-Path Evaluation of LLM Agents Beyond Final State"
+  - u: "crucible_quantifying_the_potential_of_control_algorithms_through_llm_agents/"
+    t: "Crucible: Quantifying the Potential of Control Algorithms through LLM Agents"
+  - u: "deep_video_discovery_agentic_search_with_tool_use_for_longfo/"
+    t: "Deep Video Discovery: Agentic Search with Tool Use for Long-form Video Understanding"
+  - u: "defenderbench_a_toolkit_for_evaluating_language_agents_in_cybersecurity_environm/"
+    t: "DefenderBench: A Toolkit for Evaluating Language Agents in Cybersecurity Environments"
+  - u: "distilling_llm_agent_into_small_models_with_retrieval_and_co/"
+    t: "Distilling LLM Agent into Small Models with Retrieval and Code Tools"
+  - u: "enhancing_demand-oriented_regionalization_with_agentic_ai_and_local_heterogeneou/"
+    t: "Enhancing Demand-Oriented Regionalization with Agentic AI and Local Heterogeneous Data for Adaptation Planning"
+  - u: "eu-agent-bench_measuring_illegal_behavior_of_llm_agents_under_eu_law/"
+    t: "EU-Agent-Bench: Measuring Illegal Behavior of LLM Agents Under EU Law"
+  - u: "generative_ai_agents_for_controllable_and_protected_content_creation/"
+    t: "Generative AI Agents for Controllable and Protected Content Creation"
+  - u: "ground-compose-reinforce_grounding_language_in_agentic_behaviours_using_limited_/"
+    t: "Ground-Compose-Reinforce: Grounding Language in Agentic Behaviours using Limited Data"
+  - u: "groupingroup_policy_optimization_for_llm_agent_training/"
+    t: "Group-in-Group Policy Optimization for LLM Agent Training"
+  - u: "hogwild_inference_parallel_llm_generation_via_concurrent_attention/"
+    t: "Hogwild! Inference: Parallel LLM Generation via Concurrent Attention"
+  - u: "its_lit_reliability-optimized_llms_with_inspectable_tools/"
+    t: "It's LIT! Reliability-Optimized LLMs with Inspectable Tools"
+  - u: "lc-opt_benchmarking_reinforcement_learning_and_agentic_ai_for_end-to-end_liquid_/"
+    t: "LC-Opt: Benchmarking Reinforcement Learning and Agentic AI for End-to-End Liquid Cooling Optimization in Data Centers"
+  - u: "llm_agent_communication_protocol_lacp_requires_urgent_standardization_a_telecom-/"
+    t: "LLM Agent Communication Protocol (LACP) Requires Urgent Standardization: A Telecom-Inspired Protocol is Necessary"
+  - u: "llm_agents_for_knowledge_discovery_in_atomic_layer_processing/"
+    t: "LLM Agents for Knowledge Discovery in Atomic Layer Processing"
+  - u: "mat-agent_adaptive_multi-agent_training_optimization/"
+    t: "MAT-Agent: Adaptive Multi-Agent Training Optimization"
+  - u: "mlrc-bench_can_language_agents_solve_machine_learning_research_challenges/"
+    t: "MLRC-Bench: Can Language Agents Solve Machine Learning Research Challenges?"
+  - u: "orchestration_framework_for_financial_agents_from_algorithmic_trading_to_agentic/"
+    t: "Orchestration Framework for Financial Agents: From Algorithmic Trading to Agentic Trading"
+  - u: "shapecraft_llm_agents_for_structured_textured_and_interactive_3d_modeling/"
+    t: "ShapeCraft: LLM Agents for Structured, Textured and Interactive 3D Modeling"
+item_total: 39
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧠 NeurIPS2025** · **39** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (40)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/index.md)
 
 🔥 **高频主题：** LLM ×20 · Agent ×13
 

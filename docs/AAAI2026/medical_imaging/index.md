@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 医学图像方向73篇论文解读
+  AAAI2026 医学图像论文汇总 · 71篇论文解读
 description: >-
-  73篇AAAI2026的医学图像方向论文解读，涵盖医学影像、语义分割、多模态、对齐/RLHF、对抗鲁棒、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  71篇AAAI2026的医学图像方向论文解读，涵盖医学影像、语义分割、多模态、对齐/RLHF、对抗鲁棒、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "AAAI2026"
   - "医学图像"
@@ -13,15 +13,77 @@ tags:
   - "多模态"
   - "对齐/RLHF"
   - "对抗鲁棒"
-  - "LLM"
+  - "自监督学习"
+item_list:
+  - u: "a_disease-aware_dual-stage_framework_for_chest_x-ray_report_/"
+    t: "A Disease-Aware Dual-Stage Framework for Chest X-ray Report Generation"
+  - u: "advancing_safe_mechanical_ventilation_using_offline_rl_with_/"
+    t: "Advancing Safe Mechanical Ventilation Using Offline RL With Hybrid Actions and Clinically Aligned Rewards"
+  - u: "ambiguity-aware_truncated_flow_matching_for_ambiguous_medica/"
+    t: "Ambiguity-aware Truncated Flow Matching for Ambiguous Medical Image Segmentation"
+  - u: "bayesian_meta-analyses_could_be_more_a_case_study_in_trial_of_labor_after_a_cesa/"
+    t: "Bayesian Meta-Analyses Could Be More: A Case Study in Trial of Labor After a Cesarean-section Outcomes and Complications"
+  - u: "bidirectional_channel-selective_semantic_interaction_for_semi-supervised_medical/"
+    t: "Bidirectional Channel-selective Semantic Interaction for Semi-Supervised Medical Segmentation"
+  - u: "bridging_vision_and_language_for_robust_context-aware_surgical_point_tracking_th/"
+    t: "Bridging Vision and Language for Robust Context-Aware Surgical Point Tracking: The VL-SurgPT Dataset and Benchmark"
+  - u: "cd-dpe_dual-prompt_expert_network_based_on_convolutional_dictionary_feature_deco/"
+    t: "CD-DPE: Dual-Prompt Expert Network Based on Convolutional Dictionary Feature Decoupling for Multi-Contrast MRI Super-Resolution"
+  - u: "coarse-to-fine_open-set_graph_node_classification_with_large_language_models/"
+    t: "Coarse-to-Fine Open-Set Graph Node Classification with Large Language Models"
+  - u: "cocolit_controlnet-conditioned_latent_image_translation_for_mri_to_amyloid_pet_s/"
+    t: "CoCoLIT: ControlNet-Conditioned Latent Image Translation for MRI to Amyloid PET Synthesis"
+  - u: "cross-sample_augmented_test-time_adaptation_for_personalized_intraoperative_hypo/"
+    t: "Cross-Sample Augmented Test-Time Adaptation for Personalized Intraoperative Hypotension Prediction"
+  - u: "decoding_with_structured_awareness_integrating_directional_frequency-spatial_and/"
+    t: "Decoding with Structured Awareness: Integrating Directional, Frequency-Spatial, and Structural Attention for Medical Image Segmentation"
+  - u: "deepgb-tb_a_risk-balanced_cross-attention_gradient-boosted_convolutional_network/"
+    t: "DeepGB-TB: A Risk-Balanced Cross-Attention Gradient-Boosted Convolutional Network for Rapid, Interpretable Tuberculosis Screening"
+  - u: "denas-vit_data_efficient_nas-optimized_vision_transformer_for_ultrasound_image_s/"
+    t: "DeNAS-ViT: Data Efficient NAS-Optimized Vision Transformer for Ultrasound Image Segmentation"
+  - u: "dia-gnostic_vlvae_disentangled_alignment-constrained_vision_language_variational/"
+    t: "DiA-gnostic VLVAE: Disentangled Alignment-Constrained Vision Language Variational AutoEncoder for Robust Radiology Reporting with Missing Modalities"
+  - u: "divide_conquer_and_unite_hierarchical_style-recalibrated_prototype_alignment_for/"
+    t: "Divide, Conquer and Unite: Hierarchical Style-Recalibrated Prototype Alignment for Federated Medical Segmentation"
+  - u: "dualfete_revisiting_teacher-student_interactions_from_a_feedback_perspective_for/"
+    t: "DualFete: Revisiting Teacher-Student Interactions from a Feedback Perspective for Semi-supervised Medical Image Segmentation"
+  - u: "dw-dgat_dynamically_weighted_dual_graph_attention_network_for_neurodegenerative_/"
+    t: "DW-DGAT: Dynamically Weighted Dual Graph Attention Network for Neurodegenerative Disease Diagnosis"
+  - u: "egoems_a_high-fidelity_multimodal_egocentric_dataset_for_cognitive_assistance_in/"
+    t: "EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services"
+  - u: "experience_with_single_domain_generalization_in_real_world_medical_imaging_deplo/"
+    t: "Experience with Single Domain Generalization in Real World Medical Imaging Deployments"
+  - u: "fane_towards_fine-grained_cross-modal_contrast_with_false-negative_reduction_and/"
+    t: "FaNe: Towards Fine-Grained Cross-Modal Contrast with False-Negative Reduction and Text-Conditioned Sparse Attention"
+  - u: "fia-edit_frequency-interactive_attention_for_efficient_and_high-fidelity_inversi/"
+    t: "FIA-Edit: Frequency-Interactive Attention for Efficient and High-Fidelity Inversion-Free Text-Guided Image Editing"
+  - u: "fine-tuned_llms_know_they_dont_know_a_parameter-efficient_approach_to_recovering/"
+    t: "Fine-Tuned LLMs Know They Don't Know: A Parameter-Efficient Approach to Recovering Honesty"
+  - u: "from_policy_to_logic_for_efficient_and_interpretable_coverage_assessment/"
+    t: "From Policy to Logic for Efficient and Interpretable Coverage Assessment"
+  - u: "funkan_functional_kolmogorov-arnold_network_for_medical_image_enhancement_and_se/"
+    t: "FunKAN: Functional Kolmogorov-Arnold Network for Medical Image Enhancement and Segmentation"
+  - u: "g2lfrom_giga-scale_to_cancer-specific_large-scale_pathology_foundation_models_vi/"
+    t: "G2L: From Giga-Scale to Cancer-Specific Large-Scale Pathology Foundation Models via Efficient Fine-Tuning"
+  - u: "giim_graph-based_learning_of_inter-_and_intra-view_dependencies_for_multi-view_m/"
+    t: "GIIM: Graph-based Learning of Inter- and Intra-view Dependencies for Multi-view Medical Image Diagnosis"
+  - u: "graph-theoretic_consistency_for_robust_and_topology-aware_semi-supervised_histop/"
+    t: "Graph-Theoretic Consistency for Robust and Topology-Aware Semi-Supervised Histopathology Segmentation"
+  - u: "grover_graph-guided_representation_of_omics_and_vision_with_expert_regulation_fo/"
+    t: "GROVER: Graph-guided Representation of Omics and Vision with Expert Regulation for Cancer Survival Prediction"
+  - u: "guidegen_a_text-guided_framework_for_paired_full-torso_anatomy_and_ct_volume_gen/"
+    t: "GuideGen: A Text-Guided Framework for Paired Full-Torso Anatomy and CT Volume Generation"
+  - u: "human-in-the-loop_interactive_report_generation_for_chronic_disease_adherence/"
+    t: "Human-in-the-Loop Interactive Report Generation for Chronic Disease Adherence"
+item_total: 71
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**🤖 AAAI2026** · **73** 篇论文解读
+**🤖 AAAI2026** · **71** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (100)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (21)](../../ICLR2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md) · [🧪 ICML2025 (22)](../../ICML2025/medical_imaging/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (97)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md) · [🧪 ICML2025 (22)](../../ICML2025/medical_imaging/index.md)
 
 🔥 **高频主题：** 医学影像 ×35 · 语义分割 ×11 · 多模态 ×6 · 对齐/RLHF ×6 · 对抗鲁棒 ×4
 
@@ -84,10 +146,6 @@ tags:
 **[Divide, Conquer and Unite: Hierarchical Style-Recalibrated Prototype Alignment for Federated Medical Segmentation](divide_conquer_and_unite_hierarchical_style-recalibrated_prototype_alignment_for.md)**
 
 :   针对联邦医学图像分割中的"层间风格偏差累积"和"上下文表征不完整"两大挑战，提出FedBCS框架：通过频域自适应风格重校准（FSR）构建领域不变原型，并设计上下文感知的双层原型对齐（CDPA）融合编解码器多层级语义，在组织核分割和前列腺MRI分割任务上达到SOTA。
-
-**[Do Large Language Models Think Like the Brain? Sentence-Level Evidences from Layer-Wise Embeddings and fMRI](do_large_language_models_think_like_the_brain_sentence-level_evidences_from_laye.md)**
-
-:   本文通过对比14个公开LLM的逐层表示与人类被试听自然叙事时的fMRI数据，在句子级别系统地研究了LLM与人脑语言处理的对齐程度，发现中间层最对齐、指令微调显著增强对齐、且存在与经典神经语言学理论一致的半球偏侧化模式。
 
 **[DualFete: Revisiting Teacher-Student Interactions from a Feedback Perspective for Semi-supervised Medical Image Segmentation](dualfete_revisiting_teacher-student_interactions_from_a_feedback_perspective_for.md)**
 
@@ -172,10 +230,6 @@ tags:
 **[MedEyes: Learning Dynamic Visual Focus for Medical Progressive Diagnosis](medeyes_learning_dynamic_visual_focus_for_medical_progressive_diagnosis.md)**
 
 :   提出 MedEyes，一个混合策略强化学习框架，通过注视引导推理导航器（GRN）模拟临床医生"扫描-钻探"的诊断视觉搜索模式，结合置信度值采样器（CVS）和双流 GRPO 优化，实现动态视觉聚焦的医学渐进式诊断推理，在五个医学 VQA 基准上平均提升 8.5pp。
-
-**[MindCross: Fast New Subject Adaptation with Limited Data for Cross-subject Video Reconstruction from Brain Signals](mindcross_fast_new_subject_adaptation_with_limited_data_for_cross-subject_video_.md)**
-
-:   提出 MindCross，一个跨被试脑解码框架，通过共享编码器学习被试无关信息 + N个特有编码器学习被试相关信息，配合快速校准阶段和 Top-K 协作解码模块，仅用一个模型在 fMRI/EEG-to-video 基准上实现与被试独立模型可比的性能，且新被试适应仅需极少数据和极短时间（~1秒 vs 基线5-17秒）。
 
 **[MIRNet: Integrating Constrained Graph-Based Reasoning with Pre-training for Diagnostic Medical Imaging](mirnet_integrating_constrained_graph-based_reasoning_with_pre-training_for_diagn.md)**
 

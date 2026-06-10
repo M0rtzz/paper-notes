@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 推荐系统方向17篇论文解读
+  ICML2025 推荐系统论文汇总 · 17篇论文解读
 description: >-
   17篇ICML2025的推荐系统方向论文解读，涵盖推荐系统、对齐/RLHF、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,42 @@ tags:
   - "论文笔记"
   - "对齐/RLHF"
   - "LLM"
+item_list:
+  - u: "adaptive_elicitation_of_latent_information_using_natural_language/"
+    t: "Adaptive Elicitation of Latent Information Using Natural Language"
+  - u: "aligning_llms_by_predicting_preferences_from_user_writing_samples/"
+    t: "Aligning LLMs by Predicting Preferences from User Writing Samples"
+  - u: "deprecating_benchmarks_criteria_and_framework/"
+    t: "Deprecating Benchmarks: Criteria and Framework"
+  - u: "elmo_efficiency_via_low-precision_and_peak_memory_optimization_in_large_output_s/"
+    t: "ELMO: Efficiency via Low-precision and Peak Memory Optimization in Large Output Spaces"
+  - u: "how_to_set_adamws_weight_decay_as_you_scale_model_and_dataset_size/"
+    t: "How to Set AdamW's Weight Decay as You Scale Model and Dataset Size"
+  - u: "learning_cascade_ranking_as_one_network/"
+    t: "LCRON: Learning Cascade Ranking as One Network"
+  - u: "new_interaction_paradigm_for_complex_eda_software_leveraging_gpt/"
+    t: "New Interaction Paradigm for Complex EDA Software Leveraging GPT"
+  - u: "not_all_explanations_for_deep_learning_phenomena_are_equally_valuable/"
+    t: "Not All Explanations for Deep Learning Phenomena Are Equally Valuable"
+  - u: "parm_multi-objective_test-time_alignment_via_preference-aware_autoregressive_rew/"
+    t: "PARM: Multi-Objective Test-Time Alignment via Preference-Aware Autoregressive Reward Model"
+  - u: "position_dont_use_the_clt_in_llm_evals_with_fewer_than_a_few_hundred_datapoints/"
+    t: "Position: Don't Use the CLT in LLM Evals with Fewer Than a Few Hundred Datapoints"
+  - u: "qure_query-relevant_retrieval_through_hard_negative_sampling_in_composed_image_r/"
+    t: "QuRe: Query-Relevant Retrieval through Hard Negative Sampling in Composed Image Retrieval"
+  - u: "recommendations_and_reporting_checklist_for_rigorous_transparent_human_baselines/"
+    t: "Recommendations and Reporting Checklist for Rigorous & Transparent Human Baselines in Model Evaluations"
+  - u: "recommendations_with_sparse_comparison_data_provably_fast_convergence_for_noncon/"
+    t: "Recommendations with Sparse Comparison Data: Provably Fast Convergence for Nonconvex Matrix Factorization"
+  - u: "rlthf_targeted_human_feedback_for_llm_alignment/"
+    t: "RLTHF: Targeted Human Feedback for LLM Alignment"
+  - u: "simplemix_frustratingly_simple_mixing_of_off-_and_on-policy_data_in_language_mod/"
+    t: "SIMPLEMIX: Frustratingly Simple Mixing of Off- and On-policy Data in Language Model Preference Learning"
+  - u: "the_right_to_ai/"
+    t: "Position: The Right to AI"
+  - u: "toward_safe_and_human-aligned_game_conversational_recommendation_via_multi-agent/"
+    t: "MATCHA: Toward Safe and Human-Aligned Game Conversational Recommendation via Multi-Agent Decomposition"
+item_total: 17
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

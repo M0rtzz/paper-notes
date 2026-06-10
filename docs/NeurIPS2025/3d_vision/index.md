@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 3D 视觉方向113篇论文解读
+  NeurIPS2025 3D视觉论文汇总 · 111篇论文解读
 description: >-
-  113篇NeurIPS2025的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、动态场景、扩散模型、新视角合成、点云、三维重建等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  111篇NeurIPS2025的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、动态场景、扩散模型、新视角合成、三维重建、点云等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "3D 视觉"
@@ -12,18 +12,80 @@ tags:
   - "动态场景"
   - "扩散模型"
   - "新视角合成"
-  - "点云"
   - "三维重建"
+  - "点云"
+item_list:
+  - u: "3d_visual_illusion_depth_estimation/"
+    t: "3D Visual Illusion Depth Estimation"
+  - u: "anti-aliased_2d_gaussian_splatting/"
+    t: "Anti-Aliased 2D Gaussian Splatting"
+  - u: "armesh_autoregressive_mesh_generation_via_next-level-of-detail_prediction/"
+    t: "ARMesh: Autoregressive Mesh Generation via Next-Level-of-Detail Prediction"
+  - u: "atlasgs_atlanta-world_guided_surface_reconstruction_with_implicit_structured_gau/"
+    t: "AtlasGS: Atlanta-world Guided Surface Reconstruction with Implicit Structured Gaussians"
+  - u: "becominglit_relightable_gaussian_avatars_with_hybrid_neural_shading/"
+    t: "BecomingLit: Relightable Gaussian Avatars with Hybrid Neural Shading"
+  - u: "clipgaussian_universal_and_multimodal_style_transfer_based_on_gaussian_splatting/"
+    t: "CLIPGaussian: Universal and Multimodal Style Transfer Based on Gaussian Splatting"
+  - u: "concerto_joint_2d-3d_self-supervised_learning_emerges_spatial_representations/"
+    t: "Concerto: Joint 2D-3D Self-Supervised Learning Emerges Spatial Representations"
+  - u: "copresheaf_topological_neural_networks_a_generalized_deep_learning_framework/"
+    t: "Copresheaf Topological Neural Networks: A Generalized Deep Learning Framework"
+  - u: "cosmobench_a_multiscale_multiview_multitask_cosmology_benchmark_for_geometric_de/"
+    t: "CosmoBench: A Multiscale, Multiview, Multitask Cosmology Benchmark for Geometric Deep Learning"
+  - u: "cue3d_quantifying_the_role_of_image_cues_in_single-image_3d_generation/"
+    t: "Cue3D: Quantifying the Role of Image Cues in Single-Image 3D Generation"
+  - u: "d2ust3r_enhancing_3d_reconstruction_for_dynamic_scenes/"
+    t: "D$^2$USt3R: Enhancing 3D Reconstruction for Dynamic Scenes"
+  - u: "dc4gs_directional_consistency-driven_adaptive_density_control_for_3d_gaussian_sp/"
+    t: "DC4GS: Directional Consistency-Driven Adaptive Density Control for 3D Gaussian Splatting"
+  - u: "dgh_dynamic_gaussian_hair/"
+    t: "DGH: Dynamic Gaussian Hair"
+  - u: "dualfocus_depth_from_focus_with_spatio-focal_dual_variational_constraints/"
+    t: "DualFocus: Depth from Focus with Spatio-Focal Dual Variational Constraints"
+  - u: "dynamic_gaussian_splatting_from_defocused_and_motion-blurred_monocular_videos/"
+    t: "Dynamic Gaussian Splatting from Defocused and Motion-blurred Monocular Videos"
+  - u: "dynamics_of_spontaneous_topic_changes_in_next_token_prediction_with_self-attenti/"
+    t: "Dynamics of Spontaneous Topic Changes in Next Token Prediction with Self-Attention"
+  - u: "dynarend_learning_3d_dynamics_via_masked_future_rendering_for_robotic_manipulati/"
+    t: "DynaRend: Learning 3D Dynamics via Masked Future Rendering for Robotic Manipulation"
+  - u: "e-moflow_learning_egomotion_and_optical_flow_from_event_data_via_implicit_regula/"
+    t: "E-MoFlow: Learning Egomotion and Optical Flow from Event Data via Implicit Regularization"
+  - u: "ea3d_online_open-world_3d_object_extraction_from_streaming_videos/"
+    t: "EA3D: Online Open-World 3D Object Extraction from Streaming Videos"
+  - u: "ef-3dgs_event-aided_free-trajectory_3d_gaussian_splatting/"
+    t: "EF-3DGS: Event-Aided Free-Trajectory 3D Gaussian Splatting"
+  - u: "electra_a_cartesian_network_for_3d_charge_density_prediction_with_floating_orbit/"
+    t: "ELECTRA: A Cartesian Network for 3D Charge Density Prediction with Floating Orbitals"
+  - u: "enerverse_envisioning_embodied_future_space_for_robotics_manipulation/"
+    t: "EnerVerse: Envisioning Embodied Future Space for Robotics Manipulation"
+  - u: "enhancing_multilingual_llm_pretraining_with_model-based_data_selection/"
+    t: "Enhancing Multilingual LLM Pretraining with Model-Based Data Selection"
+  - u: "eugens_efficient_unified_and_general_dense_layers/"
+    t: "EUGens: Efficient, Unified, and General Dense Layers"
+  - u: "every_camera_effect_every_time_all_at_once_4d_gaussian_ray_tracing_for_physics-b/"
+    t: "Every Camera Effect, Every Time, All at Once: 4D Gaussian Ray Tracing for Physics-based Camera Effect Data Generation"
+  - u: "fair_representation_learning_with_controllable_high_confidence_guarantees_via_ad/"
+    t: "Fair Representation Learning with Controllable High Confidence Guarantees via Adversarial Inference"
+  - u: "fedfact_a_provable_framework_for_controllable_group-fairness_calibration_in_fede/"
+    t: "FedFACT: A Provable Framework for Controllable Group-Fairness Calibration in Federated Learning"
+  - u: "flarex_a_physics-informed_dataset_for_lens_flare_removal_via_2d_synthesis_and_3d/"
+    t: "FlareX: A Physics-Informed Dataset for Lens Flare Removal via 2D Synthesis and 3D Rendering"
+  - u: "flux4d_flow-based_unsupervised_4d_reconstruction/"
+    t: "Flux4D: Flow-based Unsupervised 4D Reconstruction"
+  - u: "from_objects_to_anywhere_a_holistic_benchmark_for_multi-level_visual_grounding_i/"
+    t: "From Objects to Anywhere: A Holistic Benchmark for Multi-level Visual Grounding in 3D Scenes"
+item_total: 111
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D 视觉
 
-**🧠 NeurIPS2025** · **113** 篇论文解读
+**🧠 NeurIPS2025** · **111** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (236)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (61)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (78)](../../AAAI2026/3d_vision/index.md) · [📹 ICCV2025 (264)](../../ICCV2025/3d_vision/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (227)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/index.md) · [📹 ICCV2025 (252)](../../ICCV2025/3d_vision/index.md)
 
-🔥 **高频主题：** 3D 高斯渲染 ×19 · 动态场景 ×9 · 扩散模型 ×7 · 新视角合成 ×7 · 点云 ×6
+🔥 **高频主题：** 3D 高斯渲染 ×19 · 动态场景 ×9 · 扩散模型 ×7 · 新视角合成 ×7 · 三维重建 ×5
 
 **[3D Visual Illusion Depth Estimation](3d_visual_illusion_depth_estimation.md)**
 
@@ -293,10 +355,6 @@ tags:
 
 :   提出NerfBaselines评测框架，通过统一的评估协议、环境隔离和原始代码封装，解决了新视角合成领域因评估协议差异导致的不公平比较问题，并通过实验揭示了微小的协议差异（如图像缩放方式、背景颜色）可以显著改变方法排名。
 
-**[Novel Class Discovery for Point Cloud Segmentation via Joint Learning of Causal Representation and Reasoning](novel_class_discovery_for_point_cloud_segmentation_via_joint_learning_of_causal_.md)**
-
-:   本文首次将因果学习引入3D点云新类发现（3D-NCD），通过结构因果模型（SCM）分析基类中的混杂因子和基-新类间的因果关系，提出因果表示原型学习（通过对抗网络消除混杂因子）和基于图的因果推理（GCN生成伪标签），在SemanticKITTI和SemanticPOSS上取得了SOTA结果。
-
 **[Novel View Synthesis from A Few Glimpses via Test-Time Natural Video Completion](novel_view_synthesis_from_a_few_glimpses_via_test-time_natural_video_completion.md)**
 
 :   将稀疏输入新视角合成重新定义为测试时自然视频补全问题，利用预训练视频扩散模型的先验生成中间伪视图，并通过不确定性感知机制与 3D 高斯泼溅（3D-GS）迭代优化，在极稀疏输入下实现高保真场景重建。
@@ -468,10 +526,6 @@ tags:
 **[WildCAT3D: Appearance-Aware Multi-View Diffusion in the Wild](wildcat3d_appearance-aware_multi-view_diffusion_in_the_wild.md)**
 
 :   提出WildCAT3D，通过显式建模图像的全局外观条件，扩展多视角扩散模型（CAT3D）从野外互联网数据（如旅游照片）中学习场景级新视角合成，同时支持外观控制生成。
-
-**[You Can Trust Your Clustering Model: A Parameter-free Self-Boosting Plug-in for Deep Clustering](you_can_trust_your_clustering_model_a_parameter-free_self-boosting_plug-in_for_d.md)**
-
-:   提出 DCBoost，一个无需额外超参数的即插即用模块，通过自适应 k-NN 筛选高置信样本并利用可靠的局部结构信息引导全局特征空间优化，显著提升现有深度聚类模型的性能。
 
 **[ZPressor: Bottleneck-Aware Compression for Scalable Feed-Forward 3DGS](zpressor_bottleneck-aware_compression_for_scalable_feed-forward_3dgs.md)**
 

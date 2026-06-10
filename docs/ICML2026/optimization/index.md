@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 优化/理论方向60篇论文解读
+  ICML2026 优化/理论论文汇总 · 60篇论文解读
 description: >-
   60篇ICML2026的优化/理论方向论文解读，涵盖联邦学习、对抗鲁棒、Agent、LLM、压缩/编码等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "Agent"
   - "LLM"
   - "压缩/编码"
+item_list:
+  - u: "a_general_framework_for_dynamic_consistent_submodular_maximization/"
+    t: "A General Framework for Dynamic Consistent Submodular Maximization"
+  - u: "accelerated_multiple_wasserstein_gradient_flows_for_multi-objective_distribution/"
+    t: "Accelerated Multiple Wasserstein Gradient Flows for Multi-objective Distributional Optimization"
+  - u: "adaptive_estimation_and_inference_in_semi-parametric_heterogeneous_clustered_mul/"
+    t: "Adaptive Estimation and Inference in Semi-parametric Heterogeneous Clustered Multitask Learning via Neyman Orthogonality"
+  - u: "adaptive_sharpness-aware_minimization_with_a_polyak-type_step_size_a_theory-grou/"
+    t: "Adaptive Sharpness-Aware Minimization with a Polyak-type Step size: A Theory-Grounded Scheduler"
+  - u: "asymmetric_perturbation_in_solving_bilinear_saddle-point_optimization/"
+    t: "Asymmetric Perturbation in Solving Bilinear Saddle-Point Optimization"
+  - u: "automatic_unsupervised_ensemble_outlier_model_selection--extended_version/"
+    t: "Automatic Unsupervised Ensemble Outlier Model Selection–Extended Version"
+  - u: "balanced_lora_removing_parameter_invariance_to_accelerate_convergence/"
+    t: "Balanced LoRA: Removing Parameter Invariance to Accelerate Convergence"
+  - u: "balancing_learning_rates_across_layers_exact_two-step_dynamics_and_optimal_scali/"
+    t: "Balancing Learning Rates Across Layers: Exact Two-Step Dynamics and Optimal Scaling in Linear Neural Networks"
+  - u: "bayesian_gated_non-negative_contrastive_learning/"
+    t: "Bayesian Gated Non-Negative Contrastive Learning"
+  - u: "bregman_meets_lévy_stochastic_mirror_descent_with_heavy-tailed_noise_in_continuo/"
+    t: "Bregman meets Lévy: Stochastic Mirror Descent with Heavy-Tailed Noise in Continuous and Discrete Time"
+  - u: "budget-feasible_mechanisms_for_submodular_welfare_maximization_in_procurement_au/"
+    t: "Budget-Feasible Mechanisms for Submodular Welfare Maximization in Procurement Auctions"
+  - u: "can_adaptive_gradient_methods_converge_under_heavy-tailed_noise_a_case_study_of_/"
+    t: "Can Adaptive Gradient Methods Converge under Heavy-Tailed Noise? A Case Study of AdaGrad"
+  - u: "colorful_pinball_density-weighted_quantile_regression_for_conditional_guarantee_/"
+    t: "Colorful Pinball: Density-Weighted Quantile Regression for Conditional Guarantee of Conformal Prediction"
+  - u: "convex_basins_in_single-index_model_loss_landscapes_applications_to_robust_recov/"
+    t: "Convex Basins in Single-Index Model Loss Landscapes: Applications to Robust Recovery under Strong Adversarial Corruption"
+  - u: "delayed_momentum_aggregation_communication-efficient_byzantine-robust_federated_/"
+    t: "Delayed Momentum Aggregation: Communication-efficient Byzantine-robust Federated Learning with Partial Participation"
+  - u: "distilling_linearized_behavior_into_non-linear_fine-tuning_for_effective_task_ar/"
+    t: "Distilling Linearized Behavior into Non-Linear Fine-Tuning for Effective Task Arithmetic"
+  - u: "distribution-free_uncertainty_quantification_for_continuous_ai_agent_evaluation/"
+    t: "Distribution-Free Uncertainty Quantification for Continuous AI Agent Evaluation"
+  - u: "dynamics_and_representation_structure_of_local_approximations_to_gradient-based_/"
+    t: "Dynamics and Representation Structure of Local Approximations to Gradient-Based Learning in Linear Recurrent Neural Networks"
+  - u: "enhancing_llm_training_via_spectral_clipping/"
+    t: "Enhancing LLM Training via Spectral Clipping"
+  - u: "follow-the-perturbed-leader_for_decoupled_bandits_best-of-both-worlds_and_practi/"
+    t: "Follow-the-Perturbed-Leader for Decoupled Bandits: Best-of-Both-Worlds and Practicality"
+  - u: "ho-sfl_hybrid-order_split_federated_learning_with_backprop-free_clients_and_dime/"
+    t: "HO-SFL: Hybrid-Order Split Federated Learning with Backprop-Free Clients and Dimension-Free Aggregation"
+  - u: "interpretability_and_generalization_bounds_for_learning_spatial_physics/"
+    t: "Interpretability and Generalization Bounds for Learning Spatial Physics"
+  - u: "learning-augmented_scalable_linear_assignment_problem_optimization_via_neural_du/"
+    t: "Learning-Augmented Scalable Linear Assignment Problem Optimization via Neural Dual Warm-Starts"
+  - u: "learning_a_zeroth-order_optimizer_for_fine-tuning_llms/"
+    t: "Learning a Zeroth-Order Optimizer for Fine-Tuning LLMs"
+  - u: "learning_context-conditioned_predicate_semantics_via_prototype_feedback/"
+    t: "Learning Context-Conditioned Predicate Semantics via Prototype Feedback"
+  - u: "learning_dynamics_of_zeroth-order_optimization_a_kernel_perspective/"
+    t: "Learning Dynamics of Zeroth-Order Optimization: A Kernel Perspective"
+  - u: "learning_locally_revising_globally_global_reviser_for_federated_learning_with_no/"
+    t: "Learning Locally, Revising Globally: Global Reviser for Federated Learning with Noisy Labels"
+  - u: "learning_randomized_reductions/"
+    t: "Learning Randomized Reductions"
+  - u: "limits_of_convergence-rate_control_for_open-weight_safety/"
+    t: "Limits of Convergence-Rate Control for Open-Weight Safety"
+  - u: "limuon_light_and_fast_muon_optimizer_for_large_models/"
+    t: "LiMuon: Light and Fast Muon Optimizer for Large Models"
+item_total: 60
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **🧪 ICML2026** · **60** 篇论文解读
 
-📌 **同领域跨会议浏览：** [📷 CVPR2026 (16)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (14)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
 
 🔥 **高频主题：** 联邦学习 ×3 · 对抗鲁棒 ×2 · Agent ×2 · LLM ×2 · 压缩/编码 ×2
 

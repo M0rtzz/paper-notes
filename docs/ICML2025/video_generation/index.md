@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 视频生成方向7篇论文解读
+  ICML2025 视频生成论文汇总 · 7篇论文解读
 description: >-
   7篇ICML2025的视频生成方向论文解读，涵盖扩散模型、视频生成、多模态、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,22 @@ tags:
   - "扩散模型"
   - "多模态"
   - "对抗鲁棒"
+item_list:
+  - u: "asymrnr_video_diffusion_transformers_acceleration_with_asymmetric_reduction_and_/"
+    t: "AsymRnR: Video Diffusion Transformers Acceleration with Asymmetric Reduction and Restoration"
+  - u: "ca2-vdm_efficient_autoregressive_video_diffusion_model_with_causal_generation_an/"
+    t: "Ca2-VDM: Efficient Autoregressive Video Diffusion Model with Causal Generation and Cache Sharing"
+  - u: "data-juicer_sandbox_a_feedback-driven_suite_for_multimodal_data-model_co-develop/"
+    t: "Data-Juicer Sandbox: A Feedback-Driven Suite for Multimodal Data-Model Co-development"
+  - u: "diffusion_adversarial_post-training_for_one-step_video_generation/"
+    t: "Diffusion Adversarial Post-Training for One-Step Video Generation"
+  - u: "how_far_is_video_generation_from_world_model_a_physical_law_perspective/"
+    t: "How Far is Video Generation from World Model: A Physical Law Perspective"
+  - u: "mimicmotion_high-quality_human_motion_video_generation_with_confidence-aware_pos/"
+    t: "MimicMotion: High-Quality Human Motion Video Generation with Confidence-aware Pose Guidance"
+  - u: "riflex_a_free_lunch_for_length_extrapolation_in_video_diffusion_transformers/"
+    t: "RIFLEx: A Free Lunch for Length Extrapolation in Video Diffusion Transformers"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 LLM 推理方向63篇论文解读
+  ICML2026 LLM推理论文汇总 · 63篇论文解读
 description: >-
   63篇ICML2026的 LLM 推理方向论文解读，涵盖推理、LLM、多模态、Agent、对抗鲁棒、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "Agent"
   - "对抗鲁棒"
   - "扩散模型"
+item_list:
+  - u: "a_formal_comparison_between_chain_of_thought_and_latent_thought/"
+    t: "A Formal Comparison Between Chain of Thought and Latent Thought"
+  - u: "an_information-theoretic_criterion_for_efficient_data_synthesis/"
+    t: "An Information-Theoretic Criterion for Efficient Data Synthesis"
+  - u: "are_large_reasoning_models_interruptible/"
+    t: "Are Large Reasoning Models Interruptible?"
+  - u: "are_tools_always_beneficial_learning_to_invoke_tools_adaptively_for_dual-mode_mu/"
+    t: "Are Tools Always Beneficial? Learning to Invoke Tools Adaptively for Dual-Mode Multimodal LLM Reasoning"
+  - u: "beyond_test-time_memory_state-space_optimal_control_for_llm_reasoning/"
+    t: "Beyond Test-Time Memory: State-Space Optimal Control for LLM Reasoning"
+  - u: "beyond_two-stage_training_cooperative_sft_and_rl_for_llm_reasoning/"
+    t: "Beyond Two-Stage Training: Cooperative SFT and RL for LLM Reasoning"
+  - u: "biases_in_the_blind_spot_detecting_what_llms_fail_to_mention/"
+    t: "Biases in the Blind Spot: Detecting What LLMs Fail to Mention"
+  - u: "blending_supervised_and_reinforcement_fine-tuning_with_prefix_sampling/"
+    t: "Blending Supervised and Reinforcement Fine-Tuning with Prefix Sampling"
+  - u: "chain-of-thought_reasoning_in_the_wild_is_not_always_faithful/"
+    t: "Chain-of-Thought Reasoning in the Wild Is Not Always Faithful"
+  - u: "clustering_as_reasoning_a_k-means_interpretation_of_chain-of-thought_graph_learn/"
+    t: "Clustering as Reasoning: A $k$-Means Interpretation of Chain-of-Thought Graph Learning"
+  - u: "cocoreviewbench_a_completeness-_and_correctness-oriented_benchmark_for_ai_review/"
+    t: "CoCoReviewBench: A Completeness- and Correctness-Oriented Benchmark for AI Reviewers"
+  - u: "conformal_thinking_risk_control_for_reasoning_on_a_compute_budget/"
+    t: "Conformal Thinking: Risk Control for Reasoning on a Compute Budget"
+  - u: "decepchain_inducing_deceptive_reasoning_in_large_language_models/"
+    t: "DecepChain: Inducing Deceptive Reasoning in Large Language Models"
+  - u: "deliberate_evolution_agentic_reasoning_for_sample-efficient_symbolic_regression_/"
+    t: "Deliberate Evolution: Agentic Reasoning for Sample-Efficient Symbolic Regression with LLMs"
+  - u: "densesteer_steering_small_language_models_towards_dense_math_reasoning/"
+    t: "DenseSteer: Steering Small Language Models towards Dense Math Reasoning"
+  - u: "diagnosing_multi-step_reasoning_failures_in_black-box_llms_via_stepwise_confiden/"
+    t: "Diagnosing Multi-step Reasoning Failures in Black-box LLMs via Stepwise Confidence Attribution"
+  - u: "diversity_matters_revisiting_test-time_compute_in_vision-language_models/"
+    t: "Diversity Matters: Revisiting Test-Time Compute in Vision-Language Models"
+  - u: "diversity_over_frequency_rethinking_tool_use_in_visual_chain-of-thought_agents/"
+    t: "Diversity Over Frequency: Rethinking Tool Use in Visual Chain-of-Thought Agents"
+  - u: "dynamics_within_latent_chain-of-thought_an_empirical_study_of_causal_structure/"
+    t: "Dynamics Within Latent Chain-of-Thought: An Empirical Study of Causal Structure"
+  - u: "ets_energy-guided_test-time_scaling_for_training-free_rl_alignment/"
+    t: "ETS: Energy-Guided Test-Time Scaling for Training-Free RL Alignment"
+  - u: "evaluating_relational_reasoning_in_llms_with_rel/"
+    t: "Evaluating Relational Reasoning in LLMs with REL"
+  - u: "floorplanqa_a_benchmark_for_spatial_reasoning_in_llms_using_structured_represent/"
+    t: "FloorplanQA: A Benchmark for Spatial Reasoning in LLMs Using Structured Representations"
+  - u: "foresightkv_optimizing_kv_cache_eviction_for_reasoning_models_by_learning_long-t/"
+    t: "ForesightKV: Optimizing KV Cache Eviction for Reasoning Models by Learning Long-Term Contribution"
+  - u: "from_llm-generated_conjectures_to_lean_formalizations_automated_polynomial_inequ/"
+    t: "From LLM-Generated Conjectures to Lean Formalizations: Automated Polynomial Inequality Proving via Sum-of-Squares Certificates"
+  - u: "grpo_is_secretly_a_process_reward_model/"
+    t: "GRPO is Secretly a Process Reward Model"
+  - u: "hidden_error_awareness_in_chain-of-thought_reasoning_the_signal_is_diagnostic_no/"
+    t: "Hidden Error Awareness in Chain-of-Thought Reasoning: The Signal Is Diagnostic, Not Causal"
+  - u: "how_far_ahead_do_llms_plan_uncovering_the_latent_horizon_in_chain-of-thought_rea/"
+    t: "How Far Ahead Do LLMs Plan? Uncovering the Latent Horizon in Chain-of-Thought Reasoning"
+  - u: "inducing_overthink_hierarchical_genetic_algorithm-based_dos_attack_on_black-box_/"
+    t: "Inducing Overthink: Hierarchical Genetic Algorithm-based DoS Attack on Black-Box Large Language Reasoning Models"
+  - u: "inference_time_optimization_with_confidence_dynamics/"
+    t: "Inference Time Optimization with Confidence Dynamics"
+  - u: "internalizing_safety_understanding_in_large_reasoning_models_via_verification/"
+    t: "Internalizing Safety Understanding in Large Reasoning Models via Verification"
+item_total: 63
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧪 ICML2026** · **63** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (82)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (83)](../../NeurIPS2025/llm_reasoning/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (80)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_reasoning/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/index.md)
 
 🔥 **高频主题：** 推理 ×42 · LLM ×14 · 多模态 ×2 · Agent ×2 · 对抗鲁棒 ×2
 

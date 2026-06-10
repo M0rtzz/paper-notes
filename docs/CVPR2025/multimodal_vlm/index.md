@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 多模态 VLM方向151篇论文解读
+  CVPR2025 多模态VLM论文汇总 · 150篇论文解读
 description: >-
-  151篇CVPR2025的多模态 VLM 方向论文解读，涵盖多模态、LLM、推理、对齐/RLHF、少样本学习、机器人等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  150篇CVPR2025的多模态 VLM 方向论文解读，涵盖多模态、LLM、推理、对齐/RLHF、少样本学习、机器人等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "多模态 VLM"
@@ -14,14 +14,76 @@ tags:
   - "对齐/RLHF"
   - "少样本学习"
   - "机器人"
+item_list:
+  - u: "4d_langsplat_4d_language_gaussian_splatting_via_multimodal_large_language_models/"
+    t: "4D LangSplat: 4D Language Gaussian Splatting via Multimodal Large Language Models"
+  - u: "active_data_curation_effectively_distills_large-scale_multimodal_models/"
+    t: "Active Data Curation Effectively Distills Large-Scale Multimodal Models"
+  - u: "asap_advancing_semantic_alignment_promotes_multi-modal_manipulation_de/"
+    t: "ASAP: Advancing Semantic Alignment Promotes Multi-Modal Manipulation Detecting and Grounding"
+  - u: "asap_advancing_semantic_alignment_promotes_multi-modal_manipulation_detecting_an/"
+    t: "ASAP: Advancing Semantic Alignment for Multi-Modal Manipulation Detection"
+  - u: "beyond_final_answers_crystal_benchmark_for_transparent_multimodal_reasoning_eval/"
+    t: "Beyond Final Answers: CRYSTAL Benchmark for Transparent Multimodal Reasoning Evaluation"
+  - u: "beyond_words_augmenting_discriminative_richness_via_diffusions_in_unsupervised_p/"
+    t: "Beyond Words: Augmenting Discriminative Richness via Diffusions in Unsupervised Prompt Learning"
+  - u: "calico_part-focused_semantic_co-segmentation_with_large_vision-language_models/"
+    t: "Calico: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models"
+  - u: "can_large_vision-language_models_correct_semantic_grounding_errors_by_themselves/"
+    t: "Can Large Vision-Language Models Correct Semantic Grounding Errors By Themselves?"
+  - u: "coap_memory-efficient_training_with_correlation-aware_gradient_projection/"
+    t: "COAP: Memory-Efficient Training with Correlation-Aware Gradient Projection"
+  - u: "coarse_correspondences_boost_spatial-temporal_reasoning_in_multimodal_language_m/"
+    t: "Coarse Correspondences Boost Spatial-Temporal Reasoning in Multimodal Language Models"
+  - u: "codepercept_code-grounded_visual_stem_perception_for_mllms/"
+    t: "CodePercept: Code-Grounded Visual STEM Perception for MLLMs"
+  - u: "collm_a_large_language_model_for_composed_image_retrieval/"
+    t: "CoLLM: A Large Language Model for Composed Image Retrieval"
+  - u: "comm_a_coherent_interleaved_image-text_dataset_for_multimodal_understanding_and_/"
+    t: "CoMM: A Coherent Interleaved Image-Text Dataset for Multimodal Understanding and Generation"
+  - u: "completion_as_enhancement_a_degradation-aware_selective_image_guided_network_for/"
+    t: "Completion as Enhancement: A Degradation-Aware Selective Image Guided Network"
+  - u: "compositional_caching_for_training-free_open-vocabulary_attribute_detection/"
+    t: "Compositional Caching for Training-free Open-vocabulary Attribute Detection"
+  - u: "context-aware_multimodal_pretraining/"
+    t: "Context-Aware Multimodal Pretraining"
+  - u: "continual_learning_with_vision-language_models_via_semantic-geometry_preservatio/"
+    t: "Continual Learning with Vision-Language Models via Semantic-Geometry Preservation"
+  - u: "counts_benchmarking_object_detectors_and_multimodal_large_language_models_under_/"
+    t: "COUNTS: Benchmarking Object Detectors and Multimodal Large Language Models under Distribution Shifts"
+  - u: "critic-v_vlm_critics_help_catch_vlm_errors_in_multimodal_reasoning/"
+    t: "Critic-V: VLM Critics Help Catch VLM Errors in Multimodal Reasoning"
+  - u: "cropper_vision-language_model_for_image_cropping_through_in-context_learning/"
+    t: "Cropper: Vision-Language Model for Image Cropping through In-Context Learning"
+  - u: "cross-modal_information_flow_in_multimodal_large_language_models/"
+    t: "Cross-modal Information Flow in Multimodal Large Language Models"
+  - u: "data_distributional_properties_as_inductive_bias_for_systematic_generalization/"
+    t: "Data Distributional Properties as Inductive Bias for Systematic Generalization"
+  - u: "debiasing_multimodal_large_language_models_via_noise-aware_preference_optimizati/"
+    t: "Debiasing Multimodal Large Language Models via Noise-Aware Preference Optimization"
+  - u: "distraction_is_all_you_need_for_multimodal_large_language_model_jailbreaking/"
+    t: "Distraction is All You Need for Multimodal Large Language Model Jailbreaking"
+  - u: "document_haystacks_vision-language_reasoning_over_piles_of_1000_documents/"
+    t: "Document Haystacks: Vision-Language Reasoning Over Piles of 1000+ Documents"
+  - u: "docvlm_make_your_vlm_an_efficient_reader/"
+    t: "DocVLM: Make Your VLM an Efficient Reader"
+  - u: "dpc_dual-prompt_collaboration_for_tuning_vision-language_models/"
+    t: "DPC: Dual-Prompt Collaboration for Tuning Vision-Language Models"
+  - u: "dynamic_updates_for_language_adaptation_in_visual-language_tracking/"
+    t: "Dynamic Updates for Language Adaptation in Visual-Language Tracking"
+  - u: "dynrefer_delving_into_region-level_multimodal_tasks_via_dynamic_resolution/"
+    t: "DynRefer: Delving into Region-level Multimodal Tasks via Dynamic Resolution"
+  - u: "efficient_motion-aware_video_mllm/"
+    t: "Efficient Motion-Aware Video MLLM"
+item_total: 150
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态 VLM
 
-**📷 CVPR2025** · **151** 篇论文解读
+**📷 CVPR2025** · **150** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (147)](../../NeurIPS2025/multimodal_vlm/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (146)](../../NeurIPS2025/multimodal_vlm/index.md)
 
 🔥 **高频主题：** 多模态 ×90 · LLM ×19 · 推理 ×12 · 对齐/RLHF ×9 · 少样本学习 ×6
 
@@ -440,10 +502,6 @@ tags:
 **[RoboSpatial: Teaching Spatial Understanding to 2D and 3D Vision-Language Models for Robotics](robospatial_teaching_spatial_understanding_to_2d_and_3d_vision-language_models_f.md)**
 
 :   RoboSpatial 构建了一个包含 1M 图像、5k 3D 扫描和 3M 空间关系标注的大规模机器人空间理解数据集，通过自动化 pipeline 从已有 3D 场景数据中生成三类空间问答对（空间上下文/兼容性/配置），并引入三种参考坐标系（自我/世界/物体），在多个 2D 和 3D VLM 上训练后显著提升空间推理性能，并在真实机器人操作实验中验证了有效性。
-
-**[Scalable Video-to-Dataset Generation for Cross-Platform Mobile Agents](scalable_video-to-dataset_generation_for_cross-platform_mobile_agents.md)**
-
-:   MONDAY 框架从 YouTube 教学视频自动生成移动端导航数据集——通过 OCR 场景转换检测和 GPT-4o 的 3 步动作识别流程，以人工标注 1/17 的成本（$0.34 vs $5.76/视频）构建了覆盖 iOS/Android 双平台的 313K 标注帧，预训练后 agent 在未见的 Windows Mobile 上提升 18.11%。
 
 **[Seeing Far and Clearly: Mitigating Hallucinations in MLLMs with Attention Causal Decoding](seeing_far_and_clearly_mitigating_hallucinations_in_mllms_with_attention_causal_.md)**
 

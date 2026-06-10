@@ -1,6 +1,6 @@
 ---
 title: >-
-  ECCV2024 其他方向65篇论文解读
+  ECCV2024 其他论文汇总 · 65篇论文解读
 description: >-
   65篇ECCV2024的其他方向论文解读，涵盖对抗鲁棒、人脸/视线、异常检测、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,68 @@ tags:
   - "人脸/视线"
   - "异常检测"
   - "自监督学习"
+item_list:
+  - u: "3dfg-pifu_3d_feature_grids_for_human_digitization_from_sparse_views/"
+    t: "3DFG-PIFu: 3D Feature Grids for Human Digitization from Sparse Views"
+  - u: "a_direct_approach_to_viewing_graph_solvability/"
+    t: "A Direct Approach to Viewing Graph Solvability"
+  - u: "a_framework_for_efficient_model_evaluation_through_stratific/"
+    t: "A Framework for Efficient Model Evaluation through Stratification, Sampling, and Estimation"
+  - u: "abc_easy_as_123_a_blind_counter_for_exemplar-free_multi-class_class-agnostic_cou/"
+    t: "ABC Easy as 123: A Blind Counter for Exemplar-Free Multi-Class Class-Agnostic Counting"
+  - u: "active_generation_for_image_classification/"
+    t: "Active Generation for Image Classification"
+  - u: "addme_zero-shot_group-photo_synthesis_by_inserting_people_into_scenes/"
+    t: "AddMe: Zero-Shot Group-Photo Synthesis by Inserting People Into Scenes"
+  - u: "admap_anti-disturbance_framework_for_vectorized_hd_map_construction/"
+    t: "ADMap: Anti-disturbance Framework for Vectorized HD Map Construction"
+  - u: "align_before_collaborate_mitigating_feature_misalignment_for_robust_multi-agent_/"
+    t: "Align before Collaborate: Mitigating Feature Misalignment for Robust Multi-Agent Perception"
+  - u: "an_incremental_unified_framework_for_small_defect_inspection/"
+    t: "An Incremental Unified Framework for Small Defect Inspection"
+  - u: "attnzero_efficient_attention_discovery_for_vision_transformers/"
+    t: "AttnZero: Efficient Attention Discovery for Vision Transformers"
+  - u: "auto-gas_automated_proxy_discovery_for_training-free_generative_architecture_sea/"
+    t: "Auto-GAS: Automated Proxy Discovery for Training-Free Generative Architecture Search"
+  - u: "bidirectional_uncertainty-based_active_learning_for_open-set_annotation/"
+    t: "Bidirectional Uncertainty-Based Active Learning for Open-Set Annotation"
+  - u: "brain_netflix_scaling_data_to_reconstruct_videos_from_brain_signals/"
+    t: "Brain Netflix: Scaling Data to Reconstruct Videos from Brain Signals"
+  - u: "clr-gan_improving_gans_stability_and_quality_via_consistent_latent_representatio/"
+    t: "CLR-GAN: Improving GANs Stability and Quality via Consistent Latent Representation and Reconstruction"
+  - u: "coin-matting_confounder_intervention_for_image_matting/"
+    t: "COIN-Matting: Confounder Intervention for Image Matting"
+  - u: "dc-solver_improving_predictor-corrector_diffusion_sampler_via_dynamic_compensati/"
+    t: "DC-Solver: Improving Predictor-Corrector Diffusion Sampler via Dynamic Compensation"
+  - u: "decoupling_common_and_unique_representations_for_multimodal_self-supervised_lear/"
+    t: "Decoupling Common and Unique Representations for Multimodal Self-supervised Learning"
+  - u: "docling_pdf_document_conversion/"
+    t: "Docling Technical Report"
+  - u: "domain_reduction_strategy_for_non-line-of-sight_imaging/"
+    t: "Domain Reduction Strategy for Non-Line-of-Sight Imaging"
+  - u: "dropout_mixture_low-rank_adaptation_for_visual_parameters-efficient_fine-tuning/"
+    t: "Dropout Mixture Low-Rank Adaptation for Visual Parameters-Efficient Fine-Tuning"
+  - u: "elegantly_written_disentangling_writer_and_character_styles_for_enhancing_online/"
+    t: "Elegantly Written: Disentangling Writer and Character Styles for Enhancing Online Chinese Handwriting"
+  - u: "enhancing_optimization_robustness_in_1-bit_neural_networks_through_stochastic_si/"
+    t: "Enhancing Optimization Robustness in 1-bit Neural Networks through Stochastic Sign Descent"
+  - u: "et_the_exceptional_trajectories_text-to-camera-trajectory_generation_with_charac/"
+    t: "ET: The Exceptional Trajectories - Text-to-Camera-Trajectory Generation with Character Awareness"
+  - u: "event-based_mosaicing_bundle_adjustment/"
+    t: "Event-based Mosaicing Bundle Adjustment"
+  - u: "exploring_guided_sampling_of_conditional_gans/"
+    t: "Exploring Guided Sampling of Conditional GANs"
+  - u: "fisherrf_active_view_selection_and_mapping_with_radiance_fields_using_fisher_inf/"
+    t: "FisherRF: Active View Selection and Mapping with Radiance Fields Using Fisher Information"
+  - u: "foster_adaptivity_and_balance_in_learning_with_noisy_labels/"
+    t: "Foster Adaptivity and Balance in Learning with Noisy Labels"
+  - u: "free-viewpoint_video_of_outdoor_sports_using_a_flying_camera/"
+    t: "Free-Viewpoint Video of Outdoor Sports Using a Flying Camera"
+  - u: "freeaugment_data_augmentation_search_across_all_degrees_of_freedom/"
+    t: "FreeAugment: Data Augmentation Search Across All Degrees of Freedom"
+  - u: "functional_transform-based_low-rank_tensor_factorization_for_multi-dimensional_d/"
+    t: "Functional Transform-Based Low-Rank Tensor Factorization for Multi-Dimensional Data Recovery"
+item_total: 65
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +81,7 @@ tags:
 
 **🎞️ ECCV2024** · **65** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (91)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (135)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (164)](../../NeurIPS2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (128)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (163)](../../NeurIPS2025/others/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×4 · 人脸/视线 ×3 · 异常检测 ×3 · 自监督学习 ×2
 

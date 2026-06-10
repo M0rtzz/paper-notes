@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 多智能体方向17篇论文解读
+  NeurIPS2025 多智能体论文汇总 · 17篇论文解读
 description: >-
   17篇NeurIPS2025的多智能体方向论文解读，涵盖 Agent、LLM、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,42 @@ tags:
   - "Agent"
   - "LLM"
   - "推理"
+item_list:
+  - u: "3d-agenttri-modal_multi-agent_collaboration_for_scalable_3d_object_annotation/"
+    t: "3D-Agent: Tri-Modal Multi-Agent Collaboration for Scalable 3D Object Annotation"
+  - u: "adaptive_coopetition_leveraging_coarse_verifier_signals_for_resilient_multi-agen/"
+    t: "Adaptive Coopetition: Leveraging Coarse Verifier Signals for Resilient Multi-Agent LLM Reasoning"
+  - u: "automated_composition_of_agents_a_knapsack_approach_for_agentic_component_select/"
+    t: "Automated Composition of Agents: A Knapsack Approach for Agentic Component Selection"
+  - u: "belief-calibrated_multi-agent_consensus_seeking_for_complex_nlp_tasks/"
+    t: "Belief-Calibrated Multi-Agent Consensus Seeking for Complex NLP Tasks"
+  - u: "communicating_plans_not_percepts_scalable_multi-agent_coordination_with_embodied/"
+    t: "Communicating Plans, Not Percepts: Scalable Multi-Agent Coordination with Embodied World Models"
+  - u: "debate_or_vote_which_yields_better_decisions_in_multi-agent_large_language_model/"
+    t: "Debate or Vote: Which Yields Better Decisions in Multi-Agent Large Language Models?"
+  - u: "gaudp_reinventing_multi-agent_collaboration_through_gaussian-image_synergy_in_di/"
+    t: "GauDP: Reinventing Multi-Agent Collaboration through Gaussian-Image Synergy in Diffusion Policies"
+  - u: "large_language_models_miss_the_multi-agent_mark/"
+    t: "Large Language Models Miss the Multi-Agent Mark"
+  - u: "lessons_learned_a_multi-agent_framework_for_code_llms_to_learn_and_improve/"
+    t: "Lessons Learned: A Multi-Agent Framework for Code LLMs to Learn and Improve"
+  - u: "masfin_a_multi-agent_system_for_decomposed_financial_reasoning_and_forecasting/"
+    t: "MASFIN: A Multi-Agent System for Decomposed Financial Reasoning and Forecasting"
+  - u: "maszero_designing_multiagent_systems_with_zero_supervision/"
+    t: "MAS-ZERO: Designing Multi-Agent Systems with Zero Supervision"
+  - u: "medagentboard_benchmarking_multi-agent_collaboration_with_conventional_methods_f/"
+    t: "MedAgentBoard: Benchmarking Multi-Agent Collaboration with Conventional Methods for Diverse Medical Tasks"
+  - u: "metamind_modeling_human_social_thoughts_with_metacognitive_multi-agent_systems/"
+    t: "MetaMind: Modeling Human Social Thoughts with Metacognitive Multi-Agent Systems"
+  - u: "multi-agent_collaboration_via_evolving_orchestration/"
+    t: "Multi-Agent Collaboration via Evolving Orchestration"
+  - u: "rd-agent-quant_a_multi-agent_framework_for_data-centric_factors_and_model_joint_/"
+    t: "R&D-Agent-Quant: A Multi-Agent Framework for Data-Centric Factors and Model Joint Optimization"
+  - u: "the_pokeagent_challenge_competitive_and_long-context_learning_at_scale/"
+    t: "The PokeAgent Challenge: Competitive and Long-Context Learning at Scale"
+  - u: "thought_communication_in_multiagent_collaboration/"
+    t: "Thought Communication in Multiagent Collaboration"
+item_total: 17
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +54,7 @@ tags:
 
 **🧠 NeurIPS2025** · **17** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/multi_agent/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/multi_agent/index.md) · [🤖 AAAI2026 (26)](../../AAAI2026/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
 
 🔥 **高频主题：** Agent ×14 · LLM ×3 · 推理 ×2
 

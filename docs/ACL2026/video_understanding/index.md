@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 视频理解方向17篇论文解读
+  ACL2026 视频理解论文汇总 · 17篇论文解读
 description: >-
   17篇ACL2026的视频理解方向论文解读，涵盖多模态、压缩/编码、问答、推理、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,42 @@ tags:
   - "问答"
   - "推理"
   - "LLM"
+item_list:
+  - u: "apb-v_accelerating_long-video_understanding_via_sequence-parallelism-aware_appro/"
+    t: "APB-V: Accelerating Long-Video Understanding via Sequence-Parallelism-aware Approximate Attention"
+  - u: "arrowgev_grounding_events_in_video_via_learning_the_arrow_of_time/"
+    t: "ArrowGEV: Grounding Events in Video via Learning the Arrow of Time"
+  - u: "automated_knowledge_component_generation_for_interpretable_knowledge_tracing_in_/"
+    t: "Automated Knowledge Component Generation and Interpretable Knowledge Tracing in Coding Problems"
+  - u: "confidence_estimation_for_llms_in_multi-turn_interactions/"
+    t: "Confidence Estimation for LLMs in Multi-turn Interactions"
+  - u: "craft_critic-refined_adaptive_key-frame_targeting_for_multimodal_video_question_/"
+    t: "CRAFT: Critic-Refined Adaptive Key-Frame Targeting for Multimodal Video Question Answering"
+  - u: "distorted_or_fabricated_a_survey_on_hallucination_in_video_llms/"
+    t: "Distorted or Fabricated? A Survey on Hallucination in Video LLMs"
+  - u: "dualfact_a_multimodal_fact_verification_framework_for_procedural_video_understan/"
+    t: "DualFact: A Multimodal Fact Verification Framework for Procedural Video Understanding"
+  - u: "gameplayqa_a_benchmarking_framework_for_decision-dense_pov-synced_multi-video_un/"
+    t: "GameplayQA: A Benchmarking Framework for Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents"
+  - u: "hermes_kv_cache_as_hierarchical_memory_for_efficient_streaming_video_understandi/"
+    t: "HERMES: KV Cache as Hierarchical Memory for Efficient Streaming Video Understanding"
+  - u: "nsf-scify_mining_the_nsf_awards_database_for_scientific_claims/"
+    t: "NSF-SciFy: Mining the NSF Awards Database for Scientific Claims"
+  - u: "probing_for_reading_times/"
+    t: "Probing for Reading Times"
+  - u: "response-g1_explicit_scene_graph_modeling_for_proactive_streaming_video_understa/"
+    t: "Response-G1: Explicit Scene Graph Modeling for Proactive Streaming Video Understanding"
+  - u: "rethinking_the_idiomaticity_decomposability_hypothesis_evidence_from_distributio/"
+    t: "Rethinking the Idiomaticity Decomposability Hypothesis: Evidence from Distributional Learning"
+  - u: "temporalvlm_video_llms_for_temporal_reasoning_in_long_videos/"
+    t: "TemporalVLM: Video LLMs for Temporal Reasoning in Long Videos"
+  - u: "trace_evidence_grounding-guided_multi-video_event_understanding_and_claim_genera/"
+    t: "TRACE：基于证据定位的多视频事件理解与声明生成"
+  - u: "vill-e_video_llm_embeddings_for_retrieval/"
+    t: "ViLL-E: Video LLM Embeddings for Retrieval"
+  - u: "vista_verification_in_sequential_turn-based_assessment/"
+    t: "VISTA: Verification In Sequential Turn-based Assessment"
+item_total: 17
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 优化/理论方向44篇论文解读
+  ICLR2026 优化/理论论文汇总 · 44篇论文解读
 description: >-
   44篇ICLR2026的优化/理论方向论文解读，涵盖联邦学习、模型压缩、推理、LLM、对齐/RLHF、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "LLM"
   - "对齐/RLHF"
   - "持续学习"
+item_list:
+  - u: "a_convergence_analysis_of_adaptive_optimizers_under_floating-point_quantization/"
+    t: "A Convergence Analysis of Adaptive Optimizers under Floating-Point Quantization"
+  - u: "adaptive_rollout_allocation_for_online_reinforcement_learning_with_verifiable_re/"
+    t: "Adaptive Rollout Allocation for Online RL with Verifiable Rewards (VIP)"
+  - u: "celo2_towards_learned_optimization_free_lunch/"
+    t: "Celo2: Towards Learned Optimization Free Lunch"
+  - u: "cogflow_bridging_perception_and_reasoning_through_knowledge_internalization_for_/"
+    t: "CogFlow: Bridging Perception and Reasoning through Knowledge Internalization for Visual Mathematical Problem Solving"
+  - u: "cold-steer_steering_large_language_models_via_in-context_one-step_learning_dynam/"
+    t: "COLD-Steer: Steering Large Language Models via In-Context One-step Learning Dynamics"
+  - u: "conformal_prediction_adaptive_to_unknown_subpopulation_shifts/"
+    t: "Conformal Prediction Adaptive to Unknown Subpopulation Shifts"
+  - u: "constraint_matters_multi-modal_representation_for_reducing_mixed-integer_linear_/"
+    t: "Constraint Matters: Multi-Modal Representation for Reducing Mixed-Integer Linear programming"
+  - u: "convergence_of_muon_with_newton-schulz/"
+    t: "Convergence of Muon with Newton-Schulz"
+  - u: "convex_dominance_in_deep_learning_i_a_scaling_law_of_loss_and_learning_rate/"
+    t: "Convex Dominance in Deep Learning I: A Scaling Law of Loss and Learning Rate"
+  - u: "deepafl_deep_analytic_federated_learning/"
+    t: "DeepAFL: Deep Analytic Federated Learning"
+  - u: "directional_convergence_benign_overfitting_of_gradient_descent_in_leaky_relu_two/"
+    t: "Directional Convergence, Benign Overfitting of Gradient Descent in leaky ReLU two-layer Neural Networks"
+  - u: "dual_optimistic_ascent_pi_control_is_the_augmented_lagrangian_method_in_disguise/"
+    t: "Dual Optimistic Ascent (PI Control) is the Augmented Lagrangian Method in Disguise"
+  - u: "exploring_diverse_generation_paths_via_inference-time_stiefel_activation_steerin/"
+    t: "Exploring Diverse Generation Paths via Inference-time Stiefel Activation Steering"
+  - u: "faster_gradient_methods_for_highly-smooth_stochastic_bilevel_optimization/"
+    t: "Faster Gradient Methods for Highly-Smooth Stochastic Bilevel Optimization"
+  - u: "feddag_clustered_federated_learning_via_global_data_and_gradient_integration_for/"
+    t: "FedDAG: Clustered Federated Learning via Global Data and Gradient Integration for Heterogeneous Environments"
+  - u: "frontierco_real-world_and_large-scale_evaluation_of_machine_learning_solvers_for/"
+    t: "FrontierCO: Real-World and Large-Scale Evaluation of Machine Learning Solvers for Combinatorial Optimization"
+  - u: "generalization_below_the_edge_of_stability_the_role_of_data_geometry/"
+    t: "Generalization Below the Edge of Stability: The Role of Data Geometry"
+  - u: "gradient-sign_masking_for_task_vector_transport_across_pre-trained_models/"
+    t: "Gradient-Sign Masking for Task Vector Transport Across Pre-Trained Models"
+  - u: "incentives_in_federated_learning_with_heterogeneous_agents/"
+    t: "Incentives in Federated Learning with Heterogeneous Agents"
+  - u: "lca_local_classifier_alignment_for_continual_learning/"
+    t: "LCA: Local Classifier Alignment for Continual Learning"
+  - u: "learning_to_recall_with_transformers_beyond_orthogonal_embeddings/"
+    t: "Learning to Recall with Transformers Beyond Orthogonal Embeddings"
+  - u: "learning_to_solve_orienteering_problem_with_time_windows_and_variable_profits/"
+    t: "Learning to Solve Orienteering Problem with Time Windows and Variable Profits"
+  - u: "markovian_transformers_for_informative_language_modeling/"
+    t: "Markovian Transformers for Informative Language Modeling"
+  - u: "minor_first_major_last_a_depth-induced_implicit_bias_of_sharpness-aware_minimiza/"
+    t: "Minor First, Major Last: A Depth-Induced Implicit Bias of Sharpness-Aware Minimization"
+  - u: "mt-dao_multi-timescale_distributed_adaptive_optimizers_with_local_updates/"
+    t: "MT-DAO: Multi-Timescale Distributed Adaptive Optimizers with Local Updates"
+  - u: "neural_networks_learn_generic_multi-index_models_near_information-theoretic_limi/"
+    t: "Neural Networks Learn Generic Multi-Index Models Near Information-Theoretic Limit"
+  - u: "non-asymptotic_analysis_of_efficiency_in_conformalized_regression/"
+    t: "Non-Asymptotic Analysis of Efficiency in Conformalized Regression"
+  - u: "nrgpt_an_energy-based_alternative_for_gpt/"
+    t: "NRGPT: An Energy-based Alternative for GPT"
+  - u: "optimizer_choice_matters_for_the_emergence_of_neural_collapse/"
+    t: "Optimizer Choice Matters for the Emergence of Neural Collapse"
+  - u: "personalized_collaborative_learning_with_affinity-based_variance_reduction/"
+    t: "Personalized Collaborative Learning with Affinity-Based Variance Reduction"
+item_total: 44
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🔬 ICLR2026** · **44** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (16)](../../CVPR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
 
 🔥 **高频主题：** 联邦学习 ×3
 

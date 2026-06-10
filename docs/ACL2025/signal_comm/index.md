@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 信号/通信方向1篇论文解读
+  ACL2025 信号/通信论文汇总 · 1篇论文解读
 description: >-
   1篇ACL2025的信号/通信方向论文解读，收录 WirelessMathBench等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -8,6 +8,10 @@ tags:
   - "信号/通信"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "wirelessmathbench_a_mathematical_modeling_benchmark_for_llms_in_wireless_communi/"
+    t: "WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications"
+item_total: 1
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 社会计算方向20篇论文解读
+  NeurIPS2025 社会计算论文汇总 · 19篇论文解读
 description: >-
-  20篇NeurIPS2025的社会计算方向论文解读，涵盖 LLM、对抗鲁棒、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  19篇NeurIPS2025的社会计算方向论文解读，涵盖 LLM、对抗鲁棒、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "社会计算"
@@ -11,16 +11,56 @@ tags:
   - "LLM"
   - "对抗鲁棒"
   - "少样本学习"
+item_list:
+  - u: "active_slice_discovery_in_large_language_models/"
+    t: "Active Slice Discovery in Large Language Models"
+  - u: "any_large_language_model_can_be_a_reliable_judge_debiasing_w/"
+    t: "Any Large Language Model Can Be a Reliable Judge: Debiasing with a Reasoning-based Bias Detector"
+  - u: "auto-search_and_refinement_an_automated_framework_for_gender_bias_mitigation_in_/"
+    t: "Auto-Search and Refinement: An Automated Framework for Gender Bias Mitigation in LLMs"
+  - u: "averimatec_a_dataset_for_automatic_verification_of_image-text_claims_with_eviden/"
+    t: "AVerImaTeC: A Dataset for Automatic Verification of Image-Text Claims with Evidence from the Web"
+  - u: "concept-level_explainability_for_auditing_steering_llm_responses/"
+    t: "Concept-Level Explainability for Auditing & Steering LLM Responses"
+  - u: "date-lm_benchmarking_data_attribution_evaluation_for_large_language_models/"
+    t: "DATE-LM: Benchmarking Data Attribution Evaluation for Large Language Models"
+  - u: "deeptraverse_a_depth-first_search_inspired_network_for_algorithmic_visual_unders/"
+    t: "DeepTraverse: A Depth-First Search Inspired Network for Algorithmic Visual Understanding"
+  - u: "dont_let_it_fade_preserving_edits_in_diffusion_language_mode/"
+    t: "Don't Let It Fade: Preserving Edits in Diffusion Language Models via Token Timestep Allocation"
+  - u: "graphkeeper_graph_domain-incremental_learning_via_knowledge_disentanglement_and_/"
+    t: "GraphKeeper: Graph Domain-Incremental Learning via Knowledge Disentanglement and Preservation"
+  - u: "if-guide_influence_function-guided_detoxification_of_llms/"
+    t: "IF-GUIDE: Influence Function-Guided Detoxification of LLMs"
+  - u: "noise-robustness_through_noise_a_framework_combining_asymmetric_lora_with_poison/"
+    t: "Noise-Robustness Through Noise: A Framework Combining Asymmetric LoRA with Poisoning MoE"
+  - u: "os-harm_a_benchmark_for_measuring_safety_of_computer_use_agents/"
+    t: "OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents"
+  - u: "policy-as-prompt_turning_ai_governance_rules_into_guardrails_for_ai_agents/"
+    t: "Policy-as-Prompt: Turning AI Governance Rules into Guardrails for AI Agents"
+  - u: "position_paper_if_innovation_in_ai_systematically_violates_fundamental_rights_is/"
+    t: "Position Paper: If Innovation in AI Systematically Violates Fundamental Rights, Is It Innovation at All?"
+  - u: "precise_information_control_in_long-form_text_generation/"
+    t: "Precise Information Control in Long-Form Text Generation"
+  - u: "redefining_experts_interpretable_decomposition_of_language_models_for_toxicity_m/"
+    t: "Redefining Experts: Interpretable Decomposition of Language Models for Toxicity Mitigation"
+  - u: "slaying_towards_queer_language_processing/"
+    t: "SLAyiNG: Towards Queer Language Processing"
+  - u: "visual_diversity_and_region-aware_prompt_learning_for_zero-shot_hoi_detection/"
+    t: "VDRP: Visual Diversity and Region-aware Prompt Learning for Zero-shot HOI Detection"
+  - u: "worse_than_zero-shot_a_fact-checking_dataset_for_evaluating_the_robustness_of_ra/"
+    t: "Worse than Zero-shot? A Fact-Checking Dataset for Evaluating the Robustness of RAG Against Misleading Retrievals"
+item_total: 19
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 👥 社会计算
 
-**🧠 NeurIPS2025** · **20** 篇论文解读
+**🧠 NeurIPS2025** · **19** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
 
-🔥 **高频主题：** LLM ×5 · 对抗鲁棒 ×2 · 少样本学习 ×2
+🔥 **高频主题：** LLM ×4 · 对抗鲁棒 ×2 · 少样本学习 ×2
 
 **[Active Slice Discovery in Large Language Models](active_slice_discovery_in_large_language_models.md)**
 
@@ -89,10 +129,6 @@ tags:
 **[SLAyiNG: Towards Queer Language Processing](slaying_towards_queer_language_processing.md)**
 
 :   构建了首个显式标注的酷儿俚语（queer slang）数据集 SLAyiNG，包含 695 个术语和近 20 万条使用实例，并通过人机标注一致性实验（Krippendorff's α=0.746）表明推理模型可用于预筛选但仍需社区驱动的专家标注。
-
-**[Uncovering Strategic Egoism Behaviors in Large Language Models](uncovering_strategic_egoism_behaviors_in_large_language_models.md)**
-
-:   首次形式化定义LLM中的"策略性自利"（Strategic Egoism）行为并构建SEBench基准（160个场景×6类自利维度），实验发现7个主流LLM在激励诱惑下平均69.11%的决策选择自利策略，操纵胁迫与规则规避是最常见手段，且自利倾向与毒性语言生成呈正相关。
 
 **[VDRP: Visual Diversity and Region-aware Prompt Learning for Zero-shot HOI Detection](visual_diversity_and_region-aware_prompt_learning_for_zero-shot_hoi_detection.md)**
 

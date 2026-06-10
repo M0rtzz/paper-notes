@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 时间序列方向4篇论文解读
+  ICCV2025 时间序列论文汇总 · 4篇论文解读
 description: >-
   4篇ICCV2025的时间序列方向论文解读，涵盖时序预测、动态场景、Agent、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,16 @@ tags:
   - "动态场景"
   - "Agent"
   - "多模态"
+item_list:
+  - u: "i2-world_intra-inter_tokenization_for_efficient_dynamic_4d_scene_forecasting/"
+    t: "I²-World: Intra-Inter Tokenization for Efficient Dynamic 4D Scene Forecasting"
+  - u: "v2xpnp_vehicle-to-everything_spatio-temporal_fusion_for_multi-agent_perception_a/"
+    t: "V2XPnP: Vehicle-to-Everything Spatio-Temporal Fusion for Multi-Agent Perception and Prediction"
+  - u: "va-moe_variables-adaptive_mixture_of_experts_for_incremental_weather_forecasting/"
+    t: "VA-MoE: Variables-Adaptive Mixture of Experts for Incremental Weather Forecasting"
+  - u: "vlrmbench_a_comprehensive_and_challenging_benchmark_for_vision-language_reward_m/"
+    t: "VLRMBench: A Comprehensive and Challenging Benchmark for Vision-Language Reward Models"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +29,7 @@ tags:
 
 **📹 ICCV2025** · **4** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (36)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/time_series/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/time_series/index.md)
 
 🔥 **高频主题：** 时序预测 ×2
 

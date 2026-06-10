@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 医疗 NLP方向12篇论文解读
+  AAAI2026 医疗NLP论文汇总 · 11篇论文解读
 description: >-
-  12篇AAAI2026的医疗 NLP 方向论文解读，涵盖医学影像、LLM、RAG、生物分子等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  11篇AAAI2026的医疗 NLP 方向论文解读，涵盖医学影像、LLM、RAG、生物分子等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "医疗 NLP"
@@ -12,14 +12,38 @@ tags:
   - "LLM"
   - "RAG"
   - "生物分子"
+item_list:
+  - u: "a_principle-driven_adaptive_policy_for_group_cognitive_stimu/"
+    t: "A Principle-Driven Adaptive Policy for Group Cognitive Stimulation Dialogue for Elderly with Cognitive Impairment"
+  - u: "beyond_hallucinations_a_composite_score_for_measuring_reliability_in_open-source/"
+    t: "Beyond Hallucinations: A Composite Score for Measuring Reliability in Open-Source Large Language Models"
+  - u: "bica_effective_biomedical_dense_retrieval_with_citation-aware_hard_negatives/"
+    t: "BiCA: Effective Biomedical Dense Retrieval with Citation-Aware Hard Negatives"
+  - u: "expert-guided_prompting_and_retrieval-augmented_generation_for_emergency_medical/"
+    t: "Expert-Guided Prompting and Retrieval-Augmented Generation for Emergency Medical Service Question Answering"
+  - u: "gem_generative_entropy-guided_preference_modeling_for_few-shot_alignment_of_llms/"
+    t: "GEM: Generative Entropy-Guided Preference Modeling for Few-shot Alignment of LLMs"
+  - u: "learning_cell-aware_hierarchical_multi-modal_representations/"
+    t: "Learning Cell-Aware Hierarchical Multi-Modal Representations for Robust Molecular Modeling"
+  - u: "lucid_learning-enabled_uncertainty-aware_certification_of_stochastic_dynamical_s/"
+    t: "LUCID: Learning-Enabled Uncertainty-Aware Certification of Stochastic Dynamical Systems"
+  - u: "measuring_stability_beyond_accuracy_in_small_open-source_medical_large_language_/"
+    t: "Measuring Stability Beyond Accuracy in Small Open-Source Medical Large Language Models for Pediatric Endocrinology"
+  - u: "mirage_scaling_test-time_inference_with_parallel_graph-retrieval-augmented_reaso/"
+    t: "MIRAGE: Scaling Test-Time Inference with Parallel Graph-Retrieval-Augmented Reasoning Chains"
+  - u: "real-time_trust_verification_for_safe_agentic_actions_using_trustbench/"
+    t: "Real-Time Trust Verification for Safe Agentic Actions Using TrustBench"
+  - u: "shortagesim_simulating_drug_shortages_under_information_asymmetry/"
+    t: "ShortageSim: Simulating Drug Shortages under Information Asymmetry"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🩺 医疗 NLP
 
-**🤖 AAAI2026** · **12** 篇论文解读
+**🤖 AAAI2026** · **11** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (13)](../../ICLR2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (15)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
 
 🔥 **高频主题：** 医学影像 ×3 · LLM ×2 · RAG ×2 · 生物分子 ×2
 
@@ -66,7 +90,3 @@ tags:
 **[ShortageSim: Simulating Drug Shortages under Information Asymmetry](shortagesim_simulating_drug_shortages_under_information_asymmetry.md)**
 
 :   提出 ShortageSim，首个基于 **LLM 多智能体**的药品短缺模拟框架，建模 FDA 监管者、制造商和购买者在信息不对称下的战略决策，在历史短缺数据上实现对解决滞后时间 84% 的预测改善，为监管策略评估提供受控测试平台。
-
-**[Voices, Faces, and Feelings: Multi-modal Emotion-Cognition Captioning for Mental Health Understanding](voices_faces_and_feelings_multi-modal_emotion-cognition_captioning_for_mental_he.md)**
-
-:   提出情感-认知协同多模态描述（ECMC）任务和框架，通过双流BridgeNet从视频、音频、文本中提取情感和认知特征，利用LLaMA生成自然语言描述，为心理健康评估提供可解释的情感-认知画像，显著提升辅助诊断的准确性和可解释性。

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 信号/通信方向3篇论文解读
+  ICML2025 信号/通信论文汇总 · 3篇论文解读
 description: >-
   3篇ICML2025的信号/通信方向论文解读，涵盖 LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,14 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "LLM"
+item_list:
+  - u: "deep_electromagnetic_structure_design_under_limited_evaluation_budgets/"
+    t: "Deep Electromagnetic Structure Design Under Limited Evaluation Budgets"
+  - u: "fourier_position_embedding_enhancing_attentions_periodic_extension_for_length_ge/"
+    t: "Fourier Position Embedding: Enhancing Attention's Periodic Extension for Length Generalization"
+  - u: "large_language_model_llm-enabled_in-context_learning_for_wireless_network_optimi/"
+    t: "Large Language Model (LLM)-enabled In-context Learning for Wireless Network Optimization"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

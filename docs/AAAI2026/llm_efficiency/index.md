@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 LLM 效率方向9篇论文解读
+  AAAI2026 LLM效率论文汇总 · 9篇论文解读
 description: >-
   9篇AAAI2026的 LLM 效率方向论文解读，涵盖时序预测、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,26 @@ tags:
   - "论文笔记"
   - "时序预测"
   - "LLM"
+item_list:
+  - u: "connectivity-guided_sparsification_of_2-fwl_gnns_preserving_full_expressivity_wi/"
+    t: "Connectivity-Guided Sparsification of 2-FWL GNNs Preserving Full Expressivity"
+  - u: "harnessing_the_unseen_the_hidden_influence_of_intrinsic_knowledge_in_long-contex/"
+    t: "Harnessing the Unseen: The Hidden Influence of Intrinsic Knowledge in Long-Context Language Models"
+  - u: "hn-mvts_hypernetwork-based_multivariate_time_series_forecasting/"
+    t: "HN-MVTS: HyperNetwork-based Multivariate Time Series Forecasting"
+  - u: "how_many_experts_are_enough_towards_optimal_semantic_specialization_for_mixture-/"
+    t: "How Many Experts Are Enough? Towards Optimal Semantic Specialization for Mixture-of-Experts"
+  - u: "intermoe_individual-specific_3d_human_interaction_generation_via_dynamic_tempora/"
+    t: "InterMoE: Individual-Specific 3D Human Interaction Generation via Dynamic Temporal-Selective MoE"
+  - u: "judge_q_trainable_queries_for_optimized_information_retention_in_kv_cache_evicti/"
+    t: "Judge Q: Trainable Queries for Optimized Information Retention in KV Cache Eviction"
+  - u: "moetta_test-time_adaptation_under_mixed_distribution_shifts_with_moe-layernorm/"
+    t: "MoETTA: Test-Time Adaptation Under Mixed Distribution Shifts with MoE-LayerNorm"
+  - u: "resource_efficient_sleep_staging_via_multi-level_masking_and_prompt_learning/"
+    t: "Resource Efficient Sleep Staging via Multi-Level Masking and Prompt Learning"
+  - u: "scaling_and_transferability_of_annealing_strategies_in_large_language_model_trai/"
+    t: "Scaling and Transferability of Annealing Strategies in Large Language Model Training"
+item_total: 9
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

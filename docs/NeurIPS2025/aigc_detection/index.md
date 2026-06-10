@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 AIGC 检测方向9篇论文解读
+  NeurIPS2025 AIGC检测论文汇总 · 9篇论文解读
 description: >-
   9篇NeurIPS2025的 AIGC 检测方向论文解读，涵盖 LLM、Agent、对抗鲁棒、翻译、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,26 @@ tags:
   - "对抗鲁棒"
   - "翻译"
   - "推理"
+item_list:
+  - u: "asciibench_evaluating_language-model-based_understanding_of_visually-oriented_te/"
+    t: "ASCIIBench: Evaluating Language-Model-Based Understanding of Visually-Oriented Text"
+  - u: "can_llms_write_faithfully_an_agent-based_evaluation_of_llm-generated_islamic_con/"
+    t: "Can LLMs Write Faithfully? An Agent-Based Evaluation of LLM-generated Islamic Content"
+  - u: "classical_planning_with_llm-generated_heuristics_challenging_the_state_of_the_ar/"
+    t: "Classical Planning with LLM-Generated Heuristics: Challenging the State of the Art with Python Code"
+  - u: "clawscreativity_detection_for_llm-generated_solutions_using_attention_window_of_/"
+    t: "CLAWS: Creativity Detection for LLM-Generated Solutions Using Attention Window of Sections"
+  - u: "duolens_a_framework_for_robust_detection_of_machine-generated_multilingual_text_/"
+    t: "DuoLens: A Framework for Robust Detection of Machine-Generated Multilingual Text and Code"
+  - u: "jutters/"
+    t: "\"Jutters\""
+  - u: "qimeng-neucomback_self-evolving_translation_from_ir_to_assembly_code/"
+    t: "QiMeng-NeuComBack: Self-Evolving Translation from IR to Assembly Code"
+  - u: "reasoning_compiler_llm-guided_optimizations_for_efficient_model_serving/"
+    t: "Reasoning Compiler: LLM-Guided Optimizations for Efficient Model Serving"
+  - u: "synthesizing_performance_constraints_for_evaluating_and_improving_code_efficienc/"
+    t: "Synthesizing Performance Constraints for Evaluating and Improving Code Efficiency"
+item_total: 9
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

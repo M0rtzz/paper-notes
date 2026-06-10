@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 AIGC 检测方向15篇论文解读
+  ACL2025 AIGC检测论文汇总 · 15篇论文解读
 description: >-
   15篇ACL2025的 AIGC 检测方向论文解读，涵盖 LLM、对抗鲁棒、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,38 @@ tags:
   - "LLM"
   - "对抗鲁棒"
   - "少样本学习"
+item_list:
+  - u: "a_rose_by_any_other_name_llm-generated_explanations_are_good_proxies_for_human_e/"
+    t: "A Rose by Any Other Name: LLM-Generated Explanations Are Good Proxies for Human Explanations to Collect Label Distributions on NLI"
+  - u: "aigt_social_media_monitoring/"
+    t: "Are We in the AI-Generated Text World Already? Quantifying and Monitoring AIGT on Social Media"
+  - u: "an_empirical_study_on_detecting_ai-generated_text_in_financial_reports/"
+    t: "An Empirical Study on Detecting AI-Generated Text in Financial Reports"
+  - u: "chatgpt_user_ai_text_detection/"
+    t: "People who frequently use ChatGPT for writing tasks are accurate and robust detectors of AI-generated text"
+  - u: "chemactor_enhancing_automated_extraction_of_chemical_synthesis_actions_with_llm-/"
+    t: "ChemActor: Enhancing Automated Extraction of Chemical Synthesis Actions with LLM-Generated Data"
+  - u: "cognitive_framework_for_detecting_ai-generated_fiction/"
+    t: "Cognitive Framework for Detecting AI-Generated Fiction"
+  - u: "greater_adversarial_mgt_detection/"
+    t: "Iron Sharpens Iron: Defending Against Attacks in Machine-Generated Text Detection with Adversarial Training"
+  - u: "haco-det_a_study_towards_fine-grained_machine-generated_text_detection_under_hum/"
+    t: "HACo-Det: A Study Towards Fine-Grained Machine-Generated Text Detection under Human-AI Coauthoring"
+  - u: "katfishnet_detecting_llm-generated_korean_text_through_linguistic_feature_analys/"
+    t: "KatFishNet: Detecting LLM-Generated Korean Text through Linguistic Feature Analysis"
+  - u: "learning_to_rewrite_generalized_llm-generated_text_detection/"
+    t: "Learning to Rewrite: Generalized LLM-Generated Text Detection"
+  - u: "llm_vs_human_formal_syntax/"
+    t: "Comparing LLM-generated and human-authored news text using formal syntactic theory"
+  - u: "low-perplexity_llm-generated_sequences_and_where_to_find_them/"
+    t: "Low-Perplexity LLM-Generated Sequences and Where To Find Them"
+  - u: "multisocial_mgt_detection/"
+    t: "MultiSocial: Multilingual Benchmark of Machine-Generated Text Detection of Social-Media Texts"
+  - u: "reliably_bounding_false_positives_a_zero-shot_machine-generated_text_detection_f/"
+    t: "Reliably Bounding False Positives: A Zero-Shot Machine-Generated Text Detection Framework via Multiscaled Conformal Prediction"
+  - u: "who_writes_what_ai_detection/"
+    t: "Who Writes What: Unveiling the Impact of Author Roles on AI-generated Text Detection"
+item_total: 15
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

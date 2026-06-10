@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 AI 安全方向38篇论文解读
+  ICML2026 AI安全论文汇总 · 38篇论文解读
 description: >-
   38篇ICML2026的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习、水印/隐写、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,68 @@ tags:
   - "联邦学习"
   - "水印/隐写"
   - "时序预测"
+item_list:
+  - u: "active_continual_learning_with_metaplastic_binary_bayesian_neural_networks/"
+    t: "Active Continual Learning with Metaplastic Binary Bayesian Neural Networks"
+  - u: "angel_or_demon_investigating_the_plasticity_interventions_impact_on_backdoor_thr/"
+    t: "Angel or Demon: Investigating the Plasticity Interventions' Impact on Backdoor Threats in Deep Reinforcement Learning"
+  - u: "calibrating_uncertainty_for_zero-shot_adversarial_clip/"
+    t: "Calibrating Uncertainty for Zero-Shot Adversarial CLIP"
+  - u: "copf_an_online_framework_for_deployment-stable_counterfactual_fairness_in_evolvi/"
+    t: "COPF: An Online Framework for Deployment-Stable Counterfactual Fairness in Evolving Graphs"
+  - u: "demystifying_the_optimal_fair_classifier_in_multi-class_classification/"
+    t: "Demystifying the Optimal Fair Classifier in Multi-Class Classification"
+  - u: "exposing_vulnerabilities_in_explanation_for_time_series_classifiers_via_dual-tar/"
+    t: "Exposing Vulnerabilities in Explanation for Time Series Classifiers via Dual-Target Adversarial Attack"
+  - u: "extending_fair_null-space_projections_for_continuous_attributes_to_kernel_method/"
+    t: "Extending Fair Null-Space Projections for Continuous Attributes to Kernel Methods"
+  - u: "fair_dataset_distillation_via_cross-group_barycenter_alignment/"
+    t: "Fair Dataset Distillation via Cross-Group Barycenter Alignment"
+  - u: "fair_decisions_from_calibrated_scores_achieving_optimal_classification_while_sat/"
+    t: "Fair Decisions from Calibrated Scores: Achieving Optimal Classification While Satisfying Sufficiency"
+  - u: "fairness_in_aggregation_optimal_top-k_and_improved_full_ranking/"
+    t: "Fairness in Aggregation: Optimal Top-$k$ and Improved Full Ranking"
+  - u: "fedhpro_federated_hyper-prototype_learning_via_gradient_matching/"
+    t: "FedHPro: Federated Hyper-Prototype Learning via Gradient Matching"
+  - u: "flatness-aware_stochastic_gradient_langevin_dynamics/"
+    t: "Flatness-Aware Stochastic Gradient Langevin Dynamics"
+  - u: "frequency_matching_in_spiking_neural_networks_for_mmwave_sensing/"
+    t: "Frequency Matching in Spiking Neural Networks for mmWave Sensing"
+  - u: "from_out-of-distribution_detection_to_hallucination_detection_a_geometric_view/"
+    t: "From Out-of-Distribution Detection to Hallucination Detection: A Geometric View"
+  - u: "gem-fi_gated_evidential_mixtures_with_fisher_modulation/"
+    t: "GEM-FI: Gated Evidential Mixtures with Fisher Modulation"
+  - u: "geometrically_constrained_outlier_synthesis/"
+    t: "Geometrically Constrained Outlier Synthesis"
+  - u: "hidden_in_plain_tokens_simply_robust_gradient-free_watermark_for_synthetic_audio/"
+    t: "Hidden in Plain Tokens: Simply Robust, Gradient-Free Watermark for Synthetic Audio"
+  - u: "how_hard_can_it_be_hardness-aware_multi-objective_unlearning/"
+    t: "How Hard Can It Be? Hardness-Aware Multi-Objective Unlearning"
+  - u: "lapras_learning-augmented_private_answering_for_linear_query_streams/"
+    t: "LAPRAS: Learning-Augmented PRivate Answering for Linear Query Streams"
+  - u: "metamoe_diversity-aware_proxy_selection_for_privacy-preserving_mixture-of-expert/"
+    t: "MetaMoE: Diversity-Aware Proxy Selection for Privacy-Preserving Mixture-of-Experts Unification"
+  - u: "mind_the_gap_mixtures_of_gaussians_in_approximate_differential_privacy/"
+    t: "Mind the Gap: Mixtures of Gaussians in Approximate Differential Privacy"
+  - u: "omnivl-guard_towards_unified_vision-language_forgery_detection_and_grounding_via/"
+    t: "OmniVL-Guard: Towards Unified Vision-Language Forgery Detection and Grounding via Balanced RL"
+  - u: "one_model_to_translate_them_all_universal_any-to-any_translation_for_heterogeneo/"
+    t: "One Model to Translate Them All: Universal Any-to-Any Translation for Heterogeneous Collaborative Perception"
+  - u: "optimal_transport_under_group_fairness_constraints/"
+    t: "Optimal Transport under Group Fairness Constraints"
+  - u: "persuasive_privacy/"
+    t: "Persuasive Privacy"
+  - u: "position_beyond_sensitive_attributes_ml_fairness_should_quantify_structural_inju/"
+    t: "Position: Beyond Sensitive Attributes, ML Fairness Should Quantify Structural Injustice via Social Determinants"
+  - u: "position_embodied_ai_requires_a_privacy-utility_trade-off/"
+    t: "Position: Embodied AI Requires a Privacy-Utility Trade-off"
+  - u: "position_machine_learning_for_heart_transplant_allocation_policy_optimization_sh/"
+    t: "Position: Machine Learning for Heart Transplant Allocation Policy Optimization Should Account for Incentives"
+  - u: "prism_gauge-invariant_tangent-space_differentially_private_lora/"
+    t: "PRISM: Gauge-Invariant Tangent-Space Differentially Private LoRA"
+  - u: "regret-based_federated_causal_discovery_with_unknown_interventions/"
+    t: "Regret-Based Federated Causal Discovery with Unknown Interventions"
+item_total: 38
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +81,7 @@ tags:
 
 **🧪 ICML2026** · **38** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (72)](../../NeurIPS2025/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×4 · 联邦学习 ×3 · 水印/隐写 ×3 · 时序预测 ×2
 

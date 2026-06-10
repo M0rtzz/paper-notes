@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 LLM 推理方向7篇论文解读
+  CVPR2025 LLM推理论文汇总 · 6篇论文解读
 description: >-
-  7篇CVPR2025的 LLM 推理方向论文解读，涵盖推理、LLM、Agent、少样本学习、目标检测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  6篇CVPR2025的 LLM 推理方向论文解读，涵盖推理、LLM、Agent、少样本学习、目标检测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2025"
   - "LLM 推理"
@@ -13,14 +13,28 @@ tags:
   - "Agent"
   - "少样本学习"
   - "目标检测"
+item_list:
+  - u: "argus_vision-centric_reasoning_with_grounded_chain-of-thought/"
+    t: "Argus: Vision-Centric Reasoning with Grounded Chain-of-Thought"
+  - u: "enhancing_video-llm_reasoning_via_agent-of-thoughts_distillation/"
+    t: "Enhancing Video-LLM Reasoning via Agent-of-Thoughts Distillation"
+  - u: "interleaved-modal_chain-of-thought/"
+    t: "Interleaved-Modal Chain-of-Thought"
+  - u: "osrcir_reflective_cot/"
+    t: "Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval"
+  - u: "style_evolving_along_chain-of-thought_for_unknown-domain_object_detection/"
+    t: "Style Evolving along Chain-of-Thought for Unknown-Domain Object Detection"
+  - u: "videoespresso_a_large-scale_chain-of-thought_dataset_for_fine-grained_video_reas/"
+    t: "VideoEspresso: A Large-Scale Chain-of-Thought Dataset for Fine-Grained Video Reasoning via Core Frame Selection"
+item_total: 6
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM 推理
 
-**📷 CVPR2025** · **7** 篇论文解读
+**📷 CVPR2025** · **6** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (82)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (83)](../../NeurIPS2025/llm_reasoning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (80)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_reasoning/index.md)
 
 🔥 **高频主题：** 推理 ×6
 
@@ -35,10 +49,6 @@ tags:
 **[Interleaved-Modal Chain-of-Thought](interleaved-modal_chain-of-thought.md)**
 
 :   提出交错模态思维链（ICoT），在推理步骤中穿插图像区域 crop 作为视觉 rationale，通过无参数的 Attention-driven Selection（ADS）从输入图像中智能选取关键区域插入生成序列，在 Chameleon 和 Qwen2-VL 上相比现有多模态 CoT 提升高达 14%。
-
-**[Learning-enabled Polynomial Lyapunov Function Synthesis via High-Accuracy Counterexample-Guided Framework](learning-enabled_polynomial_lyapunov_function_synthesis_via_high-accuracy_counte.md)**
-
-:   提出一种学习与验证结合的多项式 Lyapunov 函数合成方法，通过数据驱动的机器学习引导多项式形式选择，并利用高精度反例引导框架迭代优化，在灵活性和数学严格性之间取得平衡。
 
 **[Reason-before-Retrieve: One-Stage Reflective Chain-of-Thoughts for Training-Free Zero-Shot Composed Image Retrieval](osrcir_reflective_cot.md)**
 

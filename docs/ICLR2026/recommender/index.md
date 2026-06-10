@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 推荐系统方向9篇论文解读
+  ICLR2026 推荐系统论文汇总 · 9篇论文解读
 description: >-
   9篇ICLR2026的推荐系统方向论文解读，涵盖推荐系统、LLM、对抗鲁棒、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,26 @@ tags:
   - "LLM"
   - "对抗鲁棒"
   - "个性化生成"
+item_list:
+  - u: "c2al_cohort-contrastive_auxiliary_learning_for_large-scale_recommendation_system/"
+    t: "C2AL: Cohort-Contrastive Auxiliary Learning for Large-scale Recommendation Systems"
+  - u: "collectivekv_decoupling_and_sharing_collaborative_information_in_sequential_reco/"
+    t: "CollectiveKV: Decoupling and Sharing Collaborative Information in Sequential Recommendation"
+  - u: "from_evaluation_to_defense_advancing_safety_in_video_large_language_models/"
+    t: "From Evaluation to Defense: Advancing Safety in Video Large Language Models"
+  - u: "goalrank_group-relative_optimization_for_a_large_ranking_model/"
+    t: "GoalRank: Group-Relative Optimization for a Large Ranking Model"
+  - u: "in_agents_we_trust_but_who_do_agents_trust_latent_source_preferences_steer_llm_g/"
+    t: "In Agents We Trust, but Who Do Agents Trust? Latent Source Preferences Steer LLM Generations"
+  - u: "propersim_developing_proactive_and_personalized_ai_assistants_through_user-assis/"
+    t: "ProPerSim: Developing Proactive and Personalized AI Assistants through User-Assistant Simulation"
+  - u: "rae_a_neural_network_dimensionality_reduction_method_for_nearest_neighbors_prese/"
+    t: "RAE: A Neural Network Dimensionality Reduction Method for Nearest Neighbors Preservation in Vector Search"
+  - u: "search_arena_analyzing_search-augmented_llms/"
+    t: "Search Arena: Analyzing Search-Augmented LLMs"
+  - u: "token-efficient_item_representation_via_images_for_llm_recommender_systems/"
+    t: "Token-Efficient Item Representation via Images for LLM Recommender Systems"
+item_total: 9
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

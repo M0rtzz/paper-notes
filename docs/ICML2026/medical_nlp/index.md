@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 医疗 NLP方向2篇论文解读
+  ICML2026 医疗NLP论文汇总 · 2篇论文解读
 description: >-
   2篇ICML2026的医疗 NLP 方向论文解读，涵盖医学影像、对齐/RLHF、对抗鲁棒、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,12 @@ tags:
   - "对齐/RLHF"
   - "对抗鲁棒"
   - "推理"
+item_list:
+  - u: "clintutor-r1_advancing_scalable_and_robust_one-to-many_alignment_in_clinical_soc/"
+    t: "ClinTutor-R1: Advancing Scalable and Robust One-to-Many Alignment in Clinical Socratic Education"
+  - u: "medcase-structured_a_text-to-fhir_dataset_for_benchmarking_diagnostic_reasoning_/"
+    t: "MedCase-Structured: A Text-to-FHIR Dataset for Benchmarking Diagnostic Reasoning in Clinically Realistic EHR Settings"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +25,7 @@ tags:
 
 **🧪 ICML2026** · **2** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (13)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (12)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (15)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
 
 🔥 **高频主题：** 医学影像 ×2
 

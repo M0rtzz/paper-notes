@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 LLM / NLP方向28篇论文解读
+  ICML2025 LLM/NLP论文汇总 · 27篇论文解读
 description: >-
-  28篇ICML2025的 LLM / NLP 方向论文解读，涵盖 LLM、少样本学习、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  27篇ICML2025的 LLM / NLP 方向论文解读，涵盖 LLM、少样本学习、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "LLM / NLP"
@@ -11,14 +11,70 @@ tags:
   - "LLM"
   - "少样本学习"
   - "时序预测"
+item_list:
+  - u: "b-score_detecting_biases_in_large_language_models_using_response_history/"
+    t: "B-score: Detecting biases in large language models using response history"
+  - u: "best-route_adaptive_llm_routing_with_test-time_optimal_compute/"
+    t: "BEST-Route: Adaptive LLM Routing with Test-Time Optimal Compute"
+  - u: "beyond_induction_heads_in-context_meta_learning_induces_multi-phase_circuit_emer/"
+    t: "Beyond Induction Heads: In-Context Meta Learning Induces Multi-Phase Circuit Emergence"
+  - u: "binary_hypothesis_testing_for_softmax_models_and_leverage_score_models/"
+    t: "Binary Hypothesis Testing for Softmax Models and Leverage Score Models"
+  - u: "breaking_silos_adaptive_model_fusion_unlocks_better_time_series_forecasting/"
+    t: "Breaking Silos: Adaptive Model Fusion Unlocks Better Time Series Forecasting"
+  - u: "build_agent_advocates_not_platform_agents/"
+    t: "Build Agent Advocates, Not Platform Agents"
+  - u: "defending_lvlms_against_vision_attacks_through_partial-perception_supervision/"
+    t: "Defending LVLMs Against Vision Attacks through Partial-Perception Supervision"
+  - u: "expert_evaluation_of_llm_world_models_a_high-t_c_superconductivity_case_study/"
+    t: "Expert Evaluation of LLM World Models: A High-Tc Superconductivity Case Study"
+  - u: "generalized_interpolating_discrete_diffusion/"
+    t: "Generalized Interpolating Discrete Diffusion"
+  - u: "interchangeable_token_embeddings_for_extendable_vocabulary_and_alpha-equivalence/"
+    t: "Interchangeable Token Embeddings for Extendable Vocabulary and Alpha-Equivalence"
+  - u: "la_rosa_enhancing_llm_efficiency_via_layerwise_rotated_sparse_activation/"
+    t: "LaRoSA: Enhancing LLM Efficiency via Layerwise Rotated Sparse Activation"
+  - u: "laser_attention_with_exponential_transformation/"
+    t: "LASER: Attention with Exponential Transformation"
+  - u: "llm_social_simulations_are_a_promising_research_method/"
+    t: "Position: LLM Social Simulations Are a Promising Research Method"
+  - u: "merit_maximum-normalized_element-wise_ratio_for_language_model_large-batch_train/"
+    t: "MERIT: Maximum-normalized Element-wise Ratio for Language Model Large-batch Training"
+  - u: "on_expressive_power_of_looped_transformers_theoretical_analysis_and_enhancement_/"
+    t: "On Expressive Power of Looped Transformers: Theoretical Analysis and Enhancement via Timestep Encoding"
+  - u: "product_of_experts_with_llms_boosting_performance_on_arc_is_a_matter_of_perspect/"
+    t: "Product of Experts with LLMs: Boosting Performance on ARC Is a Matter of Perspective"
+  - u: "quest_enhancing_estimates_of_quantile-based_distributional_measures_using_model_/"
+    t: "QuEst: Enhancing Estimates of Quantile-Based Distributional Measures Using Model Predictions"
+  - u: "random_registers_for_cross-domain_few-shot_learning/"
+    t: "Random Registers for Cross-Domain Few-Shot Learning"
+  - u: "regress_dont_guess_--_a_regression-like_loss_on_number_tokens_for_language_model/"
+    t: "Regress, Don't Guess — A Regression-like Loss on Number Tokens for Language Models"
+  - u: "rulebreakers_challenging_llms_at_the_crossroads_between_formal_logic_and_human-l/"
+    t: "RULEBREAKERS: Challenging LLMs at the Crossroads between Formal Logic and Human-like Reasoning"
+  - u: "safe_delta_consistently_preserving_safety_when_fine-tuning_llms_on_diverse_datas/"
+    t: "Safe Delta: Consistently Preserving Safety when Fine-Tuning LLMs on Diverse Datasets"
+  - u: "star_attention_efficient_llm_inference_over_long_sequences/"
+    t: "Star Attention: Efficient LLM Inference over Long Sequences"
+  - u: "tabflex_scaling_tabular_learning_to_millions_with_linear_attention/"
+    t: "TabFlex: Scaling Tabular Learning to Millions with Linear Attention"
+  - u: "the_lock-in_hypothesis_stagnation_by_algorithm/"
+    t: "The Lock-in Hypothesis: Stagnation by Algorithm"
+  - u: "theoretical_limitations_of_ensembles_in_the_age_of_overparameterization/"
+    t: "Theoretical Limitations of Ensembles in the Age of Overparameterization"
+  - u: "towards_universal_offline_black-box_optimization_via_learning_language_model_emb/"
+    t: "Towards Universal Offline Black-Box Optimization via Learning Language Model Embeddings"
+  - u: "when_will_it_fail_anomaly_to_prompt_for_forecasting_future_anomalies_in_time_ser/"
+    t: "When Will It Fail?: Anomaly to Prompt for Forecasting Future Anomalies in Time Series"
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM / NLP
 
-**🧪 ICML2025** · **28** 篇论文解读
+**🧪 ICML2025** · **27** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_nlp/index.md)
 
 🔥 **高频主题：** LLM ×6 · 少样本学习 ×2 · 时序预测 ×2
 
@@ -57,10 +113,6 @@ tags:
 **[Generalized Interpolating Discrete Diffusion](generalized_interpolating_discrete_diffusion.md)**
 
 :   提出广义插值离散扩散框架 GIDD，将掩码扩散 (MDM) 推广为支持任意时变混合分布的扩散族，通过结合掩码与均匀噪声赋予模型自纠错能力，在扩散语言建模中取得 compute-matched SOTA。
-
-**[Generative Social Choice: The Next Generation](generative_social_choice_the_next_generation.md)**
-
-:   将生成式社会选择框架扩展至带成本/预算约束和近似查询的场景，提出 DemocraticProcess 算法并给出近乎最优的近似比例代表性理论保证，实现了实用系统 PROSE（基于 GPT-4o）在药物评论和城市治理数据集上验证有效性。
 
 **[Interchangeable Token Embeddings for Extendable Vocabulary and Alpha-Equivalence](interchangeable_token_embeddings_for_extendable_vocabulary_and_alpha-equivalence.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 预训练方向39篇论文解读
+  ACL2025 预训练论文汇总 · 38篇论文解读
 description: >-
-  39篇ACL2025的预训练方向论文解读，涵盖 LLM、对抗鲁棒、少样本学习、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  38篇ACL2025的预训练方向论文解读，涵盖 LLM、对抗鲁棒、少样本学习、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ACL2025"
   - "预训练"
@@ -12,14 +12,76 @@ tags:
   - "对抗鲁棒"
   - "少样本学习"
   - "语音"
+item_list:
+  - u: "adversarial_tokenization/"
+    t: "Adversarial Tokenization"
+  - u: "asynclm_efficient_and_adaptive_async_pre-training_of_language_models/"
+    t: "AsyncLM: Efficient and Adaptive Async Pre-training of Language Models"
+  - u: "autonomous_data_selection_with_zero-shot_generative_classifiers_for_mathematical/"
+    t: "AutoDS: Autonomous Data Selection with Zero-shot Generative Classifiers for Mathematical Texts"
+  - u: "between_circuits_chomsky/"
+    t: "Between Circuits and Chomsky: Pre-pretraining on Formal Languages Imparts Linguistic Biases"
+  - u: "chinese_grammatical_error_correction_with_pre-trained_models_and_linguistic_clue/"
+    t: "Chinese Grammatical Error Correction With Pre-trained Models and Linguistic Clues"
+  - u: "critiq_mining_data_quality_criteria_from_human_preferences/"
+    t: "CritiQ: Mining Data Quality Criteria from Human Preferences"
+  - u: "data-constrained_synthesis_of_training_data_for_de-identification/"
+    t: "Data-Constrained Synthesis of Training Data for De-Identification"
+  - u: "data_caricatures_on_the_representation_of_african_american_language_in_pretraini/"
+    t: "Data Caricatures: On the Representation of African American Language in Pretraining Corpora"
+  - u: "data_whisperer_data_selection/"
+    t: "Data Whisperer: Efficient Data Selection for Task-Specific LLM Fine-Tuning via Few-Shot In-Context Learning"
+  - u: "davir_data_selection_via_implicit_reward_for_large_language_models/"
+    t: "DavIR: Data Selection via Implicit Reward for Large Language Models"
+  - u: "diversity_explains_inference_scaling_laws_through_a_case_study_of_minimum_bayes_/"
+    t: "Diversity Explains Inference Scaling Laws: Through a Case Study of Minimum Bayes Risk Decoding"
+  - u: "dual_stage_curriculum_learning_sequence_labeling/"
+    t: "An Effective Incorporating Heterogeneous Knowledge Curriculum Learning for Sequence Labeling"
+  - u: "emergent_abilities_continued_pt/"
+    t: "Emergent Abilities of Large Language Models under Continued Pretraining for Language Adaptation"
+  - u: "fr_spec_speculative_sampling/"
+    t: "FR-Spec: Accelerating Large-Vocabulary Language Models via Frequency-Ranked Speculative Sampling"
+  - u: "how_do_llms_acquire_new_knowledge_a_knowledge_circuits_perspective_on_continual_/"
+    t: "How Do LLMs Acquire New Knowledge? A Knowledge Circuits Perspective on Continual Pre-Training"
+  - u: "improving_continual_pre-training_through_seamless_data_packing/"
+    t: "Improving Continual Pre-training Through Seamless Data Packing"
+  - u: "inconsistent_tokenizations_cause_language_models_to_be_perplexed_by_japanese_gra/"
+    t: "Inconsistent Tokenizations Cause Language Models to be Perplexed by Japanese Grammar"
+  - u: "incorporating_domain_knowledge_into_materials_tokenization/"
+    t: "Incorporating Domain Knowledge into Materials Tokenization"
+  - u: "inserter_speech_instruction/"
+    t: "InSerter: Speech Instruction Following with Unsupervised Interleaved Pre-training"
+  - u: "large_vocabulary_size_improves_large_language_models/"
+    t: "Large Vocabulary Size Improves Large Language Models"
+  - u: "leancode_understanding_models_better_for_code_simplification_of_pre-trained_larg/"
+    t: "LEANCODE: Understanding Models Better for Code Simplification of Pre-trained Large Language Models"
+  - u: "making_llms_better_many-to-many_speech-to-text_translators_with_curriculum_learn/"
+    t: "Making LLMs Better Many-to-Many Speech-to-Text Translators with Curriculum Learning"
+  - u: "metarater_a_multidimensional_data_selection_method/"
+    t: "Meta-rater: A Multi-dimensional Data Selection Method for Pre-training Language Models"
+  - u: "model_performance-guided_evaluation_data_selection_for_effective_prompt_optimiza/"
+    t: "Model Performance-Guided Evaluation Data Selection for Effective Prompt Optimization"
+  - u: "nemotron_cc_pretraining_data/"
+    t: "Nemotron-CC: Transforming Common Crawl into a Refined Long-Horizon Pretraining Dataset"
+  - u: "optimizing_pre-training_data_mixtures_with_mixtures_of_data_expert_models/"
+    t: "Optimizing Pre-Training Data Mixtures with Mixtures of Data Expert Models"
+  - u: "pre-training_curriculum_for_multi-token_prediction_in_language_models/"
+    t: "Pre-Training Curriculum for Multi-Token Prediction in Language Models"
+  - u: "retrofitting_large_language_models_with_dynamic_tokenization/"
+    t: "Retrofitting Large Language Models with Dynamic Tokenization"
+  - u: "scar_style_consistency_data_selection/"
+    t: "SCAR: Data Selection via Style Consistency-Aware Response Ranking for Efficient Instruction-Tuning"
+  - u: "second_language_arabic_acquisition_of_llms_via_progressive_vocabulary_expansion/"
+    t: "Second Language (Arabic) Acquisition of LLMs via Progressive Vocabulary Expansion"
+item_total: 38
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**💬 ACL2025** · **39** 篇论文解读
+**💬 ACL2025** · **38** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (8)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_pretraining/index.md)
 
 🔥 **高频主题：** LLM ×8 · 对抗鲁棒 ×2 · 少样本学习 ×2 · 语音 ×2
 
@@ -150,10 +212,6 @@ tags:
 **[Stealing Training Data from Large Language Models in Decentralized Training through Activation Inversion Attack](stealing_training_data_from_large_language_models_in_decentralized_training_thro.md)**
 
 :   提出 Activation Inversion Attack（AIA），首次系统揭示去中心化训练（流水线并行）中恶意阶段可通过截获中间激活值高效重构训练数据，在 Bloom-7B1 微调场景下可精确恢复 62% 的私人邮件和接近 100% 的生日信息。
-
-**[Synthesizing Post-Training Data for LLMs through Multi-Agent Simulation](synthesizing_post-training_data_for_llms_through_multi-agent_simulation.md)**
-
-:   本文提出 MATRIX 多智能体模拟器和 MATRIX-Gen 场景驱动指令生成器，通过模拟真实社会场景来合成高质量的 LLM 后训练数据，仅用 20K 条合成数据训练的 Llama-3-8B 在 AlpacaEval 2 和 Arena-Hard 上超过了使用超过 10M 数据训练的 Meta 官方 Llama-3-8B-Instruct。
 
 **[TokAlign: Efficient Vocabulary Adaptation via Token Alignment](tokalign_vocab_adaptation.md)**
 

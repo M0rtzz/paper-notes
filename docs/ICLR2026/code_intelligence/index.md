@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 代码智能方向19篇论文解读
+  ICLR2026 代码智能论文汇总 · 19篇论文解读
 description: >-
   19篇ICLR2026的代码智能方向论文解读，涵盖代码智能、LLM、Agent、对抗鲁棒、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,46 @@ tags:
   - "Agent"
   - "对抗鲁棒"
   - "推理"
+item_list:
+  - u: "a_problem-oriented_perspective_and_anchor_verification_for_code_optimization/"
+    t: "A Problem-Oriented Perspective and Anchor Verification for Code Optimization"
+  - u: "ambig-swe_interactive_agents_to_overcome_underspecificity_in_software_engineerin/"
+    t: "Ambig-SWE: Interactive Agents to Overcome Underspecificity in Software Engineering"
+  - u: "breaking_the_sft_plateau_multimodal_structured_reinforcement_learning_for_chart-/"
+    t: "Breaking the SFT Plateau: Multimodal Structured Reinforcement Learning for Chart-to-Code Generation"
+  - u: "card_towards_conditional_design_of_multi-agent_topological_structures/"
+    t: "CARD: Towards Conditional Design of Multi-agent Topological Structures"
+  - u: "diablo_diagonal_blocks_are_sufficient_for_finetuning/"
+    t: "DiaBlo: Diagonal Blocks Are Sufficient For Finetuning"
+  - u: "dro-instructzero_distributionally_robust_prompt_optimization_for_large_language_/"
+    t: "DRO-InstructZero: Distributionally Robust Prompt Optimization for Large Language Models"
+  - u: "execution-grounded_credit_assignment_for_grpo_in_code_generation/"
+    t: "Execution-Grounded Credit Assignment for GRPO in Code Generation"
+  - u: "improving_code_localization_with_repository_memory/"
+    t: "Improving Code Localization with Repository Memory"
+  - u: "imse_intrinsic_mixture_of_spectral_experts_fine-tuning_for_test-time_adaptation/"
+    t: "IMSE: Intrinsic Mixture of Spectral Experts Fine-tuning for Test-Time Adaptation"
+  - u: "inference-time_safety_for_code_llms_via_retrieval-augmented_revision/"
+    t: "Inference-Time Safety for Code LLMs via Retrieval-Augmented Revision"
+  - u: "innogym_benchmarking_the_innovation_potential_of_ai_agents/"
+    t: "InnoGym: Benchmarking the Innovation Potential of AI Agents"
+  - u: "kv_cache_transform_coding_for_compact_storage_in_llm_inference/"
+    t: "KV Cache Transform Coding for Compact Storage in LLM Inference"
+  - u: "learning_to_reason_without_external_rewards/"
+    t: "Learning to Reason without External Rewards"
+  - u: "paper2code_automating_code_generation_from_scientific_papers_in_machine_learning/"
+    t: "Paper2Code: Automating Code Generation from Scientific Papers in Machine Learning"
+  - u: "reasoningbank_scaling_agent_self-evolving_with_reasoning_memory/"
+    t: "ReasoningBank: Scaling Agent Self-Evolving with Reasoning Memory"
+  - u: "sharing_state_between_prompts_and_programs/"
+    t: "Sharing State Between Prompts and Programs"
+  - u: "shieldedcode_learning_robust_representations_for_virtual_machine_protected_code/"
+    t: "ShieldedCode: Learning Robust Representations for Virtual Machine Protected Code"
+  - u: "the_limits_of_long-context_reasoning_in_automated_bug_fixing/"
+    t: "The Limits of Long-Context Reasoning in Automated Bug Fixing"
+  - u: "training_large_language_models_to_reason_in_parallel_with_global_forking_tokens/"
+    t: "Training Large Language Models To Reason In Parallel With Global Forking Tokens"
+item_total: 19
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

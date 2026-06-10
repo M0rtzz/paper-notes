@@ -1,6 +1,6 @@
 ---
 title: >-
-  ECCV2024 因果推理方向4篇论文解读
+  ECCV2024 因果推理论文汇总 · 4篇论文解读
 description: >-
   4篇ECCV2024的因果推理方向论文解读，涵盖模型压缩、域适应、多模态、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,16 @@ tags:
   - "多模态"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "distill_gold_from_massive_ores_bi-level_data_pruning_towards_efficient_dataset_d/"
+    t: "Distill Gold from Massive Ores: Bi-level Data Pruning towards Efficient Dataset Distillation"
+  - u: "integrating_markov_blanket_discovery_into_causal_representation_learning_for_dom/"
+    t: "Integrating Markov Blanket Discovery into Causal Representation Learning for Domain Generalization"
+  - u: "learning_chain_of_counterfactual_thought_for_bias-robust_vision-language_reasoni/"
+    t: "Learning Chain of Counterfactual Thought for Bias-Robust Vision-Language Reasoning"
+  - u: "understanding_physical_dynamics_with_counterfactual_world_modeling/"
+    t: "Understanding Physical Dynamics with Counterfactual World Modeling"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +30,7 @@ tags:
 
 **🎞️ ECCV2024** · **4** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/causal_inference/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/causal_inference/index.md)
 
 **[Distill Gold from Massive Ores: Bi-level Data Pruning towards Efficient Dataset Distillation](distill_gold_from_massive_ores_bi-level_data_pruning_towards_efficient_dataset_d.md)**
 

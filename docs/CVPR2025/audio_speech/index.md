@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 音频/语音方向19篇论文解读
+  CVPR2025 音频/语音论文汇总 · 19篇论文解读
 description: >-
   19篇CVPR2025的音频/语音方向论文解读，涵盖语音、多模态、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,46 @@ tags:
   - "语音"
   - "多模态"
   - "布局/合成"
+item_list:
+  - u: "contextual_ad_narration_with_interleaved_multimodal_sequence/"
+    t: "Contextual AD Narration with Interleaved Multimodal Sequence"
+  - u: "crab_a_unified_audio-visual_scene_understanding_model_with_explicit_cooperation/"
+    t: "Crab: A Unified Audio-Visual Scene Understanding Model with Explicit Cooperation"
+  - u: "distinctad_distinctive_audio_description_generation_in_contexts/"
+    t: "DistinctAD: Distinctive Audio Description Generation in Contexts"
+  - u: "dualtalk_dual-speaker_interaction_for_3d_talking_head_conversations/"
+    t: "DualTalk: Dual-Speaker Interaction for 3D Talking Head Conversations"
+  - u: "emova_empowering_language_models_to_see_hear_and_speak_with_vivid_emotions/"
+    t: "EMoVA: Empowering Language Models to See, Hear and Speak with Vivid Emotions"
+  - u: "enhancing_dance-to-music_generation_via_negative_conditioning_latent_diffusion_m/"
+    t: "Enhancing Dance-to-Music Generation via Negative Conditioning Latent Diffusion Model"
+  - u: "hop_heterogeneous_topology-based_multimodal_entanglement_for_co-speech_gesture_g/"
+    t: "HOP: Heterogeneous Topology-based Multimodal Entanglement for Co-Speech Gesture Generation"
+  - u: "improving_sound_source_localization_with_joint_slot_attention_on_image_and_audio/"
+    t: "Improving Sound Source Localization with Joint Slot Attention on Image and Audio"
+  - u: "imvid_immersive_volumetric_videos_for_enhanced_vr_engagement/"
+    t: "ImViD: Immersive Volumetric Videos for Enhanced VR Engagement"
+  - u: "learning_to_highlight_audio_by_watching_movies/"
+    t: "Learning to Highlight Audio by Watching Movies"
+  - u: "livecc_learning_video_llm_with_streaming_speech_transcription_at_scale/"
+    t: "LiveCC: Learning Video LLM with Streaming Speech Transcription at Scale"
+  - u: "object-aware_sound_source_localization_via_audio-visual_scene_understanding/"
+    t: "Object-aware Sound Source Localization via Audio-Visual Scene Understanding"
+  - u: "synchronized_video-to-audio_generation_via_mel_quantization-continuum_decomposit/"
+    t: "Synchronized Video-to-Audio Generation via Mel Quantization-Continuum Decomposition"
+  - u: "team_ras_in_10th_abaw_competition_multimodal_valence_and_arousal_estimation_appr/"
+    t: "Team RAS in 10th ABAW Competition: Multimodal Valence and Arousal Estimation Approach"
+  - u: "towards_lossless_implicit_neural_representation_via_bit_plane_decomposition/"
+    t: "Towards Lossless Implicit Neural Representation via Bit Plane Decomposition"
+  - u: "towards_open-vocabulary_audio-visual_event_localization/"
+    t: "Towards Open-Vocabulary Audio-Visual Event Localization"
+  - u: "uwav_uncertainty-weighted_weakly-supervised_audio-visual_video_parsing/"
+    t: "UWAV: Uncertainty-Weighted Weakly-Supervised Audio-Visual Video Parsing"
+  - u: "video-guided_foley_sound_generation_with_multimodal_controls/"
+    t: "MultiFoley: Video-Guided Foley Sound Generation with Multimodal Controls"
+  - u: "vintage_joint_video_and_text_conditioning_for_holistic_audio_generation/"
+    t: "VinTAGe: Joint Video and Text Conditioning for Holistic Audio Generation"
+item_total: 19
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +58,7 @@ tags:
 
 **📷 CVPR2025** · **19** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/audio_speech/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (46)](../../NeurIPS2025/audio_speech/index.md)
 
 🔥 **高频主题：** 语音 ×11 · 多模态 ×4 · 布局/合成 ×2
 

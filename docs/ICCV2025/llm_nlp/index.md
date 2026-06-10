@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 LLM / NLP方向6篇论文解读
+  ICCV2025 LLM/NLP论文汇总 · 6篇论文解读
 description: >-
   6篇ICCV2025的 LLM / NLP 方向论文解读，涵盖 LLM、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,20 @@ tags:
   - "论文笔记"
   - "LLM"
   - "持续学习"
+item_list:
+  - u: "any-ssr_how_recursive_least_squares_works_in_continual_learning_of_large_languag/"
+    t: "Any-SSR: How Recursive Least Squares Works in Continual Learning of Large Language Models"
+  - u: "any_ssr_how_recursive_least_squares_works_in_continual_learning_of_large_language_models/"
+    t: "Any-SSR: How Recursive Least Squares Works in Continual Learning of Large Language Models"
+  - u: "fw-merging_scaling_model_merging_with_frank-wolfe_optimization/"
+    t: "FW-Merging: Scaling Model Merging with Frank-Wolfe Optimization"
+  - u: "shadowhack_hacking_shadows_via_luminance-color_divide_and_conquer/"
+    t: "ShadowHack: Hacking Shadows via Luminance-Color Divide and Conquer"
+  - u: "va_gpt_aligning_effective_tokens_video_anomaly/"
+    t: "VA-GPT: Aligning Effective Tokens with Video Anomaly in Large Language Models"
+  - u: "vim_versatile_interactive_motion_language_model/"
+    t: "VIM: Versatile Interactive Motion-Language Model"
+item_total: 6
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +31,7 @@ tags:
 
 **📹 ICCV2025** · **6** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_nlp/index.md)
 
 🔥 **高频主题：** LLM ×3 · 持续学习 ×2
 

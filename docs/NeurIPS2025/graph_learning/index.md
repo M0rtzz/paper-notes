@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 图学习方向54篇论文解读
+  NeurIPS2025 图学习论文汇总 · 54篇论文解读
 description: >-
   54篇NeurIPS2025的图学习方向论文解读，涵盖图神经网络、LLM、推理、RAG、少样本学习、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "RAG"
   - "少样本学习"
   - "医学影像"
+item_list:
+  - u: "agint_agentic_graph_compilation_for_software_engineering_age/"
+    t: "Agint: Agentic Graph Compilation for Software Engineering Agents"
+  - u: "bliss_bandit_layer_importance_sampling_strategy_for_efficient_training_of_graph_/"
+    t: "BLISS: Bandit Layer Importance Sampling Strategy for Efficient Training of Graph Neural Networks"
+  - u: "bridging_graph_and_state-space_modeling_for_intensive_care_unit_length_of_stay_p/"
+    t: "Bridging Graph and State-Space Modeling for Intensive Care Unit Length of Stay Prediction"
+  - u: "deliberation_on_priors_trustworthy_reasoning_of_large_language_models_on_knowled/"
+    t: "Deliberation on Priors: Trustworthy Reasoning of Large Language Models on Knowledge Graphs"
+  - u: "diagnosing_and_addressing_pitfalls_in_kg-rag_datasets_toward_more_reliable_bench/"
+    t: "Diagnosing and Addressing Pitfalls in KG-RAG Datasets: Toward More Reliable Benchmarking"
+  - u: "duetgraph_coarse-to-fine_knowledge_graph_reasoning_with_dual-pathway_global-loca/"
+    t: "DuetGraph: Coarse-to-Fine Knowledge Graph Reasoning with Dual-Pathway Global-Local Fusion"
+  - u: "dynamic_bundling_with_large_language_models_for_zero-shot_inference_on_text-attr/"
+    t: "Dynamic Bundling with Large Language Models for Zero-Shot Inference on Text-Attributed Graphs"
+  - u: "elastic_weight_consolidation_for_knowledge_graph_continual_learning_an_empirical/"
+    t: "Elastic Weight Consolidation for Knowledge Graph Continual Learning: An Empirical Evaluation"
+  - u: "falcon_an_ml_framework_for_fully_automated_layout-constrained_analog_circuit_des/"
+    t: "FALCON: An ML Framework for Fully Automated Layout-Constrained Analog Circuit Design"
+  - u: "fastjam_a_fast_joint_alignment_model_for_images/"
+    t: "FastJAM: a Fast Joint Alignment Model for Images"
+  - u: "from_sequence_to_structure_uncovering_substructure_reasoning_in_transformers/"
+    t: "From Sequence to Structure: Uncovering Substructure Reasoning in Transformers"
+  - u: "generative_graph_pattern_machine/"
+    t: "Generative Graph Pattern Machine"
+  - u: "geometric_imbalance_in_semi-supervised_node_classification/"
+    t: "Geometric Imbalance in Semi-Supervised Node Classification"
+  - u: "gfm-rag_graph_foundation_model_for_retrieval_augmented_generation/"
+    t: "GFM-RAG: Graph Foundation Model for Retrieval Augmented Generation"
+  - u: "gnnxemplar_exemplars_to_explanations_--_natural_language_rules_for_global_gnn_in/"
+    t: "GnnXemplar: Exemplars to Explanations -- Natural Language Rules for Global GNN Interpretability"
+  - u: "graph_neural_networks_for_efficient_ac_power_flow_prediction_in_power_grids/"
+    t: "Graph Neural Networks for Efficient AC Power Flow Prediction in Power Grids"
+  - u: "graph_neural_networks_for_interferometer_simulations/"
+    t: "Graph Neural Networks for Interferometer Simulations"
+  - u: "graph_persistence_goes_spectral/"
+    t: "Graph Persistence goes Spectral"
+  - u: "graphfaas_serverless_gnn_inference_for_burst-resilient_real-time_intrusion_detec/"
+    t: "GraphFaaS: Serverless GNN Inference for Burst-Resilient, Real-Time Intrusion Detection"
+  - u: "graphtop_graph_topology-oriented_prompting_for_graph_neural_networks/"
+    t: "GraphTOP: Graph Topology-Oriented Prompting for Graph Neural Networks"
+  - u: "heterogeneous_swarms_jointly_optimizing_model_roles_and_weights_for_multi-llm_sy/"
+    t: "Heterogeneous Swarms: Jointly Optimizing Model Roles and Weights for Multi-LLM Systems"
+  - u: "interaction-centric_knowledge_infusion_and_transfer_for_open-vocabulary_scene_gr/"
+    t: "Interaction-Centric Knowledge Infusion and Transfer for Open-Vocabulary Scene Graph Generation"
+  - u: "logical_expressiveness_of_graph_neural_networks_with_hierarchical_node_individua/"
+    t: "Logical Expressiveness of Graph Neural Networks with Hierarchical Node Individualization"
+  - u: "making_classic_gnns_strong_baselines_across_varying_homophily_a_smoothness-gener/"
+    t: "Making Classic GNNs Strong Baselines Across Varying Homophily: A Smoothness-Generalization Perspective"
+  - u: "medmkg_benchmarking_medical_knowledge_exploitation_with_multimodal_knowledge_gra/"
+    t: "MedMKG: Benchmarking Medical Knowledge Exploitation with Multimodal Knowledge Graph"
+  - u: "mixture_of_scope_experts_at_test_generalizing_deeper_graph_neural_networks_with_/"
+    t: "Moscat: Mixture of Scope Experts at Test for Generalizing Deeper GNNs"
+  - u: "moemeta_mixture-of-experts_meta_learning_for_few-shot_relational_learning/"
+    t: "MoEMeta: Mixture-of-Experts Meta Learning for Few-Shot Relational Learning"
+  - u: "neuropath_neurobiology-inspired_path_tracking_and_reflection_for_semantically_co/"
+    t: "NeuroPath: Neurobiology-Inspired Path Tracking and Reflection for Semantically Coherent Retrieval"
+  - u: "nonlinear_laplacians_tunable_principal_component_analysis_under_directional_prio/"
+    t: "Nonlinear Laplacians: Tunable Principal Component Analysis under Directional Prior Information"
+  - u: "ocn_effectively_utilizing_higher-order_common_neighbors_for_better_link_predicti/"
+    t: "OCN: Effectively Utilizing Higher-Order Common Neighbors for Better Link Prediction"
+item_total: 54
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧠 NeurIPS2025** · **54** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (19)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
 
 🔥 **高频主题：** 图神经网络 ×11 · LLM ×5 · 推理 ×5 · RAG ×4 · 少样本学习 ×2
 

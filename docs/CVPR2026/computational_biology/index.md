@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 计算生物方向11篇论文解读
+  CVPR2026 计算生物论文汇总 · 10篇论文解读
 description: >-
-  11篇CVPR2026的计算生物方向论文解读，涵盖生物分子、医学影像、自监督学习、压缩/编码、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  10篇CVPR2026的计算生物方向论文解读，涵盖生物分子、医学影像、自监督学习、压缩/编码、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "计算生物"
@@ -13,14 +13,36 @@ tags:
   - "自监督学习"
   - "压缩/编码"
   - "多模态"
+item_list:
+  - u: "adapting_a_pre-trained_single-cell_foundation_model_to_spatial_gene_expression_g/"
+    t: "HINGE: Adapting a Pre-trained Single-Cell Foundation Model to Spatial Gene Expression Generation from Histology Images"
+  - u: "care_a_molecular-guided_foundation_model_with_adaptive_region_modeling_for_whole/"
+    t: "CARE: A Molecular-Guided Foundation Model with Adaptive Region Modeling for Whole Slide Image Analysis"
+  - u: "cell-type_prototype-informed_neural_network_for_gene_expression_estimation_from_/"
+    t: "Cell-Type Prototype-Informed Neural Network for Gene Expression Estimation from Pathology Images"
+  - u: "cross-slice_knowledge_transfer_via_masked_multi-modal_heterogeneous_graph_contra/"
+    t: "Cross-Slice Knowledge Transfer via Masked Multi-Modal Heterogeneous Graph Contrastive Learning for Spatial Gene Expression Inference"
+  - u: "cryohype_reconstructing_a_thousand_cryo-em_structures_with_transformer-based_hyp/"
+    t: "CryoHype: Reconstructing a Thousand Cryo-EM Structures with Transformer-Based Hypernetworks"
+  - u: "cryosense_compressive_sensing_enables_high-throughput_microscopy_with_sparse_and/"
+    t: "cryoSENSE: Compressive Sensing Enables High-throughput Microscopy with Sparse and Generative Priors on the Protein Cryo-EM Image Manifold"
+  - u: "hyperbolic_busemann_neural_networks/"
+    t: "Hyperbolic Busemann Neural Networks"
+  - u: "multimodal_protein_language_models_for_enzyme_kinetic_parameters_from_substrate_/"
+    t: "Multimodal Protein Language Models for Enzyme Kinetic Parameters: From Substrate Recognition to Conformational Adaptation"
+  - u: "sampling-aware_3d_spatial_analysis_in_multiplexed_imaging/"
+    t: "Sampling-Aware 3D Spatial Analysis in Multiplexed Imaging"
+  - u: "shrec_a_spectral_embedding-based_approach_for_ab-initio_reconstruction_of_helica/"
+    t: "SHREC: A Spectral Embedding-Based Approach for Ab-Initio Reconstruction of Helical Molecules"
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧬 计算生物
 
-**📷 CVPR2026** · **11** 篇论文解读
+**📷 CVPR2026** · **10** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [🔬 ICLR2026 (38)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (20)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (74)](../../NeurIPS2025/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
 
 🔥 **高频主题：** 生物分子 ×3
 
@@ -63,7 +85,3 @@ tags:
 **[SHREC: A Spectral Embedding-Based Approach for Ab-Initio Reconstruction of Helical Molecules](shrec_a_spectral_embedding-based_approach_for_ab-initio_reconstruction_of_helica.md)**
 
 :   提出 SHREC 算法，通过谱嵌入（spectral embedding）从冷冻电镜 2D 投影图像中直接恢复螺旋分子片段的投影角度，无需预先知道螺旋对称参数（rise/twist），实现了真正的 ab-initio 螺旋结构重建。
-
-**[Stronger Normalization-Free Transformers](stronger_normalization-free_transformers.md)**
-
-:   通过系统分析逐点函数替代归一化层所需的四个关键属性（零中心性、有界性、中心敏感性、单调性），在大规模搜索中发现 $\text{Derf}(x) = \text{erf}(\alpha x + s)$ 是最优的归一化层替代函数，在视觉识别、图像生成、语音表示和DNA序列建模等多个领域持续超越LayerNorm和DyT，且性能增益主要来自更强的泛化而非拟合能力。

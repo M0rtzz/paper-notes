@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 视频理解方向4篇论文解读
+  ICML2025 视频理解论文汇总 · 4篇论文解读
 description: >-
   4篇ICML2025的视频理解方向论文解读，收录 Fine-Grained Captioning of Lon、MoMa、Scaling Video-Language Models等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -8,6 +8,16 @@ tags:
   - "视频理解"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "fine-grained_captioning_of_long_videos_through_scene_graph_consolidation/"
+    t: "Fine-Grained Captioning of Long Videos through Scene Graph Consolidation"
+  - u: "moma_modulating_mamba_for_adapting_image_foundation_models_to_video_recognition/"
+    t: "MoMa: Modulating Mamba for Adapting Image Foundation Models to Video Recognition"
+  - u: "scaling_video-language_models_to_10k_frames_via_hierarchical_differential_distil/"
+    t: "Scaling Video-Language Models to 10K Frames via Hierarchical Differential Distillation"
+  - u: "unifying_specialized_visual_encoders_for_video_language_models/"
+    t: "Unifying Specialized Visual Encoders for Video Language Models"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

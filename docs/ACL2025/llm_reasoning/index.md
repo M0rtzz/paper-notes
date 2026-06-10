@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 LLM 推理方向53篇论文解读
+  ACL2025 LLM推理论文汇总 · 51篇论文解读
 description: >-
-  53篇ACL2025的 LLM 推理方向论文解读，涵盖推理、LLM、问答、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  51篇ACL2025的 LLM 推理方向论文解读，涵盖推理、LLM、问答、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ACL2025"
   - "LLM 推理"
@@ -12,16 +12,78 @@ tags:
   - "LLM"
   - "问答"
   - "多模态"
+item_list:
+  - u: "an_efficient_and_precise_training_data_construction_framework_for_process-superv/"
+    t: "An Efficient and Precise Training Data Construction Framework for Process-Supervised Reward Model in Mathematical Reasoning"
+  - u: "aristotle_logical_reasoning/"
+    t: "Aristotle: Mastering Logical Reasoning with A Logic-Complete Decompose-Search-Resolve Framework"
+  - u: "beyond_the_answer_advancing_multi-hop_qa_with_fine-grained_graph_reasoning_and_e/"
+    t: "Beyond the Answer: Advancing Multi-Hop QA with Fine-Grained Graph Reasoning and Evaluation"
+  - u: "bpp-search_enhancing_tree_of_thought_reasoning_for_mathematical_modeling_problem/"
+    t: "BPP-Search: Enhancing Tree of Thought Reasoning for Mathematical Modeling Problem Solving"
+  - u: "can_large_language_models_detect_errors_in_long_chain-of-thought_reasoning/"
+    t: "Can Large Language Models Detect Errors in Long Chain-of-Thought Reasoning?"
+  - u: "chain_of_reasoning_unified_math/"
+    t: "Chain-of-Reasoning: Towards Unified Mathematical Reasoning in Large Language Models via a Multi-Paradigm Perspective"
+  - u: "clozemath_improving_mathematical_reasoning_in_language_models_by_learning_to_fil/"
+    t: "ClozeMath: Improving Mathematical Reasoning in Language Models by Learning to Fill Equations"
+  - u: "commonsense_abductive_reasoning_using_knowledge_from_multiple_sources/"
+    t: "Commonsense Abductive Reasoning using Knowledge from Multiple Sources"
+  - u: "complex_reasoning_with_natural_language_contexts_and_background_knowledge/"
+    t: "Complex Reasoning with Natural Language Contexts and Background Knowledge"
+  - u: "cot-based_synthesizer_enhancing_llm_performance_through_answer_synthesis/"
+    t: "CoT-based Synthesizer: Enhancing LLM Performance through Answer Synthesis"
+  - u: "cot-icl_lab_a_synthetic_framework_for_studying_chain-of-thought_learning_from_in/"
+    t: "CoT-ICL Lab: A Synthetic Framework for Studying Chain-of-Thought Learning from In-Context Demonstrations"
+  - u: "cot-uq_improving_response-wise_uncertainty_quantification_in_llms_with_chain-of-/"
+    t: "CoT-UQ: Improving Response-wise Uncertainty Quantification in LLMs with Chain-of-Thought"
+  - u: "cot-valve_length-compressible_chain-of-thought_tuning/"
+    t: "CoT-Valve: Length-Compressible Chain-of-Thought Tuning"
+  - u: "critic-cot_boosting_the_reasoning_abilities_of_large_language_model_via_chain-of/"
+    t: "Critic-CoT: Boosting the Reasoning Abilities of Large Language Model via Chain-of-Thoughts Critic"
+  - u: "dcot_diverse_cot_refinement/"
+    t: "Fine-Tuning on Diverse Reasoning Chains Drives Within-Inference CoT Refinement in LLMs"
+  - u: "define_decision-making_with_analogical_reasoning_over_factor_profiles/"
+    t: "DeFine: Decision-Making with Analogical Reasoning over Factor Profiles"
+  - u: "dgprm_dynamic_process_reward/"
+    t: "Dynamic and Generalizable Process Reward Modeling (DG-PRM)"
+  - u: "drt_deep_reasoning_translation_via_long_chain-of-thought/"
+    t: "DRT: Deep Reasoning Translation via Long Chain-of-Thought"
+  - u: "enhancing_chain-of-thought_reasoning_with_critical_representation_fine-tuning/"
+    t: "Enhancing Chain-of-Thought Reasoning with Critical Representation Fine-tuning"
+  - u: "enhancing_mathematical_reasoning_in_llms_by_stepwise_correction/"
+    t: "Enhancing Mathematical Reasoning in LLMs by Stepwise Correction"
+  - u: "enhancing_retrieval_systems_with_inference-time_logical_reasoning/"
+    t: "Enhancing Retrieval Systems with Inference-Time Logical Reasoning"
+  - u: "entropy-based_exploration_conduction_for_multi-step_reasoning/"
+    t: "Entropy-based Exploration Conduction for Multi-step Reasoning"
+  - u: "finereason_evaluating_and_improving_llms_deliberate_reasoning_through_reflective/"
+    t: "FineReason: Evaluating and Improving LLMs' Deliberate Reasoning through Reflective Puzzle Solving"
+  - u: "glore_long_cot_representation/"
+    t: "Unlocking General Long Chain-of-Thought Reasoning Capabilities of Large Language Models via Representation Engineering"
+  - u: "improve_vlm_cot_reasoning/"
+    t: "Improve Vision Language Model Chain-of-thought Reasoning"
+  - u: "improving_chain-of-thought_reasoning_via_quasi-symbolic_abstractions/"
+    t: "Improving Chain-of-Thought Reasoning via Quasi-Symbolic Abstractions"
+  - u: "large_language_and_reasoning_models_are_shallow_disjunctive_reasoners/"
+    t: "Large Language and Reasoning Models are Shallow Disjunctive Reasoners"
+  - u: "local_look-ahead_guidance_via_verifier-in-the-loop_for_automated_theorem_proving/"
+    t: "Local Look-Ahead Guidance via Verifier-in-the-Loop for Automated Theorem Proving"
+  - u: "logicpro_program_guided_reasoning/"
+    t: "LogicPro: Improving Complex Logical Reasoning via Program-Guided Learning"
+  - u: "marco-o1_v2_towards_widening_the_distillation_bottleneck_for_reasoning_models/"
+    t: "Marco-o1 v2: Towards Widening The Distillation Bottleneck for Reasoning Models"
+item_total: 51
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM 推理
 
-**💬 ACL2025** · **53** 篇论文解读
+**💬 ACL2025** · **51** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (82)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (83)](../../NeurIPS2025/llm_reasoning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (80)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_reasoning/index.md)
 
-🔥 **高频主题：** 推理 ×42 · LLM ×9 · 问答 ×2 · 多模态 ×2
+🔥 **高频主题：** 推理 ×41 · LLM ×9 · 问答 ×2 · 多模态 ×2
 
 **[An Efficient and Precise Training Data Construction Framework for Process-Supervised Reward Model in Mathematical Reasoning](an_efficient_and_precise_training_data_construction_framework_for_process-superv.md)**
 
@@ -219,17 +281,9 @@ tags:
 
 :   从有效性和忠实性两个视角系统分析 CoT 的表现模式：发现问题难度、信息增益和信息流单调性决定 CoT 有效性，并揭示不忠实 CoT 的机制——模型在预测答案时从问题中召回了 CoT 遗漏的正确信息。在此基础上提出 QUIRE 算法，同时提升 CoT 的有效性（+2.4%）和忠实性（+5.6%）。
 
-**[Towards Safety Reasoning in LLMs: AI-agentic Deliberation for Policy-embedded CoT Data Creation](towards_safety_reasoning_in_llms_ai-agentic_deliberation_for_policy-embedded_cot.md)**
-
-:   提出 AIDsafe 多智能体迭代审议框架，自动生成嵌入安全策略的高质量 CoT 数据，微调后的模型在安全泛化和越狱鲁棒性上显著优于传统安全训练，同时引入 ear-whisperer agent 解决 DPO 偏好数据中 selected/rejected 难以区分的问题。
-
 **[TRACT: Regression-Aware Fine-tuning Meets Chain-of-Thought Reasoning](tract_regression_cot.md)**
 
 :   提出 TRACT，一种两阶段回归感知微调方法，将 CoT 推理与回归损失（squared error）结合，用于提升 LLM-as-a-Judge 场景中的数值评分精度，显著优于仅用交叉熵训练或仅用回归损失的现有方案。
-
-**[Training Turn-by-Turn Verifiers for Dialogue Tutoring Agents: The Curious Case of LLMs as Your Coding Tutors](training_turn-by-turn_verifiers_for_dialogue_tutoring_agents_the_curious_case_of.md)**
-
-:   提出 **Traver**（Trace-and-Verify）agent 工作流，通过**知识追踪**显式估计学生知识状态 + **逐轮验证器**（turn-by-turn verifier）对候选辅导话语打分选优，并设计 **Dict** 自动评估协议（模拟学生 + 代码生成测试），在编程辅导场景中将学生 Pass 率从 38.7% 提升至 43.7%（相对提升 106.5%），显著超越 Vanilla Instruct、Self-Refine 和 TreeInstruct。
 
 **[Unveiling the Key Factors for Distilling Chain-of-Thought Reasoning](unveiling_the_key_factors_for_distilling_chain-of-thought_reasoning.md)**
 

@@ -1,28 +1,90 @@
 ---
 title: >-
-  ECCV2024 自动驾驶方向54篇论文解读
+  ECCV2024 自动驾驶论文汇总 · 51篇论文解读
 description: >-
-  54篇ECCV2024的自动驾驶方向论文解读，涵盖自动驾驶、3D 目标检测、语义分割、对抗鲁棒、扩散模型、目标检测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  51篇ECCV2024的自动驾驶方向论文解读，涵盖自动驾驶、语义分割、3D 目标检测、对抗鲁棒、扩散模型、目标检测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ECCV2024"
   - "自动驾驶"
   - "论文解读"
   - "论文笔记"
-  - "3D 目标检测"
   - "语义分割"
+  - "3D 目标检测"
   - "对抗鲁棒"
   - "扩散模型"
   - "目标检测"
+item_list:
+  - u: "4d_contrastive_superflows_are_dense_3d_representation_learners/"
+    t: "4D Contrastive Superflows are Dense 3D Representation Learners"
+  - u: "accelerating_online_mapping_and_behavior_prediction_via_dire/"
+    t: "Accelerating Online Mapping and Behavior Prediction via Direct BEV Feature Attention"
+  - u: "adaptive_human_trajectory_prediction_via_latent_corridors/"
+    t: "Adaptive Human Trajectory Prediction via Latent Corridors"
+  - u: "carformer_self-driving_with_learned_object-centric_representations/"
+    t: "CarFormer: Self-Driving with Learned Object-Centric Representations"
+  - u: "csot_cross-scan_object_transfer_for_semi-supervised_lidar_object_detection/"
+    t: "CSOT: Cross-Scan Object Transfer for Semi-Supervised LiDAR Object Detection"
+  - u: "detecting_as_labeling_rethinking_lidar-camera_fusion_in_3d_object_detection/"
+    t: "Detecting As Labeling: Rethinking LiDAR-camera Fusion in 3D Object Detection"
+  - u: "dvlo_deep_visual-lidar_odometry_with_local-to-global_feature_fusion_and_bi-direc/"
+    t: "DVLO: Deep Visual-LiDAR Odometry with Local-to-Global Feature Fusion and Bi-directional Structure Alignment"
+  - u: "dyset_a_dynamic_masked_self-distillation_approach_for_robust_trajectory_predicti/"
+    t: "DySeT: A Dynamic Masked Self-distillation Approach for Robust Trajectory Prediction"
+  - u: "enhancing_vectorized_map_perception_with_historical_rasterized_maps/"
+    t: "Enhancing Vectorized Map Perception with Historical Rasterized Maps"
+  - u: "equivariant_spatio-temporal_self-supervision_for_lidar_object_detection/"
+    t: "Equivariant Spatio-Temporal Self-Supervision for LiDAR Object Detection"
+  - u: "fsd-bev_foreground_self-distillation_for_multi-view_3d_object_detection/"
+    t: "FSD-BEV: Foreground Self-Distillation for Multi-View 3D Object Detection"
+  - u: "fully_sparse_3d_occupancy_prediction/"
+    t: "Fully Sparse 3D Occupancy Prediction"
+  - u: "gaussianformer_scene_as_gaussians_for_vision-based_3d_semantic_occupancy_predict/"
+    t: "GaussianFormer: Scene as Gaussians for Vision-Based 3D Semantic Occupancy Prediction"
+  - u: "graphbev_towards_robust_bev_feature_alignment_for_multi-modal_3d_object_detectio/"
+    t: "GraphBEV: Towards Robust BEV Feature Alignment for Multi-Modal 3D Object Detection"
+  - u: "h-v2x_a_large_scale_highway_dataset_for_bev_perception/"
+    t: "H-V2X: A Large Scale Highway Dataset for BEV Perception"
+  - u: "hierarchical_temporal_context_learning_for_camera-based_semantic_scene_completio/"
+    t: "Hierarchical Temporal Context Learning for Camera-based Semantic Scene Completion"
+  - u: "improving_agent_behaviors_with_rl_fine-tuning_for_autonomous_driving/"
+    t: "Improving Agent Behaviors with RL Fine-tuning for Autonomous Driving"
+  - u: "ittakestwo_leveraging_peer_representations_for_semi-supervised_lidar_semantic_se/"
+    t: "ItTakesTwo: Leveraging Peer Representations for Semi-supervised LiDAR Semantic Segmentation"
+  - u: "lidar-event_stereo_fusion_with_hallucinations/"
+    t: "LiDAR-Event Stereo Fusion with Hallucinations"
+  - u: "livehps_robust_and_coherent_motion_capture_in_dynamic_free_environment/"
+    t: "LiveHPS++: Robust and Coherent Motion Capture in Dynamic Free Environment"
+  - u: "mapdistill_boosting_efficient_camera-based_hd_map_construction_via_camera-lidar_/"
+    t: "MapDistill: Boosting Efficient Camera-based HD Map Construction via Camera-LiDAR Fusion Model Distillation"
+  - u: "maptracker_tracking_with_strided_memory_fusion_for_consistent_vector_hd_mapping/"
+    t: "MapTracker: Tracking with Strided Memory Fusion for Consistent Vector HD Mapping"
+  - u: "monocular_occupancy_prediction_for_scalable_indoor_scenes/"
+    t: "Monocular Occupancy Prediction for Scalable Indoor Scenes"
+  - u: "monowad_weather-adaptive_diffusion_model_for_robust_monocular_3d_object_detectio/"
+    t: "MonoWAD: Weather-Adaptive Diffusion Model for Robust Monocular 3D Object Detection"
+  - u: "navigation_instruction_generation_with_bev_perception_and_large_language_models/"
+    t: "Navigation Instruction Generation with BEV Perception and Large Language Models"
+  - u: "neural_volumetric_world_models_for_autonomous_driving/"
+    t: "Neural Volumetric World Models for Autonomous Driving"
+  - u: "neuroncap_photorealistic_closed-loop_safety_testing_for_autonomous_driving/"
+    t: "NeuroNCAP: Photorealistic Closed-Loop Safety Testing for Autonomous Driving"
+  - u: "occgen_generative_multi-modal_3d_occupancy_prediction_for_autonomous_driving/"
+    t: "OccGen: Generative Multi-modal 3D Occupancy Prediction for Autonomous Driving"
+  - u: "occworld_learning_a_3d_occupancy_world_model_for_autonomous_driving/"
+    t: "OccWorld: Learning a 3D Occupancy World Model for Autonomous Driving"
+  - u: "open_object-wise_position_embedding_for_multi-view_3d_object_detection/"
+    t: "OPEN: Object-wise Position Embedding for Multi-view 3D Object Detection"
+item_total: 51
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🚗 自动驾驶
 
-**🎞️ ECCV2024** · **54** 篇论文解读
+**🎞️ ECCV2024** · **51** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/autonomous_driving/index.md) · [📷 CVPR2026 (90)](../../CVPR2026/autonomous_driving/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/autonomous_driving/index.md) · [🤖 AAAI2026 (57)](../../AAAI2026/autonomous_driving/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/autonomous_driving/index.md) · [📹 ICCV2025 (93)](../../ICCV2025/autonomous_driving/index.md)
 
-🔥 **高频主题：** 自动驾驶 ×10 · 3D 目标检测 ×8 · 语义分割 ×7 · 对抗鲁棒 ×6 · 扩散模型 ×4
+🔥 **高频主题：** 自动驾驶 ×10 · 语义分割 ×7 · 3D 目标检测 ×6 · 对抗鲁棒 ×6 · 扩散模型 ×4
 
 **[4D Contrastive Superflows are Dense 3D Representation Learners](4d_contrastive_superflows_are_dense_3d_representation_learners.md)**
 
@@ -35,10 +97,6 @@ tags:
 **[Adaptive Human Trajectory Prediction via Latent Corridors](adaptive_human_trajectory_prediction_via_latent_corridors.md)**
 
 :   将prompt tuning思想引入行人轨迹预测，通过在预训练轨迹预测器的输入端添加可学习的低秩图像prompt（称为latent corridors），以不到0.1%的额外参数实现对部署场景特定行为模式的高效自适应，在合成和真实数据上分别取得最高23.9%和26.8%的ADE提升。
-
-**[Approaching Outside: Scaling Unsupervised 3D Object Detection from 2D Scene](approaching_outside_scaling_unsupervised_3d_object_detection_from_2d_scene.md)**
-
-:   提出 LiSe 方法，将 2D 图像信息引入无监督 3D 目标检测，通过自步学习（self-paced learning）中的自适应采样和弱模型聚合策略，大幅提升远距离和小目标的检测能力。
 
 **[CarFormer: Self-Driving with Learned Object-Centric Representations](carformer_self-driving_with_learned_object-centric_representations.md)**
 
@@ -212,10 +270,6 @@ tags:
 
 :   SLEDGE 提出了首个基于生成模型的驾驶仿真器，通过 Raster-to-Vector 自编码器将驾驶场景编码为栅格化潜在图（RLM），再利用 Diffusion Transformer 生成高质量的车道图和交通参与者，实现了比 nuPlan 少 500 倍存储（<4GB）的仿真环境，同时支持 500m 长路线测试，暴露了 SOTA 规划器 PDM-Closed 超过 40% 的失败率。
 
-**[Stream Query Denoising for Vectorized HD-Map Construction](stream_query_denoising_for_vectorized_hd-map_construction.md)**
-
-:   提出 Stream Query Denoising (SQD) 策略，通过对前一帧 GT 添加噪声并训练网络恢复当前帧 GT 来增强流式 HD 地图构建中的时序一致性建模，在 nuScenes 和 Argoverse2 上全面超越 StreamMapNet。
-
 **[TOD³Cap: Towards 3D Dense Captioning in Outdoor Scenes](tod3cap_towards_3d_dense_captioning_in_outdoor_scenes.md)**
 
 :   首次提出户外 3D 密集描述任务，构建百万级 TOD3Cap 数据集（850 场景 2.3M 描述），设计基于 BEV 特征 + Relation Q-Former + LLaMA-Adapter 的端到端网络，超越适配后的室内方法 +9.6 CIDEr@0.5IoU。
@@ -235,7 +289,3 @@ tags:
 **[VisionTrap: Vision-Augmented Trajectory Prediction Guided by Textual Descriptions](visiontrap_vision-augmented_trajectory_prediction_guided_by_textual_descriptions.md)**
 
 :   提出 VisionTrap，将环视相机图像和文本描述引入轨迹预测任务，通过 BEV 视觉语义编码器和文本驱动的去偏对比学习引导模型学习视觉语义线索（如行人姿态、转向灯等），在保持 53ms 实时推理的同时显著提升预测精度并发布 nuScenes-Text 数据集。
-
-**[Weakly Supervised 3D Object Detection via Multi-Level Visual Guidance](weakly_supervised_3d_object_detection_via_multi-level_visual_guidance.md)**
-
-:   提出 VG-W3D 框架，仅使用 2D 标注（无需任何 3D 标签），通过特征级、输出级和训练级三层视觉引导来训练 3D 目标检测器，在 KITTI 上取得了与使用 500 帧 3D 标注方法相当的性能。

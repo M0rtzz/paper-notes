@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 3D 视觉方向236篇论文解读
+  CVPR2026 3D视觉论文汇总 · 227篇论文解读
 description: >-
-  236篇CVPR2026的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、三维重建、动态场景、点云、少样本学习、新视角合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  227篇CVPR2026的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、三维重建、动态场景、点云、少样本学习、新视角合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2026"
   - "3D 视觉"
@@ -14,16 +14,78 @@ tags:
   - "点云"
   - "少样本学习"
   - "新视角合成"
+item_list:
+  - u: "3d-fixer_coarse-to-fine_in-place_completion_for_3d_scenes_from_a_single_image/"
+    t: "3D-Fixer: Coarse-to-Fine In-place Completion for 3D Scenes from a Single Image"
+  - u: "3d-ide_3d_implicit_depth_emergent/"
+    t: "3D-IDE: 3D Implicit Depth Emergent"
+  - u: "3d_gaussian_splatting_with_self-constrained_priors_for_high_fidelity_surface_rec/"
+    t: "3D Gaussian Splatting with Self-Constrained Priors for High Fidelity Surface Reconstruction"
+  - u: "3d_sans_3d_scans_scalable_pre-training_from_video-generated_point_clouds/"
+    t: "3D sans 3D Scans: Scalable Pre-training from Video-Generated Point Clouds"
+  - u: "3drawagent_teaching_llm_to_draw_in_3d_with_early_contrastive_experience/"
+    t: "3DrawAgent: Teaching LLM to Draw in 3D with Early Contrastive Experience"
+  - u: "4c4d_4_camera_4d_gaussian_splatting/"
+    t: "4C4D: 4 Camera 4D Gaussian Splatting"
+  - u: "4dequine_disentangling_motion_and_appearance_for_4d_equine_reconstruction_from_m/"
+    t: "4DEquine: Disentangling Motion and Appearance for 4D Equine Reconstruction from Monocular Video"
+  - u: "a2z-10m_geometric_deep_learning_with_a-to-z_brep_annotations_for_ai-assisted_cad/"
+    t: "A2Z-10M+: Geometric Deep Learning with A-to-Z BRep Annotations for AI-Assisted CAD Modeling and Reverse Engineering"
+  - u: "action-geometry_prediction_with_3d_geometric_prior_for_bimanual_manipulation/"
+    t: "GAP: Action-Geometry Prediction with 3D Geometric Prior for Bimanual Manipulation"
+  - u: "action-guided_generation_of_3d_functionality_segmentation_data/"
+    t: "Action-guided Generation of 3D Functionality Segmentation Data"
+  - u: "actiongeometry_prediction_with_3d_geometric_prior/"
+    t: "Action–Geometry Prediction with 3D Geometric Prior for Bimanual Manipulation"
+  - u: "actionmesh_animated_3d_mesh_generation_with_temporal_3d_diffusion/"
+    t: "ActionMesh: Animated 3D Mesh Generation with Temporal 3D Diffusion"
+  - u: "ada3drift_adaptive_trainingtime_drifting_for_onest/"
+    t: "Ada3Drift: Adaptive Training-Time Drifting for One-Step 3D Visuomotor Robotic Manipulation"
+  - u: "adapting_point_cloud_analysis_via_multimodal_bayesian_distribution_learning/"
+    t: "Adapting Point Cloud Analysis via Multimodal Bayesian Distribution Learning"
+  - u: "aerodgs_physically_consistent_dynamic_gaussian_splatting_for_single-sequence_aer/"
+    t: "AeroDGS: Physically Consistent Dynamic Gaussian Splatting for Single-Sequence Aerial 4D Reconstruction"
+  - u: "affordgrasp_cross-modal_diffusion_for_affordance-aware_grasp_synthesis/"
+    t: "AffordGrasp: Cross-Modal Diffusion for Affordance-Aware Grasp Synthesis"
+  - u: "affordmatcher_affordance_learning_in_3d_scenes_from_visual_signifiers/"
+    t: "AffordMatcher: Affordance Learning in 3D Scenes from Visual Signifiers"
+  - u: "affostruction_3d_affordance_grounding_with_generative_reconstruction/"
+    t: "Affostruction: 3D Affordance Grounding with Generative Reconstruction"
+  - u: "anchorsplat_feed-forward_3d_gaussian_splatting_with_3d_geometric_priors/"
+    t: "AnchorSplat: Feed-Forward 3D Gaussian Splatting with 3D Geometric Priors"
+  - u: "anthrotap_learning_point_tracking_with_real-world_motion/"
+    t: "AnthroTAP: Learning Point Tracking with Real-World Motion"
+  - u: "anypcc_compressing_any_point_cloud_with_a_single_universal_model/"
+    t: "AnyPcc: Compressing Any Point Cloud with a Single Universal Model"
+  - u: "apc_adversarial_point_counterattack/"
+    t: "APC: Transferable and Efficient Adversarial Point Counterattack for Robust 3D Point Cloud Recognition"
+  - u: "arthoi_taming_foundation_models_for_monocular_4d_reconstruction_of_hand-articula/"
+    t: "ArtHOI: Taming Foundation Models for Monocular 4D Reconstruction of Hand-Articulated-Object Interactions"
+  - u: "artllm_generating_articulated_assets_via_3d_llm/"
+    t: "ArtLLM: Generating Articulated Assets via 3D LLM"
+  - u: "avatarpointillist_autoregressive_4d_gaussian_avatarization/"
+    t: "AvatarPointillist: AutoRegressive 4D Gaussian Avatarization"
+  - u: "benchmarking_phd-level_coding_in_3d_geometric_computer_vision/"
+    t: "GeoCodeBench: Benchmarking PhD-Level Coding in 3D Geometric Computer Vision"
+  - u: "beyond_geometry_artistic_disparity_synthesis_for_immersive_2d-to-3d/"
+    t: "Beyond Geometry: Artistic Disparity Synthesis for Immersive 2D-to-3D"
+  - u: "bi_cmpstereo_bidirectional_cross_modal_prompting_for_event_frame_asymmetric_stereo/"
+    t: "Bi-CMPStereo: Bidirectional Cross-Modal Prompting for Event-Frame Asymmetric Stereo"
+  - u: "brepgaussian_cad_reconstruction_from_multi-view_images_with_gaussian_splatting/"
+    t: "BRepGaussian: CAD Reconstruction from Multi-View Images with Gaussian Splatting"
+  - u: "bulletgen_improving_4d_reconstruction_with_bullet-time_generation/"
+    t: "BulletGen: Improving 4D Reconstruction with Bullet-Time Generation"
+item_total: 227
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D 视觉
 
-**📷 CVPR2026** · **236** 篇论文解读
+**📷 CVPR2026** · **227** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [🔬 ICLR2026 (61)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (78)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (113)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (264)](../../ICCV2025/3d_vision/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (111)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (252)](../../ICCV2025/3d_vision/index.md)
 
-🔥 **高频主题：** 3D 高斯渲染 ×44 · 三维重建 ×23 · 动态场景 ×20 · 点云 ×16 · 少样本学习 ×11
+🔥 **高频主题：** 3D 高斯渲染 ×44 · 三维重建 ×23 · 动态场景 ×20 · 点云 ×16 · 少样本学习 ×9
 
 **[3D-Fixer: Coarse-to-Fine In-place Completion for 3D Scenes from a Single Image](3d-fixer_coarse-to-fine_in-place_completion_for_3d_scenes_from_a_single_image.md)**
 
@@ -297,10 +359,6 @@ tags:
 
 :   提出 FastGS，一个基于多视角一致性的 3DGS 加速框架，通过多视角一致性密集化（VCD）和多视角一致性剪枝（VCP）策略精准控制 Gaussian 数量，在 Mip-NeRF 360 等数据集上实现约 100 秒完成场景训练，相比 vanilla 3DGS 加速 15× 以上，且渲染质量可比。
 
-**[Few-Shot Incremental 3D Object Detection in Dynamic Indoor Environments](few-shot_incremental_3d_object_detection_in_dynamic_indoor_environments.md)**
-
-:   提出 FI3Det，首个少样本增量 3D 目标检测框架：在基础训练阶段通过 VLM 引导的未知对象学习模块提前感知潜在新类别，在增量阶段通过门控多模态原型铸造模块融合 2D 语义和 3D 几何特征进行新类检测，在 ScanNet V2 和 SUN RGB-D 上的新类 mAP 平均提升 17.37%。
-
 **[FF3R: Feedforward Feature 3D Reconstruction from Unconstrained Views](ff3r_feedforward_feature_3d_reconstruction_from_unconstrained_views.md)**
 
 :   FF3R是首个完全无标注的前馈框架，能从无约束多视角图像序列中同时进行几何重建和开放词汇语义理解，处理64+张图像的速度比优化方法快180倍。
@@ -392,10 +450,6 @@ tags:
 **[Human Interaction-Aware 3D Reconstruction from a Single Image](human_interaction-aware_3d_reconstruction_from_a_single_image.md)**
 
 :   提出HUG3D框架，通过透视-正交视图变换、群体-个体多视图扩散模型和物理感知几何重建，从单张图片实现交互多人的高保真纹理3D重建，在CD/P2S/NC等指标上全面超越现有方法。
-
-**[HumanOrbit: 3D Human Reconstruction as 360° Orbit Generation](humanorbit_3d_human_reconstruction_as_360_orbit_generation.md)**
-
-:   将单图3D人体重建转化为360°轨道视频生成问题，用仅500个3D扫描数据LoRA微调视频扩散模型（Wan 2.1）生成81帧环绕视频，再通过VGGT+Mesh Carving重建高质量纹理网格，无需位姿标注且在多视图一致性和身份保持上超越现有方法。
 
 **[Hybrid eTFCE–GRF: Exact Cluster-Size Retrieval with Analytical p-Values for Voxel-Based Morphometry](hybrid_etfcegrf_exact_clustersize_retrieval_with_a.md)**
 
@@ -521,10 +575,6 @@ tags:
 
 :   本文提出 MimiCAT，一个级联 Transformer 框架，通过语义关键点标签学习柔性多对多软对应关系，结合百万级多类别动作数据集 PokeAnimDB，首次实现了跨类别（如人形到四足动物/鸟类）的高质量 3D 姿态迁移。
 
-**[MonoSAOD: Monocular 3D Object Detection with Sparsely Annotated Label](monosaod_monocular_3d_object_detection_with_sparsely_annotated_label.md)**
-
-:   首次定义并解决稀疏标注单目 3D 目标检测问题，提出道路感知补丁增强（RAPA）和原型过滤（PBF）两个模块，在 KITTI 30% 标注设置下大幅超越现有 2D SAOD 方法（AP3D Easy: 21.28 vs 17.14）。
-
 **[MoRe: Motion-aware Feed-forward 4D Reconstruction Transformer](more_motion-aware_feed-forward_4d_reconstruction_transformer.md)**
 
 :   提出 MoRe，一种前馈式运动感知 4D 重建 Transformer，通过注意力强制策略在训练时解耦动态运动与静态结构，结合分组因果注意力实现高效流式推理，在动态场景的相机位姿估计和深度预测上达到 SOTA。
@@ -608,10 +658,6 @@ tags:
 **[Off The Grid: Detection of Primitives for Feed-Forward 3D Gaussian Splatting](off_the_grid_detection_of_primitives_for_feed-forward_3d_gaussian_splatting.md)**
 
 :   本文提出一种基于关键点检测思路的前馈式3DGS解码器，将高斯原语从像素网格中解放出来，在亚像素级别自适应放置原语，结合自适应密度机制和置信度剪枝，仅使用输入像素数1/7的原语就在新视角合成上超越了SOTA前馈方法。
-
-**[OnlineHMR: Video-based Online World-Grounded Human Mesh Recovery](onlinehmr_video-based_online_world-grounded_human_mesh_recovery.md)**
-
-:   提出 OnlineHMR，首个同时满足系统因果性、忠实性、时序一致性和高效性四项准则的在线世界坐标人体网格恢复框架，通过滑动窗口因果学习 + KV 缓存推理实现流式相机坐标 HMR，结合以人为中心的增量 SLAM 和 EMA 轨迹校正实现在线全局定位。
 
 **[OnlinePG: Online Open-Vocabulary Panoptic Mapping with 3D Gaussian Splatting](onlinepg_online_open-vocabulary_panoptic_mapping_with_3d_gaussian_splatting.md)**
 
@@ -793,10 +839,6 @@ tags:
 
 :   提出SceneScribe-1M——一个包含100万个野外视频、超4000小时的大规模多模态视频数据集，提供详细文本描述、精确相机参数、连续深度图和一致性3D点轨迹等全面标注，为3D几何感知和视频生成任务提供统一资源。
 
-**[SCOPE: Scene-Contextualized Incremental Few-Shot 3D Segmentation](scope_scene-contextualized_incremental_few-shot_3d_segmentation.md)**
-
-:   SCOPE 提出一种即插即用的背景引导原型增强框架，利用基础训练场景中背景区域的伪实例构建原型库，在增量阶段通过检索+注意力融合增强少样本原型，无需重训骨干或增加参数即可在 ScanNet/S3DIS 上显著提升新类 IoU（最高 +6.98%）并保持低遗忘。
-
 **[SCOPE: Scene-Contextualized Incremental Few-Shot 3D Segmentation](scope_scenecontextualized_incremental_fewshot_3d_s.md)**
 
 :   提出即插即用的SCOPE框架，利用类无关分割模型从基础训练场景的背景区域挖掘伪实例原型，通过检索+注意力融合增强few-shot新类原型，无需重训backbone即可在ScanNet上将新类IoU提升6.98%。
@@ -828,10 +870,6 @@ tags:
 **[SoPE: Spherical Coordinate-Based Positional Embedding for Enhancing Spatial Perception of 3D LVLMs](sope_spherical_coordinate-based_positional_embedding_for_enhancing_spatial_perce.md)**
 
 :   提出球坐标位置编码 SoPE，将点云 token 从一维序列索引重映射到球坐标 $(t,r,\theta,\phi)$ 空间，并配合多维频率分配与多尺度频率混合策略，显著增强 3D 大视觉-语言模型的空间感知能力。
-
-**[SPAN: Spatial-Projection Alignment for Monocular 3D Object Detection](span_spatial-projection_alignment_for_monocular_3d_object_detection.md)**
-
-:   提出 Spatial-Projection Alignment (SPAN)，通过3D角点空间对齐和3D-2D投影对齐两个几何协同约束，配合分层任务学习策略，作为即插即用模块提升任意单目3D检测器的定位精度。
 
 **[SPAN: Spatial-Projection Alignment for Monocular 3D Object Detection](span_spatial_projection_alignment_mono3d.md)**
 
@@ -885,10 +923,6 @@ tags:
 
 :   提出测试时约束优化（TCO）框架，无需重训练或修改预训练多视图 Transformer 架构，通过在推理时将先验（相机位姿、内参、深度）作为预测约束进行优化，大幅提升 3D 重建精度。
 
-**[TeHOR: Text-Guided 3D Human and Object Reconstruction with Textures](tehor_text-guided_3d_human_and_object_reconstruction_with_textures.md)**
-
-:   TeHOR 利用文本描述作为语义引导，通过预训练扩散模型的 Score Distillation Sampling 联合优化 3D 人体和物体的几何与纹理，突破了传统方法对接触信息的依赖，实现了包括非接触交互在内的准确且语义一致的 3D 重建。
-
 **[Text–Image Conditioned 3D Generation](text-image_conditioned_3d_generation.md)**
 
 :   本文发现图像条件和文本条件在3D生成中提供互补信息——图像给出精确外观但受视角限制，文本提供全局语义但缺乏视觉细节——并提出TIGON，一个最小化双分支DiT基线，通过零初始化跨模态桥(early fusion)和步级预测平均(late fusion)实现联合文本-图像条件的原生3D生成。
@@ -896,10 +930,6 @@ tags:
 **[TopoMesh: High-Fidelity Mesh Autoencoding via Topological Unification](topomesh_high-fidelity_mesh_autoencoding_via_topological_unification.md)**
 
 :   提出 TopoMesh，通过将GT网格和预测网格统一到 Dual Marching Cubes (DMC) 拓扑框架下，首次实现了顶点和面片级别的显式对应，从而支持直接网格级别监督（拓扑、顶点位置、面法向量），F1-Sharp 指标比现有SOTA提升 5.9-7.1%，尤其在锐利特征保持上优势显著。
-
-**[Towards Intrinsic-Aware Monocular 3D Object Detection](towards_intrinsic-aware_monocular_3d_object_detection.md)**
-
-:   MonoIA 提出将数值型相机内参转化为语言引导的语义表征（通过 LLM 生成内参描述 + CLIP 编码），并通过分层自适应模块将其融入检测网络，实现对未见焦距的零样本泛化和跨数据集统一训练，在 KITTI/Waymo/nuScenes 上达到新 SOTA。
 
 **[TR2M: Transferring Monocular Relative Depth to Metric Depth with Language Descriptions and Dual-Level Scale-Oriented Contrast](tr2m_transferring_monocular_relative_depth_to_metric_depth_with_language_descrip.md)**
 
@@ -912,10 +942,6 @@ tags:
 **[Unblur-SLAM: Dense Neural SLAM for Blurry Inputs](unblur-slam_dense_neural_slam_for_blurry_inputs.md)**
 
 :   Unblur-SLAM 不是简单把去模糊网络塞进 SLAM 前端，而是围绕“哪些模糊帧可以先去模糊再跟踪、哪些模糊帧必须直接在 3D 空间里建模”这一关键决策，设计了模糊检测、物理约束去模糊、3D Gaussian blur refinement 和严重模糊 fallback 的完整流水线，因此能同时处理运动模糊和散焦模糊，并显著提升跟踪与重建质量。
-
-**[Unified Primitive Proxies for Structured Shape Completion](unified_primitive_proxies_for_structured_shape_completion.md)**
-
-:   提出 UniCo，通过基元代理（primitive proxies）在共享形状特征上学习统一的基元表示，在单次前向传递中联合预测完整点云和装配就绪的二次曲面基元（含几何、语义和成员关系），在合成/真实点云 benchmark 上 Chamfer 距离降低最高 50%，法线一致性提升最高 7%。
 
 **[UniSplat: Learning 3D Representations for Spatial Intelligence from Unposed Multi-View Images](unisplat_3d_representations_unposed.md)**
 

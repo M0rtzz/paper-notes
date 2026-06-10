@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 人体理解方向8篇论文解读
+  ICLR2026 人体理解论文汇总 · 8篇论文解读
 description: >-
   8篇ICLR2026的人体理解方向论文解读，涵盖情感分析、人脸/视线、对抗鲁棒、LLM、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,24 @@ tags:
   - "对抗鲁棒"
   - "LLM"
   - "多模态"
+item_list:
+  - u: "bah_dataset_for_ambivalencehesitancy_recognition_in_videos_for_digital_behaviour/"
+    t: "BAH Dataset for Ambivalence/Hesitancy Recognition in Videos for Digital Behaviour Analysis"
+  - u: "cross-domain_policy_optimization_via_bellman_consistency_and_hybrid_critics/"
+    t: "Cross-Domain Policy Optimization via Bellman Consistency and Hybrid Critics"
+  - u: "event-t2m_event-level_conditioning_for_complex_text-to-motion_synthesis/"
+    t: "Event-T2M: Event-level Conditioning for Complex Text-to-Motion Synthesis"
+  - u: "gaitsnippet_gait_recognition_beyond_unordered_sets_and_ordered_sequences/"
+    t: "GaitSnippet: Gait Recognition Beyond Unordered Sets and Ordered Sequences"
+  - u: "inverse_virtual_try-on_generating_multi-category_product-style_images_from_cloth/"
+    t: "Inverse Virtual Try-On: Generating Multi-Category Product-Style Images from Clothed Individuals"
+  - u: "neurogaze-distill_brain-informed_distillation_and_depression-inspired_geometric_/"
+    t: "NeuroGaze-Distill: Brain-informed Distillation and Depression-Inspired Geometric Priors for Robust Facial Emotion Recognition"
+  - u: "personax_multimodal_datasets_with_llm-inferred_behavior_traits/"
+    t: "PersonaX: Multimodal Datasets with LLM-Inferred Behavior Traits"
+  - u: "quamo_quaternion_motion_kinematics/"
+    t: "QuaMo: Quaternion Motions for Vision-based 3D Human Kinematics Capture"
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +38,7 @@ tags:
 
 **🔬 ICLR2026** · **8** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md) · [📹 ICCV2025 (39)](../../ICCV2025/human_understanding/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🤖 AAAI2026 (17)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md) · [📹 ICCV2025 (38)](../../ICCV2025/human_understanding/index.md)
 
 **[BAH Dataset for Ambivalence/Hesitancy Recognition in Videos for Digital Behaviour Analysis](bah_dataset_for_ambivalencehesitancy_recognition_in_videos_for_digital_behaviour.md)**
 

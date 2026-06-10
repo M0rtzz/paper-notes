@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 多智能体方向7篇论文解读
+  ICML2025 多智能体论文汇总 · 7篇论文解读
 description: >-
   7篇ICML2025的多智能体方向论文解读，涵盖 Agent、LLM、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,22 @@ tags:
   - "Agent"
   - "LLM"
   - "推理"
+item_list:
+  - u: "automl-agent_a_multi-agent_llm_framework_for_full-pipeline_automl/"
+    t: "AutoML-Agent: A Multi-Agent LLM Framework for Full-Pipeline AutoML"
+  - u: "cross-environment_cooperation_enables_zero-shot_multi-agent_coordination/"
+    t: "Cross-environment Cooperation Enables Zero-shot Multi-agent Coordination"
+  - u: "from_debate_to_equilibrium_belief-driven_multi-agent_llm_reasoning_via_bayesian_/"
+    t: "From Debate to Equilibrium: Belief-Driven Multi-Agent LLM Reasoning via Bayesian Nash Equilibrium"
+  - u: "is_your_llm-based_multi-agent_a_reliable_real-world_planner_exploring_fraud_dete/"
+    t: "Is Your LLM-Based Multi-Agent a Reliable Real-World Planner? Exploring Fraud Detection in Travel Planning"
+  - u: "metaagent_automatically_constructing_multi-agent_systems_based_on_finite_state_m/"
+    t: "MetaAgent: Automatically Constructing Multi-Agent Systems Based on Finite State Machines"
+  - u: "researchtown_simulator_of_human_research_community/"
+    t: "ResearchTown: Simulator of Human Research Community"
+  - u: "theorem-of-thought_a_multi-agent_framework_for_abductive_deductive_and_inductive/"
+    t: "Theorem-of-Thought: A Multi-Agent Framework for Abductive, Deductive, and Inductive Reasoning in Language Models"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +34,7 @@ tags:
 
 **🧪 ICML2025** · **7** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/multi_agent/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/multi_agent/index.md) · [🤖 AAAI2026 (26)](../../AAAI2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
 
 🔥 **高频主题：** Agent ×6 · LLM ×3 · 推理 ×2
 

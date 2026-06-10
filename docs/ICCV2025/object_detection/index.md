@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 目标检测方向27篇论文解读
+  ICCV2025 目标检测论文汇总 · 27篇论文解读
 description: >-
   27篇ICCV2025的目标检测方向论文解读，涵盖目标检测、对抗鲁棒、扩散模型、多模态、遥感等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,62 @@ tags:
   - "扩散模型"
   - "多模态"
   - "遥感"
+item_list:
+  - u: "3dmood_lifting_2d_to_3d_for_monocular_openset_object_detecti/"
+    t: "3D-MOOD: Lifting 2D to 3D for Monocular Open-Set Object Detection"
+  - u: "adversarial_attention_perturbations_for_large_object_detection_transformers/"
+    t: "Adversarial Attention Perturbations for Large Object Detection Transformers"
+  - u: "augmenting_moment_retrieval_zero-dependency_two-stage_learning/"
+    t: "Augmenting Moment Retrieval: Zero-Dependency Two-Stage Learning"
+  - u: "automated_model_evaluation_for_object_detection_via_prediction_consistency_and_r/"
+    t: "Automated Model Evaluation for Object Detection via Prediction Consistency and Reliability"
+  - u: "diffusion_curriculum_synthetic-to-real_data_curriculum_via_image-guided_diffusio/"
+    t: "Diffusion Curriculum: Synthetic-to-Real Data Curriculum via Image-Guided Diffusion"
+  - u: "distil_data-free_inversion_of_suspicious_trojan_inputs_via_latent_diffusion/"
+    t: "DISTIL: Data-Free Inversion of Suspicious Trojan Inputs via Latent Diffusion"
+  - u: "dynamicdino_finegrained_mixture_of_experts_tuning_for_realti/"
+    t: "Dynamic-DINO: Fine-Grained Mixture of Experts Tuning for Real-time Open-Vocabulary Object Detection"
+  - u: "ea-kd_entropy-based_adaptive_knowledge_distillation/"
+    t: "EA-KD: Entropy-based Adaptive Knowledge Distillation"
+  - u: "evrt-detr_latent_space_adaptation_of_image_detectors_for_event-based_vision/"
+    t: "EvRT-DETR: Latent Space Adaptation of Image Detectors for Event-based Vision"
+  - u: "intervening_in_black_box_concept_bottleneck_model_for_enhancing_human_neural_net/"
+    t: "Intervening in Black Box: Concept Bottleneck Model for Enhancing Human-Neural Network Mutual Understanding"
+  - u: "large-scale_pre-training_for_grounded_video_caption_generation/"
+    t: "Large-scale Pre-training for Grounded Video Caption Generation"
+  - u: "lmm-det_make_large_multimodal_models_excel_in_object_detection/"
+    t: "LMM-Det: Make Large Multimodal Models Excel in Object Detection"
+  - u: "measuring_the_impact_of_rotation_equivariance_on_aerial_object_detection/"
+    t: "Measuring the Impact of Rotation Equivariance on Aerial Object Detection"
+  - u: "openrsd_towards_open-prompts_for_object_detection_in_remote_sensing_images/"
+    t: "OpenRSD: Towards Open-prompts for Object Detection in Remote Sensing Images"
+  - u: "revisiting_adversarial_patch_defenses_on_object_detectors_unified_evaluation_lar/"
+    t: "Revisiting Adversarial Patch Defenses on Object Detectors: Unified Evaluation, Large-Scale Dataset, and New Insights"
+  - u: "sfuod_source-free_unknown_object_detection/"
+    t: "SFUOD: Source-Free Unknown Object Detection"
+  - u: "sim-detr_unlock_detr_for_temporal_sentence_grounding/"
+    t: "Sim-DETR: Unlock DETR for Temporal Sentence Grounding"
+  - u: "the_devil_is_in_the_spurious_correlations_boosting_moment_retrieval_with_dynamic/"
+    t: "The Devil is in the Spurious Correlations: Boosting Moment Retrieval with Dynamic Learning"
+  - u: "toward_long-tailed_online_anomaly_detection_through_class-agnostic_concepts/"
+    t: "Toward Long-Tailed Online Anomaly Detection through Class-Agnostic Concepts"
+  - u: "uncertainty-aware_gradient_stabilization_for_small_object_detection/"
+    t: "Uncertainty-Aware Gradient Stabilization for Small Object Detection"
+  - u: "upre_zero-shot_domain_adaptation_for_object_detection_via_unified_prompt_and_rep/"
+    t: "UPRE: Zero-Shot Domain Adaptation for Object Detection via Unified Prompt and Representation Enhancement"
+  - u: "visrl_intention-driven_visual_perception_via_reinforced_reasoning/"
+    t: "VisRL: Intention-Driven Visual Perception via Reinforced Reasoning"
+  - u: "visual-rft_visual_reinforcement_fine-tuning/"
+    t: "Visual-RFT: Visual Reinforcement Fine-Tuning"
+  - u: "visual_modality_prompt_for_adapting_vision-language_object_detectors/"
+    t: "Visual Modality Prompt for Adapting Vision-Language Object Detectors"
+  - u: "voccl3d_a_video_benchmark_dataset_for_3d_human_pose_and_shape_estimation_under_r/"
+    t: "VOccl3D: A Video Benchmark Dataset for 3D Human Pose and Shape Estimation under Real Occlusions"
+  - u: "yolo-count_differentiable_object_counting_for_text-to-image_generation/"
+    t: "YOLO-Count: Differentiable Object Counting for Text-to-Image Generation"
+  - u: "yoloe_realtime_seeing_anything/"
+    t: "YOLOE: Real-Time Seeing Anything"
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +75,7 @@ tags:
 
 **📹 ICCV2025** · **27** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [🧪 ICML2025 (12)](../../ICML2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [🧪 ICML2025 (11)](../../ICML2025/object_detection/index.md)
 
 🔥 **高频主题：** 目标检测 ×10 · 对抗鲁棒 ×2 · 扩散模型 ×2 · 多模态 ×2 · 遥感 ×2
 

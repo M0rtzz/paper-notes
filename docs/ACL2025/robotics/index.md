@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 机器人/具身智能方向7篇论文解读
+  ACL2025 机器人/具身智能论文汇总 · 7篇论文解读
 description: >-
   7篇ACL2025的机器人/具身智能方向论文解读，涵盖机器人、情感分析、LLM、RAG、持续学习、对话系统等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,22 @@ tags:
   - "RAG"
   - "持续学习"
   - "对话系统"
+item_list:
+  - u: "cheer-ekman_fine-grained_embodied_emotion_classification/"
+    t: "CHEER-Ekman: Fine-grained Embodied Emotion Classification"
+  - u: "dice_idiomaticity/"
+    t: "Rolling the DICE on Idiomaticity: How LLMs Fail to Grasp Context"
+  - u: "do_emotions_really_affect_argument_convincingness_a_dynamic_approach_with_llm-ba/"
+    t: "Do Emotions Really Affect Argument Convincingness? A Dynamic Approach with LLM-based Manipulation Checks"
+  - u: "drae_dynamic_retrieval-augmented_expert_networks_for_lifelong_learning_and_task_/"
+    t: "DRAE: Dynamic Retrieval-Augmented Expert Networks for Lifelong Learning and Task Adaptation in Robotics"
+  - u: "hierarchical-task-aware_multi-modal_mixture_of_incremental_lora_experts_for_embo/"
+    t: "Task-aware MoILE: Hierarchical-Task-Aware Multi-modal Mixture of Incremental LoRA Experts for Embodied Continual Learning"
+  - u: "self_percept_manipulation_detection/"
+    t: "SELF-PERCEPT: Introspection Improves LLMs' Detection of Multi-Person Mental Manipulation in Conversations"
+  - u: "vulnerability_of_llms_to_vertically_aligned_text_manipulations/"
+    t: "Vulnerability of LLMs to Vertically Aligned Text Manipulations"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +37,7 @@ tags:
 
 **💬 ACL2025** · **7** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (42)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (46)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (40)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (43)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (71)](../../NeurIPS2025/robotics/index.md)
 
 🔥 **高频主题：** 机器人 ×5 · 情感分析 ×2
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 机器人/具身智能方向10篇论文解读
+  ACL2026 机器人/具身智能论文汇总 · 10篇论文解读
 description: >-
   10篇ACL2026的机器人/具身智能方向论文解读，涵盖导航、推理、多模态、机器人等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,28 @@ tags:
   - "推理"
   - "多模态"
   - "机器人"
+item_list:
+  - u: "breaking_down_and_building_up_mixture_of_skill-based_vision-and-language_navigat/"
+    t: "Breaking Down and Building Up: Mixture of Skill-Based Vision-and-Language Navigation Agents"
+  - u: "cultivating_forensic_reasoning_for_generalizable_multimodal_manipulation_detecti/"
+    t: "Cultivating Forensic Reasoning for Generalizable Multimodal Manipulation Detection"
+  - u: "elasticflow_one-step_physics-consistent_policy_with_elastic_time_horizons_for_la/"
+    t: "ElasticFlow: One-Step Physics-Consistent Policy with Elastic Time Horizons for Language-Guided Manipulation"
+  - u: "govig_goal-conditioned_visual_navigation_instruction_generation_via_multimodal_r/"
+    t: "GoViG: Goal-Conditioned Visual Navigation Instruction Generation via Multimodal Reasoning"
+  - u: "groke_vision-free_navigation_instruction_evaluation_via_graph_reasoning_on_opens/"
+    t: "GROKE: Vision-Free Navigation Instruction Evaluation via Graph Reasoning on OpenStreetMap"
+  - u: "libra-vla_achieving_learning_equilibrium_via_asynchronous_coarse-to-fine_dual-sy/"
+    t: "Libra-VLA: Achieving Learning Equilibrium via Asynchronous Coarse-to-Fine Dual-System"
+  - u: "limited_linguistic_diversity_in_embodied_ai_datasets/"
+    t: "Limited Linguistic Diversity in Embodied AI Datasets"
+  - u: "mango_multi-agent_web_navigation_via_global-view_optimization/"
+    t: "Mango: Multi-Agent Web Navigation via Global-View Optimization"
+  - u: "vln-nf_feasibility-aware_vision-and-language_navigation_with_false-premise_instr/"
+    t: "VLN-NF: Feasibility-Aware Vision-and-Language Navigation with False-Premise Instructions"
+  - u: "where_did_it_go_wrong_capability-oriented_failure_attribution_for_vision-and-lan/"
+    t: "视觉语言导航代理的能力导向失败归因"
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +41,7 @@ tags:
 
 **💬 ACL2026** · **10** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [📷 CVPR2026 (42)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (46)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [📷 CVPR2026 (40)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (43)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (71)](../../NeurIPS2025/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
 
 🔥 **高频主题：** 导航 ×5 · 推理 ×3 · 多模态 ×2 · 机器人 ×2
 

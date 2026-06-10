@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 LLM / NLP方向15篇论文解读
+  CVPR2025 LLM/NLP论文汇总 · 15篇论文解读
 description: >-
   15篇CVPR2025的 LLM / NLP 方向论文解读，涵盖对齐/RLHF、对话系统、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,38 @@ tags:
   - "对齐/RLHF"
   - "对话系统"
   - "对抗鲁棒"
+item_list:
+  - u: "building_vision_models_upon_heat_conduction/"
+    t: "Building Vision Models upon Heat Conduction"
+  - u: "chat-based_person_retrieval_via_dialogue-refined_cross-modal_alignment/"
+    t: "Chat-based Person Retrieval via Dialogue-Refined Cross-Modal Alignment"
+  - u: "comrope_rotary_position/"
+    t: "ComRoPE: Scalable and Robust Rotary Position Embedding Parameterized by Trainable Commuting Angle Matrices"
+  - u: "dora_sampling_and_benchmarking_for_3d_shape_variational_auto-encoders/"
+    t: "Dora: Sampling and Benchmarking for 3D Shape Variational Auto-Encoders"
+  - u: "exposure-slot_exposure-centric_representations_learning_with_slot-in-slot_attent/"
+    t: "Exposure-slot: Exposure-centric Representations Learning with Slot-in-Slot Attention"
+  - u: "imagine_and_seek_improving_composed_image_retrieval_with_an_imagined_proxy/"
+    t: "Imagine and Seek: Improving Composed Image Retrieval with an Imagined Proxy"
+  - u: "learning_textual_prompts_for_open-world_semi-supervised_learning/"
+    t: "Learning Textual Prompts for Open-World Semi-Supervised Learning"
+  - u: "making_old_film_great_again_degradation-aware_state_space_model_for_old_film_res/"
+    t: "Making Old Film Great Again: Degradation-aware State Space Model for Old Film Restoration"
+  - u: "mg-motionllm_a_unified_framework_for_motion_comprehension_and_generation_across_/"
+    t: "MG-MotionLLM: A Unified Framework for Motion Comprehension and Generation across Multiple Granularities"
+  - u: "rethinking_spiking_self-attention_mechanism_implementing_a-xnor_similarity_calcu/"
+    t: "Rethinking Spiking Self-Attention Mechanism: Implementing a-XNOR Similarity Calculation in Spiking Transformers"
+  - u: "spiking_transformer_introducing_accurate_addition-only_spiking_self-attention_fo/"
+    t: "Spiking Transformer: Introducing Accurate Addition-Only Spiking Self-Attention for Transformer"
+  - u: "spiking_transformer_with_spatial-temporal_attention/"
+    t: "Spiking Transformer with Spatial-Temporal Attention"
+  - u: "staa-snn_spatial-temporal_attention_aggregator_for_spiking_neural_networks/"
+    t: "STAA-SNN: Spatial-Temporal Attention Aggregator for Spiking Neural Networks"
+  - u: "test-time_visual_in-context_tuning/"
+    t: "Test-Time Visual In-Context Tuning"
+  - u: "the_change_you_want_to_detect_semantic_change_detection_in_earth_observation_wit/"
+    t: "The Change You Want To Detect: Semantic Change Detection In Earth Observation With Hybrid Data Generation"
+item_total: 15
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +50,7 @@ tags:
 
 **📷 CVPR2025** · **15** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_nlp/index.md)
 
 **[Building Vision Models upon Heat Conduction](building_vision_models_upon_heat_conduction.md)**
 

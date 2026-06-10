@@ -1,29 +1,91 @@
 ---
 title: >-
-  CVPR2025 其他方向63篇论文解读
+  CVPR2025 其他论文汇总 · 58篇论文解读
 description: >-
-  63篇CVPR2025的其他方向论文解读，涵盖对抗鲁棒、少样本学习、人脸/视线、模型压缩、目标跟踪、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  58篇CVPR2025的其他方向论文解读，涵盖对抗鲁棒、人脸/视线、模型压缩、目标跟踪、动态场景、域适应等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2025"
   - "其他"
   - "论文解读"
   - "论文笔记"
   - "对抗鲁棒"
-  - "少样本学习"
   - "人脸/视线"
   - "模型压缩"
   - "目标跟踪"
-  - "个性化生成"
+  - "动态场景"
+  - "域适应"
+item_list:
+  - u: "4deform_neural_surface_deformation_for_robust_shape_interpolation/"
+    t: "4Deform: Neural Surface Deformation for Robust Shape Interpolation"
+  - u: "alternating_gradient_flow_utility_a_unified_metric_for_structural_pruning_and_dy/"
+    t: "Alternating Gradient Flow Utility: A Unified Metric for Structural Pruning and Dynamic Routing in Deep Networks"
+  - u: "bendfm_a_taxonomy_and_synthetic_cad_dataset_for_manufacturability_assessment_in_/"
+    t: "BenDFM: A taxonomy and synthetic CAD dataset for manufacturability assessment in sheet metal bending"
+  - u: "bounds_on_agreement_between_subjective_and_objective_measurements/"
+    t: "Bounds on Agreement between Subjective and Objective Measurements"
+  - u: "care_transformer_linear_attention/"
+    t: "CARE Transformer: Mobile-Friendly Linear Visual Transformer via Decoupled Dual Interaction"
+  - u: "deconstructing_the_failure_of_ideal_noise_correction_a_three-pillar_diagnosis/"
+    t: "Deconstructing the Failure of Ideal Noise Correction: A Three-Pillar Diagnosis"
+  - u: "do_imagenet-trained_models_learn_shortcuts_the_impact_of_frequency_shortcuts_on_/"
+    t: "Do ImageNet-trained Models Learn Shortcuts? The Impact of Frequency Shortcuts on Generalization"
+  - u: "ebs-ekf_accurate_and_high_frequency_event-based_star_tracking/"
+    t: "EBS-EKF: Accurate and High Frequency Event-based Star Tracking"
+  - u: "edm_equirectangular_projection-oriented_dense_kernelized_feature_matching/"
+    t: "EDM: Equirectangular Projection-Oriented Dense Kernelized Feature Matching"
+  - u: "effortless_active_labeling_for_long-term_test-time_adaptation/"
+    t: "Effortless Active Labeling for Long-Term Test-Time Adaptation"
+  - u: "event_ellipsometer_event-based_mueller-matrix_video_imaging/"
+    t: "Event Ellipsometer: Event-based Mueller-Matrix Video Imaging"
+  - u: "evos_efficient_implicit_neural_training_via_evolutionary_selector/"
+    t: "EVOS: Efficient Implicit Neural Training via EVOlutionary Selector"
+  - u: "exploring_contextual_attribute_density_in_referring_expression_counting/"
+    t: "Exploring Contextual Attribute Density in Referring Expression Counting (CAD-GD)"
+  - u: "feature_selection_for_latent_factor_models/"
+    t: "Feature Selection for Latent Factor Models"
+  - u: "fiction_4d_future_interaction_prediction_from_video/"
+    t: "FIction: 4D Future Interaction Prediction from Video"
+  - u: "focal_split_untethered_snapshot_depth_from_differential_defocus/"
+    t: "Focal Split: Untethered Snapshot Depth from Differential Defocus"
+  - u: "foundations_of_the_theory_of_performance-based_ranking/"
+    t: "Foundations of the Theory of Performance-Based Ranking"
+  - u: "full-dof_egomotion_estimation_for_event_cameras_using_geometric_solvers/"
+    t: "Full-DoF Egomotion Estimation for Event Cameras Using Geometric Solvers"
+  - u: "gradient-guided_annealing_for_domain_generalization/"
+    t: "Gradient-Guided Annealing for Domain Generalization"
+  - u: "hotspot_signed_distance_function_optimization_with_an_asymptotically_sufficient_/"
+    t: "HotSpot: Signed Distance Function Optimization with an Asymptotically Sufficient Condition"
+  - u: "image_reconstruction_from_readout-multiplexed_single-photon_detector_arrays/"
+    t: "Image Reconstruction from Readout-Multiplexed Single-Photon Detector Arrays"
+  - u: "improving_transferable_targeted_attacks_with_feature_tuning_mixup/"
+    t: "Improving Transferable Targeted Attacks with Feature Tuning Mixup"
+  - u: "instance-wise_supervision-level_optimization_in_active_learning/"
+    t: "Instance-wise Supervision-level Optimization in Active Learning"
+  - u: "integral_fast_fourier_color_constancy/"
+    t: "Integral Fast Fourier Color Constancy"
+  - u: "latte-mv_learning_to_anticipate_table_tennis_hits_from_monocular_videos/"
+    t: "LATTE-MV: Learning to Anticipate Table Tennis Hits from Monocular Videos"
+  - u: "locally_orderless_images_for_optimization_in_differentiable_rendering/"
+    t: "Locally Orderless Images for Optimization in Differentiable Rendering"
+  - u: "neisf_neural_incident_stokes_field_for_polarized_inverse_rendering_of_conductors/"
+    t: "NeISF++: Neural Incident Stokes Field for Polarized Inverse Rendering of Conductors and Dielectrics"
+  - u: "on_the_generalization_of_handwritten_text_recognition_models/"
+    t: "On the Generalization of Handwritten Text Recognition Models"
+  - u: "open_set_label_shift_with_test_time_out-of-distribution_reference/"
+    t: "Open Set Label Shift with Test Time Out-of-Distribution Reference"
+  - u: "order-one_rolling_shutter_cameras/"
+    t: "Order-One Rolling Shutter Cameras"
+item_total: 58
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**📷 CVPR2025** · **63** 篇论文解读
+**📷 CVPR2025** · **58** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (91)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (135)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (164)](../../NeurIPS2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (128)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (163)](../../NeurIPS2025/others/index.md)
 
-🔥 **高频主题：** 对抗鲁棒 ×7 · 少样本学习 ×2
+🔥 **高频主题：** 对抗鲁棒 ×7
 
 **[4Deform: Neural Surface Deformation for Robust Shape Interpolation](4deform_neural_surface_deformation_for_robust_shape_interpolation.md)**
 
@@ -81,10 +143,6 @@ tags:
 
 :   提出基于信噪比（SNR）的类特异性特征选择方法用于低秩生成模型（PPCA/LFA/ELF），每新增一个类只需$O(1)$计算（不需重训旧类模型），避免了灾难性遗忘，并提出新的非参数潜因子模型ELF，在微阵列癌症分类和高维特征选择上验证了有效性。
 
-**[Few-Shot Personalized Scanpath Prediction](few-shot_personalized_scanpath_prediction.md)**
-
-:   提出少样本个性化扫视路径预测（FS-PSP）任务 和 Subject-Embedding Network（SE-Net），通过将主体嵌入学习与扫视路径预测解耦，仅需 1-10 张图像的注视数据即可适配新用户，在 OSIE、COCO-FreeView、COCO-Search18 三个数据集上 ScanMatch 指标超越第二名 5.9%-7.9%，且适配时间仅 3.6 秒、无需微调。
-
 **[FIction: 4D Future Interaction Prediction from Video](fiction_4d_future_interaction_prediction_from_video.md)**
 
 :   本文提出 FIction，首个从视频中进行 4D 未来交互预测的模型，给定输入视频预测人将与环境中哪些物体在什么 3D 位置发生交互，以及如何执行该交互（3D 人体姿态），在 EgoExo4D 数据集上超越前方法 30%+ 相对增益。
@@ -113,10 +171,6 @@ tags:
 
 :   本文将行列读出复用的单光子探测器阵列中的多光子碰巧分辨问题形式化为逆成像问题，提出了一种概率性的多光子估计器（Multiphoton Estimator），能够解析最多4个同时入射的光子的空间位置，在32×32阵列上相比传统方法提升3-4 dB PSNR，并将所需帧数减少约4倍。
 
-**[Improving Accuracy and Calibration via Differentiated Deep Mutual Learning](improving_accuracy_and_calibration_via_differentiated_deep_mutual_learning.md)**
-
-:   提出 Diff-DML（Differentiated Deep Mutual Learning），通过差异化训练策略（DTS）和多样性保持学习目标（DPLO）两个核心设计，在保持集成模型预测多样性的同时，同时提升准确率和不确定性校准质量。
-
 **[Improving Transferable Targeted Attacks with Feature Tuning Mixup](improving_transferable_targeted_attacks_with_feature_tuning_mixup.md)**
 
 :   提出 FTM（Feature Tuning Mixup）通过在代理模型的特征空间中混合优化的攻击专用扰动和随机干净扰动来提升有目标对抗攻击的迁移性，使用动量式随机更新策略保持计算效率，14 个黑盒模型上平均成功率从 74.6% 提升到 77.4%。
@@ -136,10 +190,6 @@ tags:
 **[Locally Orderless Images for Optimization in Differentiable Rendering](locally_orderless_images_for_optimization_in_differentiable_rendering.md)**
 
 :   提出利用局部无序图像（LOI）的三维尺度空间（内尺度 σ、色调尺度 β、范围尺度 α）进行直方图匹配的逆渲染优化方法，无需修改可微渲染器即可扩展稀疏梯度的支持范围，有效避免局部最优。
-
-**[MagicArticulate: Make Your 3D Models Articulation-Ready](magicarticulate_make_your_3d_models_articulation-ready.md)**
-
-:   提出 MagicArticulate 两阶段框架，第一阶段用自回归 Transformer 将骨架生成建模为序列预测任务，第二阶段用函数扩散过程结合体积测地距离先验预测蒙皮权重，搭配 33K+ 大规模 Articulation-XL 数据集，实现静态 3D 模型到可动画化资产的自动转换。
 
 **[NeISF++: Neural Incident Stokes Field for Polarized Inverse Rendering of Conductors and Dielectrics](neisf_neural_incident_stokes_field_for_polarized_inverse_rendering_of_conductors.md)**
 
@@ -221,17 +271,9 @@ tags:
 
 :   提出TAET两阶段对抗均衡训练框架：先用交叉熵损失稳定早期训练，再用层级对抗鲁棒学习(HARL)联合BCL/HDL/RCEL三种损失均衡各类性能，并引入平衡鲁棒性(Balanced Robustness)评估指标，解决长尾分布下对抗训练的尾部类鲁棒性不足问题。
 
-**[TensoFlow: Tensorial Flow-based Sampler for Inverse Rendering](tensoflow_tensorial_flow-based_sampler_for_inverse_rendering.md)**
-
-:   提出 TensoFlow，通过张量化归一化流（Tensorial Normalizing Flow）学习空间-方向感知的重要性采样器，替代逆渲染中固定的预定义采样器（如 cosine-weighted、GGX），大幅降低渲染方程蒙特卡洛估计的方差，提升材质和光照分解质量。
-
 **[Three-View Focal Length Recovery From Homographies](three-view_focal_length_recovery_from_homographies.md)**
 
 :   提出从三视图单应性矩阵中恢复焦距的高效求解器，利用法向量一致性约束推导出新的显式约束，将问题转化为单变量或双变量多项式求解，速度比现有方法快 80-270 倍。
-
-**[Towards In-the-Wild 3D Plane Reconstruction from a Single Image](towards_in-the-wild_3d_plane_reconstruction_from_a_single_image.md)**
-
-:   ZeroPlane 提出了首个跨域零样本3D平面重建框架，通过构建包含14个数据集/56万标注的大规模平面基准数据集，并设计法向量-偏移解耦的分类-回归范式和像素几何增强嵌入模块，实现了在室内外多样场景中显著优于现有方法的泛化性能。
 
 **[Towards Million-Scale Adversarial Robustness Evaluation With Stronger Individual Attacks](towards_million-scale_adversarial_robustness_evaluation_with_stronger_individual.md)**
 

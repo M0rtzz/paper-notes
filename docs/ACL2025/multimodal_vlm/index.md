@@ -1,29 +1,91 @@
 ---
 title: >-
-  ACL2025 多模态 VLM方向132篇论文解读
+  ACL2025 多模态VLM论文汇总 · 129篇论文解读
 description: >-
-  132篇ACL2025的多模态 VLM 方向论文解读，涵盖多模态、LLM、推理、对抗鲁棒、对齐/RLHF、对话系统等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  129篇ACL2025的多模态 VLM 方向论文解读，涵盖多模态、推理、LLM、对抗鲁棒、对齐/RLHF、对话系统等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "多模态 VLM"
   - "论文解读"
   - "论文笔记"
   - "多模态"
-  - "LLM"
   - "推理"
+  - "LLM"
   - "对抗鲁棒"
   - "对齐/RLHF"
   - "对话系统"
+item_list:
+  - u: "a_parameter-efficient_and_fine-grained_prompt_learning_for_vision-language_model/"
+    t: "A Parameter-Efficient and Fine-Grained Prompt Learning for Vision-Language Models"
+  - u: "activating_distributed_visual_region_within_llms_for_efficient_and_effective_vis/"
+    t: "Activating Distributed Visual Region within LLMs for Efficient and Effective Vision-Language Training and Inference"
+  - u: "activation_steering_decoding_mitigating_hallucination_in_large_vision-language_m/"
+    t: "Activation Steering Decoding: Mitigating Hallucination in Large Vision-Language Models through Bidirectional Hidden State Intervention"
+  - u: "adammeme_adaptively_probe_the_reasoning_capacity_of_multimodal_large_language_mo/"
+    t: "AdamMeme: Adaptively Probe the Reasoning Capacity of Multimodal Large Language Models on Harmfulness"
+  - u: "adaptive_linguistic_prompting_alp_enhances_phishing_webpage_detection_in_multimo/"
+    t: "Adaptive Linguistic Prompting (ALP) Enhances Phishing Webpage Detection in Multimodal Large Language Models"
+  - u: "adversarial_compositionality_clip/"
+    t: "Can LLMs Deceive CLIP? Benchmarking Adversarial Compositionality of Pre-trained Multimodal Representation via Text Updates"
+  - u: "agent_rewardbench/"
+    t: "Agent-RewardBench: Towards a Unified Benchmark for Reward Modeling across Perception, Planning, and Safety in Real-World Multimodal Agents"
+  - u: "agri-cm3_a_chinese_massive_multi-modal_multi-level_benchmark_for_agricultural_un/"
+    t: "AGRI-CM3: A Chinese Massive Multi-Modal Multi-Level Benchmark for Agricultural Understanding"
+  - u: "akan_cinematic_emotions_ace_a_multimodal_multi-party_dataset_for_emotion_recogni/"
+    t: "AkaCE: A Multimodal Multi-party Dataset for Emotion Recognition in Movie Dialogues"
+  - u: "aligning_vlm_assistants_with_personalized_situated/"
+    t: "Aligning VLM Assistants with Personalized Situated Cognition"
+  - u: "alignmmbench_evaluating_chinese_multimodal_alignment_in_large_vision-language_mo/"
+    t: "AlignMMBench: Evaluating Chinese Multimodal Alignment in Large Vision-Language Models"
+  - u: "answering_complex_geographic_questions_by_adaptive_reasoning_with_visual_context/"
+    t: "Answering Complex Geographic Questions by Adaptive Reasoning with Visual Context and External Commonsense Knowledge"
+  - u: "aria-ui_visual_grounding_for_gui_instructions/"
+    t: "Aria-UI: Visual Grounding for GUI Instructions"
+  - u: "attacking_vl_agents_popups/"
+    t: "Attacking Vision-Language Computer Agents via Pop-ups"
+  - u: "avg-llava_an_efficient_large_multimodal_model_with_adaptive_visual_granularity/"
+    t: "AVG-LLaVA: An Efficient Large Multimodal Model with Adaptive Visual Granularity"
+  - u: "benchmarking_and_improving_large_vision-language_models_for_fundamental_visual_g/"
+    t: "Benchmarking and Improving Large Vision-Language Models for Fundamental Visual Graph Understanding and Reasoning"
+  - u: "branchlora_continual_instruction/"
+    t: "Enhancing Multimodal Continual Instruction Tuning with BranchLoRA"
+  - u: "burn_after_reading_do_multimodal_large_language_models_truly_capture_order_of_ev/"
+    t: "Burn After Reading: Do Multimodal Large Language Models Truly Capture Order of Events in Image Sequences?"
+  - u: "can_mllms_understand_the_deep_implication_behind_chinese_images/"
+    t: "Can MLLMs Understand the Deep Implication Behind Chinese Images?"
+  - u: "can_multimodal_foundation_models_understand_schematic_diagrams_an_empirical_stud/"
+    t: "Can Multimodal Foundation Models Understand Schematic Diagrams? An Empirical Study on Information-Seeking QA over Scientific Papers"
+  - u: "can_vision-language_models_evaluate_handwritten_math/"
+    t: "Can Vision-Language Models Evaluate Handwritten Math?"
+  - u: "can_vision_language_models_understand_mimed_actions/"
+    t: "Can Vision Language Models Understand Mimed Actions?"
+  - u: "cant_see_the_forest_for_the/"
+    t: "MMSafeAware: Can't See the Forest for the Trees: Benchmarking Multimodal Safety Awareness for Multimodal LLMs"
+  - u: "centurio_multilingual_vlm/"
+    t: "Centurio: On Drivers of Multilingual Ability of Large Vision-Language Model"
+  - u: "chart-based_reasoning_transferring_capabilities_from_llms_to_vlms/"
+    t: "Chart-based Reasoning: Transferring Capabilities from LLMs to VLMs"
+  - u: "chartcoder_chart_to_code/"
+    t: "ChartCoder: Advancing Multimodal Large Language Model for Chart-to-Code Generation"
+  - u: "code_guided_text_rich_image/"
+    t: "Scaling Text-Rich Image Understanding via Code-Guided Synthetic Multimodal Data Generation"
+  - u: "coling-unia_at_scivqa_2025_few-shot_example_retrieval_and_confidence-informed_en/"
+    t: "COLING-UniA at SciVQA 2025: Few-Shot Example Retrieval and Confidence-Informed Ensembling for Multimodal Large Language Models"
+  - u: "conflictvis_vision_knowledge_conflict/"
+    t: "Insight Over Sight: Exploring the Vision-Knowledge Conflicts in Multimodal LLMs"
+  - u: "cordial_can_multimodal_large_language_models_effectively_understand_coherence_re/"
+    t: "CORDIAL: Can Multimodal Large Language Models Effectively Understand Coherence Relations?"
+item_total: 129
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态 VLM
 
-**💬 ACL2025** · **132** 篇论文解读
+**💬 ACL2025** · **129** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (147)](../../NeurIPS2025/multimodal_vlm/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (146)](../../NeurIPS2025/multimodal_vlm/index.md)
 
-🔥 **高频主题：** 多模态 ×110 · LLM ×17 · 推理 ×17 · 对抗鲁棒 ×5 · 对齐/RLHF ×5
+🔥 **高频主题：** 多模态 ×107 · 推理 ×17 · LLM ×16 · 对抗鲁棒 ×5 · 对齐/RLHF ×5
 
 **[A Parameter-Efficient and Fine-Grained Prompt Learning for Vision-Language Models](a_parameter-efficient_and_fine-grained_prompt_learning_for_vision-language_model.md)**
 
@@ -137,10 +199,6 @@ tags:
 
 :   本文提出了一种基于多模态大模型（MLLM）集成的科学图表视觉问答系统，通过 few-shot 示例检索策略和置信度感知的模型选择机制，在 SciVQA 2025 共享任务中获得第三名（平均 F1 = 85.12）。
 
-**[Con Instruction: Universal Jailbreaking of Multimodal Large Language Models via Non-Textual Modalities](con_instruction_universal_jailbreaking_of_multimodal_large_language_models_via_n.md)**
-
-:   本文提出 Con Instruction 方法，通过优化对抗性图像或音频使其在嵌入空间中与目标恶意指令对齐，实现无需文本输入即可越狱多模态大语言模型（MLLM），在 LLaVA-v1.5 上达到 86.6% 的攻击成功率，并提出了 ARC 评估框架来同时衡量攻击响应的质量和相关性。
-
 **[Insight Over Sight: Exploring the Vision-Knowledge Conflicts in Multimodal LLMs](conflictvis_vision_knowledge_conflict.md)**
 
 :   首次系统探索 MLLM 中常识级别的视觉-知识冲突问题，提出自动化框架构建 ConflictVis 基准（374 图 + 1122 QA），发现 MLLM 在约 20% 的冲突场景中过度依赖参数化知识（尤其是 Yes-No 和动作类问题），并提出 Focus-on-Vision 提示策略进行缓解。
@@ -196,10 +254,6 @@ tags:
 **[Evaluating Visual and Cultural Interpretation: The K-Viscuit Benchmark with Human-VLM Collaboration](evaluating_visual_and_cultural_interpretation_the_k-viscuit_benchmark_with_human.md)**
 
 :   本文提出了一种半自动化的文化 VLM 基准构建框架，通过人-VLM 协作生成多选 VQA 样本，并以此构建了聚焦韩国文化的 K-Viscuit 数据集（657 题），揭示了开源与闭源 VLM 在文化理解上的显著差距。
-
-**[Exploring Compositional Generalization of Multimodal LLMs for Medical Imaging](exploring_compositional_generalization_of_multimodal_llms_for_medical_imaging.md)**
-
-:   提出 Med-MAT 数据集（106个医学数据集、53个子集），通过 MAT-Triplet（Modality-Anatomical area-Task）分解医学影像属性，首次系统验证了多模态大模型在医学影像上存在组合泛化（Compositional Generalization）现象，并证明组合泛化是多任务训练泛化增益的关键驱动因素。
 
 **[Exploring How Generative MLLMs Perceive More Than CLIP with the Same Vision Encoder](exploring_how_generative_mllms_perceive_more.md)**
 
@@ -276,10 +330,6 @@ tags:
 **[InternLM-XComposer2.5-Reward: A Simple Yet Effective Multi-Modal Reward Model](internlm-xcomposer25-reward_a_simple_yet_effective_multi-modal_reward_model.md)**
 
 :   基于InternLM-XComposer2.5构建判别式多模态奖励模型IXC-2.5-Reward，通过精心构建跨文本/图像/视频的多领域偏好数据集训练，在多模态奖励基准VL-RewardBench上以70.0% Macro Acc超越GPT-4o（62.4%），并展示了RL训练、Best-of-N测试时缩放和数据清洗三大应用。
-
-**[Jailbreak Large Vision-Language Models Through Multi-Modal Linkage](jailbreak_large_vision-language_models_through_multi-modal_linkage.md)**
-
-:   提出多模态链接（MML）攻击框架，通过跨模态加密-解密机制和"邪恶对齐"策略，以极高成功率（GPT-4o上达99%+）越狱当前最先进的视觉语言模型。
 
 **[JARVIS-VLA: Post-Training Large-Scale Vision Language Models to Play Visual Games](jarvis-vla_post-training_large-scale_vision_language_models_to_play_visual_games.md)**
 

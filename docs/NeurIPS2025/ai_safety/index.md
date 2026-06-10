@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 AI 安全方向73篇论文解读
+  NeurIPS2025 AI安全论文汇总 · 72篇论文解读
 description: >-
-  73篇NeurIPS2025的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习、对齐/RLHF、域适应、图神经网络等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  72篇NeurIPS2025的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习、对齐/RLHF、域适应、图神经网络等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "AI 安全"
@@ -13,14 +13,76 @@ tags:
   - "对齐/RLHF"
   - "域适应"
   - "图神经网络"
+item_list:
+  - u: "a_set_of_generalized_components_to_achieve_effective_poison-only_clean-label_bac/"
+    t: "A Set of Generalized Components to Achieve Effective Poison-only Clean-label Backdoor Attacks with Collaborative Sample Selection and Triggers"
+  - u: "beyond_last-click_an_optimal_mechanism_for_ad_attribution/"
+    t: "Beyond Last-Click: An Optimal Mechanism for Ad Attribution"
+  - u: "boosting_adversarial_transferability_with_spatial_adversarial_alignment/"
+    t: "Boosting Adversarial Transferability with Spatial Adversarial Alignment"
+  - u: "brain-like_variational_inference/"
+    t: "Brain-like Variational Inference"
+  - u: "bridging_symmetry_and_robustness_on_the_role_of_equivariance_in_enhancing_advers/"
+    t: "Bridging Symmetry and Robustness: On the Role of Equivariance in Enhancing Adversarial Robustness"
+  - u: "causally_reliable_concept_bottleneck_models/"
+    t: "Causally Reliable Concept Bottleneck Models"
+  - u: "cost_efficient_fairness_audit_under_partial_feedback/"
+    t: "Cost Efficient Fairness Audit Under Partial Feedback"
+  - u: "ctrl-alt-deceit_sabotage_evaluations_for_automated_ai_rd/"
+    t: "CTRL-ALT-DECEIT: Sabotage Evaluations for Automated AI R&D"
+  - u: "deceptron_learned_local_inverses_for_fast_and_stable_physics_inversion/"
+    t: "Deceptron: Learned Local Inverses for Fast and Stable Physics Inversion"
+  - u: "design_encrypted_gnn_inference_via_server-side_input_graph_pruning/"
+    t: "DESIGN: Encrypted GNN Inference via Server-Side Input Graph Pruning"
+  - u: "dictpfl_efficient_and_private_federated_learning_on_encrypted_gradients/"
+    t: "DictPFL: Efficient and Private Federated Learning on Encrypted Gradients"
+  - u: "differential_privacy_for_euclidean_jordan_algebra_with_applications_to_private_s/"
+    t: "Differential Privacy for Euclidean Jordan Algebra with Applications to Private Symmetric Cone Programming"
+  - u: "differentially_private_bilevel_optimization_efficient_algorithms_with_near-optim/"
+    t: "Differentially Private Bilevel Optimization: Efficient Algorithms with Near-Optimal Rates"
+  - u: "differentially_private_high-dimensional_variable_selection_via_integer_programmi/"
+    t: "Differentially Private High-dimensional Variable Selection via Integer Programming"
+  - u: "distributional_adversarial_attacks_and_training_in_deep_hedging/"
+    t: "Distributional Adversarial Attacks and Training in Deep Hedging"
+  - u: "double_descent_meets_out-of-distribution_detection_theoretical_insights_and_empi/"
+    t: "Double Descent Meets Out-of-Distribution Detection: Theoretical Insights and Empirical Analysis"
+  - u: "dual-flow_transferable_multi-target_instance-agnostic_attacks_via_in-the-wild_ca/"
+    t: "Dual-Flow: Transferable Multi-Target, Instance-Agnostic Attacks via In-the-wild Cascading Flow Optimization"
+  - u: "efficient_fairness-performance_pareto_front_computation/"
+    t: "Efficient Fairness-Performance Pareto Front Computation"
+  - u: "efficient_verified_machine_unlearning_for_distillation/"
+    t: "Efficient Verified Machine Unlearning for Distillation"
+  - u: "enhancing_graph_classification_robustness_with_singular_pooling/"
+    t: "Enhancing Graph Classification Robustness with Singular Pooling"
+  - u: "environment_inference_for_learning_generalizable_dynamical_system/"
+    t: "Environment Inference for Learning Generalizable Dynamical System"
+  - u: "exploration_of_incremental_synthetic_non-morphed_images_for_single_morphing_atta/"
+    t: "Exploration of Incremental Synthetic Non-Morphed Images for Single Morphing Attack Detection"
+  - u: "factor_decorrelation_enhanced_data_removal_from_deep_predictive_models/"
+    t: "Factor Decorrelation Enhanced Data Removal from Deep Predictive Models"
+  - u: "fair_minimum_labeling_efficient_temporal_network_activations_for_reachability_an/"
+    t: "Fair Minimum Labeling: Efficient Temporal Network Activations for Reachability and Equity"
+  - u: "faircontrast_enhancing_fairness_through_contrastive_learning_and_customized_augm/"
+    t: "FairContrast: Enhancing Fairness through Contrastive Learning and Customized Augmentation"
+  - u: "fairness-regularized_online_optimization_with_switching_costs/"
+    t: "Fairness-Regularized Online Optimization with Switching Costs"
+  - u: "fairness_under_competition/"
+    t: "Fairness under Competition"
+  - u: "forensichub_a_unified_benchmark_codebase_for_all-domain_fake_image_detection_and/"
+    t: "ForensicHub: A Unified Benchmark & Codebase for All-Domain Fake Image Detection and Localization"
+  - u: "generating_multi-table_time_series_ehr_from_latent_space_with_minimal_preprocess/"
+    t: "Generating Multi-Table Time Series EHR from Latent Space with Minimal Preprocessing"
+  - u: "harnessing_feature_resonance_under_arbitrary_target_alignment_for_out-of-distrib/"
+    t: "Harnessing Feature Resonance under Arbitrary Target Alignment for Out-of-Distribution Node Detection"
+item_total: 72
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI 安全
 
-**🧠 NeurIPS2025** · **73** 篇论文解读
+**🧠 NeurIPS2025** · **72** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×14 · 联邦学习 ×4 · 对齐/RLHF ×3 · 域适应 ×3 · 图神经网络 ×2
 
@@ -275,10 +337,6 @@ tags:
 **[Spectral Perturbation Bounds for Low-Rank Approximation with Applications to Privacy](spectral_perturbation_bounds_for_low-rank_approximation_with_applications_to_pri.md)**
 
 :   建立了对称矩阵低秩近似在谱范数下的新型高概率扰动界，改进了经典 Eckart-Young-Mirsky 定理，并解决了差分隐私 PCA 中的一个公开问题。
-
-**[SPROD: Spurious-Aware Prototype Refinement for Reliable Out-of-Distribution Detection](spurious-aware_prototype_refinement_for_reliable_out-of-distribution_detection.md)**
-
-:   SPROD 是一种后置（post-hoc）OOD 检测方法，专门应对训练数据中的虚假相关——通过将每个类别的原型细分为"正确分类"和"误分类"子组（后者共享虚假特征），配合 K-means 式精炼和距离式（生成式）评分，在 5 个虚假相关 OOD 基准上平均 AUROC 85.1%（+4.8% vs 次优 KNN），FPR@95 49.0%（-9.3% vs 次优）。
 
 **[Stochastic Regret Guarantees for Online Zeroth- and First-Order Bilevel Optimization](stochastic_regret_guarantees_for_online_zeroth-_and_first-order_bilevel_optimiza.md)**
 

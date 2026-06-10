@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 时间序列方向36篇论文解读
+  ICLR2026 时间序列论文汇总 · 35篇论文解读
 description: >-
-  36篇ICLR2026的时间序列方向论文解读，涵盖时序预测、LLM、少样本学习、推理、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  35篇ICLR2026的时间序列方向论文解读，涵盖时序预测、LLM、少样本学习、推理、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "时间序列"
@@ -13,14 +13,76 @@ tags:
   - "少样本学习"
   - "推理"
   - "医学影像"
+item_list:
+  - u: "adapt_data_to_model_adaptive_transformation_optimization_for_domain-shared_time_/"
+    t: "Adapt Data to Model: Adaptive Transformation Optimization for Domain-shared Time Series Foundation Models"
+  - u: "benchmarking_ecg_fms_a_reality_check_across_clinical_tasks/"
+    t: "Benchmarking ECG FMs: A Reality Check Across Clinical Tasks"
+  - u: "cpiri_channel_permutation-invariant_relational_interaction_for_multivariate_time_se/"
+    t: "CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting"
+  - u: "decentralized_attention_fails_centralized_signals_rethinking_transformers_for_me/"
+    t: "Decentralized Attention Fails Centralized Signals: Rethinking Transformers for Medical Time Series"
+  - u: "delta-xai_a_unified_framework_for_explaining_prediction_changes_in_online_time_s/"
+    t: "Delta-XAI: A Unified Framework for Explaining Prediction Changes in Online Time Series Monitoring"
+  - u: "dissecting_chronos_sparse_autoencoders_reveal_causal_feature_hierarchies_in_time/"
+    t: "Dissecting Chronos: Sparse Autoencoders Reveal Causal Feature Hierarchies in Time Series Foundation Models"
+  - u: "edinet-bench_evaluating_llms_on_complex_financial_tasks_using_japanese_financial/"
+    t: "EDINET-Bench: Evaluating LLMs on Complex Financial Tasks using Japanese Financial Statements"
+  - u: "fedal_federated_dataset_learning_for_general_time_series_foundation_models/"
+    t: "FeDaL: Federated Dataset Learning for General Time Series Foundation Models"
+  - u: "free_energy_mixer/"
+    t: "Free Energy Mixer"
+  - u: "gtm_a_general_time-series_model_for_enhanced_representation_learning_of_time-series/"
+    t: "GTM: A General Time-series Model for Enhanced Representation Learning"
+  - u: "hivid_llm-guided_video_saliency_for_content-aware_vod_and_live_streaming/"
+    t: "HiVid: LLM-Guided Video Saliency For Content-Aware VOD And Live Streaming"
+  - u: "language_in_the_flow_of_time_time-series-paired_texts_weaved_into_a_unified_temp/"
+    t: "Language in the Flow of Time: Time-Series-Paired Texts Weaved into a Unified Temporal Narrative"
+  - u: "learning_recursive_multi-scale_representations_for_irregular_multivariate_time_s/"
+    t: "Learning Recursive Multi-Scale Representations for Irregular Multivariate Time Series Forecasting"
+  - u: "omni-ieeg_a_large-scale_comprehensive_ieeg_dataset_and_benchmark_for_epilepsy_re/"
+    t: "Omni-iEEG: A Large-Scale, Comprehensive iEEG Dataset and Benchmark for Epilepsy Research"
+  - u: "online_time_series_prediction_using_feature_adjustment/"
+    t: "Online Time Series Prediction Using Feature Adjustment"
+  - u: "rating_quality_of_diverse_time_series_data_by_meta-learning_from_llm_judgment/"
+    t: "Rating Quality of Diverse Time Series Data by Meta-learning from LLM Judgment"
+  - u: "reasoning_on_time-series_for_financial_technical_analysis/"
+    t: "Reasoning on Time-Series for Financial Technical Analysis"
+  - u: "relational_feature_caching_for_accelerating_diffusion_transformers/"
+    t: "Relational Feature Caching for Accelerating Diffusion Transformers"
+  - u: "relational_transformer_toward_zero-shot_foundation_models_for_relational_data/"
+    t: "Relational Transformer: Toward Zero-Shot Foundation Models for Relational Data"
+  - u: "rescp_reservoir_conformal_prediction_for_time_series_forecasting/"
+    t: "ResCP: Reservoir Conformal Prediction for Time Series Forecasting"
+  - u: "scits_scientific_time_series_llm/"
+    t: "SciTS: Scientific Time Series Understanding and Generation with LLMs"
+  - u: "scits_scientific_time_series_understanding_and_generation_with_llms/"
+    t: "scits scientific time series understanding and generation with llms"
+  - u: "swiftts_a_swift_selection_framework_for_time_series_pre-trained_models_via_multi/"
+    t: "SwiftTS: A Swift Selection Framework for Time Series Pre-trained Models via Multi-task Meta-Learning"
+  - u: "t1_one-to-one_channel-head_binding_for_multivariate_time-series_imputation/"
+    t: "T1: One-to-One Channel-Head Binding for Multivariate Time-Series Imputation"
+  - u: "tensor_learning_with_orthogonal_lorentz_and_symplectic_symmetries/"
+    t: "Tensor learning with orthogonal, Lorentz, and symplectic symmetries"
+  - u: "timeomni-1_incentivizing_complex_reasoning_with_time_series_in_large_language_mo/"
+    t: "TimeOmni-1: Incentivizing Complex Reasoning with Time Series in Large Language Models"
+  - u: "timesliver_symbolic-linear_decomposition_for_explainable_time_series_classificat/"
+    t: "TimeSliver: Symbolic-Linear Decomposition for Explainable Time Series Classification"
+  - u: "towards_generalizable_pde_dynamics_forecasting_via_physics-guided_invariant_lear/"
+    t: "Towards Generalizable PDE Dynamics Forecasting via Physics-Guided Invariant Learning"
+  - u: "towards_robust_real-world_multivariate_time_series_forecasting_a_unified_framewo/"
+    t: "Towards Robust Real-World Multivariate Time Series Forecasting: A Unified Framework"
+  - u: "tspulse_tiny_pre-trained_models_with_disentangled_representations_for_rapid_time/"
+    t: "TSPulse: Tiny Pre-Trained Models with Disentangled Representations for Rapid Time Series"
+item_total: 35
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📈 时间序列
 
-**🔬 ICLR2026** · **36** 篇论文解读
+**🔬 ICLR2026** · **35** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
 
 🔥 **高频主题：** 时序预测 ×24 · LLM ×4 · 少样本学习 ×4 · 推理 ×3 · 医学影像 ×2
 
@@ -31,10 +93,6 @@ tags:
 **[Benchmarking ECG FMs: A Reality Check Across Clinical Tasks](benchmarking_ecg_fms_a_reality_check_across_clinical_tasks.md)**
 
 :   对8个ECG基础模型在12个数据集、26个临床任务上进行"现实检验"式全面基准评测，发现紧凑的结构化状态空间模型（SSM）ECG-CPC在7个任务类别中的5个上超越了大规模Transformer，证明架构设计比模型规模更重要。
-
-**[Brain-Semantoks: Learning Semantic Tokens of Brain Dynamics with a Self-Distilled Foundation Model](brain-semantoks_learning_semantic_tokens_of_brain_dynamics_with_a_self-distilled.md)**
-
-:   提出 Brain-Semantoks，一种基于语义分词器和自蒸馏目标的 fMRI 基础模型，将大脑功能网络聚合为鲁棒的语义 token，并通过跨时间视角的一致性学习抽象的脑动态表征，在线性探测设置下即可达到 SOTA 性能。
 
 **[CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting](cpiri_channel_permutation-invariant_relational_interaction_for_multivariate_time_se.md)**
 

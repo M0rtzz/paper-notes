@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 AIGC 检测方向2篇论文解读
+  AAAI2026 AIGC检测论文汇总 · 2篇论文解读
 description: >-
   2篇AAAI2026的 AIGC 检测方向论文解读，涵盖 LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,12 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "LLM"
+item_list:
+  - u: "baid_a_benchmark_for_bias_assessment_of_ai_detectors/"
+    t: "BAID: A Benchmark for Bias Assessment of AI Detectors"
+  - u: "optimized_algorithms_for_text_clustering_with_llm-generated_constraints/"
+    t: "Optimized Algorithms for Text Clustering with LLM-Generated Constraints"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

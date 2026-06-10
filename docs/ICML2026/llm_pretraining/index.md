@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 预训练方向22篇论文解读
+  ICML2026 预训练论文汇总 · 22篇论文解读
 description: >-
   22篇ICML2026的预训练方向论文解读，涵盖 LLM、Agent、布局/合成、扩散模型、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,52 @@ tags:
   - "布局/合成"
   - "扩散模型"
   - "少样本学习"
+item_list:
+  - u: "annotations_mitigate_post-training_mode_collapse/"
+    t: "Annotations Mitigate Post-Training Mode Collapse"
+  - u: "beyond_structural_symmetries_linear_mode_connectivity_via_neuron_identifiability/"
+    t: "Beyond Structural Symmetries: Linear Mode Connectivity via Neuron Identifiability"
+  - u: "constrained_bayesian_experimental_design_via_online_planning/"
+    t: "Constrained Bayesian Experimental Design via Online Planning"
+  - u: "data_difficulty_and_the_generalization--extrapolation_tradeoff_in_llm_fine-tunin/"
+    t: "Data Difficulty and the Generalization--Extrapolation Tradeoff in LLM Fine-Tuning"
+  - u: "dropout_universality_scaling_laws_and_optimal_scheduling_at_the_edge-of-chaos/"
+    t: "Dropout Universality: Scaling Laws and Optimal Scheduling at the Edge-of-Chaos"
+  - u: "flexrank_nested_low-rank_knowledge_decomposition_for_adaptive_model_deployment/"
+    t: "FlexRank: Nested Low-Rank Knowledge Decomposition for Adaptive Model Deployment"
+  - u: "focus_and_dilution_the_multi-stage_learning_process_of_attention/"
+    t: "Focus and Dilution: The Multi-stage Learning Process of Attention"
+  - u: "if_open_source_is_to_win_it_must_go_public/"
+    t: "If open source is to win, it must go public"
+  - u: "incremental_bpe_tokenization/"
+    t: "Incremental BPE Tokenization"
+  - u: "infolaw_information_scaling_laws_for_large_language_models_with_quality-weighted/"
+    t: "InfoLaw: Information Scaling Laws for Large Language Models with Quality-Weighted Mixture Data and Repetition"
+  - u: "inverse_depth_scaling_from_most_layers_being_similar/"
+    t: "Inverse Depth Scaling From Most Layers Being Similar"
+  - u: "moose-star_unlocking_tractable_training_for_scientific_discovery_by_breaking_the/"
+    t: "MOOSE-Star: Unlocking Tractable Training for Scientific Discovery by Breaking the Complexity Barrier"
+  - u: "names_dont_matter_symbol-invariant_transformer_for_open-vocabulary_learning/"
+    t: "Names Don't Matter: Symbol-Invariant Transformer for Open-Vocabulary Learning"
+  - u: "on_the_expressive_power_of_permutation-equivariant_weight-space_networks/"
+    t: "On the Expressive Power of Permutation-Equivariant Weight-Space Networks"
+  - u: "on_training_large_language_models_for_long-horizon_tasks_an_empirical_study_of_h/"
+    t: "On Training Large Language Models for Long-Horizon Tasks: An Empirical Study of Horizon Length"
+  - u: "predicting_large_model_test_losses_with_a_noisy_quadratic_system/"
+    t: "Predicting Large Model Test Losses with a Noisy Quadratic System"
+  - u: "scaling_depth_capacity_via_zeroone-layer_model_expansion/"
+    t: "Scaling Depth Capacity via Zero/One-Layer Model Expansion"
+  - u: "spare_stacked_parallelism_with_adaptive_reordering_for_fault-tolerant_llm_pretra/"
+    t: "SPARe: Stacked Parallelism with Adaptive Reordering for Fault-Tolerant LLM Pretraining Systems with 100k+ GPUs"
+  - u: "the_devil_is_in_the_condition_numbers_why_is_glu_better_than_non-glu_structure/"
+    t: "The Devil is in the Condition Numbers: Why is GLU Better than non-GLU Structure?"
+  - u: "trust_functions_near-lossless_weak-to-strong_generalization_by_learning_when_to_/"
+    t: "Trust Functions: Near-Lossless Weak-to-Strong Generalization by Learning When to Trust the Weak Teacher"
+  - u: "tuning_the_implicit_regularizer_of_masked_diffusion_language_models_enhancing_ge/"
+    t: "Tuning the Implicit Regularizer of Masked Diffusion Language Models: Enhancing Generalization via Insights from k-Parity"
+  - u: "xtransfer_modality-agnostic_few-shot_model_transfer_for_human_sensing_at_the_edg/"
+    t: "XTransfer: Modality-Agnostic Few-Shot Model Transfer for Human Sensing at the Edge"
+item_total: 22
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +66,7 @@ tags:
 
 **🧪 ICML2026** · **22** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (8)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
 
 🔥 **高频主题：** LLM ×4
 

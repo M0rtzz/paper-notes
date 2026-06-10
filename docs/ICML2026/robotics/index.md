@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 机器人/具身智能方向42篇论文解读
+  ICML2026 机器人/具身智能论文汇总 · 42篇论文解读
 description: >-
   42篇ICML2026的机器人/具身智能方向论文解读，涵盖多模态、机器人、扩散模型、Agent、导航、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "Agent"
   - "导航"
   - "推理"
+item_list:
+  - u: "contrastive_representation_regularization_for_vision-language-action_models/"
+    t: "Contrastive Representation Regularization for Vision-Language-Action Models"
+  - u: "decompose_and_recompose_reasoning_new_skills_from_existing_abilities_for_cross-t/"
+    t: "Decompose and Recompose: Reasoning New Skills from Existing Abilities for Cross-Task Robotic Manipulation"
+  - u: "discrete_diffusion_vla_bringing_discrete_diffusion_to_action_decoding_in_vision-/"
+    t: "Discrete Diffusion VLA: Bringing Discrete Diffusion to Action Decoding in Vision-Language-Action Policies"
+  - u: "dissecting_embodied_abilities_in_multimodal_language_models_through_skill-level_/"
+    t: "BEAR: Dissecting Embodied Abilities in Multimodal Language Models through Skill-level Evaluation and Diagnosis"
+  - u: "dive_into_the_scene_breaking_the_perceptual_bottleneck_in_vision-language_decisi/"
+    t: "Dive into the Scene: Breaking the Perceptual Bottleneck in Vision-Language Decision Making via Focus Plan Generation"
+  - u: "dlo-lab_benchmarking_deformable_linear_object_manipulations_with_differentiable_/"
+    t: "DLO-Lab: Benchmarking Deformable Linear Object Manipulations with Differentiable Physics"
+  - u: "drift_is_a_sampling_error_snr-aware_power_distributions_for_long-horizon_robotic/"
+    t: "Drift is a Sampling Error: SNR-Aware Power Distributions for Long-Horizon Robotic Planning"
+  - u: "dual-stream_diffusion_for_world-model_augmented_vision-language-action_model/"
+    t: "Dual-Stream Diffusion for World-Model Augmented Vision-Language-Action Model"
+  - u: "dual_advantage_fields/"
+    t: "Dual Advantage Fields"
+  - u: "dual_quaternion_se3_synchronization_with_recovery_guarantees/"
+    t: "Dual Quaternion SE(3) Synchronization with Recovery Guarantees"
+  - u: "embguard_constructing_hazard-aware_guardrails_for_safe_planning_in_embodied_agen/"
+    t: "EMBGuard: Constructing Hazard-Aware Guardrails for Safe Planning in Embodied Agents"
+  - u: "embodied_interpretability_linking_causal_understanding_to_generalization_in_visi/"
+    t: "Embodied Interpretability: Linking Causal Understanding to Generalization in Vision-Language-Action Models"
+  - u: "embodied_task_planning_via_graph-informed_action_generation_with_large_language_/"
+    t: "Embodied Task Planning via Graph-Informed Action Generation with Large Language Models"
+  - u: "from_abstraction_to_instantiation_learning_behavioral_representation_for_vision-/"
+    t: "From Abstraction to Instantiation: Learning Behavioral Representation for Vision-Language-Action Model"
+  - u: "from_imagined_futures_to_executable_actions_mixture_of_latent_actions_for_robot_/"
+    t: "From Imagined Futures to Executable Actions: Mixture of Latent Actions for Robot Manipulation"
+  - u: "generalizable_and_actionable_parts_pose_estimation_with_symmetry_annotation-free/"
+    t: "SAFAG: 无对称性标注的可泛化可操作部件位姿估计"
+  - u: "hdflow_hierarchical_diffusion-flow_planning_for_long-horizon_tasks/"
+    t: "HDFlow: Hierarchical Diffusion-Flow Planning for Long-horizon Tasks"
+  - u: "lagrangian_perturbation_diffusion_steering_latent_reinforcement_learning_for_gen/"
+    t: "Lagrangian Perturbation Diffusion Steering: Latent Reinforcement Learning for Generative Policies"
+  - u: "langforce_bayesian_decomposition_of_vision_language_action_models_via_latent_act/"
+    t: "LangForce: Bayesian Decomposition of Vision-Language-Action Models via Latent Action Queries"
+  - u: "latent_reasoning_vla_latent_thinking_and_prediction_for_vision-language-action_m/"
+    t: "Latent Reasoning VLA: Latent Thinking and Prediction for Vision-Language-Action Models"
+  - u: "manisoft_towards_vision-language_manipulation_for_soft_continuum_robotics/"
+    t: "ManiSoft: Towards Vision-Language Manipulation for Soft Continuum Robotics"
+  - u: "mixture_of_horizons_in_action_chunking/"
+    t: "Mixture of Horizons in Action Chunking"
+  - u: "neural_implicit_action_fields_from_discrete_waypoints_to_continuous_functions_fo/"
+    t: "Neural Implicit Action Fields: From Discrete Waypoints to Continuous Functions for Vision-Language-Action Models"
+  - u: "neural_low-discrepancy_sequences/"
+    t: "Neural Low-Discrepancy Sequences"
+  - u: "optimal_and_scalable_mapf_via_multi-marginal_optimal_transport_and_schrödinger_b/"
+    t: "Optimal and Scalable MAPF via Multi-Marginal Optimal Transport and Schrödinger Bridges"
+  - u: "plan_in_sandbox_navigate_in_open_worlds_learning_physics-grounded_abstracted_exp/"
+    t: "Plan in Sandbox, Navigate in Open Worlds: Learning Physics-Grounded Abstracted Experience for Embodied Navigation"
+  - u: "position_good_embodied_reward_models_need_bad_behavior_data/"
+    t: "Position: Good Embodied Reward Models Need Bad Behavior Data"
+  - u: "psg-nav_probabilistic_scene_graph_navigation_via_multiverse_decision_making/"
+    t: "PSG-Nav: Probabilistic Scene Graph Navigation via Multiverse Decision Making"
+  - u: "r2r2_robust_representation_for_intensive_experience_reuse_via_redundancy_reducti/"
+    t: "R2R2: Robust Representation for Intensive Experience Reuse via Redundancy Reduction in Self-Predictive Learning"
+  - u: "robomme_benchmarking_and_understanding_memory_for_robotic_generalist_policies/"
+    t: "RoboMME: Benchmarking and Understanding Memory for Robotic Generalist Policies"
+item_total: 42
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧪 ICML2026** · **42** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (42)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (46)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (40)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (43)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (71)](../../NeurIPS2025/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
 
 🔥 **高频主题：** 多模态 ×17 · 机器人 ×8 · 扩散模型 ×4 · Agent ×4 · 导航 ×3
 

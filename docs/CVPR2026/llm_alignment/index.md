@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 对齐 / RLHF方向2篇论文解读
+  CVPR2026 对齐/RLHF论文汇总 · 2篇论文解读
 description: >-
   2篇CVPR2026的对齐 / RLHF 方向论文解读，涵盖多模态、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,12 @@ tags:
   - "论文笔记"
   - "多模态"
   - "对抗鲁棒"
+item_list:
+  - u: "bases_of_steerable_kernels_for_equivariant_cnns_from_2d_rotations_to_the_lorentz/"
+    t: "Bases of Steerable Kernels for Equivariant CNNs: From 2D Rotations to the Lorentz Group"
+  - u: "principled_steering_via_null-space_projection_for_jailbreak_defense_in_vision-la/"
+    t: "Principled Steering via Null-space Projection for Jailbreak Defense in Vision-Language Models"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

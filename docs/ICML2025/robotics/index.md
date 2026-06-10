@@ -1,35 +1,71 @@
 ---
 title: >-
-  ICML2025 机器人/具身智能方向20篇论文解读
+  ICML2025 机器人/具身智能论文汇总 · 19篇论文解读
 description: >-
-  20篇ICML2025的机器人/具身智能方向论文解读，涵盖机器人、强化学习、Agent、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  19篇ICML2025的机器人/具身智能方向论文解读，涵盖机器人、Agent、强化学习、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "机器人/具身智能"
   - "论文解读"
   - "论文笔记"
   - "机器人"
-  - "强化学习"
   - "Agent"
+  - "强化学习"
   - "模型压缩"
+item_list:
+  - u: "action-constrained_imitation_learning/"
+    t: "Action-Constrained Imitation Learning"
+  - u: "biassemble_learning_collaborative_affordance_for_bimanual_geometric_assembly/"
+    t: "BiAssemble: Learning Collaborative Affordance for Bimanual Geometric Assembly"
+  - u: "closed-loop_long-horizon_robotic_planning_via_equilibrium_sequence_modeling/"
+    t: "Closed-loop Long-horizon Robotic Planning via Equilibrium Sequence Modeling"
+  - u: "commvq_commutative_vector_quantization_for_kv_cache_compression/"
+    t: "CommVQ: Commutative Vector Quantization for KV Cache Compression"
+  - u: "efficient_robotic_policy_learning_via_latent_space_backward_planning/"
+    t: "Efficient Robotic Policy Learning via Latent Space Backward Planning"
+  - u: "flow_of_reasoning_training_llms_for_divergent_reasoning_with_minimal_examples/"
+    t: "Flow of Reasoning: Training LLMs for Divergent Reasoning with Minimal Examples"
+  - u: "founder_grounding_foundation_models_in_world_models_for_open-ended_embodied_deci/"
+    t: "FOUNDER: Grounding Foundation Models in World Models for Open-Ended Embodied Decision Making"
+  - u: "geometric_contact_flows_contactomorphisms_for_dynamics_and_control/"
+    t: "Geometric Contact Flows: Contactomorphisms for Dynamics and Control"
+  - u: "gradual_transition_from_bellman_optimality_operator_to_bellman_operator_in_onlin/"
+    t: "Gradual Transition from Bellman Optimality Operator to Bellman Operator in Online Reinforcement Learning"
+  - u: "graph-assisted_stitching_for_offline_hierarchical_reinforcement_learning/"
+    t: "Graph-Assisted Stitching for Offline Hierarchical Reinforcement Learning"
+  - u: "hi_robot_open-ended_instruction_following_with_hierarchical_vision-language-acti/"
+    t: "Hi Robot: Open-Ended Instruction Following with Hierarchical Vision-Language-Action Models"
+  - u: "learning_dynamics_under_environmental_constraints_via_measurement-induced_bundle/"
+    t: "Learning Dynamics under Environmental Constraints via Measurement-Induced Bundle Structures"
+  - u: "learning_to_stop_deep_learning_for_mean_field_optimal_stopping/"
+    t: "Learning to Stop: Deep Learning for Mean Field Optimal Stopping"
+  - u: "maximum_total_correlation_reinforcement_learning/"
+    t: "Maximum Total Correlation Reinforcement Learning"
+  - u: "robot-gated_interactive_imitation_learning_with_adaptive_intervention_mechanism/"
+    t: "Robot-Gated Interactive Imitation Learning with Adaptive Intervention Mechanism"
+  - u: "sensei_semantic_exploration_guided_by_foundation_models_to_learn_versatile_world/"
+    t: "SENSEI: Semantic Exploration Guided by Foundation Models to Learn Versatile World Models"
+  - u: "sketch-plan-generalize_learning_and_planning_with_neuro-symbolic_programmatic_re/"
+    t: "Sketch-Plan-Generalize: Learning and Planning with Neuro-Symbolic Programmatic Representations for Inductive Spatial Concepts"
+  - u: "star_learning_diverse_robot_skill_abstractions_through_rotation-augmented_vector/"
+    t: "STAR: Learning Diverse Robot Skill Abstractions through Rotation-Augmented Vector Quantization"
+  - u: "x_hacking_the_threat_of_misguided_automl/"
+    t: "X-Hacking: The Threat of Misguided AutoML"
+item_total: 19
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 机器人/具身智能
 
-**🧪 ICML2025** · **20** 篇论文解读
+**🧪 ICML2025** · **19** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (42)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (46)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (40)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (43)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (71)](../../NeurIPS2025/robotics/index.md)
 
-🔥 **高频主题：** 机器人 ×5 · 强化学习 ×4 · Agent ×3 · 模型压缩 ×2
+🔥 **高频主题：** 机器人 ×5 · Agent ×3 · 强化学习 ×3 · 模型压缩 ×2
 
 **[Action-Constrained Imitation Learning](action-constrained_imitation_learning.md)**
 
 :   形式化了"动作约束模仿学习(ACIL)"新问题——受限Agent从无约束专家学习，提出DTWIL通过MPC+DTW距离生成替代性约束轨迹来消除占用度量失配，在多种机器人任务上显著优于基线。
-
-**[Beyond CVaR: Leveraging Static Spectral Risk Measures for Enhanced Decision-Making in Distributional Reinforcement Learning](beyond_cvar_leveraging_static_spectral_risk_measures_for_enhanced_decision-makin.md)**
-
-:   提出首个在分布式 RL 框架内优化一般静态谱风险度量（SRM）的算法，超越了仅限于简单 CVaR 的现有方法，通过利用回报分布实现闭式外层优化和中间风险度量的时间分解，在多种风险设置中超越现有风险敏感 DRL 模型。
 
 **[BiAssemble: Learning Collaborative Affordance for Bimanual Geometric Assembly](biassemble_learning_collaborative_affordance_for_bimanual_geometric_assembly.md)**
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 多模态 VLM方向51篇论文解读
+  ICML2025 多模态VLM论文汇总 · 51篇论文解读
 description: >-
   51篇ICML2025的多模态 VLM 方向论文解读，涵盖多模态、推理、对齐/RLHF、LLM、扩散模型、机器人等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "LLM"
   - "扩散模型"
   - "机器人"
+item_list:
+  - u: "cocoa-mix_confusion-and-confidence-aware_mixture_model_for_context_optimization/"
+    t: "CoCoA-Mix: Confusion-and-Confidence-Aware Mixture Model for Context Optimization"
+  - u: "comemo_lvlms_need_image_context_with_image_memory/"
+    t: "CoMemo: LVLMs Need Image Context with Image Memory"
+  - u: "context_is_key_a_benchmark_for_forecasting_with_essential_textual_information/"
+    t: "Context is Key: A Benchmark for Forecasting with Essential Textual Information"
+  - u: "core_knowledge_deficits_in_multi-modal_language_models/"
+    t: "Core Knowledge Deficits in Multi-Modal Language Models"
+  - u: "corematching_a_co-adaptive_sparse_inference_framework_with_token_and_neuron_prun/"
+    t: "CoreMatching: A Co-adaptive Sparse Inference Framework with Token and Neuron Pruning for Comprehensive Acceleration of Vision-Language Models"
+  - u: "diffuse_everything_multimodal_diffusion_models_on_arbitrary_state_spaces/"
+    t: "Diffuse Everything: Multimodal Diffusion Models on Arbitrary State Spaces"
+  - u: "diffusion-vla_generalizable_and_interpretable_robot_foundation_model_via_self-ge/"
+    t: "Diffusion-VLA: Generalizable and Interpretable Robot Foundation Model via Self-Generated Reasoning"
+  - u: "do_vision-language_models_really_understand_visual_language/"
+    t: "Do Vision-Language Models Really Understand Visual Language?"
+  - u: "dynamic_mixture_of_curriculum_lora_experts_for_continual_multimodal_instruction_/"
+    t: "Dynamic Mixture of Curriculum LoRA Experts for Continual Multimodal Instruction Tuning"
+  - u: "efficient_quantification_of_multimodal_interaction_at_sample_level/"
+    t: "Efficient Quantification of Multimodal Interaction at Sample Level"
+  - u: "elemental_interactive_learning_from_demonstrations_and_vision-language_models_fo/"
+    t: "ELEMENTAL: Interactive Learning from Demonstrations and Vision-Language Models for Reward Design in Robotics"
+  - u: "enhancing_rating-based_reinforcement_learning_to_effectively_leverage_feedback_f/"
+    t: "ERL-VLM: Enhancing Rating-Based RL to Leverage Feedback from Large VLMs"
+  - u: "enhancing_target-unspecific_tasks_through_a_features_matrix/"
+    t: "Enhancing Target-unspecific Tasks through a Features Matrix"
+  - u: "from_black_boxes_to_transparent_minds_evaluating_and_enhancing_the_theory_of_min/"
+    t: "From Black Boxes to Transparent Minds: Evaluating and Enhancing the Theory of Mind in Multimodal Large Language Models"
+  - u: "graph4mm_weaving_multimodal_learning_with_structural_information/"
+    t: "Graph4MM: Weaving Multimodal Learning with Structural Information"
+  - u: "handling_imbalanced_pseudolabels_for_vision-language_models_with_concept_alignme/"
+    t: "Handling Imbalanced Pseudolabels for Vision-Language Models with Concept Alignment and Confusion-Aware Calibrated Margin"
+  - u: "importance_corrected_neural_jko_sampling/"
+    t: "Importance Corrected Neural JKO Sampling"
+  - u: "kernel-based_unsupervised_embedding_alignment_for_enhanced_visual_representation/"
+    t: "Kernel-based Unsupervised Embedding Alignment for Enhanced Visual Representation in Vision-language Models"
+  - u: "lada_scalable_label-specific_clip_adapter_for_continual_learning/"
+    t: "LADA: Scalable Label-Specific CLIP Adapter for Continual Learning"
+  - u: "laion-c_an_out-of-distribution_benchmark_for_web-scale_vision_models/"
+    t: "LAION-C: An Out-of-Distribution Benchmark for Web-Scale Vision Models"
+  - u: "learning_invariant_causal_mechanism_from_vision-language_models/"
+    t: "Learning Invariant Causal Mechanism from Vision-Language Models"
+  - u: "learning_optimal_multimodal_information_bottleneck_representations/"
+    t: "Learning Optimal Multimodal Information Bottleneck Representations"
+  - u: "lemon_label_error_detection_using_multimodal_neighbors/"
+    t: "LEMoN: Label Error Detection using Multimodal Neighbors"
+  - u: "llavaguard_an_open_vlm-based_framework_for_safeguarding_vision_datasets_and_mode/"
+    t: "LlavaGuard: An Open VLM-based Framework for Safeguarding Vision Datasets and Models"
+  - u: "look_twice_before_you_answer_memory-space_visual_retracing_for_hallucination_mit/"
+    t: "Look Twice Before You Answer: Memory-Space Visual Retracing for Hallucination Mitigation in Multimodal Large Language Models"
+  - u: "m3-jepa_multimodal_alignment_via_multi-gate_moe_based_on_the_joint-embedding_pre/"
+    t: "M3-JEPA: Multimodal Alignment via Multi-gate MoE based on JEPA"
+  - u: "mmedpo_aligning_medical_vision-language_models_with_clinical-aware_multimodal_pr/"
+    t: "MMedPO: Aligning Medical Vision-Language Models with Clinical-Aware Multimodal Preference Optimization"
+  - u: "mminference_accelerating_pre-filling_for_long-context_vlms_via_modality-aware_pe/"
+    t: "MMInference: Accelerating Pre-filling for Long-Context VLMs via Modality-Aware Permutation Sparse Attention"
+  - u: "moda_modular_duplex_attention_for_multimodal_perception_cognition_and_emotion_un/"
+    t: "MODA: MOdular Duplex Attention for Multimodal Perception, Cognition, and Emotion Understanding"
+  - u: "omnibal_towards_fast_instruction-tuning_for_vision-language_models_via_omniverse/"
+    t: "OmniBal: Towards Fast Instruction-Tuning for Vision-Language Models via Omniverse Computation Balance"
+item_total: 51
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧪 ICML2025** · **51** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (147)](../../NeurIPS2025/multimodal_vlm/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (146)](../../NeurIPS2025/multimodal_vlm/index.md)
 
 🔥 **高频主题：** 多模态 ×34 · 推理 ×5 · 对齐/RLHF ×5 · LLM ×4 · 扩散模型 ×2
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 医疗 NLP方向4篇论文解读
+  ICML2025 医疗NLP论文汇总 · 4篇论文解读
 description: >-
   4篇ICML2025的医疗 NLP 方向论文解读，涵盖个性化生成、Agent、RAG等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,16 @@ tags:
   - "个性化生成"
   - "Agent"
   - "RAG"
+item_list:
+  - u: "agent_warpp_workflow_adherence_via_runtime_parallel_personalization/"
+    t: "Agent WARPP: Workflow Adherence via Runtime Parallel Personalization"
+  - u: "autoformulation_of_mathematical_optimization_models_using_llms/"
+    t: "Autoformulation of Mathematical Optimization Models Using LLMs"
+  - u: "evolve_evaluating_and_optimizing_llms_for_in-context_exploration/"
+    t: "EVOLvE: Evaluating and Optimizing LLMs For In-Context Exploration"
+  - u: "on_the_vulnerability_of_applying_retrieval-augmented_generation_within_knowledge/"
+    t: "On the Vulnerability of Applying Retrieval-Augmented Generation within Knowledge-Intensive Application Domains"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +28,7 @@ tags:
 
 **🧪 ICML2025** · **4** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (13)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (12)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (15)](../../NeurIPS2025/medical_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/medical_nlp/index.md)
 
 **[Agent WARPP: Workflow Adherence via Runtime Parallel Personalization](agent_warpp_workflow_adherence_via_runtime_parallel_personalization.md)**
 

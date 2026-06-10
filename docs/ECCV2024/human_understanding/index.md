@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 人体理解方向51篇论文解读
+  ECCV2024 人体理解论文汇总 · 46篇论文解读
 description: >-
-  51篇ECCV2024的人体理解方向论文解读，涵盖人体姿态、人脸/视线、情感分析、虚拟人、重识别、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  46篇ECCV2024的人体理解方向论文解读，涵盖人体姿态、人脸/视线、情感分析、虚拟人、重识别、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "人体理解"
@@ -14,16 +14,78 @@ tags:
   - "虚拟人"
   - "重识别"
   - "自监督学习"
+item_list:
+  - u: "3d_hand_pose_estimation_in_everyday_egocentric_images/"
+    t: "3D Hand Pose Estimation in Everyday Egocentric Images"
+  - u: "3dgazenet_generalizing_3d_gaze_estimation_with_weak-supervision_from_synthetic_v/"
+    t: "3DGazeNet: Generalizing 3D Gaze Estimation with Weak-Supervision from Synthetic Views"
+  - u: "3dsa_multi-view_3d_human_pose_estimation_with_3d_space_attention_mechanisms/"
+    t: "3DSA: Multi-view 3D Human Pose Estimation With 3D Space Attention Mechanisms"
+  - u: "a_simple_baseline_for_spoken_language_to_sign_language_trans/"
+    t: "A Simple Baseline for Spoken Language to Sign Language Translation with 3D Avatars"
+  - u: "adadistill_adaptive_knowledge_distillation_for_deep_face_rec/"
+    t: "AdaDistill: Adaptive Knowledge Distillation for Deep Face Recognition"
+  - u: "adaptive_highfrequency_transformer_for_diverse_wildlife_reid/"
+    t: "Adaptive High-Frequency Transformer for Diverse Wildlife Re-Identification"
+  - u: "alignist_cad-informed_orientation_distribution_estimation_by_fusing_shape_and_co/"
+    t: "Alignist: CAD-Informed Orientation Distribution Estimation by Fusing Shape and Correspondences"
+  - u: "audio-driven_talking_face_generation_with_stabilized_synchronization_loss/"
+    t: "Audio-Driven Talking Face Generation with Stabilized Synchronization Loss"
+  - u: "avatar_fingerprinting_for_authorized_use_of_synthetic_talking-head_videos/"
+    t: "Avatar Fingerprinting for Authorized Use of Synthetic Talking-Head Videos"
+  - u: "bridging_the_gap_between_human_motion_and_action_semantics_via_kinematic_phrases/"
+    t: "Bridging the Gap Between Human Motion and Action Semantics via Kinematic Phrases"
+  - u: "combining_generative_and_geometry_priors_for_wide-angle_portrait_correction/"
+    t: "Combining Generative and Geometry Priors for Wide-Angle Portrait Correction"
+  - u: "cut_out_the_middleman_revisiting_pose-based_gait_recognition/"
+    t: "Cut Out the Middleman: Revisiting Pose-Based Gait Recognition"
+  - u: "de-confounded_gaze_estimation/"
+    t: "De-confounded Gaze Estimation"
+  - u: "edtalk_efficient_disentanglement_for_emotional_talking_head_synthesis/"
+    t: "EDTalk: Efficient Disentanglement for Emotional Talking Head Synthesis"
+  - u: "event-based_head_pose_estimation_benchmark_and_method/"
+    t: "Event-based Head Pose Estimation: Benchmark and Method"
+  - u: "facial_affective_behavior_analysis_with_instruction_tuning/"
+    t: "Facial Affective Behavior Analysis with Instruction Tuning"
+  - u: "foundpose_unseen_object_pose_estimation_with_foundation_features/"
+    t: "FoundPose: Unseen Object Pose Estimation with Foundation Features"
+  - u: "freemotion_a_unified_framework_for_number-free_text-to-motion_synthesis/"
+    t: "FreeMotion: A Unified Framework for Number-free Text-to-Motion Synthesis"
+  - u: "generalizable_facial_expression_recognition/"
+    t: "Generalizable Facial Expression Recognition"
+  - u: "gs-pose_category-level_object_pose_estimation_via_geometric_and_semantic_corresp/"
+    t: "GS-Pose: Category-Level Object Pose Estimation via Geometric and Semantic Correspondence"
+  - u: "how_video_meetings_change_your_expression/"
+    t: "How Video Meetings Change Your Expression"
+  - u: "hpe-li_wifi-enabled_lightweight_dual_selective_kernel_convolution_for_human_pose/"
+    t: "HPE-Li: WiFi-Enabled Lightweight Dual Selective Kernel Convolution for Human Pose Estimation"
+  - u: "human_motion_forecasting_in_dynamic_domain_shifts_a_homeostatic_continual_test-t/"
+    t: "Human Motion Forecasting in Dynamic Domain Shifts: A Homeostatic Continual Test-Time Adaptation Framework"
+  - u: "humos_human_motion_model_conditioned_on_body_shape/"
+    t: "HUMOS: Human Motion Model Conditioned on Body Shape"
+  - u: "lapose_laplacian_mixture_shape_modeling_for_rgb-based_category-level_object_pose/"
+    t: "LaPose: Laplacian Mixture Shape Modeling for RGB-Based Category-Level Object Pose Estimation"
+  - u: "manikin_biomechanically_accurate_neural_inverse_kinematics_for_human_motion_esti/"
+    t: "MANIKIN: Biomechanically Accurate Neural Inverse Kinematics for Human Motion Estimation"
+  - u: "migs_multi-identity_gaussian_splatting_via_tensor_decomposition/"
+    t: "MIGS: Multi-Identity Gaussian Splatting via Tensor Decomposition"
+  - u: "modeling_and_driving_human_body_soundfields_through_acoustic_primitives/"
+    t: "Modeling and Driving Human Body Soundfields through Acoustic Primitives"
+  - u: "motion_mamba_efficient_and_long_sequence_motion_generation/"
+    t: "Motion Mamba: Efficient and Long Sequence Motion Generation"
+  - u: "multi-memory_matching_for_unsupervised_visible-infrared_person_re-identification/"
+    t: "Multi-Memory Matching for Unsupervised Visible-Infrared Person Re-Identification"
+item_total: 46
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**🎞️ ECCV2024** · **51** 篇论文解读
+**🎞️ ECCV2024** · **46** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (17)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md)
 
-🔥 **高频主题：** 人体姿态 ×15 · 人脸/视线 ×10 · 情感分析 ×3 · 虚拟人 ×2 · 重识别 ×2
+🔥 **高频主题：** 人体姿态 ×14 · 人脸/视线 ×10 · 情感分析 ×3 · 虚拟人 ×2 · 重识别 ×2
 
 **[3D Hand Pose Estimation in Everyday Egocentric Images](3d_hand_pose_estimation_in_everyday_egocentric_images.md)**
 
@@ -49,10 +111,6 @@ tags:
 
 :   提出自适应高频Transformer（AdaFreq），通过频域混合增强、目标感知的高频token动态选择、特征均衡损失三大策略，将高频信息（毛皮纹理、轮廓边缘等）统一用于多种野生动物的重识别，在8个跨物种数据集上超越现有ReID方法。
 
-**[ADen: Adaptive Density Representations for Sparse-view Camera Pose Estimation](aden_adaptive_density_representations_for_sparseview_camera.md)**
-
-:   提出ADen框架，通过生成器输出多个位姿假设+判别器评分选择最佳的方式，统一了位姿回归和概率估计范式，仅需500个自适应样本即超越需要500K均匀采样的方法，同时实现实时推理。
-
 **[Alignist: CAD-Informed Orientation Distribution Estimation by Fusing Shape and Correspondences](alignist_cad-informed_orientation_distribution_estimation_by_fusing_shape_and_co.md)**
 
 :   提出 Alignist，首个利用 CAD 模型信息（SDF + SurfEmb 对应特征）训练隐式分布网络来推断 SO(3) 上姿态分布的方法，通过 product of experts 融合几何和特征对齐，在低数据场景下显著优于对比学习方法。
@@ -73,10 +131,6 @@ tags:
 
 :   提出结合 StyleGAN 生成式先验（用于人脸矫正）和几何对称先验（用于背景直线矫正）的双模块框架，大幅提升广角人像畸变校正的视觉质量和定量指标。
 
-**[CoMo: Controllable Motion Generation Through Language Guided Pose Code Editing](como_controllable_motion_generation_through_language_guided_pose_code_editing.md)**
-
-:   提出 CoMo，通过将动作序列分解为语义明确的 pose code（如"左膝微弯"），实现基于文本的可控动作生成与基于 LLM 的零样本动作编辑。
-
 **[Cut Out the Middleman: Revisiting Pose-Based Gait Recognition](cut_out_the_middleman_revisiting_pose-based_gait_recognition.md)**
 
 :   重新审视基于姿态的步态识别方法，提出 GaitHeat 框架，用热力图（heatmap）取代传统的骨架关键点坐标来编码人体姿态，通过改进的预处理流程和姿态引导热力图对齐模块大幅提升性能和泛化能力，使基于姿态的方法首次接近轮廓（silhouette）方法的精度。
@@ -84,10 +138,6 @@ tags:
 **[De-confounded Gaze Estimation](de-confounded_gaze_estimation.md)**
 
 :   本文提出基于因果干预的视线估计框架 FSCI，通过特征分离将视线相关特征与身份/光照等无关特征解耦，并利用动态混杂因子库对无关特征进行因果干预，在跨域设置下较基线提升36.2%、较SOTA提升11.5%。
-
-**[Diffusion Model is a Good Pose Estimator from 3D RF-Vision](diffusion_model_is_a_good_pose_estimator_from_3d_rf-vision.md)**
-
-:   提出mmDiff，一种基于扩散模型的毫米波雷达人体姿态估计框架，通过全局-局部雷达上下文提取和结构-运动一致性约束，有效应对雷达点云稀疏、噪声大和信号不一致的挑战，显著超越现有SOTA。
 
 **[EDTalk: Efficient Disentanglement for Emotional Talking Head Synthesis](edtalk_efficient_disentanglement_for_emotional_talking_head_synthesis.md)**
 
@@ -137,10 +187,6 @@ tags:
 
 :   提出 LaPose 框架，通过拉普拉斯混合模型 (LMM) 建模物体形状不确定性，结合 DINOv2 通用3D流和卷积专用特征流的双流架构预测 NOCS 坐标分布，并引入尺度无关的位姿表示解决 RGB-only 场景下的固有尺度歧义，在 NOCS 数据集上取得 SOTA。
 
-**[Large Motion Model for Unified Multi-Modal Motion Generation](large_motion_model_for_unified_multi-modal_motion_generation.md)**
-
-:   提出 Large Motion Model (LMM)，首个以动作为中心的多模态统一动作生成基础模型，通过构建包含 10 个任务、16 个数据集、320K 序列的 MotionVerse 基准，设计支持身体部位感知的 ArtAttention 机制，以及结合随机帧率/掩码的预训练策略，实现跨任务的高质量动作生成。
-
 **[MANIKIN: Biomechanically Accurate Neural Inverse Kinematics for Human Motion Estimation](manikin_biomechanically_accurate_neural_inverse_kinematics_for_human_motion_esti.md)**
 
 :   本文提出MANIKIN，通过在SMPL参数模型中嵌入解剖学约束并设计基于旋转角预测的神经逆运动学求解器，从头部和手部的稀疏末端执行器姿态精确恢复全身运动，同时保证生物力学合理性和地面非穿透性。
@@ -172,10 +218,6 @@ tags:
 **[PoseSOR: Human Pose Can Guide Our Attention](posesor_human_pose_can_guide_our_attention.md)**
 
 :   本文首次将人体姿态信息引入显著目标排序(SOR)任务，通过提出姿态感知交互模块(PAI)和姿态驱动排序模块(PDR)来建模人体活动与注意力转移的关系，在复杂场景中显著提升了SOR性能并达到SOTA。
-
-**[ReLoo: Reconstructing Humans Dressed in Loose Garments from Monocular Video in the Wild](reloo_reconstructing_humans_dressed_in_loose_garments_from_monocular_video_in_th.md)**
-
-:   提出 ReLoo，通过分层神经人体表示和非层级虚拟骨骼变形模块，从单目野外视频中重建穿着宽松服装的高质量3D人体模型。
 
 **[RePOSE: 3D Human Pose Estimation via Spatio-Temporal Depth Relational Consistency](repose_3d_human_pose_estimation_via_spatio-temporal_depth_relational_consistency.md)**
 

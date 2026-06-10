@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 预训练方向25篇论文解读
+  ICLR2026 预训练论文汇总 · 25篇论文解读
 description: >-
   25篇ICLR2026的预训练方向论文解读，涵盖 LLM、对齐/RLHF、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,58 @@ tags:
   - "LLM"
   - "对齐/RLHF"
   - "对抗鲁棒"
+item_list:
+  - u: "a_law_of_data_reconstruction_for_random_features_and_beyond/"
+    t: "A Law of Data Reconstruction for Random Features (and Beyond)"
+  - u: "accessible_realistic_and_fair_evaluation_of_positive-unlabeled_learning_algorith/"
+    t: "Accessible, Realistic, and Fair Evaluation of Positive-Unlabeled Learning Algorithms"
+  - u: "block-sample_mac-bayes_generalization_bounds/"
+    t: "Block-Sample MAC-Bayes Generalization Bounds"
+  - u: "chammi-75_pre-training_multi-channel_models_with_heterogeneous_microscopy_images/"
+    t: "CHAMMI-75: Pre-training multi-channel models with heterogeneous microscopy images"
+  - u: "common_corpus_ethical_data_for_llm_pretraining/"
+    t: "Common Corpus: The Largest Collection of Ethical Data for LLM Pre-Training"
+  - u: "deconstructing_positional_information_from_attention_logits_to_training_biases/"
+    t: "Deconstructing Positional Information: From Attention Logits to Training Biases"
+  - u: "emergent_misalignment_is_easy_narrow_misalignment_is_hard/"
+    t: "Emergent Misalignment is Easy, Narrow Misalignment is Hard"
+  - u: "explaining_grokking_and_information_bottleneck_through_neural_collapse_emergence/"
+    t: "Explaining Grokking and Information Bottleneck through Neural Collapse Emergence"
+  - u: "fictionalqa_a_dataset_for_studying_memorization_and_knowledge_acquisition/"
+    t: "FictionalQA: A Dataset for Studying Memorization and Knowledge Acquisition"
+  - u: "identifying_and_evaluating_inactive_heads_in_pretrained_llms/"
+    t: "Identifying and Evaluating Inactive Heads in Pretrained LLMs"
+  - u: "imagine_how_to_change_explicit_procedure_modeling_for_change_captioning/"
+    t: "Imagine How To Change: Explicit Procedure Modeling for Change Captioning"
+  - u: "implicit_bias_and_loss_of_plasticity_in_matrix_completion_depth_promotes_low-ran/"
+    t: "Implicit Bias and Loss of Plasticity in Matrix Completion: Depth Promotes Low-Rank"
+  - u: "intrinsic_training_dynamics_of_deep_neural_networks/"
+    t: "Intrinsic Training Dynamics of Deep Neural Networks"
+  - u: "lossless_vocabulary_reduction_for_auto-regressive_language_models/"
+    t: "Lossless Vocabulary Reduction for Auto-Regressive Language Models"
+  - u: "moma_a_modular_deep_learning_framework_for_material_property_prediction/"
+    t: "MoMa: A Simple Modular Deep Learning Framework for Material Property Prediction"
+  - u: "polynomial_trigonometric_and_tropical_activations/"
+    t: "Polynomial, trigonometric, and tropical activations"
+  - u: "pre-training_llm_without_learning_rate_decay_enhances_supervised_fine-tuning/"
+    t: "Pre-training LLM without Learning Rate Decay Enhances Supervised Fine-Tuning"
+  - u: "predicting_training_re-evaluation_curves_enables_effective_data_curriculums_for_/"
+    t: "Predicting Training Re-evaluation Curves Enables Effective Data Curriculums"
+  - u: "recon_robust_symmetry_discovery_via_explicit_canonical_orientation_normalization/"
+    t: "RECON: Robust symmetry discovery via Explicit Canonical Orientation Normalization"
+  - u: "scaling_with_collapse_efficient_and_predictable_training_of_llm_families/"
+    t: "Scaling with Collapse: Efficient and Predictable Training of LLM Families"
+  - u: "semhitok_a_unified_image_tokenizer_via_semantic-guided_hierarchical_codebook_for/"
+    t: "SemHiTok: A Unified Image Tokenizer via Semantic-Guided Hierarchical Codebook"
+  - u: "steering_language_models_with_weight_arithmetic/"
+    t: "Steering Language Models with Weight Arithmetic"
+  - u: "token-level_data_selection_for_safe_llm_fine-tuning/"
+    t: "Token-level Data Selection for Safe LLM Fine-tuning"
+  - u: "understanding_and_improving_shampoo_and_soap_via_kullback-leibler_minimization/"
+    t: "Understanding and Improving Shampoo and SOAP via Kullback-Leibler Minimization"
+  - u: "understanding_the_emergence_of_seemingly_useless_features_in_next-token_predicto/"
+    t: "Understanding the Emergence of Seemingly Useless Features in Next-Token Predictors"
+item_total: 25
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +70,7 @@ tags:
 
 **🔬 ICLR2026** · **25** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (8)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
 
 🔥 **高频主题：** LLM ×4
 

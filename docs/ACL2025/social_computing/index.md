@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 社会计算方向27篇论文解读
+  ACL2025 社会计算论文汇总 · 27篇论文解读
 description: >-
   27篇ACL2025的社会计算方向论文解读，涵盖 LLM、语音、多模态、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,62 @@ tags:
   - "语音"
   - "多模态"
   - "推理"
+item_list:
+  - u: "a_survey_on_proactive_defense_strategies_against_misinformation_in_large_languag/"
+    t: "A Survey on Proactive Defense Strategies Against Misinformation in Large Language Models"
+  - u: "banstereoset_a_dataset_to_measure_stereotypical_social_biases_in_llms_for_bangla/"
+    t: "BanStereoSet: A Dataset to Measure Stereotypical Social Biases in LLMs for Bangla"
+  - u: "beyond_negative_stereotypes_--_non-negative_abusive_utterances_about_identity_gr/"
+    t: "Beyond Negative Stereotypes -- Non-Negative Abusive Utterances about Identity Groups and Their Semantic Variants"
+  - u: "biasguard_a_reasoning-enhanced_bias_detection_tool_for_large_language_models/"
+    t: "BiasGuard: A Reasoning-Enhanced Bias Detection Tool for Large Language Models"
+  - u: "can_community_notes_replace_professional_fact-checkers/"
+    t: "Can Community Notes Replace Professional Fact-Checkers?"
+  - u: "conspiracy_theories_and_where_to_find_them_on_tiktok/"
+    t: "Conspiracy Theories and Where to Find Them on TikTok"
+  - u: "culture_matters_in_toxic_language_detection_in_persian/"
+    t: "Culture Matters in Toxic Language Detection in Persian"
+  - u: "detection_of_human_and_machine-authored_fake_news_in_urdu/"
+    t: "Detection of Human and Machine-Authored Fake News in Urdu"
+  - u: "explicit_vs_implicit_investigating_social_bias_in_large_language_models_through_/"
+    t: "Explicit vs. Implicit: Investigating Social Bias in Large Language Models through Self-Reflection"
+  - u: "exploring_gender_bias_in_large_language_models_an_in-depth_dive_into_the_german_/"
+    t: "Exploring Gender Bias in Large Language Models: An In-depth Dive into the German Language"
+  - u: "exploring_multimodal_challenges_in_toxic_chinese_detection_taxonomy_benchmark_an/"
+    t: "Exploring Multimodal Challenges in Toxic Chinese Detection: Taxonomy, Benchmark, and Findings"
+  - u: "exploring_the_impact_of_instruction-tuning_on_llms_susceptibility_to_misinformat/"
+    t: "Exploring the Impact of Instruction-Tuning on LLMs' Susceptibility to Misinformation"
+  - u: "fairsteer_inference_time_debiasing_for_llms_with_dynamic_activation_steering/"
+    t: "FairSteer: Inference Time Debiasing for LLMs with Dynamic Activation Steering"
+  - u: "gg-bbq_german_gender_bias_benchmark_for_question_answering/"
+    t: "GG-BBQ: German Gender Bias Benchmark for Question Answering"
+  - u: "hateday_global_hate_speech/"
+    t: "HateDay: Insights from a Global Hate Speech Dataset Representative of a Day on Twitter"
+  - u: "how_does_misinformation_affect_large_language/"
+    t: "How does Misinformation Affect Large Language Model Behaviors and Preferences?"
+  - u: "implihatevid_video_hate/"
+    t: "ImpliHateVid: Implicit Hate Speech Detection in Videos"
+  - u: "is_llm_an_overconfident_judge_unveiling_the_capabilities_of_llms_in_detecting_of/"
+    t: "Is LLM an Overconfident Judge? Unveiling the Capabilities of LLMs in Detecting Offensive Language with Annotation Disagreement"
+  - u: "kda_automated_data_generation_pipeline_for_detoxifying_implicitly_offensive_lang/"
+    t: "K/DA: Automated Data Generation Pipeline for Detoxifying Implicitly Offensive Language in Korean"
+  - u: "llm_label_propagation/"
+    t: "Synergizing LLMs with Global Label Propagation for Multimodal Fake News Detection"
+  - u: "llm_personalized_disinformation/"
+    t: "Evaluation of LLM Vulnerabilities to Being Misused for Personalized Disinformation Generation"
+  - u: "mdit-bench_evaluating_the_dual-implicit_toxicity_in_large_multimodal_models/"
+    t: "MDiT-Bench: Evaluating the Dual-Implicit Toxicity in Large Multimodal Models"
+  - u: "measuring_social_biases_in_masked_language_models_by_proxy_of_prediction_quality/"
+    t: "Measuring Social Biases in Masked Language Models by Proxy of Prediction Quality"
+  - u: "silencing_empowerment_allowing_bigotry_auditing_the_moderation_of_hate_speech_on/"
+    t: "Silencing Empowerment, Allowing Bigotry: Auditing the Moderation of Hate Speech on Twitch"
+  - u: "state_toxicn_a_benchmark_for_span-level_target-aware_toxicity_extraction_in_chin/"
+    t: "STATE ToxiCN: A Benchmark for Span-level Target-Aware Toxicity Extraction in Chinese Hate Speech Detection"
+  - u: "taz2024full_analysing_german_newspapers_for_gender_bias_and_discrimination_acros/"
+    t: "taz2024full: Analysing German Newspapers for Gender Bias and Discrimination across Decades"
+  - u: "translate_with_care_addressing_gender_bias_neutrality_and_reasoning_in_large_lan/"
+    t: "Translate With Care: Addressing Gender Bias, Neutrality, and Reasoning in Large Language Model Translations"
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +75,7 @@ tags:
 
 **💬 ACL2025** · **27** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/social_computing/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/social_computing/index.md)
 
 🔥 **高频主题：** LLM ×8 · 语音 ×4 · 多模态 ×3 · 推理 ×2
 

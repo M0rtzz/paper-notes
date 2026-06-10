@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 图学习方向31篇论文解读
+  ICML2025 图学习论文汇总 · 31篇论文解读
 description: >-
   31篇ICML2025的图学习方向论文解读，涵盖图神经网络、LLM、布局/合成、RAG、持续学习、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "RAG"
   - "持续学习"
   - "推理"
+item_list:
+  - u: "a_cognac_shot_to_forget_bad_memories_corrective_unlearning_for_graph_neural_netw/"
+    t: "A Cognac Shot To Forget Bad Memories: Corrective Unlearning for Graph Neural Networks"
+  - u: "a_general_graph_spectral_wavelet_convolution_via_chebyshev_order_decomposition/"
+    t: "A General Graph Spectral Wavelet Convolution via Chebyshev Order Decomposition"
+  - u: "a_recipe_for_causal_graph_regression_confounding_effects_revisited/"
+    t: "A Recipe for Causal Graph Regression: Confounding Effects Revisited"
+  - u: "balancing_efficiency_and_expressiveness_subgraph_gnns_with_walk-based_centrality/"
+    t: "Balancing Efficiency and Expressiveness: Subgraph GNNs with Walk-Based Centrality"
+  - u: "banyan_improved_representation_learning_with_explicit_structure/"
+    t: "Banyan: Improved Representation Learning with Explicit Structure"
+  - u: "beyond_message_passing_neural_graph_pattern_machine/"
+    t: "Beyond Message Passing: Neural Graph Pattern Machine"
+  - u: "cody_counterfactual_explainers_for_dynamic_graphs/"
+    t: "CoDy: Counterfactual Explainers for Dynamic Graphs"
+  - u: "diss-l-ect_dissecting_graph_data_with_local_euler_characteristic_transforms/"
+    t: "Diss-l-ECT: Dissecting Graph Data with Local Euler Characteristic Transforms"
+  - u: "does_graph_prompt_work_a_data_operation_perspective_with_theoretical_analysis/"
+    t: "Does Graph Prompt Work? A Data Operation Perspective with Theoretical Analysis"
+  - u: "evomesh_adaptive_physical_simulation_with_hierarchical_graph_evolutions/"
+    t: "EvoMesh: Adaptive Physical Simulation with Hierarchical Graph Evolutions"
+  - u: "from_rag_to_memory_non-parametric_continual_learning_for_large_language_models/"
+    t: "From RAG to Memory: Non-Parametric Continual Learning for Large Language Models"
+  - u: "graph-constrained_reasoning_faithful_reasoning_on_knowledge_graphs_with_large_la/"
+    t: "Graph-constrained Reasoning: Faithful Reasoning on Knowledge Graphs with Large Language Models"
+  - u: "graph_attention_is_not_always_beneficial_a_theoretical_analysis_of_graph_attenti/"
+    t: "Graph Attention is Not Always Beneficial: A Theoretical Analysis of Graph Attention Mechanisms via Contextual Stochastic Block Models"
+  - u: "grokformer_graph_fourier_kolmogorov-arnold_transformers/"
+    t: "GrokFormer: Graph Fourier Kolmogorov-Arnold Transformers"
+  - u: "hgot_self-supervised_heterogeneous_graph_neural_network_with_optimal_transport/"
+    t: "HGOT: Self-supervised Heterogeneous Graph Neural Network with Optimal Transport"
+  - u: "hyperbolic-pde_gnn_spectral_graph_neural_networks_in_the_perspective_of_a_system/"
+    t: "Hyperbolic-PDE GNN: Spectral Graph Neural Networks in the Perspective of A System of Hyperbolic Partial Differential Equations"
+  - u: "is_complex_query_answering_really_complex/"
+    t: "Is Complex Query Answering Really Complex?"
+  - u: "learnable_spatial-temporal_positional_encoding_for_link_prediction/"
+    t: "L-STEP: Learnable Spatial-Temporal Positional Encoding for Link Prediction"
+  - u: "llm_enhancers_for_gnns_an_analysis_from_the_perspective_of_causal_mechanism_iden/"
+    t: "LLM Enhancers for GNNs: An Analysis from the Perspective of Causal Mechanism Identification"
+  - u: "machines_and_mathematical_mutations_using_gnns_to_characterize_quiver_mutation_c/"
+    t: "Machines and Mathematical Mutations: Using GNNs to Characterize Quiver Mutation Classes"
+  - u: "mitigating_over-squashing_in_graph_neural_networks_by_spectrum-preserving_sparsi/"
+    t: "Mitigating Over-Squashing in Graph Neural Networks by Spectrum-Preserving Sparsification"
+  - u: "mixed-curvature_decision_trees_and_random_forests/"
+    t: "Mixed-Curvature Decision Trees and Random Forests"
+  - u: "modeling_all-atom_glycan_structures_via_hierarchical_message_passing_and_multi-s/"
+    t: "GlycanAA: Modeling All-Atom Glycan Structures via Hierarchical Message Passing and Multi-Scale Pre-training"
+  - u: "on_measuring_long-range_interactions_in_graph_neural_networks/"
+    t: "On Measuring Long-Range Interactions in Graph Neural Networks"
+  - u: "open_your_eyes_vision_enhances_message_passing_neural_networks_in_link_predictio/"
+    t: "Open Your Eyes: Vision Enhances Message Passing Neural Networks in Link Prediction"
+  - u: "positional_encoding_meets_persistent_homology_on_graphs/"
+    t: "Positional Encoding meets Persistent Homology on Graphs"
+  - u: "tined_gnns-to-mlps_by_teacher_injection_and_dirichlet_energy_distillation/"
+    t: "TINED: GNNs-to-MLPs by Teacher Injection and Dirichlet Energy Distillation"
+  - u: "toping_topologically_interpretable_graph_learning_via_persistent_rationale_filtr/"
+    t: "TopInG: Topologically Interpretable Graph Learning via Persistent Rationale Filtration"
+  - u: "towards_graph_foundation_models_learning_generalities_across_graphs_via_task-tre/"
+    t: "Towards Graph Foundation Models: Learning Generalities Across Graphs via Task-Trees"
+  - u: "unifews_you_need_fewer_operations_for_efficient_graph_neural_networks/"
+    t: "Unifews: You Need Fewer Operations for Efficient Graph Neural Networks"
+item_total: 31
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧪 ICML2025** · **31** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (19)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md)
 
 🔥 **高频主题：** 图神经网络 ×6 · LLM ×3
 

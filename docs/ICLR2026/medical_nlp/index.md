@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 医疗 NLP方向13篇论文解读
+  ICLR2026 医疗NLP论文汇总 · 12篇论文解读
 description: >-
-  13篇ICLR2026的医疗 NLP 方向论文解读，涵盖医学影像、对话系统、推理、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  12篇ICLR2026的医疗 NLP 方向论文解读，涵盖医学影像、对话系统、推理、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "医疗 NLP"
@@ -12,14 +12,40 @@ tags:
   - "对话系统"
   - "推理"
   - "Agent"
+item_list:
+  - u: "atpo_adaptive_tree_policy_optimization_for_multi-turn_medical_dialogue/"
+    t: "ATPO: Adaptive Tree Policy Optimization for Multi-Turn Medical Dialogue"
+  - u: "biomedsql_text-to-sql_for_scientific_reasoning_on_biomedical_knowledge_bases/"
+    t: "BiomedSQL: Text-to-SQL for Scientific Reasoning on Biomedical Knowledge Bases"
+  - u: "can_saes_reveal_and_mitigate_racial_biases_of_llms_in_healthcare/"
+    t: "Can SAEs Reveal and Mitigate Racial Biases of LLMs in Healthcare?"
+  - u: "emr-agent_automating_cohort_and_feature_extraction_from_emr_databases/"
+    t: "EMR-AGENT: Automating Cohort and Feature Extraction from EMR Databases"
+  - u: "from_conversation_to_query_execution_benchmarking_user_and_tool_interactions_for/"
+    t: "From Conversation to Query Execution: Benchmarking User and Tool Interactions for EHR Database Agents"
+  - u: "histoprism_unlocking_functional_pathway_analysis_from_pan-cancer_histology_via_g/"
+    t: "HistoPrism: Unlocking Functional Pathway Analysis from Pan-Cancer Histology via Gene Expression Prediction"
+  - u: "knowledgeable_language_models_as_black-box_optimizers_for_personalized_medicine/"
+    t: "Knowledgeable Language Models as Black-Box Optimizers for Personalized Medicine"
+  - u: "mclm_a_modular_chemical_language_model_that_generates_functional_and_makeable_mo/"
+    t: "mCLM: A Modular Chemical Language Model that Generates Functional and Makeable Molecules"
+  - u: "medagentgym_agentic_training_biomedical/"
+    t: "MedAgentGym: A Scalable Agentic Training Environment for Code-Centric Reasoning in Biomedical Data Science"
+  - u: "resp-agent_an_agent-based_system_for_multimodal_respiratory_sound_generation_and/"
+    t: "Resp-Agent: An Agent-Based System for Multimodal Respiratory Sound Generation and Disease Diagnosis"
+  - u: "simpletom_exposing_the_gap_between_explicit_tom_inference_and_implicit_tom_appli/"
+    t: "SimpleToM: Exposing the Gap between Explicit ToM Inference and Implicit ToM Application in LLMs"
+  - u: "survhte-bench_a_benchmark_for_heterogeneous_treatment_effect_estimation_in_survi/"
+    t: "SurvHTE-Bench: A Benchmark for Heterogeneous Treatment Effect Estimation in Survival Analysis"
+item_total: 12
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🩺 医疗 NLP
 
-**🔬 ICLR2026** · **13** 篇论文解读
+**🔬 ICLR2026** · **12** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🤖 AAAI2026 (12)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (15)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
 
 🔥 **高频主题：** 医学影像 ×3 · 对话系统 ×2 · 推理 ×2 · Agent ×2
 
@@ -34,10 +60,6 @@ tags:
 **[Can SAEs Reveal and Mitigate Racial Biases of LLMs in Healthcare?](can_saes_reveal_and_mitigate_racial_biases_of_llms_in_healthcare.md)**
 
 :   研究稀疏自编码器（SAE）能否揭示和缓解 LLM 在医疗场景中的种族偏见：发现 SAE 能识别出与种族相关的有害联想（如黑人与暴力），但在复杂临床任务中缓解偏见的效果有限（FLDD < 3%），远不如简单的提示策略（FLDD 8-15%）。
-
-**[CounselBench: A Large-Scale Expert Evaluation and Adversarial Benchmarking of LLMs in Mental Health QA](counselbench_llm_mental_health_qa.md)**
-
-:   联合100名持证心理健康专家构建CounselBench双组件基准——CounselBench-EVAL（2,000条六维度专家评估）和CounselBench-Adv（120个对抗性问题+1,080条响应标注），系统性揭示LLM在心理健康开放式问答中表面得分高但存在过度泛化、擅自医疗建议等安全隐患，同时证明LLM-as-Judge在安全关键领域严重不可靠。
 
 **[EMR-AGENT: Automating Cohort and Feature Extraction from EMR Databases](emr-agent_automating_cohort_and_feature_extraction_from_emr_databases.md)**
 

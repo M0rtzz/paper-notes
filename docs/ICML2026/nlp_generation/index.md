@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 文本生成方向2篇论文解读
+  ICML2026 文本生成论文汇总 · 2篇论文解读
 description: >-
   2篇ICML2026的文本生成方向论文解读，收录 Characterizing the Effect of N、Score-Repellent Monte Carlo等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -8,6 +8,12 @@ tags:
   - "文本生成"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "characterizing_the_effect_of_noise_in_language_generation_in_the_limit/"
+    t: "Characterizing the Effect of Noise in Language Generation in the Limit"
+  - u: "score-repellent_monte_carlo_toward_efficient_non-markovian_sampler_with_constant/"
+    t: "Score-Repellent Monte Carlo: Toward Efficient Non-Markovian Sampler with Constant Memory in General State Spaces"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -15,7 +21,7 @@ tags:
 
 **🧪 ICML2026** · **2** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (17)](../../ACL2026/nlp_generation/index.md) · [🔬 ICLR2026 (2)](../../ICLR2026/nlp_generation/index.md) · [🤖 AAAI2026 (3)](../../AAAI2026/nlp_generation/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/nlp_generation/index.md) · [🧪 ICML2025 (1)](../../ICML2025/nlp_generation/index.md) · [💬 ACL2025 (26)](../../ACL2025/nlp_generation/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (17)](../../ACL2026/nlp_generation/index.md) · [🤖 AAAI2026 (1)](../../AAAI2026/nlp_generation/index.md) · [🧪 ICML2025 (1)](../../ICML2025/nlp_generation/index.md) · [📷 CVPR2025 (1)](../../CVPR2025/nlp_generation/index.md)
 
 **[Characterizing the Effect of Noise in Language Generation in the Limit](characterizing_the_effect_of_noise_in_language_generation_in_the_limit.md)**
 

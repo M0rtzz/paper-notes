@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 推荐系统方向11篇论文解读
+  ICML2026 推荐系统论文汇总 · 11篇论文解读
 description: >-
   11篇ICML2026的推荐系统方向论文解读，涵盖推荐系统、LLM、对抗鲁棒、自监督学习、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,30 @@ tags:
   - "对抗鲁棒"
   - "自监督学习"
   - "个性化生成"
+item_list:
+  - u: "a_paired_testing_protocol_for_batch-conditioned_refusal_robustness_in_llm_servin/"
+    t: "A Paired Testing Protocol for Batch-Conditioned Refusal Robustness in LLM Serving"
+  - u: "can_recommender_systems_teach_themselves_a_recursive_self-improving_framework_wi/"
+    t: "Can Recommender Systems Teach Themselves? A Recursive Self-Improving Framework with Fidelity Control"
+  - u: "gcib_graph_contrastive_information_bottleneck_for_multi-behavior_recommendation/"
+    t: "GCIB: Graph Contrastive Information Bottleneck for Multi-Behavior Recommendation"
+  - u: "incentivized_exploration_with_stochastic_covariates_a_two-stage_mechanism_design/"
+    t: "Incentivized Exploration with Stochastic Covariates: A Two-Stage Mechanism Design for Recommender System"
+  - u: "learning_design_skills_as_memory_policies_for_agentic_photonic_inverse_design/"
+    t: "Learning Design Skills as Memory Policies for Agentic Photonic Inverse Design"
+  - u: "position_neglecting_the_sustainability_of_ai_is_fuelling_a_global_ai_arms_race/"
+    t: "Position: Neglecting the Sustainability of AI is Fuelling a Global AI Arms Race"
+  - u: "position_stop_preaching_and_start_practising_data_frugality_for_responsible_deve/"
+    t: "Position: Stop Preaching and Start Practising Data Frugality for Responsible Development of AI"
+  - u: "prompts_for_public-sector_llms_should_be_governed_as_commons/"
+    t: "Prompts for Public-Sector LLMs Should Be Governed as Commons"
+  - u: "rethinking_contrastive_learning_for_graph_collaborative_filtering_limitations_an/"
+    t: "Rethinking Contrastive Learning for Graph Collaborative Filtering: Limitations and a Simple Remedy"
+  - u: "rgmem_renormalization_group-inspired_memory_evolution_for_language_agents/"
+    t: "RGMem: Renormalization Group-Inspired Memory Evolution for Language Agents"
+  - u: "t-pop_test-time_personalization_with_online_preference_feedback/"
+    t: "T-POP: Test-Time Personalization with Online Preference Feedback"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

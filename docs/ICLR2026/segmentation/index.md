@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 语义分割方向11篇论文解读
+  ICLR2026 语义分割论文汇总 · 11篇论文解读
 description: >-
   11篇ICLR2026的语义分割方向论文解读，涵盖扩散模型、语义分割、对齐/RLHF、压缩/编码、推理、翻译等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,30 @@ tags:
   - "压缩/编码"
   - "推理"
   - "翻译"
+item_list:
+  - u: "amlris_alignment-aware_masked_learning_for_referring_image_segmentation/"
+    t: "AMLRIS: Alignment-aware Masked Learning for Referring Image Segmentation"
+  - u: "byteflow_language_modeling_through_adaptive_byte_compression_without_a_tokenizer/"
+    t: "ByteFlow: Language Modeling through Adaptive Byte Compression without a Tokenizer"
+  - u: "efficient-sam2_accelerating_sam2_with_object-aware_visual_encoding_and_memory_re/"
+    t: "Efficient-SAM2: Accelerating SAM2 with Object-Aware Visual Encoding and Memory Retrieval"
+  - u: "locality-attending_vision_transformer/"
+    t: "Locality-Attending Vision Transformer"
+  - u: "regionreasoner_region-grounded_multi-round_visual_reasoning/"
+    t: "RegionReasoner: Region-Grounded Multi-Round Visual Reasoning"
+  - u: "revisiting_cls_and_patch_token_interaction_in_vision_transformers/"
+    t: "Revisiting [CLS] and Patch Token Interaction in Vision Transformers"
+  - u: "thicker_and_quicker_a_jumbo_token_for_fast_plain_vision_transformers/"
+    t: "Thicker and Quicker: A Jumbo Token for Fast Plain Vision Transformers"
+  - u: "trace_your_diffusion_model_is_secretly_an_instance_edge_detector/"
+    t: "TRACE: Your Diffusion Model is Secretly an Instance Edge Detector"
+  - u: "universal_multi-domain_translation_via_diffusion_routers/"
+    t: "Universal Multi-Domain Translation via Diffusion Routers"
+  - u: "vincie_unlocking_in-context_image_editing_from_video/"
+    t: "VINCIE: Unlocking In-context Image Editing from Video"
+  - u: "virtue_visual-interactive_text-image_universal_embedder/"
+    t: "VIRTUE: Visual-Interactive Text-Image Universal Embedder"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +44,7 @@ tags:
 
 **🔬 ICLR2026** · **11** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (45)](../../NeurIPS2025/segmentation/index.md) · [📹 ICCV2025 (74)](../../ICCV2025/segmentation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (44)](../../NeurIPS2025/segmentation/index.md) · [📹 ICCV2025 (74)](../../ICCV2025/segmentation/index.md)
 
 🔥 **高频主题：** 扩散模型 ×2
 

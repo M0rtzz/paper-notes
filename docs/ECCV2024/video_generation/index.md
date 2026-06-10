@@ -1,6 +1,6 @@
 ---
 title: >-
-  ECCV2024 视频生成方向14篇论文解读
+  ECCV2024 视频生成论文汇总 · 14篇论文解读
 description: >-
   14篇ECCV2024的视频生成方向论文解读，涵盖扩散模型、视频生成、超分辨率等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,36 @@ tags:
   - "论文笔记"
   - "扩散模型"
   - "超分辨率"
+item_list:
+  - u: "blazebvd_make_scale-time_equalization_great_again_for_blind_video_deflickering/"
+    t: "BlazeBVD: Make Scale-Time Equalization Great Again for Blind Video Deflickering"
+  - u: "draganything_motion_control_for_anything_using_entity_representation/"
+    t: "DragAnything: Motion Control for Anything using Entity Representation"
+  - u: "dreammotion_space-time_self-similar_score_distillation_for_zero-shot_video_editi/"
+    t: "DreamMotion: Space-Time Self-Similar Score Distillation for Zero-Shot Video Editing"
+  - u: "evaluating_text-to-visual_generation_with_image-to-text_generation/"
+    t: "Evaluating Text-to-Visual Generation with Image-to-Text Generation"
+  - u: "exploring_pre-trained_text-to-video_diffusion_models_for_referring_video_object_/"
+    t: "Exploring Pre-trained Text-to-Video Diffusion Models for Referring Video Object Segmentation"
+  - u: "freeinit_bridging_initialization_gap_in_video_diffusion_models/"
+    t: "FreeInit: Bridging Initialization Gap in Video Diffusion Models"
+  - u: "kalman-inspired_feature_propagation_for_video_face_super-resolution/"
+    t: "Kalman-Inspired Feature Propagation for Video Face Super-Resolution"
+  - u: "magdiff_multi-alignment_diffusion_for_high-fidelity_video_generation_and_editing/"
+    t: "MagDiff: Multi-Alignment Diffusion for High-Fidelity Video Generation and Editing"
+  - u: "mofa-video_controllable_image_animation_via_generative_motion_field_adaptions_in/"
+    t: "MOFA-Video: Controllable Image Animation via Generative Motion Field Adaptions in Frozen Image-to-Video Diffusion Model"
+  - u: "physdreamer_physics-based_interaction_with_3d_objects_via_video_generation/"
+    t: "PhysDreamer: Physics-Based Interaction with 3D Objects via Video Generation"
+  - u: "realviformer_investigating_attention_for_real-world_video_super-resolution/"
+    t: "RealViformer: Investigating Attention for Real-World Video Super-Resolution"
+  - u: "sv3d_novel_multi-view_synthesis_and_3d_generation_from_a_single_image_using_late/"
+    t: "SV3D: Novel Multi-view Synthesis and 3D Generation from a Single Image using Latent Video Diffusion"
+  - u: "vfusion3d_learning_scalable_3d_generative_models_from_video_diffusion_models/"
+    t: "VFusion3D: Learning Scalable 3D Generative Models from Video Diffusion Models"
+  - u: "videoshop_localized_semantic_video_editing_with_noise-extrapolated_diffusion_inv/"
+    t: "Videoshop: Localized Semantic Video Editing with Noise-Extrapolated Diffusion Inversion"
+item_total: 14
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

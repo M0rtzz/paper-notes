@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 语义分割方向18篇论文解读
+  ICML2025 语义分割论文汇总 · 18篇论文解读
 description: >-
   18篇ICML2025的语义分割方向论文解读，涵盖语义分割、推荐系统、少样本学习、遥感等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,44 @@ tags:
   - "推荐系统"
   - "少样本学习"
   - "遥感"
+item_list:
+  - u: "actionpiece_contextually_tokenizing_action_sequences_for_generative_recommendati/"
+    t: "ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation"
+  - u: "actionpiece_contextually_tokenizing_action_sequences_generative_recommendation/"
+    t: "ActionPiece: Contextually Tokenizing Action Sequences for Generative Recommendation"
+  - u: "adapter_naturally_serves_as_decoupler_for_cross-domain_few-shot_semantic_segment/"
+    t: "Adapter Naturally Serves as Decoupler for Cross-Domain Few-Shot Semantic Segmentation"
+  - u: "alberta_wells_dataset_pinpointing_oil_and_gas_wells_from_satellite_imagery/"
+    t: "Alberta Wells Dataset: Pinpointing Oil and Gas Wells from Satellite Imagery"
+  - u: "balanced_learning_for_domain_adaptive_semantic_segmentation/"
+    t: "Balanced Learning for Domain Adaptive Semantic Segmentation"
+  - u: "context_driving_in-context_learning_for_text_removal_and_segmentation/"
+    t: "ConText: Driving In-context Learning for Text Removal and Segmentation"
+  - u: "dual_form_complementary_masking_for_domain-adaptive_image_segmentation/"
+    t: "Dual form Complementary Masking for Domain-Adaptive Image Segmentation"
+  - u: "efficient_and_robust_semantic_image_communication_via_stable_cascade/"
+    t: "Efficient and Robust Semantic Image Communication via Stable Cascade"
+  - u: "featsharp_your_vision_model_features_sharper/"
+    t: "FeatSharp: Your Vision Model Features, Sharper"
+  - u: "infosam_fine-tuning_the_segment_anything_model_from_an_information-theoretic_per/"
+    t: "InfoSAM: Fine-Tuning the Segment Anything Model from An Information-Theoretic Perspective"
+  - u: "it3_idempotent_test-time_training/"
+    t: "IT³: Idempotent Test-Time Training"
+  - u: "morphtok_morphologically_grounded_tokenization_for_indian_languages/"
+    t: "MorphTok: Morphologically Grounded Tokenization for Indian Languages"
+  - u: "qmamba_on_first_exploration_of_vision_mamba_for_image_quality_assessment/"
+    t: "QMamba: On First Exploration of Vision Mamba for Image Quality Assessment"
+  - u: "self-disentanglement_and_re-composition_for_cross-domain_few-shot_segmentation/"
+    t: "Self-Disentanglement and Re-Composition for Cross-Domain Few-Shot Segmentation"
+  - u: "separating_knowledge_and_perception_with_procedural_data/"
+    t: "Separating Knowledge and Perception with Procedural Data"
+  - u: "spikevideoformer_an_efficient_spike-driven_video_transformer_with_hamming_attent/"
+    t: "SpikeVideoFormer: An Efficient Spike-Driven Video Transformer with Hamming Attention and $\\mathcal{O}(T)$ Complexity"
+  - u: "unmore_unsupervised_multi-object_segmentation_via_center-boundary_reasoning/"
+    t: "unMORE: Unsupervised Multi-Object Segmentation via Center-Boundary Reasoning"
+  - u: "using_multiple_input_modalities_can_improve_data-efficiency_and_ood_generalizati/"
+    t: "Using Multiple Input Modalities Can Improve Data-Efficiency and O.O.D. Generalization for ML with Satellite Imagery"
+item_total: 18
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +56,7 @@ tags:
 
 **🧪 ICML2025** · **18** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (45)](../../NeurIPS2025/segmentation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (44)](../../NeurIPS2025/segmentation/index.md)
 
 🔥 **高频主题：** 语义分割 ×6 · 推荐系统 ×2 · 少样本学习 ×2 · 遥感 ×2
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ECCV2024 信号/通信方向6篇论文解读
+  ECCV2024 信号/通信论文汇总 · 6篇论文解读
 description: >-
   6篇ECCV2024的信号/通信方向论文解读，收录 Defect Spectrum、Optimizing Illuminant Estimati、PYRA等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -8,6 +8,20 @@ tags:
   - "信号/通信"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "defect_spectrum_a_granular_look_of_large-scale_defect_datasets_with_rich_semanti/"
+    t: "Defect Spectrum: A Granular Look of Large-Scale Defect Datasets with Rich Semantics"
+  - u: "optimizing_illuminant_estimation_in_dual-exposure_hdr_imaging/"
+    t: "Optimizing Illuminant Estimation in Dual-Exposure HDR Imaging"
+  - u: "pyra_parallel_yielding_re-activation_for_training-inference_efficient_task_adapt/"
+    t: "PYRA: Parallel Yielding Re-Activation for Training-Inference Efficient Task Adaptation"
+  - u: "querycdr_query-based_controllable_distortion_rectification_network_for_fisheye_i/"
+    t: "QueryCDR: Query-based Controllable Distortion Rectification Network for Fisheye Images"
+  - u: "raw-adapter_adapting_pre-trained_visual_model_to_camera_raw_images/"
+    t: "RAW-Adapter: Adapting Pre-trained Visual Model to Camera RAW Images"
+  - u: "unsupervised_exposure_correction/"
+    t: "Unsupervised Exposure Correction"
+item_total: 6
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

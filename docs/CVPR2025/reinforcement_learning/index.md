@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 强化学习方向5篇论文解读
+  CVPR2025 强化学习论文汇总 · 5篇论文解读
 description: >-
   5篇CVPR2025的强化学习方向论文解读，涵盖强化学习、压缩/编码等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,18 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "压缩/编码"
+item_list:
+  - u: "calf_communication_aware_distributed_rl/"
+    t: "CALF: Communication-Aware Learning Framework for Distributed Reinforcement Learning"
+  - u: "gazing_at_rewards_eye_movements_as_a_lens_into_human_and_ai_decision-making_in_h/"
+    t: "Gazing at Rewards: Eye Movements as a Lens into Human and AI Decision-Making in Hybrid Visual Foraging"
+  - u: "grove_a_generalized_reward_for_learning_open-vocabulary_physical_skill/"
+    t: "GROVE: A Generalized Reward for Learning Open-Vocabulary Physical Skill"
+  - u: "skillmimic_learning_basketball_interaction_skills_from_demonstrations/"
+    t: "SkillMimic: Learning Basketball Interaction Skills from Demonstrations"
+  - u: "thinking_in_streaming_video/"
+    t: "ThinkStream: Thinking in Streaming Video"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

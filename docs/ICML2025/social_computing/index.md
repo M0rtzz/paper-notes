@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 社会计算方向6篇论文解读
+  ICML2025 社会计算论文汇总 · 6篇论文解读
 description: >-
   6篇ICML2025的社会计算方向论文解读，涵盖 LLM、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,20 @@ tags:
   - "论文笔记"
   - "LLM"
   - "多模态"
+item_list:
+  - u: "defame_dynamic_evidence-based_fact-checking_with_multimodal_experts/"
+    t: "DEFAME: Dynamic Evidence-based FAct-checking with Multimodal Experts"
+  - u: "dynamical_phases_of_short-term_memory_mechanisms_in_rnns/"
+    t: "Dynamical Phases of Short-Term Memory Mechanisms in RNNs"
+  - u: "learning_survival_distributions_with_the_asymmetric_laplace_distribution/"
+    t: "Learning Survival Distributions with the Asymmetric Laplace Distribution"
+  - u: "or-bench_an_over-refusal_benchmark_for_large_language_models/"
+    t: "OR-Bench: An Over-Refusal Benchmark for Large Language Models"
+  - u: "raising_the_bar_investigating_the_values_of_large_language_models_via_generative/"
+    t: "Raising the Bar: Investigating the Values of Large Language Models via Generative Evolving Testing"
+  - u: "when_bad_data_leads_to_good_models/"
+    t: "When Bad Data Leads to Good Models"
+item_total: 6
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +31,7 @@ tags:
 
 **🧪 ICML2025** · **6** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/social_computing/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/social_computing/index.md)
 
 🔥 **高频主题：** LLM ×2
 

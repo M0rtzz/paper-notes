@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 因果推理方向7篇论文解读
+  ACL2026 因果推理论文汇总 · 7篇论文解读
 description: >-
   7篇ACL2026的因果推理方向论文解读，涵盖 LLM、推理、多模态、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,22 @@ tags:
   - "推理"
   - "多模态"
   - "对抗鲁棒"
+item_list:
+  - u: "better_and_worse_with_scale_how_contextual_entrainment_diverges_with_model_size/"
+    t: "Better and Worse with Scale: How Contextual Entrainment Diverges with Model Size"
+  - u: "climatecause_complex_and_implicit_causal_structures_in_climate_reports/"
+    t: "ClimateCause: Complex and Implicit Causal Structures in Climate Reports"
+  - u: "evaluating_counterfactual_strategic_reasoning_in_large_language_models/"
+    t: "Evaluating Counterfactual Strategic Reasoning in Large Language Models"
+  - u: "function_words_as_statistical_cues_for_language_learning/"
+    t: "Function Words as Statistical Cues for Language Learning"
+  - u: "itag_inverse_design_for_natural_text_generation_with_accurate_causal_graph_annot/"
+    t: "iTAG: Inverse Design for Natural Text Generation with Accurate Causal Graph Annotations"
+  - u: "learning_invariant_modality_representation_for_robust_multimodal_learning_from_a/"
+    t: "Learning Invariant Modality Representation for Robust Multimodal Learning from a Causal Inference Perspective"
+  - u: "parallel_universes_parallel_languages_a_comprehensive_study_on_llm-based_multili/"
+    t: "Parallel Universes, Parallel Languages: A Comprehensive Study on LLM-based Multilingual Counterfactual Example Generation"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +35,7 @@ tags:
 
 **💬 ACL2026** · **7** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
 
 🔥 **高频主题：** LLM ×2
 

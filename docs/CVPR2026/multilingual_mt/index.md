@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 多语言/翻译方向2篇论文解读
+  CVPR2026 多语言/翻译论文汇总 · 2篇论文解读
 description: >-
   2篇CVPR2026的多语言/翻译方向论文解读，涵盖推理、翻译等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,12 @@ tags:
   - "论文笔记"
   - "推理"
   - "翻译"
+item_list:
+  - u: "mmtit-bench_a_multilingual_and_multi-scenario_benchmark_with_cognition-perceptio/"
+    t: "MMTIT-Bench: A Multilingual and Multi-Scenario Benchmark with Cognition-Perception-Reasoning Guided Text-Image Machine Translation"
+  - u: "sea-vision_a_multilingual_benchmark_for_comprehensive_document_and_scene_text_un/"
+    t: "SEA-Vision: A Multilingual Benchmark for Document and Scene Text Understanding in Southeast Asia"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

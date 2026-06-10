@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 AIGC 检测方向7篇论文解读
+  ICML2026 AIGC检测论文汇总 · 7篇论文解读
 description: >-
   7篇ICML2026的 AIGC 检测方向论文解读，涵盖 LLM、对抗鲁棒、多模态、推理、机器人、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,22 @@ tags:
   - "推理"
   - "机器人"
   - "对齐/RLHF"
+item_list:
+  - u: "autobaxbuilder_bootstrapping_code_security_benchmarking/"
+    t: "AutoBaxBuilder: Bootstrapping Code Security Benchmarking"
+  - u: "black-box_detection_of_llm-generated_text_using_generalized_jensen-shannon_diver/"
+    t: "Black-Box Detection of LLM-Generated Text Using Generalized Jensen-Shannon Divergence"
+  - u: "core_conflict-oriented_reasoning_for_general_multimodal_manipulation_detection/"
+    t: "CORE: Conflict-Oriented Reasoning for General Multimodal Manipulation Detection"
+  - u: "distributional_open-ended_evaluation_of_llm_cultural_value_alignment_based_on_va/"
+    t: "Distributional Open-Ended Evaluation of LLM Cultural Value Alignment Based on Value Codebook"
+  - u: "feature-augmented_transformers_for_robust_ai-text_detection_across_domains_and_g/"
+    t: "Feature-Augmented Transformers for Robust AI-Text Detection Across Domains and Generators"
+  - u: "generating_robust_portfolios_of_optimization_models_using_large_language_models/"
+    t: "Generating Robust Portfolios of Optimization Models using Large Language Models"
+  - u: "on_the_salience_of_low-probability_tokens_for_ai-generated_text_detection_a_mult/"
+    t: "On the Salience of Low-Probability Tokens for AI-Generated Text Detection: A Multiscale Uncertainty Perspective"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

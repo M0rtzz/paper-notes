@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 知识编辑方向8篇论文解读
+  ICLR2026 知识编辑论文汇总 · 8篇论文解读
 description: >-
   8篇ICLR2026的知识编辑方向论文解读，涵盖对齐/RLHF、对抗鲁棒、目标跟踪、布局/合成、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,24 @@ tags:
   - "目标跟踪"
   - "布局/合成"
   - "多模态"
+item_list:
+  - u: "bilinear_representation_mitigates_reversal_curse_and_enables_consistent_model_ed/"
+    t: "Bilinear Representation Mitigates Reversal Curse and Enables Consistent Model Editing"
+  - u: "eamet_robust_massive_model_editing_via_embedding_alignment_optimization/"
+    t: "EAMET: Robust Massive Model Editing via Embedding Alignment Optimization"
+  - u: "energy-regularized_sequential_model_editing_on_hyperspheres/"
+    t: "Energy-Regularized Sequential Model Editing on Hyperspheres"
+  - u: "fine-tuning_done_right_in_model_editing/"
+    t: "Fine-tuning Done Right in Model Editing"
+  - u: "got-edit_geometry-aware_generic_object_tracking_via_online_model_editing/"
+    t: "GOT-Edit: Geometry-Aware Generic Object Tracking via Online Model Editing"
+  - u: "pics_pairwise_image_compositing_with_spatial_interactions/"
+    t: "PICS: Pairwise Image Compositing with Spatial Interactions"
+  - u: "rote_learning_considered_useful_generalizing_over_memorized_training_examples/"
+    t: "Rote Learning Considered Useful: Generalizing over Memorized Training Examples"
+  - u: "when_large_multimodal_models_confront_evolving_knowledge_challenges_and_explorat/"
+    t: "When Large Multimodal Models Confront Evolving Knowledge: Challenges and Explorations"
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

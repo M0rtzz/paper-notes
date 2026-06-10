@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 图学习方向31篇论文解读
+  ICML2026 图学习论文汇总 · 31篇论文解读
 description: >-
   31篇ICML2026的图学习方向论文解读，涵盖图神经网络、LLM、扩散模型、推理、异常检测、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "推理"
   - "异常检测"
   - "问答"
+item_list:
+  - u: "aitchison_embeddings_for_learning_compositional_graph_representations/"
+    t: "Aitchison Embeddings for Learning Compositional Graph Representations"
+  - u: "an_approximation_algorithm_for_graph_label_selection/"
+    t: "An Approximation Algorithm for Graph Label Selection"
+  - u: "anchor-guided_hypergraph_condensation_with_dual-level_discrimination/"
+    t: "Anchor-guided Hypergraph Condensation with Dual-level Discrimination"
+  - u: "are_common_substructures_transferable_riemannian_graph_foundation_model_with_neu/"
+    t: "Are Common Substructures Transferable? Riemannian Graph Foundation Model with Neural Vector Bundles"
+  - u: "beyond_model_base_retrieval_weaving_knowledge_to_master_fine-grained_neural_netw/"
+    t: "Beyond Model Base Retrieval: Weaving Knowledge to Master Fine-grained Neural Network Design"
+  - u: "deep_neural_sheaf_diffusion/"
+    t: "Deep Neural Sheaf Diffusion"
+  - u: "dtkg_dual-track_knowledge_graph-verified_reasoning_framework_for_multi-hop_qa/"
+    t: "DTKG: Dual-Track Knowledge Graph-Verified Reasoning Framework for Multi-Hop QA"
+  - u: "finding_the_minimal_parameter_budget_for_implicit_reasoning_a_data_complexity_dr/"
+    t: "Finding the Minimal Parameter Budget for Implicit Reasoning: A Data Complexity Driven Scaling Law for Language Models"
+  - u: "fixed_aggregation_features_can_rival_gnns/"
+    t: "Fixed Aggregation Features Can Rival GNNs"
+  - u: "full-spectrum_graph_neural_network_expressive_and_scalable/"
+    t: "Full-Spectrum Graph Neural Network: Expressive and Scalable"
+  - u: "generalist_graph_anomaly_detection_via_prototype-based_distillation/"
+    t: "ProMoS: Generalist Graph Anomaly Detection via Prototype-Based Distillation"
+  - u: "generative_representation_learning_on_hyper-relational_knowledge_graphs_via_mask/"
+    t: "Generative Representation Learning on Hyper-relational Knowledge Graphs via Masked Discrete Diffusion"
+  - u: "gilt_an_llm-free_tuning-free_graph_foundational_model_for_in-context_learning/"
+    t: "GILT: An LLM-Free, Tuning-Free Graph Foundational Model for In-Context Learning"
+  - u: "identifying_and_correcting_label_noise_for_robust_gnns_via_influence_contradicti/"
+    t: "Identifying and Correcting Label Noise for Robust GNNs via Influence Contradiction"
+  - u: "kbqa-r1_reinforcing_large_language_models_for_knowledge_base_question_answering/"
+    t: "KBQA-R1: Reinforcing Large Language Models for Knowledge Base Question Answering"
+  - u: "l2g-net_local_to_global_spectral_graph_neural_networks_via_cauchy_factorizations/"
+    t: "L2G-Net: Local to Global Spectral Graph Neural Networks via Cauchy Factorizations"
+  - u: "learnable_kernel_density_estimation_for_graphs_and_its_application_to_graph-leve/"
+    t: "Learnable Kernel Density Estimation for Graphs and Its Application to Graph-Level Anomaly Detection"
+  - u: "medcog_maximizing_llm_inference_density_in_medical_reasoning_via_meta-cognitive_/"
+    t: "MedCoG: Maximizing LLM Inference Density in Medical Reasoning via Meta-Cognitive Regulation"
+  - u: "message_tuning_outshines_graph_prompt_tuning_a_prismatic_space_perspective/"
+    t: "Message Tuning Outshines Graph Prompt Tuning: A Prismatic Space Perspective"
+  - u: "physics-informed_coarsening_for_multigrid_graph_neural_surrogates/"
+    t: "Physics-Informed Coarsening for Multigrid Graph Neural Surrogates"
+  - u: "polynomial_neural_sheaf_diffusion_a_spectral_filtering_approach_on_cellular_shea/"
+    t: "Polynomial Neural Sheaf Diffusion: A Spectral Filtering Approach on Cellular Sheaves"
+  - u: "quantile-free_uncertainty_quantification_in_graph_neural_networks/"
+    t: "Quantile-Free Uncertainty Quantification in Graph Neural Networks"
+  - u: "rade_random_add-drop_edge_as_a_regularizer/"
+    t: "RADE: Random Add-Drop Edge as a Regularizer"
+  - u: "rethinking_feature_alignment_in_generalist_graph_anomaly_detection_a_relational_/"
+    t: "Rethinking Feature Alignment in Generalist Graph Anomaly Detection: A Relational Fingerprint-based Approach"
+  - u: "structure-centric_graph_foundation_model_via_geometric_bases/"
+    t: "Structure-Centric Graph Foundation Model via Geometric Bases"
+  - u: "t-ginee_a_tensor-based_multilayer_graph_representation_learning/"
+    t: "T-GINEE: A Tensor-Based Multilayer Graph Representation Learning"
+  - u: "unsat_core_prediction_through_polarity-aware_representation_learning_over_clause/"
+    t: "Unsat Core Prediction through Polarity-Aware Representation Learning over Clause-Literal Hypergraphs"
+  - u: "view_space_learning_representation_across_arbitrary_graphs/"
+    t: "View Space：跨任意图的表示学习"
+  - u: "what_structural_inductive_bias_helps_transformers_reason_over_knowledge_graphs_a/"
+    t: "What Structural Inductive Bias Helps Transformers Reason Over Knowledge Graphs? A Study with Tabula RASA"
+  - u: "when_do_graph_foundation_models_transfer_a_data-centric_theory/"
+    t: "When Do Graph Foundation Models Transfer? A Data-Centric Theory"
+item_total: 31
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧪 ICML2026** · **31** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (19)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
 
 🔥 **高频主题：** 图神经网络 ×4 · LLM ×4 · 扩散模型 ×3 · 推理 ×3 · 异常检测 ×3
 

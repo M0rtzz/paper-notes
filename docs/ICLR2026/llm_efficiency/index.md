@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 LLM 效率方向20篇论文解读
+  ICLR2026 LLM效率论文汇总 · 20篇论文解读
 description: >-
   20篇ICLR2026的 LLM 效率方向论文解读，涵盖 LLM、持续学习、对抗鲁棒、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,48 @@ tags:
   - "持续学习"
   - "对抗鲁棒"
   - "布局/合成"
+item_list:
+  - u: "deep_hierarchical_learning_with_nested_subspace_networks_for_large_language_mode/"
+    t: "Deep Hierarchical Learning with Nested Subspace Networks for Large Language Models"
+  - u: "did_you_check_the_right_pocket_cost-sensitive_store_routing_for_memory-augmented/"
+    t: "Did You Check the Right Pocket? Cost-Sensitive Store Routing for Memory-Augmented Agents"
+  - u: "dnd_boosting_large_language_models_with_dynamic_nested_depth/"
+    t: "DND: Boosting Large Language Models with Dynamic Nested Depth"
+  - u: "efficient_resource-constrained_training_of_transformers_via_subspace_optimizatio/"
+    t: "Efficient Resource-Constrained Training of Transformers via Subspace Optimization"
+  - u: "evoengineer_mastering_automated_cuda_kernel_code_evolution_with_large_language_m/"
+    t: "EvoEngineer: Mastering Automated CUDA Kernel Code Evolution with Large Language Models"
+  - u: "expert_divergence_learning_for_moe-based_language_models/"
+    t: "Expert Divergence Learning for MoE-based Language Models"
+  - u: "fast_catch-up_late_switching_optimal_batch_size_scheduling_via_functional_scalin/"
+    t: "Fast Catch-Up, Late Switching: Optimal Batch Size Scheduling via Functional Scaling Laws"
+  - u: "group_representational_position_encoding/"
+    t: "Group Representational Position Encoding (GRAPE)"
+  - u: "iterresearch_rethinking_long-horizon_agents_with_interaction_scaling/"
+    t: "IterResearch: Rethinking Long-Horizon Agents with Interaction Scaling"
+  - u: "lycheedecode_accelerating_long-context_llm_inference_via_hybrid-head_sparse_deco/"
+    t: "LycheeDecode: Accelerating Long-Context LLM Inference via Hybrid-Head Sparse Decoding"
+  - u: "one-prompt_strikes_back_sparse_mixture_of_experts_for_prompt-based_continual_lea/"
+    t: "One-Prompt Strikes Back: Sparse Mixture of Experts for Prompt-based Continual Learning"
+  - u: "race_attention_a_strictly_linear-time_attention_for_long-sequence_training/"
+    t: "RACE Attention: A Strictly Linear-Time Attention for Long-Sequence Training"
+  - u: "randomization_boosts_kv_caching_learning_balances_query_load_a_joint_perspective/"
+    t: "Randomization Boosts KV Caching, Learning Balances Query Load: A Joint Perspective"
+  - u: "semantic_parallelism_redefining_efficient_moe_inference_via_model-data_co-schedu/"
+    t: "Semantic Parallelism: Redefining Efficient MoE Inference via Model-Data Co-Scheduling"
+  - u: "swingarena_competitive_programming_arena_for_long-context_github_issue_solving/"
+    t: "SwingArena: Adversarial Programming Arena for Long-context GitHub Issue Solving"
+  - u: "tokenseek_memory_efficient_fine_tuning_via_instance-aware_token_selection/"
+    t: "TokenSeek: Memory Efficient Fine Tuning via Instance-Aware Token Selection"
+  - u: "understanding_and_improving_length_generalization_in_hierarchical_sparse_attenti/"
+    t: "Understanding and Improving Length Generalization in Hierarchical Sparse Attention Models"
+  - u: "universe_routing_why_self-evolving_agents_need_epistemic_control/"
+    t: "Universe Routing: Why Self-Evolving Agents Need Epistemic Control"
+  - u: "when_does_divide_and_conquer_work_for_long_context_llm_a_noise_decomposition_fra/"
+    t: "When Does Divide and Conquer Work for Long Context LLM? A Noise Decomposition Framework"
+  - u: "xlstm_scaling_laws_competitive_performance_with_linear_time-complexity/"
+    t: "xLSTM Scaling Laws: Competitive Performance with Linear Time-Complexity"
+item_total: 20
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

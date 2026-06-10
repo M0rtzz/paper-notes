@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 NLP 理解方向2篇论文解读
+  ICML2026 NLP理解论文汇总 · 2篇论文解读
 description: >-
   2篇ICML2026的 NLP 理解方向论文解读，收录 Causal Fine-Tuning under Laten、Controlling the Risk of Corrup等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -8,6 +8,12 @@ tags:
   - "NLP 理解"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "causal_fine-tuning_under_latent_confounded_shift/"
+    t: "Causal Fine-Tuning under Latent Confounded Shift"
+  - u: "controlling_the_risk_of_corrupted_contexts_for_language_models_via_early-exiting/"
+    t: "Controlling the Risk of Corrupted Contexts for Language Models via Early-Exiting"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -15,7 +21,7 @@ tags:
 
 **🧪 ICML2026** · **2** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (33)](../../ACL2026/nlp_understanding/index.md) · [🔬 ICLR2026 (1)](../../ICLR2026/nlp_understanding/index.md) · [🤖 AAAI2026 (1)](../../AAAI2026/nlp_understanding/index.md) · [🧠 NeurIPS2025 (3)](../../NeurIPS2025/nlp_understanding/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/nlp_understanding/index.md) · [🧪 ICML2025 (1)](../../ICML2025/nlp_understanding/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (33)](../../ACL2026/nlp_understanding/index.md) · [🔬 ICLR2026 (1)](../../ICLR2026/nlp_understanding/index.md) · [🧠 NeurIPS2025 (1)](../../NeurIPS2025/nlp_understanding/index.md)
 
 **[Causal Fine-Tuning under Latent Confounded Shift](causal_fine-tuning_under_latent_confounded_shift.md)**
 

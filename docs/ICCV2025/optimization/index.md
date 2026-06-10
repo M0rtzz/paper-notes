@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 优化/理论方向7篇论文解读
+  ICCV2025 优化/理论论文汇总 · 7篇论文解读
 description: >-
   7篇ICCV2025的优化/理论方向论文解读，涵盖联邦学习、模型压缩、个性化生成、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,22 @@ tags:
   - "模型压缩"
   - "个性化生成"
   - "多模态"
+item_list:
+  - u: "addressing_representation_collapse_in_vector_quantized_models_with_one_linear_la/"
+    t: "Addressing Representation Collapse in Vector Quantized Models with One Linear Layer"
+  - u: "class-wise_federated_averaging_for_efficient_personalization/"
+    t: "Class-Wise Federated Averaging for Efficient Personalization"
+  - u: "federated_continual_instruction_tuning/"
+    t: "Federated Continual Instruction Tuning"
+  - u: "federated_prompt-tuning_with_heterogeneous_and_incomplete_multimodal_client_data/"
+    t: "Federated Prompt-Tuning with Heterogeneous and Incomplete Multimodal Client Data"
+  - u: "learning_interpretable_queries_for_explainable_image_classification_with_informa/"
+    t: "Learning Interpretable Queries for Explainable Image Classification with Information Pursuit"
+  - u: "memory-efficient_4-bit_preconditioned_stochastic_optimization/"
+    t: "Memory-Efficient 4-bit Preconditioned Stochastic Optimization"
+  - u: "zeroth-order_fine-tuning_of_llms_in_random_subspaces/"
+    t: "Zeroth-Order Fine-Tuning of LLMs in Random Subspaces"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +35,7 @@ tags:
 
 **📹 ICCV2025** · **7** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (16)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
 
 🔥 **高频主题：** 联邦学习 ×3
 

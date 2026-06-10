@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 音频/语音方向11篇论文解读
+  ICCV2025 音频/语音论文汇总 · 11篇论文解读
 description: >-
   11篇ICCV2025的音频/语音方向论文解读，涵盖语音、多模态、扩散模型、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,30 @@ tags:
   - "多模态"
   - "扩散模型"
   - "少样本学习"
+item_list:
+  - u: "25_years_in_class_a_multimodal_textbook_for_visionlanguage_p/"
+    t: "2.5 Years in Class: A Multimodal Textbook for Vision-Language Pretraining"
+  - u: "align_your_rhythm_generating_highly_aligned_dance_poses_with_gating-enhanced_rhy/"
+    t: "Align Your Rhythm: Generating Highly Aligned Dance Poses with Gating-Enhanced Rhythm-Aware Feature Representation"
+  - u: "everything_is_a_video_unifying_modalities_through_next-frame_prediction/"
+    t: "Everything is a Video: Unifying Modalities through Next-Frame Prediction"
+  - u: "how_would_it_sound_material-controlled_multimodal_acoustic_profile_generation_fo/"
+    t: "How Would It Sound? Material-Controlled Multimodal Acoustic Profile Generation for Objects"
+  - u: "latent_swap_joint_diffusion_for_2d_long-form_latent_generation/"
+    t: "Latent Swap Joint Diffusion for 2D Long-Form Latent Generation"
+  - u: "learning_to_see_inside_opaque_liquid_containers_using_speckle_vibrometry/"
+    t: "Learning to See Inside Opaque Liquid Containers using Speckle Vibrometry"
+  - u: "lyra_an_efficient_and_speechcentric_framework_for_omnicognit/"
+    t: "Lyra: An Efficient and Speech-Centric Framework for Omni-Cognition"
+  - u: "mug_pseudo_labeling_augmented_audio-visual_mamba_network_for_audio-visual_video_/"
+    t: "MUG: Pseudo Labeling Augmented Audio-Visual Mamba Network for Audio-Visual Video Parsing"
+  - u: "understanding_co-speech_gestures_in-the-wild/"
+    t: "Understanding Co-speech Gestures in-the-wild"
+  - u: "vggsounder_audio-visual_evaluations_for_foundation_models/"
+    t: "VGGSounder: Audio-Visual Evaluations for Foundation Models"
+  - u: "zero-avsr_zero-shot_audio-visual_speech_recognition_with_llms_by_learning_langua/"
+    t: "Zero-AVSR: Zero-Shot Audio-Visual Speech Recognition with LLMs by Learning Language-Agnostic Speech Representations"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +43,7 @@ tags:
 
 **📹 ICCV2025** · **11** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/audio_speech/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (46)](../../NeurIPS2025/audio_speech/index.md)
 
 🔥 **高频主题：** 语音 ×5 · 多模态 ×2
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 多模态 VLM方向48篇论文解读
+  ECCV2024 多模态VLM论文汇总 · 45篇论文解读
 description: >-
-  48篇ECCV2024的多模态 VLM 方向论文解读，涵盖多模态、LLM、对抗鲁棒、少样本学习、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  45篇ECCV2024的多模态 VLM 方向论文解读，涵盖多模态、LLM、对抗鲁棒、少样本学习、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "多模态 VLM"
@@ -13,20 +13,78 @@ tags:
   - "对抗鲁棒"
   - "少样本学习"
   - "模型压缩"
+item_list:
+  - u: "adashield_safeguarding_multimodal_large_language_models_from_structure-based_att/"
+    t: "AdaShield: Safeguarding Multimodal Large Language Models from Structure-based Attack via Adaptive Shield Prompting"
+  - u: "addressclip_empowering_vision-language_models_for_city-wide_image_address_locali/"
+    t: "AddressCLIP: Empowering Vision-Language Models for City-wide Image Address Localization"
+  - u: "artvlm_attribute_recognition_through_vision-based_prefix_language_modeling/"
+    t: "ArtVLM: Attribute Recognition Through Vision-Based Prefix Language Modeling"
+  - u: "attention_prompting_on_image_for_large_visionlanguage_models/"
+    t: "Attention Prompting on Image for Large Vision-Language Models"
+  - u: "bad_students_make_great_teachers_active_learning_accelerates_large-scale_visual_/"
+    t: "Bad Students Make Great Teachers: Active Learning Accelerates Large-Scale Visual Understanding"
+  - u: "beaf_observing_beforeafter_changes_to_evaluate_hallucination/"
+    t: "BEAF: Observing BEfore-AFter Changes to Evaluate Hallucination in Vision-Language Models"
+  - u: "blink_multimodal_large_language_models_can_see_but_not_perceive/"
+    t: "BLINK: Multimodal Large Language Models Can See but Not Perceive"
+  - u: "brave_broadening_the_visual_encoding_of_vision-language_models/"
+    t: "BRAVE: Broadening the Visual Encoding of Vision-Language Models"
+  - u: "cat_enhancing_multimodal_large_language_model_to_answer_questions_in_dynamic_aud/"
+    t: "CAT: Enhancing Multimodal Large Language Model to Answer Questions in Dynamic Audio-Visual Scenarios"
+  - u: "clap_isolating_content_from_style_through_contrastive_learning_with_augmented_pr/"
+    t: "CLAP: Isolating Content from Style through Contrastive Learning with Augmented Prompts"
+  - u: "dataset_growth/"
+    t: "Dataset Growth (InfoGrowth)"
+  - u: "efficient_inference_of_vision_instruction-following_models_with_elastic_cache/"
+    t: "Efficient Inference of Vision Instruction-Following Models with Elastic Cache"
+  - u: "elevating_all_zero-shot_sketch-based_image_retrieval_through_multimodal_prompt_l/"
+    t: "Elevating All Zero-Shot Sketch-Based Image Retrieval Through Multimodal Prompt Learning"
+  - u: "elysium_exploring_object-level_perception_in_videos_via_mllm/"
+    t: "Elysium: Exploring Object-level Perception in Videos via MLLM"
+  - u: "eyes_closed_safety_on_protecting_multimodal_llms_via_image-to-text_transformatio/"
+    t: "Eyes Closed, Safety On: Protecting Multimodal LLMs via Image-to-Text Transformation"
+  - u: "flexattention_for_efficient_high-resolution_vision-language_models/"
+    t: "FlexAttention for Efficient High-Resolution Vision-Language Models"
+  - u: "freemotion_mocap-free_human_motion_synthesis_with_multimodal_large_language_mode/"
+    t: "FreeMotion: MoCap-Free Human Motion Synthesis with Multimodal Large Language Models"
+  - u: "genixer_empowering_multimodal_large_language_model_as_a_powerful_data_generator/"
+    t: "Genixer: Empowering Multimodal Large Language Model as a Powerful Data Generator"
+  - u: "groma_localized_visual_tokenization_for_grounding_multimodal_large_language_mode/"
+    t: "Groma: Localized Visual Tokenization for Grounding Multimodal Large Language Models"
+  - u: "ivtp_instruction-guided_visual_token_pruning_for_large_vision-language_models/"
+    t: "IVTP: Instruction-Guided Visual Token Pruning for Large Vision-Language Models"
+  - u: "loa-trans_enhancing_visual_grounding_by_location-aware_transformers/"
+    t: "LoA-Trans: Enhancing Visual Grounding by Location-Aware Transformers"
+  - u: "m_ampmaposs_a_benchmark_to_evaluate_tool-use_for_multi-step_multi-modal_tasks/"
+    t: "m&m's: A Benchmark to Evaluate Tool-Use for Multi-step Multi-modal Tasks"
+  - u: "marvelovd_marrying_object_recognition_and_vision-language_models_for_robust_open/"
+    t: "MarvelOVD: Marrying Object Recognition and Vision-Language Models for Robust Open-Vocabulary Object Detection"
+  - u: "mathverse_does_your_multi-modal_llm_truly_see_the_diagrams_in_visual_math_proble/"
+    t: "MathVerse: Does Your Multi-modal LLM Truly See the Diagrams in Visual Math Problems?"
+  - u: "merlin_empowering_multimodal_llms_with_foresight_minds/"
+    t: "Merlin: Empowering Multimodal LLMs with Foresight Minds"
+  - u: "mm1_methods_analysis_and_insights_from_multimodal_llm_pre-training/"
+    t: "MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training"
+  - u: "mmbench_is_your_multi-modal_model_an_all-around_player/"
+    t: "MMBench: Is Your Multi-modal Model an All-Around Player?"
+  - u: "myvlm_personalizing_vlms_for_userspecific_queries/"
+    t: "MyVLM: Personalizing VLMs for User-Specific Queries"
+  - u: "navgpt-2_unleashing_navigational_reasoning_capability_for_large_vision-language_/"
+    t: "NavGPT-2: Unleashing Navigational Reasoning Capability for Large Vision-Language Models"
+  - u: "nymeria_a_massive_collection_of_multimodal_egocentric_daily_motion_in_the_wild/"
+    t: "Nymeria: A Massive Collection of Multimodal Egocentric Daily Motion in the Wild"
+item_total: 45
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态 VLM
 
-**🎞️ ECCV2024** · **48** 篇论文解读
+**🎞️ ECCV2024** · **45** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (147)](../../NeurIPS2025/multimodal_vlm/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (146)](../../NeurIPS2025/multimodal_vlm/index.md)
 
-🔥 **高频主题：** 多模态 ×30 · LLM ×9 · 对抗鲁棒 ×3 · 少样本学习 ×3 · 模型压缩 ×2
-
-**[A Multimodal Benchmark Dataset and Model for Crop Disease Diagnosis](a_multimodal_benchmark_dataset_and_model_for_crop_disease_di.md)**
-
-:   构建了包含13.7万张作物病害图像和100万问答对的CDDM数据集，并提出同时对视觉编码器、adapter和语言模型施加LoRA微调的策略，使Qwen-VL-Chat和LLaVA在作物病害诊断准确率上从个位数跃升至90%以上。
+🔥 **高频主题：** 多模态 ×29 · LLM ×9 · 对抗鲁棒 ×3 · 少样本学习 ×2 · 模型压缩 ×2
 
 **[AdaShield: Safeguarding Multimodal Large Language Models from Structure-based Attack via Adaptive Shield Prompting](adashield_safeguarding_multimodal_large_language_models_from_structure-based_att.md)**
 
@@ -128,10 +186,6 @@ tags:
 
 :   提出 Foresight Pre-Training (FPT) 和 Foresight Instruction-Tuning (FIT) 两阶段训练范式，通过轨迹建模赋予多模态大语言模型"前瞻性思维"能力，使模型能够基于当前观察预测未来事件并进行推理。
 
-**[Meta-Prompting for Automating Zero-Shot Visual Recognition with LLMs](meta-prompting_for_automating_zero-shot_visual_recognition_with_llms.md)**
-
-:   提出 MPVR（Meta-Prompting for Visual Recognition），通过两阶段 meta-prompting 策略自动化生成多样化的类别特定 VLM prompt，无需人工设计 LLM 查询即可显著提升 CLIP 等模型的 zero-shot 识别性能。
-
 **[MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training](mm1_methods_analysis_and_insights_from_multimodal_llm_pre-training.md)**
 
 :   Apple 系统性地消融了 MLLM 构建的三大轴（架构、数据、训练），得出关键设计准则：图像分辨率 > 模型大小 > 训练数据；VL 连接器类型影响甚微；caption/interleaved/text-only 三类数据的精细混合至关重要，最终构建了 3B-30B dense 和最高 64B MoE 的 MM1 模型族，在 few-shot 预训练评测上达到 SOTA。
@@ -171,10 +225,6 @@ tags:
 **[Select and Distill: Selective Dual-Teacher Knowledge Transfer for Continual Learning on Vision-Language Models](select_and_distill_selective_dual-teacher_knowledge_transfer_for_continual_learn.md)**
 
 :   提出选择性双教师知识迁移框架（SND），通过衡量预训练VLM和最近微调VLM之间的特征差异，在无标签参考数据集上自适应选择合适的教师进行知识蒸馏，同时缓解灾难性遗忘并保持零样本分类能力。
-
-**[Self-Adapting Large Visual-Language Models to Edge Devices across Visual Modalities](self-adapting_large_visual-language_models_to_edge_devices_across_visual_modalit.md)**
-
-:   提出EdgeVL框架，通过两阶段适配（双模态知识蒸馏+量化感知对比学习），将大规模VLM（如CLIP）适配到边缘设备上，实现无需人工标注的跨模态（RGB和非RGB）开放词汇分类，达到最高15.4%的准确率提升和93倍的模型压缩。
 
 **[ShareGPT4V: Improving Large Multi-Modal Models with Better Captions](sharegpt4v_improving_large_multi-modal_models_with_better_captions.md)**
 

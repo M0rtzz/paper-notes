@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 目标检测方向2篇论文解读
+  ACL2025 目标检测论文汇总 · 2篇论文解读
 description: >-
   2篇ACL2025的目标检测方向论文解读，涵盖对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,12 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "对抗鲁棒"
+item_list:
+  - u: "anchored_answers_unravelling_positional_bias_in_gpt-2s_multiple-choice_questions/"
+    t: "Anchored Answers: Unravelling Positional Bias in GPT-2's Multiple-Choice Questions"
+  - u: "weed_out_then_harvest_dual_low-rank_adaptation_is_an_effective_noisy_label_detec/"
+    t: "Weed Out, Then Harvest: Dual Low-Rank Adaptation is an Effective Noisy Label Detector for Noise-Robust Learning"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -16,7 +22,7 @@ tags:
 
 **💬 ACL2025** · **2** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md)
 
 **[Anchored Answers: Unravelling Positional Bias in GPT-2's Multiple-Choice Questions](anchored_answers_unravelling_positional_bias_in_gpt-2s_multiple-choice_questions.md)**
 

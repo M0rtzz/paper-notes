@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 自监督/表示学习方向16篇论文解读
+  AAAI2026 自监督/表示学习论文汇总 · 16篇论文解读
 description: >-
   16篇AAAI2026的自监督/表示学习方向论文解读，涵盖对抗鲁棒、持续学习、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,40 @@ tags:
   - "对抗鲁棒"
   - "持续学习"
   - "对齐/RLHF"
+item_list:
+  - u: "bce3s_binary_cross-entropy_based_tripartite_synergistic_learning_for_long-tailed/"
+    t: "BCE3S: Binary Cross-Entropy Based Tripartite Synergistic Learning for Long-tailed Recognition"
+  - u: "catformer_when_continual_learning_meets_spiking_transformers_with_dynamic_thresh/"
+    t: "CATFormer: When Continual Learning Meets Spiking Transformers With Dynamic Thresholds"
+  - u: "expandable_and_differentiable_dual_memories_with_orthogonal_regularization_for_e/"
+    t: "Expandable and Differentiable Dual Memories with Orthogonal Regularization for Exemplar-free Continual Learning"
+  - u: "explanation-preserving_augmentation_for_semi-supervised_graph_representation_lea/"
+    t: "Explanation-Preserving Augmentation for Semi-Supervised Graph Representation Learning"
+  - u: "fedgrpo_privately_optimizing_foundation_models_with_group-relative_rewards_from_/"
+    t: "FedGRPO: Privately Optimizing Foundation Models with Group-Relative Rewards from Domain Clients"
+  - u: "finextrol_controllable_motion_generation_via_fine-grained_text/"
+    t: "FineXtrol: Controllable Motion Generation via Fine-Grained Text"
+  - u: "from_pretrain_to_pain_adversarial_vulnerability_of_video_foundation_models_witho/"
+    t: "From Pretrain to Pain: Adversarial Vulnerability of Video Foundation Models without Finetuning"
+  - u: "goal_geometrically_optimal_alignment_for_continual_generalized_category_discover/"
+    t: "GOAL: Geometrically Optimal Alignment for Continual Generalized Category Discovery"
+  - u: "hilomix_robust_high-_and_low-frequency_graph_learning_framework_for_mixing_addre/"
+    t: "HiLoMix: Robust High- and Low-Frequency Graph Learning Framework for Mixing Address Association"
+  - u: "improving_region_representation_learning_from_urban_imagery_with_noisy_long-capt/"
+    t: "Improving Region Representation Learning from Urban Imagery with Noisy Long-Caption Supervision"
+  - u: "improving_sustainability_of_adversarial_examples_in_class-incremental_learning/"
+    t: "Improving Sustainability of Adversarial Examples in Class-Incremental Learning"
+  - u: "let_the_void_be_void_robust_open-set_semi-supervised_learning_via_selective_non-/"
+    t: "Let the Void Be Void: Robust Open-Set Semi-Supervised Learning via Selective Non-Alignment"
+  - u: "robust_tabular_foundation_models/"
+    t: "Robust Tabular Foundation Models"
+  - u: "self-supervised_inductive_logic_programming/"
+    t: "Self-Supervised Inductive Logic Programming"
+  - u: "spikingformer_a_key_foundation_model_for_spiking_neural_networks/"
+    t: "Spikingformer: A Key Foundation Model for Spiking Neural Networks"
+  - u: "towards_llm-empowered_knowledge_tracing_via_llm-student_hierarchical_behavior_al/"
+    t: "Towards LLM-Empowered Knowledge Tracing via LLM-Student Hierarchical Behavior Alignment in Hyperbolic Space"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +52,7 @@ tags:
 
 **🤖 AAAI2026** · **16** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (34)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/self_supervised/index.md) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (32)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/index.md) · [🧠 NeurIPS2025 (34)](../../NeurIPS2025/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×5 · 持续学习 ×3 · 对齐/RLHF ×3
 

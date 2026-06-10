@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 遥感方向5篇论文解读
+  ICLR2026 遥感论文汇总 · 5篇论文解读
 description: >-
   5篇ICLR2026的遥感方向论文解读，涵盖 Agent、多模态、时序预测、遥感等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,18 @@ tags:
   - "Agent"
   - "多模态"
   - "时序预测"
+item_list:
+  - u: "earth-agent_unlocking_the_full_landscape_of_earth_observation_with_agents/"
+    t: "Earth-Agent: Unlocking the Full Landscape of Earth Observation with Agents"
+  - u: "measuring_the_intrinsic_dimension_of_earth_representations/"
+    t: "Measuring the Intrinsic Dimension of Earth Representations"
+  - u: "spectral_gaps_and_spatial_priors_studying_hyperspectral_downstream_adaptation_us/"
+    t: "Spectral Gaps and Spatial Priors: Studying Hyperspectral Downstream Adaptation Using TerraMind"
+  - u: "tamms_change_understanding_and_forecasting_in_satellite_image_time_series_with_t/"
+    t: "TAMMs: Change Understanding and Forecasting in Satellite Image Time Series with Temporal-Aware Multimodal Models"
+  - u: "task-free_adaptive_meta_black-box_optimization/"
+    t: "Task-free Adaptive Meta Black-box Optimization"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

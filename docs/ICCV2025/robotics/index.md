@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 机器人/具身智能方向26篇论文解读
+  ICCV2025 机器人/具身智能论文汇总 · 26篇论文解读
 description: >-
   26篇ICCV2025的机器人/具身智能方向论文解读，涵盖机器人、多模态、导航、对齐/RLHF、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,60 @@ tags:
   - "导航"
   - "对齐/RLHF"
   - "自监督学习"
+item_list:
+  - u: "adaptive_articulated_object_manipulation_on_the_fly_with_foundation_model_reason/"
+    t: "Adaptive Articulated Object Manipulation On The Fly with Foundation Model Reasoning and Part Grounding"
+  - u: "anybimanual_transferring_unimanual_policy_for_general_bimanual_manipulation/"
+    t: "AnyBimanual: Transferring Unimanual Policy for General Bimanual Manipulation"
+  - u: "beyond_losses_reweighting_empowering_multi-task_learning_via_the_generalization_/"
+    t: "Beyond Losses Reweighting: Empowering Multi-Task Learning via the Generalization Perspective"
+  - u: "bridging_domain_generalization_to_multimodal_domain_generalization_via_unified_r/"
+    t: "Bridging Domain Generalization to Multimodal Domain Generalization via Unified Representations"
+  - u: "certifiably_optimal_anisotropic_rotation_averaging/"
+    t: "Certifiably Optimal Anisotropic Rotation Averaging"
+  - u: "combatvla_an_efficient_vision-language-action_model_for_combat_tasks_in_3d_actio/"
+    t: "CombatVLA: An Efficient Vision-Language-Action Model for Combat Tasks in 3D Action Role-Playing Games"
+  - u: "cosmo_combination_of_selective_memorization_for_low-cost_vision-and-language_nav/"
+    t: "COSMO: Combination of Selective Memorization for Low-cost Vision-and-Language Navigation"
+  - u: "dexvlg_dexterous_vision-language-grasp_model_at_scale/"
+    t: "DexVLG: Dexterous Vision-Language-Grasp Model at Scale"
+  - u: "embodied_representation_alignment_with_mirror_neurons/"
+    t: "Embodied Representation Alignment with Mirror Neurons"
+  - u: "evolvinggrasp_evolutionary_grasp_generation_via_efficient_preference_alignment/"
+    t: "EvolvingGrasp: Evolutionary Grasp Generation via Efficient Preference Alignment"
+  - u: "guiodyssey_a_comprehensive_dataset_for_cross-app_gui_navigation_on_mobile_device/"
+    t: "GUIOdyssey: A Comprehensive Dataset for Cross-App GUI Navigation on Mobile Devices"
+  - u: "imanip_skill-incremental_learning_for_robotic_manipulation/"
+    t: "iManip: Skill-Incremental Learning for Robotic Manipulation"
+  - u: "interaction-merged_motion_planning_effectively_leveraging_diverse_motion_dataset/"
+    t: "Interaction-Merged Motion Planning: Effectively Leveraging Diverse Motion Datasets for Robust Planning"
+  - u: "learning_4d_embodied_world_models/"
+    t: "TesserAct: Learning 4D Embodied World Models"
+  - u: "moto_latent_motion_token_as_the_bridging_language_for_learning_robot_manipulatio/"
+    t: "Moto: Latent Motion Token as the Bridging Language for Learning Robot Manipulation from Videos"
+  - u: "navmorph_a_self-evolving_world_model_for_vision-and-language_navigation_in_conti/"
+    t: "NavMorph: A Self-Evolving World Model for Vision-and-Language Navigation in Continuous Environments"
+  - u: "pacgdc_label-efficient_generalizable_depth_completion_with_projection_ambiguity_/"
+    t: "PacGDC: Label-Efficient Generalizable Depth Completion with Projection Ambiguity and Consistency"
+  - u: "pasg_a_closed-loop_framework_for_automated_geometric_primitive_extraction_and_se/"
+    t: "PASG: A Closed-Loop Framework for Automated Geometric Primitive Extraction and Semantic Anchoring in Robotic Manipulation"
+  - u: "rep-mtl_unleashing_the_power_of_representation-level_task_saliency_for_multi-tas/"
+    t: "Rep-MTL: Unleashing the Power of Representation-Level Task Saliency for Multi-Task Learning"
+  - u: "resolving_token-space_gradient_conflicts_token_space_manipulation_for_transforme/"
+    t: "Resolving Token-Space Gradient Conflicts: Token Space Manipulation for Transformer-Based Multi-Task Learning"
+  - u: "selective_contrastive_learning_for_weakly_supervised_affordance_grounding/"
+    t: "Selective Contrastive Learning for Weakly Supervised Affordance Grounding"
+  - u: "self-supervised_learning_of_hybrid_part-aware_3d_representations_of_2d_gaussians/"
+    t: "Self-supervised Learning of Hybrid Part-aware 3D Representations of 2D Gaussians and Superquadrics"
+  - u: "site_towards_spatial_intelligence_thorough_evaluation/"
+    t: "SITE: towards Spatial Intelligence Thorough Evaluation"
+  - u: "transit_transient_transformer_for_non-line-of-sight_videography/"
+    t: "TransiT: Transient Transformer for Non-line-of-sight Videography"
+  - u: "unziplora_separating_content_and_style_from_a_single_image/"
+    t: "UnZipLoRA: Separating Content and Style from a Single Image"
+  - u: "weakly-supervised_learning_of_dense_functional_correspondences/"
+    t: "Weakly-Supervised Learning of Dense Functional Correspondences"
+item_total: 26
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +74,7 @@ tags:
 
 **📹 ICCV2025** · **26** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (42)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (46)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (40)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (43)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (71)](../../NeurIPS2025/robotics/index.md)
 
 🔥 **高频主题：** 机器人 ×8 · 多模态 ×3 · 导航 ×3 · 对齐/RLHF ×2 · 自监督学习 ×2
 

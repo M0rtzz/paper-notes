@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 自监督/表示学习方向22篇论文解读
+  ICML2025 自监督/表示学习论文汇总 · 22篇论文解读
 description: >-
   22篇ICML2025的自监督/表示学习方向论文解读，涵盖自监督学习、少样本学习、强化学习、对齐/RLHF、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -13,6 +13,52 @@ tags:
   - "强化学习"
   - "对齐/RLHF"
   - "对抗鲁棒"
+item_list:
+  - u: "a_bayesian_model_selection_criterion_for_selecting_pretraining_checkpoints/"
+    t: "A Bayesian Model Selection Criterion for Selecting Pretraining Checkpoints"
+  - u: "adaworld_learning_adaptable_world_models_with_latent_actions/"
+    t: "AdaWorld: Learning Adaptable World Models with Latent Actions"
+  - u: "alpha-sql_zero-shot_text-to-sql_using_monte_carlo_tree_search/"
+    t: "Alpha-SQL: Zero-Shot Text-to-SQL using Monte Carlo Tree Search"
+  - u: "beyond_sensor_data_foundation_models_of_behavioral_data_from_wearables_improve_h/"
+    t: "Beyond Sensor Data: Foundation Models of Behavioral Data from Wearables Improve Health Predictions"
+  - u: "clarify_contrastive_preference_reinforcement_learning_for_untangling_ambiguous_q/"
+    t: "CLARIFY: Contrastive Preference Reinforcement Learning for Untangling Ambiguous Queries"
+  - u: "clustering_properties_of_self-supervised_learning/"
+    t: "ReSA: Clustering Properties of Self-Supervised Learning"
+  - u: "collapse-proof_non-contrastive_self-supervised_learning/"
+    t: "Collapse-Proof Non-Contrastive Self-Supervised Learning"
+  - u: "contextures_representations_from_contexts/"
+    t: "Contextures: Representations from Contexts"
+  - u: "deep_learning_is_not_so_mysterious_or_different/"
+    t: "Deep Learning is Not So Mysterious or Different"
+  - u: "discovering_global_false_negatives_on_the_fly_for_self-supervised_contrastive_le/"
+    t: "Discovering Global False Negatives On the Fly for Self-supervised Contrastive Learning"
+  - u: "foundation_model_insights_and_a_multi-model_approach_for_superior_fine-grained_o/"
+    t: "Foundation Model Insights and a Multi-Model Approach for Superior Fine-Grained One-shot Subset Selection"
+  - u: "generalization_analysis_for_supervised_contrastive_representation_learning_under/"
+    t: "Generalization Analysis for Supervised Contrastive Representation Learning under Non-IID Settings"
+  - u: "griffin_towards_a_graph-centric_relational_database_foundation_model/"
+    t: "Griffin: Towards a Graph-Centric Relational Database Foundation Model"
+  - u: "mtl-ue_learning_to_learn_nothing_for_multi-task_learning/"
+    t: "MTL-UE: Learning to Learn Nothing for Multi-Task Learning"
+  - u: "neighbour-driven_gaussian_process_variational_autoencoders_for_scalable_structur/"
+    t: "Neighbour-Driven Gaussian Process Variational Autoencoders for Scalable Structured Latent Modelling"
+  - u: "pde-transformer_efficient_and_versatile_transformers_for_physics_simulations/"
+    t: "PDE-Transformer: Efficient and Versatile Transformers for Physics Simulations"
+  - u: "proxy-fda_proxy-based_feature_distribution_alignment_for_fine-tuning_vision_foun/"
+    t: "Proxy-FDA: Proxy-based Feature Distribution Alignment for Fine-tuning Vision Foundation Models without Forgetting"
+  - u: "test-time_canonicalization_by_foundation_models_for_robust_perception/"
+    t: "Test-Time Canonicalization by Foundation Models for Robust Perception"
+  - u: "test-time_training_provably_improves_transformers_as_in-context_learners/"
+    t: "Test-Time Training Provably Improves Transformers as In-Context Learners"
+  - u: "towards_benchmarking_foundation_models_for_tabular_data_with_text/"
+    t: "Towards Benchmarking Foundation Models for Tabular Data With Text"
+  - u: "update_your_transformer_to_the_latest_release_re-basin_of_task_vectors/"
+    t: "Update Your Transformer to the Latest Release: Re-Basin of Task Vectors"
+  - u: "what_has_a_foundation_model_found_using_inductive_bias_to_probe_for_world_models/"
+    t: "What Has a Foundation Model Found? Using Inductive Bias to Probe for World Models"
+item_total: 22
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +66,7 @@ tags:
 
 **🧪 ICML2025** · **22** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (34)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (32)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (34)](../../NeurIPS2025/self_supervised/index.md)
 
 🔥 **高频主题：** 自监督学习 ×3
 

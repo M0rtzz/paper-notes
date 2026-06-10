@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 信号/通信方向2篇论文解读
+  ICLR2026 信号/通信论文汇总 · 2篇论文解读
 description: >-
   2篇ICLR2026的信号/通信方向论文解读，收录 Enhancing Instruction Followin、Mamba-3等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -8,6 +8,12 @@ tags:
   - "信号/通信"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "enhancing_instruction_following_of_llms_via_activation_steering_with_dynamic_rej/"
+    t: "Enhancing Instruction Following of LLMs via Activation Steering with Dynamic Rejection"
+  - u: "mamba-3_improved_sequence_modeling_using_state_space_principles/"
+    t: "Mamba-3: Improved Sequence Modeling using State Space Principles"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

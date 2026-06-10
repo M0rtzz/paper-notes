@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 物理/科学计算方向5篇论文解读
+  CVPR2026 物理/科学计算论文汇总 · 5篇论文解读
 description: >-
   5篇CVPR2026的物理/科学计算方向论文解读，涵盖知识蒸馏、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,18 @@ tags:
   - "论文笔记"
   - "知识蒸馏"
   - "持续学习"
+item_list:
+  - u: "continuous_exposure-time_modeling_for_realistic_atmospheric_turbulence_synthesis/"
+    t: "Continuous Exposure-Time Modeling for Realistic Atmospheric Turbulence Synthesis"
+  - u: "high-quality_and_efficient_turbulence_mitigation_with_events/"
+    t: "EHETM: High-Quality and Efficient Turbulence Mitigation with Events"
+  - u: "nestor_a_nested_moe-based_neural_operator_for_large-scale_pde_pre-training/"
+    t: "NESTOR: A Nested MOE-based Neural Operator for Large-Scale PDE Pre-Training"
+  - u: "physskin_real-time_and_generalizable_physics-based_animation_via_self-supervised/"
+    t: "PhysSkin: Real-Time and Generalizable Physics-Based Skin Simulation"
+  - u: "qkd_quantum_gated_incremental_learning/"
+    t: "QKD: Quantum-Gated Task-interaction Knowledge Distillation for Class-Incremental Learning"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +29,7 @@ tags:
 
 **📷 CVPR2026** · **5** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (55)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (20)](../../ICML2025/physics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (18)](../../ICML2025/physics/index.md)
 
 **[Continuous Exposure-Time Modeling for Realistic Atmospheric Turbulence Synthesis](continuous_exposure-time_modeling_for_realistic_atmospheric_turbulence_synthesis.md)**
 

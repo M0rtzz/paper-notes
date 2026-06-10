@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 LLM 评测方向16篇论文解读
+  AAAI2026 LLM评测论文汇总 · 16篇论文解读
 description: >-
   16篇AAAI2026的 LLM 评测方向论文解读，涵盖 LLM、推理、Agent、翻译、机器人、情感分析等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,40 @@ tags:
   - "翻译"
   - "机器人"
   - "情感分析"
+item_list:
+  - u: "bcwildfire_a_long-term_multi-factor_dataset_and_deep_learning_benchmark_for_bore/"
+    t: "BCWildfire: A Long-term Multi-factor Dataset and Deep Learning Benchmark for Boreal Wildfire Risk Prediction"
+  - u: "benchmarking_llms_for_political_science_a_united_nations_perspective/"
+    t: "Benchmarking LLMs for Political Science: A United Nations Perspective"
+  - u: "beyond_accuracy_a_cognitive_load_framework_for_mapping_the_c/"
+    t: "Beyond Accuracy: A Cognitive Load Framework for Mapping the Capability Boundaries of Tool-use Agents"
+  - u: "coninstruct_evaluating_large_language_models_on_conflict_detection_and_resolutio/"
+    t: "ConInstruct: Evaluating Large Language Models on Conflict Detection and Resolution in Instructions"
+  - u: "dicap_distribution-calibrated_pseudo-labeling_for_semi-supervised_multi-label_le/"
+    t: "DiCaP: Distribution-Calibrated Pseudo-labeling for Semi-Supervised Multi-Label Learning"
+  - u: "do_llms_really_struggle_at_nl-fol_translation_revealing_their_strengths_via_a_no/"
+    t: "Do LLMs Really Struggle at NL-FOL Translation? Revealing Their Strengths via a Novel Benchmarking Strategy"
+  - u: "gaming_the_answer_matcher_examining_the_impact_of_text_manipulation_on_automated/"
+    t: "Gaming the Answer Matcher: Examining the Impact of Text Manipulation on Automated Judgment"
+  - u: "llm-as-a-judge_for_scalable_test_coverage_evaluation_accuracy_operational_reliab/"
+    t: "LLM-as-a-Judge for Scalable Test Coverage Evaluation"
+  - u: "lost_in_benchmarks_rethinking_large_language_model_benchmarking_with_item_respon/"
+    t: "Lost in Benchmarks? Rethinking Large Language Model Benchmarking with Item Response Theory"
+  - u: "low-rank_curvature_for_zeroth-order_optimization_in_llm_fine-tuning/"
+    t: "Low-Rank Curvature for Zeroth-Order Optimization in LLM Fine-Tuning"
+  - u: "mcts-sql_light-weight_llms_can_master_the_text-to-sql_through_monte_carlo_tree_s/"
+    t: "MCTS-SQL: Light-Weight LLMs can Master the Text-to-SQL through Monte Carlo Tree Search"
+  - u: "mindvote_when_ai_meets_the_wild_west_of_social_media_opinion/"
+    t: "MindVote: When AI Meets the Wild West of Social Media Opinion"
+  - u: "optscale_probabilistic_optimality_for_inference-time_scaling/"
+    t: "OptScale: Probabilistic Optimality for Inference-time Scaling"
+  - u: "test-time_diverse_reasoning_by_riemannian_activation_steering/"
+    t: "Test-time Diverse Reasoning by Riemannian Activation Steering"
+  - u: "towards_a_common_framework_for_autoformalization/"
+    t: "Towards a Common Framework for Autoformalization"
+  - u: "where_norms_and_references_collide_evaluating_llms_on_normative_reasoning/"
+    t: "Where Norms and References Collide: Evaluating LLMs on Normative Reasoning"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

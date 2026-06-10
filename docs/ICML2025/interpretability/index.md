@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 可解释性方向31篇论文解读
+  ICML2025 可解释性论文汇总 · 30篇论文解读
 description: >-
-  31篇ICML2025的可解释性方向论文解读，涵盖 LLM、推理、域适应、代码智能、生物分子、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  30篇ICML2025的可解释性方向论文解读，涵盖 LLM、推理、域适应、代码智能、生物分子、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "可解释性"
@@ -14,14 +14,76 @@ tags:
   - "代码智能"
   - "生物分子"
   - "布局/合成"
+item_list:
+  - u: "a_reasoning-based_approach_to_cryptic_crossword_clue_solving/"
+    t: "A Reasoning-Based Approach to Cryptic Crossword Clue Solving"
+  - u: "ab_initio_nonparametric_variable_selection_for_scalable_symbolic_regression_with/"
+    t: "Ab Initio Nonparametric Variable Selection for Scalable Symbolic Regression with Large p"
+  - u: "concept-based_unsupervised_domain_adaptation/"
+    t: "Concept-Based Unsupervised Domain Adaptation"
+  - u: "configurable_preference_tuning_with_rubric-guided_synthetic_data/"
+    t: "Configurable Preference Tuning with Rubric-Guided Synthetic Data"
+  - u: "do_sparse_autoencoders_generalize_a_case_study_of_answerability/"
+    t: "Do Sparse Autoencoders Generalize? A Case Study of Answerability"
+  - u: "evaluating_neuron_explanations_a_unified_framework_with_sanity_checks/"
+    t: "Evaluating Neuron Explanations: A Unified Framework with Sanity Checks"
+  - u: "evolving_prompts_in-context_an_open-ended_self-replicating_perspective/"
+    t: "Evolving Prompts In-Context: An Open-ended, Self-replicating Perspective"
+  - u: "explaining_fast_and_slow_abstraction_and_refinement_of_provable_explanations/"
+    t: "Explaining, Fast and Slow: Abstraction and Refinement of Provable Explanations"
+  - u: "fastcav_efficient_computation_of_concept_activation_vectors_for_explaining_deep_/"
+    t: "FastCAV: Efficient Computation of Concept Activation Vectors for Explaining Deep Neural Networks"
+  - u: "foundation_molecular_grammar_multi-modal_foundation_models_induce_interpretable_/"
+    t: "Foundation Molecular Grammar: Multi-Modal Foundation Models Induce Interpretable Molecular Grammar"
+  - u: "inference-time_decomposition_of_activations_itda_a_scalable_approach_to_interpre/"
+    t: "Inference-Time Decomposition of Activations (ITDA): A Scalable Approach to Interpreting Large Language Models"
+  - u: "leveraging_predictive_equivalence_in_decision_trees/"
+    t: "Leveraging Predictive Equivalence in Decision Trees"
+  - u: "mib_a_mechanistic_interpretability_benchmark/"
+    t: "MIB: A Mechanistic Interpretability Benchmark"
+  - u: "modeling_user_behavior_from_adaptive_surveys_with_supplemental_context/"
+    t: "LANTERN: Modeling User Behavior from Adaptive Surveys with Supplemental Context"
+  - u: "near_optimal_decision_trees_in_a_split_second/"
+    t: "Near-Optimal Decision Trees in a SPLIT Second"
+  - u: "on_the_effect_of_uncertainty_on_layer-wise_inference_dynamics/"
+    t: "On the Effect of Uncertainty on Layer-wise Inference Dynamics"
+  - u: "on_the_power_of_context-enhanced_learning_in_llms/"
+    t: "On the Power of Context-Enhanced Learning in LLMs"
+  - u: "position_we_need_an_algorithmic_understanding_of_generative_ai/"
+    t: "Position: We Need An Algorithmic Understanding of Generative AI"
+  - u: "reactivation_empirical_ntk_dynamics_under_task_shifts/"
+    t: "Reactivation: Empirical NTK Dynamics Under Task Shifts"
+  - u: "rethinking_explainable_machine_learning_as_applied_statistics/"
+    t: "Rethinking Explainable Machine Learning as Applied Statistics"
+  - u: "safetyanalyst_interpretable_transparent_and_steerable_safety_moderation_for_ai_b/"
+    t: "SafetyAnalyst: Interpretable, Transparent, and Steerable Safety Moderation for AI Behavior"
+  - u: "slim_one-shot_quantization_and_sparsity_with_low-rank_approximation_for_llm_weig/"
+    t: "SLiM: One-shot Quantization and Sparsity with Low-rank Approximation for LLM Weight Compression"
+  - u: "supernova_event_dataset_interpreting_large_language_models_personality_through_c/"
+    t: "Supernova Event Dataset: Interpreting Large Language Models' Personality through Critical Event Analysis"
+  - u: "taming_knowledge_conflicts_in_language_models/"
+    t: "Taming Knowledge Conflicts in Language Models"
+  - u: "to_steer_or_not_to_steer_mechanistic_error_reduction_with_abstention_for_languag/"
+    t: "To Steer or Not to Steer? Mechanistic Error Reduction with Abstention for Language Models"
+  - u: "towards_attributions_of_input_variables_in_a_coalition/"
+    t: "Towards Attributions of Input Variables in a Coalition"
+  - u: "towards_flexible_perception_with_visual_memory/"
+    t: "Towards Flexible Perception with Visual Memory"
+  - u: "towards_long-horizon_interpretability_efficient_and_faithful_multi-token_attribu/"
+    t: "Towards Long-Horizon Interpretability: Efficient and Faithful Multi-Token Attribution for Reasoning LLMs"
+  - u: "validating_mechanistic_interpretations_an_axiomatic_approach/"
+    t: "Validating Mechanistic Interpretations: An Axiomatic Approach"
+  - u: "what_makes_an_ensemble_un_interpretable/"
+    t: "What Makes an Ensemble (Un)interpretable?"
+item_total: 30
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**🧪 ICML2025** · **31** 篇论文解读
+**🧪 ICML2025** · **30** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md)
 
 🔥 **高频主题：** LLM ×3 · 推理 ×2
 
@@ -40,10 +102,6 @@ tags:
 **[Configurable Preference Tuning with Rubric-Guided Synthetic Data](configurable_preference_tuning_with_rubric-guided_synthetic_data.md)**
 
 :   提出Configurable Preference Tuning (CPT)框架，通过基于细粒度rubric生成的合成偏好数据训练LLM，使模型能在推理时仅通过修改system prompt就动态调整行为风格，无需重新训练，在多个基座模型上准确率从0.52-0.68提升至0.76-0.83。
-
-**[DeltaSHAP: Explaining Prediction Evolutions in Online Patient Monitoring with Shapley Values](deltashap_explaining_prediction_evolutions_in_online_patient_monitoring_with_sha.md)**
-
-:   DeltaSHAP 是一种专为在线患者监护系统设计的可解释AI算法，通过将 Shapley 值适配到时序场景，解释连续预测之间的**变化量**而非绝对预测值，同时提供特征归因的**方向和幅度**，在 MIMIC-III 基准上实现 62% 的解释质量提升和 33% 的计算时间缩减。
 
 **[Do Sparse Autoencoders Generalize? A Case Study of Answerability](do_sparse_autoencoders_generalize_a_case_study_of_answerability.md)**
 

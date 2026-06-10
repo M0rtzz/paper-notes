@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 自监督/表示学习方向26篇论文解读
+  CVPR2025 自监督/表示学习论文汇总 · 26篇论文解读
 description: >-
   26篇CVPR2025的自监督/表示学习方向论文解读，涵盖持续学习、少样本学习、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,60 @@ tags:
   - "持续学习"
   - "少样本学习"
   - "对抗鲁棒"
+item_list:
+  - u: "autossvh_exploring_automated_frame_sampling_for_efficient_self-supervised_video_/"
+    t: "AutoSSVH: Automated Frame Sampling for Self-Supervised Video Hashing"
+  - u: "boss_a_best-of-strategies_selector_as_an_oracle_for_deep_active_learning/"
+    t: "BoSS: A Best-of-Strategies Selector as an Oracle for Deep Active Learning"
+  - u: "breaking_the_tuning_barrier_zero-hyperparameters_yield_multi-corner_analysis_via/"
+    t: "Breaking the Tuning Barrier: Zero-Hyperparameters Yield Multi-Corner Analysis Via Learned Priors"
+  - u: "chexworld_exploring_image_world_modeling_for_radiograph_representation_learning/"
+    t: "CheXWorld: Image World Modeling for Radiograph Representation Learning"
+  - u: "do_your_best_and_get_enough_rest_for_continual_learning/"
+    t: "Do Your Best and Get Enough Rest for Continual Learning"
+  - u: "escaping_platos_cave_towards_the_alignment_of_3d_and_text_latent_spaces/"
+    t: "Escaping Plato's Cave: Towards the Alignment of 3D and Text Latent Spaces"
+  - u: "few-shot_implicit_function_generation_via_equivariance/"
+    t: "Few-Shot Implicit Function Generation via Equivariance"
+  - u: "from_prototypes_to_general_distributions_an_efficient_curriculum_for_masked_imag/"
+    t: "From Prototypes to General Distributions: An Efficient Curriculum for Masked Image Modeling"
+  - u: "hyperbolic_category_discovery/"
+    t: "Hyperbolic Category Discovery"
+  - u: "learning_to_normalize_on_the_spd_manifold_under_bures-wasserstein_geometry/"
+    t: "Learning to Normalize on the SPD Manifold under Bures-Wasserstein Geometry"
+  - u: "map_unleashing_hybrid_mamba-transformer_vision_backbones_potential_with_masked_a/"
+    t: "MAP: Unleashing Hybrid Mamba-Transformer Vision Backbone's Potential with Masked Autoregressive Pretraining"
+  - u: "mari_material_retrieval_integration_across_domains/"
+    t: "MaRI: Material Retrieval Integration across Domains"
+  - u: "metawriter_personalized_handwritten_text_recognition_using_meta-learned_prompt_t/"
+    t: "MetaWriter: Personalized Handwritten Text Recognition Using Meta-Learned Prompt Tuning"
+  - u: "mos_modeling_object-scene_associations_in_generalized_category_discovery/"
+    t: "MOS: Modeling Object-Scene Associations in Generalized Category Discovery"
+  - u: "ocrt_boosting_foundation_models_in_the_open_world_with_object-concept-relation_t/"
+    t: "OCRT: Boosting Foundation Models in the Open World with Object-Concept-Relation Triad"
+  - u: "order-robust_class_incremental_learning_graph-driven_dynamic_similarity_grouping/"
+    t: "Order-Robust Class Incremental Learning: Graph-Driven Dynamic Similarity Grouping"
+  - u: "representation_learning_for_spatiotemporal_physical_systems/"
+    t: "Representation Learning for Spatiotemporal Physical Systems"
+  - u: "sata_spatial_autocorrelation_token_analysis_for_enhancing_the_robustness_of_visi/"
+    t: "SATA: Spatial Autocorrelation Token Analysis for Enhancing the Robustness of Vision Transformers"
+  - u: "scalelsd_scalable_deep_line_segment_detection_streamlined/"
+    t: "ScaleLSD: Scalable Deep Line Segment Detection Streamlined"
+  - u: "sec-promptsemantic_complementary_prompting_for_few-shot_class-incremental_learni/"
+    t: "SEC-Prompt: SEmantic Complementary Prompting for Few-Shot Class-Incremental Learning"
+  - u: "smile_infusing_spatial_and_motion_semantics_in_masked_video_learning/"
+    t: "SMILE: Infusing Spatial and Motion Semantics in Masked Video Learning"
+  - u: "spectral_state_space_model_for_rotation-invariant_visual_representation_learning/"
+    t: "Spectral State Space Model for Rotation-Invariant Visual Representation Learning"
+  - u: "task-agnostic_guided_feature_expansion_for_class-incremental_learning/"
+    t: "Task-Agnostic Guided Feature Expansion for Class-Incremental Learning"
+  - u: "text-phase_synergy_network_with_dual_priors_for_unsupervised_cross-domain_image_/"
+    t: "Text-Phase Synergy Network with Dual Priors for Unsupervised Cross-Domain Image Retrieval"
+  - u: "transformers_without_normalization/"
+    t: "Transformers without Normalization"
+  - u: "unistd_towards_unified_spatio-temporal_learning_across_diverse_disciplines/"
+    t: "UniSTD: Towards Unified Spatio-Temporal Learning Across Diverse Disciplines"
+item_total: 26
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +72,7 @@ tags:
 
 **📷 CVPR2025** · **26** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (34)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (32)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (34)](../../NeurIPS2025/self_supervised/index.md)
 
 🔥 **高频主题：** 持续学习 ×4 · 少样本学习 ×3 · 对抗鲁棒 ×2
 

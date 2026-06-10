@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 图像恢复方向3篇论文解读
+  ACL2025 图像恢复论文汇总 · 3篇论文解读
 description: >-
   3篇ACL2025的图像恢复方向论文解读，涵盖图像恢复、对抗鲁棒、信息抽取、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,14 @@ tags:
   - "对抗鲁棒"
   - "信息抽取"
   - "少样本学习"
+item_list:
+  - u: "a_self-denoising_model_for_robust_few-shot_relation_extraction/"
+    t: "A Self-Denoising Model for Robust Few-Shot Relation Extraction"
+  - u: "diffusedef_adversarial_defense/"
+    t: "DiffuseDef: Improved Robustness to Adversarial Attacks via Iterative Denoising"
+  - u: "prep-ocr_a_complete_pipeline_for_document_image_restoration_and_enhanced_ocr_acc/"
+    t: "PreP-OCR: A Complete Pipeline for Document Image Restoration and Enhanced OCR Accuracy"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

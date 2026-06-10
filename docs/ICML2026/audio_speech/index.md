@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 音频/语音方向30篇论文解读
+  ICML2026 音频/语音论文汇总 · 30篇论文解读
 description: >-
   30篇ICML2026的音频/语音方向论文解读，涵盖语音、推理、多模态、LLM、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "多模态"
   - "LLM"
   - "少样本学习"
+item_list:
+  - u: "a_semantically_consistent_dataset_for_data-efficient_query-based_universal_sound/"
+    t: "A Semantically Consistent Dataset for Data-Efficient Query-Based Universal Sound Separation"
+  - u: "alethia_a_foundational_encoder_for_voice_deepfakes/"
+    t: "Alethia: A Foundational Encoder for Voice Deepfakes"
+  - u: "algorithmic_recourse_of_in-context_learning_for_tabular_data/"
+    t: "Algorithmic Recourse of In-Context Learning for Tabular Data"
+  - u: "an_exterior_method_for_nonnegative_matrix_factorization/"
+    t: "An Exterior Method for Nonnegative Matrix Factorization"
+  - u: "attend_to_anything_foundation_model_for_unified_human_attention_modeling/"
+    t: "Attend to Anything: Foundation Model for Unified Human Attention Modeling"
+  - u: "do_audio_llms_listen_or_read_analyzing_and_mitigating_paralinguistic_failures_wi/"
+    t: "Do Audio LLMs Listen or Read? Analyzing and Mitigating Paralinguistic Failures with VoxParadox"
+  - u: "evaluating_and_rewarding_lalms_for_expressive_role-play_tts_via_mean_continuatio/"
+    t: "Evaluating and Rewarding LALMs for Expressive Role-Play TTS via Mean Continuation Log-Probability"
+  - u: "group_cognition_learning_making_everything_better_through_governed_two-stage_age/"
+    t: "Group Cognition Learning: Making Everything Better Through Governed Two-Stage Agents Collaboration"
+  - u: "jaeger_joint_3d_audio-visual_grounding_and_reasoning_in_simulated_physical_envir/"
+    t: "JAEGER: Joint 3D Audio-Visual Grounding and Reasoning in Simulated Physical Environments"
+  - u: "mecat_a_multi-experts_constructed_benchmark_for_fine-grained_audio_understanding/"
+    t: "MECAT: A Multi-Experts Constructed Benchmark for Fine-Grained Audio Understanding Tasks"
+  - u: "moshirag_asynchronous_knowledge_retrieval_for_full-duplex_speech_language_models/"
+    t: "MoshiRAG: Asynchronous Knowledge Retrieval for Full-Duplex Speech Language Models"
+  - u: "multibreak_a_scalable_and_diverse_multi-turn_jailbreak_benchmark_for_evaluating_/"
+    t: "MultiBreak: A Scalable and Diverse Multi-turn Jailbreak Benchmark for Evaluating LLM Safety"
+  - u: "multimodal_fact-level_attribution_for_verifiable_reasoning/"
+    t: "Multimodal Fact-Level Attribution for Verifiable Reasoning"
+  - u: "multimodal_fusion_via_self-consistent_task-gradient_fields/"
+    t: "Multimodal Fusion via Self-Consistent Task-Gradient Fields"
+  - u: "multiple_choice_learning_of_low-rank_adapters_for_language_modeling/"
+    t: "Multiple Choice Learning of Low-Rank Adapters for Language Modeling"
+  - u: "musicdet_zero-shot_ai-generated_music_detection/"
+    t: "MusicDET: Zero-Shot AI-Generated Music Detection"
+  - u: "naaca_training-free_neuroauditory_attentive_cognitive_architecture_with_oscillat/"
+    t: "NAACA: Training-Free NeuroAuditory Attentive Cognitive Architecture with Oscillatory Working Memory for Salience-Driven Attention Gating"
+  - u: "phalar_phasors_for_learned_musical_audio_representations/"
+    t: "PhaLar: Phasors for Learned Musical Audio Representations"
+  - u: "polyphonia_zero-shot_timbre_transfer_in_polyphonic_music_with_acoustic-informed_/"
+    t: "Polyphonia: Zero-Shot Timbre Transfer in Polyphonic Music with Acoustic-Informed Attention Calibration"
+  - u: "position_text_embeddings_should_capture_implicit_semantics_not_just_surface_mean/"
+    t: "Position: Text Embeddings Should Capture Implicit Semantics, Not Just Surface Meaning"
+  - u: "position_towards_responsible_evaluation_for_text-to-speech/"
+    t: "Position: Towards Responsible Evaluation for Text-to-Speech"
+  - u: "probing_cross-modal_information_hubs_in_audio-visual_llms/"
+    t: "Probing Cross-modal Information Hubs in Audio-Visual LLMs"
+  - u: "safesearch_automated_red-teaming_of_llm-based_search_agents/"
+    t: "SafeSearch: Automated Red-Teaming of LLM-Based Search Agents"
+  - u: "sparse_autoencoders_for_interpretable_emotion_control_in_text-to-speech/"
+    t: "Sparse Autoencoders for Interpretable Emotion Control in Text-to-Speech"
+  - u: "sparse_tokens_suffice_jailbreaking_audio_language_models_via_token-aware_gradien/"
+    t: "Sparse Tokens Suffice: Jailbreaking Audio Language Models via Token-Aware Gradient Optimization"
+  - u: "the_silent_thought_modeling_internal_cognition_in_full-duplex_spoken_dialogue_mo/"
+    t: "The Silent Thought: Modeling Internal Cognition in Full-Duplex Spoken Dialogue Models via Latent Reasoning"
+  - u: "towards_streaming_synchronized_spatial_audio_generation_via_autoregressive_diffu/"
+    t: "Towards Streaming Synchronized Spatial Audio Generation via Autoregressive Diffusion Transformer"
+  - u: "towards_understanding_modality_interaction_in_multimodal_language_models_via_par/"
+    t: "Towards Understanding Modality Interaction in Multimodal Language Models via Partial Information Decomposition"
+  - u: "two-dimensional_quantization_for_geometry-aware_audio_coding/"
+    t: "Two-Dimensional Quantization for Geometry-Aware Audio Coding"
+  - u: "vocsim_a_training-free_benchmark_for_zero-shot_content_identity_in_single-source/"
+    t: "VocSim：单源音频零样本内容身份识别的无训练基准"
+item_total: 30
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **🧪 ICML2026** · **30** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (46)](../../NeurIPS2025/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
 
 🔥 **高频主题：** 语音 ×13 · 推理 ×3 · 多模态 ×3 · LLM ×2 · 少样本学习 ×2
 

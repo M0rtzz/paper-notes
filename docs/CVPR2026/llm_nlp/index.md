@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 LLM / NLP方向2篇论文解读
+  CVPR2026 LLM/NLP论文汇总 · 2篇论文解读
 description: >-
   2篇CVPR2026的 LLM / NLP 方向论文解读，涵盖 LLM、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,12 @@ tags:
   - "论文笔记"
   - "LLM"
   - "推理"
+item_list:
+  - u: "guide_guided_updates_for_in-context_decision_evolution_in_llm-driven_spacecraft_/"
+    t: "GUIDE: Guided Updates for In-context Decision Evolution in LLM-Driven Spacecraft Operations"
+  - u: "perception_programs_visual_tool_reasoning/"
+    t: "Perception Programs: Unlocking Visual Tool Reasoning in Language Models"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +23,7 @@ tags:
 
 **📷 CVPR2026** · **2** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/llm_nlp/index.md) · [📹 ICCV2025 (6)](../../ICCV2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_nlp/index.md) · [📹 ICCV2025 (6)](../../ICCV2025/llm_nlp/index.md)
 
 **[GUIDE: Guided Updates for In-context Decision Evolution in LLM-Driven Spacecraft Operations](guide_guided_updates_for_in-context_decision_evolution_in_llm-driven_spacecraft_.md)**
 

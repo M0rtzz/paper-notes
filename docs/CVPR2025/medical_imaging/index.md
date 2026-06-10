@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 医学图像方向78篇论文解读
+  CVPR2025 医学图像论文汇总 · 77篇论文解读
 description: >-
-  78篇CVPR2025的医学图像方向论文解读，涵盖医学影像、语义分割、扩散模型、多模态、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  77篇CVPR2025的医学图像方向论文解读，涵盖医学影像、语义分割、扩散模型、多模态、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2025"
   - "医学图像"
@@ -14,14 +14,76 @@ tags:
   - "多模态"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "a_semi-supervised_framework_for_breast_ultrasound_segmentation_with_training-fre/"
+    t: "A Semi-Supervised Framework for Breast Ultrasound Segmentation with Training-Free Pseudo-Label Generation and Label Refinement"
+  - u: "accelerating_stroke_mri_with_diffusion_probabilistic_models_through_large-scale_/"
+    t: "Accelerating Stroke MRI with Diffusion Probabilistic Models through Large-Scale Pre-training and Target-Specific Fine-Tuning"
+  - u: "adaptation_of_weakly_supervised_localization_in_histopathology_by_debiasing_pred/"
+    t: "Adaptation of Weakly Supervised Localization in Histopathology by Debiasing Predictions"
+  - u: "addressing_data_scarcity_in_3d_trauma_detection_through_self-supervised_and_semi/"
+    t: "Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding"
+  - u: "are_general-purpose_vision_models_all_we_need_for_2d_medical_image_segmentation_/"
+    t: "Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation?"
+  - u: "association_of_radiologic_ppfe_change_with_mortality_in_lung_cancer_screening_co/"
+    t: "Association of Radiologic PPFE Change with Mortality in Lung Cancer Screening Cohorts"
+  - u: "biclip_bidirectional_and_consistent_language-image_processing_for_robust_medical/"
+    t: "BiCLIP: Bidirectional and Consistent Language-Image Processing for Robust Medical Image Segmentation"
+  - u: "boltzmann_attention_sampling_for_image_analysis_with_small_objects/"
+    t: "Boltzmann Attention Sampling for Image Analysis with Small Objects"
+  - u: "bridging_the_skill_gap_in_clinical_cbct_interpretation_with_cbctrepd/"
+    t: "Bridging the Skill Gap in Clinical CBCT Interpretation with CBCTRepD"
+  - u: "carl_a_framework_for_equivariant_image_registration/"
+    t: "CARL: A Framework for Equivariant Image Registration"
+  - u: "cholectrack20_a_multi-perspective_tracking_dataset_for_surgical_tools/"
+    t: "CholecTrack20: A Multi-Perspective Tracking Dataset for Surgical Tools"
+  - u: "cloe_expert_consistency_learning_for_missing_modality_segmentation/"
+    t: "CLoE: Expert Consistency Learning for Missing Modality Segmentation"
+  - u: "crosssdf_3d_reconstruction_of_thin_structures_from_cross-sections/"
+    t: "CrossSDF: 3D Reconstruction of Thin Structures From Cross-Sections"
+  - u: "cycleulm_a_unified_label-free_deep_learning_framework_for_ultrasound_localisatio/"
+    t: "CycleULM: A Unified Label-Free Deep Learning Framework for Ultrasound Localisation Microscopy"
+  - u: "decoding_matters_efficient_mamba-based_decoder_with_distribution-aware_deep_supe/"
+    t: "Decoding Matters: Efficient Mamba-Based Decoder with Distribution-Aware Deep Supervision for Medical Image Segmentation"
+  - u: "deep_learning-based_assessment_of_the_relation_between_the_third_molar_and_mandi/"
+    t: "Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning"
+  - u: "deep_learning_based_estimation_of_blood_glucose_levels_from_multidirectional_scl/"
+    t: "Deep Learning Based Estimation of Blood Glucose Levels from Multidirectional Scleral Blood Vessel Imaging"
+  - u: "developing_foundation_models_for_universal_segmentation_from_3d_whole-body_posit/"
+    t: "Developing Foundation Models for Universal Segmentation from 3D Whole-Body Positron Emission Tomography"
+  - u: "dflmoe_decentralized_federated_learning_via_mixture_of_experts_for_medical_data_/"
+    t: "DFLMoE: Decentralized Federated Learning via Mixture of Experts for Medical Data"
+  - u: "diffusion-based_feature_denoising_and_using_nnmf_for_robust_brain_tumor_classifi/"
+    t: "Diffusion-Based Feature Denoising and Using NNMF for Robust Brain Tumor Classification"
+  - u: "din_diffusion_model_for_robust_medical_vqa_with_semantic_noisy_labels/"
+    t: "DiN: Diffusion Model for Robust Medical VQA with Semantic Noisy Labels"
+  - u: "distilled_prompt_learning_for_incomplete_multimodal_survival_prediction/"
+    t: "Distilled Prompt Learning for Incomplete Multimodal Survival Prediction"
+  - u: "domain_adaptive_diabetic_retinopathy_grading_with_model_absence_and_flowing_data/"
+    t: "Domain Adaptive Diabetic Retinopathy Grading with Model Absence and Flowing Data"
+  - u: "echoone_segmenting_multiple_echocardiography_planes_in_one_model/"
+    t: "EchoONE: Segmenting Multiple Echocardiography Planes in One Model"
+  - u: "echoworld_learning_motion-aware_world_models_for_echocardiography_probe_guidance/"
+    t: "EchoWorld: Learning Motion-Aware World Models for Echocardiography Probe Guidance"
+  - u: "enhanced_contrastive_learning_with_multi-view_longitudinal_data_for_chest_x-ray_/"
+    t: "Enhanced Contrastive Learning with Multi-view Longitudinal Data for Chest X-ray Report Generation"
+  - u: "enhancing_sam_with_efficient_prompting_and_preference_optimization_for_semi-supe/"
+    t: "Enhancing SAM with Efficient Prompting and Preference Optimization for Semi-Supervised Medical Image Segmentation"
+  - u: "enhancing_virtual_try-on_with_synthetic_pairs_and_error-aware_noise_scheduling/"
+    t: "Enhancing Virtual Try-On with Synthetic Pairs and Error-Aware Noise Scheduling"
+  - u: "equivania_a_spectral_method_for_rotation-equivariant_anisotropic_image_analysis/"
+    t: "EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis"
+  - u: "evidential_learning_driven_breast_tumor_segmentation_with_stage-divided_vision-l/"
+    t: "Evidential learning driven Breast Tumor Segmentation with Stage-divided Vision-Language Interaction"
+item_total: 77
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**📷 CVPR2025** · **78** 篇论文解读
+**📷 CVPR2025** · **77** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (100)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (21)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (73)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (97)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (71)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md)
 
 🔥 **高频主题：** 医学影像 ×30 · 语义分割 ×21 · 扩散模型 ×9 · 多模态 ×5 · 推理 ×4
 
@@ -228,10 +290,6 @@ tags:
 **[Prototype-Based Knowledge Guidance for Fine-Grained Structured Radiology Reporting](prototype-based_knowledge_guidance_for_fine-grained_structured_radiology_reporti.md)**
 
 :   ProtoSR 提出从大规模自由文本放射学报告中挖掘模板对齐的原型知识库，并通过原型条件化的后期融合残差模块注入结构化报告预测，在 Rad-ReStruct 基准上实现 SOTA，尤其在细粒度属性问题 (L3) 上获得 72.1% 的相对提升。
-
-**[Reanimating Images using Neural Representations of Dynamic Stimuli](reanimating_images_using_neural_representations_of_dynamic_stimuli.md)**
-
-:   提出 BrainNRDS 框架，将静态图像表征与运动生成解耦，利用 fMRI 脑活动解码光流信息，结合运动条件扩散模型从初始帧生成视频，同时发现视频编码器（VideoMAE）在预测脑活动方面优于图像编码器。
 
 **[Reinforcing the Weakest Links: Modernizing SIENA with Targeted Deep Learning Integration](reinforcing_the_weakest_links_modernizing_siena_with_targeted_deep_learning_inte.md)**
 

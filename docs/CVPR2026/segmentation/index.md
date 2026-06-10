@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 语义分割方向83篇论文解读
+  CVPR2026 语义分割论文汇总 · 83篇论文解读
 description: >-
   83篇CVPR2026的语义分割方向论文解读，涵盖语义分割、扩散模型、推理、域适应、目标检测、遥感等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "域适应"
   - "目标检测"
   - "遥感"
+item_list:
+  - u: "3m-ti_high-quality_mobile_thermal_imaging_via_calibration-free_multi-camera_cros/"
+    t: "3M-TI: High-Quality Mobile Thermal Imaging via Calibration-free Multi-Camera Cross-Modal Diffusion"
+  - u: "a_dataset_of_medication_images_with_instance_segme/"
+    t: "A dataset of medication images with instance segmentation masks for preventing adverse drug events"
+  - u: "a_mixed_diet_makes_dino_an_omnivorous_vision_encoder/"
+    t: "A Mixed Diet Makes DINO An Omnivorous Vision Encoder"
+  - u: "bootstrap_dynamic-aware_3d_visual_representation_for_scalable_robot_learning/"
+    t: "AFRO: Bootstrap Dynamic-Aware 3D Visual Representation for Scalable Robot Learning"
+  - u: "boundary_segment_action_segmentation/"
+    t: "Combining Boundary Supervision and Segment-Level Regularization for Fine-Grained Action Segmentation"
+  - u: "brewing_stronger_features_dual-teacher_distillation_for_multispectral_earth_obse/"
+    t: "Brewing Stronger Features: Dual-Teacher Distillation for Multispectral Earth Observation"
+  - u: "ca-lora_concept-aware_lora_for_domain-aligned_segmentation_dataset_generation/"
+    t: "CA-LoRA: Concept-Aware LoRA for Domain-Aligned Segmentation Dataset Generation"
+  - u: "clip_shortsighted_beyond_first_sentence/"
+    t: "DeBias-CLIP: CLIP Is Shortsighted — Paying Attention Beyond the First Sentence"
+  - u: "concept-guided_fine-tuning_steering_vits_away_from_spurious_correlations_to_impr/"
+    t: "Concept-Guided Fine-Tuning: Steering ViTs away from Spurious Correlations to Improve Robustness"
+  - u: "conceptprism_concept_disentanglement_in_personalized_diffusion_models_via_residu/"
+    t: "ConceptPrism: Concept Disentanglement in Personalized Diffusion Models via Residual Token Optimization"
+  - u: "crossearthsar_a_sarcentric_and_billionscale_geospa/"
+    t: "CrossEarth-SAR: A SAR-Centric and Billion-Scale Geospatial Foundation Model for Domain Generalizable Semantic Segmentation"
+  - u: "ctfs_collaborative_teacher_framework_for_forward-looking_sonar_image_semantic_se/"
+    t: "CTFS: Collaborative Teacher Framework for Forward-Looking Sonar Image Semantic Segmentation with Extremely Limited Labels"
+  - u: "data_warmup_complexity-aware_curricula_for_efficient_diffusion_training/"
+    t: "Data Warmup: Complexity-Aware Curricula for Efficient Diffusion Training"
+  - u: "dedelayed_deleting_remote_inference_delay_via_on-device_correction/"
+    t: "DeDelayed: Deleting Remote Inference Delay via On-Device Correction"
+  - u: "detecting_ai-generated_forgeries_via_iterative_manifold_deviation_amplification/"
+    t: "Detecting AI-Generated Forgeries via Iterative Manifold Deviation Amplification"
+  - u: "direct_segmentation_without_logits_optimization_for_training-free_open-vocabular/"
+    t: "Direct Segmentation without Logits Optimization for Training-Free Open-Vocabulary Semantic Segmentation"
+  - u: "discover_segment_and_select_a_progressive_mechanism_for_zero-shot_camouflaged_ob/"
+    t: "DSS: Discover, Segment, and Select for Zero-shot Camouflaged Object Segmentation"
+  - u: "discriminative_perception_via_anchored_description_for_reasoning_segmentation/"
+    t: "DPAD: Discriminative Perception via Anchored Description for Reasoning Segmentation"
+  - u: "dsflash_panoptic_scene_graph_realtime/"
+    t: "DSFlash: Comprehensive Panoptic Scene Graph Generation in Realtime"
+  - u: "efficient_rgb-d_scene_understanding_via_multi-task_adaptive_learning_and_cross-d/"
+    t: "Efficient RGB-D Scene Understanding via Multi-task Adaptive Learning and Cross-dimensional Feature Guidance"
+  - u: "elvis_enhance_low-light_for_video_instance_segmentation_in_the_dark/"
+    t: "ELVIS: Enhance Low-Light for Video Instance Segmentation in the Dark"
+  - u: "erecu_pseudolabel_evolution_unsupervised_camouflage/"
+    t: "EReCu: Pseudo-label Evolution Fusion and Refinement with Multi-Cue Learning for Unsupervised Camouflage Detection"
+  - u: "fcl-cod_weakly_supervised_camouflaged_object_detection_with_frequency-aware_and_/"
+    t: "FCL-COD: Weakly Supervised Camouflaged Object Detection with Frequency-aware and Contrastive Learning"
+  - u: "follow_the_saliency_supervised_saliency_for_retrieval-augmented_dense_video_capt/"
+    t: "Follow the Saliency: Supervised Saliency for Retrieval-augmented Dense Video Captioning"
+  - u: "fov-net_rotation-invariant_cad_b-rep_learning_via_field-of-view_ray_casting/"
+    t: "FoV-Net: Rotation-Invariant CAD B-rep Learning via Field-of-View Ray Casting"
+  - u: "from_2d_alignment_to_3d_plausibility_unifying_heterogeneous_2d_priors_and_penetr/"
+    t: "From 2D Alignment to 3D Plausibility: Unifying Heterogeneous 2D Priors and Penetration-Free Diffusion for Occlusion-Robust Two-Hand Reconstruction"
+  - u: "genmask_adapting_dit_for_segmentation_via_direct_mask_generation/"
+    t: "GenMask: Adapting DiT for Segmentation via Direct Mask Generation"
+  - u: "geoguide_hierarchical_geometric_guidance_for_open-vocabulary_3d_semantic_segment/"
+    t: "GeoGuide: Hierarchical Geometric Guidance for Open-Vocabulary 3D Semantic Segmentation"
+  - u: "geomprompt_rgbd_segmentation/"
+    t: "GeomPrompt: Geometric Prompt Learning for RGB-D Semantic Segmentation Under Missing and Degraded Depth"
+  - u: "geosurge_geo-localization_using_semantic_fusion_with_hierarchy_of_geographic_emb/"
+    t: "GeoSURGE: Geo-localization using Semantic Fusion with Hierarchy of Geographic Embeddings"
+item_total: 83
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **📷 CVPR2026** · **83** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (45)](../../NeurIPS2025/segmentation/index.md) · [📹 ICCV2025 (74)](../../ICCV2025/segmentation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (44)](../../NeurIPS2025/segmentation/index.md) · [📹 ICCV2025 (74)](../../ICCV2025/segmentation/index.md)
 
 🔥 **高频主题：** 语义分割 ×43 · 扩散模型 ×5 · 推理 ×5 · 域适应 ×4 · 目标检测 ×4
 

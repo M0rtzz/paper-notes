@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 多智能体方向8篇论文解读
+  ACL2025 多智能体论文汇总 · 8篇论文解读
 description: >-
   8篇ACL2025的多智能体方向论文解读，涵盖 Agent、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,24 @@ tags:
   - "论文笔记"
   - "Agent"
   - "推理"
+item_list:
+  - u: "beyond_frameworks_multi_agent_collaboration/"
+    t: "Beyond Frameworks: Unpacking Collaboration Strategies in Multi-Agent Systems"
+  - u: "comet_metaphor-driven_covert_communication_for_multi-agent_language_games/"
+    t: "CoMet: Metaphor-Driven Covert Communication for Multi-Agent Language Games"
+  - u: "cortexdebate_debating_sparsely_and_equally_for_multi-agent_debate/"
+    t: "CortexDebate: Debating Sparsely and Equally for Multi-Agent Debate"
+  - u: "docagent_a_multi-agent_system_for_automated_code_documentation_generation/"
+    t: "DocAgent: A Multi-Agent System for Automated Code Documentation Generation"
+  - u: "getreason_enhancing_image_context_extraction_through_hierarchical_multi-agent_re/"
+    t: "GETReason: Enhancing Image Context Extraction through Hierarchical Multi-Agent Reasoning"
+  - u: "multi-agent_collaboration_via_cross-team_orchestration/"
+    t: "Multi-Agent Collaboration via Cross-Team Orchestration"
+  - u: "preventing_rogue_agents_improves_multi-agent_collaboration/"
+    t: "Preventing Rogue Agents Improves Multi-Agent Collaboration"
+  - u: "voting_or_consensus_decision-making_in_multi-agent_debate/"
+    t: "Voting or Consensus? Decision-Making in Multi-Agent Debate"
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +35,7 @@ tags:
 
 **💬 ACL2025** · **8** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/multi_agent/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/multi_agent/index.md) · [🤖 AAAI2026 (26)](../../AAAI2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md)
 
 🔥 **高频主题：** Agent ×8
 

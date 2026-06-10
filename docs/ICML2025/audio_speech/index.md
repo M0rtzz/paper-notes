@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 音频/语音方向15篇论文解读
+  ICML2025 音频/语音论文汇总 · 15篇论文解读
 description: >-
   15篇ICML2025的音频/语音方向论文解读，涵盖语音、对话系统、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,38 @@ tags:
   - "对话系统"
   - "少样本学习"
   - "扩散模型"
+item_list:
+  - u: "aligning_spoken_dialogue_models_from_user_interactions/"
+    t: "Aligning Spoken Dialogue Models from User Interactions"
+  - u: "binauralflow_a_causal_and_streamable_approach_for_high-quality_binaural_speech_s/"
+    t: "BinauralFlow: A Causal and Streamable Approach for High-Quality Binaural Speech Synthesis with Flow Matching Models"
+  - u: "bridging_the_language_gap_synthetic_voice_diversity_via_latent_mixup_for_equitab/"
+    t: "Bridging the Language Gap: Synthetic Voice Diversity via Latent Mixup for Equitable Speech Recognition"
+  - u: "do_not_mimic_my_voice_speaker_identity_unlearning_for_zero-shot_text-to-speech/"
+    t: "Do Not Mimic My Voice: Speaker Identity Unlearning for Zero-Shot Text-to-Speech"
+  - u: "etta_elucidating_the_design_space_of_text-to-audio_models/"
+    t: "ETTA: Elucidating the Design Space of Text-to-Audio Models"
+  - u: "flam_frame-wise_language-audio_modeling/"
+    t: "FLAM: Frame-Wise Language-Audio Modeling"
+  - u: "impact_iterative_mask-based_parallel_decoding_for_text-to-audio_generation_with_/"
+    t: "IMPACT: Iterative Mask-based Parallel Decoding for Text-to-Audio Generation with Diffusion Modeling"
+  - u: "long-form_speech_generation_with_spoken_language_models/"
+    t: "Long-Form Speech Generation with Spoken Language Models"
+  - u: "musecontrollite_multifunctional_music_generation_with_lightweight_conditioners/"
+    t: "MuseControlLite: Multifunctional Music Generation with Lightweight Conditioners"
+  - u: "ntpp_generative_speech_language_modeling_for_dual-channel_spoken_dialogue_via_ne/"
+    t: "NTPP: Generative Speech Language Modeling for Dual-Channel Spoken Dialogue via Next-Token-Pair Prediction"
+  - u: "omniaudio_generating_spatial_audio_from_360-degree_video/"
+    t: "OmniAudio: Generating Spatial Audio from 360-Degree Video"
+  - u: "one_wave_to_explain_them_all_a_unifying_perspective_on_feature_attribution/"
+    t: "One Wave To Explain Them All: A Unifying Perspective On Feature Attribution"
+  - u: "sortformer_a_novel_approach_for_permutation-resolved_speaker_supervision_in_spee/"
+    t: "Sortformer: A Novel Approach for Permutation-Resolved Speaker Supervision in Speech-to-Text Systems"
+  - u: "sounding_that_object_interactive_object-aware_image_to_audio_generation/"
+    t: "Sounding that Object: Interactive Object-Aware Image to Audio Generation"
+  - u: "teaching_physical_awareness_to_llms_through_sounds/"
+    t: "Teaching Physical Awareness to LLMs through Sounds"
+item_total: 15
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +51,7 @@ tags:
 
 **🧪 ICML2025** · **15** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/audio_speech/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (46)](../../NeurIPS2025/audio_speech/index.md)
 
 🔥 **高频主题：** 语音 ×11 · 对话系统 ×2
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 因果推理方向5篇论文解读
+  CVPR2025 因果推理论文汇总 · 5篇论文解读
 description: >-
   5篇CVPR2025的因果推理方向论文解读，收录 Adventurer、Antidote、Image Quality Assessment等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -8,6 +8,18 @@ tags:
   - "因果推理"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "adventurer_optimizing_vision_mamba_architecture_designs_for_efficiency/"
+    t: "Adventurer: Optimizing Vision Mamba Architecture Designs for Efficiency"
+  - u: "antidote_a_unified_framework_for_mitigating_lvlm_hallucinations_in_counterfactua/"
+    t: "Antidote: A Unified Framework for Mitigating LVLM Hallucinations in Counterfactual Presupposition and Object Perception"
+  - u: "image_quality_assessment_investigating_causal_perceptual_effects_with_abductive_/"
+    t: "Image Quality Assessment: Investigating Causal Perceptual Effects with Abductive Counterfactual Inference"
+  - u: "joint_scheduling_of_causal_prompts_and_tasks_for_multi-task_learning/"
+    t: "Joint Scheduling of Causal Prompts and Tasks for Multi-Task Learning"
+  - u: "towards_fine-grained_interpretability_counterfactual_explanations_for_misclassif/"
+    t: "FG-VCE: Towards Fine-Grained Interpretability — Counterfactual Explanations for Misclassification with Saliency Partition"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -15,7 +27,7 @@ tags:
 
 **📷 CVPR2025** · **5** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/causal_inference/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/causal_inference/index.md)
 
 **[Adventurer: Optimizing Vision Mamba Architecture Designs for Efficiency](adventurer_optimizing_vision_mamba_architecture_designs_for_efficiency.md)**
 

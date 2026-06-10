@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 信息检索/RAG方向27篇论文解读
+  AAAI2026 信息检索/RAG论文汇总 · 27篇论文解读
 description: >-
   27篇AAAI2026的信息检索/RAG 方向论文解读，涵盖 RAG、推理、多模态、LLM、Agent、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,62 @@ tags:
   - "LLM"
   - "Agent"
   - "对齐/RLHF"
+item_list:
+  - u: "as_eastern_powers_i_will_veto_an_investigation_of_nation-level_bias_of_large_lan/"
+    t: "\"As Eastern Powers, I Will Veto.\" : An Investigation of Nation-Level Bias of Large Language Models in International Relations"
+  - u: "beyond_perplexity_let_the_reader_select_retrieval_summaries_via_spectrum_project/"
+    t: "Beyond Perplexity: Let the Reader Select Retrieval Summaries via Spectrum Projection Score"
+  - u: "cog-rag_cognitive-inspired_dual-hypergraph_with_theme_alignment_retrieval-augmen/"
+    t: "Cog-RAG: Cognitive-Inspired Dual-Hypergraph with Theme Alignment Retrieval-Augmented Generation"
+  - u: "comlq_benchmarking_complex_logical_queries_in_information_retrieval/"
+    t: "ComLQ: Benchmarking Complex Logical Queries in Information Retrieval"
+  - u: "comorag_a_cognitive-inspired_memory-organized_rag_for_stateful_long_narrative_re/"
+    t: "ComoRAG: A Cognitive-Inspired Memory-Organized RAG for Stateful Long Narrative Reasoning"
+  - u: "convmix_a_mixed-criteria_data_augmentation_framework_for_conversational_dense_re/"
+    t: "ConvMix: A Mixed-Criteria Data Augmentation Framework for Conversational Dense Retrieval"
+  - u: "do_retrieval_augmented_language_models_know_when_they_dont_know/"
+    t: "Do Retrieval Augmented Language Models Know When They Don't Know?"
+  - u: "does_less_hallucination_mean_less_creativity_an_empirical_investigation_in_llms/"
+    t: "Does Less Hallucination Mean Less Creativity? An Empirical Investigation in LLMs"
+  - u: "exposing_the_cracks_vulnerabilities_of_retrieval-augmented_llm-based_machine_tra/"
+    t: "Exposing the Cracks: Vulnerabilities of Retrieval-Augmented LLM-Based Machine Translation"
+  - u: "himo-clip_modeling_semantic_hierarchy_and_monotonicity_in_vi/"
+    t: "HiMo-CLIP: Modeling Semantic Hierarchy and Monotonicity in Vision-Language Alignment"
+  - u: "knowledge_completes_the_vision_a_multimodal_entity-aware_retrieval-augmented_gen/"
+    t: "Knowledge Completes the Vision: A Multimodal Entity-aware Retrieval-Augmented Generation Framework for News Image Captioning"
+  - u: "magnitude_matters_a_superior_class_of_similarity_metrics_for_holistic_semantic_u/"
+    t: "Magnitude Matters: A Superior Class of Similarity Metrics for Holistic Semantic Understanding"
+  - u: "mem-pal_towards_memory-based_personalized_dialogue_assistants_for_long-term_user/"
+    t: "Mem-PAL: Towards Memory-based Personalized Dialogue Assistants for Long-term User-Agent Interaction"
+  - u: "multimodal_deepresearcher_generating_text-chart_interleaved_/"
+    t: "Multimodal DeepResearcher: Generating Text-Chart Interleaved Reports From Scratch with Agentic Framework"
+  - u: "n2n-gqa_noise-to-narrative_for_graph-based_table-text_question_answering_using_l/"
+    t: "N2N-GQA: Noise-to-Narrative for Graph-Based Table-Text Question Answering Using LLMs"
+  - u: "neighbor-aware_instance_refining_with_noisy_labels_for_cross-modal_retrieval/"
+    t: "Neighbor-aware Instance Refining with Noisy Labels for Cross-Modal Retrieval"
+  - u: "opera_a_reinforcement_learning--enhanced_orchestrated_planner-executor_architect/"
+    t: "OPERA: A Reinforcement Learning--Enhanced Orchestrated Planner-Executor Architecture for Reasoning-Oriented Multi-Hop Retrieval"
+  - u: "positional_bias_in_multimodal_embedding_models_do_they_favor_the_beginning_the_m/"
+    t: "Positional Bias in Multimodal Embedding Models: Do They Favor the Beginning, the Middle, or the End?"
+  - u: "precise_reducing_the_bias_of_llm_evaluations_using_prediction-powered_ranking_es/"
+    t: "PRECISE: Reducing the Bias of LLM Evaluations Using Prediction-Powered Ranking Estimation"
+  - u: "prime_planning_and_retrieval-integrated_memory_for_enhanced_reasoning/"
+    t: "PRIME: Planning and Retrieval-Integrated Memory for Enhanced Reasoning"
+  - u: "ragfort_dual-path_defense_against_proprietary_knowledge_base_extraction_in_retri/"
+    t: "RAGFort: Dual-Path Defense Against Proprietary Knowledge Base Extraction in Retrieval-Augmented Generation"
+  - u: "reap_enhancing_rag_with_recursive_evaluation_and_adaptive_planning_for_multi-hop/"
+    t: "REAP: Enhancing RAG with Recursive Evaluation and Adaptive Planning for Multi-Hop Question Answering"
+  - u: "refeed_retrieval_feedback-guided_dataset_construction_for_style-aware_query_rewr/"
+    t: "ReFeed: Retrieval Feedback-Guided Dataset Construction for Style-Aware Query Rewriting"
+  - u: "rrra_resampling_and_reranking_through_a_retriever_adapter/"
+    t: "RRRA: Resampling and Reranking through a Retriever Adapter"
+  - u: "sr-ki_scalable_and_real-time_knowledge_integration_into_llms_via_supervised_atte/"
+    t: "SR-KI: Scalable and Real-Time Knowledge Integration into LLMs via Supervised Attention"
+  - u: "towards_inference-time_scaling_for_continuous_space_reasoning/"
+    t: "Towards Inference-Time Scaling for Continuous Space Reasoning"
+  - u: "when_small_models_are_right_for_wrong_reasons_process_verification_for_trustwort/"
+    t: "When Small Models Are Right for Wrong Reasons: Process Verification for Trustworthy Agents"
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +77,7 @@ tags:
 
 **🤖 AAAI2026** · **27** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/information_retrieval/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/information_retrieval/index.md)
 
 🔥 **高频主题：** RAG ×7 · 推理 ×4 · 多模态 ×4 · LLM ×3 · Agent ×3
 

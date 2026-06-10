@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 语义分割方向45篇论文解读
+  NeurIPS2025 语义分割论文汇总 · 44篇论文解读
 description: >-
-  45篇NeurIPS2025的语义分割方向论文解读，涵盖语义分割、扩散模型、对抗鲁棒、自监督学习、推理、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  44篇NeurIPS2025的语义分割方向论文解读，涵盖语义分割、扩散模型、对抗鲁棒、自监督学习、推理、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "语义分割"
@@ -13,12 +13,74 @@ tags:
   - "自监督学习"
   - "推理"
   - "强化学习"
+item_list:
+  - u: "alligat0r_pre-training_through_co-visibility_segmentation_for_relative_camera_po/"
+    t: "Alligat0R: Pre-Training through Covisibility Segmentation for Relative Camera Pose Regression"
+  - u: "attention_as_discrete-time_markov_chains/"
+    t: "Attention (as Discrete-Time Markov) Chains"
+  - u: "connectomebench_can_llms_proofread_the_connectome/"
+    t: "ConnectomeBench: Can LLMs Proofread the Connectome?"
+  - u: "cos3d_collaborative_open-vocabulary_3d_segmentation/"
+    t: "COS3D: Collaborative Open-Vocabulary 3D Segmentation"
+  - u: "diffusion-driven_two-stage_active_learning_for_low-budget_semantic_segmentation/"
+    t: "Diffusion-Driven Two-Stage Active Learning for Low-Budget Semantic Segmentation"
+  - u: "exploring_structural_degradation_in_dense_representations_for_self-supervised_le/"
+    t: "Exploring Structural Degradation in Dense Representations for Self-supervised Learning"
+  - u: "fast_and_fluent_diffusion_language_models_via_convolutional_decoding_and_rejecti/"
+    t: "Fast and Fluent Diffusion Language Models via Convolutional Decoding and Rejective Fine-tuning"
+  - u: "fast_foreground-aware_diffusion_with_accelerated_sampling_trajectory_for_segment/"
+    t: "FAST: Foreground-aware Diffusion with Accelerated Sampling Trajectory for Segmentation-oriented Anomaly Synthesis"
+  - u: "finers_fine-grained_reasoning_and_segmentation_of_small_objects_with_reinforceme/"
+    t: "FineRS: Fine-grained Reasoning and Segmentation of Small Objects with Reinforcement Learning"
+  - u: "gtpbd_a_fine-grained_global_terraced_parcel_and_boundary_dataset/"
+    t: "GTPBD: A Fine-Grained Global Terraced Parcel and Boundary Dataset"
+  - u: "haodiff_human-aware_one-step_diffusion_via_dual-prompt_guidance/"
+    t: "HAODiff: Human-Aware One-Step Diffusion via Dual-Prompt Guidance"
+  - u: "hopadiff_holistic-partial_aware_fourier_conditioned_diffusion_for_referring_huma/"
+    t: "HopaDIFF: Holistic-Partial Aware Fourier Conditioned Diffusion for Referring Human Action Segmentation in Multi-Person Scenarios"
+  - u: "humancrafter_synergizing_generalizable_human_reconstruction_and_semantic_3d_segm/"
+    t: "HumanCrafter: Synergizing Generalizable Human Reconstruction and Semantic 3D Segmentation"
+  - u: "instant_video_models_universal_adapters_for_stabilizing_image-based_networks/"
+    t: "Instant Video Models: Universal Adapters for Stabilizing Image-Based Networks"
+  - u: "instructsam_a_training-free_framework_for_instruction-oriented_remote_sensing_ob/"
+    t: "InstructSAM: A Training-Free Framework for Instruction-Oriented Remote Sensing Object Recognition"
+  - u: "interpreting_resnet-based_clip_via_neuron-attention_decomposition/"
+    t: "Interpreting ResNet-based CLIP via Neuron-Attention Decomposition"
+  - u: "langhops_language_grounded_hierarchical_open-vocabulary_part_segmentation/"
+    t: "LangHOPS: Language Grounded Hierarchical Open-Vocabulary Part Segmentation"
+  - u: "mars-bench_a_benchmark_for_evaluating_foundation_models_for_mars_science_tasks/"
+    t: "Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks"
+  - u: "mechanistic_interpretability_of_rnns_emulating_hidden_mar/"
+    t: "Mechanistic Interpretability of RNNs Emulating Hidden Markov Models"
+  - u: "omnisegmentor_a_flexible_multi-modal_learning_framework_for_semantic_segmentatio/"
+    t: "OmniSegmentor: A Flexible Multi-Modal Learning Framework for Semantic Segmentation"
+  - u: "panoptic_captioning_an_equivalence_bridge_for_image_and_text/"
+    t: "Panoptic Captioning: An Equivalence Bridge for Image and Text"
+  - u: "partnext_a_next-generation_dataset_for_fine-grained_and_hierarchical_3d_part_und/"
+    t: "PartNeXt: A Next-Generation Dataset for Fine-Grained and Hierarchical 3D Part Understanding"
+  - u: "partonomy_large_multimodal_models_with_part-level_visual_understanding/"
+    t: "PARTONOMY: Large Multimodal Models with Part-Level Visual Understanding"
+  - u: "re-coding_for_uncertainties_edge-awareness_semantic_concordance_for_resilient_ev/"
+    t: "Re-coding for Uncertainties: Edge-awareness Semantic Concordance for Resilient Event-RGB Segmentation"
+  - u: "revisiting_generative_infrared_and_visible_image_fusion_based_on_human_cognitive/"
+    t: "HCLFuse: Revisiting Generative Infrared and Visible Image Fusion Based on Human Cognitive Laws"
+  - u: "robust_ego-exo_correspondence_with_long-term_memory/"
+    t: "Robust Ego-Exo Correspondence with Long-Term Memory"
+  - u: "robust_egocentric_referring_video_object_segmentation_via_dual-modal_causal_inte/"
+    t: "Robust Egocentric Referring Video Object Segmentation via Dual-Modal Causal Intervention"
+  - u: "roma_scaling_up_mamba-based_foundation_models_for_remote_sensing/"
+    t: "RoMA: Scaling up Mamba-based Foundation Models for Remote Sensing"
+  - u: "safire_saccade-fixation_reiteration_with_mamba_for_referring_image_segmentation/"
+    t: "SaFiRe: Saccade-Fixation Reiteration with Mamba for Referring Image Segmentation"
+  - u: "sam-r1_leveraging_sam_for_reward_feedback_in_multimodal_segmentation_via_reinfor/"
+    t: "SAM-R1: Leveraging SAM for Reward Feedback in Multimodal Segmentation via Reinforcement Learning"
+item_total: 44
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**🧠 NeurIPS2025** · **45** 篇论文解读
+**🧠 NeurIPS2025** · **44** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [📹 ICCV2025 (74)](../../ICCV2025/segmentation/index.md)
 
@@ -99,10 +161,6 @@ tags:
 **[Mechanistic Interpretability of RNNs Emulating Hidden Markov Models](mechanistic_interpretability_of_rnns_emulating_hidden_mar.md)**
 
 :   训练 vanilla RNN 复现 HMM 的发射统计，然后通过反向工程揭示 RNN 实现离散随机状态转换的机制：噪声驱动的轨道动力学 + "kick 神经元"触发的快速转换，本质是自诱导随机共振（SISR），该动力学基元可组合复用以模拟更复杂的离散潜在结构。
-
-**[Mechanistic Interpretability of RNNs Emulating Hidden Markov Models](mechanistic_interpretability_of_rnns_emulating_hidden_markov_models.md)**
-
-:   训练vanilla RNN复现隐马尔可夫模型（HMM）的发射统计量，然后通过逆向工程揭示RNN利用噪声维持的轨道动力学、"kick neuron"电路和自致随机共振机制来实现离散随机状态转换的计算原理。
 
 **[OmniSegmentor: A Flexible Multi-Modal Learning Framework for Semantic Segmentation](omnisegmentor_a_flexible_multi-modal_learning_framework_for_semantic_segmentatio.md)**
 

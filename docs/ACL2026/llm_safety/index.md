@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 LLM 安全方向128篇论文解读
+  ACL2026 LLM安全论文汇总 · 128篇论文解读
 description: >-
   128篇ACL2026的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、水印/隐写、推理、多模态、RAG等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "推理"
   - "多模态"
   - "RAG"
+item_list:
+  - u: "a_linguistics-aware_llm_watermarking_via_syntactic_predictability/"
+    t: "STELA: A Linguistics-Aware LLM Watermarking via Syntactic Predictability"
+  - u: "a_survey_on_the_safety_and_security_threats_of_computer-using_agents_jarvis_or_u/"
+    t: "A Survey on the Safety and Security Threats of Computer-Using Agents: JARVIS or Ultron?"
+  - u: "abstain-r1_calibrated_abstention_and_post-refusal_clarification_via_verifiable_r/"
+    t: "Abstain-R1: Calibrated Abstention and Post-Refusal Clarification via Verifiable RL"
+  - u: "aciarena_toward_unified_evaluation_for_agent_cascading_injection/"
+    t: "ACIArena: Toward Unified Evaluation for Agent Cascading Injection"
+  - u: "adaptive_text_anonymization_learning_privacy-utility_trade-offs_via_prompt_optim/"
+    t: "Adaptive Text Anonymization: Learning Privacy-Utility Trade-offs via Prompt Optimization"
+  - u: "advice_answer-dependent_verbalized_confidence_estimation/"
+    t: "ADVICE: Answer-Dependent Verbalized Confidence Estimation"
+  - u: "agentcoma_a_compositional_benchmark_mixing_commonsense_and_mathematical_reasonin/"
+    t: "AgentCoMa: A Compositional Benchmark Mixing Commonsense and Mathematical Reasoning in Real-World Scenarios"
+  - u: "agentmark_utility-preserving_behavioral_watermarking_for_agents/"
+    t: "AgentMark: Utility-Preserving Behavioral Watermarking for Agents"
+  - u: "agsc_adaptive_granularity_and_semantic_clustering_for_uncertainty_quantification/"
+    t: "AGSC: Adaptive Granularity and Semantic Clustering for Uncertainty Quantification in Long-text Generation"
+  - u: "aligning_with_your_own_voice_self-corrected_preference_learning_for_hallucinatio/"
+    t: "Aligning with Your Own Voice: Self-Corrected Preference Learning for Hallucination Mitigation in LVLMs"
+  - u: "appsi-139_a_parallel_corpus_of_english_application_privacy_policy_summarization_/"
+    t: "APPSI-139: A Parallel Corpus of English Application Privacy Policy Summarization and Interpretation"
+  - u: "astra_an_automated_framework_for_strategy_discovery_retrieval_and_evolution_for_/"
+    t: "ASTRA: An Automated Framework for Strategy Discovery, Retrieval, and Evolution for Jailbreaking LLMs"
+  - u: "ataat_adaptive_threat-aware_adversarial_tuning_framework_against_backdoor_attack/"
+    t: "ATAAT: Adaptive Threat-Aware Adversarial Tuning Framework against Backdoor Attacks on Vision-Language-Action Models"
+  - u: "autoran_automated_hijacking_of_safety_reasoning_in_large_reasoning_models/"
+    t: "AutoRAN: Automated Hijacking of Safety Reasoning in Large Reasoning Models"
+  - u: "before_forgetting_learn_to_remember_revisiting_foundational_learning_failures_in/"
+    t: "Before Forgetting, Learn to Remember: Revisiting Foundational Learning Failures in LVLM Unlearning Benchmarks"
+  - u: "beyond_end-to-end_dynamic_chain_optimization_for_private_llm_adaptation_on_the_e/"
+    t: "Beyond End-to-End: Dynamic Chain Optimization for Private LLM Adaptation on the Edge"
+  - u: "beyond_explicit_refusals_soft-failure_attacks_on_retrieval-augmented_generation/"
+    t: "Beyond Explicit Refusals: Soft-Failure Attacks on Retrieval-Augmented Generation"
+  - u: "calibration_vs_decision_making_revisiting_the_reliability_paradox_in_unlearned_l/"
+    t: "Calibration vs Decision Making: Revisiting the Reliability Paradox in Unlearned Language Models"
+  - u: "can_persona-prompted_llms_emulate_subgroup_values_an_empirical_analysis_of_gener/"
+    t: "Can Persona-Prompted LLMs Emulate Subgroup Values? An Empirical Analysis of Generalisability and Fairness in Cultural Alignment"
+  - u: "cap_controllable_alignment_prompting_for_unlearning_in_llms/"
+    t: "CAP: Controllable Alignment Prompting for Unlearning in LLMs"
+  - u: "caro_chain-of-analogy_reasoning_optimization_for_robust_content_moderation/"
+    t: "CarO: Chain-of-Analogy Reasoning Optimization for Robust Content Moderation"
+  - u: "causaldetox_causal_head_selection_and_intervention_for_language_model_detoxifica/"
+    t: "CausalDetox: Causal Head Selection and Intervention for Language Model Detoxification"
+  - u: "ci-work_benchmarking_contextual_integrity_in_enterprise_llm_agents/"
+    t: "CI-Work: Benchmarking Contextual Integrity in Enterprise LLM Agents"
+  - u: "cipo_counterfactual_unlearning_for_large_reasoning_models_through_iterative_pref/"
+    t: "CiPO: Counterfactual Unlearning for Large Reasoning Models through Iterative Preference Optimization"
+  - u: "compiling_activation_steering_into_weights_via_null-space_constraints_for_stealt/"
+    t: "Compiling Activation Steering into Weights via Null-Space Constraints for Stealthy Backdoors"
+  - u: "context-fidelity_boosting_enhancing_faithful_generation_through_watermark-inspir/"
+    t: "Context-Fidelity Boosting: Enhancing Faithful Generation through Watermark-Inspired Decoding"
+  - u: "crisp_persistent_concept_unlearning_via_sparse_autoencoders/"
+    t: "CRISP: Persistent Concept Unlearning via Sparse Autoencoders"
+  - u: "crossguard_safeguarding_mllms_against_joint-modal_implicit_malicious_attacks/"
+    t: "CrossGuard: Safeguarding MLLMs against Joint-Modal Implicit Malicious Attacks"
+  - u: "curate_continual_unlearning_in_real_time_with_ensured_preservation_of_llm_knowle/"
+    t: "CURaTE: Continual Unlearning in Real Time with Ensured Preservation of LLM Knowledge"
+  - u: "dart_mitigating_harm_drift_in_difference-aware_llms_via_distill-audit-repair_tra/"
+    t: "DART: Mitigating Harm Drift in Difference-Aware LLMs via Distill-Audit-Repair Training"
+item_total: 128
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **💬 ACL2026** · **128** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (42)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
 
 🔥 **高频主题：** LLM ×47 · 对抗鲁棒 ×22 · 水印/隐写 ×10 · 推理 ×10 · 多模态 ×10
 

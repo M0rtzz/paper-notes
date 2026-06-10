@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 多智能体方向15篇论文解读
+  ICLR2026 多智能体论文汇总 · 14篇论文解读
 description: >-
-  15篇ICLR2026的多智能体方向论文解读，涵盖 Agent、LLM、多模态、推理、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  14篇ICLR2026的多智能体方向论文解读，涵盖 Agent、LLM、多模态、推理、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "多智能体"
@@ -13,16 +13,46 @@ tags:
   - "多模态"
   - "推理"
   - "医学影像"
+item_list:
+  - u: "agenttrace_causal_graph_tracing_for_root_cause_analysis_in_deployed_multi-agent_/"
+    t: "AgentTrace: Causal Graph Tracing for Root Cause Analysis in Deployed Multi-Agent Systems"
+  - u: "auditing_cascading_risks_in_multi-agent_systems_via_semanti-geometric_co-evolut/"
+    t: "Auditing Cascading Risks in Multi-Agent Systems via Semantic–Geometric Co-evolution"
+  - u: "completing_missing_annotation_multi-agent_debate_for_accurate_and_scalable_relev/"
+    t: "Completing Missing Annotation: Multi-Agent Debate for Accurate and Scalable Relevance Assessment"
+  - u: "hamlet_a_hierarchical_and_adaptive_multi-agent_framework_for_live_embodied_theat/"
+    t: "HAMLET: A Hierarchical and Adaptive Multi-Agent Framework for Live Embodied Theatre"
+  - u: "kvcomm_enabling_efficient_llm_communication_through_selective_kv_sharing/"
+    t: "KVComm: Enabling Efficient LLM Communication through Selective KV Sharing"
+  - u: "lh-deception_simulating_and_understanding_llm_deceptive_behaviors_in_long-horizo/"
+    t: "LH-Deception: Simulating and Understanding LLM Deceptive Behaviors in Long-Horizon Interactions"
+  - u: "mac-amp_a_closed-loop_multi-agent_collaboration_system_for_multi-objective_antim/"
+    t: "MAC-AMP: A Closed-Loop Multi-Agent Collaboration System for Multi-Objective Antimicrobial Peptide Design"
+  - u: "mmedagent-rl_optimizing_multi-agent_collaboration_for_multimodal_medical_reasoni/"
+    t: "MMedAgent-RL: Optimizing Multi-Agent Collaboration for Multimodal Medical Reasoning"
+  - u: "multi-agent_coordination_via_flow_matching/"
+    t: "Multi-agent Coordination via Flow Matching"
+  - u: "multi-agent_design_optimizing_agents_with_better_prompts_and_topologies/"
+    t: "Multi-Agent Design: Optimizing Agents with Better Prompts and Topologies"
+  - u: "stochastic_self-organization_in_multi-agent_systems/"
+    t: "Stochastic Self-Organization in Multi-Agent Systems"
+  - u: "stop_wasting_your_tokens_towards_efficient_runtime_multi-agent_systems/"
+    t: "Stop Wasting Your Tokens: Towards Efficient Runtime Multi-Agent Systems"
+  - u: "uis-digger_towards_comprehensive_research_agent_systems_for_real-world_unindexed/"
+    t: "UIS-Digger: Towards Comprehensive Research Agent Systems for Real-world Unindexed Information Seeking"
+  - u: "which_llm_multi-agent_protocol_to_choose/"
+    t: "Which LLM Multi-Agent Protocol to Choose?"
+item_total: 14
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 👥 多智能体
 
-**🔬 ICLR2026** · **15** 篇论文解读
+**🔬 ICLR2026** · **14** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🤖 AAAI2026 (26)](../../AAAI2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
 
-🔥 **高频主题：** Agent ×13 · LLM ×4
+🔥 **高频主题：** Agent ×12 · LLM ×3
 
 **[AgentTrace: Causal Graph Tracing for Root Cause Analysis in Deployed Multi-Agent Systems](agenttrace_causal_graph_tracing_for_root_cause_analysis_in_deployed_multi-agent_.md)**
 
@@ -75,10 +105,6 @@ tags:
 **[UIS-Digger: Towards Comprehensive Research Agent Systems for Real-world Unindexed Information Seeking](uis-digger_towards_comprehensive_research_agent_systems_for_real-world_unindexed.md)**
 
 :   识别并形式化"未索引信息检索"(UIS) 问题——搜索引擎无法直接检索的动态网页/嵌入文件/交互式内容，提出首个 UIS 基准 UIS-QA（110 题）和多 Agent 框架 UIS-Digger，以 ~30B 参数模型经 SFT+RFT 训练后达到 27.27% 准确率，超越集成 O3/GPT-4.1 的系统。
-
-**[When Agents "Misremember" Collectively: Exploring the Mandela Effect in LLM-based Multi-Agent Systems](when_agents_misremember_collectively_exploring_the_mandela_effect_in_llm-based_m.md)**
-
-:   本文首次系统研究了 LLM 多智能体系统中的曼德拉效应（集体虚假记忆），提出 ManBench 基准（4838 个问题、5 种交互协议），发现所有 13 个被评估的 LLM 均易受此效应影响，并提出 prompt 级和模型级缓解策略，平均减少 74.40% 的虚假记忆。
 
 **[Which LLM Multi-Agent Protocol to Choose?](which_llm_multi-agent_protocol_to_choose.md)**
 

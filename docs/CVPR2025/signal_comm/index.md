@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 信号/通信方向5篇论文解读
+  CVPR2025 信号/通信论文汇总 · 5篇论文解读
 description: >-
   5篇CVPR2025的信号/通信方向论文解读，涵盖水印/隐写、压缩/编码等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,18 @@ tags:
   - "论文笔记"
   - "水印/隐写"
   - "压缩/编码"
+item_list:
+  - u: "abc-former_auxiliary_bimodal_cross-domain_transformer_with_interactive_channel_a/"
+    t: "ABC-Former: Auxiliary Bimodal Cross-domain Transformer with Interactive Channel Attention"
+  - u: "breaking_the_low-rank_dilemma_of_linear_attention/"
+    t: "Breaking the Low-Rank Dilemma of Linear Attention"
+  - u: "continuous_space-time_video_resampling_with_invertible_motion_steganography/"
+    t: "Continuous Space-Time Video Resampling with Invertible Motion Steganography"
+  - u: "ditask_multi-task_fine-tuning_with_diffeomorphic_transformations/"
+    t: "DiTASK: Multi-Task Fine-Tuning with Diffeomorphic Transformations"
+  - u: "neural_video_compression_with_context_modulation/"
+    t: "Neural Video Compression with Context Modulation"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

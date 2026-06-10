@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 代码智能方向9篇论文解读
+  ICML2025 代码智能论文汇总 · 9篇论文解读
 description: >-
   9篇ICML2025的代码智能方向论文解读，涵盖代码智能、推理、LLM、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,26 @@ tags:
   - "推理"
   - "LLM"
   - "对抗鲁棒"
+item_list:
+  - u: "adaptivestep_automatically_dividing_reasoning_step_through_model_confidence/"
+    t: "AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence"
+  - u: "efficoder_enhancing_code_generation_in_large_language_models_through_efficiency-/"
+    t: "EffiCoder: Enhancing Code Generation in Large Language Models through Efficiency-Aware Fine-tuning"
+  - u: "epicoder_encompassing_diversity_and_complexity_in_code_generation/"
+    t: "EpiCoder: Encompassing Diversity and Complexity in Code Generation"
+  - u: "function-to-style_guidance_of_llms_for_code_translation/"
+    t: "Function-to-Style Guidance of LLMs for Code Translation"
+  - u: "mind_the_gap_a_practical_attack_on_gguf_quantization/"
+    t: "Mind the Gap: A Practical Attack on GGUF Quantization"
+  - u: "reasoning_through_execution_unifying_process_and_outcome_rewards_for_code_genera/"
+    t: "Reasoning Through Execution: Unifying Process and Outcome Rewards for Code Generation"
+  - u: "robust_learning_of_diverse_code_edits/"
+    t: "Robust Learning of Diverse Code Edits (NextCoder)"
+  - u: "sparselora_accelerating_llm_fine-tuning_with_contextual_sparsity/"
+    t: "SparseLoRA: Accelerating LLM Fine-Tuning with Contextual Sparsity"
+  - u: "training_software_engineering_agents_and_verifiers_with_swe-gym/"
+    t: "Training Software Engineering Agents and Verifiers with SWE-Gym"
+item_total: 9
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

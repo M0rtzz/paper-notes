@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 物理/科学计算方向55篇论文解读
+  NeurIPS2025 物理/科学计算论文汇总 · 54篇论文解读
 description: >-
-  55篇NeurIPS2025的物理/科学计算方向论文解读，涵盖域适应、扩散模型、自监督学习、LLM、生物分子、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  54篇NeurIPS2025的物理/科学计算方向论文解读，涵盖域适应、扩散模型、自监督学习、LLM、生物分子、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "物理/科学计算"
@@ -14,20 +14,78 @@ tags:
   - "LLM"
   - "生物分子"
   - "医学影像"
+item_list:
+  - u: "a_variational_manifold_embedding_framework_for_nonlinear_dimensionality_reductio/"
+    t: "A Variational Manifold Embedding Framework for Nonlinear Dimensionality Reduction"
+  - u: "adaptive_stochastic_coefficients_for_accelerating_diffusion_sampling/"
+    t: "Adaptive Stochastic Coefficients for Accelerating Diffusion Sampling"
+  - u: "astroco_self-supervised_conformer-style_transformers_for_light-curve_embeddings/"
+    t: "AstroCo: Self-Supervised Conformer-Style Transformers for Light-Curve Embeddings"
+  - u: "balanced_conic_rectified_flow/"
+    t: "Balanced Conic Rectified Flow"
+  - u: "bayesian_surrogates_for_risk-aware_pre-assessment_of_aging_bridge_portfolios/"
+    t: "Bayesian Surrogates for Risk-Aware Pre-Assessment of Aging Bridge Portfolios"
+  - u: "collapsing_taylor_mode_automatic_differentiation/"
+    t: "Collapsing Taylor Mode Automatic Differentiation"
+  - u: "deltaphi_physical_states_residual_learning_for_neural_operators_in_data-limited_/"
+    t: "DeltaPhi: Physical States Residual Learning for Neural Operators in Data-Limited PDE Solving"
+  - u: "eddyformer_accelerated_neural_simulations_of_three-dimensional_turbulence_at_sca/"
+    t: "EddyFormer: Accelerated Neural Simulations of Three-Dimensional Turbulence at Scale"
+  - u: "encoding_and_understanding_astrophysical_information_in_large_language_model-gen/"
+    t: "Encoding and Understanding Astrophysical Information in Large Language Model-Generated Summaries"
+  - u: "enforcing_governing_equation_constraints_in_neural_pde_solvers_via_training-free/"
+    t: "Enforcing Governing Equation Constraints in Neural PDE Solvers via Training-free Projections"
+  - u: "exoplanet_formation_inference_using_conditional_invertible_neural_networks/"
+    t: "Exoplanet Formation Inference Using Conditional Invertible Neural Networks"
+  - u: "f-adapter_frequency-adaptive_parameter-efficient_fine-tuning_in_scientific_machi/"
+    t: "F-Adapter: Frequency-Adaptive Parameter-Efficient Fine-Tuning in Scientific Machine Learning"
+  - u: "fair_universe_higgsml_uncertainty_dataset_and_competition/"
+    t: "FAIR Universe HiggsML Uncertainty Dataset and Competition"
+  - u: "feat_free_energy_estimators_with_adaptive_transport/"
+    t: "FEAT: Free Energy Estimators with Adaptive Transport"
+  - u: "flashmd_long-stride_universal_prediction_of_molecular_dynamics/"
+    t: "FlashMD: Long-Stride, Universal Prediction of Molecular Dynamics"
+  - u: "from_black_hole_to_galaxy_neural_operator_framework_for_accretion_and_feedback_d/"
+    t: "From Black Hole to Galaxy: Neural Operator Framework for Accretion and Feedback Dynamics"
+  - u: "from_images_to_physics_probabilistic_inference_of_galaxy_parameters_and_emission/"
+    t: "From Images to Physics: Probabilistic Inference of Galaxy Parameters and Emission Lines via VAE & Normalizing Flows"
+  - u: "from_simulations_to_surveys_domain_adaptation_for_galaxy_observations/"
+    t: "From Simulations to Surveys: Domain Adaptation for Galaxy Observations"
+  - u: "guided_diffusion_sampling_on_function_spaces_with_applications_to_pdes/"
+    t: "Guided Diffusion Sampling on Function Spaces with Applications to PDEs"
+  - u: "gyroswin_5d_surrogates_for_gyrokinetic_plasma_turbulence_simulations/"
+    t: "GyroSwin: 5D Surrogates for Gyrokinetic Plasma Turbulence Simulations"
+  - u: "hamiltonian_neural_pde_solvers_through_functional_approximation/"
+    t: "Hamiltonian Neural PDE Solvers through Functional Approximation"
+  - u: "high-order_equivariant_flow_matching_for_density_functional_theory_hamiltonian_p/"
+    t: "High-order Equivariant Flow Matching for Density Functional Theory Hamiltonian Prediction"
+  - u: "inc_an_indirect_neural_corrector_for_auto-regressive_hybrid_pde_solvers/"
+    t: "INC: An Indirect Neural Corrector for Auto-Regressive Hybrid PDE Solvers"
+  - u: "integration_matters_for_learning_pdes_with_backward_sdes/"
+    t: "Integration Matters for Learning PDEs with Backward SDEs"
+  - u: "knowledge_is_overrated_a_zero-knowledge_machine_learning_and_cryptographic_hashi/"
+    t: "Knowledge is Overrated: A Zero-Knowledge ML and Cryptographic Hashing-Based Framework for Verifiable, Low Latency Inference at the LHC"
+  - u: "latent_representation_learning_in_heavy-ion_collisions_with_maskpoint_transforme/"
+    t: "Latent Representation Learning in Heavy-Ion Collisions with MaskPoint Transformer"
+  - u: "multi-modal_masked_autoencoders_for_learning_image-spectrum_associations_for_gal/"
+    t: "Multi-Modal Masked Autoencoders for Learning Image-Spectrum Associations for Galaxy Evolution and Cosmology"
+  - u: "multi-trajectory_physics-informed_neural_networks_for_hjb_equations_with_hard-ze/"
+    t: "Multi-Trajectory Physics-Informed Neural Networks for HJB Equations with Hard-Zero Terminal Inventory: Optimal Execution on Synthetic & SPY Data"
+  - u: "neural_deprojection_of_galaxy_stellar_mass_profiles/"
+    t: "Neural Deprojection of Galaxy Stellar Mass Profiles"
+  - u: "neural_emulator_superiority_when_machine_learning_for_pdes_surpasses_its_trainin/"
+    t: "Neural Emulator Superiority: When Machine Learning for PDEs Surpasses its Training Data"
+item_total: 54
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚛️ 物理/科学计算
 
-**🧠 NeurIPS2025** · **55** 篇论文解读
+**🧠 NeurIPS2025** · **54** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (20)](../../ICML2025/physics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (18)](../../ICML2025/physics/index.md)
 
 🔥 **高频主题：** 域适应 ×3 · 扩散模型 ×2
-
-**[A Regularized Newton Method for Nonconvex Optimization with Global and Local Complexity Guarantees](a_regularized_newton_method_for_nonconvex_optimization_with.md)**
-
-:   提出一类基于当前与历史梯度构造的新型正则化器，结合带负曲率监测的共轭梯度法求解正则化Newton方程，在不需要Hessian Lipschitz常数先验知识的自适应框架下，首次同时实现了$O(\epsilon^{-3/2})$最优全局迭代复杂度和二次局部收敛速率。
 
 **[A Variational Manifold Embedding Framework for Nonlinear Dimensionality Reduction](a_variational_manifold_embedding_framework_for_nonlinear_dimensionality_reductio.md)**
 

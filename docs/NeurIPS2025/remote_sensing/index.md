@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 遥感方向12篇论文解读
+  NeurIPS2025 遥感论文汇总 · 12篇论文解读
 description: >-
   12篇NeurIPS2025的遥感方向论文解读，涵盖时序预测、遥感、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,32 @@ tags:
   - "论文笔记"
   - "时序预测"
   - "强化学习"
+item_list:
+  - u: "c3po_cross-view_cross-modality_correspondence_by_pointmap_prediction/"
+    t: "C3PO: Cross-View Cross-Modality Correspondence by Pointmap Prediction"
+  - u: "chamaevit_unifying_channelaware_masked_autoencoders_and_mult/"
+    t: "ChA-MAEViT: Unifying Channel-Aware Masked Autoencoders and Multi-Channel Vision Transformers for Improved Cross-Channel Learning"
+  - u: "cloud4d_estimating_cloud_properties_at_a_high_spatial_and_temporal_resolution/"
+    t: "Cloud4D: Estimating Cloud Properties at a High Spatial and Temporal Resolution"
+  - u: "connecting_the_dots_a_machine_learning_ready_dataset_for_ionospheric_forecasting/"
+    t: "Connecting the Dots: A Machine Learning Ready Dataset for Ionospheric Forecasting Models"
+  - u: "ecocast_a_spatio-temporal_model_for_continual_biodiversity_and_climate_risk_fore/"
+    t: "EcoCast: A Spatio-Temporal Model for Continual Biodiversity and Climate Risk Forecasting"
+  - u: "geolink_empowering_remote_sensing_foundation_model_with_openstreetmap_data/"
+    t: "GeoLink: Empowering Remote Sensing Foundation Model with OpenStreetMap Data"
+  - u: "greenhyperspectra_a_multi-source_hyperspectral_dataset_for_global_vegetation_tra/"
+    t: "GreenHyperSpectra: A Multi-Source Hyperspectral Dataset for Global Vegetation Trait Prediction"
+  - u: "mass_conservation_on_rails_--_rethinking_physics-informed_learning_of_ice_flow_v/"
+    t: "Mass Conservation on Rails – Rethinking Physics-Informed Learning of Ice Flow Vector Fields"
+  - u: "orbitzoo_real_orbital_systems_challenges_for_reinforcement_learning/"
+    t: "OrbitZoo: Real Orbital Systems Challenges for Reinforcement Learning"
+  - u: "ortholoc_uav_6-dof_localization_and_calibration_using_orthographic_geodata/"
+    t: "OrthoLoC: UAV 6-DoF Localization and Calibration Using Orthographic Geodata"
+  - u: "rscc_a_large-scale_remote_sensing_change_caption_dataset_for_disaster_events/"
+    t: "RSCC: A Large-Scale Remote Sensing Change Caption Dataset for Disaster Events"
+  - u: "scaling_image_geo-localization_to_continent_level/"
+    t: "Scaling Image Geo-Localization to Continent Level"
+item_total: 12
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

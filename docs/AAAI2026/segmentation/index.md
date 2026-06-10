@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 语义分割方向29篇论文解读
+  AAAI2026 语义分割论文汇总 · 29篇论文解读
 description: >-
   29篇AAAI2026的语义分割方向论文解读，涵盖语义分割、遥感、少样本学习、域适应、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,66 @@ tags:
   - "少样本学习"
   - "域适应"
   - "扩散模型"
+item_list:
+  - u: "a2lc_active_and_automated_label_correction_for_semantic_segm/"
+    t: "A²LC: Active and Automated Label Correction for Semantic Segmentation"
+  - u: "adaptive_morph-patch_transformer_for_aortic_vessel_segmentat/"
+    t: "Adaptive Morph-Patch Transformer for Aortic Vessel Segmentation"
+  - u: "breaking_the_stealth-potency_trade-off_in_clean-image_backdoors_with_generative_/"
+    t: "Breaking the Stealth-Potency Trade-off in Clean-Image Backdoors with Generative Trigger Optimization"
+  - u: "bridging_granularity_gaps_hierarchical_semantic_learning_for_cross-domain_few-sh/"
+    t: "Bridging Granularity Gaps: Hierarchical Semantic Learning for Cross-Domain Few-Shot Segmentation"
+  - u: "causal-tune_mining_causal_factors_from_vision_foundation_mod/"
+    t: "Causal-Tune: Mining Causal Factors from Vision Foundation Models for Domain Generalized Semantic Segmentation"
+  - u: "ctrlfuse_mask-prompt_guided_controllable_infrared_and_visible_image_fusion/"
+    t: "CtrlFuse: Mask-Prompt Guided Controllable Infrared and Visible Image Fusion"
+  - u: "do_we_need_perfect_data_leveraging_noise_for_domain_generalized_segmentation/"
+    t: "Do We Need Perfect Data? Leveraging Noise for Domain Generalized Segmentation"
+  - u: "eagle_episodic_appearance-_and_geometry-aware_memory_for_unified_2d-3d_visual_qu/"
+    t: "EAGLE: Episodic Appearance- and Geometry-Aware Memory for Unified 2D-3D Visual Query Localization"
+  - u: "empowering_dino_representations_for_underwater_instance_segmentation_via_aligner/"
+    t: "Empowering DINO Representations for Underwater Instance Segmentation via Aligner and Prompter"
+  - u: "from_attribution_to_action_jointly_aligning_predictions_and_explanations/"
+    t: "From Attribution to Action: Jointly ALIGNing Predictions and Explanations"
+  - u: "generalizable_slum_detection_from_satellite_imagery_with_mixture-of-experts/"
+    t: "Generalizable Slum Detection from Satellite Imagery with Mixture-of-Experts"
+  - u: "guideline-consistent_segmentation_via_multi-agent_refinement/"
+    t: "Guideline-Consistent Segmentation via Multi-Agent Refinement"
+  - u: "infoclip_bridging_vision-language_pretraining_and_open-vocab/"
+    t: "InfoCLIP: Bridging Vision-Language Pretraining and Open-Vocabulary Semantic Segmentation via Information-Theoretic Alignment Transfer"
+  - u: "jodiffusion_jointly_diffusing_image_with_pixel-level_annotations_for_semantic_se/"
+    t: "JoDiffusion: Jointly Diffusing Image with Pixel-Level Annotations for Semantic Segmentation Promotion"
+  - u: "lwganet_addressing_spatial_and_channel_redundancy_in_remote_sensing_visual_tasks/"
+    t: "LWGANet: Addressing Spatial and Channel Redundancy in Remote Sensing Visual Tasks with Light-Weight Grouped Attention"
+  - u: "multigranular_evaluation_for_brain_visual_decoding/"
+    t: "Multigranular Evaluation for Brain Visual Decoding"
+  - u: "otter_mitigating_background_distractions_of_wide-angle_few-shot_action_recogniti/"
+    t: "Otter: Mitigating Background Distractions of Wide-Angle Few-Shot Action Recognition with Enhanced RWKV"
+  - u: "rs2-sam2_customized_sam2_for_referring_remote_sensing_image_segmentation/"
+    t: "RS2-SAM2: Customized SAM2 for Referring Remote Sensing Image Segmentation"
+  - u: "rsvg-zeroov_exploring_a_training-free_framework_for_zero-shot_open-vocabulary_vi/"
+    t: "RSVG-ZeroOV: Exploring a Training-Free Framework for Zero-Shot Open-Vocabulary Visual Grounding in Remote Sensing Images"
+  - u: "s5_scalable_semi-supervised_semantic_segmentation_in_remote_sensing/"
+    t: "S5: Scalable Semi-Supervised Semantic Segmentation in Remote Sensing"
+  - u: "sam-daq_segment_anything_model_with_depth-guided_adaptive_queries_for_rgb-d_vide/"
+    t: "SAM-DAQ: Segment Anything Model with Depth-guided Adaptive Queries for RGB-D Video Salient Object Detection"
+  - u: "saq-sam_semantically-aligned_quantization_for_segment_anything_model/"
+    t: "SAQ-SAM: Semantically-Aligned Quantization for Segment Anything Model"
+  - u: "segment_and_matte_anything_in_a_unified_model/"
+    t: "Segment and Matte Anything in a Unified Model (SAMA)"
+  - u: "segment_anything_across_shots_a_method_and_benchmark/"
+    t: "Segment Anything Across Shots: A Method and Benchmark"
+  - u: "ssr_semantic_and_spatial_rectification_for_clip-based_weakly_supervised_segmenta/"
+    t: "SSR: Semantic and Spatial Rectification for CLIP-based Weakly Supervised Segmentation"
+  - u: "target_refocusing_via_attention_redistribution_for_open-vocabulary_semantic_segm/"
+    t: "Target Refocusing via Attention Redistribution for Open-Vocabulary Semantic Segmentation: An Explainability Perspective"
+  - u: "text-guided_controllable_diffusion_for_realistic_camouflage_images_generation/"
+    t: "Text-guided Controllable Diffusion for Realistic Camouflage Images Generation"
+  - u: "tracking_and_segmenting_anything_in_any_modality/"
+    t: "Tracking and Segmenting Anything in Any Modality"
+  - u: "vista_scene-aware_optimization_for_streaming_video_question_answering_under_post/"
+    t: "Vista: Scene-Aware Optimization for Streaming Video Question Answering Under Post-Hoc Queries"
+item_total: 29
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +79,7 @@ tags:
 
 **🤖 AAAI2026** · **29** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🧠 NeurIPS2025 (45)](../../NeurIPS2025/segmentation/index.md) · [📹 ICCV2025 (74)](../../ICCV2025/segmentation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🧠 NeurIPS2025 (44)](../../NeurIPS2025/segmentation/index.md) · [📹 ICCV2025 (74)](../../ICCV2025/segmentation/index.md)
 
 🔥 **高频主题：** 语义分割 ×13 · 遥感 ×5 · 少样本学习 ×3 · 域适应 ×2 · 扩散模型 ×2
 

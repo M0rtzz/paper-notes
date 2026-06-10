@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 模型压缩方向100篇论文解读
+  ICLR2026 模型压缩论文汇总 · 99篇论文解读
 description: >-
-  100篇ICLR2026的模型压缩方向论文解读，涵盖 LLM、模型压缩、推理、压缩/编码、知识蒸馏、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  99篇ICLR2026的模型压缩方向论文解读，涵盖 LLM、模型压缩、推理、压缩/编码、知识蒸馏、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "模型压缩"
@@ -13,14 +13,76 @@ tags:
   - "压缩/编码"
   - "知识蒸馏"
   - "持续学习"
+item_list:
+  - u: "a_fano-style_accuracy_upper_bound_for_llm_single-pass_reasoning_in_multi-hop_qa/"
+    t: "A Fano-Style Accuracy Upper Bound for LLM Single-Pass Reasoning in Multi-Hop QA"
+  - u: "a_recovery_guarantee_for_sparse_neural_networks/"
+    t: "A Recovery Guarantee for Sparse Neural Networks"
+  - u: "a_universal_compression_theory_for_lottery_ticket_hypothesis_and_neural_scaling_/"
+    t: "A universal compression theory for lottery ticket hypothesis and neural scaling laws"
+  - u: "abba-adapters_efficient_and_expressive_fine-tuning_of_foundation_models/"
+    t: "ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models"
+  - u: "acpbench_hard_unrestrained_reasoning_about_action_change_and_planning/"
+    t: "ACPBench Hard: Unrestrained Reasoning about Action, Change, and Planning"
+  - u: "adaptive_width_neural_networks/"
+    t: "Adaptive Width Neural Networks"
+  - u: "adarank_adaptive_rank_pruning_for_enhanced_model_merging/"
+    t: "AdaRank: Adaptive Rank Pruning for Enhanced Model Merging"
+  - u: "agilepruner_an_empirical_study_of_attention_and_diversity_for_adaptive_visual_to/"
+    t: "AgilePruner: An Empirical Study of Attention and Diversity for Adaptive Visual Token Pruning in LVLMs"
+  - u: "alignment_through_meta-weighted_online_sampling_bridging_the_gap_between_data_ge/"
+    t: "Alignment through Meta-Weighted Online Sampling: Bridging the Gap between Data Generation and Preference Optimization"
+  - u: "amid_knowledge_distillation_for_llms_with_α-mixture_assistant_distribution/"
+    t: "AMiD: Knowledge Distillation for LLMs with α-mixture Assistant Distribution"
+  - u: "anybcq_hardware_efficient_flexible_binary-coded_quantization_for_multi-precision/"
+    t: "AnyBCQ: Hardware Efficient Flexible Binary-Coded Quantization for Multi-Precision LLMs"
+  - u: "beyondbench_contamination-resistant_evaluation_of_reasoning_in_language_models/"
+    t: "BeyondBench: Contamination-Resistant Evaluation of Reasoning in Language Models"
+  - u: "boomerang_distillation_enables_zero-shot_model_size_interpolation/"
+    t: "Boomerang Distillation Enables Zero-Shot Model Size Interpolation"
+  - u: "boosting_entropy_with_bell_box_quantization/"
+    t: "Boosting Entropy with Bell Box Quantization"
+  - u: "bridging_kolmogorov_complexity_and_deep_learning_asymptotically_optimal_descript/"
+    t: "Bridging Kolmogorov Complexity and Deep Learning: Asymptotically Optimal Description Length Objectives for Transformers"
+  - u: "comi_coarse-to-fine_context_compression_via_marginal_information_gain/"
+    t: "COMI: Coarse-to-fine Context Compression via Marginal Information Gain"
+  - u: "compute-optimal_quantization-aware_training/"
+    t: "Compute-Optimal Quantization-Aware Training"
+  - u: "confu_contemplate_the_future_for_better_speculative_sampling/"
+    t: "ConFu: Contemplate the Future for Better Speculative Sampling"
+  - u: "coupling_experts_and_routers_in_mixture-of-experts_via_an_auxiliary_loss/"
+    t: "Coupling Experts and Routers in Mixture-of-Experts via an Auxiliary Loss"
+  - u: "cross_domain_lossy_compression_optimal_transport/"
+    t: "Cross-Domain Lossy Compression via Rate- and Classification-Constrained Optimal Transport"
+  - u: "cut_less_fold_more_model_compression_through_the_lens_of_projection_geometry/"
+    t: "Cut Less, Fold More: Model Compression through the Lens of Projection Geometry"
+  - u: "dataset_color_quantization_a_training-oriented_framework_for_dataset-level_compr/"
+    t: "Dataset Color Quantization: A Training-Oriented Framework for Dataset-Level Compression"
+  - u: "dataset_distillation_as_pushforward_optimal_quantization/"
+    t: "Dataset Distillation as Pushforward Optimal Quantization"
+  - u: "diffvax_optimization-free_image_immunization_against_diffusion-based_editing/"
+    t: "DiffVax: Optimization-Free Image Immunization Against Diffusion-Based Editing"
+  - u: "distillation_of_large_language_models_via_concrete_score_matching/"
+    t: "Distillation of Large Language Models via Concrete Score Matching"
+  - u: "distilling_and_adapting_a_topology-aware_framework_for_zero-shot_interaction_pre/"
+    t: "Distilling and Adapting: A Topology-Aware Framework for Zero-Shot Interaction Prediction in Multiplex Biological Networks"
+  - u: "draft-based_approximate_inference_for_llms/"
+    t: "Draft-based Approximate Inference for LLMs"
+  - u: "efficient_reasoning_with_balanced_thinking/"
+    t: "Efficient Reasoning with Balanced Thinking"
+  - u: "embedding_compression_via_spherical_coordinates/"
+    t: "Embedding Compression via Spherical Coordinates"
+  - u: "enhancing_multivariate_time_series_forecasting_with_global_temporal_retrieval/"
+    t: "Enhancing Multivariate Time Series Forecasting with Global Temporal Retrieval"
+item_total: 99
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**🔬 ICLR2026** · **100** 篇论文解读
+**🔬 ICLR2026** · **99** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (54)](../../CVPR2026/model_compression/index.md) · [🤖 AAAI2026 (61)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/model_compression/index.md) · [🤖 AAAI2026 (60)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/index.md)
 
 🔥 **高频主题：** LLM ×20 · 模型压缩 ×17 · 推理 ×9 · 压缩/编码 ×8 · 知识蒸馏 ×4
 
@@ -343,10 +405,6 @@ tags:
 **[SFT Doesn't Always Hurt General Capabilities: Revisiting Domain-Specific Fine-Tuning in LLMs](sft_doesnt_always_hurt_general_capabilities_revisiting_domain-specific_fine-tuni.md)**
 
 :   本文系统性地重新审视了领域特定SFT对LLM通用能力的影响，发现**使用较小学习率即可大幅缓解通用能力退化**，并提出Token-Adaptive Loss Reweighting (TALR)方法通过自适应下调低概率token的损失权重进一步优化领域适配与通用能力之间的权衡。
-
-**[SPARTA: Scalable and Principled Benchmark of Tree-Structured Multi-hop QA over Text and Tables](sparta_scalable_and_principled_benchmark_of_tree-structured_multi-hop_qa_over_te.md)**
-
-:   提出 SPARTA，一个端到端自动构建大规模表格-文本多跳问答基准的框架，通过参考事实数据库、来源引导的修复和现实结构约束生成高质量嵌套 SQL 查询，SOTA 模型在 SPARTA 上 F1 下降超过 30 分。
 
 **[STAR: Similarity-guided Teacher-Assisted Refinement for Super-Tiny Function Calling Models](star_similarity-guided_teacher-assisted_refinement_for_super-tiny_function_calli.md)**
 

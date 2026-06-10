@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 物理/科学计算方向14篇论文解读
+  AAAI2026 物理/科学计算论文汇总 · 14篇论文解读
 description: >-
   14篇AAAI2026的物理/科学计算方向论文解读，收录 Adaptive Fidelity Estimation f、Catastrophic Forgetting in Kol、Data Verification is the Futur等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -8,6 +8,36 @@ tags:
   - "物理/科学计算"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "adaptive_fidelity_estimation_for_quantum_programs_with_graph/"
+    t: "Adaptive Fidelity Estimation for Quantum Programs with Graph-Guided Noise Awareness"
+  - u: "catastrophic_forgetting_in_kolmogorov-arnold_networks/"
+    t: "Catastrophic Forgetting in Kolmogorov-Arnold Networks"
+  - u: "data_verification_is_the_future_of_quantum_computing_copilots/"
+    t: "Data Verification is the Future of Quantum Computing Copilots"
+  - u: "fast_3d_surrogate_modeling_for_data_center_thermal_management/"
+    t: "Fast 3D Surrogate Modeling for Data Center Thermal Management"
+  - u: "flashkat_understanding_and_addressing_performance_bottlenecks_in_the_kolmogorov-/"
+    t: "FlashKAT: Understanding and Addressing Performance Bottlenecks in the Kolmogorov-Arnold Transformer"
+  - u: "just_few_states_are_enough_randomized_sparse_feedback_for_stability_of_dynamical/"
+    t: "Just Few States are Enough: Randomized Sparse Feedback for Stability of Dynamical Systems"
+  - u: "knowledge-guided_masked_autoencoder_with_linear_spectral_mixing_and_spectral-ang/"
+    t: "Knowledge-Guided Masked Autoencoder with Linear Spectral Mixing and Spectral-Angle-Aware Reconstruction"
+  - u: "learning_fair_representations_with_kolmogorov-arnold_networks/"
+    t: "Learning Fair Representations with Kolmogorov-Arnold Networks"
+  - u: "phys-liquid_a_physics-informed_dataset_for_estimating_3d_geometry_and_volume_of_/"
+    t: "Phys-Liquid: A Physics-Informed Dataset for Estimating 3D Geometry and Volume of Transparent Deformable Liquids"
+  - u: "physicscorrect_a_training-free_approach_for_stable_neural_pde_simulations/"
+    t: "PhysicsCorrect: A Training-Free Approach for Stable Neural PDE Simulations"
+  - u: "pimrl_physics-informed_multi-scale_recurrent_learning_for_burst-sampled_spatiote/"
+    t: "PIMRL: Physics-Informed Multi-Scale Recurrent Learning for Burst-Sampled Spatiotemporal Dynamics"
+  - u: "saot_an_enhanced_locality-aware_spectral_transformer_for_solving_pdes/"
+    t: "SAOT: An Enhanced Locality-Aware Spectral Transformer for Solving PDEs"
+  - u: "scientific_knowledge-guided_machine_learning_for_vessel_power_prediction_a_compa/"
+    t: "Scientific Knowledge-Guided Machine Learning for Vessel Power Prediction: A Comparative Study"
+  - u: "towards_a_foundation_model_for_partial_differential_equations_across_physics_dom/"
+    t: "Towards a Foundation Model for Partial Differential Equations Across Physics Domains"
+item_total: 14
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -15,7 +45,7 @@ tags:
 
 **🤖 AAAI2026** · **14** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/physics/index.md) · [🧠 NeurIPS2025 (55)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (20)](../../ICML2025/physics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/physics/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (18)](../../ICML2025/physics/index.md)
 
 **[Adaptive Fidelity Estimation for Quantum Programs with Graph-Guided Noise Awareness](adaptive_fidelity_estimation_for_quantum_programs_with_graph.md)**
 

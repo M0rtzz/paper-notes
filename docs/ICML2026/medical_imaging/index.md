@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 医学图像方向24篇论文解读
+  ICML2026 医学图像论文汇总 · 24篇论文解读
 description: >-
   24篇ICML2026的医学图像方向论文解读，涵盖医学影像、推理、语义分割、多模态、对齐/RLHF、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,56 @@ tags:
   - "多模态"
   - "对齐/RLHF"
   - "对抗鲁棒"
+item_list:
+  - u: "are_we_overconfident_in_models_and_results_for_semi-supervised_3d_medical_image_/"
+    t: "Are We Overconfident in Models and Results for Semi-Supervised 3D Medical Image Segmentation?"
+  - u: "auditing_sybil_explaining_deep_lung_cancer_risk_prediction_through_generative_in/"
+    t: "Auditing Sybil: Explaining Deep Lung Cancer Risk Prediction Through Generative Interventional Attributions"
+  - u: "cascade_conformal_prediction_uncertainty-adaptive_prediction_intervals_for_two-s/"
+    t: "CASCADE Conformal Prediction: Uncertainty-Adaptive Prediction Intervals for Two-Stage Clinical Decision Support"
+  - u: "discontinuous_galerkin_neural_operator_for_pathology_defocus_deblurring/"
+    t: "DGNO: Discontinuous Galerkin Neural Operator for Pathology Defocus Deblurring"
+  - u: "dp-kfc_data-free_preconditioning_for_privacy-preserving_deep_learning/"
+    t: "DP-KFC: Data-Free Preconditioning for Privacy-Preserving Deep Learning"
+  - u: "eeg-based_multimodal_learning_via_hyperbolic_mixture-of-curvature_experts/"
+    t: "EEG-Based Multimodal Learning via Hyperbolic Mixture-of-Curvature Experts"
+  - u: "evidential_reasoning_advances_interpretable_real-world_disease_screening/"
+    t: "Evidential Reasoning Advances Interpretable Real-World Disease Screening"
+  - u: "factored_classifier-free_guidance/"
+    t: "Factored Classifier-Free Guidance"
+  - u: "federated_distillation_for_whole_slide_image_via_gaussian-mixture_feature_alignm/"
+    t: "Federated Distillation for Whole Slide Image via Gaussian-Mixture Feature Alignment and Curriculum Integration"
+  - u: "foundation_vaes_for_3d_ct_reconstruction_augmentation_and_generation/"
+    t: "Foundation VAEs for 3D CT Reconstruction, Augmentation, and Generation"
+  - u: "geometrically_constrained_stenosis_editing_in_coronary_angiography_via_entropic_/"
+    t: "OT-Bridge Editor: Geometrically Constrained Stenosis Editing in Coronary Angiography via Entropic Optimal Transport"
+  - u: "learning_multi-scale_hypergraph_for_high-order_brain_connectivity_analysis/"
+    t: "Learning Multi-Scale Hypergraph for High-Order Brain Connectivity Analysis"
+  - u: "marrying_generative_model_of_healthcare_events_with_digital_twin_of_social_deter/"
+    t: "Marrying Generative Model of Healthcare Events with Digital Twin of Social Determinants of Health for Disease Reasoning"
+  - u: "medcrp-cl_continual_medical_image_segmentation_via_bayesian_nonparametric_semant/"
+    t: "MedCRP-CL: Continual Medical Image Segmentation via Bayesian Nonparametric Semantic Modality Discovery"
+  - u: "meg-xl_data-efficient_brain-to-text_via_long-context_pre-training/"
+    t: "MEG-XL: Data-Efficient Brain-to-Text via Long-Context Pre-Training"
+  - u: "pacx-mae_physiology-augmented_chest_x-ray_masked_autoencoder/"
+    t: "PaCX-MAE: Physiology-Augmented Chest X-Ray Masked Autoencoder"
+  - u: "plug-and-play_diffusion_meets_admm_dual-variable_coupling_for_robust_medical_ima/"
+    t: "Plug-and-Play Diffusion Meets ADMM: Dual-Variable Coupling for Robust Medical Image Reconstruction"
+  - u: "scaling_vision_transformers_for_functional_mri_with_flat_maps/"
+    t: "Scaling Vision Transformers for Functional MRI with Flat Maps"
+  - u: "seizure-semiology-suite_s3_a_clinically_multimodal_dataset_benchmark_and_models_/"
+    t: "Seizure-Semiology-Suite (S³): A Clinically Multimodal Dataset, Benchmark, and Models for Seizure Semiology Understanding"
+  - u: "semir_semantic_minor-induced_representation_learning_on_graphs_for_visual_segmen/"
+    t: "SEMIR: Semantic Minor-Induced Representation Learning on Graphs for Visual Segmentation"
+  - u: "synermedgen_synergizing_medical_multimodal_understanding_with_generation_via_tas/"
+    t: "SynerMedGen: Synergizing Medical Multimodal Understanding with Generation via Task Alignment"
+  - u: "the_double_dilemma_in_multi-task_radiology_report_generation_a_gradient_dynamics/"
+    t: "CAME-Grad: The Double Dilemma in Multi-Task Radiology Report Generation — A Gradient Dynamics Analysis and Solution"
+  - u: "thinking_in_scales_accelerating_gigapixel_pathology_image_analysis_via_adaptive_/"
+    t: "PathCTM: Thinking in Scales — Accelerating Gigapixel Pathology Image Analysis via Adaptive Continuous Reasoning"
+  - u: "turning_drift_into_constraint_robust_reasoning_alignment_in_non-stationary_envir/"
+    t: "Turning Drift into Constraint: Robust Reasoning Alignment in Non-Stationary Multi-Stream Environments"
+item_total: 24
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +71,7 @@ tags:
 
 **🧪 ICML2026** · **24** 篇论文解读
 
-📌 **同领域跨会议浏览：** [📷 CVPR2026 (100)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (21)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (73)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md) · [🧪 ICML2025 (22)](../../ICML2025/medical_imaging/index.md)
+📌 **同领域跨会议浏览：** [📷 CVPR2026 (97)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (71)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md) · [🧪 ICML2025 (22)](../../ICML2025/medical_imaging/index.md)
 
 🔥 **高频主题：** 医学影像 ×12 · 推理 ×4 · 语义分割 ×3 · 多模态 ×3 · 对齐/RLHF ×3
 

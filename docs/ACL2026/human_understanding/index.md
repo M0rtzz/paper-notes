@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 人体理解方向3篇论文解读
+  ACL2026 人体理解论文汇总 · 3篇论文解读
 description: >-
   3篇ACL2026的人体理解方向论文解读，涵盖重识别、联邦学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,14 @@ tags:
   - "重识别"
   - "联邦学习"
   - "扩散模型"
+item_list:
+  - u: "co-evo_co-evolving_semantic_anchoring_and_style_diversification_for_federated_dg/"
+    t: "CO-EVO: Co-evolving Semantic Anchoring and Style Diversification for Federated DG-ReID"
+  - u: "hybrid_autoregressive-diffusion_model_for_real-time_sign_language_production/"
+    t: "Hybrid Autoregressive-Diffusion Model for Real-Time Sign Language Production"
+  - u: "segment_embed_and_align_a_universal_recipe_for_aligning_subtitles_to_signing/"
+    t: "Segment, Embed, and Align: A Universal Recipe for Aligning Subtitles to Signing"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +26,7 @@ tags:
 
 **💬 ACL2026** · **3** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md) · [📹 ICCV2025 (39)](../../ICCV2025/human_understanding/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (17)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md) · [📹 ICCV2025 (38)](../../ICCV2025/human_understanding/index.md)
 
 **[CO-EVO: Co-evolving Semantic Anchoring and Style Diversification for Federated DG-ReID](co-evo_co-evolving_semantic_anchoring_and_style_diversification_for_federated_dg.md)**
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 多智能体方向15篇论文解读
+  ICML2026 多智能体论文汇总 · 15篇论文解读
 description: >-
   15篇ICML2026的多智能体方向论文解读，涵盖 Agent、LLM、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,38 @@ tags:
   - "Agent"
   - "LLM"
   - "推理"
+item_list:
+  - u: "beyond_majority_voting_llm_aggregation_by_leveraging_higher-order_information/"
+    t: "Beyond Majority Voting: LLM Aggregation by Leveraging Higher-Order Information"
+  - u: "coot_learning_to_coordinate_in-context_with_coordination_transformers/"
+    t: "CoOT: Learning to Coordinate In-Context with Coordination Transformers"
+  - u: "e-mem_multi-agent_based_episodic_context_reconstruction_for_llm_agent_memory/"
+    t: "E-mem: Multi-Agent Based Episodic Context Reconstruction for LLM Agent Memory"
+  - u: "engiagent_fully_connected_coordination_of_llm_agents_for_solving_open-ended_engi/"
+    t: "EngiAgent: Fully Connected Coordination of LLM Agents for Solving Open-ended Engineering Problems with Feasible Solutions"
+  - u: "learning_multi-agent_coordination_via_sheaf-admm/"
+    t: "Sheaf-ADMM: Learning Multi-Agent Coordination via Sheaf-ADMM"
+  - u: "mas-orchestra_understanding_and_improving_multi-agent_reasoning_through_holistic/"
+    t: "MAS-Orchestra: Understanding and Improving Multi-Agent Reasoning Through Holistic Orchestration and Controlled Benchmarks"
+  - u: "maspo_joint_prompt_optimization_for_llm-based_multi-agent_systems/"
+    t: "MASPO: Joint Prompt Optimization for LLM-based Multi-Agent Systems"
+  - u: "maspob_bandit-based_prompt_optimization_for_multi-agent_systems_with_graph_neura/"
+    t: "MASPOB: 用 GNN 代理 + LinUCB + 坐标上升做多智能体提示优化"
+  - u: "omac_a_holistic_optimization_framework_for_llm-based_multi-agent_collaboration/"
+    t: "OMAC: A Holistic Optimization Framework for LLM-Based Multi-Agent Collaboration"
+  - u: "protocolbench_which_llm_multiagent_protocol_to_choose/"
+    t: "ProtocolBench: Which LLM MultiAgent Protocol to Choose?"
+  - u: "radar_redundancy-aware_diffusion_for_multi-agent_communication_structure_generat/"
+    t: "RADAR: Redundancy-Aware Diffusion for Multi-Agent Communication Structure Generation"
+  - u: "securing_multi-agent_systems_against_corruptions_via_node_contribution_backpropa/"
+    t: "Securing Multi-Agent Systems Against Corruptions via Node Contribution Backpropagation"
+  - u: "systematic_failures_in_collective_reasoning_under_distributed_information_in_mul/"
+    t: "Systematic Failures in Collective Reasoning under Distributed Information in Multi-Agent LLMs"
+  - u: "when_cloud_agents_meet_device_agents_lessons_from_hybrid_multi-agent_systems/"
+    t: "When Cloud Agents Meet Device Agents: Lessons from Hybrid Multi-Agent Systems"
+  - u: "why_specialist_models_still_matter_a_heterogeneous_multi-agent_paradigm_for_medi/"
+    t: "Why Specialist Models Still Matter: A Heterogeneous Multi-Agent Paradigm for Medical Artificial Intelligence"
+item_total: 15
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +50,7 @@ tags:
 
 **🧪 ICML2026** · **15** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/multi_agent/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/multi_agent/index.md) · [🤖 AAAI2026 (26)](../../AAAI2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
 
 🔥 **高频主题：** Agent ×10 · LLM ×6 · 推理 ×2
 

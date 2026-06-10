@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 AI 安全方向21篇论文解读
+  ICCV2025 AI安全论文汇总 · 21篇论文解读
 description: >-
   21篇ICCV2025的 AI 安全方向论文解读，涵盖联邦学习、对抗鲁棒、对齐/RLHF、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,50 @@ tags:
   - "对抗鲁棒"
   - "对齐/RLHF"
   - "问答"
+item_list:
+  - u: "a_framework_for_doubleblind_federated_adaptation_of_foundati/"
+    t: "A Framework for Double-Blind Federated Adaptation of Foundation Models"
+  - u: "active_membership_inference_test_amint_enhancing_model_auditability_with_multi-t/"
+    t: "Active Membership Inference Test (aMINT): Enhancing Model Auditability with Multi-Task Learning"
+  - u: "ask_and_remember_a_questions-only_replay_strategy_for_continual_visual_question_/"
+    t: "Ask and Remember: A Questions-Only Replay Strategy for Continual Visual Question Answering"
+  - u: "ask_and_remember_a_questions_only_replay_strategy_for_continual_visual_question_answering/"
+    t: "Ask and Remember: A Questions-Only Replay Strategy for Continual Visual Question Answering"
+  - u: "backdoor_attacks_on_neural_networks_via_one_bit_flip/"
+    t: "Backdoor Attacks on Neural Networks via One-Bit Flip"
+  - u: "backdoor_mitigation_by_distance-driven_detoxification/"
+    t: "Backdoor Mitigation by Distance-Driven Detoxification"
+  - u: "backdooring_self-supervised_contrastive_learning_by_noisy_alignment/"
+    t: "Backdooring Self-Supervised Contrastive Learning by Noisy Alignment"
+  - u: "client2vec_improving_federated_learning_by_distribution_shifts_aware_client_inde/"
+    t: "Client2Vec: Improving Federated Learning by Distribution Shifts Aware Client Indexing"
+  - u: "controllable_feature_whitening_for_hyperparameter-free_bias_mitigation/"
+    t: "Controllable Feature Whitening for Hyperparameter-Free Bias Mitigation"
+  - u: "fakeradar_probing_forgery_outliers_to_detect_unknown_deepfake_videos/"
+    t: "FakeRadar: Probing Forgery Outliers to Detect Unknown Deepfake Videos"
+  - u: "fedmenf_privacy-preserving_federated_meta-learning_for_neural_fields/"
+    t: "FedMeNF: Privacy-Preserving Federated Meta-Learning for Neural Fields"
+  - u: "fedvla_federated_vision-language-action_learning_with_dual_gating_mixture-of-exp/"
+    t: "FedVLA: Federated Vision-Language-Action Learning with Dual Gating Mixture-of-Experts for Robotic Manipulation"
+  - u: "find_a_scapegoat_poisoning_membership_inference_attack_and_defense_to_federated_/"
+    t: "Find a Scapegoat: Poisoning Membership Inference Attack and Defense to Federated Learning"
+  - u: "fret_feature_redundancy_elimination_for_test_time_adaptation/"
+    t: "FRET: Feature Redundancy Elimination for Test Time Adaptation"
+  - u: "lora-fair_federated_lora_fine-tuning_with_aggregation_and_initialization_refinem/"
+    t: "LoRA-FAIR: Federated LoRA Fine-Tuning with Aggregation and Initialization Refinement"
+  - u: "mind_the_cost_of_scaffold_benign_clients_may_even_become_accomplices_of_backdoor/"
+    t: "Mind the Cost of Scaffold! Benign Clients May Even Become Accomplices of Backdoor Attack"
+  - u: "semantic_alignment_and_reinforcement_for_data-free_quantization_of_vision_transf/"
+    t: "Semantic Alignment and Reinforcement for Data-Free Quantization of Vision Transformers"
+  - u: "specguard_spectral_projection-based_advanced_invisible_watermarking/"
+    t: "SpecGuard: Spectral Projection-based Advanced Invisible Watermarking"
+  - u: "staining_and_locking_computer_vision_models_without_retraining/"
+    t: "Staining and Locking Computer Vision Models without Retraining"
+  - u: "towards_adversarial_robustness_via_debiased_high-confidence_logit_alignment/"
+    t: "Towards Adversarial Robustness via Debiased High-Confidence Logit Alignment"
+  - u: "vulnerability-aware_spatio-temporal_learning_for_generalizable_deepfake_video_de/"
+    t: "Vulnerability-Aware Spatio-Temporal Learning for Generalizable Deepfake Video Detection"
+item_total: 21
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +63,7 @@ tags:
 
 **📹 ICCV2025** · **21** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (72)](../../NeurIPS2025/ai_safety/index.md)
 
 🔥 **高频主题：** 联邦学习 ×6 · 对抗鲁棒 ×4 · 对齐/RLHF ×3 · 问答 ×2
 

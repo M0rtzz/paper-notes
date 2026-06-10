@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 对齐 / RLHF方向16篇论文解读
+  AAAI2026 对齐/RLHF论文汇总 · 16篇论文解读
 description: >-
   16篇AAAI2026的对齐 / RLHF 方向论文解读，涵盖 LLM、对齐/RLHF、对抗鲁棒、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,40 @@ tags:
   - "对齐/RLHF"
   - "对抗鲁棒"
   - "推理"
+item_list:
+  - u: "align_to_structure_aligning_large_language_models_with_struc/"
+    t: "Align to Structure: Aligning Large Language Models with Structural Information"
+  - u: "aligntree_efficient_defense_against_llm_jailbreak_attacks/"
+    t: "AlignTree: Efficient Defense Against LLM Jailbreak Attacks"
+  - u: "amapo_adaptive_margin-attached_preference_optimization_for_l/"
+    t: "AMaPO: Adaptive Margin-attached Preference Optimization for Language Model Alignment"
+  - u: "biasjailbreakanalyzing_ethical_biases_and_jailbreak_vulnerabilities_in_large_lan/"
+    t: "BiasJailbreak: Analyzing Ethical Biases and Jailbreak Vulnerabilities in Large Language Models"
+  - u: "decorl_decoupling_reasoning_chains_via_parallel_sub-step_gen/"
+    t: "DeCoRL: Decoupling Reasoning Chains via Parallel Sub-Step Generation and Cascaded Reinforcement for Interpretable and Scalable RLHF"
+  - u: "differentiated_directional_intervention_a_framework_for_evading_llm_safety_align/"
+    t: "Differentiated Directional Intervention: A Framework for Evading LLM Safety Alignment"
+  - u: "ease_practical_and_efficient_safety_alignment_for_small_language_models/"
+    t: "EASE: Practical and Efficient Safety Alignment for Small Language Models"
+  - u: "enhancing_uncertainty_estimation_in_llms_with_expectation_of_aggregated_internal/"
+    t: "Enhancing Uncertainty Estimation in LLMs with Expectation of Aggregated Internal States"
+  - u: "exploring_the_effects_of_alignment_on_numerical_bias_in_large_language_models/"
+    t: "Exploring the Effects of Alignment on Numerical Bias in Large Language Models"
+  - u: "gram-r2_self-training_generative_foundation_reward_models_for_reward_reasoning/"
+    t: "GRAM-R²: Self-Training Generative Foundation Reward Models for Reward Reasoning"
+  - u: "importance-aware_data_selection_for_efficient_llm_instruction_tuning/"
+    t: "Importance-Aware Data Selection for Efficient LLM Instruction Tuning"
+  - u: "laf-grpo_in-situ_navigation_instruction_generation_for_the_visually_impaired_via/"
+    t: "LaF-GRPO: In-Situ Navigation Instruction Generation for the Visually Impaired via GRPO with LLM-as-Follower Reward"
+  - u: "on_the_exponential_convergence_for_offline_rlhf_with_pairwise_comparisons/"
+    t: "On the Exponential Convergence for Offline RLHF with Pairwise Comparisons"
+  - u: "reducing_the_scope_of_language_models/"
+    t: "Reducing the Scope of Language Models"
+  - u: "w2s-aligntree_weak-to-strong_inference-time_alignment_for_large_language_models_/"
+    t: "W2S-AlignTree: Weak-to-Strong Inference-Time Alignment for Large Language Models via Monte Carlo Tree Search"
+  - u: "when_human_preferences_flip_an_instance-dependent_robust_loss_for_rlhf/"
+    t: "When Human Preferences Flip: An Instance-Dependent Robust Loss for RLHF"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 多模态 VLM方向147篇论文解读
+  NeurIPS2025 多模态VLM论文汇总 · 146篇论文解读
 description: >-
-  147篇NeurIPS2025的多模态 VLM 方向论文解读，涵盖多模态、推理、LLM、对齐/RLHF、机器人、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  146篇NeurIPS2025的多模态 VLM 方向论文解读，涵盖多模态、推理、LLM、对齐/RLHF、机器人、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "多模态 VLM"
@@ -14,16 +14,78 @@ tags:
   - "对齐/RLHF"
   - "机器人"
   - "布局/合成"
+item_list:
+  - u: "a_frustratingly_simple_yet_highly_effective_attack_baseline/"
+    t: "A Frustratingly Simple Yet Highly Effective Attack Baseline: Over 90% Success Rate Against the Strong Black-box Models of GPT-4.5/4o/o1"
+  - u: "a_multimodal_benchmark_for_framing_of_oil_gas_advertising_an/"
+    t: "A Multimodal Benchmark for Framing of Oil & Gas Advertising and Potential Greenwashing Detection"
+  - u: "act_as_human_multimodal_large_language_model_data_annotation/"
+    t: "ACT as Human: Multimodal Large Language Model Data Annotation with Critical Thinking"
+  - u: "adalrs_lossguided_adaptive_learning_rate_search_for_efficien/"
+    t: "AdaLRS: Loss-Guided Adaptive Learning Rate Search for Efficient Foundation Model Pretraining"
+  - u: "adapting_visionlanguage_models_for_evaluating_world_models/"
+    t: "Adapting Vision-Language Models for Evaluating World Models"
+  - u: "admn_a_layerwise_adaptive_multimodal_network_for_dynamic_inp/"
+    t: "ADMN: A Layer-Wise Adaptive Multimodal Network for Dynamic Input Noise and Compute Resources"
+  - u: "advancing_compositional_awareness_in_clip_with_efficient_fin/"
+    t: "Advancing Compositional Awareness in CLIP with Efficient Fine-Tuning"
+  - u: "affordbot_3d_fine-grained_embodied_reasoning_via_multimodal_large_language_model/"
+    t: "AffordBot: 3D Fine-grained Embodied Reasoning via Multimodal Large Language Models"
+  - u: "aligning_by_misaligning_boundaryaware_curriculum_learning_fo/"
+    t: "Aligning by Misaligning: Boundary-aware Curriculum Learning for Multimodal Alignment"
+  - u: "antigrounding_lifting_robotic_actions_into_vlm_representatio/"
+    t: "AntiGrounding: Lifting Robotic Actions into VLM Representation Space for Decision Making"
+  - u: "aquamam_an_autoregressive_quaternion_manifold_model_for_rapidly_estimating_compl/"
+    t: "AQuaMaM: An Autoregressive, Quaternion Manifold Model for Rapidly Estimating Complex SO(3) Distributions"
+  - u: "are_vision_language_models_ready_for_clinical_diagnosis_a_3d_medical_benchmark_f/"
+    t: "Are Vision Language Models Ready for Clinical Diagnosis? A 3D Medical Benchmark for Tumor-centric Visual Question Answering"
+  - u: "balanced_token_pruning_accelerating_vision_language_models_b/"
+    t: "Balanced Token Pruning: Accelerating Vision Language Models Beyond Local Optimization"
+  - u: "better_tokens_for_better_3d_advancing_vision-language_modeling_in_3d_medical_ima/"
+    t: "Better Tokens for Better 3D: Advancing Vision-Language Modeling in 3D Medical Imaging"
+  - u: "beyond_greedy_exits_improved_early_exit_decisions_for_risk_control_and_reliabili/"
+    t: "Beyond Greedy Exits: Improved Early Exit Decisions for Risk Control and Reliability"
+  - u: "bioclip_2_emergent_properties_from_scaling_hierarchical_contrastive_learning/"
+    t: "BioCLIP 2: Emergent Properties from Scaling Hierarchical Contrastive Learning"
+  - u: "breaking_the_compression_ceiling_data-free_pipeline_for_ultra-efficient_delta_co/"
+    t: "Breaking the Compression Ceiling: Data-Free Pipeline for Ultra-Efficient Delta Compression"
+  - u: "bridgevla_input-output_alignment_for_efficient_3d_manipulation_learning_with_vis/"
+    t: "BridgeVLA: Input-Output Alignment for Efficient 3D Manipulation Learning with Vision-Language Models"
+  - u: "can_llms_reason_over_non-text_modalities_in_a_training-free_manner_a_case_study_/"
+    t: "Can LLMs Reason Over Non-Text Modalities in a Training-Free Manner? A Case Study with In-Context Representation Learning"
+  - u: "can_multi-modal_llms_provide_live_step-by-step_task_guidance/"
+    t: "Can Multi-Modal LLMs Provide Live Step-by-Step Task Guidance?"
+  - u: "capability_a_comprehensive_visual_caption_benchmark_for_eval/"
+    t: "CAPability: A Comprehensive Visual Caption Benchmark for Evaluating Both Correctness and Thoroughness"
+  - u: "causalllava_causal_disentanglement_for_mitigating_hallucinat/"
+    t: "Causal-LLaVA: Causal Disentanglement for Mitigating Hallucination in Multimodal Large Language Models"
+  - u: "choice_benchmarking_the_remote_sensing_capabilities_of_large_vision-language_mod/"
+    t: "CHOICE: Benchmarking the Remote Sensing Capabilities of Large Vision-Language Models"
+  - u: "coido_efficient_data_selection_for_visual_instruction_tuning_via_coupled_importa/"
+    t: "CoIDO: Efficient Data Selection for Visual Instruction Tuning via Coupled Importance-Diversity Optimization"
+  - u: "context_informs_pragmatic_interpretation_in_vision-language_models/"
+    t: "Context Informs Pragmatic Interpretation in Vision-Language Models"
+  - u: "continual_multimodal_contrastive_learning/"
+    t: "Continual Multimodal Contrastive Learning"
+  - u: "covmatch_crosscovariance_guided_multimodal_dataset_distillat/"
+    t: "CovMatch: Cross-Covariance Guided Multimodal Dataset Distillation with Trainable Text Encoder"
+  - u: "cyin_cyclic_informative_latent_space_for_bridging_complete_and_incomplete_multim/"
+    t: "CyIN: Cyclic Informative Latent Space for Bridging Complete and Incomplete Multimodal Learning"
+  - u: "danmakutppbench_a_multimodal_benchmark_for_temporal_point_pr/"
+    t: "DanmakuTPPBench: A Multi-modal Benchmark for Temporal Point Process Modeling and Understanding"
+  - u: "dont_just_chase_highlighted_tokens_in_mllms_revisiting_visual_holistic_context_r/"
+    t: "Don't Just Chase \"Highlighted Tokens\" in MLLMs: Revisiting Visual Holistic Context Retention"
+item_total: 146
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧩 多模态 VLM
 
-**🧠 NeurIPS2025** · **147** 篇论文解读
+**🧠 NeurIPS2025** · **146** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [📹 ICCV2025 (149)](../../ICCV2025/multimodal_vlm/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [📷 CVPR2026 (217)](../../CVPR2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [📹 ICCV2025 (148)](../../ICCV2025/multimodal_vlm/index.md)
 
-🔥 **高频主题：** 多模态 ×85 · 推理 ×25 · LLM ×14 · 对齐/RLHF ×11 · 机器人 ×6
+🔥 **高频主题：** 多模态 ×85 · 推理 ×24 · LLM ×14 · 对齐/RLHF ×11 · 机器人 ×6
 
 **[A Frustratingly Simple Yet Highly Effective Attack Baseline: Over 90% Success Rate Against the Strong Black-box Models of GPT-4.5/4o/o1](a_frustratingly_simple_yet_highly_effective_attack_baseline.md)**
 
@@ -224,10 +286,6 @@ tags:
 **[GoalLadder: Incremental Goal Discovery with Vision-Language Models](goalladder_incremental_goal_discovery_with_vision-language_models.md)**
 
 :   提出 GoalLadder，利用 VLM 渐进式发现并排序候选目标状态，结合 ELO 评分系统抵抗噪声反馈，在学习的嵌入空间中定义距离奖励，仅凭单条语言指令就能训练 RL 智能体达到约 95% 的成功率。
-
-**[GUI-Rise: Structured Reasoning and History Summarization for GUI Navigation](gui-rise_structured_reasoning_and_history_summarization_for_gui_navigation.md)**
-
-:   提出 GUI-Rise 框架，通过结构化推理（进度估计 + 决策推理）、动作预测和历史摘要三个子任务的联合设计，结合 GRPO 强化学习与历史摘要奖励，显著提升 GUI 导航智能体在跨域场景下的泛化能力。
 
 **[Guiding Cross-Modal Representations with MLLM Priors via Preference Alignment](guiding_cross-modal_representations_with_mllm_priors_via_preference_alignment.md)**
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 文本生成方向17篇论文解读
+  ACL2026 文本生成论文汇总 · 17篇论文解读
 description: >-
   17篇ACL2026的文本生成方向论文解读，涵盖文本摘要、LLM、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,42 @@ tags:
   - "文本摘要"
   - "LLM"
   - "Agent"
+item_list:
+  - u: "adaptive_planning_for_multi-attribute_controllable_summarization_with_monte_carl/"
+    t: "Adaptive Planning for Multi-Attribute Controllable Summarization with Monte Carlo Tree Search"
+  - u: "are_emotion_and_rhetoric_neurons_in_llm_neuron_recognition_and_adaptive_masking_/"
+    t: "Are Emotion and Rhetoric Neurons in LLM? Neuron Recognition and Adaptive Masking for Emotion-Rhetoric Prediction Steering"
+  - u: "can_you_make_it_sound_like_you_post-editing_llm-generated_text_for_personal_styl/"
+    t: "Can You Make It Sound Like You? Post-Editing LLM-Generated Text for Personal Style"
+  - u: "childrens_english_reading_story_generation_via_supervised_fine-tuning_of_compact/"
+    t: "Children's English Reading Story Generation via Supervised Fine-Tuning of Compact LLMs with Controllable Difficulty and Safety"
+  - u: "conlangcrafter_constructing_languages_with_a_multi-hop_llm_pipeline/"
+    t: "ConlangCrafter: Constructing Languages with a Multi-Hop LLM Pipeline"
+  - u: "difficulty-controllable_cloze_question_distractor_generation/"
+    t: "Difficulty-Controllable Cloze Question Distractor Generation"
+  - u: "edumath_generating_standards-aligned_educational_math_word_problems/"
+    t: "EDUMATH: Generating Standards-aligned Educational Math Word Problems"
+  - u: "facts_table_summarization_via_offline_template_generation_with_agentic_workflows/"
+    t: "FACTS: Table Summarization via Offline Template Generation with Agentic Workflows"
+  - u: "frankentext_stitching_random_text_fragments_into_long-form_narratives/"
+    t: "Frankentext: Stitching Random Text Fragments into Long-Form Narratives"
+  - u: "in-depth_research_impact_summarization_through_fine-grained_temporal_citation_an/"
+    t: "In-depth Research Impact Summarization through Fine-Grained Temporal Citation Analysis"
+  - u: "investigating_the_representation_of_backchannels_and_fillers_in_fine-tuned_langu/"
+    t: "Investigating the Representation of Backchannels and Fillers in Fine-tuned Language Models"
+  - u: "losses_that_cook_topological_optimal_transport_for_structured_recipe_generation/"
+    t: "Losses that Cook: Topological Optimal Transport for Structured Recipe Generation"
+  - u: "planning_beyond_text_graph-based_reasoning_for_complex_narrative_generation/"
+    t: "Planning Beyond Text: Graph-based Reasoning for Complex Narrative Generation"
+  - u: "right_at_my_level_a_unified_multilingual_framework_for_proficiency-aware_text_si/"
+    t: "Right at My Level: A Unified Multilingual Framework for Proficiency-Aware Text Simplification"
+  - u: "scurank_ranking_multiple_candidate_summaries_with_summary_content_units_for_enha/"
+    t: "SCURank: Ranking Multiple Candidate Summaries with Summary Content Units for Enhanced Summarization"
+  - u: "threadsumm_summarization_of_nested_discourse_threads_using_tree_of_thoughts/"
+    t: "ThreadSumm: Summarization of Nested Discourse Threads Using Tree of Thoughts"
+  - u: "xtragpt_context-aware_and_controllable_academic_paper_revision_via_human-ai_coll/"
+    t: "XtraGPT: Context-Aware and Controllable Academic Paper Revision via Human-AI Collaboration"
+item_total: 17
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +54,7 @@ tags:
 
 **💬 ACL2026** · **17** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/nlp_generation/index.md) · [🔬 ICLR2026 (2)](../../ICLR2026/nlp_generation/index.md) · [🤖 AAAI2026 (3)](../../AAAI2026/nlp_generation/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/nlp_generation/index.md) · [🧪 ICML2025 (1)](../../ICML2025/nlp_generation/index.md) · [💬 ACL2025 (26)](../../ACL2025/nlp_generation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/nlp_generation/index.md) · [🤖 AAAI2026 (1)](../../AAAI2026/nlp_generation/index.md) · [🧪 ICML2025 (1)](../../ICML2025/nlp_generation/index.md) · [📷 CVPR2025 (1)](../../CVPR2025/nlp_generation/index.md)
 
 🔥 **高频主题：** 文本摘要 ×5 · LLM ×3 · Agent ×2
 

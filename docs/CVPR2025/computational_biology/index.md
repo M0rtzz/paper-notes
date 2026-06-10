@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 计算生物方向8篇论文解读
+  CVPR2025 计算生物论文汇总 · 8篇论文解读
 description: >-
   8篇CVPR2025的计算生物方向论文解读，涵盖扩散模型、多模态、生物分子等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,24 @@ tags:
   - "扩散模型"
   - "多模态"
   - "生物分子"
+item_list:
+  - u: "automated_detection_of_malignant_lesions_in_the_ovary_using_deep_learning_models/"
+    t: "Automated Detection of Malignant Lesions in the Ovary Using Deep Learning Models and XAI"
+  - u: "diffvsgg_diffusion-driven_online_video_scene_graph_generation/"
+    t: "DiffVsgg: Diffusion-Driven Online Video Scene Graph Generation"
+  - u: "multimodal_protein_language_models_for_enzyme_kinetic_parameters_from_substrate_/"
+    t: "Multimodal Protein Language Models for Enzyme Kinetic Parameters: From Substrate Recognition to Conformational Adaptation"
+  - u: "semantic_and_expressive_variations_in_image_captions_across_languages/"
+    t: "Semantic and Expressive Variation in Image Captions Across Languages"
+  - u: "shrec_a_spectral_embedding-based_approach_for_ab-initio_reconstruction_of_helica/"
+    t: "SHREC: A Spectral Embedding-Based Approach for Ab-Initio Reconstruction of Helical Molecules"
+  - u: "synthetic_visual_genome/"
+    t: "Synthetic Visual Genome"
+  - u: "towards_spatio-temporal_world_scene_graph_generation_from_monocular_videos/"
+    t: "Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos"
+  - u: "unsupervised_foundation_model-agnostic_slide-level_representation_learning/"
+    t: "Unsupervised Foundation Model-Agnostic Slide-Level Representation Learning"
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +36,7 @@ tags:
 
 **📷 CVPR2025** · **8** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (11)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (38)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (20)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/computational_biology/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (74)](../../NeurIPS2025/computational_biology/index.md)
 
 **[Automated Detection of Malignant Lesions in the Ovary Using Deep Learning Models and XAI](automated_detection_of_malignant_lesions_in_the_ovary_using_deep_learning_models.md)**
 

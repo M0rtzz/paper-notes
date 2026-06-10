@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 自监督/表示学习方向24篇论文解读
+  ICML2026 自监督/表示学习论文汇总 · 24篇论文解读
 description: >-
   24篇ICML2026的自监督/表示学习方向论文解读，涵盖自监督学习、少样本学习、扩散模型、对齐/RLHF、LLM、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,56 @@ tags:
   - "对齐/RLHF"
   - "LLM"
   - "持续学习"
+item_list:
+  - u: "a_refined_generalization_analysis_for_extreme_multi-class_supervised_contrastive/"
+    t: "A Refined Generalization Analysis for Extreme Multi-class Supervised Contrastive Representation Learning"
+  - u: "beyond_distribution_estimation_simplex_anchored_structural_inference_towards_uni/"
+    t: "Beyond Distribution Estimation: Simplex Anchored Structural Inference Towards Universal Semi-Supervised Learning"
+  - u: "can_local_learning_match_self-supervised_backpropagation/"
+    t: "Can Local Learning Match Self-Supervised Backpropagation?"
+  - u: "data_augmentation_of_contrastive_learning_is_estimating_positive-incentive_noise/"
+    t: "Data Augmentation of Contrastive Learning is Estimating Positive-incentive Noise"
+  - u: "flag_foundation_model_representation_with_latent_diffusion_alignment_via_graph_f/"
+    t: "FLAG: Foundation Model Representation with Latent Diffusion Alignment via Graph for Spatial Gene Expression Prediction"
+  - u: "from_zero_to_hero_advancing_zero-shot_foundation_models_for_tabular_outlier_dete/"
+    t: "From Zero to Hero: Advancing Zero-Shot Foundation Models for Tabular Outlier Detection"
+  - u: "how_neural_is_a_neural_foundation_model/"
+    t: "How 'Neural' is a Neural Foundation Model?"
+  - u: "inconsistency-aware_minimization_improving_generalization_with_unlabeled_data/"
+    t: "Inconsistency-Aware Minimization: Improving Generalization with Unlabeled Data"
+  - u: "infoatlas_a_foundation_model_for_zero-shot_statistical_dependence_estimate/"
+    t: "InfoAtlas: A Foundation Model for Zero-Shot Statistical Dependence Estimation"
+  - u: "learning_graph_foundation_models_on_riemannian_graph-of-graphs/"
+    t: "Learning Graph Foundation Models on Riemannian Graph-of-Graphs"
+  - u: "learning_to_extrapolate_to_new_tasks_a_relational_approach_to_task_extrapolation/"
+    t: "Learning to Extrapolate to New Tasks: A Relational Approach to Task Extrapolation"
+  - u: "lec_linear_expectation_constraints_for_selection-conditioned_risk_control_in_sel/"
+    t: "LEC: Linear Expectation Constraints for Selection-Conditioned Risk Control in Selective Prediction and Routing Systems"
+  - u: "limix-2m_mitigating_low-rank_collapse_and_attention_bottlenecks_in_tabular_found/"
+    t: "LimiX-2M: Mitigating Low-Rank Collapse and Attention Bottlenecks in Tabular Foundation Models"
+  - u: "mitigating_label_shift_in_tabular_in-context_learning_via_test-time_posterior_ad/"
+    t: "Mitigating Label Shift in Tabular In-Context Learning via Test-Time Posterior Adjustment"
+  - u: "nitp_next_implicit_token_prediction_for_llm_pre-training/"
+    t: "NITP: Next Implicit Token Prediction for LLM Pre-training"
+  - u: "numleak_public_numeric_benchmarks_as_latent_labels_in_foundation_models/"
+    t: "NumLeak: Public Numeric Benchmarks as Latent Labels in Foundation Models"
+  - u: "partco_part-level_correspondence_priors_enhance_category_discovery/"
+    t: "PartCo: Part-Level Correspondence Priors Enhance Category Discovery"
+  - u: "provable_accuracy_collapse_in_embedding-based_representations_under_dimensionali/"
+    t: "Provable Accuracy Collapse in Embedding-Based Representations under Dimensionality Mismatch"
+  - u: "scaling_continual_learning_to_300_tasks_with_bi-level_routing_mixture-of-experts/"
+    t: "Scaling Continual Learning to 300+ Tasks with Bi-Level Routing Mixture-of-Experts"
+  - u: "statistical_consistency_and_generalization_of_contrastive_representation_learnin/"
+    t: "Statistical Consistency and Generalization of Contrastive Representation Learning"
+  - u: "the_geometry_of_projection_heads_conditioning_invariance_and_collapse/"
+    t: "The Geometry of Projection Heads: Conditioning, Invariance and Collapse"
+  - u: "tracer_persistent_regularization_for_robust_multimodal_finetuning/"
+    t: "TRACER: 用 WMA teacher + 几何分解证明的鲁棒多模态微调"
+  - u: "understanding_self-supervised_learning_via_latent_distribution_matching/"
+    t: "Understanding Self-Supervised Learning via Latent Distribution Matching"
+  - u: "when_softmax_fails_at_the_top_extreme_value_corrections_for_infonce/"
+    t: "When Softmax Fails at the Top: Extreme Value Corrections for InfoNCE"
+item_total: 24
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +71,7 @@ tags:
 
 **🧪 ICML2026** · **24** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (34)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (32)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (34)](../../NeurIPS2025/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
 
 🔥 **高频主题：** 自监督学习 ×3 · 少样本学习 ×2
 

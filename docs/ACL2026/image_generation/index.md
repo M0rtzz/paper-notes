@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 图像生成方向5篇论文解读
+  ACL2026 图像生成论文汇总 · 5篇论文解读
 description: >-
   5篇ACL2026的图像生成方向论文解读，涵盖 LLM、多模态、文生图、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,18 @@ tags:
   - "多模态"
   - "文生图"
   - "扩散模型"
+item_list:
+  - u: "anchor_llm-driven_subject_conditioning_for_text-to-image_synthesis/"
+    t: "ANCHOR: LLM-driven Subject Conditioning for Text-to-Image Synthesis"
+  - u: "from_ar_to_diffusion_efficiently_adapting_large_language_models_with_strictly_ca/"
+    t: "From AR to Diffusion: Efficiently Adapting Large Language Models with Strictly Causal and Elastic Horizons"
+  - u: "mentor_efficient_multimodal-conditioned_tuning_for_autoregressive_vision_generat/"
+    t: "MENTOR: Efficient Autoregressive Image Generation with Balanced Multimodal Control"
+  - u: "multimodal_large_language_models_for_multi-subject_in-context_image_generation/"
+    t: "Multimodal Large Language Models for Multi-Subject In-Context Image Generation"
+  - u: "think_bright_diffuse_nice_enhancing_t2i-icl_via_inductive-bias_hint_instruction_/"
+    t: "Think Bright, Diffuse Nice: Enhancing T2I-ICL via Inductive-Bias Hint Instruction and Query Contrastive Decoding"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +31,7 @@ tags:
 
 **💬 ACL2026** · **5** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [📷 CVPR2026 (220)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (137)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (222)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [📷 CVPR2026 (219)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (136)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (220)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
 
 🔥 **高频主题：** LLM ×3 · 多模态 ×2
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 模型压缩方向61篇论文解读
+  AAAI2026 模型压缩论文汇总 · 60篇论文解读
 description: >-
-  61篇AAAI2026的模型压缩方向论文解读，涵盖模型压缩、压缩/编码、知识蒸馏、LLM、推理、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  60篇AAAI2026的模型压缩方向论文解读，涵盖模型压缩、压缩/编码、知识蒸馏、LLM、推理、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "模型压缩"
@@ -13,14 +13,76 @@ tags:
   - "LLM"
   - "推理"
   - "布局/合成"
+item_list:
+  - u: "a_closer_look_at_knowledge_distillation_in_spiking_neural_ne/"
+    t: "A Closer Look at Knowledge Distillation in Spiking Neural Network Training"
+  - u: "adafuse_accelerating_dynamic_adapter_inference_via_token-lev/"
+    t: "AdaFuse: Accelerating Dynamic Adapter Inference via Token-Level Pre-Gating and Fused Kernel Optimization"
+  - u: "asymmetric_cross-modal_knowledge_distillation_bridging_modalities_with_weak_sema/"
+    t: "Asymmetric Cross-Modal Knowledge Distillation: Bridging Modalities with Weak Semantic Consistency"
+  - u: "bd-net_has_depth-wise_convolution_ever_been_applied_in_binary_neural_networks/"
+    t: "BD-Net: Has Depth-Wise Convolution Ever Been Applied in Binary Neural Networks?"
+  - u: "beyond_sharpness_a_flatness_decomposition_framework_for_efficient_continual_lear/"
+    t: "Beyond Sharpness: A Flatness Decomposition Framework for Efficient Continual Learning"
+  - u: "camera_multi-matrix_joint_compression_for_moe_models_via_mic/"
+    t: "CAMERA: Multi-Matrix Joint Compression for MoE Models via Micro-Expert Redundancy Analysis"
+  - u: "can_you_tell_the_difference_contrastive_explanations_for_abox_entailments/"
+    t: "Can You Tell the Difference? Contrastive Explanations for ABox Entailments"
+  - u: "compensating_distribution_drifts_in_class-incremental_learning_of_pre-trained_vi/"
+    t: "Compensating Distribution Drifts in Class-incremental Learning of Pre-trained Vision Transformers"
+  - u: "condensed_data_expansion_using_model_inversion_for_knowledge_distillation/"
+    t: "Condensed Data Expansion Using Model Inversion for Knowledge Distillation"
+  - u: "consensus-aligned_neuron_efficient_fine-tuning_large_language_models_for_multi-d/"
+    t: "Consensus-Aligned Neuron Efficient Fine-Tuning Large Language Models for Multi-Domain Machine Translation"
+  - u: "ctpd_cross_tokenizer_preference_distillation/"
+    t: "CTPD: Cross Tokenizer Preference Distillation"
+  - u: "distillation_dynamics_towards_understanding_feature-based_di/"
+    t: "Distillation Dynamics: Towards Understanding Feature-Based Distillation in Vision Transformers"
+  - u: "distilling_cross-modal_knowledge_via_feature_disentanglement/"
+    t: "Distilling Cross-Modal Knowledge via Feature Disentanglement"
+  - u: "do_not_merge_my_model_safeguarding_open-source_llms_against_unauthorized_model_m/"
+    t: "Do Not Merge My Model! Safeguarding Open-Source LLMs Against Unauthorized Model Merging"
+  - u: "dont_start_over_a_cost-effective_framework_for_migrating_personalized_prompts_be/"
+    t: "Don't Start Over: A Cost-Effective Framework for Migrating Personalized Prompts Between LLMs"
+  - u: "dos_distilling_observable_softmaps_of_zipfian_prototypes_for_self-supervised_poi/"
+    t: "DOS: Distilling Observable Softmaps of Zipfian Prototypes for Self-Supervised Point Representation"
+  - u: "dp-geng_differentially_private_dataset_distillation_guided_by_dp-generated_data/"
+    t: "DP-GenG: Differentially Private Dataset Distillation Guided by DP-Generated Data"
+  - u: "dynaquant_dynamic_mixed-precision_quantization_for_learned_i/"
+    t: "DynaQuant: Dynamic Mixed-Precision Quantization for Learned Image Compression"
+  - u: "earth-adapter_bridge_the_geospatial_domain_gaps_with_mixture_of_frequency_adapta/"
+    t: "Earth-Adapter: Bridge Geospatial Domain Gaps with Mixture of Frequency Adaptation"
+  - u: "eeg-dlite_dataset_distillation_for_efficient_large_eeg_model_training/"
+    t: "EEG-DLite: Dataset Distillation for Efficient Large EEG Model Training"
+  - u: "efficient_reasoning_for_large_reasoning_language_models_via_certainty-guided_ref/"
+    t: "Efficient Reasoning for Large Reasoning Language Models via Certainty-Guided Reflection Suppression"
+  - u: "efficientfsl_enhancing_few-shot_classification_via_query-only_tuning_in_vision_t/"
+    t: "EfficientFSL: Enhancing Few-Shot Classification via Query-Only Tuning in Vision Transformers"
+  - u: "error_correction_in_radiology_reports_a_knowledge_distillation-based_multi-stage/"
+    t: "Error Correction in Radiology Reports: A Knowledge Distillation-Based Multi-Stage Framework"
+  - u: "explore_and_establish_synergistic_effects_between_weight_pruning_and_coreset_sel/"
+    t: "Explore and Establish Synergistic Effects between Weight Pruning and Coreset Selection"
+  - u: "failures_to_surface_harmful_contents_in_video_large_language_models/"
+    t: "Failures to Surface Harmful Contents in Video Large Language Models"
+  - u: "first-order_error_matters_accurate_compensation_for_quantized_large_language_mod/"
+    t: "First-Order Error Matters: Accurate Compensation for Quantized Large Language Models"
+  - u: "from_parameter_to_representation_a_closed-form_approach_for_controllable_model_m/"
+    t: "From Parameter to Representation: A Closed-Form Approach for Controllable Model Merging"
+  - u: "from_passive_perception_to_active_memory_a_weakly_supervised_image_manipulation_/"
+    t: "From Passive Perception to Active Memory: A Weakly Supervised Image Manipulation Localization Framework Driven by Coarse-Grained Annotations"
+  - u: "group_orthogonal_low-rank_adaptation_for_rgb-t_tracking/"
+    t: "Group Orthogonal Low-Rank Adaptation for RGB-T Tracking"
+  - u: "hcf_hierarchical_cascade_framework_for_distributed_multi-stage_image_compression/"
+    t: "HCF: Hierarchical Cascade Framework for Distributed Multi-Stage Image Compression"
+item_total: 60
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**🤖 AAAI2026** · **61** 篇论文解读
+**🤖 AAAI2026** · **60** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (54)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (100)](../../ICLR2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (99)](../../ICLR2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/index.md)
 
 🔥 **高频主题：** 模型压缩 ×9 · 压缩/编码 ×7 · 知识蒸馏 ×6 · LLM ×6 · 推理 ×3
 
@@ -259,10 +321,6 @@ tags:
 **[Towards Test-time Efficient Visual Place Recognition via Asymmetric Query Processing](towards_test-time_efficient_visual_place_recognition_via_asymmetric_query_proces.md)**
 
 :   提出面向视觉位置识别（VPR）的高效非对称框架 AsymVPR，通过**地理记忆库**替代昂贵的 k-NN 预计算，以及**隐式嵌入增强**弥合轻量查询网络与高容量图库网络的能力差距，实现仅用 ~8% FLOPs 的轻量网络达到接近全尺寸模型的检索性能。
-
-**[XLinear: A Lightweight and Accurate MLP-Based Model for Long-Term Time Series Forecasting with Exogenous Inputs](xlinear_a_lightweight_and_accurate_mlp-based_model_for_long-term_time_series_for.md)**
-
-:   提出 XLinear，一个基于 MLP + sigmoid gating 的轻量时间序列预测模型，通过 global token 机制高效融合 endogenous 与 exogenous 变量信息，在 12 个数据集上实现精度与效率的最优平衡。
 
 **[Your AI-Generated Image Detector Can Secretly Achieve SOTA Accuracy, If Calibrated](your_ai-generated_image_detector_can_secretly_achieve_sota_accuracy_if_calibrate.md)**
 

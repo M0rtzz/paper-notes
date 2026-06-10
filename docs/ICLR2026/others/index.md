@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 其他方向91篇论文解读
+  ICLR2026 其他论文汇总 · 87篇论文解读
 description: >-
-  91篇ICLR2026的其他方向论文解读，涵盖对抗鲁棒、域适应、对齐/RLHF、扩散模型、联邦学习、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  87篇ICLR2026的其他方向论文解读，涵盖对抗鲁棒、域适应、对齐/RLHF、扩散模型、联邦学习、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ICLR2026"
   - "其他"
@@ -13,15 +13,77 @@ tags:
   - "对齐/RLHF"
   - "扩散模型"
   - "联邦学习"
-  - "少样本学习"
+  - "布局/合成"
+item_list:
+  - u: "a_federated_generalized_expectation-maximization_algorithm_for_mixture_models_wi/"
+    t: "A Federated Generalized Expectation-Maximization Algorithm for Mixture Models with an Unknown Number of Components"
+  - u: "a_representer_theorem_for_hawkes_processes_via_penalized_least_squares_minimizat/"
+    t: "A Representer Theorem for Hawkes Processes via Penalized Least Squares Minimization"
+  - u: "a_scalable_inter-edge_correlation_modeling_in_copulagnn_for_link_sign_prediction/"
+    t: "A Scalable Inter-edge Correlation Modeling in CopulaGNN for Link Sign Prediction"
+  - u: "a_single_architecture_for_representing_invariance_under_any_space_group/"
+    t: "A Single Architecture for Representing Invariance Under Any Space Group"
+  - u: "active_learning_for_decision_trees_with_provable_guarantees/"
+    t: "Active Learning for Decision Trees with Provable Guarantees"
+  - u: "addressing_divergent_representations_causal/"
+    t: "Addressing Divergent Representations from Causal Interventions on Neural Networks"
+  - u: "agnostics_learning_to_code_in_any_programming_language_via_reinforcement_with_a_/"
+    t: "Agnostics: Learning to Synthesize Code in Any Programming Language with a Universal RL Environment"
+  - u: "an_efficient_provably_optimal_algorithm_for_the_0-1_loss_linear_classification_p/"
+    t: "An Efficient, Provably Optimal Algorithm for the 0-1 Loss Linear Classification Problem"
+  - u: "an_information-theoretic_framework_for_optimizing_experimental_design_to_disting/"
+    t: "An Information-Theoretic Framework For Optimizing Experimental Design To Distinguish Probabilistic Neural Codes"
+  - u: "ano_faster_is_better_in_noisy_landscape/"
+    t: "ANO: Faster is Better in Noisy Landscapes"
+  - u: "anyup_universal_feature_upsampling/"
+    t: "AnyUp: Universal Feature Upsampling"
+  - u: "articulation_in_motion_prior-free_part_mobility_analysis_for_articulated_objects/"
+    t: "Articulation in Motion: Prior-Free Part Mobility Analysis for Articulated Objects"
+  - u: "bayesian_influence_functions_for_hessian-free_data_attribution/"
+    t: "Bayesian Influence Functions for Hessian-Free Data Attribution"
+  - u: "beyond_linearity_in_attention_projections_the_case_for_nonlinear_queries/"
+    t: "Beyond Linearity in Attention Projections: The Case for Nonlinear Queries"
+  - u: "building_spatial_world_models_from_sparse_transitional_episodic_memories/"
+    t: "Building Spatial World Models from Sparse Transitional Episodic Memories"
+  - u: "cadrift_a_time-dependent_causal_generator_of_drifting_data_streams/"
+    t: "CaDrift: A Time-dependent Causal Generator of Drifting Data Streams"
+  - u: "cadrille_multi-modal_cad_reconstruction_with_reinforcement_learning/"
+    t: "cadrille: Multi-modal CAD Reconstruction with Reinforcement Learning"
+  - u: "characterizing_and_optimizing_the_spatial_kernel_of_multi_resolution_hash_encodi/"
+    t: "Characterizing and Optimizing the Spatial Kernel of Multi Resolution Hash Encodings"
+  - u: "chlu_the_causal_hamiltonian_learning_unit_as_a_symplectic_primitive_for_deep_lea/"
+    t: "CHLU: The Causal Hamiltonian Learning Unit as a Symplectic Primitive for Deep Learning"
+  - u: "compositional_diffusion_long_horizon_planning/"
+    t: "Compositional Diffusion with Guided Search for Long-Horizon Planning"
+  - u: "condition_matters_in_full-head_3d_gans/"
+    t: "Condition Matters in Full-head 3D GANs"
+  - u: "consistent_low-rank_approximation/"
+    t: "Consistent Low-Rank Approximation"
+  - u: "contractive_diffusion_policies_robust_action_diffusion_via_contractive_score-bas/"
+    t: "Contractive Diffusion Policies: Robust Action Diffusion via Contractive Score-Based Sampling with Differential Equations"
+  - u: "deterministic_bounds_and_random_estimates_of_metric_tensors_on_neuromanifolds/"
+    t: "Deterministic Bounds and Random Estimates of Metric Tensors on Neuromanifolds"
+  - u: "directional_sheaf_hypergraph_networks_unifying_learning_on_directed_and_undirect/"
+    t: "Directional Sheaf Hypergraph Networks: Unifying Learning on Directed and Undirected Hypergraphs"
+  - u: "disentangling_shared_and_private_neural_dynamics_with_spire_a_latent_modeling_fr/"
+    t: "Disentangling Shared and Private Neural Dynamics with SPIRE: A Latent Modeling Framework for Deep Brain Stimulation"
+  - u: "distributed_algorithms_for_euclidean_clustering/"
+    t: "Distributed Algorithms for Euclidean Clustering"
+  - u: "distributionally_robust_classification_for_multi-source_unsupervised_domain_adap/"
+    t: "Distributionally Robust Classification for Multi-Source Unsupervised Domain Adaptation"
+  - u: "distributions_as_actions_a_unified_framework_for_diverse_action_spaces/"
+    t: "DA-AC: Distributions as Actions — A Unified RL Framework for Diverse Action Spaces"
+  - u: "do_we_really_need_permutations_impact_of_model_width_on_linear_mode_connectivity/"
+    t: "Do We Really Need Permutations? Impact of Model Width on Linear Mode Connectivity"
+item_total: 87
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🔬 ICLR2026** · **91** 篇论文解读
+**🔬 ICLR2026** · **87** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🤖 AAAI2026 (135)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (164)](../../NeurIPS2025/others/index.md) · [📹 ICCV2025 (47)](../../ICCV2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🤖 AAAI2026 (128)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (163)](../../NeurIPS2025/others/index.md) · [📹 ICCV2025 (47)](../../ICCV2025/others/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×7 · 域适应 ×4 · 对齐/RLHF ×4 · 扩散模型 ×3 · 联邦学习 ×2
 
@@ -81,10 +143,6 @@ tags:
 
 :   基于 $W_Q$ 代数冗余性的理论发现，将线性 Query 投影替换为非线性残差形式 $Q(X)=(X+f_\theta(X))/2$，在不增加参数的情况下超越 +12.5% 参数的基线模型。
 
-**[Biologically Plausible Online Hebbian Meta-Learning: Two-Timescale Local Rules for Spiking Neural Brain Interfaces](biologically_plausible_online_hebbian_meta-learning_two-timescale_local_rules_fo.md)**
-
-:   提出一种无需BPTT的在线SNN解码器，通过三因子Hebbian局部学习规则结合双时间尺度eligibility trace和自适应学习率控制，在O(1)内存下实现可比离线训练方法的BCI神经解码精度（Pearson R≥0.63/0.81），并在闭环仿真中展现了对神经信号非平稳性的持续适应能力。
-
 **[Building Spatial World Models from Sparse Transitional Episodic Memories](building_spatial_world_models_from_sparse_transitional_episodic_memories.md)**
 
 :   提出 Episodic Spatial World Model (ESWM)，从稀疏、不连续的情景记忆（one-step transitions）中构建空间世界模型，其潜空间自发涌现出与环境拓扑对齐的认知地图，并支持零样本探索和导航。
@@ -121,10 +179,6 @@ tags:
 
 :   提出 Contractive Diffusion Policies (CDPs)，通过在扩散采样 ODE 中引入收缩正则化来抑制 score 匹配误差和求解器误差的累积，以最小修改和单一超参数 $\gamma$ 提升离线学习中扩散策略的鲁棒性。
 
-**[Deep FlexQP: Accelerated Nonlinear Programming via Deep Unfolding](deep_flexqp_accelerated_nonlinear_programming_via_deep_unfolding.md)**
-
-:   提出 FlexQP——基于 $\ell_1$ 弹性松弛的"永远可行"凸二次规划（QP）求解器，结合深度展开（deep unfolding）学习 LSTM 反馈策略加速收敛得到 Deep FlexQP；在 SQP 框架中作为子模块，解非线性轨迹优化比 OSQP 快 4-16 倍，预测安全滤波器的安全违规减少 70%+、任务完成率提升 43%。
-
 **[Deterministic Bounds and Random Estimates of Metric Tensors on Neuromanifolds](deterministic_bounds_and_random_estimates_of_metric_tensors_on_neuromanifolds.md)**
 
 :   本文通过分析低维概率分布核空间的Fisher信息矩阵(FIM)谱性质，为神经网络参数空间(神经流形)上的度量张量建立了确定性上下界，并基于Hutchinson迹估计器引入了一族有界方差的无偏随机估计方法，仅需单次反向传播即可高效计算。
@@ -132,10 +186,6 @@ tags:
 **[Directional Sheaf Hypergraph Networks: Unifying Learning on Directed and Undirected Hypergraphs](directional_sheaf_hypergraph_networks_unifying_learning_on_directed_and_undirect.md)**
 
 :   本文提出 Directional Sheaf Hypergraph Networks (DSHN)，通过将 Cellular Sheaf 理论与有向超图的方向信息结合，构造了一种复值 Hermitian Laplacian 算子，统一并推广了现有的图和超图 Laplacian，在 7 个真实数据集上相对准确率提升 2%–20%。
-
-**[Discount Model Search for Quality Diversity Optimization in High-Dimensional Measure Spaces](discount_model_search_for_quality_diversity_optimization_in_high-dimensional_mea.md)**
-
-:   提出 Discount Model Search (DMS)，用神经网络拟合连续平滑的 discount 函数替代 CMA-MAE 中基于直方图的离散表示，解决高维 measure space 下 distortion 导致搜索停滞的问题，并首次实现以图像数据集直接定义 measure space（QDDM 范式）。
 
 **[Disentangling Shared and Private Neural Dynamics with SPIRE: A Latent Modeling Framework for Deep Brain Stimulation](disentangling_shared_and_private_neural_dynamics_with_spire_a_latent_modeling_fr.md)**
 
@@ -196,10 +246,6 @@ tags:
 **[From Samples to Scenarios: A New Paradigm for Probabilistic Forecasting](from_samples_to_scenarios_a_new_paradigm_for_probabilistic_forecasting.md)**
 
 :   提出 Probabilistic Scenarios 范式，用模型直接输出有限个 {场景, 概率} 对取代采样，并用仅含三层平行线性层的 TimePrism 在5个基准数据集上取得9/10 SOTA。
-
-**[Function Spaces Without Kernels: Learning Compact Hilbert Space Representations](function_spaces_without_kernels_learning_compact_hilbert_space_representations.md)**
-
-:   证明函数编码器（Function Encoders）通过学习神经网络基函数定义了一个有效的核，建立了神经特征学习与RKHS理论的桥梁，并提出PCA引导的紧凑基选择算法和有限样本泛化界。
 
 **[Harpoon: Generalised Manifold Guidance for Conditional Tabular Diffusion](harpoon_generalised_manifold_guidance_for_conditional_tabular_diffusion.md)**
 

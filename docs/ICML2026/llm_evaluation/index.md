@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 LLM 评测方向27篇论文解读
+  ICML2026 LLM评测论文汇总 · 27篇论文解读
 description: >-
   27篇ICML2026的 LLM 评测方向论文解读，涵盖 LLM、强化学习、Agent、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,62 @@ tags:
   - "Agent"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "agent_world_model_infinity_synthetic_environments_for_agentic_reinforcement_lear/"
+    t: "Agent World Model: Infinity Synthetic Environments for Agentic Reinforcement Learning"
+  - u: "agzo_activation-guided_zeroth-order_optimization_for_llm_fine-tuning/"
+    t: "AGZO: Activation-Guided Zeroth-Order Optimization for LLM Fine-Tuning"
+  - u: "automatic_layer_selection_for_hallucination_detection/"
+    t: "Automatic Layer Selection for Hallucination Detection"
+  - u: "bespoke_benchmark_for_search-augmented_large_language_model_personalization_via_/"
+    t: "BESPOKE: Benchmark for Search-Augmented Large Language Model Personalization via Diagnostic Feedback"
+  - u: "beyond_log_likelihood_probability-based_objectives_for_supervised_fine-tuning_ac/"
+    t: "Beyond Log Likelihood: Probability-Based Objectives for Supervised Fine-Tuning across the Model Capability Continuum"
+  - u: "beyond_trajectory-level_attribution_graph-based_credit_assignment_for_agentic_re/"
+    t: "Beyond Trajectory-Level Attribution: Graph-Based Credit Assignment for Agentic Reinforcement Learning"
+  - u: "building_reliable_long-form_generation_via_hallucination_rejection_sampling/"
+    t: "Building Reliable Long-Form Generation via Hallucination Rejection Sampling"
+  - u: "capbencher_give_your_llm_benchmark_a_built-in_alarm_for_test-set_overfitting/"
+    t: "CapBencher: Give Your LLM Benchmark a Built-in Alarm for Test-Set Overfitting"
+  - u: "decompose_structure_and_repair_a_neuro-symbolic_framework_for_autoformalization_/"
+    t: "Decompose, Structure, and Repair: A Neuro-Symbolic Framework for Autoformalization via Operator Trees"
+  - u: "dei_diversity_in_evolutionary_inference_for_quality-diversity_search/"
+    t: "DEI: Diversity in Evolutionary Inference for Quality-Diversity Search"
+  - u: "discovering_ordinary_differential_equations_with_llm-based_qualitative_and_quant/"
+    t: "Discovering Ordinary Differential Equations with LLM-Based Qualitative and Quantitative Evaluation"
+  - u: "from_human-level_ai_tales_to_ai_leveling_human_scales/"
+    t: "From Human-Level AI Tales to AI Leveling Human Scales"
+  - u: "geometry-aware_decoding_with_wasserstein-regularized_truncation_and_mass_penalti/"
+    t: "Top-W: Geometry-Aware Decoding with Wasserstein-Regularized Truncation and Mass Penalties for LLMs"
+  - u: "hiper_hierarchical_reinforcement_learning_with_explicit_credit_assignment_for_la/"
+    t: "HiPER: Hierarchical Reinforcement Learning with Explicit Credit Assignment for Large Language Model Agents"
+  - u: "investigating_advanced_reasoning_of_large_language_models_via_black-box_environm/"
+    t: "Investigating Advanced Reasoning of Large Language Models via Black-Box Environment Interaction"
+  - u: "multi2_hierarchical_multi-agent_decision-making_with_llm-based_agents_in_interac/"
+    t: "Multi$^2$: Hierarchical Multi-Agent Decision-Making with LLM-Based Agents in Interactive Environments"
+  - u: "on_effectiveness_and_efficiency_of_agentic_tool-calling_and_rl_training/"
+    t: "On Effectiveness and Efficiency of Agentic Tool-calling and RL Training"
+  - u: "politicsbench_benchmarking_political_values_in_large_language_models_with_multi-/"
+    t: "PoliticsBench: Benchmarking Political Values in Large Language Models with Multi-Stage Roleplay"
+  - u: "real_regression-aware_reinforcement_learning_for_llm-as-a-judge/"
+    t: "REAL：把回归感知奖励塞进 RL，让 LLM-as-a-Judge 学会\"差一分也是差\""
+  - u: "reasoning_is_not_free_robust_adaptive_cost-efficient_routing_for_llm-as-a-judge/"
+    t: "Reasoning Is Not Free: Robust Adaptive Cost-Efficient Routing for LLM-as-a-Judge"
+  - u: "resolution_diagnostics_for_paired_llm_evaluation/"
+    t: "Resolution Diagnostics for Paired LLM Evaluation"
+  - u: "spherical_steering_geometry-aware_activation_rotation_for_language_models/"
+    t: "Spherical Steering: Geometry-Aware Activation Rotation for Language Models"
+  - u: "toward_training_superintelligent_software_agents_through_self-play_swe-rl/"
+    t: "Toward Training Superintelligent Software Agents through Self-Play SWE-RL"
+  - u: "when_ai_benchmarks_plateau_a_systematic_study_of_benchmark_saturation/"
+    t: "When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation"
+  - u: "when_hallucination_costs_millions_benchmarking_ai_agents_in_high-stakes_adversar/"
+    t: "When Hallucination Costs Millions: Benchmarking AI Agents in High-Stakes Adversarial Financial Markets (CAIA)"
+  - u: "who_can_we_trust_llm-as-a-jury_for_comparative_assessment/"
+    t: "Who can we trust? LLM-as-a-jury for Comparative Assessment"
+  - u: "whose_alignment_comparing_llm_process_alignment_across_diverse_organizational_de/"
+    t: "Whose Alignment? Comparing LLM Process Alignment Across Diverse Organizational Decision Contexts"
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

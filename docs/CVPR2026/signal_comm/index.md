@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 信号/通信方向5篇论文解读
+  CVPR2026 信号/通信论文汇总 · 5篇论文解读
 description: >-
   5篇CVPR2026的信号/通信方向论文解读，涵盖多模态、对抗鲁棒、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,18 @@ tags:
   - "多模态"
   - "对抗鲁棒"
   - "持续学习"
+item_list:
+  - u: "actta_rethinking_test-time_adaptation_via_dynamic_activation/"
+    t: "AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation"
+  - u: "chartnet_a_million-scale_high-quality_multimodal_dataset_for_robust_chart_unders/"
+    t: "ChartNet: A Million-Scale, High-Quality Multimodal Dataset for Robust Chart Understanding"
+  - u: "clay_conditional_visual_similarity/"
+    t: "CLAY: Conditional Visual Similarity Modulation in Vision-Language Embedding Space"
+  - u: "dual-imbalance_continual_learning_for_real-world_food_recognition/"
+    t: "Dual-Imbalance Continual Learning for Real-World Food Recognition"
+  - u: "faar_efficient_frequency-aware_multi-task_fine-tuning_via_automatic_rank_selecti/"
+    t: "FAAR: Efficient Frequency-Aware Multi-Task Fine-Tuning via Automatic Rank Selection"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

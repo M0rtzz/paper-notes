@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 自监督/表示学习方向34篇论文解读
+  CVPR2026 自监督/表示学习论文汇总 · 32篇论文解读
 description: >-
-  34篇CVPR2026的自监督/表示学习方向论文解读，涵盖自监督学习、持续学习、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  32篇CVPR2026的自监督/表示学习方向论文解读，涵盖自监督学习、持续学习、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "自监督/表示学习"
@@ -11,16 +11,78 @@ tags:
   - "自监督学习"
   - "持续学习"
   - "布局/合成"
+item_list:
+  - u: "a_stitch_in_time_learning_procedural_workflow_via_self_supervised_plackett_luce_r/"
+    t: "A Stitch in Time: Learning Procedural Workflow via Self-Supervised Plackett-Luce Ranking"
+  - u: "an_optimal_transport_driven_approach_for_cultivating_latent_space_in_online_incr/"
+    t: "An Optimal Transport-driven Approach for Cultivating Latent Space in Online Incremental Learning"
+  - u: "boss_a_best-of-strategies_selector_as_an_oracle_for_deep_active_learning/"
+    t: "BoSS: A Best-of-Strategies Selector as an Oracle for Deep Active Learning"
+  - u: "breaking_the_tuning_barrier_zerohyperparameters_yi/"
+    t: "Breaking the Tuning Barrier: Zero-Hyperparameters Yield Multi-Corner Analysis Via Learned Priors"
+  - u: "com_pt_chain_of_models_pretraining/"
+    t: "Chain-of-Models Pre-Training: Rethinking Training Acceleration of Vision Foundation Models"
+  - u: "craterbench-r_instance-level_crater_retrieval_for_planetary_scale/"
+    t: "CraterBench-R: Instance-Level Crater Retrieval for Planetary Scale"
+  - u: "d2dewarp_dual_dimensions_geometric_representation_learning_based_document_image_/"
+    t: "D2Dewarp: Dual Dimensions Geometric Representation Learning Based Document Image Dewarping"
+  - u: "diversedit_towards_diverse_representation_learning_in_diffusion_transformers/"
+    t: "DiverseDiT: Towards Diverse Representation Learning in Diffusion Transformers"
+  - u: "free-grained_hierarchical_visual_recognition/"
+    t: "Free-Grained Hierarchical Visual Recognition"
+  - u: "geobridge_semantic-anchored_multi-view_foundation_model_for_geo-localization/"
+    t: "GeoBridge: A Semantic-Anchored Multi-View Foundation Model for Geo-Localization"
+  - u: "group_dinomics_incorporating_people_dynamics_into_dino_for_self_supervised_group_activity_feature_learning/"
+    t: "Group-DINOmics: Incorporating People Dynamics into DINO for Self-supervised Group Activity Feature Learning"
+  - u: "hier-cos_making_deep_features_hierarchy-aware_via_composition_of_orthogonal_subs/"
+    t: "Hier-COS: Making Deep Features Hierarchy-aware via Composition of Orthogonal Subspaces"
+  - u: "hycal_training_free_prototype_calibration_for_cross_discipline_fscil/"
+    t: "HyCal: A Training-Free Prototype Calibration Method for Cross-Discipline Few-Shot Class-Incremental Learning"
+  - u: "mine-jepa_in-domain_self-supervised_learning_for_mine-like_object_classification/"
+    t: "MINE-JEPA: In-Domain Self-Supervised Learning for Mineral Exploration"
+  - u: "momo_mars_orbital_model_foundation_model_for_mars_orbital_applications/"
+    t: "MOMO: Mars Orbital Model — Foundation Model for Mars Orbital Applications"
+  - u: "omnigcd_abstracting_generalized_category_discovery_for_modality_agnosticism/"
+    t: "OmniGCD: Abstracting Generalized Category Discovery for Modality Agnosticism"
+  - u: "redepth_anything_test-time_depth_refinement_via_self-supervised_re-lighting/"
+    t: "Re-Depth Anything: Test-Time Depth Refinement via Self-Supervised Re-lighting"
+  - u: "reframing_long-tailed_learning_via_loss_landscape_geometry/"
+    t: "Reframing Long-Tailed Learning via Loss Landscape Geometry"
+  - u: "representation_learning_for_spatiotemporal_physica/"
+    t: "Representation Learning for Spatiotemporal Physical Systems"
+  - u: "robustness_of_vision_foundation_models_to_common_perturbations/"
+    t: "Robustness of Vision Foundation Models to Common Perturbations"
+  - u: "shape-of-you_fused_gromov-wasserstein_optimal_transport_for_semantic_corresponde/"
+    t: "Shape-of-You: Fused Gromov-Wasserstein Optimal Transport for Semantic Correspondence in-the-Wild"
+  - u: "sphor_a_representation_learning_perspective_on_open-set_recognition_for_identify/"
+    t: "SpHOR: A Representation Learning Perspective on Open-set Recognition for Identifying Unknown Classes in Deep Neural Networks"
+  - u: "suppressing_non-semantic_noise_in_masked_image_modeling_representations/"
+    t: "Suppressing Non-Semantic Noise in Masked Image Modeling Representations"
+  - u: "talo_pushing_3d_vision_foundation_models_towards_globally_consistent_online_reco/"
+    t: "TALO: Pushing 3D Vision Foundation Models Towards Globally Consistent Online Reconstruction"
+  - u: "teflow_enabling_multi-frame_supervision_for_self-supervised_feed-forward_scene_f/"
+    t: "TeFlow: Enabling Multi-frame Supervision for Self-Supervised Feed-forward Scene Flow Estimation"
+  - u: "temporal_imbalance_of_positive_and_negative_supervision_in_class-incremental_lea/"
+    t: "Temporal Imbalance of Positive and Negative Supervision in Class-Incremental Learning"
+  - u: "text-phase_synergy_network_with_dual_priors_for_unsupervised_cross-domain_image_/"
+    t: "Text-Phase Synergy Network with Dual Priors for Unsupervised Cross-Domain Image Retrieval"
+  - u: "trackmae_video_representation_learning_via_track_mask_and_predict/"
+    t: "TrackMAE: Video Representation Learning via Track, Mask, and Predict"
+  - u: "unigeoclip_geospatial_contrastive/"
+    t: "UniGeoCLIP: Unified Geospatial Contrastive Learning"
+  - u: "vision_transformers_need_more_than_registers/"
+    t: "Vision Transformers Need More Than Registers"
+item_total: 32
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
-**📷 CVPR2026** · **34** 篇论文解读
+**📷 CVPR2026** · **32** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (34)](../../NeurIPS2025/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
 
-🔥 **高频主题：** 自监督学习 ×6 · 持续学习 ×4 · 布局/合成 ×2
+🔥 **高频主题：** 自监督学习 ×6 · 持续学习 ×3 · 布局/合成 ×2
 
 **[A Stitch in Time: Learning Procedural Workflow via Self-Supervised Plackett-Luce Ranking](a_stitch_in_time_learning_procedural_workflow_via_self_supervised_plackett_luce_r.md)**
 
@@ -37,10 +99,6 @@ tags:
 **[Breaking the Tuning Barrier: Zero-Hyperparameters Yield Multi-Corner Analysis Via Learned Priors](breaking_the_tuning_barrier_zerohyperparameters_yi.md)**
 
 :   用 TabPFN 基础模型的学习先验替代人工设计先验，实现零超参数调优的多角（PVT）良率分析，结合自动特征选择（1152D→48D）和不确定性引导主动学习，在工业级 SRAM 基准上达到 SOTA 精度（MRE 低至 0.11%）同时减少 10× 以上验证成本。
-
-**[CHEEM: Continual Learning by Reuse, New, Adapt and Skip -- A Hierarchical Exploration-Exploitation Approach](cheem_continual_learning_by_reuse_new_adapt_and_skip_--_a_hierarchical_explorati.md)**
-
-:   提出 CHEEM 框架，通过分层探索-利用采样的 NAS 自动学习任务感知的动态 ViT 骨干——在每一层选择 Reuse/New/Adapt/Skip 四种操作——在 MTIL 和 VDD 两个挑战性持续学习基准上显著超越提示类方法，接近全量微调上界。
 
 **[Chain-of-Models Pre-Training: Rethinking Training Acceleration of Vision Foundation Models](com_pt_chain_of_models_pretraining.md)**
 
@@ -77,10 +135,6 @@ tags:
 **[HyCal: A Training-Free Prototype Calibration Method for Cross-Discipline Few-Shot Class-Incremental Learning](hycal_training_free_prototype_calibration_for_cross_discipline_fscil.md)**
 
 :   本文识别了异质域持续学习中的"域引力"（Domain Gravity）偏差——数据丰富或低熵域在共享嵌入空间中产生不成比例的影响，并提出 HyCal，一种无训练方法，通过融合余弦相似度和马氏距离进行原型校准，在跨学科不平衡少样本增量学习中实现稳健分类。
-
-**[Learning Like Humans: Analogical Concept Learning for Generalized Category Discovery](learning_like_humans_analogical_concept_learning_for_generalized_category_discov.md)**
-
-:   提出 AL-GCD 框架，通过模拟人类类比推理机制设计"类比文本概念生成器"（ATCG）——从已知类别的视觉-文本知识库中类比生成未知样本的文本概念，将类别发现转化为视觉-文本联合推理任务，在六个基准上平均提升 5.0%，细粒度数据集提升 7.1%。
 
 **[MINE-JEPA: In-Domain Self-Supervised Learning for Mineral Exploration](mine-jepa_in-domain_self-supervised_learning_for_mine-like_object_classification.md)**
 

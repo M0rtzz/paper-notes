@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 图像生成方向220篇论文解读
+  CVPR2026 图像生成论文汇总 · 219篇论文解读
 description: >-
-  220篇CVPR2026的图像生成方向论文解读，涵盖扩散模型、文生图、布局/合成、对齐/RLHF、多模态、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  219篇CVPR2026的图像生成方向论文解读，涵盖扩散模型、文生图、布局/合成、对齐/RLHF、多模态、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2026"
   - "图像生成"
@@ -14,14 +14,76 @@ tags:
   - "对齐/RLHF"
   - "多模态"
   - "人脸/视线"
+item_list:
+  - u: "2ndmatch_finetuning_pruned_diffusion_models_via_second-order_jacobian_matching/"
+    t: "2ndMatch: Finetuning Pruned Diffusion Models via Second-Order Jacobian Matching"
+  - u: "adapt_attention_driven_adaptive_prompt_scheduling_and_interpolating_orthogonal_c/"
+    t: "ADAPT: Attention Driven Adaptive Prompt Scheduling and InTerpolating Orthogonal Complements for Rare Concepts Generation"
+  - u: "adaptive_auxiliary_prompt_blending_for_target-faithful_diffusion_generation/"
+    t: "Adaptive Auxiliary Prompt Blending for Target-Faithful Diffusion Generation"
+  - u: "adaptive_spectral_feature_forecasting_for_diffusion_sampling_acceleration/"
+    t: "Adaptive Spectral Feature Forecasting for Diffusion Sampling Acceleration"
+  - u: "agentic_retoucher_for_texttoimage_generation/"
+    t: "Agentic Retoucher for Text-To-Image Generation"
+  - u: "ahs_adaptive_head_synthesis/"
+    t: "AHS: Adaptive Head Synthesis via Synthetic Data Augmentations"
+  - u: "alignvar_towards_globally_consistent_visual_autoregression_for_image_super-resol/"
+    t: "AlignVAR: Towards Globally Consistent Visual Autoregression for Image Super-Resolution"
+  - u: "all_in_one_slider_attribute_manipulation/"
+    t: "All-in-One Slider for Attribute Manipulation in Diffusion Models"
+  - u: "ani3dhuman_photorealistic_3d_human_animation_with_self-guided_stochastic_samplin/"
+    t: "Ani3DHuman: Photorealistic 3D Human Animation with Self-guided Stochastic Sampling"
+  - u: "apple_attribute-preserving_pseudo-labeling_for_diffusion-based_face_swapping/"
+    t: "APPLE: Attribute-Preserving Pseudo-Labeling for Diffusion-Based Face Swapping"
+  - u: "ar2can_an_architect_and_an_artist_leveraging_a_canvas_for_multi-human_generation/"
+    t: "Ar2Can: An Architect and an Artist Leveraging a Canvas for Multi-Human Generation"
+  - u: "as-bridge_a_bidirectional_generative_framework_bridging_next-generation_astronom/"
+    t: "AS-Bridge: A Bidirectional Generative Framework Bridging Next-Generation Astronomical Surveys"
+  - u: "attention_may_i_have_your_decision_localizing_generative_choices_in_diffusion_mo/"
+    t: "Attention, May I Have Your Decision? Localizing Generative Choices in Diffusion Models"
+  - u: "attribution_as_retrieval_modelagnostic_aigenerated/"
+    t: "Attribution as Retrieval: Model-Agnostic AI-Generated Image Attribution"
+  - u: "autodebias_automated_framework_for_debiasing_text-to-image_models/"
+    t: "AutoDebias: An Automated Framework for Detecting and Mitigating Backdoor Biases in Text-to-Image Models"
+  - u: "banana100_breaking_nr-iqa_metrics_by_100_iterative_image_replications_with_nano_/"
+    t: "Banana100: Breaking NR-IQA Metrics by 100 Iterative Image Replications with Nano Banana Pro"
+  - u: "beautygrpo_aesthetic_alignment_for_face_retouching_via_dynamic_path_guidance_and/"
+    t: "BeautyGRPO: Aesthetic Alignment for Face Retouching via Dynamic Path Guidance and Fine-Grained Preference Modeling"
+  - u: "beyond_pixel_simulation_pathology_image_generation_via_diagnostic_semantic_token/"
+    t: "Beyond Pixel Simulation: Pathology Image Generation via Diagnostic Semantic Tokens and Prototype Control"
+  - u: "beyond_the_golden_data_resolving_the_motion-vision_quality_dilemma_via_timestep_/"
+    t: "Beyond the Golden Data: Resolving the Motion-Vision Quality Dilemma via Timestep Selective Training"
+  - u: "bias_reward_models_t2i/"
+    t: "Bias at the End of the Score: Demographic Biases in Reward Models for T2I"
+  - u: "bigain_unified_token_compression_for_joint_generation_and_classification/"
+    t: "BiGain: Unified Token Compression for Joint Generation and Classification"
+  - u: "bimotion_b-spline_motion_for_text-guided_dynamic_3d_character_generation/"
+    t: "BiMotion: B-spline Motion for Text-guided Dynamic 3D Character Generation"
+  - u: "biovita_biological_dataset_model_and_benchmark_for_visual-textual-acoustic_align/"
+    t: "BioVITA: Biological Dataset, Model, and Benchmark for Visual-Textual-Acoustic Alignment"
+  - u: "blackmirror_black-box_backdoor_detection_for_text-to-image_models_via_instructio/"
+    t: "BlackMirror: Black-Box Backdoor Detection for Text-to-Image Models via Instruction-Response Deviation"
+  - u: "care-edit_condition-aware_routing_of_experts_for_contextual_image_editing/"
+    t: "CARE-Edit: Condition-Aware Routing of Experts for Contextual Image Editing"
+  - u: "careflow_cyclic_adaptive_rectified_flow_for_multimodal_fusion/"
+    t: "CaReFlow: Cyclic Adaptive Rectified Flow for Multimodal Fusion"
+  - u: "causal_motion_diffusion_models_for_autoregressive_motion_generation/"
+    t: "Causal Motion Diffusion Models for Autoregressive Motion Generation"
+  - u: "cfg-ctrl_control-based_classifier-free_diffusion_guidance/"
+    t: "CFG-Ctrl: Control-Based Classifier-Free Diffusion Guidance"
+  - u: "changebridge_spatiotemporal_image_generation_with_multimodal_controls_for_remote/"
+    t: "ChangeBridge: Spatiotemporal Image Generation with Multimodal Controls for Remote Sensing"
+  - u: "chordedit_one-step_low-energy_transport_for_image_editing/"
+    t: "ChordEdit: One-Step Low-Energy Transport for Image Editing"
+item_total: 219
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**📷 CVPR2026** · **220** 篇论文解读
+**📷 CVPR2026** · **219** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [🔬 ICLR2026 (137)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (222)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [🔬 ICLR2026 (136)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (220)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
 
 🔥 **高频主题：** 扩散模型 ×72 · 文生图 ×19 · 布局/合成 ×11 · 对齐/RLHF ×10 · 多模态 ×10
 
@@ -56,10 +118,6 @@ tags:
 **[All-in-One Slider for Attribute Manipulation in Diffusion Models](all_in_one_slider_attribute_manipulation.md)**
 
 :   提出 All-in-One Slider 框架，通过在文本嵌入空间上训练一个属性稀疏自编码器（Attribute Sparse Autoencoder），将多种人脸属性解耦为稀疏的语义方向，实现单一轻量模块对 52+ 种属性的细粒度连续控制，并支持多属性组合和未见属性的零样本操控。
-
-**[Anchoring and Rescaling Attention for Semantically Coherent Inbetweening](anchoring_and_rescaling_attention_for_semantically_coherent_inbetweening.md)**
-
-:   提出 KAB（Keyframe-Anchored Attention Bias）和 ReTRo（Rescaled Temporal RoPE）两个无需训练的推理时方法，基于 Wan2.1 视频扩散模型解决稀疏关键帧下大运动生成式帧插值（GI）中的语义不忠、帧不一致和节奏不稳问题，并构建首个文本条件 GI 评估基准 TGI-Bench。
 
 **[Ani3DHuman: Photorealistic 3D Human Animation with Self-guided Stochastic Sampling](ani3dhuman_photorealistic_3d_human_animation_with_self-guided_stochastic_samplin.md)**
 

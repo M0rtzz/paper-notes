@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 自动驾驶方向16篇论文解读
+  ICLR2026 自动驾驶论文汇总 · 16篇论文解读
 description: >-
   16篇ICLR2026的自动驾驶方向论文解读，涵盖对抗鲁棒、Agent、自动驾驶等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,40 @@ tags:
   - "论文笔记"
   - "对抗鲁棒"
   - "Agent"
+item_list:
+  - u: "adaptive_augmentation-aware_latent_learning_for_robust_lidar_semantic_segmentati/"
+    t: "Adaptive Augmentation-Aware Latent Learning for Robust LiDAR Semantic Segmentation"
+  - u: "advancing_multi-agent_traffic_simulation_via_r1-style_reinforcement_fine-tuning/"
+    t: "SMART-R1: Advancing Multi-agent Traffic Simulation via R1-Style Reinforcement Fine-Tuning"
+  - u: "astra_general_interactive_world_model_with_autoregressive_denoising/"
+    t: "Astra: General Interactive World Model with Autoregressive Denoising"
+  - u: "bridgedrive_diffusion_bridge_policy_for_closed-loop_trajectory_planning_in_auton/"
+    t: "BridgeDrive: Diffusion Bridge Policy for Closed-Loop Trajectory Planning in Autonomous Driving"
+  - u: "egodex_learning_dexterous_manipulation_from_large-scale_egocentric_video/"
+    t: "EgoDex: Learning Dexterous Manipulation from Large-Scale Egocentric Video"
+  - u: "marc_memory-augmented_rl_token_compression_for_efficient_video_un/"
+    t: "MARC: Memory-Augmented RL Token Compression for Efficient Video Understanding"
+  - u: "multi-head_low-rank_attention/"
+    t: "Multi-Head Low-Rank Attention (MLRA)"
+  - u: "nemo-map_neural_implicit_flow_fields_for_spatio-temporal_motion_mapping/"
+    t: "NeMo-map: Neural Implicit Flow Fields for Spatio-Temporal Motion Mapping"
+  - u: "resworld_temporal_residual_world_model_for_end-to-end_autonomous_driving/"
+    t: "ResWorld: Temporal Residual World Model for End-to-End Autonomous Driving"
+  - u: "segment_any_events_with_language/"
+    t: "SEAL: Segment Any Events with Language"
+  - u: "simo_single-modality-operable_multimodal_collaborative_perceptio/"
+    t: "SiMO: Single-Modality-Operable Multimodal Collaborative Perception"
+  - u: "single_pixel_image_classification_using_an_ultrafast_digital_light_projector/"
+    t: "Single Pixel Image Classification using an Ultrafast Digital Light Projector"
+  - u: "spacer_self-play_anchoring_with_centralized_reference_models/"
+    t: "SPACeR: Self-Play Anchoring with Centralized Reference Models"
+  - u: "spectral-geometric_neural_fields_for_pose-free_lidar_view_synthesis/"
+    t: "Spectral-Geometric Neural Fields for Pose-Free LiDAR View Synthesis"
+  - u: "steerable_adversarial_scenario_generation_through_test-time_preference_alignment/"
+    t: "Steerable Adversarial Scenario Generation through Test-Time Preference Alignment (SAGE)"
+  - u: "x2-fusion_cross-modality_and_cross-dimension_flow_estimation_in_event_edge_space/"
+    t: "x²-Fusion: Cross-Modality and Cross-Dimension Flow Estimation in Event Edge Space"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

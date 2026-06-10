@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 图像生成方向305篇论文解读
+  CVPR2025 图像生成论文汇总 · 305篇论文解读
 description: >-
   305篇CVPR2025的图像生成方向论文解读，涵盖扩散模型、文生图、个性化生成、对齐/RLHF、对抗鲁棒、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "对齐/RLHF"
   - "对抗鲁棒"
   - "布局/合成"
+item_list:
+  - u: "3dtopia-xl_scaling_high-quality_3d_asset_generation_via_primitive_diffusion/"
+    t: "3DTopia-XL: Scaling High-Quality 3D Asset Generation via Primitive Diffusion"
+  - u: "a_bias-free_training_paradigm_for_more_general_ai-generated_image_detection/"
+    t: "A Bias-Free Training Paradigm for More General AI-generated Image Detection"
+  - u: "a_comprehensive_study_of_decoder-only_llms_for_text-to-image_generation/"
+    t: "A Comprehensive Study of Decoder-Only LLMs for Text-to-Image Generation"
+  - u: "aesthetic_post-training_diffusion_models_from_generic_preferences_with_step-by-s/"
+    t: "Aesthetic Post-Training Diffusion Models from Generic Preferences with Step-by-step Preference Optimization"
+  - u: "an_image-like_diffusion_method_for_human-object_interaction_detection/"
+    t: "HOI-IDiff: An Image-like Diffusion Method for Human-Object Interaction Detection"
+  - u: "anidoc_animation_creation_made_easier/"
+    t: "AniDoc: Animation Creation Made Easier"
+  - u: "animer_animal_pose_and_shape_estimation_using_family_aware_transformer/"
+    t: "AniMer: Animal Pose and Shape Estimation Using Family Aware Transformer"
+  - u: "any-resolution_ai-generated_image_detection_by_spectral_learning/"
+    t: "SPAI: Any-Resolution AI-Generated Image Detection by Spectral Learning"
+  - u: "arbitrary-steps_image_super-resolution_via_diffusion_inversion/"
+    t: "Arbitrary-Steps Image Super-Resolution via Diffusion Inversion"
+  - u: "artifade_learning_to_generate_high-quality_subject_from_blemished_images/"
+    t: "ArtiFade: Learning to Generate High-quality Subject from Blemished Images"
+  - u: "as-bridge_a_bidirectional_generative_framework_bridging_next-generation_astronom/"
+    t: "AS-Bridge: A Bidirectional Generative Framework Bridging Next-Generation Astronomical Surveys"
+  - u: "autopresent_designing_structured_visuals_from_scratch/"
+    t: "AutoPresent: Designing Structured Visuals from Scratch"
+  - u: "autoregressive_distillation_of_diffusion_transformers/"
+    t: "Autoregressive Distillation of Diffusion Transformers"
+  - u: "avatarartist_open-domain_4d_avatarization/"
+    t: "AvatarArtist: Open-Domain 4D Avatarization"
+  - u: "beyond_convolution_a_taxonomy_of_structured_operators_for_learning-based_image_p/"
+    t: "Beyond Convolution: A Taxonomy of Structured Operators for Learning-Based Image Processing"
+  - u: "bias_for_action_video_implicit_neural_representations_with_bias_modulation/"
+    t: "Bias for Action: Video Implicit Neural Representations with Bias Modulation"
+  - u: "bigain_unified_token_compression_for_joint_generation_and_classification/"
+    t: "BiGain: Unified Token Compression for Joint Generation and Classification"
+  - u: "boost_your_human_image_generation_model_via_direct_preference_optimization/"
+    t: "Boost Your Human Image Generation Model via Direct Preference Optimization"
+  - u: "bootplace_bootstrapped_object_placement_with_detection_transformers/"
+    t: "BootPlace: Bootstrapped Object Placement with Detection Transformers"
+  - u: "boow-vton_boosting_in-the-wild_virtual_try-on_via_mask-free_pseudo_data_training/"
+    t: "BooW-VTON: Boosting In-the-Wild Virtual Try-On via Mask-Free Pseudo Data Training"
+  - u: "cachequant_comprehensively_accelerated_diffusion_models/"
+    t: "CacheQuant: Comprehensively Accelerated Diffusion Models"
+  - u: "calibrated_multi-preference_optimization_for_aligning_diffusion_models/"
+    t: "Calibrated Multi-Preference Optimization for Aligning Diffusion Models"
+  - u: "camfreediff_camera-free_image_to_panorama_generation_with_diffusion_model/"
+    t: "CamFreeDiff: Camera-free Image to Panorama Generation with Diffusion Model"
+  - u: "can_generative_video_models_help_pose_estimation/"
+    t: "Can Generative Video Models Help Pose Estimation?"
+  - u: "channel-wise_noise_scheduled_diffusion_for_inverse_rendering_in_indoor_scenes/"
+    t: "Channel-wise Noise Scheduled Diffusion for Inverse Rendering in Indoor Scenes"
+  - u: "chatgen_automatic_text-to-image_generation_from_freestyle_chatting/"
+    t: "ChatGen: Automatic Text-to-Image Generation From FreeStyle Chatting"
+  - u: "classifier-free_guidance_inside_the_attraction_basin_may_cause_memorization/"
+    t: "Classifier-Free Guidance inside the Attraction Basin May Cause Memorization"
+  - u: "cleandift_diffusion_features_without_noise/"
+    t: "CleanDIFT: Diffusion Features without Noise"
+  - u: "clip_under_the_microscope_a_fine-grained_analysis_of_multi-object_representation/"
+    t: "CLIP Under the Microscope: A Fine-Grained Analysis of Multi-Object Representation"
+  - u: "co-spy_combining_semantic_and_pixel_features_to_detect_synthetic_images_by_ai/"
+    t: "Co-Spy: Combining Semantic and Pixel Features to Detect Synthetic Images by AI"
+item_total: 305
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **📷 CVPR2025** · **305** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (220)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (137)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (222)](../../NeurIPS2025/image_generation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (219)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (136)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (220)](../../NeurIPS2025/image_generation/index.md)
 
 🔥 **高频主题：** 扩散模型 ×116 · 文生图 ×27 · 个性化生成 ×18 · 对齐/RLHF ×13 · 对抗鲁棒 ×13
 

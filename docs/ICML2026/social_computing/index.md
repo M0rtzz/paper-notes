@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 社会计算方向8篇论文解读
+  ICML2026 社会计算论文汇总 · 8篇论文解读
 description: >-
   8篇ICML2026的社会计算方向论文解读，涵盖对齐/RLHF、多模态、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,24 @@ tags:
   - "对齐/RLHF"
   - "多模态"
   - "LLM"
+item_list:
+  - u: "alignment_tampering_how_reinforcement_learning_from_human_feedback_is_exploited_/"
+    t: "Alignment Tampering: How Reinforcement Learning from Human Feedback Is Exploited to Optimize Misaligned Biases"
+  - u: "flips_instance-fingerprinting_for_llms_via_pseudo-random_sequences/"
+    t: "FLIPS: Instance-Fingerprinting for LLMs via Pseudo-Random Sequences"
+  - u: "ido_incongruity-aware_distribution_optimization_for_multimodal_fake_news_detecti/"
+    t: "IDO: Incongruity-Aware Distribution Optimization for Multimodal Fake News Detection"
+  - u: "mind_multi-rationale_integrated_discriminative_reasoning_framework_for_multi-mod/"
+    t: "MIND: Multi-Rationale Integrated Discriminative Reasoning Framework for Multi-Modal Fake News"
+  - u: "objembed_towards_universal_multimodal_object_embeddings/"
+    t: "ObjEmbed: Towards Universal Multimodal Object Embeddings"
+  - u: "scope_selective_conformal_optimized_pairwise_llm_judging/"
+    t: "SCOPE: Selective Conformal Optimized Pairwise LLM Judging"
+  - u: "self-debias_self-correcting_for_debiasing_large_language_models/"
+    t: "Self-Debias: Self-correcting for Debiasing Large Language Models"
+  - u: "the_geometric_mechanics_of_contrastive_representation_learning_alignment_potenti/"
+    t: "The Geometric Mechanics of Contrastive Representation Learning: Alignment Potentials, Entropic Dispersion, and Cross-modal Divergence"
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +36,7 @@ tags:
 
 **🧪 ICML2026** · **8** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
 
 🔥 **高频主题：** 对齐/RLHF ×2 · 多模态 ×2 · LLM ×2
 

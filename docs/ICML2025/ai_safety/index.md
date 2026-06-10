@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 AI 安全方向36篇论文解读
+  ICML2025 AI安全论文汇总 · 36篇论文解读
 description: >-
   36篇ICML2025的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,68 @@ tags:
   - "对抗鲁棒"
   - "联邦学习"
   - "强化学习"
+item_list:
+  - u: "a_certified_unlearning_approach_without_access_to_source_data/"
+    t: "A Certified Unlearning Approach without Access to Source Data"
+  - u: "accelerating_spectral_clustering_under_fairness_constraints/"
+    t: "Accelerating Spectral Clustering under Fairness Constraints"
+  - u: "adaptive_multi-prompt_contrastive_network_for_few-shot_out-of-distribution_detec/"
+    t: "Adaptive Multi-prompt Contrastive Network for Few-shot Out-of-distribution Detection"
+  - u: "adversarial_inception_backdoor_attacks_against_reinforcement_learning/"
+    t: "Adversarial Inception Backdoor Attacks against Reinforcement Learning"
+  - u: "an_efficient_private_gpt_never_autoregressively_decodes/"
+    t: "An Efficient Private GPT Never Autoregressively Decodes"
+  - u: "avoiding_leakage_poisoning_concept_interventions_under_distribution_shifts/"
+    t: "Avoiding Leakage Poisoning: Concept Interventions Under Distribution Shifts"
+  - u: "breaking_the_n15_additive_error_barrier_for_private_and_efficient_graph_sparsifi/"
+    t: "Breaking the n^{1.5} Additive Error Barrier for Private and Efficient Graph Sparsification"
+  - u: "can_one_safety_loop_guard_them_all_agentic_guard_rails_for_federated_computing/"
+    t: "Can One Safety Loop Guard Them All? Agentic Guard Rails for Federated Computing"
+  - u: "clients_collaborate_flexible_differentially_private_federated_learning_with_guar/"
+    t: "Clients Collaborate: Flexible Differentially Private Federated Learning with Guaranteed Improvement of Utility-Privacy Trade-off"
+  - u: "collaborative_mean_estimation_among_heterogeneous_strategic_agents_individual_ra/"
+    t: "Collaborative Mean Estimation Among Heterogeneous Strategic Agents: Individual Rationality, Fairness, and Truthful Contribution"
+  - u: "connecting_thompson_sampling_and_ucb_towards_more_efficient_trade-offs_between_p/"
+    t: "Connecting Thompson Sampling and UCB: Towards More Efficient Trade-offs Between Privacy and Regret"
+  - u: "convex_markov_games_a_new_frontier_for_multi-agent_reinforcement_learning/"
+    t: "Convex Markov Games: A New Frontier for Multi-Agent Reinforcement Learning"
+  - u: "de-antifake_rethinking_the_protective_perturbations_against_voice_cloning_attack/"
+    t: "De-AntiFake: Rethinking the Protective Perturbations Against Voice Cloning Attacks"
+  - u: "disparate_conditional_prediction_in_multiclass_classifiers/"
+    t: "Disparate Conditional Prediction in Multiclass Classifiers"
+  - u: "distributed_and_decentralised_training_technical_governance_challenges_in_a_shif/"
+    t: "Distributed and Decentralised Training: Technical Governance Challenges in a Shifting AI Landscape"
+  - u: "doubly_robust_fusion_of_many_treatments_for_policy_learning/"
+    t: "Doubly Robust Fusion of Many Treatments for Policy Learning"
+  - u: "faster_rates_for_private_adversarial_bandits/"
+    t: "Faster Rates for Private Adversarial Bandits"
+  - u: "ficgcn_unveiling_the_homomorphic_encryption_efficiency_from_irregular_graph_conv/"
+    t: "FicGCN: Unveiling the Homomorphic Encryption Efficiency from Irregular Graph Convolutional Networks"
+  - u: "fully_heteroscedastic_count_regression_with_deep_double_poisson_networks/"
+    t: "Fully Heteroscedastic Count Regression with Deep Double Poisson Networks"
+  - u: "generalization_in_federated_learning_a_conditional_mutual_information_framework/"
+    t: "Generalization in Federated Learning: A Conditional Mutual Information Framework"
+  - u: "identifying_and_understanding_cross-class_features_in_adversarial_training/"
+    t: "Identifying and Understanding Cross-Class Features in Adversarial Training"
+  - u: "improving_the_variance_of_differentially_private_randomized_experiments_through_/"
+    t: "Improving the Variance of Differentially Private Randomized Experiments through Clustering"
+  - u: "on_differential_privacy_for_adaptively_solving_search_problems/"
+    t: "On Differential Privacy for Adaptively Solving Search Problems via Sketching"
+  - u: "privacy-shielded_image_compression_defending_against_exploitation_from_vision-la/"
+    t: "Privacy-Shielded Image Compression: Defending Against Exploitation from Vision-Language Pretrained Models"
+  - u: "private_model_personalization_revisited/"
+    t: "Private Model Personalization Revisited"
+  - u: "quadratic_upper_bound_for_boosting_robustness/"
+    t: "Quadratic Upper Bound for Boosting Robustness"
+  - u: "relative_error_fair_clustering_in_the_weak-strong_oracle_model/"
+    t: "Relative Error Fair Clustering in the Weak-Strong Oracle Model"
+  - u: "rethinking_the_bias_of_foundation_model_under_long-tailed_distribution/"
+    t: "Rethinking the Bias of Foundation Model under Long-tailed Distribution"
+  - u: "retraining_with_predicted_hard_labels_provably_increases_model_accurac/"
+    t: "Retraining with Predicted Hard Labels Provably Increases Model Accuracy"
+  - u: "retraining_with_predicted_hard_labels_provably_increases_model_accuracy/"
+    t: "Retraining with Predicted Hard Labels Provably Increases Model Accuracy"
+item_total: 36
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +80,7 @@ tags:
 
 **🧪 ICML2025** · **36** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (72)](../../NeurIPS2025/ai_safety/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×8 · 联邦学习 ×6 · 强化学习 ×2
 

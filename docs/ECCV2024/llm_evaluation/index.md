@@ -1,6 +1,6 @@
 ---
 title: >-
-  ECCV2024 LLM 评测方向19篇论文解读
+  ECCV2024 LLM评测论文汇总 · 19篇论文解读
 description: >-
   19篇ECCV2024的 LLM 评测方向论文解读，涵盖对抗鲁棒、对齐/RLHF、压缩/编码、翻译、域适应、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,46 @@ tags:
   - "翻译"
   - "域适应"
   - "人脸/视线"
+item_list:
+  - u: "colormnet_a_memory-based_deep_spatial-temporal_feature_propagation_network_for_v/"
+    t: "ColorMNet: A Memory-based Deep Spatial-Temporal Feature Propagation Network for Video Colorization"
+  - u: "deep_cost_ray_fusion_for_sparse_depth_video_completion/"
+    t: "Deep Cost Ray Fusion for Sparse Depth Video Completion"
+  - u: "distribution_alignment_for_fully_test-time_adaptation_with_dynamic_online_data_s/"
+    t: "Distribution Alignment for Fully Test-Time Adaptation with Dynamic Online Data Streams"
+  - u: "eliminating_warping_shakes_for_unsupervised_online_video_stitching/"
+    t: "Eliminating Warping Shakes for Unsupervised Online Video Stitching"
+  - u: "evsign_sign_language_recognition_and_translation_with_streaming_events/"
+    t: "EvSign: Sign Language Recognition and Translation with Streaming Events"
+  - u: "gradient-regularized_out-of-distribution_detection/"
+    t: "Gradient-Regularized Out-of-Distribution Detection"
+  - u: "image-feature_weak-to-strong_consistency_an_enhanced_paradigm_for_semi-supervise/"
+    t: "Image-Feature Weak-to-Strong Consistency: An Enhanced Paradigm for Semi-Supervised Learning"
+  - u: "imaging_interiors_an_implicit_solution_to_electromagnetic_inverse_scattering_pro/"
+    t: "Imaging Interiors: An Implicit Solution to Electromagnetic Inverse Scattering Problems"
+  - u: "instance-dependent_noisy-label_learning_with_graphical_model_based_noise-rate_es/"
+    t: "Instance-dependent Noisy-label Learning with Graphical Model Based Noise-rate Estimation"
+  - u: "learn_from_the_learnt_source-free_active_domain_adaptation_via_contrastive_sampl/"
+    t: "Learn from the Learnt: Source-Free Active Domain Adaptation via Contrastive Sampling and Visual Persistence"
+  - u: "merlin_single-shot_material_estimation_and_relighting_for_photometric_stereo/"
+    t: "MERLiN: Single-Shot Material Estimation and Relighting for Photometric Stereo"
+  - u: "ogni-dc_robust_depth_completion_with_optimization-guided_neural_iterations/"
+    t: "OGNI-DC: Robust Depth Completion with Optimization-Guided Neural Iterations"
+  - u: "petface_a_large-scale_dataset_and_benchmark_for_animal_identification/"
+    t: "PetFace: A Large-Scale Dataset and Benchmark for Animal Identification"
+  - u: "r2-bench_benchmarking_the_robustness_of_referring_perception_models_under_pertur/"
+    t: "R²-Bench: Benchmarking the Robustness of Referring Perception Models under Perturbations"
+  - u: "sigma_sinkhorn-guided_masked_video_modeling/"
+    t: "SIGMA: Sinkhorn-Guided Masked Video Modeling"
+  - u: "spherical_linear_interpolation_and_text-anchoring_for_zero-shot_composed_image_r/"
+    t: "Spherical Linear Interpolation and Text-Anchoring for Zero-shot Composed Image Retrieval"
+  - u: "sync_from_the_sea_retrieving_alignable_videos_from_large-scale_datasets/"
+    t: "Sync from the Sea: Retrieving Alignable Videos from Large-Scale Datasets"
+  - u: "versatile_incremental_learning_towards_class_and_domain-agnostic_incremental_lea/"
+    t: "Versatile Incremental Learning: Towards Class and Domain-Agnostic Incremental Learning"
+  - u: "visfocus_prompt-guided_vision_encoders_for_ocr-free_dense_document_understanding/"
+    t: "VisFocus: Prompt-Guided Vision Encoders for OCR-Free Dense Document Understanding"
+item_total: 19
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 LLM 评测方向88篇论文解读
+  ACL2025 LLM评测论文汇总 · 87篇论文解读
 description: >-
-  88篇ACL2025的 LLM 评测方向论文解读，涵盖 LLM、推理、Agent、对抗鲁棒、情感分析、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  87篇ACL2025的 LLM 评测方向论文解读，涵盖 LLM、推理、对抗鲁棒、Agent、情感分析、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ACL2025"
   - "LLM 评测"
@@ -10,20 +10,82 @@ tags:
   - "论文笔记"
   - "LLM"
   - "推理"
-  - "Agent"
   - "对抗鲁棒"
+  - "Agent"
   - "情感分析"
   - "问答"
+item_list:
+  - u: "a_conformal_risk_control_framework_for_granular_word_assessment_and_uncertainty_/"
+    t: "A Conformal Risk Control Framework for Granular Word Assessment and Uncertainty Calibration of CLIPScore Quality Estimates"
+  - u: "a_mismatched_benchmark_for_scientific_natural_language_inference/"
+    t: "MisMatched: A Benchmark for Scientific Natural Language Inference"
+  - u: "abgen_evaluating_large_language_models_in/"
+    t: "AbGen: Evaluating Large Language Models in Ablation Study Design and Evaluation for Scientific Research"
+  - u: "access_denied_inc_the_first_benchmark_environment_for_sensitivity_awareness/"
+    t: "Access Denied Inc: The First Benchmark Environment for Sensitivity Awareness"
+  - u: "ad-hoc_concept_forming_in_the_game_codenames_as_a_means_for_evaluating_large_lan/"
+    t: "Ad-hoc Concept Forming in the Game Codenames as a Means for Evaluating Large Language Models"
+  - u: "ad-llm_benchmarking_large_language_models_for_anomaly_detection/"
+    t: "AD-LLM: Benchmarking Large Language Models for Anomaly Detection"
+  - u: "androidlab_autonomous_agent/"
+    t: "AndroidLab: Training and Systematic Benchmarking of Android Autonomous Agents"
+  - u: "antileakbench_preventing_data_contamination_by_automatically_constructing_benchm/"
+    t: "AntiLeakBench: Preventing Data Contamination by Automatically Constructing Benchmarks with Updated Real-World Knowledge"
+  - u: "atomic_calibration_of_llms_in_long-form_generations/"
+    t: "Atomic Calibration of LLMs in Long-Form Generations"
+  - u: "batayan_a_filipino_nlp_benchmark_for_evaluating_large_language_models/"
+    t: "Batayan: A Filipino NLP Benchmark for Evaluating Large Language Models"
+  - u: "belarusian_glue/"
+    t: "BelarusianGLUE: Towards a Natural Language Understanding Benchmark for Belarusian"
+  - u: "benchmarking_llms_and_llm-based_agents_in_practical_vulnerability_detection_for_/"
+    t: "Benchmarking LLMs and LLM-based Agents in Practical Vulnerability Detection for Code Repositories"
+  - u: "benchmarking_uncertainty_quantification_methods_for_large_language_models_with_l/"
+    t: "Benchmarking Uncertainty Quantification Methods for Large Language Models with LM-Polygraph"
+  - u: "besstie_a_benchmark_for_sentiment_and_sarcasm_classification_for_varieties_of_en/"
+    t: "BESSTIE: A Benchmark for Sentiment and Sarcasm Classification for Varieties of English"
+  - u: "beyond_one-size-fits-all_tailored_benchmarks_for_efficient_evaluation/"
+    t: "Beyond One-Size-Fits-All: Tailored Benchmarks for Efficient Evaluation"
+  - u: "browsing_lost_unformed_recollections_a_benchmark_for_tip-of-the-tongue_search_an/"
+    t: "Browsing Lost Unformed Recollections: A Benchmark for Tip-of-the-Tongue Search and Reasoning"
+  - u: "calibraeval_calibrating_prediction_distribution_to_mitigate_selection_bias_in_ll/"
+    t: "CalibraEval: Calibrating Prediction Distribution to Mitigate Selection Bias in LLMs-as-Judges"
+  - u: "calibration_confidence_text_gen/"
+    t: "Improving the Calibration of Confidence Scores in Text Generation Using the Output Distribution's Characteristics"
+  - u: "can_external_validation_tools_improve_annotation_quality_for_llm-as-a-judge/"
+    t: "Can External Validation Tools Improve Annotation Quality for LLM-as-a-Judge?"
+  - u: "cfbench_a_comprehensive_constraints-following_benchmark_for_llms/"
+    t: "CFBench: A Comprehensive Constraints-Following Benchmark for LLMs"
+  - u: "chatbench_from_static_benchmarks_to_human-ai_evaluation/"
+    t: "ChatBench: From Static Benchmarks to Human-AI Evaluation"
+  - u: "codemenv_benchmarking_large_language_models_on_code_migration/"
+    t: "CodeMEnv: Benchmarking Large Language Models on Code Migration"
+  - u: "com2_causal_commonsense/"
+    t: "Com2: A Causal-Guided Benchmark for Exploring Complex Commonsense Reasoning in Large Language Models"
+  - u: "coprus_consistency_preserving_utterance_synthesis_towards_more_realistic_benchma/"
+    t: "CoPrUS: Consistency Preserving Utterance Synthesis Towards More Realistic Benchmark"
+  - u: "cov_eval_evaluating_llms_from_code_security_perspective/"
+    t: "CoV-Eval: Can You Really Trust Code Copilots? Evaluating Large Language Models from a Code Security Perspective"
+  - u: "culemo_cultural_lenses_on_emotion_-_benchmarking_llms_for_cross-cultural_emotion/"
+    t: "CuLEmo: Cultural Lenses on Emotion - Benchmarking LLMs for Cross-Cultural Emotion Understanding"
+  - u: "culturalbench_a_robust_diverse_and_challenging_cultural_benchmark_by_human-ai_cu/"
+    t: "CulturalBench: A Robust, Diverse, and Challenging Cultural Benchmark by Human-AI CulturalTeaming"
+  - u: "ecomscriptbench/"
+    t: "EcomScriptBench: A Multi-task Benchmark for E-commerce Script Planning via Step-wise Intention-Driven Product Association"
+  - u: "editinspector_a_benchmark_for_evaluation_of_text-guided_image_edits/"
+    t: "EditInspector: A Benchmark for Evaluation of Text-Guided Image Edits"
+  - u: "elaboration_competitive_programming/"
+    t: "ELABORATION: A Comprehensive Benchmark on Human-LLM Competitive Programming"
+item_total: 87
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM 评测
 
-**💬 ACL2025** · **88** 篇论文解读
+**💬 ACL2025** · **87** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (27)](../../ICML2026/llm_evaluation/index.md) · [💬 ACL2026 (91)](../../ACL2026/llm_evaluation/index.md) · [🔬 ICLR2026 (29)](../../ICLR2026/llm_evaluation/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/llm_evaluation/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_evaluation/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/llm_evaluation/index.md)
 
-🔥 **高频主题：** LLM ×33 · 推理 ×11 · Agent ×4 · 对抗鲁棒 ×3 · 情感分析 ×2
+🔥 **高频主题：** LLM ×33 · 推理 ×11 · 对抗鲁棒 ×3 · Agent ×3 · 情感分析 ×2
 
 **[A Conformal Risk Control Framework for Granular Word Assessment and Uncertainty Calibration of CLIPScore Quality Estimates](a_conformal_risk_control_framework_for_granular_word_assessment_and_uncertainty_.md)**
 
@@ -140,10 +202,6 @@ tags:
 **[EditInspector: A Benchmark for Evaluation of Text-Guided Image Edits](editinspector_a_benchmark_for_evaluation_of_text-guided_image_edits.md)**
 
 :   本文提出 EditInspector，一个基于人工标注的多维度文本引导图像编辑评估基准，覆盖编辑准确性、伪影检测、视觉质量、场景融合度、常识一致性和变化描述六个维度，揭示了当前 VLM 在全面评估编辑质量方面的不足，并提出在伪影检测和差异描述生成上超越 SOTA 的两种新方法。
-
-**[EducationQ: Evaluating LLMs' Teaching Capabilities Through Multi-Agent Dialogue Framework](educationq_evaluating_llms_teaching_capabilities_through_multi-agent_dialogue_fr.md)**
-
-:   提出 EducationQ 多智能体对话框架，通过模拟真实课堂中教师-学生的形成性评估交互来评估 LLM 的教学能力，发现教学效果与模型规模或通用推理能力不呈线性关系，Llama 3.1 70B 在教学中表现最优。
 
 **[ELABORATION: A Comprehensive Benchmark on Human-LLM Competitive Programming](elaboration_competitive_programming.md)**
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 多语言/翻译方向5篇论文解读
+  ICLR2026 多语言/翻译论文汇总 · 5篇论文解读
 description: >-
   5篇ICLR2026的多语言/翻译方向论文解读，涵盖 LLM、对齐/RLHF、翻译等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,18 @@ tags:
   - "LLM"
   - "对齐/RLHF"
   - "翻译"
+item_list:
+  - u: "assess_a_semantic_and_structural_evaluation_framework_for_statement_similarity/"
+    t: "ASSESS: A Semantic and Structural Evaluation Framework for Statement Similarity"
+  - u: "atlas_adaptive_transfer_scaling_laws_for_multilingual_pretraining_finetuning_and/"
+    t: "ATLAS: Adaptive Transfer Scaling Laws for Multilingual Pretraining, Finetuning, and Decoding the Curse of Multilinguality"
+  - u: "from_utterance_to_vividity_training_expressive_subtitle_translation_llm_via_adap/"
+    t: "From Utterance to Vividity: Training Expressive Subtitle Translation LLM via Adaptive Local Preference Optimization"
+  - u: "multilingual_routing_in_mixture-of-experts/"
+    t: "Multilingual Routing in Mixture-of-Experts"
+  - u: "sasft_sparse_autoencoder-guided_supervised_finetuning_to_mitigate_unexpected_cod/"
+    t: "SASFT: Sparse Autoencoder-guided Supervised Finetuning to Mitigate Unexpected Code-Switching in LLMs"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

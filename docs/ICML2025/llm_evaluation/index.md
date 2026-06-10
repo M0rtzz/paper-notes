@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 LLM 评测方向22篇论文解读
+  ICML2025 LLM评测论文汇总 · 22篇论文解读
 description: >-
   22篇ICML2025的 LLM 评测方向论文解读，涵盖 LLM、对齐/RLHF、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,52 @@ tags:
   - "LLM"
   - "对齐/RLHF"
   - "推理"
+item_list:
+  - u: "aaar-10_assessing_ais_potential_to_assist_research/"
+    t: "AAAR-1.0: Assessing AI's Potential to Assist Research"
+  - u: "are_llm_belief_updates_consistent_with_bayes_theorem/"
+    t: "Are LLM Belief Updates Consistent with Bayes' Theorem?"
+  - u: "bounded_rationality_for_llms_satisficing_alignment_at_inference-time/"
+    t: "Bounded Rationality for LLMs: Satisficing Alignment at Inference-Time"
+  - u: "communicating_activations_between_language_model_agents/"
+    t: "Communicating Activations Between Language Model Agents"
+  - u: "consistency_in_language_models_current_landscape_challenges_and_future_direction/"
+    t: "Consistency in Language Models: Current Landscape, Challenges, and Future Directions"
+  - u: "correlated_errors_in_large_language_models/"
+    t: "Correlated Errors in Large Language Models"
+  - u: "datadecide_how_to_predict_best_pretraining_data_with_small_experiments/"
+    t: "DataDecide: How to Predict Best Pretraining Data with Small Experiments"
+  - u: "disentangling_and_integrating_relational_and_sensory_information_in_transformer_/"
+    t: "Disentangling and Integrating Relational and Sensory Information in Transformer Architectures"
+  - u: "enigma_interactive_tools_substantially_assist_lm_agents_in_finding_security_vuln/"
+    t: "EnIGMA: Interactive Tools Substantially Assist LM Agents in Finding Security Vulnerabilities"
+  - u: "evaluating_llms_across_multi-cognitive_levels_from_medical_knowledge_mastery_to_/"
+    t: "MultiCogEval: Evaluating LLMs Across Multi-Cognitive Levels"
+  - u: "fleet_of_agents_coordinated_problem_solving_with_large_language_models/"
+    t: "Fleet of Agents: Coordinated Problem Solving with Large Language Models"
+  - u: "g-sim_generative_simulations_with_large_language_models_and_gradient-free_calibr/"
+    t: "G-Sim: Generative Simulations with Large Language Models and Gradient-Free Calibration"
+  - u: "how_much_can_we_forget_about_data_contamination/"
+    t: "How Much Can We Forget about Data Contamination?"
+  - u: "hyperband-based_bayesian_optimization_for_black-box_prompt_selection/"
+    t: "Hyperband-based Bayesian Optimization for Black-box Prompt Selection"
+  - u: "learning_distribution-wise_control_in_representation_space_for_language_models/"
+    t: "Learning Distribution-Wise Control in Representation Space for Language Models"
+  - u: "leveraging_online_olympiad-level_math_problems_for_llms_training_and_contaminati/"
+    t: "Leveraging Online Olympiad-Level Math Problems for LLMs Training and Contamination-Resistant Evaluation"
+  - u: "llm-srbench_a_new_benchmark_for_scientific_equation_discovery_with_large_languag/"
+    t: "LLM-SRBench: A New Benchmark for Scientific Equation Discovery with LLMs"
+  - u: "phantomwiki_on-demand_datasets_for_reasoning_and_retrieval_evaluation/"
+    t: "PhantomWiki: On-Demand Datasets for Reasoning and Retrieval Evaluation"
+  - u: "position_theory_of_mind_benchmarks_are_broken_for_large_language_models/"
+    t: "Position: Theory of Mind Benchmarks are Broken for Large Language Models"
+  - u: "sample_efficient_demonstration_selection_for_in-context_learning/"
+    t: "Sample Efficient Demonstration Selection for In-Context Learning"
+  - u: "the_best_of_both_worlds_bridging_quality_and_diversity_in_data_selection_with_bi/"
+    t: "The Best of Both Worlds: Bridging Quality and Diversity in Data Selection with Bipartite Graph"
+  - u: "unlocking_post-hoc_dataset_inference_with_synthetic_data/"
+    t: "Unlocking Post-hoc Dataset Inference with Synthetic Data"
+item_total: 22
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

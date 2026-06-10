@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 3D 视觉方向61篇论文解读
+  ICLR2026 3D视觉论文汇总 · 59篇论文解读
 description: >-
-  61篇ICLR2026的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、动态场景、三维重建、机器人、新视角合成、NeRF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  59篇ICLR2026的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、动态场景、三维重建、机器人、新视角合成、NeRF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ICLR2026"
   - "3D 视觉"
@@ -14,16 +14,78 @@ tags:
   - "机器人"
   - "新视角合成"
   - "NeRF"
+item_list:
+  - u: "3dgeer_3d_gaussian_rendering_made_exact_and_efficient_for_generic_cameras/"
+    t: "3DGEER: 3D Gaussian Rendering Made Exact and Efficient for Generic Cameras"
+  - u: "a_step_to_decouple_optimization_in_3dgs/"
+    t: "A Step to Decouple Optimization in 3DGS"
+  - u: "augmented_radiance_field_a_general_framework_for_enhanced_gaussian_splatting/"
+    t: "Augmented Radiance Field: A General Framework for Enhanced Gaussian Splatting"
+  - u: "clods_visual-only_unsupervised_cloth_dynamics_learning_in_unknown_conditions/"
+    t: "CloDS: Visual-Only Unsupervised Cloth Dynamics Learning in Unknown Conditions"
+  - u: "color3d_controllable_and_consistent_3d_colorization_with_personalized_colorizer/"
+    t: "Color3D: Controllable and Consistent 3D Colorization with Personalized Colorizer"
+  - u: "coopertrim_adaptive_data_selection_for_uncertainty-aware_cooperative_perception/"
+    t: "COOPERTRIM: Adaptive Data Selection for Uncertainty-Aware Cooperative Perception"
+  - u: "core-3d_context-aware_open-vocabulary_retrieval_by_embeddings_in_3d/"
+    t: "CORE-3D: Context-aware Open-vocabulary Retrieval by Embeddings in 3D"
+  - u: "crisp_contact-guided_real2sim_from_monocular_video_with_planar_scene_primitives/"
+    t: "CRISP: Contact-Guided Real2Sim from Monocular Video with Planar Scene Primitives"
+  - u: "ctrlshift_high-quality_geometry-aware_object_manipulation_in_visual_generation/"
+    t: "Ctrl&Shift: High-Quality Geometry-Aware Object Manipulation in Visual Generation"
+  - u: "diffwind_physics-informed_differentiable_modeling_of_wind-driven_object_dynamics/"
+    t: "DiffWind: Physics-Informed Differentiable Modeling of Wind-Driven Object Dynamics"
+  - u: "dynamic_novel_view_synthesis_in_high_dynamic_range/"
+    t: "Dynamic Novel View Synthesis in High Dynamic Range"
+  - u: "efficient-lvsm_faster_cheaper_and_better_large_view_synthesis_model_via_decouple/"
+    t: "Efficient-LVSM: Faster, Cheaper, and Better Large View Synthesis Model via Decoupled Co-Refinement Attention"
+  - u: "egonight_towards_egocentric_vision_understanding_at_night_with_a_challenging_ben/"
+    t: "EgoNight: Towards Egocentric Vision Understanding at Night with a Challenging Benchmark"
+  - u: "egoworld_translating_exocentric_view_to_egocentric_view_using_rich_exocentric_ob/"
+    t: "EgoWorld: Translating Exocentric View to Egocentric View using Rich Exocentric Observations"
+  - u: "einstein_fields_a_neural_perspective_to_computational_general_relativity/"
+    t: "Einstein Fields: A Neural Perspective To Computational General Relativity"
+  - u: "fast_estimation_of_wasserstein_distances_via_regression_on_sliced_wasserstein_di/"
+    t: "Fast Estimation of Wasserstein Distances via Regression on Sliced Wasserstein Distances"
+  - u: "fastgha_generalized_few-shot_3d_gaussian_head_avatars_with_real-time_animation/"
+    t: "FastGHA: Generalized Few-Shot 3D Gaussian Head Avatars with Real-Time Animation"
+  - u: "fused-planes_why_train_a_thousand_tri-planes_when_you_can_share/"
+    t: "Fused-Planes: Why Train a Thousand Tri-Planes When You Can Share?"
+  - u: "generalizable_coarse-to-fine_robot_manipulation_via_language-aligned_3d_keypoint/"
+    t: "Generalizable Coarse-to-Fine Robot Manipulation via Language-Aligned 3D Keypoints"
+  - u: "geopurify_a_data-efficient_geometric_distillation_framework_for_open-vocabulary_/"
+    t: "GeoPurify: A Data-Efficient Geometric Distillation Framework for Open-Vocabulary 3D Segmentation"
+  - u: "giq_benchmarking_3d_geometric_reasoning_of_vision_foundation_models_with_simulat/"
+    t: "GIQ: Benchmarking 3D Geometric Reasoning of Vision Foundation Models with Simulated and Real Polyhedra"
+  - u: "hdr-nsff_high_dynamic_range_neural_scene_flow_fields/"
+    t: "HDR-NSFF: High Dynamic Range Neural Scene Flow Fields"
+  - u: "into_the_rabbit_hull_from_task-relevant_concepts_in_dino_to_minkowski_geometry/"
+    t: "Into the Rabbit Hull: From Task-Relevant Concepts in DINO to Minkowski Geometry"
+  - u: "joint_shadow_generation_and_relighting_via_light-geometry_interaction_maps/"
+    t: "Joint Shadow Generation and Relighting via Light-Geometry Interaction Maps"
+  - u: "learning_part-aware_dense_3d_feature_field_for_generalizable_articulated_object_/"
+    t: "Learning Part-Aware Dense 3D Feature Field for Generalizable Articulated Object Manipulation"
+  - u: "learning_physics-grounded_4d_dynamics_with_neural_gaussian_force_fields/"
+    t: "Learning Physics-Grounded 4D Dynamics with Neural Gaussian Force Fields"
+  - u: "learning_unified_representation_of_3d_gaussian_splatting/"
+    t: "Learning Unified Representation of 3D Gaussian Splatting"
+  - u: "lito_surface_light_field_tokenization/"
+    t: "LiTo: Surface Light Field Tokenization"
+  - u: "megs2_memory-efficient_gaussian_splatting_via_spherical_gaussians_and_unified_pr/"
+    t: "MEGS2: Memory-Efficient Gaussian Splatting via Spherical Gaussians and Unified Pruning"
+  - u: "mono4dgs-hdr_high_dynamic_range_4d_gaussian_splatting_from_alternating-exposure_/"
+    t: "Mono4DGS-HDR: High Dynamic Range 4D Gaussian Splatting from Alternating-exposure Monocular Videos"
+item_total: 59
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D 视觉
 
-**🔬 ICLR2026** · **61** 篇论文解读
+**🔬 ICLR2026** · **59** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (236)](../../CVPR2026/3d_vision/index.md) · [🤖 AAAI2026 (78)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (113)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (264)](../../ICCV2025/3d_vision/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (227)](../../CVPR2026/3d_vision/index.md) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (111)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (252)](../../ICCV2025/3d_vision/index.md)
 
-🔥 **高频主题：** 3D 高斯渲染 ×11 · 动态场景 ×4 · 三维重建 ×4 · 机器人 ×3 · 新视角合成 ×3
+🔥 **高频主题：** 3D 高斯渲染 ×10 · 动态场景 ×4 · 三维重建 ×4 · 机器人 ×3 · 新视角合成 ×3
 
 **[3DGEER: 3D Gaussian Rendering Made Exact and Efficient for Generic Cameras](3dgeer_3d_gaussian_rendering_made_exact_and_efficient_for_generic_cameras.md)**
 
@@ -141,10 +203,6 @@ tags:
 
 :   提出MEGS2——从渲染VRAM角度出发压缩3DGS：用可裁剪的任意方向球面高斯(SG)完全替代球谐函数(SH)降低每个primitive的参数量 + 统一软剪枝框架将primitive数量和lobe数量的裁剪建模为单一内存约束优化问题 -> 实现8x静态VRAM压缩和6x渲染VRAM压缩，同时保持渲染质量，首次让3DGS在移动端实时运行。
 
-**[MoE-GS: Mixture of Experts for Dynamic Gaussian Splatting](moe-gs_mixture_of_experts_for_dynamic_gaussian_splatting.md)**
-
-:   提出 MoE-GS，首个将混合专家架构引入动态高斯泼溅的框架，通过 Volume-aware Pixel Router 自适应融合多种异构变形先验（HexPlane/逐高斯/多项式/插值），在 N3V 和 Technicolor 数据集上一致超越 SOTA，并通过单次渲染、门控剪枝和知识蒸馏保持效率。
-
 **[Mono4DGS-HDR: High Dynamic Range 4D Gaussian Splatting from Alternating-exposure Monocular Videos](mono4dgs-hdr_high_dynamic_range_4d_gaussian_splatting_from_alternating-exposure_.md)**
 
 :   首次解决从无位姿交替曝光单目视频重建可渲染 4D HDR 场景的问题，通过两阶段优化（正交视频空间 → 世界空间）、Video-to-World 高斯变换策略和时间亮度正则化，在合成数据上达到 37.64 dB HDR PSNR、161 FPS，全面超越现有方法。
@@ -240,10 +298,6 @@ tags:
 **[SurfSplat: Conquering Feedforward 2D Gaussian Splatting with Surface Continuity Priors](surfsplat_conquering_feedforward_2d_gaussian_splatting_with_surface_continuity_p.md)**
 
 :   SurfSplat 提出基于2DGS的前馈3D重建框架，通过表面连续性先验将高斯的旋转和尺度与邻域位置绑定、以及强制透明度混合策略解决颜色偏差，并引入HRRC指标揭示高分辨率下的重建质量差异。
-
-**[Text-to-3D by Stitching a Multi-view Reconstruction Network to a Video Generator](text-to-3d_by_stitching_a_multi-view_reconstruction_network_to_a_video_generator.md)**
-
-:   提出VIST3A框架——通过模型拼接(model stitching)将预训练视频生成器的latent空间与前馈3D重建模型(如AnySplat/MVDUSt3R/VGGT)无缝对接，再用直接奖励微调(direct reward finetuning)对齐生成模型与拼接后的3D解码器，实现高质量端到端text-to-3DGS和text-to-pointmap生成，在T3Bench/SceneBench/DPG-Bench上全面超越现有方法。
 
 **[Topology-Preserved Auto-regressive Mesh Generation in the Manner of Weaving Silk](topology-preserved_auto-regressive_mesh_generation_in_the_manner_of_weaving_silk.md)**
 

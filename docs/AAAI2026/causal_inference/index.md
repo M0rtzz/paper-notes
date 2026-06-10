@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 因果推理方向10篇论文解读
+  AAAI2026 因果推理论文汇总 · 10篇论文解读
 description: >-
   10篇AAAI2026的因果推理方向论文解读，涵盖机器人、LLM、多模态、推理、Agent、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,28 @@ tags:
   - "推理"
   - "Agent"
   - "模型压缩"
+item_list:
+  - u: "causal_inference_under_threshold_manipulation_bayesian_mixtu/"
+    t: "Causal Inference Under Threshold Manipulation: Bayesian Mixture Modeling and Heterogeneous Treatment Effects"
+  - u: "causal_structure_learning_for_dynamical_systems_with_theoretical_score_analysis/"
+    t: "CaDyT: Causal Structure Learning for Dynamical Systems with Theoretical Score Analysis"
+  - u: "causally-grounded_dual-path_attention_intervention_for_objec/"
+    t: "Causally-Grounded Dual-Path Attention Intervention for Object Hallucination Mitigation in LVLMs"
+  - u: "from_theory_of_mind_to_theory_of_environment_counterfactual_simulation_of_latent/"
+    t: "From Theory of Mind to Theory of Environment: Counterfactual Simulation of Latent Environmental Dynamics"
+  - u: "hallucinate_less_by_thinking_more_aspect-based_causal_absten/"
+    t: "Hallucinate Less by Thinking More: Aspect-Based Causal Abstention for Large Language Models"
+  - u: "i-cam-uv_integrating_causal_graphs_over_non-identical_variable_sets_using_causal/"
+    t: "I-CAM-UV: Integrating Causal Graphs over Non-Identical Variable Sets Using Causal Additive Models with Unobserved Variables"
+  - u: "ktcf_actionable_recourse_in_knowledge_tracing_via_counterfactual_explanations_fo/"
+    t: "KTCF: Actionable Recourse in Knowledge Tracing via Counterfactual Explanations for Education"
+  - u: "learning_subgroups_with_maximum_treatment_effects_without_causal_heuristics/"
+    t: "Learning Subgroups with Maximum Treatment Effects without Causal Heuristics"
+  - u: "multi-agent_undercover_gaming_hallucination_removal_via_coun/"
+    t: "MUG: Multi-agent Undercover Gaming — Hallucination Removal via Counterfactual Test for Multimodal Reasoning"
+  - u: "sparse_additive_model_pruning_for_order-based_causal_structure_learning/"
+    t: "Sparse Additive Model Pruning for Order-Based Causal Structure Learning"
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +43,7 @@ tags:
 
 **🤖 AAAI2026** · **10** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
 
 **[Causal Inference Under Threshold Manipulation: Bayesian Mixture Modeling and Heterogeneous Treatment Effects](causal_inference_under_threshold_manipulation_bayesian_mixtu.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 LLM 安全方向85篇论文解读
+  NeurIPS2025 LLM安全论文汇总 · 82篇论文解读
 description: >-
-  85篇NeurIPS2025的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、对齐/RLHF、推理、联邦学习、水印/隐写等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  82篇NeurIPS2025的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、对齐/RLHF、推理、联邦学习、水印/隐写等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "LLM 安全"
@@ -14,16 +14,78 @@ tags:
   - "推理"
   - "联邦学习"
   - "水印/隐写"
+item_list:
+  - u: "a_cramrvon_mises_approach_to_incentivizing_truthful_data_sha/"
+    t: "A Cramér–von Mises Approach to Incentivizing Truthful Data Sharing"
+  - u: "a_reliable_cryptographic_framework_for_empirical_machine_unl/"
+    t: "A Reliable Cryptographic Framework for Empirical Machine Unlearning Evaluation"
+  - u: "a_systematic_evaluation_of_preference_aggregation_in_federated_rlhf_for_pluralis/"
+    t: "A Systematic Evaluation of Preference Aggregation in Federated RLHF for Pluralistic Alignment of LLMs"
+  - u: "adaptive_lora_experts_allocation_and_selection_for_federated_fine-tuning/"
+    t: "Adaptive LoRA Experts Allocation and Selection for Federated Fine-Tuning"
+  - u: "adversarial_paraphrasing_a_universal_attack_for_humanizing_ai-generated_text/"
+    t: "Adversarial Paraphrasing: A Universal Attack for Humanizing AI-Generated Text"
+  - u: "agentdam_privacy_leakage_evaluation_for_autonomous_web_agent/"
+    t: "AgentDAM: Privacy Leakage Evaluation for Autonomous Web Agents"
+  - u: "agentstealth_reinforcing_large_language_model_for_anonymizing_user-generated_tex/"
+    t: "AgentStealth: Reinforcing Large Language Model for Anonymizing User-generated Text"
+  - u: "almguard_safety_shortcuts_and_where_to_find_them_as_guardrails_for_audio-languag/"
+    t: "ALMGuard: Safety Shortcuts and Where to Find Them as Guardrails for Audio-Language Models"
+  - u: "approximate_domain_unlearning_for_visionlanguage_models/"
+    t: "Approximate Domain Unlearning for Vision-Language Models"
+  - u: "attention_your_vision_language_model_could_be_maliciously_manipulated/"
+    t: "Attention! Your Vision Language Model Could Be Maliciously Manipulated"
+  - u: "attractive_metadata_attack_inducing_llm_agents_to_invoke_malicious_tools/"
+    t: "Attractive Metadata Attack: Inducing LLM Agents to Invoke Malicious Tools"
+  - u: "bits_leaked_per_query_information-theoretic_bounds_on_adversarial_attacks_agains/"
+    t: "Bits Leaked per Query: Information-Theoretic Bounds on Adversarial Attacks Against LLMs"
+  - u: "buffer_layers_for_test-time_adaptation/"
+    t: "Buffer Layers for Test-Time Adaptation"
+  - u: "collective_narrative_grounding_community-coordinated_data_contributions_to_impro/"
+    t: "Collective Narrative Grounding: Community-Coordinated Data Contributions to Improve Local AI Systems"
+  - u: "contextual_integrity_in_llms_via_reasoning_and_reinforcement_learning/"
+    t: "Contextual Integrity in LLMs via Reasoning and Reinforcement Learning"
+  - u: "coreguard_safeguarding_foundational_capabilities_of_llms_against_model_stealing_/"
+    t: "CoreGuard: Safeguarding Foundational Capabilities of LLMs Against Model Stealing in Edge Deployment"
+  - u: "cpret_a_dataset_benchmark_and_model_for_retrieval_in_competitive_programming/"
+    t: "CPRet: A Dataset, Benchmark, and Model for Retrieval in Competitive Programming"
+  - u: "cryptomoe_privacy-preserving_and_scalable_mixture_of_experts_inference_via_balan/"
+    t: "CryptoMoE: Privacy-Preserving and Scalable Mixture of Experts Inference via Balanced Expert Routing"
+  - u: "deeppersona_a_generative_engine_for_scaling_deep_synthetic_personas/"
+    t: "DeepPersona: A Generative Engine for Scaling Deep Synthetic Personas"
+  - u: "demystifying_language_model_forgetting_with_low-rank_example_associations/"
+    t: "Demystifying Language Model Forgetting with Low-Rank Example Associations"
+  - u: "differentially_private_federated_low_rank_adaptation_beyond_fixed-matrix/"
+    t: "Differentially Private Federated Low Rank Adaptation Beyond Fixed-Matrix"
+  - u: "distributive_fairness_in_large_language_models_evaluating_alignment_with_human_v/"
+    t: "Distributive Fairness in Large Language Models: Evaluating Alignment with Human Values"
+  - u: "dna-detectllm_unveiling_ai-generated_text_via_a_dna-inspired_mutation-repair_par/"
+    t: "DNA-DetectLLM: Unveiling AI-Generated Text via a DNA-Inspired Mutation-Repair Paradigm"
+  - u: "dragon_guard_llm_unlearning_in_context_via_negative_detection_and_reasoning/"
+    t: "DRAGON: Guard LLM Unlearning in Context via Negative Detection and Reasoning"
+  - u: "drift_dynamic_rulebased_defense_with_injection_isolation_for/"
+    t: "DRIFT: Dynamic Rule-Based Defense with Injection Isolation for Securing LLM Agents"
+  - u: "enhancing_clip_robustness_via_crossmodality_alignment/"
+    t: "Enhancing CLIP Robustness via Cross-Modality Alignment"
+  - u: "enhancing_sample_selection_against_label_noise_by_cutting_mislabeled_easy_exampl/"
+    t: "Enhancing Sample Selection Against Label Noise by Cutting Mislabeled Easy Examples"
+  - u: "evaluating_the_promise_and_pitfalls_of_llms_in_hiring_decisions/"
+    t: "Evaluating the Promise and Pitfalls of LLMs in Hiring Decisions"
+  - u: "evaluation_of_vision-llms_in_surveillance_video/"
+    t: "Evaluation of Vision-LLMs in Surveillance Video"
+  - u: "exploring_the_limits_of_strong_membership_inference_attacks_on_large_language_mo/"
+    t: "Exploring the Limits of Strong Membership Inference Attacks on Large Language Models"
+item_total: 82
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM 安全
 
-**🧠 NeurIPS2025** · **85** 篇论文解读
+**🧠 NeurIPS2025** · **82** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (42)](../../AAAI2026/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
 
-🔥 **高频主题：** LLM ×20 · 对抗鲁棒 ×18 · 对齐/RLHF ×6 · 推理 ×6 · 联邦学习 ×5
+🔥 **高频主题：** LLM ×19 · 对抗鲁棒 ×17 · 对齐/RLHF ×6 · 推理 ×6 · 联邦学习 ×5
 
 **[A Cramér–von Mises Approach to Incentivizing Truthful Data Sharing](a_cramrvon_mises_approach_to_incentivizing_truthful_data_sha.md)**
 
@@ -69,10 +131,6 @@ tags:
 
 :   AMA（Attractive Metadata Attack）证明仅通过精心设计恶意工具的元数据（名称、描述、参数模式），不需要提示注入或模型内部访问，就能诱导 LLM Agent 以 81-95% 的成功率调用攻击者工具并泄露隐私，同时几乎不影响原始任务完成（98%+），且现有防御（审计器、提示重写）效果有限。
 
-**[Bias in the Picture: Benchmarking VLMs with Social-Cue News Images and LLM-as-Judge Assessment](bias_in_the_picture_benchmarking_vlms_with_social-cue_news_images_and_llm-as-jud.md)**
-
-:   这篇论文不再用合成图或封闭式选择题测偏见，而是用真实新闻图片中的社会线索来问开放式问题，再让 GPT-4o 作为评判员衡量回答的准确性、偏见和忠实度，最终证明很多 VLM 即使“看图很准”，依然会在性别、职业和种族线索上偷偷补进刻板印象。
-
 **[Bits Leaked per Query: Information-Theoretic Bounds on Adversarial Attacks Against LLMs](bits_leaked_per_query_information-theoretic_bounds_on_adversarial_attacks_agains.md)**
 
 :   将 LLM 对抗攻击建模为信息通道问题——定义每次查询的"泄漏比特数" $I(Z;T)$ 为攻击目标属性 $T$ 与可观测信号 $Z$ 的互信息，证明攻击达到误差 $\varepsilon$ 所需最少查询数为 $\log(1/\varepsilon)/I(Z;T)$，在 7 个 LLM 上验证：暴露 answer tokens 需 ~1000 次查询，加 logits 降到 ~100 次，加思维链降到 ~几十次，为透明性-安全性权衡提供首个原则性标尺。
@@ -112,10 +170,6 @@ tags:
 **[Differentially Private Federated Low Rank Adaptation Beyond Fixed-Matrix](differentially_private_federated_low_rank_adaptation_beyond_fixed-matrix.md)**
 
 :   提出FedASK框架，通过**双阶段sketching流水线**（randomized SVD启发），首次在差分隐私下实现联邦LoRA中**两个低秩矩阵A和B的同步有效更新**，在Llama-2 7B/13B上MMLU提升最高11.5%，GSM8K提升46%。
-
-**[Distillation Robustifies Unlearning](distillation_robustifies_unlearning.md)**
-
-:   揭示了"蒸馏能使遗忘变得鲁棒"的核心发现——将遗忘后的模型蒸馏到随机初始化的学生网络中能有效丢弃潜在能力，并基于此提出UNDO方法（Unlearn-Noise-Distill-on-Outputs），通过对遗忘模型权重加噪再蒸馏，建立了计算量与鲁棒性之间的可调权衡，在合成任务和WMDP基准上接近从头重训的黄金标准。
 
 **[Distributive Fairness in Large Language Models: Evaluating Alignment with Human Values](distributive_fairness_in_large_language_models_evaluating_alignment_with_human_v.md)**
 
@@ -172,10 +226,6 @@ tags:
 **[Geo-Sign: Hyperbolic Contrastive Regularisation for Geometrically Aware Sign Language Translation](geo-sign_hyperbolic_contrastive_regularisation_for_geometrically_aware_sign_lang.md)**
 
 :   Geo-Sign 提出将骨架特征投影到 Poincaré 球模型的双曲空间中，通过双曲对比损失正则化 mT5 语言模型，使其感知手语运动的层次结构，仅用骨架数据就在 CSL-Daily 上超越了基于 RGB 的 SOTA 方法（BLEU-4 +1.81, ROUGE-L +3.03）。
-
-**[HealthSLM-Bench: Benchmarking Small Language Models for Mobile and Wearable Healthcare Monitoring](healthslm-bench_benchmarking_small_language_models_for_mobile_and_wearable_healt.md)**
-
-:   首个系统评估小语言模型 (SLMs, 1-4B参数) 在移动与可穿戴健康监测任务上表现的基准，覆盖zero-shot/few-shot/指令微调三种范式，并在iPhone上验证了端侧部署的可行性。
 
 **[HoloLLM: Multisensory Foundation Model for Language-Grounded Human Sensing and Reasoning](holollm_multisensory_foundation_model_for_language-grounded_human_sensing_and_re.md)**
 

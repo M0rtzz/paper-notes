@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 LLM Agent方向11篇论文解读
+  ICML2025 LLMAgent论文汇总 · 11篇论文解读
 description: >-
   11篇ICML2025的 LLM Agent 方向论文解读，涵盖 LLM、推理、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,30 @@ tags:
   - "LLM"
   - "推理"
   - "Agent"
+item_list:
+  - u: "advagent_controllable_blackbox_red-teaming_on_web_agents/"
+    t: "AdvAgent: Controllable Blackbox Red-teaming on Web Agents"
+  - u: "agacci_affiliated_grading_agents_for_criteria-centric_interface_in_educational_c/"
+    t: "AGACCI: Affiliated Grading Agents for Criteria-Centric Interface in Educational Coding Contexts"
+  - u: "aguvis_unified_pure_vision_agents_for_autonomous_gui_interaction/"
+    t: "Aguvis: Unified Pure Vision Agents for Autonomous GUI Interaction"
+  - u: "evaluating_retrieval-augmented_generation_agents_for_autonomous_scientific_disco/"
+    t: "Evaluating Retrieval-Augmented Generation Agents for Autonomous Scientific Discovery in Astrophysics"
+  - u: "from_passive_to_active_reasoning_can_large_language_models_ask_the_right_questio/"
+    t: "From Passive to Active Reasoning: Can Large Language Models Ask the Right Questions under Incomplete Information?"
+  - u: "guardagent_safeguard_llm_agents_by_a_guard_agent_via_knowledge-enabled_reasoning/"
+    t: "GuardAgent: Safeguard LLM Agents via Knowledge-Enabled Reasoning"
+  - u: "improving_llm_agent_planning_with_in-context_learning_via_atomic_fact_augmentati/"
+    t: "Improving LLM Agent Planning with In-Context Learning via Atomic Fact Augmentation and Lookahead Search"
+  - u: "kbqa-o1_agentic_knowledge_base_question_answering_with_monte_carlo_tree_search/"
+    t: "KBQA-o1: Agentic Knowledge Base Question Answering with Monte Carlo Tree Search"
+  - u: "open_source_planning_control_system_with_language_agents_for_autonomous_scientif/"
+    t: "Open Source Planning & Control System with Language Agents for Autonomous Scientific Discovery"
+  - u: "towards_llm_agents_for_earth_observation/"
+    t: "Towards LLM Agents for Earth Observation"
+  - u: "xchemagents_agentic_ai_for_explainable_quantum_chemistry/"
+    t: "xChemAgents: Agentic AI for Explainable Quantum Chemistry"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +42,7 @@ tags:
 
 **🧪 ICML2025** · **11** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (40)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md)
 
 🔥 **高频主题：** LLM ×4 · 推理 ×2 · Agent ×2
 

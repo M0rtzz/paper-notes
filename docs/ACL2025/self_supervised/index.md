@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 自监督/表示学习方向6篇论文解读
+  ACL2025 自监督/表示学习论文汇总 · 6篇论文解读
 description: >-
   6篇ACL2025的自监督/表示学习方向论文解读，涵盖自监督学习、LLM、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,20 @@ tags:
   - "自监督学习"
   - "LLM"
   - "问答"
+item_list:
+  - u: "improving_low-resource_morphological_inflection_via_self-supervised_objectives/"
+    t: "Improving Low-Resource Morphological Inflection via Self-Supervised Objectives"
+  - u: "llm_back_gen_treebank/"
+    t: "Contrastive Learning on LLM Back Generation Treebank for Cross-domain Constituency Parsing"
+  - u: "magnet_augmenting_generative_decoders_with_representation_learning_and_infilling/"
+    t: "Magnet: Augmenting Generative Decoders with Representation Learning and Infilling Capabilities"
+  - u: "qaencoder_aligned_representation/"
+    t: "QAEncoder: Towards Aligned Representation Learning in Question Answering Systems"
+  - u: "shubert_self-supervised_sign_language_representation_learning_via_multi-stream_c/"
+    t: "SHuBERT: Self-Supervised Sign Language Representation Learning via Multi-Stream Cluster Prediction"
+  - u: "whispa_semantically_and_psychologically_aligned_whisper_with_self-supervised_con/"
+    t: "WhiSPA: Semantically and Psychologically Aligned Whisper with Self-Supervised Contrastive and Student-Teacher Learning"
+item_total: 6
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +32,7 @@ tags:
 
 **💬 ACL2025** · **6** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (34)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (32)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (34)](../../NeurIPS2025/self_supervised/index.md)
 
 🔥 **高频主题：** 自监督学习 ×4
 

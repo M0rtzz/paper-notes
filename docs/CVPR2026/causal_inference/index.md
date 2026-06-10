@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 因果推理方向3篇论文解读
+  CVPR2026 因果推理论文汇总 · 3篇论文解读
 description: >-
   3篇CVPR2026的因果推理方向论文解读，涵盖扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,14 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "扩散模型"
+item_list:
+  - u: "fighting_hallucinations_with_counterfactuals_diffusion-guided_perturbations_for_/"
+    t: "Fighting Hallucinations with Counterfactuals: Diffusion-Guided Perturbations for LVLM Hallucination Suppression"
+  - u: "maskdime_adaptive_masked_diffusion_for_precise_and_efficient_visual_counterfactu/"
+    t: "MaskDiME: Adaptive Masked Diffusion for Precise and Efficient Visual Counterfactual Explanations"
+  - u: "retrieving_counterfactuals_improves_visual_in-context_learning/"
+    t: "Retrieving Counterfactuals Improves Visual In-Context Learning"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -16,7 +24,7 @@ tags:
 
 **📷 CVPR2026** · **3** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
 
 🔥 **高频主题：** 扩散模型 ×2
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 目标检测方向12篇论文解读
+  ICML2025 目标检测论文汇总 · 11篇论文解读
 description: >-
-  12篇ICML2025的目标检测方向论文解读，涵盖异常检测、时序预测、对齐/RLHF、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  11篇ICML2025的目标检测方向论文解读，涵盖异常检测、时序预测、对齐/RLHF、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "目标检测"
@@ -12,16 +12,40 @@ tags:
   - "时序预测"
   - "对齐/RLHF"
   - "多模态"
+item_list:
+  - u: "blueglass_a_framework_for_composite_ai_safety/"
+    t: "BlueGlass: A Framework for Composite AI Safety"
+  - u: "causality-aware_contrastive_learning_for_robust_multivariate_time-series_anomaly/"
+    t: "Causality-Aware Contrastive Learning for Robust Multivariate Time-Series Anomaly Detection"
+  - u: "few-shot_learner_generalizes_across_ai-generated_image_detection/"
+    t: "Few-Shot Learner Generalizes Across AI-Generated Image Detection"
+  - u: "fg-clip_fine-grained_visual_and_textual_alignment/"
+    t: "FG-CLIP: Fine-Grained Visual and Textual Alignment"
+  - u: "kan-ad_time_series_anomaly_detection_with_kolmogorov-arnold_networks/"
+    t: "KAN-AD: Time Series Anomaly Detection with Kolmogorov-Arnold Networks"
+  - u: "open-det_an_efficient_learning_framework_for_open-ended_detection/"
+    t: "Open-Det: An Efficient Learning Framework for Open-Ended Detection"
+  - u: "outlier_gradient_analysis_efficiently_identifying_detrimental_training_samples_f/"
+    t: "Outlier Gradient Analysis: Efficiently Identifying Detrimental Training Samples for Deep Learning Models"
+  - u: "self-organizing_visual_prototypes_for_non-parametric_representation_learning/"
+    t: "Self-Organizing Visual Prototypes for Non-Parametric Representation Learning"
+  - u: "ui-vision_a_desktop-centric_gui_benchmark_for_visual_perception_and_interaction/"
+    t: "UI-Vision: A Desktop-centric GUI Benchmark for Visual Perception and Interaction"
+  - u: "understanding_the_emergence_of_multimodal_representation_alignment/"
+    t: "Understanding the Emergence of Multimodal Representation Alignment"
+  - u: "when_every_millisecond_counts_real-time_anomaly_detection_via_the_multimodal_asy/"
+    t: "When Every Millisecond Counts: Real-Time Anomaly Detection via the Multimodal Asynchronous Hybrid Network"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🧪 ICML2025** · **12** 篇论文解读
+**🧪 ICML2025** · **11** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md)
 
-🔥 **高频主题：** 异常检测 ×4 · 时序预测 ×2 · 对齐/RLHF ×2 · 多模态 ×2
+🔥 **高频主题：** 异常检测 ×3 · 时序预测 ×2 · 对齐/RLHF ×2 · 多模态 ×2
 
 **[BlueGlass: A Framework for Composite AI Safety](blueglass_a_framework_for_composite_ai_safety.md)**
 
@@ -30,10 +54,6 @@ tags:
 **[Causality-Aware Contrastive Learning for Robust Multivariate Time-Series Anomaly Detection](causality-aware_contrastive_learning_for_robust_multivariate_time-series_anomaly.md)**
 
 :   提出 CAROTS——将因果关系融入对比学习的多变量时间序列异常检测框架，用因果保持增强作为正样本（正常变化），因果破坏增强作为负样本（模拟异常），训练编码器基于因果结构区分正常与异常。
-
-**[CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering](costfilter-ad_enhancing_anomaly_detection_through_matching_cost_filtering.md)**
-
-:   将立体匹配/光流估计中的**代价体滤波（cost volume filtering）**思想引入无监督异常检测（UAD），构造输入与模板之间的匹配代价体，并通过3D U-Net 加双流注意力引导进行去噪滤波，作为通用后处理插件可同时提升重建型和嵌入型 UAD 方法的性能，在 MVTec-AD 和 VisA 上取得 SOTA。
 
 **[Few-Shot Learner Generalizes Across AI-Generated Image Detection](few-shot_learner_generalizes_across_ai-generated_image_detection.md)**
 

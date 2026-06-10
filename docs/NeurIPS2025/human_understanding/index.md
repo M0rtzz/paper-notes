@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 人体理解方向20篇论文解读
+  NeurIPS2025 人体理解论文汇总 · 20篇论文解读
 description: >-
   20篇NeurIPS2025的人体理解方向论文解读，涵盖人脸/视线、人体姿态、推理、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,48 @@ tags:
   - "人体姿态"
   - "推理"
   - "语音"
+item_list:
+  - u: "a_generalized_label_shift_perspective_for_crossdomain_gaze_e/"
+    t: "A Generalized Label Shift Perspective for Cross-Domain Gaze Estimation"
+  - u: "bedlam20_synthetic_humans_and_cameras_in_motion/"
+    t: "BEDLAM2.0: Synthetic Humans and Cameras in Motion"
+  - u: "conceptscope_characterizing_dataset_bias_via_disentangled_visual_concepts/"
+    t: "ConceptScope: Characterizing Dataset Bias via Disentangled Visual Concepts"
+  - u: "cpep_contrastive_pose-emg_pre-training_enhances_gesture_generalization_on_emg_si/"
+    t: "CPEP: Contrastive Pose-EMG Pre-training Enhances Gesture Generalization on EMG Signals"
+  - u: "cycle-sync_robust_global_camera_pose_estimation_through_enhanced_cycle-consisten/"
+    t: "Cycle-Sync: Robust Global Camera Pose Estimation through Enhanced Cycle-Consistent Synchronization"
+  - u: "devfd_developmental_face_forgery_detection_by_learning_shared_and_orthogonal_lor/"
+    t: "DevFD: Developmental Face Forgery Detection by Learning Shared and Orthogonal LoRA Subspaces"
+  - u: "foundation_cures_personalization_improving_personalized_models_prompt_consistenc/"
+    t: "Foundation Cures Personalization: Improving Personalized Models' Prompt Consistency via Hidden Foundation Knowledge"
+  - u: "hoi-dyn_learning_interaction_dynamics_for_human-object_motion_diffusion/"
+    t: "HOI-Dyn: Learning Interaction Dynamics for Human-Object Motion Diffusion"
+  - u: "k-decore_facilitating_knowledge_transfer_in_continual_structured_knowledge_reaso/"
+    t: "K-DeCore: Facilitating Knowledge Transfer in Continual Structured Knowledge Reasoning"
+  - u: "kungfubot_physics-based_humanoid_whole-body_control_for_learning_highly-dynamic_/"
+    t: "KungfuBot: Physics-Based Humanoid Whole-Body Control for Learning Highly-Dynamic Skills"
+  - u: "mospa_human_motion_generation_driven_by_spatial_audio/"
+    t: "MOSPA: Human Motion Generation Driven by Spatial Audio"
+  - u: "omnigaze_reward-inspired_generalizable_gaze_estimation_in_the_wild/"
+    t: "OmniGaze: Reward-inspired Generalizable Gaze Estimation in the Wild"
+  - u: "pandapose_3d_human_pose_lifting_from_a_single_image_via_propagating_2d_pose_prio/"
+    t: "PandaPose: 3D Human Pose Lifting from a Single Image via Propagating 2D Pose Prior to 3D Anchor Space"
+  - u: "part-aware_bottom-up_group_reasoning_for_fine-grained_social_interaction_detecti/"
+    t: "Part-Aware Bottom-Up Group Reasoning for Fine-Grained Social Interaction Detection"
+  - u: "raptr_radar-based_3d_pose_estimation_using_transformer/"
+    t: "RAPTR: Radar-Based 3D Pose Estimation Using Transformer"
+  - u: "some_optimizers_are_more_equal_understanding_the_role_of_optimizers_in_group_fai/"
+    t: "Some Optimizers are More Equal: Understanding the Role of Optimizers in Group Fairness"
+  - u: "switchable_token-specific_codebook_quantization_for_face_image_compression/"
+    t: "Switchable Token-Specific Codebook Quantization for Face Image Compression"
+  - u: "uncle_towards_scalable_dynamic_causal_discovery_in_non-linear_temporal_systems/"
+    t: "UnCLe: Towards Scalable Dynamic Causal Discovery in Non-Linear Temporal Systems"
+  - u: "vasa-3d_lifelike_audio-driven_gaussian_head_avatars_from_a_single_image/"
+    t: "VASA-3D: Lifelike Audio-Driven Gaussian Head Avatars from a Single Image"
+  - u: "vimorag_video-based_retrieval-augmented_3d_motion_generation_for_motion_language/"
+    t: "VimoRAG: Video-based Retrieval-augmented 3D Motion Generation for Motion Language Models"
+item_total: 20
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +61,7 @@ tags:
 
 **🧠 NeurIPS2025** · **20** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/human_understanding/index.md) · [📹 ICCV2025 (39)](../../ICCV2025/human_understanding/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (17)](../../AAAI2026/human_understanding/index.md) · [📹 ICCV2025 (38)](../../ICCV2025/human_understanding/index.md)
 
 🔥 **高频主题：** 人脸/视线 ×4 · 人体姿态 ×3 · 推理 ×2 · 语音 ×2
 

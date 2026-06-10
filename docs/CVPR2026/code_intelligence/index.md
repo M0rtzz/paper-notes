@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 代码智能方向2篇论文解读
+  CVPR2026 代码智能论文汇总 · 2篇论文解读
 description: >-
   2篇CVPR2026的代码智能方向论文解读，涵盖代码智能、多模态、推理、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,12 @@ tags:
   - "多模态"
   - "推理"
   - "强化学习"
+item_list:
+  - u: "geotikzbridge_advancing_multimodal_code_generation_for_geometric_perception_and_/"
+    t: "GeoTikzBridge: Advancing Multimodal Code Generation for Geometric Perception and Reasoning"
+  - u: "mm-recoder_advancing_chart-to-code_generation_with_reinforcement_learning_and_se/"
+    t: "MM-ReCoder: Advancing Chart-to-Code Generation with Reinforcement Learning and Self-Correction"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

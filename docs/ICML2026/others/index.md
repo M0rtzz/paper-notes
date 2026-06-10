@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 其他方向95篇论文解读
+  ICML2026 其他论文汇总 · 95篇论文解读
 description: >-
   95篇ICML2026的其他方向论文解读，涵盖对齐/RLHF、对抗鲁棒、布局/合成、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,68 @@ tags:
   - "对抗鲁棒"
   - "布局/合成"
   - "Agent"
+item_list:
+  - u: "a_hypertoroidal_covering_for_perfect_color_equivariance/"
+    t: "A Hypertoroidal Covering for Perfect Color Equivariance"
+  - u: "a_perturbation_approach_to_unconstrained_linear_bandits/"
+    t: "A Perturbation Approach to Unconstrained Linear Bandits"
+  - u: "adaptive_multi-round_allocation_with_stochastic_arrivals/"
+    t: "Adaptive Multi-Round Allocation with Stochastic Arrivals"
+  - u: "adaptive_preconditioners_trigger_loss_spikes_in_adam/"
+    t: "Adaptive Preconditioners Trigger Loss Spikes in Adam"
+  - u: "ai_cap-and-trade_efficiency_incentives_for_accessibility_and_sustainability/"
+    t: "AI Cap-and-Trade: Efficiency Incentives for Accessibility and Sustainability"
+  - u: "amdp_asynchronous_multi-directional_pipeline_parallelism_for_large-scale_models_/"
+    t: "AMDP: Asynchronous Multi-Directional Pipeline Parallelism for Large-Scale Models Training"
+  - u: "amortized_simulation-based_inference_in_generalized_bayes_via_neural_posterior_e/"
+    t: "Amortized Simulation-Based Inference in Generalized Bayes via Neural Posterior Estimation"
+  - u: "autonumerics-zero_automated_discovery_of_state-of-the-art_mathematical_functions/"
+    t: "AutoNumerics-Zero: Automated Discovery of State-of-the-Art Mathematical Functions"
+  - u: "beyond_model_readiness_institutional_readiness_for_ai_deployment_in_public_syste/"
+    t: "Beyond Model Readiness: Institutional Readiness for AI Deployment in Public Systems"
+  - u: "bullet_trains_parallelizing_training_of_temporally_precise_spiking_neural_networ/"
+    t: "Bullet Trains: Parallelizing Training of Temporally Precise Spiking Neural Networks"
+  - u: "cascaded_flow_matching_for_heterogeneous_tabular_data_with_mixed-type_features/"
+    t: "Cascaded Flow Matching for Heterogeneous Tabular Data with Mixed-Type Features"
+  - u: "complexity_as_advantage_a_regret-based_perspective_on_emergent_structure/"
+    t: "Complexity as Advantage: A Regret-Based Perspective on Emergent Structure"
+  - u: "comprehensive_ai_governance_requires_addressing_non-model_gains/"
+    t: "Comprehensive AI Governance Requires Addressing Non-Model Gains"
+  - u: "conditional_krr_injecting_unpenalized_features_into_kernel_methods_with_applicat/"
+    t: "Conditional KRR: Injecting Unpenalized Features into Kernel Methods with Applications to Kernel Thresholding"
+  - u: "connecting_independently_trained_modes_via_layer-wise_connectivity/"
+    t: "Connecting Independently Trained Modes via Layer-Wise Connectivity"
+  - u: "consistency_training_can_entrench_misalignment/"
+    t: "Consistency Training Can Entrench Misalignment"
+  - u: "continual_learning_of_domain-invariant_representations/"
+    t: "Continual Learning of Domain-Invariant Representations"
+  - u: "core-mtl_rethinking_gradient_balancing_via_causal_orthogonal_representations/"
+    t: "CORE-MTL: Rethinking Gradient Balancing via Causal Orthogonal Representations"
+  - u: "correcting_split_selection_in_online_decision_trees_via_anytime-valid_inference/"
+    t: "Correcting Split Selection in Online Decision Trees via Anytime-Valid Inference"
+  - u: "cost-aware_stopping_for_bayesian_optimization/"
+    t: "Cost-Aware Stopping for Bayesian Optimization"
+  - u: "coupled_training_with_privileged_information_and_unlabeled_data/"
+    t: "Coupled Training with Privileged Information and Unlabeled Data"
+  - u: "cybergym-e2e_scalable_real-world_benchmark_for_ai_agents_end-to-end_cybersecurit/"
+    t: "CyberGym-E2E: Scalable Real-World Benchmark for AI Agents' End-to-End Cybersecurity Capabilities"
+  - u: "decision_tree_learning_on_product_spaces/"
+    t: "Decision Tree Learning on Product Spaces"
+  - u: "decoupled_conformal_optimisation_efficient_prediction_sets_via_independent_tunin/"
+    t: "Decoupled Conformal Optimisation: Efficient Prediction Sets via Independent Tuning and Calibration"
+  - u: "disco_mitigating_bias_in_deep_learning_with_conditional_distance_correlation/"
+    t: "DISCO: Mitigating Bias in Deep Learning with Conditional Distance Correlation"
+  - u: "disjunctivenet_neural_symbolic_learning_via_differentiable_convexified_optimizat/"
+    t: "DisjunctiveNet: Neural Symbolic Learning via Differentiable Convexified Optimization Layers"
+  - u: "envy-free_allocation_of_indivisible_goods_via_noisy_queries/"
+    t: "Envy-Free Allocation of Indivisible Goods via Noisy Queries"
+  - u: "estimating_correlation_clustering_cost_in_node-arrival_stream/"
+    t: "Estimating Correlation Clustering Cost in Node-Arrival Stream"
+  - u: "expectation_consistency_loss_rethink_confidence_calibration_under_covariate_shif/"
+    t: "Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift"
+  - u: "foam_frequency_and_operator_error-based_adaptive_damping_method_for_reducing_sta/"
+    t: "FOAM: Frequency and Operator Error-Based Adaptive Damping Method for Reducing Staleness-Oriented Error for Shampoo"
+item_total: 95
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +81,7 @@ tags:
 
 **🧪 ICML2026** · **95** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (91)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (135)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (164)](../../NeurIPS2025/others/index.md) · [📹 ICCV2025 (47)](../../ICCV2025/others/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (128)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (163)](../../NeurIPS2025/others/index.md) · [📹 ICCV2025 (47)](../../ICCV2025/others/index.md)
 
 🔥 **高频主题：** 对齐/RLHF ×4 · 对抗鲁棒 ×4 · 布局/合成 ×2 · Agent ×2
 

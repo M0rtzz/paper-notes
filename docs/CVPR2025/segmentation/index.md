@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 语义分割方向94篇论文解读
+  CVPR2025 语义分割论文汇总 · 94篇论文解读
 description: >-
   94篇CVPR2025的语义分割方向论文解读，涵盖语义分割、多模态、语音、目标检测、对齐/RLHF、遥感等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "目标检测"
   - "对齐/RLHF"
   - "遥感"
+item_list:
+  - u: "2dmamba_efficient_state_space_model_for_image_representation_with_applications_o/"
+    t: "2DMamba: Efficient State Space Model for Image Representation with Applications on Giga-Pixel Whole Slide Image Classification"
+  - u: "a_distractor-aware_memory_for_visual_object_tracking_with_sam2/"
+    t: "A Distractor-Aware Memory for Visual Object Tracking with SAM2"
+  - u: "assessing_and_learning_alignment_of_unimodal_vision_and_language_model/"
+    t: "Assessing and Learning Alignment of Unimodal Vision and Language Models (SAIL)"
+  - u: "assessing_and_learning_alignment_of_unimodal_vision_and_language_models/"
+    t: "SAIL: Assessing and Learning Alignment of Unimodal Vision and Language Models"
+  - u: "audio-visual_instance_segmentation/"
+    t: "Audio-Visual Instance Segmentation"
+  - u: "binwang2hfnet_geogran-aware_hierarchical_feature_fusion_network_for_salient_obje/"
+    t: "G2HFNet: GeoGran-Aware Hierarchical Feature Fusion Network for Salient Object Detection in Optical Remote Sensing Images"
+  - u: "comparative_evaluation_of_traditional_methods_and_deep_learning_for_brain_glioma/"
+    t: "Comparative Evaluation of Traditional Methods and Deep Learning for Brain Glioma Imaging"
+  - u: "condensing_action_segmentation_datasets_via_generative_network_inversion/"
+    t: "Condensing Action Segmentation Datasets via Generative Network Inversion"
+  - u: "continuous_locomotive_crowd_behavior_generation/"
+    t: "Continuous Locomotive Crowd Behavior Generation"
+  - u: "cosmos_cross-modality_self-distillation_for_vision_language_pre-training/"
+    t: "COSMOS: Cross-Modality Self-Distillation for Vision Language Pre-training"
+  - u: "crossearth-sar_a_sar-centric_and_billion-scale_geospatial_foundation_model_for_d/"
+    t: "CrossEarth-SAR: A SAR-Centric and Billion-Scale Geospatial Foundation Model for Domain Generalizable Semantic Segmentation"
+  - u: "da-vpt_semantic-guided_visual_prompt_tuning_for_vision_transformers/"
+    t: "DA-VPT: Semantic-Guided Visual Prompt Tuning for Vision Transformers"
+  - u: "declip_decoupled_learning_for_open-vocabulary_dense_perception/"
+    t: "DeCLIP: Decoupled Learning for Open-Vocabulary Dense Perception"
+  - u: "defmamba_deformable_visual_state_space_model/"
+    t: "DefMamba: Deformable Visual State Space Model"
+  - u: "dformerv2_geometry_self-attention_for_rgbd_semantic_segmentation/"
+    t: "DFormerv2: Geometry Self-Attention for RGBD Semantic Segmentation"
+  - u: "dinov2_meets_text_a_unified_framework_for_image-_and_pixel-level_vision-language/"
+    t: "DINOv2 Meets Text: A Unified Framework for Image- and Pixel-Level Vision-Language Alignment"
+  - u: "dpseg_dual-prompt_cost_volume_learning_for_open-vocabulary_semantic_segmentation/"
+    t: "DPSeg: Dual-Prompt Cost Volume Learning for Open-Vocabulary Semantic Segmentation"
+  - u: "dual-agent_optimization_framework_for_cross-domain_few-shot_segmentation/"
+    t: "Dual-Agent Optimization framework for Cross-Domain Few-Shot Segmentation"
+  - u: "dynamic_derivation_and_elimination_audio_visual_segmentation_with_enhanced_audio/"
+    t: "Dynamic Derivation and Elimination: Audio Visual Segmentation with Enhanced Audio Semantics"
+  - u: "edgetam_on-device_track_anything_model/"
+    t: "EdgeTAM: On-Device Track Anything Model"
+  - u: "editar_unified_conditional_generation_with_autoregressive_models/"
+    t: "EditAR: Unified Conditional Generation with Autoregressive Models"
+  - u: "effective_sam_combination_for_open-vocabulary_semantic_segmentation/"
+    t: "Effective SAM Combination for Open-Vocabulary Semantic Segmentation"
+  - u: "efficient_rgb-d_scene_understanding_via_multi-task_adaptive_learning_and_cross-d/"
+    t: "Efficient RGB-D Scene Understanding via Multi-task Adaptive Learning and Cross-dimensional Feature Guidance"
+  - u: "exploiting_temporal_state_space_sharing_for_video_semantic_segmentation/"
+    t: "Exploiting Temporal State Space Sharing for Video Semantic Segmentation"
+  - u: "exploring_clips_dense_knowledge_for_weakly_supervised_semantic_segmentation/"
+    t: "Exploring CLIP's Dense Knowledge for Weakly Supervised Semantic Segmentation"
+  - u: "exploring_simple_open-vocabulary_semantic_segmentation/"
+    t: "Exploring Simple Open-Vocabulary Semantic Segmentation"
+  - u: "f-lmm_grounding_frozen_large_multimodal_models/"
+    t: "F-LMM: Grounding Frozen Large Multimodal Models"
+  - u: "fine-grained_image-text_correspondence_with_cost_aggregation_for_open-vocabulary/"
+    t: "Fine-Grained Image-Text Correspondence with Cost Aggregation for Open-Vocabulary Part Segmentation"
+  - u: "finecaption_compositional_image_captioning_focusing_on_wherever_you_want_at_any_/"
+    t: "FineCaption: Compositional Image Captioning Focusing on Wherever You Want at Any Granularity"
+  - u: "foveated_instance_segmentation/"
+    t: "Foveated Instance Segmentation"
+item_total: 94
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **📷 CVPR2025** · **94** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (45)](../../NeurIPS2025/segmentation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [🧠 NeurIPS2025 (44)](../../NeurIPS2025/segmentation/index.md)
 
 🔥 **高频主题：** 语义分割 ×39 · 多模态 ×6 · 语音 ×5 · 目标检测 ×5 · 对齐/RLHF ×4
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 强化学习方向11篇论文解读
+  CVPR2026 强化学习论文汇总 · 11篇论文解读
 description: >-
   11篇CVPR2026的强化学习方向论文解读，涵盖强化学习、多模态、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,30 @@ tags:
   - "论文笔记"
   - "多模态"
   - "推理"
+item_list:
+  - u: "anticipatory_planning_for_multimodal_ai_agents/"
+    t: "Anticipatory Planning for Multimodal AI Agents"
+  - u: "anydoc_enhancing_document_generation_via_large-scale_htmlcss_data_synthesis_and_/"
+    t: "AnyDoc: Enhancing Document Generation via Large-Scale HTML/CSS Data Synthesis and Height-Aware Reinforcement Optimization"
+  - u: "cccaption_dual-reward_reinforcement_learning_for_complete_and_correct_image_capt/"
+    t: "CCCaption: Dual-Reward Reinforcement Learning for Complete and Correct Image Captioning"
+  - u: "cross-modal_identity_mapping_minimizing_information_loss_in_modality_conversion_/"
+    t: "Cross-modal Identity Mapping: Minimizing Information Loss in Modality Conversion via Reinforcement Learning"
+  - u: "geoworld_geometric_world_models/"
+    t: "GeoWorld: Geometric World Models"
+  - u: "msrl_scaling_generative_multimodal_reward_modeling/"
+    t: "MSRL: Scaling Generative Multimodal Reward Modeling via Multi-Stage Reinforcement Learning"
+  - u: "reag_reasoning-augmented_generation_for_knowledge-based_visual_question_answerin/"
+    t: "ReAG: Reasoning-Augmented Generation for Knowledge-based Visual Question Answering"
+  - u: "reinforce_to_learn_elect_to_reason_a_dual_paradigm_for_video_reasoning/"
+    t: "Reinforce to Learn, Elect to Reason: A Dual Paradigm for Video Reasoning"
+  - u: "see_it_say_it_sorted_an_iterative_training-free_framework_for_visually-grounded_/"
+    t: "See It, Say It, Sorted: An Iterative Training-Free Framework for Visually-Grounded Multimodal Reasoning in LVLMs"
+  - u: "seeing_is_improving_visual_feedback_for_iterative_text_layout_refinement/"
+    t: "Seeing is Improving: Visual Feedback for Iterative Text Layout Refinement"
+  - u: "specificity-aware_reinforcement_learning_for_fine-grained_open-world_classificat/"
+    t: "Specificity-aware Reinforcement Learning for Fine-grained Open-world Classification"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

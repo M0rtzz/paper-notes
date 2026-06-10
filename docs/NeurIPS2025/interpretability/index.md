@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 可解释性方向81篇论文解读
+  NeurIPS2025 可解释性论文汇总 · 81篇论文解读
 description: >-
   81篇NeurIPS2025的可解释性方向论文解读，涵盖 LLM、推理、多模态、模型压缩、对抗鲁棒、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "模型压缩"
   - "对抗鲁棒"
   - "布局/合成"
+item_list:
+  - u: "a_controllable_examination_for_longcontext_language_models/"
+    t: "A Controllable Examination for Long-Context Language Models"
+  - u: "a_is_for_absorption_studying_feature_splitting_and_absorption_in_sparse_autoenco/"
+    t: "A is for Absorption: Studying Feature Splitting and Absorption in Sparse Autoencoders"
+  - u: "adaptgrad_adaptive_sampling_to_reduce_noise/"
+    t: "AdaptGrad: Adaptive Sampling to Reduce Noise"
+  - u: "additive_models_explained_a_computational_complexity_approach/"
+    t: "Additive Models Explained: A Computational Complexity Approach"
+  - u: "agentiql_an_agent-inspired_multi-expert_framework_for_text-to-sql_generation/"
+    t: "AgentiQL: An Agent-Inspired Multi-Expert Framework for Text-to-SQL Generation"
+  - u: "an_analysis_of_concept_bottleneck_models_measuring_understanding_and_mitigating_/"
+    t: "An Analysis of Concept Bottleneck Models: Measuring, Understanding, and Mitigating the Impact of Noisy Annotations"
+  - u: "are_greedy_task_orderings_better_than_random_in_continual_linear_regression/"
+    t: "Are Greedy Task Orderings Better Than Random in Continual Linear Regression?"
+  - u: "arecho_autoregressive_evaluation_via_chain-based_hypothesis_optimization_for_spe/"
+    t: "ARECHO: Autoregressive Evaluation via Chain-Based Hypothesis Optimization for Speech Multi-Metric Estimation"
+  - u: "attributing_response_to_context_a_jensen-shannon_divergence_driven_mechanistic_s/"
+    t: "ARC-JSD: Attributing Response to Context via Jensen-Shannon Divergence Driven Mechanistic Study"
+  - u: "auditing_meta-cognitive_hallucinations_in_reasoning_large_language_models/"
+    t: "Auditing Meta-Cognitive Hallucinations in Reasoning Large Language Models"
+  - u: "base_models_know_how_to_reason_thinking_models_learn_when/"
+    t: "Base Models Know How to Reason, Thinking Models Learn When"
+  - u: "benchmarking_probabilistic_time_series_forecasting_models_on_neural_activity/"
+    t: "Benchmarking Probabilistic Time Series Forecasting Models on Neural Activity"
+  - u: "better_estimation_of_the_kullback--leibler_divergence_between_language_models/"
+    t: "Better Estimation of the Kullback-Leibler Divergence Between Language Models"
+  - u: "beyond_components_singular_vector-based_interpretability_of_transformer_circuits/"
+    t: "Beyond Components: Singular Vector-Based Interpretability of Transformer Circuits"
+  - u: "beyond_token_probes_hallucination_detection_via_activation_tensors_with_act-vit/"
+    t: "Beyond Token Probes: Hallucination Detection via Activation Tensors with ACT-ViT"
+  - u: "bigram_subnetworks_mapping_to_next_tokens_in_transformer_language_models/"
+    t: "Bigram Subnetworks: Mapping to Next Tokens in Transformer Language Models"
+  - u: "causal_head_gating_a_framework_for_interpreting_roles_of_attention_heads_in_tran/"
+    t: "Causal Head Gating: A Framework for Interpreting Roles of Attention Heads in Transformers"
+  - u: "cbmas_cognitive_behavioral_modeling_via_activation_steering/"
+    t: "CBMAS: Cognitive Behavioral Modeling via Activation Steering"
+  - u: "conditional_distribution_compression_via_the_kernel_conditional_mean_embedding/"
+    t: "Conditional Distribution Compression via the Kernel Conditional Mean Embedding"
+  - u: "curvature_tuning_provable_training-free_model_steering_from_a_single_parameter/"
+    t: "Curvature Tuning: Provable Training-free Model Steering From a Single Parameter"
+  - u: "dataset_distillation_for_pre-trained_self-supervised_vision_models/"
+    t: "Dataset Distillation for Pre-Trained Self-Supervised Vision Models"
+  - u: "deep_modularity_networks_with_diversity-preserving_regularization/"
+    t: "Deep Modularity Networks with Diversity-Preserving Regularization"
+  - u: "deep_value_benchmark_measuring_whether_models_generalize_deep_values_or_shallow_/"
+    t: "Deep Value Benchmark: Measuring Whether Models Generalize Deep Values or Shallow Preferences"
+  - u: "dense_sae_latents_are_features_not_bugs/"
+    t: "Dense SAE Latents Are Features, Not Bugs"
+  - u: "discovering_transformer_circuits_via_a_hybrid_attribution_and_pruning_framework/"
+    t: "Discovering Transformer Circuits via a Hybrid Attribution and Pruning Framework"
+  - u: "distributional_autoencoders_know_the_score/"
+    t: "Distributional Autoencoders Know the Score"
+  - u: "do_different_prompting_methods_yield_a_common_task_representation_in_language_mo/"
+    t: "Do Different Prompting Methods Yield a Common Task Representation?"
+  - u: "dynamic_algorithm_for_explainable_k-medians_clustering_under_lp_norm/"
+    t: "Dynamic Algorithm for Explainable k-medians Clustering under lp Norm"
+  - u: "dynamic_features_adaptation_in_networking_toward_flexible_training_and_explainab/"
+    t: "Dynamic Features Adaptation in Networking: Toward Flexible Training and Explainable Inference"
+  - u: "efficient_vision-language_reasoning_via_adaptive_token_pruning/"
+    t: "Efficient Vision-Language Reasoning via Adaptive Token Pruning"
+item_total: 81
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧠 NeurIPS2025** · **81** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
 
 🔥 **高频主题：** LLM ×8 · 推理 ×7 · 多模态 ×4 · 模型压缩 ×3 · 对抗鲁棒 ×3
 

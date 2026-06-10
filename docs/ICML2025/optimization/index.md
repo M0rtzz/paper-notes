@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 优化/理论方向61篇论文解读
+  ICML2025 优化/理论论文汇总 · 61篇论文解读
 description: >-
   61篇ICML2025的优化/理论方向论文解读，涵盖联邦学习、布局/合成、对抗鲁棒、对齐/RLHF、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "对抗鲁棒"
   - "对齐/RLHF"
   - "LLM"
+item_list:
+  - u: "a_generalization_result_for_convergence_in_learning-to-optimize/"
+    t: "A Generalization Result for Convergence in Learning-to-Optimize"
+  - u: "a_near-optimal_single-loop_stochastic_algorithm_for_convex_finite-sum_coupled_co/"
+    t: "A Near-Optimal Single-Loop Stochastic Algorithm for Convex Finite-Sum Coupled Compositional Optimization"
+  - u: "a_unified_view_on_learning_unnormalized_distributions_via_noise-contrastive_esti/"
+    t: "A Unified View on Learning Unnormalized Distributions via Noise-Contrastive Estimation"
+  - u: "adjustment_for_confounding_using_pre-trained_representations/"
+    t: "Adjustment for Confounding using Pre-Trained Representations"
+  - u: "advprompter_fast_adaptive_adversarial_prompting_for_llms/"
+    t: "AdvPrompter: Fast Adaptive Adversarial Prompting for LLMs"
+  - u: "benefits_of_early_stopping_in_gradient_descent_for_overparameterized_logistic_re/"
+    t: "Benefits of Early Stopping in Gradient Descent for Overparameterized Logistic Regression"
+  - u: "beyond_self-repellent_kernels_history-driven_target_towards_efficient_nonlinear_/"
+    t: "Beyond Self-Repellent Kernels: History-Driven Target Towards Efficient Nonlinear MCMC on General Graphs"
+  - u: "bopo_neural_combinatorial_optimization_via_best-anchored_and_objective-guided_pr/"
+    t: "BOPO: Neural Combinatorial Optimization via Best-anchored and Objective-guided Preference Optimization"
+  - u: "can_transformers_learn_full_bayesian_inference_in_context/"
+    t: "Can Transformers Learn Full Bayesian Inference In Context?"
+  - u: "clipping_improves_adam-norm_and_adagrad-norm_when_the_noise_is_heavy-tailed/"
+    t: "Clipping Improves Adam-Norm and AdaGrad-Norm when the Noise Is Heavy-Tailed"
+  - u: "compelling_relu_networks_to_exhibit_exponentially_many_linear_regions_at_initial/"
+    t: "Compelling ReLU Networks to Exhibit Exponentially Many Linear Regions at Initialization and During Training"
+  - u: "conformal_prediction_as_bayesian_quadrature/"
+    t: "Conformal Prediction as Bayesian Quadrature"
+  - u: "constant_stepsize_local_gd_for_logistic_regression_acceleration_by_instability/"
+    t: "Constant Stepsize Local GD for Logistic Regression: Acceleration by Instability"
+  - u: "efficient_curvature-aware_hypergradient_approximation_for_bilevel_optimization/"
+    t: "Efficient Curvature-Aware Hypergradient Approximation for Bilevel Optimization"
+  - u: "emergence_in_non-neural_models_grokking_modular_arithmetic_via_average_gradient_/"
+    t: "Emergence in Non-Neural Models: Grokking Modular Arithmetic via Average Gradient Outer Product"
+  - u: "enhancing_parallelism_in_decentralized_stochastic_convex_optimization/"
+    t: "Enhancing Parallelism in Decentralized Stochastic Convex Optimization"
+  - u: "fedswa_improving_generalization_in_federated_learning_with_highly_heterogeneous_/"
+    t: "FedSWA: Improving Generalization in Federated Learning with Highly Heterogeneous Data via Momentum-Based Stochastic Controlled Weight Averaging"
+  - u: "flexible_tails_for_normalizing_flows/"
+    t: "Flexible Tails for Normalizing Flows"
+  - u: "fsl-sage_accelerating_federated_split_learning_via_smashed_activation_gradient_e/"
+    t: "FSL-SAGE: Accelerating Federated Split Learning via Smashed Activation Gradient Estimation"
+  - u: "gcal_adapting_graph_models_to_evolving_domain_shifts/"
+    t: "GCAL: Adapting Graph Models to Evolving Domain Shifts"
+  - u: "generalization_and_robustness_of_the_tilted_empirical_risk/"
+    t: "Generalization and Robustness of the Tilted Empirical Risk"
+  - u: "global_convergence_and_rich_feature_learning_in_l-layer_infinite-width_neural_ne/"
+    t: "Global Convergence and Rich Feature Learning in $L$-Layer Infinite-Width Neural Networks under $\\mu$P Parametrization"
+  - u: "grokking_at_the_edge_of_linear_separability/"
+    t: "Grokking at the Edge of Linear Separability"
+  - u: "how_transformers_learn_regular_language_recognition_a_theoretical_study_on_train/"
+    t: "How Transformers Learn Regular Language Recognition: A Theoretical Study on Training Dynamics and Implicit Bias"
+  - u: "improved_last-iterate_convergence_of_shuffling_gradient_methods_for_nonsmooth_co/"
+    t: "Improved Last-Iterate Convergence of Shuffling Gradient Methods for Nonsmooth Convex Optimization"
+  - u: "improved_sample_complexity_for_private_nonsmooth_nonconvex_optimization/"
+    t: "Improved Sample Complexity for Private Nonsmooth Nonconvex Optimization"
+  - u: "in-context_linear_regression_demystified_training_dynamics_and_mechanistic_inter/"
+    t: "In-Context Linear Regression Demystified: Training Dynamics and Mechanistic Interpretability of Multi-Head Softmax Attention"
+  - u: "incremental_gradient_descent_with_small_epoch_counts_is_surprisingly_slow_on_ill/"
+    t: "Incremental Gradient Descent with Small Epoch Counts is Surprisingly Slow on Ill-Conditioned Problems"
+  - u: "integer_programming_for_generalized_causal_bootstrap_designs/"
+    t: "Integer Programming for Generalized Causal Bootstrap Designs"
+  - u: "interior-point_vanishing_problem_in_semidefinite_relaxations_for_neural_network_/"
+    t: "Interior-Point Vanishing Problem in Semidefinite Relaxations for Neural Network Verification"
+item_total: 61
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **🧪 ICML2025** · **61** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (16)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md)
 
 🔥 **高频主题：** 联邦学习 ×4 · 布局/合成 ×2 · 对抗鲁棒 ×2 · 对齐/RLHF ×2 · LLM ×2
 

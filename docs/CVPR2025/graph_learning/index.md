@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 图学习方向7篇论文解读
+  CVPR2025 图学习论文汇总 · 7篇论文解读
 description: >-
   7篇CVPR2025的图学习方向论文解读，收录 Coeff-Tuning、DVHGNN、Hypergraph Vision Transformers等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -8,6 +8,22 @@ tags:
   - "图学习"
   - "论文解读"
   - "论文笔记"
+item_list:
+  - u: "coeff-tuning_a_graph_filter_subspace_view_for_tuning_attention-based_large_model/"
+    t: "Coeff-Tuning: A Graph Filter Subspace View for Tuning Attention-Based Large Models"
+  - u: "dvhgnn_multi-scale_dilated_vision_hgnn_for_efficient_vision_recognition/"
+    t: "DVHGNN: Multi-Scale Dilated Vision HGNN for Efficient Vision Recognition"
+  - u: "hypergraph_vision_transformers_images_are_more_than_nodes_more_than_edges/"
+    t: "Hypergraph Vision Transformers: Images are More than Nodes, More than Edges"
+  - u: "knowledge_bridger_towards_training-free_missing_modality_completion/"
+    t: "Knowledge Bridger: Towards Training-Free Missing Modality Completion"
+  - u: "nn-former_rethinking_graph_structure_in_neural_architecture_representation/"
+    t: "NN-Former: Rethinking Graph Structure in Neural Architecture Representation"
+  - u: "unbiased_video_scene_graph_generation_via_visual_and_semantic_dual_debiasing/"
+    t: "Unbiased Video Scene Graph Generation via Visual and Semantic Dual Debiasing"
+  - u: "universal_scene_graph_generation/"
+    t: "Universal Scene Graph Generation"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -15,7 +31,7 @@ tags:
 
 **📷 CVPR2025** · **7** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (19)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md)
 
 **[Coeff-Tuning: A Graph Filter Subspace View for Tuning Attention-Based Large Models](coeff-tuning_a_graph_filter_subspace_view_for_tuning_attention-based_large_model.md)**
 

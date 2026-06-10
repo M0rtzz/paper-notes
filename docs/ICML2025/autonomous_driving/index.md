@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 自动驾驶方向10篇论文解读
+  ICML2025 自动驾驶论文汇总 · 10篇论文解读
 description: >-
   10篇ICML2025的自动驾驶方向论文解读，涵盖点云、强化学习、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,28 @@ tags:
   - "点云"
   - "强化学习"
   - "Agent"
+item_list:
+  - u: "dont_be_so_negative_score-based_generative_modeling_with_oracle-assisted_guidanc/"
+    t: "Don't be so Negative! Score-based Generative Modeling with Oracle-assisted Guidance"
+  - u: "drivegpt_scaling_autoregressive_behavior_models_for_driving/"
+    t: "DriveGPT: Scaling Autoregressive Behavior Models for Driving"
+  - u: "geometry-to-image_synthesis-driven_generative_point_cloud_registration/"
+    t: "Geometry-to-Image Synthesis-Driven Generative Point Cloud Registration"
+  - u: "goirl_graph-oriented_inverse_reinforcement_learning_for_multimodal_trajectory_pr/"
+    t: "GoIRL: Graph-Oriented Inverse Reinforcement Learning for Multimodal Trajectory Prediction"
+  - u: "hierarchical_and_collaborative_llm-based_control_for_multi-uav_motion_and_commun/"
+    t: "Hierarchical and Collaborative LLM-Based Control for Multi-UAV Motion and Communication in Integrated Terrestrial and Non-Terrestrial Networks"
+  - u: "hybrid_quantum-classical_multi-agent_pathfinding/"
+    t: "Hybrid Quantum-Classical Multi-Agent Pathfinding"
+  - u: "infocons_identifying_interpretable_critical_concepts_in_point_clouds_via_informa/"
+    t: "InfoCons: Identifying Interpretable Critical Concepts in Point Clouds via Information Theory"
+  - u: "r3dm_enabling_role_discovery_and_diversity_through_dynamics_models_in_multi-agen/"
+    t: "R3DM: Enabling Role Discovery and Diversity Through Dynamics Models in Multi-agent Reinforcement Learning"
+  - u: "safemap_robust_hd_map_construction_from_incomplete_observations/"
+    t: "SafeMap: Robust HD Map Construction from Incomplete Observations"
+  - u: "sphinx_structural_prediction_using_hypergraph_inference_network/"
+    t: "SPHINX: Structural Prediction using Hypergraph Inference Network"
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

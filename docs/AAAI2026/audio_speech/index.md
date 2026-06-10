@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 音频/语音方向29篇论文解读
+  AAAI2026 音频/语音论文汇总 · 29篇论文解读
 description: >-
   29篇AAAI2026的音频/语音方向论文解读，涵盖语音、情感分析、多模态、对话系统、扩散模型、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,66 @@ tags:
   - "对话系统"
   - "扩散模型"
   - "LLM"
+item_list:
+  - u: "a_mind_cannot_be_smeared_across_time/"
+    t: "A Mind Cannot Be Smeared Across Time"
+  - u: "a_superpersuasive_autonomous_policy_debating_system/"
+    t: "DeepDebater: A Superpersuasive Autonomous Policy Debating System"
+  - u: "ahamask_reliable_task_specification_for_large_audio_language/"
+    t: "AHAMask: Reliable Task Specification for Large Audio Language Models without Instructions"
+  - u: "aligning_generative_music_ai_with_human_preferences_methods_and_challenges/"
+    t: "Aligning Generative Music AI with Human Preferences: Methods and Challenges"
+  - u: "ccfqa_a_benchmark_for_cross-lingual_and_cross-modal_speech_and_text_factuality_e/"
+    t: "CCFQA: A Benchmark for Cross-Lingual and Cross-Modal Speech and Text Factuality Evaluation"
+  - u: "characterizing_ai_manipulation_risks_in_brazilian_youtube_climate_discourse/"
+    t: "Characterizing AI Manipulation Risks in Brazilian YouTube Climate Discourse"
+  - u: "cross-space_synergy_a_unified_framework_for_multimodal_emotion_recognition_in_co/"
+    t: "Cross-Space Synergy: A Unified Framework for Multimodal Emotion Recognition in Conversation"
+  - u: "deformtrace_a_deformable_state_space_model_with_relay_tokens_for_temporal_forger/"
+    t: "DeformTrace: A Deformable State Space Model with Relay Tokens for Temporal Forgery Localization"
+  - u: "diff-v2m_a_hierarchical_conditional_diffusion_model_with_explicit_rhythmic_model/"
+    t: "Diff-V2M: A Hierarchical Conditional Diffusion Model with Explicit Rhythmic Modeling for Video-to-Music Generation"
+  - u: "diffa_large_language_diffusion_models_can_listen_and_understand/"
+    t: "DiffA: Large Language Diffusion Models Can Listen and Understand"
+  - u: "do_llms_feel_teaching_emotion_recognition_with_prompts_retrieval_and_curriculum_/"
+    t: "Do LLMs Feel? Teaching Emotion Recognition with Prompts, Retrieval, and Curriculum Learning"
+  - u: "dualspeechlm_towards_unified_speech_understanding_and_generation_via_dual_speech/"
+    t: "DualSpeechLM: Towards Unified Speech Understanding and Generation via Dual Speech Token Modeling"
+  - u: "end-to-end_contrastive_language-speech_pretraining_model_for_long-form_spoken_qu/"
+    t: "End-to-end Contrastive Language-Speech Pretraining Model For Long-form Spoken Question Answering"
+  - u: "factorut_controlling_untrusted_ai_by_monitoring_their_plans/"
+    t: "Factor(U,T): Controlling Untrusted AI by Monitoring their Plans"
+  - u: "gompsnr_reflourish_the_signal-to-noise_ratio_metric_for_audio_generation_tasks/"
+    t: "GOMPSNR: Reflourish the Signal-to-Noise Ratio Metric for Audio Generation Tasks"
+  - u: "hearing_more_with_less_multi-modal_retrieval-and-selection_augmented_conversatio/"
+    t: "Hearing More with Less: Multi-Modal Retrieval-and-Selection Augmented Conversational LLM-Based ASR"
+  - u: "hpsu_a_benchmark_for_human-level_perception_in_real-world_spoken_speech_understa/"
+    t: "HPSU: A Benchmark for Human-Level Perception in Real-World Spoken Speech Understanding"
+  - u: "hq-svc_towards_high-quality_zero-shot_singing_voice_conversion_in_low-resource_s/"
+    t: "HQ-SVC: Towards High-Quality Zero-Shot Singing Voice Conversion in Low-Resource Scenarios"
+  - u: "improving_multimodal_sentiment_analysis_via_modality_optimization_and_dynamic_pr/"
+    t: "Improving Multimodal Sentiment Analysis via Modality Optimization and Dynamic Primary Modality Selection"
+  - u: "let_the_model_learn_to_feel_mode-guided_tonality_injection_f/"
+    t: "Let the Model Learn to Feel: Mode-Guided Tonality Injection for Symbolic Music Emotion Recognition"
+  - u: "listening_between_the_frames_bridging_temporal_gaps_in_large_audio-language_mode/"
+    t: "Listening Between the Frames: Bridging Temporal Gaps in Large Audio-Language Models"
+  - u: "multi-granularity_interactive_attention_framework_for_residual_hierarchical_pron/"
+    t: "Multi-granularity Interactive Attention Framework for Residual Hierarchical Pronunciation Assessment"
+  - u: "pase_prototype-aligned_calibration_and_shapley-based_equilibrium_for_multimodal_/"
+    t: "PaSE: Prototype-aligned Calibration and Shapley-based Equilibrium for Multimodal Sentiment Analysis"
+  - u: "psa-mf_personality-sentiment_aligned_multi-level_fusion_for_multimodal_sentiment/"
+    t: "PSA-MF: Personality-Sentiment Aligned Multi-Level Fusion for Multimodal Sentiment Analysis"
+  - u: "reina_regularized_entropy_information-based_loss_for_efficient_simultaneous_spee/"
+    t: "REINA: Regularized Entropy Information-Based Loss for Efficient Simultaneous Speech Translation"
+  - u: "say_more_with_less_variable-frame-rate_speech_tokenization_via_adaptive_clusteri/"
+    t: "Say More with Less: Variable-Frame-Rate Speech Tokenization via Adaptive Clustering and Implicit Duration Coding"
+  - u: "text-routed_sparse_mixture-of-experts_model_with_explanation_and_temporal_alignm/"
+    t: "A Text-Routed Sparse Mixture-of-Experts Model with Explanation and Temporal Alignment for Multi-Modal Sentiment Analysis"
+  - u: "towards_authentic_movie_dubbing_with_retrieve-augmented_director-actor_interacti/"
+    t: "Towards Authentic Movie Dubbing with Retrieve-Augmented Director-Actor Interaction Learning"
+  - u: "use_a_unified_model_for_universal_sound_separation_and_extraction/"
+    t: "USE: A Unified Model for Universal Sound Separation and Extraction"
+item_total: 29
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +81,7 @@ tags:
 
 **🤖 AAAI2026** · **29** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🧠 NeurIPS2025 (46)](../../NeurIPS2025/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
 
 🔥 **高频主题：** 语音 ×11 · 情感分析 ×7 · 多模态 ×4 · 对话系统 ×2 · 扩散模型 ×2
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 图像恢复方向5篇论文解读
+  ICML2025 图像恢复论文汇总 · 5篇论文解读
 description: >-
   5篇ICML2025的图像恢复方向论文解读，涵盖扩散模型、图像恢复、自监督学习、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,18 @@ tags:
   - "扩散模型"
   - "自监督学习"
   - "时序预测"
+item_list:
+  - u: "adaptive_estimation_and_learning_under_temporal_distribution_shift/"
+    t: "Adaptive Estimation and Learning under Temporal Distribution Shift"
+  - u: "epsilon-vae_denoising_as_visual_decoding/"
+    t: "ε-VAE: Denoising as Visual Decoding"
+  - u: "evaluating_deepfake_detectors_in_the_wild/"
+    t: "Evaluating Deepfake Detectors in the Wild"
+  - u: "harmonica_harmonizing_training_and_inference_for_better_feature_caching_in_diffu/"
+    t: "HarmoniCa: Harmonizing Training and Inference for Better Feature Caching in Diffusion Transformer Acceleration"
+  - u: "timedart_a_diffusion_autoregressive_transformer_for_self-supervised_time_series_/"
+    t: "TimeDART: A Diffusion Autoregressive Transformer for Self-Supervised Time Series Representation"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

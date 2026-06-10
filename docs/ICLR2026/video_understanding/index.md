@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 视频理解方向10篇论文解读
+  ICLR2026 视频理解论文汇总 · 10篇论文解读
 description: >-
   10篇ICLR2026的视频理解方向论文解读，涵盖推理、异常检测、问答、LLM、压缩/编码、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,28 @@ tags:
   - "LLM"
   - "压缩/编码"
   - "少样本学习"
+item_list:
+  - u: "air_enabling_adaptive_iterative_and_reasoning-based_frame_selection_for_video_qu/"
+    t: "A.I.R.: Adaptive, Iterative, and Reasoning-based Frame Selection For Video Question Answering"
+  - u: "flashvid_efficient_video_large_language_models_via_training-free_tree-based_spat/"
+    t: "FlashVID: Efficient Video Large Language Models via Training-free Tree-Based Spatiotemporal Token Merging"
+  - u: "floc_facility_location-based_efficient_visual_token_compression_for_long_video_u/"
+    t: "FLoC: Facility Location-Based Efficient Visual Token Compression for Long Video Understanding"
+  - u: "from_vicious_to_virtuous_cycles_synergistic_representation_learning_for_unsuperv/"
+    t: "From Vicious to Virtuous Cycles: Synergistic Representation Learning for Unsupervised Video Object-Centric Learning"
+  - u: "language-guided_open-world_video_anomaly_detection_under_weak_supervision/"
+    t: "Language-guided Open-world Video Anomaly Detection under Weak Supervision"
+  - u: "lets_split_up_zero-shot_classifier_edits_for_fine-grained_video_understanding/"
+    t: "Let's Split Up: Zero-Shot Classifier Edits for Fine-Grained Video Understanding"
+  - u: "map_the_flow_revealing_hidden_pathways_of_information_in_videollms/"
+    t: "Map the Flow: Revealing Hidden Pathways of Information in VideoLLMs"
+  - u: "steering_and_rectifying_latent_representation_manifolds_in_frozen_multi-modal_ll/"
+    t: "Steering and Rectifying Latent Representation Manifolds in Frozen Multi-Modal LLMs for Video Anomaly Detection"
+  - u: "video-ktr_reinforcing_video_reasoning_via_key_token_attribution/"
+    t: "Video-KTR: Reinforcing Video Reasoning via Key Token Attribution"
+  - u: "videonsa_native_sparse_attention_scales_video_understanding/"
+    t: "VideoNSA: Native Sparse Attention Scales Video Understanding"
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

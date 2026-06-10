@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 LLM Agent方向40篇论文解读
+  ICLR2026 LLMAgent论文汇总 · 39篇论文解读
 description: >-
-  40篇ICLR2026的 LLM Agent 方向论文解读，涵盖 LLM、Agent、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  39篇ICLR2026的 LLM Agent 方向论文解读，涵盖 LLM、Agent、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "LLM Agent"
@@ -12,12 +12,74 @@ tags:
   - "Agent"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "a_benchmark_for_deep_information_synthesis/"
+    t: "A Benchmark for Deep Information Synthesis (DeepSynth)"
+  - u: "agentic_context_engineering_evolving_contexts_for_self-improving_language_models/"
+    t: "Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models"
+  - u: "agentsynth_scalable_task_generation_for_generalist_computer-use_agents/"
+    t: "AgentSynth: Scalable Task Generation for Generalist Computer-Use Agents"
+  - u: "chatinject_abusing_chat_templates_for_prompt_injection_in_llm_agents/"
+    t: "ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents"
+  - u: "comind_towards_community-driven_agents_for_machine_learning_engineering/"
+    t: "CoMind: Towards Community-Driven Agents for Machine Learning Engineering"
+  - u: "efficient_agent_training_for_computer_use/"
+    t: "Efficient Agent Training for Computer Use"
+  - u: "exploratory_memory-augmented_llm_agent_via_hybrid_on-_and_off-policy_optimizatio/"
+    t: "Exploratory Memory-Augmented LLM Agent via Hybrid On- and Off-Policy Optimization"
+  - u: "fingertip_20k_a_benchmark_for_proactive_and_personalized_mobile_llm_agents/"
+    t: "FingerTip 20K: A Benchmark for Proactive and Personalized Mobile LLM Agents"
+  - u: "gaia2_benchmarking_llm_agents_on_dynamic_and_asynchronous_environments/"
+    t: "Gaia2: Benchmarking LLM Agents on Dynamic and Asynchronous Environments"
+  - u: "harnessing_uncertainty_entropy-modulated_policy_gradients_for_long-horizon_llm_a/"
+    t: "Harnessing Uncertainty: Entropy-Modulated Policy Gradients for Long-Horizon LLM Agents"
+  - u: "infiagent_self-evolving_pyramid_agent_framework_for_infinite_scenarios/"
+    t: "InfiAgent: Self-Evolving Pyramid Agent Framework for Infinite Scenarios"
+  - u: "inherited_goal_drift_contextual_pressure_can_undermine_agentic_goals/"
+    t: "Inherited Goal Drift: Contextual Pressure Can Undermine Agentic Goals"
+  - u: "judge_reliability_harness_stress_testing_the_reliability_of_llm_judges/"
+    t: "Judge Reliability Harness: Stress Testing the Reliability of LLM Judges"
+  - u: "livenewsbench_evaluating_llm_web_search_capabilities_with_freshly_curated_news/"
+    t: "LiveNewsBench: Evaluating LLM Web Search Capabilities with Freshly Curated News"
+  - u: "m2-miner_multi-agent_enhanced_mcts_for_mobile_gui_agent_data_mining/"
+    t: "M²-Miner: Multi-Agent Enhanced MCTS for Mobile GUI Agent Data Mining"
+  - u: "mc-search_evaluating_and_enhancing_multimodal_agentic_search_with_structured_lon/"
+    t: "MC-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains"
+  - u: "membership_privacy_risks_of_sharpness_aware_minimization/"
+    t: "FeatureBench: Benchmarking Agentic Coding for Complex Feature Development"
+  - u: "newtonbench_benchmarking_generalizable_scientific_law_discovery_in_llm_agents/"
+    t: "NewtonBench: Benchmarking Generalizable Scientific Law Discovery in LLM Agents"
+  - u: "openagentsafety_a_comprehensive_framework_for_evaluating_real-world_ai_agent_saf/"
+    t: "OpenAgentSafety: A Comprehensive Framework for Evaluating Real-World AI Agent Safety"
+  - u: "physcensis_physics-augmented_llm_agents_for_complex_physical_scene_arrangement/"
+    t: "PhyScensis: Physics-Augmented LLM Agents for Complex Physical Scene Arrangement"
+  - u: "radiometrically_consistent_gaussian_surfels_for_inverse_rendering/"
+    t: "PerfGuard: A Performance-Aware Agent for Visual Content Generation"
+  - u: "reducing_belief_deviation_in_reinforcement_learning_for_active_reasoning/"
+    t: "Reducing Belief Deviation in Reinforcement Learning for Active Reasoning of LLM Agents"
+  - u: "remem_reasoning_with_episodic_memory_in_language_agent/"
+    t: "REMem: Reasoning with Episodic Memory in Language Agents"
+  - u: "shoot_first_ask_questions_later_building_rational_agents_that_explore_and_act_li/"
+    t: "Shoot First, Ask Questions Later? Building Rational Agents that Explore and Act Like People"
+  - u: "simuhome_a_temporal-_and_environment-aware_benchmark_for_smart_home_llm_agents/"
+    t: "SimuHome: A Temporal- and Environment-Aware Benchmark for Smart Home LLM Agents"
+  - u: "solving_the_granularity_mismatch_hierarchical_preference_learning_for_long-horiz/"
+    t: "Solving the Granularity Mismatch: Hierarchical Preference Learning for Long-Horizon LLM Agents"
+  - u: "sr-scientist_scientific_equation_discovery_with_agentic_ai/"
+    t: "SR-Scientist: Scientific Equation Discovery With Agentic AI"
+  - u: "st-webagentbench_a_benchmark_for_evaluating_safety_and_trustworthiness_in_web_ag/"
+    t: "ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents"
+  - u: "the_controllability_trap_a_governance_framework_for_military_ai_systems/"
+    t: "The Controllability Trap: A Governance Framework for Military AI Agents"
+  - u: "the_tool_decathlon_benchmarking_language_agents_for_diverse_realistic_and_long-h/"
+    t: "The Tool Decathlon: Benchmarking Language Agents for Diverse, Realistic, and Long-Horizon Task Execution"
+item_total: 39
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🦾 LLM Agent
 
-**🔬 ICLR2026** · **40** 篇论文解读
+**🔬 ICLR2026** · **39** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/index.md)
 
@@ -34,10 +96,6 @@ tags:
 **[AgentSynth: Scalable Task Generation for Generalist Computer-Use Agents](agentsynth_scalable_task_generation_for_generalist_computer-use_agents.md)**
 
 :   提出AgentSynth pipeline，利用信息不对称原理（正向逐步生成简单、反向整体求解困难）将简单子任务链式组合为复杂长程计算机使用任务，自动生成6000+多样化任务和轨迹，每条轨迹仅需$0.60，SOTA Agent在最高难度下成功率仅4%。
-
-**[AutoFigure: Generating and Refining Publication-Ready Scientific Illustrations](autofigure_generating_and_refining_publication-ready_scientific_illustrations.md)**
-
-:   提出AutoFigure——第一个基于"推理渲染"范式的Agent框架，通过解耦结构布局规划和美学渲染两阶段自动从长科学文本生成达到出版质量的科学插图，配合首个大规模基准FigureBench（3,300对）进行系统评估，66.7%的生成结果被原作者认为可用于camera-ready版本。
 
 **[ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents](chatinject_abusing_chat_templates_for_prompt_injection_in_llm_agents.md)**
 

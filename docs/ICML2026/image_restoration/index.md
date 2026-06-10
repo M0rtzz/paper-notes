@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 图像恢复方向16篇论文解读
+  ICML2026 图像恢复论文汇总 · 16篇论文解读
 description: >-
   16篇ICML2026的图像恢复方向论文解读，涵盖扩散模型、超分辨率、图像恢复等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,40 @@ tags:
   - "论文笔记"
   - "扩散模型"
   - "超分辨率"
+item_list:
+  - u: "coevolutionary_continuous_discrete_diffusion_make_your_diffusion_language_model_/"
+    t: "Coevolutionary Continuous Discrete Diffusion: Make Your Diffusion Language Model a Latent Reasoner"
+  - u: "coloring_the_noise_adversarial_sobolev_alignment_for_faithful_image_super_resolu/"
+    t: "Coloring the Noise: Adversarial Sobolev Alignment for Faithful Image Super Resolution"
+  - u: "consistent_diffusion_language_models/"
+    t: "Consistent Diffusion Language Models"
+  - u: "dapd_dependency-aware_parallel_decoding_via_attention_for_diffusion_llms/"
+    t: "DAPD: Dependency-Aware Parallel Decoding via Attention for Diffusion LLMs"
+  - u: "degradation-aware_metric_prompting_for_hyperspectral_image_restoration/"
+    t: "Degradation-Aware Metric Prompting for Hyperspectral Image Restoration"
+  - u: "dyllm_efficient_diffusion_llm_inference_via_saliency-based_token_selection_and_p/"
+    t: "DyLLM: Efficient Diffusion LLM Inference via Saliency-based Token Selection and Partial Attention"
+  - u: "early_decisions_matter_proximity_bias_and_initial_trajectory_shaping_in_non-auto/"
+    t: "Early Decisions Matter: Proximity Bias and Initial Trajectory Shaping in Non-Autoregressive Diffusion Language Models"
+  - u: "learning_normalized_energy_models_for_linear_inverse_problems/"
+    t: "Learning Normalized Energy Models for Linear Inverse Problems"
+  - u: "one-shot_conditional_sampling_mmd_meets_nearest_neighbors/"
+    t: "One-shot Conditional Sampling: MMD meets Nearest Neighbors"
+  - u: "phy-cosf_physics-guided_continuous_spectral_fields_reconstruction_and_super-reso/"
+    t: "Phy-CoSF: Physics-Guided Continuous Spectral Fields Reconstruction and Super-Resolution for Snapshot Compressive Imaging"
+  - u: "plan_for_speed_dilated_scheduling_for_masked_diffusion_language_models/"
+    t: "Plan for Speed: Dilated Scheduling for Masked Diffusion Language Models"
+  - u: "podiff_latent_diffusion_in_proper_orthogonal_decomposition_space_for_scientific_/"
+    t: "PODiff: Latent Diffusion in Proper Orthogonal Decomposition Space for Scientific Super-Resolution"
+  - u: "semi-supervised_neural_super-resolution_for_mesh-based_simulations/"
+    t: "Semi-Supervised Neural Super-Resolution for Mesh-Based Simulations"
+  - u: "structured_diffusion_bridges_inductive_bias_for_denoising_diffusion_bridges/"
+    t: "Structured Diffusion Bridges: Inductive Bias for Denoising Diffusion Bridges"
+  - u: "triadic_dynamics_aware_diffusion_posterior_sampling_for_inverse_problems_optimiz/"
+    t: "Triadic Dynamics Aware Diffusion Posterior Sampling for Inverse Problems: Optimizing Guidance and Stochasticity Schedules"
+  - u: "uotip_unbalanced_optimal_transport_map_for_unpaired_inverse_problems/"
+    t: "UOTIP：无须配对的反演问题的非平衡最优传输映射"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 多语言/翻译方向1篇论文解读
+  ICCV2025 多语言/翻译论文汇总 · 1篇论文解读
 description: >-
   1篇ICCV2025的多语言/翻译方向论文解读，涵盖自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,10 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "自监督学习"
+item_list:
+  - u: "signrep_enhancing_self-supervised_sign_representations/"
+    t: "SignRep: Enhancing Self-Supervised Sign Representations"
+item_total: 1
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

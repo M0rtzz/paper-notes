@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 预训练方向9篇论文解读
+  ICCV2025 预训练论文汇总 · 9篇论文解读
 description: >-
   9篇ICCV2025的预训练方向论文解读，涵盖域适应、对抗鲁棒、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,26 @@ tags:
   - "域适应"
   - "对抗鲁棒"
   - "扩散模型"
+item_list:
+  - u: "aceg_improving_generalization_of_scene_coordinate_regression/"
+    t: "ACE-G: Improving Generalization of Scene Coordinate Regression Through Query Pre-Training"
+  - u: "conststyle_robust_domain_generalization_with_unified_style_transformation/"
+    t: "ConstStyle: Robust Domain Generalization with Unified Style Transformation"
+  - u: "dataset_ownership_verification_for_pre-trained_masked_models/"
+    t: "Dataset Ownership Verification for Pre-trained Masked Models"
+  - u: "eta_energy-based_test-time_adaptation_for_depth_completion/"
+    t: "ETA: Energy-based Test-time Adaptation for Depth Completion"
+  - u: "flow_to_the_mode_mode-seeking_diffusion_autoencoders_for_state-of-the-art_image_/"
+    t: "FlowMo: Flow to the Mode — Mode-Seeking Diffusion Autoencoders for State-of-the-Art Image Tokenization"
+  - u: "image_intrinsic_scale_assessment_bridging_the_gap_between_quality_and_resolution/"
+    t: "Image Intrinsic Scale Assessment: Bridging the Gap Between Quality and Resolution"
+  - u: "make_your_training_flexible_towards_deployment-efficient_video_models/"
+    t: "Make Your Training Flexible: Towards Deployment-Efficient Video Models"
+  - u: "synchronization_of_multiple_videos/"
+    t: "Synchronization of Multiple Videos"
+  - u: "syncity_training-free_generation_of_3d_worlds/"
+    t: "SynCity: Training-Free Generation of 3D Worlds"
+item_total: 9
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +38,7 @@ tags:
 
 **📹 ICCV2025** · **9** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (8)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_pretraining/index.md)
 
 **[ACE-G: Improving Generalization of Scene Coordinate Regression Through Query Pre-Training](aceg_improving_generalization_of_scene_coordinate_regression.md)**
 

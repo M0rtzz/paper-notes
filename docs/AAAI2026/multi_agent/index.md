@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 多智能体方向27篇论文解读
+  AAAI2026 多智能体论文汇总 · 26篇论文解读
 description: >-
-  27篇AAAI2026的多智能体方向论文解读，涵盖 Agent、LLM、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  26篇AAAI2026的多智能体方向论文解读，涵盖 Agent、LLM、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "多智能体"
@@ -12,16 +12,70 @@ tags:
   - "LLM"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "a_graph-theoretical_perspective_on_law_design_for_multiagent_systems/"
+    t: "A Graph-Theoretical Perspective on Law Design for Multiagent Systems"
+  - u: "a_multi-agent_llm_framework_for_multi-domain_low-resource_in-context_ner_via_kno/"
+    t: "KDR-Agent: A Multi-Agent LLM Framework for Multi-Domain Low-Resource In-Context NER via Knowledge Retrieval"
+  - u: "adaptive_theory_of_mind_for_llm-based_multi-agent_coordination/"
+    t: "Adaptive Theory of Mind for LLM-based Multi-Agent Coordination"
+  - u: "agentodrl_a_large_language_model-based_multi-agent_system_fo/"
+    t: "AgentODRL: A Large Language Model-based Multi-agent System for ODRL Generation"
+  - u: "arcane_a_multi-agent_framework_for_interpretable_and_configurable_alignment/"
+    t: "ARCANE: A Multi-Agent Framework for Interpretable and Configurable Alignment"
+  - u: "assemble_your_crew_automatic_multi-agent_communication_topol/"
+    t: "Assemble Your Crew: Automatic Multi-agent Communication Topology Design via Autoregressive Graph Generation"
+  - u: "bamas_structuring_budget-aware_multi-agent_systems/"
+    t: "BAMAS: Structuring Budget-Aware Multi-Agent Systems"
+  - u: "beyond_detection_exploring_evidence-based_multi-agent_debate_for_misinformation_/"
+    t: "Beyond Detection: Exploring Evidence-based Multi-Agent Debate for Misinformation Intervention and Persuasion"
+  - u: "coach_collaborative_agents_for_contextual_highlighting_--_a_multi-agent_framewor/"
+    t: "COACH: Collaborative Agents for Contextual Highlighting -- A Multi-Agent Framework for Sports Video Analysis"
+  - u: "conversational_learning_diagnosis_via_reasoning_multi-turn_interactive_learning/"
+    t: "Conversational Learning Diagnosis via Reasoning Multi-Turn Interactive Learning"
+  - u: "ecoagent_an_efficient_device-cloud_collaborative_multi-agent/"
+    t: "EcoAgent: An Efficient Device-Cloud Collaborative Multi-Agent Framework for Mobile Automation"
+  - u: "finrpt_dataset_evaluation_system_and_llm-based_multi-agent_framework_for_equity_/"
+    t: "FinRpt: Dataset, Evaluation System and LLM-based Multi-agent Framework for Equity Research Report Generation"
+  - u: "hierarchical_pedagogical_oversight_a_multi-agent_adversarial_framework_for_relia/"
+    t: "Hierarchical Pedagogical Oversight: A Multi-Agent Adversarial Framework for Reliable AI Tutoring"
+  - u: "imad_intelligent_multi-agent_debate_for_efficient_and_accura/"
+    t: "iMAD: Intelligent Multi-Agent Debate for Efficient and Accurate LLM Inference"
+  - u: "inex_hallucination_mitigation_via_introspection_and_cross-mo/"
+    t: "InEx: Hallucination Mitigation via Introspection and Cross-Modal Multi-Agent Collaboration"
+  - u: "learning_to_generate_and_extract_a_multi-agent_collaboration_framework_for_zero-/"
+    t: "Learning to Generate and Extract: A Multi-Agent Collaboration Framework for Zero-shot Document-level Event Arguments Extraction"
+  - u: "liecraft_a_multi-agent_framework_for_evaluating_deceptive_capabilities_in_langua/"
+    t: "LieCraft: A Multi-Agent Framework for Evaluating Deceptive Capabilities in Language Models"
+  - u: "llandmark_a_multi-agent_framework_for_landmark-aware_multimodal_interactive_vide/"
+    t: "LLandMark: A Multi-Agent Framework for Landmark-Aware Multimodal Interactive Video Retrieval"
+  - u: "lungnoduleagent_a_collaborative_multi-agent_system_for_precision_diagnosis_of_lu/"
+    t: "LungNoduleAgent: A Collaborative Multi-Agent System for Precision Diagnosis of Lung Nodules"
+  - u: "mama-memeia_multi-aspect_multi-agent_collaboration_for_depressive_symptoms_ident/"
+    t: "MAMA-Memeia! Multi-Aspect Multi-Agent Collaboration for Depressive Symptoms Identification in Memes"
+  - u: "maps_multi-agent_personality_shaping_for_collaborative_reaso/"
+    t: "MAPS: Multi-Agent Personality Shaping for Collaborative Reasoning"
+  - u: "medla_a_logic-driven_multi-agent_framework_for_complex_medic/"
+    t: "MedLA: A Logic-Driven Multi-Agent Framework for Complex Medical Reasoning with Large Language Models"
+  - u: "parallelism_meets_adaptiveness_scalable_documents_understanding_in_multi-agent_l/"
+    t: "Parallelism Meets Adaptiveness: Scalable Documents Understanding in Multi-Agent LLM Systems"
+  - u: "safesieve_from_heuristics_to_experience_in_progressive_pruning_for_llm-based_mul/"
+    t: "SafeSieve: From Heuristics to Experience in Progressive Pruning for LLM-based Multi-Agent Communication"
+  - u: "scalable_and_accurate_graph_reasoning_with_llm-based_multi-agents/"
+    t: "Scalable and Accurate Graph Reasoning with LLM-Based Multi-Agents"
+  - u: "shadows_in_the_code_exploring_the_risks_and_defenses_of_llm-/"
+    t: "Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems"
+item_total: 26
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 👥 多智能体
 
-**🤖 AAAI2026** · **27** 篇论文解读
+**🤖 AAAI2026** · **26** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
 
-🔥 **高频主题：** Agent ×24 · LLM ×11 · 推理 ×4 · 对抗鲁棒 ×2
+🔥 **高频主题：** Agent ×23 · LLM ×10 · 推理 ×4 · 对抗鲁棒 ×2
 
 **[A Graph-Theoretical Perspective on Law Design for Multiagent Systems](a_graph-theoretical_perspective_on_law_design_for_multiagent_systems.md)**
 
@@ -126,7 +180,3 @@ tags:
 **[Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems](shadows_in_the_code_exploring_the_risks_and_defenses_of_llm-.md)**
 
 :   首次系统分析 LLM 多 Agent 软件开发系统（ChatDev/MetaGPT/AgentVerse）的安全风险：提出 IMBIA 攻击框架覆盖两种威胁场景（恶意用户+良性Agent / 良性用户+恶意Agent）和 12 种恶意行为（5 大恶意软件家族），攻击成功率高达 93%（ChatDev），并设计 Adv-IMBIA 对抗性防御将 ASR 降低 40-73%。
-
-**[Thucy: An LLM-based Multi-Agent System for Claim Verification across Relational Databases](thucy_an_llm-based_multi-agent_system_for_claim_verification_across_relational_d.md)**
-
-:   提出首个跨数据库、跨表的多 Agent 声明验证系统 Thucy，由 Verifier 领导三个专家 Agent（Data/Schema/SQL Expert），对数据源完全无先验知识，能自主发现、推理并生成 SQL 证据，在 TabFact 上超越 SOTA 5.6 个百分点（94.3%）。

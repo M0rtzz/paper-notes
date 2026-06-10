@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 计算生物方向48篇论文解读
+  ICML2025 计算生物论文汇总 · 47篇论文解读
 description: >-
-  48篇ICML2025的计算生物方向论文解读，涵盖生物分子、扩散模型、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  47篇ICML2025的计算生物方向论文解读，涵盖生物分子、扩散模型、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "计算生物"
@@ -11,14 +11,76 @@ tags:
   - "生物分子"
   - "扩散模型"
   - "强化学习"
+item_list:
+  - u: "adios_antibody_development_via_opponent_shaping/"
+    t: "ADIOS: Antibody Development via Opponent Shaping"
+  - u: "aligning_protein_conformation_ensemble_generation_with_physical_feedback/"
+    t: "Aligning Protein Conformation Ensemble Generation with Physical Feedback"
+  - u: "cfp-gen_combinatorial_functional_protein_generation_via_diffusion_language_model/"
+    t: "CFP-Gen: Combinatorial Functional Protein Generation via Diffusion Language Models"
+  - u: "compositional_flows_for_3d_molecule_and_synthesis_pathway_co-design/"
+    t: "Compositional Flows for 3D Molecule and Synthesis Pathway Co-design"
+  - u: "comrecgc_global_graph_counterfactual_explainer_through_common_recourse/"
+    t: "ComRecGC: Global Graph Counterfactual Explainer through Common Recourse"
+  - u: "deepseq_high-throughput_single-cell_rna_sequencing_data_labeling_via_web_search-/"
+    t: "DeepSeq: High-Throughput Single-Cell RNA Sequencing Data Labeling via Web Search-Augmented Agentic Generative AI Foundation Models"
+  - u: "designing_cyclic_peptides_via_harmonic_sde_with_atom-bond_modeling/"
+    t: "Designing Cyclic Peptides via Harmonic SDE with Atom-Bond Modeling"
+  - u: "eccdnamamba_a_pre-trained_model_for_ultra-long_eccdna_sequence_analysis/"
+    t: "eccDNAMamba: A Pre-Trained Model for Ultra-Long eccDNA Sequence Analysis"
+  - u: "efficient_molecular_conformer_generation_with_so3-averaged_flow_matching_and_ref/"
+    t: "Efficient Molecular Conformer Generation with SO(3)-Averaged Flow Matching and Reflow"
+  - u: "elucidating_the_design_space_of_multimodal_protein_language_models/"
+    t: "Elucidating the Design Space of Multimodal Protein Language Models"
+  - u: "empower_structure-based_molecule_optimization_with_gradient_guided_bayesian_flow/"
+    t: "Empower Structure-Based Molecule Optimization with Gradient Guided Bayesian Flow Networks"
+  - u: "exlm_rethinking_the_impact_of_mask_tokens_in_masked_language_models/"
+    t: "ExLM: Rethinking the Impact of [MASK] Tokens in Masked Language Models"
+  - u: "flexibility-conditioned_protein_structure_design_with_flow_matching/"
+    t: "Flexibility-conditioned Protein Structure Design with Flow Matching"
+  - u: "genmol_a_drug_discovery_generalist_with_discrete_diffusion/"
+    t: "GenMol: A Drug Discovery Generalist with Discrete Diffusion"
+  - u: "geometric_generative_modeling_with_noise-conditioned_graph_networks/"
+    t: "Geometric Generative Modeling with Noise-Conditioned Graph Networks"
+  - u: "geometric_representation_condition_improves_equivariant_molecule_generation/"
+    t: "Geometric Representation Condition Improves Equivariant Molecule Generation"
+  - u: "graph_generative_pre-trained_transformer/"
+    t: "Graph Generative Pre-trained Transformer (G2PT)"
+  - u: "improved_off-policy_reinforcement_learning_in_biological_sequence_design/"
+    t: "Improved Off-policy Reinforcement Learning in Biological Sequence Design"
+  - u: "improving_flow_matching_by_aligning_flow_divergence/"
+    t: "Improving Flow Matching by Aligning Flow Divergence"
+  - u: "kinetic_langevin_diffusion_for_crystalline_materials_generation/"
+    t: "Kinetic Langevin Diffusion for Crystalline Materials Generation"
+  - u: "latent_imputation_before_prediction_a_new_computational_paradigm_for_de_novo_pep/"
+    t: "Latent Imputation before Prediction: A New Computational Paradigm for De Novo Peptide Sequencing"
+  - u: "ldmol_a_text-to-molecule_diffusion_model_with_structurally_informative_latent_sp/"
+    t: "LDMol: A Text-to-Molecule Diffusion Model with Structurally Informative Latent Space Surpasses AR Models"
+  - u: "leveraging_partial_smiles_validation_scheme_for_enhanced_drug_design_in_reinforc/"
+    t: "Leveraging Partial SMILES Validation Scheme for Enhanced Drug Design in Reinforcement Learning Frameworks"
+  - u: "mf-lal_drug_compound_generation_using_multi-fidelity_latent_space_active_learnin/"
+    t: "MF-LAL: Drug Compound Generation Using Multi-Fidelity Latent Space Active Learning"
+  - u: "multivariate_conformal_selection/"
+    t: "Multivariate Conformal Selection"
+  - u: "neural_graph_matching_improves_retrieval_augmented_generation_in_molecular_machi/"
+    t: "Neural Graph Matching Improves Retrieval Augmented Generation in Molecular Machine Learning"
+  - u: "peptune_de_novo_generation_of_therapeutic_peptides_with_multi-objective-guided_d/"
+    t: "PepTune: De Novo Generation of Therapeutic Peptides with Multi-Objective-Guided Discrete Diffusion"
+  - u: "piloting_structure-based_drug_design_via_modality-specific_optimal_schedule/"
+    t: "Piloting Structure-Based Drug Design via Modality-Specific Optimal Schedule"
+  - u: "polyconf_unlocking_polymer_conformation_generation_through_hierarchical_generati/"
+    t: "PolyConf: Unlocking Polymer Conformation Generation through Hierarchical Generative Models"
+  - u: "protein_structure_tokenization_benchmarking_and_new_recipe/"
+    t: "Protein Structure Tokenization: Benchmarking and New Recipe"
+item_total: 47
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧬 计算生物
 
-**🧪 ICML2025** · **48** 篇论文解读
+**🧪 ICML2025** · **47** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (11)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (38)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (20)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/computational_biology/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (74)](../../NeurIPS2025/computational_biology/index.md)
 
 🔥 **高频主题：** 生物分子 ×14 · 扩散模型 ×6 · 强化学习 ×2
 
@@ -85,10 +147,6 @@ tags:
 **[Geometric Representation Condition Improves Equivariant Molecule Generation](geometric_representation_condition_improves_equivariant_molecule_generation.md)**
 
 :   GeoRCG 提出两阶段分子生成框架——先生成低维的几何表示(informative representation)，再以此为条件生成完整分子，在条件分子生成任务上平均提升 50%，同时可将扩散步数从 1000 减少到 100。
-
-**[Global Context-aware Representation Learning for Spatially Resolved Transcriptomics](global_context-aware_representation_learning_for_spatially_resolved_transcriptom.md)**
-
-:   提出 Spotscape 框架，通过 Similarity Telescope 模块捕获 spot 间的全局相似关系（而非仅依赖空间局部邻居），并引入原型对比学习和相似度尺度匹配策略处理多切片批次效应，在空间域识别、轨迹推断、多切片整合与对齐等任务上全面超越现有方法。
 
 **[Graph Generative Pre-trained Transformer (G2PT)](graph_generative_pre-trained_transformer.md)**
 

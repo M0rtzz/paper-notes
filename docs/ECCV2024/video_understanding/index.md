@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 视频理解方向47篇论文解读
+  ECCV2024 视频理解论文汇总 · 46篇论文解读
 description: >-
-  47篇ECCV2024的视频理解方向论文解读，涵盖目标跟踪、人体姿态、自监督学习、推理、少样本学习、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  46篇ECCV2024的视频理解方向论文解读，涵盖目标跟踪、人体姿态、自监督学习、推理、少样本学习、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ECCV2024"
   - "视频理解"
@@ -14,12 +14,74 @@ tags:
   - "推理"
   - "少样本学习"
   - "对齐/RLHF"
+item_list:
+  - u: "actionswitch_class-agnostic_detection_of_simultaneous_actions_in_streaming_video/"
+    t: "ActionSwitch: Class-agnostic Detection of Simultaneous Actions in Streaming Videos"
+  - u: "adapt2reward_adapting_videolanguage_models_to_generalizable/"
+    t: "Adapt2Reward: Adapting Video-Language Models to Generalizable Robotic Rewards via Failure Prompts"
+  - u: "amego_active_memory_from_long_egocentric_videos/"
+    t: "AMEGO: Active Memory from Long EGOcentric Videos"
+  - u: "bayesian_evidential_deep_learning_for_online_action_detection/"
+    t: "Bayesian Evidential Deep Learning for Online Action Detection"
+  - u: "benchmarks_and_challenges_in_pose_estimation_for_egocentric_hand_interactions_wi/"
+    t: "Benchmarks and Challenges in Pose Estimation for Egocentric Hand Interactions with Objects"
+  - u: "boosting_3d_single_object_tracking_with_2d_matching_distillation_and_3d_pre-trai/"
+    t: "Boosting 3D Single Object Tracking with 2D Matching Distillation and 3D Pre-training"
+  - u: "classification_matters_improving_video_action_detection_with_class-specific_atte/"
+    t: "Classification Matters: Improving Video Action Detection with Class-Specific Attention"
+  - u: "crossglg_llm_guides_one-shot_skeleton-based_3d_action_recognition_in_a_cross-lev/"
+    t: "CrossGLG: LLM Guides One-Shot Skeleton-Based 3D Action Recognition in a Cross-Level Manner"
+  - u: "data_collection-free_masked_video_modeling/"
+    t: "Data Collection-Free Masked Video Modeling"
+  - u: "dino-tracker_taming_dino_for_self-supervised_point_tracking_in_a_single_video/"
+    t: "DINO-Tracker: Taming DINO for Self-Supervised Point Tracking in a Single Video"
+  - u: "efficient_few-shot_action_recognition_via_multi-level_post-reasoning/"
+    t: "Efficient Few-Shot Action Recognition via Multi-Level Post-Reasoning"
+  - u: "egoposer_robust_real-time_egocentric_pose_estimation_from_sparse_and_intermitten/"
+    t: "EgoPoser: Robust Real-Time Egocentric Pose Estimation from Sparse and Intermittent Observations Everywhere"
+  - u: "exploring_the_feature_extraction_and_relation_modeling_for_light-weight_transfor/"
+    t: "Exploring the Feature Extraction and Relation Modeling For Light-Weight Transformer Tracking"
+  - u: "finepseudo_improving_pseudo-labelling_through_temporal-alignablity_for_semi-supe/"
+    t: "FinePseudo: Improving Pseudo-Labelling through Temporal-Alignability for Semi-Supervised Fine-Grained Action Recognition"
+  - u: "goldfish_vision-language_understanding_of_arbitrarily_long_videos/"
+    t: "Goldfish: Vision-Language Understanding of Arbitrarily Long Videos"
+  - u: "hat_history-augmented_anchor_transformer_for_online_temporal_action_localization/"
+    t: "HAT: History-Augmented Anchor Transformer for Online Temporal Action Localization"
+  - u: "iam-vfi_interpolate_any_motion_for_video_frame_interpolation_with_motion_complex/"
+    t: "IAM-VFI: Interpolate Any Motion for Video Frame Interpolation with Motion Complexity Map"
+  - u: "layeredflow_a_real-world_benchmark_for_non-lambertian_multi-layer_optical_flow/"
+    t: "LayeredFlow: A Real-World Benchmark for Non-Lambertian Multi-Layer Optical Flow"
+  - u: "leveraging_temporal_contextualization_for_video_action_recognition/"
+    t: "Leveraging Temporal Contextualization for Video Action Recognition"
+  - u: "local_all-pair_correspondence_for_point_tracking/"
+    t: "Local All-Pair Correspondence for Point Tracking"
+  - u: "masked_video_and_body-worn_imu_autoencoder_for_egocentric_action_recognition/"
+    t: "Masked Video and Body-worn IMU Autoencoder for Egocentric Action Recognition"
+  - u: "motion-prior_contrast_maximization_for_dense_continuous-time_motion_estimation/"
+    t: "Motion-prior Contrast Maximization for Dense Continuous-Time Motion Estimation"
+  - u: "occluded_gait_recognition_with_mixture_of_experts_an_action_detection_perspectiv/"
+    t: "Occluded Gait Recognition with Mixture of Experts: An Action Detection Perspective"
+  - u: "on_the_utility_of_3d_hand_poses_for_action_recognition/"
+    t: "On the Utility of 3D Hand Poses for Action Recognition"
+  - u: "onetrack_demystifying_the_conflict_between_detection_and_tracking_in_end-to-end_/"
+    t: "OneTrack: Demystifying the Conflict Between Detection and Tracking in End-to-End 3D Trackers"
+  - u: "optimizing_factorized_encoder_models_time_and_memory_reduction_for_scalable_and_/"
+    t: "Optimizing Factorized Encoder Models: Time and Memory Reduction for Scalable and Efficient Action Recognition"
+  - u: "pite_pixel-temporal_alignment_for_large_video-language_model/"
+    t: "PiTe: Pixel-Temporal Alignment for Large Video-Language Model"
+  - u: "r2tuning_efficient_imagetovideo_transfer_learning_for_video/"
+    t: "R²-Tuning: Efficient Image-to-Video Transfer Learning for Video Temporal Grounding"
+  - u: "referring_atomic_video_action_recognition/"
+    t: "Referring Atomic Video Action Recognition"
+  - u: "rethinking_video-text_understanding_retrieval_from_counterfactually_augmented_da/"
+    t: "Rethinking Video-Text Understanding: Retrieval from Counterfactually Augmented Data"
+item_total: 46
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🎞️ ECCV2024** · **47** 篇论文解读
+**🎞️ ECCV2024** · **46** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (17)](../../ICML2026/video_understanding/index.md) · [💬 ACL2026 (17)](../../ACL2026/video_understanding/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/video_understanding/index.md) · [🔬 ICLR2026 (10)](../../ICLR2026/video_understanding/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/video_understanding/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/video_understanding/index.md)
 
@@ -176,10 +238,6 @@ tags:
 **[SPAMming Labels: Efficient Annotations for the Trackers of Tomorrow](spamming_labels_efficient_annotations_for_the_trackers_of_tomorrow.md)**
 
 :   提出 SPAM 视频标注引擎，将合成数据预训练、伪标签自训练和基于图层级的主动学习相结合，仅需 3-20% 的人工标注量即可产生接近 GT 质量的多目标跟踪标注。
-
-**[Spherical World-Locking for Audio-Visual Localization in Egocentric Videos](spherical_world-locking_for_audio-visual_localization_in_egocentric_videos.md)**
-
-:   提出球面世界锁定（Spherical World-Locking, SWL）框架，通过将多模态感知流隐式变换到世界锁定的球面坐标系中，消除自身运动带来的挑战，实现更精准的第一人称视频中的音视觉定位。
 
 **[Text-Guided Video Masked Autoencoder](text-guided_video_masked_autoencoder.md)**
 

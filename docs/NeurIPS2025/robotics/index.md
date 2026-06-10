@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 机器人/具身智能方向75篇论文解读
+  NeurIPS2025 机器人/具身智能论文汇总 · 71篇论文解读
 description: >-
-  75篇NeurIPS2025的机器人/具身智能方向论文解读，涵盖强化学习、机器人、多模态、Agent、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  71篇NeurIPS2025的机器人/具身智能方向论文解读，涵盖强化学习、机器人、多模态、Agent、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "机器人/具身智能"
@@ -14,16 +14,78 @@ tags:
   - "Agent"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "a_snapshot_of_influence_a_local_data_attribution_framework_f/"
+    t: "A Snapshot of Influence: A Local Data Attribution Framework for Online Reinforcement Learning"
+  - u: "act_to_see_see_to_act_diffusion-driven_perception-action_interplay_for_adaptive_/"
+    t: "Act to See, See to Act: Diffusion-Driven Perception-Action Interplay for Adaptive Policies"
+  - u: "adaptive_frontier_exploration_on_graphs_with_applications_to_network-based_disea/"
+    t: "Adaptive Frontier Exploration on Graphs with Applications to Network-Based Disease Testing"
+  - u: "adversarial_locomotion_and_motion_imitation_for_humanoid_policy_learning/"
+    t: "Adversarial Locomotion and Motion Imitation for Humanoid Policy Learning"
+  - u: "asymptotically_stable_quaternion-valued_hopfield-structured_neural_network_with_/"
+    t: "Asymptotically Stable Quaternionic Hopfield Structured Neural Network with Supervised Projection-based Manifold Learning"
+  - u: "automaton_constrained_q-learning/"
+    t: "Automaton Constrained Q-Learning"
+  - u: "autotom_scaling_model-based_mental_inference_via_automated_agent_modeling/"
+    t: "AutoToM: Scaling Model-based Mental Inference via Automated Agent Modeling"
+  - u: "autovla_a_vision-language-action_model_for_end-to-end_autonomous_driving_with_ad/"
+    t: "AutoVLA: A Vision-Language-Action Model for End-to-End Autonomous Driving with Adaptive Reasoning and Reinforcement Fine-Tuning"
+  - u: "beast_efficient_tokenization_of_b-splines_encoded_action_sequences_for_imitation/"
+    t: "BEAST: Efficient Tokenization of B-Splines Encoded Action Sequences for Imitation Learning"
+  - u: "benchmarking_egocentric_multimodal_goal_inference_for_assist/"
+    t: "Benchmarking Egocentric Multimodal Goal Inference for Assistive Wearable Agents"
+  - u: "beyond_parallelism_synergistic_computational_graph_effects_in_multi-head_attenti/"
+    t: "Beyond Parallelism: Synergistic Computational Graph Effects in Multi-Head Attention"
+  - u: "bridging_embodiment_gaps_deploying_vision-language-action_models_on_soft_robots/"
+    t: "Bridging Embodiment Gaps: Deploying Vision-Language-Action Models on Soft Robots"
+  - u: "c-nav_towards_self-evolving_continual_object_navigation_in_open_world/"
+    t: "C-NAV: Towards Self-Evolving Continual Object Navigation in Open World"
+  - u: "can_agents_fix_agent_issues/"
+    t: "Can Agents Fix Agent Issues?"
+  - u: "cogvla_cognition-aligned_vision-language-action_model_via_instruction-driven_rou/"
+    t: "CogVLA: Cognition-Aligned Vision-Language-Action Model via Instruction-Driven Routing & Sparsification"
+  - u: "coopera_continual_open_ended_human_robot_assistance/"
+    t: "COOPERA: Continual Open-Ended Human-Robot Assistance"
+  - u: "dexflywheel_a_scalable_and_self-improving_data_generation_framework_for_dexterou/"
+    t: "DexFlyWheel: A Scalable Self-Improving Data Generation Framework for Dexterous Manipulation"
+  - u: "dynanav_dynamic_feature_and_layer_selection_for_efficient_visual_navigation/"
+    t: "DynaNav: Dynamic Feature and Layer Selection for Efficient Visual Navigation"
+  - u: "efficientnav_towards_on-device_object-goal_navigation_with_navigation_map_cachin/"
+    t: "EfficientNav: Towards On-Device Object-Goal Navigation with Navigation Map Caching and Retrieval"
+  - u: "egobridge_domain_adaptation_for_generalizable_imitation_from_egocentric_human_da/"
+    t: "EgoBridge: Domain Adaptation for Generalizable Imitation from Egocentric Human Data"
+  - u: "egothinker_unveiling_egocentric_reasoning_with_spatiotempora/"
+    t: "EgoThinker: Unveiling Egocentric Reasoning with Spatio-Temporal CoT"
+  - u: "esca_contextualizing_embodied_agents_via_scene-graph_generation/"
+    t: "ESCA: Contextualizing Embodied Agents via Scene-Graph Generation"
+  - u: "generalizable_domain_adaptation_for_sim-and-real_policy_co-training/"
+    t: "Generalizable Domain Adaptation for Sim-and-Real Policy Co-Training"
+  - u: "himacon_discovering_hierarchical_manipulation_concepts_from_unlabeled_multi-moda/"
+    t: "HiMaCon: Discovering Hierarchical Manipulation Concepts from Unlabeled Multi-Modal Data"
+  - u: "human-assisted_robotic_policy_refinement_via_action_preference_optimization/"
+    t: "Human-assisted Robotic Policy Refinement via Action Preference Optimization"
+  - u: "inner_speech_as_behavior_guides_steerable_imitation_of_diverse_behaviors_for_hum/"
+    t: "Inner Speech as Behavior Guides: Steerable Imitation of Diverse Behaviors for Human-AI Coordination"
+  - u: "knolling_bot_teaching_robots_the_human_notion_of_tidiness/"
+    t: "Knolling Bot: Teaching Robots the Human Notion of Tidiness"
+  - u: "labutopia_high-fidelity_simulation_and_hierarchical_benchmark_for_scientific_emb/"
+    t: "LabUtopia: High-Fidelity Simulation and Hierarchical Benchmark for Scientific Embodied Agents"
+  - u: "learning_interactive_world_model_for_object-centric_reinforcement_learning/"
+    t: "Learning Interactive World Model for Object-Centric Reinforcement Learning"
+  - u: "learning_parameterized_skills_from_demonstrations/"
+    t: "Learning Parameterized Skills from Demonstrations"
+item_total: 71
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 机器人/具身智能
 
-**🧠 NeurIPS2025** · **75** 篇论文解读
+**🧠 NeurIPS2025** · **71** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (42)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (46)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (40)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (43)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
 
-🔥 **高频主题：** 强化学习 ×14 · 机器人 ×12 · 多模态 ×9 · Agent ×7 · 推理 ×6
+🔥 **高频主题：** 强化学习 ×13 · 机器人 ×11 · 多模态 ×8 · Agent ×7 · 推理 ×6
 
 **[A Snapshot of Influence: A Local Data Attribution Framework for Online Reinforcement Learning](a_snapshot_of_influence_a_local_data_attribution_framework_f.md)**
 
@@ -153,14 +215,6 @@ tags:
 
 :   LLMscape 是一个投影映射沙盘交互装置，让多个独立 LLM 代理在共享的可变物理环境中接收多模态输入、相互对话和推测，探索人类与 AI 在认知不确定性下的共同意义构建过程。
 
-**[LUMIA: A Handheld Vision-to-Music System for Real-Time, Embodied Composition](lumia_a_handheld_vision-to-music_system_for_real-time_embodied_composition.md)**
-
-:   提出Lumia——一个手持相机式设备，通过GPT-4 Vision分析拍摄画面生成结构化提示，再由Stable Audio合成音乐循环段，实现从视觉到音乐的实时、具身化即兴创作工作流。
-
-**[MaNGO: Adaptable Graph Network Simulators via Meta-Learning](mango_-_adaptable_graph_network_simulators_via_meta-learning.md)**
-
-:   提出 MaNGO（Meta Neural Graph Operator），通过元学习和条件神经过程（CNP）学习不同物理参数下仿真任务的共享潜在结构，实现对新物理参数的快速适应，无需重新训练。
-
 **[Massively Parallel Imitation Learning of Mouse Forelimb Musculoskeletal Reaching Dynamics](massively_parallel_imitation_learning_of_mouse_forelimb_musculoskeletal_reaching.md)**
 
 :   基于 MIMIC-MJX 平台构建小鼠前肢肌肉骨骼模拟学习流水线，通过 JAX 加速的大规模并行 PPO（120 万步/秒）训练物理感知模仿学习策略，证明控制成本正则化能使模拟肌肉活动更好地预测真实 EMG 信号，并用基于 Takens 定理的非线性动力学方法从关节运动学预测肌肉激活。
@@ -253,10 +307,6 @@ tags:
 
 :   提出 RTZ-VI-LCB 算法用于离线鲁棒两人零和 Markov 博弈（RTZM G），通过乐观鲁棒值迭代 + Bernstein 风格惩罚，实现近最优样本复杂度 $O(C_r^* \cdot H^4 \cdot S \cdot (A+B) / \varepsilon^2)$，较此前最优结果 $O(H^5 \cdot S^2 \cdot AB / \varepsilon^2)$ 在状态空间和动作空间依赖上均有显著改善。
 
-**[Sample Complexity of Distributionally Robust Average-Reward Reinforcement Learning](sample_complexity_of_distributionally_robust_average-reward_reinforcement_learni.md)**
-
-:   首次为分布鲁棒平均奖励强化学习（DR-AMDP）建立了有限样本收敛保证，提出两种算法（折扣归约法和锚定法），在KL和$f_k$-散度不确定集下均达到$\widetilde{O}(|S||A|t_{\mathrm{mix}}^2\varepsilon^{-2})$的近最优样本复杂度。
-
 **[Self-Improving Embodied Foundation Models](self-improving_embodied_foundation_models.md)**
 
 :   本文提出一种面向具身基础模型的两阶段后训练方法：第一阶段通过行为克隆和 steps-to-go 预测进行监督微调，第二阶段利用 steps-to-go 预测生成的自奖励函数和成功检测器实现在线 RL 自我改进，仅需 1-3% 额外数据即可实现 1.5x 以上的成功率提升，并首次展示了机器人自主学习超出模仿数据分布之外的新技能。
@@ -312,10 +362,6 @@ tags:
 **[VIKI-R: Coordinating Embodied Multi-Agent Cooperation via Reinforcement Learning](viki-r_coordinating_embodied_multi-agent_cooperation_via_reinforcement_learning.md)**
 
 :   构建了首个面向具身多智能体合作的层次化基准VIKI-Bench（含智能体激活、任务规划、轨迹感知三个层级），并提出两阶段框架VIKI-R（CoT示范微调+多级奖励RL），在多种机器人形态和多视角视觉观测下实现显著超越基线的合作表现，RL阶段涌现出组合式协作模式。
-
-**[VLA-Cache: Efficient Vision-Language-Action Manipulation via Adaptive Token Caching](vla-cache_efficient_vision-language-action_manipulation_via_adaptive_token_cachi.md)**
-
-:   提出VLA-Cache，一种免训练的VLA推理加速方法，通过跨帧识别并缓存静态视觉token的KV表示、过滤任务相关token并按层自适应调整复用比例，实现1.7倍加速且几乎不损失任务成功率。
 
 **[VolleyBots: A Testbed for Multi-Drone Volleyball Game Combining Motion Control and Strategic Play](volleybots_a_testbed_for_multi-drone_volleyball_game_combining_motion_control_an.md)**
 

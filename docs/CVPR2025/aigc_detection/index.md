@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 AIGC 检测方向3篇论文解读
+  CVPR2025 AIGC检测论文汇总 · 3篇论文解读
 description: >-
   3篇CVPR2025的 AIGC 检测方向论文解读，涵盖持续学习、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,14 @@ tags:
   - "论文笔记"
   - "持续学习"
   - "少样本学习"
+item_list:
+  - u: "enhancing_few-shot_class-incremental_learning_via_training-free_bi-level_modalit/"
+    t: "Enhancing Few-Shot Class-Incremental Learning via Training-Free Bi-Level Modality Calibration"
+  - u: "proapo_progressively_automatic_prompt_optimization_for_visual_classification/"
+    t: "ProAPO: Progressively Automatic Prompt Optimization for Visual Classification"
+  - u: "sgc-net_stratified_granular_comparison_network_for_open-vocabulary_hoi_detection/"
+    t: "SGC-Net: Stratified Granular Comparison Network for Open-Vocabulary HOI Detection"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

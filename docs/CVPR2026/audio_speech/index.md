@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 音频/语音方向14篇论文解读
+  CVPR2026 音频/语音论文汇总 · 14篇论文解读
 description: >-
   14篇CVPR2026的音频/语音方向论文解读，涵盖语音、多模态、情感分析、个性化生成、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,36 @@ tags:
   - "情感分析"
   - "个性化生成"
   - "问答"
+item_list:
+  - u: "babyvlm-v2_toward_developmentally_grounded_pretraining_and_benchmarking_of_visio/"
+    t: "BabyVLM-V2: Toward Developmentally Grounded Pretraining and Benchmarking of Vision Foundation Models"
+  - u: "cleaning_the_pool_progressive_filtering_of_unlabeled_pools_in_deep_active_learni/"
+    t: "Cleaning the Pool: Progressive Filtering of Unlabeled Pools in Deep Active Learning"
+  - u: "echoes_over_time_unlocking_length_generalization_in_video-to-audio_generation_mo/"
+    t: "Echoes Over Time: Unlocking Length Generalization in Video-to-Audio Generation Models"
+  - u: "gem-tfl_bridging_weak_and_full_supervision_for_forgery_localization_through_em-g/"
+    t: "GEM-TFL: Bridging Weak and Full Supervision for Forgery Localization"
+  - u: "omni-mmsi_toward_identity-attributed_social_interaction_understanding/"
+    t: "Omni-MMSI: Toward Identity-Attributed Social Interaction Understanding"
+  - u: "omniret_efficient_and_high-fidelity_omni_modality_retrieval/"
+    t: "OmniRet: Efficient and High-Fidelity Omni Modality Retrieval"
+  - u: "omnisonic_towards_universal_and_holistic_audio_generation_from_video_and_text/"
+    t: "OmniSonic: Towards Universal and Holistic Audio Generation from Video and Text"
+  - u: "save_speech-aware_video_representation_learning_for_video-text_retrieval/"
+    t: "SAVE: Speech-Aware Video Representation Learning for Video-Text Retrieval"
+  - u: "solution_for_10th_competition_on_ambivalencehesitancy_ah_video_recognition_chall/"
+    t: "Solution for 10th Competition on Ambivalence/Hesitancy (AH) Video Recognition Challenge using Divergence-Based Multimodal Fusion"
+  - u: "team_ras_in_10th_abaw_competition_multimodal_valen/"
+    t: "Team RAS in 10th ABAW Competition: Multimodal Valence and Arousal Estimation Approach"
+  - u: "tri-subspaces_disentanglement_for_multimodal_sentiment_analysis/"
+    t: "Tri-Subspaces Disentanglement for Multimodal Sentiment Analysis"
+  - u: "unim_a_unified_any-to-any_interleaved_multimodal_benchmark/"
+    t: "UniM: A Unified Any-to-Any Interleaved Multimodal Benchmark"
+  - u: "unlocking_strong_supervision_a_data-centric_study_of_general-purpose_audio_pre-t/"
+    t: "Unlocking Strong Supervision: A Data-Centric Study of General-Purpose Audio Pre-Training Methods"
+  - u: "vidscribe_multimodal_ai_for_customizing_audio_description_and_question_answering/"
+    t: "ViDscribe: Multimodal AI for Customizing Audio Description and Question Answering in Online Videos"
+item_total: 14
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +50,7 @@ tags:
 
 **📷 CVPR2026** · **14** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (46)](../../NeurIPS2025/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
 
 🔥 **高频主题：** 语音 ×5 · 多模态 ×5
 

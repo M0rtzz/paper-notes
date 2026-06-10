@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 其他方向35篇论文解读
+  CVPR2026 其他论文汇总 · 35篇论文解读
 description: >-
   35篇CVPR2026的其他方向论文解读，涵盖对抗鲁棒、多模态、Agent、少样本学习、联邦学习、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "少样本学习"
   - "联邦学习"
   - "布局/合成"
+item_list:
+  - u: "adasformer_adaptive_serialized_transformers_for_monocular_semantic_scene_complet/"
+    t: "AdaSFormer: Adaptive Serialized Transformers for Monocular Semantic Scene Completion from Indoor Environments"
+  - u: "assistmimic_physics_grounded_humanoid_assistance/"
+    t: "AssistMimic: Physics-Grounded Humanoid Assistance via Multi-Agent RL"
+  - u: "bendfm_a_taxonomy_and_synthetic_cad_dataset_for_ma/"
+    t: "BenDFM: A Taxonomy and Synthetic CAD Dataset for Manufacturability Assessment in Sheet Metal Bending"
+  - u: "bounds_on_agreement_between_subjective_and_objecti/"
+    t: "Bounds on Agreement between Subjective and Objective Measurements"
+  - u: "coded-e2lf_coded_aperture_light_field_imaging_from_events/"
+    t: "Coded-E2LF: Coded Aperture Light Field Imaging from Events"
+  - u: "crowdsourcing_of_real_world_image_annotation_via_visual_properties/"
+    t: "Crowdsourcing of Real-world Image Annotation via Visual Properties"
+  - u: "deconstructing_the_failure_of_ideal_noise_correction_a_three-pillar_diagnosis/"
+    t: "Deconstructing the Failure of Ideal Noise Correction: A Three-Pillar Diagnosis"
+  - u: "diffbmp_differentiable_rendering_with_bitmap_primitives/"
+    t: "DiffBMP: Differentiable Rendering with Bitmap Primitives"
+  - u: "dirpa_addressing_prior_shift_in_imbalanced_fewshot/"
+    t: "DirPA: Addressing Prior Shift in Imbalanced Few-shot Crop-type Classification"
+  - u: "do_vision_models_perceive_illusory_motion_in_static_images_like_humans/"
+    t: "Do Vision Models Perceive Illusory Motion in Static Images Like Humans?"
+  - u: "dual_band_thermal_videography_separating_time-varying_reflection_and_emission_ne/"
+    t: "Dual-Band Thermal Videography: Separating Time-Varying Reflection and Emission Near Ambient Conditions"
+  - u: "feat_federated_geometry_aware_correction_for_exemplar_replay_under_continual_dynamic_heterogeneity/"
+    t: "FEAT: Federated Geometry-Aware Correction for Exemplar Replay under Continual Dynamic Heterogeneity"
+  - u: "gardendesigner_encoding_aesthetic_principles_into_jiangnan_garden_construction_v/"
+    t: "GardenDesigner: Encoding Aesthetic Principles into Jiangnan Garden Construction via a Chain of Agents"
+  - u: "hypevpr_exploring_hyperbolic_space_for_perspective_to_equirectangular_visual_pla/"
+    t: "HypeVPR: Exploring Hyperbolic Space for Perspective to Equirectangular Visual Place Recognition"
+  - u: "irisfp_adversarial-example-based_model_fingerprinting_with_enhanced_uniqueness_a/"
+    t: "IrisFP: Adversarial-Example-based Model Fingerprinting with Enhanced Uniqueness and Robustness"
+  - u: "lovif_2026_semantic_quality_assessment_challenge/"
+    t: "LoViF 2026 Challenge on Human-oriented Semantic Image Quality Assessment"
+  - u: "mitigating_instance_entanglement_in_instance-dependent_partial_label_learning/"
+    t: "Mitigating Instance Entanglement in Instance-Dependent Partial Label Learning"
+  - u: "myovision_a_mobile_research_tool_and_neatboost_attention_ensemble_framework/"
+    t: "MyoVision: A Mobile Research Tool and NEATBoost-Attention Ensemble Framework for Real Time Chicken Breast Myopathy Detection"
+  - u: "nailia_multimodal_nail_design_retrieval_based_on_dense_intent_descriptions_and_p/"
+    t: "NaiLIA: Multimodal Nail Design Retrieval Based on Dense Intent Descriptions and Palette Queries"
+  - u: "neural_collapse_in_test-time_adaptation/"
+    t: "Neural Collapse in Test-Time Adaptation"
+  - u: "omnifood8k_nutrition_estimation/"
+    t: "OmniFood8K: Single-Image Nutrition Estimation via Hierarchical Frequency-Aligned Fusion"
+  - u: "order_matters_3d_shape_generation_from_sequential_vr_sketches/"
+    t: "Order Matters: 3D Shape Generation from Sequential VR Sketches"
+  - u: "polishing_the_sky_widefield_and_highdynamic_range/"
+    t: "POLISH'ing the Sky: Wide-Field and High-Dynamic Range Interferometric Image Reconstruction"
+  - u: "rethinking_snn_online_training_and_deployment_grad/"
+    t: "Rethinking SNN Online Training and Deployment: Gradient-Coherent Learning via Hybrid-Driven LIF Model"
+  - u: "rooftop_wind_field_reconstruction_using_sparse_sen/"
+    t: "Rooftop Wind Field Reconstruction Using Sparse Sensors: From Deterministic to Generative Learning Methods"
+  - u: "shoe_style-invariant_and_ground-aware_learning_for_dense_foot_contact_estimation/"
+    t: "Shoe Style-Invariant and Ground-Aware Learning for Dense Foot Contact Estimation"
+  - u: "simrecon_simready_compositional_scene_reconstruction_from_real_videos/"
+    t: "SimRecon: SimReady Compositional Scene Reconstruction from Real Videos"
+  - u: "sldprtnet_a_large-scale_multimodal_dataset_for_cad_generation_in_language-driven/"
+    t: "SldprtNet: A Large-Scale Multimodal Dataset for CAD Generation in Language-Driven 3D Design"
+  - u: "teamhoi_learning_a_unified_policy_for_cooperative_human-object_interactions_with/"
+    t: "TeamHOI: Learning a Unified Policy for Cooperative Human-Object Interactions with Any Team Size"
+  - u: "v_nutri_nutrition_estimation_cooking_videos/"
+    t: "V-Nutri: Dish-Level Nutrition Estimation from Egocentric Cooking Videos"
+item_total: 35
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **📷 CVPR2026** · **35** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [🔬 ICLR2026 (91)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (135)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (164)](../../NeurIPS2025/others/index.md) · [📹 ICCV2025 (47)](../../ICCV2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (128)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (163)](../../NeurIPS2025/others/index.md) · [📹 ICCV2025 (47)](../../ICCV2025/others/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×2 · 多模态 ×2
 

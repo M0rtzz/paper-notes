@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 医疗 NLP方向15篇论文解读
+  NeurIPS2025 医疗NLP论文汇总 · 13篇论文解读
 description: >-
-  15篇NeurIPS2025的医疗 NLP 方向论文解读，涵盖医学影像、LLM、推理、RAG、文本摘要、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  13篇NeurIPS2025的医疗 NLP 方向论文解读，涵盖医学影像、LLM、推理、RAG、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "医疗 NLP"
@@ -12,18 +12,45 @@ tags:
   - "LLM"
   - "推理"
   - "RAG"
-  - "文本摘要"
   - "时序预测"
+item_list:
+  - u: "ai_should_sense_better_not_just_scale_bigger_adaptive_sensin/"
+    t: "AI Should Sense Better, Not Just Scale Bigger: Adaptive Sensing as a Paradigm Shift"
+  - u: "cgbench_benchmarking_language_model_scientific_reasoning_for_clinical_genetics_r/"
+    t: "CGBench: Benchmarking Language Model Scientific Reasoning for Clinical Genetics Research"
+  - u: "cureagent_a_training-free_executor-analyst_framework_for_clinical_reasoning/"
+    t: "CureAgent: A Training-Free Executor-Analyst Framework for Clinical Reasoning"
+  - u: "demo_guide-rag_evidence-driven_corpus_curation_for_retrieval-augmented_generatio/"
+    t: "Demo: Guide-RAG: Evidence-Driven Corpus Curation for Retrieval-Augmented Generation in Long COVID"
+  - u: "faithful_summarization_of_consumer_health_queries_a_cross-lingual_framework_with/"
+    t: "Faithful Summarization of Consumer Health Queries: A Cross-Lingual Framework with LLMs"
+  - u: "h-ddx_a_hierarchical_evaluation_framework_for_differential_diagnosis/"
+    t: "H-DDx: A Hierarchical Evaluation Framework for Differential Diagnosis"
+  - u: "large_language_models_as_medical_codes_selectors_a_benchmark_using_the_internati/"
+    t: "Large Language Models as Medical Codes Selectors: A Benchmark Using the International Classification of Primary Care"
+  - u: "llm-assisted_emergency_triage_benchmark_bridging_hospital-rich_and_mci-like_fiel/"
+    t: "LLM-Assisted Emergency Triage Benchmark: Bridging Hospital-Rich and MCI-Like Field Simulation"
+  - u: "position_thematic_analysis_of_unstructured_clinical_transcripts_with_large_langu/"
+    t: "Position: Thematic Analysis of Unstructured Clinical Transcripts with Large Language Models"
+  - u: "raxss_retrieval-augmented_sparse_sampling_for_explainable_variable-length_medica/"
+    t: "RAxSS: Retrieval-Augmented Sparse Sampling for Explainable Variable-Length Medical Time Series Classification"
+  - u: "shallow_robustness_deep_vulnerabilities_multi-turn_evaluation_of_medical_llms/"
+    t: "Shallow Robustness, Deep Vulnerabilities: Multi-Turn Evaluation of Medical LLMs"
+  - u: "the_physical_basis_of_prediction_world_model_formation_in_neural_organoids_via_a/"
+    t: "The Physical Basis of Prediction: World Model Formation in Neural Organoids via an LLM-Generated Curriculum"
+  - u: "time-imm_a_dataset_and_benchmark_for_irregular_multimodal_multivariate_time_seri/"
+    t: "Time-IMM: A Dataset and Benchmark for Irregular Multimodal Multivariate Time Series"
+item_total: 13
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🩺 医疗 NLP
 
-**🧠 NeurIPS2025** · **15** 篇论文解读
+**🧠 NeurIPS2025** · **13** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (13)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (12)](../../AAAI2026/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
 
-🔥 **高频主题：** 医学影像 ×6 · LLM ×4 · 推理 ×2 · RAG ×2 · 文本摘要 ×2
+🔥 **高频主题：** 医学影像 ×6 · LLM ×4 · 推理 ×2 · RAG ×2 · 时序预测 ×2
 
 **[AI Should Sense Better, Not Just Scale Bigger: Adaptive Sensing as a Paradigm Shift](ai_should_sense_better_not_just_scale_bigger_adaptive_sensin.md)**
 
@@ -41,10 +68,6 @@ tags:
 
 :   系统评估了六种 RAG 语料库配置用于长新冠（Long COVID）临床问答，发现将临床指南与高质量系统综述结合的 GS-4 配置在 faithfulness、relevance 和 comprehensiveness 三维度上一致优于单指南和大规模文献库方案，并提出 Guide-RAG 框架和 LongCOVID-CQ 评估数据集。
 
-**[Document Summarization with Conformal Importance Guarantees](document_summarization_with_conformal_importance_guarantees.md)**
-
-:   首次将Conformal Prediction应用于文档摘要，通过校准句子重要性分数的阈值，为抽取式摘要提供用户可控的覆盖率($1-\alpha$)和召回率($\beta$)的严格统计保证，方法模型无关且仅需小规模校准集。
-
 **[Faithful Summarization of Consumer Health Queries: A Cross-Lingual Framework with LLMs](faithful_summarization_of_consumer_health_queries_a_cross-lingual_framework_with.md)**
 
 :   提出结合 TextRank 抽取式句子选择和医学命名实体识别 (NER) 来引导 LLM 生成忠实医学摘要的框架，在英文 MeQSum 和孟加拉语 BanglaCHQ-Summ 数据集上通过微调 LLaMA-2-7B 实现质量和忠实性的一致提升，SummaC 达 0.57，人工评估 82% 摘要保留关键医学信息。
@@ -60,10 +83,6 @@ tags:
 **[LLM-Assisted Emergency Triage Benchmark: Bridging Hospital-Rich and MCI-Like Field Simulation](llm-assisted_emergency_triage_benchmark_bridging_hospital-rich_and_mci-like_fiel.md)**
 
 :   基于MIMIC-IV-ED构建了一个开放的、LLM辅助策划的急诊分诊基准数据集，定义了医院丰富资源和大规模伤亡事件(MCI)模拟两种场景，提供基线模型和SHAP可解释性分析，推动分诊预测研究的可复现性和普及化。
-
-**[Mind the Gap: Aligning Knowledge Bases with User Needs to Enhance Mental Health Retrieval](mind_the_gap_aligning_knowledge_bases_with_user_needs_to_enhance_mental_health_r.md)**
-
-:   提出一种基于"需求差距"分析的知识库增强框架，通过叠加真实用户数据（论坛帖子）与现有心理健康资源库来识别内容空白，并用定向增强策略以最少的文档增量达到接近完整语料库的 RAG 检索质量。
 
 **[Position: Thematic Analysis of Unstructured Clinical Transcripts with Large Language Models](position_thematic_analysis_of_unstructured_clinical_transcripts_with_large_langu.md)**
 

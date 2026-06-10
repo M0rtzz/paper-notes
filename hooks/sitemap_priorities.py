@@ -70,12 +70,32 @@ def _level(loc: str, site_url: str, conferences: set[str]) -> str:
     return "paper"
 
 
-def _priority(level: str) -> str:
+# Conference-specific paper priorities.
+# CVPR2026 is the hottest traffic source; ACL2026/ICML2026 are current;
+# older/other existing conferences get lower priority; new conferences default to 0.6.
+_PAPER_PRIORITY_OVERRIDES = {
+    "CVPR2026": "0.7",
+    "ACL2026": "0.6",
+    "ICML2026": "0.6",
+    "ECCV2024": "0.4",
+    "ICCV2025": "0.4",
+    "CVPR2025": "0.4",
+    "NeurIPS2025": "0.5",
+    "ICML2025": "0.4",
+    "ACL2025": "0.4",
+    "AAAI2026": "0.5",
+    "ICLR2026": "0.6",
+}
+_PAPER_PRIORITY_DEFAULT = "0.6"  # for any new conference not listed above
+
+
+def _priority(level: str, conference: str = "") -> str:
+    if level == "paper":
+        return _PAPER_PRIORITY_OVERRIDES.get(conference, _PAPER_PRIORITY_DEFAULT)
     return {
         "home": "1.0",
         "conf_index": "0.9",
         "domain_index": "0.8",
-        "paper": "0.6",
     }.get(level, "0.3")
 
 
@@ -170,8 +190,10 @@ def on_post_build(config, **kwargs):
             continue
         level = _level(loc_elem.text, site_url, conferences)
         counts[level] = counts.get(level, 0) + 1
+        # Extract conference name for paper-level priority overrides
+        conf = _url_path(loc_elem.text, site_url).split("/")[0] if level == "paper" else ""
         _set_child(url_elem, "changefreq", _changefreq(level))
-        _set_child(url_elem, "priority", _priority(level))
+        _set_child(url_elem, "priority", _priority(level, conf))
 
         if level in {"home", "conf_index"}:
             section_elems.append(url_elem)

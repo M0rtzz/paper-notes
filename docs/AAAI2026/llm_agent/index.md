@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 LLM Agent方向30篇论文解读
+  AAAI2026 LLMAgent论文汇总 · 30篇论文解读
 description: >-
   30篇AAAI2026的 LLM Agent 方向论文解读，涵盖 LLM、Agent、推理、对抗鲁棒、对齐/RLHF、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "对抗鲁棒"
   - "对齐/RLHF"
   - "个性化生成"
+item_list:
+  - u: "a2flow_automating_agentic_workflow_generation_via_self-adaptive_abstraction_oper/"
+    t: "A2Flow: Automating Agentic Workflow Generation via Self-Adaptive Abstraction Operators"
+  - u: "agentswift_efficient_llm_agent_design_via_value-guided_hierarchical_search/"
+    t: "AgentSwift: Efficient LLM Agent Design via Value-guided Hierarchical Search"
+  - u: "autoglm_autonomous_foundation_agents_for_guis/"
+    t: "AutoGLM: Autonomous Foundation Agents for GUIs"
+  - u: "automating_complex_document_workflows_via_stepwise_and_rollback-enabled_operatio/"
+    t: "Automating Complex Document Workflows via Stepwise and Rollback-Enabled Operations"
+  - u: "autotool_efficient_tool_selection_for_large_language_model_agents/"
+    t: "AutoTool: Efficient Tool Selection for Large Language Model Agents"
+  - u: "bayesagent_bayesian_agentic_reasoning_under_uncertainty_via_/"
+    t: "BayesAgent: Bayesian Agentic Reasoning Under Uncertainty via Verbalized Probabilistic Graphical Modeling"
+  - u: "causaltrace_a_neurosymbolic_causal_analysis_agent_for_smart_manufacturing/"
+    t: "CausalTrace: A Neurosymbolic Causal Analysis Agent for Smart Manufacturing"
+  - u: "co-epg_a_framework_for_co-evolution_of_planning_and_groundin/"
+    t: "Co-EPG: A Framework for Co-Evolution of Planning and Grounding in Autonomous GUI Agents"
+  - u: "cook_and_clean_together_teaching_embodied_agents_for_paralle/"
+    t: "Cook and Clean Together: Teaching Embodied Agents for Parallel Task Execution"
+  - u: "covrcollaborative_optimization_of_vlms_and_rl_agent_for_visu/"
+    t: "COVR: Collaborative Optimization of VLMs and RL Agent for Visual-Based Control"
+  - u: "d-gara_a_dynamic_benchmarking_framework_for_gui_agent_robust/"
+    t: "D-GARA: A Dynamic Benchmarking Framework for GUI Agent Robustness in Real-World Anomalies"
+  - u: "depo_dual-efficiency_preference_optimization_for_llm_agents/"
+    t: "DEPO: Dual-Efficiency Preference Optimization for LLM Agents"
+  - u: "from_biased_chatbots_to_biased_agents_examining_role_assignment_effects_on_llm_a/"
+    t: "From Biased Chatbots to Biased Agents: Examining Role Assignment Effects on LLM Agent Robustness"
+  - u: "history-aware_reasoning_for_gui_agents/"
+    t: "History-Aware Reasoning for GUI Agents"
+  - u: "llmtm_benchmarking_and_optimizing_llms_for_temporal_motif_analysis_in_dynamic_gr/"
+    t: "LLMTM: Benchmarking and Optimizing LLMs for Temporal Motif Analysis in Dynamic Graphs"
+  - u: "loss-guided_auxiliary_agents_for_overcoming_mode_collapse_in_gflownets/"
+    t: "Loss-Guided Auxiliary Agents for Overcoming Mode Collapse in GFlowNets"
+  - u: "moralreason_generalizable_moral_decision_alignment_for_llm_agents_using_reasonin/"
+    t: "MoralReason: Generalizable Moral Decision Alignment For LLM Agents Using Reasoning-Level Reinforcement Learning"
+  - u: "pertouch_vlm-driven_agent_for_personalized_and_semantic_image_retouching/"
+    t: "PerTouch: VLM-Driven Agent for Personalized and Semantic Image Retouching"
+  - u: "physics-informed_autonomous_llm_agents_for_explainable_power_electronics_modulat/"
+    t: "Physics-Informed Autonomous LLM Agents for Explainable Power Electronics Modulation Design"
+  - u: "probench_benchmarking_gui_agents_with_accurate_process_infor/"
+    t: "ProBench: Benchmarking GUI Agents with Accurate Process Information"
+  - u: "promoting_sustainable_web_agents_benchmarking_and_estimating_energy_consumption_/"
+    t: "Promoting Sustainable Web Agents: Benchmarking and Estimating Energy Consumption Through Empirical and Theoretical Analysis"
+  - u: "prune4web_dom_tree_pruning_programming_for_web_agent/"
+    t: "Prune4Web: DOM Tree Pruning Programming for Web Agent"
+  - u: "reflection-driven_control_for_trustworthy_code_agents/"
+    t: "Reflection-Driven Control for Trustworthy Code Agents"
+  - u: "some_a_realistic_benchmark_for_llm-based_social_media_agents/"
+    t: "SoMe: A Realistic Benchmark for LLM-based Social Media Agents"
+  - u: "structured_personalization_modeling_constraints_as_matroids_for_data-minimal_llm/"
+    t: "Structured Personalization: Modeling Constraints as Matroids for Data-Minimal LLM Agents"
+  - u: "time_identity_and_consciousness_in_language_model_agents/"
+    t: "Time, Identity and Consciousness in Language Model Agents"
+  - u: "tongui_internet-scale_trajectories_from_multimodal_web_tutor/"
+    t: "TongUI: Internet-Scale Trajectories from Multimodal Web Tutorials for Generalized GUI Agents"
+  - u: "towards_trustworthy_multi-turn_llm_agents_via_behavioral_guidance/"
+    t: "Towards Trustworthy Multi-Turn LLM Agents via Behavioral Guidance"
+  - u: "when_refusals_fail_unstable_safety_mechanisms_in_long-context_llm_agents/"
+    t: "When Refusals Fail: Unstable Safety Mechanisms in Long-Context LLM Agents"
+  - u: "with_great_capabilities_come_great_responsibilities_introducing_the_agentic_risk/"
+    t: "With Great Capabilities Come Great Responsibilities: Introducing the Agentic Risk & Capability Framework for Governing Agentic AI Systems"
+item_total: 30
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🤖 AAAI2026** · **30** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (40)](../../ICLR2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/index.md)
 
 🔥 **高频主题：** LLM ×10 · Agent ×8 · 推理 ×3 · 对抗鲁棒 ×2 · 对齐/RLHF ×2
 

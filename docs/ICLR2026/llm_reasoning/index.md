@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 LLM 推理方向82篇论文解读
+  ICLR2026 LLM推理论文汇总 · 80篇论文解读
 description: >-
-  82篇ICLR2026的 LLM 推理方向论文解读，涵盖推理、LLM、多模态、Agent、强化学习、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  80篇ICLR2026的 LLM 推理方向论文解读，涵盖推理、LLM、多模态、Agent、强化学习、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "LLM 推理"
@@ -14,16 +14,78 @@ tags:
   - "Agent"
   - "强化学习"
   - "对抗鲁棒"
+item_list:
+  - u: "a_state-transition_framework_for_efficient_llm_reasoning/"
+    t: "A State-Transition Framework for Efficient LLM Reasoning"
+  - u: "activationreasoning_logical_reasoning_in_latent_activation_spaces/"
+    t: "ActivationReasoning: Logical Reasoning in Latent Activation Spaces"
+  - u: "adaptive_social_learning_via_mode_policy_optimization_for_language_agents/"
+    t: "Adaptive Social Learning via Mode Policy Optimization for Language Agents"
+  - u: "agentified_assessment_of_logical_reasoning_agents/"
+    t: "Agentified Assessment of Logical Reasoning Agents"
+  - u: "agentmath_empowering_mathematical_reasoning_for_large_language_models_via_tool-a/"
+    t: "AgentMath: Empowering Mathematical Reasoning for Large Language Models via Tool-Augmented Agent"
+  - u: "aimcot_active_information-driven_multimodal_chain-of-thought_for_vision-language/"
+    t: "AIMCoT: Active Information-driven Multimodal Chain-of-Thought for Vision-Language Reasoning"
+  - u: "annotation-efficient_universal_honesty_alignment/"
+    t: "Annotation-Efficient Universal Honesty Alignment"
+  - u: "are_reasoning_llms_robust_to_interventions_on_their_chain-of-thought/"
+    t: "Are Reasoning LLMs Robust to Interventions on Their Chain-of-Thought?"
+  - u: "atts_asynchronous_test-time_scaling_via_conformal_prediction/"
+    t: "ATTS: Asynchronous Test-Time Scaling via Conformal Prediction"
+  - u: "beyond_prompt-induced_lies_investigating_llm_deception_on_benign_prompts/"
+    t: "Beyond Prompt-Induced Lies: Investigating LLM Deception on Benign Prompts"
+  - u: "co-rewarding_stable_self-supervised_rl_for_eliciting_reasoning_in_large_language/"
+    t: "Co-rewarding: Stable Self-supervised RL for Eliciting Reasoning in Large Language Models"
+  - u: "compositional_generalization_from_learned_skills_via_cot_training_a_theoretical_/"
+    t: "Compositional Generalization from Learned Skills via CoT Training: A Theoretical and Structural Analysis for Reasoning"
+  - u: "conflict-aware_fusion_resolving_logic_inertia_in_large_language_models_via_struc/"
+    t: "Conflict-Aware Fusion: Resolving Logic Inertia in Large Language Models via Structured Cognitive Priors"
+  - u: "continuous_chain_of_thought_enables_parallel_exploration_and_reasoning/"
+    t: "Continuous Chain of Thought Enables Parallel Exploration and Reasoning"
+  - u: "cot-rvs_zero-shot_chain-of-thought_reasoning_segmentation_for_videos/"
+    t: "CoT-RVS: Zero-Shot Chain-of-Thought Reasoning Segmentation for Videos"
+  - u: "cyclicreflex_improving_reasoning_models_via_cyclical_reflection_token_scheduling/"
+    t: "CyclicReflex: Improving Reasoning Models via Cyclical Reflection Token Scheduling"
+  - u: "dag-math_graph-of-thought_guided_mathematical_reasoning_in_llms/"
+    t: "DAG-Math: Graph-of-Thought Guided Mathematical Reasoning in LLMs"
+  - u: "designer_design-logic-guided_multidisciplinary_data_synthesis_for_llm_reasoning/"
+    t: "DESIGNER: Design-Logic-Guided Multidisciplinary Data Synthesis for LLM Reasoning"
+  - u: "drpo_efficient_reasoning_via_decoupled_reward_policy_optimization/"
+    t: "DRPO: Efficient Reasoning via Decoupled Reward Policy Optimization"
+  - u: "dynamics-predictive_sampling_for_active_rl_finetuning_of_large_reasoning_models/"
+    t: "Dynamics-Predictive Sampling for Active RL Finetuning of Large Reasoning Models"
+  - u: "dynamics_within_latent_chain-of-thought_an_empirical_study_of_causal_structure/"
+    t: "Dynamics Within Latent Chain-of-Thought: An Empirical Study of Causal Structure"
+  - u: "efficient_test-time_scaling_for_small_vision-language_models/"
+    t: "Efficient Test-Time Scaling for Small Vision-Language Models"
+  - u: "estimating_the_empowerment_of_language_model_agents/"
+    t: "Estimating the Empowerment of Language Model Agents"
+  - u: "evoking_user_memory_personalizing_llm_via_recollection-familiarity_adaptive_retr/"
+    t: "Evoking User Memory: Personalizing LLM via Recollection-Familiarity Adaptive Retrieval"
+  - u: "fastgrpo_accelerating_policy_optimization_via_concurrency-aware_speculative_deco/"
+    t: "FastGRPO: Accelerating Policy Optimization via Concurrency-aware Speculative Decoding and Online Draft Learning"
+  - u: "fine-r1_make_multi-modal_llms_excel_in_fine-grained_visual_recognition_by_chain-/"
+    t: "Fine-R1: Make Multi-modal LLMs Excel in Fine-Grained Visual Recognition by Chain-of-Thought Reasoning"
+  - u: "fixing_the_broken_compass_diagnosing_and_improving_inference-time_reward_modelin/"
+    t: "Fixing the Broken Compass: Diagnosing and Improving Inference-Time Reward Modeling"
+  - u: "from_abstract_to_contextual_what_llms_still_cannot_do_in_math_word_problem_solvi/"
+    t: "From Abstract to Contextual: What LLMs Still Cannot Do in Mathematics"
+  - u: "from_assumptions_to_actions_turning_llm_reasoning_into_uncertainty-aware_plannin/"
+    t: "From Assumptions to Actions: Turning LLM Reasoning into Uncertainty-Aware Planning"
+  - u: "generalizable_end-to-end_tool-use_rl_with_synthetic_codegym/"
+    t: "Generalizable End-to-End Tool-Use RL with Synthetic CodeGym"
+item_total: 80
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM 推理
 
-**🔬 ICLR2026** · **82** 篇论文解读
+**🔬 ICLR2026** · **80** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (83)](../../NeurIPS2025/llm_reasoning/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_reasoning/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/index.md)
 
-🔥 **高频主题：** 推理 ×59 · LLM ×24 · 多模态 ×4 · Agent ×3 · 强化学习 ×3
+🔥 **高频主题：** 推理 ×57 · LLM ×22 · 多模态 ×4 · Agent ×3 · 强化学习 ×3
 
 **[A State-Transition Framework for Efficient LLM Reasoning](a_state-transition_framework_for_efficient_llm_reasoning.md)**
 
@@ -173,10 +235,6 @@ tags:
 
 :   提出LingOly-TOO基准，通过专家设计的正字法置换（grapheme-level permutation）对语言学奥赛题进行混淆，保留推理逻辑但消除知识/记忆捷径，将15个前沿模型的最高分从0.59降至0.48，系统量化了LLM推理能力被知识效应高估的程度。
 
-**[LogicReward: Incentivizing LLM Reasoning via Step-Wise Logical Supervision](logicreward_incentivizing_llm_reasoning_via_step-wise_logical_supervision.md)**
-
-:   提出LogicReward奖励函数，用Isabelle定理证明器做步骤级逻辑正确性验证，结合Autoformalization with Soft Unification减少自然语言歧义，训练出的8B模型在NLI和逻辑推理任务上超越GPT-4o 11.6%和o4-mini 2%。
-
 **[MathFimer: Enhancing Mathematical Reasoning by Expanding Reasoning Steps through Fill-in-the-Middle Task](mathfimer_enhancing_mathematical_reasoning_by_expanding_reasoning_steps_through_.md)**
 
 :   借鉴代码补全中的 Fill-in-the-Middle (FIM) 范式，训练一个专门的步骤扩展模型 MathFimer-7B，在已有数学解题链中插入更细粒度的中间推理步骤，从而系统性提升下游模型的数学推理能力。
@@ -252,10 +310,6 @@ tags:
 **[Segment-Level Attribution for Selective Learning of Long Reasoning Traces](segment-level_attribution_for_selective_learning_of_long_reasoning_traces.md)**
 
 :   用Integrated Gradients计算长推理链中每个segment对最终答案的归因强度和方向一致性，识别重要segment进行选择性SFT，相比全CoT训练提升准确率达4.7%同时缩短输出18%。
-
-**[Slow-Fast Policy Optimization: Reposition-Before-Update for LLM Reasoning](slow-fast_policy_optimization_reposition-before-update_for_llm_reasoning.md)**
-
-:   提出 SFPO（Slow-Fast Policy Optimization），通过将每个训练步分解为"快速轨迹—重定位—慢速校正"三阶段结构，在不修改目标函数和 rollout 过程的前提下即插即用地增强 GRPO 的稳定性和样本效率，在数学推理基准上平均提升最高 2.80 分，rollout 减少最多 4.93 倍。
 
 **[Stabilizing Policy Gradients for Sample-Efficient Reinforcement Learning in LLM Reasoning](stabilizing_policy_gradients_for_sample-efficient_reinforcement_learning_in_llm_.md)**
 

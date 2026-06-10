@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 视频生成方向2篇论文解读
+  ACL2025 视频生成论文汇总 · 2篇论文解读
 description: >-
   2篇ACL2025的视频生成方向论文解读，涵盖视频生成、布局/合成、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,12 @@ tags:
   - "论文笔记"
   - "布局/合成"
   - "少样本学习"
+item_list:
+  - u: "q2e_query-to-event_decomposition_for_zero-shot_multilingual_text-to-video_retrie/"
+    t: "Q2E: Query-to-Event Decomposition for Zero-Shot Multilingual Text-to-Video Retrieval"
+  - u: "vidcapbench_a_comprehensive_benchmark_of_video_captioning_for_controllable_text-/"
+    t: "VidCapBench: A Comprehensive Benchmark of Video Captioning for Controllable Text-to-Video Generation"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

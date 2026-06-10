@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 人体理解方向2篇论文解读
+  ACL2025 人体理解论文汇总 · 2篇论文解读
 description: >-
   2篇ACL2025的人体理解方向论文解读，涵盖人脸/视线、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,12 @@ tags:
   - "论文笔记"
   - "人脸/视线"
   - "推理"
+item_list:
+  - u: "beyond_surface_simplicity_revealing_hidden_reasoning_attributes_for_precise_comm/"
+    t: "Beyond Surface Simplicity: Revealing Hidden Reasoning Attributes for Precise Commonsense Diagnosis"
+  - u: "transbench_breaking_barriers_for_transferable_graphical_user_interface_agents_in/"
+    t: "TransBench: Breaking Barriers for Transferable Graphical User Interface Agents in Dynamic Digital Environments"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +23,7 @@ tags:
 
 **💬 ACL2025** · **2** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (17)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md)
 
 🔥 **高频主题：** 人脸/视线 ×2
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ECCV2024 LLM Agent方向3篇论文解读
+  ECCV2024 LLMAgent论文汇总 · 3篇论文解读
 description: >-
   3篇ECCV2024的 LLM Agent 方向论文解读，涵盖 Agent、少样本学习、布局/合成、推理、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -13,6 +13,14 @@ tags:
   - "布局/合成"
   - "推理"
   - "多模态"
+item_list:
+  - u: "agent3d-zero_an_agent_for_zero-shot_3d_understanding/"
+    t: "Agent3D-Zero: An Agent for Zero-shot 3D Understanding"
+  - u: "hydra_a_hyper_agent_for_dynamic_compositional_visual_reasoning/"
+    t: "HYDRA: A Hyper Agent for Dynamic Compositional Visual Reasoning"
+  - u: "videoagent_a_memory-augmented_multimodal_agent_for_video_understanding/"
+    t: "VideoAgent: A Memory-augmented Multimodal Agent for Video Understanding"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +28,7 @@ tags:
 
 **🎞️ ECCV2024** · **3** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (40)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md)
 
 🔥 **高频主题：** Agent ×3
 

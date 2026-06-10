@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 计算生物方向38篇论文解读
+  ICLR2026 计算生物论文汇总 · 35篇论文解读
 description: >-
-  38篇ICLR2026的计算生物方向论文解读，涵盖生物分子、扩散模型、LLM、对抗鲁棒、医学影像、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  35篇ICLR2026的计算生物方向论文解读，涵盖生物分子、扩散模型、LLM、医学影像、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "计算生物"
@@ -11,19 +11,80 @@ tags:
   - "生物分子"
   - "扩散模型"
   - "LLM"
-  - "对抗鲁棒"
   - "医学影像"
   - "对齐/RLHF"
+item_list:
+  - u: "a_genetic_algorithm_for_navigating_synthesizable_molecular_spaces/"
+    t: "A Genetic Algorithm for Navigating Synthesizable Molecular Spaces"
+  - u: "afd-instruction_a_comprehensive_antibody_instruction_dataset_with_functional_ann/"
+    t: "AFD-INSTRUCTION: A Comprehensive Antibody Instruction Dataset with Functional Annotations for LLM-Based Understanding and Design"
+  - u: "antigenlm_structure-aware_dna_language_modeling_for_influenza/"
+    t: "AntigenLM: Structure-Aware DNA Language Modeling for Influenza"
+  - u: "confhit_conformal_generative_design_with_oracle_free_guarantees/"
+    t: "ConfHit: Conformal Generative Design with Oracle Free Guarantees"
+  - u: "contact-guided_3d_genome_structure_generation_of_e_coli_via_diffusion_transforme/"
+    t: "Contact-Guided 3D Genome Structure Generation of E. coli via Diffusion Transformers"
+  - u: "controllable_sequence_editing_for_biological_and_clinical_trajectories/"
+    t: "Controllable Sequence Editing for Biological and Clinical Trajectories"
+  - u: "controlling_repetition_in_protein_language_models/"
+    t: "Controlling Repetition in Protein Language Models"
+  - u: "cords_continuous_representations_of_discrete_structures/"
+    t: "CORDS: Continuous Representations of Discrete Structures"
+  - u: "cryonetrefine_a_one-step_diffusion_model_for_rapid_refinement_of_structural_mode/"
+    t: "CryoNet.Refine: A One-step Diffusion Model for Rapid Refinement of Structural Models with Cryo-EM Density Map Restraints"
+  - u: "diffusion_alignment_as_variational_expectation-maximization/"
+    t: "Diffusion Alignment as Variational Expectation-Maximization"
+  - u: "discrete_diffusion_trajectory_alignment_via_stepwise_decomposition/"
+    t: "Discrete Diffusion Trajectory Alignment via Stepwise Decomposition"
+  - u: "distmlip_a_distributed_inference_platform_for_machine_learning_interatomic_poten/"
+    t: "DistMLIP: A Distributed Inference Platform for Machine Learning Interatomic Potentials"
+  - u: "driftlite_lightweight_drift_control_for_inference-time_scaling_of_diffusion_mode/"
+    t: "DriftLite: Lightweight Drift Control for Inference-Time Scaling of Diffusion Models"
+  - u: "enhancing_molecular_property_predictions_by_learning_from_bond_modelling_and_int/"
+    t: "Enhancing Molecular Property Predictions by Learning from Bond Modelling and Interactions"
+  - u: "evoflows_evolutionary_edit-based_flow-matching_for_protein_engineering/"
+    t: "EvoFlows: Evolutionary Edit-Based Flow-Matching for Protein Engineering"
+  - u: "fine-tuning_diffusion_models_via_intermediate_distribution_shaping/"
+    t: "Fine-Tuning Diffusion Models via Intermediate Distribution Shaping"
+  - u: "fusing_pixels_and_genes_spatially-aware_learning_in_computational_pathology/"
+    t: "Fusing Pixels and Genes: Spatially-Aware Learning in Computational Pathology"
+  - u: "how_to_make_the_most_of_your_masked_language_model_for_protein_engineering/"
+    t: "How to Make the Most of Your Masked Language Model for Protein Engineering"
+  - u: "intrinsic_lorentz_neural_network/"
+    t: "Intrinsic Lorentz Neural Network"
+  - u: "learning_molecular_chirality_via_chiral_determinant_kernels/"
+    t: "Learning Molecular Chirality via Chiral Determinant Kernels"
+  - u: "protein_as_a_second_language_for_llms/"
+    t: "Protein as a Second Language for LLMs"
+  - u: "protein_counterfactuals_via_diffusion-guided_latent_optimization/"
+    t: "Protein Counterfactuals via Diffusion-Guided Latent Optimization"
+  - u: "protein_structure_tokenization_via_geometric_byte_pair_encoding/"
+    t: "Protein Structure Tokenization via Geometric Byte Pair Encoding"
+  - u: "retrieval-augmented_generation_for_predicting_cellular_responses_to_gene_perturb/"
+    t: "Retrieval-Augmented Generation for Predicting Cellular Responses to Gene Perturbation"
+  - u: "reverse_distillation_consistently_scaling_protein_language_model_representations/"
+    t: "Reverse Distillation: Consistently Scaling Protein Language Model Representations"
+  - u: "scalable_spatio-temporal_se3_diffusion_for_long-horizon_protein_dynamics/"
+    t: "Scalable Spatio-Temporal SE(3) Diffusion for Long-Horizon Protein Dynamics"
+  - u: "scdfm_distributional_flow_matching_model_for_robust_single-cell_perturbation_pre/"
+    t: "scDFM: Distributional Flow Matching for Robust Single-Cell Perturbation Prediction"
+  - u: "syncogen_synthesizable_3d_molecule_generation_via_joint_reaction_and_coordinate_/"
+    t: "SynCoGen: Synthesizable 3D Molecule Generation via Joint Reaction and Coordinate Modeling"
+  - u: "thompson_sampling_via_fine-tuning_of_llms/"
+    t: "Thompson Sampling via Fine-Tuning of LLMs"
+  - u: "tracing_pharmacological_knowledge_in_large_language_models/"
+    t: "Tracing Pharmacological Knowledge in Large Language Models"
+item_total: 35
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧬 计算生物
 
-**🔬 ICLR2026** · **38** 篇论文解读
+**🔬 ICLR2026** · **35** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (11)](../../CVPR2026/computational_biology/index.md) · [🤖 AAAI2026 (20)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/computational_biology/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (74)](../../NeurIPS2025/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
 
-🔥 **高频主题：** 生物分子 ×12 · 扩散模型 ×9 · LLM ×3 · 对抗鲁棒 ×2 · 医学影像 ×2
+🔥 **高频主题：** 生物分子 ×12 · 扩散模型 ×9 · LLM ×2 · 医学影像 ×2 · 对齐/RLHF ×2
 
 **[A Genetic Algorithm for Navigating Synthesizable Molecular Spaces](a_genetic_algorithm_for_navigating_synthesizable_molecular_spaces.md)**
 
@@ -32,10 +93,6 @@ tags:
 **[AFD-INSTRUCTION: A Comprehensive Antibody Instruction Dataset with Functional Annotations for LLM-Based Understanding and Design](afd-instruction_a_comprehensive_antibody_instruction_dataset_with_functional_ann.md)**
 
 :   构建了首个大规模抗体功能注释指令数据集AFD-Instruction（430K+条目），通过多智能体文献抽取pipeline对齐抗体序列与自然语言功能描述，用于指令微调通用LLM使其掌握抗体理解和功能导向设计能力，在5类分类任务上平均准确率提升20+点。
-
-**[Antibody: Strengthening Defense Against Harmful Fine-Tuning for Large Language Models via Attenuating Harmful Gradient Influence](antibody_strengthening_defense_against_harmful_fine-tuning_for_large_language_mo.md)**
-
-:   提出Antibody防御框架：在对齐阶段通过平坦度正则化使模型处于有害损失的平坦区域（梯度小→难被攻击），在微调阶段用基于模型安全知识的样本加权方案（对比目标完成 vs 拒绝的似然比）抑制有害样本的学习，平均Harmful Score从15.29%降至7.04%。
 
 **[AntigenLM: Structure-Aware DNA Language Modeling for Influenza](antigenlm_structure-aware_dna_language_modeling_for_influenza.md)**
 
@@ -89,10 +146,6 @@ tags:
 
 :   EvoFlows 提出一种基于编辑操作的 Flow Matching 方法，通过学习进化相关蛋白质序列间的突变轨迹，能在模板序列上执行可控数量的突变（插入、删除、替换），同时预测"突变什么"和"在哪里突变"。
 
-**[Extending Sequence Length is Not All You Need: Effective Integration of Multimodal Signals for Gene Expression Prediction](extending_sequence_length_is_not_all_you_need_effective_integration_of_multimoda.md)**
-
-:   挑战基因表达预测中"越长越好"的长序列建模范式，发现当前 SSM 模型本质上只利用近端信息；进而识别出背景染色质信号（DNase-seq/Hi-C）作为混杂变量引入虚假关联，提出 Prism 框架通过后门调整去混杂，仅用 2k 短序列即超越 200k 长序列的 SOTA。
-
 **[Fine-Tuning Diffusion Models via Intermediate Distribution Shaping](fine-tuning_diffusion_models_via_intermediate_distribution_shaping.md)**
 
 :   统一拒绝采样微调方法为GRAFT框架并证明其隐式执行KL正则化奖励最大化，进而提出P-GRAFT在中间去噪步骤做分布整形（偏差-方差权衡更优），以及Inverse Noise Correction无需奖励即可改进流模型质量，在T2I上VQAScore提升8.81%。
@@ -100,10 +153,6 @@ tags:
 **[Fusing Pixels and Genes: Spatially-Aware Learning in Computational Pathology](fusing_pixels_and_genes_spatially-aware_learning_in_computational_pathology.md)**
 
 :   本文提出 Stamp 框架，利用空间转录组学基因表达数据作为监督信号，通过空间感知基因编码器预训练和层次化多尺度对比对齐，实现病理图像与空间转录组数据的联合表示学习，在 6 个数据集 4 个下游任务上取得 SOTA。
-
-**[HeurekaBench: A Benchmarking Framework for AI Co-scientist](heurekabench_a_benchmarking_framework_for_ai_co-scientist.md)**
-
-:   提出 HeurekaBench，一个基于真实科学工作流构建评测基准的框架，通过多LLM流水线从论文中提取可验证的科学洞见并生成开放式研究问题，用于评估AI co-scientist在数据驱动科学发现中的端到端能力。
 
 **[How to Make the Most of Your Masked Language Model for Protein Engineering](how_to_make_the_most_of_your_masked_language_model_for_protein_engineering.md)**
 

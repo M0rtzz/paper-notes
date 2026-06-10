@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 知识编辑方向6篇论文解读
+  NeurIPS2025 知识编辑论文汇总 · 6篇论文解读
 description: >-
   6篇NeurIPS2025的知识编辑方向论文解读，涵盖布局/合成、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,20 @@ tags:
   - "论文笔记"
   - "布局/合成"
   - "LLM"
+item_list:
+  - u: "edit_less_achieve_more_dynamic_sparse_neuron_masking_for_lifelong_knowledge_edit/"
+    t: "Edit Less, Achieve More: Dynamic Sparse Neuron Masking for Lifelong Knowledge Editing in LLMs"
+  - u: "kscope_a_framework_for_characterizing_the_knowledge_status_of_language_models/"
+    t: "KScope: A Framework for Characterizing the Knowledge Status of Language Models"
+  - u: "memeic_a_step_toward_continual_and_compositional_knowledge_editing/"
+    t: "MemEIC: A Step Toward Continual and Compositional Knowledge Editing"
+  - u: "memoir_lifelong_model_editing_with_minimal_overwrite_and_informed_retention_for_/"
+    t: "MEMOIR: Lifelong Model Editing with Minimal Overwrite and Informed Retention for LLMs"
+  - u: "rethinking_residual_distribution_in_locate-then-edit_model_editing/"
+    t: "Rethinking Residual Distribution in Locate-then-Edit Model Editing"
+  - u: "uniedit_a_unified_knowledge_editing_benchmark_for_large_language_models/"
+    t: "UniEdit: A Unified Knowledge Editing Benchmark for Large Language Models"
+item_total: 6
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

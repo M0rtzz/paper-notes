@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 因果推理方向16篇论文解读
+  ICML2026 因果推理论文汇总 · 16篇论文解读
 description: >-
   16篇ICML2026的因果推理方向论文解读，涵盖对抗鲁棒、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,40 @@ tags:
   - "论文笔记"
   - "对抗鲁棒"
   - "推理"
+item_list:
+  - u: "an_odd_estimator_for_shapley_values/"
+    t: "An Odd Estimator for Shapley Values"
+  - u: "causal-jepa_learning_world_models_through_object-level_latent_masking/"
+    t: "Causal-JEPA: Learning World Models through Object-Level Latent Masking"
+  - u: "controllable_generative_sandbox_for_causal_inference/"
+    t: "Controllable Generative Sandbox for Causal Inference"
+  - u: "density-guided_robust_counterfactual_explanations_on_tabular_data_under_model_mu/"
+    t: "Density-Guided Robust Counterfactual Explanations on Tabular Data under Model Multiplicity"
+  - u: "ecsel_explainable_classification_via_signomial_equation_learning/"
+    t: "ECSEL: Explainable Classification via Signomial Equation Learning"
+  - u: "evaluating_bivariate_causal_statements_based_on_mutual_compatibility/"
+    t: "Evaluating Bivariate Causal Statements Based on Mutual Compatibility"
+  - u: "formalizing_and_falsifying_causal_pathways_of_rare_events/"
+    t: "Formalizing and Falsifying Causal Pathways of Rare Events"
+  - u: "harnessing_reasoning_trajectories_for_hallucination_detection_via_answer-agreeme/"
+    t: "Harnessing Reasoning Trajectories for Hallucination Detection via Answer-agreement Representation Shaping"
+  - u: "investigating_memory_in_model-free_rl_with_popgym_arcade/"
+    t: "Investigating Memory in Model-Free RL with POPGym Arcade"
+  - u: "outcome-aware_spectral_feature_learning_for_instrumental_variable_regression/"
+    t: "Outcome-Aware Spectral Feature Learning for Instrumental Variable Regression"
+  - u: "rank-learner_orthogonal_ranking_of_treatment_effects/"
+    t: "Rank-Learner: Orthogonal Ranking of Treatment Effects"
+  - u: "tailoring_strictly_proper_scoring_rules_for_downstream_tasks_an_application_to_c/"
+    t: "Tailoring Strictly Proper Scoring Rules for Downstream Tasks: An Application to Causal Inference"
+  - u: "the_marginal_value_of_a_search_ad_an_online_causal_framework_for_repeated_second/"
+    t: "The (Marginal) Value of a Search Ad: An Online Causal Framework for Repeated Second-price Auctions"
+  - u: "the_synthetic_web_adversarially-curated_mini-internets_for_diagnosing_epistemic_/"
+    t: "The Synthetic Web: Adversarially-Curated Mini-Internets for Diagnosing Epistemic Weaknesses of Language Agents"
+  - u: "towards_a_holistic_understanding_of_selection_bias_for_causal_effect_identificat/"
+    t: "Towards a Holistic Understanding of Selection Bias for Causal Effect Identification"
+  - u: "unveiling_the_structure_of_do-calculus_reasoning_via_derivation_graphs/"
+    t: "Unveiling the Structure of Do-Calculus Reasoning via Derivation Graphs"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +51,7 @@ tags:
 
 **🧪 ICML2026** · **16** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×2 · 推理 ×2
 

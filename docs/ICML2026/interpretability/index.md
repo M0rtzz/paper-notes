@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 可解释性方向72篇论文解读
+  ICML2026 可解释性论文汇总 · 72篇论文解读
 description: >-
   72篇ICML2026的可解释性方向论文解读，涵盖 LLM、对齐/RLHF、推理、布局/合成、自监督学习、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "布局/合成"
   - "自监督学习"
   - "对抗鲁棒"
+item_list:
+  - u: "a_behavioural_and_representational_evaluation_of_goal-directedness_in_language_m/"
+    t: "A Behavioural and Representational Evaluation of Goal-Directedness in Language Model Agents"
+  - u: "a_deep_learning_model_of_mental_rotation_informed_by_interactive_vr_experiments/"
+    t: "A Deep Learning Model of Mental Rotation Informed by Interactive VR Experiments"
+  - u: "accurate_evaluation_of_quickest_changepoint_detectors_via_non-parametric_surviva/"
+    t: "Accurate Evaluation of Quickest Changepoint Detectors via Non-parametric Survival Analysis"
+  - u: "adaptive_querying_with_ai_persona_priors/"
+    t: "Adaptive Querying with AI Persona Priors"
+  - u: "all_circuits_lead_to_rome_rethinking_functional_anisotropy_in_circuit_and_sheaf_/"
+    t: "All Circuits Lead to Rome: Rethinking Functional Anisotropy in Circuit and Sheaf Discovery for LLMs"
+  - u: "beyond_additive_decompositions_interpretability_through_separability/"
+    t: "Beyond Additive Decompositions: Interpretability Through Separability"
+  - u: "block-em_preventing_emergent_misalignment_via_latent_blocking/"
+    t: "BLOCK-EM: Preventing Emergent Misalignment via Latent Blocking"
+  - u: "breaking_the_simplification_bottleneck_in_amortized_neural_symbolic_regression/"
+    t: "Breaking the Simplification Bottleneck in Amortized Neural Symbolic Regression"
+  - u: "bridging_the_knowledge-prediction_gap_in_llms_on_multiple-choice_questions/"
+    t: "Bridging the Knowledge-Prediction Gap in LLMs on Multiple-Choice Questions"
+  - u: "cb-slice_concept-based_interpretable_error_slice_discovery/"
+    t: "CB-SLICE: Concept-Based Interpretable Error Slice Discovery"
+  - u: "certified_circuits_stability_guarantees_for_mechanistic_circuits/"
+    t: "Certified Circuits: Stability Guarantees for Mechanistic Circuits"
+  - u: "circuit_fingerprints_how_answer_tokens_encode_their_geometrical_path/"
+    t: "Circuit Fingerprints: How Answer Tokens Encode Their Geometrical Path"
+  - u: "cognitive_fatigue_in_autoregressive_transformers_formalization_and_measurement/"
+    t: "Cognitive Fatigue in Autoregressive Transformers: Formalization and Measurement"
+  - u: "corrsteer_generation-time_llm_steering_via_correlated_sparse_autoencoder_feature/"
+    t: "CorrSteer: Generation-Time LLM Steering via Correlated Sparse Autoencoder Features"
+  - u: "courtroom_analogy_new_perspective_on_uncertainty-aware_classification/"
+    t: "Courtroom Analogy: New Perspective on Uncertainty-Aware Classification"
+  - u: "diagnosing_the_reliability_of_llm-as-a-judge_via_item_response_theory/"
+    t: "Diagnosing the Reliability of LLM-as-a-Judge via Item Response Theory"
+  - u: "discovering_differences_in_strategic_behavior_between_humans_and_llms/"
+    t: "Discovering Differences in Strategic Behavior Between Humans and LLMs"
+  - u: "discovering_implicit_large_language_model_alignment_objectives/"
+    t: "Discovering Implicit Large Language Model Alignment Objectives"
+  - u: "disentangling_direction_and_magnitude_in_transformer_representations_a_double_di/"
+    t: "Disentangling Direction and Magnitude in Transformer Representations: A Double Dissociation Through L2-Matched Perturbation Analysis"
+  - u: "dissecting_multimodal_in-context_learning_modality_asymmetries_and_circuit_dynam/"
+    t: "Dissecting Multimodal In-Context Learning: Modality Asymmetries and Circuit Dynamics in modern Transformers"
+  - u: "dllm-jepa_joint_embedding_predictive_architectures_for_masked_diffusion_language/"
+    t: "DLLM-JEPA: Joint Embedding Predictive Architectures for Masked Diffusion Language Models"
+  - u: "do_activation_verbalization_methods_convey_privileged_information/"
+    t: "Do Activation Verbalization Methods Convey Privileged Information?"
+  - u: "dual_mechanisms_of_value_expression_intrinsic_vs_prompted_values_in_large_langua/"
+    t: "Dual Mechanisms of Value Expression: Intrinsic vs. Prompted Values in Large Language Models"
+  - u: "equilibrium_reasoners_learning_attractors_enables_scalable_reasoning/"
+    t: "Equilibrium Reasoners: Learning Attractors Enables Scalable Reasoning"
+  - u: "expand_neurons_not_parameters/"
+    t: "Expand Neurons, Not Parameters"
+  - u: "finding_the_correct_visual_evidence_without_forgetting_mitigating_hallucination_/"
+    t: "Finding the Correct Visual Evidence Without Forgetting: Mitigating Hallucination in LVLMs via Inter-Layer Visual Attention Discrepancy"
+  - u: "formalizing_the_binding_problem/"
+    t: "Formalizing the Binding Problem"
+  - u: "from_rashomon_theory_to_praxis_efficient_decision_tree_rashomon_sets/"
+    t: "From Rashomon Theory to PRAXIS: Efficient Decision Tree Rashomon Sets"
+  - u: "gem_geometric_entropy_mixing_for_optimal_llm_data_curation/"
+    t: "GEM: Geometric Entropy Mixing for Optimal LLM Data Curation"
+  - u: "global_plane_waves_from_local_gaussians_periodic_charge_densities_in_a_blink/"
+    t: "Global Plane Waves from Local Gaussians: Periodic Charge Densities in a Blink"
+item_total: 72
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧪 ICML2026** · **72** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
 
 🔥 **高频主题：** LLM ×8 · 对齐/RLHF ×3 · 推理 ×3 · 布局/合成 ×2 · 自监督学习 ×2
 

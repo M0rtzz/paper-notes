@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 多语言/翻译方向11篇论文解读
+  NeurIPS2025 多语言/翻译论文汇总 · 11篇论文解读
 description: >-
   11篇NeurIPS2025的多语言/翻译方向论文解读，涵盖 LLM、翻译、对齐/RLHF、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,30 @@ tags:
   - "翻译"
   - "对齐/RLHF"
   - "少样本学习"
+item_list:
+  - u: "adaptive_originality_filtering_rejection_based_prompting_and_riddlescore_for_cul/"
+    t: "Adaptive Originality Filtering: Rejection-Based Prompting and RiddleScore for Culturally Grounded Multilingual Riddle Generation"
+  - u: "exploring_the_translation_mechanism_of_large_language_models/"
+    t: "Exploring the Translation Mechanism of Large Language Models"
+  - u: "helpsteer3-preference_open_human-annotated_preference_data_across_diverse_tasks_/"
+    t: "HelpSteer3-Preference: Open Human-Annotated Preference Data across Diverse Tasks and Languages"
+  - u: "how_data_mixing_shapes_in-context_learning_asymptotic_equivalence_for_transforme/"
+    t: "How Data Mixing Shapes In-Context Learning: Asymptotic Equivalence for Transformers with MLPs"
+  - u: "merit_multilingual_semantic_retrieval_with_interleaved_multi-condition_query/"
+    t: "MERIT: Multilingual Semantic Retrieval with Interleaved Multi-Condition Query"
+  - u: "on_extending_direct_preference_optimization_to_accommodate_ties/"
+    t: "On Extending Direct Preference Optimization to Accommodate Ties"
+  - u: "parallelprompt_extracting_parallelism_from_large_language_model_queries/"
+    t: "ParallelPrompt: Extracting Parallelism from Large Language Model Queries"
+  - u: "quantifying_climate_policy_action_and_its_links_to_development_outcomes_a_cross-/"
+    t: "Quantifying Climate Policy Action and Its Links to Development Outcomes: A Cross-National Data-Driven Analysis"
+  - u: "reflective_translation_improving_low-resource_machine_translation_via_structured/"
+    t: "Reflective Translation: Improving Low-Resource Machine Translation via Structured Self-Reflection"
+  - u: "xifbench_evaluating_large_language_models_on_multilingual_instruction_following/"
+    t: "XIFBench: Evaluating Large Language Models on Multilingual Instruction Following"
+  - u: "zero-shot_performance_prediction_for_probabilistic_scaling_laws/"
+    t: "Zero-Shot Performance Prediction for Probabilistic Scaling Laws"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

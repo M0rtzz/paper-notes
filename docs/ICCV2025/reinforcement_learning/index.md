@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 强化学习方向7篇论文解读
+  ICCV2025 强化学习论文汇总 · 7篇论文解读
 description: >-
   7篇ICCV2025的强化学习方向论文解读，涵盖导航、自监督学习、多模态、推理、强化学习、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,22 @@ tags:
   - "多模态"
   - "推理"
   - "布局/合成"
+item_list:
+  - u: "embodied_navigation_with_auxiliary_task_of_action_description_prediction/"
+    t: "Embodied Navigation with Auxiliary Task of Action Description Prediction"
+  - u: "mdp3_a_training-free_approach_for_list-wise_frame_selection_in_video-llms/"
+    t: "mDP3: A Training-free Approach for List-wise Frame Selection in Video-LLMs"
+  - u: "navq_learning_a_q-model_for_foresighted_vision-and-language_navigation/"
+    t: "NavQ: Learning a Q-Model for Foresighted Vision-and-Language Navigation"
+  - u: "progressor_a_perceptually_guided_reward_estimator_with_self-supervised_online_re/"
+    t: "Progressor: A Perceptually Guided Reward Estimator with Self-Supervised Online Refinement"
+  - u: "r1-onevision_advancing_generalized_multimodal_reasoning_through_cross-modal_form/"
+    t: "R1-Onevision: Advancing Generalized Multimodal Reasoning through Cross-Modal Formalization"
+  - u: "reinforcement_learning-guided_data_selection_via_redundancy_assessment/"
+    t: "RL-Selector: Reinforcement Learning-Guided Data Selection via Redundancy Assessment"
+  - u: "robofactory_exploring_embodied_agent_collaboration_with_compositional_constraint/"
+    t: "RoboFactory: Exploring Embodied Agent Collaboration with Compositional Constraints"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

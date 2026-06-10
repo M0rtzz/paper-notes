@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 遥感方向16篇论文解读
+  CVPR2026 遥感论文汇总 · 16篇论文解读
 description: >-
   16篇CVPR2026的遥感方向论文解读，涵盖遥感、多模态、对齐/RLHF、压缩/编码、人脸/视线、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,40 @@ tags:
   - "压缩/编码"
   - "人脸/视线"
   - "对抗鲁棒"
+item_list:
+  - u: "acpv-net_all-class_polygonal_vectorization_for_seamless_vector_map_generation_fr/"
+    t: "ACPV-Net: All-Class Polygonal Vectorization for Seamless Vector Map Generation from Aerial Imagery"
+  - u: "avion_aerial_visionlanguage_instruction_from_offli/"
+    t: "AVION: Aerial Vision-Language Instruction from Offline Teacher to Prompt-Tuned Network"
+  - u: "conflated_inverse_urban_vegetation/"
+    t: "Conflated Inverse Modeling for Urban Vegetation Patterns"
+  - u: "cross-modal_fuzzy_alignment_network_for_text-aerial_person_retrieval_and_a_large/"
+    t: "Cross-modal Fuzzy Alignment Network for Text-Aerial Person Retrieval and A Large-scale Benchmark"
+  - u: "cross-scale_pansharpening_via_scaleformer_and_the_panscale_benchmark/"
+    t: "Cross-Scale Pansharpening via ScaleFormer and the PanScale Benchmark"
+  - u: "exploring_spatiotemporal_feature_propagation_for_video-level_compressive_spectra/"
+    t: "Exploring Spatiotemporal Feature Propagation for Video-Level Compressive Spectral Reconstruction"
+  - u: "geoflow_real-time_fine-grained_cross-view_geolocalization/"
+    t: "GeoFlow: Real-Time Fine-Grained Cross-View Geolocalization via Iterative Flow Prediction"
+  - u: "geommbench_and_geommagent_toward_expert_level_multimodal_intelligence_in_geoscience_and_remote_sensing/"
+    t: "GeoMMBench and GeoMMAgent: Toward Expert-Level Multimodal Intelligence in Geoscience and Remote Sensing"
+  - u: "joint_and_streamwise_distributed_mimo_satellite_communications_with_multi-antenn/"
+    t: "Joint and Streamwise Distributed MIMO Satellite Communications with Multi-Antenna Ground Users"
+  - u: "lumosaic_hyperspectral_video_via_active_illumination_and_coded-exposure_pixels/"
+    t: "Lumosaic: Hyperspectral Video via Active Illumination and Coded-Exposure Pixels"
+  - u: "metaspectra_a_compact_broadband_metasurface_camera_for_snapshot_hyperspectral_im/"
+    t: "MetaSpectra+: A Compact Broadband Metasurface Camera for Snapshot Hyperspectral+ Imaging"
+  - u: "no_labels_no_look-ahead_unsupervised_online_video_stabilization_with_classical_p/"
+    t: "No Labels, No Look-Ahead: Unsupervised Online Video Stabilization with Classical Priors"
+  - u: "olbedo_an_albedo_and_shading_aerial_dataset_for_large-scale_outdoor_environments/"
+    t: "Olbedo: An Albedo and Shading Aerial Dataset for Large-Scale Outdoor Environments"
+  - u: "pretrained_image_matchers_for_sar_optical_satellite_registration/"
+    t: "Are Pretrained Image Matchers Good Enough for SAR-Optical Satellite Registration?"
+  - u: "rho_robust_holistic_osm-based_metric_cross-view_geo-localization/"
+    t: "RHO: Robust Holistic OSM-Based Metric Cross-View Geo-Localization"
+  - u: "sdfnet_structureaware_disentangled_feature_learnin/"
+    t: "SDF-Net: Structure-Aware Disentangled Feature Learning for Optical-SAR Ship Re-identification"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

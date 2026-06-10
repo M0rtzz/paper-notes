@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 计算生物方向4篇论文解读
+  ICCV2025 计算生物论文汇总 · 4篇论文解读
 description: >-
   4篇ICCV2025的计算生物方向论文解读，涵盖扩散模型、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,16 @@ tags:
   - "论文笔记"
   - "扩散模型"
   - "对抗鲁棒"
+item_list:
+  - u: "cryofastar_fast_cryoem_ab_initio_reconstruction_made_easy/"
+    t: "CryoFastAR: Fast Cryo-EM Ab initio Reconstruction Made Easy"
+  - u: "g2pdiffusion_cross-species_genotype-to-phenotype_prediction_via_evolutionary_dif/"
+    t: "G2PDiffusion: Cross-Species Genotype-to-Phenotype Prediction via Evolutionary Diffusion"
+  - u: "integrating_biological_knowledge_for_robust_microscopy_image_profiling_on_de_nov/"
+    t: "Integrating Biological Knowledge for Robust Microscopy Image Profiling on De Novo Cell Lines"
+  - u: "molparser_end-to-end_visual_recognition_of_molecule_structures_in_the_wild/"
+    t: "MolParser: End-to-end Visual Recognition of Molecule Structures in the Wild"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +27,7 @@ tags:
 
 **📹 ICCV2025** · **4** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (11)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (38)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (20)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/computational_biology/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (74)](../../NeurIPS2025/computational_biology/index.md)
 
 **[CryoFastAR: Fast Cryo-EM Ab initio Reconstruction Made Easy](cryofastar_fast_cryoem_ab_initio_reconstruction_made_easy.md)**
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 LLM 安全方向47篇论文解读
+  ICML2026 LLM安全论文汇总 · 47篇论文解读
 description: >-
   47篇ICML2026的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、水印/隐写、多模态、联邦学习、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "多模态"
   - "联邦学习"
   - "对齐/RLHF"
+item_list:
+  - u: "actg-arl_differentially_private_conditional_text_generation_with_rl-boosted_cont/"
+    t: "ACTG-ARL: Differentially Private Conditional Text Generation with RL-Boosted Control"
+  - u: "alimark_enhancing_robustness_of_sentence-level_watermarking_against_text_paraphr/"
+    t: "AliMark: Enhancing Robustness of Sentence-Level Watermarking Against Text Paraphrasing"
+  - u: "anchored_decoding_provably_reducing_copyright_risk_for_any_language_model/"
+    t: "Anchored Decoding: Provably Reducing Copyright Risk for Any Language Model"
+  - u: "antidistillation_fingerprinting/"
+    t: "Antidistillation Fingerprinting"
+  - u: "beyond_procedure_substantive_fairness_in_conformal_prediction/"
+    t: "Beyond Procedure: Substantive Fairness in Conformal Prediction"
+  - u: "bioagent_bench_an_ai_agent_evaluation_suite_for_bioinformatics/"
+    t: "BioAgent Bench: An AI Agent Evaluation Suite for Bioinformatics"
+  - u: "byorn_bootstrap_your_own_responses_to_defend_large_vision-language_models_agains/"
+    t: "BYORn: Bootstrap Your Own Responses to Defend Large Vision-Language Models Against Backdoor Attacks"
+  - u: "coft_counterfactual-conformal_decoding_for_fair_chain-of-thought_reasoning_in_la/"
+    t: "COFT: Counterfactual-Conformal Decoding for Fair Chain-of-Thought Reasoning in Large Language Models"
+  - u: "decoupled_training_with_local_reinforcement_fine-tuning_in_federated_learning/"
+    t: "Decoupled Training with Local Reinforcement Fine-Tuning in Federated Learning"
+  - u: "deep_sequence_models_tend_to_memorize_geometrically_it_is_unclear_why/"
+    t: "Deep Sequence Models Tend to Memorize Geometrically; It Is Unclear Why"
+  - u: "dgmark_decoding-guided_watermarking_for_diffusion_language_models/"
+    t: "dgMARK: Decoding-Guided Watermarking for Diffusion Language Models"
+  - u: "differentially_private_preference_data_synthesis_for_large_language_model_alignm/"
+    t: "Differentially Private Preference Data Synthesis for Large Language Model Alignment"
+  - u: "dual-branch_robust_unlearnable_examples/"
+    t: "Dual-branch Robust Unlearnable Examples"
+  - u: "dualoptim_bridging_shared_and_decoupled_optimizer_states_for_better_machine_unle/"
+    t: "DualOptim+: Bridging Shared and Decoupled Optimizer States for Better Machine Unlearning in Large Language Models"
+  - u: "efficient_dp-sgd_for_llms_with_randomized_clipping/"
+    t: "Efficient DP-SGD for LLMs with Randomized Clipping"
+  - u: "federated_variational_preference_alignment_with_gumbel-softmax_prior_for_persona/"
+    t: "Federated Variational Preference Alignment with Gumbel-Softmax Prior for Personalized User Preferences"
+  - u: "fedtreelora_reconciling_statistical_and_functional_heterogeneity_in_federated_lo/"
+    t: "FedTreeLoRA: Reconciling Statistical and Functional Heterogeneity in Federated LoRA Fine-Tuning"
+  - u: "foeglass_simple_in-context_learning_is_enough_for_red_teaming_audio_deepfake_det/"
+    t: "FoeGlass: Simple In-Context Learning Is Enough for Red Teaming Audio Deepfake Detectors"
+  - u: "forget_to_know_remember_to_use_context-aware_unlearning_for_large_language_model/"
+    t: "Forget to Know, Remember to Use: Context-Aware Unlearning for Large Language Models"
+  - u: "from_flat_facts_to_sharp_hallucinations_detecting_stubborn_errors_via_gradient_s/"
+    t: "From Flat Facts to Sharp Hallucinations: Detecting Stubborn Errors via Gradient Sensitivity"
+  - u: "from_volume_to_value_preference-aligned_memory_construction_for_on-device_rag/"
+    t: "From Volume to Value: Preference-Aligned Memory Construction for On-Device RAG"
+  - u: "from_weak_cues_to_real_identities_evaluating_inference-driven_de-anonymization_i/"
+    t: "From Weak Cues to Real Identities: Evaluating Inference-Driven De-Anonymization in LLM Agents"
+  - u: "gradient_transformer_learning_to_generate_updates_for_llms/"
+    t: "Gradient Transformer: Learning to Generate Updates for LLMs"
+  - u: "gradients_with_respect_to_semantics_preserving_embeddings_tell_the_uncertainty_o/"
+    t: "SemGrad: Gradients w.r.t. Semantics-Preserving Embeddings Tell LLM Uncertainty"
+  - u: "hedp_a_hybrid_energy-distance_prompt-based_framework_for_domain_incremental_lear/"
+    t: "HEDP: A Hybrid Energy-Distance Prompt-based Framework for Domain Incremental Learning"
+  - u: "llm_benchmark_datasets_should_be_contamination-resistant/"
+    t: "LLM Benchmark Datasets Should Be Contamination-Resistant (Position Paper)"
+  - u: "medmosaic_a_challenging_large_scale_benchmark_of_diverse_medical_audio/"
+    t: "MedMosaic: A Challenging Large Scale Benchmark of Diverse Medical Audio"
+  - u: "memory_as_a_markov_matrix_sample_efficient_knowledge_expansion_via_token-to-dict/"
+    t: "Memory as a Markov Matrix: Sample Efficient Knowledge Expansion via Token-to-Dictionary Mapping"
+  - u: "multilingual_unlearning_in_llms_transfer_dynamics_and_reversibility/"
+    t: "Multilingual Unlearning in LLMs: 转移、动力学与可逆性"
+  - u: "old_habits_die_hard_how_conversational_history_geometrically_traps_llms/"
+    t: "Old Habits Die Hard: How Conversational History Geometrically Traps LLMs"
+item_total: 47
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧪 ICML2026** · **47** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (42)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
 
 🔥 **高频主题：** LLM ×10 · 对抗鲁棒 ×6 · 水印/隐写 ×4 · 多模态 ×3 · 联邦学习 ×3
 

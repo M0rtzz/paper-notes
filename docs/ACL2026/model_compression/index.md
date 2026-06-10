@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 模型压缩方向59篇论文解读
+  ACL2026 模型压缩论文汇总 · 59篇论文解读
 description: >-
   59篇ACL2026的模型压缩方向论文解读，涵盖 LLM、模型压缩、压缩/编码、推理、对齐/RLHF、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "推理"
   - "对齐/RLHF"
   - "个性化生成"
+item_list:
+  - u: "a_bertology_view_of_llm_orchestrations_token-_and_layer-selective_probes_for_eff/"
+    t: "A BERTology View of LLM Orchestrations: Token- and Layer-Selective Probes for Efficient Single-Pass Classification"
+  - u: "a_layer-wise_analysis_of_supervised_fine-tuning/"
+    t: "A Layer-wise Analysis of Supervised Fine-Tuning"
+  - u: "adaptive_layer_selection_for_layer-wise_token_pruning_in_llm_inference/"
+    t: "Adaptive Layer Selection for Layer-Wise Token Pruning in LLM Inference"
+  - u: "alignment_tuning_for_large_language_models_a_data-centric_lens_on_alignment_data/"
+    t: "Alignment Tuning for Large Language Models: A Data-Centric Lens on Alignment Data Pipelines"
+  - u: "analytical_ffn-to-moe_restructuring_via_activation_pattern_analysis/"
+    t: "Analytical FFN-to-MoE Restructuring via Activation Pattern Analysis"
+  - u: "arclight_a_lightweight_llm_inference_architecture_for_many-core_cpus/"
+    t: "ArcLight: A Lightweight LLM Inference Architecture for Many-Core CPUs"
+  - u: "basecal_unsupervised_confidence_calibration_via_base_model_signals/"
+    t: "BaseCal: Unsupervised Confidence Calibration via Base Model Signals"
+  - u: "calibrated_speculative_decoding_frequency-guided_candidate_selection_for_efficie/"
+    t: "Calibrated Speculative Decoding: Frequency-Guided Candidate Selection for Efficient Inference"
+  - u: "cbrs_cognitive_blood_request_system_with_bilingual_dataset_and_dual-layer_filter/"
+    t: "CBRS: Cognitive Blood Request System with Bilingual Dataset and Dual-Layer Filtering"
+  - u: "cognitive-uncertainty_guided_knowledge_distillation_for_accurate_classification_/"
+    t: "Cognitive-Uncertainty Guided Knowledge Distillation for Accurate Classification of Student Misconceptions"
+  - u: "dash-kv_accelerating_long-context_llm_inference_via_asymmetric_kv_cache_hashing/"
+    t: "DASH-KV: Accelerating Long-Context LLM Inference via Asymmetric KV Cache Hashing"
+  - u: "deepprune_parallel_scaling_without_inter-trace_redundancy/"
+    t: "DeepPrune: Parallel Scaling without Inter-Trace Redundancy"
+  - u: "efficient_learned_data_compression_via_dual-stream_feature_decoupling/"
+    t: "Efficient Learned Data Compression via Dual-Stream Feature Decoupling"
+  - u: "enabling_agents_to_communicate_entirely_in_latent_space/"
+    t: "Enabling Agents to Communicate Entirely in Latent Space"
+  - u: "establishing_a_scale_for_kullback-leibler_divergence_in_language_models_across_v/"
+    t: "Establishing a Scale for Kullback–Leibler Divergence in Language Models Across Various Settings"
+  - u: "evolutionary_negative_module_pruning_for_better_lora_merging/"
+    t: "Evolutionary Negative Module Pruning for Better LoRA Merging"
+  - u: "fastkv_decoupling_of_context_reduction_and_kv_cache_compression_for_prefill-deco/"
+    t: "FastKV: Decoupling of Context Reduction and KV Cache Compression for Prefill-Decoding Acceleration"
+  - u: "find_your_optimal_teacher_personalized_data_synthesis_via_router-guided_multi-te/"
+    t: "Find Your Optimal Teacher: Personalized Data Synthesis via Router-Guided Multi-Teacher Distillation"
+  - u: "from_signal_degradation_to_computation_collapse_uncovering_the_two_failure_modes/"
+    t: "From Signal Degradation to Computation Collapse: Uncovering the Two Failure Modes of LLM Quantization"
+  - u: "glimprouter_efficient_collaborative_inference_by_glimpsing_one_token_of_thoughts/"
+    t: "GlimpRouter: Efficient Collaborative Inference by Glimpsing One Token of Thoughts"
+  - u: "grasprune_global_gating_for_budgeted_structured_pruning_of_large_language_models/"
+    t: "GRASPrune: Global Gating for Budgeted Structured Pruning of Large Language Models"
+  - u: "heterocache_a_dynamic_retrieval_approach_to_heterogeneous_kv_cache_compression_f/"
+    t: "HeteroCache: A Dynamic Retrieval Approach to Heterogeneous KV Cache Compression for Long-Context LLM Inference"
+  - u: "impact_importance-aware_activation_space_reconstruction/"
+    t: "IMPACT: Importance-Aware Activation Space Reconstruction"
+  - u: "improving_the_throughput_of_diffusion-based_large_language_models_via_a_training/"
+    t: "CadLLM: Improving the Throughput of Diffusion-based LLMs via Training-Free Confidence-Aware Calibration"
+  - u: "introlm_introspective_language_models_via_prefilling-time_self-evaluation/"
+    t: "IntroLM: Introspective Language Models via Prefilling-Time Self-Evaluation"
+  - u: "judgemenot_personalizing_large_language_models_to_emulate_judicial_reasoning_in_/"
+    t: "JudgeMeNot: Personalizing Large Language Models to Emulate Judicial Reasoning in Hebrew"
+  - u: "latent-condensed_transformer_for_efficient_long_context_modeling/"
+    t: "Latent-Condensed Transformer for Efficient Long Context Modeling"
+  - u: "leap_layer-wise_exit-aware_pretraining_for_efficient_transformer_inference/"
+    t: "LEAP: Layer-wise Exit-Aware Pretraining for Efficient Transformer Inference"
+  - u: "lightreasoner_can_small_language_models_teach_large_language_models_reasoning/"
+    t: "LightReasoner: Can Small Language Models Teach Large Language Models Reasoning?"
+  - u: "llm_prompt_duel_optimizer_efficient_label-free_prompt_optimization/"
+    t: "LLM Prompt Duel Optimizer: Efficient Label-Free Prompt Optimization"
+item_total: 59
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **💬 ACL2026** · **59** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [📷 CVPR2026 (54)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (100)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (61)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (99)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (60)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/index.md)
 
 🔥 **高频主题：** LLM ×19 · 模型压缩 ×9 · 压缩/编码 ×4 · 推理 ×4 · 对齐/RLHF ×3
 

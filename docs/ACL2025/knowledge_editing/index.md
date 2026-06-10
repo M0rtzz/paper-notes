@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 知识编辑方向19篇论文解读
+  ACL2025 知识编辑论文汇总 · 19篇论文解读
 description: >-
   19篇ACL2025的知识编辑方向论文解读，涵盖 LLM、对抗鲁棒、问答、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,46 @@ tags:
   - "对抗鲁棒"
   - "问答"
   - "推理"
+item_list:
+  - u: "a_general_knowledge_injection_framework_for_icd_coding/"
+    t: "A General Knowledge Injection Framework for ICD Coding"
+  - u: "adaptive_detoxification_safeguarding_general_capabilities_of_llms_through_toxici/"
+    t: "ToxEdit: Adaptive Detoxification Safeguarding General Capabilities of LLMs through Toxicity-Aware Knowledge Editing"
+  - u: "bmike-53_investigating_cross-lingual_knowledge_editing_with_in-context_learning/"
+    t: "BMIKE-53: Investigating Cross-Lingual Knowledge Editing with In-Context Learning"
+  - u: "chainedit_propagating_ripple_effects_in_llm/"
+    t: "ChainEdit: Propagating Ripple Effects in LLM Knowledge Editing through Logical Rule-Guided Chains"
+  - u: "cknowedit_chinese_knowledge_editing_dataset_llms/"
+    t: "CKnowEdit: A New Chinese Knowledge Editing Dataset for Linguistics, Facts, and Logic Error Correction in LLMs"
+  - u: "compke_complex_question_answering_under_knowledge_editing/"
+    t: "CompKe: Complex Question Answering under Knowledge Editing"
+  - u: "context-robust_knowledge_editing_for_language_models/"
+    t: "Context-Robust Knowledge Editing for Language Models"
+  - u: "docmedit_towards_document-level_model_editing/"
+    t: "DocMEdit: Towards Document-Level Model Editing"
+  - u: "efficient_knowledge_editing/"
+    t: "Efficient Knowledge Editing via Minimal Precomputation"
+  - u: "memorizing_is_not_enough_deep_knowledge_injection_through_reasoning/"
+    t: "Memorizing is Not Enough: Deep Knowledge Injection Through Reasoning"
+  - u: "mitigating_negative_interference_in_multilingual_sequential_knowledge_editing_th/"
+    t: "Mitigating Negative Interference in Multilingual Sequential Knowledge Editing through Null-Space Constraints"
+  - u: "neuron-level_sequential_editing_for_large_language_models/"
+    t: "Neuron-Level Sequential Editing for Large Language Models"
+  - u: "rep_robust_knowledge_editing/"
+    t: "REP: Keys to Robust Edits — From Theoretical Insights to Practical Advances"
+  - u: "revealing_the_deceptiveness_of_knowledge_editing_a_mechanistic_analysis_of_super/"
+    t: "Revealing the Deceptiveness of Knowledge Editing: A Mechanistic Analysis of Superficial Editing"
+  - u: "sake_steering_activations_for_knowledge_editing/"
+    t: "SAKE: Steering Activations for Knowledge Editing"
+  - u: "scedit_script-based_assessment_of_knowledge_editing/"
+    t: "ScEdit: Script-based Assessment of Knowledge Editing"
+  - u: "structure-aware_domain_knowledge_injection_for_large_language_models/"
+    t: "Structure-aware Domain Knowledge Injection for Large Language Models"
+  - u: "the_mirage_of_model_editing_revisiting_evaluation_in_the_wild/"
+    t: "The Mirage of Model Editing: Revisiting Evaluation in the Wild"
+  - u: "towards_a_principled_evaluation_of_knowledge_editors/"
+    t: "Towards a Principled Evaluation of Knowledge Editors"
+item_total: 19
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

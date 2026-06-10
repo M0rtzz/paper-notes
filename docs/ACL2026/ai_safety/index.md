@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 AI 安全方向4篇论文解读
+  ACL2026 AI安全论文汇总 · 4篇论文解读
 description: >-
   4篇ACL2026的 AI 安全方向论文解读，涵盖对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,16 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "对抗鲁棒"
+item_list:
+  - u: "omnicompliance-100k_a_multi-domain_rule-grounded_real-world_safety_compliance_da/"
+    t: "OmniCompliance-100K: A Multi-Domain Rule-Grounded Real-World Safety Compliance Dataset"
+  - u: "on_the_in-security_of_the_shuffling_defense_in_the_transformer_secure_inference/"
+    t: "On the (In-)Security of the Shuffling Defense in the Transformer Secure Inference"
+  - u: "reverse_constitutional_ai_a_framework_for_controllable_toxic_data_generation_via/"
+    t: "Reverse Constitutional AI: A Framework for Controllable Toxic Data Generation via Probability-Clamped RLAIF"
+  - u: "univid_unified_vision-language_model_for_video_moderation/"
+    t: "UniVid: 统一视频审核的视觉语言模型"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -16,7 +26,7 @@ tags:
 
 **💬 ACL2026** · **4** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (72)](../../NeurIPS2025/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
 
 **[OmniCompliance-100K: A Multi-Domain Rule-Grounded Real-World Safety Compliance Dataset](omnicompliance-100k_a_multi-domain_rule-grounded_real-world_safety_compliance_da.md)**
 

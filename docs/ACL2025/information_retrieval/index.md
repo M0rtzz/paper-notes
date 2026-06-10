@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 信息检索/RAG方向85篇论文解读
+  ACL2025 信息检索/RAG论文汇总 · 84篇论文解读
 description: >-
-  85篇ACL2025的信息检索/RAG 方向论文解读，涵盖 RAG、LLM、问答、对抗鲁棒、推理、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  84篇ACL2025的信息检索/RAG 方向论文解读，涵盖 RAG、LLM、问答、对抗鲁棒、推理、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "信息检索/RAG"
@@ -14,16 +14,78 @@ tags:
   - "对抗鲁棒"
   - "推理"
   - "对齐/RLHF"
+item_list:
+  - u: "a_reality_check_on_context_utilisation_for_retrieval-augmented_generation/"
+    t: "A Reality Check on Context Utilisation for Retrieval-Augmented Generation"
+  - u: "a_text_is_worth_several_tokens_text_embedding_from_llms_secretly_aligns_well_wit/"
+    t: "A Text is Worth Several Tokens: Text Embedding from LLMs Secretly Aligns Well with The Key Tokens"
+  - u: "accelerating_adaptive_retrieval_augmented_generation_via_instruction-driven_repr/"
+    t: "Accelerating Adaptive Retrieval Augmented Generation via Instruction-Driven Representation Reduction of Retrieval Overlaps"
+  - u: "air-bench_automated_heterogeneous_information_retrieval_benchmark/"
+    t: "AIR-Bench: Automated Heterogeneous Information Retrieval Benchmark"
+  - u: "any_information_is_just_worth_one_single_screenshot_unifying_search_with_visuali/"
+    t: "Any Information Is Just Worth One Single Screenshot: Unifying Search With Visualized Information Retrieval"
+  - u: "astute_rag_knowledge_conflicts/"
+    t: "Astute RAG: Overcoming Imperfect Retrieval Augmentation and Knowledge Conflicts for Large Language Models"
+  - u: "atomic_llm_a_fine-grained_information_retrieval_evaluation_benchmark_for_languag/"
+    t: "Atomic LLM: A Fine-Grained Information Retrieval Evaluation Benchmark for Language Models"
+  - u: "automatic_benchmark_generation_from_scientific_papers_via_retrieval-augmented_ll/"
+    t: "Automatic Benchmark Generation from Scientific Papers via Retrieval-Augmented LLMs"
+  - u: "beyond_true_or_false_retrieval-augmented_hierarchical_analysis_of_nuanced_claims/"
+    t: "Beyond True or False: Retrieval-Augmented Hierarchical Analysis of Nuanced Claims"
+  - u: "cart_a_generative_cross-modal_retrieval_framework_with_coarse-to-fine_semantic_m/"
+    t: "CART: A Generative Cross-Modal Retrieval Framework with Coarse-To-Fine Semantic Modeling"
+  - u: "coir_a_comprehensive_benchmark_for_code_information_retrieval_models/"
+    t: "CoIR: A Comprehensive Benchmark for Code Information Retrieval Models"
+  - u: "collapse_dense_retrievers/"
+    t: "Collapse of Dense Retrievers: Short, Early, and Literal Biases Outranking Factual Evidence"
+  - u: "comrag_retrieval-augmented_generation_with_dynamic_vector_stores_for_real-time_c/"
+    t: "ComRAG: Retrieval-Augmented Generation with Dynamic Vector Stores for Real-time Community Question Answering in Industry"
+  - u: "contradiction_detection_in_rag-based_chatbots/"
+    t: "Contradiction Detection in RAG-Based Chatbots"
+  - u: "core_mmrag_knowledge_reconciliation/"
+    t: "CoRe-MMRAG: Cross-Source Knowledge Reconciliation for Multimodal RAG"
+  - u: "cross-lingual_relevance_transfer_for_document_retrieval/"
+    t: "Cross-Lingual Relevance Transfer for Document Retrieval"
+  - u: "divide_then_align_rag_knowledge_boundary/"
+    t: "Divide-Then-Align: Honest Alignment based on the Knowledge Boundary of RAG"
+  - u: "dont_reinvent_the_wheel_efficient_instruction-following_text_embedding_based_on_/"
+    t: "Don't Reinvent the Wheel: Efficient Instruction-Following Text Embedding based on Guided Space Transformation"
+  - u: "drag_distilling_rag_slm/"
+    t: "DRAG: Distilling RAG for SLMs from LLMs to Transfer Knowledge and Mitigate Hallucination"
+  - u: "drama_diverse_augmentation_from_large_language_models_to_smaller_dense_retriever/"
+    t: "Drama: Diverse Augmentation from Large Language Models to Smaller Dense Retrievers"
+  - u: "empaths_at_semeval-2025_task_11_retrieval-augmented_approach_to_perceived_emotio/"
+    t: "Empaths at SemEval-2025 Task 11: Retrieval-Augmented Approach to Perceived Emotions Prediction"
+  - u: "enhancing_lexicon-based_text_embeddings_with_large_language_models/"
+    t: "Enhancing Lexicon-Based Text Embeddings with Large Language Models"
+  - u: "evaluation_of_attribution_bias_in_generator-aware_retrieval-augmented_large_lang/"
+    t: "Evaluation of Attribution Bias in Generator-Aware Retrieval-Augmented Large Language Models"
+  - u: "exit_context-aware_extractive_compression_for_enhancing_retrieval-augmented_gene/"
+    t: "EXIT: Context-Aware Extractive Compression for Enhancing Retrieval-Augmented Generation"
+  - u: "faithfulrag_fact_level_conflict/"
+    t: "FaithfulRAG: Fact-Level Conflict Modeling for Context-Faithful Retrieval-Augmented Generation"
+  - u: "flashbackefficient_retrieval-augmented_language_modeling_for_long_context_infere/"
+    t: "FlashBack: Efficient Retrieval-Augmented Language Modeling for Fast Inference"
+  - u: "flexrag_a_flexible_and_comprehensive_framework_for_retrieval-augmented_generatio/"
+    t: "FlexRAG: A Flexible and Comprehensive Framework for Retrieval-Augmented Generation"
+  - u: "from_ambiguity_to_accuracy_the_transformative_effect_of_coreference_resolution_o/"
+    t: "From Ambiguity to Accuracy: The Transformative Effect of Coreference Resolution on RAG Systems"
+  - u: "gainrag_preference_alignment/"
+    t: "GainRAG: Preference Alignment in Retrieval-Augmented Generation through Gain Signal Synthesis"
+  - u: "garage_a_benchmark_with_grounding_annotations_for_rag_evaluation/"
+    t: "GaRAGe: A Benchmark with Grounding Annotations for RAG Evaluation"
+item_total: 84
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔍 信息检索/RAG
 
-**💬 ACL2025** · **85** 篇论文解读
+**💬 ACL2025** · **84** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md)
 
-🔥 **高频主题：** RAG ×55 · LLM ×13 · 问答 ×5 · 对抗鲁棒 ×5 · 推理 ×3
+🔥 **高频主题：** RAG ×54 · LLM ×13 · 问答 ×5 · 对抗鲁棒 ×5 · 推理 ×3
 
 **[A Reality Check on Context Utilisation for Retrieval-Augmented Generation](a_reality_check_on_context_utilisation_for_retrieval-augmented_generation.md)**
 
@@ -210,10 +272,6 @@ tags:
 **[Logical Consistency is Vital: Neural-Symbolic Information Retrieval for Negative-Constraint Queries](logical_consistency_is_vital_neural-symbolic_information_retrieval_for_negative-.md)**
 
 :   提出 NS-IR，通过将自然语言查询和文档转换为一阶逻辑（FOL），利用逻辑对齐和连接词约束两项技术优化稠密检索嵌入，显著提升了负约束查询等复杂逻辑检索场景的性能。
-
-**[MAIN-RAG: Multi-Agent Filtering Retrieval-Augmented Generation](main-rag_multi-agent_filtering_retrieval-augmented_generation.md)**
-
-:   提出 MAIN-RAG，一个无需训练的多 Agent RAG 过滤框架，通过 Predictor→Judge→Final-Predictor 三个 LLM Agent 协作评估检索文档的相关性，并设计自适应阈值（基于分数均值和标准差）动态过滤噪声文档，在 4 个 QA 基准上实现 2-11% 的准确率提升。
 
 **[Maximal Matching Matters: Preventing Representation Collapse for Robust Cross-Modal Retrieval](maximal_matching_matters_preventing_representation_collapse_for_robust_cross-mod.md)**
 

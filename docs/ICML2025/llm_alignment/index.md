@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 对齐 / RLHF方向16篇论文解读
+  ICML2025 对齐/RLHF论文汇总 · 16篇论文解读
 description: >-
   16篇ICML2025的对齐 / RLHF 方向论文解读，涵盖对齐/RLHF、LLM、多模态、Agent、强化学习、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,40 @@ tags:
   - "Agent"
   - "强化学习"
   - "对抗鲁棒"
+item_list:
+  - u: "alphapo_reward_shape_matters_for_llm_alignment/"
+    t: "AlphaPO: Reward Shape Matters for LLM Alignment"
+  - u: "ampo_active_multi-preference_optimization_for_self-play_preference_selection/"
+    t: "AMPO: Active Multi-Preference Optimization for Self-play Preference Selection"
+  - u: "assistancezero_scalably_solving_assistance_games/"
+    t: "AssistanceZero: Scalably Solving Assistance Games"
+  - u: "can_rlhf_be_more_efficient_with_imperfect_reward_models_a_policy_coverage_perspe/"
+    t: "Can RLHF be More Efficient with Imperfect Reward Models? A Policy Coverage Perspective"
+  - u: "challenges_and_future_directions_of_data-centric_ai_alignment/"
+    t: "Challenges and Future Directions of Data-Centric AI Alignment"
+  - u: "diverging_preferences_when_do_annotators_disagree_and_do_models_know/"
+    t: "Diverging Preferences: When do Annotators Disagree and do Models Know?"
+  - u: "dpo_meets_ppo_reinforced_token_optimization_for_rlhf/"
+    t: "DPO Meets PPO: Reinforced Token Optimization for RLHF"
+  - u: "improving_model_alignment_through_collective_intelligence_of_open-source_llms/"
+    t: "Improving Model Alignment through Collective Intelligence of Open-Source LLMs"
+  - u: "instruction_tuning_of_large_language_models_for_tabular_data_generation-in_one_d/"
+    t: "Instruction Tuning of Large Language Models for Tabular Data Generation—in One Day"
+  - u: "layer-wise_alignment_examining_safety_alignment_across_image_encoder_layers_in_v/"
+    t: "Layer-wise Alignment: Examining Safety Alignment Across Image Encoder Layers in Vision Language Models"
+  - u: "m3hf_multi-agent_reinforcement_learning_from_multi-phase_human_feedback_of_mixed/"
+    t: "M³HF: Multi-agent Reinforcement Learning from Multi-phase Human Feedback of Mixed Quality"
+  - u: "model_swarms_collaborative_search_to_adapt_llm_experts_via_swarm_intelligence/"
+    t: "Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence"
+  - u: "mpo_an_efficient_post-processing_framework_for_mixing_diverse_preference_alignme/"
+    t: "MPO: An Efficient Post-Processing Framework for Mixing Diverse Preference Alignment"
+  - u: "on_the_robustness_of_reward_models_for_language_model_alignment/"
+    t: "On the Robustness of Reward Models for Language Model Alignment"
+  - u: "poisonbench_assessing_large_language_model_vulnerability_to_data_poisoning/"
+    t: "PoisonBench: Assessing Large Language Model Vulnerability to Data Poisoning"
+  - u: "tgdpo_harnessing_token-level_reward_guidance_for_enhancing_direct_preference_opt/"
+    t: "TGDPO: Harnessing Token-Level Reward Guidance for Enhancing Direct Preference Optimization"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

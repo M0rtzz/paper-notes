@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 LLM / NLP方向37篇论文解读
+  ICML2026 LLM/NLP论文汇总 · 37篇论文解读
 description: >-
   37篇ICML2026的 LLM / NLP 方向论文解读，涵盖 LLM、扩散模型、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,68 @@ tags:
   - "LLM"
   - "扩散模型"
   - "对抗鲁棒"
+item_list:
+  - u: "a_geometric_relation_of_the_error_introduced_by_sampling_a_language_models_outpu/"
+    t: "A Geometric Relation of the Error Introduced by Sampling a Language Model's Output Distribution to its Internal State"
+  - u: "anchor_abductive_network_construction_with_hierarchical_orchestration_for_reliab/"
+    t: "ANCHOR: Abductive Network Construction with Hierarchical Orchestration for Reliable Probability Inference in Large Language Models"
+  - u: "automated_formal_proofs_of_combinatorial_identities_via_wilf-zeilberger_guidance/"
+    t: "Automated Formal Proofs of Combinatorial Identities via Wilf–Zeilberger Guidance and LLMs"
+  - u: "compute_as_teacher_turning_inference_compute_into_reference-free_supervision/"
+    t: "Compute as Teacher: Turning Inference Compute Into Reference-Free Supervision"
+  - u: "deep_networks_learn_to_parse_uniform-depth_context-free_languages_from_local_sta/"
+    t: "Deep Networks Learn to Parse Uniform-Depth Context-Free Languages from Local Statistics"
+  - u: "differential_syntactic_and_semantic_encoding_in_llms/"
+    t: "Differential Syntactic and Semantic Encoding in LLMs"
+  - u: "dllm-cache_accelerating_diffusion_large_language_models_with_adaptive_caching/"
+    t: "dLLM-Cache: Accelerating Diffusion Large Language Models with Adaptive Caching"
+  - u: "express_your_doubts_--_probabilistic_world_modeling_should_not_be_based_on_token/"
+    t: "Express Your Doubts: Probabilistic World Modeling Should Not Be Based on Token logprobs"
+  - u: "fast-dllm_fréchet_profile_decoding_for_faster_diffusion_llm_inference/"
+    t: "Fast-dLLM++: Fréchet Profile Decoding for Faster Diffusion LLM Inference"
+  - u: "from_parameter_dynamics_to_risk_scoring_quantifying_sample-level_safety_degradat/"
+    t: "From Parameter Dynamics to Risk Scoring: Quantifying Sample-Level Safety Degradation in LLM Fine-tuning"
+  - u: "how_many_different_outputs_can_a_transformer_generate/"
+    t: "How Many Different Outputs Can a Transformer Generate?"
+  - u: "ive_seen_how_this_goes_characterizing_diversity_via_progressive_conditional_surp/"
+    t: "\"I've Seen How This Goes\"：用渐进条件惊奇度刻画 LLM 与人类写作的多样性"
+  - u: "margin-adaptive_confidence_ranking_for_reliable_llm_judgement/"
+    t: "Margin-Adaptive Confidence Ranking for Reliable LLM Judgement"
+  - u: "mitigating_staleness_in_asynchronous_pipeline_parallelism_via_basis_rotation/"
+    t: "Mitigating Staleness in Asynchronous Pipeline Parallelism via Basis Rotation"
+  - u: "model-preserving_adaptive_rounding/"
+    t: "YAQA: 端到端 KL 最小化的 LLM 自适应权重量化"
+  - u: "multi-agent_teams_hold_experts_back/"
+    t: "Multi-Agent Teams Hold Experts Back: 自组织 LLM 团队为什么留不住「专家」"
+  - u: "on_the_limits_of_llm_adaptability_impact_of_model-internalized_priors_on_annotat/"
+    t: "On the Limits of LLM Adaptability: Impact of Model-Internalized Priors on Annotation"
+  - u: "optimizing_diversity_and_quality_through_base-aligned_model_collaboration/"
+    t: "Optimizing Diversity and Quality through Base-Aligned Model Collaboration"
+  - u: "position_adversarial_ml_for_llms_is_not_making_any_progress/"
+    t: "Position: Adversarial ML for LLMs Is Not Making Any Progress"
+  - u: "position_the_turing-completeness_of_autoregressive_transformers_relies_heavily_o/"
+    t: "Position: The Turing-Completeness of Autoregressive Transformers Relies Heavily on Context Management"
+  - u: "rare_event_analysis_of_large_language_models/"
+    t: "Rare Event Analysis of Large Language Models"
+  - u: "reasoning_on_the_manifold_bidirectional_consistency_for_self-verification_in_dif/"
+    t: "Reasoning on the Manifold: Bidirectional Consistency for Self-Verification in Diffusion Language Models"
+  - u: "resting_neurons_active_insights_robustify_activation_sparsity_for_large_language/"
+    t: "Resting Neurons, Active Insights: Robustify Activation Sparsity for Large Language Models"
+  - u: "rethinking_llm_ensembling_from_the_perspective_of_mixture_models/"
+    t: "Rethinking LLM Ensembling from the Perspective of Mixture Models"
+  - u: "sac-opt_semantic_anchors_for_iterative_correction_in_optimization_modeling/"
+    t: "SAC-Opt: Semantic Anchors for Iterative Correction in Optimization Modeling"
+  - u: "scheduling_llm_inference_with_uncertainty-aware_output_length_predictions/"
+    t: "Scheduling LLM Inference with Uncertainty-Aware Output Length Predictions"
+  - u: "slay_geometry-aware_spherical_linearized_attention_with_yat-kernel/"
+    t: "SLAY: Geometry-Aware Spherical Linearized Attention with Yat-Kernel"
+  - u: "spa-cache_singular_proxies_for_adaptive_caching_in_diffusion_language_models/"
+    t: "SPA-Cache: Singular Proxies for Adaptive Caching in Diffusion Language Models"
+  - u: "sphericaldreamer_generating_navigable_immersive_3d_worlds_with_panorama_fusion/"
+    t: "SphericalDreamer: Generating Navigable Immersive 3D Worlds with Panorama Fusion"
+  - u: "stop_automating_peer_review_without_rigorous_evaluation/"
+    t: "Stop Automating Peer Review Without Rigorous Evaluation"
+item_total: 37
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +80,7 @@ tags:
 
 **🧪 ICML2026** · **37** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/llm_nlp/index.md) · [📹 ICCV2025 (6)](../../ICCV2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_nlp/index.md) · [📹 ICCV2025 (6)](../../ICCV2025/llm_nlp/index.md)
 
 🔥 **高频主题：** LLM ×15 · 扩散模型 ×4 · 对抗鲁棒 ×2
 

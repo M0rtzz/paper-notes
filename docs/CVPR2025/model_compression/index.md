@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 模型压缩方向64篇论文解读
+  CVPR2025 模型压缩论文汇总 · 63篇论文解读
 description: >-
-  64篇CVPR2025的模型压缩方向论文解读，涵盖压缩/编码、模型压缩、持续学习、知识蒸馏、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  63篇CVPR2025的模型压缩方向论文解读，涵盖压缩/编码、模型压缩、持续学习、知识蒸馏、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "模型压缩"
@@ -13,14 +13,76 @@ tags:
   - "知识蒸馏"
   - "少样本学习"
   - "扩散模型"
+item_list:
+  - u: "adapter_merging_with_centroid_prototype_mapping_for_scalable_class-incremental_l/"
+    t: "Adapter Merging with Centroid Prototype Mapping for Scalable Class-Incremental Learning"
+  - u: "an_fpga_implementation_of_displacement_vector_search_for_intra_pattern_copy_in_j/"
+    t: "An FPGA Implementation of Displacement Vector Search for Intra Pattern Copy in JPEG XS"
+  - u: "arche_autoregressive_residual_compression_with_hyperprior_and_excitation/"
+    t: "ARCHE: Autoregressive Residual Compression with Hyperprior and Excitation"
+  - u: "autossvh_exploring_automated_frame_sampling_for_efficient_self-supervised_video_h/"
+    t: "AutoSSVH: Exploring Automated Frame Sampling for Efficient Self-Supervised Video Hashing"
+  - u: "bhvit_binarized_hybrid_vision_transformer/"
+    t: "BHViT: Binarized Hybrid Vision Transformer"
+  - u: "binarized_mamba-transformer_for_lightweight_quad_bayer_hybridevs_demosaicing/"
+    t: "Binarized Mamba-Transformer for Lightweight Quad Bayer HybridEVS Demosaicing"
+  - u: "chapter-llama_efficient_chaptering_in_hour-long_videos_with_llms/"
+    t: "Chapter-Llama: Efficient Chaptering in Hour-Long Videos with LLMs"
+  - u: "charm_the_missing_piece_in_vit_fine-tuning_for_image_aesthetic_assessment/"
+    t: "Charm: The Missing Piece in ViT Fine-Tuning for Image Aesthetic Assessment"
+  - u: "cl-lora_continual_low-rank_adaptation_for_rehearsal-free_class-incremental_learn/"
+    t: "CL-LoRA: Continual Low-Rank Adaptation for Rehearsal-Free Class-Incremental Learning"
+  - u: "coa_towards_real_image_dehazing_via_compression-and-adaptation/"
+    t: "CoA: Towards Real Image Dehazing via Compression-and-Adaptation"
+  - u: "curriculum_coarse-to-fine_selection_for_high-ipc_dataset_distillation/"
+    t: "Curriculum Coarse-to-Fine Selection for High-IPC Dataset Distillation"
+  - u: "dataset_distillation_with_neural_characteristic_function_a_minmax_perspective/"
+    t: "Dataset Distillation with Neural Characteristic Function: A Minmax Perspective"
+  - u: "delt_a_simple_diversity-driven_earlylate_training_for_dataset_distillation/"
+    t: "DELT: A Simple Diversity-driven EarlyLate Training for Dataset Distillation"
+  - u: "ders_towards_extremely_efficient_upcycled_mixture-of-experts_models/"
+    t: "DeRS: Towards Extremely Efficient Upcycled Mixture-of-Experts Models"
+  - u: "distilling_long-tailed_datasets/"
+    t: "Distilling Long-tailed Datasets"
+  - u: "dkdm_data-free_knowledge_distillation_for_diffusion_models_with_any_architecture/"
+    t: "DKDM: Data-Free Knowledge Distillation for Diffusion Models with Any Architecture"
+  - u: "dycoke_dynamic_compression_of_tokens_for_fast_video_large_language_models/"
+    t: "DyCoke: Dynamic Compression of Tokens for Fast Video Large Language Models"
+  - u: "ecvc_exploiting_non-local_correlations_in_multiple_frames_for_contextual_video_c/"
+    t: "ECVC: Exploiting Non-Local Correlations in Multiple Frames for Contextual Video Compression"
+  - u: "efficientvim_efficient_vision_mamba_with_hidden_state_mixer_based_state_space_du/"
+    t: "EfficientViM: Efficient Vision Mamba with Hidden State Mixer based State Space Duality"
+  - u: "embracing_collaboration_over_competition_condensing_multiple_prompts_for_visual_/"
+    t: "Embracing Collaboration Over Competition: Condensing Multiple Prompts for Visual In-Context Learning"
+  - u: "emphasizing_discriminative_features_for_dataset_distillation_in_complex_scenario/"
+    t: "Emphasizing Discriminative Features for Dataset Distillation in Complex Scenarios"
+  - u: "enhancing_dataset_distillation_via_non-critical_region_refinement/"
+    t: "Enhancing Dataset Distillation via Non-Critical Region Refinement"
+  - u: "expert_pyramid_tuning_efficient_parameter_fine-tuning_for_expertise-driven_task_/"
+    t: "Expert Pyramid Tuning: Efficient Parameter Fine-Tuning for Expertise-Driven Task Allocation"
+  - u: "faster_parameter-efficient_tuning_with_token_redundancy_reduction/"
+    t: "Faster Parameter-Efficient Tuning with Token Redundancy Reduction (FPET)"
+  - u: "fima-q_post-training_quantization_for_vision_transformers_by_fisher_information_/"
+    t: "FIMA-Q: Post-Training Quantization for Vision Transformers by Fisher Information Matrix Approximation"
+  - u: "gaze-lle_gaze_target_estimation_via_large-scale_learned_encoders/"
+    t: "Gaze-LLE: Gaze Target Estimation via Large-Scale Learned Encoders"
+  - u: "good_cheap_and_fast_overfitted_image_compression_with_wasserstein_distortion/"
+    t: "Good, Cheap, and Fast: Overfitted Image Compression with Wasserstein Distortion"
+  - u: "hiap_a_multi-granular_stochastic_auto-pruning_framework_for_vision_transformers/"
+    t: "HiAP: A Multi-Granular Stochastic Auto-Pruning Framework for Vision Transformers"
+  - u: "hot_hadamard-based_optimized_training/"
+    t: "HOT: Hadamard-based Optimized Training"
+  - u: "hyperlora_parameter-efficient_adaptive_generation_for_portrait_synthesis/"
+    t: "HyperLoRA: Parameter-Efficient Adaptive Generation for Portrait Synthesis"
+item_total: 63
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**📷 CVPR2025** · **64** 篇论文解读
+**📷 CVPR2025** · **63** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (54)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (100)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (61)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (99)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (60)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md)
 
 🔥 **高频主题：** 压缩/编码 ×11 · 模型压缩 ×7 · 持续学习 ×4 · 知识蒸馏 ×3 · 少样本学习 ×3
 
@@ -167,10 +229,6 @@ tags:
 **[PrunNet: Learning Compatible Multi-Prize Subnetworks for Asymmetric Retrieval](learning_compatible_multi-prize_subnetworks_for_asymmetric_retrieval.md)**
 
 :   提出 PrunNet（可剪枝网络），通过为每个权重学习重要性分数并结合冲突感知梯度集成，训练一个可以在任意容量（20%-100%）下产生兼容子网络的统一模型，在 GLDv2 上 46.29 mAP 超越密集网络基线，且所有容量子网络间特征兼容。
-
-**[Less is More: Efficient Model Merging with Binary Task Switch](less_is_more_efficient_model_merging_with_binary_task_switch.md)**
-
-:   通过控制实验发现任务向量具有"脉冲特性"——只有幅度超过阈值的参数对任务有正贡献，据此提出T-Switch方法将任务向量二值化为激活开关、极性开关和缩放旋钮三个组件，仅需1-3%的存储空间即可实现显著优于现有基线的动态模型合并效果。
 
 **[LALIC: Linear Attention Modeling for Learned Image Compression](linear_attention_modeling_for_learned_image_compression.md)**
 

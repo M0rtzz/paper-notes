@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 可解释性方向26篇论文解读
+  CVPR2026 可解释性论文汇总 · 26篇论文解读
 description: >-
   26篇CVPR2026的可解释性方向论文解读，涵盖多模态、布局/合成、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,60 @@ tags:
   - "多模态"
   - "布局/合成"
   - "推理"
+item_list:
+  - u: "beyond_semantics_disentangling_information_scope_in_sparse_autoencoders_for_clip/"
+    t: "Beyond Semantics: Disentangling Information Scope in Sparse Autoencoders for CLIP"
+  - u: "ciice_intrinsic_concept_extraction_compositional/"
+    t: "CI-ICE: Intrinsic Concept Extraction Based on Compositional Interpretability"
+  - u: "clipfree_label_free_unsupervised_concept_bottlenec/"
+    t: "U-F²-CBM: CLIP-Free, Label Free, Unsupervised Concept Bottleneck Models"
+  - u: "cut_to_the_chase_training-free_multimodal_summarization_via_chain-of-events/"
+    t: "Cut to the Chase: Training-free Multimodal Summarization via Chain-of-Events"
+  - u: "dino-qpm_adapting_visual_foundation_models_for_globally_interpretable_image_clas/"
+    t: "DINO-QPM: Adapting Visual Foundation Models for Globally Interpretable Image Classification"
+  - u: "draft_and_refine_with_visual_experts/"
+    t: "Draft and Refine with Visual Experts"
+  - u: "edit-as-act_goal-regressive_planning_for_open-vocabulary_3d_indoor_scene_editing/"
+    t: "Edit-As-Act: Goal-Regressive Planning for Open-Vocabulary 3D Indoor Scene Editing"
+  - u: "ermoe_eigen-reparameterized_mixture-of-experts_for_stable_routing/"
+    t: "ERMoE: Eigen-Reparameterized Mixture-of-Experts for Stable Routing and Interpretable Specialization"
+  - u: "feature_attribution_stability_suite_how_stable_are_post-hoc_attributions/"
+    t: "Feature Attribution Stability Suite: How Stable Are Post-Hoc Attributions?"
+  - u: "from_weights_to_concepts_data-free_interpretability_of_clip_via_singular_vector_/"
+    t: "From Weights to Concepts: Data-Free Interpretability of CLIP via Singular Vector Decomposition"
+  - u: "geometry-guided_camera_motion_understanding_in_videollms/"
+    t: "Geometry-Guided Camera Motion Understanding in VideoLLMs"
+  - u: "inside-out_measuring_generalization_in_vision_transformers_through_inner_working/"
+    t: "Inside-Out: Measuring Generalization in Vision Transformers Through Inner Workings"
+  - u: "language_models_can_explain_visual_features_via_steering/"
+    t: "Language Models Can Explain Visual Features via Steering"
+  - u: "measuring_the_unfaithfulness_of_concept-based_explanations/"
+    t: "Measuring the (Un)Faithfulness of Concept-Based Explanations"
+  - u: "missing_no_more_dictionary-guided_cross-modal_image_fusion_under_missing_infrare/"
+    t: "Missing No More: Dictionary-Guided Cross-Modal Image Fusion under Missing Infrared"
+  - u: "neurodynamics-driven_coupled_neural_p_systems_for_multi-focus_image_fusion/"
+    t: "Neurodynamics-Driven Coupled Neural P Systems for Multi-Focus Image Fusion"
+  - u: "on_the_possible_detectability_of_image-in-image_steganography/"
+    t: "On the Possible Detectability of Image-in-Image Steganography"
+  - u: "pixel2phys_distilling_governing_laws_from_visual_dynamics/"
+    t: "Pixel2Phys: Distilling Governing Laws from Visual Dynamics"
+  - u: "reallocating_attention_across_layers_to_reduce_multimodal_hallucination/"
+    t: "Reallocating Attention Across Layers to Reduce Multimodal Hallucination"
+  - u: "rethinking_concept_bottleneck_models_from_pitfalls_to_solutions/"
+    t: "Rethinking Concept Bottleneck Models: From Pitfalls to Solutions"
+  - u: "riskprop_collision-anchored_self-supervised_risk_propagation_for_early_accident_/"
+    t: "RiskProp: Collision-Anchored Self-Supervised Risk Propagation for Early Accident Anticipation"
+  - u: "safedrive_fine-grained_safety_reasoning_for_end-to-end_driving_in_a_sparse_world/"
+    t: "SafeDrive: Fine-Grained Safety Reasoning for End-to-End Driving in a Sparse World"
+  - u: "tdatr_improving_end-to-end_table_recognition_via_table_detail-aware_learning_and/"
+    t: "TDATR: Improving End-to-End Table Recognition via Table Detail-Aware Learning and Cell-Level Visual Alignment"
+  - u: "towards_faithful_multimodal_concept_bottleneck_models/"
+    t: "Towards Faithful Multimodal Concept Bottleneck Models"
+  - u: "viro_robust_and_efficient_neuro-symbolic_reasoning_with_verification_for_referri/"
+    t: "VIRO: Robust and Efficient Neuro-Symbolic Reasoning with Verification for Referring Expression Comprehension"
+  - u: "why_does_it_look_there_structured_explanations_for_image_classification/"
+    t: "Why Does It Look There? Structured Explanations for Image Classification"
+item_total: 26
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +72,7 @@ tags:
 
 **📷 CVPR2026** · **26** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
 
 🔥 **高频主题：** 多模态 ×3 · 布局/合成 ×2 · 推理 ×2
 

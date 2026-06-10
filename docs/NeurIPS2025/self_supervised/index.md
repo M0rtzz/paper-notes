@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 自监督/表示学习方向35篇论文解读
+  NeurIPS2025 自监督/表示学习论文汇总 · 34篇论文解读
 description: >-
-  35篇NeurIPS2025的自监督/表示学习方向论文解读，涵盖自监督学习、推理、对抗鲁棒、对齐/RLHF、持续学习、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  34篇NeurIPS2025的自监督/表示学习方向论文解读，涵盖自监督学习、推理、对抗鲁棒、持续学习、少样本学习、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "自监督/表示学习"
@@ -11,17 +11,79 @@ tags:
   - "自监督学习"
   - "推理"
   - "对抗鲁棒"
-  - "对齐/RLHF"
   - "持续学习"
   - "少样本学习"
+  - "LLM"
+item_list:
+  - u: "a_joint_learning_approach_to_hardware_caching_and_prefetching/"
+    t: "A Joint Learning Approach to Hardware Caching and Prefetching"
+  - u: "adv-ssl_adversarial_self-supervised_representation_learning_with_theoretical_gua/"
+    t: "Adv-SSL: Adversarial Self-Supervised Representation Learning with Theoretical Guarantees"
+  - u: "angular_constraint_embedding_via_spherepair_loss_for_constrained_clustering/"
+    t: "Angular Constraint Embedding via SpherePair Loss for Constrained Clustering"
+  - u: "asymptotic_and_finite-time_guarantees_for_langevin-based_temperature_annealing_i/"
+    t: "Asymptotic and Finite-Time Guarantees for Langevin-Based Temperature Annealing in InfoNCE"
+  - u: "cleverbirds_a_multiple-choice_benchmark_for_fine-grained_human_knowledge_tracing/"
+    t: "CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing"
+  - u: "connecting_jensenshannon_and_kullbackleibler_divergences_a_n/"
+    t: "Connecting Jensen-Shannon and Kullback-Leibler Divergences: A New Bound for Representation Learning"
+  - u: "continuous_subspace_optimization_for_continual_learning/"
+    t: "Continuous Subspace Optimization for Continual Learning (CoSO)"
+  - u: "contrastive_representations_for_temporal_reasoning/"
+    t: "Contrastive Representations for Temporal Reasoning"
+  - u: "curiosity-driven_rl_for_symbolic_equation_solving/"
+    t: "Curiosity-driven RL for Symbolic Equation Solving"
+  - u: "datarater_meta-learned_dataset_curation/"
+    t: "DataRater: Meta-Learned Dataset Curation"
+  - u: "disentangling_hyperedges_through_the_lens_of_category_theory/"
+    t: "Disentangling Hyperedges through the Lens of Category Theory"
+  - u: "foundation_models_for_scientific_discovery_from_paradigm_enhancement_to_paradigm/"
+    t: "Foundation Models for Scientific Discovery: From Paradigm Enhancement to Paradigm Transition"
+  - u: "hybrid_autoencoders_for_tabular_data_leveraging_model-based_augmentation_in_low-/"
+    t: "Hybrid Autoencoders for Tabular Data: Leveraging Model-Based Augmentation in Low-Label Settings"
+  - u: "implicit_modeling_for_transferability_estimation_of_vision_foundation_models/"
+    t: "Implicit Modeling for Transferability Estimation of Vision Foundation Models"
+  - u: "know_thyself_by_knowing_others_learning_neuron_identity_from_population_context/"
+    t: "Know Thyself by Knowing Others: Learning Neuron Identity from Population Context"
+  - u: "long-tailed_recognition_via_information-preservable_two-stage_learning/"
+    t: "Long-Tailed Recognition via Information-Preservable Two-Stage Learning"
+  - u: "m-grpo_stabilizing_self-supervised_reinforcement_learning_for_multimodal_underst/"
+    t: "M-GRPO: Stabilizing Self-Supervised Reinforcement Learning for Large Language Models with Momentum-Anchored Policy Optimization"
+  - u: "manifolds_and_modules_how_function_develops_in_a_neural_foundation_model/"
+    t: "Manifolds and Modules: How Function Develops in a Neural Foundation Model"
+  - u: "minimal_semantic_sufficiency_meets_unsupervised_domain_generalization/"
+    t: "Minimal Semantic Sufficiency Meets Unsupervised Domain Generalization"
+  - u: "mitra_mixed_synthetic_priors_for_enhancing_tabular_foundation_models/"
+    t: "Mitra: Mixed Synthetic Priors for Enhancing Tabular Foundation Models"
+  - u: "mmtu_a_massive_multi-task_table_understanding_and_reasoning_benchmark/"
+    t: "MMTU: A Massive Multi-Task Table Understanding and Reasoning Benchmark"
+  - u: "one_filters_all_a_generalist_filter_for_state_estimation/"
+    t: "One Filters All: A Generalist Filter for State Estimation"
+  - u: "seal_semantic-aware_hierarchical_learning_for_generalized_category_discovery/"
+    t: "SEAL: Semantic-Aware Hierarchical Learning for Generalized Category Discovery"
+  - u: "segmast3r_geometry_grounded_segment_matching/"
+    t: "SegMASt3R: Geometry Grounded Segment Matching"
+  - u: "self-supervised_contrastive_learning_is_approximately_supervised_contrastive_lea/"
+    t: "Self-Supervised Contrastive Learning is Approximately Supervised Contrastive Learning"
+  - u: "soft_task-aware_routing_of_experts_for_equivariant_representation_learning/"
+    t: "Soft Task-Aware Routing of Experts for Equivariant Representation Learning"
+  - u: "spend_wisely_maximizing_post-training_gains_in_iterative_synthetic_data_bootstra/"
+    t: "Spend Wisely: Maximizing Post-Training Gains in Iterative Synthetic Data Bootstrapping"
+  - u: "starformer_semi-supervised_task-informed_representation_learning_via_dynamic_att/"
+    t: "STaRFormer: Semi-Supervised Task-Informed Representation Learning via Dynamic Attention-Based Regional Masking"
+  - u: "t-regs_minimum_spanning_tree_regularization_for_self-supervised_learning/"
+    t: "T-REGS: Minimum Spanning Tree Regularization for Self-Supervised Learning"
+  - u: "tabarena_a_living_benchmark_for_machine_learning_on_tabular_data/"
+    t: "TabArena: A Living Benchmark for Machine Learning on Tabular Data"
+item_total: 34
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
-**🧠 NeurIPS2025** · **35** 篇论文解读
+**🧠 NeurIPS2025** · **34** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (34)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (32)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
 
 🔥 **高频主题：** 自监督学习 ×6 · 推理 ×2
 
@@ -48,10 +110,6 @@ tags:
 **[Connecting Jensen-Shannon and Kullback-Leibler Divergences: A New Bound for Representation Learning](connecting_jensenshannon_and_kullbackleibler_divergences_a_n.md)**
 
 :   推导了一般情况下KL散度关于JS散度的最优紧致下界$\Xi(D_{\text{JS}}) \leq D_{\text{KL}}$，证明训练判别器最小化交叉熵损失等价于最大化互信息的一个保证下界，为JSD基于的判别式表示学习方法提供了缺失的理论基础，并在MI估计和Information Bottleneck框架中验证了紧致性与实用性。
-
-**[Consistent Supervised-Unsupervised Alignment for Generalized Category Discovery](consistent_supervised-unsupervised_alignment_for_generalized_category_discovery.md)**
-
-:   提出 NC-GCD 框架，通过预分配固定的 Equiangular Tight Frame (ETF) 原型为已知类和新类建立统一优化目标，结合语义一致性匹配器 (SCM) 稳定跨迭代伪标签分配，在 6 个 GCD 基准上显著提升新类发现精度。
 
 **[Continuous Subspace Optimization for Continual Learning (CoSO)](continuous_subspace_optimization_for_continual_learning.md)**
 

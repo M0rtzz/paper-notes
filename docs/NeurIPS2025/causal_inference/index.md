@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 因果推理方向20篇论文解读
+  NeurIPS2025 因果推理论文汇总 · 19篇论文解读
 description: >-
-  20篇NeurIPS2025的因果推理方向论文解读，涵盖 LLM、Agent、强化学习、对齐/RLHF、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  19篇NeurIPS2025的因果推理方向论文解读，涵盖 LLM、Agent、强化学习、对齐/RLHF、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "因果推理"
@@ -14,12 +14,52 @@ tags:
   - "对齐/RLHF"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "a_principle_of_targeted_intervention_for_multi-agent_reinforcement_learning/"
+    t: "A Principle of Targeted Intervention for Multi-Agent Reinforcement Learning"
+  - u: "an_analysis_of_causal_effect_estimation_using_outcome_invariant_data_augmentatio/"
+    t: "An Analysis of Causal Effect Estimation Using Outcome Invariant Data Augmentation"
+  - u: "bi-level_decision-focused_causal_learning_for_large-scale_marketing_optimization/"
+    t: "Bi-Level Decision-Focused Causal Learning for Large-Scale Marketing Optimization"
+  - u: "causality-induced_positional_encoding_for_transformer-based_representation_learn/"
+    t: "Causality-Induced Positional Encoding for Transformer-Based Representation Learning of Non-Sequential Features"
+  - u: "counterfactual_reasoning_for_steerable_pluralistic_value_alignment_of_large_lang/"
+    t: "Counterfactual Reasoning for Steerable Pluralistic Value Alignment of Large Language Models"
+  - u: "cyclic_counterfactuals_under_shift-scale_interventions/"
+    t: "Cyclic Counterfactuals under Shift–Scale Interventions"
+  - u: "demystifying_spectral_feature_learning_for_instrumental_variable_regression/"
+    t: "Demystifying Spectral Feature Learning for Instrumental Variable Regression"
+  - u: "differentiable_structure_learning_and_causal_discovery_for_general_binary_data/"
+    t: "Differentiable Structure Learning and Causal Discovery for General Binary Data"
+  - u: "do-pfn_in-context_learning_for_causal_effect_estimation/"
+    t: "Do-PFN: In-Context Learning for Causal Effect Estimation"
+  - u: "domain-adapted_granger_causality_for_real-time_cross-slice_attack_attribution_in/"
+    t: "Domain-Adapted Granger Causality for Real-Time Cross-Slice Attack Attribution in 6G Networks"
+  - u: "from_black-box_to_causal-box_towards_building_more_interpretable_models/"
+    t: "From Black-box to Causal-box: Towards Building More Interpretable Models"
+  - u: "gst-unet_a_neural_framework_for_spatiotemporal_causal_inference_with_time-varyin/"
+    t: "GST-UNet: A Neural Framework for Spatiotemporal Causal Inference with Time-Varying Confounding"
+  - u: "its_hard_to_be_normal_the_impact_of_noise_on_structure-agnostic_estimation/"
+    t: "It's Hard to Be Normal: The Impact of Noise on Structure-agnostic Estimation"
+  - u: "llm_interpretability_with_identifiable_temporal-instantaneous_representation/"
+    t: "LLM Interpretability with Identifiable Temporal-Instantaneous Representation"
+  - u: "performative_validity_of_recourse_explanations/"
+    t: "Performative Validity of Recourse Explanations"
+  - u: "practical_do-shapley_explanations_with_estimand-agnostic_causal_inference/"
+    t: "Practical do-Shapley Explanations with Estimand-Agnostic Causal Inference"
+  - u: "revealing_multimodal_causality_with_large_language_models/"
+    t: "Revealing Multimodal Causality with Large Language Models"
+  - u: "root_cause_analysis_of_outliers_with_missing_structural_knowledge/"
+    t: "Root Cause Analysis of Outliers with Missing Structural Knowledge"
+  - u: "transferring_causal_effects_using_proxies/"
+    t: "Transferring Causal Effects using Proxies"
+item_total: 19
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔗 因果推理
 
-**🧠 NeurIPS2025** · **20** 篇论文解读
+**🧠 NeurIPS2025** · **19** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
 
@@ -40,10 +80,6 @@ tags:
 **[Causality-Induced Positional Encoding for Transformer-Based Representation Learning of Non-Sequential Features](causality-induced_positional_encoding_for_transformer-based_representation_learn.md)**
 
 :   CAPE 通过从表格数据中学习特征间的因果DAG结构，将其嵌入双曲空间生成因果感知的旋转位置编码（RoPE），使 Transformer 能处理非序列但因果相关的特征数据，在多组学数据的下游任务上显著提升性能。
-
-**[Characterization and Learning of Causal Graphs from Hard Interventions](characterization_and_learning_of_causal_graphs_from_hard_interventions.md)**
-
-:   首次系统分析硬干预（hard interventions）在含隐变量因果发现中的理论优势，提出广义do-演算（4条规则）和孪生增强MAG图表示，给出 $\mathcal{I}$-Markov 等价类的充要图条件，并设计可证明正确的FCI变体学习算法；实验表明硬干预比软干预将等价类缩小37-57%。
 
 **[Counterfactual Reasoning for Steerable Pluralistic Value Alignment of Large Language Models](counterfactual_reasoning_for_steerable_pluralistic_value_alignment_of_large_lang.md)**
 

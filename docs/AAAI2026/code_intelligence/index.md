@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 代码智能方向10篇论文解读
+  AAAI2026 代码智能论文汇总 · 10篇论文解读
 description: >-
   10篇AAAI2026的代码智能方向论文解读，涵盖 LLM、代码智能、扩散模型、Agent、少样本学习、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -13,6 +13,28 @@ tags:
   - "Agent"
   - "少样本学习"
   - "强化学习"
+item_list:
+  - u: "diffbench_meets_diffagent_end-to-end_llm-driven_diffusion_ac/"
+    t: "DiffBench Meets DiffAgent: End-to-End LLM-Driven Diffusion Acceleration Code Generation"
+  - u: "equacode_a_multi-strategy_jailbreak_approach_for_large_language_models_via_equat/"
+    t: "EquaCode: A Multi-Strategy Jailbreak Approach for Large Language Models via Equation Solving and Code Completion"
+  - u: "extracting_events_like_code_a_multi-agent_programming_framework_for_zero-shot_ev/"
+    t: "Extracting Events Like Code: A Multi-Agent Programming Framework for Zero-Shot Event Extraction"
+  - u: "mose_hierarchical_self-distillation_enhances_early_layer_embeddings/"
+    t: "MoSE: Hierarchical Self-Distillation Enhances Early Layer Embeddings"
+  - u: "recode_updating_code_api_knowledge_with_reinforcement_learning/"
+    t: "ReCode: Updating Code API Knowledge with Reinforcement Learning"
+  - u: "span_benchmarking_and_improving_cross-calendar_temporal_reasoning_of_large_langu/"
+    t: "SPAN: Benchmarking and Improving Cross-Calendar Temporal Reasoning of Large Language Models"
+  - u: "tapas_are_free_training-free_adaptation_of_programmatic_agen/"
+    t: "TAPA: Training-Free Adaptation of Programmatic Agents via LLM-Guided Program Synthesis in Dynamic Environments"
+  - u: "towards_better_code_understanding_in_decoder-only_large_language_models_via_hie/"
+    t: "Towards Better Code Understanding in Decoder-Only Models with Contrastive Learning"
+  - u: "unintended_misalignment_from_agentic_fine-tuning_risks_and_m/"
+    t: "Unintended Misalignment from Agentic Fine-Tuning: Risks and Mitigation"
+  - u: "why_do_open-source_llms_struggle_with_data_analysis_a_systematic_empirical_study/"
+    t: "Why Do Open-Source LLMs Struggle with Data Analysis? A Systematic Empirical Study"
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

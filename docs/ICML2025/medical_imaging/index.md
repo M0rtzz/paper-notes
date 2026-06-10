@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 医学图像方向22篇论文解读
+  ICML2025 医学图像论文汇总 · 22篇论文解读
 description: >-
   22篇ICML2025的医学图像方向论文解读，涵盖医学影像、多模态、目标检测、域适应、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,52 @@ tags:
   - "域适应"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "bayesian_inference_for_correlated_human_experts_and_classifiers/"
+    t: "Bayesian Inference for Correlated Human Experts and Classifiers"
+  - u: "boosting_masked_ecg-text_auto-encoders_as_discriminative_learners/"
+    t: "Boosting Masked ECG-Text Auto-Encoders as Discriminative Learners (D-BETA)"
+  - u: "certification_for_differentially_private_prediction_in_gradient-based_training/"
+    t: "Certification for Differentially Private Prediction in Gradient-Based Training"
+  - u: "context_matters_query-aware_dynamic_long_sequence_modeling_of_gigapixel_images/"
+    t: "Context Matters: Query-aware Dynamic Long Sequence Modeling of Gigapixel Images"
+  - u: "do_multiple_instance_learning_models_transfer/"
+    t: "Do Multiple Instance Learning Models Transfer?"
+  - u: "doubly_protected_estimation_for_survival_outcomes_utilizing_external_controls_fo/"
+    t: "Doubly Protected Estimation for Survival Outcomes Utilizing External Controls for Randomized Clinical Trials"
+  - u: "eeg-language_pretraining_for_highly_label-efficient_clinical_phenotyping/"
+    t: "EEG-Language Pretraining for Highly Label-Efficient Clinical Phenotyping"
+  - u: "efficient_noise_calculation_in_deep_learning-based_mri_reconstructions/"
+    t: "Efficient Noise Calculation in Deep Learning-based MRI Reconstructions"
+  - u: "enhancing_statistical_validity_and_power_in_hybrid_controlled_trials_a_randomiza/"
+    t: "Enhancing Statistical Validity and Power in Hybrid Controlled Trials: A Randomization Inference Approach with Conformal Selective Borrowing"
+  - u: "from_token_to_rhythm_a_multi-scale_approach_for_ecg-language_pretraining/"
+    t: "From Token to Rhythm: A Multi-Scale Approach for ECG-Language Pretraining"
+  - u: "i2moe_interpretable_multimodal_interaction-aware_mixture-of-experts/"
+    t: "I2MoE: Interpretable Multimodal Interaction-aware Mixture-of-Experts"
+  - u: "idpa_instance_decoupled_prompt_attention_for_incremental_medical_object_detectio/"
+    t: "iDPA: Instance Decoupled Prompt Attention for Incremental Medical Object Detection"
+  - u: "implementing_adaptations_for_vision_autoregressive_model/"
+    t: "Implementing Adaptations for Vision AutoRegressive Model"
+  - u: "langdaug_langevin_data_augmentation_for_multi-source_domain_generalization_in_me/"
+    t: "LangDAug: Langevin Data Augmentation for Multi-Source Domain Generalization in Medical Imaging"
+  - u: "mastering_multiple-expert_routing_realizable_h-consistency_and_strong_guarantees/"
+    t: "Mastering Multiple-Expert Routing: Realizable H-Consistency and Strong Guarantees"
+  - u: "medxpertqa_benchmarking_expert-level_medical_reasoning_and_understanding/"
+    t: "MedXpertQA: Benchmarking Expert-Level Medical Reasoning and Understanding"
+  - u: "neural_stochastic_differential_equations_on_compact_state_spaces_theory_methods_/"
+    t: "Neural Stochastic Differential Equations on Compact State Spaces: Theory, Methods and Applications"
+  - u: "raptor_scalable_train-free_embeddings_for_3d_medical_volumes_leveraging_pretrain/"
+    t: "Raptor: Scalable Train-Free Embeddings for 3D Medical Volumes Leveraging Pretrained 2D Foundation Models"
+  - u: "sgd_jittering_a_training_strategy_for_robust_and_accurate_model-based_architectu/"
+    t: "SGD Jittering: A Training Strategy for Robust and Accurate Model-Based Architectures"
+  - u: "the_brains_bitter_lesson_scaling_speech_decoding_with_self-supervised_learning/"
+    t: "The Brain's Bitter Lesson: Scaling Speech Decoding With Self-Supervised Learning"
+  - u: "the_disparate_benefits_of_deep_ensembles/"
+    t: "The Disparate Benefits of Deep Ensembles"
+  - u: "the_four_color_theorem_for_cell_instance_segmentation/"
+    t: "The Four Color Theorem for Cell Instance Segmentation"
+item_total: 22
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +67,7 @@ tags:
 
 **🧪 ICML2025** · **22** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (100)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (21)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (73)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (97)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (71)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md)
 
 🔥 **高频主题：** 医学影像 ×7
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 其他方向164篇论文解读
+  NeurIPS2025 其他论文汇总 · 163篇论文解读
 description: >-
-  164篇NeurIPS2025的其他方向论文解读，涵盖对抗鲁棒、对齐/RLHF、时序预测、域适应、扩散模型、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  163篇NeurIPS2025的其他方向论文解读，涵盖对抗鲁棒、对齐/RLHF、时序预测、域适应、扩散模型、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "其他"
@@ -14,14 +14,76 @@ tags:
   - "域适应"
   - "扩散模型"
   - "布局/合成"
+item_list:
+  - u: "3did_direct_3d_inverse_design_for_aerodynamics_with_physics-aware_optimization/"
+    t: "3DID: Direct 3D Inverse Design for Aerodynamics with Physics-Aware Optimization"
+  - u: "4dgt_learning_a_4d_gaussian_transformer_using_realworld_mono/"
+    t: "4DGT: Learning a 4D Gaussian Transformer Using Real-World Monocular Videos"
+  - u: "a_differentiable_model_of_supply-chain_shocks/"
+    t: "A Differentiable Model of Supply-Chain Shocks"
+  - u: "a_highdimensional_statistical_method_for_optimizing_transfer/"
+    t: "A High-Dimensional Statistical Method for Optimizing Transfer Quantities in Multi-Source Transfer Learning"
+  - u: "a_sustainable_ai_economy_needs_data_deals_that_work_for_gene/"
+    t: "A Sustainable AI Economy Needs Data Deals That Work for Generators"
+  - u: "a_theoretical_framework_for_grokking_interpolation_followed_by_riemannian_norm_m/"
+    t: "A Theoretical Framework for Grokking: Interpolation followed by Riemannian Norm Minimisation"
+  - u: "a_unified_framework_for_provably_efficient_algorithms_to_estimate_shapley_values/"
+    t: "A Unified Framework for Provably Efficient Algorithms to Estimate Shapley Values"
+  - u: "active_measurement_efficient_estimation_at_scale/"
+    t: "Active Measurement: Efficient Estimation at Scale"
+  - u: "adaptive_data_analysis_for_growing_data/"
+    t: "Adaptive Data Analysis for Growing Data"
+  - u: "addressing_mark_imbalance_in_integrationfree_neural_marked_t/"
+    t: "Addressing Mark Imbalance in Integration-free Neural Marked Temporal Point Processes"
+  - u: "adjoint_schrödinger_bridge_sampler/"
+    t: "Adjoint Schrödinger Bridge Sampler"
+  - u: "adjusted_count_quantification_learning_on_graphs/"
+    t: "Adjusted Count Quantification Learning on Graphs"
+  - u: "aggregation_hides_out-of-distribution_generalization_failures_from_spurious_corr/"
+    t: "Aggregation Hides OOD Generalization Failures from Spurious Correlations"
+  - u: "alias-free_vit_fractional_shift_invariance_via_linear_attention/"
+    t: "Alias-Free ViT: Fractional Shift Invariance via Linear Attention"
+  - u: "are_pixel-wise_metrics_reliable_for_sparse-view_computed_tomography_reconstructi/"
+    t: "Are Pixel-Wise Metrics Reliable for Sparse-View Computed Tomography Reconstruction?"
+  - u: "asymmetric_duos_sidekicks_improve_uncertainty/"
+    t: "Asymmetric Duos: Sidekicks Improve Uncertainty"
+  - u: "bispectral_ot_dataset_comparison_using_symmetry-aware_optimal_transport/"
+    t: "Bispectral OT: Dataset Comparison using Symmetry-Aware Optimal Transport"
+  - u: "brain-like_processing_pathways_form_in_models_with_heterogeneous_experts/"
+    t: "Brain-Like Processing Pathways Form in Models With Heterogeneous Experts"
+  - u: "computable_universal_online_learning/"
+    t: "Computable Universal Online Learning"
+  - u: "conformal_online_learning_of_deep_koopman_linear_embeddings/"
+    t: "Conformal Online Learning of Deep Koopman Linear Embeddings"
+  - u: "contextual_dynamic_pricing_with_heterogeneous_buyers/"
+    t: "Contextual Dynamic Pricing with Heterogeneous Buyers"
+  - u: "continuous_thought_machines/"
+    t: "Continuous Thought Machines"
+  - u: "coreset_for_robust_geometric_median_eliminating_size_dependency_on_outliers/"
+    t: "Coreset for Robust Geometric Median: Eliminating Size Dependency on Outliers"
+  - u: "coresets_for_clustering_under_stochastic_noise/"
+    t: "Coresets for Clustering Under Stochastic Noise"
+  - u: "cost-sensitive_freeze-thaw_bayesian_optimization_for_efficient_hyperparameter_tu/"
+    t: "Cost-Sensitive Freeze-thaw Bayesian Optimization for Efficient Hyperparameter Tuning"
+  - u: "deep_continuous-time_state-space_models_for_marked_event_sequences/"
+    t: "Deep Continuous-Time State-Space Models for Marked Event Sequences"
+  - u: "deep_learning_for_continuous-time_stochastic_control_with_jumps/"
+    t: "Deep Learning for Continuous-Time Stochastic Control with Jumps"
+  - u: "deep_legendre_transform/"
+    t: "Deep Legendre Transform"
+  - u: "dense_associative_memory_with_epanechnikov_energy/"
+    t: "Dense Associative Memory with Epanechnikov Energy"
+  - u: "depth-bounds_for_neural_networks_via_the_braid_arrangement/"
+    t: "Depth-Bounds for Neural Networks via the Braid Arrangement"
+item_total: 163
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🧠 NeurIPS2025** · **164** 篇论文解读
+**🧠 NeurIPS2025** · **163** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (91)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (135)](../../AAAI2026/others/index.md) · [📹 ICCV2025 (47)](../../ICCV2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (128)](../../AAAI2026/others/index.md) · [📹 ICCV2025 (47)](../../ICCV2025/others/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×5 · 对齐/RLHF ×4 · 时序预测 ×4 · 域适应 ×3 · 扩散模型 ×3
 
@@ -364,10 +426,6 @@ tags:
 **[MEGState: Phoneme Decoding from Magnetoencephalography Signals](megstate_phoneme_decoding_from_magnetoencephalography_signals.md)**
 
 :   提出 MEGState，一种融合多分辨率卷积和传感器级 SSM 的架构，用于从脑磁图(MEG)信号中解码音素，在 LibriBrain 数据集上显著超越基线方法。
-
-**[Merlin L48 Spectrogram Dataset](merlin_l48_spectrogram_dataset.md)**
-
-:   本文提出了 L48 数据集——一个基于真实鸟类录音的细粒度频谱图多标签分类基准，天然具备单正标签多标签 (SPML) 设置，揭示了现有 SPML 方法在真实场景下的严重不足，并提出了基于录音内一致性的正则化方案来提升性能。
 
 **[Meta-learning three-factor plasticity rules for structured credit assignment with sparse feedback](meta-learning_three-factor_plasticity_rules_for_structured_credit_assignment_wit.md)**
 

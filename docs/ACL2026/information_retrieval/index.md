@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 信息检索/RAG方向74篇论文解读
+  ACL2026 信息检索/RAG论文汇总 · 74篇论文解读
 description: >-
   74篇ACL2026的信息检索/RAG 方向论文解读，涵盖 RAG、问答、推理、LLM、对话系统、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "LLM"
   - "对话系统"
   - "强化学习"
+item_list:
+  - u: "a_picture_is_worth_a_thousand_words_an_empirical_study_of_aggregation_strategies/"
+    t: "A Picture is Worth a Thousand Words? An Empirical Study of Aggregation Strategies for Visual Financial Document Retrieval"
+  - u: "a_survey_of_reasoning-intensive_retrieval_progress_and_challenges/"
+    t: "A Survey of Reasoning-Intensive Retrieval: Progress and Challenges"
+  - u: "agentic_conversational_search_with_contextualized_reasoning_via_reinforcement_le/"
+    t: "Agentic Conversational Search with Contextualized Reasoning via Reinforcement Learning"
+  - u: "all_languages_matter_understanding_and_mitigating_language_bias_in_multilingual_/"
+    t: "All Languages Matter: Understanding and Mitigating Language Bias in Multilingual RAG"
+  - u: "an_iterative_utility_judgment_framework_inspired_by_philosophical_relevance_via_/"
+    t: "An Iterative Utility Judgment Framework Inspired by Philosophical Relevance via LLMs"
+  - u: "authoritybench_benchmarking_llm_authority_perception_for_reliable_retrieval-augm/"
+    t: "AuthorityBench: Benchmarking LLM Authority Perception for Reliable Retrieval-Augmented Generation"
+  - u: "bayesian_active_learning_with_gaussian_processes_guided_by_llm_relevance_scoring/"
+    t: "Bayesian Active Learning with Gaussian Processes Guided by LLM Relevance Scoring"
+  - u: "benchmarking_and_enabling_efficient_chinese_medical_retrieval_via_asymmetric_enc/"
+    t: "Benchmarking and Enabling Efficient Chinese Medical Retrieval via Asymmetric Encoders"
+  - u: "beyond_black-box_interventions_latent_probing_for_faithful_retrieval-augmented_g/"
+    t: "Beyond Black-Box Interventions: Latent Probing for Faithful Retrieval-Augmented Generation"
+  - u: "brief-pro_universal_context_compression_with_short-to-long_synthesis_for_fast_an/"
+    t: "BRIEF-Pro: Universal Context Compression with Short-to-Long Synthesis for Fast and Accurate Multi-Hop Reasoning"
+  - u: "can_compact_language_models_search_like_agents_distillation-guided_policy_optimi/"
+    t: "Can Compact Language Models Search Like Agents? Distillation-Guided Policy Optimization for Preserving Agentic RAG Capabilities"
+  - u: "chatr1_reinforcement_learning_for_conversational_reasoning_and_retrieval_augment/"
+    t: "ChatR1: Reinforcement Learning for Conversational Reasoning and Retrieval Augmented Question Answering"
+  - u: "chunqiutr_time-keyed_temporal_retrieval_in_classical_chinese_annals/"
+    t: "ChunQiuTR: Time-Keyed Temporal Retrieval in Classical Chinese Annals"
+  - u: "citeguard_faithful_citation_attribution_for_llms_via_retrieval-augmented_validat/"
+    t: "CiteGuard: Faithful Citation Attribution for LLMs via Retrieval-Augmented Validation"
+  - u: "code-switching_information_retrieval_benchmarks_analysis_and_the_limits_of_curre/"
+    t: "Code-Switching Information Retrieval: Benchmarks, Analysis, and the Limits of Current Retrievers"
+  - u: "codepromptzip_code-specific_prompt_compression_for_retrieval-augmented_generatio/"
+    t: "CodePromptZip: Code-specific Prompt Compression for Retrieval-Augmented Generation in Coding Tasks with LMs"
+  - u: "conjecture_and_inquiry_quantifying_software_performance_requirements_via_interac/"
+    t: "Conjecture and Inquiry: Quantifying Software Performance Requirements via Interactive Retrieval-Augmented Preference Elicitation"
+  - u: "context_attribution_with_multi-armed_bandit_optimization/"
+    t: "Context Attribution with Multi-Armed Bandit Optimization"
+  - u: "coral_adaptive_retrieval_loop_for_culturally-aligned_multilingual_rag/"
+    t: "CORAL: Adaptive Retrieval Loop for Culturally-Aligned Multilingual RAG"
+  - u: "counterrefine_answer-conditioned_counterevidence_retrieval_for_inference-time_kn/"
+    t: "CounterRefine: Answer-Conditioned Counterevidence Retrieval for Inference-Time Knowledge Repair in Factual Question Answering"
+  - u: "craft_training-free_cascaded_retrieval_for_tabular_qa/"
+    t: "CRAFT: Training-Free Cascaded Retrieval for Tabular QA"
+  - u: "disco-rag_discourse-aware_retrieval-augmented_generation/"
+    t: "Disco-RAG: Discourse-Aware Retrieval-Augmented Generation"
+  - u: "domain-specific_data_generation_framework_for_rag_adaptation/"
+    t: "Domain-Specific Data Generation Framework for RAG Adaptation"
+  - u: "dqa_diagnostic_question_answering_for_it_support/"
+    t: "DQA: Diagnostic Question Answering for IT Support"
+  - u: "end-to-end_optimization_of_llm-driven_multi-agent_search_systems_via_heterogeneo/"
+    t: "End-to-End Optimization of LLM-Driven Multi-Agent Search Systems via Heterogeneous-Group-Based Reinforcement Learning"
+  - u: "enhancing_factuality_through_consensus_and_consistency_in_summarization_using_mi/"
+    t: "Enhancing Factuality through Consensus and Consistency in Summarization Using Minimum Bayes Risk Decoding"
+  - u: "enhancing_llm-based_search_agents_via_contribution_weighted_group_relative_polic/"
+    t: "Enhancing LLM-based Search Agents via Contribution Weighted Group Relative Policy Optimization"
+  - u: "enhancing_multilingual_rag_systems_with_debiased_language_preference-guided_quer/"
+    t: "Enhancing Multilingual RAG Systems with Debiased Language Preference-Guided Query Fusion"
+  - u: "etracer_towards_traceable_text_generation_via_claim-level_grounding/"
+    t: "eTracer: Towards Traceable Text Generation via Claim-Level Grounding"
+  - u: "feedback_adaptation_for_retrieval-augmented_generation/"
+    t: "Feedback Adaptation for Retrieval-Augmented Generation"
+item_total: 74
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **💬 ACL2026** · **74** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/information_retrieval/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/information_retrieval/index.md)
 
 🔥 **高频主题：** RAG ×27 · 问答 ×8 · 推理 ×7 · LLM ×7 · 对话系统 ×5
 

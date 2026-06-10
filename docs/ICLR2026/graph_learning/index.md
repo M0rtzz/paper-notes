@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 图学习方向20篇论文解读
+  ICLR2026 图学习论文汇总 · 19篇论文解读
 description: >-
-  20篇ICLR2026的图学习方向论文解读，涵盖图神经网络、LLM、对齐/RLHF、生物分子、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  19篇ICLR2026的图学习方向论文解读，涵盖图神经网络、LLM、对齐/RLHF、生物分子、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "图学习"
@@ -13,16 +13,56 @@ tags:
   - "对齐/RLHF"
   - "生物分子"
   - "Agent"
+item_list:
+  - u: "a_geometric_perspective_on_the_difficulties_of_learning_gnn-based_sat_solvers/"
+    t: "A Geometric Perspective on the Difficulties of Learning GNN-based SAT Solvers"
+  - u: "are_we_measuring_oversmoothing_in_graph_neural_networks_correctly/"
+    t: "Are We Measuring Oversmoothing in Graph Neural Networks Correctly?"
+  - u: "beyond_simple_graphs_neural_multi-objective_routing_on_multigraphs/"
+    t: "Beyond Simple Graphs: Neural Multi-Objective Routing on Multigraphs"
+  - u: "cooperative_sheaf_neural_networks/"
+    t: "Cooperative Sheaf Neural Networks"
+  - u: "entropy-guided_dynamic_tokens_for_graph-llm_alignment_in_molecular_understanding/"
+    t: "Entropy-Guided Dynamic Tokens for Graph-LLM Alignment in Molecular Understanding"
+  - u: "explore-on-graph_incentivizing_autonomous_exploration_of_large_language_models_o/"
+    t: "Explore-on-Graph: Incentivizing Autonomous Exploration of LLMs on Knowledge Graphs"
+  - u: "graph_homophily_booster_reimagining_the_role_of_discrete_features_in_heterophili/"
+    t: "GRAPHITE: Graph Homophily Booster — Reimagining the Role of Discrete Features in Heterophilic Graph Learning"
+  - u: "graph_tokenization_for_bridging_graphs_and_transformers/"
+    t: "Graph Tokenization for Bridging Graphs and Transformers"
+  - u: "graphuniverse_synthetic_graph_generation_for_evaluating_inductive_generalization/"
+    t: "GraphUniverse: Synthetic Graph Generation for Evaluating Inductive Generalization"
+  - u: "learning_concept_bottleneck_models_from_mechanistic_explanations/"
+    t: "Learning Concept Bottleneck Models from Mechanistic Explanations"
+  - u: "logicxgnn_grounded_logical_rules_for_explaining_graph_neural_networks/"
+    t: "LogicXGNN: Grounded Logical Rules for Explaining Graph Neural Networks"
+  - u: "on_the_expressive_power_of_gnns_for_boolean_satisfiability/"
+    t: "On the Expressive Power of GNNs for Boolean Satisfiability"
+  - u: "pairwise_is_not_enough_hypergraph_neural_networks_for_multi-agent_pathfinding/"
+    t: "Pairwise is Not Enough: Hypergraph Neural Networks for Multi-Agent Pathfinding"
+  - u: "ras_retrieval-and-structuring_for_knowledge-intensive_llm_generation/"
+    t: "RAS: Retrieval-And-Structuring for Knowledge-Intensive LLM Generation"
+  - u: "relational_graph_transformer/"
+    t: "Relational Graph Transformer"
+  - u: "relatron_automating_relational_machine_learning_over_relational_databases/"
+    t: "Relatron: Automating Relational Machine Learning over Relational Databases"
+  - u: "revisiting_node_affinity_prediction_in_temporal_graphs/"
+    t: "Revisiting Node Affinity Prediction in Temporal Graphs"
+  - u: "structurally_human_semantically_biased_detecting_llm-generated_references_with_e/"
+    t: "Structurally Human, Semantically Biased: Detecting LLM-Generated References with Embeddings and GNNs"
+  - u: "towards_improved_sentence_representations_using_token_graphs/"
+    t: "Towards Improved Sentence Representations using Token Graphs"
+item_total: 19
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**🔬 ICLR2026** · **20** 篇论文解读
+**🔬 ICLR2026** · **19** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
 
-🔥 **高频主题：** 图神经网络 ×5 · LLM ×3
+🔥 **高频主题：** 图神经网络 ×4 · LLM ×3
 
 **[A Geometric Perspective on the Difficulties of Learning GNN-based SAT Solvers](a_geometric_perspective_on_the_difficulties_of_learning_gnn-based_sat_solvers.md)**
 
@@ -59,10 +99,6 @@ tags:
 **[GraphUniverse: Synthetic Graph Generation for Evaluating Inductive Generalization](graphuniverse_synthetic_graph_generation_for_evaluating_inductive_generalization.md)**
 
 :   提出 GraphUniverse 框架，通过分层生成具有持久语义社区的图族（graph families），首次实现对图学习模型归纳泛化能力的系统性评估，揭示了 transductive 性能无法可靠预测 inductive 泛化能力这一关键发现。
-
-**[Improving Long-Range Interactions in Graph Neural Simulators via Hamiltonian Dynamics](improving_long-range_interactions_in_graph_neural_simulators_via_hamiltonian_dyn.md)**
-
-:   提出 Information-preserving Graph Neural Simulators (IGNS)，利用 port-Hamiltonian 动力学结构在图上保持信息不耗散，结合 warmup 初始化、几何编码和多步训练目标，在 6 个物理仿真基准上全面超越现有图神经仿真器。
 
 **[Learning Concept Bottleneck Models from Mechanistic Explanations](learning_concept_bottleneck_models_from_mechanistic_explanations.md)**
 

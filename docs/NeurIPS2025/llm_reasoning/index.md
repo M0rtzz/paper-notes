@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 LLM 推理方向83篇论文解读
+  NeurIPS2025 LLM推理论文汇总 · 82篇论文解读
 description: >-
-  83篇NeurIPS2025的 LLM 推理方向论文解读，涵盖推理、LLM、强化学习、多模态、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  82篇NeurIPS2025的 LLM 推理方向论文解读，涵盖推理、LLM、强化学习、多模态、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "LLM 推理"
@@ -13,16 +13,78 @@ tags:
   - "强化学习"
   - "多模态"
   - "模型压缩"
+item_list:
+  - u: "a_little_depth_goes_a_long_way_the_expressive_power_of_logde/"
+    t: "A Little Depth Goes a Long Way: The Expressive Power of Log-Depth Transformers"
+  - u: "a_theoretical_study_on_bridging_internal_probability_and_sel/"
+    t: "A Theoretical Study on Bridging Internal Probability and Self-Consistency for LLM Reasoning"
+  - u: "abbie_autoregressive_block-based_iterative_encoder_for_efficient_sequence_modeli/"
+    t: "AbbIE: Autoregressive Block-Based Iterative Encoder for Efficient Sequence Modeling"
+  - u: "adaptive_dual_reasoner_large_reasoning_models_can_think_efficiently_by_hybrid_re/"
+    t: "Adaptive Dual Reasoner: Large Reasoning Models Can Think Efficiently by Hybrid Reasoning"
+  - u: "are_large_reasoning_models_good_translation_evaluators_analysis_and_performance_/"
+    t: "Are Large Reasoning Models Good Translation Evaluators? Analysis and Performance Boost"
+  - u: "arm_adaptive_reasoning_model/"
+    t: "ARM: Adaptive Reasoning Model"
+  - u: "atom_of_thoughts_for_markov_llm_testtime_scaling/"
+    t: "Atom of Thoughts for Markov LLM Test-Time Scaling"
+  - u: "beyond_accuracy_dissecting_mathematical_reasoning_for_llms_u/"
+    t: "Beyond Accuracy: Dissecting Mathematical Reasoning for LLMs Under Reinforcement Learning"
+  - u: "beyond_the_8020_rule_highentropy_minority_tokens_drive_effec/"
+    t: "Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning"
+  - u: "chartmuseum_testing_visual_reasoning_capabilities_of_large_v/"
+    t: "ChartMuseum: Testing Visual Reasoning Capabilities of Large Vision-Language Models"
+  - u: "clip-and-verify_linear_constraint-driven_domain_clipping_for_accelerating_neural/"
+    t: "Clip-and-Verify: Linear Constraint-Driven Domain Clipping for Accelerating Neural Network Verification"
+  - u: "cognitive_mirrors_exploring_the_diverse_functional_roles_of_attention_heads_in_l/"
+    t: "Cognitive Mirrors: Exploring the Diverse Functional Roles of Attention Heads in LLM Reasoning"
+  - u: "controlling_thinking_speed_in_reasoning_models/"
+    t: "Controlling Thinking Speed in Reasoning Models"
+  - u: "core_benchmarking_llms_code_reasoning_capabilities_through_static_analysis_tasks/"
+    t: "CoRe: Benchmarking LLMs' Code Reasoning Capabilities through Static Analysis Tasks"
+  - u: "cot_redhanded_stress_testing_chainofthought_monitoring/"
+    t: "CoT Red-Handed: Stress Testing Chain-of-Thought Monitoring"
+  - u: "curriculum_abductive_learning/"
+    t: "Curriculum Abductive Learning"
+  - u: "disco_reinforcing_large_reasoning_models_with_discriminative_constrained_optimiz/"
+    t: "DisCO: Reinforcing Large Reasoning Models with Discriminative Constrained Optimization"
+  - u: "does_thinking_more_always_help_mirage_of_test-time_scaling_in_reasoning_models/"
+    t: "Does Thinking More Always Help? Mirage of Test-Time Scaling in Reasoning Models"
+  - u: "dreamprm_domain-reweighted_process_reward_model_for_multimodal_reasoning/"
+    t: "DreamPRM: Domain-Reweighted Process Reward Model for Multimodal Reasoning"
+  - u: "exact_expressive_power_of_transformers_with_padding/"
+    t: "Exact Expressive Power of Transformers with Padding"
+  - u: "expo_unlocking_hard_reasoning_with_self-explanation-guided_reinforcement_learnin/"
+    t: "ExPO: Unlocking Hard Reasoning with Self-Explanation-Guided Reinforcement Learning"
+  - u: "first_sft_second_rl_third_upt_continual_improving_multi-modal_llm_reasoning_via_/"
+    t: "First SFT, Second RL, Third UPT: Continual Improving Multi-Modal LLM Reasoning via Unsupervised Post-Training"
+  - u: "fractalbench_diagnosing_visual-mathematical_reasoning_through_recursive_program_/"
+    t: "FractalBench: Diagnosing Visual-Mathematical Reasoning Through Recursive Program Synthesis"
+  - u: "gpo_learning_from_critical_steps_to_improve_llm_reasoning/"
+    t: "GPO: Learning from Critical Steps to Improve LLM Reasoning"
+  - u: "i-raven-x_benchmarking_generalization_and_robustness_of_analogical_and_mathemati/"
+    t: "I-RAVEN-X: Benchmarking Generalization and Robustness of Analogical and Mathematical Reasoning in Large Language and Reasoning Models"
+  - u: "inference-time_chain-of-thought_pruning_with_latent_informativeness_signals/"
+    t: "Inference-Time Chain-of-Thought Pruning with Latent Informativeness Signals"
+  - u: "is_chain-of-thought_reasoning_of_llms_a_mirage_a_data_distribution_lens/"
+    t: "Is Chain-of-Thought Reasoning of LLMs a Mirage? A Data Distribution Lens"
+  - u: "know_what_you_dont_know_uncertainty_calibration_of_process_reward_models/"
+    t: "Know What You Don't Know: Uncertainty Calibration of Process Reward Models"
+  - u: "ktae_a_model-free_algorithm_to_key-tokens_advantage_estimation_in_mathematical_r/"
+    t: "KTAE: A Model-Free Algorithm to Key-Tokens Advantage Estimation in Mathematical Reasoning"
+  - u: "large_language_models_can_learn_and_generalize_steganographic_chain-of-thought_u/"
+    t: "Large Language Models Can Learn and Generalize Steganographic Chain-of-Thought under Process Supervision"
+item_total: 82
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM 推理
 
-**🧠 NeurIPS2025** · **83** 篇论文解读
+**🧠 NeurIPS2025** · **82** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (82)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_reasoning/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (80)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/llm_reasoning/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/index.md)
 
-🔥 **高频主题：** 推理 ×59 · LLM ×19 · 强化学习 ×8 · 多模态 ×6 · 模型压缩 ×2
+🔥 **高频主题：** 推理 ×58 · LLM ×19 · 强化学习 ×8 · 多模态 ×6 · 模型压缩 ×2
 
 **[A Little Depth Goes a Long Way: The Expressive Power of Log-Depth Transformers](a_little_depth_goes_a_long_way_the_expressive_power_of_logde.md)**
 
@@ -343,10 +405,6 @@ tags:
 **[Value-Guided Search for Efficient Chain-of-Thought Reasoning](value-guided_search_for_efficient_chain-of-thought_reasoning.md)**
 
 :   本文扩展置信度估计到多步任务，证明步级评估相比整体评估能更有效地检测推理失败，相对整体评估在CoQA上AUC-ROC提升15%，为多步推理系统的可信部署提供实用框架。
-
-**[VideoRFT: Incentivizing Video Reasoning Capability in MLLMs via Reinforced Fine-Tuning](videorft_incentivizing_video_reasoning_capability_in_mllms_via_reinforced_fine-t.md)**
-
-:   提出 VideoRFT，通过认知启发的多专家 CoT 数据构建流水线和新颖的语义一致性奖励，将强化微调（RFT）范式扩展到视频推理领域，分别构建 VideoRFT-CoT-102K（SFT 用）和 VideoRFT-RL-310K（RL 用）两个数据集，在 6 个视频推理基准上达到 SOTA。
 
 **[Visual Thoughts: A Unified Perspective of Understanding Multimodal Chain-of-Thought](visual_thoughts_a_unified_perspective_of_understanding_multi.md)**
 

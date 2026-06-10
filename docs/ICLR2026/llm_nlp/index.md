@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 LLM / NLP方向34篇论文解读
+  ICLR2026 LLM/NLP论文汇总 · 33篇论文解读
 description: >-
-  34篇ICLR2026的 LLM / NLP 方向论文解读，涵盖 LLM、扩散模型、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  33篇ICLR2026的 LLM / NLP 方向论文解读，涵盖 LLM、扩散模型、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "LLM / NLP"
@@ -11,14 +11,76 @@ tags:
   - "LLM"
   - "扩散模型"
   - "推理"
+item_list:
+  - u: "assetformer_modular_3d_assets_generation_with_autoregressive_transformer/"
+    t: "AssetFormer: Modular 3D Assets Generation with Autoregressive Transformer"
+  - u: "bots_a_unified_framework_for_bayesian_online_task_selection_in_llm_reinforcement/"
+    t: "BOTS: A Unified Framework for Bayesian Online Task Selection in LLM Reinforcement Finetuning"
+  - u: "breaking_the_correlation_plateau_on_the_optimization_and_capacity_limits_of_atte/"
+    t: "Breaking the Correlation Plateau: On the Optimization and Capacity Limits of Attention-Based Regressors"
+  - u: "compositional-arc_assessing_systematic_generalization_in_abstract_spatial_reason/"
+    t: "Compositional-ARC: Assessing Systematic Generalization in Abstract Spatial Reasoning"
+  - u: "d2cache_accelerating_diffusion-based_llms_via_dual_adaptive_caching/"
+    t: "d²Cache: Accelerating Diffusion-Based LLMs via Dual Adaptive Caching"
+  - u: "dreamon_diffusion_language_models_for_code_infilling_beyond_fixed-size_canvas/"
+    t: "DreamOn: Diffusion Language Models For Code Infilling Beyond Fixed-size Canvas"
+  - u: "ellmob_event-driven_human_mobility_generation_with_self-aligned_language_models/"
+    t: "ELLMob: Event-Driven Human Mobility Generation with Self-Aligned LLM Framework"
+  - u: "enhancing_persona_following_at_decoding_time_via_dynamic_importance-guided_token/"
+    t: "Enhancing Persona Following at Decoding Time via Dynamic Importance-Guided Token Estimation for Role-Playing Agents"
+  - u: "evaluating_text_creativity_across_diverse_domains_a_dataset_and_large_language_m/"
+    t: "Evaluating Text Creativity across Diverse Domains: A Dataset and Large Language Model Evaluator"
+  - u: "fine-grained_activation_steering_steering_less_achieving_more/"
+    t: "Fine-Grained Activation Steering: Steering Less, Achieving More"
+  - u: "first_is_not_really_better_than_last_evaluating_layer_choice_and_aggregation_str/"
+    t: "First is Not Really Better Than Last: Evaluating Layer Choice and Aggregation Strategies in Language Model Data Influence Estimation"
+  - u: "gasp_guided_asymmetric_self-play_for_coding_llms/"
+    t: "GASP: Guided Asymmetric Self-Play For Coding LLMs"
+  - u: "how_catastrophic_is_your_llm_certifying_risk_in_conversation/"
+    t: "How Catastrophic is Your LLM? Certifying Risk in Conversation"
+  - u: "how_far_are_llms_from_professional_poker_players_revisiting_game-theoretic_reaso/"
+    t: "How Far Are LLMs from Professional Poker Players? Revisiting Game-Theoretic Reasoning with Agentic Tool Use"
+  - u: "is_the_reversal_curse_a_binding_problem_uncovering_limitations_of_transformers_f/"
+    t: "Is the Reversal Curse a Binding Problem? Uncovering Limitations of Transformers from a Basic Generalization Failure"
+  - u: "llema_evolutionary_search_with_llms_for_multi-objective_material_design/"
+    t: "LLEMA: Evolutionary Search with LLMs for Multi-Objective Materials Discovery"
+  - u: "meta-rl_induces_exploration_in_language_agents/"
+    t: "Meta-RL Induces Exploration in Language Agents"
+  - u: "near-optimal_online_deployment_and_routing_for_streaming_llms/"
+    t: "Near-Optimal Online Deployment and Routing for Streaming LLMs"
+  - u: "neural_synchrony_between_socially_interacting_language_models/"
+    t: "Neural Synchrony Between Socially Interacting Language Models"
+  - u: "optimas_optimizing_compound_ai_systems_with_globally_aligned_local_rewards/"
+    t: "Optimas: Optimizing Compound AI Systems with Globally Aligned Local Rewards"
+  - u: "pt2-llm_post-training_ternarization_for_large_language_models/"
+    t: "PT2-LLM: Post-Training Ternarization for Large Language Models"
+  - u: "quamo_quaternion_motions_for_vision-based_3d_human_kinematics_capture/"
+    t: "ConflictScope: Generative Value Conflicts Reveal LLM Priorities"
+  - u: "rethinking_code_similarity_for_automated_algorithm_design_with_llms/"
+    t: "Rethinking Code Similarity for Automated Algorithm Design with LLMs"
+  - u: "spectral_attention_steering_for_prompt_highlighting/"
+    t: "Spectral Attention Steering for Prompt Highlighting"
+  - u: "statistical_advantage_of_softmax_attention_insights_from_single-location_regress/"
+    t: "Statistical Advantage of Softmax Attention: Insights from Single-Location Regression"
+  - u: "stopping_computation_for_converged_tokens_in_masked_diffusion-lm_decoding/"
+    t: "Stopping Computation for Converged Tokens in Masked Diffusion-LM Decoding"
+  - u: "the_lattice_representation_hypothesis_of_large_language_models/"
+    t: "The Lattice Representation Hypothesis of Large Language Models"
+  - u: "toward_safer_diffusion_language_models_discovery_and_mitigation_of_priming_vulne/"
+    t: "Toward Safer Diffusion Language Models: Discovery and Mitigation of Priming Vulnerabilities"
+  - u: "trapped_by_simplicity_when_transformers_fail_to_learn_from_noisy_features/"
+    t: "Trapped by simplicity: When Transformers fail to learn from noisy features"
+  - u: "unsupervised_evaluation_of_multi-turn_objective-driven_interactions/"
+    t: "Unsupervised Evaluation of Multi-Turn Objective-Driven Interactions"
+item_total: 33
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM / NLP
 
-**🔬 ICLR2026** · **34** 篇论文解读
+**🔬 ICLR2026** · **33** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/llm_nlp/index.md) · [📹 ICCV2025 (6)](../../ICCV2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_nlp/index.md) · [📹 ICCV2025 (6)](../../ICCV2025/llm_nlp/index.md)
 
 🔥 **高频主题：** LLM ×7 · 扩散模型 ×4 · 推理 ×2
 
@@ -145,10 +207,6 @@ tags:
 **[WebDevJudge: Evaluating (M)LLMs as Critiques for Web Development Quality](webdevjudge_mllm_web_development.md)**
 
 :   构建 WebDevJudge 元评估基准，系统评估 LLM/MLLM 及智能体工作流在 Web 开发质量评估任务上作为裁判的能力，发现当前最强模型与人类专家之间仍存在约15%的一致率差距，并揭示了功能等价识别失败和可行性验证薄弱两大根本瓶颈。
-
-**[WebOperator: Action-Aware Tree Search for Autonomous Agents in Web Environment](weboperator_action-aware_tree_search_for_autonomous_agents_in_web_environment.md)**
-
-:   提出 WebOperator，一个动作感知的树搜索框架，通过投机性回溯、破坏性动作检测、动作验证与合并等机制，使 Web 自主代理能在部分可观测、不可逆的真实网页环境中安全高效地探索，在 WebArena 上以 gpt-4o 达到 54.6% SOTA 成功率。
 
 **[Weight Decay may matter more than μP for Learning Rate Transfer in Practice](weight_decay_may_matter_more_than_mup_for_learning_rate_transfer_in_practice.md)**
 

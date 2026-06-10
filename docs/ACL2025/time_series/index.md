@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 时间序列方向7篇论文解读
+  ACL2025 时间序列论文汇总 · 7篇论文解读
 description: >-
   7篇ACL2025的时间序列方向论文解读，涵盖时序预测、LLM、情感分析、多模态、少样本学习、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,22 @@ tags:
   - "多模态"
   - "少样本学习"
   - "问答"
+item_list:
+  - u: "anre_analogical_replay_for_temporal_knowledge_graph_forecasting/"
+    t: "ANRE: Analogical Replay for Temporal Knowledge Graph Forecasting"
+  - u: "context_aware_sentiment_forecasting_agents/"
+    t: "Context-Aware Sentiment Forecasting via LLM-based Multi-Perspective Role-Playing Agents"
+  - u: "ctpd_cross-modal_temporal_pattern_discovery_for_enhanced_multimodal_electronic_h/"
+    t: "CTPD: Cross-Modal Temporal Pattern Discovery for Enhanced Multimodal Electronic Health Records Analysis"
+  - u: "g2s_a_general-to-specific_learning_framework_for_temporal_knowledge_graph_foreca/"
+    t: "G2S: A General-to-Specific Learning Framework for Temporal Knowledge Graph Forecasting with Large Language Models"
+  - u: "lets-c_leveraging_text_embedding_for_time_series_classification/"
+    t: "LETS-C: Leveraging Text Embedding for Time Series Classification"
+  - u: "revisiting_llms_as_zero-shot_time_series_forecasters_small_noise_can_break_large/"
+    t: "Revisiting LLMs as Zero-Shot Time-Series Forecasters: Small Noise Can Break Large Models"
+  - u: "time-mqa_time_series_multi-task_question_answering_with_context_enhancement/"
+    t: "Time-MQA: Time Series Multi-Task Question Answering with Context Enhancement"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +37,7 @@ tags:
 
 **💬 ACL2025** · **7** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (36)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/time_series/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/time_series/index.md)
 
 🔥 **高频主题：** 时序预测 ×6 · LLM ×2
 

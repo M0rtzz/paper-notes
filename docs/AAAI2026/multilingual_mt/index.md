@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 多语言/翻译方向9篇论文解读
+  AAAI2026 多语言/翻译论文汇总 · 9篇论文解读
 description: >-
   9篇AAAI2026的多语言/翻译方向论文解读，涵盖对齐/RLHF、LLM、推理、翻译、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,26 @@ tags:
   - "推理"
   - "翻译"
   - "语音"
+item_list:
+  - u: "bridging_the_multilingual_safety_divide_efficient_culturally-aware_alignment_for/"
+    t: "Bridging the Multilingual Safety Divide: Efficient, Culturally-Aware Alignment for Global South Languages"
+  - u: "focusing_on_language_revealing_and_exploiting_language_attention_heads_in_multil/"
+    t: "Focusing on Language: Revealing and Exploiting Language Attention Heads in Multilingual Large Language Models"
+  - u: "gloctm_cross-lingual_topic_modeling_via_a_global_context_space/"
+    t: "GloCTM: Cross-Lingual Topic Modeling via a Global Context Space"
+  - u: "how_does_alignment_enhance_llms_multilingual_capabilities_a_language_neurons_per/"
+    t: "How Does Alignment Enhance LLMs' Multilingual Capabilities? A Language Neurons Perspective"
+  - u: "midb_multilingual_instruction_data_booster_for_enhancing_cultural_equality_in_mu/"
+    t: "MIDB: Multilingual Instruction Data Booster for Enhancing Cultural Equality in Multilingual Instruction Synthesis"
+  - u: "mitigating_content_effects_on_reasoning_in_language_models_through_fine-grained_/"
+    t: "Mitigating Content Effects on Reasoning in Language Models through Fine-Grained Activation Steering"
+  - u: "nadir_differential_attention_flow_for_non-autoregressive_transliteration_in_indi/"
+    t: "NADIR: Differential Attention Flow for Non-Autoregressive Transliteration in Indic Languages"
+  - u: "vidia2std_a_parallel_corpus_and_methods_for_low-resource_vietnamese_dialect-to-s/"
+    t: "ViDia2Std: A Parallel Corpus and Methods for Low-Resource Vietnamese Dialect-to-Standard Translation"
+  - u: "x-mutest_a_multilingual_benchmark_for_explainable_hate_speech_detection_and_a_no/"
+    t: "X-MuTeST: A Multilingual Benchmark for Explainable Hate Speech Detection and A Novel LLM-consulted Explanation Framework"
+item_total: 9
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

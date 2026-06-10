@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 LLM Agent方向43篇论文解读
+  ICML2026 LLMAgent论文汇总 · 43篇论文解读
 description: >-
   43篇ICML2026的 LLM Agent 方向论文解读，涵盖 LLM、Agent、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,68 @@ tags:
   - "LLM"
   - "Agent"
   - "推理"
+item_list:
+  - u: "a_minimal_agent_for_automated_theorem_proving/"
+    t: "A Minimal Agent for Automated Theorem Proving"
+  - u: "acon_optimizing_context_compression_for_long-horizon_llm_agents/"
+    t: "ACON: Optimizing Context Compression for Long-horizon LLM Agents"
+  - u: "agent-omit_adaptive_context_omission_for_efficient_llm_agents/"
+    t: "Agent-Omit: Adaptive Context Omission for Efficient LLM Agents"
+  - u: "agent_jit_compilation_for_latency-optimizing_web_agent_planning_and_scheduling/"
+    t: "Agent JIT Compilation for Latency-Optimizing Web Agent Planning and Scheduling"
+  - u: "agentxray_white-boxing_agentic_systems_via_workflow_reconstruction/"
+    t: "AgentXRay: White-Boxing Agentic Systems via Workflow Reconstruction"
+  - u: "answer_only_as_precisely_as_justified_calibrated_claim-level_specificity_control/"
+    t: "Answer Only as Precisely as Justified: Calibrated Claim-Level Specificity Control for Agentic Systems"
+  - u: "autorpa_efficient_gui_automation_through_llm-driven_code_synthesis_from_interact/"
+    t: "AutoRPA: Efficient GUI Automation through LLM-Driven Code Synthesis from Interactions"
+  - u: "constitutional_black-box_monitoring_for_scheming_in_llm_agents/"
+    t: "Constitutional Black-Box Monitoring for Scheming in LLM Agents"
+  - u: "evolver_self-evolving_llm_agents_through_an_experience-driven_lifecycle/"
+    t: "EvolveR: Self-Evolving LLM Agents through an Experience-Driven Lifecycle"
+  - u: "excytin-bench_evaluating_llm_agents_on_cyber_threat_investigation/"
+    t: "ExCyTIn-Bench: Evaluating LLM Agents on Cyber Threat Investigation"
+  - u: "hallucinations_undermine_trust_metacognition_is_a_way_forward/"
+    t: "Hallucinations Undermine Trust; Metacognition is a Way Forward"
+  - u: "hawkesllm_semantic_uncertainty_propagation_in_agentic_text_simulation/"
+    t: "HawkesLLM: Semantic Uncertainty Propagation in Agentic Text Simulation"
+  - u: "hunt_instead_of_wait_evaluating_deep_data_research_on_large_language_models/"
+    t: "Hunt Instead of Wait: Evaluating Deep Data Research on Large Language Models"
+  - u: "internalizing_agency_from_reflective_experience/"
+    t: "Internalizing Agency from Reflective Experience"
+  - u: "learning_efficient_guardrails_for_compliance/"
+    t: "Learning Efficient Guardrails for Compliance"
+  - u: "lifting_traces_to_logic_programmatic_skill_induction_with_neuro-symbolic_learnin/"
+    t: "Lifting Traces to Logic: Programmatic Skill Induction with Neuro-Symbolic Learning for Long-Horizon Agentic Tasks"
+  - u: "llm_agents_are_the_antidote_to_walled_gardens/"
+    t: "LLM Agents Are the Antidote to Walled Gardens"
+  - u: "mcp-persona_benchmarking_llm_agents_on_real-world_personal_applications_via_envi/"
+    t: "MCP-Persona: 用环境模拟评估 LLM agent 在真实个人化应用上的能力"
+  - u: "naviagent_graph-driven_bilevel_planning_for_scalable_tool_orchestration/"
+    t: "NaviAgent: Graph-Driven Bilevel Planning for Scalable Tool Orchestration"
+  - u: "on_information_self-locking_in_reinforcement_learning_for_active_reasoning_of_ll/"
+    t: "On Information Self-Locking in Reinforcement Learning for Active Reasoning of LLM Agents"
+  - u: "otora_a_unified_red_teaming_framework_for_reasoning-level_denial-of-service_in_l/"
+    t: "OTora: A Unified Red Teaming Framework for Reasoning-Level Denial-of-Service in LLM Agents"
+  - u: "persona2web_benchmarking_personalized_web_agents_for_contextual_reasoning_with_u/"
+    t: "Persona2Web: Benchmarking Personalized Web Agents for Contextual Reasoning with User History"
+  - u: "position_agentic_ai_orchestration_should_be_bayes-consistent/"
+    t: "Position: Agentic AI Orchestration Should Be Bayes-Consistent"
+  - u: "position_assistive_agents_need_accessibility_alignment/"
+    t: "Position: Assistive Agents Need Accessibility Alignment"
+  - u: "post-training_llms_as_better_decision-making_agents_a_regret-minimization_approa/"
+    t: "Post-Training LLMs as Better Decision-Making Agents: A Regret-Minimization Approach"
+  - u: "praglocker_protecting_agent_intellectual_property_in_untrusted_deployments_via_n/"
+    t: "PragLocker: Protecting Agent Intellectual Property in Untrusted Deployments via Non-Portable Prompts"
+  - u: "probabilistic_modeling_of_latent_agentic_substructures_in_deep_neural_networks/"
+    t: "Probabilistic Modeling of Latent Agentic Substructures in Deep Neural Networks"
+  - u: "process_reward_agents_for_steering_knowledge-intensive_reasoning/"
+    t: "Process Reward Agents for Steering Knowledge-Intensive Reasoning"
+  - u: "recovering_policy-induced_errors_benchmarking_and_trajectory_synthesis_for_robus/"
+    t: "Recovering Policy-Induced Errors: Benchmarking and Trajectory Synthesis for Robust GUI Agents"
+  - u: "reflexgrad_within-episode_failure_recovery_in_llm_agents_via_progress-gated_dual/"
+    t: "ReflexGrad: Within-Episode Failure Recovery in LLM Agents via Progress-Gated Dual-Process Routing"
+item_total: 43
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +80,7 @@ tags:
 
 **🧪 ICML2026** · **43** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (40)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/index.md)
 
 🔥 **高频主题：** LLM ×18 · Agent ×12 · 推理 ×5
 

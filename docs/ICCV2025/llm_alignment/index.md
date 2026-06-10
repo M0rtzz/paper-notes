@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 对齐 / RLHF方向2篇论文解读
+  ICCV2025 对齐/RLHF论文汇总 · 2篇论文解读
 description: >-
   2篇ICCV2025的对齐 / RLHF 方向论文解读，涵盖 LLM、多模态、对抗鲁棒、个性化生成、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -13,6 +13,12 @@ tags:
   - "对抗鲁棒"
   - "个性化生成"
   - "对齐/RLHF"
+item_list:
+  - u: "heuristic-induced_multimodal_risk_distribution_jailbreak_attack_for_multimodal_l/"
+    t: "Heuristic-Induced Multimodal Risk Distribution Jailbreak Attack for Multimodal Large Language Models"
+  - u: "magicid_hybrid_preference_optimization_for_id-consistent_and_dynamic-preserved_v/"
+    t: "MagicID: Hybrid Preference Optimization for ID-Consistent and Dynamic-Preserved Video Customization"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

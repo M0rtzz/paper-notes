@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 视频理解方向17篇论文解读
+  ICML2026 视频理解论文汇总 · 17篇论文解读
 description: >-
   17篇ICML2026的视频理解方向论文解读，涵盖目标跟踪、推理、语音、压缩/编码、LLM、异常检测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,42 @@ tags:
   - "压缩/编码"
   - "LLM"
   - "异常检测"
+item_list:
+  - u: "avtrack_audio-visual_tracking_in_human-centric_complex_scenes/"
+    t: "AVTrack: Audio-Visual Tracking in Human-centric Complex Scenes"
+  - u: "foresee-to-ground_from_predictive_temporal_perception_to_evidence-driven_reasoni/"
+    t: "Foresee-to-Ground: From Predictive Temporal Perception to Evidence-Driven Reasoning"
+  - u: "metaphorvu_towards_metaphorical_video_understanding/"
+    t: "MetaphorVU: Towards Metaphorical Video Understanding"
+  - u: "omnisift_modality-asymmetric_token_compression_for_efficient_omni-modal_large_la/"
+    t: "OmniSIFT: Modality-Asymmetric Token Compression for Efficient Omni-modal Large Language Models"
+  - u: "privacy-aware_video_anomaly_detection_through_orthogonal_subspace_projection/"
+    t: "Privacy-Aware Video Anomaly Detection through Orthogonal Subspace Projection"
+  - u: "proact-vl_a_proactive_videollm_for_real-time_ai_companions/"
+    t: "ProAct-VL: A Proactive VideoLLM for Real-Time AI Companions"
+  - u: "relo_reinforcement_learning_to_localize_for_visual_object_tracking/"
+    t: "RELO: Reinforcement Learning to Localize for Visual Object Tracking"
+  - u: "return_of_frustratingly_easy_unsupervised_video_domain_adaptation/"
+    t: "Return of Frustratingly Easy Unsupervised Video Domain Adaptation"
+  - u: "revisiting_uncertainty_on_evidential_learning_for_partially_relevant_video_retri/"
+    t: "Revisiting Uncertainty: On Evidential Learning for Partially Relevant Video Retrieval"
+  - u: "skelhcc_a_hyperbolic_clip-driven_cache_adaptation_framework_for_skeleton-based_o/"
+    t: "SkelHCC: A Hyperbolic CLIP-Driven Cache Adaptation Framework for Skeleton-based One-Shot Action Recognition"
+  - u: "slap_the_semantic_least_action_principle_for_variational_video-language_modeling/"
+    t: "SLAP: The Semantic Least Action Principle for Variational Video-Language Modeling"
+  - u: "storm_segment_track_and_object_re-localization_from_a_single_image/"
+    t: "STORM: Segment, Track, and Object Re-Localization from a Single Image"
+  - u: "unified_multimodal_visual_tracking_with_dual_mixture-of-experts/"
+    t: "Unified Multimodal Visual Tracking with Dual Mixture-of-Experts"
+  - u: "video-mtr_reinforced_multi-turn_reasoning_for_long_video_understanding/"
+    t: "Video-MTR: Reinforced Multi-Turn Reasoning for Long Video Understanding"
+  - u: "videoseal_mitigating_evidence_misalignment_in_agentic_long_video_understanding_b/"
+    t: "VideoSEAL: Mitigating Evidence Misalignment in Agentic Long Video Understanding by Decoupling Answer Authority"
+  - u: "videotemp-o3_harmonizing_temporal_grounding_and_video_understanding_in_agentic_t/"
+    t: "VideoTemp-o3: Harmonizing Temporal Grounding and Video Understanding in Agentic Thinking"
+  - u: "vscd_video-based_scene_change_detection_in_unaligned_scenes/"
+    t: "VSCD：无对齐场景的视频场景变化检测"
+item_total: 17
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

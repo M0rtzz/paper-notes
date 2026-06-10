@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 对话系统方向8篇论文解读
+  NeurIPS2025 对话系统论文汇总 · 8篇论文解读
 description: >-
   8篇NeurIPS2025的对话系统方向论文解读，涵盖 LLM、目标跟踪、对齐/RLHF、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,24 @@ tags:
   - "目标跟踪"
   - "对齐/RLHF"
   - "对抗鲁棒"
+item_list:
+  - u: "aclora_almost_trainingfree_access_controlaware_multimodal_ll/"
+    t: "AC-LoRA: (Almost) Training-Free Access Control-Aware Multi-Modal LLMs"
+  - u: "agentic_persona_control_and_task_state_tracking_for_realistic_user_simulation_in/"
+    t: "Agentic Persona Control and Task State Tracking for Realistic User Simulation"
+  - u: "bridging_human_and_llm_judgments_understanding_and_narrowing_the_gap/"
+    t: "Bridging Human and LLM Judgments: Understanding and Narrowing the Gap"
+  - u: "hygen_efficient_llm_serving_via_elastic_online-offline_request_co-location/"
+    t: "HyGen: Efficient LLM Serving via Elastic Online-Offline Request Co-location"
+  - u: "kl_penalty_control_via_perturbation_for_direct_preference_optimization/"
+    t: "KL Penalty Control via Perturbation for Direct Preference Optimization"
+  - u: "latentguard_controllable_latent_steering_for_robust_refusal_of_attacks_and_relia/"
+    t: "LatentGuard: Controllable Latent Steering for Robust Refusal of Attacks and Reliable Response Generation"
+  - u: "less_is_more_local_intrinsic_dimensions_of_contextual_language_models/"
+    t: "Less is More: Local Intrinsic Dimensions of Contextual Language Models"
+  - u: "sciarena_an_open_evaluation_platform_for_non-verifiable_scientific_literature-gr/"
+    t: "SciArena: An Open Evaluation Platform for Non-Verifiable Scientific Literature-Grounded Tasks"
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

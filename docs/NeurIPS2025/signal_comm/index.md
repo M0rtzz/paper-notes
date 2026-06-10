@@ -1,6 +1,6 @@
 ---
 title: >-
-  NeurIPS2025 信号/通信方向5篇论文解读
+  NeurIPS2025 信号/通信论文汇总 · 5篇论文解读
 description: >-
   5篇NeurIPS2025的信号/通信方向论文解读，涵盖持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,18 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "持续学习"
+item_list:
+  - u: "angular_steering_behavior_control_via_rotation_in_activation_space/"
+    t: "Angular Steering: Behavior Control via Rotation in Activation Space"
+  - u: "contrastive_consolidation_of_top-down_modulations_achieves_sparsely_supervised_c/"
+    t: "Contrastive Consolidation of Top-Down Modulations Achieves Sparsely Supervised Continual Learning"
+  - u: "feature-aware_modulation_for_learning_from_temporal_tabular_data/"
+    t: "Feature-aware Modulation for Learning from Temporal Tabular Data"
+  - u: "masked_symbol_modeling_for_demodulation_of_oversampled_baseband_communication_si/"
+    t: "Masked Symbol Modeling for Demodulation of Oversampled Baseband Communication Signals"
+  - u: "memory-integrated_reconfigurable_adapters_a_unified_framework_for_settings_with_/"
+    t: "Memory-Integrated Reconfigurable Adapters: A Unified Framework for Settings with Multiple Tasks"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

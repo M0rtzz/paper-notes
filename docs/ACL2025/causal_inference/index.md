@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 因果推理方向10篇论文解读
+  ACL2025 因果推理论文汇总 · 10篇论文解读
 description: >-
   10篇ACL2025的因果推理方向论文解读，涵盖推理、LLM、RAG、情感分析等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,28 @@ tags:
   - "LLM"
   - "RAG"
   - "情感分析"
+item_list:
+  - u: "causal_graph_based_event_reasoning_using_semantic_relation_experts/"
+    t: "Causal Graph based Event Reasoning using Semantic Relation Experts"
+  - u: "causalrag_integrating_causal_graphs_into_retrieval-augmented_generation/"
+    t: "CausalRAG: Integrating Causal Graphs into Retrieval-Augmented Generation"
+  - u: "coa-reasoning_explorations_on_counterfactual_analysis_in_physical_reasoning_of_l/"
+    t: "CoA-Reasoning: Explorations on Counterfactual Analysis in Physical Reasoning of LVLMs"
+  - u: "counterfactual-consistency_prompting_for_relative_temporal_understanding_in_larg/"
+    t: "Counterfactual-Consistency Prompting for Relative Temporal Understanding in Large Language Models"
+  - u: "counterfactual_explanations_for_aspect-based_sentiment_analysis/"
+    t: "Counterfactual Explanations for Aspect-Based Sentiment Analysis"
+  - u: "fitcf_a_framework_for_automatic_feature_importance-guided_counterfactual_example/"
+    t: "FitCF: A Framework for Automatic Feature Importance-guided Counterfactual Example Generation"
+  - u: "iris_an_iterative_and_integrated_framework/"
+    t: "IRIS: An Iterative and Integrated Framework for Verifiable Causal Discovery"
+  - u: "leveraging_variation_theory_in_counterfactual_data_augmentation_for_optimized_ac/"
+    t: "Leveraging Variation Theory in Counterfactual Data Augmentation for Optimized Active Learning"
+  - u: "llm_causal_discovery_reliability/"
+    t: "On the Reliability of Large Language Models for Causal Discovery"
+  - u: "reasoning_is_all_you_need_for_video_generalization_a_counterfactual_benchmark_wi/"
+    t: "Reasoning is All You Need for Video Generalization: A Counterfactual Benchmark with Sub-question Evaluation"
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +41,7 @@ tags:
 
 **💬 ACL2025** · **10** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/causal_inference/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/causal_inference/index.md)
 
 🔥 **高频主题：** 推理 ×3 · LLM ×2
 

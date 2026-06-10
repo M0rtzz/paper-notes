@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 模型压缩方向24篇论文解读
+  ECCV2024 模型压缩论文汇总 · 23篇论文解读
 description: >-
-  24篇ECCV2024的模型压缩方向论文解读，涵盖压缩/编码、模型压缩、知识蒸馏等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  23篇ECCV2024的模型压缩方向论文解读，涵盖压缩/编码、模型压缩、知识蒸馏等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "模型压缩"
@@ -10,14 +10,62 @@ tags:
   - "论文笔记"
   - "压缩/编码"
   - "知识蒸馏"
+item_list:
+  - u: "a_simple_lowbit_quantization_framework_for_video_snapshot_co/"
+    t: "A Simple Low-bit Quantization Framework for Video Snapshot Compressive Imaging"
+  - u: "adalog_post-training_quantization_for_vision_transformers_with_adaptive_logarith/"
+    t: "AdaLog: Post-Training Quantization for Vision Transformers with Adaptive Logarithm Quantizer"
+  - u: "adaptive_compressed_sensing_with_diffusionbased_posterior_sa/"
+    t: "Adaptive Compressed Sensing with Diffusion-Based Posterior Sampling"
+  - u: "adaptive_selection_of_samplingreconstruction_in_fourier_comp/"
+    t: "Adaptive Selection of Sampling-Reconstruction in Fourier Compressed Sensing"
+  - u: "adversarially_robust_distillation_by_reducing_the_student-teacher_variance_gap/"
+    t: "Adversarially Robust Distillation by Reducing the Student-Teacher Variance Gap"
+  - u: "anytime_continual_learning_for_open_vocabulary_classification/"
+    t: "Anytime Continual Learning for Open Vocabulary Classification"
+  - u: "auto-das_automated_proxy_discovery_for_training-free_distillation-aware_architec/"
+    t: "Auto-DAS: Automated Proxy Discovery for Training-free Distillation-aware Architecture Search"
+  - u: "basic_bayesnet_structure_learning_for_computational_scalable_neural_image_compre/"
+    t: "BaSIC: BayesNet Structure Learning for Computational Scalable Neural Image Compression"
+  - u: "bidirectional_stereo_image_compression_with_cross-dimensional_entropy_model/"
+    t: "Bidirectional Stereo Image Compression with Cross-Dimensional Entropy Model"
+  - u: "category_adaptation_meets_projected_distillation_in_generalized_continual_catego/"
+    t: "Category Adaptation Meets Projected Distillation in Generalized Continual Category Discovery"
+  - u: "else_efficient_deep_neural_network_inference_through_line-based_sparsity_explora/"
+    t: "ELSE: Efficient Deep Neural Network Inference through Line-based Sparsity Exploration"
+  - u: "improving_knowledge_distillation_via_regularizing_feature_direction_and_norm/"
+    t: "Improving Knowledge Distillation via Regularizing Feature Direction and Norm"
+  - u: "improving_zero-shot_generalization_for_clip_with_variational_adapter/"
+    t: "Improving Zero-Shot Generalization for CLIP with Variational Adapter"
+  - u: "isomorphic_pruning_for_vision_models/"
+    t: "Isomorphic Pruning for Vision Models"
+  - u: "leveraging_hierarchical_feature_sharing_for_efficient_dataset_condensation/"
+    t: "Leveraging Hierarchical Feature Sharing for Efficient Dataset Condensation"
+  - u: "metaaug_meta-data_augmentation_for_post-training_quantization/"
+    t: "MetaAug: Meta-Data Augmentation for Post-Training Quantization"
+  - u: "papr_training-free_one-step_patch_pruning_with_lightweight_convnets_for_faster_i/"
+    t: "PaPr: Training-Free One-Step Patch Pruning with Lightweight ConvNets for Faster Inference"
+  - u: "pq-sam_post-training_quantization_for_segment_anything_model/"
+    t: "PQ-SAM: Post-training Quantization for Segment Anything Model"
+  - u: "simple_unsupervised_knowledge_distillation_with_space_similarity/"
+    t: "Simple Unsupervised Knowledge Distillation With Space Similarity"
+  - u: "spacejam_a_lightweight_and_regularization-free_method_for_fast_joint_alignment_o/"
+    t: "SpaceJAM: a Lightweight and Regularization-free Method for Fast Joint Alignment of Images"
+  - u: "token_compensator_altering_inference_cost_of_vision_transformer_without_re-tunin/"
+    t: "Token Compensator: Altering Inference Cost of Vision Transformer without Re-Tuning"
+  - u: "uncertainty-driven_spectral_compressive_imaging_with_spatial-frequency_transform/"
+    t: "Uncertainty-Driven Spectral Compressive Imaging with Spatial-Frequency Transformer"
+  - u: "unic_universal_classification_models_via_multi-teacher_distillation/"
+    t: "UNIC: Universal Classification Models via Multi-teacher Distillation"
+item_total: 23
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**🎞️ ECCV2024** · **24** 篇论文解读
+**🎞️ ECCV2024** · **23** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (54)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (100)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (61)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (99)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (60)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md)
 
 🔥 **高频主题：** 压缩/编码 ×6 · 模型压缩 ×6 · 知识蒸馏 ×2
 
@@ -72,10 +120,6 @@ tags:
 **[Improving Zero-Shot Generalization for CLIP with Variational Adapter](improving_zero-shot_generalization_for_clip_with_variational_adapter.md)**
 
 :   提出 Prompt-based Variational Adapter (PVA)，通过变分适配器将 base 和 novel 类别样本在隐空间中分离，采用分治策略分别处理，结合残差连接增强 novel 类别的迁移能力，在广义零样本学习和跨数据集迁移学习基准上达到 SOTA。
-
-**[Is Retain Set All You Need in Machine Unlearning? Restoring Performance of Unlearned Models with Out-Of-Distribution Images](is_retain_set_all_you_need_in_machine_unlearning_restoring_performance_of_unlear.md)**
-
-:   提出 SCAR（Selective-distillation for Class and Architecture-agnostic unleaRning），一种无需保留集的近似遗忘算法，通过 Mahalanobis 距离引导遗忘样本特征向量向最近错误类分布迁移，并利用 OOD 图像蒸馏保持模型性能。
 
 **[Isomorphic Pruning for Vision Models](isomorphic_pruning_for_vision_models.md)**
 

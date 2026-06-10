@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 视频理解方向27篇论文解读
+  AAAI2026 视频理解论文汇总 · 27篇论文解读
 description: >-
   27篇AAAI2026的视频理解方向论文解读，涵盖人体姿态、异常检测、多模态、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,62 @@ tags:
   - "异常检测"
   - "多模态"
   - "少样本学习"
+item_list:
+  - u: "apvr_hour-level_long_video_understanding_with_adaptive_pivot/"
+    t: "APVR: Hour-Level Long Video Understanding with Adaptive Pivot Visual Information Retrieval"
+  - u: "bat_learning_event-based_optical_flow_with_bidirectional_adaptive_temporal_corre/"
+    t: "BAT: Learning Event-based Optical Flow with Bidirectional Adaptive Temporal Correlation"
+  - u: "causality_matters_how_temporal_information_emerges_in_video_language_models/"
+    t: "Causality Matters: How Temporal Information Emerges in Video Language Models"
+  - u: "emovid_a_multimodal_emotion_video_dataset_for_emotion-centric_video_understandin/"
+    t: "EmoVid: A Multimodal Emotion Video Dataset for Emotion-Centric Video Understanding and Generation"
+  - u: "explicit_temporal-semantic_modeling_for_dense_video_captioning_via_context-aware/"
+    t: "Explicit Temporal-Semantic Modeling for Dense Video Captioning via Context-Aware Cross-Modal Interaction"
+  - u: "finetec_fine-grained_action_recognition_under_temporal_corruption_via_skeleton_d/"
+    t: "FineTec: Fine-Grained Action Recognition Under Temporal Corruption via Skeleton Decomposition and Sequence Completion"
+  - u: "finevau_a_novel_human-aligned_benchmark_for_fine-grained_video_anomaly_understan/"
+    t: "FineVAU: A Novel Human-Aligned Benchmark for Fine-Grained Video Anomaly Understanding"
+  - u: "headhunt-vad_hunting_robust_anomaly-sensitive_heads_in_mllm_/"
+    t: "HeadHunt-VAD: Hunting Robust Anomaly-Sensitive Heads in MLLM for Tuning-Free Video Anomaly Detection"
+  - u: "learning_time_in_static_classifiers/"
+    t: "Learning Time in Static Classifiers"
+  - u: "learning_to_tell_apart_weakly_supervised_video_anomaly_detection_via_disentangle/"
+    t: "Learning to Tell Apart: Weakly Supervised Video Anomaly Detection via Disentangled Semantic Alignment"
+  - u: "learning_topology-driven_multi-subspace_fusion_for_grassmannian_deep_network/"
+    t: "Learning Topology-Driven Multi-Subspace Fusion for Grassmannian Deep Networks"
+  - u: "lifelong_domain_adaptive_3d_human_pose_estimation/"
+    t: "Lifelong Domain Adaptive 3D Human Pose Estimation"
+  - u: "livibench_an_omnimodal_benchmark_for_interactive_livestream_video_understanding/"
+    t: "LiViBench: An Omnimodal Benchmark for Interactive Livestream Video Understanding"
+  - u: "plugtrack_multi-perceptive_motion_analysis_for_adaptive_fusion_in_multi-object_t/"
+    t: "PlugTrack: Multi-Perceptive Motion Analysis for Adaptive Fusion in Multi-Object Tracking"
+  - u: "predicting_video_slot_attention_queries_from_random_slot-feature_pairs/"
+    t: "Predicting Video Slot Attention Queries from Random Slot-Feature Pairs"
+  - u: "r-avst_empowering_video-llms_with_fine-grained_spatio-temporal_reasoning_in_comp/"
+    t: "R-AVST: Empowering Video-LLMs with Fine-Grained Spatio-Temporal Reasoning in Complex Audio-Visual Scenarios"
+  - u: "reason_reinforced_causal_search_with_information_bottleneck_for_video_understand/"
+    t: "ReaSon: Reinforced Causal Search with Information Bottleneck for Video Understanding"
+  - u: "refinevad_semantic-guided_feature_recalibration_for_weakly_supervised_video_anom/"
+    t: "RefineVAD: Semantic-Guided Feature Recalibration for Weakly Supervised Video Anomaly Detection"
+  - u: "rethinking_progression_of_memory_state_in_robotic_manipulation_an_object-centric/"
+    t: "Rethinking Progression of Memory State in Robotic Manipulation: An Object-Centric Perspective"
+  - u: "state-space_hierarchical_compression_with_gated_attention_an/"
+    t: "MambaMia: State-Space Hierarchical Compression for Hour-Long Video Understanding in Large Multimodal Models"
+  - u: "stegavar_privacy-preserving_video_action_recognition_via_steganographic_domain_a/"
+    t: "StegaVAR: Privacy-Preserving Video Action Recognition via Steganographic Domain Analysis"
+  - u: "sugar_learning_skeleton_representation_with_visual-motion_knowledge_for_action_r/"
+    t: "SUGAR: Learning Skeleton Representation with Visual-Motion Knowledge for Action Recognition"
+  - u: "task-specific_distance_correlation_matching_for_few-shot_action_recognition/"
+    t: "Task-Specific Distance Correlation Matching for Few-Shot Action Recognition"
+  - u: "tspo_temporal_sampling_policy_optimization_for_long-form_video_language_understa/"
+    t: "TSPO: Temporal Sampling Policy Optimization for Long-form Video Language Understanding"
+  - u: "uncovering_zero-shot_generalization_gaps_in_time-series_foundation_models_using_/"
+    t: "Uncovering Zero-Shot Generalization Gaps in Time-Series Foundation Models Using Real-World Videos"
+  - u: "uvlm_benchmarking_video_language_model_for_underwater_world_understanding/"
+    t: "UVLM: Benchmarking Video Language Model for Underwater World Understanding"
+  - u: "vtinker_guided_flow_upsampling_and_texture_mapping_for_high-resolution_video_fra/"
+    t: "VTinker: Guided Flow Upsampling and Texture Mapping for High-Resolution Video Frame Interpolation"
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 LLM Agent方向9篇论文解读
+  CVPR2025 LLMAgent论文汇总 · 9篇论文解读
 description: >-
   9篇CVPR2025的 LLM Agent 方向论文解读，涵盖 Agent、动态场景、压缩/编码、多模态、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -13,6 +13,26 @@ tags:
   - "压缩/编码"
   - "多模态"
   - "推理"
+item_list:
+  - u: "ata_adaptive_transformation_agent_for_text-guided_subject-position_variable_back/"
+    t: "ATA: Adaptive Transformation Agent for Text-Guided Subject-Position Variable Background Generation"
+  - u: "feature4x_bridging_any_monocular_video_to_4d_agentic_ai_with_versatile_gaussian_/"
+    t: "Feature4X: Bridging Any Monocular Video to 4D Agentic AI with Versatile Gaussian Feature Fields"
+  - u: "gui-xplore_empowering_generalizable_gui_agents_with_one_exploration/"
+    t: "GUI-Xplore: Empowering Generalizable GUI Agents with One Exploration"
+  - u: "rl-rc-dot_a_block-level_rl_agent_for_task-aware_video_compression/"
+    t: "RL-RC-DoT: A Block-level RL Agent for Task-Aware Video Compression"
+  - u: "sceneassistant_a_visual_feedback_agent_for_open-vocabulary_3d_scene_generation/"
+    t: "SceneAssistant: A Visual Feedback Agent for Open-Vocabulary 3D Scene Generation"
+  - u: "sketchtopia_a_dataset_and_foundational_agents_for_benchmarking_asynchronous_mult/"
+    t: "Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback"
+  - u: "spiritsight_agent_advanced_gui_agent_with_one_look/"
+    t: "SpiritSight Agent: Advanced GUI Agent with One Look"
+  - u: "tango_training-free_embodied_ai_agents_for_open-world_tasks/"
+    t: "TANGO: Training-free Embodied AI Agents for Open-world Tasks"
+  - u: "visual_agentic_ai_for_spatial_reasoning_with_a_dynamic_api/"
+    t: "Visual Agentic AI for Spatial Reasoning with a Dynamic API"
+item_total: 9
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +40,7 @@ tags:
 
 **📷 CVPR2025** · **9** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (40)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md)
 
 🔥 **高频主题：** Agent ×4
 

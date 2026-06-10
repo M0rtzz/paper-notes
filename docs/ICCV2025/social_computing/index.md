@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 社会计算方向4篇论文解读
+  ICCV2025 社会计算论文汇总 · 4篇论文解读
 description: >-
   4篇ICCV2025的社会计算方向论文解读，涵盖布局/合成、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,16 @@ tags:
   - "论文笔记"
   - "布局/合成"
   - "少样本学习"
+item_list:
+  - u: "gradient_extrapolation_for_debiased_representation_learning/"
+    t: "Gradient Extrapolation for Debiased Representation Learning"
+  - u: "learning_visual_proxy_for_compositional_zero-shot_learning/"
+    t: "Learning Visual Proxy for Compositional Zero-Shot Learning"
+  - u: "no_more_sibling_rivalry_debiasing_human-object_interaction_detection/"
+    t: "No More Sibling Rivalry: Debiasing Human-Object Interaction Detection"
+  - u: "propvg_end-to-end_proposal-driven_visual_grounding_with_multi-granularity_discri/"
+    t: "PropVG: End-to-End Proposal-Driven Visual Grounding with Multi-Granularity Discrimination"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +27,7 @@ tags:
 
 **📹 ICCV2025** · **4** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/social_computing/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/social_computing/index.md)
 
 **[Gradient Extrapolation for Debiased Representation Learning](gradient_extrapolation_for_debiased_representation_learning.md)**
 

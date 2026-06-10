@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 因果推理方向16篇论文解读
+  ICML2025 因果推理论文汇总 · 16篇论文解读
 description: >-
   16篇ICML2025的因果推理方向论文解读，涵盖对抗鲁棒、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,40 @@ tags:
   - "论文笔记"
   - "对抗鲁棒"
   - "推理"
+item_list:
+  - u: "causal_abstraction_inference_under_lossy_representations/"
+    t: "Causal Abstraction Inference under Lossy Representations"
+  - u: "causal_effect_identification_in_lvlingam_from_higher-order_cumulants/"
+    t: "Causal Effect Identification in lvLiNGAM from Higher-Order Cumulants"
+  - u: "causal_evidence_for_the_primordiality_of_colors_in_trans-neptunian_objects/"
+    t: "Causal Evidence for the Primordiality of Colors in Trans-Neptunian Objects"
+  - u: "classifier_reconstruction_through_counterfactual-aware_wasserstein_prototypes/"
+    t: "Classifier Reconstruction Through Counterfactual-Aware Wasserstein Prototypes"
+  - u: "e-lda_toward_interpretable_lda_topic_models_with_strong_guarantees_in_logarithmi/"
+    t: "E-LDA: Toward Interpretable LDA Topic Models with Strong Guarantees in Logarithmic Parallel Time"
+  - u: "estimating_causal_effects_in_gaussian_linear_scms_with_finite_data/"
+    t: "Estimating Causal Effects in Gaussian Linear SCMs with Finite Data"
+  - u: "exogenous_isomorphism_for_counterfactual_identifiability/"
+    t: "Exogenous Isomorphism for Counterfactual Identifiability"
+  - u: "internal_causal_mechanisms_robustly_predict_language_model_out-of-distribution_b/"
+    t: "Internal Causal Mechanisms Robustly Predict Language Model Out-of-Distribution Behaviors"
+  - u: "isolated_causal_effects_of_natural_language/"
+    t: "Isolated Causal Effects of Natural Language"
+  - u: "latent_variable_causal_discovery_under_selection_bias/"
+    t: "Latent Variable Causal Discovery under Selection Bias"
+  - u: "learning_time-aware_causal_representation_for_model_generalization_in_evolving_d/"
+    t: "Learning Time-Aware Causal Representation for Model Generalization in Evolving Domains"
+  - u: "mpf_aligning_and_debiasing_language_models_post_deployment_via_multi_perspective/"
+    t: "MPF: Aligning and Debiasing Language Models post Deployment via Multi Perspective Fusion"
+  - u: "position_causal_machine_learning_requires_rigorous_synthetic_experiments_for_bro/"
+    t: "Position: Causal Machine Learning Requires Rigorous Synthetic Experiments for Broader Adoption"
+  - u: "rate_causal_explainability_of_reward_models_with_imperfect_counterfactuals/"
+    t: "RATE: Causal Explainability of Reward Models with Imperfect Counterfactuals"
+  - u: "re-imagine_symbolic_benchmark_synthesis_for_reasoning_evaluation/"
+    t: "RE-IMAGINE: Symbolic Benchmark Synthesis for Reasoning Evaluation"
+  - u: "transformer-based_spatial-temporal_counterfactual_outcomes_estimation/"
+    t: "Transformer-Based Spatial-Temporal Counterfactual Outcomes Estimation"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +51,7 @@ tags:
 
 **🧪 ICML2025** · **16** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/causal_inference/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/causal_inference/index.md)
 
 **[Causal Abstraction Inference under Lossy Representations](causal_abstraction_inference_under_lossy_representations.md)**
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 图学习方向8篇论文解读
+  CVPR2026 图学习论文汇总 · 8篇论文解读
 description: >-
   8篇CVPR2026的图学习方向论文解读，涵盖多模态、RAG、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,24 @@ tags:
   - "多模态"
   - "RAG"
   - "推理"
+item_list:
+  - u: "adaptive_learned_image_compression_with_graph_neural_networks/"
+    t: "Adaptive Learned Image Compression with Graph Neural Networks"
+  - u: "graph-to-frame_rag_visual-space_knowledge_fusion_for_training-free_and_auditable/"
+    t: "Graph-to-Frame RAG: Visual-Space Knowledge Fusion for Training-Free and Auditable Video Reasoning"
+  - u: "graph2eval_automatic_multimodal_task_generation_for_agents_via_knowledge_graphs/"
+    t: "Graph2Eval: Automatic Multimodal Task Generation for Agents via Knowledge Graphs"
+  - u: "m3kg_rag_multi_hop_multimodal_knowledge_graph_enhanced_retrieval_augmented_genera/"
+    t: "M3KG-RAG: Multi-hop Multimodal Knowledge Graph-enhanced Retrieval-Augmented Generation"
+  - u: "mario_multimodal_graph_reasoning_with_large_language_models/"
+    t: "Mario: Multimodal Graph Reasoning with Large Language Models"
+  - u: "r2g_multi_view_circuit_graph_benchmark_suite_from_rtl_to_gdsii/"
+    t: "R2G: A Multi-View Circuit Graph Benchmark Suite from RTL to GDSII"
+  - u: "viterbiplannet_injecting_procedural_knowledge_via_differentiable_viterbi_for_pla/"
+    t: "ViterbiPlanNet: Injecting Procedural Knowledge via Differentiable Viterbi for Planning"
+  - u: "wsgg_spatiotemporal_world_scene_graph/"
+    t: "WSGG: Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos"
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +36,7 @@ tags:
 
 **📷 CVPR2026** · **8** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [🔬 ICLR2026 (19)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
 
 🔥 **高频主题：** 多模态 ×3 · RAG ×2 · 推理 ×2
 

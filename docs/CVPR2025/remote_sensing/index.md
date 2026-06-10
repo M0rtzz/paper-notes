@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 遥感方向11篇论文解读
+  CVPR2025 遥感论文汇总 · 11篇论文解读
 description: >-
   11篇CVPR2025的遥感方向论文解读，涵盖遥感、动态场景、对话系统、目标跟踪、对抗鲁棒、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,30 @@ tags:
   - "目标跟踪"
   - "对抗鲁棒"
   - "少样本学习"
+item_list:
+  - u: "dense_dispersed_structured_light_for_hyperspectral_3d_imaging_of_dynamic_scenes/"
+    t: "Dense Dispersed Structured Light for Hyperspectral 3D Imaging of Dynamic Scenes"
+  - u: "disciple_learning_interpretable_programs_for_scientific_visual_discovery/"
+    t: "DiSciPLE: Learning Interpretable Programs for Scientific Visual Discovery"
+  - u: "earthdial_turning_multi-sensory_earth_observations_to_interactive_dialogues/"
+    t: "EarthDial: Turning Multi-sensory Earth Observations to Interactive Dialogues"
+  - u: "hierarchical_dual-change_collaborative_learning_for_uav_scene_change_captioning/"
+    t: "Hierarchical Dual-Change Collaborative Learning for UAV Scene Change Captioning"
+  - u: "joint_and_streamwise_distributed_mimo_satellite_communications_with_multi-antenn/"
+    t: "Joint and Streamwise Distributed MIMO Satellite Communications with Multi-Antenna Ground Users"
+  - u: "learning_occlusion-robust_vision_transformers_for_real-time_uav_tracking/"
+    t: "Learning Occlusion-Robust Vision Transformers for Real-Time UAV Tracking"
+  - u: "meta-learning_hyperparameters_for_parameter_efficient_fine-tuning/"
+    t: "Meta-Learning Hyperparameters for Parameter Efficient Fine-Tuning"
+  - u: "metaspectra_a_compact_broadband_metasurface_camera_for_snapshot_hyperspectral_im/"
+    t: "MetaSpectra+: A Compact Broadband Metasurface Camera for Snapshot Hyperspectral+ Imaging"
+  - u: "mfoghub_bridging_multi-regional_and_multi-satellite_data_for_global_marine_fog_d/"
+    t: "MFogHub: Bridging Multi-Regional and Multi-Satellite Data for Global Marine Fog Detection and Forecasting"
+  - u: "sgformer_satellite-ground_fusion_for_3d_semantic_scene_completion/"
+    t: "SGFormer: Satellite-Ground Fusion for 3D Semantic Scene Completion"
+  - u: "think_and_answer_me_benchmarking_and_exploring_multi-entity_reasoning_grounding_/"
+    t: "Think and Answer ME: Benchmarking and Exploring Multi-Entity Reasoning Grounding in Remote Sensing"
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

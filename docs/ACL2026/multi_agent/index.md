@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 多智能体方向39篇论文解读
+  ACL2026 多智能体论文汇总 · 39篇论文解读
 description: >-
   39篇ACL2026的多智能体方向论文解读，涵盖 Agent、LLM、推理、问答、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,68 @@ tags:
   - "推理"
   - "问答"
   - "对抗鲁棒"
+item_list:
+  - u: "a_multi-agent_framework_for_feature-constrained_difficulty_control_in_reading_co/"
+    t: "A Multi-Agent Framework for Feature-Constrained Difficulty Control in Reading Comprehension Item Generation"
+  - u: "agenticeval_toward_agentic_and_self-evolving_safety_evaluation_of_large_language/"
+    t: "AgenticEval: Toward Agentic and Self-Evolving Safety Evaluation of Large Language Models"
+  - u: "atlas_adaptive_trading_with_llm_agents_through_dynamic_prompt_optimization_and_m/"
+    t: "ATLAS: Adaptive Trading with LLM AgentS Through Dynamic Prompt Optimization and Multi-Agent Coordination"
+  - u: "autoreproduce_automatic_ai_experiment_reproduction_with_paper_lineage/"
+    t: "AutoReproduce: Automatic AI Experiment Reproduction with Paper Lineage"
+  - u: "bookagent_orchestrating_safety-aware_visual_narratives_via_multi-agent_cognitive/"
+    t: "BookAgent: Orchestrating Safety-Aware Visual Narratives via Multi-Agent Cognitive Calibration"
+  - u: "cia_inferring_the_communication_topology_from_llm-based_multi-agent_systems/"
+    t: "CIA: Inferring the Communication Topology from LLM-based Multi-Agent Systems"
+  - u: "collaborative_multi-agent_scripts_generation_for_enhancing_imperfect-information/"
+    t: "Collaborative Multi-Agent Scripts Generation for Enhancing Imperfect-Information Reasoning in Murder Mystery Games"
+  - u: "conjunctive_prompt_attacks_in_multi-agent_llm_systems/"
+    t: "Conjunctive Prompt Attacks in Multi-Agent LLM Systems"
+  - u: "consensus_multi-agent_collaboration_for_multimodal_sensing/"
+    t: "ConSensus: Multi-Agent Collaboration for Multimodal Sensing"
+  - u: "debating_the_unspoken_role-anchored_multi-agent_reasoning_for_half-truth_detecti/"
+    t: "Debating the Unspoken: Role-Anchored Multi-Agent Reasoning for Half-Truth Detection"
+  - u: "dialectic-med_mitigating_diagnostic_hallucinations_via_counterfactual_adversaria/"
+    t: "Dialectic-Med: Mitigating Diagnostic Hallucinations via Counterfactual Adversarial Multi-Agent Debate"
+  - u: "diversity_collapse_in_multi-agent_llm_systems_structural_coupling_and_collective/"
+    t: "Diversity Collapse in Multi-Agent LLM Systems: Structural Coupling and Collective Failure in Open-Ended Idea Generation"
+  - u: "efficient_multi-agent_system_training_with_data_influence-oriented_tree_search/"
+    t: "Efficient Multi-Agent System Training with Data Influence-Oriented Tree Search"
+  - u: "evosci_a_bio-inspired_multi-agent_framework_for_the_evolution_of_scientific_disc/"
+    t: "EvoSci: A Bio-Inspired Multi-Agent Framework for the Evolution of Scientific Discovery"
+  - u: "evospark_endogenous_interactive_agent_societies_for_unified_long-horizon_narrati/"
+    t: "EvoSpark: Endogenous Interactive Agent Societies for Unified Long-Horizon Narrative Evolution"
+  - u: "explicit_trait_inference_for_multi-agent_coordination/"
+    t: "Explicit Trait Inference for Multi-Agent Coordination"
+  - u: "from_experience_to_skill_multi-agent_generative_engine_optimization_via_reusable/"
+    t: "MAGEO: From Experience to Skill — Multi-Agent Generative Engine Optimization via Reusable Strategy Learning"
+  - u: "from_query_to_counsel_structured_reasoning_with_a_multi-agent_framework_and_data/"
+    t: "From Query to Counsel: Structured Reasoning with a Multi-Agent Framework and Dataset for Legal Consultation"
+  - u: "hachimi_scalable_and_controllable_student_persona_generation_via_orchestrated_ag/"
+    t: "HACHIMI: Scalable and Controllable Student Persona Generation via Orchestrated Agents"
+  - u: "latent_agents_a_post-training_procedure_for_internalized_multi-agent_debate/"
+    t: "Latent Agents: A Post-Training Procedure for Internalized Multi-Agent Debate"
+  - u: "llm-based_human-agent_collaboration_and_interaction_systems_a_survey/"
+    t: "LLM-Based Human-Agent Collaboration and Interaction Systems: A Survey"
+  - u: "masfactory_a_graph-centric_framework_for_orchestrating_llm-based_multi-agent_sys/"
+    t: "MASFactory: A Graph-centric Framework for Orchestrating LLM-Based Multi-Agent Systems with Vibe Graphing"
+  - u: "mata_multi-agent_framework_for_reliable_and_flexible_table_question_answering/"
+    t: "MATA: Multi-Agent Framework for Reliable and Flexible Table Question Answering"
+  - u: "memory-augmented_llm-based_multi-agent_system_for_automated_feature_generation_o/"
+    t: "Memory-Augmented LLM-based Multi-Agent System for Automated Feature Generation on Tabular Data"
+  - u: "multi-agent_reasoning_improves_compute_efficiency_pareto-optimal_test-time_scali/"
+    t: "Multi-Agent Reasoning Improves Compute Efficiency: Pareto-Optimal Test-Time Scaling"
+  - u: "odutqa-mdc_a_task_for_open-domain_underspecified_tabular_qa_with_multi-turn_dial/"
+    t: "ODUTQA-MDC: A Task for Open-Domain Underspecified Tabular QA with Multi-turn Dialogue-based Clarification"
+  - u: "oxygent_making_multi-agent_systems_modular_observable_and_evolvable_via_oxy_abst/"
+    t: "OxyGent: Making Multi-Agent Systems Modular, Observable, and Evolvable via Oxy Abstraction"
+  - u: "posterforest_hierarchical_multi-agent_collaboration_for_scientific_poster_genera/"
+    t: "PosterForest: Hierarchical Multi-Agent Collaboration for Scientific Poster Generation"
+  - u: "preference_estimation_via_opponent_modeling_in_multi-agent_negotiation/"
+    t: "Preference Estimation via Opponent Modeling in Multi-Agent Negotiation"
+  - u: "protea_offline_evaluation_and_iterative_refinement_for_multi-agent_llm_workflows/"
+    t: "PROTEA: Offline Evaluation and Iterative Refinement for Multi-Agent LLM Workflows"
+item_total: 39
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +82,7 @@ tags:
 
 **💬 ACL2026** · **39** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/multi_agent/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/multi_agent/index.md) · [🤖 AAAI2026 (26)](../../AAAI2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
 
 🔥 **高频主题：** Agent ×34 · LLM ×13 · 推理 ×5 · 问答 ×3 · 对抗鲁棒 ×3
 

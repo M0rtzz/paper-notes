@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 3D 视觉方向78篇论文解读
+  AAAI2026 3D视觉论文汇总 · 74篇论文解读
 description: >-
-  78篇AAAI2026的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、点云、语义分割、形状补全、3D 目标检测、动态场景等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  74篇AAAI2026的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、点云、语义分割、形状补全、动态场景、压缩/编码等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "AAAI2026"
   - "3D 视觉"
@@ -12,18 +12,80 @@ tags:
   - "点云"
   - "语义分割"
   - "形状补全"
-  - "3D 目标检测"
   - "动态场景"
+  - "压缩/编码"
+item_list:
+  - u: "3d-anc_adaptive_neural_collapse_for_robust_3d_point_cloud_re/"
+    t: "3D-ANC: Adaptive Neural Collapse for Robust 3D Point Cloud Recognition"
+  - u: "3d-free_meets_3d_priors_novel_view_synthesis_from_a_single_image_with_pretrained/"
+    t: "3D-Free Meets 3D Priors: Novel View Synthesis from a Single Image with Pretrained Diffusion Guidance"
+  - u: "3dteethsam_taming_sam2_for_3d_teeth_segmentation/"
+    t: "3DTeethSAM: Taming SAM2 for 3D Teeth Segmentation"
+  - u: "4dstr_advancing_generative_4d_gaussians_with_spatial-tempora/"
+    t: "4DSTR: Advancing Generative 4D Gaussians with Spatial-Temporal Rectification for High-Quality and Consistent 4D Generation"
+  - u: "adapt-as-you-walk_through_the_clouds_training-free_online_te/"
+    t: "Adapt-As-You-Walk Through the Clouds: Training-Free Online Test-Time Adaptation of 3D Vision-Language Foundation Models"
+  - u: "anchords_anchoring_dynamic_sources_for_semantically_consiste/"
+    t: "AnchorDS: Anchoring Dynamic Sources for Semantically Consistent Text-to-3D Generation"
+  - u: "anchorhoi_zero-shot_generation_of_4d_human-object_interactio/"
+    t: "AnchorHOI: Zero-shot Generation of 4D Human-Object Interaction via Anchor-based Prior Distillation"
+  - u: "arbitrary-scale_3d_gaussian_super-resolution/"
+    t: "Arbitrary-Scale 3D Gaussian Super-Resolution"
+  - u: "assist-3d_adapted_scene_synthesis_for_class-agnostic_3d_instance_segmentation/"
+    t: "ASSIST-3D: Adapted Scene Synthesis for Class-Agnostic 3D Instance Segmentation"
+  - u: "can_protective_watermarking_safeguard_the_copyright_of_3d_gaussian_splatting/"
+    t: "Can Protective Watermarking Safeguard the Copyright of 3D Gaussian Splatting?"
+  - u: "cheating_stereo_matching_in_full-scale_physical_adversarial_attack_against_binoc/"
+    t: "Cheating Stereo Matching in Full-Scale: Physical Adversarial Attack against Binocular Depth Estimation"
+  - u: "class-partitioned_vq-vae_and_latent_flow_matching_for_point_cloud_scene_generati/"
+    t: "Class-Partitioned VQ-VAE and Latent Flow Matching for Point Cloud Scene Generation"
+  - u: "dance_density-agnostic_and_class-aware_network_for_point_cloud_completion/"
+    t: "DANCE: Density-Agnostic and Class-Aware Network for Point Cloud Completion"
+  - u: "dapointmamba_domain_adaptive_point_mamba_for_point_cloud_completion/"
+    t: "DAPointMamba: Domain Adaptive Point Mamba for Point Cloud Completion"
+  - u: "debiasing_diffusion_priors_via_3d_attention_for_consistent_gaussian_splatting/"
+    t: "Debiasing Diffusion Priors via 3D Attention for Consistent Gaussian Splatting"
+  - u: "deepraht_learning_predictive_raht_for_point_cloud_attribute_compression/"
+    t: "DeepRAHT: Learning Predictive RAHT for Point Cloud Attribute Compression"
+  - u: "distilling_future_temporal_knowledge_with_masked_feature_reconstruction_for_3d_o/"
+    t: "Distilling Future Temporal Knowledge with Masked Feature Reconstruction for 3D Object Detection"
+  - u: "domain_generalized_stereo_matching_with_uncertainty-guided_data_augmentation/"
+    t: "Domain Generalized Stereo Matching with Uncertainty-guided Data Augmentation"
+  - u: "dynamic_gaussian_scene_reconstruction_from_unsynchronized_videos/"
+    t: "Dynamic Gaussian Scene Reconstruction from Unsynchronized Videos"
+  - u: "enhancing_generalization_of_depth_estimation_foundation_model_via_weakly-supervi/"
+    t: "Enhancing Generalization of Depth Estimation Foundation Model via Weakly-Supervised Adaptation with Regularization"
+  - u: "enhancing_rotation-invariant_3d_learning_with_global_pose_awareness_and_attentio/"
+    t: "Enhancing Rotation-Invariant 3D Learning with Global Pose Awareness and Attention Mechanisms"
+  - u: "epsegfz_efficient_point_cloud_semantic_segmentation_for_few-_and_zero-shot_scena/"
+    t: "EPSegFZ: Efficient Point Cloud Semantic Segmentation for Few- and Zero-Shot Scenarios"
+  - u: "fantasystyle_controllable_stylized_distillation_for_3d_gaussian_splatting/"
+    t: "FantasyStyle: Controllable Stylized Distillation for 3D Gaussian Splatting"
+  - u: "foundationslam_unleashing_the_power_of_depth_foundation_models_for/"
+    t: "FoundationSLAM: Unleashing the Power of Depth Foundation Models for End-to-End Dense Visual SLAM"
+  - u: "free-form_scene_editor_enabling_multi-round_object_manipulation_like_in_a_3d_eng/"
+    t: "Free-Form Scene Editor: Enabling Multi-Round Object Manipulation like in a 3D Engine"
+  - u: "gaussian_blending_rethinking_alpha_blending_in_3d_gaussian_splatting/"
+    t: "Gaussian Blending: Rethinking Alpha Blending in 3D Gaussian Splatting"
+  - u: "gaussianimage_boosted_image_representation_and_compression_with_2d_gaussian_spla/"
+    t: "GaussianImage++: Boosted Image Representation and Compression with 2D Gaussian Splatting"
+  - u: "generalized_geometry_encoding_volume_for_real-time_stereo_matching/"
+    t: "Generalized Geometry Encoding Volume for Real-time Stereo Matching"
+  - u: "geometry_meets_light_leveraging_geometric_priors_for_universal_photometric_stere/"
+    t: "Geometry Meets Light: Leveraging Geometric Priors for Universal Photometric Stereo under Limited Multi-Illumination Cues"
+  - u: "graph_smoothing_for_enhanced_local_geometry_learning_in_point_cloud_analysis/"
+    t: "Graph Smoothing for Enhanced Local Geometry Learning in Point Cloud Analysis"
+item_total: 74
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D 视觉
 
-**🤖 AAAI2026** · **78** 篇论文解读
+**🤖 AAAI2026** · **74** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (236)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (61)](../../ICLR2026/3d_vision/index.md) · [🧠 NeurIPS2025 (113)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (264)](../../ICCV2025/3d_vision/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (227)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/3d_vision/index.md) · [🧠 NeurIPS2025 (111)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (252)](../../ICCV2025/3d_vision/index.md)
 
-🔥 **高频主题：** 3D 高斯渲染 ×19 · 点云 ×13 · 语义分割 ×7 · 形状补全 ×5 · 3D 目标检测 ×5
+🔥 **高频主题：** 3D 高斯渲染 ×19 · 点云 ×13 · 语义分割 ×7 · 形状补全 ×5 · 动态场景 ×4
 
 **[3D-ANC: Adaptive Neural Collapse for Robust 3D Point Cloud Recognition](3d-anc_adaptive_neural_collapse_for_robust_3d_point_cloud_re.md)**
 
@@ -72,10 +134,6 @@ tags:
 **[Class-Partitioned VQ-VAE and Latent Flow Matching for Point Cloud Scene Generation](class-partitioned_vq-vae_and_latent_flow_matching_for_point_cloud_scene_generati.md)**
 
 :   提出类别分区的 VQ-VAE（CPVQ-VAE）和潜空间流匹配模型（LFMM），实现了首个无需外部数据库检索的纯点云场景生成方法，在复杂客厅场景上将 Chamfer 距离降低了 70.4%。
-
-**[CLIPPan: Adapting CLIP as A Supervisor for Unsupervised Pansharpening](clippan_adapting_clip_as_a_supervisor_for_unsupervised_pansharpening.md)**
-
-:   提出 CLIPPan，通过轻量微调 CLIP 使其理解多光谱/全色/高分辨率多光谱图像类型及全色锐化过程，然后利用 Wald 协议等文本提示作为语义监督信号，实现无需地面真值的全分辨率无监督全色锐化，可作为即插即用模块兼容任意全色锐化骨干网络。
 
 **[DANCE: Density-Agnostic and Class-Aware Network for Point Cloud Completion](dance_density-agnostic_and_class-aware_network_for_point_cloud_completion.md)**
 
@@ -185,10 +243,6 @@ tags:
 
 :   MoBGS 提出了一种端到端的动态去模糊 3D Gaussian Splatting 框架，通过 Blur-adaptive Latent Camera Estimation (BLCE) 和 Latent Camera-induced Exposure Estimation (LCEE) 两个核心模块，从模糊单目视频中重建清晰的时空新视角，在 Stereo Blur 数据集上大幅超越现有 SOTA 方法。
 
-**[MonoCLUE: Object-Aware Clustering Enhances Monocular 3D Object Detection](monoclue_object-aware_clustering_enhances_monocular_3d_object_detection.md)**
-
-:   提出 MonoCLUE，通过**局部聚类**提取对象级视觉模式（如引擎盖、车顶等部件）和**广义场景记忆**聚合跨图像的一致外观特征，增强单目3D检测中被遮挡和截断物体的检测能力，在KITTI基准上实现SOTA性能，且不依赖额外深度或LiDAR信息。
-
 **[MR-CoSMo: Visual-Text Memory Recall and Direct Cross-Modal Alignment Method for Query-Driven 3D Segmentation](mr-cosmo_visual-text_memory_recall_and_direct_cross-modal_alignment_method_for_q.md)**
 
 :   提出MR-CoSMo，一种由粗到精的查询驱动3D分割模型，通过直接跨模态对齐模块（DCMA）建立3D点云与文本/2D图像的显式对齐，结合视觉-文本记忆模块（Memory Module）存储高置信度特征对来增强跨场景分割一致性，在3D指令分割、引用分割和语义分割三个任务上均达到SOTA。
@@ -244,14 +298,6 @@ tags:
 **[Point Cloud Quantization through Multimodal Prompting for 3D Understanding](point_cloud_quantization_through_multimodal_prompting_for_3d_understanding.md)**
 
 :   提出 PCQ（Point Cloud Quantization），利用预训练视觉-语言模型的文本嵌入作为语义原型，通过 Gumbel-Softmax 可微量化将连续点云特征离散化到文本原型空间，结合跨模态特征融合实现3D理解的显著提升。
-
-**[PressTrack-HMR: Pressure-Based Top-Down Multi-Person Global Human Mesh Recovery](presstrack-hmr_pressure-based_top-down_multi-person_global_human_mesh_recovery.md)**
-
-:   提出 PressTrack-HMR，首个仅基于压力信号实现多人全局人体网格恢复的自上而下流水线，通过创新的 UoE 相似度度量实现压力足迹跟踪（93.6% MOTA），并构建了首个多人交互压力数据集 MIP。
-
-**[Real-Time 3D Object Detection with Inference-Aligned Learning](real-time_3d_object_detection_with_inference-aligned_learning.md)**
-
-:   提出 SR3D 框架，通过空间优先最优传输标签分配（SPOTA）和排序感知自适应自蒸馏（RAS）两个训练阶段组件，弥合室内密集 3D 目标检测中训练与推理行为的不一致性，在 ScanNet V2 和 SUN RGB-D 上以 42ms 实时速度刷新密集检测器 SOTA。
 
 **[Redundant Queries in DETR-Based 3D Detection: Unnecessary and Prunable](redundant_queries_in_detr-based_3d_detection_methods_unnecessary_and_prunable.md)**
 

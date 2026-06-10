@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 预训练方向51篇论文解读
+  NeurIPS2025 预训练论文汇总 · 49篇论文解读
 description: >-
-  51篇NeurIPS2025的预训练方向论文解读，涵盖 LLM、扩散模型、对齐/RLHF、布局/合成、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  49篇NeurIPS2025的预训练方向论文解读，涵盖 LLM、扩散模型、对齐/RLHF、布局/合成、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "预训练"
@@ -13,16 +13,78 @@ tags:
   - "对齐/RLHF"
   - "布局/合成"
   - "人脸/视线"
+item_list:
+  - u: "a_practical_guide_for_incorporating_symmetry_in_diffusion_policy/"
+    t: "A Practical Guide for Incorporating Symmetry in Diffusion Policy"
+  - u: "ai_progress_should_be_measured_by_capability-per-resource_not_scale_alone_a_fram/"
+    t: "AI Progress Should Be Measured by Capability-Per-Resource, Not Scale Alone: A Framework for Gradient-Guided Resource Allocation in LLMs"
+  - u: "alternating_gradient_flows_a_theory_of_feature_learning_in_two-layer_neural_netw/"
+    t: "Alternating Gradient Flows: A Theory of Feature Learning in Two-layer Neural Networks"
+  - u: "an_empirical_investigation_of_neural_odes_and_symbolic_regression_for_dynamical_/"
+    t: "An Empirical Investigation of Neural ODEs and Symbolic Regression for Dynamical Systems"
+  - u: "beyond_benign_overfitting_in_nadaraya-watson_interpolators/"
+    t: "Beyond Benign Overfitting in Nadaraya-Watson Interpolators"
+  - u: "born_a_transformer_--_always_a_transformer_on_the_effect_of_pretraining_on_archi/"
+    t: "Born a Transformer – Always a Transformer? On the Effect of Pretraining on Architectural Abilities"
+  - u: "breaking_the_frozen_subspace_importance_sampling_for_low-rank_optimization_in_ll/"
+    t: "Breaking the Frozen Subspace: Importance Sampling for Low-Rank Optimization in LLM Pretraining"
+  - u: "broken_tokens_your_language_model_can_secretly_handle_non-canonical_tokenization/"
+    t: "Broken Tokens: Your Language Model Can Secretly Handle Non-Canonical Tokenization"
+  - u: "climb_class-imbalanced_learning_benchmark_on_tabular_data/"
+    t: "CLIMB: Class-Imbalanced Learning Benchmark on Tabular Data"
+  - u: "composition_and_alignment_of_diffusion_models_using_constrai/"
+    t: "Composition and Alignment of Diffusion Models using Constrained Learning"
+  - u: "conformal_risk_training_end-to-end_optimization_of_conformal_risk_control/"
+    t: "Conformal Risk Training: End-to-End Optimization of Conformal Risk Control"
+  - u: "deep_compositional_phase_diffusion_for_long_motion_sequence_generation/"
+    t: "Deep Compositional Phase Diffusion for Long Motion Sequence Generation"
+  - u: "differentiable_hierarchical_visual_tokenization/"
+    t: "Differentiable Hierarchical Visual Tokenization"
+  - u: "disaggregation_reveals_hidden_training_dynamics_the_case_of_agreement_attraction/"
+    t: "Disaggregation Reveals Hidden Training Dynamics: The Case of Agreement Attraction"
+  - u: "does_object_binding_naturally_emerge_in_large_pretrained_vision_transformers/"
+    t: "Does Object Binding Naturally Emerge in Large Pretrained Vision Transformers?"
+  - u: "efficient_pre-training_of_llms_via_topology-aware_communication_alignment_on_mor/"
+    t: "Efficient Pre-Training of LLMs via Topology-Aware Communication Alignment on More Than 9600 GPUs"
+  - u: "enhancing_training_data_attribution_with_representational_optimization/"
+    t: "Enhancing Training Data Attribution with Representational Optimization"
+  - u: "final-model-only_data_attribution_with_a_unifying_view_of_gradient-based_methods/"
+    t: "Final-Model-Only Data Attribution with a Unifying View of Gradient-Based Methods"
+  - u: "flatness_is_necessary_neural_collapse_is_not_rethinking_generalization_via_grokk/"
+    t: "Flatness is Necessary, Neural Collapse is Not: Rethinking Generalization via Grokking"
+  - u: "gemstones_a_model_suite_for_multi-faceted_scaling_laws/"
+    t: "Gemstones: A Model Suite for Multi-Faceted Scaling Laws"
+  - u: "generalization_bounds_for_rank-sparse_neural_networks/"
+    t: "Generalization Bounds for Rank-sparse Neural Networks"
+  - u: "generating_physically_sound_designs_from_text_and_a_set_of_physical_constraints/"
+    t: "Generating Physically Sound Designs from Text and a Set of Physical Constraints"
+  - u: "global_minimizers_of_sigmoid_contrastive_loss/"
+    t: "Global Minimizers of Sigmoid Contrastive Loss"
+  - u: "gradient-weight_alignment_as_a_train-time_proxy_for_generalization_in_classifica/"
+    t: "Gradient-Weight Alignment as a Train-Time Proxy for Generalization in Classification Tasks"
+  - u: "how_does_sequence_modeling_architecture_influence_base_capabilities_of_pre-train/"
+    t: "How Does Sequence Modeling Architecture Influence Base Capabilities of Pre-trained Language Models?"
+  - u: "language_model_behavioral_phases_are_consistent_across_archi/"
+    t: "Language Model Behavioral Phases are Consistent Across Architecture, Training Data, and Scale"
+  - u: "lcdb_11_a_database_illustrating_learning_curves_are_more_ill-behaved_than_previo/"
+    t: "LCDB 1.1: A Database Illustrating Learning Curves Are More Ill-Behaved Than Previously Thought"
+  - u: "learning_in_compact_spaces_with_approximately_normalized_transformer/"
+    t: "Learning in Compact Spaces with Approximately Normalized Transformer"
+  - u: "learning_the_wrong_lessons_syntactic-domain_spurious_correlations_in_language_mo/"
+    t: "Learning the Wrong Lessons: Syntactic-Domain Spurious Correlations in Language Models"
+  - u: "learning_to_flow_from_generative_pretext_tasks_for_neural_architecture_encoding/"
+    t: "Learning to Flow from Generative Pretext Tasks for Neural Architecture Encoding"
+item_total: 49
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**🧠 NeurIPS2025** · **51** 篇论文解读
+**🧠 NeurIPS2025** · **49** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (8)](../../AAAI2026/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
 
-🔥 **高频主题：** LLM ×8 · 扩散模型 ×4 · 对齐/RLHF ×4 · 布局/合成 ×2 · 人脸/视线 ×2
+🔥 **高频主题：** LLM ×7 · 扩散模型 ×4 · 对齐/RLHF ×4 · 布局/合成 ×2 · 人脸/视线 ×2
 
 **[A Practical Guide for Incorporating Symmetry in Diffusion Policy](a_practical_guide_for_incorporating_symmetry_in_diffusion_policy.md)**
 
@@ -51,10 +113,6 @@ tags:
 **[Breaking the Frozen Subspace: Importance Sampling for Low-Rank Optimization in LLM Pretraining](breaking_the_frozen_subspace_importance_sampling_for_low-rank_optimization_in_ll.md)**
 
 :   发现GaLore等低秩优化方法的主导子空间在预训练中会"冻结"（相邻子空间重叠度趋近1），导致权重更新卡在固定低秩子空间中；提出SARA（重要性采样子空间选择），按奇异值权重随机采样奇异向量构建子空间，证明收敛性的同时将低秩优化器与全秩Adam的性能差距缩小最高46%。
-
-**[Breaking the Gradient Barrier: Unveiling Large Language Models for Strategic Classification](breaking_the_gradient_barrier_unveiling_large_language_models_for_strategic_clas.md)**
-
-:   提出 GLIM（Gradient-free Learning In-context Method），首次利用 LLM 的 In-Context Learning 机制隐式模拟策略分类中的双层优化（特征操纵 + 决策规则优化），无需微调即可在大规模数据上高效完成策略分类任务。
 
 **[Broken Tokens: Your Language Model Can Secretly Handle Non-Canonical Tokenization](broken_tokens_your_language_model_can_secretly_handle_non-canonical_tokenization.md)**
 
@@ -123,10 +181,6 @@ tags:
 **[Gradient-Weight Alignment as a Train-Time Proxy for Generalization in Classification Tasks](gradient-weight_alignment_as_a_train-time_proxy_for_generalization_in_classifica.md)**
 
 :   提出 Gradient-Weight Alignment (GWA)，通过量化每个训练样本梯度与模型权重的方向一致性（cosine similarity），在训练过程中无需验证集即可准确预测泛化性能、确定最佳早停时机，并定位有影响力的训练样本。
-
-**[Heterogeneous Adversarial Play in Interactive Environments](heterogeneous_adversarial_play_in_interactive_environments.md)**
-
-:   提出 **HAP（Heterogeneous Adversarial Play）**，将教师-学生交互形式化为极小极大博弈：教师网络自动生成针对学生弱点的挑战任务，学生策略不断适应进化，形成无需手工设计的自适应课程——在多任务 RL 环境中超越 SOTA 基线，且生成的课程对人类学习者同样有效。
 
 **[How Does Sequence Modeling Architecture Influence Base Capabilities of Pre-trained Language Models?](how_does_sequence_modeling_architecture_influence_base_capabilities_of_pre-train.md)**
 

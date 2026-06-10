@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 遥感方向3篇论文解读
+  ICML2026 遥感论文汇总 · 3篇论文解读
 description: >-
   3篇ICML2026的遥感方向论文解读，涵盖翻译、遥感、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,14 @@ tags:
   - "论文笔记"
   - "翻译"
   - "对齐/RLHF"
+item_list:
+  - u: "any2any_unified_arbitrary_modality_translation_for_remote_sensing/"
+    t: "Any2Any: Unified Arbitrary Modality Translation for Remote Sensing"
+  - u: "localized_high-resolution_geographic_representations_with_slepian_functions/"
+    t: "Localized, High-resolution Geographic Representations with Slepian Functions"
+  - u: "the_perception-physics_paradox_probing_scientific_alignment_with_tc-bench/"
+    t: "The Perception-Physics Paradox: Probing Scientific Alignment with TC-Bench"
+item_total: 3
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

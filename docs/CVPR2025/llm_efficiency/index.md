@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 LLM 效率方向5篇论文解读
+  CVPR2025 LLM效率论文汇总 · 5篇论文解读
 description: >-
   5篇CVPR2025的 LLM 效率方向论文解读，涵盖压缩/编码等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,18 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "压缩/编码"
+item_list:
+  - u: "associative_transformer/"
+    t: "Associative Transformer"
+  - u: "efficient_data_driven_mixture-of-expert_extraction_from_trained_networks/"
+    t: "Efficient Data Driven Mixture-of-Expert Extraction from Trained Networks"
+  - u: "locore_image_re-ranking_with_long-context_sequence_modeling/"
+    t: "LOCORE: Image Re-ranking with Long-Context Sequence Modeling"
+  - u: "moee_mixture_expert_extraction/"
+    t: "Efficient Data Driven Mixture-of-Expert Extraction from Trained Networks"
+  - u: "spatial-ttt_streaming_visual-based_spatial_intelligence_with_test-time_training/"
+    t: "Spatial-TTT: Streaming Visual-based Spatial Intelligence with Test-Time Training"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

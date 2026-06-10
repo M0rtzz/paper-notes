@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 医学图像方向100篇论文解读
+  CVPR2026 医学图像论文汇总 · 97篇论文解读
 description: >-
-  100篇CVPR2026的医学图像方向论文解读，涵盖医学影像、语义分割、多模态、对抗鲁棒、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  97篇CVPR2026的医学图像方向论文解读，涵盖医学影像、语义分割、多模态、对抗鲁棒、扩散模型、联邦学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "医学图像"
@@ -12,18 +12,80 @@ tags:
   - "语义分割"
   - "多模态"
   - "对抗鲁棒"
-  - "少样本学习"
   - "扩散模型"
+  - "联邦学习"
+item_list:
+  - u: "a_protocol_for_evaluating_robustness_to_he_stainin/"
+    t: "A protocol for evaluating robustness to H&E staining variation in computational pathology models"
+  - u: "a_semi-supervised_framework_for_breast_ultrasound_segmentation_with_training-fre/"
+    t: "A Semi-Supervised Framework for Breast Ultrasound Segmentation with Training-Free Pseudo-Label Generation and Label Refinement"
+  - u: "accelerating_stroke_mri_with_diffusion_probabilist/"
+    t: "Accelerating Stroke MRI with Diffusion Probabilistic Models through Large-Scale Pre-training and Target-Specific Fine-Tuning"
+  - u: "act_like_a_pathologist_tissue-aware_whole_slide_image_reasoning/"
+    t: "Act Like a Pathologist: Tissue-Aware Whole Slide Image Reasoning"
+  - u: "adaptation_of_weakly_supervised_localization_in_histopathology_by_debiasing_pred/"
+    t: "Adaptation of Weakly Supervised Localization in Histopathology by Debiasing Predictions"
+  - u: "adaptive_confidence_regularization_for_multimodal_failure_detection/"
+    t: "Adaptive Confidence Regularization for Multimodal Failure Detection"
+  - u: "addressing_data_scarcity_in_3d_trauma_detection_through_self-supervised_and_semi/"
+    t: "Addressing Data Scarcity in 3D Trauma Detection through Self-Supervised and Semi-Supervised Learning with Vertex Relative Position Encoding"
+  - u: "apex_adaptive_visual_prompting/"
+    t: "From Adaptation to Generalization: Adaptive Visual Prompting for Medical Image Segmentation"
+  - u: "are_general-purpose_vision_models_all_we_need_for_2d_medical_image_segmentation_/"
+    t: "Are General-Purpose Vision Models All We Need for 2D Medical Image Segmentation? A Cross-Dataset Empirical Study"
+  - u: "association_of_radiologic_ppfe_change_with_mortali/"
+    t: "Association of Radiologic PPFE Change with Mortality in Lung Cancer Screening Cohorts"
+  - u: "automated_detection_of_malignant_lesions_in_the_ov/"
+    t: "Automated Detection of Malignant Lesions in the Ovary Using Deep Learning Models and XAI"
+  - u: "benchmarking_endoscopic_surgical_image_restoration_and_beyond/"
+    t: "Benchmarking Endoscopic Surgical Image Restoration and Beyond"
+  - u: "better_than_average_spatially-aware_aggregation_of_segmentation_uncertainty_impr/"
+    t: "Better than Average: Spatially-Aware Aggregation of Segmentation Uncertainty Improves Downstream Performance"
+  - u: "biclip_bidirectional_and_consistent_language-image_processing_for_robust_medical/"
+    t: "BiCLIP: Bidirectional and Consistent Language-Image Processing for Robust Medical Image Segmentation"
+  - u: "bridging_the_skill_gap_in_clinical_cbct_interpreta/"
+    t: "Bridging the Skill Gap in Clinical CBCT Interpretation with CBCTRepD"
+  - u: "chips_efficient_clip_adaptation_via_curvature-aware_hybrid_influence-based_data_/"
+    t: "CHIPS: Efficient CLIP Adaptation via Curvature-aware Hybrid Influence-based Data Selection"
+  - u: "cloe_expert_consistency_learning_for_missing_modality_segmentation/"
+    t: "CLoE: Expert Consistency Learning for Missing Modality Segmentation"
+  - u: "comparative_evaluation_of_traditional_methods_and_deep_learning_for_brain_glioma/"
+    t: "Comparative Evaluation of Traditional Methods and Deep Learning for Brain Glioma Imaging"
+  - u: "crft_consistent-recurrent_feature_flow_transformer_for_cross-modal_image_registr/"
+    t: "CRFT: Consistent-Recurrent Feature Flow Transformer for Cross-Modal Image Registration"
+  - u: "cure_curriculum-guided_multi-task_training_for_reliable_anatomy_grounded_report_/"
+    t: "CURE: Curriculum-guided Multi-task Training for Reliable Anatomy Grounded Report Generation"
+  - u: "decoding_matters_efficient_mamba-based_decoder_with_distribution-aware_deep_supe/"
+    t: "Decoding Matters: Efficient Mamba-Based Decoder with Distribution-Aware Deep Supervision for Medical Image Segmentation"
+  - u: "decoupling_vision_and_language_codebook_anchored_visual_adaptation/"
+    t: "Decoupling Vision and Language: Codebook Anchored Visual Adaptation"
+  - u: "deep_learning_based_estimation_of_blood_glucose_levels_from_multidirectional_scl/"
+    t: "Deep Learning–Based Estimation of Blood Glucose Levels from Multidirectional Scleral Blood Vessel Imaging"
+  - u: "deep_learningbased_assessment_of_the_relation_betw/"
+    t: "Deep Learning-based Assessment of the Relation Between the Third Molar and Mandibular Canal on Panoramic Radiographs using Local, Centralized, and Federated Learning"
+  - u: "developing_foundation_models_for_universal_segmentation_from_3d_whole-body_posit/"
+    t: "Developing Foundation Models for Universal Segmentation from 3D Whole-Body Positron Emission Tomography"
+  - u: "diffusion-based_feature_denoising_and_using_nnmf_for_robust_brain_tumor_classifi/"
+    t: "Diffusion-Based Feature Denoising and Using NNMF for Robust Brain Tumor Classification"
+  - u: "echoagent_towards_reliable_echocardiography_interpretation_with_eyeshands_and_mi/"
+    t: "EchoAgent: Towards Reliable Echocardiography Interpretation with \"Eyes\", \"Hands\" and \"Minds\""
+  - u: "ei_early_intervention_for_multimodal_imaging_based_disease_recognition/"
+    t: "EI: Early Intervention for Multimodal Imaging based Disease Recognition"
+  - u: "emad_evidence-centric_grounded_multimodal_diagnosis_for_alzheimers_disease/"
+    t: "EMAD: Evidence-Centric Grounded Multimodal Diagnosis for Alzheimer's Disease"
+  - u: "equivania_a_spectral_method_for_rotation-equivariant_anisotropic_image_analysis/"
+    t: "EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis"
+item_total: 97
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**📷 CVPR2026** · **100** 篇论文解读
+**📷 CVPR2026** · **97** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [🔬 ICLR2026 (21)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (73)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md) · [🧪 ICML2025 (22)](../../ICML2025/medical_imaging/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (71)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md) · [🧪 ICML2025 (22)](../../ICML2025/medical_imaging/index.md)
 
-🔥 **高频主题：** 医学影像 ×35 · 语义分割 ×22 · 多模态 ×12 · 对抗鲁棒 ×8 · 少样本学习 ×6
+🔥 **高频主题：** 医学影像 ×35 · 语义分割 ×22 · 多模态 ×12 · 对抗鲁棒 ×8 · 扩散模型 ×5
 
 **[A protocol for evaluating robustness to H&E staining variation in computational pathology models](a_protocol_for_evaluating_robustness_to_he_stainin.md)**
 
@@ -84,10 +146,6 @@ tags:
 **[Bridging the Skill Gap in Clinical CBCT Interpretation with CBCTRepD](bridging_the_skill_gap_in_clinical_cbct_interpreta.md)**
 
 :   构建覆盖55种口腔疾病的7,408例大规模CBCT-报告配对数据集，开发双语口腔颌面CBCT报告生成系统CBCTRepD，通过AI生成草稿+放射科医生编辑的协作模式，在多层级临床评估中证明其可帮助初级医生达到中级水平、中级医生接近高级水平、高级医生减少遗漏。
-
-**[Can Natural Image Autoencoders Compactly Tokenize fMRI Volumes for Long-Range Dynamics Modeling?](can_natural_image_autoencoders_compactly_tokenize_fmri_volumes_for_long-range_dy.md)**
-
-:   提出 TABLeT，利用预训练的 2D 自然图像自编码器（DCAE）将 3D fMRI 体积压缩为仅 27 个连续 token，配合简单 Transformer 编码器实现前所未有的长时序建模（256 帧），在 UKB、HCP、ADHD-200 上多任务超越 SOTA 体素方法，且计算效率大幅提升。
 
 **[CHIPS: Efficient CLIP Adaptation via Curvature-aware Hybrid Influence-based Data Selection](chips_efficient_clip_adaptation_via_curvature-aware_hybrid_influence-based_data_.md)**
 
@@ -237,17 +295,9 @@ tags:
 
 :   提出 MedKCO，一种知识驱动的认知编排策略用于医学视觉-语言预训练：通过分层课程（label-level 按诊断敏感度排序 + description-level 按样本代表性排序）和自步非对称对比损失，让模型从简单到复杂渐进学习，在三种医学模态的零样本和下游任务上显著超越基线。
 
-**[Meta-learning In-Context Enables Training-Free Cross Subject Brain Decoding](meta-learning_in-context_enables_training-free_cross_subject_brain_decoding.md)**
-
-:   提出 BrainCoDec 框架，通过两阶段层级式上下文学习（先为每个体素估计编码器参数，再跨体素聚合做功能反演），实现了无需微调即可泛化到新被试的 fMRI 视觉解码，Top-1 检索准确率从 MindEye2 的 3.9% 提升到 22.7%。
-
 **[MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification](milpf_multiple_instance_learning_on_precomputed_fe.md)**
 
 :   将冻结的通用基础编码器（DINOv2 ViT-Giant / MedSigLIP）与仅 ~40k 参数的轻量 MIL 聚合头结合，通过预计算特征 + 双流聚合（全局均值 + 局部 Perceiver 交叉注意力），在 EMBED 等大规模乳腺 X 线分类基准上以 5-7 分钟训练达到 SOTA（AUC 0.916, Spec@Sens=0.9 达 0.762），可训练参数比基线少 35-458 倍。
-
-**[Modeling Spatiotemporal Neural Frames for High Resolution Brain Dynamics](modeling_spatiotemporal_neural_frames_for_high_resolution_brain_dynamic.md)**
-
-:   提出基于扩散 Transformer 的 EEG 条件 fMRI 重建框架，将脑活动建模为时空神经帧序列而非独立快照，在皮层顶点级分辨率下实现时空一致的 fMRI 重建，并通过零空间采样支持中间帧插值，下游视觉解码任务验证了功能信息的保留。
 
 **[Momentum Memory for Knowledge Distillation in Computational Pathology](momentum_memory_for_knowledge_distillation_in_computational_pathology.md)**
 

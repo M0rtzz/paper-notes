@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 知识编辑方向8篇论文解读
+  ICML2026 知识编辑论文汇总 · 8篇论文解读
 description: >-
   8篇ICML2026的知识编辑方向论文解读，涵盖 LLM、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,24 @@ tags:
   - "论文笔记"
   - "LLM"
   - "多模态"
+item_list:
+  - u: "anyedit_adaptive_long-form_knowledge_editing_via_bayesian_surprise/"
+    t: "AnyEdit++: Adaptive Long-Form Knowledge Editing via Bayesian Surprise"
+  - u: "crispedit_low-curvature_projections_for_scalable_non-destructive_llm_editing/"
+    t: "CrispEdit: Low-Curvature Projections for Scalable Non-Destructive LLM Editing"
+  - u: "do_text_edits_generalize_to_visual_generation_benchmarking_cross-modal_knowledge/"
+    t: "Do Text Edits Generalize to Visual Generation? Benchmarking Cross-Modal Knowledge Editing in UMMs"
+  - u: "from_backward_spreading_to_forward_replay_revisiting_target_construction_in_llm_/"
+    t: "From Backward Spreading to Forward Replay: Revisiting Target Construction in LLM Parameter Editing"
+  - u: "kore_enhancing_knowledge_injection_for_large_multimodal_models_via_knowledge-ori/"
+    t: "KORE: Enhancing Knowledge Injection for Large Multimodal Models via Knowledge-Oriented Controls"
+  - u: "reverse-engineering_model_editing_on_language_models/"
+    t: "Reverse-Engineering Model Editing on Language Models"
+  - u: "revisiting_parameter-based_knowledge_editing_in_large_language_models_theoretica/"
+    t: "Revisiting Parameter-Based Knowledge Editing in Large Language Models: Theoretical Limits and Empirical Evidence"
+  - u: "the_labyrinth_and_the_thread_rethinking_regularizations_in_sequential_knowledge_/"
+    t: "The Labyrinth and the Thread: Rethinking Regularizations in Sequential Knowledge Editing for Large Language Models"
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

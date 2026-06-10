@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 对齐 / RLHF方向5篇论文解读
+  CVPR2025 对齐/RLHF论文汇总 · 5篇论文解读
 description: >-
   5篇CVPR2025的对齐 / RLHF 方向论文解读，涵盖对齐/RLHF、LLM、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,18 @@ tags:
   - "对齐/RLHF"
   - "LLM"
   - "多模态"
+item_list:
+  - u: "bases_of_steerable_kernels_for_equivariant_cnns_from_2d_rotations_to_the_lorentz/"
+    t: "Bases of Steerable Kernels for Equivariant CNNs: From 2D Rotations to the Lorentz Group"
+  - u: "cad-llama_leveraging_large_language_models_for_computer-aided_design_parametric_/"
+    t: "CAD-Llama: Leveraging Large Language Models for Computer-Aided Design Parametric 3D Model Generation"
+  - u: "continual_sft_matches_multimodal_rlhf_with_negative_supervision/"
+    t: "Continual SFT Matches Multimodal RLHF with Negative Supervision"
+  - u: "do_we_really_need_curated_malicious_data_for_safety_alignment_in_multi-modal_lar/"
+    t: "Do We Really Need Curated Malicious Data for Safety Alignment in Multi-Modal LLMs?"
+  - u: "jailbreaking_the_non-transferable_barrier_via_test-time_data_disguising/"
+    t: "Jailbreaking the Non-Transferable Barrier via Test-Time Data Disguising"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 可解释性方向21篇论文解读
+  CVPR2025 可解释性论文汇总 · 21篇论文解读
 description: >-
   21篇CVPR2025的可解释性方向论文解读，涵盖少样本学习、域适应、持续学习、布局/合成、水印/隐写、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,50 @@ tags:
   - "布局/合成"
   - "水印/隐写"
   - "自监督学习"
+item_list:
+  - u: "albm_attribute_concept_space/"
+    t: "Attribute-formed Class-specific Concept Space: Endowing Language Bottleneck Model with Better Interpretability and Scalability"
+  - u: "attribute-formed_class-specific_concept_space_endowing_language_bottleneck_model/"
+    t: "Attribute-formed Class-specific Concept Space: Endowing Language Bottleneck Model with Better Interpretability and Scalability"
+  - u: "differentiable_inverse_rendering_with_interpretable_basis_brdfs/"
+    t: "Differentiable Inverse Rendering with Interpretable Basis BRDFs"
+  - u: "geometry-guided_camera_motion_understanding_in_videollms/"
+    t: "Geometry-Guided Camera Motion Understanding in VideoLLMs"
+  - u: "interpretable_image_classification_via_non-parametric_part_prototype_learning/"
+    t: "Interpretable Image Classification via Non-parametric Part Prototype Learning"
+  - u: "kvq_boosting_video_quality_assessment_via_saliency-guided_local_perception/"
+    t: "KVQ: Boosting Video Quality Assessment via Saliency-Guided Local Perception"
+  - u: "l-swag_layer-sample_wise_activation_with_gradients_information_for_zero-shot_nas/"
+    t: "L-SWAG: Layer-Sample Wise Activation with Gradients Information for Zero-Shot NAS on Vision Transformers"
+  - u: "language_guided_concept_bottleneck_models_for_interpretable_continual_learning/"
+    t: "Language Guided Concept Bottleneck Models for Interpretable Continual Learning"
+  - u: "learning_on_model_weights_using_tree_experts/"
+    t: "Learning on Model Weights using Tree Experts"
+  - u: "learning_visual_composition_through_improved_semantic_guidance/"
+    t: "Learning Visual Composition through Improved Semantic Guidance"
+  - u: "lswag_zero_shot_nas/"
+    t: "L-SWAG: Layer-Sample Wise Activation with Gradients information for Zero-Shot NAS on Vision Transformers"
+  - u: "on_the_possible_detectability_of_image-in-image_steganography/"
+    t: "On the Possible Detectability of Image-in-Image Steganography"
+  - u: "open_ad-hoc_categorization_with_contextualized_feature_learning/"
+    t: "Open Ad-Hoc Categorization with Contextualized Feature Learning"
+  - u: "probing_the_mid-level_vision_capabilities_of_self-supervised_learning/"
+    t: "Probing the Mid-Level Vision Capabilities of Self-Supervised Learning"
+  - u: "prompt-cam_making_vision_transformers_interpretable_for_fine-grained_analysis/"
+    t: "Prompt-CAM: Making Vision Transformers Interpretable for Fine-Grained Analysis"
+  - u: "sample-_and_parameter-efficient_auto-regressive_image_models/"
+    t: "Sample- and Parameter-Efficient Auto-Regressive Image Models"
+  - u: "scaling_vision_pre-training_to_4k_resolution/"
+    t: "Scaling Vision Pre-Training to 4K Resolution"
+  - u: "tide_domain_generalization/"
+    t: "TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction"
+  - u: "tide_training_locally_interpretable_domain_generalization_models_enables_test-ti/"
+    t: "TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction"
+  - u: "towards_human-understandable_multi-dimensional_concept_discovery/"
+    t: "Towards Human-Understandable Multi-Dimensional Concept Discovery"
+  - u: "why_does_it_look_there_structured_explanations_for_image_classification/"
+    t: "Why Does It Look There? Structured Explanations for Image Classification"
+item_total: 21
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +65,7 @@ tags:
 
 **📷 CVPR2025** · **21** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md)
 
 🔥 **高频主题：** 少样本学习 ×2 · 域适应 ×2
 

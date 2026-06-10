@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 AI 安全方向25篇论文解读
+  CVPR2026 AI安全论文汇总 · 25篇论文解读
 description: >-
   25篇CVPR2026的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习、多模态、水印/隐写、机器人等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,58 @@ tags:
   - "多模态"
   - "水印/隐写"
   - "机器人"
+item_list:
+  - u: "a_unified_perspective_on_adversarial_membership_manipulation_in_vision_models/"
+    t: "A Unified Perspective on Adversarial Membership Manipulation in Vision Models"
+  - u: "all_vehicles_can_lie_efficient_adversarial_defense_in_fully_untrusted-vehicle_co/"
+    t: "All Vehicles Can Lie: Efficient Adversarial Defense in Fully Untrusted-Vehicle Collaborative Perception via Pseudo-Random Bayesian Inference"
+  - u: "clustermark_towards_robust_watermarking_for_autoregressive_image_generators_with/"
+    t: "ClusterMark: Towards Robust Watermarking for Autoregressive Image Generators with Visual Token Clustering"
+  - u: "computation_and_communication_efficient_federated_unlearning_via_on-server_gradi/"
+    t: "Computation and Communication Efficient Federated Unlearning via On-server Gradient Conflict Mitigation and Expression"
+  - u: "decoupling_defense_strategies_for_robust_image_watermarking/"
+    t: "AdvMark: Decoupling Defense Strategies for Robust Image Watermarking"
+  - u: "domain-skewed_federated_learning_with_feature_decoupling_and_calibration/"
+    t: "Domain-Skewed Federated Learning with Feature Decoupling and Calibration"
+  - u: "enhancing_out-of-distribution_detection_with_extended_logit_normalization/"
+    t: "Enhancing Out-of-Distribution Detection with Extended Logit Normalization"
+  - u: "fecalfed_privacy-preserving_poultry_disease_detection_via_federated_learning/"
+    t: "FecalFed: Privacy-Preserving Poultry Disease Detection via Federated Learning"
+  - u: "fedafd_multimodal_federated_learning_via_adversarial_fusion_and_distillation/"
+    t: "FedAFD: Multimodal Federated Learning via Adversarial Fusion and Distillation"
+  - u: "feddap_domain-aware_prototype_learning_for_federated_learning_under_domain_shift/"
+    t: "FedDAP: Domain-Aware Prototype Learning for Federated Learning under Domain Shift"
+  - u: "federated_active_learning_extreme_noniid/"
+    t: "Federated Active Learning Under Extreme Non-IID and Global Class Imbalance"
+  - u: "fedre_a_representation_entanglement_framework_for_model-heterogeneous_federated_/"
+    t: "FedRE: A Representation Entanglement Framework for Model-Heterogeneous Federated Learning"
+  - u: "generative_adversarial_perturbations_with_cross-paradigm_transferability_on_loca/"
+    t: "Generative Adversarial Perturbations with Cross-paradigm Transferability on Localized Crowd Counting"
+  - u: "logitdynamics_vit_error_detection/"
+    t: "LogitDynamics: Reliable ViT Error Detection from Layerwise Logit Trajectories"
+  - u: "mcsd_uncertainty_estimation/"
+    t: "Monte Carlo Stochastic Depth for Uncertainty Estimation in Deep Learning"
+  - u: "one-to-more_high-fidelity_training-free_anomaly_generation_with_attention_control/"
+    t: "One-to-More: High-Fidelity Training-Free Anomaly Generation with Attention Control"
+  - u: "proxyfl_a_proxy-guided_framework_for_federated_semi-supervised_learning/"
+    t: "ProxyFL: A Proxy-Guided Framework for Federated Semi-Supervised Learning"
+  - u: "recovermark_robust_watermarking_for_localization_and_recovery_of_manipulated_fac/"
+    t: "RecoverMark: Robust Watermarking for Localization and Recovery of Manipulated Faces"
+  - u: "subflot_submodel_extraction_for_efficient_and_personalized_federated_learning_vi/"
+    t: "SubFLOT: Submodel Extraction for Efficient and Personalized Federated Learning via Optimal Transport"
+  - u: "tiacam_text-anchored_invariant_feature_learning_with_auto-augmentation_for_camer/"
+    t: "TIACam: Text-Anchored Invariant Feature Learning with Auto-Augmentation for Camera-Robust Zero-Watermarking"
+  - u: "towards_highly_transferable_vision-language_attack_via_semantic-augmented_dynami/"
+    t: "Towards Highly Transferable Vision-Language Attack via Semantic-Augmented Dynamic Contrastive Interaction"
+  - u: "tutor-student_reinforcement_learning_a_dynamic_curriculum_for_robust_deepfake_de/"
+    t: "Tutor-Student Reinforcement Learning: A Dynamic Curriculum for Robust Deepfake Detection"
+  - u: "unigame_turning_a_unified_multimodal_model_into_its_own_adversary/"
+    t: "UniGame: Turning a Unified Multimodal Model Into Its Own Adversary"
+  - u: "when_robots_obey_the_patch_universal_transferable_patch_attacks_on_vision-langua/"
+    t: "When Robots Obey the Patch: Universal Transferable Patch Attacks on Vision-Language-Action Models"
+  - u: "φ-dpo_fairness_direct_preference_optimization_approach_to_continual_learning_in_/"
+    t: "$\\varphi$-DPO: Fairness Direct Preference Optimization Approach to Continual Learning in Large Multimodal Models"
+item_total: 25
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +72,7 @@ tags:
 
 **📷 CVPR2026** · **25** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (72)](../../NeurIPS2025/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×11 · 联邦学习 ×9 · 多模态 ×5 · 水印/隐写 ×4 · 机器人 ×3
 

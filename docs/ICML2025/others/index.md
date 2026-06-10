@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 其他方向110篇论文解读
+  ICML2025 其他论文汇总 · 108篇论文解读
 description: >-
-  110篇ICML2025的其他方向论文解读，涵盖对抗鲁棒、域适应、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  108篇ICML2025的其他方向论文解读，涵盖对抗鲁棒、域适应、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "其他"
@@ -11,24 +11,82 @@ tags:
   - "对抗鲁棒"
   - "域适应"
   - "少样本学习"
+item_list:
+  - u: "access_controls_will_solve_the_dual-use_dilemma/"
+    t: "Access Controls Will Solve the Dual-Use Dilemma"
+  - u: "adversarial_combinatorial_semi-bandits_with_graph_feedback/"
+    t: "Adversarial Combinatorial Semi-bandits with Graph Feedback"
+  - u: "autoal_automated_active_learning_with_differentiable_query_strategy_search/"
+    t: "AutoAL: Automated Active Learning with Differentiable Query Strategy Search"
+  - u: "avoiding_catastrophe_in_online_learning_by_asking_for_help/"
+    t: "Avoiding Catastrophe in Online Learning by Asking for Help"
+  - u: "beyond_entropy_region_confidence_proxy_for_wild_test-time_adaptation/"
+    t: "Beyond Entropy: Region Confidence Proxy for Wild Test-Time Adaptation"
+  - u: "bipartite_ranking_from_multiple_labels_on_loss_versus_label_aggregation/"
+    t: "Bipartite Ranking From Multiple Labels: On Loss Versus Label Aggregation"
+  - u: "constrained_hamiltonian_systems_on_observation-induced_fiber_bundles_theory_of_s/"
+    t: "Constrained Hamiltonian Systems on Observation-Induced Fiber Bundles: Theory of Symmetry and Integrability"
+  - u: "continuous-time_analysis_of_heavy_ball_momentum_in_min-max_games/"
+    t: "Continuous-Time Analysis of Heavy Ball Momentum in Min-Max Games"
+  - u: "cooperation_of_experts_fusing_heterogeneous_information_with_large_margin/"
+    t: "Cooperation of Experts: Fusing Heterogeneous Information with Large Margin"
+  - u: "cross-regularization_adaptive_model_complexity_through_validation_gradients/"
+    t: "Cross-regularization: Adaptive Model Complexity through Validation Gradients"
+  - u: "curvature_enhanced_data_augmentation_for_regression/"
+    t: "Curvature Enhanced Data Augmentation for Regression"
+  - u: "decision_making_under_the_exponential_family_distributionally_robust_optimisatio/"
+    t: "DRO-BAS: Decision Making under the Exponential Family DRO with Bayesian Ambiguity Sets"
+  - u: "democratic_ai_is_possible_the_democracy_levels_framework_shows_how_it_might_work/"
+    t: "Democratic AI is Possible. The Democracy Levels Framework Shows How It Might Work"
+  - u: "dilqr_differentiable_iterative_linear_quadratic_regulator_via_implicit_different/"
+    t: "DiLQR: Differentiable Iterative Linear Quadratic Regulator via Implicit Differentiation"
+  - u: "discrepancy_minimization_in_input-sparsity_time/"
+    t: "Discrepancy Minimization in Input-Sparsity Time"
+  - u: "discrete_neural_algorithmic_reasoning/"
+    t: "Discrete Neural Algorithmic Reasoning"
+  - u: "diversity_by_design_leveraging_distribution_matching_for_offline_model-based_opt/"
+    t: "Diversity By Design: Leveraging Distribution Matching for Offline Model-Based Optimization"
+  - u: "dsp_dynamic_sequence_parallelism_for_multi-dimensional_transformers/"
+    t: "DSP: Dynamic Sequence Parallelism for Multi-Dimensional Transformers"
+  - u: "efficient_network_automatic_relevance_determination/"
+    t: "Efficient Network Automatic Relevance Determination"
+  - u: "efficient_optimization_with_orthogonality_constraint_a_randomized_riemannian_sub/"
+    t: "Efficient Optimization with Orthogonality Constraint: a Randomized Riemannian Submanifold Method"
+  - u: "enhancing_certified_robustness_via_block_reflector_orthogonal_layers_and_logit_a/"
+    t: "Enhancing Certified Robustness via Block Reflector Orthogonal Layers and Logit Annealing Loss"
+  - u: "exploiting_similarity_for_computation_and_communication-efficient_decentralized_/"
+    t: "Exploiting Similarity for Computation and Communication-Efficient Decentralized Optimization"
+  - u: "faster_and_stronger_when_ann-snn_conversion_meets_parallel_spiking_calculation/"
+    t: "Faster and Stronger: When ANN-SNN Conversion Meets Parallel Spiking Calculation"
+  - u: "feature_learning_beyond_the_lazy-rich_dichotomy_insights_from_representational_g/"
+    t: "Feature Learning beyond the Lazy-Rich Dichotomy: Insights from Representational Geometry"
+  - u: "fedtail_federated_long-tailed_domain_generalization_with_sharpness-guided_gradie/"
+    t: "FEDTAIL: Federated Long-Tailed Domain Generalization with Sharpness-Guided Gradient Matching"
+  - u: "feedforward_few-shot_species_range_estimation/"
+    t: "Feedforward Few-shot Species Range Estimation"
+  - u: "fishers_for_free_approximating_the_fisher_information_matrix_by_recycling_the_sq/"
+    t: "Fishers for Free? Approximating the Fisher Information Matrix by Recycling the Squared Gradient Accumulator"
+  - u: "fixed-confidence_multiple_change_point_identification_under_bandit_feedback/"
+    t: "Fixed-Confidence Multiple Change Point Identification under Bandit Feedback"
+  - u: "fixing_the_loose_brake_exponential-tailed_stopping_time_in_best_arm_identificati/"
+    t: "Fixing the Loose Brake: Exponential-Tailed Stopping Time in Best Arm Identification"
+  - u: "fully_dynamic_euclidean_bi-chromatic_matching_in_sublinear_update_time/"
+    t: "Fully Dynamic Euclidean Bi-Chromatic Matching in Sublinear Update Time"
+item_total: 108
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🧪 ICML2025** · **110** 篇论文解读
+**🧪 ICML2025** · **108** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (91)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (135)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (164)](../../NeurIPS2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (128)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (163)](../../NeurIPS2025/others/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×8 · 域适应 ×4 · 少样本学习 ×2
 
 **[Access Controls Will Solve the Dual-Use Dilemma](access_controls_will_solve_the_dual-use_dilemma.md)**
 
 :   提出基于访问控制的概念框架来解决AI安全中的双用途困境（dual-use dilemma），通过用户身份验证获取真实世界上下文，结合内容分类实现细粒度的权限管理，同时缓解过度拒绝（over-refusal）和不足拒绝（under-refusal）问题。
-
-**[Addressing Imbalanced Domain-Incremental Learning through Dual-Balance Collaborative Experts (DCE)](addressing_imbalanced_domain-incremental_learning_through_dual-balance_collabora.md)**
-
-:   DCE 提出频率感知专家组 + 动态专家选择器的双阶段训练框架，同时解决域增量学习中域内类别不平衡和跨域类别分布偏移两个难题，在四个 benchmark 上达到 SOTA。
 
 **[Adversarial Combinatorial Semi-bandits with Graph Feedback](adversarial_combinatorial_semi-bandits_with_graph_feedback.md)**
 
@@ -361,10 +419,6 @@ tags:
 **[Randomized Dimensionality Reduction for Euclidean Maximization and Diversity Measures](randomized_dimensionality_reduction_for_euclidean_maximization_and_diversity_mea.md)**
 
 :   证明了对一大类欧氏最大化问题（最大匹配、最大TSP、最大生成树、子图多样性等），使用数据无关的高斯 JL 变换将维度降至 $O(\lambda)$（$\lambda$ 为数据集倍增维度）即可近似保持所有候选解的值，并证明该依赖是紧的。
-
-**[Ranked Entropy Minimization for Continual Test-Time Adaptation](ranked_entropy_minimization_for_continual_test-time_adaptation.md)**
-
-:   提出 Ranked Entropy Minimization (REM)，通过渐进式遮挡策略构建预测难度的显式排序结构，结合遮挡一致性损失和熵排序损失，解决了熵最小化方法在持续测试时自适应(CTTA)中的模型崩塌问题，同时保持了计算效率。
 
 **[Regression for the Mean: Auto-Evaluation and Inference with Few Labels through Post-hoc Regression](regression_for_the_mean_auto-evaluation_and_inference_with_few_labels_through_po.md)**
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 图像生成方向125篇论文解读
+  ICML2026 图像生成论文汇总 · 125篇论文解读
 description: >-
   125篇ICML2026的图像生成方向论文解读，涵盖扩散模型、对齐/RLHF、文生图、布局/合成、对抗鲁棒、图像编辑等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "布局/合成"
   - "对抗鲁棒"
   - "图像编辑"
+item_list:
+  - u: "a_diffusive_classification_loss_for_learning_energy-based_generative_models/"
+    t: "A Diffusive Classification Loss for Learning Energy-based Generative Models"
+  - u: "a_kinetic_energy_perspective_of_flow_matching/"
+    t: "A Kinetic Energy Perspective of Flow Matching"
+  - u: "a_systematic_investigation_of_rl-jailbreaking_in_llms/"
+    t: "A Systematic Investigation of RL-Jailbreaking in LLMs"
+  - u: "a_unified_framework_for_diffusion_model_unlearning_with_f-divergence/"
+    t: "A Unified Framework for Diffusion Model Unlearning with f-Divergence"
+  - u: "adaeraser_training-free_object_removal_via_adaptive_attention_suppression/"
+    t: "AdaEraser: Training-Free Object Removal via Adaptive Attention Suppression"
+  - u: "adapting_noise_to_data_generative_flows_from_1d_processes/"
+    t: "Adapting Noise to Data: Generative Flows from Learned 1D Processes"
+  - u: "adversarial_flow_models/"
+    t: "Adversarial Flow Models"
+  - u: "aesformer_transform_everyday_photos_into_beautiful_memories/"
+    t: "AesFormer: Transform Everyday Photos into Beautiful Memories"
+  - u: "ag-repa_causal_layer_selection_for_representation_alignment_in_audio_flow_matchi/"
+    t: "AG-REPA: Causal Layer Selection for Representation Alignment in Audio Flow Matching"
+  - u: "alignment-guided_score_matching_for_text-to-image_alignment_in_diffusion_models/"
+    t: "Alignment-Guided Score Matching for Text-to-Image Alignment in Diffusion Models"
+  - u: "anomaly-preference_image_generation/"
+    t: "Anomaly-Preference Image Generation (APO)"
+  - u: "ateliereval_agentic_evaluation_of_humans_llms_as_text-to-image_prompters/"
+    t: "AtelierEval: Agentic Evaluation of Humans & LLMs as Text-to-Image Prompters"
+  - u: "balancing_fidelity_and_diversity_in_diffusion_models_via_symmetric_attention_dec/"
+    t: "Balancing Fidelity and Diversity in Diffusion Models via Symmetric Attention Decomposition: Hopfield Perspective"
+  - u: "barriers_to_counterfactual_credit_attribution_for_autoregressive_models/"
+    t: "Barriers to Counterfactual Credit Attribution for Autoregressive Models"
+  - u: "bayesian_tensor_decomposition_with_diffusion_model_prior/"
+    t: "Bayesian Tensor Decomposition with Diffusion Model Prior"
+  - u: "beyond_generative_priors_minority_sampling_with_jepa-guided_diffusion/"
+    t: "Beyond Generative Priors: Minority Sampling with JEPA-Guided Diffusion"
+  - u: "bootstrap_your_generator_unpaired_visual_editing_with_flow_matching/"
+    t: "Bootstrap Your Generator: Unpaired Visual Editing with Flow Matching"
+  - u: "caracal_causal_architecture_via_spectral_mixing/"
+    t: "Caracal: Causal Architecture via Spectral Mixing"
+  - u: "clear_context-aware_learning_with_end-to-end_mask-free_inference_for_adaptive_vi/"
+    t: "CLEAR: Context-Aware Learning with End-to-End Mask-Free Inference for Adaptive Video Subtitle Removal"
+  - u: "coarse-grained_boltzmann_generators/"
+    t: "Coarse-Grained Boltzmann Generators"
+  - u: "cocoedit_content-consistent_image_editing_via_region_regularized_reinforcement_l/"
+    t: "CoCoEdit: Content-Consistent Image Editing via Region Regularized Reinforcement Learning"
+  - u: "cofrgenet_continued_fraction_architectures_for_language_generation/"
+    t: "CoFrGeNet: Continued Fraction Architectures for Language Generation"
+  - u: "compression_as_adaptation_implicit_visual_representation_with_diffusion_foundati/"
+    t: "Compression as Adaptation: Implicit Visual Representation with Diffusion Foundation Models"
+  - u: "conf-gen_conformal_uncertainty_quantification_for_generative_models/"
+    t: "Conf-Gen: Conformal Uncertainty Quantification for Generative Models"
+  - u: "conflict-aware_additive_guidance_for_flow_models_under_compositional_rewards/"
+    t: "Conflict-Aware Additive Guidance for Flow Models under Compositional Rewards"
+  - u: "conformal_reliability_a_new_evaluation_metric_for_conditional_generation/"
+    t: "Conformal Reliability: A New Evaluation Metric for Conditional Generation"
+  - u: "content-style_identification_via_differential_independence/"
+    t: "Content-Style Identification via Differential Independence"
+  - u: "dflash_block_diffusion_for_flash_speculative_decoding/"
+    t: "DFlash: Block Diffusion for Flash Speculative Decoding"
+  - u: "dgs-net_distillation-guided_gradient_surgery_for_clip_fine-tuning_in_ai-generate/"
+    t: "DGS-Net: Distillation-Guided Gradient Surgery for CLIP Fine-Tuning in AI-Generated Image Detection"
+  - u: "diagnosing_and_correcting_concept_omission_in_multimodal_diffusion_transformers/"
+    t: "Diagnosing and Correcting Concept Omission in Multimodal Diffusion Transformers"
+item_total: 125
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧪 ICML2026** · **125** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (220)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (137)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (222)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (219)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (136)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (220)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
 
 🔥 **高频主题：** 扩散模型 ×40 · 对齐/RLHF ×8 · 文生图 ×8 · 布局/合成 ×6 · 对抗鲁棒 ×4
 

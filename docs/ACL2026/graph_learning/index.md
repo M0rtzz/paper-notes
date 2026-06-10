@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 图学习方向23篇论文解读
+  ACL2026 图学习论文汇总 · 23篇论文解读
 description: >-
   23篇ACL2026的图学习方向论文解读，涵盖 RAG、推理、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,54 @@ tags:
   - "RAG"
   - "推理"
   - "Agent"
+item_list:
+  - u: "agentgl_towards_agentic_graph_learning_with_llms_via_reinforcement_learning/"
+    t: "AgentGL: Towards Agentic Graph Learning with LLMs via Reinforcement Learning"
+  - u: "ark_answer-centric_retriever_tuning_via_kg-augmented_curriculum_learning/"
+    t: "ARK: Answer-Centric Retriever Tuning via KG-augmented Curriculum Learning"
+  - u: "autonomous_knowledge_graph_exploration_with_adaptive_breadth-depth_retrieval/"
+    t: "Autonomous Knowledge Graph Exploration with Adaptive Breadth-Depth Retrieval"
+  - u: "autopkg_an_automated_framework_for_dynamic_e-commerce_product-attribute_knowledg/"
+    t: "AutoPKG: An Automated Framework for Dynamic E-commerce Product-Attribute Knowledge Graph Construction"
+  - u: "cog_controllable_graph_reasoning_via_relational_blueprints_and_failure-aware_ref/"
+    t: "CoG: Controllable Graph Reasoning via Relational Blueprints and Failure-Aware Refinement over Knowledge Graphs"
+  - u: "collaboration_of_fusion_and_independence_hypercomplex-driven_robust_multi-modal_/"
+    t: "Collaboration of Fusion and Independence: Hypercomplex-driven Robust Multi-Modal Knowledge Graph Completion"
+  - u: "comparing_human_and_large_language_model_interpretation_of_implicit_information/"
+    t: "Comparing Human and Large Language Model Interpretation of Implicit Information"
+  - u: "compliancenlp_knowledge-graph-augmented_rag_for_multi-framework_regulatory_gap_d/"
+    t: "ComplianceNLP: Knowledge-Graph-Augmented RAG for Multi-Framework Regulatory Gap Detection"
+  - u: "craftqa_a_code-driven_adaptive_framework_for_complex_structured_data_reasoning/"
+    t: "CRAFTQA: A Code-Driven Adaptive Framework for Complex Structured Data Reasoning"
+  - u: "ea-agent_a_structured_multi-step_reasoning_agent_for_entity_alignment/"
+    t: "EA-Agent: A Structured Multi-Step Reasoning Agent for Entity Alignment"
+  - u: "evaluating_llms_on_large-scale_graph_property_estimation_via_random_walks/"
+    t: "Evaluating LLMs on Large-Scale Graph Property Estimation via Random Walks"
+  - u: "from_nodes_to_narratives_explaining_graph_neural_networks_with_llms_and_graph_co/"
+    t: "From Nodes to Narratives: Explaining Graph Neural Networks with LLMs and Graph Context"
+  - u: "graph-based_alternatives_to_llms_for_human_simulation/"
+    t: "Graph-Based Alternatives to LLMs for Human Simulation"
+  - u: "gs-quant_granular_semantic_and_generative_structural_quantization_for_knowledge_/"
+    t: "GS-Quant: Granular Semantic and Generative Structural Quantization for Knowledge Graph Completion"
+  - u: "industryasseteqa_a_neurosymbolic_operational_intelligence_system_for_embodied_qu/"
+    t: "IndustryAssetEQA: A Neurosymbolic Operational Intelligence System for Embodied Question Answering in Industrial Asset Maintenance"
+  - u: "legalgraphrag_multi-agent_graph_retrieval-augmented_generation_for_reliable_lega/"
+    t: "LegalGraphRAG: Multi-Agent Graph Retrieval-Augmented Generation for Reliable Legal Reasoning"
+  - u: "llms_underperform_graph-based_parsers_on_supervised_relation_extraction_for_comp/"
+    t: "LLMs Underperform Graph-Based Parsers on Supervised Relation Extraction for Complex Graphs"
+  - u: "logoskg_hardware-optimized_scalable_and_interpretable_knowledge_graph_retrieval/"
+    t: "LogosKG: Hardware-Optimized Scalable and Interpretable Knowledge Graph Retrieval"
+  - u: "megarag_multimodal_knowledge_graph-based_retrieval_augmented_generation/"
+    t: "MegaRAG: Multimodal Knowledge Graph-Based Retrieval Augmented Generation"
+  - u: "stem_structure-tracing_evidence_mining_for_knowledge_graphs-driven_retrieval-aug/"
+    t: "STEM: Structure-Tracing Evidence Mining for Knowledge Graphs-Driven Retrieval-Augmented Generation"
+  - u: "tagrag_tag-guided_hierarchical_knowledge_graph_retrieval-augmented_generation/"
+    t: "TagRAG: Tag-guided Hierarchical Knowledge Graph Retrieval-Augmented Generation"
+  - u: "what_makes_ai_research_replicable_executable_knowledge_graphs_as_scientific_know/"
+    t: "What Makes AI Research Replicable? Executable Knowledge Graphs as Scientific Knowledge Representations"
+  - u: "which_bird_does_not_have_wings_negative-constrained_kgqa_with_schema-guided_sema/"
+    t: "Which bird does not have wings: Negative-constrained KGQA with Schema-guided Semantic Matching and Self-directed Refinement"
+item_total: 23
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +66,7 @@ tags:
 
 **💬 ACL2026** · **23** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (19)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
 
 🔥 **高频主题：** RAG ×5 · 推理 ×4 · Agent ×2
 

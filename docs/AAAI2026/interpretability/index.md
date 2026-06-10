@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 可解释性方向37篇论文解读
+  AAAI2026 可解释性论文汇总 · 36篇论文解读
 description: >-
-  37篇AAAI2026的可解释性方向论文解读，涵盖 LLM、推理、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  36篇AAAI2026的可解释性方向论文解读，涵盖 LLM、推理、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "可解释性"
@@ -11,14 +11,76 @@ tags:
   - "LLM"
   - "推理"
   - "布局/合成"
+item_list:
+  - u: "a_coherence-based_measure_of_agi/"
+    t: "A Coherence-Based Measure of AGI"
+  - u: "adaptive_evidential_learning_for_temporal-semantic_robustnes/"
+    t: "Adaptive Evidential Learning for Temporal-Semantic Robustness in Moment Retrieval"
+  - u: "attention_as_binding_a_vector-symbolic_perspective_on_transformer_reasoning/"
+    t: "Attention as Binding: A Vector-Symbolic Perspective on Transformer Reasoning"
+  - u: "attention_gathers_mlps_compose_a_causal_analysis_of_an_action-outcome_circuit_in/"
+    t: "Attention Gathers, MLPs Compose: A Causal Analysis of an Action-Outcome Circuit in VideoViT"
+  - u: "can_llms_truly_embody_human_personality_analyzing_ai_and_human_behavior_alignmen/"
+    t: "Can LLMs Truly Embody Human Personality? Analyzing AI and Human Behavior Alignment in Dispute Resolution"
+  - u: "concepts_from_representations_post-hoc_concept_bottleneck_models_via_sparse_deco/"
+    t: "Concepts from Representations: Post-hoc Concept Bottleneck Models via Sparse Decomposition of Visual Representations"
+  - u: "crosscheck-bench_diagnosing_compositional_failures_in_multim/"
+    t: "CrossCheck-Bench: Diagnosing Compositional Failures in Multimodal Conflict Resolution"
+  - u: "data_whitening_improves_sparse_autoencoder_learning/"
+    t: "Data Whitening Improves Sparse Autoencoder Learning"
+  - u: "distribution-based_feature_attribution_for_explaining_the_predictions_of_any_cla/"
+    t: "Distribution-Based Feature Attribution for Explaining the Predictions of Any Classifier"
+  - u: "drexperts_differential_refinement_of_distortion-aware_experts_for_blind_image_qu/"
+    t: "DR.Experts: Differential Refinement of Distortion-Aware Experts for Blind Image Quality Assessment"
+  - u: "elementarynet_a_non-strategic_neural_network_for_predicting_human_behavior_in_no/"
+    t: "ElementaryNet: A Non-Strategic Neural Network for Predicting Human Behavior in Normal-Form Games"
+  - u: "enhancing_binary_encoded_crime_linkage_analysis_using_siamese_network/"
+    t: "Enhancing Binary Encoded Crime Linkage Analysis Using Siamese Network"
+  - u: "explainable_melanoma_diagnosis_with_contrastive_learning_and_llm-based_report_ge/"
+    t: "Explainable Melanoma Diagnosis with Contrastive Learning and LLM-based Report Generation"
+  - u: "finding_the_translation_switch_discovering_and_exploiting_the_task-initiation_fe/"
+    t: "Finding the Translation Switch: Discovering and Exploiting the Task-Initiation Features in LLMs"
+  - u: "flexible_concept_bottleneck_model/"
+    t: "Flexible Concept Bottleneck Model"
+  - u: "fourierpet_deep_fourier-based_unrolled_network_for_low-count_pet_reconstruction/"
+    t: "FourierPET: Deep Fourier-based Unrolled Network for Low-count PET Reconstruction"
+  - u: "gatera_token-aware_modulation_for_parameter-efficient_fine-tuning/"
+    t: "GateRA: Token-Aware Modulation for Parameter-Efficient Fine-Tuning"
+  - u: "genepheno_interpretable_gene_knockout-induced_phenotype_abnormality_prediction_f/"
+    t: "GenePheno: Interpretable Gene Knockout-Induced Phenotype Abnormality Prediction Framework"
+  - u: "hskbenchmark_modeling_and_benchmarking_chinese_second_language_acquisition_in_la/"
+    t: "HSKBenchmark: Modeling and Benchmarking Chinese Second Language Acquisition in Large Language Models through Curriculum Tuning"
+  - u: "hypothesis_generation_via_llm-automated_language_bias_for_ilp/"
+    t: "Hypothesis Generation via LLM-Automated Language Bias for ILP"
+  - u: "induce_align_predict_zero-shot_stance_detection_via_cognitive_inductive_reasonin/"
+    t: "Induce, Align, Predict: Zero-Shot Stance Detection via Cognitive Inductive Reasoning"
+  - u: "llm_circuit_analyses_consistent_across_training_and_scale/"
+    t: "LLM Circuit Analyses Are Consistent Across Training and Scale"
+  - u: "partially_shared_concept_bottleneck_models/"
+    t: "Partially Shared Concept Bottleneck Models"
+  - u: "pragworld_a_benchmark_evaluating_llms_local_world_model_under_minimal_linguistic/"
+    t: "PragWorld: A Benchmark Evaluating LLMs' Local World Model under Minimal Linguistic Alterations and Conversational Dynamics"
+  - u: "probing_preference_representations_a_multi-dimensional_evaluation_and_analysis_m/"
+    t: "Probing Preference Representations: A Multi-Dimensional Evaluation and Analysis Method for Reward Models"
+  - u: "quiet_feature_learning_in_algorithmic_tasks/"
+    t: "Quiet Feature Learning in Algorithmic Tasks"
+  - u: "scope_intrinsic_semantic_space_control_for_mitigating_copyright_infringement_in_/"
+    t: "SCoPe: Intrinsic Semantic Space Control for Mitigating Copyright Infringement in LLMs"
+  - u: "shapbpt_image_feature_attributions_using_data-aware_binary_partition_trees/"
+    t: "ShapBPT: Image Feature Attributions Using Data-Aware Binary Partition Trees"
+  - u: "share_your_attention_transformer_weight_sharing_via_matrix-based_dictionary_lear/"
+    t: "Share Your Attention: Transformer Weight Sharing via Matrix-Based Dictionary Learning"
+  - u: "som_directions_are_better_than_one_multi-directional_refusal_suppression_in_lang/"
+    t: "SOM Directions are Better than One: Multi-Directional Refusal Suppression in Language Models"
+item_total: 36
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**🤖 AAAI2026** · **37** 篇论文解读
+**🤖 AAAI2026** · **36** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
 
 🔥 **高频主题：** LLM ×4 · 推理 ×2 · 布局/合成 ×2
 
@@ -109,10 +171,6 @@ tags:
 **[LLM Circuit Analyses Are Consistent Across Training and Scale](llm_circuit_analyses_consistent_across_training_and_scale.md)**
 
 :   本文首次系统追踪 decoder-only LLM 的内部电路（circuits）在 3000 亿 token 训练过程中和 70M–2.8B 参数规模间的演化，发现虽然具体注意力头会发生更替，但执行的算法保持稳定，且跨规模具有一致性，表明在小模型上做的电路分析可推广到更大模型和更长训练。
-
-**[Modelling the Effects of Hearing Loss on Neural Coding in the Auditory Midbrain with Variational Conditioning](modelling_the_effects_of_hearing_loss_on_neural_coding_in_the_auditory_midbrain_.md)**
-
-:   提出 ψ-ICNet，一种变分条件深度神经网络模型，通过仅 6 个可学习的条件参数 ψ 来编码听力损失的效应，从真实神经活动记录中直接学习听力损失的低维表示空间，在预测正常和听力受损动物的听觉中脑神经响应方面达到与动物特定模型相当的精度，并可通过贝叶斯优化快速拟合未见过的新动物。
 
 **[Partially Shared Concept Bottleneck Models](partially_shared_concept_bottleneck_models.md)**
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 对话系统方向5篇论文解读
+  ICLR2026 对话系统论文汇总 · 5篇论文解读
 description: >-
   5篇ICLR2026的对话系统方向论文解读，涵盖推理、对话系统、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,18 @@ tags:
   - "论文笔记"
   - "推理"
   - "个性化生成"
+item_list:
+  - u: "aqua_toward_strategic_response_generation_for_ambiguous_visual_questions/"
+    t: "AQuA: Toward Strategic Response Generation for Ambiguous Visual Questions"
+  - u: "non-collaborative_user_simulators_for_tool_agents/"
+    t: "Non-Collaborative User Simulators for Tool Agents"
+  - u: "rein_conversational_error_recovery_with_reasoning_inception/"
+    t: "ReIn: Conversational Error Recovery with Reasoning Inception"
+  - u: "think-while-generating_on-the-fly_reasoning_for_personalized_long-form_generatio/"
+    t: "Think-While-Generating: On-the-Fly Reasoning for Personalized Long-Form Generation"
+  - u: "understanding_language_prior_of_lvlms_by_contrasting_chain-of-embedding/"
+    t: "Understanding Language Prior of LVLMs by Contrasting Chain-of-Embedding"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

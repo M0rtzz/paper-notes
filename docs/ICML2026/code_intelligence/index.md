@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 代码智能方向15篇论文解读
+  ICML2026 代码智能论文汇总 · 15篇论文解读
 description: >-
   15篇ICML2026的代码智能方向论文解读，涵盖代码智能、强化学习、扩散模型、Agent、翻译、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,38 @@ tags:
   - "Agent"
   - "翻译"
   - "LLM"
+item_list:
+  - u: "algoveri_an_aligned_benchmark_for_verified_code_generation_on_classical_algorith/"
+    t: "AlgoVeri: An Aligned Benchmark for Verified Code Generation on Classical Algorithms"
+  - u: "boostapr_boosting_automated_program_repair_via_execution-grounded_reinforcement_/"
+    t: "BoostAPR: Boosting Automated Program Repair via Execution-Grounded Reinforcement Learning with Dual Reward Models"
+  - u: "centaureval_benchmarking_human-in-the-loop_value_in_agentic_coding/"
+    t: "CentaurEval: Benchmarking Human-in-the-Loop Value in Agentic Coding"
+  - u: "entropy-informed_decoding_adaptive_information-driven_branching/"
+    t: "Entropy-informed Decoding: Adaptive Information-Driven Branching"
+  - u: "he-snr_uncovering_latent_logic_via_entropy_for_guiding_mid-training_on_swe-bench/"
+    t: "HE-SNR: Uncovering Latent Logic via Entropy for Guiding Mid-Training on SWE-bench"
+  - u: "locally_coherent_parallel_decoding_in_diffusion_language_models/"
+    t: "Locally Coherent Parallel Decoding in Diffusion Language Models"
+  - u: "mars_modular_agent_with_reflective_search_for_automated_ai_research/"
+    t: "MARS: Modular Agent with Reflective Search for Automated AI Research"
+  - u: "matchfixagent_language-agnostic_autonomous_repository-level_code_translation_val/"
+    t: "MatchFixAgent: Language-Agnostic Autonomous Repository-Level Code Translation Validation and Repair"
+  - u: "nemo_execution-aware_optimization_modeling_via_autonomous_coding_agents/"
+    t: "NEMO: Execution-Aware Optimization Modeling via Autonomous Coding Agents"
+  - u: "physics_is_all_you_need_a_case_study_in_physicist-supervised_ai_development_of_s/"
+    t: "Physics Is All You Need? A Case Study in Physicist-Supervised AI Development of Scientific Software"
+  - u: "poison_with_style_a_practical_poisoning_attack_on_code_large_language_models/"
+    t: "Poison with Style: A Practical Poisoning Attack on Code Large Language Models"
+  - u: "probability-entropy_calibration_an_elastic_indicator_for_adaptive_fine-tuning/"
+    t: "Probability-Entropy Calibration: An Elastic Indicator for Adaptive Fine-tuning"
+  - u: "pull_requests_as_a_training_signal_for_repo-level_code_editing/"
+    t: "Pull Requests as a Training Signal for Repo-Level Code Editing"
+  - u: "swe-rebench_v2_language-agnostic_swe_task_collection_at_scale/"
+    t: "SWE-rebench V2: Language-Agnostic SWE Task Collection at Scale"
+  - u: "unirtl_unifying_code_and_graph_for_robust_rtl_representation_learning/"
+    t: "UniRTL: 统一代码与图实现鲁棒 RTL 表示学习"
+item_total: 15
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

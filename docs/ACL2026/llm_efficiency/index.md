@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 LLM 效率方向22篇论文解读
+  ACL2026 LLM效率论文汇总 · 22篇论文解读
 description: >-
   22篇ACL2026的 LLM 效率方向论文解读，涵盖 LLM、推理、扩散模型、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,52 @@ tags:
   - "推理"
   - "扩散模型"
   - "对齐/RLHF"
+item_list:
+  - u: "alloc-moe_budget-aware_expert_activation_allocation_for_efficient_mixture-of-exp/"
+    t: "Alloc-MoE: Budget-Aware Expert Activation Allocation for Efficient Mixture-of-Experts Inference"
+  - u: "are_large_language_models_economically_viable_for_industry_deployment/"
+    t: "Are Large Language Models Economically Viable for Industry Deployment?"
+  - u: "beyond_accuracy_unveiling_inefficiency_patterns_in_tool-integrated_reasoning/"
+    t: "Beyond Accuracy: Unveiling Inefficiency Patterns in Tool-Integrated Reasoning"
+  - u: "bosch_black-box_binary_optimization_for_short-context_attention-head_selection_i/"
+    t: "BOSCH: Black-Box Binary Optimization for Short-Context Attention-Head Selection in LLMs"
+  - u: "breaking_block_boundaries_anchor-based_history-stable_decoding_for_diffusion_lar/"
+    t: "Breaking Block Boundaries: Anchor-based History-stable Decoding for Diffusion Large Language Models"
+  - u: "comet_collaborative_memory_transformer_for_efficient_long_context_modeling/"
+    t: "CoMeT: Collaborative Memory Transformer for Efficient Long Context Modeling"
+  - u: "creditdecoding_accelerating_parallel_decoding_in_diffusion_large_language_models/"
+    t: "CreditDecoding: Accelerating Parallel Decoding in Diffusion Large Language Models with Trace Credit"
+  - u: "lizard_an_efficient_linearization_framework_for_large_language_models/"
+    t: "Lizard: An Efficient Linearization Framework for Large Language Models"
+  - u: "mtrouter_cost-aware_multi-turn_llm_routing_with_history-model_joint_embeddings/"
+    t: "MTRouter: Cost-Aware Multi-Turn LLM Routing with History-Model Joint Embeddings"
+  - u: "multi-drafter_speculative_decoding_with_alignment_feedback/"
+    t: "Multi-Drafter Speculative Decoding with Alignment Feedback"
+  - u: "native_hybrid_attention_for_efficient_sequence_modeling/"
+    t: "Native Hybrid Attention for Efficient Sequence Modeling"
+  - u: "racer_retrieval-augmented_contextual_rapid_speculative_decoding/"
+    t: "RACER: Retrieval-Augmented Contextual Rapid Speculative Decoding"
+  - u: "saber_an_efficient_sampling_with_adaptive_acceleration_and_backtracking_enhanced/"
+    t: "Saber: Efficient Sampling with Adaptive Acceleration and Backtracking Enhanced Remasking for DLMs"
+  - u: "specbound_adaptive_bounded_self-speculation_with_layer-wise_confidence_calibrati/"
+    t: "SpecBound: Adaptive Bounded Self-Speculation with Layer-wise Confidence Calibration"
+  - u: "speculative_verification_exploiting_information_gain_to_refine_speculative_decod/"
+    t: "Speculative Verification: Exploiting Information Gain to Refine Speculative Decoding"
+  - u: "structkv_preserving_the_structural_skeleton_for_scalable_long-context_inference/"
+    t: "StructKV: Preserving the Structural Skeleton for Scalable Long-Context Inference"
+  - u: "tandem_riding_together_with_large_and_small_language_models_for_efficient_reason/"
+    t: "Tandem: Riding Together with Large and Small Language Models for Efficient Reasoning"
+  - u: "task-aware_llm_routing_with_multi-level_task-profile-guided_data_synthesis_for_c/"
+    t: "Task-Aware LLM Routing with Multi-Level Task-Profile-Guided Data Synthesis for Cold-Start Scenarios"
+  - u: "the_illusion_of_specialization_unveiling_the_domain-invariant_34standing_committ/"
+    t: "专业化的幻觉：揭示混合专家模型中的\"常设委员会\""
+  - u: "threshold_differential_attention_for_sink-free_ultra-sparse_and_non-dispersive_l/"
+    t: "阈值差分注意力：无 Sink、超稀疏且非分散的长上下文注意力"
+  - u: "tokentiming_a_dynamic_alignment_method_for_universal_speculative_decoding_model_/"
+    t: "TokenTiming: A Dynamic Alignment Method for Universal Speculative Decoding Model Pairs"
+  - u: "understanding_llm_performance_degradation_in_multi-instance_processing_the_roles/"
+    t: "Understanding LLM Performance Degradation in Multi-Instance Processing: The Roles of Instance Count and Context Length"
+item_total: 22
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

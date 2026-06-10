@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 可解释性方向10篇论文解读
+  ICCV2025 可解释性论文汇总 · 10篇论文解读
 description: >-
   10篇ICCV2025的可解释性方向论文解读，涵盖自监督学习、点云、扩散模型、推理、少样本学习、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,28 @@ tags:
   - "推理"
   - "少样本学习"
   - "对齐/RLHF"
+item_list:
+  - u: "aim_amending_inherent_interpretability_via_self-supervised_masking/"
+    t: "AIM: Amending Inherent Interpretability via Self-Supervised Masking"
+  - u: "argotweak_towards_self-updating_hd_maps_through_structured_priors/"
+    t: "ArgoTweak: Towards Self-Updating HD Maps through Structured Priors"
+  - u: "cad-recode_reverse_engineering_cad_code_from_point_clouds/"
+    t: "CAD-Recode: Reverse Engineering CAD Code from Point Clouds"
+  - u: "ce-fam_concept-based_explanation_via_fusion_of_activation_maps/"
+    t: "CE-FAM: Concept-Based Explanation via Fusion of Activation Maps"
+  - u: "granular_concept_circuits_toward_a_fine-grained_circuit_discovery_for_concept_re/"
+    t: "Granular Concept Circuits: Toward a Fine-Grained Circuit Discovery for Concept Representations"
+  - u: "learnable_fractional_reaction-diffusion_dynamics_for_under-display_tof_imaging_a/"
+    t: "Learnable Fractional Reaction-Diffusion Dynamics for Under-Display ToF Imaging and Beyond"
+  - u: "minerva_evaluating_complex_video_reasoning/"
+    t: "Minerva: Evaluating Complex Video Reasoning"
+  - u: "principal_components_enable_a_new_language_of_images/"
+    t: "\"Principal Components\" Enable A New Language of Images"
+  - u: "svip_semantically_contextualized_visual_patches_for_zero-shot_learning/"
+    t: "SVIP: Semantically Contextualized Visual Patches for Zero-Shot Learning"
+  - u: "vital_more_understandable_feature_visualization_through_distribution_alignment_a/"
+    t: "VITAL: More Understandable Feature Visualization through Distribution Alignment and Relevant Information Flow"
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +43,7 @@ tags:
 
 **📹 ICCV2025** · **10** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md)
 
 **[AIM: Amending Inherent Interpretability via Self-Supervised Masking](aim_amending_inherent_interpretability_via_self-supervised_masking.md)**
 

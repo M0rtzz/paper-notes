@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 优化/理论方向21篇论文解读
+  AAAI2026 优化/理论论文汇总 · 21篇论文解读
 description: >-
   21篇AAAI2026的优化/理论方向论文解读，涵盖联邦学习、LLM、对抗鲁棒、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,50 @@ tags:
   - "LLM"
   - "对抗鲁棒"
   - "个性化生成"
+item_list:
+  - u: "a_distributed_asynchronous_generalized_momentum_algorithm_wi/"
+    t: "A Distributed Asynchronous Generalized Momentum Algorithm Without Delay Bounds"
+  - u: "a_unified_convergence_analysis_for_semi-decentralized_learni/"
+    t: "A Unified Convergence Analysis for Semi-Decentralized Learning: Sampled-to-Sampled vs. Sampled-to-All Communication"
+  - u: "beyond_the_mean_fisher-orthogonal_projection_for_natural_gradient_descent_in_lar/"
+    t: "Beyond the Mean: Fisher-Orthogonal Projection for Natural Gradient Descent in Large Batch Training"
+  - u: "bridging_synthetic_and_real_routing_problems_via_llm-guided_instance_generation_/"
+    t: "Bridging Synthetic and Real Routing Problems via LLM-Guided Instance Generation and Progressive Adaptation"
+  - u: "co-layout_llm-driven_co-optimization_for_interior_layout/"
+    t: "Co-Layout: LLM-driven Co-optimization for Interior Layout"
+  - u: "convex_clustering_redefined_robust_learning_with_higher_order_norms_and_beyond/"
+    t: "Convex Clustering Redefined: Robust Learning with the Median of Means Estimator"
+  - u: "cost-minimized_label-flipping_poisoning_attack_to_llm_alignment/"
+    t: "Cost-Minimized Label-Flipping Poisoning Attack to LLM Alignment"
+  - u: "data_heterogeneity_and_forgotten_labels_in_split_federated_learning/"
+    t: "Data Heterogeneity and Forgotten Labels in Split Federated Learning"
+  - u: "ecpv2_fast_efficient_and_scalable_global_optimization_of_lipschitz_functions/"
+    t: "ECPv2: Fast, Efficient, and Scalable Global Optimization of Lipschitz Functions"
+  - u: "efficient_and_reliable_hitting-set_computations_for_the_implicit_hitting_set_app/"
+    t: "Efficient and Reliable Hitting-Set Computations for the Implicit Hitting Set Approach"
+  - u: "fedpm_federated_learning_using_second-order_optimization_with_preconditioned_mix/"
+    t: "FedPM: Federated Learning Using Second-order Optimization with Preconditioned Mixing of Local Parameters"
+  - u: "ghost_solving_the_traveling_salesman_problem_on_graphs_of_convex_sets/"
+    t: "GHOST: Solving the Traveling Salesman Problem on Graphs of Convex Sets"
+  - u: "instance_generation_for_meta-black-box_optimization_through_latent_space_reverse/"
+    t: "Instance Generation for Meta-Black-Box Optimization through Latent Space Reverse Engineering"
+  - u: "motif_multi-strategy_optimization_via_turn-based_interactive_framework/"
+    t: "MOTIF: Multi-strategy Optimization via Turn-based Interactive Framework"
+  - u: "on_the_learning_dynamics_of_two-layer_linear_networks_with_label_noise_sgd/"
+    t: "On the Learning Dynamics of Two-Layer Linear Networks with Label Noise SGD"
+  - u: "parametrized_multi-agent_routing_via_deep_attention_models/"
+    t: "Parametrized Multi-Agent Routing via Deep Attention Models"
+  - u: "pareto-grid-guided_large_language_models_for_fast_and_high-quality_heuristics_de/"
+    t: "Pareto-Grid-Guided Large Language Models for Fast and High-Quality Heuristics Design in Multi-Objective Combinatorial Optimization"
+  - u: "peoat_personalization-guided_evolutionary_question_assembly_for_one-shot_adaptiv/"
+    t: "PEOAT: Personalization-Guided Evolutionary Question Assembly for One-Shot Adaptive Testing"
+  - u: "personalized_federated_learning_with_bidirectional_communication_compression_via/"
+    t: "Personalized Federated Learning with Bidirectional Communication Compression via One-Bit Random Sketching"
+  - u: "smofi_step-wise_momentum_fusion_for_split_federated_learning_on_heterogeneous_da/"
+    t: "SMoFi: Step-wise Momentum Fusion for Split Federated Learning on Heterogeneous Data"
+  - u: "tackling_resource-constrained_and_data-heterogeneity_in_federated_learning_with_/"
+    t: "Tackling Resource-Constrained and Data-Heterogeneity in Federated Learning with Double-Weight Sparse Pack"
+item_total: 21
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +63,7 @@ tags:
 
 **🤖 AAAI2026** · **21** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (16)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
 
 🔥 **高频主题：** 联邦学习 ×5 · LLM ×4 · 对抗鲁棒 ×2 · 个性化生成 ×2
 

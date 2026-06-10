@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2026 人体理解方向4篇论文解读
+  ICML2026 人体理解论文汇总 · 4篇论文解读
 description: >-
   4篇ICML2026的人体理解方向论文解读，涵盖扩散模型、语音、人脸/视线、动态场景等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,16 @@ tags:
   - "语音"
   - "人脸/视线"
   - "动态场景"
+item_list:
+  - u: "discoforcing_a_unified_framework_for_real-time_audio-driven_character_control_wi/"
+    t: "DiscoForcing: A Unified Framework for Real-Time Audio-Driven Character Control with Diffusion Forcing"
+  - u: "efficient_validation-free_intrinsic_quality_estimation_for_large-scale_face_reco/"
+    t: "Efficient, Validation-Free Intrinsic Quality Estimation for Large-Scale Face Recognition Datasets"
+  - u: "motiongrpo_overcoming_low_intra-group_diversity_in_grpo-based_egocentric_motion_/"
+    t: "MotionGRPO: Overcoming Low Intra-Group Diversity in GRPO-Based Egocentric Motion Recovery"
+  - u: "scalable_rf_simulation_in_generative_4d_worlds/"
+    t: "WaveVerse: Scalable RF Simulation in Generative 4D Worlds"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +29,7 @@ tags:
 
 **🧪 ICML2026** · **4** 篇论文解读
 
-📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md) · [📹 ICCV2025 (39)](../../ICCV2025/human_understanding/index.md)
+📌 **同领域跨会议浏览：** [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (17)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md) · [📹 ICCV2025 (38)](../../ICCV2025/human_understanding/index.md)
 
 **[DiscoForcing: A Unified Framework for Real-Time Audio-Driven Character Control with Diffusion Forcing](discoforcing_a_unified_framework_for_real-time_audio-driven_character_control_wi.md)**
 

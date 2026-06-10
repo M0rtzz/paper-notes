@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 多语言/翻译方向2篇论文解读
+  CVPR2025 多语言/翻译论文汇总 · 2篇论文解读
 description: >-
   2篇CVPR2025的多语言/翻译方向论文解读，涵盖多模态、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,12 @@ tags:
   - "论文笔记"
   - "多模态"
   - "对齐/RLHF"
+item_list:
+  - u: "harnessing_frozen_unimodal_encoders_for_flexible_multimodal_alignment/"
+    t: "Harnessing Frozen Unimodal Encoders for Flexible Multimodal Alignment"
+  - u: "smtpd_a_new_benchmark_for_temporal_prediction_of_social_media_popularity/"
+    t: "SMTPD: A New Benchmark for Temporal Prediction of Social Media Popularity"
+item_total: 2
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

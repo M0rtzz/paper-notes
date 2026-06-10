@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 时间序列方向7篇论文解读
+  ACL2026 时间序列论文汇总 · 7篇论文解读
 description: >-
   7篇ACL2026的时间序列方向论文解读，涵盖时序预测、推理、问答、强化学习、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,22 @@ tags:
   - "问答"
   - "强化学习"
   - "LLM"
+item_list:
+  - u: "a_unified_framework_for_modeling_heterogeneous_financial_data_via_dual-granulari/"
+    t: "A Unified Framework for Modeling Heterogeneous Financial Data via Dual-Granularity Prompting"
+  - u: "odtqa-fore_an_open-domain_tabular_question_answering_dataset_for_future_data_for/"
+    t: "ODTQA-FoRe: An Open-Domain Tabular Question Answering Dataset for Future Data Forecasting and Reasoning"
+  - u: "stk-adapter_incorporating_evolving_graph_and_event_chain_for_temporal_knowledge_/"
+    t: "STK-Adapter: Incorporating Evolving Graph and Event Chain for Temporal Knowledge Graph Extrapolation"
+  - u: "streasoner_empowering_llms_for_spatio-temporal_reasoning_in_time_series_via_spat/"
+    t: "STReasoner: Empowering LLMs for Spatio-Temporal Reasoning in Time Series via Spatial-Aware Reinforcement Learning"
+  - u: "temporal_leakage_in_search-engine_date-filtered_web_retrieval_a_retrospective_fo/"
+    t: "Temporal Leakage in Search-Engine Date-Filtered Web Retrieval: A Retrospective Forecasting Case Study"
+  - u: "test_of_time_rethinking_temporal_signal_of_benchmark_contamination/"
+    t: "Test of Time: Rethinking Temporal Signal of Benchmark Contamination"
+  - u: "time-ra_towards_time_series_reasoning_for_anomaly_diagnosis_with_llm_feedback/"
+    t: "Time-RA: Towards Time Series Reasoning for Anomaly Diagnosis with LLM Feedback"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -20,7 +36,7 @@ tags:
 
 **💬 ACL2026** · **7** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (36)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
 
 🔥 **高频主题：** 时序预测 ×4 · 推理 ×3
 

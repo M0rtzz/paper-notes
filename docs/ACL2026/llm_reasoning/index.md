@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 LLM 推理方向80篇论文解读
+  ACL2026 LLM推理论文汇总 · 80篇论文解读
 description: >-
   80篇ACL2026的 LLM 推理方向论文解读，涵盖推理、LLM、强化学习、对齐/RLHF、对抗鲁棒、压缩/编码等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "对齐/RLHF"
   - "对抗鲁棒"
   - "压缩/编码"
+item_list:
+  - u: "accurate_legal_reasoning_at_scale_neuro-symbolic_offloading_and_structural_audit/"
+    t: "Accurate Legal Reasoning at Scale: Neuro-Symbolic Offloading and Structural Auditability for Robust Legal Adjudication"
+  - u: "adapt_to_thrive_adaptive_power-mean_policy_optimization_for_improved_llm_reasoni/"
+    t: "Adapt to Thrive! Adaptive Power-Mean Policy Optimization for Improved LLM Reasoning"
+  - u: "aim-cot_active_information-driven_multimodal_chain-of-thought_for_vision-languag/"
+    t: "AIM-CoT: Active Information-driven Multimodal Chain-of-Thought for Vision-Language Reasoning"
+  - u: "budget-aware_anytime_reasoning_with_llm-synthesized_preference_data/"
+    t: "Budget-Aware Anytime Reasoning with LLM-Synthesized Preference Data"
+  - u: "c2_scalable_rubric-augmented_reward_modeling_from_binary_preferences/"
+    t: "C2: Scalable Rubric-Augmented Reward Modeling from Binary Preferences"
+  - u: "calibration-aware_policy_optimization_for_reasoning_llms/"
+    t: "Calibration-Aware Policy Optimization for Reasoning LLMs"
+  - u: "can_reasoning_path_still_be_effective_as_input_bridging_post-reasoning_to_chain-/"
+    t: "Can Reasoning Path still be Effective as Input? Bridging Post-Reasoning to Chain-of-Thought Compression"
+  - u: "chain-of-thought_as_a_lens_evaluating_structured_reasoning_alignment_between_hum/"
+    t: "Chain-of-Thought as a Lens: Evaluating Structured Reasoning Alignment between Human Preferences and Large Language Models"
+  - u: "chairo_contextual_hierarchical_analogical_induction_and_reasoning_optimization_f/"
+    t: "ChAIRO: Contextual Hierarchical Analogical Induction and Reasoning Optimization for LLMs"
+  - u: "coact_co-active_llm_preference_learning_with_human-ai_synergy/"
+    t: "CoAct: Co-Active LLM Preference Learning with Human-AI Synergy"
+  - u: "crisp_compressing_redundancy_in_chain-of-thought_via_intrinsic_saliency_pruning/"
+    t: "CRISP: Compressing Redundancy in Chain-of-Thought via Intrinsic Saliency Pruning"
+  - u: "csrp_chain-of-thought_reasoning_for_chinese_text_correction_via_reinforcement_le/"
+    t: "CSRP: Chain-of-Thought Reasoning for Chinese Text Correction via Reinforcement Learning with Efficiency-Aware Rewards"
+  - u: "decoupling_the_effect_of_chain-of-thought_reasoning_a_human_label_variation_pers/"
+    t: "Decoupling the Effect of Chain-of-Thought Reasoning: A Human Label Variation Perspective"
+  - u: "delta_dynamic_layer-aware_token_attention_for_efficient_long-context_reasoning/"
+    t: "DELTA: Dynamic Layer-Aware Token Attention for Efficient Long-Context Reasoning"
+  - u: "discovering_a_shared_logical_subspace_steering_llm_logical_reasoning_via_alignme/"
+    t: "Discovering a Shared Logical Subspace: Steering LLM Logical Reasoning via Alignment of Natural-Language and Symbolic Views"
+  - u: "dissecting_failure_dynamics_in_large_language_model_reasoning/"
+    t: "Dissecting Failure Dynamics in Large Language Model Reasoning"
+  - u: "distilling_long-cot_reasoning_through_collaborative_step-wise_multi-teacher_deco/"
+    t: "Distilling Long-CoT Reasoning through Collaborative Step-wise Multi-Teacher Decoding (CoRD)"
+  - u: "do_not_step_into_the_same_river_twice_learning_to_reason_from_trial_and_error/"
+    t: "Do Not Step Into the Same River Twice: Learning to Reason from Trial and Error"
+  - u: "does_self-consistency_improve_the_recall_of_encyclopedic_knowledge/"
+    t: "Does Self-Consistency Improve the Recall of Encyclopedic Knowledge?"
+  - u: "drp_distilled_reasoning_pruning_with_skill-aware_step_decomposition_for_efficien/"
+    t: "DRP: Distilled Reasoning Pruning with Skill-aware Step Decomposition for Efficient Large Reasoning Models"
+  - u: "dvmap_fine-grained_pluralistic_value_alignment_via_high-consensus_demographic-va/"
+    t: "DVMap: Fine-Grained Pluralistic Value Alignment via High-Consensus Demographic-Value Mapping"
+  - u: "efficient_prm_training_data_synthesis_via_formal_verification/"
+    t: "Efficient PRM Training Data Synthesis via Formal Verification"
+  - u: "efficient_process_reward_modeling_via_contrastive_mutual_information/"
+    t: "Efficient Process Reward Modeling via Contrastive Mutual Information"
+  - u: "efficient_test-time_scaling_via_temporal_reasoning_aggregation/"
+    t: "Efficient Test-Time Scaling via Temporal Reasoning Aggregation"
+  - u: "etr_entropy_trend_reward_for_efficient_chain-of-thought_reasoning/"
+    t: "ETR: Entropy Trend Reward for Efficient Chain-of-Thought Reasoning"
+  - u: "evo-attacker_memory-augmented_reinforcement_learning_for_long-horizon_tool_attac/"
+    t: "Evo-Attacker: Memory-Augmented Reinforcement Learning for Long-Horizon Tool Attacks on LLM-MAS"
+  - u: "failure_modes_in_multi-hop_qa_the_weakest_link_effect_and_the_recognition_bottle/"
+    t: "Failure Modes in Multi-Hop QA: The Weakest Link Effect and the Recognition Bottleneck"
+  - u: "finreporting_an_agentic_workflow_for_localized_reporting_of_cross-jurisdiction_f/"
+    t: "FinReporting: An Agentic Workflow for Localized Reporting of Cross-Jurisdiction Financial Disclosures"
+  - u: "fs-researcher_test-time_scaling_for_long-horizon_research_tasks_with_file-system/"
+    t: "FS-Researcher: Test-Time Scaling for Long-Horizon Research Tasks with File-System-Based Agents"
+  - u: "ganitllm_difficulty-aware_bengali_mathematical_reasoning_through_curriculum-grpo/"
+    t: "GanitLLM: Difficulty-Aware Bengali Mathematical Reasoning through Curriculum-GRPO"
+item_total: 80
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **💬 ACL2026** · **80** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (82)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (83)](../../NeurIPS2025/llm_reasoning/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (80)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/llm_reasoning/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_reasoning/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/index.md)
 
 🔥 **高频主题：** 推理 ×56 · LLM ×19 · 强化学习 ×6 · 对齐/RLHF ×4 · 对抗鲁棒 ×3
 

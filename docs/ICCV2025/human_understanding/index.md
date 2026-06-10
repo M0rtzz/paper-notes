@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICCV2025 人体理解方向39篇论文解读
+  ICCV2025 人体理解论文汇总 · 38篇论文解读
 description: >-
-  39篇ICCV2025的人体理解方向论文解读，涵盖人脸/视线、人体姿态、重识别、扩散模型、语音、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  38篇ICCV2025的人体理解方向论文解读，涵盖人脸/视线、人体姿态、重识别、扩散模型、语音、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICCV2025"
   - "人体理解"
@@ -14,16 +14,78 @@ tags:
   - "扩散模型"
   - "语音"
   - "对抗鲁棒"
+item_list:
+  - u: "ar-vrm_imitating_human_motions_for_visual_robot_manipulation_with_analogical_rea/"
+    t: "AR-VRM: Imitating Human Motions for Visual Robot Manipulation with Analogical Reasoning"
+  - u: "avat3r_large_animatable_gaussian_reconstruction_model_for_hi/"
+    t: "Avat3r: Large Animatable Gaussian Reconstruction Model for High-fidelity 3D Head Avatars"
+  - u: "bi-level_optimization_for_self-supervised_ai-generated_face_detection/"
+    t: "Bi-Level Optimization for Self-Supervised AI-Generated Face Detection"
+  - u: "cargait_cross_attention_based_re_ranking_for_gait_recognition/"
+    t: "CarGait: Cross-Attention based Re-ranking for Gait Recognition"
+  - u: "cleanpose_category-level_object_pose_estimation_via_causal_learning_and_knowledg/"
+    t: "CleanPose: Category-Level Object Pose Estimation via Causal Learning and Knowledge Distillation"
+  - u: "contact-aware_refinement_of_human_pose_pseudo-ground_truth_via_bioimpedance_sens/"
+    t: "Contact-Aware Refinement of Human Pose Pseudo-Ground Truth via Bioimpedance Sensing"
+  - u: "controllable_and_expressive_one-shot_video_head_swapping/"
+    t: "Controllable and Expressive One-Shot Video Head Swapping"
+  - u: "dreamactor-m1_holistic_expressive_and_robust_human_image_animation_with_hybrid_g/"
+    t: "DreamActor-M1: Holistic, Expressive and Robust Human Image Animation with Hybrid Guidance"
+  - u: "dynamic_reconstruction_of_hand-object_interaction_with_distributed_force-aware_c/"
+    t: "Dynamic Reconstruction of Hand-Object Interaction with Distributed Force-aware Contact Representation"
+  - u: "dynfacerestore_balancing_fidelity_and_quality_in_diffusion-guided_blind_face_res/"
+    t: "DynFaceRestore: Balancing Fidelity and Quality in Diffusion-Guided Blind Face Restoration"
+  - u: "egoagent_a_joint_predictive_agent_model_in_egocentric_worlds/"
+    t: "EgoAgent: A Joint Predictive Agent Model in Egocentric Worlds"
+  - u: "genm3_generative_pretrained_multi-path_motion_model_for_text_conditional_human_m/"
+    t: "GenM3: Generative Pretrained Multi-path Motion Model for Text Conditional Human Motion Generation"
+  - u: "genmo_a_generalist_model_for_human_motion/"
+    t: "GENMO: A GENeralist Model for Human MOtion"
+  - u: "gesturehydra_semantic_co-speech_gesture_synthesis_via_hybrid_modality_diffusion_/"
+    t: "GestureHYDRA: Semantic Co-speech Gesture Synthesis via Hybrid Modality Diffusion Transformer and Cascaded-Synchronized Retrieval-Augmented Generation"
+  - u: "ggtalker_talking_head_systhesis_with_generalizable_gaussian_priors_and_identity-/"
+    t: "GGTalker: Talking Head Synthesis with Generalizable Gaussian Priors and Identity-Specific Adaptation"
+  - u: "hcceposebf_predicting_front_back_surfaces_to_construct_ultra-dense_2d-3d_corresp/"
+    t: "HccePose(BF): Predicting Front & Back Surfaces to Construct Ultra-Dense 2D-3D Correspondences for Pose Estimation"
+  - u: "high-resolution_spatiotemporal_modeling_with_global-local_state_space_models_for/"
+    t: "High-Resolution Spatiotemporal Modeling with Global-Local State Space Models for Video-Based Human Pose Estimation"
+  - u: "humoto_a_4d_dataset_of_mocap_human_object_interactions/"
+    t: "HUMOTO: A 4D Dataset of Mocap Human Object Interactions"
+  - u: "idface_face_template_protection_for_efficient_and_secure_identification/"
+    t: "IDFace: Face Template Protection for Efficient and Secure Identification"
+  - u: "imhead_a_large-scale_implicit_morphable_model_for_localized_head_modeling/"
+    t: "ImHead: A Large-scale Implicit Morphable Model for Localized Head Modeling"
+  - u: "kinmo_kinematic-aware_human_motion_understanding_and_generation/"
+    t: "KinMo: Kinematic-Aware Human Motion Understanding and Generation"
+  - u: "lvface_progressive_cluster_optimization_for_large_vision_models_in_face_recognit/"
+    t: "LVFace: Progressive Cluster Optimization for Large Vision Models in Face Recognition"
+  - u: "magshield_towards_better_robustness_in_sparse_inertial_motion_capture_under_magn/"
+    t: "MagShield: Towards Better Robustness in Sparse Inertial Motion Capture Under Magnetic Disturbances"
+  - u: "mdd_a_dataset_for_text-and-music_conditioned_duet_dance_generation/"
+    t: "MDD: A Dataset for Text-and-Music Conditioned Duet Dance Generation"
+  - u: "mixri_mixing_features_of_reference_images_for_novel_object_pose_estimation/"
+    t: "MixRI: Mixing Features of Reference Images for Novel Object Pose Estimation"
+  - u: "monocular_facial_appearance_capture_in_the_wild/"
+    t: "Monocular Facial Appearance Capture in the Wild"
+  - u: "ngd_neural_gradient_based_deformation_for_monocular_garment_reconstruction/"
+    t: "NGD: Neural Gradient Based Deformation for Monocular Garment Reconstruction"
+  - u: "one-shot_knowledge_transfer_for_scalable_person_re-identification/"
+    t: "One-Shot Knowledge Transfer for Scalable Person Re-Identification"
+  - u: "openanimals_revisiting_person_re-identification_for_animals_towards_better_gener/"
+    t: "OpenAnimals: Revisiting Person Re-Identification for Animals Towards Better Generalization"
+  - u: "posesyn_synthesizing_diverse_3d_pose_data_from_in-the-wild_2d_data/"
+    t: "PoseSyn: Synthesizing Diverse 3D Pose Data from In-the-Wild 2D Data"
+item_total: 38
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**📹 ICCV2025** · **39** 篇论文解读
+**📹 ICCV2025** · **38** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (17)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md)
 
-🔥 **高频主题：** 人脸/视线 ×8 · 人体姿态 ×7 · 重识别 ×4 · 扩散模型 ×3 · 语音 ×3
+🔥 **高频主题：** 人脸/视线 ×7 · 人体姿态 ×7 · 重识别 ×4 · 扩散模型 ×3 · 语音 ×3
 
 **[AR-VRM: Imitating Human Motions for Visual Robot Manipulation with Analogical Reasoning](ar-vrm_imitating_human_motions_for_visual_robot_manipulation_with_analogical_rea.md)**
 
@@ -128,10 +190,6 @@ tags:
 **[Monocular Facial Appearance Capture in the Wild](monocular_facial_appearance_capture_in_the_wild.md)**
 
 :   提出一种从单目头部旋转视频重建面部外观属性（漫反射反照率、高光强度、高光粗糙度）的方法，通过提出遮挡感知的 split-sum 近似着色模型，在不对光照环境做任何简化假设的情况下实现了逼近工作室级别的面部外观捕捉质量。
-
-**[Multi-view Gaze Target Estimation](multi-view_gaze_target_estimation.md)**
-
-:   本文首次将注视目标估计（GTE）从单视角扩展到多视角，通过头部信息聚合（HIA）、基于不确定性的注视选择（UGS）和基于极线的场景注意力（ESA）三个模块融合多相机信息，在自建 MVGT 数据集上显著超越单视角 SOTA，并实现了单视角方法无法处理的跨视角估计。
 
 **[NGD: Neural Gradient Based Deformation for Monocular Garment Reconstruction](ngd_neural_gradient_based_deformation_for_monocular_garment_reconstruction.md)**
 

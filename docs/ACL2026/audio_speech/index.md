@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 音频/语音方向70篇论文解读
+  ACL2026 音频/语音论文汇总 · 70篇论文解读
 description: >-
   70篇ACL2026的音频/语音方向论文解读，涵盖语音、对话系统、LLM、多模态、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "多模态"
   - "推理"
   - "对抗鲁棒"
+item_list:
+  - u: "affectron_emotional_speech_synthesis_with_affective_and_contextually_aligned_non/"
+    t: "Affectron: Emotional Speech Synthesis with Affective and Contextually Aligned Nonverbal Vocalizations"
+  - u: "an_exploration_of_mamba_for_speech_self-supervised_models/"
+    t: "An Exploration of Mamba for Speech Self-Supervised Models"
+  - u: "analyzing_reasoning_shifts_in_audio_deepfake_detection_under_adversarial_attacks/"
+    t: "Analyzing Reasoning Shifts in Audio Deepfake Detection under Adversarial Attacks: The Reasoning Tax versus Shield Bifurcation"
+  - u: "anchored_cyclic_generation_a_novel_paradigm_for_long-sequence_symbolic_music_gen/"
+    t: "Anchored Cyclic Generation: A Novel Paradigm for Long-Sequence Symbolic Music Generation"
+  - u: "bd-tp_self-supervised_speech_models_discover_phonological_vector_arithmetic/"
+    t: "[b] = [d] − [t] + [p]: Self-supervised Speech Models Discover Phonological Vector Arithmetic"
+  - u: "beyond_transcription_unified_audio_schema_for_perception-aware_audiollms/"
+    t: "Beyond Transcription: Unified Audio Schema for Perception-Aware AudioLLMs"
+  - u: "beyond_transcripts_a_renewed_perspective_on_audio_chaptering/"
+    t: "Beyond Transcripts: A Renewed Perspective on Audio Chaptering"
+  - u: "closing_the_modality_reasoning_gap_for_speech_large_language_models/"
+    t: "Closing the Modality Reasoning Gap for Speech Large Language Models"
+  - u: "comprehensive_benchmarking_of_long-form_speech_generation_in_diverse_scenarios/"
+    t: "Comprehensive Benchmarking of Long-Form Speech Generation in Diverse Scenarios"
+  - u: "computational_narrative_understanding_for_expressive_text-to-speech/"
+    t: "Computational Narrative Understanding for Expressive Text-to-Speech"
+  - u: "controlaudio_tackling_text-guided_timing-indicated_and_intelligible_audio_genera/"
+    t: "ControlAudio: Tackling Text-Guided, Timing-Indicated and Intelligible Audio Generation via Progressive Diffusion Modeling"
+  - u: "data-efficient_targeted_token-level_preference_optimization_for_llm-based_text-t/"
+    t: "Data-efficient Targeted Token-level Preference Optimization for LLM-based Text-to-Speech"
+  - u: "detecting_hallucinations_in_speechllms_at_inference_time_using_attention_maps/"
+    t: "Detecting Hallucinations in SpeechLLMs at Inference Time Using Attention Maps"
+  - u: "dial_healthdial_for_advice_a_multilingual_and_multi-parallel_spoken_dialogue_dat/"
+    t: "Dial HEALTHDIAL for Advice: A Multilingual and Multi-Parallel Spoken Dialogue Dataset for Knowledge-Grounded Information Seeking"
+  - u: "do_we_need_distinct_representations_for_every_speech_token_unveiling_and_exploit/"
+    t: "Do We Need Distinct Representations for Every Speech Token? Unveiling and Exploiting Redundancy in Large Speech Language Models"
+  - u: "drinq_evaluating_conversational_implicature_with_controlled_context_variation/"
+    t: "DRInQ: Evaluating Conversational Implicature with Controlled Context Variation"
+  - u: "duivrs-2_an_llm-based_interactive_voice_response_system_for_large-scale_poi_attr/"
+    t: "DuIVRS-2: An LLM-based Interactive Voice Response System for Large-scale POI Attribute Acquisition"
+  - u: "exploration_of_perceptual_speech_features_for_clinical_decision-support_in_menta/"
+    t: "Exploration of Perceptual Speech Features for Clinical Decision-Support in Mental Health Care"
+  - u: "fc-tts_style_and_timbre_control_in_zero-shot_text-to-speech_with_disentangled_sp/"
+    t: "FC-TTS: Style and Timbre Control in Zero-Shot Text-to-Speech with Disentangled Speech Representations"
+  - u: "from_flat_language_labels_to_typological_priors_structured_language_conditioning/"
+    t: "From Flat Language Labels to Typological Priors: Structured Language Conditioning for Multilingual Speech-to-Speech Translation"
+  - u: "full-duplex-bench-v2_a_multi-turn_evaluation_framework_for_duplex_dialogue_syste/"
+    t: "Full-Duplex-Bench-v2: A Multi-Turn Evaluation Framework for Duplex Dialogue Systems with an Automated Examiner"
+  - u: "generalizable_prompt_tuning_for_audio-language_models_via_semantic_expansion/"
+    t: "SEPT: Semantically Expanded Prompt Tuning for Audio-Language Models"
+  - u: "halluaudio_a_comprehensive_benchmark_for_hallucination_detection_in_large_audio-/"
+    t: "HalluAudio: A Comprehensive Benchmark for Hallucination Detection in Large Audio-Language Models"
+  - u: "hard_to_be_heard_phoneme-level_asr_analysis_of_phonologically_complex_low-resour/"
+    t: "Hard to Be Heard: Phoneme-Level ASR Analysis of Phonologically Complex, Low-Resource Endangered Languages"
+  - u: "hcfd_a_benchmark_for_audio_deepfake_detection_in_healthcare/"
+    t: "HCFD: A Benchmark for Audio Deepfake Detection in Healthcare"
+  - u: "how_tokenization_limits_phonological_knowledge_representation_in_language_models/"
+    t: "How Tokenization Limits Phonological Knowledge Representation in Language Models and How to Improve Them"
+  - u: "immersivetts_environment-aware_text-to-speech_with_multimodal_diffusion_transfor/"
+    t: "ImmersiveTTS: Environment-Aware Text-to-Speech with Multimodal Diffusion Transformer and Domain-Specific Representation Alignment"
+  - u: "indic-codecfake_meets_satyam_towards_detecting_neural_audio_codec_synthesized_sp/"
+    t: "Indic-CodecFake meets SATYAM: Towards Detecting Neural Audio Codec Synthesized Speech Deepfakes in Indic Languages"
+  - u: "jamendo-mt-qa_a_benchmark_for_multi-track_comparative_music_question_answering/"
+    t: "Jamendo-MT-QA: A Benchmark for Multi-Track Comparative Music Question Answering"
+  - u: "llm-mc-affect_llm-based_monte_carlo_modeling_of_affective_trajectories_and_laten/"
+    t: "LLM-MC-Affect: LLM-Based Monte Carlo Modeling of Affective Trajectories and Latent Ambiguity for Interpersonal Dynamic Insight"
+item_total: 70
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **💬 ACL2026** · **70** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (46)](../../NeurIPS2025/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
 
 🔥 **高频主题：** 语音 ×52 · 对话系统 ×9 · LLM ×5 · 多模态 ×4 · 推理 ×3
 

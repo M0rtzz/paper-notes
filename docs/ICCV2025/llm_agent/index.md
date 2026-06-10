@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 LLM Agent方向4篇论文解读
+  ICCV2025 LLMAgent论文汇总 · 4篇论文解读
 description: >-
   4篇ICCV2025的 LLM Agent 方向论文解读，涵盖 Agent、自监督学习、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,16 @@ tags:
   - "Agent"
   - "自监督学习"
   - "多模态"
+item_list:
+  - u: "embodied_image_captioning_self-supervised_learning_agents_for_spatially_coherent/"
+    t: "Embodied Image Captioning: Self-supervised Learning Agents for Spatially Coherent Image Descriptions"
+  - u: "gtr_guided_thought_reinforcement_prevents_thought_collapse_i/"
+    t: "GTR: Guided Thought Reinforcement Prevents Thought Collapse in RL-based VLM Agent Training"
+  - u: "less_is_more_empowering_gui_agent_with_context-aware_simplification/"
+    t: "Less is More: Empowering GUI Agent with Context-Aware Simplification"
+  - u: "uipro_unleashing_superior_interaction_capability_for_gui_agents/"
+    t: "UIPro: Unleashing Superior Interaction Capability for GUI Agents"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +28,7 @@ tags:
 
 **📹 ICCV2025** · **4** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (40)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🔬 ICLR2026 (39)](../../ICLR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md)
 
 🔥 **高频主题：** Agent ×2
 

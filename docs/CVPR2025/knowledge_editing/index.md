@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 知识编辑方向1篇论文解读
+  CVPR2025 知识编辑论文汇总 · 1篇论文解读
 description: >-
   1篇CVPR2025的知识编辑方向论文解读，涵盖个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,10 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "个性化生成"
+item_list:
+  - u: "mokus_leveraging_cross-modal_knowledge_transfer_for_knowledge-aware_concept_cust/"
+    t: "MoKus: Leveraging Cross-Modal Knowledge Transfer for Knowledge-Aware Concept Customization"
+item_total: 1
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

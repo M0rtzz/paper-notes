@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 医疗 NLP方向1篇论文解读
+  CVPR2026 医疗NLP论文汇总 · 1篇论文解读
 description: >-
   1篇CVPR2026的医疗 NLP 方向论文解读，涵盖推理、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,10 @@ tags:
   - "论文笔记"
   - "推理"
   - "医学影像"
+item_list:
+  - u: "towards_efficient_medical_reasoning_with_minimal_fine-tuning_data/"
+    t: "Towards Efficient Medical Reasoning with Minimal Fine-Tuning Data"
+item_total: 1
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +21,7 @@ tags:
 
 **📷 CVPR2026** · **1** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [🔬 ICLR2026 (13)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (12)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (15)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
 
 **[Towards Efficient Medical Reasoning with Minimal Fine-Tuning Data](towards_efficient_medical_reasoning_with_minimal_fine-tuning_data.md)**
 

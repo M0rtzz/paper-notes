@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 预训练方向30篇论文解读
+  ICML2025 预训练论文汇总 · 30篇论文解读
 description: >-
   30篇ICML2025的预训练方向论文解读，涵盖 LLM、对齐/RLHF、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,68 @@ tags:
   - "LLM"
   - "对齐/RLHF"
   - "对抗鲁棒"
+item_list:
+  - u: "a_square_peg_in_a_square_hole_meta-expert_for_long-tailed_semi-supervised_learni/"
+    t: "A Square Peg in a Square Hole: Meta-Expert for Long-Tailed Semi-Supervised Learning"
+  - u: "algebra_unveils_deep_learning_--_an_invitation_to_neuroalgebraic_geometry/"
+    t: "Algebra Unveils Deep Learning -- An Invitation to Neuroalgebraic Geometry"
+  - u: "bayesian_neural_scaling_law_extrapolation_with_prior-data_fitted_networks/"
+    t: "Bayesian Neural Scaling Law Extrapolation with Prior-Data Fitted Networks"
+  - u: "benign_overfitting_in_token_selection_of_attention_mechanism/"
+    t: "Benign Overfitting in Token Selection of Attention Mechanism"
+  - u: "chameleon_a_flexible_data-mixing_framework_for_language_model_pretraining_and_fi/"
+    t: "Chameleon: A Flexible Data-mixing Framework for Language Model Pretraining and Finetuning"
+  - u: "counting_in_small_transformers_the_delicate_interplay_between_attention_and_feed/"
+    t: "Counting in Small Transformers: The Delicate Interplay between Attention and Feed-Forward Layers"
+  - u: "density_ratio_estimation-based_bayesian_optimization_with_semi-supervised_learni/"
+    t: "Density Ratio Estimation-based Bayesian Optimization with Semi-Supervised Learning"
+  - u: "dipllm_fine-tuning_llm_for_strategic_decision-making_in_diplomacy/"
+    t: "DipLLM: Fine-Tuning LLM for Strategic Decision-Making in Diplomacy"
+  - u: "does_data_scaling_lead_to_visual_compositional_generalization/"
+    t: "Does Data Scaling Lead to Visual Compositional Generalization?"
+  - u: "evaluating_morphological_alignment_of_tokenizers_in_70_languages/"
+    t: "Evaluating Morphological Alignment of Tokenizers in 70 Languages"
+  - u: "how_to_synthesize_text_data_without_model_collapse/"
+    t: "How to Synthesize Text Data without Model Collapse?"
+  - u: "in-context_adaptation_to_concept_drift_for_learned_database_operations/"
+    t: "In-Context Adaptation to Concept Drift for Learned Database Operations"
+  - u: "inductive_gradient_adjustment_for_spectral_bias_in_implicit_neural_representatio/"
+    t: "Inductive Gradient Adjustment for Spectral Bias in Implicit Neural Representations"
+  - u: "language_model_developers_should_report_train-test_overlap/"
+    t: "Language Model Developers Should Report Train-Test Overlap"
+  - u: "language_models_over_canonical_byte-pair_encodings/"
+    t: "Language Models over Canonical Byte-Pair Encodings"
+  - u: "large_language_models_are_demonstration_pre-selectors_for_themselves/"
+    t: "Large Language Models are Demonstration Pre-Selectors for Themselves"
+  - u: "llm_data_selection_and_utilization_via_dynamic_bi-level_optimization/"
+    t: "LLM Data Selection and Utilization via Dynamic Bi-level Optimization"
+  - u: "machine_learning_from_explanations/"
+    t: "Machine Learning from Explanations"
+  - u: "metadata_conditioning_accelerates_language_model_pre-training/"
+    t: "Metadata Conditioning Accelerates Language Model Pre-training"
+  - u: "on_the_clean_generalization_and_robust_overfitting_in_adversarial_training_from_/"
+    t: "On the Clean Generalization and Robust Overfitting in Adversarial Training from Two Theoretical Views: Representation Complexity and Training Dynamics"
+  - u: "on_the_role_of_label_noise_in_the_feature_learning_process/"
+    t: "On the Role of Label Noise in the Feature Learning Process"
+  - u: "position_the_future_of_bayesian_prediction_is_prior-fitted/"
+    t: "Position: The Future of Bayesian Prediction Is Prior-Fitted"
+  - u: "provable_maximum_entropy_manifold_exploration_via_diffusion_models/"
+    t: "Provable Maximum Entropy Manifold Exploration via Diffusion Models"
+  - u: "revisiting_continuity_of_image_tokens_for_cross-domain_few-shot_learning/"
+    t: "Revisiting Continuity of Image Tokens for Cross-Domain Few-Shot Learning"
+  - u: "scaling_inference-efficient_language_models/"
+    t: "Scaling Inference-Efficient Language Models"
+  - u: "the_double-ellipsoid_geometry_of_clip/"
+    t: "The Double-Ellipsoid Geometry of CLIP"
+  - u: "tokenized_bandit_for_llm_decoding_and_alignment/"
+    t: "Tokenized Bandit for LLM Decoding and Alignment"
+  - u: "towards_robust_influence_functions_with_flat_validation_minima/"
+    t: "Towards Robust Influence Functions with Flat Validation Minima"
+  - u: "when_can_in-context_learning_generalize_out_of_task_distribution/"
+    t: "When Can In-Context Learning Generalize Out of Task Distribution?"
+  - u: "whitened_clip_as_a_likelihood_surrogate_of_images_and_captions/"
+    t: "Whitened CLIP as a Likelihood Surrogate of Images and Captions"
+item_total: 30
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +80,7 @@ tags:
 
 **🧪 ICML2025** · **30** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (8)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_pretraining/index.md)
 
 🔥 **高频主题：** LLM ×4 · 对齐/RLHF ×2 · 对抗鲁棒 ×2
 

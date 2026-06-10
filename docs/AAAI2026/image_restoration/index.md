@@ -1,6 +1,6 @@
 ---
 title: >-
-  AAAI2026 图像恢复方向10篇论文解读
+  AAAI2026 图像恢复论文汇总 · 10篇论文解读
 description: >-
   10篇AAAI2026的图像恢复方向论文解读，涵盖图像恢复、超分辨率、对抗鲁棒、扩散模型、多模态、情感分析等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -13,6 +13,28 @@ tags:
   - "扩散模型"
   - "多模态"
   - "情感分析"
+item_list:
+  - u: "blur-robust_detection_via_feature_restoration_an_end-to-end_framework_for_prior-/"
+    t: "Blur-Robust Detection via Feature Restoration: An End-to-End Framework for Prior-Guided Infrared UAV Target Detection"
+  - u: "clear_nights_ahead_towards_multi-weather_nighttime_image_res/"
+    t: "Clear Nights Ahead: Towards Multi-Weather Nighttime Image Restoration"
+  - u: "depth-synergized_mamba_meets_memory_experts_for_all-day_image_reflection_separat/"
+    t: "Depth-Synergized Mamba Meets Memory Experts for All-Day Image Reflection Separation"
+  - u: "iclr_inter-chrominance_and_luminance_interaction_for_natural_color_restoration_i/"
+    t: "ICLR: Inter-Chrominance and Luminance Interaction for Natural Color Restoration in Low-Light Image Enhancement"
+  - u: "mfmamba_a_multi-function_network_for_panchromatic_image_resolution_restoration_b/"
+    t: "MFmamba: A Multi-function Network for Panchromatic Image Resolution Restoration Based on State-Space Model"
+  - u: "refidiff_progressive_refinement_diffusion_for_efficient_missing_data_imputation/"
+    t: "RefiDiff: Progressive Refinement Diffusion for Efficient Missing Data Imputation"
+  - u: "sd-psfnet_sequential_and_dynamic_point_spread_function_netwo/"
+    t: "SD-PSFNet: Sequential and Dynamic Point Spread Function Network for Image Deraining"
+  - u: "spatiotemporal_difference_network_for_video_depth_super-resolution/"
+    t: "SpatioTemporal Difference Network for Video Depth Super-Resolution"
+  - u: "temporal_inconsistency_guidance_for_super-resolution_video_quality_assessment/"
+    t: "Temporal Inconsistency Guidance for Super-resolution Video Quality Assessment"
+  - u: "tmdc_a_two-stage_modality_denoising_and_complementation_framework_for_multimodal/"
+    t: "TMDC: A Two-Stage Modality Denoising and Complementation Framework for Multimodal Sentiment Analysis"
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->

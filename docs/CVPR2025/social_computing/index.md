@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 社会计算方向5篇论文解读
+  CVPR2025 社会计算论文汇总 · 5篇论文解读
 description: >-
   5篇CVPR2025的社会计算方向论文解读，涵盖对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,18 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "对抗鲁棒"
+item_list:
+  - u: "as_language_models_scale_low-order_linear_depth_dynamics_emerge/"
+    t: "As Language Models Scale, Low-order Linear Depth Dynamics Emerge"
+  - u: "classifier-guided_clip_distillation_for_unsupervised_multi-label_classification/"
+    t: "Classifier-guided CLIP Distillation for Unsupervised Multi-label Classification"
+  - u: "classifier-to-bias_toward_unsupervised_automatic_bias_detection_for_visual_class/"
+    t: "Classifier-to-Bias: Toward Unsupervised Automatic Bias Detection for Visual Classifiers"
+  - u: "learning_from_neighbors_category_extrapolation_for_long-tail_learning/"
+    t: "Learning from Neighbors: Category Extrapolation for Long-Tail Learning"
+  - u: "project-probe-aggregate_efficient_fine-tuning_for_group_robustness/"
+    t: "Project-Probe-Aggregate: Efficient Fine-Tuning for Group Robustness"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -16,7 +28,7 @@ tags:
 
 **📷 CVPR2025** · **5** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/social_computing/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/social_computing/index.md)
 
 **[As Language Models Scale, Low-order Linear Depth Dynamics Emerge](as_language_models_scale_low-order_linear_depth_dynamics_emerge.md)**
 

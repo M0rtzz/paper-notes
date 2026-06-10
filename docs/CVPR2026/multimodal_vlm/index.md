@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2026 多模态 VLM方向217篇论文解读
+  CVPR2026 多模态VLM论文汇总 · 217篇论文解读
 description: >-
   217篇CVPR2026的多模态 VLM 方向论文解读，涵盖多模态、推理、LLM、对齐/RLHF、对抗鲁棒、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "对齐/RLHF"
   - "对抗鲁棒"
   - "模型压缩"
+item_list:
+  - u: "a3_towards_advertising_aesthetic_assessment/"
+    t: "A3: Towards Advertising Aesthetic Assessment"
+  - u: "activation_matters_test-time_activated_negative_labels_for_ood_detection_with_vi/"
+    t: "Activation Matters: Test-time Activated Negative Labels for OOD Detection with Vision-Language Models"
+  - u: "adaptive_vision-language_model_routing_for_computer_use_agents/"
+    t: "AVR: Adaptive VLM Routing for Computer Use Agents"
+  - u: "adaptvision_efficient_vision-language_models_via_adaptive_visual_acquisition/"
+    t: "AdaptVision: Efficient Vision-Language Models via Adaptive Visual Acquisition"
+  - u: "agft_alignment-guided_fine-tuning_for_zero-shot_adversarial_robustness_of_vision/"
+    t: "AGFT: Alignment-Guided Fine-Tuning for Zero-Shot Adversarial Robustness of Vision-Language Models"
+  - u: "aif_adaptive_information_flow_vlm/"
+    t: "Aligning What Vision-Language Models See and Perceive with Adaptive Information Flow"
+  - u: "apet_approximation-error_guided_token_compression_for_efficient_vlms/"
+    t: "ApET: Approximation-Error Guided Token Compression for Efficient VLMs"
+  - u: "asking_like_socrates_socrates_helps_vlms_understand_remote_sensing_images/"
+    t: "Asking like Socrates: Socrates helps VLMs understand remote sensing images"
+  - u: "ava-bench_atomic_visual_ability_benchmark_for_vision_foundation_models/"
+    t: "AVA-Bench: Atomic Visual Ability Benchmark for Vision Foundation Models"
+  - u: "balm_a_model-agnostic_framework_for_balanced_multimodal_learning_under_imbalance/"
+    t: "BALM: A Model-Agnostic Framework for Balanced Multimodal Learning under Imbalanced Missing Rates"
+  - u: "benchmarking_vision-language_models_under_contradictory_virtual_content_attacks_/"
+    t: "Benchmarking Vision-Language Models under Contradictory Virtual Content Attacks in Augmented Reality"
+  - u: "beyond_heuristic_prompting_a_concept-guided_bayesian_framework_for_zero-shot_ima/"
+    t: "Beyond Heuristic Prompting: A Concept-Guided Bayesian Framework for Zero-Shot Image Recognition"
+  - u: "beyond_recognition_evaluating_visual_perspective_taking_in_vision_language_model/"
+    t: "Beyond Recognition: Evaluating Visual Perspective Taking in Vision Language Models"
+  - u: "beyond_static_artifacts_a_forensic_benchmark_for_video_deepfake_reasoning_in_vis/"
+    t: "Beyond Static Artifacts: A Forensic Benchmark for Video Deepfake Reasoning in Vision Language Models"
+  - u: "beyond_the_mean_modelling_annotation_distributions_in_continuous_affect_predicti/"
+    t: "Beyond the Mean: Modelling Annotation Distributions in Continuous Affect Prediction"
+  - u: "biclip_domain_canonicalization_via_structured_geometric_transformation/"
+    t: "BiCLIP: Domain Canonicalization via Structured Geometric Transformation"
+  - u: "brima_bridged_modality_adaptation_for_multi-modal_continual_action_quality_asses/"
+    t: "BriMA: Bridged Modality Adaptation for Multi-Modal Continual Action Quality Assessment"
+  - u: "can_vision-language_models_count_a_synthetic_benchmark_and_analysis_of_attention/"
+    t: "Can Vision-Language Models Count? A Synthetic Benchmark and Analysis of Attention-Based Interventions"
+  - u: "capt_confusion-aware_prompt_tuning_for_reducing_vision-language_misalignment/"
+    t: "CAPT: Confusion-Aware Prompt Tuning for Reducing Vision-Language Misalignment"
+  - u: "circuit_tracing_in_vision-language_models_understanding_the_internal_mechanisms_/"
+    t: "Circuit Tracing in Vision-Language Models: Understanding the Internal Mechanisms of Multimodal Thinking"
+  - u: "clip-free_label_free_unsupervised_concept_bottleneck_models/"
+    t: "CLIP-Free, Label-Free, Unsupervised Concept Bottleneck Models"
+  - u: "coat_cbm_concept_wise_attention/"
+    t: "Concept-wise Attention for Fine-grained Concept Bottleneck Models"
+  - u: "codedance_a_dynamic_tool-integrated_mllm_for_executable_visual_reasoning/"
+    t: "CodeDance: A Dynamic Tool-integrated MLLM for Executable Visual Reasoning"
+  - u: "codepercept_code-grounded_visual_stem_perception_for_mllms/"
+    t: "CodePercept: Code-Grounded Visual STEM Perception for MLLMs"
+  - u: "comp_collaborative_multi-mode_pruning_for_vision-language_models/"
+    t: "CoMP: Collaborative Multi-Mode Pruning for Vision-Language Models"
+  - u: "continual_learning_with_vision-language_models_via_semantic-geometry_preservatio/"
+    t: "Continual Learning with Vision-Language Models via Semantic-Geometry Preservation"
+  - u: "covft_context-aware_visual_fine-tuning_for_multimodal_large_language_models/"
+    t: "CoVFT: Context-aware Visual Fine-tuning for Multimodal Large Language Models"
+  - u: "covr-rreason-aware_composed_video_retrieval/"
+    t: "CoVR-R: Reason-Aware Composed Video Retrieval"
+  - u: "crit_graph-based_automatic_data_synthesis_to_enhance_cross-modal_multi-hop_reaso/"
+    t: "CRIT: Graph-Based Automatic Data Synthesis to Enhance Cross-Modal Multi-Hop Reasoning"
+  - u: "cropvlm_learning_to_zoom_for_fine_grained_vision_language_perception/"
+    t: "CropVLM: Learning to Zoom for Fine-Grained Vision-Language Perception"
+item_total: 217
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **📷 CVPR2026** · **217** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (147)](../../NeurIPS2025/multimodal_vlm/index.md) · [📹 ICCV2025 (149)](../../ICCV2025/multimodal_vlm/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (106)](../../ICML2026/multimodal_vlm/index.md) · [💬 ACL2026 (99)](../../ACL2026/multimodal_vlm/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/multimodal_vlm/index.md) · [🤖 AAAI2026 (87)](../../AAAI2026/multimodal_vlm/index.md) · [🧠 NeurIPS2025 (146)](../../NeurIPS2025/multimodal_vlm/index.md) · [📹 ICCV2025 (148)](../../ICCV2025/multimodal_vlm/index.md)
 
 🔥 **高频主题：** 多模态 ×119 · 推理 ×23 · LLM ×21 · 对齐/RLHF ×13 · 对抗鲁棒 ×10
 

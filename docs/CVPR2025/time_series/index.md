@@ -1,6 +1,6 @@
 ---
 title: >-
-  CVPR2025 时间序列方向5篇论文解读
+  CVPR2025 时间序列论文汇总 · 5篇论文解读
 description: >-
   5篇CVPR2025的时间序列方向论文解读，涵盖时序预测、压缩/编码等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -10,6 +10,18 @@ tags:
   - "论文笔记"
   - "时序预测"
   - "压缩/编码"
+item_list:
+  - u: "competition-aware_cpc_forecasting_with_near-market_coverage/"
+    t: "Competition-Aware CPC Forecasting with Near-Market Coverage"
+  - u: "dejavid_encoder-agnostic_learned_temporal_matching_for_video_classification/"
+    t: "DejaVid: Encoder-Agnostic Learned Temporal Matching for Video Classification"
+  - u: "flavc_learned_video_compression_with_feature_level_attention/"
+    t: "FLAVC: Learned Video Compression with Feature Level Attention"
+  - u: "l2gtx_from_local_to_global_time_series_explanations/"
+    t: "L2GTX: From Local to Global Time Series Explanations"
+  - u: "learning_extremely_high_density_crowds_as_active_matters/"
+    t: "Learning Extremely High Density Crowds as Active Matters"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -17,7 +29,7 @@ tags:
 
 **📷 CVPR2025** · **5** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (36)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/time_series/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/time_series/index.md)
 
 🔥 **高频主题：** 时序预测 ×2
 

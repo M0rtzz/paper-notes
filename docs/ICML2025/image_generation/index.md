@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICML2025 图像生成方向92篇论文解读
+  ICML2025 图像生成论文汇总 · 92篇论文解读
 description: >-
   92篇ICML2025的图像生成方向论文解读，涵盖扩散模型、对齐/RLHF、对抗鲁棒、模型压缩、图像恢复、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "模型压缩"
   - "图像恢复"
   - "Agent"
+item_list:
+  - u: "action-minimization_meets_generative_modeling_efficient_transition_path_sampling/"
+    t: "Action-Minimization Meets Generative Modeling: Efficient Transition Path Sampling with the Onsager-Machlup Functional"
+  - u: "all-atom_diffusion_transformers_unified_generative_modelling_of_molecules_and_ma/"
+    t: "All-atom Diffusion Transformers: Unified Generative Modelling of Molecules and Materials"
+  - u: "angle_domain_guidance_latent_diffusion_requires_rotation_rather_than_extrapolati/"
+    t: "Angle Domain Guidance: Latent Diffusion Requires Rotation Rather Than Extrapolation"
+  - u: "annealing_flow_generative_models_towards_sampling_high-dimensional_and_multi-mod/"
+    t: "Annealing Flow Generative Models Towards Sampling High-Dimensional and Multi-Modal Distributions"
+  - u: "autoencoder-based_hybrid_replay_for_class-incremental_learning/"
+    t: "Autoencoder-Based Hybrid Replay for Class-Incremental Learning"
+  - u: "beyond_bradley-terry_models_a_general_preference_model_for_language_model_alignm/"
+    t: "Beyond Bradley-Terry Models: A General Preference Model for Language Model Alignment"
+  - u: "beyond_one-hot_labels_semantic_mixing_for_model_calibration/"
+    t: "Beyond One-Hot Labels: Semantic Mixing for Model Calibration"
+  - u: "bridge_bootstrapping_text_to_control_time-series_generation_via_multi-agent_iter/"
+    t: "BRIDGE: Bootstrapping Text to Control Time-Series Generation via Multi-Agent Iterative Optimization and Diffusion Modeling"
+  - u: "broadband_ground_motion_synthesis_by_diffusion_model_with_minimal_condition/"
+    t: "Broadband Ground Motion Synthesis by Diffusion Model with Minimal Condition"
+  - u: "compositional_scene_understanding_through_inverse_generative_modeling/"
+    t: "Compositional Scene Understanding through Inverse Generative Modeling"
+  - u: "continualflow_learning_and_unlearning_with_neural_flow_matching/"
+    t: "ContinualFlow: Learning and Unlearning with Neural Flow Matching"
+  - u: "continuous_semi-implicit_models/"
+    t: "Continuous Semi-Implicit Models"
+  - u: "continuous_visual_autoregressive_generation_via_score_maximization/"
+    t: "Continuous Visual Autoregressive Generation via Score Maximization"
+  - u: "dctdiff_intriguing_properties_of_image_generative_modeling_in_the_dct_space/"
+    t: "DCTdiff: Intriguing Properties of Image Generative Modeling in the DCT Space"
+  - u: "direct_discriminative_optimization_your_likelihood-based_visual_generative_model/"
+    t: "Direct Discriminative Optimization: Your Likelihood-Based Visual Generative Model is also a GAN Discriminator"
+  - u: "directed_graph_grammars_for_sequence-based_learning/"
+    t: "Directed Graph Grammars for Sequence-based Learning"
+  - u: "discriminative_policy_optimization_for_token-level_reward_models/"
+    t: "Discriminative Policy Optimization for Token-Level Reward Models"
+  - u: "distillation_of_discrete_diffusion_through_dimensional_correlations/"
+    t: "Distillation of Discrete Diffusion through Dimensional Correlations (Di4C)"
+  - u: "drag_data_reconstruction_attack_using_guided_diffusion/"
+    t: "DRAG: Data Reconstruction Attack using Guided Diffusion"
+  - u: "editable_noise_map_inversion_encoding_target-image_into_noise_for_high-fidelity_/"
+    t: "Editable Noise Map Inversion: Encoding Target-image into Noise For High-Fidelity Image Manipulation"
+  - u: "efficient_diffusion_models_for_symmetric_manifolds/"
+    t: "Efficient Diffusion Models for Symmetric Manifolds"
+  - u: "efficient_generative_modeling_with_residual_vector_quantization-based_tokens/"
+    t: "Efficient Generative Modeling with Residual Vector Quantization-Based Tokens"
+  - u: "elucidating_flow_matching_ode_dynamics_with_respect_to_data_geometries_and_denoi/"
+    t: "Elucidating Flow Matching ODE Dynamics via Data Geometry and Denoisers"
+  - u: "exploring_position_encoding_in_diffusion_u-net_for_training-free_high-resolution/"
+    t: "Exploring Position Encoding in Diffusion U-Net for Training-free High-resolution Image Generation"
+  - u: "expressive_score-based_priors_for_distribution_matching_with_geometry-preserving/"
+    t: "Expressive Score-Based Priors for Distribution Matching with Geometry-Preserving Regularization"
+  - u: "flat-lora_low-rank_adaptation_over_a_flat_loss_landscape/"
+    t: "Flat-LoRA: Low-Rank Adaptation over a Flat Loss Landscape"
+  - u: "flexiclip_locality-preserving_free-form_character_animation/"
+    t: "FlexiClip: Locality-Preserving Free-Form Character Animation"
+  - u: "flextok_resampling_images_into_1d_token_sequences_of_flexible_length/"
+    t: "FlexTok: Resampling Images into 1D Token Sequences of Flexible Length"
+  - u: "gaussian_mixture_flow_matching_models/"
+    t: "Gaussian Mixture Flow Matching Models"
+  - u: "gaussmarker_robust_dual-domain_watermark_for_diffusion_models/"
+    t: "GaussMarker: Robust Dual-Domain Watermark for Diffusion Models"
+item_total: 92
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🧪 ICML2025** · **92** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (220)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (137)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (222)](../../NeurIPS2025/image_generation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [📷 CVPR2026 (219)](../../CVPR2026/image_generation/index.md) · [🔬 ICLR2026 (136)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (220)](../../NeurIPS2025/image_generation/index.md)
 
 🔥 **高频主题：** 扩散模型 ×38 · 对齐/RLHF ×4 · 对抗鲁棒 ×3 · 模型压缩 ×3 · 图像恢复 ×3
 

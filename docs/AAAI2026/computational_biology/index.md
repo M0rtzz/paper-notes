@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 计算生物方向20篇论文解读
+  AAAI2026 计算生物论文汇总 · 19篇论文解读
 description: >-
-  20篇AAAI2026的计算生物方向论文解读，涵盖生物分子、对齐/RLHF、扩散模型、多模态、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  19篇AAAI2026的计算生物方向论文解读，涵盖生物分子、对齐/RLHF、扩散模型、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "计算生物"
@@ -12,17 +12,56 @@ tags:
   - "对齐/RLHF"
   - "扩散模型"
   - "多模态"
-  - "持续学习"
+item_list:
+  - u: "apo2mol_3d_molecule_generation_via_dynamic_pocket-aware_diff/"
+    t: "Apo2Mol: 3D Molecule Generation via Dynamic Pocket-Aware Diffusion Models"
+  - u: "beerna_tertiary_structure-based_rna_inverse_folding_using_artificial_bee_colony/"
+    t: "BeeRNA: Tertiary Structure-Based RNA Inverse Folding Using Artificial Bee Colony"
+  - u: "cellstream_dynamical_optimal_transport_informed_embeddings_for_reconstructing_ce/"
+    t: "CellStream: Dynamical Optimal Transport Informed Embeddings for Reconstructing Cellular Trajectories from Snapshots Data"
+  - u: "constrained_best_arm_identification_with_tests_for_feasibility/"
+    t: "Constrained Best Arm Identification with Tests for Feasibility"
+  - u: "consurv_multimodal_continual_learning_for_survival_analysis/"
+    t: "ConSurv: Multimodal Continual Learning for Survival Analysis"
+  - u: "distributional_priors_guided_diffusion_for_generating_3d_molecules_in_low_data_r/"
+    t: "Distributional Priors Guided Diffusion for Generating 3D Molecules in Low Data Regimes"
+  - u: "dual-path_knowledge-augmented_contrastive_alignment_network_for_spatially_resolv/"
+    t: "Dual-Path Knowledge-Augmented Contrastive Alignment Network for Spatially Resolved Transcriptomics"
+  - u: "efficient_chromosome_parallelization_for_precision_medicine_genomic_workflows/"
+    t: "Efficient Chromosome Parallelization for Precision Medicine Genomic Workflows"
+  - u: "epo_diverse_and_realistic_protein_ensemble_generation_via_energy_preference_opti/"
+    t: "EPO: Diverse and Realistic Protein Ensemble Generation via Energy Preference Optimization"
+  - u: "gp-molformer-sim_test_time_molecular_optimization_through_contextual_similarity_/"
+    t: "GP-MoLFormer-Sim: Test Time Molecular Optimization through Contextual Similarity Guidance"
+  - u: "hifusion_hierarchical_intra-spot_alignment_and_regional_context_fusion_for_spati/"
+    t: "HiFusion: Hierarchical Intra-Spot Alignment and Regional Context Fusion for Spatial Gene Expression Prediction from Histopathology"
+  - u: "investigating_data_pruning_for_pretraining_biological_foundation_models_at_scale/"
+    t: "Investigating Data Pruning for Pretraining Biological Foundation Models at Scale"
+  - u: "mergedna_context-aware_genome_modeling_with_dynamic_tokenization_through_token_m/"
+    t: "MergeDNA: Context-aware Genome Modeling with Dynamic Tokenization through Token Merging"
+  - u: "on_the_information_processing_of_one-dimensional_wasserstein_distances_with_fini/"
+    t: "On the Information Processing of One-Dimensional Wasserstein Distances with Finite Samples"
+  - u: "protsae_disentangling_and_interpreting_protein_language_models_via_semantically-/"
+    t: "ProtSAE: Disentangling and Interpreting Protein Language Models via Semantically-Guided Sparse Autoencoders"
+  - u: "qgshap_quantum_acceleration_for_faithful_gnn_explanations/"
+    t: "QGShap: Quantum Acceleration for Faithful GNN Explanations"
+  - u: "s2drug_bridging_protein_sequence_and_3d_structure_in_contrastive_representation_/"
+    t: "S2Drug: Bridging Protein Sequence and 3D Structure in Contrastive Representation Learning for Virtual Screening"
+  - u: "spacrd_multimodal_deep_fusion_of_histology_and_spatial_transcriptomics_for_cance/"
+    t: "SpaCRD: Multimodal Deep Fusion of Histology and Spatial Transcriptomics for Cancer Region Detection"
+  - u: "trinitydna_a_bio-inspired_foundational_model_for_efficient_long-sequence_dna_mod/"
+    t: "TrinityDNA: A Bio-Inspired Foundational Model for Efficient Long-Sequence DNA Modeling"
+item_total: 19
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧬 计算生物
 
-**🤖 AAAI2026** · **20** 篇论文解读
+**🤖 AAAI2026** · **19** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (11)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (38)](../../ICLR2026/computational_biology/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/computational_biology/index.md) · [🧠 NeurIPS2025 (74)](../../NeurIPS2025/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
 
-🔥 **高频主题：** 生物分子 ×4 · 对齐/RLHF ×3 · 扩散模型 ×2 · 多模态 ×2 · 持续学习 ×2
+🔥 **高频主题：** 生物分子 ×4 · 对齐/RLHF ×3 · 扩散模型 ×2 · 多模态 ×2
 
 **[Apo2Mol: 3D Molecule Generation via Dynamic Pocket-Aware Diffusion Models](apo2mol_3d_molecule_generation_via_dynamic_pocket-aware_diff.md)**
 
@@ -59,10 +98,6 @@ tags:
 **[EPO: Diverse and Realistic Protein Ensemble Generation via Energy Preference Optimization](epo_diverse_and_realistic_protein_ensemble_generation_via_energy_preference_opti.md)**
 
 :   提出EPO（Energy Preference Optimization），将反向SDE采样与listwise能量排序偏好优化结合，用能量信号对齐预训练蛋白质生成器与目标Boltzmann分布，在Tetrapeptides/ATLAS/Fast-Folding三个基准9个指标上达到SOTA，完全消除了昂贵的分子动力学（MD）模拟需求。
-
-**[Gene Incremental Learning for Single-Cell Transcriptomics](gene_incremental_learning_for_single-cell_transcriptomics.md)**
-
-:   本文提出了基因增量学习（GIL）框架，利用单细胞转录组学数据的无序性特点，将类增量学习（CIL）的范式扩展到 token（基因）维度，设计了基因回放和基因蒸馏两种基线方法，并建立了包含基因级回归和基因级分类两种评估方式的完整基准。
 
 **[GP-MoLFormer-Sim: Test Time Molecular Optimization through Contextual Similarity Guidance](gp-molformer-sim_test_time_molecular_optimization_through_contextual_similarity_.md)**
 

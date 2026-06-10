@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 计算生物方向5篇论文解读
+  ACL2026 计算生物论文汇总 · 5篇论文解读
 description: >-
   5篇ACL2026的计算生物方向论文解读，涵盖推理、多模态、LLM、医学影像、Agent、生物分子等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,18 @@ tags:
   - "医学影像"
   - "Agent"
   - "生物分子"
+item_list:
+  - u: "aroma_augmented_reasoning_over_a_multimodal_architecture_for_virtual_cell_geneti/"
+    t: "AROMA: Augmented Reasoning Over a Multimodal Architecture for Virtual Cell Genetic Perturbation Modeling"
+  - u: "biotool_a_comprehensive_tool-calling_dataset_for_enhancing_biomedical_capabiliti/"
+    t: "BioTool: A Comprehensive Tool-Calling Dataset for Enhancing Biomedical Capabilities of Large Language Models"
+  - u: "chemamp_amplified_chemistry_tools_via_composable_agents/"
+    t: "ChemAmp: Amplified Chemistry Tools via Composable Agents"
+  - u: "protocycle_reflective_tool-augmented_planning_for_text-guided_protein_design/"
+    t: "ProtoCycle: Reflective Tool-Augmented Planning for Text-Guided Protein Design"
+  - u: "toxreason_a_benchmark_for_mechanistic_chemical_toxicity_reasoning_via_adverse_ou/"
+    t: "ToxReason: A Benchmark for Mechanistic Chemical Toxicity Reasoning via Adverse Outcome Pathway"
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +33,7 @@ tags:
 
 **💬 ACL2026** · **5** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [📷 CVPR2026 (11)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (38)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (20)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/computational_biology/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/computational_biology/index.md) · [🧠 NeurIPS2025 (74)](../../NeurIPS2025/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
 
 🔥 **高频主题：** 推理 ×2
 

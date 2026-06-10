@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 预训练方向12篇论文解读
+  ACL2026 预训练论文汇总 · 12篇论文解读
 description: >-
   12篇ACL2026的预训练方向论文解读，涵盖 LLM、Agent、持续学习、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -12,6 +12,32 @@ tags:
   - "Agent"
   - "持续学习"
   - "布局/合成"
+item_list:
+  - u: "compact_example-based_explanations_for_language_models/"
+    t: "Compact Example-Based Explanations for Language Models"
+  - u: "data_mixing_agent_learning_to_re-weight_domains_for_continual_pre-training/"
+    t: "Data Mixing Agent: Learning to Re-weight Domains for Continual Pre-training"
+  - u: "demystifying_data_organization_for_enhanced_llm_training/"
+    t: "Demystifying Data Organization for Enhanced LLM Training"
+  - u: "fine-tuning_vs_in-context_learning_in_large_language_models_a_formal_language_le/"
+    t: "Fine-tuning vs. In-context Learning in Large Language Models: A Formal Language Learning Perspective"
+  - u: "forever_forgetting_curve-inspired_memory_replay_for_language_model_continual_lea/"
+    t: "FOREVER: Forgetting Curve-Inspired Memory Replay for Language Model Continual Learning"
+  - u: "is_a_document_educational_or_just_wikipedia-style_--_pitfalls_of_classifier-base/"
+    t: "Is a Document Educational or Just Wikipedia-Style? -- Pitfalls of Classifier-Based Quality Filtering"
+  - u: "koco_conditioning_language_model_pre-training_on_knowledge_coordinates/"
+    t: "KoCo: Conditioning Language Model Pre-training on Knowledge Coordinates"
+  - u: "on_the_proper_treatment_of_units_in_surprisal_theory/"
+    t: "On the Proper Treatment of Units in Surprisal Theory"
+  - u: "sage_sign-adaptive_gradient_for_memory-efficient_llm_optimization/"
+    t: "SAGE: Sign-Adaptive Gradient for Memory-Efficient LLM Optimization"
+  - u: "script_a_subcharacter_compositional_representation_injection_module_for_korean_p/"
+    t: "SCRIPT: A Subcharacter Compositional Representation Injection Module for Korean Pre-Trained Language Models"
+  - u: "toward_consistent_world_models_with_multi-token_prediction_and_latent_semantic_e/"
+    t: "Toward Consistent World Models with Multi-Token Prediction and Latent Semantic Enhancement"
+  - u: "working_memory_constraints_scaffold_learning_in_transformers_under_data_scarcity/"
+    t: "Working Memory Constraints Scaffold Learning in Transformers under Data Scarcity"
+item_total: 12
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -19,7 +45,7 @@ tags:
 
 **💬 ACL2026** · **12** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (8)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
 
 🔥 **高频主题：** LLM ×3
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 模型压缩方向54篇论文解读
+  CVPR2026 模型压缩论文汇总 · 53篇论文解读
 description: >-
-  54篇CVPR2026的模型压缩方向论文解读，涵盖模型压缩、扩散模型、压缩/编码、对抗鲁棒、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  53篇CVPR2026的模型压缩方向论文解读，涵盖模型压缩、扩散模型、压缩/编码、对抗鲁棒、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "模型压缩"
@@ -12,14 +12,76 @@ tags:
   - "压缩/编码"
   - "对抗鲁棒"
   - "持续学习"
+item_list:
+  - u: "4d_rgpt_toward_region_level_4d_understanding_via_perceptual_distillation/"
+    t: "4D-RGPT: Toward Region-level 4D Understanding via Perceptual Distillation"
+  - u: "a_paradigm_shift_fully_end-to-end_training_for_temporal_sentence_grounding_in_vi/"
+    t: "A Paradigm Shift: Fully End-to-End Training for Temporal Sentence Grounding in Videos"
+  - u: "adabet_gradient-free_layer_selection_for_efficient_training_of_deep_neural_netwo/"
+    t: "AdaBet: Gradient-free Layer Selection for Efficient Training of Deep Neural Networks"
+  - u: "adversarial_concept_distillation_for_one-step_diffusion_personalization/"
+    t: "Adversarial Concept Distillation for One-Step Diffusion Personalization"
+  - u: "an_fpga_implementation_of_displacement_vector_search_for_intra_pattern_copy_in_j/"
+    t: "An FPGA Implementation of Displacement Vector Search for Intra Pattern Copy in JPEG XS"
+  - u: "arche_autoregressive_residual_compression_with_hyp/"
+    t: "ARCHE: Autoregressive Residual Compression with Hyperprior and Excitation"
+  - u: "association_and_consolidation_evolutionary_memory-enhanced_incremental_multi-vie/"
+    t: "Association and Consolidation: Evolutionary Memory-Enhanced Incremental Multi-View Clustering"
+  - u: "batch_loss_score_for_dynamic_data_pruning/"
+    t: "Batch Loss Score for Dynamic Data Pruning"
+  - u: "beyond_loss_values_robust_dynamic_pruning_via_loss_trajectory_alignment/"
+    t: "Beyond Loss Values: Robust Dynamic Pruning via Loss Trajectory Alignment"
+  - u: "bilevel_layer-positioning_lora_for_real_image_dehazing/"
+    t: "Bilevel Layer-Positioning LoRA for Real Image Dehazing"
+  - u: "binaryattention_one-bit_qk-attention_for_vision_and_diffusion_transformers/"
+    t: "BinaryAttention: One-Bit QK-Attention for Vision and Diffusion Transformers"
+  - u: "critical_patch-aware_sparse_prompting_with_decoupled_training_for_continual_lear/"
+    t: "Critical Patch-Aware Sparse Prompting with Decoupled Training for Continual Learning on the Edge"
+  - u: "dage_dual-stream_architecture_for_efficient_and_fine-grained_geometry_estimation/"
+    t: "DAGE: Dual-Stream Architecture for Efficient and Fine-Grained Geometry Estimation"
+  - u: "distilling_balanced_knowledge_from_a_biased_teacher/"
+    t: "Distilling Balanced Knowledge from a Biased Teacher"
+  - u: "dualreg_dual-space_filtering_and_reinforcement_for_rigid_registration/"
+    t: "DualReg: Dual-Space Filtering and Reinforcement for Rigid Registration"
+  - u: "elastic_weight_consolidation_done_right_for_continual_learning/"
+    t: "Elastic Weight Consolidation Done Right for Continual Learning"
+  - u: "enhancing_mixture_of_experts_specialization_via_cluster_aware_upcycling/"
+    t: "Enhancing Mixture-of-Experts Specialization via Cluster-Aware Upcycling"
+  - u: "fair-pruner_leveraging_tolerance_of_difference_for_flexible_automatic_layer-wise/"
+    t: "FAIR-Pruner: Leveraging Tolerance of Difference for Flexible Automatic Layer-Wise Neural Network Pruning"
+  - u: "fixed_anchors_are_not_enough_dynamic_retrieval_and_persistent_homology_for_datas/"
+    t: "Fixed Anchors Are Not Enough: Dynamic Retrieval and Persistent Homology for Dataset Distillation"
+  - u: "fozo_forward-only_zeroth-order_prompt_optimization_for_test-time_adaptation/"
+    t: "FOZO: Forward-Only Zeroth-Order Prompt Optimization for Test-Time Adaptation"
+  - u: "frequency_switching_mechanism_for_parameter-ecient_multi-task_learning/"
+    t: "Frequency Switching Mechanism for Parameter-Efficient Multi-Task Learning"
+  - u: "from_fewer_samples_to_fewer_bits_reframing_dataset_distillation_as_joint_optimiz/"
+    t: "From Fewer Samples to Fewer Bits: Reframing Dataset Distillation as Joint Optimization of Precision and Compactness"
+  - u: "generative_video_compression_with_one-dimensional_latent_representation/"
+    t: "Generative Video Compression with One-Dimensional Latent Representation"
+  - u: "geofusion-cad_structure-aware_diffusion_with_geometric_state_space_for_parametri/"
+    t: "GeoFusion-CAD: Structure-Aware Diffusion with Geometric State Space for Parametric 3D Design"
+  - u: "hess_head_sensitivity_score_for_sparsity_redistribution_in_vggt/"
+    t: "HeSS: Head Sensitivity Score for Sparsity Redistribution in VGGT"
+  - u: "hiap_a_multi-granular_stochastic_auto-pruning_framework_for_vision_transformers/"
+    t: "HiAP: A Multi-Granular Stochastic Auto-Pruning Framework for Vision Transformers"
+  - u: "hieramp_coarse-to-fine_autoregressive_amplification_for_generative_dataset_disti/"
+    t: "HierAmp: Coarse-to-Fine Autoregressive Amplification for Generative Dataset Distillation"
+  - u: "learning_through_creation_a_hash-free_framework_for_on-the-fly_category_discover/"
+    t: "Learning through Creation: A Hash-Free Framework for On-the-Fly Category Discovery"
+  - u: "llava-le_large_language-and-vision_assistant_for_lunar_exploration/"
+    t: "LLaVA-LE: Large Language-and-Vision Assistant for Lunar Exploration"
+  - u: "mame_and_mare_matrix_based_token_merging_and_restoration_for_efficient_visual_perception_and_synthesis/"
+    t: "MaMe & MaRe: Matrix-Based Token Merging and Restoration for Efficient Visual Perception and Synthesis"
+item_total: 53
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**📷 CVPR2026** · **54** 篇论文解读
+**📷 CVPR2026** · **53** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [🔬 ICLR2026 (100)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (61)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [🔬 ICLR2026 (99)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (60)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md) · [📹 ICCV2025 (48)](../../ICCV2025/model_compression/index.md)
 
 🔥 **高频主题：** 模型压缩 ×7 · 扩散模型 ×6 · 压缩/编码 ×6 · 对抗鲁棒 ×3 · 持续学习 ×2
 
@@ -182,10 +244,6 @@ tags:
 **[Preference-Aligned LoRA Merging: Preserving Subspace Coverage and Addressing Directional Anisotropy](preference-aligned_lora_merging_preserving_subspace_coverage_and_addressing_dire.md)**
 
 :   本文从子空间覆盖（subspace coverage）和方向各向异性（anisotropy）两个视角重新审视LoRA合并问题，提出TARA-Merging框架，通过保留LoRA方向并结合偏好加权的交叉熵伪损失进行方向级重新加权，在8个视觉和6个NLI基准上持续超越现有合并方法。
-
-**[PRISM: Video Dataset Condensation with Progressive Refinement and Insertion for Sparse Motion](prism_video_dataset_condensation_with_progressive_refinement_and_insertion_for_s.md)**
-
-:   本文提出 PRISM，一种整体式视频数据集压缩方法：从仅两个时间锚点（首尾帧）出发,通过检测梯度方向冲突来自适应插入关键帧，在保持内容与运动的耦合完整性的同时实现 SOTA 的存储效率——在 miniUCF 1VPC 上用 20MB 达到 17.9% 准确率，比先前方法的 94MB 少 5 倍。
 
 **[PriVi: Towards a General-Purpose Video Model for Primate Behavior in the Wild](privi_towards_a_general-purpose_video_model_for_primate_behavior_in_the_wild.md)**
 

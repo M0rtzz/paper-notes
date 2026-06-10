@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICLR2026 音频/语音方向34篇论文解读
+  ICLR2026 音频/语音论文汇总 · 34篇论文解读
 description: >-
   34篇ICLR2026的音频/语音方向论文解读，涵盖语音、推理、情感分析、对抗鲁棒、对齐/RLHF、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "对抗鲁棒"
   - "对齐/RLHF"
   - "LLM"
+item_list:
+  - u: "ac-foley_reference-audio-guided_video-to-audio_synthesis_with_acoustic_transfer/"
+    t: "AC-Foley: Reference-Audio-Guided Video-to-Audio Synthesis with Acoustic Transfer"
+  - u: "avere_improving_audiovisual_emotion_reasoning_with_preference_optimization/"
+    t: "AVERE: Improving Audiovisual Emotion Reasoning with Preference Optimization"
+  - u: "discovering_and_steering_interpretable_concepts_in_large_generative_music_models/"
+    t: "Discovering and Steering Interpretable Concepts in Large Generative Music Models"
+  - u: "dynamic_parameter_memory_temporary_lora-enhanced_llm_for_long-sequence_emotion_r/"
+    t: "Dynamic Parameter Memory: Temporary LoRA-Enhanced LLM for Long-Sequence Emotion Recognition in Conversation"
+  - u: "echomind_an_interrelated_multi-level_benchmark_for_evaluating_empathetic_speech_/"
+    t: "EchoMind: An Interrelated Multi-level Benchmark for Evaluating Empathetic Speech Language Models"
+  - u: "efficient_audio-visual_speech_separation_with_discrete_lip_semantics_and_multi-s/"
+    t: "Efficient Audio-Visual Speech Separation with Discrete Lip Semantics and Multi-Scale Global-Local Attention"
+  - u: "emotionthinker_prosody-aware_reinforcement_learning_for_explainable_speech_emoti/"
+    t: "EmotionThinker: Prosody-Aware Reinforcement Learning for Explainable Speech Emotion Reasoning"
+  - u: "flexicodec_a_dynamic_neural_audio_codec_for_low_frame_rates/"
+    t: "FlexiCodec: A Dynamic Neural Audio Codec for Low Frame Rates"
+  - u: "flow2gan_hybrid_flow_matching_and_gan_with_multi-resolution_network_for_few-step/"
+    t: "Flow2GAN: Hybrid Flow Matching and GAN with Multi-Resolution Network for Few-step High-Fidelity Audio Generation"
+  - u: "human_behavior_atlas_benchmarking_unified_psychological_and_social_behavior_unde/"
+    t: "Human Behavior Atlas: Benchmarking Unified Psychological and Social Behavior Understanding"
+  - u: "improving_black-box_generative_attacks_via_generator_semantic_consistency/"
+    t: "Improving Black-Box Generative Attacks via Generator Semantic Consistency"
+  - u: "incentive-aligned_multi-source_llm_summaries/"
+    t: "Incentive-Aligned Multi-Source LLM Summaries"
+  - u: "knowing_when_to_quit_probabilistic_early_exits_for_speech_separation/"
+    t: "Knowing When to Quit: Probabilistic Early Exits for Speech Separation"
+  - u: "latent_speech_text_transformer/"
+    t: "Latent Speech-Text Transformer"
+  - u: "mapss_manifold-based_assessment_of_perceptual_source_separation/"
+    t: "MAPSS: Manifold-Based Assessment of Perceptual Source Separation"
+  - u: "mmsu_a_massive_multi-task_spoken_language_understanding_and_reasoning_benchmark/"
+    t: "MMSU: A Massive Multi-task Spoken Language Understanding and Reasoning Benchmark"
+  - u: "pace_pretrained_audio_continual_learning/"
+    t: "PACE: Pretrained Audio Continual Learning"
+  - u: "paras2s_benchmarking_and_aligning_spoken_language_models_for_paralinguistic-awar/"
+    t: "ParaS2S: Benchmarking and Aligning Spoken Language Models for Paralinguistic-Aware Speech-to-Speech Interaction"
+  - u: "pay_attention_to_ctc_fast_and_robust_pseudo-labelling_for_unified_speech_recogni/"
+    t: "Pay Attention to CTC: Fast and Robust Pseudo-Labelling for Unified Speech Recognition"
+  - u: "prismaudio_decomposed_chain-of-thoughts_and_multi-dimensional_rewards_for_video-/"
+    t: "PrismAudio: Decomposed Chain-of-Thoughts and Multi-dimensional Rewards for Video-to-Audio Generation"
+  - u: "query-guided_spatial-temporal-frequency_interaction_for_music_audio-visual_quest/"
+    t: "Query-Guided Spatial-Temporal-Frequency Interaction for Music Audio-Visual Question Answering"
+  - u: "redteamcua_adversarial_testing_agents/"
+    t: "RedTeamCUA: Realistic Adversarial Testing of Computer-Use Agents in Hybrid Web-OS Environments"
+  - u: "scalable_multilingual_multimodal_machine_translation_with_speech-text_fusion/"
+    t: "Scalable Multilingual Multimodal Machine Translation with Speech-Text Fusion"
+  - u: "scaling_speech_tokenizers_with_diffusion_autoencoders/"
+    t: "Scaling Speech Tokenizers with Diffusion Autoencoders"
+  - u: "singer_a_clearer_voice_distills_vision_transformers_further/"
+    t: "SiNGER: A Clearer Voice Distills Vision Transformers Further"
+  - u: "stitch_simultaneous_thinking_and_talking_with_chunked_reasoning_for_spoken_langu/"
+    t: "Stitch: Simultaneous Thinking and Talking with Chunked Reasoning for Spoken Language Models"
+  - u: "synctrack_rhythmic_stability_and_synchronization_in_multi-track_music_generation/"
+    t: "SyncTrack: Rhythmic Stability and Synchronization in Multi-Track Music Generation"
+  - u: "taste_text-aligned_speech_tokenization_and_embedding_for_spoken_language_modelin/"
+    t: "TASTE: Text-Aligned Speech Tokenization and Embedding for Spoken Language Modeling"
+  - u: "the_devil_behind_the_mask_an_emergent_safety_vulnerability_of_diffusion_llms/"
+    t: "The Devil behind the Mask: An Emergent Safety Vulnerability of Diffusion LLMs"
+  - u: "toward_complex-valued_neural_networks_for_waveform_generation/"
+    t: "Toward Complex-Valued Neural Networks for Waveform Generation"
+item_total: 34
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **🔬 ICLR2026** · **34** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (46)](../../NeurIPS2025/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
 
 🔥 **高频主题：** 语音 ×19 · 推理 ×5 · 情感分析 ×4 · 对抗鲁棒 ×3 · 对齐/RLHF ×2
 

@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2025 音频/语音方向42篇论文解读
+  ACL2025 音频/语音论文汇总 · 42篇论文解读
 description: >-
   42篇ACL2025的音频/语音方向论文解读，涵盖语音、对话系统、少样本学习、LLM、对抗鲁棒、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
@@ -14,6 +14,68 @@ tags:
   - "LLM"
   - "对抗鲁棒"
   - "对齐/RLHF"
+item_list:
+  - u: "aae_voice_chatbot/"
+    t: "Finding A Voice: Exploring the Potential of African American Dialect and Voice Generation for Chatbots"
+  - u: "acoustic_individual_identification_of_white-faced_capuchin_monkeys_using_joint_m/"
+    t: "Acoustic Individual Identification of White-Faced Capuchin Monkeys Using Joint Multi-Species Embeddings"
+  - u: "advancing_zero-shot_text-to-speech_intelligibility_across_diverse_domains_via_pr/"
+    t: "Advancing Zero-shot Text-to-Speech Intelligibility across Diverse Domains via Preference Alignment"
+  - u: "ai4reading_chinese_audiobook_interpretation_system_based_on_multi-agent_collabor/"
+    t: "AI4Reading: Chinese Audiobook Interpretation System Based on Multi-Agent Collaboration"
+  - u: "amplifying_trans_and_nonbinary_voices_a_community-centred_harm_taxonomy_for_llms/"
+    t: "Amplifying Trans and Nonbinary Voices: A Community-Centred Harm Taxonomy for LLMs"
+  - u: "atri_mitigating_multilingual_audio_text_retrieval_inconsistencies_by_reducing_da/"
+    t: "ATRI: Mitigating Multilingual Audio Text Retrieval Inconsistencies by Reducing Data Distribution Errors"
+  - u: "audio_dialogue_benchmark/"
+    t: "Benchmarking Open-ended Audio Dialogue Understanding for Large Audio-Language Models"
+  - u: "audio_token_consistency/"
+    t: "Analyzing and Mitigating Inconsistency in Discrete Audio Tokens for Neural Codec Language Models"
+  - u: "autoregressive_speech_synthesis_without_vq/"
+    t: "Autoregressive Speech Synthesis without Vector Quantization"
+  - u: "chain-talker_chain_understanding_and_rendering_for_empathetic_conversational_spe/"
+    t: "Chain-Talker: Chain Understanding and Rendering for Empathetic Conversational Speech Synthesis"
+  - u: "clamp_3_universal_music_information_retrieval_across_unaligned_modalities_and_un/"
+    t: "CLaMP 3: Universal Music Information Retrieval Across Unaligned Modalities and Unseen Languages"
+  - u: "contextual_biasing_with_the_knowledgeable_external_language_model_for_end-to-end/"
+    t: "Contextual Biasing with the Knowledgeable External Language Model for End-to-End Speech Recognition"
+  - u: "controlspeech_zero_shot/"
+    t: "ControlSpeech: Towards Simultaneous and Independent Zero-shot Speaker Cloning and Zero-shot Language Style Control"
+  - u: "dialectal_coverage_and_generalization_in_arabic_speech_recognition/"
+    t: "Dialectal Coverage and Generalization in Arabic Speech Recognition"
+  - u: "different_speech_translation_models_encode_and_translate_speaker_gender_differen/"
+    t: "Different Speech Translation Models Encode and Translate Speaker Gender Differently"
+  - u: "distilling_an_end-to-end_voice_assistant_without_instruction_training_data/"
+    t: "Distilling an End-to-End Voice Assistant Without Instruction Training Data"
+  - u: "dncasr_end-to-end_training_for_speaker-attributed_asr/"
+    t: "DNCASR: End-to-End Training for Speaker-Attributed ASR"
+  - u: "does_your_voice_assistant_remember_analyzing_conversational_context_recall_and_u/"
+    t: "Does Your Voice Assistant Remember? Analyzing Conversational Context Recall and Utilization in Voice Interaction Models"
+  - u: "double_entendre_robust_audio-based_ai-generated_lyrics_detection_via_multi-view_/"
+    t: "Double Entendre: Robust Audio-Based AI-Generated Lyrics Detection via Multi-View Fusion"
+  - u: "eta-wavlm_efficient_speaker_identity_removal_in_self-supervised_speech_represent/"
+    t: "Eta-WavLM: Efficient Speaker Identity Removal in Self-Supervised Speech Representations Using a Simple Linear Equation"
+  - u: "gigaspeech2_low_resource_asr/"
+    t: "GigaSpeech 2: An Evolving, Large-Scale and Multi-domain ASR Corpus for Low-Resource Languages"
+  - u: "investigating_and_enhancing_vision-audio_capability_in_omnimodal_large_language_/"
+    t: "Investigating and Enhancing Vision-Audio Capability in Omnimodal Large Language Models"
+  - u: "mind_the_gap_static_and_interactive_evaluations_of_large_audio_models/"
+    t: "Mind the Gap! Static and Interactive Evaluations of Large Audio Models"
+  - u: "mitigating_confounding_in_speech-based_dementia_detection_through_weight_masking/"
+    t: "Mitigating Confounding in Speech-Based Dementia Detection through Weight Masking"
+  - u: "mms-llama_efficient_llm-based_audio-visual_speech_recognition_with_minimal_multi/"
+    t: "MMS-LLaMA: Efficient LLM-based Audio-Visual Speech Recognition with Minimal Multimodal Speech Tokens"
+  - u: "multimed_multilingual_medical_speech_recognition_via_attention_encoder_decoder/"
+    t: "MultiMed: Multilingual Medical Speech Recognition via Attention Encoder Decoder"
+  - u: "omniflatten_an_end-to-end_gpt_model_for_seamless_voice_conversation/"
+    t: "OmniFlatten: An End-to-end GPT Model for Seamless Voice Conversation"
+  - u: "on_the_robust_approximation_of_asr_metrics/"
+    t: "On the Robust Approximation of ASR Metrics"
+  - u: "predicting_turn-taking_and_backchannel_in_human-machine_conversations_using_ling/"
+    t: "Predicting Turn-Taking and Backchannel in Human-Machine Conversations Using Linguistic, Acoustic, and Visual Signals"
+  - u: "soundwave_less_is_more_for_speech-text_alignment_in_llms/"
+    t: "Soundwave: Less is More for Speech-Text Alignment in LLMs"
+item_total: 42
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -21,7 +83,7 @@ tags:
 
 **💬 ACL2025** · **42** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/audio_speech/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (46)](../../NeurIPS2025/audio_speech/index.md)
 
 🔥 **高频主题：** 语音 ×38 · 对话系统 ×6 · 少样本学习 ×4 · LLM ×4 · 对抗鲁棒 ×3
 

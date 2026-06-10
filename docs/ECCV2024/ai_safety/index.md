@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 AI 安全方向12篇论文解读
+  ECCV2024 AI安全论文汇总 · 9篇论文解读
 description: >-
-  12篇ECCV2024的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  9篇ECCV2024的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "AI 安全"
@@ -10,25 +10,40 @@ tags:
   - "论文笔记"
   - "对抗鲁棒"
   - "联邦学习"
-  - "持续学习"
+item_list:
+  - u: "any_target_can_be_offense_adversarial_example_generation_via_generalized_latent_/"
+    t: "Any Target Can Be Offense: Adversarial Example Generation via Generalized Latent Infection"
+  - u: "clip-guided_generative_networks_for_transferable_targeted_adversarial_attacks/"
+    t: "CLIP-Guided Generative Networks for Transferable Targeted Adversarial Attacks"
+  - u: "fisher_calibration_for_backdoor-robust_heterogeneous_federated_learning/"
+    t: "Fisher Calibration for Backdoor-Robust Heterogeneous Federated Learning"
+  - u: "genq_quantization_in_low_data_regimes_with_generative_synthetic_data/"
+    t: "Event Trojan: Asynchronous Event-based Backdoor Attacks"
+  - u: "noise-assisted_prompt_learning_for_image_forgery_detection_and_localization/"
+    t: "Noise-Assisted Prompt Learning for Image Forgery Detection and Localization"
+  - u: "preventing_catastrophic_overfitting_in_fast_adversarial_training_a_bi-level_opti/"
+    t: "Preventing Catastrophic Overfitting in Fast Adversarial Training: A Bi-level Optimization Perspective"
+  - u: "resilience_of_entropy_model_in_distributed_neural_networks/"
+    t: "Resilience of Entropy Model in Distributed Neural Networks"
+  - u: "towards_multi-modal_transformers_in_federated_learning/"
+    t: "Towards Multi-modal Transformers in Federated Learning"
+  - u: "unveiling_privacy_risks_in_stochastic_neural_networks_training_effective_image_r/"
+    t: "Unveiling Privacy Risks in Stochastic Neural Networks Training: Effective Image Reconstruction from Gradients"
+item_total: 9
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI 安全
 
-**🎞️ ECCV2024** · **12** 篇论文解读
+**🎞️ ECCV2024** · **9** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (72)](../../NeurIPS2025/ai_safety/index.md)
 
-🔥 **高频主题：** 对抗鲁棒 ×6 · 联邦学习 ×3
+🔥 **高频主题：** 对抗鲁棒 ×5 · 联邦学习 ×2
 
 **[Any Target Can Be Offense: Adversarial Example Generation via Generalized Latent Infection](any_target_can_be_offense_adversarial_example_generation_via_generalized_latent_.md)**
 
 :   提出 GAKer，首个可泛化到未知目标类别的定向对抗攻击生成器，通过在 UNet 中间层注入目标特征（latent infection）+ 余弦距离损失替代交叉熵实现类别无关训练，在未知类上的攻击成功率比 HGN 高 14.13%。
-
-**[Bi-TTA: Bidirectional Test-Time Adapter for Remote Physiological Measurement](bi-tta_bidirectional_test-time_adapter_for_remote_physiological_measurement.md)**
-
-:   提出 Bi-TTA 框架，首次将 Test-Time Adaptation 引入远程光电容积脉搏波 (rPPG) 任务，通过时空一致性自监督先验和前瞻-回溯双向适应策略，在推理时仅用无标注单实例数据即可完成模型域适应。
 
 **[CLIP-Guided Generative Networks for Transferable Targeted Adversarial Attacks](clip-guided_generative_networks_for_transferable_targeted_adversarial_attacks.md)**
 
@@ -46,10 +61,6 @@ tags:
 
 :   本文提出 CLIP-IFDL，一种基于 CLIP 的图像篡改检测与定位模型，通过实例感知的双流提示学习和伪造增强噪声适配器来弥补 CLIP 在篡改检测领域的提示缺失和伪造感知不足问题，将 CLIP 的开放世界泛化能力迁移到篡改检测任务中。
 
-**[One-stage Prompt-based Continual Learning](one-stage_prompt-based_continual_learning.md)**
-
-:   提出 OS-Prompt 框架，通过直接使用 ViT 中间层 token embedding 作为 prompt query（而非额外的 query ViT 前向传播），将 Prompt-based Continual Learning 的计算成本降低约 50%，并通过 Query-Pool Regularization (QR) loss 补偿表征能力损失，在 CIFAR-100、ImageNet-R、DomainNet 上超越 CodaPrompt 约 1.4%。
-
 **[Preventing Catastrophic Overfitting in Fast Adversarial Training: A Bi-level Optimization Perspective](preventing_catastrophic_overfitting_in_fast_adversarial_training_a_bi-level_opti.md)**
 
 :   从双层优化视角分析快速对抗训练中灾难性过拟合的成因，提出 FGSM-PCO 方法，通过自适应融合历史与当前对抗样本并配合定制正则化损失，有效防止并纠正内层优化崩溃。
@@ -57,10 +68,6 @@ tags:
 **[Resilience of Entropy Model in Distributed Neural Networks](resilience_of_entropy_model_in_distributed_neural_networks.md)**
 
 :   首次系统研究分布式 DNN 中熵编码模型在有意干扰（对抗攻击）和无意干扰（天气变化、运动模糊等）下的鲁棒性，发现熵模型学习的压缩特征与分类特征截然不同，并提出基于目标感知全变差去噪的防御方法，可将攻击后的传输开销降低至低于干净数据水平，准确率仅下降约 2%。
-
-**[SkyMask: Attack-Agnostic Robust Federated Learning with Fine-Grained Learnable Masks](skymask_attack-agnostic_robust_federated_learning_with_fine-grained_learnable_ma.md)**
-
-:   提出 SkyMask，利用参数级可学习二值掩码在服务器端检测恶意客户端模型更新，实现攻击无关的鲁棒联邦学习，在恶意客户端占比高达 80% 时仍能有效防御。
 
 **[Towards Multi-modal Transformers in Federated Learning](towards_multi-modal_transformers_in_federated_learning.md)**
 

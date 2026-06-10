@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 多语言/翻译方向89篇论文解读
+  ACL2025 多语言/翻译论文汇总 · 88篇论文解读
 description: >-
-  89篇ACL2025的多语言/翻译方向论文解读，涵盖翻译、LLM、对齐/RLHF、少样本学习、语音、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  88篇ACL2025的多语言/翻译方向论文解读，涵盖翻译、LLM、对齐/RLHF、少样本学习、语音、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ACL2025"
   - "多语言/翻译"
@@ -14,16 +14,78 @@ tags:
   - "少样本学习"
   - "语音"
   - "推理"
+item_list:
+  - u: "a_case_study_of_cross-lingual_zero-shot_generalization_for_classical_languages_i/"
+    t: "A Case Study of Cross-Lingual Zero-Shot Generalization for Classical Languages in LLMs"
+  - u: "accessible_machine_translation_evaluation_for_low-resource_languages/"
+    t: "Accessible Machine Translation Evaluation For Low-Resource Languages"
+  - u: "alleviating_distribution_shift_in_synthetic_data_for_machine_translation_quality/"
+    t: "Alleviating Distribution Shift in Synthetic Data for Machine Translation Quality Estimation"
+  - u: "an_expanded_massive_multilingual_dataset_for_high-performance_language_technolog/"
+    t: "An Expanded Massive Multilingual Dataset for High-Performance Language Technologies (HPLT)"
+  - u: "are_rules_meant_to_be_broken_understanding_multilingual_moral_reasoning_as_a_com/"
+    t: "Are Rules Meant to be Broken? Understanding Multilingual Moral Reasoning as a Computational Pipeline with UniMoral"
+  - u: "askqe_question_answering_as_automatic_evaluation_for_machine_translation/"
+    t: "AskQE: Question Answering as Automatic Evaluation for Machine Translation"
+  - u: "assessing_agentic_large_language_models_in_multilingual_national_bias/"
+    t: "7 Points to Tsinghua but 10 Points to 清华? Assessing Agentic Large Language Models in Multilingual National Bias"
+  - u: "beyond_n-grams_rethinking_evaluation_metrics_and_strategies_for_multilingual_abs/"
+    t: "Beyond N-Grams: Rethinking Evaluation Metrics and Strategies for Multilingual Abstractive Summarization"
+  - u: "blessing_of_multilinguality_a_systematic_analysis_of_multilingual_in-context_lea/"
+    t: "Blessing of Multilinguality: A Systematic Analysis of Multilingual In-Context Learning"
+  - u: "bridging_the_language_gaps_in_large_language_models_with_inference-time_cross-li/"
+    t: "Bridging the Language Gaps in Large Language Models with Inference-Time Cross-Lingual Intervention"
+  - u: "cc-tuning_a_cross-lingual_connection_mechanism_for_improving_joint_multilingual_/"
+    t: "CC-Tuning: A Cross-Lingual Connection Mechanism for Improving Joint Multilingual Supervised Fine-Tuning"
+  - u: "cchall_a_novel_benchmark_for_joint_cross-lingual_and_cross-modal_hallucinations_/"
+    t: "CCHall: A Novel Benchmark for Joint Cross-Lingual and Cross-Modal Hallucinations Detection in Large Language Models"
+  - u: "clix_cross-lingual_explanations_of_idiomatic_expressions/"
+    t: "CLIX: Cross-Lingual Explanations of Idiomatic Expressions"
+  - u: "code-switching_curriculum_learning_for_multilingual_transfer_in_llms/"
+    t: "Code-Switching Curriculum Learning for Multilingual Transfer in LLMs"
+  - u: "code-switching_red-teaming_llm_evaluation_for_safety_and_multilingual_understand/"
+    t: "Code-Switching Red-Teaming: LLM Evaluation for Safety and Multilingual Understanding"
+  - u: "comparative_analysis_of_multilingual_hate_speech_detection/"
+    t: "Comparative Analysis of Multilingual Hate Speech Detection"
+  - u: "context_augmented_token-level_post-editing_for_human_interpreting/"
+    t: "Context Augmented Token-Level Post-Editing for Human Interpreting"
+  - u: "cosmmic_commentsensitive_multimodal_multilingual_indian_corpus/"
+    t: "COSMMIC: Comment-Sensitive Multimodal Multilingual Indian Corpus"
+  - u: "cross-lingual_auto_evaluation_for_assessing_multilingual_llms/"
+    t: "Cross-Lingual Auto Evaluation for Assessing Multilingual LLMs"
+  - u: "cross-lingual_optimization_for_language_transfer_in_large_language_models/"
+    t: "Cross-Lingual Optimization for Language Transfer in Large Language Models"
+  - u: "cross-lingual_representation_alignment_through_contrastive_image-caption_tuning/"
+    t: "Cross-Lingual Representation Alignment Through Contrastive Image-Caption Tuning"
+  - u: "cross-lingual_transfer_of_cultural_knowledge_an_asymmetric_phenomenon/"
+    t: "Cross-Lingual Transfer of Cultural Knowledge: An Asymmetric Phenomenon"
+  - u: "cross-lingual_transfer_of_debiasing_and_detoxification_in_multilingual_llms_an_e/"
+    t: "Cross-Lingual Transfer of Debiasing and Detoxification in Multilingual LLMs: An Extensive Investigation"
+  - u: "cross_lingual_neurons_compression/"
+    t: "Cross-Lingual Generalization and Compression: From Language-Specific to Shared Neurons"
+  - u: "crosslingual_pitfalls/"
+    t: "Cross-Lingual Pitfalls: Automatic Probing Cross-Lingual Weakness of Multilingual Large Language Models"
+  - u: "cruxeval-x_a_benchmark_for_multilingual_code_reasoning_understanding_and_executi/"
+    t: "CruxEval-X: A Benchmark for Multilingual Code Reasoning, Understanding and Execution"
+  - u: "culfit_a_fine-grained_cultural-aware_llm_training_paradigm_via_multilingual_crit/"
+    t: "CulFiT: A Fine-grained Cultural-aware LLM Training Paradigm via Multilingual Critique Data Synthesis"
+  - u: "dictionaries_to_the_rescue_cross-lingual_vocabulary_transfer_for_low-resource_la/"
+    t: "Dictionaries to the Rescue: Cross-Lingual Vocabulary Transfer for Low-Resource Languages Using Bilingual Dictionaries"
+  - u: "disentangle_language_culture/"
+    t: "Disentangling Language and Culture for Evaluating Multilingual Large Language Models"
+  - u: "edit_once_update_everywhere_a_simple_framework_for_cross-lingual_knowledge_synch/"
+    t: "Edit Once, Update Everywhere: A Simple Framework for Cross-Lingual Knowledge Synchronization in LLMs"
+item_total: 88
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🌐 多语言/翻译
 
-**💬 ACL2025** · **89** 篇论文解读
+**💬 ACL2025** · **88** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (3)](../../ICML2026/multilingual_mt/index.md) · [💬 ACL2026 (63)](../../ACL2026/multilingual_mt/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/multilingual_mt/index.md) · [🔬 ICLR2026 (5)](../../ICLR2026/multilingual_mt/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/multilingual_mt/index.md) · [🧠 NeurIPS2025 (11)](../../NeurIPS2025/multilingual_mt/index.md)
 
-🔥 **高频主题：** 翻译 ×23 · LLM ×15 · 对齐/RLHF ×5 · 少样本学习 ×3 · 语音 ×3
+🔥 **高频主题：** 翻译 ×22 · LLM ×15 · 对齐/RLHF ×5 · 少样本学习 ×3 · 语音 ×3
 
 **[A Case Study of Cross-Lingual Zero-Shot Generalization for Classical Languages in LLMs](a_case_study_of_cross-lingual_zero-shot_generalization_for_classical_languages_i.md)**
 
@@ -220,10 +282,6 @@ tags:
 **[Read it in Two Steps: Translating Extremely Low-Resource Languages with Code-Augmented Grammar Books](low_resource_translation.md)**
 
 :   将语法书辅助的极低资源翻译分解为**语法规则检索**和**规则应用**两步，提出 Rule-by-Rule 检索策略和代码格式语法规则表示，在壮语翻译上端到端提升 13.1% BLEU。
-
-**[M-MAD: Multidimensional Multi-Agent Debate for Advanced Machine Translation Evaluation](m-mad_multidimensional_multi-agent_debate_for_advanced_machine_translation_evalu.md)**
-
-:   提出 M-MAD 框架，将 MQM 评估标准解耦为独立维度（准确性、流畅性、风格、术语），在每个维度内进行多智能体正反方辩论，最后由裁判智能体综合各维度结果，在 segment 级别显著超越已有 LLM-as-a-judge 方法，甚至用 GPT-4o mini 就能媲美 SOTA 有参考自动指标。
 
 **[M2rc-Eval: Massively Multilingual Repository-level Code Completion Evaluation](m2rc-eval_massively_multilingual_repository-level_code_completion_evaluation.md)**
 

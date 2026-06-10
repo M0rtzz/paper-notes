@@ -1,6 +1,6 @@
 ---
 title: >-
-  ICCV2025 信息检索/RAG方向7篇论文解读
+  ICCV2025 信息检索/RAG论文汇总 · 7篇论文解读
 description: >-
   7篇ICCV2025的信息检索/RAG 方向论文解读，涵盖持续学习、RAG、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -11,6 +11,22 @@ tags:
   - "持续学习"
   - "RAG"
   - "多模态"
+item_list:
+  - u: "aligning_information_capacity_between_vision_and_language_via_dense-to-sparse_fe/"
+    t: "Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation"
+  - u: "aligning_information_capacity_between_vision_and_language_via_dense_to_sparse_feature_distillation/"
+    t: "Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation for Image-Text Matching"
+  - u: "external_knowledge_injection_for_clip-based_class-incremental_learning/"
+    t: "External Knowledge Injection for CLIP-Based Class-Incremental Learning"
+  - u: "langbridge_interpreting_image_as_a_combination_of_language_embeddings/"
+    t: "LangBridge: Interpreting Image as a Combination of Language Embeddings"
+  - u: "monster_a_unified_model_for_motion_scene_text_retrieval/"
+    t: "MonSTeR: a Unified Model for Motion, Scene, Text Retrieval"
+  - u: "ocr_hinders_rag_evaluating_the_cascading_impact_of_ocr_on_retrieval-augmented_ge/"
+    t: "OCR Hinders RAG: Evaluating the Cascading Impact of OCR on Retrieval-Augmented Generation"
+  - u: "vilu_learning_vision-language_uncertainties_for_failure_prediction/"
+    t: "ViLU: Learning Vision-Language Uncertainties for Failure Prediction"
+item_total: 7
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
@@ -18,7 +34,7 @@ tags:
 
 **📹 ICCV2025** · **7** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (9)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/information_retrieval/index.md) · [💬 ACL2026 (74)](../../ACL2026/information_retrieval/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/information_retrieval/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/information_retrieval/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/information_retrieval/index.md) · [🧠 NeurIPS2025 (30)](../../NeurIPS2025/information_retrieval/index.md)
 
 **[Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation](aligning_information_capacity_between_vision_and_language_via_dense-to-sparse_fe.md)**
 

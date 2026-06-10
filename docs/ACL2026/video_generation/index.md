@@ -1,6 +1,6 @@
 ---
 title: >-
-  ACL2026 视频生成方向4篇论文解读
+  ACL2026 视频生成论文汇总 · 4篇论文解读
 description: >-
   4篇ACL2026的视频生成方向论文解读，涵盖视频生成、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
@@ -9,6 +9,16 @@ tags:
   - "论文解读"
   - "论文笔记"
   - "对齐/RLHF"
+item_list:
+  - u: "accelerating_training_of_autoregressive_video_generation_models_via_local_optimi/"
+    t: "Accelerating Training of Autoregressive Video Generation Models via Local Optimization with Representation Continuity"
+  - u: "oscbench_benchmarking_object_state_change_in_text-to-video_generation/"
+    t: "OSCBench: Benchmarking Object State Change in Text-to-Video Generation"
+  - u: "self-correcting_text-to-video_generation_with_misalignment_detection_and_localiz/"
+    t: "Self-Correcting Text-to-Video Generation with Misalignment Detection and Localized Refinement"
+  - u: "teachmaster_generative_teaching_via_code/"
+    t: "TeachMaster: Generative Teaching via Code"
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
