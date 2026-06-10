@@ -40,26 +40,21 @@ tags:
 
 ### 整体框架
 
-在冻结的 ViT 骨干（CLIP/DINOv2）每个 Transformer 块之后插入轻量 Frame2Freq 适配器。输入视频 $T$ 帧经 ViT 得到 patch 嵌入 $X \in \mathbb{R}^{T \times N \times D}$，适配器通过 $\text{FC}_{down} \to \text{频域/时域分支} \to \text{FC}_{up}$ 的瓶颈结构生成时序增强特征，残差加回骨干输出。最终逐帧 CLS 聚合后接线性分类头。
+Frame2Freq 想解决的是：图像预训练的 VFM 迁到视频时，现有时域适配器只盯着静态线索和极快闪烁，恰好漏掉了区分细粒度动作的中频运动信号。它的做法是在冻结 ViT 骨干（CLIP/DINOv2）每个 Transformer 块后插一个轻量适配器：输入 $T$ 帧经 ViT 得到 patch 嵌入 $X \in \mathbb{R}^{T \times N \times D}$，适配器走 $\text{FC}_{down} \to \text{频域/时域分支} \to \text{FC}_{up}$ 的瓶颈结构，把时序信息搬到频谱空间做滤波，再残差加回骨干输出，最后逐帧 CLS 聚合接线性分类头。论文给出两种变体，分别对应单尺度和多尺度的运动数据集。
 
-### Frame2Freq-ST（短时频谱适配器）
+### 关键设计
 
-- 对降维后的嵌入沿时间轴做 **STFT**（Hann 窗），得到时频联合表示 $\tilde{X} \in \mathbb{C}^{B \times N \times F \times T' \times C_a}$。
-- 两个深度可分离 3D 卷积分别沿时间轴（$\text{Conv}_{temp}$）和频率轴（$\text{Conv}_{freq}$）精炼，捕获短时过渡和邻近频带关系。
-- iSTFT 回到时域后经 $\text{FC}_{up}$ 恢复维度，仅 **3.5M** 可训练参数。
-- 适合动作尺度单一的领域特定数据集（Drive&Act、IKEA-ASM）。
+**1. Frame2Freq-ST：短时频谱适配器，专治动作尺度单一的领域数据**
 
-### Frame2Freq-MS（多尺度频谱适配器）
+对动作频率跨度不大的场景（Drive&Act、IKEA-ASM），用短时变换就够。ST 对降维后的嵌入沿时间轴做 STFT（Hann 窗），得到时频联合表示 $\tilde{X} \in \mathbb{C}^{B \times N \times F \times T' \times C_a}$，再用两个深度可分离 3D 卷积分别沿时间轴（$\text{Conv}_{temp}$）和频率轴（$\text{Conv}_{freq}$）精炼，捕获短时过渡和邻近频带关系，iSTFT 回时域后经 $\text{FC}_{up}$ 恢复维度。整支只有 3.5M 可训练参数，比同框架的 ST-Adapter 还轻，却能直接对准被忽视的中频段。
 
-- 降维后将通道 **对半拆分**为频域分支 $X_{freq}$ 和时域分支 $X_{temp}$。
-- 频域分支：对 $X_{freq}$ 在 $K$ 个不同窗口大小 $\{w_k\} = [T, T/2, T/4]$ 下分别做 FFT，每个尺度经共享深度卷积 $\text{Conv}_{freq}$ 精炼后取平均，再 iFFT 回时域。
-- 时域分支：$X_{temp}$ 经 $(3\times1\times1)$ 卷积 $\text{Conv}_{temp}$ 捕获短程时序连续性。
-- 两分支拼接后经 $\text{FC}_{up}$ 恢复，**7.3M** 可训练参数。
-- 适合运动频率跨度大的复杂数据集（Diving48、SSv2）。
+**2. Frame2Freq-MS：多尺度频谱适配器，覆盖运动频率跨度大的复杂场景**
 
-### 损失函数
+像 Diving48、SSv2 这种一个动作里混着快慢多种运动，单一窗口抓不全，需要多尺度。MS 把降维后的通道对半拆成频域分支 $X_{freq}$ 和时域分支 $X_{temp}$：频域分支在 $K$ 个窗口 $\{w_k\} = [T, T/2, T/4]$ 下分别做 FFT，各尺度经共享深度卷积 $\text{Conv}_{freq}$ 精炼后取平均再 iFFT 回时域；时域分支则用 $(3\times1\times1)$ 卷积 $\text{Conv}_{temp}$ 补短程时序连续性。两分支拼接后过 $\text{FC}_{up}$ 恢复，共 7.3M 可训练参数。多窗口让它能同时看清不同时间尺度的运动相位，这正是区分对称动作对的关键。
 
-标准交叉熵分类损失，无额外辅助损失设计。训练 60 epoch，均匀采样 16 或 32 帧。
+### 损失函数 / 训练策略
+
+只用标准交叉熵分类损失，无额外辅助损失；训练 60 epoch，均匀采样 16 或 32 帧。
 
 ## 实验关键数据
 

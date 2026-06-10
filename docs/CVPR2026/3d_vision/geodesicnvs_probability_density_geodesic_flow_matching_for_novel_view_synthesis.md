@@ -35,24 +35,29 @@ tags:
 
 ### 整体框架
 
-PDG-FM 由两大组件构成：
-1. **Data-to-Data Flow Matching (D2D-FM)**：在配对样本 $(x_0, x_1)$ 之间学习确定性流，无需噪声先验
-2. **变分蒸馏测地线 (Variational Distillation of Geodesics)**：训练 GeodesicNet 使插值路径与概率密度流形对齐
+GeodesicNVS 要解决的是扩散式新视角合成靠"噪声到数据"的随机转换、跨视角预测不一致，而现有条件 Flow Matching 又只用简单线性插值、抓不住数据流形非线性几何的问题。它的 PDG-FM 框架由两块组成：Data-to-Data Flow Matching（D2D-FM）在同一场景不同视角的编码对 $(x_0, x_1)$ 之间学一条确定性流、彻底甩掉噪声先验；变分蒸馏测地线则训练一个 GeodesicNet，把这条流的插值路径掰到沿数据流形高密度区行进，从而让中间帧是真实的视角变换而非简单混合。
 
 ### 关键设计
 
-1. **Data-to-Data Flow Matching**：与传统噪声到数据的 Flow Matching 不同，D2D-FM 直接在同一场景不同视角的编码对 $(x_0, x_1)$ 间建立确定性流。速度网络 $v_\theta(x_t, t, q, c)$ 基于 U-Net 架构，输入中间状态 $x_t$ 和时间 $t$，条件包括：Plücker 射线嵌入（目标相机位姿）、CLIP 编码的源视图语义特征（交叉注意力注入）、VAE 编码的源视图空间特征（与 $x_t$ 拼接作为输入）。线性插值：$x_t = (1-t)x_0 + tx_1 + \sigma_{\min}\epsilon$，目标速度：$u_t = x_1 - x_0$。
+**1. Data-to-Data Flow Matching：用数据到数据的确定性流取代噪声到数据的扩散**
 
-2. **概率密度测地线 (PDG)**：定义局部度量张量 $G(x) = p(x)^{-2}I$，与数据密度成反比，路径长度为 $S[\gamma] = \int_0^1 \|\dot{\gamma}\|_{G(\gamma)} dt$。测地线满足 Euler-Lagrange 方程：$\ddot{\gamma} + \|\dot{\gamma}\|^2 (I - \hat{\dot{\gamma}}\hat{\dot{\gamma}}^\top)\nabla\log p(\gamma) = 0$。通过预训练扩散模型的 score function 近似数据密度梯度 $\nabla\log p$，利用 classifier-free guidance 在 DDIM 时间步 $\tau=0.6$ 估计 score。
+扩散的随机噪声转换掩盖了确定性结构、导致跨视角不一致，D2D-FM 干脆直接在同一场景不同视角的编码对 $(x_0, x_1)$ 间建确定性流。速度网络 $v_\theta(x_t, t, q, c)$ 基于 U-Net，输入中间状态 $x_t$ 和时间 $t$，条件包括 Plücker 射线嵌入（目标相机位姿）、CLIP 编码的源视图语义特征（交叉注意力注入）、VAE 编码的源视图空间特征（与 $x_t$ 拼接输入）；用线性插值 $x_t = (1-t)x_0 + tx_1 + \sigma_{\min}\epsilon$、目标速度 $u_t = x_1 - x_0$ 监督。少步推理时这种确定性流的优势尤其明显，不像扩散在 10 步内 FID 急剧恶化。
 
-3. **GeodesicNet 蒸馏**：采用 teacher-student 架构——teacher 网络 $\phi_\xi$ 在扩散潜在空间最小化 Euler-Lagrange 残差优化测地线路径，student 网络 $\phi_\eta$ 通过 DDIM 反向映射蒸馏到 VAE 空间。测地线插值参数化为：$x_t = (1-t)x_0 + tx_1 + \phi_\eta(x_0, x_1, t)$，其中 $\phi_\eta$ 满足边界约束 $\phi_\eta(x_0,x_1,0) = \phi_\eta(x_0,x_1,1) = 0$。这种双阶段设计将几何优化与高效路径生成分离。
+**2. 概率密度测地线 PDG：让插值路径沿数据流形高密度区行进**
+
+线性插值会笔直穿过流形的低密度"空洞"、产生不真实的中间状态。PDG 定义与数据密度反比的局部度量张量 $G(x) = p(x)^{-2}I$，把路径长度记为 $S[\gamma] = \int_0^1 \|\dot{\gamma}\|_{G(\gamma)} dt$——低密度区度量大、走起来"代价高"，于是最优路径自然绕向高密度区。该测地线满足 Euler-Lagrange 方程 $\ddot{\gamma} + \|\dot{\gamma}\|^2 (I - \hat{\dot{\gamma}}\hat{\dot{\gamma}}^\top)\nabla\log p(\gamma) = 0$，其中数据密度梯度 $\nabla\log p$ 用预训练扩散模型的 score function 近似，借 classifier-free guidance 在 DDIM 时间步 $\tau=0.6$ 估计。
+
+**3. GeodesicNet 蒸馏：把 score 依赖的几何优化和高效路径生成解耦**
+
+直接在推理时解 Euler-Lagrange 方程太贵，GeodesicNet 用 teacher-student 把几何优化离线化：teacher 网络 $\phi_\xi$ 在扩散潜在空间最小化 Euler-Lagrange 残差以求出测地线路径，student 网络 $\phi_\eta$ 再通过 DDIM 反向映射把它蒸馏到 VAE 空间。测地线插值参数化为 $x_t = (1-t)x_0 + tx_1 + \phi_\eta(x_0, x_1, t)$，其中 $\phi_\eta$ 满足边界约束 $\phi_\eta(x_0,x_1,0) = \phi_\eta(x_0,x_1,1) = 0$ 以保证端点不变。这种双阶段设计把 score 依赖的黎曼度量计算与流模型的训练/部署彻底分开，既享受测地线的几何收益又不拖慢推理。
 
 ### 损失函数 / 训练策略
 
 三阶段训练：
+
 1. **D2D-FM 训练**：$\mathcal{L}_{\text{CFM}}(\theta) = \mathbb{E}[\|v_\theta(x_t,t,q,c) - (x_1-x_0)\|^2]$，源视图用余弦调度增强
-2. **GeodesicNet 蒸馏**：Teacher 最小化功能导数 $\ell^\tau(\xi) = \mathbb{E}_t[\text{StopGrad}(g_t) \cdot z_t]$；Student 最小化 MSE：$\ell^0(\eta) = \mathbb{E}_t[\|x_t - \text{DDIM-B}(z_t,c,\tau)\|^2]$
-3. **Geodesic FM 训练**：从预训练速度网络微调，目标速度包含 $\phi_\eta$ 的时间导数 $v_{\text{target}} = x_1 - x_0 + \nabla_t\phi_\eta(x_0,x_1,t)$
+2. **GeodesicNet 蒸馏**：Teacher 最小化功能导数 $\ell^\tau(\xi) = \mathbb{E}_t[\text{StopGrad}(g_t) \cdot z_t]$；Student 最小化 MSE $\ell^0(\eta) = \mathbb{E}_t[\|x_t - \text{DDIM-B}(z_t,c,\tau)\|^2]$
+3. **Geodesic FM 训练**：从预训练速度网络微调，目标速度含 $\phi_\eta$ 的时间导数 $v_{\text{target}} = x_1 - x_0 + \nabla_t\phi_\eta(x_0,x_1,t)$
 
 - 优化器 AdamW，batch size 256，学习率 $1 \times 10^{-5}$，分辨率 256×256
 - 训练数据：Objaverse（772k+ 3D 物体，每物体 12 视角渲染）

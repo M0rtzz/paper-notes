@@ -39,33 +39,33 @@ tags:
 
 ### 整体框架
 
-基于 Stable Diffusion 1.5 的条件修复框架。输入源人脸图像和目标人脸图像，输出替换了身份的目标图像。核心思路是：**先约束身份 → 再调优属性 → 最后端到端精炼**，分三阶段训练，逐步缩小解空间。
+这篇论文要解决的是扩散人脸替换里一个长期纠结的矛盾：身份条件想把脸拉向源人脸，属性条件想把表情姿态拉向目标人脸，两个条件在训练里方向相反、互相打架。作者的解法是给它们排个优先级——「先像，再准」。整套框架建在 Stable Diffusion 1.5 的条件修复上，输入源人脸和目标人脸，输出换了身份的目标图；训练分三阶段走，先把模型解空间收缩到身份一致的区域，再在这个子空间里对齐属性，最后端到端精炼真实感。
 
 ### 关键设计
 
-1. **解耦条件注入（Decoupled Facial Condition Injection）**:
+**1. 解耦条件注入：从数据和特征两头把身份和属性拆开**
 
-    - **数据层面解耦**：不同于以往用同一图像做增强生成条件对（容易泄露身份和属性信息），本文使用**同一人不同属性**的配对图像，从根本上解耦身份与属性特征
-    - **双路径提取**：身份路径使用 ArcFace 人脸识别模型提取 $d$ 维特征，通过 MLP 扩展为 $n \times d$ 的 token 序列 $c_{\text{face}}$，再用 DINOv2 提取空间细节特征 $c_{\text{dino}}$，通过交叉注意力融合：
-    $c_{\text{id}} = c_{\text{face}} + \lambda_{\text{id}} \cdot \text{Attention}(c_{\text{face}}, c_{\text{dino}}, c_{\text{dino}})$
-   属性路径使用 SimSwap 的 3 层下采样网络从目标人脸提取表情特征 $c_{\text{attr}}$
-    - **注意力融合**：身份特征作为 query、属性特征作为 key-value，通过融合因子 $\lambda_{\text{fuse}}$ 控制属性注入强度：
-    $c_{\text{fuse}} = c_{\text{id}} + \lambda_{\text{fuse}} \cdot \text{Attention}(c_{\text{id}}, c_{\text{attr}}, c_{\text{attr}})$
-   当 $\lambda_{\text{fuse}} = 0$ 时退化为纯身份条件。融合特征通过 GLIGEN 适配器注入 UNet 交叉注意力层。
+以往常拿同一张图做数据增强来凑条件对，结果身份和属性信息互相泄露，模型分不清谁是谁。本文从数据层面就解耦：用**同一人不同属性**的配对图像，天然把身份特征和属性特征分到两路。身份路径先用 ArcFace 提 $d$ 维特征、经 MLP 扩成 $n \times d$ 的 token 序列 $c_{\text{face}}$，再用 DINOv2 提空间细节 $c_{\text{dino}}$，交叉注意力融合成
 
-2. **身份约束的多阶段训练（Identity-Constrained Facial Conditioning）**:
+$$c_{\text{id}} = c_{\text{face}} + \lambda_{\text{id}} \cdot \text{Attention}(c_{\text{face}}, c_{\text{dino}}, c_{\text{dino}})$$
 
-    - **Stage 1 — 身份导向调优**：扩展 UNet 输入层接受噪声隐变量 $x_t$、修复区域掩码 $m$ 和背景上下文 $(1-m) \odot x_t$。仅使用身份条件（$\lambda_{\text{fuse}} = 0$），无属性约束，将模型解空间收缩到身份一致的输出区域
-    - **Stage 2 — 属性调优**：启用属性条件（$\lambda_{\text{fuse}} = 1$），引导模型在保持身份约束的前提下对齐目标表情和姿态。两个关键细节：(a) 融合模块输出层零初始化，避免属性注入破坏已学的身份特征；(b) 降低身份空间增强因子 $\lambda_{\text{id}}$ 至 0.2，防止身份条件过强而忽视属性
-    - **Stage 3 — 端到端精炼**：将 50 步 DDIM 采样视为级联端到端生成模型，在采样结果上施加身份损失和对抗损失：
-    $\mathcal{L} = \lambda_{\text{adv}} \mathcal{L}_{\text{adv}} + \lambda_{\text{id}} \mathcal{L}_{\text{id}}$
-   为解决反向传播的内存开销，每个 mini-batch 仅从 50 步中随机采样 $k$ 步计算梯度
+属性路径则用 SimSwap 的 3 层下采样网络从目标脸抽表情特征 $c_{\text{attr}}$。最后让身份特征当 query、属性特征当 key-value，用融合因子 $\lambda_{\text{fuse}}$ 控制属性注入强度：
 
-3. **与 GAN 方法的关键区别**:
+$$c_{\text{fuse}} = c_{\text{id}} + \lambda_{\text{fuse}} \cdot \text{Attention}(c_{\text{id}}, c_{\text{attr}}, c_{\text{attr}})$$
 
-    - DiffSwap/DiffFace 直接将 ID loss 加到噪声预测损失上，这放松了 ELBO 理论界，降低生成质量
-    - REFace 在多步 DDIM 采样结果上加 ID loss，但计算量大
-    - 本文将 ID 监督独立为第三阶段，避免干扰扩散训练的 ELBO，同时利用 SNGAN 判别器进一步提升真实感
+当 $\lambda_{\text{fuse}} = 0$ 就退化成纯身份条件，融合特征经 GLIGEN 适配器注入 UNet 的交叉注意力层——这个开关正好被下面的多阶段训练用来控制优先级。
+
+**2. 身份约束的多阶段训练：先收身份解空间，再调属性，最后精炼**
+
+把「先像再准」落到训练上就是三个阶段。Stage 1 是身份导向调优：扩展 UNet 输入层接收噪声隐变量 $x_t$、修复掩码 $m$ 和背景上下文 $(1-m) \odot x_t$，关掉属性条件（$\lambda_{\text{fuse}} = 0$），只让模型学身份，把解空间先压到身份一致的范围。Stage 2 打开属性条件（$\lambda_{\text{fuse}} = 1$），在身份约束之内对齐表情姿态，这里两个细节很关键：融合模块输出层零初始化，避免属性注入一上来就冲垮已学好的身份特征；同时把身份增强因子 $\lambda_{\text{id}}$ 降到 0.2，防止身份太强压过属性。Stage 3 是端到端精炼：把 50 步 DDIM 采样看成一个级联生成模型，在采样结果上加身份损失和对抗损失
+
+$$\mathcal{L} = \lambda_{\text{adv}} \mathcal{L}_{\text{adv}} + \lambda_{\text{id}} \mathcal{L}_{\text{id}}$$
+
+为了扛住反传的显存开销，每个 mini-batch 只从 50 步里随机抽 $k$ 步算梯度。
+
+**3. 把 ID 监督独立成第三阶段：不污染扩散训练的 ELBO**
+
+DiffSwap/DiffFace 直接把 ID loss 加到噪声预测损失上，这会放松扩散的 ELBO 理论界、拖累生成质量；REFace 虽然在多步 DDIM 结果上加 ID loss，但计算量很大。本文的做法是把 ID 监督整个抽出来放到 Stage 3，前两阶段的 ELBO 完全不受身份损失干扰，再借 SNGAN 判别器把真实感顶上去——既拿到身份监督的好处，又没破坏扩散训练本身。
 
 ### 损失函数 / 训练策略
 

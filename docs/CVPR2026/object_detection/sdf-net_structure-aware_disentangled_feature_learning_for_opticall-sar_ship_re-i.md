@@ -44,36 +44,25 @@ tags:
 
 ### 整体框架
 
-SDF-Net 基于 ViT-B/16 骨干网络，包含四个阶段：
+SDF-Net 抓住的关键点是：光学和 SAR 成像物理完全不同（被动反射 vs 主动微波散射），辐射外观剧变让直接对齐数学上不适定，但船舶是刚体，几何结构在两个模态里高度一致——所以它把几何结构当作跨模态不变锚点。整体基于 ViT-B/16，分四步走：输入端用跨模态双头 Tokenizer 把光学/SAR 图像各自线性投影到统一 C 维潜空间、中和低层传感器差异；中间层（第 $B_s$ 层 Transformer block）提取梯度能量做结构感知一致性学习（SCL），对齐跨模态结构原型；终端层把表示解耦成模态共享身份特征 $\mathbf{f}_{sh}$ 和模态特定特征 $\mathbf{f}_{sp}$ 再加法融合（DFL）；推理时用融合特征 $\mathbf{f}_{fuse}$ 做双向跨模态检索。
 
-- **(a) 输入阶段** — 跨模态双头 Tokenizer：光学/SAR 图像通过独立线性投影头映射到统一 C 维潜空间，中和低层传感器差异
-- **(b) 中间阶段** — 结构感知一致性学习（SCL）：从第 $B_s$ 层 Transformer block 提取梯度能量，对齐跨模态结构原型
-- **(c) 终端阶段** — 解耦特征学习（DFL）：将最终表示分解为模态共享身份特征 $\mathbf{f}_{sh}$ 和模态特定特征 $\mathbf{f}_{sp}$，通过加法融合
-- **(d) 推理阶段** — 使用融合特征 $\mathbf{f}_{fuse}$ 执行双向跨模态检索
+### 关键设计
 
-### 关键设计 1：结构感知一致性学习（SCL）
+**1. 结构感知一致性学习（SCL）：把几何结构从辐射外观里剥出来对齐**
 
-**中间层梯度能量提取**：对第 $B_s=6$ 层的特征图 $\mathbf{F}^{(B_s)}$ 计算水平/垂直一阶偏导：
+原始像素被 SAR 散斑噪声严重干扰，高层语义又太抽象丢了空间拓扑，所以 SDF-Net 选中间层（第 $B_s=6$ 层）作结构探针。它对特征图 $\mathbf{F}^{(B_s)}$ 算水平/垂直一阶偏导
 
 $$\mathbf{G}_x(h,w) = \mathbf{F}(h,w+1) - \mathbf{F}(h,w-1)$$
 
-空间积分获得通道级梯度能量描述子 $\mathbf{f}_{struct} = \mathbf{e}_x + \mathbf{e}_y \in \mathbb{R}^{B \times C}$，全局聚合有效抑制 SAR 角反射器等孤立强散射点的干扰。
-
-**尺度不变实例归一化**：对 $\mathbf{f}_{struct}$ 沿通道维度做 Instance Normalization，将 SAR 高动态范围和光学窄带反射映射到标准化流形，剥离模态特定"风格"保留几何"内容"。
-
-**原型级一致性损失**：对 mini-batch 中每个身份 $i$ 计算光学/SAR 结构原型 $\mathbf{c}_i^o$、$\mathbf{c}_i^s$，最小化欧氏距离：
+空间积分得到通道级梯度能量描述子 $\mathbf{f}_{struct} = \mathbf{e}_x + \mathbf{e}_y \in \mathbb{R}^{B \times C}$，全局聚合能抑制 SAR 角反射器这类孤立强散射点。接着对 $\mathbf{f}_{struct}$ 沿通道做尺度不变实例归一化，把 SAR 的高动态范围和光学的窄带反射映射到同一标准化流形，等于剥掉模态特定风格、留下几何内容。最后在身份级而非实例级对齐：对每个身份 $i$ 算光学/SAR 结构原型 $\mathbf{c}_i^o$、$\mathbf{c}_i^s$，最小化欧氏距离
 
 $$\mathcal{L}_{struct} = \frac{1}{|\mathcal{I}|} \sum_{i \in \mathcal{I}} \|\mathbf{c}_i^o - \mathbf{c}_i^s\|_2^2$$
 
-### 关键设计 2：解耦特征学习与残差融合（DFL）
+原型级对齐避免过拟合到单样本噪声。
 
-终端表示 $\mathbf{F}^{(L)}$ 经两个独立线性投影头分解为：
-- $\mathbf{f}_{sh}$：模态不变共享身份特征（受 $\mathcal{L}_{struct}$ 正则化）
-- $\mathbf{f}_{sp}$：模态特定特征（保留 SAR 角反射器响应、光学颜色纹理等）
+**2. 解耦特征学习与残差融合（DFL）：把模态特定信息当残差补回去而非丢掉**
 
-**正交性约束**确保子空间独立：$\mathcal{L}_{orth} = \mathbb{E}[|\langle \bar{\mathbf{f}}_{sh}, \bar{\mathbf{f}}_{sp} \rangle|]$
-
-**加法残差融合**：$\mathbf{f}_{fuse} = \mathbf{f}_{sh} + \mathbf{f}_{sp}$，无参数、不扩展维度，模态特定特征作为残差补充精细身份判别信息。
+跨模态匹配里模态特定特征（SAR 角反射器响应、光学颜色纹理）常被当噪声丢弃，但它们其实含精细身份信息。DFL 把终端表示 $\mathbf{F}^{(L)}$ 经两个独立线性投影头分成受 $\mathcal{L}_{struct}$ 正则的模态不变共享特征 $\mathbf{f}_{sh}$ 和保留模态细节的特定特征 $\mathbf{f}_{sp}$，用正交性约束 $\mathcal{L}_{orth} = \mathbb{E}[|\langle \bar{\mathbf{f}}_{sh}, \bar{\mathbf{f}}_{sp} \rangle|]$ 保证两个子空间独立，再做加法残差融合 $\mathbf{f}_{fuse} = \mathbf{f}_{sh} + \mathbf{f}_{sp}$。加法融合无参数、不扩展维度，把模态特定特征当残差补充进共享身份特征，既不丢判别信息又极致高效。
 
 ### 损失函数
 

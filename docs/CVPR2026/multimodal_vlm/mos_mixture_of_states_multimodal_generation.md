@@ -33,17 +33,24 @@ tags:
 ## 方法详解
 
 ### 整体框架
-双塔设计：理解塔$\mathcal{U}$（冻结的PLM-8B/InternVL-14B）处理文本/图像条件,生成塔$\mathcal{G}$（从头训练的3B/5B DiT）进行扩散去噪。轻量路由器$\mathcal{R}$（仅100M参数,2个Transformer块）根据(prompt, 噪声图像$z_t$, 时刻$t$)动态决定理解塔哪些层的hidden state被路由到生成塔的哪些层。
+MoS 想解决的是多模态扩散模型里文本/视觉信号怎么灵活融合的问题。它用双塔设计：理解塔 $\mathcal{U}$（冻结的 PLM-8B/InternVL-14B）处理文本/图像条件，生成塔 $\mathcal{G}$（从头训练的 3B/5B DiT）进行扩散去噪。两塔之间插一个轻量路由器 $\mathcal{R}$（仅 100M 参数、2 个 Transformer 块），根据（prompt, 噪声图像 $z_t$, 时刻 $t$）动态决定理解塔哪些层的 hidden state 被路由到生成塔的哪些层。
 
 ### 关键设计
-1. **Token级稀疏路由**：每个context token独立预测一个logit矩阵$\mathcal{W} \in \mathbb{R}^{m \times n}$（$m$=理解塔层数, $n$=生成塔层数），每个$w_{ij}$表示将理解塔第$i$层路由到生成塔第$j$层的权重。softmax归一化后top-k（$k=2$）选择,仅传递最相关的两层hidden state。关键发现：token级路由比sample级路由好(FID 20.17 vs 21.66),因为不同token需要不同层的特征。
 
-2. **时刻敏感的路由**：路由器接收三个输入——文本prompt、噪声潜变量$z_t$、去噪时刻$t$。消融证实三者都不可或缺(FID: 仅prompt 21.12 → +latent 21.89 → **+timestep 20.15**)。可视化显示路由模式随去噪进展变化：早期稀疏选择特定层,后期趋向平均权重——与扩散模型"先结构后细节"的去噪模式一致。
+**1. Token 级稀疏路由：让每个 token 自己决定该读谁的哪几层**
 
-3. **$\epsilon$-greedy探索训练**：以$\epsilon=0.05$概率随机选择层（而非top-k），防止路由器陷入局部最优。消融显示$\epsilon$-greedy加速收敛且最终性能更好。$k=2$最优——$k=1$过于局部,$k \geq 3$稀释信息。
+现有融合要么只用最终层特征（信息有限），要么全塔拼接（成本高），都是静态的、对所有 token 一视同仁。MoS 让每个 context token 独立预测一个 logit 矩阵 $\mathcal{W} \in \mathbb{R}^{m \times n}$（$m$=理解塔层数, $n$=生成塔层数），$w_{ij}$ 表示把理解塔第 $i$ 层路由到生成塔第 $j$ 层的权重，softmax 归一化后 top-k（$k=2$）只传最相关的两层。消融证实 token 级路由明显优于 sample 级（FID 20.17 vs 21.66），因为不同 token 确实需要不同层的特征；$k=2$ 最优——$k=1$ 过于局部，$k \geq 3$ 反而稀释信息。
+
+**2. 时刻敏感的路由：让条件信号随去噪进度变**
+
+"一个 embedding 处理所有去噪步"是旧范式的通病。路由器同时接收文本 prompt、噪声潜变量 $z_t$ 和去噪时刻 $t$，消融证实三者都不可或缺（FID：仅 prompt 21.12 → +latent 21.89 → **+timestep 20.15**）。可视化显示路由模式随去噪推进变化：早期稀疏地选特定层，后期趋向平均权重——恰好与扩散模型"先结构后细节"的去噪节奏一致。
+
+**3. $\epsilon$-greedy 探索训练：防止路由器锁死在局部最优**
+
+top-k 选择容易让路由器过早收敛到某几层上。MoS 以 $\epsilon=0.05$ 的概率随机选层（而非 top-k），给路由一点探索空间。消融显示 $\epsilon$-greedy 不但加速收敛且最终性能更好。
 
 ### 损失函数 / 训练策略
-Rectified flow matching标准训练: $\mathbb{E}[\|v_t - \mathcal{G}(z_t, t, \mathcal{R}(\cdot))\|^2]$。四阶段渐进训练: 512²(1400 A100-days) → 1024²(等量) → 美学微调(100 A100-days) → 2048²超分(80 A100-days)。总计~3000 A100-days——远低于SD1.5的6250 A100-days。
+Rectified flow matching 标准训练：$\mathbb{E}[\|v_t - \mathcal{G}(z_t, t, \mathcal{R}(\cdot))\|^2]$。四阶段渐进训练：512²(1400 A100-days) → 1024²(等量) → 美学微调(100 A100-days) → 2048²超分(80 A100-days)。总计~3000 A100-days——远低于SD1.5的6250 A100-days。
 
 ## 实验关键数据
 

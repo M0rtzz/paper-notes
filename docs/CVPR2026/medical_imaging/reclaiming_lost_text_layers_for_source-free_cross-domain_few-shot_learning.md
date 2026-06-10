@@ -42,33 +42,23 @@ tags:
 
 ## 方法详解
 
-### 整体框架：VtT（teach the Vision to Think like the Text）
+### 整体框架
 
-VtT 是一个即插即用的微调插件，包含三个模块：
+VtT（teach the Vision to Think like the Text）针对的是一个反直觉现象：在 Source-Free 跨域少样本设置下，CLIP 文本编码器的某些中间层被移除后性能反而更好——这些"Lost Layers"不是冗余，而是因视觉域偏移没被用上。VtT 的思路不是丢掉它们，而是教视觉分支"像文本分支一样思考"，把被浪费的预训练文本知识重新激活。它是一个即插即用的微调插件，由三个模块串起来：V-T Fusion 在层级上融合视觉与文本各层输出，TIA 把融合特征送回文本编码器做编码器级吸收，DGSO 则用梯度冲突信息动态平衡分类与知识吸收两个目标。微调完成后所有 VtT 参数被移除，推理阶段零额外开销。
 
-1. **V-T Fusion**（层级融合，黄线）：整合视觉和文本编码器各层输出
-2. **TIA**（编码器级吸收，粉线）：将融合特征送入文本编码器吸收知识
-3. **DGSO**（动态梯度优化，橙线）：基于梯度冲突信息动态平衡分类与知识吸收任务
+### 关键设计
 
-微调完成后移除所有 VtT 参数，**推理阶段零额外开销**。
+**1. V-T Cross-Layer Scanning Fusion：把视觉和文本逐层交错喂给 SSM 做层级融合**
 
-### 关键设计 1：V-T Cross-Layer Scanning Fusion
+要让视觉分支用上文本各层的信息，先得有个机制把两边逐层对齐。VtT 将视觉编码器各层 CLS token 和文本编码器各层 EOS token 交替排成序列 $H_i = (f_i^l, t_i^l, f_i^{l-1}, t_i^{l-1}, \cdots, f_i^1, t_i^1)$，扫描方向从深层到浅层；再用 State Space Model（SSM）聚合，残差分支（AvgPool + MLP）与 SSM 分支（MLP + 位置编码 + 2 层 SSM + AvgPool）相加得到 $\mu_i = \mu_i^{\text{res}} + \mu_i^{\text{ssm}}$。消融证实这套设计的两个选择都不是随意的：深→浅扫描优于浅→深和双向，SSM（58.2）也优于 MHA（57.2）、RNN（57.2）、LSTM（57.4）。
 
-- 将视觉编码器各层 CLS token 和文本编码器各层 EOS token 交替排列为序列 $H_i = (f_i^l, t_i^l, f_i^{l-1}, t_i^{l-1}, \cdots, f_i^1, t_i^1)$，扫描方向从深层到浅层
-- 使用 **State Space Model (SSM)** 聚合该序列，包含残差分支（AvgPool + MLP）和 SSM 分支（MLP + 位置编码 + 2 层 SSM + AvgPool），最终输出 $\mu_i = \mu_i^{\text{res}} + \mu_i^{\text{ssm}}$
-- 消融实验表明：深→浅扫描优于浅→深和双向；SSM (58.2) 优于 MHA (57.2)、RNN (57.2)、LSTM (57.4)
+**2. Text Encoder Information Absorption (TIA)：把层级知识塞回文本编码器再蒸馏给视觉特征**
 
-### 关键设计 2：Text Encoder Information Absorption (TIA)
+层级融合只拿到"各层细节"，还缺"编码器整体视角"。TIA 把融合输出 $\mu_i$ 经可学习 Adapter 映射成"吸收 token" $A_i$，再用它替换文本 prompt 里的类别 token [CLASS]，组成 $r_i' = [a][photo][of][a][A_i]$ 送进文本编码器，得到同时含层级细节与编码器级整体知识的 $A_i'$。最后用 $L_{\text{VtT}}$ 最大化 $A_i'$ 与视觉特征 $f_i$ 的余弦相似度，把文本知识蒸馏进视觉特征——这正是"教视觉像文本一样思考"落到 loss 上的具体形式。
 
-- 将层级融合输出 $\mu_i$ 通过可学习 Adapter 映射为"吸收 token" $A_i$
-- 用 $A_i$ **替换**文本 prompt 中的类别 token [CLASS]，生成 $r_i' = [a][photo][of][a][A_i]$
-- 送入文本编码器得到输出 $A_i'$，结合了层级细节知识和编码器级整体知识
-- 提出 $L_{\text{VtT}}$ 损失：最大化 $A_i'$ 与视觉特征 $f_i$ 的余弦相似度，将文本知识蒸馏到视觉特征中
+**3. Dynamic Gradient Supervised Optimization (DGSO)：用梯度冲突信号避免知识吸收反伤分类**
 
-### 关键设计 3：Dynamic Gradient Supervised Optimization (DGSO)
-
-- **梯度矫正**：计算 $L_{ce}$ 和 $L_{comb} = L_{ce} + \beta L_{VtT}$ 的梯度余弦相似度 $C_\theta$；若 $C_\theta < 0$（方向冲突），将 $G_{comb}$ 投影到 $G_{ce}$ 的正交方向，避免损害分类任务
-- **动态损失组合**：维护 $C$ 值队列，用滑动窗口（长度 $\lambda=50$）计算平均值 $M_e$；当 $M_e < 0$ 时停止使用 $L_{VtT}$，且不再重新激活
+加一个蒸馏目标的风险是它和主分类任务打架、把分类性能拖下去。DGSO 计算 $L_{ce}$ 和 $L_{comb} = L_{ce} + \beta L_{VtT}$ 的梯度余弦相似度 $C_\theta$：一旦 $C_\theta < 0$（方向冲突），就把 $G_{comb}$ 投影到 $G_{ce}$ 的正交方向，保证知识吸收不损害分类。同时维护一个 $C$ 值队列，用长度 $\lambda=50$ 的滑动窗口算均值 $M_e$，当 $M_e < 0$ 时彻底停用 $L_{VtT}$ 且不再重新激活。这套"先矫正、再动态停用"的机制让训练自适应地决定何时听文本知识、何时放手，无需手调训练策略。
 
 ### 损失函数
 

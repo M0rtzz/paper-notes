@@ -41,55 +41,32 @@ EMAD 的核心动机是构建一个**透明、可追溯、解剖学忠实**的 A
 
 ### 整体框架
 
-EMAD 包含四个核心组件：(1) 多模态编码器，(2) 投影与融合层，(3) 文本解码器（报告生成），(4) 分层 SEA Grounding 头。
-
-**输入**：给定 $\mathcal{X}=\{x_v, x_t\}$，其中 $x_v \in \mathbb{R}^{D \times H \times W}$ 为 3D sMRI，$x_t$ 为结构化临床变量（人口统计、遗传、认知测试、CSF 标志物等）。
-
-- **视觉编码器** $E_v$：3D Vision Transformer 提取 patch-level 视觉嵌入 $h_v$
-- **文本编码器** $E_t$：Longformer 编码临床文本特征 $h_t$
-- **双向交叉注意力融合 (BCA)**：$h_v'$ 和 $h_t'$ 通过线性投影映射到同维空间后，交替做 Q/KV 角色：
+EMAD 要解决的是「AD 诊断模型只给标签、不给证据」的黑箱问题，做法是让一个多模态 VLM 既生成结构化诊断报告，又把报告里每句话都钉到临床证据和 3D 脑区上。它由四部分组成：多模态编码器、投影与融合层、文本解码器（报告生成）、分层 SEA Grounding 头。输入是 $\mathcal{X}=\{x_v, x_t\}$，其中 $x_v \in \mathbb{R}^{D \times H \times W}$ 为 3D sMRI、$x_t$ 为结构化临床变量。视觉编码器 $E_v$（3D ViT）抽 patch 级嵌入 $h_v$，文本编码器 $E_t$（Longformer）编码临床文本 $h_t$，两者经线性投影到同维空间后做双向交叉注意力融合（BCA），交替担任 Q/KV 角色：
 
 $$\mathbf{A}_{t \to v} = \text{Attn}(h_t', h_v', h_v'), \quad \mathbf{A}_{v \to t} = \text{Attn}(h_v', h_t', h_t')$$
 
-残差连接保留模态特异信息：$z_v = h_v' + \mathbf{A}_{v \to t}$，$z_t = h_t' + \mathbf{A}_{t \to v}$
-
-- **文本解码器**：LLaMA 3.2-1B + rank-8 LoRA，以融合特征 $(z_v, z_t)$ 替换 prompt 中的 `<sMRI>` 和 `<clinical>` 占位符，自回归生成结构化报告
+并用残差连接保留模态特异信息 $z_v = h_v' + \mathbf{A}_{v \to t}$、$z_t = h_t' + \mathbf{A}_{t \to v}$。融合特征替换 prompt 里的 `<sMRI>` 和 `<clinical>` 占位符，由 LLaMA 3.2-1B + rank-8 LoRA 自回归生成报告。
 
 ### 关键设计
 
-1. **Sentence–Evidence–Anatomy (SEA) Grounding**：分层证据对齐机制
+**1. Sentence–Evidence–Anatomy（SEA）Grounding：让每句诊断都钉到证据和脑区**
 
-    - **Sentence-to-Evidence**：将每个生成句子 $\hat{s}_i$ 与临床证据集 $\mathcal{E}=\{e_1,\ldots,e_K\}$ 做多对多匹配。采用多正例 InfoNCE 损失，双向计算（evidence→sentence + sentence→evidence）：
+针对黑箱痛点，SEA 把可解释性拆成两级对齐。Sentence-to-Evidence 把每个生成句子 $\hat{s}_i$ 与临床证据集 $\mathcal{E}=\{e_1,\ldots,e_K\}$ 做多对多匹配，用双向的多正例 InfoNCE 损失 $\mathcal{L}_{\text{SE}} = \frac{1}{N}\sum_{i=1}^{N}(\ell_i^{e \to s} + \ell_i^{s \to e})$ 拉近句子与支撑证据。Evidence-to-Anatomy 再把带解剖指针的证据定位到具体脑区：在 Segformer3D decoder 每层 self-attention 后插一个轻量 cross-attention block，让视觉 token attend to 证据文本 token，输出体素级概率掩码 $\hat{\mathbf{M}}_i = \sigma(\text{Head}(\mathbf{Y}^{(L)}))$，用 Dice + BCE 训练。这样「句子→证据→ 3D 解剖」形成一条双重可追溯的证据链。
 
-    $\mathcal{L}_{\text{SE}} = \frac{1}{N}\sum_{i=1}^{N}(\ell_i^{e \to s} + \ell_i^{s \to e})$
+**2. GTX-Distill（Grounding Transfer Distillation）：用 25% 标注换 95% 的对齐能力**
 
-    - **Evidence-to-Anatomy**：如果证据带有解剖指针，用 evidence-conditioned 3D 分割网络定位对应脑区。在 Segformer3D decoder 每层的 self-attention 后插入轻量 cross-attention block，使视觉 token attend to 证据文本 token，输出体素级概率掩码 $\hat{\mathbf{M}}_i = \sigma(\text{Head}(\mathbf{Y}^{(L)}))$，用 Dice + BCE 损失训练
+体素级 grounding 标注极贵，全量标注不现实，GTX-Distill 用两阶段蒸馏绕开。Stage 1 在小规模标注子集上训练 Teacher Grounder $G_T$，学 sentence→evidence 分布 $q(e|s_i)$ 和解剖掩码；Stage 2 冻结 $G_T$，在大规模模型生成的报告上训练 Student Grounder $G_\theta$，用温度缩放 KL 散度蒸馏 $\mathcal{L}^{\text{distill}} = \tau^2 \sum_i \text{KL}(q_\tau(\cdot|\hat{s}_i) \| p_{\theta,\tau}(\cdot|\hat{s}_i))$。结果仅需 25% grounding 标注即可保留 teacher 95% 的 R@3，大幅压低标注成本。
 
-2. **GTX-Distill（Grounding Transfer Distillation）**：标签高效的 grounding 蒸馏策略
+**3. Executable-Rule GRPO：把临床指南写成可程序化验证的奖励**
 
-    - **Stage 1**：在小规模标注子集上训练 Teacher Grounder $G_T$，学习 sentence→evidence 分布 $q(e|s_i)$ 和解剖掩码
-    - **Stage 2**：冻结 $G_T$，在大规模模型生成报告上训练 Student Grounder $G_\theta$，通过温度缩放 KL 散度蒸馏：
-
-    $\mathcal{L}^{\text{distill}} = \tau^2 \sum_i \text{KL}(q_\tau(\cdot|\hat{s}_i) \| p_{\theta,\tau}(\cdot|\hat{s}_i))$
-
-   仅需 25% grounding 标注即可保留 teacher 95% 的 R@3 性能
-
-3. **Executable-Rule GRPO（强化微调）**：基于可验证奖励的 GRPO 强化学习
-
-   总奖励聚合三个可执行组件：$R = w_F R_F + w_{\text{NIA}} R_{\text{NIA-AA}} + w_C R_{\text{consistency}}$
-
-    - **格式奖励 $R_F$**：检查 Reasoning/Diagnosis/Confidence 三个标签是否完整
-    - **NIA-AA 诊断奖励 $R_{\text{NIA-AA}}$**：包含类别对齐（CN/MCI/Dementia）、生物标志物一致性（Aβ/tTau/pTau 阈值检查）、临床特征覆盖度
-    - **推理一致性奖励 $R_{\text{consistency}}$**：用 NLI 模型验证 Reasoning⇒Diagnosis 的蕴含关系，防止逻辑矛盾
+医学报告必须守诊断框架，但人工偏好标注又贵又主观，于是把临床规则编码成可执行奖励来做 GRPO 强化微调。总奖励聚合三个可验证组件 $R = w_F R_F + w_{\text{NIA}} R_{\text{NIA-AA}} + w_C R_{\text{consistency}}$：格式奖励 $R_F$ 检查 Reasoning/Diagnosis/Confidence 三标签是否完整；NIA-AA 诊断奖励 $R_{\text{NIA-AA}}$ 检查类别对齐（CN/MCI/Dementia）、生物标志物一致性（Aβ/tTau/pTau 阈值）和临床特征覆盖度；推理一致性奖励 $R_{\text{consistency}}$ 用 NLI 模型验证 Reasoning⇒Diagnosis 的蕴含关系、防止逻辑自相矛盾。整套奖励无需人工偏好标注，就把「合规、忠实、自洽」直接灌进模型。
 
 ### 损失函数 / 训练策略
 
 三阶段渐进训练：
 
-- **Stage 1 (PT)**：对比学习 + 重建学习对齐多模态表示
-    - $\mathcal{L}_{\text{PT}} = \mathcal{L}_{\text{itc}} + \lambda_{\text{res}}(\mathcal{L}_{\text{res}}^v + \mathcal{L}_{\text{res}}^t)$
-- **Stage 2 (SFT + GTX-Distill)**：冻结编码器底层，微调顶层 + 投影层 + 解码器 LoRA
-    - $\mathcal{L}_{\text{SFT}} = \mathcal{L}_{\text{txt}} + \lambda_{\text{KL}} \mathcal{L}^{\text{distill}}$
+- **Stage 1 (PT)**：对比学习 + 重建学习对齐多模态表示，$\mathcal{L}_{\text{PT}} = \mathcal{L}_{\text{itc}} + \lambda_{\text{res}}(\mathcal{L}_{\text{res}}^v + \mathcal{L}_{\text{res}}^t)$
+- **Stage 2 (SFT + GTX-Distill)**：冻结编码器底层，微调顶层 + 投影层 + 解码器 LoRA，$\mathcal{L}_{\text{SFT}} = \mathcal{L}_{\text{txt}} + \lambda_{\text{KL}} \mathcal{L}^{\text{distill}}$
 - **Stage 3 (RFT)**：GRPO 强化微调，group size $G=4$，clipping $\epsilon=0.2$，KL 系数 $\beta=0.1$
 
 ## 实验关键数据

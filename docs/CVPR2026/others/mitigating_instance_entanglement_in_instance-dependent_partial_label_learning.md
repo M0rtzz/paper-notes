@@ -39,35 +39,23 @@ tags:
 
 ## 方法详解
 
-### 整体框架 (CAD)
-CAD (Class-specific Augmentation based Disentanglement) 由两个核心模块组成：
-- **表示学习模块**（类内调节）：生成类别特定增强并对齐同类增强的表示
-- **置信度调整模块**（类间调节）：通过加权惩罚损失抑制易混淆非候选标签的高置信度
+### 整体框架
 
-整体损失函数为 $\mathcal{L}(\boldsymbol{x}, \mathcal{S}) = \mathcal{L}_{discls}(\boldsymbol{x}) + \frac{\beta}{|\mathcal{S}|}\sum_{s \in \mathcal{S}}\mathcal{L}_c(\boldsymbol{x}'_s)$，其中 $\beta$ 平衡两个模块的权重。
+ID-PLL 的核心障碍是"实例纠缠"：相似类别的样本（如银狐犬和北极狐）既共享重叠特征又共享候选标签，现有靠对比学习拉近同类表示的方法反而会把它们错误对齐。CAD（Class-specific Augmentation based Disentanglement）的思路是双管齐下——一边在类内把同一类别的特征对齐收紧，一边在类间显式拉开易混淆类别的距离。整个模型由表示学习模块（类内调节）和置信度调整模块（类间调节）组成，总损失把两者加权相加：$\mathcal{L}(\boldsymbol{x}, \mathcal{S}) = \mathcal{L}_{discls}(\boldsymbol{x}) + \frac{\beta}{|\mathcal{S}|}\sum_{s \in \mathcal{S}}\mathcal{L}_c(\boldsymbol{x}'_s)$，$\beta$ 控制两个模块的权重。
 
-### 关键设计一：类别特定增强生成
+### 关键设计
 
-对每个实例 $\boldsymbol{x}$ 及其候选标签集 $\mathcal{S}$ 中的每个标签 $s$，生成强化该类特征的增强样本 $\boldsymbol{x}'_s$。提供两种实例化方式：
+**1. 类别特定增强生成：把"这个样本属于哪个候选类"显式画出来**
 
-- **CAM 特征重加权 (CAD-CAM)**：利用 Class Activation Mapping 定位类别相关特征区域，通过 $\boldsymbol{x}'_s = \boldsymbol{a}_s \odot \boldsymbol{x} + \epsilon \cdot (\boldsymbol{1} - \boldsymbol{a}_s) \odot \boldsymbol{x}$ 放大特定类别特征、模糊无关区域。轻量高效，无需外部模型。
-- **扩散模型编辑 (CAD)**：利用 InstructPix2Pix 以类别名称为指令进行图像编辑，合成语义更丰富的类别特定增强。离线生成，约增加 24% 训练时间。
+针对纠缠实例特征混在一起、无从分辨的痛点，CAD 不直接在原图上做文章，而是对每个实例 $\boldsymbol{x}$ 及候选标签集 $\mathcal{S}$ 中的每个标签 $s$，生成一张专门强化该类特征的增强图 $\boldsymbol{x}'_s$。论文给了两条实现路径：轻量版 CAD-CAM 用 Class Activation Mapping 定位类别相关区域，按 $\boldsymbol{x}'_s = \boldsymbol{a}_s \odot \boldsymbol{x} + \epsilon \cdot (\boldsymbol{1} - \boldsymbol{a}_s) \odot \boldsymbol{x}$ 放大该类特征、淡化无关区域，无需任何外部模型；重型版直接用 InstructPix2Pix 以类别名为指令编辑图像，语义更丰富但离线生成约多花 24% 训练时间。这样一来，同一张图对应不同候选标签就有了语义清晰、彼此可分的多个版本。
 
-### 关键设计二：类别特定增强对齐
+**2. 类别特定增强对齐：用同标签增强当正样本，绕开弱监督选正样本的难题**
 
-将同一候选标签引导生成的增强样本视为正样本对，通过对比学习对齐：
+弱监督下最棘手的是"谁和谁是正样本对"，PLL 里候选标签本就带歧义。CAD 把同一候选标签引导生成的增强视为正样本对做对比学习：$\mathcal{L}_c(\boldsymbol{x}') = -\sum_{\boldsymbol{x}^+ \in \mathcal{A}_{y'}} w(\boldsymbol{x}', \boldsymbol{x}^+) \log s_\tau(\boldsymbol{q}_{\boldsymbol{x}'}, \boldsymbol{k}_{\boldsymbol{x}^+}, \mathcal{K})$。这一步妙在三处：正样本对由"同一标签"天然定义，回避了正样本识别难题；同一实例的不同类别增强互为语义强硬负样本，逼模型把决策边界画细；再用基于预测 logits 相似度的权重 $w(\boldsymbol{x}', \boldsymbol{x}^+)$ 压低噪声增强的影响。
 
-$$\mathcal{L}_c(\boldsymbol{x}') = -\sum_{\boldsymbol{x}^+ \in \mathcal{A}_{y'}} w(\boldsymbol{x}', \boldsymbol{x}^+) \log s_\tau(\boldsymbol{q}_{\boldsymbol{x}'}, \boldsymbol{k}_{\boldsymbol{x}^+}, \mathcal{K})$$
+**3. 加权惩罚损失：候选内加速消歧、候选外强力压制**
 
-核心创新在于：(1) 正样本对由同一标签引导的增强构成，避免了弱监督下正样本识别的核心难题；(2) 同一实例的不同类别增强形成语义强硬负样本，迫使模型细化决策边界；(3) 引入基于预测 logits 相似度的加权机制 $w(\boldsymbol{x}', \boldsymbol{x}^+)$，降低噪声增强的影响。
-
-### 关键设计三：加权惩罚损失
-
-对候选标签集内高置信标签给予更大正向权重（加速消歧），对非候选标签集内高置信标签施加更强惩罚（抑制混淆）：
-
-$$\mathcal{L}_{discls}(\boldsymbol{x}) = \sum_{j \in \mathcal{Y}} \omega_j \ell(\boldsymbol{s}_j, \boldsymbol{x})$$
-
-权重 $\omega_j$ 在候选/非候选集内分别归一化（$\sum_{j \in \mathcal{S}} \omega_j = 1$，$\sum_{j \in \bar{\mathcal{S}}} \omega_j = 1$），确保不受候选集大小影响。实际使用交叉熵变体以提升数值稳定性。该损失可归入 Leveraged Weighted Loss 族，具有 Bayes 一致性保证。
+光对齐类内还不够，纠缠实例会在迭代中持续给出错误的消歧信号，必须显式把类间推开。加权惩罚损失对候选集内的高置信标签给更大正向权重（加速消歧），对非候选集内的高置信标签施加更强惩罚（压制混淆）：$\mathcal{L}_{discls}(\boldsymbol{x}) = \sum_{j \in \mathcal{Y}} \omega_j \ell(\boldsymbol{s}_j, \boldsymbol{x})$。权重 $\omega_j$ 在候选/非候选集内分别归一化（$\sum_{j \in \mathcal{S}} \omega_j = 1$，$\sum_{j \in \bar{\mathcal{S}}} \omega_j = 1$），使其不受候选集大小影响；实际用交叉熵变体提升数值稳定性。该损失可归入 Leveraged Weighted Loss 族，带 Bayes 一致性保证。
 
 ## 实验
 

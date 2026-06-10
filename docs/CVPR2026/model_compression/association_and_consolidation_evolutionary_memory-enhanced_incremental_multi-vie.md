@@ -48,49 +48,29 @@ tags:
 
 ### 整体框架
 
-EMIMC 由三个核心模块组成，模拟大脑记忆的"编码-遗忘-巩固"过程：
+EMIMC 把增量多视图聚类的"稳定性-可塑性"难题类比成大脑记忆的"编码—遗忘—巩固"三步走。当新视图 $v_t$ 到达时，Rapid Associative Module（类比海马体）先把新旧共识表示快速对齐，Cognitive Forgetting Module（模拟遗忘曲线）按时间给历史表示加权融合成一份历史记忆，Knowledge Consolidation Module（类比前额叶）再用时序张量低秩分解把短期与历史记忆提炼成稳定的长期记忆；三者用一个统一目标函数联合优化，正交约束部分都有闭式解。
 
-1. **Rapid Associative Module (RAM)** — 类比海马体，负责快速关联新旧表示
-2. **Cognitive Forgetting Module (CFM)** — 模拟遗忘曲线，时间加权融合历史记忆
-3. **Knowledge Consolidation Module (KCM)** — 类比前额叶，提炼短期记忆为长期记忆
+### 关键设计
 
-### Rapid Associative Module (RAM)
+**1. Rapid Associative Module：用正交映射对齐新旧表示又不破坏各自结构**
 
-- **目标**：在新视图 $v_t$ 到达时，建立当前共识表示 $Z_t$ 与上一步表示 $Z_{t-1}$ 之间的结构化对应关系
-- **正交映射**：引入正交矩阵 $P_t \in \mathbb{R}^{m \times m}$（$P_t^T P_t = I$），将 $Z_{t-1}$ 对齐到 $Z_t$ 的空间
-- **联想损失**：$\mathcal{L}_{\text{associate}} = \|Z_t - Z_{t-1} P_t\|_F^2$
-- **闭式解**：正交约束下的最优 $P_t$ 通过 Procrustes 问题求解——对 $Z_{t-1}^T Z_t$ 做 SVD 分解 $= U\Sigma V^T$，则 $P_t = UV^T$
-- **直觉**：正交约束保证映射不改变表示的内在结构（不压缩/拉伸），仅做刚性旋转/反射，从而在关联新旧知识的同时保留各自的语义完整性
+新视图到达时，若直接覆盖或拼接旧表示会丢掉历史语义。RAM 引入正交矩阵 $P_t \in \mathbb{R}^{m \times m}$（$P_t^T P_t = I$）把上一步表示 $Z_{t-1}$ 对齐到当前 $Z_t$ 的空间，联想损失为 $\mathcal{L}_{\text{associate}} = \|Z_t - Z_{t-1} P_t\|_F^2$。正交约束下最优 $P_t$ 是个 Procrustes 问题：对 $Z_{t-1}^T Z_t$ 做 SVD 得 $U\Sigma V^T$，则 $P_t = UV^T$，有闭式解。正交映射只做刚性旋转/反射、不压缩也不拉伸，因此在关联新旧知识的同时完整保留了两边的语义结构。
 
-### Cognitive Forgetting Module (CFM)
+**2. Cognitive Forgetting Module：用幂律权重模拟遗忘曲线，常数空间维护历史记忆**
 
-- **生物动机**：Ebbinghaus 遗忘曲线表明，记忆随时间以幂律衰减，越近的记忆越清晰
-- **幂律权重**：对第 $i$ 步视图（$i < t$），其在时间步 $t$ 的权重为：
-  $$w_i^{(t)} = \frac{(t - i)^{-\lambda}}{\sum_{j=1}^{t-1}(t - j)^{-\lambda}}$$
-  其中 $\lambda > 0$ 控制遗忘速率——$\lambda$ 越大，远期视图衰减越快
-- **历史记忆**：$Z_{\text{hist}} = \sum_{i=1}^{t-1} w_i^{(t)} Z_i$
-- **关键优势**：
-    - 无需存储全部历史表示矩阵，只需维护加权和 $Z_{\text{hist}}$（常数空间）
-    - 权重归一化保证数值稳定性
-    - $\lambda$ 提供了可调的稳定性-可塑性旋钮
+简单平均所有历史视图无法区分远近视图的重要性。CFM 借 Ebbinghaus 遗忘曲线的幂律衰减，给第 $i$ 步视图在时间 $t$ 的权重定为
 
-### Knowledge Consolidation Module (KCM)
+$$w_i^{(t)} = \frac{(t - i)^{-\lambda}}{\sum_{j=1}^{t-1}(t - j)^{-\lambda}}$$
 
-- **构造时序张量**：将历史记忆 $Z_{\text{hist}}$ 和当前表示 $Z_t$ 按时间维堆叠，构成 3 阶张量 $\mathcal{Z} \in \mathbb{R}^{n \times m \times 2}$
-- **ARMR 低秩约束**：对 $\mathcal{Z}$ 施加 Augmented Multi-Rank Minimization with Relaxation，约束其在各模式展开的秩，从而提炼出短期记忆与历史记忆之间的共享低秩结构
-- **巩固损失**：$\mathcal{L}_{\text{consolidate}}$ 约束张量逼近并施加低秩正则
-- **直觉**：低秩分解迫使模型只保留跨时间一致的核心模式，自然地将噪声和不稳定的短期波动过滤掉，相当于"提炼"出长期记忆
+$\lambda>0$ 控制遗忘速率（越大远期衰减越快），历史记忆为加权和 $Z_{\text{hist}} = \sum_{i=1}^{t-1} w_i^{(t)} Z_i$。妙在它无需存全部历史表示矩阵，只维护这一份加权和即可（常数空间），权重归一化又保证了数值稳定，$\lambda$ 则成了一个可调的稳定性-可塑性旋钮。
 
-### 总体优化
+**3. Knowledge Consolidation Module：用时序张量低秩分解把短期波动滤成长期记忆**
 
-- **总目标函数**：$\mathcal{L} = \mathcal{L}_{\text{recon}} + \alpha \cdot \mathcal{L}_{\text{associate}} + \beta \cdot \mathcal{L}_{\text{consolidate}}$
-    - $\mathcal{L}_{\text{recon}}$：各视图的低秩重建损失
-    - $\alpha, \beta$：平衡可塑性和稳定性的超参数
-- **ADMM 求解**：引入辅助变量将问题拆解为多个子问题，交替优化：
-    - $Z_t$ 更新：固定其他变量，求解二次问题
-    - $P_t$ 更新：Procrustes 闭式解
-    - 张量低秩逼近：基于矩阵核范数的近端算子
-- **计算效率**：所有正交约束均有闭式解（Procrustes），不需要迭代投影；ADMM 通常在 20-30 次迭代内收敛
+短期记忆里混着噪声和不稳定波动，需要一步"巩固"才能沉淀为可靠的长期知识。KCM 把历史记忆 $Z_{\text{hist}}$ 和当前表示 $Z_t$ 沿时间维堆成 3 阶张量 $\mathcal{Z} \in \mathbb{R}^{n \times m \times 2}$，再施加 ARMR（Augmented Multi-Rank Minimization with Relaxation）约束各模式展开的秩，巩固损失 $\mathcal{L}_{\text{consolidate}}$ 在逼近张量的同时压低秩。低秩约束迫使模型只保留跨时间一致的核心模式，自然把短期噪声过滤掉，相当于"提炼"出长期记忆。
+
+### 损失函数 / 训练策略
+
+总目标为 $\mathcal{L} = \mathcal{L}_{\text{recon}} + \alpha \cdot \mathcal{L}_{\text{associate}} + \beta \cdot \mathcal{L}_{\text{consolidate}}$，其中 $\mathcal{L}_{\text{recon}}$ 是各视图的低秩重建损失，$\alpha,\beta$ 平衡可塑性与稳定性。求解用 ADMM 引入辅助变量拆成子问题交替优化：$Z_t$ 更新解二次问题，$P_t$ 更新用 Procrustes 闭式解，张量低秩逼近用基于矩阵核范数的近端算子。由于正交约束都有闭式解、不需迭代投影，ADMM 通常 20–30 次迭代即收敛。
 
 ## 实验
 

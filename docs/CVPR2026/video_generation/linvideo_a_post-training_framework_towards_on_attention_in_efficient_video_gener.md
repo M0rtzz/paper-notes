@@ -41,54 +41,35 @@ tags:
 
 ### 整体框架
 
-LinVideo 是一个**无数据（data-free）后训练框架**，包含三个阶段：
+LinVideo 是一个**无数据（data-free）后训练框架**，目标是在不重训整个模型、不损失质量的前提下，把视频扩散模型里尽可能多的二次注意力换成线性注意力。它分三步走：先从预训练模型自身采样、收集 50K 组输入-输出对 $(x_t, u_t)$ 当训练数据，省掉外部视频集；再用可学习参数自动选出哪些层适合替换；最后用「任意时刻分布匹配」把线性化模型在整条采样轨迹上的分布拉回原模型。
 
-1. **数据准备**：从预训练模型自身采样，收集 50K 组输入-输出对 $(x_t, u_t)$ 作为训练数据，无需外部视频数据集
-2. **选择性转换（Selective Transfer）**：通过可学习参数自动选择哪些层替换为线性注意力
-3. **任意时刻分布匹配（ADM）**：优化目标，使线性化模型在采样轨迹上各时刻的分布与原模型对齐
+### 关键设计
 
-### 关键设计一：选择性转换（Selective Transfer）
+**1. 选择性转换：自动挑出「换了也不掉点」的层做线性化**
 
-作者首先发现一个关键观察：**不同层的可替换性差异巨大**。
-
-- 浅层（如 2–11 层）替换后更容易恢复精度，可能因为后续层能补偿浅层误差
-- 某些特定层（如第 1 层）替换后会导致不可恢复的性能下降
-
-基于此，作者将层选择建模为**二分类问题**。对每层引入可学习标量 $r \in [0,1]$，采用混合注意力：
+作者先观察到一个关键现象：不同层的可替换性天差地别——浅层（如 2–11 层）换掉后精度容易恢复，可能因为后续层能补偿误差，而某些层（如第 1 层）一换就不可逆地崩。于是把「哪些层替换」建成一个二分类问题：每层引入可学习标量 $r \in [0,1]$，跑混合注意力
 
 $$o_i = r \cdot \text{SoftmaxAttn}(q_i, K, V) + (1-r) \cdot \text{LinearAttn}(q_i, K, V)$$
 
-$r=1$ 表示保留 softmax attention，$r=0$ 表示使用线性注意力。训练结束后四舍五入决定最终选择。
-
-为保证替换目标数量，设计**约束损失**：
-
-$$\mathcal{L}_{\text{con}} = \left(\sum_{l=1}^{N} \lceil r^{(l)} \rfloor - \text{target}\right)^2$$
-
-为避免 $r$ 在 0.5 附近震荡导致的四舍五入误差，设计**正则化损失**：
+$r=1$ 保留 softmax、$r=0$ 用线性，训练完四舍五入定下最终选择。为了让替换数量可控，加约束损失 $\mathcal{L}_{\text{con}} = \left(\sum_{l=1}^{N} \lceil r^{(l)} \rfloor - \text{target}\right)^2$；为了避免 $r$ 卡在 0.5 附近导致四舍五入抖动，再加正则损失
 
 $$\mathcal{L}_{\text{reg}} = \sum_{l=1}^{N} (1 - |2r^{(l)} - 1|^\alpha)$$
 
-其中 $\alpha$ 从大到小退火，前期允许自由探索，后期强制 $r$ 趋近 0 或 1。实验表明去掉 $\mathcal{L}_{\text{reg}}$ 后性能灾难性下降。
+其中 $\alpha$ 从大到小退火，前期放手探索、后期逼 $r$ 趋近 0 或 1——消融显示去掉 $\mathcal{L}_{\text{reg}}$ 后 Imaging Quality 会从 66.07 暴跌到 18.62。线性注意力的核函数用 Hedgehog 设计 $\phi(q) = \text{softmax}(q\widetilde{W}_q) \oplus \text{softmax}(-q\widetilde{W}_q)$，靠 softmax 变换保证非负性。
 
-线性注意力的核函数采用 Hedgehog 设计：
+**2. 任意时刻分布匹配（ADM）：用模型自己当 score 估计器，全轨迹对齐分布**
 
-$$\phi(q) = \text{softmax}(q\widetilde{W}_q) \oplus \text{softmax}(-q\widetilde{W}_q)$$
-
-### 关键设计二：任意时刻分布匹配（ADM）
-
-朴素的 MSE 损失（$\mathcal{L}_{\text{mse}} = \|u_t - \hat{u}_\theta(x_t, t)\|^2$）会引入时间伪影（闪烁、抖动），因为它不保持帧间联合分布，且损害泛化性。
-
-现有少步蒸馏的分布匹配（如 DMD）只匹配最终 $t=0$ 的分布 $p_0$，忽略中间时刻，在本场景中效果差。且需训练额外模型来估计 score function，开销巨大（5–10× 训练代价）。
-
-ADM 的核心思想：**在采样轨迹的任意时刻 $t$ 匹配分布**。最小化线性化模型分布 $q_t$ 与原模型分布 $p_t$ 的 KL 散度：
+朴素 MSE 损失 $\mathcal{L}_{\text{mse}} = \|u_t - \hat{u}_\theta(x_t, t)\|^2$ 不保持帧间联合分布，会带来闪烁、抖动等时间伪影；而 DMD 这类少步蒸馏的分布匹配只对齐最终 $t=0$ 的 $p_0$、忽略中间时刻，还得额外训一个模型估 score，代价是 5–10× 训练开销。ADM 改成在采样轨迹的**任意时刻** $t$ 匹配分布，最小化
 
 $$\mathcal{L}_{\text{ADM}} = \mathbb{E}_{\hat{x}_t \sim q_t}\left[\log \frac{q_t(\hat{x}_t)}{p_t(\hat{x}_t)}\right]$$
 
-关键优势：由于 LinVideo 渐进地从 softmax 转换到线性注意力，$\hat{u}_\theta$ 始终可视为一个 flow model，因此可以**用自身估计 score function** $\hat{s}_t$，无需训练额外模型。Score 差的简化形式：
+关键巧思是：由于 LinVideo 是从 softmax 渐进过渡到线性注意力，$\hat{u}_\theta$ 始终能看成一个 flow model，于是可以拿它自己来估 score，不必另训模型——score 差化简成
 
 $$s_t(\hat{x}_t) - \hat{s}_t(\hat{x}_t) = -\frac{1-t}{t}(u_\theta(\hat{x}_t) - \hat{u}_\theta(\hat{x}_t))$$
 
-### 训练策略
+这样既省掉额外模型（训练快 ~4.4×），又比只匹配终点的 DMD 更稳。
+
+### 损失函数 / 训练策略
 
 总损失：$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{ADM}} + \lambda(\mathcal{L}_{\text{con}} + \mathcal{L}_{\text{reg}})$，$\lambda = 0.01$
 

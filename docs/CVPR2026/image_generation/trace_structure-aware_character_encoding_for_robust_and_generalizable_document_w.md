@@ -40,61 +40,41 @@ tags:
 
 ### 整体框架
 
-TRACE 包含**数据嵌入**和**数据提取**两个阶段。嵌入阶段由三步组成：自适应扩散初始化（ADI）→ 引导扩散编码（GDE）→ 掩码区域替换（MRR）。
+TRACE 想同时啃下文档水印的「鲁棒性—泛化性—隐蔽性」三难：既要扛得住打印-扫描-拍照的跨介质噪声，又要不挑语言字体，还得肉眼看不出改动。它的突破口是改字符的**结构**而非像素——字符骨架的关键点对噪声稳定、跨语言统一、微调附近像素又不改外观。整条流水线分嵌入与提取两段：嵌入端依次做自适应扩散初始化（ADI）→ 引导扩散编码（GDE）→ 掩码区域替换（MRR），提取端则反过来从字符结构读回比特。
 
-### 关键设计 1：自适应扩散初始化（ADI）
+### 关键设计
 
-给定文本图像 $I_{\text{cover}}$，ADI 确定三个引导扩散过程的关键元素：
+**1. 自适应扩散初始化（ADI）：决定动哪个点、往哪动、动多远**
 
-**关键点检测**：基于轻量 OpenPose 架构提取端点集 $E$ 和交叉点集 $C$，输出三通道热力图（端点/交叉点/背景）。
+要把比特编码进结构，先得确定「移动哪个关键点、移到哪、只在多大范围内动」，这一步直接决定了编码-解码能否对齐。ADI 先用一个轻量 OpenPose 架构检测端点集 $E$ 和交叉点集 $C$（输出端点/交叉点/背景三通道热力图），再由三个子模块定下编辑方案。
 
-**Movement Probability Evaluator（MPE）**：自动选择最优 handle point $P_h$ 和 reference point $P_r$。
-- 仅考虑端点作为候选 $P_h$（交叉点连接多笔画，移动会破坏结构）
-- 对每个端点 $p_i^e$，在 $\tau$ 邻域内寻找参考点集 $R_i$
-- 评分规则：初始分 1；若 $p_i^e$ 与 $p_{i,j}^r$ 不在同一笔画上加 1 分；多个满分时 y 坐标最小者再加 1 分
-- 最高分的端点成为 $P_h$，对应参考点为 $P_r$
+**Movement Probability Evaluator（MPE）** 自动挑选 handle point $P_h$ 和 reference point $P_r$。只把端点当 $P_h$ 候选（交叉点连多笔画、移动会破坏结构），对每个端点 $p_i^e$ 在 $\tau$ 邻域内找参考点集 $R_i$；评分规则为初始 1 分，$p_i^e$ 与 $p_{i,j}^r$ 不在同一笔画上加 1 分，多个满分时 y 坐标最小者再加 1 分，最高分端点即 $P_h$、对应参考点为 $P_r$。
 
-**Target Point Estimation（TPE）**：根据嵌入比特值确定目标点 $P_t$。
-
-定义方向轴 $\lambda$：
+**Target Point Estimation（TPE）** 按要嵌入的比特定目标点 $P_t$。先定方向轴
 
 $$\lambda\text{-axis} = \begin{cases} X\text{-axis}, & d_x \leq d_y \\ Y\text{-axis}, & d_x > d_y \end{cases}$$
 
-其中 $d_x = |x_h - x_r|, d_y = |y_h - y_r|$，$\Delta(P_h, P_r) = \min\{d_x, d_y\}$。
-
-嵌入规则：
-- 比特 0：若 $\Delta(P_h, P_r) > T_{\text{embed}}$，移动 $P_h$ 使 $\Delta(P_t, P_r) \leq T_{\text{embed}}$
-- 比特 1：若 $\Delta(P_h, P_r) \leq T_{\text{embed}}$，移动 $P_h$ 使 $\Delta(P_t, P_r) > T_{\text{embed}}$
-
-移动方向由笔画方向向量 $\vec{\mathcal{V}}$ 和 $P_h$ 到 $P_r$ 的方向向量 $\vec{\mathcal{H}}$ 联合确定：
+其中 $d_x = |x_h - x_r|, d_y = |y_h - y_r|$，$\Delta(P_h, P_r) = \min\{d_x, d_y\}$。嵌入规则是：比特 0 时若 $\Delta(P_h, P_r) > T_{\text{embed}}$ 就移动 $P_h$ 使 $\Delta(P_t, P_r) \leq T_{\text{embed}}$；比特 1 时若 $\Delta(P_h, P_r) \leq T_{\text{embed}}$ 就反向移动使 $\Delta(P_t, P_r) > T_{\text{embed}}$。移动方向由笔画方向向量 $\vec{\mathcal{V}}$ 与 $P_h \to P_r$ 方向 $\vec{\mathcal{H}}$ 联合确定：
 
 $$x_t = x_h + \mathcal{D} \times \frac{\mathcal{V}_x}{\|\vec{\mathcal{V}}\|} \times \text{sgn}(\mathcal{H}_x)$$
 
-**Mask Drawing Module（MDM）**：基于 $P_h$ 和 $P_t$ 构造最小编辑区域矩形掩码 $\mathcal{M}$，并扩展边界 $\sigma$ 确保扩散质量。
+最后 **Mask Drawing Module（MDM）** 基于 $P_h$、$P_t$ 画出最小编辑矩形掩码 $\mathcal{M}$，并外扩边界 $\sigma$ 保证扩散质量。
 
-### 关键设计 2：引导扩散编码（GDE）
+**2. 引导扩散编码（GDE）：用 DragDiffusion 把关键点精确拖到目标位置**
 
-利用 DragDiffusion 将 $P_h$ 移动到 $P_t$：
-1. LoRA 微调 UNet 以捕获原始图像特征
-2. DDIM 反演生成初始扩散潜变量
-3. 运动监督 + 点跟踪迭代优化，直到 handle point 对齐目标点
-4. 参考潜变量控制：在 self-attention 中用初始潜变量的 key/value 替换编辑潜变量的，保持一致性
-
-引入**局部一致性损失** $L_{lc}$ 确保掩码区域内编辑前后特征一致：
+定好方案后，真正「动点」交给 DragDiffusion：先 LoRA 微调 UNet 捕获原图特征、DDIM 反演生成初始扩散潜变量，再用运动监督 + 点跟踪迭代优化，直到 handle point 对齐 $P_t$；self-attention 里用初始潜变量的 key/value 替换编辑潜变量的，维持一致性。为了让掩码内编辑前后特征一致、不破坏字形，引入局部一致性损失
 
 $$L_{lc}(\hat{z}_t^k) = \sum_{q \in \Omega} \|G_{q+d}(\hat{z}_{t-1}^k) - \text{sg}(G_q(\hat{z}_{t-1}^0))\|_1$$
 
-总损失：$L(\hat{z}_t^k) = L_{ms}(\hat{z}_t^k) + \eta L_{lc}(\hat{z}_t^k)$，其中 $\eta = 0.003$。
+总损失 $L(\hat{z}_t^k) = L_{ms}(\hat{z}_t^k) + \eta L_{lc}(\hat{z}_t^k)$，其中 $\eta = 0.003$。
 
-### 关键设计 3：掩码区域替换（MRR）
+**3. 掩码区域替换（MRR）：只把改动落回目标区域、其余像素原封不动**
 
-将扩散编辑后图像的掩码区域内容替换到原始图像对应区域，仅在目标区域嵌入数据，最小化对其他区域的影响。
+扩散编辑难免对掩码外区域有轻微扰动，影响隐蔽性。MRR 的做法很直接：只把编辑后图像掩码区域内的内容替换回原图对应位置，其余区域保持原样，从而把改动严格限制在目标区域、最大化对外观的隐蔽性。
 
-### 数据提取
+### 一个完整示例：从图像读回比特
 
-1. 使用 CRAFT 算法分割单个字符
-2. 对每个字符运行 MPE 识别 $P_h$ 和 $P_r$
-3. 计算 $\Delta(P_h, P_r)'$：若 $> T_{\text{embed}}$ 提取 1，否则提取 0
+提取端不需要原图，对每个字符复跑一遍 MPE 即可：先用 CRAFT 算法分割出单个字符，对每个字符运行 MPE 识别出 $P_h$ 和 $P_r$，再算 $\Delta(P_h, P_r)'$——若 $> T_{\text{embed}}$ 提取为 1，否则为 0。正因为编码端（TPE）和解码端用的是同一套 MPE 关键点定位 + 同一个阈值 $T_{\text{embed}}$，编码-解码才能严格同步、实现无误提取（消融里 MPE+TPE 齐备时 ACC 达 100%）。
 
 ## 实验结果
 

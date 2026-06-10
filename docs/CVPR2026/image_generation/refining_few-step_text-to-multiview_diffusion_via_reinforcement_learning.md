@@ -38,30 +38,27 @@ tags:
 
 ### 整体框架
 
-MVC-ZigAL 包含三个核心组件：(1) 多视图感知 MDP 重构；(2) ZMV-Sampling + zigzag 优势学习；(3) Lagrangian 对偶约束优化。
+MVC-ZigAL 要解决的是：少步（≤8 步）T2MV 扩散模型为了快牺牲了单视图保真度和跨视图一致性，而现有 RL 微调（DPOK、REBEL 等）都是为单图设计、既不建模多视图协调，又在少步模型奖励紧密聚集时拿不到足够的学习梯度。它的方案是三件事串起来：先把 T2MV 去噪重构成一个能同时看到所有视图的多视图感知 MDP；再用 ZMV-Sampling 的“自反思”采样造出一条更优参考轨迹、据此做 zigzag 优势学习，给少步模型补上强学习信号；最后用 Lagrangian 对偶把“单视图保真”和“跨视图一致”这对目标转成带约束的优化，免去手动调权重。
 
-### 多视图感知 MDP
+### 关键设计
 
-将 T2MV 去噪过程重新建模为多视图 MDP：每步状态 $s_t$ 包含全部 $V$ 个视图的噪声图与相机嵌入，动作 $a_t$ 为所有视图的去噪结果。引入联合视图奖励函数 $\mathcal{R}_{\text{mv}}$ 评估生成多视图的整体质量（基于 HyperScore overall 维度）。在此 MDP 上分别适配了 MV-PG、MV-DPO、MV-RDL 三种基线。
+**1. 多视图感知 MDP：让奖励和动作都覆盖全部视图，而非逐图独立**
 
-### ZMV-Sampling 自反思采样
+单图 RL 把每张图当独立 episode，无法表达多视图之间的协调。MVC-ZigAL 把 T2MV 去噪重建成多视图 MDP：每步状态 $s_t$ 同时包含全部 $V$ 个视图的噪声图与相机嵌入，动作 $a_t$ 是所有视图的去噪结果，并引入联合视图奖励 $\mathcal{R}_{\text{mv}}$（取自 HyperScore 的 overall 维度）评估整体质量。这个统一的 MDP 之上可以直接适配 MV-PG、MV-DPO、MV-RDL 三种基线，成为后续所有改进的公共底座。
 
-在去噪第一步执行三步 zigzag pass：高引导去噪 → 低引导反向加噪 → 高引导再去噪。核心思想是通过引导尺度差 ($\omega_{\text{high}}$ vs $\omega_{\text{low}}$) 形成"自反思"机制——条件对齐的特征在低引导反转后存活，不对齐的被抑制。仅在首步（$t=T$）应用 zigzag，因扩散早期决定全局几何结构，全步 zigzag 反而过度平滑纹理。
+**2. ZMV-Sampling + zigzag 优势学习：用结构化自精炼造出强学习信号**
 
-### Zigzag 优势学习 (MV-ZigAL)
+少步模型生成的样本质量低、奖励值挤在一起，标准 RL 梯度太弱。ZMV-Sampling 只在去噪首步（$t=T$）做三步 zigzag：高引导去噪 → 低引导反向加噪 → 高引导再去噪——靠引导尺度差（$\omega_{\text{high}}$ vs $\omega_{\text{low}}$）形成“自反思”，条件对齐的特征在低引导反转后存活、不对齐的被抑制；之所以只放首步，是因为扩散早期决定全局几何，全步 zigzag 反而会过度平滑纹理。然后对同一 prompt 用标准采样和 ZMV-Sampling 各生成一条轨迹，定义 zigzag 优势 $\mathcal{A}_{\text{mv}} = \mathcal{R}_{\text{mv}}(\mathbf{x}^z) - \mathcal{R}_{\text{mv}}(\mathbf{x}^s)$，目标函数最小化“对数似然比差与优势值”的平方误差。相比 MV-RDL 用两条普通轨迹，这里的参考轨迹是结构化自精炼出来的，优势信号更强——reward gap 随训练逐步收敛，说明基模型本就内化了自精炼能力。
 
-对同一 prompt 分别用标准采样和 ZMV-Sampling 生成轨迹对，定义 zigzag 优势函数 $\mathcal{A}_{\text{mv}} = \mathcal{R}_{\text{mv}}(\mathbf{x}^z) - \mathcal{R}_{\text{mv}}(\mathbf{x}^s)$。目标函数最小化对数似然比差与优势值的平方误差，相比 MV-RDL 使用两条标准轨迹，本方法利用结构化的自精炼优势提供更强学习信号。
+**3. Lagrangian 对偶约束优化：把“保真 vs 一致”从调参难题变成自适应约束**
 
-### 多视图约束策略优化
+简单把单视图奖励和联合视图奖励加权混合，极度依赖权重选择、难以稳定。MVC-ZigAL 改成带约束的形式：主目标最大化单视图奖励之和 $\sum_v R(\mathbf{x}_0^v, \mathbf{c})$，约束是联合视图奖励 $\geq \tau$，再用 Lagrangian 对偶引入乘子 $\lambda$ 得到统一奖励 $\mathcal{R}_{\text{mvc}} = \frac{R(\mathbf{x}_0^v, \mathbf{c}) + \lambda \cdot \mathcal{R}_{\text{mv}}}{1 + \lambda}$。更新时还配了两个自适应机制：约束被违反时用大步长 $\alpha^+$ 快速收紧、满足时用小步长 $\alpha^-$ 平稳放松，避免 $\lambda$ 振荡；阈值 $\tau$ 则用 EMA 跟踪当前策略的联合奖励水平自适应调整，早期鼓励探索、后期逐步收紧。这样既不用手调权重，也不用手设固定阈值。
 
-将优化目标分为：主目标最大化单视图奖励之和 $\sum_v R(\mathbf{x}_0^v, \mathbf{c})$，约束为联合视图奖励 $\geq \tau$。通过 Lagrangian 对偶方法引入乘子 $\lambda$，定义统一奖励函数：
+### 损失函数 / 训练策略
 
-$$\mathcal{R}_{\text{mvc}} = \frac{R(\mathbf{x}_0^v, \mathbf{c}) + \lambda \cdot \mathcal{R}_{\text{mv}}}{1 + \lambda}$$
-
-### 自适应原始-对偶更新与自步调课程
-
-- **自适应步长**：约束违反时用大步长 $\alpha^+$ 快速收紧，满足时用小步长 $\alpha^-$ 平稳放松，避免 $\lambda$ 振荡。
-- **自步调阈值**：$\tau$ 通过 EMA 跟踪当前策略联合奖励水平自适应调整，早期鼓励探索、后期逐步收紧约束。
+- 主学习目标为 MV-ZigAL 的优势平方误差（对数似然比差对齐 zigzag 优势 $\mathcal{A}_{\text{mv}}$）
+- 约束优化用 Lagrangian 对偶 + 自适应原始-对偶更新，乘子 $\lambda$ 按约束违反情况自适应步长，阈值 $\tau$ 用 EMA 自步调
+- 基础设置：MV-Adapter + LCM-SDXL，8 步 6 视图；ZMV-Sampling 在训练时使单样本推理成本增加约 3 倍
 
 ## 实验关键数据
 

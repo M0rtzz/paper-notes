@@ -39,33 +39,25 @@ tags:
 
 ### 整体框架
 
-RAGTrack 包含三个核心模块：多模态 Transformer 编码器（MTE）、自适应 Token 融合（ATF）和上下文感知推理模块（CRM）。输入为 RGB/TIR 搜索图像、模板图像和语言描述，输出目标边界框。
+RGBT 跟踪长期只靠首帧的视觉模板建模目标，目标外观一变就容易漂、还会把前景和背景（扫帚、簸箕、行人下半身这类）搞混。RAGTrack 第一次把文本描述引进 RGBT 跟踪，并用检索增强生成（RAG）的思路让目标的语言描述跨帧动态更新。它由三块串成：多模态 Transformer 编码器（MTE）做视觉-语言联合建模，自适应 Token 融合（ATF）做跨模态特征融合与去冗余，上下文感知推理模块（CRM）用 RAG 范式做时序语言推理。输入是 RGB/TIR 搜索图像、模板图像和语言描述，输出目标边界框。
 
-### 多模态 Transformer 编码器（MTE）
+### 关键设计
 
-- 使用三阶段下采样将模板和搜索图像转为 patch token
-- 引入序列前缀 $\mathbf{E}^t$（固定文本提示 + 可学习 token）与语言描述 $\mathbf{L}^t$ 拼接后经 CLIP 文本编码器编码
-- 将推理 token $\mathbf{R}_m^t$、文本 token $\hat{\mathbf{H}}^t$、模板 token $\hat{\mathbf{Z}}_m^t$、搜索 token $\hat{\mathbf{X}}_m^t$ 拼接为统一序列
-- RGB/TIR 两支采用参数共享的多头自注意力进行统一视觉-语言建模
+**1. 多模态 Transformer 编码器（MTE）：把推理、文本、模板、搜索 token 拼成一条序列统一建模**
 
-### 自适应 Token 融合（ATF）
+要让语言真正参与跟踪，就不能让文本和视觉各算各的。MTE 先用三阶段下采样把模板和搜索图像切成 patch token；语言侧用一个序列前缀 $\mathbf{E}^t$（固定文本提示＋可学习 token）与语言描述 $\mathbf{L}^t$ 拼接后过 CLIP 文本编码器；然后把推理 token $\mathbf{R}_m^t$、文本 token $\hat{\mathbf{H}}^t$、模板 token $\hat{\mathbf{Z}}_m^t$、搜索 token $\hat{\mathbf{X}}_m^t$ 拼成统一序列，RGB/TIR 两支用参数共享的多头自注意力一起做视觉-语言建模。这样文本语义从一开始就和视觉 token 在同一注意力空间里交互。
 
-- **动态 Token 选择**：复用自注意力得分，计算搜索 token 与推理/文本/模板/搜索 token 的注意力分数 $\mathbf{A}_m^{total}$，按保留比 $\gamma=85\%$ 筛选目标相关 token，无参数开销
-- **自适应通道交换**：计算 RGB 与 TIR 特征的跨模态通道相关性 $\mathbf{S}$，按交换比 $\sigma=50\%$ 选择关键通道进行交换，再经 MLP 融合
-- 部署在 HiViT-B 的第 6/12/18/24 层，实现渐进式跨层融合
+**2. 自适应 Token 融合（ATF）：无参数选目标 token，再跨模态交换关键通道**
 
-### 上下文感知推理模块（CRM）
+搜索区域里大量是冗余背景和干扰物，而 RGB 与 TIR 之间又有显著模态差距，直接融合不可靠。ATF 用两步应对：**动态 Token 选择**复用自注意力已有的得分，算出搜索 token 对推理/文本/模板/搜索 token 的总注意力 $\mathbf{A}_m^{total}$，按保留比 $\gamma=85\%$ 留下目标相关 token，整步无参数开销；**自适应通道交换**计算 RGB 与 TIR 特征的跨模态通道相关性 $\mathbf{S}$，按交换比 $\sigma=50\%$ 挑出关键通道互换、再经 MLP 融合。两步部署在 HiViT-B 的第 6/12/18/24 层，实现渐进式跨层融合。融合范式对比里，ATF 仅 101.8M 参数就超过 TBSI（145.9M）等更重的方案。
 
-采用 RAG 范式进行时序语言推理，包括四个阶段：
+**3. 上下文感知推理模块（CRM）：用 RAG 把历史描述检索回来，跨帧维持目标身份**
 
-1. **Construction**：构建动态知识库 $\mathbf{D}_m$（维护 $n=4$ 个历史文本特征），仅当新特征与已有条目的余弦相似度低于阈值 $\lambda=1.0$ 时才添加
-2. **Retrieval**：从知识库中检索 top-$k=2$ 个最相关特征，通过模态内交叉注意力 $\Phi$ 细化搜索特征
-3. **Augmentation**：对推理/文本/模板特征做平均池化后拼接，经 MLP 生成下一帧推理 token；再通过交叉注意力和哈达玛积增强时序表征
-4. **Generation**：使用 QWen2.5-VL-3B 根据搜索图像和结构化提示动态生成上下文感知的目标描述，持续更新多模态参考
+单帧模板信息有限，目标剧变时就跟不住。CRM 把 RAG 搬进跟踪，分四步滚动推理：**Construction** 维护一个动态知识库 $\mathbf{D}_m$（存 $n=4$ 个历史文本特征），只有当新特征与已有条目余弦相似度低于阈值 $\lambda=1.0$ 时才入库，避免冗余；**Retrieval** 从库里检索 top-$k=2$ 个最相关特征，经模态内交叉注意力 $\Phi$ 细化搜索特征；**Augmentation** 把推理/文本/模板特征平均池化后拼接、过 MLP 生成下一帧的推理 token，再用交叉注意力和哈达玛积增强时序表征；**Generation** 用 QWen2.5-VL-3B 根据搜索图像和结构化提示动态生成上下文感知的目标描述，持续更新多模态参考。正是这条 RAG 回路让 LasHeR 属性分析里全遮挡（+10.7% PR）、出视野（+5.5% SR）这些外观剧变场景明显获益。
 
 ### 损失函数
 
-多任务联合损失：$\mathcal{L} = L_{\text{cls}} + 2 L_{\text{iou}} + 5 L_1$，其中分类采用 focal loss，回归采用 L1 + GIoU loss。
+多任务联合损失 $\mathcal{L} = L_{\text{cls}} + 2 L_{\text{iou}} + 5 L_1$，分类用 focal loss，回归用 L1 + GIoU loss。
 
 ## 实验关键数据
 

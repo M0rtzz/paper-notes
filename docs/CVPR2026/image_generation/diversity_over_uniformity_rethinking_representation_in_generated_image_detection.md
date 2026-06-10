@@ -39,31 +39,37 @@ tags:
 
 ### 整体框架
 
-基于冻结的 CLIP ViT-L/14 图像编码器，提取多阶段 CLS 特征。每阶段特征先经 CIB 模块过滤，再由 AFCL 模块强制去相关，最后通过加权聚合和类别特定提示学习完成真伪判别。
+AFCL 的出发点是：生成图检测器的瓶颈不是特征不够，而是训练把多源线索压成了少数几个判别方向（有效秩仅 1-2），换个生成器就失效。框架基于冻结的 CLIP ViT-L/14 提取多阶段 CLS 特征，每阶段特征先过 CIB 模块做信息瓶颈过滤、再由 AFCL 模块强制去相关，最后用加权聚合和类别特定提示学习完成真伪判别——核心是一路守住表征的多样性和互补性。
 
 ### 关键设计
 
-1. **Cue Information Bottleneck (CIB)**：对每阶段特征进行信息瓶颈过滤，目标是最大化与标签$y$的互信息同时最小化与输入$x$的互信息：
+**1. Cue Information Bottleneck：把每条线索过滤成不可或缺的判别信息**
 
-    $\max_{\{\mathrm{CIB}_i\}} \sum_{i=1}^{N} [I(\tilde{v}_i; y) - \beta I(\tilde{v}_i; x)]$
+要避免特征坍塌，先得让每条线索都「干净且不可替代」。CIB 对每阶段特征做信息瓶颈：最大化与标签 $y$ 的互信息、同时最小化与输入 $x$ 的互信息，
 
-   通过变分下界推导出实际可优化的 CIB 损失：
+$$\max_{\{\mathrm{CIB}_i\}} \sum_{i=1}^{N} [I(\tilde{v}_i; y) - \beta I(\tilde{v}_i; x)]$$
 
-    $\mathcal{L}_{\mathrm{CIB}} = \sum_{i=1}^{N} D_{\mathrm{KL}}[p(y|\tilde{\mathcal{V}}) \| p(y|\tilde{\mathcal{V}} \setminus \tilde{v}_i)]$
+经变分下界推导出可优化的 CIB 损失：
 
-   确保每条线索携带不可或缺的判别信息，形成纯化且互补的特征集合。
+$$\mathcal{L}_{\mathrm{CIB}} = \sum_{i=1}^{N} D_{\mathrm{KL}}[p(y|\tilde{\mathcal{V}}) \| p(y|\tilde{\mathcal{V}} \setminus \tilde{v}_i)]$$
 
-2. **Anti-Feature-Collapse Learning (AFCL)**：使用 Hilbert-Schmidt 独立性准则（HSIC）作为核度量方法，强制不同阶段的特征保持统计独立性：
+它度量「抽掉第 $i$ 条线索后预测会变多差」，从而逼每条线索都携带不可或缺的判别信息，得到纯化且互补的特征集合。
 
-    $\mathcal{L}_{\mathrm{AFCL}} = \frac{1}{N(N-1)} \sum_{i \neq j} \mathrm{HSIC}(\tilde{v}_i, \tilde{v}_j)$
+**2. Anti-Feature-Collapse Learning：用 HSIC 逼各阶段特征互相独立**
 
-   其中 $\mathrm{HSIC}(\tilde{v}_i, \tilde{v}_j) = \frac{1}{(B-1)^2} \mathrm{Tr}(K_i H K_j H)$。此外引入权重均匀性正则化 $\mathcal{L}_{\mathrm{reg}} = (\sum_{i=1}^{N} \alpha_i^2 - 1/N)^2$ 防止聚合时权重坍塌。
+纯化之后还要防止不同阶段的线索过度重叠塌成同一方向。AFCL 用 Hilbert-Schmidt 独立性准则（HSIC）作核度量，强制各阶段特征统计独立：
 
-3. **Class-Specific Prompt Learning (CSP)**：为"真实"和"伪造"各学习一组可训练的上下文向量，通过余弦相似度对齐最终视觉表征与文本原型：
+$$\mathcal{L}_{\mathrm{AFCL}} = \frac{1}{N(N-1)} \sum_{i \neq j} \mathrm{HSIC}(\tilde{v}_i, \tilde{v}_j)$$
 
-    $s_c = \frac{\tilde{v}_{\mathrm{final}} \cdot e_c}{\|\tilde{v}_{\mathrm{final}}\| \|e_c\|}$
+其中 $\mathrm{HSIC}(\tilde{v}_i, \tilde{v}_j) = \frac{1}{(B-1)^2} \mathrm{Tr}(K_i H K_j H)$。核方法比简单正交约束更灵活，能捕捉非线性依赖。此外再加一项权重均匀性正则 $\mathcal{L}_{\mathrm{reg}} = (\sum_{i=1}^{N} \alpha_i^2 - 1/N)^2$，防止聚合时权重又坍缩到少数线索上。
 
-   使用交叉熵损失 $\mathcal{L}_{\mathrm{CSP}}$ 优化。
+**3. Class-Specific Prompt Learning：为真/伪各学一组上下文向量对齐**
+
+判别端不用固定分类头，而是为「真实」和「伪造」各学一组可训练的上下文向量，用余弦相似度把最终视觉表征 $\tilde{v}_{\mathrm{final}}$ 对齐到对应文本原型 $e_c$：
+
+$$s_c = \frac{\tilde{v}_{\mathrm{final}} \cdot e_c}{\|\tilde{v}_{\mathrm{final}}\| \|e_c\|}$$
+
+再用交叉熵损失 $\mathcal{L}_{\mathrm{CSP}}$ 优化，让多样化的线索能灵活对齐到类别语义上。
 
 ### 损失函数 / 训练策略
 

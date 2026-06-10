@@ -39,9 +39,13 @@ tags:
 
 ### 整体框架
 
-CFD（数据集）→ 训练 → CFM（评估指标）→ 注意力引导 → CFR（改善模块），三位一体。
+这篇论文要回答一个被忽视的问题：T2I 模型生成的「写实」图像往往太鲜艳，而现有评估指标不但发现不了、反而偏爱这种过饱和。它把「评估」和「改善」打通成一条链：先利用 CFG scale 与色彩失真的单调关系造一个带有序标注的数据集 CFD，在其上训练一个专门衡量色彩保真度的指标 CFM，再直接复用 CFM 的内部注意力图、做一个无需训练的改善模块 CFR——CFM 既是裁判，又顺手当了改善信号的来源。
 
-### 关键设计 1：Color Fidelity Dataset (CFD)
+### 关键设计
+
+**1. Color Fidelity Dataset (CFD)：用 CFG 单调性自动造有序标注**
+
+色彩保真度这个维度过去没人系统标注，人工标排序又贵。作者抓住一个关键观察：Classifier-Free Guidance 的 scale $s$ 越大，文本对齐越强、色彩失真（过饱和 + 高对比）也越严重——这是一条单调关系，正好拿来当「失真程度」的免费标签。
 
 | 步骤 | 操作 | 规模 |
 |---|---|---|
@@ -50,48 +54,37 @@ CFD（数据集）→ 训练 → CFM（评估指标）→ 注意力引导 → CF
 | CFG 控制合成 | 11 个 T2I 模型 × 12 类别，逐步增大 CFG scale 生成 6 级失真 | 每组 7 张 |
 | 数据划分 | 训练 160K 组 / 测试 30K 组 | ~133 万张 |
 
-- 11 个 T2I 模型覆盖：SDXL、SD3、SD3.5、PixArt-Σ、Kolors、CogView4、Hunyuan-DiT、Flux-dev、Qwen-Image、Playground-v2.5、SRPO
-- 12 个语义类别覆盖人物、自然场景、城市环境等
-- 人工标注子集 CFD-Human：6690 张 × 3 标注者，Spearman 一致性 > 0.85
+11 个 T2I 模型（SDXL、SD3、SD3.5、PixArt-Σ、Kolors、CogView4、Hunyuan-DiT、Flux-dev、Qwen-Image、Playground-v2.5、SRPO）× 12 个语义类别（覆盖人物、自然场景、城市环境等），让每组都成为「1 真实 + 逐级递减保真度」的有序序列；另有人工标注子集 CFD-Human（6690 张 × 3 标注者，Spearman 一致性 > 0.85）做验证。
 
-### 关键设计 2：Color Fidelity Metric (CFM)
+**2. Color Fidelity Metric (CFM)：Softrank loss 把有序序列学成分数**
 
-**架构**：基于 Qwen2-VL，图像和文本统一编码为联合序列：
+有了有序数据，关键是让指标学到「这组里谁更真」，而不是简单两两对比。CFM 基于 Qwen2-VL，把图像和文本统一编码为联合序列：
 
 $$\mathbf{F} = [\mathbf{f}_1^v, \ldots, \mathbf{f}_M^v, \mathbf{f}_1^t, \ldots, \mathbf{f}_N^t] \in \mathbb{R}^{(M+N) \times d}$$
 
-MLP head 输出 token 级 logits，从 `<|Reward|>` token 取标量分数 $S_{\text{CFM}}$。
-
-**训练目标：Differentiable Softrank Loss**
-
-对每组 $K$ 张图像（1 真实 + $K-1$ 级递减保真度），计算成对概率和软排名：
+MLP head 输出 token 级 logits，从 `<|Reward|>` token 取标量分数 $S_{\text{CFM}}$。训练用可微的 Differentiable Softrank Loss：对每组 $K$ 张图（1 真实 + $K-1$ 级递减保真度）算成对概率和软排名，再回归到真值排名 $R=[1,2,\ldots,K]$（真实图排最前）：
 
 $$P_{ij} = \sigma\left(\frac{r_j - r_i}{\tau}\right), \quad \hat{R}_i = 1 + \sum_{j=0}^{K-1} P_{ij}$$
 
 $$\mathcal{L} = \frac{1}{K} \sum_{i=0}^{K-1} (\hat{R}_i - R_i)^2$$
 
-- 地面真值排名 $R = [1, 2, \ldots, K]$，真实图排最前
-- Softrank 相比 pairwise loss：准确率 +7.4%（SynPairs）、Spearman 相关 +6.6
+相比 pairwise loss，软排名建模了整组的连续序结构，准确率 +7.4%（SynPairs）、Spearman +6.6；而文本分支提供了「这个场景色彩本该如何」的语义上下文，去掉它 SynPairs 准确率 -6.5%、Spearman -6.0。
 
-**文本条件的作用**：移除文本分支导致 SynPairs 准确率 -6.5%、Spearman -6.0——文本提供了判断"该场景色彩是否正常"的语义上下文。
+**3. Color Fidelity Refinement (CFR)：把 CFM 的注意力变成像素级 guidance 场**
 
-### 关键设计 3：Color Fidelity Refinement (CFR)
-
-利用 CFM 注意力图定位色彩失真区域，在扩散去噪中自适应降低这些区域的 guidance scale。
-
-**注意力提取**：
+光有指标还改善不了图，CFR 让 CFM「指哪打哪」：用它的注意力图定位色彩失真区域，在扩散去噪时只对这些区域自适应地调低 guidance。先从 CFM 提取像素级注意力：
 
 $$\mathbf{A} = \text{softmax}\left(\frac{\mathbf{F}^t (\mathbf{F}^v)^\top}{\kappa}\right) \in \mathbb{R}^{N \times M}$$
 
-对文本 token 维度平均后得到像素级注意力图 $\mathbf{a}'$。
-
-**时空 guidance 调制**：
+对文本 token 维度平均得到像素级注意力图 $\mathbf{a}'$，再做时空 guidance 调制：
 
 $$s_t(u,v) = s_0 \left[1 - \lambda \alpha(t) \mathbf{a}'(u,v)\right]$$
 
-- $\lambda \in [0,1]$：调制强度；$\alpha(t) = 1 - t/T$：时间衰减因子
-- 高注意力区域（色彩偏差大）的 guidance 自动降低，抑制过饱和
-- 完全无训练、即插即用、不修改模型参数
+其中 $\lambda \in [0,1]$ 是调制强度、$\alpha(t) = 1 - t/T$ 是时间衰减因子。色彩偏差大的高注意力区域 guidance 被自动压低、抑制过饱和，而整个过程完全无训练、即插即用、不修改模型参数。
+
+### 损失函数 / 训练策略
+
+CFM 的训练目标即上面的 Differentiable Softrank Loss；CFR 不涉及训练，是推理期对 guidance 的时空调制。
 
 ## 实验结果
 

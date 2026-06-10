@@ -56,53 +56,31 @@ VLA (Vision-Language-Action) 模型通过模仿学习从大规模示教数据中
 
 ### 整体框架
 
-World-Env 由三个核心模块组成：
+World-Env 想绕开 VLA 做 RL post-training 时“现实环境不可重置、风险高”这一痛点，改用一个物理一致的视频世界模型当虚拟环境。它由三块拼成：基于扩散模型的 **Physically-Consistent World Simulator** 负责预测动作条件下的未来观测，基于 VLM 的 **VLM-Guided Instant Reflector** 负责给连续奖励并判断任务是否完成，外面套一个基于 RLOO + PPO 的 **RL Post-Training Pipeline**。一次 rollout 是这样转的：VLA 策略 $\pi_\theta$ 根据当前观测 $\mathbf{o}_t$、本体状态 $\mathbf{s}_t$（6D 末端位姿 + 1D 夹爪）和语言指令 $\mathbf{g}$ 预测动作 $\mathbf{a}_t$，正运动学算出下一状态 $\mathbf{s}_{t+1}$，世界模拟器据此预测下一帧 $\mathbf{o}_{t+1}$ 形成闭环，Instant Reflector 评估轨迹并决定要不要终止。
 
-1. **Physically-Consistent World Simulator**：基于扩散模型的世界模拟器，预测动作条件下的未来视觉观测
-2. **VLM-Guided Instant Reflector**：基于 VLM 的即时反馈模块，提供连续奖励信号并判断任务是否完成
-3. **RL Post-Training Pipeline**：基于 RLOO + PPO 的策略优化流程
+### 关键设计
 
-工作流程：VLA 策略 $\pi_\theta$ 根据当前观测 $\mathbf{o}_t$、本体状态 $\mathbf{s}_t$（6D 末端执行器位姿 + 1D 夹爪状态）和语言指令 $\mathbf{g}$ 预测动作 $\mathbf{a}_t$。通过正运动学计算下一状态 $\mathbf{s}_{t+1}$，世界模拟器据此预测下一帧观测 $\mathbf{o}_{t+1}$，形成闭环 rollout。Instant Reflector 评估轨迹并决定是否终止。
+**1. 几何感知特征注入：让生成的未来帧物理一致，世界模型才配当 RL 环境**
 
-### 关键设计 1：几何感知特征注入
+世界模型若几何漂移，RL 就会在假动力学上学歪。模拟器以 U-Net 扩散去噪网络为骨架，关键在几何感知特征注入：先把预测动作经正运动学转成本体状态、投影到图像平面生成 **action map**（前景标记编码位姿、背景全黑以最大化对比度），再从记忆库采历史观测，二者作为像素级条件注入 U-Net；同时从两个互补编码器抽特征，经多分辨率交叉注意力注入去噪过程——**VGGT** 保参考图的精细几何结构与空间布局，**CLIP** 抓高层语义与上下文。这条双路径注入同时守住了局部几何保真度和全局语义一致性，这正是世界模型能当可靠 RL 环境的前提。
 
-世界模拟器基于 U-Net 扩散去噪网络，核心创新在于 **几何感知特征注入（Geometry-Aware Feature Injection）**：
+**2. 训练数据增强：用扰动动作采出含成败的轨迹，治世界模型对未见序列的泛化**
 
-- 将预测动作通过正运动学转为本体状态，投影到图像平面生成 **action map**（前景标记编码位姿，背景全黑以最大化对比度）
-- 从记忆库采样历史观测，与 action map 一起作为像素级条件注入 U-Net
-- 从两个预训练编码器提取互补特征，通过多分辨率交叉注意力注入去噪过程：
-    - **VGGT**：保持参考图像的精细几何结构和空间布局
-    - **CLIP**：捕获高层语义和上下文信息
-- 这种双路径注入策略同时保障了 **局部几何保真度** 和 **全局语义一致性**
+只拿专家示教训世界模型，它对没见过的 state-action 序列会失灵。解法是让 SFT 后的 OpenVLA-OFT 策略在 LIBERO 模拟器里自主探索：训一个 scale head 预测 Laplace 分布的对数尺度参数 $\boldsymbol{\beta}_t$，以 VLA 输出 $\boldsymbol{\mu}_t$ 为位置参数采样动作 $\mathbf{a}_t \sim \text{Laplace}(\boldsymbol{\mu}_t, \boldsymbol{\beta}_t)$，靠扰动收集既有成功又有失败的多样化轨迹，再和原始专家轨迹混合训练。消融里这一项贡献最大（平均 +6.3pp），印证了数据多样性是世界模型可用性的主要来源。
 
-### 关键设计 2：训练数据增强策略
+**3. VLM-Guided Instant Reflector：连续奖励 + 动态终止，治零优势和“成功后继续瞎动”**
 
-仅用专家示教训练世界模型会限制对未见 state-action 序列的泛化。解决方案：
-
-- 部署 SFT 后的 OpenVLA-OFT 策略在 LIBERO 模拟器中自主探索
-- 训练 scale head 预测 Laplace 分布的对数尺度参数 $\boldsymbol{\beta}_t$，以 VLA 输出 $\boldsymbol{\mu}_t$ 为位置参数：$\mathbf{a}_t \sim \text{Laplace}(\boldsymbol{\mu}_t, \boldsymbol{\beta}_t)$
-- 通过扰动动作收集包含成功和失败的多样化轨迹，与原始专家轨迹混合训练
-
-### 关键设计 3：VLM-Guided Instant Reflector
-
-- 冻结视觉编码器 $\mathcal{E}_{\text{vision}}$ 提取视频帧 patch embedding
-- 冻结 LLM $\mathcal{E}_{\text{LLM}}$ 进行跨模态推理
-- 轻量 reward head $\mathcal{R}_\theta$ 输出连续奖励：$R(\mathbf{o}_{1:t}, \mathbf{g}) = \sigma(\mathcal{R}_\theta(h_t)) \in [0,1]$
-- 当 $R > \eta = 0.5$ 时触发终止信号，防止冗余动作
+全成功或全失败的 rollout 会让 advantage 归零、训练停滞，而 VLA 又普遍缺任务完成检测、放好物体后还继续推。Reflector 用冻结的视觉编码器 $\mathcal{E}_{\text{vision}}$ 抽视频帧 patch embedding、冻结 LLM $\mathcal{E}_{\text{LLM}}$ 做跨模态推理，接一个轻量 reward head $\mathcal{R}_\theta$ 输出连续奖励 $R(\mathbf{o}_{1:t}, \mathbf{g}) = \sigma(\mathcal{R}_\theta(h_t)) \in [0,1]$；当 $R > \eta = 0.5$ 就触发终止信号、所掉冗余动作。连续奖励避免了二元奖励下的零优势问题，动态终止则补上了 VLA 一直被忽视的 "post-success failure"。
 
 ### 损失函数与训练策略
 
-**Reward Head 训练**：使用 BCE loss，监督信号来自逐帧二元成功标签 $y_t \in \{0,1\}$
+**Reward Head 训练**：用 BCE loss，监督信号来自逐帧二元成功标签 $y_t \in \{0,1\}$
 
 $$\mathcal{L} = \text{BCE}(R(\mathbf{o}_{1:t}, \mathbf{g}), y_t)$$
 
-**RL 优化**：采用 LOOP（Leave-One-Out PPO）目标：
-- 每个初始状态生成 $N=8$ 条 rollout
-- RLOO baseline：$b_n = \frac{1}{N-1}\sum_{j \neq n} R_j$，advantage $A_n = R_n - b_n$
-- 重要性采样比率基于 Laplace 动作分布
-- PPO clipped objective：$\mathcal{L}_{\text{PPO}} = -\min(r_{t,n} A_n, \text{clip}(r_{t,n}, 1-\epsilon, 1+\epsilon) A_n)$，$\epsilon = 0.1$
+**RL 优化**：采用 LOOP（Leave-One-Out PPO）目标——每个初始状态生成 $N=8$ 条 rollout，RLOO baseline $b_n = \frac{1}{N-1}\sum_{j \neq n} R_j$、advantage $A_n = R_n - b_n$，重要性采样比率基于 Laplace 动作分布，PPO clipped objective $\mathcal{L}_{\text{PPO}} = -\min(r_{t,n} A_n, \text{clip}(r_{t,n}, 1-\epsilon, 1+\epsilon) A_n)$，$\epsilon = 0.1$。
 
-**训练细节**：8×H20 GPU，~48h。VLM backbone 用 LoRA rank=32 微调（lr=1e-4），action/scale head 全参数训练（lr=1e-5），batch size=4。
+**训练细节**：8×H20 GPU，~48h；VLM backbone 用 LoRA rank=32 微调（lr=1e-4），action/scale head 全参数训练（lr=1e-5），batch size=4。
 
 ## 实验关键数据
 

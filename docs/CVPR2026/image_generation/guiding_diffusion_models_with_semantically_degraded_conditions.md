@@ -49,21 +49,19 @@ $$D_\theta^{\text{CDG}}(\boldsymbol{x}_\sigma;\sigma,\boldsymbol{c}) = D_\theta(
 
 构建 $\boldsymbol{c}_{\text{deg}}$ 的流程：① 从指定 Transformer block $\lambda_{\text{block}}$ 提取自注意力图 → ② 建图并用 Weighted PageRank (WPR) 计算 token 重要性 → ③ 按分层退化策略生成二值 mask → ④ 对原条件与空条件做 masked interpolation。
 
-### 关键设计：分层退化 (Stratified Degradation)
+### 关键设计
 
-- **Token 功能二分**：WPR 分析揭示内容 token（如 "minecraft"、"cooking"）重要性得分远高于上下文聚合 token（padding、特殊 token），验证了二者编码不同粒度语义的假设。
-- **Weighted PageRank 分析**：将自注意力图建模为有向图，token 为节点、注意力权重为边权，通过 WPR 迭代 $\boldsymbol{s}^{(k+1)} = \frac{A^T\boldsymbol{s}^{(k)}}{\|A^T\boldsymbol{s}^{(k)}\|_1}$ 收敛得到重要性排序。
-- **统一退化比 $R_{\text{deg}} \in [0,2]$**：$r_{\text{content}} = \min(R_{\text{deg}}, 1.0)$，$r_{\text{CtxAgg}} = \max(R_{\text{deg}}-1.0, 0)$。$R_{\text{deg}} \le 1$ 时只退化内容 token（细粒度语义），$R_{\text{deg}} > 1$ 时继续退化上下文聚合 token（粗粒度语义）。
-- **默认 $R_{\text{deg}}=1.0$**：此时所有内容 token 被退化，无需 WPR 计算，实现近零开销。
-- **mask 构建与复用**：$\boldsymbol{c}_{\text{deg}} = \boldsymbol{m} \odot \boldsymbol{c} + (1-\boldsymbol{m}) \odot \emptyset$，mask 仅在第一步去噪时计算一次并在后续所有步骤复用，开销可忽略。
+**1. 分层退化：先退内容 token、再退上下文聚合 token**
 
-### 几何解释与理论分析
+要造一个「差一点」而非「完全空白」的负样本，得知道退化哪些 token、退多少。作者发现 Transformer 文本编码器里的 token 天然二分：内容 token（如 "minecraft"、"cooking"）编码对象语义，上下文聚合 token（padding、特殊 token）通过注意力吸收全局上下文——WPR 分析证实前者的重要性得分远高于后者。基于此，CDG 用一个统一退化比 $R_{\text{deg}} \in [0,2]$ 控制：$r_{\text{content}} = \min(R_{\text{deg}}, 1.0)$、$r_{\text{CtxAgg}} = \max(R_{\text{deg}}-1.0, 0)$，即 $R_{\text{deg}} \le 1$ 时只退化内容 token（细粒度语义），$R_{\text{deg}} > 1$ 时才继续退化上下文聚合 token（粗粒度语义）。退化通过 mask 插值实现 $\boldsymbol{c}_{\text{deg}} = \boldsymbol{m} \odot \boldsymbol{c} + (1-\boldsymbol{m}) \odot \emptyset$，且 mask 只在第一步去噪计算一次、后续复用，开销可忽略。
 
-作者基于流形假设，利用 SVD 从 MS-COCO 提示的条件预测中近似去噪主子空间 $\mathcal{S}_{\boldsymbol{c}}(t)$，并定义两个度量：
+**2. Weighted PageRank 重要性排序：给 token 退化提供确定性依据**
 
-- **Geometric Decoupling**（引导信号与去噪主子空间的正交性）：$\text{Decoupling}(\mathcal{S}_g, \mathcal{S}_c) = \frac{1}{k}\sum_{i=1}^k \sin^2(\theta_i)$，值趋近 1 表示近乎正交。CDG 在整个生成过程中保持近乎完美的正交性，CFG 在早期阶段严重纠缠。
-- **Interference Energy Ratio**（引导信号在去噪子空间的能量占比）：$\text{Interference}(\Delta\boldsymbol{\varepsilon}) = \frac{\|P_{\mathcal{S}_c(t)}\Delta\boldsymbol{\varepsilon}\|_F^2}{\|\Delta\boldsymbol{\varepsilon}\|_F^2}$，值越低干扰越小。CDG 干扰能量极低，CFG 有显著能量浪费在错位方向。
-- **共模抑制效应**：$\boldsymbol{c}$ 与 $\boldsymbol{c}_{\text{deg}}$ 作为语义邻居共享相似的法方向分量，差分 $\Delta\boldsymbol{\varepsilon}_{\text{CDG}} \propto \nabla_{z_t}\log\frac{p_t(z_t|\boldsymbol{c})}{p_t(z_t|\boldsymbol{c}_{\text{deg}})}$ 自然消去共享分量，保留纯语义修正信号。CFG 中 $\boldsymbol{c}$ 与 $\emptyset$ 语义距离过远无法实现此效果。
+要按重要性挑选退化哪些 token，需要一个可复现的排序。CDG 把自注意力图建成有向图（token 为节点、注意力权重为边权），用 WPR 迭代 $\boldsymbol{s}^{(k+1)} = \frac{A^T\boldsymbol{s}^{(k)}}{\|A^T\boldsymbol{s}^{(k)}\|_1}$ 收敛得到 token 重要性排序。值得一提的是默认配置 $R_{\text{deg}}=1.0$ 时所有内容 token 都被退化、无需真正跑 WPR，从而实现近零额外开销——WPR 主要是为非默认退化比例提供确定性、并解释 $R_{\text{deg}}=1.0$ 这个边界。
+
+**3. 共模抑制的几何解释：为什么「好 vs. 差一点」干扰更小**
+
+CDG 凭直觉说更好，但需要可量化的依据。作者基于流形假设，用 SVD 从 MS-COCO 提示的条件预测中近似去噪主子空间 $\mathcal{S}_{\boldsymbol{c}}(t)$，并定义两个度量：Geometric Decoupling $\text{Decoupling}(\mathcal{S}_g, \mathcal{S}_c) = \frac{1}{k}\sum_{i=1}^k \sin^2(\theta_i)$ 衡量引导信号与去噪主子空间的正交性（趋近 1 即近乎正交），Interference Energy Ratio $\text{Interference}(\Delta\boldsymbol{\varepsilon}) = \frac{\|P_{\mathcal{S}_c(t)}\Delta\boldsymbol{\varepsilon}\|_F^2}{\|\Delta\boldsymbol{\varepsilon}\|_F^2}$ 衡量引导信号落在去噪子空间里的能量占比（越低干扰越小）。测下来 CDG 全程保持近乎完美的正交、干扰能量极低，而 CFG 在早期严重纠缠、大量能量浪费在错位方向。根因在于 $\boldsymbol{c}$ 与 $\boldsymbol{c}_{\text{deg}}$ 是语义邻居、共享相似法方向分量，差分 $\Delta\boldsymbol{\varepsilon}_{\text{CDG}} \propto \nabla_{z_t}\log\frac{p_t(z_t|\boldsymbol{c})}{p_t(z_t|\boldsymbol{c}_{\text{deg}})}$ 自然消去共享分量、只留纯语义修正信号——这正是 $\boldsymbol{c}$ 与语义过远的 $\emptyset$ 做不到的「共模抑制」。
 
 ## 实验
 

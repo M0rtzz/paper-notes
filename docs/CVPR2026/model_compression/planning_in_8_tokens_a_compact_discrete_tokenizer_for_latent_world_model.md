@@ -40,29 +40,21 @@ tags:
 
 ### 整体框架
 
-三阶段流水线：(a) 训练 CompACT tokenizer 将图像映射为紧凑离散 token；(b) 在紧凑潜空间训练动作条件世界模型；(c) 测试时通过 MPC（CEM 优化）在潜空间做规划。
+CompACT 要解决世界模型规划太慢的问题：现有方法每帧编几百个 token（SD-VAE 要 784 个），MPC 规划一轮要上千次 rollout，注意力的二次复杂度把单 episode 规划拖到 3 分钟。它的关键判断是"重建保真度 ≠ 规划所需"——规划只要空间布局和物体关系这些高层语义，不需要纹理光照。于是整条流水线分三步：(a) 训练 CompACT tokenizer 把一帧压成 8/16 个离散 token；(b) 在这个极小潜空间里训动作条件世界模型；(c) 测试时用 MPC（CEM 优化）在潜空间搜动作。压到 8 token 也有信息论依据：规划充分表征的最低熵是 $H(\mathbf{a}^*)$，远小于完整观测熵 $H(\mathbf{o})$，理论上百余 bit 就够。
 
-### 编码器：语义编码（ℰ_compact）
+### 关键设计
 
-- **冻结 DINOv3-B** 提取语义 patch 特征，不做微调（微调反而导致 rFID 从 2.40 退化到 5.22）
-- **Latent Resampler**：N 个可学习 query token（N=8 或 16）通过 cross-attention 从 DINOv3 输出中蒸馏高层语义
-- **Finite Scalar Quantization (FSQ)**：levels 为 [8,8,8,5,5,5]，每个 token 约 16 bits，总共 128~256 bits/帧
-- 设计核心：视觉基础模型已抽象掉低层细节 → cross-attention 仅能提取语义信息 → 天然实现"只保留规划关键信息"
+**1. 语义编码器：冻结视觉基础模型，只蒸馏规划要的语义**
 
-### 解码器：生成式解码（𝒟_compact）
+要把一帧压到 8 token 还不丢规划信息，难点在于"只留语义、扔掉低层细节"。CompACT 用冻结的 DINOv3-B 抽 patch 特征（微调反而把 rFID 从 2.40 退化到 5.22，因为微调会破坏已学好的语义抽象），再用一个 Latent Resampler——$N$ 个可学习 query token（$N=8$ 或 $16$）通过 cross-attention 从 DINOv3 输出里蒸馏高层语义，最后用 Finite Scalar Quantization（FSQ，levels $[8,8,8,5,5,5]$，每 token 约 16 bits）离散化，全帧仅 128~256 bits。因为基础模型已经抽掉了低层细节，cross-attention 能拿到的本就只剩语义，"只保留规划关键信息"是天然实现的而非硬约束。
 
-- 不直接从 8/16 token 重建像素（信息不足，ill-posed）
-- 以 MaskGIT VQGAN（196 token / 帧）为目标 tokenizer
-- 用 masked generative modeling：训练时随机 mask 目标 token，以 compact token 为条件恢复
-- 推理时从全 mask 序列开始，基于置信度迭代 unmask，无需迭代去噪
-- 训练损失：$\mathcal{L}_{\text{tok}} = -\mathbb{E}[\log p(\mathbf{z}^\psi | \mathbf{z}, M(\mathbf{z}^\psi))]$
+**2. 生成式解码器：8 token 重建像素是欠定问题，改用 masked generative modeling**
 
-### 世界模型训练
+8/16 token 信息量太少，直接前馈重建像素是 ill-posed（消融里单步前馈解码 rFID 从 2.40 暴增到 28.80）。CompACT 不直接重建像素，而是以 MaskGIT VQGAN（196 token/帧）为目标 tokenizer，用 masked generative modeling 补回感知细节：训练时随机 mask 目标 token、以 compact token 为条件恢复，损失为 $\mathcal{L}_{\text{tok}} = -\mathbb{E}[\log p(\mathbf{z}^\psi | \mathbf{z}, M(\mathbf{z}^\psi))]$；推理时从全 mask 序列起，按置信度迭代 unmask，省掉了连续潜空间数百步的迭代去噪。
 
-- 导航任务：自回归 DiT，固定长度历史窗口 + 历史 token 随机 mask（diffusion forcing 思想）
-- 机器人操作任务：block-causal transformer 并行预测多帧
-- 世界模型损失：$\mathcal{L}_{\text{world}} = -\mathbb{E}[\log p(\mathbf{z}_{t+1} | \mathbf{z}_t, \mathbf{a}_t, M(\mathbf{z}_{t+1}))]$
-- 规划时通过 CEM 搜索最优动作序列，代价函数可在像素空间（LPIPS）或潜空间（L1）计算
+**3. 紧凑潜空间里的动作条件世界模型**
+
+token 压下来后，世界模型直接在 8/16 token 的潜空间上预测下一帧。导航任务用自回归 DiT，配固定长度历史窗口 + 历史 token 随机 mask（diffusion forcing 思想，关掉后 ATE 从 1.330 退化到 1.480）；机器人操作任务用 block-causal transformer 并行预测多帧。世界模型损失 $\mathcal{L}_{\text{world}} = -\mathbb{E}[\log p(\mathbf{z}_{t+1} | \mathbf{z}_t, \mathbf{a}_t, M(\mathbf{z}_{t+1}))]$。规划时 CEM 搜最优动作序列，代价函数可在像素空间（LPIPS）或潜空间（L1）算——后者把延迟从 5.78s 进一步压到 2.15s。
 
 ## 实验关键数据
 

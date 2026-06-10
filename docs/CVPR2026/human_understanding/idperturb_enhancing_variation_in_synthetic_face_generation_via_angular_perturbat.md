@@ -35,27 +35,33 @@ tags:
 
 ### 整体框架
 
-IDperturb 是一种**纯几何驱动**的采样策略，工作在预训练身份条件扩散模型的嵌入空间中。给定参考身份嵌入 $\mathbf{v}$，在其周围的约束角度区域（$d$ 维锥体）内生成一组扰动嵌入 $\{\tilde{\mathbf{v}}_k\}_{k=1}^K$，每个扰动嵌入作为条件输入生成一张人脸图像。
+IDperturb 想解决一个具体痛点：身份条件扩散模型生成的合成人脸「类内变化太小」，同一身份的脸在年龄、表情、姿态上都太像，拿去训人脸识别（FR）模型泛化就差。它的做法是一个**纯几何驱动**的推理时采样策略，完全工作在预训练身份条件扩散模型的嵌入空间里，不改模型一行代码：给定参考身份嵌入 $\mathbf{v}$，在它周围一个受约束的角度锥体内采出一组扰动嵌入 $\{\tilde{\mathbf{v}}_k\}_{k=1}^K$，每个扰动嵌入再作为条件去生成一张人脸。
 
 ### 关键设计
 
-1. **角度采样 (Angular Sampling)**：核心思路是在单位超球面上对身份嵌入做受控角度偏移。首先均匀采样目标余弦相似度 $s \sim \mathcal{U}[\mathbf{lb}, 1]$，对应角度 $\theta = \cos^{-1}(s)$；然后采样随机噪声 $\mathbf{n} \sim \mathcal{N}(0, \mathbf{I})$ 并投影到 $\mathbf{v}$ 的正交超平面上得到单位向量 $\mathbf{u}$；最终构造扰动嵌入：
+**1. 角度采样：在单位超球面上做受控角度偏移，保身份的同时引入变化**
+
+要增多样性又不能丢身份，关键在「变得有分寸」。IDperturb 先均匀采样目标余弦相似度 $s \sim \mathcal{U}[\mathbf{lb}, 1]$，对应角度 $\theta = \cos^{-1}(s)$；再采随机噪声 $\mathbf{n} \sim \mathcal{N}(0, \mathbf{I})$ 并投影到 $\mathbf{v}$ 的正交超平面上得到单位向量 $\mathbf{u}$；最终构造扰动嵌入：
 
 $$\tilde{\mathbf{v}} = \cos(\theta) \cdot \mathbf{v} + \sin(\theta) \cdot \mathbf{u}$$
 
-该构造保证 $\|\tilde{\mathbf{v}}\| = 1$（范数保持）且 $\langle \tilde{\mathbf{v}}, \mathbf{v} \rangle = \cos(\theta) = s$（精确角度控制）。设计动机是利用 FR 嵌入空间中余弦相似度与身份语义的对应关系，在保持身份的前提下引入可控的变化。
+这个构造同时保证 $\|\tilde{\mathbf{v}}\| = 1$（范数保持）与 $\langle \tilde{\mathbf{v}}, \mathbf{v} \rangle = \cos(\theta) = s$（精确角度控制）。它之所以有效，是因为 FR 嵌入空间里余弦相似度本就和身份语义强对应——沿超球面偏一个可控的小角度，正好在「还是这个人」的前提下引入年龄、姿态等方向的变化。
 
-2. **下界约束 (Lower Bound Constraint)**：参数 $\mathbf{lb}$ 定义了允许的最大角度偏移。更小的 $\mathbf{lb}$ 带来更大变化但可能损失身份一致性。为**避免身份重叠**，动态调整下界：
+**2. 下界约束：用「角度取半」从几何上杜绝身份重叠**
+
+参数 $\mathbf{lb}$ 决定允许的最大角度偏移，$\mathbf{lb}$ 越小变化越大、但身份一致性可能崩。为了不让扰动越界到别的身份，IDperturb 动态调整下界：
 
 $$\mathbf{lb} \leftarrow \max\left(\mathbf{lb}, \max_{j \neq i} \cos\left(\frac{\angle(\mathbf{v}_i, \mathbf{v}_j)}{2}\right)\right)$$
 
-即确保扰动后的嵌入始终比任何其他身份更接近原始身份（角度取半），这是一个优雅的几何保证。
+也就是把下界顶到「到最近邻身份夹角的一半」，确保扰动后的嵌入始终比任何其他身份更接近原身份。这是一个干净的几何保证，把「身份不重叠」直接写进了约束里。
 
-3. **与预训练扩散模型的集成**：IDperturb 与预训练的 LDM（如 IDiff-Face）无缝配合。对每个身份生成 $K$ 个扰动嵌入，每个嵌入配合不同的初始噪声 $\mathbf{z}_T$ 通过反向扩散过程生成图像。使用 DDIM 50 步采样，配合 Classifier-Free Guidance (CFG)。整个扰动过程额外开销极小（M3 CPU 上每身份 50 次扰动仅需 0.01 秒）。
+**3. 与预训练扩散模型的集成：即插即用，开销几乎为零**
+
+IDperturb 不动模型，直接和预训练 LDM（如 IDiff-Face）配合：对每个身份生成 $K$ 个扰动嵌入，每个嵌入再配不同的初始噪声 $\mathbf{z}_T$，经 DDIM 50 步采样 + Classifier-Free Guidance 反向扩散出图。整个扰动过程额外开销极小——M3 CPU 上每身份 50 次扰动只要 0.01 秒，所以才能做到「不改模型、不加标签、不训练」就提升多样性。
 
 ### 损失函数 / 训练策略
 
-IDperturb 本身**不涉及训练**——它是一种推理时采样策略。下游 FR 训练使用 ResNet50 + CosFace loss（margin=0.35, scale=64），SGD 优化器训练 34 epochs，初始学习率 0.1。
+IDperturb 本身不涉及训练，它只是推理时的采样策略。下游 FR 训练用 ResNet50 + CosFace loss（margin=0.35, scale=64），SGD 优化器训 34 epochs，初始学习率 0.1。
 
 ## 实验关键数据
 

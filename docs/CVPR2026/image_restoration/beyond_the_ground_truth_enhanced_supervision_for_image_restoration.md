@@ -39,35 +39,26 @@ tags:
 ## 方法详解
 
 ### 整体框架
-1. **监督增强阶段**：原始GT $I_0^{GT}$ → N种尺度的双三次上采样 → 一步扩散超分辨率模型 → 下采样回原分辨率得到变体 $\{I_i^{GT}\}_{i=1}^N$ → 频域混合生成增强GT $\hat{I}^{GT}$
-2. **输出精修阶段**：轻量ORNet学习 $I_0^{GT} \rightarrow \hat{I}^{GT}$ 的映射 → 串联在任意预训练修复模型之后
+
+这篇论文不动修复模型，而是去改「监督信号」本身：既然数据集里的 GT 本身就不完美（GoPro 的 GT 仍带轻微抖动、SIDD 的 GT 由多帧平均而偏糊），那就先把 GT 升级成「增强 GT」，再让一个轻量模块学会把普通 GT 映射到增强 GT。整体分两阶段——监督增强阶段把原始 GT $I_0^{GT}$ 经多尺度双三次上采样、一步扩散超分、再下采样回原分辨率得到若干变体 $\{I_i^{GT}\}_{i=1}^N$，在频域里自适应混合成增强 GT $\hat{I}^{GT}$；输出精修阶段训练一个 ORNet 学习 $I_0^{GT} \to \hat{I}^{GT}$ 的映射，推理时直接串在任意预训练修复模型之后。
 
 ### 关键设计
-1. **频域混合（Frequency-Domain Mixup）**：
 
-    - 增强GT = $\mathcal{F}^{-1}\left(\sum_{i=0}^{N} M_i \odot \mathcal{F}(I_i^{GT})\right)$
-    - $M_i$ 由条件频率mask生成器预测，满足 $\sum_i M_i = 1$
-    - **为什么用频域而非空间域**：空间域混合难以同时保留高层语义结构和增强细节；频域允许精确控制——保留原GT的低频（语义）+ 选择性融入超分辨率变体的高频（细节）
+**1. 频域混合：在频域里保语义、补细节，避开超分的幻觉**
 
-2. **条件频率Mask生成器**：
+直接在空间域把超分变体和原 GT 混在一起，很难同时保住高层语义结构又只增强细节。本文改在频域做混合：$\hat{I}^{GT} = \mathcal{F}^{-1}\left(\sum_{i=0}^{N} M_i \odot \mathcal{F}(I_i^{GT})\right)$，其中各频段掩码满足 $\sum_i M_i = 1$。这样可以精确分工——低频（语义）保留原始 GT，高频（细节）选择性地融入超分变体，从而在提升感知质量的同时绕开扩散超分常见的高频幻觉。
 
-    - 预定义B个环形高斯基础mask $R_b$：$(R_b)_{h,w} = \exp(-(d(h,w)-\mu_b)^2/2\sigma_b^2)$
-    - 网络预测系数 $c_{i,b} = g(I_0^{GT}, \lambda)$
-    - 最终mask：$M_i = \text{softmax}_i(\sum_b c_{i,b} R_b)$
-    - **环形高斯设计**：带通精确控制低到高频，高斯形状确保频率间平滑过渡避免伪影
-    - 网络输入同时包含RGB和FFT表示，联合利用空间和频域信息
+**2. 条件频率 Mask 生成器：让每张图自己决定各频段怎么混**
 
-3. **Output Refinement Network (ORNet)**：
+频域混合好不好，关键在掩码 $M_i$ 怎么来。本文预定义 $B$ 个环形高斯基础掩码 $R_b$，$(R_b)_{h,w} = \exp\!\big(-(d(h,w)-\mu_b)^2/2\sigma_b^2\big)$，用带通形状精确覆盖从低到高的各个频率，高斯的平滑过渡则避免频段切换处产生伪影；再由一个网络根据图像内容预测组合系数 $c_{i,b} = g(I_0^{GT}, \lambda)$，最终掩码为 $M_i = \text{softmax}_i\!\big(\sum_b c_{i,b} R_b\big)$。网络输入同时喂 RGB 和 FFT 表示，让它联合利用空间和频域信息来给每张图定制混合策略。
 
-    - 训练目标：$\mathcal{L}_{ref} = \|R_\theta(I_0^{GT}, \lambda) - \hat{I}^{GT}\|_2^2$
-    - 利用 $R_\phi(I^{LQ}) \approx I_0^{GT}$ 的先验，仅需学习GT→增强GT的残差映射
-    - **模型无关**：可接在任意预训练修复模型后面，无需修改架构或重新训练
+**3. ORNet 输出精修网络：一次训练，挂在谁后面都能用**
+
+增强 GT 只在训练时存在，真正要让现有修复系统受益，还需要一个能在推理时复用的桥梁。ORNet 直接学 $I_0^{GT} \to \hat{I}^{GT}$ 的映射，训练目标为 $\mathcal{L}_{ref} = \|R_\theta(I_0^{GT}, \lambda) - \hat{I}^{GT}\|_2^2$；由于预训练修复模型已经满足 $R_\phi(I^{LQ}) \approx I_0^{GT}$，ORNet 实际只需补上「GT→增强 GT」这一小段残差。它与具体修复模型解耦，不改架构、不重训骨干，接在任意预训练修复模型后面即可，因此具备很强的即插即用价值。
 
 ### 损失函数 / 训练策略
-- Mask生成器训练：$\mathcal{L} = (1-\lambda)\mathcal{L}_{recon} + \lambda\mathcal{L}_{percep}$
-    - $\mathcal{L}_{recon} = \|\hat{I}^{GT} - I_0^{GT}\|_2^2$（保持语义一致）
-    - $\mathcal{L}_{percep} = -\sum_k \text{IQA}_k(\hat{I}^{GT})$（提升感知质量，用MUSIQ/MANIQA/TOPIQ）
-    - $\lambda$ 控制保真度-感知平衡
+
+Mask 生成器用保真-感知的加权损失训练：$\mathcal{L} = (1-\lambda)\mathcal{L}_{recon} + \lambda\mathcal{L}_{percep}$，其中 $\mathcal{L}_{recon} = \|\hat{I}^{GT} - I_0^{GT}\|_2^2$ 维持语义一致，$\mathcal{L}_{percep} = -\sum_k \text{IQA}_k(\hat{I}^{GT})$（用 MUSIQ/MANIQA/TOPIQ）提升感知质量，$\lambda$ 控制保真度与感知质量之间的平衡。
 
 ## 实验关键数据
 

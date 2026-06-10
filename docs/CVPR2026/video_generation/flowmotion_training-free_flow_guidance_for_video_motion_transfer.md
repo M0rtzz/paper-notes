@@ -39,26 +39,17 @@ tags:
 
 ### 整体框架
 
-FlowMotion 建立在 flow-based T2V 模型（如 Wan2.1/2.2）之上，核心流程：
+FlowMotion 想解决的痛点很具体：现有 training-free 运动迁移要么靠模型内部中间层（attention map / diffusion feature）做梯度回传，显存动辄 51–89 GB、推理几百上千秒，要么绑死特定架构、还得额外 inversion。作者的关键观察是——flow-based T2V 模型在去噪前几步的 **latent prediction**（单步估出的干净 latent）就已经编码了粗糙的运动轨迹和时序动态，外观细节是之后才逐步累积的。于是 FlowMotion 干脆直接在这个预测输出上做文章：先把源视频编码成干净 latent $z_0^{src}$、前向加噪到 $z_t^{src}$、过模型预测速度 $v_t^{src}$，算出运动表示 $\hat{z}_0^{src}(t) = z_t^{src} - t \cdot v_t^{src}$（无需 inversion）；目标视频生成时，在去噪前 10 步对目标 latent 算出它的 latent prediction 并与源运动表示对齐，**梯度只回传到 latent 本身、不穿过模型内部层**，所以显存极低、架构无关。
 
-1. **源视频运动表示提取**（无需 inversion）：将源视频编码为干净 latent $z_0^{src}$，通过前向加噪得到 $z_t^{src}$，输入 T2V 模型预测速度 $v_t^{src}$，再计算 latent prediction $\hat{z}_0^{src}(t) = z_t^{src} - t \cdot v_t^{src}$ 作为运动表示。
-2. **目标视频生成时的 flow guidance**：在去噪的前 10 步，对目标 latent $z_t$ 计算其 latent prediction $\hat{z}_0(t)$，通过 flow guidance loss 与源视频的运动表示对齐，梯度只回传到 latent 本身而非模型内部层。
-3. **Velocity regularization**：对每步速度做正则化，抑制过对齐和方向突变，保证平滑稳定的运动演化。
+### 关键设计
 
-### Flow Guidance 设计（两个目标）
+**1. Flow Guidance：在 latent prediction 上做双重对齐，只抓运动不抓外观**
 
-- **Latent Alignment (LA)**：直接对齐源和目标的 latent prediction，保持全局运动一致性：$\mathcal{L}_{LA} = \|\hat{z}_0^{src}(t) - \hat{z}_0(t)\|_2^2$
-- **Difference Alignment (DA)**：计算帧间差异 $\triangle(\hat{z}_0^{src}(t))$ 和 $\triangle(\hat{z}_0(t))$ 并对齐，强调时序变化、抑制静态外观信息：$\mathcal{L}_{DA} = \|\triangle(\hat{z}_0^{src}(t)) - \triangle(\hat{z}_0(t))\|_2^2$
-- 总 loss：$\mathcal{L}_{FG} = \alpha \cdot \mathcal{L}_{LA} + \beta \cdot \mathcal{L}_{DA}$，其中 $\alpha:\beta = 4:1$
+把引导建在 latent prediction 上还不够，得让它对齐「运动」而不是「外观」。作者设计两个对齐目标：**Latent Alignment（LA）** 直接对齐源和目标的 latent prediction、保持全局运动一致，$\mathcal{L}_{LA} = \|\hat{z}_0^{src}(t) - \hat{z}_0(t)\|_2^2$；**Difference Alignment（DA）** 改对齐帧间差分 $\triangle(\hat{z}_0^{src}(t))$ 和 $\triangle(\hat{z}_0(t))$，因为帧间差异强调的是时序变化、能把静态外观信息抑制掉，$\mathcal{L}_{DA} = \|\triangle(\hat{z}_0^{src}(t)) - \triangle(\hat{z}_0(t))\|_2^2$。两者按 $\alpha:\beta = 4:1$ 加权成 $\mathcal{L}_{FG} = \alpha \cdot \mathcal{L}_{LA} + \beta \cdot \mathcal{L}_{DA}$——LA 管整体一致、DA 管时序变化。
 
-### Velocity Regularization
+**2. Velocity Regularization：抑制正交分量，防止过对齐和方向突变**
 
-为避免直接优化 latent prediction 导致过拟合外观细节和时间步间不稳定更新：
-
-1. 计算累积平均速度 $v_t^{avg} = (z_t - z_1) / (t-1)$
-2. 将当前速度分解为沿 $v_t^{avg}$ 的投影分量 $v_t^{proj}$ 和正交分量 $v_t^{orth}$
-3. 以衰减因子 $\gamma=0.1$ 抑制正交分量：$v_t^{reg} = v_t^{proj} + \gamma \cdot v_t^{orth}$
-4. 用正则化后的速度计算 latent prediction：$\hat{z}_0(t) = z_t - t \cdot v_t^{reg}$
+直接优化 latent prediction 容易过拟合外观细节、时间步之间更新还不稳。作者把速度沿「累积平均速度」方向拆开来管：先算累积平均速度 $v_t^{avg} = (z_t - z_1) / (t-1)$，把当前速度分解为沿 $v_t^{avg}$ 的投影分量 $v_t^{proj}$ 和正交分量 $v_t^{orth}$，再用衰减因子 $\gamma=0.1$ 压住正交分量：$v_t^{reg} = v_t^{proj} + \gamma \cdot v_t^{orth}$，最后用正则化后的速度重算 latent prediction $\hat{z}_0(t) = z_t - t \cdot v_t^{reg}$。投影分量代表运动演化的主方向、保留，正交分量代表偏离主方向的抖动、衰减，从而既不过对齐又保持平滑稳定。消融里去掉它所有指标大幅下降（Text Sim. 从 0.347 掉到 0.313），证明它对稳定优化至关重要。
 
 ### 损失函数与优化
 

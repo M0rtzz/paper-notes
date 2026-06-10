@@ -35,37 +35,19 @@ tags:
 
 ## 方法详解
 
-### 整体框架：两阶段流水线
+### 整体框架
 
-StreamingTOM = OQM₁₆→₄ ∘ CTR_{N→G}，以 **group 抽象**（每帧固定 G=50 个 token 的帧对齐组）作为两阶段间的接口：
+StreamingTOM 要解决的是流式视频 VLM 的两个硬约束——因果性（看不到未来帧）和 kv-cache 无界增长——在不训练的前提下同时压住 LLM 前的 prefill 计算和 LLM 后的解码显存。它把整条链路拆成两段，中间用一个固定大小的 **group 抽象**（每帧固定 G=50 个 token 的帧对齐组）当接口：视觉编码器出特征后先经 CTR 在 LLM *前*把每帧压到 G 个 token 写进在线记忆，用户提问时再由 OQM 从记忆里检索相关 group、4-bit 反量化送进 LLM 生成。形式化即 $\text{StreamingTOM} = \text{OQM}_{16\to4} \circ \text{CTR}_{N\to G}$。
 
-- **视觉流水线**：视觉编码器提取特征 → CTR 压缩 → 写入在线记忆
-- **查询流水线**：用户问题驱动解码器 → OQM 检索相关 group → 4-bit 反量化 → 高效生成
+### 关键设计
 
-### Stage 1: Causal Temporal Reduction (CTR)
+**1. Causal Temporal Reduction (CTR)：在 LLM 前做严格因果的逐帧 token 削减**
 
-CTR 遵循三个设计原则：严格因果（2 帧窗口）、单遍处理、固定每帧预算 G。
+现有 training-free 流式方法只管 LLM 之后的 kv-cache，prefill 的 $O(tNLd^2)$ 计算没人降，而离线的 token 合并方法又要看未来帧、违反因果。CTR 用一个只看相邻两帧的因果窗口、单遍处理、每帧固定预算 G 的削减器来填这个空：对相邻帧 $t$ 和 $t{-}1$ 同位置 token 算余弦相似度 $s_t^{(i)}$ 衡量跨帧冗余，同时白嫖视觉编码器自带的注意力分数 $\alpha_t^{(i)}$ 当空间显著性（用 chunked attention 算，避免显存峰值），以阈值 $\tau_c=0.9$ 把 token 分成高相似的静态集 $\mathcal{S}_t$ 和低相似的动态集 $\mathcal{D}_t$。接着按两者比例把 G 个名额自适应分成 $k_s$ 和 $k_d$（内容变化大就多给动态），动态路径按显著性选 top-$k_d$ 保留新信息、静态路径密度聚类合并成 $k_s$ 个代表 token 去冗余。整帧复杂度只有 $O(N + G^2)$、状态只需前一帧特征 $O(Nd)$，都不随流长增长，于是把 prefill 从 $O(tNLd^2)$ 降到了 $O(tGLd^2)$。
 
-1. **时序相似度计算**：对相邻帧 $t$ 和 $t{-}1$ 的同位置 token 计算余弦相似度 $s_t^{(i)}$，衡量跨帧冗余。
-2. **空间显著性**：复用视觉编码器的注意力分数 $\alpha_t^{(i)}$ 作为零成本副产品，通过 chunked attention 避免显存峰值。
-3. **静态/动态分类**：以阈值 $\tau_c = 0.9$ 将 token 分为静态集 $\mathcal{S}_t$（高相似度，冗余）和动态集 $\mathcal{D}_t$（低相似度，新信息）。
-4. **自适应预算分配**：按照静态/动态比例将 G 个名额分配为 $k_s$ 和 $k_d$，内容变化大时倾斜给动态 token。
-5. **双路径处理**：
-    - 动态路径：按显著性选 top-$k_d$ token（保留关键新信息）
-    - 静态路径：密度聚类合并为 $k_s$ 个代表 token（去除冗余）
-6. **复杂度**：每帧 $O(N + G^2)$，状态仅需前一帧特征 $O(Nd)$，不随流长度增长。
+**2. Online Quantized Memory (OQM)：在 LLM 后用 4-bit 量化 + 按需检索限制 kv-cache**
 
-### Stage 2: Online Quantized Memory (OQM)
-
-OQM 解决 CTR 之后 kv-cache 仍线性增长的问题：
-
-1. **增量 group 量化**：每个 group 独立量化为 4-bit（per-head, per-channel 的 scale/offset），同时存储代表性 key $\bar{\mathbf{k}}_t$。
-2. **检索-反量化范式**：查询时用 decoder state 与所有 group 的代表 key 计算余弦相似度，选 top-k 个最相关 group，仅对选中 group 做 4-bit → FP16 反量化。
-3. **有界活跃显存**：总存储 $O(T \cdot G \cdot d / 4)$ 保留完整历史，活跃 kv 仅 $O(k \cdot G \cdot d)$（$k \ll T$），解码延迟不随流长度增长。
-
-### 压缩比
-
-综合 CTR 和 OQM：压缩比 = $4N/G = 4 \times 196/50 \approx 15.7\times$。
+CTR 把每帧压到 G 个 token，但 kv-cache 仍随帧数线性涨。OQM 的做法是每来一个 group 就独立量化成 4-bit（per-head、per-channel 的 scale/offset），并存一个代表性 key $\bar{\mathbf{k}}_t$；查询时拿 decoder state 与所有 group 的代表 key 算余弦相似度，只挑 top-k 个最相关的 group 做 4-bit → FP16 反量化。这样完整历史以 $O(T \cdot G \cdot d / 4)$ 的压缩态存着、活跃 kv 只有 $O(k \cdot G \cdot d)$（$k \ll T$），解码延迟不随流长涨。两段合起来的综合压缩比是 $4N/G = 4 \times 196/50 \approx 15.7\times$。
 
 ## 实验关键数据
 

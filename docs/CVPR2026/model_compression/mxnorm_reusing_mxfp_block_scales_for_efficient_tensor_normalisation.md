@@ -53,63 +53,23 @@ GPU矩阵乘法吞吐量提升(80x)远超reduction/elementwise操作(5-9x)，RMS
 
 ## 方法详解
 
-### 背景：RMSNorm
+### 整体框架
 
-给定tensor $X \in \mathbb{R}^{T \times D}$，RMSNorm对每行计算inverse RMS：
+MXNorm 的出发点是一个"免费午餐"观察：在 Pre-Norm transformer 里，RMSNorm 紧挨在 MXFP 量化前面，两者都要沿 hidden dimension 收集统计量来 rescale——RMSNorm 算 RMS，MXFP 算每个 block 的 absmax。既然 MXFP 已经把 block absmax 算好了，何不直接拿它来近似 RMS，省掉 RMSNorm 那次独立的 reduction？给定 tensor $X \in \mathbb{R}^{T \times D}$，RMSNorm 每行要算 inverse RMS $\rho_t = \left(\frac{1}{D}\sum_{d=1}^{D} X_{td}^2\right)^{-1/2}$ 再乘 gain：$Y_{td} = \rho_t \cdot X_{td} \cdot \gamma_d$，瓶颈就是对 $D$（通常 4096-8192）个元素做 reduction；而 MXFP8 量化（MXCast）把 $D$ 列切成 $K=D/B$ 个大小 $B=32$ 的 block，每 block 算 absmax $m_{tk} = \max_b |Y_{tkb}|$、取 power-of-2 scale $S_{tk} = \text{cast}(m_{tk}/256; E8M0)$ 再量化 $V_{tkb} = \text{cast}(Y_{tkb}/S_{tk}; E4M3)$。MXNorm 就是把这两次 reduction 合成一次。
 
-$$\rho_t = \left(\frac{1}{D}\sum_{d=1}^{D} X_{td}^2\right)^{-1/2}$$
+### 关键设计
 
-归一化后乘以可学习gain参数$\gamma$：$Y_{td} = \rho_t \cdot X_{td} \cdot \gamma_d$
+**1. 用 block absmax 的广义 p-mean 估 RMS：把两次 reduction 合成一次**
 
-**瓶颈**：计算$\rho_t$需要对$D$个元素做reduction（求平方和），$D$通常为4096-8192。
+RMSNorm 沿整个 hidden dimension 求平方和，是被矩阵乘法加速器越甩越远的非 MatMul 瓶颈。MXNorm 改用 MXFP 已算好的 $K$ 个 block absmax 来估 inverse RMS。理论支撑是定理 1：设 $X_i$ 为 $D=KB$ 个 i.i.d. 样本、block absmax 为 $m_k$，广义 $p$-mean $G_K^{(p)} = \left(\frac{1}{K}\sum_{k=1}^{K} m_k^p\right)^{1/p}$，则 $K \to \infty$ 时 $\frac{G_K^{(p)}}{\text{RMS}(X)} \to c(p, B)$，即 block absmax 的 power mean 与 RMS 之比收敛到只依赖 $p$、$B$ 和分布形状的常数——直觉上整个 tensor 被 $\sigma$ 缩放时，RMS 和 block absmax 的 power mean 同步被 $\sigma$ 缩放，比值是常数。落地实现就是 $\tilde{m}_{tk} = \max_b |X_{tkb}|$、$\tilde{\rho}_t = \tilde{c}(p,B) \cdot \left(\frac{1}{K}\sum_{k=1}^{K} \tilde{m}_{tk}^p\right)^{-1/p} + \epsilon$，其中 $\tilde{c}(p,B)$ 用 Gaussian 分布 Monte Carlo 预算好。reduction 规模从 $D$ 降到 $K=D/B$：$B=32$ 时缩 32 倍，$D=4096$ 时从 reduce 4096 个元素变成 reduce 128 个 block absmax。
 
-### 背景：MXFP8量化（MXCast）
+**2. p=2 而非 p=1：output 上界决定训练稳定性**
 
-将tensor的$D$列分成$K$个大小为$B$的block（$B=32$，$K=D/B$）。每block计算absmax：$m_{tk} = \max_b |Y_{tkb}|$，然后取power-of-2 scale：$S_{tk} = \text{cast}(m_{tk}/256; E8M0)$，最后量化values：$V_{tkb} = \text{cast}(Y_{tkb}/S_{tk}; E4M3)$。
+$p$ 怎么选不只是近似精度问题，更是稳定性问题。$p=1$（算术平均）对 outlier feature 不敏感，但 output 上界是 $O(K)$ 太大；$p=2$（二次平均）output 上界 $O(\sqrt{K})$，正好和 RMSNorm 的 $O(\sqrt{D})$ 同量级。更紧的 bound 限制了极端值对权重更新的冲击，所以 8B 模型上 MXNorm(p=1) 会因 outlier 触发 loss spike 而落后，MXNorm(p=2) 则稳定、final loss 甚至略优于 RMSNorm（2.126 vs 2.132）。这条"bounds matter more than approximation quality"的洞察才是选 $p=2$ 的真正理由。
 
-**关键**：MXCast已经计算了$K$个block absmax——这些block-level统计量包含了tensor尺度的信息。
+**3. MXNormLinear：把 gain 吸进下一层权重**
 
-### MXNorm核心思想
-
-**定理1**（核心理论保证）：设$X_i$为$D=KB$个i.i.d.样本，block absmax为$m_k$，广义$p$-mean定义为：
-
-$$G_K^{(p)} = \left(\frac{1}{K}\sum_{k=1}^{K} m_k^p\right)^{1/p}$$
-
-则当$K \to \infty$时：
-
-$$\frac{G_K^{(p)}}{\text{RMS}(X)} \to c(p, B)$$
-
-即block absmax的广义$p$-mean与RMS之差收敛到一个仅依赖于$p$、$B$和分布形状的常数$c(p,B)$。
-
-**直觉**：如果整个tensor被标量$\sigma$缩放，RMS和block absmax的power mean都被$\sigma$缩放→两者的比值是常数。
-
-### MXNorm实现
-
-用block absmax的广义$p$-mean估计inverse RMS：
-
-$$\tilde{m}_{tk} = \max_b |X_{tkb}|$$
-$$\tilde{\rho}_t = \tilde{c}(p,B) \cdot \left(\frac{1}{K}\sum_{k=1}^{K} \tilde{m}_{tk}^p\right)^{-1/p} + \epsilon$$
-
-其中$\tilde{c}(p,B)$通过Gaussian分布的Monte Carlo采样预计算。
-
-**Reduction大小从$D$减到$K=D/B$**：$B=32$时，reduction大小缩减32倍。例如$D=4096$时，RMSNorm需reduce 4096个元素，MXNorm只需reduce 128个block absmax。
-
-### MXNormLinear（处理gain参数）
-
-MXNorm的输出是MXFP格式（block scales + quantized values），无法直接做elementwise乘gain $\gamma$。
-
-**解决方案**：利用线性运算的结合律，将$\gamma$吸收进后续Linear层的权重矩阵：
-
-$$H = \text{MXNorm}(X) \cdot \text{MXCast}(W \cdot \gamma)^\top$$
-
-反向传播使用RMSNorm的梯度作为straight-through estimator。缓存$X$和$\tilde{\rho}$用于backward（与标准RMSNorm + MXCast的内存开销相同）。
-
-### p的选择：p=1 vs p=2
-
-- **p=1**（算术平均）：对outlier feature不敏感，output上界为$O(K)$——过大
-- **p=2**（RMS/二次平均）：output上界为$O(\sqrt{K})$，与RMSNorm的$O(\sqrt{D})$量级一致
-
-output上界影响训练稳定性：更紧的bounds限制了极端值对权重更新的影响。MXNorm(p=1)在8B模型上出现loss spike，而MXNorm(p=2)稳定。
+MXNorm 的输出是 MXFP 格式（block scales + 量化值），没法直接做 elementwise 乘 gain $\gamma$。利用线性运算的结合律，把 $\gamma$ 提前融进后续 Linear 层的权重矩阵：$H = \text{MXNorm}(X) \cdot \text{MXCast}(W \cdot \gamma)^\top$，于是 gain 不再需要单独一遍 elementwise。反向传播用 RMSNorm 的梯度作 straight-through estimator，缓存 $X$ 和 $\tilde{\rho}$ 供 backward（内存开销与标准 RMSNorm + MXCast 相同），整体是真正零额外超参数的 drop-in replacement。
 
 ## 实验关键数据
 

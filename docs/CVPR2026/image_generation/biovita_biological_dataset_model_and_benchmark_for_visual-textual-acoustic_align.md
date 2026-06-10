@@ -40,37 +40,34 @@ tags:
 ## 方法详解
 
 ### 整体框架
-BioVITA 包括三个组件：(1) BioVITA Train：百万级三模态训练数据集；(2) BioVITA Model：音频、图像、文本三编码器统一表示模型；(3) BioVITA Bench：六方向跨模态物种级检索基准。
+BioVITA 要补的是生物多模态里一直缺的一环：图像-文本、音频-文本各自都有成熟模型（BioCLIP 2、CLAP），却没人把视觉-文本-声音（VITA）三模态对齐到同一空间。它给出的是一整套「数据集 + 模型 + 基准」：BioVITA Train 提供百万级三模态训练数据，BioVITA Model 用音频/图像/文本三个编码器学统一表示，BioVITA Bench 用六方向跨模态检索来评测。模型的关键不是从零训三模态，而是借 BioCLIP 2 已经对齐好的图文空间，只把音频「挂」进去。
 
 ### 关键设计
 
-1. **BioVITA Train 数据集构建**:
+**1. BioVITA Train 数据集构建：先有三模态配对数据，才谈得上三模态对齐**
 
-    - **三步流程**: 音频数据整理 → 细粒度标注 → 视觉数据整合
-    - 从 iNaturalist、Xeno-Canto、Animal Sound Archive 收集 130 万音频，配合 ToL-200M 子集的 230 万图像
-    - 覆盖 14,133 个物种，34 种生态特征标签（饮食类型、活动模式、栖息地等）
-    - **设计动机**: 现有数据集要么只有音频要么只有图像，无法支持三模态联合训练；34 种特征标签支持细粒度生态分析
+现有数据集要么只有音频、要么只有图像，根本撑不起三模态联合训练。BioVITA 走「音频整理 → 细粒度标注 → 视觉整合」三步：从 iNaturalist、Xeno-Canto、Animal Sound Archive 收 130 万条音频，配上 ToL-200M 子集的 230 万张图像，覆盖 14,133 个物种，并标注 34 种生态特征（饮食、活动模式、栖息地等）。这套规模和 34 维特征标签让细粒度生态分析与三模态联合训练第一次成为可能。
 
-2. **两阶段训练策略**:
+**2. 两阶段训练策略：先对齐音频-文本，再逐步引入图像**
 
-    - **Stage 1（音频-文本对齐）**: 仅训练 ATC loss，将音频编码器的表示与文本对齐
-    $\mathcal{L}_{\text{ATC}} = \frac{1}{2}(\ell(\mathbf{S}_{\text{AT}}) + \ell(\mathbf{S}_{\text{AT}}^\top))$
-      训练 30 epochs，学习率 $10^{-4}$，batch size 64
-    - **Stage 2（三模态对齐）**: 激活 AIC 和 ITC loss，实现完整 VITA 对齐
-    $\mathcal{L} = \mathcal{L}_{\text{ATC}} + \lambda(\mathcal{L}_{\text{AIC}} + \mathcal{L}_{\text{ITC}})$
-      训练 10 epochs，$\lambda$ 在前 2 epochs 从 0 线性增至 0.1
-    - **设计动机**: 直接三模态联合训练会因视觉和声学细粒度区分困难而不稳定；先对齐音频-文本，再逐步引入图像，利用预训练 BioCLIP 2 的强大图文表示空间
+如果一上来就三模态联合训练，视觉和声学的细粒度区分都很难、训练会不稳。BioVITA 把它拆成两步。Stage 1 只训音频-文本对比损失，把音频编码器对齐到文本：
 
-3. **编码器架构**:
+$$\mathcal{L}_{\text{ATC}} = \frac{1}{2}\left(\ell(\mathbf{S}_{\text{AT}}) + \ell(\mathbf{S}_{\text{AT}}^\top)\right)$$
 
-    - **音频编码器**: HTS-AT（层级化 Transformer，4 组 SwinT），从梅尔频谱图提取 768 维表示
-    - **图像-文本编码器**: 预训练 BioCLIP 2（ViT-L/14 + 12 层 Transformer），768 维
-    - **设计动机**: 复用成熟的生物图文编码器，只需训练音频编码器对齐
+跑 30 epochs，学习率 $10^{-4}$、batch size 64。Stage 2 再激活图像相关的 AIC 和 ITC 损失，做完整 VITA 对齐：
+
+$$\mathcal{L} = \mathcal{L}_{\text{ATC}} + \lambda(\mathcal{L}_{\text{AIC}} + \mathcal{L}_{\text{ITC}})$$
+
+跑 10 epochs，$\lambda$ 在前 2 epochs 从 0 线性升到 0.1。先把音频锚到文本、再借预训练 BioCLIP 2 的强图文空间慢慢引入图像，比一步到位稳得多。
+
+**3. 编码器架构：只训音频，复用成熟图文编码器**
+
+音频编码器用 HTS-AT（4 组 SwinT 的层级化 Transformer），从梅尔频谱图提取 768 维表示；图像-文本编码器直接用预训练 BioCLIP 2（ViT-L/14 + 12 层 Transformer），同为 768 维。既然 BioCLIP 2 的图文表示已经很强，就只需训练音频编码器去对齐它，省下大量算力。
 
 ### 损失函数 / 训练策略
-- 对比学习使用标准 InfoNCE 风格的交叉熵损失，温度超参 $\tau$ 控制相似度分布的尖锐程度
-- Stage 2 中 $\lambda$ 采用线性调度防止 ATC loss 回升
-- 每 epoch 每物种最多 20 条录音，音频随机裁剪为 10 秒片段增加多样性
+- 对比学习用标准 InfoNCE 风格的交叉熵损失，温度超参 $\tau$ 控制相似度分布的尖锐程度
+- Stage 2 中 $\lambda$ 采用线性调度，防止 ATC loss 回升
+- 每 epoch 每物种最多 20 条录音，音频随机裁剪为 10 秒片段以增加多样性
 
 ## 实验关键数据
 

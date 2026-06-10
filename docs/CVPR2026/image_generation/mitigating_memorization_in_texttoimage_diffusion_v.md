@@ -47,38 +47,25 @@ tags:
 
 ### 整体框架
 
-两个独立互补模块：(1) RAPTA作用于训练阶段——对每张训练图像用Faster R-CNN检测显著区域，生成含位置信息的提示变体池，经CLIP评分加权采样后conditioning扩散模型；(2) ADMCD作用于推理/评估阶段——提取ViT patch特征、CLIP全局特征、ResNet纹理特征三流，经Transformer注意力融合后通过双阈值判断是否复制及复制类型。
+这篇把扩散模型记忆化当成一个「训练时种因、评估时结果」的完整链路来治，给出两个互不依赖的模块。RAPTA 作用在训练阶段：对每张训练图用 Faster R-CNN 检测显著区域、生成一池带位置信息的提示变体，经 CLIP 评分加权采样后拿去 conditioning 扩散模型，打破「一张图永远配同一句 caption」的强绑定。ADMCD 作用在推理/评估阶段：抽 ViT patch 特征、CLIP 全局特征、ResNet 纹理特征三路，经 Transformer 注意力融合后用双阈值判断是否复制、以及是精确复制还是风格模仿。
 
 ### 关键设计
 
-1. **RAPTA（Region-Aware Prompt Augmentation）**
+**1. RAPTA：用区域感知的提示变体打破 caption-image 一对一依赖**
 
-    - 对每张训练图像运行预训练Faster R-CNN，保留top-M个高置信度(Sᵢ>τ_b)检测框
-    - 将每个bbox中心离散化到3×3网格G得到位置token（top-left, center, bottom-right等）——避免连续坐标的组合爆炸
-    - 小模板集{Tⱼ}生成区域感知变体，如"p, with a ⟨c⟩ in the ⟨pos⟩"或"p, featuring ⟨c⟩ and ⟨c'⟩"
-    - 变体池V = {原始prompt} ∪ {所有模板实例化结果}
-    - CLIP一致性评分 $S_v = \cos(f_I, f_v)$，温度γ加权 $w_v = S_v^\gamma$，归一化为采样分布π(v)
-    - 每次迭代随机采样一个变体p̃~π(·)做conditioning → 每次看到不同但语义一致的描述
-    - 损失函数不变：$\mathcal{L}_{\text{diff}} = \mathbb{E}[\|\epsilon - \epsilon_\theta(x_t, t, e)\|^2]$，仅e来自采样变体
+记忆化的训练时根因，是模型反复看到同一张图配同一句固定 caption、把这对映射死记下来。RAPTA 对每张训练图跑预训练 Faster R-CNN、保留 top-M 个高置信度（$S_i>\tau_b$）检测框，把每个 bbox 中心离散化到 $3\times3$ 网格得到位置 token（top-left、center、bottom-right 等，避免连续坐标的组合爆炸），再用一小套模板生成区域感知变体，如“p, with a ⟨c⟩ in the ⟨pos⟩”。变体池 $V = \{原始prompt\} \cup \{所有模板实例化结果\}$，按 CLIP 一致性评分 $S_v = \cos(f_I, f_v)$ 加权 $w_v = S_v^\gamma$ 归一化成采样分布 $\pi(v)$，每次迭代采一个变体 $\tilde p \sim \pi(\cdot)$ 做 conditioning——模型每次看到的描述都不同、但都语义一致。损失函数完全不变 $\mathcal{L}_{\text{diff}} = \mathbb{E}[\|\epsilon - \epsilon_\theta(x_t, t, e)\|^2]$，只是 $e$ 来自采样到的变体，所以不改架构、不加额外损失、开销极低。
 
-2. **ADMCD（Attention-Driven Multimodal Copy Detection）**
+**2. ADMCD：三流注意力融合替代单一相似度指标做鲁棒复制检测**
 
-    - 三流特征提取：f_vis（ViT patch级）、f_clip（CLIP全局语义）、f_tex（ResNet纹理）
-    - 线性投影到同一维度 → Transformer编码器注意力融合 → L2归一化得融合向量 $\hat{f}_{\text{fus}}$
-    - **两阶段判定**：
-        - 步骤1：$S_{\text{fus}} = \cos(\hat{f}_{\text{fus}}(G), \hat{f}_{\text{fus}}(R)) > \tau_1 = 0.938$ → 判定为Copy
-        - 步骤2：计算加权流分数 $\bar{S} = 0.24 \cdot S_{\text{vis}} + 0.38 \cdot S_{\text{clip}} + 0.38 \cdot S_{\text{tex}}$，若$\bar{S} > \tau_2 = 0.970$ → Retrieve/Exact Copy，否则 → Style Copy
-    - 两个阈值和三流权重均通过验证集扫描确定，无需训练下游分类器 → 零训练部署
+单一指标各有偏向——LPIPS 偏纹理、ORB 偏关键点、SSIM 偏结构——既分不清精确复制和风格模仿，也扁不住图像扰动。ADMCD 提取三流特征 $f_{\text{vis}}$（ViT patch 级）、$f_{\text{clip}}$（CLIP 全局语义）、$f_{\text{tex}}$（ResNet 纹理），线性投影到同维后过 Transformer 编码器注意力融合、L2 归一化得 $\hat{f}_{\text{fus}}$，再两阶段判定：先看融合相似度 $S_{\text{fus}} = \cos(\hat{f}_{\text{fus}}(G), \hat{f}_{\text{fus}}(R)) > \tau_1 = 0.938$ 判是否为 Copy；是 Copy 再算加权流分数 $\bar{S} = 0.24 \cdot S_{\text{vis}} + 0.38 \cdot S_{\text{clip}} + 0.38 \cdot S_{\text{tex}}$，$\bar{S} > \tau_2 = 0.970$ 判 Retrieve/Exact Copy、否则判 Style Copy。两个阈值和三流权重都靠验证集扫描确定，不用训练下游分类器，等于零训练部署。
 
-3. **ADMCD作为通用鲁棒相似度度量**
+**3. ADMCD 当通用鲁棒相似度度量：三流互补抗扰动**
 
-    - 在10种常见图像攻击（高斯噪声/模糊/椒盐/遮挡/旋转/翻转/裁剪等）下保持稳定
-    - 融合相似度范围0.748-0.974，而LPIPS/ORB/SSIM等波动剧烈
-    - 三流互补：LPIPS对亮度敏感时CLIP和纹理补偿，ORB关键点稀疏时patch特征补偿
+把 ADMCD 单拎出来当相似度度量也成立。在高斯噪声、模糊、椒盐、遮挡、旋转、翻转、裁剪等 10 种常见攻击下，它的融合相似度稳定在 0.748–0.974，而 LPIPS/ORB/SSIM 波动剧烈。稳的原因正是三流互补：LPIPS 对亮度敏感失灵时 CLIP 和纹理顶上，ORB 关键点稀疏时 patch 特征补上，没有哪一种退化能同时打垮三路。
 
 ### 损失函数 / 训练策略
 
-RAPTA不引入额外损失，仍用标准扩散去噪目标。ADMCD的阈值τ₁=0.938（F1峰值）和τ₂=0.970（5名标注者一致验证）以及权重(0.24,0.38,0.38)均从验证集确定。
+RAPTA 不引入额外损失，仍用标准扩散去噪目标，唯一变化是 conditioning 来自采样变体。ADMCD 的阈值 $\tau_1=0.938$（F1 峰值）、$\tau_2=0.970$（5 名标注者一致验证）以及三流权重 $(0.24, 0.38, 0.38)$ 全部从验证集确定，不训练任何下游模块。
 
 ## 实验关键数据
 

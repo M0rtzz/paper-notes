@@ -41,44 +41,27 @@ tags:
 
 ### 整体框架
 
-SAVA-X 采用 **Align–Fuse–Detect** 的统一框架设计：
+SAVA-X 处理的是 Ego→Exo 模仿错误检测：用第三人称（Exo）示范来判断第一人称（Ego）模仿做得对不对。这事难在三处——两路视频异步录制、时长节奏都不同（时序不对齐），长视频里大量无信息内容会稀释注意力（冗余），Ego 强调局部手-物交互、Exo 捕获全局姿态，直接融合不可靠（视角域差距）。框架按 **Align–Fuse–Detect** 三段走，三个核心模块正好一一对应这三个难点。
 
-1. **冻结视频编码器** 分别提取 Exo/Ego 帧级特征
-2. **自适应采样** 选择关键时段，降低冗余
-3. **场景自适应视角嵌入** 注入视角条件信息，缓解域差距
-4. **双向交叉注意力融合** 对齐并聚合互补线索
-5. 融合序列送入 **可变形 Transformer 编解码器**，生成第一人称时序段和模仿正确性预测
-
-使用 TSP（预训练于 ActivityNet）作为冻结特征提取器，特征维度 $d=512$。
+流程是：冻结视频编码器（TSP，预训练于 ActivityNet，特征维度 $d=512$）分别提 Exo/Ego 帧级特征；自适应采样选关键时段、压掉冗余；场景自适应视角嵌入注入视角条件、缓解域差距；双向交叉注意力融合对齐并聚合互补线索；最后融合序列送入可变形 Transformer 编解码器，生成 Ego 的时序段和模仿正确性预测。
 
 ### 关键设计
 
-1. **门控自适应采样 (Gated Adaptive Sampling)**：
-    - Exo 端使用自注意力+FFN 计算显著性分数，Ego 端使用以 Exo 为条件的交叉注意力分数（使利用示范作为关键帧的参考）
-    - 训练时通过 Gumbel Top-K 直通估计器生成硬索引，同时使用残差门控提供可微梯度路径：$\mathbf{g}^{exo} = \mathbf{1} + \alpha(\text{Norm}(\boldsymbol{s}_x) - \mathbf{1})$
-    - 下游模块仅处理硬选中的少量关键帧，但损失通过软分数传播梯度
-    - 添加选择熵正则 $\mathcal{L}_{sel}$ 防止选择坍缩，VICReg 式正则 $\mathcal{L}_{vic}$ 抑制维度共线性
+**1. 门控自适应采样：把长视频压成少量关键帧，还能让梯度流回选择过程**
 
-2. **场景自适应视角字典嵌入 (Scene-aware Dictionary View Embeddings)**：
-    - 维护共享视角-场景字典 $\mathbf{D} \in \mathbb{R}^{M \times d}$，行向量捕获常见视角子因子（如"近距离手-物交互"、"全身运动结构"）
-    - 每帧特征通过带温度的多头交叉注意力查询字典：$\mathbf{VE}^u = \text{CrossAttn}(\hat{\mathbf{Z}}^u / \tau, \mathbf{D})$
-    - 注入两处：融合前（域内对齐）和编码器各层（多层级调制）
-    - 注意力熵正则保证字典查询不过于尖锐：$\mathcal{L}_\text{view-ent} = \frac{1}{\log M} \mathbb{E}_t [KL(\alpha_t | U_M)]$
-    - 字典多样性正则抑制原型冗余：$\mathcal{L}_\text{dict-div} = \|\hat{\mathbf{D}} \hat{\mathbf{D}}^\top - \mathbf{I}_M\|_F^2$
+长视频冗余会放大误报，但「硬选帧」又不可导。SAVA-X 的采样在 Exo 端用自注意力＋FFN 算显著性分数，Ego 端用以 Exo 为条件的交叉注意力分数（把示范当作挑关键帧的参照）；训练时用 Gumbel Top-K 直通估计器生成硬索引，同时用残差门控 $\mathbf{g}^{exo} = \mathbf{1} + \alpha(\text{Norm}(\boldsymbol{s}_x) - \mathbf{1})$ 留一条可微梯度路径——下游只处理硬选中的少量关键帧，损失却能通过软分数把梯度传回来。再加选择熵正则 $\mathcal{L}_{sel}$ 防止选择坍缩、VICReg 式正则 $\mathcal{L}_{vic}$ 抑制维度共线性。
 
-3. **双向交叉注意力融合 (Bidirectional Cross-Attention Fusion)**：
-    - 对称双向交叉注意力并行计算：Ego 从 Exo 检索全局边界/步骤线索，Exo 从 Ego 检索手-物细节/局部因果关系
-    - 可学习门控残差混合避免任一端压制另一端：$\mathbf{F}^{ego} = (1-\boldsymbol{\gamma}^e)\tilde{\mathbf{Z}}^{ego} + \boldsymbol{\gamma}^e \mathbf{E}^\star$
-    - 门控参数 $\boldsymbol{\gamma}^e = \sigma(\mathbf{W_e}[\tilde{\mathbf{Z}}^{ego}; \mathbf{E}^\star])$，在动作边界/关键交互处更依赖跨视角证据
-    - 最终融合：$\tilde{\mathbf{Z}}^{fused} = \frac{1}{2}(\mathbf{F}^{ego} + \mathbf{F}^{exo})$
+**2. 场景自适应视角字典嵌入：用一本共享字典把「视角」显式编码进特征**
+
+Ego 和 Exo 的外观、运动统计差很多，固定的 learned view token 不够灵活。SAVA-X 维护一本共享的视角-场景字典 $\mathbf{D} \in \mathbb{R}^{M \times d}$，每行捕获一个常见视角子因子（如「近距离手-物交互」「全身运动结构」）；每帧特征用带温度的多头交叉注意力去查这本字典 $\mathbf{VE}^u = \text{CrossAttn}(\hat{\mathbf{Z}}^u / \tau, \mathbf{D})$，得到的视角嵌入注入两处——融合前（域内对齐）和编码器各层（多层级调制）。为保证字典好用，还加了注意力熵正则 $\mathcal{L}_\text{view-ent} = \frac{1}{\log M} \mathbb{E}_t [KL(\alpha_t | U_M)]$ 让查询别太尖锐，字典多样性正则 $\mathcal{L}_\text{dict-div} = \|\hat{\mathbf{D}} \hat{\mathbf{D}}^\top - \mathbf{I}_M\|_F^2$ 抑制原型冗余。消融显示注入 SVE 后跨视角相似度分布右移且更集中，确实缩小了域差距。
+
+**3. 双向交叉注意力融合：Ego 和 Exo 互相取长，又不让任一端被压制**
+
+跨视角融合若只单向走，会丢掉一边的互补信息。SAVA-X 并行做对称双向交叉注意力：Ego 从 Exo 检索全局边界/步骤线索，Exo 从 Ego 检索手-物细节/局部因果；用可学习门控残差混合 $\mathbf{F}^{ego} = (1-\boldsymbol{\gamma}^e)\tilde{\mathbf{Z}}^{ego} + \boldsymbol{\gamma}^e \mathbf{E}^\star$（门控 $\boldsymbol{\gamma}^e = \sigma(\mathbf{W_e}[\tilde{\mathbf{Z}}^{ego}; \mathbf{E}^\star])$）避免任一端压制另一端，在动作边界/关键交互处更依赖跨视角证据，最后对称融合 $\tilde{\mathbf{Z}}^{fused} = \frac{1}{2}(\mathbf{F}^{ego} + \mathbf{F}^{exo})$。消融里 Exo→Ego 单向已接近双向、而 Ego→Exo 较弱，正好符合任务目标——检测 Ego 上的错误，需要示范的边界/排序线索来指导。
 
 ### 损失函数 / 训练策略
 
-联合优化两个损失：
-- **DVC 损失 $\mathcal{L}_{DVC}$**：遵循 PDVC 配置的密集视频描述损失
-- **模仿判别损失 $\mathcal{L}_{Imit}$**：权重 $\lambda_{Imit} = 0.5$
-
-训练使用匈牙利集合匹配建立预测与真值段的一对一对应。优化器 AdamW，批大小 16，学习率 $10^{-4}$。正则项权重在 $[0.01, 0.05]$ 范围内。
+联合优化密集视频描述损失 $\mathcal{L}_{DVC}$（遵循 PDVC 配置）和模仿判别损失 $\mathcal{L}_{Imit}$（权重 $\lambda_{Imit} = 0.5$），用匈牙利集合匹配建立预测段与真值段的一对一对应。优化器 AdamW，批大小 16，学习率 $10^{-4}$，正则项权重在 $[0.01, 0.05]$ 范围内。
 
 ## 实验关键数据
 

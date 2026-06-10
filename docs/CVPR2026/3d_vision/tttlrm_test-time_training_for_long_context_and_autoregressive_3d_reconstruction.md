@@ -44,68 +44,45 @@ tttLRM 的灵感来源于人类感知的类比：人类观察连续视觉流 →
 
 ### 整体框架
 
-tttLRM 由三个核心部分组成：
+tttLRM 想解决的是：现有前馈大重建模型靠注意力，复杂度 $O(N^2)$，输入视图一多就扱不住（GS-LRM ≤ 4 张、Long-LRM 到 32 张就到头，且都没法处理流式输入）。它的破法是把"序列建模"换成 Test-Time Training：把多视图观测压进一组在推理时在线更新的"快速权重"$W$，让 $W$ 充当随观测增多而不断完善的隐式 3D 记忆，再让虚拟视图 token 去查询它、线性解码出显式 3DGS。整条流程三步：图像 patch 化投影成 token → LaCT 层用 token 迭代更新快速权重 $W$ → 虚拟视图 token 查询 $W$、线性解码器输出 3DGS 参数。灵感来自人类感知：看连续视觉流 → 构建抽象内部表示 → 按需解码成显式 3D。
 
-1. **图像编码**：将输入图像 patch 化并投影为 token 序列
-2. **LaCT 层更新快速权重**：token 迭代更新 TTT 快速权重 $W$，形成隐式3D表示
-3. **虚拟 token 查询与解码**：虚拟视图 token 查询快速权重，线性解码器输出显式3D表示（如3DGS参数）
+### 关键设计
 
-### TTT 与 LaCT 原理
+**1. TTT + LaCT 快速权重：用线性复杂度的在线学习取代注意力**
 
-**TTT (Test-Time Training)** 将序列建模转化为在线学习问题：
+注意力的平方复杂度是长上下文的根本瓶颈。TTT 把序列建模转成在线学习——快速权重 $W$ 在推理时按输入的 key-value 对做梯度更新，把 KV 缓存压成固定大小的神经记忆：
 
 $$W \leftarrow W - \eta \nabla \mathcal{L}_{\text{MSE}}(f_W(k), v)$$
 
-快速权重 $W$ 在推理时根据输入的 key-value 对更新，编码 KV 缓存为固定大小的神经记忆。
+LaCT（Large Chunk TTT）进一步用大块更新（最多 1M token）、块内梯度累加来吃满 GPU。每个 LaCT 层含三件事：窗口注意力（捕视图内局部关系）、快速权重更新（线性）、快速权重应用（线性）。这样输入视图数不再受平方复杂度限制，更关键的是解锁了注意力模型根本做不到的流式/自回归推理。
 
-**LaCT (Large Chunk TTT)** 使用大块更新（最多 1M token），通过块内梯度累加实现高 GPU 利用率。每个 LaCT 层包含：
+**2. 模型架构与虚拟 token 解码：观测进 W、查询出 3D**
 
-- 窗口注意力模块（捕获视图内局部关系）
-- 快速权重更新（线性复杂度）
-- 快速权重应用（线性复杂度）
-
-### 模型架构细节
-
-模型由 **24 个 LaCT block** 组成，隐藏维度 768，patch 大小 $8 \times 8$。
-
-对于每张输入图像 $\mathbf{I}_i \in \mathbb{R}^{H \times W \times 3}$，与射线嵌入 $\mathbf{R}_i \in \mathbb{R}^{H \times W \times 9}$ 拼接后 patch 化和 token 化。处理流程：
+模型由 24 个 LaCT block 堆成，隐藏维 768、patch 大小 $8 \times 8$。每张输入图 $\mathbf{I}_i$ 和射线嵌入 $\mathbf{R}_i \in \mathbb{R}^{H \times W \times 9}$ 拼接后 patch 化、token 化，按三步走：
 
 $$\mathbf{T}_i = \mathbf{T}_i + \text{WinAttn}(\mathbf{T}_i)$$
 $$W = \text{Update}(\{\mathbf{T}_i\}_{i=1}^N)$$
 $$\mathbf{T}_i^v = \text{Apply}(W, \mathbf{T}_i^v)$$
 
-虚拟 token $\mathbf{T}^v$ 仅参与 Apply 操作而不更新快速权重，解码器将其转换为每 patch 的高斯参数（颜色、尺度、旋转、不透明度、深度）。
+虚拟 token $\mathbf{T}^v$ 只参与 Apply、不更新 $W$，解码器把它转成每 patch 的高斯参数（颜色、尺度、旋转、不透明度、深度）。观测 token 负责"写记忆"、虚拟 token 负责"读记忆"，读写分离。
 
-### 自回归重建
+**3. 自回归重建：把模型变成类 RNN 的在线流式推理**
 
-自回归模式将模型转化为类 RNN 推理过程：
+因为更新是线性的，模型可以像 RNN 一样增量跑：初始化 $W \leftarrow W_0$，每批次 $b$ 到来时更新 $W \leftarrow \mathcal{F}(W, \mathcal{I}_{(b)})$ 并立刻预测 $G_{(b)} \leftarrow \mathcal{F}(W, \mathcal{I}^v_{(b)})$，返回最终高斯 $G_{(B)}$。每批（如 4 张图）来就增量更新快速权重并即时出 3D 高斯，支持在线渐进重建——这是注意力模型给不了的能力。
 
-- 初始化 $W \leftarrow W_0$
-- 每批次 $b$：更新 $W \leftarrow \mathcal{F}(W, \mathcal{I}_{(b)})$，预测 $G_{(b)} \leftarrow \mathcal{F}(W, \mathcal{I}^v_{(b)})$
-- 返回最终高斯 $G_{(B)}$
+**4. 分布式前馈重建：序列并行吃下大量视图**
 
-每批次（如4张图像）到来时增量更新快速权重并立即预测3D高斯，支持在线渐进重建。
+为了塞进更多视图和更高分辨率，沿序列维把 token 分片到多 GPU：各 GPU 同步快速权重后独立预测自己那批视图的高斯，聚合成完整场景，再各自渲染子集新视图算损失、梯度 All-Reduce。正因为 LaCT 更新是线性的，梯度能简单地 All-Reduce 同步，训练推理都能近线性多卡加速。
 
-### 分布式前馈重建
+**5. 多格式输出：换虚拟 token 就能切表示**
 
-为支持大量输入视图和高分辨率图像，引入序列并行：
+同一套快速权重不绑死 3DGS——把虚拟 token 换成三平面 token 去查询 $W$，就能解码成三平面 NeRF 等其他 3D 格式，架构对输出表示是通用的。
 
-1. 沿序列维度分片到多个 GPU
-2. 快速权重同步后各 GPU 独立预测分配视图的高斯
-3. 聚合高斯形成完整场景
-4. 各 GPU 渲染子集新视图并计算损失，梯度 All-Reduce
-
-### 损失函数
+### 损失函数 / 训练策略
 
 $$\mathcal{L} = \mathcal{L}_{\text{RGB}} + \lambda_{\text{depth}} \mathcal{L}_{\text{depth}} + \lambda_{\text{opacity}} \mathcal{L}_{\text{opacity}}$$
 
-- **渲染损失**：MSE + VGG-19 感知损失
-- **深度正则化**：使用单目深度估计器生成伪 GT 的尺度不变深度损失
-- **不透明度正则化**：减少不透明高斯数量
-
-### 多格式输出
-
-除 3DGS 外，架构可灵活解码为三平面 NeRF 等其他3D格式——只需将虚拟 token 替换为三平面 token 即可查询快速权重。
+渲染损失为 MSE + VGG-19 感知损失；深度正则用单目深度估计器生成伪 GT 的尺度不变深度损失；不透明度正则减少不透明高斯数量。
 
 ## 实验关键数据
 

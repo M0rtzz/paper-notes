@@ -44,25 +44,17 @@ tags:
 
 ### 整体框架
 
-Face2Scene 分两阶段：
-
-- **Stage 1 — 参考人脸复原**：检测退化图 $I^{LQ}$ 中的人脸 → 对齐裁剪到 512×512 → Ref-FR 模型 $F_\theta$ 利用同身份参考图集 $\{x_k^{ref}\}$ 重建 HQ 人脸 → 反变换回原始坐标，获得空间对齐的 $(x^{HQ}, x^{LQ})$ 对。
-- **Stage 2 — 退化条件化全场景复原**：FaDeX 从 HQ-LQ 人脸对提取退化编码 $Z_{face}$ → MapNet 将其映射为多尺度 token → token 与正文本嵌入拼接，通过 cross-attention 条件化 SD-Turbo 单步扩散模型，一步完成全场景复原。
+Face2Scene 要解决的是手机实拍这类全场景退化图的复原——真实退化（噪声、模糊、压缩）通常均匀作用在整张图上，但盲复原很难估准退化。它的关键洞察是人脸结构稳定、关键点可靠，是天然的退化探测器。于是分两阶段：第一阶段用参考人脸复原模型 $F_\theta$ 借同身份参考图把检测到的人脸复原成 HQ，得到一对空间对齐的 $(x^{HQ}, x^{LQ})$ 人脸；第二阶段从这对人脸里提取退化编码当作 "oracle"，条件化一个单步扩散模型一步完成包含身体和背景的全场景复原。
 
 ### 关键设计
 
-**FaDeX (Face-derived Degradation eXtractor)**
+**1. FaDeX：把人脸 HQ-LQ 对蒸馏成与内容解耦的退化编码**
 
-- 轻量卷积编码器 $E_\phi$ 接收 6 通道输入(HQ 与 LQ 通道拼接)，输出空间特征 $Z_{face} \in \mathbb{R}^{H' \times W' \times C}$。
-- 经全局平均池化 + MLP 投射头得到单位归一化向量 $q$，采用 **对比学习** 训练：同一退化算子 $\mathcal{G}$ 生成的样本为正对，不同退化为负对，损失函数为 SupCon 形式。
-- 训练时额外使用 GT 人脸代替 Ref-FR 输出作为 HQ，增强鲁棒性。训练完成后冻结。
+S3Diff 只从 LQ 盲估噪声/模糊两个全局标量，DeeDSR 的无监督对比在复杂退化下又容易把纹理/光照误判成退化。FaDeX 改从信息最强的人脸下手：一个轻量卷积编码器 $E_\phi$ 吃 6 通道输入（HQ 与 LQ 通道拼接），输出空间特征 $Z_{face} \in \mathbb{R}^{H' \times W' \times C}$，再经全局平均池化 + MLP 投射头得到单位归一化向量 $q$。训练用 SupCon 式对比损失——同一退化算子 $\mathcal{G}$ 生成的样本互为正对、不同退化为负对，从而把"退化"这一维度从图像内容里剥离出来；训练时还额外用 GT 人脸替代 Ref-FR 输出当 HQ 增强鲁棒性，训练完冻结。这样估出的退化既准又跨图像通用。
 
-**MapNet (Degradation Mapping Network)**
+**2. MapNet：把退化编码映射成多尺度 token 注入扩散模型**
 
-- 对 $Z_{face}$ 做 overlap patch embedding (3×3 Conv stride=2 + LayerNorm)。
-- 双分支残差注意力：$DegAttn(Z_{face}) = (A_1 - \lambda A_2)[V_1; V_2]$，$\lambda$ 可学习。
-- 三尺度网格平均池化(4×4, 2×2, 1×1) + MLP + LayerNorm → 生成 **21 个退化 token**(16+4+1)。
-- Token 与文本 token 拼接后送入 SD-Turbo 的 cross-attention 层。
+拿到退化编码还得让单步扩散模型"听得懂"。MapNet 先对 $Z_{face}$ 做 overlap patch embedding（3×3 Conv stride=2 + LayerNorm），再过双分支残差注意力 $DegAttn(Z_{face}) = (A_1 - \lambda A_2)[V_1; V_2]$（$\lambda$ 可学习），最后用三尺度网格平均池化（4×4、2×2、1×1）+ MLP + LayerNorm 生成 21 个退化 token（16+4+1）。这些 token 与文本 token 拼接后送进 SD-Turbo 的 cross-attention 层，多尺度设计让模型既能感知全局退化强度、又能照顾局部差异，从而把人脸估出的退化条件传导到整张场景图的复原上。
 
 ### 损失函数
 

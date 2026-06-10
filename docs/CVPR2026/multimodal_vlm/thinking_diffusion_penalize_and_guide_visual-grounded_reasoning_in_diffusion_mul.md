@@ -26,11 +26,8 @@ tags:
 
 ## 研究背景与动机
 
-### 领域现状
+**领域现状**：扩散LLM (dLLM)如LLaDA、Dream是自回归LLM的新兴替代方案，通过并行恢复多个token提供更快推理，扩展到多模态便形成dMLLM。然而dMLLM的推理过程尚未被充分理解，作者做了两个关键观察：
 
-**领域现状**：扩散LLM (dLLM)如LLaDA、Dream是自回归LLM的新兴替代方案，通过并行恢复多个token提供更快推理。将其扩展到多模态形成dMLLM。然而dMLLM的推理过程尚未被充分理解。
-
-两个关键发现：
 1. **Early Answer Generation**：dMLLM在很早的时间步就生成最终答案token（L=64/T=32时，30%+在第7步前就确定答案），然后才生成中间推理来合理化答案
 2. **Weak Visual Grounding**：初始时间步中dMLLM对视觉prompt的依赖极低（PDM值低），这与AR-VLM形成鲜明对比——AR模型在早期高度依赖视觉特征
 
@@ -39,24 +36,30 @@ tags:
 ## 方法详解
 
 ### 整体框架
-两个免训练推理时方法：PSP抑制过早回答，VRG增强视觉引导。应用于任意dMLLM的重掩码阶段。
+
+针对上面两个毛病——过早定答案、初期不看图——作者提出两个完全免训练的推理时方法：PSP 在早期时间步压住"急着生成答案"的冲动，VRG 在生成时放大视觉条件信号。两者都作用在 dMLLM 的重掩码阶段，可叠加用在任意重掩码策略（Low-conf/Entropy/Margin）上，无需改模型、无需重训。
 
 ### 关键设计
 
-1. **Position & Step Penalty (PSP)**：
-    - 核心思想：在早期时间步对序列末端（答案通常在末端）的token施加惩罚
-    - $\tilde{C}_j^i = C_j^i \cdot [1 - \gamma(1-\tau_i)\text{rel}(j)]$
-    - $\tau_i = i/K$：扩散进度；$\text{rel}(j)$：token相对位置(0~1)；$\gamma$：惩罚强度
-    - 效果：末端位置的token在早期时间步被强烈惩罚，鼓励模型先完成推理再生成答案
+**1. Position & Step Penalty：早期时间步压住序列末端的答案 token**
 
-2. **Visual Reasoning Guidance (VRG)**：
-    - 借鉴Classifier-Free Guidance的思想
-    - $\text{logits}_{vrg} = \text{logits}_u + (s_{vrg}+1) \cdot (\text{logits}_c - \text{logits}_u)$
-    - $\text{logits}_c$：条件于视觉prompt的logits；$\text{logits}_u$：无条件logits
-    - 放大视觉条件信号，增强模型对视觉信息的利用
+答案通常落在序列末端，而 dMLLM 偏偏在扩散早期就把末端 token 定了下来。PSP 据此在早期对越靠末端的 token 施加越强的惩罚：
+
+$$\tilde{C}_j^i = C_j^i \cdot [1 - \gamma(1-\tau_i)\text{rel}(j)]$$
+
+其中 $\tau_i = i/K$ 是扩散进度、$\text{rel}(j)\in[0,1]$ 是 token 的相对位置、$\gamma$ 是惩罚强度。早期（$\tau_i$ 小）且越靠后（$\text{rel}(j)$ 大）的 token 被压得越狠，于是模型被迫先把中间推理补完、再去落答案。消融显示 PSP 确实把答案生成推迟到了更晚的时间步。
+
+**2. Visual Reasoning Guidance：借 CFG 放大视觉条件信号**
+
+dMLLM 初期对视觉 prompt 依赖太弱，VRG 把图像扩散里的 Classifier-Free Guidance 搬过来，在 logits 层面把"有视觉条件"相对"无条件"的差异放大：
+
+$$\text{logits}_{vrg} = \text{logits}_u + (s_{vrg}+1) \cdot (\text{logits}_c - \text{logits}_u)$$
+
+$\text{logits}_c$ 是条件于视觉 prompt 的输出、$\text{logits}_u$ 是无条件输出，$s_{vrg}$ 控制放大幅度。这相当于强行把模型的注意力拽回视觉信息上，单用时效果略优于 PSP，和 PSP 合用最佳。
 
 ### 损失函数 / 训练策略
-完全免训练，仅在推理阶段应用。超参数γ=0.5, $s_{vrg}$=0.5。使用贪心解码。
+
+完全免训练，仅在推理阶段生效。超参取 $\gamma=0.5$、$s_{vrg}=0.5$，统一用贪心解码以保证可复现。
 
 ## 实验关键数据
 

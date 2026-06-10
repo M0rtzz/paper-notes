@@ -45,41 +45,25 @@ tags:
 
 ### 整体框架
 
-SARMAE 基于 MAE 架构，包含两个分支：
+SARMAE 想解决的是 SAR 图像因散斑噪声而「语义弱、结构糊」、导致自监督预训练学不好表征的问题。它在 MAE 基础上搭了两条分支：SAR 分支是 ViT 编码器 + Transformer 解码器，走标准 MAE 的 75% 随机掩码重建，但额外塞进 SARE 模块来对付散斑；光学分支是一个冻结的 DINOv3 编码器（与 SAR 分支共享 ViT 架构），给有配对光学图的 SAR 数据提供语义锚点。有配对光学图时两支协同，没配对的 SAR 数据就只走 SAR 分支。
 
-- **SAR 分支**：ViT 编码器 + Transformer 解码器，遵循 MAE 流程（75% 随机掩码），加入 SARE 模块处理散斑噪声
-- **光学分支**：冻结的 DINOv3 编码器（与 SAR 分支共享 ViT 架构），为配对数据提供语义锚点
+### 关键设计
 
-对于有配对光学图像的 SAR 数据，两个分支协同工作；无配对的 SAR 数据仅通过 SAR 分支处理。
+**1. 散斑感知表征增强（SARE）：让模型学会从更脏的输入里重建干净图**
 
-### 关键设计一：散斑感知表征增强 (SARE)
+散斑是 SAR 成像固有的乘性噪声，直接套用为加性高斯噪声设计的光学预训练并不对症。SARE 把散斑的物理模型显式注入训练：多视 SAR 强度图像服从 Gamma 分布 $Z\sim\text{Gamma}(L,\bar{I}/L)$（$L$ 为视数、$\bar{I}$ 为真实后向散射强度），于是对输入 patch $x$ 用一个更低的合成视数 $L_{\text{syn}}$ 从 Gamma 分布采出噪声更重的版本 $x'$——均值不变但方差变大。再把 $x'$ 随机掩码送进编码器，要求解码器重建的是原始干净的 $x$ 而非噪声版本，迫使模型主动把散斑过滤掉。损失为 $\mathcal{L}_{\text{SARE}} = \frac{1}{|\mathcal{M}|} \sum_{p \in \mathcal{M}} \| D(E_{\text{SAR}}(\tilde{x}'))_p - x_p \|_2^2$；除 Gamma 外还掺入 Rayleigh、Gaussian、Uniform 噪声进一步增强鲁棒性。
 
-**核心思想**：将基于物理建模的散斑噪声显式注入预训练过程，训练模型从噪声输入重建干净图像。
+**2. 语义锚表征约束（SARC）：借光学图的清晰语义把 SAR 特征「拉正」**
 
-- **散斑物理模型**：多视 SAR 强度图像服从 Gamma 分布 $Z \sim \text{Gamma}(L, \bar{I}/L)$，其中 $L$ 为视数，$\bar{I}$ 为真实后向散射强度
-- **合成噪声注入**：对输入 patch $x$ 以较低合成视数 $L_{\text{syn}}$ 从 Gamma 分布采样生成更高噪声版本 $x'$，保持像素均值不变但增大方差
-- **去噪重建任务**：对 $x'$ 进行随机掩码后送入编码器，训练解码器重建原始 $x$（而非噪声版本）
-- **多噪声类型**：除 Gamma 噪声外，还加入 Rayleigh、Gaussian、Uniform 噪声增强鲁棒性
-- **损失函数**：$\mathcal{L}_{\text{SARE}} = \frac{1}{|\mathcal{M}|} \sum_{p \in \mathcal{M}} \| D(E_{\text{SAR}}(\tilde{x}'))_p - x_p \|_2^2$
+只靠 SAR 自身预训练，受限于它本就低的语义可辨识度。SARC 利用配对光学图当语义锚点：SAR 图掩码后过 SAR 编码器得到可见 patch 嵌入 $f_{\text{SAR}}^i$，光学图不掩码、过冻结的 DINOv3 得到完整 patch 嵌入 $f_{\text{OPT}}^i$，对空间对应的 patch 对施加逐 patch 余弦距离损失 $\mathcal{L}_{\text{SARC}} = \frac{1}{|\mathcal{V}|} \sum_{i \in \mathcal{V}} \left(1 - \frac{f_{\text{SAR}}^i \cdot f_{\text{OPT}}^i}{\|f_{\text{SAR}}^i\|_2 \|f_{\text{OPT}}^i\|_2}\right)$。这样 SAR 编码器被引导着向语义更清晰的光学特征对齐，学到的表征语义更丰富。消融里直接拿冻结 DINOv3 微调 SAR 反而很差（74.25%），说明有效性来自显式的 SAR-光学对齐而非 DINOv3 本身。
 
-### 关键设计二：语义锚表征约束 (SARC)
+**3. SAR-1M 数据集：把预训练数据从十万级推到百万级**
 
-**核心思想**：利用配对光学图像的语义特征作为锚点，引导 SAR 编码器对齐学习。
+SARATR-X 只有 18 万、SUMMIT 56 万，远撑不起通用 SAR 表征。SAR-1M 聚合 18 个公开数据集、57 个类别，凑出 130 万 SAR 图 + 100 万配对光学图共 230 万样本，覆盖 Sentinel-1、Gaofen-3、RadarSat-2、TerraSAR-X 等多传感器，跨 C/X/Ku/Ka 多频段、HH/HV/VV/VH 多极化、0.1m–60m 多分辨率。其中配对的光学图正是 SARC 跨模态对齐的前提。
 
-- SAR 图像经掩码后通过 SAR 编码器得到可见 patch 嵌入 $f_{\text{SAR}}^i$
-- 光学图像（不掩码）通过冻结 DINOv3 编码器获取完整 patch 嵌入 $f_{\text{OPT}}^i$
-- 对空间对应的 patch 对施加逐 patch 余弦距离损失：$\mathcal{L}_{\text{SARC}} = \frac{1}{|\mathcal{V}|} \sum_{i \in \mathcal{V}} \left(1 - \frac{f_{\text{SAR}}^i \cdot f_{\text{OPT}}^i}{\|f_{\text{SAR}}^i\|_2 \|f_{\text{OPT}}^i\|_2}\right)$
+### 损失函数 / 训练策略
 
-### 总预训练损失
-
-$$\mathcal{L}_{\text{pretrain}} = \mathcal{L}_{\text{SARE}} + \lambda \mathcal{L}_{\text{SARC}}, \quad \lambda = 0.1$$
-
-### SAR-1M 数据集
-
-- 首个百万级 SAR 数据集，聚合 18 个公开数据集，涵盖 57 个类别
-- 130 万 SAR 图像 + 100 万配对光学图像，共 230 万样本
-- 覆盖 Sentinel-1、Gaofen-3、RadarSat-2、TerraSAR-X 等多传感器
-- 多频段 (C/X/Ku/Ka)、多极化 (HH/HV/VV/VH)、多分辨率 (0.1m–60m)
+总预训练损失把两项合起来：$\mathcal{L}_{\text{pretrain}} = \mathcal{L}_{\text{SARE}} + \lambda \mathcal{L}_{\text{SARC}}$，其中 $\lambda = 0.1$。SARE 负责让模型理解并滤除噪声，SARC 负责提供清晰的语义引导，两者互补。
 
 ## 实验
 

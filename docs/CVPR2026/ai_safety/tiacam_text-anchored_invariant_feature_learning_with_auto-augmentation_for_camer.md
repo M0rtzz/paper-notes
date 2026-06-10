@@ -40,15 +40,13 @@ tags:
 
 ### 整体框架
 
-TIACam 由三个模块组成，以三方对抗循环联合训练：
+TIACam 要解决的是相机翻拍场景下的零水印：水印不改像素，而是和图像固有特征绑定，但相机重新拍摄会引入透视畸变、光照变化、传感器噪声、摩尔纹等复合退化，固定的手工噪声层根本覆盖不全。它的破解办法是把"模拟失真—学不变特征—绑消息"三件事拼进一个三方对抗循环里联合训练：自动增强器（Auto-Augmentor）不断生成更刁钻的相机失真，文本锚定的不变特征学习器（Text-Anchored Invariant Feature Learner）在 CLIP 跨模态空间里学习抵抗这些失真、又保持语义一致的特征，零水印头（Zero-Watermarking Head）则在这个不变特征空间里把二进制消息绑定上去。三个模块互相施压，最终逼出一套既鲁棒又可验证的特征表示。
 
-- **Auto-Augmentor（自动增强器）**：可微分的相机失真模拟管线
-- **Text-Anchored Invariant Feature Learner（文本锚定不变特征学习器）**：基于 CLIP 的跨模态对抗对齐
-- **Zero-Watermarking Head（零水印头）**：在不变特征空间绑定二进制消息
+### 关键设计
 
-### 可学习自动增强器
+**1. 可学习自动增强器：用可微管线把"相机失真"训练成对手**
 
-由 6 个可微分模块串联：
+手工设计的相机噪声层是固定的，而真实光学失真因环境而异、还非线性耦合，固定增强难以覆盖。Auto-Augmentor 把相机退化拆成 6 个可微分模块串联，每个模块的失真参数都可学习，于是整条增强管线本身就能被梯度优化、朝"最难被抵抗"的方向进化：
 
 | 模块 | 功能 | 关键参数 |
 |------|------|----------|
@@ -59,26 +57,15 @@ TIACam 由三个模块组成，以三方对抗循环联合训练：
 | 压缩模块 | JPEG 量化 & 频域掩码 | 平滑量化 + 可训练掩码 M |
 | 摩尔纹模块 | 传感器-显示器干涉条纹 | 可学习频率 (fx,fy) 和振幅 α |
 
-组合公式：$\hat{x} = \mathcal{T}_{\text{aug}}(x;\Theta) = \mathcal{T}_{\text{comp}} \circ \mathcal{T}_{\text{filter}} \circ \mathcal{T}_{\text{add}} \circ \mathcal{T}_{\text{photo}} \circ \mathcal{T}_{\text{geo}} \circ \mathcal{T}_{\text{moire}}(x)$
+六个模块按 $\hat{x} = \mathcal{T}_{\text{aug}}(x;\Theta) = \mathcal{T}_{\text{comp}} \circ \mathcal{T}_{\text{filter}} \circ \mathcal{T}_{\text{add}} \circ \mathcal{T}_{\text{photo}} \circ \mathcal{T}_{\text{geo}} \circ \mathcal{T}_{\text{moire}}(x)$ 组合。每个模块先在对应失真类型上用 MSE+SSIM 在 10k 样本上预训练，再在整体对抗训练中微调，既保证单一失真逼真、又让组合失真可控。
 
-每个模块先在对应失真类型上用 MSE+SSIM 预训练 10k 样本，再在整体对抗训练中微调。
+**2. 文本锚定不变特征学习：靠语义锚同时守住鲁棒性和区分性**
 
-### 文本锚定不变特征学习
+只靠失真对抗学到的不变特征容易把所有图像都拉成同质（语义崩塌），只靠文本引导又扛不住失真，所以 TIACam 同时拉两根绳。特征侧用冻结的 CLIP 图像编码器加一个可训练的不变特征提取器 $f_\theta$（3 个残差块 + 投影头 → 1024 维）；判别器 $D_\psi$ 是 4 层 Transformer（8 头注意力、隐藏维 512），吃图像-文本特征对、判断语义是否匹配。训练时图像 $x$ 及其增强版 $\hat{x}$ 与正负文本锚 $T^+/T^-$ 组成真假对，判别器优化 $\mathcal{L}_{\text{disc}}$、生成器优化 $\mathcal{L}_{\text{adv}}$；增强器最大化 $\mathcal{L}_{\text{inv}} - \lambda_{\text{sem}}\mathcal{L}_{\text{sem}}$（其中语义保真度 $\mathcal{L}_{\text{sem}}$ 用冻结 ViT 的余弦相似度度量），提取器最小化 $\mathcal{L}_{\text{inv}}$。三方交替更新：① 更新 $D_\psi$ 提升配对判别 → ② 更新 $\Theta$ 生成更强失真 → ③ 更新 $f_\theta$ 对齐正文本锚并抵抗失真，正文本锚保住语义、失真对抗逼出鲁棒，两者缺一不可。
 
-- **特征提取器 fθ**：冻结的 CLIP 图像编码器 + 可训练的不变特征提取器（3 个残差块 + 投影头 → 1024 维）
-- **判别器 Dψ**：4 层 Transformer（8 头注意力，隐藏维 512），接收图像-文本特征对，判断语义是否匹配
-- **训练目标**：图像 x 及其增强版 x̂ 与正负文本锚 T⁺/T⁻ 组成真假对，判别器 loss 为 $\mathcal{L}_{\text{disc}}$，生成器 loss 为 $\mathcal{L}_{\text{adv}}$
-- **增强器-提取器对抗**：增强器最大化 $\mathcal{L}_{\text{inv}} - \lambda_{\text{sem}}\mathcal{L}_{\text{sem}}$，提取器最小化 $\mathcal{L}_{\text{inv}}$，其中语义保真度用冻结 ViT 的余弦相似度度量
+**3. 零水印头：在不变特征空间用点积绑定消息**
 
-三方交替更新：① 更新 Dψ 提升配对判别 → ② 更新 Θ 生成更强失真 → ③ 更新 fθ 对齐正文本锚并抵抗失真。
-
-### 零水印头
-
-- 提取不变特征 $\tilde{F} = \Psi(f_\theta(x))$，Ψ 为全局平均池化 + 线性投影
-- 维护可学习参考矩阵 $C \in \mathbb{R}^{k \times d}$，第 i 行为第 i 比特方向码
-- 预测：$\hat{W}_i = \sigma(\tilde{F} \cdot C_i)$
-- 注册阶段：对每个图像-消息对优化 C 和 Ψ（BCE + L2 正则），fθ 冻结
-- 提取阶段：对失真图像 x' 计算 $\tilde{F}' = \Psi(f_\theta(x'))$，阈值 0.5 恢复二进制消息
+特征足够鲁棒后，绑消息就很轻量。零水印头先取不变特征 $\tilde{F} = \Psi(f_\theta(x))$（$\Psi$ 是全局平均池化 + 线性投影），再维护一个可学习参考矩阵 $C \in \mathbb{R}^{k \times d}$，其第 $i$ 行是第 $i$ 个比特的方向码，预测就是一次点积加 sigmoid：$\hat{W}_i = \sigma(\tilde{F} \cdot C_i)$。注册阶段对每个图像-消息对优化 $C$ 和 $\Psi$（BCE + L2 正则）、而 $f_\theta$ 冻结；提取阶段对失真图像 $x'$ 算 $\tilde{F}' = \Psi(f_\theta(x'))$，用阈值 0.5 即可恢复二进制消息。整个过程不改像素、也不需要先定位水印区域，直接在整幅图上提取。
 
 ## 实验关键数据
 

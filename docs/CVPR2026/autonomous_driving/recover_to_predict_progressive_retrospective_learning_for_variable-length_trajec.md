@@ -36,48 +36,33 @@ tags:
 
 ## 方法详解
 
-### 整体框架：Progressive Retrospective Framework (PRF)
+### 整体框架
 
-PRF 在编码器和解码器之间插入 $\tau$ 个级联回溯单元，每个单元 $\Phi^v$ 负责将长度为 $T_v$ 的不完整观测特征回溯到长度为 $T_{v-1}$ 的特征（多恢复 $\Delta T$ 步）。推理时，长度为 $T_v$ 的输入依次经过 $\Phi^v, \Phi^{v-1}, \dots, \Phi^1$ 逐步恢复到标准长度 $T_0$，最终送入共享解码器预测。
+PRF 针对的是一个很实际的痛点：现有轨迹预测器都在固定长度观测下训练，一旦车辆刚进入感知范围、遮挡后重检、或追踪丢失导致观测变短，性能就断崖式下跌（DeMo 在 Obs=10 时 mADE6 从 0.658 恶化到 0.861）。已有方法多用"一步映射"把短特征硬拽到长特征，信息缺口一大就失效。PRF 换个思路：在编码器和解码器之间插入 $\tau$ 个级联回溯单元，每个单元 $\Phi^v$ 只把长度 $T_v$ 的特征往回补 $\Delta T$ 步、对齐到 $T_{v-1}$；推理时长度 $T_v$ 的输入依次过 $\Phi^v, \Phi^{v-1}, \dots, \Phi^1$ 逐级恢复到标准长度 $T_0$，再送进共享解码器预测。所有变长观测共享同一个 encoder 和 decoder，因此 PRF 对 QCNet、DeMo 等现有方法即插即用。
 
-- **即插即用**：PRF 工作在 encoder 和 decoder 之间，与现有预测方法（QCNet、DeMo）直接兼容
-- **共享编码器**：所有变长观测共享一个 encoder 提取特征，避免多模型维护
-- **渐进对齐**：每个单元只需弥合一个小的时间间隔 $\Delta T$，降低学习难度
+### 关键设计
 
-### 回溯蒸馏模块 (Retrospective Distillation Module, RDM)
+**1. 回溯蒸馏模块 RDM：用残差蒸馏补缺失时步，又不破坏可靠分量**
 
-RDM 采用**残差蒸馏策略**，将缺失时步特征建模为可学习残差，避免共享编码器导致的特征冲突：
+共享编码器对不同长度的同一条轨迹会给出冲突的特征，直接对齐容易把本来对的部分也带偏。RDM 因此把缺失时步建模为可学习的残差，而非整体重写：先用 cross-attention 把 agent 特征和 HD Map 特征 $\mathbf{F}_m$ 融合注入场景上下文，再走双分支——Logit 分支（self-attention → MLP → Sigmoid）产出逐元素门控向量 $\mathbf{g}^v$，Residual 分支（self-attention → MLP → ReLU）学习残差特征 $\mathbf{F}_r^v$。
 
-1. **场景上下文注入**：通过 cross-attention 将 agent 特征与 HD Map 特征 $\mathbf{F}_m$ 融合
-2. **双分支结构**：
-    - **Logit 分支**：self-attention → MLP → Sigmoid 生成逐元素门控向量 $\mathbf{g}^v$
-    - **Residual 分支**：self-attention → MLP → ReLU 学习残差特征 $\mathbf{F}_r^v$
-3. **门控融合**：$\tilde{\mathbf{F}}^{v-1} = \mathbf{g}^v \odot \mathbf{F}^v + \mathbf{F}_r^v$，保留可靠分量并补充缺失信息
+两者经门控融合 $\tilde{\mathbf{F}}^{v-1} = \mathbf{g}^v \odot \mathbf{F}^v + \mathbf{F}_r^v$：门控负责保留输入里可靠的分量，残差只补缺失信息，这样每一步回溯都是"加增量"而不是"推倒重来"。
 
-### 回溯预测模块 (Retrospective Prediction Module, RPM)
+**2. 回溯预测模块 RPM：用解耦查询由粗到细地把缺的历史"预测"回来**
 
-RPM 从蒸馏后特征恢复缺失的 $\Delta T$ 个历史时步，采用**解耦查询策略**实现由粗到细的回溯：
+光对齐特征还不够，得真的恢复出缺失的 $\Delta T$ 个历史时步。RPM 用两组解耦查询做由粗到细：先用 $K$ 个 Anchor-Free Mode Queries（MLP 初始化 → cross-attention 提场景特征 → self-attention 建模模式交互）预测多模态粗略轨迹提案；再用 $\Delta T$ 个 Anchor-Based State Queries（MLP 初始化 → cross-attention + Mamba 建模时序动态）以粗提案为 anchor 做精细化。因为回溯固定 $\Delta T$ 步，所有单元共享同一个 RPM，训练时可批处理加速。
 
-1. **Anchor-Free Mode Queries**：$K$ 个模式查询经 MLP 初始化 → cross-attention 提取场景特征 → self-attention 建模模式交互 → 预测多模态粗略轨迹提案
-2. **Anchor-Based State Queries**：$\Delta T$ 个状态查询经 MLP 初始化 → cross-attention + **Mamba** 建模时序动态 → 以粗略提案为 anchor 进行精细化
-3. **跨单元共享**：所有回溯单元共享一个 RPM（因回溯固定 $\Delta T$ 步），训练时批处理加速
-4. **仅训练时使用**：RPM 为 RDM 提供隐式监督，推理时关闭，**不增加推理开销**
+关键是 RPM 只在训练时用——它为 RDM 提供隐式监督，推理时直接关掉，所以即插即用又不增加任何推理开销。
 
-### 滚动起点训练策略 (Rolling-Start Training Strategy, RSTS)
+### 一个完整示例
 
-利用 PRF 天然支持短轨迹训练的特性，从一条序列生成多个训练样本：
+以 Argoverse 2 上一条 Obs=10 的短观测为例：它先进入对应的回溯单元 $\Phi$，RDM 把它对齐、RPM 隐式监督它补出 $\Delta T$ 步历史，得到等效 Obs=20 的特征；接着这个特征再过下一个单元变成 Obs=30……如此级联，每级只弥合一个小的 $\Delta T$ 间隔，直到恢复成标准长度 Obs=50 才送进共享解码器。正因为每一跳的学习难度都小，10 步这种信息缺口最大的输入才能被一步步救回来——代价是它要走完全部 $\tau$ 个单元，推理时间约为标准长度的 1.9 倍（0.268s vs 0.140s）。
 
-- 标准样本 $([1,50], [51,110])$ 外，还生成 $([1,40],[41,100])$、$([1,30],[31,90])$、$([1,20],[21,80])$
-- 每个回溯单元获得的训练样本数与其输入长度成反比——短观测更难回溯，因此获得更多训练数据
-- Argoverse 2 中一条序列可产生 4 个 decoder 训练样本和 {4,3,2,1} 个回溯单元样本
+### 损失函数 / 训练策略
 
-### 损失函数
+训练用滚动起点策略 RSTS 制造变长样本：从一条序列除标准样本 $([1,50], [51,110])$ 外，还截出 $([1,40],[41,100])$、$([1,30],[31,90])$、$([1,20],[21,80])$，于是 Argoverse 2 上一条序列能产生 4 个 decoder 样本和 {4,3,2,1} 个回溯单元样本——越短的观测越难回溯，恰好分到越多训练数据。
 
-端到端训练三部分：
-
-- **Decoder 损失**：Smooth-L1（轨迹回归）+ 交叉熵（模式概率分类），沿用 QCNet/DeMo 设置
-- **RPM 损失**：$\mathcal{L}_{rpm} = \frac{1}{\tau}\sum_{v=1}^{\tau}(\mathcal{L}_{mq}^v + \mathcal{L}_{sq}^v)$，分别监督 mode queries 和 state queries
-- **RDM 损失**：$\mathcal{L}_{rdm} = \frac{1}{\tau}\sum_{v=1}^{\tau}\text{SmoothL1}(\tilde{\mathbf{F}}^{v-1}, \mathbf{F}^{v-1})$
+整体端到端三部分损失：Decoder 损失（Smooth-L1 轨迹回归 + 交叉熵模式分类，沿用 QCNet/DeMo）、RPM 损失 $\mathcal{L}_{rpm} = \frac{1}{\tau}\sum_{v=1}^{\tau}(\mathcal{L}_{mq}^v + \mathcal{L}_{sq}^v)$（分别监督 mode/state queries）、RDM 损失 $\mathcal{L}_{rdm} = \frac{1}{\tau}\sum_{v=1}^{\tau}\text{SmoothL1}(\tilde{\mathbf{F}}^{v-1}, \mathbf{F}^{v-1})$。
 
 ## 实验关键数据
 

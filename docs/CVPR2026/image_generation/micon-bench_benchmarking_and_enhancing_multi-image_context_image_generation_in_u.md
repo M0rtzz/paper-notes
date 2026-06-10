@@ -36,9 +36,15 @@ tags:
 
 ## 方法详解
 
-### MICON-Bench 基准设计
+### 整体框架
 
-**6 项任务**（5 组合 + 1 复杂推理）：
+这篇工作有两条腿：一条是 benchmark，一条是即插即用的推理时机制。多图上下文生成（给几张参考图、让统一多模态模型 UMM 生成一致的新图）一直缺系统评估，作者先搭了 MICON-Bench——6 类任务、1043 个案例，配一套 MLLM 驱动的「按检查点评估」框架把每个案例拆成可验证的细粒度判分点；再针对评估暴露的问题——UMM 在多图输入时倾向于把注意力均匀撒到所有参考区域、连无关区域也照顾——提出 DAR（Dynamic Attention Rebalancing），在推理时动态重加权注意力、不需任何训练。
+
+### 关键设计
+
+**1. MICON-Bench：覆盖从简单组合到因果推理的 6 类任务**
+
+现有基准（GenEval、T2ICompBench、ImgEdit-Bench）多评文生图或单图编辑，碰不到跨图一致性和复杂视觉关系推理；OmniContext 虽含多图但只到简单主体组合。MICON-Bench 把多图上下文生成拆成 5 类组合任务加 1 类复杂推理任务，难度递增：
 
 | 任务 | 描述 | 案例数 | 参考图数 |
 |------|------|--------|----------|
@@ -50,26 +56,13 @@ tags:
 | Story Generation | 因果推理续写故事 | 103 | 2-3 |
 | **总计** | | **1043** | **2518张** |
 
-### Evaluation-by-Checkpoint 框架
-- 为每个案例定义可验证**检查点**，涵盖七个维度：指令遵循、身份一致、结构、跨参考一致性、因果性、文本锚定、整体可用性
-- MLLM（Qwen3-VL-32B）作为验证器，每个检查点判 pass/fail，最终分数为通过率均值
-- Story 任务额外设预定义答案集评估推理能力
+**2. Evaluation-by-Checkpoint：把「好不好」拆成一串 pass/fail**
 
-### Dynamic Attention Rebalancing (DAR)
+图像级整体打分太粗、说不清模型到底错在哪。这套框架为每个案例预先定义一组可验证检查点，覆盖指令遵循、身份一致、结构、跨参考一致性、因果性、文本锚定、整体可用性七个维度，再让 MLLM（Qwen3-VL-32B）当验证器逐点判 pass/fail、最终分数取通过率均值；Story 任务还额外配预定义答案集来评推理。这样评估既细粒度又可量化、可扩展。
 
-1. **问题诊断**：UMM 注意力常不加区分地关注参考图中无关区域，导致幻觉
+**3. Dynamic Attention Rebalancing（DAR）：把注意力从无关区域抢回关键区域**
 
-2. **高效注意力分析**:
-    - 均匀采样 $m \ll L_q$ 个查询 token（默认 m=64），计算与参考图 key token 的注意力图
-    - 总注意力分数：$r_k = \sum_{i=1}^{m}\sum_{h=1}^{H} \tilde{A}_{i,h,k}$
-    - Min-max 归一化得 $\hat{r}_k$
-
-3. **动态权重调整**:
-    - 双阈值三类划分：$w_k = 1+\gamma$ (若 $\hat{r}_k \geq \tau_{high}$)，$w_k = 1-\gamma$ (若 $\hat{r}_k \leq \tau_{low}$)，否则 $w_k = 1$
-    - 调整后注意力：$A = \text{softmax}\left(\frac{Q(w \odot K_{ref})^\top}{\sqrt{d}}\right)$
-    - 默认 $\gamma=0.15$, $\tau_{high}=0.7$, $\tau_{low}=0.3$
-
-4. **设计优势**：训练无关、即插即用、计算开销极小（仅采样 64 个 query）
+DAR 针对的正是诊断出的病根——UMM 不加区分地关注参考图里的无关区域，导致幻觉和不一致。它先做一次高效注意力分析：均匀采样 $m \ll L_q$ 个查询 token（默认 $m=64$），算它们对参考图各 key token 的注意力，把每个 key 的总分 $r_k = \sum_{i=1}^{m}\sum_{h=1}^{H} \tilde{A}_{i,h,k}$ 做 min-max 归一化得 $\hat{r}_k$。然后按双阈值分三类重加权：$\hat{r}_k \geq \tau_{high}$ 的关键 key 放大为 $w_k = 1+\gamma$、$\hat{r}_k \leq \tau_{low}$ 的无关 key 压成 $w_k = 1-\gamma$、其余不变，再用调整后的权重重算注意力 $A = \text{softmax}\left(\frac{Q(w \odot K_{ref})^\top}{\sqrt{d}}\right)$（默认 $\gamma=0.15,\ \tau_{high}=0.7,\ \tau_{low}=0.3$）。整个过程只采样 64 个 query、零训练、即插即用，开销几乎可忽略。
 
 ## 实验关键数据
 

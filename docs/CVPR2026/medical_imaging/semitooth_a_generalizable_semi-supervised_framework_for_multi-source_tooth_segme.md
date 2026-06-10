@@ -50,37 +50,29 @@ $$\theta_t^{(k)} \leftarrow \gamma \theta_t^{(k-1)} + (1-\gamma) \theta_s^{(k)},
 
 ### 关键设计
 
-1. **多教师多学生架构（SemiTooth）**：
+**1. 多教师多学生架构：给不同源配专属学生，再用 Mixed 子集当跨源桥梁**
 
-    - 与 Mean Teacher（单教师-单学生）相比：SemiTooth 为不同源的数据分配专属学生，教师提供跨源知识引导
-    - 与 Co-training（多学生共享权重无教师）相比：SemiTooth 通过 EMA 教师提供稳定伪标签
-    - **Mixed 子集**作为源间桥梁：包含与主源分布相似的未标注样本，缓解直接跨源训练的不稳定性
-    - 学生网络间共享相似架构促进知识迁移，同时保持足够多样性
+单源半监督方法（Mean Teacher 等）直接拿去跨源训练会因分布差距而不稳。SemiTooth 为不同源的数据分配专属学生、由 EMA 教师提供稳定伪标签：相比 Mean Teacher 的单教师-单学生，它能提供跨源知识引导；相比 Co-training 的多学生共享权重无教师，它有稳定的教师伪标签。关键的缓冲设计是 Mixed 子集——专门收纳与主源分布相似的未标注样本，作为主源与其他源之间的过渡桥梁，缓解直接跨源训练的不稳定；学生网络间共享相似架构促进知识迁移，又保留足够多样性。
 
-2. **严格加权置信度约束（SWC）**：
+**2. 严格加权置信度约束（SWC）：区域级门控 + 体素级加权过滤异质噪声**
 
-   解决 CBCT 异质性引入噪声导致一致性正则化退化的问题。SWC 融合区域级门控和体素级加权：
+CBCT 的源间异质性会让伪标签带噪、一致性正则退化。SWC 用两级过滤应对：先做区域级门控，把样本均匀切成非重叠立方体区域 $\{r\}$，算区域置信度 $c(r) = \mathbb{E}_{i \in r}[\max_c P^T_{i,c}]$，低于阈值 $\tau=0.9$ 的整块丢弃；再在保留区域内做体素级加权，用体素置信度 $c_i = \max_c P^T_{i,c}$ 加权教师-学生对齐：
 
-    - **区域级门控**：将样本均匀分为非重叠立方体区域 $\{r\}$，计算区域置信度 $c(r) = \mathbb{E}_{i \in r}[\max_c P^T_{i,c}]$，低于阈值 $\tau=0.9$ 的区域视为不可靠并丢弃
-    - **体素级加权**：在保留区域内，用体素级置信度 $c_i = \max_c P^T_{i,c}$ 加权教师-学生对齐：
-    $\mathcal{SWC}(P^S, P^T) = \mathbb{E}_{r \in \mathcal{R}_\tau}\left[\mathbb{E}_{i \in r}\left[c_i \cdot \mathcal{A}(P^S_i, P^T_i)\right]\right]$
-    - 该设计特别适合 3D CBCT 数据：区域级过滤利用了体积数据的空间连续性
+$$\mathcal{SWC}(P^S, P^T) = \mathbb{E}_{r \in \mathcal{R}_\tau}\left[\mathbb{E}_{i \in r}\left[c_i \cdot \mathcal{A}(P^S_i, P^T_i)\right]\right]$$
 
-3. **多源数据集 MS3Toothset**：
+区域级过滤恰好利用了 3D 体积数据的空间连续性——不可靠往往成片出现，整块剔除比单体素判断更稳。
 
-    - 收集三个来源：ShanghaiTech（公开、有标注）、PKU-SS 和 AFMC（私有、无标注）
-    - 经过筛选处理后包含 98 个标注样本（20 个测试）和 438 个未标注样本
-    - 首个面向多源半监督牙齿分割的综合数据集
+**3. 多源数据集 MS3Toothset：补上多源半监督牙齿分割的数据空白**
+
+这一领域此前没有合适的多源基准。MS3Toothset 汇集三个来源——ShanghaiTech（公开、有标注）、PKU-SS 和 AFMC（私有、无标注），经筛选处理后含 98 个标注样本（其中 20 个测试）和 438 个未标注样本，是首个面向多源半监督牙齿分割的综合数据集，也是前述跨源训练得以验证的基础。
 
 ### 损失函数 / 训练策略
 
-总损失结合监督损失和两个 SWC 一致性损失：
+总损失结合监督损失与两个 SWC 一致性损失：
 
 $$\mathcal{L}_{total} = \mathcal{L}_{sup} + \alpha \mathcal{L}_{cons}^u + \beta \mathcal{L}_{cons}^h, \quad \alpha = \beta = 0.5$$
 
-- $\mathcal{L}_{sup} = \text{CE}(P^S(x^l), y)$：主源标注数据的监督损失
-- $\mathcal{L}_{cons}^u$, $\mathcal{L}_{cons}^h$：分别对应 Other 和 Mixed 源的 SWC 损失
-- 骨干网络 V-Net，Adam 优化器，lr=0.0001，训练 300 epochs
+其中 $\mathcal{L}_{sup} = \text{CE}(P^S(x^l), y)$ 为主源标注数据的监督损失，$\mathcal{L}_{cons}^u$、$\mathcal{L}_{cons}^h$ 分别对应 Other 和 Mixed 源的 SWC 损失；骨干网络 V-Net，Adam 优化器，lr=0.0001，训练 300 epochs。
 
 ## 实验关键数据
 

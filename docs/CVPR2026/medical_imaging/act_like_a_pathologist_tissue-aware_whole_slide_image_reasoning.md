@@ -41,49 +41,33 @@ tags:
 
 ### 整体框架
 
-HistoSelect 包含三个核心阶段，模拟病理学家的认知流程：
-
-1. **Tissue Segmentation (组织分割)**：将WSI的patch按组织类型分组
-2. **Group Sampler (组级采样)**：决定每组的采样比例
-3. **Patch Selector (patch级选择)**：在每组内精选最相关patch
-
-最终选出的patch送入VLM进行问答。
+HistoSelect 要解决的核心矛盾是：一张 WSI 切出数万个 patch、远超 LLM 上下文窗口，但病理学家诊断时根本不会逐 patch 看，而是先认组织、再聚焦可疑区。它把这套"粗看→细查"的认知流程形式化成三级筛选——先按组织类型把 patch 分组，再由 Group Sampler 决定每组采多少，最后 Patch Selector 在组内精选最相关的 patch，选出的少量 patch 才送进 VLM 做问答，从而在大砍 token 的同时留住诊断相关信息。
 
 ### 关键设计
 
-**阶段1：组织感知分组**
+**1. 组织感知分组：先按组织类型把数万 patch 归类**
 
-- 病理学家预定义 M 个组织类型文本prompt（如"tumor tissue"、"stroma"、"necrosis"等）
-- 利用 CONCH（一种病理领域的CLIP模型）计算每个patch特征与组织prompt的余弦相似度
-- 每个patch分配到相似度最高的组织类型组，得到 M 个组 $\{G_1, G_2, \ldots, G_M\}$
+直接把所有 patch 丢给模型既算不动也没必要，第一步先模仿病理学家"低倍镜认组织"。由病理学家预定义 M 个组织类型文本 prompt（如"tumor tissue""stroma""necrosis"），用病理领域的 CLIP 模型 CONCH 算每个 patch 特征与这些 prompt 的余弦相似度，把每个 patch 分到相似度最高的组织类型，得到 M 个组 $\{G_1, G_2, \ldots, G_M\}$。这一步把无结构的 patch 海洋变成有语义的分组，为后面按组分配预算打底。
 
-**阶段2：Group Sampler（基于IB的组级采样）**
+**2. Group Sampler：按问题决定每组该看多少（组级 IB）**
 
-- 对每组计算组蛋白型向量 $g_j$（组内patch特征的均值）
-- 将 $g_j$ 与问题编码 $q$ 拼接，送入两层MLP → sigmoid，输出采样率 $r_j \in (0,1)$
-- $r_j$ 决定该组应保留的patch比例，即 $k_j = \lceil r_j \cdot N_j \rceil$
-- IB目标：最大化 $r_j$ 与答案的互信息，同时最小化 $r_j$ 的复杂度
+不同问题关心的组织不同，所以每组的采样预算应随问题变。对每组先算组型向量 $g_j$（组内 patch 特征的均值），把 $g_j$ 与问题编码 $q$ 拼起来送进两层 MLP 接 sigmoid，输出采样率 $r_j \in (0,1)$，再换算成该组要保留的 patch 数 $k_j = \lceil r_j \cdot N_j \rceil$。这里用信息瓶颈（IB）目标约束：最大化 $r_j$ 与答案的互信息、同时压低 $r_j$ 的复杂度，让模型学会"哪类组织对当前问题值得多看"。
 
-**阶段3：Patch Selector（逐patch硬选择）**
+**3. Patch Selector：组内逐 patch 硬选 top-k**
 
-- 对每个patch计算选择概率 $s_i = \sigma(F_{\text{patch}}([x_i; q]))$，其中 $F_{\text{patch}}$ 是小型MLP
-- 在 $G_j$ 内按 $s_i$ 排序，选择 top-$k_j$ 个patch
-- 使用 Straight-Through Estimator (STE) 解决硬选择的不可微问题
+定了每组预算，还要在组内挑出最相关的具体 patch。对每个 patch 算选择概率 $s_i = \sigma(F_{\text{patch}}([x_i; q]))$（$F_{\text{patch}}$ 是小型 MLP），在 $G_j$ 内按 $s_i$ 排序取 top-$k_j$。硬选择不可微，用 Straight-Through Estimator（STE）让梯度照样回传。相比软注意力，硬选择是真把无关 patch 丢掉、真省了计算，这正是它要的效果。
 
 ### 损失函数 / 训练策略
 
-总损失由三项组成，体现双层IB压缩思想：
+总损失三项，体现组级 + patch 级的双层 IB 压缩：
 
 $$L = L_{\text{VQA}} + \lambda_1 L_{\text{group}} + \lambda_2 L_{\text{patch}}$$
 
-- **$L_{\text{VQA}}$**：标准VQA交叉熵损失
-- **$L_{\text{group}}$**（组级IB正则）：Bernoulli KL散度，$r_j$ 与基于余弦相似度的先验之间的KL
-- **$L_{\text{patch}}$**（patch级IB正则）：Bernoulli KL散度，$s_i$ 与patch-question余弦相似度先验之间的KL
+- $L_{\text{VQA}}$：标准 VQA 交叉熵损失
+- $L_{\text{group}}$（组级 IB 正则）：$r_j$ 与基于余弦相似度先验之间的 Bernoulli KL 散度
+- $L_{\text{patch}}$（patch 级 IB 正则）：$s_i$ 与 patch-question 余弦相似度先验之间的 Bernoulli KL 散度
 
-训练策略：
-- 端到端联合训练 Group Sampler、Patch Selector 和 VLM
-- STE 保证梯度通过硬选择操作回传
-- 余弦相似度先验作为无监督的弱信号指导选择
+训练时端到端联合优化 Group Sampler、Patch Selector 和 VLM，STE 保证梯度穿过硬选择回传，余弦相似度先验作为无监督弱信号指导选择。
 
 ## 实验关键数据
 

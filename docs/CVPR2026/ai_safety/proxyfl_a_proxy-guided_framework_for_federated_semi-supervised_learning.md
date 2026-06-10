@@ -39,23 +39,29 @@ tags:
 
 ### 整体框架
 
-ProxyFL 将分类器最后全连接层的可学习权重 $\boldsymbol{\Omega}_m = \{\omega_m^c\}_{c=1}^C$ 定义为类别代理 (proxy)，用于建模本地和全局的类别分布。框架包含两个核心模块：服务器端的 **Global Proxy Tuning (GPT)** 和客户端的 **Indecisive-Categories Proxy Learning (ICPL)**。代理本身是模型参数的一部分，不引入额外隐私风险和通信开销。
+ProxyFL 的出发点是：联邦半监督学习里数据异质性有"外部"（客户端之间分布不同）和"内部"（同一客户端里标注/未标注分布不一致）两层，而分类器最后一层全连接的权重 $\boldsymbol{\Omega}_m = \{\omega_m^c\}_{c=1}^C$ 天然刻画了每个类别的方向，正好可以当成统一的"类别代理 (proxy)"来建模本地和全局分布。整套框架就围绕这个代理转：服务器端用 **Global Proxy Tuning (GPT)** 把各客户端的代理拟合成一个不被异常值带偏的全局代理，客户端用 **Indecisive-Categories Proxy Learning (ICPL)** 把过去被丢弃的低置信样本重新拉回训练。代理本身就是模型参数，不额外传输、也不引入隐私风险。
 
 ### 关键设计
 
-1. **Global Proxy Tuning (GPT)**：在服务器端显式优化全局代理以拟合跨客户端的类别分布。首先用简单平均 $\overline{\boldsymbol{\Omega}}_{\mathcal{G}}$ 初始化全局代理，然后通过对比学习目标进一步微调——将全局代理 $\boldsymbol{\Omega}_{\mathcal{G}}^c$ 拉近同类别的本地代理、推远不同类别的本地代理：
+**1. Global Proxy Tuning：在服务器端把代理拟合成抗异常值的全局类别分布**
+
+简单平均各客户端的分类器权重容易被异常客户端拉偏，得到的全局类别分布并不准。GPT 先用平均 $\overline{\boldsymbol{\Omega}}_{\mathcal{G}}$ 初始化全局代理，再用一个对比学习目标做微调——把全局代理 $\boldsymbol{\Omega}_{\mathcal{G}}^c$ 拉近所有客户端的同类别本地代理、推远不同类别的本地代理：
 
 $$\mathcal{L}_{\text{GPT}} = \sum_{c=1}^{C}\sum_{m=1}^{M} -\log \frac{e^{-\phi(\boldsymbol{\Omega}_{\mathcal{G}}^c, \omega_m^c)}}{e^{-\phi(\boldsymbol{\Omega}_{\mathcal{G}}^c, \omega_m^c)} + \sum_{c' \neq c} e^{-\phi(\boldsymbol{\Omega}_{\mathcal{G}}^c, \omega_m^{c'})}}$$
 
-   计算复杂度仅 $O(Q \times M \times C^2 \times d)$，以 CIFAR-100 为例约 0.4 GFLOPs，相当于推理一张图的开销，可忽略不计。
+这样全局代理是被"对齐"出来的而非简单平均出来的，异常客户端的偏移会被同类别的多数样本稀释。这一步开销极低，复杂度仅 $O(Q \times M \times C^2 \times d)$，以 CIFAR-100 为例约 0.4 GFLOPs，相当于推理一张图，可忽略不计。
 
-2. **Indecisive-Categories Proxy Learning (ICPL)**：针对低置信度未标注样本，不再简单丢弃或赋予单一伪标签，而是构建"犹豫类别集合" $\xi_i$。对于低置信度样本 $\mathbf{u}_i^{\text{lc}}$，任何全局 logit $\overline{\mathbf{y}}_i(c)$ 超过全局类别先验 $\mathcal{P}_{\mathcal{G}}'(\mathbf{Y}(c))$ 的类别都加入 $\xi_i$：
+**2. Indecisive-Categories Proxy Learning：用"犹豫类别集合"留住低置信样本**
+
+异质性越大，越多未标注样本因为置信度低而被现有方法直接丢弃，训练数据因此被浪费。ICPL 不再给低置信样本 $\mathbf{u}_i^{\text{lc}}$ 硬塞单一伪标签，而是为它构建一个"犹豫类别集合" $\xi_i$：凡是全局 logit $\overline{\mathbf{y}}_i(c)$ 超过全局类别先验 $\mathcal{P}_{\mathcal{G}}'(\mathbf{Y}(c))$ 的类别都纳入集合，
 
 $$\xi_i = \{c \mid \overline{\mathbf{y}}_i(c) > \mathcal{P}_{\mathcal{G}}'(\mathbf{Y}(c))\}$$
 
-   先验 $\mathcal{P}_{\mathcal{G}}'$ 为各客户端模型预测偏好的聚合，为多数类设更高阈值、少数类设更低阈值，动态调节犹豫类别范围。
+其中先验 $\mathcal{P}_{\mathcal{G}}'$ 是各客户端预测偏好的聚合，给多数类设更高门槛、少数类设更低门槛，从而动态地控制集合的松紧。保留集合而不是逼出一个确定标签，等于把样本的不确定性显式交给下游对比学习去消化。
 
-3. **Positive-Negative Proxy Pool**：基于每个样本的类别集合 $\xi_i$ 构建正负代理池。高置信度样本的正代理为对应伪标签类的代理权重 $\omega_i^{\text{hc}} = \omega_k^{\hat{y}_i}$；低置信度样本的正代理为犹豫类别代理的加权求和 $\omega_i^{\text{lc}} = \sum_{c' \in \xi_i} \tilde{\mathbf{y}}_i(c') \times \omega_k^{c'}$。负样本为批次中类别集合与当前样本无交集的样本特征。通过对比学习目标训练，确保所有样本（包括低置信度）参与训练。
+**3. Positive-Negative Proxy Pool：让所有样本都进对比学习**
+
+有了每个样本的类别集合，就能构建正负代理池把样本真正用起来。高置信样本的正代理就是其伪标签类的代理权重 $\omega_i^{\text{hc}} = \omega_k^{\hat{y}_i}$；低置信样本的正代理则是犹豫类别代理的加权求和 $\omega_i^{\text{lc}} = \sum_{c' \in \xi_i} \tilde{\mathbf{y}}_i(c') \times \omega_k^{c'}$，负样本取批次中类别集合与当前样本无交集的特征。通过这个对比目标，连最不确定的低置信样本也能贡献梯度，外部异质性（全局代理对齐）和内部异质性（低置信样本利用）就在同一个代理框架里被一并处理。
 
 ### 损失函数 / 训练策略
 

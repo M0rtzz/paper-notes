@@ -44,32 +44,22 @@ tags:
 
 ### 整体框架
 
-BlackMirror 分为两个核心模块：
-
-- **MirrorMatch**：从生成图像中提取细粒度视觉 pattern，与输入指令对齐，识别语义偏差（可疑对象）。
-- **MirrorVerify**：通过 pattern masking 生成 prompt 变体，评估偏差在多次生成中的稳定性，区分后门行为与模型固有偏差。
-
-检测时并行执行 $t=3$ 条分支（object / patch / style），任一分支报警即判定后门。
+BlackMirror 针对的是黑盒场景下的 T2I 后门检测：用户访问不到权重和注意力图，唯一黑盒前作 UFID 又假设「后门生成的图全局高度相似」，只能抓 FixImgAtt 那种生成固定图的攻击，碰到只改局部语义的 ObjRepAtt / PatchAtt / StyleAtt 就失效。BlackMirror 抓住后门的两个属性——触发会造成指令-响应的语义偏差、且偏差在不同 prompt 下稳定（模型固有偏差则不稳定）——设计成两段流程：MirrorMatch 先从生成图里挖出细粒度的可疑对象，MirrorVerify 再验证这个偏差在多次生成中稳不稳定。检测时对 object / patch / style 三条分支（$t=3$）并行跑，任一分支报警即判后门。
 
 ### 关键设计
 
-**MirrorMatch 阶段**：
+**1. MirrorMatch：把指令和生成图对齐到对象级，挖出语义偏差**
 
-1. 用 LLM $f_l(\cdot)$（Qwen-8B）从指令 $x$ 提取视觉对象集合 $\mathcal{O}_{\text{ins}}$。
-2. 用 VLM $f_v(\cdot)$（Qwen2.5-VL-7B）对生成图像独立运行 $K$ 次提取对象，通过多数投票（$\geq \lceil K/2 \rceil$ 次出现）得到 $\mathcal{O}_{\text{res}}$，过滤背景噪声。
-3. 计算三类集合：$\mathcal{O}_{\text{safe}} = \mathcal{O}_{\text{ins}} \cap \mathcal{O}_{\text{res}}$（安全）、$\mathcal{O}_{\text{new}} = \mathcal{O}_{\text{res}} \setminus \mathcal{O}_{\text{safe}}$（新增可疑）、$\mathcal{O}_{\text{lost}} = \mathcal{O}_{\text{ins}} \setminus \mathcal{O}_{\text{safe}}$（缺失可疑）。
+UFID 用 CLIP 算全局相似度太粗，后门样本和干净样本的分数高度重叠、根本分不开。MirrorMatch 改用对象级比对：先用 LLM $f_l(\cdot)$（Qwen-8B）从指令 $x$ 抽出应有的视觉对象集合 $\mathcal{O}_{\text{ins}}$，再用 VLM $f_v(\cdot)$（Qwen2.5-VL-7B）对生成图独立跑 $K$ 次、按多数投票（出现 $\geq \lceil K/2 \rceil$ 次）得到实际对象集合 $\mathcal{O}_{\text{res}}$ 以滤掉背景噪声。两个集合一交一减就定位出可疑点：$\mathcal{O}_{\text{safe}} = \mathcal{O}_{\text{ins}} \cap \mathcal{O}_{\text{res}}$ 是安全对象，$\mathcal{O}_{\text{new}} = \mathcal{O}_{\text{res}} \setminus \mathcal{O}_{\text{safe}}$ 是凭空多出来的（可能被插入），$\mathcal{O}_{\text{lost}} = \mathcal{O}_{\text{ins}} \setminus \mathcal{O}_{\text{safe}}$ 是该有却没有的（可能被替换掉）。这样即便后门只改局部，偏差也能被精确捕捉。
 
-**MirrorVerify 阶段**：
+**2. MirrorVerify：用 prompt 扰动验证偏差稳不稳定，压掉误报**
 
-1. 从原始 prompt 中随机移除 $\mathcal{O}_{\text{safe}}$ 中的对象（pattern masking），保留 trigger，生成 $N$ 个 prompt 变体及对应图像。
-2. 对每个可疑对象 $o$，用 VLM 二元提问 "Does the image contain [object]?"，通过 yes/no logits 计算置信度 $s^{(i)}(o)$。
-3. 新增对象取平均出现概率 $s_{\text{new}}(o)$，缺失对象取平均缺失概率 $s_{\text{lost}}(o)$。
-4. 最终稳定性分数 $s_{\text{final}} = \max\{s_{\text{new}}, s_{\text{lost}}\}$，超过阈值 $\tau$ 则判定后门。
+光有偏差还不够——模型本身的随机性也会造成偶发偏差。MirrorVerify 检验偏差是否「跨 prompt 稳定」：从原 prompt 里随机移除 $\mathcal{O}_{\text{safe}}$ 中的对象（pattern masking）但保留 trigger，生成 $N$ 个 prompt 变体及对应图像；对每个可疑对象 $o$，用 VLM 二元提问「Does the image contain [object]?」，从 yes/no logits 算置信度 $s^{(i)}(o)$，新增对象取平均出现概率 $s_{\text{new}}(o)$、缺失对象取平均缺失概率 $s_{\text{lost}}(o)$。最终稳定性分数 $s_{\text{final}} = \max\{s_{\text{new}}, s_{\text{lost}}\}$ 超过阈值 $\tau$ 才判后门。真正的后门偏差在各种 prompt 下都稳定复现、得分高，模型固有偏差则忽有忽无被过滤掉——消融里去掉这一步，几乎所有攻击的 FPR 都飙到 100%。
 
-### 损失/阈值选择
+### 损失 / 阈值选择
 
-- 无训练损失，核心超参为阈值 $\tau$，实验表明 $\tau=0.999$ 在精确率和召回率间取得最佳平衡。
-- 生成次数 $N=5$ 作为精度与效率的折中点。
+- 全程无训练损失，核心超参是阈值 $\tau$，实验中 $\tau=0.999$ 在精确率和召回率间最平衡
+- 生成次数 $N=5$ 是精度与效率的折中点
 
 ## 实验
 

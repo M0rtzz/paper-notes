@@ -40,44 +40,31 @@ tags:
 
 ## 方法详解
 
-### 整体流程
+### 整体框架
 
-上下文图像 C = {(I_i, g_i, K_i)} → **Transformer Encoder**（双向自注意力）→ 场景表示 z = E[C]（所有 patch token，无固定瓶颈）→ **Cross-Attention Decoder**（单向）→ 并行渲染 V_T 个目标视图 Ĩ = D[z, g_T, K_T]。核心：编码一次、解码多次，目标视图间无交互但可并行。
+这篇论文想回答的不是「怎么把 NVS 渲染做得更准」，而是「在固定计算预算下，NVS Transformer 该怎么设计和训练才最划算」——这是 3D 视觉里此前空白的缩放定律问题。它的载体是一个单向 encoder-decoder 架构 SVSM：上下文图像 $C=\{(I_i, g_i, K_i)\}$ 先过 Transformer Encoder 做双向自注意力，得到保留全部 patch token 的场景表示 $z=E[C]$（不压成固定瓶颈），再由 Cross-Attention Decoder 单向地从 $z$ 中并行渲染 $V_T$ 个目标视图 $\tilde{I}=D[z, g_T, K_T]$。一句话概括就是「编码一次、解码多次，目标视图之间互不交互但能并行」，而论文真正的贡献是用这套架构把 encoder-decoder 被低估的原因讲清楚，并给出计算最优的训练配方。
 
-### 1. SVSM 架构（Section 3）
+### 关键设计
 
-- **Encoder**：标准 ViT，对所有上下文图像做双向自注意力，输出 patch token 集合作为场景表示。关键区别于 LVSM enc-dec：不压缩为固定数量 learnable token，而是保留全部 patch token，避免信息瓶颈
-- **Decoder**：通过 cross-attention 从场景表示 z 中提取信息，自回归地渲染目标视图。各目标视图独立解码但共享 z，可并行执行
-- **计算复杂度**：χ_MLP(SVSM) ∝ V_T + V_C，χ_Attn(SVSM) ∝ V_C×(V_T + V_C)。当 V_T ≫ V_C 时降至 O(V_T)，对比 LVSM 的 O(V_T·V_C + V_T) 有显著优势
-- **代价**：encoder 无法主动丢弃与目标无关的信息；在参数量和训练步数相同时 SVSM 弱于 LVSM，但通过摊销渲染节省的计算量可加大模型和训练步数，使得**在等计算预算下 SVSM 显著更优**
+**1. SVSM 架构：用无瓶颈的场景表示摊销多目标视图渲染**
 
-### 2. 有效批量大小假设（Section 4）
+LVSM 的 decoder-only 每渲染一张目标视图都要重走全部上下文 token，FLOPs 随目标视图数线性涨；而 LVSM 此前的 enc-dec 变体之所以表现差，根因是把场景压成了固定数量的 learnable token，引入信息瓶颈。SVSM 的 Encoder 是标准 ViT，对所有上下文图像做双向自注意力后输出全部 patch token 当场景表示，Decoder 再用 cross-attention 从 $z$ 里取信息、各目标视图独立解码但共享 $z$ 可并行。计算上 $\chi_\text{MLP}(\text{SVSM})\propto V_T+V_C$、$\chi_\text{Attn}(\text{SVSM})\propto V_C\times(V_T+V_C)$，当 $V_T\gg V_C$ 时降到 $O(V_T)$，远优于 LVSM 的 $O(V_T\cdot V_C+V_T)$。代价是 encoder 没法主动丢弃与目标无关的信息，同参数同步数时 SVSM 弱于 LVSM——但渲染省下的算力可以拿去加大模型和训练步数，于是在等计算预算下反而显著更优。
 
-- **定义**：B_eff ≡ B · V_T，其中 B 为场景数、V_T 为每场景目标视图数
-- **实验验证**：在 DL3DV（V_C=8）和 RE10K（V_C=2）上固定 B_eff 变换 (B, V_T) 组合进行消融。结果：同 B_eff 下最终 PSNR 差异仅 ±0.1~0.2，训练损失曲线几乎完全重合
-- **对 LVSM 的含义**：χ(LVSM) ∝ B·V_T·(V_C+1) = B_eff·(V_C+1)，不依赖 (B, V_T) 拆分方式——调节 V_T 无法省计算
-- **对 SVSM 的含义**：χ(SVSM) ∝ B·(V_C + V_T) = B_eff + B·V_C。减少 B、增大 V_T 可以保持 B_eff（保持性能）同时减少总 FLOPs——这就是 enc-dec 效率优势的来源
-- **洞察**：LVSM 原文 enc-dec 表现差的根因是在等迭代次数（而非等 FLOPs）下对比，掩盖了 enc-dec 的计算效率
+**2. 有效批量大小假设：B 和 V_T 怎么拆不重要，乘积才重要**
 
-### 3. 立体 Stereo 缩放定律（Section 5，V_C=2）
+NVS 训练惯例是每个场景重建多个目标视图，但「增大 $V_T$」和「增大 $B$」对训练动态到底等不等价，此前无人形式化。本文提出有效批量大小 $B_\text{eff}\equiv B\cdot V_T$（$B$ 为场景数、$V_T$ 为每场景目标视图数），并在 DL3DV（$V_C=8$）和 RE10K（$V_C=2$）上固定 $B_\text{eff}$ 换不同 $(B, V_T)$ 组合：最终 PSNR 只差 $\pm0.1\sim0.2$、损失曲线几乎重合。这个假设一举解释了两件事——对 LVSM，$\chi\propto B\cdot V_T\cdot(V_C+1)=B_\text{eff}\cdot(V_C+1)$，与拆分方式无关，调 $V_T$ 省不了算力；对 SVSM，$\chi\propto B\cdot(V_C+V_T)=B_\text{eff}+B\cdot V_C$，于是减小 $B$、增大 $V_T$ 就能在保持 $B_\text{eff}$（即保持性能）的同时压低总 FLOPs，这正是 enc-dec 效率优势的来源。也由此点破：LVSM 原文里 enc-dec 输给 decoder-only，是因为在等迭代次数而非等 FLOPs 下对比。
 
-- **实验设置**：在 RE10K 上，V_T=6，batch size=256，patch size=16，扫描 7M~300M 参数 × 3-4 种训练样本数，总计算跨 10³ 量级（100 petaflops 到 100 exaflops）
-- **缩放结果**：log-log 图上两模型族 Pareto 前沿斜率相同，但 SVSM 向左偏移 3×——同性能只需 1/3 FLOPs
-- **Chinchilla 分析**：对每个计算预算 χ 确定最优 (N_opt, D_opt)，拟合 N_opt ∝ χ^a、D_opt ∝ χ^b。SVSM：a=0.52, b=0.47（a≈b，与 Chinchilla 一致——增加 k 倍预算应 √k 分给模型、√k 分给数据）；LVSM：a=0.65, b=0.33（更偏模型侧）
-- **稳定训练**：应用 1/√L 残差缩放（depth-μP），确保不同深度模型公平对比
-- **最终模型**：SVSM-416M（Pareto 最优）和 SVSM-740M（迭代匹配），在约 0.77 zflops（LVSM 的一半）下均超越 LVSM-171M
+**3. 立体 stereo 缩放定律：同性能只需 1/3 计算**
 
-### 4. 多视图缩放定律（Section 6，V_C>2）
+在 $V_C=2$ 的 RE10K 上（$V_T=6$、batch size=256、patch size=16），扫 7M~300M 参数 × 3-4 种训练样本数，总计算跨 $10^3$ 量级（100 petaflops 到 100 exaflops），并用 $1/\sqrt{L}$ 残差缩放（depth-μP）保证不同深度模型公平对比。结果在 log-log 图上两族 Pareto 前沿斜率相同，但 SVSM 整体左移 $3\times$——同性能只要 1/3 FLOPs。按 Chinchilla 方式对每个预算 $\chi$ 拟合 $N_\text{opt}\propto\chi^a$、$D_\text{opt}\propto\chi^b$，SVSM 得 $a=0.52, b=0.47$（$a\approx b$，与 Chinchilla 一致，预算翻倍应 $\sqrt{k}$ 给模型、$\sqrt{k}$ 给数据），LVSM 则 $a=0.65, b=0.33$ 更偏模型侧。最终 SVSM-416M（Pareto 最优）和 SVSM-740M（迭代匹配）在约 0.77 zflops（LVSM 一半）下双双超过 LVSM-171M。
 
-- **问题**：直接扩展 SVSM 到 V_C=4，Pareto 前沿快速饱和，缩放行为消失
-- **原因分析**：encoder-decoder 中场景表示是信息瓶颈，位姿信息在深层丢失
-- **解决方案 PRoPE**：投影旋转位置编码——每层注意力前将 Q/K/V 通过相机位姿变换到公共参考坐标系执行注意力，再逆变换回各自坐标系。位姿信息直接嵌入每一层而非仅初始嵌入
-- **效果**：加 PRoPE 后 SVSM 重新恢复理想缩放趋势，Pareto 前沿仍优于 LVSM+PRoPE
+**4. 多视图缩放定律与 PRoPE：把位姿打进每一层救回缩放**
 
-### 5. 固定潜表示缩放实验（Section 7）
+直接把 SVSM 扩到 $V_C=4$ 时，Pareto 前沿很快饱和、缩放行为消失，原因是 encoder-decoder 里固定流向的场景表示成了信息瓶颈、位姿信息在深层被丢。解法是投影旋转位置编码 PRoPE：每层注意力前把 Q/K/V 通过相机位姿变换到公共参考坐标系再做注意力，算完逆变换回各自坐标系，等于把位姿直接嵌进每一层而非只在初始嵌入。加上 PRoPE 后 SVSM 重新恢复理想缩放趋势，且 Pareto 前沿仍优于 LVSM+PRoPE。
 
-- **设置**：Objaverse 数据集，V_C=8，对比 SVSM-fixed（固定潜表示+单向解码）vs LVSM enc-dec（固定潜表示+双向解码）
-- **结论**：两者缩放行为类似，SVSM-fixed 仍有 5× 计算优势（Pareto 前沿左移 5×）；但**两者都显著差于无瓶颈设计**——固定潜表示是缩放的主要限制因素
+**5. 固定潜表示对照实验：瓶颈才是缩放的真凶**
+
+为了把「解码方向」和「是否有瓶颈」两个因素分开，作者在 Objaverse（$V_C=8$）上对比 SVSM-fixed（固定潜表示 + 单向解码）与 LVSM enc-dec（固定潜表示 + 双向解码）：两者缩放行为类似，SVSM-fixed 仍有 $5\times$ 计算优势（前沿左移 $5\times$），但二者都明显差于无瓶颈设计。这说明限制缩放的主因不是解码器是否单向，而是固定大小的场景表示本身。
 
 ## 实验结果
 

@@ -33,40 +33,28 @@ tags:
 ## 方法详解
 
 ### 整体框架
-三阶段策略：(1) 用 VLM（LLaVA）从退化图像生成关键物体的文本描述 → (2) 用 BLIP 的视觉-文本对齐构建空间语义引导图 M_sem → (3) 通过双重引导机制将 M_sem 注入 UIE 网络的 decoder。
+
+水下增强有个「增强悖论」：图看着更清晰了，下游检测 / 分割反而更差。根子在于现有方法是「语义盲」的——对全图一刀切均匀增强，分不清海洋生物、人工物体这些语义焦点和背景水体，结果破坏了下游模型依赖的语义线索。本文给增强装上内容感知，分三步走：先用 VLM（LLaVA）从退化图里生成关键物体的文本描述，再用 BLIP 的视觉-文本对齐把描述变成一张空间语义引导图 $M_{\text{sem}}$，最后通过「cross-attention + 对齐损失」的双重引导，把 $M_{\text{sem}}$ 注进任意 UIE 网络的 decoder，让它知道该重点恢复哪里。整套是可插拔模块，已在 5 个 baseline 上验证。
 
 ### 关键设计
 
-1. **语义引导图生成**：
+**1. 语义引导图生成：用 VLM + BLIP 零标注地标出「哪里重要」**
 
-    - 用 LLaVA 自动生成退化图像中关键物体的文本描述 T
-    - 用 BLIP 的视觉编码器 Φ_v 提取 patch 特征 F_v = {f_v1,...,f_vN}，文本编码器 Φ_t 提取全局文本特征 f_t
-    - 计算每个 patch 与文本的余弦相似度 s_i = v̂_i^T · t̂
-    - 语义锐化函数 Ψ_sharp：先 min-max 归一化，减去阈值 δ 过滤低相关噪声，再取 γ 次幂（γ>1）非线性放大差异
-    - 上采样至原图分辨率得到单通道引导图 M_sem
-    - 对比了 ViT class attention、CLIP、BLIP 三种方案，BLIP 效果最优（干净、边界清晰、无背景噪声）
+水下像素级语义标注极稀缺，而全局文本提示（"a clear underwater photo"）又是一刀切、定位不到具体物体。本文绕开标注：先让 LLaVA 自动描述退化图中的关键物体得到文本 $T$，再用 BLIP 的视觉编码器 $\Phi_v$ 提 patch 特征 $F_v = \{f_{v1}, \dots, f_{vN}\}$、文本编码器 $\Phi_t$ 提全局文本特征 $f_t$，逐 patch 算与文本的余弦相似度 $s_i = \hat{v}_i^\top \hat{t}$。光有相似度图还带背景噪声，于是用语义锐化函数 $\Psi_{\text{sharp}}$ 收拾：先 min-max 归一化，减去阈值 $\delta$ 滤掉低相关噪声，再取 $\gamma$ 次幂（$\gamma > 1$）非线性放大焦点与背景的差距，上采样回原分辨率得到单通道引导图 $M_{\text{sem}}$。对比 ViT class attention、CLIP、BLIP 三种方案，BLIP 出来的图最干净、边界最清、几乎无背景噪声。
 
-2. **Cross-Attention 注入机制**：
+**2. Cross-Attention 注入：让 decoder 优先从语义高亮区取特征**
 
-    - 在 decoder 各阶段 l，decoder 特征 d_l 作为 Query
-    - encoder skip-connection 特征 e_l 经 M_sem 加权后生成 Key 和 Value
-    - M_sem 下采样至对应分辨率 M̃(l)，e_l 乘以 M̃(l) 后投影
-    - d_l' = softmax(Q_l · K_l^T / √d_k) · V_l
-    - 使 decoder 优先从语义"高亮"区域提取编码器特征
+有了 $M_{\text{sem}}$ 还得让网络真用上它。在 decoder 的每个阶段 $l$，把 decoder 特征 $d_l$ 当作 Query，把 encoder 的 skip-connection 特征 $e_l$ 经 $M_{\text{sem}}$ 加权后生成 Key 和 Value：$M_{\text{sem}}$ 先下采样到对应分辨率 $\tilde{M}^{(l)}$，$e_l$ 乘上 $\tilde{M}^{(l)}$ 再投影，注意力输出 $d_l' = \text{softmax}(Q_l K_l^\top / \sqrt{d_k}) V_l$。这样 decoder 在重建时会优先从语义「高亮」的区域提取编码器特征，把恢复力气花在关键物体上。消融显示注入放在 decoder 阶段（而非 encoder 或全阶段）最有效，因为 decoder 直接决定重建结果。
 
-3. **显式语义对齐损失 L_align**：
+**3. 显式语义对齐损失：双向约束前景强响应、背景压激活**
 
-    - 对 decoder 第 l 阶段特征图 F(l) 施加双项约束：
-    - 背景抑制项：‖F(l) ⊙ (1 - M̃(l))‖²_F → 惩罚非关键区域的过强激活
-    - 前景增强项：-η⟨F(l), M̃(l)⟩ → 奖励关键物体区域的强响应
-    - η 是平衡超参
+结构上的引导还可以再用损失从特征层面显式加固。对 decoder 第 $l$ 阶段的特征图 $F^{(l)}$ 施加两项约束：背景抑制项 $\|F^{(l)} \odot (1 - \tilde{M}^{(l)})\|_F^2$ 惩罚非关键区域的过强激活，前景增强项 $-\eta \langle F^{(l)}, \tilde{M}^{(l)} \rangle$ 奖励关键物体区域的强响应，$\eta$ 是平衡超参。cross-attention 给的是结构性引导、对齐损失给的是显式监督，消融证明两者协同比任一单独用都好。
 
 ### 损失函数 / 训练策略
-- 总损失：L_total = L_recon + λ_align · Σ_l L_align(l)
-- L_recon = L1(I_e, I_gt) + λ_percep · Σ_j ‖φ_j(I_e) - φ_j(I_gt)‖₁（VGG-19 感知损失）
-- λ_align = 0.1
-- 在 UIEB 训练集（790 对图像）上训练
-- 策略设计为可插拔模块，已在 PUIE、SMDR、UIR、PFormer、FDCE 五个 baseline 上验证
+
+- 总损失：$L_{\text{total}} = L_{\text{recon}} + \lambda_{\text{align}} \sum_l L_{\text{align}}^{(l)}$，其中 $\lambda_{\text{align}} = 0.1$
+- 重建损失：$L_{\text{recon}} = L_1(I_e, I_{gt}) + \lambda_{\text{percep}} \sum_j \|\phi_j(I_e) - \phi_j(I_{gt})\|_1$（VGG-19 感知损失）
+- 在 UIEB 训练集（790 对图像）上训练；策略为可插拔模块，已在 PUIE、SMDR、UIR、PFormer、FDCE 五个 baseline 上验证
 
 ## 实验关键数据
 

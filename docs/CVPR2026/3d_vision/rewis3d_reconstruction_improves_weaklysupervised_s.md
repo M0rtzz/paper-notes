@@ -39,53 +39,42 @@ tags:
 
 ### 整体框架
 
-Rewis3d 包含三个协同工作的关键组件：
-
-1. **2D 分割分支**：SegFormer-B4 + Mean Teacher 架构
-2. **3D 分割分支**：Point Transformer V3 + Mean Teacher 架构
-3. **跨模态一致性 (CMC)**：双向知识传递——一个模态的教师指导另一个模态的学生
-
-训练分两阶段：
-- **基础训练**（15 epochs）：独立建立两个模态各自的学生-教师框架
-- **CMC 训练**：引入跨模态一致性损失，线性预热 5 个 epochs 至最大权重 $\lambda = 0.1$
-
-**关键特点**：3D 重建仅作为预处理步骤，最终推理完全在 2D 进行——无需 3D 传感器也无推理额外开销。
+Rewis3d 想用"重建出来的 3D 几何"给 2D 弱监督分割当辅助监督，但又不让 3D 拖累部署——推理时只跑 2D。它由三块协同：2D 分割分支用 SegFormer-B4 + Mean Teacher，3D 分割分支用 Point Transformer V3 + Mean Teacher，再用跨模态一致性（CMC）让一个模态的教师去指导另一个模态的学生、双向传递知识。训练分两阶段：先做 15 个 epoch 的基础训练，各自把两个模态的学生-教师框架独立立起来；再进入 CMC 训练，引入跨模态一致性损失、用 5 个 epoch 线性预热到最大权重 $\lambda = 0.1$。关键是 3D 重建只当预处理，最终推理完全在 2D，既不需要 3D 传感器、也无额外推理开销。
 
 ### 关键设计
 
-1. **3D 场景重建与视角感知采样 (View-Aware Sampling)**：
-    - 使用 MapAnything 从 2D 视频序列单次前向通过重建密集点云和逐点重建置信度
-    - 全场景点云（200+ 图像→60M+ 点）直接处理不可行
-    - 提出视角感知采样：为每张目标图像生成专属的 120K 点子采样
-    - **60% 采样来自当前视角**（确保稠密的 2D-3D 对应关系，约 72K 对应点）
-    - **40% 采样来自周围场景**（提供上下文保持 3D 分支的全局场景理解）
-    - 对比随机采样仅能得到约 140 对应点/图像，视角感知采样保证了 CMC 损失的有效训练
+**1. 视角感知采样：为每张图配足够多的 2D-3D 对应点**
 
-2. **双学生-教师架构 (Dual Student-Teacher Architecture)**：
-    - 2D 和 3D 分支各自维护独立的 Mean Teacher 学生-教师结构
-    - 教师权重通过 EMA 更新：$\boldsymbol{\theta}_t^{\text{teacher}} \leftarrow \alpha \boldsymbol{\theta}_{t-1}^{\text{teacher}} + (1-\alpha) \boldsymbol{\theta}_t^{\text{student}}$，其中 $\alpha = 0.99$
-    - 每个分支使用有监督交叉熵损失 $\mathcal{L}_S$（标注区域）和无监督一致性损失 $\mathcal{L}_U$（未标注区域的教师伪标签）
-    - 置信度过滤：只保留教师最大类概率超过阈值 $\tau$ 的像素
+MapAnything 从 2D 视频序列单次前向就能重建出密集点云和逐点重建置信度，但全场景点云规模太大（200+ 图像→60M+ 点）没法直接处理。Rewis3d 为每张目标图像生成专属的 120K 点子采样，且刻意按比例混合——**60% 采样来自当前视角**（保证稠密的 2D-3D 对应，约 72K 对应点），**40% 来自周围场景**（提供上下文、维持 3D 分支的全局场景理解）。这一招很要紧：随机采样每张图只能得到约 140 个对应点，根本撑不起 CMC 损失的有效训练，视角感知采样把对应点数拉高了两个数量级。
 
-3. **双置信度加权跨模态一致性 (Dual Confidence-Weighted CMC)**：
-    - 3D 教师指导 2D 学生的损失：$\mathcal{L}_C^{2D} = -\sum_j w_i \cdot \log(S_{2D}^{y_i}(I_j))$
-    - 权重结合两种置信度：$w_i = \underbrace{\max(\text{softmax}(T_{3D}(p_i)))}_{\text{预测置信度}} \cdot \underbrace{c_i^{\text{rec}}}_{\text{重建置信度}}$
-    - 预测置信度来自 3D 教师的输出概率，重建置信度来自 MapAnything 的逐点重建质量
-    - 这种双重过滤确保监督信号主要来自"在高质量重建几何上的可靠预测"
-    - 对称地，2D 教师也指导 3D 学生（$\mathcal{L}_C^{3D}$）
+**2. 双学生-教师架构：两个模态各自用 Mean Teacher 稳住伪标签**
+
+2D 和 3D 分支各维护一套独立的 Mean Teacher 结构，教师权重由学生 EMA 更新
+
+$$\boldsymbol{\theta}_t^{\text{teacher}} \leftarrow \alpha \boldsymbol{\theta}_{t-1}^{\text{teacher}} + (1-\alpha) \boldsymbol{\theta}_t^{\text{student}}, \quad \alpha = 0.99$$
+
+每个分支既用标注区域的有监督交叉熵 $\mathcal{L}_S$、也用未标注区域的无监督一致性 $\mathcal{L}_U$（教师给伪标签），并做置信度过滤——只保留教师最大类概率超过阈值 $\tau$ 的像素。稳定的教师伪标签是后面跨模态传递不被噪声带歪的前提。
+
+**3. 双置信度加权跨模态一致性：只让"高质量几何上的可靠预测"过线**
+
+跨模态监督最怕把错的传过去，所以 CMC 的每个监督信号都过两道置信度。以 3D 教师指导 2D 学生为例
+
+$$\mathcal{L}_C^{2D} = -\sum_j w_i \cdot \log(S_{2D}^{y_i}(I_j))$$
+
+权重同时乘上预测置信度和重建置信度
+
+$$w_i = \underbrace{\max(\text{softmax}(T_{3D}(p_i)))}_{\text{预测置信度}} \cdot \underbrace{c_i^{\text{rec}}}_{\text{重建置信度}}$$
+
+前者来自 3D 教师的输出概率、后者来自 MapAnything 的逐点重建质量。两重过滤叠加，确保监督主要来自"在高质量重建几何上做出的可靠预测"。对称地，2D 教师也以同样方式指导 3D 学生（$\mathcal{L}_C^{3D}$）。
 
 ### 损失函数 / 训练策略
 
-总损失函数：
+总损失把两个模态各自的有监督/无监督项和两条跨模态一致性项加在一起
 
 $$\mathcal{L}_{\text{Total}} = \sum_{m \in \{2D, 3D\}} (\mathcal{L}_S^m + \mathcal{L}_U^m) + \lambda_{2D} \mathcal{L}_C^{2D} + \lambda_{3D} \mathcal{L}_C^{3D}$$
 
-训练细节：
-- 2D 分支：SegFormer-B4，学习率 $5 \times 10^{-5}$
-- 3D 分支：Point Transformer V3，学习率 $10^{-3}$
-- 优化器：AdamW，batch size 12，两块 H100 GPU
-- 训练 50 epochs（NYUv2 为 250 epochs），CMC 权重 $\lambda = 0.1$ 线性预热
-- 学生使用更强增强（Cutout, Blur, AugMix / RandomRotation, RandomScale, RandomJitter），教师使用弱增强
+训练细节上，2D 分支 SegFormer-B4、学习率 $5 \times 10^{-5}$，3D 分支 Point Transformer V3、学习率 $10^{-3}$，优化器 AdamW、batch size 12、两块 H100；训练 50 epochs（NYUv2 为 250 epochs），CMC 权重 $\lambda = 0.1$ 线性预热；学生用更强增强（Cutout、Blur、AugMix / RandomRotation、RandomScale、RandomJitter），教师用弱增强。
+
 
 ## 实验关键数据
 

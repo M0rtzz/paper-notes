@@ -38,36 +38,19 @@ tags:
 
 ### 整体框架
 
-FCDM在latent space中工作（与DiT一致）。输入RGB图像 $256 \times 256 \times 3$ 经VAE编码为 $32 \times 32 \times 4$ 的latent tensor，再经多个FCDM block处理后由VAE decoder解码回像素空间。FCDM block组织在一个简化的U-shaped架构中，encoder和decoder通过skip connections连接。
+FCDM 想回答一个被忽视的问题：在扩散模型 backbone 普遍倒向 Transformer 的当下，纯卷积架构（ConvNeXt）到底能不能在生成质量和算力之间同时占优？它在 latent space 工作（与 DiT 一致）：RGB 图像 $256 \times 256 \times 3$ 先经 VAE 编码为 $32 \times 32 \times 4$ 的 latent，过多个 FCDM block 后再由 VAE decoder 解回像素。这些 block 组织成一个简化的 U 形结构，encoder 与 decoder 通过 skip connection 相连。
 
-**核心设计理念**: 与DiT需要4个超参数（层数L、通道C、attention heads、patch size）不同，FCDM仅需**两个超参数**——block数L和隐通道数C。每次2×下采样时，L和C均翻倍。这一"Easy Scaling Law"极大简化了架构搜索空间。
+与 DiT 需要 4 个超参数（层数 $L$、通道 $C$、attention heads、patch size）不同，FCDM 只需 **两个**——block 数 $L$ 和隐通道数 $C$，每次 2× 下采样时两者都翻倍。这条“Easy Scaling Law”把架构搜索空间压到极小，从 FCDM-S 扩到 FCDM-XL 只是改两个数字（$L$ 从 2→3，$C$ 从 128→512）。
 
-### FCDM Block设计
+### 关键设计
 
-FCDM block是对ConvNeXt block的最小化改造，保留了原始ConvNeXt的核心结构并添加条件注入能力：
+**1. FCDM Block：用最小改动把 ConvNeXt 接上条件扩散**
 
-**原始ConvNeXt Block流程**:
-$\text{Input} \to 7\times7 \text{ DWConv} \to \text{LayerNorm} \to 1\times1 \text{ Conv}(\uparrow r) \to \text{GRN} \to 1\times1 \text{ Conv}(\downarrow r) \to \text{Output}$
+DiT 的成功让人默认生成必须靠 attention，但 ConvNeXt 在分类上早已追平 ViT、在生成里却完全缺席。FCDM 对 ConvNeXt block 做最小化改造：原始流程 $\text{Input} \to 7\times7 \text{ DWConv} \to \text{LN} \to 1\times1 \text{ Conv}(\uparrow r) \to \text{GRN} \to 1\times1 \text{ Conv}(\downarrow r) \to \text{Output}$ 基本保留，只把 LayerNorm 换成 Adaptive LayerNorm（AdaLN）注入条件——一个轻量 MLP 把 class embedding 和 timestep embedding 拼接后映射为 $(\gamma, \beta, \alpha)$，$\gamma,\beta$ 做仿射调制、$\alpha$ 作输出缩放。遵循 DiT 把 $\alpha$ 零初始化，使训练初期每个 block 近似恒等映射，深层网络更稳。保留 $7\times7$ 大核 depthwise conv 提供足够感受野，消融里 $7\times7$ 明显优于 $5\times5$、$3\times3$。
 
-**FCDM Block改造**:
-- **条件注入**: 将LayerNorm替换为Adaptive LayerNorm（AdaLN）。一个轻量MLP将class embedding和timestep embedding拼接后映射为 $(\gamma, \beta, \alpha)$ 三组参数：$\gamma$ 和 $\beta$ 用于仿射变换归一化特征，$\alpha$ 作为最终输出的缩放因子
-- **零初始化**: 遵循DiT的做法，将最终调制scale $\alpha$ 零初始化。这使得训练初期每个FCDM block表现为恒等映射，有利于深层网络的优化稳定性
-- **7×7 Depthwise Convolution**: 保留ConvNeXt的大核depthwise conv，提供足够大的感受野来捕获空间上下文。消融实验证明7×7显著优于5×5和3×3
+**2. Inverted Bottleneck：把 depthwise conv 放到通道扩展之前，省下一半算力**
 
-### Inverted Bottleneck——效率的核心来源
-
-FCDM与DiCo最关键的结构差异在于通道维度的处理方式。这也是FCDM FLOPs仅为DiCo 75%的核心原因。
-
-**DiCo的做法**: 在整个卷积模块中保持通道维度不变，通道扩展放在额外的feedforward模块中完成（两个1×1 conv）。
-
-**FCDM的做法（Inverted Bottleneck）**:
-1. 先做 $7 \times 7$ depthwise conv（通道数C，计算量 $\propto C$）
-2. 用 $1 \times 1$ pointwise conv将通道扩展到 $rC$（expansion ratio $r=3$）
-3. 经过GRN后，再用 $1 \times 1$ pointwise conv将通道压缩回 $C$
-
-**关键trick**: Depthwise conv放在通道扩展**之前**而非之后。由于depthwise conv的计算量仅与输入通道数成正比（不涉及通道间交互），这种重排使得depthwise conv始终在低维通道上操作，计算量不随expansion ratio增长。而通道扩展后的高维特征仅由更轻量的pointwise conv处理，实现了"计算量不变+表征能力增强"的双赢。
-
-**数值验证**: 在参数量对齐的条件下，FCDM各scale的FLOPs比例如下：
+FCDM 与最接近的竞争者 DiCo 最关键的差别在通道维度怎么处理，这也是它 FLOPs 只有 DiCo 75% 的根源。DiCo 在卷积模块里始终保持通道数不变，把通道扩展丢到额外的 feedforward 模块里完成。FCDM 改用 inverted bottleneck：先做 $7\times7$ depthwise conv（通道数 $C$，计算量 $\propto C$），再用 $1\times1$ pointwise conv 把通道扩到 $rC$（扩展比 $r=3$），过 GRN 后再用 $1\times1$ conv 压回 $C$。关键在于 depthwise conv 放在扩展**之前**——它的计算量只与输入通道数成正比、不涉及通道间交互，于是始终在低维通道上跑，算力不随扩展比增长，而扩展后的高维特征只交给更轻的 pointwise conv。结果是“算力几乎不变、表征能力增强”：
 
 | 模型 | 参数量 | Blocks L | Channel C | FLOPs(G) | vs DiT | vs DiCo |
 |------|--------|----------|-----------|----------|--------|---------|
@@ -76,35 +59,17 @@ FCDM与DiCo最关键的结构差异在于通道维度的处理方式。这也是
 | FCDM-L | 504.5M | 2 | 512 | 48.3 | 59.9% | 80.2% |
 | FCDM-XL | 698.8M | 3 | 512 | 64.6 | 54.5% | 74.0% |
 
-### GRN vs CCA——通道多样性的轻量实现
+**3. 用 GRN 代替 CCA：几乎零参数地促进通道多样性**
 
-DiCo引入了Compact Channel Attention（CCA）来缓解通道冗余问题，其本质是通过额外的 $1 \times 1$ pointwise conv学习通道级注意力权重。
+DiCo 为缓解通道冗余引入了 Compact Channel Attention（CCA），本质是再加一个 $1\times1$ conv 学通道注意力权重。FCDM 直接复用 ConvNeXt V2 的 Global Response Normalization（GRN）：对每个通道算全局 L2 范数再做响应归一化，主体是无参数操作。两者目标一致（促进通道激活多样性、减少冗余），但 GRN 几乎不引入额外可学习参数。消融里 CCA 替换 GRN 会让 FID 从 19.97 涨到 23.85（+3.9），印证为分类设计的 GRN 在生成里反而更好。
 
-FCDM使用ConvNeXt V2中的**Global Response Normalization（GRN）**替代CCA。GRN主要由无参数操作组成：对每个通道计算全局L2范数，再进行响应归一化。两者目标完全一致——促进通道激活多样性、减少通道冗余——但GRN几乎不引入额外可学习参数。
+**4. 去掉额外 Feedforward：通道扩展只做一次**
 
-特征可视化（论文Figure 7）直观展示了GRN的效果：经GRN处理后的64通道特征图呈现出明显的多样性，而处理前的特征存在大量冗余通道。
-
-### 无需额外Feedforward模块
-
-DiCo在卷积模块之外还包含一个feedforward模块（两个 $1 \times 1$ conv，用于通道扩展）。FCDM不需要此模块，因为inverted bottleneck结构已经在block内部完成了通道扩展和压缩。消融实验表明，给FCDM添加额外feedforward模块后FID从19.97暴涨到28.52——通道扩展做两次反而有害。
-
-### U-shaped架构的简化设计
-
-传统U-Net需要精心设计每个分辨率层级的block数和通道数。FCDM彻底简化了这一过程：
-- **下采样规则**: 每次2×下采样时，block数L和通道数C均翻倍
-- **Skip Connections**: encoder各层级的特征直接传递到decoder对应层级
-- **不做分辨率特定的设计**: 所有层级使用相同的FCDM block结构，不引入分辨率相关的特殊处理
-
-这使得从FCDM-S扩展到FCDM-XL只需调整两个数字（L从2→3，C从128→512），极大降低了超参数调优成本。
+inverted bottleneck 已经在 block 内部完成了通道的扩展与压缩，所以 FCDM 不再需要 DiCo 那样额外的 feedforward 模块。消融给出反证：硬给 FCDM 加上额外 FFN 后 FID 从 19.97 暴涨到 28.52——通道扩展做两次反而有害。
 
 ### 训练策略
 
-完全沿用DiT/ADM的训练设置，不引入任何额外trick：
-- **扩散过程**: $t_{\max}=1000$ 步，线性noise schedule（$\beta$从 $1 \times 10^{-4}$ 到 $2 \times 10^{-2}$），iDDPM协方差参数化
-- **优化器**: AdamW，lr = $1 \times 10^{-4}$（constant schedule），无weight decay
-- **训练精度**: fp32（未使用混合精度）
-- **EMA**: decay factor = 0.9999
-- **评估**: 250步DDPM采样，50K样本计算FID，有指导时使用classifier-free guidance
+完全沿用 DiT/ADM 的设置，不加任何额外 trick：扩散过程 $t_{\max}=1000$ 步、线性 noise schedule（$\beta$ 从 $1\times10^{-4}$ 到 $2\times10^{-2}$）、iDDPM 协方差参数化；优化器 AdamW，lr $=1\times10^{-4}$（constant），无 weight decay；fp32 训练（未用混合精度）；EMA decay 0.9999；评估用 250 步 DDPM 采样、50K 样本算 FID，有指导时用 classifier-free guidance。
 
 ## 实验关键数据
 

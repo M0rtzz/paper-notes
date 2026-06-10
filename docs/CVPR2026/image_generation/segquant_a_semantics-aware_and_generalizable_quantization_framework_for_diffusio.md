@@ -43,7 +43,9 @@ tags:
 
 ### 整体框架
 
-SegQuant 采用自顶向下的模块化设计（Figure 1），包含四个可插拔组件：
+SegQuant 的出发点是一个被作者称为“编译器鸿沟”（Compiler Gap）的痛点：现有扩散模型 PTQ 要么靠手工硬编码规则（如 Q-Diffusion 专门处理 UNet skip-connection 的双峰分布，换到 DiT 就失效），要么依赖运行时动态信息（如 PTQ4DiT 用时间步变化的激活），而后者与 TensorRT 这类基于静态图分析的编译器根本不兼容，没法自动化部署。SegQuant 因此走纯静态图、硬件原生的路线。
+
+它是自顶向下的模块化设计，四个可插拔组件：
 
 | 组件 | 角色 | 可选实现 |
 |------|------|----------|
@@ -52,62 +54,27 @@ SegQuant 采用自顶向下的模块化设计（Figure 1），包含四个可插
 | **SegLinear** ★ | 基于计算图的语义分割量化 | 自动图分析，无需手工配置 |
 | **DualScale** ★ | 硬件原生的极性保持量化 | BatchedGEMM 实现，无自定义算子 |
 
-默认组合为 SmoothQuant + GPTQ + SegLinear + DualScale。用户可自由替换 Optimizer 和 Calibrator，使框架成为通用量化平台。
+默认组合是 SmoothQuant + GPTQ + SegLinear + DualScale，Optimizer 和 Calibrator 都可自由替换，使框架成为一个通用量化平台；★ 标的 SegLinear 和 DualScale 是两个核心贡献。
 
-### SegLinear：语义感知的分段量化
+### 关键设计
 
-**核心原理**：复杂神经网络中的线性层往往操作于语义异构的输入——输入向量的不同分段编码语义上截然不同的信息。SegLinear 通过分析静态计算图（torch.fx DAG）中的 chunk/split/concat/reshape 操作模式，自动识别这些语义边界，对每个分段独立量化，消除量化干扰。
+**1. SegLinear：从计算图自动识别语义边界，对线性层分段量化**
 
-**模式一：输出分段量化（Output-Segmented）**
-当线性层输出后接 chunk 或 split 操作时，表明输出向量的不同部分将流向语义不同的下游分支。将权重矩阵 $\mathbf{W} \in \mathbb{R}^{k \times n}$ 按列分割为 $[\mathbf{W}_1, \ldots, \mathbf{W}_N]$，其中 $\mathbf{W}_i \in \mathbb{R}^{k \times d_i}$，各段独立量化后拼接：
+DiT 里 AdaNorm、TimeEmbedding 等模块的线性层，输入其实是经 chunk/split/concat 拼起来的多语义段，不同段分布差异很大，对整层统一量化会让一段的数值特性损害另一段——这就是“量化干扰”。SegLinear 不靠人工指定，而是分析静态计算图（torch.fx DAG）里的 chunk/split/concat/reshape 模式自动找语义边界，对每段独立量化。
 
-$$\hat{\mathbf{Y}} = [\hat{\mathbf{X}}\hat{\mathbf{W}}_1, \hat{\mathbf{X}}\hat{\mathbf{W}}_2, \cdots, \hat{\mathbf{X}}\hat{\mathbf{W}}_N]$$
+它分两种模式。当线性层输出后接 chunk/split（输出会流向语义不同的下游分支）时走**输出分段**：把权重 $\mathbf{W} \in \mathbb{R}^{k \times n}$ 按列切成 $[\mathbf{W}_1, \ldots, \mathbf{W}_N]$（$\mathbf{W}_i \in \mathbb{R}^{k \times d_i}$），各段独立量化后拼接，$\hat{\mathbf{Y}} = [\hat{\mathbf{X}}\hat{\mathbf{W}}_1, \cdots, \hat{\mathbf{X}}\hat{\mathbf{W}}_N]$，典型如 AdaNorm 输出经 chunk 拆成分布迥异的 shift/scale。当输入来自 concat/reshape（如 MHA 多头合并）时走**输入分段**：把权重按行切成 $[\mathbf{W}_1^T, \ldots, \mathbf{W}_N^T]^T$，各段独立量化后求和，$\hat{\mathbf{Y}} = \sum_{i=1}^{N} \hat{\mathbf{X}}_i \hat{\mathbf{W}}_i$，典型如 UNet skip-connection concat 后的线性层。这把 Q-Diffusion 的手工特例升级成了对 AdaNorm/MHA/TimeEmbedding 任意结构都适用的全自动算法；它捕捉的是计算图定义的通道间语义关系，与通道级量化互补。
 
-典型场景：DiT 的 AdaNorm 层输出经 chunk 拆分为 shift/scale 参数，两者分布特征完全不同。
+**2. DualScale：按极性拆正负、各用一个 scale，且不破坏 GPU 加速路径**
 
-**模式二：输入分段量化（Input-Segmented）**
-当线性层输入来自 concat 或 reshape（如 MHA 的多头合并）时，输入向量的不同分段来源于语义不同的上游路径。将权重矩阵按行分割为 $[\mathbf{W}_1^T, \ldots, \mathbf{W}_N^T]^T$，各段独立量化后求和：
-
-$$\hat{\mathbf{Y}} = \sum_{i=1}^{N} \hat{\mathbf{X}}_i \hat{\mathbf{W}}_i$$
-
-典型场景：UNet 的 skip-connection 将特征 concat 后送入线性层，两个来源的分布差异大。
-
-**与 Q-Diffusion 的本质区别**：Q-Diffusion 用手工规则专门处理 UNet skip-connection 的双峰分布，是不可泛化的特例。SegLinear 是全自动的图分析算法，无需人工指定哪些层需要分割，可适用于 AdaNorm、MHA、TimeEmbedding 等任意结构模式。
-
-**与通道级量化的互补性**：通道级量化独立处理每个输出通道，而 SegLinear 捕捉的是高层次的通道间语义关系（由计算图结构定义）。SegLinear 在语义一致的通道组内优化共享超参数（如 SmoothQuant 的迁移强度 $\alpha$），提供更稳定的优化和更好的低比特扩展性。
-
-### DualScale：双尺度极性保持量化
-
-**问题量化**：下表展示了 SD3.5-ControlNet 在 COCO 数据集上的激活极性统计（30 个时间步平均），大量通道持续呈现负值主导：
-
-| 层（模块） | 激活函数 | 通道数 | 负/正比例 |
-|------------|----------|--------|-----------|
-| AdaNorm (DiT) | SiLU | 1536 | 0.955 / 0.021 |
-| AdaNorm (Ctrl.) | SiLU | 1536 | 0.645 / 0.338 |
-| FFN (DiT) | GELU | 6144 | 0.744 / 0.256 |
-| FFN (Ctrl.) | GELU | 6144 | 0.589 / 0.400 |
-
-DiT 的 AdaNorm 层中 95.5% 的通道以负值为主，说明负值区域承载了大量语义信息。
-
-**量化方案**：将激活矩阵 $\mathbf{X}$ 按极性分解为正/负两部分，分别用独立 scale 量化：
-
-$$\mathbf{X}_+ = \max(\mathbf{X}, 0), \quad \mathbf{X}_- = \min(\mathbf{X}, 0)$$
-
-$$s_- = \frac{|\min(x)|}{q_{\min}}, \quad s_+ = \frac{\max(x)}{q_{\max}}$$
-
-最终输出通过线性组合重建：
+SiLU/GELU 这类现代激活和 ReLU 不同，会保留密集的低幅负值，输出高度偏斜（正值范围可达 3.5，负值挤在 [-0.3, 0]），而这些负值恰恰承载高频细节和纹理一致性；以 SD3.5 的 AdaNorm 为例，95.5% 的通道以负值为主。标准量化把有限 bin 均匀铺在整个范围上，语义关键的负值区被严重压缩。DualScale 把激活按极性拆开 $\mathbf{X}_+ = \max(\mathbf{X}, 0)$、$\mathbf{X}_- = \min(\mathbf{X}, 0)$，各用独立 scale $s_- = |\min(x)|/q_{\min}$、$s_+ = \max(x)/q_{\max}$ 量化，输出线性组合重建：
 
 $$\mathbf{Y} \approx s_+ s_w \cdot (\hat{\mathbf{X}}_+ \hat{\mathbf{W}}) + s_- s_w \cdot (\hat{\mathbf{X}}_- \hat{\mathbf{W}})$$
 
-**硬件原生实现**：表面看 DualScale 需要两次矩阵乘法。关键设计在于：$\hat{\mathbf{X}}_+ \hat{\mathbf{W}}$ 和 $\hat{\mathbf{X}}_- \hat{\mathbf{W}}$ 通过 CUTLASS 的 BatchedGEMM 在单次 kernel launch 中并行执行，两个缩放结果在 fused epilogue 中合并。这完全保持了标准整数 GEMM 路径，利用 Tensor Core 并行性和 CUDA epilogue fusion，**无需任何自定义算子或额外 kernel launch**。DualScale 还避免了反向零点校正，仅需固定的正/负 scale 即可重建输出。
+表面看这要两次矩阵乘，但关键设计在于 $\hat{\mathbf{X}}_+ \hat{\mathbf{W}}$ 和 $\hat{\mathbf{X}}_- \hat{\mathbf{W}}$ 用 CUTLASS 的 BatchedGEMM 在单次 kernel launch 里并行执行、两个缩放结果在 fused epilogue 中合并，完整保留标准整数 GEMM 路径、利用 Tensor Core 和 CUDA epilogue fusion，**不需要任何自定义算子**；它还避免了反向零点校正，只用固定的正/负 scale 即可重建。这正是 ViT 量化里对数量化器、自定义位宽方案做不到的——那些会破坏 Tensor Core 的固定宽度 PTX 指令和 epilogue fusion。
 
 ### 损失函数 / 训练策略
 
-SegQuant 是纯 PTQ 框架，不引入额外训练损失。量化质量评估通过逐层 Frobenius 范数误差 $\|\Delta \epsilon_t\|_F$ 衡量（Figure 3）。校准阶段可选：
-- **GPTQ**：基于 Hessian 的逐层重建优化，精度更高但需要校准数据（SD3/SDXL 用 256 张，FLUX 8-bit 用 64 张，4-bit 用 32 张）
-- **AMax**：最大绝对值校准，更简单快速
-
-所有实验使用 50 步采样、默认调度器，在 Ada Lovelace 架构 GPU（24GB/48GB VRAM）上执行。
+SegQuant 是纯 PTQ 框架，不引入额外训练损失，量化质量用逐层 Frobenius 范数误差 $\|\Delta \epsilon_t\|_F$ 衡量。校准阶段可选 GPTQ（基于 Hessian 的逐层重建，精度高但需校准数据：SD3/SDXL 用 256 张，FLUX 8-bit 用 64 张、4-bit 用 32 张）或 AMax（最大绝对值校准，更快）。所有实验用 50 步采样、默认调度器，在 Ada Lovelace 架构 GPU（24GB/48GB VRAM）上执行。
 
 ## 实验关键数据
 

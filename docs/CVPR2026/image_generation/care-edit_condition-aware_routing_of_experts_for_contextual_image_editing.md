@@ -41,39 +41,31 @@ tags:
 
 ## 方法详解
 
-### 整体架构
-CARE-Edit 在冻结的 DiT 骨干（基于 FLUX.1 Dev）中嵌入条件感知的专家路由，仅训练轻量级 adapter、路由器和融合层。核心包含三个模块：Routing Select、Mask Repaint 和 Latent Mixture。
+### 整体框架
 
-### 四种异构专家
-1. **Text 专家**：通过与文本 token 的交叉注意力进行语义推理和对象合成
-2. **Mask 专家**：通过卷积操作结合细化掩码实现空间精度和边界细化
-3. **Reference 专家**：通过 FiLM 调制从参考特征学习身份/风格一致的变换
-4. **Base 专家**：通过与 base image 特征的交叉注意力维持全局一致性和背景保真
+CARE-Edit 要解决统一图像编辑器的老毛病：一个固定共享骨干处理所有任务，文本、掩码、参考图这些异构条件被静态拼接在一起，结果文本语义盖过掩码约束、参考身份漂移、颜色在边界溢出。它的思路是在冻结的 DiT 骨干（FLUX.1 Dev）里塞进一套条件感知的专家路由，只训练轻量的 adapter、路由器和融合层。核心是三件事串起来：Routing Select 按 token 和编辑目标动态挑专家，Mask Repaint 在去噪过程里逐步修粗糙掩码，Latent Mixture 把各专家输出按权重和时间步融合，让不同条件在去噪轨迹的不同阶段各司其职。
 
-每个专家输出经 LayerNorm + Linear 投影保持特征尺度一致。
+### 关键设计
 
-### Routing Select（Top-K 路由）
-- 对每个 token 计算 token-specific key（编码局部信息）和 global conditioning query（编码编辑任务目标）
-- 通过 MLP 计算各专家的 logit 分数，经 softmax 归一化后选取 top-K（K=3）个专家
-- 路由温度 τ 在训练中逐步退火，对路由 logit 做 EMA 平滑以减少方差
-- 固定比例 λ_shared 的 token 始终路由至共享专家，防止路由坍塌
-- 最终通过凸残差融合聚合各专家输出
+**1. 四种异构专家：按模态分工，而不是一堆同构专家**
 
-### Mask Repaint（掩码细化）
-- 在每个扩散步 t，利用当前 latent、参考编码和上一步预测掩码，通过卷积估计残差掩码场 Δm
-- 经 sigmoid 激活后叠加到先前掩码：M̂(t) = clip(M̂(t-1) + Δm, 0, 1)
-- 训练时施加边界一致性损失（梯度对齐 + 平滑正则），实现渐进式边界收紧
-- 细化后的掩码反馈到下一个 DiT block 的路由过程中
+已有的 diffusion MoE（如 EC-DiT）用同构专家，解决不了多条件冲突。CARE-Edit 造了四种各管一摊的专家：Text 专家通过与文本 token 的交叉注意力做语义推理与对象合成；Mask 专家通过卷积结合细化掩码做空间精度与边界细化；Reference 专家通过 FiLM 调制从参考特征学身份/风格一致的变换；Base 专家通过与 base image 特征的交叉注意力维持全局一致性与背景保真。每个专家输出再经 LayerNorm + Linear 投影统一特征尺度。实验里也确实看到不同任务激活不同专家——Mask 专家主导结构编辑、Reference 专家主导风格迁移。
 
-### Latent Mixture（专家输出融合）
-- Token-wise 融合：基于路由概率权重 w_e 对各专家输出做凸组合
-- Timestep-adaptive 混合：通过学习的时间步相关门控 γ 混合融合结果与 base 专家输出
-- TV 正则化鼓励混合权重图的空间平滑
+**2. Routing Select：token 级 Top-K 路由，让信号按需优先**
 
-### 渐进式训练课程
-- 前 40K 步：基础单任务数据训练，建立通用表示
-- 后 60K 步：切换到复杂多任务数据，让路由层从通用进化为专业化
-- 总训练 100K 步，在 8×NVIDIA L20 上完成，学习率 1e-4，batch size 16
+静态融合无法随去噪动态调权。Routing Select 给每个 token 算一个 token-specific key（编码局部信息）和一个 global conditioning query（编码编辑目标），经 MLP 得到各专家 logit、softmax 后取 top-K（$K=3$）个专家。为稳住训练，路由温度 $\tau$ 逐步退火、对 logit 做 EMA 平滑降方差，并固定比例 $\lambda_{\text{shared}}$ 的 token 始终走共享专家以防路由坍塌，最后用凸残差融合聚合输出。这样每个 token 都能挑到最该处理它的专家，冲突信号被抑制而非硬叠加。
+
+**3. Mask Repaint：借去噪过程自己把粗糙掩码越修越准**
+
+用户给的掩码常和目标边界对不齐，直接用会出伪影。Mask Repaint 在每个扩散步 $t$ 用当前 latent、参考编码和上一步预测掩码，经卷积估计残差掩码场 $\Delta m$，sigmoid 后叠加到旧掩码：$\hat{M}(t) = \text{clip}(\hat{M}(t-1) + \Delta m, 0, 1)$。训练时加边界一致性损失（梯度对齐 + 平滑正则）实现渐进式边界收紧，细化后的掩码再反馈给下一个 DiT block 的路由。整个过程不需要额外的分割模型。
+
+**4. Latent Mixture：按 token 和时间步把专家输出融到一起**
+
+各专家输出还得融得平滑。Latent Mixture 先按路由概率权重 $w_e$ 对专家输出做 token-wise 凸组合，再用一个学习到的、时间步相关的门控 $\gamma$ 把融合结果和 Base 专家输出混合（timestep-adaptive），并加 TV 正则鼓励混合权重图空间平滑。这让早期步偏语义布局、后期步偏边界与风格的时变需求自然落地。
+
+### 训练策略
+
+采用渐进式课程：前 40K 步用基础单任务数据建立通用表示，后 60K 步切到复杂多任务数据，让路由层从通用进化为专业化。总训练 100K 步，在 8×NVIDIA L20 上完成，学习率 1e-4、batch size 16。
 
 ## 实验关键数据
 

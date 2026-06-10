@@ -43,37 +43,33 @@ tags:
 
 ### 整体框架
 
-CFT 分三个阶段：概念生成 → 概念分割 → 概念引导微调。整体流程无需额外人工标注，仅需少量训练图像（每类 3 张，共 1500 张）即可完成微调。
+CFT（Concept-Guided Fine-Tuning）要把 ViT 的注意力从背景纹理、共现物体这类虚假相关，掰回到真正的类别语义部件上，从而提升 OOD 鲁棒性。它分三个阶段、全程无需人工标注：先用 LLM 为每个类别生成判别性概念，再用 GroundedSAM 把这些概念零样本分割成掩码，最后以 AttnLRP 的 relevance map 与概念区域对齐为目标微调 ViT——每类只要 3 张图、共 1500 张就够。
 
-### 阶段一：LLM 概念生成
+### 关键设计
 
-- 对 ImageNet 的每个类别 $c$，用 LLM（如 GPT-4）生成该类别的判别性视觉概念列表
-- 例如对 "bird" 类别，生成概念包括 "long beak"、"wings"、"talons"、"feathers" 等
-- 提示词设计要求 LLM 输出的概念是**视觉上可区分的部件或属性**，而非抽象语义
-- 每个类别生成 $K$ 个概念，覆盖该类别的主要判别特征
+**1. LLM 概念生成：把"该看哪里"从粗粒度前景细化到具体语义部件**
 
-### 阶段二：GroundedSAM 零样本概念分割
+现有方法只做前景/背景二分，但"前景"里塞着大量非判别区域（鸟的腹部和鸟喙都算前景），引导不到点子上；而逐类人工定义并标注概念，面对 ImageNet 上千类根本不可扩展。CFT 改用 LLM（如 GPT-4）为每个类别 $c$ 自动生成 $K$ 个判别性视觉概念，且 prompt 明确要求输出"视觉上可区分的部件或属性"而非抽象语义——比如 "bird" 会得到 "long beak"、"wings"、"talons"、"feathers"，覆盖该类的主要判别特征。
 
-- 对每张训练图像 $I$，将 LLM 生成的概念文本作为 prompt 输入 GroundedSAM
-- GroundedSAM 零样本输出每个概念对应的二值分割掩码 $S_k(I)$
-- 所有概念掩码求并集得到该图像的**概念区域掩码** $S(I) = \bigcup_{k=1}^K S_k(I)$
-- 概念区域外的部分即为**非概念区域** $\bar{S}(I) = 1 - S(I)$，包含背景、无判别力的前景部分
+**2. GroundedSAM 零样本概念分割：把文本概念变成可监督的像素掩码**
 
-### 阶段三：概念引导微调
+有了概念词还得落到图像上的具体区域。CFT 把 LLM 生成的概念文本当 prompt 喂给 GroundedSAM，对每张训练图 $I$ 零样本输出每个概念的二值掩码 $S_k(I)$，再求并集得到概念区域掩码 $S(I) = \bigcup_{k=1}^K S_k(I)$；其补集 $\bar{S}(I) = 1 - S(I)$ 就是非概念区域，囊括背景和无判别力的前景。这一步把"语义概念"翻译成了可直接拿来监督注意力的像素级目标，整条链路依旧零人工标注。
 
-利用 AttnLRP 计算 relevance map $\Phi(I; \theta)$，其中 $\Phi_{ij} \in [0, 1]$ 表示模型对像素 $(i,j)$ 的关注度。定义三个损失项联合优化：
+**3. 概念引导微调：用 AttnLRP 的 relevance 把注意力对齐到概念区域**
 
-**概念对齐损失 $\mathcal{L}_{concept}$**：最大化概念区域内的 relevance
+最后用 AttnLRP 算出 relevance map $\Phi(I; \theta)$（$\Phi_{ij} \in [0, 1]$ 表示模型对像素 $(i,j)$ 的关注度），定义三个损失联合优化。概念对齐损失最大化概念区域内的 relevance：
 
 $$\mathcal{L}_{concept} = -\frac{1}{|S(I)|} \sum_{(i,j) \in S(I)} \log \Phi_{ij}(I; \theta)$$
 
-**非概念抑制损失 $\mathcal{L}_{non\text{-}concept}$**：最小化非概念区域的 relevance
+非概念抑制损失最小化非概念区域的 relevance：
 
 $$\mathcal{L}_{non\text{-}concept} = -\frac{1}{|\bar{S}(I)|} \sum_{(i,j) \in \bar{S}(I)} \log(1 - \Phi_{ij}(I; \theta))$$
 
-**分类自一致性损失 $\mathcal{L}_{cls}$**：标准交叉熵损失，防止微调过程中分类性能退化
+再加一个标准交叉熵自一致性损失 $\mathcal{L}_{cls}$ 防止微调中分类性能退化，合成总目标：
 
 $$\mathcal{L}_{total} = \mathcal{L}_{cls} + \alpha \mathcal{L}_{concept} + \beta \mathcal{L}_{non\text{-}concept}$$
+
+这样"看对地方"被直接写进可微目标，把 relevance 从背景拽到鸟喙、翅膀、爪子这些真正的部件上。
 
 ### 训练细节
 

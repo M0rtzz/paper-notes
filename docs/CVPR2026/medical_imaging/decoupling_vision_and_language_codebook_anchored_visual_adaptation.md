@@ -37,29 +37,35 @@ tags:
 
 ## 方法详解
 
-### 整体框架 — CRAFT (Codebook RegulAted Fine-Tuning)
+### 整体框架
 
-CRAFT 在离散 LVLM 上工作：视觉编码器 $E_\theta$ 输出连续特征后，通过**冻结的共享 codebook** $\mathcal{C}=\{c_k\}_{k=1}^K$ 做最近邻量化得到离散 token 序列，再通过投影器送入冻结的 LLM。训练时仅更新视觉编码器参数。
+CRAFT（Codebook RegulAted Fine-Tuning）要回答一个很实际的问题：能不能在完全不动原始 LLM 的前提下，给视觉语言模型做领域适配。它在离散 LVLM 上工作——视觉编码器 $E_\theta$ 输出连续特征后，通过一个**冻结的共享 codebook** $\mathcal{C}=\{c_k\}_{k=1}^K$ 做最近邻量化得到离散 token 序列，再经投影器送入冻结的 LLM。整个训练只更新视觉编码器一处，codebook 和 LLM 全程冻结。正因为接口是离散 codebook 而非连续特征，适配后的编码器才能即插即用到任何共享同一 codebook 的 LLM 上。
 
-### 三部分训练损失
+### 关键设计
 
-1. **替代对齐损失 (Surrogate Alignment Loss, $\mathcal{L}_{\text{SAL}}$)**：用一个（可以很小的）替代语言模型 $\mathcal{M}$ 对图文联合序列做自回归预测，梯度回传至视觉编码器，引导其选择对领域任务有用的 codebook token
-2. **承诺损失 (Commitment Loss, $\mathcal{L}_{\text{commit}}$)**：保持编码器输出靠近所分配的 codebook 条目，防止特征漂移导致量化失真——codebook 始终冻结，仅编码器端受约束
-3. **对比损失 (Contrastive Loss, $\mathcal{L}_{\text{con}}$)**：利用图像描述与标签扩展文本，通过 sigmoid 对比学习保持预训练语义结构
+**1. 替代对齐损失（Surrogate Alignment Loss, $\mathcal{L}_{\text{SAL}}$）：用一个小模型当老师引导选 token**
 
-总损失：$\mathcal{L}_{\text{CRAFT}} = \lambda_{\text{con}}\mathcal{L}_{\text{con}} + \lambda_{\text{commit}}\mathcal{L}_{\text{commit}} + \mathcal{L}_{\text{SAL}}$
+编码器要学会挑出对领域任务有用的 codebook token，但又不能动真正的推理 LLM。办法是请一个可以很小的替代语言模型 $\mathcal{M}$ 对图文联合序列做自回归预测，梯度回传到视觉编码器，从而引导它的离散 token 选择。这样领域知识注入了编码器，推理端的大 LLM 却毫发无损。
 
-其中 VQA 任务 $\lambda_{\text{con}}=0.1$，分类任务 $\lambda_{\text{con}}=1.0$；$\lambda_{\text{commit}}=0.1$。
+**2. 承诺损失（Commitment Loss, $\mathcal{L}_{\text{commit}}$）：把编码器输出摁在 codebook 附近**
 
-量化的不可导通过 **straight-through estimator** 处理。
+codebook 始终冻结，如果编码器输出漂得太远，最近邻量化就会严重失真。承诺损失约束编码器输出靠近所分配的 codebook 条目，只约束编码器端、不动 codebook。消融显示它最为关键——去掉后均值直接从 64% 崩到 14%。
 
-### 测试时 Token 剪枝
+**3. 对比损失（Contrastive Loss, $\mathcal{L}_{\text{con}}$）：保住预训练的语义结构**
 
-- **稀有度加权分配**：统计训练集上各 codebook 条目的全局频率 $p_{\text{dom}}(k)$，定义稀有权重 $\rho_k = 1/p_{\text{dom}}(k)$；高频背景 token 被大幅剪枝，保留信息量高的稀有 token
-- **条目内选择**：优先保留量化残差大（难以量化、信息丰富）及空间孤立的 token，鼓励空间覆盖多样性
-- 通过一维搜索 $\gamma$ 控制保留比例 $M/N$，论文默认 keep ratio = 0.8
-- 剪枝各组件消融：随机选择 62.10% → 稀有度加权 63.55% → 加残差排序 63.86% → 加空间隔离 64.05%
-- 将频率统计从领域数据换成 ImageNet-1K 仅降低 0.04%（64.01%），说明剪枝策略对参考语料库鲁棒
+适配领域的同时不能把原有语义结构训坏。这里用图像描述与标签扩展文本，通过 sigmoid 对比学习维持预训练语义结构。它对分类任务贡献尤其大（而 SAL 对推理任务贡献更大）。量化的不可导问题用 **straight-through estimator** 处理。
+
+**4. 测试时 Token 剪枝：按稀有度无训练地砍冗余 token**
+
+推理时大量背景 token 是冗余的。先统计训练集上各 codebook 条目的全局频率 $p_{\text{dom}}(k)$，定义稀有权重 $\rho_k = 1/p_{\text{dom}}(k)$，高频背景 token 被大幅剪枝、保留信息量高的稀有 token；条目内再优先保留量化残差大（难量化、信息丰富）及空间孤立的 token，以鼓励空间覆盖多样性。通过一维搜索 $\gamma$ 控制保留比例 $M/N$，默认 keep ratio = 0.8。各组件逐步消融可见收益：随机选择 62.10% → 稀有度加权 63.55% → 加残差排序 63.86% → 加空间隔离 64.05%；把频率统计从领域数据换成 ImageNet-1K 仅降 0.04%（64.01%），说明剪枝策略对参考语料库鲁棒。
+
+### 损失函数 / 训练策略
+
+总损失为三项加权：
+
+$$\mathcal{L}_{\text{CRAFT}} = \lambda_{\text{con}}\mathcal{L}_{\text{con}} + \lambda_{\text{commit}}\mathcal{L}_{\text{commit}} + \mathcal{L}_{\text{SAL}}$$
+
+其中 VQA 任务 $\lambda_{\text{con}}=0.1$、分类任务 $\lambda_{\text{con}}=1.0$，$\lambda_{\text{commit}}=0.1$。
 
 ## 实验关键数据
 

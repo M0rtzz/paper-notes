@@ -45,31 +45,26 @@ tags:
 
 ### 整体框架
 
-RealVLG 由数据集（RealVLG-11B）和模型（RealVLG-R1）两部分组成：
+RealVLG 想把"视觉语言定位（VLG）"和"机器人抓取"这两件一直脱节的事统一进一个模型，让自然语言指令能一路映射到 bounding box、分割掩码、抓取姿态和接触点。它由两部分组成：数据集 RealVLG-11B——整合 Cornell、VMRD、OCID-Grasp、GraspNet、GraspClutter6D 等真实抓取数据集，统一补齐 bbox、分割掩码、矩形抓取姿态、接触点和自然语言描述，覆盖约 16.5 万张图像、800+ 物体实例、130 万标注、约 110 亿抓取示例；模型 RealVLG-R1——以 Qwen2.5-VL 为骨干，用强化学习微调（RLVR）靠可验证奖励驱动，统一预测上述四类输出。
 
-- **RealVLG-11B 数据集**：整合 Cornell、VMRD、OCID-Grasp、GraspNet、GraspClutter6D 等真实世界抓取数据集，统一扩展了 bounding box、分割掩码、矩形抓取姿态、接触点和自然语言描述，覆盖约 16.5 万张图像、800+ 物体实例、130 万标注和约 110 亿抓取示例。
-- **RealVLG-R1 模型**：以 Qwen2.5-VL 为骨干，采用强化学习微调（RLVR）策略，通过可验证奖励信号驱动模型学习，统一预测四类输出。
+### 关键设计
 
-### 数据标注流水线（关键设计 1）
+**1. 多粒度数据标注流水线：用四模态交叉验证产出高质量真实世界标注**
 
-1. **语言标注**：从8个视角渲染物体3D模型 → GPT-4o 生成 Meta Description → 再结合图像为每个目标生成包含类别、颜色、形状、空间关系的 Language Instruction
-2. **定位验证**：Qwen-VL-Max 对 image + language 做 grounding 输出 bounding box → SAM2 生成分割掩码
-3. **抓取姿态统一**：将 6-DoF 抓取姿态转换为统一矩形抓取表示，并基于分割掩码计算接触点
-4. **人工审核**：人工交叉验证 Meta Description、Language Instruction、Bbox、Segmentation Mask 四模态一致性，不合格则迭代修正
+现有抓取数据要么是低质量合成（Grasp-Anything 用 diffusion 生成、抓取标注靠 RAGT-3/3 自动生成），要么语言描述只到场景/类别级，撑不起语言驱动的细粒度操作。本文用四步流水线把质量做扎实：(1) **语言标注**——从 8 个视角渲染物体 3D 模型，GPT-4o 生成 Meta Description，再结合图像为每个目标生成含类别、颜色、形状、空间关系的 Language Instruction；(2) **定位验证**——Qwen-VL-Max 对 image + language 做 grounding 输出 bbox，SAM2 生成分割掩码；(3) **抓取姿态统一**——把 6-DoF 抓取姿态转成统一矩形表示，并基于掩码算接触点；(4) **人工审核**——交叉验证四模态一致性，不合格则迭代修正。
 
-### 强化学习微调（关键设计 2）
+**2. 强化学习微调（RLVR）：用可验证奖励解决抓取的多解问题**
 
-- 采用 RLVR 范式，用可验证奖励函数 $R(q,o)$ 替代固定标签监督
-- 使用 GRPO 算法进行 token 级重要性加权的策略优化
-- 进一步采用 GSPO 方法，在序列级引入长度归一化的重要性权重 $s_i(\theta) = \left(\frac{\pi_\theta(y_i|x)}{\pi_{\theta_{old}}(y_i|x)}\right)^{1/|y_i|}$，降低长序列方差
+抓取姿态本质上有多个可行解，SFT 强行拟合单一标签会"均值化"出物理上不可行的结果。本文改用 RLVR 范式，用可验证奖励函数 $R(q,o)$ 替代固定标签：先用 GRPO 做 token 级重要性加权的策略优化，再用 GSPO 在序列级引入长度归一化的重要性权重 $s_i(\theta) = \left(\frac{\pi_\theta(y_i|x)}{\pi_{\theta_{old}}(y_i|x)}\right)^{1/|y_i|}$ 来压低长序列的方差。实验里 RL 微调比 SFT 在抓取上多涨 30%+，正是因为奖励允许"多个解都对"而不逼模型收敛到一个均值。
 
-### 任务特定奖励函数（损失设计）
+### 损失函数 / 训练策略
+
+奖励按任务分别设计，统一要求 `<think>...</think><answer>...</answer>` 格式：
 
 - **Bbox 奖励**：基于 IoU 阈值的二值奖励 $R_{Bbox} = \mathbf{1}(\text{IoU}(B_p, B_{gt}) \geq \tau)$
-- **分割奖励**：结合 IoU 粗定位 + S-measure 细粒度掩码质量 $R_{Seg} = \mathbf{1}(\text{IoU}) + S_\alpha(M_p, M_{gt})$
-- **抓取奖励**：对 $(x, y, \cos\theta, \sin\theta, w)$ 五个分量分别计算 Huber 损失之和取负
+- **分割奖励**：IoU 粗定位 + S-measure 细粒度掩码质量 $R_{Seg} = \mathbf{1}(\text{IoU}) + S_\alpha(M_p, M_{gt})$
+- **抓取奖励**：对 $(x, y, \cos\theta, \sin\theta, w)$ 五个分量分别算 Huber 损失之和取负
 - **接触点奖励**：矩形对齐 IoU 二值奖励 + 两个接触点的 L2 距离惩罚
-- **格式奖励**：所有任务统一要求 `<think>...</think><answer>...</answer>` 格式
 
 ## 实验
 

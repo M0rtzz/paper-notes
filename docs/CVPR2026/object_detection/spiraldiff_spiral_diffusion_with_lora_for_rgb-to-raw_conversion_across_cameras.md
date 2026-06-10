@@ -39,21 +39,17 @@ tags:
 
 ### 整体框架
 
-SpiralDiff 基于 ResShift（一种高效残差偏移扩散框架）构建，仅需 **4 步采样**即可完成推理。输入 RGB 图像和相机标签，U-Net（含 Swin Transformer 层）反复去噪，从噪声 RAW 估计逐步精炼出目标 RAW 输出。整体在**像素空间**直接操作（移除了 VQGAN 潜空间压缩，因其是在 RGB 上训练的，不适合 RAW）。
+SpiralDiff 要解决的是 RGB-to-RAW 转换里两个老问题：高亮度/过曝区域因为乘性增益和值截断、残差大方差高，统一重建策略顾此失彼；不同相机 ISP 差异大，简单混合训练会退化。它基于 ResShift（高效残差偏移扩散）构建，只需 4 步采样：输入 RGB 图像和相机标签，含 Swin Transformer 层的 U-Net 反复去噪、从噪声 RAW 估计逐步精炼出目标 RAW。整个过程直接在像素空间操作（移除了 VQGAN 潜空间压缩，因为它是在 RGB 上训练的、不适合 RAW），并通过信号依赖噪声加权和 CamLoRA 两个设计分别应对强度自适应和跨相机适配。
 
-### Spiral Diffusion — 信号依赖噪声加权
+### 关键设计
 
-- **核心观察**：RGB 像素强度与 RGB-RAW 残差呈正相关；高亮度区域残差大且不确定性高，低亮度区域残差小且稳定。
-- **时变权重图** $\mathbf{w}_t = \mathbf{x}_0 + \eta_t \mathbf{e}_0$：随扩散步 $t$ 演变，$t=T$ 时接近 RGB $\mathbf{y}_0$，$t=0$ 时接近 RAW $\mathbf{x}_0$，实现从 RGB 到 RAW 的平滑过渡。
-- **前向过程**：在 ResShift 的各向同性高斯噪声基础上，用 $\mathbf{w}_t^2$ 对噪声方差做逐像素调制——暗区低噪声保保真度，亮区高噪声给模型更大生成自由度。
-- **反向过程**：均值 $\boldsymbol{\mu}_{t-1}$ 仍为去噪项和干净项的凸组合，但混合系数 $\boldsymbol{\gamma}_t$ 依赖空间权重图，实现**像素自适应融合**。当 $\mathbf{w}_t \equiv 1$ 时退化为标准 ResShift。
+**1. Spiral Diffusion 信号依赖噪声加权：按像素强度分配重建难度**
 
-### CamLoRA — 相机感知低秩适配
+RGB 像素强度和 RGB-RAW 残差正相关——暗区残差小且稳定、容易高保真恢复，亮区残差大且不确定，统一噪声调度没法兼顾。SpiralDiff 引入随扩散步演变的时变权重图 $\mathbf{w}_t = \mathbf{x}_0 + \eta_t \mathbf{e}_0$（$t=T$ 时接近 RGB $\mathbf{y}_0$，$t=0$ 时接近 RAW $\mathbf{x}_0$，实现从 RGB 到 RAW 的平滑过渡）。前向过程在 ResShift 的各向同性高斯噪声上用 $\mathbf{w}_t^2$ 逐像素调制噪声方差——暗区低噪保保真度，亮区高噪给模型更大生成自由度；反向过程的均值 $\boldsymbol{\mu}_{t-1}$ 仍是去噪项和干净项的凸组合，但混合系数 $\boldsymbol{\gamma}_t$ 依赖空间权重图，做到像素自适应融合，当 $\mathbf{w}_t \equiv 1$ 时退化为标准 ResShift。消融里静态 RGB 加权甚至不如均匀基线，正说明「随步演变」这一点才是关键。
 
-- 对 U-Net 中 Swin Transformer 层的 $\mathbf{W}_q, \mathbf{W}_k, \mathbf{W}_v, \mathbf{W}_o$ 矩阵添加相机专属低秩更新 $\Delta \mathbf{W}_i = \mathbf{B}_i \mathbf{A}_i$（秩 $r=8$）。
-- 训练时共享骨干权重用全部数据更新，仅当前相机标签对应的 LoRA 分支参与梯度。
-- 额外参数仅占 **2.7%**（1.05M），四个相机各一组 LoRA 适配器。
-- **Few-shot 扩展**：预训练统一模型后，对新相机只需微调一组 LoRA 分支，1-shot 即可达 42.85 dB PSNR（从头训练仅 39.83 dB）。
+**2. CamLoRA 相机感知低秩适配：一个模型轻量适配多相机**
+
+不同相机的 ISP 流水线差异显著，混合训练会互相干扰。CamLoRA 对 U-Net 中 Swin Transformer 层的 $\mathbf{W}_q, \mathbf{W}_k, \mathbf{W}_v, \mathbf{W}_o$ 加相机专属低秩更新 $\Delta \mathbf{W}_i = \mathbf{B}_i \mathbf{A}_i$（秩 $r=8$）：训练时共享骨干用全部数据更新，只让当前相机标签对应的 LoRA 分支参与梯度，额外参数仅占 2.7%（1.05M），四个相机各一组适配器。它还天然支持 few-shot 扩展——预训练统一模型后，对新相机只微调一组 LoRA 分支，1-shot 就能到 42.85 dB PSNR，而从头训练只有 39.83 dB。
 
 ### 损失函数
 

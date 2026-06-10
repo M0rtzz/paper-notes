@@ -39,28 +39,33 @@ tags:
 
 ### 整体框架
 
-ELIT 在标准 DiT 架构中引入三段式结构，推理时潜变量 token 数 $K$ 作为用户可控旋钮直接决定每步 FLOPs：
-
-- **Spatial Head**（$B_{\text{in}}$ 个 block）：处理 patchify 后的空间 token，提取初步特征
-- **Read 层**：轻量跨注意力，将空间 token 的信息拉入可变长度的潜变量接口 $l \in \mathbb{R}^{K \times d}$，优先关注高损失（困难）区域
-- **Latent Core**（$B_{\text{core}}$ 个标准 transformer block）：在潜变量域执行主要计算
-- **Write 层**：将更新后的潜变量信息广播回空间 token
-- **Spatial Tail**（$B_{\text{out}}$ 个 block）：恢复空间细节并输出速度预测
+ELIT 要解决 DiT 的两个刚性问题：每步 FLOPs 被分辨率写死、无法按需调节，而且对所有空间 token 均匀分配计算、白白浪费在简单背景上。它的办法是在标准 DiT 里塞进一段“可变长度的潜变量接口”，让推理时的潜变量 token 数 $K$ 变成一个用户旋钮，直接决定每步算力。整体是三段式结构：输入先过 Spatial Head（$B_{\text{in}}$ 个 block）提取空间特征；Read 层用轻量跨注意力把空间信息抽进 $K$ 个潜变量 token（优先关注高损失的困难区域）；主算力放在 Latent Core（$B_{\text{core}}$ 个标准 block）的潜变量域里；Write 层再把更新后的潜变量广播回空间 token；最后 Spatial Tail（$B_{\text{out}}$ 个 block）恢复细节、输出速度预测。调大或调小 $K$，就在同一个模型里平滑地换算力预算。
 
 ### 关键设计
 
-1. **Read/Write 跨注意力**：Read 以潜变量为 Query、空间 token 为 Key/Value 执行跨注意力 + MLP；Write 完全对称。采用 pre-norm + adaLN-Zero 调制保持时间步感知，QK 归一化增强稳定性
-2. **分组跨注意力（Grouped Cross-Attention）**：将空间 token 划分为 $G$ 个不重叠组（如 4×4 网格），每组分配 $J = K/G$ 个潜变量 token，跨注意力仅在组内进行，复杂度从 $\mathcal{O}(NK)$ 降至 $\mathcal{O}(NK/G)$
-3. **尾部随机丢弃（Tail Dropping）**：训练时每次迭代从 $\text{Uniform}\{J_{\min}, \ldots, J_{\max}\}$ 采样保留的潜变量数 $\tilde{J}$，丢弃尾部 token。头部 token 被训练更频繁，自然形成重要性排序——前面的 token 捕获全局结构，后面的精化细节
-4. **Cheap Classifier-Free Guidance（CCFG）**：利用多预算特性，主项用完整预算 $\tilde{J}$、引导项用低预算 $\tilde{J}_w$ 且去掉类别条件，结合 AutoGuidance 和 CFG 的优势，推理 FLOPs 减少约 33% 且质量更优
+**1. Read/Write 跨注意力：用两层对称跨注意力打通空间域与潜变量域**
 
-### 损失函数
+弹性的前提是空间 token 和可变数量的潜变量 token 之间能高效交换信息。Read 以潜变量为 Query、空间 token 为 Key/Value 做跨注意力 + MLP，把信息“读”进接口；Write 完全对称地把信息“写”回空间。两层都用 pre-norm + adaLN-Zero 调制保持时间步感知，并加 QK 归一化稳住训练。正因为只新增这两层、不改 RF 训练目标和 DiT 主体，ELIT 才能即插即用地套到 DiT/U-ViT/HDiT/MM-DiT 上。
 
-直接使用标准的 Rectified Flow 损失，无需任何辅助损失：
+**2. 分组跨注意力：把 Read/Write 的复杂度从 $\mathcal{O}(NK)$ 压到 $\mathcal{O}(NK/G)$**
+
+当空间 token 数 $N$ 和潜变量数 $K$ 都不小时，全局跨注意力会成为瓶颈。ELIT 把空间 token 划成 $G$ 个不重叠组（如 4×4 网格），每组只分到 $J = K/G$ 个潜变量 token，跨注意力只在组内进行，复杂度因此降到 $\mathcal{O}(NK/G)$。分组大小还和分辨率匹配——256px 上 4×4 最优、512px 上 8×8 最优，逐 token（1×1）或全图都更差，说明合适的局部性本身就是有用的先验。
+
+**3. 尾部随机丢弃：用一次训练换来推理时任意预算的弹性**
+
+要让单一模型支持多预算，不能为每个 $K$ 单独训。ELIT 在训练时每次迭代从 $\text{Uniform}\{J_{\min}, \ldots, J_{\max}\}$ 采样实际保留的潜变量数 $\tilde{J}$、丢弃尾部 token。这样靠前的 token 被训练得更频繁、自然形成重要性排序——前面的 token 负责全局结构、后面的精修细节，推理时砍掉尾部就是平滑降预算。消融也证实这种重要性排序有效：尾部丢弃在 25% token 时 FID 36.3，明显优于随机丢弃的 38.6。
+
+**4. Cheap Classifier-Free Guidance：让多预算特性顺手白送一个引导项**
+
+普通 CFG 需要跑两遍完整模型，成本高。ELIT 利用自身的多预算能力，主项用完整预算 $\tilde{J}$、引导项改用低预算 $\tilde{J}_w$ 且去掉类别条件，等于免费得到一个“弱模型”版本，把 AutoGuidance 和 CFG 的好处结合起来。结果是推理 FLOPs 减少约 33% 而质量反而更优，且无需任何额外训练或手工设计的退化模型。
+
+### 损失函数 / 训练策略
+
+直接用标准 Rectified Flow 损失，无任何辅助损失：
 
 $$\mathcal{L}_{\text{RF}} = \mathbb{E}_{t, \mathbf{X}_1, \mathbf{X}_0} \| \mathcal{G}(\mathbf{X}_t, t) - (\mathbf{X}_1 - \mathbf{X}_0) \|_2^2$$
 
-其中 $t$ 采用 logit-normal 分布采样。多预算训练时为补偿低预算迭代节省的计算量，将 batch size 从 256 增至 384 以保持训练 FLOPs 可比。训练 500k 步（图像）/ 200k 步（视频），学习率 $10^{-4}$，10k warmup，梯度裁剪 1.0，EMA $\beta=0.9999$。
+其中 $t$ 按 logit-normal 分布采样。多预算训练时为补偿低预算迭代省下的算力，把 batch size 从 256 增到 384 以保持训练 FLOPs 可比。训练 500k 步（图像）/ 200k 步（视频），学习率 $10^{-4}$，10k warmup，梯度裁剪 1.0，EMA $\beta=0.9999$。
 
 ## 实验关键数据
 

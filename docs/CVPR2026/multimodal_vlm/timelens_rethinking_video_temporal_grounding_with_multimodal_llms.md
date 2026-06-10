@@ -47,36 +47,25 @@ tags:
 
 ### 整体框架
 
-沿数据质量和算法设计两个维度展开。数据层面：诊断并修复三个主流基准→发布TimeLens-Bench + 自动化重标注训练数据→TimeLens-100K。算法层面：系统对比时间戳编码方式→训练范式→RLVR训练配方→最终构建TimeLens-7B/8B。
+TimeLens 不端出一个新模型，而是回答"要把 MLLM 的视频时间定位（VTG）能力做对，到底哪些因素关键"。它沿两条线推进：数据层面，先诊断并修复三个主流基准、发布高质量评测集 TimeLens-Bench，再自动化重标注训练数据得到 TimeLens-100K；算法层面，系统对比时间戳编码方式、训练范式和 RLVR 配方，最终训出 TimeLens-7B/8B。
 
 ### 关键设计
 
-1. **TimeLens-Bench：高质量评估基准**
+**1. TimeLens-Bench：先把评测基准修干净**
 
-    - 定义6条严格标注标准：查询清晰性/唯一性、事件存在性、避免信息泄漏、标注精确性/完整性
-    - Diagnose-then-Refine工作流：同一标注员负责错误检测和修正，兼顾效率和质量
-    - 多轮交叉验证+质量控制：每批次由不同标注员复核，错误率超阈值则整批返工
-    - 最终产出Charades-TimeLens / ActivityNet-TimeLens / QVHighlights-TimeLens
+作者发现现有 VTG 基准错误率惊人（Charades-STA 有 20.6% 样本违反查询唯一性、34.9% 标注精度有问题），用脏基准比出来的模型排名根本不可信。TimeLens-Bench 为此定下 6 条严格标注标准（查询清晰性/唯一性、事件存在性、避免信息泄漏、标注精确性/完整性），用 Diagnose-then-Refine 工作流让同一标注员既检错又修错以兼顾效率和质量，再加多轮交叉验证、错误率超阈值整批返工，最终产出 Charades-TimeLens / ActivityNet-TimeLens / QVHighlights-TimeLens。修复后模型排名剧烈反转（开源模型从"高于 GPT-5"翻成低于），正说明这步不可或缺。
 
-2. **交错文本时间编码（Interleaved Textual Encoding）**
+**2. 交错文本时间编码：用最简单的方式把时间喂给模型**
 
-    - 对比三类方案：位置编码based（MRoPE等）、视觉叠加（帧上直接渲染时间文本）、文本编码（交错/非交错）
-    - 每种方案再对比两种时间格式：原始时间戳（"10.2s"）vs 帧索引（"1, 2, 3"）
-    - 结论：交错文本前缀+原始时间戳最优（mIoU: Charades 48.3, ActivityNet 43.1, QVHighlights 56.7），显著优于位置编码方案（36.6, 33.1, 49.2），且简单直观无需修改模型架构
+怎么把时间戳告诉 MLLM 一直没有公认答案。作者把三类方案（位置编码 based 如 MRoPE、视觉叠加即帧上直接渲染时间文本、文本编码即交错/非交错）放在一起公平比较，每种再对比两种时间格式——原始时间戳（"10.2s"）vs 帧索引（"1, 2, 3"）。结论是交错文本前缀 + 原始时间戳最优（mIoU：Charades 48.3、ActivityNet 43.1、QVHighlights 56.7），显著压过位置编码方案（36.6、33.1、49.2），而且不用改任何模型架构。
 
-3. **Thinking-free RLVR训练范式**
+**3. Thinking-free RLVR：VTG 是感知任务，显式思考反而有害**
 
-    - 系统对比SFT / thinking-based RLVR / SFT+thinking-free RLVR / 纯thinking-free RLVR四种范式
-    - 核心发现：VTG本质是感知任务而非推理任务，显式thinking过程反而有害
-    - 纯thinking-free RLVR以1.0×训练时间（~4h10m on 8×H20 GPU）达到最佳性能
-    - SFT前置阶段无显著帮助（SFT+RLVR的2.9×时间 vs 纯RLVR的1.0×，性能相当）
+主流做法默认 CoT/thinking 能帮推理，但 VTG 到底要不要思考没人验证过。作者把 SFT、thinking-based RLVR、SFT+thinking-free RLVR、纯 thinking-free RLVR 四种范式摆开对比，发现 VTG 本质是感知任务而非推理任务，显式 thinking 过程不仅没用还会拖低成绩（Charades mIoU 42.7 vs 48.3）。纯 thinking-free RLVR 以 1.0× 训练时间（8×H20 上约 4h10m）就达到最佳性能，前置 SFT 阶段（让总时长涨到 2.9×）也带不来额外收益。
 
 ### 损失函数 / 训练策略
 
-- GRPO优化器，基于时间段IoU的可验证奖励，不使用Chain-of-Thought
-- **早停策略**：当IoU奖励和组内奖励标准差同时趋于平台期时停止训练，继续训练反而导致性能下降
-- **基于难度的数据采样**：用待训练模型对训练数据做离线推理计算IoU难度，高斯采样偏向高难度样本（mean > 0.75时性能饱和），约12K样本即够
-- TimeLens-7B基于Qwen2.5-VL-7B，TimeLens-8B基于Qwen3-VL-8B
+用 GRPO 优化、以时间段 IoU 作为可验证奖励、不带 Chain-of-Thought。两个工程经验贡献显著：**早停**——当 IoU 奖励和组内奖励标准差同时进入平台期就停，再练性能反降；**基于难度的数据采样**——用待训练模型对训练数据离线推理算 IoU 难度，高斯采样偏向高难样本（mean > 0.75 时性能饱和），约 12K 样本即够。TimeLens-7B 基于 Qwen2.5-VL-7B、TimeLens-8B 基于 Qwen3-VL-8B。
 
 ## 实验关键数据
 

@@ -46,15 +46,17 @@ DIQ 将每个训练样本投射到二维空间：(1) **难度分数** — 模型
 
 ### 关键设计
 
-1. **难度估计**：使用在多个医学 QA 数据集上微调的 BiomedBERT 分类器，从知识 (Knowledge)、推理 (Reasoning)、综合 (Overall) 三个维度评估难度。选择其中一个维度作为标量分数 $D(z) \triangleq D_\phi(z)$，以百分位阈值 $\tau_d$ 划分高/低难度。该分数是模型无关的，计算一次可复用。
+**1. 难度估计：用一个模型无关的分数把样本按推理深浅排开**
 
-2. **Dot-Product 影响力**：定义训练样本 $z$ 的影响力为其梯度与验证集均值梯度的内积：
-    $\text{Dot}(z) \triangleq g(z; \hat{\boldsymbol{\theta}})^\top \bar{g}_{\text{val}}(\hat{\boldsymbol{\theta}})$
-   物理含义：对验证集平均损失的一步下降量的一阶近似
-    $\Delta \bar{\ell}_{\text{val}} = -\eta \cdot \text{Dot}(z) + O(\eta^2)$
-   实现上使用 Johnson-Lindenstrauss 随机投影将梯度降到 4096 维，复杂度为 $O(|\mathcal{D}_{\text{val}}| + |\mathcal{D}|)$，无需计算 Hessian。
+只按影响力选样本会偏向容易优化但推理链浅的简单题，所以需要一个独立的难度维度兜底。本文用在多个医学 QA 数据集上微调过的 BiomedBERT 分类器，从知识 (Knowledge)、推理 (Reasoning)、综合 (Overall) 三个角度评估难度，取其一作为标量分数 $D(z) \triangleq D_\phi(z)$，并以百分位阈值 $\tau_d$ 划分高/低难度。关键好处是这个分数与待训模型无关，算一次就能跨实验复用，不必每换一个模型就重算。
 
-3. **象限优先级选择**：以难度阈值 $\tau_d$ 和影响力中位数 $m_{\text{dot}}$ 将数据分为四象限。$\mathcal{Q}_1$（高难度+高影响力）最优先选取——同时包含复杂临床推理和强梯度信号。各象限内按 Dot 降序排列，相同 Dot 按难度降序打破平局。
+**2. Dot-Product 影响力：用梯度内积一阶近似"这条样本能让验证损失降多少"**
+
+只按难度选又会选到噪声重、梯度信号弱的样本。影响力维度把训练样本 $z$ 的价值定义为它的梯度与验证集均值梯度的内积 $\text{Dot}(z) \triangleq g(z; \hat{\boldsymbol{\theta}})^\top \bar{g}_{\text{val}}(\hat{\boldsymbol{\theta}})$，其物理含义正是对验证集平均损失一步下降量的一阶近似 $\Delta \bar{\ell}_{\text{val}} = -\eta \cdot \text{Dot}(z) + O(\eta^2)$。实现上用 Johnson-Lindenstrauss 随机投影把梯度降到 4096 维，整体复杂度 $O(|\mathcal{D}_{\text{val}}| + |\mathcal{D}|)$，无需计算 Hessian，比 LESS 这类 TracIn 方法轻得多。
+
+**3. 象限优先级选择：只挑"又难又有用"的那一象限打头**
+
+先导实验发现"高影响力+低难度"的 $\mathcal{Q}_2$ 虽然 benchmark 分高，但推理质量差，单维度都不是最优。于是用难度阈值 $\tau_d$ 和影响力中位数 $m_{\text{dot}}$ 把数据切成四象限，让"高难度+高影响力"的 $\mathcal{Q}_1$ 最优先——它同时握有复杂临床推理和强梯度信号；各象限内按 Dot 降序排，Dot 相同再按难度降序打破平局。正是这种二维联合、而非任一单维度，让 1% 数据就能逼近全量 SFT。
 
 ### 损失函数 / 训练策略
 

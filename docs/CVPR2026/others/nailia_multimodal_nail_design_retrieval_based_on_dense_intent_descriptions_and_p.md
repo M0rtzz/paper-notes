@@ -44,38 +44,25 @@ tags:
 
 ### 整体框架
 
-NaiLIA 由三个核心模块组成：
-
-- **Intent-Palette Fusion Module (IPFM)**：融合密集意图描述与调色板查询
-- **Visual Design Fusion Module (VDFM)**：融合三种视觉表示以全面理解美甲设计图像
-- **Confidence-based Relaxed Alignment Module (CRAM)**：估计未标注正样本的置信度分数并融入松弛损失
-
-输入定义为 $\bm{x} = \{\bm{x}_{\text{txt}}, \bm{x}_{\text{pal}}, X_{\text{img}}\}$，其中 $\bm{x}_{\text{txt}}$ 是密集意图描述，$\bm{x}_{\text{pal}} \in \mathbb{R}^{3 \times N_{\text{pal}}}$ 是调色板查询（零个或多个 RGB 颜色），$X_{\text{img}}$ 是待排序的美甲设计图像集。
+NaiLIA 要解决的是"按用户的复杂意图检索美甲设计图"：用户既会用一段密集文字描述图案/饰品/主题/整体印象，又会给一组 RGB 调色板指定色调。系统把这套多层意图拆给三个模块处理——IPFM 融合文字意图与调色板，VDFM 从三个角度理解候选图像，CRAM 则估计哪些"未标注但其实相似"的样本该被当成正样本，最后用一个松弛对比损失把查询和图像对齐。输入形式化为 $\bm{x} = \{\bm{x}_{\text{txt}}, \bm{x}_{\text{pal}}, X_{\text{img}}\}$，其中 $\bm{x}_{\text{txt}}$ 是密集意图描述，$\bm{x}_{\text{pal}} \in \mathbb{R}^{3 \times N_{\text{pal}}}$ 是调色板查询（零个或多个 RGB 颜色），$X_{\text{img}}$ 是待排序图像集。
 
 ### 关键设计
 
-**IPFM — 意图-调色板融合模块**：
+**1. IPFM 意图-调色板融合：把"说不清的颜色偏好"显式注入文字理解**
 
-- 利用 LLM（GPT-4o）从原始描述生成**多层设计描述（MDD）**和**归一化名词短语（NNP）**，分别结构化意图和提炼关键设计要素
-- 使用多个文本编码器（BEiT-3、SigLIP）提取语言表示 $(\bm{l}_{\text{txt}}, \bm{l}_{\text{MDD}}, \bm{l}_{\text{NNP}})$
-- 调色板编码器将 RGB 转换为 CIELAB 色彩空间后经 Transformer 层得到调色板表示 $\bm{p}$
-- 通过交叉注意力机制，以 $\bm{p}$ 为 query 对语言表示计算注意力，选择性强调颜色相关元素：$\bm{l}_{+} = \text{CrossAttn}(\bm{p}, \text{TFLayers}([\bm{l}_{\text{txt}}; \bm{l}_{\text{MDD}}; \bm{l}_{\text{NNP}}]))$
+纯文本无法精确传达微妙色调，而时尚检索里颜色差异恰恰关键。IPFM 先用 LLM（GPT-4o）把原始描述结构化成多层设计描述（MDD）和归一化名词短语（NNP），再用 BEiT-3、SigLIP 等多个文本编码器得到语言表示 $(\bm{l}_{\text{txt}}, \bm{l}_{\text{MDD}}, \bm{l}_{\text{NNP}})$；调色板这边把 RGB 转到更贴合感知的 CIELAB 空间后过 Transformer 得到 $\bm{p}$。关键一步是以调色板 $\bm{p}$ 为 query 对语言表示做交叉注意力，选择性放大颜色相关的元素：$\bm{l}_{+} = \text{CrossAttn}(\bm{p}, \text{TFLayers}([\bm{l}_{\text{txt}}; \bm{l}_{\text{MDD}}; \bm{l}_{\text{NNP}}]))$，让"想要的颜色"真正参与意图编码。
 
-**VDFM — 视觉设计融合模块**：
+**2. VDFM 视觉设计融合：三种视觉表示互补，补上抽象概念这一块**
 
-- **单模态视觉表示** $\bm{v}_s$：使用 DINOv2 捕获颜色、形状、纹理等视觉特征
-- **多模态对齐表示** $\bm{v}_a$：使用 BEiT-3 和 SigLIP 的图像编码器提取与语言对齐的表示
-- **Img2txt 意图结构表示** $\bm{v}_n$：利用多个 MLLM（GPT-4o、Qwen2-VL）生成图像的设计元素、装饰、主题、印象的文字说明，再经文本编码器获取表示，捕获抽象设计概念和空间关系
-- 三种表示经 Transformer 层融合：$\bm{v}^{(i)} = \text{TFLayers}([\bm{v}_s^{(i)}; \bm{v}_a^{(i)}; \bm{v}_n^{(i)}])$
+视觉编码器擅长颜色形状纹理，却读不懂"美人鱼风""梦幻感"这类抽象设计意图。VDFM 同时取三种表示：DINOv2 给的单模态视觉表示 $\bm{v}_s$ 抓颜色/形状/纹理，BEiT-3 与 SigLIP 图像编码器给的多模态对齐表示 $\bm{v}_a$ 与语言对齐，再用 MLLM（GPT-4o、Qwen2-VL）把图像转写成设计元素/装饰/主题/印象的文字、经文本编码器得到 img2txt 意图结构表示 $\bm{v}_n$，专门捕获抽象概念和空间关系。三者经 Transformer 融合：$\bm{v}^{(i)} = \text{TFLayers}([\bm{v}_s^{(i)}; \bm{v}_a^{(i)}; \bm{v}_n^{(i)}])$。消融显示 $\bm{v}_a$ 最关键，少了它 R@1 直接掉 14.3pp。
 
-**CRAM — 基于置信度的松弛对齐模块**：
+**3. CRAM 基于置信度的松弛对齐：承认"相似图其实是正样本"，别再硬推开**
 
-- 利用 MLLM（Qwen2-VL）估计每对 $(i,j)$ 的置信度分数 $c_{ij} \in [0,1]$，输入包括查询的 NNP、候选图像及其 NNP
-- 若 $c_{ij} \geq \theta$，则将该对加入未标注正样本集 $\mathcal{Z}$
+美甲图之间大量相互相似，InfoNCE 把所有非正样本一律当负样本，会错误地把这些相似样本的相似度压低。CRAM 用 MLLM（Qwen2-VL）对每对 $(i,j)$ 估一个置信度分数 $c_{ij} \in [0,1]$（输入查询的 NNP、候选图像及其 NNP），只要 $c_{ij} \geq \theta$ 就把这对加入未标注正样本集 $\mathcal{Z}$，交给损失函数松弛处理。
 
 ### 损失函数
 
-提出 **Confidence-based Relaxed Contrastive (CRC) loss**：
+基于 $\mathcal{Z}$ 提出 **Confidence-based Relaxed Contrastive (CRC) loss**：
 
 $$\mathcal{L}_{\text{CRC}} = \mathcal{L}_P + \lambda_{UP} \mathcal{L}_{UP} + \lambda_N \mathcal{L}_N$$
 

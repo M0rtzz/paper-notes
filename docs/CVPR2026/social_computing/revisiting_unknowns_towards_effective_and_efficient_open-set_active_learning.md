@@ -39,48 +39,43 @@ tags:
 
 ### 整体框架
 
-E2OAL 采用统一的无检测器两阶段流程：
-- **阶段一：自适应类别估计 + 校准感知训练** — 在冻结的对比学习特征空间中发现未知类潜在结构，通过 Dirichlet 辅助监督增强模型训练
-- **阶段二：灵活两阶段查询选择** — 用纯度分数构建高纯度候选池，再用信息量指标筛选最有价值的样本
+E2OAL 想做一个"不挂额外检测器"的开放集主动学习框架，同时还要把以往被当成废料的"标注未知样本"利用起来。它走两个阶段：第一阶段在冻结的对比学习特征空间里把未知类的潜在结构挖出来，并用 Dirichlet 校准的辅助监督把模型训得置信度更可靠；第二阶段做查询选择——先用纯度分数滤出一池"大概率是已知类"的高纯度候选，再在池内用信息量指标挑出最值得标注的样本。
 
-### 自适应类别估计（Adaptive Class Estimation）
+### 关键设计
 
-- 使用冻结的 CLIP 特征（也兼容 MoCo/SimCLR），对全部已标注样本进行 K-Means 聚类
-- 候选未知类数量 $\hat{u} \in \{k+1, \ldots, \hat{u}_{\max}\}$，通过**三分搜索**最大化结构感知 F1-product 目标
-- F1-product = 各类 F1 分数的乘积，用 Hungarian 算法将聚类与 $k$ 个已知类 + 1 个统一 unknown 类做一对一匹配
-- 估计过低会合并已知类，估计过高会碎片化，F1-product 自动惩罚这两种情况
+**1. 自适应类别估计：不靠检测器，从聚类里"数出"未知类有几种**
 
-### Dirichlet 校准辅助头
+把所有未知样本合并成单一 "unknown" 类会丢掉它们内部的结构，而 pilot study 显示保留这种结构来训练效果更好——可问题是未知类到底有几种，事先并不知道。E2OAL 用冻结的 CLIP 特征（也兼容 MoCo/SimCLR）对全部已标注样本做 K-Means，候选未知类数量 $\hat{u} \in \{k+1, \ldots, \hat{u}_{\max}\}$ 通过三分搜索来定，目标是最大化一个结构感知的 F1-product。
 
-- 引入平移感知 softmax：$P(y|x) = \frac{e^{o_y} + \gamma}{\sum_c (e^{o_c} + \gamma)}$，打破平移不变性
-- 采用证据深度学习（EDL）：将预测概率建模为 Dirichlet 分布 $\text{Dir}(\boldsymbol{\alpha})$，其中 $\boldsymbol{\alpha} = g(\boldsymbol{o})/\gamma + 1$
-- 辅助头覆盖 $k + \hat{u}$ 个类别（已知类 + 估计的未知类），主头仅覆盖 $k$ 个已知类
+F1-product 是各类 F1 分数的乘积，先用 Hungarian 算法把聚类与 $k$ 个已知类加 1 个统一 unknown 类做一对一匹配再算。它的妙处在于天然惩罚两种极端：$\hat{u}$ 估低了会把不同已知类挤进一簇、估高了会把一类碎成几簇，两种情况都会拉低某些类的 F1、进而压低乘积，于是搜索自然收敛到合理的类别数。
 
-### 损失函数
+**2. Dirichlet 校准辅助头：治标准 softmax 的"平移不变 → 过度自信"**
+
+标准 softmax 有平移不变性，对语义模糊或异常输入也能给出误导性的高置信度，这在开放集下尤其致命。E2OAL 先把 softmax 改成平移感知版 $P(y|x) = \frac{e^{o_y} + \gamma}{\sum_c (e^{o_c} + \gamma)}$，用常数 $\gamma$ 打破平移不变；再上证据深度学习（EDL），把预测概率建模成 Dirichlet 分布 $\text{Dir}(\boldsymbol{\alpha})$，其中 $\boldsymbol{\alpha} = g(\boldsymbol{o})/\gamma + 1$。
+
+关键是主辅两个头分工：辅助头覆盖 $k + \hat{u}$ 个类别（已知类加上一阶段估出的未知类），负责把未知样本的监督价值吸收进来；主头只覆盖 $k$ 个已知类、做最终分类。这样"标注的未知"不再被浪费，又不会污染主分类器的类别空间。
+
+**3. 两阶段查询策略：先按纯度滤池、再按信息量挑样，且阈值自适应**
+
+常规不确定性/多样性查询会把未知样本误当成高信息量样本疯狂采样，污染查询、拖垮效率。E2OAL 把"该不该选"拆成两步。第一步用 Logit-Margin 纯度分数衡量已知与未知证据的分离程度，滤出高纯度候选池：
+
+$$S_{\text{purity}}(x) = \max_{c \in \mathcal{C}_k} o_c - \max_{c \in \mathcal{C}_{\hat{u}}} o_c$$
+
+第二步在池内用一个 OSAL 专用的信息量分数挑样，它同时压制过于模糊（接近均匀分布）和过于确定（接近 one-hot）的样本、偏好中等不确定性：
+
+$$S_{\text{info}}(x) = \text{JS}(\mathbf{p} \| \mathbf{u}) \cdot \text{JS}(\mathbf{p} \| \mathbf{p}^{\max})$$
+
+纯度阈值还会自适应：用三分量 GMM 拟合纯度分数分布来动态调候选池大小、对齐目标查询精度 $p^*$，并按观测精度反馈校准 $\hat{p}^*_{t+1} = \text{clip}(\hat{p}^*_t + (p^* - \bar{p}^*_t), 0, 1)$。先纯度、后信息量、再自适应阈值，三道一起把"误采未知"压下去，且全程不引入额外可调超参。
+
+### 损失函数 / 训练策略
+
+总损失把主头分类和辅助头的证据学习加在一起：
 
 $$\mathcal{L} = \mathcal{L}_{\text{CE}} + \mathcal{L}_{\text{EDL}} = \mathcal{L}_{\text{CE}} + (\mathcal{L}_{\text{NLL}} + \mathcal{L}_{\text{KL}})$$
 
 - $\mathcal{L}_{\text{CE}}$：主头的交叉熵损失，仅在已知类上优化
 - $\mathcal{L}_{\text{NLL}}$：辅助头的负对数似然，鼓励对正确标签的高置信
 - $\mathcal{L}_{\text{KL}}$：将错误类别的 Dirichlet 分布正则化至均匀先验，抑制错误证据
-
-### 两阶段查询策略
-
-**纯度分数**（Logit-Margin Purity Score）：
-
-$$S_{\text{purity}}(x) = \max_{c \in \mathcal{C}_k} o_c - \max_{c \in \mathcal{C}_{\hat{u}}} o_c$$
-
-衡量已知类与未知类之间的证据分离程度。
-
-**信息量分数**（OSAL-specific Informativeness）：
-
-$$S_{\text{info}}(x) = \text{JS}(\mathbf{p} \| \mathbf{u}) \cdot \text{JS}(\mathbf{p} \| \mathbf{p}^{\max})$$
-
-同时抑制过于模糊（接近均匀分布）和过于确定（接近 one-hot）的样本，偏好中等不确定性。
-
-**自适应纯度阈值**：用三分量 GMM 拟合纯度分数分布，动态调整候选池大小以满足目标查询精度 $p^*$，并通过观测精度反馈自适应校准：
-
-$$\hat{p}^*_{t+1} = \text{clip}(\hat{p}^*_t + (p^* - \bar{p}^*_t), 0, 1)$$
 
 ## 实验关键数据
 

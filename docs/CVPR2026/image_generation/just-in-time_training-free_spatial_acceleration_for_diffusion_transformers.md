@@ -40,40 +40,33 @@ tags:
 
 ### 整体框架
 
-JiT 是一个无训练的空间域加速框架，包含两个核心组件：
+JiT 想省的是 DiT 在空间上的冗余算力：扩散生成是从低频全局结构逐步走到高频细节的，早期阶段其实只要在少数关键区域算速度场，就能驱动整张图的潜在状态演化，没必要对所有 token 一视同仁地全算。它是个完全免训练的框架，靠两个组件实现：SAG-ODE 在稀疏的 anchor token 上算速度、再外推到全空间；当生成进入新阶段、需要激活更多 token 时，DMF 用一段确定性微流把新 token 平滑接进来，避免突变。
 
-- **SAG-ODE（空间近似生成ODE）**：在稀疏 anchor token 上计算速度场，通过增广提升算子外推到全空间
-- **DMF（确定性微流）**：在阶段转换时，通过有限时间 ODE 将新激活 token 从插值状态平滑演化到统计正确的目标状态
+### 关键设计
 
-### SAG-ODE 设计
+**1. SAG-ODE：只在 anchor token 上精确计算，再外推到全空间**
 
-构建嵌套 token 子集链 $\Omega_K \subset \Omega_{K-1} \subset \cdots \subset \Omega_0 = \{1,...,N\}$，从最小子集逐步扩展。
-
-核心方程：
+对所有空间区域统一计算是主要浪费来源。SAG-ODE 构建一条嵌套的 token 子集链 $\Omega_K \subset \Omega_{K-1} \subset \cdots \subset \Omega_0 = \{1,...,N\}$，从最小子集逐步往外扩，生成 ODE 写成
 
 $$\frac{d\mathbf{y}(t)}{dt} = \mathbf{\Pi}_k \, \boldsymbol{u}_\theta(\mathbf{S}_k^\top \mathbf{y}(t), t)$$
 
-其中增广提升算子 $\mathbf{\Pi}_k$ 由两部分组成：
-- **嵌入映射** $\mathbf{S}_k \boldsymbol{u}_\theta$：将 anchor token 的精确速度放回全空间对应位置
-- **插值算子** $\mathcal{I}_k(\boldsymbol{u}_\theta)$：对非活跃 token 进行空间插值approximation
+增广提升算子 $\mathbf{\Pi}_k$ 干两件事：嵌入映射 $\mathbf{S}_k \boldsymbol{u}_\theta$ 把 anchor token 的精确速度放回全空间对应位置，插值算子 $\mathcal{I}_k(\boldsymbol{u}_\theta)$ 给非活跃 token 做空间插值近似。关键是它满足一致性 $\mathbf{S}_k^\top(\mathbf{\Pi}_k \boldsymbol{u}_\theta) = \boldsymbol{u}_\theta$——anchor token 的动力学始终由 Transformer 精确控制，所以加速不会牺牲关键区域的质量。
 
-**一致性保证**：$\mathbf{S}_k^\top(\mathbf{\Pi}_k \boldsymbol{u}_\theta) = \boldsymbol{u}_\theta$，即 anchor token 的动力学由 Transformer 精确控制，加速不损害关键区域质量
+**2. DMF（确定性微流）：让新激活的 token 无缝接入而不引入跳变**
 
-### DMF（确定性微流）
-
-阶段转换时为新 token 构建目标状态：
+子集每扩展一次就有一批新 token 被激活，如果直接用插值状态顶上去，统计分布会和真实轨迹对不齐。DMF 先给新 token 构造一个统计正确的目标状态
 
 $$\mathbf{y}_k^\star = \mathbf{Q}_k \left( T_k \Phi_k(\mathbf{S}_k^\top \hat{\mathbf{y}}(1)) + (1-T_k)\epsilon \right)$$
 
-通过 Tweedie 公式预测干净数据，结合结构先验插值和正确噪声水平，确保统计一致性。然后用有限时间打靶 ODE 在极短区间内将新 token 精确收敛到目标。
+这里用 Tweedie 公式预测干净数据、再结合结构先验插值和正确噪声水平拼出目标；随后用一段有限时间的打靶 ODE 在极短区间里把新 token 精确收敛到这个目标，于是阶段转换处不会出现噪声或断层。
 
-### 重要性引导的 token 激活（ITA）
+**3. 重要性引导的 token 激活（ITA）：按速度场方差把算力投到最活跃的区域**
 
-不使用固定网格模式，而是根据速度场的局部方差计算重要性图：
+固定网格式地选 anchor 并不知道哪里更需要算。ITA 改用速度场的局部方差来衡量每个区域有多「活跃」：
 
 $$\mathbf{I}(t) = \mathbb{E}_\mathcal{W}[\boldsymbol{u}_\theta \odot \boldsymbol{u}_\theta] - (\mathbb{E}_\mathcal{W}[\boldsymbol{u}_\theta])^{\odot 2}$$
 
-选择方差最大（生成过程最活跃）的区域优先激活，将算力分配到高频细节区域。
+方差大说明该处生成过程最活跃（多为高频细节），就优先激活这些 token，把算力精准投到刀刃上，比固定模式更省也更准。
 
 ## 实验关键数据
 

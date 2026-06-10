@@ -34,29 +34,34 @@ tags:
 ## 方法详解
 
 ### 整体框架
-ResDec 是一个纯粹的解码阶段策略，无需修改模型架构或额外训练。给定当前解码步 $t$，ResDec 分析历史窗口内 token 的 logit 演化，找到语义稳定区间，聚合该区间的 logits 形成残差引导信号，与当前 logits 加权融合后进行采样。
+ResDec 针对的是 LVLM 的“语言先验幻觉”——逐步生成时文本上下文慢慢淹没视觉上下文，吐出语法通顺但与图不符的内容。它不动模型架构、不训练，纯在解码阶段做文章：在当前解码步 $t$，分析历史窗口内 token 的 logit 演化、找到语义稳定的区间，把该区间的 logits 聚合成残差引导信号，再和当前 logits 加权融合后采样。核心依据是一个观察——正确答案的信号其实早已嵌在前序 token 的 logit 分布里（回答“The answer is D”时，“D”在生成引导词时 logit 就偏高），幻觉的本质是幻觉 token 在某些时刻 logit 异常升高、逐步反超真实 token。
 
 ### 关键设计
 
-1. **U 型 JSD 模式与三阶段划分**：通过计算历史窗口 $\mathcal{W}$ 内相邻时间步的 Jensen-Shannon 散度，发现候选 token 分布的 JSD 呈现 U 型变化，据此划分为三个阶段：
+**1. U 型 JSD 模式与三阶段划分：定位“语义已锚定”的区间**
 
-    - **PSAP（语义前清晰阶段）**：U 型左侧，分布从"混乱"走向"收敛"，存在锚定不确定性
-    - **SAP（语义锚定阶段）**：U 型底部，JSD 接近 0，表示分布高度稳定，模型已牢固锚定核心语义
-    - **EDP（表达发散阶段）**：U 型右侧，JSD 上升，模型追求多样表达形式，易受语言先验影响
-   
-   ResDec 选取 SAP+EDP 区间（即 U 型底部及其右侧）的 logits 构建残差引导。
+要复用历史 logit，先得知道哪段历史是可信的。ResDec 计算历史窗口 $\mathcal{W}$ 内相邻时间步候选分布的 Jensen-Shannon 散度，发现 JSD 呈 U 型变化，据此切成三段：**PSAP（语义前清晰阶段）**是 U 型左侧，分布从混乱走向收敛、仍有锚定不确定性；**SAP（语义锚定阶段）**是 U 型底部，JSD 接近 0、分布高度稳定，模型已牢牢锚定核心语义；**EDP（表达发散阶段）**是 U 型右侧，JSD 回升、模型追求多样表达、最易被语言先验带偏。ResDec 取 SAP+EDP 区间（U 型底部及右侧）的 logits 来构建残差引导——既拿到了已锚定的可信信号，又覆盖到容易出幻觉的发散段。
 
-2. **置信度加权历史聚合**：在历史聚合窗口 $\Delta_t$ 内，对每个时间步 $i$ 计算局部置信度 $C_i = -\frac{1}{|\Omega_t|} \sum_{j=1}^{|\Omega_t|} \log P_i(j)$（低熵→高置信），然后以归一化置信权重聚合各步的 logits：
-    $\text{logit}_\theta^{\text{res}}(y_t | T_{<t-1}) = \sum_{i \in \Delta_t} \frac{C_i}{\sum_j C_j} \cdot \text{logit}_\theta(\hat{y}_i | T_{<i})$
+**2. 置信度加权历史聚合：让低熵、更确信的历史步说话更响**
 
-3. **历史-当前融合与可行性约束**：将历史残差与当前 logits 线性融合：
-    $p_{\text{ResDec}}(y_t) = \text{Softmax}[(1-\alpha)\text{logit}_\theta(y_t) + \alpha \cdot \text{logit}_\theta^{\text{res}}(y_t)]$
-   其中 $\alpha=0.5$。同时引入截断约束 $\mathcal{V}_{\text{head}}$（$\beta=0.1$），仅保留概率不低于最大概率 $\beta$ 倍的 token，将其余 token 的 logits 设为 $-\infty$，防止残差引导引入不合理 token。
+历史各步可信度不一，简单平均会被高熵噪声拖累。在聚合窗口 $\Delta_t$ 内，对每个时间步 $i$ 先算局部置信度 $C_i = -\frac{1}{|\Omega_t|} \sum_{j=1}^{|\Omega_t|} \log P_i(j)$（低熵对应高置信），再按归一化置信权重把各步 logits 聚合成残差信号：
+
+$$\text{logit}_\theta^{\text{res}}(y_t | T_{<t-1}) = \sum_{i \in \Delta_t} \frac{C_i}{\sum_j C_j} \cdot \text{logit}_\theta(\hat{y}_i | T_{<i})$$
+
+这样越确信的历史步在残差里权重越大，把“语义锚定”那段的判断更干净地提取出来。
+
+**3. 历史-当前融合与可行性约束：残差只做辅助校正，不喧宾夺主**
+
+直接拿残差替代当前 logit 会引入不合理 token。ResDec 把历史残差和当前 logits 线性融合：
+
+$$p_{\text{ResDec}}(y_t) = \text{Softmax}[(1-\alpha)\text{logit}_\theta(y_t) + \alpha \cdot \text{logit}_\theta^{\text{res}}(y_t)]$$
+
+其中 $\alpha=0.5$。同时加一道截断约束 $\mathcal{V}_{\text{head}}$（$\beta=0.1$）：只保留概率不低于最大概率 $\beta$ 倍的 token，其余 token 的 logit 设为 $-\infty$。消融显示 $\alpha$ 一旦超过 0.5 性能就急剧下降，印证了历史残差是辅助校正而非替代解码这一定位。
 
 ### 损失函数 / 训练策略
 - **完全训练免**，仅在解码阶段操作
 - 复用推理过程中自然产生的历史 logits，无需额外前向传播
-- 超参设置简单：$\alpha=0.5$, $\beta=0.1$，候选 token 池大小 $|\Omega_t| \in [64, 512]$
+- 超参极简：$\alpha=0.5$、$\beta=0.1$、候选 token 池大小 $|\Omega_t| \in [64, 512]$
 
 ## 实验关键数据
 

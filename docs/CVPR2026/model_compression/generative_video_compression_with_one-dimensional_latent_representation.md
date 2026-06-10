@@ -39,34 +39,29 @@ tags:
 
 ### 整体框架
 
-GVC1D 采用编码器-熵模型-解码器架构，核心创新在于：
-- **编码器**：将当前帧 $x_t \in \mathbb{R}^{3 \times H \times W}$ 编码为极少量的1D潜在token $y_t$
-- **熵模型**：自回归Transformer对1D token进行概率建模与算术编码
-- **解码器**：从1D token重建帧 $\hat{x}_t$
-- **上下文模型**：结合短期上下文（前一帧特征）和长期上下文（1D记忆）
+GVC1D 想打破的是视频编解码器"把帧编码成 2D 潜在网格"的惯例——2D 网格让简单区域和复杂区域分到同样多的 token，冗余难消，且偏重空间变化、不擅长跨帧聚合语义。它的核心是把潜在表示换成极少量的 1D token 序列：编码器把当前帧 $x_t \in \mathbb{R}^{3 \times H \times W}$ 压成 1D 潜在 token $y_t$，自回归 Transformer 熵模型对这些 token 做概率建模与算术编码，解码器再从 token 重建出 $\hat{x}_t$，同时由一个上下文模型把短期上下文（前一帧特征）和长期上下文（1D 记忆）一起喂进编解码。
 
 ### 关键设计
 
-1. **ViT-based 1D Token化**：输入帧经patch embedding得到 $E_t \in \mathbb{R}^{D \times (h \cdot w)}$，与可学习的1D latent token $L \in \mathbb{R}^{D \times (N \cdot 32)}$ 拼接后送入编码器。编码器由交替的 Local Transformer（窗口内并行处理）和 Global Transformer（跨窗口全局交互）组成：
+**1. ViT-based 1D Token 化：让 token 数量与空间分辨率解耦**
 
-    $y_t = \text{Enc}(E_t \oplus L \oplus C)$
+2D 网格的刚性结构强迫每个 patch 对应固定数量 token，是冗余的根源。GVC1D 把输入帧 patch embedding 成 $E_t \in \mathbb{R}^{D \times (h \cdot w)}$，与可学习的 1D latent token $L \in \mathbb{R}^{D \times (N \cdot 32)}$ 拼接后送入编码器，编码器由交替的 Local Transformer（窗口内并行）和 Global Transformer（跨窗口全局交互）组成：$y_t = \text{Enc}(E_t \oplus L \oplus C)$，其中 $C = C_l \oplus C_s$ 是长短期上下文。关键在于 1D token 不绑定固定空间位置，可以自适应地把容量分给语义区域，且每个窗口只要 32 个 token（对比 2D 的 $16 \times 16 = 256$ 个 patch），从根上把空间冗余压了下来。
 
-   其中 $C = C_l \oplus C_s$ 是长短期上下文。**关键洞察**：1D token不保留固定的空间对应关系，可以自适应地关注语义区域，且token数量与空间分辨率解耦（每个窗口仅32个token vs 2D的 $16 \times 16 = 256$ 个patch），从根本上减少spatial redundancy。
+**2. 1D Memory 长期上下文模块：用紧凑 token 装下更长的时序记忆**
 
-2. **1D Memory 长期上下文模块**：维护固定大小的记忆状态，通过两阶段工作：
+视频要利用长期上下文，但 2D 特征塞进固定大小的记忆很快就装满。1D Memory 维护一个固定大小的记忆状态，分两阶段工作：更新阶段用少量 1D token $\hat{y}_t$ 刷新记忆，读出阶段由可学习的 query token 从记忆里检索长期上下文，整体用一个简单 Transformer 实现。由于 1D token 语义密、数量少，同样的记忆容量能装下更多信息，缓解了信息遗忘；短期上下文补细粒度结构、长期上下文补全局语义，二者互补。
 
-    - **更新阶段**：用少量1D token $\hat{y}_t$ 更新记忆状态
-    - **读出阶段**：可学习的query token从记忆中检索长期上下文
+**3. 自回归熵模型：token 少，所以 AR 建模反而便宜**
 
-   采用简单的Transformer架构实现。由于1D token语义丰富且数量远少于2D网格，相同记忆容量下能存储更多信息，有效缓解信息遗忘问题。短期上下文提供细粒度结构细节，长期上下文提供全局语义，二者互补。
+熵模型对量化后的 1D token $Q(y_t)$ 用 AR Transformer 顺序预测概率分布。AR 本是慢的，但这里每帧只有 32 个 token、不同窗口还能并行，开销可控；而 2D grid 上熵模型要处理 $h \times w$ 个 token，AR 复杂度高出 1–2 个数量级。token 数量上的根本差异，让"顺序建模"从负担变成了可承受的选择。
 
-3. **自回归熵模型**：对量化后的1D token $Q(y_t)$ 使用 AR Transformer 顺序预测概率分布。由于1D token数量少（每帧仅32个），且不同窗口可并行处理，AR模型的计算开销可控。这与2D grid上的熵模型形成鲜明对比——2D grid需要处理 $h \times w$ 个token，AR建模的复杂度高出1-2个数量级。
+**4. 解码器设计：用 mask token 把 1D 信息"摊回"2D 空间**
 
-4. **解码器设计**：采用与编码器对称的架构。引入可学习mask tokens $M \in \mathbb{R}^{D \times (h \cdot w)}$，与解码后的1D tokens $\hat{y}_t$ 和上下文 $C$ 拼接，通过解码器迭代提取信息后经卷积输出头生成重建帧：$\hat{x}_t = \text{Out}(\text{Dec}(\hat{y}_t \oplus M \oplus C))$。mask tokens在解码过程中逐步从1D tokens中"读取"信息，恢复出完整的2D空间特征。
+解码端采用与编码器对称的架构，引入可学习 mask token $M \in \mathbb{R}^{D \times (h \cdot w)}$，与解码出的 1D token $\hat{y}_t$ 和上下文 $C$ 拼接后迭代提取信息，再经卷积输出头重建帧：$\hat{x}_t = \text{Out}(\text{Dec}(\hat{y}_t \oplus M \oplus C))$。mask token 在解码过程中逐步从 1D token 里"读"出内容，把紧凑的 1D 表示还原成完整的 2D 空间特征。
 
 ### 损失函数 / 训练策略
 
-采用率-失真优化：$\mathcal{L} = R + \lambda D$，其中 $R$ 为码率，$D$ 为失真。$\lambda$ 在 $[0.07, 1.5]$ 区间对数均匀采样8个点训练可变码率模型。在 Vimeo 和 OpenVid-HD 数据集上训练，使用感知损失提升视觉质量。
+采用率-失真优化 $\mathcal{L} = R + \lambda D$（$R$ 为码率，$D$ 为失真），$\lambda$ 在 $[0.07, 1.5]$ 区间对数均匀采样 8 个点以训练可变码率模型；在 Vimeo 和 OpenVid-HD 上训练，并加感知损失提升视觉质量。
 
 ## 实验关键数据
 

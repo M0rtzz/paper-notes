@@ -45,25 +45,19 @@ tags:
 
 ### 整体框架
 
-COG 采用**粗到精(coarse-to-fine)**两阶段架构：
+COG 把“单张参考图估计新物体 6DoF 位姿”做成粗到精两阶段。预处理阶段先用 UnoSeg 分出物体掩码、把深度图反投影成 3D 点云、用 DINO 提逐像素 RGB 语义描述子。粗阶段对点云做最远点采样取 256 个稀疏点，经几何 Transformer 编解码预测逐点置信度与特征，用 Sinkhorn 最优传输算软对应、再加权 SVD 求粗位姿；精阶段用粗位姿把 query 点云对齐后，换全量 1024 点配位置编码做精细对齐输出最终位姿。推理时还能用估计位姿反复迭代精炼（默认 1 次）。
 
-- **预处理**：使用 UnoSeg 分割物体掩码 → 深度图反投影为3D点云 → DINO提取逐像素RGB特征作为语义描述子
-- **粗阶段**：最远点采样获得稀疏点云(256点)，经几何 Transformer 编码器-解码器预测逐点置信度与特征，通过 Sinkhorn OT 计算软对应关系，加权SVD估计粗位姿
-- **精阶段**：用粗位姿变换query点云后，使用全量点云(1024点)和位置编码进行精细对齐，输出最终位姿
-- **推理迭代**：推理时用估计位姿反复变换query点云进行迭代精炼(默认1次)
+### 关键设计
 
-### 关键设计：置信度感知最优传输
+**1. 置信度感知最优传输：把置信度直接当成传输边际**
 
-**核心思想**：将跨视图对应关系建模为OT问题，逐点置信度直接作为传输计划的目标边际约束。
+以往单参考位姿估计靠 argmax 做离散一对一匹配，容易坍缩到几个主导关键点、浪费大量点，而且离散操作不可微、断了梯度没法无监督训练；已有的 OT 方法又只用均匀边际、把置信度当后处理校准，无法和对应关系联合优化。COG 的做法是让置信度直接进入 OT 的边际约束。先构建融合几何与语义的亲和核 $\mathbf{K}_{[i,j]} = \exp(\frac{1}{\tau}\langle \mathbf{G}_{p[i]}, \mathbf{G}_{q[j]}\rangle_{\cos}) \cdot (1 + \langle \mathbf{S}_{p[i]}, \mathbf{S}_{q[j]}\rangle_{\cos})^{\lambda/\tau}$；再让 MLP 置信度头输出 $\mathbf{c}_p, \mathbf{c}_q \in [0,1]^n$，归一化成 $\mathbf{w}_p = \mathbf{c}_p / \overline{\mathbf{c}_p}$ 作为 Sinkhorn 的目标边际；从传输计划 $\Pi$ 行归一化得到软对应矩阵 $\mathbf{M}_{pq}$、$\mathbf{M}_{qp}$，最后拼接双向对应与原始点云做置信度加权 SVD（Umeyama）求刚体变换。这样非重叠区域和离群点会被低置信度自动压下去，对应关系与置信度还能端到端一起学。
 
-1. **亲和核构建**：融合几何相似度(余弦)与语义相似度(DINO去噪特征)，$\mathbf{K}_{[i,j]} = \exp(\frac{1}{\tau}\langle \mathbf{G}_{p[i]}, \mathbf{G}_{q[j]}\rangle_{\cos}) \cdot (1 + \langle \mathbf{S}_{p[i]}, \mathbf{S}_{q[j]}\rangle_{\cos})^{\lambda/\tau}$
-2. **置信度作边际**：MLP置信度头输出 $\mathbf{c}_p, \mathbf{c}_q \in [0,1]^n$，归一化为 $\mathbf{w}_p = \mathbf{c}_p / \overline{\mathbf{c}_p}$，作为 Sinkhorn 算法的目标边际分布
-3. **软对应矩阵**：从传输计划 $\Pi$ 行归一化得到 $\mathbf{M}_{pq}$ 和 $\mathbf{M}_{qp}$，作为软投影算子通过凸组合生成对应点
-4. **位姿求解**：拼接双向对应关系与原始点云，使用置信度加权SVD(Umeyama算法)联合求解刚体变换
+**2. 语义去噪：让纯几何匹配不再有歧义**
 
-**语义去噪**：采用 STEGO 的自标签细化策略对 DINO 特征进行能量聚类去噪，消除跨视角特征不一致性。
+纯几何匹配在物体不同部件间容易歧义，需要语义先验来区分，但跨视角的 DINO 特征本身存在不一致。COG 借 STEGO 的自标签细化策略对 DINO 特征做能量聚类去噪，消除跨视图的特征漂移，让对应关系聚焦到语义一致的区域——消融里语义先验注入后 mAP 从 73.2 升到 75.9、对应熵 ENT 从 23.0 降到 10.5，对应明显更紧凑。
 
-### 损失函数设计
+### 损失函数
 
 | 损失 | 作用 | 公式核心 |
 |------|------|----------|
@@ -72,9 +66,7 @@ COG 采用**粗到精(coarse-to-fine)**两阶段架构：
 | $\mathcal{L}_{\text{sem}}$ | 语义一致性约束，防止语义不匹配的对应 | 惩罚分配到语义不相似点的对应关系 |
 | $\mathcal{L}_{\text{conf}}$ | 伪标签监督置信度学习 | BCE损失，伪标签=几何×位姿×语义 RBF核的乘积(stop-gradient) |
 
-总损失：$\mathcal{L} = \gamma_{\text{pose}}\mathcal{L}_{\text{pose}} + \gamma_{\text{cycl}}\mathcal{L}_{\text{cycl}} + \gamma_{\text{sem}}\mathcal{L}_{\text{sem}} + \gamma_{\text{conf}}\mathcal{L}_{\text{conf}}$
-
-**无监督置信度学习**：利用几何重建、位姿对齐和语义一致性的高斯RBF核响应生成连续伪标签(非二值)，用BCE损失训练置信度分支。有监督变体仅将 $\mathcal{L}_{\text{pose}}$ 中的Chamfer距离替换为与GT变换点的逐点距离。
+总损失：$\mathcal{L} = \gamma_{\text{pose}}\mathcal{L}_{\text{pose}} + \gamma_{\text{cycl}}\mathcal{L}_{\text{cycl}} + \gamma_{\text{sem}}\mathcal{L}_{\text{sem}} + \gamma_{\text{conf}}\mathcal{L}_{\text{conf}}$。其中无监督版本的关键在于：用几何重建、位姿对齐、语义一致性三种高斯 RBF 核响应生成连续（非二值）伪标签来 BCE 监督置信度分支；有监督变体只是把 $\mathcal{L}_{\text{pose}}$ 里的 Chamfer 距离换成与 GT 变换点的逐点距离。
 
 ## 实验
 

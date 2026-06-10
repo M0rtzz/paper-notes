@@ -40,55 +40,47 @@ tags:
 
 ## 方法详解
 
-### 3.1 Next-Scale Prediction（基础）
+### 整体框架
 
-基于视觉自回归模型，将每张图像量化为 $K$ 个多尺度 token map $X_{1:K}$，从粗到细自回归生成：
+RayNova 想做一个不绑死相机配置、也不依赖点云/BEV 等显式 3D 先验的多视角世界模型，能在任意传感器布局和快速运动下都生成物理合理的未来。它把世界建模整体放进"光线空间"的自回归框架：每帧的多视角图像先被量化成多尺度 token，再沿"尺度"和"时间"两条因果链逐步生成，几何信息全部通过相对 Plücker 光线的位置编码注入，而不是靠任何 3D 表示。
+
+### 关键设计
+
+**1. Next-Scale Prediction：把图像生成拆成从粗到细的尺度自回归**
+
+RayNova 的生成骨架沿用视觉自回归模型：先把每张图像量化为 $K$ 个多尺度 token map $X_{1:K}$，再从粗到细逐尺度生成，每个尺度都以更粗的尺度为条件
 
 $$p(X_1, \ldots, X_K) = \prod_{k=1}^K p(X_k | X_1, \ldots, X_{k-1})$$
 
-### 3.2 双因果自回归
+这套从粗到细的顺序生成给后面"尺度+时间"双因果提供了天然的递进结构。
 
-**尺度因果性**：同一帧的所有视图联合建模（因为它们描述同一 3D 空间），按尺度递进生成：
+**2. 双因果自回归：用尺度与时间两条因果链统一 4D 时空**
+
+现有世界模型大多把空间和时间拆开——空间用多视角邻接、时间用视频生成技术分别处理，结果对新相机配置和快速运动都不灵。RayNova 把两者统一成两条因果链：**尺度因果**让同一帧的所有视图联合建模（因为它们描述同一 3D 空间），按尺度递进生成
 
 $$p(X_1^{1:V}, \ldots, X_K^{1:V}) = \prod_{k=1}^K p(X_k^{1:V} | X_1^{1:V}, \ldots, X_{k-1}^{1:V})$$
 
-**时间因果性**：当前帧以所有历史帧的所有视图为条件，不假设同相机帧间的强依赖：
+**时间因果**则让当前帧以所有历史帧的所有视图为条件，而不假设同相机帧间的强依赖
 
 $$p(X_{1:K}^{1:V,1:T}) = \prod_{t=1}^T \prod_{k=1}^K p(X_k^{1:V,t} | X_{1:k-1}^{1:V,1:t})$$
 
-### 3.3 各向同性时空表示
+不预设"同一相机相邻帧最相关"这条偏置，正是它能适配任意相机布局的关键。
 
-**核心创新**：基于相对 Plücker 光线的旋转位置编码 (RoPE)。
+**3. 各向同性时空表示：相对 Plücker 光线 RoPE 替代显式 3D 先验**
 
-对每个 token，计算其 Plücker 光线 $\mathbf{p}_k^{v,t} = (\mathbf{m}, \mathbf{d}, t) \in \mathbb{R}^7$，其中 $\mathbf{m} = \mathbf{o}^{v,t} \times \mathbf{d}_k^{v,t}$。
-
-将 RoPE 扩展到 7D 空间：
+这是 RayNova 几何无关的核心。它不靠点云/BEV，而是给每个 token 算一条 Plücker 光线 $\mathbf{p}_k^{v,t} = (\mathbf{m}, \mathbf{d}, t) \in \mathbb{R}^7$（$\mathbf{m} = \mathbf{o}^{v,t} \times \mathbf{d}_k^{v,t}$），并把旋转位置编码扩展到这 7 维空间
 
 $$\mathbf{R} = \begin{bmatrix} \mathbf{R_m} & 0 & 0 \\ 0 & \mathbf{R_d} & 0 \\ 0 & 0 & \text{RoPE}_{d/4}(t) \end{bmatrix}$$
 
-注意力分数基于 token 间的**相对**位置：
+注意力分数只看 token 间的**相对**位置 $a_{i,j} = \mathbf{q}_i^T \mathbf{R}_\Delta^{i,j} \mathbf{k}_j$（$\mathbf{R}_\Delta^{i,j} = \mathbf{R}_i^T \mathbf{R}_j$）。由于编码对所有尺度/视图/帧各向同性、且是相对量，模型天然能外推到训练分布之外的相机配置，这也是它在 4m 位移下仍稳健的根源。
 
-$$a_{i,j} = \mathbf{q}_i^T \mathbf{R}_\Delta^{i,j} \mathbf{k}_j, \quad \mathbf{R}_\Delta^{i,j} = \mathbf{R}_i^T \mathbf{R}_j$$
+**4. 三层注意力 Transformer：在真实性、一致性、可控性之间分工**
 
-**关键优势**：
-- 对所有尺度/视图/帧各向同性，无特定相机配置假设
-- 相对编码天然支持外推到训练分布之外
+每个 block 用三层注意力各管一摊：**image-wise self-attention** 配 2D Axial RoPE 让每张图独立处理、保证单图真实性；**global self-attention** 跨视图跨帧统一注意 + Plücker 光线 RoPE，保证 4D 时空一致性；**image-wise cross-attention** 融入条件信号。条件这边，bbox 投影 8 个角点到图像空间编码、配 T5 文本嵌入，地图则采样 3D 点后投影、用 PointNet 编码。
 
-### 3.4 Transformer 架构
+### 损失函数 / 训练策略
 
-每个 block 包含三层注意力：
-1. **Image-wise self-attention**：每张图独立处理，配合 2D Axial RoPE，保证图像真实性
-2. **Global self-attention**：跨视图跨帧的统一注意力 + Plücker 光线 RoPE，保证时空一致性
-3. **Image-wise cross-attention**：融合文本/3D bbox/HD map 等条件
-
-条件处理：bbox 投影 8 个角点到图像空间编码 + T5 文本嵌入；地图采样 3D 点后投影 + PointNet 编码。
-
-### 3.5 长视频递归训练
-
-为解决长视频生成中的分布漂移，提出递归训练策略：
-- 逐帧前向/反向传播，梯度累积后统一更新
-- 缓存 latent 特征（而非 KV）→ 节省 50% GPU 显存，保留 KV 投影层的梯度
-- 在 visual token 输入中引入随机位翻转噪声模拟推理误差
+长视频生成最大的敌人是分布漂移，RayNova 用递归训练对治：逐帧前向/反向传播、梯度累积后统一更新；缓存 latent 特征（而非 KV）省下 50% GPU 显存、同时保留 KV 投影层的梯度；并在 visual token 输入里注入随机位翻转噪声来模拟推理误差，让训练分布贴近真实自回归推理。
 
 ## 实验关键数据
 

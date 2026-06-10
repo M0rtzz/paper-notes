@@ -47,76 +47,53 @@ tags:
 
 ### 整体框架
 
-TR2M 的输入为 RGB 图像 $I \in \mathbb{R}^{H \times W \times 3}$ 和文本描述 $L$（由 LLaVA 自动生成），目标是预测两个像素级映射图：scale map $A \in \mathbb{R}^{H \times W}$ 和 shift map $B \in \mathbb{R}^{H \times W}$，将冻结的相对深度模型(Depth Anything-Small)输出的相对深度 $D_r$ 转换为度量深度：
+TR2M 要破的是"相对深度泛化好但没尺度、度量深度有尺度但跨域差"的两难：能不能保住相对深度的泛化力，又给它补上真实尺度？它的做法是不直接回归深度，而是预测一对**像素级**缩放图。输入 RGB 图像 $I \in \mathbb{R}^{H \times W \times 3}$ 和一段文本描述 $L$（LLaVA 自动生成），网络输出 scale map $A \in \mathbb{R}^{H \times W}$ 和 shift map $B \in \mathbb{R}^{H \times W}$，把冻结的 Depth Anything-Small 给出的相对深度 $D_r$ 逐像素换成度量深度：
 
 $$\hat{D}_m = \frac{1}{A \odot D_r + B}$$
 
-其中 $\odot$ 为逐元素乘法。这种像素级变换相比全局单因子缩放可以修正相对深度中的局部错误区域。
+$\odot$ 为逐元素乘。整条链路里相对深度模型、图像编码器、文本编码器全部冻结，只训练中间的融合与解码模块（共 19M 参数）。
 
-### 特征提取与跨模态注意力
+### 关键设计
 
-- **图像编码器**：冻结的 DINOv2 ViT-L，提取图像特征 $F_I \in \mathbb{R}^{HW \times D}$
-- **文本编码器**：冻结的 CLIP ViT-L/14，提取文本特征 $F_L \in \mathbb{R}^{1 \times D}$
+**1. 像素级 scale/shift 映射图：把全局单因子换成逐像素修正**
 
-跨模态注意力模块将两种特征融合。以图像特征为 Query，分别对自身(self-attention)和文本特征(cross-attention)进行注意力计算：
+之前的方法（如 RSA）只估一个全局 scale 和 shift，相对深度里某块局部错了不仅没法修、还会被整体缩放放大。TR2M 直接预测和图像同分辨率的 $A$、$B$ 两张图，每个像素一组缩放参数，于是局部错误区域能被单独纠正。这一步是全文最大增益来源：消融里从单因子换成映射图，NYUv2 AbsRel 从 0.118 直接降到 0.084。
+
+**2. 跨模态注意力：让文本当全局尺度先验，注入到每个像素**
+
+图像由冻结的 DINOv2 ViT-L 编出特征 $F_I \in \mathbb{R}^{HW \times D}$，文本由冻结的 CLIP ViT-L/14 编出 $F_L \in \mathbb{R}^{1 \times D}$。融合时以图像特征当 Query，分别对自身（self-attention）和文本（cross-attention）做注意力：
 
 $$\text{Attn}_{cm}^{i}(Q_I, K_i, V_i) = \text{softmax}\left(\frac{Q_I K_i^T}{\sqrt{d}}\right) \cdot V_i, \quad i \in \{I, L\}$$
 
-最终融合特征：$F_{out} = F_I + \text{Attn}_{cm}^I + \text{Attn}_{cm}^L$
+融合特征 $F_{out} = F_I + \text{Attn}_{cm}^I + \text{Attn}_{cm}^L$，再经两个轻量级 DPT 风格解码头分别解出 $A = \text{ScaleHead}(F_f)$、$B = \text{ShiftHead}(F_f)$。这样图像特征保持像素级空间分辨率当 Query，文本里隐含的尺度信息（"室内桌面"vs"室外街景"）作为全局先验被注入每个像素位置，而不是只给一个全局数。
 
-这种设计的关键在于：图像特征保持像素级空间分辨率作为 Query，文本特征作为全局尺度先验通过 cross-attention 注入到每个像素位置。
+**3. 伪度量深度 + 阈值筛选：让稀疏 GT 之外的像素也有监督**
 
-### 解码器
-
-使用两个轻量级 DPT 风格解码器头分别从融合特征 $F_f$ 中生成 scale map 和 shift map：
-
-- $A = \text{ScaleHead}(F_f)$
-- $B = \text{ShiftHead}(F_f)$
-
-### 伪度量深度与阈值筛选
-
-由于 ground truth 度量深度通常是稀疏的（部分像素没有标注），作者通过最小二乘回归将相对深度与 GT 对齐，生成伪度量深度：
+GT 度量深度往往稀疏，大片像素没标注。TR2M 先用最小二乘把相对深度对齐到 GT 生成伪度量深度：
 
 $$(\tilde{\alpha}, \tilde{\beta}) = \arg\min_{\tilde{\alpha}, \tilde{\beta}} \sum_{i=1}^{HW} (\tilde{\alpha} D_r(i) + \tilde{\beta} - D_m^{gt}(i))^2$$
 
-得到 $D_m^{pseudo} = \tilde{\alpha} D_r + \tilde{\beta}$。
-
-关键创新点在于**质量筛选**：使用阈值精度 $\delta_1$（$\max(D_m^{gt}/D_m^{pseudo}, D_m^{pseudo}/D_m^{gt}) < 1.25$ 的比例）来判断伪深度是否可信。只有 $\delta_1 > \rho$ 时才加入监督：
+得 $D_m^{pseudo} = \tilde{\alpha} D_r + \tilde{\beta}$。但伪深度不一定靠谱，于是用阈值精度 $\delta_1$（$\max(D_m^{gt}/D_m^{pseudo}, D_m^{pseudo}/D_m^{gt}) < 1.25$ 的像素比例）做质量门控，只有 $\delta_1 > \rho$ 才纳入监督：
 
 $$\mathcal{L}_{tp\text{-}si} = \mathbf{1}(\delta_1 > \rho) \cdot \mathcal{L}_{si}(\hat{D}_m, D_m^{pseudo})$$
 
-这使得稀疏 GT 区域外的像素也能获得合理的监督信号，提升泛化能力。
+这让稀疏标注外的区域也拿到可信监督信号，零样本场景 iBims δ₁ 因此 +0.051。
 
-### 双层尺度导向对比学习(Dual-Level Scale-Oriented Contrast)
+**4. 双层尺度导向对比：从图像级和像素级两个粒度对齐尺度分布**
 
-这是本文最具创新性的模块，从两个粒度强制特征与深度尺度分布一致：
-
-**1) 图像级粗对比(Image-Level Coarse Contrast)**
-
-在每个训练 batch 中，对图像特征做 average pooling 获得图像级嵌入 $\tilde{F}_f$，根据伪 scale 因子 $\tilde{\alpha}$ 的大小排序。尺度相近的图像特征为正样本对，尺度差异大的为负样本对：
-
-- 正样本：$|i - j| < t$（尺度距离小于阈值 $t$）
-- 负样本：$|i - j| \geq t$
-
-通过 InfoNCE 风格的对比损失，使具有相似尺度的场景在特征空间中更接近。
-
-**2) 像素级细对比(Pixel-Level Fine Contrast)**
-
-利用 GT 深度图构造像素级对比。将深度值按分布量化为 $|\mathcal{C}|$ 个离散类别：
+光有回归监督还不够，特征空间本身要按"尺度"组织起来。**粗粒度**上，对每张图的特征做 average pooling 得图像级嵌入 $\tilde{F}_f$，按伪 scale 因子 $\tilde{\alpha}$ 排序，尺度相近（$|i - j| < t$）的为正样本对、相差大（$|i - j| \geq t$）的为负样本对，用 InfoNCE 风格损失把相似尺度的场景在特征空间拉近。**细粒度**上，把 GT 深度量化成 $|\mathcal{C}|$ 个离散类别：
 
 $$Y = \text{round}\left(\frac{d_{max} - D}{d_{max} - d_{min}} \times |\mathcal{C}|\right)$$
 
-采用 EMA 双分支结构（类似 MoCo）：Query 和 Key 分支分别处理不同样本，生成像素级特征。对于 Query 像素 $i$，在 Key 特征图中找到相同深度类别的像素作为正样本，不同类别的作为负样本，最大化正样本相似度、最小化负样本相似度。
+用类似 MoCo 的 EMA 双分支，Query 像素在 Key 特征图里找同深度类别的像素当正样本、不同类别当负样本，最大化正样本相似度。两级合起来 $\mathcal{L}_{soc} = \mathcal{L}_{coarse} + \mathcal{L}_{fine}$，粗保全局尺度一致、细保局部深度分布一致，互补地把零样本进一步推高（DIODE δ₁ +0.031）。
 
-最终对比损失：$\mathcal{L}_{soc} = \mathcal{L}_{coarse} + \mathcal{L}_{fine}$
+### 损失函数 / 训练策略
 
-### 总损失函数
+总损失四项加权：
 
 $$\mathcal{L} = \lambda_1 \mathcal{L}_{si} + \lambda_2 \mathcal{L}_{tp\text{-}si} + \lambda_3 \mathcal{L}_{soc} + \lambda_4 \mathcal{L}_{es}$$
 
-其中 $\mathcal{L}_{es}$ 为边缘感知平滑损失，约束 scale/shift map 的平滑性。超参数设置为 $\lambda_1=1, \lambda_2=0.5, \lambda_3=0.1, \lambda_4=0.01$。
-
-### 实现细节
+其中 $\mathcal{L}_{es}$ 为边缘感知平滑损失（约束 scale/shift map 平滑），权重 $\lambda_1=1, \lambda_2=0.5, \lambda_3=0.1, \lambda_4=0.01$。关键训练配置：
 
 | 配置项 | 设置 |
 |--------|------|

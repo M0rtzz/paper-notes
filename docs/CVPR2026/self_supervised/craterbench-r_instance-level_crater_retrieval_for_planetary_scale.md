@@ -38,48 +38,35 @@ tags:
 
 ## 方法详解
 
+### 整体框架
+
+这篇论文先把"陨石坑分析"从检测任务重新定义为实例级图像检索任务，再围绕这个新任务做诊断和提方法。整体分三步走：先建一个 CraterBench-R 基准，把"跨图关联同一陨石坑"变成可评测的检索问题；再用 30 种冻结 backbone 跑一遍诊断，定位出"单向量池化精度有上限、有监督度量学习反而退化"两个瓶颈；最后提出一个无训练的实例 token 聚合，把 196 个 ViT patch token 压成 K 个代表 token 做 late interaction 匹配，并用"单向量粗筛 + 实例 token 精排"的两阶段管线落到行星尺度。
+
 ### 关键设计
 
-1. **CraterBench-R基准**:
+**1. CraterBench-R 基准：把陨石坑关联做成可评测的实例检索**
 
-    - ~25K陨石坑ID，每ID 2个gallery视图(~50K gallery图像)
-    - 5K人工验证查询图像(1000个陨石坑ID × 5个视图)，跨尺度和上下文变化
-    - Mars CTX图像，评估协议完整
-    - 直径范围1.0–401km（中位数1.5km，69%小于2km）
-    - Gallery提供两种标准裁剪: 2× 和 3× 直径上下文，显式评估上下文变化鲁棒性
-    - 查询经人工验证排除退化样本（纯背景、严重伪影等）
-    - 评估指标: Recall@K (K=1,5,10) 和 mAP；cluster-tolerant relevance处理共视情况
+科学工作流真正需要的是跨图像去重、跨观测匹配这类"关联"操作，但已有深度学习只输出位置和直径，没有可用于关联的视觉表示。本文据此构建首个实例级陨石坑检索基准：约 25K 陨石坑 ID，每个 ID 提供 2 个 gallery 视图（共约 50K gallery 图像），外加 5K 人工验证的查询图像（1000 个 ID × 5 个视图），全部来自 Mars CTX 图像。直径覆盖 1.0–401km（中位数 1.5km，69% 小于 2km），gallery 同时给出 2× 和 3× 直径两种上下文裁剪以显式考查上下文鲁棒性，查询经人工剔除纯背景、严重伪影等退化样本。评估用 Recall@K (K=1,5,10) 和 mAP，并用 cluster-tolerant relevance 处理共视情况。
 
-2. **基线诊断(30种冻结backbone)**:
+**2. 冻结 backbone 诊断：定位单向量上限与有监督退化两个瓶颈**
 
-    - 自监督ViT(尤其域内预训练MarsDINO)表现最佳→超越参数量多79×的通用模型
-    - ViT-B/16 MarsDINO (85M参数): R@1=.374, mAP=.553——最佳单向量结果
-    - 同架构 DINO: R@1=.304 → 域内预训练带来+7.0 R@1提升
-    - MAE (.022) 和 CLIP (.058) 在相同ViT-B/16架构下表现极差→预训练目标比架构更重要
-    - 单向量池化(CLS/GeM): 构成不可逾越的精度上限
-    - 有监督度量学习(Triplet/ArcFace/SupCon): 三种损失**一致退化**检索精度
-        - Triplet最好但仍使CLS mAP从.368降到.318，LI从.602降到.530
-        - 根因: 每ID仅2个视图→正样本多样性不足→full-backbone微调破坏了late interaction需要的token级结构
+有了基准就能系统回答"什么表示适合陨石坑检索"。本文对 30 种冻结 backbone 做诊断，得到两个关键负面结论。其一，CLS/GeM 这类单向量全局描述符把空间细节过度压缩，构成一道无法逾越的精度上限——最佳的 ViT-B/16 MarsDINO 也只能到 R@1=.374、mAP=.553。其二，Triplet/ArcFace/SupCon 三种有监督度量学习损失全部使检索精度退化（Triplet 把 CLS mAP 从 .368 降到 .318、late interaction 从 .602 降到 .530），根因是每个 ID 仅 2 个视图、正样本多样性不足，full-backbone 微调破坏了 late interaction 依赖的 token 级结构。诊断同时显示自监督预训练（尤其域内的 MarsDINO）远胜 MAE（.022）/CLIP（.058），说明预训练目标比架构和参数量更重要。
 
-3. **实例token聚合(无训练，核心方法)**:
+**3. 实例 token 聚合：无训练地把 196 个 patch token 压成 K 个代表 token**
 
-    - **第一步——种子选择**: 选K个种子索引 $\mathcal{S}=\{s_1,\ldots,s_K\}$，支持attention-based（按CLS→patch注意力权重top-K）或FPS（余弦空间最远点采样）
-    - **第二步——分配**: 非种子token按余弦相似度分配到最近种子，形成簇 $C_k$
-    - **第三步——聚合**: 残差形式合并种子与其簇:
-    $\mathbf{z}_k = \ell_2\left(\mathbf{t}_{s_k} + \frac{1}{\max(|C_k|, \epsilon)}\sum_{i \in C_k} \mathbf{t}_i\right)$
-    - **为什么用残差而非质心**: 残差形式保留种子的身份信息，即使簇较小也能保持区分力；k-means质心会模糊局部形态细节
-    - 产出: K个实例token用于ColBERT-style late interaction匹配:
-    $s_{\mathrm{LI}}(q,g) = \frac{1}{K_q}\sum_{i=1}^{K_q}\max_{1 \leq j \leq K_g} \langle \mathbf{t}_i^q, \mathbf{t}_j^g \rangle$
-    - 无训练→规避了fine-tuning退化陷阱
-    - K=16时mAP比原始token选择高+17.9; K=64时≈全196 token精度且存储减少3×
+既然微调会退化、而保留全部 196 个 token 做 late interaction 又在行星尺度上存不下、算不动，本文走第三条路：在冻结 ViT 特征上做无训练的后处理压缩。先选 K 个种子索引 $\mathcal{S}=\{s_1,\ldots,s_K\}$（按 CLS→patch 注意力取 top-K 的 attention-based，或在余弦空间做最远点采样 FPS）；再把非种子 token 按余弦相似度分配到最近种子形成簇 $C_k$；最后以残差形式合并种子与其簇：
 
-4. **两阶段行星尺度检索管线**:
+$$\mathbf{z}_k = \ell_2\left(\mathbf{t}_{s_k} + \frac{1}{\max(|C_k|, \epsilon)}\sum_{i \in C_k} \mathbf{t}_i\right)$$
 
-    - Stage 1: 单向量FAISS粗筛top-S候选(毫秒级)
-    - Stage 2: 实例token late interaction精排
-    - 离线聚合复杂度 $O(NK)$/图像；在线匹配 $O(K^2D)$/候选
-    - S=100时恢复89-94%完整精度
-    - S=500时恢复~96%
+之所以用残差而非 k-means 质心，是因为残差保留了种子自身的身份信息，即使簇很小也保有区分力，而质心会把局部形态细节抹平。产出的 K 个实例 token 用 ColBERT 式 late interaction 匹配：
+
+$$s_{\mathrm{LI}}(q,g) = \frac{1}{K_q}\sum_{i=1}^{K_q}\max_{1 \leq j \leq K_g} \langle \mathbf{t}_i^q, \mathbf{t}_j^g \rangle$$
+
+因为全程无训练，自然绕开了微调退化陷阱；K=16 时 mAP 已比"只选 token 不聚合"高 +17.9，K=64 时逼近全 196 token 精度而存储减少 3×。
+
+**4. 两阶段行星尺度检索管线：单向量粗筛 + 实例 token 精排**
+
+实例 token 精度高但逐对算 late interaction 成本不低，直接全库匹配在行星尺度仍不现实。本文用两阶段管线平衡精度和成本：Stage 1 用单向量在 FAISS 上毫秒级粗筛 top-S 候选，Stage 2 只在这 S 个候选上做实例 token late interaction 精排。离线聚合复杂度 $O(NK)$/图像，在线匹配 $O(K^2D)$/候选；S=100 时已能恢复 89–94% 的完整精度，S=500 时恢复约 96%，用很小的精度代价换来可落地的检索速度。
 
 ## 实验关键数据
 

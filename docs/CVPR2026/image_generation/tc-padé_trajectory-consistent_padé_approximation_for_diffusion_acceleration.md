@@ -43,43 +43,31 @@ tags:
 
 ### 整体框架
 
-TC-Padé 将采样轨迹划分为长度 $\mathcal{N}$ 的缓存区间，每个区间内仅第一步执行完整计算，后续步骤通过 **轨迹稳定性指标（TSI）** 自适应决定计算模式：
-
+TC-Padé 要解决的是低步数（20-30 步）扩散采样下的特征缓存失效：步数一少，相邻步时间间隔变大，特征相似度指数衰减，复用类方法（ToCa、TeaCache）轨迹漂移，预测类方法（TaylorSeer）则因 Taylor 展开收敛半径有限而误差暴涨。TC-Padé 改用 Padé 有理函数来外推**残差**，并把采样轨迹切成长度 $\mathcal{N}$ 的缓存区间，每个区间只第一步算完整网络，之后每步由**轨迹稳定性指标（TSI）**自适应决定是跳过还是重算：
 $$\text{TSI}(\mathcal{R}_{t+3}, \mathcal{R}_{t+2}, \mathcal{R}_{t+1}) = \frac{1}{2}\|\mathbf{u}_{t+1} - \mathbf{u}_{t+2}\|_2$$
+其中 $\mathbf{u}_t = (\mathcal{R}_t - \mathcal{R}_{t+1}) / \|\mathcal{R}_t - \mathcal{R}_{t+1}\|_2$ 为归一化残差差分向量。$\text{TSI} \geq \theta$ 时跳过计算、用 Padé 预测残差；否则回退到完整计算保质量。
 
-其中 $\mathbf{u}_t = (\mathcal{R}_t - \mathcal{R}_{t+1}) / \|\mathcal{R}_t - \mathcal{R}_{t+1}\|_2$ 为归一化残差差分向量。当 $\text{TSI} \geq \theta$ 时跳过计算并用 Padé 预测残差；否则执行完整计算以保持生成质量。
+### 关键设计
 
-### 关键设计1：基于残差的 Padé 近似预测
+**1. 基于残差的 Padé 近似预测：用有理函数替代多项式外推**
 
-**为什么用残差而非原始特征？** 作者发现残差（层间增量 $\mathcal{R}_t^{l:r} = x_t^r - x_t^l$）在时间维度上的相似度远高于原始特征。TaylorSeer 直接预测原始特征时，随步长间隔增大，余弦相似度低于 0.5；而残差的余弦相似度始终较高。
-
-**Padé 近似 vs Taylor 展开**：Taylor 级数是多项式近似，收敛半径有限；Padé 近似使用有理函数 $P_m(x)/Q_n(x)$，能更好地捕捉渐近行为和非线性相变。采用 $[2/1]$ 阶 Padé 近似（$k=3, m=1$）：
-
+TaylorSeer 直接预测原始高维特征，间隔一大余弦相似度就跌破 0.5；TC-Padé 先把预测对象换成残差（层间增量 $\mathcal{R}_t^{l:r} = x_t^r - x_t^l$），因为残差在时间维上的相似度远高于原始特征。预测器则用 Padé 有理函数 $P_m(x)/Q_n(x)$ 取代 Taylor 多项式——多项式收敛半径有限、大间隔下发散，而有理函数能刻画渐近行为和非线性相变。具体取 $[2/1]$ 阶（$k=3, m=1$）：
 $$\mathcal{R}_{Pad\acute{e},t} = \frac{b_0 \mathcal{R}_{t+3} + b_1 \mathcal{R}_{t+2}}{1 + a_1 \mathcal{R}_{t+1}}$$
+预测出残差后重建输出 $\bar{x}_t = x_{t+1} + \mathcal{R}_{Pad\acute{e},t}$。
 
-预测出残差后重建输出特征：$\bar{x}_t = x_{t+1} + \mathcal{R}_{Pad\acute{e},t}$
+**2. 自适应系数调节：按残差稳定性收放预测力度**
 
-### 关键设计2：自适应系数调节
-
-系数通过稳定性因子 $\sigma_{stab}$ 动态调节，而非经典 Padé 的解析求解：
-
+经典 Padé 解析求系数，在轨迹突变时会过激。TC-Padé 改用稳定性因子动态调节：
 $$\sigma_{stab} = \exp\left(-\lambda \frac{\|\mathcal{R}_{t+1} - \mathcal{R}_{t+2}\|}{\|\mathcal{R}_{t+1} + \mathcal{R}_{t+2}\|}\right)$$
+残差剧变时 $\sigma_{stab} \to 0$、系数趋于保守，残差稳定时 $\sigma_{stab} \to 1$、放手预测，三个系数随之取 $b_0 = 2\sigma_{stab}$、$b_1 = -\sigma_{stab}$、$a_1 = \frac{1}{\lambda}\sigma_{stab}$。这样预测力度始终和当前轨迹的可信度挂钩。
 
-当残差变化剧烈时 $\sigma_{stab} \to 0$，系数趋于保守；残差稳定时 $\sigma_{stab} \to 1$，充分利用预测。系数设为：
+**3. 去噪阶段感知策略：早中后各用一套残差更新**
 
-$$b_0 = 2\sigma_{stab}, \quad b_1 = -\sigma_{stab}, \quad a_1 = \frac{1}{\lambda}\sigma_{stab}$$
-
-### 关键设计3：去噪阶段感知策略
-
-将去噪过程划分为三个阶段，采用不同的残差更新策略：
-
-- **早期**（$t > 0.7T$）：结构快速演化，直接加权最近两步残差 $\alpha_1 \mathcal{R}_{t+1} + \alpha_2 \mathcal{R}_{t+2}$（$\alpha_1 + \alpha_2 = 1$）
-- **中期**（$0.2T \leq t \leq 0.7T$）：利用完整 Padé 近似 $\mathcal{R}_{Pad\acute{e},t}$ 捕捉长程依赖
-- **后期**（$t < 0.2T$）：在 Padé 基础上叠加一阶差分项 $\beta(\mathcal{R}_{t+1} - \mathcal{R}_{t+2})$ 捕捉细微速度变化
+扩散不同阶段的动力学不同，一套外推吃不下全程。TC-Padé 按阶段切换：早期（$t > 0.7T$）结构快速演化，直接加权最近两步残差 $\alpha_1 \mathcal{R}_{t+1} + \alpha_2 \mathcal{R}_{t+2}$（$\alpha_1 + \alpha_2 = 1$）；中期（$0.2T \leq t \leq 0.7T$）用完整 Padé 近似 $\mathcal{R}_{Pad\acute{e},t}$ 抓长程依赖；后期（$t < 0.2T$）在 Padé 上叠一阶差分项 $\beta(\mathcal{R}_{t+1} - \mathcal{R}_{t+2})$ 捕捉细微速度变化。
 
 ### 损失函数
 
-本方法为 **无训练** 方法，不涉及损失函数设计。核心是在推理阶段将 Padé 有理函数近似替代完整网络计算。
+无训练方法，不涉及损失函数设计。核心是在推理阶段用 Padé 有理函数近似替代完整网络计算。
 
 ## 实验关键数据
 

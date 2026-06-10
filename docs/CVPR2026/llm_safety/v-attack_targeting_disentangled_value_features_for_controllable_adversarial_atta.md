@@ -27,9 +27,7 @@ tags:
 
 ## 研究背景与动机
 
-### 核心矛盾
-
-**核心矛盾**：**领域现状**：对抗攻击已从干扰分类预测进化到操控 LVLM 的图像语义。但现有方法在精确操控特定概念时成功率极低——同时改变3个概念，成功率<10%。
+**领域现状**：对抗攻击已从干扰分类预测进化到操控 LVLM 的图像语义，但现有方法在精确操控特定概念时成功率极低——同时改变 3 个概念，成功率 <10%。
 
 **核心发现**：ViT 自注意力使 Patch 特征产生语义纠缠（全局上下文主导，局部语义被稀释），而 Value 特征天然抑制全局上下文通道，保留高熵的解耦局部语义。通道分布分析显示 Patch 特征被少数高激活通道（与 CLS token 相关）主导，而 Value 特征分布均匀。
 
@@ -37,25 +35,29 @@ tags:
 
 ### 整体框架
 
-多代理模型 Value 特征提取 → Self-Value Enhancement → Text-Guided Value Manipulation → PGD 迭代生成对抗扰动。
+V-Attack 的目标是对 LVLM 做“精确可控”的局部语义攻击——只把图里某个概念（比如“狗”）悄悄换成另一个（“猫”），其余不动。它的思路是别在纠缠的 Patch 特征上动手，而是盯住更解耦的 Value 特征：先跨多个代理模型提取各层 Value 特征，做一次自增强强化局部语义，再用源/目标概念的文本把要改的 token 挑出来定向操控，最后用 PGD 迭代把这套目标优化成一张对抗图。
 
 ### 关键设计
 
-1. **Value 特征解耦性**：分析 CLIP-L/14 发现 Patch 特征的信息熵在中间层骤降，而 Value 特征始终保持高熵。文本对齐分析显示 V 与特定文本的余弦相似度图有清晰空间对齐（"dog" → 0.28 vs X 的 0.22），V 是更精确的语义操控目标。
+**1. 盯住 Value 特征：它比 Patch 特征更解耦**
 
-2. **Self-Value Enhancement**：对提取的 Value 特征做"自注意力"（Q=K=V 全来自 Value），强化局部语义的内部一致性：$\widetilde{\mathbf{V}}^{(k)} = \text{Attn}(\mathbf{V}^{(k)}, \mathbf{V}^{(k)}, \mathbf{V}^{(k)})$
+前面说现有攻击在 Patch 特征上操控特定概念几乎失败，根因是 Patch 特征语义纠缠。作者在 CLIP-L/14 上做了两组分析坐实了这点：Patch 特征的信息熵在中间层骤降（被少数高激活通道主导），而 Value 特征始终保持高熵、分布均匀；文本对齐分析进一步显示，Value 与特定文本的余弦相似度图有清晰的空间对齐（“dog” → 0.28 vs Patch 的 0.22）。所以 V（Value）才是更精确的语义操控目标。
 
-3. **Text-Guided Value Manipulation**：
+**2. Self-Value Enhancement：先把局部语义自己拧紧**
 
-    - 用 CLIP 文本编码器编码源/目标概念
-    - 计算每个增强 Value token 与源文本的余弦相似度
-    - 自适应阈值 $\tau^{(k)}$ 选出与源概念对齐的 token 集合 $\mathcal{I}_{\text{align}}^{(k)}$
-    - 损失：$\mathcal{L} = \sum_{k} \sum_{i \in \mathcal{I}_{\text{align}}^{(k)}} [-s_i^{(k)}(t_s) + s_i^{(k)}(t_t)]$
-    - PGD 迭代 + 随机裁缩增强迁移性
+光选对目标还不够，单层 Value 的局部语义还可以更一致。这一步对提取的 Value 特征做一次“自注意力”——Q、K、V 全来自 Value 本身，$\widetilde{\mathbf{V}}^{(k)} = \text{Attn}(\mathbf{V}^{(k)}, \mathbf{V}^{(k)}, \mathbf{V}^{(k)})$，强化各 token 内部的语义一致性，让后续操控落点更准、语义更丰富。
+
+**3. Text-Guided Value Manipulation：用文本把该改的 token 拎出来定向推拉**
+
+要“可控”，就得知道改哪些 token、往哪改。这一步用 CLIP 文本编码器分别编码源概念 $t_s$ 和目标概念 $t_t$，对每个增强后的 Value token 算它与源文本的余弦相似度，再用自适应阈值 $\tau^{(k)}$ 选出真正与源概念对齐的 token 集合 $\mathcal{I}_{\text{align}}^{(k)}$。只在这些 token 上施力，损失同时把它们推离源概念、拉向目标概念：
+
+$$\mathcal{L} = \sum_{k} \sum_{i \in \mathcal{I}_{\text{align}}^{(k)}} [-s_i^{(k)}(t_s) + s_i^{(k)}(t_t)]$$
+
+配合 PGD 迭代和随机裁缩增强迁移性。正因为只动语义对齐的少量 token，攻击才能做到单概念级别的精准替换而不波及全局。
 
 ### 损失函数 / 训练策略
 
-跨多个代理模型（CLIP变体）集成优化，对选出的语义对齐 token 同时远离源概念、靠近目标概念。
+整套优化跨多个代理模型（CLIP 变体）集成进行，对选出的语义对齐 token 同时远离源概念、靠近目标概念，再用随机裁缩增强黑盒迁移性。
 
 ## 实验关键数据
 

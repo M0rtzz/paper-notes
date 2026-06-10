@@ -40,33 +40,25 @@ tags:
 
 ### 整体框架
 
-PAMS 将多分类问题组织为层次化结构（从最细粒度 $\mathcal{H}$ 到根节点 $\mathcal{R}$），在每个层次训练一个分类器 $f_{\theta_h}$。训练目标为 $\mathcal{L} = \lambda_1 \mathcal{L}_{MSCE} + \lambda_2 \mathcal{L}_{HA}$，同时使用 SFR 进行数据增强。
+PAMS 想解决的是「MIL 病理诊断只追准确率、不管误诊有多严重」的问题——把恶性误判成正常远比反过来危险，但交叉熵一视同仁。它把多分类组织成层次结构（从最细粒度 $\mathcal{H}$ 到根节点 $\mathcal{R}$），每层训一个分类器 $f_{\theta_h}$，训练目标为 $\mathcal{L} = \lambda_1 \mathcal{L}_{MSCE} + \lambda_2 \mathcal{L}_{HA}$，同时用 SFR 做数据增强，并配一套非对称指标来如实评估安全性。
 
-### Mistake Severity Cross-Entropy（MSCE）
+### 关键设计
 
-- 定义非对称权重矩阵 $M^h$：当真实类 $c_i^h$ 比预测类 $c_j^h$ 更紧急时，惩罚为 $\alpha^{|i-j|}$（$\alpha > 1$）；反向误分类权重为 1
-- 最终损失为 $\mathcal{L}_{MSCE} = -\sum_h \hat{p}^h M^h (\tilde{Y}^h)^\top \sum_c \tilde{Y}^h[c] \log \hat{p}^h[c]$
-- 核心思想：在交叉熵前乘一个方向性正则化权重 $\hat{p}^h M^h (\tilde{Y}^h)^\top$，同时考虑预测概率分布和真实标签之间的严重性关系
-- 与 Weighted CE 的区别：Weighted CE 仅基于类频率或固定权重，不考虑预测与真实标签之间的方向性差异
+**1. Mistake Severity Cross-Entropy（MSCE）：给交叉熵装上方向性惩罚**
 
-### 层次概率对齐（Hierarchy Alignment）
+传统交叉熵对所有错误同等惩罚，无法体现「漏诊比过诊更危险」。MSCE 定义非对称权重矩阵 $M^h$：当真实类 $c_i^h$ 比预测类 $c_j^h$ 更紧急时惩罚为 $\alpha^{|i-j|}$（$\alpha>1$），反方向误分类权重只记 1。最终损失 $\mathcal{L}_{MSCE} = -\sum_h \hat{p}^h M^h (\tilde{Y}^h)^\top \sum_c \tilde{Y}^h[c] \log \hat{p}^h[c]$，相当于在交叉熵前乘一个方向性正则权 $\hat{p}^h M^h (\tilde{Y}^h)^\top$，同时看预测分布和真实标签的严重性关系。和 Weighted CE 只按类频率/固定权重加权不同，MSCE 动态捕捉预测与真实标签之间的方向性差异。
 
-- 使用 Jensen-Shannon 散度对齐相邻层次的预测概率
-- 将更细粒度层的预测 $\hat{p}^{h+1}$ 聚合为粗粒度表示 $\dot{p}^{h+1}$，与当前层 $\hat{p}^h$ 对齐
-- 确保不同层次分类器对同一样本做出一致性预测
+**2. 层次概率对齐（Hierarchy Alignment）：让粗细两层判断一致**
 
-### Semantic Feature Remix（SFR）
+层次结构里若各层分类器各说各话，整体诊断会自相矛盾。HA 用 Jensen-Shannon 散度对齐相邻层次的预测概率：把更细粒度层的预测 $\hat{p}^{h+1}$ 聚合为粗粒度表示 $\dot{p}^{h+1}$，再与当前层 $\hat{p}^h$ 对齐，确保不同层次分类器对同一样本给出一致预测。
 
-- 给定两个不同优先级的 WSI（$Y_a \succ Y_b$），将其全部 instance 聚类为 $L$ 个簇
-- 按簇中来自高优先级样本 $Z_a$ 的 patch 比例排序，取 top-$k$ 簇中的 $Z_a$ patches
-- 将这些语义上代表高严重性症状的 patches 混入低优先级 bag $Z_b$，形成合成样本 $Z_{a+b}$，标签为 $Y_a$
-- 使用 FAISS 库实现高效 GPU 并行聚类
+**3. Semantic Feature Remix（SFR）：用弱标签合成「高危混入低危」的样本**
 
-### 非对称 Mikel's Wheel 指标
+临床里多种症状常共存，但 WSI 只有弱标签、缺像素级标注，难以直接造出复杂共存样本。SFR 给定两个不同优先级的 WSI（$Y_a \succ Y_b$），把全部 instance 聚成 $L$ 个簇，按簇中来自高优先级样本 $Z_a$ 的 patch 比例排序，取 top-$k$ 簇里的 $Z_a$ patches，混入低优先级 bag $Z_b$ 形成合成样本 $Z_{a+b}$、标签记为 $Y_a$，并用 FAISS 做高效 GPU 并行聚类。这样在特征空间里就模拟出「高危症状藏在低危切片中」的难例，逼模型学会优先识别最紧急的诊断。
 
-- 提出 AsCC（Asymmetric Classification Confidence）和 AsMC（Asymmetric Misclassification Confidence）
-- 混淆权重 $W_{i,j}^h = 1 + |i-j| + \mathbb{1}(c_i^h \succ c_j^h) \times P$，其中 $P=2$
-- 高优先级类被误分到低优先级时施加额外惩罚，反映真实临床风险
+**4. 非对称 Mikel's Wheel 指标：让评估也认方向**
+
+现有 MS 指标（ECC/EMC）基于对称距离，分不清误分类的方向，导致安全性无法被正确评估。PAMS 提出 AsCC（Asymmetric Classification Confidence）和 AsMC（Asymmetric Misclassification Confidence），混淆权重 $W_{i,j}^h = 1 + |i-j| + \mathbb{1}(c_i^h \succ c_j^h) \times P$（$P=2$），当高优先级类被误分到低优先级时额外加罚，让指标如实反映真实临床风险。
 
 ## 实验关键数据
 

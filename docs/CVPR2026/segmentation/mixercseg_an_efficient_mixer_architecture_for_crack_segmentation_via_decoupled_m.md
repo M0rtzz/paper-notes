@@ -39,15 +39,23 @@ tags:
 
 ### 整体框架
 
-编码器-解码器结构：输入经 Stem 层后由 TransMixer Block 提取多尺度特征 $\{F_1, F_2, F_3, F_4\}$ → DEGConv 增强边缘和方向感知 → SRF 模块多尺度融合 → 分割头输出像素级结果。
+MixerCSeg 要解决的是裂缝分割里"形态多样、对比度低、还得轻量部署"这组矛盾。整体是一个编码器-解码器结构：输入先过 Stem 层，再由若干 TransMixer Block 逐级提取多尺度特征 $\{F_1, F_2, F_3, F_4\}$；这些特征经 DEGConv 注入方向与边缘先验后，由 SRF 模块自顶向下融合，最后交给分割头输出像素级裂缝掩码。整条链路的核心思路是"让 CNN、Transformer、Mamba 各管各擅长的通道"，而不是把它们简单堆在一起。
 
 ### 关键设计
 
-1. **TransMixer Block**：首先执行标准 Mamba 操作（Eq.1-2）获得输出 $Y$，然后根据 $\Delta_t$（控制历史 token 对当前 token 影响程度的因子）沿通道维度排序，选择 top $d_g = d \cdot \gamma$ 个为**全局 token**（$\Delta_t$ 大，衰减快，更关注当前帧），其余 $d_l = d \cdot (1-\gamma)$ 为**局部 token**。全局分支送入 Self-Attention 增强远程依赖；局部分支送入 Local Refinement Module（Norm → Reshape → MaxPool2d → Conv $1\times1$ → Sigmoid 门控 → 与原特征相乘）增强细粒度细节。默认 $\gamma = 0.5$。这种设计让三种架构"各司其职"而非"简单堆叠"。
+**1. TransMixer Block：顺着 Mamba 的 $\Delta_t$ 把通道解耦成全局/局部两支**
 
-2. **Direction-guided Edge Gated Convolution (DEGConv)**：分为三步：(a) **Rearrange**：将特征图划分为 $N$ 个不重叠的局部视图 $F_i^j \in \mathbb{R}^{C_i \times h_i \times w_i}$，独立处理；(b) **方向嵌入生成**：对每个视图沿通道平均 → Sobel 算子计算水平/垂直梯度 → $\theta = \arctan(d_y/d_x)$ 得方向弧度 → 划分 cell 和 bin 构建方向直方图 → 经 Conv + ReLU + AvgPool 得方向嵌入向量 $\epsilon \in \mathbb{R}^{C_i}$；(c) **门控边缘卷积**：$g = \sigma_2(\text{EdgeConv}(F_i^j + \epsilon))$, ${F_i^j}' = g \odot \text{EdgeConv}(F_i^j)$。EdgeConv 使用 $1 \times k$ 和 $k \times 1$ 条形卷积分别提取水平/垂直方向特征后拼接+深度卷积。通过方向先验显式建模裂缝走向。
+混合架构的老问题是"无脑堆叠"——MambaVision、RestorMixer 把不同模块串起来却没分析它们到底在干什么。本文先跑一遍标准 Mamba（Eq.1-2）得到输出 $Y$，再用 $\Delta_t$（控制历史 token 对当前 token 影响程度的因子）当作"全局/局部"的判据沿通道维度排序：$\Delta_t$ 大的通道衰减快、更关注当前帧，取 top $d_g = d \cdot \gamma$ 个作为**全局 token**，其余 $d_l = d \cdot (1-\gamma)$ 作为**局部 token**（默认 $\gamma = 0.5$）。
 
-3. **Spatial Refinement Multi-Level Fusion (SRF)**：用高分辨率特征 $F_1'$ 生成空间注意力图 $\alpha = \sigma_2(\text{Conv}_{1\times1}(F_1'))$，对上采样后的低分辨率特征加权 $F_i'' = \alpha \odot F_i^{up}$，最后拼接所有尺度特征送入分割头 $r = \mu([F_1^{up}; F_2^{up}; F_3^{up}; F_4^{up}])$。用高分辨率细节引导低分辨率语义融合，不增加额外计算。
+全局分支送进 Self-Attention 补远程依赖，局部分支走 Local Refinement Module（Norm → Reshape → MaxPool2d → Conv $1\times1$ → Sigmoid 门控 → 与原特征相乘）抠细粒度细节。这样三种架构是"各司其职"而非"简单堆叠"——消融里它确实比 MambaVision/RestorMixer 这类堆叠方式更有效。
+
+**2. Direction-guided Edge Gated Convolution：把裂缝走向当先验显式建进卷积**
+
+裂缝是细长、有明确走向的结构，普通各向同性卷积感知不到方向。DEGConv 分三步注入方向先验：(a) **Rearrange**——把特征图切成 $N$ 个不重叠的局部视图 $F_i^j \in \mathbb{R}^{C_i \times h_i \times w_i}$ 独立处理；(b) **方向嵌入生成**——每个视图沿通道平均后用 Sobel 算子算水平/垂直梯度，$\theta = \arctan(d_y/d_x)$ 得方向弧度，按 cell 和 bin 构建方向直方图，再经 Conv + ReLU + AvgPool 压成方向嵌入向量 $\epsilon \in \mathbb{R}^{C_i}$；(c) **门控边缘卷积**——$g = \sigma_2(\text{EdgeConv}(F_i^j + \epsilon))$，${F_i^j}' = g \odot \text{EdgeConv}(F_i^j)$，其中 EdgeConv 用 $1 \times k$ 和 $k \times 1$ 条形卷积分别提水平/垂直特征后拼接+深度卷积。方向直方图把"裂缝朝哪走"显式喂给门控，对不规则几何的感知比纯卷积强。
+
+**3. Spatial Refinement Multi-Level Fusion：用高分辨率细节引导低分辨率语义融合**
+
+多尺度特征直接拼接，高分辨率的边缘细节容易被低分辨率语义淹没。SRF 改用高分辨率特征 $F_1'$ 生成空间注意力图 $\alpha = \sigma_2(\text{Conv}_{1\times1}(F_1'))$，对上采样后的低分辨率特征逐点加权 $F_i'' = \alpha \odot F_i^{up}$，最后拼接所有尺度送入分割头 $r = \mu([F_1^{up}; F_2^{up}; F_3^{up}; F_4^{up}])$。它本质是让细节图当"门"去校准语义图，且不额外增加计算量。
 
 ### 损失函数 / 训练策略
 

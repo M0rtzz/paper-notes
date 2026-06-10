@@ -43,51 +43,36 @@ BTP 首次将预训练的点-语言模型（PLM，如 ULIP）应用于零样本 
 ## 方法详解
 
 ### 整体框架
-输入点云 → ULIP 编码器提取语义特征 + GFCM 提取几何描述 → MGFEM 融合多粒度特征 → 与文本嵌入比较 → 异常分数
+
+BTP 想回答的是「3D 异常检测要不要绕道 2D」——主流方案把点云渲染成多视角图再喂 CLIP，渲染会丢几何细节、还受视角选择影响。BTP 直接在点云上做：输入点云先经 ULIP 编码器抽语义特征、经 GFCM 抽几何描述，再由 MGFEM 把多粒度特征融成结构感知的 patch 表示，最后和「正常/异常」文本嵌入比相似度得到异常分数。难点在于 ULIP 本是为分类设计的全局嵌入，不适合细粒度定位，所以下面几个设计都围绕「把全局 PLM 改造得能感知局部异常」。
 
 ### 关键设计
 
-1. **Patch 级特征利用**：
+**1. Patch 级特征利用：把 ULIP 的中间层挖出来补局部感知**
 
-    - ULIP 原本只用最终层全局 embedding → BTP **额外提取多个中间层的 patch 级表示**
-    - 不同层捕获不同抽象级别的几何和语义信息
-    - 这些 patch 表示组合后，显著提升对局部结构变化的敏感度
+ULIP 默认只输出最终层的全局 embedding，定位局部异常时太粗。BTP 额外提取多个中间层的 patch 级表示——不同层捕获不同抽象级别的几何与语义信息，把这些 patch 表示组合起来，模型对局部结构变化的敏感度明显提升，这是把分类用的 PLM 拉向定位任务的第一步。
 
-2. **几何特征创建模块 GFCM（Geometric Feature Creation Module）**：
+**2. 几何特征创建模块 GFCM：用可学习网络替 FPFH，又向它对齐**
 
-    - **动机**：FPFH 等经典几何描述子能有效表征局部几何关系，但作为手工特征无法端到端优化
-    - **方法**：用 PointNet 风格的可学习网络替代 FPFH
-        - 对每个 patch 的邻域点应用共享 MLP
-        - Max-pooling 聚合为 patch 级几何描述子
-        - FC 层投射到与文本嵌入对齐的维度
-    $\mathbf{f}_i = \phi\left(\max_{j=1,...,M} \text{MLP}(\mathbf{p}_{ij})\right)$
-    - 通过与 FPFH 的对比损失来显式注入几何先验
+FPFH 这类经典几何描述子能很好刻画局部几何关系，但作为手工特征没法端到端优化。GFCM 用 PointNet 风格的可学习网络顶替它：对每个 patch 的邻域点过共享 MLP，再 max-pooling 聚合成 patch 级几何描述子，最后 FC 投到与文本嵌入对齐的维度，即 $\mathbf{f}_i = \phi\left(\max_{j=1,\ldots,M}\text{MLP}(\mathbf{p}_{ij})\right)$。同时用一项与 FPFH 的对比损失把几何先验显式注入，既保住手工特征的物理直觉，又拿到了可学习的灵活性。
 
-3. **多粒度特征嵌入模块 MGFEM**：
+**3. 多粒度特征嵌入模块 MGFEM：语义+几何+全局三路融合**
 
-    - 融合三种信息：
-        - 多层中间语义特征 $\{\mathbf{H}^{(l)}\}_{l=1}^L$（加权求和，权重可学习）
-        - 几何特征 $\mathbf{F}_{geo}$
-        - 全局 CLS token $\mathbf{h}_{CLS}$
-    - 各自投射到统一空间后拼接：
-    $\mathbf{Z} = \phi_f\left([\sum_l \alpha_l \mathbf{S}^{(l)} \| \mathbf{G} \| \mathbf{C}]\right)$
-    - 最终 $\mathbf{Z} \in \mathbb{R}^{N \times D}$ 为结构感知的 patch 表示
+单靠哪一路都不够，MGFEM 把三种信息拼到一起：多层中间语义特征 $\{\mathbf{H}^{(l)}\}_{l=1}^L$（按可学习权重加权求和）、GFCM 的几何特征 $\mathbf{F}_{geo}$、以及全局 CLS token $\mathbf{h}_{CLS}$。三者各自投到统一空间后拼接，$\mathbf{Z} = \phi_f\left([\sum_l \alpha_l \mathbf{S}^{(l)} \,\|\, \mathbf{G} \,\|\, \mathbf{C}]\right)$，得到结构感知的 patch 表示 $\mathbf{Z}\in\mathbb{R}^{N\times D}$，让语义、几何、全局三种线索互补。
 
-4. **混合可学习 Prompt**：
+**4. 混合可学习 Prompt：少量可学习 token 配固定模板**
 
-    - 结合少量可学习上下文 token 和固定模板（"normal object" / "defective object"）
-    - ULIP 编码生成正常/异常文本嵌入
-    - 与点云特征计算相似度得到异常分数
+文本侧把少量可学习上下文 token 和固定模板（“normal object” / “defective object”）结合，经 ULIP 编码出正常/异常两个文本嵌入，再与点云特征算相似度得到异常分数——既保留模板的语义锚点，又留出可学习的适配空间。
 
 ### 损失函数 / 训练策略
-联合表示学习，三级监督信号：
+
+联合表示学习，三级监督互补：
 $$\mathcal{L} = \mathcal{L}_{local} + \lambda_1 \mathcal{L}_{global} + \lambda_2 \mathcal{L}_{geo}$$
 
-- **$\mathcal{L}_{local}$ = Focal Loss + Dice Loss**：点级监督，缓解正负样本失衡
-- **$\mathcal{L}_{global}$ = BCE**：全局物体级判别（融合点级和 patch 级预测）
-- **$\mathcal{L}_{geo}$ = 对比损失**：学习几何特征与 FPFH 对齐（InfoNCE）
-- $\lambda_1 = 0.5, \lambda_2 = 0.1$
-- 使用辅助点云数据训练 GFCM 和 MGFEM，零样本推理时无需目标类别数据
+- $\mathcal{L}_{local}$ = Focal Loss + Dice Loss：点级监督，缓解正负样本失衡
+- $\mathcal{L}_{global}$ = BCE：全局物体级判别（融合点级与 patch 级预测）
+- $\mathcal{L}_{geo}$ = 对比损失（InfoNCE）：让几何特征与 FPFH 对齐
+- $\lambda_1 = 0.5,\ \lambda_2 = 0.1$；用辅助点云数据训练 GFCM 和 MGFEM，零样本推理时无需目标类别数据
 
 ## 实验关键数据
 

@@ -46,42 +46,27 @@ tags:
 
 ### 整体框架
 
-WeaveTime 是一个即插即用、Video-LLM 无关的流式视频 QA 框架，包含两个核心组件：
-1. **训练阶段**：流式时序感知增强（SOPE）—— 通过时序重建辅助任务赋予模型时序感知
-2. **推理阶段**：过去-当前动态焦点缓存（PCDF-Cache）—— 不确定性门控 + 粗到细检索
+WeaveTime 针对的是 Video-LLM 的「时间不可知」（Time-Agnosticism）——模型把视频当成无序证据袋，打乱帧序几乎不影响精度。它是一个即插即用、与具体 Video-LLM 无关的流式 QA 框架，遵循「先教时序，再用时序」的思路：训练阶段用流式时序感知增强（SOPE）通过一个时序重建辅助任务把「帧是有先后的」教进模型；推理阶段用过去-当前动态焦点缓存（PCDF-Cache）做不确定性门控 + 粗到细检索，让模型按需回溯历史而不是无脑重载。
 
 ### 关键设计
 
-1. **Time-Agnosticism 诊断**:
-    - 核心实验：打乱视频帧顺序后测试模型 vs 人类表现
-    - 模型在 shuffle 后精度几乎不变，甚至在 Temporal Perception、Action Recognition 等时序任务上有所提升（红色高亮）
-    - 人类在无时间戳的 shuffle 视频上时序/动作任务精度崩溃（从 1.0 降至 0.0-0.2），提供时间戳后恢复
-    - 热力图分析揭示模型存在时序位置偏差：短视频倾向关注首尾，长视频偏重开头
-    - 结论：模型依赖时空捷径和位置偏差而非真正的因果推理
+**1. Time-Agnosticism 诊断：先证明模型确实没在用时序**
 
-2. **流式时序感知增强（SOPE）**:
-    - 设计 **Temporal Reconstruction (TR)** 辅助任务：将视频帧 shuffle 后保留时间戳标记，要求模型先恢复正确时序再回答问题
-    - 具体操作：对 patch 化的视频 token 序列 $\mathbf{X} = [\tilde{\mathbf{v}}_{1,1}, \ldots, \tilde{\mathbf{v}}_{1,N_f}, \tilde{\mathbf{v}}_{2,1}, \ldots]$，在每帧前插入时间戳 token $\mathbf{ts}_i$，然后打乱帧内容
-    - 在原始 QA prompt 前追加指令："These video segments are shuffled. List each segment's true time range."
-    - 利用 LLM 自身的文本重排能力，将时序预测作为 next-token prediction 任务，无需额外模块或损失函数
-    - 仅使用 30k 条离线视频 IT 数据（来自 LLaVA-Video-178K），LoRA 训练 1 个 epoch，8 GPU 即可
-    - 效果：将记忆从"无序缓存"升级为"有序状态链"，使推理时检索能定位事件发生的时间而非仅关注内容
+动机来自一组对照实验：把视频帧打乱后，模型精度几乎不变，甚至在时序感知、动作识别等任务上反而上升；而人类在无时间戳的乱序视频上时序/动作精度直接崩塌（从 1.0 掉到 0.0–0.2），给回时间戳才恢复。热力图进一步显示模型有时序位置偏差——短视频盯首尾、长视频偏开头。这组诊断说明 Video-LLM 靠的是时空捷径和位置偏差，而非真正的因果推理，也就指明了后续「补时序」的方向。
 
-3. **过去-当前动态焦点缓存（PCDF-Cache）**:
-    - 核心策略："先看当下，按需回忆"（Look Now, Recall if Needed）
-    - 当查询 $q$ 到达时间 $t$，模型首先仅从短时窗口 $\mathcal{M}_{t-1}[-C:]$ 生成答案 $a_t^{(0)}$
-    - 计算预测熵 $H_t = \text{Entropy}(a_t^{(0)})$，与阈值 $\delta$ 比较：
-    - 若 $H_t < \delta$：直接使用当前答案（无需回溯）
-    - 若 $H_t \geq \delta$：触发粗到细检索（C2F Recall）
-    - **粗到细检索**：先用帧级余弦相似度（$\text{Sim}(f_i^v, f^q)$）筛选 $\mathcal{M}_{\text{coarse}}$，再用 late-interaction max-sim 精细匹配：$\text{maxSim}(\{f_{i,k}^v\}, \{f_j^q\}) = \sum_{j=1}^{N_q} \max_{1 \leq k \leq N_i} \langle f_j^q, f_{i,k}^v \rangle$
-    - 最终选取 top-$K$ 帧（限制最多 64 帧），实现 token 级精度但仅付出帧级计算成本
+**2. 流式时序感知增强（SOPE）：用时序重建逼模型先理顺帧序再答题**
+
+既然模型不会用时序，就设计 Temporal Reconstruction（TR）辅助任务硬教它。对 patch 化的视频 token 序列 $\mathbf{X} = [\tilde{\mathbf{v}}_{1,1}, \ldots, \tilde{\mathbf{v}}_{1,N_f}, \tilde{\mathbf{v}}_{2,1}, \ldots]$，在每帧前插入时间戳 token $\mathbf{ts}_i$ 再打乱帧内容，并在原 QA prompt 前追加“这些片段被打乱了，请先列出每段真实时间范围”。这样把时序预测变成纯 next-token prediction，借 LLM 自身的文本重排能力完成，不加任何额外模块或损失。它把记忆从「无序缓存」升级成「有序状态链」，让推理时的检索能定位事件发生的时间而非只看内容；代价极小——只用 30k 条来自 LLaVA-Video-178K 的离线 IT 数据、LoRA 训练 1 个 epoch、8 GPU。
+
+**3. 过去-当前动态焦点缓存（PCDF-Cache）：先看当下，不确定才回忆**
+
+时序教会了，还要解决「何时该回溯、回溯多少」。PCDF-Cache 走“Look Now, Recall if Needed”：查询 $q$ 在时刻 $t$ 到达时，模型先只用短时窗口 $\mathcal{M}_{t-1}[-C:]$ 给出答案 $a_t^{(0)}$ 并算其预测熵 $H_t = \text{Entropy}(a_t^{(0)})$；若 $H_t < \delta$ 就直接采用、省去回溯，若 $H_t \geq \delta$ 才触发粗到细检索。检索分两层：先用帧级余弦相似度 $\text{Sim}(f_i^v, f^q)$ 粗筛出 $\mathcal{M}_{\text{coarse}}$，再用 late-interaction 的 max-sim 精匹配 $\text{maxSim}(\{f_{i,k}^v\}, \{f_j^q\}) = \sum_{j=1}^{N_q}\max_{1\leq k\leq N_i}\langle f_j^q, f_{i,k}^v \rangle$，最终取 top-$K$ 帧（最多 64 帧）。这样只付帧级计算成本却拿到接近 token 级的精度，也避免了全 token 检索直接 OOM。
 
 ### 损失函数 / 训练策略
 
-- 训练阶段使用标准 next-token prediction 语言建模损失，TR 辅助任务与原始 QA 合并为单轮对话
-- 随机采样 30k 条离线视频 IT 数据，LoRA 微调（$\text{lr}=1 \times 10^{-5}$），1 个 epoch
-- 推理时 entropy 阈值 $\delta = 0.6$（通过消融实验确定的最优值）
-- 基于 ReKV 代码库实现，最大召回帧数限制为 64
+- 训练用标准 next-token prediction 语言建模损失，TR 辅助任务与原 QA 合并成单轮对话
+- 随机采样 30k 条离线视频 IT 数据，LoRA 微调（lr=$1\times10^{-5}$），1 个 epoch
+- 推理时 entropy 阈值 $\delta=0.6$（消融确定的最优值）；基于 ReKV 实现，最大召回帧数 64
 
 ## 实验关键数据
 

@@ -44,24 +44,21 @@ tags:
 
 ### 整体框架
 
-SCNP 作为一个轻量后处理模块插入在 logit 输出与损失函数之间：模型输出 logits $\mathbf{Z}$ → SCNP 生成惩罚后 logits $\tilde{\mathbf{Z}}$ → 标准损失 $\mathcal{L}(\sigma(\tilde{\mathbf{Z}}), \mathbf{Y})$。训练时仅需额外 3 行代码，推理时无任何改变。
+这篇要解决的是分割模型逐像素独立推理、不管拓扑对错的老毛病——细管状结构容易断、还会冒出孤立假阳性。SCNP 是个轻到极致的模块，夹在 logit 输出和损失函数之间：模型出 logits $\mathbf{Z}$，SCNP 把它改写成惩罚后的 $\tilde{\mathbf{Z}}$，再喂给标准损失 $\mathcal{L}(\sigma(\tilde{\mathbf{Z}}), \mathbf{Y})$。训练时只多 3 行代码，推理时完全不变。
 
-### 关键设计：同类邻域惩罚
+### 关键设计
 
-对每个像素 $i$ 的 logit $z_{ki}$（类别 $k$），SCNP 定义为：
+**1. 同类邻域惩罚：把每个像素换成它同类邻域里最差的预测**
 
-- **前景类** ($y_{ki}=1$)：取邻域 $\Omega(i)$ 中同为前景的 logit 最小值 → $\tilde{z}_{ki} = \min_{j \in \Omega(i), y_{kj}=1} z_{kj}$
-- **背景类** ($y_{ki}=0$)：取邻域中同为背景的 logit 最大值 → $\tilde{z}_{ki} = \max_{j \in \Omega(i), y_{kj}=0} z_{kj}$
+断裂处和假阳性像素有个共同特征——它们必然是同类邻域里预测最差的那个，这个先验之前没人显式用起来。SCNP 的做法是对每个像素 $i$、类别 $k$ 的 logit $z_{ki}$ 动手脚：若该像素是前景（$y_{ki}=1$），就把它换成邻域 $\Omega(i)$ 中同为前景的 logit 最小值 $\tilde{z}_{ki} = \min_{j \in \Omega(i), y_{kj}=1} z_{kj}$；若是背景（$y_{ki}=0$），换成邻域中同为背景的 logit 最大值 $\tilde{z}_{ki} = \max_{j \in \Omega(i), y_{kj}=0} z_{kj}$。这一替换带来三个效果：logit 被恶化所以损失增大；最差像素被传播到多少个邻域就被惩罚多少次，于是模型优先去修它；梯度在邻域像素之间、类别之间产生耦合，把「修好一个弱点」变成协同优化。
 
-结果：(1) 损失增大，因为 logit 被恶化；(2) 最差预测像素被惩罚多次（被传播到多少个邻域就被惩罚多少次）；(3) 梯度在邻域像素间和类别间产生耦合。
+**2. 用 MaxPool/MinPool 实现：让 3 行代码跑出邻域传播**
 
-### 高效实现
+上面的 min/max-over-neighbors 看似要写循环，其实一个池化就够。SCNP 把背景 logit 乘以极大正数 $\kappa$ 后做 MinPool（让背景不污染前景的传播），把前景 logit 乘以极大负数 $-\kappa$ 后做 MaxPool，就同时拿到了前景的邻域最小值和背景的邻域最大值。唯一超参是窗口大小 $w$（默认 $w=3$、stride=1、padding 保持尺寸），所以整体只多几毫秒/迭代和几 MiB 显存——相比之下基于持久同调的 TopoLoss 会把每次迭代从毫秒拖到数秒。
 
-利用 MaxPool 和 MinPool 实现：将背景 logit 乘以极大正数 $\kappa$ 做 MinPool（使其不参与前景传播），将前景 logit 乘以极大负数 $-\kappa$ 做 MaxPool。窗口大小 $w$ 为唯一超参数，默认 $w=3$，stride=1，padding 保持尺寸不变。
+### 损失函数 / 训练策略
 
-### 损失函数
-
-SCNP 与任意损失函数组合使用，论文中主要使用 $\mathcal{L}_{CEDice+\overline{CEDice}}$，即同时优化标准 logits 和 SCNP 惩罚后 logits 上的 CE+Dice 损失。消融实验证明 SCNP 可集成到 CE、Dice、Tversky、clDice、SkelRecall、TopoLoss、Focal、RWLoss 等 8 种损失中均有效。
+SCNP 与任意损失正交，论文主用 $\mathcal{L}_{CEDice+\overline{CEDice}}$——同时在原始 logits 和 SCNP 惩罚后 logits 上算 CE+Dice。消融证明把 SCNP 接进 CE、Dice、Tversky、clDice、SkelRecall、TopoLoss、Focal、RWLoss 这 8 种损失都有效。
 
 ## 实验
 

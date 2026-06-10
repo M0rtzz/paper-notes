@@ -39,24 +39,21 @@ tags:
 
 ### 整体框架
 
-CycleBEV 是即插即用的**训练时正则化框架**，由三部分组成：
+BEV 语义分割的难点在于透视到正射的映射受深度模糊和遮挡影响，小目标和被遮挡物体常常丢失。CycleBEV 不改推理结构，而是在**训练时**加一圈正则：训练一个逆视角变换（IVT）网络把预测的 BEV 图再「翻译」回多视角透视（PV）分割图，用循环一致性逼着主模型把 BEV 学准；同时配上高度几何正则和跨视角隐空间对齐两项辅助目标。推理时 IVT 和所有辅助分支全部丢弃，只跑原始 VT 模型，**零额外推理开销**。
 
-1. **逆视角变换（IVT）网络**：将 BEV 分割图映射回多视角 PV 分割图。
-2. **训练时循环一致性损失**：$\mathcal{L}_{cycle}$ 约束 VT 预测 → IVT 逆映射 → PV 分割图与 GT PV 分割图一致。
-3. **两项新正则化目标**：高度感知几何正则化 $\mathcal{L}_{height}$ + 跨视角隐空间对齐 $\mathcal{L}_{align}$。
+### 关键设计
 
-推理时仅使用原始 VT 模型，IVT 网络和辅助分支全部丢弃，**零额外推理开销**。
+**1. 逆视角变换（IVT）网络：给 PV↔BEV 补上「逆映射」这一环**
 
-### IVT 网络设计
+循环一致性的前提是有一条逆向通路，但标准 BEV 图只有 x-y 平面、缺高度，逆映射很难学。IVT 受 CVT 启发用双分支结构来做这件事：输入是 GT BEV 分割图（训练初期）或「VT 预测 BEV 图 + 高度图」的拼接 $[\mathbf{H}; \mathbf{O}]$，先用 CNN 编码器生成多分辨率 BEV 特征 $\{\bar{\mathbf{B}}_s\}$，两个 IVT 编码器分别处理高/低分辨率特征，通过 Transformer 交叉注意力去更新随机初始化的 PV 查询图，融合后解码出 $N_c$ 张 PV 分割图。为了让注意力知道 BEV 网格对应图像哪里，还用相机内外参 $\mathbf{K}_i, \mathbf{R}_i, \mathbf{T}_i$ 把 BEV 坐标投影到图像坐标、经 MLP 后作为位置编码加进去。消融显示双分支优于单分支（41.78 vs 41.67）。
 
-- 采用**双分支**结构，受 CVT 启发：
-    - 输入：GT BEV 分割图（训练初期）或 VT 预测 BEV 图 + 高度图的拼接 $[\mathbf{H}; \mathbf{O}]$。
-    - CNN 编码器生成多分辨率 BEV 特征 $\{\bar{\mathbf{B}}_s\}$。
-    - 两个 IVT 编码器分别处理高/低分辨率特征，通过 Transformer 交叉注意力更新随机初始化的 PV 查询图。
-    - 融合后解码生成 $N_c$ 个 PV 分割图。
-- **基于透视投影的位置编码**：利用相机内外参 $\mathbf{K}_i, \mathbf{R}_i, \mathbf{T}_i$ 将 BEV 网格坐标投影到图像坐标，经 MLP 后添加为注意力位置编码。
+**2. 三项训练时正则目标：循环一致性 + 高度几何 + 隐空间对齐**
 
-### 训练损失
+光有逆映射网络还不够，得用合适的约束把信号传回主模型。CycleBEV 在**语义空间**（而非 CVTM 那样的特征空间）施加循环一致性 $\mathcal{L}_{Cycle}$：VT 预测 → IVT 逆映射 → PV 分割图，与 GT PV 分割图算 BCE，语义信号更直接。高度感知几何正则 $\mathcal{L}_{Height}$ 用高度图 MSE，逼 VT 学出物体高度、补上 BEV 缺失的 z 轴信息；跨视角隐空间对齐 $\mathcal{L}_{Align}$ 用 Smooth-L1 把 BEV 特征与 IVT 的多分辨率特征对齐。消融显示三者逐项正向累加（39.70 → 40.55 → 41.40 → 41.78）。
+
+### 损失函数 / 训练策略
+
+总损失为：
 
 $$\mathcal{L}_{Overall} = \mathcal{L}_{BCE}^1 + \lambda_1 \mathcal{L}_{Height} + \lambda_2 \mathcal{L}_{Align} + \lambda_3 \mathcal{L}_{Cycle} + \lambda_4 \mathcal{L}_{BCE}^2$$
 
@@ -68,10 +65,7 @@ $$\mathcal{L}_{Overall} = \mathcal{L}_{BCE}^1 + \lambda_1 \mathcal{L}_{Height} +
 | $\mathcal{L}_{Cycle}$ | 循环一致性：VT 预测 → IVT 逆映射 → PV 分割图 BCE | $\lambda_3=0.4$ |
 | $\mathcal{L}_{BCE}^2$ | IVT 网络自身的 PV 分割 BCE | $\lambda_4=1.0$ |
 
-### 训练流程
-
-1. **预训练 IVT**：用 GT BEV 图 → GT PV 分割图（PV 伪标签由 Mask2Former 生成）。
-2. **联合训练**：VT 模型 + 预训练 IVT 网络，IVT 输入加高斯噪声以应对 VT 噪声预测，通过 $\mathcal{L}_{Overall}$ 联合优化。
+训练分两阶段：先用 GT BEV 图 → GT PV 分割图预训练 IVT（PV 伪标签由 Mask2Former 生成）；再把 VT 模型与预训练好的 IVT 联合训练，IVT 输入加高斯噪声以适应 VT 的噪声预测，通过 $\mathcal{L}_{Overall}$ 联合优化。
 
 ## 实验关键数据
 

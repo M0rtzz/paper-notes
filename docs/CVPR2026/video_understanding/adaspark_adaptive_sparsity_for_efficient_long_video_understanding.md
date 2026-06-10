@@ -35,19 +35,29 @@ tags:
 
 ### 整体框架
 
-将视频 token 分区为 3D 时空 cube (h×w×t)，在 attention 层和 FFN 层分别实施基于熵的自适应稀疏计算。
+AdaSpark 的出发点是两个预备观察：视频注意力天然高度稀疏（少量 token 吃掉大部分注意力概率，且不同层需要的 token 数差异很大），而 FFN 对视觉 token 又有「计算惰性」（文本 token 过 FFN 后变化剧烈、视觉 token 却很稳定）。于是它把视频 token 切成 3D 时空 cube（$h\times w\times t$），在 attention 层和 FFN 层各放一个基于熵的自适应稀疏机制，按输入复杂度动态决定算多少、跳多少。
 
 ### 关键设计
 
-1. **自适应 Cube 选择注意力 (AdaS-Attn)**：每个查询 token 计算与所有前序 cube 的相关性分数（与 cube 均值 key $\bar{k}_j$ 的相似度），然后用 Top-p（nucleus）选择确定注意的 cube 集合：$P_i = \text{Softmax}([q \cdot \bar{k}_1/\sqrt{d_k}, ..., q \cdot \bar{k}_{i-1}/\sqrt{d_k}]^T)$，$\mathcal{S}_i = \{j | p_j \in \text{Top-p}(P_i, p)\}$。高熵分布（注意力分散）→ 选择更多 cube；低熵分布（注意力集中）→ 仅选择少量 cube。始终保持对自身 cube 的全注意力。
+**1. 自适应 Cube 选择注意力（AdaS-Attn）：让每个 query 只看该看的那几个 cube**
 
-2. **自适应 Token 选择 FFN (AdaS-FFN)**：基于 token L2 范数估计重要性，同样用 Top-p 选择确定通过 FFN 的 token。被跳过的 token 通过均值补偿（活跃 token FFN 变换的均值）更新，避免完全不更新。文本 token 始终密集通过 FFN。
+帧采样或 token 剪枝是不可逆的信息丢弃，局部注意力等刚性模式又限制长程建模。AdaS-Attn 改成让每个 query token 先算它与所有前序 cube 的相关性（与 cube 均值 key $\bar{k}_j$ 的相似度），再用 Top-p（nucleus）选出要注意的 cube 集合：
 
-3. **基于熵的 Top-p 选择**：统一用于 AdaS-Attn 和 AdaS-FFN。自适应稀疏度基于输入复杂度调整计算资源分配——信息密度高时分配更多计算，信息稀疏时大幅跳过。
+$$P_i = \text{Softmax}([q \cdot \bar{k}_1/\sqrt{d_k}, ..., q \cdot \bar{k}_{i-1}/\sqrt{d_k}]^T),\quad \mathcal{S}_i = \{j \mid p_j \in \text{Top-p}(P_i, p)\}$$
+
+注意力分散（高熵）就多选几个 cube、注意力集中（低熵）就只挑少量，且始终保留对自身 cube 的全注意力——稀疏度因此随内容自适应，而非一刀切固定比例。
+
+**2. 自适应 Token 选择 FFN（AdaS-FFN）：放过「惰性」视觉 token，但用均值补偿**
+
+既然 FFN 对多数视觉 token 几乎不改变其表示，全量过 FFN 就是浪费。AdaS-FFN 按 token 的 L2 范数估重要性，同样用 Top-p 选出真正过 FFN 的 token；被跳过的 token 不是原样不动，而是用活跃 token 的 FFN 变换均值补偿 $y_k = x_k + \bar{m}_i$，其中 $\bar{m}_i = \frac{1}{|\mathcal{M}_i|}\sum_{j \in \mathcal{M}_i} FFN(x_j)$，保住信息流。文本 token 则始终密集过 FFN，不动其指令和语义内容。
+
+**3. 基于熵的 Top-p 选择：两个模块共用的统一调度旋钮**
+
+AdaS-Attn 和 AdaS-FFN 都用同一套基于熵的 Top-p 选择来决定稀疏度——信息密度高时自动多分配计算、信息稀疏时大幅跳过。一个阈值 $p$ 同时控制两个模块的计算预算，既统一又便于按算力预算调档。
 
 ### 损失函数 / 训练策略
 
-在 Qwen2.5-VL 基础上应用稀疏策略，通过少量微调适配。稀疏阈值 p 统一控制两个模块的计算预算。
+在 Qwen2.5-VL 基础上应用稀疏策略，通过少量微调适配。稀疏阈值 $p$ 统一控制两个模块的计算预算。
 
 ## 实验关键数据
 

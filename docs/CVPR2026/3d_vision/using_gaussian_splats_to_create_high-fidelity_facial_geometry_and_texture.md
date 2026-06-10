@@ -40,52 +40,45 @@ tags:
 
 ### 整体框架
 
-输入 → iPhone 后置摄像头拍摄单目视频 → 选取 11 个预定义姿态的帧 → 初始化粗几何（MetaHuman Animator）→ 改进的 Gaussian Splatting 训练 → 几何细化 → 纹理重建与去光照 → 输出三角网格 + 去光照纹理 → MetaHuman 转换
+这篇要解决的是"用极少的随手拍图、不上光舞台，就重建出能直接进工业图形管线的高保真人脸"。难点在于：原始 3DGS 的高斯和底层几何是解耦的，能自由形变拟合图像、却拟合不出好网格；而无光照条件下从少量图分离 albedo 和光照又是严重欠约束。它的整体做法是用一套改进的 Gaussian Splatting 把高斯紧紧绑死在三角面片上，从 iPhone 单目视频里选 11 个预定义姿态帧、以 MetaHuman Animator 初始化粗几何，训练后先细化出高精度三角网格，再用 PCA 先验 + 可重光照高斯分离光照、得到去光照 albedo，最终转成 MetaHuman 资产接入 UE5 标准管线。
 
-### 改进的 Gaussian Splatting 模型
+### 关键设计
 
-**核心设计**：每个三角面片绑定恰好一个高斯，禁用密集化和剪枝，保持高斯与面片的一一对应。训练过程中 **不** 联合优化网格顶点，将高斯优化与网格变形解耦。
+**1. 高斯-面片紧耦合 + 软约束正则：既保留 3DGS 的拟合力又逼出好网格**
 
-**软约束正则化** ($\mathcal{L}_{\text{reg}}$)：基于 Laplacian 平滑思想，对每个高斯的几何特征 $\mathbf{z}_i$ 鼓励其与边邻域高斯的均值一致：
+原始 3DGS 高斯能自由飘，导致网格质量差。这里让每个三角面片恰好绑一个高斯、禁用密集化和剪枝、训练时不联合优化网格顶点，把高斯优化和网格变形解耦。再加一组基于 Laplacian 平滑的软约束，鼓励每个高斯的几何特征 $\mathbf{z}_i$ 向边邻域均值靠：
 
 $$\mathcal{L}_{\text{reg}} = \sum_i \left\| \mathbf{z}_i - \frac{1}{|\mathcal{E}(i)|} \sum_{j \in \mathcal{E}(i)} \mathbf{z}_j \right\|^2$$
 
-分别对三种特征施加约束：
+分别约束三种特征：中心位移 $\mathcal{L}_{\text{reg}}^{\text{center}}$（高斯中心与面片质心偏移保持邻域平滑）、局部法线 $\mathcal{L}_{\text{reg}}^{\text{normal}}$（用 UV 坐标重建一致坐标系后跨网格平滑）、边界位移 $\mathcal{L}_{\text{reg}}^{\text{boundary}}$（高斯外边界点到质心距离邻域平滑，约束形状轮廓）。
 
-- **中心位移** $\mathcal{L}_{\text{reg}}^{\text{center}}$：高斯中心与面片质心的偏移量保持邻域平滑
-- **局部法线** $\mathcal{L}_{\text{reg}}^{\text{normal}}$：高斯局部法线跨网格平滑变化（用 UV 坐标重建一致坐标系解决不一致问题）
-- **边界位移** $\mathcal{L}_{\text{reg}}^{\text{boundary}}$：高斯外边界点到面片质心的距离保持邻域平滑，约束高斯形状和轮廓
+**2. 语义分割监督：防止高斯滑到错误语义区域**
 
-**语义分割监督** ($\mathcal{L}_{\text{seg}}$)：训练 Mask2Former 分割网络（1600 个 MetaHuman 合成数据），将面部分为面部/鼻/唇/眼/耳等语义区域。每个高斯继承其所属三角面的标签，通过 alpha 混合构建预测分割图，与网络预测对比计算损失。这防止高斯"滑动"到错误语义区域。
+只靠几何约束，高斯还可能"滑"到鼻/唇/眼之间的错误区域。作者用 1600 个 MetaHuman 合成数据训了个 Mask2Former 分割网络，把人脸分成面部/鼻/唇/眼/耳等区域；每个高斯继承其所属三角面的标签，经 alpha 混合构出预测分割图与网络预测对比算 $\mathcal{L}_{\text{seg}}$，把高斯钉在正确语义区。合成数据训练等于零成本拿到语义标注。
 
-**眼球正则化** ($\mathcal{L}_{\text{eyes}}$)：惩罚眼球高斯与眼窝高斯的交叉干涉，防止眼球高斯遮挡眼窝导致几何不准。
+**3. 眼球正则：防止眼球高斯遮挡眼窝**
 
-### 三角面片几何细化
+眼球和眼窝高斯容易互相穿插，$\mathcal{L}_{\text{eyes}}$ 惩罚眼球高斯与眼窝高斯的交叉干涉，避免眼球遮住眼窝、把眼窝几何压得过小。
 
-训练完成后固定相机外参，迭代细化网格：
+**4. 三角面片几何细化：用高斯反过来驱动网格变形**
 
-1. 重新优化高斯参数获取监督信息（高斯外边界点 $\mathbf{x}_i^*$）
-2. 通过最小化 $\mathcal{L}_{\text{centroid}} = \sum_i \| \mathbf{v}_i^{\text{centroid}} - \mathbf{x}_i^* \|^2$ 变形网格顶点
-3. 两轮迭代：第一轮优化 MetaHuman PCA 系数，第二轮优化单个顶点位置
+训练完固定相机外参后迭代细化网格：重新优化高斯拿到监督信息（外边界点 $\mathbf{x}_i^*$），再最小化 $\mathcal{L}_{\text{centroid}} = \sum_i \| \mathbf{v}_i^{\text{centroid}} - \mathbf{x}_i^* \|^2$ 变形顶点；两轮迭代，第一轮优化 MetaHuman PCA 系数、第二轮优化单个顶点位置，由粗到细。
 
-### 神经纹理方案
+**5. 神经纹理：把高斯搬进 UV 空间，对管线零侵入**
 
-将高斯从世界空间变换到 UV 纹理空间，用正交相机沿法线方向 splatting，颜色仍依赖世界空间视角方向。这允许在标准图形管线中以视角依赖神经纹理的形式使用 Gaussian Splatting，无需修改管线其他部分。
+为了能在标准图形管线里用上高斯的视角依赖外观，把高斯从世界空间变换到 UV 纹理空间，用正交相机沿法线方向 splatting、颜色仍依赖世界空间视角方向。这样高斯就以"视角依赖神经纹理"的形式接入管线，无需改动管线其余部分。
 
-### 损失函数体系
+**6. 去光照纹理生成：无光舞台下分离 albedo 与光照**
 
-- **图像重建**：$\mathcal{L}_{\text{img}} = 0.8 \cdot \mathcal{L}_1 + 0.2 \cdot \mathcal{L}_{\text{D-SSIM}}$
-- **几何约束**：$\mathcal{L}_{\text{reg}}^{\text{center/normal/boundary}}$、$\mathcal{L}_{\text{scale}}$
-- **语义**：$\mathcal{L}_{\text{seg}}$（$\lambda=50$）
-- **眼球**：$\mathcal{L}_{\text{eyes}}$（$\lambda=20$）
-- **光照/纹理**：$\mathcal{L}_{\text{lighting}}$、$\mathcal{L}_{\text{rotation}}$、$\mathcal{L}_{\text{blending}}$、$\mathcal{L}_{\text{view}}$
+无光舞台下分离反照率和光照是欠约束的，容易烘进阴影。这里用球谐函数建模环境光（含遮挡图和法线图修正），用 MetaHuman 前 20 个 PCA 基函数正则化 albedo，可学习混合权重 $\beta_p$ 控制高斯与网格纹理的贡献比、正则化趋零以偏好网格纹理；训练后关掉视角依赖颜色和光照、再从目标图高通滤波恢复高频细节。
 
-### 去光照纹理生成
+### 损失函数 / 训练策略
 
-- 用球谐函数建模环境光照，含遮挡图和法线图修正
-- PCA 先验（MetaHuman 前 20 个基函数）正则化 albedo 纹理
-- 可学习混合权重 $\beta_p$ 控制高斯与网格纹理的贡献比例，正则化趋向零以偏好网格纹理
-- 训练后关闭视角依赖颜色和光照，从目标图像高通滤波恢复高频细节
+- 图像重建：$\mathcal{L}_{\text{img}} = 0.8 \cdot \mathcal{L}_1 + 0.2 \cdot \mathcal{L}_{\text{D-SSIM}}$
+- 几何约束：$\mathcal{L}_{\text{reg}}^{\text{center/normal/boundary}}$、$\mathcal{L}_{\text{scale}}$
+- 语义：$\mathcal{L}_{\text{seg}}$（$\lambda=50$）
+- 眼球：$\mathcal{L}_{\text{eyes}}$（$\lambda=20$）
+- 光照/纹理：$\mathcal{L}_{\text{lighting}}$、$\mathcal{L}_{\text{rotation}}$、$\mathcal{L}_{\text{blending}}$、$\mathcal{L}_{\text{view}}$
 
 ## 实验关键数据
 

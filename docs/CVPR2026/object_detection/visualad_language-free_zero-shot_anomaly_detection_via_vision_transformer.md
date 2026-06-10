@@ -39,42 +39,25 @@ tags:
 
 ## 方法详解
 
-### 整体架构
+### 整体框架
 
-在冻结 ViT 的 token 序列中插入两个可学习 token：
+VisualAD 要回答一个质疑——ZSAD 里 CLIP 的文本分支是否必要。它给出一个纯视觉框架：在冻结 ViT 的 token 序列里插入两个可学习 token（异常 $t_a$、正常 $t_n$），$z_0 = [t_a, t_n, t_c, p_1, \ldots, p_N]$（$t_c$ 为原始 class token）；从中间层 $\mathcal{L} = \{6, 12, 18, 24\}$ 提取特征，经 SCA 增强 token、SAF 校准 patch，逐层算异常图再融合，全程不需要文本编码器。
 
-$$z_0 = [t_a, t_n, t_c, p_1, \ldots, p_N]$$
+### 关键设计
 
-其中 $t_a$ 为异常 token，$t_n$ 为正常 token，$t_c$ 为原始 class token。
+**1. Spatial-Aware Cross-Attention (SCA)：给全局 token 补上空间定位能力**
 
-从中间层 $\mathcal{L} = \{6, 12, 18, 24\}$ 提取特征，经 SCA 增强 token、SAF 校准 patch，计算多层异常图并融合。
+两个可学习 token 是全局的，缺乏定位异常的空间信息。SCA 用少量锚查询 $Q_{\text{anchor}} \in \mathbb{R}^{m \times d}$（$m=4$）聚合局部空间证据：$A_\ell = \text{softmax}\left(\frac{Q_{\text{anchor}} (P_\ell^{\text{pos}})^\top}{\sqrt{d}}\right),\ U_\ell = A_\ell P_\ell$，再用 token 引导的门控 $g(t) = \sigma(W_g t) \in \mathbb{R}^m$ 自适应调制 $\tilde{t}_\ell = t + \alpha \sum_{i=1}^{m} g_i(t) \cdot a_i$。SCA 在每层独立实例化，按图像动态调整 token 的空间敏感性，让全局 token 也能「看见」局部异常。
 
-### Spatial-Aware Cross-Attention (SCA)
+**2. Self-Alignment Function (SAF)：逐层校准 patch 特征**
 
-全局 token 缺乏空间定位能力。SCA 通过少量锚查询 $Q_{\text{anchor}} \in \mathbb{R}^{m \times d}$（$m=4$）聚合局部空间证据：
+冻结 ViT 各层的 patch 特征未必直接适配异常判别。SAF 在每层用一个单隐层 MLP 校准：$\hat{P}_\ell = \mathcal{F}_\ell(P_\ell)$。它是消融里最关键的组件——去掉后 Pixel AP 从 28.4 崩到 3.5，说明把 patch 特征对齐到 token 所在的判别空间，是纯视觉路线能成立的前提。
 
-$$A_\ell = \text{softmax}\left(\frac{Q_{\text{anchor}} (P_\ell^{\text{pos}})^\top}{\sqrt{d}}\right), \quad U_\ell = A_\ell P_\ell$$
+**3. 多层余弦对比评分：用两个 token 的相似度差直接判异常**
 
-token 引导的门控机制自适应调制：
+有了校准后的 patch 和增强后的 token，异常分数取 L2 归一化后的余弦对比差：$s_i^{(\ell)} = \langle \bar{\hat{p}}_i^{(\ell)}, \bar{t}_a^{(\ell)} \rangle - \langle \bar{\hat{p}}_i^{(\ell)}, \bar{t}_n^{(\ell)} \rangle$，即 patch 离「异常」原型比离「正常」原型更近就判异常。多层结果直接相加融合 $H = \sum_{\ell \in \mathcal{L}} H_\ell$，图像级分数取 top-1% 像素均值。决策只由两组视觉向量完成，印证了文本分支可被省去。
 
-$$g(t) = \sigma(W_g t) \in \mathbb{R}^m$$
-$$\tilde{t}_\ell = t + \alpha \sum_{i=1}^{m} g_i(t) \cdot a_i$$
-
-SCA 在每层独立实例化，为每张图像动态调整 token 的空间敏感性。
-
-### Self-Alignment Function (SAF)
-
-每层一个单隐层 MLP 校准 patch 特征：$\hat{P}_\ell = \mathcal{F}_\ell(P_\ell)$
-
-### 异常评分
-
-L2 归一化后计算余弦对比差：
-
-$$s_i^{(\ell)} = \langle \bar{\hat{p}}_i^{(\ell)}, \bar{t}_a^{(\ell)} \rangle - \langle \bar{\hat{p}}_i^{(\ell)}, \bar{t}_n^{(\ell)} \rangle$$
-
-多层融合：$H = \sum_{\ell \in \mathcal{L}} H_\ell$，图像级分数取 top-1% 像素均值。
-
-### 训练损失
+### 损失函数 / 训练策略
 
 $$\mathcal{L} = \mathcal{L}_{\text{cls}} + \mathcal{L}_{\text{seg}} + \mathcal{L}_{\text{ctr}}$$
 

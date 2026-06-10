@@ -36,24 +36,31 @@ tags:
 ## 方法详解
 
 ### 整体框架
-BriMA 在每个训练 session 中：(1) 用 MBI 模块补全缺失模态特征；(2) 融合所有模态特征进行评分预测；(3) 用 MRO 模块选择信息量大的样本进行回放，对抗分布漂移。
+
+BriMA 处理的是多模态持续 AQA 里「模态时有时无（传感器故障、标注缺失）」导致的非平稳模态不平衡。它在每个训练 session 中做三件事：先用 MBI 模块把缺失模态的特征补回来，再融合所有模态特征预测动作质量分，最后用 MRO 模块挑出信息量大的样本进 buffer 回放、对抗跨任务的分布漂移。两个模块一个管「当下这帧模态缺了怎么补」，一个管「历史样本怎么留才不遗忘」。
 
 ### 关键设计
 
-**MBI（Memory-Guided Bridging Imputation）**：
-1. **候选检索**：对缺失模态 $m$，用余弦相似度从记忆缓冲区 $\mathcal{B}_{t-1}$ 检索 $K$ 个结构对齐的范例特征：
-    $s_{j,t'} = \frac{\langle \mathbf{z}_{i,t}^{\mathcal{O}}, \mathbf{z}_{j,t'}^{\mathcal{O}} \rangle}{\|\mathbf{z}_{i,t}^{\mathcal{O}}\| \|\mathbf{z}_{j,t'}^{\mathcal{O}}\|}$
-2. **任务指示器**：二值掩码 $\mathbf{r}_{i,t}$ 标识缺失模态，配合可学习任务嵌入 $\mathbf{p}_t^m$ 提供任务特定条件
-3. **桥接残差**：学习残差修正而非完整特征合成：
-    $\tilde{\mathbf{z}}_{i,t}^m = \bar{\mathbf{z}}_{i,t}^m + \Delta\mathbf{z}_{i,t}^m = \bar{\mathbf{z}}_{i,t}^m + B_\Theta(\mathbf{z}_{i,t}^{\mathcal{O}}, \bar{\mathbf{z}}_{i,t}^m, \mathbf{c}_t^m)$
+**1. MBI：记忆引导的桥接补全，只学残差不硬造特征**
 
-**MRO（Modality-Aware Replay Optimization）**：
-- 基于模态失真度和分数漂移动态优先选择回放样本
-- 维护具有可靠模态和平衡分数覆盖的代表性样本缓冲区
-- 通过回放对抗跨任务分布漂移
+AQA 评分对几何结构极敏感，简单插补、检索或生成式合成都会破坏评分流形、打乱排序一致性，所以缺失模态不能随便填。MBI 的做法是「检索范例 + 学残差修正」三步走：先对缺失模态 $m$，用余弦相似度从上一轮记忆缓冲区 $\mathcal{B}_{t-1}$ 检索 $K$ 个结构对齐的范例特征，
+
+$$s_{j,t'} = \frac{\langle \mathbf{z}_{i,t}^{\mathcal{O}}, \mathbf{z}_{j,t'}^{\mathcal{O}} \rangle}{\|\mathbf{z}_{i,t}^{\mathcal{O}}\| \|\mathbf{z}_{j,t'}^{\mathcal{O}}\|}$$
+
+再用一个二值掩码 $\mathbf{r}_{i,t}$ 标出哪些模态缺了、配合可学习任务嵌入 $\mathbf{p}_t^m$ 提供任务特定条件；最后关键的一步是只学**桥接残差**而非完整特征合成：
+
+$$\tilde{\mathbf{z}}_{i,t}^m = \bar{\mathbf{z}}_{i,t}^m + \Delta\mathbf{z}_{i,t}^m = \bar{\mathbf{z}}_{i,t}^m + B_\Theta(\mathbf{z}_{i,t}^{\mathcal{O}}, \bar{\mathbf{z}}_{i,t}^m, \mathbf{c}_t^m)$$
+
+即在检索范例的均值 $\bar{\mathbf{z}}_{i,t}^m$ 上叠一个小修正量。学残差比从零生成保守得多，在监督信号有限时更稳，也更不容易破坏评分敏感的特征结构。
+
+**2. MRO：模态感知的回放，按失真和漂移挑样本**
+
+持续学习要靠回放对抗遗忘，但随机回放在「模态还会缺失」的场景下并不可靠——回放进来的样本本身可能模态残缺、分数覆盖也不均。MRO 因此按模态失真度和分数漂移动态地优先选样本，维护一个「模态可靠、分数覆盖平衡」的代表性 buffer，再用这些样本回放来压住跨任务的分布漂移。和随机回放相比，它保证了被复习的旧知识既干净又有代表性。
 
 ### 损失函数
+
 $$\min_{\theta_f, \theta_g} \mathcal{L}_{score} + \lambda_{mem}\mathcal{L}_{mem} + \lambda_{rec}\mathcal{L}_{rec}$$
+
 其中 $\mathcal{L}_{score}$ 为 MSE 评分损失，$\mathcal{L}_{mem}$ 为记忆回放正则损失，$\mathcal{L}_{rec} = \|\tilde{\mathbf{z}} - \mathbf{z}\|_2^2$ 为特征重建损失。
 
 ## 实验关键数据

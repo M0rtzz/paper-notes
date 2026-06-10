@@ -19,36 +19,23 @@
 5. **知识蒸馏的负面转移问题**：在遮挡、干扰或形变等困难样本上，教师模型的预测可能不可靠，直接蒸馏会将错误信息传递给学生模型
 6. **实际部署对速度要求高**：边缘设备（如 Jetson AGX Xavier）资源受限，需要在多种硬件平台上都能实时运行的跟踪方案
 
-## 方法
+## 方法详解
 
-### 整体架构
+### 整体框架
 
-UETrack 基于 Fast-iTPN-T 构建轻量级 backbone，采用 SUTrack 的统一 token 编码策略处理多模态输入。对于 Depth/Thermal/Event 模态，将 RGB 与辅助模态沿通道维度拼接为 6 通道复合图像；对于语言模态使用冻结的 CLIP 文本编码器提取 token。所有 token 拼接为统一序列送入 Transformer blocks。
+UETrack 要填的空白是"高效跟踪器只会 RGB、多模态跟踪器又太慢"——做一个能实时跑、还能统一处理 RGB / 深度 / 热红外 / 事件 / 语言五种模态的单目标跟踪框架。它基于 Fast-iTPN-T 的轻量 backbone，沿用 SUTrack 的统一 token 编码：Depth/Thermal/Event 与 RGB 沿通道拼成 6 通道复合图像，语言走冻结 CLIP 文本编码器，所有 token 拼成一条序列进 Transformer。训练时有教师（SUTrack-B，冻结）、学生和 Adaptive Net 三方，推理时只留学生模型。
 
-训练时包含教师模型（SUTrack-B，冻结）、学生模型和 Adaptive Net。推理时仅使用学生模型。
+### 关键设计
 
-### Token-Pooling-based MoE (TP-MoE)
+**1. Token-Pooling-based MoE (TP-MoE)：用相似度软分配替掉会拖慢速度的离散门控**
 
-TP-MoE 用基于相似度的软分配替代离散门控，核心流程：
+针对"传统 MoE 门控要 token 排序和专家间通信、带来延迟"，TP-MoE 改成注意力式软分配：先把输入 token $\mathbf{T}_{in} \in \mathbb{R}^{L_1 \times D}$ 按 $L_1/E$（$E$ 为专家数）切成子空间做平均池化做局部聚合，经线性投影 + reshape 生成紧凑的专家 token $\mathbf{T}_e \in \mathbb{R}^{L_2 \times D}$；再算输入与专家 token 的相似矩阵 $\mathbf{S} \in \mathbb{R}^{L_1 \times L_2}$、softmax 出连续路由权重，按权重把输入分给各专家独立处理，最后用相似矩阵加权合并回原 token 空间。全程是可微矩阵操作、无需排序和跨专家通信，能全并行、梯度也稳，正好适合实时跟踪。
 
-1. **局部聚合**：将输入 token $\mathbf{T}_{in} \in \mathbb{R}^{L_1 \times D}$ 分为 $L_1/E$ 个子空间（$E$ 为专家数），各子空间内做平均池化
-2. **专家嵌入**：聚合后 token 通过线性投影 + reshape 生成紧凑的专家 token $\mathbf{T}_e \in \mathbb{R}^{L_2 \times D}$
-3. **软路由**：计算输入 token 与专家 token 的相似矩阵 $\mathbf{S} \in \mathbb{R}^{L_1 \times L_2}$，softmax 产生连续路由权重
-4. **专家处理**：按路由权重聚合输入 token 并分组，各专家独立处理各自输入
-5. **输出聚合**：专家输出通过相似矩阵加权合并回原始 token 空间
+**2. Target-aware Adaptive Distillation (TAD)：逐样本判断该不该信教师，挡住负迁移**
 
-这种注意力式软分配避免了 token 排序和跨专家通信，支持全并行计算，且可微矩阵操作稳定梯度传播，适合实时跟踪。
+针对"困难样本（遮挡/干扰/形变）上教师预测不可靠、硬蒸馏会把错误传给学生"，TAD 用一个 Adaptive Net 吃学生和教师的搜索区域特征，各自全局平均池化后拼成融合向量、过 MLP 降到 2D，再用 Gumbel-Softmax 输出二值决策 $\alpha \in \{0, 1\}$：$\alpha=1$ 才做蒸馏（KL 散度 + MSE），$\alpha=0$ 直接跳过。Adaptive Net 用替代预测策略训练——拿教师或学生预测当代理目标与 ground truth 算损失，从而自动学会判断每个样本的蒸馏可靠性。
 
-### Target-aware Adaptive Distillation (TAD)
-
-TAD 的核心是 Adaptive Net，输入学生和教师的搜索区域特征：
-- 两者分别经全局平均池化后拼接为融合向量
-- 经 MLP 降维得到 2D 向量，通过 Gumbel-Softmax 输出二值决策 $\alpha \in \{0, 1\}$
-- $\alpha=1$ 时执行蒸馏（KL 散度 + MSE 损失），$\alpha=0$ 时跳过
-
-Adaptive Net 使用替代预测策略训练：选择教师或学生预测作为代理目标与 ground truth 计算损失，实现对蒸馏可靠性的自动判断。
-
-### 训练目标
+### 损失函数 / 训练策略
 
 学生损失包括分类（Focal）、回归（GIoU + L1）、任务损失、以及自适应蒸馏损失。Adaptive Net 和学生模型分别更新，避免梯度冲突。
 

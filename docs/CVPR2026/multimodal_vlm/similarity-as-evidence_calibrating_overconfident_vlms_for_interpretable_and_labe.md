@@ -45,30 +45,33 @@ tags:
 
 ### 整体框架
 
-SaE 包含三个协同组件：(1) PubMed 增强提示构建富含领域语义的文本原型；(2) Similarity Evidence Head (SEH) 将相似度向量映射为 Dirichlet 证据参数；(3) 基于 vacuity/dissonance 的双因子主动学习采集策略。冻结 VLM 图像编码器，仅训练 SEH 和 CoOp 风格的可学习提示。
+SaE 想解决的是"VLM 把余弦相似度当成确定性、结果过度自信，拿去做主动学习就会挑错样本"这件事。它的做法是把相似度重新解释成证据：冻结 VLM 图像编码器，只训练一个把相似度映射成 Dirichlet 证据的 Similarity Evidence Head (SEH) 和 CoOp 风格的可学习提示，再从校准后的分布里分解出两类不确定性来驱动样本采集。整条链路是 PubMed 增强提示构建富语义文本原型 → SEH 把相似度变成证据参数 → 基于 vacuity/dissonance 的双因子策略选样本。
 
 ### 关键设计
 
-**PubMed 增强提示**：对每个类别 $k$，从 PubMed 检索 $\delta_k$ 条描述性句子，经冻结文本编码器编码后 L2 归一化并取均值，得到语义丰富的类别原型嵌入 $\bar{\hat{\mathbf{e}}}^k_{\text{txt}}$，计算余弦相似度向量 $\mathbf{s} = [s_1, \dots, s_K]$ 作为证据模型输入。
+**1. PubMed 增强提示：让类别原型带上领域语义**
 
-**Similarity Evidence Head (SEH)**：双分支 MLP 架构——特征分支编码冻结 VLM 图像嵌入 $\mathbf{x}$ 为 $z_f$，相似度分支映射 $\mathbf{s}$ 为 $z_s$，拼接后经浅层 MLP + softplus 激活输出严格正的证据强度标量 $\lambda$。核心思想是将相似度向量视为总证据预算的分配比例，由 $\lambda$ 控制总预算大小。
+单靠类名当文本原型，语义太薄，和医学图像对齐不准。SaE 对每个类别 $k$ 从 PubMed 检索 $\delta_k$ 条描述性句子，过冻结文本编码器后 L2 归一化再取均值，得到语义丰富的类别原型 $\bar{\hat{\mathbf{e}}}^k_{\text{txt}}$，并算出余弦相似度向量 $\mathbf{s} = [s_1, \dots, s_K]$ 作为后续证据模型的输入。
 
-**相似度-证据映射**：Dirichlet 浓度参数为 $\alpha_k(x) = \lambda(x) \cdot p_k(x) + 1$，其中 $p_k$ 是基于 VLM softmax 的类别概率。由此分解出：
+**2. Similarity Evidence Head (SEH)：把相似度向量当成"证据预算的分配比例"**
 
-- **Vacuity（空缺度）**：$\text{Vac}(x) = K / \sum_k \alpha_k(x)$，衡量总证据不足，标记罕见或未见表型
-- **Dissonance（冲突度）**：基于 belief mass 间的均衡度度量类别间证据冲突，标记模糊决策边界
+VLM 的 softmax 把几何接近性直接当成了置信度，这正是过度自信的根源。SEH 用一个双分支 MLP 来重新分配证据：特征分支把冻结的图像嵌入 $\mathbf{x}$ 编码为 $z_f$，相似度分支把 $\mathbf{s}$ 映射为 $z_s$，两者拼接后过浅层 MLP + softplus 输出一个严格为正的证据强度标量 $\lambda$。核心思想是把相似度向量看成"总证据预算怎么在各类间分配"，而预算总量由 $\lambda$ 控制——证据多寡不再等同于相似度高低。
 
-**双因子采集策略**：线性调度 $w_v(t) = 1 - (t-1)/(T-1)$，$w_d(t) = (t-1)/(T-1)$，早期优先选择高 vacuity 样本（覆盖未见表型），后期优先选择高 dissonance 样本（精炼决策边界）。
+**3. 相似度-证据映射：从 Dirichlet 分布里分解出两种不确定性**
+
+光有证据标量还不够，主动学习需要知道"不确定从哪来"。SaE 把 Dirichlet 浓度参数写成 $\alpha_k(x) = \lambda(x) \cdot p_k(x) + 1$（$p_k$ 是 VLM softmax 给的类别概率），由此分解出两类可解释信号：Vacuity（空缺度）$\text{Vac}(x) = K / \sum_k \alpha_k(x)$ 衡量总证据不足，对应罕见或未见表型；Dissonance（冲突度）则基于各类 belief mass 之间的均衡度，衡量类别间证据冲突，对应模糊的决策边界。一个标量不确定性做不到的"是缺知识还是有冲突"，在这里被拆开了。
+
+**4. 双因子采集策略：早期补覆盖、后期磨边界**
+
+知道了两种不确定性，还要安排在主动学习的不同阶段怎么用。SaE 用线性调度 $w_v(t) = 1 - (t-1)/(T-1)$、$w_d(t) = (t-1)/(T-1)$：早期权重偏向高 vacuity 样本，先把未见表型覆盖到；后期权重偏向高 dissonance 样本，再去精炼决策边界。这条"先覆盖后精炼"的顺序和临床医生的推理逻辑也对得上，同时给出了可被专家理解的选样理由。
 
 ### 损失函数
 
-SEH 的双目标损失 $\mathcal{L}_{\text{SEH}}$：
+SEH 用一个双目标损失 $\mathcal{L}_{\text{SEH}}$ 训练：
 
 $$\mathcal{L}_{\text{SEH}} = \text{MSE}\left(\frac{1}{\lambda_i + \epsilon},\; l_{\text{cls},i}\right) + \beta \cdot \text{MSE}\left(\lambda_i,\; \frac{1}{H[\mathbf{p}_i] + \epsilon}\right)$$
 
-- 第一项：将逆证据与观测分类难度对齐（难样本 → 高 $l_{\text{cls}}$ → 低 $\lambda$）
-- 第二项：与冻结 VLM 的内在确定性一致（低熵 → 高 $\lambda$），$H[\mathbf{p}_i]$ 是 detached target 不回传梯度
-- $\beta = 0.5$ 平衡两项
+第一项把逆证据和观测到的分类难度对齐（难样本 → 高 $l_{\text{cls}}$ → 低 $\lambda$）；第二项让证据强度和冻结 VLM 的内在确定性一致（低熵 → 高 $\lambda$），其中 $H[\mathbf{p}_i]$ 是 detached target、不回传梯度；$\beta = 0.5$ 平衡两项。
 
 ## 实验
 

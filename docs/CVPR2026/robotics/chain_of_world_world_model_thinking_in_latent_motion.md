@@ -39,32 +39,21 @@ tags:
 ## 方法详解
 
 ### 整体框架
-CoWVLA分三个阶段：(1) 预训练Latent Motion Extractor——将视频分解为结构和运动两类隐变量；(2) VLA预训练——在隐运动空间做世界模型预测；(3) Co-Fine-tuning——交替生成关键帧(视觉token)和动作token(FAST量化)。
+CoWVLA 想同时拿到两类方法的好处：世界模型 VLA 能预测未来但在像素空间重建太浪费，隐动作 VLA 省了 capacity 却丢了世界动态。它的解法是让 VLA 在「隐运动空间」而非像素空间做世界模型预测。整套分三阶段：先预训练 Latent Motion Extractor 把视频拆成结构隐变量 z_s 和运动隐变量 z_m；再做 VLA 预训练，在隐运动空间预测未来运动；最后 Co-Fine-tuning，交替生成关键帧的视觉 token 和 FAST 量化的动作 token。
 
 ### 关键设计
 
-1. **Latent Motion Extractor（Sec 3.1）**: 基于预训练视频VAE构建的运动分解器：
+**1. Latent Motion Extractor：把视频拆成结构和运动，先过滤掉冗余背景**
 
-    - **Structure latent z_s**：捕获场景的静态结构信息（空间布局、物体外观）。从视频VAE的中间特征出发，用Q-Former（一组可学习的query token通过cross-attention聚合视频特征）提取。z_s编码的是"场景是什么样的"。
-    - **Motion latent z_m**：捕获场景中运动变化——物体位移、机械臂轨迹、夹爪状态变化。提取方式独特：对视频VAE的时间差分特征在H和W方向分别做空间均值池化，得到两个向量，拼接形成z_m。H方向均值保留水平运动模式，W方向均值保留垂直运动模式，拼接后完整编码2D运动场。这种设计的优势在于z_m天然过滤了静态背景——均值池化消除了不变区域的贡献。
-    - 训练目标：从z_s和z_m重建原始视频帧，确保分解是完整的（信息无损）。
+像素空间里大量是静止背景，模型重建它们纯属浪费 capacity，真正有用的是运动信息。这个分解器基于预训练视频 VAE：结构隐变量 z_s 捕获场景的静态布局和物体外观，从 VAE 中间特征出发用 Q-Former（一组可学习 query 通过 cross-attention 聚合视频特征）提取，编码「场景是什么样的」；运动隐变量 z_m 的提取很巧——对 VAE 的时间差分特征分别在 H 和 W 方向做空间均值池化得到两个向量，拼接成 z_m，H 方向保留水平运动、W 方向保留垂直运动，拼起来就是完整的 2D 运动场。均值池化天然消除不变区域的贡献，于是 z_m 自动过滤掉静态背景。训练目标是从 z_s 和 z_m 重建原始视频帧，保证分解信息无损。
 
-2. **VLA预训练——隐运动空间的世界模型（Sec 3.2）**: 输入序列：[T, v_q^1, Q, v_q^f]，其中T是语言指令token，v_q^1是首帧视觉token（SigLIP编码），Q是可学习的motion query（对应z_m的预测位置），v_q^f是末帧视觉token。
+**2. 隐运动空间的世界模型预训练：预测运动而不是抄答案**
 
-    - **运动预测**：Q位置的MLP预测头输出ẑ_m，用MSE损失对齐真值z_m
-    - **末帧重建**：v_q^f位置用交叉熵损失重建末帧视觉token
-    - **因果注意力mask**：关键设计——Q token不能看到v_q^f（未来帧），确保运动预测是真正的"预测"而非"抄答案"。但v_q^f可以看到Q，因为末帧重建可以利用预测的运动信息
-    - 总损失：L_pretrain = MSE(ẑ_m, z_m) + CE(visual tokens)
-    - 这一阶段让VLA学会了"给定当前观测和指令，预测接下来的运动模式"——这就是隐运动空间的世界模型
+光有分解还不够，要让 VLA 学会「给定当前观测和指令，预测接下来怎么动」。输入序列排成 [T, v_q^1, Q, v_q^f]：T 是语言指令 token，v_q^1 是首帧视觉 token（SigLIP 编码），Q 是对应 z_m 预测位置的可学习 motion query，v_q^f 是末帧视觉 token。Q 位置接 MLP 预测头输出 ẑ_m，用 MSE 对齐真值 z_m；v_q^f 位置用交叉熵重建末帧 token。最关键的是因果注意力 mask——Q 不能看 v_q^f（未来帧），保证运动预测是真「预测」而非「抄答案」，但 v_q^f 可以看 Q，因为末帧重建本就该利用预测出来的运动。总损失 L_pretrain = MSE(ẑ_m, z_m) + CE(visual tokens)。
 
-3. **Co-Fine-tuning——交替关键帧与动作生成（Sec 3.3）**: 微调阶段的输入序列：[T, ṽ_q^1, Q, A_q^1, ṽ_q^2, Q, A_q^2, ...]，交替排列：
+**3. Co-Fine-tuning：交替生成关键帧与动作，让 motion query 当世界模型隐状态**
 
-    - ṽ_q^i：第i个关键帧的视觉token
-    - Q：motion query，持续聚合到目前为止的运动动态
-    - A_q^i：第i步的动作token
-    - **动作量化**：用FAST（Fast Action STate quantizer）将连续动作离散化为token序列，VLA以自回归方式预测
-    - **关键帧量化**：用VQGAN将关键帧图像编码为离散visual token
-    - **Q的累积聚合**：每个时间步的Q不仅预测当前运动，还通过cross-attention聚合之前所有时间步的信息，形成持续更新的动态表示——类似world model的隐状态
+微调阶段要把预测能力接到真实控制上。输入序列改成交替排列 [T, ṽ_q^1, Q, A_q^1, ṽ_q^2, Q, A_q^2, ...]：ṽ_q^i 是第 i 个关键帧的视觉 token（VQGAN 离散化），A_q^i 是第 i 步动作 token（FAST 量化后自回归预测），Q 是 motion query。Q 的设计是累积聚合——每一步它不仅预测当前运动，还通过 cross-attention 把此前所有时间步的信息聚进来，形成持续更新的动态表示，作用类似 world model 的循环隐状态。关键帧和动作交替生成，让模型一边「想象世界会怎么变」一边「决定做什么动作」，把世界模型思维真正用进决策。
 
 ### 损失函数 / 训练策略
 - 预训练：L = MSE(ẑ_m, z_m) + CE(v_q^f reconstruction)，在大规模机器人视频数据上训练

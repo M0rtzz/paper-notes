@@ -44,36 +44,23 @@ tags:
 
 ### 整体框架
 
-AOT（Anchors + Optimal Transport）分三步工作：
-
-1. **Token Anchors 建立**：在每帧内通过局部-全局注意力引导选取语义重要且空间多样的 token 锚点
-2. **帧内 OT 聚合（Phase I）**：利用最优传输将帧内被裁剪 token 的信息聚合到 anchor 上
-3. **帧间 OT 聚合（Phase II）**：将帧划分为 clip，以首帧为时序锚点，通过 OT 融合相似帧间信息并保留时序动态 token
+AOT（Anchors + Optimal Transport）要解决的是 Video LLM 里 prefill 占了约 98% FLOPs、而现有压缩要么直接丢 token 丢信息、要么需要训练的难题。它的思路是“不丢弃而聚合”：先在每帧里挑出语义重要且空间多样的 token 作锚点，再用最优传输把被裁掉的 token 的信息分两级——帧内（Phase I）和帧间（Phase II）——最优地汇聚回锚点，全程 training-free。
 
 ### 关键设计
 
-**Local-Global Token Anchors**：
+**1. Local-Global Token Anchors：用全局 + 局部双配额挑出该保留的锚点**
 
-- **全局锚点**：利用视觉编码器最后一层 [CLS] token 的多头注意力得分，取 Top-K 个高注意力 token 作为全局锚点 $\mathbf{x}_V^g$
-- **局部锚点**：将图像特征划分为 $W$ 个非重叠网格窗口，在浅层每个窗口内按 [CLS] 注意力选取 $K_w = K/W$ 个 token 作为 $\mathbf{x}_V^l$
-- 最终锚点集合 $\mathbf{X}_V^{\text{anchors}} = \mathbf{x}_V^g \cup \mathbf{x}_V^l$，全局和局部配额相等以平衡覆盖度
+简单丢弃会丢关键信息，而要聚合信息先得有一组好的保留点。AOT 同时取两类锚点：全局锚点用视觉编码器最后一层 [CLS] token 的多头注意力得分取 Top-K 个高注意力 token $\mathbf{x}_V^g$；局部锚点把图像特征划成 $W$ 个非重叠网格窗口，在浅层每个窗口内按 [CLS] 注意力取 $K_w = K/W$ 个 token $\mathbf{x}_V^l$。最终锚点 $\mathbf{X}_V^{\text{anchors}} = \mathbf{x}_V^g \cup \mathbf{x}_V^l$，全局与局部配额相等以兼顾“重要”和“覆盖”。
 
-**帧内 OT 聚合**：
+**2. 帧内 OT 聚合：把帧内被裁 token 的语义最优地传给锚点**
 
-- 将锚点 $\mathbf{X}_V^a$ 和非锚点 $\mathbf{X}_V^u$ 分别视为两个离散分布
-- 代价矩阵 $\bm{C} = \bm{1} - (\mathbf{X}_V^a)^\top \mathbf{X}_V^u$（逆余弦相似度）
-- 通过 Sinkhorn-Knopp 迭代求解最优传输计划 $\bm{T}^*_{intra}$
-- 按传输质量加权聚合：$\tilde{\mathbf{x}}_j^a = \frac{\mathbf{x}_j^a + \lambda_{intra} \sum_i T^*_{ij} \mathbf{x}_i^u}{1 + \lambda_{intra} m_j}$
+针对“空间冗余但信息别丢”，把锚点 $\mathbf{X}_V^a$ 和非锚点 $\mathbf{X}_V^u$ 看成两个离散分布，以逆余弦相似度构代价矩阵 $\bm{C} = \bm{1} - (\mathbf{X}_V^a)^\top \mathbf{X}_V^u$，用 Sinkhorn-Knopp 迭代求最优传输计划 $\bm{T}^*_{intra}$，再按传输质量加权聚合 $\tilde{\mathbf{x}}_j^a = \frac{\mathbf{x}_j^a + \lambda_{intra} \sum_i T^*_{ij} \mathbf{x}_i^u}{1 + \lambda_{intra} m_j}$。这样被丢的 token 不是凭空消失，而是把上下文“运”到了保留点上。
 
-**帧间 OT 聚合**：
+**3. 帧间 OT 聚合：消时序冗余又不抹掉变化帧**
 
-- 将帧序列分为多个 clip，每个 clip 以首帧 token 为时序锚点
-- 对后续帧逐帧计算 OT 传输计划
-- 对传输计划行归一化后，判断每个 token 的最大分配概率 $q_i^{(\ell)} = \max_j p_{ij}^{(\ell)}$
-- 若 $q_i < \tau$（阈值），认为该 token 包含时序变化较大的独特信息，保留不合并
-- 否则按 OT 权重聚合到时序锚点上，逐步更新锚点表示
+针对“空间压缩忽略帧间时序冗余、低保留率下性能骤降”，把帧序列切成 clip、每个 clip 以首帧 token 为时序锚点，对后续帧逐帧算 OT 计划；行归一化后看每个 token 的最大分配概率 $q_i^{(\ell)} = \max_j p_{ij}^{(\ell)}$，若 $q_i < \tau$ 说明该 token 含时序独特信息、保留不合并，否则按 OT 权重聚合到锚点上逐步更新。一保一聚，既压时序冗余又不丢动态信息。
 
-### 损失/优化
+### 损失函数 / 训练策略
 
 - 不涉及训练损失，完全 training-free
 - 核心优化目标是最小化 OT 距离 $d_{\text{OT}}(\bm{u}, \bm{v} | \bm{C})$

@@ -39,71 +39,61 @@ tags:
 
 ### 整体框架
 
-Uni-DAD 将一个冻结的源域教师 $\epsilon^{\text{src}}$（在大规模源数据上预训练，$T \sim 1000$ 步）压缩为一个快速学生生成器 $G$（$1 \leq \text{NFE} \leq 4$），同时适配到由少量样本 $Y$（$|Y| \leq 10$）表示的目标分布 $p^{\text{trg}}(y)$。
+Uni-DAD 想把扩散模型的「蒸馏」和「域适配」合并成单阶段一次做完，而不是走传统的两阶段流水线。它把一个冻结的源域教师 $\epsilon^{\text{src}}$（在大规模源数据上预训练，$T \sim 1000$ 步）直接压成一个快速学生生成器 $G$（$1 \leq \text{NFE} \leq 4$），同时把它适配到只有少量样本 $Y$（$|Y| \leq 10$）表示的目标分布 $p^{\text{trg}}(y)$。训练时三组模型交替优化：学生 $G$ 用双域 DMD + 多头 GAN 生成器损失更新；假教师 $\epsilon^{\text{fk}}$ 和多头判别器 $D$ 负责追踪学生分布、区分真实目标样本与学生生成；可选的目标教师 $\epsilon^{\text{trg}}$ 在目标样本上微调、提供目标域分数引导。
 
-训练涉及三组模型的交替优化：
+### 关键设计
 
-1. **学生 $G$**：用双域 DMD + 多头 GAN 生成器损失更新
-2. **假教师 $\epsilon^{\text{fk}}$ + 多头判别器 $D$**：假教师追踪学生分布，判别器区分真实目标样本与学生生成
-3. **目标教师 $\epsilon^{\text{trg}}$（可选）**：在目标样本上微调，提供目标域分数引导
+**1. 双域分布匹配蒸馏（Dual-domain DMD）：源域保多样、目标域促适配**
 
-### 双域分布匹配蒸馏（Dual-domain DMD）
-
-DMD 的核心思想是最小化学生分布 $p^{\text{fk}}$ 与教师分布 $p^{\text{src}}$ 之间的 KL 散度。其梯度可以用噪声估计形式近似：
+两阶段方案的通病是训练中容易丢掉源域的多样性信息，产出过度平滑。DMD 本身是最小化学生分布 $p^{\text{fk}}$ 与教师分布 $p^{\text{src}}$ 的 KL 散度，其梯度可用噪声估计形式近似：
 
 $$\nabla_{\theta} \mathcal{L}_{\text{DMD}^{\text{src}}} \approx \mathbb{E}_{t,z}\left[\omega_t \left(\epsilon^{\text{fk}}(x_t) - \epsilon^{\text{src}}(x_t)\right) \frac{dG_\theta}{d\theta}\right]$$
 
-其中 $x = G(z),\; z \sim \mathcal{N}(0,I)$，$t \sim \mathcal{U}\{0.02T, 0.98T\}$。$\epsilon^{\text{fk}}$ 是在线追踪学生输出分布的假教师，$\epsilon^{\text{src}}$ 是冻结的源域教师。
-
-作者将此扩展为**双域 DMD**，同时对齐学生到源域和目标域分布：
+其中 $x = G(z),\; z \sim \mathcal{N}(0,I)$，$t \sim \mathcal{U}\{0.02T, 0.98T\}$，$\epsilon^{\text{fk}}$ 是在线追踪学生输出的假教师、$\epsilon^{\text{src}}$ 是冻结的源域教师。Uni-DAD 把它扩成双域，同时对齐学生到源域和目标域：
 
 $$\nabla_{\theta} \mathcal{L}_{\text{DMD}}^{\text{trg}+\text{src}} = (1-a)\nabla_{\theta}\mathcal{L}_{\text{DMD}^{\text{src}}} + a\nabla_{\theta}\mathcal{L}_{\text{DMD}^{\text{trg}}}$$
 
-其中权重因子 $a \in [0,1]$ 控制源域与目标域的影响比例。源域项保留多样性（姿态、背景、表情等），目标域项引导结构适配。当目标域与源域结构接近时用小 $a$（如 Babies 用 $a=0.25$），结构差异大时用大 $a$（如 MetFaces 用 $a=0.75$）。
-
-权重归一化采用：
+权重因子 $a \in [0,1]$ 控制两域影响比例：源域项保住姿态/背景/表情等多样性，目标域项引导结构适配——目标域与源域结构接近时用小 $a$（Babies 取 $a=0.25$），结构差异大时用大 $a$（MetFaces 取 $a=0.75$）。权重归一化用
 
 $$\omega_t = \frac{\sigma_t \cdot H \cdot S}{\|\epsilon - \epsilon^{\text{fk}}(x_t)\|_1}$$
 
-其中 $H$ 是通道数，$S$ 是空间位置数，确保不同时间步的贡献均衡。
+其中 $H$ 是通道数、$S$ 是空间位置数，确保不同时间步贡献均衡。
 
-### 假教师与目标教师
+**2. 假教师与目标教师：一个追学生、一个盯目标域**
 
-**假教师 $\epsilon^{\text{fk}}$**：从 $\epsilon^{\text{src}}$ 权重初始化，在学生生成样本上持续训练以追踪学生不断变化的分布：
+双域 DMD 要算两个分布的差，就需要两个「参照系」。假教师 $\epsilon^{\text{fk}}$ 从 $\epsilon^{\text{src}}$ 权重初始化，在学生生成样本上持续训练以追踪不断变化的学生分布：
 
 $$\mathcal{L}_{\text{fk}}(\phi) = \mathbb{E}_{t,z}\left[\|\epsilon^{\text{fk}}_\phi(x_t) - \epsilon\|_2^2\right]$$
 
-训练时不通过 $G$ 反传梯度，$x$ 视为固定。
-
-**目标教师 $\epsilon^{\text{trg}}$**（可选）：从 $\epsilon^{\text{src}}$ 初始化，在目标样本 $Y$ 上微调：
+训练时不通过 $G$ 反传梯度、$x$ 视为固定。目标教师 $\epsilon^{\text{trg}}$（可选）则从 $\epsilon^{\text{src}}$ 初始化、在目标样本 $Y$ 上微调：
 
 $$\mathcal{L}_{\text{trg}}(\eta) = \mathbb{E}_{t,\epsilon,y}\left[\|\epsilon^{\text{trg}}_\eta(y_t) - \epsilon\|_2^2\right]$$
 
-当目标域与源域结构差异较大时，加入目标教师有助于适配目标域的结构信息。若已有预适配的检查点，可直接作为冻结目标教师使用。
+当目标域与源域结构差异大时，它能补回目标域的结构信息；若已有预适配的检查点，可直接当作冻结目标教师使用。
 
-### 多头 GAN 损失
+**3. 多头 GAN 损失：复用假教师特征、多尺度判真假以抗少样本过拟合**
 
-为强制学生输出对目标域 $Y$ 的视觉保真度，引入多头 GAN。判别器复用假教师 $\epsilon^{\text{fk}}$ 的编码器和中间块作为特征提取器，在每个编码块 $b \in \mathcal{B}$ 后附加线性分类头：
+只靠分数蒸馏对目标域 $Y$ 的视觉保真度不够，且 $|Y| \leq 10$ 极易过拟合、模式塌缩。多头 GAN 复用假教师 $\epsilon^{\text{fk}}$ 的编码器和中间块当特征提取器，在每个编码块 $b \in \mathcal{B}$ 后挂一个线性分类头，让判别在多个特征尺度上同时进行：
 
 $$D^b(\cdot) = \sigma\left(h^b(f^b(\cdot))\right)$$
-
-多头设计使判别器在多个特征尺度上对比真假样本，缓解少样本下（$|Y| \leq 10$）的过拟合和模式塌缩：
 
 $$\mathcal{L}_{\text{GAN}}^G(\theta) = -\mathbb{E}_{t,z}\sum_{b \in \mathcal{B}} \log\left(D^b_\theta(x_t)\right)$$
 
 $$\mathcal{L}_{\text{GAN}}^D(\psi,\phi) = -\mathbb{E}_{t,y}\sum_{b \in \mathcal{B}} \log\left(D^b(y_t)\right) - \mathbb{E}_{t,z}\sum_{b \in \mathcal{B}} \log\left(1 - D^b(x_t)\right)$$
 
-### 总体训练目标
+多尺度对比比单头在少样本下更稳，能有效缓解过拟合和模式塌缩，且不额外引入特征提取网络。
 
-学生总损失：
+### 损失函数 / 训练策略
+
+学生总损失把双域 DMD 和多头 GAN 生成器项加权相加：
 
 $$\mathcal{L}_G(\theta) = \mathcal{L}_{\text{DMD}}^{\text{trg}+\text{src}}(\theta) + \lambda_{\text{GAN}}^G \mathcal{L}_{\text{GAN}}^G(\theta)$$
 
-假教师+判别器总损失：
+假教师 + 判别器一侧为：
 
 $$\mathcal{L}_{\text{fk}+D}(\phi,\psi) = \mathcal{L}_{\text{fk}}(\phi) + \lambda_{\text{GAN}}^D \mathcal{L}_{\text{GAN}}^D(\psi,\phi)$$
 
-每次迭代中，$\epsilon^{\text{fk}} + D$ 更新 5–10 次，$G$ 和 $\epsilon^{\text{trg}}$ 各更新 1 次，以确保假教师跟上学生持续变化的输出分布。超参数设置：$\lambda_{\text{GAN}}^G = 0.01$，$\lambda_{\text{GAN}}^D = 0.03$，学习率 $2 \times 10^{-6}$，batch size 1，bf16 混合精度。
+每次迭代中 $\epsilon^{\text{fk}} + D$ 更新 5–10 次、$G$ 与 $\epsilon^{\text{trg}}$ 各更新 1 次，确保假教师跟得上学生持续变化的输出分布。其余超参：$\lambda_{\text{GAN}}^G = 0.01$、$\lambda_{\text{GAN}}^D = 0.03$、学习率 $2 \times 10^{-6}$、batch size 1、bf16 混合精度。
 
 ## 实验
 

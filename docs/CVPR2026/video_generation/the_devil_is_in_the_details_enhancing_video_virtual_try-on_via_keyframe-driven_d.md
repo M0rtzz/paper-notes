@@ -36,40 +36,29 @@ tags:
 
 ## 方法详解
 
-### 整体框架 KeyTailor
+### 整体框架
 
-基于 Wan2.1-I2V-14B 预训练权重，核心思想是**关键帧驱动的细节注入**——利用关键帧天然包含的多视角服装动态和背景细节来增强生成质量，而非在 DiT 内部插入交互模块。输入包括：参考服装图 $I_{ref}$、源视频 $V_{in}$、agnostic 视频 $V_{agn}$、agnostic masks $M_{agn}$ 和姿态表示 $P$。
+KeyTailor 基于 Wan2.1-I2V-14B 预训练权重，核心思想是**关键帧驱动的细节注入**：与其在 DiT 内部塞额外交互模块（那样既加参数又加算力），不如利用关键帧天然带的多视角服装动态和背景细节去增强生成。输入有参考服装图 $I_{ref}$、源视频 $V_{in}$、agnostic 视频 $V_{agn}$、agnostic masks $M_{agn}$ 和姿态 $P$；流水线先选关键帧，再分别把服装细节和背景细节注入潜表示，最后只用 LoRA 微调注意力、不动 DiT 架构地完成去噪。
 
-### 指令引导的关键帧采样（IKS）
+### 关键设计
 
-- 使用大视觉语言模型（QWen）解析预定义的视角-动作指令，提取目标视角 $\mathcal{V}_{tar}$ 和动作 $\mathcal{A}_{tar}$
-- 通过 HumanParsing 生成标准化多锚点姿态帧 $F_{anc}$
-- 对每帧计算运动差异分数 $S_m(f)$ 和服装面积比分数 $S_r(f)$，综合得分 $S_f(f) = 1 - S_m(f) + \lambda \cdot S_r(f)$
-- 采用**双阈值选择策略**：约束分数差异和时序间隔，避免冗余并保证时序均匀
+**1. 指令引导的关键帧采样（IKS）：选出既覆盖多视角又时序均匀的帧**
 
-### 服装动态细节增强模块（GDDE）
+服装的背面纹理、抬手褶皱这些动态细节只藏在特定帧里，随机采样选不准。IKS 先用大视觉语言模型（QWen）解析预定义的视角-动作指令，提取目标视角 $\mathcal{V}_{tar}$ 和动作 $\mathcal{A}_{tar}$，再经 HumanParsing 生成标准化多锚点姿态帧 $F_{anc}$。对每帧算运动差异分 $S_m(f)$ 和服装面积比分 $S_r(f)$，综合得分 $S_f(f) = 1 - S_m(f) + \lambda \cdot S_r(f)$，并用双阈值（约束分数差异 + 时序间隔）挑帧，既避免冗余又保证时间上铺得开。
 
-- 先用预训练单图试穿模型 + LoRA 将服装注入 agnostic 首帧，得到试穿首帧
-- VAE 编码器编码为服装潜表示 $L_g$
-- 从关键帧的服装区域提取多视角特征 $L_{key}^{gar}$（如背面纹理、手臂抬起导致的褶皱）
-- 轻量蒸馏组件 $\mathcal{D}$（两层 1×1 卷积 + LayerNorm）将关键帧服装变化注入 $L_g$：
-  $\bar{L}_g = \mathcal{D}(\text{Concat}(L_g, \frac{1}{|F_{key}|}\sum L_k))$
+**2. 服装动态细节增强模块（GDDE）：把关键帧的服装变化蒸进首帧潜表示**
 
-### 协同背景细节优化模块（CBDO）
+单图试穿只给一个视角，连续帧的细粒度动态会被生成过度平滑掉。GDDE 先用预训练单图试穿模型 + LoRA 把服装贴到 agnostic 首帧，VAE 编码出服装潜表示 $L_g$；再从关键帧服装区域提取多视角特征 $L_{key}^{gar}$（背面纹理、抬臂褶皱等），用一个轻量蒸馏组件 $\mathcal{D}$（两层 1×1 卷积 + LayerNorm）把这些变化注入 $L_g$：$\bar{L}_g = \mathcal{D}(\text{Concat}(L_g, \frac{1}{|F_{key}|}\sum L_k))$。消融里去掉 $\mathcal{D}$ 时 VFID 从 7.53 飙到 22.52，可见这步是保真度的命门。
 
-- **粗粒度全局分支**：Mask Guider $\mathcal{E}_{BG}$（四层 3D 卷积，通道 32→96→192→256，线性层零初始化）将 $V_{agn}$ 编码为全局背景潜表示 $L_{bg}$
-- **细粒度关键帧分支**：用反向人体 mask 裁剪关键帧背景区域，VAE 编码为 $L_{key}^{bg}$，选择背景完整度最高的帧作为补充
-- 融合：$\bar{L}_{bg} = \alpha \cdot L_{bg} + (1-\alpha) L_{key}^{max}$，$\alpha=0.3$
+**3. 协同背景细节优化模块（CBDO）：粗全局 + 细关键帧两路补回背景**
 
-### 三步融合与生成
+只靠 agnostic video 当背景条件，容易糊纹理、出帧间伪影、漂移结构。CBDO 走两路：粗粒度全局分支用 Mask Guider $\mathcal{E}_{BG}$（四层 3D 卷积，通道 32→96→192→256，线性层零初始化）把 $V_{agn}$ 编成全局背景潜表示 $L_{bg}$；细粒度关键帧分支用反向人体 mask 裁出关键帧背景、VAE 编码为 $L_{key}^{bg}$，挑背景最完整的帧补细节。两路融合为 $\bar{L}_{bg} = \alpha \cdot L_{bg} + (1-\alpha) L_{key}^{max}$，$\alpha=0.3$。
 
-1. 姿态潜表示 $L_p$ 和 mask $L_m$ 拼接 patchify → 与 $\bar{L}_g$ 经投影层融合得 $L$
-2. $L$ 与 patchified 噪声 $\epsilon$ 拼接得 $\bar{L}$
-3. $\bar{L}_{bg}$ 通过 "addto" 操作注入 → 最终引导 DiT 去噪
-4. $\bar{L}_g$ 在 cross-attention 中替代文本 token，保留服装细节
-5. 仅用 LoRA 微调 DiT 注意力模块，**不修改 DiT 架构**
+**4. 融合与注入：服装走 cross-attention、背景走 addto，全程只动 LoRA**
 
-### 损失函数
+最后把上面两路细节喂回 DiT：姿态潜表示 $L_p$ 和 mask $L_m$ 拼接 patchify 后与 $\bar{L}_g$ 经投影层融成 $L$，再与 patchified 噪声 $\epsilon$ 拼成 $\bar{L}$；背景 $\bar{L}_{bg}$ 通过 "addto" 注入引导去噪，而 $\bar{L}_g$ 在 cross-attention 里替代文本 token、把服装细节锁住。整个过程只对 self-/cross-attention 加 LoRA 微调，**不改 DiT 架构**，因而仅增 2.1% 参数。
+
+### 损失函数 / 训练策略
 
 标准扩散训练损失（去噪目标），对 DiT backbone 的 self-attention 和 cross-attention 施加 LoRA，学习率 1e-4，AdamW 优化器，14500 iterations，batch size = 1，81 帧/样本。
 

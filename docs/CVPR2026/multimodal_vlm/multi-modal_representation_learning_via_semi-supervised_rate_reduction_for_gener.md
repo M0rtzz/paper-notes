@@ -37,36 +37,30 @@ tags:
 
 ## 方法详解
 
-### 整体框架 SSR²-GCD
+### 整体框架
+SSR²-GCD 要解决多模态广义类别发现里"已知类被过度压缩、未知类压缩不足"的表征不均衡问题。整条流程：检索式文本聚合（RTA）先给每张图生成一个鲁棒的文本表征，图像/文本两路表征再各自过半监督编码率减少（SSR²）损失做表征学习，最后双分支分类器从两个模态各自学伪标签并互相监督。
 
-框架包含三个模块：(a) 检索式文本聚合 (RTA) 生成文本表征，(b) 半监督编码率减少 (SSR²) 模块进行表征学习，(c) 双分支分类器从各模态学习伪标签。
+### 关键设计
 
-### 检索式文本聚合 (RTA)
+**1. 检索式文本聚合（RTA）：绕开 CLIP 长文本短板，在嵌入空间加权聚合多候选**
 
-- 沿用 TextGCD 的标签词典和属性词典，为每张查询图像检索最相似的 $c$ 个标签和属性候选
-- **关键改进**：不再将候选拼接为长字符串输入CLIP，而是分别对每个候选编码后加权聚合：
+CLIP 对超过 20 个 token 的长 prompt 编码效果差，传统拼接式 prompt 是次优的。RTA 沿用 TextGCD 的标签词典和属性词典，为每张查询图像检索最相似的 $c$ 个标签和属性候选，但不再拼成长字符串输入 CLIP，而是分别编码后加权聚合：
 
 $$\boldsymbol{z}^{\text{T}} = \sum_{i=1}^{c} \sigma_i \mathcal{F}^{\text{T}}(\mathcal{T}(a_i)) + \sum_{i=1}^{c} \sigma_i \mathcal{F}^{\text{T}}(\mathcal{T}(b_i))$$
 
-- 权重分配：最相似候选权重 $1-\alpha$，其余各 $\frac{\alpha}{c-1}$（$\alpha=0.5, c=4$），有效整合更多候选信息
+权重分配上最相似候选取 $1-\alpha$，其余各 $\frac{\alpha}{c-1}$（$\alpha=0.5, c=4$）。这样既避开了长文本编码退化，又能把更多候选信息整合进来。
 
-### 半监督编码率减少损失 (SSR²)
+**2. 半监督编码率减少（SSR²）：用信息论原则逼出均衡压缩的表征**
 
-核心损失函数基于最大编码率减少原则：
+传统对比损失 $\mathcal{L}_{\text{con}}$ 由无监督项和有监督项组成，会把已知类压得过事、未知类压得不够，聚类边界模糊。SSR² 基于最大编码率减少原则重新设计损失：
 
 $$\mathcal{L}_{\text{SSR}^2} = -R(\mathbf{Z}) + R_c^{\text{s}}(\mathbf{Z}_{\text{s}}, \mathbf{Y}^*) + R_c^{\text{u}}(\mathbf{Z}_{\text{u}}, \mathbf{Y})$$
 
-- **$R(\mathbf{Z})$**：整体编码率，最大化使全部表征在全局空间展开
-- **$R_c^{\text{s}}$**：有标签部分的类别编码率，利用真实标签 $\mathbf{Y}^*$ 压缩各已知类别
-- **$R_c^{\text{u}}$**：无标签部分的类别编码率，利用分类器预测的伪标签 $\mathbf{Y}$ 压缩各未知类别
-- 分别对图像和文本编码器应用：$\mathcal{L}_{\text{SSR}^2}^{\text{I}}$ 和 $\mathcal{L}_{\text{SSR}^2}^{\text{T}}$
-- **效果**：全局展开 + 类别内均匀压缩，使已知和未知类别获得平衡的低维子空间表征
+其中 $R(\mathbf{Z})$ 是整体编码率，最大化使全部表征在全局空间展开；$R_c^{\text{s}}$ 用真实标签 $\mathbf{Y}^*$ 压缩各已知类；$R_c^{\text{u}}$ 用分类器预测的伪标签 $\mathbf{Y}$ 压缩各未知类。该损失分别对图像和文本编码器应用（$\mathcal{L}_{\text{SSR}^2}^{\text{I}}$ 和 $\mathcal{L}_{\text{SSR}^2}^{\text{T}}$），"全局展开 + 类内均匀压缩"让已知和未知类都拿到平衡的低维子空间表征。
 
-### 双分支聚类与训练策略
+**3. 双分支聚类：用 co-teaching 让两模态互相监督伪标签**
 
-- **热身阶段**：$\mathcal{L}_{\text{warm}} = \mathcal{L}_{\text{SSR}^2}^{\text{I}} + \mathcal{L}_{\text{SSR}^2}^{\text{T}} + \mathcal{L}_{\text{cls}}^{\text{I}} + \mathcal{L}_{\text{cls}}^{\text{T}}$
-- **对齐阶段**：加入 co-teaching 损失 $\mathcal{L}_{\text{co-teach}}$，用高置信度样本互相监督
-- 最终预测：$\arg\max(\boldsymbol{y}_i^{\text{I}} + \boldsymbol{y}_i^{\text{T}})$
+两个模态各自学出的伪标签质量参差，单靠任一路都不够稳。训练分两阶段：热身阶段用 $\mathcal{L}_{\text{warm}} = \mathcal{L}_{\text{SSR}^2}^{\text{I}} + \mathcal{L}_{\text{SSR}^2}^{\text{T}} + \mathcal{L}_{\text{cls}}^{\text{I}} + \mathcal{L}_{\text{cls}}^{\text{T}}$ 先把两路表征和分类器立起来；对齐阶段再加入 co-teaching 损失 $\mathcal{L}_{\text{co-teach}}$，用高置信度样本互相监督。最终预测取两路分类器输出之和的 $\arg\max(\boldsymbol{y}_i^{\text{I}} + \boldsymbol{y}_i^{\text{T}})$。
 
 ## 实验关键数据
 

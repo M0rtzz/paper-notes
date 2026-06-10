@@ -34,35 +34,24 @@ tags:
 ## 方法详解
 
 ### 整体框架
-DSS是一个三阶段pipeline：**Discover**——用自监督视觉特征的聚类替代MLLM定位来发现伪装目标区域并生成bbox prompt；**Segment**——将bbox送入SAM生成候选mask集合；**Select**——通过启发式评分筛选+MLLM成对比较迭代选出最终mask。整个流程zero-shot、training-free，无需任何微调或标注数据。
+DSS 想绕开零样本伪装分割里"MLLM 定位不准"这个老瓶颈——伪装目标和背景太像，MLLM 给的 bbox 偏、多实例时还只盯最显眼那个。它把任务拆成三步渐进式 pipeline：**Discover** 用自监督视觉特征的聚类（而非 MLLM）发现前景、生成 bbox；**Segment** 把 bbox 喂给 SAM 产出一批候选 mask；**Select** 先用启发式评分粗筛、再让 MLLM 做成对比较选出最优。全程 zero-shot、training-free，不需要任何微调或标注。
 
-### 阶段一：Discover (FOD — Foreground Object Discovery)
+### 关键设计
 
-1. **Patch-level特征提取**: 用自监督预训练的视觉编码器(如DINOv2)提取图像的patch-level特征矩阵X∈R^{N×D}，N为patch数量，D为特征维度。
+**1. Discover（FOD）：用聚类替 MLLM 做定位**
 
-2. **Leiden聚类初始化**: 对patch特征用Leiden社区检测算法进行聚类，得到初始的前景/背景粗略划分。Leiden算法基于图的模块度优化，能自动发现特征空间中的自然聚类结构，无需预设类别数。
+MLLM 在伪装场景定位退化，于是改用自监督视觉特征的内在结构来找目标。先用 DINOv2 提 patch-level 特征 $X \in \mathbb{R}^{N \times D}$，用 Leiden 社区检测做初始前景/背景划分（基于图模块度优化，自动发现聚类、无需预设类别数）；再做 Part Composition 迭代精炼，每轮按"离前景中心近、离背景中心远"算每个 patch 的前景归属概率 $y_i^{(t)} = \sigma(\|x_i - \mu_b\|_2 - \|x_i - \mu_f\|_2)$（$\mu_f, \mu_b$ 为当前前景/背景特征均值中心），直到能量函数 $E$ 收敛；最后做 Similarity-based Box Generation——用前景 centroid 与全图 patch 的余弦相似度生成 affinity map，阈值化 + 连通域提候选区，并用 Pearson 相关（阈值 $\tau=0.95$）去重，避免同一目标出多个冗余 bbox。多实例场景下它能自动发现多个目标，正是 MLLM 做不到的地方。
 
-3. **Part Composition (PC) 迭代精炼**: 对初始聚类结果进行迭代优化。每轮计算每个patch的前景/背景归属概率：
-$$y_i^{(t)} = \sigma\left(\|x_i - \mu_b\|_2 - \|x_i - \mu_f\|_2\right)$$
-其中μ_f和μ_b分别为当前前景和背景patch的特征均值中心，σ为sigmoid函数。直觉是：离前景中心近、离背景中心远的patch更可能是前景。迭代直到能量函数E收敛，E衡量当前划分的整体一致性。
+**2. Segment：bbox 交给 SAM 出候选 mask**
 
-4. **Similarity-based Box Generation (SBG)**: 计算前景centroid与全图所有patch的余弦相似度，生成affinity map。在affinity map上通过阈值化和连通域分析提取候选区域。对候选区域用**Pearson correlation去重**(阈值τ=0.95)——相关性高于0.95的区域视为同一目标合并，避免同一目标生成多个冗余bbox。最终输出的bbox作为SAM的prompt。
+定位准了，分割就交给通用基础模型。把 FOD 生成的所有 bbox prompt 送入 SAM，每个 bbox 产一组候选 mask，汇总成候选集 $M_{FOD}$。这一步只借 SAM 从位置提示出高质量像素级 mask 的能力，不引入额外训练。
 
-### 阶段二：Segment
-将FOD生成的所有bbox prompt送入SAM(Segment Anything Model)，每个bbox生成一组候选mask，汇总为候选mask集合M_FOD。SAM作为通用分割基础模型，能从给定的位置提示生成高质量的像素级mask。
+**3. Select（SMS）：把 MLLM 从"定位者"改成"裁判"**
 
-### 阶段三：Select (SMS — Segment Mask Selection)
-
-1. **启发式评分**: 对每个候选mask m_i计算质量得分：
-$$s_i = \text{corr}(m_i, \text{sim}_i) + (1 - \text{BC}(m_i))$$
-其中corr(m_i, sim_i)是mask与affinity map的Pearson相关系数——衡量mask区域是否与前景特征分布一致；BC(m_i)是mask的boundary complexity(边界复杂度)——惩罚过度碎片化的mask。两项相加，高质量mask应同时具备高特征一致性和低边界复杂度。
-
-2. **Top-K筛选**: 按得分排序，保留Top-K个候选mask进入精选阶段。
-
-3. **Iterative Pairwise MLLM Comparison**: 从得分最低的mask开始，两两送入MLLM进行成对比较——"哪个mask更好地分割了伪装目标？"MLLM在成对比较中的判断远比直接定位准确(降低了任务难度)。从低分到高分迭代对比，最终胜出的mask即为输出。这种从差到好的比较顺序让MLLM逐步理解什么是更好的mask，减少单次判断误差的累积。
+候选 mask 里要挑最好的一个。先给每个候选算启发式质量分 $s_i = \text{corr}(m_i, \text{sim}_i) + (1 - \text{BC}(m_i))$——前一项是 mask 与 affinity map 的 Pearson 相关（区域是否与前景特征分布一致），后一项用边界复杂度 $\text{BC}$ 惩罚过度碎片化，高质量 mask 应同时特征一致且边界干净。按分排序取 Top-K 后做 Iterative Pairwise MLLM Comparison：从得分最低的 mask 开始两两问 MLLM"哪个更好地分割了伪装目标"，从低分到高分逐步对比、胜者出线。关键在于 MLLM 做成对比较远比直接定位可靠（任务难度低得多），从差到好的比较顺序也让它逐步建立"什么是更好 mask"的标准、减少单次误判累积。
 
 ### 损失函数 / 训练策略
-无训练，整个pipeline是inference-only的。超参数包括：Leiden聚类的分辨率参数、PC迭代的收敛阈值、Pearson去重阈值τ=0.95、启发式评分的Top-K值。
+无训练，整个 pipeline 是 inference-only。可调超参包括 Leiden 聚类的分辨率参数、PC 迭代的收敛阈值、SBG 的 Pearson 去重阈值 $\tau=0.95$、以及 SMS 启发式评分的 Top-K 值。
 
 ## 实验关键数据
 

@@ -50,47 +50,35 @@ Reasoning VLA（如 ThinkAct、CoT-VLA、MolmoAct）通过引入显式 chain-of-
 
 ## 方法详解
 
-### 整体架构
+### 整体框架
 
-Fast-ThinkAct 包含三个核心阶段：
+Fast-ThinkAct 要治的是 reasoning VLA 的延迟病——ThinkAct 那种 ~250 token 的文本 CoT 一步要好几秒，根本喂不动 1-15 Hz 的机器人控制。它的办法是把推理从 token 空间搬进连续 latent 空间，压成 6 个 latent token，又不能把推理质量一起压没。整体是个 teacher-student 三步蒸馏：先用 teacher 的 reward 信号教 student 学出高质量的 latent 推理，再对齐 teacher/student 的轨迹级视觉规划表示，最后冻住 student VLM、用它的 latent 推理特征去增强一个扩散动作模型生成动作。
 
-1. **Reward-Guided Preference Distillation**：用 teacher 的 GRPO reward 信号指导 student 学习高质量的 latent 推理
-2. **Visual Trajectory Alignment**：对齐 teacher 和 student 的 trajectory-level 表示，迁移视觉规划能力
-3. **Reasoning-Enhanced Policy Learning**：冻结 student VLM，用 latent 推理特征增强 action model 生成动作
+### 关键设计
 
-### 阶段一：Verbalizable Latent CoT by Reward Preferences
+**1. Reward-Guided Preference Distillation：借 teacher 的 reward 给无监督的 latent 找信号**
 
-**Teacher 训练**：Textual Teacher VLM $\mathcal{F}_{\theta^T}$ 基于 CoT-SFT checkpoint 通过 GRPO 训练，使用 action-aligned visual reward 生成显式文本推理链。GRPO 的 advantage function $A(\tau)$ 自然成为推理质量的指标。
-
-**构造偏好对**：从每个 rollout group 中选取最高/最低 advantage 的推理链作为正负样本：
+latent 推理最棘手的地方是没有直接监督——把推理压进连续向量后，根本不知道这些向量该编码什么。Fast-ThinkAct 的巧办法是复用 teacher 的 reward：textual teacher $\mathcal{F}_{\theta^T}$ 基于 CoT-SFT checkpoint 用 GRPO 训练，它的 advantage 函数 $A(\tau)$ 天然就是推理质量的标尺。于是从每个 rollout group 里取最高/最低 advantage 的推理链当正负样本
 
 $$\tau^+ = \arg\max_{\tau \in G} A(\tau), \quad \tau^- = \arg\min_{\tau \in G} A(\tau)$$
 
-**Student 学习**：Student VLM $\mathcal{F}_\theta$ 不生成文本 token，而是自回归生成 $M=6$ 个连续 latent 向量 $\mathbf{z} = \{z_m\}_{m=1}^M$，$z_m \in \mathbb{R}^d$。
-
-**Verbalizer**：引入 verbalizer LLM $\mathcal{V}_\psi$（Qwen3-0.6B，插入 cross-attention 层）将 latent 解码为自然语言。训练目标是让 verbalizer 对高质量推理 $\tau^+$ 赋予更高似然：
+student VLM $\mathcal{F}_\theta$ 不再生成文本 token，而是自回归吐出 $M=6$ 个连续 latent 向量 $\mathbf{z} = \{z_m\}_{m=1}^M,\ z_m \in \mathbb{R}^d$。再引入一个 verbalizer LLM $\mathcal{V}_\psi$（Qwen3-0.6B，插入 cross-attention 层）把 latent 解码回自然语言，用 DPO 风格的目标逼它给高质量推理 $\tau^+$ 更高的似然：
 
 $$\mathcal{L}_{\text{verb}} = -\mathbb{E}\left[\log \sigma\left(\beta \left(\log \frac{p_\psi(\tau^+|\mathbf{z})}{p_{\text{ref}}(\tau^+)} - \log \frac{p_\psi(\tau^-|\mathbf{z})}{p_{\text{ref}}(\tau^-)}\right)\right)\right]$$
 
-这是一个 DPO 风格的目标，$\beta=0.1$ 控制偏好强度。通过这种方式，student 被引导编码出 verbalizer 能解码为高质量推理的 latent。
+$\beta=0.1$ 控制偏好强度。这等于反向逼着 student 把 latent 编码成"verbalizer 能解码出高质量推理"的内容——借 verbalizer 给本来没有监督的 latent 空间装上了一个监督信号。
 
-### 阶段二：Action-Aligned Visual Plan Distillation
+**2. Action-Aligned Visual Plan Distillation：对齐轨迹级表示并把 waypoint 并行化**
 
-对齐 teacher 和 student 在 `<answer>` token 处的 hidden state，迁移 trajectory-level 的视觉规划能力：
+光会推理还不够，还得把 teacher 的视觉规划能力搬过来。这一步在 `<answer>` token 处对齐 teacher 和 student 的 hidden state $\mathcal{L}_{\text{distill}} = \|h_t^T - h_t\|_2^2$，迁移 trajectory-level 的规划信息。同时在 latent 推理序列后挂上 $K=5$ 个可学习的 spatial token $\{s_i\}_{i=1}^K$，每个输出 hidden state 经 MLP 并行投成一个 waypoint $p_i \in \mathbb{R}^6$（格式 $[x_{\text{single}}, y_{\text{single}}, x_{\text{left}}, y_{\text{left}}, x_{\text{right}}, y_{\text{right}}]$）——一次并行预测，替掉 teacher 自回归吐 60-70 个 token 的 waypoint 文本，又省一截延迟。student 的总目标因此是 $\mathcal{L}_{\text{student}} = \mathcal{L}_{\text{verb}} + \mathcal{L}_{\text{distill}} + \mathcal{L}_{\text{ans}}$。
 
-$$\mathcal{L}_{\text{distill}} = \|h_t^T - h_t\|_2^2$$
+**3. Reasoning-Enhanced Policy Learning：冻结 VLM，用早层 latent 喂动作模型**
 
-同时引入 $K=5$ 个可学习的 spatial token $\{s_i\}_{i=1}^K$，附加在 latent 推理序列后，每个输出 hidden state 通过 MLP 并行投射为 waypoint $p_i \in \mathbb{R}^6$（格式 $[x_{\text{single}}, y_{\text{single}}, x_{\text{left}}, y_{\text{left}}, x_{\text{right}}, y_{\text{right}}]$），代替 teacher 自回归生成 60-70 token 的 waypoint 文本。
-
-总训练目标：$\mathcal{L}_{\text{student}} = \mathcal{L}_{\text{verb}} + \mathcal{L}_{\text{distill}} + \mathcal{L}_{\text{ans}}$
-
-### 阶段三：Reasoning-Enhanced Policy Learning
-
-冻结 student VLM $\mathcal{F}_\theta$，从 spatial token 的**早层** KV cache 中提取 visual latent planning $c_t$，通过 cross-attention 注入 diffusion Transformer action model $\pi_\phi$（DiT-Policy 或 RDT）：
+最后把 student VLM $\mathcal{F}_\theta$ 冻住，从 spatial token 的**早层** KV cache 里抽出 visual latent planning $c_t$，经 cross-attention 注入扩散 Transformer 动作模型 $\pi_\phi$（DiT-Policy 或 RDT）：
 
 $$\mathcal{L}_{\text{IL}}(\phi) = \ell(\pi_\phi(o_t, l, c_t), \hat{a}_t)$$
 
-选择早层而非晚层 KV 的消融验证了早层更好地捕获视觉规划信息（LIBERO 89.7 vs 88.3 vs 87.1）。
+选早层而非晚层 KV 是有消融撑腰的（LIBERO 89.7 vs 88.3 vs 87.1）——视觉规划信息在 VLM 的浅层就已经编码好了，没必要等到晚层。推理时只需跑 $\mathcal{F}_\theta + \pi_\phi$，verbalizer 只在训练和需要可解释时才用。
 
 ### 训练策略
 

@@ -53,35 +53,17 @@ $$\mathcal{G}_i = (\boldsymbol{\mu}_i, \boldsymbol{\Sigma}_i, \alpha_i, \mathbf{
 
 ### 关键设计
 
-1. **Poisson-based Gaussian-to-Occupancy (G2O) 算子**：解决弱监督下体素聚合不稳定的问题
+**1. Poisson 高斯到占用（G2O）算子：用“至少发生一次事件”算占用，避免重叠饱和**
 
-   已有 G2O 方法存在缺陷：
-    - **GaussianFormer2**：聚合时不考虑 opacity $\alpha_i$，仅用空间核 $p_i(\mathbf{x})$，导致几何聚合与渲染之间不一致
-    - **Bernoulli 方法**：引入 $\tilde{\alpha}_i = \alpha_i p_i(\mathbf{x})$ 后用互补概率规则，但多高斯重叠时并集快速饱和到 1，迫使 opacity 学到很小的值，影响特征渲染质量
+弱监督下体素聚合很容易不稳定，而已有 G2O 算子各有硬伤：GaussianFormer2 聚合时干脆不看 opacity $\alpha_i$、只用空间核 $p_i(\mathbf{x})$，导致几何聚合和渲染对不上；Bernoulli 方法用 $\tilde{\alpha}_i = \alpha_i p_i(\mathbf{x})$ 的互补概率规则，可多个高斯一重叠并集就迅速饱和到 1，逼着 opacity 学成很小的值、反过来毁掉特征渲染。LegoOcc 换个视角，把每个高斯的局部贡献看成非齐次 Poisson 过程的事件强度 $h_i(\mathbf{x}) \triangleq \alpha_i p_i(\mathbf{x}),\ z(\mathbf{x}) = \sum_{i=1}^N h_i(\mathbf{x})$，占用概率就是“至少发生一个事件”的概率 $p(\mathbf{x}) = 1 - \exp\left(-\sum_{i=1}^N \alpha_i p_i(\mathbf{x})\right)$。相比 Bernoulli 的乘积形式 $1 - \prod(1-\alpha_i p_i)$，这个指数加和形式在多高斯重叠时不会饱和，opacity 能保持有区分度的值，几何聚合和语义渲染因此同时稳住——消融里换成 GaussianFormer2 算子直接崩到 0 IoU。
 
-   本文将每个高斯的局部贡献视为非齐次 Poisson 过程的事件强度：
+**2. 渐进温度衰减：让渲染特征从“混合物”逐步收敛成单体素表示**
 
-    $h_i(\mathbf{x}) \triangleq \alpha_i p_i(\mathbf{x}), \quad z(\mathbf{x}) = \sum_{i=1}^N h_i(\mathbf{x})$
+标准 $\alpha$-blending 渲染出的特征是沿光线多个高斯嵌入的加权混合，于是像素特征成了一锅混合物、而不是某个高斯干净的语言对齐表示，语义就糊了。方法给 opacity 套一个温度化 sigmoid $\alpha_i = \sigma\left(\frac{\alpha_i^{\text{logit}}}{\tau}\right)$，再让温度按指数调度衰减 $\tau(r) = \max\{T_{\min}, T_{\max} \cdot (T_{\min}/T_{\max})^r\}$（$r \in [0,1]$ 为训练进度，默认 $T_{\max}=1, T_{\min}=10^{-3}$）。训练初期温度高、优化平滑；后期温度压低、opacity 趋向 $\{0,1\}$ 二值，特征混合被压住。它相比 Dr. Splat 那种硬 Top-k 选择保持了端到端可微，相比线性衰减又在低温区分到更多迭代步——消融里指数衰减的 mIoU 21.05 远高于线性衰减的 2.30。
 
-   占用概率定义为"至少发生一个事件"的概率：
+**3. 多视图特征一致性：用相邻帧重渲染白嫖跨视角约束**
 
-    $p(\mathbf{x}) = 1 - \exp\left(-\sum_{i=1}^N \alpha_i p_i(\mathbf{x})\right)$
-
-   相比 Bernoulli 的乘积形式 $1 - \prod(1-\alpha_i p_i)$，Poisson 的指数加和形式在多高斯重叠时不会饱和，允许 opacity 保持有区分度的值，从而同时稳定几何聚合和语义渲染。
-
-2. **Progressive Temperature Decay（渐进温度衰减）**：解决渲染特征混合问题
-
-   标准 $\alpha$-blending 渲染特征是沿光线多个高斯嵌入的加权混合，导致像素特征成为混合物而非单个高斯的语言对齐表示。本文引入温度化 sigmoid：
-
-    $\alpha_i = \sigma\left(\frac{\alpha_i^{\text{logit}}}{\tau}\right)$
-
-   并设计指数衰减调度：
-
-    $\tau(r) = \max\{T_{\min}, T_{\max} \cdot (T_{\min}/T_{\max})^r\}$
-
-   其中 $r \in [0,1]$ 为训练进度，默认 $T_{\max}=1, T_{\min}=10^{-3}$。训练初期温度高，保证平滑优化；后期温度低，opacity 趋向 $\{0,1\}$ 二值化，减少特征混合。相比硬 Top-k 选择（如 Dr. Splat），此方法保持端到端可微；相比线性衰减，指数衰减在低温区分配更多迭代步数，效果更好。
-
-3. **多视图特征一致性**：利用相邻帧（默认 5 帧）重渲染并施加相同的特征对齐损失，无需额外 2D 标注即可增强跨视角语义一致性。
+单帧渲染的语义对齐容易在视角变化下漂移，方法顺手利用相邻帧（默认 5 帧）重渲染、施加同一套特征对齐损失，不需要任何额外 2D 标注就把跨视角语义一致性也约束上，是低成本的稳定项。
 
 ### 损失函数 / 训练策略
 

@@ -44,100 +44,23 @@ tags:
 
 ## 方法详解
 
-### 整体架构
+### 整体框架
 
-KnowVal包含三个协同工作的核心模块，形成感知→知识检索→规划的闭环：
+KnowVal 想补上端到端自驾的两块短板：缺知识推理（只学了统计模式，碰到长尾场景不会调用交规/防御驾驶常识）和缺价值对齐（优化目标是轨迹 L2 距离，而非人类心中"好驾驶"的多维标准）。它用三个模块串成一个**感知 → 知识检索 → 规划**的闭环：开放世界感知先把场景看全（含长尾物体和抽象语义），知识检索据此从驾驶知识图谱里调出相关知识，World Model + Value Model 再据知识预测未来并按人类偏好给候选轨迹打分。三个模块都不绑定具体的底层感知/规划架构，可以即插即用地接到任意端到端框架上，且每个决策都能回溯到"检索了哪些知识、Value 在哪些维度给了高分"，因而可解释。
 
-```
-Camera/LiDAR → Open-world Perception → Perception Verbalizer
-                                              ↓
-                     Knowledge Graph ← Knowledge Retrieval
-                                              ↓
-                   World Model → Value Model → Planning Decision
-```
+### 关键设计
 
-### 模块1：Retrieval-guided Open-world Perception
+**1. Retrieval-guided 开放世界感知：让感知跳出封闭类别集**
 
-**目标**：构建超越封闭类别集的全方位感知能力。
+标准 3D 检测器只认训练过的固定类别，碰到施工锥桶、临时标志这类长尾物体就"看不见"。KnowVal 用三层互补的感知体系覆盖全谱段：Layer 1 用成熟的 3D 检测器（如 BEVFormer / StreamPETR）检测车辆、行人、骑行者等常见参与者，给出精确的 3D bbox、速度、朝向，作为感知基座；Layer 2 用开放词汇检测器（VL-SAMv2 / OpenAD）补上 Layer 1 的盲区——施工锥桶、临时标志、路面坑洞、遗落物体等长尾目标，靠视觉-语言对齐无需为每个新类别重新标注；Layer 3 用 VLM（如 GPT-4V / InternVL）做高层语义理解，提取无法用 bbox 表示的抽象信息，如路面湿滑/积水、天气、交通密度、整体氛围。三层叠起来，结构化检测、长尾覆盖、场景级语义一次到位。
 
-三层感知体系：
+**2. Perception-guided 知识检索：把感知结果接进驾驶知识图谱**
 
-**Layer 1 — Specialized Perception（标准3D检测）**：
-- 使用成熟的3D目标检测器（如BEVFormer/StreamPETR）检测常见交通参与者（车辆、行人、骑行者等）
-- 提供精确的3D bounding box、速度、朝向等结构化信息
-- 这是传统端到端方法已有的能力，作为感知基座
+感知看清了场景，但模型并不"知道"该怎么应对——这需要外部知识。系统预构建三类驾驶知识库：交通法规（限速、路权、特殊区域等硬约束）、防御驾驶（跟车距离、盲区风险、恶劣天气应对等经验软约束）、道德规范（弱势道路使用者保护、紧急让行、道德困境等伦理约束），每条知识以 (触发条件, 知识内容, 建议动作) 三元组存储并带向量索引。检索时先用 Perception Verbalizer 把三层感知的结构化输出转成自然语言 query，$q = \text{Verbalizer}(\text{Layer1\_output}, \text{Layer2\_output}, \text{Layer3\_output})$，例如"前方 10m 有施工锥桶、道路变窄、左侧有临时标志"会被转写成"施工区域道路变窄处的驾驶规则和安全注意事项"；再用 LLM 当检索器从图谱中取最相关的 $k$ 条，$\mathcal{K}_{\text{relevant}} = \text{LLM-Retrieve}(q, \mathcal{G}_{\text{knowledge}})$。一个关键设计是**双向反馈**：检索不仅向规划端输出知识，还会回传"需要进一步确认的元素"给感知模块（如检索到"施工区应注意临时信号灯"就提示感知额外关注信号灯检测），形成"先看到 → 联想知识 → 再仔细确认"的认知闭环。
 
-**Layer 2 — Open-ended 3D Perception（长尾物体感知）**：
-- 基于VL-SAMv2和OpenAD等开放词汇检测器
-- 检测Specialized Perception无法覆盖的长尾物体：施工锥桶、临时标志、路面坑洞、遗落物体等
-- VL-SAMv2利用视觉-语言对齐能力，无需为每个新类别标注训练数据
-- 输出包含物体类别描述、2D/3D位置、置信度
+**3. World Model + Value Model 规划：先预测未来，再按人类价值打分**
 
-**Layer 3 — Abstract Concept Understanding（抽象概念理解）**：
-- 使用VLM（如GPT-4V/InternVL）对场景进行高层语义理解
-- 提取无法用bounding box表示的抽象信息：道路状态（湿滑/积水）、天气条件、交通密度、整体场景氛围（紧张/平稳）
-- 输出为结构化的场景属性描述
-
-**三层互补逻辑**：Layer 1提供精确的结构化检测；Layer 2覆盖Layer 1的盲区（长尾物体）；Layer 3提供超越物体级别的场景语义。
-
-### 模块2：Perception-guided Knowledge Retrieval
-
-**目标**：根据感知结果从预构建的驾驶知识图谱中检索相关知识条目，为规划提供知识支撑。
-
-**驾驶知识图谱构建**：
-
-预构建三类知识库：
-1. **交通法规知识**：结构化的交通法条目——限速规则、路权优先级、特殊区域规定等
-2. **防御驾驶知识**：经验性安全驾驶规则——跟车距离、盲区风险、恶劣天气应对策略等
-3. **道德规范知识**：驾驶伦理准则——弱势道路使用者保护、紧急让行规则、道德困境处理原则等
-
-每条知识以(触发条件, 知识内容, 建议动作)三元组存储，并附有向量化索引。
-
-**Perception Verbalizer（感知→文本转换器）**：
-
-将三层感知模块的结构化输出转换为自然语言query：
-
-$$q = \text{Verbalizer}(\text{Layer1\_output}, \text{Layer2\_output}, \text{Layer3\_output})$$
-
-例如：检测到"前方10m有施工锥桶，道路变窄，左侧有临时标志" → 生成query "施工区域道路变窄处的驾驶规则和安全注意事项"
-
-**知识检索过程**：
-
-$$\mathcal{K}_{\text{relevant}} = \text{LLM-Retrieve}(q, \mathcal{G}_{\text{knowledge}})$$
-
-使用LLM作为检索器，从知识图谱中检索最相关的$k$条知识条目。
-
-**双向反馈机制（关键创新）**：检索模块不仅向规划端输出知识，还会**回传需要进一步感知的元素**给感知模块。例如：检索到"施工区域应注意临时信号灯"→通知感知模块额外关注信号灯检测。这形成了感知↔知识检索的闭环。
-
-### 模块3：Planning with World Model + Value Model
-
-**World Model — 未来状态预测**：
-
-给定当前感知状态$s_t$和候选动作$a_t$，World Model预测未来$H$步的状态序列：
-
-$$\hat{s}_{t+1:t+H} = f_{\text{world}}(s_t, a_t, \mathcal{K}_{\text{relevant}})$$
-
-World Model将检索到的知识$\mathcal{K}_{\text{relevant}}$作为额外条件输入，使预测不仅基于物理动力学，还考虑知识约束（如"施工区限速30"会影响预测其他车辆的行为模式）。
-
-**Value Model — 轨迹价值评估**：
-
-$$V(\tau) = f_{\text{value}}(\hat{s}_{t+1:t+H}, \mathcal{K}_{\text{relevant}})$$
-
-Value Model在**human-preference dataset**上训练，学习人类对驾驶轨迹的价值偏好：
-- 训练数据：人类评估者对成对轨迹进行偏好排序（类似RLHF）
-- 评估维度：安全性、舒适性、效率、合规性等
-- 输出：每条候选轨迹的标量价值分数
-
-**最终决策**：
-
-$$a^* = \arg\max_{a \in \mathcal{A}} V(f_{\text{world}}(s_t, a, \mathcal{K}_{\text{relevant}}))$$
-
-在候选动作空间中选择使Value Model评分最高的轨迹。决策过程可解释——可以追溯"为什么选择这条轨迹"（哪些知识被检索、Value Model在哪些维度给出高分）。
-
-### 系统特性
-
-- **兼容现有架构**：KnowVal的各模块可插入任意端到端自驾框架，不限定底层感知或规划架构
-- **可解释性**：每个决策都可回溯知识来源和价值评估，便于调试和安全审计
+有了知识还要把它落到轨迹选择上。World Model 在给定当前状态 $s_t$ 和候选动作 $a_t$ 时预测未来 $H$ 步状态序列 $\hat{s}_{t+1:t+H} = f_{\text{world}}(s_t, a_t, \mathcal{K}_{\text{relevant}})$，并把检索到的知识作为额外条件，使预测不只服从物理动力学、还遵守知识约束（如"施工区限速 30"会影响对他车行为的预测）。Value Model 则在 **human-preference 数据集**上训练——让人对成对轨迹按安全性、舒适性、效率、合规性等维度排序（类似 RLHF），学出标量价值 $V(\tau) = f_{\text{value}}(\hat{s}_{t+1:t+H}, \mathcal{K}_{\text{relevant}})$。最终决策在候选动作空间里挑 Value 最高的那条：$a^* = \arg\max_{a \in \mathcal{A}} V(f_{\text{world}}(s_t, a, \mathcal{K}_{\text{relevant}}))$。这把"好驾驶"从单一的轨迹 L2 距离推广成多维度的人类偏好，碰撞率的下降主要就来自检索提供的安全规则加上 Value 的安全偏好。
 
 ## 实验关键数据
 

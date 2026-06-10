@@ -33,13 +33,26 @@ tags:
 ## 方法详解
 
 ### 整体框架
-Mobile-VTON采用模块化TGT架构：TeacherNet（冻结的SD 3.5 Large，作为知识源）+ GarmentNet（轻量学生，提取一致的衣物特征）+ TryonNet（轻量学生，融合人体和衣物信息生成试穿图像）。Light-Adapter用DINOv2-base替换大型CLIP视觉编码器，通过IP-Adapter机制注入衣物语义。整个系统从任务数据直接训练，不依赖外部预训练。
+
+Mobile-VTON 要回答的问题是：能不能把一个本来跑在云端、参数量 2B+ 的扩散试穿模型塞进手机，还不掉质量。它的答案是一套模块化的 TGT 架构——一个冻结的 TeacherNet（SD 3.5 Large）当知识源，两个轻量学生 GarmentNet 和 TryonNet 分别负责「提取一致的衣物特征」和「把人体与衣物融合成试穿图」。输入只有一张人像加一张衣物图，先由 GarmentNet 把衣物编码成跨时间步稳定的特征，再喂给 TryonNet 逐步去噪生成 1024×768 的试穿结果；衣物的视觉语义则由一个用 DINOv2-base 替换 CLIP 的 Light-Adapter 注入。整个系统从任务数据直接训练，不依赖任何外部大规模预训练。
 
 ### 关键设计
-1. **FGA蒸馏（Feature-Guided Adversarial Distillation）**：结合两个互补目标训练学生网络。(i) 特征级蒸馏：对齐TeacherNet和学生网络在每个扩散时间步上的score function，ℒ_feature = E_t[‖s_true - s_fake‖²]，采用DMD2式的score matching而非逐像素回归，让学生学到教师的分布行为。(ii) 对抗增强：引入轻量判别器D区分真实图像和TryonNet生成图像，通过标准GAN损失ℒ_GAN提升真实感和细节清晰度。
-2. **TCG（Trajectory-Consistent GarmentNet）**：解决衣物特征在不同扩散时间步间的语义漂移问题。直接在每个时间步t对GarmentNet加重建约束 ℒ_cons = E_t[‖X̂_g(t) - X_g‖²]，要求网络在整个扩散轨迹上一致地重建原始衣物图。这种时序正则化使得衣物的颜色、纹理、logo在不同时间步下保持稳定。
-3. **Garment-Aware TryonNet**：(i) Latent Concatenation (LC)：将人像和衣物图在高度维度拼接后编码到latent space，同时引入参考条件输入（目标人像+衣物的拼接编码），让TryonNet在无预训练的情况下也能学到衣物-身体对齐。(ii) 特征融合：在TryonNet每一层self-attention中拼接GarmentNet对应层的多尺度特征，cross-attention中同时接受文本和Light-Adapter提供的视觉K-V对，实现多层次的衣物语义注入。
-4. **Light-Adapter**：用DINOv2-base替代CLIP大型视觉编码器，将衣物图像特征投影为K、V张量，通过解耦cross-attention注入TryonNet，兼顾语义丰富性和移动端效率。
+
+**1. FGA 蒸馏：让 415M 的学生追上 2B+ 的教师**
+
+轻量学生最大的难处是容量不够、从头学根本收敛不了（消融里去掉蒸馏后 FID 从 10.2 暴涨到 113.6，完全崩溃）。FGA（Feature-Guided Adversarial Distillation）用两个互补目标把教师的能力搬过来：一是特征级蒸馏，在每个扩散时间步上对齐 TeacherNet 与学生的 score function，$\mathcal{L}_{feature} = \mathbb{E}_t[\|s_{true} - s_{fake}\|^2]$，走的是 DMD2 式的 score matching 而不是逐像素回归，让学生学到的是教师的分布行为而非某张图的像素；二是对抗增强，加一个轻量判别器 $D$ 区分真实图与 TryonNet 生成图，用标准 GAN 损失 $\mathcal{L}_{GAN}$ 把真实感和细节清晰度顶上去。分布对齐保证「像」，对抗损失保证「清晰」，两者合起来才让小模型逼近教师级质量。
+
+**2. TCG：用跨时间步重建约束摁住衣物的语义漂移**
+
+扩散模型在不同时间步对同一件衣物的理解会漂移，导致颜色、纹理、logo 在去噪过程中扭曲。TCG（Trajectory-Consistent GarmentNet）的做法很直接：在每个时间步 $t$ 都要求 GarmentNet 能重建回原始衣物图，$\mathcal{L}_{cons} = \mathbb{E}_t[\|\hat{X}_g(t) - X_g\|^2]$。这条时序正则化把衣物特征钉在整条扩散轨迹上保持一致，结构简单却有效——消融里加上 TCG 后 LPIPS 从 0.119 降到 0.111，logo 和条纹明显更清晰、颜色定位也更准。
+
+**3. Garment-Aware TryonNet：在无预训练前提下学会衣物-身体对齐**
+
+没有大规模预训练打底，TryonNet 很难凭空学到衣物该怎么贴合身体。这里靠两个手段补偿：一是 Latent Concatenation（LC），把人像和衣物图在高度维度拼接后一起编码进 latent space，并额外引入「目标人像+衣物」的参考条件输入，给模型显式的几何与外观线索（消融里 LC 在 TCG 基础上把 LPIPS 从 0.111 进一步压到 0.088）；二是多尺度特征融合，TryonNet 每层 self-attention 都拼接 GarmentNet 对应层的特征，cross-attention 同时吃文本和 Light-Adapter 的视觉 K-V，让衣物语义在多个层次注入。
+
+**4. Light-Adapter：用 DINOv2 换掉 CLIP 换效率**
+
+CLIP 的大型视觉编码器在移动端太重。Light-Adapter 用 DINOv2-base 替代，把衣物图像特征投影成 K、V 张量，通过解耦 cross-attention 注入 TryonNet。这是一次效率-质量的权衡：DINOv2 提供的语义足够丰富，同时编码器更轻，契合手机端的算力预算。
 
 ### 损失函数 / 训练策略
 - GarmentNet总损失：ℒ_GarmentNet = λ₁·ℒ_featureG + λ₂·ℒ_cons

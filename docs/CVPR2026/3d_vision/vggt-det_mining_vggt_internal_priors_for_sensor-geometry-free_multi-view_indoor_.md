@@ -42,63 +42,25 @@ tags:
 
 ### 整体框架
 
-VGGT-Det 采用编码器-解码器 Transformer 架构：
+VGGT-Det 要解决的是 SG-Free（无传感器几何）下的多视图室内 3D 检测：现有方法（ImVoxelNet、NeRF-Det、MVSDet）都得吃精确标定的位姿和深度，可室内相机多是手持、频繁移动，精确位姿既贵又常拿不到。它的思路不是去"消费"VGGT 的预测输出，而是深挖 VGGT 编码器内部学到的语义和几何先验。整体是个编码器-解码器 Transformer：编码器用预训练冻结的 VGGT 提 3D 感知特征，解码器用交叉注意力迭代更新 object queries，中间塞进两个核心模块——AG（注意力引导查询生成）和 QD（查询驱动特征聚合）。
 
-- **编码器**: 使用预训练冻结的 VGGT 编码器提取3D感知特征
-- **解码器**: Transformer 解码器通过交叉注意力迭代更新 object queries
-- **两大核心模块**: AG（注意力引导查询生成）和 QD（查询驱动特征聚合）
+具体地，VGGT 编码器为每个视图输出 token 序列 $\mathbf{T}_i \in \mathbb{R}^{M \times C}$，所有视图沿 token 维拼成 $\mathbf{T}_{\text{concat}} = [\mathbf{T}_1; \mathbf{T}_2; \dots; \mathbf{T}_V] \in \mathbb{R}^{(V \cdot M) \times C}$；初始 object queries 由 VGGT 预测点云 $\mathbf{P}_{\text{pred}}$ 经最远点采样得 $K$ 个种子点编码而来 $\mathbf{Q}_0$；$L$ 层解码器各含自注意力 + 交叉注意力，末端检测头出类别 $\hat{\mathbf{c}} \in \mathbb{R}^K$ 和框 $\hat{\mathbf{b}} \in \mathbb{R}^{K \times 7}$。
 
-### 基础骨干网络 (Basic Backbone)
+### 关键设计
 
-给定多视图图像 $\{I_1, I_2, \dots, I_V\}$，VGGT 编码器为每个视图输出 token 序列 $\mathbf{T}_i \in \mathbb{R}^{M \times C}$，其中 $M$ 为每视图 token 数量，$C$ 为特征维度。所有视图 token 沿 token 维度拼接：
+**1. 注意力引导查询生成（AG）：用 VGGT 注意力先验把查询点钉到物体上**
 
-$$\mathbf{T}_{\text{concat}} = [\mathbf{T}_1; \mathbf{T}_2; \dots; \mathbf{T}_V] \in \mathbb{R}^{(V \cdot M) \times C}$$
+VGGT 预测的是密集场景点云、不分前景背景，直接最远点采样（FPS）会把大量查询均匀撒到背景上浪费掉。AG 抓住一个观察：VGGT 编码器的注意力图虽没经语义训练、却天然给物体区域更高权重。于是它先对注意力权重 $\mathbf{A}$ 做 min-max 归一化得 $\mathbf{A}_{\text{norm}}$、选分数最高点作第一个查询 $\mathbf{I}[1] = \arg\max \mathbf{A}_{\text{norm}}$，后续点按融合语义与空间分散性的优先级贪心选取：
 
-初始 object queries 通过对 VGGT 预测点云 $\mathbf{P}_{\text{pred}}$ 做最远点采样 (FPS) 获得 $K$ 个种子点，编码后作为初始查询 $\mathbf{Q}_0$。解码器由 $L$ 层组成，每层包含自注意力和交叉注意力，最终经检测头输出类别标签 $\hat{\mathbf{c}} \in \mathbb{R}^K$ 和边界框 $\hat{\mathbf{b}} \in \mathbb{R}^{K \times 7}$。
-
-### 注意力引导查询生成 (Attention-Guided Query Generation, AG)
-
-**关键观察**: VGGT 编码器的注意力图虽然没有经过语义任务训练，却天然捕捉了丰富的语义信息——物体区域往往获得更高的注意力权重。
-
-**动机**: 简单 FPS 在 VGGT 预测的密集点云上采样时，会不加区分地将查询点均匀分布到前景和背景区域，导致大量查询浪费在背景上。AG 利用注意力先验引导采样聚焦于物体区域。
-
-**具体步骤**:
-
-1. **注意力归一化**: 对 VGGT 编码器的注意力权重 $\mathbf{A} \in \mathbb{R}^N$ 做 min-max 归一化，得到 $\mathbf{A}_{\text{norm}}$
-2. **首点选择**: 选取注意力分数最高的点作为第一个查询点 $\mathbf{I}[1] = \arg\max \mathbf{A}_{\text{norm}}$
-3. **迭代采样**: 后续点通过融合优先级选取，同时考虑语义注意力和空间分散性：
 $$\text{Priority} = \mathbf{A}_{\text{norm}} + \lambda_{\text{dist}} \cdot \mathbf{D}_{\text{norm}}$$
-   其中 $\lambda_{\text{dist}} \in [0,1]$ 为权衡系数，$\mathbf{D}_{\text{norm}}$ 是当前点到已采样点集的最小欧氏距离经归一化后的值
-4. **距离计算**: $\mathbf{D}_{\min} = \min_{j \in \{1,\dots,k-1\}} \|\mathbf{P} - \mathbf{P}_{\mathbf{I}[j]}\|_2$，随后做 min-max 归一化得到 $\mathbf{D}_{\text{norm}}$
-5. **贪心选择**: 每次迭代选取优先级最高且未被选过的点 $\mathbf{I}[k] = \arg\max_{i \notin \mathcal{S}} \text{Priority}$
 
-**设计优势**: AG 让查询点集中在语义上有意义的物体区域，同时保持空间多样性覆盖整个3D空间，兼顾定位精度和全局结构。
+其中 $\mathbf{D}_{\min} = \min_{j \in \{1,\dots,k-1\}} \|\mathbf{P} - \mathbf{P}_{\mathbf{I}[j]}\|_2$ 是到已采样点的最小距离、归一化后为 $\mathbf{D}_{\text{norm}}$，$\lambda_{\text{dist}} \in [0,1]$ 权衡两者，每轮选优先级最高且未选过的点 $\mathbf{I}[k] = \arg\max_{i \notin \mathcal{S}} \text{Priority}$。这样查询既聚焦语义上有意义的物体区域、又靠分散项保持全局覆盖，兼顾定位精度和整体结构（消融里 BB→BB+AG 涨 +2.8 mAP）。
 
-### 查询驱动特征聚合 (Query-Driven Feature Aggregation, QD)
+**2. 查询驱动特征聚合（QD）：用 See-Query 自适应融合多级几何特征**
 
-**关键洞察**: VGGT 编码器跨层逐步将2D特征提升为3D表示，不同层编码不同层级的几何抽象信息。简单地顺序使用固定层特征无法自适应地匹配检测需求。
+VGGT 编码器跨层逐步把 2D 特征抬成 3D，不同层编不同层级的几何抽象，固定用某层特征没法自适应匹配检测需求。QD 引入一个可学习的 See-Query token $\mathbf{q}_{\text{see}} \in \mathbb{R}^C$ 去"看"object queries 的需求再动态聚合多级特征：先经 MLP+Softmax 生成对 $L$ 层特征的权重 $\mathbf{w} = \text{Softmax}(\text{MLP}(\mathbf{q}_{\text{see}})),\ \sum_{i=1}^L \mathbf{w}_i = 1$，加权聚合 $\mathbf{F}_{\text{agg}} = \sum_{i=1}^L \mathbf{w}_i \cdot \mathbf{F}_i$；再把 See-Query 和 $K$ 个 object queries 拼成 $\mathbf{Q}_{\text{input}} \in \mathbb{R}^{(K+1) \times C}$ 过自注意力让 See-Query 感知 queries 需求，所有查询对 $\mathbf{F}_{\text{agg}}$ 做交叉注意力取层级特征，更新后的 See-Query 传入下一层、从权重生成重新循环。这种逐层迭代精炼实现了上下文感知的动态选层，比人工固定选层更优（消融里固定四层 44.2、QD 提到 46.9）。
 
-**核心设计 — See-Query 机制**:
-
-引入一个可学习的 See-Query token $\mathbf{q}_{\text{see}} \in \mathbb{R}^C$，它与 object queries 交互以"看到"它们的需求，然后动态聚合多级几何特征。
-
-**多级特征聚合过程**:
-
-1. **权重生成**: See-Query 经 MLP + Softmax 生成对 $L$ 层特征的注意力权重：
-$$\mathbf{w} = \text{Softmax}(\text{MLP}(\mathbf{q}_{\text{see}})), \quad \mathbf{w}_i \geq 0, \sum_{i=1}^L \mathbf{w}_i = 1$$
-2. **加权聚合**: 聚合特征为多级几何特征的加权和：
-$$\mathbf{F}_{\text{agg}} = \sum_{i=1}^L \mathbf{w}_i \cdot \mathbf{F}_i$$
-
-**与 Object Queries 的交互**:
-
-1. **拼接**: See-Query 与 $K$ 个 object queries 拼接形成统一查询集 $\mathbf{Q}_{\text{input}} \in \mathbb{R}^{(K+1) \times C}$
-2. **自注意力交互**: 统一查询集通过自注意力交换信息，See-Query 借此"感知" object queries 的需求
-3. **交叉注意力**: 所有查询对聚合特征 $\mathbf{F}_{\text{agg}}$ 做交叉注意力，获取层级化编码器特征
-4. **迭代更新**: 更新后的 See-Query 传入下一解码器层，循环从权重生成开始重复
-
-**关键点**: See-Query 在解码器各层间迭代精炼，实现动态的、上下文感知的多级几何特征聚合指导。
-
-### 训练细节
+### 训练策略
 
 | 配置项 | 设置 |
 |---|---|

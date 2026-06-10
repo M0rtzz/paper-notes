@@ -43,34 +43,37 @@ tags:
 
 ### 整体框架
 
-输入文本/图像 → VLM编码器得到嵌入 $\vec{e} \in \mathbb{S}^{d-1}$ → LLM引导构建各群组原型 $\vec{p}_g$ → 计算属性方向 $\vec{a}_i = \vec{p}_{g_i} - \vec{p}_{g_1}$ 构建属性子空间 $\mathcal{A}$ → 正交分解 $\vec{e} = \vec{e}_{\mathcal{A}_\parallel} + \vec{e}_{\mathcal{A}_\perp}$ → 闭式求解最优去偏嵌入 $\vec{u}^*$ → 输出去偏嵌入用于下游任务。整个流程无需训练，无需标注数据，纯推理时操作。
+这篇论文要解决 VLM 去偏里一个老大难：去偏总会顺手删掉语义、损伤下游效用，而且没人能给出效用损失的理论上界。它的破局观察是——VLM 嵌入都落在单位超球面 $\mathbb{S}^{d-1}$ 上，任何嵌入都能用正交分解拆成"属性相关分量"和"中性内容分量"，于是去偏只要精准切掉前者、保住后者即可。整条推理时链路是：文本/图像经 VLM 编码器得到嵌入 $\vec{e} \in \mathbb{S}^{d-1}$ → 用 LLM 引导构建各群组原型 $\vec{p}_g$ → 由 $\vec{a}_i = \vec{p}_{g_i} - \vec{p}_{g_1}$ 张成属性子空间 $\mathcal{A}$ → 正交分解 $\vec{e} = \vec{e}_{\mathcal{A}_\parallel} + \vec{e}_{\mathcal{A}_\perp}$ → 闭式求出最优去偏嵌入 $\vec{u}^*$ → 用于下游任务。全程免训练、免标注、纯推理时操作。
 
 ### 关键设计
 
-**模块1: LLM引导的群组原型构建**
+**1. LLM 引导的群组原型构建：用语言变体的球面均值代替单一 prompt**
 
-- **功能**: 为每个敏感属性群组（如male/female）构建一个鲁棒的嵌入原型 $\vec{p}_g$，用于定义属性子空间。
-- **核心思路**: 给定输入prompt（如"a photo of a doctor"），用LLM（GPT-5）完成两步操作：(1) 插入群组标识得到 $T_g$（如"a photo of a male doctor"）；(2) 生成该群组的多种语言变体 $\mathcal{T}_g$（如"a photo of a man doctor"、"a photo of a masculine doctor"）。将所有变体的文本嵌入取球面均值（spherical mean）作为群组原型：$\vec{p}_g = \frac{\vec{e}_g + \sum_i \vec{e}_g^{(i)}}{\|\vec{e}_g + \sum_i \vec{e}_g^{(i)}\|}$。
-- **设计动机**: 之前方法（PRISM、Orth-Proj）直接用单一prompt作为群组原型，但属性群组在语言上并非单一的（"man"、"gentleman"、"boy"都表示男性但语义不同）。SANER虽构建了词库但不受输入prompt约束，可能产生语义不一致。LLM能根据上下文生成恰当的变体，球面均值则确保原型在超球面上代表性最强。
+之前方法（PRISM、Orth-Proj）直接拿单个 prompt 当群组原型，但一个属性群组在语言上并不单一——"man""gentleman""boy"都指男性却语义有别，单 prompt 代表性不足；SANER 虽建了词库却不受输入 prompt 约束，又可能语义跑偏。本文给定输入 prompt（如"a photo of a doctor"），让 LLM（GPT-5）先插入群组标识得到 $T_g$（"a photo of a male doctor"），再生成多种语言变体 $\mathcal{T}_g$，最后把所有变体的文本嵌入取球面均值作群组原型
 
-**模块2: 属性子空间正交分解**
+$$\vec{p}_g = \frac{\vec{e}_g + \sum_i \vec{e}_g^{(i)}}{\big\| \vec{e}_g + \sum_i \vec{e}_g^{(i)} \big\|}$$
 
-- **功能**: 将原始嵌入 $\vec{e}$ 分解为属性泄露分量（bias）和中性内容分量（semantics），为去偏提供精确操作空间。
-- **核心思路**: 定义属性子空间 $\mathcal{A} = \text{span}\{\vec{a}_2, \dots, \vec{a}_n\}$，其中 $\vec{a}_i = \vec{p}_{g_i} - \vec{p}_{g_1}$。通过投影算子 $P_{\mathcal{A}_\parallel} = A(A^\top A)^{-1}A^\top$ 和 $P_{\mathcal{A}_\perp} = I - P_{\mathcal{A}_\parallel}$ 将嵌入分解为 $\vec{e} = \vec{e}_{\mathcal{A}_\parallel} + \vec{e}_{\mathcal{A}_\perp}$。公平性目标等价于让去偏嵌入与所有群组原型等距，即 $\langle \vec{u}, \vec{a}_i \rangle = 0$。
-- **设计动机**: 之前方法投影到 $\mathcal{S} = \text{span}\{\vec{p}_{g_1}, \vec{p}_{g_2}, \dots\}$，但 $\mathcal{S}$ 中包含所有群组共享的语义成分（如"doctor"的含义），投影后这些语义被错误删除。$\mathcal{A}$ 只包含群组间的差异方向，维度为 $r \leq n-1 \ll d$，远小于 $d$，因此去偏操作对语义的影响最小化。
+LLM 保证变体贴合上下文，球面均值保证原型在超球面上代表性最强。
 
-**模块3: Chebyshev标量化闭式求解**
+**2. 属性子空间的正交分解：只切差异方向 $\mathcal{A}$，不碰共享语义 $\mathcal{S}$**
 
-- **功能**: 在公平性（最小化属性泄露 $L(\alpha) = \alpha$）和效用（最小化self-utility loss $V(\alpha)$）的Pareto前沿上找到对任意权重鲁棒的最优点。
-- **核心思路**: 通过Lemma 1将超球面上的搜索空间降维到 $\text{span}\{\vec{e}_{\mathcal{A}_\parallel}, \vec{e}_{\mathcal{A}_\perp}\}$ 上的二维单位圆；通过Lemma 2进一步将搜索限制在第一象限且 $\alpha \in [0, \|\vec{e}_{\mathcal{A}_\parallel}\|]$。最终通过Chebyshev极小极大方法求解：$\min_\alpha \sup_{w_1,w_2} \{w_1 L(\alpha) + w_2 V(\alpha)\}$，得到闭式解 $\alpha^* = \frac{E - \|\vec{e}_{\mathcal{A}_\perp}\|\sqrt{E^2 - \|\vec{e}_{\mathcal{A}_\parallel}\|^2}}{E^2 + \|\vec{e}_{\mathcal{A}_\perp}\|^2}$，其中 $E = \|\vec{e}_{\mathcal{A}_\parallel}\| + (1-\|\vec{e}_{\mathcal{A}_\perp}\|)/\|\vec{e}_{\mathcal{A}_\parallel}\|$。
-- **设计动机**: 由于方法要求任务无关（task-agnostic），不能假设知道下游任务来调节 $w_1, w_2$ 的偏好。Chebyshev方法确保在最坏权重组合下目标最小，实现对任意任务的鲁棒性。闭式解避免了迭代优化的计算开销和收敛问题。
+去偏伤效用的根因在于之前方法投影到群组原型张成的子空间 $\mathcal{S} = \text{span}\{\vec{p}_{g_1}, \vec{p}_{g_2}, \dots\}$，而 $\mathcal{S}$ 里裹着所有群组共享的语义（如"doctor"的含义），一投影连语义一起删了。本文改投到只含群组间差异方向的属性子空间 $\mathcal{A} = \text{span}\{\vec{a}_2, \dots, \vec{a}_n\}$（其中 $\vec{a}_i = \vec{p}_{g_i} - \vec{p}_{g_1}$），用投影算子 $P_{\mathcal{A}_\parallel} = A(A^\top A)^{-1}A^\top$ 和 $P_{\mathcal{A}_\perp} = I - P_{\mathcal{A}_\parallel}$ 把嵌入拆成 $\vec{e} = \vec{e}_{\mathcal{A}_\parallel} + \vec{e}_{\mathcal{A}_\perp}$，公平性目标就等价于让去偏嵌入与所有群组原型等距，即 $\langle \vec{u}, \vec{a}_i \rangle = 0$。由于 $\mathcal{A}$ 维度 $r \leq n-1 \ll d$，这刀切得极窄，对语义的破坏被压到最小。
+
+**3. Chebyshev 标量化闭式求解：在不知下游任务的前提下取 Pareto 最稳点**
+
+方法要求任务无关，不能假设知道下游任务来调公平/效用的权重。论文先用 Lemma 1 把超球面上的搜索降到 $\text{span}\{\vec{e}_{\mathcal{A}_\parallel}, \vec{e}_{\mathcal{A}_\perp}\}$ 的二维单位圆，再用 Lemma 2 把搜索锁进第一象限且 $\alpha \in [0, \|\vec{e}_{\mathcal{A}_\parallel}\|]$，然后用 Chebyshev 极小极大在公平性 $L(\alpha)=\alpha$ 与效用 $V(\alpha)$ 之间求
+
+$$\min_\alpha \sup_{w_1,w_2} \{w_1 L(\alpha) + w_2 V(\alpha)\}$$
+
+得到闭式解
+
+$$\alpha^* = \frac{E - \|\vec{e}_{\mathcal{A}_\perp}\|\sqrt{E^2 - \|\vec{e}_{\mathcal{A}_\parallel}\|^2}}{E^2 + \|\vec{e}_{\mathcal{A}_\perp}\|^2}, \quad E = \|\vec{e}_{\mathcal{A}_\parallel}\| + \frac{1-\|\vec{e}_{\mathcal{A}_\perp}\|}{\|\vec{e}_{\mathcal{A}_\parallel}\|}$$
+
+Chebyshev 保证在最坏权重组合下目标仍最小，于是同一个解对任意下游任务都鲁棒；闭式形式又省掉了迭代优化的开销和收敛问题。
 
 ### 损失函数 / 训练策略
 
-本方法完全免训练，是纯推理时的闭式变换。关键理论保证包括：
-
-- **Proposition 1**: cross-utility loss上界为 $\ell_{cross} \leq \sqrt{2\ell_{self}^{(I)}} + \sqrt{2\ell_{self}^{(T)}}$，将跨模态效用保持归约为单模态self-utility
-- **Theorem 1**: 最优解处的self-utility loss为 $V(\alpha^*) = (1 - \|\vec{e}_{\mathcal{A}_\perp}\|) \cdot \alpha^* / \|\vec{e}_{\mathcal{A}_\parallel}\|$，且cross-utility loss有更紧的上界
+本方法完全免训练，是纯推理时的闭式变换，核心价值在于把效用损失变成可证的上界：Proposition 1 把跨模态效用损失归约到单模态 self-utility，给出 $\ell_{cross} \leq \sqrt{2\ell_{self}^{(I)}} + \sqrt{2\ell_{self}^{(T)}}$；Theorem 1 进一步给出最优解处的 self-utility loss $V(\alpha^*) = (1 - \|\vec{e}_{\mathcal{A}_\perp}\|) \cdot \alpha^* / \|\vec{e}_{\mathcal{A}_\parallel}\|$，并证明 cross-utility loss 有更紧的上界。
 
 ## 实验关键数据
 

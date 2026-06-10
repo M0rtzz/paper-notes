@@ -41,36 +41,34 @@ tags:
 ## 方法详解
 
 ### 整体框架
-输入1-4张RGB图+相机参数 → DINOv3图像编码+Plücker射线相机编码 → token拼接+3个全局token → 24层Transformer → 双分支预测：DPT Head→3DGS参数ψ + Physics Head→物理属性分布θ → MPM仿真器→4D动态序列
+
+PhysGM 要回答的是：能不能完全绕开逐场景优化，用一次前向传播就从单图直接吐出可仿真的物理 4D？输入 1–4 张 RGB 图加相机参数，先用 DINOv3 编码图像 patch、用 Plücker 射线编码每像素相机几何，拼接后再附 3 个可学习全局 token，一起送进 24 层 Transformer；输出分两路——DPT Head 回归 3DGS 参数 $\psi$，Physics Head 预测物理属性分布 $\theta$（材质类别 + 杨氏模量/泊松比）；最后把几何和物理参数交给 MPM 仿真器，滚出 4D 动态序列。单图推理时用 MVAdapter 先补出后/左/右辅助视图。
 
 ### 关键设计
 
-1. **多模态Tokenization与全局物理token**:
+**1. 多模态 Tokenization 与全局物理 token：让物理预测看全场景而非局部**
 
-    - 做什么: 将图像+几何信息统一编码，引入全局token聚合场景级物理信息
-    - 核心思路: DINOv3编码图像patch, Plücker射线坐标编码每像素主射线, 拼接后附加3个可学习全局token (用于物理头)。单图推理时用MVAdapter合成后/左/右辅助视图
-    - 设计动机: 全局token避免物理属性预测依赖局部特征，能综合全场景外观线索推断材质
+物理属性（这是金属还是果冻）往往要综合整张物体的外观才能判断，只盯局部 patch 会判错。PhysGM 把 DINOv3 的图像特征和 Plücker 射线坐标拼在一起编码几何，再额外挂 3 个可学习全局 token 专供物理头——这些 token 在注意力里聚合全场景的外观线索，物理预测因此建立在"整体材质印象"上，而不是某个局部纹理。
 
-2. **概率物理属性预测头**:
+**2. 概率物理属性预测头：用分布而非点估计承认物理的多解性**
 
-    - 做什么: 从全局token预测材质类别（分类）和连续物理参数的概率分布（回归）
-    - 核心思路: 分类头 $f_{material}(g_k) → C$，回归头输出均值和方差 $(\mu_\theta, \log\sigma_\theta^2) = f_{phys}(g_k)$，定义条件分布 $P(\theta|I) = \mathcal{N}(\theta|\mu_\theta, \text{diag}(\sigma_\theta^2))$，推理时采样得到物理参数
-    - 设计动机: 概率建模捕获"同一外观可能对应多种物理参数"的不确定性，还为DPO提供采样多候选的能力
+同一张外观可能对应多种物理参数（看起来一样硬的东西未必一样的杨氏模量），点估计会武断。Physics Head 因此分两支：分类头 $f_{material}(g_k) \to C$ 出材质类别，回归头输出均值和方差 $(\mu_\theta, \log\sigma_\theta^2) = f_{phys}(g_k)$，定义条件分布 $P(\theta|I) = \mathcal{N}(\theta|\mu_\theta, \text{diag}(\sigma_\theta^2))$，推理时从中采样。概率建模既捕获了"一种外观对应多组参数"的不确定性，又顺带给下一步 DPO 提供了"采样多个候选"的能力——这是后面偏好微调能跑起来的前提。
 
-3. **DPO偏好微调替代SDS**:
+**3. DPO 偏好微调替代 SDS：把不可微的仿真器当黑盒**
 
-    - 做什么: 用偏好学习对齐仿真输出与GT视频，完全绕过可微分性要求
-    - 核心思路: 冻结预训练策略为 $\pi_{ref}$，从 $\pi_\omega$ 采样K组物理参数候选→分别MPM仿真+渲染→用SAM-2分割+CoTracker-3轨迹提取计算与GT的感知距离→最近/最远为winner/loser→最小化DPO损失 $L_{DPO} = -\mathbb{E}[\log\sigma(\beta\log\frac{\pi_\omega(\phi_w|z)}{\pi_{ref}(\phi_w|z)} - \beta\log\frac{\pi_\omega(\phi_l|z)}{\pi_{ref}(\phi_l|z)})]$
-    - 设计动机: SDS需要梯度穿过物理引擎，DPO将仿真/渲染视为黑盒——只需比较输出质量即可学习，大幅简化训练
+SDS 要让梯度穿过物理引擎，既慢又不稳。PhysGM 改用偏好学习绕过可微性要求：冻结预训练策略作 $\pi_{ref}$，从 $\pi_\omega$ 采 K 组物理参数候选，各自跑 MPM 仿真 + 渲染，用 SAM-2 分割 + CoTracker-3 轨迹算出与 GT 视频的感知距离，最近的当 winner、最远的当 loser，再最小化 DPO 损失
 
-4. **PhysAssets数据集（50K+）**:
+$$L_{DPO} = -\mathbb{E}\Big[\log\sigma\big(\beta\log\tfrac{\pi_\omega(\phi_w|z)}{\pi_{ref}(\phi_w|z)} - \beta\log\tfrac{\pi_\omega(\phi_l|z)}{\pi_{ref}(\phi_l|z)}\big)\Big]$$
 
-    - 做什么: 构建首个配对3D资产-物理标注-仿真参考视频的大规模数据集
-    - 核心思路: 从Objaverse/OmniObject3D/ABO/HSSD聚合资产，用Qwen3VL多模态LLM从多视图推断材质类别和物理参数，用Framepack生成GT仿真视频
-    - 设计动机: 同时支持监督预训练（GT物理参数）和DPO微调（GT仿真视频），填补数据空白
+整个仿真/渲染被当成黑盒，只比较输出好坏即可学习，训练大幅简化。消融显示去掉概率分布（改点估计）后 DPO 没法采样多候选、直接失效，印证设计 2 与设计 3 是绑在一起的。
+
+**4. PhysAssets 数据集（50K+）：同时喂监督预训练和 DPO**
+
+前馈范式吃数据，而配对"3D 资产–物理标注–仿真参考视频"的大规模数据此前是空白。PhysGM 从 Objaverse/OmniObject3D/ABO/HSSD 聚合资产，用 Qwen3VL 多模态 LLM 从多视图推断材质类别和物理参数，再用 Framepack 生成 GT 仿真视频——前者支撑监督预训练（有 GT 物理参数），后者支撑 DPO 微调（有 GT 仿真视频），一套数据填两个阶段的料。
 
 ### 训练策略
-两阶段：Stage 1大规模监督预训练联合优化重建损失(MSE+Alpha+LPIPS)和物理预测损失；Stage 2冻结骨干仅微调物理头执行DPO。32卡A800训练3天，batch size 8/卡。MPM仿真参数: 子步时间 $2×10^{-5}$s, 帧时间 $4×10^{-2}$s, 每序列50帧。
+
+两阶段：Stage 1 大规模监督预训练，联合优化重建损失（MSE + Alpha + LPIPS）和物理预测损失；Stage 2 冻结骨干、只微调物理头执行 DPO。32 卡 A800 训练 3 天，每卡 batch size 8。MPM 仿真参数：子步时间 $2\times10^{-5}$ s，帧时间 $4\times10^{-2}$ s，每序列 50 帧。
 
 ## 实验关键数据
 

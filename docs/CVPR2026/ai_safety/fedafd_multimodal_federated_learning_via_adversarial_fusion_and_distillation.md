@@ -50,32 +50,17 @@ FedAFD 包含三个阶段的迭代训练：
 
 ### 关键设计
 
-1. **双层对抗对齐（BAA）**：将客户端-服务器的表示不一致性建模为联邦域适应问题。每个客户端配备两个对抗判别器：
+**1. 双层对抗对齐 BAA：把客户端-服务器的表示错位当成域适应来消**
 
-    - **模态内判别器** $\mathcal{D}_c^{in}$：区分同模态下的本地/全局表示（如 $i_p^{c,k}$ vs $i_p^{g,k}$）
-    - **跨模态判别器** $\mathcal{D}_c^{cr}$：区分不同模态的本地/全局表示（如 $i_p^{c,k}$ vs $t_p^{g,k}$）
-   
-   对抗损失为：
-    $\mathcal{L}_{adv} = \frac{1}{|\mathcal{P}|}\sum_{k=1}^{|\mathcal{P}|}(\mathcal{L}_{in}^k + \mathcal{L}_{cr}^k)$
-   其中 $\mathcal{L}_{in}^k = \log \mathcal{D}_c^{in}(i_p^{g,k}) + \log(1-\mathcal{D}_c^{in}(i_p^{c,k}))$，跨模态类似。判别器最大化、编码器最小化该损失，从而减少客户端-服务器之间的表示分布差异。
+不同模态/任务的客户端和服务器各自学出来的表示对不上，会造成模型漂移。FedAFD 把这种不一致直接建模成联邦域适应问题，给每个客户端配两个判别器：**模态内判别器** $\mathcal{D}_c^{in}$ 区分同模态下的本地/全局表示（如 $i_p^{c,k}$ vs $i_p^{g,k}$），**跨模态判别器** $\mathcal{D}_c^{cr}$ 区分不同模态的本地/全局表示（如 $i_p^{c,k}$ vs $t_p^{g,k}$）。对抗损失为 $\mathcal{L}_{adv} = \frac{1}{|\mathcal{P}|}\sum_{k=1}^{|\mathcal{P}|}(\mathcal{L}_{in}^k + \mathcal{L}_{cr}^k)$，其中 $\mathcal{L}_{in}^k = \log \mathcal{D}_c^{in}(i_p^{g,k}) + \log(1-\mathcal{D}_c^{in}(i_p^{c,k}))$、跨模态同理。判别器最大化、编码器最小化这个损失，就把客户端-服务器之间的表示分布差异拉近。
 
-2. **粒度感知特征融合（GFF）**：BAA 对齐特征分布后，可能引入过多全局知识导致本地性能下降。GFF 通过注意力机制在样本级别自适应融合本地和全局特征：
-   
-   第一级融合：
-    $h_c^k = M(i_c^k + i_g^k) \otimes i_c^k + (1-M(i_c^k + i_g^k)) \otimes i_g^k$
-   第二级融合（细化）：
-    $\widetilde{i}_c^k = M(h_c^k) \otimes i_c^k + (1-M(h_c^k)) \otimes i_g^k$
-   
-   注意力权重 $M(x) = \sigma(T_1(x) + T_2(x))$，其中 $T_1, T_2$ 为并行非线性变换，捕获多尺度上下文信息。融合特征用于计算任务损失 $\mathcal{L}_{task}$。
+**2. 粒度感知特征融合 GFF：对齐之后别让全局知识淹掉本地个性化**
 
-3. **相似度引导的集成蒸馏（SED）**：服务器端处理模型异构性。基于特征相似度动态分配聚合权重：
-   
-   相似度分数：
-    $s^{c,k} = \log \frac{\exp(sim(i_p^{c,k}, i_p^{g,k}))}{\sum_{j=1}^{|\mathcal{P}|}\exp(sim(i_p^{c,k}, i_p^{g,j}))}$
-   
-   归一化聚合权重：$w^{c,k} = \frac{\exp(s^{c,k})}{\sum_{c'\in\pi_{img}}\exp(s^{c',k})}$
-   
-   聚合教师表示：$i_{agg}^k = \sum_{c\in\pi_{img}} w^{c,k} \cdot i_p^{c,k}$
+BAA 把分布对齐了，但塞进太多全局知识会反过来压低本地性能。GFF 用注意力在样本级自适应地融合本地与全局特征，分两级细化：第一级 $h_c^k = M(i_c^k + i_g^k) \otimes i_c^k + (1-M(i_c^k + i_g^k)) \otimes i_g^k$，第二级 $\widetilde{i}_c^k = M(h_c^k) \otimes i_c^k + (1-M(h_c^k)) \otimes i_g^k$。注意力权重 $M(x) = \sigma(T_1(x) + T_2(x))$ 由两个并行非线性变换 $T_1, T_2$ 捕获多尺度上下文。融合后的特征拿去算任务损失 $\mathcal{L}_{task}$，这样每个样本自己决定要多少全局、留多少本地。消融里去掉 GFF 客户端性能暴跌，印证它是个性化的命门。
+
+**3. 相似度引导的集成蒸馏 SED：异构架构没法参数聚合，就在表示级按相似度蒸馏**
+
+各客户端编码器架构不同，服务器没法做参数级聚合。SED 改在表示层做，并按特征相似度动态分配聚合权重：相似度分数 $s^{c,k} = \log \frac{\exp(sim(i_p^{c,k}, i_p^{g,k}))}{\sum_{j=1}^{|\mathcal{P}|}\exp(sim(i_p^{c,k}, i_p^{g,j}))}$，softmax 归一化得 $w^{c,k} = \frac{\exp(s^{c,k})}{\sum_{c'\in\pi_{img}}\exp(s^{c',k})}$，再加权得聚合教师表示 $i_{agg}^k = \sum_{c\in\pi_{img}} w^{c,k} \cdot i_p^{c,k}$。和服务器越像的客户端贡献越大，从而无需参数一致就能跨异构模型传知识。
 
 ### 损失函数 / 训练策略
 

@@ -40,30 +40,25 @@ tags:
 
 ### 整体框架
 
-ACR（Adaptive Confidence Regularization）包含两个互补模块：
+ACR 要解决的是多模态场景下的失败检测（FD）——模型不只要准，还要能可靠地标出哪些预测不可信。架构上，M 个模态分支各有编码器 $g_k(\cdot)$ 提取嵌入 $\mathbf{E}^k$，拼接后送进融合分类器 $h(\cdot)$ 得到多模态预测 $\hat{p}$，同时每个模态还有独立分类器 $h_k(\cdot)$ 给出单模态预测 $\hat{p}^k$。在这之上，ACR 加了两个互补模块：一个损失（ACL）盯住"融合后反而比单模态更没把握"的退化信号，一个数据增强（MFS）在特征空间凭空造出失败样本来训练检测器。
 
-- **Adaptive Confidence Loss (ACL)**：惩罚融合置信度低于单模态置信度的"置信度退化"
-- **Multimodal Feature Swapping (MFS)**：在特征空间通过跨模态维度交换合成失败感知的离群样本
+### 关键设计
 
-架构上，M 个模态分支各有编码器 $g_k(\cdot)$ 提取嵌入 $\mathbf{E}^k$，拼接后送入融合分类器 $h(\cdot)$ 得到多模态预测 $\hat{p}$；同时每个模态有独立分类器 $h_k(\cdot)$ 得到单模态预测 $\hat{p}^k$。
+**1. Adaptive Confidence Loss（ACL）：惩罚"越融合越不自信"的置信度退化**
 
-### Adaptive Confidence Loss (ACL)
-
-定义融合置信度 $\text{conf} = \max_y \hat{p}$，单模态置信度 $\text{conf}_k = \max_y \hat{p}^k$。ACL 对两模态情形：
+作者发现误分类样本里，融合置信度低于某个单模态置信度的比例远高于正确样本（HMDB51 上高出 32.4%，HAC 上高出 52.4%）——这种"置信度退化"是失败的强指示。ACL 就把它写进损失。记融合置信度 $\text{conf} = \max_y \hat{p}$、单模态置信度 $\text{conf}_k = \max_y \hat{p}^k$，两模态情形下：
 
 $$\mathcal{L}_{\text{acl}} = \frac{1}{2}\left(\max(0, \text{conf}_1 - \text{conf}) + \max(0, \text{conf}_2 - \text{conf})\right)$$
 
-- 融合置信度高于所有单模态时无惩罚；低于任一单模态时线性惩罚
-- 鼓励融合机制充分整合互补信息，同时抑制单模态过度自信
+融合置信度高于所有单模态时不罚，低于任一单模态时线性惩罚。这等于逼着融合机制充分整合互补信息、同时压住单模态的过度自信，副作用是分类准确率也跟着提升。
 
-### Multimodal Feature Swapping (MFS)
+**2. Multimodal Feature Swapping（MFS）：在特征空间凭空合成失败样本**
 
-- 从每个模态嵌入中随机选取 $n_{\text{swap}} \sim \mathcal{U}(n_{\min}, n_{\max})$ 个连续维度进行交换，得到扰动特征 $\mathbf{E}_o$
-- 软标签通过原始标签与离群类插值：$\mathbf{y}_{\text{swapped}} = (1-\lambda)\mathbf{y}_{\text{true}} + \lambda\mathbf{y}_{\text{outlier}}$，其中 $\lambda = n_{\text{swap}} / n_{\max}$
-- 小交换量 → 靠近分布内的困难负样本；大交换量 → 远离分布的明确离群点（可控性强）
-- 不需要任何外部数据，直接在特征空间操作，计算高效
+FD 缺真实失败样本，传统 Outlier Exposure 要外部大数据集、还造不出跨模态冲突这种多模态特有的失败。MFS 不取外部数据，直接在特征空间动手：从每个模态嵌入里随机选 $n_{\text{swap}} \sim \mathcal{U}(n_{\min}, n_{\max})$ 个连续维度做交换，得到扰动特征 $\mathbf{E}_o$，软标签按交换量在真实标签和离群类之间插值 $\mathbf{y}_{\text{swapped}} = (1-\lambda)\mathbf{y}_{\text{true}} + \lambda\mathbf{y}_{\text{outlier}}$，其中 $\lambda = n_{\text{swap}} / n_{\max}$。交换量小就得到贴近分布内的困难负样本，交换量大就得到明确的离群点，可控性强、还省去外部数据、模态无关。
 
-### 总损失
+### 损失函数 / 训练策略
+
+总损失把分类、离群、置信度退化三项合在一起：
 
 $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{cls}} + \mathcal{L}_{\text{outlier}} + \lambda_{\text{acl}} \mathcal{L}_{\text{acl}}$$
 

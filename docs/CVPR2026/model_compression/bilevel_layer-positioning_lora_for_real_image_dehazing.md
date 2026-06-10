@@ -48,64 +48,41 @@ tags:
 
 ## 方法详解
 
-### H2C Loss：Haze-to-Clear 文本引导损失
+### 整体框架
 
-核心思想：利用 CLIP 预训练的视觉-语言对齐空间，构造从"有雾"到"无雾"的语义方向作为无监督去雾信号。
+BiLaLoRA 要解决的是：把在合成雾图上预训练好的去雾模型，在没有真实配对监督、也不想付出全量微调代价的前提下，迁移到真实雾霾场景。整条流水线分两步走——先用一个无监督的语义信号（H2C Loss）替代缺失的真实 GT，再用双层优化自动找出最该插 LoRA 的那几层，最后只在这些层上轻量微调。换句话说，"用什么信号训"和"在哪里训"这两件事，被分别交给了 H2C Loss 和 BiLaLoRA。
 
-**定义正负文本提示**：
-- $T_{\text{pos}}$（正向/清晰）："a clear photo", "a bright image", "a high-quality photo"
-- $T_{\text{neg}}$（负向/有雾）："a hazy photo", "a foggy image", "a blurry photo"
+### 关键设计
 
-**语义方向计算**：
+**1. H2C Loss：没有真实 GT 时，用 CLIP 的语义方向当监督信号**
 
-图像域方向：$\Delta V_{\text{img}} = V_{\text{out}} - V_{\text{in}}$
+真实场景拿不到同一画面的有雾/无雾配对，传统 L1/感知损失无从计算。H2C Loss 的思路是借 CLIP 已经对齐好的视觉-语言空间，把"去雾"翻译成一个方向：定义正向提示 $T_{\text{pos}}$（"a clear photo"、"a bright image"、"a high-quality photo"）和负向提示 $T_{\text{neg}}$（"a hazy photo"、"a foggy image"、"a blurry photo"），二者之差 $\Delta T_{\text{text}} = T_{\text{pos}} - T_{\text{neg}}$ 就是"有雾→清晰"在文本域的语义方向。
 
-其中 $V_{\text{out}} = \text{CLIP}_{\text{img}}(\hat{J})$ 是去雾输出的 CLIP 图像特征，$V_{\text{in}} = \text{CLIP}_{\text{img}}(I)$ 是有雾输入的特征。
-
-文本域方向：$\Delta T_{\text{text}} = T_{\text{pos}} - T_{\text{neg}}$
-
-**H2C Loss**：
+对应地，把去雾输出 $\hat{J}$ 和有雾输入 $I$ 各过一次 CLIP 图像编码器，得到图像域的变化方向 $\Delta V_{\text{img}} = V_{\text{out}} - V_{\text{in}}$，其中 $V_{\text{out}} = \text{CLIP}_{\text{img}}(\hat{J})$、$V_{\text{in}} = \text{CLIP}_{\text{img}}(I)$。损失就是让这两个方向尽量同向：
 
 $$\mathcal{L}_{\text{H2C}} = 1 - \cos(\Delta V_{\text{img}}, \Delta T_{\text{text}})$$
 
-最大化图像变化方向与"有雾→清晰"文本方向的余弦相似度。这一设计无需任何真实 GT，完全依赖 CLIP 的语义先验。
+关键在于用"方向差"而非"绝对距离"——只约束图像往清晰的方向走，不强迫输出去匹配某个具体文本，从而避开了 CycleGAN 式翻译的训练不稳定与伪影，也避开了让输出直接对齐文本的退化解。
 
-### BiLaLoRA：双层优化层定位
+**2. BiLaLoRA：把"LoRA 插在哪层"建模成可微的双层优化**
 
-LoRA 在哪些层插入、各层的重要性如何分配，是一个组合优化问题。BiLaLoRA 将其建模为双层优化：
+LoRA 能省参数，但插在哪些层、各层权重怎么分配是个组合优化问题，随机或均匀分配远非最优。BiLaLoRA 借鉴 NAS 里 DARTS 的思路，把它写成上层选层、下层学权重的双层优化：上层在验证集上调每层的选择权重 $\alpha = \{\alpha_1, \ldots, \alpha_L\}$，下层在训练集上学所有 LoRA 参数 $\omega$，
 
-**上层优化**（层选择权重 $\alpha$）：
+$$\min_{\alpha} \mathcal{L}_{\text{val}}(\omega^*(\alpha), \alpha), \quad \omega^*(\alpha) = \arg\min_{\omega} \mathcal{L}_{\text{train}}(\omega, \alpha)$$
 
-$$\min_{\alpha} \mathcal{L}_{\text{val}}(\omega^*(\alpha), \alpha)$$
-
-**下层优化**（LoRA 权重 $\omega$）：
-
-$$\omega^*(\alpha) = \arg\min_{\omega} \mathcal{L}_{\text{train}}(\omega, \alpha)$$
-
-其中 $\alpha = \{\alpha_1, \ldots, \alpha_L\}$ 为每层的选择权重，$\omega$ 为所有 LoRA 的参数。
-
-**连续松弛**：使用 Gumbel-Sigmoid 对离散的层选择进行连续松弛：
-
-$$g_l = \sigma\left(\frac{\log(\alpha_l / (1-\alpha_l)) + G}{\tau}\right)$$
-
-其中 $G$ 为 Gumbel 噪声，$\tau$ 为温度参数。训练中 $g_l$ 为连续权重，搜索完成后取 Top-K 层固化。
-
-**超梯度高效计算**：标准双层优化的超梯度涉及二阶 Hessian，计算量大。本文采用 rank-one 近似简化：
+离散的选层不可微，于是用 Gumbel-Sigmoid 做连续松弛 $g_l = \sigma\left(\frac{\log(\alpha_l / (1-\alpha_l)) + G}{\tau}\right)$（$G$ 为 Gumbel 噪声，$\tau$ 为温度），训练时 $g_l$ 是连续权重，搜完取 Top-K 层固化。双层优化的超梯度本来要算二阶 Hessian、代价高，本文用 rank-one 近似把它降到只需一阶导：
 
 $$\nabla_\alpha \mathcal{L}_{\text{val}} \approx \nabla_\alpha \mathcal{L}_{\text{val}} - \frac{\eta}{\epsilon} (\nabla_\alpha \mathcal{L}_{\text{train}}(\omega^+) - \nabla_\alpha \mathcal{L}_{\text{train}}(\omega^-))$$
 
-其中 $\omega^\pm = \omega \pm \epsilon \nabla_\omega \mathcal{L}_{\text{val}}$，仅需一阶导数即可。
+其中 $\omega^\pm = \omega \pm \epsilon \nabla_\omega \mathcal{L}_{\text{val}}$。这样选层既自动又便宜，训练时间的大头省在"搜完只训少数层"上。
 
-### 两阶段训练流程
+### 损失函数 / 训练策略
 
-1. **Stage 1 — 双层搜索**：同时优化 $\alpha$ 和 $\omega$，用 Gumbel-Sigmoid 连续化层选择。搜索完成后，根据 $\alpha$ 值选取 Top-K 层
-2. **Stage 2 — LoRA 微调**：仅在 Top-K 固化层上训练 LoRA 权重，其余层冻结
-
-### 总训练损失
+整体分两阶段：**Stage 1（双层搜索）**同时优化 $\alpha$ 和 $\omega$，用 Gumbel-Sigmoid 连续化层选择，搜完按 $\alpha$ 取 Top-K 层；**Stage 2（LoRA 微调）**只在这 Top-K 固化层上训练 LoRA，其余层冻结。总损失为
 
 $$\mathcal{L} = \mathcal{L}_{\text{H2C}} + \lambda \mathcal{L}_{\text{reg}}$$
 
-其中 $\mathcal{L}_{\text{reg}}$ 为正则化项（防止去雾输出偏离输入过多），$\lambda$ 为平衡系数。
+其中 $\mathcal{L}_{\text{reg}}$ 是防止去雾输出偏离输入过多的正则项，$\lambda$ 为平衡系数。搜索与训练解耦，使搜索阶段能快速完成、训练阶段只聚焦有效层。
 
 ## 实验关键数据
 

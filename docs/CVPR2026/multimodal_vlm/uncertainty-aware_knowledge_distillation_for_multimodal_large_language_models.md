@@ -36,38 +36,32 @@ tags:
 ## 方法详解
 
 ### 整体框架
-将KD建模为学生激活值的MAP推断问题，教师信息作为Gibbs先验，通过Laplace近似简化配分函数，用神经网络摆化推断参数β。
+
+多模态 LLM 蒸馏要同时学数据（交叉熵）和学教师（KL/特征对齐），这些损失尺度和梯度各不相同，手调权重既贵又难。Beta-KD 换了个角度：把「学生该长成什么样」看成一次 MAP 推断，教师信息以 Gibbs 先验的形式注入，再用 Laplace 近似把难算的配分函数化简成闭形式，最后让一个轻量网络自己预测平衡系数 $\beta$，从而免去网格搜索、自动调节数据与教师两路监督的权重。
 
 ### 关键设计
 
-1. **Teacher-Informed Gibbs先验**：
+**1. Teacher-Informed Gibbs 先验：把「信教师多少」写成一个可调温度**
 
-    - $p(a^s | a^t, \beta) = \frac{1}{Z_\beta(a^t)} \exp[-\beta \ell(a^s; a^t)]$
-    - $\ell$可为任意对齐能量（FKL、RKL、Cosine、MSE等）
-    - $\beta$控制监督强度：大$\beta$意味着更信任教师，小$\beta$更信任数据
+要自动平衡数据和教师，先得把教师监督形式化。Beta-KD 把教师对学生激活 $a^s$ 的约束写成 Gibbs 先验 $p(a^s \mid a^t, \beta) = \frac{1}{Z_\beta(a^t)} \exp[-\beta\,\ell(a^s; a^t)]$，其中对齐能量 $\ell$ 可以是 FKL、RKL、Cosine、MSE 等任意形式。系数 $\beta$ 就是「信教师的程度」：$\beta$ 大代表更信教师分布，$\beta$ 小代表更信数据本身——平衡问题被收敛成一个可学习标量。
 
-2. **MAP推断与Laplace近似**：
+**2. MAP 推断 + Laplace 近似：自然长出一个防极端的正则项**
 
-    - MAP目标：$\min_{a^s} -\log p(y|a^s) + \beta\ell(a^s;a^t) + \log Z_\beta(a^t)$
-    - Laplace近似后: $\log Z_\beta \approx -d/2 \cdot \log\beta + \text{const}$
-    - 最终目标: $\min \mathcal{L}_{CE} + \beta \ell + \frac{d}{2}\log\beta$（自然正则化）
+把蒸馏看成对学生激活求 MAP，目标是 $\min_{a^s} -\log p(y\mid a^s) + \beta\ell(a^s; a^t) + \log Z_\beta(a^t)$，难点在配分函数 $Z_\beta$。用 Laplace 近似可得 $\log Z_\beta \approx -\frac{d}{2}\log\beta + \text{const}$，代回后最终目标化为 $\min \mathcal{L}_{CE} + \beta\ell + \frac{d}{2}\log\beta$。最后这一项 $\frac{d}{2}\log\beta$ 是推导自然带出来的正则化：它阻止 $\beta$ 滑向 0 或无穷，避免模型彻底倒向数据或彻底倒向教师。
 
-3. **两种不确定性粒度**：
+**3. 任务级与实例级两种粒度：让每个样本都能有自己的平衡**
 
-    - **任务级(homoscedastic)**：$\beta$为每个任务共享的可学习标量
-    - **实例级(heteroscedastic)**：$\beta(x) = g_\phi(h(x)) > 0$，轻量级网络从输入预测
-    - 实例级允许每个样本有不同的数据-教师平衡
+固定一个全局 $\beta$ 太粗，不同样本对教师的依赖其实不同。Beta-KD 给出两挡粒度：任务级（homoscedastic）让 $\beta$ 是每个任务共享的可学习标量；实例级（heteroscedastic）则用轻量网络从输入预测 $\beta(x) = g_\phi(h(x)) > 0$，给每个样本单独定数据-教师平衡。实验里实例级显著更强，说明细到样本的自适应确实有价值。
 
-4. **能量函数设计空间探索**：
+**4. 能量函数设计空间：生成式 MLLM 偏爱 Cosine-Probs**
 
-    - 发现Cosine-Probs效果最佳（尺度不变性，关注方向对齐）
-    - 前-softmax logit匹配(MSE-Logits、Cosine-Logits)在生成式MLLM中表现很差
-    - 与判别式任务的发现不同
+$\ell$ 选什么并非无关紧要。论文系统扫了一遍设计空间，发现 Cosine-Probs 最好——它对尺度不变、只关注方向对齐，正好回避了师生容量差距带来的 logits 尺度/方差不一致；而前-softmax 的 logit 匹配（MSE-Logits、Cosine-Logits）在生成式 MLLM 上表现很差，这一结论和判别式任务的经验相反。
 
 ### 损失函数 / 训练策略
-$\min_{\theta,\phi} \mathcal{L}_{CE}(\theta) + g_\phi(h(x))\ell(\theta) - \frac{d}{2}\log g_\phi(h(x))$
 
-冒结视觉编码器和tokenizer，仅微调语言backbone。
+最终优化目标（实例级）：
+$$\min_{\theta,\phi} \mathcal{L}_{CE}(\theta) + g_\phi(h(x))\,\ell(\theta) - \frac{d}{2}\log g_\phi(h(x))$$
+训练时冻结视觉编码器和 tokenizer，仅微调语言 backbone。
 
 ## 实验关键数据
 

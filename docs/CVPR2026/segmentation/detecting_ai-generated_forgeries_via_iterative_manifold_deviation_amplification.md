@@ -40,50 +40,30 @@ tags:
 ## 方法详解
 
 ### 整体框架
-IFA-Net 采用两阶段闭环架构：
-- **Stage 1**：冻结 MAE 重建 → 残差图 → DSSN 双流分割 → 粗 mask $M_{\text{crs}}$
-- **Stage 2**：粗 mask 通过 TAPI 注入 MAE → 放大残差 → 共享 DSSN 精细化 → 最终 mask $M_{\text{ref}}$
+IFA-Net 换了个思路检测 AI 伪造：不去学"假长什么样"，而是用在海量真实图上预训练的 MAE 建模"真该长什么样"，凡是偏离自然图像流形的区域就是可疑区域。整体是一个两阶段闭环——Stage 1 用冻结 MAE 重建输入、由残差图暴露可疑区，经双流分割网络 DSSN 出一张粗 mask $M_{\text{crs}}$；Stage 2 把粗 mask 当先验注入 MAE，放大那些区域的重建残差，再过同一个 DSSN 精细化成最终 mask $M_{\text{ref}}$。这样"检测→聚焦→放大→精化"形成闭环，越可疑的地方残差被推得越大。
 
 ### 关键设计
 
-1. **Stage 1 — 基于 MAE 残差的粗检测**:
+**1. MAE 重建残差：把"偏离真实流形"变成探照灯**
 
-    - 冻结 MAE 重建：输入可能被篡改的图像 $I$，通过冻结的 MAE encoder-decoder 重建 $\hat{I}$
-    - 残差图计算：$R = |I - \hat{I}|$，真实区域残差小（MAE 重建准确），伪造区域残差大（偏离流形）
-    - DSSN（Dual-Stream Segmentation Network）：
-        - Content Stream：编码原始图像的语义内容（SegFormer backbone）
-        - Artifact Stream：编码残差图中的伪造线索
-        - Cross-Attention 融合：两个 stream 通过交叉注意力交换信息，内容流提供"在哪里看"，artifact 流提供"看到了什么异常"
-    - 输出粗 mask $M_{\text{crs}}$
+伪造检测的泛化难题在于 artifact 类方法只认特定生成器的指纹。IFA-Net 改为利用冻结 MAE 的自然图像流形先验：输入可能被篡改的图 $I$ 经 MAE 重建出 $\hat{I}$，真实区域落在流形上、能被准确重建，伪造区域偏离流形、重建误差大，于是残差图 $R = |I - \hat{I}|$ 天然就是伪造区域的探照灯。因为建模的是真实图的统计规律而非某种伪造痕迹，它天然能跨生成器泛化，也不依赖"真-假"配对标注。
 
-2. **Stage 2 — TAPI（Task-Adaptive Prior Injection）迭代放大**:
+**2. 双流分割网络 DSSN：内容流与伪造流互相指路**
 
-    - 动机：Stage 1 的残差可能不够显著（生成质量越高，残差越微弱），需要放大
-    - Prompt Encoder：将粗 mask $M_{\text{crs}}$ 通过卷积降采样 + 线性投影编码为全局上下文向量
-    - FiLM 调制：利用全局上下文通过 Feature-wise Linear Modulation 调制冻结 MAE encoder 的中间特征：
-    $\tilde{Z} = \gamma \odot Z + \beta$
-      其中 $\gamma, \beta$ 由 Prompt Encoder 输出的上下文向量生成，$Z$ 为冻结 MAE encoder 的特征
-    - 核心效果：TAPI 告诉 MAE "关注这些区域"，使得 MAE 在已知可疑区域投入更多重建能力，产生更大的残差偏差
-    - Trainable MAE Decoder：Stage 2 的 MAE decoder 是可训练的（不同于 Stage 1 的冻结 decoder），进一步放大伪造区域的重建误差
-    - 放大残差 $R_{\text{amp}} = |I - \hat{I}_{\text{amp}}|$ 被送入共享的 DSSN 得到精细化 mask $M_{\text{ref}}$
+只看残差容易被纹理噪声误导，只看原图又没有伪造线索。DSSN 基于 SegFormer 做双流：Content Stream 编码原图 $I$ 的语义内容（"在哪里看"），Artifact Stream 编码残差图 $R$（Stage 2 则是放大残差 $R_{\text{amp}}$）里的伪造线索（"看到了什么异常"），两路在每个 SegFormer stage 后用 cross-attention 交换信息。两个阶段共享同一套 DSSN 权重，既省参数，又让 Stage 1 的梯度顺带帮 Stage 2 的 DSSN 学习。
 
-3. **双流分割网络 DSSN 细节**:
+**3. TAPI 迭代放大闭环：让微弱残差被推大再精化**
 
-    - 基于 SegFormer 架构，但采用双流设计
-    - Content Stream 的输入：原始图像 $I$
-    - Artifact Stream 的输入：残差图 $R$（Stage 1）或放大残差图 $R_{\text{amp}}$（Stage 2）
-    - Cross-Attention 融合模块在每个 SegFormer stage 后应用
-    - 两个 stage 共享 DSSN 权重（参数效率高，且 Stage 1 的梯度也帮助 Stage 2 的 DSSN 学习）
+生成质量越高、Stage 1 的残差越微弱，需要主动放大。TAPI（Task-Adaptive Prior Injection）先用 Prompt Encoder 把粗 mask $M_{\text{crs}}$ 经卷积降采样 + 线性投影编成全局上下文向量，再用它对冻结 MAE encoder 的中间特征 $Z$ 做 FiLM 调制 $\tilde{Z} = \gamma \odot Z + \beta$（$\gamma, \beta$ 由上下文向量生成），等于告诉 MAE"重点盯这些区域"。配合 Stage 2 改为可训练的 MAE decoder，可疑区的重建误差被进一步放大，放大残差 $R_{\text{amp}} = |I - \hat{I}_{\text{amp}}|$ 送回共享 DSSN 得到精细 mask $M_{\text{ref}}$。MAE encoder 全程冻结以保住流形先验，仅靠 FiLM 注入任务信息，参数高效。
 
 ### 损失函数
+总损失对两阶段输出加权，精细 mask 权重 1.0、粗 mask 权重 0.5，引导网络重点优化最终输出：
+
 $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{ref}} + 0.5 \cdot \mathcal{L}_{\text{crs}}$$
 
-每个阶段的损失均包含：
-$$\mathcal{L}_{\text{stage}} = \mathcal{L}_{\text{BCE}} + \mathcal{L}_{\text{Dice}}$$
+每个阶段的损失同时用 BCE 做像素级分类、Dice 缓解伪造区远小于真实区的类别不平衡：
 
-- BCE loss 处理像素级分类
-- Dice loss 处理类别不平衡（伪造区域通常远小于真实区域）
-- 精细化 mask $M_{\text{ref}}$ 的权重为 1.0，粗 mask $M_{\text{crs}}$ 的权重为 0.5，引导网络重点优化最终输出
+$$\mathcal{L}_{\text{stage}} = \mathcal{L}_{\text{BCE}} + \mathcal{L}_{\text{Dice}}$$
 
 ## 实验关键数据
 

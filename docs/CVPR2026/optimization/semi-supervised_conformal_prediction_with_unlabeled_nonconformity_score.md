@@ -49,13 +49,15 @@ $$\hat{\tau}_{\text{SemiCP}} = \text{Quantile}\left(\{\tilde{s}_i\}_{i=1}^N \cup
 
 测试时对测试样本 $\mathbf{x}_{\text{test}}$ 构建预测集 $\mathcal{C}(\mathbf{x}_{\text{test}}) = \{y : S(\mathbf{x}_{\text{test}}, y) \le \hat{\tau}_{\text{SemiCP}}\}$。
 
-### 关键设计：Nearest Neighbor Matching (NNM) 分数
+### 关键设计
 
-1. **朴素方法的问题**：直接用伪标签 $\hat{y}_i = \arg\max_j f_j(\tilde{\mathbf{x}}_i)$ 代入分数函数会产生系统性偏低（pseudo bias），因为伪标签总是模型最自信的类别，导致分数偏小、阈值被低估、覆盖率不足。
-2. **伪偏差定义**：$\Delta(\tilde{\mathbf{x}}_i) = S(\tilde{\mathbf{x}}_i, \tilde{y}_i) - S(\tilde{\mathbf{x}}_i, \hat{y}_i)$，即真实分数与伪标签分数之差。
-3. **最近邻匹配策略**：对每个无标签样本 $\tilde{\mathbf{x}}_i$，在伪分数空间中找到伪分数最接近的标注样本 $\mathbf{x}_j$：$j = \arg\min_{j \in \{1,...,n\}} |S(\tilde{\mathbf{x}}_i, \hat{y}_i) - S(\mathbf{x}_j, \hat{y}_j)|$。
-4. **NNM 分数计算**：用匹配到的标注样本的真实偏差来纠正无标签的伪分数：$\tilde{S}_{\text{nnm}}(\tilde{\mathbf{x}}_i) = S(\tilde{\mathbf{x}}_i, \hat{y}_i) + S(\mathbf{x}_j, y_j) - S(\mathbf{x}_j, \hat{y}_j)$。
-5. **核心假设**：伪分数相近的样本具有相似的伪偏差分布。实验验证了 NNM 分数的经验分布与真实分数分布高度吻合。
+**1. 伪标签直接代入会系统性低估分数：先把偏差定义清楚**
+
+最自然的做法是给无标签样本打伪标签 $\hat{y}_i = \arg\max_j f_j(\tilde{\mathbf{x}}_i)$ 再代入分数函数，但伪标签总是模型最自信的类别，算出的分数系统性偏低（pseudo bias），导致阈值被低估、覆盖率不足。为此先把这种偏差量化为真实分数与伪标签分数之差：$\Delta(\tilde{\mathbf{x}}_i) = S(\tilde{\mathbf{x}}_i, \tilde{y}_i) - S(\tilde{\mathbf{x}}_i, \hat{y}_i)$，作为后续纠偏的目标。
+
+**2. 最近邻匹配（NNM）分数：借标注样本的真实偏差纠正无标签伪分数**
+
+偏差本身没法直接算（无标签样本没有真标签），NNM 的做法是在伪分数空间里给每个无标签样本找伪分数最接近的标注样本 $j = \arg\min_{j \in \{1,...,n\}} |S(\tilde{\mathbf{x}}_i, \hat{y}_i) - S(\mathbf{x}_j, \hat{y}_j)|$，再用这个标注样本的真实偏差去纠正：$\tilde{S}_{\text{nnm}}(\tilde{\mathbf{x}}_i) = S(\tilde{\mathbf{x}}_i, \hat{y}_i) + S(\mathbf{x}_j, y_j) - S(\mathbf{x}_j, \hat{y}_j)$。背后的核心假设是「伪分数相近的样本有相似的伪偏差分布」，实验里 NNM 分数的经验分布与真实分数分布高度吻合，证明这个假设成立。
 
 ### 损失函数/训练策略
 

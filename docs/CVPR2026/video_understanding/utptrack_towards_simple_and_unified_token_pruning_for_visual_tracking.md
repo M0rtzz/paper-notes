@@ -45,15 +45,29 @@ tags:
 
 ### 整体框架
 
-UTPTrack 基于 one-stream Transformer 跟踪流水线，将 SR、ST、DT（以及语言 token）拼接后送入共享编码器。在选定的编码层中插入轻量级 **CTEM（Candidate or Template Elimination Module）**，利用注意力权重计算 token 重要性分数并进行剪枝。剪枝后的 SR token 通过零填充恢复到原始空间位置，保证跟踪 head 的空间对齐。
+UTPTrack 想在 one-stream Transformer 跟踪器上做一套通用的高效化方案：它把搜索区域 SR、静态模板 ST、动态模板 DT（以及语言 token）拼起来送进共享编码器，在选定的编码层插入轻量的 **CTEM（Candidate or Template Elimination Module）**，直接用注意力权重算 token 重要性分数并剪枝；剪掉的 SR token 再用零填充补回原空间位置，保证跟踪 head 的空间对齐。和以往只剪单一组件不同，它对三个组件联合建模冗余。
 
 ### 关键设计
 
-1. **搜索区域剪枝 (CE)**：以 ST 中心 token 的 query 与所有 SR token 的 key 计算注意力相似度 $\omega_x = \text{softmax}(Q_{sz'}K_x^T / \sqrt{d_k})$，保留 top-k token，去除背景杂波。
-2. **动态模板剪枝 (DTE)**：同样以 ST 中心 token 为锚点计算 DT token 相似度 $\omega_{dz}$，剪除因漂移/遮挡/外观变化引入的噪声 token。
-3. **静态模板剪枝 (STE)**：计算 ST 内部 token 对中心 token 的相似度 $\omega_{sz}$，移除边缘背景 token，始终保留中心 token。
-4. **Token 类型感知策略 (TTA)**：利用第一帧目标 bounding box 构建二值 mask，将 patch 级前景分数作为 bonus 加到注意力分数上。提供三种策略——full bonus（全部像素在框内才加分）、soft bonus（均值，默认）、all bonus（任一像素在框内即加分），防止误删前景 token。
-5. **文本引导剪枝 (TG)**：在 RGB-Language 任务中，语言 token（由 CLIP-L 编码）与视觉 token 双向注意力交互；token 重要性同时由 ST 中心 token 和语言 token 两路注意力加权求和决定：$\omega_x = \phi(\text{softmax}(Q_{sz'}K_x^T/\sqrt{d_k}) + \text{softmax}(Q_tK_x^T/\sqrt{d_k}))$。
+**1. 搜索区域剪枝 (CE)：用模板中心当锚点滤掉背景杂波**
+
+以 ST 中心 token 的 query 与所有 SR token 的 key 算注意力相似度 $\omega_x = \text{softmax}(Q_{sz'}K_x^T / \sqrt{d_k})$，保留 top-k、去掉背景杂波 token。
+
+**2. 动态模板剪枝 (DTE)：剪掉漂移/遮挡引入的噪声模板 token**
+
+同样以 ST 中心 token 为锚点算 DT token 相似度 $\omega_{dz}$，把因漂移、遮挡、外观变化混进来的噪声 token 剪掉。
+
+**3. 静态模板剪枝 (STE)：去掉模板边缘背景、永远留住中心**
+
+计算 ST 内部 token 对中心 token 的相似度 $\omega_{sz}$，移除边缘背景 token，但始终保留中心 token。
+
+**4. Token 类型感知策略 (TTA)：用首帧框先验防止误删前景**
+
+针对"纯注意力分数可能误删前景"，用第一帧目标 bounding box 构二值 mask，把 patch 级前景分数作为 bonus 加到注意力分数上；提供 full bonus（框内全像素才加）、soft bonus（均值，默认）、all bonus（任一像素在框内即加）三种策略保护前景 token。
+
+**5. 文本引导剪枝 (TG)：在语言任务里让文本也参与决定保留哪些 token**
+
+RGB-Language 任务中语言 token（CLIP-L 编码）与视觉 token 双向注意力交互，token 重要性由 ST 中心 token 和语言 token 两路注意力加权求和共同决定：$\omega_x = \phi(\text{softmax}(Q_{sz'}K_x^T/\sqrt{d_k}) + \text{softmax}(Q_tK_x^T/\sqrt{d_k}))$。
 
 ### 损失函数
 

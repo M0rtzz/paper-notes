@@ -35,19 +35,21 @@ tags:
 
 ### 整体框架
 
-TraqPoint 采用「先描述后检测」的双分支架构（继承自 RDD）：描述子分支先预训练并冻结，关键点分支作为 RL 的策略网络 $\pi_\theta$。状态 $s$ 是参考图像 $I^{ref}$，动作是从策略输出的概率分布 $P_\theta$ 中采样 $N$ 个关键点 $\mathcal{A} = \{\mathbf{x}_i\}_{i=1}^N$，目标是最大化整个序列上的期望追踪质量奖励。
+TraqPoint 要解决的是"现有关键点检测都按图像对优化可匹配性、却没盯住长序列里的可追踪性"这一错配。它采用「先描述后检测」的双分支架构（继承自 RDD）：描述子分支先预训练并冻结，关键点分支作为 RL 的策略网络 $\pi_\theta$。状态 $s$ 是参考图像 $I^{ref}$，动作是从策略输出的概率分布 $P_\theta$ 中采样 $N$ 个关键点 $\mathcal{A} = \{\mathbf{x}_i\}_{i=1}^N$，优化目标是最大化整个序列上的期望追踪质量奖励——把"两帧能不能匹配"换成"在整条轨迹上能不能稳定被追踪"。
 
 ### 关键设计
 
-1. **混合采样策略 (Hybrid Sampling)**：为避免关键点在高概率区域聚集，将采样分为两部分——全局采样从全局分布 $P_\theta$ 直接抽取 $N_g$ 个点，网格采样将图像划分为 $G \times G$ 网格，每个格子内根据局部 softmax 分布采一个点，确保空间覆盖。最终所有点的概率统一由全局分布 $P_\theta(\mathbf{x}_i)$ 定义，用于策略梯度计算。
+**1. 混合采样策略 Hybrid Sampling：避免采样的关键点在高概率区扎堆**
 
-2. **可追踪性奖励 (Trackability Reward)**：对每个关键点 $\mathbf{x}_i$，利用已知位姿和深度投影到序列中所有目标帧，在可见帧集合 $\mathcal{V}_i$ 上计算复合奖励：
+如果直接按策略分布采样，关键点会聚集在少数高概率区域、丢掉空间覆盖。TraqPoint 把采样拆成两部分：全局采样从全局分布 $P_\theta$ 直接抽 $N_g$ 个点，网格采样把图像划成 $G \times G$ 网格、每格内按局部 softmax 分布采一个点以保证铺开。两类点最终的概率都统一由全局分布 $P_\theta(\mathbf{x}_i)$ 定义再用于策略梯度计算，这样既保住空间均匀性，又让梯度估计仍然一致。
 
-    - **排名奖励 $R_{\text{rank}}$**：衡量跨视图显著性一致性，在目标帧的 $K \times K$ 局部区域中计算该点 logit 值的百分位排名，线性缩放：$R_{\text{rank},i}^t = \max(0, \frac{\text{rank\_prop} - \tau_{\text{rank}}}{1.0 - \tau_{\text{rank}}})$，$\tau_{\text{rank}} = 0.2$
-    - **独特性奖励 $R_{\text{dist}}$**：受 Lowe 比率测试启发，用冻结描述子计算最近邻和次近邻距离比 $\text{ratio} = d_1/d_2$，奖励 ratio 低于阈值的点：$R_{\text{dist},i}^t = \max(0, \frac{\tau_{\text{dist}} - \text{ratio}}{\tau_{\text{dist}}})$，$\tau_{\text{dist}} = 0.85$
-    - 最终轨迹奖励：$R_i = \frac{1}{|\mathcal{V}_i|} \sum_{t \in \mathcal{V}_i} R_i^t$
+**2. 可追踪性奖励 Trackability Reward：直接用长序列上的追踪质量当回报**
 
-3. **DINOv3-ConvNeXt 骨干网络**：将 RDD 中的 ResNet-50 替换为 DINOv3-ConvNeXt (base)，提供多尺度特征和强语义表征能力。描述子分支使用多尺度可变形 Transformer 聚合四个尺度的特征，输出 256 维稠密描述子图。
+这是把"序列级可追踪性"落到 RL 信号上的核心。对每个关键点 $\mathbf{x}_i$，利用已知位姿和深度把它投影到序列中所有目标帧，在可见帧集合 $\mathcal{V}_i$ 上算一个复合奖励，由两个互补维度构成。排名奖励 $R_{\text{rank}}$ 衡量跨视图显著性一致性，在目标帧的 $K \times K$ 局部区域里算该点 logit 的百分位排名再线性缩放 $R_{\text{rank},i}^t = \max(0, \frac{\text{rank\_prop} - \tau_{\text{rank}}}{1.0 - \tau_{\text{rank}}})$（$\tau_{\text{rank}} = 0.2$）；独特性奖励 $R_{\text{dist}}$ 受 Lowe 比率测试启发，用冻结描述子算最近邻/次近邻距离比 $\text{ratio} = d_1/d_2$，奖励 ratio 低于阈值的点 $R_{\text{dist},i}^t = \max(0, \frac{\tau_{\text{dist}} - \text{ratio}}{\tau_{\text{dist}}})$（$\tau_{\text{dist}} = 0.85$）。最终轨迹奖励对可见帧取平均 $R_i = \frac{1}{|\mathcal{V}_i|} \sum_{t \in \mathcal{V}_i} R_i^t$。两项都设计成连续线性信号、避免稀疏梯度，一起从一致性和区分性两面刻画了"这个点好不好追"。
+
+**3. DINOv3-ConvNeXt 骨干网络：用强语义骨干撑起多尺度描述子**
+
+把 RDD 中的 ResNet-50 换成 DINOv3-ConvNeXt (base)，提供多尺度特征和更强的语义表征；描述子分支用多尺度可变形 Transformer 聚合四个尺度的特征，输出 256 维稠密描述子图，为上面冻结的奖励信号提供稳定的匹配基础。
 
 ### 损失函数 / 训练策略
 

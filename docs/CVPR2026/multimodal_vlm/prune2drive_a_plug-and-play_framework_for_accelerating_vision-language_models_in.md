@@ -38,41 +38,29 @@ tags:
 
 ### 整体框架
 
-两个核心组件协同工作：(1) **T-FPS（Token-wise Farthest Point Sampling）**——在 token 嵌入空间中用最远点采样选择最具多样性的 token 子集；(2) **视图自适应剪枝率优化**——用 TPE 在小验证集上自动搜索每个摄像头视角的最优 token 保留率。完全 training-free，在视觉编码器输出后直接应用。
+Prune2Drive 想解决的是多视角自动驾驶 VLM 的 token 爆炸问题：6 路环视、每图 729 token、总量 4000+，注意力 $O(n^2)$ 让实时推理几乎不可能。它在视觉编码器输出后插入一道纯推理时的剪枝，先用 T-FPS 在 token 嵌入空间里挑出最有多样性的一小撮 token，再用一次离线搜索为每个摄像头定下各自的保留预算，最后把瘦身后的 token 送进 LLM。整套流程 training-free，不碰模型权重也不读注意力矩阵。
 
-### T-FPS 多样性感知 Token 选择
+### 关键设计
 
-借鉴点云处理中的 FPS（Farthest Point Sampling）算法，但从欧氏距离转为余弦距离：
+**1. T-FPS：用最远点采样保住语义与空间多样性，而不是看注意力分数**
 
-1. 随机选择一个初始 token 加入已选集合 $\mathcal{S}$
-2. 每一步计算所有未选 token 与 $\mathcal{S}$ 中最新 token 的余弦距离
-3. 更新每个未选 token 的最小距离记录
-4. 选择最小距离最大的 token（即离已选集合最远的）加入 $\mathcal{S}$
-5. 重复直到达到目标数量 $\mathcal{K}$
+现有单图剪枝（FastV、SparseVLM）靠第二层注意力分数选 token，既有系统性的位置偏差，又因为要读注意力矩阵而和 FlashAttention 互斥；更糟的是低注意力但语义重要的物体（远处的车）会被直接丢掉。T-FPS 把点云处理里的最远点采样搬到 token 嵌入空间，只是把欧氏距离换成余弦距离：随机选一个初始 token 放进已选集合 $\mathcal{S}$，之后每一步计算所有未选 token 到 $\mathcal{S}$ 中最新 token 的余弦距离并更新各自的最小距离记录，再挑出“最小距离最大”的那个（离已选集合最远的）加入 $\mathcal{S}$，重复到凑满目标数量 $\mathcal{K}$。这样选出来的子集天然覆盖最广的语义+空间分布，不会因为注意力低就漏掉关键物体；而且它完全不依赖注意力，因此和 FlashAttention 兼容，计算开销也极低——$N=729$ 时只要 0.02s，占总 FLOPs 不到 0.1%。
 
-**关键优势**：(a) 不依赖注意力→完全兼容 FlashAttention；(b) 最大化语义+空间覆盖→避免丢失低注意力但重要的物体；(c) 计算开销极低——N=729 时仅 0.02s，< 0.1% 总 FLOPs。
+**2. 视图自适应剪枝率：让前视摄像头自动拿到更多 token 预算**
 
-### 视图自适应剪枝率优化
+各视角对驾驶决策的贡献并不均等（前视远比后视重要），但旧方法对 6 路一刀切用同一剪枝率。Prune2Drive 把每个视角的保留率 $\alpha_i$ 当作可优化变量，定义目标 $\mathcal{M}(\boldsymbol{\alpha}) = R(\boldsymbol{\alpha}) - \lambda P(\boldsymbol{\alpha})$：奖励项 $R(\boldsymbol{\alpha})$ 是模型输出和 ground truth 的语言相似度，惩罚项 $P(\boldsymbol{\alpha}) = \sum_{i=1}^{M} \alpha_i$ 是总保留量、鼓励稀疏，$\lambda$ 调二者的平衡。用 TPE（Tree-structured Parzen Estimator）在 500 样本的小验证集上搜索，仅 3 H100 GPU 小时即收敛。搜索结果自动印证了直觉：前视拿到更高保留率，后视和侧视适度收缩——这套预算分配是手工先验给不出来的。
 
-将每个视角的保留率 $\alpha_i$ 作为可优化变量，定义目标函数：
+**3. 理论保证：组合策略的误差界更紧**
 
-$$\mathcal{M}(\boldsymbol{\alpha}) = R(\boldsymbol{\alpha}) - \lambda P(\boldsymbol{\alpha})$$
-
-- **奖励项** $R(\boldsymbol{\alpha})$：模型输出与 ground truth 的语言相似度
-- **惩罚项** $P(\boldsymbol{\alpha}) = \sum_{i=1}^{M} \alpha_i$：总 token 保留量，鼓励稀疏性
-- **超参** $\lambda$：平衡性能与效率
-
-用 TPE（Tree-structured Parzen Estimator）在 500 个样本的小验证集上搜索最优解，仅需 **3 H100 GPU 小时**即收敛。结果表明前视摄像头自动获得更高保留率，后视和侧视适度减少。
-
-### 理论保证
-
-证明了 T-FPS（k-center 贪心近似最小 Hausdorff 距离）+ 视图自适应率（按重要性加权分配预算）的组合，在 View-Weighted Lipschitz 连续性假设下能提供比均匀随机采样+等比例剪枝更紧的误差界：
+论文进一步证明，T-FPS（k-center 贪心，近似最小化 Hausdorff 距离）配上按重要性加权分预算的视图自适应率，在 View-Weighted Lipschitz 连续性假设下，比“均匀随机采样 + 等比例剪枝”能给出更紧的误差上界：
 
 $$\sum_{i=1}^{M} w_i \cdot d_H(V_i, S_{i,\text{Prune2Drive}}) \leq \sum_{i=1}^{M} w_i \cdot d_H(V_i, S_{i,\text{baseline}})$$
 
-### 兼容性
+这给“多样性采样 + 视角加权”这套经验设计补上了为什么有效的理论说明。
 
-完全 training-free，兼容 LLaVA-OneVision-7B（DriveMM）、InternVL2.5-8B（DriveLMM-o1）、LLaVA-1.5-7B 等多种 VLM，无需重训练或访问注意力矩阵。
+**4. 即插即用：不重训、不读注意力**
+
+整个框架 training-free，直接挂在视觉编码器输出之后，兼容 LLaVA-OneVision-7B（DriveMM）、InternVL2.5-8B（DriveLMM-o1）、LLaVA-1.5-7B 等多种 VLM，无需重训练或访问注意力矩阵。这让它能和任何现成或未来的自动驾驶 VLM 正交组合。
 
 ## 实验关键数据
 

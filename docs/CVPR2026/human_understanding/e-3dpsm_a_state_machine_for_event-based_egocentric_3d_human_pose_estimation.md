@@ -49,50 +49,25 @@ tags:
 
 ### 整体框架
 
-E-3DPSM 分三阶段处理：
-
-1. **事件流预处理**：原始事件转换为 LNES 帧 $\{\mathbf{L}_t\}_{t=1}^N$（20ms 窗口，192×256×2）
-2. **时空姿态编码（SPEM）**：提取时序感知的关节特征
-3. **姿态回归模块（PRM）**：预测直接姿态 $\mathbf{P}_t^D$ 和增量姿态 $\mathbf{P}_t^\Delta$，通过可学习融合得到最终 3D 姿态 $\mathbf{P}_t$
+E-3DPSM 把自我中心 3D 姿态估计当成一个连续时间的状态机，分三步走。先把原始事件流转成 LNES 帧 $\{\mathbf{L}_t\}_{t=1}^N$（20ms 窗口，192×256×2）；再由时空姿态编码模块（SPEM）提取带时序感知的关节特征；最后姿态回归模块（PRM）同时预测直接姿态 $\mathbf{P}_t^D$ 和增量姿态 $\mathbf{P}_t^\Delta$，经一个可学习的卡尔曼式融合得到最终 3D 姿态 $\mathbf{P}_t$。整条流水线刻意去掉了 2D 热力图和分割掩码这些中间监督。
 
 ### 关键设计
 
-1. **时空姿态编码模块（SPEM）**：
+**1. 时空姿态编码模块（SPEM）：让事件流的时序被真正用起来**
 
-    - **多阶段卷积编码**：4 级层级结构，每级含两个残差块 + 下采样卷积，逐步提取空间特征
-    - **可变形注意力（Deformable Attention）**：每个阶段末端加入可变形注意力块，自适应聚焦于姿态关键区域，处理鱼眼镜头带来的畸变和自遮挡
-    - **双向 SSM 时序建模**：在第 2 和第 4 阶段插入 S5 层（event-specific），在每个空间位置独立聚合长程时序上下文。训练时双向运行利用完整上下文，推理时可切换为因果模式支持实时部署
-    - **关节查询解码器**：16 个可学习关节查询嵌入 $\mathbf{U}=\{\mathbf{u}_1,\ldots,\mathbf{u}_{16}\}$，通过 Transformer Decoder 与编码器最后一级特征交互，输出关节感知特征 $\mathbf{F}_t \in \mathbb{R}^{16 \times 192}$
+之前的事件方法只靠帧缓冲区存上一帧，没吃透事件数据异步、连续、变化驱动的特性。SPEM 用四级层次卷积逐步提空间特征（每级两个残差块 + 下采样），在每级末端加可变形注意力自适应聚焦关键区域，以对付鱼眼畸变和自遮挡；关键是在第 2、第 4 阶段插入 event-specific 的双向 S5 层（SSM），在每个空间位置独立聚合长程时序——训练时双向跑用满上下文，推理时切因果模式支持实时。最后用 16 个可学习关节查询 $\mathbf{U}=\{\mathbf{u}_1,\ldots,\mathbf{u}_{16}\}$ 经 Transformer Decoder 与编码器末级特征交互，输出关节感知特征 $\mathbf{F}_t \in \mathbb{R}^{16 \times 192}$。
 
-2. **姿态回归模块（PRM）**：三个组件
+**2. 姿态回归模块（PRM）：用可学习卡尔曼融合把漂移和抖动一起压下去**
 
-    - **直接姿态回归**：MLP 将关节查询特征映射到 $\mathbf{P}_t^D \in \mathbb{R}^{16 \times 3}$，作为全局锚点防止漂移
-    - **增量姿态回归**：将当前特征与前一帧姿态嵌入拼接，预测帧间位移 $\mathbf{P}_t^\Delta \in \mathbb{R}^{16 \times 3}$。事件流天然编码变化量，因此增量回归比绝对位置回归更容易学习
-    - **可学习卡尔曼融合**：核心创新。维护内部状态 $\mathbf{X}_t$ 和协方差 $\Sigma_t$，通过运动更新步骤（用 delta pose）和测量更新步骤（用 direct pose）自适应融合。$\mathbf{Q}$（过程噪声）和 $\mathbf{R}$（观测噪声）为可学习参数，端到端训练后固定
-
-3. **关键设计动机**：
-
-    - 简单相加 $\mathbf{P}_t = \mathbf{P}_{t-1}^D + \mathbf{P}_t^\Delta$ 会累积漂移
-    - 后处理卡尔曼滤波缺乏任务适应性
-    - 可学习的噪声协方差让系统自动权衡"信任增量更新多少" vs "信任直接预测多少"
+事件天然编码的是"变化量"，所以 PRM 不只回归绝对位置：直接姿态回归用 MLP 输出 $\mathbf{P}_t^D \in \mathbb{R}^{16 \times 3}$ 当全局锚点防漂移，增量姿态回归把当前特征与前一帧姿态嵌入拼接预测帧间位移 $\mathbf{P}_t^\Delta \in \mathbb{R}^{16 \times 3}$（这一项因为贴合事件特性而更好学）。难点在怎么融合：简单相加 $\mathbf{P}_t = \mathbf{P}_{t-1}^D + \mathbf{P}_t^\Delta$ 会累积漂移，事后接一个固定卡尔曼滤波又缺乏任务适应性。PRM 干脆把卡尔曼搬进网络——维护内部状态 $\mathbf{X}_t$ 和协方差 $\Sigma_t$，用 delta pose 做运动更新、用 direct pose 做测量更新，把过程噪声 $\mathbf{Q}$ 和观测噪声 $\mathbf{R}$ 设成可学习参数端到端训练后固定，让系统自己学会"该信增量更新多少、该信直接预测多少"。
 
 ### 损失函数 / 训练策略
 
-多项损失联合监督，权重设置：$\lambda_{3D} = \lambda_\Delta = \lambda_{2D} = 0.01$，$\lambda_{BL} = \lambda_{BA} = 10^{-3}$
+多项损失联合监督，权重 $\lambda_{3D} = \lambda_\Delta = \lambda_{2D} = 0.01$、$\lambda_{BL} = \lambda_{BA} = 10^{-3}$：
 
 $$\mathcal{L}_{total} = \lambda_{3D}\mathcal{L}_{3D} + \lambda_\Delta\mathcal{L}_\Delta + \lambda_{2D}\mathcal{L}_{2D} + \lambda_{BL}\mathcal{L}_{BL} + \lambda_{BA}\mathcal{L}_{BA}$$
 
-- $\mathcal{L}_{3D}$：3D 关节位置 MSE
-- $\mathcal{L}_\Delta$：增量姿态与 GT 帧间位移的 MSE
-- $\mathcal{L}_{2D}$：2D 投影误差
-- $\mathcal{L}_{BL}$：骨骼长度 L1 损失，保持人体比例
-- $\mathcal{L}_{BA}$：骨骼方向余弦损失，保持解剖合理性
-
-训练策略：
-- **不需要合成数据预训练**（之前方法需要在 EE3D-S 上预训练）
-- Adam 优化器，batch size 32
-- EE3D-R 上训练 15 epoch（$\eta=10^{-3}$），EE3D-W 上微调 10 epoch（$\eta=10^{-4}$）
-- 4 张 A40 GPU 训练 34 小时
+其中 $\mathcal{L}_{3D}$ 是 3D 关节位置 MSE，$\mathcal{L}_\Delta$ 是增量姿态与 GT 帧间位移的 MSE，$\mathcal{L}_{2D}$ 是 2D 投影误差，$\mathcal{L}_{BL}$ 是骨骼长度 L1 损失（保人体比例），$\mathcal{L}_{BA}$ 是骨骼方向余弦损失（保解剖合理）。训练上不需要合成数据预训练：Adam、batch size 32，先在 EE3D-R 上训 15 epoch（$\eta=10^{-3}$）、再在 EE3D-W 上微调 10 epoch（$\eta=10^{-4}$），4 张 A40 共 34 小时。
 
 ## 实验关键数据
 

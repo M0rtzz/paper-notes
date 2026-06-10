@@ -42,28 +42,25 @@ tags:
 ## 方法详解
 
 ### 整体框架
-两阶段训练：Stage 1 是 MiniGPT-3D 预训练；Stage 2 冻结编码器/Q-Former/投影器，仅训练 LoRA 和对齐投影器。对齐投影器仅在训练时使用，推理时丢弃。
+PointAlign 想解决的是 3D VLM 里几何信息在 LLM 各层传播时逐步退化丢失的问题。它在两阶段训练上做文章：Stage 1 是 MiniGPT-3D 预训练；Stage 2 冻结编码器/Q-Former/投影器，只训练 LoRA 和一个额外的对齐投影器，用 consistency loss 把 LLM 中间层的点云 token 拉向冻结的 Q-Former 输出。关键在于对齐投影器只在训练时挂着、推理时直接丢弃，所以这套正则化零额外推理开销。
 
 ### 关键设计
 
-1. **对齐目标选择 — Q-Former 输出 $\bar{Q}$**:
+**1. 对齐目标选 Q-Former 输出 $\bar{Q}$：它同时保留几何和语义信息**
 
-    - 为什么不用点云编码器输出？因为编码器只捕捉几何特征，缺少语义信息
-    - 为什么不用 LLM 深层表示？因为深层表示可能已经丢失了 3D 信息
-    - Q-Former 输出在直接监督下保留了最多的几何+语义信息，是最优对齐目标
+为什么是 Q-Former 而不是别的？点云编码器输出只捕捉几何特征、缺语义；LLM 深层表示又可能已经把 3D 信息丢了。Q-Former 经过 point cloud-text 配对训练、在直接监督下保留了最多的几何 + 语义信息，因此是最理想的内部监督目标——这一点也被消融验证（对齐到 Q-Former 71.00，对齐到编码器仅 67.50，对齐到深层 68.25）。
 
-2. **对齐投影器 $f_\pi$（3层 Linear + SiLU）**:
+**2. 对齐投影器 $f_\pi$：3 层轻量映射，训练时挂、推理时丢**
 
-    - 将 LLM 第 $\ell$ 层的点云 token $T_{pc}^{(\ell)}$ 映射到 Q-Former 特征空间
-    - 结构：$\mathbb{R}^C \to \mathbb{R}^{d_h} \to \mathbb{R}^{d_h} \to \mathbb{R}^{D_1}$，仅 8.39M 参数
-    - 推理时完全丢弃，零推理开销
+中间层点云 token 和 Q-Former 特征不在同一空间，需要一个桥。$f_\pi$ 由 3 层 Linear + SiLU 构成，把 LLM 第 $\ell$ 层的点云 token $T_{pc}^{(\ell)}$ 映射到 Q-Former 特征空间，结构为 $\mathbb{R}^C \to \mathbb{R}^{d_h} \to \mathbb{R}^{d_h} \to \mathbb{R}^{D_1}$，仅 8.39M 参数。推理时完全丢弃，零推理开销——这种"辅助头只在训练时用"的模式类似知识蒸馏。
 
-3. **对齐损失**:
+**3. 对齐损失：余弦相似度 + Q-Former 梯度 detach**
 
-    - 采用余弦相似度损失：$\mathcal{L}_{align} = -\frac{1}{o}\sum_{i=1}^{o} \frac{\tilde{Q}_i^\top \bar{Q}_i}{\|\tilde{Q}_i\|_2 \|\bar{Q}_i\|_2}$
-    - 关注特征方向而非幅度，更适合跨空间对齐
-    - Q-Former 输出 $\bar{Q}$ 梯度 detach，避免反向传播影响冻结模块
-    - 总损失 $\mathcal{L}_{total} = \mathcal{L}_{ntp} + \lambda \mathcal{L}_{align}$
+把点云 token 拉向 Q-Former 输出时，关注方向比关注幅度更适合跨空间对齐，所以用余弦相似度损失：
+
+$$\mathcal{L}_{align} = -\frac{1}{o}\sum_{i=1}^{o} \frac{\tilde{Q}_i^\top \bar{Q}_i}{\|\tilde{Q}_i\|_2 \|\bar{Q}_i\|_2}$$
+
+Q-Former 输出 $\bar{Q}$ 的梯度被 detach，避免反向传播改变冻结模块；总损失为 $\mathcal{L}_{total} = \mathcal{L}_{ntp} + \lambda \mathcal{L}_{align}$，让语言建模目标和几何保持目标并行优化。
 
 ### 损失函数 / 训练策略
 Stage 2 用 $\mathcal{L}_{total} = \mathcal{L}_{ntp} + \lambda \mathcal{L}_{align}$ 联合训练 LoRA 和对齐投影器。仅更新极少参数。

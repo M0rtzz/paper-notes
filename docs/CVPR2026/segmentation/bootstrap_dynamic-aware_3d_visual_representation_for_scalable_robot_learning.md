@@ -40,57 +40,38 @@ tags:
 ## 方法详解
 
 ### 整体框架
-AFRO包含四个核心组件，协同实现动态感知的3D特征学习：
 
-### 1. 逆动力学模型（IDM）——推断"做了什么"
-给定当前帧特征 $z_t$ 和未来帧特征 $z_{t+k}$，IDM推断隐式潜在动作 $\alpha$：
+AFRO 是一个自监督的 3D 视觉预训练框架，目标是让点云编码器学到"与机器人操控相关的动态信息"，而不是只学单帧静态几何。它把"理解动作"拆成一对互逆的模型：逆动力学模型（IDM）从前后两帧推断"做了什么"（潜在动作），前向动力学模型（FDM）再根据当前帧和这个潜在动作预测"将会怎样"（未来特征）；逆一致性约束保证正反向时序对称、防止退化；外加 EMA 教师 + VICReg 提供稳定的预测目标并防特征坍缩。整套用 RH20T 大规模真实数据预训练，PointNet++ 当 backbone，全程无需任何动作标注。
 
-$$\alpha = f_{\text{IDM}}(z_{t+k} - z_t)$$
+### 关键设计
 
-**关键设计——特征差分**: 用 $z_{t+k} - z_t$ 而非拼接 $[z_t, z_{t+k}]$ 作为IDM输入。原因：
-- 差分天然过滤了静态背景（两帧中不变的部分被减去）
-- 避免**feature leakage**——如果FDM可以直接从输入中"看到"目标帧的信息，会走捷径绕过动作推理
-- 强制IDM关注场景中发生变化的部分（即交互区域）
+**1. 逆动力学模型 IDM——用特征差分推断"做了什么"，顺手堵住信息泄漏**
 
-### 2. 前向动力学模型（FDM）——预测"将会怎样"
-给定当前帧特征 $z_t$ 和潜在动作 $\alpha$，FDM预测未来特征 $\hat{z}_{t+k}$：
+给定当前帧特征 $z_t$ 和未来帧特征 $z_{t+k}$，IDM 推断隐式潜在动作 $\alpha = f_{\text{IDM}}(z_{t+k} - z_t)$。关键是用差分 $z_{t+k}-z_t$ 而非拼接 $[z_t, z_{t+k}]$：差分天然把两帧都不变的静态背景减掉，强制 IDM 只盯发生变化的交互区域；更重要的是，若直接喂拼接，FDM 能从输入里"看到"目标帧、走捷径绕过动作推理（feature leakage），差分把这条捷径堵死。
 
-$$\hat{z}_{t+k} = f_{\text{FDM}}(z_t, \alpha)$$
+**2. 前向动力学模型 FDM——用扩散 Transformer 建模未来的多模态不确定性**
 
-**关键设计——扩散Transformer**: 机器人操控的未来状态具有多模态不确定性（同一状态+同一动作可能有多种合理结局），确定性回归器无法建模这种不确定性。FDM采用扩散过程：
-- 基于**DiT（Diffusion Transformer）**架构
-- 使用**AdaLN-Zero**条件化机制：将潜在动作 $\alpha$ 通过自适应Layer Normalization注入Transformer
-- 去噪过程：从噪声 $\hat{z}_{t+k}^{(T)}$ 逐步去噪到 $\hat{z}_{t+k}^{(0)}$
-- 预测目标：EMA教师编码器产生的target feature（而非原始点云）
+给定当前帧 $z_t$ 和潜在动作 $\alpha$，FDM 预测未来特征 $\hat{z}_{t+k} = f_{\text{FDM}}(z_t, \alpha)$。难点在于同一状态加同一动作可能有多种合理结局，确定性回归器只会输出一个模糊均值。FDM 因此走扩散路线：基于 DiT（Diffusion Transformer）架构，用 AdaLN-Zero 把潜在动作 $\alpha$ 通过自适应 LayerNorm 注入，从噪声 $\hat{z}_{t+k}^{(T)}$ 逐步去噪到 $\hat{z}_{t+k}^{(0)}$，预测目标是 EMA 教师编码器产生的 target feature（而非原始点云），从而把"多种可能的未来"建模成一个分布而不是一个点。
 
-### 3. 逆一致性约束——保证时序对称性
-核心直觉：如果 $z_t \xrightarrow{\alpha} z_{t+k}$ 成立，那么反向也应该成立：
+**3. 逆一致性约束——用时序对称性提供双倍监督、防止退化**
 
-$$\alpha_{t+k \to t} = f_{\text{IDM}}(z_t - z_{t+k})$$
-$$\hat{z}_t = f_{\text{FDM}}(z_{t+k}, \alpha_{t+k \to t})$$
+直觉是：若 $z_t \xrightarrow{\alpha} z_{t+k}$ 成立，反向也应成立。于是再算一遍反向动作 $\alpha_{t+k \to t} = f_{\text{IDM}}(z_t - z_{t+k})$，并要求用它能还原回去 $\hat{z}_t = f_{\text{FDM}}(z_{t+k}, \alpha_{t+k \to t})$。这个约束逼 IDM/FDM 不能退化到 trivial solution，让潜在动作空间有结构（正反向互为逆操作），而且不需要任何标注就白拿一份监督信号。
 
-即用 $z_{t+k}$ 和反向动作也应该能还原出 $z_t$。这个约束：
-- 防止IDM和FDM退化到trivial solution
-- 增强潜在动作空间的结构性——正向/反向动作应互为逆操作
-- 提供额外的监督信号，无需任何标注
+**4. EMA 教师 + VICReg——给预测一个稳定目标并防特征坍缩**
 
-### 4. VICReg + EMA教师编码器
-- **EMA教师编码器**: 慢速更新（$\tau \to 1$）的target编码器，产生稳定的预测目标
-- **VICReg损失**: 对齐学生编码器和EMA教师编码器的特征空间
-    - Variance：防止特征坍缩
-    - Invariance：学生和教师特征对齐
-    - Covariance：减少特征维度间冗余
+预测目标如果跟着学生一起抖，训练会发散。AFRO 用慢速更新（$\tau \to 1$）的 EMA 教师编码器产生稳定的 target feature，再用 VICReg 损失把学生和教师的特征空间对齐：Variance 项防特征坍缩、Invariance 项做学生-教师对齐、Covariance 项减少特征维度间冗余。
 
-### 预训练数据与策略
-- **预训练数据**: RH20T（Robot Hands from 20 Tasks）——大规模真实机器人操控数据集
-- **点云提取**: 从RGB-D图像通过相机内参反投影得到点云
-- **时间跳步 k**: 在训练中随机采样，增强时间多尺度的动态学习
-- **编码器**: PointNet++作为3D backbone
+### 预训练数据与损失
 
-### 总损失函数
+- **预训练数据**: RH20T（Robot Hands from 20 Tasks）——大规模真实机器人操控数据集，从 RGB-D 图像通过相机内参反投影得到点云
+- **时间跳步 $k$**: 训练中随机采样，增强时间多尺度的动态学习
+- **编码器**: PointNet++ 作为 3D backbone
+
+总损失由正反向扩散去噪损失加 VICReg 构成：
+
 $$\mathcal{L} = \mathcal{L}_{\text{FDM}}^{\text{fwd}} + \mathcal{L}_{\text{FDM}}^{\text{bwd}} + \lambda_{\text{VIC}} \mathcal{L}_{\text{VICReg}}$$
 
-其中 $\mathcal{L}_{\text{FDM}}$ 为扩散去噪损失（MSE between predicted noise and actual noise）。
+其中 $\mathcal{L}_{\text{FDM}}$ 为扩散去噪损失（预测噪声与真实噪声的 MSE）。
 
 ## 实验关键数据
 

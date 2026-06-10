@@ -39,30 +39,25 @@ tags:
 
 ### 整体框架
 
-HierAmp 基于预训练的 VAR 模型，包含 10 个层次尺度（scale 0–9）。核心思想：在每个尺度注入可学习的类别 token，通过分类目标训练其捕获该尺度的语义信息，然后利用 class token 的注意力图识别显著区域并放大注意力。
+HierAmp 想让数据集蒸馏直接服务于下游分类需要的判别性语义，而不是只追全局分布接近。它的切入点是视觉自回归（VAR）模型天然的粗到细生成——早期尺度定整体结构、后续尺度补细节，正好对应"全局布局→局部结构→纹理细节"的物体语义层次。方法基于预训练 VAR（10 个尺度，scale 0–9），在每个尺度注入一个可学习类别 token，先用分类目标训练它去捕获该尺度的语义，再借它的注意力图找出显著区域、放大那里的注意力，从而让蒸馏数据"粗尺度更多样、细尺度更聚焦"。
 
-### 尺度限制的类别 Token 注意力（Scale-Restricted Class Token）
+### 关键设计
 
-- 在每个尺度 $n$ 拼接一个可学习类别 token $[c]_n$
-- 通过**尺度限制注意力掩码**约束 $[c]_n$ 只关注当前尺度的图像 token（屏蔽跨尺度连接）
-- 聚合多头注意力后得到语义显著性图 $\mathbf{M}_n \in \mathbb{R}^{h_n \times w_n}$
-- 用分类损失 $\mathcal{L}_{cls} = \frac{1}{N}\sum_{n=1}^{N}(-\log p_n(\mathbf{c}_n^e))$ 训练类别 token
+**1. 尺度限制的类别 Token 注意力：让每个尺度长出自己的语义显著图**
 
-### 粗到细自回归放大（Coarse-to-Fine Autoregressive Amplification）
+要放大显著区域，先得知道每个尺度上"哪里语义重要"。HierAmp 在每个尺度 $n$ 拼一个可学习类别 token $[c]_n$，并用尺度限制注意力掩码约束它只看当前尺度的图像 token（屏蔽跨尺度连接），这样每个尺度的语义判断互不串扰。聚合多头注意力后得到该尺度的语义显著性图 $\mathbf{M}_n \in \mathbb{R}^{h_n \times w_n}$，类别 token 由分类损失 $\mathcal{L}_{cls} = \frac{1}{N}\sum_{n=1}^{N}(-\log p_n(\mathbf{c}_n^e))$ 训练，确保显著图真的对应类别相关区域。
 
-- 从注意力图 $\mathbf{m}_n$ 中选取 top-$\rho_n\%$ 位置作为显著集合 $\mathcal{S}_n$
-- 构造二值指示向量 $\mathbf{a}_n$，对显著位置添加正 logit 偏置 $\beta_n$：
+**2. 粗到细自回归放大：在生成时把注意力质量推向语义区**
+
+有了显著图，就在自回归生成时直接放大那些位置的概率质量。从注意力图 $\mathbf{m}_n$ 取 top-$\rho_n\%$ 位置组成显著集合 $\mathcal{S}_n$，构造二值指示向量 $\mathbf{a}_n$，对显著位置加一个正 logit 偏置 $\beta_n$：
 
 $$\tilde{\mathbf{L}}_n^{(h)} = \mathbf{L}_n^{(h)} + \beta_n \cdot \mathbf{1} \cdot \mathbf{a}_n^\top$$
 
-- 修改后的注意力 $\tilde{\boldsymbol{\alpha}}_n^{(h)} = \text{softmax}(\tilde{\mathbf{L}}_n^{(h)})$ 增大了语义相关区域的概率质量
-- 三阶段调度：Coarse（scale 1–3）、Mid（scale 4–6）、Fine（scale 7–9），各自独立的 $\rho$ 参数
+改后的注意力 $\tilde{\boldsymbol{\alpha}}_n^{(h)} = \text{softmax}(\tilde{\mathbf{L}}_n^{(h)})$ 就把更多概率压到语义相关区域。放大按三阶段调度——Coarse（scale 1–3）、Mid（scale 4–6）、Fine（scale 7–9）各用独立的 $\rho$ 参数，于是粗尺度放大带来更丰富的布局多样性、细尺度放大带来对类别纹理的聚焦，形成一对互补效应。
 
 ### 损失函数
 
-- VAR 原始的跨尺度交叉熵损失（teacher forcing）
-- 类别 token 的分类损失 $\mathcal{L}_{cls}$
-- 仅微调 5 个 epoch 即可完成类别 token 训练，推理时额外开销极小
+训练目标包含 VAR 原始的跨尺度交叉熵损失（teacher forcing）和类别 token 的分类损失 $\mathcal{L}_{cls}$。整个过程只需微调 5 个 epoch 就能训好类别 token，推理时额外开销极小。
 
 ## 实验关键数据
 

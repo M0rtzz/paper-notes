@@ -35,42 +35,35 @@ tags:
 
 ## 方法详解
 
-### 整体架构（JEPA 变体）
+### 整体框架
 
-1. **上下文编码器** $f_\theta$：接收常规正面/侧面 CXR
-2. **EMA 编码器** $f_{\theta'}$：接收多个目标投影，指数移动平均更新
-3. **视图预测器** $g_v$：动作条件预测新投影的潜在表示
-4. **遮蔽预测器** $g_m$：重建遮蔽 patch token
+X-WIN 想让一个只看 2D 胸片的模型也具备 3D 空间认知，灵感来自放射科医生"看正侧位片就能在脑中重建三维胸腔"的能力。它是一个 JEPA 变体：上下文编码器 $f_\theta$ 吃常规正/侧位 CXR，EMA 编码器 $f_{\theta'}$ 吃多个目标投影并以指数移动平均更新，视图预测器 $g_v$ 在给定旋转动作的条件下去预测新投影的潜在表示，遮蔽预测器 $g_m$ 负责重建被遮挡的 patch token。核心假设是：如果模型能准确预测 CT 在任意旋转角下的 X 射线投影，它就已经内化了有意义的 3D 解剖结构。
 
-### 动作设计
+### 关键设计
 
-动作 $a_i = k \cdot \Delta\phi$ 定义 X 射线源相对于输入位置的偏航旋转角，约束在 $[-90°, 90°]$，随机采样 $N=8$ 个投影。最优步长 $\Delta\phi = 3°$（对应 60 个潜在投影）。
+**1. 动作条件的预测性感知：用"预测旋转后投影"逼模型内化 3D 结构**
 
-### 亲和力引导的对比对齐
+模型不直接回归 3D 特征，而是把"绕轴旋转 X 射线源"当作动作来预测对应投影。动作 $a_i = k \cdot \Delta\phi$ 定义射线源相对输入位置的偏航旋转角，约束在 $[-90°, 90°]$，每次随机采样 $N=8$ 个投影，最优步长 $\Delta\phi = 3°$（对应 60 个潜在投影）。预测表示由 $z_i^{\text{patch}} = g_v(\text{Linear}(a_i) \oplus (f_\theta(u_{\text{context}}) + \text{PE}))$ 给出——把动作编码与上下文特征拼起来送进预测器。要把不同角度的投影都预测对，模型就不得不在潜空间里建立起一致的三维表征。
 
-预测表示 $z_i^{\text{patch}} = g_v(\text{Linear}(a_i) \oplus (f_\theta(u_{\text{context}}) + \text{PE}))$
+**2. 亲和力引导的对比对齐：让同一 CT 的不同投影做软对比而非硬对齐**
 
-标准 InfoNCE 用 one-hot 标签做硬对齐，但同一 CT 的不同投影之间有丰富的解剖对应关系。引入亲和力矩阵 $A$ 做软正则化：
+标准 InfoNCE 用 one-hot 标签硬性区分正负样本，可同一 CT 的各个投影本就有丰富的解剖对应关系，硬对齐会抹掉这种结构。本文引入亲和力矩阵 $A$ 做软正则：
 
 $$A_{ij} = \frac{\exp(\text{sim}(t_i, t_j)/\tilde{\tau})}{\sum_l \exp(\text{sim}(t_i, t_l)/\tilde{\tau})}$$
 
-$$\mathcal{L}_{\text{align}} = \mathcal{L}_{\text{InfoNCE}} + \lambda_{\text{affinity}} \mathcal{L}_{\text{affinity}}$$
+并把对齐损失写成 $\mathcal{L}_{\text{align}} = \mathcal{L}_{\text{InfoNCE}} + \lambda_{\text{affinity}} \mathcal{L}_{\text{affinity}}$，在保留对比学习区分力的同时，按投影间真实相似度温和地拉近相关表示，比纯硬对齐更贴合数据本身的几何关系。
 
-### 结构保持域自适应
+**3. 结构保持域自适应：抹平"模拟投影 vs 真实 CXR"的域差**
 
-模拟 CXR（从 CT 投影生成）与真实 CXR 存在域差异。采用：
-
-1. **遮蔽图像建模**（MIM）：在真实和模拟 CXR 上都做 MIM，编码局部/上下文特征
-2. **域分类器** $f_c$：学习区分真实/模拟域表示
-3. **域自适应损失**：
+从 CT 渲染出的模拟 CXR 和真实 CXR 在统计分布上有差异，直接训练会让表征偏向模拟域。本文在真实和模拟 CXR 上都做遮蔽图像建模（MIM）编码局部/上下文特征，并用域分类器 $f_c$ 学着区分真实/模拟域，再以域自适应损失
 
 $$\mathcal{L}_{\text{domain}} = \frac{1}{N} \sum_{i=1}^{N} \|z_i^{\text{patch}} - t_i^{\text{patch}}\|_2^2 - \frac{1}{N} \sum_{i=1}^{N} \log f_c(z_i^{\text{patch}})$$
 
-使投影预测既保持结构信息又在统计上接近真实域。
+让投影预测既保持结构（前一项拉近预测与目标）又在统计上靠近真实域（后一项对抗域分类器）。消融显示它把跨域余弦相似度从 0.845 提到 0.967，是真实数据上能用的关键。
 
-### 总损失
+### 损失函数 / 训练策略
 
-$$\mathcal{L}_{\text{overall}} = \mathcal{L}_{\text{align}} + \lambda_{\text{MIM}} \mathcal{L}_{\text{MIM}} + \lambda_{\text{domain}} \mathcal{L}_{\text{domain}} + \lambda_{\text{cls}} \mathcal{L}_{\text{cls}}$$
+总损失把四项合在一起：$\mathcal{L}_{\text{overall}} = \mathcal{L}_{\text{align}} + \lambda_{\text{MIM}} \mathcal{L}_{\text{MIM}} + \lambda_{\text{domain}} \mathcal{L}_{\text{domain}} + \lambda_{\text{cls}} \mathcal{L}_{\text{cls}}$，分别对应对比对齐、遮蔽重建、域自适应与分类目标，由各自的 $\lambda$ 权衡。
 
 ## 实验关键数据
 

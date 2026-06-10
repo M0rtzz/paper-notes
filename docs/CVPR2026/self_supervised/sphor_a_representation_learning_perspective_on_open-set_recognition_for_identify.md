@@ -43,18 +43,27 @@ tags:
 
 ### 整体框架
 
-SpHOR 采用两阶段解耦训练：
-
-- **Stage 1（表示学习）**: 使用编码器 + 投影网络提取 L2 归一化的球面特征，通过 vMF Alignment Loss + Orthogonality Regularizer 学习类别特异性表示。训练数据经 RandAugment → Label Smoothing → Mixup 增强。
-- **Stage 2（分类器训练）**: 冻结编码器特征，仅训练线性分类器，使用标准交叉熵损失。
+SpHOR 想回答的问题是：能不能不靠改分类器、而是直接把特征空间"塑形"得更利于开放集识别？它把训练拆成两段——第一段做表示学习，用编码器加投影网络提取 L2 归一化的球面特征，靠 vMF Alignment Loss 和正交正则把类别特异性表示学好；第二段冻结编码器，只在其上训一个线性分类器、用标准交叉熵。表示学习阶段的输入会先过 RandAugment、Label Smoothing 和 Mixup 三重增强，让模型在学已知类的同时见到"语义模糊"的样本。
 
 ### 关键设计
 
-1. **球面表示与 vMF Alignment Loss**: 将特征 L2 归一化到超球面上，每个类建模为一个 vMF 分布。损失函数 $\mathcal{L}_{\text{vMFAL}} = -\frac{1}{N}\sum_i \sum_k S_{ik} \log P_{ik}$，其中 $S_{ik}$ 为标签相似度，$P_{ik}$ 为基于余弦相似度的分类概率。理论证明该损失同时促进 Alignment（拉近同类表示和标签嵌入）和 Uniformity（分散不同类的表示）。对于 Mixup 产生的模糊样本，均匀性损失主导使其远离类中心，有效缓解熟悉性陷阱。
+**1. 球面表示与 vMF Alignment Loss：把无界的开放空间压回有界球面**
 
-2. **正交性正则化 $\mathcal{R}_{\text{Ortho}}$**: 强制标签嵌入互相正交，确保每个类的特征向量占据独立的线性子空间，防止嵌入坍缩。公式为 $\log \frac{1}{|C|^2-|C|}\sum_{j\neq i}\exp(\frac{1}{\tau}(\mu_j \cdot \mu_i)^2)$，比基于 SVD 或 Equiangular Tight Frame 的方法更稳定，且避免负相关。
+欧氏空间里特征幅值能无限增长，开放空间随之无界，未知样本极易被某个已知类"收编"。SpHOR 把特征 L2 归一化到超球面上，每个类建模成一个 von Mises-Fisher 分布，用对齐损失 $\mathcal{L}_{\text{vMFAL}} = -\frac{1}{N}\sum_i \sum_k S_{ik} \log P_{ik}$ 训练，其中 $S_{ik}$ 是标签相似度、$P_{ik}$ 是基于余弦相似度的分类概率。
 
-3. **Mixup + Label Smoothing 集成到表示学习**: 不同于在分类器阶段使用，SpHOR 将 Mixup 和 Label Smoothing 直接引入表示学习阶段。Mixup 生成语义模糊样本模拟未知类，Label Smoothing 减少过拟合。提出 Angular Separability (AS) 和 Norm Separability (NS) 两个新指标量化这些技术对特征表示的改善。
+论文从理论上证明这个损失同时带来 Alignment（同类表示往标签嵌入靠拢）和 Uniformity（不同类在球面上彼此分散）两种效应。对 Mixup 造出来的模糊样本，均匀性项会占主导、把它们推离任何类中心，从而直接缓解"熟悉性陷阱"——语义相近的未知类不再被高置信地误认成已知类。
+
+**2. 正交性正则化：让每个类各占一块独立子空间**
+
+球面对齐解决了"无界"，但若不同类的标签嵌入彼此纠缠，类间仍会混淆、甚至嵌入坍缩。SpHOR 加一项正交正则 $\mathcal{R}_{\text{Ortho}} = \log \frac{1}{|C|^2-|C|}\sum_{j\neq i}\exp(\frac{1}{\tau}(\mu_j \cdot \mu_i)^2)$，强制标签嵌入两两正交，使每个类的特征向量占据一块独立的线性子空间。
+
+相比用 SVD 或 Equiangular Tight Frame 来约束几何结构，这个软正则更稳定，而且因为惩罚的是内积的平方，它只压相关、不会逼出负相关，避免了把本不该对立的类别推到对侧的副作用。消融显示它能稳定贡献约 1–2% 的提升，无预训练时更明显。
+
+**3. Mixup + Label Smoothing 前移到表示学习：用模糊样本预演未知类**
+
+Mixup 和 Label Smoothing 在分类器阶段是常规操作，但 SpHOR 把它们直接搬进表示学习阶段，目的不同：这里要的不是正则化分类边界，而是主动制造"语义介于两类之间"的样本，让模型提前见识开放空间里那些不属于任何已知类的输入。Mixup 负责生成这类模糊样本、配合前面的均匀性项把它们推开，Label Smoothing 则抑制过拟合。
+
+为了说明这种前移确实改善了特征几何，论文还提出 Angular Separability (AS) 和 Norm Separability (NS) 两个指标，分别从角度分离和范数分离的角度量化已知/未知类在球面上的可分性。
 
 ### 损失函数 / 训练策略
 

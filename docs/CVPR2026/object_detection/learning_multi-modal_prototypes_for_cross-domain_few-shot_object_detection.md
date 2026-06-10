@@ -36,23 +36,22 @@ tags:
 ## 方法详解
 
 ### 整体框架
-LMP 基于 GroundingDINO 构建双分支架构：
-- **文本引导分支**：保留原始 GroundingDINO 的文本分支，维持开放词汇语义理解
-- **视觉引导分支**：注入域特定视觉原型，包含视觉原型构建、原型精炼（特征增强器）、视觉引导查询选择、视觉解码器
 
-两分支联合训练，推理时通过集成预测融合语义抽象与域自适应细节。
+LMP 想解决的是：GroundingDINO 这类开放词汇检测器完全靠文本提示，跨域少样本时既抓不住目标域的风格纹理，又容易被视觉相似的背景骗到。它的做法是在原有文本分支旁边再挂一条**视觉引导分支**，把少量 support 图像里的视觉证据结构化成「原型」注入检测流程。整体流转是：文本分支照旧维持开放词汇语义；视觉分支先从 support 图构建正类原型和硬负原型，经特征增强器精炼后，用原型相似度选 query、再经视觉解码器输出框；两条分支联合训练，推理时把各自预测集成起来，让语义抽象和域自适应细节互补。
 
 ### 关键设计
 
-1. **类级视觉原型（Class-level Prototypes）**：从 $C$-way $K$-shot 的 support 图像中，对每个标注实例通过 RoIAlign + GAP 提取特征，然后对同类实例取均值得到类原型 $\mathbf{p}_c \in \mathbb{R}^{D_I}$，最终堆叠为 $\mathbf{P}_{\mathrm{cls}} \in \mathbb{R}^{C \times D_I}$。这些原型编码了目标域中各类别的代表性视觉特征。
+**1. 类级视觉原型：给每个新类一个域内的视觉锚点**
 
-2. **硬负原型（Hard Negative Prototypes）**：对 query 图像中每个 GT box $b_j$ 进行随机抖动采样 $N$ 个扰动框，保留 $\mathrm{IoU} \in [0.1, 0.5]$ 的框，通过 RoIAlign + GAP 提取负原型 $\mathbf{p}_{\mathrm{neg},j}^{(n)}$。这些负原型捕获域特定的干扰物和视觉混淆背景，是 CD-FSOD 中误检的主要来源。正负原型拼接为 $\mathbf{V} = [\mathbf{P}_{\mathrm{cls}}; \mathbf{P}_{\mathrm{neg}}] \in \mathbb{R}^{N_V \times D_I}$。
+文本提示只能描述类别语义，对「鞘翅目」这种粗粒度标签几乎给不出视觉引导。LMP 从 $C$-way $K$-shot 的 support 图像出发，对每个标注实例用 RoIAlign + GAP 提取特征，再对同类实例取均值得到类原型 $\mathbf{p}_c \in \mathbb{R}^{D_I}$，堆叠成 $\mathbf{P}_{\mathrm{cls}} \in \mathbb{R}^{C \times D_I}$。这些原型直接编码了目标域里每个类别长什么样，把缺失的视觉线索补回检测器。
 
-3. **视觉原型精炼与解码**：
+**2. 硬负原型：把最常见的误检来源显式建模进训练**
 
-    - **视觉特征增强器**：6层 self-attention + cross-attention，图像 token $\mathbf{X}_I$ 与视觉原型 $\mathbf{V}$ 双向交互，输出精炼后的原型 $\mathbf{V}'$ 和图像 token $\mathbf{X}'_I$
-    - **视觉引导查询选择**：计算图像 token 与原型的余弦相似度矩阵，取 Top-900 初始化查询
-    - **视觉解码器**：镜像文本分支的跨模态解码器，通过迭代精炼输出类别 logits 和框回归。分类使用原型对齐评分（余弦相似度）
+CD-FSOD 的误检大多来自域特定的干扰物和视觉混淆背景，而单纯把 support 图当视觉提示并不会显式建模这些负样本。LMP 对 query 图里每个 GT box $b_j$ 做随机抖动采样 $N$ 个扰动框，只保留 $\mathrm{IoU} \in [0.1, 0.5]$ 的框，用 RoIAlign + GAP 提取负原型 $\mathbf{p}_{\mathrm{neg},j}^{(n)}$。这些原型刚好落在「像目标但不是目标」的区域。正负原型拼成 $\mathbf{V} = [\mathbf{P}_{\mathrm{cls}}; \mathbf{P}_{\mathrm{neg}}] \in \mathbb{R}^{N_V \times D_I}$，让模型在训练里就见过决策边界附近的难例，从而压住误检。
+
+**3. 原型精炼与视觉解码：让原型和图像特征充分交互再出框**
+
+有了原型还需要让它和当前 query 的图像特征对齐，否则原型是孤立的。视觉特征增强器用 6 层 self-attention + cross-attention 让图像 token $\mathbf{X}_I$ 与视觉原型 $\mathbf{V}$ 双向交互，输出精炼后的原型 $\mathbf{V}'$ 和图像 token $\mathbf{X}'_I$；视觉引导查询选择计算图像 token 与原型的余弦相似度矩阵，取 Top-900 初始化查询；视觉解码器镜像文本分支的跨模态解码器，迭代精炼输出类别 logits 和框回归，分类用原型对齐评分（余弦相似度）。这条链路让视觉分支与文本分支结构对称，集成时自然融合。
 
 ### 损失函数 / 训练策略
 两分支均使用 focal 分类损失 + $L_1$ 框回归损失 + GIoU 损失：

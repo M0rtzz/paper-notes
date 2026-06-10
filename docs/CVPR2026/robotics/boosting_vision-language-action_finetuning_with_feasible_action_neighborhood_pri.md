@@ -40,27 +40,29 @@ tags:
 ## 方法详解
 
 ### 整体框架
-VLA 模型 → 在每个状态 $s$ 预测动作分布 $\pi(a|s)$ → FAN 正则化器将该分布朝目标高斯 $\mathcal{N}(\mu(s), \Sigma)$ 拉拢 → 保持自回归离散解码不变。
+这篇论文针对 VLA 微调直接照搬语言模型训练范式（one-hot 交叉熵或 PPO）的问题——它忽视了物理动作天然有容差：附近的动作往往产生等效的任务进展。FAN 不改模型架构，只在每个状态 $s$ 上把策略预测的动作分布 $\pi(a|s)$ 朝一个目标高斯 $\mathcal{N}(\mu(s), \Sigma)$ 拉拢，把「过度自信的尖峰」塑造成「平滑的容差邻域」，同一个正则器既能用在 SFT 也能用在 RFT，自回归离散解码保持不变。
 
 ### 关键设计
 
-1. **Feasible Action Neighborhood (FAN) 定义**:
-    $\mathbb{N}_\delta(s) \subseteq \{a \in A: Q(s, a^*(s)) - Q(s, a) \leq \delta\}$
-   即对于给定状态 $s$，所有 Q 值接近最优的动作集合。物理操作天然具有非平凡的 FAN。
-    - 策略分布 $\pi(a|s)$ 是 FAN 的实用可观测代理——尖锐分布 = 小 FAN = 差泛化；平滑分布 = 大 FAN = 好泛化
-    - **设计动机**: 经验观察发现分布形状与成功率高度相关
+**1. 可行动作邻域（FAN）：把动作容差形式化成可观测代理**
 
-2. **FAN-SFT（监督微调正则化）**:
-    $\mathcal{L}_{\text{FAN-SFT}} = -\frac{1}{n}\sum_{i,t}\left(\log\pi_\theta(a_t^i|s_t^i, l^i) + \alpha D_{\text{KL}}(\pi_\theta(\cdot|s_t^i)\|\mathcal{N}(\cdot|\mu(s_t^i), \Sigma(s_t^i)))\right)$
-    - 协方差动态定义为策略自身方差：$\Sigma(s) = \text{diag}(\sum_a \pi(a|s)(a-\mu(s))^2)$
-    - **设计动机**: SFT 本身稳定，可用动态目标；自适应协方差鼓励策略按当前几何属性采用高斯形状
+容差结构以前是被隐式忽视的，FAN 把它显式定义出来：对给定状态 $s$，FAN 是所有 Q 值接近最优的动作集合
+$$\mathbb{N}_\delta(s) \subseteq \{a \in A: Q(s, a^*(s)) - Q(s, a) \leq \delta\}$$
+物理操作天然有非平凡的 FAN。但 Q 值难直接拿到，作者用策略分布 $\pi(a|s)$ 当 FAN 的实用可观测代理——分布越尖锐对应 FAN 越小、泛化越差，越平滑则 FAN 越大、泛化越好。这个对应来自经验观察：分布形状和成功率高度相关，于是「塑形分布」就成了「调控容差」的抓手。
 
-3. **FAN-PPO（强化微调正则化）**:
-    $\max_\pi \mathbb{E}[\frac{\pi(a|s)}{\pi_t(a|s)}A^{\pi_t}] - \alpha \mathbb{E}[D_{\text{KL}}(\pi\|\mathcal{N}(\mu(s), \sigma^2 I))]$
-    - 使用固定协方差 $\Sigma = \sigma^2 I$（超参控制目标 FAN 大小）
-    - **闭式最优策略**: $\pi_{t+1} \propto \mathcal{N}^{\frac{\alpha}{\alpha+\beta^*}} \cdot \pi_t^{\frac{\beta^*}{\alpha+\beta^*}} \cdot \exp(\frac{Q}{\alpha+\beta^*})$
-    - 即新策略是旧策略和目标高斯的几何插值，再用 Q 值重加权
-    - **设计动机**: RFT 需要稳定目标，固定协方差提供一致锚点；$\alpha$ 控制高斯拉力，$\beta^*$ 控制保守程度
+**2. FAN-SFT：用自适应高斯抵消示范过拟合**
+
+SFT 会把概率质量坍缩到单一示范动作上，过拟合导致泛化差。FAN-SFT 在标准交叉熵之外加一项 KL，把策略拉向以自身统计量定义的高斯：
+$$\mathcal{L}_{\text{FAN-SFT}} = -\frac{1}{n}\sum_{i,t}\left(\log\pi_\theta(a_t^i|s_t^i, l^i) + \alpha D_{\text{KL}}(\pi_\theta(\cdot|s_t^i)\|\mathcal{N}(\cdot|\mu(s_t^i), \Sigma(s_t^i)))\right)$$
+协方差动态取策略自身方差 $\Sigma(s) = \text{diag}(\sum_a \pi(a|s)(a-\mu(s))^2)$。因为 SFT 本身稳定，可以放心用这种随策略几何属性自适应的目标，鼓励分布按当前状态该有的容差宽度摊开，而不是坍缩到一个点。
+
+**3. FAN-PPO：用固定高斯锚定强化微调**
+
+RFT 虽能扩展分布，但样本效率极低，要靠大量探索才隐式发现容差结构。FAN-PPO 在 PPO 目标上加固定协方差高斯的 KL：
+$$\max_\pi \mathbb{E}[\frac{\pi(a|s)}{\pi_t(a|s)}A^{\pi_t}] - \alpha \mathbb{E}[D_{\text{KL}}(\pi\|\mathcal{N}(\mu(s), \sigma^2 I))]$$
+这里用固定 $\Sigma = \sigma^2 I$（超参直接控制目标 FAN 大小）。它有闭式最优策略
+$$\pi_{t+1} \propto \mathcal{N}^{\frac{\alpha}{\alpha+\beta^*}} \cdot \pi_t^{\frac{\beta^*}{\alpha+\beta^*}} \cdot \exp(\frac{Q}{\alpha+\beta^*})$$
+即新策略是旧策略与目标高斯的几何插值再用 Q 值重加权，$\alpha$ 控制高斯拉力、$\beta^*$ 控制保守程度。RFT 需要稳定锚点，固定协方差正好提供一致的目标，让模型不必从零探索就直接获得容差先验，样本效率大幅提升。
 
 ### 损失函数 / 训练策略
 - FAN 正则化与标准 SFT/PPO 损失相加，$\alpha$ 控制权重

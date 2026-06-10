@@ -41,19 +41,13 @@ SGI 提出基于种子点(seed)的结构化 2D 高斯表示框架，通过将无
 
 ### 整体框架
 
-SGI 包含三个核心组件：
+SGI 要解决的是 2D Gaussian Splatting 表示高分辨率图像时的两大痛点——百万级无结构高斯各自独立优化/存储带来的参数冗余和优化开销。它的整体思路是把「无结构高斯原语」重新组织成「种子驱动的结构化高斯」，再叠两层压缩与提速：种子驱动的 2D 神经高斯（Seed-based 2D Neural Gaussians）把图像分解成多尺度局部空间、每个种子用轻量 MLP 预测一组高斯；神经熵编码（Neural Entropy Coding）用二值哈希网格和上下文模型估计种子属性分布、做自适应比特分配；多尺度拟合（Multi-scale Fitting）用高斯金字塔从粗到细优化加速收敛。
 
-1. **Seed-based 2D Neural Gaussians**（种子驱动的 2D 神经高斯）：将图像分解为多尺度局部空间，每个种子点通过轻量 MLP 预测一组结构化高斯原语
-2. **Neural Entropy Coding**（神经熵编码）：利用二值哈希网格和上下文模型估计种子属性的概率分布，实现自适应比特分配
-3. **Multi-scale Fitting**（多尺度拟合）：采用高斯金字塔从粗到细逐级优化，加速收敛
+### 关键设计
 
-### 关键设计一：种子驱动的 2D 神经高斯
+**1. 种子驱动的 2D 神经高斯：用少量种子 + 共享 MLP 隐式编码空间冗余**
 
-给定预定义的 $N$ 个种子点，均匀初始化覆盖图像。每个种子位于位置 $\boldsymbol{x_a} \in \mathbb{R}^2$，关联一组属性：
-
-$$\mathcal{A} = \{\boldsymbol{f_a} \in \mathbb{R}^D, \boldsymbol{s_o} \in \mathbb{R}^2, \boldsymbol{s_a} \in \mathbb{R}^2, \boldsymbol{\delta} \in \mathbb{R}^{K \times 2}\}$$
-
-其中各属性含义：
+相邻像素往往颜色纹理结构相似，可现有方法逐个独立优化高斯、完全没利用这种空间局部性。SGI 预定义 $N$ 个种子均匀铺满图像，每个种子在位置 $\boldsymbol{x_a} \in \mathbb{R}^2$ 关联一组属性 $\mathcal{A} = \{\boldsymbol{f_a} \in \mathbb{R}^D, \boldsymbol{s_o} \in \mathbb{R}^2, \boldsymbol{s_a} \in \mathbb{R}^2, \boldsymbol{\delta} \in \mathbb{R}^{K \times 2}\}$：
 
 | 符号 | 维度 | 含义 |
 |------|------|------|
@@ -62,62 +56,27 @@ $$\mathcal{A} = \{\boldsymbol{f_a} \in \mathbb{R}^D, \boldsymbol{s_o} \in \mathb
 | $\boldsymbol{s_a}$ | $\mathbb{R}^2$ | 尺度缩放因子，调整高斯的最终尺度 |
 | $\boldsymbol{\delta}$ | $\mathbb{R}^{K \times 2}$ | $K$ 个关联高斯的学习偏移量 |
 
-**高斯位置计算**：每个种子关联的 $K$ 个高斯位置由种子位置加上缩放后的偏移得到：
+每个种子的 $K$ 个高斯位置由种子位置加缩放后的偏移得到 $\{\boldsymbol{\mu}^{(k)}\}_{k=0}^{K-1} = \boldsymbol{x_a} + \{\boldsymbol{\delta}^{(k)}\}_{k=0}^{K-1} \cdot \boldsymbol{s_o}$；属性则由两个共享轻量 MLP 从 $\boldsymbol{f_a}$ 解码——$\text{MLP}_c$ 出 opacity 加权颜色系数 $\mathbf{c'} \in \mathbb{R}^3$，$\text{MLP}_\Sigma$ 出基础尺度 $\boldsymbol{s_{\text{base}}}$ 和旋转角 $\theta$，最终尺度 $\boldsymbol{s} = \boldsymbol{s_{\text{base}}} \cdot \boldsymbol{s_a}$，协方差按 $\boldsymbol{\Sigma} = \mathbf{R}\mathbf{S}\mathbf{S}^\top\mathbf{R}^\top$ 正定分解构造（$\mathbf{R}(\theta)$ 为 2D 旋转矩阵、$\mathbf{S}$ 为对角尺度矩阵）。像素颜色是所有贡献高斯的累积 $\boldsymbol{C} = \sum_{i \in I} \mathbf{c'}_i G_i(\mathbf{x})$，$G(\mathbf{x}) = \exp\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right)$。如此一来每个高斯只需 8 个参数（位置 2 + 协方差 3 + 加权颜色 3），大量空间冗余被种子特征和共享 MLP 隐式吸收，独立参数量大幅下降。
 
-$$\{\boldsymbol{\mu}^{(k)}\}_{k=0}^{K-1} = \boldsymbol{x_a} + \{\boldsymbol{\delta}^{(k)}\}_{k=0}^{K-1} \cdot \boldsymbol{s_o}$$
+**2. 基于上下文模型的熵编码：把种子带来的结构正则性榨成比特节省**
 
-**属性解码**：通过两个共享的轻量 MLP 从种子特征 $\boldsymbol{f_a}$ 解码高斯属性：
-- $\text{MLP}_c$：输出 opacity 加权的颜色系数 $\mathbf{c'} \in \mathbb{R}^3$
-- $\text{MLP}_\Sigma$：预测基础尺度 $\boldsymbol{s_{\text{base}}}$ 和旋转角度 $\theta$
-
-最终尺度 $\boldsymbol{s} = \boldsymbol{s_{\text{base}}} \cdot \boldsymbol{s_a}$，协方差矩阵通过正定分解构造：
-
-$$\boldsymbol{\Sigma} = \mathbf{R}\mathbf{S}\mathbf{S}^\top\mathbf{R}^\top$$
-
-其中 $\mathbf{R}(\theta)$ 为 2D 旋转矩阵，$\mathbf{S}$ 为对角尺度矩阵。
-
-**渲染公式**：像素颜色通过所有贡献高斯的累积求和计算：
-
-$$\boldsymbol{C} = \sum_{i \in I} \mathbf{c'}_i G_i(\mathbf{x}), \quad G(\mathbf{x}) = \exp\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right)$$
-
-**设计精妙之处**：每个高斯仅需 8 个参数（位置 2 + 协方差 3 + 加权颜色 3），而大量空间冗余信息被种子特征和共享 MLP 隐式编码，显著减少独立参数量。
-
-### 关键设计二：基于上下文模型的熵编码
-
-单纯使用种子结构仅能减少约 3% 的存储（对比纯 2D 高斯如 LIG），增益有限。SGI 的核心创新是利用种子引入的结构正则性进一步做熵编码压缩。
-
-**量化策略**：训练时用噪声注入模拟量化，推理时用取整量化：
+光靠种子结构相比纯 2D 高斯（如 LIG）只能省约 3% 存储，增益有限，所以 SGI 的压缩核心是在种子结构之上再做熵编码。量化上训练时注噪、推理时取整：
 
 $$\hat{\boldsymbol{f}}_j^{(i)} = \begin{cases} \boldsymbol{f}_j^{(i)} + \mathcal{U}(-\frac{1}{2}, \frac{1}{2}) \cdot q_j^{(i)} & \text{训练} \\ \text{Round}(\boldsymbol{f}_j^{(i)} / q_j^{(i)}) \cdot q_j^{(i)} & \text{推理} \end{cases}$$
 
-量化步长 $q_j^{(i)} = Q_j \times (1 + \tanh(r_j^{(i)}))$，其中 $r_j^{(i)}$ 由上下文模型自适应预测。
+量化步长 $q_j^{(i)} = Q_j \times (1 + \tanh(r_j^{(i)}))$ 由上下文模型自适应预测。概率建模上引入可学习二值哈希网格 $\mathcal{H}$ 捕获种子的空间一致性，上下文模型 $\text{MLP}_p$ 估计每个属性分量的高斯参数 $\{\mu_j^{(i)}, \sigma_j^{(i)}, r_j^{(i)}\}_{j=0}^{3} = \text{MLP}_p(\mathcal{H}(\boldsymbol{x}_a^{(i)}))$，再把高斯分布在量化区间上积分得到属性概率，驱动算术编码做自适应比特分配。消融显示这一步才是压缩的真正主力（$\lambda=0$ 时 FGF2 存 104.08MB，$\lambda=0.001$ 时降到 16.33MB）。
 
-**概率建模**：引入可学习的二值哈希网格 $\mathcal{H}$ 捕获种子的空间一致性，上下文模型 $\text{MLP}_p$ 估计每个属性分量的高斯分布参数：
+**3. 多尺度拟合策略：用高斯金字塔从粗到细加速收敛**
 
-$$\{\mu_j^{(i)}, \sigma_j^{(i)}, r_j^{(i)}\}_{j=0}^{3} = \text{MLP}_p(\mathcal{H}(\boldsymbol{x}_a^{(i)}))$$
+直接在高分辨率上优化种子参数又慢又难收敛。SGI 构建 $M$ 层高斯金字塔 $\{I_0=I, I_1, \ldots, I_{M-1}\}$（每层下采样 2 倍），从最粗层 $l=M-1$ 开始优化种子和 MLP，再把结果传到下一层（位置和尺度乘 2 适配分辨率加倍），逐层迭代到最细层 $l=0$。粗层先把大致结构定下来，细层只需局部微调，于是优化时间和收敛速度都明显改善。
 
-属性概率通过对高斯分布在量化区间上积分得到，驱动算术编码实现自适应比特分配。
+### 损失函数 / 训练策略
 
-### 关键设计三：多尺度拟合策略
-
-直接在高分辨率图像上优化种子参数计算代价高且收敛慢。SGI 构建 $M$ 层高斯金字塔，从粗到细逐级优化：
-
-1. 构建金字塔 $\{I_0=I, I_1, \ldots, I_{M-1}\}$，每层下采样 2 倍
-2. 从最粗层 $l=M-1$ 开始优化种子和 MLP 参数
-3. 将优化结果传递到下一层：位置和尺度乘以 2 适配分辨率加倍
-4. 逐层迭代直至最细层 $l=0$
-
-### 损失函数
-
-总损失结合重建保真度和比特消耗正则化：
+总损失把重建保真度和比特消耗正则化合在一起：
 
 $$L = L_{\text{img}} + \frac{\lambda}{N \cdot d_\mathcal{A}}(L_{\text{entropy}} + L_{\text{hash}})$$
 
-- $L_{\text{img}}$：渲染图像与目标图像的 L1 损失
-- $L_{\text{entropy}}$：种子属性的信息熵损失，驱动概率模型学习紧凑分布
-- $L_{\text{hash}}$：二值哈希网格的比特消耗上界
-- $\lambda = 0.001$：率失真权衡超参数
-- $d_\mathcal{A} = D + 4 + 2K$：每个种子的属性总维度
+其中 $L_{\text{img}}$ 是渲染图与目标图的 L1 损失，$L_{\text{entropy}}$ 是种子属性的信息熵损失（驱动概率模型学紧凑分布），$L_{\text{hash}}$ 是二值哈希网格的比特消耗上界，率失真权衡 $\lambda = 0.001$，$d_\mathcal{A} = D + 4 + 2K$ 为每个种子的属性总维度。
 
 ## 实验
 

@@ -56,27 +56,17 @@ Dr.Occ 在现有占用预测流程基础上做两处改进：
 
 ### 关键设计
 
-1. **深度引导的 2D-to-3D 视图变换器（D2-VFormer）**:
-    - **几何感知占用 mask**：利用 MoGe-2 估计的深度图 $\mathbf{D}_i$ 生成伪点云 $\mathcal{P}$，通过相机投影和体素化生成二值 mask $M(\mathbf{v})$，标记非空体素位置
-    - 投影公式：$\mathbf{x}_{\text{cam}}^T = d \cdot \mathbf{K}_i^{-1}[u, v, 1]^T$，$\mathbf{p}_i = \mathbf{R}_i^\top(\mathbf{x}_{\text{cam}} - \mathbf{t}_i)$，$M(\mathbf{v}) = \mathbf{1}[\mathbf{v} \in \text{Voxelize}(\mathcal{P}, r)]$
-    - **三阶段渐进精炼**：
-        - Stage 1（前向投影 + 下采样）：融合多帧图像特征通过深度投影到体素空间，下采样 $\lambda$ 倍以提高计算效率和深度鲁棒性
-        - Stage 2（后向投影稠密化）：使用 Deformable Cross-Attention (DCA) 融合多视图图像特征 $\mathbf{F}_{\text{dense}} = \text{DCA}(\mathbf{F}_{\text{down}}, \mathbf{F}^{(I)})$
-        - Stage 3（深度引导非空体素精炼）：仅对 mask 标记的非空体素进行两步精炼——几何精炼（融合深度特征 $\mathbf{F}^{(D)}$）+ 语义增强（融合图像特征 $\mathbf{F}^{(I)}$），空体素用可学习 embedding $\mathbf{e}_{\text{empty}}$ 填充
-    - 关键洞察：不直接用 MoGe 深度做前向投影（会因缺少隐式深度约束而降低特征质量），而是用深度生成 mask 引导注意力集中在有意义的区域
+**1. 深度引导的双投影视图变换器（D2-VFormer）：不拿深度硬投影，而是用它当「注意力地图」**
 
-2. **区域引导的专家 Transformer（R-EFormer）**:
-    - **空间语义分析**：统计发现不同语义类别沿距离和高度维度呈强各向异性分布——路面集中于低高度近距离，植被/建筑在高处中距离，动态目标在窄空间带
-    - 将 3D 空间按距离（近 0-10m / 中 10-30m / 远 30m+）和高度（低 -1.0-0.2m / 中 0.2-2.2m / 高 2.2-5.4m）划分为 $3 \times 3 = 9$ 个区域
-    - 路由网络计算各区域重要性 $s_m = \text{Router}(\mathbf{F}_{\text{out}})$，选取 top-$K$ 个最相关区域激活对应专家
-    - 每个专家 $E_m$ 使用 DCA 但限制在其对应区域 mask $\mathcal{M}_m$ 内：$E_m(\mathbf{F}_{\text{out}}, \mathbf{F}^{(I)}; \mathcal{M}_m) = \text{DCA}(\mathbf{F}_{\text{out}}, \mathbf{F}^{(I)}; \mathcal{M}_m)$
-    - 最终输出为加权融合：$\mathbf{F}_{\text{final}} = \sum_{m \in \mathcal{S}} w_m \cdot E_m(\mathbf{F}_{\text{out}}, \mathbf{F}^{(I)}; \mathcal{M}_m)$
+现有前向投影（LSS、BEVDepth）依赖低分辨率、带噪的深度做 2D→3D 变换，几何对齐不准；但作者发现把 MoGe 深度直接拼图像或转伪点云做前向投影反而更差——因为图像特征失去了隐式深度约束。D2-VFormer 的办法是用深度生成一张几何感知占用 mask 来引导注意力：先用 MoGe-2 深度图 $\mathbf{D}_i$ 生成伪点云 $\mathcal{P}$，经相机投影 $\mathbf{x}_{\text{cam}}^T = d \cdot \mathbf{K}_i^{-1}[u, v, 1]^T$、$\mathbf{p}_i = \mathbf{R}_i^\top(\mathbf{x}_{\text{cam}} - \mathbf{t}_i)$ 和体素化得到二值 mask $M(\mathbf{v}) = \mathbf{1}[\mathbf{v} \in \text{Voxelize}(\mathcal{P}, r)]$，标出非空体素。随后三阶段渐进精炼：Stage 1 前向投影融合多帧特征并下采样 $\lambda$ 倍以提效抗噪；Stage 2 用可变形交叉注意力做后向投影稠密化 $\mathbf{F}_{\text{dense}} = \text{DCA}(\mathbf{F}_{\text{down}}, \mathbf{F}^{(I)})$；Stage 3 只对 mask 标记的非空体素做几何精炼（融合深度特征 $\mathbf{F}^{(D)}$）+ 语义增强（融合图像特征 $\mathbf{F}^{(I)}$），空体素用可学习 embedding $\mathbf{e}_{\text{empty}}$ 填充。约 90% 体素本就是空的，让注意力只盯有意义的 ~10%，既提效又提精度。
 
-3. **递归变体 R2-EFormer**:
-    - 受 Mixture-of-Recursions (MoR) 启发，用单个共享专家迭代精炼 $n$ 次，每次通过 router 生成渐进收缩的空间 mask
-    - mask 序列满足 $\mathcal{M}^{(t)} \subset \mathcal{M}^{(t-1)}$，覆盖率递减（100% → 75% → 50%）
-    - 每次迭代：$\mathbf{F}^{(t)} = \text{DCA}(\mathbf{F}^{(t-1)}, \mathbf{F}^{(I)}; \mathcal{M}^{(t)})$
-    - 优势：减少参数（共享专家）、不需要手动定义区域划分、渐进聚焦于难分体素
+**2. 区域引导的专家 Transformer（R-EFormer）：按物理空间分专家，对症处理语义不平衡**
+
+不同语义类别在 3D 空间里强烈各向异性——路面在低处近距、植被/建筑在高处中距、动态目标挤在窄空间带，而现有方法对所有区域一视同仁。R-EFormer 把 MoE 从 token 空间搬到物理空间：按距离（近 0-10m / 中 10-30m / 远 30m+）和高度（低 -1.0-0.2m / 中 0.2-2.2m / 高 2.2-5.4m）切成 $3 \times 3 = 9$ 个区域，路由网络算各区域重要性 $s_m = \text{Router}(\mathbf{F}_{\text{out}})$、选 top-$K$ 个最相关区域激活专家。每个专家 $E_m$ 用 DCA 但只在自己区域 mask $\mathcal{M}_m$ 内操作 $E_m(\mathbf{F}_{\text{out}}, \mathbf{F}^{(I)}; \mathcal{M}_m) = \text{DCA}(\mathbf{F}_{\text{out}}, \mathbf{F}^{(I)}; \mathcal{M}_m)$，最终加权融合 $\mathbf{F}_{\text{final}} = \sum_{m \in \mathcal{S}} w_m \cdot E_m(\mathbf{F}_{\text{out}}, \mathbf{F}^{(I)}; \mathcal{M}_m)$。让专家与空间语义分布对齐，是它能涨点的关键。
+
+**3. 递归变体 R2-EFormer：用一个共享专家迭代收缩，省参数又自动聚焦难点**
+
+R-EFormer 的 9 宫格是手动设的，换场景未必合适、专家也多。受 Mixture-of-Recursions（MoR）启发，R2-EFormer 改用单个共享专家迭代精炼 $n$ 次，每次由 router 生成逐步收缩的空间 mask，满足 $\mathcal{M}^{(t)} \subset \mathcal{M}^{(t-1)}$、覆盖率从 100% → 75% → 50% 递减，每轮 $\mathbf{F}^{(t)} = \text{DCA}(\mathbf{F}^{(t-1)}, \mathbf{F}^{(I)}; \mathcal{M}^{(t)})$。好处是参数更少（共享专家）、不用手动划区域、还能渐进聚焦到难分体素上——消融里它 IoU 略降但 mIoU 最高（43.43%），正因递归精炼更利于稀有难分类别。
 
 ### 损失函数 / 训练策略
 

@@ -33,19 +33,29 @@ DSFlash 通过合并分割与关系预测 backbone、双向关系预测头、动
 ## 方法详解
 
 ### 整体框架
-DSFlash 采用两阶段设计：第一阶段用冻结的 EoMT（Encoder-only Mask Transformer）分割模型提取分割 mask 与特征；第二阶段复用 EoMT 的中间特征（从 block 2/5/8/11 抽取 patch token 并拼接为 768×40×40 特征张量），通过 mask embedding 编码主体/客体位置，经轻量 Transformer neck 后由关系预测头输出关系类别。
+DSFlash 要解决的是全景场景图生成（PSGG）几乎没人管延迟的问题——SOTA 的 DSFormer 一次推理 458 ms，还用了 MaskDINO + ResNet 两个独立 backbone，浪费严重。它的核心判断是：两阶段方法完全可以靠共享 backbone 特征、减少前向次数、剪掉无关 token 把延迟压到实时，而且不掉点。具体是第一阶段用冻结的 EoMT（Encoder-only Mask Transformer）分割模型提 mask 与特征，第二阶段直接复用 EoMT 的中间特征（从 block 2/5/8/11 抽 patch token 拼成 768×40×40），用 mask embedding 编码主客体位置，过一个轻量 Transformer neck 后由关系头输出关系类别。
 
 ### 关键设计
 
-1. **Merged Backbone**：不再使用独立的分割与关系预测 backbone，而是直接抽取 EoMT 内部特征，省去了一次完整 backbone 前向推理。EoMT 全程冻结，训练时仅训 neck 和 head，单张 GTX 1080 不到 24 小时即可完成训练。
+**1. Merged Backbone：砍掉一整次 backbone 前向**
 
-2. **双向关系预测（Gated Bidirectional Prediction）**：对于一对 mask (S₀, S₁)，原 DSFormer 需要两次前向分别预测 S₀→S₁ 和 S₁→S₀ 方向的关系。DSFlash 设计了一个门控分裂机制——将编码后的特征 x 通过 sigmoid 门控分成 t→ 和 t← 两个分支，共享同一个 MLP 关系头分别预测两个方向。训练时通过翻转 mask 顺序计算 consistency loss（MSE），确保模型对输入顺序等变。推理时只需一次前向即可得到双向预测。
+两阶段方法的最大浪费是分割和关系预测各用一个 backbone。DSFlash 不再单独跑关系 backbone，而是直接抽 EoMT 内部特征复用，省去一次完整的 backbone 前向。EoMT 全程冻结，训练只训 neck 和 head，单张 GTX 1080 不到 24 小时就能训完。
 
-3. **Mask-based Dynamic Patch Pruning**：在 mask embedding 阶段，与主体和客体 mask 均无重叠的 patch 不含有用的定位信息，直接丢弃后送入 neck。因为重叠率本就需要计算，剪枝几乎零开销。
+**2. Gated Bidirectional Prediction：一次前向出双向关系**
 
-4. **Raw-resolution Segmentation Masks**：不再将 EoMT 输出的 160×160 mask logits 上采样到原图分辨率再下采样，而是直接在低分辨率上计算 patch 重叠比例，省去了昂贵的双线性插值。
+原 DSFormer 对一对 mask $(S_0, S_1)$ 要跑两次前向，分别预测 $S_0 \to S_1$ 和 $S_1 \to S_0$。DSFlash 用一个门控分裂机制把编码特征 $x$ 经 sigmoid 门控分成 $t_\to$ 和 $t_\leftarrow$ 两支，共享同一个 MLP 关系头分别预测两个方向；训练时翻转 mask 顺序算 consistency loss（MSE）逼模型对输入顺序等变，推理时只需一次前向就拿到双向预测。额外的一致性监督还顺带把性能从 mR@50 25.0 提到 28.8。
 
-5. **Token Merging (ToMe-SD)**：在 backbone attention 层前合并相似 token，attention 后再 unmerge，降低注意力计算量，在老旧 GPU 上效果尤其明显（GTX 1080 延迟从 230ms 降至 173ms）。
+**3. Mask-based Dynamic Patch Pruning：零开销剪掉无关 token**
+
+与主客体 mask 都不重叠的 patch 不含定位信息，留着只是拖慢 neck。DSFlash 在 mask embedding 阶段直接把这些 patch 丢掉再送进 neck。由于重叠率本来就要算，这步剪枝几乎零额外开销。
+
+**4. Raw-resolution Segmentation Masks：省掉昂贵的插值往返**
+
+常规做法会把 EoMT 输出的 160×160 mask logits 上采样到原图分辨率再下采样，双线性插值很贵。DSFlash 干脆在低分辨率上直接算 patch 重叠比例，省掉这一来一回的插值。
+
+**5. Token Merging（ToMe-SD）：给老 GPU 再省一刀**
+
+在 backbone 的 attention 层之前合并相似 token、attention 之后再 unmerge，降低注意力计算量。这一招在老旧 GPU 上尤其明显——GTX 1080 上延迟从 230 ms 降到 173 ms。
 
 ### 损失函数 / 训练策略
 - 关系分类：Binary Cross Entropy

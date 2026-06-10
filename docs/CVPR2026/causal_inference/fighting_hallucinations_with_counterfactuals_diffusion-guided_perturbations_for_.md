@@ -42,60 +42,31 @@ tags:
 
 ### 整体框架
 
-CIPHER（Counterfactual Image Perturbations for Hallucination Extraction and Removal）分为两个阶段：
+CIPHER（Counterfactual Image Perturbations for Hallucination Extraction and Removal）分两个阶段。离线阶段先用扩散模型造一批"幻觉图像"构成反事实数据集 OHC-25K，从中提取视觉幻觉方向、并用 SVD 估计出一个幻觉子空间；推理阶段则在生成的每一步把隐状态投影到这个子空间的正交补上，把幻觉分量减掉。整个过程不改模型参数、不加推理开销。
 
-- **离线阶段（Offline Phase）**：构建反事实数据集 OHC-25K → 提取幻觉方向 → 估计幻觉子空间
-- **推理阶段（Inference Phase）**：对生成过程中的隐状态做正交投影，抑制幻觉分量
+### 关键设计
 
-### 关键设计一：反事实数据集生成（OHC-25K）
+**1. 反事实数据集生成(OHC-25K)：用扩散模型造出"语义冲突"的幻觉图像**
 
-从 MSCOCO 训练集随机选取 $M=5000$ 对图像-标注 $\{(\boldsymbol{I}_i, \mathcal{C}_i)\}_{i=1}^M$，按以下流水线生成反事实图像：
-
-**Step 1: 标注扰动。** 使用 GPT-3.5 对每条真实标注 $\mathcal{C}_i$ 生成幻觉标注 $\tilde{\mathcal{C}}_i$，注入看似合理但实际不存在的物体描述（如在餐桌场景中添加"一串葡萄"）。
-
-**Step 2: 潜空间编码与正向扩散加噪。** 用 Stable Diffusion v1.5 的 VAE 编码器将图像编码到潜空间，然后施加 $t_h$ 步正向扩散过程引入高斯噪声：
-
-$$\boldsymbol{z}_0 = \mathcal{E}(\boldsymbol{I}_i)$$
+要定位视觉幻觉方向，先得有一批"图像里没有、但模型容易脑补出来"的样本。作者从 MSCOCO 随机选 $M=5000$ 对图像-标注 $\{(\boldsymbol{I}_i, \mathcal{C}_i)\}_{i=1}^M$，走四步生成反事实图像：先用 GPT-3.5 把真实标注 $\mathcal{C}_i$ 改写成注入了看似合理但不存在物体的幻觉标注 $\tilde{\mathcal{C}}_i$（比如在餐桌场景里加"一串葡萄"）；再用 Stable Diffusion v1.5 的 VAE 把图像编码到潜空间 $\boldsymbol{z}_0 = \mathcal{E}(\boldsymbol{I}_i)$ 并施加 $t_h$ 步正向加噪
 
 $$\tilde{\boldsymbol{z}}_{t_h} = \sqrt{\bar{\alpha}_{t_h}} \boldsymbol{z}_0 + \sqrt{1 - \bar{\alpha}_{t_h}} \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim \mathcal{N}(0, I)$$
 
-其中 $\bar{\alpha}_{t_h}$ 是噪声调度系数的累积乘积。选择 $t_h = 0.5T$ 保证图像全局结构保留但语义内容可被修改。
-
-**Step 3: 条件反向去噪。** 以幻觉标注 $\tilde{\mathcal{C}}_i$ 为条件执行反向去噪，将噪声潜变量引导回与幻觉标注对齐的图像：
-
-$$\tilde{\boldsymbol{z}}_{t-1} = f_\theta(\tilde{\boldsymbol{z}}_t, t, \tilde{\mathcal{C}}_i), \quad t = t_h, \dots, 1$$
-
-**Step 4: 解码生成反事实图像。** 解码最终潜向量得到反事实图像 $\tilde{\boldsymbol{I}}_{i,j} = \mathcal{D}(\tilde{\boldsymbol{z}}_0)$，其中 $j=1,\dots,B=5$ 索引不同高斯噪声种子的变体。将反事实图像与**原始真实标注**配对形成语义冲突：
+取 $t_h = 0.5T$ 让全局结构保留、语义可改；然后以幻觉标注 $\tilde{\mathcal{C}}_i$ 为条件反向去噪 $\tilde{\boldsymbol{z}}_{t-1} = f_\theta(\tilde{\boldsymbol{z}}_t, t, \tilde{\mathcal{C}}_i)$，把噪声潜变量引回与幻觉标注对齐的图像，解码得 $\tilde{\boldsymbol{I}}_{i,j} = \mathcal{D}(\tilde{\boldsymbol{z}}_0)$（每张图配 $B=5$ 个噪声种子的变体）。最后把这些反事实图像与**原始真实标注**配对，制造出语义冲突：
 
 $$\textbf{OHC-25K} = \{(\tilde{\boldsymbol{I}}_{i,j}, \mathcal{C}_i) \mid i=1,\dots,M,\; j=1,\dots,B\}$$
 
-### 关键设计二：幻觉子空间估计
+**2. 幻觉子空间估计：从隐状态差向量里 SVD 出幻觉主方向**
 
-对每对原始 $(\boldsymbol{I}_i, \mathcal{C}_i)$ 及其 $B$ 个反事实变体 $(\tilde{\boldsymbol{I}}_{i,j}, \mathcal{C}_i)$，从冻结的 LVLM 提取中间层隐表征。设 $\boldsymbol{h}_{\ell,k}^{(i)}$ 为第 $\ell$ 层第 $k$ 个标注 token 的隐状态，对所有标注 token 做均值池化：
+有了配对样本，就能把"幻觉"在表征空间里量出来。对每对原始 $(\boldsymbol{I}_i, \mathcal{C}_i)$ 及其 $B$ 个反事实变体，从冻结的 LVLM 提取中间层隐表征，对标注 token 做均值池化得 $\boldsymbol{h}_\ell^{(i)} = \frac{1}{N}\sum_{k=1}^{N} \boldsymbol{h}_{\ell,k}^{(i)}$ 和 $\tilde{\boldsymbol{h}}_\ell^{(i)} = \frac{1}{B}\sum_{j=1}^{B} \tilde{\boldsymbol{h}}_\ell^{(i,j)}$，两者之差就是样本 $i$ 在第 $\ell$ 层的幻觉方向向量 $\boldsymbol{\delta}_\ell^{(i)} = \tilde{\boldsymbol{h}}_\ell^{(i)} - \boldsymbol{h}_\ell^{(i)}$。把所有样本的幻觉方向堆成差异矩阵 $\boldsymbol{\Delta}_\ell \in \mathbb{R}^{M \times d}$ 做 SVD $\boldsymbol{\Delta}_\ell = \boldsymbol{U}_\ell \boldsymbol{\Sigma}_\ell \boldsymbol{V}_\ell^\top$，保留前 $r$ 个右奇异向量 $\boldsymbol{V}_{\ell,r} = [\boldsymbol{v}_{\ell,1}, \dots, \boldsymbol{v}_{\ell,r}]$ 作为该层的幻觉基向量库(Hallucination Basis Bank)——它们张成的子空间就捕获了视觉诱导幻觉的主方向。
 
-$$\boldsymbol{h}_\ell^{(i)} = \frac{1}{N}\sum_{k=1}^{N} \boldsymbol{h}_{\ell,k}^{(i)}, \quad \tilde{\boldsymbol{h}}_\ell^{(i)} = \frac{1}{B}\sum_{j=1}^{B} \tilde{\boldsymbol{h}}_\ell^{(i,j)}$$
+**3. 测试时幻觉消除：把隐状态投影到幻觉子空间的正交补**
 
-计算样本 $i$ 在第 $\ell$ 层的**幻觉方向向量**：
+定位到方向后，干预就只是一步线性投影。推理时在每个自回归解码步 $k$ 和选定层 $\ell$，把隐状态沿幻觉基向量的分量减掉、等价于乘上一个投影矩阵：
 
-$$\boldsymbol{\delta}_\ell^{(i)} = \tilde{\boldsymbol{h}}_\ell^{(i)} - \boldsymbol{h}_\ell^{(i)}$$
+$$\boldsymbol{h}_{\ell,k}^{\text{clean}} = \boldsymbol{h}_{\ell,k}^{\text{test}} - \sum_{j=1}^{r} \langle \boldsymbol{h}_{\ell,k}^{\text{test}}, \boldsymbol{v}_{\ell,j} \rangle \boldsymbol{v}_{\ell,j} = \boldsymbol{P}_\ell \boldsymbol{h}_{\ell,k}^{\text{test}}, \quad \boldsymbol{P}_\ell = \boldsymbol{I} - \boldsymbol{V}_{\ell,r} \boldsymbol{V}_{\ell,r}^\top$$
 
-将所有样本的幻觉方向堆叠为差异矩阵 $\boldsymbol{\Delta}_\ell \in \mathbb{R}^{M \times d}$，执行奇异值分解：
-
-$$\boldsymbol{\Delta}_\ell = \boldsymbol{U}_\ell \boldsymbol{\Sigma}_\ell \boldsymbol{V}_\ell^\top$$
-
-保留前 $r$ 个右奇异向量 $\boldsymbol{V}_{\ell,r} = [\boldsymbol{v}_{\ell,1}, \dots, \boldsymbol{v}_{\ell,r}]$ 作为该层的**幻觉基向量库（Hallucination Basis Bank）**。这些向量张成的子空间捕获了视觉诱导幻觉的主方向。
-
-### 关键设计三：测试时幻觉消除
-
-推理时，在每个自回归解码步 $k$ 和选定层 $\ell$，将隐状态投影到幻觉子空间的正交补空间：
-
-$$\boldsymbol{h}_{\ell,k}^{\text{clean}} = \boldsymbol{h}_{\ell,k}^{\text{test}} - \sum_{j=1}^{r} \langle \boldsymbol{h}_{\ell,k}^{\text{test}}, \boldsymbol{v}_{\ell,j} \rangle \boldsymbol{v}_{\ell,j}$$
-
-等价地用投影矩阵表达：
-
-$$\boldsymbol{h}_{\ell,k}^{\text{clean}} = \boldsymbol{P}_\ell \boldsymbol{h}_{\ell,k}^{\text{test}}, \quad \boldsymbol{P}_\ell = \boldsymbol{I} - \boldsymbol{V}_{\ell,r} \boldsymbol{V}_{\ell,r}^\top$$
-
-此操作在每个 token 解码前执行，移除与幻觉方向对齐的分量，同时保留核心语义信息。
+这个投影在每个 token 解码前执行，移除与幻觉方向对齐的分量、保留核心语义。因为只是一次矩阵乘法，所以零额外推理开销，吞吐量和 greedy decoding 完全一样。
 
 ### 实现细节
 

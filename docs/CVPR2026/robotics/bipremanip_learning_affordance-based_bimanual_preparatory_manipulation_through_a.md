@@ -40,31 +40,24 @@ tags:
 ## 方法详解
 
 ### 整体框架
-输入：物体点云 + 语言指令 → Goal Affordance Network 预测预期可供性 → Pre-Affordance Network 推理辅助手预备动作 → Anticipatory Object Pose Predictor 估计目标物体位姿 → Reorient Actor 执行重定向 → 再次调用 Goal Affordance Network 执行最终目标操作。
+BiPreManip 针对的是「一只手要先改变物体状态，另一只手才能操作」的协作预备操作——比如先把瓶子翻过来让瓶盖朝向主手，主手才能拧。它的关键在于反过来想：先用 Goal Affordance Network 预想主手最终要在哪、怎么交互，再用 Pre-Affordance Network 推出辅助手该做什么预备动作，接着 Anticipatory Object Pose Predictor 估计理想物体位姿、Reorient Actor 执行重定向，最后再调一次 Goal Affordance Network 完成主手的目标操作。输入只需物体点云加语言指令。
 
 ### 关键设计
 
-1. **Goal Affordance Network（目标可供性网络）**:
+**1. Goal Affordance Network：预想「预备完成后」才可行的目标交互**
 
-    - 用 PointNet++ 编码点云特征 $f_p$，CLIP 编码语言指令为 $f_l$
-    - MLP 融合后预测每点可供性分数 $s$（该点作为接触区域的可能性）
-    - cVAE 预测目标夹爪朝向 $d_{\text{goal}} \in SO(3)$，组合接触点得到 6D 动作 $a_{\text{goal}} \in SE(3)$
-    - **关键**: 这里预测的是"预期"而非"反应式"的——预想的是预备操作完成后才可行的交互
-    - **设计动机**: 可供性表示天然适合编码"哪里可以交互、如何交互"，比直接学习动作序列更具泛化性
+如果像反应式策略那样只看当前状态，就会在物体还没摆好时给出不可行的抓取。这个网络先用 PointNet++ 编码点云特征 $f_p$、CLIP 编码语言指令为 $f_l$，MLP 融合后对每个点预测可供性分数 $s$（该点作为接触区域的可能性），再用 cVAE 预测目标夹爪朝向 $d_{\text{goal}} \in SO(3)$，与接触点组合成 6D 目标动作 $a_{\text{goal}} \in SE(3)$。关键是它预测的是「预期」而非「反应」——预想的是预备操作完成之后才可行的交互，用可供性而非直接动作序列来表达「哪里能抓、怎么抓」，泛化性更好。
 
-2. **Pre-Affordance Network（预备可供性网络）**:
+**2. Pre-Affordance Network：让辅助手的预备动作对齐主手的未来意图**
 
-    - 条件化于预期目标可供性，推理辅助手应如何行动
-    - 融合 $(f_p, f_l, f_{p_{\text{goal}}}, f_{d_{\text{goal}}})$ 预测预备可供性图
-    - cVAE 采样辅助夹爪朝向 $d_{\text{pre}}$，得到预备动作 $a_{\text{pre}} \in SE(3)$
-    - **设计动机**: 辅助手的预备行为必须与主手的未来交互空间对齐，不能"盲目"抓取
+辅助手不能盲目抓取，它的每个动作都得服务于主手的最终目标。这个网络条件化于上一步的预期目标可供性，融合 $(f_p, f_l, f_{p_{\text{goal}}}, f_{d_{\text{goal}}})$ 预测预备可供性图，再由 cVAE 采样辅助夹爪朝向 $d_{\text{pre}}$ 得到预备动作 $a_{\text{pre}} \in SE(3)$。因为输入里带了主手目标的位置和朝向特征，辅助手的预备行为天然与主手未来的交互空间对齐，不会去占用或干扰那块区域。
 
-3. **Anticipatory Object Pose Predictor + Reorient Actor**:
+**3. Anticipatory Object Pose Predictor + Reorient Actor：把「调整物体朝向」显式建出来**
 
-    - 估计使主手无碰撞接触目标区域的理想物体位姿 $T^{\text{obj}} = (t^{\text{obj}}, r^{\text{obj}}) \in SE(3)$
-    - 变换点云: $O' = T^{\text{obj}} \cdot O$
-    - Reorient Actor 接收变换后点云和当前抓取场景，预测 6D 重定向运动
-    - **设计动机**: 很多预备任务需要调整物体朝向（如旋转瓶子使盖朝向主手），显式建模这一步比端到端更可控
+很多预备任务的本质是把物体转到合适朝向（如旋转瓶子使盖朝向主手），端到端学这一步既不可控也难成功。这里先估计让主手能无碰撞接触目标区域的理想物体位姿 $T^{\text{obj}} = (t^{\text{obj}}, r^{\text{obj}}) \in SE(3)$，按它变换点云 $O' = T^{\text{obj}} \cdot O$，再由 Reorient Actor 接收变换后点云和当前抓取场景预测 6D 重定向运动。把目标位姿单独预测出来，重定向就有了明确的落点，比端到端直接出动作更可控。
+
+### 一个完整示例：把瓶子翻给主手拧盖
+以「拧一个瓶盖朝下放着的瓶子」为例走一遍：Goal Affordance Network 先预想主手最终要在瓶盖处、以某个朝向去拧——但当前瓶盖朝下，这个目标暂时不可行；Pre-Affordance Network 据此判断辅助手该去抓瓶身做翻转，而不是去碰瓶盖；Pose Predictor 估计出「瓶盖朝向主手」的理想物体位姿，Reorient Actor 让辅助手把瓶子翻过来；物体到位后再调一次 Goal Affordance Network，主手就能按最初预想的姿态完成拧盖。整条链路里辅助手的每个动作都倒推自主手的最终目标。
 
 ### 损失函数 / 训练策略
 - 可供性分数: $\ell_1$ loss 监督，正负样本均来自示范

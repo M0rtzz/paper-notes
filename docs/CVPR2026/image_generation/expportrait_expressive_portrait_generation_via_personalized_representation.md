@@ -41,40 +41,21 @@ tags:
 
 ### 整体框架
 
-三阶段流水线：(1) 基于 SMPL-X 构建个性化高细节头部表征 → (2) 身份自适应表情迁移模块实现跨身份表情传递 → (3) 以个性化法线图为条件信号训练 DiT 视频生成器。
+人像视频生成卡在精细表情控制和身份一致性的矛盾上，而矛盾的根子是中间控制信号信息密度不够。ExpPortrait 的思路是与其改进生成器、不如先把中间表征做强：它在 SMPL-X 粗模型上叠加个性化的高细节头部表征，再用一个身份自适应模块把驱动表情迁移到目标身份，最后以个性化法线图为条件训练 DiT 视频生成器。三步分别解决"表征不够细""跨身份表情不兼容""如何渲染成视频"。
 
 ### 关键设计
 
-1. **个性化头部表征**：在 SMPL-X 粗基础上叠加两个互补的偏移场：
+**1. 个性化头部表征：在 SMPL-X 上叠静态身份偏移 + 动态表情偏移**
 
-    - **静态全局偏移 $\Delta_g^s \in \mathbb{R}^{N_s \times 3}$**：捕捉表情无关的个性化几何细节（如脸型、发际线、肩部轮廓），约束在非面部区域
-    - **动态逐帧偏移 $\Delta_f^s(i) \in \mathbb{R}^{N_s \times 3}$**：捕捉每帧的表情相关动态（如皱纹、微表情），约束在面部区域
+SMPL-X/FLAME 是低秩线性近似，预定义 blendshape 建模不了皱纹这类高频非线性动态，身份和表情还会严重混淆。作者在粗网格上叠两个互补的偏移场：静态全局偏移 $\Delta_g^s \in \mathbb{R}^{N_s \times 3}$ 只管表情无关的个性化几何（脸型、发际线、肩部轮廓），约束在非面部区域；动态逐帧偏移 $\Delta_f^s(i) \in \mathbb{R}^{N_s \times 3}$ 只管每帧表情相关的动态（皱纹、微表情），约束在面部区域。两者叠到上采样后的高分辨率网格得到 $\widetilde{V}^s(i) = V^s + \Delta_g^s + \Delta_f^s(i)$，其中 $V^s = \mathcal{B}(V) \in \mathbb{R}^{N_s \times 3}$ 是经重心插值上采样的网格（$N_s \gg N$）。靠空间约束（面部 vs 非面部）+ 时间正则（最小幅值惩罚 + Laplacian 平滑）让两路偏移自然解耦。优化目标包含稀疏关键点损失 $\mathcal{L}_{\text{ldmk}} = \|\Pi(L_{\text{3D}}(i), \mathbf{c}) - L_{\text{2D}}(i)\|_2^2$、稠密法线/深度监督 $\mathcal{L}_{\text{normal}} = \|\hat{N}_i - N_i\|_1$、$\mathcal{L}_{\text{depth}} = \|\hat{D}_i - D_i\|_1$，以及表情系数正则、位移幅值惩罚和 Laplacian 平滑。
 
-   详细规范网格为：$\widetilde{V}^s(i) = V^s + \Delta_g^s + \Delta_f^s(i)$
+**2. 身份自适应表情迁移：用条件化 MLP 让表情适配目标解剖结构**
 
-   其中 $V^s = \mathcal{B}(V) \in \mathbb{R}^{N_s \times 3}$ 是经重心插值上采样的高分辨率网格（$N_s \gg N$）。通过空间约束（面部 vs 非面部）和时间正则化（最小幅值惩罚 + Laplacian 平滑）实现解耦。
+跨身份重演时直接搬偏移会出问题——儿童不该继承老人的深皱纹模式。作者先用驱动信号编码器把表情系数 $\boldsymbol{\psi} \in \mathbb{R}^{F \times 100}$ 和下颌姿态 $\boldsymbol{\omega} \in \mathbb{R}^{F \times 3}$ 编成每帧条件码 $Q = \mathcal{E}(\boldsymbol{\psi}, \boldsymbol{\omega}) \in \mathbb{R}^{F \times D}$，再用一个顶点级 MLP 以目标身份的中性网格 $V_{\text{neutral}} = V^s + \Delta_g^s$ 和驱动码 $q_i$ 为条件预测个性化动态偏移：$\Delta_f^s(i) = \mathcal{G}(V_{\text{neutral}}, q_i) \in \mathbb{R}^{N_s \times 3}$。因为预测时显式吃进了目标身份的中性网格，迁移表情的同时就自动适配了目标的解剖结构，而非"一刀切"地照搬源身份的形变。
 
-   **优化目标**包括：
-    - 稀疏关键点损失：$\mathcal{L}_{\text{ldmk}} = \|\Pi(L_{\text{3D}}(i), \mathbf{c}) - L_{\text{2D}}(i)\|_2^2$
-    - 稠密法线/深度监督：$\mathcal{L}_{\text{normal}} = \|\hat{N}_i - N_i\|_1, \mathcal{L}_{\text{depth}} = \|\hat{D}_i - D_i\|_1$
-    - 表情系数正则化 + 位移幅值惩罚 + Laplacian 平滑
+**3. DiT 视频生成器：以个性化法线图为条件微调预训练视频模型**
 
-2. **身份自适应表情迁移模块**：解决跨身份表情偏移不兼容问题（如儿童不应继承老人的深皱纹模式）：
-
-    - **驱动信号编码器**：将表情系数 $\boldsymbol{\psi} \in \mathbb{R}^{F \times 100}$ 和下颌姿态 $\boldsymbol{\omega} \in \mathbb{R}^{F \times 3}$ 编码为每帧条件码 $Q = \mathcal{E}(\boldsymbol{\psi}, \boldsymbol{\omega}) \in \mathbb{R}^{F \times D}$
-    - **顶点级 MLP**：以目标身份的中性网格 $V_{\text{neutral}} = V^s + \Delta_g^s$ 和驱动码 $q_i$ 为条件，预测个性化动态偏移：
-
-    $\Delta_f^s(i) = \mathcal{G}(V_{\text{neutral}}, q_i) \in \mathbb{R}^{N_s \times 3}$
-
-   条件化设计确保在迁移表情的同时适配目标身份的解剖结构。
-
-3. **DiT 视频生成器**：微调预训练视频生成模型（基于 LDM 框架的 DiT）：
-
-    - **控制信号**：参考帧法线图 $N^R$ + 驱动序列法线图 $N_{1:F}^D$
-    - 3D 卷积 pose encoder 提取时空特征，2D 卷积 reference encoder 提取外观线索
-    - 标准噪声预测损失：
-
-    $\mathcal{L}_{\text{ldm}} = \mathbb{E}_{z_0, \epsilon, t}[\|\epsilon - \epsilon_\theta(z_t, t, c)\|_2^2]$
+有了高保真控制信号，最后一步是把它渲染成视频。作者微调基于 LDM 的 DiT，控制信号是参考帧法线图 $N^R$ 加驱动序列法线图 $N_{1:F}^D$：3D 卷积 pose encoder 提时空特征，2D 卷积 reference encoder 提外观线索，训练用标准噪声预测损失 $\mathcal{L}_{\text{ldm}} = \mathbb{E}_{z_0, \epsilon, t}[\|\epsilon - \epsilon_\theta(z_t, t, c)\|_2^2]$。因为条件信号本身已经携带了个性化的几何细节，生成器不必再去"猜"皱纹和身份，身份泄露和表情僵硬的问题自然缓解。
 
 ### 损失函数 / 训练策略
 

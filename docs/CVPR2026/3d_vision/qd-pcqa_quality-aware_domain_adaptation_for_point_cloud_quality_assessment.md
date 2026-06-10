@@ -40,52 +40,35 @@ tags:
 
 ## 方法详解
 
-### 3.1 数据预处理
+### 整体框架
 
-将 3D 点云投影到立方体六个面生成多视图图像，拼接后与自然图像统一 resize 为 $224 \times 224$，共享 ResNet-50 特征提取器。
+QD-PCQA 要解决的是无参考点云质量评估（NR-PCQA）标注稀缺、泛化差的问题：思路是把图像域已标注的质量先验，通过无监督域适应迁移到点云域，但迁移时要时刻保持"质量感知"。具体流程：先把 3D 点云投影到立方体六个面生成多视图图像，与自然图像统一 resize 到 $224 \times 224$、共享一个 ResNet-50 提特征；训练时一边用 Quality-guided Feature Augmentation（QFA）按质量分数做增强、一边用 Rank-weighted Conditional Alignment（RCA）做质量条件对齐，让源域（图像）的质量知识在质量级别一致的前提下迁到目标域（点云）。
 
-### 3.2 Quality-guided Feature Augmentation (QFA)
+### 关键设计
 
-QFA 由三个模块组成：
+**1. Quality-guided Feature Augmentation：增强时不打乱质量信息**
 
-**Quality-guided Style Mixup (QSM)**：不同于随机 Style Mixup，使用高斯核按质量分数匹配候选样本对：
+现有方法直接套图像分类的 Style Mixup，随机混合、只在最后一层、还只增强源域，结果把质量不同的样本混到一起、又扩大了域差距。QFA 用三件事修正：其一，Quality-guided Style Mixup（QSM）不再随机配对，而是用高斯核按质量分数找相近样本
 
-$$P((x_s^{i^*}, y_s^{i^*}) | (x_s^i, y_s^i)) \propto \exp\left(-\frac{(y_s^i - y_s^{i^*})^2}{2\tau^2}\right)$$
+$$P((x_s^{i^*}, y_s^{i^*}) \mid (x_s^i, y_s^i)) \propto \exp\!\Big(-\frac{(y_s^i - y_s^{i^*})^2}{2\tau^2}\Big)$$
 
-配对后，混合特征的风格统计量（均值/方差）和标签：
+再混合风格统计量和标签 $f_s^{\text{mix}} = \sigma(f)^{\text{mix}} \frac{f_s^i - u(f_s^i)}{\sigma(f_s^i)} + u(f)^{\text{mix}}$，保证增强后质量一致。其二，Multi-Layer Extension 按质量分数分层施加 QSM——Stage 1 配高质量样本（浅层对低级失真更敏感）、Stage 2-3 配中质量、Stage 4 配低质量（深层捕获高级语义），利用层级互补。其三，Dual-Domain Augmentation 对源域做 QSM 多层增强、对目标域在 Stage 4 后用普通 SM，缓解只增强源域带来的不平衡，顺带加大判别器难度、逼出更鲁棒的域不变特征。
 
-$$f_s^{\text{mix}} = \sigma(f)^{\text{mix}} \frac{f_s^i - u(f_s^i)}{\sigma(f_s^i)} + u(f)^{\text{mix}}$$
+**2. Rank-weighted Conditional Alignment：对齐相同质量级别，并重点纠正排序错误**
 
-确保增强后的特征保持质量一致性。
+普通全局对齐会把语义相似但质量不同的样本错误拉到一起。RCA 建在条件算子差异（COD）之上，但加了一个排序权重矩阵
 
-**Multi-Layer Extension 模块**：根据质量分数分层应用 QSM：
-- Stage 1 → 高质量样本（浅层对低级失真更敏感）
-- Stage 2-3 → 中质量样本
-- Stage 4 → 低质量样本（深层捕获高级语义）
+$$\tilde{\mathbf{K}}_X^{st}(i,j) = k(f_s^i, f_t^j) \cdot (1 + \mathbf{W}^{st}(i,j)), \qquad \mathbf{W}^{st}(i,j) = \max\big(0, -(\hat{y}_s^i - \hat{y}_t^j) \cdot \text{sign}(y_s^i - y_t^j)\big)$$
 
-**Dual-Domain Augmentation**：对源域使用 QSM multi-layer 增强，对目标域在 Stage 4 后使用普通 SM，缓解增强不平衡问题，增加判别器难度，迫使特征提取器学习更鲁棒的域不变特征。
+一方面用源域真实标签和目标域伪标签作条件，只对齐相同质量级别的特征；另一方面对"预测排序与真实排序不一致"的样本对加大权重，把域迁移里的排序偏差重点掰正。
 
-### 3.3 Rank-weighted Conditional Alignment (RCA)
+### 损失函数 / 训练策略
 
-构建于条件算子差异 (COD) 之上，引入排序权重矩阵：
-
-$$\tilde{\mathbf{K}}_X^{st}(i,j) = k(f_s^i, f_t^j) \cdot (1 + \mathbf{W}^{st}(i,j))$$
-
-$$\mathbf{W}^{st}(i,j) = \max\big(0, -(\hat{y}_s^i - \hat{y}_t^j) \cdot \text{sign}(y_s^i - y_t^j)\big)$$
-
-- **质量条件对齐**：使用源域真实标签和目标域伪标签作为条件，对齐相同质量级别的特征
-- **排序加权**：对预测排序与真实排序不一致的样本对赋予更高权重，重点纠正排序偏差
-
-### 3.4 两阶段训练
-
-1. **阶段一**（前 5000 次迭代）：仅使用 DANN 进行初始特征对齐，不使用伪标签
-2. **阶段二**：引入 RCA，利用已稳定的模型生成可靠伪标签进行精细对齐
-
-### 总损失
+训练分两阶段，避免早期不可靠的伪标签污染 RCA：阶段一（前 5000 次迭代）只用 DANN 做初始特征对齐、不引入伪标签；阶段二待模型稳定后再加入 RCA，用此时较可靠的伪标签做精细对齐。总损失把质量预测、域判别、排序三项合起来
 
 $$\mathcal{L}_{\text{all}}^{\text{mix}} = \lambda_1 \mathcal{L}_P(\hat{y}_s^{\text{mix}}, y_s^{\text{mix}}) + \lambda_2 \mathcal{L}_D(f_s^{\text{mix}}, f_t^{\text{mix}}) + \lambda_3 \mathcal{L}_R(y_s, y_t, f_s, f_t)$$
 
-以 $p > 0.5$ 概率应用混合版本，否则用原始版本。
+以 $p > 0.5$ 的概率应用混合版本，否则用原始版本。
 
 ## 实验关键数据
 

@@ -32,13 +32,25 @@ tags:
 ## 方法详解
 
 ### 整体框架
-MoKus基于LLM文本编码器 + DiT生成骨干（Qwen-Image），分两阶段工作：(1) Visual Concept Learning 阶段通过LoRA微调在MMDIT的self-attention层学习概念的视觉表征（锚表征）；(2) Textual Knowledge Updating 阶段通过知识编辑技术将每条知识映射到锚表征所在的文本空间，实现知识→概念的绑定。
+MoKus 要做的是"知识感知的概念定制"——既让模型记住概念长什么样，又让它理解概念背后的知识。它建在 LLM 文本编码器 + DiT 生成骨干（Qwen-Image）之上，分两阶段：第一阶段 Visual Concept Learning 用 LoRA 微调 MMDIT 的 self-attention 层，把一个稀有 token 学成概念的视觉表征（锚表征）；第二阶段 Textual Knowledge Updating 用知识编辑技术，把一条条自然语言知识映射到锚表征所在的文本空间，完成"知识→概念"的绑定。视觉只学一次，之后每加一条知识只需秒级更新。
 
 ### 关键设计
-1. **跨模态知识迁移现象**：这是MoKus的核心洞察。在使用LLM作为文本编码器的文生图模型中，如果用知识编辑技术修改LLM内部的知识（如将"贝多芬最喜欢的乐器"的答案从"钢琴"改为"吉他"），生成图像会自然反映更新后的答案（生成吉他而非钢琴）。即：文本模态中的知识修改会**自然迁移**到视觉生成模态。这一现象区别于GapEval和UniSandbox等工作——它们通过直接微调LLM编码器未能观察到显著迁移效果，而MoKus使用的是更精细的知识编辑方法(UltraEdit/AlphaEdit)。
-2. **Visual Concept Learning（锚表征学习）**：用稀有token（如`<sks> dog`）作为文本输入，通过LoRA微调DiT的self-attention层来学习目标概念的视觉外观。训练目标是标准的Rectified Flow velocity matching损失：ℒ(θ_v) = E[‖v_θ(z_t, t, h) - (z₀ - z₁)‖²]。微调后的稀有token成为"锚表征"——不直接用于生成，而是作为连接概念与知识的中介。
-3. **Textual Knowledge Updating（知识更新）**：将每条知识k_i转化为问题q_i，将锚表征y作为期望答案。将q_i输入LLM编码器获取隐状态h_i和梯度∇θ_t y_i，计算更新方向v_i = -η·‖h_i‖²·∇y_i。然后通过正则化最小二乘求闭式解：Δθ_t* = (HᵀH + I)⁻¹HᵀV，将参数偏移加到LLM编码器的MLP层（具体是第18-26层的Gate Projection和Up Projection，共16个参数矩阵）。每条知识更新约7秒，5条知识总共约360秒。
-4. **KnowCusBench基准**：首个知识感知概念定制benchmark，包含35个概念、每个概念5条知识（来自6个视角：个人关系/物理属性/功能/价值/来源/情感）、199个生成提示（4个视角：背景变换/插入新物体/风格变换/属性修改），总计5,975张评估图像。
+
+**1. 跨模态知识迁移现象：文本里改的知识会自己跑到图像里**
+
+这是 MoKus 立论的核心观察。在用 LLM 当文本编码器的文生图模型里，如果用知识编辑改掉 LLM 内部的某条知识（比如把"贝多芬最喜欢的乐器"从"钢琴"改成"吉他"），生成的图会自然跟着变（画出吉他而非钢琴）——即文本模态里的知识修改会**自然迁移**到视觉生成。值得注意的是 GapEval、UniSandbox 用直接微调 LLM 编码器并没看到明显迁移，而 MoKus 用的是更精细的知识编辑方法（UltraEdit/AlphaEdit），迁移才显现出来。整套方法正是建在这个现象上。
+
+**2. Visual Concept Learning：把稀有 token 训成"锚表征"**
+
+直接拿稀有 token（如 `<sks>`）生成不稳定，因为它在预训练里几乎没出现过、缺语义基础。这一步用 `<sks> dog` 作文本输入，通过 LoRA 微调 DiT 的 self-attention 层学概念的视觉外观，训练目标是标准的 Rectified Flow velocity matching 损失 $\mathcal{L}(\theta_v) = \mathbb{E}[\|v_\theta(z_t, t, h) - (z_0 - z_1)\|^2]$。微调后的稀有 token 不直接拿去生成，而是当"锚表征"——一个连接概念和知识的中介。
+
+**3. Textual Knowledge Updating：闭式解把知识写进编码器**
+
+有了锚表征，就能把每条知识绑上去。做法是把知识 $k_i$ 写成问题 $q_i$、把锚表征 $y$ 当成期望答案：将 $q_i$ 输入 LLM 编码器取隐状态 $h_i$ 和梯度 $\nabla_{\theta_t} y_i$，算更新方向 $v_i = -\eta \cdot \|h_i\|^2 \cdot \nabla y_i$，再用正则化最小二乘求闭式解 $\Delta\theta_t^* = (H^\top H + I)^{-1} H^\top V$，把参数偏移加到 LLM 编码器第 18–26 层的 Gate Projection 和 Up Projection（共 16 个参数矩阵）上。因为是闭式解、不走反向传播，每条知识更新只要约 7 秒，5 条知识总共约 360 秒。
+
+**4. KnowCusBench 基准：给这个新任务配一把尺子**
+
+新任务没有现成评测，作者顺手建了首个知识感知概念定制 benchmark：35 个概念、每个概念 5 条知识（来自个人关系/物理属性/功能/价值/来源/情感 6 个视角）、199 个生成提示（背景变换/插入新物体/风格变换/属性修改 4 个视角），合计 5,975 张评估图像，6×4 的正交设计保证了覆盖度。
 
 ### 损失函数 / 训练策略
 - Visual Concept Learning：标准Rectified Flow损失，lr=2e-4，AdamW优化器，仅训练LoRA参数

@@ -44,43 +44,25 @@ tags:
 
 ## 方法详解
 
-### 整体框架：R-MSD
+### 整体框架
 
-R-MSD（Reliable Multi-Sample Distillation）包含三个核心环节：(1) 多样本 teacher pool 构建；(2) 任务自适应 teacher-student 匹配；(3) 两阶段训练（SFT warmup → RL 对抗蒸馏）。
+R-MSD（Reliable Multi-Sample Distillation）针对的是黑盒蒸馏里「单次 teacher 响应不可靠」这件事：它不再拿 teacher 一次输出当金标准，而是先对每个输入采多份 teacher 响应建池，再按任务类型自适应地配对 teacher 和 student，最后走「SFT warmup → RL 对抗蒸馏」两阶段，把 teacher pool 里的质量差异真正用起来。
 
-### 环节一：多样本 Teacher Pool
+### 关键设计
 
-- 对每个训练输入（视频 + 问题），从 teacher API 采样 K 个响应（K=5~10）
-- 对封闭式任务，用 rule-based verifier（IoU/exact match）自动标注每个响应的质量分数
-- 对开放式任务，不做质量排名（避免引入脆弱的 LLM-as-judge 偏差）
-- 过滤格式违规响应，保留合规子集
+**1. 多样本 Teacher Pool：用多份响应抵消单样本噪声**
 
-### 环节二：任务自适应匹配
+单次采样的 teacher 响应存在跨问题方差（σ=0.22）、采样内方差（σ=0.07~0.15）和 1%~10% 的格式违规，直接当 ground truth 会把噪声学进 student。R-MSD 对每个训练输入（视频 + 问题）从 teacher API 采 $K=5\sim10$ 份响应建池：封闭式任务（MCQ/时序/bbox）用 rule-based verifier（IoU / exact match）给每份打质量分，开放式任务则不强行排名（避免引入脆弱的 LLM-as-judge 偏差），并统一过滤掉格式违规的响应只留合规子集。
 
-根据任务类型采用不同的 teacher-student 配对策略：
+**2. 任务自适应匹配：有客观度量就偏向质量，没有就均匀采**
 
-- **封闭式任务——质量偏向匹配**：优先选择 teacher pool 中质量最高的响应作为 SFT 目标和 RL positive pair，质量较低的作为 RL negative pair。具体用 IoU（bbox 任务）或 exact match（MCQ/时序任务）衡量质量。
-- **开放式任务——均匀匹配**：由于缺乏可靠质量度量，从 pool 中均匀采样配对，避免基于词汇相似度等脆弱指标引入系统性偏差。
+封闭式和开放式任务的「什么是好响应」根本不是一回事，统一匹配策略必然吃亏。封闭式任务用质量偏向匹配——pool 里质量最高的响应作 SFT 目标和 RL 的 positive pair、质量低的作 negative pair，质量由 IoU（bbox）或 exact match（MCQ/时序）衡量；开放式任务因缺乏可靠度量，改用均匀匹配，从 pool 里均匀采样配对，避免靠词汇相似度这类脆弱指标引入系统性偏差。
 
-### 环节三：两阶段训练
+**3. 两阶段训练：SFT 打底，RL 对抗蒸馏挖深**
 
-**Stage 1: SFT Warmup**
+只做 SFT 用不上 pool 的多样性，只做 RL 又缺好的初始化。Stage 1 先从 pool 选最佳响应（封闭式按质量分、开放式随机选）做标准交叉熵 SFT，让 student 学到基本能力和输出格式；Stage 2 让 student 自回归 rollout，与 teacher pool 配对做对抗蒸馏——封闭式拿 student vs teacher best 作正向、vs teacher worst 作负向，开放式与随机 teacher 响应作均匀对比。核心是一个在线 Critic-as-Discriminator：训一个轻量 critic 区分 student 与 teacher 响应，它的判别概率提供的是**分布级**（全序列质量判断）而非逐 token KL 的监督，恰好适合拿不到 logits 的黑盒场景；封闭式任务再叠一个 rule-based reward（exact match）与 critic reward 加权，最后用 PPO 风格的策略梯度更新 student。
 
-- 从 teacher pool 中为每个输入选择最佳响应（封闭式用质量分数，开放式用随机选择）
-- 标准交叉熵 SFT，使 student 学习 teacher 的基本能力和输出格式
-- 目的：为 Stage 2 的 RL 训练提供合理的初始化策略
-
-**Stage 2: RL + 对抗蒸馏**
-
-- **Student rollout**：给定输入，student 自回归采样生成响应
-- **对抗配对**：将 student rollout 与 teacher pool 中的响应配对
-    - 封闭式任务：student rollout vs teacher best → 正向对比；student rollout vs teacher worst → 负向对比
-    - 开放式任务：student rollout vs 随机 teacher 响应 → 均匀对比
-- **在线 Critic-as-Discriminator**：训练一个轻量 critic 网络区分 student 和 teacher 响应，其判别概率作为分布级监督信号——不是逐 token 的 KL 散度，而是全序列级别的质量判断
-- **Rule Reward**：对封闭式任务额外加入 rule-based reward（exact match score），与 critic reward 加权组合
-- **策略优化**：采用 PPO 风格的策略梯度更新 student 参数
-
-### 损失函数
+### 损失函数 / 训练策略
 
 $$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{policy}} + \lambda_{\text{critic}} \mathcal{L}_{\text{critic}} + \lambda_{\text{rule}} \mathcal{L}_{\text{rule}}$$
 

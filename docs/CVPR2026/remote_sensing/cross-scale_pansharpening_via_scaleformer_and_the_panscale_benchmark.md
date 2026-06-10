@@ -40,24 +40,27 @@ tags:
 ## 方法详解
 
 ### 整体框架
-ScaleFormer包含三个核心组件：
-1. **Scale-Aware Patchify (SAP)**：分桶窗口采样策略
-2. **Single Transformer模块**：Spatial Transformer（空间域建模）+ Sequence Transformer（序列/尺度域建模）
-3. **Cross Transformer模块**：Spatial-Cross + Sequence-Cross Transformer实现跨模态特征融合
-
-输入PAN图像 $\mathbf{P} \in \mathbb{R}^{H \times W \times 1}$ 和上采样后MS图像 $\mathbf{L} \in \mathbb{R}^{H \times W \times C}$，SAP将其转换为5D张量 $\mathbf{P}_{5d} \in \mathbb{R}^{B \times T \times C \times h \times w}$，其中 $T$ 为序列长度。
+ScaleFormer 要解决的是「训练在 200–256px 小图、推理却要在 800–2000px 大图上跑」的跨尺度泛化问题。它的核心思路是把分辨率变化重新理解成序列长度变化：固定每个 patch 的空间大小，图像变大时只是 token 序列变长。输入一张 PAN 图 $\mathbf{P} \in \mathbb{R}^{H \times W \times 1}$ 和上采样后的 MS 图 $\mathbf{L} \in \mathbb{R}^{H \times W \times C}$，先由 Scale-Aware Patchify 切成 5D 张量 $\mathbf{P}_{5d} \in \mathbb{R}^{B \times T \times C \times h \times w}$（$T$ 是序列长度），再依次过 Single Transformer（空间域与序列域分别建模）和 Cross Transformer（PAN-MS 跨模态融合），最后回归出高分辨率多光谱图。
 
 ### 关键设计
-1. **Scale-Aware Patchify (SAP)**：训练时随机采样分桶索引 $t$ 确定窗口大小 $w(t)$，用Patch-to-Sequence Tokenizer将输入划分为不同长度的token序列，暴露模型于多种有效序列长度。推理时使用固定窗口大小，高分辨率仅通过延长序列处理。核心效果：防止均值和方差漂移，使每个token的统计量稳定。
 
-2. **解耦空间-序列建模**：Spatial Transformer在每个patch内建模空间关系：
+**1. Scale-Aware Patchify：把分辨率泛化变成序列长度泛化**
+
+直接拿小图训练、大图推理会撞上尺度诱导的分布偏移——亮度统计量随分辨率漂移，模型没见过的尺度就崩。SAP 的做法是训练时随机采样分桶索引 $t$ 来决定窗口大小 $w(t)$，用 Patch-to-Sequence Tokenizer 把输入切成不同长度的 token 序列，让模型在训练阶段就见过多种有效序列长度；推理时固定窗口大小，高分辨率仅靠延长序列来承接。因为每个 token 的空间尺寸始终不变，它的均值和方差就稳定下来，不会随整图变大而漂移，这正是跨尺度外推能站住的前提。
+
+**2. 解耦空间-序列建模：让尺度建模独立于空间建模**
+
+如果空间关系和尺度变化耦在同一套注意力里，序列一长就难以泛化。这里把两者拆开：Spatial Transformer 只在每个 patch 内部建模空间关系，
 $$\mathbf{f}_{i,1} = \mathbf{f}_i + SA_{spa}(LN(\mathbf{f}_i))$$
-Sequence Transformer在序列维度建模跨patch相关性：
+Sequence Transformer 则在序列维度建模跨 patch 的相关性，
 $$\mathbf{f}_{i+1,1} = \mathbf{f}_{i+1} + SA_{seq}(LN(\mathbf{f}_{i+1}))$$
-其中 $SA_{seq}$ 操作时将batch和空间维度合并，并注入**RoPE**编码连续相对位置信息以增强尺度外推能力。
+$SA_{seq}$ 计算时把 batch 和空间维度合并，并注入 **RoPE** 编码连续的相对位置。RoPE 的好处是相对位置能平滑外推到训练时没出现过的序列长度，于是模型在 1600/2000px 这种长序列上仍能保持位置感知。
 
-3. **Cross Transformer模块**：类似结构但使用交叉注意力实现PAN-MS跨模态交互：
+**3. Cross Transformer：用交叉注意力做 PAN-MS 融合**
+
+PAN 提供高频空间细节、MS 提供光谱信息，二者要融合而不是简单相加。Cross Transformer 沿用前面解耦的结构，但把自注意力换成交叉注意力，让 MS 特征去查询 PAN 特征：
 $$\mathbf{f}_{i,1}^{ms} = \mathbf{f}_i^{ms} + CA_{spa}(LN(\mathbf{f}_i^{ms}), LN(\mathbf{f}^{pan}))$$
+这样空间细节从 PAN 注入 MS，同时整套融合仍保持逐 patch、可变序列长度的处理方式，于是也具备跨尺度一致性。
 
 ### 损失函数 / 训练策略
 使用L1损失 $\mathbf{L} = \|\mathbf{H}_{out} - \mathbf{G}\|_1$。Adam优化器，初始学习率 $5 \times 10^{-4}$，余弦退火衰减到 $5 \times 10^{-8}$，500 epochs，NVIDIA 3090，32通道。

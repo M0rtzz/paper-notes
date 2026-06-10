@@ -33,29 +33,25 @@ tags:
 
 ### 整体框架
 
-Miburi 构建在 Moshi（语音-文本基础模型）之上，直接利用其内部 speech/text token 流作为条件信号，通过身体部位感知的手势编解码器将动作编码为多层级离散 token，再由二维因果 Transformer（时间+运动学）自回归生成手势 token。
+Miburi 要让对话代理一边说话一边实时打出自然、有表达力的全身手势和面部表情，难点是「因果」（只能看过去）和「实时」（低延迟）必须同时满足。它把自己直接搭在语音-文本基础模型 Moshi 之上，拿 Moshi 内部的 speech/text token 流当条件信号，跳过传统 LLM→TTS→音频编码的串行链路；动作先经身体部位感知的编解码器量化成多层级离散 token，再由一个二维因果 Transformer（时间维 + 运动学维）自回归地生成手势 token。
 
 ### 关键设计
 
-1. **身体部位感知手势编解码器（Body-part Gesture Codecs）**: 将全身动作分解为三个区域：上身+手 $\mathbf{x}^u$、下身+全局位移 $\mathbf{x}^l$、面部表情（FLAME 参数）$\mathbf{x}^f$。每个区域独立使用 **Residual VQ-VAE** 编码，编码器含下采样 1D 卷积 + 因果自注意力 Transformer，输出经残差向量量化为多层级 token $\mathbf{g}^b \in \mathbb{R}^{T \times K^b}$（$K^u=K^l=8, K^f=4$ 层级）。每个 token 代表 2 帧（0.08 秒）动作，与 Moshi 的 token 率对齐。RVQ 相比普通 VQ-VAE 更好地保留精细运动学细节。
+**1. 身体部位感知手势编解码器：按身体区域分别量化，保住精细运动学细节**
 
-2. **二维因果 Transformer**: 解耦时间维度和运动学维度的预测：
+不同身体部位和语音的关联差异很大，一锅炖会丢手指这类精细动作。Miburi 把全身动作拆成三个区域——上身+手 $\mathbf{x}^u$、下身+全局位移 $\mathbf{x}^l$、面部表情（FLAME 参数）$\mathbf{x}^f$，每个区域独立用 **Residual VQ-VAE** 编码。编码器是下采样 1D 卷积 + 因果自注意力 Transformer，输出经残差向量量化为多层级 token $\mathbf{g}^b \in \mathbb{R}^{T \times K^b}$（$K^u=K^l=8, K^f=4$ 层级），每个 token 代表 2 帧（0.08 秒）动作，刻意与 Moshi 的 token 率对齐。相比普通 VQ-VAE，RVQ 的多层级残差结构能更好保留精细运动学细节。
 
-    - **时间 Transformer** $\mathcal{T}_{\text{temporal}}$: 4 层 2 头，因果自注意力（上下文 25 tokens）+ 双因果交叉注意力（speech/text，上下文 50 tokens），自回归预测每帧的第一层级 token $\mathbf{g}_{(t,1)}$。$K$ 个层级的嵌入求和为单一输入。
-    - **运动学 Transformer** $\mathcal{T}_{\text{kinematic}}$: 2 层 1 头，在固定时间步 $t$ 内自回归预测后续层级 $\mathbf{g}_{(t,k)}$，以时间上下文 $\mathbf{h}_t$ 和 speech/text 嵌入为条件。
-   
-   相比朴素单流处理 $T \cdot K$ 个 token，二维分解大幅降低注意力上下文长度和推理延迟。
+**2. 二维因果 Transformer：解耦时间与运动学维度，把上下文长度和延迟压下来**
 
-3. **表达性增强目标**: 
+如果朴素地把 $T \cdot K$ 个 token 当一条流处理，注意力上下文太长、延迟扛不住。Miburi 把预测拆成两维：时间 Transformer $\mathcal{T}_{\text{temporal}}$（4 层 2 头）用因果自注意力（上下文 25 tokens）+ 双因果交叉注意力（speech/text，上下文 50 tokens），自回归预测每帧第一层级 token $\mathbf{g}_{(t,1)}$，$K$ 个层级的嵌入求和成单一输入；运动学 Transformer $\mathcal{T}_{\text{kinematic}}$（2 层 1 头）则在固定时间步 $t$ 内自回归预测后续层级 $\mathbf{g}_{(t,k)}$，以时间上下文 $\mathbf{h}_t$ 和 speech/text 嵌入为条件。这种分解把注意力上下文长度和推理延迟都大幅压低，是实时的关键。
 
-    - **对比 InfoNCE 损失**: 对预测 token 通过 Gumbel-Softmax 重参数化获取可微分潜在表示 $\mathbf{z} = \sum_k \text{GumbelSoftmax}(\tilde{\mathbf{o}}_k) \mathbf{C}_k$，在时间片段上施加 InfoNCE 损失，推高匹配 GT-预测对相似度、推低不匹配对。
-    - **语音激活损失**: 对 $\mathbf{h}_t$ 附加二分类头区分聆听/说话状态（BCE 损失），防止聆听时产生幽灵手势，强制说话时生成语音对齐的表达性手势。
+**3. 表达性增强目标：用对比学习和语音激活双约束，逼出「该动时才动」**
+
+只靠交叉熵容易生成平淡甚至「幽灵手势」。Miburi 加两条目标：对比 InfoNCE 损失先把预测 token 经 Gumbel-Softmax 重参数化成可微潜在表示 $\mathbf{z} = \sum_k \text{GumbelSoftmax}(\tilde{\mathbf{o}}_k) \mathbf{C}_k$，再在时间片段上推高匹配的 GT-预测对相似度、压低不匹配对，从而桥接离散采样与连续损失；语音激活损失则在 $\mathbf{h}_t$ 上挂一个二分类头区分聆听/说话状态（BCE 损失），防止聆听时乱动、强制说话时打出与语音对齐的表达性手势。
 
 ### 损失函数 / 训练策略
 
-总损失：$\mathcal{L} = \mathcal{L}_{\text{CE}} + \alpha \mathcal{L}_{\text{con}} + \beta \mathcal{L}_{\text{va}}$，其中 $\alpha=0.1, \beta=0.01$。
-
-推理时使用 top-p 核采样（时间 Transformer $p=0.8$，运动学 Transformer $p=0.95$，温度 0.9）保持多样性，并使用 classifier-free guidance（单说话人 CFG=1.5，多说话人 CFG=2.3）。KV-Cache 实现高效因果推理，下身 token 屏蔽 speech/text 交叉注意力节省运行时间。
+总损失 $\mathcal{L} = \mathcal{L}_{\text{CE}} + \alpha \mathcal{L}_{\text{con}} + \beta \mathcal{L}_{\text{va}}$，其中 $\alpha=0.1, \beta=0.01$。推理时用 top-p 核采样（时间 Transformer $p=0.8$，运动学 Transformer $p=0.95$，温度 0.9）保持多样性，并用 classifier-free guidance（单说话人 CFG=1.5，多说话人 CFG=2.3）。KV-Cache 实现高效因果推理，下身 token 屏蔽 speech/text 交叉注意力以节省运行时间。
 
 ## 实验关键数据
 

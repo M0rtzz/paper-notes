@@ -43,86 +43,33 @@ tags:
 
 ## 方法详解
 
-VirPro 采用**两阶段训练流水线**：Stage 1 进行概率提示的预训练与视觉-文本对齐；Stage 2 通过知识蒸馏将学到的场景感知先验迁移到单目编码器。
+### 整体框架
 
-### 3.1 自适应提示库 (Adaptive Prompt Bank, APB)
+VirPro 要解决的是弱监督单目 3D 检测里一个具体痛点：像 CAW3D 那样用手工写死的静态文本（"a photo of a car"）当弱监督，无法表达不同场景里物体外观与空间位置的视觉多样性。整套方法是**两阶段**的：Stage 1 用一组可学习的概率提示做视觉-文本预训练对齐，把"场景感知"的语义先验学进 prompt 的分布里；Stage 2 再用知识蒸馏把这套先验迁移到单目编码器，推理时不增加任何开销。预训练内部的数据流是：每个目标 RoI 先生成一批可学习提示模板（APB）→ 把每个模板建成一个高斯分布并采样出多样化嵌入（MGPM）→ 在 RoI 级别做图文对比对齐。
 
-**动机**：仅依赖视觉特征和单一类别 prompt 不足以建模弱监督单目3D检测中的多样场景上下文。多个多样化 prompt 能提供互补语义线索，增强语言-视觉对齐。
+### 关键设计
 
-**设计**：对于第 $i$ 个目标查询 token $o_i$，生成 $N_p$ 个概率提示模板：
+**1. 自适应提示库 APB：让 prompt 自己学、还随机换位置**
 
-$$p_i^t = \{a_1^t, a_2^t, \ldots, a_L^t \mid o_i\}, \quad t = 1, \ldots, N_p$$
+单一类别 prompt 不足以覆盖弱监督场景下的多样上下文，所以 VirPro 不再写死文本，而是为第 $i$ 个目标查询 token $o_i$ 生成 $N_p$ 个概率提示模板 $p_i^t = \{a_1^t, a_2^t, \ldots, a_L^t \mid o_i\}$，其中 $\{a_1^t, \ldots, a_L^t\}$ 是 $L$ 个随机初始化、随训练联合优化的**可学习场景描述子**。多个互补模板能提供互补语义线索，增强语言-视觉对齐。
 
-其中 $\{a_1^t, \ldots, a_L^t\}$ 是 $L$ 个**可学习的场景描述子**（learnable scenario descriptors），随机初始化并在训练中联合优化。
+与 ProDA 把目标 token 固定放在开头/中间/末尾不同，APB 允许目标相关 token 在模板里**随机插入**，逼模型去捕获更鲁棒的上下文关联——这在标注稀缺的弱监督下尤为关键。实现上每个 RoI 初始化 32 个可学习 prompt，随机采样其中 8 个并归一化，形成该 RoI 专属的文本嵌入。
 
-**关键设计——随机位置插入策略**：不同于 ProDA 固定目标 token 位置（开头/中间/末尾），VirPro 允许目标相关 token 在模板中**随机放置**，鼓励模型捕获更鲁棒的上下文关联，这在弱监督场景下尤为关键。
+**2. 多高斯提示建模 MGPM：均值管语义、方差管视觉不确定性**
 
-实际实现中，每个 RoI 初始化 32 个可学习 prompt，随机采样其中 8 个并归一化形成 RoI 特定的文本嵌入。
+光有可学习模板还是确定性的，无法表达"同一类物体在不同场景里长得不一样"这种不确定性。MGPM 把每个场景 prompt 建成一个独立的各向同性高斯分布 $\mathcal{P}(z_i^{(1:N_p)} \mid p_i) \sim \{\mathcal{N}(\boldsymbol{\mu}_i^{(t)}, (\boldsymbol{\sigma}_i^{(t)})^2 \mathbf{I})\}_{t=1}^{N_p}$，从而把语义稳定性和视觉变化解耦开。
 
-### 3.2 多高斯提示建模 (Multi-Gaussian Prompt Modeling, MGPM)
+关键在于均值和方差由两个不同来源估计：**文本提示解码器**只在 prompt 集合内部做自注意力得到均值 $\mu_i^t = \phi_\mu(q_i^t) + \text{SelfAttn}_\mu(q_i^t; P_i)$，捕获规范类别语义；**跨模态视觉-文本解码器**则从视觉-语言特征 $F$ 交叉注意力注入方差 $\sigma_i^t = \phi_\sigma(q_i^t) + \text{CrossAttn}_\sigma(q_i^t; F)$，让方差表达视觉不确定性。这样 prompt 既稳住了类别语义，又能随场景的视觉变化调整。每个场景再用重参数化技巧采样 $N_s$ 个样本 $\hat{z}_{i,j}^{(t)} = \boldsymbol{\mu}_i^{(t)} + \boldsymbol{\sigma}_i^{(t)} \odot \boldsymbol{\epsilon},\ \boldsymbol{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$，保证整条链路端到端可微。
 
-这是 VirPro 的核心模块，将每个场景 prompt 建模为**独立的各向同性高斯分布**，从而实现语义多样性与结构化解耦。
+**3. RoI 对比匹配：场景内一致、场景间可分**
 
-**概率建模**：对第 $i$ 个目标及其 $N_p$ 个场景 prompt，定义分布：
+预训练要把上面学到的文本分布和视觉特征对齐起来。VirPro 对采样得到的 prompt 分布 $\hat{z}_{i,j}^{(t)}$ 做 **max pooling** 得到文本嵌入 $\mathbf{e}_i^{\text{txt}}$，与单目 3D 编码器提取、并和 2D 检测器空间对齐的图像嵌入 $\mathbf{e}_i^{\text{img}}$ 构成正样本对，做目标级对比学习 $\mathcal{L}_{\text{contrast}} = \frac{1}{N}\sum_{i=1}^N \ell_i$。每场景随机选 4 个 RoI 构建对比对，温度初始化 $\tau=0.07$。这样同一场景里的所有目标共享一致的全局上下文，又能与别的场景目标区分开。值得一提的是消融里无参数的 max pooling 反而比 MLP 融合更好，符合"less is more"。
 
-$$\mathcal{P}(z_i^{(1:N_p)} \mid p_i) \sim \left\{\mathcal{N}\left(\boldsymbol{\mu}_i^{(t)}, (\boldsymbol{\sigma}_i^{(t)})^2 \mathbf{I}\right)\right\}_{t=1}^{N_p}$$
+### 损失函数 / 训练策略
 
-**双解码器估计参数**：
+概率提示学习损失由两块组成：一是基于正交性的**多样性损失** $\mathcal{L}_{\text{div}} = \frac{1}{K}\sum_{i=1}^K \|\tilde{P}_i \tilde{P}_i^\top - \mathbf{I}\|_2^2$，逼不同场景 prompt 语义分化；二是 **KL 散度正则**防止方差坍塌，把 prompt 分布约束向标准高斯先验，合起来即 $\mathcal{L}_{\text{prompt}} = \mathcal{L}_{\text{div}} + \frac{1}{N_p}\sum_{t=1}^{N_p}\text{KL}(\mathcal{P}(\hat{\boldsymbol{z}}_i^{(t)} \mid p_i^{(t)}) \| \mathcal{N}(\mathbf{0}, \mathbf{I}))$。
 
-| 组件 | 功能 | 计算方式 | 输入来源 |
-|------|------|----------|----------|
-| 文本提示解码器 (Textual Prompt Decoder) | 估计高斯均值 $\boldsymbol{\mu}$ | $\mu_i^t = \phi_\mu(q_i^t) + \text{SelfAttn}_\mu(q_i^t; P_i)$ | prompt 集合内部自注意力 |
-| 跨模态视觉-文本解码器 (Cross-Modal Visual-Text Decoder) | 估计高斯方差 $\boldsymbol{\sigma}$ | $\sigma_i^t = \phi_\sigma(q_i^t) + \text{CrossAttn}_\sigma(q_i^t; F)$ | 视觉-语言特征 $F$ 的交叉注意力 |
-
-**核心思想**：均值由纯文本侧的自注意力产生，捕获规范语义；方差通过交叉注意力从视觉特征中注入，表达**视觉不确定性**。这样 prompt 既保留了类别语义的稳定性，又能适应场景级别的视觉变化。
-
-**随机采样与重参数化**：对每个场景 $t$，从学到的分布中生成 $N_s$ 个随机样本：
-
-$$z_{i,j}^{(t)} \sim \mathcal{N}\left(\boldsymbol{\mu}_i^{(t)}, (\boldsymbol{\sigma}_i^{(t)})^2 \mathbf{I}\right), \quad j = 1, \ldots, N_s$$
-
-使用重参数化技巧保证端到端可微：
-
-$$\hat{z}_{i,j}^{(t)} = \boldsymbol{\mu}_i^{(t)} + \boldsymbol{\sigma}_i^{(t)} \odot \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$$
-
-### 3.3 RoI 对比匹配 (RoI Contrastive Matching)
-
-采用目标级别的图像-文本对比学习，确保同一场景中的所有目标共享一致的全局上下文，同时与不同场景的目标可区分。
-
-- **文本嵌入** $\mathbf{e}_i^{\text{txt}}$：对采样的 prompt 分布 $\hat{z}_{i,j}^{(t)}$ 做 **max pooling** 得到
-- **图像嵌入** $\mathbf{e}_i^{\text{img}}$：从单目3D编码器提取，与2D检测器空间对齐
-- 正样本对：同一目标的 $(\mathbf{e}_i^{\text{txt}}, \mathbf{e}_i^{\text{img}})$
-
-对比损失：
-
-$$\mathcal{L}_{\text{contrast}} = \frac{1}{N} \sum_{i=1}^{N} \ell_i$$
-
-每场景随机选择 4 个 RoI 构建对比对，温度参数初始化为 $\tau = 0.07$。
-
-### 3.4 学习目标
-
-**概率提示学习损失**由两部分组成：
-
-1. **多样性损失**——基于正交性鼓励场景 prompt 语义分化：
-$$\mathcal{L}_{\text{div}} = \frac{1}{K} \sum_{i=1}^{K} \|\tilde{P}_i \tilde{P}_i^\top - \mathbf{I}\|_2^2$$
-
-2. **KL 散度正则化**——防止方差坍塌，约束 prompt 分布趋向标准高斯先验：
-$$\mathcal{L}_{\text{prompt}} = \mathcal{L}_{\text{div}} + \frac{1}{N_p} \sum_{t=1}^{N_p} \text{KL}\left(\mathcal{P}(\hat{\boldsymbol{z}}_i^{(t)} \mid p_i^{(t)}) \| \mathcal{N}(\mathbf{0}, \mathbf{I})\right)$$
-
-**两阶段损失**：
-
-| 阶段 | 损失函数 | 说明 |
-|------|----------|------|
-| Stage 1 | $\mathcal{L}_{\text{stage1}} = \mathcal{L}_{\text{contrast}} + \alpha \mathcal{L}_{\text{prompt}}$ | 概率提示学习 + RoI 对比对齐 |
-| Stage 2 | $\mathcal{L}_{\text{stage2}} = \mathcal{L}_{\text{mse}} + \lambda \mathcal{L}_{3D}$ | 知识蒸馏（MSE）+ 伪标签3D监督 |
-
-Stage 2 采用 CAW3D 的 Dual-to-One Distillation (D2OD)，不引入额外推理开销。
-
-### 方法整体流程总结
-
-1. **APB 阶段**：为每个 RoI 生成多个可学习提示模板，目标 token 随机插入
-2. **MGPM 阶段**：文本解码器估计高斯均值，视觉-文本交叉解码器估计方差，采样生成多样化 prompt 嵌入
-3. **RoI 对比匹配**：max pooling 聚合后做目标级对比学习，强化场景内一致性和场景间可分性
-4. **知识蒸馏**：将预训练阶段学到的场景感知先验蒸馏到单目编码器
+两阶段目标分别是 $\mathcal{L}_{\text{stage1}} = \mathcal{L}_{\text{contrast}} + \alpha \mathcal{L}_{\text{prompt}}$（概率提示学习 + RoI 对比对齐）和 $\mathcal{L}_{\text{stage2}} = \mathcal{L}_{\text{mse}} + \lambda \mathcal{L}_{3D}$（知识蒸馏 MSE + 伪标签 3D 监督）。Stage 2 沿用 CAW3D 的 Dual-to-One Distillation (D2OD)，不引入额外推理开销。
 
 ## 实验关键数据
 

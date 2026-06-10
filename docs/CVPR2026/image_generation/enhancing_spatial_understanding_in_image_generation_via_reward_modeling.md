@@ -43,34 +43,21 @@ tags:
 
 ### 整体框架
 
-三阶段流水线：(1) 构建 SpatialReward-Dataset 偏好对数据集 → (2) 训练 SpatialScore 奖励模型 → (3) 以 SpatialScore 为奖励信号，通过 GRPO 在线 RL 优化 FLUX.1-dev。
+这篇要解决文生图里复杂空间关系（尤其长提示、多物体）画不准的问题。作者的判断是：用 RL 增强空间理解的真正瓶颈不是 RL 本身，而是缺一个可靠的奖励模型——现成的人类偏好/VQA 对齐模型评不准空间关系，专有大 VLM 又贵到没法频繁查询。于是整条流水线分三步串起来：先构建 80K 对抗性偏好对的 SpatialReward-Dataset，再用它训练专门评估空间关系的奖励模型 SpatialScore，最后把 SpatialScore 当奖励信号、通过 GRPO 在线 RL 优化 FLUX.1-dev。
 
 ### 关键设计
 
-1. **SpatialReward-Dataset（80K 对抗性偏好对）**：
+**1. SpatialReward-Dataset：用空间扰动构造对抗性偏好对**
 
-    - 使用 GPT-5 生成包含复杂多物体空间关系的初始提示
-    - GPT-5 对原始提示进行空间关系扰动（如左→右、交换相对位置），保持其余关系不变
-    - 原始提示生成 "perfect image"，扰动提示生成 "perturbed image"
-    - 使用 Qwen-Image、HunyuanImage-2.1、Seedream-4.0 等强文图对齐模型生成
-    - 人工审核过滤不满足空间约束的样本，确保高数据质量
+现成偏好数据要么评美学（HPSv2/PickScore）、要么评整体对齐，都没法精准盯住空间关系。作者让 GPT-5 先生成含复杂多物体空间关系的提示，再对它做空间扰动——只翻转相对位置（如左→右、交换物体相对位置），其余关系一律保持不变；原始提示渲染成 "perfect image"、扰动提示渲染成 "perturbed image"。这样一对样本里"非空间因素"几乎完全对齐，唯一差别就是空间关系的对错，偏好信号因此非常干净。生成用 Qwen-Image、HunyuanImage-2.1、Seedream-4.0 等强对齐模型，再人工审核滤掉不满足空间约束的样本，最终拿到 80K 对。
 
-2. **SpatialScore 奖励模型**：
+**2. SpatialScore 奖励模型：高斯分布建模分数 + Bradley-Terry 偏好损失**
 
-    - 骨干：Qwen2.5-VL-7B + LoRA 微调
-    - 用高斯分布 $s \sim \mathcal{N}(\mu, \sigma^2)$ 建模奖励分数（而非确定性数值），更鲁棒
-    - 在提示末尾插入 `<reward>` 特殊 token，最后一层嵌入通过 MLP 映射到 $\mu, \sigma$
-    - Bradley-Terry 模型优化偏好损失：
+RL 频繁查询用不起 GPT-5/Gemini，开源 VLM 又幻觉严重、空间推理不可靠。SpatialScore 以 Qwen2.5-VL-7B + LoRA 为骨干，在提示末尾插入 `<reward>` 特殊 token，把它最后一层嵌入经 MLP 映射到 $\mu, \sigma$，用高斯分布 $s \sim \mathcal{N}(\mu, \sigma^2)$ 而非确定性数值来建模奖励，对噪声更鲁棒；训练用 Bradley-Terry 偏好损失 $\mathcal{L}_{\text{Reward}}(\theta) = \mathbb{E}_{c, y_w, y_l}[-\log \sigma(R_\phi(H_\phi(y_w, c)) - R_\phi(H_\phi(y_l, c)))]$。最终这个 7B 模型在空间评估准确率上反超 GPT-5 和 Gemini-2.5 Pro。
 
-    $\mathcal{L}_{\text{Reward}}(\theta) = \mathbb{E}_{c, y_w, y_l}[-\log \sigma(R_\phi(H_\phi(y_w, c)) - R_\phi(H_\phi(y_l, c)))]$
+**3. Top-k 过滤 GRPO：消除提示难度不均导致的优势偏差**
 
-3. **Top-k 过滤 GRPO**：解决不同难度提示导致的优势偏差问题：
-
-    - 简单提示产生大量高奖励样本 → 部分高质量样本获得负优势
-    - 困难提示普遍低奖励 → 同样导致优势偏差
-    - 对每组 $G$ 个样本按奖励排序，仅选取 top-$k$ 和 bottom-$k$ 计算优势值并参与训练
-    - $k=6$（组大小 $G=24$）时在多样性和平衡性间取得最佳折中
-    - 显著减少 NFE：从 $24 \times 6$ 降至 $12 \times 6$
+GRPO 按组内相对奖励算优势，但提示有难有易会让优势失真：简单提示一组里大量高奖励样本，部分高质量样本反而被算成负优势；困难提示普遍低奖励，同样把优势带偏。作者对每组 $G$ 个样本按奖励排序，只取 top-$k$ 和 bottom-$k$ 参与优势计算和训练。$k=6$（组大小 $G=24$）在多样性和平衡性间最优，还顺带把 NFE 从 $24 \times 6$ 砍到 $12 \times 6$，相当于免费省一半计算。
 
 ### 损失函数 / 训练策略
 

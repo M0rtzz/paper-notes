@@ -45,86 +45,47 @@ VarSplat 的核心想法是：**直接学习每个高斯的外观方差 $\sigma_
 
 ## 方法详解
 
-### 3.1 逐像素不确定性渲染
+### 整体框架
 
-**Splat 表示扩展。** 在标准3DGS的基础上，每个 Gaussian $G_i$ 除了均值位置 $\mu_i$、不透明度 $\alpha_i$、尺度 $s_i$、协方差 $\Sigma_i$ 和球谐颜色 $c_i$，额外增加一个**外观方差参数** $\sigma_i^2 \in \mathbb{R}^3$（三通道），表示该 splat 颜色均值附近的不确定程度。每个子图定义为：
+VarSplat 针对的是 3DGS-SLAM 里一个被忽视的问题：测量可靠性没被显式建模，碰上低纹理、透明、反射或深度不连续的区域，均匀的光度权重会把位姿估计带偏。它的核心想法是直接给每个高斯学一个外观方差 $\sigma_i^2$，通过全方差定律 + alpha 合成把它在单次光栅化里传播成逐像素不确定性图 $V$，再把这套不确定性统一用到跟踪、子图配准、回环检测三个环节，让可靠区域监督更强、不可靠区域被自动压低权重。
 
-$$P^s = \{G_i^s(\mu_i, \Sigma_i, \alpha_i, s_i, c_i, \sigma_i^2) \mid i=1,\ldots,N^s\}$$
+### 关键设计
 
-**直觉理解。** $\sigma_i^2$ 与空间协方差 $\Sigma_i$（定义几何范围）及SH系数（定义均值外观）完全不同。即使SH正确建模了视角相关的均值颜色，在深度不连续/遮挡边界/反射区域，微小视角变化就会改变重叠splat的可见性和alpha权重，导致不一致的颜色观测——此时 $\sigma_i^2$ 会学习到较大的值。
+**1. 逐 splat 外观方差 + 全方差定律：单次光栅化里渲出逐像素不确定性**
 
-**标准 alpha 合成。** 透射率和权重：
-
-$$w_i = T_i \alpha_i, \quad T_i = \prod_{j}^{i-1}(1-\alpha_j)$$
-
-渲染颜色 $C$ 和深度 $D$：
-
-$$C = \sum_i w_i c_i, \quad D = \sum_i w_i z_i$$
-
-**基于全方差定律的方差渲染。** 对随机变量 $X$（像素颜色）和条件变量 $Z$（3D高斯），全方差定律将逐像素方差分解为两项：
+标准 3DGS 每个高斯有 $\mu_i, \alpha_i, s_i, \Sigma_i, c_i$，VarSplat 额外加一个三通道外观方差 $\sigma_i^2 \in \mathbb{R}^3$，表示该 splat 颜色均值附近的不确定程度，子图记为 $P^s = \{G_i^s(\mu_i, \Sigma_i, \alpha_i, s_i, c_i, \sigma_i^2) \mid i=1,\ldots,N^s\}$。它和空间协方差 $\Sigma_i$（定几何范围）、SH 系数（定均值外观）都不同——即便 SH 把视角相关的均值颜色建对了，在深度不连续/遮挡边界/反射区，微小视角变化就改变重叠 splat 的可见性和 alpha 权重、造成不一致的颜色观测，此时 $\sigma_i^2$ 会学到较大值。沿用标准 alpha 合成的透射率与权重 $w_i = T_i \alpha_i,\ T_i = \prod_{j}^{i-1}(1-\alpha_j)$，渲染颜色深度 $C = \sum_i w_i c_i,\ D = \sum_i w_i z_i$；不确定性则由全方差定律分解：
 
 $$\text{Var}[X] = \mathbb{E}[\text{Var}[X|Z]] + \text{Var}(\mathbb{E}[X|Z])$$
 
-- **第一项**（期望逐splat方差）：通过 alpha 合成 $\sum_i w_i \sigma_i^2$ 直接得到
-- **第二项**（splat均值的方差）：利用二阶矩公式 $\sum_i w_i c_i^2 - (\sum_i w_i c_i)^2$
-
-合并得到最终的逐像素不确定性 $V$：
+第一项（期望逐 splat 方差）由 alpha 合成 $\sum_i w_i \sigma_i^2$ 得到，第二项（splat 均值方差）由二阶矩 $\sum_i w_i c_i^2 - (\sum_i w_i c_i)^2$ 得到，合并：
 
 $$V = \sum_i w_i(\sigma_i^2 + c_i^2) - \left(\sum_i w_i c_i\right)^2$$
 
-**关键优势：** $V$ 的计算与颜色/深度渲染共享同一个单次光栅化 pass，不需要额外的前向传递或蒙特卡洛采样，保持了实时效率。
+关键在于 $V$ 和颜色/深度共享同一次光栅化 pass，不需要额外前向或蒙特卡洛采样，保持实时。
 
-### 3.2 建图（Mapping）
+**2. 从零学习方差：用高斯负对数似然把可靠性灌进 $\sigma_i^2$**
 
-**子图管理。** 遵循 LoopSplat/Gaussian-SLAM 的子图策略：当相机移动超过子图质心的空间阈值或累计跟踪不确定性超过预设限制时创建新子图。首帧通过深度反投影初始化高斯，后续帧在未观测区域添加或合并重叠的高斯。
-
-**建图损失函数：**
-
-$$\mathcal{L}_{\text{map}} = \lambda_{\text{color}} \cdot \mathcal{L}_{\text{color}} + \lambda_{\text{depth}} \cdot \mathcal{L}_{\text{depth}} + \lambda_{\text{reg}} \cdot \mathcal{L}_{\text{reg}} + \lambda_{\text{var}} \cdot \mathcal{L}_{\text{var}}$$
-
-其中：
-
-- **颜色损失**：L1 + SSIM 加权组合 $\mathcal{L}_{\text{color}} = (1-\lambda_{\text{SSIM}})\|\hat{I}-I\|_1 + \lambda_{\text{SSIM}}(1-\text{SSIM}(\hat{I},I))$
-- **深度损失**：$\mathcal{L}_{\text{depth}} = \|\hat{D}-D\|_1$
-- **正则化**：控制高斯尺度 $\mathcal{L}_{\text{reg}} = \|\hat{s}-s\|_1$
-- **方差损失**：基于高斯负对数似然
-
-**从零学习方差。** 受 ActiveNeRF 的似然视角启发，方差损失采用高斯负对数似然形式：
+子图按 LoopSplat/Gaussian-SLAM 策略管理（相机移动超阈值或累计跟踪不确定性超限就开新子图，首帧深度反投影初始化、后续帧在未观测区添加或合并高斯）。方差不靠标注、而是受 ActiveNeRF 似然视角启发用负对数似然从零学：
 
 $$\mathcal{L}_{\text{var}} = \frac{1}{2V}\left(\|\hat{I}-I\|_2^2 + \|\hat{D}-D\|_2^2\right) + \log(V)$$
 
-设计要点：
-- 使用 **平方 L2（MSE）** 而非 L1 作为残差，因为 L1 对应 Laplace 分布的 scale 参数，会破坏高斯模型假设
-- 同时纳入颜色和深度残差，使方差反映几何+外观的综合可靠性
-- 梯度分析：$\frac{\partial \mathcal{L}_{\text{var}}}{\partial \sigma_i^2} = \frac{\partial \mathcal{L}_{\text{var}}}{\partial V} \cdot w_i$，方差通过 alpha 权重 $w_i$ 传播到每个 splat
+设计要点：残差用平方 L2（MSE）而非 L1，因为 L1 对应 Laplace 分布会破坏高斯假设；同时纳入颜色和深度残差，让方差反映几何+外观综合可靠性；梯度 $\frac{\partial \mathcal{L}_{\text{var}}}{\partial \sigma_i^2} = \frac{\partial \mathcal{L}_{\text{var}}}{\partial V} \cdot w_i$，方差通过 alpha 权重 $w_i$ 传回每个 splat。
 
-### 3.3 下游位姿估计
+**3. 不确定性归一化权重 + 三处下游应用：一套方差贯穿跟踪/回环/配准**
 
-**不确定性归一化权重。** 采用中位数中心化对数缩放，对像素级和子图级方差分别计算权重：
+为了把方差变成可用权重，采用中位数中心化对数缩放，对像素级和子图级分别算：
 
-$$\widetilde{w}_p = \exp[-(\log V - \widetilde{V})/\tau], \quad \widetilde{V} = \text{median}_\Omega(\log V)$$
+$$\widetilde{w}_p = \exp[-(\log V - \widetilde{V})/\tau], \quad \widetilde{w}_s = \exp[-(\log \sigma^2 - \widetilde{\sigma^2})/\tau]$$
 
-$$\widetilde{w}_s = \exp[-(\log \sigma^2 - \widetilde{\sigma^2})/\tau], \quad \widetilde{\sigma^2} = \text{median}(\log \sigma^2)$$
+$\widetilde{V}, \widetilde{\sigma^2}$ 为对应对数量的中位数，$\tau > 0$ 控锐度，方差大于中位数的像素/splat 权重衰减。三处应用：**跟踪**时用像素权重自适应约束 RGB 项 $\mathcal{L}_{\text{track}} = \sum \lambda_c (\widetilde{w_p} \odot \|\hat{I}-I\|_1) + (1-\lambda_c)\|\hat{D}-D\|_1$，并冻结方差参数、停掉 $\widetilde{w_p}$ 梯度以免和位姿优化冲突；**回环检测**用逐 splat 方差调制子图相似度，算方差加权不透明度比率 $r = \frac{\sum_j \widetilde{w_s} \alpha_j}{\sum_j \alpha_j}$、$\text{sim} = \text{cross\_sim} \odot (r_q \cdot r_{db})$，$r$ 编码子图还剩多少可靠外观；**配准**把查询关键帧定位到数据库子图，用像素权重调制光度损失 $\mathcal{L}_{\text{registration}} = \sum \widetilde{w_p} \odot \|\hat{I}-I\|_1 + \|\hat{D}-D\|_1$。最后用 TSDF 融合合并所有子图、用融合几何初始化全局高斯中心、以 $\mathcal{L}_{\text{color}}$ 精炼（此阶段不用不确定性，因不稳定区已在前面环节被控住）。
 
-方差大于中位数的像素/splat 权重衰减，可靠区域获得更强的监督。$\tau > 0$ 控制权重的锐度。
+### 损失函数 / 训练策略
 
-**跟踪（Tracking）。** 给定输入帧 $(I,D)$，估计当前位姿 $T_j$。RGB 图像更易受视角、低纹理和遮挡影响，因此用不确定性权重自适应约束：
+建图总损失：
 
-$$\mathcal{L}_{\text{track}} = \sum \lambda_c (\widetilde{w_p} \odot \|\hat{I}-I\|_1) + (1-\lambda_c)\|\hat{D}-D\|_1$$
+$$\mathcal{L}_{\text{map}} = \lambda_{\text{color}} \cdot \mathcal{L}_{\text{color}} + \lambda_{\text{depth}} \cdot \mathcal{L}_{\text{depth}} + \lambda_{\text{reg}} \cdot \mathcal{L}_{\text{reg}} + \lambda_{\text{var}} \cdot \mathcal{L}_{\text{var}}$$
 
-关键：跟踪时**冻结方差参数**并停止 $\widetilde{w_p}$ 的梯度，避免与位姿优化冲突。
-
-**回环检测（Loop Detection）。** 利用逐splat方差 $\sigma_i^2$ 调制子图相似度。计算方差加权后的不透明度比率：
-
-$$r = \frac{\sum_j \widetilde{w_s} \alpha_j}{\sum_j \alpha_j}, \quad \text{sim} = \text{cross\_sim} \odot (r_q \cdot r_{db})$$
-
-该比率编码子图中剩余多少可靠外观信息，无需逐子图惩罚。
-
-**配准（Registration）。** 检测到回环后，将查询关键帧定位到数据库子图中，用不确定性权重调制光度损失：
-
-$$\mathcal{L}_{\text{registration}} = \sum \widetilde{w_p} \odot \|\hat{I}-I\|_1 + \|\hat{D}-D\|_1$$
-
-**全局合并。** 通过 TSDF 融合合并所有子图，用融合几何初始化全局高斯中心，最终用 $\mathcal{L}_{\text{color}}$ 精炼（此阶段不使用不确定性权重，因为不稳定区域已在前面环节被控制）。
+颜色损失 $\mathcal{L}_{\text{color}} = (1-\lambda_{\text{SSIM}})\|\hat{I}-I\|_1 + \lambda_{\text{SSIM}}(1-\text{SSIM}(\hat{I},I))$，深度损失 $\mathcal{L}_{\text{depth}} = \|\hat{D}-D\|_1$，正则 $\mathcal{L}_{\text{reg}} = \|\hat{s}-s\|_1$ 控高斯尺度，方差损失即上面的高斯负对数似然。
 
 ## 实验关键数据
 

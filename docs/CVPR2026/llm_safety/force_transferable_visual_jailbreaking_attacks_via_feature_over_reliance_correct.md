@@ -44,63 +44,29 @@ tags:
 
 ## 方法详解
 
-### 诊断分析：Loss Landscape
+### 整体框架
 
-以 LLaVA-v1.5-7B 为 source model，使用标准 PGD（step size 2/255, budget 32/255, target "Sure, here is"）：
+视觉 jailbreak 攻击在 source model 上几乎 100% 成功，却几乎无法迁移到别的 MLLM，尤其是闭源模型。FORCE 先做诊断、再开方子。诊断的核心结论是：迁移失败是因为攻击被困在一个极其尖锐（high-sharpness）的 loss 区域——在输入空间仅 0.03 像素的扰动就能把 loss 从约 0 抬到 0.28 以上、攻击随即失效，在权重空间仅 0.0002 的扰动（模拟换模型）就能把攻击推出 feasible region。进一步拆解发现两个制造尖锐区域的元凶：浅层特征过度依赖 model-specific 表示，以及优化后期攻击越来越依赖高频非语义捷径。对症下药，FORCE 用两个组件——layer-aware regularization 拓宽浅层的可行域、spectral rescaling 压住高频成分——把攻击引导进更平坦的 loss landscape，从而显著提升跨模型迁移性。
 
-**Input loss landscape**：在梯度方向和随机方向引入像素扰动。发现攻击处于极其尖锐的局部最优——仅 0.03 像素扰动就能让 loss 从 ~0 升至 0.28 以上，使攻击失效。
+### 关键设计
 
-**Weight loss landscape**：模拟模型参数迁移引起的微小变化。仅 0.0002 的权重扰动即可将攻击推出 feasible region。
+**1. Layer-Aware Regularization：把浅层那条又窄又脆的可行域撑宽**
 
-**结论**：攻击被困在 high-sharpness region，对任何微小变化都极度敏感——这是迁移失败的直接表现。
+诊断显示问题集中在浅层：对每层做「对抗特征 ↔ 自然特征」的凸组合插值 $(1-\mu) \cdot f_{\theta}(\text{jail}) + \mu \cdot f_{\theta}(\text{nat})$ 时，深层（如第 31 层）即便掺 40% 自然特征攻击仍有效，浅层（如第 11 层）却要保留 90%+ 对抗特征、掺 30% 自然特征 loss 就飙到 1.2+——浅层可行域窄到一碰就碎。FORCE 的做法是在 jailbreak 样本邻域 $\eta=4/255$ 内采样 $N=10$ 个参考点，对每层 $l$ 最大化样本与参考点的特征 $L_2$ 距离 $d_l = \|f_{\theta,l}(\mathbf{x}_{\text{img}}+\delta, \mathbf{x}_{\text{txt}}) - f_{\theta,l}(\mathbf{x}_{\text{img}}+\delta+\eta, \mathbf{x}_{\text{txt}})\|_2^2$，同时约束参考点自己也落在可行域内（其损失 $\ell_{\text{ref}} = \ell(p_\theta(\mathbf{x}_{\text{img}}+\delta+\eta, \mathbf{x}_{\text{txt}}), \mathbf{y})$ 也要低）。
 
-### 诊断分析：Layer 空间的 Feature 表示
-
-对每层分别提取 jailbreak 样本和 natural image 的特征，用凸组合 $(1-\mu) \cdot f_{\theta}(\text{jail}) + \mu \cdot f_{\theta}(\text{nat})$ 做插值：
-
-- **深层（如第 31 层）**：即使插入 40% 的 natural 特征，攻击仍然有效——feasible region 宽广
-- **浅层（如第 11 层）**：攻击必须保留 90%+ 的对抗特征才能成功，仅 30% natural 插值即导致 loss 急剧升至 1.2+——feasible region 极窄
-
-**结论**：浅层过度依赖 model-specific 特征 → 窄且脆弱的 feasible region → 攻击困于 high-sharpness 区域。
-
-### 诊断分析：Spectral 域的频率依赖
-
-对攻击做 Fourier 变换，划分 10 个等宽频带，逐个 mask 后评估攻击失效程度：
-
-- **早期（150-250 iter）**：低频（语义丰富）是攻击成功的关键，移除低频导致攻击失败——符合 natural image 语义在低频的先验
-- **后期（350-750 iter）**：高频影响逐步超过低频，到 750 iter 时移除第三高频带就足以让攻击失效
-
-**结论**：优化过程驱动攻击越来越依赖高频（语义弱的）捷径 → 攻击 model-specific → 不可泛化。
-
-### FORCE 方法
-
-基于以上分析，提出两个互补组件：
-
-**组件一：Layer-Aware Regularization**
-
-在 jailbreak 样本邻域 $\eta=4/255$ 内采样 $N=10$ 个参考点，对每层 $l$ 最大化 jailbreak 样本与参考点的特征 $L_2$ 距离 $d_l$，同时约束参考点也在 feasible region 内（loss 也要低）：
-
-$$d_l = \|f_{\theta,l}(\mathbf{x}_{\text{img}}+\delta, \mathbf{x}_{\text{txt}}) - f_{\theta,l}(\mathbf{x}_{\text{img}}+\delta+\eta, \mathbf{x}_{\text{txt}})\|_2^2$$
-
-$$\ell_{\text{ref}} = \ell(p_\theta(\mathbf{x}_{\text{img}}+\delta+\eta, \mathbf{x}_{\text{txt}}), \mathbf{y})$$
-
-关键设计——**渐减正则化强度**，浅层强、深层弱，符合诊断发现：
+关键的一笔是让正则化强度随深度递减——浅层强、深层弱，正好对上「问题在浅层」的诊断：
 
 $$\lambda_l = \lambda \cdot \max(1 - (2l/L)^2, 0)$$
 
-正则化损失：$\ell_{\text{reg}} = \frac{1}{N}\sum_{n=1}^{N}\sum_{l=1}^{L} \lambda_l \cdot \frac{\ell_{\text{ref}}}{d_l}$
+合起来正则项为 $\ell_{\text{reg}} = \frac{1}{N}\sum_{n=1}^{N}\sum_{l=1}^{L} \lambda_l \cdot \frac{\ell_{\text{ref}}}{d_l}$。它鼓励攻击在浅层周围保持「一片都能用」的平坦邻域，可行域一宽，换个模型时攻击就不那么容易掉出去。
 
-**组件二：Spectral Rescaling**
+**2. Spectral Rescaling：掐掉优化偷偷学到的高频捷径**
 
-对扰动 $\delta$ 做 FFT，划分 $M=10$ 等宽频带，当第 $m$ 频带的影响超过相邻低频带的 $\beta$ 倍时，对其进行缩放：
+另一个根因来自频域：把攻击做 Fourier 变换、逐个 mask 频带后发现，优化早期（150-250 iter）攻击靠低频语义成分，到后期（350-750 iter）却越来越依赖高频——750 iter 时只要移除第三高频带攻击就失效。高频是语义弱、model-specific 的捷径，正是迁移性的毒药。FORCE 对扰动 $\delta$ 做 FFT、划成 $M=10$ 个等宽频带，当第 $m$ 频带的影响超过相邻低频带 $\beta$ 倍时就把它压下来：
 
-$$w_m = \min\left(\beta, \frac{\ell_{m-1}}{\ell_m} \cdot \beta\right)$$
+$$w_m = \min\left(\beta, \frac{\ell_{m-1}}{\ell_m} \cdot \beta\right), \qquad S = \sum_{m=1}^{M} (w_m \cdot \mathbb{1}_{B_m})$$
 
-$$S = \sum_{m=1}^{M} (w_m \cdot \mathbb{1}_{B_m})$$
-
-将频率缩放矩阵 $S$ 与 FFT 幅度谱相乘，再 IFFT 重建：$\delta_{\text{rescaled}} = \text{IFFT}((A \odot S) \odot e^{i\Phi})$。
-
-两组件整合进标准 PGD 流程：先 spectral rescaling，再 layer-aware regularization。
+再把频率缩放矩阵 $S$ 乘到 FFT 幅度谱上、IFFT 重建扰动 $\delta_{\text{rescaled}} = \text{IFFT}((A \odot S) \odot e^{i\Phi})$。这样攻击被迫多用低频语义、少用高频捷径，落点更平坦也更可泛化。两个组件整合进标准 PGD：每步先做 spectral rescaling、再做 layer-aware regularization。
 
 ## 实验关键数据
 

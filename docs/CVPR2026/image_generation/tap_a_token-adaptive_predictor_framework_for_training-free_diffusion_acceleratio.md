@@ -41,57 +41,23 @@ tags:
 
 ### 整体框架
 
-TAP（Token-Adaptive Predictor）的核心思想是：在每个采样步骤，为每个 token **独立选择**最优预测器。整体流程分三个阶段：
+TAP 针对的是扩散加速里一个被忽视的事实：不同 token 的时序演化差异巨大——平滑背景变化慢、低阶预测器就够，边缘和运动物体变化剧烈、需要高阶或别的预测器，而现有方法对所有 token、所有时间步硬套同一个全局预测策略，激进加速下误差累积、质量崩坏。TAP 的思路是在每一步给每个 token 单独挑最合适的预测器：每 $N$ 步窗口的第一步算一次完整模型并缓存关键量，之后的步用一族 Taylor 预测器外推，再用“第一层探针”为每个 token 选出代理误差最小的那个预测器组装输出。
 
-**阶段一：计算与缓存（Compute and Cache）**
+### 关键设计
 
-每 $N$ 步窗口的第一步执行完整模型计算，缓存两个关键量：
+**1. 计算与缓存：只存第一层输入和全局残差，$O(1)$ 开销**
 
-$$\mathbf{h}_t = \text{Modulate}(\text{Norm}_1(\mathbf{x}_t), \mathbf{s}_t, \mathbf{g}_t)$$
+要让“跳步预测”省钱，缓存本身不能太重。TAP 在每 $N$ 步窗口的第一步执行完整前向，只缓存两个量：第一层调制后的输入 $\mathbf{h}_t = \text{Modulate}(\text{Norm}_1(\mathbf{x}_t), \mathbf{s}_t, \mathbf{g}_t)$（供后续探针评估）和模型输入输出残差 $\mathbf{r}_t = f_\theta(\mathbf{x}_t, t) - \mathbf{x}_t$（供预测）。两者都是 $O(1)$、与模型深度 $L$ 无关，而 TaylorSeer/ToCa 需要 $O(L)$ 的逐层缓存——这也是 TAP 在 FLUX.1-dev 上只多占 0.1 GB 显存（约 0.3%）、额外 FLOPs 仅 0.015% 的原因。
 
-$$\mathbf{r}_t = f_\theta(\mathbf{x}_t, t) - \mathbf{x}_t$$
+**2. Taylor 预测器族：用阶数和距离两个维度造一组候选**
 
-其中 $\mathbf{h}_t$ 是第一层调制后的输入（用于后续探针评估），$\mathbf{r}_t$ 是模型输入输出的残差（用于预测）。关键点在于只需缓存**第一层输入**和**全局残差**，存储为 $O(1)$ 与模型深度无关，而 TaylorSeer/ToCa 等方法需要 $O(L)$ 层级缓存。
-
-**阶段二：Taylor 预测器族（Taylor Predictor Family）**
-
-构建一组紧凑的候选预测器，通过变化两个维度实现多样性：
-
-- **Taylor 展开阶数** $m \in [O_l, O_r]$：低阶预测器对突变动态更鲁棒，高阶预测器对平滑动态更精确
-- **预测距离** $k_p \in [k - \lambda, k]$：不同 token 的 Taylor 展开收敛半径不同，超出收敛半径的高阶展开会发散
-
-预测公式为：
-
+单一预测器无法同时照顾平滑和突变的 token，所以 TAP 准备一族候选，从两个维度变化出多样性：Taylor 展开阶数 $m \in [O_l, O_r]$（低阶对突变更鲁棒、高阶对平滑更精确），以及预测距离 $k_p \in [k - \lambda, k]$（不同 token 收敛半径不同，超出半径的高阶展开会发散）。预测公式为
 $$\mathcal{F}_{\text{pred}}(\mathbf{x}_{t-k}; m, k_p) = \sum_{i=0}^{m} \frac{\Delta^i \mathcal{F}(\mathbf{x}_t)}{i! \cdot N^i} (-k_p)^i$$
+其中 $\Delta^i \mathcal{F}$ 是 $i$ 阶有限差分。默认 $M=3$（阶数 0,1,2）、$\lambda=4$、$\delta=1$，共生成 $\lfloor(4+1)/1\rfloor \times 3 = 15$ 个候选。其中零阶预测器尤其关键，因为它对突变、不连续的 token 动态最稳。
 
-其中 $\Delta^i \mathcal{F}$ 是 $i$ 阶有限差分。默认设置 $M=3$（阶数 0,1,2）, $\lambda=4$, $\delta=1$，共生成 $\lfloor(4+1)/1\rfloor \times 3 = 15$ 个候选预测器。
+**3. 探针—选择：用第一层输出当代理，免阈值挑预测器**
 
-**阶段三：探针—选择机制（Probe-then-Select）**
-
-核心创新：利用**第一层调制输入**作为预测器质量的代理指标。对当前步仅需执行一次第一层完整计算（成本极低），就可以并行评估所有候选预测器。
-
-对每个 token $(b, n)$，计算每个预测器 $p$ 的代理损失：
-
-$$\mathcal{L}_p^{b,n} = d(\widehat{\mathbf{h}}_{t,p}^{b,n}, \mathbf{h}_t^{b,n})$$
-
-其中 $d(\cdot, \cdot)$ 使用余弦距离。选择代理损失最小的预测器：
-
-$$p^{\star, b, n} = \arg\min_{p \in \mathcal{P}} \mathcal{L}_p^{b,n}$$
-
-选定后，用对应预测器的残差预测组装最终输出：
-
-$$\widehat{f}_\theta(\mathbf{x}_t, t) = \mathbf{x}_t + \widehat{\mathbf{r}}_t$$
-
-### 关键设计要点
-
-1. **无阈值设计**：通过比较不同预测器的**相对**代理误差做选择，不需要任何手动调参需求
-2. **探针机制的合理性**：输入扰动与输出误差高度相关，第一层评估即可反映下游预测质量
-3. **极低开销**：在 FLUX.1-dev 上仅增加 0.1 GB 显存（约原模型 0.3%），额外 FLOPs 仅 0.015%
-4. **框架通用性**：候选集不限于 Taylor 展开，可集成 FoCa、FreqCa 等其他预测方法
-
-### 复杂度分析
-
-标准扩散采样需要 $T$ 步全量前向传播。TAP 每 $N$ 步仅需 1 次完整计算，其余 $N-1$ 步通过预测替代。预测和验证操作仅涉及逐点运算和小多项式运算，额外显存为 $O(1)$（只存残差和第一层输入），与模型深度 $L$ 无关。
+怎么在不跑完整模型的情况下判断哪个预测器最好？TAP 的答案是：当前步只跑一次第一层完整计算（成本极低），用第一层调制输入 $\mathbf{h}_t$ 作为预测质量的代理——输入扰动和输出误差高度相关。对每个 token $(b,n)$ 算每个预测器的代理损失 $\mathcal{L}_p^{b,n} = d(\widehat{\mathbf{h}}_{t,p}^{b,n}, \mathbf{h}_t^{b,n})$（$d$ 用余弦距离），取最小者 $p^{\star, b, n} = \arg\min_{p \in \mathcal{P}} \mathcal{L}_p^{b,n}$，再用它的残差预测组装最终输出 $\widehat{f}_\theta(\mathbf{x}_t, t) = \mathbf{x}_t + \widehat{\mathbf{r}}_t$。整个选择只比较不同预测器的相对误差，不需要任何手工阈值，这正是它比 TeaCache、SpeCa 等靠手调阈值的自适应方法更鲁棒的地方。候选集也不限于 Taylor，可换成 FoCa、FreqCa 等其他预测器。
 
 ## 实验
 

@@ -50,33 +50,25 @@ tags:
 
 ### 整体框架
 
-RAZOR（Ratio-Aware Zero/One-step Optimized Retentive unlearning）是一个模型无关的轻量级遗忘框架，工作流程分三步：
+RAZOR（Ratio-Aware Zero/One-step Optimized Retentive unlearning）想解决的是：怎么把敏感知识从视觉 Transformer 里精准抹掉，又不伤到无关能力、还扛得住量化。它是个模型无关的轻量框架，整条流水线分三步走——先用比率感知显著性给每一层打分，筛出真正该编辑的层集合 $\mathcal{K}$；再在这些层上做一次约束多目标的融合梯度更新，把遗忘、保留、稳定三个目标一起优化；如果一轮下来遗忘还不够，就迭代地把新层加进 $\mathcal{K}$ 继续编辑，直到达标或触顶。
 
-1. **比率感知层/头选择**：计算每层的 forget 和 retain 梯度，用比率感知显著性得分筛选需要编辑的层集合 $\mathcal{K}$；
-2. **约束多目标损失优化**：在选中层上执行融合梯度更新，联合优化遗忘、保留和稳定性三个目标；
-3. **迭代扩展**：若遗忘不充分则逐步加入新层，直到满足阈值或达到迭代上限。
+### 关键设计
 
-### 关键设计 1：比率感知显著性评分
+**1. 比率感知显著性评分：在选层阶段就同时看「能不能忘」和「会不会误伤」**
 
-对模型的每一层 $l$，先计算一步 forget/retain 梯度：
-
-$$g^f_l = \nabla_{\theta_l} \mathcal{L}_{\text{forget}}, \quad g^r_l = \nabla_{\theta_l} \mathcal{L}_{\text{retain}}$$
-
-然后定义比率感知显著性：
+以往方法的通病是参数选择只被 forget 集驱动——SLUG 只挑单层、SalUn 只看 forget 梯度，retain 冲突只能事后再补，于是 forget 和 retain 动态耦合、顾此失彼。RAZOR 把这个判断提前到选层阶段。对每一层 $l$ 先算一步 forget/retain 梯度 $g^f_l = \nabla_{\theta_l} \mathcal{L}_{\text{forget}}$、$g^r_l = \nabla_{\theta_l} \mathcal{L}_{\text{retain}}$，再算比率感知显著性：
 
 $$\phi(l) = \frac{\|g^f_l\|_2}{\|\theta_l\|_2 + \varepsilon} \cdot (1 - \cos(g^f_l, g^r_l))^\alpha$$
 
-- 第一项衡量该层对遗忘的贡献强度（归一化后的 forget 梯度范数）；
-- 第二项衡量 forget 梯度与 retain 梯度的正交程度——**越正交说明编辑该层对保留知识的附带损伤越小**；
-- $\alpha \in [0,1]$ 控制量级与正交性之间的权衡，$\varepsilon$ 保数值稳定。
+第一项是归一化后的 forget 梯度范数，衡量这一层对遗忘贡献多大；第二项衡量 forget 与 retain 梯度有多正交——越正交，说明编辑这层对保留知识的附带损伤越小。$\alpha \in [0,1]$ 在量级和正交性之间调权重，$\varepsilon$ 保数值稳定，最后按阈值筛 $\mathcal{K} = \{l \mid \phi(l) > \tau\}$。一次梯度就同时评估了「遗忘能力」和「保留安全」，这是全文最核心的设计。
 
-筛选 $\mathcal{K} = \{l \mid \phi(l) > \tau\}$，$\tau$ 为阈值。
+**2. 三部分损失：让保效用、做遗忘、防漂移各管一摊**
 
-这一设计相比 SLUG 只选单层、SalUn 只看 forget 梯度，**在选择阶段就同时考虑了遗忘能力和保留安全性**，是本文最核心的贡献。
-
-### 关键设计 2：三部分损失函数
+选好层之后，更新方向由一个三项损失主导：
 
 $$\mathcal{L}_{\text{RAZOR}} = \mathcal{L}_{\text{retain}} + \lambda_f \rho \, \mathcal{L}_{\text{forget}} + \lambda_m \, \mathcal{L}_{\text{mismatch}}$$
+
+三项各司其职：$\mathcal{L}_{\text{retain}}$ 保住无关能力，$\mathcal{L}_{\text{forget}}$ 用梯度上升把目标知识推开，$\mathcal{L}_{\text{mismatch}}$ 是稳定正则、避免嵌入空间发生全局漂移；$\rho \in (0,1]$ 是比率超参，控制遗忘压力的整体强度。同一套框架在三类模型上只需替换每一项的实例：
 
 | 损失项 | CLIP | Stable Diffusion | VLM (LLaVA) |
 |---|---|---|---|
@@ -84,17 +76,13 @@ $$\mathcal{L}_{\text{RAZOR}} = \mathcal{L}_{\text{retain}} + \lambda_f \rho \, \
 | $\mathcal{L}_{\text{forget}}$（推开遗忘） | 余弦嵌入推远损失 | 文本编码器上的 CE 损失 | 视觉编码器上的 CE 损失 |
 | $\mathcal{L}_{\text{mismatch}}$（稳定正则） | 相似度漂移正则(SDR) | 生成结果的 SDR | 中性 QA 上的 logit 漂移正则 |
 
-其中 $\rho \in (0,1]$ 是比率超参，控制遗忘压力的整体强度。三项损失各司其职：retain 保效用，forget 做遗忘（梯度上升），mismatch 正则避免嵌入空间全局漂移。
+### 损失函数 / 训练策略
 
-### 训练策略：单步/少步更新 + 迭代扩展
-
-对每个选中层 $l \in \mathcal{K}$，执行融合梯度更新：
+对每个选中层 $l \in \mathcal{K}$ 执行融合梯度更新：
 
 $$\Delta\theta_l = -\eta_l(-\lambda_f \rho \, g^f_l + g^r_l + \lambda_m \nabla_{\theta_l}\mathcal{L}_{\text{mismatch}})$$
 
-步长 $\eta_l$ 通过轻量二分搜索确定——选择在小验证集上给出最佳遗忘-保留权衡的最大稳定步长。
-
-如果初始编辑后遗忘不充分，进入**迭代扩展**：每轮重新计算更新后模型的 $\phi_t(l)$，选择得分最高的新层加入 $\mathcal{K}$ 并更新，最多迭代 6 轮。这种渐进式策略确保精确遗忘而不过度编辑。
+步长 $\eta_l$ 用一次轻量二分搜索确定——在小验证集上挑出给出最佳遗忘-保留权衡的最大稳定步长。如果初始编辑后遗忘仍不充分，就进入**迭代扩展**：每轮在更新后的模型上重新算 $\phi_t(l)$，把得分最高的新层加进 $\mathcal{K}$ 再更新，最多迭代 6 轮。这种渐进式扩展保证遗忘门槛能达到，又不会一次过度编辑。
 
 ## 实验关键数据
 

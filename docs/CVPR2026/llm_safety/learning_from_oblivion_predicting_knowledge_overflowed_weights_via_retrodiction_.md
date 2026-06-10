@@ -43,46 +43,35 @@ tags:
 
 ## 方法详解
 
-### 问题形式化
+### 整体框架
 
-给定在数据集$D_0$上预训练的权重$\Theta_0$，构造逐步缩小的数据集序列$D_S \subset D_{S-1} \subset \cdots \subset D_1 \subset D_0$（采样率$r \in [0,1]$），通过sequential fine-tuning获得权重序列$[\Theta_0, \Theta_1, \Theta_2, \ldots, \Theta_{S-1}]$。
+这篇工作想回答一个很实际的问题：能不能不增加训练数据，就拿到「仿佛在更大数据集上训出来」的更好预训练权重？它的破题点是把 catastrophic forgetting 反过来用——既然在逐步缩小的数据上反复 fine-tuning 会让权重沿一条有结构的轨迹「退化遗忘」，那么观察这条退化轨迹、再把方向反转，就能外推出「知识溢出」的增强权重。形式化地说：给定在 $D_0$ 上预训练的 $\Theta_0$，先人为制造一段遗忘轨迹 $[\Theta_0, \Theta_1, \ldots, \Theta_{S-1}]$，再假设存在一个对应「更大数据集 $D_{-1} \supset D_0$」的理想权重 $\Theta_{-1}$（fine-tuning 它在 $D_0$ 上恰好得到 $\Theta_0$），用一个学过「遗忘长什么样」的 hyper-model 反向预测出 $\hat{\Theta}_{-1}$，这就是 KNOW（Knowledge-Overflowed Weights）prediction。
 
-**假设**：存在理想权重$\Theta_{-1}$，它对应"在$D_{-1} \supset D_0$的更大数据集上训练"，且fine-tuning $\Theta_{-1}$在$D_0$上可得到$\Theta_0$。
+### 关键设计
 
-**目标**：通过观察forgetting轨迹$[\Theta_0, \Theta_1, \ldots, \Theta_{S-1}]$，反向预测$\hat{\Theta}_{-1}$——即KNOW (KNowledge-Overflowed Weights) prediction。
+**1. 结构化遗忘诱导：人为造一段「退化轨迹」给模型看**
 
-### Structured Forgetting（结构化遗忘诱导）
+要反转遗忘，得先有一条干净、有结构的遗忘轨迹。做法是从完整数据集 $D_0$ 出发，按采样率 $r \in [0,1]$ 逐步构造嵌套子集 $D_S \subset D_{S-1} \subset \cdots \subset D_1 \subset D_0$（$D_1 = r\cdot D_0$，$D_2 = r\cdot D_1$……），在每个更小的子集上 fine-tuning 上一步的权重，得到序列 $\Theta_0 \xrightarrow{D_1} \Theta_1 \xrightarrow{D_2} \Theta_2 \cdots$。每一步遗忘的知识量都和数据缩减量挂钩，所以这段轨迹是「有结构」的而非随机漂移。loss landscape 的 PCA 可视化显示这些权重串成一条平滑曲线、周围是连续的高精度区域，这正是「可以沿轨迹外推」的前提。
 
-1. 从完整数据集$D_0$出发，按采样率$r$逐步构造$D_1 = r \cdot D_0$，$D_2 = r \cdot D_1$，...
-2. 在每个子集上fine-tuning前一步的权重：$\Theta_0 \xrightarrow{D_1} \Theta_1 \xrightarrow{D_2} \Theta_2 \cdots$
-3. 这个过程有意识地诱导了结构化的遗忘——每步遗忘的知识量与数据缩减量相关
+**2. KNOWN 超模型：学会「遗忘的逆运算」**
 
-关键性质：loss landscape可视化（PCA投影）表明权重序列形成平滑曲线，序列周围的高精度区域连续——支持通过轨迹外推进行权重预测的可行性。
-
-### KNOWN (Knowledge-Overflowed Weights Nowcaster)
-
-KNOWN是一个轻量级meta-trained hyper-model（仅9,425参数），基于WNN架构的two-stream MLP。
-
-**输入**：权重历史$W_t = [\theta_0, \theta_1, \ldots, \theta_{S-1}]$及其差分$dW_t = [\theta_1 - \theta_0, \ldots, \theta_{S-1} - \theta_{S-2}]$（$S=5$）
-
-**预测**：输出权重残差，预测增强权重：
+KNOWN（Knowledge-Overflowed Weights Nowcaster）是一个仅 9,425 参数的轻量 meta-trained hyper-model，基于 WNN 的 two-stream MLP。它吃两路输入——权重历史 $W_t = [\theta_0, \theta_1, \ldots, \theta_{S-1}]$ 和它们的差分 $dW_t = [\theta_1 - \theta_0, \ldots, \theta_{S-1} - \theta_{S-2}]$（取 $S=5$）——输出一个权重残差，叠加回当前权重得到增强权重：
 
 $$\hat{\theta}^{t-1} = \theta^t + \text{KNOWN}(W_t, dW_t)$$
 
-**分类处理**：按参数类型（Conv/FC/Bias）分别训练三个专用KNOWN模型$[\text{KNOWN}_{\text{Conv}}, \text{KNOWN}_{\text{FC}}, \text{KNOWN}_{\text{Bias}}]$
+因为 Conv / FC / Bias 三类参数的演化模式不同，KNOWN 按参数类型分别训练三个专用模型 $[\text{KNOWN}_{\text{Conv}}, \text{KNOWN}_{\text{FC}}, \text{KNOWN}_{\text{Bias}}]$。它非线性地建模整条轨迹，这也是它比 TaskVector 那种线性外推更稳的原因。
 
-**Meta-training**：
-- 收集多种小规模DNN（CNN/ResNet/DenseNet/ShuffleNet/MobileNetV2，均<3M参数）在CIFAR10/MNIST/FashionMNIST上的权重轨迹，约50GB
-- 目标函数为$\ell_1$残差最小化：$\|(\theta^t + \text{KNOWN}(W_t, dW_t)) - \theta^{t-1}\|_1$
-- 训练完成后**无需针对新实验额外训练**，直接泛化到所有downstream设置
+**3. 迭代多步预测：把外推再往前推**
 
-### 迭代多步预测
+如果第一步预测出的 $\hat{\Theta}_{-1}$ 足够可靠，就能把它接回历史 $[\hat{\Theta}_{-1}, \Theta_0, \Theta_1, \ldots, \Theta_{S-2}]$ 去预测 $\hat{\Theta}_{-2}$，如此递归。当 $r=0.5$ 时，$\hat{\Theta}_{-1}$、$\hat{\Theta}_{-2}$、$\hat{\Theta}_{-3}$ 分别对应 ×2、×4、×8 的虚拟数据量增强。能一直递归而性能不崩，本身就反过来证明了预测权重的质量够高。
 
-若第一步预测$\hat{\Theta}_{-1}$可靠，可进一步用$[\hat{\Theta}_{-1}, \Theta_0, \Theta_1, \ldots, \Theta_{S-2}]$预测$\hat{\Theta}_{-2}$。当$r=0.5$时，$\hat{\Theta}_{-1}$, $\hat{\Theta}_{-2}$, $\hat{\Theta}_{-3}$分别对应×2, ×4, ×8的虚拟数据量增强。迭代预测持续带来性能提升，表明预测权重质量足以支撑递归使用。
+### 一个完整示例
 
-### 时间开销
+以 ResNet18 从 CIFAR100 迁移到 CIFAR10 为例（$r=0.5$，$S=5$）：先在逐步减半的子集上 fine-tune 出 $[\Theta_0, \ldots, \Theta_4]$ 这条遗忘轨迹，naive 迁移的 baseline 精度是 92.40。把轨迹喂给 KNOWN 预测 $\hat{\Theta}_{-1}$（≈×2 数据），精度升到 93.00；再递归预测到 ×4 得 93.27、×8 得 93.55。值得注意的是，仅用 50% 数据走这套流程（92.58）就已经超过了用 100% 数据的 baseline（92.40）——多出来的性能完全来自对遗忘轨迹的反向外推，而非额外数据。
 
-Sequential forgetting的训练开销为原始训练时间的$\frac{1-r^{S-1}}{1-r}$倍。权重预测推理开销极低：ResNet18全部参数预测仅需3.01±0.09秒（每参数$2.67 \times 10^{-7}$秒）。
+### 损失函数 / 训练策略
+
+KNOWN 的 meta-training 目标是 $\ell_1$ 残差最小化 $\|(\theta^t + \text{KNOWN}(W_t, dW_t)) - \theta^{t-1}\|_1$，训练数据是多种小模型（CNN/ResNet/DenseNet/ShuffleNet/MobileNetV2，均 <3M 参数）在 CIFAR10/MNIST/FashionMNIST 上的权重轨迹（约 50GB）。一旦训完就无需针对新实验重训，直接泛化到所有下游设置。推理成本极低——预测 ResNet18 全部参数仅需约 3 秒（每参数 $2.67 \times 10^{-7}$ 秒）；制造遗忘轨迹的额外训练开销为原始训练的 $\frac{1-r^{S-1}}{1-r}$ 倍。
 
 ## 实验关键数据
 

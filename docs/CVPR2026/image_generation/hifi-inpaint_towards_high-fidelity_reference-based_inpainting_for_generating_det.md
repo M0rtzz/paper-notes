@@ -43,23 +43,29 @@ tags:
 
 ### 整体框架
 
-HiFi-Inpaint 基于 FLUX.1-Dev（MMDiT 架构），输入为文本提示 $T$、遮罩人像 $\mathbf{I}_h$ 和产品参考图 $\mathbf{I}_p$，输出将产品无缝融入遮罩区域的图像 $\mathbf{I}_g$。框架包含三大创新：HP-Image-40K 数据集、高频图引导的 DiT 框架（含 SEA）、以及细节感知损失（DAL）。
+HiFi-Inpaint 要解决的是「把一张产品参考图无损地塞进人像的遮罩区域」这件事——产品的形状、花纹、Logo、文字都不能走样。它基于 FLUX.1-Dev 的 MMDiT 架构，把文本提示 $T$、遮罩人像 $\mathbf{I}_h$ 和产品参考图 $\mathbf{I}_p$ 一起喂进去，输出产品自然融入遮罩区域的合成图 $\mathbf{I}_g$。整条链路靠三件东西撑起来：先用自合成管线造出 HP-Image-40K 数据集解决「没数据」，再在 DiT 里挂一条高频分支（SEA）把产品细节特征顶上去，最后用细节感知损失（DAL）在像素层面盯住高频重建。
 
 ### 关键设计
 
-1. **HP-Image-40K 数据集构建**: 通过 FLUX.1-Dev 生成双联画格式图像（左产品/右人-产品），再经 Sobel 边缘检测分割、YOLOv8+CLIP 语义过滤（计算裁剪产品区域与参考图的 CLIP 相似度）、InternVL 文字一致性过滤，最终获得 40,000+ 高质量样本。每个样本包含文本描述、遮罩人像、产品图和目标图。这种自合成+自动过滤的方式以最小人工干预获取大规模多样数据。
+**1. HP-Image-40K：用自合成 + 自动过滤换来大规模训练数据**
 
-2. **高频图引导 DiT + 共享增强注意力（SEA）**:
+人-产品图像最缺的就是成对训练数据，人工采集成本极高。作者干脆让 FLUX.1-Dev 生成双联画格式的图像（左边纯产品、右边人-产品），再用一套自动管线把质量差的样本筛掉：Sobel 边缘检测做分割、YOLOv8+CLIP 算裁剪出的产品区域与参考图的 CLIP 相似度做语义过滤、InternVL 校验文字一致性。这样几乎不需要人工干预就攒出 40,000+ 高质量样本，每个样本配齐文本描述、遮罩人像、产品图和目标图，直接喂给后面的训练。
 
-    - **高频提取**：通过 DFT 将图像变换到频域，用圆形掩码（半径 $r$）的高通滤波器抑制低频分量，再逆 DFT 回空域，获得突出纹理、文字、Logo 等细节的高频图 $H(\mathbf{I}_p)$（比 Canny 边缘检测更聚焦关键细节）
-    - **Token 合并机制**：将遮罩人像、产品图与噪声目标图的 VAE 编码 token 拼接为联合视觉 token：$\mathbf{z}_0 = \text{Concat}(\mathcal{E}(\mathbf{I}_h), \mathcal{E}(\mathbf{I}_p), N(\mathcal{E}(\mathbf{I}_{gt}), t))$；同时构建高频视觉 token $\mathbf{z}_0' = \text{Concat}(\mathcal{E}(\mathbf{I}_h), \mathcal{E}(H(\mathbf{I}_p)), N(\mathcal{E}(\mathbf{I}_{gt}), t))$
-    - **SEA 核心公式**：在每个双流 DiT 块中，添加共享参数的高频分支，通过可学习权重 $\alpha_i$ 将高频特征融合到原始特征中（仅在遮罩区域内），增强产品的细粒度特征：
-    $\mathbf{z}_i = B_i(\mathbf{z}_{i-1}) + \alpha_i \cdot \text{Mask}(B_i(\mathbf{z}_{i-1}'), \mathbf{M}_{ds})$
-   SEA 利用参数共享机制，仅引入每层一个额外参数 $\alpha_i$，保持模型紧凑性。可学习的 $\alpha_i$ 比固定为 1 效果更好（避免视觉伪影和冲突）。
+**2. 高频图引导 DiT + 共享增强注意力（SEA）：给产品的纹理细节开专门通道**
 
-3. **细节感知损失（DAL）**: 针对隐空间 MSE 损失难以精确监督细粒度细节的问题，DAL 在像素空间对遮罩区域的高频分量施加 L2 监督：
-    $\mathcal{L}_{\text{DA}} = \|H(\hat{\mathbf{I}}_{gt}) \odot \mathbf{M} - H(\mathbf{I}_{gt}) \odot \mathbf{M}\|_2^2$
-   其中 $H(\cdot)$ 为高频提取，$\mathbf{M}$ 为遮罩区域。DAL 迫使模型关注高频细节的重建，弥补隐空间损失的不足。
+扩散模型的去噪过程天生爱「平均化」，纹理、文字、Logo 这类高频细节最容易被抹平，于是 SEA 给细节单开一条高频通道。先把产品图经 DFT 变到频域，用半径为 $r$ 的圆形高通滤波器压掉低频再逆 DFT 回空域，得到只突出纹理/文字/Logo 的高频图 $H(\mathbf{I}_p)$（比 Canny 边缘检测更聚焦关键细节）。然后把遮罩人像、产品图与加噪目标图的 VAE token 拼成联合视觉 token $\mathbf{z}_0 = \text{Concat}(\mathcal{E}(\mathbf{I}_h), \mathcal{E}(\mathbf{I}_p), N(\mathcal{E}(\mathbf{I}_{gt}), t))$，同时构造一份高频视觉 token $\mathbf{z}_0' = \text{Concat}(\mathcal{E}(\mathbf{I}_h), \mathcal{E}(H(\mathbf{I}_p)), N(\mathcal{E}(\mathbf{I}_{gt}), t))$。在每个双流 DiT 块里，高频分支与主分支共享参数，只用一个可学习权重 $\alpha_i$ 把高频特征融回主特征，且仅作用在遮罩区域内：
+
+$$\mathbf{z}_i = B_i(\mathbf{z}_{i-1}) + \alpha_i \cdot \text{Mask}(B_i(\mathbf{z}_{i-1}'), \mathbf{M}_{ds})$$
+
+参数共享让 SEA 每层只多一个标量 $\alpha_i$，模型几乎不变胖；而把 $\alpha_i$ 设成可学习（而非固定为 1）能避开高频分支与主分支冲突产生的视觉伪影。
+
+**3. 细节感知损失（DAL）：在像素空间直接盯住高频重建**
+
+只靠隐空间 MSE 监督，模型对细粒度细节其实是「看不清」的。DAL 把监督搬到像素空间，专门对遮罩区域的高频分量做 L2 约束：
+
+$$\mathcal{L}_{\text{DA}} = \|H(\hat{\mathbf{I}}_{gt}) \odot \mathbf{M} - H(\mathbf{I}_{gt}) \odot \mathbf{M}\|_2^2$$
+
+其中 $H(\cdot)$ 为高频提取，$\mathbf{M}$ 为遮罩区域。这等于强迫模型把注意力放到高频细节的还原上，补上隐空间损失够不到的那一截。
 
 ### 损失函数 / 训练策略
 

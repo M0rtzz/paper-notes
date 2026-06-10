@@ -39,21 +39,33 @@ VLM 是否和单模态 DNN 一样容易受到模型反转攻击？如何针对 V
 ## 方法详解
 
 ### 整体框架
-白盒攻击设定：攻击者拥有 VLM 的完整架构、参数和注意力图。给定文本输入 $t$（如"Who is the person in the image?"）和目标答案 $y$（如人名），在预训练 StyleGAN2 的潜空间中优化 $w$，使 $x = G(w)$ 能使 VLM 输出 $y$。
+
+这是个白盒模型反转攻击：攻击者握有 VLM 的完整架构、参数和注意力图，想从模型里"反推"出训练用过的私有图像。具体做法是在预训练 StyleGAN2 的潜空间里优化一个 $w$，让生成图 $x = G(w)$ 喂给 VLM 后、在给定文本 $t$（如"Who is the person in the image?"）下能输出目标答案 $y$（如某个人名）。难点在于 VLM 输出的是 token 序列而非单个类别标签，作者沿着"逐 token → 序列级 → 注意力加权"一路把反转目标做强，最终落到 SMI-AW。
 
 ### 关键设计
 
-1. **Token-based MI (TMI)**: 逐 token 更新——对序列中每个 token $y_i$ 分别计算反转损失并更新潜变量 $w$。每轮遍历所有 $m$ 个 token 各更新一次。问题：单 token 梯度噪声大，弱视觉关联 token 的梯度可能误导优化。
+**1. Token-based MI（TMI）：逐 token 反推，但梯度太吵**
 
-2. **Convergent Token-based MI (TMI-C)**: 对每个 token 做 $K$ 次更新直到收敛后再进入下一个 token。问题：收敛方向不稳定，匹配率反而最低（<30%）。
+最直接的想法是把答案序列里每个 token $y_i$ 单独拿来算反转损失、各更新一次 $w$，一轮遍历完 $m$ 个 token。问题是单 token 的梯度噪声大，那些和视觉关系很弱的 token（如冠词）会用错误方向带偏优化。
 
-3. **Sequence-based MI (SMI)**: 聚合所有 token 的损失为统一目标 $\mathcal{L} = \frac{1}{m}\sum_{i=1}^m \mathcal{L}_{inv}(M(t, G(w), y_{<i}), y_i)$，每步用全局梯度更新 $w$。匹配率 >95%，远优于 TMI。
+**2. Convergent Token-based MI（TMI-C）：每个 token 更到收敛，反而更差**
 
-4. **SMI-AW（核心贡献）**: 观察到不同 token 对视觉输入的注意力强度不同——视觉接地良好的 token（如名字中描述性的部分）有强交叉注意力，其梯度携带更丰富的视觉信息；而语言驱动的 token（如冠词）注意力弱，梯度信息量少。SMI-AW 用交叉注意力值 $\alpha_i$ 动态计算权重 $\beta_i = \alpha_i / \sum_j \alpha_j$，加权聚合损失：$\mathcal{L} = \sum_{i=1}^m \beta_i \mathcal{L}_{inv}$。关键：权重在每个反转步骤动态更新，因为随着重建图像逐渐逼近目标，token 对视觉输入的依赖度会变化。
+既然单次更新噪声大，那就对每个 token 连更 $K$ 次直到收敛再换下一个。结果适得其反——逐 token 的收敛方向彼此不稳定、来回拉扯，目标匹配率掉到最低（<30%）。
+
+**3. Sequence-based MI（SMI）：把整句的损失合成一个目标**
+
+前两种的毛病都出在"按 token 各管各的"。SMI 改成把所有 token 的损失聚合成统一目标，每步用全局梯度更新 $w$：
+
+$$\mathcal{L} = \frac{1}{m}\sum_{i=1}^m \mathcal{L}_{inv}(M(t, G(w), y_{<i}), y_i)$$
+
+全局信号比单 token 稳得多，目标匹配率直接冲到 >95%，远优于 TMI。
+
+**4. SMI-AW：按视觉注意力给 token 动态加权（核心贡献）**
+
+SMI 把所有 token 一视同仁，但作者观察到不同 token 对视觉输入的依赖差很多——视觉接地好的 token（如名字里有描述性的部分）有强交叉注意力，梯度里携带的视觉信息更丰富；语言驱动的 token（如冠词）注意力弱、梯度几乎没用。SMI-AW 就用交叉注意力值 $\alpha_i$ 算权重 $\beta_i = \alpha_i / \sum_j \alpha_j$，加权聚合损失 $\mathcal{L} = \sum_{i=1}^m \beta_i \mathcal{L}_{inv}$。关键是这个权重在每个反转步骤都重算——因为重建图越来越逼近目标时，token 对视觉的依赖度本身在变，静态权重抓不住这种变化。
 
 ### 损失函数 / 训练策略
-- 三种反转损失：交叉熵 $\mathcal{L}_{CE}$、最大间隔 $\mathcal{L}_{MML}$、logit 最大化 $\mathcal{L}_{LOM}$（最优）
-- $\mathcal{L}_{LOM}$ 直接最大化目标 token 的 logit 并加正则化防止 logit 无界增长
+- 三种反转损失：交叉熵 $\mathcal{L}_{CE}$、最大间隔 $\mathcal{L}_{MML}$、logit 最大化 $\mathcal{L}_{LOM}$（最优）；$\mathcal{L}_{LOM}$ 直接最大化目标 token 的 logit 并加正则化防止 logit 无界增长
 - 反转步数 $N = 70$，更新率 $\lambda = 0.05$
 - 初始候选选择：采样 2000 个 $w$，选 top-16 低损失候选；最终选择：10 次随机增强后选 8 个最优
 

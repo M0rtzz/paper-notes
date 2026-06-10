@@ -42,52 +42,33 @@ tags:
 
 ### 整体框架
 
-4DEquine 由两个解耦组件构成：
+4DEquine 要解决的是单目视频里马科动物的 4D 重建——既要逐帧恢复动作，又要重建出能换姿态的高保真外观。它的核心判断是：动作逐帧在变，但外观在同一段视频里几乎不变，所以没必要把两者耦合在一起联合优化。框架因此拆成两条独立的路：AniMoFormer 负责从视频里恢复逐帧的 VAREN 运动参数（姿态 θ、形状 β、全局平移 γ），EquineGS 负责从单张图前馈出标准空间下的可动画高斯 avatar。两者通过 VAREN 参数化模型桥接——AniMoFormer 给出骨骼姿态，EquineGS 生成标准空间高斯点云，再用 LBS（线性混合蒙皮）驱动到每帧姿态。推理时用滑动窗口处理任意长度视频。
 
-- **AniMoFormer**：时空 Transformer + 后优化，从视频中恢复逐帧 VAREN 运动参数（姿态 θ、形状 β、全局平移 γ）
-- **EquineGS**：前馈网络，从单张图像重建高保真可动画 3D Gaussian avatar
+### 关键设计
 
-两者通过 VAREN 参数化模型桥接——AniMoFormer 提供逐帧的骨骼姿态，EquineGS 生成标准空间下的高斯点云，通过 LBS（线性混合蒙皮）驱动到每帧姿态空间。推理时采用滑动窗口策略处理任意长度视频。
+**1. AniMoFormer：从视频恢复时序一致的运动，且只靠合成数据训练**
 
-### 关键设计 1：AniMoFormer（运动恢复）
+真实的 4D VAREN 标注根本不存在，这是运动恢复最先卡住的地方。作者绕开它的办法是自造数据集 VarenPoser：把 VAREN 模型 fit 到基于光学标记的马运动数据集 PFERD 上拿到姿态，切成 600 帧片段并随机换形状参数增加多样性，再用 MV-Adapter 生成多样纹理、模拟 fix/dolly/orbit 三种真实相机轨迹渲染，最终得到 1171 个 512×512、60 FPS 的视频片段。网络本身是时空 Transformer：Spatial Transformer 逐帧抽空间特征，Temporal Transformer 把 N=16 帧堆叠后用自注意力建模时序，VAREN Decoder 回归每帧的姿态、形状与相机参数。
 
-**VarenPoser 数据集构建**：训练数据是难题——真实 4D VAREN 标注不存在。作者将 VAREN 模型 fit 到基于光学标记的马运动数据集 PFERD 上获取姿态参数，切分为 600 帧片段，随机分配形状参数增加多样性。用 MV-Adapter 生成多样纹理，并模拟三种真实相机轨迹（fix、dolly、orbit）渲染视频。最终得到 1171 个视频片段，512×512 分辨率，60 FPS。
+Transformer 的输出时序平滑但未必和 2D 图像严丝合缝对齐，于是再接一步后优化（Post-Optimization）：用可微渲染器把 3D mesh 投影回图像，与 ViTPose++ 提取的 2D 关键点、Samurai 提取的 mask 这两组伪 GT 比对，用梯度微调参数逼到像素级对齐。消融里去掉后优化后 PCK@0.05 明显掉，说明这一步是把“看起来平滑”变成“真的对齐”的关键。
 
-**时空 Transformer**：
-- **Spatial Transformer**：逐帧提取空间特征
-- **Temporal Transformer**：将 N=16 帧的空间特征堆叠，通过自注意力建模时序关系
-- **VAREN Decoder**：回归每帧的姿态、形状和相机参数
+**2. EquineGS：从单张图前馈出可动画的高斯外观**
 
-**后优化（Post-Optimization）**：Transformer 输出虽然时序平滑但可能未完美对齐 2D 图像。利用可微渲染器将 3D mesh 投影，与 ViTPose++ 提取的 2D 关键点和 Samurai 提取的 mask 伪 GT 对比，通过梯度优化微调参数，确保像素级对齐。
+外观重建的痛点是既要高保真又不能依赖多视角完整观测。EquineGS 先把 VAREN 模板 mesh（仅 13873 顶点，太稀疏）做边中点插值、每个面拆成 4 个，上采样到 $N_G = 55486$ 个顶点作为高斯初始位置。然后走双流特征：图像流用预训练 DINOv3（ViT-Large）抽多尺度特征再 1×1 卷积融合成 $\mathbf{F}_I \in \mathbb{R}^{784 \times 1024}$，点云流对 3D 坐标做位置编码后过 MLP 得到 $\mathbf{F}_P \in \mathbb{R}^{N_G \times 1024}$。
 
-### 关键设计 2：EquineGS（外观重建）
+融合靠 DSTG 解码器（Dual-Stream Transformer Gaussian Decoder，改自 Qwen-Image 的 MMDiT block）：先对图像特征 AvgPool + MLP 提全局上下文向量，再把图像特征、点云特征和全局上下文一起送进 DSTG，让图像信息引导点特征对齐到外观表示，最后 MLP 输出每个高斯点的位置偏移 Δμ、旋转 r、缩放 s、颜色 c、不透明度 o。消融显示把 DSTG 换成标准 cross-attention 后所有感知指标都下降，说明双流交互比单纯交叉注意力更能把图像外观“贴”到正确的点上。训练数据同样是自造的——VarenPoser 的纹理质量不够且是单目，作者用 UniTex（多视图扩散模型）从法线图和标准坐标图（CCM）加 ControlNet 参考图，合成 15 万张 512×512 多视图图像组成 VarenTex。
 
-**标准点云初始化**：VAREN 模板 mesh 仅有 13873 个顶点不够细致，对每条边中点插值、每个面拆分为 4 个，上采样到 $N_G = 55486$ 个顶点作为高斯初始位置。
+### 损失函数 / 训练策略
 
-**双流特征提取**：
-- 图像流：用预训练 DINOv3 (ViT-Large) 提取多尺度特征图，经 1×1 卷积融合为 $\mathbf{F}_I \in \mathbb{R}^{784 \times 1024}$
-- 点云流：对 3D 点坐标做位置编码后通过 MLP 得到 $\mathbf{F}_P \in \mathbb{R}^{N_G \times 1024}$
-
-**DSTG 解码器（Dual-Stream Transformer Gaussian Decoder）**：改编自 Qwen-Image 的 MMDiT block，三阶段工作：
-1. 全局上下文提取：对图像特征做 AvgPool + MLP 得到全局上下文向量
-2. 特征融合：将图像特征、点云特征和全局上下文同时送入 DSTG，图像信息引导点特征对齐到外观表示
-3. 属性预测：MLP 输出每个高斯点的位置偏移 Δμ、旋转 r、缩放 s、颜色 c、不透明度 o
-
-**VarenTex 数据集**：VarenPoser 的纹理质量不足以训练高保真 avatar 且为单目视频而非多视图。用 UniTex（多视图扩散模型）从 VarenPoser 的法线图和标准坐标图（CCM）加 ControlNet 生成的参考图像，合成 15 万张 512×512 多视图训练图像。
-
-### 损失函数与训练策略
-
-**AniMoFormer 损失**：
+AniMoFormer 的损失把 VAREN 拟合、平滑、2D 与 3D 对齐合在一起：
 
 $$\mathcal{L} = \lambda_{\text{varen}}\mathcal{L}_{\text{varen}} + \lambda_{\text{smooth}}\mathcal{L}_{\text{smooth}} + \lambda_{\text{2D}}\mathcal{L}_{\text{2D}} + \lambda_{\text{3D}}\mathcal{L}_{\text{3D}}$$
 
-其中 $\mathcal{L}_{\text{smooth}}$ 对相邻帧的形状和姿态参数差异施加 L2 约束，确保时序平滑。后优化阶段额外加入 mask L1 损失和姿态正则化。
-
-**EquineGS 损失**：
+其中 $\mathcal{L}_{\text{smooth}}$ 对相邻帧的形状和姿态参数差异施加 L2 约束保证时序平滑，后优化阶段再额外加 mask L1 损失和姿态正则化。EquineGS 的损失为
 
 $$\mathcal{L} = \lambda_{\text{image}}\mathcal{L}_{\text{image}} + \lambda_{\text{mask}}\mathcal{L}_{\text{mask}} + \lambda_{\text{reg}}\mathcal{L}_{\text{reg}}$$
 
-图像损失采用 L1 + LPIPS 感知损失组合，兼顾像素精度和高层语义相似性；mask 损失为轮廓 L1 约束。
+图像损失用 L1 + LPIPS 感知损失组合兼顾像素精度与高层语义，mask 损失是轮廓 L1 约束。
 
 ## 实验关键数据
 

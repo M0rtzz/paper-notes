@@ -44,37 +44,31 @@ tags:
 
 ### 整体框架
 
-OraPO 是一个单阶段、纯 RL 训练框架（无需 SFT/对齐预训练），核心由两部分组成：
+OraPO 是一个单阶段、纯 RL 的放射报告生成框架，不需要领域预训练、图文对齐或 SFT。它要解决两件事：一是 GRPO 直接用在 RRG 上时，基座 VLM 缺放射学知识，前 50 步约 30% 的 group 全零奖励、梯度消失、rollout 白白浪费；二是长文本报告没法像数学题那样二值验证，BLEU/CIDEr 又抓不住事实错误。对应地，OraPO 由两块拼成——OraPO 算法在 GRPO group 全零奖励时动态注入 DPO 监督，把 ground-truth 报告当正样本、零奖励 rollout 当负样本组偏好对；FactScore 奖励（FactS）则从报告里抽原子临床事实做蕴含检查，给出密集、可解释的句子级奖励。
 
-- **OraPO 算法**：在 GRPO 基础上，当采样 group 全部获得零奖励时，动态注入 DPO 监督，将 ground-truth 报告作为正样本、零奖励 rollout 作为负样本构建偏好对
-- **FactScore 奖励（FactS）**：从生成报告中提取原子临床事实，与 ground-truth 标签做蕴含检查，产生密集、可解释的句子级奖励
+### 关键设计
 
-### 关键设计 1：Zero-Reward Rate (ZRR) 自适应混合
+**1. Zero-Reward Rate（ZRR）自适应混合：把失败 rollout 回收成免费偏好负样本**
 
-对每个 prompt $x_i$，计算 K 个 rollout 中零奖励的比例 $z_i$，通过指数移动平均（EMA, $\alpha=0.5$）平滑为 $\tilde{z}_i^{(t)}$，再映射为混合权重：
+GRPO 撞上全零奖励 group 时既学不到东西又浪费算力，而 DAPO 重采样、增大 group size 这些修法都是在加计算。OraPO 换个思路：对每个 prompt $x_i$ 先算 $K$ 个 rollout 里零奖励的比例 $z_i$，用指数移动平均（EMA, $\alpha=0.5$）平滑成 $\tilde{z}_i^{(t)}$，再映射成混合权重：
 
 $$w_i^{(t)} = \text{clip}(w_{\min} + (w_{\max} - w_{\min})[\tilde{z}_i^{(t)}]^\gamma, w_{\min}, w_{\max})$$
 
-其中 $w_{\min}=0.05$, $w_{\max}=0.15$, $\gamma=2.0$。最终 OraPO 目标为：
+其中 $w_{\min}=0.05$、$w_{\max}=0.15$、$\gamma=2.0$。最终目标是 GRPO 与 DPO 的加权和：
 
 $$\mathcal{L}_{\text{OraPO}} = \frac{1}{B}\sum_{i=1}^{B}[(1 - w_i^{(t)})\mathcal{L}_{\text{GRPO}} + w_i^{(t)}\mathcal{L}_{\text{DPO}}]$$
 
-- ZRR 高时 DPO 主导（oracle 教育）；ZRR 低时 GRPO 主导（探索利用）
-- DPO 正样本 = ground-truth 报告，负样本 = 全部零奖励 rollout（免费负样本，无需额外标注或生成）
+ZRR 高就让 DPO 主导（oracle 教育、稳住梯度），ZRR 低就让 GRPO 主导（继续探索）。关键巧处在于 DPO 的负样本就是那些全零奖励 rollout、正样本就是 ground-truth 报告，两者都是现成的、零额外标注开销，等于把失败探索直接变成监督信号。
 
-### 关键设计 2：FactScore 奖励（FactS）
+**2. FactScore 奖励（FactS）：把报告质量锚定到原子临床事实蕴含**
 
-三步流程：
+RRG 的奖励难设计，是因为表面流畅度指标对句子级事实错误和跨句矛盾几乎不罚。FactS 改成三步给出贴临床的奖励：先用 GPT-4.1 从生成报告中抽出原子临床陈述集合 $\mathcal{F}(\hat{y}_i)$；再对 14 个 CheXpert 标签逐一检查事实集是否蕴含该标签，矛盾就记假阳性；最后基于 per-instance 的 precision/recall 算 $F_\beta$ 作为奖励，取 $\beta > 1$ 让奖励偏向 recall——因为临床里漏诊比误报后果重得多。这样奖励既密集又可解释，直接惩罚的是「说错事实」而非「说得不顺」。
 
-1. **提取原子事实**：用 GPT-4.1 从生成报告中提取原子临床陈述集合 $\mathcal{F}(\hat{y}_i)$
-2. **标签级蕴含检查**：对 14 个 CheXpert 标签逐一检查事实集是否蕴含该标签，矛盾视为假阳性
-3. **计算 $F_\beta$ 奖励**：基于 per-instance precision/recall 计算 $F_\beta$ 分数，$\beta > 1$ 侧重 recall（惩罚漏诊）
+### 损失函数 / 训练策略
 
-### 损失函数
-
-- GRPO 损失：标准 clipped PPO ratio + KL 正则，使用 DR.GRPO 缓解长度偏差
-- DPO 损失：标准 DPO + LN-DPO 按序列长度归一化偏好 margin
-- 两者通过 ZRR 权重动态混合，形成自增强数据飞轮：模型越好 → 负样本质量越高 → 奖励信号越强 → 模型更好
+- **GRPO 损失**：标准 clipped PPO ratio + KL 正则，用 DR.GRPO 缓解长度偏差
+- **DPO 损失**：标准 DPO + LN-DPO 按序列长度归一化偏好 margin
+- 两者经 ZRR 权重动态混合，形成自增强数据飞轮：模型越好 → 零奖励 rollout（负样本）质量越高 → 奖励信号越强 → 模型更好
 
 ## 实验
 

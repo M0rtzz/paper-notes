@@ -38,34 +38,25 @@ tags:
 
 ## 方法详解
 
-### 整体框架：LH3D（Learnable Hierarchical 3D）
+### 整体框架
 
-基于 LSS-style BEV 检测器（如 BEVHeight），设计三阶段层次化子模选择器，每阶段用 concave-over-modular 子模函数建模，支持贪心优化并有 $(1-1/e)$ 近似保证。
-
-**统一目标函数**：
+LH3D（Learnable Hierarchical 3D）要解决的是路侧主动学习的一个反常识困境：传统不确定性 AL 专挑"最不确定"的样本，可在路侧场景里这些恰恰是远距离模糊、严重遮挡的**固有歧义样本**——人都标不准，拿来训练只会拖后腿。LH3D 因此把目标从"选不确定的"换成"选可学的"。它建在 LSS-style 的 BEV 检测器（如 BEVHeight）之上，设计了一个三阶段层次化子模选择器，按深度 → 语义 → 几何的优先级依次过滤；每阶段都用 concave-over-modular 形式的子模函数建模，既支持贪心优化又自带 $(1-1/e)$ 近似保证。三阶段共享一个统一目标：
 
 $$F(S_q) = [\Phi_A(S_q) - \Phi_A(\mathcal{U})] + [\Phi_B(\mathcal{L}_q \cup S_q) - \Phi_B(\mathcal{L}_q)] + [\Phi_C(\mathcal{L}_q \cup S_q) - \Phi_C(\mathcal{L}_q)]$$
 
-### Stage 1: 深度置信度筛选（Depth-Confident Sample Selection）
+### 关键设计
 
-- 对每张图像的深度预测分布计算归一化 Shannon 熵 $h_i$，映射为置信度权重 $r_i = e^{-\tau h_i}$
-- 统计每张图像的 argmax 深度 bin 直方图 $m_i$，加权聚合为深度覆盖向量
-- 子模目标：$\Phi_A(S) = \sum_{d=1}^{D} \log(\epsilon + Z_d(S))$，log 函数保证近/中/远距离 bin 的均衡覆盖
-- 效果：过滤掉深度估计不可靠的歧义场景，优先选择深度可信的样本
+**1. Stage 1 深度置信度筛选：先挡掉深度都估不准的歧义场景**
 
-### Stage 2: 稀有-常见类别平衡（Rare-Common Class Balancing）
+深度是 BEV 检测的地基，深度估不准的样本本身就不可靠，应当第一道就滤掉。对每张图像的深度预测分布算归一化 Shannon 熵 $h_i$，映射成置信度权重 $r_i = e^{-\tau h_i}$；再统计每张图像的 argmax 深度 bin 直方图 $m_i$，加权聚合成深度覆盖向量。子模目标取 $\Phi_A(S) = \sum_{d=1}^{D} \log(\epsilon + Z_d(S))$，log 的凹性保证近/中/远各距离段都能被均衡覆盖，而不是一窝蜂选近处。效果上，深度估计不靠谱的歧义场景被挡在门外，优先留下深度可信的样本。
 
-- 用当前检测器预测每张图像各类别的目标数量，归一化为类别分布 $p_i(c)$
-- 计算每张图像的语义多样性熵 $\delta_i$，映射为权重 $\alpha_i = 1 + \gamma \delta_i$
-- 子模目标：$\Phi_B(S) = \sum_{c \in \mathcal{C}} \log(\epsilon + N_c(S))$，log 饱和机制使得已充分覆盖的类别边际收益急剧递减
-- 效果：防止 Vehicle 主导的长尾问题，提升 Pedestrian 和 Cyclist 等稀有类别的曝光
+**2. Stage 2 稀有-常见类别平衡：别让 Vehicle 一家独大**
 
-### Stage 3: 几何变异选择（Geometric Variant Selection）
+路侧目标长尾严重，按部就班选会被海量 Vehicle 主导，Pedestrian、Cyclist 等稀有类几乎曝光不到。用当前检测器预测每张图像各类别的目标数量、归一化成类别分布 $p_i(c)$，再算每张图的语义多样性熵 $\delta_i$ 映射成权重 $\alpha_i = 1 + \gamma \delta_i$。子模目标 $\Phi_B(S) = \sum_{c \in \mathcal{C}} \log(\epsilon + N_c(S))$ 借 log 的饱和特性，让已经覆盖充分的类别边际收益急剧递减，从而把选择预算倾向稀有类，提升 Ped/Cyc 的曝光。
 
-- 对已标注集拟合各类别 BEV 中心和高度的高斯模型 $\mathcal{N}(\mu_c, \Sigma_c)$
-- 对候选图像计算预测框在高斯下的负对数似然（NLL）作为几何新颖性分数 $s_{i,c}$
-- 子模目标：$\Phi_C(S) = \sum_{c \in \mathcal{C}} \log(\epsilon + U_c(S))$
-- 效果：鼓励选择与已学习模式有适度偏差的新布局，同时过滤极端离群值
+**3. Stage 3 几何变异选择：要新布局，但别被极端离群值带偏**
+
+光有深度和类别还不够，模型还需要见到新的几何布局才能泛化，但又不能去追极端离群样本。对已标注集为各类别拟合 BEV 中心和高度的高斯模型 $\mathcal{N}(\mu_c, \Sigma_c)$，对候选图像算其预测框在该高斯下的负对数似然（NLL）作为几何新颖性分数 $s_{i,c}$。子模目标 $\Phi_C(S) = \sum_{c \in \mathcal{C}} \log(\epsilon + U_c(S))$ 鼓励选与已学模式有**适度**偏差的新布局，同时压住极端离群值，避免引入噪声。
 
 ### 损失函数与训练
 

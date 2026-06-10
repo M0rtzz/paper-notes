@@ -40,34 +40,24 @@ tags:
 ## 方法详解
 
 ### 整体框架
-三阶段管线: (1) GPT-4o 将查询图像转为文本描述 $\delta(q_v)$ → (2) FORGE 将噪声查询对 $(q_t, \delta(q_v))$ 蒸馏为紧凑检索字符串 $\hat{q}$ → (3) LENS 编码 $\hat{q}$ 并从文本语料库检索。
+
+BRIDGE 的判断是：推理密集型多模态检索做不好，瓶颈不在检索器而在查询——原始多模态查询把图像描述、对话噪声和真实检索意图缠在一起，再强的视觉编码也补不回来。于是它把流程拆成三段：GPT-4o 先把查询图像转成文本描述 $\delta(q_v)$，FORGE 再把噪声查询对 $(q_t, \delta(q_v))$ 蒸馏成一条紧凑的检索字符串 $\hat{q}$，最后 LENS 编码 $\hat{q}$ 从纯文本语料库召回，整条链推理时完全在文本空间运行：
 
 $$\hat{\mathcal{D}}_k = \text{LENS}(\text{FORGE}(q_t, \text{GPT-4o}(q_v)), \mathcal{C}, k)$$
 
 ### 关键设计
 
-1. **FORGE（Focused Retrieval Query Generator）**:
+**1. FORGE：用 RL 直接拿检索结果当奖励来重写查询**
 
-    - 基于 Qwen2.5-7B-Instruct 微调
-    - 输入: 拼接的文本问题 + 图像描述；输出: 不超过 200 词的检索优化搜索字符串
-    - 用 GRPO 强化学习训练，奖励函数为下游检索质量：
-    $r(\hat{q}, d^+) = \text{nDCG@}k(\text{LENS}(\hat{q}, \mathcal{C}), \{d^+\})$
-    - 训练循环: 采样 $G=8$ 个候选查询 → 计算检索奖励 → GRPO 梯度更新
-    - **设计动机**: 与监督式查询重写不同，RL 直接优化检索结果而非模仿参考改写，让模型自由探索最优查询策略
+监督式查询改写只会模仿参考改写，并不知道改完检索效果好不好。FORGE 基于 Qwen2.5-7B-Instruct 微调，输入拼接的文本问题 + 图像描述，输出不超过 200 词的检索优化字符串，训练用 GRPO，奖励直接就是下游检索质量 $r(\hat{q}, d^+) = \text{nDCG@}k(\text{LENS}(\hat{q}, \mathcal{C}), \{d^+\})$。每步采样 $G=8$ 个候选查询，算各自的检索奖励再做 GRPO 梯度更新。因为优化目标是"召回对不对"而非"像不像参考"，模型可以自由探索最有利于检索的表达方式，这也是它能胜过启发式改写的原因。
 
-2. **LENS（Language-Enhanced Neural Search）**:
+**2. LENS：配一个推理能力强的检索器去接住 FORGE 的结构化查询**
 
-    - 基于 Qwen3-Embedding-4B 的双编码器密集检索器
-    - 在推理密集型检索数据上微调（数学、科学、医学、法律、软件工程）
-    - InfoNCE 损失 + 批内负样本 + $M=7$ 个硬负样本
-    - cosine 相似度检索: $\text{score}(\hat{q}, d_i) = \frac{\mathbf{e}_q \cdot \mathbf{e}_{d_i}}{\|\mathbf{e}_q\| \cdot \|\mathbf{e}_{d_i}\|}$
-    - **设计动机**: FORGE 产生的是意图丰富的结构化查询，需要推理能力强的检索器来匹配
+FORGE 产出的是意图丰富、结构化的查询，普通编码器接不住。LENS 是基于 Qwen3-Embedding-4B 的双编码器密集检索器，在数学、科学、医学、法律、软件工程等推理密集型数据上微调，用 InfoNCE 损失 + 批内负样本 + $M=7$ 个硬负样本训练，检索时按 cosine 相似度打分 $\text{score}(\hat{q}, d_i) = \frac{\mathbf{e}_q \cdot \mathbf{e}_{d_i}}{\|\mathbf{e}_q\| \cdot \|\mathbf{e}_{d_i}\|}$。查询重写和检索器双方都对齐到"推理意图"上，整条链才咬合得上。
 
-3. **Visual Captioning（视觉描述）**:
+**3. Visual Captioning：把视觉内容接地成纯文本，让文本模型也能用上图像信息**
 
-    - GPT-4o 生成密集领域感知描述，捕捉对象类型、空间关系、标签
-    - 离线一次性生成并缓存
-    - **设计动机**: 将视觉内容接地为自然语言，让纯文本模型可处理
+纯文本检索器本身碰不到像素。BRIDGE 让 GPT-4o 生成密集、领域感知的图像描述，捕捉对象类型、空间关系、标签等，并离线一次性生成、缓存复用。视觉内容一旦被翻译成自然语言，后续 FORGE 与 LENS 就能在纯文本空间里完整处理，推理时无需任何多模态编码器。
 
 ### 损失函数 / 训练策略
 - FORGE: GRPO 训练，lr=$1\times10^{-6}$，max 256 tokens，3 epochs

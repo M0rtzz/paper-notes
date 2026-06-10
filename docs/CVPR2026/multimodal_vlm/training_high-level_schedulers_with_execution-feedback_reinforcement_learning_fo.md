@@ -38,35 +38,35 @@ tags:
 
 ## 方法详解
 
-### 整体框架：CES 协作循环
+### 整体框架
 
-类比操作系统设计，三个专门化 Agent 形成循环协作：
+这篇论文要解决的是长时序 GUI 自动化里「一个模型既要做高层规划又要做低层执行、能力互相打架」的困境。CES 借操作系统的分工思路把任务拆给三个专门化 Agent：Coordinator 像 CPU 负责规划，把用户的高层指令拆成一条条原子指令；Executor 像 I/O 设备，是一个冻结的预训练 GUI 模型，只管照原子指令在当前界面上落动作；State Tracker 像内存，用纯语言模型把「任务进行到哪一步了」维护成一段自然语言摘要。三者每一步循环协作——State Tracker 给出的状态摘要喂回 Coordinator 帮它规划下一步，形成「规划→执行→更新状态→再规划」的闭环。训练上分两阶段，用下游执行结果当奖励，先把 Coordinator 练好、再练 State Tracker。
 
-- **Coordinator（CPU/规划核心）**：融合用户高层指令 $q$、State Tracker 提供的状态摘要 $m^{t-1}$ 和当前截图 $s^t$，分解生成清晰的原子指令 $l^t = \pi_c(q, m^{t-1}, s^t)$
-- **Executor（I/O设备/执行终端）**：冻结的预训练 GUI 模型，仅需根据原子指令 $l^t$ 和当前截图 $s^t$ 执行动作 $u^t = (th^t, a^t) = \pi_e(l^t, s^t)$，无需理解长期意图
-- **State Tracker（动态内存）**：语言模型，不直接感知 GUI 环境，通过理解 Executor 输出 $u^t$、用户意图 $q$ 和上一步状态 $m^{t-1}$，生成新的高语义自然语言状态摘要 $m^t = \pi_s(q, m^{t-1}, u^t)$
+### 关键设计
 
-### 分阶段执行反馈强化学习
+**1. OS 式三角色解耦：让规划、执行、记忆各司其职**
 
-**Warm-up SFT**：先用已有轨迹数据对 Coordinator 和 State Tracker 做监督微调，使其学会基本角色职责和输出格式。
+单一端到端 Agent 在有限参数下同时扛任务规划、多步推理、元素定位和精确动作，复杂任务一上来就容易「能力崩溃」。CES 把这三件事拆开：Coordinator 融合用户指令 $q$、上一步状态摘要 $m^{t-1}$ 和当前截图 $s^t$ 生成原子指令 $l^t = \pi_c(q, m^{t-1}, s^t)$；Executor 是冻结模型，只需根据 $l^t$ 和 $s^t$ 产出动作 $u^t = (th^t, a^t) = \pi_e(l^t, s^t)$，不必理解长期意图。每个模块只在自己擅长的子能力上被优化，避免异质能力在同一组参数里互相挤占。
 
-**执行反馈奖励函数**：不直接评价中间输出质量，而是将输出传递至 Executor 执行，用规则化奖励函数客观评分：
+**2. 语言态的 State Tracker：把状态理解搬离高维视觉空间**
 
+长时序任务里 Agent 主要靠截图猜进度，但重复出现的主页、OOD 界面让截图无法可靠表征状态——论文的时序判断预实验也证实：步间距越大，靠截图判断进度的准确率越急剧下降。State Tracker 干脆不直接看 GUI，而是读 Executor 的输出 $u^t$、用户意图 $q$ 和上一步状态 $m^{t-1}$，生成新的自然语言状态摘要 $m^t = \pi_s(q, m^{t-1}, u^t)$。这等于把状态从高维、易混淆的视觉空间转移到低维、语义明确的语言空间，几乎消除了进度误判（State Loss 错误从 14% 降到 2%）。
+
+**3. 执行反馈奖励：用下游执行结果反推上游该怎么规划**
+
+规划和状态摘要这类抽象输出本身很难直接打分。CES 不评价中间输出的「文采」，而是把它送进 Executor 真去执行，用规则化奖励客观评分：
 $$R = \alpha_1 R_{format} + \alpha_2 R_{executor}, \quad R_{executor} = \gamma_1 R_{type} + \gamma_2 R_{param}$$
+其中 $R_{format}$ 管格式合法、$R_{type}$ 管动作类型对不对、$R_{param}$ 管动作参数准不准。好不好用最终由「执行得动不动」说了算，让难以直接评估的上游模块也能拿到清晰的优化信号。
 
-其中 $R_{format}$ 奖励格式正确性，$R_{type}$ 奖励动作类型正确，$R_{param}$ 奖励动作参数正确。
+**4. 分阶段 RL：先定 Coordinator 再练 State Tracker**
 
-**Stage 1 — 训练 Coordinator**：冻结 Executor，使用 ground-truth 状态作为 $m^{t-1}$ 输入，基于 GRPO 算法和执行反馈奖励优化 Coordinator 的规划策略。
+两个可训练模块一起优化会互相干扰，于是拆成两阶段、都基于 GRPO。先做 Warm-up SFT 让两者学会基本职责和输出格式；Stage 1 冻结 Executor、用 ground-truth 状态当 $m^{t-1}$ 输入，只优化 Coordinator 的规划策略；Stage 2 再冻结练好的 Coordinator 和 Executor，让 State Tracker 生成的摘要走完整个 CES 循环，把最终执行反馈回传给它——这样它学到的不是「摘要写得像不像」，而是「生成什么样的状态对 Coordinator 最有用」。
 
-**Stage 2 — 训练 State Tracker**：冻结已训练的 Coordinator 和 Executor，State Tracker 生成的状态摘要经过完整 CES 循环，最终的执行反馈奖励回传用于优化 State Tracker，使其学会生成对 Coordinator 最有价值的状态信息。
+### 损失函数 / 训练策略
 
-### 训练细节
-
-- Coordinator 基座：Qwen2.5-VL-7B；State Tracker 基座：Qwen3-4B
-- SFT 阶段：LLaMA Factory，1 epoch，lr=5e-5
-- RL 阶段：Verl 框架，Coordinator 10 epochs lr=1e-6，State Tracker 5 epochs
-- 奖励系数：$\alpha_1=0.1, \alpha_2=0.9$；$\gamma_1=0.2, \gamma_2=0.8$
-- 训练 Executor：GUI-R1-7B（冻结）；硬件：8×80G GPU
+- Coordinator 基座 Qwen2.5-VL-7B，State Tracker 基座 Qwen3-4B，Executor 用冻结的 GUI-R1-7B
+- SFT 用 LLaMA Factory，1 epoch、lr=5e-5；RL 用 Verl，Coordinator 10 epochs lr=1e-6，State Tracker 5 epochs
+- 奖励系数 $\alpha_1=0.1,\ \alpha_2=0.9$，$\gamma_1=0.2,\ \gamma_2=0.8$；硬件 8×80G GPU
 
 ## 实验关键数据
 

@@ -41,36 +41,36 @@ tags:
 
 ### 整体框架
 
-VidEoMT 基于 EoMT 的 encoder-only 范式，将可学习 query 直接注入 ViT 编码器最后 L₂ 层与 patch token 联合处理。核心创新是引入 **query propagation** 和 **query fusion** 两个轻量机制，使编码器内部完成时序建模，无需独立跟踪器。
+VidEoMT 的出发点是：现在的在线视频分割 SOTA（CAVIS、DVIS++、DVIS-DAQ）都把流程拆成「分割器 + 跟踪器」，每块里再堆一大堆专用组件，臃肿又慢。它沿用 EoMT 的 encoder-only 范式，把可学习 query 直接注入预训练 ViT 编码器的最后 L₂ 层、和 patch token 一起处理；真正的新东西是 query propagation 和 query fusion 两个轻量机制，让时序关联在编码器内部就完成，彻底省掉独立跟踪器，新增参数只有 2M。
 
-### 从 CAVIS 到 VidEoMT 的渐进式简化
+### 关键设计
 
-1. **替换分割器**：用 EoMT 替代 ViT-Adapter + Mask2Former 分割器 → FPS 从 15 提升至 42，AP 仅降 0.8
-2. **移除上下文感知特征**：去掉 Laplacian 边界提取 + 平均滤波池化 → FPS 提升至 72，AP 不降反升
-3. **移除重识别层**：去掉对比学习 MLP → FPS 提至 74，AP 基本持平
-4. **移除跟踪器**：退化为逐帧 EoMT → FPS 飙至 162 但 AP 骤降 7.6
+**1. Query Propagation：用上一帧的输出 query 当这一帧的输入**
 
-### Query Propagation（查询传播）
+要在 encoder-only 框架里做跟踪，最直接的办法是让 query 跨帧传递身份。首帧 $t=0$ 走标准 EoMT：可学习 query $Q^{\text{lrn}}$ 注入 ViT 最后 L₂ 层，产出 object query $Q_0^S$ 和分割预测。后续帧 $t>0$ 不再用可学习 query，而是把上一帧的输出 query $Q_{t-1}^S$ 直接当输入——零额外计算就把同一物体的身份带了过来。但它有个副作用：帧数一多，可学习 query 的影响被稀释，模型慢慢认不出新出现的物体。
 
-- **首帧 t=0**：标准 EoMT 流程，可学习 query Q^lrn 注入 ViT 最后 L₂ 层，产出 object query Q₀^S 和分割预测
-- **后续帧 t>0**：用上一帧的输出 query Q_{t-1}^S 替代可学习 query 作为输入，无额外计算开销
-- **问题**：随着帧数增加，可学习 query 的影响衰减，模型逐渐丧失识别新出现物体的能力
+**2. Query Fusion：把传播 query 和可学习 query 加在一起**
 
-### Query Fusion（查询融合）
-
-解决上述问题的轻量策略：
-
+为了补上「认不出新物体」的漏洞，query fusion 用一步极轻的融合：
 $$\mathbf{Q}_t^{\mathcal{F}} = \text{Linear}(\mathbf{Q}_{t-1}^{\mathcal{S}}) + \mathbf{Q}^{\text{lrn}}$$
+上一帧 query 过一个线性层后，与可学习 query 逐元素相加。这样传播 query 负责时序连续性、可学习 query 负责对新物体的感知，两者相加取得平衡；再配合让 query 顺序跨帧一致的监督策略，这个逐元素加法才成立。正是这一步把退化成逐帧 EoMT 后骤降的 AP 从 63.9 拉回 68.6。
 
-- 上一帧 query 经线性层变换后与可学习 query 逐元素相加
-- 平衡时序连续性（来自传播 query）与对新物体的感知能力（来自可学习 query）
-- 监督策略保证 query 顺序跨帧一致，使逐元素加法合理
+### 一个完整示例：从 CAVIS 一步步拆到 VidEoMT
 
-### 训练策略
+VidEoMT 的设计是被「逐个删模块、看精度和速度怎么变」逼出来的，整条路径很能说明每个组件到底有没有用：
 
-- 与 Mask2Former 相同的损失函数：分类用交叉熵，分割用 BCE + Dice loss
-- 时序一致的 GT 匹配策略（来自 DVIS++）：物体仅在首次出现帧进行匈牙利匹配，后续帧保持 query 对应关系
-- AdamW 优化器，lr=1e-4，层级学习率衰减 (LLRD) 因子 0.6，多项式 lr 衰减（power=0.9）
+1. 先把 CAVIS 的 ViT-Adapter + Mask2Former 分割器换成 EoMT——FPS 从 15 蹿到 42，AP 只掉 0.8；
+2. 删掉上下文感知特征（Laplacian 边界 + 平均滤波池化）——FPS 到 72，AP 不降反升；
+3. 删掉重识别层（对比学习 MLP）——FPS 到 74，AP 基本持平；
+4. 再删跟踪器、退化成逐帧 EoMT——FPS 飙到 162，但 AP 骤降 7.6 到 61.3；
+5. 加回 Query Propagation——AP 回到 63.9，FPS 保持 162；
+6. 再加 Query Fusion，就是完整的 VidEoMT——AP 68.6、FPS 160。
+
+一删一加之间能看清：那些专用组件几乎都是冗余的，唯独时序关联不能丢，而它用 2M 参数的 propagation + fusion 就补回来了。
+
+### 损失函数 / 训练策略
+
+损失与 Mask2Former 一致：分类用交叉熵、分割用 BCE + Dice。GT 匹配沿用 DVIS++ 的时序一致策略——物体只在首次出现帧做匈牙利匹配，后续帧保持 query 对应关系。优化器 AdamW，lr=1e-4，层级学习率衰减（LLRD）因子 0.6，多项式 lr 衰减（power=0.9）。
 
 ## 实验关键数据
 

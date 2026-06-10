@@ -43,25 +43,25 @@ tags:
 
 ### 整体框架
 
-模型在 VLM（CLIP/SigLIP/PE-Core）的基础上，采用 **两阶段训练**：
+这篇要治的是 VLM 跨域小样本微调里一个反直觉的现象：增强视觉判别性反而损害跨模态对齐（“判别性陷阱”）。根源在于交叉熵损失 $\mathcal{L}_{\text{vlm}}$ 内含视觉学习和跨模态学习两条路，视觉学习是一条“捷径”——能降损失但不改善跨模态对齐，类似“双阀排水”里的旁路阀门。作者在 CLIP/SigLIP/PE-Core 上采用**两阶段训练**配上 SVL、RA 两个即插即用模块：前期（前 3/5 epoch）抵制视觉学习、引导跨模态对齐，后期（后 2/5 epoch）恢复正常微调、允许视觉学习。
 
-- **前期（前 3/5 epoch）**：$\mathcal{L} = \mathcal{L}_{\text{vlm}} + \beta \mathcal{L}_{\text{ra}} + \lambda \mathcal{L}_{\text{ad}}$，抑制视觉学习并引导跨模态对齐
-- **后期（后 2/5 epoch）**：$\mathcal{L} = \mathcal{L}_{\text{vlm}}$，恢复正常微调允许视觉学习
+### 关键设计
 
-### 关键设计 1：Suppressing Visual Learning（SVL）
+**1. Suppressing Visual Learning（SVL）：用反梯度堵住视觉捷径**
 
-- **动机**：视觉学习使同类视觉特征聚拢、异类远离，但这是绕过跨模态对齐的捷径
-- **做法**：提出反视觉学习损失 $\mathcal{L}_{\text{ad}}$，从 support set 中随机采样生成分类器权重 $w'$，计算交叉熵后取反梯度
-- **效果**：扰动视觉特征的判别性聚类，迫使模型通过跨模态路径降低 $\mathcal{L}_{\text{vlm}}$
+视觉学习让同类视觉特征聚拢、异类远离，看似在提升判别性，实则绕过了跨模态对齐、把本该用于对齐的优化资源分流走了。SVL 提出反视觉学习损失 $\mathcal{L}_{\text{ad}}$：从 support set 随机采样生成分类器权重 $w'$，计算交叉熵后取反梯度，故意扰动视觉特征的判别性聚类，逼模型转而通过跨模态路径去降 $\mathcal{L}_{\text{vlm}}$。
 
-### 关键设计 2：Relationship Alignment（RA）
+**2. Relationship Alignment（RA）：给视觉模态内部关系一个正确方向**
 
-- **动机**：仅抑制视觉学习不够，还需为视觉模态内部关系提供正确的学习方向
-- **融合关系矩阵**：$A^{\text{fuse}} = (1 - \frac{e}{E}) A^v + \frac{e}{E} A^t[L,L]$，随训练推进逐渐用文本模态关系替代视觉模态关系
-- **对齐损失**：$\mathcal{L}_{\text{ra}} = D_{KL}(A^v \| A^{\text{fuse}})$
-- **渐进策略**：初期 $A^{\text{fuse}} \approx A^v$ 起抑制作用；后期逐步引入文本语义关系引导视觉特征对齐
+仅抵制视觉学习还不够——抹掉错路之后还得给视觉模态内部关系指一个对的方向。RA 构造一个随训练推进逐渐用文本模态关系替代视觉模态关系的融合关系矩阵
 
-### 损失函数
+$$A^{\text{fuse}} = \left(1 - \frac{e}{E}\right) A^v + \frac{e}{E} A^t[L,L]$$
+
+再用对齐损失 $\mathcal{L}_{\text{ra}} = D_{KL}(A^v \| A^{\text{fuse}})$ 拉齐。渐进策略是关键：初期 $A^{\text{fuse}} \approx A^v$ 起抵制作用、避免视觉捷径，后期逐步引入文本语义关系引导视觉特征对齐。
+
+### 损失函数 / 训练策略
+
+两阶段损失：初期叠加 RA 与 SVL 约束以抵制视觉捷径、引导对齐，后期只留 $\mathcal{L}_{\text{vlm}}$ 恢复正常微调：
 
 $$\mathcal{L} = \begin{cases} \mathcal{L}_{\text{vlm}} + \beta \mathcal{L}_{\text{ra}} + \lambda \mathcal{L}_{\text{ad}} & \text{(初始阶段)} \\ \mathcal{L}_{\text{vlm}} & \text{(后期阶段)} \end{cases}$$
 

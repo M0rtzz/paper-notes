@@ -44,32 +44,29 @@ tags:
 
 ### 整体框架
 
-FOZO 在预训练 ViT 的输入层注入少量可学习 prompt $\mathbf{P} = \{\mathbf{p}^k \in \mathbb{R}^d | 1 \leq k \leq p\}$（默认 $p=3$），模型权重完全冻结。每个测试 batch 到来时，通过 SPSA 零阶梯度估计更新 prompt，仅使用前向传播，不需要反向传播。核心流程：
+FOZO 想解决的是：在边缘设备、量化模型这类"权重不能动、又没有反向传播预算"的场景下做测试时自适应（TTA）。它的做法是在预训练 ViT 的输入层注入少量可学习 prompt $\mathbf{P} = \{\mathbf{p}^k \in \mathbb{R}^d | 1 \leq k \leq p\}$（默认 $p=3$），模型权重全程冻结，每来一个测试 batch 就只更新这几个 prompt，而且只靠前向传播。整条回路是：给 prompt 加一对正负对称扰动 → 各前向一次拿到损失 → 用两次损失之差估计梯度 → 更新 prompt。
 
-1. 对 prompt $\mathbf{P}$ 施加正负对称扰动：$\mathbf{P}_+ = \mathbf{P} + \epsilon_t \mathbf{Z}$，$\mathbf{P}_- = \mathbf{P} - \epsilon_t \mathbf{Z}$（$\mathbf{Z} \sim \mathcal{N}(0, I_d)$）
-2. 分别前向传播计算损失 $\ell_+$ 和 $\ell_-$
-3. 估计投影梯度：$\hat{g} = \frac{\ell_+ - \ell_-}{2\epsilon_t} \mathbf{Z}$
-4. 平均 $n$ 个 SPSA 样本的梯度估计后更新 prompt
+### 关键设计
 
-### 关键设计：动态扰动策略（Dynamic Perturbation）
+**1. SPSA 前向梯度估计：用两次前向的损失差代替反向传播**
 
-根据收敛分析（Theorem 1），偏差项 $C\eta\ell\epsilon_t^2 r$ 要求 $\epsilon_t \to 0$ 才能精确收敛，但早期或域切换时又需要大扰动促进探索。FOZO 设计自适应衰减机制：
+反向传播的 TTA（TENT、SAR、EATA）内存开销大（TENT 5495 MiB vs FOZO 831 MiB），在低功耗设备上不可行。FOZO 改用 SPSA 零阶估计：对 prompt 施加正负对称扰动 $\mathbf{P}_+ = \mathbf{P} + \epsilon_t \mathbf{Z}$、$\mathbf{P}_- = \mathbf{P} - \epsilon_t \mathbf{Z}$（$\mathbf{Z} \sim \mathcal{N}(0, I_d)$），分别前向得到损失 $\ell_+$、$\ell_-$，再估出投影梯度 $\hat{g} = \frac{\ell_+ - \ell_-}{2\epsilon_t} \mathbf{Z}$，平均 $n$ 个 SPSA 样本后更新 prompt。相比 FOA 用的 CMA-ES（$O(d^2)$ 复杂度、在高维 prompt 上收敛慢），SPSA 每步只要两次前向，且理论上收敛速率依赖有效 Hessian 秩 $r$ 而非参数维度 $d$（Theorem 2），在高维 prompt 空间里更划算。
+
+**2. 动态扰动策略：在"探索"和"精确收敛"之间自动切换**
+
+零阶估计的精度和扰动尺度 $\epsilon_t$ 直接挂钩：收敛分析（Theorem 1）里的偏差项 $C\eta\ell\epsilon_t^2 r$ 要求 $\epsilon_t \to 0$ 才能精确收敛，但 TTA 的数据分布持续在变，域切换或优化停滞时又需要大扰动来重新探索。FOZO 用一个自适应衰减机制兼顾两者：
 
 $$\epsilon_t = \begin{cases} \epsilon_0 & \text{if } L_t > \tau \cdot \bar{L}_t \\ \max(\epsilon_{\min}, \epsilon_{t-1} \cdot \alpha) & \text{otherwise} \end{cases}$$
 
-- 检测到损失突增（域切换/优化停滞）时重置 $\epsilon_t = \epsilon_0$
-- 正常情况下以衰减因子 $\alpha=0.9$ 逐步减小
-- 理论证明收敛速率依赖有效 Hessian 秩 $r$ 而非参数维度 $d$（Theorem 2）
+一旦检测到损失突增（预示着域切换或停滞）就把 $\epsilon_t$ 重置回 $\epsilon_0$ 放大探索，正常时则以衰减因子 $\alpha=0.9$ 逐步收小、趋向精确收敛；收敛速率依赖有效 Hessian 秩 $r$ 而非参数维度 $d$（Theorem 2）。
 
 ### 损失函数
 
-**深浅层特征统计对齐 $\mathcal{L}_{stats}$**：收集 ViT 浅层（$1 \sim N/2$）和深层（$N/2+1 \sim N$）的 [CLS] token 激活统计量（均值 $\mu$、标准差 $\sigma$），分别与源域预计算统计量对齐：
+**深浅层特征统计对齐 $\mathcal{L}_{stats}$**：分别收集 ViT 浅层（$1 \sim N/2$）和深层（$N/2+1 \sim N$）的 [CLS] token 激活统计量（均值 $\mu$、标准差 $\sigma$），与源域预计算的统计量对齐——浅层管低级纹理、深层管语义，分开对齐比笼统对齐更贴合分布偏移的结构：
 
 $$\mathcal{L}_{stats} = \sum_{k \in \{shallow, deep\}} (\|\mu_k^T - \mu_k^S\|_2 + \|\sigma_k^T - \sigma_k^S\|_2)$$
 
-**熵最小化 $\mathcal{L}_{ent}$**：鼓励模型在目标域做出高置信度预测。
-
-**总损失**：$\mathcal{L} = \lambda \mathcal{L}_{stats} + \mathcal{L}_{ent}$，其中 $\lambda = 0.4$。
+**熵最小化 $\mathcal{L}_{ent}$**：鼓励模型在目标域做出高置信度预测。两者合成总损失 $\mathcal{L} = \lambda \mathcal{L}_{stats} + \mathcal{L}_{ent}$，其中 $\lambda = 0.4$。
 
 ## 实验
 

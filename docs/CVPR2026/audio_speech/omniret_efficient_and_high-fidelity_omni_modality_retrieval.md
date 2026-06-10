@@ -43,24 +43,25 @@ tags:
 
 ### 整体框架
 
-OmniRet 以 GTE-Qwen2-1.5B-Instruct 为核心 LLM 充当跨模态 composer，视觉输入由 SigLIP-SO400M 编码，音频输入由 QwenAudio Encoder 编码。各模态 token 经共享媒体重采样器压缩后，按指令模板交错拼接输入 LLM，最后由 ASWP 将 LLM 输出聚合为单一 embedding。训练仅更新重采样器、投影层、池化层和 LLM 的 LoRA（rank=16），总可训练参数约 84M。
+OmniRet 以 GTE-Qwen2-1.5B-Instruct 为核心 LLM 充当跨模态 composer，视觉输入由 SigLIP-SO400M 编码，音频输入由 QwenAudio Encoder 编码。各模态 token 经共享媒体重采样器压缩后，按指令模板交错拼接输入 LLM，最后由 ASWP 把 LLM 输出聚合成单一 embedding 用于检索。训练只更新重采样器、投影层、池化层和 LLM 的 LoRA（rank=16），总可训练参数约 84M。
 
-### 关键设计 1：Shared Media Resampler
+### 关键设计
 
-采用 Perceiver 架构将各模态编码器输出的大量 token（>500）压缩为固定数量的紧凑 latent 向量。核心设计是**共享单个 Perceiver 模块，但为每种模态引入独立的 latent query**，在保持跨模态泛化能力的同时保留模态特异性。对于视频输入，先通过 3D 三线性插值减少帧级冗余再重采样。
+**1. Shared Media Resampler：用模态专属 query 把上百 token 压成定长 latent**
 
-### 关键设计 2：Attention Sliced Wasserstein Pooling (ASWP)
+各模态编码器吐出的 token 序列动辄 500+，直接喂给 LLM 会让计算量爆炸、压垮训练 batch size，进而削弱对比学习的效果。OmniRet 用一个 Perceiver 架构把这些 token 重采样成固定数量的紧凑 latent 向量，关键巧思是**共享同一个 Perceiver 模块、却为每种模态配一组独立的 latent query**——共享主干保住跨模态泛化，专属 query 保住模态特异性。视频输入则先做 3D 三线性插值削掉帧级冗余再重采样。这样既把序列长度压到可控范围，又不像简单池化那样一刀切丢信息。
 
-先用注意力重采样器将 LLM 输出压缩为 $S$ 个 latent embedding $\mathbf{Z}$，然后将其视为分布，通过 $L$ 个一维投影方向与 $S$ 个可学习参考点 $\mathbf{X}$ 计算 Monge coupling 距离，得到中间表示 $\mathbf{Z}' \in \mathbb{R}^{S \times L}$。再通过 Straight-Through Maximum（STM）技巧生成二值注意力掩码，为每个投影方向选择最相关的参考点，列求和后得到最终 $L$ 维 embedding。默认配置 $L=4096, S=128$，在信息保真度与计算效率之间取得最佳平衡。
+**2. Attention Sliced Wasserstein Pooling (ASWP)：把单向量压缩做成最优传输，留住细粒度**
 
-### 关键设计 3：Diversity 正则化损失
+把 LLM 输出压成单个 embedding 时，均值池化或 [EOS] token 会丢掉大量细粒度信息，而 ColBERT 式 late interaction 又太贵、存不起。ASWP 先用注意力重采样器把 LLM 输出压成 $S$ 个 latent embedding $\mathbf{Z}$，再把它当作一个分布：通过 $L$ 个一维投影方向与 $S$ 个可学习参考点 $\mathbf{X}$ 计算 Monge coupling 距离，得到中间表示 $\mathbf{Z}' \in \mathbb{R}^{S \times L}$；随后用 Straight-Through Maximum（STM）技巧生成二值注意力掩码，为每个投影方向挑出最相关的参考点，列求和得到最终 $L$ 维 embedding，默认 $L=4096, S=128$。它的好处是输出仍是单向量、兼容 ANN 索引，却用最优传输的方式保住了 token 级结构——消融里把 STM 换成 average pooling 直接掉 29.5%，说明这个“硬选择”才是保真度的关键。
 
-为确保重采样 token 捕捉多样化信息，对输出向量 $\mathbf{M}$ 施加正交性约束：计算成对相似度矩阵 $\mathbf{MM}^\top$，移除自相似（对角线），对残差矩阵应用 Dropout 稀疏采样后以 Smooth L1 loss（$\gamma=0.5$）惩罚非正交性。Dropout 使得每步仅在随机子集上计算损失，高效鼓励全局多样性。
+**3. Diversity 正则化损失：逼重采样 token 各管各的，不要塌成一团**
 
-### 关键设计 4：两阶段训练策略
+如果重采样出来的 token 彼此高度相似，等于白压缩。为此对输出向量 $\mathbf{M}$ 施加正交性约束：先算成对相似度矩阵 $\mathbf{MM}^\top$，移除对角线的自相似，对残差矩阵做 Dropout 稀疏采样后用 Smooth L1 loss（$\gamma=0.5$）惩罚非正交。Dropout 让每步只在随机子集上算损失，既高效又能全局鼓励多样性，确保有限的 latent 各自捕捉不同信息。
 
-- **Stage 1（Warm-up）**：在单模态和文本绑定任务上训练投影层、重采样器和池化层，LLM 冻结，batch size 2048，共 2M 样本。
-- **Stage 2（Fine-tuning）**：在全部 30 个数据集（约 6.2M query-target 对）上继续训练，加入 LoRA 微调 LLM，batch size 3072，每 batch 随机选 4 个任务，梯度累积 2 步，共 18M 样本。
+**4. 两阶段训练策略：先暖身对齐、再全量微调**
+
+直接全量上 LLM 微调既贵又不稳，于是拆成两段。Stage 1（Warm-up）只在单模态和文本绑定任务上训练投影层、重采样器和池化层，LLM 冻结，batch size 2048，共 2M 样本，先把各模态对齐到一个可用的空间；Stage 2（Fine-tuning）在全部 30 个数据集（约 6.2M query-target 对）上继续训练，加入 LoRA 微调 LLM，batch size 3072，每 batch 随机选 4 个任务、梯度累积 2 步，共 18M 样本。先暖身后微调让大 batch 对比学习站得稳，也避免一上来就动 LLM 引发的训练崩溃。
 
 ## 损失函数
 

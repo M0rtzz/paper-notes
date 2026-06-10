@@ -43,22 +43,28 @@ tags:
 
 ### 整体框架
 
-两阶段设计：**(1) 改进SfM**：前馈模型初始化 → 密集匹配器(RoMa+UFM)获取全局对应 → 循环一致性过滤 → 高置信匹配做稀疏BA(仅2048点/视图) → 较低阈值匹配做DLT三角化获取 $\mathbf{X}_s$。**(2) GGPT**：Point Transformer V3(53M参数)在全局3D坐标系中联合处理稠密预测 $\mathbf{X}_d$ 和稀疏引导 $\mathbf{X}_s$，预测残差位移 $\boldsymbol{\delta}$ 和置信度 $c$，输出精炼后的稠密重建 $\hat{\mathbf{X}}_d$。
+GGPT 想弥合的是一对矛盾：前馈网络（DUSt3R→MASt3R→VGGT）一次前传就能给出稠密点图、但缺多视约束所以几何不一致；传统 SfM 几何一致、却只在稀疏视角下脆弱地恢复少量点。它的解法是两阶段流水线。第一阶段是改进的轻量 SfM：先用前馈模型初始化相机和点，经密集匹配器（RoMa+UFM）拿到全局对应、做循环一致性过滤，再按两级阈值分别用高置信少量点做稀疏 BA（仅 2048 点/视图）估相机、用较低阈值的更密匹配做 DLT 三角化得到几何一致的稀疏点云 $\mathbf{X}_s$。第二阶段才是 GGPT：用 Point Transformer V3（53M 参数）在全局 3D 坐标系里联合处理前馈的稠密预测 $\mathbf{X}_d$ 和稀疏引导 $\mathbf{X}_s$，预测残差位移 $\boldsymbol{\delta}$ 和置信度 $c$，输出精炼后的稠密重建 $\hat{\mathbf{X}}_d$。
 
 ### 关键设计
 
-1. **改进SfM管线**：用前馈模型(VGGT)初始化相机和点 → 密集特征匹配(RoMa+UFM)获取全对应张量 $\mathbf{T} \in \mathbb{R}^{N \times N \times W \times H \times 2}$ → 循环一致性过滤(Eq.3) → 按两级置信度阈值 $\epsilon_{BA} > \epsilon_{DLT}$ 分别获取BA和DLT的匹配子集 → **稀疏BA**(高置信少量点)仅优化相机 → **DLT三角化**(较低阈值更密匹配)线性重建大量3D点。核心设计：将非线性优化(BA)和线性三角化(DLT)分离，BA只需极少高置信点即可精确估计相机，DLT利用更密匹配高效三角化。
+**1. 改进 SfM 管线：从稀疏视角 RGB 拿到几何一致的真实稀疏点云**
 
-2. **几何引导编码**：稠密点 $\mathbf{x}_d$ 的嵌入包含：自身位置编码 $\text{PE}(\mathbf{x}_d)$、类型标记 $\mathbf{e}_{type(d)}$、对应稀疏引导点的位置编码 $\text{PE}(\mathbf{x}_{d \to s})$ 和偏移量 $\Delta_{d \to s} = \mathbf{x}_{d \to s} - \mathbf{x}_s$。这个编码让网络显式感知稠密预测与几何先验之间的差异——$\Delta_{d \to s}$ 直接编码了"需要修正多少"的信号。
+稀疏视角下传统 SfM 脆弱、而此前融合几何引导的方法又依赖伪 GT 的 SfM 点或密集视频序列，真实稀疏场景里不可用。GGPT 用前馈模型（VGGT）初始化相机和点，经密集特征匹配（RoMa+UFM）得到全对应张量 $\mathbf{T} \in \mathbb{R}^{N \times N \times W \times H \times 2}$、循环一致性过滤（Eq.3），再按两级置信度阈值 $\epsilon_{BA} > \epsilon_{DLT}$ 切出 BA 和 DLT 各自的匹配子集。关键巧思是把非线性优化和线性三角化分离：稀疏 BA 只拿极少量高置信点就能精确估相机，DLT 三角化则用较低阈值的更密匹配高效线性重建出大量 3D 点，两者各取所长。
 
-3. **3D空间直接注意力(PTv3)**：用Point Transformer V3(8层, 53M参数, 远小于2D ViT的~300M)在3D近邻上做patch-wise自注意力。空间邻近性而非像素坐标定义感受野，天然保证多视一致性。Patch-based处理：将场景分为重叠立方体块(半径=0.2×场景半径)，每块独立处理(至多40万点)，重叠区取平均。
+**2. 几何引导编码：把"稠密预测和几何先验差多少"直接喂给网络**
+
+光把稀疏点云丢进网络还不够，得让它知道该往哪修。稠密点 $\mathbf{x}_d$ 的嵌入因此包含四样东西：自身位置编码 $\text{PE}(\mathbf{x}_d)$、类型标记 $\mathbf{e}_{type(d)}$、对应稀疏引导点的位置编码 $\text{PE}(\mathbf{x}_{d \to s})$，以及偏移量 $\Delta_{d \to s} = \mathbf{x}_{d \to s} - \mathbf{x}_s$。其中 $\Delta_{d \to s}$ 直接编码了"这个点需要修正多少"的信号，让网络显式感知稠密预测与几何先验之间的差异——消融里它是最关键的组件。
+
+**3. 3D 空间直接注意力 PTv3：在三维近邻而非像素上做注意力，天然保证跨视一致**
+
+此前的 refinement 都在 2D 图像空间（深度补全/图像 Transformer）操作，view-dependent、做不到真正的跨视一致。GGPT 改用 Point Transformer V3（8 层、53M 参数，远小于 2D ViT 的 ~300M）在 3D 近邻上做 patch-wise 自注意力，感受野由空间邻近性而非像素坐标定义，因此天然保证多视一致。为应对大场景，它把场景切成重叠立方体块（半径 = 0.2×场景半径），每块至多 40 万点独立处理、重叠区取平均。
 
 ### 损失函数 / 训练策略
 
 - **置信度加权回归**：$\mathcal{L}_{conf} = \sum c \|\hat{\mathbf{x}} - \mathbf{x}_{GT}\| - \alpha \log c$，异方差形式让模型在不确定区域自动降低权重
 - **恒等一致性**：$\mathcal{L}_{id} = \sum \|\hat{\mathbf{x}} - \mathbf{x}_{d \to s}\|$，鼓励有对应的稠密点向几何引导对齐
 - 总损失 $\mathcal{L} = \mathcal{L}_{conf} + \lambda_{id} \mathcal{L}_{id}$，$\lambda_{id}=1, \alpha=0.2$
-- 训练：ScanNet++ 上20k序列，8×GH200训练一天
+- 训练：ScanNet++ 上 20k 序列，8×GH200 训练一天
 
 ## 实验关键数据
 

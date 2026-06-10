@@ -41,27 +41,22 @@ tags:
 ## 方法详解
 
 ### 整体框架
-给定噪声图像 $x_t \in \mathbb{R}^{H \times W \times 3}$，分为 $N = (H \times W)/P^2$ 个大patch（$P=16$）。DiT backbone处理patch序列输出全局特征 $S_{\text{global}} \in \mathbb{R}^{N \times D}$。Patch Detailer Head对每个patch独立并行处理：接收对应全局特征 $s_i$ 和原始噪声像素patch $p_i$，预测噪声分量 $\epsilon_i$。
+
+DiP 想在像素空间做到和 LDM 一样快、又不靠 VAE，关键是把「全局结构」和「局部细节」拆开建模。给定噪声图像 $x_t \in \mathbb{R}^{H \times W \times 3}$，先切成 $N = (H \times W)/P^2$ 个大 patch（$P=16$）；DiT backbone 在这条短序列上用自注意力建出全局特征 $S_{\text{global}} \in \mathbb{R}^{N \times D}$，再由一个轻量 Patch Detailer Head 对每个 patch 并行处理——拿对应的全局特征 $s_i$ 和原始噪声像素 patch $p_i$，补出该 patch 的噪声分量 $\epsilon_i$。
 
 ### 关键设计
 
-1. **全局结构建模 (DiT Backbone)**:
+**1. DiT 大 patch 建模全局：把序列压到和 LDM 一样长**
 
-    - **功能**: 使用 $P=16$ 的大patch建模图像全局布局和语义内容
-    - **核心思路**: 将256×256图像分为256个token（与LDM在潜在空间的序列长度一致），通过DiT块的自注意力捕获长程依赖，输出上下文感知特征
-    - **设计动机**: 大patch dramatic降低序列长度，使计算复杂度与LDM对齐。单图过拟合实验（Fig.3）验证：DiT-only可成功捕获全局布局和色调，但无法渲染精细纹理和锐利边缘——这是缺乏局部归纳偏置的固有限制
+像素空间方法的老大难是序列长度：小 patch（2×2/4×4）保细节但 token 数随分辨率二次爆炸，训练推理都吃不消。DiP 直接用 $P=16$ 的大 patch，把 256×256 图像切成 256 个 token——和 LDM 在潜空间的序列长度一致，于是计算复杂度也对齐 LDM。代价是单靠 DiT 画不出精细纹理：单图过拟合实验（Fig.3）显示 DiT-only 能抓全局布局和色调，却渲染不出锐利边缘和高频纹理，这正是缺乏局部归纳偏置的固有短板，也引出了下一个设计。
 
-2. **Patch Detailer Head (轻量U-Net)**:
+**2. Patch Detailer Head 补高频：0.3% 参数换回局部细节**
 
-    - **功能**: 为每个大patch恢复高频细节
-    - **核心思路**: 浅层卷积U-Net（4下采样+4上采样），每个块包含Conv+SiLU+Pooling。全局特征 $s_i \in \mathbb{R}^{D \times 1 \times 1}$ 在瓶颈层与下采样输出通道拼接，引导局部精化
-    - **设计动机**: 卷积的天然归纳偏置（局部性、平移等变性）极适合局部纹理和边缘去噪。实验对比四种架构——标准MLP（无空间偏置）、坐标MLP（类NeRF）、Patch内注意力、卷积U-Net——U-Net最优且参数最少（仅增加0.3%总参数）
+为补上 DiT 丢掉的高频，每个大 patch 过一个浅层卷积 U-Net（4 次下采样 + 4 次上采样，每块 Conv+SiLU+Pooling）：全局特征 $s_i \in \mathbb{R}^{D \times 1 \times 1}$ 在瓶颈层与下采样输出按通道拼接，引导局部精化。选卷积是因为它天生的局部性和平移等变性最适合纹理与边缘去噪——作者对比了标准 MLP（无空间偏置）、坐标 MLP（类 NeRF）、patch 内注意力和卷积 U-Net 四种结构，U-Net 效果最好且参数最省，整体只增加 0.3% 参数。
 
-3. **后置精化策略 (Post-hoc Refinement)**:
+**3. 后置精化：把 DiT 当黑盒 backbone**
 
-    - **功能**: Head放在DiT最后一层之后
-    - **核心思路**: 三种放置策略——后置、中间注入、混合——均有效，但后置最优
-    - **设计动机**: 将DiT视为黑盒backbone，无需修改内部结构，最大化简洁性，允许使用预训练DiT权重
+Head 的接入位置也做了消融——后置、中间注入、混合三种放置都有效，但放在 DiT 最后一层之后最优。这样做的好处是把 DiT 完全当成黑盒 backbone，不改其内部结构，既最大化简洁性，也能直接复用预训练 DiT 权重。
 
 ### 损失函数 / 训练策略
 - 支持DDPM噪声预测和Flow Matching框架

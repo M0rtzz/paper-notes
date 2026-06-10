@@ -43,25 +43,21 @@ tags:
 
 ### 整体框架
 
-IGASA 采用三阶段流水线：
-
-1. **HPA（分层金字塔架构）**：利用 KPConv 在三个分辨率层级 (ordinary / minor / primary) 提取特征，体素大小依次为 $dl_0$、$2 \cdot dl_0$、$4 \cdot dl_0$，卷积半径随之动态放大以覆盖从局部到全局的感受野，输出 $F_{\text{multi}} = \{F_{\text{ordinary}}, F_{\text{minor}}, F_{\text{primary}}\}$。
-2. **HCLA（分层跨层注意力）**：作为粗匹配核心，包含两个子模块——SGIRA（Skip 引导跨分辨率注意力）和 SAIGA（Skip 增强内在几何注意力），将全局语义与局部几何显式对齐后输出 $F_{\text{minor}}^{++}$，再经几何一致性 top-$k$ 筛选生成粗匹配集 $\widetilde{C}^{(1)}$。
-3. **IGAR（迭代几何感知精修）**：在精匹配阶段通过动态几何一致性加权、加权质心对齐和 SVD 分解进行交替优化，迭代 $N=5$ 轮输出高精度位姿 $T^* = [R^*, t^*]$。
+IGASA 想同时治好点云配准里的两个老毛病：多尺度特征融合时低层几何细节被高层语义"稀释"（语义鸿沟），以及精匹配阶段用 RANSAC/硬阈值剔除离群点既贵又容易误杀。它把流程拆成粗到精的三段。第一段 **HPA（分层金字塔架构）**用 KPConv 在 ordinary / minor / primary 三个分辨率层级提特征，体素大小依次为 $dl_0$、$2 \cdot dl_0$、$4 \cdot dl_0$，卷积半径随之放大以覆盖从局部到全局的感受野，输出 $F_{\text{multi}} = \{F_{\text{ordinary}}, F_{\text{minor}}, F_{\text{primary}}\}$。第二段 **HCLA（分层跨层注意力）**是粗匹配核心，靠 SGIRA 和 SAIGA 两级注意力把全局语义和局部几何显式对齐，输出 $F_{\text{minor}}^{++}$，再经几何一致性 top-$k$ 筛选得到粗匹配集 $\widetilde{C}^{(1)}$。第三段 **IGAR（迭代几何感知精修）**在精匹配里交替做动态几何一致性加权、加权质心对齐与 SVD 分解，迭代 $N=5$ 轮输出高精度位姿 $T^* = [R^*, t^*]$。
 
 ### 关键设计
 
-**SGIRA 模块**：以 primary 层全局语义特征为 Query/Key 指导 minor 层高分辨率特征的加权融合。注意力分数融合三项信息：
+**1. SGIRA：用全局语义当向导，把高分辨率几何细节融进来而不被稀释**
 
-- 语义相似度 $S_{ij} = \frac{Q_i K_j^T}{\sqrt{d_a}}$
-- 几何距离补偿 $R_{ij} = -\frac{\|P_i - M_j\|^2}{\sigma^2}$
-- Skip 残差 $F_{\text{minor}}^{++} = F_{\text{minor}}^{+} + \gamma \cdot \text{SkipResidual}(F_{\text{minor}}^{+}, F_{\text{skip}})$
+朴素的 skip connection 只是拼接或求和，低层几何线索和高层语义嵌入之间的分辨率不匹配得不到校准，关键细节在融合中被淡化。SGIRA 改用注意力来做这件事：以 primary 层的全局语义特征作 Query/Key，去指导 minor 层高分辨率特征的加权融合，注意力分数同时融合三项信息——语义相似度 $S_{ij} = \frac{Q_i K_j^T}{\sqrt{d_a}}$、几何距离补偿 $R_{ij} = -\frac{\|P_i - M_j\|^2}{\sigma^2}$，以及 skip 残差 $F_{\text{minor}}^{++} = F_{\text{minor}}^{+} + \gamma \cdot \text{SkipResidual}(F_{\text{minor}}^{+}, F_{\text{skip}})$。融合落地为一个门控融合机制：双分支卷积 → 自适应门控权重 → 残差调整 → 加权融合，让语义和几何按需配比。
 
-融合通过门控融合机制（Gated Fusion Mechanism）实现：双分支卷积 → 自适应门控权重 → 残差调整 → 加权融合。
+**2. SAIGA：在融合后的特征上做几何感知自注意力，进一步对齐内在结构**
 
-**SAIGA 模块**：在 SGIRA 输出 $F_{\text{minor}}^{+}$ 上做自注意力，融合语义相似度 $S_{\text{geo},ij}$ 与可学习几何距离权重 $R_{\text{geo},ij} = -\alpha \|M_i - M_j\|^2$，并引入 skip 注意力偏置 $\theta \cdot A_{\text{skip}}$，经 Softmax 后聚合 value 矩阵输出 $F_{\text{minor}}^{++}$。
+SGIRA 给出的 $F_{\text{minor}}^{+}$ 仍需要在自身内部做一次几何一致的关系建模。SAIGA 在其上做自注意力，把语义相似度 $S_{\text{geo},ij}$ 与一个可学习的几何距离权重 $R_{\text{geo},ij} = -\alpha \|M_i - M_j\|^2$ 融在一起，并额外引入 skip 注意力偏置 $\theta \cdot A_{\text{skip}}$，经 Softmax 后聚合 value 矩阵输出 $F_{\text{minor}}^{++}$。这样输出特征既带语义又显式编码了点间几何距离，为后续粗匹配提供更干净的描述子。
 
-**IGAR 模块**：每轮迭代动态更新对应权重 $w_{ij}^{(k)} = \exp\bigl(-\frac{\|p_{\text{tar}} - (R^{(k)} p_{\text{src}} + t^{(k)})\|^2}{\sigma^2}\bigr) \times \mathbb{I}[\cdot < \tau]$，计算加权质心 → 加权交叉协方差矩阵 → SVD 求解最优 $R^*, t^*$，形成软抑制而非硬剪枝的离群点处理策略。
+**3. IGAR：用软加权迭代代替 RANSAC 硬剪枝，少误杀低重叠区的正确对应**
+
+精匹配若靠 RANSAC 或硬阈值裁剪离群点，计算昂贵且在低重叠区容易把正确对应也剪掉。IGAR 改成迭代式软抑制：每轮按当前位姿动态更新对应权重 $w_{ij}^{(k)} = \exp\bigl(-\frac{\|p_{\text{tar}} - (R^{(k)} p_{\text{src}} + t^{(k)})\|^2}{\sigma^2}\bigr) \times \mathbb{I}[\cdot < \tau]$，再用加权质心、加权交叉协方差矩阵和 SVD 求解最优 $R^*, t^*$，如此交替 $N=5$ 轮收敛。指数权重让明显错误的对应贡献趋零而非被一刀切掉，既省去 RANSAC 的开销，又保住了低重叠区的弱对应。
 
 ### 损失函数
 

@@ -39,39 +39,33 @@ tags:
 
 ### 整体框架
 
-Residual SODAP 包含四个核心模块：(1) α-entmax 残差提示选择；(2) 基于统计的知识保持与伪回放；(3) 提示使用模式漂移检测（PUDD）；(4) 不确定性加权。
+Residual SODAP 处理域增量学习里的灾难性遗忘，但它的出发点比一般 PCL 多一层洞察：通过 backbone × classifier 的交叉组合诊断，作者发现遗忘不只来自表征漂移，分类器的决策边界同样在退化。于是框架兵分两路——提示端用 α-entmax 残差选择做表征适应，分类器端用无数据统计蒸馏 + 伪特征回放守住决策边界——再加 PUDD 漂移检测动态扩容提示池、用不确定性加权自动平衡多个损失。
 
 ### 关键设计
 
-1. **α-Entmax 残差提示选择**：
+**1. α-Entmax 残差提示选择：用稀疏可微选择 + 冻结/活跃残差兼顾适应与稳定**
 
-    - **查询增强**：在每层 Transformer $l$，用当前 CLS token $\mathbf{q}^{(l)}$、全局初始 CLS $\mathbf{g}$、以及通过 MHA 从可学习记忆库 $(\mathbf{M}_K, \mathbf{M}_V)$ 检索的信号 $\mathbf{r}^{(l)}$，经拼接+瓶颈适配器得到增强查询 $\tilde{\mathbf{q}}^{(l)}$。记忆库通过 EMA 梯度无关更新（write），保持训练稳定。
+提示选择历来两难：Top-k 硬选择表达力受限且梯度断在选择环节，softmax 软选择又给无关提示非零权重、累积噪声。Residual SODAP 先做查询增强——每层 Transformer 用当前 CLS token $\mathbf{q}^{(l)}$、全局初始 CLS $\mathbf{g}$、以及从可学习记忆库 $(\mathbf{M}_K, \mathbf{M}_V)$ 经 MHA 检索的信号 $\mathbf{r}^{(l)}$ 拼接过瓶颈适配器得到 $\tilde{\mathbf{q}}^{(l)}$（记忆库用 EMA 梯度无关更新以保稳定）。增强查询与提示键算余弦 logit 后，用 α-entmax（$\alpha=1.5$）替代 softmax 归一化：
 
-    - **稀疏选择**：增强查询投影到瓶颈空间后与提示键余弦相似度计算 logit，用 **α-entmax**（$\alpha=1.5$）替代 softmax 做归一化：
-    $[\alpha\text{-entmax}(\boldsymbol{\ell})]_j = \left[\frac{\alpha-1}{\alpha}(\ell_j - \tau(\boldsymbol{\ell}))\right]_+^{\frac{1}{\alpha-1}}$
-   α-entmax 可为低分提示赋予精确零权重，消除无关提示噪声，同时保持全池可微。
+$$[\alpha\text{-entmax}(\boldsymbol{\ell})]_j = \left[\frac{\alpha-1}{\alpha}(\ell_j - \tau(\boldsymbol{\ell}))\right]_+^{\frac{1}{\alpha-1}}$$
 
-    - **冻结/活跃残差组合**：Stage 2 起将提示池分为冻结集 $\mathcal{F}$ 和活跃集 $\mathcal{A}$，分别在两集上独立做 α-entmax 路由，最终以残差形式组合：
-    $\mathbf{p}_{\text{out}}^{(l)} = \mathbf{p}_{\mathcal{F}}^{(l)} + \lambda_r \mathbf{p}_{\mathcal{A}}^{(l)}, \quad \lambda_r = 0.1$
-   冻结集作为稳定基础保留先验知识，活跃集仅作残差微调适应新域。
+它能给低分提示精确的零权重、消除无关噪声，同时保持全池可微。Stage 2 起再把提示池分为冻结集 $\mathcal{F}$ 与活跃集 $\mathcal{A}$，各自独立路由后残差组合 $\mathbf{p}_{\text{out}}^{(l)} = \mathbf{p}_{\mathcal{F}}^{(l)} + \lambda_r \mathbf{p}_{\mathcal{A}}^{(l)}$（$\lambda_r = 0.1$）——冻结集守先验、活跃集只做小幅残差适应新域。
 
-2. **统计知识保持（Statistical Knowledge Preservation）**：
+**2. 统计知识保持：无需存任何原始数据就守住分类器决策边界**
 
-    - **阶段转换时保存知识资产**：冻结当前分类头为 teacher；用 Welford 在线算法计算类别级特征统计量 $(\boldsymbol{\mu}_c, \boldsymbol{\sigma}_c^2)$，单次遍历、内存高效、数值稳定。
+针对分类器级遗忘，框架在阶段转换时冻结当前分类头当 teacher，用 Welford 在线算法单遍算出类别级特征统计量 $(\boldsymbol{\mu}_c, \boldsymbol{\sigma}_c^2)$（内存高效、数值稳定）。一方面做实特征蒸馏，把当前批次实特征分别过 teacher/student 头并用 KL 对齐：
 
-    - **实特征蒸馏**：将当前批次实特征分别过 teacher 和 student 头，用 KL 散度对齐：
-    $\mathcal{L}_{\text{real}} = \text{KL}\left(\text{softmax}(\mathbf{z}_t/T) \| \text{softmax}(\mathbf{z}_s/T)\right) \cdot T^2$
+$$\mathcal{L}_{\text{real}} = \text{KL}\left(\text{softmax}(\mathbf{z}_t/T) \| \text{softmax}(\mathbf{z}_s/T)\right) \cdot T^2$$
 
-    - **伪特征回放**：从存储的类别统计中采样 $K$ 个伪特征 $\tilde{\mathbf{f}}_k \sim \mathcal{N}(\boldsymbol{\mu}_{c_k}, \text{diag}(\boldsymbol{\sigma}_{c_k}^2))$（均匀采样类别索引避免少数类欠表示），stop-gradient 后过 teacher/student 头计算蒸馏损失 $\mathcal{L}_{\text{pseudo}}$。无需存储任何原始数据即可保持分类器决策边界。
+另一方面做伪特征回放，从存储的类别统计采样伪特征 $\tilde{\mathbf{f}}_k \sim \mathcal{N}(\boldsymbol{\mu}_{c_k}, \text{diag}(\boldsymbol{\sigma}_{c_k}^2))$（均匀采样类别索引避免少数类欠表示），stop-gradient 后过 teacher/student 头算蒸馏损失 $\mathcal{L}_{\text{pseudo}}$。整套方案只存几个统计量、不留任何原始图像，就能持续重放旧域决策边界。
 
-3. **提示使用模式漂移检测（PUDD）**：
+**3. 提示使用模式漂移检测（PUDD）：用提示选择本身的波动决定何时扩容**
 
-    - 提取两个漂移信号：(i) 选择熵 $H_t$（域变化时分布重调，短期波动增大）；(ii) 使用集合 IoU（$\text{IoU}_t = |\mathcal{S}_t \cap \mathcal{S}_t^{\text{ref}}| / |\mathcal{S}_t \cup \mathcal{S}_t^{\text{ref}}|$，低 IoU 表示使用了不同提示）。
+新域到来时需要给提示池扩容，但扩多少得有依据。PUDD 不引入额外域判别器，而是直接读提示选择的两个信号：选择熵 $H_t$（域变时分布重调、短期波动变大）和使用集合 IoU（$\text{IoU}_t = |\mathcal{S}_t \cap \mathcal{S}_t^{\text{ref}}| / |\mathcal{S}_t \cup \mathcal{S}_t^{\text{ref}}|$，低 IoU 表示换了一批提示），融合成漂移评分：
 
-    - 融合漂移评分：
-    $D_t = \alpha \cdot \frac{|H_t - \bar{H}_t|}{\sigma_{H,t} + \epsilon} + \beta \cdot \left(\frac{1}{\max(\text{IoU}_t, \eta)} - 1\right)$
+$$D_t = \alpha \cdot \frac{|H_t - \bar{H}_t|}{\sigma_{H,t} + \epsilon} + \beta \cdot \left(\frac{1}{\max(\text{IoU}_t, \eta)} - 1\right)$$
 
-    - **漂移比例池扩展**：新增提示数 $E = \text{clamp}\left(\lfloor|\mathcal{A}| \cdot \bar{D}/D_{\max}\rfloor, E_{\min}, E_{\max}\right)$，弱漂移少扩展、强漂移多扩展。
+再按漂移比例扩展提示数 $E = \text{clamp}\left(\lfloor|\mathcal{A}| \cdot \bar{D}/D_{\max}\rfloor, E_{\min}, E_{\max}\right)$，弱漂移少扩、强漂移多扩，让容量随域变化自适应增长。
 
 ### 损失函数 / 训练策略
 
@@ -79,9 +73,7 @@ Residual SODAP 包含四个核心模块：(1) α-entmax 残差提示选择；(2)
 
 $$\mathcal{L}_{\text{total}} = \sum_i \left(e^{-s_i} \mathcal{L}_i + s_i\right)$$
 
-其中 $s_i = \log \sigma_i^2$ 为可学习的对数方差。高不确定性（大方差）的损失项自动降权，正则项 $s_i$ 防止方差趋于无穷的退化解。$s_i$ 初始化为 0（等权起步），裁剪范围 $[-3, 6]$。
-
-辅助损失包括：多样性损失 $\mathcal{L}_{\text{div}}$（抑制频繁共激活提示值之间的相似度）和范数正则 $\mathcal{L}_{\text{norm}}$（约束活跃提示仅作残差）。
+其中 $s_i = \log \sigma_i^2$ 为可学习的对数方差，高不确定性（大方差）的损失项自动降权，正则项 $s_i$ 防止方差趋于无穷的退化解；$s_i$ 初始化为 0（等权起步），裁剪范围 $[-3, 6]$。辅助损失包括多样性损失 $\mathcal{L}_{\text{div}}$（抑制频繁共激活提示值之间的相似度）和范数正则 $\mathcal{L}_{\text{norm}}$（约束活跃提示仅作残差）。
 
 ## 实验关键数据
 

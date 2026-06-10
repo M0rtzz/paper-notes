@@ -40,27 +40,30 @@ tags:
 ## 方法详解
 
 ### 整体框架
-BiCo基于Wan2.1-T2V-1.3B模型，工作流分两阶段：
-1. **概念绑定**（Concept Binding）：对每个视觉输入，用轻量binder模块学习文本token与对应视觉概念的映射
-2. **概念组合**（Concept Composing）：将目标prompt中不同部分通过对应的binder，组合为包含多来源视觉信息的更新prompt
-
-核心操作基于DiT的cross-attention条件注入：
+BiCo 要做的事是：从图像和视频里把任意视觉概念（包括风格、运动这类非物体概念）灵活地提取出来再组合到一起，而且不需要掩码输入。它基于 Wan2.1-T2V-1.3B，把整个流程拆成「先绑定、再组合」两步——绑定阶段（Concept Binding）给每个视觉输入学一个轻量 binder 模块，把文本 token 和对应的视觉概念映射起来；组合阶段（Concept Composing）把目标 prompt 里不同部分各自过对应的 binder，拼成一个携带多来源视觉信息的更新 prompt。所有操作都挂在 DiT 的 cross-attention 条件注入上：
 
 $$\mathbf{x}_{out} = \text{cross\_attention}(\mathbf{x}_{in}, \mathbf{p}, \mathbf{p})$$
 
 ### 关键设计
-1. **层次化Binder结构**：包含全局binder $f_g(\cdot)$ 和逐块binder $f_l^i(\cdot)$。每个binder是带零初始化缩放因子的残差MLP：$f(\mathbf{p}) = \mathbf{p} + \gamma \cdot \text{MLP}(\mathbf{p})$。由于DiT各块在去噪过程中行为不同，层次化设计允许全局关联+针对性微调。配合**两阶段倒序训练策略**——先在高噪声水平（$\geq \alpha$，$\alpha=0.875$）强化全局binder，再联合训练全部binder。
 
-2. **多样化-吸收机制 (DAM)**：解决one-shot场景下概念-token绑定精度问题。用VLM（Qwen2.5-VL）提取空间和时序关键概念，生成多样化prompt（保持关键概念词不变）。引入可学习的**吸收token** $p_a^j$ 在训练时吸收与概念无关的视觉细节，推理时丢弃该token以抑制不需要的细节。 
+**1. 层次化 Binder 结构：用全局+逐块两层 binder 适配 DiT 各块的不同行为**
 
-3. **时序解耦策略 (TDS)**：解决图像-视频时序异质性问题。将视频概念训练分两阶段：Stage 1 在单帧上训练（与图像概念训练设置对齐），Stage 2 在完整视频上训练，引入双分支binder结构：
+DiT 各块在去噪过程中行为差异很大，单个全局 binder 没法兼顾。作者设计了全局 binder $f_g(\cdot)$ 加逐块 binder $f_l^i(\cdot)$ 的两层结构，每个 binder 都是带零初始化缩放因子的残差 MLP：$f(\mathbf{p}) = \mathbf{p} + \gamma \cdot \text{MLP}(\mathbf{p})$，零初始化保证训练起点不破坏原模型。配套用**两阶段倒序训练**——先在高噪声水平（$\geq \alpha$，$\alpha=0.875$）只强化全局 binder 抓全局关联，再联合训练全部 binder 做针对性微调。消融里这个倒序策略一去掉，Overall 直接从 4.40 暴跌到 2.58，说明先全局后局部的顺序不可替代。
+
+**2. 多样化-吸收机制（DAM）：在 one-shot 下把「概念」和「无关细节」分开**
+
+one-shot 只有一个样本，binder 很容易把概念无关的视觉细节也一起绑死。DAM 先用 VLM（Qwen2.5-VL）提取空间和时序的关键概念，生成一批多样化 prompt（关键概念词保持不变、其余措辞变化），逼 binder 只认真正稳定的概念；同时引入一个可学习的**吸收 token** $p_a^j$，训练时专门吸收那些与概念无关的视觉细节，推理时直接把它丢掉，从而抑制不想要的细节泄漏。
+
+**3. 时序解耦策略（TDS）：化解图像概念和视频概念的时序异质性**
+
+图像是单帧、视频带时序，直接混在一起训练会打架。TDS 把视频概念训练拆成两步：Stage 1 先在单帧上训练，和图像概念的设置对齐；Stage 2 再到完整视频上训练，并引入双分支 binder：
 
 $$\text{MLP}(\mathbf{p}) \leftarrow (1-g(\mathbf{p})) \cdot \text{MLP}_s(\mathbf{p}) + g(\mathbf{p}) \cdot \text{MLP}_t(\mathbf{p})$$
 
-$\text{MLP}_s$ 权重继承自Stage 1，$g(\cdot)$ 零初始化确保良好初始化状态。
+其中空间分支 $\text{MLP}_s$ 的权重直接继承自 Stage 1，门控 $g(\cdot)$ 零初始化保证良好的初始状态，时序分支 $\text{MLP}_t$ 再渐进地把视频特有的运动信息补进来。这样图像和视频概念就能在同一框架里兼容组合。
 
 ### 损失函数 / 训练策略
-使用标准扩散模型去噪损失训练binder。每阶段训练2400次迭代，学习率 $1.0 \times 10^{-4}$。推理时生成81帧视频。实验在NVIDIA RTX 4090上进行。
+使用标准扩散模型去噪损失训练 binder。每阶段训练2400次迭代，学习率 $1.0 \times 10^{-4}$。推理时生成81帧视频。实验在NVIDIA RTX 4090上进行。
 
 ## 实验关键数据
 

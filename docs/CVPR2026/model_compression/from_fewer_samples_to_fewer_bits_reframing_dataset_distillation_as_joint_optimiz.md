@@ -39,35 +39,27 @@ tags:
 
 ### 整体框架
 
-QuADD 在标准 DD 循环中插入可微量化层 $Q(\cdot)$，将优化目标从全精度合成数据 $\mathcal{S}$ 与真实数据 $\mathcal{T}$ 的匹配，改为量化后合成数据 $\mathcal{S}^q$ 与 $\mathcal{T}$ 的匹配：
+QuADD 想回答一个被忽略的问题：数据集蒸馏一直在"减少样本数 $M$ 或维度 $D$"上做文章，可每个数据元素仍按 32-bit 全精度存，比特精度 $b$ 这个自由度被白白浪费了——而真实存储开销其实是 $M \times D \times b$。它的做法是在标准 DD 循环里插一个可微量化层 $Q(\cdot)$，把优化目标从"全精度合成数据 $\mathcal{S}$ 匹配真实数据 $\mathcal{T}$"换成"量化后的 $\mathcal{S}^q$ 匹配 $\mathcal{T}$"：
 
 $$\mathcal{S}^* = \arg\min_{\mathcal{S}} \mathbb{E}_{\theta \sim \Theta} [\mathcal{L}(\phi(\mathcal{T};\theta), \phi(\mathcal{S}^q;\theta))]$$
 
-每次迭代中，合成数据先经量化层得到 $\mathcal{S}^q = Q(\mathcal{S})$，再计算蒸馏损失，梯度通过链式法则回传至合成数据和量化器参数。
+每轮迭代里，合成数据先过量化层得 $\mathcal{S}^q = Q(\mathcal{S})$ 再算蒸馏损失，梯度顺着链式法则同时回传到合成数据和量化器参数。这样合成样本从一开始就是"为低精度存储而生"的，而不是先蒸馏好再硬量化。
 
-### 可微量化层设计
+### 关键设计
 
-**前向传播**：
+**1. 可微量化层：让 clipping 和 rounding 进得了梯度循环**
 
-- **Hard rounding**：直接将连续值映射到最近的码本级别，适用于均匀和非均匀量化
-- **Soft rounding**：用连续函数近似 rounding 操作（仅用于均匀量化基线）
+量化天然带两个不可导操作——clipping 和 rounding，直接塞进端到端优化会断梯度。QuADD 在前向用 hard rounding 把连续值映射到最近码本级别（均匀/非均匀都适用），反向用 STE（Straight-Through Estimator）在 clipping 范围内把量化器当恒等映射，$\partial x^q / \partial x \approx \mathbf{1}(|x| \le \alpha)$；均匀量化基线另提供 soft rounding 配解析代理梯度。均匀码本是等间距级别 $Q^u(\alpha, b) = \alpha \times \{-1, \pm\frac{1}{2^{b-1}-1}, \ldots, 1\}$。
 
-**反向传播**：
+更进一步，真实数据分布并不均匀，于是默认采用自适应非均匀量化 APoT（Additive Powers-of-Two）：把每个量化值写成若干个缩放后 2 次幂之和，在数据密集区域分配更细的量化粒度。整个方案只引入一个可学习参数 $\alpha$（clipping 阈值），并通过 RCF（Reparameterized Clipping Function）让 $\alpha$ 从所有样本接收梯度。这一层轻量且模态无关，不引入额外计算开销。
 
-- **STE（Straight-Through Estimator）**：在 clipping 范围内将量化器视为恒等映射，$\partial x^q / \partial x \approx \mathbf{1}(|x| \le \alpha)$
-- **解析代理梯度**：soft quantizer 使用平滑近似函数的导数
+**2. 量化引导初始化：让起点就贴合量化后的目标**
 
-**均匀量化基线**：码本为等间距级别 $Q^u(\alpha, b) = \alpha \times \{-1, \pm\frac{1}{2^{b-1}-1}, \ldots, 1\}$
-
-**自适应非均匀量化（APoT）**：采用 Additive Powers-of-Two 方案，每个量化值表示为缩放的 2 次幂之和，在数据密集区域分配更细的量化粒度。仅引入一个可学习参数 $\alpha$（clipping 阈值），通过 RCF（Reparameterized Clipping Function）使 $\alpha$ 从所有样本接收梯度。
-
-### 量化引导初始化
-
-使用基于广义图割的贪心选择策略初始化合成数据：先将真实数据均匀量化得到 $\mathcal{T}^q$，再迭代选择使条件增益 $G^*(A|C)$ 最大的样本，其中样本相似度由最后一层梯度的余弦相似度衡量。
+随机初始化合成数据会让低比特优化更难收敛。QuADD 改用基于广义图割的贪心选择来挑初始合成数据：先把真实数据均匀量化得 $\mathcal{T}^q$，再迭代地选那个使条件增益 $G^*(A|C)$ 最大的样本，样本相似度由最后一层梯度的余弦相似度衡量。这样初始集合在量化视角下就已经有代表性，给后续联合优化一个好起点。
 
 ### 训练流程
 
-每轮迭代：采样真实数据 mini-batch → 量化合成数据 → 计算蒸馏损失 → 梯度同时回传至 $\mathcal{S}$ 和 $Q$ → 更新两者参数。量化层轻量且模态无关，不引入额外计算开销。
+每轮迭代依次为：采样真实数据 mini-batch → 量化合成数据 → 计算蒸馏损失 → 梯度同时回传至 $\mathcal{S}$ 和 $Q$ → 更新两者。量化层轻量且模态无关，使得 $M$（样本数）和 $b$（比特数）能在同一个率失真框架下被联合优化。
 
 ## 实验关键数据
 

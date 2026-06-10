@@ -47,39 +47,27 @@ tags:
 
 ### 整体框架
 
-给定视频和查询点，6个预训练教师tracker各生成一条候选轨迹 $\mathbf{C} \in \mathbb{R}^{L \times M \times 2}$。Verifier在每帧对这些候选评估可靠性分数 $\hat{\mathbf{s}}_t \in \mathbb{R}^M$，选分数最高的候选作为该帧伪标签。帧级最优预测拼接成完整伪标签轨迹，用于微调学生模型Track-On2。推理时Verifier也可作为即插即用集成模块直接使用。
+这篇要解决的是点跟踪的 sim-to-real 鸿沟：跟踪模型大多在合成数据（TAP-Vid Kubric）上训，搬到真实视频就掉点，而已有自训练方法要么随机挑一个教师生成伪标签、传播系统误差，要么像 BootsTAPIR 那样需要百万级真实视频。本文的巧思是训一个不做跟踪、只做「裁判」的 Verifier 元模型。
+
+流程是：给定视频和查询点，6 个预训练教师 tracker 各生成一条候选轨迹 $\mathbf{C} \in \mathbb{R}^{L \times M \times 2}$；Verifier 在每一帧给这 $M$ 个候选打可靠性分数 $\hat{\mathbf{s}}_t \in \mathbb{R}^M$，逐帧选最高分的候选，拼成完整的伪标签轨迹；再用这条伪标签微调学生模型 Track-On2。推理时 Verifier 还能当即插即用的集成模块直接用。
 
 ### 关键设计
 
-1. **Verifier训练：合成数据上的"造假→识假"**
+**1. Verifier 训练：在合成数据上「造假→识假」，零真实标注学会判断可靠性**
 
-    - 在K-EPIC合成数据集（11K视频，24帧/视频）上训练
-    - 对GT轨迹施加6类随机扰动（漂移、跳变、遮挡、身份切换等，位移1~128像素）生成候选轨迹 $\mathbf{C}$
-    - 训练目标：距GT越近的候选应得越高分——用软对比学习，目标分布 $\mathbf{s}_t = \text{Softmax}(-\|\mathbf{C}_t - \mathbf{p}_t\| / \tau_s)$，$\tau_s = 0.1$
-    - 损失：交叉熵 $\mathcal{L} = \sum_t v_t \cdot \text{CE}(\hat{\mathbf{s}}_t, \mathbf{s}_t)$，遮挡帧被mask
-    - 零真实标注需求，学到的可靠性判断能力可跨域迁移
+Verifier 要学的是「谁跟得准」，而真实数据没有 GT、没法直接监督。本文的办法是在 K-EPIC 合成数据集（11K 视频、24 帧/视频）上自造训练信号：对 GT 轨迹施加 6 类随机扰动（漂移、跳变、遮挡、身份切换等，位移 1~128 像素）模拟真实 tracker 的各种失败，生成候选轨迹 $\mathbf{C}$；监督目标是「离 GT 越近的候选得分越高」，用软对比目标分布 $\mathbf{s}_t = \text{Softmax}(-\|\mathbf{C}_t - \mathbf{p}_t\| / \tau_s)$（$\tau_s = 0.1$），损失为遮挡帧 mask 掉的交叉熵 $\mathcal{L} = \sum_t v_t \cdot \text{CE}(\hat{\mathbf{s}}_t, \mathbf{s}_t)$。因为学的是「可靠性判断」这种与具体场景无关的能力，它能从合成域迁移到真实域。
 
-2. **局部化特征提取 + Candidate Transformer**
+**2. 局部化特征 + Candidate Transformer：只看候选点周围，跨帧传播上下文再打分**
 
-    - 使用CoTracker3的冻结CNN编码器提取帧级密集特征 $\mathbf{F}_t \in \mathbb{R}^{H' \times W' \times D}$
-    - 在查询点和每个候选位置通过可变形注意力（deformable attention）提取局部特征，而非全局推理
-    - 位置编码：正弦编码候选相对于查询点的位移 $\boldsymbol{\Delta}_t = \mathbf{C}_t - \mathbf{q}_{t_0}$，加可学习身份编码区分查询和候选
-    - **Candidate Transformer**：受限交叉注意力（每帧query仅attend当前帧的M个候选）+ 时间维度自注意力（跨帧传播上下文）→ 输出每帧对M个候选的温度缩放softmax可靠性分布
-    - 关键：$\hat{\mathbf{s}}_t = \text{Softmax}(\mathbf{f}_t^q \cdot \mathbf{f}_t / \tau)$，$\tau = 0.1$
+Verifier 不需要、也不应该对整帧做全局推理——它只关心每个候选位置靠不靠谱。于是用 CoTracker3 的冻结 CNN 编码器提帧级密集特征 $\mathbf{F}_t \in \mathbb{R}^{H' \times W' \times D}$，在查询点和每个候选位置用可变形注意力（deformable attention）抽局部特征；位置编码用正弦编码候选相对查询点的位移 $\boldsymbol{\Delta}_t = \mathbf{C}_t - \mathbf{q}_{t_0}$，再加可学习身份编码区分查询和候选。核心的 Candidate Transformer 用受限交叉注意力（每帧 query 只 attend 当前帧的 $M$ 个候选）配合时间维自注意力（跨帧传播上下文），输出每帧对 $M$ 个候选的温度缩放 softmax 分布 $\hat{\mathbf{s}}_t = \text{Softmax}(\mathbf{f}_t^q \cdot \mathbf{f}_t / \tau)$（$\tau = 0.1$）。
 
-3. **Verifier引导的真实世界微调**
+**3. Verifier 引导的真实世界微调：用伪标签把学生模型拉到真实域，且数据极省**
 
-    - 6个教师模型：Track-On2、BootsTAPIR、BootsTAPNext、Anthro-LocoTrack、AllTracker、CoTracker3（window）
-    - 真实视频来源：TAO + OVIS + VSPW（>48帧的视频，共4864段，无需任何标注）
-    - 查询点采样：2/3来自SIFT检测，1/3来自运动显著区域
-    - 可见性估计：教师模型多数投票
-    - 训练策略：合成数据（有GT）+ 真实数据（Verifier伪标签）混合训练，逐渐增大真实数据权重
+有了 Verifier，就能把多教师的互补性转成高质量伪标签。6 个教师是 Track-On2、BootsTAPIR、BootsTAPNext、Anthro-LocoTrack、AllTracker、CoTracker3（window）；真实视频取自 TAO + OVIS + VSPW 中 >48 帧的片段，共 4864 段、无需任何标注；查询点 2/3 来自 SIFT 检测、1/3 来自运动显著区域，可见性由教师多数投票估计。训练采用合成数据（有 GT）与真实数据（Verifier 伪标签）混合、逐渐增大真实数据权重的策略。最终仅用约 5K 真实视频就超过用百万级数据的 BootsTAPIR，数据效率提升 100 倍以上。
 
 ### 损失函数 / 训练策略
 
-- Verifier训练：交叉熵 on soft reliability targets，遮挡帧mask
-- 学生模型微调：标准点跟踪损失（位置L1 + 可见性BCE），合成与真实数据混合，真实数据loss权重逐步增加
-- 基线学生模型：Track-On2，预训练于TAP-Vid Kubric
+Verifier 训练用软可靠性目标上的交叉熵、遮挡帧 mask；学生模型微调用标准点跟踪损失（位置 L1 + 可见性 BCE），合成与真实数据混合、真实数据的 loss 权重逐步增大。学生基线是预训练于 TAP-Vid Kubric 的 Track-On2。
 
 ## 实验关键数据
 

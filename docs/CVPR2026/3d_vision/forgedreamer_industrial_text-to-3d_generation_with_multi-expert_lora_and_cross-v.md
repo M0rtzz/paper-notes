@@ -39,28 +39,27 @@ tags:
 
 ### 整体框架
 
-ForgeDreamer 基于 3D Gaussian Splatting，包含两大核心模块的协同优化：Multi-Expert LoRA Ensemble 提升语义理解 → Cross-View Hypergraph 增强几何精度。总损失为：
+ForgeDreamer 基于 3D Gaussian Splatting，要解决工业文生 3D 的两个瓶颈：预训练扩散模型对工业组件语义理解不足、以及成对几何约束撑不起精密制造所需的细节一致性。它用两个模块前后接力——先用 Multi-Expert LoRA Ensemble 把多类别工业语义灌进生成模型，再用 Cross-View Hypergraph 在多视角间施加高阶几何约束，整体由 ISM 与 MVHG 两个损失联合驱动：
 
 $$\mathcal{L}_{\text{total}} = \lambda_{\text{ISM}} \mathcal{L}_{\text{ISM}} + \lambda_{\text{MVHG}} \mathcal{L}_{\text{MVHG}}$$
 
 ### 关键设计
 
-1. **Multi-Expert LoRA 师生蒸馏框架**：针对多类别工业组件各自训练 LoRA 专家（Teacher），通过两阶段师生蒸馏将知识整合到统一学生模型中。
+**1. Multi-Expert LoRA 师生蒸馏：把多类别工业知识合进一个模型又不互相干扰**
 
-    - **Stage 1**：仅训练学生文本编码器，UNet 冻结，避免灾难性遗忘。损失包含文本特征对齐 $\mathcal{L}_{\text{text}} = \sum_l \alpha_l \cdot \text{MSE}(\text{Pool}(\boldsymbol{f}_T^l), \text{Pool}(\boldsymbol{f}_S^l))$ 和噪声预测损失
-    - **Stage 2**：同时优化文本编码器和 UNet，交替进行噪声预测和特征对齐，加入 UNet 特征蒸馏 $\mathcal{L}_{\text{unet}} = \sum_m \beta_m \cdot \text{MSE}(\boldsymbol{u}_T^m, \boldsymbol{u}_S^m)$
-    - 采用 round-robin 策略确保从所有 Teacher 均衡地进行知识迁移
-    - **动机**：简单叠加融合 $\boldsymbol{W}_{\text{combined}} = \boldsymbol{W}_{\text{base}} + \sum_i \boldsymbol{W}_{\text{LoRA}}^{(i)}$ 会导致知识干扰，蒸馏方法学习找到兼容所有专家知识的公共特征空间
+预训练扩散模型对螺丝、螺母、电子元件这些工业组件语义理解不足，而简单叠加多个类别 LoRA（$\boldsymbol{W}_{\text{combined}} = \boldsymbol{W}_{\text{base}} + \sum_i \boldsymbol{W}_{\text{LoRA}}^{(i)}$）会产生知识干扰。ForgeDreamer 给每个类别先训一个 LoRA 专家当 Teacher，再用两阶段师生蒸馏把它们的知识整合进统一学生模型，学到一个兼容所有专家的公共特征空间。Stage 1 冻结 UNet、只训学生文本编码器以避免灾难性遗忘，损失是文本特征对齐 $\mathcal{L}_{\text{text}} = \sum_l \alpha_l \cdot \text{MSE}(\text{Pool}(\boldsymbol{f}_T^l), \text{Pool}(\boldsymbol{f}_S^l))$ 加噪声预测；Stage 2 再解冻 UNet、与文本编码器联合优化，交替做噪声预测和特征对齐并加入 UNet 特征蒸馏 $\mathcal{L}_{\text{unet}} = \sum_m \beta_m \cdot \text{MSE}(\boldsymbol{u}_T^m, \boldsymbol{u}_S^m)$，全程用 round-robin 保证从所有 Teacher 均衡迁移。
 
-2. **Cross-View Hypergraph Geometric Enhancement (CVGCM)**：将几何一致性建模为超图学习问题，捕捉跨多视角的高阶结构依赖。
+**2. 跨视角超图几何增强 CVGCM：把成对一致性升级成多视角同时一致的高阶约束**
 
-    - 将多视角潜在表示 $\boldsymbol{Z} = \{\boldsymbol{z}^{(i)} \in \mathbb{R}^{H \times W \times C}\}_{i=1}^N$ 展平拼接为节点特征矩阵 $\boldsymbol{F} \in \mathbb{R}^{(N \cdot H \cdot W) \times C}$
-    - 基于特征余弦相似度构建超图 $\mathcal{H} = (\mathcal{V}, \mathcal{E})$，每个超边连接 TopK 相似节点：$e_i = \{v_j : v_j \in \text{TopK}(\text{sim}(\boldsymbol{f}_i, \boldsymbol{f}_j), k)\}$
-    - 使用 Hypergraph Neural Network 进行消息传递聚合：$\boldsymbol{h}_v^{(l+1)} = \sigma(\boldsymbol{W}^{(l)} \sum_{e \in \mathcal{E}(v)} \frac{1}{|\mathcal{E}(v)|} \text{AGG}(\{\boldsymbol{h}_u^{(l)} : u \in e\}))$
-    - **动机**：传统成对约束（如 ISM 的区间得分匹配）只能处理两两关系，无法建模工业组件所需的多视角同时一致的高阶结构关系
+工业精密制造里螺纹纹理、连接器接口这类细节需要多视角同时一致，而 ISM 的区间得分匹配等成对约束只能处理两两关系。CVGCM 把几何一致性建模成超图学习：先把 $N$ 个视角的潜在表示 $\boldsymbol{Z} = \{\boldsymbol{z}^{(i)} \in \mathbb{R}^{H \times W \times C}\}_{i=1}^N$ 展平拼成节点特征矩阵 $\boldsymbol{F} \in \mathbb{R}^{(N \cdot H \cdot W) \times C}$，再按特征余弦相似度构超图 $\mathcal{H} = (\mathcal{V}, \mathcal{E})$、每条超边连接 TopK 相似节点 $e_i = \{v_j : v_j \in \text{TopK}(\text{sim}(\boldsymbol{f}_i, \boldsymbol{f}_j), k)\}$，最后用超图神经网络做消息传递 $\boldsymbol{h}_v^{(l+1)} = \sigma(\boldsymbol{W}^{(l)} \sum_{e \in \mathcal{E}(v)} \frac{1}{|\mathcal{E}(v)|} \text{AGG}(\{\boldsymbol{h}_u^{(l)} : u \in e\}))$。一条超边能同时连起多个视角的对应节点，从而捕捉成对约束建模不了的高阶结构依赖。
 
-3. **HSV Mask 引导的 MVHG 损失**：在超图处理后，使用 HSV 掩码聚焦目标物体区域，在跨视角特征空间中计算损失：
-    $\mathcal{L}_{\text{MVHG}} = \frac{1}{|\mathcal{M}|} \sum_{(h,w) \in \mathcal{M}} \|\boldsymbol{F}_z^{\text{masked}}[h,w,:] - \boldsymbol{F}_{\text{pred}}^{\text{masked}}[h,w,:]\|_2^2$
+**3. HSV Mask 引导的 MVHG 损失：把几何约束聚焦到目标物体区域**
+
+超图处理后还要落到损失上，但工业图常有背景干扰稀释信号。这里先用 HSV 掩码 $\mathcal{M}$ 框出目标物体，只在跨视角特征空间的物体区域计算损失
+
+$$\mathcal{L}_{\text{MVHG}} = \frac{1}{|\mathcal{M}|} \sum_{(h,w) \in \mathcal{M}} \|\boldsymbol{F}_z^{\text{masked}}[h,w,:] - \boldsymbol{F}_{\text{pred}}^{\text{masked}}[h,w,:]\|_2^2$$
+
+从而避免背景像素干扰几何一致性的优化。
 
 ### 损失函数 / 训练策略
 

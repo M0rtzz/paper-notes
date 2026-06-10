@@ -37,47 +37,39 @@ tags:
 
 ## 方法详解
 
-### 问题定义
+### 整体框架
 
-给定 base MLLM $f_\theta$，构造 trigger image $x_{\text{trig}}$ 使得：base model 及其 fine-tune 衍生模型在 $(x_{\text{trig}}, q_{\text{trig}})$ 输入下输出预定义的 target answer $a_{\text{tar}}$，而非衍生模型不产生 target 响应。Trigger Q-A pair 设计为稀有问答对（如 "Q: Detecting copyright. A: ICLR Conference."），确保正常训练不会误触发。
-
-### 整体框架：对抗引导双注入（AGDI）
-
-核心优化目标为 min-max 博弈：
+开源 MLLM 被人 fine-tune 后拿去牟利、还反咬说模型是自己的，发布者却往往只能黑盒查询可疑模型、拿不到参数。AGDI 的目标是造一张 trigger image $x_{\text{trig}}$：base model 和它的 fine-tune 衍生模型在 $(x_{\text{trig}}, q_{\text{trig}})$ 输入下都会吐出预设的 target answer $a_{\text{tar}}$，而无关模型不会——于是发布者只要喂这张图问一句，就能验证版权。trigger 的 Q-A 故意选成罕见搭配（如 "Q: Detecting copyright. A: ICLR Conference."），保证正常训练不会误触发。核心是一个 min-max 博弈：
 
 $$\min_{x} \max_{\theta} \mathcal{L}_{\text{res}}(x, a_{\text{tar}}) + \lambda \mathcal{L}_{\text{sem}}(x, a_{\text{tar}})$$
 
-交替优化 trigger image $x$（最小化注入损失）和辅助模型参数 $\theta$（最大化注入损失以模拟 fine-tune 抵抗）。
+交替优化 trigger image $x$（最小化注入损失，把版权信息写进像素）和辅助模型参数 $\theta$（最大化注入损失，主动模拟下游 fine-tune 的抵抗），让 trigger 对参数变化也稳。
 
-### 注入一：Response-level Injection
+### 关键设计
 
-通过交叉熵损失强制辅助 MLLM 在 trigger image + trigger question 输入下生成 target answer：
+**1. Response 级注入：用 CE loss 把 target answer 写死进像素**
+
+只在语义层对齐还不足以驱动模型真去「生成」那句 target text，得有一路直接逼输出。这一路用交叉熵强制辅助 MLLM 在 trigger image + trigger question 下逐 token 生成 target answer：
 
 $$\mathcal{L}_{\text{res}}(x, a_{\text{tar}}) = -\log f_\theta(a_{\text{tar}}|x) = -\sum_{t=1}^{|a_{\text{tar}}|} \log f_\theta(a_t^{\text{tar}}|x, a_{<t}^{\text{tar}})$$
 
-反向传播到 trigger image，将版权相关信息注入图像像素。
+梯度反传到图像像素，把版权相关信息注进去。消融里去掉这一路，ASR 直接掉到接近 0%——只靠语义对齐根本驱动不出 target 文本。
 
-### 注入二：Semantic-level Injection
+**2. Semantic 级注入：借 CLIP 模块的「fine-tune 不变性」换泛化**
 
-利用 MLLM 内置的 CLIP-like 跨模态对齐模块，最小化 trigger image 与 target text 的余弦距离：
+只有 response 注入会过拟合 base model 的特定响应模式，下游 fine-tune 后就失效（PLA 的毛病）。作者观察到大多数 MLLM 内含的 CLIP-like 对齐模块，其高层 image-text embedding 在 fine-tune 后相当稳定（实测 cosine 漂移仅 0.5%~9.3%），于是再加一路把 trigger image 与 target text 在 CLIP 空间里拉近：
 
 $$\mathcal{L}_{\text{sem}}(x, a_{\text{tar}}) = -\frac{\mathcal{E}_\phi(x) \cdot \mathcal{E}_\psi(a_{\text{tar}})}{\|\mathcal{E}_\phi(x)\| \|\mathcal{E}_\psi(a_{\text{tar}})\|}$$
 
-其中 $\mathcal{E}_\phi$、$\mathcal{E}_\psi$ 为 CLIP 图像和文本编码器。这种 semantic 注入利用了 CLIP 模块在 fine-tune 后保持稳定的特性（实验测量 cosine similarity drift 仅 0.5%~9.3%），使 trigger 具备跨衍生模型的泛化能力。
+其中 $\mathcal{E}_\phi, \mathcal{E}_\psi$ 是 CLIP 图像 / 文本编码器。这一路把版权信息绑在「衍生模型也改不动」的子模块上，trigger 因此能跨 fine-tune 泛化；去掉它，方法就退回 PLA 的水平。
 
-### 对抗训练：模拟 Fine-tune 抵抗
+**3. 对抗训练 + 参数复位：让 trigger 扳得住真实 fine-tune**
 
-固定 trigger image，更新辅助模型参数以抵抗生成 target text：
+要让 trigger 对参数变化鲁棒，就得在优化时预演 fine-tune 的破坏。固定 trigger image、反向更新辅助模型去抵抗生成 target：$\mathcal{L}_{\text{model}} = -\mathcal{L}_{\text{res}} - \lambda \mathcal{L}_{\text{sem}}$，参数更新 $\theta \leftarrow \theta - \gamma \cdot \text{clip}(\nabla_\theta \mathcal{L}_{\text{model}})$，图像更新走 PGD 风格 $x \leftarrow x - \alpha \cdot \text{sign}(\nabla_x \mathcal{L}_{\text{trig}})$。关键的一笔是：每张 trigger 优化完，辅助模型参数立刻复位到 reference 模型 $\theta \leftarrow \theta_{\text{ref}}$，防止多张 trigger 之间累积漂移、把后面的优化带偏。比起 RNA 那种无方向的随机扰动，这种有方向的对抗更贴近真实 fine-tune 行为。
 
-$$\mathcal{L}_{\text{model}} = -\mathcal{L}_{\text{res}} - \lambda \mathcal{L}_{\text{sem}}$$
+**4. Trigger 设计：稀有 Q-A + 固定扰动预算**
 
-模型参数更新 $\theta \leftarrow \theta - \gamma \cdot \text{clip}(\nabla_\theta \mathcal{L}_{\text{model}})$；trigger image 更新 $x \leftarrow x - \alpha \cdot \text{sign}(\nabla_x \mathcal{L}_{\text{trig}})$（PGD 风格）。关键机制：每个 trigger image 优化完成后，辅助模型参数复位 $\theta \leftarrow \theta_{\text{ref}}$（clone reference model），防止累积漂移影响后续 trigger 优化。
-
-### Trigger 设计
-
-- 5 组 trigger Q-A pairs（如 "Detecting copyright → ICLR Conference"、"What are you busy with → I'm playing games" 等），均为日常问答中罕见的搭配
-- 200 张 ImageNet 验证集图像 × 5 组 Q-A = 1000 个 trigger 查询
-- 扰动预算 $\epsilon = 16/255$，PGD 步数 $K = 1000$，步长 $\alpha = 1/255$
+trigger 要在正常使用中绝不被误触发，所以用 5 组日常罕见的 Q-A 搭配（如 "Detecting copyright → ICLR Conference"、"What are you busy with → I'm playing games"）。配 200 张 ImageNet 验证集图像 × 5 组 Q-A，共 1000 个 trigger 查询；像素扰动预算 $\epsilon = 16/255$，PGD 步数 $K = 1000$，步长 $\alpha = 1/255$。
 
 ## 实验关键数据
 

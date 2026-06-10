@@ -39,26 +39,33 @@ tags:
 
 ### 整体框架
 
-提出一个可精确进行核刻画的线性化注意力架构 MLP-Attn，通过 NTK 框架分析其学习动态，并引入影响力可塑性指标量化注意力对训练数据的敏感性。
+这篇论文想搞清楚一件事：注意力机制到底处在 NTK 理论说的「懒训练」regime，还是「特征学习」regime？为此它构造了一个能被**精确核刻画**的线性化注意力架构 MLP-Attn，沿 NTK 框架推导其训练动态，证明它根本不收敛到无穷宽极限，最后用「影响力可塑性」这个新指标把「注意力很强」和「注意力很脆」统一归因到同一个源头。
 
-### 线性化注意力设计
+### 关键设计
 
-- **核心定义**: $f^{\text{att}}(\mathbf{X}) = \mathbf{X}\mathbf{X}^T\mathbf{X}$，对应 QKV 投影为恒等矩阵、softmax 线性化后的注意力
-- 完整架构: $f_{\text{MLP-Attn}}(\mathbf{X}) = \frac{1}{\sqrt{m}} \sum_{r=1}^{m} a_r \sigma(\mathbf{w}_r^T \cdot f^{\text{att}}(\mathbf{X}))$
-- 该变换在整个训练集上计算（transductive），编码全局成对关系
-- 注意力输出做 $\ell_2$ 归一化后送入 MLP
+**1. 可精确核刻画的线性化注意力 MLP-Attn：给注意力找一个能算清楚核的化身**
 
-### 关键理论结果
+要判断注意力落在哪个 regime，先得有一个能写出闭式核的注意力。本文把 softmax 线性化、QKV 投影取恒等，得到注意力算子 $f^{\text{att}}(\mathbf{X}) = \mathbf{X}\mathbf{X}^T\mathbf{X}$，完整架构为
 
-1. **Gram-Induced Kernel (Thm 4.1)**: 线性化注意力诱导的核为 $\mathbf{K}_{\text{LinAttn}} = \mathbf{G}^3$（$\mathbf{G}=\mathbf{X}\mathbf{X}^T$），具有传递相似性结构 $i \to k \to \ell \to j$
-2. **谱放大定理 (Thm 4.7)**: 注意力将 Gram 矩阵条件数三次方放大 $\kappa(\tilde{\mathbf{G}}) = \kappa(\mathbf{G})^3$，NTK 收敛需宽度 $m = \Omega(\kappa(\mathbf{G})^6 / \epsilon^2)$，对自然图像数据远超实际可行（MNIST 需 $m \gg 10^{18}$，CIFAR-10 需 $m \gg 10^{24}$）
-3. **数据依赖敏感性 (Prop 4.5)**: $|K_{\text{LinAttn}}(\mathbf{x}_i+\delta, \mathbf{x}_j) - K_{\text{LinAttn}}(\mathbf{x}_i, \mathbf{x}_j)| \leq \|\mathbf{G}\mathbf{x}_j\|_1 \cdot \epsilon$，扰动通过 Gram 矩阵全局传播
+$$f_{\text{MLP-Attn}}(\mathbf{X}) = \frac{1}{\sqrt{m}} \sum_{r=1}^{m} a_r \sigma(\mathbf{w}_r^T \cdot f^{\text{att}}(\mathbf{X}))$$
 
-### 影响力可塑性度量
+该变换在整个训练集上计算（transductive），编码全局成对关系，输出做 $\ell_2$ 归一化后送入 MLP。在此架构下可以证明（Thm 4.1）它诱导的核为 $\mathbf{K}_{\text{LinAttn}} = \mathbf{G}^3$（$\mathbf{G}=\mathbf{X}\mathbf{X}^T$），带有 $i \to k \to \ell \to j$ 的传递相似性结构——这正是后面所有结论的出发点。
 
-- **影响力翻转率 (Flip Rate)**: 对 top-10% 高影响力训练样本施加对抗扰动（PGD, $\epsilon=0.3$），统计影响力符号翻转比例
-- **影响力排名相关性**: 用 Spearman 秩相关 $\rho$ 衡量扰动前后影响力排名稳定性，$\rho$ 越低可塑性越高
-- 三种干预策略: Curated（移除高影响样本）、Transformed（替换为对抗版本）、Adversarial（全局PGD扰动）
+**2. 谱放大定理：注意力把条件数三次方放大，NTK 因此不收敛**
+
+经典 NTK 理论假设足够宽的网络处于 lazy regime、核不变，但注意力是否满足从没被验证。本文证明（Thm 4.7）注意力把 Gram 矩阵条件数立方放大 $\kappa(\tilde{\mathbf{G}}) = \kappa(\mathbf{G})^3$，于是 NTK 收敛所需宽度高达 $m = \Omega(\kappa(\mathbf{G})^6 / \epsilon^2)$。对自然图像这个数字大得离谱——MNIST 需 $m \gg 10^{18}$、CIFAR-10 需 $m \gg 10^{24}$，远超任何实际宽度。换句话说，真实注意力永远到不了 lazy regime，天然处在特征学习 regime。
+
+**3. 数据依赖敏感性：扰动通过 Gram 矩阵全局传播**
+
+特征学习 regime 的代价是核随数据而变、对输入扰动敏感。本文给出界（Prop 4.5）
+
+$$|K_{\text{LinAttn}}(\mathbf{x}_i+\delta, \mathbf{x}_j) - K_{\text{LinAttn}}(\mathbf{x}_i, \mathbf{x}_j)| \leq \|\mathbf{G}\mathbf{x}_j\|_1 \cdot \epsilon$$
+
+关键在于扰动不是局部影响，而是经 Gram 矩阵 $\mathbf{G}$ 传播到所有样本对——这就是注意力既能「看全局关系」又「一碰就变」的数学根源，表达力和脆弱性同源于此。
+
+**4. 影响力可塑性度量：把「一碰就变」做成可量化指标**
+
+为了实测这种敏感性，本文定义影响力可塑性。**影响力翻转率（Flip Rate）**：对 top-10% 高影响力训练样本施加对抗扰动（PGD, $\epsilon=0.3$），统计影响力符号翻转的比例；**影响力排名相关性**：用 Spearman 秩相关 $\rho$ 衡量扰动前后影响力排名的稳定性，$\rho$ 越低可塑性越高。配套三种干预——Curated（移除高影响样本）、Transformed（替换为对抗版本）、Adversarial（全局 PGD 扰动），用来从不同角度暴露注意力对训练数据的依赖程度。
 
 ## 实验关键数据
 

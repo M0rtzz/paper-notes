@@ -39,21 +39,28 @@ tags:
 
 ### 整体框架
 
-EgoMind CoT 由四个阶段组成：Summary Field → RPC Field → PSA Field → Reasoning Field。首先分析问题的空间推理需求，然后通过 RPC 构建全局空间上下文，再通过 PSA 提取任务相关的空间上下文，最终整合信息得出答案。
+EgoMind 赌的是一件事：多帧空间推理不一定要点云、深度、BEV 这些昂贵的 3D 先验，靠精心设计的语言推理信号也能把跨帧视角的不连续接起来。它把推理组织成一条四段式 CoT——Summary Field → RPC Field → PSA Field → Reasoning Field：先判断问题需要什么样的空间推理，再用 RPC 把多帧拼成一张全局空间上下文，接着用 PSA 从里面抽出与问题相关的局部上下文，最后整合作答。整条链由 GPT-4o / Qwen2.5-72B 全自动合成训练数据，只用 5K SFT + 20K RL 就能训出来。
 
 ### 关键设计
 
-1. **Role-Play Caption (RPC)**：模拟第一人称视角的导航者，为每帧生成场景描述 $\mathcal{D}_i$，并在相邻帧之间生成视角转换描述 $\Delta\mathcal{T}_{i \to i+1}$。例如"我向前走并右转以从另一侧观察桌子"。设计动机是：(a) 通过显式建模视角转换确保跨帧空间一致性；(b) 通过识别锚定物体将不同帧的重叠观测连接起来，建立统一的全局场景图 $\hat{\mathcal{G}}_{\mathrm{RPC}} = (\hat{\mathcal{O}}, \hat{\mathcal{R}}, \hat{\mathcal{V}})$。
+**1. Role-Play Caption（RPC）：把模型扣成第一人称导航者，补出跨帧的视角转换**
 
-2. **Progressive Spatial Analysis (PSA)**：给定问题 $Q$，首先识别显式提及的目标物体集 $\mathcal{O}_{\mathrm{exp}}$，然后对每个物体 $o_i$ 在场景图中扩展其空间邻域 $\mathcal{N}(o_i) = \{o_j \in \hat{\mathcal{O}} \mid (o_i, o_j) \in \hat{\mathcal{R}}\}$，聚合得到扩展候选集 $\hat{\mathcal{O}}_{\mathrm{rel}}$，覆盖隐式空间锚点。设计动机是：直接提取目标物体往往遗漏关键的中间空间桥梁，渐进扩展可发现隐式但关键的上下文元素。
+纯 2D 方法逐帧处理输入，从不建模「上一帧到这一帧镜头怎么动」，空间理解于是碎成一帧帧。RPC 让模型扮演一个第一人称的导航者：为每帧生成场景描述 $\mathcal{D}_i$，并在相邻帧之间补出视角转换描述 $\Delta\mathcal{T}_{i \to i+1}$，比如「我向前走并右转，以从另一侧观察桌子」。一方面显式写出镜头怎么动，保证跨帧的空间一致；另一方面靠识别锚定物体把不同帧的重叠观测缝起来，拼成统一的全局场景图 $\hat{\mathcal{G}}_{\mathrm{RPC}} = (\hat{\mathcal{O}}, \hat{\mathcal{R}}, \hat{\mathcal{V}})$。消融显示 RL 阶段对 RPC 的增益最大（去除 RPC 后 RL 从 +7.83 降到 +6.17），说明这张全局图是后续探索的地基。
 
-3. **全自动数据生成 Pipeline**：无需人工标注。RPC 生成用 GPT-4o 生成逐帧描述，Qwen2.5-72B 推断视角转换并合成完整 RPC。空间上下文由 GPT-4o 提取。最终 GPT-4o 整合生成完整 EgoMind CoT 数据。这显著降低了数据准备成本——仅需 5K 样本做 SFT。
+**2. Progressive Spatial Analysis（PSA）：顺着场景图把隐式的「空间桥梁」物体也捞出来**
+
+模型常只盯问题里明说的目标物体，却漏掉连接不同帧所必需的中间物体。PSA 反过来做渐进扩展：先抓出问题显式提到的目标集 $\mathcal{O}_{\mathrm{exp}}$，再对每个物体 $o_i$ 在场景图里展开它的空间邻域 $\mathcal{N}(o_i) = \{o_j \in \hat{\mathcal{O}} \mid (o_i, o_j) \in \hat{\mathcal{R}}\}$，聚合成扩展候选集 $\hat{\mathcal{O}}_{\mathrm{rel}}$，把隐式但关键的空间锚点也覆盖进来。消融里把 PSA 换成直接分析（DSA），+RL 得分从 50.16 掉到 47.24，说明「渐进扩展」比「一步到位」更稳。
+
+**3. 全自动数据生成 Pipeline：零人工标注，把数据成本压到 5K**
+
+显式 3D 先验方法贵就贵在数据——SpaceVista 要 1M、Struct-2D 要 200K 样本。EgoMind 整条 CoT 数据全自动合成：GPT-4o 先生成逐帧描述，Qwen2.5-72B 推断视角转换并合成完整 RPC，空间上下文由 GPT-4o 提取，最后再由 GPT-4o 整合成完整的 EgoMind CoT。整套不需要人工标注，SFT 仅用 5K 样本，是把「语言推理替代 3D 先验」落到数据成本上的关键一步。
 
 ### 损失函数 / 训练策略
 
 两阶段训练：
+
 - **SFT 阶段**：5K 自动生成的 CoT 样本，3 个 epoch，学习率 $5 \times 10^{-6}$
-- **GRPO 强化学习阶段**：20K 样本，奖励函数综合格式奖励和准确率奖励：
+- **GRPO 强化学习阶段**：20K 样本，奖励综合格式与准确率两项：
 
 $$R_i = w_f R_{\mathrm{format}}(y|x) + w_a R_{\mathrm{accuracy}}(y|x)$$
 

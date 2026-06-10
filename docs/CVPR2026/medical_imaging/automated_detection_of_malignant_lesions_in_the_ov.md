@@ -43,25 +43,21 @@ tags:
 
 ### 整体框架
 
-从 Mendeley 数据集获取 5 类组织病理图像（Clear Cell、Endometri、Mucinous、Non Cancerous、Serous）共 498 张 → 使用 Albumentations 数据增强扩充至 2490 张 → 系统训练 15 种 CNN 变体 → 综合评估选出最佳模型（InceptionV3-A）→ 叠加 LIME/SHAP/IG 三种 XAI 方法做对比解释分析。
+这篇论文要在极小的卵巢癌组织病理数据上，既做出高准确率分类、又保证模型可被 XAI 有效解释。整条流水线是：从 Mendeley 数据集拿到 5 类组织病理图像（Clear Cell、Endometri、Mucinous、Non Cancerous、Serous）共 498 张，用 Albumentations 增强扩到 2490 张，再系统训练 15 种 CNN 变体，综合准确率和可解释性选出最佳模型（InceptionV3-A），最后叠加 LIME/SHAP/IG 三种 XAI 方法做对比解释。
 
 ### 关键设计
 
-1. **数据增强管线**
-    - 使用 Albumentations 库做旋转（最高 180°）、水平/垂直翻转、亮度/对比度/饱和度/色调随机变换
-    - 每张原图产生 4 张增强图像，从 498 扩充至 2490 张（5 类各约 498 张，保持平衡）
-    - 图像转为 Tensor 后将 RGB 值从 0-255 归一化到 0-1 范围，显著提升训练稳定性
-    - 训练集-测试集 80:20 随机划分（1992 训练 / 498 测试）
-2. **15 种 CNN 变体系统对比**
-    - **LeNet 系列**（3 种）：基础版（lr=0.001）/ +Dropout / +Step Decay，100 epoch
-    - **ResNet 系列**（4 种）：ResNet-34×2 分辨率（32×32 和 224×224）、ResNet-50、ResNet-101，通过随机搜索（10 次迭代 × 3 epoch）确定最优 lr 和 dropout rate
-    - **VGG 系列**（4 种）：VGG16-A/B/C 和 VGG19，均为 ImageNet 迁移学习冻结特征层只训练全连接层
-    - **Inception 系列**（4 种）：InceptionV1-A (ReLU) / V1-B (Tanh) / V3-A (ReLU + BatchNorm) / V3-B (Tanh + BatchNorm)，从头训练 80 epoch
-3. **XAI 三方法对比解释**
-    - **LIME**：局部可解释，生成超像素级解释图（限制显示 10 个最重要特征），揭示预测的局部依据
-    - **Integrated Gradients**：梯度归因方法，沿从基线到输入的路径积分梯度，生成像素级重要性图
-    - **SHAP**：基于 Shapley 值的归因方法，量化每个像素对预测的边际贡献
-    - 三种方法生成的高亮区域存在显著共性，验证了黑盒解释的一致性和可靠性
+**1. 数据增强管线：把 498 张小数据撑成能训练的规模**
+
+组织病理数据只有 498 张，直接训练必然过拟合。这里用 Albumentations 做旋转（最高 180°）、水平/垂直翻转、亮度/对比度/饱和度/色调随机变换，每张原图产生 4 张增强图，从 498 扩到 2490 张（5 类各约 498 张，保持平衡），并按 80:20 划分（1992 训练 / 498 测试）。图像转 Tensor 后把 RGB 从 0–255 归一化到 0–1——这一步对训练稳定性提升显著，后面消融显示它让结果比对照工作高出约 27pp。
+
+**2. 15 种 CNN 变体系统对比：广撒网而非赌单一模型**
+
+已有卵巢癌 DL 方案大多只用单一模型、缺乏横向对比，临床信任度低。于是覆盖四个家族共 15 个变体：LeNet 系列 3 种（基础 lr=0.001 / +Dropout / +Step Decay，100 epoch）、ResNet 系列 4 种（ResNet-34 的 32×32 和 224×224 两种分辨率、ResNet-50、ResNet-101，用随机搜索 10 次×3 epoch 定 lr 和 dropout）、VGG 系列 4 种（VGG16-A/B/C 和 VGG19，ImageNet 迁移学习冻结特征层只训全连接）、Inception 系列 4 种（V1-A ReLU / V1-B Tanh / V3-A ReLU+BN / V3-B Tanh+BN，从头训练 80 epoch）。选型时刻意排除精度最高的 VGG——它的迁移学习冻结特征层让 XAI 难以有效工作。
+
+**3. 三种 XAI 方法对比解释：用一致性验证黑盒解释的可靠性**
+
+光有精度不够，临床需要看模型"看哪里"。这里同时上 LIME（局部超像素级解释，限显 10 个最重要特征）、Integrated Gradients（沿基线到输入路径积分梯度的像素级重要性图）、SHAP（基于 Shapley 值量化每个像素的边际贡献）。三种方法生成的高亮区域存在显著共性，这种跨方法一致性反过来佐证了解释的可靠性。
 
 ### 损失函数 / 训练策略
 

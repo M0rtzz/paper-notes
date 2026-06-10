@@ -40,38 +40,33 @@ tags:
 ## 方法详解
 
 ### 整体框架
-输入图文 → Parser 提取掩码-标签对 $\{(\mathbf{M}_i, \mathbf{L}_i)\}$ → 编码为文本特征和多尺度视觉特征 → BCV 双向交叉验证 → HSA 层级聚合 → 分支化预测（二分类、操纵类型、图像定位、文本定位）。
+MaLSF 想把多模态验证从"被动整体融合"扭转成"主动局部审讯"。给定一张图和一段文字，它先用 Parser 抽出一组掩码-标签对 $\{(\mathbf{M}_i, \mathbf{L}_i)\}$ 作为连接像素与语词的验证单元，编码成文本特征和多尺度视觉特征；接着 BCV 模块从图、文两个方向交叉盘问，找局部矛盾；HSA 模块再把多粒度的冲突信号层级化地聚合起来，最后分支化地同时输出二分类、操纵类型、图像定位和文本定位。
 
 ### 关键设计
 
-1. **Mask-Label Pair Parsers（掩码-标签对提取器）**:
+**1. 掩码-标签对提取：给"像素"和"语词"建立可对账的基本单元**
 
-    - **Open Vocabulary Parser**: 用 OMG-LLaVA 端到端生成描述和掩码-标签对，标签由模型自主决定
-    - **Caption-Anchored Parser**: 两阶段——GLIP 从图像+原始标题提取物体边界框 → SAM2 生成精细掩码
-    - 两种 Parser 产生本质不同的标签集（开放 vs 受限于原文），互补评估
-    - **设计动机**: 掩码-标签对是连接"像素"与"语词"的基础验证单元
+全局融合之所以会"特征稀释"，根子在于没有一个细粒度的对账单位——一个致命的换词淹没在整段文本向量里。MaLSF 先把图像区域和文本描述绑成掩码-标签对，作为后续局部验证的最小单元。它给两种互补的 Parser：Open Vocabulary Parser 用 OMG-LLaVA 端到端生成描述和掩码-标签对，标签由模型自主决定；Caption-Anchored Parser 走两阶段，先用 GLIP 从图像加原始标题提取物体边界框，再用 SAM2 生成精细掩码。
 
-2. **Bidirectional Cross-modal Verification (BCV)**:
+两种 Parser 产出本质不同的标签集（开放词表 vs 受限于原文），互为对照——前者覆盖面广、后者贴合原始语境，框架对二者都鲁棒说明它依赖的是"有可对账的局部单元"这件事本身，而非某种特定的标签来源。
 
-    - **Image-as-Query 验证**: 全局图像特征查询文本标签，检测图像与文本标签的矛盾
-    $\{\mathbf{F}_{\text{img}}^{\text{cap}}, \mathbf{F}_{\text{img}}^1, ..., \mathbf{F}_{\text{img}}^N\} = \mathcal{T}_V(\mathbf{V}_{\text{img}}, [\mathbf{l}_{\text{cap}}, \{w_j^l \mathbf{l}_j\}])$
-    - **Text-as-Query 验证**: 标题文本查询视觉区域，检测文字与掩码区域的不匹配
-    $\{\mathbf{F}_{\text{cap}}^{\text{img}}, \mathbf{F}_{\text{cap}}^1, ..., \mathbf{F}_{\text{cap}}^N\} = \mathcal{T}_L(\mathbf{l}_{\text{cap}}, [\mathbf{V}_{\text{img}}, \{w_i^v \mathbf{V}_i\}])$
-    - 门控机制: $w_i^v = \sigma(\phi_l(\mathbf{l}_{\text{cap}}^{cls})^\top \phi_v(\mathbf{v}_i^{cls}))$ 自动选择信息量大的局部语义
-    - 解决三层冲突: 全局不一致、局部不一致、跨模态不一致
-    - **设计动机**: 模拟人类的"审讯"认知——从两个方向交叉验证，单向验证可能遗漏冲突
+**2. 双向跨模态验证（BCV）：像审讯者一样从两个方向交叉取证**
 
-3. **Hierarchical Semantic Aggregation (HSA)**:
+人识破假新闻靠的是主动质询——读到"failed"会回图里找失败证据，看到"香槟"会回文里找胜利语义；单向匹配会漏掉只在某一个方向才暴露的冲突。BCV 据此设两路验证。Image-as-Query 用全局图像特征去查询文本标签，揪图像与文本标签的矛盾：
 
-    - **浅层融合**: 将验证输出的 [CLS] token 和序列 token 分开聚合
-        - $a_{\text{img}}, a_{\text{cap}}$: 聚合 [CLS]，捕获全局共识
-        - $s_{\text{img}}, s_{\text{cap}}$: 聚合序列，保留细粒度上下文
-    - **深层融合**: 任务特定解耦
-        - 二分类: 聚合两个模态的 cls 特征
-        - 操纵类型: 可学习 token $p_v, p_l$ 分别查询图像/文本序列
-        - 图像定位: 可学习 token $p_{\text{bbox}}$ 查询视觉序列 → 线性层输出 bbox
-        - 文本定位: 直接用文本序列 → 逐位置二分类
-    - **设计动机**: 融合到解耦的设计让模型学习任务特定表示同时保持语义连贯
+$$\{\mathbf{F}_{\text{img}}^{\text{cap}}, \mathbf{F}_{\text{img}}^1, ..., \mathbf{F}_{\text{img}}^N\} = \mathcal{T}_V(\mathbf{V}_{\text{img}}, [\mathbf{l}_{\text{cap}}, \{w_j^l \mathbf{l}_j\}])$$
+
+Text-as-Query 反过来用标题文本去查询视觉区域，揪文字与掩码区域的不匹配：
+
+$$\{\mathbf{F}_{\text{cap}}^{\text{img}}, \mathbf{F}_{\text{cap}}^1, ..., \mathbf{F}_{\text{cap}}^N\} = \mathcal{T}_L(\mathbf{l}_{\text{cap}}, [\mathbf{V}_{\text{img}}, \{w_i^v \mathbf{V}_i\}])$$
+
+两路都带一个门控 $w_i^v = \sigma(\phi_l(\mathbf{l}_{\text{cap}}^{cls})^\top \phi_v(\mathbf{v}_i^{cls}))$，自动挑出信息量大的局部语义、压低噪声区域。这样一来全局不一致、局部不一致、跨模态不一致三个层级的冲突都能被覆盖，比任何单向验证都更难漏判。
+
+**3. 层级语义聚合（HSA）：从共识到任务特定，逐层把冲突信号收口**
+
+验证产出的是一堆多粒度信号，若直接拍平喂给各个任务头，全局共识和细粒度上下文会互相干扰。HSA 因此分两层收口。浅层融合把 [CLS] token 和序列 token 分开聚合——$a_{\text{img}}, a_{\text{cap}}$ 聚合 [CLS] 捕获全局共识，$s_{\text{img}}, s_{\text{cap}}$ 聚合序列保留细粒度上下文。
+
+深层融合再按任务解耦：二分类聚合两模态的 cls 特征；操纵类型用可学习 token $p_v, p_l$ 分别查询图像/文本序列；图像定位用可学习 token $p_{\text{bbox}}$ 查询视觉序列、过线性层输出 bbox；文本定位直接用文本序列做逐位置二分类。先聚共识、再按任务拆查询，让每个头学到自己需要的表示，同时不破坏底层的语义连贯。
 
 ### 损失函数 / 训练策略
 $$\mathcal{L} = \mathcal{L}_{bcls} + \alpha \mathcal{L}_{mcls} + \beta \mathcal{L}_{ig} + \gamma \mathcal{L}_{tg}$$

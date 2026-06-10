@@ -52,15 +52,25 @@ $$\{\boldsymbol{\theta}^*, \boldsymbol{\vartheta}^*\} = \arg\min_{\boldsymbol{\t
 
 ### 关键设计
 
-1. **Point 分支 — 光流引导的出血点记忆建模**：使用冻结的 PWC-Net 估计帧间光流 $O_i(x,y)$，结合反转的 Mask 地图过滤出血区域不稳定光流，计算平均视点偏移：
-    $\bar{O}_i(\Delta x, \Delta y) = \frac{1}{H \times W} \sum_{X=1}^{H} \sum_{Y=1}^{W} (1-M_i) \cdot O_i(x,y)$
-   然后将前帧 Mask 记忆特征与 Point 特征融合，通过自注意力和交叉注意力生成记忆增强的 Point 特征。核心思想：利用背景区域的光流补偿相机运动，同时利用 Mask 记忆缩小出血点搜索空间。
+**1. Point 分支：用光流 + Mask 记忆把出血点从相机抖动里捞出来**
 
-2. **Mask 分支 — 边缘生成器与自适应 Prompt 嵌入**：采用多尺度 Gabor 小波拉普拉斯滤波器增强出血边缘：
-    $F'_{\text{mask}} = (\text{ReLU}(F_{\text{mask}})) \odot (\mathbf{L}_\mathbf{g}(x,y) * F_{\text{mask}})$
-   将边缘图 $E_m$ 与 Point 分支生成的出血点图 $P_m$ 组合为自适应 prompt 输入 Mask 解码器，替代人工交互式 prompt。
+腹腔镜视野窄、相机一直在动，出血点又常被血液或组织盖住，纯靠单帧很难稳定定位。Point 分支用冻结的 PWC-Net 估帧间光流 $O_i(x,y)$，再用反转的 Mask 地图把出血区域那些不稳定的光流滤掉，算出背景的平均视点偏移：
 
-3. **双向跨分支引导**：Point 分支的预测出血点作为 Mask 解码器的自动 prompt 聚焦目标区域；Mask 分支的预测 Mask 为 Point 分支提供时序方向线索和空间约束。两分支互相约束、互相增强。
+$$\bar{O}_i(\Delta x, \Delta y) = \frac{1}{H \times W} \sum_{X=1}^{H} \sum_{Y=1}^{W} (1-M_i) \cdot O_i(x,y)$$
+
+这一步的妙处是只用**背景**区域的光流来补偿相机运动（出血区光流本身就乱，排除掉反而更准）。补偿后再把前帧的 Mask 记忆特征和 Point 特征融合，经自注意力和交叉注意力生成记忆增强的 Point 特征，等于用 Mask 记忆把出血点的搜索范围提前缩小。
+
+**2. Mask 分支：边缘生成器 + 自适应 prompt 替代人工交互**
+
+手术场景对比度低，出血和周围组织的边界经常糊成一片。Mask 分支用多尺度 Gabor 小波拉普拉斯滤波器专门增强出血边缘：
+
+$$F'_{\text{mask}} = (\text{ReLU}(F_{\text{mask}})) \odot (\mathbf{L}_\mathbf{g}(x,y) * F_{\text{mask}})$$
+
+随后把边缘图 $E_m$ 和 Point 分支给出的出血点图 $P_m$ 拼成自适应 prompt 喂进 Mask 解码器，直接替掉 SAM2 原本需要人手点的交互式 prompt——在线手术场景里没人能实时点框，自动 prompt 是落地的前提。
+
+**3. 双向跨分支引导：让两条分支互为约束**
+
+前两个设计已经各自借用了对方一次，这里把它显式化为闭环：Point 分支的预测出血点当 Mask 解码器的自动 prompt，把注意力聚到目标区域；Mask 分支的预测 Mask 又给 Point 分支提供时序方向线索和空间约束。两边互相收窄对方的解空间，比纯区域检测硬加一个点预测头要稳得多（消融里后者明显更差）。
 
 ### 损失函数 / 训练策略
 

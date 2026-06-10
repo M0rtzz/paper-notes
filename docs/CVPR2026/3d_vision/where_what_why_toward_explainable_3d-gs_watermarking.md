@@ -41,93 +41,33 @@ tags:
 
 ## 方法详解
 
-### 整体流程
+### 整体框架
 
-整个框架分为三个阶段：
+3D-GS 把场景显式编码成一堆可直接编辑的高斯，方便归方便，但也让攻击者能轻松复制、篡改、剥离作者信息——水印因此要回答三件事：**Where**（在哪些高斯上写）、**What**（写什么、更新幅度怎么控）、**Why**（凭什么选这些载体，能否审计归因）。整个框架分三段跑：初始化阶段先按渲染贡献修剪冗余高斯，再用 Trio-Experts 提取载体先验、SBAG 选定载体并致密化；解耦微调阶段用 Channel-wise Group Mask 把水印载体和视觉补偿器的梯度分路，各自独立优化；推理阶段从渲染视图经冻结解码器提取水印比特。修剪沿用 3D-GSW 的策略：引入临时颜色参数 $C'$，用辅助 loss 的梯度 $V_\pi = \partial L_\pi^{aux}/\partial C'$ 当贡献分数，剪掉 $V_\pi < 10^{-8}$ 的低影响高斯。
 
-1. **初始化**：基于渲染贡献修剪冗余高斯 → Trio-Experts 提取先验 → SBAG 选载体并致密化
-2. **解耦微调**：Channel-wise Group Mask 分路梯度 → 水印载体和视觉补偿器独立优化
-3. **推理/验证**：从渲染视图中通过冻结解码器提取水印比特
+### 关键设计
 
-### 3.1 贡献度修剪（Prune by Contribution）
+**1. Trio-Experts：在 3D 参数空间里给每个高斯打"能不能当载体"的分**
 
-预训练 3D-GS 模型通常包含大量冗余高斯。采用 3D-GSW 的贡献度修剪策略：引入临时颜色参数 $C'$，通过辅助 loss 计算梯度 $V_\pi = \partial L_\pi^{aux}/\partial C'$ 作为贡献分数，剪除 $V_\pi < 10^{-8}$ 的低影响高斯。
+先前方法靠图像域梯度/高频启发式选载体，换个视角分数就变、视角不一致。Trio-Experts 改成**表示原生**——证据完全锚在 3D-GS 参数空间，先把高斯参数按语义分成 $\mathcal{C}_{geo}=\{\mathbf{x}, \mathbf{s}, \mathbf{q}\}$、$\mathcal{C}_{app}=\{\alpha, \mathbf{h}^{(0)}, \mathbf{h}^{(\geq 1)}\}$、$\mathcal{C}_{red}=\{\mathbf{x}, \mathbf{s}, \mathbf{q}, \mathbf{h}^{(0)}\}$，在 3D 位置空间建 $k$-NN 邻域 $\mathcal{N}_k(i)$ 后由三个专家分别评估：**几何专家**算尺度各向同性 $\text{Iso}_i=\min(\mathbf{s}_i)/\max(\mathbf{s}_i)$、邻域四元数一致性 $\text{RotCons}_i$ 和紧凑足迹 $\overline{fp}_i$，高各向同性+高旋转一致+小足迹=几何稳定的好载体；**外观专家**用 AC 高频能量比 $\rho_i^{hf}$（越低越好）、双侧不透明度门 $g(\alpha_i)$（中等不透明度最佳）、DC 强度带通 $c_i$ 衡量跨视角外观一致；**冗余专家**用结合颜色形状相似的 $r_{ij}$ 和近似投影重叠的 $w_{ij}$ 估计可替代性，冗余高的高斯即使被扰动也有邻居补偿。
 
-### 3.2 Trio-Experts：三专家载体先验提取
+每个专家把特征 $z_k(i)$ 映成**证据包** $E_k(i)=[U_k(i), S_k(i)]$，$U_k\in[0,1]$ 是来自邻域离散度+专家惩罚的不确定度、$S_k\in[0,1]$ 是质量分数。这种质量-置信度解耦让后续门控能感知置信度，而不是只看分数高低。
 
-与先前方法依赖图像域梯度/高频启发式不同，本文提出 **表示原生** 的 Trio-Experts 系统，决策证据完全锚定在 3D-GS 参数空间中，确保视角一致的评估。
+**2. SBAG：把"排序"和"预算"拆开，自适应决定用多少载体**
 
-将高斯原生参数按语义分组：
+选载体不能拍脑袋定个固定比例，否则消息长就不够、消息短又浪费。SBAG 先**排序**：把证据包映成代理分数 $R_k(i)=\text{clip}(S_k(i)-\beta U_k(i), 0, 1)$（分别是几何稳定性、外观安全性、冗余确定性），再取几何均值得点级效用 $u_i=(R_1(i)\cdot R_2(i)\cdot R_3(i))^{1/3}$。然后**单次渲染**用 DC+不透明度渲染所有训练视图一遍，拿到视角修正可见性 $v_i$ 和拥挤因子 $\eta$，据此**自适应算预算**：给定消息长度 $M$，$\kappa_{eff}=\kappa_0\cdot\bar{v}\cdot\eta,\ B=\lceil M/\kappa_{eff}\rceil$。最后在分位数约束的可行集 $\mathcal{F}$（几何/外观/冗余/可见性四维门限）里按 $u_i$ 取 top-$B$ 得初始载体集 $\mathcal{WM}_0$，再用紧凑证据向量 $\mathbf{e}_i$ 算 $\mathcal{WM}_0$ 原型均值 $\boldsymbol{\mu}$、按余弦相似度招募近邻补视角覆盖间隙扩成 $\mathcal{WM}_{parent}$。每个父高斯再致密化分裂成 $N_s$ 个视觉等价子高斯，一个走水印分支、其余当视觉补偿器，最终得载体集 $\mathcal{WM}_\star$ 和补偿集 $\mathcal{VIS}$。
 
-- $\mathcal{C}_{geo} = \{\mathbf{x}, \mathbf{s}, \mathbf{q}\}$（位置、尺度、旋转）
-- $\mathcal{C}_{app} = \{\alpha, \mathbf{h}^{(0)}, \mathbf{h}^{(\geq 1)}\}$（不透明度、SH 系数）
-- $\mathcal{C}_{red} = \{\mathbf{x}, \mathbf{s}, \mathbf{q}, \mathbf{h}^{(0)}\}$（用于冗余度估计）
+**3. Channel-wise Group Mask：按通道分路梯度，彻底隔开水印与画质**
 
-在 3D 位置空间构建 $k$-NN 邻域 $\mathcal{N}_k(i)$ 后，三个专家分别计算：
-
-**几何专家 $z_1$**：基于 $\mathcal{C}_{geo}$，捕捉结构分解和边界线索来衡量几何稳定性。计算尺度各向同性 $\text{Iso}_i = \min(\mathbf{s}_i)/\max(\mathbf{s}_i)$、邻域四元数一致性 $\text{RotCons}_i$、以及紧凑足迹 $\overline{fp}_i$（几何均值）。高各向同性 + 高旋转一致性 + 小足迹 = 几何稳定的载体候选。
-
-**外观专家 $z_2$**：基于 $\mathcal{C}_{app}$，通过 DC 带通、不透明度门控、高频抑制来衡量跨视角外观一致性。包含 AC 高频能量比 $\rho_i^{hf}$（越低越好）、双侧不透明度门 $g(\alpha_i)$（中等不透明度最佳）、DC 强度带通滤波 $c_i$。
-
-**冗余专家 $z_3$**：基于 $\mathcal{C}_{red}$，刻画高斯间的分布密度，估计可替代性。通过重叠加权邻域相似度衡量：$r_{ij}$ 结合颜色和形状相似性，$w_{ij}$ 近似投影重叠。冗余度高的高斯更适合作水印载体（即使被扰动，周围高斯可补偿）。
-
-每个专家 $k$ 将特征 $z_k(i)$ 映射为 **证据包** $E_k(i) = [U_k(i), S_k(i)]$：
-
-- $U_k \in [0,1]$：不确定度（来自邻域离散度 + 专家特定惩罚）
-- $S_k \in [0,1]$：质量分数
-
-这种质量-置信度解耦使得后续门控可感知置信度。
-
-### 3.3 Safety and Budget-Aware Gate (SBAG)
-
-SBAG 将载体选择解耦为 **排序** 和 **预算分配** 两步。
-
-**排序**：将证据包映射为代理分数 $R_k(i) = \text{clip}(S_k(i) - \beta U_k(i), 0, 1)$，其中 $R_1$ 是几何稳定性、$R_2$ 是外观安全性、$R_3$ 是冗余确定性。对称点级效用分数：
-
-$$u_i = (R_1(i) \cdot R_2(i) \cdot R_3(i))^{1/3}$$
-
-**单次渲染估计**：用 DC+不透明度渲染所有训练视图一次，获取视角修正的可见性 $v_i$ 和场景拥挤因子 $\eta$。
-
-**自适应预算**：给定消息长度 $M$ 比特，自适应计算所需载体数量：
-
-$$\kappa_{eff} = \kappa_0 \cdot \bar{v} \cdot \eta, \quad B = \lceil M / \kappa_{eff} \rceil$$
-
-**可行集与选择**：定义基于分位数约束的可行集 $\mathcal{F}$（四维门限：几何、外观、冗余、可见性），从中按 $u_i$ 取 top-$B$ 构成初始载体集 $\mathcal{WM}_0$。
-
-**原型近邻扩展**：为弥补视角覆盖间隙，构建紧凑证据向量 $\mathbf{e}_i$，计算 $\mathcal{WM}_0$ 的原型均值 $\boldsymbol{\mu}$，通过余弦相似度招募近邻，扩展为 $\mathcal{WM}_{parent}$。
-
-**致密化分裂**：每个父高斯分裂为 $N_s$ 个视觉等价子高斯，一个路由到水印分支，其余作为视觉补偿器。最终得到 $\mathcal{WM}_\star$（水印载体集）和 $\mathcal{VIS}$（视觉补偿器集）。
-
-### 3.4 Channel-wise Group Mask
-
-为避免可见退化，为载体和补偿器分配逐通道掩码。五个参数通道组：$g \in \{\boldsymbol{\delta}_{dc}, \boldsymbol{\rho}_{rest}, \boldsymbol{\omega}_{opa}, \boldsymbol{\theta}_{rot}, \boldsymbol{\sigma}_{sca}\}$。
-
-两类掩码的计算方式不同：
-
-- **VIS 掩码** $m_g^{vis}$：取补偿器上通道权重的均值并 clip，保证最低更新下限 $\text{floor}_g$
-- **WM 掩码** $m_g^{wm}$：取载体上通道权重的中位数并 clip
-
-梯度路由规则：
+载体和补偿器若共用一套更新，水印优化和画质优化会互相打架。Group Mask 给五个参数通道组 $g\in\{\boldsymbol{\delta}_{dc}, \boldsymbol{\rho}_{rest}, \boldsymbol{\omega}_{opa}, \boldsymbol{\theta}_{rot}, \boldsymbol{\sigma}_{sca}\}$ 各算两套掩码：**VIS 掩码** $m_g^{vis}$ 取补偿器上通道权重均值并 clip、保最低更新下限 $\text{floor}_g$；**WM 掩码** $m_g^{wm}$ 取载体上通道权重中位数并 clip。梯度据此路由：
 
 $$\nabla_{\theta_i^g} \mathcal{L} = \begin{cases} m_g^{wm}(i) \nabla_{\theta_i^g} \mathcal{L}_{wm}, & i \in \mathcal{WM}_\star \\ m_g^{vis}(i) \nabla_{\theta_i^g} \mathcal{L}_{vis}, & i \in \mathcal{VIS} \end{cases}$$
 
-通过两遍前向/反向传播确保 $\mathcal{WM}_\star$ 和 $\mathcal{VIS}$ 以正交方式接收梯度，彻底消除优化干扰。
+配合两遍前向/反向，$\mathcal{WM}_\star$ 和 $\mathcal{VIS}$ 以正交方式各收各的梯度，优化干扰被彻底消掉。
 
-### 3.5 解耦水印微调
+### 损失函数 / 训练策略
 
-**视觉目标**（仅作用于 VIS）：
-
-$$\mathcal{L}_{vis} = \lambda_{rec}\mathcal{L}_{rec} + \lambda_{lpips}\mathcal{L}_{lpips} + \lambda_{wav}^{high}\mathcal{L}_{wav}^{high}$$
-
-其中 $\mathcal{L}_{wav}^{high}$ 惩罚多级 DWT 高频子带（LH/HL/HH）。
-
-**水印目标**（仅作用于 WM_star）：采用 EOT（Expectation Over Transformation）训练策略，在干净和变换后渲染上同时优化：
-
-$$\mathcal{L}_{wm} = \lambda_{wm}^{clean}\mathcal{L}_{wm}^{clean} + \lambda_{wm}^{eot}\mathcal{L}_{wm}^{eot} + \lambda_{wav}^{low}\mathcal{L}_{wav}^{low}$$
-
-水印仅嵌入 DWT 低频（LL）子带，$\mathcal{L}_{wav}^{low}$ 正则化低频失真。EOT 中的变换族涵盖模糊、旋转、缩放、裁剪、噪声、JPEG 压缩等。
-
-**关键设计**：VIS 点完全排除在水印 loss 之外。若 VIS 耦合到水印 loss 中，它们会对抗 WM 的更新，既损害视觉质量又破坏提取稳定性。
+解耦微调把视觉和水印两个目标分别只作用在对应集合上。**视觉目标**（只动 VIS）$\mathcal{L}_{vis}=\lambda_{rec}\mathcal{L}_{rec}+\lambda_{lpips}\mathcal{L}_{lpips}+\lambda_{wav}^{high}\mathcal{L}_{wav}^{high}$，其中 $\mathcal{L}_{wav}^{high}$ 惩罚多级 DWT 高频子带（LH/HL/HH）。**水印目标**（只动 $\mathcal{WM}_\star$）$\mathcal{L}_{wm}=\lambda_{wm}^{clean}\mathcal{L}_{wm}^{clean}+\lambda_{wm}^{eot}\mathcal{L}_{wm}^{eot}+\lambda_{wav}^{low}\mathcal{L}_{wav}^{low}$，采用 EOT（Expectation Over Transformation）在干净和变换后渲染上同时优化，变换族涵盖模糊、旋转、缩放、裁剪、噪声、JPEG 压缩等；水印仅嵌入 DWT 低频（LL）子带，$\mathcal{L}_{wav}^{low}$ 正则化低频失真。关键是 VIS 点完全排除在水印 loss 之外——一旦把 VIS 耦进水印 loss，它们会反过来对抗 WM 的更新，既掉画质又毁提取稳定性。
 
 ## 实验关键数据
 

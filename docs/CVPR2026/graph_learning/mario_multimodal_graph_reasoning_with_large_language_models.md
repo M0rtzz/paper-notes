@@ -41,27 +41,33 @@ tags:
 
 ### 整体框架
 
-**Stage 1（GVLM）**：双塔编码器 + 拓扑感知多模态混合器 → 图条件对比学习 → 结构感知跨模态一致表示。
-**Stage 2（模态自适应指令微调）**：构建文本/图像/多模态三种提示模板 → MAPR 路由器选择最优模板 → LLM 推理。
+Mario 处理的是多模态图（MMG）：每个节点带文本 + 图像属性，边提供结构先验。它要同时治两个病——节点的图文不一定语义同步（弱跨模态一致性），以及不同节点偏好不同模态（异质模态偏好）。整体两阶段：Stage 1 训练一个图条件视觉语言模型（GVLM），用双塔编码器加拓扑感知混合器做图条件对比学习，产出结构感知、跨模态一致的表示；Stage 2 为每个节点构建文本/图像/多模态三种提示模板，用模态自适应提示路由器（MAPR）挑最优模板再送 LLM 推理。
 
 ### 关键设计
 
-1. **拓扑感知多模态混合器**：在每个编码层，从全图收集各节点的 CLS 表示，通过带图结构位置偏置的多头注意力聚合邻居信息，再将结构感知的 CLS 重新注入 token 序列替代原 CLS。逐层迭代实现结构+模态的深度融合。
+**1. 拓扑感知多模态混合器：让邻居信息进来消除图文歧义**
 
-2. **图条件对比学习**：对结构感知的文本/图像 CLS 嵌入做双向 InfoNCE：
-    $\mathcal{L}_{\text{S1}} = -\frac{1}{|\mathcal{B}|}\sum_v [\log\frac{e^{s(v,v)/\tau}}{\sum_u e^{s(v,u)/\tau}} + \log\frac{e^{s(v,v)/\tau}}{\sum_u e^{s(u,v)/\tau}}]$
+CLIP 这类 VLM 冻结编码时，单个节点的图文跨模态相似度很低，而邻居本可以帮它消歧却被忽略了。混合器的做法是在每个编码层从全图收集各节点的 CLS 表示，用带图结构位置偏置的多头注意力聚合邻居信息，再把这份结构感知的 CLS 重新注入 token 序列、替换掉原来的 CLS，逐层迭代实现结构与模态的深度融合。正是这一步把图拓扑灌进表示，让跨模态一致性相比冻结 CLIP 提升了 68%。
 
-3. **模态自适应提示路由器 (MAPR)**：
+**2. 图条件对比学习：把"结构感知后的图文"对齐到一起**
 
-    - 为每个节点构建3种提示：$\mathcal{S}_v^{\text{txt}}$（仅文本token）、$\mathcal{S}_v^{\text{vis}}$（仅图像token）、$\mathcal{S}_v^{\text{mm}}$（双模态token）
-    - 路由器输入：$[\mathbf{h}_v^{\text{text}}; \mathbf{h}_v^{\text{image}}; \phi^{(1)}(v); \phi^{(2)}(v); \log d_v]$
-    - MLP 输出3类路由概率 $\mathbf{p}_v = \text{softmax}(\mathbf{s}_v)$
-    - 用性能后验 $\mathbf{q}_v = \text{softmax}(-[\ell_v^{(\text{txt})}, \ell_v^{(\text{vis})}, \ell_v^{(\text{mm})}])$ 作为教师信号
-    - 损失：$\mathcal{L}_{\text{S2}} = \frac{1}{|B|}\sum_v [\sum_k q_v^{(k)} \ell_v^{(k)} + \lambda \text{KL}(\mathbf{q}_v \| \mathbf{p}_v)]$
+光有混合器还需要一个训练目标来真正拉近图文。Mario 对结构感知后的文本/图像 CLS 嵌入做双向 InfoNCE：
+
+$$\mathcal{L}_{\text{S1}} = -\frac{1}{|\mathcal{B}|}\sum_v \Big[\log\frac{e^{s(v,v)/\tau}}{\sum_u e^{s(v,u)/\tau}} + \log\frac{e^{s(v,v)/\tau}}{\sum_u e^{s(u,v)/\tau}}\Big]$$
+
+同一节点的图文互为正样本、其余为负样本，双向对称地拉近正对、推开负对，得到的就是带拓扑约束的跨模态一致表示，供第二阶段使用。
+
+**3. 模态自适应提示路由器（MAPR）：每个节点用自己最吃得开的模态**
+
+约 30% 的节点只能在某种特定模态配置下被正确分类，一刀切的提示模板白白浪费信息。MAPR 为每个节点准备三种提示——仅文本 $\mathcal{S}_v^{\text{txt}}$、仅图像 $\mathcal{S}_v^{\text{vis}}$、双模态 $\mathcal{S}_v^{\text{mm}}$，路由器吃进 $[\mathbf{h}_v^{\text{text}}; \mathbf{h}_v^{\text{image}}; \phi^{(1)}(v); \phi^{(2)}(v); \log d_v]$（图文表示 + 两跳结构特征 + 度数），经 MLP 输出三类路由概率 $\mathbf{p}_v = \text{softmax}(\mathbf{s}_v)$。训练时用实际表现当老师：把三种模板各自的损失取负、softmax 成性能后验 $\mathbf{q}_v = \text{softmax}(-[\ell_v^{(\text{txt})}, \ell_v^{(\text{vis})}, \ell_v^{(\text{mm})}])$，让路由概率去逼近它——
+
+$$\mathcal{L}_{\text{S2}} = \frac{1}{|B|}\sum_v \Big[\sum_k q_v^{(k)} \ell_v^{(k)} + \lambda \, \text{KL}(\mathbf{q}_v \| \mathbf{p}_v)\Big]$$
+
+训练时软路由（按概率加权三种损失）、推理时硬路由（直接选概率最大的模板），既学得稳又在推理时零额外开销。
 
 ### 损失函数 / 训练策略
 
-Stage 1 用对比损失训练编码器，Stage 2 用性能加权的 LM 损失 + KL 正则微调 LLM 和路由器。推理时路由器选最优模态模板。
+Stage 1 用对比损失训练编码器，Stage 2 用性能加权的 LM 损失 + KL 正则同时微调 LLM 和路由器；推理时路由器直接选最优模态模板。
 
 ## 实验关键数据
 

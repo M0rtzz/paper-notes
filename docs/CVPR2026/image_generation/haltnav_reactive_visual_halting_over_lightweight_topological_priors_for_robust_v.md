@@ -40,58 +40,45 @@ tags:
 
 ### 整体框架
 
-层级化 Semi-Markov 决策过程：
-- **宏观层（MLLM Brain）**：Graph-Grounded Task Dispatcher (GGTD) 基于 osmAG 将全局路径分解为原子子指令
-- **微观层（VLN Executor）**：现成 VLN 模型 $\pi_{\text{low}}$ 将子指令转化为电机指令
-- **监控层（RVH）**：Reactive Visual Halting 持续监控自我中心观测，检测到障碍时中断执行、更新拓扑、触发重规划
+HaltNav 要解决的是「只给简洁目标（如『带我去洗手间』）、且世界会动态变化」时的长程导航鲁棒性。它把导航组织成一个层级化 Semi-Markov 决策过程：宏观层是 MLLM Brain，用 Graph-Grounded Task Dispatcher (GGTD) 基于轻量文本拓扑先验 osmAG 把全局路径拆成原子子指令；微观层是现成 VLN 执行器 $\pi_{\text{low}}$，把子指令转成电机指令；中间夹一个监控层 RVH（Reactive Visual Halting），持续盯着自我中心观测，一旦发现障碍就中断执行、更新拓扑、触发重规划。
 
 ### 关键设计
 
-1. **osmAG 拓扑先验与全局规划**
+**1. osmAG 拓扑先验：用纯文本的房间-通道图替代密集语义地图**
 
-   osmAG 用层级化 XML/JSON 文本节点表示环境：area（闭合多边形）为节点，passage（两区域共享的通道线）为边。构建 passage-level 图，用 A* 在渲染的 2D 占用栅格子图上计算通道间代价。特点：
-    - **纯文本格式**，天然与 LLM 的语言模态对齐
-    - **轻量级**：仅包含房间和门的信息，无需密集视觉重建
-    - 可从平面图或 CAD 文件生成
+密集 2D/3D 语义地图构建维护成本高、还容易过时或模态对齐困难。osmAG（OpenStreetMap Area Graph）改用层级化 XML/JSON 文本表示环境：area（闭合多边形）为节点、passage（两区域共享的通道线）为边，构建 passage-level 图后用 A* 在渲染的 2D 占用栅格子图上算通道间代价。它纯文本、天然与 LLM 的语言模态对齐，只含房间和门的信息、无需密集视觉重建，还能从平面图或 CAD 文件直接生成。
 
-2. **Graph-Grounded Task Dispatcher (GGTD)**
+**2. Graph-Grounded Task Dispatcher (GGTD)：让 LLM 读拓扑图做门到门的全局规划**
 
-   LLM 直接读取 osmAG 的文本结构化 prompt $\mathcal{P}(\mathcal{G}_t)$ 做路径规划：
+VLN 执行器擅长局部跟随但不会做全局路由，简略指令下尤其抓瞎。GGTD 把 osmAG 的文本结构化成 prompt $\mathcal{P}(\mathcal{G}_t)$ 直接喂给 LLM 做路径规划：
 
-    $m_i = \text{GGTD}(\mathcal{P}(\mathcal{G}_t), I_{\text{target}}, \mathcal{H}_{i-1})$
+$m_i = \text{GGTD}(\mathcal{P}(\mathcal{G}_t), I_{\text{target}}, \mathcal{H}_{i-1})$
 
-   将全局路由分解为门到门（door-to-door）的局部执行片段，为 VLN 执行器提供先验锚定的、目标驱动的子指令。
+它把全局路由分解为门到门（door-to-door）的局部执行片段，给 VLN 执行器递上先验锚定、目标驱动的子指令，从而把「长程规划」与「局部执行」干净解耦。
 
-3. **Reactive Visual Halting (RVH) 机制**
+**3. Reactive Visual Halting (RVH)：碰撞累积 + MLLM 反思双信号触发重规划**
 
-   终止函数 $\beta(o_t, m_i)$ 融合两种信号：
+静态地图在动态世界里很脆——门关了、走廊堵了，纯地图规划就会一头撞上去。RVH 的终止函数 $\beta(o_t, m_i)$ 融合自底向上和自顶向下两路信号：
 
-    $\beta(o_t, m_i) = \left[\underbrace{\sum_{j=0}^{k-1} c_{t-j}}_{\text{碰撞累积}} \geq \tau_c \;\vee\; \underbrace{s_{\text{MLLM}}(o_t, m_i)}_{\text{通行性判断}}\right]$
+$\beta(o_t, m_i) = \left[\underbrace{\sum_{j=0}^{k-1} c_{t-j}}_{\text{碰撞累积}} \geq \tau_c \;\vee\; \underbrace{s_{\text{MLLM}}(o_t, m_i)}_{\text{通行性判断}}\right]$
 
-    - **Bottom-up 启发式中断**：滑动窗口内碰撞次数超过阈值 $\tau_c$（物理安全网）
-    - **Top-down 反思式中断**：MLLM（Qwen-2.5-VL-7B）评估当前视觉观测的通行性（识别未映射的拥挤走廊、关闭的门等）
+前者是滑动窗口内碰撞次数超阈值 $\tau_c$ 的物理安全网，后者是 MLLM（Qwen-2.5-VL-7B）对当前视觉观测的通行性反思（识别未映射的拥挤走廊、关闭的门等）。一旦触发，RVH 不去用文本描述障碍（那会导致上下文溢出和空间幻觉），而是直接把被阻通道的代价改成 $\infty$ 来修改 osmAG 拓扑：
 
-   当中断触发时，**直接修改 osmAG 拓扑**（将被阻通道的代价设为 $\infty$），而非用文本描述障碍（会导致上下文溢出和空间幻觉）：
+$C_{t+1}(p_i, p_j) = \begin{cases} \infty, & \text{检测到视觉异常} \\ C_t(p_i, p_j), & \text{否则} \end{cases}$
 
-    $C_{t+1}(p_i, p_j) = \begin{cases} \infty, & \text{检测到视觉异常} \\ C_t(p_i, p_j), & \text{否则} \end{cases}$
+下一轮 A* 自然绕开被封通道，重规划因此既可靠又无幻觉。
 
-4. **Failure-Injection 数据合成管线**
+**4. Failure-Injection 数据合成：双引擎造障碍样本训练 RVH**
 
-   为训练 RVH 的障碍检测能力，双引擎合成：
-    - **物理引擎**：Habitat 模拟器中提取专家轨迹，在拓扑瓶颈处随机放置 3D 障碍
-    - **生成扰动引擎**：用预训练扩散模型对真实导航图像做定向 inpainting，合成高保真反事实异常（如未映射的物理路障、行人拥堵）
-
-   构建 SFT 数据集 $\mathcal{D} = \{(X_p, Y_{\text{no-halt}}), (X_a, Y_{\text{halt}})\}$，用 LoRA 微调 MLLM。
+要让 RVH 学会识别障碍，得有大量「该停 / 不该停」的训练样本，纯仿真器的 3D 资产多样性又不够。作者用双引擎合成：物理引擎在 Habitat 模拟器里提取专家轨迹、在拓扑瓶颈处随机放置 3D 障碍；生成扰动引擎则用预训练扩散模型对真实导航图像做定向 inpainting，合成高保真反事实异常（如未映射的物理路障、行人拥堵）。由此构建 SFT 数据集 $\mathcal{D} = \{(X_p, Y_{\text{no-halt}}), (X_a, Y_{\text{halt}})\}$，再用 LoRA 微调 MLLM。
 
 ### 损失函数 / 训练策略
 
-- RVH 用 LoRA SFT 微调，最小化负对数似然：
+RVH 用 LoRA SFT 微调，最小化负对数似然：
 
-  $$\mathcal{L}_{\text{SFT}} = -\sum_{(X,Y) \in \mathcal{D}} \sum_{j=1}^{|Y|} \log p_{\text{MLLM}}(y_j | y_{<j}, X; \Theta_{\text{MLLM}})$$
+$$\mathcal{L}_{\text{SFT}} = -\sum_{(X,Y) \in \mathcal{D}} \sum_{j=1}^{|Y|} \log p_{\text{MLLM}}(y_j | y_{<j}, X; \Theta_{\text{MLLM}})$$
 
-- GGTD 使用 Gemini 3 Flash，RVH 使用 Qwen-2.5-VL-7B
-- 局部执行器：InternVLA-N1（单摄像头 VLN 策略）
-- 评估指标：SR、SPL、OS、NE
+模块分工上，GGTD 使用 Gemini 3 Flash，RVH 使用 Qwen-2.5-VL-7B，局部执行器为 InternVLA-N1（单摄像头 VLN 策略）；评估指标为 SR、SPL、OS、NE。
 
 ## 实验关键数据
 

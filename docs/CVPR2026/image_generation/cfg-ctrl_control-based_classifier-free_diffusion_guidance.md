@@ -41,48 +41,33 @@ tags:
 
 ## 方法详解
 
-### 整体框架：CFG-Ctrl
+### 整体框架
 
-将流匹配采样过程建模为连续时间受控动力系统：
+CFG-Ctrl 想回答两个问题：为什么 CFG 在大引导尺度下会崩（过饱和、结构扭曲、细节丢失），以及能不能用一个统一视角把各种 CFG 变体都装进同一个框架。作者把流匹配的采样过程看成一个连续时间的受控动力系统：
 
 $$\frac{d\mathbf{x}_t}{dt} = \mathbf{v}_\theta(\mathbf{x}_t, t) + \mathbf{u}_t$$
 
-其中控制信号分解为两个核心组件：
+控制信号 $\mathbf{u}_t = K_t \, \Pi_t(\mathbf{e}(t))$ 拆成三部分：引导调度 $K_t$（标量/矩阵增益）、方向算子 $\Pi_t$（恒等/投影等）、语义误差 $\mathbf{e}(t) = \mathbf{v}_\theta(\mathbf{x}_t, t, \mathbf{c}) - \mathbf{v}_\theta(\mathbf{x}_t, t, \varnothing)$。在这个视角下，标准 CFG 就是比例控制器 (P-control)、Weight Scheduler 是时变增益调度、APG 与 CFG-Zero⋆ 是投影反馈控制、Rectified-CFG++ 是模型预测控制——它们全都是线性控制律，这正是它们在高度非线性的生成动力学里失稳的共同根源。
 
-$$\mathbf{u}_t = K_t \, \Pi_t(\mathbf{e}(t))$$
+### 关键设计
 
-- **引导调度 $K_t$**（Guidance Schedule）：控制引导强度（标量/矩阵）
-- **方向算子 $\Pi_t$**（Direction Operator）：调整校正方向（恒等/投影等）
-- **语义误差 $\mathbf{e}(t) = \mathbf{v}_\theta(\mathbf{x}_t, t, \mathbf{c}) - \mathbf{v}_\theta(\mathbf{x}_t, t, \varnothing)$**
+**1. 滑模面：让语义误差沿指数曲线稳定收敛**
 
-在此框架下：标准 CFG = 比例控制器 (P-control)；Weight Scheduler = 时变增益调度；APG = 投影反馈控制；CFG-Zero⋆ = 投影反馈控制；Rectified-CFG++ = 模型预测控制。
+线性控制律保证不了非线性系统的稳定收敛，SMC-CFG 改用滑模控制。作者在语义误差的相空间 $(\mathbf{e}, \dot{\mathbf{e}})$ 上构造一个滑模面 $\mathbf{s}(t) = \dot{\mathbf{e}}(t) + \lambda \mathbf{e}(t)$，一旦轨迹落到 $\mathbf{s}(t) = \mathbf{0}$ 上，误差就被强制沿指数曲线 $\mathbf{e}(t) = \mathbf{e}(T)\exp(-\lambda t)$ 单调收敛到零，收敛速率由 $\lambda$ 决定、与具体的网络非线性无关。
 
-### 关键设计：SMC-CFG（滑模控制引导）
+**2. 切换控制律：用非线性反馈把轨迹"拽"回滑模面**
 
-**1. 滑模面定义**：在语义误差的相空间 $(\mathbf{e}, \dot{\mathbf{e}})$ 上构造指数收敛滑模面：
+光定义滑模面还不够，得有力把偏离的轨迹拉回来。作者引入非线性切换项 $\Delta\mathbf{e}(t) = -k \cdot \mathrm{sign}(\mathbf{s}(t))$，符号函数让控制力始终指向滑模面方向，增益 $k$ 控制牵引力度。基于 Lyapunov 函数 $V(\mathbf{s}) = \frac{1}{2}\|\mathbf{s}\|^2$ 的稳定性分析证明，只要 $k \cdot b_{\min} > \delta$，系统就在有限时间内到达滑模面：$\|\mathbf{s}(t)\| = 0,\ t \leq \frac{\|\mathbf{s}(0)\|}{\eta},\ \eta = k \cdot b_{\min} - \delta > 0$。这种有限时间收敛保证在扩散引导文献里很少见，也是它在大尺度下不崩的根本原因。
 
-$$\mathbf{s}(t) = \dot{\mathbf{e}}(t) + \lambda \mathbf{e}(t)$$
+**3. 引导更新：把校正量并回无条件速度**
 
-当 $\mathbf{s}(t) = \mathbf{0}$ 时，误差沿指数曲线 $\mathbf{e}(t) = \mathbf{e}(T)\exp(-\lambda t)$ 单调收敛至零。
+最后把线性误差项和非线性切换项合在一起写回采样速度：$\hat{\mathbf{v}}_t = \mathbf{v}_\theta(\mathbf{x}_t, t, \varnothing) + w \cdot (\mathbf{e}(t) + \Delta\mathbf{e}(t))$。相比标准 CFG 只有线性外推项 $w \cdot \mathbf{e}(t)$，这里多出的 $\Delta\mathbf{e}(t)$ 就是滑模反馈，且只在采样阶段改引导计算、不碰模型训练，因此即插即用。
 
-**2. 切换控制律**：引入非线性切换项驱动系统轨迹到达滑模面：
-
-$$\Delta\mathbf{e}(t) = -k \cdot \mathrm{sign}(\mathbf{s}(t))$$
-
-**3. 引导更新**：最终引导速度为：
-
-$$\hat{\mathbf{v}}_t = \mathbf{v}_\theta(\mathbf{x}_t, t, \varnothing) + w \cdot (\mathbf{e}(t) + \Delta\mathbf{e}(t))$$
-
-### 理论保证
-
-基于 Lyapunov 稳定性分析（$V(\mathbf{s}) = \frac{1}{2}\|\mathbf{s}\|^2$），证明在 $k \cdot b_{\min} > \delta$ 条件下，系统在有限时间内收敛到滑模面：
-
-$$\|\mathbf{s}(t)\| = 0, \quad t \leq \frac{\|\mathbf{s}(0)\|}{\eta}, \quad \eta = k \cdot b_{\min} - \delta > 0$$
-
-### 超参数
+### 超参数与使用
 
 - **$\lambda$**：滑模面形状参数，控制收敛速率（实验最优 $\lambda=5$）
-- **$k$**：切换控制增益，控制向滑模面的牵引力度（trade-off 语义对齐 vs 图像真实感）
+- **$k$**：切换控制增益，控制向滑模面的牵引力度（在语义对齐与图像真实感之间 trade-off）
+- 跨 8B–20B 模型固定取值、无需逐模型调参；仅作用于采样阶段，无需重训。
 
 ## 实验
 

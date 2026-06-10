@@ -33,28 +33,29 @@ tags:
 ## 方法详解
 
 ### 整体框架
-1. **数据构建**：FaceCoT-Gold100K（GPT-4o + 人工精修）+ FaceCoT-Silver982K（RL 增强的 caption 模型自动标注）= 108 万样本
-2. **训练策略**：两阶段 CoT-Enhanced Progressive Learning (CEPL)
+
+FaceCoT 的目标是让 MLLM 不只给「真/假」二分类，而是带着结构化推理链去做人脸反欺骗。它分两条腿：一条是造数据——把 FaceCoT-Gold100K（GPT-4o 自动标注 + 人工精修）和 FaceCoT-Silver982K（RL 增强的 caption 模型自动标注）合成 108 万样本的 VQA 数据集；另一条是训练——用两阶段的 CoT-Enhanced Progressive Learning（CEPL）让模型先学会看细粒度伪造痕迹、再学会联合推理与判别。
 
 ### 关键设计
 
-1. **六层级 CoT 标注结构**: 模拟人类"全局到局部"推理路径：Caption（全局场景描述）→ Facial Description（面部特征描述）→ Facial Attributes（面部属性列举）→ Reasoning（基于多尺度信息的逻辑推理）→ Spoofing Description（欺骗特征和方法描述）→ Conclusion（最终判断 Yes/No）。用 XML 标签格式化，为模型提供清晰的推理结构。
+**1. 六层级 CoT 标注结构：把人类「从全局到局部」的判别路径写成可学习的链**
 
-2. **数据构建流水线**: 
+FAS 数据集长期只有图像 + 二分类标签，模型既学不到推理、也给不出可解释性。FaceCoT 把每个样本的推理过程拆成六层级：Caption（全局场景描述）→ Facial Description（面部特征描述）→ Facial Attributes（面部属性列举）→ Reasoning（基于多尺度信息的逻辑推理）→ Spoofing Description（欺骗特征和方法描述）→ Conclusion（最终 Yes/No）。整条链用 XML 标签格式化，给模型一个清晰、可监督的推理骨架，而不是让它黑箱出结论。
 
-    - Gold100K：GPT-4o 自动标注 + 为不同攻击类型提供针对性 hint（如"拍摄海报构成欺骗"）+ 正则匹配检查 → 二轮标注失败的 581 个 hard case 由专家人工修正
-    - Silver982K：在 Gold100K 上 SFT 训练 caption 模型，再用双奖励 RL（准确性奖励：结论匹配标签=1；格式奖励：输出符合模板=1）增强，标注准确率从 88% 提升至 **99.6%**
+**2. 数据构建流水线：用 RL 把自动标注的准确率从 88% 顶到 99.6%**
 
-3. **CEPL 两阶段训练**:
+高质量 CoT 标注靠纯人工成本太高、靠纯自动又不准。FaceCoT 走两步：Gold100K 用 GPT-4o 自动标注，给不同攻击类型配针对性 hint（如「拍摄海报构成欺骗」），再用正则匹配检查，二轮仍失败的 581 个 hard case 交专家人工修正；Silver982K 则在 Gold100K 上 SFT 出一个 caption 模型，再用双奖励 RL 增强——准确性奖励（结论匹配标签则为 1）+ 格式奖励（输出符合模板则为 1）。这套 RL 把标注准确率从 88% 拉到 **99.6%**，于是能低成本扩到近百万规模。
 
-    - Stage 1（Visual Enhancement Pre-training）：全参数 SFT on CoT 数据，让视觉编码器学习提取细粒度欺骗特征。直觉：语言引导的监督信号可以驱动视觉编码器关注微妙的伪造痕迹
-    - Stage 2（Multi-task Joint Training）：继承 Stage 1 的视觉编码器，重置连接层和语言解码器为预训练权重 + LoRA 微调，联合训练 CoT 推理和二分类损失。解决了端到端训练中分类目标快速收敛导致推理任务欠优化的问题
+**3. CEPL 两阶段训练：先让视觉编码器「看清」，再联合推理与判别**
+
+如果端到端一把训，二分类目标会很快收敛、把推理任务挤到欠优化。CEPL 把训练拆两段：Stage 1（Visual Enhancement Pre-training）对 CoT 数据做全参数 SFT，用语言引导的监督信号驱动视觉编码器去关注微妙的伪造痕迹；Stage 2（Multi-task Joint Training）继承 Stage 1 的视觉编码器，把连接层和语言解码器重置为预训练权重并加 LoRA 微调，再联合训练 CoT 推理与二分类损失。先打好视觉地基、再联合优化，正好避开了任务之间的相互干扰。
 
 ### 损失函数 / 训练策略
+
 - 输入分辨率 448×448，backbone 为 MiniCPMV-2.6-8B
 - AdamW 优化器，初始 lr=1e-6，weight decay=0.1
 - 10 epochs，batch size 256，8× A100
-- 评估：从第一个生成 token 提取 Yes/No logits 做 softmax 计算连续置信度分数
+- 评估时从第一个生成 token 提取 Yes/No logits 做 softmax，得到连续置信度分数
 
 ## 实验关键数据
 

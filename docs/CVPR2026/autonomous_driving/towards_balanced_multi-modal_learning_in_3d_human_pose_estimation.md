@@ -47,36 +47,25 @@ tags:
 
 ### 整体框架
 
-框架包含两大核心组件：
+模型用模态专属编码器分别提特征（RGB 用 VideoPose3D、LiDAR/mmWave 用 Point Transformer、WiFi 用 MetaFi++），经多模态融合后由姿态回归头预测 3D 关节坐标。在此之上挂两个组件来治"模态不平衡"：一个 Shapley 模态贡献评估模块，用 Shapley 值 + Pearson 相关系数量化每个模态的贡献、检测谁强谁弱；一个自适应权重约束(AWC)正则化，用 Fisher 信息矩阵给参数重要性加权，在训练早期的"学习窗口"里平衡各模态的学习速度。
 
-- **Shapley 模态贡献评估模块**：基于 Shapley 值 + Pearson 相关系数量化各模态贡献，检测模态不平衡
-- **自适应权重约束（AWC）正则化**：基于 Fisher 信息矩阵的参数重要性加权，在训练早期"学习窗口"内平衡各模态的学习速度
+### 关键设计
 
-模型采用模态专属编码器提取特征（RGB 用 VideoPose3D、LiDAR/mmWave 用 Point Transformer、WiFi 用 MetaFi++），经多模态融合模块后由姿态回归头预测 3D 关节坐标。
+**1. 回归任务的 Shapley 贡献评估：把利润函数从 MSE 换成 Pearson**
 
-### 关键设计 1：回归任务的 Shapley 贡献评估
-
-**分类 vs 回归的差异分析**：对于特征拼接融合，最终预测可分解为各模态预测之和 $\hat{y} = \hat{y}^R + \hat{y}^L + \hat{y}^M + \hat{y}^W$。在分类中，弱模态的 logits 接近均匀分布，加减该项对 softmax 概率影响极小，故交叉熵可作为 Shapley 利润函数。但在回归中，弱模态预测标准差趋近于零（接近常数），用 MSE 评估会偏向大输出模态并高估弱模态的可靠性。
-
-**解决方案**：用 Pearson 相关系数替代 MSE 作为利润函数：
+直接套用分类任务的模态贡献评估会在回归里翻车。对特征拼接融合，最终预测可分解为各模态预测之和 $\hat{y} = \hat{y}^R + \hat{y}^L + \hat{y}^M + \hat{y}^W$；分类中弱模态 logits 接近均匀分布，加减它对 softmax 影响极小，所以交叉熵能当 Shapley 的利润函数。但作者观察到，回归里弱模态(mmWave、WiFi)的预测会坡缩成近似常数（标准差趋近于零），此时用 MSE 评估反而偏向大输出模态、把常数预测误判成高贡献。解决办法是改用 Pearson 相关系数当利润函数：
 
 $$s(y, \hat{y}) = \sum_{i=1}^{j \times 3} \rho(y_i, \hat{y}_i), \quad \rho(y_i, \hat{y}_i) = \frac{\text{cov}(y_i, \hat{y}_i)}{\sigma_{y_i} \cdot \sigma_{\hat{y}_i}}$$
 
-Pearson 相关系数衡量的是预测与真值的线性相关性而非数值距离，天然免疫于常数偏置和尺度差异。当弱模态产出标准差接近零的常数预测时，其 Pearson 相关系数接近零，准确反映其信息贫乏。
+Pearson 衡量的是预测与真值的线性相关性而非数值距离，天然免疫常数偏置和尺度差异——当弱模态产出常数预测时其相关系数接近零，准确反映它信息贫乏。缺失模态的特征用零填充，Shapley 值遍历所有模态子集组合算出各模态的边际贡献。
 
-缺失模态的特征用零填充，Shapley 值遍历所有模态子集组合计算各模态的边际贡献。
+**2. 自适应权重约束(AWC)：用 Fisher 信息矩阵给优势模态"踩刹车"**
 
-### 关键设计 2：自适应权重约束（AWC）正则化
+知道谁强谁弱之后，还得有手段抑制优势模态过快收敛、同时别让弱模态过拟合噪声。AWC 先把 4 个模态的 Shapley 分数做 K-Means(K=2)聚类，高分簇为优势模态集 $\mathcal{M}_\mathcal{S}$、低分簇为劣势模态集 $\mathcal{M}_\mathcal{I}$，分别给不同正则化系数 $\alpha_\mathcal{S}$ 和 $\alpha_\mathcal{I}$。正则项用 Fisher 信息矩阵(FIM)对角线对参数偏离量加权惩罚：
 
-**K-Means 分组**：将 4 个模态的 Shapley 分数进行 K-Means（K=2）聚类，高分簇为优势模态集 $\mathcal{M}_\mathcal{S}$，低分簇为劣势模态集 $\mathcal{M}_\mathcal{I}$，分别赋予不同正则化系数 $\alpha_\mathcal{S}$ 和 $\alpha_\mathcal{I}$。
+$$\mathcal{L}_{AWC} = \sum_{m \in \mathcal{M}} \left[\alpha_\mathcal{S} \cdot \mathbf{1}_{\{m \in \mathcal{M}_\mathcal{S}\}} + \alpha_\mathcal{I} \cdot \mathbf{1}_{\{m \in \mathcal{M}_\mathcal{I}\}}\right] \cdot \mathcal{L}_W^m, \quad \mathcal{L}_W^m = \sum_i \frac{[\mathcal{I}_\mathcal{D}]_{ii} (\theta_{t,i}^m - \theta_{0,i}^{m,*})^2}{2}$$
 
-**AWC 损失函数**：用 Fisher 信息矩阵（FIM）对角线对参数偏离量做加权惩罚：
-
-$$\mathcal{L}_{AWC} = \sum_{m \in \mathcal{M}} \left[\alpha_\mathcal{S} \cdot \mathbf{1}_{\{m \in \mathcal{M}_\mathcal{S}\}} + \alpha_\mathcal{I} \cdot \mathbf{1}_{\{m \in \mathcal{M}_\mathcal{I}\}}\right] \cdot \mathcal{L}_W^m$$
-
-其中 $\mathcal{L}_W^m = \sum_i \frac{[\mathcal{I}_\mathcal{D}]_{ii} (\theta_{t,i}^m - \theta_{0,i}^{m,*})^2}{2}$
-
-**核心洞察**：FIM 对角线 $[\mathcal{I}]_{ii}$ 度量参数的经验重要性（梯度平方均值）。优势模态在训练初期梯度较大，FIM 值高，因此其参数偏移受到更强惩罚；弱势模态梯度小，FIM 值低，惩罚较弱。配合 $\alpha_\mathcal{S} > \alpha_\mathcal{I}$，实现同时**抑制优势模态过快收敛** + **适度约束弱模态防止过拟合噪声**的双重效果。
+巧妙之处在于 FIM 对角线 $[\mathcal{I}]_{ii}$（梯度平方均值）本身就度量了参数的经验重要性：优势模态训练初期梯度大、FIM 高，参数偏移被惩罚得更重，自然减速；弱模态梯度小、FIM 低，惩罚轻、得到保护。再配上 $\alpha_\mathcal{S} > \alpha_\mathcal{I}$，就同时实现了"压优势 + 护弱势"，且全程不引入任何额外可学习参数。
 
 ### 损失函数与训练策略
 

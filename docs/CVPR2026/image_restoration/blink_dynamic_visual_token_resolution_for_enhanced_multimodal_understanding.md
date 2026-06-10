@@ -40,37 +40,26 @@ tags:
 ## 方法详解
 
 ### 整体框架
-MLLM 正常前向传播 → 在选定层：计算显著性图 → 判断是否超过扩展/丢弃阈值 → 若超过则用 TokenSR 模块扩展显著区域的 token → 在后续层若注意力转移则丢弃扩展的 token → 最终输出。
+
+Blink 想在一次前向传播里动态增强 MLLM 的视觉感知。它的出发点来自一个 pilot study 的两个发现：不同 Transformer 层关注图像里不同的区域，且对高注意力 token 多投入计算确实能提升感知。于是 Blink 在正常前向传播中插入「扫描-聚焦-转移」的循环——在选定层先算显著性图，若注意力足够集中就用 TokenSR 把显著区域的 token 超分扩展，注意力转移到别处后再把这些扩展 token 丢弃，整个过程模拟人类「快速眨眼」式的视觉扫描，骨干模型保持冻结。
 
 ### 关键设计
 
-1. **Saliency-Guided Scanning（显著性引导扫描）**:
+**1. 显著性引导扫描：用注意力集中度判断该不该增强**
 
-    - 在每个参与层 $L$，计算最后一个文本 token 对所有视觉 token 的注意力：
-    $S_v^{(L)} = q_{t_n}^{(L)} (k_v^{(L)})^\top$
-    - 将视觉 token 重塑为 $H \times W$ 网格，分成 $p \times p$ patch，计算每个 patch 的聚合显著性
-    - 定义显著性比率：$\rho^{(L)} = \frac{\mathcal{S}_{r_{\max}}^{(L)}}{\sum_i \mathcal{S}_{r_i}^{(L)}}$，反映注意力的集中程度
-    - **设计动机**: pilot study 发现不同层的注意力分布差异大，集中度高表示模型"确信"关注某区域，适合增强
+要模拟「聚焦」，先得知道模型此刻在看哪、看得有多确信。在每个参与层 $L$，Blink 计算最后一个文本 token 对所有视觉 token 的注意力 $S_v^{(L)} = q_{t_n}^{(L)} (k_v^{(L)})^\top$，把视觉 token 重塑成 $H \times W$ 网格、切成 $p \times p$ 的 patch 后聚合，再用显著性比率 $\rho^{(L)} = \frac{\mathcal{S}_{r_{\max}}^{(L)}}{\sum_i \mathcal{S}_{r_i}^{(L)}}$ 刻画注意力的集中程度。$\rho$ 越大说明模型越「确信」地盯着某个区域，正是适合加码增强的时机——这直接对应 pilot study 里「不同层注意力分布差异大」的观察。
 
-2. **Dynamic Token Resolution（动态 Token 分辨率）**:
+**2. 动态 Token 分辨率：高集中度就扩展，转移走就丢弃**
 
-    - **Token 扩展**: 当 $\rho^{(L)} > \tau_{\text{exp}}$ 时，用 TokenSR 模块超分辨率增强显著 patch
-    $hs_{SR}^{(L)} = \text{TokenSR}^{(L)}(hs_{LR}^{(L)})$
-      然后将增强 token 插入序列: $[hs_s; hs_v; hs_{SR}; hs_t]$
-    - **Token 丢弃**: 当 $\rho^{(L)} < \tau_{\text{drop}}$ 时，移除之前扩展的 token，恢复原始序列
-    - **设计动机**: 扩展增加对显著区域的计算投入，丢弃防止低信息量的 token 干扰后续推理
+光知道哪里显著还不够，得真把计算投到那里去、并在不需要时收回来。当 $\rho^{(L)} > \tau_{\text{exp}}$ 时，Blink 用 TokenSR 对显著 patch 做超分增强 $hs_{SR}^{(L)} = \text{TokenSR}^{(L)}(hs_{LR}^{(L)})$，并把增强 token 插回序列 $[hs_s; hs_v; hs_{SR}; hs_t]$；当后续层注意力转移、$\rho^{(L)} < \tau_{\text{drop}}$ 时，再移除之前扩展的 token、恢复原始序列。扩展让模型对显著区域多花算力，丢弃则防止低信息量的 token 干扰后面的推理，消融里把这个模块换成固定周期后性能掉得最多（-41.07），说明它是框架的核心。
 
-3. **Token Super-Resolution Module (TokenSR)**:
+**3. TokenSR 超分模块：用轻量卷积从低分辨率 token 补细节**
 
-    - 由三层 2D 卷积 + ReLU 组成的轻量模块
-    - 训练时：将完整图像的显著区域 token 放大，用对应裁剪图像的 token 作为参考，最小化 KL 散度
-    - MLLM 骨干冻结，只训练 TokenSR 参数
-    - **设计动机**: 模拟图像超分辨率的思路，用轻量网络从低分辨率 token 恢复细节，保持语义一致性
+扩展显著 token 需要一个真正能「放大」特征的部件。TokenSR 是个由三层 2D 卷积 + ReLU 组成的轻量模块，训练时把完整图像里显著区域的 token 放大，并用对应裁剪图像的 token 作为参考、最小化两者的 KL 散度；MLLM 骨干全程冻结，只训练 TokenSR。这等于把图像超分的思路搬到 token 上——从低分辨率 token 恢复细节又不破坏语义一致性，因而只需训练这一个小模块就能即插即用。
 
 ### 损失函数 / 训练策略
-- TokenSR 训练: 最小化增强 token 与裁剪参考 token 之间的 KL 散度
-- 训练数据: LLaVA-1.5 训练集（COCO + GQA + OCR-VQA + TextVQA + VisualGenome）
-- 所有操作在层归一化之前执行，确保 Transformer 正常处理扩展/剪裁的序列
+
+TokenSR 的训练目标是最小化增强 token 与裁剪参考 token 之间的 KL 散度；训练数据用 LLaVA-1.5 训练集（COCO + GQA + OCR-VQA + TextVQA + VisualGenome）。所有扩展/剪裁操作都在层归一化之前执行，保证 Transformer 能正常处理变长后的序列。
 
 ## 实验关键数据
 

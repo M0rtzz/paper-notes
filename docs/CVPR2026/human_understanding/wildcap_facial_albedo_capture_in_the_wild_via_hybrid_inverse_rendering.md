@@ -37,44 +37,27 @@ tags:
 
 ## 方法详解
 
-### 整体框架：混合逆渲染（Hybrid Inverse Rendering）
+### 整体框架
 
-流程分为三步：
-1. **数据预处理**：从手机环绕视频中均匀采样 300 帧（960×720），用 COLMAP 标定相机参数，2DGS 重建精细网格，Wrap3D 配准 ICT 模板，最终选取 V=16 帧用于反射率估计
-2. **数据驱动去光照**：用 SwitchLight 预测每帧的漫反射 albedo 图像 $\{I^i\}$，将复杂野外光照转化为更受约束的条件
-3. **基于模型的优化**：在 UV 空间中将 SwitchLight 的 baking 瑕疵解释为光照效应，联合优化 texel grid lighting 和扩散先验采样，得到干净的 albedo 贴图 $A$
+WildCap 想做的事是：只用手机随手拍的环绕视频，就重建出过去要靠 Light Stage 专业光照才能拿到的高质量 4K 面部漫反射 albedo。它的思路是把两类各有短板的方法拼起来——数据驱动方法（如 SwitchLight）鲁棒但会把阴影等光照「烘焙」进预测，基于模型的逆渲染物理上合理但在复杂光照下高度病态。整条流水线分三步：先做数据预处理，从手机环绕视频均匀采样 300 帧（960×720），用 COLMAP 标定相机、2DGS 重建网格、Wrap3D 配准 ICT 模板，最后选 V=16 帧用于反射率估计；再用 SwitchLight 对每帧预测漫反射 albedo $\{I^i\}$，把杂乱的野外光照压缩成更受约束的条件；最后在 UV 空间里把 SwitchLight 残留的 baking 瑕疵当成「光照效应」来解释，联合优化 texel grid lighting 和扩散先验采样，得到干净的 albedo 贴图 $A$。最终再用 RCAN 把 1K 贴图超分到 4K——相比 DoRA 直接采样 4K 要 508 分钟，WildCap 只需 8 分钟（24GB RTX 4090）。
 
-### 核心设计 1：Texel Grid Lighting Model
+### 关键设计
 
-SwitchLight 的预测图像并非物理光源照射产生，传统 SH 环境光模型无法解释其非物理的阴影 baking 瑕疵。
+**1. Texel Grid Lighting Model：用非物理的局部光照解释烘焙瑕疵**
 
-- **设计思想**：为有 baking 瑕疵的面部区域分配局部 SH 光照，使瑕疵可被解释为"干净 albedo + 暗色局部光照"
-- **具体结构**：
-    - 全局 SH 光照 $\gamma^g \in \mathbb{R}^{N_c}$ 建模整个面部的基础光照
-    - UV 空间 2D 网格 $V \in \mathbb{R}^{\frac{H}{g} \times \frac{W}{g} \times N_c}$ 存储局部 SH 参数
-    - 通过二值 mask $M$ 调制：$\gamma = \gamma^g + \gamma^V \cdot M[u][v]$
-    - 网格大小 $g=96$，采用 2 阶 SH（$N_c=27$），通过双线性插值查询
-- **mask 获取**：支持手动（Photoshop 多边形套索）或自动（DiFaReli 阴影检测 + UV 空间提升）
+SwitchLight 的预测图并不是真实光源照出来的，传统的球谐（SH）环境光模型解释不了它那些非物理的阴影 baking 瑕疵。TGL 的办法是给有瑕疵的面部区域额外分配局部 SH 光照，让瑕疵被重新解释成「干净 albedo + 一块暗色局部光照」的组合。具体是一个全局 SH 光照 $\gamma^g \in \mathbb{R}^{N_c}$ 建模整脸基础光照，再叠加一个 UV 空间 2D 网格 $V \in \mathbb{R}^{\frac{H}{g} \times \frac{W}{g} \times N_c}$ 存局部 SH 参数，通过二值 mask $M$ 调制：$\gamma = \gamma^g + \gamma^V \cdot M[u][v]$。网格大小 $g=96$、采用 2 阶 SH（$N_c=27$）、双线性插值查询；mask 既可手动（Photoshop 多边形套索）也可自动（DiFaReli 阴影检测 + UV 空间提升）。消融显示只用全局 SH 会留下明显阴影残留，加上网格后才解释得了这些瑕疵。
 
-### 核心设计 2：扩散先验 + 后验采样优化
+**2. 扩散先验 + 后验采样：把病态优化拉回良定**
 
-增强光照模型的表达力使优化更加病态（光照与 albedo 的 scale ambiguity），需引入先验约束：
+光照模型表达力一强，光照与 albedo 的 scale ambiguity 就让优化更病态，必须加先验约束。WildCap 在 48 个 Light Stage 扫描上训练一个 64×64 的 patch 级扩散模型，建模 7 通道信号（3ch diffuse albedo + 3ch normal + 1ch specular albedo）；采样时不从纯噪声起步，而是先从训练集里挑肤色最接近的扫描 $x_0^{ref}$，加 $T_{init}=0.6T$ 步噪声再开始，省采样步数。每个扩散时间步里同时更新反射率贴图 $x_t$（扩散去噪 + 光度梯度引导）和光照参数 $\theta_t$（梯度下降 + 正则化），把「在合理分布里采 albedo」和「联合估光照」绑在一起，原本的病态问题就被拉回良定。
 
-- **Patch 级扩散先验训练**：在 48 个 Light Stage 扫描上训练 64×64 分辨率的 patch 级扩散模型，建模 7 通道信号（3ch diffuse albedo + 3ch normal + 1ch specular albedo）
-- **初始化策略**：从训练集中选择肤色最接近的扫描 $x_0^{ref}$，加 $T_{init}=0.6T$ 步噪声后开始采样（而非从纯噪声开始），减少采样步数
-- **联合优化**：每个扩散时间步中同时更新反射率贴图 $x_t$（扩散去噪 + 光度梯度引导）和光照参数 $\theta_t$（梯度下降 + 正则化）
-
-### 损失函数
+### 损失函数 / 训练策略
 
 - **光度损失**：$\mathcal{L}_{pho} = \|I_{UV} - \Gamma_\theta(A, N_c)\|_2^2$
 - **光照正则化**：$\mathcal{L}_{reg} = 0.1 \cdot \mathcal{L}_{TV} + \mathcal{L}_{neg}$
     - TV 正则化保证光照空间平滑
     - 负着色正则化 $\mathcal{L}_{neg}$ 确保局部光照产生暗色着色（解释阴影 baking）
 - **纹理图构建**：最小化 LPIPS + 梯度空间 L1 损失
-
-### 后处理：4K 超分
-
-用 RCAN 超分网络将 1K 反射率贴图上采样至 4K。相比 DoRA 直接采样 4K 贴图需 508 分钟，WildCap 仅需 **8 分钟**（24GB RTX 4090）。
 
 ## 实验关键数据
 
