@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 机器人/具身智能论文汇总 · 36篇论文解读
+  CVPR2025 机器人/具身智能论文汇总 · 40篇论文解读
 description: >-
-  36篇CVPR2025的机器人/具身智能方向论文解读，涵盖机器人、多模态、导航、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  40篇CVPR2025的机器人/具身智能方向论文解读，涵盖机器人、多模态、导航、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2025"
   - "机器人/具身智能"
@@ -33,6 +33,8 @@ item_list:
     t: "g3D-LF: Generalizable 3D-Language Feature Fields for Embodied Tasks"
   - u: "gigahands_a_massive_annotated_dataset_of_bimanual_hand_activities/"
     t: "GigaHands: A Massive Annotated Dataset of Bimanual Hand Activities"
+  - u: "hearing_anywhere_in_any_environment/"
+    t: "Hearing Anywhere in Any Environment"
   - u: "language-grounded_decoupled_action_representation_for_robotic_manipulation/"
     t: "LaDA: Language-Grounded Decoupled Action Representation for Robotic Manipulation"
   - u: "learning_physics-based_full-body_human_reaching_and_grasping_from_brief_walking_/"
@@ -43,6 +45,10 @@ item_list:
     t: "Lift3D Foundation Policy: Lifting 2D Large-Scale Pretrained Models for Robust 3D Robotic Manipulation"
   - u: "magma_a_foundation_model_for_multimodal_ai_agents/"
     t: "Magma: A Foundation Model for Multimodal AI Agents"
+  - u: "maniptrans_efficient_dexterous_bimanual_manipulation_transfer_via_residual_learn/"
+    t: "ManipTrans: Efficient Dexterous Bimanual Manipulation Transfer via Residual Learning"
+  - u: "manivideo_generating_hand-object_manipulation_video_with_dexterous_and_generaliz/"
+    t: "ManiVideo: Generating Hand-Object Manipulation Video with Dexterous and Generalizable Grasping"
   - u: "mitigating_the_human-robot_domain_discrepancy_in_visual_pre-training_for_robotic/"
     t: "Mitigating the Human-Robot Domain Discrepancy in Visual Pre-training for Robotic Manipulation"
   - u: "momanipvla_transferring_vision-language-action_models_for_general_mobile_manipul/"
@@ -67,23 +73,17 @@ item_list:
     t: "Robotic Visual Instruction"
   - u: "robotwin_dual-arm_robot_benchmark_with_generative_digital_twins/"
     t: "RoboTwin: Dual-Arm Robot Benchmark with Generative Digital Twins"
-  - u: "sapave_towards_active_perception_and_manipulation_in_vision-language-action_mode/"
-    t: "SaPaVe: Towards Active Perception and Manipulation in Vision-Language-Action Models for Robotics"
-  - u: "showui_one_vision-language-action_model_for_gui_visual_agent/"
-    t: "ShowUI: One Vision-Language-Action Model for GUI Visual Agent"
-  - u: "solving_instance_detection_from_an_open-world_perspective/"
-    t: "Solving Instance Detection from an Open-World Perspective"
-item_total: 36
+item_total: 40
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 机器人/具身智能
 
-**📷 CVPR2025** · **36** 篇论文解读
+**📷 CVPR2025** · **40** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (40)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (43)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (71)](../../NeurIPS2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (42)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (46)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/robotics/index.md)
 
-🔥 **高频主题：** 机器人 ×17 · 多模态 ×9 · 导航 ×4 · 推理 ×2
+🔥 **高频主题：** 机器人 ×19 · 多模态 ×10 · 导航 ×4 · 推理 ×2
 
 **[3D-MVP: 3D Multiview Pretraining for Robotic Manipulation](3d-mvp_3d_multiview_pretraining_for_manipulation.md)**
 
@@ -125,6 +125,10 @@ item_total: 36
 
 :   GigaHands 是迄今为止最大的双手活动数据集，通过设计"指令-标注"程序化采集策略和 51 相机无标记捕捉系统，收集了 34 小时、56 名被试、417 个物体的双手活动数据，包含 1.83 亿帧 RGB 图像和 84K 条详细文本标注，在文本驱动手部动作生成和动作描述任务上展示了数据规模的价值。
 
+**[Hearing Anywhere in Any Environment](hearing_anywhere_in_any_environment.md)**
+
+:   提出 xRIR，一个可跨房间泛化的声脉冲响应（RIR）预测统一模型，结合全景深度图的几何特征提取器和少量参考 RIR 的声学编码器，配合新构建的 AcousticRooms 数据集（260 个房间、30 万+ RIR），在已见/未见模拟环境和真实环境中均大幅超越基线方法。
+
 **[LaDA: Language-Grounded Decoupled Action Representation for Robotic Manipulation](language-grounded_decoupled_action_representation_for_robotic_manipulation.md)**
 
 :   提出 LaDA，将 7-DoF 机器人动作解耦为平移/旋转/夹爪三类运动原语并与语言语义建立对应，通过软标签对比学习和自适应损失加权，以 1.3B 参数在 LIBERO 上达到 93.6% 平均成功率。
@@ -144,6 +148,14 @@ item_total: 36
 **[Magma: A Foundation Model for Multimodal AI Agents](magma_a_foundation_model_for_multimodal_ai_agents.md)**
 
 :   Magma 通过在图像上标注可交互区域（Set-of-Mark）和在视频中标注运动轨迹（Trace-of-Mark），将 UI 截图、机器人数据和人类操作视频统一到同一个预训练框架中，使单一模型同时具备多模态理解和跨域动作预测能力，在 UI 导航和机器人操控上均取得 SOTA。
+
+**[ManipTrans: Efficient Dexterous Bimanual Manipulation Transfer via Residual Learning](maniptrans_efficient_dexterous_bimanual_manipulation_transfer_via_residual_learn.md)**
+
+:   提出 ManipTrans，两阶段残差学习框架将人手动捕数据迁移到灵巧机器手的双手操作：Stage-1 在纯手轨迹上预训练模仿模型（手腕+手指跟踪+平滑奖励），Stage-2 通过残差模块+课程学习加入物体交互约束（物体跟踪+接触力），在 OakInk-V2 上物体旋转误差仅 8.60°、双手成功率 39.5%。
+
+**[ManiVideo: Generating Hand-Object Manipulation Video with Dexterous and Generalizable Grasping](manivideo_generating_hand-object_manipulation_video_with_dexterous_and_generaliz.md)**
+
+:   提出多层遮挡（MLO）表示学习 3D 手-物遮挡关系，并将 Objaverse 大规模 3D 物体数据整合进训练，实现首个支持灵巧双手操作 + 可泛化物体外观的手-物操作视频生成框架。
 
 **[Mitigating the Human-Robot Domain Discrepancy in Visual Pre-training for Robotic Manipulation](mitigating_the_human-robot_domain_discrepancy_in_visual_pre-training_for_robotic.md)**
 
@@ -200,6 +212,10 @@ item_total: 36
 **[ShowUI: One Vision-Language-Action Model for GUI Visual Agent](showui_one_vision-language-action_model_for_gui_visual_agent.md)**
 
 :   ShowUI 基于 Qwen2-VL-2B，通过 UI 连通图引导的视觉 token 选择减少 33% 冗余 token 并加速 1.4 倍，配合交错式视觉-语言-动作流和精选 256K 训练数据，仅 2B 参数即在零样本 ScreenSpot 上达到 75.1% 的 SOTA 精度。
+
+**[SOLAMI: Social Vision-Language-Action Modeling for Immersive Interaction with 3D Autonomous Characters](solami_social_vision-language-action_modeling_for_immersive_interaction_with_3d_.md)**
+
+:   提出 SOLAMI，首个端到端的社交视觉-语言-动作 (VLA) 建模框架，通过将语音和动作离散化为 token 并基于 decoder-only LLM 统一建模，实现用户与 3D 虚拟角色通过语音和肢体语言的沉浸式实时交互，同时构建了合成多模态社交交互数据集 SynMSI。
 
 **[Solving Instance Detection from an Open-World Perspective](solving_instance_detection_from_an_open-world_perspective.md)**
 

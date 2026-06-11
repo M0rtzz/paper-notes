@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 视频理解论文汇总 · 46篇论文解读
+  ECCV2024 视频理解论文汇总 · 47篇论文解读
 description: >-
-  46篇ECCV2024的视频理解方向论文解读，涵盖目标跟踪、人体姿态、自监督学习、推理、少样本学习、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  47篇ECCV2024的视频理解方向论文解读，涵盖目标跟踪、人体姿态、自监督学习、推理、少样本学习、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ECCV2024"
   - "视频理解"
@@ -75,13 +75,13 @@ item_list:
     t: "Referring Atomic Video Action Recognition"
   - u: "rethinking_video-text_understanding_retrieval_from_counterfactually_augmented_da/"
     t: "Rethinking Video-Text Understanding: Retrieval from Counterfactually Augmented Data"
-item_total: 46
+item_total: 47
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**🎞️ ECCV2024** · **46** 篇论文解读
+**🎞️ ECCV2024** · **47** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (17)](../../ICML2026/video_understanding/index.md) · [💬 ACL2026 (17)](../../ACL2026/video_understanding/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/video_understanding/index.md) · [🔬 ICLR2026 (10)](../../ICLR2026/video_understanding/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/video_understanding/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/video_understanding/index.md)
 
@@ -238,6 +238,10 @@ item_total: 46
 **[SPAMming Labels: Efficient Annotations for the Trackers of Tomorrow](spamming_labels_efficient_annotations_for_the_trackers_of_tomorrow.md)**
 
 :   提出 SPAM 视频标注引擎，将合成数据预训练、伪标签自训练和基于图层级的主动学习相结合，仅需 3-20% 的人工标注量即可产生接近 GT 质量的多目标跟踪标注。
+
+**[Spherical World-Locking for Audio-Visual Localization in Egocentric Videos](spherical_world-locking_for_audio-visual_localization_in_egocentric_videos.md)**
+
+:   提出球面世界锁定（Spherical World-Locking, SWL）框架，通过将多模态感知流隐式变换到世界锁定的球面坐标系中，消除自身运动带来的挑战，实现更精准的第一人称视频中的音视觉定位。
 
 **[Text-Guided Video Masked Autoencoder](text-guided_video_masked_autoencoder.md)**
 

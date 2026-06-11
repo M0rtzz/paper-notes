@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 自监督/表示学习论文汇总 · 34篇论文解读
+  NeurIPS2025 自监督/表示学习论文汇总 · 35篇论文解读
 description: >-
-  34篇NeurIPS2025的自监督/表示学习方向论文解读，涵盖自监督学习、推理、对抗鲁棒、持续学习、少样本学习、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  35篇NeurIPS2025的自监督/表示学习方向论文解读，涵盖自监督学习、推理、对抗鲁棒、对齐/RLHF、持续学习、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "自监督/表示学习"
@@ -11,9 +11,9 @@ tags:
   - "自监督学习"
   - "推理"
   - "对抗鲁棒"
+  - "对齐/RLHF"
   - "持续学习"
   - "少样本学习"
-  - "LLM"
 item_list:
   - u: "a_joint_learning_approach_to_hardware_caching_and_prefetching/"
     t: "A Joint Learning Approach to Hardware Caching and Prefetching"
@@ -27,6 +27,8 @@ item_list:
     t: "CleverBirds: A Multiple-Choice Benchmark for Fine-grained Human Knowledge Tracing"
   - u: "connecting_jensenshannon_and_kullbackleibler_divergences_a_n/"
     t: "Connecting Jensen-Shannon and Kullback-Leibler Divergences: A New Bound for Representation Learning"
+  - u: "consistent_supervised-unsupervised_alignment_for_generalized_category_discovery/"
+    t: "Consistent Supervised-Unsupervised Alignment for Generalized Category Discovery"
   - u: "continuous_subspace_optimization_for_continual_learning/"
     t: "Continuous Subspace Optimization for Continual Learning (CoSO)"
   - u: "contrastive_representations_for_temporal_reasoning/"
@@ -73,17 +75,15 @@ item_list:
     t: "STaRFormer: Semi-Supervised Task-Informed Representation Learning via Dynamic Attention-Based Regional Masking"
   - u: "t-regs_minimum_spanning_tree_regularization_for_self-supervised_learning/"
     t: "T-REGS: Minimum Spanning Tree Regularization for Self-Supervised Learning"
-  - u: "tabarena_a_living_benchmark_for_machine_learning_on_tabular_data/"
-    t: "TabArena: A Living Benchmark for Machine Learning on Tabular Data"
-item_total: 34
+item_total: 35
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
-**🧠 NeurIPS2025** · **34** 篇论文解读
+**🧠 NeurIPS2025** · **35** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (32)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (34)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
 
 🔥 **高频主题：** 自监督学习 ×6 · 推理 ×2
 
@@ -110,6 +110,10 @@ item_total: 34
 **[Connecting Jensen-Shannon and Kullback-Leibler Divergences: A New Bound for Representation Learning](connecting_jensenshannon_and_kullbackleibler_divergences_a_n.md)**
 
 :   推导了一般情况下KL散度关于JS散度的最优紧致下界$\Xi(D_{\text{JS}}) \leq D_{\text{KL}}$，证明训练判别器最小化交叉熵损失等价于最大化互信息的一个保证下界，为JSD基于的判别式表示学习方法提供了缺失的理论基础，并在MI估计和Information Bottleneck框架中验证了紧致性与实用性。
+
+**[Consistent Supervised-Unsupervised Alignment for Generalized Category Discovery](consistent_supervised-unsupervised_alignment_for_generalized_category_discovery.md)**
+
+:   提出 NC-GCD 框架，通过预分配固定的 Equiangular Tight Frame (ETF) 原型为已知类和新类建立统一优化目标，结合语义一致性匹配器 (SCM) 稳定跨迭代伪标签分配，在 6 个 GCD 基准上显著提升新类发现精度。
 
 **[Continuous Subspace Optimization for Continual Learning (CoSO)](continuous_subspace_optimization_for_continual_learning.md)**
 

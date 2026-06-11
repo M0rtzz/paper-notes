@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 音频/语音论文汇总 · 7篇论文解读
+  ECCV2024 音频/语音论文汇总 · 8篇论文解读
 description: >-
-  7篇ECCV2024的音频/语音方向论文解读，涵盖语音、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  8篇ECCV2024的音频/语音方向论文解读，涵盖语音、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "音频/语音"
@@ -17,6 +17,8 @@ item_list:
     t: "Beat-It: Beat-Synchronized Multi-Condition 3D Dance Generation"
   - u: "coleaf_a_contrastive-collaborative_learning_framework_for_weakly_supervised_audi/"
     t: "CoLeaF: A Contrastive-Collaborative Learning Framework for Weakly Supervised Audio-Visual Video Parsing"
+  - u: "controlllm_augment_language_models_with_tools_by_searching_on_graphs/"
+    t: "ControlLLM: Augment Language Models with Tools by Searching on Graphs"
   - u: "label-anticipated_event_disentanglement_for_audio-visual_video_parsing/"
     t: "Label-Anticipated Event Disentanglement for Audio-Visual Video Parsing"
   - u: "latent-inr_a_flexible_framework_for_implicit_representations_of_videos_with_disc/"
@@ -25,15 +27,15 @@ item_list:
     t: "Listen to Look into the Future: Audio-Visual Egocentric Gaze Anticipation"
   - u: "siamese_vision_transformers_are_scalable_audio-visual_learners/"
     t: "Siamese Vision Transformers are Scalable Audio-Visual Learners"
-item_total: 7
+item_total: 8
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**🎞️ ECCV2024** · **7** 篇论文解读
+**🎞️ ECCV2024** · **8** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (46)](../../NeurIPS2025/audio_speech/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [🧠 NeurIPS2025 (47)](../../NeurIPS2025/audio_speech/index.md)
 
 🔥 **高频主题：** 语音 ×4
 
@@ -48,6 +50,10 @@ item_total: 7
 **[CoLeaF: A Contrastive-Collaborative Learning Framework for Weakly Supervised Audio-Visual Video Parsing](coleaf_a_contrastive-collaborative_learning_framework_for_weakly_supervised_audi.md)**
 
 :   提出 CoLeaF 双分支学习框架，通过事件感知对比学习显式优化跨模态上下文的整合，在弱监督音视频解析任务上平均提升 1.9% F-score。
+
+**[ControlLLM: Augment Language Models with Tools by Searching on Graphs](controlllm_augment_language_models_with_tools_by_searching_on_graphs.md)**
+
+:   提出 ControlLLM 框架，通过在预构建的工具图（Tool Graph）上进行图搜索（Thoughts-on-Graph）来规划多模态工具调用，显著提升了复杂任务中工具选择和参数赋值的准确性。
 
 **[Label-Anticipated Event Disentanglement for Audio-Visual Video Parsing](label-anticipated_event_disentanglement_for_audio-visual_video_parsing.md)**
 

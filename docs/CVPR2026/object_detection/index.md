@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 目标检测论文汇总 · 53篇论文解读
+  CVPR2026 目标检测论文汇总 · 55篇论文解读
 description: >-
-  53篇CVPR2026的目标检测方向论文解读，涵盖目标检测、异常检测、少样本学习、多模态、3D 目标检测、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  55篇CVPR2026的目标检测方向论文解读，涵盖目标检测、异常检测、少样本学习、多模态、3D 目标检测、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2026"
   - "目标检测"
@@ -34,6 +34,8 @@ item_list:
     t: "Beyond Semantic Search: Towards Referential Anchoring in Composed Image Retrieval"
   - u: "bidirectional_multimodal_prompt_learning_with_scale-aware_training_for_few-shot_/"
     t: "Bidirectional Multimodal Prompt Learning with Scale-Aware Training for Few-Shot Multi-Class Anomaly Detection"
+  - u: "boosting_quantitive_and_spatial_awareness_for_zero-shot_object_counting/"
+    t: "Boosting Quantitive and Spatial Awareness for Zero-Shot Object Counting"
   - u: "bussard_normalizing_flows_for_bijective_universal_scene-specific_anomalous_relat/"
     t: "BUSSARD: Normalizing Flows for Bijective Universal Scene-Specific Anomalous Relationship Detection"
   - u: "cd-buffer_complementary_dual-buffer_framework_for_test-time_adaptation_in_advers/"
@@ -72,19 +74,17 @@ item_list:
     t: "MMR-AD: A Large-Scale Multimodal Dataset for Benchmarking General Anomaly Detection with MLLMs"
   - u: "moeclip_patch-specialized_experts_for_zero-shot_anomaly_detection/"
     t: "MoECLIP: Patch-Specialized Experts for Zero-shot Anomaly Detection"
-  - u: "mrd_multi-resolution_retrieval-detection_fusion_for_high-resolution_image_unders/"
-    t: "MRD: Multi-resolution Retrieval-Detection Fusion for High-Resolution Image Understanding"
-item_total: 53
+item_total: 55
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**📷 CVPR2026** · **53** 篇论文解读
+**📷 CVPR2026** · **55** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (11)](../../ICML2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (12)](../../ICML2025/object_detection/index.md)
 
-🔥 **高频主题：** 目标检测 ×16 · 异常检测 ×16 · 少样本学习 ×12 · 多模态 ×4 · 3D 目标检测 ×3
+🔥 **高频主题：** 目标检测 ×16 · 异常检测 ×16 · 少样本学习 ×13 · 多模态 ×5 · 3D 目标检测 ×3
 
 **[A Closer Look at Cross-Domain Few-Shot Object Detection: Fine-Tuning Matters and Parallel Decoder Helps](a_closer_look_at_cross-domain_few-shot_object_detection_fine-tuning_matters_and_.md)**
 
@@ -125,6 +125,10 @@ item_total: 53
 **[Bidirectional Multimodal Prompt Learning with Scale-Aware Training for Few-Shot Multi-Class Anomaly Detection](bidirectional_multimodal_prompt_learning_with_scale-aware_training_for_few-shot_.md)**
 
 :   提出AnoPLe——一个轻量级多模态双向提示学习框架，无需手工异常描述或外部辅助模块，通过文本-视觉提示双向交互和尺度感知前缀实现少样本多类别异常检测，在MVTec-AD/VisA/Real-IAD上取得强竞争力的同时保持高效推理（~28 FPS）。
+
+**[Boosting Quantitive and Spatial Awareness for Zero-Shot Object Counting](boosting_quantitive_and_spatial_awareness_for_zero-shot_object_counting.md)**
+
+:   提出QICA框架解决零样本目标计数中的数量感知缺失和空间不敏感问题，通过数量条件化的协同提示策略（SPS）联合适配视觉-语言编码器，结合在相似度图上直接操作的代价聚合解码器（CAD）保持零样本迁移能力，在FSC-147上达到零样本SOTA（MAE 12.41）并展现强跨域泛化。
 
 **[BUSSARD: Normalizing Flows for Bijective Universal Scene-Specific Anomalous Relationship Detection](bussard_normalizing_flows_for_bijective_universal_scene-specific_anomalous_relat.md)**
 
@@ -269,6 +273,10 @@ item_total: 53
 **[SpiralDiff: Spiral Diffusion with LoRA for RGB-to-RAW Conversion Across Cameras](spiraldiff_spiral_diffusion_with_lora_for_rgb-to-raw_conversion_across_cameras.md)**
 
 :   提出 SpiralDiff，一种面向 RGB-to-RAW 转换的扩散框架，通过信号依赖的噪声加权策略适应不同像素强度区域的重建难度，并引入 CamLoRA 模块实现单一模型跨多相机的轻量适配。
+
+**[SteelDefectX: A Coarse-to-Fine Vision-Language Dataset and Benchmark for Generalizable Steel Surface Defect Detection](steeldefectx_a_coarse-to-fine_vision-language_dataset_and_benchmark_for_generali.md)**
+
+:   提出 SteelDefectX，首个面向钢材表面缺陷检测的视觉-语言数据集（7778 张图像、25 类缺陷），包含从类级到样本级的粗到细文本标注，并建立了涵盖纯视觉分类、视觉-语言分类、零/少样本识别和零样本迁移的四任务基准，实验证明高质量文本标注显著提升模型的可解释性、泛化性和跨域迁移能力。
 
 **[SubspaceAD: Training-Free Few-Shot Anomaly Detection via Subspace Modeling](subspacead_training-free_few-shot_anomaly_detection_via_subspace_modeling.md)**
 

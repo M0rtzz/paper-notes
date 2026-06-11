@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 物理/科学计算论文汇总 · 54篇论文解读
+  NeurIPS2025 物理/科学计算论文汇总 · 55篇论文解读
 description: >-
-  54篇NeurIPS2025的物理/科学计算方向论文解读，涵盖域适应、扩散模型、自监督学习、LLM、生物分子、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  55篇NeurIPS2025的物理/科学计算方向论文解读，涵盖域适应、扩散模型、自监督学习、LLM、生物分子、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "物理/科学计算"
@@ -15,6 +15,8 @@ tags:
   - "生物分子"
   - "医学影像"
 item_list:
+  - u: "a_regularized_newton_method_for_nonconvex_optimization_with/"
+    t: "A Regularized Newton Method for Nonconvex Optimization with Global and Local Complexity Guarantees"
   - u: "a_variational_manifold_embedding_framework_for_nonlinear_dimensionality_reductio/"
     t: "A Variational Manifold Embedding Framework for Nonlinear Dimensionality Reduction"
   - u: "adaptive_stochastic_coefficients_for_accelerating_diffusion_sampling/"
@@ -73,19 +75,21 @@ item_list:
     t: "Multi-Trajectory Physics-Informed Neural Networks for HJB Equations with Hard-Zero Terminal Inventory: Optimal Execution on Synthetic & SPY Data"
   - u: "neural_deprojection_of_galaxy_stellar_mass_profiles/"
     t: "Neural Deprojection of Galaxy Stellar Mass Profiles"
-  - u: "neural_emulator_superiority_when_machine_learning_for_pdes_surpasses_its_trainin/"
-    t: "Neural Emulator Superiority: When Machine Learning for PDEs Surpasses its Training Data"
-item_total: 54
+item_total: 55
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚛️ 物理/科学计算
 
-**🧠 NeurIPS2025** · **54** 篇论文解读
+**🧠 NeurIPS2025** · **55** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (18)](../../ICML2025/physics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (20)](../../ICML2025/physics/index.md)
 
 🔥 **高频主题：** 域适应 ×3 · 扩散模型 ×2
+
+**[A Regularized Newton Method for Nonconvex Optimization with Global and Local Complexity Guarantees](a_regularized_newton_method_for_nonconvex_optimization_with.md)**
+
+:   提出一类基于当前与历史梯度构造的新型正则化器，结合带负曲率监测的共轭梯度法求解正则化Newton方程，在不需要Hessian Lipschitz常数先验知识的自适应框架下，首次同时实现了$O(\epsilon^{-3/2})$最优全局迭代复杂度和二次局部收敛速率。
 
 **[A Variational Manifold Embedding Framework for Nonlinear Dimensionality Reduction](a_variational_manifold_embedding_framework_for_nonlinear_dimensionality_reductio.md)**
 

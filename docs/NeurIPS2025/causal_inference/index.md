@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 因果推理论文汇总 · 19篇论文解读
+  NeurIPS2025 因果推理论文汇总 · 20篇论文解读
 description: >-
-  19篇NeurIPS2025的因果推理方向论文解读，涵盖 LLM、Agent、强化学习、对齐/RLHF、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  20篇NeurIPS2025的因果推理方向论文解读，涵盖 LLM、Agent、强化学习、对齐/RLHF、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "因果推理"
@@ -23,6 +23,8 @@ item_list:
     t: "Bi-Level Decision-Focused Causal Learning for Large-Scale Marketing Optimization"
   - u: "causality-induced_positional_encoding_for_transformer-based_representation_learn/"
     t: "Causality-Induced Positional Encoding for Transformer-Based Representation Learning of Non-Sequential Features"
+  - u: "characterization_and_learning_of_causal_graphs_from_hard_interventions/"
+    t: "Characterization and Learning of Causal Graphs from Hard Interventions"
   - u: "counterfactual_reasoning_for_steerable_pluralistic_value_alignment_of_large_lang/"
     t: "Counterfactual Reasoning for Steerable Pluralistic Value Alignment of Large Language Models"
   - u: "cyclic_counterfactuals_under_shift-scale_interventions/"
@@ -53,13 +55,13 @@ item_list:
     t: "Root Cause Analysis of Outliers with Missing Structural Knowledge"
   - u: "transferring_causal_effects_using_proxies/"
     t: "Transferring Causal Effects using Proxies"
-item_total: 19
+item_total: 20
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔗 因果推理
 
-**🧠 NeurIPS2025** · **19** 篇论文解读
+**🧠 NeurIPS2025** · **20** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (16)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/causal_inference/index.md) · [🔬 ICLR2026 (18)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
 
@@ -80,6 +82,10 @@ item_total: 19
 **[Causality-Induced Positional Encoding for Transformer-Based Representation Learning of Non-Sequential Features](causality-induced_positional_encoding_for_transformer-based_representation_learn.md)**
 
 :   CAPE 通过从表格数据中学习特征间的因果DAG结构，将其嵌入双曲空间生成因果感知的旋转位置编码（RoPE），使 Transformer 能处理非序列但因果相关的特征数据，在多组学数据的下游任务上显著提升性能。
+
+**[Characterization and Learning of Causal Graphs from Hard Interventions](characterization_and_learning_of_causal_graphs_from_hard_interventions.md)**
+
+:   首次系统分析硬干预（hard interventions）在含隐变量因果发现中的理论优势，提出广义do-演算（4条规则）和孪生增强MAG图表示，给出 $\mathcal{I}$-Markov 等价类的充要图条件，并设计可证明正确的FCI变体学习算法；实验表明硬干预比软干预将等价类缩小37-57%。
 
 **[Counterfactual Reasoning for Steerable Pluralistic Value Alignment of Large Language Models](counterfactual_reasoning_for_steerable_pluralistic_value_alignment_of_large_lang.md)**
 

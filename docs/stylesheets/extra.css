@@ -550,3 +550,12 @@ aside.paper-seo-summary {
   display: none !important;
 }
 
+/* ── Mermaid framework diagrams ──
+   竖向(TD)框架图本身比正文栏窄，按默认尺寸渲染即文字清晰；
+   这里只做居中，并在万一过宽时允许容器内横向滚动（避免撑破页面 / 整体缩小）。 */
+.md-typeset .mermaid {
+  margin: 1.2em 0;
+  text-align: center;
+  overflow-x: auto;
+}
+

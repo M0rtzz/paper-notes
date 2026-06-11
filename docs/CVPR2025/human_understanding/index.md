@@ -1,15 +1,15 @@
 ---
 title: >-
-  CVPR2025 人体理解论文汇总 · 69篇论文解读
+  CVPR2025 人体理解论文汇总 · 72篇论文解读
 description: >-
-  69篇CVPR2025的人体理解方向论文解读，涵盖人体姿态、人脸/视线、虚拟人、语音、多模态、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  72篇CVPR2025的人体理解方向论文解读，涵盖人脸/视线、人体姿态、虚拟人、语音、多模态、个性化生成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2025"
   - "人体理解"
   - "论文解读"
   - "论文笔记"
-  - "人体姿态"
   - "人脸/视线"
+  - "人体姿态"
   - "虚拟人"
   - "语音"
   - "多模态"
@@ -41,6 +41,8 @@ item_list:
     t: "Efficient Video Face Enhancement with Enhanced Spatial-Temporal Consistency"
   - u: "ego4o_egocentric_human_motion_capture_and_understanding_from_multi-modal_input/"
     t: "Ego4o: Egocentric Human Motion Capture and Understanding from Multi-Modal Input"
+  - u: "enhancing_3d_gaze_estimation_in_the_wild_using_weak_supervision_with_gaze_follow/"
+    t: "Enhancing 3D Gaze Estimation in the Wild Using Weak Supervision with Gaze Following Labels"
   - u: "esc_erasing_space_concept_for_knowledge_deletion/"
     t: "ESC: Erasing Space Concept for Knowledge Deletion"
   - u: "exploring_timeline_control_for_facial_motion_generation/"
@@ -53,6 +55,8 @@ item_list:
     t: "FreeUV: Ground-Truth-Free Realistic Facial UV Texture Recovery via Cross-Assembly"
   - u: "fresa_feedforward_reconstruction_of_personalized_skinned_avatars_from_few_images/"
     t: "FRESA: Feedforward Reconstruction of Personalized Skinned Avatars from Few Images"
+  - u: "fsboard_over_3_million_characters_of_asl_fingerspelling_collected_via_smartphone/"
+    t: "FSboard: Over 3 Million Characters of ASL Fingerspelling Collected via Smartphones"
   - u: "fsfm_a_generalizable_face_security_foundation_model_via_self-supervised_facial_r/"
     t: "FSFM: A Generalizable Face Security Foundation Model via Self-Supervised Facial Representation Learning"
   - u: "ga3ce_unconstrained_3d_gaze_estimation_with_gaze-aware_3d_context_encoding/"
@@ -71,21 +75,17 @@ item_list:
     t: "Human Motion Instruction Tuning"
   - u: "humanmm_global_human_motion_recovery_from_multi-shot_videos/"
     t: "HumanMM: Global Human Motion Recovery from Multi-shot Videos"
-  - u: "keyface_expressive_audio-driven_facial_animation_for_long_sequences_via_keyframe/"
-    t: "KeyFace: Expressive Audio-Driven Facial Animation for Long Sequences via KeyFrame Interpolation"
-  - u: "learning_affine_correspondences_by_integrating_geometric_constraints/"
-    t: "Learning Affine Correspondences by Integrating Geometric Constraints"
-item_total: 69
+item_total: 72
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧑 人体理解
 
-**📷 CVPR2025** · **69** 篇论文解读
+**📷 CVPR2025** · **72** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (17)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (4)](../../ICML2026/human_understanding/index.md) · [💬 ACL2026 (3)](../../ACL2026/human_understanding/index.md) · [📷 CVPR2026 (60)](../../CVPR2026/human_understanding/index.md) · [🔬 ICLR2026 (8)](../../ICLR2026/human_understanding/index.md) · [🤖 AAAI2026 (19)](../../AAAI2026/human_understanding/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/human_understanding/index.md)
 
-🔥 **高频主题：** 人体姿态 ×14 · 人脸/视线 ×12 · 虚拟人 ×5 · 语音 ×3 · 多模态 ×3
+🔥 **高频主题：** 人脸/视线 ×14 · 人体姿态 ×14 · 虚拟人 ×5 · 语音 ×3 · 多模态 ×3
 
 **[3D Face Reconstruction From Radar Images](3d_face_reconstruction_from_radar_images.md)**
 
@@ -137,6 +137,10 @@ item_total: 69
 
 :   提出Ego4o统一框架，从穿戴设备的多模态输入（1-3个IMU + 第一人称图像 + 运动描述）同时实现人体运动捕捉和运动描述生成，且两个任务可互相增强。
 
+**[Enhancing 3D Gaze Estimation in the Wild Using Weak Supervision with Gaze Following Labels](enhancing_3d_gaze_estimation_in_the_wild_using_weak_supervision_with_gaze_follow.md)**
+
+:   提出一种两阶段自训练弱监督框架 ST-WSGE，利用 2D 注视跟随数据集（如 GazeFollow）生成 3D 伪标签来增强野外 3D 注视估计的泛化能力，同时设计了模态无关的 Gaze Transformer（GaT）统一处理图像和视频输入，在 Gaze360、GFIE、MPIIFaceGaze 等数据集上取得 SOTA。
+
 **[ESC: Erasing Space Concept for Knowledge Deletion](esc_erasing_space_concept_for_knowledge_deletion.md)**
 
 :   提出 ESC（Erasing Space Concept），通过 SVD 分解待遗忘数据的特征空间并移除主成分方向，实现训练无关的特征级知识删除，首次定义了"知识删除"（Knowledge Deletion）任务并提出 Knowledge Retention Score 评估特征级遗忘效果。
@@ -160,6 +164,10 @@ item_total: 69
 **[FRESA: Feedforward Reconstruction of Personalized Skinned Avatars from Few Images](fresa_feedforward_reconstruction_of_personalized_skinned_avatars_from_few_images.md)**
 
 :   提出 FRESA，通过学习一个通用着装人体先验模型，从少量图像前馈式（18秒）联合推理个性化 canonical 形状、蒙皮权重和姿态依赖变形，实现零样本泛化到手机照片的高质量可动画化 3D 人体 Avatar 重建。
+
+**[FSboard: Over 3 Million Characters of ASL Fingerspelling Collected via Smartphones](fsboard_over_3_million_characters_of_asl_fingerspelling_collected_via_smartphone.md)**
+
+:   发布 FSboard——迄今最大的 ASL 指拼（fingerspelling）识别数据集（320万字符、266小时视频、147位聋人签名者用智能手机自拍录制），聚焦手机文字输入场景，基线模型用 MediaPipe + ByT5 达到 11.1% CER，为指拼作为手机输入方式提供了坚实的数据基础。
 
 **[FSFM: A Generalizable Face Security Foundation Model via Self-Supervised Facial Representation Learning](fsfm_a_generalizable_face_security_foundation_model_via_self-supervised_facial_r.md)**
 
@@ -232,6 +240,10 @@ item_total: 69
 **[One2Any: One-Reference 6D Pose Estimation for Any Object](one2any_one-reference_6d_pose_estimation_for_any_object.md)**
 
 :   提出 One2Any，仅需单张参考图像即可估计任意新物体的 6D 位姿——用参考物体坐标（ROC，以参考相机帧为基准而非规范坐标）编码参考姿态，通过 VQVAE+U-Net 条件生成密集 ROC 图，再用 Umeyama 算法恢复位姿，在 YCB-Video 上 93.7% ADD-S AUC，推理仅 0.09 秒。
+
+**[Optimal Transport-Guided Source-Free Adaptation for Face Anti-Spoofing](optimal_transport-guided_source-free_adaptation_for_face_anti-spoofing.md)**
+
+:   提出 OTA 框架：训练阶段学习原型表示编码源域分布，测试阶段通过最优传输(OT)在不访问源模型参数和训练数据的前提下，以 training-free 或轻量训练方式将原型迁移到目标域，同时提出 geodesic mixup 数据增强改善低数据场景的分类器学习。
 
 **[PersonaBooth: Personalized Text-to-Motion Generation](personabooth_personalized_text-to-motion_generation.md)**
 

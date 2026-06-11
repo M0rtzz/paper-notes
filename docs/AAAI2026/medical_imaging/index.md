@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 医学图像论文汇总 · 71篇论文解读
+  AAAI2026 医学图像论文汇总 · 73篇论文解读
 description: >-
-  71篇AAAI2026的医学图像方向论文解读，涵盖医学影像、语义分割、多模态、对齐/RLHF、对抗鲁棒、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  73篇AAAI2026的医学图像方向论文解读，涵盖医学影像、语义分割、多模态、对齐/RLHF、对抗鲁棒、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "AAAI2026"
   - "医学图像"
@@ -13,7 +13,7 @@ tags:
   - "多模态"
   - "对齐/RLHF"
   - "对抗鲁棒"
-  - "自监督学习"
+  - "LLM"
 item_list:
   - u: "a_disease-aware_dual-stage_framework_for_chest_x-ray_report_/"
     t: "A Disease-Aware Dual-Stage Framework for Chest X-ray Report Generation"
@@ -45,6 +45,8 @@ item_list:
     t: "DiA-gnostic VLVAE: Disentangled Alignment-Constrained Vision Language Variational AutoEncoder for Robust Radiology Reporting with Missing Modalities"
   - u: "divide_conquer_and_unite_hierarchical_style-recalibrated_prototype_alignment_for/"
     t: "Divide, Conquer and Unite: Hierarchical Style-Recalibrated Prototype Alignment for Federated Medical Segmentation"
+  - u: "do_large_language_models_think_like_the_brain_sentence-level_evidences_from_laye/"
+    t: "Do Large Language Models Think Like the Brain? Sentence-Level Evidences from Layer-Wise Embeddings and fMRI"
   - u: "dualfete_revisiting_teacher-student_interactions_from_a_feedback_perspective_for/"
     t: "DualFete: Revisiting Teacher-Student Interactions from a Feedback Perspective for Semi-supervised Medical Image Segmentation"
   - u: "dw-dgat_dynamically_weighted_dual_graph_attention_network_for_neurodegenerative_/"
@@ -73,17 +75,15 @@ item_list:
     t: "GROVER: Graph-guided Representation of Omics and Vision with Expert Regulation for Cancer Survival Prediction"
   - u: "guidegen_a_text-guided_framework_for_paired_full-torso_anatomy_and_ct_volume_gen/"
     t: "GuideGen: A Text-Guided Framework for Paired Full-Torso Anatomy and CT Volume Generation"
-  - u: "human-in-the-loop_interactive_report_generation_for_chronic_disease_adherence/"
-    t: "Human-in-the-Loop Interactive Report Generation for Chronic Disease Adherence"
-item_total: 71
+item_total: 73
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**🤖 AAAI2026** · **71** 篇论文解读
+**🤖 AAAI2026** · **73** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (97)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md) · [🧪 ICML2025 (22)](../../ICML2025/medical_imaging/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (100)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (21)](../../ICLR2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md) · [🧪 ICML2025 (22)](../../ICML2025/medical_imaging/index.md)
 
 🔥 **高频主题：** 医学影像 ×35 · 语义分割 ×11 · 多模态 ×6 · 对齐/RLHF ×6 · 对抗鲁棒 ×4
 
@@ -146,6 +146,10 @@ item_total: 71
 **[Divide, Conquer and Unite: Hierarchical Style-Recalibrated Prototype Alignment for Federated Medical Segmentation](divide_conquer_and_unite_hierarchical_style-recalibrated_prototype_alignment_for.md)**
 
 :   针对联邦医学图像分割中的"层间风格偏差累积"和"上下文表征不完整"两大挑战，提出FedBCS框架：通过频域自适应风格重校准（FSR）构建领域不变原型，并设计上下文感知的双层原型对齐（CDPA）融合编解码器多层级语义，在组织核分割和前列腺MRI分割任务上达到SOTA。
+
+**[Do Large Language Models Think Like the Brain? Sentence-Level Evidences from Layer-Wise Embeddings and fMRI](do_large_language_models_think_like_the_brain_sentence-level_evidences_from_laye.md)**
+
+:   本文通过对比14个公开LLM的逐层表示与人类被试听自然叙事时的fMRI数据，在句子级别系统地研究了LLM与人脑语言处理的对齐程度，发现中间层最对齐、指令微调显著增强对齐、且存在与经典神经语言学理论一致的半球偏侧化模式。
 
 **[DualFete: Revisiting Teacher-Student Interactions from a Feedback Perspective for Semi-supervised Medical Image Segmentation](dualfete_revisiting_teacher-student_interactions_from_a_feedback_perspective_for.md)**
 
@@ -230,6 +234,10 @@ item_total: 71
 **[MedEyes: Learning Dynamic Visual Focus for Medical Progressive Diagnosis](medeyes_learning_dynamic_visual_focus_for_medical_progressive_diagnosis.md)**
 
 :   提出 MedEyes，一个混合策略强化学习框架，通过注视引导推理导航器（GRN）模拟临床医生"扫描-钻探"的诊断视觉搜索模式，结合置信度值采样器（CVS）和双流 GRPO 优化，实现动态视觉聚焦的医学渐进式诊断推理，在五个医学 VQA 基准上平均提升 8.5pp。
+
+**[MindCross: Fast New Subject Adaptation with Limited Data for Cross-subject Video Reconstruction from Brain Signals](mindcross_fast_new_subject_adaptation_with_limited_data_for_cross-subject_video_.md)**
+
+:   提出 MindCross，一个跨被试脑解码框架，通过共享编码器学习被试无关信息 + N个特有编码器学习被试相关信息，配合快速校准阶段和 Top-K 协作解码模块，仅用一个模型在 fMRI/EEG-to-video 基准上实现与被试独立模型可比的性能，且新被试适应仅需极少数据和极短时间（~1秒 vs 基线5-17秒）。
 
 **[MIRNet: Integrating Constrained Graph-Based Reasoning with Pre-training for Diagnostic Medical Imaging](mirnet_integrating_constrained_graph-based_reasoning_with_pre-training_for_diagn.md)**
 

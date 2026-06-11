@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 可解释性论文汇总 · 30篇论文解读
+  ICML2025 可解释性论文汇总 · 31篇论文解读
 description: >-
-  30篇ICML2025的可解释性方向论文解读，涵盖 LLM、推理、域适应、代码智能、生物分子、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  31篇ICML2025的可解释性方向论文解读，涵盖 LLM、推理、域适应、代码智能、生物分子、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "可解释性"
@@ -23,6 +23,8 @@ item_list:
     t: "Concept-Based Unsupervised Domain Adaptation"
   - u: "configurable_preference_tuning_with_rubric-guided_synthetic_data/"
     t: "Configurable Preference Tuning with Rubric-Guided Synthetic Data"
+  - u: "deltashap_explaining_prediction_evolutions_in_online_patient_monitoring_with_sha/"
+    t: "DeltaSHAP: Explaining Prediction Evolutions in Online Patient Monitoring with Shapley Values"
   - u: "do_sparse_autoencoders_generalize_a_case_study_of_answerability/"
     t: "Do Sparse Autoencoders Generalize? A Case Study of Answerability"
   - u: "evaluating_neuron_explanations_a_unified_framework_with_sanity_checks/"
@@ -73,17 +75,15 @@ item_list:
     t: "Towards Long-Horizon Interpretability: Efficient and Faithful Multi-Token Attribution for Reasoning LLMs"
   - u: "validating_mechanistic_interpretations_an_axiomatic_approach/"
     t: "Validating Mechanistic Interpretations: An Axiomatic Approach"
-  - u: "what_makes_an_ensemble_un_interpretable/"
-    t: "What Makes an Ensemble (Un)interpretable?"
-item_total: 30
+item_total: 31
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**🧪 ICML2025** · **30** 篇论文解读
+**🧪 ICML2025** · **31** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md)
 
 🔥 **高频主题：** LLM ×3 · 推理 ×2
 
@@ -102,6 +102,10 @@ item_total: 30
 **[Configurable Preference Tuning with Rubric-Guided Synthetic Data](configurable_preference_tuning_with_rubric-guided_synthetic_data.md)**
 
 :   提出Configurable Preference Tuning (CPT)框架，通过基于细粒度rubric生成的合成偏好数据训练LLM，使模型能在推理时仅通过修改system prompt就动态调整行为风格，无需重新训练，在多个基座模型上准确率从0.52-0.68提升至0.76-0.83。
+
+**[DeltaSHAP: Explaining Prediction Evolutions in Online Patient Monitoring with Shapley Values](deltashap_explaining_prediction_evolutions_in_online_patient_monitoring_with_sha.md)**
+
+:   DeltaSHAP 是一种专为在线患者监护系统设计的可解释AI算法，通过将 Shapley 值适配到时序场景，解释连续预测之间的**变化量**而非绝对预测值，同时提供特征归因的**方向和幅度**，在 MIMIC-III 基准上实现 62% 的解释质量提升和 33% 的计算时间缩减。
 
 **[Do Sparse Autoencoders Generalize? A Case Study of Answerability](do_sparse_autoencoders_generalize_a_case_study_of_answerability.md)**
 

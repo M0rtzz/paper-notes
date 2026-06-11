@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 图学习论文汇总 · 36篇论文解读
+  AAAI2026 图学习论文汇总 · 37篇论文解读
 description: >-
-  36篇AAAI2026的图学习方向论文解读，涵盖图神经网络、推理、多模态、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  37篇AAAI2026的图学习方向论文解读，涵盖图神经网络、推理、RAG、多模态、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "图学习"
@@ -10,6 +10,7 @@ tags:
   - "论文笔记"
   - "图神经网络"
   - "推理"
+  - "RAG"
   - "多模态"
   - "问答"
 item_list:
@@ -21,6 +22,8 @@ item_list:
     t: "Are Graph Transformers Necessary? Efficient Long-Range Message Passing with Fractal Nodes in MPNNs"
   - u: "assessing_llms_for_serendipity_discovery_in_knowledge_graphs_a_case_for_drug_rep/"
     t: "Assessing LLMs for Serendipity Discovery in Knowledge Graphs: A Case for Drug Repurposing"
+  - u: "beyond_fact_retrieval_episodic_memory_for_rag_with_generative_semantic_workspace/"
+    t: "Beyond Fact Retrieval: Episodic Memory for RAG with Generative Semantic Workspaces"
   - u: "beyond_fixed_depth_adaptive_graph_neural_networks_for_node_classification_under_/"
     t: "Beyond Fixed Depth: Adaptive Graph Neural Networks for Node Classification Under Varying Homophily"
   - u: "bugsweeper_function-level_detection_of_smart_contract_vulnerabilities_using_grap/"
@@ -71,19 +74,17 @@ item_list:
     t: "RFKG-CoT: Relation-Driven Adaptive Hop-count Selection and Few-Shot Path Guidance for Knowledge-Aware QA"
   - u: "s-dag_a_subject-based_directed_acyclic_graph_for_multi-agent/"
     t: "S-DAG: A Subject-Based Directed Acyclic Graph for Multi-Agent Heterogeneous Reasoning"
-  - u: "self-adaptive_graph_mixture_of_models/"
-    t: "Self-Adaptive Graph Mixture of Models"
-item_total: 36
+item_total: 37
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**🤖 AAAI2026** · **36** 篇论文解读
+**🤖 AAAI2026** · **37** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (19)](../../ICLR2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [📷 CVPR2026 (8)](../../CVPR2026/graph_learning/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
 
-🔥 **高频主题：** 图神经网络 ×7 · 推理 ×3 · 多模态 ×2 · 问答 ×2
+🔥 **高频主题：** 图神经网络 ×7 · 推理 ×3 · RAG ×2 · 多模态 ×2 · 问答 ×2
 
 **[Adaptive Initial Residual Connections for GNNs with Theoretical Guarantees](adaptive_initial_residual_connections_for_gnns_with_theoretical_guarantees.md)**
 
@@ -100,6 +101,10 @@ item_total: 36
 **[Assessing LLMs for Serendipity Discovery in Knowledge Graphs: A Case for Drug Repurposing](assessing_llms_for_serendipity_discovery_in_knowledge_graphs_a_case_for_drug_rep.md)**
 
 :   提出 SerenQA 框架，首次形式化定义知识图谱问答中的"意外发现"(serendipity)任务，包含基于信息论的 RNS 度量、专家标注的药物重定位基准数据集和三阶段评估流水线，揭示当前 LLM 在检索任务上表现尚可但在意外发现探索上仍有巨大改进空间。
+
+**[Beyond Fact Retrieval: Episodic Memory for RAG with Generative Semantic Workspaces](beyond_fact_retrieval_episodic_memory_for_rag_with_generative_semantic_workspace.md)**
+
+:   提出 Generative Semantic Workspace (GSW)，一种神经科学启发的生成式记忆框架，为 LLM 构建结构化的情景记忆表示，在 EpBench 上 F1 达到 0.85，同时减少 51% 的查询时上下文 token。
 
 **[Beyond Fixed Depth: Adaptive Graph Neural Networks for Node Classification Under Varying Homophily](beyond_fixed_depth_adaptive_graph_neural_networks_for_node_classification_under_.md)**
 

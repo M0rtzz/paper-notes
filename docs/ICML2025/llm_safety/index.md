@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 LLM安全论文汇总 · 41篇论文解读
+  ICML2025 LLM安全论文汇总 · 42篇论文解读
 description: >-
-  41篇ICML2025的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、对齐/RLHF、持续学习、水印/隐写、联邦学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  42篇ICML2025的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、对齐/RLHF、持续学习、水印/隐写、联邦学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ICML2025"
   - "LLM 安全"
@@ -69,21 +69,21 @@ item_list:
     t: "Reward-Augmented Data Enhances Direct Preference Alignment of LLMs"
   - u: "robust_multi-bit_text_watermark_with_llm-based_paraphrasers/"
     t: "Robust Multi-bit Text Watermark with LLM-based Paraphrasers"
+  - u: "saebench_a_comprehensive_benchmark_for_sparse_autoencoders_in_language_model_int/"
+    t: "SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability"
   - u: "safety_alignment_can_be_not_superficial_with_explicit_safety_signals/"
     t: "Safety Alignment Can Be Not Superficial With Explicit Safety Signals"
   - u: "sorbet_a_neuromorphic_hardware-compatible_transformer-based_spiking_language_mod/"
     t: "Sorbet: A Neuromorphic Hardware-Compatible Transformer-Based Spiking Language Model"
-  - u: "system-aware_unlearning_algorithms_use_lesser_forget_faster/"
-    t: "System-Aware Unlearning Algorithms: Use Lesser, Forget Faster"
-item_total: 41
+item_total: 42
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM 安全
 
-**🧪 ICML2025** · **41** 篇论文解读
+**🧪 ICML2025** · **42** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (42)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md)
 
 🔥 **高频主题：** LLM ×14 · 对抗鲁棒 ×7 · 对齐/RLHF ×6 · 持续学习 ×3 · 水印/隐写 ×3
 
@@ -194,6 +194,10 @@ item_total: 41
 **[Robust Multi-bit Text Watermark with LLM-based Paraphrasers](robust_multi-bit_text_watermark_with_llm-based_paraphrasers.md)**
 
 :   提出基于LLM释义器（paraphraser）的多比特文本水印方法，通过共训练一对行为差异化的释义器和一个解码分类器，利用PPO强化学习优化编码-解码对，在1.1B小模型上实现>99.99% AUC的检测精度，同时保持文本语义不变。
+
+**[SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability](saebench_a_comprehensive_benchmark_for_sparse_autoencoders_in_language_model_int.md)**
+
+:   提出 SAEBench——一个包含 8 项评估指标的综合基准，系统评测稀疏自编码器（SAE）在语言模型可解释性中的表现，揭示了代理指标（稀疏-保真度）与下游任务性能之间的严重脱节。
 
 **[Safety Alignment Can Be Not Superficial With Explicit Safety Signals](safety_alignment_can_be_not_superficial_with_explicit_safety_signals.md)**
 

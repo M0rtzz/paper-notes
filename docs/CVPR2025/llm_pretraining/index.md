@@ -1,14 +1,16 @@
 ---
 title: >-
-  CVPR2025 预训练论文汇总 · 13篇论文解读
+  CVPR2025 预训练论文汇总 · 15篇论文解读
 description: >-
-  13篇CVPR2025的预训练方向论文解读，涵盖医学影像、水印/隐写、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  15篇CVPR2025的预训练方向论文解读，涵盖医学影像、三维重建、人脸/视线、水印/隐写、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2025"
   - "预训练"
   - "论文解读"
   - "论文笔记"
   - "医学影像"
+  - "三维重建"
+  - "人脸/视线"
   - "水印/隐写"
   - "对抗鲁棒"
 item_list:
@@ -30,23 +32,27 @@ item_list:
     t: "Influence Malleability in Linearized Attention: Dual Implications of Non-Convergent NTK Dynamics"
   - u: "mr_plip_multi_resolution_pathology/"
     t: "MR-PLIP: Multi-Resolution Pathology-Language Pre-training Model with Text-Guided Visual Representation"
+  - u: "planarsplatting_accurate_planar_surface_reconstruction_in_3_minutes/"
+    t: "PlanarSplatting: Accurate Planar Surface Reconstruction in 3 Minutes"
   - u: "precise_event_spotting_in_sports_videos_solving_long-range_dependency_and_class_/"
     t: "Precise Event Spotting in Sports Videos: Solving Long-Range Dependency and Class Imbalance"
   - u: "robust_message_embedding_via_attention_flow-based_steganography/"
     t: "Robust Message Embedding via Attention Flow-Based Steganography"
   - u: "scamo_exploring_the_scaling_law_in_autoregressive_motion_generation_model/"
     t: "ScaMo: Exploring the Scaling Law in Autoregressive Motion Generation Model"
+  - u: "seeing_what_matters_empowering_clip_with_patch_generation-to-selection/"
+    t: "Seeing What Matters: Empowering CLIP with Patch Generation-to-Selection"
   - u: "the_scene_language_representing_scenes_with_programs_words_and_embeddings/"
     t: "The Scene Language: Representing Scenes with Programs, Words, and Embeddings"
-item_total: 13
+item_total: 15
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**📷 CVPR2025** · **13** 篇论文解读
+**📷 CVPR2025** · **15** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (8)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🤖 AAAI2026 (9)](../../AAAI2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_pretraining/index.md)
 
 **[A Unified Framework for Heterogeneous Semi-supervised Learning](a_unified_framework_for_heterogeneous_semi-supervised_learning.md)**
 
@@ -84,6 +90,10 @@ item_total: 13
 
 :   提出 MR-PLIP，首个多分辨率病理学视觉语言预训练模型，在 TCGA 数据集的 3400 万张多分辨率图文对上预训练，通过跨分辨率视觉-文本对齐和文本引导视觉表示，在 26 个数据集上超越 SOTA。
 
+**[PlanarSplatting: Accurate Planar Surface Reconstruction in 3 Minutes](planarsplatting_accurate_planar_surface_reconstruction_in_3_minutes.md)**
+
+:   本文提出 PlanarSplatting，通过直接优化可学习的 3D 矩形平面基元，利用新设计的矩形 splatting 函数将平面可微地渲染为深度和法线图，仅需 3 分钟即可从多视角图像重建精确的室内平面场景，无需任何平面标注。
+
 **[Precise Event Spotting in Sports Videos: Solving Long-Range Dependency and Class Imbalance](precise_event_spotting_in_sports_videos_solving_long-range_dependency_and_class_.md)**
 
 :   提出端到端可训练的精确事件定位框架，通过自适应时空精炼模块（ASTRM）增强特征的时空信息，并引入Soft Instance Contrastive（SoftIC）损失解决类别不平衡问题，在SoccerNet V2 tight设置上以73.74 mAP超越SOTA。
@@ -95,6 +105,10 @@ item_total: 13
 **[ScaMo: Exploring the Scaling Law in Autoregressive Motion Generation Model](scamo_exploring_the_scaling_law_in_autoregressive_motion_generation_model.md)**
 
 :   首次在人类动作生成领域系统验证缩放律，提出包含Motion FSQ-VAE（解决codebook collapse）、260小时MotionUnion数据集和文本前缀自回归Transformer的可扩展系统ScaMo，发现归一化测试损失与FLOPs的对数律以及词汇参数/模型参数/数据量与FLOPs的幂律关系，并在$1\times 10^{18}$FLOPs预算下成功预测最优配置。
+
+**[Seeing What Matters: Empowering CLIP with Patch Generation-to-Selection](seeing_what_matters_empowering_clip_with_patch_generation-to-selection.md)**
+
+:   提出 CLIP-PGS（Patch Generation-to-Selection），一种简洁有效的掩码策略，通过渐进式的"生成-选择"过程——先预选候选掩码patch、再用 Sobel 边缘检测保护关键语义区域、最后用最优传输归一化精细化选择——在提升 CLIP 训练效率（降至 0.5-0.6× 训练时间）的同时在零样本分类、检索等任务上取得 SOTA。
 
 **[The Scene Language: Representing Scenes with Programs, Words, and Embeddings](the_scene_language_representing_scenes_with_programs_words_and_embeddings.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 医疗NLP论文汇总 · 29篇论文解读
+  ACL2025 医疗NLP论文汇总 · 30篇论文解读
 description: >-
-  29篇ACL2025的医疗 NLP 方向论文解读，涵盖医学影像、LLM、对话系统、问答、对齐/RLHF、RAG等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  30篇ACL2025的医疗 NLP 方向论文解读，涵盖医学影像、LLM、对话系统、问答、RAG、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "医疗 NLP"
@@ -12,8 +12,8 @@ tags:
   - "LLM"
   - "对话系统"
   - "问答"
-  - "对齐/RLHF"
   - "RAG"
+  - "对齐/RLHF"
 item_list:
   - u: "a_modular_approach_for_clinical_slms_driven_by_synthetic_data_with_pre-instructi/"
     t: "A Modular Approach for Clinical SLMs Driven by Synthetic Data with Pre-Instruction Tuning, Model Merging, and Clinical-Tasks Alignment"
@@ -23,6 +23,8 @@ item_list:
     t: "Adaptive-VP: A Framework for LLM-Based Virtual Patients that Adapts to Trainees' Dialogue to Facilitate Nurse Communication Training"
   - u: "afrimed_qa_pan_african/"
     t: "AfriMed-QA: A Pan-African, Multi-Specialty, Medical Question-Answering Benchmark Dataset"
+  - u: "are_llms_effective_psychological_assessors_leveraging_adaptive_rag_for_interpret/"
+    t: "Are LLMs Effective Psychological Assessors? Leveraging Adaptive RAG for Interpretable Mental Health Screening through Psychometric Practice"
   - u: "arghitz_at_archehr-qa_2025_a_two-step_divide_and_conquer_approach_to_patient_que/"
     t: "ArgHiTZ at ArchEHR-QA 2025: A Two-Step Divide and Conquer Approach to Patient Question Answering for Top Factuality"
   - u: "automated_structured_radiology_report_generation/"
@@ -73,17 +75,17 @@ item_list:
     t: "Query-driven Document-level Scientific Evidence Extraction from Biomedical Studies"
   - u: "vital_pluralistic_alignment_healthcare/"
     t: "VITAL: A New Dataset for Benchmarking Pluralistic Alignment in Healthcare"
-item_total: 29
+item_total: 30
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🩺 医疗 NLP
 
-**💬 ACL2025** · **29** 篇论文解读
+**💬 ACL2025** · **30** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/medical_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (13)](../../ICLR2026/medical_nlp/index.md) · [🤖 AAAI2026 (12)](../../AAAI2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (15)](../../NeurIPS2025/medical_nlp/index.md)
 
-🔥 **高频主题：** 医学影像 ×24 · LLM ×5 · 对话系统 ×4 · 问答 ×4 · 对齐/RLHF ×3
+🔥 **高频主题：** 医学影像 ×24 · LLM ×5 · 对话系统 ×4 · 问答 ×4 · RAG ×4
 
 **[A Modular Approach for Clinical SLMs Driven by Synthetic Data with Pre-Instruction Tuning, Model Merging, and Clinical-Tasks Alignment](a_modular_approach_for_clinical_slms_driven_by_synthetic_data_with_pre-instructi.md)**
 
@@ -100,6 +102,10 @@ item_total: 29
 **[AfriMed-QA: A Pan-African, Multi-Specialty, Medical Question-Answering Benchmark Dataset](afrimed_qa_pan_african.md)**
 
 :   构建首个大规模泛非洲医学问答基准 AfriMed-QA（15,275 题，16 国 60+ 医学院校、32 个专科），系统评估 30 个 LLM 并发现非洲医疗场景下存在显著的地域性能差距和生物医学模型反不如通用模型的反直觉现象。
+
+**[Are LLMs Effective Psychological Assessors? Leveraging Adaptive RAG for Interpretable Mental Health Screening through Psychometric Practice](are_llms_effective_psychological_assessors_leveraging_adaptive_rag_for_interpret.md)**
+
+:   本文提出了一种基于问卷引导的心理健康筛查框架，通过自适应RAG从用户Reddit帖子中检索相关内容，再用LLM代为填写标准化心理量表（如BDI-II），在无需训练数据的情况下匹配或超越有监督方法的性能，同时提供了临床可解释的评估结果。
 
 **[ArgHiTZ at ArchEHR-QA 2025: A Two-Step Divide and Conquer Approach to Patient Question Answering for Top Factuality](arghitz_at_archehr-qa_2025_a_two-step_divide_and_conquer_approach_to_patient_que.md)**
 

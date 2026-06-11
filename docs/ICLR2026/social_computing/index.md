@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 社会计算论文汇总 · 11篇论文解读
+  ICLR2026 社会计算论文汇总 · 12篇论文解读
 description: >-
-  11篇ICLR2026的社会计算方向论文解读，涵盖 LLM、对抗鲁棒、语音、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  12篇ICLR2026的社会计算方向论文解读，涵盖 LLM、对抗鲁棒、语音、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "社会计算"
@@ -31,21 +31,23 @@ item_list:
     t: "SAGE: Spatial-visual Adaptive Graph Exploration for Efficient Visual Place Recognition"
   - u: "scalable_multi-task_low-rank_model_adaptation/"
     t: "Scalable Multi-Task Low-Rank Model Adaptation"
+  - u: "socialharmbench_revealing_llm_vulnerabilities_to_socially_harmful_requests/"
+    t: "SocialHarmBench: Revealing LLM Vulnerabilities to Socially Harmful Requests"
   - u: "tracing_and_reversing_edits_in_llms/"
     t: "Tracing and Reversing Edits in LLMs"
   - u: "when_agents_persuade_propaganda_generation_and_mitigation_in_llms/"
     t: "When Agents Persuade: Propaganda Generation and Mitigation in LLMs"
-item_total: 11
+item_total: 12
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 👥 社会计算
 
-**🔬 ICLR2026** · **11** 篇论文解读
+**🔬 ICLR2026** · **12** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (19)](../../NeurIPS2025/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
 
-🔥 **高频主题：** LLM ×2
+🔥 **高频主题：** LLM ×3
 
 **[Adaptive Debiasing Tsallis Entropy for Test-Time Adaptation](adaptive_debiasing_tsallis_entropy_for_test-time_adaptation.md)**
 
@@ -82,6 +84,10 @@ item_total: 11
 **[Scalable Multi-Task Low-Rank Model Adaptation](scalable_multi-task_low-rank_model_adaptation.md)**
 
 :   系统分析多任务 LoRA 在任务数量增大时崩溃的根因（均匀正则化破坏共享知识 + 组件级 LoRA 放大梯度冲突），提出 mtLoRA：谱感知正则化 + 块级适配 + 细粒度路由，在 15-25 个任务上平均超越 SOTA 2.3%，同时减少 47% 参数和 24% 训练时间。
+
+**[SocialHarmBench: Revealing LLM Vulnerabilities to Socially Harmful Requests](socialharmbench_revealing_llm_vulnerabilities_to_socially_harmful_requests.md)**
+
+:   提出首个专门针对社会政治危害的LLM安全评估基准 SocialHarmBench，包含585条覆盖7个领域、34个国家的提示，揭示了当前LLM在历史修正主义、宣传操纵等政治敏感场景中的系统性安全漏洞。
 
 **[Tracing and Reversing Edits in LLMs](tracing_and_reversing_edits_in_llms.md)**
 

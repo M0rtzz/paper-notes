@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 目标检测论文汇总 · 28篇论文解读
+  AAAI2026 目标检测论文汇总 · 29篇论文解读
 description: >-
-  28篇AAAI2026的目标检测方向论文解读，涵盖异常检测、目标检测、遥感、少样本学习、目标跟踪、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  29篇AAAI2026的目标检测方向论文解读，涵盖异常检测、目标检测、遥感、少样本学习、目标跟踪、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "目标检测"
@@ -12,7 +12,7 @@ tags:
   - "遥感"
   - "少样本学习"
   - "目标跟踪"
-  - "多模态"
+  - "自监督学习"
 item_list:
   - u: "aerialmind_towards_referring_multi-object_tracking_in_uav_sc/"
     t: "AerialMind: Towards Referring Multi-Object Tracking in UAV Scenarios"
@@ -24,6 +24,8 @@ item_list:
     t: "AquaSentinel: Next-Generation AI System Integrating Sensor Networks for Urban Underground Water Pipeline Anomaly Detection via Collaborative MoE-LLM Agent Architecture"
   - u: "beyond_boundaries_leveraging_vision_foundation_models_for_so/"
     t: "Beyond Boundaries: Leveraging Vision Foundation Models for Source-Free Object Detection"
+  - u: "casl_curvature-augmented_self-supervised_learning_for_3d_anomaly_detection/"
+    t: "CASL: Curvature-Augmented Self-supervised Learning for 3D Anomaly Detection"
   - u: "commonality_in_few_few-shot_multimodal_anomaly_detection_via_hypergraph-enhanced/"
     t: "Commonality in Few: Few-Shot Multimodal Anomaly Detection via Hypergraph-Enhanced Memory"
   - u: "connecting_the_dots_training-free_visual_grounding_via_agent/"
@@ -70,17 +72,17 @@ item_list:
     t: "When Trackers Date Fish: A Benchmark and Framework for Underwater Multiple Fish Tracking"
   - u: "yolo-iod_towards_real_time_incremental_object_detection/"
     t: "YOLO-IOD: Towards Real Time Incremental Object Detection"
-item_total: 28
+item_total: 29
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🤖 AAAI2026** · **28** 篇论文解读
+**🤖 AAAI2026** · **29** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (11)](../../ICML2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (12)](../../ICML2025/object_detection/index.md)
 
-🔥 **高频主题：** 异常检测 ×8 · 目标检测 ×8 · 遥感 ×3 · 少样本学习 ×3 · 目标跟踪 ×2
+🔥 **高频主题：** 异常检测 ×9 · 目标检测 ×8 · 遥感 ×3 · 少样本学习 ×3 · 目标跟踪 ×2
 
 **[AerialMind: Towards Referring Multi-Object Tracking in UAV Scenarios](aerialmind_towards_referring_multi-object_tracking_in_uav_sc.md)**
 
@@ -101,6 +103,10 @@ item_total: 28
 **[Beyond Boundaries: Leveraging Vision Foundation Models for Source-Free Object Detection](beyond_boundaries_leveraging_vision_foundation_models_for_so.md)**
 
 :   提出利用VFM（DINOv2+Grounding DINO）增强无源域自适应目标检测（SFOD）的框架，通过全局特征对齐(PGFA)、实例级原型对比学习(PIFA)和双源伪标签融合(DEPF)三个模块，在6个跨域检测基准上取得SOTA，例如Cityscapes→Foggy Cityscapes达47.1% mAP（比DRU高3.5%），Sim10k→Cityscapes达67.4% AP（比DRU高8.7%）。
+
+**[CASL: Curvature-Augmented Self-supervised Learning for 3D Anomaly Detection](casl_curvature-augmented_self-supervised_learning_for_3d_anomaly_detection.md)**
+
+:   发现点云曲率本身就是强大的异常检测线索，提出曲率增强的自监督学习框架 CASL，通过多尺度曲率提示引导坐标重建来学习通用 3D 表征，无需任何异常检测专用机制即可在 Real3D-AD 上以 5.6% O-AUROC 优势刷新 SOTA。
 
 **[Commonality in Few: Few-Shot Multimodal Anomaly Detection via Hypergraph-Enhanced Memory](commonality_in_few_few-shot_multimodal_anomaly_detection_via_hypergraph-enhanced.md)**
 

@@ -1,20 +1,22 @@
 ---
 title: >-
-  ICML2025 机器人/具身智能论文汇总 · 19篇论文解读
+  ICML2025 机器人/具身智能论文汇总 · 20篇论文解读
 description: >-
-  19篇ICML2025的机器人/具身智能方向论文解读，涵盖机器人、Agent、强化学习、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  20篇ICML2025的机器人/具身智能方向论文解读，涵盖机器人、强化学习、Agent、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "机器人/具身智能"
   - "论文解读"
   - "论文笔记"
   - "机器人"
-  - "Agent"
   - "强化学习"
+  - "Agent"
   - "模型压缩"
 item_list:
   - u: "action-constrained_imitation_learning/"
     t: "Action-Constrained Imitation Learning"
+  - u: "beyond_cvar_leveraging_static_spectral_risk_measures_for_enhanced_decision-makin/"
+    t: "Beyond CVaR: Leveraging Static Spectral Risk Measures for Enhanced Decision-Making in Distributional Reinforcement Learning"
   - u: "biassemble_learning_collaborative_affordance_for_bimanual_geometric_assembly/"
     t: "BiAssemble: Learning Collaborative Affordance for Bimanual Geometric Assembly"
   - u: "closed-loop_long-horizon_robotic_planning_via_equilibrium_sequence_modeling/"
@@ -51,21 +53,25 @@ item_list:
     t: "STAR: Learning Diverse Robot Skill Abstractions through Rotation-Augmented Vector Quantization"
   - u: "x_hacking_the_threat_of_misguided_automl/"
     t: "X-Hacking: The Threat of Misguided AutoML"
-item_total: 19
+item_total: 20
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 机器人/具身智能
 
-**🧪 ICML2025** · **19** 篇论文解读
+**🧪 ICML2025** · **20** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (40)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (43)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (71)](../../NeurIPS2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (42)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (46)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/robotics/index.md)
 
-🔥 **高频主题：** 机器人 ×5 · Agent ×3 · 强化学习 ×3 · 模型压缩 ×2
+🔥 **高频主题：** 机器人 ×5 · 强化学习 ×4 · Agent ×3 · 模型压缩 ×2
 
 **[Action-Constrained Imitation Learning](action-constrained_imitation_learning.md)**
 
 :   形式化了"动作约束模仿学习(ACIL)"新问题——受限Agent从无约束专家学习，提出DTWIL通过MPC+DTW距离生成替代性约束轨迹来消除占用度量失配，在多种机器人任务上显著优于基线。
+
+**[Beyond CVaR: Leveraging Static Spectral Risk Measures for Enhanced Decision-Making in Distributional Reinforcement Learning](beyond_cvar_leveraging_static_spectral_risk_measures_for_enhanced_decision-makin.md)**
+
+:   提出首个在分布式 RL 框架内优化一般静态谱风险度量（SRM）的算法，超越了仅限于简单 CVaR 的现有方法，通过利用回报分布实现闭式外层优化和中间风险度量的时间分解，在多种风险设置中超越现有风险敏感 DRL 模型。
 
 **[BiAssemble: Learning Collaborative Affordance for Bimanual Geometric Assembly](biassemble_learning_collaborative_affordance_for_bimanual_geometric_assembly.md)**
 

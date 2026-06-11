@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 AI安全论文汇总 · 26篇论文解读
+  CVPR2025 AI安全论文汇总 · 27篇论文解读
 description: >-
-  26篇CVPR2025的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习、人脸/视线、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  27篇CVPR2025的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习、人脸/视线、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2025"
   - "AI 安全"
@@ -23,6 +23,8 @@ item_list:
     t: "DeDe: Detecting Backdoor Samples for SSL Encoders via Decoders"
   - u: "detecting_backdoor_attacks_in_federated_learning_via_direction_alignment_inspect/"
     t: "Detecting Backdoor Attacks in Federated Learning via Direction Alignment Inspection"
+  - u: "detecting_out-of-distribution_through_the_lens_of_neural_collapse/"
+    t: "Detecting Out-of-Distribution through the Lens of Neural Collapse"
   - u: "dynamic_integration_of_task-specific_adapters_for_class_incremental_learning/"
     t: "Dynamic Integration of Task-Specific Adapters for Class Incremental Learning"
   - u: "fedawa_adaptive_optimization_of_aggregation_weights_in_federated_learning_using_/"
@@ -65,15 +67,15 @@ item_list:
     t: "Towards Source-Free Machine Unlearning"
   - u: "where_the_devil_hides_deepfake_detectors_can_no_longer_be_trusted/"
     t: "Where the Devil Hides: Deepfake Detectors Can No Longer Be Trusted"
-item_total: 26
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI 安全
 
-**📷 CVPR2025** · **26** 篇论文解读
+**📷 CVPR2025** · **27** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (26)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (72)](../../NeurIPS2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🔬 ICLR2026 (27)](../../ICLR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×9 · 联邦学习 ×6 · 人脸/视线 ×3 · 对齐/RLHF ×2
 
@@ -94,6 +96,10 @@ item_total: 26
 **[Detecting Backdoor Attacks in Federated Learning via Direction Alignment Inspection](detecting_backdoor_attacks_in_federated_learning_via_direction_alignment_inspect.md)**
 
 :   提出 AlignIns 防御方法，通过双粒度方向对齐检测（全局方向 + 细粒度符号分析）识别联邦学习中的恶意模型更新，在 IID 和 non-IID 设置下均优于现有防御方法。
+
+**[Detecting Out-of-Distribution through the Lens of Neural Collapse](detecting_out-of-distribution_through_the_lens_of_neural_collapse.md)**
+
+:   从 Neural Collapse 理论出发，发现中心化后的 ID 特征聚集在预测类别的权重向量附近且远离原点（形成 simplex ETF），据此设计 NCI 检测器——结合特征与权重向量的角度近邻度（pScore）和特征范数过滤，在 CIFAR-10/100 和 ImageNet 多架构上实现最佳综合 OOD 检测性能且推理延迟与 softmax 基线持平。
 
 **[Dynamic Integration of Task-Specific Adapters for Class Incremental Learning](dynamic_integration_of_task-specific_adapters_for_class_incremental_learning.md)**
 

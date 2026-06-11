@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 机器人/具身智能论文汇总 · 27篇论文解读
+  AAAI2026 机器人/具身智能论文汇总 · 30篇论文解读
 description: >-
-  27篇AAAI2026的机器人/具身智能方向论文解读，涵盖机器人、强化学习、对抗鲁棒、多模态、对齐/RLHF、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  30篇AAAI2026的机器人/具身智能方向论文解读，涵盖机器人、强化学习、对抗鲁棒、多模态、对齐/RLHF、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "AAAI2026"
   - "机器人/具身智能"
@@ -19,6 +19,8 @@ item_list:
     t: "10 Open Challenges Steering the Future of Vision-Language-Action Models"
   - u: "a_computable_game-theoretic_framework_for_multi-agent_theory_of_mind/"
     t: "A Computable Game-Theoretic Framework for Multi-Agent Theory of Mind"
+  - u: "actor-critic_for_continuous_action_chunks_a_reinforcement_le/"
+    t: "Actor-Critic for Continuous Action Chunks: A Reinforcement Learning Framework for Long-Horizon Robotic Manipulation with Sparse Reward"
   - u: "affordance-guided_coarse-to-fine_exploration_for_base_placem/"
     t: "Affordance-Guided Coarse-to-Fine Exploration for Base Placement in Open-Vocabulary Mobile Manipulation"
   - u: "continuous_vision-language-action_co-learning_with_semantic-/"
@@ -29,6 +31,8 @@ item_list:
     t: "Cross Modal Fine-Grained Alignment via Granularity-Aware and Region-Uncertain Modeling"
   - u: "dexterous_manipulation_transfer_via_progressive_kinematic-dynamic_alignment/"
     t: "Dexterous Manipulation Transfer via Progressive Kinematic-Dynamic Alignment"
+  - u: "distributionally_robust_online_markov_game_with_linear_function_approximation/"
+    t: "Distributionally Robust Online Markov Game with Linear Function Approximation"
   - u: "from_woofs_to_words_towards_intelligent_robotic_guide_dogs_with_verbal_communica/"
     t: "From Woofs to Words: Towards Intelligent Robotic Guide Dogs with Verbal Communication"
   - u: "grim_task-oriented_grasping_with_conditioning_on_generative_examples/"
@@ -67,19 +71,21 @@ item_list:
     t: "Towards Affordance-Aware Robotic Dexterous Grasping with Human-like Priors"
   - u: "towards_reinforcement_learning_from_neural_feedback_mapping_/"
     t: "Towards Reinforcement Learning from Neural Feedback: Mapping fNIRS Signals to Agent Performance"
+  - u: "ttf-vla_temporal_token_fusion_via_pixel-attention_integratio/"
+    t: "TTF-VLA: Temporal Token Fusion via Pixel-Attention Integration for Vision-Language-Action Models"
   - u: "urbannav_learning_language-guided_urban_navigation_from_web-scale_human_trajecto/"
     t: "UrbanNav: Learning Language-Guided Urban Navigation from Web-Scale Human Trajectories"
-item_total: 27
+item_total: 30
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 机器人/具身智能
 
-**🤖 AAAI2026** · **27** 篇论文解读
+**🤖 AAAI2026** · **30** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (40)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (43)](../../ICLR2026/robotics/index.md) · [🧠 NeurIPS2025 (71)](../../NeurIPS2025/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (42)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (46)](../../ICLR2026/robotics/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/robotics/index.md) · [📹 ICCV2025 (26)](../../ICCV2025/robotics/index.md)
 
-🔥 **高频主题：** 机器人 ×11 · 强化学习 ×5 · 对抗鲁棒 ×4 · 多模态 ×3 · 对齐/RLHF ×3
+🔥 **高频主题：** 机器人 ×12 · 强化学习 ×6 · 对抗鲁棒 ×5 · 多模态 ×4 · 对齐/RLHF ×3
 
 **[10 Open Challenges Steering the Future of Vision-Language-Action Models](10_open_challenges_steering_the_future_of_vision-language-ac.md)**
 
@@ -88,6 +94,10 @@ item_total: 27
 **[A Computable Game-Theoretic Framework for Multi-Agent Theory of Mind](a_computable_game-theoretic_framework_for_multi-agent_theory_of_mind.md)**
 
 :   提出基于 Poisson 认知层次（cognitive hierarchy）的博弈论框架，通过 Gamma-Poisson 共轭贝叶斯更新实现可计算的多智能体 Theory of Mind，在避免 POMDP 不可判定性的同时支持递归式有限理性决策与在线信念修正。
+
+**[Actor-Critic for Continuous Action Chunks: A Reinforcement Learning Framework for Long-Horizon Robotic Manipulation with Sparse Reward](actor-critic_for_continuous_action_chunks_a_reinforcement_le.md)**
+
+:   AC3 提出了一个直接学习连续动作序列（action chunk）的 actor-critic 框架，通过"仅从成功轨迹更新 actor"的非对称更新规则和基于自监督锚点的内在奖励来稳定稀疏奖励下的长时域机器人操作学习，在 BiGym 和 RLBench 的 25 个任务上取得优于现有方法的成功率。
 
 **[Affordance-Guided Coarse-to-Fine Exploration for Base Placement in Open-Vocabulary Mobile Manipulation](affordance-guided_coarse-to-fine_exploration_for_base_placem.md)**
 
@@ -108,6 +118,10 @@ item_total: 27
 **[Dexterous Manipulation Transfer via Progressive Kinematic-Dynamic Alignment](dexterous_manipulation_transfer_via_progressive_kinematic-dynamic_alignment.md)**
 
 :   提出 PKDA 框架，通过渐进式运动学-动力学对齐，将人手操作视频自动转化为多指灵巧手的高质量操作轨迹，平均迁移成功率达 73%。
+
+**[Distributionally Robust Online Markov Game with Linear Function Approximation](distributionally_robust_online_markov_game_with_linear_function_approximation.md)**
+
+:   本文研究具有线性函数近似的在线分布鲁棒马尔可夫博弈，首次识别了该设定下的学习困难性，并提出 DR-CCE-LSI 算法，在特定特征映射条件下实现了关于特征维度 $d$ 的极小极大最优样本复杂度。
 
 **[From Woofs to Words: Towards Intelligent Robotic Guide Dogs with Verbal Communication](from_woofs_to_words_towards_intelligent_robotic_guide_dogs_with_verbal_communica.md)**
 
@@ -184,6 +198,10 @@ item_total: 27
 **[Towards Reinforcement Learning from Neural Feedback: Mapping fNIRS Signals to Agent Performance](towards_reinforcement_learning_from_neural_feedback_mapping_.md)**
 
 :   提出 NEURO-LOOP 框架，利用 fNIRS（功能性近红外光谱）脑信号作为隐式神经反馈评估 RL agent 表现，发布 25 名被试 × 3 领域 × 6 条件的 fNIRS 数据集，分类 F1 达 67%（二分类）/ 46%（多分类），跨被试 fine-tuning 分别提升 17% 和 41%，奠定 Reinforcement Learning from Neural Feedback (RLNF) 基础。
+
+**[TTF-VLA: Temporal Token Fusion via Pixel-Attention Integration for Vision-Language-Action Models](ttf-vla_temporal_token_fusion_via_pixel-attention_integratio.md)**
+
+:   TTF-VLA 提出了一种免训练的时序 Token 融合方法，通过灰度像素差异+注意力语义检测的双维度机制选择性地复用历史帧的视觉 Token，提升 VLA 模型在机器人操作任务中的推理质量，在 LIBERO 上平均提升 4.0 个百分点。
 
 **[UrbanNav: Learning Language-Guided Urban Navigation from Web-Scale Human Trajectories](urbannav_learning_language-guided_urban_navigation_from_web-scale_human_trajecto.md)**
 

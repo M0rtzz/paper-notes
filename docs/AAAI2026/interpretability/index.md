@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 可解释性论文汇总 · 36篇论文解读
+  AAAI2026 可解释性论文汇总 · 37篇论文解读
 description: >-
-  36篇AAAI2026的可解释性方向论文解读，涵盖 LLM、推理、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  37篇AAAI2026的可解释性方向论文解读，涵盖 LLM、推理、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "可解释性"
@@ -56,6 +56,8 @@ item_list:
     t: "Induce, Align, Predict: Zero-Shot Stance Detection via Cognitive Inductive Reasoning"
   - u: "llm_circuit_analyses_consistent_across_training_and_scale/"
     t: "LLM Circuit Analyses Are Consistent Across Training and Scale"
+  - u: "modelling_the_effects_of_hearing_loss_on_neural_coding_in_the_auditory_midbrain_/"
+    t: "Modelling the Effects of Hearing Loss on Neural Coding in the Auditory Midbrain with Variational Conditioning"
   - u: "partially_shared_concept_bottleneck_models/"
     t: "Partially Shared Concept Bottleneck Models"
   - u: "pragworld_a_benchmark_evaluating_llms_local_world_model_under_minimal_linguistic/"
@@ -70,17 +72,15 @@ item_list:
     t: "ShapBPT: Image Feature Attributions Using Data-Aware Binary Partition Trees"
   - u: "share_your_attention_transformer_weight_sharing_via_matrix-based_dictionary_lear/"
     t: "Share Your Attention: Transformer Weight Sharing via Matrix-Based Dictionary Learning"
-  - u: "som_directions_are_better_than_one_multi-directional_refusal_suppression_in_lang/"
-    t: "SOM Directions are Better than One: Multi-Directional Refusal Suppression in Language Models"
-item_total: 36
+item_total: 37
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔬 可解释性
 
-**🤖 AAAI2026** · **36** 篇论文解读
+**🤖 AAAI2026** · **37** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (72)](../../ICML2026/interpretability/index.md) · [💬 ACL2026 (63)](../../ACL2026/interpretability/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/interpretability/index.md) · [🔬 ICLR2026 (60)](../../ICLR2026/interpretability/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/interpretability/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/interpretability/index.md)
 
 🔥 **高频主题：** LLM ×4 · 推理 ×2 · 布局/合成 ×2
 
@@ -171,6 +171,10 @@ item_total: 36
 **[LLM Circuit Analyses Are Consistent Across Training and Scale](llm_circuit_analyses_consistent_across_training_and_scale.md)**
 
 :   本文首次系统追踪 decoder-only LLM 的内部电路（circuits）在 3000 亿 token 训练过程中和 70M–2.8B 参数规模间的演化，发现虽然具体注意力头会发生更替，但执行的算法保持稳定，且跨规模具有一致性，表明在小模型上做的电路分析可推广到更大模型和更长训练。
+
+**[Modelling the Effects of Hearing Loss on Neural Coding in the Auditory Midbrain with Variational Conditioning](modelling_the_effects_of_hearing_loss_on_neural_coding_in_the_auditory_midbrain_.md)**
+
+:   提出 ψ-ICNet，一种变分条件深度神经网络模型，通过仅 6 个可学习的条件参数 ψ 来编码听力损失的效应，从真实神经活动记录中直接学习听力损失的低维表示空间，在预测正常和听力受损动物的听觉中脑神经响应方面达到与动物特定模型相当的精度，并可通过贝叶斯优化快速拟合未见过的新动物。
 
 **[Partially Shared Concept Bottleneck Models](partially_shared_concept_bottleneck_models.md)**
 

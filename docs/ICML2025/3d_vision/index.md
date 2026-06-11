@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 3D视觉论文汇总 · 15篇论文解读
+  ICML2025 3D视觉论文汇总 · 16篇论文解读
 description: >-
-  15篇ICML2025的 3D 视觉方向论文解读，涵盖扩散模型、3D 高斯渲染、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  16篇ICML2025的 3D 视觉方向论文解读，涵盖扩散模型、3D 高斯渲染、对齐/RLHF、语义分割等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "3D 视觉"
@@ -11,6 +11,7 @@ tags:
   - "扩散模型"
   - "3D 高斯渲染"
   - "对齐/RLHF"
+  - "语义分割"
 item_list:
   - u: "adhmr_aligning_diffusion-based_human_mesh_recovery_via_direct_preference_optimiz/"
     t: "ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization"
@@ -30,6 +31,8 @@ item_list:
     t: "Of Mice and Machines: A Comparison of Learning Between Real World Mice and RL Agents"
   - u: "physicsnerf_physics-guided_3d_reconstruction_from_sparse_views/"
     t: "PhysicsNeRF: Physics-Guided 3D Reconstruction from Sparse Views"
+  - u: "probabilistic_interactive_3d_segmentation_with_hierarchical_neural_processes/"
+    t: "Probabilistic Interactive 3D Segmentation with Hierarchical Neural Processes"
   - u: "refersplat_referring_segmentation_in_3d_gaussian_splatting/"
     t: "ReferSplat: Referring Segmentation in 3D Gaussian Splatting"
   - u: "se3-equivariant_diffusion_policy_in_spherical_fourier_space/"
@@ -42,17 +45,17 @@ item_list:
     t: "Thickness-aware E(3)-Equivariant 3D Mesh Neural Networks"
   - u: "vtgaussian-slam_rgbd_slam_for_large_scale_scenes_with_splatting_view-tied_3d_gau/"
     t: "VTGaussian-SLAM: RGBD SLAM for Large Scale Scenes with Splatting View-Tied 3D Gaussians"
-item_total: 15
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D 视觉
 
-**🧪 ICML2025** · **15** 篇论文解读
+**🧪 ICML2025** · **16** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (227)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (111)](../../NeurIPS2025/3d_vision/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (236)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (61)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (78)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (113)](../../NeurIPS2025/3d_vision/index.md)
 
-🔥 **高频主题：** 扩散模型 ×3 · 3D 高斯渲染 ×3 · 对齐/RLHF ×2
+🔥 **高频主题：** 扩散模型 ×3 · 3D 高斯渲染 ×3 · 对齐/RLHF ×2 · 语义分割 ×2
 
 **[ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization](adhmr_aligning_diffusion-based_human_mesh_recovery_via_direct_preference_optimiz.md)**
 
@@ -89,6 +92,10 @@ item_total: 15
 **[PhysicsNeRF: Physics-Guided 3D Reconstruction from Sparse Views](physicsnerf_physics-guided_3d_reconstruction_from_sparse_views.md)**
 
 :   PhysicsNeRF 提出了一个基于物理先验的稀疏视角 NeRF 框架，通过深度排序、跨视角一致性、稀疏性正则和渐进训练四种互补约束，在仅 8 个视角下实现 21.4 dB 的 PSNR，并对稀疏视角下过拟合的本质进行了深入的理论分析。
+
+**[Probabilistic Interactive 3D Segmentation with Hierarchical Neural Processes](probabilistic_interactive_3d_segmentation_with_hierarchical_neural_processes.md)**
+
+:   NPISeg3D提出了首个基于层次化神经过程（Hierarchical Neural Processes）的概率交互式3D分割框架，通过场景级和物体级双层潜变量结构以及概率原型调制器，在少量点击下实现了优于AGILE3D的分割精度，同时提供可靠的不确定性估计。
 
 **[ReferSplat: Referring Segmentation in 3D Gaussian Splatting](refersplat_referring_segmentation_in_3d_gaussian_splatting.md)**
 

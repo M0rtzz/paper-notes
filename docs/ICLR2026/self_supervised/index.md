@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 自监督/表示学习论文汇总 · 15篇论文解读
+  ICLR2026 自监督/表示学习论文汇总 · 16篇论文解读
 description: >-
-  15篇ICLR2026的自监督/表示学习方向论文解读，涵盖自监督学习、少样本学习、扩散模型、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  16篇ICLR2026的自监督/表示学习方向论文解读，涵盖自监督学习、少样本学习、扩散模型、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "自监督/表示学习"
@@ -15,6 +15,8 @@ tags:
 item_list:
   - u: "adaptive_test-time_training_for_predicting_need_for_invasive_mechanical_ventilat/"
     t: "Adaptive Test-Time Training for Predicting Need for Invasive Mechanical Ventilation in Multi-Center Cohorts"
+  - u: "chart_deep_research_in_lvlms_via_parallel_relative_policy_optimization/"
+    t: "Chart Deep Research in LVLMs via Parallel Relative Policy Optimization"
   - u: "difficult_examples_hurt_unsupervised_contrastive_learning_a_theoretical_perspect/"
     t: "Difficult Examples Hurt Unsupervised Contrastive Learning: A Theoretical Perspective"
   - u: "exploiting_low-dimensional_manifold_of_features_for_few-shot_whole_slide_image_c/"
@@ -43,21 +45,25 @@ item_list:
     t: "Test-Time Efficient Pretrained Model Portfolios for Time Series Forecasting"
   - u: "why_prototypes_collapse_diagnosing_and_preventing_partial_collapse_in_prototypic/"
     t: "Why Prototypes Collapse: Diagnosing and Preventing Partial Collapse in Prototypical Self-Supervised Learning"
-item_total: 15
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
-**🔬 ICLR2026** · **15** 篇论文解读
+**🔬 ICLR2026** · **16** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (32)](../../CVPR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (34)](../../NeurIPS2025/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (34)](../../CVPR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/self_supervised/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/self_supervised/index.md)
 
 🔥 **高频主题：** 自监督学习 ×5
 
 **[Adaptive Test-Time Training for Predicting Need for Invasive Mechanical Ventilation in Multi-Center Cohorts](adaptive_test-time_training_for_predicting_need_for_invasive_mechanical_ventilat.md)**
 
 :   提出AdaTTT框架，通过动态特征感知self-supervised学习（自适应掩码策略）和原型引导的部分最优传输对齐，在ICU多中心EHR数据上实现鲁棒的测试时适应，用于提前24小时预测有创机械通气需求。
+
+**[Chart Deep Research in LVLMs via Parallel Relative Policy Optimization](chart_deep_research_in_lvlms_via_parallel_relative_policy_optimization.md)**
+
+:   提出 PRPO（Parallel Relative Policy Optimization），通过在奖励维度和数据类型两个层面做并行解耦优化，解决 GRPO 在多维奖励信号干扰和异构数据梯度冲突下的训练瓶颈；同时构建 MCDR-Bench，基于"错误唯一性原则"将主观生成评估转化为客观错误识别，实现图表深度研究能力的量化评估。
 
 **[Difficult Examples Hurt Unsupervised Contrastive Learning: A Theoretical Perspective](difficult_examples_hurt_unsupervised_contrastive_learning_a_theoretical_perspect.md)**
 

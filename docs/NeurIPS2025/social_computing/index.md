@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 社会计算论文汇总 · 19篇论文解读
+  NeurIPS2025 社会计算论文汇总 · 20篇论文解读
 description: >-
-  19篇NeurIPS2025的社会计算方向论文解读，涵盖 LLM、对抗鲁棒、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  20篇NeurIPS2025的社会计算方向论文解读，涵盖 LLM、对抗鲁棒、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "社会计算"
@@ -46,21 +46,23 @@ item_list:
     t: "Redefining Experts: Interpretable Decomposition of Language Models for Toxicity Mitigation"
   - u: "slaying_towards_queer_language_processing/"
     t: "SLAyiNG: Towards Queer Language Processing"
+  - u: "uncovering_strategic_egoism_behaviors_in_large_language_models/"
+    t: "Uncovering Strategic Egoism Behaviors in Large Language Models"
   - u: "visual_diversity_and_region-aware_prompt_learning_for_zero-shot_hoi_detection/"
     t: "VDRP: Visual Diversity and Region-aware Prompt Learning for Zero-shot HOI Detection"
   - u: "worse_than_zero-shot_a_fact-checking_dataset_for_evaluating_the_robustness_of_ra/"
     t: "Worse than Zero-shot? A Fact-Checking Dataset for Evaluating the Robustness of RAG Against Misleading Retrievals"
-item_total: 19
+item_total: 20
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 👥 社会计算
 
-**🧠 NeurIPS2025** · **19** 篇论文解读
+**🧠 NeurIPS2025** · **20** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/social_computing/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
 
-🔥 **高频主题：** LLM ×4 · 对抗鲁棒 ×2 · 少样本学习 ×2
+🔥 **高频主题：** LLM ×5 · 对抗鲁棒 ×2 · 少样本学习 ×2
 
 **[Active Slice Discovery in Large Language Models](active_slice_discovery_in_large_language_models.md)**
 
@@ -129,6 +131,10 @@ item_total: 19
 **[SLAyiNG: Towards Queer Language Processing](slaying_towards_queer_language_processing.md)**
 
 :   构建了首个显式标注的酷儿俚语（queer slang）数据集 SLAyiNG，包含 695 个术语和近 20 万条使用实例，并通过人机标注一致性实验（Krippendorff's α=0.746）表明推理模型可用于预筛选但仍需社区驱动的专家标注。
+
+**[Uncovering Strategic Egoism Behaviors in Large Language Models](uncovering_strategic_egoism_behaviors_in_large_language_models.md)**
+
+:   首次形式化定义LLM中的"策略性自利"（Strategic Egoism）行为并构建SEBench基准（160个场景×6类自利维度），实验发现7个主流LLM在激励诱惑下平均69.11%的决策选择自利策略，操纵胁迫与规则规避是最常见手段，且自利倾向与毒性语言生成呈正相关。
 
 **[VDRP: Visual Diversity and Region-aware Prompt Learning for Zero-shot HOI Detection](visual_diversity_and_region-aware_prompt_learning_for_zero-shot_hoi_detection.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 音频/语音论文汇总 · 46篇论文解读
+  NeurIPS2025 音频/语音论文汇总 · 47篇论文解读
 description: >-
-  46篇NeurIPS2025的音频/语音方向论文解读，涵盖语音、对齐/RLHF、多模态、推理、推荐系统、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  47篇NeurIPS2025的音频/语音方向论文解读，涵盖语音、对齐/RLHF、多模态、推理、推荐系统、LLM等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "音频/语音"
@@ -29,6 +29,8 @@ item_list:
     t: "AudSemThinker: Enhancing Audio-Language Models through Reasoning over Semantics of Sound"
   - u: "bnmusic_blending_environmental_noises_into_personalized_music/"
     t: "BNMusic: Blending Environmental Noises into Personalized Music"
+  - u: "brain-tuning_improves_generalizability_and_efficiency_of_brain_alignment_in_spee/"
+    t: "Brain-tuning Improves Generalizability and Efficiency of Brain Alignment in Speech Models"
   - u: "can_llms_outshine_conventional_recommenders_a_comparative_evaluation/"
     t: "Can LLMs Outshine Conventional Recommenders? A Comparative Evaluation"
   - u: "data-juicer_20_cloud-scale_adaptive_data_processing_for_and_with_foundation_mode/"
@@ -73,19 +75,17 @@ item_list:
     t: "MoME: Mixture of Matryoshka Experts for Audio-Visual Speech Recognition"
   - u: "multi-head_temporal_latent_attention/"
     t: "Multi-head Temporal Latent Attention"
-  - u: "node-based_editing_for_multimodal_generation_of_text_audio_image_and_video/"
-    t: "Node-Based Editing for Multimodal Generation of Text, Audio, Image, and Video"
-item_total: 46
+item_total: 47
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎵 音频/语音
 
-**🧠 NeurIPS2025** · **46** 篇论文解读
+**🧠 NeurIPS2025** · **47** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (30)](../../ICML2026/audio_speech/index.md) · [💬 ACL2026 (70)](../../ACL2026/audio_speech/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/audio_speech/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/audio_speech/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/audio_speech/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/audio_speech/index.md)
 
-🔥 **高频主题：** 语音 ×18 · 对齐/RLHF ×4 · 多模态 ×3 · 推理 ×2 · 推荐系统 ×2
+🔥 **高频主题：** 语音 ×19 · 对齐/RLHF ×5 · 多模态 ×3 · 推理 ×2 · 推荐系统 ×2
 
 **[A Multi-Task Benchmark for Abusive Language Detection in Low-Resource Settings](a_multitask_benchmark_for_abusive_language_detection_in_lowr.md)**
 
@@ -114,6 +114,10 @@ item_total: 46
 **[BNMusic: Blending Environmental Noises into Personalized Music](bnmusic_blending_environmental_noises_into_personalized_music.md)**
 
 :   提出 BNMusic，一个两阶段框架将环境噪声融合到个性化生成音乐中：第一阶段通过 mel-spectrogram 的 outpainting + inpainting 生成与噪声节奏对齐的音乐，第二阶段利用听觉掩蔽理论自适应放大音乐信号以降低噪声感知，无需额外训练，在 EPIC-SOUNDS 和 ESC-50 上显著优于 baseline。
+
+**[Brain-tuning Improves Generalizability and Efficiency of Brain Alignment in Speech Models](brain-tuning_improves_generalizability_and_efficiency_of_brain_alignment_in_spee.md)**
+
+:   提出 Multi-brain-tuning 方法，通过联合多个被试的 fMRI 数据微调预训练语音模型，将脑对齐所需数据量降低 5 倍，同时脑对齐度提升最高 50%，并可泛化到全新被试和数据集。
 
 **[Can LLMs Outshine Conventional Recommenders? A Comparative Evaluation](can_llms_outshine_conventional_recommenders_a_comparative_evaluation.md)**
 

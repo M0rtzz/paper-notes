@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 其他论文汇总 · 108篇论文解读
+  ICML2025 其他论文汇总 · 110篇论文解读
 description: >-
-  108篇ICML2025的其他方向论文解读，涵盖对抗鲁棒、域适应、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  110篇ICML2025的其他方向论文解读，涵盖对抗鲁棒、域适应、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "其他"
@@ -14,6 +14,8 @@ tags:
 item_list:
   - u: "access_controls_will_solve_the_dual-use_dilemma/"
     t: "Access Controls Will Solve the Dual-Use Dilemma"
+  - u: "addressing_imbalanced_domain-incremental_learning_through_dual-balance_collabora/"
+    t: "Addressing Imbalanced Domain-Incremental Learning through Dual-Balance Collaborative Experts (DCE)"
   - u: "adversarial_combinatorial_semi-bandits_with_graph_feedback/"
     t: "Adversarial Combinatorial Semi-bandits with Graph Feedback"
   - u: "autoal_automated_active_learning_with_differentiable_query_strategy_search/"
@@ -70,23 +72,25 @@ item_list:
     t: "Fixed-Confidence Multiple Change Point Identification under Bandit Feedback"
   - u: "fixing_the_loose_brake_exponential-tailed_stopping_time_in_best_arm_identificati/"
     t: "Fixing the Loose Brake: Exponential-Tailed Stopping Time in Best Arm Identification"
-  - u: "fully_dynamic_euclidean_bi-chromatic_matching_in_sublinear_update_time/"
-    t: "Fully Dynamic Euclidean Bi-Chromatic Matching in Sublinear Update Time"
-item_total: 108
+item_total: 110
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🧪 ICML2025** · **108** 篇论文解读
+**🧪 ICML2025** · **110** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (128)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (163)](../../NeurIPS2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (91)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (135)](../../AAAI2026/others/index.md) · [🧠 NeurIPS2025 (164)](../../NeurIPS2025/others/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×8 · 域适应 ×4 · 少样本学习 ×2
 
 **[Access Controls Will Solve the Dual-Use Dilemma](access_controls_will_solve_the_dual-use_dilemma.md)**
 
 :   提出基于访问控制的概念框架来解决AI安全中的双用途困境（dual-use dilemma），通过用户身份验证获取真实世界上下文，结合内容分类实现细粒度的权限管理，同时缓解过度拒绝（over-refusal）和不足拒绝（under-refusal）问题。
+
+**[Addressing Imbalanced Domain-Incremental Learning through Dual-Balance Collaborative Experts (DCE)](addressing_imbalanced_domain-incremental_learning_through_dual-balance_collabora.md)**
+
+:   DCE 提出频率感知专家组 + 动态专家选择器的双阶段训练框架，同时解决域增量学习中域内类别不平衡和跨域类别分布偏移两个难题，在四个 benchmark 上达到 SOTA。
 
 **[Adversarial Combinatorial Semi-bandits with Graph Feedback](adversarial_combinatorial_semi-bandits_with_graph_feedback.md)**
 
@@ -419,6 +423,10 @@ item_total: 108
 **[Randomized Dimensionality Reduction for Euclidean Maximization and Diversity Measures](randomized_dimensionality_reduction_for_euclidean_maximization_and_diversity_mea.md)**
 
 :   证明了对一大类欧氏最大化问题（最大匹配、最大TSP、最大生成树、子图多样性等），使用数据无关的高斯 JL 变换将维度降至 $O(\lambda)$（$\lambda$ 为数据集倍增维度）即可近似保持所有候选解的值，并证明该依赖是紧的。
+
+**[Ranked Entropy Minimization for Continual Test-Time Adaptation](ranked_entropy_minimization_for_continual_test-time_adaptation.md)**
+
+:   提出 Ranked Entropy Minimization (REM)，通过渐进式遮挡策略构建预测难度的显式排序结构，结合遮挡一致性损失和熵排序损失，解决了熵最小化方法在持续测试时自适应(CTTA)中的模型崩塌问题，同时保持了计算效率。
 
 **[Regression for the Mean: Auto-Evaluation and Inference with Few Labels through Post-hoc Regression](regression_for_the_mean_auto-evaluation_and_inference_with_few_labels_through_po.md)**
 

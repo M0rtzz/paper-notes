@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 LLM推理论文汇总 · 82篇论文解读
+  NeurIPS2025 LLM推理论文汇总 · 83篇论文解读
 description: >-
-  82篇NeurIPS2025的 LLM 推理方向论文解读，涵盖推理、LLM、强化学习、多模态、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  83篇NeurIPS2025的 LLM 推理方向论文解读，涵盖推理、LLM、强化学习、多模态、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "LLM 推理"
@@ -74,17 +74,17 @@ item_list:
     t: "KTAE: A Model-Free Algorithm to Key-Tokens Advantage Estimation in Mathematical Reasoning"
   - u: "large_language_models_can_learn_and_generalize_steganographic_chain-of-thought_u/"
     t: "Large Language Models Can Learn and Generalize Steganographic Chain-of-Thought under Process Supervision"
-item_total: 82
+item_total: 83
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💡 LLM 推理
 
-**🧠 NeurIPS2025** · **82** 篇论文解读
+**🧠 NeurIPS2025** · **83** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (80)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (36)](../../AAAI2026/llm_reasoning/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (63)](../../ICML2026/llm_reasoning/index.md) · [💬 ACL2026 (80)](../../ACL2026/llm_reasoning/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/llm_reasoning/index.md) · [🔬 ICLR2026 (82)](../../ICLR2026/llm_reasoning/index.md) · [🤖 AAAI2026 (38)](../../AAAI2026/llm_reasoning/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/llm_reasoning/index.md)
 
-🔥 **高频主题：** 推理 ×58 · LLM ×19 · 强化学习 ×8 · 多模态 ×6 · 模型压缩 ×2
+🔥 **高频主题：** 推理 ×59 · LLM ×19 · 强化学习 ×8 · 多模态 ×6 · 模型压缩 ×2
 
 **[A Little Depth Goes a Long Way: The Expressive Power of Log-Depth Transformers](a_little_depth_goes_a_long_way_the_expressive_power_of_logde.md)**
 
@@ -405,6 +405,10 @@ item_total: 82
 **[Value-Guided Search for Efficient Chain-of-Thought Reasoning](value-guided_search_for_efficient_chain-of-thought_reasoning.md)**
 
 :   本文扩展置信度估计到多步任务，证明步级评估相比整体评估能更有效地检测推理失败，相对整体评估在CoQA上AUC-ROC提升15%，为多步推理系统的可信部署提供实用框架。
+
+**[VideoRFT: Incentivizing Video Reasoning Capability in MLLMs via Reinforced Fine-Tuning](videorft_incentivizing_video_reasoning_capability_in_mllms_via_reinforced_fine-t.md)**
+
+:   提出 VideoRFT，通过认知启发的多专家 CoT 数据构建流水线和新颖的语义一致性奖励，将强化微调（RFT）范式扩展到视频推理领域，分别构建 VideoRFT-CoT-102K（SFT 用）和 VideoRFT-RL-310K（RL 用）两个数据集，在 6 个视频推理基准上达到 SOTA。
 
 **[Visual Thoughts: A Unified Perspective of Understanding Multimodal Chain-of-Thought](visual_thoughts_a_unified_perspective_of_understanding_multi.md)**
 

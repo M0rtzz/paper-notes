@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 目标检测论文汇总 · 26篇论文解读
+  ECCV2024 目标检测论文汇总 · 29篇论文解读
 description: >-
-  26篇ECCV2024的目标检测方向论文解读，涵盖目标检测、少样本学习、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  29篇ECCV2024的目标检测方向论文解读，涵盖目标检测、少样本学习、布局/合成、目标跟踪等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "目标检测"
@@ -10,6 +10,7 @@ tags:
   - "论文笔记"
   - "少样本学习"
   - "布局/合成"
+  - "目标跟踪"
 item_list:
   - u: "adaptive_bounding_box_uncertainties_via_twostep_conformal_pr/"
     t: "Adaptive Bounding Box Uncertainties via Two-Step Conformal Prediction"
@@ -25,6 +26,8 @@ item_list:
     t: "Can OOD Object Detectors Learn from Foundation Models?"
   - u: "damsdet_dynamic_adaptive_multispectral_detection_transformer_with_competitive_qu/"
     t: "DAMSDet: Dynamic Adaptive Multispectral Detection Transformer"
+  - u: "dspdet3d_3d_small_object_detection_with_dynamic_spatial_pruning/"
+    t: "DSPDet3D: 3D Small Object Detection with Dynamic Spatial Pruning"
   - u: "gra_detecting_oriented_objects_through_group-wise_rotating_and_attention/"
     t: "GRA: Detecting Oriented Objects Through Group-Wise Rotating and Attention"
   - u: "lami-detr_open-vocabulary_detection_with_language_model_instruction/"
@@ -37,6 +40,8 @@ item_list:
     t: "On Calibration of Object Detectors: Pitfalls, Evaluation and Baselines"
   - u: "openkd_opening_prompt_diversity_for_zero-_and_few-shot_keypoint_detection/"
     t: "OpenKD: Opening Prompt Diversity for Zero- and Few-shot Keypoint Detection"
+  - u: "plain-det_a_plain_multi-dataset_object_detector/"
+    t: "Plain-Det: A Plain Multi-Dataset Object Detector"
   - u: "portrait4d-v2_pseudo_multi-view_data_creates_better_4d_head_synthesizer/"
     t: "Portrait4D-v2: Pseudo Multi-View Data Creates Better 4D Head Synthesizer"
   - u: "projecting_points_to_axes_oriented_object_detection_via_point-axis_representatio/"
@@ -51,6 +56,8 @@ item_list:
     t: "SHINE: Saliency-aware HIerarchical NEgative Ranking for Compositional Temporal Grounding"
   - u: "stepwise_multi-grained_boundary_detector_for_point-supervised_temporal_action_lo/"
     t: "Stepwise Multi-grained Boundary Detector for Point-Supervised Temporal Action Localization"
+  - u: "taptr_tracking_any_point_with_transformers_as_detection/"
+    t: "TAPTR: Tracking Any Point with Transformers as Detection"
   - u: "tensorial_template_matching_for_fast_cross-correlation_with_rotations_and_its_ap/"
     t: "Tensorial Template Matching for Fast Cross-Correlation with Rotations and Its Application for Tomography"
   - u: "towards_natural_language-guided_drones_geotext-1652_benchmark_with_spatial_relat/"
@@ -63,17 +70,17 @@ item_list:
     t: "Weak-to-Strong Compositional Learning from Generative Models for Language-based Object Detection"
   - u: "yolov9_learning_what_you_want_to_learn_using_programmable_gradient_information/"
     t: "YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information"
-item_total: 26
+item_total: 29
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🎞️ ECCV2024** · **26** 篇论文解读
+**🎞️ ECCV2024** · **29** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md)
 
-🔥 **高频主题：** 目标检测 ×6 · 少样本学习 ×2 · 布局/合成 ×2
+🔥 **高频主题：** 目标检测 ×7 · 少样本学习 ×2 · 布局/合成 ×2 · 目标跟踪 ×2
 
 **[Adaptive Bounding Box Uncertainties via Two-Step Conformal Prediction](adaptive_bounding_box_uncertainties_via_twostep_conformal_pr.md)**
 
@@ -103,6 +110,10 @@ item_total: 26
 
 :   DAMSDet 提出一种基于 DETR 架构的动态自适应红外-可见光目标检测方法，通过模态竞争 Query 选择（为每个目标动态选择主导模态特征作为初始 query）和多光谱可变形交叉注意力（在多语义层级上自适应采样和聚合双模态特征），同时解决互补信息融合和模态未对齐两大挑战，在 4 个公开数据集上显著超越 SOTA。
 
+**[DSPDet3D: 3D Small Object Detection with Dynamic Spatial Pruning](dspdet3d_3d_small_object_detection_with_dynamic_spatial_pruning.md)**
+
+:   提出动态空间剪枝（DSP）策略，在多级 3D 检测器的解码器中逐级移除已检测到大物体区域的体素特征，使检测器能以高空间分辨率处理场景、大幅提升小目标检测精度（ScanNet 小目标 mAP@0.25 从 27.5% 提升到 44.8%），同时通过剪枝将显存降低为同分辨率方法的 1/5。
+
 **[GRA: Detecting Oriented Objects Through Group-Wise Rotating and Attention](gra_detecting_oriented_objects_through_group-wise_rotating_and_attention.md)**
 
 :   提出轻量级的 Group-wise Rotating and Attention (GRA) 模块，通过将卷积核分组旋转并施加分组空间注意力，在参数量减少近 50% 的同时超越了此前 SOTA 方法 ARC，在 DOTA-v2.0 上取得新的最优性能。
@@ -126,6 +137,10 @@ item_total: 26
 **[OpenKD: Opening Prompt Diversity for Zero- and Few-shot Keypoint Detection](openkd_opening_prompt_diversity_for_zero-_and_few-shot_keypoint_detection.md)**
 
 :   提出 OpenKD 模型，从模态（视觉+文本）、语义（seen vs. unseen）、语言（多样化文本）三个维度开放 prompt 多样性，通过多模态 prototype set、辅助关键点-文本插值和 LLM 文本解析，实现通用的 zero- and few-shot keypoint detection，在 Animal Pose、AwA、CUB、NABird 上取得 SOTA。
+
+**[Plain-Det: A Plain Multi-Dataset Object Detector](plain-det_a_plain_multi-dataset_object_detector.md)**
+
+:   Plain-Det 提出了一个简洁灵活的多数据集目标检测框架，通过语义空间校准、类感知查询组合器和基于难度的动态采样策略，在 COCO 上达到 51.9 mAP（匹配当时 SOTA），并可灵活扩展到新数据集且保持鲁棒性能。
 
 **[Portrait4D-v2: Pseudo Multi-View Data Creates Better 4D Head Synthesizer](portrait4d-v2_pseudo_multi-view_data_creates_better_4d_head_synthesizer.md)**
 
@@ -154,6 +169,10 @@ item_total: 26
 **[Stepwise Multi-grained Boundary Detector for Point-Supervised Temporal Action Localization](stepwise_multi-grained_boundary_detector_for_point-supervised_temporal_action_lo.md)**
 
 :   针对点监督时序动作定位中稀疏标注导致的动作边界语义模糊问题，提出逐步多粒度边界检测器（SMBD），通过背景锚点生成器（BAG）和双边界检测器（DBD）为训练提供细粒度的边界监督信号，在THUMOS'14等数据集上达到SOTA。
+
+**[TAPTR: Tracking Any Point with Transformers as Detection](taptr_tracking_any_point_with_transformers_as_detection.md)**
+
+:   TAPTR 将 Tracking Any Point (TAP) 任务重新建模为类 DETR 的检测问题，将每个跟踪点表示为包含位置和内容的 point query，通过多层 Transformer 解码器逐层优化，结合 cost volume 和滑动窗口特征更新策略，在 TAP-Vid 基准上达到 SOTA 且推理速度更快。
 
 **[Tensorial Template Matching for Fast Cross-Correlation with Rotations and Its Application for Tomography](tensorial_template_matching_for_fast_cross-correlation_with_rotations_and_its_ap.md)**
 

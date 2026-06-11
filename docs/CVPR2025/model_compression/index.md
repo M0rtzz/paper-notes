@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 模型压缩论文汇总 · 63篇论文解读
+  CVPR2025 模型压缩论文汇总 · 64篇论文解读
 description: >-
-  63篇CVPR2025的模型压缩方向论文解读，涵盖压缩/编码、模型压缩、持续学习、知识蒸馏、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  64篇CVPR2025的模型压缩方向论文解读，涵盖压缩/编码、模型压缩、持续学习、知识蒸馏、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "模型压缩"
@@ -74,15 +74,15 @@ item_list:
     t: "HOT: Hadamard-based Optimized Training"
   - u: "hyperlora_parameter-efficient_adaptive_generation_for_portrait_synthesis/"
     t: "HyperLoRA: Parameter-Efficient Adaptive Generation for Portrait Synthesis"
-item_total: 63
+item_total: 64
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📦 模型压缩
 
-**📷 CVPR2025** · **63** 篇论文解读
+**📷 CVPR2025** · **64** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (99)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (60)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (101)](../../ICML2026/model_compression/index.md) · [💬 ACL2026 (59)](../../ACL2026/model_compression/index.md) · [📷 CVPR2026 (54)](../../CVPR2026/model_compression/index.md) · [🔬 ICLR2026 (100)](../../ICLR2026/model_compression/index.md) · [🤖 AAAI2026 (61)](../../AAAI2026/model_compression/index.md) · [🧠 NeurIPS2025 (143)](../../NeurIPS2025/model_compression/index.md)
 
 🔥 **高频主题：** 压缩/编码 ×11 · 模型压缩 ×7 · 持续学习 ×4 · 知识蒸馏 ×3 · 少样本学习 ×3
 
@@ -229,6 +229,10 @@ item_total: 63
 **[PrunNet: Learning Compatible Multi-Prize Subnetworks for Asymmetric Retrieval](learning_compatible_multi-prize_subnetworks_for_asymmetric_retrieval.md)**
 
 :   提出 PrunNet（可剪枝网络），通过为每个权重学习重要性分数并结合冲突感知梯度集成，训练一个可以在任意容量（20%-100%）下产生兼容子网络的统一模型，在 GLDv2 上 46.29 mAP 超越密集网络基线，且所有容量子网络间特征兼容。
+
+**[Less is More: Efficient Model Merging with Binary Task Switch](less_is_more_efficient_model_merging_with_binary_task_switch.md)**
+
+:   通过控制实验发现任务向量具有"脉冲特性"——只有幅度超过阈值的参数对任务有正贡献，据此提出T-Switch方法将任务向量二值化为激活开关、极性开关和缩放旋钮三个组件，仅需1-3%的存储空间即可实现显著优于现有基线的动态模型合并效果。
 
 **[LALIC: Linear Attention Modeling for Learned Image Compression](linear_attention_modeling_for_learned_image_compression.md)**
 

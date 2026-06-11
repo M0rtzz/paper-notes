@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 优化/理论论文汇总 · 10篇论文解读
+  CVPR2025 优化/理论论文汇总 · 11篇论文解读
 description: >-
-  10篇CVPR2025的优化/理论方向论文解读，涵盖联邦学习、对抗鲁棒、压缩/编码、模型压缩、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  11篇CVPR2025的优化/理论方向论文解读，涵盖联邦学习、对抗鲁棒、压缩/编码、模型压缩、少样本学习、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "优化/理论"
@@ -12,10 +12,13 @@ tags:
   - "对抗鲁棒"
   - "压缩/编码"
   - "模型压缩"
+  - "少样本学习"
   - "多模态"
 item_list:
   - u: "automatic_joint_structured_pruning_and_quantization_for_efficient_neural_network/"
     t: "Automatic Joint Structured Pruning and Quantization for Efficient Neural Network Training and Compression"
+  - u: "conformal_prediction_for_zero-shot_models/"
+    t: "Conformal Prediction for Zero-Shot Models"
   - u: "convex_relaxation_for_robust_vanishing_point_estimation_in_manhattan_world/"
     t: "Convex Relaxation for Robust Vanishing Point Estimation in Manhattan World"
   - u: "federated_learning_with_domain_shift_eraser/"
@@ -34,21 +37,25 @@ item_list:
     t: "Test-Time Augmentation Improves Efficiency in Conformal Prediction"
   - u: "towards_stable_and_storage-efficient_dataset_distillation_matching_convexified_t/"
     t: "Towards Stable and Storage-efficient Dataset Distillation: Matching Convexified Trajectory"
-item_total: 10
+item_total: 11
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📐 优化/理论
 
-**📷 CVPR2025** · **10** 篇论文解读
+**📷 CVPR2025** · **11** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (14)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [📷 CVPR2026 (16)](../../CVPR2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md)
 
 🔥 **高频主题：** 联邦学习 ×4 · 对抗鲁棒 ×2
 
 **[Automatic Joint Structured Pruning and Quantization for Efficient Neural Network Training and Compression](automatic_joint_structured_pruning_and_quantization_for_efficient_neural_network.md)**
 
 :   提出 GETA 框架实现自动联合结构化剪枝和量化感知训练：量化感知依赖图（QADG）构建通用剪枝搜索空间 + 部分投影 SGD 保证逐层比特约束 + 可解释的联合学习策略，在 CNN 和 Transformer 上均达到竞争力或领先的压缩性能。
+
+**[Conformal Prediction for Zero-Shot Models](conformal_prediction_for_zero-shot_models.md)**
+
+:   将保形预测（Conformal Prediction）应用于零样本模型，为 CLIP 等模型的预测提供有理论保证的不确定性量化和校准预测集
 
 **[Convex Relaxation for Robust Vanishing Point Estimation in Manhattan World](convex_relaxation_for_robust_vanishing_point_estimation_in_manhattan_world.md)**
 

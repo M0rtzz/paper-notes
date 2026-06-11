@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 LLM安全论文汇总 · 41篇论文解读
+  AAAI2026 LLM安全论文汇总 · 42篇论文解读
 description: >-
-  41篇AAAI2026的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、联邦学习、多模态、持续学习、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  42篇AAAI2026的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、联邦学习、多模态、持续学习、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "AAAI2026"
   - "LLM 安全"
@@ -19,6 +19,8 @@ item_list:
     t: "AgentSense: Virtual Sensor Data Generation Using LLM Agents in Simulated Home Environments"
   - u: "alter_asymmetric_lora_for_token-entropy-guided_unlearning_of/"
     t: "ALTER: Asymmetric LoRA for Token-Entropy-Guided Unlearning of LLMs"
+  - u: "an_llm-based_simulation_framework_for_embodied_conversationa/"
+    t: "An LLM-Based Simulation Framework for Embodied Conversational Agents in Psychological Counseling"
   - u: "anti-adversarial_learning_desensitizing_prompts_for_large_la/"
     t: "Anti-adversarial Learning: Desensitizing Prompts for Large Language Models"
   - u: "attention_retention_for_continual_learning_with_vision_transformers/"
@@ -73,19 +75,17 @@ item_list:
     t: "Perturb Your Data: Paraphrase-Guided Training Data Watermarking"
   - u: "principles2plan_llm-guided_system_for_operationalising_ethical_principles_into_p/"
     t: "Principles2Plan: LLM-Guided System for Operationalising Ethical Principles into Plans"
-  - u: "prism_privacy-aware_routing_for_adaptive_cloud-edge_llm_inference_via_semantic_s/"
-    t: "PRISM: Privacy-Aware Routing for Adaptive Cloud-Edge LLM Inference via Semantic Sketch Collaboration"
-item_total: 41
+item_total: 42
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM 安全
 
-**🤖 AAAI2026** · **41** 篇论文解读
+**🤖 AAAI2026** · **42** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
 
-🔥 **高频主题：** LLM ×18 · 对抗鲁棒 ×8 · 联邦学习 ×4 · 多模态 ×3 · 持续学习 ×2
+🔥 **高频主题：** LLM ×19 · 对抗鲁棒 ×8 · 联邦学习 ×4 · 多模态 ×3 · 持续学习 ×2
 
 **[AgentSense: Virtual Sensor Data Generation Using LLM Agents in Simulated Home Environments](agentsense_virtual_sensor_data_generation_using_llm_agents_i.md)**
 
@@ -94,6 +94,10 @@ item_total: 41
 **[ALTER: Asymmetric LoRA for Token-Entropy-Guided Unlearning of LLMs](alter_asymmetric_lora_for_token-entropy-guided_unlearning_of.md)**
 
 :   提出ALTER框架，利用非对称LoRA架构结合Token级别的Tsallis熵引导，实现LLM中目标知识的精准遗忘，同时通过参数隔离机制保留模型基础能力，在TOFU、WMDP和MUSE三个基准上达到SOTA。
+
+**[An LLM-Based Simulation Framework for Embodied Conversational Agents in Psychological Counseling](an_llm-based_simulation_framework_for_embodied_conversationa.md)**
+
+:   提出 ECAs 框架，基于认知行为治疗(CBT)等心理学理论，利用 LLM 将真实咨询案例扩展为具身认知记忆空间，模拟心理咨询中来访者的完整认知过程，生成高保真度的咨询对话数据，在专家评估和自动评估中均显著优于基线。
 
 **[Anti-adversarial Learning: Desensitizing Prompts for Large Language Models](anti-adversarial_learning_desensitizing_prompts_for_large_la.md)**
 

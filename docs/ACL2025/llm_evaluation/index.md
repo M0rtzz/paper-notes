@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 LLM评测论文汇总 · 87篇论文解读
+  ACL2025 LLM评测论文汇总 · 88篇论文解读
 description: >-
-  87篇ACL2025的 LLM 评测方向论文解读，涵盖 LLM、推理、对抗鲁棒、Agent、情感分析、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  88篇ACL2025的 LLM 评测方向论文解读，涵盖 LLM、推理、Agent、对抗鲁棒、情感分析、问答等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ACL2025"
   - "LLM 评测"
@@ -10,8 +10,8 @@ tags:
   - "论文笔记"
   - "LLM"
   - "推理"
-  - "对抗鲁棒"
   - "Agent"
+  - "对抗鲁棒"
   - "情感分析"
   - "问答"
 item_list:
@@ -73,19 +73,19 @@ item_list:
     t: "EcomScriptBench: A Multi-task Benchmark for E-commerce Script Planning via Step-wise Intention-Driven Product Association"
   - u: "editinspector_a_benchmark_for_evaluation_of_text-guided_image_edits/"
     t: "EditInspector: A Benchmark for Evaluation of Text-Guided Image Edits"
-  - u: "elaboration_competitive_programming/"
-    t: "ELABORATION: A Comprehensive Benchmark on Human-LLM Competitive Programming"
-item_total: 87
+  - u: "educationq_evaluating_llms_teaching_capabilities_through_multi-agent_dialogue_fr/"
+    t: "EducationQ: Evaluating LLMs' Teaching Capabilities Through Multi-Agent Dialogue Framework"
+item_total: 88
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📊 LLM 评测
 
-**💬 ACL2025** · **87** 篇论文解读
+**💬 ACL2025** · **88** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (27)](../../ICML2026/llm_evaluation/index.md) · [💬 ACL2026 (91)](../../ACL2026/llm_evaluation/index.md) · [🔬 ICLR2026 (29)](../../ICLR2026/llm_evaluation/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/llm_evaluation/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_evaluation/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/llm_evaluation/index.md)
 
-🔥 **高频主题：** LLM ×33 · 推理 ×11 · 对抗鲁棒 ×3 · Agent ×3 · 情感分析 ×2
+🔥 **高频主题：** LLM ×33 · 推理 ×11 · Agent ×4 · 对抗鲁棒 ×3 · 情感分析 ×2
 
 **[A Conformal Risk Control Framework for Granular Word Assessment and Uncertainty Calibration of CLIPScore Quality Estimates](a_conformal_risk_control_framework_for_granular_word_assessment_and_uncertainty_.md)**
 
@@ -202,6 +202,10 @@ item_total: 87
 **[EditInspector: A Benchmark for Evaluation of Text-Guided Image Edits](editinspector_a_benchmark_for_evaluation_of_text-guided_image_edits.md)**
 
 :   本文提出 EditInspector，一个基于人工标注的多维度文本引导图像编辑评估基准，覆盖编辑准确性、伪影检测、视觉质量、场景融合度、常识一致性和变化描述六个维度，揭示了当前 VLM 在全面评估编辑质量方面的不足，并提出在伪影检测和差异描述生成上超越 SOTA 的两种新方法。
+
+**[EducationQ: Evaluating LLMs' Teaching Capabilities Through Multi-Agent Dialogue Framework](educationq_evaluating_llms_teaching_capabilities_through_multi-agent_dialogue_fr.md)**
+
+:   提出 EducationQ 多智能体对话框架，通过模拟真实课堂中教师-学生的形成性评估交互来评估 LLM 的教学能力，发现教学效果与模型规模或通用推理能力不呈线性关系，Llama 3.1 70B 在教学中表现最优。
 
 **[ELABORATION: A Comprehensive Benchmark on Human-LLM Competitive Programming](elaboration_competitive_programming.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 语义分割论文汇总 · 44篇论文解读
+  NeurIPS2025 语义分割论文汇总 · 45篇论文解读
 description: >-
-  44篇NeurIPS2025的语义分割方向论文解读，涵盖语义分割、扩散模型、对抗鲁棒、自监督学习、推理、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  45篇NeurIPS2025的语义分割方向论文解读，涵盖语义分割、扩散模型、对抗鲁棒、自监督学习、推理、强化学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "语义分割"
@@ -52,6 +52,8 @@ item_list:
     t: "Mars-Bench: A Benchmark for Evaluating Foundation Models for Mars Science Tasks"
   - u: "mechanistic_interpretability_of_rnns_emulating_hidden_mar/"
     t: "Mechanistic Interpretability of RNNs Emulating Hidden Markov Models"
+  - u: "mechanistic_interpretability_of_rnns_emulating_hidden_markov_models/"
+    t: "Mechanistic Interpretability of RNNs Emulating Hidden Markov Models"
   - u: "omnisegmentor_a_flexible_multi-modal_learning_framework_for_semantic_segmentatio/"
     t: "OmniSegmentor: A Flexible Multi-Modal Learning Framework for Semantic Segmentation"
   - u: "panoptic_captioning_an_equivalence_bridge_for_image_and_text/"
@@ -72,15 +74,13 @@ item_list:
     t: "RoMA: Scaling up Mamba-based Foundation Models for Remote Sensing"
   - u: "safire_saccade-fixation_reiteration_with_mamba_for_referring_image_segmentation/"
     t: "SaFiRe: Saccade-Fixation Reiteration with Mamba for Referring Image Segmentation"
-  - u: "sam-r1_leveraging_sam_for_reward_feedback_in_multimodal_segmentation_via_reinfor/"
-    t: "SAM-R1: Leveraging SAM for Reward Feedback in Multimodal Segmentation via Reinforcement Learning"
-item_total: 44
+item_total: 45
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ✂️ 语义分割
 
-**🧠 NeurIPS2025** · **44** 篇论文解读
+**🧠 NeurIPS2025** · **45** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (13)](../../ICML2026/segmentation/index.md) · [💬 ACL2026 (1)](../../ACL2026/segmentation/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/segmentation/index.md) · [🔬 ICLR2026 (11)](../../ICLR2026/segmentation/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/segmentation/index.md) · [📹 ICCV2025 (74)](../../ICCV2025/segmentation/index.md)
 
@@ -161,6 +161,10 @@ item_total: 44
 **[Mechanistic Interpretability of RNNs Emulating Hidden Markov Models](mechanistic_interpretability_of_rnns_emulating_hidden_mar.md)**
 
 :   训练 vanilla RNN 复现 HMM 的发射统计，然后通过反向工程揭示 RNN 实现离散随机状态转换的机制：噪声驱动的轨道动力学 + "kick 神经元"触发的快速转换，本质是自诱导随机共振（SISR），该动力学基元可组合复用以模拟更复杂的离散潜在结构。
+
+**[Mechanistic Interpretability of RNNs Emulating Hidden Markov Models](mechanistic_interpretability_of_rnns_emulating_hidden_markov_models.md)**
+
+:   训练vanilla RNN复现隐马尔可夫模型（HMM）的发射统计量，然后通过逆向工程揭示RNN利用噪声维持的轨道动力学、"kick neuron"电路和自致随机共振机制来实现离散随机状态转换的计算原理。
 
 **[OmniSegmentor: A Flexible Multi-Modal Learning Framework for Semantic Segmentation](omnisegmentor_a_flexible_multi-modal_learning_framework_for_semantic_segmentatio.md)**
 

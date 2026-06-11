@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 AI安全论文汇总 · 26篇论文解读
+  ICLR2026 AI安全论文汇总 · 27篇论文解读
 description: >-
-  26篇ICLR2026的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习、强化学习、Agent、水印/隐写等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  27篇ICLR2026的 AI 安全方向论文解读，涵盖对抗鲁棒、联邦学习、强化学习、Agent、水印/隐写等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "AI 安全"
@@ -18,6 +18,8 @@ item_list:
     t: "Action-Free Offline-to-Online RL via Discretised State Policies"
   - u: "adaptive_methods_are_preferable_in_high_privacy_settings_an_sde_perspective/"
     t: "Adaptive Methods Are Preferable in High Privacy Settings: An SDE Perspective"
+  - u: "ap-ood_attention_pooling_for_out-of-distribution_detection/"
+    t: "AP-OOD: Attention Pooling for Out-of-Distribution Detection"
   - u: "atex-cf_attack-informed_counterfactual_explanations_for_graph_neural_networks/"
     t: "ATEX-CF: Attack-Informed Counterfactual Explanations for Graph Neural Networks"
   - u: "back_to_square_roots_an_optimal_bound_on_the_matrix_factorization_error_for_mult/"
@@ -66,15 +68,15 @@ item_list:
     t: "Watermark-based Detection and Attribution of AI-Generated Content"
   - u: "why_do_unlearnable_examples_work_a_novel_perspective_of_mutual_information/"
     t: "Why Do Unlearnable Examples Work: A Novel Perspective of Mutual Information"
-item_total: 26
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🛡️ AI 安全
 
-**🔬 ICLR2026** · **26** 篇论文解读
+**🔬 ICLR2026** · **27** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (72)](../../NeurIPS2025/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (38)](../../ICML2026/ai_safety/index.md) · [💬 ACL2026 (4)](../../ACL2026/ai_safety/index.md) · [📷 CVPR2026 (25)](../../CVPR2026/ai_safety/index.md) · [🤖 AAAI2026 (45)](../../AAAI2026/ai_safety/index.md) · [🧠 NeurIPS2025 (73)](../../NeurIPS2025/ai_safety/index.md) · [📹 ICCV2025 (21)](../../ICCV2025/ai_safety/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×7 · 联邦学习 ×3 · 强化学习 ×2 · Agent ×2 · 水印/隐写 ×2
 
@@ -85,6 +87,10 @@ item_total: 26
 **[Adaptive Methods Are Preferable in High Privacy Settings: An SDE Perspective](adaptive_methods_are_preferable_in_high_privacy_settings_an_sde_perspective.md)**
 
 :   首次用随机微分方程（SDE）框架分析差分隐私优化器，揭示 DP-SGD 和 DP-SignSGD 在隐私噪声作用下的本质差异：自适应方法在高隐私设置下具有更优的隐私-效用权衡 $\mathcal{O}(1/\varepsilon)$ vs $\mathcal{O}(1/\varepsilon^2)$，且超参数跨隐私预算可迁移。
+
+**[AP-OOD: Attention Pooling for Out-of-Distribution Detection](ap-ood_attention_pooling_for_out-of-distribution_detection.md)**
+
+:   提出AP-OOD，将Mahalanobis距离的均值池化替换为可学习的注意力池化，解决了均值池化丢失token级异常信息的问题，在文本OOD检测中将XSUM摘要的FPR95从27.84%降至4.67%，支持无监督到半监督的平滑过渡。
 
 **[ATEX-CF: Attack-Informed Counterfactual Explanations for Graph Neural Networks](atex-cf_attack-informed_counterfactual_explanations_for_graph_neural_networks.md)**
 

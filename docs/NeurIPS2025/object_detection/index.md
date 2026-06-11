@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 目标检测论文汇总 · 25篇论文解读
+  NeurIPS2025 目标检测论文汇总 · 26篇论文解读
 description: >-
-  25篇NeurIPS2025的目标检测方向论文解读，涵盖异常检测、目标检测、对抗鲁棒、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  26篇NeurIPS2025的目标检测方向论文解读，涵盖异常检测、目标检测、对抗鲁棒、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "目标检测"
@@ -56,23 +56,25 @@ item_list:
     t: "Semi-supervised Graph Anomaly Detection via Robust Homophily Learning"
   - u: "spatio-temporal_graphs_beyond_grids_benchmark_for_maritime_anomaly_detection/"
     t: "Spatio-Temporal Graphs Beyond Grids: Benchmark for Maritime Anomaly Detection"
+  - u: "stealthy_yet_effective_distribution-preserving_backdoor_attacks_on_graph_classif/"
+    t: "Stealthy Yet Effective: Distribution-Preserving Backdoor Attacks on Graph Classification"
   - u: "structured_temporal_causality_for_interpretable_multivariate_time_series_anomaly/"
     t: "Structured Temporal Causality for Interpretable Multivariate Time Series Anomaly Detection"
   - u: "test-time_adaptive_object_detection_with_foundation_model/"
     t: "Test-Time Adaptive Object Detection with Foundation Model"
   - u: "video-rag_visually-aligned_retrieval-augmented_long_video_comprehension/"
     t: "Video-RAG: Visually-aligned Retrieval-Augmented Long Video Comprehension"
-item_total: 25
+item_total: 26
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**🧠 NeurIPS2025** · **25** 篇论文解读
+**🧠 NeurIPS2025** · **26** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (11)](../../ICML2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md) · [🧪 ICML2025 (12)](../../ICML2025/object_detection/index.md)
 
-🔥 **高频主题：** 异常检测 ×9 · 目标检测 ×6 · 对抗鲁棒 ×2 · 时序预测 ×2
+🔥 **高频主题：** 异常检测 ×9 · 目标检测 ×6 · 对抗鲁棒 ×3 · 时序预测 ×2
 
 **[ADPretrain: Advancing Industrial Anomaly Detection via Anomaly Representation Pretraining](adpretrain_advancing_industrial_anomaly_detection_via_anomaly_representation_pre.md)**
 
@@ -161,6 +163,10 @@ item_total: 25
 **[Spatio-Temporal Graphs Beyond Grids: Benchmark for Maritime Anomaly Detection](spatio-temporal_graphs_beyond_grids_benchmark_for_maritime_anomaly_detection.md)**
 
 :   提出首个面向非网格时空系统（海事领域）的图异常检测基准数据集，将OMTAD数据集扩展为支持节点/边/图三级异常检测的基准，并计划使用LLM智能体进行轨迹合成和异常注入。
+
+**[Stealthy Yet Effective: Distribution-Preserving Backdoor Attacks on Graph Classification](stealthy_yet_effective_distribution-preserving_backdoor_attacks_on_graph_classif.md)**
+
+:   提出 DPSBA，一种面向图分类的 clean-label 后门攻击框架，通过对抗训练生成分布内（in-distribution）触发子图，同时抑制结构异常和语义异常，在保持高攻击成功率的同时显著提升隐蔽性。
 
 **[Structured Temporal Causality for Interpretable Multivariate Time Series Anomaly Detection](structured_temporal_causality_for_interpretable_multivariate_time_series_anomaly.md)**
 

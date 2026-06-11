@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 预训练论文汇总 · 8篇论文解读
+  AAAI2026 预训练论文汇总 · 9篇论文解读
 description: >-
-  8篇AAAI2026的预训练方向论文解读，涵盖 LLM、对齐/RLHF、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  9篇AAAI2026的预训练方向论文解读，涵盖 LLM、对齐/RLHF、少样本学习、压缩/编码等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "预训练"
@@ -11,6 +11,7 @@ tags:
   - "LLM"
   - "对齐/RLHF"
   - "少样本学习"
+  - "压缩/编码"
 item_list:
   - u: "beyond_cosine_similarity_magnitude-aware_clip_for_no-reference_image_quality_ass/"
     t: "Beyond Cosine Similarity: Magnitude-Aware CLIP for No-Reference Image Quality Assessment"
@@ -28,15 +29,17 @@ item_list:
     t: "PrefixGPT: Prefix Adder Optimization by a Generative Pre-trained Transformer"
   - u: "rectified_noise_a_generative_model_using_positive-incentive_noise/"
     t: "Rectified Noise: A Generative Model Using Positive-incentive Noise"
-item_total: 8
+  - u: "trace_a_generalizable_drift_detector_for_streaming_data-driven_optimization/"
+    t: "TRACE: A Generalizable Drift Detector for Streaming Data-Driven Optimization"
+item_total: 9
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📚 预训练
 
-**🤖 AAAI2026** · **8** 篇论文解读
+**🤖 AAAI2026** · **9** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (22)](../../ICML2026/llm_pretraining/index.md) · [💬 ACL2026 (12)](../../ACL2026/llm_pretraining/index.md) · [📷 CVPR2026 (3)](../../CVPR2026/llm_pretraining/index.md) · [🔬 ICLR2026 (25)](../../ICLR2026/llm_pretraining/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_pretraining/index.md) · [📹 ICCV2025 (9)](../../ICCV2025/llm_pretraining/index.md)
 
 **[Beyond Cosine Similarity: Magnitude-Aware CLIP for No-Reference Image Quality Assessment](beyond_cosine_similarity_magnitude-aware_clip_for_no-reference_image_quality_ass.md)**
 
@@ -69,3 +72,7 @@ item_total: 8
 **[Rectified Noise: A Generative Model Using Positive-incentive Noise](rectified_noise_a_generative_model_using_positive-incentive_noise.md)**
 
 :   提出 Rectified Noise（ΔRN），通过正向激励噪声（π-noise）框架学习一组有益噪声并注入预训练 Rectified Flow 模型的速度场中，以仅 0.39% 的额外参数在 ImageNet-1k 上将 FID 从 10.16 降低到 9.05。
+
+**[TRACE: A Generalizable Drift Detector for Streaming Data-Driven Optimization](trace_a_generalizable_drift_detector_for_streaming_data-driven_optimization.md)**
+
+:   提出TRACE，一种基于注意力序列学习的可迁移概念漂移检测器，通过统计特征标记化和双注意力编码器学习跨任务可迁移的漂移模式，能泛化到未见过的数据集，并作为即插即用模块嵌入流式数据驱动优化算法。

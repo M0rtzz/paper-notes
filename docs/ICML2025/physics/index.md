@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 物理/科学计算论文汇总 · 18篇论文解读
+  ICML2025 物理/科学计算论文汇总 · 20篇论文解读
 description: >-
-  18篇ICML2025的物理/科学计算方向论文解读，涵盖少样本学习、LLM、推理、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  20篇ICML2025的物理/科学计算方向论文解读，涵盖少样本学习、LLM、推理、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "物理/科学计算"
@@ -23,6 +23,8 @@ item_list:
     t: "Compact Matrix Quantum Group Equivariant Neural Networks"
   - u: "differentiable_stellar_atmospheres_with_physics-informed_neural_networks/"
     t: "Differentiable Stellar Atmospheres with Physics-Informed Neural Networks"
+  - u: "erwin_a_tree-based_hierarchical_transformer_for_large-scale_physical_systems/"
+    t: "Erwin: A Tree-based Hierarchical Transformer for Large-scale Physical Systems"
   - u: "finetuning_stellar_spectra_foundation_models_with_lora/"
     t: "Finetuning Stellar Spectra Foundation Models with LoRA"
   - u: "gravity-bench-v1_a_benchmark_on_gravitational_physics_discovery_for_agents/"
@@ -43,21 +45,23 @@ item_list:
     t: "PAC Learning with Improvements"
   - u: "rethink_the_role_of_deep_learning_towards_large-scale_quantum_systems/"
     t: "Rethink the Role of Deep Learning towards Large-scale Quantum Systems"
+  - u: "sum-of-parts_self-attributing_neural_networks_with_end-to-end_learning_of_featur/"
+    t: "Sum-of-Parts: Self-Attributing Neural Networks with End-to-End Learning of Feature Groups"
   - u: "teaching_llms_to_speak_spectroscopy/"
     t: "Teaching LLMs to Speak Spectroscopy"
   - u: "the_dark_side_of_the_forces_assessing_non-conservative_force_models_for_atomisti/"
     t: "The Dark Side of the Forces: Assessing Non-Conservative Force Models for Atomistic Machine Learning"
   - u: "universal_neural_optimal_transport/"
     t: "Universal Neural Optimal Transport"
-item_total: 18
+item_total: 20
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚛️ 物理/科学计算
 
-**🧪 ICML2025** · **18** 篇论文解读
+**🧪 ICML2025** · **20** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (55)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md)
 
 🔥 **高频主题：** 少样本学习 ×2 · LLM ×2
 
@@ -80,6 +84,10 @@ item_total: 18
 **[Differentiable Stellar Atmospheres with Physics-Informed Neural Networks](differentiable_stellar_atmospheres_with_physics-informed_neural_networks.md)**
 
 :   提出 Kurucz-a1，一个物理约束神经网络（PINN），用于模拟一维恒星大气模型（LTE 假设），解决了可微恒星光谱学中大气结构求解器不可微的关键瓶颈，在流体静力平衡和太阳光谱一致性上甚至优于经典 ATLAS-12 代码。
+
+**[Erwin: A Tree-based Hierarchical Transformer for Large-scale Physical Systems](erwin_a_tree-based_hierarchical_transformer_for_large-scale_physical_systems.md)**
+
+:   提出 Erwin，一种基于 ball tree 分层结构的 Transformer 架构，通过将注意力计算限制在固定大小的局部球区域内，实现线性时间复杂度，同时通过渐进式粗化/细化和跨球交互机制捕获多尺度特征，在宇宙学、分子动力学、PDE 求解和粒子流体动力学多个领域达到 SOTA。
 
 **[Finetuning Stellar Spectra Foundation Models with LoRA](finetuning_stellar_spectra_foundation_models_with_lora.md)**
 
@@ -120,6 +128,10 @@ item_total: 18
 **[Rethink the Role of Deep Learning towards Large-scale Quantum Systems](rethink_the_role_of_deep_learning_towards_large-scale_quantum_systems.md)**
 
 :   在统一量子资源约束下系统性地对比 ML 与 DL 在量子系统学习 (QSL) 任务中的表现，发现传统 ML（Lasso/Ridge/核方法）往往匹配甚至超越 DL，挑战了"大规模量子系统必须用深度学习"的直觉。
+
+**[Sum-of-Parts: Self-Attributing Neural Networks with End-to-End Learning of Feature Groups](sum-of-parts_self-attributing_neural_networks_with_end-to-end_learning_of_featur.md)**
+
+:   SOP 提出了一种将任意可微分模型转换为基于分组的自归因神经网络（SANN）的框架，通过端到端学习特征分组实现了在 SANN 中的 SOTA 性能，并从理论上证明了逐特征 SANN 的误差下界和分组 SANN 的零误差可达性。
 
 **[Teaching LLMs to Speak Spectroscopy](teaching_llms_to_speak_spectroscopy.md)**
 

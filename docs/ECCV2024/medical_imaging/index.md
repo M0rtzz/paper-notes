@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 医学图像论文汇总 · 26篇论文解读
+  ECCV2024 医学图像论文汇总 · 27篇论文解读
 description: >-
-  26篇ECCV2024的医学图像方向论文解读，涵盖医学影像、语义分割、扩散模型、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  27篇ECCV2024的医学图像方向论文解读，涵盖医学影像、语义分割、扩散模型、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "医学图像"
@@ -63,19 +63,21 @@ item_list:
     t: "Topology-Preserving Downsampling of Binary Images"
   - u: "umbrae_unified_multimodal_brain_decoding/"
     t: "UMBRAE: Unified Multimodal Brain Decoding"
+  - u: "unleashing_the_power_of_prompt-driven_nucleus_instance_segmentation/"
+    t: "Unleashing the Power of Prompt-driven Nucleus Instance Segmentation"
   - u: "unsupervised_multi-modal_medical_image_registration_via_invertible_translation/"
     t: "Unsupervised Multi-modal Medical Image Registration via Invertible Translation"
-item_total: 26
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**🎞️ ECCV2024** · **26** 篇论文解读
+**🎞️ ECCV2024** · **27** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (97)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (71)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [📷 CVPR2026 (100)](../../CVPR2026/medical_imaging/index.md) · [🔬 ICLR2026 (21)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (73)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md)
 
-🔥 **高频主题：** 医学影像 ×14 · 语义分割 ×3 · 扩散模型 ×2 · 多模态 ×2
+🔥 **高频主题：** 医学影像 ×14 · 语义分割 ×4 · 扩散模型 ×2 · 多模态 ×2
 
 **[A Cephalometric Landmark Regression Method Based on Dual-Encoder for High-Resolution X-Ray Image](a_cephalometric_landmark_regression_method_based_on_dual-encoder_for_high-resolu.md)**
 
@@ -176,6 +178,10 @@ item_total: 26
 **[UMBRAE: Unified Multimodal Brain Decoding](umbrae_unified_multimodal_brain_decoding.md)**
 
 :   提出UMBRAE，通过通用脑编码器将fMRI信号与图像特征对齐后送入冻结的MLLM，实现多模态脑解码（描述、定位、检索、视觉重建），并创新性地引入跨被试训练策略，使单一模型服务多个被试且优于单被试模型。
+
+**[Unleashing the Power of Prompt-driven Nucleus Instance Segmentation](unleashing_the_power_of_prompt-driven_nucleus_instance_segmentation.md)**
+
+:   提出 PromptNucSeg 框架，通过训练一个 prompter 自动生成细胞核中心点 prompt，并微调 SAM 进行逐核分割，同时引入相邻核作为 negative prompt 解决重叠核分割问题，无需复杂后处理即在三个 benchmark 上达到 SOTA。
 
 **[Unsupervised Multi-modal Medical Image Registration via Invertible Translation](unsupervised_multi-modal_medical_image_registration_via_invertible_translation.md)**
 

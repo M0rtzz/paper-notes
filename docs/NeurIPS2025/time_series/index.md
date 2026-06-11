@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 时间序列论文汇总 · 49篇论文解读
+  NeurIPS2025 时间序列论文汇总 · 51篇论文解读
 description: >-
-  49篇NeurIPS2025的时间序列方向论文解读，涵盖时序预测、扩散模型、图神经网络、对抗鲁棒、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  51篇NeurIPS2025的时间序列方向论文解读，涵盖时序预测、扩散模型、图神经网络、对抗鲁棒、自监督学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "NeurIPS2025"
   - "时间序列"
@@ -60,6 +60,8 @@ item_list:
     t: "Less is More: Unlocking Specialization of Time Series Foundation Models via Structured Pruning"
   - u: "maestro_adaptive_sparse_attention_and_robust_learning_for_multimodal_dynamic_tim/"
     t: "MAESTRO: Adaptive Sparse Attention and Robust Learning for Multimodal Dynamic Time Series"
+  - u: "mira_medical_time_series_foundation_model_for_real-world_health_data/"
+    t: "MIRA: Medical Time Series Foundation Model for Real-World Health Data"
   - u: "multi-scale_finetuning_for_encoder-based_time_series_foundation_models/"
     t: "Multi-Scale Finetuning for Encoder-based Time Series Foundation Models"
   - u: "neural_mjd_neural_non-stationary_merton_jump_diffusion_for_time_series_predictio/"
@@ -72,19 +74,17 @@ item_list:
     t: "OmniCast: A Masked Latent Diffusion Model for Weather Forecasting Across Time Scales"
   - u: "parallelization_of_non-linear_state-space_models_scaling_up_liquid-resistance_li/"
     t: "Parallelization of Non-linear State-Space Models: Scaling Up Liquid-Resistance Liquid-Capacitance Networks for Efficient Sequence Modeling"
-  - u: "physics-informed_reduced_order_modeling_of_time-dependent_pdes_via_differentiabl/"
-    t: "Physics-informed Reduced Order Modeling of Time-dependent PDEs via Differentiable Solvers"
-item_total: 49
+item_total: 51
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📈 时间序列
 
-**🧠 NeurIPS2025** · **49** 篇论文解读
+**🧠 NeurIPS2025** · **51** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🔬 ICLR2026 (36)](../../ICLR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
 
-🔥 **高频主题：** 时序预测 ×25 · 扩散模型 ×3 · 图神经网络 ×2 · 对抗鲁棒 ×2 · 自监督学习 ×2
+🔥 **高频主题：** 时序预测 ×27 · 扩散模型 ×3 · 图神经网络 ×2 · 对抗鲁棒 ×2 · 自监督学习 ×2
 
 **[A Graph Neural Network Approach for Localized and High-Resolution Temperature Forecasting](a_graph_neural_network_approach_for_localized_and_high-resolution_temperature_fo.md)**
 
@@ -178,6 +178,10 @@ item_total: 49
 
 :   提出 MAESTRO 框架，通过符号化分词、自适应注意力预算、稀疏跨模态注意力和动态 MoE 路由，解决多模态时间序列中模态异质性和任意缺失的问题，在完整/缺失模态场景下均显著超越基线。
 
+**[MIRA: Medical Time Series Foundation Model for Real-World Health Data](mira_medical_time_series_foundation_model_for_real-world_health_data.md)**
+
+:   提出 MIRA，一个专为医学不规则时间序列设计的基础模型，通过连续时间旋转位置编码、频率特定 MoE 和 Neural ODE 外推模块，在 4540 亿个观测点上预训练，零样本预测性能在 OOD 和 ID 场景中分别平均降低 8% 和 6% 的误差。
+
 **[Multi-Scale Finetuning for Encoder-based Time Series Foundation Models](multi-scale_finetuning_for_encoder-based_time_series_foundation_models.md)**
 
 :   提出 MSFT（Multi-Scale FineTuning），通过因果分析揭示 naive 微调忽略尺度混淆问题，设计多尺度建模框架对 encoder-based 时间序列基础模型进行高效微调，显著超越 naive 微调和从头训练的 SOTA 方法。
@@ -261,6 +265,10 @@ item_total: 49
 **[TimePerceiver: An Encoder-Decoder Framework for Generalized Time-Series Forecasting](timeperceiver_an_encoder-decoder_framework_for_generalized_time-series_forecasti.md)**
 
 :   提出 TimePerceiver 统一编码器-解码器框架，通过广义化预测任务（同时包含外推、插值和填补）以及潜在瓶颈编码器 + 查询式解码器设计，在 8 个标准基准上取得全面 SOTA。
+
+**[TiRex: Zero-Shot Forecasting Across Long and Short Horizons with Enhanced In-Context Learning](tirex_zero-shot_forecasting_across_long_and_short_horizons_with_enhanced_in-cont.md)**
+
+:   提出基于xLSTM的预训练时间序列预测模型TiRex，通过连续片段掩码（CPM）策略和数据增强技术，在GiftEval和Chronos-ZS两大标准基准上以仅35M参数全面超越Chronos Bolt（200M）、TimesFM（500M）等大模型，同时在短期和长期零样本预测中均达到SOTA。
 
 **[Towards Self-Supervised Foundation Models for Critical Care Time Series](towards_self-supervised_foundation_models_for_critical_care_time_series.md)**
 

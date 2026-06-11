@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 计算生物论文汇总 · 19篇论文解读
+  AAAI2026 计算生物论文汇总 · 20篇论文解读
 description: >-
-  19篇AAAI2026的计算生物方向论文解读，涵盖生物分子、对齐/RLHF、扩散模型、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  20篇AAAI2026的计算生物方向论文解读，涵盖生物分子、对齐/RLHF、扩散模型、多模态、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "计算生物"
@@ -12,6 +12,7 @@ tags:
   - "对齐/RLHF"
   - "扩散模型"
   - "多模态"
+  - "持续学习"
 item_list:
   - u: "apo2mol_3d_molecule_generation_via_dynamic_pocket-aware_diff/"
     t: "Apo2Mol: 3D Molecule Generation via Dynamic Pocket-Aware Diffusion Models"
@@ -31,6 +32,8 @@ item_list:
     t: "Efficient Chromosome Parallelization for Precision Medicine Genomic Workflows"
   - u: "epo_diverse_and_realistic_protein_ensemble_generation_via_energy_preference_opti/"
     t: "EPO: Diverse and Realistic Protein Ensemble Generation via Energy Preference Optimization"
+  - u: "gene_incremental_learning_for_single-cell_transcriptomics/"
+    t: "Gene Incremental Learning for Single-Cell Transcriptomics"
   - u: "gp-molformer-sim_test_time_molecular_optimization_through_contextual_similarity_/"
     t: "GP-MoLFormer-Sim: Test Time Molecular Optimization through Contextual Similarity Guidance"
   - u: "hifusion_hierarchical_intra-spot_alignment_and_regional_context_fusion_for_spati/"
@@ -51,17 +54,17 @@ item_list:
     t: "SpaCRD: Multimodal Deep Fusion of Histology and Spatial Transcriptomics for Cancer Region Detection"
   - u: "trinitydna_a_bio-inspired_foundational_model_for_efficient_long-sequence_dna_mod/"
     t: "TrinityDNA: A Bio-Inspired Foundational Model for Efficient Long-Sequence DNA Modeling"
-item_total: 19
+item_total: 20
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧬 计算生物
 
-**🤖 AAAI2026** · **19** 篇论文解读
+**🤖 AAAI2026** · **20** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (10)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (35)](../../ICLR2026/computational_biology/index.md) · [🧠 NeurIPS2025 (74)](../../NeurIPS2025/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (36)](../../ICML2026/computational_biology/index.md) · [💬 ACL2026 (5)](../../ACL2026/computational_biology/index.md) · [📷 CVPR2026 (11)](../../CVPR2026/computational_biology/index.md) · [🔬 ICLR2026 (38)](../../ICLR2026/computational_biology/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/computational_biology/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/computational_biology/index.md)
 
-🔥 **高频主题：** 生物分子 ×4 · 对齐/RLHF ×3 · 扩散模型 ×2 · 多模态 ×2
+🔥 **高频主题：** 生物分子 ×4 · 对齐/RLHF ×3 · 扩散模型 ×2 · 多模态 ×2 · 持续学习 ×2
 
 **[Apo2Mol: 3D Molecule Generation via Dynamic Pocket-Aware Diffusion Models](apo2mol_3d_molecule_generation_via_dynamic_pocket-aware_diff.md)**
 
@@ -98,6 +101,10 @@ item_total: 19
 **[EPO: Diverse and Realistic Protein Ensemble Generation via Energy Preference Optimization](epo_diverse_and_realistic_protein_ensemble_generation_via_energy_preference_opti.md)**
 
 :   提出EPO（Energy Preference Optimization），将反向SDE采样与listwise能量排序偏好优化结合，用能量信号对齐预训练蛋白质生成器与目标Boltzmann分布，在Tetrapeptides/ATLAS/Fast-Folding三个基准9个指标上达到SOTA，完全消除了昂贵的分子动力学（MD）模拟需求。
+
+**[Gene Incremental Learning for Single-Cell Transcriptomics](gene_incremental_learning_for_single-cell_transcriptomics.md)**
+
+:   本文提出了基因增量学习（GIL）框架，利用单细胞转录组学数据的无序性特点，将类增量学习（CIL）的范式扩展到 token（基因）维度，设计了基因回放和基因蒸馏两种基线方法，并建立了包含基因级回归和基因级分类两种评估方式的完整基准。
 
 **[GP-MoLFormer-Sim: Test Time Molecular Optimization through Contextual Similarity Guidance](gp-molformer-sim_test_time_molecular_optimization_through_contextual_similarity_.md)**
 

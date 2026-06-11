@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 时间序列论文汇总 · 35篇论文解读
+  ICLR2026 时间序列论文汇总 · 36篇论文解读
 description: >-
-  35篇ICLR2026的时间序列方向论文解读，涵盖时序预测、LLM、少样本学习、推理、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  36篇ICLR2026的时间序列方向论文解读，涵盖时序预测、LLM、少样本学习、推理、医学影像等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "时间序列"
@@ -18,6 +18,8 @@ item_list:
     t: "Adapt Data to Model: Adaptive Transformation Optimization for Domain-shared Time Series Foundation Models"
   - u: "benchmarking_ecg_fms_a_reality_check_across_clinical_tasks/"
     t: "Benchmarking ECG FMs: A Reality Check Across Clinical Tasks"
+  - u: "brain-semantoks_learning_semantic_tokens_of_brain_dynamics_with_a_self-distilled/"
+    t: "Brain-Semantoks: Learning Semantic Tokens of Brain Dynamics with a Self-Distilled Foundation Model"
   - u: "cpiri_channel_permutation-invariant_relational_interaction_for_multivariate_time_se/"
     t: "CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting"
   - u: "decentralized_attention_fails_centralized_signals_rethinking_transformers_for_me/"
@@ -72,17 +74,15 @@ item_list:
     t: "Towards Generalizable PDE Dynamics Forecasting via Physics-Guided Invariant Learning"
   - u: "towards_robust_real-world_multivariate_time_series_forecasting_a_unified_framewo/"
     t: "Towards Robust Real-World Multivariate Time Series Forecasting: A Unified Framework"
-  - u: "tspulse_tiny_pre-trained_models_with_disentangled_representations_for_rapid_time/"
-    t: "TSPulse: Tiny Pre-Trained Models with Disentangled Representations for Rapid Time Series"
-item_total: 35
+item_total: 36
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📈 时间序列
 
-**🔬 ICLR2026** · **35** 篇论文解读
+**🔬 ICLR2026** · **36** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (49)](../../NeurIPS2025/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (32)](../../ICML2026/time_series/index.md) · [💬 ACL2026 (7)](../../ACL2026/time_series/index.md) · [📷 CVPR2026 (6)](../../CVPR2026/time_series/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/time_series/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/time_series/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/time_series/index.md)
 
 🔥 **高频主题：** 时序预测 ×24 · LLM ×4 · 少样本学习 ×4 · 推理 ×3 · 医学影像 ×2
 
@@ -93,6 +93,10 @@ item_total: 35
 **[Benchmarking ECG FMs: A Reality Check Across Clinical Tasks](benchmarking_ecg_fms_a_reality_check_across_clinical_tasks.md)**
 
 :   对8个ECG基础模型在12个数据集、26个临床任务上进行"现实检验"式全面基准评测，发现紧凑的结构化状态空间模型（SSM）ECG-CPC在7个任务类别中的5个上超越了大规模Transformer，证明架构设计比模型规模更重要。
+
+**[Brain-Semantoks: Learning Semantic Tokens of Brain Dynamics with a Self-Distilled Foundation Model](brain-semantoks_learning_semantic_tokens_of_brain_dynamics_with_a_self-distilled.md)**
+
+:   提出 Brain-Semantoks，一种基于语义分词器和自蒸馏目标的 fMRI 基础模型，将大脑功能网络聚合为鲁棒的语义 token，并通过跨时间视角的一致性学习抽象的脑动态表征，在线性探测设置下即可达到 SOTA 性能。
 
 **[CPiRi: Channel Permutation-Invariant Relational Interaction for Multivariate Time Series Forecasting](cpiri_channel_permutation-invariant_relational_interaction_for_multivariate_time_se.md)**
 

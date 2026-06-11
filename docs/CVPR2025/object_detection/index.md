@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 目标检测论文汇总 · 37篇论文解读
+  CVPR2025 目标检测论文汇总 · 38篇论文解读
 description: >-
-  37篇CVPR2025的目标检测方向论文解读，涵盖异常检测、目标检测、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  38篇CVPR2025的目标检测方向论文解读，涵盖异常检测、目标检测、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2025"
   - "目标检测"
@@ -44,6 +44,8 @@ item_list:
     t: "Mr. DETR++: Instructive Multi-Route Training for Detection Transformers with MoE"
   - u: "mulsen_ad_multi_sensor_anomaly_detection/"
     t: "MulSen-AD: Multi-Sensor Object Anomaly Detection"
+  - u: "multi-sensor_object_anomaly_detection_unifying_appearance_geometry_and_internal_/"
+    t: "Multi-Sensor Object Anomaly Detection: Unifying Appearance, Geometry, and Internal Properties"
   - u: "multiple_object_tracking_as_id_prediction/"
     t: "Multiple Object Tracking as ID Prediction"
   - u: "object_detection_using_event_camera_a_moe_heat_conduction_based_detector_and_a_n/"
@@ -70,19 +72,17 @@ item_list:
     t: "Small Target Detection Based on Mask-Enhanced Attention Fusion of Visible and Infrared Remote Sensing Images"
   - u: "t2icount_enhancing_cross-modal_understanding_for_zero-shot_counting/"
     t: "T2ICount: Enhancing Cross-modal Understanding for Zero-Shot Counting"
-  - u: "tailedcore_few-shot_sampling_for_unsupervised_long-tail_noisy_anomaly_detection/"
-    t: "TailedCore: Few-Shot Sampling for Unsupervised Long-Tail Noisy Anomaly Detection"
-item_total: 37
+item_total: 38
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎯 目标检测
 
-**📷 CVPR2025** · **37** 篇论文解读
+**📷 CVPR2025** · **38** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (53)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (25)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (6)](../../ICML2026/object_detection/index.md) · [📷 CVPR2026 (55)](../../CVPR2026/object_detection/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/object_detection/index.md) · [🤖 AAAI2026 (29)](../../AAAI2026/object_detection/index.md) · [🧠 NeurIPS2025 (26)](../../NeurIPS2025/object_detection/index.md) · [📹 ICCV2025 (27)](../../ICCV2025/object_detection/index.md)
 
-🔥 **高频主题：** 异常检测 ×10 · 目标检测 ×10 · 少样本学习 ×5 · 扩散模型 ×3
+🔥 **高频主题：** 异常检测 ×11 · 目标检测 ×10 · 少样本学习 ×5 · 扩散模型 ×3
 
 **[AA-CLIP: Enhancing Zero-Shot Anomaly Detection via Anomaly-Aware CLIP](aa-clip_enhancing_zero-shot_anomaly_detection_via_anomaly-aware_clip.md)**
 
@@ -147,6 +147,10 @@ item_total: 37
 **[MulSen-AD: Multi-Sensor Object Anomaly Detection](mulsen_ad_multi_sensor_anomaly_detection.md)**
 
 :   提出首个多传感器异常检测数据集 MulSen-AD，整合 RGB 相机、红外热成像和激光扫描三种模态，以及基线方法 MulSen-TripleAD，通过决策级融合实现 96.1% AUROC 的物体级异常检测。
+
+**[Multi-Sensor Object Anomaly Detection: Unifying Appearance, Geometry, and Internal Properties](multi-sensor_object_anomaly_detection_unifying_appearance_geometry_and_internal_.md)**
+
+:   提出 MulSen-AD，首个融合 RGB 相机、激光扫描仪和红外热成像三种传感器的工业物体异常检测数据集（15 类产品、14 种异常），并设计 MulSen-TripleAD 决策级融合基线方法，实现 96.1% AUROC，证明多传感器融合显著优于单传感器方法。
 
 **[Multiple Object Tracking as ID Prediction](multiple_object_tracking_as_id_prediction.md)**
 

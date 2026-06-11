@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 3D视觉论文汇总 · 111篇论文解读
+  NeurIPS2025 3D视觉论文汇总 · 113篇论文解读
 description: >-
-  111篇NeurIPS2025的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、动态场景、扩散模型、新视角合成、三维重建、点云等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  113篇NeurIPS2025的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、动态场景、扩散模型、新视角合成、点云、三维重建等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "3D 视觉"
@@ -12,8 +12,8 @@ tags:
   - "动态场景"
   - "扩散模型"
   - "新视角合成"
-  - "三维重建"
   - "点云"
+  - "三维重建"
 item_list:
   - u: "3d_visual_illusion_depth_estimation/"
     t: "3D Visual Illusion Depth Estimation"
@@ -75,17 +75,17 @@ item_list:
     t: "Flux4D: Flow-based Unsupervised 4D Reconstruction"
   - u: "from_objects_to_anywhere_a_holistic_benchmark_for_multi-level_visual_grounding_i/"
     t: "From Objects to Anywhere: A Holistic Benchmark for Multi-level Visual Grounding in 3D Scenes"
-item_total: 111
+item_total: 113
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D 视觉
 
-**🧠 NeurIPS2025** · **111** 篇论文解读
+**🧠 NeurIPS2025** · **113** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (227)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (59)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (74)](../../AAAI2026/3d_vision/index.md) · [📹 ICCV2025 (252)](../../ICCV2025/3d_vision/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [📷 CVPR2026 (236)](../../CVPR2026/3d_vision/index.md) · [🔬 ICLR2026 (61)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (78)](../../AAAI2026/3d_vision/index.md) · [📹 ICCV2025 (264)](../../ICCV2025/3d_vision/index.md)
 
-🔥 **高频主题：** 3D 高斯渲染 ×19 · 动态场景 ×9 · 扩散模型 ×7 · 新视角合成 ×7 · 三维重建 ×5
+🔥 **高频主题：** 3D 高斯渲染 ×19 · 动态场景 ×9 · 扩散模型 ×7 · 新视角合成 ×7 · 点云 ×6
 
 **[3D Visual Illusion Depth Estimation](3d_visual_illusion_depth_estimation.md)**
 
@@ -355,6 +355,10 @@ item_total: 111
 
 :   提出NerfBaselines评测框架，通过统一的评估协议、环境隔离和原始代码封装，解决了新视角合成领域因评估协议差异导致的不公平比较问题，并通过实验揭示了微小的协议差异（如图像缩放方式、背景颜色）可以显著改变方法排名。
 
+**[Novel Class Discovery for Point Cloud Segmentation via Joint Learning of Causal Representation and Reasoning](novel_class_discovery_for_point_cloud_segmentation_via_joint_learning_of_causal_.md)**
+
+:   本文首次将因果学习引入3D点云新类发现（3D-NCD），通过结构因果模型（SCM）分析基类中的混杂因子和基-新类间的因果关系，提出因果表示原型学习（通过对抗网络消除混杂因子）和基于图的因果推理（GCN生成伪标签），在SemanticKITTI和SemanticPOSS上取得了SOTA结果。
+
 **[Novel View Synthesis from A Few Glimpses via Test-Time Natural Video Completion](novel_view_synthesis_from_a_few_glimpses_via_test-time_natural_video_completion.md)**
 
 :   将稀疏输入新视角合成重新定义为测试时自然视频补全问题，利用预训练视频扩散模型的先验生成中间伪视图，并通过不确定性感知机制与 3D 高斯泼溅（3D-GS）迭代优化，在极稀疏输入下实现高保真场景重建。
@@ -526,6 +530,10 @@ item_total: 111
 **[WildCAT3D: Appearance-Aware Multi-View Diffusion in the Wild](wildcat3d_appearance-aware_multi-view_diffusion_in_the_wild.md)**
 
 :   提出WildCAT3D，通过显式建模图像的全局外观条件，扩展多视角扩散模型（CAT3D）从野外互联网数据（如旅游照片）中学习场景级新视角合成，同时支持外观控制生成。
+
+**[You Can Trust Your Clustering Model: A Parameter-free Self-Boosting Plug-in for Deep Clustering](you_can_trust_your_clustering_model_a_parameter-free_self-boosting_plug-in_for_d.md)**
+
+:   提出 DCBoost，一个无需额外超参数的即插即用模块，通过自适应 k-NN 筛选高置信样本并利用可靠的局部结构信息引导全局特征空间优化，显著提升现有深度聚类模型的性能。
 
 **[ZPressor: Bottleneck-Aware Compression for Scalable Feed-Forward 3DGS](zpressor_bottleneck-aware_compression_for_scalable_feed-forward_3dgs.md)**
 

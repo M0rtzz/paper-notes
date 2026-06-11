@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 LLM安全论文汇总 · 14篇论文解读
+  CVPR2025 LLM安全论文汇总 · 15篇论文解读
 description: >-
-  14篇CVPR2025的 LLM 安全方向论文解读，涵盖多模态、持续学习、对齐/RLHF、LLM、对抗鲁棒、重识别等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  15篇CVPR2025的 LLM 安全方向论文解读，涵盖多模态、持续学习、对齐/RLHF、LLM、对抗鲁棒、重识别等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "LLM 安全"
@@ -31,6 +31,8 @@ item_list:
     t: "LoTUS: Large-Scale Machine Unlearning with a Taste of Uncertainty"
   - u: "low-rank_adaptation_in_multilinear_operator_networks_for_security-preserving_inc/"
     t: "Low-Rank Adaptation in Multilinear Operator Networks for Security-Preserving Incremental Learning"
+  - u: "mp-gui_modality_perception_with_mllms_for_gui_understanding/"
+    t: "MP-GUI: Modality Perception with MLLMs for GUI Understanding"
   - u: "neural_gate_mitigating_privacy_risks_in_lvlms_via_neuron-level_gradient_gating/"
     t: "Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating"
   - u: "protecting_your_video_content_disrupting_automated_video-based_llm_annotations/"
@@ -43,15 +45,15 @@ item_list:
     t: "CleanSight: Test-Time Attention Purification for Backdoored Large Vision Language Models"
   - u: "towards_all-in-one_medical_image_re-identification/"
     t: "Towards All-in-One Medical Image Re-Identification"
-item_total: 14
+item_total: 15
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM 安全
 
-**📷 CVPR2025** · **14** 篇论文解读
+**📷 CVPR2025** · **15** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (42)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md)
 
 🔥 **高频主题：** 多模态 ×6 · 持续学习 ×2
 
@@ -86,6 +88,10 @@ item_total: 14
 **[Low-Rank Adaptation in Multilinear Operator Networks for Security-Preserving Incremental Learning](low-rank_adaptation_in_multilinear_operator_networks_for_security-preserving_inc.md)**
 
 :   针对全同态加密（Leveled FHE）场景下多线性算子网络的灾难性遗忘问题，提出了一种结合低秩适应（LoRA）和梯度投影记忆（GPM）机制的增量学习方法，在保障数据安全的前提下实现持续学习。
+
+**[MP-GUI: Modality Perception with MLLMs for GUI Understanding](mp-gui_modality_perception_with_mllms_for_gui_understanding.md)**
+
+:   MP-GUI设计了三个专用感知器分别提取GUI中的图形、文本和空间模态信息，通过空间结构精炼策略和自适应融合门控将三种模态组合，在有限训练数据下在多种GUI理解任务上取得了优于通用MLLM的表现。
 
 **[Neural Gate: Mitigating Privacy Risks in LVLMs via Neuron-Level Gradient Gating](neural_gate_mitigating_privacy_risks_in_lvlms_via_neuron-level_gradient_gating.md)**
 

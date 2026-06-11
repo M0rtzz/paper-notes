@@ -1,8 +1,8 @@
 ---
 title: >-
-  NeurIPS2025 其他论文汇总 · 163篇论文解读
+  NeurIPS2025 其他论文汇总 · 164篇论文解读
 description: >-
-  163篇NeurIPS2025的其他方向论文解读，涵盖对抗鲁棒、对齐/RLHF、时序预测、域适应、扩散模型、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  164篇NeurIPS2025的其他方向论文解读，涵盖对抗鲁棒、对齐/RLHF、时序预测、域适应、扩散模型、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "NeurIPS2025"
   - "其他"
@@ -75,15 +75,15 @@ item_list:
     t: "Dense Associative Memory with Epanechnikov Energy"
   - u: "depth-bounds_for_neural_networks_via_the_braid_arrangement/"
     t: "Depth-Bounds for Neural Networks via the Braid Arrangement"
-item_total: 163
+item_total: 164
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📂 其他
 
-**🧠 NeurIPS2025** · **163** 篇论文解读
+**🧠 NeurIPS2025** · **164** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (87)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (128)](../../AAAI2026/others/index.md) · [📹 ICCV2025 (47)](../../ICCV2025/others/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (95)](../../ICML2026/others/index.md) · [💬 ACL2026 (1)](../../ACL2026/others/index.md) · [📷 CVPR2026 (35)](../../CVPR2026/others/index.md) · [🔬 ICLR2026 (91)](../../ICLR2026/others/index.md) · [🤖 AAAI2026 (135)](../../AAAI2026/others/index.md) · [📹 ICCV2025 (47)](../../ICCV2025/others/index.md)
 
 🔥 **高频主题：** 对抗鲁棒 ×5 · 对齐/RLHF ×4 · 时序预测 ×4 · 域适应 ×3 · 扩散模型 ×3
 
@@ -426,6 +426,10 @@ item_total: 163
 **[MEGState: Phoneme Decoding from Magnetoencephalography Signals](megstate_phoneme_decoding_from_magnetoencephalography_signals.md)**
 
 :   提出 MEGState，一种融合多分辨率卷积和传感器级 SSM 的架构，用于从脑磁图(MEG)信号中解码音素，在 LibriBrain 数据集上显著超越基线方法。
+
+**[Merlin L48 Spectrogram Dataset](merlin_l48_spectrogram_dataset.md)**
+
+:   本文提出了 L48 数据集——一个基于真实鸟类录音的细粒度频谱图多标签分类基准，天然具备单正标签多标签 (SPML) 设置，揭示了现有 SPML 方法在真实场景下的严重不足，并提出了基于录音内一致性的正则化方案来提升性能。
 
 **[Meta-learning three-factor plasticity rules for structured credit assignment with sparse feedback](meta-learning_three-factor_plasticity_rules_for_structured_credit_assignment_wit.md)**
 

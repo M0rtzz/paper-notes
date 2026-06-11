@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 视频生成论文汇总 · 83篇论文解读
+  CVPR2025 视频生成论文汇总 · 84篇论文解读
 description: >-
-  83篇CVPR2025的视频生成方向论文解读，涵盖视频生成、扩散模型、布局/合成、超分辨率、压缩/编码、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  84篇CVPR2025的视频生成方向论文解读，涵盖视频生成、扩散模型、布局/合成、超分辨率、压缩/编码、语音等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2025"
   - "视频生成"
@@ -12,7 +12,7 @@ tags:
   - "布局/合成"
   - "超分辨率"
   - "压缩/编码"
-  - "对齐/RLHF"
+  - "语音"
 item_list:
   - u: "4real-video_learning_generalizable_photo-realistic_4d_video_diffusion/"
     t: "4Real-Video: Learning Generalizable Photo-Realistic 4D Video Diffusion"
@@ -74,13 +74,13 @@ item_list:
     t: "Mimir: Improving Video Diffusion Models for Precise Text Understanding"
   - u: "mimo_controllable_character_video_synthesis_with_spatial_decomposed_modeling/"
     t: "MIMO: Controllable Character Video Synthesis with Spatial Decomposed Modeling"
-item_total: 83
+item_total: 84
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎬 视频生成
 
-**📷 CVPR2025** · **83** 篇论文解读
+**📷 CVPR2025** · **84** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (28)](../../ICML2026/video_generation/index.md) · [💬 ACL2026 (4)](../../ACL2026/video_generation/index.md) · [📷 CVPR2026 (65)](../../CVPR2026/video_generation/index.md) · [🔬 ICLR2026 (19)](../../ICLR2026/video_generation/index.md) · [🤖 AAAI2026 (11)](../../AAAI2026/video_generation/index.md) · [🧠 NeurIPS2025 (23)](../../NeurIPS2025/video_generation/index.md)
 
@@ -401,6 +401,10 @@ item_total: 83
 **[Visual Prompting for One-Shot Controllable Video Editing Without Inversion](visual_prompting_for_one-shot_controllable_video_editing_without_inversion.md)**
 
 :   本文从视觉提示（Visual Prompting）的全新视角解决一次性可控视频编辑（OCVE）问题，通过图像修复扩散模型完成编辑传播，并提出内容一致性采样（CCS）和时序-内容一致性采样（TCS）两种采样策略，无需 DDIM 反演即可实现高质量可控视频编辑。
+
+**[Wav2Sem: Plug-and-Play Audio Semantic Decoupling for 3D Speech-Driven Facial Animation](wav2sem_plug-and-play_audio_semantic_decoupling_for_3d_speech-driven_facial_anim.md)**
+
+:   提出即插即用的音频语义解耦模块 Wav2Sem，通过从完整音频序列中提取全局语义特征并与现有自监督音频模型（HuBERT/Wav2Vec 2.0）融合，解决近同音音节在特征空间中的耦合问题，显著缓解唇形生成中的"平均化效应"，在 6 种不同架构的面部动画模型上均取得一致的性能提升。
 
 **[When to Lock Attention: Training-Free KV Control in Video Diffusion](when_to_lock_attention_training-free_kv_control_in_video_diffusion.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 优化/理论论文汇总 · 14篇论文解读
+  CVPR2026 优化/理论论文汇总 · 16篇论文解读
 description: >-
-  14篇CVPR2026的优化/理论方向论文解读，涵盖联邦学习、对抗鲁棒、自监督学习、压缩/编码、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  16篇CVPR2026的优化/理论方向论文解读，涵盖联邦学习、对抗鲁棒、自监督学习、压缩/编码、模型压缩等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "优化/理论"
@@ -14,6 +14,8 @@ tags:
   - "压缩/编码"
   - "模型压缩"
 item_list:
+  - u: "ace-merging_data-free_model_merging_with_adaptive_covariance_estimation/"
+    t: "ACE-Merging: Data-Free Model Merging with Adaptive Covariance Estimation"
   - u: "bd-merging_bias-aware_dynamic_model_merging_with_evidence-guided_contrastive_lea/"
     t: "BD-Merging: Bias-Aware Dynamic Model Merging with Evidence-Guided Contrastive Learning"
   - u: "blazefl_fast_and_deterministic_federated_learning_simulation/"
@@ -32,6 +34,8 @@ item_list:
     t: "Fed-ADE: Adaptive Learning Rate for Federated Post-adaptation under Distribution Shift"
   - u: "label-free_cross-task_lora_merging_with_null-space_compression/"
     t: "Label-Free Cross-Task LoRA Merging with Null-Space Compression"
+  - u: "model_merging_in_the_essential_subspace/"
+    t: "Model Merging in the Essential Subspace"
   - u: "otprune_distribution-aligned_visual_token_pruning_via_optimal_transport/"
     t: "OTPrune: Distribution-Aligned Visual Token Pruning via Optimal Transport"
   - u: "scope_semantic_coreset_with_orthogonal_projection_embeddings_for_federated_learn/"
@@ -42,17 +46,21 @@ item_list:
     t: "The Power of Decaying Steps: Enhancing Attack Stability and Transferability for Sign-based Optimizers"
   - u: "unifusion_a_unified_image_fusion_framework_with_robust_representation_and_source/"
     t: "UniFusion: A Unified Image Fusion Framework with Robust Representation and Source-Aware Preservation"
-item_total: 14
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📐 优化/理论
 
-**📷 CVPR2026** · **14** 篇论文解读
+**📷 CVPR2026** · **16** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (60)](../../ICML2026/optimization/index.md) · [🔬 ICLR2026 (44)](../../ICLR2026/optimization/index.md) · [🤖 AAAI2026 (21)](../../AAAI2026/optimization/index.md) · [🧠 NeurIPS2025 (124)](../../NeurIPS2025/optimization/index.md) · [📹 ICCV2025 (7)](../../ICCV2025/optimization/index.md) · [🧪 ICML2025 (61)](../../ICML2025/optimization/index.md)
 
 🔥 **高频主题：** 联邦学习 ×4 · 对抗鲁棒 ×2
+
+**[ACE-Merging: Data-Free Model Merging with Adaptive Covariance Estimation](ace-merging_data-free_model_merging_with_adaptive_covariance_estimation.md)**
+
+:   本文从理论上证明了微调参数差蕴含输入协方差信息，据此提出 ACE-Merging，通过自适应协方差估计、集体结构先验和谱精炼三步实现无数据闭式模型合并，在 GPT-2 上比之前方法平均提升 4%，在 RoBERTa-Base 上提升 5%。
 
 **[BD-Merging: Bias-Aware Dynamic Model Merging with Evidence-Guided Contrastive Learning](bd-merging_bias-aware_dynamic_model_merging_with_evidence-guided_contrastive_lea.md)**
 
@@ -89,6 +97,10 @@ item_total: 14
 **[Label-Free Cross-Task LoRA Merging with Null-Space Compression](label-free_cross-task_lora_merging_with_null-space_compression.md)**
 
 :   观察到LoRA微调过程中下投影矩阵A的零空间比率随训练下降且与性能强相关，据此提出NSC Merging，一种无标签、任务无关的LoRA合并方法，在20个异构视觉任务、6个NLI任务和VLM评估上达到SOTA。
+
+**[Model Merging in the Essential Subspace](model_merging_in_the_essential_subspace.md)**
+
+:   提出 ESM 框架，通过对参数更新引起的激活偏移做 PCA 构建"本质子空间"（而非直接对参数做 SVD），并用三级极化缩放增强关键参数、抑制噪声，在 ViT-B/32 的 20 任务合并中比 Iso-CTS 提升 3.2%（绝对准确率）。
 
 **[OTPrune: Distribution-Aligned Visual Token Pruning via Optimal Transport](otprune_distribution-aligned_visual_token_pruning_via_optimal_transport.md)**
 

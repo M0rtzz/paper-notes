@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 LLM安全论文汇总 · 24篇论文解读
+  CVPR2026 LLM安全论文汇总 · 26篇论文解读
 description: >-
-  24篇CVPR2026的 LLM 安全方向论文解读，涵盖多模态、对抗鲁棒、人脸/视线、LLM、域适应、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  26篇CVPR2026的 LLM 安全方向论文解读，涵盖多模态、对抗鲁棒、人脸/视线、LLM、域适应、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2026"
   - "LLM 安全"
@@ -31,6 +31,8 @@ item_list:
     t: "FORCE: Transferable Visual Jailbreaking Attacks via Feature Over-Reliance CorrEction"
   - u: "hulluedit_subspace_editing_hallucination/"
     t: "HulluEdit: Single-Pass Evidence-Consistent Subspace Editing for Mitigating Hallucinations in LVLMs"
+  - u: "iag_input-aware_backdoor_attack_on_vlm-based_visual_grounding/"
+    t: "IAG: Input-aware Backdoor Attack on VLM-based Visual Grounding"
   - u: "interpretable_debiasing_of_vision-language_models_for_social_fairness/"
     t: "Interpretable Debiasing of Vision-Language Models for Social Fairness"
   - u: "learning_from_oblivion_predicting_knowledge_overflowed_weights_via_retrodiction_/"
@@ -45,6 +47,8 @@ item_list:
     t: "Perturb and Recover: Fine-tuning for Effective Backdoor Removal from CLIP"
   - u: "phantasia_context-adaptive_backdoors_in_vision_language_models/"
     t: "Phantasia: Context-Adaptive Backdoors in Vision Language Models"
+  - u: "pixels_dont_lie_but_your_detector_might_bootstrapping_mllm-as-a-judge_for_trustw/"
+    t: "Pixels Don't Lie (But Your Detector Might): Bootstrapping MLLM-as-a-Judge for Trustworthy Deepfake Detection and Reasoning Supervision"
   - u: "razor_ratio-aware_layer_editing_for_targeted_unlearning_in_vision_transformers_a/"
     t: "RAZOR: Ratio-Aware Layer Editing for Targeted Unlearning in Vision Transformers and Diffusion Models"
   - u: "select_hypothesize_and_verify_towards_verified_neuron_concept_interpretation/"
@@ -63,17 +67,17 @@ item_list:
     t: "Do Vision-Language Models Leak What They Learn? Adaptive Token-Weighted Model Inversion Attacks"
   - u: "which_concepts_to_forget_and_how_to_refuse_decomposing_concepts_for_continual_un/"
     t: "Which Concepts to Forget and How to Refuse? Decomposing Concepts for Continual Unlearning in Large Vision-Language Models"
-item_total: 24
+item_total: 26
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM 安全
 
-**📷 CVPR2026** · **24** 篇论文解读
+**📷 CVPR2026** · **26** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (42)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
 
-🔥 **高频主题：** 多模态 ×9 · 对抗鲁棒 ×6
+🔥 **高频主题：** 多模态 ×10 · 对抗鲁棒 ×7
 
 **[A Closed-Form Solution for Debiasing Vision-Language Models with Utility Guarantees Across Modalities and Tasks](a_closedform_solution_for_debiasing_visionlanguage.md)**
 
@@ -107,6 +111,10 @@ item_total: 24
 
 :   提出HulluEdit，一个单次推理、无参考模型的幻觉缓解框架，通过将隐藏状态正交分解为视觉证据子空间、冲突先验子空间和残差不确定性子空间，选择性抑制幻觉模式而不干扰视觉接地，在POPE和CHAIR上达到SOTA。
 
+**[IAG: Input-aware Backdoor Attack on VLM-based Visual Grounding](iag_input-aware_backdoor_attack_on_vlm-based_visual_grounding.md)**
+
+:   提出IAG，首个针对VLM视觉定位的多目标后门攻击方法，通过文本条件U-Net动态生成输入感知触发器，将任意指定目标物体的语义信息嵌入视觉输入中，在12种设置下的11种达到最高攻击成功率。
+
 **[Interpretable Debiasing of Vision-Language Models for Social Fairness](interpretable_debiasing_of_vision-language_models_for_social_fairness.md)**
 
 :   提出 DeBiasLens，通过在 VLM 编码器上训练稀疏自编码器（SAE）来定位编码社会属性的"社会神经元"，然后在推理时选择性去激活这些神经元以缓解偏见，在 CLIP 上降低 Max Skew 9-16%，在 InternVL2 上降低性别偏差比例 40-50%，同时保持通用性能。
@@ -134,6 +142,10 @@ item_total: 24
 **[Phantasia: Context-Adaptive Backdoors in Vision Language Models](phantasia_context-adaptive_backdoors_in_vision_language_models.md)**
 
 :   Phantasia 首次提出上下文自适应的 VLM 后门攻击——攻击者预设一个目标问题，中毒模型在接收到触发图片后不再回答用户原始问题，而是回答攻击者的目标问题，且生成的答案与输入图像语义一致、在语言上自然流畅，从而绕过 STRIP-P 和 ONION-R 等防御；同时本文首次证明了现有 VLM 后门攻击的隐蔽性被严重高估。
+
+**[Pixels Don't Lie (But Your Detector Might): Bootstrapping MLLM-as-a-Judge for Trustworthy Deepfake Detection and Reasoning Supervision](pixels_dont_lie_but_your_detector_might_bootstrapping_mllm-as-a-judge_for_trustw.md)**
+
+:   提出 DeepfakeJudge 框架，通过 bootstrapped generator-evaluator 流程将人类标注的推理监督扩展为大规模结构化评分数据，训练出 3B/7B 视觉语言模型作为 deepfake 检测推理质量的自动评判者，在 pointwise 和 pairwise 评估上均达到与人类高度一致的水平。
 
 **[RAZOR: Ratio-Aware Layer Editing for Targeted Unlearning in Vision Transformers and Diffusion Models](razor_ratio-aware_layer_editing_for_targeted_unlearning_in_vision_transformers_a.md)**
 

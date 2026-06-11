@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 物理/科学计算论文汇总 · 14篇论文解读
+  ICLR2026 物理/科学计算论文汇总 · 16篇论文解读
 description: >-
-  14篇ICLR2026的物理/科学计算方向论文解读，收录 Astral、Augmenting Representations wit、Contact Wasserstein Geodesics等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  16篇ICLR2026的物理/科学计算方向论文解读，收录 Astral、Augmenting Representations wit、Contact Wasserstein Geodesics等。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ICLR2026"
   - "物理/科学计算"
@@ -17,6 +17,8 @@ item_list:
     t: "Contact Wasserstein Geodesics for Non-Conservative Schrödinger Bridges"
   - u: "deep_learning_for_subspace_regression/"
     t: "Deep Learning for Subspace Regression"
+  - u: "dgnet_discrete_green_networks_for_data-efficient_learning_of_spatiotemporal_pdes/"
+    t: "DGNet: Discrete Green Networks for Data-Efficient Learning of Spatiotemporal PDEs"
   - u: "drift-net_a_spectral--coupled_neural_operator_for_pdes_learning/"
     t: "DRIFT-Net: A Spectral--Coupled Neural Operator for PDEs Learning"
   - u: "empirical_stability_analysis_of_kolmogorov-arnold_networks_in_hard-constrained_r/"
@@ -37,15 +39,17 @@ item_list:
     t: "Stretching Beyond the Obvious: A Gradient-Free Framework to Unveil the Hidden Landscape of Visual Invariance"
   - u: "sublinear_time_quantum_algorithm_for_attention_approximation/"
     t: "Sublinear Time Quantum Algorithm for Attention Approximation"
-item_total: 14
+  - u: "supervised_metric_regularization_through_alternating_optimization_for_multi-regi/"
+    t: "Supervised Metric Regularization Through Alternating Optimization for Multi-Regime PINNs"
+item_total: 16
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # ⚛️ 物理/科学计算
 
-**🔬 ICLR2026** · **14** 篇论文解读
+**🔬 ICLR2026** · **16** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (18)](../../ICML2025/physics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/physics/index.md) · [📷 CVPR2026 (5)](../../CVPR2026/physics/index.md) · [🤖 AAAI2026 (14)](../../AAAI2026/physics/index.md) · [🧠 NeurIPS2025 (55)](../../NeurIPS2025/physics/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/physics/index.md) · [🧪 ICML2025 (20)](../../ICML2025/physics/index.md)
 
 **[Astral: Training Physics-Informed Neural Networks with Error Majorants](astral_training_physics-informed_neural_networks_with_error_majorants.md)**
 
@@ -62,6 +66,10 @@ item_total: 14
 **[Deep Learning for Subspace Regression](deep_learning_for_subspace_regression.md)**
 
 :   将缩减阶建模（ROM）中的子空间预测问题形式化为 Grassmann 流形上的回归任务，提出专用损失函数与子空间嵌入（subspace embedding）技术——通过预测比目标更大维度的子空间来降低映射复杂度——在特征值问题、参数化 PDE 和迭代法加速等场景中均取得显著效果。
+
+**[DGNet: Discrete Green Networks for Data-Efficient Learning of Spatiotemporal PDEs](dgnet_discrete_green_networks_for_data-efficient_learning_of_spatiotemporal_pdes.md)**
+
+:   基于Green函数理论，将叠加原理嵌入物理-神经混合架构，构建离散Green网络DGNet，在仅用数十条训练轨迹的条件下实现SOTA精度，并展现对未见源项的鲁棒零样本泛化。
 
 **[DRIFT-Net: A Spectral--Coupled Neural Operator for PDEs Learning](drift-net_a_spectral--coupled_neural_operator_for_pdes_learning.md)**
 
@@ -102,3 +110,7 @@ item_total: 14
 **[Sublinear Time Quantum Algorithm for Attention Approximation](sublinear_time_quantum_algorithm_for_attention_approximation.md)**
 
 :   提出首个对序列长度 $n$ 具有**亚线性**时间复杂度的量子数据结构，用于近似 Transformer 注意力矩阵的行查询，预处理时间 $\widetilde{O}(\epsilon^{-1} n^{0.5} \cdot \text{poly}(d, s_\lambda, \alpha))$，每次行查询 $\widetilde{O}(s_\lambda^2 + s_\lambda d)$，相对经典算法实现了关于 $n$ 的二次加速。
+
+**[Supervised Metric Regularization Through Alternating Optimization for Multi-Regime PINNs](supervised_metric_regularization_through_alternating_optimization_for_multi-regi.md)**
+
+:   提出拓扑感知 PINN (TAPINN)，通过监督度量正则化（Triplet Loss）结构化潜空间 + 交替优化调度稳定训练，在 Duffing 振荡器多域问题上物理残差降低约 49%（0.082 vs 0.160），梯度方差降低 2.18×。

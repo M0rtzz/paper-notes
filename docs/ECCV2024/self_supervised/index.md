@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 自监督/表示学习论文汇总 · 13篇论文解读
+  ECCV2024 自监督/表示学习论文汇总 · 15篇论文解读
 description: >-
-  13篇ECCV2024的自监督/表示学习方向论文解读，涵盖自监督学习、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  15篇ECCV2024的自监督/表示学习方向论文解读，涵盖自监督学习、布局/合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "自监督/表示学习"
@@ -11,6 +11,8 @@ tags:
   - "自监督学习"
   - "布局/合成"
 item_list:
+  - u: "adaptive_multihead_contrastive_learning/"
+    t: "Adaptive Multi-head Contrastive Learning"
   - u: "coho_context-sensitive_city-scale_hierarchical_urban_layout_generation/"
     t: "COHO: Context-Sensitive City-Scale Hierarchical Urban Layout Generation"
   - u: "efficient_image_pre-training_with_siamese_cropped_masked_autoencoders/"
@@ -31,23 +33,29 @@ item_list:
     t: "Rethinking Unsupervised Outlier Detection via Multiple Thresholding"
   - u: "revisiting_supervision_for_continual_representation_learning/"
     t: "Revisiting Supervision for Continual Representation Learning"
+  - u: "scpnet_unsupervised_cross-modal_homography_estimation_via_intra-modal_self-super/"
+    t: "SCPNet: Unsupervised Cross-modal Homography Estimation via Intra-modal Self-supervised Learning"
   - u: "self-supervised_video_copy_localization_with_regional_token_representation/"
     t: "Self-supervised Video Copy Localization with Regional Token Representation"
   - u: "vic-mae_self-supervised_representation_learning_from_images_and_video_with_contr/"
     t: "ViC-MAE: Self-Supervised Representation Learning from Images and Video with Contrastive Masked Autoencoders"
   - u: "wecromcl_weakly_supervised_cross-modality_contrastive_learning_for_transcription/"
     t: "WeCromCL: Weakly Supervised Cross-Modality Contrastive Learning for Transcription-only Supervised Text Spotting"
-item_total: 13
+item_total: 15
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔄 自监督/表示学习
 
-**🎞️ ECCV2024** · **13** 篇论文解读
+**🎞️ ECCV2024** · **15** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (32)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (34)](../../NeurIPS2025/self_supervised/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/self_supervised/index.md) · [💬 ACL2026 (1)](../../ACL2026/self_supervised/index.md) · [📷 CVPR2026 (34)](../../CVPR2026/self_supervised/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/self_supervised/index.md) · [🤖 AAAI2026 (16)](../../AAAI2026/self_supervised/index.md) · [🧠 NeurIPS2025 (35)](../../NeurIPS2025/self_supervised/index.md)
 
-🔥 **高频主题：** 自监督学习 ×4
+🔥 **高频主题：** 自监督学习 ×6
+
+**[Adaptive Multi-head Contrastive Learning](adaptive_multihead_contrastive_learning.md)**
+
+:   本文提出AMCL（Adaptive Multi-head Contrastive Learning），通过多个投影头产生不同特征视角，配合基于MLE推导的自适应温度机制为每对样本独立加权，有效解决了多种数据增强下正负样本相似度分布重叠的问题，一致提升SimCLR、MoCo和Barlow Twins的性能。
 
 **[COHO: Context-Sensitive City-Scale Hierarchical Urban Layout Generation](coho_context-sensitive_city-scale_hierarchical_urban_layout_generation.md)**
 
@@ -88,6 +96,10 @@ item_total: 13
 **[Revisiting Supervision for Continual Representation Learning](revisiting_supervision_for_continual_representation_learning.md)**
 
 :   挑战了"自监督学习在持续表征学习中优于监督学习"的普遍观点，发现**监督学习加上 MLP 投影头**即可在持续学习场景下构建出比 SSL 更强的表征——关键不在于有无标签，而在于 MLP projector 对特征可迁移性的提升作用。
+
+**[SCPNet: Unsupervised Cross-modal Homography Estimation via Intra-modal Self-supervised Learning](scpnet_unsupervised_cross-modal_homography_estimation_via_intra-modal_self-super.md)**
+
+:   提出 SCPNet，通过模内自监督学习（intra-modal self-supervised learning）、相关性网络和一致性特征图投影三个关键组件的协同，首次在卫星-地图等大模态差距数据集上实现了有效的无监督跨模态单应性估计，MACE 比监督方法 MHN 低 14%。
 
 **[Self-supervised Video Copy Localization with Regional Token Representation](self-supervised_video_copy_localization_with_regional_token_representation.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 医疗NLP论文汇总 · 11篇论文解读
+  AAAI2026 医疗NLP论文汇总 · 12篇论文解读
 description: >-
-  11篇AAAI2026的医疗 NLP 方向论文解读，涵盖医学影像、LLM、RAG、生物分子等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  12篇AAAI2026的医疗 NLP 方向论文解读，涵盖医学影像、LLM、RAG、生物分子等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "医疗 NLP"
@@ -35,15 +35,17 @@ item_list:
     t: "Real-Time Trust Verification for Safe Agentic Actions Using TrustBench"
   - u: "shortagesim_simulating_drug_shortages_under_information_asymmetry/"
     t: "ShortageSim: Simulating Drug Shortages under Information Asymmetry"
-item_total: 11
+  - u: "voices_faces_and_feelings_multi-modal_emotion-cognition_captioning_for_mental_he/"
+    t: "Voices, Faces, and Feelings: Multi-modal Emotion-Cognition Captioning for Mental Health Understanding"
+item_total: 12
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🩺 医疗 NLP
 
-**🤖 AAAI2026** · **11** 篇论文解读
+**🤖 AAAI2026** · **12** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (13)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/medical_nlp/index.md) · [💬 ACL2026 (47)](../../ACL2026/medical_nlp/index.md) · [📷 CVPR2026 (1)](../../CVPR2026/medical_nlp/index.md) · [🔬 ICLR2026 (13)](../../ICLR2026/medical_nlp/index.md) · [🧠 NeurIPS2025 (15)](../../NeurIPS2025/medical_nlp/index.md) · [🧪 ICML2025 (4)](../../ICML2025/medical_nlp/index.md)
 
 🔥 **高频主题：** 医学影像 ×3 · LLM ×2 · RAG ×2 · 生物分子 ×2
 
@@ -90,3 +92,7 @@ item_total: 11
 **[ShortageSim: Simulating Drug Shortages under Information Asymmetry](shortagesim_simulating_drug_shortages_under_information_asymmetry.md)**
 
 :   提出 ShortageSim，首个基于 **LLM 多智能体**的药品短缺模拟框架，建模 FDA 监管者、制造商和购买者在信息不对称下的战略决策，在历史短缺数据上实现对解决滞后时间 84% 的预测改善，为监管策略评估提供受控测试平台。
+
+**[Voices, Faces, and Feelings: Multi-modal Emotion-Cognition Captioning for Mental Health Understanding](voices_faces_and_feelings_multi-modal_emotion-cognition_captioning_for_mental_he.md)**
+
+:   提出情感-认知协同多模态描述（ECMC）任务和框架，通过双流BridgeNet从视频、音频、文本中提取情感和认知特征，利用LLaMA生成自然语言描述，为心理健康评估提供可解释的情感-认知画像，显著提升辅助诊断的准确性和可解释性。

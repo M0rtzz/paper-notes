@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 LLM安全论文汇总 · 52篇论文解读
+  ICLR2026 LLM安全论文汇总 · 55篇论文解读
 description: >-
-  52篇ICLR2026的 LLM 安全方向论文解读，涵盖对抗鲁棒、LLM、联邦学习、推理、水印/隐写、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  55篇ICLR2026的 LLM 安全方向论文解读，涵盖对抗鲁棒、LLM、联邦学习、推理、水印/隐写、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "LLM 安全"
@@ -13,12 +13,14 @@ tags:
   - "联邦学习"
   - "推理"
   - "水印/隐写"
-  - "扩散模型"
+  - "多模态"
 item_list:
   - u: "attention_smoothing_is_all_you_need_for_unlearning/"
     t: "Attention Smoothing Is All You Need For Unlearning"
   - u: "audiotrust_benchmarking_the_multifaceted_trustworthiness_of_audio_large_language/"
     t: "AudioTrust: Benchmarking the Multifaceted Trustworthiness of Audio Large Language Models"
+  - u: "beat_visual_backdoor_attacks_on_vlm-based_embodied_agents_via_contrastive_trigge/"
+    t: "BEAT: Visual Backdoor Attacks on VLM-based Embodied Agents via Contrastive Trigger Learning"
   - u: "biasbusters_uncovering_and_mitigating_tool_selection_bias_in_large_language_mode/"
     t: "BiasBusters: Uncovering and Mitigating Tool Selection Bias in Large Language Models"
   - u: "converge_faster_talk_less_hessian-informed_federated_zeroth-order_optimization/"
@@ -55,6 +57,8 @@ item_list:
     t: "Inoculation Prompting: Eliciting Traits from LLMs during Training Can Suppress Them at Test-Time"
   - u: "lifelong_learning_with_behavior_consolidation_for_vehicle_routing/"
     t: "Lifelong Learning with Behavior Consolidation for Vehicle Routing"
+  - u: "llm_unlearning_with_llm_beliefs/"
+    t: "LLM Unlearning with LLM Beliefs"
   - u: "measuring_physical-world_privacy_awareness_of_large_language_models_an_evaluatio/"
     t: "Measuring Physical-World Privacy Awareness of Large Language Models: An Evaluation Benchmark"
   - u: "membership_inference_attacks_against_fine-tuned_diffusion_language_models/"
@@ -71,21 +75,17 @@ item_list:
     t: "Perturbation-Induced Linearization: Constructing Unlearnable Data with Solely Linear Classifiers"
   - u: "pmark_towards_robust_and_distortion-free_semantic-level_watermarking_with_channe/"
     t: "PMark: Towards Robust and Distortion-free Semantic-level Watermarking with Channel Constraints"
-  - u: "purifying_generative_llms_from_backdoors_without_prior_knowledge_or_clean_refere/"
-    t: "Purifying Generative LLMs from Backdoors without Prior Knowledge or Clean Reference"
-  - u: "reasoning_or_retrieval_a_study_of_answer_attribution_on_large_reasoning_models/"
-    t: "Reasoning or Retrieval? A Study of Answer Attribution on Large Reasoning Models"
-item_total: 52
+item_total: 55
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM 安全
 
-**🔬 ICLR2026** · **52** 篇论文解读
+**🔬 ICLR2026** · **55** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🤖 AAAI2026 (42)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (11)](../../ICCV2025/llm_safety/index.md)
 
-🔥 **高频主题：** 对抗鲁棒 ×10 · LLM ×8 · 联邦学习 ×6 · 推理 ×6 · 水印/隐写 ×3
+🔥 **高频主题：** 对抗鲁棒 ×11 · LLM ×9 · 联邦学习 ×6 · 推理 ×6 · 水印/隐写 ×3
 
 **[Attention Smoothing Is All You Need For Unlearning](attention_smoothing_is_all_you_need_for_unlearning.md)**
 
@@ -94,6 +94,10 @@ item_total: 52
 **[AudioTrust: Benchmarking the Multifaceted Trustworthiness of Audio Large Language Models](audiotrust_benchmarking_the_multifaceted_trustworthiness_of_audio_large_language.md)**
 
 :   提出 AudioTrust，首个针对音频大语言模型（ALLM）的多维度可信度评估基准，涵盖公平性、幻觉、安全性、隐私、鲁棒性和认证六大维度，设计 26 个子任务和 4420+ 音频样本，系统评估了 14 个 SOTA 开/闭源 ALLM 在高风险音频场景下的可信度边界。
+
+**[BEAT: Visual Backdoor Attacks on VLM-based Embodied Agents via Contrastive Trigger Learning](beat_visual_backdoor_attacks_on_vlm-based_embodied_agents_via_contrastive_trigge.md)**
+
+:   提出 BEAT，首个针对 VLM 驱动具身智能体的视觉后门攻击框架，使用环境中的物体（如刀具）作为触发器，通过两阶段训练（SFT + Contrastive Trigger Learning）实现精准的后门激活，攻击成功率最高 80%，同时维持正常任务性能，揭示了 VLM 具身智能体的关键安全漏洞。
 
 **[BiasBusters: Uncovering and Mitigating Tool Selection Bias in Large Language Models](biasbusters_uncovering_and_mitigating_tool_selection_bias_in_large_language_mode.md)**
 
@@ -167,6 +171,10 @@ item_total: 52
 
 :   提出 LLR-BC 框架，在神经 VRP 求解器的终身学习场景中，通过决策步骤级经验缓冲、置信度感知加权（CaEW）和反向 KL 散度行为巩固（DsBC），在分布与规模同时变化的任务序列上将平均性能差距（AP）降低一个数量级，同时保持学新任务的可塑性并提升零样本泛化。
 
+**[LLM Unlearning with LLM Beliefs](llm_unlearning_with_llm_beliefs.md)**
+
+:   揭示GA/NPO等LLM遗忘方法存在"挤压效应"(squeezing effect)——降低目标响应概率后概率质量转移到语义相关的高似然区域导致虚假遗忘，提出基于Bootstrapping的框架，利用模型自身高置信度预测(model beliefs)作为额外遗忘目标，BS-T(token级)和BS-S(序列级)两种实现在TOFU/MUSE/WMDP多个基准上实现更彻底的遗忘且保持模型效用。
+
 **[Measuring Physical-World Privacy Awareness of Large Language Models: An Evaluation Benchmark](measuring_physical-world_privacy_awareness_of_large_language_models_an_evaluatio.md)**
 
 :   提出 EAPrivacy——首个评估 LLM 物理世界隐私感知的 4 层级基准（400+ 程序化生成场景，60+ 物理场景），发现所有 frontier 模型存在"非对称保守"（任务执行过度保守但隐私保护不足），开启 reasoning 模式反而降低隐私表现，最佳模型（Gemini 2.5 Pro）在动态环境中仅 59% 准确率。
@@ -222,6 +230,10 @@ item_total: 52
 **[Resource-Adaptive Federated Text Generation with Differential Privacy](resource-adaptive_federated_text_generation_with_differential_privacy.md)**
 
 :   提出一种资源自适应的联邦文本生成框架，通过强客户端 DP 微调 + 弱客户端 DP 投票两阶段设计，在计算异构和差分隐私约束下生成高质量合成文本数据。
+
+**[Rethinking Benign Relearning: Syntax as the Hidden Driver of Unlearning Failures](rethinking_benign_relearning_syntax_as_the_hidden_driver_of_the_safety_tax.md)**
+
+:   本文揭示了 LLM 机器遗忘中"良性重学习"（benign relearning）的真正驱动因素不是主题相关性而是**句法相似性**，并提出**句法多样化（syntactic diversification）**策略来提升遗忘的鲁棒性。
 
 **[Revisiting the Past: Data Unlearning with Model State History](revisiting_the_past_data_unlearning_with_model_state_history.md)**
 

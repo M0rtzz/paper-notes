@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 LLM/NLP论文汇总 · 27篇论文解读
+  ICML2025 LLM/NLP论文汇总 · 28篇论文解读
 description: >-
-  27篇ICML2025的 LLM / NLP 方向论文解读，涵盖 LLM、少样本学习、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  28篇ICML2025的 LLM / NLP 方向论文解读，涵盖 LLM、少样本学习、时序预测等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICML2025"
   - "LLM / NLP"
@@ -30,6 +30,8 @@ item_list:
     t: "Expert Evaluation of LLM World Models: A High-Tc Superconductivity Case Study"
   - u: "generalized_interpolating_discrete_diffusion/"
     t: "Generalized Interpolating Discrete Diffusion"
+  - u: "generative_social_choice_the_next_generation/"
+    t: "Generative Social Choice: The Next Generation"
   - u: "interchangeable_token_embeddings_for_extendable_vocabulary_and_alpha-equivalence/"
     t: "Interchangeable Token Embeddings for Extendable Vocabulary and Alpha-Equivalence"
   - u: "la_rosa_enhancing_llm_efficiency_via_layerwise_rotated_sparse_activation/"
@@ -66,15 +68,15 @@ item_list:
     t: "Towards Universal Offline Black-Box Optimization via Learning Language Model Embeddings"
   - u: "when_will_it_fail_anomaly_to_prompt_for_forecasting_future_anomalies_in_time_ser/"
     t: "When Will It Fail?: Anomaly to Prompt for Forecasting Future Anomalies in Time Series"
-item_total: 27
+item_total: 28
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 💬 LLM / NLP
 
-**🧪 ICML2025** · **27** 篇论文解读
+**🧪 ICML2025** · **28** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (33)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (51)](../../NeurIPS2025/llm_nlp/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (37)](../../ICML2026/llm_nlp/index.md) · [💬 ACL2026 (58)](../../ACL2026/llm_nlp/index.md) · [📷 CVPR2026 (2)](../../CVPR2026/llm_nlp/index.md) · [🔬 ICLR2026 (34)](../../ICLR2026/llm_nlp/index.md) · [🤖 AAAI2026 (28)](../../AAAI2026/llm_nlp/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/llm_nlp/index.md)
 
 🔥 **高频主题：** LLM ×6 · 少样本学习 ×2 · 时序预测 ×2
 
@@ -113,6 +115,10 @@ item_total: 27
 **[Generalized Interpolating Discrete Diffusion](generalized_interpolating_discrete_diffusion.md)**
 
 :   提出广义插值离散扩散框架 GIDD，将掩码扩散 (MDM) 推广为支持任意时变混合分布的扩散族，通过结合掩码与均匀噪声赋予模型自纠错能力，在扩散语言建模中取得 compute-matched SOTA。
+
+**[Generative Social Choice: The Next Generation](generative_social_choice_the_next_generation.md)**
+
+:   将生成式社会选择框架扩展至带成本/预算约束和近似查询的场景，提出 DemocraticProcess 算法并给出近乎最优的近似比例代表性理论保证，实现了实用系统 PROSE（基于 GPT-4o）在药物评论和城市治理数据集上验证有效性。
 
 **[Interchangeable Token Embeddings for Extendable Vocabulary and Alpha-Equivalence](interchangeable_token_embeddings_for_extendable_vocabulary_and_alpha-equivalence.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICLR2026 LLMAgent论文汇总 · 39篇论文解读
+  ICLR2026 LLMAgent论文汇总 · 40篇论文解读
 description: >-
-  39篇ICLR2026的 LLM Agent 方向论文解读，涵盖 LLM、Agent、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  40篇ICLR2026的 LLM Agent 方向论文解读，涵盖 LLM、Agent、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ICLR2026"
   - "LLM Agent"
@@ -19,6 +19,8 @@ item_list:
     t: "Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models"
   - u: "agentsynth_scalable_task_generation_for_generalist_computer-use_agents/"
     t: "AgentSynth: Scalable Task Generation for Generalist Computer-Use Agents"
+  - u: "autofigure_generating_and_refining_publication-ready_scientific_illustrations/"
+    t: "AutoFigure: Generating and Refining Publication-Ready Scientific Illustrations"
   - u: "chatinject_abusing_chat_templates_for_prompt_injection_in_llm_agents/"
     t: "ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents"
   - u: "comind_towards_community-driven_agents_for_machine_learning_engineering/"
@@ -71,15 +73,13 @@ item_list:
     t: "ST-WebAgentBench: A Benchmark for Evaluating Safety and Trustworthiness in Web Agents"
   - u: "the_controllability_trap_a_governance_framework_for_military_ai_systems/"
     t: "The Controllability Trap: A Governance Framework for Military AI Agents"
-  - u: "the_tool_decathlon_benchmarking_language_agents_for_diverse_realistic_and_long-h/"
-    t: "The Tool Decathlon: Benchmarking Language Agents for Diverse, Realistic, and Long-Horizon Task Execution"
-item_total: 39
+item_total: 40
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🦾 LLM Agent
 
-**🔬 ICLR2026** · **39** 篇论文解读
+**🔬 ICLR2026** · **40** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (43)](../../ICML2026/llm_agent/index.md) · [💬 ACL2026 (78)](../../ACL2026/llm_agent/index.md) · [📷 CVPR2026 (15)](../../CVPR2026/llm_agent/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/llm_agent/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/llm_agent/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/llm_agent/index.md)
 
@@ -96,6 +96,10 @@ item_total: 39
 **[AgentSynth: Scalable Task Generation for Generalist Computer-Use Agents](agentsynth_scalable_task_generation_for_generalist_computer-use_agents.md)**
 
 :   提出AgentSynth pipeline，利用信息不对称原理（正向逐步生成简单、反向整体求解困难）将简单子任务链式组合为复杂长程计算机使用任务，自动生成6000+多样化任务和轨迹，每条轨迹仅需$0.60，SOTA Agent在最高难度下成功率仅4%。
+
+**[AutoFigure: Generating and Refining Publication-Ready Scientific Illustrations](autofigure_generating_and_refining_publication-ready_scientific_illustrations.md)**
+
+:   提出AutoFigure——第一个基于"推理渲染"范式的Agent框架，通过解耦结构布局规划和美学渲染两阶段自动从长科学文本生成达到出版质量的科学插图，配合首个大规模基准FigureBench（3,300对）进行系统评估，66.7%的生成结果被原作者认为可用于camera-ready版本。
 
 **[ChatInject: Abusing Chat Templates for Prompt Injection in LLM Agents](chatinject_abusing_chat_templates_for_prompt_injection_in_llm_agents.md)**
 

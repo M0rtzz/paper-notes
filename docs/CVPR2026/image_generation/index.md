@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 图像生成论文汇总 · 219篇论文解读
+  CVPR2026 图像生成论文汇总 · 220篇论文解读
 description: >-
-  219篇CVPR2026的图像生成方向论文解读，涵盖扩散模型、文生图、布局/合成、对齐/RLHF、多模态、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  220篇CVPR2026的图像生成方向论文解读，涵盖扩散模型、文生图、布局/合成、对齐/RLHF、多模态、人脸/视线等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2026"
   - "图像生成"
@@ -31,6 +31,8 @@ item_list:
     t: "AlignVAR: Towards Globally Consistent Visual Autoregression for Image Super-Resolution"
   - u: "all_in_one_slider_attribute_manipulation/"
     t: "All-in-One Slider for Attribute Manipulation in Diffusion Models"
+  - u: "anchoring_and_rescaling_attention_for_semantically_coherent_inbetweening/"
+    t: "Anchoring and Rescaling Attention for Semantically Coherent Inbetweening"
   - u: "ani3dhuman_photorealistic_3d_human_animation_with_self-guided_stochastic_samplin/"
     t: "Ani3DHuman: Photorealistic 3D Human Animation with Self-guided Stochastic Sampling"
   - u: "apple_attribute-preserving_pseudo-labeling_for_diffusion-based_face_swapping/"
@@ -73,17 +75,15 @@ item_list:
     t: "CFG-Ctrl: Control-Based Classifier-Free Diffusion Guidance"
   - u: "changebridge_spatiotemporal_image_generation_with_multimodal_controls_for_remote/"
     t: "ChangeBridge: Spatiotemporal Image Generation with Multimodal Controls for Remote Sensing"
-  - u: "chordedit_one-step_low-energy_transport_for_image_editing/"
-    t: "ChordEdit: One-Step Low-Energy Transport for Image Editing"
-item_total: 219
+item_total: 220
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🎨 图像生成
 
-**📷 CVPR2026** · **219** 篇论文解读
+**📷 CVPR2026** · **220** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [🔬 ICLR2026 (136)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (220)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (125)](../../ICML2026/image_generation/index.md) · [💬 ACL2026 (5)](../../ACL2026/image_generation/index.md) · [🔬 ICLR2026 (137)](../../ICLR2026/image_generation/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/image_generation/index.md) · [🧠 NeurIPS2025 (222)](../../NeurIPS2025/image_generation/index.md) · [📹 ICCV2025 (212)](../../ICCV2025/image_generation/index.md)
 
 🔥 **高频主题：** 扩散模型 ×72 · 文生图 ×19 · 布局/合成 ×11 · 对齐/RLHF ×10 · 多模态 ×10
 
@@ -118,6 +118,10 @@ item_total: 219
 **[All-in-One Slider for Attribute Manipulation in Diffusion Models](all_in_one_slider_attribute_manipulation.md)**
 
 :   提出 All-in-One Slider 框架，通过在文本嵌入空间上训练一个属性稀疏自编码器（Attribute Sparse Autoencoder），将多种人脸属性解耦为稀疏的语义方向，实现单一轻量模块对 52+ 种属性的细粒度连续控制，并支持多属性组合和未见属性的零样本操控。
+
+**[Anchoring and Rescaling Attention for Semantically Coherent Inbetweening](anchoring_and_rescaling_attention_for_semantically_coherent_inbetweening.md)**
+
+:   提出 KAB（Keyframe-Anchored Attention Bias）和 ReTRo（Rescaled Temporal RoPE）两个无需训练的推理时方法，基于 Wan2.1 视频扩散模型解决稀疏关键帧下大运动生成式帧插值（GI）中的语义不忠、帧不一致和节奏不稳问题，并构建首个文本条件 GI 评估基准 TGI-Bench。
 
 **[Ani3DHuman: Photorealistic 3D Human Animation with Self-guided Stochastic Sampling](ani3dhuman_photorealistic_3d_human_animation_with_self-guided_stochastic_samplin.md)**
 

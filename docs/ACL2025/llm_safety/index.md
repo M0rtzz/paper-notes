@@ -1,8 +1,8 @@
 ---
 title: >-
-  ACL2025 LLM安全论文汇总 · 69篇论文解读
+  ACL2025 LLM安全论文汇总 · 70篇论文解读
 description: >-
-  69篇ACL2025的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、水印/隐写、对齐/RLHF、Agent、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  70篇ACL2025的 LLM 安全方向论文解读，涵盖 LLM、对抗鲁棒、水印/隐写、对齐/RLHF、Agent、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ACL2025"
   - "LLM 安全"
@@ -41,6 +41,8 @@ item_list:
     t: "ComparisonQA: Evaluating Factuality Robustness of LLMs Through Knowledge Frequency Control and Uncertainty"
   - u: "core_robust_factual_precision_with_informative_sub-claim_identification/"
     t: "Core: Robust Factual Precision with Informative Sub-Claim Identification"
+  - u: "correcting_hallucinations_in_news_summaries_exploration_of_self-correcting_llm_m/"
+    t: "Correcting Hallucinations in News Summaries: Exploration of Self-Correcting LLM Methods with External Knowledge"
   - u: "cracking_hallucination_vhd/"
     t: "Cracking the Code of Hallucination in LVLMs with Vision-aware Head Divergence"
   - u: "defense_prompt_injection/"
@@ -73,19 +75,17 @@ item_list:
     t: "How Does Response Length Affect Long-Form Factuality"
   - u: "improved_unbiased_watermark_for_large_language/"
     t: "Improved Unbiased Watermark for Large Language Models"
-  - u: "improving_factuality_with_explicit_working_memory/"
-    t: "Ewe: Improving Factuality with Explicit Working Memory"
-item_total: 69
+item_total: 70
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM 安全
 
-**💬 ACL2025** · **69** 篇论文解读
+**💬 ACL2025** · **70** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (24)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (82)](../../NeurIPS2025/llm_safety/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (47)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (128)](../../ACL2026/llm_safety/index.md) · [📷 CVPR2026 (26)](../../CVPR2026/llm_safety/index.md) · [🔬 ICLR2026 (55)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (42)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (85)](../../NeurIPS2025/llm_safety/index.md)
 
-🔥 **高频主题：** LLM ×32 · 对抗鲁棒 ×19 · 水印/隐写 ×6 · 对齐/RLHF ×3 · Agent ×2
+🔥 **高频主题：** LLM ×33 · 对抗鲁棒 ×19 · 水印/隐写 ×6 · 对齐/RLHF ×3 · Agent ×2
 
 **[A Statistical and Multi-Perspective Revisiting of the Membership Inference Attack in Large Language Models](a_statistical_and_multi-perspective_revisiting_of_the_membership_inference_attac.md)**
 
@@ -138,6 +138,10 @@ item_total: 69
 **[Core: Robust Factual Precision with Informative Sub-Claim Identification](core_robust_factual_precision_with_informative_sub-claim_identification.md)**
 
 :   本文提出 Core 框架，通过识别和过滤信息性子声明（informative sub-claims）来实现鲁棒的事实精度（factual precision）评估，解决了现有方法因无信息声明的稀释效应而导致评估不准确的问题。
+
+**[Correcting Hallucinations in News Summaries: Exploration of Self-Correcting LLM Methods with External Knowledge](correcting_hallucinations_in_news_summaries_exploration_of_self-correcting_llm_m.md)**
+
+:   系统性地探究了两种自纠正方法（CoVE 和 RARR）在新闻摘要幻觉纠正中的表现，比较了三种搜索引擎、多种检索设置和提示策略，发现 Bing 搜索片段 + RARR（few-shot）组合效果最佳，且 G-Eval 与人类评估高度一致。
 
 **[Cracking the Code of Hallucination in LVLMs with Vision-aware Head Divergence](cracking_hallucination_vhd.md)**
 

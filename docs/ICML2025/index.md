@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICML2025 论文汇总 · 1048篇论文解读，5分钟读懂核心思想
+  ICML2025 论文汇总 · 1061篇论文解读，每篇5分钟读懂核心思想
 description: >-
-  1048篇ICML2025论文解读，涵盖图像生成(92篇)、模型压缩(75篇)、强化学习(70篇)、优化/理论(61篇)、多模态 VLM(51篇)、计算生物(47篇)、LLM 安全(41篇)、AI 安全(36篇)等 45个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  1061篇ICML2025论文解读，涵盖图像生成(92篇)、模型压缩(75篇)、强化学习(70篇)、优化/理论(61篇)、多模态 VLM(51篇)、计算生物(48篇)、LLM 安全(42篇)、AI 安全(36篇)等 46个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ICML2025"
   - "ICML2025论文汇总"
@@ -79,13 +79,13 @@ item_list:
     t: "Gaussian Mixture Flow Matching Models"
   - u: "image_generation/gaussmarker_robust_dual-domain_watermark_for_diffusion_models/"
     t: "GaussMarker: Robust Dual-Domain Watermark for Diffusion Models"
-item_total: 1048
+item_total: 1061
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧪 ICML2025 论文汇总
 
-1048篇ICML2025论文解读，涵盖图像生成(92篇)、模型压缩(75篇)、强化学习(70篇)、优化/理论(61篇)、多模态 VLM(51篇)、计算生物(47篇)、LLM 安全(41篇)、AI 安全(36篇)等 45个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+1061篇ICML2025论文解读，涵盖图像生成(92篇)、模型压缩(75篇)、强化学习(70篇)、优化/理论(61篇)、多模态 VLM(51篇)、计算生物(48篇)、LLM 安全(42篇)、AI 安全(36篇)等 46个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 
 <div class="conf-index" markdown>
 
@@ -1573,6 +1573,10 @@ item_total: 1048
 
 :   GeoRCG 提出两阶段分子生成框架——先生成低维的几何表示(informative representation)，再以此为条件生成完整分子，在条件分子生成任务上平均提升 50%，同时可将扩散步数从 1000 减少到 100。
 
+**[Global Context-aware Representation Learning for Spatially Resolved Transcriptomics](computational_biology/global_context-aware_representation_learning_for_spatially_resolved_transcriptom.md)**
+
+:   提出 Spotscape 框架，通过 Similarity Telescope 模块捕获 spot 间的全局相似关系（而非仅依赖空间局部邻居），并引入原型对比学习和相似度尺度匹配策略处理多切片批次效应，在空间域识别、轨迹推断、多切片整合与对齐等任务上全面超越现有方法。
+
 **[Graph Generative Pre-trained Transformer (G2PT)](computational_biology/graph_generative_pre-trained_transformer.md)**
 
 :   提出 G2PT——将图编码为节点+边的 token 序列，用 GPT 风格的自回归 Transformer 做 next-token prediction 来生成图，并通过拒绝采样微调(RFT)和 PPO 强化学习实现目标导向分子生成，在通用图和分子数据集上均达到 SOTA。
@@ -1808,6 +1812,10 @@ item_total: 1048
 **[Robust Multi-bit Text Watermark with LLM-based Paraphrasers](llm_safety/robust_multi-bit_text_watermark_with_llm-based_paraphrasers.md)**
 
 :   提出基于LLM释义器（paraphraser）的多比特文本水印方法，通过共训练一对行为差异化的释义器和一个解码分类器，利用PPO强化学习优化编码-解码对，在1.1B小模型上实现>99.99% AUC的检测精度，同时保持文本语义不变。
+
+**[SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability](llm_safety/saebench_a_comprehensive_benchmark_for_sparse_autoencoders_in_language_model_int.md)**
+
+:   提出 SAEBench——一个包含 8 项评估指标的综合基准，系统评测稀疏自编码器（SAE）在语言模型可解释性中的表现，揭示了代理指标（稀疏-保真度）与下游任务性能之间的严重脱节。
 
 **[Safety Alignment Can Be Not Superficial With Explicit Safety Signals](llm_safety/safety_alignment_can_be_not_superficial_with_explicit_safety_signals.md)**
 
@@ -2161,6 +2169,10 @@ item_total: 1048
 
 :   提出Configurable Preference Tuning (CPT)框架，通过基于细粒度rubric生成的合成偏好数据训练LLM，使模型能在推理时仅通过修改system prompt就动态调整行为风格，无需重新训练，在多个基座模型上准确率从0.52-0.68提升至0.76-0.83。
 
+**[DeltaSHAP: Explaining Prediction Evolutions in Online Patient Monitoring with Shapley Values](interpretability/deltashap_explaining_prediction_evolutions_in_online_patient_monitoring_with_sha.md)**
+
+:   DeltaSHAP 是一种专为在线患者监护系统设计的可解释AI算法，通过将 Shapley 值适配到时序场景，解释连续预测之间的**变化量**而非绝对预测值，同时提供特征归因的**方向和幅度**，在 MIMIC-III 基准上实现 62% 的解释质量提升和 33% 的计算时间缩减。
+
 **[Do Sparse Autoencoders Generalize? A Case Study of Answerability](interpretability/do_sparse_autoencoders_generalize_a_case_study_of_answerability.md)**
 
 :   本文系统评估了稀疏自编码器（SAE）提取的特征在"可回答性"（answerability）任务上的跨域泛化能力，发现 SAE 特征的域外迁移表现极不一致——在某些数据集上优于残差流线性探针，但在另一些上接近随机，揭示了当前 SAE 可解释性方法在捕获抽象概念方面的根本局限。
@@ -2428,6 +2440,10 @@ item_total: 1048
 **[Generalized Interpolating Discrete Diffusion](llm_nlp/generalized_interpolating_discrete_diffusion.md)**
 
 :   提出广义插值离散扩散框架 GIDD，将掩码扩散 (MDM) 推广为支持任意时变混合分布的扩散族，通过结合掩码与均匀噪声赋予模型自纠错能力，在扩散语言建模中取得 compute-matched SOTA。
+
+**[Generative Social Choice: The Next Generation](llm_nlp/generative_social_choice_the_next_generation.md)**
+
+:   将生成式社会选择框架扩展至带成本/预算约束和近似查询的场景，提出 DemocraticProcess 算法并给出近乎最优的近似比例代表性理论保证，实现了实用系统 PROSE（基于 GPT-4o）在药物评论和城市治理数据集上验证有效性。
 
 **[Interchangeable Token Embeddings for Extendable Vocabulary and Alpha-Equivalence](llm_nlp/interchangeable_token_embeddings_for_extendable_vocabulary_and_alpha-equivalence.md)**
 
@@ -2867,11 +2883,99 @@ item_total: 1048
 
 ---
 
+## ⚛️ 物理/科学计算 { #physics }
+
+**[Causal-PIK: Causality-based Physical Reasoning with a Physics-Informed Kernel](physics/causal-pik_causality-based_physical_reasoning_with_a_physics-informed_kernel.md)**
+
+:   提出 Causal-PIK，通过将物理因果相似性编码为贝叶斯优化的核函数（Physics-Informed Kernel），使智能体在物理推理任务中仅需极少次尝试即可找到最优动作，在 Virtual Tools 和 PHYRE 基准上超越 SOTA。
+
+**[Causal Discovery of Latent Variables in Galactic Archaeology](physics/causal_discovery_of_latent_variables_in_galactic_archaeology.md)**
+
+:   利用基于秩的潜变量因果发现算法（RLCD），仅从五个可观测恒星属性中，以纯数据驱动的方式自动恢复出两个物理上有意义的潜变量——出生半径和引导半径，验证了因果发现方法在天体物理学中发现隐藏物理量的潜力。
+
+**[Closed-form Symbolic Solutions: A New Perspective on Solving Partial Differential Equations](physics/closed-form_solutions_a_new_perspective_on_solving_differential_equations.md)**
+
+:   本文提出 SymPDE 框架，利用深度强化学习直接搜索 PDE 的闭式符号解，绕过了 PINNs 数值解精度不足和可解释性差的问题，在 Poisson 方程和热方程上达到 90% 的恢复率。
+
+**[Compact Matrix Quantum Group Equivariant Neural Networks](physics/compact_matrix_quantum_group_equivariant_neural_networks.md)**
+
+:   本文将群等变神经网络扩展到**紧致矩阵量子群**的设定下，利用 Woronowicz 形式的 Tannaka-Krein 对偶理论刻画了该类网络的权重矩阵，为非交换几何上的数据学习提供了理论基础。
+
+**[Differentiable Stellar Atmospheres with Physics-Informed Neural Networks](physics/differentiable_stellar_atmospheres_with_physics-informed_neural_networks.md)**
+
+:   提出 Kurucz-a1，一个物理约束神经网络（PINN），用于模拟一维恒星大气模型（LTE 假设），解决了可微恒星光谱学中大气结构求解器不可微的关键瓶颈，在流体静力平衡和太阳光谱一致性上甚至优于经典 ATLAS-12 代码。
+
+**[Erwin: A Tree-based Hierarchical Transformer for Large-scale Physical Systems](physics/erwin_a_tree-based_hierarchical_transformer_for_large-scale_physical_systems.md)**
+
+:   提出 Erwin，一种基于 ball tree 分层结构的 Transformer 架构，通过将注意力计算限制在固定大小的局部球区域内，实现线性时间复杂度，同时通过渐进式粗化/细化和跨球交互机制捕获多尺度特征，在宇宙学、分子动力学、PDE 求解和粒子流体动力学多个领域达到 SOTA。
+
+**[Finetuning Stellar Spectra Foundation Models with LoRA](physics/finetuning_stellar_spectra_foundation_models_with_lora.md)**
+
+:   首次将 LoRA 应用于恒星光谱基础模型 SpecCLIP，实现以约 100-200 个标注样本将预训练在 LAMOST/Gaia XP 上的模型高效适配到 DESI 巡天数据，证明 LoRA 是跨光谱巡天迁移的轻量而有效策略。
+
+**[Gravity-Bench-v1: A Benchmark on Gravitational Physics Discovery for Agents](physics/gravity-bench-v1_a_benchmark_on_gravitational_physics_discovery_for_agents.md)**
+
+:   提出 **Gravity-Bench-v1**，一个基于引力动力学模拟的**环境交互式**基准测试，评估 AI Agent 在受限观测预算下进行科学发现（包括 OOD 物理场景）的能力，发现当前模型在观测规划和预算利用方面存在显著不足。
+
+**[Improving Memory Efficiency for Training KANs via Meta Learning](physics/improving_memory_efficiency_for_training_kans_via_meta_learning.md)**
+
+:   提出 MetaKANs，用一个小型元学习器（meta-learner）生成 KAN 中所有可学习激活函数的参数，将可训练参数量从 KAN 的 $(G+k+1)$ 倍压缩到接近 MLP 水平（约 1/3 到 1/9），同时保持甚至提升性能。
+
+**[L2D: Large Language Models to Diffusion Finetuning](physics/large_language_models_to_diffusion_finetuning.md)**
+
+:   提出L2D微调方法，将预训练LLM视为单步扩散模型，引入并行扩散路径实现多步推理缩放，不修改原始权重即可随推理步数增加获得单调递增的准确率，在4个LLM上的数学/编码/推理任务上取得一致提升。
+
+**[Liger: Linearizing Large Language Models to Gated Recurrent Structures](physics/liger_linearizing_large_language_models_to_gated_recurrent_structures.md)**
+
+:   Liger 将预训练 Transformer LLM 无额外参数地转换为门控线性循环结构，利用 Key 投影矩阵复用构建门控机制，仅需 0.02% 预训练 token 即可恢复原模型 93% 的性能，同时获得线性时间推理和恒定显存开销。
+
+**[Maximal Update Parametrization and Zero-Shot Hyperparameter Transfer for Fourier Neural Operators](physics/maximal_update_parametrization_and_zero-shot_hyperparameter_transfer_for_fourier.md)**
+
+:   首次为 Fourier Neural Operator (FNO) 推导了 Maximal Update Parametrization (μP)，使得在小模型上调优的超参数可以零样本迁移到十亿参数级 FNO，将 Navier-Stokes 问题的调参计算量降至 0.30×。
+
+**[Mixture-of-Expert Variational Autoencoders for Cross-Modality Embedding of Type Ia Supernova Data](physics/mixture-of-expert_variational_autoencoders_for_cross-modality_embedding_of_type_.md)**
+
+:   提出基于 Perceiver-IO 架构的多模态混合专家 VAE（MMVAE），对 Ia 型超新星的光变曲线和光谱进行联合嵌入，实现从光变曲线到光谱的跨模态概率生成，重建精度优于对比学习基线。
+
+**[OmniArch: Building Foundation Model For Scientific Computing](physics/omniarch_building_foundation_model_for_scientific_computing.md)**
+
+:   OmniArch 是首个在 1D-2D-3D PDE 上进行统一预训练的科学计算基础模型，通过 Fourier 编解码器解决多尺度问题、Temporal Mask 机制处理多物理量耦合、PDE-Aligner 实现物理先验对齐，在 PDEBench 的 11 类 PDE 上达到了 SOTA 性能。
+
+**[PAC Learning with Improvements](physics/pac_learning_with_improvements.md)**
+
+:   提出"带改进的 PAC 学习"框架：当 agent 能真正提升自身特征至多 $r$ 时，保守分类器可实现零误差（将标准 PAC 中不可能的目标变为可能），有限 VC 维既非充分也非必要条件，改进学习与标准 PAC 和策略性分类存在本质分离。
+
+**[Rethink the Role of Deep Learning towards Large-scale Quantum Systems](physics/rethink_the_role_of_deep_learning_towards_large-scale_quantum_systems.md)**
+
+:   在统一量子资源约束下系统性地对比 ML 与 DL 在量子系统学习 (QSL) 任务中的表现，发现传统 ML（Lasso/Ridge/核方法）往往匹配甚至超越 DL，挑战了"大规模量子系统必须用深度学习"的直觉。
+
+**[Sum-of-Parts: Self-Attributing Neural Networks with End-to-End Learning of Feature Groups](physics/sum-of-parts_self-attributing_neural_networks_with_end-to-end_learning_of_featur.md)**
+
+:   SOP 提出了一种将任意可微分模型转换为基于分组的自归因神经网络（SANN）的框架，通过端到端学习特征分组实现了在 SANN 中的 SOTA 性能，并从理论上证明了逐特征 SANN 的误差下界和分组 SANN 的零误差可达性。
+
+**[Teaching LLMs to Speak Spectroscopy](physics/teaching_llms_to_speak_spectroscopy.md)**
+
+:   仅使用 16 GPU 小时和 0.04% 的参数适配，通过 LoRA 将 **LLaMA-3.1-8B** 改造为可从光谱数据预测星系红移的模型，同时保留 85%+ 的语言能力，证明通用 LLM 可高效适配非文本科学模态。
+
+**[The Dark Side of the Forces: Assessing Non-Conservative Force Models for Atomistic Machine Learning](physics/the_dark_side_of_the_forces_assessing_non-conservative_force_models_for_atomisti.md)**
+
+:   系统评估非保守力（直接预测而非从势能求导）机器学习原子间势在几何优化和分子动力学中的灾难性后果，并提出保守+非保守混合模型通过多时间步方案兼顾效率与物理正确性。
+
+**[Universal Neural Optimal Transport](physics/universal_neural_optimal_transport.md)**
+
+:   提出 UNOT（Universal Neural Optimal Transport），利用 Fourier Neural Operator 学习跨数据集、跨分辨率的熵正则化最优传输对偶势函数，实现对 Sinkhorn 算法最高 7.4× 的加速初始化。
+
+---
+
 ## 🤖 机器人/具身智能 { #robotics }
 
 **[Action-Constrained Imitation Learning](robotics/action-constrained_imitation_learning.md)**
 
 :   形式化了"动作约束模仿学习(ACIL)"新问题——受限Agent从无约束专家学习，提出DTWIL通过MPC+DTW距离生成替代性约束轨迹来消除占用度量失配，在多种机器人任务上显著优于基线。
+
+**[Beyond CVaR: Leveraging Static Spectral Risk Measures for Enhanced Decision-Making in Distributional Reinforcement Learning](robotics/beyond_cvar_leveraging_static_spectral_risk_measures_for_enhanced_decision-makin.md)**
+
+:   提出首个在分布式 RL 框架内优化一般静态谱风险度量（SRM）的算法，超越了仅限于简单 CVaR 的现有方法，通过利用回报分布实现闭式外层优化和中间风险度量的时间分解，在多种风险设置中超越现有风险敏感 DRL 模型。
 
 **[BiAssemble: Learning Collaborative Affordance for Bimanual Geometric Assembly](robotics/biassemble_learning_collaborative_affordance_for_bimanual_geometric_assembly.md)**
 
@@ -2985,6 +3089,10 @@ item_total: 1048
 
 :   MARGE 提出了一种基于"命中引导探索"（hit-guided exploration）的方法来增强 LLM 的数学推理能力，通过系统地探索自生成解答中的中间推理状态，实现充分探索和更好的信用分配，无需外部标注或额外价值模型，同时提升了单次准确率和探索多样性。
 
+**[No Soundness in the Real World: On the Challenges of the Verification of Deployed Neural Networks](llm_reasoning/no_soundness_in_the_real_world_on_the_challenges_of_the_verification_of_deployed.md)**
+
+:   本文证明所有当前最先进的神经网络验证器都只提供"理论健全性"（约束全精度输出）而非"实际健全性"（约束部署环境中的浮点输出），并通过构造环境敏感的对抗性后门网络，实证验证了所有测试验证器均可被欺骗。
+
 **[One Missing Piece for Open-Source Reasoning Models: A Dataset to Mitigate Cold-Starting Short CoT LLMs in RL](llm_reasoning/one_missing_piece_for_open-source_reasoning_models_a_dataset_to_mitigate_cold-st.md)**
 
 :   提出 Long CoT Collection——一个由短CoT LLM（如GPT-4o）标注的100K长链推理数据集，通过从o1提取推理流程（reasoning flow）作为间接引导，使短CoT模型也能生成高质量长推理链，从而有效缓解开源推理模型在强化学习阶段的冷启动问题，初始化后的模型在RLVR中获得2-3倍的性能提升。
@@ -3020,82 +3128,6 @@ item_total: 1048
 **[Towards Better Chain-of-Thought: A Reflection on Effectiveness and Faithfulness](llm_reasoning/towards_better_chain-of-thought_a_reflection_on_effectiveness_and_faithfulness.md)**
 
 :   本文从有效性（effectiveness）和忠实性（faithfulness）两个维度系统分析了 CoT 的性能影响因素，发现问题难度、信息增益和信息流是影响 CoT 有效性的关键因子，而不忠实 CoT 的根因在于模型在预测答案时绕过 CoT 直接从问题中召回了正确信息，并据此提出 QUIRE 方法同时提升 CoT 的有效性和忠实性。
-
----
-
-## ⚛️ 物理/科学计算 { #physics }
-
-**[Causal-PIK: Causality-based Physical Reasoning with a Physics-Informed Kernel](physics/causal-pik_causality-based_physical_reasoning_with_a_physics-informed_kernel.md)**
-
-:   提出 Causal-PIK，通过将物理因果相似性编码为贝叶斯优化的核函数（Physics-Informed Kernel），使智能体在物理推理任务中仅需极少次尝试即可找到最优动作，在 Virtual Tools 和 PHYRE 基准上超越 SOTA。
-
-**[Causal Discovery of Latent Variables in Galactic Archaeology](physics/causal_discovery_of_latent_variables_in_galactic_archaeology.md)**
-
-:   利用基于秩的潜变量因果发现算法（RLCD），仅从五个可观测恒星属性中，以纯数据驱动的方式自动恢复出两个物理上有意义的潜变量——出生半径和引导半径，验证了因果发现方法在天体物理学中发现隐藏物理量的潜力。
-
-**[Closed-form Symbolic Solutions: A New Perspective on Solving Partial Differential Equations](physics/closed-form_solutions_a_new_perspective_on_solving_differential_equations.md)**
-
-:   本文提出 SymPDE 框架，利用深度强化学习直接搜索 PDE 的闭式符号解，绕过了 PINNs 数值解精度不足和可解释性差的问题，在 Poisson 方程和热方程上达到 90% 的恢复率。
-
-**[Compact Matrix Quantum Group Equivariant Neural Networks](physics/compact_matrix_quantum_group_equivariant_neural_networks.md)**
-
-:   本文将群等变神经网络扩展到**紧致矩阵量子群**的设定下，利用 Woronowicz 形式的 Tannaka-Krein 对偶理论刻画了该类网络的权重矩阵，为非交换几何上的数据学习提供了理论基础。
-
-**[Differentiable Stellar Atmospheres with Physics-Informed Neural Networks](physics/differentiable_stellar_atmospheres_with_physics-informed_neural_networks.md)**
-
-:   提出 Kurucz-a1，一个物理约束神经网络（PINN），用于模拟一维恒星大气模型（LTE 假设），解决了可微恒星光谱学中大气结构求解器不可微的关键瓶颈，在流体静力平衡和太阳光谱一致性上甚至优于经典 ATLAS-12 代码。
-
-**[Finetuning Stellar Spectra Foundation Models with LoRA](physics/finetuning_stellar_spectra_foundation_models_with_lora.md)**
-
-:   首次将 LoRA 应用于恒星光谱基础模型 SpecCLIP，实现以约 100-200 个标注样本将预训练在 LAMOST/Gaia XP 上的模型高效适配到 DESI 巡天数据，证明 LoRA 是跨光谱巡天迁移的轻量而有效策略。
-
-**[Gravity-Bench-v1: A Benchmark on Gravitational Physics Discovery for Agents](physics/gravity-bench-v1_a_benchmark_on_gravitational_physics_discovery_for_agents.md)**
-
-:   提出 **Gravity-Bench-v1**，一个基于引力动力学模拟的**环境交互式**基准测试，评估 AI Agent 在受限观测预算下进行科学发现（包括 OOD 物理场景）的能力，发现当前模型在观测规划和预算利用方面存在显著不足。
-
-**[Improving Memory Efficiency for Training KANs via Meta Learning](physics/improving_memory_efficiency_for_training_kans_via_meta_learning.md)**
-
-:   提出 MetaKANs，用一个小型元学习器（meta-learner）生成 KAN 中所有可学习激活函数的参数，将可训练参数量从 KAN 的 $(G+k+1)$ 倍压缩到接近 MLP 水平（约 1/3 到 1/9），同时保持甚至提升性能。
-
-**[L2D: Large Language Models to Diffusion Finetuning](physics/large_language_models_to_diffusion_finetuning.md)**
-
-:   提出L2D微调方法，将预训练LLM视为单步扩散模型，引入并行扩散路径实现多步推理缩放，不修改原始权重即可随推理步数增加获得单调递增的准确率，在4个LLM上的数学/编码/推理任务上取得一致提升。
-
-**[Liger: Linearizing Large Language Models to Gated Recurrent Structures](physics/liger_linearizing_large_language_models_to_gated_recurrent_structures.md)**
-
-:   Liger 将预训练 Transformer LLM 无额外参数地转换为门控线性循环结构，利用 Key 投影矩阵复用构建门控机制，仅需 0.02% 预训练 token 即可恢复原模型 93% 的性能，同时获得线性时间推理和恒定显存开销。
-
-**[Maximal Update Parametrization and Zero-Shot Hyperparameter Transfer for Fourier Neural Operators](physics/maximal_update_parametrization_and_zero-shot_hyperparameter_transfer_for_fourier.md)**
-
-:   首次为 Fourier Neural Operator (FNO) 推导了 Maximal Update Parametrization (μP)，使得在小模型上调优的超参数可以零样本迁移到十亿参数级 FNO，将 Navier-Stokes 问题的调参计算量降至 0.30×。
-
-**[Mixture-of-Expert Variational Autoencoders for Cross-Modality Embedding of Type Ia Supernova Data](physics/mixture-of-expert_variational_autoencoders_for_cross-modality_embedding_of_type_.md)**
-
-:   提出基于 Perceiver-IO 架构的多模态混合专家 VAE（MMVAE），对 Ia 型超新星的光变曲线和光谱进行联合嵌入，实现从光变曲线到光谱的跨模态概率生成，重建精度优于对比学习基线。
-
-**[OmniArch: Building Foundation Model For Scientific Computing](physics/omniarch_building_foundation_model_for_scientific_computing.md)**
-
-:   OmniArch 是首个在 1D-2D-3D PDE 上进行统一预训练的科学计算基础模型，通过 Fourier 编解码器解决多尺度问题、Temporal Mask 机制处理多物理量耦合、PDE-Aligner 实现物理先验对齐，在 PDEBench 的 11 类 PDE 上达到了 SOTA 性能。
-
-**[PAC Learning with Improvements](physics/pac_learning_with_improvements.md)**
-
-:   提出"带改进的 PAC 学习"框架：当 agent 能真正提升自身特征至多 $r$ 时，保守分类器可实现零误差（将标准 PAC 中不可能的目标变为可能），有限 VC 维既非充分也非必要条件，改进学习与标准 PAC 和策略性分类存在本质分离。
-
-**[Rethink the Role of Deep Learning towards Large-scale Quantum Systems](physics/rethink_the_role_of_deep_learning_towards_large-scale_quantum_systems.md)**
-
-:   在统一量子资源约束下系统性地对比 ML 与 DL 在量子系统学习 (QSL) 任务中的表现，发现传统 ML（Lasso/Ridge/核方法）往往匹配甚至超越 DL，挑战了"大规模量子系统必须用深度学习"的直觉。
-
-**[Teaching LLMs to Speak Spectroscopy](physics/teaching_llms_to_speak_spectroscopy.md)**
-
-:   仅使用 16 GPU 小时和 0.04% 的参数适配，通过 LoRA 将 **LLaMA-3.1-8B** 改造为可从光谱数据预测星系红移的模型，同时保留 85%+ 的语言能力，证明通用 LLM 可高效适配非文本科学模态。
-
-**[The Dark Side of the Forces: Assessing Non-Conservative Force Models for Atomistic Machine Learning](physics/the_dark_side_of_the_forces_assessing_non-conservative_force_models_for_atomisti.md)**
-
-:   系统评估非保守力（直接预测而非从势能求导）机器学习原子间势在几何优化和分子动力学中的灾难性后果，并提出保守+非保守混合模型通过多时间步方案兼顾效率与物理正确性。
-
-**[Universal Neural Optimal Transport](physics/universal_neural_optimal_transport.md)**
-
-:   提出 UNOT（Universal Neural Optimal Transport），利用 Fourier Neural Operator 学习跨数据集、跨分辨率的熵正则化最优传输对偶势函数，实现对 Sinkhorn 算法最高 7.4× 的加速初始化。
 
 ---
 
@@ -3247,6 +3279,74 @@ item_total: 1048
 
 ---
 
+## 🧊 3D 视觉 { #3d_vision }
+
+**[ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization](3d_vision/adhmr_aligning_diffusion-based_human_mesh_recovery_via_direct_preference_optimiz.md)**
+
+:   将DPO思想引入扩散式人体网格恢复(HMR)：训练HMR-Scorer评估预测质量，构建偏好数据集(winner/loser对)，用DPO微调基座扩散模型，无需3D标注即可提升in-the-wild图像上的HMR性能。
+
+**[D-Fusion: Direct Preference Optimization for Aligning Diffusion Models with Visually Consistent Samples](3d_vision/d-fusion_direct_preference_optimization_for_aligning_diffusion_models_with_visua.md)**
+
+:   本文提出 D-Fusion 方法，通过 mask 引导的自注意力融合（Self-Attention Fusion）构建视觉一致的偏好数据对并保留去噪轨迹，解决了 DPO 训练扩散模型时因视觉不一致导致效果受限的问题，在多种 RL 算法和 prompt 类型上显著提升了 prompt-image 对齐质量。
+
+**[Diverse Prototypical Ensembles Improve Robustness to Subpopulation Shift](3d_vision/diverse_prototypical_ensembles_improve_robustness_to_subpopulation_shift.md)**
+
+:   提出 Diversified Prototypical Ensemble (DPE)，用多个多样化的原型分类器替换标准线性分类头，通过显式（inter-prototype similarity loss）和隐式（bootstrap 采样）两种多样化策略，在不需要子群标注的情况下自适应发现子群决策边界，显著提升 worst-group accuracy。
+
+**[FlowDrag: 3D-aware Drag-based Image Editing with Mesh-guided Deformation Vector Flow Fields](3d_vision/flowdrag_3d-aware_drag-based_image_editing_with_mesh-guided_deformation_vector_f.md)**
+
+:   提出 FlowDrag，从图像构建 3D 网格后利用渐进式 SR-ARAP 变形生成连续 2D 向量流场，将全局几何先验注入扩散模型的 motion supervision 过程，在 DragBench（MD=22.88）和新提出的 VFD-Bench（PSNR=18.55, 1-LPIPS=0.82, MD=28.23）上全面领先。
+
+**[FreeMesh: Boosting Mesh Generation with Coordinates Merging](3d_vision/freemesh_boosting_mesh_generation_with_coordinates_merging.md)**
+
+:   提出 Per-Token-Mesh-Entropy（PTME）度量来免训练评估网格tokenizer质量，并引入从NLP借鉴的 Rearrange & Merge Coordinates（RMC）坐标合并技术，在 MeshXL/MeshAnythingV2/EdgeRunner 三种tokenizer上实现最高21.2%的压缩率、显著增加可生成面片数和几何细节保留。
+
+**[GAPrompt: Geometry-Aware Point Cloud Prompt for 3D Vision Model](3d_vision/gaprompt_geometry-aware_point_cloud_prompt_for_3d_vision_model.md)**
+
+:   提出 GAPrompt，针对预训练 3D 视觉模型的几何感知 PEFT 方法，通过可学习点云提示 (Point Prompt)、点偏移提示器 (Point Shift Prompter) 和提示传播 (Prompt Propagation) 三个模块协同利用点云几何信息，仅训练 2.19% 参数即可匹配甚至超越全量微调。
+
+**[High Dynamic Range Novel View Synthesis with Single Exposure](3d_vision/high_dynamic_range_novel_view_synthesis_with_single_exposure.md)**
+
+:   首次提出仅使用单曝光LDR图像进行HDR新视角合成（HDR-NVS）的问题设定，并设计了一个基于相机成像原理的元算法框架Mono-HDR-3D，通过LDR→HDR颜色转换器（L2H-CC）和HDR→LDR闭环转换器（H2L-CC）实现无HDR监督下的HDR场景建模。
+
+**[Of Mice and Machines: A Comparison of Learning Between Real World Mice and RL Agents](3d_vision/of_mice_and_machines_a_comparison_of_learning_between_real_world_mice_and_rl_age.md)**
+
+:   系统比较真实小鼠与RL智能体在捕食者-猎物迷宫中的行为差异，发现RL缺乏自我保护本能，提出创伤启发安全缓冲（TISB）和方差惩罚TD学习（VP-TDMPC-2）两种机制，将智能体与小鼠的状态访问重叠率从20.9%提升至86.1%。
+
+**[PhysicsNeRF: Physics-Guided 3D Reconstruction from Sparse Views](3d_vision/physicsnerf_physics-guided_3d_reconstruction_from_sparse_views.md)**
+
+:   PhysicsNeRF 提出了一个基于物理先验的稀疏视角 NeRF 框架，通过深度排序、跨视角一致性、稀疏性正则和渐进训练四种互补约束，在仅 8 个视角下实现 21.4 dB 的 PSNR，并对稀疏视角下过拟合的本质进行了深入的理论分析。
+
+**[Probabilistic Interactive 3D Segmentation with Hierarchical Neural Processes](3d_vision/probabilistic_interactive_3d_segmentation_with_hierarchical_neural_processes.md)**
+
+:   NPISeg3D提出了首个基于层次化神经过程（Hierarchical Neural Processes）的概率交互式3D分割框架，通过场景级和物体级双层潜变量结构以及概率原型调制器，在少量点击下实现了优于AGILE3D的分割精度，同时提供可靠的不确定性估计。
+
+**[ReferSplat: Referring Segmentation in 3D Gaussian Splatting](3d_vision/refersplat_referring_segmentation_in_3d_gaussian_splatting.md)**
+
+:   ReferSplat 提出了 Referring 3D Gaussian Splatting Segmentation（R3DGS）新任务，通过构建 3D Gaussian Referring Fields、位置感知跨模态交互模块和 Gaussian-Text 对比学习，实现了基于自然语言描述在 3DGS 场景中分割目标物体（包括遮挡/不可见物体），在新构建的 Ref-LERF 数据集和开放词汇分割基准上取得 SOTA。
+
+**[SE(3)-Equivariant Diffusion Policy in Spherical Fourier Space](3d_vision/se3-equivariant_diffusion_policy_in_spherical_fourier_space.md)**
+
+:   提出在球面 Fourier 空间中构建 SE(3) 等变扩散策略，利用球谐函数的等变性质使策略对输入场景的刚体变换保持等变，在机器人操作任务上实现更好的空间泛化。
+
+**[LaGa: Tackling View-Dependent Semantics in 3D Language Gaussian Splatting](3d_vision/tackling_view-dependent_semantics_in_3d_language_gaussian_splatting.md)**
+
+:   提出LaGa方法，通过3D场景分解建立跨视角语义连接、用自适应聚类+双因子重加权构建视角聚合语义表示，解决3D语言高斯中被忽视的视角依赖语义问题，在LERF-OVS上3D mIoU达64.0%（+18.7%）。
+
+**[The Sharpness Disparity Principle in Transformers for Accelerating Language Model Pre-Training](3d_vision/the_sharpness_disparity_principle_in_transformers_for_accelerating_language_mode.md)**
+
+:   揭示了 Transformer 中不同类型模块（Emb、QK、FFN、VO、Norm）存在显著且持久的**锐度差异**（sharpness disparity），并据此提出 Blockwise LR 策略，为低锐度模块分配更大学习率，在不损失稳定性的前提下实现 LLM 预训练近 **2× 加速**。
+
+**[Thickness-aware E(3)-Equivariant 3D Mesh Neural Networks](3d_vision/thickness-aware_e3-equivariant_3d_mesh_neural_networks.md)**
+
+:   提出 T-EMNN，通过引入厚度感知的消息传递机制和基于 PCA 的数据驱动坐标系，在保持表面网格计算效率的同时建模对立面之间的厚度交互，实现 E(3)-等变/不变的节点级 3D 形变预测。
+
+**[VTGaussian-SLAM: RGBD SLAM for Large Scale Scenes with Splatting View-Tied 3D Gaussians](3d_vision/vtgaussian-slam_rgbd_slam_for_large_scale_scenes_with_splatting_view-tied_3d_gau.md)**
+
+:   提出视图绑定3D高斯（View-Tied 3D Gaussians），将高斯绑定到深度像素上并简化为球形，大幅节省存储开销，配合仅优化最近视图相关高斯的tracking/mapping策略，实现面向大规模场景的可扩展RGBD SLAM系统。
+
+---
+
 ## 🔗 因果推理 { #causal_inference }
 
 **[Causal Abstraction Inference under Lossy Representations](causal_inference/causal_abstraction_inference_under_lossy_representations.md)**
@@ -3383,70 +3483,6 @@ item_total: 1048
 
 ---
 
-## 🧊 3D 视觉 { #3d_vision }
-
-**[ADHMR: Aligning Diffusion-based Human Mesh Recovery via Direct Preference Optimization](3d_vision/adhmr_aligning_diffusion-based_human_mesh_recovery_via_direct_preference_optimiz.md)**
-
-:   将DPO思想引入扩散式人体网格恢复(HMR)：训练HMR-Scorer评估预测质量，构建偏好数据集(winner/loser对)，用DPO微调基座扩散模型，无需3D标注即可提升in-the-wild图像上的HMR性能。
-
-**[D-Fusion: Direct Preference Optimization for Aligning Diffusion Models with Visually Consistent Samples](3d_vision/d-fusion_direct_preference_optimization_for_aligning_diffusion_models_with_visua.md)**
-
-:   本文提出 D-Fusion 方法，通过 mask 引导的自注意力融合（Self-Attention Fusion）构建视觉一致的偏好数据对并保留去噪轨迹，解决了 DPO 训练扩散模型时因视觉不一致导致效果受限的问题，在多种 RL 算法和 prompt 类型上显著提升了 prompt-image 对齐质量。
-
-**[Diverse Prototypical Ensembles Improve Robustness to Subpopulation Shift](3d_vision/diverse_prototypical_ensembles_improve_robustness_to_subpopulation_shift.md)**
-
-:   提出 Diversified Prototypical Ensemble (DPE)，用多个多样化的原型分类器替换标准线性分类头，通过显式（inter-prototype similarity loss）和隐式（bootstrap 采样）两种多样化策略，在不需要子群标注的情况下自适应发现子群决策边界，显著提升 worst-group accuracy。
-
-**[FlowDrag: 3D-aware Drag-based Image Editing with Mesh-guided Deformation Vector Flow Fields](3d_vision/flowdrag_3d-aware_drag-based_image_editing_with_mesh-guided_deformation_vector_f.md)**
-
-:   提出 FlowDrag，从图像构建 3D 网格后利用渐进式 SR-ARAP 变形生成连续 2D 向量流场，将全局几何先验注入扩散模型的 motion supervision 过程，在 DragBench（MD=22.88）和新提出的 VFD-Bench（PSNR=18.55, 1-LPIPS=0.82, MD=28.23）上全面领先。
-
-**[FreeMesh: Boosting Mesh Generation with Coordinates Merging](3d_vision/freemesh_boosting_mesh_generation_with_coordinates_merging.md)**
-
-:   提出 Per-Token-Mesh-Entropy（PTME）度量来免训练评估网格tokenizer质量，并引入从NLP借鉴的 Rearrange & Merge Coordinates（RMC）坐标合并技术，在 MeshXL/MeshAnythingV2/EdgeRunner 三种tokenizer上实现最高21.2%的压缩率、显著增加可生成面片数和几何细节保留。
-
-**[GAPrompt: Geometry-Aware Point Cloud Prompt for 3D Vision Model](3d_vision/gaprompt_geometry-aware_point_cloud_prompt_for_3d_vision_model.md)**
-
-:   提出 GAPrompt，针对预训练 3D 视觉模型的几何感知 PEFT 方法，通过可学习点云提示 (Point Prompt)、点偏移提示器 (Point Shift Prompter) 和提示传播 (Prompt Propagation) 三个模块协同利用点云几何信息，仅训练 2.19% 参数即可匹配甚至超越全量微调。
-
-**[High Dynamic Range Novel View Synthesis with Single Exposure](3d_vision/high_dynamic_range_novel_view_synthesis_with_single_exposure.md)**
-
-:   首次提出仅使用单曝光LDR图像进行HDR新视角合成（HDR-NVS）的问题设定，并设计了一个基于相机成像原理的元算法框架Mono-HDR-3D，通过LDR→HDR颜色转换器（L2H-CC）和HDR→LDR闭环转换器（H2L-CC）实现无HDR监督下的HDR场景建模。
-
-**[Of Mice and Machines: A Comparison of Learning Between Real World Mice and RL Agents](3d_vision/of_mice_and_machines_a_comparison_of_learning_between_real_world_mice_and_rl_age.md)**
-
-:   系统比较真实小鼠与RL智能体在捕食者-猎物迷宫中的行为差异，发现RL缺乏自我保护本能，提出创伤启发安全缓冲（TISB）和方差惩罚TD学习（VP-TDMPC-2）两种机制，将智能体与小鼠的状态访问重叠率从20.9%提升至86.1%。
-
-**[PhysicsNeRF: Physics-Guided 3D Reconstruction from Sparse Views](3d_vision/physicsnerf_physics-guided_3d_reconstruction_from_sparse_views.md)**
-
-:   PhysicsNeRF 提出了一个基于物理先验的稀疏视角 NeRF 框架，通过深度排序、跨视角一致性、稀疏性正则和渐进训练四种互补约束，在仅 8 个视角下实现 21.4 dB 的 PSNR，并对稀疏视角下过拟合的本质进行了深入的理论分析。
-
-**[ReferSplat: Referring Segmentation in 3D Gaussian Splatting](3d_vision/refersplat_referring_segmentation_in_3d_gaussian_splatting.md)**
-
-:   ReferSplat 提出了 Referring 3D Gaussian Splatting Segmentation（R3DGS）新任务，通过构建 3D Gaussian Referring Fields、位置感知跨模态交互模块和 Gaussian-Text 对比学习，实现了基于自然语言描述在 3DGS 场景中分割目标物体（包括遮挡/不可见物体），在新构建的 Ref-LERF 数据集和开放词汇分割基准上取得 SOTA。
-
-**[SE(3)-Equivariant Diffusion Policy in Spherical Fourier Space](3d_vision/se3-equivariant_diffusion_policy_in_spherical_fourier_space.md)**
-
-:   提出在球面 Fourier 空间中构建 SE(3) 等变扩散策略，利用球谐函数的等变性质使策略对输入场景的刚体变换保持等变，在机器人操作任务上实现更好的空间泛化。
-
-**[LaGa: Tackling View-Dependent Semantics in 3D Language Gaussian Splatting](3d_vision/tackling_view-dependent_semantics_in_3d_language_gaussian_splatting.md)**
-
-:   提出LaGa方法，通过3D场景分解建立跨视角语义连接、用自适应聚类+双因子重加权构建视角聚合语义表示，解决3D语言高斯中被忽视的视角依赖语义问题，在LERF-OVS上3D mIoU达64.0%（+18.7%）。
-
-**[The Sharpness Disparity Principle in Transformers for Accelerating Language Model Pre-Training](3d_vision/the_sharpness_disparity_principle_in_transformers_for_accelerating_language_mode.md)**
-
-:   揭示了 Transformer 中不同类型模块（Emb、QK、FFN、VO、Norm）存在显著且持久的**锐度差异**（sharpness disparity），并据此提出 Blockwise LR 策略，为低锐度模块分配更大学习率，在不损失稳定性的前提下实现 LLM 预训练近 **2× 加速**。
-
-**[Thickness-aware E(3)-Equivariant 3D Mesh Neural Networks](3d_vision/thickness-aware_e3-equivariant_3d_mesh_neural_networks.md)**
-
-:   提出 T-EMNN，通过引入厚度感知的消息传递机制和基于 PCA 的数据驱动坐标系，在保持表面网格计算效率的同时建模对立面之间的厚度交互，实现 E(3)-等变/不变的节点级 3D 形变预测。
-
-**[VTGaussian-SLAM: RGBD SLAM for Large Scale Scenes with Splatting View-Tied 3D Gaussians](3d_vision/vtgaussian-slam_rgbd_slam_for_large_scale_scenes_with_splatting_view-tied_3d_gau.md)**
-
-:   提出视图绑定3D高斯（View-Tied 3D Gaussians），将高斯绑定到深度像素上并简化为球形，大幅节省存储开销，配合仅优化最近视图相关高斯的tracking/mapping策略，实现面向大规模场景的可扩展RGBD SLAM系统。
-
----
-
 ## 🎵 音频/语音 { #audio_speech }
 
 **[Aligning Spoken Dialogue Models from User Interactions](audio_speech/aligning_spoken_dialogue_models_from_user_interactions.md)**
@@ -3508,6 +3544,58 @@ item_total: 1048
 **[Teaching Physical Awareness to LLMs through Sounds](audio_speech/teaching_physical_awareness_to_llms_through_sounds.md)**
 
 :   提出 ACORN 框架，通过基于物理的声学通道仿真器生成大规模训练数据，配合同时捕获幅度和相位信息的音频编码器，教会 LLM 从声音中理解物理世界现象。
+
+---
+
+## 🎯 目标检测 { #object_detection }
+
+**[BlueGlass: A Framework for Composite AI Safety](object_detection/blueglass_a_framework_for_composite_ai_safety.md)**
+
+:   提出 BlueGlass 复合 AI 安全框架，通过统一基础设施整合分布式评估、近似探针和稀疏自编码器三种安全分析工具，对视觉语言模型（VLM）在目标检测任务上的能力边界、层级动态和内部概念表示进行系统性安全分析。
+
+**[Causality-Aware Contrastive Learning for Robust Multivariate Time-Series Anomaly Detection](object_detection/causality-aware_contrastive_learning_for_robust_multivariate_time-series_anomaly.md)**
+
+:   提出 CAROTS——将因果关系融入对比学习的多变量时间序列异常检测框架，用因果保持增强作为正样本（正常变化），因果破坏增强作为负样本（模拟异常），训练编码器基于因果结构区分正常与异常。
+
+**[CostFilter-AD: Enhancing Anomaly Detection through Matching Cost Filtering](object_detection/costfilter-ad_enhancing_anomaly_detection_through_matching_cost_filtering.md)**
+
+:   将立体匹配/光流估计中的**代价体滤波（cost volume filtering）**思想引入无监督异常检测（UAD），构造输入与模板之间的匹配代价体，并通过3D U-Net 加双流注意力引导进行去噪滤波，作为通用后处理插件可同时提升重建型和嵌入型 UAD 方法的性能，在 MVTec-AD 和 VisA 上取得 SOTA。
+
+**[Few-Shot Learner Generalizes Across AI-Generated Image Detection](object_detection/few-shot_learner_generalizes_across_ai-generated_image_detection.md)**
+
+:   首次将 AI 生成图像检测重新定义为少样本分类任务，提出 FSD (Few-Shot Detector) 基于原型网络学习度量空间，仅用 10 个来自未见生成模型的样本，在 GenImage 数据集上平均准确率达 84.1%，超越此前 SOTA (LARE2) +11.6%。
+
+**[FG-CLIP: Fine-Grained Visual and Textual Alignment](object_detection/fg-clip_fine-grained_visual_and_textual_alignment.md)**
+
+:   FG-CLIP 系统性地解决 CLIP 细粒度理解的三大瓶颈：用 1.6B 长描述-图像对捕获全局语义细节，12M 图像+40M 区域标注实现精细区域对齐，10M 硬负样本训练模型区分微妙语义差异，在细粒度理解、开放词汇检测、图文检索等多项任务上取得全面领先。
+
+**[KAN-AD: Time Series Anomaly Detection with Kolmogorov-Arnold Networks](object_detection/kan-ad_time_series_anomaly_detection_with_kolmogorov-arnold_networks.md)**
+
+:   KAN-AD 将时间序列异常检测重新建模为用光滑单变量函数逼近序列，用截断傅里叶展开替代 KAN 中的 B 样条避免局部扰动敏感性，以不到 1000 个参数在 4 个基准上平均提升 15% 检测精度。
+
+**[Open-Det: An Efficient Learning Framework for Open-Ended Detection](object_detection/open-det_an_efficient_learning_framework_for_open-ended_detection.md)**
+
+:   Open-Det 提出了一个高效的开放端目标检测（OED）框架，通过重构目标检测器（解耦 one-to-many/one-to-one 匹配）、引入 VL-prompts 蒸馏模块桥接视觉-语言语义鸿沟、LoRa Head + Text Denoising 加速 LLM 训练、以及 Masked Alignment Loss 消除矛盾监督，仅用 GenerateU 1.5% 的训练数据和 20.8% 的训练 epoch 就取得了更高的检测性能（APr +1.0%）。
+
+**[Outlier Gradient Analysis: Efficiently Identifying Detrimental Training Samples for Deep Learning Models](object_detection/outlier_gradient_analysis_efficiently_identifying_detrimental_training_samples_f.md)**
+
+:   提出 Outlier Gradient Analysis (OGA)，将影响函数中识别有害训练样本的问题转化为梯度空间上的异常点检测，绕开了 Hessian 矩阵求逆的高计算开销，同时在噪声标签校正、NLP 数据筛选和 LLM 影响力数据识别等任务上取得优于传统影响函数方法的效果。
+
+**[Self-Organizing Visual Prototypes for Non-Parametric Representation Learning](object_detection/self-organizing_visual_prototypes_for_non-parametric_representation_learning.md)**
+
+:   提出 Self-Organizing Prototypes (SOP) 策略，用多个语义相似的支持嵌入（support embeddings）替代传统 SSL 中单一原型来表示特征空间的局部区域，并引入非参数化 MIM 任务，在检索、检测、分割等下游任务上取得 SOTA 表现。
+
+**[UI-Vision: A Desktop-centric GUI Benchmark for Visual Perception and Interaction](object_detection/ui-vision_a_desktop-centric_gui_benchmark_for_visual_perception_and_interaction.md)**
+
+:   提出 UI-Vision——首个面向桌面环境的综合离线评估基准，覆盖 83 个软件应用，提供密集的 bounding box、UI 标签和操作轨迹标注，定义从细粒度到粗粒度的三级评估任务（Element Grounding → Layout Grounding → Action Prediction），系统评估并揭示 SOTA 模型在专业软件理解、空间推理和复杂操作上的关键短板。
+
+**[Understanding the Emergence of Multimodal Representation Alignment](object_detection/understanding_the_emergence_of_multimodal_representation_alignment.md)**
+
+:   系统研究多模态表征对齐的涌现机制，发现隐式对齐的出现及其与性能的关系取决于数据的冗余/唯一信息比例和模态异质性，挑战了"更大模型→更好对齐→更好性能"的普遍假设。
+
+**[When Every Millisecond Counts: Real-Time Anomaly Detection via the Multimodal Asynchronous Hybrid Network](object_detection/when_every_millisecond_counts_real-time_anomaly_detection_via_the_multimodal_asy.md)**
+
+:   提出多模态异步混合网络，结合事件相机的高时间分辨率（异步 GNN 处理）和 RGB 相机的丰富空间特征（CNN 处理），在交通异常检测中实现 579 FPS 的推理速度和 1.17s 的平均响应时间，首次将事件流引入自动驾驶异常检测领域。
 
 ---
 
@@ -3604,54 +3692,6 @@ item_total: 1048
 **[Retraining-Free Merging of Sparse MoE via Hierarchical Clustering](llm_efficiency/retraining-free_merging_of_sparse_moe_via_hierarchical_clustering.md)**
 
 :   提出 HC-SMoE，一种基于专家输出层次聚类的无需重训练专家合并框架，通过输出相似度度量和层次聚类实现 SMoE 模型的高效压缩，在 Qwen 和 Mixtral 上分别实现 25%-50% 的专家参数缩减并保持优越性能。
-
----
-
-## 🎯 目标检测 { #object_detection }
-
-**[BlueGlass: A Framework for Composite AI Safety](object_detection/blueglass_a_framework_for_composite_ai_safety.md)**
-
-:   提出 BlueGlass 复合 AI 安全框架，通过统一基础设施整合分布式评估、近似探针和稀疏自编码器三种安全分析工具，对视觉语言模型（VLM）在目标检测任务上的能力边界、层级动态和内部概念表示进行系统性安全分析。
-
-**[Causality-Aware Contrastive Learning for Robust Multivariate Time-Series Anomaly Detection](object_detection/causality-aware_contrastive_learning_for_robust_multivariate_time-series_anomaly.md)**
-
-:   提出 CAROTS——将因果关系融入对比学习的多变量时间序列异常检测框架，用因果保持增强作为正样本（正常变化），因果破坏增强作为负样本（模拟异常），训练编码器基于因果结构区分正常与异常。
-
-**[Few-Shot Learner Generalizes Across AI-Generated Image Detection](object_detection/few-shot_learner_generalizes_across_ai-generated_image_detection.md)**
-
-:   首次将 AI 生成图像检测重新定义为少样本分类任务，提出 FSD (Few-Shot Detector) 基于原型网络学习度量空间，仅用 10 个来自未见生成模型的样本，在 GenImage 数据集上平均准确率达 84.1%，超越此前 SOTA (LARE2) +11.6%。
-
-**[FG-CLIP: Fine-Grained Visual and Textual Alignment](object_detection/fg-clip_fine-grained_visual_and_textual_alignment.md)**
-
-:   FG-CLIP 系统性地解决 CLIP 细粒度理解的三大瓶颈：用 1.6B 长描述-图像对捕获全局语义细节，12M 图像+40M 区域标注实现精细区域对齐，10M 硬负样本训练模型区分微妙语义差异，在细粒度理解、开放词汇检测、图文检索等多项任务上取得全面领先。
-
-**[KAN-AD: Time Series Anomaly Detection with Kolmogorov-Arnold Networks](object_detection/kan-ad_time_series_anomaly_detection_with_kolmogorov-arnold_networks.md)**
-
-:   KAN-AD 将时间序列异常检测重新建模为用光滑单变量函数逼近序列，用截断傅里叶展开替代 KAN 中的 B 样条避免局部扰动敏感性，以不到 1000 个参数在 4 个基准上平均提升 15% 检测精度。
-
-**[Open-Det: An Efficient Learning Framework for Open-Ended Detection](object_detection/open-det_an_efficient_learning_framework_for_open-ended_detection.md)**
-
-:   Open-Det 提出了一个高效的开放端目标检测（OED）框架，通过重构目标检测器（解耦 one-to-many/one-to-one 匹配）、引入 VL-prompts 蒸馏模块桥接视觉-语言语义鸿沟、LoRa Head + Text Denoising 加速 LLM 训练、以及 Masked Alignment Loss 消除矛盾监督，仅用 GenerateU 1.5% 的训练数据和 20.8% 的训练 epoch 就取得了更高的检测性能（APr +1.0%）。
-
-**[Outlier Gradient Analysis: Efficiently Identifying Detrimental Training Samples for Deep Learning Models](object_detection/outlier_gradient_analysis_efficiently_identifying_detrimental_training_samples_f.md)**
-
-:   提出 Outlier Gradient Analysis (OGA)，将影响函数中识别有害训练样本的问题转化为梯度空间上的异常点检测，绕开了 Hessian 矩阵求逆的高计算开销，同时在噪声标签校正、NLP 数据筛选和 LLM 影响力数据识别等任务上取得优于传统影响函数方法的效果。
-
-**[Self-Organizing Visual Prototypes for Non-Parametric Representation Learning](object_detection/self-organizing_visual_prototypes_for_non-parametric_representation_learning.md)**
-
-:   提出 Self-Organizing Prototypes (SOP) 策略，用多个语义相似的支持嵌入（support embeddings）替代传统 SSL 中单一原型来表示特征空间的局部区域，并引入非参数化 MIM 任务，在检索、检测、分割等下游任务上取得 SOTA 表现。
-
-**[UI-Vision: A Desktop-centric GUI Benchmark for Visual Perception and Interaction](object_detection/ui-vision_a_desktop-centric_gui_benchmark_for_visual_perception_and_interaction.md)**
-
-:   提出 UI-Vision——首个面向桌面环境的综合离线评估基准，覆盖 83 个软件应用，提供密集的 bounding box、UI 标签和操作轨迹标注，定义从细粒度到粗粒度的三级评估任务（Element Grounding → Layout Grounding → Action Prediction），系统评估并揭示 SOTA 模型在专业软件理解、空间推理和复杂操作上的关键短板。
-
-**[Understanding the Emergence of Multimodal Representation Alignment](object_detection/understanding_the_emergence_of_multimodal_representation_alignment.md)**
-
-:   系统研究多模态表征对齐的涌现机制，发现隐式对齐的出现及其与性能的关系取决于数据的冗余/唯一信息比例和模态异质性，挑战了"更大模型→更好对齐→更好性能"的普遍假设。
-
-**[When Every Millisecond Counts: Real-Time Anomaly Detection via the Multimodal Asynchronous Hybrid Network](object_detection/when_every_millisecond_counts_real-time_anomaly_detection_via_the_multimodal_asy.md)**
-
-:   提出多模态异步混合网络，结合事件相机的高时间分辨率（异步 GNN 处理）和 RGB 相机的丰富空间特征（CNN 处理），在交通异常检测中实现 579 FPS 的推理速度和 1.17s 的平均响应时间，首次将事件流引入自动驾驶异常检测领域。
 
 ---
 
@@ -4027,11 +4067,23 @@ item_total: 1048
 
 ---
 
+## 📖 NLP 理解 { #nlp_understanding }
+
+**[Cover Learning for Large-Scale Topology Representation](nlp_understanding/cover_learning_for_large-scale_topology_representation.md)**
+
+:   提出 Cover Learning 作为一种统一的无监督学习问题，基于优化的视角设计三项损失函数（测度、几何、拓扑）学习数据集的拓扑忠实覆盖，所得单纯复形在拓扑推断中比标准几何复形更紧凑，在大规模拓扑可视化中比 Mapper 图能表示更高维信息。
+
+---
+
 ## 📂 其他 { #others }
 
 **[Access Controls Will Solve the Dual-Use Dilemma](others/access_controls_will_solve_the_dual-use_dilemma.md)**
 
 :   提出基于访问控制的概念框架来解决AI安全中的双用途困境（dual-use dilemma），通过用户身份验证获取真实世界上下文，结合内容分类实现细粒度的权限管理，同时缓解过度拒绝（over-refusal）和不足拒绝（under-refusal）问题。
+
+**[Addressing Imbalanced Domain-Incremental Learning through Dual-Balance Collaborative Experts (DCE)](others/addressing_imbalanced_domain-incremental_learning_through_dual-balance_collabora.md)**
+
+:   DCE 提出频率感知专家组 + 动态专家选择器的双阶段训练框架，同时解决域增量学习中域内类别不平衡和跨域类别分布偏移两个难题，在四个 benchmark 上达到 SOTA。
 
 **[Adversarial Combinatorial Semi-bandits with Graph Feedback](others/adversarial_combinatorial_semi-bandits_with_graph_feedback.md)**
 
@@ -4364,6 +4416,10 @@ item_total: 1048
 **[Randomized Dimensionality Reduction for Euclidean Maximization and Diversity Measures](others/randomized_dimensionality_reduction_for_euclidean_maximization_and_diversity_mea.md)**
 
 :   证明了对一大类欧氏最大化问题（最大匹配、最大TSP、最大生成树、子图多样性等），使用数据无关的高斯 JL 变换将维度降至 $O(\lambda)$（$\lambda$ 为数据集倍增维度）即可近似保持所有候选解的值，并证明该依赖是紧的。
+
+**[Ranked Entropy Minimization for Continual Test-Time Adaptation](others/ranked_entropy_minimization_for_continual_test-time_adaptation.md)**
+
+:   提出 Ranked Entropy Minimization (REM)，通过渐进式遮挡策略构建预测难度的显式排序结构，结合遮挡一致性损失和熵排序损失，解决了熵最小化方法在持续测试时自适应(CTTA)中的模型崩塌问题，同时保持了计算效率。
 
 **[Regression for the Mean: Auto-Evaluation and Inference with Few Labels through Post-hoc Regression](others/regression_for_the_mean_auto-evaluation_and_inference_with_few_labels_through_po.md)**
 

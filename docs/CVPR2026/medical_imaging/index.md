@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 医学图像论文汇总 · 97篇论文解读
+  CVPR2026 医学图像论文汇总 · 100篇论文解读
 description: >-
-  97篇CVPR2026的医学图像方向论文解读，涵盖医学影像、语义分割、多模态、对抗鲁棒、扩散模型、联邦学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  100篇CVPR2026的医学图像方向论文解读，涵盖医学影像、语义分割、多模态、对抗鲁棒、少样本学习、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2026"
   - "医学图像"
@@ -12,8 +12,8 @@ tags:
   - "语义分割"
   - "多模态"
   - "对抗鲁棒"
+  - "少样本学习"
   - "扩散模型"
-  - "联邦学习"
 item_list:
   - u: "a_protocol_for_evaluating_robustness_to_he_stainin/"
     t: "A protocol for evaluating robustness to H&E staining variation in computational pathology models"
@@ -45,6 +45,8 @@ item_list:
     t: "BiCLIP: Bidirectional and Consistent Language-Image Processing for Robust Medical Image Segmentation"
   - u: "bridging_the_skill_gap_in_clinical_cbct_interpreta/"
     t: "Bridging the Skill Gap in Clinical CBCT Interpretation with CBCTRepD"
+  - u: "can_natural_image_autoencoders_compactly_tokenize_fmri_volumes_for_long-range_dy/"
+    t: "Can Natural Image Autoencoders Compactly Tokenize fMRI Volumes for Long-Range Dynamics Modeling?"
   - u: "chips_efficient_clip_adaptation_via_curvature-aware_hybrid_influence-based_data_/"
     t: "CHIPS: Efficient CLIP Adaptation via Curvature-aware Hybrid Influence-based Data Selection"
   - u: "cloe_expert_consistency_learning_for_missing_modality_segmentation/"
@@ -73,19 +75,17 @@ item_list:
     t: "EI: Early Intervention for Multimodal Imaging based Disease Recognition"
   - u: "emad_evidence-centric_grounded_multimodal_diagnosis_for_alzheimers_disease/"
     t: "EMAD: Evidence-Centric Grounded Multimodal Diagnosis for Alzheimer's Disease"
-  - u: "equivania_a_spectral_method_for_rotation-equivariant_anisotropic_image_analysis/"
-    t: "EquivAnIA: A Spectral Method for Rotation-Equivariant Anisotropic Image Analysis"
-item_total: 97
+item_total: 100
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🏥 医学图像
 
-**📷 CVPR2026** · **97** 篇论文解读
+**📷 CVPR2026** · **100** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [🔬 ICLR2026 (16)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (71)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (67)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md) · [🧪 ICML2025 (22)](../../ICML2025/medical_imaging/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/medical_imaging/index.md) · [🔬 ICLR2026 (21)](../../ICLR2026/medical_imaging/index.md) · [🤖 AAAI2026 (73)](../../AAAI2026/medical_imaging/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/medical_imaging/index.md) · [📹 ICCV2025 (31)](../../ICCV2025/medical_imaging/index.md) · [🧪 ICML2025 (22)](../../ICML2025/medical_imaging/index.md)
 
-🔥 **高频主题：** 医学影像 ×35 · 语义分割 ×22 · 多模态 ×12 · 对抗鲁棒 ×8 · 扩散模型 ×5
+🔥 **高频主题：** 医学影像 ×35 · 语义分割 ×22 · 多模态 ×12 · 对抗鲁棒 ×8 · 少样本学习 ×6
 
 **[A protocol for evaluating robustness to H&E staining variation in computational pathology models](a_protocol_for_evaluating_robustness_to_he_stainin.md)**
 
@@ -146,6 +146,10 @@ item_total: 97
 **[Bridging the Skill Gap in Clinical CBCT Interpretation with CBCTRepD](bridging_the_skill_gap_in_clinical_cbct_interpreta.md)**
 
 :   构建覆盖55种口腔疾病的7,408例大规模CBCT-报告配对数据集，开发双语口腔颌面CBCT报告生成系统CBCTRepD，通过AI生成草稿+放射科医生编辑的协作模式，在多层级临床评估中证明其可帮助初级医生达到中级水平、中级医生接近高级水平、高级医生减少遗漏。
+
+**[Can Natural Image Autoencoders Compactly Tokenize fMRI Volumes for Long-Range Dynamics Modeling?](can_natural_image_autoencoders_compactly_tokenize_fmri_volumes_for_long-range_dy.md)**
+
+:   提出 TABLeT，利用预训练的 2D 自然图像自编码器（DCAE）将 3D fMRI 体积压缩为仅 27 个连续 token，配合简单 Transformer 编码器实现前所未有的长时序建模（256 帧），在 UKB、HCP、ADHD-200 上多任务超越 SOTA 体素方法，且计算效率大幅提升。
 
 **[CHIPS: Efficient CLIP Adaptation via Curvature-aware Hybrid Influence-based Data Selection](chips_efficient_clip_adaptation_via_curvature-aware_hybrid_influence-based_data_.md)**
 
@@ -295,9 +299,17 @@ item_total: 97
 
 :   提出 MedKCO，一种知识驱动的认知编排策略用于医学视觉-语言预训练：通过分层课程（label-level 按诊断敏感度排序 + description-level 按样本代表性排序）和自步非对称对比损失，让模型从简单到复杂渐进学习，在三种医学模态的零样本和下游任务上显著超越基线。
 
+**[Meta-learning In-Context Enables Training-Free Cross Subject Brain Decoding](meta-learning_in-context_enables_training-free_cross_subject_brain_decoding.md)**
+
+:   提出 BrainCoDec 框架，通过两阶段层级式上下文学习（先为每个体素估计编码器参数，再跨体素聚合做功能反演），实现了无需微调即可泛化到新被试的 fMRI 视觉解码，Top-1 检索准确率从 MindEye2 的 3.9% 提升到 22.7%。
+
 **[MIL-PF: Multiple Instance Learning on Precomputed Features for Mammography Classification](milpf_multiple_instance_learning_on_precomputed_fe.md)**
 
 :   将冻结的通用基础编码器（DINOv2 ViT-Giant / MedSigLIP）与仅 ~40k 参数的轻量 MIL 聚合头结合，通过预计算特征 + 双流聚合（全局均值 + 局部 Perceiver 交叉注意力），在 EMBED 等大规模乳腺 X 线分类基准上以 5-7 分钟训练达到 SOTA（AUC 0.916, Spec@Sens=0.9 达 0.762），可训练参数比基线少 35-458 倍。
+
+**[Modeling Spatiotemporal Neural Frames for High Resolution Brain Dynamics](modeling_spatiotemporal_neural_frames_for_high_resolution_brain_dynamic.md)**
+
+:   提出基于扩散 Transformer 的 EEG 条件 fMRI 重建框架，将脑活动建模为时空神经帧序列而非独立快照，在皮层顶点级分辨率下实现时空一致的 fMRI 重建，并通过零空间采样支持中间帧插值，下游视觉解码任务验证了功能信息的保留。
 
 **[Momentum Memory for Knowledge Distillation in Computational Pathology](momentum_memory_for_knowledge_distillation_in_computational_pathology.md)**
 

@@ -1,8 +1,8 @@
 ---
 title: >-
-  AAAI2026 多智能体论文汇总 · 26篇论文解读
+  AAAI2026 多智能体论文汇总 · 27篇论文解读
 description: >-
-  26篇AAAI2026的多智能体方向论文解读，涵盖 Agent、LLM、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  27篇AAAI2026的多智能体方向论文解读，涵盖 Agent、LLM、推理、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "AAAI2026"
   - "多智能体"
@@ -65,17 +65,19 @@ item_list:
     t: "Scalable and Accurate Graph Reasoning with LLM-Based Multi-Agents"
   - u: "shadows_in_the_code_exploring_the_risks_and_defenses_of_llm-/"
     t: "Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems"
-item_total: 26
+  - u: "thucy_an_llm-based_multi-agent_system_for_claim_verification_across_relational_d/"
+    t: "Thucy: An LLM-based Multi-Agent System for Claim Verification across Relational Databases"
+item_total: 27
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 👥 多智能体
 
-**🤖 AAAI2026** · **26** 篇论文解读
+**🤖 AAAI2026** · **27** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (14)](../../ICLR2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/multi_agent/index.md) · [💬 ACL2026 (39)](../../ACL2026/multi_agent/index.md) · [🔬 ICLR2026 (15)](../../ICLR2026/multi_agent/index.md) · [🧠 NeurIPS2025 (17)](../../NeurIPS2025/multi_agent/index.md) · [🧪 ICML2025 (7)](../../ICML2025/multi_agent/index.md) · [💬 ACL2025 (8)](../../ACL2025/multi_agent/index.md)
 
-🔥 **高频主题：** Agent ×23 · LLM ×10 · 推理 ×4 · 对抗鲁棒 ×2
+🔥 **高频主题：** Agent ×24 · LLM ×11 · 推理 ×4 · 对抗鲁棒 ×2
 
 **[A Graph-Theoretical Perspective on Law Design for Multiagent Systems](a_graph-theoretical_perspective_on_law_design_for_multiagent_systems.md)**
 
@@ -180,3 +182,7 @@ item_total: 26
 **[Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems](shadows_in_the_code_exploring_the_risks_and_defenses_of_llm-.md)**
 
 :   首次系统分析 LLM 多 Agent 软件开发系统（ChatDev/MetaGPT/AgentVerse）的安全风险：提出 IMBIA 攻击框架覆盖两种威胁场景（恶意用户+良性Agent / 良性用户+恶意Agent）和 12 种恶意行为（5 大恶意软件家族），攻击成功率高达 93%（ChatDev），并设计 Adv-IMBIA 对抗性防御将 ASR 降低 40-73%。
+
+**[Thucy: An LLM-based Multi-Agent System for Claim Verification across Relational Databases](thucy_an_llm-based_multi-agent_system_for_claim_verification_across_relational_d.md)**
+
+:   提出首个跨数据库、跨表的多 Agent 声明验证系统 Thucy，由 Verifier 领导三个专家 Agent（Data/Schema/SQL Expert），对数据源完全无先验知识，能自主发现、推理并生成 SQL 证据，在 TabFact 上超越 SOTA 5.6 个百分点（94.3%）。

@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2025 视频理解论文汇总 · 68篇论文解读
+  CVPR2025 视频理解论文汇总 · 69篇论文解读
 description: >-
-  68篇CVPR2025的视频理解方向论文解读，涵盖 LLM、目标跟踪、多模态、压缩/编码、问答、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  69篇CVPR2025的视频理解方向论文解读，涵盖 LLM、目标跟踪、多模态、压缩/编码、问答、对齐/RLHF等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2025"
   - "视频理解"
@@ -15,6 +15,8 @@ tags:
   - "问答"
   - "对齐/RLHF"
 item_list:
+  - u: "anomize_better_open_vocabulary_video_anomaly_detection/"
+    t: "Anomize: Better Open Vocabulary Video Anomaly Detection"
   - u: "behaviorvlm_unified_finetuning-free_behavioral_understanding_with_vision-languag/"
     t: "BehaviorVLM: Unified Finetuning-Free Behavioral Understanding with Vision-Language Reasoning"
   - u: "beyond_single-sample_reliable_multi-sample_distillation_for_video_understanding/"
@@ -73,19 +75,19 @@ item_list:
     t: "HuMoCon: Concept Discovery for Human Motion Understanding"
   - u: "hyperglm_hypergraph_for_video_scene_graph_generation_and_anticipation/"
     t: "HyperGLM: HyperGraph for Video Scene Graph Generation and Anticipation"
-  - u: "learning_audio-guided_video_representation_with_gated_attention_for_video-text_r/"
-    t: "Learning Audio-Guided Video Representation with Gated Attention for Video-Text Retrieval"
-item_total: 68
+item_total: 69
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 视频理解
 
-**📷 CVPR2025** · **68** 篇论文解读
+**📷 CVPR2025** · **69** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (17)](../../ICML2026/video_understanding/index.md) · [💬 ACL2026 (17)](../../ACL2026/video_understanding/index.md) · [📷 CVPR2026 (83)](../../CVPR2026/video_understanding/index.md) · [🔬 ICLR2026 (10)](../../ICLR2026/video_understanding/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/video_understanding/index.md) · [🧠 NeurIPS2025 (39)](../../NeurIPS2025/video_understanding/index.md)
 
 🔥 **高频主题：** LLM ×8 · 目标跟踪 ×6 · 多模态 ×5 · 压缩/编码 ×3 · 问答 ×3
+
+**[Anomize: Better Open Vocabulary Video Anomaly Detection](anomize_better_open_vocabulary_video_anomaly_detection.md)**
 
 **[BehaviorVLM: Unified Finetuning-Free Behavioral Understanding with Vision-Language Reasoning](behaviorvlm_unified_finetuning-free_behavioral_understanding_with_vision-languag.md)**
 

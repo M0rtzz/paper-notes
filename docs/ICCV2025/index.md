@@ -1,8 +1,8 @@
 ---
 title: >-
-  ICCV2025 论文汇总 · 1300篇论文解读，5分钟读懂核心思想
+  ICCV2025 论文汇总 · 1316篇论文解读，每篇5分钟读懂核心思想
 description: >-
-  1300篇ICCV2025论文解读，涵盖 3D 视觉(252篇)、图像生成(212篇)、多模态 VLM(148篇)、自动驾驶(93篇)、语义分割(74篇)、视频理解(56篇)、模型压缩(48篇)、视频生成(48篇)等 39个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  1316篇ICCV2025论文解读，涵盖 3D 视觉(264篇)、图像生成(212篇)、多模态 VLM(149篇)、自动驾驶(93篇)、语义分割(74篇)、视频理解(56篇)、模型压缩(48篇)、视频生成(48篇)等 41个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "ICCV2025"
   - "ICCV2025论文汇总"
@@ -53,10 +53,16 @@ item_list:
     t: "AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering"
   - u: "3d_vision/aaa_gaussians_anti_aliased_artifact_free_3d_gaussian_rendering/"
     t: "AAA-Gaussians: Anti-Aliased and Artifact-Free 3D Gaussian Rendering"
+  - u: "3d_vision/accelerate_3d_object_detection_models_via_zero-shot_attention_key_pruning/"
+    t: "Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning"
+  - u: "3d_vision/adahuman_animatable_detailed_3d_human_generation_with_compositional_multiview_di/"
+    t: "AdaHuman: Animatable Detailed 3D Human Generation with Compositional Multiview Diffusion"
   - u: "3d_vision/advancing_text-to-3d_generation_with_linearized_lookahead_variational_score_dist/"
     t: "Advancing Text-to-3D Generation with Linearized Lookahead Variational Score Distillation"
   - u: "3d_vision/adversarial_exploitation_of_data_diversity_improves_visual_localization/"
     t: "Adversarial Exploitation of Data Diversity Improves Visual Localization"
+  - u: "3d_vision/ajahr_amputated_joint_aware_3d_human_mesh_recovery/"
+    t: "AJAHR: Amputated Joint Aware 3D Human Mesh Recovery"
   - u: "3d_vision/amodal3r_amodal_3d_reconstruction_from_occluded_2d_images/"
     t: "Amodal3R: Amodal 3D Reconstruction from Occluded 2D Images"
   - u: "3d_vision/amodal_depth_anything_amodal_depth_estimation_in_the_wild/"
@@ -73,19 +79,13 @@ item_list:
     t: "ATLAS: Decoupling Skeletal and Shape Parameters for Expressive Parametric Human Modeling"
   - u: "3d_vision/auto-regressively_generating_multi-view_consistent_images/"
     t: "Auto-Regressively Generating Multi-View Consistent Images"
-  - u: "3d_vision/autoocc_automatic_openended_semantic_occupancy_annotation_vi/"
-    t: "AutoOcc: Automatic Open-Ended Semantic Occupancy Annotation via Vision-Language Guided Gaussian Splatting"
-  - u: "3d_vision/back_on_track_bundle_adjustment_for_dynamic_scene_reconstruction/"
-    t: "Back on Track: Bundle Adjustment for Dynamic Scene Reconstruction"
-  - u: "3d_vision/baking_gaussian_splatting_into_diffusion_denoiser_for_fast_and_scalable_single-s/"
-    t: "Baking Gaussian Splatting into Diffusion Denoiser for Fast and Scalable Single-stage Image-to-3D Generation and Reconstruction"
-item_total: 1300
+item_total: 1316
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📹 ICCV2025 论文汇总
 
-1300篇ICCV2025论文解读，涵盖 3D 视觉(252篇)、图像生成(212篇)、多模态 VLM(148篇)、自动驾驶(93篇)、语义分割(74篇)、视频理解(56篇)、模型压缩(48篇)、视频生成(48篇)等 39个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+1316篇ICCV2025论文解读，涵盖 3D 视觉(264篇)、图像生成(212篇)、多模态 VLM(149篇)、自动驾驶(93篇)、语义分割(74篇)、视频理解(56篇)、模型压缩(48篇)、视频生成(48篇)等 41个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 
 <div class="conf-index" markdown>
 
@@ -161,6 +161,14 @@ item_total: 1300
 
 :   本文提出 AAA-Gaussians，通过自适应 3D 平滑滤波器、视空间透视正确包围盒、基于视锥体的 3D 裁剪三项技术，在统一框架内系统解决了 3DGS 的锯齿、投影失真、弹出伪影等问题，在 in-distribution 和 out-of-distribution 视角下均实现了 SOTA 的无伪影实时渲染。
 
+**[Accelerate 3D Object Detection Models via Zero-Shot Attention Key Pruning](3d_vision/accelerate_3d_object_detection_models_via_zero-shot_attention_key_pruning.md)**
+
+:   提出 tgGBC（trim keys gradually Guided By Classification scores），一种零样本运行时剪枝方法，利用分类分数与注意力图的乘积计算键重要性，逐层剪除不重要的键，在多个3D检测器上实现Transformer解码器近2×加速且性能损失<1%。
+
+**[AdaHuman: Animatable Detailed 3D Human Generation with Compositional Multiview Diffusion](3d_vision/adahuman_animatable_detailed_3d_human_generation_with_compositional_multiview_di.md)**
+
+:   提出AdaHuman框架，通过姿态条件化的3D联合扩散模型和组合式3DGS细化模块，从单张图片生成高精度、可动画化的3D人体虚拟人。
+
 **[Advancing Text-to-3D Generation with Linearized Lookahead Variational Score Distillation](3d_vision/advancing_text-to-3d_generation_with_linearized_lookahead_variational_score_dist.md)**
 
 :   通过分析 VSD 中 LoRA 模型与 3D 模型的优化顺序不匹配问题，提出线性化前瞻（Linearized Lookahead）修正项 $L^2$-VSD，仅需额外一次前向传播即可显著提升 text-to-3D 生成质量。
@@ -168,6 +176,10 @@ item_total: 1300
 **[Adversarial Exploitation of Data Diversity Improves Visual Localization](3d_vision/adversarial_exploitation_of_data_diversity_improves_visual_localization.md)**
 
 :   提出RAP框架，通过外观可变的3DGS合成多样化训练数据，并引入对抗判别器弥合合成-真实域差距，使绝对姿态回归方法在多个数据集上大幅超越SOTA——室内平移/旋转误差降低50%/41%，室外降低38%/44%。
+
+**[AJAHR: Amputated Joint Aware 3D Human Mesh Recovery](3d_vision/ajahr_amputated_joint_aware_3d_human_mesh_recovery.md)**
+
+:   首个面向截肢者的3D人体网格恢复框架——通过合成100万+截肢者图像(A3D)、设计BPAC-Net截肢分类器区分截肢与遮挡、以及双Tokenizer切换策略分别编码截肢/正常位姿先验，在截肢者数据上大幅领先(ITW-amputee上MVE比TokenHMR低16.87)，非截肢者数据上也保持竞争力。
 
 **[Amodal3R: Amodal 3D Reconstruction from Occluded 2D Images](3d_vision/amodal3r_amodal_3d_reconstruction_from_occluded_2d_images.md)**
 
@@ -249,6 +261,10 @@ item_total: 1300
 
 :   提出 DM-Calib，利用 Stable Diffusion 先验进行单目相机内参估计，设计了 Camera Image 表示将内参无损编码为图像，结合 RANSAC 解算焦距和光心，在5个零样本数据集上大幅超越现有标定方法，并推进了度量深度估计、位姿估计和稀疏视图重建等下游任务。
 
+**[Boosting Multi-View Indoor 3D Object Detection via Adaptive 3D Volume Construction](3d_vision/boosting_multiview_indoor_3d_object_detection_via_adaptive_3.md)**
+
+:   SGCDet通过几何与上下文感知的聚合模块（3D可变形注意力+多视角注意力融合）和基于占据概率的稀疏体素构建策略，在无需ground-truth几何监督的情况下，实现了多视角室内3D目标检测的SOTA性能，同时大幅降低计算开销。
+
 **[Bootstrap3D: Improving Multi-view Diffusion Model with Synthetic Data](3d_vision/bootstrap3d_improving_multi-view_diffusion_model_with_synthetic_data.md)**
 
 :   提出 Bootstrap3D 框架，利用 2D/视频扩散模型自动生成 100 万张高质量多视角图像配精细文本描述，并通过训练时间步重调度（TTR）策略在微调多视角扩散模型时平衡图像质量与视角一致性，显著提升文本到 3D 生成的质量。
@@ -264,6 +280,10 @@ item_total: 1300
 **[Bridging Diffusion Models and 3D Representations: A 3D Consistent Super-Resolution Framework](3d_vision/bridging_diffusion_models_and_3d_representations_a_3d_consistent_super-resolutio.md)**
 
 :   提出3DSR框架，将扩散模型的2D超分辨率与3D高斯溅射（3DGS）表示相结合，在每个扩散去噪步骤中通过3DGS渲染来强制多视图3D一致性，实现高保真且空间一致的3D场景超分辨率。
+
+**[Bring Your Rear Cameras for Egocentric 3D Human Pose Estimation](3d_vision/bring_your_rear_cameras_for_egocentric_3d_human_pose_estimation.md)**
+
+:   首次研究HMD后置相机对自中心3D全身姿态估计的价值，提出基于Transformer的多视图热图细化方法，结合不确定性感知掩码机制，在新建的Ego4View数据集上实现>10% MPJPE提升。
 
 **[BUFFER-X: Towards Zero-Shot Point Cloud Registration in Diverse Scenes](3d_vision/bufferx_towards_zeroshot_point_cloud_registration_in_diverse.md)**
 
@@ -461,6 +481,10 @@ item_total: 1300
 
 :   提出Find3D，构建了一个由2D基础模型（SAM + Gemini）驱动的自动化3D数据标注引擎，生成210万个部件标注，训练出首个同时具备开放世界、跨类别、部件级和前馈推理能力的3D分割模型，零样本mIoU提升260%，推理速度比现有方法快6-300倍。
 
+**[Fish2Mesh Transformer: 3D Human Mesh Recovery from Egocentric Vision](3d_vision/fish2mesh_transformer_3d_human_mesh_recovery_from_egocentric_vision.md)**
+
+:   本文提出Fish2Mesh，一个鱼眼感知的Transformer模型，通过等距矩形投影的自我中心位置编码（EPE）将鱼眼图像的球面几何信息嵌入Swin Transformer，实现从头戴鱼眼相机的第一人称视角准确恢复3D人体mesh。
+
 **[FlashDepth: Real-time Streaming Video Depth Estimation at 2K Resolution](3d_vision/flashdepth_real-time_streaming_video_depth_estimation_at_2k_resolution.md)**
 
 :   提出FlashDepth，在Depth Anything v2基础上添加Mamba循环模块实现帧间尺度一致性，并设计Small-Large混合架构在2K分辨率下达到24 FPS的实时流式视频深度估计，边界清晰度远超现有方法。
@@ -517,6 +541,10 @@ item_total: 1300
 
 :   BrickGPT 首次实现从文本提示生成物理稳定且可组装的互锁砖块结构，核心思想是将积木组装问题建模为自回归文本生成任务，并在推理时集成物理感知的有效性检查和回滚机制，确保生成结构的稳定性和可构建性。
 
+**[Geo4D: Leveraging Video Generators for Geometric 4D Scene Reconstruction](3d_vision/geo4d_leveraging_video_generators_for_geometric_4d_scene_reconstruction.md)**
+
+:   将预训练视频扩散模型(DynamiCrafter)改造为单目4D动态场景重建器——同时预测点云图、视差图和射线图三种互补几何模态，通过多模态对齐融合算法和滑动窗口推理，仅用合成数据训练即可零样本泛化至真实视频，大幅超越当前视频深度估计SOTA。
+
 **[Geometry Distributions](3d_vision/geometry_distributions.md)**
 
 :   提出Geometry Distributions (GeomDist)，将3D几何建模为表面点的概率分布并用扩散模型学习，无需假设亏格、连通性或边界条件，可从高斯噪声采样无限多表面点来表示任意拓扑的几何。
@@ -556,6 +584,10 @@ item_total: 1300
 **[Hierarchical Material Recognition from Local Appearance](3d_vision/hierarchical_material_recognition_from_local_appearance.md)**
 
 :   提出面向视觉应用的层级式材质分类学体系(taxonomy)与野外数据集 Matador（含深度图的 ~7200 张材质图像，57类），并基于图注意力网络(GAT)利用分类学的层级亲缘关系进行材质识别，在多个基准数据集上达到 SOTA，同时支持新材质的小样本学习和场景中任意点的材质探测。
+
+**[HIS-GPT: Towards 3D Human-In-Scene Multimodal Understanding](3d_vision/his-gpt_towards_3d_human-in-scene_multimodal_understanding.md)**
+
+:   提出 HIS-GPT，首个面向3D人-场景联合理解的多模态大语言模型，通过辅助交互模块(AInt)和布局-轨迹位置编码(LTP)捕获人场交互线索，并构建首个系统性基准 HIS-Bench，在HIS-QA任务上大幅超越GPT-4o等基线。
 
 **[HORT: Monocular Hand-held Objects Reconstruction with Transformers](3d_vision/hort_monocular_hand-held_objects_reconstruction_with_transformers.md)**
 
@@ -764,6 +796,14 @@ item_total: 1300
 **[PCR-GS: COLMAP-Free 3D Gaussian Splatting via Pose Co-Regularizations](3d_vision/pcr-gs_colmap-free_3d_gaussian_splatting_via_pose_co-regularizations.md)**
 
 :   提出 PCR-GS，通过 DINO 特征重投影正则化和基于小波变换的频率正则化对相机位姿进行协同约束，在无需 COLMAP 先验的条件下实现了复杂相机轨迹场景的高质量 3D-GS 重建与位姿估计。
+
+**[PersPose: 3D Human Pose Estimation with Perspective Encoding and Perspective Rotation](3d_vision/perspose_3d_human_pose_estimation_with_perspective_encoding_and_perspective_rota.md)**
+
+:   提出PersPose框架，通过透视编码(PE)将裁剪后相机内参编码为2D映射、透视旋转(PR)将人体居中以消除透视畸变，解决了现有方法忽略FOV信息导致深度估计不准确的问题。
+
+**[PHD: Personalized 3D Human Body Fitting with Point Diffusion](3d_vision/phd_personalized_3d_human_body_fitting_with_point_diffusion.md)**
+
+:   提出个性化3D人体姿态估计范式PHD——先通过SHAPify校准用户体型，再用体型条件化的点扩散模型PointDiT作为3D先验，结合Point Distillation Sampling损失迭代优化姿态，在绝对姿态精度上达到EMDB数据集SOTA。
 
 **[PlaceIt3D: Language-Guided Object Placement in Real 3D Scenes](3d_vision/placeit3d_language-guided_object_placement_in_real_3d_scenes.md)**
 
@@ -1033,6 +1073,10 @@ item_total: 1300
 
 :   提出TRACE框架，将每个3D高斯核视为刚性粒子并为其学习独立的平移-旋转动力学系统（包含速度、加速度、角速度、角加速度等完整物理参数），无需任何人工标注即可从多视角动态视频中学习3D场景的物理运动规律并准确外推未来帧。
 
+**[TriDi: Trilateral Diffusion of 3D Humans, Objects, and Interactions](3d_vision/tridi_trilateral_diffusion_of_3d_humans_objects_and_interactions.md)**
+
+:   提出 TriDi，首个建模人体(H)、物体(O)和交互(I)三变量联合分布的统一扩散模型，一个网络覆盖 7 种条件生成模式，超越各专用单向基线。
+
 **[Tune-Your-Style: Intensity-Tunable 3D Style Transfer with Gaussian Splatting](3d_vision/tune-your-style_intensity-tunable_3d_style_transfer_with_gaussian_splatting.md)**
 
 :   提出 Tune-Your-Style，首个强度可调的 3D 风格迁移范式，通过 Gaussian 神经元显式建模风格强度并参数化可学习 style tuner，配合两阶段优化策略，实现用户自由调节风格注入的程度。
@@ -1084,6 +1128,10 @@ item_total: 1300
 **[VolumetricSMPL: A Neural Volumetric Body Model for Efficient Interactions, Contacts, and Collisions](3d_vision/volumetricsmpl_a_neural_volumetric_body_model_for_efficient_interactions_contact.md)**
 
 :   提出 VolumetricSMPL，一种基于 Neural Blend Weights（NBW）的高效神经体积人体模型，相比前代 COAP 实现 10× 推理加速、6× 显存节省，并通过 SDF（而非占据函数）表示提供更精确的可微碰撞建模。
+
+**[WildSeg3D: Segment Any 3D Objects in the Wild from 2D Images](3d_vision/wildseg3d_segment_any_3d_objects_in_the_wild_from_2d_images.md)**
+
+:   提出 WildSeg3D，首个前馈式3D分割模型，无需场景特定训练，通过动态全局对齐(DGA)解决多视角点图对齐误差，结合多视角组映射(MGM)实现实时交互式3D分割，比现有SOTA快40倍且精度更优。
 
 **[WonderPlay: Dynamic 3D Scene Generation from a Single Image and Actions](3d_vision/wonderplay_dynamic_3d_scene_generation_from_a_single_image_and_actions.md)**
 
@@ -2352,6 +2400,10 @@ item_total: 1300
 **[NegRefine: Refining Negative Label-Based Zero-Shot OOD Detection](multimodal_vlm/negrefine_refining_negative_label-based_zero-shot_ood_detection.md)**
 
 :   本文提出 NegRefine，通过 LLM 过滤负标签集中的专有名词和子类别标签，并设计多标签匹配评分函数来处理图像同时匹配分布内和负标签的情况，在 ImageNet-1K 基准上平均 AUROC 提升 1.82%、FPR95 降低 4.35%，刷新了零样本 OOD 检测 SOTA。
+
+**[Oasis: One Image is All You Need for Multimodal Instruction Data Synthesis](multimodal_vlm/oasis_one_image_is_all_you_need_for_multimodal_instruction_data_synthesis.md)**
+
+:   提出Oasis方法，仅需输入图像（无需任何文本提示）即可诱导MLLM自回归生成高质量多模态指令跟随数据，配合精细的指令质量控制机制，合成50万数据给LLaVA-NeXT带来平均3.1%的全面性能提升，且超越其他合成方法。
 
 **[On Large Multimodal Models as Open-World Image Classifiers](multimodal_vlm/on_large_multimodal_models_as_open-world_image_classifiers.md)**
 
@@ -3953,6 +4005,10 @@ item_total: 1300
 
 :   提出一种从单目头部旋转视频重建面部外观属性（漫反射反照率、高光强度、高光粗糙度）的方法，通过提出遮挡感知的 split-sum 近似着色模型，在不对光照环境做任何简化假设的情况下实现了逼近工作室级别的面部外观捕捉质量。
 
+**[Multi-view Gaze Target Estimation](human_understanding/multi-view_gaze_target_estimation.md)**
+
+:   本文首次将注视目标估计（GTE）从单视角扩展到多视角，通过头部信息聚合（HIA）、基于不确定性的注视选择（UGS）和基于极线的场景注意力（ESA）三个模块融合多相机信息，在自建 MVGT 数据集上显著超越单视角 SOTA，并实现了单视角方法无法处理的跨视角估计。
+
 **[NGD: Neural Gradient Based Deformation for Monocular Garment Reconstruction](human_understanding/ngd_neural_gradient_based_deformation_for_monocular_garment_reconstruction.md)**
 
 :   提出 NGD，一种基于神经梯度的变形方法，通过将 Jacobian 场分解为帧不变的静态分量和帧相关的动态分量，结合自适应重网格化策略，从单目视频重建高保真动态纺织品几何与纹理，在宽松服装等困难场景上显著优于现有 SOTA。
@@ -5252,6 +5308,22 @@ item_total: 1300
 **[SignRep: Enhancing Self-Supervised Sign Representations](multilingual_mt/signrep_enhancing_self-supervised_sign_representations.md)**
 
 :   提出 SignRep，一个可扩展的自监督手语表征学习框架，通过在 Masked Autoencoder 预训练中利用手语骨架先验、特征正则化和对抗式风格无关损失，仅用单一 RGB 模态即超越了复杂的多模态/多分支方法，在手语识别、字典检索和手语翻译三大任务上均取得 SOTA。
+
+---
+
+## ✍️ 文本生成 { #nlp_generation }
+
+**[Beyond Isolated Words: Diffusion Brush for Handwritten Text-Line Generation](nlp_generation/beyond_isolated_words_diffusion_brush_for_handwritten_text-line_generation.md)**
+
+:   提出 DiffBrush，首个基于扩散模型的手写文本行生成方法，通过内容解耦的风格学习（列/行掩码）和多尺度内容判别器（行/词级别），在风格模仿和内容准确性上大幅超越现有方法。
+
+---
+
+## 📖 NLP 理解 { #nlp_understanding }
+
+**[Balancing Task-Invariant Interaction and Task-Specific Adaptation for Unified Image Fusion](nlp_understanding/balancing_task-invariant_interaction_and_task-specific_adaptation_for_unified_im.md)**
+
+:   TITA 提出了一种无需任务标识的统一图像融合框架，通过交互增强像素注意力（IPA）模块探索任务不变的互补信息提取，并通过基于操作的自适应融合（OAF）模块动态适配任务特定需求，同时采用 FAMO 策略缓解多任务梯度冲突。
 
 ---
 

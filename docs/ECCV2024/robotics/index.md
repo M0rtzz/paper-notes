@@ -1,8 +1,8 @@
 ---
 title: >-
-  ECCV2024 机器人/具身智能论文汇总 · 12篇论文解读
+  ECCV2024 机器人/具身智能论文汇总 · 13篇论文解读
 description: >-
-  12篇ECCV2024的机器人/具身智能方向论文解读，涵盖机器人、导航、模型压缩、LLM、少样本学习、Agent等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  13篇ECCV2024的机器人/具身智能方向论文解读，涵盖机器人、导航、模型压缩、LLM、少样本学习、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "ECCV2024"
   - "机器人/具身智能"
@@ -13,7 +13,7 @@ tags:
   - "模型压缩"
   - "LLM"
   - "少样本学习"
-  - "Agent"
+  - "多模态"
 item_list:
   - u: "aff-ttention_affordances_and_attention_models_for_short-term_object_interaction_/"
     t: "AFF-ttention! Affordances and Attention models for Short-Term Object Interaction Anticipation"
@@ -33,23 +33,25 @@ item_list:
     t: "LLM as Copilot for Coarse-Grained Vision-and-Language Navigation"
   - u: "prioritized_semantic_learning_for_zero-shot_instance_navigation/"
     t: "Prioritized Semantic Learning for Zero-shot Instance Navigation"
+  - u: "quar-vla_vision-language-action_model_for_quadruped_robots/"
+    t: "QUAR-VLA: Vision-Language-Action Model for Quadruped Robots"
   - u: "realfred_an_embodied_instruction_following_benchmark_in_photo-realistic_environm/"
     t: "ReALFRED: An Embodied Instruction Following Benchmark in Photo-Realistic Environments"
   - u: "see_and_think_embodied_agent_in_virtual_environment/"
     t: "See and Think: Embodied Agent in Virtual Environment"
   - u: "semgrasp_semantic_grasp_generation_via_language_aligned_discretization/"
     t: "SemGrasp: Semantic Grasp Generation via Language Aligned Discretization"
-item_total: 12
+item_total: 13
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🤖 机器人/具身智能
 
-**🎞️ ECCV2024** · **12** 篇论文解读
+**🎞️ ECCV2024** · **13** 篇论文解读
 
-📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (40)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (43)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (27)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (71)](../../NeurIPS2025/robotics/index.md)
+📌 **同领域跨会议浏览：** [🧪 ICML2026 (42)](../../ICML2026/robotics/index.md) · [💬 ACL2026 (10)](../../ACL2026/robotics/index.md) · [📷 CVPR2026 (42)](../../CVPR2026/robotics/index.md) · [🔬 ICLR2026 (46)](../../ICLR2026/robotics/index.md) · [🤖 AAAI2026 (30)](../../AAAI2026/robotics/index.md) · [🧠 NeurIPS2025 (75)](../../NeurIPS2025/robotics/index.md)
 
-🔥 **高频主题：** 机器人 ×5 · 导航 ×3
+🔥 **高频主题：** 机器人 ×6 · 导航 ×3
 
 **[AFF-ttention! Affordances and Attention models for Short-Term Object Interaction Anticipation](aff-ttention_affordances_and_attention_models_for_short-term_object_interaction_.md)**
 
@@ -86,6 +88,10 @@ item_total: 12
 **[Prioritized Semantic Learning for Zero-shot Instance Navigation](prioritized_semantic_learning_for_zero-shot_instance_navigation.md)**
 
 :   提出Prioritized Semantic Learning (PSL)方法，通过语义增强的Agent架构、优先语义训练策略和语义扩展推理方案，显著提升零样本目标/实例导航中Agent的语义感知能力，在ObjectNav和新提出的InstanceNav任务上实现SOTA。
+
+**[QUAR-VLA: Vision-Language-Action Model for Quadruped Robots](quar-vla_vision-language-action_model_for_quadruped_robots.md)**
+
+:   首次提出四足机器人视觉-语言-动作（QUAR-VLA）范式，构建 259K episode 的多任务数据集 QUARD 和基于预训练多模态大模型的 QUART 模型，实现感知、导航、全身操作等多任务统一控制。
 
 **[ReALFRED: An Embodied Instruction Following Benchmark in Photo-Realistic Environments](realfred_an_embodied_instruction_following_benchmark_in_photo-realistic_environm.md)**
 
