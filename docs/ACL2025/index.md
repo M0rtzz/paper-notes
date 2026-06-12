@@ -133,7 +133,7 @@ item_total: 1855
 
 :   提出意图感知听觉场景理解（II-ASU）范式和 AAD-LLM 原型系统——通过颅内脑电（iEEG）解码听者正在关注哪个说话人，将注意力状态注入听觉 LLM，使模型在多说话人场景中生成与听者感知对齐的回答。
 
-[查看全部 389 篇LLM / NLP论文 →](llm_nlp/)
+[查看全部389篇「LLM / NLP」论文 →](llm_nlp/)
 
 ---
 
@@ -179,7 +179,7 @@ item_total: 1855
 
 :   提出 AlignMMBench，首个面向中文视觉上下文的多模态对齐评测基准，涵盖 3 大类 13 项任务、1054 张图像和 4978 个 QA 对（含单轮/多轮对话），并训练了基于 ChatGLM3-6B 的评估器 CritiqueVLM，其评估一致性超过 GPT-4。
 
-[查看全部 126 篇多模态 VLM论文 →](multimodal_vlm/)
+[查看全部126篇「多模态 VLM」论文 →](multimodal_vlm/)
 
 ---
 
@@ -225,7 +225,7 @@ item_total: 1855
 
 :   本文提出INCLINE（Inference-Time Cross-Lingual Intervention），一种无需微调的推理时框架，通过学习对齐矩阵将低性能语言的内部表示变换到高性能语言的表示空间，在9个基准和5个LLM上显著提升多语言性能。
 
-[查看全部 88 篇多语言/翻译论文 →](multilingual_mt/)
+[查看全部88篇「多语言/翻译」论文 →](multilingual_mt/)
 
 ---
 
@@ -271,7 +271,7 @@ item_total: 1855
 
 :   提出 Batayan——首个全面的菲律宾语 LLM 评测基准，覆盖理解/推理/生成三大能力的 8 个任务（含 3 个全新菲律宾语任务），由母语者翻译和标注确保语言真实性，评测 50+ 开源和商用 LLM 后发现菲律宾语表现显著落后于英语，显式菲律宾语支持和模型规模的提升均能带来明显增益。
 
-[查看全部 87 篇LLM 评测论文 →](llm_evaluation/)
+[查看全部87篇「LLM 评测」论文 →](llm_evaluation/)
 
 ---
 
@@ -315,7 +315,7 @@ item_total: 1855
 
 **[CART: A Generative Cross-Modal Retrieval Framework with Coarse-To-Fine Semantic Modeling](information_retrieval/cart_a_generative_cross-modal_retrieval_framework_with_coarse-to-fine_semantic_m.md)**
 
-[查看全部 82 篇信息检索/RAG论文 →](information_retrieval/)
+[查看全部82篇「信息检索/RAG」论文 →](information_retrieval/)
 
 ---
 
@@ -361,7 +361,7 @@ item_total: 1855
 
 :   提出 EDDF，一种基于"攻击本质"而非表面模式的越狱防御框架：离线提取已知攻击的本质策略存入向量数据库，在线时对新查询做本质抽象+检索+细粒度判断，将攻击成功率降低至少 20% 且误报率仅 2.18%。
 
-[查看全部 75 篇对齐 / RLHF论文 →](llm_alignment/)
+[查看全部75篇「对齐 / RLHF」论文 →](llm_alignment/)
 
 ---
 
@@ -407,7 +407,7 @@ item_total: 1855
 
 :   这是迄今最全面的 LLM 量化实证研究，在 Llama-3.1 全系列（8B/70B/405B）上对 FP8/INT8/INT4 进行了超过 50 万次评估，发现 FP8 几乎无损、INT8 仅降 1-3%、INT4 出奇地有竞争力，并给出了不同部署场景的量化格式选择建议。
 
-[查看全部 67 篇模型压缩论文 →](model_compression/)
+[查看全部67篇「模型压缩」论文 →](model_compression/)
 
 ---
 
@@ -453,7 +453,7 @@ item_total: 1855
 
 :   BookWorld是首个基于小说的多智能体社会模拟系统，通过从源书籍中提取角色数据和世界观信息来构建交互式虚拟世界，让小说角色在其中自主行动和互动，进而生成创意故事，在75.36%的对比中超越了之前的故事生成方法。
 
-[查看全部 56 篇LLM Agent论文 →](llm_agent/)
+[查看全部56篇「LLM Agent」论文 →](llm_agent/)
 
 ---
 
@@ -499,7 +499,7 @@ item_total: 1855
 
 :   本文提出 Core 框架，通过识别和过滤信息性子声明（informative sub-claims）来实现鲁棒的事实精度（factual precision）评估，解决了现有方法因无信息声明的稀释效应而导致评估不准确的问题。
 
-[查看全部 55 篇LLM 安全论文 →](llm_safety/)
+[查看全部55篇「LLM 安全」论文 →](llm_safety/)
 
 ---
 
@@ -545,7 +545,7 @@ item_total: 1855
 
 :   提出 CoT-based Synthesizer——一种新的推理扩展策略，通过利用 CoT 推理分析多个候选回答的互补信息来合成更优的最终答案，即便所有候选回答都是错误的也能综合出正确答案，在 MATH500 上对 Llama3-8B 提升 11.8%、对 GPT-4o 提升 10.3%。
 
-[查看全部 53 篇LLM 推理论文 →](llm_reasoning/)
+[查看全部53篇「LLM 推理」论文 →](llm_reasoning/)
 
 ---
 
@@ -591,7 +591,7 @@ item_total: 1855
 
 :   提出 Chain-Talker，通过三阶段链式建模（情感理解→语义理解→共情渲染）实现可解释的共情对话语音合成，并开发 CSS-EmCap 自动标注管道为对话语音生成情感描述。
 
-[查看全部 42 篇音频/语音论文 →](audio_speech/)
+[查看全部42篇「音频/语音」论文 →](audio_speech/)
 
 ---
 
@@ -637,7 +637,7 @@ item_total: 1855
 
 :   提出 DavIR 数据选择方法，通过对基座模型与参考模型的损失差进行**参考模型损失归一化**（而非 token 数归一化），有效消除 RHO 目标中的序列长度依赖，使仅 **6%** 的 Alpaca 数据集（3K/52K）训练出的模型优于全量数据训练模型，同时将归一化思想推广到 DPO 得到 DavIR-DPO，在 AlpacaEval 上提升 Zephyr 8% 的对齐性能。
 
-[查看全部 39 篇预训练论文 →](llm_pretraining/)
+[查看全部39篇「预训练」论文 →](llm_pretraining/)
 
 ---
 
@@ -683,7 +683,7 @@ item_total: 1855
 
 :   提出 DIVE，一种将 Dense LLM 重构为 MoE 架构的方法，核心洞察是不同领域的校准数据集会让结构化剪枝产生不同的剪枝结果，利用这种多样性构建领域特异的专家，配合高效的两阶段重训练（router dense训练 + expert LoRA稀疏训练），在仅调不到 1% 参数的情况下实现优于现有剪枝和 MoE 重构方法的效果。
 
-[查看全部 38 篇LLM 效率论文 →](llm_efficiency/)
+[查看全部38篇「LLM 效率」论文 →](llm_efficiency/)
 
 ---
 
@@ -729,7 +729,7 @@ item_total: 1855
 
 :   CheXalign 提出了一种无需放射科医生反馈的自动化偏好数据生成管线，利用公开数据集中的参考报告和基于参考的评估指标（如 GREEN、BERTScore）构造偏好对，通过 DPO 等直接对齐算法对胸部X光报告生成模型进行偏好微调，在 MIMIC-CXR 上取得 SOTA CheXbert 分数。
 
-[查看全部 30 篇医疗 NLP论文 →](medical_nlp/)
+[查看全部30篇「医疗 NLP」论文 →](medical_nlp/)
 
 ---
 
@@ -775,7 +775,7 @@ item_total: 1855
 
 :   构建了首个多语言长文本问答数据集 CaLMQA（51.7K 问题，23 种语言），通过无翻译方式收集文化特异性问题，发现 LLM 回答文化特异性问题的事实性（45-52%）显著低于文化无关问题（64-71%），低资源语言表现尤其差。
 
-[查看全部 30 篇NLP 理解论文 →](nlp_understanding/)
+[查看全部30篇「NLP 理解」论文 →](nlp_understanding/)
 
 ---
 
@@ -821,7 +821,7 @@ item_total: 1855
 
 :   提出 DynaCode，一个动态复杂度感知的代码生成基准，通过将代码问题按圈复杂度分类并用调用图（Call Graph）组合嵌套，生成约 1.89 亿个唯一问题，有效缓解数据污染并系统评估 LLM 在不同复杂度下的代码生成能力。
 
-[查看全部 28 篇代码智能论文 →](code_intelligence/)
+[查看全部28篇「代码智能」论文 →](code_intelligence/)
 
 ---
 
@@ -867,7 +867,7 @@ item_total: 1855
 
 :   本文提出 FIHA，一个无需 LLM 和人工标注的自动化细粒度幻觉评估框架，通过从图像和描述中提取实体、属性和关系生成 Q&A 对，并引入 Davidson 场景图（DSG）建模问题间的依赖关系，构建了 FIHA-v1 基准，全面评估了主流大视觉语言模型的幻觉水平。
 
-[查看全部 28 篇幻觉检测论文 →](hallucination/)
+[查看全部28篇「幻觉检测」论文 →](hallucination/)
 
 ---
 
@@ -913,7 +913,7 @@ item_total: 1855
 
 :   本文针对德语场景构建了五个性别偏见评测数据集，并在八个多语言 LLM 上进行系统评估，揭示了德语特有的性别偏见挑战——包括阳性职业名词的歧义解读和看似中性的名词对性别感知的影响。
 
-[查看全部 27 篇社会计算论文 →](social_computing/)
+[查看全部27篇「社会计算」论文 →](social_computing/)
 
 ---
 
@@ -959,7 +959,7 @@ item_total: 1855
 
 :   提出 MBR-OT，将最优传输（Wasserstein距离）引入最小贝叶斯风险（MBR）解码，实现用句子级效用函数评估文档级输出质量，在文档级机器翻译、文本简化和密集图像描述任务上显著优于标准 MBR 解码。
 
-[查看全部 26 篇文本生成论文 →](nlp_generation/)
+[查看全部26篇「文本生成」论文 →](nlp_generation/)
 
 ---
 
@@ -1005,7 +1005,7 @@ item_total: 1855
 
 :   提出 Fast-and-Frugal Text-Graph (FnF-TG) Transformer，通过 Transformer 的自注意力机制统一编码文本描述和图结构（ego-graph），在归纳链接预测任务上以小 BERT 模型超越了使用大 BERT+MPNN 的 SOTA，同时首次扩展到完全归纳设置（关系也可归纳）。
 
-[查看全部 24 篇图学习论文 →](graph_learning/)
+[查看全部24篇「图学习」论文 →](graph_learning/)
 
 ---
 
@@ -1051,7 +1051,7 @@ item_total: 1855
 
 :   通过 probing、activation patching 和 generation steering 三种机制可解释性技术，发现 LLM 的情感表征功能性地定位于中间层的 MHSA 单元，并基于认知评估理论（appraisal theory）证明这些表征具有心理学合理性，成功通过干预评估概念（如 self-agency、pleasantness）引导情感输出。
 
-[查看全部 21 篇可解释性论文 →](interpretability/)
+[查看全部21篇「可解释性」论文 →](interpretability/)
 
 ---
 
@@ -1097,7 +1097,7 @@ item_total: 1855
 
 :   提出四层知识注入框架（记忆→检索→推理→关联），构建 DeepKnowledge 合成测试平台，系统性揭示了知识注入各层级的关键因素：重复学习实现记忆、表达多样性实现检索、显式推理模式实现深度推理和关联，为 LLM 知识更新提供了完整的方法-层级映射。
 
-[查看全部 19 篇知识编辑论文 →](knowledge_editing/)
+[查看全部19篇「知识编辑」论文 →](knowledge_editing/)
 
 ---
 
@@ -1143,7 +1143,7 @@ item_total: 1855
 
 :   大规模分析发现 LLM 生成的个性化对话质量对人物画像的情感极性高度敏感——负面画像导致过度强调人设引发矛盾，正面画像则选择性融入人设产生更高质量对话——基于此提出结合轮次生成、画像排序和情感感知提示的改进方法。
 
-[查看全部 18 篇对话系统论文 →](dialogue/)
+[查看全部18篇「对话系统」论文 →](dialogue/)
 
 ---
 
@@ -1189,7 +1189,7 @@ item_total: 1855
 
 :   提出Learning2Rewrite（L2R）框架，通过微调LLM的改写模型来放大人写文本和AI生成文本在改写编辑距离上的差异，从而实现跨领域高度泛化的AI文本检测——在21个独立领域上平均AUROC达0.9009，域外测试超越RAIDAR达4.67%、超越直接分类微调达51.35%。
 
-[查看全部 15 篇AIGC 检测论文 →](aigc_detection/)
+[查看全部15篇「AIGC 检测」论文 →](aigc_detection/)
 
 ---
 
@@ -1235,7 +1235,7 @@ item_total: 1855
 
 :   本文通过大规模实验和人类评估挑战了 "Watermarks in the Sand" (WITS) 的理论不可能性结论：证明随机游走攻击的两个关键假设在实践中不成立——混合(mixing)速度极慢（100% 的攻击文本仍可追溯原始来源）且质量预言机(quality oracle)不可靠（仅 77% 准确率），自动攻击仅 26% 成功率，人类质量审核后降至 10%。
 
-[查看全部 14 篇AI 安全论文 →](ai_safety/)
+[查看全部14篇「AI 安全」论文 →](ai_safety/)
 
 ---
 
@@ -1721,6 +1721,6 @@ item_total: 1855
 
 :   本文提出基于时空标记点过程（marked spatio-temporal point process）的阅读行为概率模型，联合建模注视何时发生、落在哪里、持续多久，发现 Hawkes 过程配合读者特定效应和方向偏移能显著提升扫视预测，但 surprisal 等语言学预测因子仅带来微弱改善——这对现有 surprisal 理论提出了质疑。
 
-[查看全部 287 篇其他论文 →](others/)
+[查看全部287篇「其他」论文 →](others/)
 
 </div>

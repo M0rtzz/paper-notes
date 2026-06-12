@@ -133,7 +133,7 @@ item_total: 1643
 
 :   提出 SynthFun3D，首个从动作描述自动生成3D功能性分割训练数据的方法，通过元数据驱动的3D物体检索和场景布局，无需人工标注即可生成精确的部件级交互掩码，合成+真实数据训练在 SceneFun3D 基准上提升 +2.2 mAP / +6.3 mAR / +5.7 mIoU。
 
-[查看全部 236 篇3D 视觉论文 →](3d_vision/)
+[查看全部236篇「3D 视觉」论文 →](3d_vision/)
 
 ---
 
@@ -179,7 +179,7 @@ item_total: 1643
 
 :   提出 Ani3DHuman 框架，将运动学驱动的网格动画与视频扩散先验相结合，通过自引导随机采样（Self-guided Stochastic Sampling）将低质量的刚体渲染恢复为高保真视频，从而实现逼真的非刚体服装动态建模。
 
-[查看全部 220 篇图像生成论文 →](image_generation/)
+[查看全部220篇「图像生成」论文 →](image_generation/)
 
 ---
 
@@ -225,7 +225,7 @@ item_total: 1643
 
 :   BALM 提出一个模型无关的即插即用框架来解决**不均衡缺失率（IMR）**下的多模态学习问题，通过特征校准模块（FCM）对齐不同缺失模式下的表征、以及梯度再平衡模块（GRM）从分布和空间两个维度平衡各模态的优化动态，在多个多模态情感识别基准上持续提升各类骨干网络的鲁棒性。
 
-[查看全部 207 篇多模态 VLM论文 →](multimodal_vlm/)
+[查看全部207篇「多模态 VLM」论文 →](multimodal_vlm/)
 
 ---
 
@@ -271,7 +271,7 @@ item_total: 1643
 
 :   在 NLST（n=7980）和 SUMMIT（n=8561）两个大规模肺癌筛查队列中，利用深度学习自动分割量化低剂量 CT 上 PPFE 的纵向变化（dPPFE），验证其与全因死亡率（HR=1.25/3.14）和呼吸系统发病率的独立关联。
 
-[查看全部 100 篇医学图像论文 →](medical_imaging/)
+[查看全部100篇「医学图像」论文 →](medical_imaging/)
 
 ---
 
@@ -317,7 +317,7 @@ item_total: 1643
 
 :   提出ClimaDrive数据生成框架和ClimaOoD基准数据集，通过语义引导的多天气场景生成+透视感知的异常物体放置，构建10K+训练集覆盖6种天气×93类异常，训练后四个SOTA方法平均AP提升3.25%。
 
-[查看全部 90 篇自动驾驶论文 →](autonomous_driving/)
+[查看全部90篇「自动驾驶」论文 →](autonomous_driving/)
 
 ---
 
@@ -363,7 +363,7 @@ item_total: 1643
 
 :   提出 ConceptPrism，通过引入图像级残余 token 和跨图像排斥损失，在个性化 T2I 扩散模型中自动将共享目标概念与图像特有的残余信息解耦，在 DreamBench 上 CLIP-T/DINO/CLIP-I 全面最优。
 
-[查看全部 83 篇语义分割论文 →](segmentation/)
+[查看全部83篇「语义分割」论文 →](segmentation/)
 
 ---
 
@@ -409,7 +409,7 @@ item_total: 1643
 
 :   提出 CVA（Context-aware Video-text Alignment）框架，通过 Query-aware Context Diversification（QCD）、Context-invariant Boundary Discrimination（CBD）损失和 Context-enhanced Transformer Encoder（CTE）三个协同组件，解决视频时序定位中的假阴性和背景关联问题，在 QVHighlights 上 R1@0.7 提升约 5 个点。
 
-[查看全部 83 篇视频理解论文 →](video_understanding/)
+[查看全部83篇「视频理解」论文 →](video_understanding/)
 
 ---
 
@@ -455,7 +455,7 @@ item_total: 1643
 
 :   DisCa 首次将可学习特征缓存与步蒸馏统一为兼容框架，用轻量神经预测器（<4% 模型参数）替代手工缓存策略，配合 Restricted MeanFlow 稳定大规模视频 DiT 蒸馏，在 HunyuanVideo 上实现 11.8× 近无损加速。
 
-[查看全部 65 篇视频生成论文 →](video_generation/)
+[查看全部65篇「视频生成」论文 →](video_generation/)
 
 ---
 
@@ -501,7 +501,7 @@ item_total: 1643
 
 :   提出PhysioLatent框架，将输入面部视频编码到3D VAE潜空间，与目标心率CLIP文本嵌入融合，通过AdaLN增强的时空融合层捕捉rPPG时间相干性，结合FiLM调制解码器和微调输出层实现精确心率修改，在保持PSNR 38.96dB/SSIM 0.98的视觉质量下达到10 bpm MAE的心率调制精度。
 
-[查看全部 60 篇人体理解论文 →](human_understanding/)
+[查看全部60篇「人体理解」论文 →](human_understanding/)
 
 ---
 
@@ -547,7 +547,7 @@ item_total: 1643
 
 :   提出AnoPLe——一个轻量级多模态双向提示学习框架，无需手工异常描述或外部辅助模块，通过文本-视觉提示双向交互和尺度感知前缀实现少样本多类别异常检测，在MVTec-AD/VisA/Real-IAD上取得强竞争力的同时保持高效推理（~28 FPS）。
 
-[查看全部 55 篇目标检测论文 →](object_detection/)
+[查看全部55篇「目标检测」论文 →](object_detection/)
 
 ---
 
@@ -593,7 +593,7 @@ item_total: 1643
 
 :   提出 BiLaLoRA，通过双层优化自动定位 LoRA 应插入的最优网络层，配合 H2C Loss（基于 CLIP 语义方向的无监督去雾损失），实现合成数据预训练的去雾模型向真实场景的高效适配——训练时间降低 77.7%，性能持平全量微调，跨模型跨域均有效。
 
-[查看全部 54 篇模型压缩论文 →](model_compression/)
+[查看全部54篇「模型压缩」论文 →](model_compression/)
 
 ---
 
@@ -639,7 +639,7 @@ item_total: 1643
 
 :   提出 DAWN，一个两阶段全扩散的视觉语言动作框架——Motion Director（潜扩散模型）生成稠密像素运动场作为可解释的中间表示，Action Expert（扩散 Transformer 策略）将像素运动转换为可执行机器人动作；在 CALVIN 基准上取得 SOTA（平均长度 4.00），并在真实世界单臂/双臂操控中展现强泛化能力。
 
-[查看全部 42 篇机器人/具身智能论文 →](robotics/)
+[查看全部42篇「机器人/具身智能」论文 →](robotics/)
 
 ---
 
@@ -685,7 +685,7 @@ item_total: 1643
 
 :   提出退化感知扩散框架 DRFusion，通过直接回归融合图像（而非显式预测噪声）和联合观测模型校正机制，在少量扩散步骤内实现任意退化场景下的多模态图像融合。
 
-[查看全部 41 篇图像恢复论文 →](image_restoration/)
+[查看全部41篇「图像恢复」论文 →](image_restoration/)
 
 ---
 
@@ -731,7 +731,7 @@ item_total: 1643
 
 :   提出"自由粒度"层级视觉识别（free-grained hierarchical recognition），允许训练标签出现在分类法的任意层级，并提出文本引导伪属性和分类法引导半监督学习两种方法来弥补缺失监督，推理时模型自适应选择预测深度。
 
-[查看全部 34 篇自监督/表示学习论文 →](self_supervised/)
+[查看全部34篇「自监督/表示学习」论文 →](self_supervised/)
 
 ---
 
@@ -777,7 +777,7 @@ item_total: 1643
 
 :   提出域感知原型联邦学习框架 FedDAP，通过构建域特定全局原型和双重原型对齐策略（域内对齐 + 跨域对比），解决联邦学习中客户端数据域偏移导致的全局模型性能退化问题。
 
-[查看全部 25 篇AI 安全论文 →](ai_safety/)
+[查看全部25篇「AI 安全」论文 →](ai_safety/)
 
 ---
 
@@ -823,7 +823,7 @@ item_total: 1643
 
 :   本文提出 SITH（Semantic Inspection of Transformer Heads），一个完全无需数据和训练的 CLIP 可解释性框架：直接对注意力头的 Value-Output 权重矩阵做 SVD 分解，然后用自研的 COMP 算法将每个奇异向量解释为语义一致的概念稀疏组合，实现了比现有方法更细粒度的 intra-head 级别可解释性，并支持精准的权重编辑来改善下游性能。
 
-[查看全部 25 篇可解释性论文 →](interpretability/)
+[查看全部25篇「可解释性」论文 →](interpretability/)
 
 ---
 
@@ -869,7 +869,7 @@ item_total: 1643
 
 :   提出 MPCAttack 框架，联合跨模态对齐、多模态理解和视觉自监督三种学习范式的特征表示，通过多范式协同优化策略生成高迁移性对抗样本，在开源和闭源 MLLM 上均取得 SOTA 攻击效果。
 
-[查看全部 22 篇LLM 安全论文 →](llm_safety/)
+[查看全部22篇「LLM 安全」论文 →](llm_safety/)
 
 ---
 
@@ -915,7 +915,7 @@ item_total: 1643
 
 :   提出 MoD-DPO（Modality-Decoupled DPO），通过不变性正则化、敏感性正则化和语言先验去偏三个机制解耦多模态 LLM 中各模态的贡献，有效缓解跨模态幻觉（如用听觉信息回答视觉问题），并推导出闭式最优策略。
 
-[查看全部 18 篇幻觉检测论文 →](hallucination/)
+[查看全部18篇「幻觉检测」论文 →](hallucination/)
 
 ---
 
@@ -961,7 +961,7 @@ item_total: 1643
 
 :   观察到LoRA微调过程中下投影矩阵A的零空间比率随训练下降且与性能强相关，据此提出NSC Merging，一种无标签、任务无关的LoRA合并方法，在20个异构视觉任务、6个NLI任务和VLM评估上达到SOTA。
 
-[查看全部 16 篇优化/理论论文 →](optimization/)
+[查看全部16篇「优化/理论」论文 →](optimization/)
 
 ---
 
@@ -1007,7 +1007,7 @@ item_total: 1643
 
 :   提出Lumosaic主动高光谱视频系统，将12个窄带LED阵列与编码曝光像素（CEP）相机在微秒级同步，在每帧158个子帧内联合编码空间-时间-光谱信息，实现30fps VGA分辨率31通道（400–700nm）运动鲁棒高光谱视频重建，PSNR比被动快照系统高10+dB。
 
-[查看全部 16 篇遥感论文 →](remote_sensing/)
+[查看全部16篇「遥感」论文 →](remote_sensing/)
 
 ---
 
@@ -1053,7 +1053,7 @@ item_total: 1643
 
 :   提出 Nerfify，一个多智能体框架，通过上下文无关文法约束、图思维代码合成和组合式引用恢复，将 NeRF 论文自动转换为可训练的 Nerfstudio 插件代码，在 30 篇论文基准上实现 100% 可执行率，视觉质量与专家实现差距仅 ±0.5 dB PSNR。
 
-[查看全部 15 篇LLM Agent论文 →](llm_agent/)
+[查看全部15篇「LLM Agent」论文 →](llm_agent/)
 
 ---
 
@@ -1099,7 +1099,7 @@ item_total: 1643
 
 :   首次将 VLM（Qwen3-VL-4B-Instruct）提取的情感行为描述嵌入作为独立第三模态，与 GRADA 人脸编码器和 WavLM 音频特征通过 DCMMOE 和 RAAV 两种融合策略组合，在 Aff-Wild2 上达到连续 VA 估计 CCC 0.658（dev）/ 0.62（test），验证了 VLM 行为语义对连续情感识别的价值。
 
-[查看全部 14 篇音频/语音论文 →](audio_speech/)
+[查看全部14篇「音频/语音」论文 →](audio_speech/)
 
 ---
 
@@ -1145,7 +1145,7 @@ item_total: 1643
 
 :   提出 SHREC 算法，通过谱嵌入（spectral embedding）从冷冻电镜 2D 投影图像中直接恢复螺旋分子片段的投影角度，无需预先知道螺旋对称参数（rise/twist），实现了真正的 ab-initio 螺旋结构重建。
 
-[查看全部 11 篇计算生物论文 →](computational_biology/)
+[查看全部11篇「计算生物」论文 →](computational_biology/)
 
 ---
 
@@ -1191,7 +1191,7 @@ item_total: 1643
 
 :   VFLM 提出一个利用视觉反馈进行迭代优化的布局生成框架，通过结合 OCR 准确率的视觉奖励模型和强化学习训练，使多模态大语言模型能够"看到"渲染结果并反复修正，在文本排版质量上显著超越仅生成代码的方法。
 
-[查看全部 11 篇强化学习论文 →](reinforcement_learning/)
+[查看全部11篇「强化学习」论文 →](reinforcement_learning/)
 
 ---
 
@@ -1569,6 +1569,6 @@ item_total: 1643
 
 :   本文系统评估了多种光流模型在旋转蛇等静态图像运动错觉上的表现，发现仅人类启发的Dual-Channel模型在模拟眼跳条件下能再现人类感知的旋转运动。
 
-[查看全部 35 篇其他论文 →](others/)
+[查看全部35篇「其他」论文 →](others/)
 
 </div>

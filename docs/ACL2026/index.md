@@ -133,7 +133,7 @@ item_total: 1363
 
 :   APPSI-139 是首个由法律专家精细标注的英文应用隐私政策摘要与解释平行语料（139 篇政策 / 36,351 条标注 / 15,692 对改写），配套提出的 TCSI-pp-V2 框架用共享编码器 + 5 个交替训练的专家头实现"重要 / 风险 / 敏感 / 主题 / 改写"五子任务，相比 TCSI-pp v1 编码时间砍 73%、显存从 7.3GB 降到 2.7GB，可读性主观投票胜过 GPT-4o / Llama3-70b。
 
-[查看全部 115 篇LLM 安全论文 →](llm_safety/)
+[查看全部115篇「LLM 安全」论文 →](llm_safety/)
 
 ---
 
@@ -179,7 +179,7 @@ item_total: 1363
 
 :   构建首个 UI 动画理解评测集 AniMINT（300 段密集标注的动画视频 + 3 位专家 + 300 用户标注），系统测试 9 个 SOTA VLM 后发现：基础运动效果能识别，但动画用途分类和高层语义解读与人类差距巨大，进一步用 Motion-Context-Perceptual Cue (MCPC) 增强能在 Gemini-2.5-Flash 上同时提升分类和解读性能。
 
-[查看全部 94 篇多模态 VLM论文 →](multimodal_vlm/)
+[查看全部94篇「多模态 VLM」论文 →](multimodal_vlm/)
 
 ---
 
@@ -225,7 +225,7 @@ item_total: 1363
 
 :   本文提出了一种超越边际分布的 LLM 代表性评估框架，通过同时考察边际响应分布和跨问题相关结构来评估人口统计对齐模型，发现虽然微调和 persona prompting 能改善边际分布的近似度，但两者都无法忠实再现人类价值观调查中的多变量相关模式。
 
-[查看全部 91 篇LLM 评测论文 →](llm_evaluation/)
+[查看全部91篇「LLM 评测」论文 →](llm_evaluation/)
 
 ---
 
@@ -271,7 +271,7 @@ item_total: 1363
 
 :   CoAct 在偏好对齐中用自一致性把无标注样本切成"高一致 / 低一致"两堆，再用 k-NN 距离从高一致样本里挑出"自洽但可能错"的隐患样本送给 Oracle 标注，剩下的高一致样本直接当 AI 自标数据，最后用 oracle-verified 样本做 in-context demo 生成新指令，把人和 AI 的监督在一个 DPO 循环里捏成一团，在 GSM8K/MATH/WebInstruct 上比最强基线再涨 4–8 个点。
 
-[查看全部 80 篇LLM 推理论文 →](llm_reasoning/)
+[查看全部80篇「LLM 推理」论文 →](llm_reasoning/)
 
 ---
 
@@ -317,7 +317,7 @@ item_total: 1363
 
 :   提出 CVA（Context-Value-Action）架构，基于 S-O-R 心理学模型和 Schwartz 价值理论，通过训练在真实人类数据上的 Value Verifier 解耦行为生成与认知推理，有效缓解 LLM 智能体的行为极化问题，在超过 110 万真实交互轨迹的 CVABench 上显著优于基线。
 
-[查看全部 78 篇LLM Agent论文 →](llm_agent/)
+[查看全部78篇「LLM Agent」论文 →](llm_agent/)
 
 ---
 
@@ -363,7 +363,7 @@ item_total: 1363
 
 :   针对 RAG 在 10k+ 词长上下文下推理慢、信息淹没的问题，作者用「短上下文种子数据 → 维基扩张 → 头尾迭代裁剪」合成多跳长上下文训练数据，微调一个 3B 的 Llama-3.2 抽取式摘要器 BRIEF-Pro，在四个多跳 QA 数据集上以 32× 压缩率反超 LongLLMLingua 的 9× 压缩，并支持用户用句数指令直接控制摘要长度。
 
-[查看全部 73 篇信息检索/RAG论文 →](information_retrieval/)
+[查看全部73篇「信息检索/RAG」论文 →](information_retrieval/)
 
 ---
 
@@ -409,7 +409,7 @@ item_total: 1363
 
 :   本文从有声书虚构作品中提取角色直接引语，构建了大规模表达性语音数据集 LibriQuote（5.3K 小时引语 + 12.7K 小时叙述），并用语音动词和副词伪标签标注说话风格，实验表明在 flow-matching 模型上微调可同时提升表达性和可懂度，且 LibriQuote-test 构成了一个具有挑战性的表达性 TTS 基准。
 
-[查看全部 68 篇音频/语音论文 →](audio_speech/)
+[查看全部68篇「音频/语音」论文 →](audio_speech/)
 
 ---
 
@@ -455,7 +455,7 @@ item_total: 1363
 
 :   TriMix 把 LRL（低资源语言）适配拆解为"语言能力 + 任务能力 + scaling 红利"三股 logit benefit vector，仅对小模型做连续预训练即可，在推理时按 perplexity 动态决定权重，于 4 个模型家族 × 8 种 LRL 上一致超越单模型 baseline 和 Proxy Tuning，且核心实证发现"应让小 CPT 模型权重高于大指令模型"——直接挑战了 Proxy Tuning 默认的"大模型主导"假设。
 
-[查看全部 62 篇多语言/翻译论文 →](multilingual_mt/)
+[查看全部62篇「多语言/翻译」论文 →](multilingual_mt/)
 
 ---
 
@@ -501,7 +501,7 @@ item_total: 1363
 
 :   作者用「this/that」与「这/那」这类指示词（demonstrative）作为探针，构建中英双语对照数据集（80 题/语 × 4 cue × 4 perspective × 5 场景），用 320 名母语者的 6,400 条响应建立人类基线，发现英语者擅长 proximal–distal 区分但弱于他者视角，中文者反之；而 5 个 SOTA LLM 既无法稳定区分近–远，也无跨文化差异，普遍退回到 English-centric 推理或"All of the above"安全 fallback。
 
-[查看全部 60 篇可解释性论文 →](interpretability/)
+[查看全部60篇「可解释性」论文 →](interpretability/)
 
 ---
 
@@ -547,7 +547,7 @@ item_total: 1363
 
 :   论文用两阶段知识蒸馏 + 基于教师认知不确定性的"双层边际样本选择" + 难度自适应损失，在仅用 10.30% 真实样本增量训练的情况下，把 4B 学生模型在 MAP-Charting 上做到 MAP@3 = 0.9585（+17.8%），并在 220 题中学代数误解 benchmark 上以 84.38% 准确率超过 GPT-5（67.73%）与直接微调的 72B 教师（81.25%），同时推理速度比教师快 23×。
 
-[查看全部 59 篇模型压缩论文 →](model_compression/)
+[查看全部59篇「模型压缩」论文 →](model_compression/)
 
 ---
 
@@ -593,7 +593,7 @@ item_total: 1363
 
 :   作者用线性时序逻辑（LTL）作为统一刻画工具，严格证明 global-only Transformer ↔ $\mathrm{LTL}[\mathrm{P}]$、$k$-local-only ↔ $\mathrm{LTL}[\mathrm{Y}^{\leq k}]$、global+local 混合 ↔ $\mathrm{LTL}[\mathrm{P}, \mathrm{Y}^{\leq k}]$，并由此证明 **local 与 global 表达力互不包含**、混合严格更强、**1-local 是 local 家族里表达力最强**，最后在合成正则语言和 WikiText-2 上经验验证理论预测。
 
-[查看全部 58 篇LLM / NLP论文 →](llm_nlp/)
+[查看全部58篇「LLM / NLP」论文 →](llm_nlp/)
 
 ---
 
@@ -639,7 +639,7 @@ item_total: 1363
 
 :   本文提出 CodeRL+，将执行语义对齐集成到 RLVR 训练管道中，通过让模型推断变量级执行轨迹来弥合代码文本表示与执行语义之间的差距，在代码生成上平均 pass@1 提升 4.6%，在代码推理和测试输出生成基准上分别提升 15.5% 和 4.4%。
 
-[查看全部 51 篇代码智能论文 →](code_intelligence/)
+[查看全部51篇「代码智能」论文 →](code_intelligence/)
 
 ---
 
@@ -685,7 +685,7 @@ item_total: 1363
 
 :   作者把 3D CT 解读重新建模成"放射科医生用工具迭代探查"的智能体任务，用 Model Context Protocol（MCP）暴露 Data Ingestion / Global Navigation / Detailed Observation / Advanced Analysis 四类工具，构造 2000+300 条可执行轨迹的 CT-FlowBench，并 SFT 出 CT-Flow-8B：在 3D-RAD 上达到 69.46% ACC，比纯切片基线提升 +22.46%，工具调用名称错误率仅 0.007/case。
 
-[查看全部 47 篇医疗 NLP论文 →](medical_nlp/)
+[查看全部47篇「医疗 NLP」论文 →](medical_nlp/)
 
 ---
 
@@ -731,7 +731,7 @@ item_total: 1363
 
 :   这篇论文提出 CASTER 任务与 CASTER-Bench，并用 MEDEA 通过 Social-CoT、SFT 和带 Social Alignment Reward 的过程监督强化学习来模拟社区反应，在 CASTER-Bench 上把 High-Quality F1 提升到 0.650、Macro-F1 提升到 0.749，显著优于传统 VQA 和通用 LMM 基线。
 
-[查看全部 44 篇强化学习论文 →](reinforcement_learning/)
+[查看全部44篇「强化学习」论文 →](reinforcement_learning/)
 
 ---
 
@@ -777,7 +777,7 @@ item_total: 1363
 
 :   本文构建 DIA-HARM，首个跨 50 种英语方言评估虚假信息检测鲁棒性的基准，揭示人类撰写的方言内容导致检测性能下降 1.4-3.6% F1，微调 Transformer 大幅优于零样本 LLM（96.6% vs 78.3%），且部分模型在混合内容上出现超过 33% 的灾难性退化。
 
-[查看全部 43 篇社会计算论文 →](social_computing/)
+[查看全部43篇「社会计算」论文 →](social_computing/)
 
 ---
 
@@ -823,7 +823,7 @@ item_total: 1363
 
 :   提出RADAR框架，通过角色锚定（政客 vs 科学家）的多智能体辩论来检测基于遗漏上下文的半真半假信息，配合双阈值自适应早停机制，在噪声检索条件下一致超越单智能体和传统多智能体基线。
 
-[查看全部 38 篇多智能体论文 →](multi_agent/)
+[查看全部38篇「多智能体」论文 →](multi_agent/)
 
 ---
 
@@ -869,7 +869,7 @@ item_total: 1363
 
 :   本文提出 IASC（Interactive Agentic System for ConLangs），一个模块化的人造语言构建系统，通过让 LLM 按语言学规格执行形态句法变换来探测其元语言知识，发现 LLM 处理常见语言类型模式远优于罕见模式，且不同 LLM 之间能力差异悬殊。
 
-[查看全部 33 篇NLP 理解论文 →](nlp_understanding/)
+[查看全部33篇「NLP 理解」论文 →](nlp_understanding/)
 
 ---
 
@@ -915,7 +915,7 @@ item_total: 1363
 
 :   这篇论文发现 instruction-tuned LLM 在评估“自己给出的答案”时存在显著 ownership bias，并提出把答案改写成用户输入再询问置信度的简单推理时策略，可在无需重训的情况下降低过度自信。
 
-[查看全部 31 篇对齐 / RLHF论文 →](llm_alignment/)
+[查看全部31篇「对齐 / RLHF」论文 →](llm_alignment/)
 
 ---
 
@@ -961,7 +961,7 @@ item_total: 1363
 
 :   本文提出 HalluAudio，首个大规模跨领域（语音/环境声/音乐）的音频幻觉检测基准，包含 5000+ 人工验证的 QA 对和系统化的对抗性提示设计，通过多维指标（准确率/幻觉率/Yes-No偏差/拒绝率/错误类型）评估主流 LALM，揭示了当前模型在声学锚定、时间推理和音乐属性理解方面的显著缺陷。
 
-[查看全部 27 篇幻觉检测论文 →](hallucination/)
+[查看全部27篇「幻觉检测」论文 →](hallucination/)
 
 ---
 
@@ -1007,7 +1007,7 @@ item_total: 1363
 
 :   ETHICMIND 提出推理时（inference-time）的风险感知对齐框架，在多轮对话的每一轮中联合分析伦理风险和用户情感，规划高层响应策略，再生成兼顾伦理引导和情感共鸣的回复，无需额外训练即可在高风险和道德模糊场景中实现更一致的对齐表现。
 
-[查看全部 26 篇对话系统论文 →](dialogue/)
+[查看全部26篇「对话系统」论文 →](dialogue/)
 
 ---
 
@@ -1053,7 +1053,7 @@ item_total: 1363
 
 :   提出 EA-Agent，将实体对齐（EA）分解为结构化多步推理过程，通过工具池（三元组选择器+对齐工具+反思器）的规划和执行实现可解释的对齐决策，配合奖励引导的离线策略优化持续改进规划能力，在 DBP15K 上 Hits@1 提升高达 3.17%，同时减少冗余三元组带来的效率问题。
 
-[查看全部 23 篇图学习论文 →](graph_learning/)
+[查看全部23篇「图学习」论文 →](graph_learning/)
 
 ---
 
@@ -1099,7 +1099,7 @@ item_total: 1363
 
 :   本文提出 MetaSD，一个将多个异构草稿器整合到推测解码中的统一框架，将草稿器选择建模为多臂赌博机问题，通过块散度（Block Divergence）奖励信号动态选择与目标 LLM 最对齐的草稿器，在黑盒和白盒配置下一致优于单草稿器方法。
 
-[查看全部 22 篇LLM 效率论文 →](llm_efficiency/)
+[查看全部22篇「LLM 效率」论文 →](llm_efficiency/)
 
 ---
 
@@ -1145,7 +1145,7 @@ item_total: 1363
 
 :   本文提出 IceBreaker，通过两步"握手"——共鸣感知兴趣蒸馏捕获触发兴趣 + 交互导向启动语生成配合个性化偏好对齐——解决对话智能体的"首条消息壁垒"，在全球最大对话产品之一的 A/B 测试中提升用户活跃天数 +1.84‰ 和点击率 +94.25‰。
 
-[查看全部 21 篇推荐系统论文 →](recommender/)
+[查看全部21篇「推荐系统」论文 →](recommender/)
 
 ---
 
@@ -1191,7 +1191,7 @@ item_total: 1363
 
 :   这篇论文提出“科研影响力摘要”任务：先从论文的引文上下文中识别真正揭示影响的细粒度意图，再生成随时间演化的影响力叙事，比单纯引用数更能说明一篇论文如何被后续工作采用、批评和改造。
 
-[查看全部 17 篇文本生成论文 →](nlp_generation/)
+[查看全部17篇「文本生成」论文 →](nlp_generation/)
 
 ---
 
@@ -1237,7 +1237,7 @@ item_total: 1363
 
 :   提出 GigaCheck，一个双策略框架：文档级使用微调 LLM 进行分类，片段级创新地将 AI 生成文本片段视为"目标"，用 DETR-like 架构实现端到端的字符级定位。
 
-[查看全部 16 篇AIGC 检测论文 →](aigc_detection/)
+[查看全部16篇「AIGC 检测」论文 →](aigc_detection/)
 
 ---
 
@@ -1283,7 +1283,7 @@ item_total: 1363
 
 :   本文探测语言模型各层表示预测阅读时间的能力，发现早期层表示在预测早期注视指标上优于surprisal，而surprisal在晚期指标上更优，最佳预测器因语言和指标而异。
 
-[查看全部 16 篇视频理解论文 →](video_understanding/)
+[查看全部16篇「视频理解」论文 →](video_understanding/)
 
 ---
 
@@ -1329,7 +1329,7 @@ item_total: 1363
 
 :   本文提出 SCRIPT，一个模型无关的即插即用模块，通过双通道策略将韩文 Hangul 的子字符（Jamo）组合知识注入现有子词级 PLM 的嵌入层，无需重新预训练即可在韩语 NLU/NLG 任务上获得一致提升，并使嵌入空间更好地捕捉语法规律和语义变化。
 
-[查看全部 12 篇预训练论文 →](llm_pretraining/)
+[查看全部12篇「预训练」论文 →](llm_pretraining/)
 
 ---
 

@@ -133,7 +133,7 @@ item_total: 1463
 
 :   这篇论文提出 Alignment-Guided Score Matching，用 reward-free 的 Plackett-Luce 对齐奖励把正负文本-图像匹配信号直接写入扩散 score matching 目标，通过训练轻量 soft tokens 改善 T2I 语义对齐，同时缓解 SoftREPA 常见的重复生成和计数错误。
 
-[查看全部 124 篇图像生成论文 →](image_generation/)
+[查看全部124篇「图像生成」论文 →](image_generation/)
 
 ---
 
@@ -179,7 +179,7 @@ item_total: 1463
 
 :   本文通过控制实验证明 Hyperfitting（在小数据集上将 LLM 训练到近零损失）的本质不是温度缩放式的分布锐化，而是一种动态的、上下文相关的 token 秩重排序（Rank Reordering）机制，该机制集中发生在 Transformer 最后一层的"终端几何扩展"（$\Delta \text{Dim} \approx +80.8$），并据此提出仅微调最后 5 层的 Late-Stage LoRA，在减少约 80% 可训练参数的同时保持生成多样性。
 
-[查看全部 100 篇模型压缩论文 →](model_compression/)
+[查看全部100篇「模型压缩」论文 →](model_compression/)
 
 ---
 
@@ -225,7 +225,7 @@ item_total: 1463
 
 :   本文提出 VLM 城市感知评估应具备"可靠性感知"和"可协商"两大属性，通过 100 张蒙特利尔街景图像、12 名社区标注者、30 个维度的基准测试，揭示了模型对齐度与标注者一致性正相关，且在主观评价维度上模型与人类存在系统性分布偏差。
 
-[查看全部 99 篇多模态 VLM论文 →](multimodal_vlm/)
+[查看全部99篇「多模态 VLM」论文 →](multimodal_vlm/)
 
 ---
 
@@ -271,7 +271,7 @@ item_total: 1463
 
 :   本文发现 LLM 在符号表征（代码/图）上学到的过程知识无法可靠迁移到自然语言任务，提出"先符号后自然语言"的两阶段 RL 课程学习策略，使 1.5B Qwen 模型在异步规划任务上接近 zero-shot GPT-4o，并从认知科学角度证明成功的跨表征泛化可被解释为生成类比。
 
-[查看全部 95 篇强化学习论文 →](reinforcement_learning/)
+[查看全部95篇「强化学习」论文 →](reinforcement_learning/)
 
 ---
 
@@ -317,7 +317,7 @@ item_total: 1463
 
 :   CB-SLICE 利用概念瓶颈模型（CBM）的概念预测空间来发现和解释深度学习模型的系统性错误切片，通过三步流程——错误倾向概念筛选、GMM 聚类形成切片、关键词概念解释——在多个基准上一致性超越现有方法，同时提供直接扎根于模型内部决策逻辑的忠实解释。
 
-[查看全部 71 篇可解释性论文 →](interpretability/)
+[查看全部71篇「可解释性」论文 →](interpretability/)
 
 ---
 
@@ -363,7 +363,7 @@ item_total: 1463
 
 :   本文揭示 Transformer 自注意力与 $k$-means 聚类的数学等价性，据此设计 KCoT 框架，将 CoT 推理显式拆解为"赋值-更新"两步语义过滤提示，并用 Condition-Net 动态融合拓扑先验与演化思维表示，在节点分类和链接预测上持续超越 SOTA。
 
-[查看全部 63 篇LLM 推理论文 →](llm_reasoning/)
+[查看全部63篇「LLM 推理」论文 →](llm_reasoning/)
 
 ---
 
@@ -409,7 +409,7 @@ item_total: 1463
 
 :   本文提出 Lévy Mirror Flow（LMF）——一种由 Lévy 噪声驱动的随机镜像下降连续时间 SDE 模型，证明即使在无穷方差的重尾梯度噪声下，SMD 仍保持收敛保证（凸情形 $O(\varepsilon^{-p/(p-1)})$，强凸情形 $\tilde{O}(\varepsilon^{-1/(p-1)})$），并将连续时间结果无缝传递到离散时间算法。
 
-[查看全部 60 篇优化/理论论文 →](optimization/)
+[查看全部60篇「优化/理论」论文 →](optimization/)
 
 ---
 
@@ -455,7 +455,7 @@ item_total: 1463
 
 :   本文指出 Transformer / Mamba 在死记硬背图的边时并不会真的退化成查找表（联想记忆），而是会自发把节点嵌入排成一种编码了多跳全局结构的"几何记忆"，并通过 path-star 实验证明这种几何让隐式推理变得反常地容易，但其出现既不能归因于监督、容量也不能归因于优化压力，留下一个新的"记忆之谜"。
 
-[查看全部 45 篇LLM 安全论文 →](llm_safety/)
+[查看全部45篇「LLM 安全」论文 →](llm_safety/)
 
 ---
 
@@ -501,7 +501,7 @@ item_total: 1463
 
 :   本文构建了首个评测 LLM Agent 端到端做"网络威胁调查"的 benchmark ExCyTIn-Bench：从真实 Azure 租户的 57 张安全日志表里，用 alert-entity 二部图自动生成 7542 道带证据链的 SQL 问答题，并提供 MySQL 环境让 Agent 通过查询日志、多跳追踪证据来回答，目前最强模型 Claude-Opus-4.5 也只能拿 0.606 的 reward。
 
-[查看全部 42 篇LLM Agent论文 →](llm_agent/)
+[查看全部42篇「LLM Agent」论文 →](llm_agent/)
 
 ---
 
@@ -547,7 +547,7 @@ item_total: 1463
 
 :   本文用单位对偶四元数（UDQ）替代 $4\times4$ 矩阵来参数化 SE(3) 同步问题，先用 Hermitian 对偶四元数矩阵的幂迭代算出谱初始化，再用每步逐元投影到 $\mathrm{UDQ}^n$ 的广义幂法（DQGPM）做迭代精化，首次给出 SE(3) 同步的有限步线性收敛与显式误差界，并在多扫描点云配准上把旋转/平移误差和算法时间都打到了矩阵方法之下。
 
-[查看全部 42 篇机器人/具身智能论文 →](robotics/)
+[查看全部42篇「机器人/具身智能」论文 →](robotics/)
 
 ---
 
@@ -593,7 +593,7 @@ item_total: 1463
 
 :   在 Spearman footrule 距离下，把 ILP 的约束矩阵证成全单模，从而给出 fair top-$k$ 排名聚合的首个多项式时间最优算法；并以"先解 fair top-$k$，再用最小代价完美匹配补齐成全排列"的两步策略，把 fair (full) rank aggregation 的近似比从 3 改进到 2。
 
-[查看全部 37 篇AI 安全论文 →](ai_safety/)
+[查看全部37篇「AI 安全」论文 →](ai_safety/)
 
 ---
 
@@ -639,7 +639,7 @@ item_total: 1463
 
 :   作者通过追踪 LoRA 微调过程中参数沿"危险/安全方向"的累积漂移，发现善意数据破坏对齐的根本机制是参数在 fine-tuning 中向危险方向单调漂移；进而提出 SQSD——用单步梯度沿两方向的投影差对每个样本打连续风险分，在 3 个模型 × 2 数据集上保持单调 ASR 排名，且能跨架构、跨规模、跨 LoRA→Full 迁移。
 
-[查看全部 37 篇LLM / NLP论文 →](llm_nlp/)
+[查看全部37篇「LLM / NLP」论文 →](llm_nlp/)
 
 ---
 
@@ -685,7 +685,7 @@ item_total: 1463
 
 :   PareSP 用**多目标 MCTS 搜索**联合优化合成路径的**成本 / 时间 / 可行性 / 环境影响**——找到完整帕累托前沿而非单一"最佳"路径，在 USPTO 和 ASKCOS 基准上较单目标方法节省 23% 成本、35% 时间，同时保持 ≥ 95% 化学可行性。
 
-[查看全部 36 篇计算生物论文 →](computational_biology/)
+[查看全部36篇「计算生物」论文 →](computational_biology/)
 
 ---
 
@@ -731,7 +731,7 @@ item_total: 1463
 
 :   Fern 把长期时间序列预测重新表述为「从固定高斯源到数据相关椭球的最优传输」，借助 Brenier 定理把搜索空间限制在 SPD（对称正半定）类 Jacobian 上，用 Householder 反射的低秩谱分解把代价从 $O(n^3)$ 压到 $O(Rn)$，并在非平稳冲击场景下相对 DLinear / Koopa 等基线取得最多 790× 的稳定性提升。
 
-[查看全部 32 篇时间序列论文 →](time_series/)
+[查看全部32篇「时间序列」论文 →](time_series/)
 
 ---
 
@@ -777,7 +777,7 @@ item_total: 1463
 
 :   本文把经典谱 GNN 的单变量特征值滤波器 $g(\lambda_i)$ 推广为双变量滤波器 $g(\lambda_i,\lambda_j)$，把信号从节点域抬到节点对域，理论上能逼近 Local 2-GNN（超越 1-WL），并通过低秩张量分解避开 $n^2\times n^2$ 显式计算，在异质图节点分类和子结构计数上拿到强结果。
 
-[查看全部 31 篇图学习论文 →](graph_learning/)
+[查看全部31篇「图学习」论文 →](graph_learning/)
 
 ---
 
@@ -823,7 +823,7 @@ item_total: 1463
 
 :   MECAT 用「多专家模型 + CoT 大模型推理」构造了 20k 条多视角细粒度音频字幕与 10 万条开放式 QA，并提出 DATE 指标（语义相似度 × 跨样本可区分度的调和平均），首次能稳定区分泛泛而谈与细节准确的音频模型输出。
 
-[查看全部 30 篇音频/语音论文 →](audio_speech/)
+[查看全部30篇「音频/语音」论文 →](audio_speech/)
 
 ---
 
@@ -869,7 +869,7 @@ item_total: 1463
 
 :   本文提出 L$^3$（Large Lookup Layer），把 tokenizer embedding table 推广为可插入到 decoder 中的"大查表层"——按 token ID 做**静态路由**取出一组学习好的 key/value embeddings，再让当前隐藏状态对其做 attention 聚合，从而在不引入 MoE 那套动态路由+辅助损失+难以 offload 的痛点下，把模型稀疏度再上一个量级；在 800M–2.6B 激活参数上击败同算力的 dense 模型与同稀疏率的 MoE。
 
-[查看全部 30 篇LLM 效率论文 →](llm_efficiency/)
+[查看全部30篇「LLM 效率」论文 →](llm_efficiency/)
 
 ---
 
@@ -915,7 +915,7 @@ item_total: 1463
 
 :   Light Forcing 是首个为自回归（AR）视频扩散模型定制的稀疏注意力方案——块感知增长（CAG）量化每个生成块的累积误差贡献来动态分配稀疏度，分层稀疏注意力（HSA）通过帧级 → 块级二级掩码选择灵活捕捉历史依赖，在 Self Forcing 上实现 1.30× 端到端 / 3.79× 注意力加速且 VBench 总分 84.5 > 密集基线 84.1。
 
-[查看全部 28 篇视频生成论文 →](video_generation/)
+[查看全部28篇「视频生成」论文 →](video_generation/)
 
 ---
 
@@ -961,7 +961,7 @@ item_total: 1463
 
 :   LabBuilder 把自由文本的实验描述编译成"资产-化学协议"，再用层级化生成 + 几何/化学多目标优化 + 导航修复，产出既视觉合理、又能让机器人真正跑通实验流程的 3D 化学实验室布局。
 
-[查看全部 24 篇3D 视觉论文 →](3d_vision/)
+[查看全部24篇「3D 视觉」论文 →](3d_vision/)
 
 ---
 
@@ -1007,7 +1007,7 @@ item_total: 1463
 
 :   针对众包偏好数据中"用户目标各异但安全准则共享"的结构，作者证明传统 reward combination 会被多数用户偏好污染且对权重敏感，转而提出 Safe Crowd Preference-based RL：用 VAE 把众包偏好编码成 latent-conditioned 低层 skill，再训练高层策略在 skill 空间组合，从而在没有显式安全奖励的情况下把下游 cost 压到接近 Oracle，同时任务回报基本不掉。
 
-[查看全部 24 篇对齐 / RLHF论文 →](llm_alignment/)
+[查看全部24篇「对齐 / RLHF」论文 →](llm_alignment/)
 
 ---
 
@@ -1053,7 +1053,7 @@ item_total: 1463
 
 :   本文用 LLM 当人口外推器，把 18 个能力维度按"全世界人口正确率"对数刻度 $L=-\log_B p_W$ 校准，并发现 Volume / Attention 维度真实 base $B \gg 10$、Comprehension 维度 $B \approx 1$，揭示现行 AI 与人类的比较其实严重失调。
 
-[查看全部 24 篇LLM 评测论文 →](llm_evaluation/)
+[查看全部24篇「LLM 评测」论文 →](llm_evaluation/)
 
 ---
 
@@ -1099,7 +1099,7 @@ item_total: 1463
 
 :   本文论证了一个反直觉但实用的发现——在自然图像/视频上预训练的 Foundation VAE 不需要任何医学微调就能作为统一接口同时支持 CT 重建、增强、生成；其重建只是去噪不偏移边界，因此重建图既可做去噪增强（pancreatic / lung tumor NSD +3.9%），其潜空间又可承载 CT 条件扩散生成（FVD −3.9%，CT-CLIP +36.2%，多疾病忠实度 AUC +2.76%）。
 
-[查看全部 24 篇医学图像论文 →](medical_imaging/)
+[查看全部24篇「医学图像」论文 →](medical_imaging/)
 
 ---
 
@@ -1145,7 +1145,7 @@ item_total: 1463
 
 :   本文证明对于内积、欧式距离与余弦三种打分函数，能够把 $m$ 个对象的全部 size $\le k$ 子集都用 score-thresholding 精确召回所需的最小嵌入维度（MED）是 $\Theta(k)$，与 $m$ 无关；在加上单位归一化与正向 score margin $\epsilon$ 之后，鲁棒 MED 的可行 margin 被 $\epsilon_\star(m,k)=m/\sqrt{k(m-1)(m-k)}\sim 1/\sqrt{k}$ 上限锁死，而 Gaussian centroid 构造则给出 $O(k^2\log m)$ 维的可行上界。
 
-[查看全部 24 篇物理/科学计算论文 →](physics/)
+[查看全部24篇「物理/科学计算」论文 →](physics/)
 
 ---
 
@@ -1191,7 +1191,7 @@ item_total: 1463
 
 :   R-GFM 把"不同 hop 数"的子图当作上层 Graph-of-Graphs 的节点，再用一套动态 MoE 路由把每个 GoG 分配到曲率最匹配的 Riemannian 流形（双曲 / 欧氏 / 球面），同时解决了现有图基础模型固定 receptive field 与单一 Euclidean 嵌入两个先天缺陷，下游最高带来 49% 相对提升。
 
-[查看全部 24 篇自监督/表示学习论文 →](self_supervised/)
+[查看全部24篇「自监督/表示学习」论文 →](self_supervised/)
 
 ---
 
@@ -1237,7 +1237,7 @@ item_total: 1463
 
 :   ML-Embed 把 Matryoshka 思想从一维 (representation 维度) 扩展到**三维** —— 在 embedding 参数 (MEL)、模型深度 (MLL)、表征维度 (MRL) 上**全栈嵌套训练**, 同时构建 282 种自然语言 + 40 种编程语言、5000 万样本的多语训练集, 推出 140M-8B 一族开源模型, 在 17 个 MTEB benchmark 上 9 个拿第一, 波兰语 +22.89, 越南语 +6.88.
 
-[查看全部 22 篇信息检索/RAG论文 →](information_retrieval/)
+[查看全部22篇「信息检索/RAG」论文 →](information_retrieval/)
 
 ---
 
@@ -1283,7 +1283,7 @@ item_total: 1463
 
 :   作者提出 InfoLaw：把"预训练"重新定义为"按桶累积信息"的过程，每桶信息量等于"质量密度 $f_d$ × 唯一 token 数 $M_d$ × $\log K$"再乘上一个随重复次数 $R_d$ 指数衰减的因子，最终把验证损失写成 $L = \alpha\cdot\text{info}^{-\beta}$，能在 252M-1.2B 拟合后外推到 7B / 425B token，平均误差 0.15%、最大 0.96%，并直接用来搜索最优数据配方。
 
-[查看全部 22 篇预训练论文 →](llm_pretraining/)
+[查看全部22篇「预训练」论文 →](llm_pretraining/)
 
 ---
 
@@ -1329,7 +1329,7 @@ item_total: 1463
 
 :   本文针对大推理模型（LRM）的幻觉检测提出 ARS：不在文本层扰动 reasoning trace，而是**直接在 trace 末端的潜表示上施加小扰动并续解码**得到反事实答案，再用"答案是否一致"作为标签训一个轻量 contrastive 头来塑形 trace-conditioned answer embedding，使后续 embedding-based detector 把幻觉与真实回答分得更开（TruthfulQA 上 AUROC $66.85\to 86.64$）。
 
-[查看全部 19 篇幻觉检测论文 →](hallucination/)
+[查看全部19篇「幻觉检测」论文 →](hallucination/)
 
 ---
 
@@ -1375,7 +1375,7 @@ item_total: 1463
 
 :   SkelHCC 把 CLIP 搬到 Hyperbolic 空间，显式按"关节 → 身体部分 → 全身"三粒度对齐骨骼-语言表示，并用 LLM 生成的身体部位重要性掩码做无训练的多粒度投票缓存推理，在 NTU120 单样本动作识别上比 SOTA 提升 9%，可训参数只有 0.5M。
 
-[查看全部 17 篇视频理解论文 →](video_understanding/)
+[查看全部17篇「视频理解」论文 →](video_understanding/)
 
 ---
 
@@ -1421,7 +1421,7 @@ item_total: 1463
 
 :   为单次曝光式压缩光谱成像 (CASSI) 设计一个 train-render 两阶段、按波长可任意查询的深度展开框架——在每个展开 stage 内塞入连续光谱场 (CoSF) 先验模块，由 Fourier-Mamba 驱动的三分支跨域特征混合器 + 随机频率编码 + 谱合成头组成，离散波长训练即可在推理时合成任意连续波长的高光谱图像，实现连续光谱重建与零样本光谱超分。
 
-[查看全部 16 篇图像恢复论文 →](image_restoration/)
+[查看全部16篇「图像恢复」论文 →](image_restoration/)
 
 ---
 
@@ -1467,7 +1467,7 @@ item_total: 1463
 
 :   在观测数据上提出 Rank-Learner——第一个 Neyman-正交的两阶段处理效应**排序**学习器，用成对软标签 + 双重稳健修正项替代"先估 CATE 再排"的间接做法，在合成、半合成与 Criteo uplift 真实数据集上稳定优于 T/DR-learner 与非正交 plug-in ranker。
 
-[查看全部 15 篇因果推理论文 →](causal_inference/)
+[查看全部15篇「因果推理」论文 →](causal_inference/)
 
 ---
 
@@ -1513,7 +1513,7 @@ item_total: 1463
 
 :   作者以"一位物理学家用 Claude Code 在 12 天 57 个会话里开发 ~2,100 行可微分宇宙学微扰理论代码 clax-pt"为单例（$N=1$）案例，量化记录了 15 次督导事件，证明在科学软件场景下决定产物可信度的不是模型能力，而是围绕 oracle 测试、共享变更日志、"禁打补丁"等规则搭建的人工监督协议。
 
-[查看全部 15 篇代码智能论文 →](code_intelligence/)
+[查看全部15篇「代码智能」论文 →](code_intelligence/)
 
 ---
 
@@ -1559,7 +1559,7 @@ item_total: 1463
 
 :   ProtocolBench 首次系统对比四大 LLM 多智能体通信协议（A2A、ACP、ANP、Agora）在任务成功、端到端延迟、消息字节开销、失败鲁棒性四轴上的表现——发现协议选择对系统行为有 36.5% 完成时间差、3.48s 延迟差；进一步提出 ProtocolRouter 按场景/模块动态选协议，将 Fail-Storm 恢复时间降 18.1%。
 
-[查看全部 15 篇多智能体论文 →](multi_agent/)
+[查看全部15篇「多智能体」论文 →](multi_agent/)
 
 ---
 
@@ -1605,7 +1605,7 @@ item_total: 1463
 
 :   SPROUT 是首个完全训练无关、零标注的病理核分割框架——用 H&E 染色先验在每张切片上自构高置信度前景/背景区域→提取原型→用部分最优传输（POT）做特征-原型软对齐→输出 SAM 的正/负点提示；在 MoNuSeg 等基准上 AJI 比训练方法高 8.2%。
 
-[查看全部 13 篇语义分割论文 →](segmentation/)
+[查看全部13篇「语义分割」论文 →](segmentation/)
 
 ---
 
@@ -1651,7 +1651,7 @@ item_total: 1463
 
 :   RGMem 借统计物理里的重整化群思想，把语言 agent 的长期对话记忆建模成"事件层 → 关系层 → 概念层"的多尺度系统，通过阈值触发的非线性算子把零散对话粗粒化成稳定的用户画像，从而打破"稳定 vs 可塑"权衡。
 
-[查看全部 11 篇推荐系统论文 →](recommender/)
+[查看全部11篇「推荐系统」论文 →](recommender/)
 
 ---
 
@@ -1985,6 +1985,6 @@ item_total: 1463
 
 :   提出基于并行关联扫描（parallel associative scan）的脉冲神经网络并行训练方法，在保持精确硬重置动力学的同时实现最高 44 倍加速，并用可微分数值根求解器实现机器精度的脉冲时间计算。
 
-[查看全部 94 篇其他论文 →](others/)
+[查看全部94篇「其他」论文 →](others/)
 
 </div>
