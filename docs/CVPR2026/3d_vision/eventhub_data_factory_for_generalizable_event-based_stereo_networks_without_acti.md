@@ -44,7 +44,7 @@ tags:
 EventHub 通过两条互补路径生成训练数据：(i) **事件数据工厂（Event Data Factory）**——使用 SVRaster 从稀疏 RGB 图像序列通过新视角合成生成合成事件立体对和深度标签；(ii) **立体跨模态蒸馏（Stereo Cross-Modal Distillation）**——在已有 RGB-Event 配对数据的场景中，用 RGB 立体基础模型（如 FoundationStereo）生成代理深度标签，通过多视图几何对齐到事件域。两条路径的数据合并为 EventHub 训练集；训练时把事件编码成 Tencode 三通道、直接复用 RGB 立体模型的架构与权重来适配事件立体网络。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DF["基于 SVRaster 的合成事件生成管线"]
         direction TB

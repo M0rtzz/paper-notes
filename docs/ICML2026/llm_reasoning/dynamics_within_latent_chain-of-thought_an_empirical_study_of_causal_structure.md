@@ -54,7 +54,7 @@ $$\text{(隐藏)}\; H_t = f_t(H_{<t}, x, \epsilon_t; \theta), \quad t=1,\dots,T;
 实验对象是 Coconut 和 CODI 两类 latent reasoning 范式，分别跑在 GPT-2 / Llama3-1B / Qwen3-4B-Instruct 三个底座上；数据集为 GSM8K-Aug → GSM8K（数学）和 CommonsenseQA-CoT → CommonsenseQA（常识），RQ3 额外用 StrategyQA 的 Yes/No 二分判定。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入问题 x"] --> ROLL["基线 latent rollout<br/>h₁→…→h_T → 答案 Y（最小 SCM）"]
     ROLL --> D1

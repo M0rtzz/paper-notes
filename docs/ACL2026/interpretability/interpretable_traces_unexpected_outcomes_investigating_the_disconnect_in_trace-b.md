@@ -44,7 +44,7 @@ tags:
 本文要回答一个被默认却没人验证的问题：CoT 推理链既被当作提升性能的监督信号，又被当作向用户解释推理过程的工具，这两个角色是否其实相互矛盾。为此作者在开放书 QA（CoTemp QA、MS MARCO、Facebook bAbI）上用规则化问题分解生成"每一步都可独立验证"的中间推理链，据此构造正确链 / 错误链等多套 SFT 数据训练小模型，把"链的语义正确性"与"最终答案准确率"解耦评估；再叠加一项 100 人的人工可解释性研究，最终对照出"性能最优的链"与"用户觉得最可解释的链"是否同一种。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["开放书 QA 数据集<br/>CoTemp QA / MS MARCO / bAbI"]
     subgraph S1["规则化问题分解与推理链构建"]

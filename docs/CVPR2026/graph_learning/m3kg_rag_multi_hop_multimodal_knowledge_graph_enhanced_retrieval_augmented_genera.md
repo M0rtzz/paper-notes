@@ -38,7 +38,7 @@ M3KG-RAG的核心创新在于：构建跨音视觉的多跳知识图谱 + 按模
 M3KG-RAG 想让 MLLM 在回答音视觉问题时用上结构化的外部知识，但又不被无关知识带偏。它先离线用一条多 Agent 流水线把原始的音视频-文本语料压成一张**多跳、跨模态的知识图谱 M3KG**（音、视、文三模态实体之间带时间/因果连接的三元组）；在线推理时，对一个查询先**按模态分别检索**候选子图（绕开跨模态嵌入的鸿沟），再用 **GRASP** 把候选三元组「定位 + 剪枝」到只剩查询相关且真正有助回答的那几条，最后把这张精炼子图喂给 MLLM 生成答案。三块设计分别针对「图谱怎么建」「子图怎么找」「噪声怎么去」。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["多 Agent M3KG 构建流水线（离线）"]
         direction TB

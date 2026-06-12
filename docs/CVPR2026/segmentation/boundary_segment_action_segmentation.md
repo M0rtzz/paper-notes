@@ -48,7 +48,7 @@ tags:
 本文不动架构，只动损失。具体做法：给现有 TAS 模型（MS-TCN、C2F-TCN、FACT 都行）的输出端把输出张量从 $C\times T$ 扩到 $(C{+}1)\times T$，多出来的**一个**通道是类别无关的边界通道；然后在原有分类损失之外挂两个辅助损失——边界回归损失 $\mathcal{L}_B$ 管「边界对不对齐」，CDF 段形状正则化 $\mathcal{L}_{CDF}$ 管「段内连不连贯」。关键是这两个损失被**按时序区域分开**：边界损失只在转换点附近算，段正则只在段内部算，互不打架。推理时这个边界通道直接弃用，只取原始分类输出，所以零额外开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视频帧特征"] --> B["TAS 主干<br/>MS-TCN / C2F-TCN / FACT"]
     B --> C["输出 (C+1)×T<br/>C 个类别通道 + 1 个边界通道"]

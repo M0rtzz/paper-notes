@@ -43,7 +43,7 @@ tags:
 VLM-DeflectionBench 想解决的核心问题是：现有 KB-VQA 基准只在"检索到正确证据"时测准确率，根本看不出模型在证据不足或被噪声误导时到底是老实拒答还是硬编。为此它把基准构建拆成三个阶段串起来：Stage I 先用一批强 gating 模型把"不查也能答对"的样本剔掉，保证留下的题确实需要外部检索；Stage II 为每道保留题挖掘以假乱真的文本和视觉干扰项；Stage III 做质量控制，剔除连给金标准都答不出的不可解样本、删除会被模型利用的无效干扰项。最终落地 2775 个样本，每个都配齐金标准证据和干扰项，再套上一个四场景评估协议，分别施加从"零证据"到"纯干扰"的不同知识条件。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["6 个 KB-VQA 数据源<br/>(InfoSeek / WebQA / E-VQA …)"] --> B
     subgraph CUR["动态数据构建 pipeline"]

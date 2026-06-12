@@ -44,7 +44,7 @@ tags:
 对每个样本 $x_i$ 和备选项 $k$，模型构造一个效用 $V_k(x_i)$，由两块拼成：一块是标准离散选择模型 $V_k^{struct}(x_i)$，含备选项常数、时间系数、成本系数和人口统计交互项；另一块来自TFM预测概率 $q_k(x_i)$，包括一个标量权重项 $\alpha\log q_k(x_i)$ 和一个小网络 $g_k(\mathbf{q}(x_i))$。最终选择概率仍走Logit公式 $P_k=\exp(V_k)/\sum_j\exp(V_j)$。实验在Swissmetro和LPMC两个交通方式选择数据集上做：先训练或调用Mitra、TabPFN v2拿到每个样本的预测概率并缓存，再交给适配器使用；审计和适配器训练全程不碰TFM内部参数，所以方法对黑盒或近黑盒的表格基础模型都适用。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["表格基础模型 Mitra / TabPFN<br/>预测概率 q_k（预先缓存，不碰内部参数）"]
     A -->|黑盒查询| AUDIT["黑盒行为审计<br/>涨价增时单调性 · VOT=β_time/β_cost · 不可用选项泄漏"]

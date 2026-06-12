@@ -45,7 +45,7 @@ CausalDetox 使用"必要性和充分性概率"（PNS）作为因果准则来精
 CausalDetox 的出发点是：去毒化要找的是"因果上"负责生成有毒内容的注意力头，而不是只与毒性相关的头。它分两阶段——先做**因果头识别**：抽取所有注意力头的激活，用 VAE 建模潜在混杂因子，给每个头算一个 PNS 下界分数，挑出 top-K 头；再做**因果干预**：在这批选定头上施加去毒化操作，可走全局/局部推理时干预，或走 PNS 引导微调。整套设计的主线是用因果准则替换掉传统 ITI 的相关性启发式，并让干预去适应不同上下文里毒性编码方式的差异。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入文本 → 抽取各注意力头激活"]
     subgraph SEL["PNS 因果头选择"]

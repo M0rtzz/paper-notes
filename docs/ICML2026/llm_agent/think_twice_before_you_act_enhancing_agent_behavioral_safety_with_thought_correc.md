@@ -47,7 +47,7 @@ tags:
 这篇论文要解决的是：LLM agent 在良性指令下也会一步步做出破坏性动作，而现有护栏要么在输出层堵得太晚、要么靠拒答牺牲可用性。Thought-Aligner 的思路是把安全干预提到 agent「思维」这个因果上游——它是一个外挂的 1.5B/7B 小模型，整套系统由「偏好数据构造 → 两阶段 SFT → ReAct 循环内插桩」串起来。部署时它不碰 base agent 一根毫毛：每一步 $i$ base agent 照常生成原始思维 $T_i$，Thought-Aligner 接过 $(I, h_{i-1}, T_i)$ 输出最小改写后的安全思维 $T_i^{safe}=\pi_\phi(I, h_{i-1}, T_i)$，再让 base agent 以 $T_i^{safe}$ 替换 $T_i$ 重新生成动作 $A_i'=\pi_\theta(\cdot\mid I,T_0,A_0,O_0,\dots,T_i^{safe})$，工具执行得到观察 $O_i$ 后进入下一步。这样整条轨迹从 $\tau$ 被悄悄引导成 $\tau^{safe}=\{I,(T_0^{safe},A_0',O_0),\dots,(T_n^{safe},A_n',O_n)\}$，提示词、工具配置全程不变。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["两阶段偏好数据"]
         direction TB

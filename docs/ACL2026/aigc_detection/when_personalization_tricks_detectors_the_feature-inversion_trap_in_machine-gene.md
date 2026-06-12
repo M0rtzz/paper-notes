@@ -46,7 +46,7 @@ tags:
 方法分三部分：(1) StyloBench 基准构建——包含文学作品模仿（通过 CPT 微调 LLM）和博客风格模仿（通过 few-shot 提示）两个子场景；(2) 特征反转陷阱的理论分析——通过 Rayleigh 商找到反转特征方向并验证与检测器性能的相关性；(3) StyloCheck 诊断框架——通过 token 打乱生成仅保留反转特征的探测数据集，评估检测器对反转特征的依赖程度。其中 StyloBench 是数据脚手架，后续三步（找反转方向 → 造探测集 → 预判迁移）才是核心贡献。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["StyloBench 基准<br/>文学模仿(CPT) + 博客模仿(few-shot)"]
     subgraph S1["反转特征方向提取（Rayleigh 商）"]

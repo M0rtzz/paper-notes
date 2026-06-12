@@ -43,7 +43,7 @@ Extra-CoT 提出一个三阶段框架（语义保持压缩器 → 混合比率SF
 Extra-CoT 包含三个串行阶段：(a) 训练一个语义保持的CoT压缩器，生成各个压缩比下的高质量训练数据；(b) 对推理LLM进行混合比率SFT，教会它遵循不同的压缩预算指令（如 $\langle\text{COMP\_40}\rangle$），同时引入策略token（$\langle\text{COMP\_POLICY}\rangle$）作为RL阶段的可训练机制；(c) 使用CHRPO（约束与层次化比率策略优化）对策略token进行RL优化，显式激励模型在保持精度的前提下选择最低预算。推理时，输入固定比率token则按指定比率生成，输入POLICY token则由模型自主决策。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["数学 CoT 数据（公式原子化）"] --> S1
     subgraph S1["语义保持的问题感知压缩器（设计1）"]

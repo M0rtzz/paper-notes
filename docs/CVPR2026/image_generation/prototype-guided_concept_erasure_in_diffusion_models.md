@@ -42,7 +42,7 @@ tags:
 这篇论文要解决的是宽泛概念（暴力、色情这类含多种视觉形态的概念）难以彻底擦除的问题。它的思路是：先在离线阶段给目标概念造一批"含概念 / 不含概念"的图像对，在 CLIP 空间里把"概念本身"的方向抠出来并聚成若干原型；再把这些活在图像空间的原型翻译成可以直接喂给扩散模型的文本原型；推理时按用户提示挑出最贴合的那个原型当负引导，把对应的概念子模式压下去。整个过程不动扩散模型的权重，属 training-free 干预。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph P1["概念原型构建（离线）"]
         direction TB

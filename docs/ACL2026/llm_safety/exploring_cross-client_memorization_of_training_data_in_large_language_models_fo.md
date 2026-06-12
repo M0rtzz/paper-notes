@@ -45,7 +45,7 @@ tags:
 由此衍生两个核心度量：$\text{MR}_{\text{Intra}}$（所有 $j = k$ 的加权平均，表示同 client 内泄露）和 $\text{MR}_{\text{Inter}}$（所有 $j \neq k$ 的平均加权后总平均，表示跨 client 泄露）；为了和 CL 公平比较，又定义 $\text{MR}_{\text{TotalCL}}$ 和 $\text{MR}_{\text{TotalFL}}$（所有触发记忆的 prefix 的并集占比）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["跨 client 抽样<br/>C_j 取 prefix、C_k 取 suffix（各 n=4000）"] --> B["全局 FL 模型 M 续写 prefix → M(p̃)"]
     subgraph DET["PAN2014 三层检测 + Elasticsearch 加速"]

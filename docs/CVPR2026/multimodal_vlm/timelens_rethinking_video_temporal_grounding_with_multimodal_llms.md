@@ -50,7 +50,7 @@ tags:
 TimeLens 不端出一个新模型，而是回答"要把 MLLM 的视频时间定位（VTG）能力做对，到底哪些因素关键"。它沿两条线推进：数据层面，先诊断并修复三个主流基准、发布高质量评测集 TimeLens-Bench，再自动化重标注训练数据得到 TimeLens-100K；算法层面，系统对比时间戳编码方式、训练范式和 RLVR 配方，最终训出 TimeLens-7B/8B。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["数据基础"]
         direction TB

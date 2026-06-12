@@ -44,7 +44,7 @@ tags:
 SenseBench 通过质量过滤+挑战过滤从真实用户对话中构建多轮评测基准。SenseJudge 从少量人工标注对中提取偏好文本，选择最优偏好子集，推理时通过多偏好投票产生最终判断。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["SenseBench 基准构建"]
         direction TB

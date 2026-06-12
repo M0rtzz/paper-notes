@@ -44,7 +44,7 @@ tags:
 PATRA 整体由一个 Text Encoder（直接用 LLM 自带 tokenizer 与 embedding）、一个 TS Encoder（Instance Norm + Patching + Embedding）、一个 Pattern-Aware Alignment 模块、和一个 LLM Backbone (Qwen2.5-7B) 组成。文本与时序各自编码后送入对齐模块，对齐后的时序 token 通过 `<ts>...</ts>` 占位符回填到文本 token 序列里，再整体送给 LLM 生成 `<think>...</think><answer>...</answer>` 形式的响应。训练分两阶段：先在大规模 TSQA 数据上做 SFT (Alignment Stage)，再用 GRPO + 复合奖励做 Reasoning-Enhanced Stage。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["文本问题 Q"] --> TE["Text Encoder<br/>tokenize + embed 得 X_text"]
     TS["时间序列集 S"] --> TSE["TS Encoder<br/>InstanceNorm + Patching + Embedding 得 X_ts"]

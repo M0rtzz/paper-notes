@@ -42,7 +42,7 @@ tags:
 PDP 想解决的是增量目标检测里的「提示退化」：学新类时，旧类提示既被新任务挤占（耦合），又被错误的背景监督带偏（漂移）。它构建在 Deformable-DETR 之上，用一套教师-学生蒸馏架构来落地——学生模型学当前任务，教师模型（上一任务的快照）对图里的旧类对象打伪标签，把旧知识喂回来防遗忘。整条链路是：图像进 backbone 抽特征 → 查询提取器生成 query → query 去两个提示池里检索并聚合出一组提示 $P_r$，经 Prefix-Tuning 注入解码器 → 解码器输出检测结果。两个核心模块各管一个病灶：双池提示解耦（DDP）把通用知识和任务专属知识拆到两个池里互不打架，治「耦合」；原型伪标签生成（PPG）在嵌入空间里用类原型挑回旧类对象的伪标签，治「漂移」。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["输入图像"] --> BK["backbone 抽特征<br/>查询提取器生成 query"]
     subgraph DDP["双池提示解耦（DDP）"]

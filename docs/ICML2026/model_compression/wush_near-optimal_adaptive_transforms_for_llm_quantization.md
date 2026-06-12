@@ -45,7 +45,7 @@ WUSH 针对每个 linear layer 的输入通道按量化 group 切成 block。离
 推理时，权重侧的变换已经吸收到预量化权重里，在线只需要对 activation block 做 WUSH transform 和 quantization。作者为此实现 fused WUSH + Quant kernel，并把每个 block 的 $G\times G$ 矩阵以适合 CUTLASS GEMM 的布局存储，使多个小矩阵变换可以像 Hadamard + quantization 一样被高效融合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     OBJ["输出误差目标<br/>min ‖q(T_W·W)ᵀ q(T_X·X) − Wᵀ·X‖²<br/>按 block 拆分、独立求解"]
     subgraph CONSTRUCT["WUSH 闭式构造（逐 block，离线）"]

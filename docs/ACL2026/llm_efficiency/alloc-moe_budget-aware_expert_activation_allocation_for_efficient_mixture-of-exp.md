@@ -45,7 +45,7 @@ tags:
 Alloc-MoE 把"激活多少个专家"显式建模成一份固定的全局预算 $B$，再分两个正交维度去最优调度它。输入是一个预训练 MoE 模型 $M$（含 $L$ 个 MoE 层、原始 Top-$K$ 为 $K_{\text{orig}}$）、校准数据 $D_{\text{calib}}$ 和预算 $B$。离线阶段先量化每一层对稀疏化的敏感度、用动态规划把预算切成层级分配 $\mathbf{K}^{\ast}=[K_0,\dots,K_{L-1}]$（Alloc-L）；在线阶段在每层内部、按该层配额把激活机会在 token 之间重新抢占（Alloc-T）。两个阶段一个动层、一个动 token，互不重叠，叠起来就是完整框架，输出是一个激活预算砍半却几乎不掉点的推理流程。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["预训练 MoE 模型 M（L 层，原始 Top-K_orig）<br/>+ 校准数据 + 全局预算 B"]
     subgraph AL["Alloc-L：隔离式敏感度 profiling 配背包 DP（离线）"]

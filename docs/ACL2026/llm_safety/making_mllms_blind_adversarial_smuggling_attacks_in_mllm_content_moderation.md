@@ -46,7 +46,7 @@ tags:
 这篇论文不训练新模型，而是系统性地揭露并刻画一类新威胁：对抗走私攻击（ASA）。整套工作分三步走——先把"走私"这件事形式化、归纳出一套分类体系，再据此搭出首个专用基准 SmuggleBench，最后用它把 SOTA 模型挨个测一遍并试探缓解办法。审核流程被拆成感知（从图里提取文本）和推理（判断语义是否有害）两个阶段，攻击就分别瞄准这两个阶段：要么让模型"看不见"文字（感知盲区），要么看见了也"想不通"它有害（推理阻断）。输入是一张藏了有害内容的图，输出是模型给的安全/不安全判定。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph T["对抗走私攻击分类体系"]
         direction TB

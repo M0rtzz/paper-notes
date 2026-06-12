@@ -44,7 +44,7 @@ tags:
 LogicAgent 要解决的是「语义复杂性和逻辑复杂性交织时，单视角推理容易锁死在一种解释上」的问题。它把一个命题先摊开成格雷马斯符号方阵的四元结构，再让每个视角各自走一遍形式化演绎，最后用方阵自带的结构关系做交叉仲裁。整条流水线分三阶段：**语义结构化**把命题 $S_1$ 扩展成 $\lnot S_1$、$S_2$、$\lnot S_2$ 四个关联命题并验证 FOL 一致性；**逻辑推理**把前提翻成 FOL、规划路径、逐步演绎出每个视角的判定；**反思验证**用三层递进机制比对各视角结论，输出一致的最终答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原命题 S1"] --> SEM
     subgraph SEM["语义结构化阶段"]

@@ -45,7 +45,7 @@ EF-LIC 用"无约束向量量化最大化索引熵 + 表征域上下文重参数
 EF-LIC 想把 LIC 流水线里那个慢且串行、只能跑在 CPU 上的熵编码模块整个抽掉，又不掉 R–D 性能。它的做法是：图像 $\bm x$ 先经主编码器 $g_a$（下采样因子 $f_y=16$）变成潜变量 $\bm y$，超先验分支 $\bm z=h_a(\bm y)$（下采样 $f_z=64$）经 RVQ 量化后解出上下文特征 $\bm\phi=h_s(\hat{\bm z})$；接着把 $\bm y$ 按 quadtree 拆成 $N=4$ 组 $(\bm y_1,\dots,\bm y_4)$，逐组用上下文驱动的仿射参数把潜变量"白化"到去相关空间再做 VQ，最后主解码器 $g_s$ 还原 $\hat{\bm x}$。整条流水线**没有任何熵编码器/解码器**，所有 VQ 索引以定长码送出，全部模块都是纯张量算子、可在 GPU 上一次性 batch 化跑完。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入图像 x"] --> GA["主编码器 g_a（下采样 16×）"]
     GA --> Y["潜变量 y"]

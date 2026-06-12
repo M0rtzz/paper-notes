@@ -45,7 +45,7 @@ tags:
 本文分两步：先用 DeLP 指标诊断多语言检索器“真正偏好哪种语言”，再用 DELTA 框架据此改写查询。DeLP 这一侧的输入是检索器在各种查询语言 $L_q$ 与文档语言 $L_d$ 组合下的原始偏好信号，它构造一组先验特征（曝光、语料库规模、gold 可用性、文化），用岭回归把能被这些结构性先验解释的部分拟合掉，剩下的残差就是去偏后的固有偏好。把去偏偏好画成矩阵后浮现一个反直觉的结论：最强信号落在对角线上——检索器真正偏好的是“查询与文档同语言”的单语对齐，而非英语。DELTA 这一侧据此改写查询：对一个非英语查询，它保留原始本地查询以吃下单语对齐，同时用一个冻结 LLM 补上英语枢轴和跨语言实体锚点（规范标题、别名、地域提示），把这些线索拼成一条融合查询送进检索器；本地信号与全局英语信号之间的配比，由 DeLP 揭示的去偏偏好通过“重复加权”来控制，最后由生成器产出回答。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DELP["DeLP 去偏语言偏好指标（设计 1）"]
         direction TB

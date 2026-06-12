@@ -43,7 +43,7 @@ tags:
 eNMF 要解的还是标准 Frobenius NMF 目标 $\min_{U,V\geq0}\frac12\|X-UV^\top\|_F^2$，但它换掉了进入可行域的路径：传统方法从非负初始化在锥内部慢慢爬，eNMF 则先抓住无约束截断 SVD 的全局低秩最优解，利用低秩因子的旋转不变性，在 SVD 因子的旋转等价类上找一个离非负锥最近的外部点，再把它推进可行域并用成熟下降器收尾。整条流水线分三段：截断 SVD 给出无约束最优因子，ADMM 求一个让负元素最少的正交旋转，外点 penalty 把旋转后的因子可行化，最后 HALS 在可行域内下降到 KKT 局部最小值。关键不是发明新目标，而是把最难的初始化与进入可行域这一步做对。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入非负矩阵 X"] --> S1
     subgraph S1["SVD 流形上的 ADMM 正交旋转（设计 1）"]

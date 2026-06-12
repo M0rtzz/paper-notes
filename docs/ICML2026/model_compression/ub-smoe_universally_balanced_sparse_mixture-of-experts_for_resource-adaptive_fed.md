@@ -46,7 +46,7 @@ tags:
 UB-SMoE 要解决的是「把 Sparse MoE 搬进异构联邦 LoRA 微调后，低算力客户端因为 $K_c$ 小而陷入专家失衡与梯度死锁」这件事。它在每个 SMoE 层注入统一 rank 的 LoRA 适配器，让整个系统在「服务器聚合全局专家利用率 $\tilde u_i^{(l)}$ → 客户端拿利用率调制路由 logits $m^{(l)}_i=s^{(l)}_i+\phi^{(l)}_i$ → 按算力预算 $\beta_c$ 激活 $K_c=\lfloor K_{\max}\beta_c\rfloor$ 个专家 → 本地训练时未激活专家也吃到按稀疏度 $\rho_c$ 缩放的伪梯度 → 把参数 delta 与利用率统计回传服务器」这条闭环上滚动。两个核心机制 DMR 与 PG 各治一个病，又互相喂数据形成自强化循环——下图这条"服务器↔客户端"闭环回路本身就是第 3 个关键设计要刻画的对象。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     S["服务器：聚合全局专家利用率 ũ<br/>对照目标均匀利用率 u*，更新调制向量 φ"]
     S -->|下发调制向量 φ| R

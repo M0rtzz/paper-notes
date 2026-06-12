@@ -43,7 +43,7 @@ tags:
 R2-Router 想解决的是"被动式路由按静态成本估计一票否决强模型"这个老毛病，办法是把输出长度预算 $b$ 升格成和选哪个 LLM 同等地位的决策变量。它分离线、在线两段：离线先构造 R2-Bench——对每个 (query, LLM) 对在 16 个不同 token 预算下各采一次回答、用 LLM judge 打质量分，从而把每个模型从一个点摊成一条质量-成本曲线，这批多预算数据用来训练预测器；在线时输入 query $x$ 和 trade-off 系数 $\lambda$，共享 encoder 先编码出 $z_x=\text{Enc}(x)$，每个 LLM 的一族多头 MLP 一次性预测所有 (LLM, 预算) 组合的质量、拼成 $n\times K$ 曲线矩阵，Decision Maker 按重表述后的目标 $(M^*,b^*)=\arg\max\bigl((1-\lambda)Q-\lambda C(b)\bigr)$ 在矩阵上挑出最优组合，最后调用 $M^*$ 并把 "Use at most $b^*$ tokens." 注入 prompt 强制约束输出长度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["R2-Bench（离线·多预算数据集）"]
         direction TB

@@ -45,7 +45,7 @@ MCP-Persona 是首个针对真实个人化 MCP 工具（Slack/Rednote/Instagram/
 MCP-Persona 要解决的核心矛盾是：评测个人化工具既要真实账号行为、又不能碰真实用户隐私数据。它的破局方式是 traverse-then-simulate——先在 sandbox 账号上真实遍历每个 MCP server 的成功与失败调用、把行为记录下来，再让 LLM 把这些行为"写成"一份可执行的 Python simulator 来替代真实 server。整条流水线由三个组件串成：Tool-Traverse 产出每个 server 的 simulator kernel，Context-Tree 产出一棵以 User 为根的个人化数据树作为 simulator 的状态，Persona-Gen 在这棵树上采样工具链、生成并人工校验出 173 个任务。Agent 最终在这个模拟环境里执行任务，用 Acc / SR-0.8 / Exec-Acc 三个指标评分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SRV["12 个真实 MCP server<br/>(Slack / Rednote / Lark…)"]
     subgraph TT["Tool-Traverse（设计1）"]

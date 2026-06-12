@@ -48,7 +48,7 @@ tags:
 RealVLG 想把"视觉语言定位（VLG）"和"机器人抓取"这两件一直脱节的事统一进一个模型，让自然语言指令能一路映射到 bbox、分割掩码、抓取姿态和接触点。它由两部分组成：数据集 RealVLG-11B——整合 Cornell、VMRD、OCID-Grasp、GraspNet、GraspClutter6D 等真实抓取数据集，经一条标注流水线统一补齐 bbox、分割掩码、矩形抓取姿态、接触点和自然语言描述，覆盖约 16.5 万张图像、800+ 物体实例、130 万标注、约 110 亿抓取示例；模型 RealVLG-R1——以 Qwen2.5-VL 为骨干，用强化学习微调（RLVR）靠可验证奖励驱动，统一预测上述四类输出。下图把"数据集构建"和"模型训练"两条流水线串起来，分别对应下面的两个关键设计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["真实抓取数据集汇总<br/>Cornell / VMRD / OCID-Grasp / GraspNet / GraspClutter6D"]
     subgraph DATA["多粒度数据标注流水线"]

@@ -43,7 +43,7 @@ tags:
 Agent JIT 把"网页 agent 执行下一步动作"的在线决策问题，改写成"运行时把自然语言任务编译成一段可执行代码计划再优化"的编译问题，借此把大量原本要逐步调 LLM 的确定性操作沉淀到代码里。系统由三个在线组件和一条离线缓存流水线组成：离线流水线从成功执行 trace 中合成可复用工具、并学习网页元素交互的 latency 分布；在线时输入自然语言任务、工具 manifest、缓存工具和历史 latency 分布后，JIT-Planner 并行采样多个代码计划（计划里可以混有普通工具调用、LLM eval 调用和控制流），靠 tool protocol 检查每个工具的 pre/post 状态是否可组合、再用成本模型在合法候选里选最便宜的一个，最后由 JIT-Scheduler 为可调度任务在 serial/parallel/hedge 三种执行策略中挑预期 latency 最低的那种。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     O["离线流水线<br/>执行 trace → 合成可复用工具 + 学习元素 latency 分布"] --> A["输入<br/>自然语言任务 + 工具 manifest + 缓存工具"]
     A --> B["Invariant-enforcing 工具协议<br/>每个工具声明 pre/post 状态契约"]

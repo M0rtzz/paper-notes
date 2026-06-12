@@ -45,7 +45,7 @@ tags:
 这篇论文的"方法"不是一个新模型，而是一条"测—诊断—干预"的三段式流水线，目的是把代码混用对 IR 系统的冲击量化清楚并解释成因。先用人工标注的 CSR-L 在 4 个英文 IR 数据集上把 query 改写成中/日混用版，保证语言学自然度；再用 LLM 把这套标注规范放大成覆盖 11 任务 × 9 语种的 CS-MTEB，换取任务与语言广度；最后对英文中心模型做一次零训练的词表扩展干预，看代码混用的失败到底是 tokenizer 覆盖问题还是更深的表征对齐问题。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["英文 IR 数据集 + MTEB 11 任务<br/>(Touché / HumanEval / TRECCOVID / FollowIR)"]
     subgraph BENCH["人工 + LLM 双轨基准（CSR-L + CS-MTEB）"]

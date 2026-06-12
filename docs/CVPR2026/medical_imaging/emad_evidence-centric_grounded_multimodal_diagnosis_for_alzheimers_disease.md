@@ -48,7 +48,7 @@ $$\mathbf{A}_{t \to v} = \text{Attn}(h_t', h_v', h_v'), \quad \mathbf{A}_{v \to 
 并用残差连接保留模态特异信息 $z_v = h_v' + \mathbf{A}_{v \to t}$、$z_t = h_t' + \mathbf{A}_{t \to v}$。融合特征替换 prompt 里的 `<sMRI>` 和 `<clinical>` 占位符，由 LLaMA 3.2-1B + rank-8 LoRA 自回归生成报告。报告生成后，SEA Grounding 头把它逐句钉回证据与脑区；GTX-Distill 与 Executable-Rule GRPO 则分别在训练侧让对齐能力可廉价迁移、让输出守住临床规则。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：3D sMRI + 结构化临床变量"] --> B["多模态编码器<br/>3D ViT（视觉）+ Longformer（文本）"]
     B --> C["投影 + 双向交叉注意力融合 BCA<br/>得到融合特征 z_v、z_t"]

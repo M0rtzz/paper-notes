@@ -57,7 +57,7 @@ DEUS 的两个设计分别对应解决这两个问题。
 两个模块共享同一份提案特征 $f$：EUS 在训练时做三类（已知/未知/背景）分离、在推理时把子空间偏移校准进检测器原有的未知 logit；EKD 只在增量任务的记忆重放阶段激活，用同一套能量语言把旧类和新类的分类器响应拉开。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像"] --> B["OrthogonalDet 基础检测器<br/>提取提案特征 f"]
     subgraph EUS["ETF 子空间未知目标分离（EUS）"]

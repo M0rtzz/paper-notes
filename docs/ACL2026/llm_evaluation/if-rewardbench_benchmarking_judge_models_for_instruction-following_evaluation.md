@@ -44,7 +44,7 @@ tags:
 IF-RewardBench 是一套"数据集 + 评测协议"而非模型，目标是把 judge 评测从"哪条响应更好"的 pairwise/BoN 对齐到 RLHF 真正需要的"多条响应精排"。数据侧从 14 个开源 benchmark + 真实场景收集 ~24.6k 指令，经 LLM 按 7 类约束 × 4 种组合补足复杂指令、启发式长度过滤、LLM 质量&复杂度打分、基于 Conan-embedding 的 DBSCAN 聚类去冗余、人工剔除不可解题后得 3,978→平衡到 2,459 条，每条指令由同一个 LLM 生成 $m=8$ 条响应（全库共覆盖 16 个 LLM，同指令同模型以消除写作风格混淆）；标注侧由 22 名学生对每条响应逐约束打 0/1 判定 $j^*_{ik}$，据此用 Pareto-dominance 推出偏好图并再过一轮人工 verify。最终每条指令对应一张 preference graph（平均 7.14 条响应 / 10.86 条偏好边），judge 在 Constraint Assessment（逐约束打 0/1、按 Eq.1 聚合，指标为 Positive/Negative F1）与 Overall Assessment（对响应集合打分或两两比较、经 ELO 转 listwise）两类任务上被以 Kendall $\tau_b$ 度量排序质量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["收集指令<br/>14 开源 benchmark + 真实场景 ~24.6k"]
     subgraph COV["三类场景 + 约束 taxonomy"]

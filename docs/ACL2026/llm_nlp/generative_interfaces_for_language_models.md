@@ -45,7 +45,7 @@ tags:
 GenUI 把"为查询生成回答"重新定义为"为查询在线生成一个可交互界面"：输入是一条自然语言查询 $q$，输出是一份可直接在浏览器中渲染的 HTML/CSS/JS 界面 $u^*$。整条推理时 pipeline 由五次 LLM 调用串成——先把 $q$ 翻译成结构化需求规范（目标、特性、UI 组件、交互风格、解题策略），据此生成"交互流图 + 有限状态机"两层骨架，再把规范、骨架、预置组件库（时钟、地图、计算器、图表等）与 exa.ai 检索到的相关 UI 范例一起喂给 LLM 合成可执行代码，最后为本条 query 现场构造一组带权 rubric 作奖励，驱动多轮 generate→evaluate→regenerate 循环把界面打磨到位。系统在 OpenCanvas 框架上实现，默认主干为 Claude 3.7，全程不更新任何权重。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["自然语言查询 q"] --> SPEC["需求规范<br/>目标 / 特性 / UI 组件 / 风格 / 策略"]
     SPEC --> REPR["结构化界面表示<br/>交互流图 + 有限状态机（FSM）两层骨架"]

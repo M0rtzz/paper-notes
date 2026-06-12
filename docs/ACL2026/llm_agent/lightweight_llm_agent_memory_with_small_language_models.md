@@ -46,7 +46,7 @@ tags:
 LightMem 把记忆操作拆成在线、离线两条路径，核心思路是"让合适规模的模型做合适的事"：高频、强调可预测行为的在线操作交给三个专用 SLM，低频、需要强推理的重型整合甩到离线给大模型。在线路径里，SLM-1（Controller）做意图建模与检索控制，把用户输入转成假设查询（HQ）并分配检索预算；SLM-2（Selector）执行两阶段检索，先向量粗检索再做语义一致性重排序；SLM-3（Writer）把交互压缩成紧凑的 MTM 条目并增量维护。离线路径则由大上下文模型把高价值 MTM 片段蒸馏成去标识化的长期语义知识（LTM），以图结构知识库存储，从而在不拖慢响应的前提下持续沉淀长期记忆。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["用户输入与近期上下文 C_t"] --> CTRL["控制器（SLM-1）<br/>意图建模 → 假设查询 HQ + 元数据约束 + Top-K 预算"]
     CTRL --> RETR

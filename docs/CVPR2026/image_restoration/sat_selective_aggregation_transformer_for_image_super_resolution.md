@@ -38,7 +38,7 @@ tags:
 SAT 想解决的是 Transformer 超分里"全局注意力太贵、窗口注意力又看不远"的两难。它的骨架是残差组结构，组内交替堆叠两种块：局部 Transformer 块（LTB，做窗口注意力，管局部细节）和选择性聚合 Transformer 块（SATB，做全局注意力，管长距离依赖）。关键在于 SATB 里的全局注意力不再对全图均匀算，而是先把 Key-Value 大幅压缩、只保留 Query 的全分辨率，从而在近似全局建模的同时把计算量压下来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["低分辨率图像 LR"] --> B["浅层特征提取"]
     subgraph G["残差组：全局-局部交替"]

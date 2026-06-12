@@ -44,7 +44,7 @@ tags:
 全文是一出"三幕剧"：先训一个线性探针，把每条 CoT 在隐藏状态里"是否会答错"读出来；再把第一步的隐藏状态单独拉出来做早期检测，并配一个文本分类器作"表面对照组"，量化"模型内部知道、文本表面藏着"的隐瞒缺口；最后拿探针读出的"错误方向"做四种由弱到强的因果干预，验证这个信号到底能不能反过来修正错误。整套设计的精巧之处在于：探针、对照、干预层层递进，把"诊断"和"因果"两件事干净地解耦开。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["MATH-500 贪心生成 CoT<br/>标签 y = 是否答错"] --> B["隐藏状态线性探针<br/>取第 l 层末 token h，训 L2 逻辑回归<br/>5 折 CV 选最佳层 → 0.95 AUROC"]
     B --> C["文本表面对照组 + 首步预测<br/>首步隐藏探针 0.79 vs TF-IDF 文本分类器 0.59<br/>隐瞒缺口 Δ = 0.20"]

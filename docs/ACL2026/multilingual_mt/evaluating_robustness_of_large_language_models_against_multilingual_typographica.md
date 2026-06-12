@@ -44,7 +44,7 @@ tags:
 MulTypo 把一段干净文本 $S=\{w_1,\dots,w_n\}$ 变成带 typo 的文本，整体 pipeline 三步：(i) 按词长开方采样一批要打错的词；(ii) 在选中的词内部按"位置感知"分布采一个字符位置；(iii) 从四类操作（replace / insert / delete / transpose）里采一个，根据该语言的键盘布局执行。整个过程由用户给的腐蚀率 $\tau\in[0,1]$ 控制要打错的词数，对每个成功 typo 的词，把它的采样权重砍半以鼓励分布多样性，直到达到目标 typo 数或触发最大重试次数。所有数字串（不论是阿拉伯数字还是 "three / hundred" 这样的词形）都加入"忽略集"，保证扰动只影响语言部分而不污染评测题目。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["干净文本 S = {w₁,…,wₙ}"] --> SAMP
     subgraph SAMP["长度感知 + 位置感知采样"]

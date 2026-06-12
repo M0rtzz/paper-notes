@@ -45,7 +45,7 @@ tags:
 MSMO 的核心判断是：跨语言 ABSA 必须**同时**在句子级和 aspect 级对齐，而一份 code-switch（aspect-swap）数据恰好能同时喂这两个粒度的目标。它走两阶段顺序训练：Stage 1 用 multilingual encoder（mBERT/XLM-R）配一个带梯度反转层的语言判别器，靠 Wasserstein 对抗把整句表示压成语言不变特征；Stage 2 用更新过的 encoder 一路做 BIES 情感序列标注（CE）、一路用双向 KL 把"同一 aspect 在源语 / 换语后"的预测分布对齐。训完的模型还能当 teacher，用未标注目标语数据做单/多教师蒸馏进一步提分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["四类 code-switch 数据构造<br/>源语句 / 翻译目标语句 / aspect 换语混合句"] --> B
     subgraph S1["句级 Wasserstein 对抗（Stage 1）"]

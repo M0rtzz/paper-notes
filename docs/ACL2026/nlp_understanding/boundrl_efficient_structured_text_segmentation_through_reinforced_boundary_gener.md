@@ -46,7 +46,7 @@ BoundRL 将结构化文本分割重新定义为边界生成任务——仅生成
 BoundRL 要解决的是结构化文本（如 LLM 提示）的 token 级分割，但又不想付出"让模型逐字重写每个片段"那样的高推理成本和幻觉代价。它的做法是把分割重新表述为**边界生成**：模型只吐出每个片段的起始 token 和标签，推理时再回原文按序定位这些起始 token、把相邻起始位置之间的文本切出来。训练分两阶段——先用 SFT 教会输出格式，再用一套双目标奖励的 RLVR 把分割质量顶上去，其间用扰动构建的中间候选来对抗熵坍塌。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["结构化文本 d<br/>(LLM 提示，含 JSON / 代码 / 占位符)"] --> B["边界生成输出模式<br/>每段只生成 2-10 个起始 token + 标签"]
     B --> C["SFT 阶段<br/>交叉熵教会输出格式"]

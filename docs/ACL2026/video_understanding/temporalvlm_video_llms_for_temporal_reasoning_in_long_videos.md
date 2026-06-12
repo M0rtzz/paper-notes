@@ -46,7 +46,7 @@ tags:
 输入视频分为 C=6 个片段，每个片段采样 96 帧。时间感知片段编码器：帧经 EVA-CLIP 编码后与时间戳联合通过 Image Q-Former 得到时间感知帧特征，再通过重叠滑动 Video Q-Former 和融合模块得到局部特征。BiLSTM 模块：将所有片段的局部特征按时序连接，通过双向 LSTM 聚合全局特征。最终特征经投影层映射到 LLaMA-2 7B 的嵌入空间。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["长视频<br/>切 6 片段 × 96 帧"] --> B["EVA-CLIP 编码 + 时间戳<br/>→ Image Q-Former 得时间感知帧特征"]
     subgraph LOCAL["重叠滑动 Video Q-Former + 融合模块（片段级局部特征）"]

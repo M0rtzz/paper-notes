@@ -45,7 +45,7 @@ tags:
 这套 pipeline 的关键在于它**不过滤输入**——同一条完整的用户输入（包括“只给最终答案”这类诱导）原样交给 pipeline，只在架构层面规定“谁来判断知识缺口、谁来生成回答”。这样才能验证安全性的提升究竟来自知识图门控（gating），而不是简单地把诱导性文本删掉。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["完整用户输入<br/>问题 + 可能的答案诱导"] --> DECOMP
     subgraph PIPE["图增强路由 pipeline（不微调底座模型）"]

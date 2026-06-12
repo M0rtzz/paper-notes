@@ -46,7 +46,7 @@ MHGraphBench 的流程分为三步：先定义心理健康领域边界，再从 
 在 QA 生成阶段，系统把图事实转为 9 个任务族：Entity Typing、Entity Clustering、Fact Checking、Relation Typing、Relation Prediction、Two-hop Verification、Two-hop Selection，以及两个 evidence-augmented 两跳任务。所有任务都使用 letter-only multiple-choice interface，二分类任务也用 A/B 而非 Yes/No，以减少词面偏置。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["42 个精神疾病 seed 节点"] --> SUB
     subgraph SUB["PrimeKG 心理健康子图抽取"]

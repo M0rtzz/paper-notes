@@ -44,7 +44,7 @@ MaskAQ 把 ViT 的数据无关量化重新定义为"在合成样本的稀疏 inf
 MaskAQ 沿用"合成 → 校准"两阶段的 DFQ 主框架，但在两端都引入 informative region 这个核心概念：先靠全精度模型 $P$ 的注意力把合成图里真正承载语义的稀疏前景 patch 圈出来，再让合成和校准都只围着这撮 patch 转。合成阶段的目标 $\mathcal{L}_S = \mathcal{L}_{prior} + \lambda_{fb}\mathcal{L}_{fb} + \lambda_{align}\mathcal{L}_{align}$ 一边鼓励注意力分布多样化以化解 semantic dispersion，一边在自适应掩码 $m'$ 上对齐 $P$ 与 $Q$ 的注意力以消除 attentional disparity；校准阶段则给这些前景位置加权，让量化模型 $Q$ 优先在它们上面匹配 $P$ 的隐藏表示。外层再套一个"周期性刷新"循环，每隔一段训练就用当前 $Q$ 重新合成一批样本，保证样本永远跟得上正在演化的 $Q$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["全精度模型 P + 合成样本初始化"]
     subgraph SYN["合成阶段：最小化 L_prior + λ_fb·L_fb + λ_align·L_align"]

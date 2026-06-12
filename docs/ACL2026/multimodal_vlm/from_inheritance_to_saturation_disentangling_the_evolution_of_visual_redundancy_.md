@@ -46,7 +46,7 @@ tags:
 HalfV 分两步：（1）在 Stage II 起始处对所有架构统一执行一次性 token 剪枝，消除 IVR；（2）在 Stage III 根据架构特异性处理 SSR——对 Vicuna/Mistral 架构复用 KV 缓存跳过层计算，对 Qwen 架构只保留 top-5% 主导 token 参与计算。这一切的前提，是先用截断矩阵熵这把"尺子"把推理过程切成三阶段、读出 IVR 与 SSR 各自该在哪一段下手。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视觉 token + 文本 token 输入"] --> LIFE
     subgraph LIFE["三阶段推理生命周期（截断矩阵熵探针定位三段）"]

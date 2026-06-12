@@ -44,7 +44,7 @@ tags:
 TTP-Detect 要解决的核心矛盾是：水印的检测一直和注入绑死在同一把密钥上，第三方（法院、平台审核员）拿不到密钥就没法独立验证内容是否含水印。它把整件事重构成一个三方协作的相对假设检验：用户提交一段查询文本，服务提供商暴露一个支持水印开关的 API，可信第三方审计员（TTP）通过这个 API 拿到同提示下的水印/非水印参考样本，再用一个代理模型把文本映射到放大水印差异的表示空间，最后用三类互补度量集成出"这段文本更像水印分布还是非水印分布"的判决——全程不碰密钥，也不看模型内部状态。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["查询文本 + 服务商 API（水印开关）"] --> D["构建配对训练集 D_sft<br/>同提示取水印/非水印样本"]
     D --> P["代理模型表示提取<br/>判别式 SFT，取末层末 token ℓ2 归一化隐状态"]

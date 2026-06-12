@@ -44,7 +44,7 @@ tags:
 本文同时交付一个基准和一个框架。CMedTEB 基准用一条多 LLM 共识标注流水线，把原始医学问答语料整理成检索、重排、STS 三类带可靠正负标签的评测集；CARE 框架则把"查询在线、文档离线"这一检索固有的不对称性显式利用起来——查询交给轻量 BERT（0.3B）实时编码，文档交给大型 LLM 离线预计算嵌入，中间靠两阶段渐进对齐弥合两个异构编码器的表示鸿沟。训练 CARE 之前先要造好高质量的医学训练数据：通过多样性感知去重和假阴性清洗产出 500K 三元组；由于查询编码器（BERT）与文档编码器（LLM）原生维度不一致，文档编码器先用 MRL（Matryoshka 表示学习）把嵌入截断到与查询编码器对齐的维度，再进入两阶段对齐。从输入查询到返回结果，在线侧只需跑一次 BERT 前向，文档侧的 LLM 嵌入早已建好索引，从而拿到 LLM 级精度与 BERT 级延迟。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["CMedTEB 基准构建（多 LLM 共识 + 专家验证）"]
         direction TB

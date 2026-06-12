@@ -44,7 +44,7 @@ tags:
 Aegle基于DeepSeek-V3.2构建，采用两阶段有限状态机执行问诊：Stage I为迭代式病史采集（证据收集），Stage II为诊断综合（冻结证据集后生成诊断）。全程维护一个增量更新的结构化临床状态 $\mathcal{S}_t = [\mathcal{F}_t, \mathcal{P}_t]$，其中 $\mathcal{F}$ 对应SOAP的S+O（事实证据），$\mathcal{P}$ 对应A+P（诊断与计划）。Stage I 内由 Orchestrator、Specialist Agents、Aggregator 三类节点协作循环，所有节点都读写同一块 SOAP 黑板；证据充分后才切换到 Stage II 一次性下诊断。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["患者叙述输入"] --> ORCH
     subgraph STAGE1["两阶段顺序执行 · Stage I 迭代式病史采集"]

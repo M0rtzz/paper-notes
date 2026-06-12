@@ -44,7 +44,7 @@ tags:
 VaLR 在标准 MLLM（Qwen2.5-VL-7B）上做两阶段 SFT。推理时序列形如 $v, q \to (\ell_{[1:K]}^{(1)}, r^{(1)}, \ell_{[1:K]}^{(2)}, r^{(2)}, \cdots) \to a$，即视觉特征 + 问题 → (K 个 latent token + 第 i 步文本 reasoning) × N 步 → 最终答案。latent token 段用 `<latent>` / `</latent>` 控制边界。在 latent 模式下，模型把上一步的隐状态 $h_t$ 直接当作下一步的输入 embedding（绕过 LM-Head 和 token embedding 表）；在 language 模式下回归标准的 token embedding 输入。每段 latent 固定走 $K=16$ 步后强制切回 language 模式。整套训练分两阶段：Stage 1 先用标准 CoT SFT 把文本推理能力建起来（脚手架），Stage 2 才插入 latent token 并施加 REPA 视觉对齐——而视觉对齐只在训练时存在，推理时整条监督分支丢弃。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：视觉特征 v + 问题 q"] --> B["Stage 1：标准 CoT SFT<br/>先建立文本推理能力（脚手架）"]
     B --> C["Latent token 与隐状态自回归<br/>每步推理前插入 K=16 个 latent token<br/>latent 模式下 h_t 直传当下一步输入"]

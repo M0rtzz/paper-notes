@@ -44,7 +44,7 @@ tags:
 这篇论文要解决的是：给 LVLM 做权重剪枝时，用哪些 token 来"校准"激活范数才不会把语言能力剪坏。Wanda 这类激活感知剪枝靠校准数据估出每列激活的范数，再用「权重幅度 × 激活范数」打分剪权重——校准数据喂什么 token，直接决定哪些权重被判为重要。ATV-Pruning 没有改打分公式，只改了校准池的成分：先用一个探针实验测出文本通路怕剪、视觉通路耐剪，再据此把全部文本 token 留下、只逐层挑少量最"活跃"的视觉 token 补进来，构成校准池 $\mathcal{S}_{cal} = \mathcal{T} \cup \mathcal{V}_{sub}$（$\mathcal{T}$ 是所有文本 token，$\mathcal{V}_{sub}$ 是逐层自适应选出的视觉 token 子集），然后照常跑 Wanda 剪枝、无需重训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["MoT 灵敏度分析探针<br/>解耦文本/视觉两条通路独立剪枝"] --> F["发现 A：文本通路怕剪，须文本校准<br/>发现 B：视觉通路冗余，可承受高稀疏"]
     F --> T["全部文本 token（一个不少）"]

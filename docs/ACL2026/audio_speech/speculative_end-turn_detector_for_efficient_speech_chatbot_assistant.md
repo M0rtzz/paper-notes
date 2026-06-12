@@ -44,7 +44,7 @@ tags:
 SpeculativeETD 要解决的是语音助手最尴尬的瞬间：用户只是停顿思考，系统却以为话说完了抢着回话。它把这个 end-turn detection 任务按难度切成两层，端侧 GRU 以 100 ms chunk 为单位连续运行、只做最容易的"是否在说话"判断，只有当连续静音累积到 turn-taking 文献常用的 200 ms 阈值时，才把这段静音发给服务端 Wav2Vec2 去裁决它到底是 Gap（用户说完，可触发 LLM 回复）还是 Pause（用户还会继续）。这样既保住端侧的实时低功耗，又把最贵的大模型算力集中到真正困难的判别时刻。而这套端云协同所需的训练与评测数据，则由作者自建的 OpenETD 公开数据集供给。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["OpenETD 数据集"]
         direction TB

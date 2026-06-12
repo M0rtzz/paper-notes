@@ -39,7 +39,7 @@ tags:
 要解决的问题是：给一组同主体、不同视角的图像加一条编辑指令（比如"把 T 恤换成红色"），要让所有图改得一致而不是各编各的。GroupEditing 的核心转换是把这组图当成一段"伪视频"——既然视频模型天生懂得让相邻帧保持一致，那把多图按时间维度排成序列，就能"白嫖"这份时序一致性先验。整条链路是：分割掩码 + 文本指令进来，先用 VAE 把每张图编码进潜在空间并按时间排成伪视频序列，送进基于 WAN-2.1 视频扩散模型的 Transformer；骨干里注入两套增强位置编码——Ge-RoPE 管跨视角的几何对齐、Identity-RoPE 管目标的身份保持；同时 VGGT 抽出的显式几何特征 token 被拼到潜在序列里一起参与自注意力。最后解码出多视角一致的编辑结果。这里的关键判断是：光靠视频模型的隐式对应在几何复杂场景（旋转、遮挡、形变）下不够稳，所以要再喂一份 VGGT 的显式几何匹配作补充。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["GroupEditData：训练数据构建"]
         direction TB

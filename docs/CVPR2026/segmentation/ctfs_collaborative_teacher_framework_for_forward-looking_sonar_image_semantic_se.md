@@ -45,7 +45,7 @@ CTFS 想解决的是一个很具体的困境：声呐图像标注极贵，半监
 整篇 pipeline 因此分两条线走。标注数据走常规监督训练，给学生一个 $\mathcal{L}_{sup}$。未标注数据是重点：经过前 $E$ 个 epoch 的预热后，三个教师按"通用→声学阴影→能量衰减"的固定顺序每 3 个 epoch 轮流上岗（轮换函数 $\phi(e)$）。当前激活的教师对弱增强输入生成伪标签，学生则在强增强输入上学习；伪标签不是照单全收，而是先经过多视角可靠性评估打分，再以这个分数同时做硬过滤和软加权，得到无监督损失 $\mathcal{L}_{unsup}$。最终 $\mathcal{L}_{total} = \mathcal{L}_{sup} + \lambda_u \cdot \mathcal{L}_{unsup}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     L["标注图像"] --> STU["学生模型"]
     U["未标注图像"] -->|强增强| STU

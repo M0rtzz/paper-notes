@@ -45,7 +45,7 @@ tags:
 RayNova 想做一个不绑死相机配置、也不依赖点云/BEV 等显式 3D 先验的多视角世界模型，能在任意传感器布局和快速运动下都生成物理合理的未来。它把世界建模整体放进"光线空间"的自回归框架：每帧的多视角图像先被量化成多尺度 token，再沿"尺度"和"时间"两条因果链逐步生成，每一步生成都由一个三层注意力 block 完成，几何信息全部通过相对 Plücker 光线的位置编码注入，而不是靠任何 3D 表示。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多视角图像序列<br/>(任意相机布局)"] --> B["Next-Scale Prediction<br/>量化为 K 个多尺度 token map"]
     B --> C["双因果自回归<br/>尺度因果：同帧多视图按尺度递进<br/>时间因果：当前帧条件于全部历史帧视图"]

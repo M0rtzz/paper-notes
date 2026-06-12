@@ -46,7 +46,7 @@ tags:
 MAGEO 想解决的事很具体：内容创作者要让自己的页面被生成引擎（ChatGPT、Gemini）在作答时引用，但过去的 GEO 方法每碰到一个新页面就从零试错，攒不下经验。MAGEO 把它拆成上下两层来转。下面是**执行层**，一个 Generate-Evaluate-Select 的迭代循环：偏好智能体先分析目标引擎的引用偏好，规划智能体据此制定修订策略，编辑智能体落地具体改写，评估智能体再做质量检查和忠实度门控，不达标就回炉。上面是**学习层**，把执行层里被验证有效的编辑动作沉淀下来——单会话内用步骤级记忆，跨会话用创作者级记忆，最终汇成一座可检索的策略技能库。两层之间还垫了一个 Twin Branch 评估协议，专门负责把"编辑到底有没有用"从噪声里干净地分离出来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["目标页面 + 目标引擎<br/>(GPT-5.2 / Gemini-3)"]
     subgraph EXEC["多智能体执行层（Generate-Evaluate-Select 循环）"]

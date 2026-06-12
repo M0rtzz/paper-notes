@@ -44,7 +44,7 @@ tags:
 CReL 要回答的问题是"一个条件生成模型在最坏情况下能差到什么程度"，输入是待评估模型 $f$ 和用户指定的相似度指标 $\rho$，输出是置信水平 $1-\alpha$ 下的可靠性评分。难点在于直接在高维输出空间里枚举所有可能输出、找出最差的那一个，既受维度灾难拖累又面临非凸优化。CReL 的破局思路是把高维输出压到低维隐空间，在那里构建一个满足覆盖率保证的凸预测集，于是"找最坏输出"就退化成在凸集上做投影梯度下降这个可解问题。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["待评估模型 f + 相似度指标 ρ + 置信水平 1−α"] --> SP["三折数据划分<br/>训练 LGM / 训练 DQR / 保形校准"]
     subgraph CAL["隐空间保形校准"]

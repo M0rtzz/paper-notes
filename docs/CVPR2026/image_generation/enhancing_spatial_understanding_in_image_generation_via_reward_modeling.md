@@ -46,7 +46,7 @@ tags:
 这篇要解决文生图里复杂空间关系（尤其长提示、多物体）画不准的问题。作者的判断是：用 RL 增强空间理解的真正瓶颈不是 RL 本身，而是缺一个可靠的奖励模型——现成的人类偏好/VQA 对齐模型评不准空间关系，专有大 VLM 又贵到没法频繁查询。于是整条流水线分三步串起来：先构建 80K 对抗性偏好对的 SpatialReward-Dataset，再用它训练专门评估空间关系的奖励模型 SpatialScore，最后把 SpatialScore 当奖励信号、通过 GRPO 在线 RL 优化 FLUX.1-dev。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["SpatialReward-Dataset 对抗性偏好对"]
         direction TB

@@ -44,7 +44,7 @@ tags:
 本文要解决的是长序列生成中模型"悄悄变坏"却没有实时仪表盘的问题。做法是在 decoder-only 模型自回归解码的每一步 $t$，用轻量探针从内部读出三个正交信号——当前 token 对 prompt 区域的注意力、隐状态相对 prompt 末尾的偏移、以及下一 token 分布的熵，把它们各自归一化到统一惩罚尺度后线性聚合成一个有界的 Fatigue Index (FI)。FI 满足五条公理以保证可解释、可归因，再叠加一层滞后告警把连续的风险分转成稳定的在线告警，整个过程不动模型权重、不需重训。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["解码每一步 t<br/>探针读取内部状态"] --> SIG
     subgraph SIG["三信号提取与归一化"]

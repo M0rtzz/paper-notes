@@ -44,7 +44,7 @@ tags:
 输入是图像 $I$、用户指令 $\mathbf{X}$（默认「Please describe the image in detail.」）和 MLLM 生成的答案 $Y$。从 MLLM 语言模型的倒数第二层抽取所有 instruction token 嵌入 $\{\mathbf{z}_j\}_{j=1}^{M}$、所有 image patch 嵌入 $\{\mathbf{v}_i\}$ 和答案中每个物体 token 嵌入 $\mathbf{h_o}$。整个 InsLen 流程不做任何训练，对每个物体 token 计算两个互补分数 $S_{\rm cls}$（Calibrated Local Score）和 $S_{\rm ccs}$（Context Consistency Score），加权后得到 $S_{\rm Ins}(\mathbf{o})=\omega S_{\rm cls}+(1-\omega)S_{\rm ccs}$；用阈值 $\mu$ 二分类，低于阈值的视为幻觉。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["图像 I + 指令 X + MLLM 答案 Y"] --> B["从语言模型倒数第二层抽嵌入<br/>指令嵌入 z_j · 图像 patch v_i · 物体 token h_o"]
     B --> C

@@ -43,7 +43,7 @@ ReStyle-TTS 通过解耦文本/参考音频 guidance、可连续缩放的风格 
 ReStyle-TTS 建在 F5-TTS 这类 flow-matching 零样本 TTS 之上，输入是目标文本、一段参考音频和一个或多个风格强度旋钮，输出是保留参考说话人音色、但音高/能量/情绪被相对调节过的语音。它不重训大模型，而是用三层改造串起整条生成链路：先用 Decoupled CFG 以较低 reference guidance 生成，让模型不完全复制参考音频的原始风格，从而腾出风格空间；再按用户指定的强度把对应 Style LoRA（必要时先做正交融合）加到 base model 上注入风格方向；训练阶段额外用 speaker similarity reward 对流匹配损失重新加权，把被削弱的音色一致性补回来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["目标文本 + 参考音频 + 风格强度旋钮 α"] --> DCFG["Decoupled CFG<br/>三路预测组合：λt 保文本可懂度、λa 调低释放风格空间"]
     DCFG --> SL

@@ -45,7 +45,7 @@ tags:
 
 接着，对于同一上下文，真实导师话语 $t^i_{j,k}$ 是 preferred response，SFT 生成的 $\bar{t}_{j,k}$ 是 dispreferred response。模型在某一层 activation $A_L(\cdot)$ 上加入 $\delta_i v$，并优化偏好损失，使 steered model 更倾向生成真实导师话语、更不倾向生成平均话语。测试时再乘全局强度 $\alpha$，通过 $A_L(\cdot)\leftarrow A_L(\cdot)+\alpha\delta_i v$ 控制 steering 强度。
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["师生数学对话数据集"] --> B
     subgraph REF["population-mean reference"]

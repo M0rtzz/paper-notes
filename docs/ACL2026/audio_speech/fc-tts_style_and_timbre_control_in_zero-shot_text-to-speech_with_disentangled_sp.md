@@ -46,7 +46,7 @@ FC-TTS 建在 FACodec 和 conditional flow matching 之上。FACodec 提供 pros
 style embedding 来自 TCF 模块：prosody tokens 先经过 Transformer encoder，再通过 Q-Former 风格的 cross-attention 压缩成固定数量 latent tokens，随后用 finite scalar quantization 离散化。作者在 phoneme level 和 frame level 各放一个 TCF，以捕捉 utterance 内部的风格变化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     TXT["文本 → 音素<br/>text encoder + duration predictor 对齐到帧级"]
     SPK["音色参考<br/>FACodec speaker embedding z_spk"]

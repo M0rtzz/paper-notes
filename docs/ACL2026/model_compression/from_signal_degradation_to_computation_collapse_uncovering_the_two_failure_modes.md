@@ -46,7 +46,7 @@ tags:
 **整体框架**: 以Llama-3.1-8B为主要分析对象，在事实知识召回任务（Pararel）上系统对比FP16/4-bit/2-bit的内部行为。从宏观的性能现象出发，依次经过逐层信号追踪、组件功能诊断、机制导向修复三个环节，一步步把"哪种失败"坐实成"哪个组件以什么方式失败"，最后用"能不能修好"反证两种失败模式的本质差异。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：FP16 / 4-bit / 2-bit 模型<br/>事实知识召回任务 Pararel"] --> B["宏观现象：4-bit 平缓退化 vs 2-bit 性能悬崖"]
     B --> S1

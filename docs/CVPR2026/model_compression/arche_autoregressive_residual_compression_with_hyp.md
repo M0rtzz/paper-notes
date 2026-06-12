@@ -46,7 +46,7 @@ tags:
 ARCHE 基于 VAE 框架：分析变换 $g_a$ 将输入映射为潜在表示 $y$，合成变换 $g_s$ 从量化表示 $\hat{y}$ 重建图像。核心在于熵模型的层级设计：超先验提供全局统计 → Masked PixelCNN 上下文精化局部概率 → 通道条件捕获跨通道依赖 → SE 激励自适应加权通道 → LRP 修正量化误差。潜在表示 $y$ 沿通道维被分为 10 个切片顺序解码，每个切片有独立的条件变换和 LRP 子模块。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入图像 x"] --> GA["分析变换 g_a：卷积 + GDN 下采样 → 潜在表示 y"]
     GA --> Q["量化得 ŷ，沿通道维分 10 个切片顺序解码"]

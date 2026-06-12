@@ -44,7 +44,7 @@ tags:
 LASER 把主动感知建模为 POMDP $\mathcal{M}=(\mathcal{S},\mathcal{A},\mathcal{O},\mathcal{E},\mathcal{T}_\phi,\mathcal{R}_\phi,\gamma)$，潜状态 $\bm s_t=[\bm z_t,\bm h_t]$ 由当前观测潜码 $\bm z_t$ 和 GRU 历史 $\bm h_t$ 组成，动作 $\bm a_t=\Delta\bm X_t$ 是传感器位移，奖励 $r_t=-\mathcal{L}(\bm u_{t+1},\hat{\bm u}_{t+1})$ 是世界模型解码出的重建 MSE 的相反数。训练两阶段：(1) **离线**预训练世界模型 $\phi$（encoder/dynamics/decoder 联合 ELBO + 扩散去噪），每步重新随机采传感器布局以学不变性；(2) **在线**用 GRPO 训练策略 $\pi_\theta$，每步从当前 $\hat{\bm z}_{t+1}$ 和 $\bm o_t$ 出发采 $G$ 组动作，环境只查训练数据集真值得到 reward，不需要真实物理仿真器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     O["稀疏观测 o_t<br/>任意位置 / 数量"]
     subgraph WM["连续场潜世界模型（离线预训练·设计1）"]

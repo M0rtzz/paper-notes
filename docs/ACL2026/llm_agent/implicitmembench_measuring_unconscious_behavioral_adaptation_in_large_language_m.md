@@ -44,7 +44,7 @@ tags:
 ImplicitMemBench 把认知科学的三种非陈述性记忆范式——程序性记忆、启动效应、经典条件反射——通过功能同构映射到文本代理场景，共构造 300 个测试项。每个测试项都走同一套三阶段协议：先在"学习/启动"阶段让模型从极少示范或主题暴露中获得某种经验，再在"干扰"阶段插入若干轮误导或无关内容冲刷工作记忆，最后在"测试"阶段重新触发情境、只看模型的首次反应。整条评估流水线用确定性规则验证器加 LLM 评判器的混合方式打分，并在 17 个闭源/开源模型上统一运行，从而把考核从"模型能回忆什么"扭转到"模型能自动执行什么"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["认知科学三范式<br/>功能同构映射到文本代理（300 项）"]
     A --> B1

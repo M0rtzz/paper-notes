@@ -44,7 +44,7 @@ tags:
 单头自注意力输出可写成 $o = AVW^O$（$A = \mathrm{softmax}(qK^\top/\sqrt{d})$）。CriticalKV 把"在预算 $b$ 下从 $n$ 个 KV 条目里挑哪 $b$ 个保留"重写成一个优化问题：让近似输出 $\hat o$ 与原输出 $o$ 的 $L_1$ 距离 $\mathcal{L} = \lVert o - \hat o \rVert_1$ 最小。它先把"丢弃哪些条目"编码成乘法掩码 $\mathcal{N} \in \{0,1\}^n$、推出一个对 $\mathcal{N}$ 解析的扰动上界 $\theta$，再用两阶段贪心在每个 head 内最小化 $\theta$，最后把这套选择逻辑当成现有 SnapKV/AdaKV/HeadKV 流水线里"按权重 Top-K"那一步的 drop-in 替换。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["KV 缓存 n 个条目 + query<br/>注意力输出 o = A·V·W^O"] --> B["重写为优化问题<br/>最小化输出扰动 L = ‖o − ô‖₁"]
     B --> C["输出扰动上界 θ<br/>三角不等式放大，同时含注意力权重 A<br/>与投影 value 范数 ‖(V·W^O)‖₁"]

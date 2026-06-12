@@ -43,7 +43,7 @@ LaRA-VLA 把 VLA 模型里的文本 CoT 和视觉 CoT 全部内化为连续 late
 LaRA-VLA 以 Qwen3-VL 为 VLM backbone，加一个特殊 token `<img_next>` 表示未来视觉 latent；动作端在 Stage I-II 是自回归动作 token (沿用 Pertsch et al.)，在 Stage III 切换为 16 层 Diffusion Transformer 动作 expert，通过自注意+交叉注意条件于 latent 表示输出连续动作轨迹。训练数据由"语义锚 (Qwen3-VL 抽对象) + 时间锚 (gripper 状态分段)"驱动的自动 CoT 标注流水线生成，分别构造 LIBERO-LaRA、Bridge-LaRA 和真机数据。整个训练分三个 stage：显式 CoT 微调 → 渐进式 latent 替换 → 动作 expert 适配。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["自动 CoT 标注流水线（数据构建）"]
         direction TB

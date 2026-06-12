@@ -41,7 +41,7 @@ tags:
 两阶段体系：(1) **SP-VAE** 将 3D 形状和物理信息（表面压力场、阻力系数）编码到统一潜空间，配备一个形状解码器（SDF）、一个压力解码器和一个阻力系数解码器；(2) **物理引导 Flow Matching** 在推理时交替执行速度更新（带物理正则化的 rectified flow 采样）和物理精炼（基于方向力的梯度更新），多轮迭代收敛到几何合理且物理高效的形状。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph SPVAE["Shape-and-Physics VAE（几何+物理统一编码）"]
         direction TB

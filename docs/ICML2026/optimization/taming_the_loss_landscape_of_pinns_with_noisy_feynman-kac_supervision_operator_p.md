@@ -50,7 +50,7 @@ tags:
 2. **在线**：每一步采样新的内部 / 边界 collocation 点，连同已有的 FK 数据集一起算总损失（4.2），用 Adam/SGD 更新 $\theta$ 和任务权重 $\phi$；总损失退化为标准 PINN 当且仅当 $\lambda_{\mathrm{FK}} = 0$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：算子 L、源项 f、边界数据 g、定义域 Ω、tanh 网络 u_θ"]
     subgraph FK["FK 监督项作算子预条件"]

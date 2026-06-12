@@ -44,7 +44,7 @@ GeoFlow 要解决的是：地面拍一张街景，在一张卫星图里把相机
 关键在于把重活和轻活拆开：编码 $\mathbf{f}_{vis}$ 是重活但只做一次，反复迭代的只是一个吃 $\mathbf{f}_{vis}$ 加坐标、吐位移的轻量回归头。这样"迭代精化"这种通常很慢的范式也能跑到 29 FPS。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph FEAT["轻量级跨视图特征提取（只算一次）"]
         direction TB

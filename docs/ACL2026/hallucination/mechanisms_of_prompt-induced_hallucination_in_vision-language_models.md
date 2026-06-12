@@ -43,7 +43,7 @@ tags:
 本文是一项 inference-only 的机制可解释研究，目标是把"模型听 prompt 不看图"的 PIH 行为定位到具体的 attention head 并刻画其功能。流程上分三步：先做**现象刻画**，在 CountBench 上对每张图配一对 prompt——baseline "How many [X] are in the image?" 与 misaligned "Describe the N+k [X] in the image"（$k \in \{1,...,5\}$，再加 $k \in \{10, 20, 50\}$ 测极端），观察模型何时被 prompt 带偏；再做**机制定位**，对每个 head 用 mean ablation 单独消融、按"把回答从 N+k 拉回真实计数 N"的成功率排序，取 top-m（Qwen-VL m=3，其余 m=10）联合消融；最后做**功能分析**，在四类 copying form 下统计各模型行为变化、并测 attention mass 从文本转向图像的层级分布，从而判断同一行为表象背后是否是同一机制。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["CountBench 图像 + 配对 prompt<br/>baseline How many / misaligned Describe N+k"] --> B["现象刻画<br/>按真实数 N、offset k 切片观察 PIH"]
     subgraph ABL["Mean ablation 定位 PIH-head"]

@@ -43,7 +43,7 @@ RV-HATE 把隐式仇恨言论检测拆成四个面向不同数据特性的 BERT 
 RV-HATE 想解决的问题是：不同隐式仇恨数据集的错误来源各不相同，单一模型照顾不过来。它的做法是先准备四个各有偏好的 BERT-base 对比学习模块，再用强化学习按数据集学一组软投票权重，把四个模块的二分类 logits 加权融合成最终预测。流程分三个阶段：第一阶段对每个数据集分别训练 $M_0$ 到 $M_3$ 四个模块；第二阶段在验证集上训练一个轻量 PPO policy，让它产生满足非负且和为 1 的权重 $w=[w_0,w_1,w_2,w_3]$；第三阶段推理时四个模块各自输出 logits，系统按权重求加权平均再取最大类作为标签。论文只从检测和数据集分析角度讨论仇恨言论识别，不提供生成、规避或放大有害内容的操作指导。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["隐式仇恨文本"] --> MODS
     subgraph MODS["四个数据特性模块（各输出二分类 logits）"]

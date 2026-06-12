@@ -39,7 +39,7 @@ tags:
 全文的出发点是把长尾学习改写成一个持续学习问题：头类梯度长期主导训练，尾类学到的东西会像旧任务一样被慢慢"遗忘"，同时优化又收敛到尖锐、远离尾类最优点的区域。围绕"防遗忘"和"找平坦解"两个目标，方法在训练前先用一套基于内存库的分组策略把全部 C 个类划成 G 组，训练时再走两条互补分支：GKP 分支借 EWC 思路约束当前组的优化不去抹掉其他组已学到的知识，GSA 分支用分组 SAM、在剔除头类主导方向后为各组找平坦极小值。两条分支的损失由一个随 epoch 调度的自适应权重 $\alpha$ 聚合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["长尾训练数据（C 个类）"] --> G
     subgraph G["基于内存库的分组策略"]

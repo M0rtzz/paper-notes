@@ -46,7 +46,7 @@ tags:
 整套流程分两步走。第一步是数据构造：从RGB或RGB-D图像出发，自动生成五种pretext任务的QA对，攒成Spatial-SSRL-81k数据集，因为所有答案都来自确定性变换，标注准确率是100%。第二步是RL训练：先用约3600个样本做SFT冷启动，让模型先学会输出规定的答案格式（否则直接RL时生成正确格式的成功率不到5%），再上GRPO优化。五种任务里有三种只看RGB、考2D布局，两种依赖深度图、考3D空间推理，难度由浅入深地铺开。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RGB / RGB-D 图像"] --> DC
     subgraph DC["数据构造：五种 pretext 任务（确定性变换→100% 准确标注）"]

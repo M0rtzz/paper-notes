@@ -46,7 +46,7 @@ tags:
 FaithLens 要解决的是"幻觉检测既要准、又要能说清为什么"这对难题，整体走两阶段。第一阶段冷启动 SFT：从开源数据集出发，用高级推理模型（DeepSeek-V3.2-Think）合成带解释的训练数据，经过一道三维过滤筛掉噪声样本后微调出一个会输出"标签 + 解释"的 8B 模型；第二阶段规则强化学习：用 GRPO 进一步优化，奖励由预测正确性、解释质量、格式三部分组成。两阶段串起来的逻辑是——SFT 先让模型学会基本的检测和解释格式，RL 再用奖励信号把它推到复杂场景也站得住的水平。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["开源数据集"] --> B["DeepSeek-V3.2-Think 合成<br/>带解释的训练数据"]
     B --> FILT

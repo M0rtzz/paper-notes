@@ -45,7 +45,7 @@ GOAT 通过从 API 文档自动构建"依赖图 + call-first 合成数据"的流
 GOAT 要解决的是「想用开源小模型做 goal-oriented agent 却没有标注数据」这个困境：用户只给一句高层目标，agent 得自己拆任务、决定调哪些 API、还要把前一个 API 的输出当后一个的参数。整条流水线分两段，输入是一组固定 API 的文档，输出是一个学会了 API 间依赖推理的微调模型。第一段从 API 文档自动构建依赖图——初始化成全连接多重有向图后过三级过滤，留下只含可执行依赖的 $G=(\mathcal{V}, \mathcal{E})$，边 $(n_i, n_j, k)$ 表示 $n_i$ 的输出能填进 $n_j$ 的第 $k$ 个参数；第二段从图里采连通子图，拓扑排序后「先执行 API 再生成 query」（call-first）合成训练数据，最后用 LoRA 指令微调 LLM、用 InfoNCE 微调一个 SBERT retriever。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["固定 API 文档<br/>初始化全连接候选边 |V|²×K"]
     subgraph FILTER["三级依赖图过滤"]

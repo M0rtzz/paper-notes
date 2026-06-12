@@ -52,7 +52,7 @@ tags:
 流程是：给定视频和查询点，6 个预训练教师 tracker 各生成一条候选轨迹 $\mathbf{C} \in \mathbb{R}^{L \times M \times 2}$；Verifier 在每一帧给这 $M$ 个候选打可靠性分数 $\hat{\mathbf{s}}_t \in \mathbb{R}^M$，逐帧选最高分的候选，拼成完整的伪标签轨迹；再用这条伪标签微调学生模型 Track-On2。推理时 Verifier 还能当即插即用的集成模块直接用。Verifier 本身（局部化特征 + Candidate Transformer）则提前在合成数据上「造假→识假」训好。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     TR["Verifier 训练：合成数据造假→识假<br/>K-EPIC GT 轨迹 + 6 类随机扰动 → 扰动候选"]
     R["真实视频 + 查询点"] --> T6["6 个预训练教师<br/>各出候选轨迹 C"]

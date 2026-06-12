@@ -46,7 +46,7 @@ tags:
 AnchorMem 的核心是把「检索用什么」和「生成用什么」彻底拆开：检索单元用精炼的原子事实，生成上下文则保留原封不动的原始交互。它把记忆组织成一张异构图 $\mathcal{G}=(\mathcal{V}, \mathcal{E})$，三类节点分别是交互上下文 $\mathcal{V}_C$、原子事实 $\mathcal{V}_F$ 和关联事件 $\mathcal{V}_E$，边则分为「事实→上下文」的满射映射边和「事实↔事实」的语义关联边。一次完整记忆从写入到读出走三步：先把每段交互拆成原子事实并锚回原始上下文，再把语义相关的事实聚合成关联事件织成图，最后查询时用事实/事件精确定位、用原始上下文还原生成。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["历史交互内容"] --> FCU
     subgraph FCU["事实-上下文单元"]

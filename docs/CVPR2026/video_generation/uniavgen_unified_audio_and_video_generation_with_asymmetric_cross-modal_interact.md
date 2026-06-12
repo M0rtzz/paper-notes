@@ -50,7 +50,7 @@ UniAVGen 采用**对称双分支联合合成架构**：视频分支使用 Wan 2.
 两个分支在每个交互层通过**非对称跨模态交互**互通信息，其中**人脸感知调制**把交互按到人脸区域；训练用 Flow Matching 各自预测速度场，推理时再用**模态感知 CFG** 放大跨模态信号。整体数据流如下：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：参考说话人图像 + 视频描述 + 语音文本<br/>(可选 参考音频 / 条件音视频)"]
     IN --> VB["视频分支<br/>Wan 2.2-5B DiT，VAE latent z^v"]

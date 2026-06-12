@@ -46,7 +46,7 @@ ActionMesh 要解决的是：怎么在两分钟内、从一段视频（或文本
 具体来说，第一阶段（Stage I）拿视频的参考帧跑一个现成的 image-to-3D 得到参考网格，同时用一个**时序3D扩散模型**一次性生成整段同步的3D形状序列；这一串形状动作是对齐的，但每帧各自是独立的网格、拓扑并不一致。第二阶段（Stage II）再用一个**时序3D自编码器**，把这串独立网格统一表达成参考网格顶点的逐帧偏移，输出拓扑一致、可绑定可贴图的动画3D网格。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：视频 / 文本 / 单个3D网格"] --> REF["参考帧 → image-to-3D<br/>得参考网格"]
     REF --> S1

@@ -46,7 +46,7 @@ tags:
 CPCP (Colorful Pinball Conformal Prediction) 将校准集分为三个子集 $\mathcal{D}_{\text{cal},1}, \mathcal{D}_{\text{cal},2}, \mathcal{D}_{\text{cal},3}$，执行三阶段流程：(1) 在 $\mathcal{D}_{\text{cal},1}$ 上联合训练三个分位数估计器（目标分位数 $\tau$ 及辅助分位数 $\tau \pm \delta$）；(2) 用辅助分位数构造有限差分密度权重，在 $\mathcal{D}_{\text{cal},2}$ 上用加权 pinball 损失微调目标分位数；(3) 在 $\mathcal{D}_{\text{cal},3}$ 上执行 RCP 整流化得分校准，确保边际有效性。最终输出预测集 $\mathcal{C}_\alpha(x_{\text{test}}) = \{y: S(x_{\text{test}}, y) \leq \hat{q}_\tau(x_{\text{test}}) + \hat{\gamma}\}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["校准集三分<br/>D_cal,1 / D_cal,2 / D_cal,3"]
     subgraph S2["三头分位数网络 + 有限差分密度估计"]

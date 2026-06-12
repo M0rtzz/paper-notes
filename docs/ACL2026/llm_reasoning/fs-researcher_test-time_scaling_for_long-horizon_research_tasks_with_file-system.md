@@ -46,7 +46,7 @@ tags:
 FS-Researcher 想解决的核心矛盾是：深度研究要消化数百个网页、产出数万 token 的报告，信息量远超模型上下文窗口，硬塞就会截断或有损压缩。它的破局思路是把记忆从上下文搬到文件系统——信息写进文件、按需加载，从而突破窗口上限。整个框架是双 Agent、两阶段：Context Builder 像图书管理员一样浏览互联网、写结构化笔记、归档原始网页，搭起一座层次化知识库；Report Writer 随后以这座知识库为唯一事实来源，分节把报告写出来。两个 Agent 共享同一个文件系统工作空间，里面既有交付物（知识库、报告），也有控制文件（TODO、Checklist、Log），各自都能独立迭代优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["研究主题"] --> CB
     subgraph CB["Context Builder：收集 → 蒸馏 → 归档"]

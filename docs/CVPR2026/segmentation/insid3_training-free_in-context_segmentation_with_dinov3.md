@@ -43,7 +43,7 @@ DINOv3作为最新的纯自监督VFM，通过大规模数据+模型缩放和Gram
 INSID3要回答的问题很直接：给一张带标注的参考图和一张目标图，能不能只靠冻结的 DINOv3 特征、不训任何解码器就把目标图里同一个概念抠出来。整条 pipeline 全程不更新一个参数，分三步走：先把 DINOv3 特征里那层"位置噪声"洗掉，让跨图像匹配变干净；再把目标图自身切成一堆语义连贯的小区域候选；最后借参考图的标注找到候选里哪些属于目标概念、并把它们拼成完整 mask。三步之间靠两套特征分工——洗过的去偏特征专管跨图像比对，原始特征专管图像内部聚类。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     REF["参考图 + 标注 mask"] --> ENC["DINOv3 冻结编码器<br/>提取密集 patch 特征"]
     TGT["目标图"] --> ENC

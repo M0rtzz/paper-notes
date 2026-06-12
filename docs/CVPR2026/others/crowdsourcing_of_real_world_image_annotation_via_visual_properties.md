@@ -35,7 +35,7 @@ tags:
 这是一篇标注方法论，要解决的是 ImageNet、Open Images 这类数据集里标注者凭主观把图像硬塞进抽象类别名所导致的多对多映射和标注不一致（同一图像被标成三种粒度、实物/玩具/卡通被标为同一"棕熊"）。它把标注拆成四步流水线，并归为三件事：**离线构建**视觉属性类别层次——先基于知识库给每个类别精确定义视觉属性（标签定义 Label Definition），再为每个标签分配唯一概念标识符消歧（标签消歧 Label Disambiguation）；**逐图标注**——先识别并裁剪出单个对象（对象定位 Object Localization），再让标注者沿层次树逐层验证视觉属性来分类（视觉分类，由 VisClassify 算法驱动）；最后**输出**多层级标签。核心是把"匹配抽象类名"换成"验证具体视觉属性"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["真实世界图像 + 待标注类别"]
     subgraph TAX["视觉属性类别层次（离线构建）"]

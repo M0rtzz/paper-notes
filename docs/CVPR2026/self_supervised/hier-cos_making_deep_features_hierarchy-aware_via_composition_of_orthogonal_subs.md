@@ -44,7 +44,7 @@ tags:
 Hier-COS 想解决的核心问题是：让深度特征"看得见"类别之间的语义层次——把一只哈士奇错认成狼，应该比错认成卡车付出更小的代价。它的做法是把标签层次树$\mathcal{T}$（共$n$个节点）整体搬进一个$n$维正交向量空间：给树里每个节点配一个互相正交的基向量$\mathcal{E}$，然后让每个类别对应一个由"它的祖先 + 自己 + 它的后代"这些基向量张成的子空间$V_i = \text{span}(\mathcal{E}_i^a \cup \{e_i\} \cup \mathcal{E}_i^d)$。一个轻量变换模块负责把 backbone 抽出的普通特征映射进这个空间$V_\mathcal{T}$，分类时再看特征落在哪个类别的子空间里。整条链路的巧妙之处在于：层次关系不是靠额外的 loss 去"逼"出来的，而是被几何结构天然编码进了子空间的重叠程度里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     T["标签层次树（n 个节点）"] --> HAVS
     subgraph HAVS["层次感知向量空间（HAVS）"]

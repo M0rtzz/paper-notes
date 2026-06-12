@@ -38,7 +38,7 @@ SelfHVD 利用手持视频中自然存在的清晰帧作为监督信号，通过
 SelfHVD 要做的是：在没有任何配对清晰-模糊数据的前提下，只靠手持视频本身把模糊帧修清楚。它的依据是一个被忽视的事实——当相机运动轨迹简单且缓慢时 OIS 能正常工作，视频里会自然冒出一些清晰帧。整条流程因此分三步走：先把这些天然清晰帧挑出来、对齐到相邻模糊帧上当监督；再用模型自己的去模糊能力反过来造出比原清晰帧更好的训练对，让模型超越"只能复现清晰帧"的天花板；最后用历史模型约束输出，堵住对齐误差长期累积导致的空间漂移。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["手持视频<br/>无配对清晰-模糊数据"]
     subgraph SEL["清晰帧选择与对齐"]

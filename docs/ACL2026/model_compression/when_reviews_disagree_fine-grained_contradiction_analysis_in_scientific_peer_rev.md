@@ -47,7 +47,7 @@ tags:
 第二层是 TIDE。IMPACT 质量高但慢，因此作者用 IMPACT-P 在额外约 2,000 对 ICLR 2021-2023 review 上生成 synthetic contradiction annotations，把完整 review pair 映射到结构化输出，再用 LoRA 微调 Meta-Llama-3-8B-Instruct。TIDE 在测试时只需一次前向，就能输出证据、强度和解释。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["两篇完整 review"]
     subgraph IMPACT["IMPACT 多智能体审议（推理时，慢而准）"]

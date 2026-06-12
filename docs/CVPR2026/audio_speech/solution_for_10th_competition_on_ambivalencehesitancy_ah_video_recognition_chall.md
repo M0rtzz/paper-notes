@@ -48,7 +48,7 @@ tags:
 A/H（矛盾/犹豫）的本质不是某个固定表情或语调，而是“说的话、语调、表情三者互相打架”。所以这套方案立意很直接：与其把三个模态拼起来让分类器自己猜关系，不如直接去度量模态之间的**分歧**。整条流水线是视觉（面部 Action Units）、音频（Wav2Vec 2.0）、文本（BERT）各自独立编码，经 BiLSTM + 注意力池化压成定长向量、再投影到共享空间，最后由散度融合模块算出跨模态冲突信号送进分类器判别 A/H。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph FEAT["可解释的多模态特征"]
         direction TB

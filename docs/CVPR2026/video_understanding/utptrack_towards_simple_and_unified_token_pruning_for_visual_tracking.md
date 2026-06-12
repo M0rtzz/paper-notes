@@ -48,7 +48,7 @@ tags:
 UTPTrack 想在 one-stream Transformer 跟踪器上做一套通用的高效化方案：它把搜索区域 SR、静态模板 ST、动态模板 DT（以及语言 token）拼起来送进共享编码器，在选定的编码层插入轻量的 **CTEM（Candidate or Template Elimination Module）**，直接用注意力权重算 token 重要性分数并剪枝；剪掉的 SR token 再用零填充补回原空间位置，保证跟踪 head 的空间对齐。和以往只剪单一组件不同，它对三个组件联合建模冗余。CTEM 内部对 SR、DT、ST 三路分别做注意力引导剪枝（CE / DTE / STE），并由 Token 类型感知（TTA）的框先验和文本引导（TG）的语言信号两路先验调节保留决策。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["搜索区域 SR + 静态模板 ST + 动态模板 DT<br/>（统一跟踪再拼语言 token）"] --> ENC["one-stream 共享编码器<br/>选定层插入 CTEM 模块"]
     ENC --> CTEM

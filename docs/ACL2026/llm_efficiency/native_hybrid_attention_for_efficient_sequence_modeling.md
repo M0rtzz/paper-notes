@@ -46,7 +46,7 @@ tags:
 NHA 的核心洞察是：线性 RNN 的压缩记忆和滑动窗口的精确 KV cache，本质上都能写成 $m \times d$ 的 KV 格式，于是它们可以直接拼在一起、交给同一次 softmax 去处理，而不必像以往那样分别算完再加权融合。具体到每一层，NHA 同时维护两种记忆：长期记忆 $K^{long}_t, V^{long}_t \in \mathbb{R}^{m \times d}$ 由门控 RNN 递归更新、把窗口外的全部历史压进固定大小的槽位；短期记忆 $K^{short}_t, V^{short}_t \in \mathbb{R}^{w \times d}$ 则是窗口内 token 的精确 KV cache。两者拼成 $K^H_t \in \mathbb{R}^{(m+w) \times d}$ 后过一次 softmax 注意力得到输出。更妙的是，只要调节窗口大小 $w$ 就能让同一套架构在"纯线性 RNN（$w=0$）—混合—全注意力（$w=N$）"之间连续滑动，层内融合与层间混合就此统一在一个机制里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入 token 序列"] --> B["投影查询/键/值 q_t,k_t,v_t"]
     subgraph INTRA["层内混合：统一 softmax 零参数融合"]

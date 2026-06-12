@@ -43,7 +43,7 @@ tags:
 T-LVMOGP 要解决的是"如何不靠任何刚性结构假设就把多输出 GP 推到上万个输出"。它的做法是把 MOGP 拆成两件互不干扰的事：先给每个输出学一个潜变量嵌入，再在嵌入空间里用一个普通的标量 GP 算相似度。具体由三层串起来——潜变量层给每个输出 $p$ 一个高斯先验 $p(h_p) = \mathcal{N}(0, I)$、用变分分布 $q(h_p) = \mathcal{N}(m_p, \Sigma_p)$ 近似；嵌入层用 Lipschitz 正则的残差网络 $\Phi_\theta : \mathbb{R}^{D_X} \times \mathbb{R}^{D_H} \to \mathbb{R}^{D_T}$ 把 $(x_n, h_p)$ 编码成 $\tilde{x}_{n,p}$；GP 层在嵌入空间放 $M$ 个 inducing points $Z$，用标准 SVGP 算 $q(f_p(x_n)) = \int q(u) p(f_p(x_n) | u) du$。整条链路靠重参数化 $h_p^{(j)} = m_p + \Sigma_p^{1/2} \epsilon^{(j)}$ 保持可微，训练时同时对输入 $\mathcal{B}_N$ 与输出 $\mathcal{B}_P$ 采 mini-batch。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入：协变量 x_n + 输出索引 p"]
     subgraph DK["多输出 deep kernel"]

@@ -46,7 +46,7 @@ tags:
 PointTPA 建立在 PTv3 骨干网络之上。输入是场景级点云（带坐标、颜色等特征），首先通过序列化邻域分组（SNG）将点云组织为局部一致的 patch 序列。然后在骨干网络的每一层，动态参数投射器（DPP）根据当前 patch 的特征动态生成该层的参数增量（weight delta），叠加到预训练权重上实现自适应推理。输出是逐点的语义标签。整个过程中 SNG 和 DPP 两个模块的可训练参数量仅占骨干参数的 <2%。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：场景级点云<br/>坐标 + 颜色"] --> B["序列化邻域分组（SNG）<br/>复用 PTv3 Z-order 序列，滑动窗口聚 K 个点成 patch"]
     subgraph DPP["动态参数投射器（DPP）"]

@@ -47,7 +47,7 @@ tags:
 方法的目标是：不依赖 CLIP、不依赖标签、也不训练任何线性探针，就把一个**冻结的现成视觉分类器**改造成可解释的概念瓶颈模型。它分两阶段——先用 TextUnlock 训一个轻量 MLP，把冻结分类器的特征投射到文本嵌入空间且保持原分类分布不变；再在这个对齐后的空间里直接做概念发现和概念-类别预测，整个第二阶段不需要任何额外训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["输入图像 I"] --> FV["冻结视觉编码器 Fᵥ → 特征 f"]
     subgraph TU["TextUnlock：把冻结分类器搬进文本空间"]

@@ -41,7 +41,7 @@ tags:
 SSR²-GCD 要解决多模态广义类别发现里"已知类被过度压缩、未知类压缩不足"的表征不均衡问题。整条流程：检索式文本聚合（RTA）先给每张图生成一个鲁棒的文本表征，图像/文本两路表征再各自过半监督编码率减少（SSR²）损失做表征学习，最后双分支分类器从两个模态各自学伪标签并互相监督。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["查询图像"]
     IMG --> IE["图像编码器<br/>→ 图像表征"]

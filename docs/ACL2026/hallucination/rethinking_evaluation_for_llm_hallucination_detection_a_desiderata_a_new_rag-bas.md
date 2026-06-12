@@ -43,7 +43,7 @@ tags:
 论文的工作流可以理解为“评测标准 → 数据构建 → detector 压力测试”。第一步，作者提出 7 个 hallucination detection benchmark 应具备的性质，并将其分为核心属性、文献最大缺口和多样性属性。第二步，作者基于多个问答和检索数据源构建 Trivia++，收集来自 3 个 LLM 的 RAG-style answers，并通过多轮人类句级标注得到 response-level clean labels。第三步，作者额外构造 4 组 noisy labels，用于模拟弱监督、众包分歧和随机翻转。第四步，在 Trivia++、RAGTruth、Dolly、HaluEval 等 RAG-QA benchmark 上评估常用 detector，分析长上下文和标签噪声对性能的影响。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     D["7 条 benchmark desiderata<br/>核心属性 + 最大缺口 + 多样性"]
     D -->|对照旧 benchmark 找缺口| C1

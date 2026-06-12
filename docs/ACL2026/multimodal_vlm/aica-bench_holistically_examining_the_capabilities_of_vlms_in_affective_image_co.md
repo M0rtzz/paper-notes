@@ -44,7 +44,7 @@ tags:
 全文是「建基准 → 测模型 → 挖缺陷 → 开药方」四步闭环。**第一步建基准**：收集 9 个图像情感数据集、用 GPT-4o 自动生成 18,124 条指令，覆盖三类任务——EU（情感理解，识别图像表达和引发的情感）、ER（情感推理，解释图像为何引发某种情感）、EGCG（情感引导内容生成，按图像和目标情感生成一致描述）。**第二步测模型**：用这套基准评测 23 个 VLM，开放式的 ER/EGCG 由一个微调过的评分模型打分。**第三步挖缺陷**：对错误做诊断性分析，定位出「强度幻觉」和「安全回复陷阱」两大系统性缺陷。**第四步开药方**：针对这两个缺陷提出训练无关的 GAT Prompting，用视觉锚点 + 层次化假设推理对症缓解。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["9 个情感数据集<br/>GPT-4o 自动生成 18K 指令"] --> B
     subgraph B["三维评估任务设计"]

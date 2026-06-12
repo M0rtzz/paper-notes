@@ -42,7 +42,7 @@ tags:
 MRD 要解决的是 MLLM 处理高分辨率图像时的两类系统性失败：检索式方法用固定网格切图，大目标被切碎导致语义偏差（FRAG），复杂背景又会和 query 产生虚假高相似度引入假阳性（BG）。它是一个 **training-free** 的统一多尺度框架，不训练就能挂到任意 MLLM 上：给定高分辨率图像和文本 query，先按两种比例切出低/高分辨率两套 crop，然后兵分两路——一路在局部尺度做多分辨率语义融合校正碎片化，一路在全局尺度用开放词汇检测器做显式定位和背景抑制；两路输出再线性融合成一张最终相似度图，指导后续检索搜索并交给 MLLM 推理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["高分辨率图像 + 文本 query"] --> B["按两种比例切分<br/>低分辨率 + 高分辨率 crop 集"]
     subgraph SEM["多分辨率语义融合"]

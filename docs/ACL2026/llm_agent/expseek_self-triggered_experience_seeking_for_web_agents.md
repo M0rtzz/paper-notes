@@ -46,7 +46,7 @@ ExpSeek 提出了一种基于步级熵自触发的经验主动寻求框架，让
 ExpSeek 包含三个阶段：(1) 经验库构建——从成功/失败轨迹对中提取结构化经验三元组并按主题组织；(2) 熵自触发机制——通过 logistic 回归和 bootstrap 重采样估计过程步和回答步的熵阈值区间；(3) 步级引导干预——当步级熵超过阈值时，经验模型基于当前上下文检索相关经验并生成定制化指导。经验库在离线阶段一次性构建，熵自触发与步级引导干预则在推理时随 ReAct 交互逐步循环执行。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph LIB["经验库构建（离线）"]
         direction TB

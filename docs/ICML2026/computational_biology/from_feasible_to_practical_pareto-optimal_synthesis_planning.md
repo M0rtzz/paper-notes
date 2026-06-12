@@ -44,7 +44,7 @@ PareSP 用**多目标 MCTS 搜索**联合优化合成路径的**成本 / 时间 
 PareSP 要解决的是"合成一个分子有很多条路，但成本、时间、可行性、环境影响这几个目标互相打架，到底选哪条"的问题。它的做法是把标准 MCTS 的标量价值换成帕累托前沿：搜索树每个节点不再记一个分数，而是记一组互不支配的权衡解，整个搜索围绕"扩大这组解的覆盖范围"来展开，最后从根节点直接吐出所有"非劣"路径供化学家挑选。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["目标分子<br/>四目标：成本/时间/可行性/环境影响"] --> B
     subgraph LOOP["多目标 MCTS 搜索循环（每节点存帕累托前沿价值表示）"]

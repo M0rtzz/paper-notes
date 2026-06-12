@@ -45,7 +45,7 @@ tags:
 这篇 SemEval 系统论文的核心思路是：不发明新方法，而是把作者团队在 PAN@CLEF2025 拿冠军的 MGT 检测器 mdok 的整套微调配方，几乎原样搬到阴谋论检测上，验证它的跨任务可迁移性。整条流水线分三步串起来：先对仅 ~4000 条的原始训练集做四种数据增强扩样、去掉表面噪声的干扰，再用 QLoRA 4-bit 把 Qwen3-32B 微调成一个二分类器，最后用这个第一轮模型给主办方未公布答案的 dev/test 打高置信伪标签、并入训练集重训一遍，推理时再把判正阈值从 0.5 上调到 0.7 收一波 precision。最终 Macro F1 = 0.78，排名 8/52。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始训练集<br/>~4000 条（1715 正 + 2263 负）"] --> B
     subgraph AUG["四种数据增强（每种取 10% 去重并入）"]

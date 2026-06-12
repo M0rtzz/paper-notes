@@ -55,7 +55,7 @@ tags:
 整体怎么转可以顺着数据流看一遍。原始输入是 Google Ads 2021–2023 年的日志，先聚合成关键词级周面板，每个关键词每周一行，带点击、展示、花费、设备结构、搜索类型结构等运营变量。在此之上，作者从关键词文本和历史轨迹里派生出三类竞争代理（语义、行为、地理），然后把这些代理分两条路线接入模型：一条是协变量路线，把代理整理成无泄漏的外生特征喂给时间序列基础模型（TSFM）或传统模型；另一条是关系先验路线，把关键词之间的竞争关系编码成一张固定语义图，交给时空图网络（STGNN）。预测目标是对 1811 个关键词的周级 CPC 做多步预测，horizon 取 $h \in \{1, 6, 12\}$ 周，分别对应短期出价调整、中期战术规划、长期预算分配。作者刻意不去重建真实拍卖机制，而是押注一个更弱但更可操作的假设：只要代理足够稳定、足够贴近竞争结构，就足以改善预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Google Ads 日志<br/>聚合成关键词级周面板"] --> P
     subgraph P["竞争代理构造"]

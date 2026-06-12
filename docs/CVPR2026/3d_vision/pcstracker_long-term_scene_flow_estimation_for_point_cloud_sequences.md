@@ -51,7 +51,7 @@ PCSTracker 要回答的问题是：给定一段原始点云序列 $\mathbf{S} = 
 整体上它先用 PointConv 把每帧点云编码成特征图，并用 KNN 把查询点的初始位置粗略匹配进序列，得到一份"草稿轨迹"。接下来进入一个迭代精修的内核：每一轮里，IGMO 模块拿当前轨迹去特征图里重新找对应、更新几何特征；STTU 模块再把这一轮的相关信息当成 token 喂进时空 Transformer，跨时间和跨点地推断出残差运动，叠回轨迹。这个"找对应→推运动→更新"的循环跑 $K$ 次，轨迹越精修越准。最外层再套一个重叠滑动窗口，把上百帧的长序列切成可处理的短段、逐段传递，最终拼出整条长程轨迹。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["点云序列 + 查询点初始坐标"] --> B["PointConv 逐帧编码 → 特征图 F"]
     B --> C["KNN 粗匹配 → 草稿轨迹"]

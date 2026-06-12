@@ -44,7 +44,7 @@ tags:
 CPS-Prompt 要解决的核心问题，是让 Prompt-based 持续学习能跑在内存和算力都吃紧的边缘设备上，而不是只在数据中心刷精度。它沿用了 PCL 标准的两阶段架构：先用冻结的 query encoder $f_q$ 跑一次前向，从图像里提取出"任务线索"，再把这条线索注入到 prompt-injected backbone $f_p$ 里做分类。CPS-Prompt 的两个改动正好卡在这条流水线的两个关口上——在两阶段之间插入关键 patch 采样（CPS）模块，借第一次前向已经算好的注意力信号挑出真正关键的 patch，把进入第二阶段 backbone 的 token 砍掉一大半；再用解耦 prompt-分类器训练（DPCT）策略把 prompt 和分类器拆成两段训练，专门补偿"训练时只看稀疏 patch、推理时却看全 patch"带来的表征错位。前者省内存省算力，后者把省下来的精度找回来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像 x"] --> B["冻结 Query Encoder f_q<br/>跑一次前向产出任务线索"]
     subgraph CPS["关键 Patch 采样（CPS）"]

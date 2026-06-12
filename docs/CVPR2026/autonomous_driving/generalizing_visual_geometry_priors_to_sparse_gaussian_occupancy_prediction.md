@@ -39,7 +39,7 @@ GPOcc 的核心 idea：沿相机射线将预测的表面点向内延伸，生成
 给定单张 RGB 图像，视觉几何先验模型（VGGT 或 DepthAnything）预测表面点并提取 3D 感知特征。射线体积采样模块将表面点沿相机射线向内延伸，生成的采样点作为高斯中心。提取的特征与可学习嵌入结合，经 MLP 预测高斯属性（尺度、旋转、不透明度、语义特征）。经不透明度剪枝后，稀疏高斯通过概率公式 splat 为体素占据。流式场景下，免训练增量更新策略将单帧高斯融入全局记忆库。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["单张 RGB 图像"] --> B["视觉几何先验模型 VGGT / DepthAnything<br/>预测表面点 + 提取 3D 感知特征"]
     B --> C

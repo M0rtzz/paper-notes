@@ -46,7 +46,7 @@ tags:
 SCDL 是一个挂在现有半监督分割网络上的即插即用模块，整条链路围绕「在特征空间里给每个类建一份代理分布」展开：编码器输出 token 嵌入后，CDBA 为每个语义类维护一个可学习的高斯代理分布，并把嵌入与代理双向对齐；接着从代理分布中采样、构造结构化先验注入解码器各层，让尾类也能拿到稳定的表示；与此同时，SAC 从标注区域抽取语义锚点，为这些随机初始化的代理校正出正确的语义方向。整套机制不改基线架构，只在嵌入空间额外加一组约束。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像<br/>有标注 + 无标注"] --> B["编码器 → token 嵌入 Z"]
     B --> CDBA

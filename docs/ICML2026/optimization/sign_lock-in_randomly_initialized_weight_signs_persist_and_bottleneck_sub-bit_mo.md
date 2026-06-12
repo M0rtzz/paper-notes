@@ -44,7 +44,7 @@ tags:
 全文分两段：诊断段 + 干预段。诊断段把权重做 sign–magnitude 分解 $W=S\odot A$，分别测 $S$ 和 $A$ 的 SVD 压缩性、谱随机性、训练中漂移率；接着用一维停时分析得到 sign lock-in 定理。干预段把诊断段的两个关键量——初始命中概率 $h_T$ 和再入概率 $g_T$——作为可控旋钮，提出"低秩符号模板初始化 + 间隙采样 + 外区对数障碍正则"的从头训练 pipeline，使训练完成后符号矩阵仍是初始模板的浅层扰动，存储时只保留 $(G,H,\text{rank})$ 即可。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练权重 W"] --> B["sign-magnitude 分解<br/>W = S ⊙ A"]
     B --> C["诊断：测 S 的 SVD 压缩性<br/>谱随机性 · 训练漂移率"]

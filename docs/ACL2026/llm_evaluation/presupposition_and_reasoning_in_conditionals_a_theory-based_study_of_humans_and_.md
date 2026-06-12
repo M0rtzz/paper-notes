@@ -50,7 +50,7 @@ tags:
 LLM 除了给数值判断，还需要输出 step-by-step reasoning。随后，Claude-Haiku-4 作为 judge，用专家设计的 checklist 对 reasoning trace 逐条判断是否满足理论标准。最后，作者抽样 5% 输出交给两名语言学博士人工验证 judge 结果。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["受控 item 构造"]
         direction TB

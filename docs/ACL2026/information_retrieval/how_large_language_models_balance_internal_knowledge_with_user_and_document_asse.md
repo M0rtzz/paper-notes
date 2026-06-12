@@ -45,7 +45,7 @@ tags:
 本文不训练新模型，而是搭一套评测流水线，把"一道多选题"放大成一组受控探针，量出参数知识 (P) / 用户主张 (U) / 文档主张 (D) 三股力量的拉扯。给定多选题 $q$ 与候选集 $\mathcal{C}$，先把 P / U / D 各自的"是否在场"和"说得对不对"排列组合成 13 个 probe variant，并用 Tier 1（统一模板）/ Tier 2（上下文相关）两套 assertion 控制语言复杂度这一干扰因子；再把这批探针喂给 27 个 LLM（GPT-4o、LLaMA3 系、Qwen3 系）在 CommonsenseQA 与 GSM8K-multiple-choice 上跑出答案。最后做三层递进分析——用 logistic regression 把宏观依赖比例拆出来，按选择行为给模型分类，再看外部信息如何漂移答案的概率分布。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["多选题 q + 候选集 C"] --> PM
     subgraph PM["13 种 probe 矩阵（覆盖 P/U/D 组合 + Tier1/Tier2 隔离语言因子）"]

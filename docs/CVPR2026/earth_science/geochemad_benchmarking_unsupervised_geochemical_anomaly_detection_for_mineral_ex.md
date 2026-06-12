@@ -44,7 +44,7 @@ tags:
 这篇论文一手做基准、一手做方法。基准 GeoChemAD 把地球化学异常检测从私有数据、单区域单元素的混乱状态里拉出来，提供首个标准化的多场景开源数据集；方法 GeoChemFormer 则用两阶段把"空间"和"成分"两件事拆开学——先用空间上下文学习（SCL）从邻域样本学到地质空间表示，再在第二阶段做元素依赖建模、用重建误差当异常分数。这样异常检测既吃得到空间不连续性，又能关联到目标矿化元素。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["GeoChemAD 基准数据<br/>样本坐标 + 124–126 种元素浓度"] --> SCL
     subgraph SCL["空间上下文学习（SCL）"]

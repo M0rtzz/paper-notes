@@ -46,7 +46,7 @@ tags:
 本文方法基于对比解码（contrastive decoding）框架，核心是对同一份待评摘要同时运行两个**来自同一模型家族**的评判模型——一个主模型（main model）和一个助理模型（assistant model）。由于同家族模型编码了相似的分数范围偏差，把主模型的对数概率减去经温度缩放、再由系数 $\lambda$ 加权的助理模型对数概率，就能让二者共有的偏差相互抵消，把分数分布拉回更贴近人类标注的位置。整个流程无需额外训练，只在解码阶段对首个分数 token 的 logit 做一次相减。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["待评摘要 + 评分提示词<br/>（如 0-4 分范围）"]
     subgraph PAIR["同家族模型配对"]

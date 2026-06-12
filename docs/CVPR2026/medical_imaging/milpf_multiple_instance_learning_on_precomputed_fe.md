@@ -46,7 +46,7 @@ tags:
 MIL-PF 分两阶段：(1) **特征预计算**——用冻结编码器 $\mathcal{F}$（DINOv2 ViT-Giant 或 MedSigLIP）分别提取每张乳腺图像的全局特征（整图编码 $\mathcal{G}_i$）和局部特征（分块编码 $\mathcal{T}_i$），构建嵌入数据集 $\mathcal{E} = \{(\mathcal{G}_i, \mathcal{T}_i, y_i)\}$；(2) **MIL 头训练**——在嵌入上训练 ~40k 参数的聚合头，全局流用 max pooling 聚合器 $\mathcal{A}_\psi^G$、局部流用 Perceiver 聚合器 $\mathcal{A}_\omega^T$，两路聚合结果拼接后送进最终分类层 $h_\theta$。一个 bag 定义为同一乳房在同一检查中的所有视角图像。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：一次检查的多视角乳腺图像<br/>（CC + MLO，构成一个 bag）"] --> B
     A --> C

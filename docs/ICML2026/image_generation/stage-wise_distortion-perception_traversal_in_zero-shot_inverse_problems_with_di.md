@@ -43,7 +43,7 @@ tags:
 MAP-RPS 要解决的是"如何用一个不动的预训练扩散模型，在推理时自由滑动 distortion-perception trade-off"。它把这件事拆成两阶段串联：先用扩散 score 当 prior、用梯度优化求一个低失真的 MAP 锚点（对应 D-P 曲线失真端），再把这个锚点沿扩散的正向 SDE 加噪到中间时刻 $t_0$、用现成后验采样器从 $t_0$ 去噪跑回 0（向感知端滑动）。输入是观测 $\mathbf{y}=\mathcal{A}(\mathbf{x})+\sigma_{\mathbf{y}}\mathbf{n}$ 和预训练 score 网络 $\mathbf{s}_\theta(\mathbf{x}_t,t)$，输出是重建图像 $\hat{\mathbf{x}}_0$，而用户只需调一个标量 $t_0\in[0,T]$ 就能在两端之间任意取点。整套流程还能整体搬进 VAE 隐空间得到 LMAP-RPS，直接借力 Stable Diffusion 跑 MS-COCO 级别的近真实任务。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["观测 y 与预训练 score 网络"] --> B
     subgraph CORE["MAP-RPS 两阶段（像素空间）"]

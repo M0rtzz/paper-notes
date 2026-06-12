@@ -45,7 +45,7 @@ VideoChat-M1 由两大核心组成：**Collaborative Policy Planning（CPP）** 
 推理流程：用户问题 $\mathcal{Q}$ + 视频 $\mathcal{V}$ → 各 agent 独立生成工具调用计划 → 逐步执行工具并通过共享内存交换中间结果 → 各 agent 根据对等信息决定是否更新后续计划 → 迭代多轮后各 agent 汇总答案 → 多数投票（多选题）或指定 agent 汇总（开放题）得出最终答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["问题 Q + 视频 V"] --> GEN
     subgraph CPP["协作策略规划 CPP（推理时迭代循环）"]

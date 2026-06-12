@@ -46,7 +46,7 @@ tags:
 PSCB构建流程：(1) 对QA决策计算特征归因向量；(2) 对每个决策生成K个多样化解释，分别计算归因向量；(3) 用对齐函数度量决策与解释的归因一致性；(4) 选取最好和最差解释构建偏好对，用DPO优化。前两步共同填充 PSCB 这一基准库，后两步基于库中数据做对齐度量与偏好优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多选 QA 输入"] --> SUB
     subgraph SUB["Post-hoc Self-Consistency Bank (PSCB)"]

@@ -43,7 +43,7 @@ tags:
 GeoCoupling 要解决的是：序列和结构这两种模态在去噪时该按什么节奏推进。作者把这件事抽象成在二维时间方块 $[0,1]^2$（结构时间 $t_r$ × 序列时间 $t_h$）上找一条单调曲线 $\gamma$，使得沿这条曲线训练出的流模型转移能量最低——同步耦合相当于硬选了对角线，而真正的最优往往是一条弯曲的测地线。整套方法是一个嵌套循环：内层固定当前调度 $\gamma$、用常规流匹配目标训练向量场，外层则把训练途中观测到的损失喂给一个高斯过程代理，在线搜出更优的 $\gamma$ 反馈回内层；输入是异质模态先验 $\pi_0 = p(\boldsymbol r) \otimes p(\boldsymbol h)$，输出是从 $\pi_0$ 到联合数据分布 $\pi_1 = p_\text{data}(\boldsymbol r, \boldsymbol h)$ 的耦合流，外加一条学到的时序耦合曲线 $\gamma^*$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["异质模态先验 π0 = p(r) ⊗ p(h)"] --> B
     subgraph IN["内层（双层优化·训练动力学）"]

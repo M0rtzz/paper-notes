@@ -40,7 +40,7 @@ tags:
 3DrawAgent 要解决的问题是：在不更新任何参数的前提下，让一个冻结的 LLM 学会从文字描述画出 3D 草图。它的做法是把"画 3D 草图"翻译成 LLM 擅长的文本生成任务——LLM 自回归地吐出一串 3D Bezier 曲线的控制点，差分渲染器把这串曲线从多个视角渲染成图，再用 CLIP 和 LLM 自己给这些图打分、挑出好坏样本。整套流程的关键不在某一次生成，而在于它把"好在哪、坏在哪"的判断结果沉淀成一个不断增长的经验库，下一轮生成时把这些经验塞回 prompt，于是 LLM 一轮比一轮画得好——梯度被"读经验"替代了。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["文字描述（query T）"] --> B["3D 草图的语言化表示<br/>冻结 LLM 自回归生成 K=5 个候选<br/>（3D Bezier 控制点指令序列）"]
     subgraph CKE["对比经验提取（CKE）"]

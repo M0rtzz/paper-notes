@@ -46,7 +46,7 @@ tags:
 MeasHalu 针对 LLM 在科学测量信息抽取（从论文里抽数值、单位、修饰词，以及它们与被测实体/属性的关系）时爱"编数据"的幻觉问题。作者的核心判断是：这类幻觉来自两种不同的失效模式——一是不可靠的**数量推理**（把数值、单位本身抽错或凭空编造），二是脆弱的**关系定位**（数值抽对了，却把它和错误的实体/属性绑在一起）。据此 MeasHalu 先建一套细粒度的测量幻觉分类法把错误归类，再按这两种失效模式拆成**两条分支**分别治理：数量分支与关系分支，每条分支都用"渐进式推理感知 SFT 打底 + 幻觉靶向 GRPO 强化"的两阶段套路，把模型往"少编、忠实于原文"的方向拧。输入是一段含测量描述的科学文本，输出是结构化的测量信息。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["科学文本（含测量描述）"] --> TAX["细粒度测量幻觉分类法<br/>数值/单位/修饰/关系四类错误"]
     TAX --> QB

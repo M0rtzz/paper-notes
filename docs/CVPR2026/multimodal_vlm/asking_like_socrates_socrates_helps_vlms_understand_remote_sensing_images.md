@@ -44,7 +44,7 @@ tags:
 整条流水线分三步走，最终产出 RS-EoT-7B（底座 Qwen2.5-VL-7B）。第一步是 SFT 冷启动：用一个三角色自博弈的 SocraticAgent 合成出带迭代证据搜索特征的推理轨迹（RS-EoT-4K 数据集），把这种推理模式先"注入"模型。随后是两阶段渐进强化学习——Stage 1 在精细定位（grounding）任务上用 IoU 奖励把证据搜索能力磨出来，Stage 2 再到一般遥感 VQA 上把这种能力泛化开。底层贯穿其间的是 RS-EoT 范式本身：让自然语言驱动推理、让视觉信息按需取证，把"一瞥后空想"换成"推理→取证→再推理"的循环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["遥感图像 + 任务问题<br/>（RGB / 红外 / SAR）"]
     subgraph SA["SocraticAgent：三角色自博弈合成轨迹"]

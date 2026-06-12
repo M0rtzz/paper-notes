@@ -44,7 +44,7 @@ tags:
 HEDP 冻结 CLIP ViT-B/16 主干，给每个领域单独学一组 prompt，难点全压在"推理时该用哪个领域的 prompt"上。训练阶段每个领域独立训一组视觉 prompt $P_v^S$ 和文本 prompt $P_t^S$，损失是分类交叉熵 $\mathcal{L}_{ce}$ 加能量正则 $\lambda\mathcal{L}_{reg}$（$\lambda=0.05$），关键是把每个领域 prompt 的能量分布约束到统一标尺。推理时对每个测试样本同时算两个信号——在冻结 CLIP 空间里到各领域聚类中心的距离 $D^i(x)$、以及在每个 prompt 模型下的能量 $E^i(x)$——归一化成相对因子后相加得 $F^i(x)=EF^i/\alpha+DF^i/\beta$，softmax 出权重 $W^i$，最后混合各领域预测 $P_{mix}(x)=\sum_i W^i P^i(x)$。整套方法的贡献就压在两个阶段上：训练阶段的能量正则、推理阶段的能量-距离混合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["训练阶段·能量正则损失（边界+中线）"]
         direction TB

@@ -38,7 +38,7 @@ tags:
 MedKCO 是一种模型无关的预训练策略，适用于任何医学 VLP 框架（论文在 CLIP 和 FILIP 上验证）。它从两个维度改进预训练：(1) **数据顺序**——设计分层课程控制数据呈现顺序，从简单概念到复杂概念；(2) **损失函数**——设计自步非对称对比损失，渐进调整对比学习的难度。数据顺序这条线又分两级：先用 label-level 课程（全局诊断标签）建立整体诊断能力，再用 description-level 课程（包含局部病灶的详细描述）细化局部表示；自步非对称对比损失则作为训练目标贯穿全程。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["医学图文对<br/>全局诊断标签 + 局部病灶描述"] --> B
     subgraph B["1. Label-Level 课程：按诊断敏感度从易到难"]

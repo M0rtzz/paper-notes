@@ -43,7 +43,7 @@ tags:
 FedHD 把协作拆成「本地蒸馏 + 课程联邦」两段，全程不交换原始切片也不交换模型参数。第一段在每个客户端 $c$ 内部进行：把每张真实 slide $x_i^{(c)}$（含 $K$ 个 patch embedding $b_k^{i,c}\in\mathbb{R}^d$）的特征分布拟合成一个 GMM，再优化一张同尺寸的合成 slide $h_i^{(c)}$（含 $T$ 个可学 patch embedding），让它的 GMM 在均值和协方差上逼近真实 GMM，于是合成切片就成了真实切片在特征空间的「浓缩替身」。第二段做跨机构整合：客户端把合成切片 $\{h_i^{(c)}\}$ 上传，服务器把除本机外所有客户端的合成切片聚成 $\mathcal{H}_\text{global}^{(c)}$ 回传；本地模型先在真实数据上训出底子，到第 $t_0$ 轮后才按课程逐步引入这批外来合成特征，用抗噪 loss 联合训练。最后一个可选的 FastGAN 生成器能把合成 embedding 反解成伪 patch，供医生肉眼核查。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["真实 slide x_i<br/>K 个 patch embedding"] --> LOCAL
     subgraph LOCAL["本地蒸馏（客户端 c 内部）"]

@@ -44,7 +44,7 @@ tags:
 DAT 的 pipeline 完全建立在冻结的 VLM 之上：先用训练/验证集为每个 $(y,a)$ 组构造一个紧凑的参考集 $R_{y,a}$；推理时对测试图 $z=\phi_I(x)$ 计算它在每个组参考集中的局部密度 $D_{y,a}(z)$，将原 cosine 相似度按密度重缩放，再聚合得到最终预测。当伪属性 $a$ 不可得时，DAT$^*$ 先用 $\hat a=\arg\max_a \langle \phi_I(x), \phi_T(t_a)\rangle$ 推断 $\hat a$，整条管线不变。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph REF["基于 herding 的组参考集构造"]
         direction TB

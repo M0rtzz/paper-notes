@@ -44,7 +44,7 @@ tags:
 SATYAM 把 CodecFake 检测当成一个条件生成问题来解：与其训练一个分类头，不如让一个冻结的大语言模型直接说出 "Real" 还是 "Fake"。一段待检测语音先被两个冻结编码器并行编码——Whisper 抓语义、TRILLsson 抓副语言（音色、韵律、合成痕迹），两路特征经 CNN 投影和门控后被送进双曲空间做两阶段对齐融合，最后映射回欧氏空间、作为前缀条件 token 注入 Qwen2-7B 解码器输出判别结果。全程只有投影、门控和双曲对齐模块参与训练，可训练参数仅约 3.75M。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph ICF["Indic-CodecFake 数据集（12 印度语 × 14 种 NAC 配置）"]
         direction TB

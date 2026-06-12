@@ -46,7 +46,7 @@ tags:
 VideoCoF 基于 VideoDiT（如 WAN-14B）构建统一视频编辑框架。输入为源视频、文本编辑指令；输出为编辑后的视频。中间过程分三阶段：首先将源视频编码为 latent 作为"看"的依据，然后模型预测推理 latent（标注编辑区域的灰度高亮帧）作为"推理"步骤，最后基于推理结果生成编辑后的视频 latent。三组 latent 沿时间维度拼接为统一序列 $\mathbf{z}_{full}$，由 VideoDiT 通过自注意力（上下文学习）和交叉注意力（语言控制）统一处理；拼接时由 RoPE 索引对齐策略给三组 token 分配时间位置编码。训练时仅对推理帧和目标帧施加噪声并监督速度场预测，而训练所需的"源-推理帧-目标"三元组由实例级数据增强管线离线造出。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["实例级数据增强管线（离线造训练三元组）"]
         direction TB

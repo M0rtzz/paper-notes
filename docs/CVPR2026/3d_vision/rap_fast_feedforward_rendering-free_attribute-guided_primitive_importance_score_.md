@@ -45,7 +45,7 @@ tags:
 RAP 要给 3DGS 里成千上万个高斯原语各打一个重要性分，供剪枝、压缩、传输使用，但它刻意绕开了"渲染—比对"那条又慢又挑视图的老路。整条流水线只做两件事：先为每个高斯从自身属性和局部邻域统计中抽出一个 15 维特征向量，再用一个轻量 MLP 一次性把它回归成 $[0,1]$ 的重要性评分 $S_i$。这个 MLP 在 10 个场景上训练一次，之后套到任何未见场景推理时**完全不需要渲染**；三重损失只在训练阶段提供监督，推理时不参与。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["高斯原语（3DGS）"] --> B
     subgraph FEAT["15 维重要性感知特征"]

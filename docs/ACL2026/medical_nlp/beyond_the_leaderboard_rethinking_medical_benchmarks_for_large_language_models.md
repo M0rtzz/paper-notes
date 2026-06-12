@@ -44,7 +44,7 @@ tags:
 这篇论文不训练模型，做的是"造一把尺子再用它量整个行业"。它要回答的问题是：现在的医学 LLM benchmark 到底差在哪。整套方法论分三步走，像一次工程化的 systematic review：先**搭框架**——在通用 benchmark 治理框架 BetterBench（46 条通用准则）和代码 benchmark 框架 How2Bench（55 条代码准则）的底子上，结合医学伦理与临床实践，蒸馏出 46 条医学专属准则，分布在 5 个生命周期阶段；再**系统打分**——选 56 个公开医学 LLM benchmark，先用 LLM-as-judge 对论文 + repo + 官网做初评，再请 3 名有临床信息学背景的 NLP 研究员用 0/1/2 三档 Likert 校准、分歧用 consensus 解决；最后**聚合分析**——把分数从 per-criterion 汇总到 per-phase 再到 overall，识别全行业普遍存在的薄弱环节。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["通用框架借鉴<br/>BetterBench(46条) + How2Bench(55条) + 医学伦理/临床实践"] --> B["5 阶段生命周期模型<br/>设计→数据→实现→验证→治理"]
     B --> C["46 条医学专属准则<br/>问题型描述 + 0/1/2 三档 rubric"]

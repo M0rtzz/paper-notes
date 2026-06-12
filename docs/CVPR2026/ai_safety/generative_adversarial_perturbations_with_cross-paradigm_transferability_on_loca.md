@@ -44,7 +44,7 @@ tags:
 这篇论文要攻击的是定位化人群计数，难点在于密度图和点回归两种范式的输出形式完全不同，过去的可迁移攻击只能在单一范式内部生效。CrowdGen 的做法是训练一个轻量级 3 层 UNet 生成器 $G_\theta$，把输入图像直接映射成有界扰动 $\delta$（上限 $\epsilon=8/255$），叠加到原图即得对抗样本。训练时用代理模型回传梯度，总损失拆成两块——只针对某一范式的**范式特有损失** $\mathcal{L}_{model}$，以及对两种范式都通用、专门提升迁移性的**跨范式扰动损失** $\mathcal{L}_{pert}$；推理时单次前向就能生成扰动，不必对每张图迭代优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像"] --> B["UNet 生成器 G_θ<br/>单次前向生成有界扰动 δ（ε=8/255）"]
     B --> C["对抗样本 = 原图 + δ"]

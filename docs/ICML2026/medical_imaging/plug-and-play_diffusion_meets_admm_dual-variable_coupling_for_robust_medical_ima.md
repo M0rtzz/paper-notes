@@ -52,7 +52,7 @@ tags:
 噪声调度 $\sigma_t$ 按 EDM 框架从大到小线性退火。这里有一个刻意的“控制变量”设计：数据保真步（CT 用 torch-radon 模拟 parallel-beam 投影、MRI 用 Cartesian 欠采样，统一 CG 求解）做得和最强 baseline DiffPIR 一模一样，结构差异**严格只在**“是否维护对偶 $u$”和“是否插入 $T_{\text{SH}}$”这两处，所以消融能干净地把增益归因到 DC 和 SH 两个新模块、不被求解器差异污染。因此下面的关键设计也就只有这两个真正的贡献点。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Y["测量 y（CT 投影 / MRI k 空间）"] --> X["数据保真更新 x（CG 求解，对齐 DiffPIR）<br/>min ‖Ax−y‖² + ρ‖x −（z − u）‖²"]
     X --> V["对偶移位 v = x + u"]

@@ -44,7 +44,7 @@ tags:
 ADVICE 是一个基于 LoRA 的对比微调框架。流程：（1）从 TriviaQA 训练集采样 4000 题，仅保留模型贪婪解码答对的题目；（2）对每题用随机采样得到一个「语义合理但事实错误」的硬负答案 $a_{\text{wrong}}$，配上原正确答案 $a_{\text{correct}}$ 组成三元组；（3）按 ScoreLetter 与 ScoreNumber 两种格式各生成一份训练数据；（4）在每个三元组上同时计算 LM 损失（保持问答能力）+ JSD 损失（拉开置信分布）+ Margin 损失（方向正确）+ Sum 损失（绝对约束），用 AdamW 与 LoRA（rank=16, α=32, 加在 Q/K/V/O）微调 4 epoch；（5）推理时格式可以泛化到训练未见过的 ScoreText/ScoreFloat/ScorePercent。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DIAG["答案独立性诊断"]
         direction TB

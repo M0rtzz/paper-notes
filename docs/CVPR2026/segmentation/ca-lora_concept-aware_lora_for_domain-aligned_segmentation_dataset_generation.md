@@ -42,7 +42,7 @@ tags:
 这篇论文要解决的是「合成分割数据既要对齐目标域、又要保持多样性」这对矛盾：直接拿预训练 T2I 模型生成的图够多样但不像驾驶场景，对它做完整 LoRA 微调能对齐却又把视角、风格、物体形状、布局全学进去，过拟合到训练集失去多样性。CA-LoRA 的破局点是把微调从「全学」收窄成「只学某一个概念」。整条流程是：先给每一层权重打一个「对目标概念有多敏感」的分数，只挑最敏感的前 k% 层挂上 LoRA、其余冻结保留预训练知识；微调完再用这个对齐后的模型训练一个标签生成器，最后用增强 prompt 批量产出图像-标签对喂给分割模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练 T2I 模型 + 目标域训练集"] --> B
     subgraph CA["概念感知度量"]

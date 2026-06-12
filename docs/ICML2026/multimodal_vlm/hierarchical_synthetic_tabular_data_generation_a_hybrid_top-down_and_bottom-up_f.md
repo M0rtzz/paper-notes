@@ -51,7 +51,7 @@ H-TDBU 由三段流水线组成。**输入**是真实数据 $\mathcal{D}_{\text{
 3. **Synthesis & Reconciliation** — 把骨架 $\mathcal{S}$ 和潜噪声 $z\in\mathcal{Z}$ 一起喂给条件生成器 $X_{\text{Syn}}:=G(z\in\mathcal{Z}\mid\mathcal{S})$，生成的每一行都受 $\mathcal{S}$ 约束。生成后用 TSTR 评下游效用、用 XModal 评跨模态对齐，若 XModal 不达标触发 *Retrain Model* 重新训 bottom-up；若约束违法率高则触发 *Adjust Constraints* 回到 top-down 修规则。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["真实数据 + schema 摘要"]
     IN --> TD["LLM/人工规则提供者<br/>一次性产出结构模板 𝒮"]

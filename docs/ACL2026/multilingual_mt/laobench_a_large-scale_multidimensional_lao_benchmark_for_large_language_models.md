@@ -44,7 +44,7 @@ LaoBench 是首个大规模、多维度的老挝语 LLM 评测基准，包含 17
 LaoBench 构建管线分三段（图 1）：(A) **原始材料采集**——从权威老挝来源采集 K12 教材、政府/法律文件、百科教育出版物、本地文化文章；(B) **数据集构建**——MCQ 子集（Lao-7k 开源 + Lao-10k 黑盒）由 11 位 Lao 母语专家手写题干、4 选 1、加难度校准；Lao-500 开放式 prompt 用 BenchBuilder 风格管线（LLM 评分 specificity/clarity/domain depth + 主题聚类 + 多样性采样）从大候选池里挑出 500 条；(C) **多阶段验证**——专家审 + Agent 自动检（重复检测、语义一致性、context independence、敏感内容筛）。整套 17,000+ 样本按 Knowledge Application / K12 / Translation 三维度组织，每维度再细分多个 subdomain。评测阶段对 MCQ 用准确率，对翻译用 SacreBLEU + chrF++（统一 LaoNLP 词切分），对 Lao-500 用 Arena 双 judge 成对评测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始材料采集<br/>K12 教材 / 政府法律 / 百科 / 文化文章"]
     subgraph BUILD["专家 + Agent 双 loop 构建管线"]

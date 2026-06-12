@@ -47,7 +47,7 @@ Route A 先从普通 simulator joint $\pi(\theta)p(x\mid\theta)$ 学一个 joint
 Route B 不合成新样本，而是一次性抽取 base joint 数据并复用。对每个 $\beta$，它用 NLE 或 NRE 估计 $p(x\mid\theta)^{\beta-1}$ 或似然比权重，再用 self-normalized importance sampling 得到加权 NPE 目标。理论上，这个目标等价于用 forward KL 拟合目标 power posterior。两条路线产出的训练信号都喂给同一个 $\beta$ 条件 NPE，训练完后推断时只需对给定 $(x_{obs},\beta)$ 做一次前向。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["目标 power posterior<br/>pβ(θ∣x) ∝ π(θ)·p(x∣θ)^β"]
     P --> RA

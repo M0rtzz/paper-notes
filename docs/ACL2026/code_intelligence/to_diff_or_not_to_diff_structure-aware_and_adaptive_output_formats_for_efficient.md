@@ -44,7 +44,7 @@ tags:
 给定源代码、编辑意图和目标代码，系统先计算最小文本差异 MinUniDiff，保证所有文本修改都被覆盖；再用 tree-sitter 构造 AST block tree，将每个 diff hunk 映射到最小的语法节点或连续节点集合。随后通过 anchor expansion 保证待替换片段在源代码中唯一可定位，并通过 bottom-up 合并处理重叠 hunk 或同一细粒度节点内的多个修改。训练时，模型输入仍是编辑意图和源代码，输出可以是 full-code、BlockDiff、FuncDiff 或 AdaEdit 选择后的混合格式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：源代码 + 编辑意图 + 目标代码"] --> B["MinUniDiff<br/>计算最小文本差异，覆盖全部修改"]
     subgraph S1["BlockDiff / FuncDiff 结构感知 hunk"]

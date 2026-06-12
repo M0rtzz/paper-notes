@@ -50,7 +50,7 @@ tags:
 赛后增强：(1) Rejudged Sonnet——用 Claude 3.5 Sonnet 重判训练集标签，6.2% 的样本被改标，整体极化比例上升；(2) DeepSeek-R1 LLM judge 过滤偏好对到 299 条 62:38 FP:FN 平衡集。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["社交媒体文本"] --> B["结构化 slot-filling SFT<br/>填 Target / Claim type / 6 项 Manifestation / Decision / Final Answer<br/>rationale 由 Gemma 3 27B 离线生成"]
     B --> S2

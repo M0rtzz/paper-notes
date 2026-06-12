@@ -46,7 +46,7 @@ tags:
 XOXO 这套攻击不靠在输入里塞恶意指令，而是钻编码助手「自动收集上下文」的空子。整条链路是这样转的：攻击者拿到共享代码库的提交权限后，先用 GCGS 算法搜出「哪些语义保持变换的组合最能把模型带偏」，再对代码施加这次变换（比如改个变量名，功能一字不差）→ 变换随版本控制悄悄流进受害者的项目 → 受害者用编码助手写代码时，助手自动把含毒代码当上下文抓进 prompt → LLM 在被污染的上下文上生成出带 bug 或带漏洞的代码，最后再到真实的 GitHub Copilot 上把整条链路跑通。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["攻击者获得共享代码库提交权限"] --> GCGS
     subgraph GCGS["置信度单调性 + 贪心 Cayley 图搜索（GCGS）"]

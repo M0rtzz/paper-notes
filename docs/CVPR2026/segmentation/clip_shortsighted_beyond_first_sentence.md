@@ -44,7 +44,7 @@ tags:
 DeBias-CLIP 想解决的是 CLIP 文本编码器只"看"首句、对长 caption 后半段几乎视而不见的近视毛病。它不动架构、不加参数，整套改动都落在训练时短 caption 的构造方式上。具体来说，它沿用 Long-CLIP 的双对比损失：长 caption 损失 $\mathcal{L}^\ell$ 把完整长文本和图像对齐，短 caption 损失 $\mathcal{L}^s$ 把一个文本子集和图像对齐。Long-CLIP 的做法是直接拿首句摘要当短 caption——而这正是首句偏向的源头。DeBias-CLIP 把短 caption 的来源换成"去掉首句、随机采样、再前移 padding"三步加工出来的片段，逼模型把注意力摊到整段文本上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["长 caption [s₁,s₂,…,s_k]<br/>s₁ 为摘要句"]
     A -->|完整长文本| F["文本编码器<br/>（共享，无新增参数）"]

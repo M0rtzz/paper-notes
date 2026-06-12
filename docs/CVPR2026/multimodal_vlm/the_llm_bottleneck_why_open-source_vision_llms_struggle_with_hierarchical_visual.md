@@ -41,7 +41,7 @@ tags:
 这是一篇分析性论文而非方法论文，目标是定位"为什么开源 VLLM 做不好层次视觉识别"。整条研究像一条侦查链，分四步推进：先从 6 个分类法、4 个图像数据集构建约 100 万道逐层四选一 VQA 题作为统一题库；再用更严格的层次一致性指标 HCA 量出问题规模；接着对视觉编码器、投影器、LLM 逐模块做线性探测，把瓶颈从视觉侧排除、精确钉到 LLM 身上；最后用 LoRA 微调实验从反方向验证这一结论。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["6 个分类法 × 4 个图像数据集"] --> B["VQA 任务构建<br/>逐层四选一选择题，约 100 万题"]
     B --> C["HCA 层次一致性评估<br/>整条路径全对才得分，叶精度为其上界"]

@@ -46,7 +46,7 @@ tags:
 LaDA 要解决的是 VLA 模型里高级语义和低级控制之间那道鸿沟——它不去做端到端的黑盒映射，而是在中间插一层「语言锚定的动作表示」。给定视觉观测 $V_t$、语言指令 $L_t$ 和 7-DoF 动作 $\mathbf{a}_t$，pipeline 大致是这样转的：先把连续动作拆成三个能用语言描述的原语（平移、旋转、夹爪），再据此算出一个编码原语级语义亲缘度的软相似度矩阵 $S$，然后用这个矩阵做双路径软标签对比学习——一边对齐动作与动作、一边把动作锚定到它的原语文本描述——在共享嵌入空间里把跨任务复用的运动结构对齐起来；训练时再用一个自适应权重在对比损失和模仿损失之间动态调平衡。预训练完成后只需附加一个轻量 MLP action head 微调，就能直接从 $(V_t, L_t)$ 回归出连续 7-DoF 动作。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：视觉观测 V_t + 语言指令 L_t + 7-DoF 动作 a_t"]
     IN --> D1["语言锚定动作解耦<br/>动作 → 平移/旋转/夹爪原语 + 符号化 bins"]

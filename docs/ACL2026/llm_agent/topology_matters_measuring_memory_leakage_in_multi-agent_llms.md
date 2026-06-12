@@ -45,7 +45,7 @@ tags:
 MAMA 是一个为"隔离泄露源头"而设计的受控评估框架。它先合成一批带标注 PII 的私有文档和已抹去 PII 的公开任务，保证初始时只有目标智能体掌握隐私；随后分两阶段运行多智能体系统——Engram 阶段（记忆植入）把私有信息注入目标智能体，Resonance 阶段（拓扑态扩散）让信息在指定拓扑下经多轮交互传播；最后用"精确匹配 + LLM 推理"的两段式恢复机制度量攻击者最终能提取到多少 PII。整条流水线的设计目标只有一个：让任何观察到的泄露都只可能来自智能体间的交互，而非预训练记忆，从而把拓扑结构的因果影响干净地暴露出来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["SPIRIT 合成文档<br/>标注 PII 实体"] --> B["受控数据合成与 PII 隔离<br/>私有文档(含 PII) + 公开任务(去 PII)"]
     subgraph P["Engram + Resonance 两阶段协议"]

@@ -50,7 +50,7 @@ tags:
 这些技术手段被进一步放进 Construct Validity Protocol。CVP 有三阶段：概念化、操作化、效度套件。它要求研究者先说清楚构念是什么、不是什么、可能被哪些 nuisance 混淆；再设计减少混杂的测量仪器；最后用稳定性、收敛效度、区分/增量效度、known-groups、预测效度等证据报告 proxy 是否真的在测目标构念。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["文档 D：由目标构念 c 与混杂因素 z 共同生成"] --> B["默认测量流程：编码器 E → embedding e → proxy f(e) → 标量分数"]
     B --> C["不可识别性论证<br/>正交旋转 h′=Rh 给出相同观测分布，无监督似然分不清 c 与 c/z 混合"]

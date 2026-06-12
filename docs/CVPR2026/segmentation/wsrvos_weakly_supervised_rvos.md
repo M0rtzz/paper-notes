@@ -46,7 +46,7 @@ tags:
 WSRVOS 想回答一个看似不可能的问题：训练时一张 mask、一个 bbox、一个 point 都不给，只给一句指称文本，模型能不能学会在视频里把目标抠出来？它的破题点是把"弱"监督换成"富"监督——离线用 MLLM 把原本干巴巴的一句指称扩成一组正面细描述和一组硬负面描述，然后让模型学会区分"哪句描述真的对应视频里的目标"。一旦模型能可靠地把正面描述匹配到正确的视觉区域，就反过来把多句正面描述各自的预测融合成伪 mask，给分割头补上原本缺失的空间监督，再叠一条时序约束保证帧间平滑。整条链路是"文本增强 → 双向特征对齐与分类 → 伪 mask 自监督 → 时序正则"，全程不碰任何人工空间标注。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：视频 + 原始指称表达式"] --> B["对比指称表达式增强<br/>MLLM 离线生成正面细描述 + 硬负面"]
     B -->|"InternVideo2 过滤低置信度"| C["视觉编码器 + 语言编码器<br/>提取视频与表达式特征"]

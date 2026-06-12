@@ -46,7 +46,7 @@ tags:
 MSPA-CQR 要解决的是：好的对话式改写应当同时满足自包含、检索友好、回复导向三方面需求，但这三个维度的偏好排序差异很大（Kendall-Tau 仅 0.36-0.58），单一维度对齐无法兼顾；而以往引入检索信号的方法又依赖人工标注的 gold passages，难以推广。它的整体流程分两阶段：先用 LLM 对每个对话采样 $K$ 个候选改写，分别从改写、检索、回复三个维度做自一致性打分，挑出 chosen/rejected 偏好对；再用前缀引导的多维度 DPO 训练改写模型，让它在不同偏好标签下都能生成对应的最优改写。推理时为同一对话生成三种偏好导向的改写并拼接，一起送入检索系统。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["对话上下文 + LLM 采样 K 个候选改写"] --> S
     subgraph S["三维度自一致性打分"]

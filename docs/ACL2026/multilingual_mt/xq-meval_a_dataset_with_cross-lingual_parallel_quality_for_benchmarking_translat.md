@@ -44,7 +44,7 @@ tags:
 三阶段构建 pipeline：(1) 短语级——用 GPT-4o 在参考翻译中注入单个 MQM major 错误，母语者过滤；(2) 句子级——合并 0-5 个错误生成六种质量等级的伪翻译；(3) 系统级——组装三元组（源文+伪翻译+参考）构建伪系统，用预定义分数评估自动指标。评估阶段进一步用 LGN（语言级全局归一化）把各语言分数拉到同一尺度再平均，校准跨语言偏差。整套流程覆盖 9 个翻译方向。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Flores 高质量参考翻译<br/>9 个翻译方向"] --> B
     subgraph S1["半自动错误注入与过滤（短语级）"]

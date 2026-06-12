@@ -46,7 +46,7 @@ tags:
 TextFlow 建立在 FLUX-Kontext 的流匹配架构之上，输入是源图像加上源/目标两段文本描述，整个编辑只用 50 步去噪、不动任何权重。它的核心判断是：扩散过程不同时间步的信噪比天差地别，早期扰动大、决定全局结构与风格，后期细节渐显、决定字符长什么样——所以与其全程用一套机制硬扛，不如把去噪轨迹切成两半分而治之。前半段交给 FMS，它把源图像编码进潜空间，靠噪声注入与差分几何变换把源的结构约束"焊"进目标的生成轨迹里，守住风格；后半段交给 AttnBoost，它从 DiT 双流 transformer 块里抽出文字到图像的注意力图并放大，给后期的字符渲染补上精确的空间引导。两段的分界正是落在这条 50 步去噪轨迹的中段，而步数本身也是质量与效率的平衡点——实验里 24 步质量不足、70 步收益递减还更慢，50 步最稳。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源图像 + 源描述 + 目标文本"] --> B["VAE 编码潜表征 z_t / z_src<br/>文本编码嵌入 e_src / e_tar"]
     subgraph P1["FMS：去噪早期保风格（潜空间轨迹校正）"]

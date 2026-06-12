@@ -47,7 +47,7 @@ tags:
 整条流水线分三段。**离线预处理**先对词表 $\mathcal{V}$ 做规范化（去掉不可达 token，建立非原子 token 与生成它的 merge rule 的双射），并构造 **Successor Forest**——每个非原子 token 指向它的 successor（合并它的右半部分）。**离线索引**再对 Successor Forest 做一遍预序 DFS 拿到 `dfs_in/dfs_out` 时间戳、为每个 token 预算"有效区间" $I_t$，同时为每个 token $\tau$ 建 Centroid Search Tree（CST），并建 Aho–Corasick 自动机、把"搜索空间入口"标注到每个状态。**在线增量**阶段每读一个字节 $c$，自动机走一步 $\mathcal{O}(1)$ 拿到最长后缀 token $\tau(sc)$，进入它对应的 SufSucTree 上的 CST 做对数次二分，定位单调路径上最深的合法节点即 $\theta(sc)$。下面三个设计正是把这条"每字节对数复杂度"的承诺逐层兑现（设计 1 是支撑在线搜索的理论性质，设计 2、3 在离线阶段建好、在线阶段被反复调用）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["BPE 词表 𝒱 + merge 规则"]
     subgraph PRE["离线预处理"]

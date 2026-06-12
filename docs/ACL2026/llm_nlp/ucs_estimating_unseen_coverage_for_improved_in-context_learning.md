@@ -46,7 +46,7 @@ tags:
 UCS 分三步：(1) 用 LLM 自身的嵌入表示所有候选示例（模型一致表示）；(2) 通过字典学习+DBSCAN 将连续嵌入离散化为聚类 ID（离散化）；(3) 用 Smoothed Good-Turing 估计器从选定子集的频率谱估算总聚类数量（覆盖率估计），与现有选择目标加权组合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["候选示例池"] --> S1
     subgraph S1["模型一致嵌入与聚类离散化"]

@@ -46,7 +46,7 @@ tags:
 MMErroR 的构建流程分四步：(1) 问题策展——从 MMMU、MathVista、MathVerse、ScienceQA、AI2D 等基准中分层采样，并进行复杂度过滤保留多步推理实例；(2) 错误注入——用 GPT-5 在正确推理链中注入一个语义连贯的错误，限制为四种预定义类型之一；(3) 数据验证——20 位专家（6 位教授 + 14 位博士生）进行三轮人工检查，从初始 10000 样本筛选到 3148 个；(4) 质量保证——至少两位语言学专家从连贯性、步骤清晰度、错误可定位性和语义一致性四个维度打分，保留均分 > 0.5 的 1997 个样本。构建完成的基准再以两档评估协议（ETC / EPD）使用。下面三个关键设计依次对应：错误怎么分类、链子怎么受控且高质量地造出来、造好后怎么评测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源基准分层采样<br/>MMMU / MathVista / ScienceQA…"] --> B["复杂度过滤<br/>保留多步推理实例"]
     B --> C["错误注入（GPT-5）<br/>按四类错误分类体系注入单一根因错误"]

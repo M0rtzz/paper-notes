@@ -76,7 +76,7 @@ PCoA 本质上不是一个新模型，而是一个新任务、新数据集和新
 作者用 Mistral-Large-2411 做 claim decomposition，用 TRUE 做 entailment 判断，用 NLTK 做短语 tokenization。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DS["短语级上下文归因数据集"]
         direction TB

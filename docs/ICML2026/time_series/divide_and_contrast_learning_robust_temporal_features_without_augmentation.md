@@ -47,7 +47,7 @@ Di-COT 通过**随机划分序列为重叠子块**并对其进行对比学习—
 Di-COT 想避开时序对比学习的两个老毛病——靠数据增强会扭曲表示、逐时步对比在时间过渡处又会产生假正例——办法是把对比的单元从"单个时步"换成"语义完整的重叠子块"。一条序列 $\mathbf{x}^{(i)}\in\mathbb{R}^{T\times D}$ 进来后，先随机划成 $k$ 个重叠子块（$k$ 从 $\{k_{\min},\ldots,k_{\max}\}$ 均匀采样）；每个子块编码 + 池化得到嵌入，算温度缩放的相似度矩阵 $\mathbf{S}^{(i)}\in\mathbb{R}^{k\times k}$；最后把"相邻子块预测"重述成多类分类，每个子块都当锚点产生密集监督。整条管线既不做任何增强，损失复杂度还独立于序列长度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入序列<br/>长度 T、维度 D"] --> B
     subgraph G1["随机重叠子块划分（设计 1）"]

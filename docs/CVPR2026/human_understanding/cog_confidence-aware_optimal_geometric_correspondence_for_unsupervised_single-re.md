@@ -48,7 +48,7 @@ tags:
 COG 把“单张参考图估计新物体 6DoF 位姿”做成粗到精两阶段。预处理阶段先用 UnoSeg 分出物体掩码、把深度图反投影成 3D 点云、用 DINO 提逐像素 RGB 语义描述子，并借 STEGO 自标签策略对语义特征去噪以消除跨视图漂移。粗阶段对点云做最远点采样取 256 个稀疏点，经几何 Transformer 编解码预测逐点置信度与特征，用 Sinkhorn 最优传输算软对应、再加权 SVD 求粗位姿；精阶段用粗位姿把 query 点云对齐后，换 1024 点配位置编码做精细对齐输出最终位姿。推理时还能用估计位姿反复迭代精炼（默认 1 次）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：参考图 + query RGB-D 图"] --> B["UnoSeg 分割掩码<br/>深度反投影成 3D 点云"]
     A --> C["DINO 逐像素语义描述子"]

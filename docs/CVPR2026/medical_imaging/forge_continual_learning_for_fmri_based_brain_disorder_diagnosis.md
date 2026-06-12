@@ -36,7 +36,7 @@ fMRI 功能连接 (FC) 矩阵是脑疾病诊断的强大表示，但临床数据
 FORGE 要解决的是跨站点 fMRI 诊断的"边学边忘"：临床数据从不同机构依次到达，又因隐私法规不能把旧站点的原始数据留下来回放。它的思路是用**生成回放**替代真实数据回放，再套上**双层知识蒸馏**。核心是一个专为功能连接（FC）矩阵设计的生成器 FCM-VAE：结构感知编码器把脑网络的拓扑与谱几何编进隐空间，低秩解码器再据此重建出逼真的合成 FC 矩阵。每到一个新站点，这些合成的旧站点样本被存进回放缓冲区，由**层次化上下文 Thompson 采样**挑出最有信息量的一批；学生分类器同时学两份数据——当前站点的真实 FC 矩阵 + 挑出的旧站点合成样本，并通过 logit 级和图读出级蒸馏，与上一站点的冻结教师对齐。训练完后，FCM-VAE 在本站点再更新一次，为下一站点的回放做准备。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["站点 t 真实 FC 矩阵<br/>116×116 脑网络图"]
     subgraph VAE["FCM-VAE 生成器（设计 1+2）"]

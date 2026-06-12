@@ -42,7 +42,7 @@ tags:
 给定 $T$ 个同构 LoRA adapter $\{(A^{(t)}, B^{(t)})\}_{t=1}^{T}$（相同基座模型、相同注入层、相同输入秩 $r_{\text{in}}$），CtM 把传统 MtC 的"先合并后压缩"反转成"先压缩后合并"：先学一对共享的 $r$ 维正交基 $(U, V)$，把每个 adapter 投影成紧凑的 $r \times r$ 坐标矩阵，然后在这个低维坐标空间里跑标准合并规则、再提升回原始参数空间。由于子空间在合并之前就固定下来，输出天然落在 rank-$r$ 子空间内，根本不需要事后的截断 SVD。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：T 个同构 LoRA adapter<br/>各任务更新 ΔW⁽ᵗ⁾ = B⁽ᵗ⁾A⁽ᵗ⁾"] --> S1
     subgraph S1["重缩放感知的共享子空间学习（设计 1）"]

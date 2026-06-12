@@ -45,7 +45,7 @@ tags:
 输入是已有快照集合 $\mathcal{D}=\{(t_i,\hat{\mu}_{t_i})\}_{i=1}^N$、候选时间池 $\mathcal{T}_{pool}$ 和剩余采样预算 $B$。每一轮算法会更新参考测度 $\sigma$，将每个快照 $\hat{\mu}_{t_i}$ 通过 OT coupling 映射到切空间 $T_\sigma\mathcal{P}_2(\mathcal{X})$，得到 displacement matrix $\mathbf{V}_i$；随后用带权 PCA 把它压成低维系数 $\mathbf{c}_i$，这些 $\{(t_i,\mathbf{c}_i)\}$ 就构成 GP 的训练集；最后在时间到系数的映射上拟合带时间扭曲（intrinsic time warping）的 GP——按 Wasserstein 弧长重标定时间以适应非平稳变化，再按其 posterior 不确定性选出 $t^*$ 去做真实测量并加入数据集。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：已有快照 D + 候选时间池 + 预算 B"] --> B["更新参考测度 σ<br/>（Wasserstein barycenter）"]
     B --> C["LOT 切空间表示<br/>OT coupling → displacement field Vᵢ"]

@@ -46,7 +46,7 @@ tags:
 TROJail 把"自动化多轮越狱"当成一个多轮强化学习问题来训攻击者。给定一条有害目标 $x_0$，攻击者 $\pi_\theta$ 和受害模型 $\pi_\phi$ 来回对话最多 T 轮、采样出 G 条轨迹，最终响应的有害程度作为结果奖励 $r_o$。问题在于只有最后一轮才有这个奖励，中间那些"看似无害却战略关键"的铺垫 prompt 拿不到任何信用，监督极其稀疏。TROJail 的解法是额外塞进两个**过程奖励** $r_{h_1}$、$r_{h_2}$ 给中间 prompt 打分，把它们折算成过程优势，再和结果优势相加成 $\hat{A}_{i,t} = \hat{A}_{i,t}^o + \lambda \hat{A}_{i,t}^h$，用多轮 GRPO 的 PPO 风格截断目标统一优化——既盯着最终能否攻破，又给每一步铺垫提供细粒度梯度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["有害目标 x₀"] --> B["攻击者 π_θ ↔ 受害模型 π_φ<br/>多轮对话最多 T 轮，采样 G 条轨迹"]
     B --> C["结果奖励 r_o<br/>仅最终响应有害程度（监督稀疏）"]

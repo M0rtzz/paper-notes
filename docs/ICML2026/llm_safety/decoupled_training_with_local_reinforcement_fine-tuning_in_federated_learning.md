@@ -46,7 +46,7 @@ FedDTL 要在 $K$ 个客户端、各持私有数据 $\mathcal{D}_k=\{(x_i,y_i)\}
 每个全局轮 $t$ 的数据流是：服务器**下行广播**上一轮的全局视觉 LoRA $\Delta\mathbf{W}_g^{t-1}$ 和全部类别的全局文本嵌入 $\{\bar z_{\text{text}}^{c,t-1}\}_{c=1}^{C}$；客户端拿 LoRA-tuned 图像编码器 $\mathcal{V}_k$ 把本地图像编码成 $\bar z_v$、跟收到的文本嵌入算 cosine+softmax 做分类，前 $M$ 轮走 SFT、之后切 RL；本地训完只**上行**回传视觉 LoRA $\Delta\mathbf{W}_k$ 和归一化后的图像类别嵌入 $\bar z_{v,k}$（仅 class token，full-data 下还能只采子集）；服务器把各客户端视觉 LoRA 做样本量加权平均，再拿这些图像嵌入当监督训全局文本编码器 $\mathcal{T}_g$（也是 LoRA），一个全局轮就此闭合。整套结构靠"客户端视觉解耦 + 服务器文本统一"和"本地两阶段微调"两条腿，目标是在不堆额外正则的前提下同时治两病。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     BC["服务器下行广播<br/>全局视觉 LoRA + 全部类别文本嵌入"]
     subgraph CLIENT["客户端 k 本地"]

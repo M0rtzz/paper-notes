@@ -38,7 +38,7 @@ tags:
 TraqPoint 要解决的是"现有关键点检测都按图像对优化可匹配性、却没盯住长序列里的可追踪性"这一错配。它采用「先描述后检测」的双分支架构（继承自 RDD）：描述子分支先预训练并冻结，关键点分支作为 RL 的策略网络 $\pi_\theta$。状态 $s$ 是参考图像 $I^{ref}$，动作是从策略输出的概率分布 $P_\theta$ 中采样 $N$ 个关键点 $\mathcal{A} = \{\mathbf{x}_i\}_{i=1}^N$，优化目标是最大化整个序列上的期望追踪质量奖励——把"两帧能不能匹配"换成"在整条轨迹上能不能稳定被追踪"。整条 pipeline 自上而下走：骨干网络出特征 → 关键点分支（策略）采样动作 → 把采样点投影到序列各帧、用冻结描述子算可追踪性奖励 → 用策略梯度回灌更新策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["参考图像 I_ref"] --> B["DINOv3-ConvNeXt 骨干网络<br/>多尺度特征"]
     B --> C["关键点分支 = 策略网络 π_θ<br/>输出概率分布 P_θ"]

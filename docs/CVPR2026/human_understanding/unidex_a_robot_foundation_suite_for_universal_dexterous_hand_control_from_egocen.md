@@ -44,7 +44,7 @@ tags:
 UniDex由三部分组成：(1) **UniDex-Dataset**——从自中心人类视频转化来的机器人中心数据集，跨8种手型、50K+轨迹、9M帧；(2) **FAAS + UniDex-VLA**——功能-执行器对齐的统一动作空间和基于它训练的3D VLA策略；(3) **UniDex-Cap**——便携式人类数据采集装置，支持人-机数据共训练，减少遥操作成本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["自中心人类视频"] --> S1
     subgraph S1["人→机器人数据转换管线"]

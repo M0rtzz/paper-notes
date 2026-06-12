@@ -46,7 +46,7 @@ GEN（Generative Evaluative Network）由两部分组成。其一是 **Quantum e
 推理时先一次前向 $(\mathbf{S}_0, \mathbf{P}_0) = g_\theta(G_{\text{new}})$ 拿初值，再做 test-time adaptation——在该单个实例上 fine-tune 生成器参数 $\theta$ 几步梯度上升，得到 $\theta^*$，输出 $(\mathbf{S}^*, \mathbf{P}^*) = g_{\theta^*}(G_{\text{new}})$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     G["输入图 G"] --> GEN
     subgraph GEN["联合生成器 gθ（先分区后参数）"]

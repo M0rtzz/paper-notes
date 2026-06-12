@@ -43,7 +43,7 @@ KORE 通过两阶段"知识导向控制"为 LMM 注入新知识 — 一边把单
 KORE 把"既要学新知识、又不能忘旧本事"这对矛盾拆成数据和参数两条独立可控的线，组成一个两阶段流程。前一阶段 KORE-augmentation 在数据侧动手，把每条孤立的 (image, text) 事实自动膨胀成一棵结构化"知识树"，让模型从多个角度反复消化同一条知识；后一阶段 KORE-constraint 在参数侧动手，把 LoRA 适配器初始化到"旧知识激活协方差"的零空间里，使新知识的写入方向天然绕开承载旧能力的子空间。两阶段各管一头——增强主攻适配、约束主攻保留——最后合到一次标准 LoRA 训练里：冻结落在零空间的 $A$、只更新 $B$，用增强出来的知识树数据做监督。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph AUG["KORE-augmentation：把一条事实长成知识树"]
         direction TB

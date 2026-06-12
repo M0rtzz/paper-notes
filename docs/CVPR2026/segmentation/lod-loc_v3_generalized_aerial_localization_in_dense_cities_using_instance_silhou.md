@@ -40,7 +40,7 @@ LoD-Loc v3 要解决的是：给一张无人机航拍图，在只有几何外壳
 整篇的核心改动其实只有一句话：把 v2 的"语义轮廓对齐"换成"实例轮廓对齐"。语义对齐只分"建筑/背景"，密集城区里楼连成一片，不同位姿渲染出来的 mask 几乎长一样，根本分不开；实例对齐把每栋楼当成独立个体，它们之间的相对排列对每个位姿都是唯一的，歧义自然就消了。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["InsLoD-Loc 合成数据集"]
         direction TB

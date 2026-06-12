@@ -46,7 +46,7 @@ tags:
 AVTracker 采用分治（divide-and-conquer）策略，将人体中心 AVIS 分解为三个阶段。输入为同步的视频帧序列和音频流，输出为每个说话人的全局实例轨迹（含逐帧分割掩码）。整体流程：Stage 1 对音频进行 ASR 转录并按说话人嵌入相似度聚合为语义完整的说话人片段（Speaker Chunks）；Stage 2 在每个片段的局部时间窗口内，利用 VLM 将语音内容与可见人物关联，结合 SAM3 生成逐帧实例掩码，形成局部轨迹片段（Local Tracklets）；Stage 3 通过全局推理器跨片段关联同一说话人的局部轨迹，输出完整的全局说话人轨迹。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：同步视频帧 + 音频流"]
     subgraph S1["1. 说话人片段聚合（动态窗口）"]

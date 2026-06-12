@@ -36,7 +36,7 @@ tags:
 G-MIXER 要解决组合图像检索（CIR）里一个被忽视的矛盾：查询既有文本明说的修改（显式信息），也有参考图里没被提及却该保留的视觉元素（隐式信息，如猫、篮子）；现有 MLLM 方法把隐式信息也转成文本描述，结果过度偏向文本模态、丢掉了检索本该有的多样性。它全程免训练，分三步走：先用 MLLM 从查询对（参考图像 + 修改文本）生成目标描述 $T_t$ 以及"应包含（Include）/应排除（Exclude）"两组重排属性；再用 **测地线混合（G-MIX）** 把目标描述与参考图像编码进 CLIP 超球面、沿不同混合比例铺开一簇查询，把召回范围撑大、得到并起来的多样化候选集；最后用 **显式语义重排序（ER）** 靠那两组属性把噪声候选筛掉、把精度补回来。MLLM 生成是即插即用的脚手架，真正的两个贡献模块是 G-MIX 与 ER；ER 只改排名、不改候选集大小。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["参考图像 + 修改文本"] --> M["MLLM 预处理<br/>生成目标描述 + 应包含/应排除属性"]
     M --> E["CLIP 编码<br/>得图像特征与目标描述文本特征"]

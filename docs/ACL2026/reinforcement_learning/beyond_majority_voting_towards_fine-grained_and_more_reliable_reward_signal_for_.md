@@ -44,7 +44,7 @@ tags:
 SCOPE 的训练迭代有四步：(1) 采样 $|\mathcal{G}|$ 个 response，按 `\n\n` 切 reasoning step，算每个 response 的 average step confidence $\mathcal{C}_{AvgStep}^{(i)}$；(2) 评估若干候选 subgroup 大小 $m \in \mathcal{M}$，对每个 $m$ 算 quality rate $q$ 和 exploration rate $e$，构 Pareto 前沿，选最优 $m^*$；(3) 按 $m^*$ 把 response 划分到 $n$ 个 subgroup，每组通过 bootstrap 采样 + 置信度加权投票得到局部共识 $o_j^*$；(4) 用 $r(o, o_j^*) = \mathds{1}[\text{Ans}(o) = o_j^*]$ 计算奖励，用 GRPO 更新策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["采样 |G| 个 response<br/>按 \n\n 切 reasoning step 算步级置信度"] --> B
     subgraph P["Pareto-optimal 自动选 m*"]

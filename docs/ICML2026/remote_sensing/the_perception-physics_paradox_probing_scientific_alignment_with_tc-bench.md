@@ -43,7 +43,7 @@ tags:
 管线分四块：(1) 给出"物理系统 $\mathcal{S}$"和"表示 $\mathbf{z}=g(\mathbf{x})$"的形式化定义；(2) 定义结构同构 $\mathbf{z}=\mathbf{A}\mathbf{y}+\epsilon_{\mu}(\mathbf{y})$（线性映射 $\mathbf{A}$ + 有界残差），并证明它必然蕴含三条 population-level 误差界（静态、动态、约束）；(3) 把每条误差界实例化为"受限代理 $h\in\mathcal{H}$"上的一致残差 $V(g)=\inf_h \sup_{\mu} \mathbb{E}[\psi(h(\mathbf{z}),\mathbf{r})]$ — 即结构对齐探针 $\mathcal{Q}$；(4) 在 TC-Bench 上对冻结骨干跑线性探针 + 几何诊断，定位失效模式。输入是 224×224 的红外卫星图，输出是带置信区间的 regime-stratified 探针残差曲线。整张图可以拆成「理论」「数据」两条入边在探针处汇合：理论侧把结构同构推成三条误差界、再实例化成三个探针；数据侧让冻结骨干吐出表示 $\mathbf{z}$；两路在探针汇合后，按强度切片并做几何诊断收口到失效定位。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     ISO["结构同构 z=Ay+ε<br/>可证伪的最弱对齐条件"] --> BND["导出三条 uniform 误差界<br/>静态保真 / 动态一致 / 流形约束"]
     DATA["TC-Bench<br/>红外卫星图 + 物理标签"] --> ENC["冻结 VFM 取 CLS token z"]

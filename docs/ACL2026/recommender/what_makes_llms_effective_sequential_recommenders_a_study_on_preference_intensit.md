@@ -46,7 +46,7 @@ tags:
 RecPO 走两阶段训练：先用 SFT 把通用 LLM 适配成推荐模型，再用一个带"自适应奖励边际"的偏好优化进一步对齐。输入是用户完整交互历史（含正负反馈和评分），输出是从候选集里选出的下一个物品。和 S-DPO 最大的区别是，RecPO 不再丢弃负面交互，而是保留完整序列，并把评分当成结构化的偏好强度信号喂进训练目标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["用户完整交互历史<br/>含评分 + 正负反馈"] --> B["完整且结构化的反馈输入<br/>[ItemTitle] | Rating 格式，保留负反馈"]
     B --> C["SFT 适配<br/>通用 LLM → 推荐模型"]

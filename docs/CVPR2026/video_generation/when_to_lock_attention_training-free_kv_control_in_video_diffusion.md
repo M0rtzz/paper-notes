@@ -46,7 +46,7 @@ KV-Lock 是一个即插即用的 training-free 框架，适用于任意预训练
 整个去噪阶段是一个反馈回环：每一步先由幻觉检测算出方差信号，再用这个信号同时驱动「背景锁多紧」和「前景顶多狠」两个旋钮。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源视频 + 编辑 mask"] --> B
     subgraph B["Token 级 KV 缓存锁定"]

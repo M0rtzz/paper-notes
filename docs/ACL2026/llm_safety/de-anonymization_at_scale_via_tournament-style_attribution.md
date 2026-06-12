@@ -45,7 +45,7 @@ tags:
 DAS 要解决的是一个传统作者归因够不着的场景：候选作者可能有数万人、且没有任何标注样本，而 LLM 的上下文窗口又塞不下这么多候选。它的破局思路是把"从数万候选里找出真作者"这个一对多难题，拆成"检索先粗筛、锦标赛再细比、投票最后定"三道接力。先用密集检索把 $10^5$ 级的候选池压到 $10^3$ 级，再让 LLM 在小分组里反复淘汰、逐轮收缩到 top-k，最后多次独立重跑、按胜出次数聚合出稳定排名。三道工序层层把搜索空间和不确定性往下压。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["查询文本 + 候选池（约 10⁵）"] --> B["密集检索预过滤<br/>嵌入相似度取 top-N（约 1000）"]
     subgraph T["锦标赛式渐进淘汰"]

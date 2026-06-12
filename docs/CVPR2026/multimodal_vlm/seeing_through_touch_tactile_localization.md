@@ -42,7 +42,7 @@ tags:
 整条 pipeline 这样转：触觉编码器把一帧 GelSight 触觉图压成一个全局向量 $\bar{f}_t$，视觉编码器把图像编码成保留空间结构的特征图 $f_v$（双编码器都用 DINOv3，视觉骨干冻结只训对齐器）；把触觉向量和特征图上每个位置逐点做内积，得到一张密集相似度图 $M[h,w] = \bar{f}_t \cdot f_v[h,w]$——这张图本身就是「触觉显著性图」，亮的地方就是摸起来一样的区域。训练时对这张图做最大池化，取最匹配位置的分数喂进对称 InfoNCE 对比学习；推理时则直接拿整张相似度图当定位结果输出。而要把这套局部对齐训起来，还得先解决「有效训练对太少」的问题——这就是「材质多样性配对」和「野外图像收集与过滤」两步数据构建在做的事：前者把稀疏的触觉-视觉对扩容成跨实例、跨场景的正样本，后者负责攒出一张图里含多种材质的场景级图像，给配对提供素材。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["场景图像"] --> VE["视觉编码器 DINOv3（冻结）<br/>→空间特征图 f_v"]
     TAC["GelSight 触觉帧"] --> TE["触觉编码器 DINOv3<br/>→触觉全局向量 f_t"]

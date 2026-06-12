@@ -40,7 +40,7 @@ LIT (Live Interactive Training) 提出了一种让交互式视觉系统（如SAM
 LIT 要解决的事很具体：让 SAM2 这类交互式分割模型在标注一段视频时，不要把用户的每次纠正都当成"用完即弃"的即时修补，而是边推理边把这些纠正学进一组轻量参数里，让后面遇到同类错误时自己就能改对。为此它把整段视频看成流式输入 $\{x_t\}_{t=1}^T$：主干参数 $\theta$ 始终冻结，只挂一组可训练的轻量适配器 $\phi_t$，模型预测写成 $\hat{y}_t = f_{\theta, \phi_t}(x_t)$。一旦用户对第 $t$ 帧给出纠正 $y_t^*$，适配器就地做一步梯度下降 $\phi_{t+1} \leftarrow \phi_t - \eta \nabla_{\phi_t} \mathcal{L}(f_{\theta,\phi_t}(x_t), y_t^*)$，更新后的 $\phi_{t+1}$ 立刻作用于后续帧。适配器在同一段视频内持续累积纠正，换到新视频时重新初始化——这样既保留了对当前目标的领域适配，又不会把上一段视频的偏置带过来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["流式视频帧 x_t"] --> B["SAM2 主干 θ（冻结）+ 适配器 φ_t<br/>预测 ŷ_t"]
     B -->|"IoU ≥ τ：直接采纳"| G["采纳预测<br/>存入 memory bank 增强后续传播"]

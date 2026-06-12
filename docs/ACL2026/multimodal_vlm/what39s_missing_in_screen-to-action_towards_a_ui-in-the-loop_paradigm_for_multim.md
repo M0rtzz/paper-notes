@@ -46,7 +46,7 @@ tags:
 UILoop 包含两个主要阶段：(1) 数据构建阶段——设计合成管道构建 UI Comprehension-Bench（26K 样本），增强现有 GUI 数据集使其包含关键 UI 元素的定位、语义描述和使用信息；(2) 训练阶段——提出 UI 元素驱动的强化微调（RFT），通过三种专门的奖励函数训练模型掌握 UI 元素。在此基础上，UI Comprehension 评估任务把推理的中间环节也变成可打分的诊断指标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["UI Comprehension-Bench：补齐关键 UI 元素标注"]
         direction TB

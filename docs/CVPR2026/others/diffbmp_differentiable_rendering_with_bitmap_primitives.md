@@ -47,7 +47,7 @@ tags:
 DiffBMP 要解决的是 2D 可微渲染长期只能处理矢量图形、碰不了位图的空白。核心是一套自定义的 tile-based CUDA **可微渲染引擎**：输入一组位图图元和目标图像后，先做结构感知初始化、对图元做软光栅化模糊，再进入优化循环——可微前向渲染（坐标变换 + 双线性插值采样 + Porter-Duff alpha 合成）得到渲染结果 → 计算损失 → CUDA 反向传播精确求梯度 → 更新每个图元的 $(x_i, y_i, s_i, \theta_i, \nu_i, \mathbf{c}_i)$，循环到收敛后由专用导出内核生成分层 PSD 文件。噪声画布等技巧在过程中改写前向背景以稳定优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：位图图元 + 目标图像"] --> INIT["结构感知初始化<br/>按 7×7 局部方差定位放图元"]
     INIT --> BLUR["软光栅化<br/>对图元高斯模糊抹宽梯度"]

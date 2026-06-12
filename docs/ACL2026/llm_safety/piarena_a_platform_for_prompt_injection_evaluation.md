@@ -43,7 +43,7 @@ tags:
 PIArena 由四个模块组成：(1) Benchmark 模块提供多样化数据集（QA、RAG、摘要、长文本等）；(2) Attack 模块集成多种攻击方法并生成注入提示；(3) Defense 模块集成检测式和预防式防御；(4) Evaluator 模块计算 Utility（任务性能）和 ASR（攻击成功率）。所有模块通过统一 API 交互，支持独立和组合评估。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph API["统一标准化接口与数据格式（贯穿全平台）"]
         direction TB

@@ -43,7 +43,7 @@ tags:
 UGS-Loc 重新审视 3DGS 里"渲染—比对"式的相机位姿精化，指出它有两处一直被当成确定量处理：一是来自 APR/SCR 的初始位姿先验，二是 3DGS 椭球渲染出的深度几何。它把这两处都改成显式建模的不确定性——蒙特卡洛精化处理位姿先验的不确定性、Fisher 信息引导的 PnP 处理几何的不确定性。整个框架是推理时管线，无需重训练或额外监督，只要 2 次迭代、8 个粒子就能跑完。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["查询图像 I_q"]
     P["初始位姿先验 T_prior<br/>（APR/SCR，如 ACE / DFNet）"]

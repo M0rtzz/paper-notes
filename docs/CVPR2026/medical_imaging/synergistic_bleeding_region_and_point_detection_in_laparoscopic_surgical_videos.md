@@ -51,7 +51,7 @@ $$\{\boldsymbol{\theta}^*, \boldsymbol{\vartheta}^*\} = \arg\min_{\boldsymbol{\t
 通过交替优化策略求解：先固定 Point 分支更新 Mask 分支参数，再固定更新后的 Mask 分支更新 Point 分支。整条流水线为：SAM2 图像编码器（双分支共享）提取多尺度时空特征 → 分别送入 Point 分支与 Mask 分支 → 两分支用对方的输出互为 prompt / 时序约束（双向引导）→ 输出出血点坐标与出血区域 mask。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：当前帧 + 前 N−1 帧"] --> B["SAM2 图像编码器<br/>多尺度时空特征（双分支共享）"]
     B --> P1

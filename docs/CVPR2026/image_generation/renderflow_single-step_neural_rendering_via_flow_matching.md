@@ -44,7 +44,7 @@ tags:
 输入：一组 G-buffer 属性——albedo（基础颜色）、normal（法线）、depth（深度）、material（粗糙度/金属度/镜面反射）和环境贴图（全局光照）。albedo 作为流的起点替代噪声，经 VAE 编码为 latent $\mathbf{z}_0$；目标是路径追踪渲染的真实图像 $\mathbf{z}_1$。模型学习一个速度场 $v_\theta$ 将 $\mathbf{z}_0$ 直接映射到 $\mathbf{z}_1$，单步推理即可得到完整渲染结果。可选的稀疏关键帧通过 cross-attention adapter 提供物理精度锚点。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["albedo（基础颜色）"] --> Z0["VAE 编码 → 流起点 z₀"]
     subgraph COND["G-buffer 条件注入（设计2）"]

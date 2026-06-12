@@ -45,7 +45,7 @@ tags:
 输入：用户画像 $\mathbf{p}_u$（25+ 维特征）、行为历史 $\mathbf{h}_u$、当前对话查询 $q$。中间过程：(1) PADR 路由器根据 $|\mathbf{h}_u|$ 选 warm/hybrid/cold 路径并组装 prompt；(2) 双阶段微调过的 LLM 生成 3 层 SID 前缀；(3) 模糊匹配模块对前缀与今日新闻池做 $\delta=5$ 容差比对，返回小候选集（mean 5.2, median 3.0 篇）；(4) 在线服务用 Dual-Track 架构，Fast Track 命中缓存直接 100ms 出结果，Enhance Track 异步跑完整 PADR 推理并更新缓存。输出：从今日池里 grounded 的 1-3 条推荐。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：用户画像 + 行为历史 + 当前对话查询"]
     subgraph TRAIN["两阶段训练（离线）"]

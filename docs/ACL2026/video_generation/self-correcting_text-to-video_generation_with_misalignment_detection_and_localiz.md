@@ -46,7 +46,7 @@ tags:
 VideoRepair 模仿人改稿的方式——只改错的地方、留对的地方，把一段已经生成好的视频拿去"局部返工"，而不是从头重生成。它分三阶段串起来：先让 MLLM 把文本提示拆成可问的问题，逐条检查视频哪里没对齐；再据此规划出"哪些实体保留、哪些区域修复、用什么局部提示修复"；最后在去噪过程里对保留区和修复区分别施加不同引导，并通过联合优化把两者无缝缝合成一段视频。整个流程免训练，直接套在任意 T2V 扩散模型上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["文本提示 + 初始 T2V 视频"] --> S1
 

@@ -49,7 +49,7 @@ tags:
 第四步做因果干预和视觉归因。作者选出最支持 factual / counterfactual 的 top-20 heads，对最终 token 位置的注意力权重做乘性缩放：增强 factual heads 对文本 token 的注意，或削弱 counterfactual heads 对图像 token 的注意，反向也可以。随后用注意力和梯度两种方式找出驱动 counterfactual 输出的图像 patch，并通过 patch ablation 验证这些区域是否真的导致视觉覆盖常识。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["WHOOPS-AHA! 可控反事实补全数据集"]
         direction TB

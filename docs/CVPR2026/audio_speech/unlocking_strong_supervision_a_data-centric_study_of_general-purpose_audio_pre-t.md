@@ -41,7 +41,7 @@ tags:
 本文要回答的问题不是"换哪种网络/哪种预训练目标更强"，而是"如果先把标签系统本身做好，预训练性能能提升多少"。为此作者搭了一条把"原始音频"变成"高质量监督信号"再喂给各种预训练目标的流水线：从 CaptionStew 400K 音频出发，先用音频 LLM 把每条音频转写成一段长描述，再从描述里抽出语义标签、用统计指标筛成一份跨领域词表（即 UTS），然后用同一份词表分别训分类、字幕、对比、多任务四种模型，最后在 7+ 个下游任务上横向比。整条 pipeline 里唯一被刻意控制的变量是"标签质量"，所以模型之间的差异能干净地归因到监督信号上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["CaptionStew 400K 音频"] --> S1
     subgraph S1["统一标签系统 UTS（标签质量为唯一受控变量）"]

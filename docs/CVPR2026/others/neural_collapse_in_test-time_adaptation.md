@@ -46,7 +46,7 @@ tags:
 这篇论文先用神经坍缩理论解释"分布偏移下模型为什么会退化"，再据此设计 TTA 方法。整条逻辑围绕一个量展开——样本特征与分类器权重之间的对齐程度。先把 NC 理论从依赖整批标注的类级别下放到单样本级别（NC3+），得到一把能在无标签测试 batch 上直接测量的"对齐尺子"；用这把尺子量 OOD 数据，发现错分的本质是特征漂离了正确的分类器权重；最后让模型在测试时主动把特征拉回去。具体到一个测试 mini-batch：先算每个样本特征到所有分类器权重的 FCA 距离，再把这个几何距离与预测置信度融成一个混合目标，按它挑出最可能正确的 top-k 类当正样本、其余当负样本，用对齐损失拉近正样本、推远负样本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     B["NC3+：样本级对齐尺子<br/>FCA 距离 = 特征与分类器权重归一化距离"] --> C["诊断退化：OOD 下特征漂离正确权重<br/>FCA 距离增大、漂向错误权重 → 错分"]
     C --> D["测试 mini-batch<br/>无标签、在线更新"]

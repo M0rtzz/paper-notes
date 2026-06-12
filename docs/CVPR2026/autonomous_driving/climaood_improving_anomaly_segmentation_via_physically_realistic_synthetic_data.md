@@ -46,7 +46,7 @@ tags:
 ClimaOoD 要解决的是异常分割「没数据」的困境：真实世界里恶劣天气 × 罕见异常物体的组合几乎采集不到。ClimaDrive 的思路是把数据生成拆成两步走——先用 Multi-Scene Weather Generator 从一张干净语义图「刷」出 6 种天气下的驾驶场景，再用 AnomPlacer 在这些场景里物理合理地塞进异常物体并自动打标。两个模块串起来，最终产出覆盖 6 种天气 × 93 类异常的 ClimaOoD 数据集（训练集 + 人工筛选的测试集）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["语义图 S_sem<br/>(BDD100K 语义布局)"] --> B["Multi-Scene Weather Generator<br/>ControlNet+SD：语义骨架 + 天气/场景 prompt"]
     B -->|"6 种天气 × 6 类场景背景"| C

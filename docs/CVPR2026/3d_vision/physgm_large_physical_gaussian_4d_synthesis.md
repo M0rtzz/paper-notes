@@ -45,7 +45,7 @@ tags:
 PhysGM 要回答的是：能不能完全绕开逐场景优化，用一次前向传播就从单图直接吐出可仿真的物理 4D？输入 1–4 张 RGB 图加相机参数，先用 DINOv3 编码图像 patch、用 Plücker 射线编码每像素相机几何，拼接后再附 3 个可学习全局 token，一起送进 24 层 Transformer；输出分两路——DPT Head 回归 3DGS 参数 $\psi$，Physics Head 预测物理属性分布 $\theta$（材质类别 + 杨氏模量/泊松比）；最后把几何和物理参数交给 MPM 仿真器，滚出 4D 动态序列。单图推理时用 MVAdapter 先补出后/左/右辅助视图。整套流程由两阶段训练撑起：先用 PhysAssets 的 GT 物理参数做监督预训练，再冻结骨干、只对物理头跑 DPO 偏好微调。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DATA["PhysAssets 数据集<br/>资产聚合 → Qwen3VL 标物理参数 → Framepack 生成参考视频"]
     IN["输入 1–4 张 RGB + 相机参数<br/>单图时 MVAdapter 补辅助视图"]

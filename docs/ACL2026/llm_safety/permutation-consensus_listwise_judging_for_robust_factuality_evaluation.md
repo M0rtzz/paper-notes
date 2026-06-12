@@ -56,7 +56,7 @@ PCFJudge 的输入是一个用户问题 $x$ 和一组候选回答 $Y=\{y_1,\dots
 这个框架的关键不是让模型获得更多知识，而是让同一个 judge 在不同展示顺序下重复表态。只在某个位置上显得更好的答案会被平均掉，而跨顺序稳定更好的答案会被放大。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["问题 x + 候选集 Y"] --> B["事实性优先的 listwise prompt<br/>优先事实可靠性，警惕无依据细节"]
     B --> C["生成 K=7 个固定排列"]

@@ -44,7 +44,7 @@ tags:
 LAOF 沿用 LAPO 的潜动作自编码骨架——逆动力学模型（IDM）从相邻帧 $(s_t, s_{t+1})$ 推断潜动作 $z_t$，前向动力学模型（FDM）再用 $z_t$ 重建下一帧——但在这套纯重建框架上挂了一个额外的光流解码分支，逼着潜动作去解释帧间的真实运动而不只是外观变化。整体训练分三个阶段递进：先在无标签视频上联合训练 IDM、FDM 和光流解码器，让潜动作空间被光流约束塑形；再把 IDM 的知识蒸馏到一个只看当前帧的潜动作策略 $\pi$，使推理时不再需要未来帧；最后用极少量动作标签训练一个动作解码器，把潜动作翻译成机器人能执行的物理动作。三阶段中真正影响表示质量的是预训练阶段，后两阶段只是把潜动作落地为可执行策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["相邻帧 o_t, o_{t+1}"] --> ENC["DINOv2 视觉编码器<br/>得到状态特征 s_t, s_{t+1}"]
     subgraph PT["预训练阶段：光流约束塑形潜动作空间"]

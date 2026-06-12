@@ -46,7 +46,7 @@ tags:
 KEDAS 把"知识编辑"重新定义成"让 LM 学会使用编辑提示"的对齐问题，分离线、在线两个阶段。离线阶段用 LoRA 在知识编辑格式的数据上微调一次 LM，赋予它"看到编辑上下文就据此更新回答"的能力；在线阶段则只动外部记忆——新知识以多样化形式存入记忆，推理时智能检索器先判断查询是否命中某条编辑，再据此在"原始 LM"和"LoRA 对齐 LM"两条路径间自适应路由。这样编辑能力一次性注入、后续编辑零参数改动，局部性也由路由从根上保证。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["离线对齐阶段（一次性 LoRA 微调）"]
         direction TB

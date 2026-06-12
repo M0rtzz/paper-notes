@@ -38,7 +38,7 @@ PoseGen 通过 in-context LoRA 微调实现双重条件注入（token级外观 +
 PoseGen 想在不改动主干架构、不用海量私有数据的前提下，让一个预训练视频扩散模型（Wan2.1）既能锁住人物身份、又能精确跟随姿态，还能把片段拼成几分钟的长视频。它的做法是只训练两个角色不同的 LoRA：第一个 LoRA 负责把"外观条件"和"姿态条件"一起注进去、生成一个个独立的短片段；第二个 LoRA 专门做相邻片段之间的衔接。整条流程是「参考图 + 姿态序列 → 逐段生成短片 → 姿态感知插帧把相邻段缝合 → 长视频」，全程没有额外的姿态编码器或身份编码器，能力都压在 LoRA 微调和 in-context 拼接上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     REF["参考图像"]
     POSE["驱动姿态序列<br/>(骨架)"]

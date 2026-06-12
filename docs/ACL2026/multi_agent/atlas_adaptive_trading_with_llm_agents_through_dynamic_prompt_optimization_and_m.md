@@ -46,7 +46,7 @@ tags:
 ATLAS 包含三个核心组件：(1) 市场智能管线（Market Intelligence Pipeline）——三个专业分析师智能体分别处理技术、新闻和基本面信息；(2) 决策与执行层——中央交易智能体（CTA）生成订单并在 StockSim 模拟器中执行；(3) 反馈机制——Adaptive-OPRO 基于执行反馈动态优化 CTA 的指令提示。三者构成一个闭环：三专家整理输入 → CTA 决策执行 → 每 5 个交易日评估收益 → 优化器据此改写指令提示，再回灌给 CTA。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PIPE["市场智能管线（三专家 agent）"]
         direction TB

@@ -64,7 +64,7 @@ tags:
 RetimeGS 要解决的是 4DGS 在离散帧之间插值时的鬼影/时间别名问题，让任意时间戳都能无鬼影地渲染。它的输入是多视角视频和对应的双向光流（由 WAFT 预计算），输出是一套可在任意时间 $t$ 渲染的 4D 场景表示。整套方法围绕一个重新设计的 4D primitive 表示展开，再用四项训练策略把"时间支撑不塌缩"和"轨迹平滑一致"两件事钉住。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：多视角视频<br/>+ 双向光流（WAFT 预计算）"] --> B["光流感知初始化<br/>VGGT 粗点云 + 光流反投影<br/>→ 初始速度 / 伪均值"]
     B --> C

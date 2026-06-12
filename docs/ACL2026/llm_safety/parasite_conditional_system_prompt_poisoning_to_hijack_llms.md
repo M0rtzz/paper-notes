@@ -50,7 +50,7 @@ PARASITE 的全称是 System Prompt AdveRsarial Attack for Selective Inference-T
 整个流程分成两步。第一步是全局语义搜索，使用 LLM 重写器生成一个可读的、语义上已经偏向攻击目标的提示骨架。第二步是局部贪心细化，对骨架中的重要词做轻微扰动或同义替换，让提示词跨过模型的局部决策边界，同时继续保持人类可读性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：目标查询集 Q_t（敏感问题 → 指定错误答案）<br/>+ 普通查询集 Q_b（日常问题 → 真实答案）"]
     A --> OBJ["威胁建模 · 双目标联合损失<br/>L = L_adv + L_benign，劫持 Q_t 又保住 Q_b<br/>用性能差距 ΔF1 度量隐蔽性"]

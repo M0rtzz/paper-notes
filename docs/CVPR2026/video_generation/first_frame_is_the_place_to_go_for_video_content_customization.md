@@ -41,7 +41,7 @@ tags:
 FFGo 要解决的问题是：把多张参考图里的物体和场景组合进一段视频，但不改预训练 I2V 模型的架构、也不依赖百万级定制数据。它的做法是把所有参考拼成一张「混合第一帧」喂给模型，让模型在后续帧里自己把这些元素融合成连贯场景。整条流水线分三步走：先用 VLM 从已有视频里自动抠出元素和背景、拼成混合图像，配上文本，凑出几十个训练三元组；再在 Wan2.2-I2V-A14B 上训一个轻量 LoRA，教模型从混合第一帧可靠地完成「场景切换 + 主体融合」；推理时输入混合图像加上一句转换触发短语，生成视频后丢掉开头几帧压缩帧，剩下的就是干净的定制视频。整个方法的支点是一个观察——第一帧不只是时空起点，而是一块可以塞进多个视觉概念的「记忆缓冲区」。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["第一帧作为概念缓冲区<br/>存储并融合多个视觉概念"]
     subgraph DATA["VLM 辅助的数据策划"]

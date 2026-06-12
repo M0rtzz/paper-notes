@@ -47,7 +47,7 @@ ParisKV 是一个算法–系统协同设计，要解决的是"长解码下 Top-
 GPU 上的 KV 缓存被组织成四段连续区域：Sink（少量早期高 attention token）、Retrieval（卸载并被索引的历史 token）、Local（最近 local_size 个保留在 GPU 上的 token）、Update Buffer（临时缓存新生成 token）。dense attention 只跑在 Sink+Local 上，retrieval 区只跑稀疏 Top-$k$；每当 update buffer 攒满 $m$ 个 token 就滑窗一次，把旧的 local token 异步 evict 到 retrieval 区（GPU→CPU 拷贝）并在 GPU 上 encode 出新 metadata。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PRE["Prefill：一次性摘要历史 key"]
         direction TB

@@ -41,7 +41,7 @@ tags:
 GeoFusion-CAD 将 CAD 程序表示为层次化树，根节点对应整体实体模型，子节点代表草图和挤出操作，从上到下经过三层——操作/面、边/挤出深度、顶点。输入 CAD 序列经过几何嵌入后，由 G-Mamba 扩散编码器进行层次化特征去噪，最后通过 CAD 解码器（命令层 + 参数层）重建参数化实体。整个流程端到端训练，无需分阶段优化。（第 3 个关键设计 DeepCAD-240 是配套的长序列评测基准，不在下面的数据流图里。）
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入 CAD 程序<br/>（草图-挤出命令序列）"] --> TREE
     subgraph TREE["层次化树表示"]

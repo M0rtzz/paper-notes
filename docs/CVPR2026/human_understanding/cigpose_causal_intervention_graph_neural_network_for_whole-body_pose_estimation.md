@@ -47,7 +47,7 @@ tags:
 CIGPose 走 top-down 路线，用 RTMPose 当关键点编码器提取初始嵌入 $F$，先经因果干预模块（CIM）把受视觉上下文污染的部分"洗掉"得到 $F'$，再用层次图神经网络注入骨骼解剖约束得到 $F''$，最后由预测头回归坐标。训练时同时跑观测路径和反事实路径以保证干预只动该动的地方，推理时只保留反事实路径。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像（top-down 裁剪）"] --> B["RTMPose 关键点编码器<br/>初始嵌入 F"]
     B --> CIM

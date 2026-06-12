@@ -44,7 +44,7 @@ tags:
 MM-StanceDet 对每条输入 $x = (I, T, K)$（image / text / target）按 4 个阶段串行：(1) **Retrieval Augmentation** 从向量库 $\mathcal{D}$ 检索 top-$k$ 相似样本及其预生成的 CoT；(2) **Multimodal Analysis** 由 Text-Agent / Image-Agent / Modality-Conflict-Agent 三个专家分别输出 $A_\text{text}$、$A_\text{image}$、$A_\text{conflict}$；(3) **Reasoning-Enhanced Debate** 三个 debater agent（支持/反对/中立）各拿到所有分析，分别构造支持本立场的 argument；(4) **Self-Reflection and Adjudication** 一个 judge agent 综合三方 argument + 原始分析 + critical reflection 给出最终 $\hat{y} \in \{-1, 0, 1\}$ 和 justification $J_\text{final}$。所有 agent 默认用 GPT-4o-mini，检索用 CLIP encoder + ANN，默认 $k=3$、debate 3 轮。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入 x = (图像 I, 文本 T, 目标 K)"] --> RA
     subgraph RA["带预生成 CoT 的检索增强"]

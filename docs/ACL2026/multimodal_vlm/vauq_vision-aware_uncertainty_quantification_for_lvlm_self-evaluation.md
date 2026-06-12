@@ -50,7 +50,7 @@ VAUQ 因此不只问“模型对回答是否自信”，而是问“模型的自
 原始 Image-Information Score 可写为 $IS_{blank}=H(y|empty,t)-H(y|v,t)$，其中 $empty$ 表示移除视觉输入。核心区域版本则使用 $IS_{core}=H(y|v_{masked},t)-H(y|v,t)$。最终分数为 $s_{VAUQ}=H(y|v,t)-\alpha\cdot IS_{core}$，也可理解为 $(1+\alpha)H(y|v,t)-\alpha H(y|v_{masked},t)$。分数越高，表示回答越可能不可靠；如果遮掉核心视觉证据后熵显著上升，$IS_{core}$ 较大，分数会被拉低，说明回答更可信。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 v + 文本 t"] --> B["LVLM 生成回答 y<br/>算原始预测熵 H(y|v,t)"]
     B --> C

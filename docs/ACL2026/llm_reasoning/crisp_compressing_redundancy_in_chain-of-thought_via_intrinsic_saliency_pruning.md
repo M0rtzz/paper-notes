@@ -46,7 +46,7 @@ tags:
 CRISP 包含三个阶段：（1）原始 CoT 生成——从源模型获取完整推理轨迹；（2）关键推理路径搜索——利用 `</think>` 注意力评估步骤显著性，通过动态操作符压缩推理链；（3）精炼与微调——用 LLM 恢复压缩路径的语义连贯性，然后用多任务目标微调目标模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源模型生成原始 CoT<br/>完整推理轨迹"] --> B["&lt;/think&gt; 信息锚点<br/>注意力聚合得步骤显著性 Sᵢ"]
     B --> OPS

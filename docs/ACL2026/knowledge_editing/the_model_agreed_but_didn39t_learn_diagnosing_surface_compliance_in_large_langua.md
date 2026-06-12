@@ -45,7 +45,7 @@ tags:
 SA-MCQ 是一个纯诊断框架，目标是把"编辑器在标准基准上的高分"和"模型内部信念是否真被覆写"区分开。它的输入是一条已经被编辑器（AlphaEdit、RLEdit、UltraEdit 三种主流范式）改写过的知识三元组，中间把这条三元组重写成一道自评多选题（SA-MCQ），逼模型在编辑目标答案、原始参数答案和"不确定"之间主动裁决；接着把同一道题放进多种上下文条件下反复探测稳定性；最后再做多轮递归编辑、逐轮复测可逆性，输出则是一组揭示"表面合规"程度的判别式指标。整个流程在 CounterFact 和 zsRE 上运行，不涉及任何训练或参数更新。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["已编辑知识三元组<br/>AlphaEdit / RLEdit / UltraEdit 改写后"] --> B
     subgraph B["自评多选题（SA-MCQ）"]

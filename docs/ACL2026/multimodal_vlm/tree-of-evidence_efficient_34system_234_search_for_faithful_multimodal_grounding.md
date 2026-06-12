@@ -46,7 +46,7 @@ tags:
 ToE 框架分三个阶段：Phase I 独立训练模态特定分类器（时间序列用 BiGRU，文本用冻结 BioClinicalBERT）；Phase II 冻结编码器后训练轻量级 MLP 选择器，通过 STE top-k 掩码学习证据评分；Phase III 在推理时执行束搜索，通过组合决策一致性、概率稳定性和稀疏性三个目标来构建紧凑证据集。输入为 24 小时 ICU 时间序列窗口和放射报告文本片段，输出为二分类预测及其对应的证据追踪。在进入这条管线之前，输入先按「角色」分成两类：CXR/ECG 等基线作为固定上下文始终保留，生命体征窗口和笔记片段才是束搜索真正去挑选的可搜索证据。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：24h ICU 时间序列 + 放射报告文本片段"] --> B["按角色拆分输入"]
     subgraph SEP["多模态角色分离（Context vs. Evidence）"]

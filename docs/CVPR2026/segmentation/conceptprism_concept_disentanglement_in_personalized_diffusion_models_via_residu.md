@@ -46,7 +46,7 @@ tags:
 ConceptPrism 想解决个性化 T2I 里"概念和图像特有信息缠在一起"的问题。它给每个被学习的概念配两类可学习 token：一个所有参考图像共享的目标 token（target token）$t_{target}$，负责承接跨图像反复出现的目标概念；以及每张图像各自一个的残余 token（residual token）$t_{residual}^{(i)}$，负责吸走这张图独有的背景、姿态、光照。整个流程分两个阶段：先冻结 U-Net 只优化这两类 token（用重建损失保证"目标+残余"合起来能还原原图，再用一个跨图像的排斥损失把共享信息从残余 token 里挤出去），再给 attention 层插 LoRA 联合微调补上模型级保真度；推理时只留纯净的目标 token、丢掉全部残余 token，于是生成结果只带目标概念、不再泄漏训练图的杂质。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["N 张参考图像<br/>共享同一目标概念"]
     subgraph INIT["不对称初始化"]

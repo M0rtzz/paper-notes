@@ -43,7 +43,7 @@ tags:
 这篇论文要做两件事：先用一个新基准把「MLLM 在细粒度负查询下到底有多容易幻觉」量化出来，再给出一套训练方法把这个弱点补上。基准这一侧从每张图像的场景图（对象、属性、关系三类元素）出发，挑出其中一个元素换成图中不存在的负版本、并用判别器验证这个负元素确实不在图里，组成一对正/负多选题，并按涉及元素的多少把查询分成不同粒度。训练这一侧则换一批数据（Pixmo 长描述）按同样的方式造出大量「正确答案 vs 含细微错误的答案」偏好对，用 DPO 让模型学会盯住查询里的那个错误元素。两侧最终都汇到「评测 MLLM 的细粒度幻觉」这一落点。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["基准构建侧"]
         direction TB

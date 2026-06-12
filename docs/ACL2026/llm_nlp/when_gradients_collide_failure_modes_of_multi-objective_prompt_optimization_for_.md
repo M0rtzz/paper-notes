@@ -46,7 +46,7 @@ tags:
 本文要回答的问题是：为什么文本梯度方法在「一个提示同时优化多个评估准则」时几乎改不动初始提示？为此作者在 TextGrad 框架上、用 SummEval 数据集（流畅性、相关性、连贯性、一致性四个维度）搭了一条可控的诊断流水线。一次优化迭代里，任务模型（Qwen3-8B）先用当前提示预测各维度评分；损失 LLM（Qwen3-235B）把预测和真实标注对比，生成自然语言批评；梯度 LLM（同 235B）再把每条样本的损失聚合成结构化的"指令该怎么改"建议；优化器 LLM（同 235B）据此改写各任务的指令文本。整个过程只更新 4 个任务的指令，提示骨架（角色、输出格式、少样例）始终冻结。真正的设计巧思不在这条标准管道，而在于如何把"多目标到底卡在哪"测出来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["SummEval 四维度<br/>初始通用提示"] --> B["任务模型 Qwen3-8B<br/>预测各维度评分"]
     subgraph DECOMP["分解模式参数化：S/C 谱系（SSS→SSC→SCC→CCC）"]

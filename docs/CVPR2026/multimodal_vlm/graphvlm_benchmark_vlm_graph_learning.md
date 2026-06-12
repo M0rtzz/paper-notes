@@ -44,7 +44,7 @@ tags:
 同一个多模态图（节点带图像+文本属性）分别走三条范式：VLM-as-Encoder 把 VLM 当特征提取器、出来的特征喂下游 GNN；VLM-as-Aligner 把 VLM 当模态桥梁、把图像注入现有 GraphLLM；VLM-as-Predictor 直接 LoRA 微调 VLM、把结构信号也一并注入。三条线最终都汇到同一套评测（6个数据集的节点分类，4个Amazon电商+1个Reddit+1个CDs），从而公平对比三种角色孰优孰劣。每条范式内部又有多档变体（不同编码器、不同对齐层、不同融合策略），用来拆解「哪种用法、注在哪一层最有效」。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["多模态图<br/>节点含图像+文本属性"] --> E
     IN --> A

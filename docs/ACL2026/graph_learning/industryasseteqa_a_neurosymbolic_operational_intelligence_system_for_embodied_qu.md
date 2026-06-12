@@ -45,7 +45,7 @@ tags:
 系统接收操作员在 CMMS 前端输入的自然语言查询，把工业维护问答当成"感知遥测→诊断→规划干预→执行"的具身决策环路来跑，全程让 LLM 的自由文本被符号知识和 episode 事实双重锚定。查询先被分到 5 类 QA 任务（描述 / 时序 / 诊断 / 反事实 / 动作建议），随后流经一条 6 模块流水线：Fact Extractor 把遥测时序切成以失败时刻 $t_f$ 为锚的固定窗口 $[t_f-\Delta, t_f]$、对每个传感器 $s$ 抽出摘要描述符 $\mathcal{F}_s = \{\mu_s, \sigma_s, \min_s, \max_s, \text{trend}_s\}$ 并拼上错误计数、距上次维护小时数等上下文，输出带全 provenance 的 episode JSONL；这些 episode 进 Episodic Store（SQLite facts+features 双表，按 `fact_id` 索引）供阈值检索 $\{f_i \mid x_{i,j} \bowtie \tau\}$；FMEA-KG（63 种故障模式 × 9 类资产，边为 `affects / component_of / indicated_by / mitigated_by`）注入符号约束；Causal Simulator 用多项式 logistic 估 $P(y\mid\bm{x})$ 并把干预建成 do-替换算出干预前后风险 $r_{\text{before}} = 1 - P(y=\text{healthy}\mid\bm{x})$、$r_{\text{after}} = 1 - P(y=\text{healthy}\mid\bm{x}^{\text{do}})$ 与方向 $\Delta r$；EQA/Prompt Builder 把证据块渲染成严格 JSON 契约喂给 LLM；最后 Verifier + Safety Gate 把输出对回 Episodic Store 做结构、provenance、反事实方向一致性校验，未通过则路由人审。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["操作员查询（CMMS 前端）<br/>分到 5 类 QA：描述/时序/诊断/反事实/动作建议"] --> B
     subgraph EP["Episode 化 + Provenance 强制"]

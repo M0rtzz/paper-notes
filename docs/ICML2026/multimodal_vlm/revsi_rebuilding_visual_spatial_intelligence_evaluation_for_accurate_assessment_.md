@@ -44,7 +44,7 @@ tags:
 ReVSI 流水线分三阶段：(1) 用自研 3D web 标注界面，在 ScanNetv2/ScanNet++/ARKitScenes/3RScan/MultiScan 上从原 VSI-Bench 的 288 场景 65 类扩到 381 场景 504 类（开放词表），重画 5365 个 3D 框；(2) 对 6 类任务（object counting / object size / absolute distance / room size / relative distance / relative direction，删除 Object Appearance Order 因更偏时间推理）按更严的模板规则重新生成 QA，每条人工 verify；(3) 同一段视频在 16/32/64/all-frame 四个采样预算下分别构造 GT，并额外生成"删除所有含查询对象帧"的 dummy 视频做 visibility-guided 控制实验。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始视频 + VSI-Bench 原标注<br/>(ScanNet/ARKitScenes 等 5 个 3D 数据集)"] --> B
     B["视频对齐的开放词表 3D 重标注<br/>过滤错标·收紧 3D 框·补回可见物体·人工画房间 polygon<br/>288→381 场景, 65→504 类, 3185→5365 物体"] --> C

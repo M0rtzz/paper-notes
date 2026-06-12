@@ -44,7 +44,7 @@ tags:
 ExCyTIn-Bench 把"网络威胁调查"做成一个可交互、可判分的闭环，由数据、出题、环境三层拼起来。数据层从微软用于安全演示的虚构 Azure 租户 "Alpine Ski House" 采集 57 张 Sentinel 日志表（EmailEvents、SecurityAlert、SecurityIncident 等），里面注入了 8 条独立的多阶段攻击链（Manatee Tempest 勒索、BEC 账号接管、SAP 财务篡改等），每条都有真实历史攻击的剧本依据，alert 数从 7 到 7739 不等、时间跨度 2 小时到 5 天。出题层在每条攻击链上用 alert-entity 二部图自动生成 7542 道题（589 道作测试集）。环境层把全部日志灌进一个只读 MySQL Docker，Agent 拿到一道带 seed alert 和起始实体上下文的安全问题后，以 ReAct 循环反复"提交 SQL 查询 → 读表格反馈 → 推理"，直到给出 final answer 字符串，再用 ground-truth 实体匹配、按是否摸到解路径上的中间节点算 partial reward。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Azure 租户日志<br/>57 张 Sentinel 表 + 8 条真实多阶段攻击链"] --> B
     subgraph QG["二部图建图与多跳问题模板"]

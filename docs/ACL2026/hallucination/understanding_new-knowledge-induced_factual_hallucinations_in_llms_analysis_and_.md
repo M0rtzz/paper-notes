@@ -46,7 +46,7 @@ tags:
 本文围绕一个受控合成数据集 Biography-Reasoning 展开：为一批虚构人物各配四种属性、四类 QA 和十二种推理任务，并通过 continue pre-training 把一部分知识变成模型"已知"、其余保持"未知"，从而在 SFT 时精确调配已知/未知知识的类型与比例。分析沿三个层次推进——先用细粒度指标刻画幻觉的表现与跨任务传播，再深入注意力层揭示其根因，最后据此提出轻量的 KnownPatch 缓解手段。一条核心线索贯穿始终：学习新知识会削弱模型对问题中关键实体的注意力，而恢复这一注意力即可缓解幻觉。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["受控合成数据集 Biography-Reasoning"]
         direction TB

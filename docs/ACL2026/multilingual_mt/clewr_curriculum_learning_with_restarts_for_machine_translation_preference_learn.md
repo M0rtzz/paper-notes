@@ -46,7 +46,7 @@ tags:
 CLewR 分为两个阶段：(1) 排序阶段——根据选中翻译与拒绝翻译之间的相似度差异对所有训练三元组排序；(2) 训练阶段——在每个 epoch 中按固定的易到难顺序遍历所有数据，不进行随机打乱。排序在训练开始前一次性完成，训练过程中每个 epoch 重复相同的排序。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["偏好三元组 (x, y_w, y_l)"] --> S
     subgraph S["难度评分（二选一）"]

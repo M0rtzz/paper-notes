@@ -43,7 +43,7 @@ tags:
 ConSUM 不重新训练摘要模型，而是在解码之后做候选选择。输入是一篇源文档 $s$ 和一个现成的摘要生成模型，输出是被判定为最可靠的那条摘要。系统先从模型采样出两组文本——候选集合 $\mathcal{Y}$ 提供可被选中的多样输出，伪参考集合 $\mathcal{R}$ 用作近似 gold reference 的内部参照；再为每个候选 $y_i$ 算两个分数：一是候选对源文档的事实一致性（consistency，用 FENICE/FIZZ 等 reference-free factuality metric），二是候选对伪参考集合的平均效用（consensus，用 MENLI 做 MBR utility）。最后两个分数各自做 z-score 标准化后加权融合 $S_{fin}=wZ(S_{sen})+(1-w)Z(S_{sis})$，选出 $\arg\max_y S_{fin}$，从而把“看起来流畅但偏离事实”的候选过滤掉。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     S["源文档 s + 现成摘要生成模型"]
     subgraph SEP["候选集合与伪参考集合分离"]

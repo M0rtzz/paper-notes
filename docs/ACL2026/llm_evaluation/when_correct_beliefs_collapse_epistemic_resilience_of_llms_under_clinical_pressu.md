@@ -46,7 +46,7 @@ tags:
 本文围绕"高医学知识为何守不住正确诊断"这一问题，搭起一套从评估到防御的闭环。评估侧的 Med-Stress 采用"锚点-攻击"协议：先在 Turn 0 从 MedQA、MMLU-Clinical 等基准里筛出模型本就答对（$\hat{y}_0 = y^*$）的案例以排除知识缺陷，再在 Turns 1–3 逐层升级施加四种临床压力，只要模型中途改掉正确诊断就记一次信念崩溃。防御侧则给出两条互补路径——推理时的 RBED 用系统提示重塑模型身份，训练时的 R-FT 用蒸馏数据把抗压推理写进参数，从两个层面拦截这一失败模式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["医学基准<br/>MedQA / MMLU-Clinical"] --> B
     subgraph MS["Med-Stress 多轮对抗框架"]

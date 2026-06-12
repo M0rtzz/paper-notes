@@ -46,7 +46,7 @@ tags:
 这篇工作的核心不是一个网络，而是一套"把真实物体的反射拆干净"的物理测量管线。它要解决的问题是：逆渲染模型一直拿合成数据训练，但合成 BRDF 拍不出真实物体里的多次散射、次表面传输这些效应，模型一到真实照片就失灵。作者的思路是用偏振光学在物理层面把漫反射和镜面反射分开，从而给每个真实物体打上可信的材质标签。整条管线分三步走：先用偏振 Light Stage 把一个物体在 346 个光照方向、8 个视角下各拍一对偏振图，再从这些偏振序列反解出漫反射反照率、镜面反照率和法线，最后用得到的数据集去微调逆渲染/前向渲染模型并验证它能否泛化到真实场景。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["218 个真实物体"] --> B["偏振 Light Stage 捕获系统<br/>346 光源 OLAT × 8 相机<br/>交叉偏振 I⊥ / 平行偏振 I∥"]
     B -->|"Malus 定律物理分离"| C["漫反射 I_d = 2I⊥<br/>镜面 I_s = 2I∥ − 2I⊥"]

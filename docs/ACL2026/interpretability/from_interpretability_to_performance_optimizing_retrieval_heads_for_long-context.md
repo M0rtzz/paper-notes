@@ -45,7 +45,7 @@ RetMask 把"机制可解释性 (mechanistic interpretability)"找到的 retrieva
 RetMask 的核心是把"机制诊断"无缝接成"训练信号"：先在 NIAH 任务上定位出负责长上下文拷贝的 retrieval head，把它们在前向时屏蔽掉得到一个功能阉割版（ablated）模型 $\pi_{\theta'}$；然后对任意 instruction-tuning 数据的每条指令 $x$，让原模型 $\pi_\theta$ 和阉割模型 $\pi_{\theta'}$ 各采样一条回复，前者天然更强、当 chosen $y_w$，后者天然劣化、当 rejected $y_l$；最后用这些自动合成的偏好对跑标准 DPO，把"使用 retrieval head 的行为"提升为模型偏好。整条 pipeline 不需要 LLM judge、不需要人工标注、也不需要原始数据集的 ground-truth response。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DET["NIAH 定位 retrieval head<br/>RetrievalScore ≥ τ → 集合 H_ret"]
     X["短指令 x<br/>(LMSYS，平均 63 token)"]

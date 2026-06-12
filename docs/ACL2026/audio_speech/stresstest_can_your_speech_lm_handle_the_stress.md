@@ -46,7 +46,7 @@ tags:
 本文同时回答"怎么测"和"怎么修"两个问题。测的一侧是 StressTest 基准：由专业演员录制句子，每句至少配两种重音模式及对应含义，再从 Expresso 数据集后标注出补充集 StressPresso，专门考察模型能否从重音读出说话者意图。修的一侧是 Stress-17k 训练管线：输入只是一批可因重音改变含义的句子，经"LLM 生成重音文本 → TTS 合成重音语音 → WhiStress 自动验证筛选 → 定义四种训练任务"流水线，最终对 Qwen2Audio 做分阶段微调，得到能真正理解重音的 StresSLM。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["双任务基准（StressTest / StressPresso）"]
         direction TB

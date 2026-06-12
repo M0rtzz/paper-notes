@@ -55,7 +55,7 @@ $$\mathbf{M}_i^w = \mathbf{R}(\mathbf{q}_i^c) \cdot \mathbf{M}_i^c + s \cdot \ma
 其中 $\mathbf{R}(\mathbf{q}_i^c)$ 是四元数 $\mathbf{q}_i^c \in \mathbb{R}^4$ 对应的旋转矩阵，$s$ 是度量尺度因子。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["流式单目 RGB 视频<br/>逐帧 I_i 输入"]
     subgraph CAM["相机坐标在线 HMR 分支"]

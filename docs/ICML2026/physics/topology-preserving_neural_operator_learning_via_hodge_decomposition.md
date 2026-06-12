@@ -48,7 +48,7 @@ $\boldsymbol{\omega}_k^{(\ell+1)}=\mathcal{G}_{\mathrm{base}}^{(\ell)}(\boldsymb
 输入是单纯复形 $K$ 上的离散 $k$-form（节点上的 0-form、边上的 1-form、面上的 2-form）；离线阶段先做一次 $\mathbf{L}_k \mathbf{\Psi}_k = \mathbf{\Psi}_k \mathbf{\Lambda}_k$ 稀疏特征分解，截断成 $m_k$ 个最低频特征向量构成谱基 $\mathbf{\Phi}_k$；在线阶段把场分别投影到 Base 空间（谱系数）和经过 lift 算子 $\iota$ 投影到辅助欧式网格做 FFT；输出经过反投影与正交补约束后相加。关键点是 Base 直接相加、而 Fiber 与交换子修正都先被 $(\mathbf{I}-\Pi_{\mathrm{base}})$ 约束到 Base 的正交补，保证两支落在互补子空间互不干扰。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     OFF["离线一次性：Hodge Laplacian Lk 稀疏特征分解<br/>截断 mk 个最低频模 → 谱基 Φk"]
     IN["输入：单纯复形 K 上的离散 k-form ω⁽ˡ⁾"]

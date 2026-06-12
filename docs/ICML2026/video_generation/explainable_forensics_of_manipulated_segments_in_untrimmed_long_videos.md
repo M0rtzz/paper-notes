@@ -44,7 +44,7 @@ tags:
 MSLoc 要在一段几十秒、真假混杂的长视频里把 AI 生成的片段精确定位出来并给出可解释的判断依据。它走经典的"粗到精"两阶段，但每一步都是围绕"边界"重新设计的。第一阶段 MSLoc-PG 用滑窗（2 秒窗口、采 8 帧）高效扫一遍长视频，把检测重新表述成四分类、快速圈出可疑区域；第二阶段 MSLoc-PR 接过这些粗提议，按"边界区域密采、事件区域稀采"的自适应策略，先经 DAM（边界）和 EAM（事件）压缩特征，再交给 MLLM 做精细定位与解释。关键在于：四分类让模型学会盯住真伪交界、自适应采样把算力压在信息密度最高的过渡区、异常感知损失再把 MLLM 的解释绑到真实伪迹上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["长视频输入<br/>真假稀疏混杂"]
     subgraph PG["MSLoc-PG：边界感知四分类（粗提议）"]

@@ -44,7 +44,7 @@ tags:
 分两部分：（1）数据标注：多模型多提示标注方案 → 投票+质量评分 → 高级重标注 → 人工标注 → 得到 DDEP 数据集；（2）模型：Rel-DDEP 框架 → 特征提取（Baichuan/CLIP/Wav2vec）→ 不确定性估计（映射到高斯分布）→ 可靠性加权融合 → 联合预测欺骗/情感/人格。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["多模型多提示标注方案（设计1）"]
         direction TB

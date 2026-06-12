@@ -44,7 +44,7 @@ tags:
 CSLM由三个组件组成：(1) CosyVoice语音分词器（4096词汇表，25Hz）将语音转为离散token；(2) 语音-文本联合LLM（合并语音和文本词汇表）；(3) 语音解码器（流匹配模型+HiFi-GAN声码器）。这套架构是底座，真正的贡献落在两阶段训练上：持续预训练阶段用「跨模态+跨语言对齐策略」把语音和文本、中文和英文同时对齐；监督微调阶段用「语音-文本交织链式模态生成」细化对齐、压低延迟；整套对齐配方还天然带来「语言扩展性」——接入新语言只需补两样数据。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     LLM0["文本指令 LLM<br/>合并 CosyVoice 语音词表(4096 词, 25Hz)"]
     subgraph CPT["跨模态 + 跨语言对齐策略（持续预训练）"]

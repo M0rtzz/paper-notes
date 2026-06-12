@@ -46,7 +46,7 @@ tags:
 E-GRM 包含两个核心模块：(1) 基于模型内部不确定性的动态 CoT 触发机制；(2) 基于混合损失的判别式评分模块。训练分两阶段：先 SFT 让模型学会短推理/长推理两种模式，再通过扩展的 GRPO 进行偏好优化。推理时先快速判断是否需要 CoT，需要时再生成多条推理路径并用评分器选最优。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入提示 x"] --> B["动态 CoT 触发<br/>M 次并行解码，算答案一致性"]
     B -->|"一致性 ≥ τ（约 58% 样本）"| C["直接输出共识答案<br/>跳过 CoT"]

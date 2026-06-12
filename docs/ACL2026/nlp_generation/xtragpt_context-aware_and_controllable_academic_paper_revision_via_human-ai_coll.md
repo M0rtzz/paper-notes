@@ -46,7 +46,7 @@ tags:
 XtraGPT 想解决的是通用 LLM 改论文只会"表面润色"——能把句子改顺，却碰不到动机不清、贡献模糊这类核心论证问题，而且每次提示都被当成孤立交互，没有全文上下文。它的后训练框架把"改一段论文"建模为标准引导的条件生成：给定全文 $T$、目标段落 $p$、用户指令 $q$，输出修改后段落 $\hat{p} = \text{Model}_\theta(p, q, T)$。三个组件分别管"改的方向"（20 条写作标准把模糊意图对齐到具体策略）、"改的依据"（全文 $T$ 作为显式输入）、"怎么学会"（在 ReviseQA 上做可控后训练 CPT，最大化 $\log P_\theta(\hat{p}\mid q,T,p)$）。推理时走人机协作（HAC）协议：用户选段落、发指令，模型给修改，用户审核后整合，创意控制权始终在人手里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     STD["标准引导的意图对齐<br/>20 条写作标准 C（覆盖 6 部分）"]
     CTX["上下文感知建模<br/>全文 T（≤16K tokens）作显式输入"]

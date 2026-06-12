@@ -42,7 +42,7 @@ tags:
 SADG 要解决的是同一个模型在重建、去噪、配准三个点云任务上跨域泛化的问题，而它的关键判断是：这三个任务都依赖点云的结构层级（全局拓扑加局部几何连续性），所以只要把无序的点云 token 排成一条「结构一致」的序列，就能用线性复杂度的 Mamba 同时服务多任务。整条流程分训练、测试两段。训练时，先把多源域点云切成局部 patch token，用两种内在几何谱把它们序列化成有序序列——CDS 负责全局拓扑、GCS 负责局部曲率；序列化后的 token 进入分层域感知建模（HDM），先在域内做结构聚合，再做域间关系融合。测试时，谱图对齐（SGA）在谱域把目标域特征往源域原型上拉，整个过程冻结参数、不更新任何权重，就完成结构保持的特征迁移。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多源域点云<br/>（重建 / 去噪 / 配准）"] --> B["切分局部 patch token"]
     subgraph SAS["结构感知序列化 SAS"]

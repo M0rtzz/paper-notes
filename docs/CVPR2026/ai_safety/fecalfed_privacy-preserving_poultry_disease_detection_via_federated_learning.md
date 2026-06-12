@@ -45,7 +45,7 @@ tags:
 FecalFed 由两大模块组成：（1）数据清洗流水线——聚合多源公开数据 → 双哈希感知去重 → 标准化预处理 → 发布清洁基准集 poultry-fecal-fl；（2）跨农场联邦学习框架——基于 Flower (flwr) 框架编排，10 个模拟农场在非 IID 条件下各自本地训练，中心服务器进行自适应聚合。原始粪便图像始终留在农场本地，仅分类头权重在网络中传输。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CLEAN["双算法感知哈希去重"]
         direction TB

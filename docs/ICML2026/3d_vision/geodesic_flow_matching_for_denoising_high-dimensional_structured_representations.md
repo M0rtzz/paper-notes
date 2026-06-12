@@ -48,7 +48,7 @@ GFM 要解决的事，是给被污染的 SSP 向量做 cleanup，但它换了个
 更下游，这个 cleanup 被当成**在线 stabilizer** 插在脉冲路径积分器 (path integrator, PI) 和 VSA 地图之间：每隔一段时间把漂移的 PI 状态拉回流形，再去做 landmark binding，从而把 SLAM 闭环稳住。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["污染 SSP 向量 φ̃<br/>cross-talk / 相位漂移 / 脉冲噪声"] --> B
     subgraph GEO["测地线插值 + 切空间速度回归（训练）"]

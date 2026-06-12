@@ -45,7 +45,7 @@ SPROUT 是首个完全训练无关、零标注的病理核分割框架——用 
 SPROUT 要解决的是「零标注、零训练地分割一张病理切片里成千上万个细胞核」。它的核心思路是：既然在病理图上找不到稳定的外部 reference，就让每张切片自己当自己的 reference。整条管线分三段——先用 H&E 染色的物理先验在图上自构高置信前景/背景区域、从中提取原型（**染色先验自参考**）；再用渐进式部分最优传输把原型语义稳定地传播到全图特征上、顺手过滤掉模糊特征（**POT-Scan**）；最后把对齐结果翻译成 SAM 的正/负点提示，跑一遍 SAM 并用 containment-aware NMS 收尾（**激活提示 + containment-aware NMS**）。具体串起来就是：分块编码（DINOv2 或 H-optimus-1）拼回全图特征 → 颜色去卷积（OD 空间 + Otsu）取高置信前景/背景 mask → K-means 聚出原型 $\mathcal{P}_{fg}, \mathcal{P}_{bg}$ → POT-Scan 软对齐 → 激活 + watershed 取点 → SAM 推理 → NMS。全程不更新任何参数、不需要任何标注。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["H&E 病理切片"] --> ENC["编码器 fθ（DINOv2 / H-optimus-1）<br/>分块编码 → 拼回全图特征 F"]
     subgraph D1["1. 染色先验自参考"]

@@ -41,7 +41,7 @@ CRFT 要解决的是一个很拧巴的问题：两张图来自不同传感器（
 具体地，一对输入图像 $(I^A, I^B)$ 先过一个共享权重的 ResNet 编码器，抽出 1/2、1/4、1/8 三个尺度的特征。先在最粗的 1/8 尺度上用 self-attention 和 cross-attention 建立全局对应，得到一个稳但糙的初始流场；再把流场带到 1/2、1/4 两个高分辨率尺度，用窗口注意力补上局部细节。最后是整篇的核心——一个跑 $N$ 轮的迭代精化回路：每轮都把当前流场作用到特征上、显式补偿仿射/尺度变形、算出特征差异，再把差异反转成可靠度去引导注意力、用可靠区域的对应传播修正不可靠区域，逐步把流场收敛到亚像素精度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像对 I^A / I^B"] --> B["共享 ResNet 编码器<br/>抽 1/2·1/4·1/8 三尺度特征（模态无关）"]
     B --> C["粗阶段全局流估计<br/>1/8 尺度 SA+CA → 全局相关 → 初始流 Tc"]

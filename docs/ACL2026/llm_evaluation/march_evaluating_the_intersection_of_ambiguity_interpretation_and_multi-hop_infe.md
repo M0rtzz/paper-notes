@@ -44,7 +44,7 @@ tags:
 这篇论文要回答的问题是：当歧义恰好藏在多跳推理的中间步骤时，现有模型能不能处理。为此它给出两件配套的东西——一个专门的评测基准 MARCH，从无歧义的多跳数据集 MuSiQue 出发、经四阶段管线注入并标注歧义，最终得到 2,209 个覆盖语义/句法/约束三类歧义的问题；以及一个无需训练的求解框架 CLARION，把"歧义规划"和"逐路径证据推理"拆成两个 Agent，让模型在整条推理链上同时托住多条解释路径，而不是在第一跳就锁死一种解读。贯穿两者的是一套多跳歧义分类体系：它既给基准的每个歧义点贴上类型标签，又指导求解时对每类歧义采取的动作。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph MARCH["MARCH 基准构建管线"]
         direction TB

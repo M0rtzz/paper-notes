@@ -46,7 +46,7 @@ tags:
 FregeLogic 要解决的核心问题是：在判断三段论有效性时，既保住 LLM 的高准确率，又压住它对内容可信度的系统性敏感（内容效应）。系统让一个五成员 LLM 集成先对每道题投票，把高置信案例直接交给多数票；只有当投票出现 3-2 窄分裂——经验上这恰好是内容偏见最强的一批案例——才把决策权移交给一条内容中立的 Z3 形式验证管道。输出是一个内容无关性被显著增强、准确率却没有牺牲的有效性预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["三段论输入"] --> B["多样化 LLM 集成<br/>3 家族 × 4 提示中选 5 成员投票"]
     B --> C{"投票边际<br/>m = |2Σvᵢ − 5|"}

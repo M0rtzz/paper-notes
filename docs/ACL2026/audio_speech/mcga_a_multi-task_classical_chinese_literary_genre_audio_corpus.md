@@ -46,7 +46,7 @@ tags:
 MCGA 不是模型而是一套语料库加评测体系，核心工作是把"从无到有造一份全版权的古典文学语音数据"做扎实。整条构建流水线分三步：先从网络收集公共领域的古典文学文本及拼音，清洗后按 30 秒上限切段；再由 28 名母语者按统一规范逐段录音，每条音频都过 MLLM 自动检查和人工复核两道质控；最后用 DeepSeek-V3.2 结合每段的完整文学上下文生成多任务问答对，并经 DeepSeek-V3.2、GPT-5-mini、Gemini-3-Flash 三重交叉验证滤掉无效样本。产物是一份同时支撑 6 项语音任务和 4 项平行文本任务、覆盖赋诗文词曲五大文体的 119 小时语料。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["全版权语料库构建"]
         direction TB

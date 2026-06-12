@@ -46,7 +46,7 @@ tags:
 TCD是一种推理时的解码干预，不动模型权重，专门让统一音频语言模型重新关注被语言先验压平的瞬态声学线索。每个解码步它都同时跑两路前向：一路是原始音频，一路是经过时间模糊的"慢速路径"音频视图。两路logits的正向差异 $d_t = z_t - \tilde{z}_t$ 中，被原始音频偏好、却被慢速路径抹掉的那部分，正对应瞬态线索的贡献；TCD据此对原始logits做一次受门控约束的稀疏更新，再正常采样下一个token。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["原始音频 x"] --> Z["原始路前向：logits z_t<br/>同时取音频注意力比例、熵"]
     subgraph SLOW["慢速路径构建与稳定性引导的模糊"]

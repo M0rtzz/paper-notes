@@ -52,7 +52,7 @@ EnoTab 分三个阶段工作：
 3. **答案生成**：将清理后的证据和子表送入 LLM 生成最终答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["复杂问题 Q + 超大表格 T"] --> B
     subgraph RET["两阶段检索"]

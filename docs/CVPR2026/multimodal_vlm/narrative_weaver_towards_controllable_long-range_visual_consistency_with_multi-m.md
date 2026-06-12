@@ -44,7 +44,7 @@ tags:
 Narrative Weaver 要做的是把一段 (文本, 图像) 指令展开成一整条视觉叙事序列，而且要让角色、背景、风格跨几十帧都不漂。它走的是 AR + Diffusion 的混合路线：前半段是一个 MLLM（Qwen2.5-VL-3B）当"导演"，逐帧规划下一镜该拍什么文本剧情，同时把当前该画什么压缩成一组查询向量；后半段是扩散模型（Flux.1-Dev）当"画师"，拿着查询和历史视觉记忆把这一帧真正画出来。导演和画师之间靠一个动态 Memory Bank 传递"前面几帧长什么样"，让画师每次落笔都对齐已经定下来的视觉基调。整条序列逐帧滚动：每画完一帧，它的特征就被压回 Memory Bank、最旧的一帧被挤出窗口，再回到导演规划下一帧。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["输入：文本指令 + 条件图像 I"] --> MLLM
     subgraph MLLM["多模态交互与可学习查询（MLLM 导演）"]

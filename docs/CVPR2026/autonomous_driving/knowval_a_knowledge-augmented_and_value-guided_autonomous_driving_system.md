@@ -49,7 +49,7 @@ tags:
 KnowVal 想补上端到端自驾的两块短板：缺知识推理（只学了统计模式，碰到长尾场景不会调用交规/防御驾驶常识）和缺价值对齐（优化目标是轨迹 L2 距离，而非人类心中"好驾驶"的多维标准）。它用三个模块串成一个**感知 → 知识检索 → 规划**的闭环：开放世界感知先把场景看全（含长尾物体和抽象语义），知识检索据此从驾驶知识图谱里调出相关知识，World Model + Value Model 再据知识预测未来并按人类偏好给候选轨迹打分。一个关键之处是感知与检索**相互引导**——检索还会把"需进一步确认的元素"回传给下一帧的感知。三个模块都不绑定具体的底层感知/规划架构，可以即插即用地接到任意端到端框架上，且每个决策都能回溯到"检索了哪些知识、Value 在哪些维度给了高分"，因而可解释。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["多视角图像 / 传感器输入"]
     subgraph PER["Retrieval-guided 开放世界感知"]

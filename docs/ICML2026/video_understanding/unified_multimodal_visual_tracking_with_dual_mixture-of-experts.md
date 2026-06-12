@@ -43,7 +43,7 @@ OneTrackerV2 把 RGB / RGB+D / RGB+T / RGB+E / RGB+N 五种跟踪任务统一在
 输入 template 与 search 区域，每个区域包含 RGB 与某个 X 模态帧（RGB-only 任务把 X 帧用 RGB 自身代替）。两路通过共享 patch embedding 得到 $F_{rgb},F_x$，经 Meta Merger 用 learnable meta embedding $F_{meta}$ 做空间 + 通道 attention + 中心化卷积融合，得到模态无关 token 序列。该序列送入 Vision Transformer backbone，其中每个 block 用 Dual MoE 替换 FFN：每个 token 同时通过 shared expert、T-MoE（top-$k$）与 M-MoE（top-$k$）三路计算并相加。最后接 SUTrack 风格的 classification + IoU + L1 检测头输出 bbox。整套架构提供 B224 / B384 / L224 / L384 四个版本，参数 80M–271M、推理 FPS 23.4–72.4。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["template + search 区域<br/>各含 RGB 与 X 模态帧"] --> B["共享 patch embedding<br/>得到 F_rgb / F_x"]
     B --> C["Meta Merger<br/>空间+通道注意力 + 可学习 meta embedding 融合<br/>→ 模态无关 token"]

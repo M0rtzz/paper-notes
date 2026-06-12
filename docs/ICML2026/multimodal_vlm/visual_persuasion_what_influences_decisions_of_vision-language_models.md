@@ -44,7 +44,7 @@ tags:
 三阶段——（1）**视觉提示优化**：从原始图像出发用图像编辑模型根据优化反馈迭代修改图像直到达到局部平衡；（2）**自动可解释性管道**：通过多阶段聚合（Matryoshka 摘要）将优化后图像与原始图像的差异抽象为高层次视觉主题；（3）**缓解与验证**：测试视觉归一化的有效性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始图像 x₀ + 决策任务<br/>产品推荐 / 房产 / 筛选 / 酒店"] --> S1
 

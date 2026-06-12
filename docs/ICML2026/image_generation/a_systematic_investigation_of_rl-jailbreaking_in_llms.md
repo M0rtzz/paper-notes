@@ -46,7 +46,7 @@ tags:
 实验目标模型包括 Llama-3.2-1B/3B-Instruct、Qwen3-4B-Instruct-2507 和 Tiny-aya-global；防御环境还加入 Llama-Guard 或 ShieldGemma 的 prompt/response 两侧过滤。训练数据来自 AdvBench 子集，包含 harmful question 和来自未对齐 Vicuna 的参考回答。论文用 55 个随机种子，并报告 bootstrap 95% 置信区间。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["有害问题子集 + 初始模板队列"] --> B
     subgraph ENV["POMDP 化的 jailbreak 环境"]

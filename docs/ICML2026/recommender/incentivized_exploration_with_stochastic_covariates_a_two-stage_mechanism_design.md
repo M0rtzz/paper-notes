@@ -50,7 +50,7 @@ DBIC 约束要求："给定历史 $\Gamma_{t-1}$，被推荐臂 $i$ 相对任意
 两个阶段通过 $\gamma_m = 4\sqrt{K/\mathcal{E}_{\mathcal{F},\delta}(|\mathcal{T}_{m-1}|)}$ 这个 spread 参数连接——它随 oracle 的 MSPE 反向缩放，随时间自动收紧探索半径。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["用户 p_t 携特征 x_t 到达<br/>平台从 K 个产品里推荐"] --> CS
 

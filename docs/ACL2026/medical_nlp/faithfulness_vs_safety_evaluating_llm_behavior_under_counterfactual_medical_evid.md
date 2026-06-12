@@ -46,7 +46,7 @@ tags:
 基于 MedEvidence 数据集（284 个临床比较问题+329 篇 RCT），通过四类反事实替换构建 MedCounterFact（809 个实例）。在 4 种提示变体（无证据/有证据/怀疑态度/专家角色）× 2 种回答格式（多选/自由形式）下评估 9 个前沿 LLM。整条流水线是「基底数据 → 四类反事实干预 → 反事实数据集 → 提示变体作答 → 多维评估」的串行构建-评测管线，下图按此自上而下展开。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["MedEvidence 基底<br/>284 个临床比较问题 + 329 篇 RCT"]
     subgraph SUB["四类反事实干预（无知 → 应知危险 梯度）"]

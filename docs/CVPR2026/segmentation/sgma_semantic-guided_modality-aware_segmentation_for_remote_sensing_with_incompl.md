@@ -64,7 +64,7 @@ SGMA 要在任意模态缺失的遥感场景下做稳健分割，核心思路是
 整体被组织成两个即插即用、并行优化的分支：语义引导融合（SGF，含 MP/CSF/SP/RP）负责减少类内方差、调和跨模态矛盾并产出分割预测；模态感知采样（MAS）则借用 SGF 算出的可靠性评分动态调整采样概率，专治模态不平衡。两条分支在训练时各自出一份分割预测联合优化，推理时只保留 SGF 分支，因此额外开销几乎全在训练侧。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多模态输入<br/>RGB / DSM / NIR / SAR（可缺失）"] --> B["共享权重编码器 F<br/>抽 4 尺度特征"]
     subgraph SGF["语义引导融合 SGF（推理时只保留此支）"]

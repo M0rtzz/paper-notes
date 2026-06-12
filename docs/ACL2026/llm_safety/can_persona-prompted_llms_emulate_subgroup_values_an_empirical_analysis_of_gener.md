@@ -44,7 +44,7 @@ tags:
 论文要回答的核心问题是：persona-prompted LLM 到底能不能模拟一国之内细粒度人口子群的价值偏好，简单 SFT 能不能补上这个能力，补完之后子群之间是更公平还是更不公平。整套流程以新加坡的 WVS Wave 7 数据为锚点：先取 2012 名受访者在 214 道价值题上的原始作答，用 Modal Diversity Score 量化每道题在不同子群间的冲突程度，定位最值得"子群感知对齐"的话题；再把数据组织成 20,877 个 (问题, 子群体) 样本，并刻意切成不重叠的两半——50 个 fundamental stratum 进 Train Set、48 个 unseen intersectional stratum 进 OOD Eval Set；最后在 7 个 ≤8B 开源 LLM 上做 LoRA SFT，从结构化数字预测和 open-ended 生成两个任务、用 Accuracy/NMAE/Win Rate 三类性能指标加 Norm. Range / CV 两个公平性指标来评测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["WVS Wave 7 新加坡子集<br/>2012 受访者 × 214 价值题"] --> B["Modal Diversity Score<br/>归一化 Shannon 熵给每题打子群分歧度"]
     B --> C["组成 20,877 个<br/>(问题, 子群体) 样本"]

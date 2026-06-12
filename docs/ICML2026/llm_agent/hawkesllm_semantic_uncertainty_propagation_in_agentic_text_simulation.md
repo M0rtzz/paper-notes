@@ -43,7 +43,7 @@ HawkesLLM 把多变量 Hawkes 点过程嫁接到 LLM 智能体文本模拟循环
 论文把"边写边读"的文本级联建模在一张固定有向图 $\mathcal{G}_0=(\mathcal{N},\mathcal{E})$ 上，每个节点是一个"文本生成智能体"，每个事件 $e_m=(\tau_m, n_m, x_m)$ 是一条"时间戳—节点—文本"三元组。核心做法是把"调度"和"语言化"彻底拆开：从种子事件 $e_0$ 出发循环 $L$ 步，每一步都先让拟合好的多变量 Hawkes 过程决定**何时由哪个节点说话**、并据此打分挑出**该回看哪些历史节点**作为压缩记忆 $\mathcal{M}_t$，再把这段记忆连同节点风格指令 $a_{n_t}$ 拼成 prompt $p_t$ 交给 LLM 采样下一条文本 $x_t \sim g_{\text{LLM}}(\cdot\mid p_t)$。整条流水线里 LLM 只负责写字，时间、节点、记忆全由 Hawkes 控制，于是语义不确定性的传播就被框成一个可监控、可读的轨迹问题。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["事件流 + 种子事件 e₀"]
     subgraph H["多变量 Hawkes 时序影响层"]

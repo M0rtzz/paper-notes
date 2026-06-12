@@ -44,7 +44,7 @@ BehaviorVLA 用因果三流 Mamba 编码器 (VBE) 把长视野演示压缩成时
 模型在 $\pi_{0.5}$ 主干上加两个模块：(1) **VBE (Visuomotor Behavior Encoder)**：因果三流 (视觉 $S_v$ / 动作 $S_a$ / 行为 $S_z$) 架构，每流用 Mamba 做长视野时间过滤，再跨流注意力融合，把整个轨迹压成 $\{z_{\text{proto}}, z_{\text{phase}}\}$；离线把每条演示的 $z_{\text{proto}}$ 存入 Behavior Memory Bank。(2) **PBD (Phase-conditioned Behavior Decoder)**：检索 Top-K 全局原型加权得 $\hat z_{\text{proto}}$，展开成位置编码的潜锚序列 $\mathbf M$；用 $z_{\text{phase}}^{(t)}$ 做查询做相位注意力得局部上下文 $c_t$，投影成高斯先验 $\mathcal N(\mu_\psi(c_t), \Sigma)$；最后把先验通过加性偏置注入流匹配策略的噪声嵌入，由速度场 $v_\theta$ 积分出最终动作 trunk。整条 pipeline 推理时每个 episode 检索一次原型 + 每步更新一次相位，流匹配负责局部修正。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph VBE["VBE 因果三流 Mamba 编码器（设计 1）"]
         direction TB

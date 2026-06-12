@@ -49,7 +49,7 @@ tags:
 - **阶段二**：使用伪标签训练轻量级 PVT-B4 编码-解码器，嵌入 MSFA 模块实现高效推理
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像 + 边界框提示<br/>（由 GT mask 推导，无像素标注）"]
     subgraph S1["阶段一：适配 SAM 生成伪标签"]

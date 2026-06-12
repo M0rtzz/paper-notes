@@ -39,7 +39,7 @@ tags:
 SynthFun3D 要解决的是「没人标得起 3D 功能掩码」这件事：与其雇人在真实扫描里逐个抠抽屉把手，不如从一句动作描述出发，让流水线自己把一个合理的场景搭出来、并且天然知道哪个部件是被交互的目标。整篇方法可以看成一条从文字到带标注场景的传送带——先让 LLM 把动作描述拆成「目标物体 + 要交互的功能部件 + 它所在的房间布局」，接着分两路取资产：场景里的陪衬物体（床、地毯、窗帘）从 Objaverse 按文本相似度随便抓，真正的目标物体（要交互的那个柜子）则从带部件级标注的 PartNet-Mobility 里精挑细选；选好物体后用 DFS 搜一个满足空间约束的摆法，最后多视角渲染并随机换材质，输出 RGB 帧和对应的功能掩码。由于目标物体的部件标注是从资产库元数据继承下来的，掩码完全免标注、且像素级精确。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["动作描述<br/>「打开床旁柜子的第二个抽屉」"] --> B["LLM 拆解<br/>目标物体 + 功能部件 + 房间布局"]
     B -->|陪衬物体| C["Objaverse 文本相似检索"]

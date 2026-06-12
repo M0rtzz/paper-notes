@@ -46,7 +46,7 @@ tags:
 LePREC 想解决的是：直接拿 GPT-4o 判断一个法律问题是否"真正涉及案件核心争议"只有 62% 精度，因为 LLM 做的是表面事实匹配，分不清"和事实沾边"与"切中争议"。论文的破局思路是模仿法律人的两阶段分析——先头脑风暴出一堆分析因子，再权衡这些因子下判断——把它落成一个神经-符号流水线。前半段是神经组件：用 LLM 把每个 (事实集, 候选问题) 对转写成一串二值推理问题，并用回答概率把非结构化文本压成一个数值特征向量；后半段是符号组件：在这些离散特征上训一个稀疏线性模型，用显式权重输出二值相关性标签（Relevant / Irrelevant）。整条链路既保住了 LLM 的语言理解，又把最终判断交给一个可解释、数据高效的线性分类器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：案件事实集 X + 候选法律问题"] --> B["增量问题生成<br/>逐步加入事实分别生成、取并集补全候选池"]
     subgraph NEU["神经组件：法律文本 → 二值因子向量"]

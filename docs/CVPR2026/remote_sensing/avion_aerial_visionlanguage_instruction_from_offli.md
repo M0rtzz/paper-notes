@@ -46,7 +46,7 @@ AVION 提出一种知识蒸馏框架，通过 LLM 生成语义丰富的遥感文
 AVION 要解决的是「遥感数据只有类名标签、PEFT 又只敢动文本端」这对矛盾，办法是把一个大模型当离线 Teacher、把它的丰富知识蒸馏进一个小模型 Student。整个流程分三段：离线阶段，用 GeoRSCLIP ViT-H/14 这个大模型编码 LLM 为每类生成的语义描述，经过视觉原型验证后聚合成高质量的文本原型 $\mathbf{t}_k^{T*}$，这一步只跑一次、结果离线缓存；训练阶段，小模型 GeoRSCLIP ViT-B/32 在视觉和文本两个编码器里都注入可学习 prompt，由 Teacher 的文本原型和视觉嵌入在视觉、文本、logit 三个维度上同时监督对齐；推理阶段则只用 Student 前向，Teacher 完全退场，所以部署时没有任何额外开销。三段的数据流如下图，其中离线 Teacher（设计 1）产出的文本原型与 Student（设计 2）的嵌入汇入蒸馏对齐（设计 3）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TEACHER["离线 Teacher：选择性原型聚合（设计 1）"]
         direction TB

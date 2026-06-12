@@ -46,7 +46,7 @@ tags:
 **整体框架**: Memora 是一条仿真驱动的基准构建管道。它从 10 个专业角色画像（persona）的种子记忆出发，逐会话仿真用户交互、演化出带有真实记忆动态的记忆轨迹（作为 ground truth）；再把每个会话规格转写成高质量多轮对话并做质量校验；最后从记忆轨迹衍生评估任务，用遗忘感知指标 FAMA 打分。三个阶段恰好对应下面三个关键设计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["10 个 persona 种子<br/>偏好 / 活动 / 目标三类记忆"]
     subgraph SIM["记忆演化仿真系统"]

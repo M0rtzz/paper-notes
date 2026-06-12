@@ -46,7 +46,7 @@ tags:
 数据上复用 Brockbank & Vul (2024) 的 411 人 / 129,087 次选择 IRPS 数据集，并为 4 个 LLM 各采集 20 局 × 15 个 bot × 300 轮 = 90,000 次选择的对齐数据；IRPS 固定 300 轮 / 15 个 bot（含 nonadaptive transition-based 与 adaptive 跟随两类），奖励为胜 +3 / 平 0 / 负 -1。每个智能体（人、Gemini 2.5 Pro/Flash、GPT 5.1、GPT OSS 120B）都过同一套 pipeline，确保对比公平。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["跨智能体对齐采集<br/>人类数据 + 4个LLM 复用同套 bot/奖励/300轮"] --> B
     subgraph PER["每个智能体独立跑同一套 pipeline"]

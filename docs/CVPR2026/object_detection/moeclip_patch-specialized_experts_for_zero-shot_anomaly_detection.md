@@ -54,7 +54,7 @@ MoECLIP 想解决的核心问题是：CLIP 的 patch 特征对所有区域一视
 一张图进来后，CLIP ViT 先抽出多层 patch 特征，每一层的 MoE 模块根据 patch 内容把它路由给合适的专家做残差适配；适配后的特征经 PAA 在多个尺度上聚合，再分两路出口——逐 patch 与文本特征算相似度得到像素级异常图，全局特征经 Depth-wise Adapter 与文本算相似度得到图像级异常分数。训练只在辅助数据集（VisA）上做监督，测试时面对的是完全没见过的类别。整条链路里真正可学习的只有 LoRA 的上投影、路由器和两个轻量适配头，CLIP 主干始终冻结。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像 518×518"] --> B["CLIP ViT-L/14（冻结）<br/>取第 6/12/18/24 层 patch 特征"]
     subgraph MOE["MoE 特征适配（每层一个 · Top-2 路由 + K=4 LoRA 专家）"]

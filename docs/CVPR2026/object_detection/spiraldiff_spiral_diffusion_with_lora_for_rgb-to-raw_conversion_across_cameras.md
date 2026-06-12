@@ -42,7 +42,7 @@ tags:
 SpiralDiff 要解决的是 RGB-to-RAW 转换里两个老问题：高亮度/过曝区域因为乘性增益和值截断、残差大方差高，统一重建策略顾此失彼；不同相机 ISP 差异大，简单混合训练会退化。它基于 ResShift（高效残差偏移扩散）构建，只需 4 步采样：输入 RGB 图像和相机标签，含 Swin Transformer 层的 U-Net 反复去噪、从噪声 RAW 估计逐步精炼出目标 RAW。整个过程直接在像素空间操作（移除了 VQGAN 潜空间压缩，因为它是在 RGB 上训练的、不适合 RAW），并通过信号依赖噪声加权和 CamLoRA 两个设计分别应对强度自适应和跨相机适配。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：RGB 图像 y₀ + 相机标签"] --> LOOP
     subgraph LOOP["4 步迭代去噪（基于 ResShift · 像素空间，移除 VQGAN）"]

@@ -46,7 +46,7 @@ tags:
 这篇论文不提新匹配器，而是搭一套公平的「考场」，让 24 个预训练匹配器族在 SAR-光学卫星配准上同台竞技。整条流水线是：把一对超高分辨率的 SAR 图与光学底图切成 tile 分别匹配，得到的原始对应点先过 RANSAC 几何滤波剔除外点，再用锚定的 tie-point 算重投影误差作为最终精度。所有匹配器都用官方预训练权重、零微调，区别只在于喂进同一套确定性协议；在此基础上系统性扫描部署协议的各项选择（几何模型、tile 大小、内点门控），在 SpaceNet9 加另外两个跨模态基准（SRIF、SARptical）上跑完整对比。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["SAR 图 + 光学底图<br/>超高分辨率场景对"] --> B
     M["24 个预训练匹配器族<br/>官方权重 · 零微调"] --> B

@@ -46,7 +46,7 @@ tags:
 VLN-NF 包含三个贡献：(1) 数据集构建流程——用 LLM 将可行指令改写为虚假前提指令，用 VLM 验证目标确实不存在；(2) REV-SPL 评估指标——联合评估到达目标房间、探索覆盖率和 FOUND/NOT-FOUND 决策正确性；(3) ROAM 两阶段方法——第一阶段用监督模型定位目标房间，第二阶段用 LLM/VLM 在房间内探索并做出判断。三者串成一条链路：先自动造出虚假前提数据，再让 ROAM 在数据上跑导航与验证，最后用 REV-SPL 给出探索是否充分、判断是否正确的评分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["数据集构建（Rewrite + Verify）"]
         direction TB

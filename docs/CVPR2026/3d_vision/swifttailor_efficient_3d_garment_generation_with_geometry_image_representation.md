@@ -45,7 +45,7 @@ tags:
 现有3D服装生成走的是「大VLM 预测2D缝纫样板 → GarmentCode 等物理模拟引擎转3D网格」的路子，质量高但单件要 30-60 秒、中间环节多还不可微。SwiftTailor 把这条链路换成两阶段可学习级联：阶段一 PatternMaker 用一个轻量 VLM 从文本/图像等多模态输入预测缝纫样板参数；阶段二 GarmentSewer 用一个 Dense Prediction Transformer 把样板转成 Garment Geometry Image（GGI），把所有面板的 3D 表面编码进统一 UV 空间；最后用逆映射 + 重网格化 + 动态拼接直接拼出 3D 网格。核心是用学到的几何图像表示替掉物理模拟，把昂贵的模拟成本摊销到训练阶段，推理时一秒内出结果。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多模态输入<br/>文本描述 / 参考图像"] --> B["PatternMaker（轻量 VLM）<br/>预测缝纫样板参数"]
     B --> C["GarmentSewer（DPT）<br/>样板 → Garment Geometry Image（GGI）"]

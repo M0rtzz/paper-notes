@@ -44,7 +44,7 @@ tags:
 b1 是一个加在现有 dLLM GRPO 框架之上的奖励/解码插件，由三件事拼成：(1) 动态块构造——在推理生成里插入特殊 token $\tau_{\text{end}}$，每次出现就关闭当前块、开新块；(2) MED 训练目标——用一个"相邻块熵下降"的代理奖励 $R_{\text{ent}}$ 加上一个"鼓励多步推理"的指示奖励 $R_{\text{ind}}$，与任务奖励 $R_{\text{task}}$ 加权汇总后塞进 Diffu-GRPO；(3) 推理对齐——解码时严格按训练流程，遇到 $\tau_{\text{end}}$ 就动态调整下一块起点。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：问题 q + dLLM 底座<br/>(LLaDA / Diffu-GRPO / d1 / wd1)"] --> B
     subgraph DYN["动态块边界 + 指示奖励 R_ind（设计 1）"]

@@ -46,7 +46,7 @@ MimiCAT 要解决的核心问题是：当源角色和目标角色的身体结构
 整个流程拆成两阶段、由两个 Transformer 接力完成。Stage I 先训练**对应 Transformer $\mathcal{G}$**，它的任务是在源、目标两套数量不等的关键点之间算出一个软对应矩阵——不是"谁对谁"的硬匹配，而是"谁以多大权重对谁"的多对多概率分布。Stage II 冻结 $\mathcal{G}$，再训练**姿态迁移 Transformer $\mathcal{H}$**：先用软对应矩阵把源的旋转/平移粗略搬到目标关键点上得到一组初始变换，$\mathcal{H}$ 在此基础上结合目标自身几何把变换精修一遍，最后用线性混合蒙皮（LBS）把每个关键点的变换驱动整张网格，得到最终结果。监督信号来自文本语义标签生成的伪真值对应，整个训练不需要人工标对应关系。两阶段所需的多形态训练数据则全部来自自建的 PokeAnimDB。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：源姿态网格 + 目标 T-pose 网格<br/>（关键点带骨骼语义名）"]
     DB["PokeAnimDB<br/>975 角色 / 440 万帧多形态动作"]

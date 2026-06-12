@@ -46,7 +46,7 @@ tags:
 CoMeta 采用分层查询流水线设计，分为文档级和段落级两层。文档级用 CHSDR 做混合检索并解析元数据，据此对综述/原始研究分流出不同的检索深度；段落级用 SEOS 做语义感知分割，再经两阶段（嵌入召回+重排序）精检送进 LLM。整条链路在检索生命周期的每一步都实施可控性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["口语化患者查询"]
     subgraph CHSDR["临床混合语义-符号文档检索（CHSDR）"]

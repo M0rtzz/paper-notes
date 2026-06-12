@@ -43,7 +43,7 @@ tags:
 论文先在 Needle-in-a-Haystack 任务上定义 copy-paste retrieval score：如果某个 head 在当前步最高注意力落在 needle token 上，且该 token 与即将生成 token 一致，则该 head 的 retrieval score 为 1。基于这个定义，作者逐步验证动态性、不可替代性和 hidden-state correlation。然后在 HotpotQA 上把定义放宽为 reasoning retrieval score，即 attention 分配给 supporting facts 的比例。最后，作者将动态 heads 接入改造版 DRAGIN，在需要检索时只暴露动态 heads 关注的上下文窗口，比较动态、静态和随机策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["长上下文输入<br/>NIAH haystack / HotpotQA 多跳"] --> B["逐步定义动态 retrieval heads<br/>每个生成步算 token 级 retrieval score"]
     B --> C["每个生成步的动态 head 稀疏集合"]

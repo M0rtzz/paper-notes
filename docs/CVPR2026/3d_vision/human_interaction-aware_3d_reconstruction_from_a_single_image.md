@@ -38,7 +38,7 @@ tags:
 HUG3D包含三个阶段：(1) Pers2Ortho模块将输入透视图像转换为标准正交多视图表示；(2) HUG-MVD扩散模型联合补全遮挡区域的几何和纹理；(3) HUG-GR物理感知几何重建+纹理融合。输入是单张RGB图像，输出是多人交互的带纹理3D网格。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["单张 RGB 图像<br/>(多人交互场景)"] --> P2O
 

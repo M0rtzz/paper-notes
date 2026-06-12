@@ -43,7 +43,7 @@ tags:
 SOE 要解决的是：教师模型在难题上反复沿同一错误逻辑采样，提高 temperature 只能换换词面、换不掉推理方向。它是一个纯推理时框架：输入一道教师 greedy decoding 已经做错的难题，把这条失败轨迹在关键推理节点截断成多个 prefix；对每个 prefix，教师生成若干条 Monte Carlo look-ahead 轨迹来估计当前的局部 bias manifold，同时让弱学生模型在同一 prefix 下生成固定 8 tokens 的短 candidate probe；系统把每个 probe 映射回教师隐藏空间，选出相对教师 dominant subspace 最正交的一个拼接到 prefix 后，输出是教师从一个全新几何方向续写出来的推理链。整个过程不训练、不改参数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：教师贪心解码已做错的难题"] --> B["低秩推理塌缩诊断<br/>用 effective rank 测出隐藏状态谱退化，定位塌缩的关键推理节点"]
     B --> C["在关键节点截断失败轨迹为多个 prefix"]

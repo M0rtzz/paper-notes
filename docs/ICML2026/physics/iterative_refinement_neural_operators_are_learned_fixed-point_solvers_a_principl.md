@@ -54,7 +54,7 @@ IRNO 把推理拆成两个阶段：
 $\Phi_\theta$ 实例化为一个轻量 U-Net，但框架是 architecture-agnostic 的；架构只需要满足三点要求：(i) 平滑性以保证迭代稳定，(ii) 多尺度表达力以捕捉谱修正，(iii) 跨迭代共享权重以保证算力可控。最关键的一点是 $\Phi_\theta$ 学的是"迭代不变的更新规则"，所以推理时可以跑比训练时更多的步数 $k>K$。训练时把整条 $K$ 步轨迹端到端展开，用三项损失（多步轨迹监督 + 渐进式谱损失、不动点正则化）塑造这套迭代动力学；推理时 base operator 冻结、只跑 $\Phi_\theta$ 迭代。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入 x"] --> B["base operator T_base（冻结）<br/>单次前向给粗解 h₀，修好低频大尺度"]
     B --> C["函数空间不动点迭代<br/>共享权重 Φθ（U-Net）算残差：h_{k+1}=h_k+αΦθ(x,h_k)"]

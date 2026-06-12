@@ -44,7 +44,7 @@ tags:
 NeRP 是一个即插即用的事后纠偏模块，不修改任何 VLM 参数。Pipeline：(1) 给定下游域 $D$，构造文本中性 anchor $u_{\mathrm{txt}}^0(D)=\text{norm}(g_{\mathrm{txt}}^0(\tau(D)))$ 与图像中性 anchor $u_{\mathrm{img}}(D)=f_{\mathrm{img}}(\bar{x}^D)$（$\bar{x}^D$ 是训练图像的像素均值经预处理）；(2) 与（微调后的）类原型 $t(c)$ 或 zero-shot 原型 $t^0(c)$ 计算 per-class 先验 logit $\pi_{\mathrm{txt}}(c;D)$、$\pi_{\mathrm{img}}(c;D)$，并构造类对先验差 $\Sigma_{i,j}(D)$（语义多样数据集上换成残差版 $\tilde{\Sigma}$ 并在基类对上拟合全局截距 $\hat{\beta}$）；(3) 离线用 LLM 为每个类查询若干"最易混淆"的候选类，构造对称的易混邻居图 $\mathcal{A}(i)$；(4) 对测试图 $x$ 与 top-1 类 $i$，在邻居 $j\in\mathcal{A}(i)$ 上算贝叶斯代理分数 $s_{ij}(x)=m_{ij}(x)+\Sigma_{i,j}(D)+\hat{\beta}(D)$；(5) 若先验强（$\Sigma_{i,j}\ge\tau-\hat{\beta}$）且证据弱（$m_{ij}(x)\le\delta$），则把 $i$ 翻成 $j$；否则保留原预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["下游域 D：训练图像 + 类名<br/>已微调 VLM + zero-shot VLM（参数全冻结）"]
     subgraph PRIOR["中性参考 Prompt 与类别先验估计（设计 1）"]

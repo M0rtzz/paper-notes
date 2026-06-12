@@ -43,7 +43,7 @@ tags:
 ScaleFormer 要解决的是「训练在 200–256px 小图、推理却要在 800–2000px 大图上跑」的跨尺度泛化问题。它的核心思路是把分辨率变化重新理解成序列长度变化：固定每个 patch 的空间大小，图像变大时只是 token 序列变长。输入一张 PAN 图 $\mathbf{P} \in \mathbb{R}^{H \times W \times 1}$ 和上采样后的 MS 图 $\mathbf{L} \in \mathbb{R}^{H \times W \times C}$，先由 Scale-Aware Patchify 切成 5D 张量 $\mathbf{P}_{5d} \in \mathbb{R}^{B \times T \times C \times h \times w}$（$T$ 是序列长度），再依次过 Single Transformer（空间域与序列域分别建模）和 Cross Transformer（PAN-MS 跨模态融合），最后回归出高分辨率多光谱图。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["PAN 图 P (H×W×1)"] --> SAP
     L["上采样 MS 图 L (H×W×C)"] --> SAP

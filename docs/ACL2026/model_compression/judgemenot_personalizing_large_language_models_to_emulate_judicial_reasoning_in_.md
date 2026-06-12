@@ -45,7 +45,7 @@ tags:
 这篇论文要解决的是"如何让 LLM 忠实模仿某个法官怎么想、怎么写"，而原始素材只有一堆非结构化的判决文书。整条流水线因此拆成两段：先把判决文书"提纯"成可训练的推理监督信号，再用一套轻量的两阶段 LoRA 把这些信号灌进模型。前一段是用多个 LLM agent 把判决里散落的推理逐句抽出来、再为每句反推一个合成问题，得到问答形式的推理指令集；后一段是先在法官全部判决上学文体、再在推理指令集上学逻辑，最后用多维指标（含作者辨识测试）验收个性化是否到位。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["法官原始判决文书<br/>（非结构化长文本）"]
     subgraph PIPE["Synthetic-Organic 对齐管线（设计 1）"]

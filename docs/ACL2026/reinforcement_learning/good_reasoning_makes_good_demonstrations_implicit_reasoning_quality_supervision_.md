@@ -47,7 +47,7 @@ tags:
 直接把 Evidence Gain 当奖励会非常昂贵。缓存中给出的估计是，对约 12K 样本和 100 个 demonstrations 显式计算 Evidence Gain 需要约 80 小时 H800。作者因此不在 rollout 后计算奖励，而是在 rollout 前从 demonstration set 中采样一个示范，拼到当前问题前面，再执行标准 RLVR 更新。这个简单的输入侧改动就是 In-Context RLVR。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["训练问题 q + 候选推理轨迹 r"]
     subgraph EG["Evidence Gain：把推理质量定义为示范教学效用"]

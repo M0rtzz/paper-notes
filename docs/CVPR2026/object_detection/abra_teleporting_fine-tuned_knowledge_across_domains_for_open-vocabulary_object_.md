@@ -51,7 +51,7 @@ $$\hat{\theta}_T^{(c)} = \theta_T + \pi_{S \to T}(\tau_S^{(c)}), \quad \tau_S^{(
 其中 $\tau_S^{(c)}$ 是源域里类别 $c$ 相对域专家的知识残差，$\pi_{S \to T}(\cdot)$ 是把这块残差从源域搬到目标域的传输函数——后面三个设计点分别负责造出 $\theta_S/\theta_T$、抠出 $\tau_S^{(c)}$、以及实现 $\pi_{S \to T}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     GD["预训练 Grounding DINO θ₀"] --> OBJ
     subgraph OBJ["Objectification：训练类无关域专家"]

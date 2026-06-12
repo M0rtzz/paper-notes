@@ -41,7 +41,7 @@ tags:
 GoalForce 想让视频生成模型像人一样思考物理任务：不是被动执行「施加多大力」，而是给定「想要的结果」（目标力），自己逆推出该有的前因动作。它基于 Wan2.2（MoE 扩散模型）+ ControlNet，核心是把物理意图编码成多通道控制信号，并用一套「随机遮蔽因果」的训练策略，逼模型在简单合成数据上学会因果链规划，再零样本迁到工具使用、人-物交互等复杂场景。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["用户物理意图<br/>目标力 / 直接力 / 质量"] --> B
     subgraph B["三通道物理控制张量"]

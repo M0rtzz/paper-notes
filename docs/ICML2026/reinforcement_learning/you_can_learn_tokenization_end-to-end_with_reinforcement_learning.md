@@ -46,7 +46,7 @@ tags:
 训练目标是边缘化所有可能 tokenization strategy 后的 next-byte likelihood。由于 $a$ 是离散随机变量，梯度可拆成两部分：常规的 conditional language modeling gradient，以及 policy gradient 项 $\log p_\theta(y|a,x)\nabla_\theta\log\pi_\theta(a|x)$。后者就是本文要降方差的核心。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["byte 序列 x"] --> ENC["encoder（滑窗 transformer）<br/>得 byte 级表征 X"]
     ENC --> POL["轻量边界策略 π_θ：采样 a_i∈{0,1}<br/>窗口 w 内 logit + L^target 控压缩率→1/5"]

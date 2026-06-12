@@ -44,7 +44,7 @@ tags:
 Neubay 的训练循环（Algo. 1）非常 MBPO-like：(a) 先用 $\mathcal{D}$ 训一个 100 模型 ensemble $\mathbf{m}_{\boldsymbol{\theta}}$；(b) 每轮从 $\mathcal{D}$ 任意时刻 $t$ 采起点 $h_t = s_{0:t}$，从 ensemble 抽一个固定模型 $m_\theta$（注意：整条 rollout 都用这个模型，不在每步随机），跑 Algo. 2 的 Rollout 直到 (i) 命中 terminal，(ii) 不确定度 $U_{\boldsymbol{\theta}}(\hat s_t, \hat a_t) > \mathcal{U}(\zeta)$ 触发截断，或 (iii) 到了 episode 上限 $T$（最长可达 1000）；(c) 把真实数据 + imagined 数据按比例 $\kappa$ 混合，喂给一对带独立 LRU 编码器的循环 actor $\pi_\nu(a_t|h_t)$ 和 critic $Q_\omega(h_t, a_t)$ 做 off-policy RL。整条 pipeline 顺着「先用大 ensemble + LayerNorm 把世界模型训稳 → 再用分位不确定度阈值控制每条长 rollout 在哪停 → 最后用循环 actor-critic 从这些长轨迹里学策略」的顺序串起来，对应下图三个贡献环节，也对应下面的三个关键设计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     D["离线数据集 D"] --> WM["大 ensemble + LayerNorm 世界模型<br/>N=100 后验拟真，LN 把单步增量卡成线性累积"]
     WM --> SAMP["每条 rollout 固定抽一个模型 m_θ<br/>从 D 任意时刻抽起点历史 h_t"]

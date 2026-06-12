@@ -48,7 +48,7 @@ SonoWorld 要解决的是 Image2AVScene：给一张普通 RGB 图像，同时造
 整条流水线的思路是用全景把视觉和音频拉到同一套坐标系下，再逐步把"看得见"翻译成"听得见"。具体分四步往下走：单图先经相机标定和扩绘补成 360° 全景、升维成 3D 高斯场景；接着让 VLM 从图里推断哪些物体在发声，配合分割把这些声源精确定位并反投影到 3D；然后逐个声源生成波形、按类型编码成 Ambisonics 系数；最后在用户实际所在的位置和朝向上，把 Ambisonics 解码成双耳音频。整个框架不训练任何参数，全靠现成预训练模型的组合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["单张 RGB 图像"]
     subgraph S1["全景视觉场景生成"]

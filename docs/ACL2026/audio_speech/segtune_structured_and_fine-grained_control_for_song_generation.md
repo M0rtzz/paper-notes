@@ -44,7 +44,7 @@ tags:
 SegTune 要解决的是"如何在非自回归歌曲生成里加入分段级时序控制"。它以 DiT（Diffusion Transformer）为骨架、基于条件流匹配（CFM）建模：先用 1D VAE 把 44kHz 原始音频压到 21.5Hz 的潜在序列，再从全局文本提示、分段文本提示、时间对齐歌词三个互补来源构造条件注入扩散过程；其中一个微调过的 LLM 时长预测器负责生成句级时间戳，既用来把分段提示广播到正确的时间窗口，也用来对齐歌词。这样输出的歌曲就能在保持全局风格的同时，按段落呈现配器、情绪、能量的演变。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["大规模数据管线（三阶段·离线构建）"]
         direction TB

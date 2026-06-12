@@ -46,7 +46,7 @@ tags:
 Generative Montage 包含显式合谋代理和隐式合谋代理。显式部分由 Writer、Editor、Director 和 Sybil publisher 构成：Writer 基于真实片段合成偏向目标错误假设的叙事草案，Editor 调整片段顺序以制造暗示性关联，Director 模拟受害者判断并检查事实完整性，publisher 将片段作为公开信息流分发。隐式部分是被误导的普通 LLM analyst，它们真诚相信错误结论并把自己的分析传给下游 judge。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["真实证据池 𝓔<br/>+ 真假设 H_r + 目标错误假设 H_f"]
     A --> CON["Local Truth 与 Global Lie 分离<br/>每条证据都真，整体后验却偏向 H_f"]

@@ -46,7 +46,7 @@ tags:
 方法分为两大部分：(1) **医学过滤管道**——使用 Mixtral 对 FineWeb2 德语子集进行零样本标注，训练 XLM-RoBERTa 分类器扩展到全量数据，得到 FineMed-de 语料库；(2) **模型适应**——对指令微调模型进行持续预训练，然后使用 SLERP 与原始指令微调检查点合并以恢复指令跟随能力。最后用多维度评估检验 DeFineMed 是否真能缩小与大模型的差距。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph FILTER["混合式医学文档过滤管道"]
         direction TB

@@ -45,7 +45,7 @@ tags:
 第二阶段是 DPO + Topological Preference Optimization (TPO)：作者先离线把 HH-RLHF prompt 聚类成主题，为每个主题构造正向和负向模板，用 sentence transformer 得到 topic-specific preference vector。训练 DPO 时，在模型中间层计算 chosen response 与 rejected response 的 mean-pooled hidden state 差分，并通过一个小投影矩阵把主题向量映射到模型 hidden space，再用 cosine loss 对齐“rejected 到 chosen”的语义改进方向。最终损失是 DPO loss 加动态加权的 TPO loss。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["轨迹拓扑损失 TTL（SFT 阶段）"]
         direction TB

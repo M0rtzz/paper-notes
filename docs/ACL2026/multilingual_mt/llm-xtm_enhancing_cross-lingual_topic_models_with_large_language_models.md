@@ -48,7 +48,7 @@ LLM-XTM 是个 **两阶段后处理增强**：
 总目标是 $\mathcal{J}(\phi, \psi) = \mathcal{L}_{\text{Phase 1}} + \lambda_{\text{mmd}} \mathcal{L}_{\text{MMD}} + \lambda_{\text{qa}} \mathcal{L}_{\text{doc-align}}$。一个 epoch 内的流程是：抽 top-15 双语词 → 调 LLM 投票得 $\bar{w}_k$ → 算 $\mathcal{L}_{\text{MMD}}$ → BGE-M3 编码文档/主题 → 算 KL 形式的 $\mathcal{L}_{\text{doc-align}}$ → 梯度更新 backbone。整个 LLM 模块对 backbone 完全是黑盒，不要求 token 概率，所以 Gemini API 直接可用。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Phase 1：跑通 backbone<br/>NMTM / InfoCTM / XTRA → β, θ"] --> S1
     subgraph S1["自一致性跨语言主题词精炼"]

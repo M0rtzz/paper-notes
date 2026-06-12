@@ -44,7 +44,7 @@ tags:
 本文把"反馈适应"立成 RAG 的一类新问题：系统部署后会被用户或专家纠正，关键是这些纠正多快、多有效地传播到未来的查询。整套工作由三层拼成——先形式化问题并给出两个正交的评估轴，再用免训练的 PatchRAG 在推理时即时整合反馈，最后用快照协议在反馈注入前后做对比、隔离出反馈的边际效果。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["新查询 q"] --> SCORE
     FB["纠正反馈补丁 (q_i, a_i, c_i)<br/>存入反馈记忆库（免训练）"] --> SCORE

@@ -44,7 +44,7 @@ tags:
 这篇论文把语音质量评估从“输出一个 MOS 标量”改写成“像人类评审员一样给出带理由的判断”。它的做法分两步：先构造能支撑这种评审式输出的多任务数据集 SpeechEval，再在其上训练出可解释的语音评审器 SQ-LLM。推理时输入可以是一段、两段或一段待鉴真的语音，配上自然语言的任务指令；模型用语音编码器抽取声学表示，连同任务提示送入语音感知语言解码器，输出结构化的自然语言答案。单样本评分、双样本比较、改进建议、深伪检测四类任务共享同一个模型和同一套指令化接口。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["SpeechEval 数据集构建"]
         direction TB

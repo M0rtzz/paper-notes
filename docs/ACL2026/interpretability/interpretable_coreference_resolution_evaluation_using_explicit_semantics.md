@@ -45,7 +45,7 @@ tags:
 输入：文档 $D$ 中共指模型预测的 mention 集合 $\mathcal{M} = \{m_1, ..., m_n\}$ 与 cluster 集合 $\mathcal{G}$，以及 CNER 预测的标注 span $\mathcal{C} = \{c_1, ..., c_k\}$，每个 $c_j$ 有标签 $L(c_j) \in \mathcal{T}$（$\mathcal{T}$ 含 29 类如 PERSON / LOCATION / EVENT / RELATION / SUPERNATURAL / PLANT / DISEASE 等）。中间两步：(1) Mention Assignment 用 Jaccard 重叠把 mention $m_i$ 对到最大重叠的 CNER span $\hat{c}_j$，重叠 > τ=0.5 时赋标签；(2) Category Propagation 在每个 cluster $G$ 内用多数投票决定 $S(G) = \arg\max_{t \in \mathcal{T}} |\{m_G \in G : L(m_G) = t\}|$，再把 $S(G)$ 传播给所有未标 mention（含代词）。输出：每个 mention 都带 CNER 标签，可按类别分层计算 typed Mention F1 / Link F1。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["共指模型输出<br/>mention + cluster"] --> S1
     C["CNER 输出<br/>29 类语义 span"] --> S1

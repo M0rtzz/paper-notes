@@ -44,7 +44,7 @@ tags:
 分为两大部分：(1) 数据集构建——通过 seed subreddit → seed user → 全站帖子收集 → 话题标注的流水线构建 Splits! 数据集，按 6 个人口统计群体 × 89 个话题切分；(2) 假设过滤——对候选假设计算 lift（数据支持度）和 triviality（平凡度），双重过滤筛选有价值假设。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["数据集构建：Splits! 沙盒"]
         direction TB

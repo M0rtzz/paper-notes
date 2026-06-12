@@ -46,7 +46,7 @@ tags:
 InstruCoT 的目标是让 LLM 不再靠"用户区 vs 数据区"的角色边界来防提示注入，而是学会从每一条指令本身判断它该不该被执行。整套方法分三步走：先合成一批覆盖面足够广的提示注入训练数据（三类威胁场景 × 四类上下文区域），再为每条样本生成一段三阶段的指令级思维链推理，最后在"CoT + 最终回复"拼起来的数据上做全参数监督微调，把模型养成"先做指令级分析、再作答"的习惯。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SYS["系统提示 + 原始任务"] --> GEN["多样化注入指令生成<br/>行为偏离 / 隐私泄露 / 有害输出 三类场景"]
     GEN --> RED["上下文区域归约与数据合成<br/>数据流分析 → User / Data / User+Data / Empty 四类区域注入"]

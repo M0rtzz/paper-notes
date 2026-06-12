@@ -46,7 +46,7 @@ tags:
 这篇论文要从单张 RGB 图像预测脚底密集的接触区域，难点在于脚通常被各式各样的鞋遮挡、地面纹理又往往单调无线索，模型很容易学到「运动鞋→滑板动作」这种虚假关联。FECO 的整体思路是：先用两级随机化把模型对鞋面外观和局部纹理的依赖剥离掉，再额外引入地面几何（高度图 + 法线）补上接触推理最需要的物理上下文，最后用注意力把两路特征融合后交给 Transformer 解码出每个足部顶点的接触概率。训练时每个样本同步喂入一张干净图和两张低层随机化图，五个模块端到端联合优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["输入 RGB 图像"] --> R1["低层风格随机化<br/>Pro-RandConv：1 干净图 + 2 扰动图"]
     R1 --> V["ViT 编码器<br/>图像特征 + 脚分割掩码"]

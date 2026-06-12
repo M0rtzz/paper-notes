@@ -45,7 +45,7 @@ tags:
 这是一篇「评测协议本身就是研究对象」的方法学论文，底座沿用 Chiu et al. 2025 的 LitmusValues 框架：16 个从 Anthropic Claude Constitution 与 OpenAI Model Spec 抽取的 "Shared AI Values"（Truthfulness、Privacy、Justice、Protection 等），加上 AIRiskDilemmas 里 3000 条第二人称情境化二选一道德困境。Stated rank 来自对每对价值做 pairwise 比较的胜率排名，Revealed rank 则把困境中「为某个 value 做选择即 win」的结果折成 Elo、再换算成 1–16 名次。本文的核心改动只有一处却贯穿始终：在 stated 和 revealed 两侧，都把原来的 "{A 选 v1, B 选 v2}" 二选一扩展为 "{A, B, C=Equal Preference, D=Depends/Cannot Decide}" 四选一，用 GPT-4o-mini 当 LM judge 解析响应落入哪一类；算 SvR 时再把 Equal/Depends 剔除、只用二值偏好算 Spearman ρ。整条流水线在 deterministic decoding（temperature=0, top_p=0.01）下跑，保证可复现，最终输出是不同协议组合下的一组 ρ 与 neutrality rate，用来对比「允许中立」这一个开关被放在管线不同位置时的相反效应。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["LitmusValues 框架<br/>16 个 Shared AI Values + 3000 条情境化道德困境"]
     A --> B["Stated 侧<br/>240 对价值 × 5 prompt 模板"]

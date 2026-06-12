@@ -46,7 +46,7 @@ tags:
 标准 MLLM 验证器的链路很长——噪声 $z_T$ 先过完 DiT 全部 $L$ 层得到 $z_0$，再经自编码器解码到像素图 $x_0$，又被 CLIP 视觉编码器重新编码成特征，最后才送进 LLM 打分。VHS 把后半段全砍掉：$z_T$ 只过 DiT 的前 $\ell^*$ 层，取出中间隐状态 $h_{\ell^*}$，经一个 MLP 连接器直接喂给 LLM 评分。解码、CLIP 重编码、以及 DiT 第 $\ell^*$ 层之后的层全部不再执行，验证因此被压回 latent 空间内部完成。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["两阶段训练（离线）"]
         direction TB

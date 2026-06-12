@@ -45,7 +45,7 @@ tags:
 CLCR 想解决的是这样一件事：语言、视觉、声学三个模态各自的特征其实分布在不同的语义层级上——文本里浅层是词、深层是意图，视频里浅层是外观、深层是事件，而以往的多模态融合往往把所有 token 拍平到同一层级直接混在一起，导致浅层的细节和深层的语义相互污染。CLCR 的做法是把"层级"显式保留下来：先让每个模态各自摊成浅/中/深三层（语义层级编码器），然后在**每一层内部**只让跨模态的共享信息做一次受控交换、把各模态的私有信息隔离开（IntraCED），最后再把三层的结果按重要性加权同步、聚合成一个任务表示（InterCAD）。整条链路是 编码三层 → 逐层受控互通 → 跨层加权聚合 → 输出预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["三模态输入<br/>语言 / 视觉 / 声学"] --> ENC["语义层级编码器<br/>BERT 早中晚层 · TCN 三阶段 → 浅/中/深三层"]
     ENC -->|逐层| INTRA

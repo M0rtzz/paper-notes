@@ -45,7 +45,7 @@ tags:
 CrossHOI-Bench 想回答一个问题：大型 VLM 能不能直接做 HOI 检测，又该怎么和 HOI 专用模型公平地比？它把 HOI 检测整体重构成「多答案多选题」——每张图配一道四选一的题，正例来自标注加人工补充，负例则是精心策划出来的「看着像但确实不对」的动作。这样模型答对未标注但正确的动作时不会被误判为错，从根上绕开了精确匹配 + 不完整标注带来的系统性低估。整条流水线分两大块：先用「三阶段数据构建」造出一套干净的多选题（任务重构 → 自动粗筛负例 → 人工精修并重分布测试集），再让模型在「三种评估设置」下统一打分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["HICO-DET 图像"] --> BUILD
     subgraph BUILD["三阶段数据构建"]

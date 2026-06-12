@@ -44,7 +44,7 @@ tags:
 TC-JEPA 在结构上沿用 I-JEPA：图像被切成 context patch $x$ 与 target patch $y$，context encoder $f_\theta$ 与 EMA target encoder $f_{\bar\theta}$ 分别给出 $z_x, z_y$，narrow ViT 预测器 $g_\phi$ 在 mask token 位置预测 $\hat z_y$，训练 loss 是 $\mathcal{L}_{\text{predict}}=\frac{1}{|B_y|}\sum_j\|\hat z_{y_j}-z_{y_j}\|_2$。关键变化是：给 $g_\phi$ 同时输入一组（最多 $N=8$）caption，用预训练 T5 把每条 caption 映射成词序列 $t\in\mathbb{R}^{d_t\times S}$，在预测器的每一层 patch 表示上叠加对 $t$ 的跨注意力调制。整条 pipeline 只用特征预测损失训练，不用 contrastive、不用 grounding 框。三个核心改动都集中在预测器内部——逐层文本条件、稀疏+一致性正则、多 caption max-pool 融合——编码器与 EMA target 分支沿用 I-JEPA。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["输入图像<br/>切成 context patch x / target patch y"]
     CAP["≤8 条 caption<br/>预训练 T5 → 词序列 t"]

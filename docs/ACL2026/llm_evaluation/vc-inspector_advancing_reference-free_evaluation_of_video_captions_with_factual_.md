@@ -46,7 +46,7 @@ tags:
 VC-Inspector 想做的是一个无参考、以事实准确性为核心的视频字幕评估器，输入一段视频和一句候选字幕，输出 1–5 分的质量分以及指出哪些对象/动作有误的文本解释。它绕开了"缺乏多梯度事实质量标注"这一最大瓶颈：先从 ActivityNet-Captions 的 ground-truth 字幕出发，用 LLM 可控地替换其中的对象和动作来批量合成不同错误程度的伪字幕，并按替换比例确定性地算出分数与解释；再把这批数据喂给 Qwen2.5-VL（3B/7B）做 LoRA 微调，冻结视觉编码器只训 LLM 部分，让评估器学会"看视频、对事实、给分数加理由"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视频 + ground-truth 字幕<br/>(ActivityNet-Captions)"] --> S1
     subgraph S1["可控事实错误合成流水线（设计 1）"]

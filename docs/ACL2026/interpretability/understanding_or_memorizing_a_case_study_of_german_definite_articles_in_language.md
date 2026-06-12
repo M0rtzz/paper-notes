@@ -46,7 +46,7 @@ tags:
 本文把德语定冠词系统当成一个受控的"语法实验台"：3 性 × 4 格 = 12 个格位，却只有 der/die/das/den/dem/des 这 6 种表层冠词，于是同一冠词常对应多种性-格组合。给定一对性-格格位之间的冠词转换（如阳性主格 der → 阴性主格 die），方法先用 Gradiend 从梯度里学出一个一维的参数更新方向，再带着学习率扫描把这个方向施加回模型（同时守住语言建模能力），最后从编码器值分布、干预后冠词概率变化、参数空间重叠三个互补视角判断：模型究竟在抽象规则上编码这次转换，还是只是记住了表层冠词的共现关联。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：一对性-格格位<br/>(如 阳性主格 der ↔ 阴性主格 die)"]
     subgraph G["Gradiend 梯度特征学习"]

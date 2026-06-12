@@ -51,7 +51,7 @@ U4D 采用两阶段"先难后易"的生成范式：
 - 两阶段的扩散骨干网络内部都嵌入 **MoST 时空融合模块**，把空间分支（帧内几何）与时间分支（帧间动态）的特征自适应门控融合，让生成序列在保证单帧保真度的同时维持帧间时序连贯。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["LiDAR 序列输入"] --> B["不确定性度量与表示<br/>RangeNet++ 估计逐点 Shannon 熵<br/>→ 取 Top-K 高熵点 → range-view"]
     B --> C["不确定性区域扩散模型<br/>无条件扩散重建高熵区域 + 有效性掩码"]

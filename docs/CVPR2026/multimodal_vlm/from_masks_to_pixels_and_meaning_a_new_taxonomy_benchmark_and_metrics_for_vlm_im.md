@@ -46,7 +46,7 @@ tags:
 PIXAR 的核心主张是用**像素级差异图**取代 mask 作为篡改监督信号，整套系统据此分成「基准构建」和「训练框架」两大部分。**基准构建**是一条四阶段流水线：阶段 1 图像生成（COCO 原图 + 8 种篡改类型 × 多个 SOTA 生成模型）；阶段 2 篡改有效性检查（先做几何校正对齐，再查编辑幅度与语义正确性）；阶段 3 图像保真度评估（Qwen3 自动打分 ≥9 叠加人工审核 ≥4/5）；阶段 4 标签构建（逐像素差异图经阈值 $\tau$ 二值化得像素标签，叠加人工语义标签，再过像素-语义一致性与空间集中度两道可靠性校验）。**训练框架**则在 LISA 式 VLM backbone（视觉编码器冻结、LoRA 微调）上挂四个任务头联合训练，同时学篡改定位（像素级 BCE + Dice 损失）、语义分类（多标签 sigmoid 交叉熵）、全局真伪检测（二分类交叉熵）和自然语言描述（自回归语言建模损失）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["PIXAR 基准构建（四阶段流水线）"]
         direction TB

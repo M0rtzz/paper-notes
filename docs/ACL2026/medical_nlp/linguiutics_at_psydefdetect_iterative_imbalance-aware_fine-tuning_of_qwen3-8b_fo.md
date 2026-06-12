@@ -46,7 +46,7 @@ tags:
 输入侧，每条样本拼成三段：DMRS Label Guide、最近 30 轮对话上下文、输出指令，模型只需吐出 0–8 的整数标签。训练数据是 PsyDefConv 的 train+validation 合并（1,864 条，另有 472 条测试），源对话 200 个。关键的一步是用 dialogue_id 做 grouped stratified 5-fold，保证同一对话及其增强样本不会被拆到不同 fold——这直接决定了后面 OOF 信号可不可信。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：DMRS Label Guide<br/>+ 最近 30 轮对话 + 输出指令"] --> DATA
     subgraph DATA["round-robin 少数类词法增强 + grouped CV"]

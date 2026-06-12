@@ -46,7 +46,7 @@ OPeRA 是一个从真实 Amazon 购物过程中采集的用户行为数据集，
 OPeRA 的构建可以看成“采集—清洗—评测”一条流水线。参与者先填一份 persona 问卷（可选半结构化访谈），随后在四周内装上 ShoppingFlow Chrome 插件，像平时一样在 Amazon 上购物，插件在后台同步记录每一步的动作、时间戳、目标元素、完整与简化 HTML、截图、商品元数据，并以约 8% 的概率弹窗追问用户“为什么这么做”。原始连续日志再经隐私清洗、session 分割、动作过滤和动作空间抽象，得到完整版 OPeRA-full 与更适合建模的 OPeRA-filtered，并从中抽出 OPeRA-test。最终每个购物 session 被组织成一条时间序列，模型要解决的任务是 $a_t = F_{action}(a_{1\ldots t-1}, r_{1\ldots t-1}, o_{1\ldots t}, P_i)$——给定用户 persona $P_i$、历史动作 $a$、历史 rationale $r$ 和当前网页观察 $o$，预测用户接下来会做什么。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["Persona 问卷 / 半结构化访谈<br/>人口统计 + 消费风格 + Big Five / MBTI"]
     subgraph COLLECT["ShoppingFlow 浏览器插件采集"]

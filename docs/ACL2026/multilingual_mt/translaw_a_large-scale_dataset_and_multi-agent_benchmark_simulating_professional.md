@@ -44,7 +44,7 @@ TransLaw 的贡献可以分成数据集和系统两条线。数据集 HKCFA Judg
 输入是一份英文香港终审法院判词，系统先按语义结构拆分为句子序列 $J=\{s_i\}$。Translation Command Agent 负责维护全局流程和前文翻译记忆；Translation Execution Module 中的 Legal Terminology Agent 先从香港律政司官方法律术语表检索候选术语，Sentence Translation Agent 再结合术语和上下文生成初稿；Expert Review Module 用多个专家 agent 检查语义、术语、引用和风格。如果审校发现问题，反馈会被映射为修改建议并进入下一轮翻译，直到反馈为空或达到迭代上限。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["英文判词"] --> B["命令层 Command Agent<br/>句子分割 + 维护翻译记忆"]
     subgraph EXEC["执行层（术语检索 + 句子翻译）"]

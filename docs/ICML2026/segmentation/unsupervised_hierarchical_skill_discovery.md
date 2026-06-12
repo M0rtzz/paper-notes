@@ -45,7 +45,7 @@ HiSD 从无标签观测轨迹出发——通过最优传输进行技能分割，
 HiSD 要解决的是「只靠无标签的观测轨迹，不用动作标签也不用奖励，就发现可复用的多层级技能」。它把问题拆成两阶段：先把轨迹切成语义一致的技能单元，再把这些单元压缩成可复用的层级。具体四步：（1）输入原始观测轨迹和特征向量；（2）用 ASOT 最优传输对轨迹做帧级技能分割，得离散技能标签序列；（3）把多条轨迹拼接成全局语料库，用 Sequitur 文法诱导发现可复用中层子程序；（4）生成最终的层级解析树。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["无标签观测轨迹<br/>原始像素 / 状态序列"] --> B["解耦的特征管道<br/>预训练提取器 PCA / MineCLIP<br/>→ 固定维特征向量"]
     B --> C["ASOT 自适应最优传输分割<br/>成本矩阵 + GW 时间正则 → argmax 硬化<br/>得帧级离散技能标签"]

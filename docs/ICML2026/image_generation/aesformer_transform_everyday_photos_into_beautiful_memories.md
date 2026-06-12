@@ -44,7 +44,7 @@ AesFormer 的核心由数据、规划和编辑三部分组成。数据侧用 VCM
 输入是一张普通用户拍摄的 poor 照片。Stage 1 的 AesThinker 先读取照片和提示，输出一条有序动作计划，覆盖 aspect ratio、framing/composition、camera viewpoint、subject placement、pose/action、focus/depth-of-field、color/light 七个渐进维度。Stage 2 的 AesEditor 接收原图和动作计划，在 flow-matching 编辑器上生成重构后的照片。训练时，动作监督来自 AesRecon 中 poor/good 对以及教程视频文本线索；编辑监督来自严格对齐的 poor/good/动作三元组。整个 pipeline 由数据、规划、编辑三块串起，分别对应下面三个关键设计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["VCMP 视频挖掘构建 AesRecon"]
         direction TB

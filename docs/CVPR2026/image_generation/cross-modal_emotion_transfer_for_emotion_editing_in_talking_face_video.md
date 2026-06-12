@@ -44,7 +44,7 @@ tags:
 C-MET 由三个部分组成：(a) 预训练编码器提取语音/视觉嵌入并计算情感语义向量（即两种情感嵌入之间的差值）；(b) 多模态 token 对比学习把语音与视觉表征空间对齐；(c) 跨模态 Transformer 编码器把目标语音差向量回归成目标视觉差向量，再加回当前嵌入、交给预训练解码器重建情感视频。整条链路只训练中间的对比对齐模块和回归器，前端编码器、后端解码器都复用现成模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入语音"] --> B["语音编码器<br/>(emotion2vec+)"]
     C["中性说话视频"] --> D["视觉编码器<br/>(EDTalk)"]

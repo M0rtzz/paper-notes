@@ -49,7 +49,7 @@ Rex 是一个**配方**而非单一格式：给一个显式 (S)RK 方案 $\bm{\P
 - **输出**：一族求解器 Rex (Euler)、Rex (Euler-Maruyama)、Rex (ShARK)、Rex (RK4)、Rex (Dopri5) 等，自动是 DDIM、DPM-Solver 等的"可逆版本"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：扩散反向 SDE/ODE（半线性漂移）<br/>+ 噪声调度 + 显式 (S)RK 基方案 Φ"] --> S1
     subgraph S1["Princeps：构造指数 (S)RK"]

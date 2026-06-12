@@ -45,7 +45,7 @@ tags:
 数据侧 RoTS 则在 20k 个有可复现快照的任务上建轨迹树 $T=(O,A,E)$（节点是 screenshot，边是 action）：先并行跑 $N=4$ 条 rollout 初始化，再迭代 $K=32$ 轮 "explore-recovery co-expansion"，每轮按外层 reward model $\mathcal{R}$ 把树切成成功子树 $T^{\text{corr}}$ 和失败子树 $T^{\text{fail}}$ 各扩展一次——前者主动找新错误，后者合成恢复轨迹。最后做后处理筛选，组装成 800k 训练样本去 SFT Qwen2.5-VL-7B/32B。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph EVAL["GUI-RobustEval 评测集构建"]
         direction TB

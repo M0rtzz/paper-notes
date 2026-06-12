@@ -46,7 +46,7 @@ tags:
 SCURank 想替换掉摘要蒸馏里两种不靠谱的候选排序方式——LLM 直接排序（不稳定）和 ROUGE 排序（只看表面 n-gram 重叠）——改成衡量"信息丰富度"。这些候选摘要本身来自多个不同 LLM（多 LLM 蒸馏），以拉开内容选择上的差异。拿到一篇文档的候选摘要池后，它分三步走：先用 gpt-4o-mini 从每个候选里抽出简短、独立、唯一的信息单元（SCU）；再把所有 SCU 编码成向量、用 HDBSCAN 聚类，让"被多个摘要共享的信息"自然聚成大簇；最后按每个摘要所含 SCU 的重要性求和、再除以长度打分排序。排好序的候选随后喂给 BRIO 对比学习去训练蒸馏模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源文档"] --> B["多 LLM 蒸馏<br/>GPT-4o / Claude / Gemini 各生成候选 → 候选摘要池"]
     subgraph SCU["SCU 提取与聚合"]

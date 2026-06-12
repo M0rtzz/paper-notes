@@ -36,7 +36,7 @@ tags:
 这是一篇方法论纠偏的分析工作，核心动作不是提新模型，而是给"零消融"找一组更公平的对照。作者对 DINOv2、DINOv2+registers、DINOv3 三个系列（ViT-S 和 ViT-B）做 hook-based 消融，在每个 block 输出后替换 [CLS] 或 register 的隐藏状态，然后在分类、检索、对应、分割四个下游任务上，把"清零"和三种"换成合理值"的控制实验摆在一起比——看性能崩的到底是因为 register 内容被破坏，还是因为零向量本身就是个分布外输入。立住"内容不重要"后，再用分布内验证排除"替换没生效"的解释，最后用有效秩与注意力流刻画 register 的真实角色。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["冻结 ViT 主干<br/>DINOv2 / DINOv2+R / DINOv3（ViT-S/B）"] --> B["逐 block 输出 hook 替换<br/>[CLS] 或 register 隐藏状态"]
     B --> Z["零消融基线<br/>置零向量（分布外输入）"]

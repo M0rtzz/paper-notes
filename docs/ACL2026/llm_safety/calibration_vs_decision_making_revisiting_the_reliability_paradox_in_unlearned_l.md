@@ -46,7 +46,7 @@ tags:
 评估时，RELU 把 TOFU QA 转成四选一 MCQA。模型对每个选项计算 likelihood，归一化成概率分布。作者用这些概率计算 accuracy、F1、Brier、ECE 和 MCE；再用 Integrated Gradients 找到影响预测选项 logit 的 top-10 token；最后用 Local Mutual Information 找出与标签高度相关的 top 5% token。如果一个预测的高 attribution token 与对应标签的高 LMI token 有交集，就把它记为 shortcut-cued prediction。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["TOFU 数据集<br/>按 1% / 5% / 10% 划分 forget / retain"] --> B
     subgraph B["多遗忘比例 × 多算法对照"]

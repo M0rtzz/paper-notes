@@ -46,7 +46,7 @@ tags:
 本研究是一条从理论到资源再到模型的三阶段流水线。第一阶段从社会科学（构层理论、时间心理学、政治传播学）推导出 8 类时间框架分类法；第二阶段构建语料库——从 GDELT 检索约 2M 候选文章，按主题/语言/媒体/月份分层采样、用 GPT-4o 做文档级观点预测并上采样到 70% 观点性文章，最终留下 458 篇英德新闻做人工句子级标注（LLM 标签只用于采样、不参与最终标注）；第三阶段把时间框架检测形式化为句子级多标签分类，对比零样本与有监督两类模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     T["社会科学理论<br/>构层理论 / 时间心理学 / 政治传播"] --> TAX["8 类时间框架分类体系<br/>8 种用时间劝说的手法"]
     TAX --> CORP

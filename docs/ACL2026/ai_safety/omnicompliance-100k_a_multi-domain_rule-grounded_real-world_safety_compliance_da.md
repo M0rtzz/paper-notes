@@ -46,7 +46,7 @@ tags:
 数据集构建分两阶段：(1) 规则收集——3 名计算语言学博士花一个月时间从 74 部法规/政策中人工整理出树状结构的规则体系，遍历树得到 12,985 条规则；(2) 案例采集——开发基于 Grok-4.1 的 Web 搜索智能体管线，对每条规则自动搜索、过滤和总结 8-10 个真实案例。最后把案例反向连回它触发的规则，构建规则-案例知识图谱，分析规则间的关联性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph RULE["多领域法规规则体系"]
         direction TB

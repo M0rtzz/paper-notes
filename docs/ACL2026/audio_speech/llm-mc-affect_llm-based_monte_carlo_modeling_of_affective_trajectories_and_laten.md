@@ -46,7 +46,7 @@ LLM-MC-Affect 的核心不是训练一个新的情感模型，而是定义一条
 得到教师和学生两条标准化轨迹后，方法计算不同对话滞后 $L$ 下的归一化互相关 $R_{TS}(L)$，并选取 $L^*=\arg\max_L |R_{TS}(L)|$ 作为主导时滞。如果 $L^*>0$，表示教师情感领先学生；如果 $L^*<0$，表示学生情感领先教师。同时，方法对每条轨迹做线性回归，用斜率 $\beta_T$ 和 $\beta_S$ 概括长期情感趋势。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["双人对话窗口 + 情感评分提示词"] --> S1
     subgraph S1["随机解码作为情感分布采样"]

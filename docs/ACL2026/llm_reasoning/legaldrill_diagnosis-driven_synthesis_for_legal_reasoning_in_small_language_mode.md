@@ -49,7 +49,7 @@ LegalDrill 是 teacher–student 迭代框架，每轮 $t$ 三步：
 - **迭代**：$\pi_{\theta_{t+1}}$ 进下一轮重新诊断，参考模型 $\pi_{\text{ref}} \leftarrow \pi_{\theta_t}$
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["法律 query x=(context, question)<br/>+ 当前学生 π_θt"]
     subgraph S1["Diagnosis-Driven 错误指令合成"]

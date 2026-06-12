@@ -46,7 +46,7 @@ tags:
 HSPD 三步流水线：(1) 去毒提示引导——设计提示让模型将有毒文本重写为保义无毒版本；(2) SoCD 解码——在解码时用有毒小模型 vs 基础模型的 logit 差异自适应地抑制 top-k 最偏差的 token 维度；(3) 多温度采样+融合重排——在多个温度下生成候选，用毒性分数×语义相似度加权选择最佳输出。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始有毒文本 a"] --> B["去毒提示引导<br/>套提示模板，转为保义重写任务 → 输入 x"]
     B --> SOCD

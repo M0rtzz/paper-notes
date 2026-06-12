@@ -49,7 +49,7 @@ tags:
 ReMoT 针对的是 VLM 一个具体短板：它们能做语义对齐，却常把相机旋转当成物体运动、误判夹爪开合、搞错角色运动方向，本质是训练数据里缺少对细粒度运动属性的显式建模。ReMoT 不做零散修补，而是从数据、训练、评估三个维度一起补：数据维度用多专家协同流水线造出 ReMoT-16K 运动对比三元组；训练维度系统比较 SFT、GRPO 及顺序/交替混合策略并配复合奖励；评估维度建 ReMoT-16k-Test 基准（600 评估三元组 / 1776 问题）做严格测量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["运动对比三元组构建（多专家流水线）"]
         direction TB

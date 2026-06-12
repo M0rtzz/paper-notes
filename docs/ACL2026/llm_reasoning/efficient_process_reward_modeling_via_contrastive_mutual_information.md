@@ -44,7 +44,7 @@ tags:
 对每个推理步：(1) 计算"有该步"和"无该步"时模型输出正确答案的 log 概率差异；(2) 同样计算对错误答案的差异；(3) 两者之差即为 CPMI 奖励。然后用归一化的 CPMI 作为软标签训练 PRM。推理时用 PRM 对候选轨迹评分选择最优。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：问题 q + 推理步 s_i"] --> S1
     subgraph S1["CPMI 奖励公式（单次前向传播）"]

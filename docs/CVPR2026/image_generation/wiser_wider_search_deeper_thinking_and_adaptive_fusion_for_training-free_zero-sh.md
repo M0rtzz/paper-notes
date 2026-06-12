@@ -49,7 +49,7 @@ WISER 要解决的是组合图像检索里两条路各有死穴的老问题：T2
 形式化地，给定参考图像 $I_{\text{ref}}$ 和修改文本 $T_{\text{mod}}$，编辑器 $\mathcal{F}$ 分别产出编辑描述 $C_{\text{edit}}$ 和编辑图像 $I_{\text{edit}}$，再由 CLIP 的视觉/文本编码器 $E_{\text{img}}$、$E_{\text{txt}}$ 编码成查询向量 $q_v$、$q_t$，在数据库 $\mathcal{D}$ 里按余弦相似度各自检索。后续三个关键设计正好对应论文标题里的三个词：Wider Search 把候选面铺宽、Adaptive Fusion 做验证引导的融合排序、Deeper Thinking 对没把握的检索做自反思精化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：参考图 I_ref + 修改文本 T_mod"] --> B["编辑器 F"]
     subgraph WS["Wider Search：两条路同时跑"]

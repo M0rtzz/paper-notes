@@ -44,7 +44,7 @@ tags:
 方法分两阶段。第一阶段抽取 naive 知识向量：对演绎 / 归纳 / 溯因三类任务，用"强提示 vs 弱提示"成对采样、只保留"强提示推对、弱提示推错"的样本，把每条样本生成阶段 token 的残差激活在层 $l$ 上做平均，得到正激活 $\bar a^+$ 与负激活 $\bar a^-$，再在这些激活上训练 BCE 线性探针 $p_r=\sigma(\theta_r^\top x+b_r)$，把探针权重 $\theta_r$ 当作该推理类型的"知识向量"（Llama-3.1-8B-it 与 Gemma-2-9B-it 都取 layer 13）。第二阶段做互补精炼：在三条 $\theta_r$ 之上叠加互补余弦损失与 SAE 子空间约束损失，连同探针 BCE 一起联合优化，得到精炼向量 $\theta_r^{\text{ref}}$；推理时把它加到 layer 13 的生成 token 上做 steering，即可放大对应推理能力。核心张力是——naive 向量两两近乎正交，而精炼的目标是让它们"该共享的共享、该独立的独立"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["演绎 / 归纳 / 溯因任务<br/>强提示 vs 弱提示成对采样"] --> B["layer 13 残差激活均值<br/>BCE 线性探针 → naive 向量 θ_r"]
     B -->|"三条向量两两余弦≈0，几何近乎正交"| REF

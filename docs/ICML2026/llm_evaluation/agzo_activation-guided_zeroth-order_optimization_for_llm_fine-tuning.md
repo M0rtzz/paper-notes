@@ -49,7 +49,7 @@ AGZO 面向全参数零阶微调。与 MeZO 一样，它先计算当前参数 $W
 AGZO 不保存完整激活用于反传。子空间抽取在激活可用时立即完成，提取出小矩阵 $A_\ell$ 后释放 $H_\ell$；扰动仍然通过随机 seed 再生。因此它比 MeZO 只多存每层 $d_{in}\times r$ 的 basis，远小于权重矩阵 $d_{out}\times d_{in}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["梯度-激活子空间分析（理论基础）<br/>∇Wℓf = Qℓ Hℓᵀ ⟹ 梯度行空间 ⊆ 激活列空间"] --> A
     A["mini-batch B + 当前参数 W"] --> B["前向计算 loss f₀=f(W;B)<br/>同时捕获各线性层输入激活 Hℓ"]

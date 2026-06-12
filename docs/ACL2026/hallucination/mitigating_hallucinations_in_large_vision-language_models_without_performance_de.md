@@ -44,7 +44,7 @@ tags:
 MPD 分为两个阶段：（1）幻觉成分提取——利用对比查询对构建忠实/幻觉表示，通过 SVD 正交投影分离出纯幻觉成分；（2）选择性参数更新——通过余弦相似度找到与幻觉成分最相关的权重向量，仅对这些权重施加空间投影编辑。输入是原始 LVLM + 少量对比数据对，输出是编辑后的无额外推理开销的 LVLM。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始 LVLM + 图像"] --> B["对比查询对构建<br/>辅助 LLM 生成幻觉/忠实配对查询（LURE）"]
     subgraph EXT["语义感知幻觉成分解耦（正交投影）"]

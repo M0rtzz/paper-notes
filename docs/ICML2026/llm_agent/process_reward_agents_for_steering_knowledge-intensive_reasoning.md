@@ -44,7 +44,7 @@ tags:
 PRA 要解决的是医学这类知识密集型任务里"没有局部可验证 axiom、又不能事后才纠错"的难题，做法是把奖励从被动打分器升级成一个在线介入生成的 agent。系统有三个组件协同：冻结的推理策略 $\pi$、过程奖励 agent $\mu_\phi$（一个 Qwen3-4B）、稠密检索器 $\rho$（MedCPT）。给定问题 $q$ 和知识库 $\mathcal{D}$，beam search 维护宽度为 $B$ 的部分轨迹集合 $\{\tau_t^{(j)}\}_{j=1}^B$；每一步先由 $\pi$ 对每条轨迹采样 $b$ 个候选下一步（共 $B\times b$ 个新轨迹），再由 $\mu_\phi$ 的 action readout 判断每条要不要检索——要就调 $\rho$ 取回 $D_t$，不要就置 $D_t=\varnothing$——然后 reward readout 在 $(q,\tau_t,D_t)$ 条件下给该步打分 $\hat r_t\in[0,1]$，按累积奖励 $R(\tau_t^{(j)})=\sum_{i=1}^t\hat r_i^{(j)}$ 取 top-$B$ 保留、其余剪掉；全部轨迹生成结束后取累积奖励最高的一条作为答案。整个流程里 policy 看到的输入和原始 CoT 完全一样，检索和打分都外化在 reward agent 上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["margin shift 自动标注（离线训练）"]
         direction TB

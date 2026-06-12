@@ -44,7 +44,7 @@ tags:
 把 LLM 红队过程建模为 Adversarial POMDP $(\mathcal{S}, \mathcal{A}, \mathcal{O}, \mathcal{R})$。Latent state 包含对话历史 $H_t$ 与未知防御 $\mathcal{D}$；动作是 attacker 生成的 prompt $x_t$；observation 是目标响应 $y_t$ 与 evaluator 反馈 $f_t$；reward $\mathcal{R}$ 衡量响应与恶意目标 $\mathcal{G}$ 的语义对齐度。整条 pipeline 在最多 $T_\text{max}=5$ 轮内迭代：每轮 Attacker 走完三阶段元认知（诊断 → 策略 → 实例化），与目标模型交互；Evaluator 把响应转成 $(s_t, J_t, M_t)$ 形式的密集反馈；trajectory $\tau_t$ 全部保留在 context 里实现 in-context meta-learning。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     G["恶意目标 + 对话历史 H_t"] --> ATK
     subgraph ATK["三阶段元认知 Attacker（策略网络 π）"]

@@ -43,7 +43,7 @@ tags:
 这篇论文要解决的是"同一个有害意图换个 jailbreak 包装就破"的脆弱安全对齐，做法是把"可自动验证的那个 prompt"当成锚、用 stop-gradient 把开放式变体单向往锚的表现上拉。具体地，一个 latent 意图 $z$（某条安全约束、某道数学题）经 rendering function $g(z,c)$ 在不同 context $c$ 下被表达成两类 prompt：一类是 **anchor**（多选/True-False/规则可判），一类是 **open variant**（jailbreak 包装、开放生成）。训练时 data loader 不再独立采样 prompt，而是按 $z$ 构造 **meta-group** $\mathcal{S}_z = \mathcal{A}_z \cup \mathcal{O}_z$ 一起喂给策略 $\pi_\theta$，对组里每个 prompt $s$ 照 GRPO 采 $K$ 个 completion 得 prompt 级均值 $\bar r_s$ 和方差 $\sigma_s$。于是在**同一参数 $\theta$ 下**就能同步算出锚奖励 $\bar r_{\text{acr}} = \frac{1}{|\mathcal{A}_z|}\sum_{s \in \mathcal{A}_z}\bar r_s$ 和每个开放变体的 $\bar r_c$，二者之差作为非对称系数打回 policy gradient。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Z["latent 意图 z<br/>(一条安全约束/一道题)"]
     subgraph MG["异质 meta-group 采样"]

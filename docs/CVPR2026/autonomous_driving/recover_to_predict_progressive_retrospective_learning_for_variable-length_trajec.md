@@ -41,7 +41,7 @@ tags:
 PRF 针对的是一个很实际的痛点：现有轨迹预测器都在固定长度观测下训练，一旦车辆刚进入感知范围、遮挡后重检、或追踪丢失导致观测变短，性能就断崖式下跌（DeMo 在 Obs=10 时 mADE6 从 0.658 恶化到 0.861）。已有方法多用"一步映射"把短特征硬拽到长特征，信息缺口一大就失效。PRF 换个思路：在编码器和解码器之间插入 $\tau$ 个级联回溯单元，每个单元 $\Phi^v$ 只把长度 $T_v$ 的特征往回补 $\Delta T$ 步、对齐到 $T_{v-1}$；推理时长度 $T_v$ 的输入依次过 $\Phi^v, \Phi^{v-1}, \dots, \Phi^1$ 逐级恢复到标准长度 $T_0$，再送进共享解码器预测。每个回溯单元内部由两个模块协同：回溯蒸馏模块 RDM 负责把特征对齐（推理时使用），回溯预测模块 RPM 在训练时为 RDM 提供隐式监督（推理时关闭）。所有变长观测共享同一个 encoder 和 decoder，因此 PRF 对 QCNet、DeMo 等现有方法即插即用。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["变长观测<br/>长度 T_v(如 Obs=10)"] --> B["共享编码器<br/>QCNet / DeMo"]
     B --> C["不完整特征 F^v"]

@@ -41,7 +41,7 @@ tags:
 UniRain 想用一个模型统一处理四种雨退化（白天/夜间 × 雨条纹/雨滴），核心判断是"数据质量比数据量更值钱、不同退化类型要动态平衡"。它把工作拆成两端：**数据端**先用一条 RAG 蒸馏管道把百万级公开数据筛成 52,869 对高质量样本（仅 2.6%），喂给模型的不再是良莠不齐的全量数据；**模型端**用一个非对称 MoE 去雨网络做重建，训练时再叠一层多目标重加权，让四种类型按各自收敛节奏被动态加权。下面三个设计分别对应"筛什么数据、网络怎么搭、怎么平衡训练"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["公开数据集<br/>>200 万对"] --> B
     subgraph B["RAG 数据蒸馏管道"]

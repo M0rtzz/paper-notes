@@ -44,7 +44,7 @@ tags:
 PhyGaP 要解决的是光泽/反射物体的逆渲染：普通 RGB 不编码法线、反射率、粗糙度这些物理量，导致 albedo 与反射光分解失败、重光照时出现色偏和伪影。它基于 2DGS + Ref-Gaussian，给每个高斯原语维护可学习的 albedo $\boldsymbol{\lambda}$、折射率 $\eta$、法线 $\mathbf{n}$、粗糙度 $r$，外加一个可学习的环境立方体 mipmap $E$。流程是：先用 α-blending 把这些属性溅射成 2D 材质图，送入 PolarDR 算出每像素的偏振 Stokes 向量，再用真值偏振图直接监督优化——偏振线索充当了 RGB 给不出的物理约束。其中 GridMap 负责把非凸物体的自遮挡间接光照算进 PolarDR 的辐射计算里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：多视角偏振图<br/>2 RGB 相机 + 线偏振片"] --> B["高斯属性 + 环境 mipmap<br/>albedo λ / 折射率 η / 法线 n / 粗糙度 r / E"]
     B -->|"α-blending 溅射"| C["2D 材质图"]

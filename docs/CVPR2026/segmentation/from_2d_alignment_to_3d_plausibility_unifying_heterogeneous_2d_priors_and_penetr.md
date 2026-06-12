@@ -40,7 +40,7 @@ tags:
 两阶段 pipeline：Stage 1 为 2D 多模态先验对齐，将关键点、分割、深度三种基础模型特征融合后指导手部参数回归；Stage 2 为 3D 穿透消除扩散模型，将穿透的双手姿态映射到物理合理的无碰撞配置。两阶段之间用 IoU / 穿透检测做门控——只有真正发生穿透的样本才进入 Stage 2 扩散，避免对无碰撞结果做冗余推理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["单目图像"] --> FAE
     subgraph FAE["融合对齐编码器 FAE（Stage 1：2D 结构对齐）"]

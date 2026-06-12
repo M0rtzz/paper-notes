@@ -46,7 +46,7 @@ tags:
 SOCIA-EVO 把"自动构建模拟器"重新定义为一个由六个专用智能体协作的闭环进化过程，目标不是功能跑通而是分布保真度——让生成的程序复现真实数据的统计规律与涌现行为。输入观测数据，数据分析智能体先产出一份静态蓝图 $\mathcal{B}$（不可变的权威规格）；随后进入进化循环：代码生成智能体依据 $\mathcal{B}$ 和当前剧本策略 $\mathcal{K}$ 产出模拟器代码 $P_t$ 与参数校准器 $C_t$，执行智能体跑内环优化参数 $\theta$ 并得到指标 $\mathcal{M}_t$，反馈智能体据此诊断偏差、剧本管理器更新策略库、迭代控制智能体判断是否收敛；如此循环直到指标平台化，输出最终模拟器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["观测数据"] --> B["数据分析智能体<br/>产出静态蓝图 B（双锚·防漂移）"]
     B --> K["背包式上下文工程<br/>从剧本按价值挑出高可靠策略"]

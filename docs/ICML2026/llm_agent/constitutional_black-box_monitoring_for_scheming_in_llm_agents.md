@@ -44,7 +44,7 @@ tags:
 这套框架要解决一个尴尬处境：想训练"只看外部行为"的阴谋检测器，却根本没有真实的阴谋样本可用。它的办法是把整条链路拆成三层串起来——先用宪法式合成数据生成补出训练集，再在这批数据上优化监控器，最后搬到完全独立的半真实沙盒里检验迁移效果。训练阶段在 STRIDE 和 Gloom 两条流水线上各生成 1,000 条平衡标注轨迹（共 2,000 条），用来调"监控器 = (LLM $M$ + 提示 $P$)"这个组合；评估阶段则全程在 ControlArena 的 7,500 条半真实轨迹上跑，地面真值由确定性环境检查而非 LLM 判断给出。无论训练还是评估，喂给监控器的都是去掉 CoT 的轨迹（用户消息 + 工具调用 + 工具输出），它只需吐出一个 $S \in [1,10]$ 的怀疑分数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["阴谋行为的自然语言定义（宪法）"] --> B
     A --> C

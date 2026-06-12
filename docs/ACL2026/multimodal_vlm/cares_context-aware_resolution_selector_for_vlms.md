@@ -44,7 +44,7 @@ CARES 的主版本是一个 discriminative selector：用截断后的 SmolVLM-50
 训练前，作者先对样本 `(x,q,gt)` 做多分辨率标注：把图像分别 resize 到候选分辨率，送入固定 VLM 得到答案，用 ANLS 或相应指标评估答案质量，选择最小充分分辨率作为标签。训练时 CARES 只看低分辨率图像和 query，学习预测该标签。部署时，CARES 输出连续分辨率，目标 VLM 只处理被缩放后的图像和原 query。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph LABEL["多分辨率充分性标注（训练前离线）"]
         direction TB

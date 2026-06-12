@@ -48,7 +48,7 @@ tags:
 TriDF 把"评估一个 MLLM 能不能可信地解释 DeepFake"这件事拆成可测的三件事：它能不能看见伪影（感知）、看见之后能不能下对真假判断（检测）、解释里有没有编造不存在的伪影（幻觉）。为支撑这三项测量，整条流水线分两段：先**造数据**——从公开数据集收人脸素材，用 16 种 DeepFake 技术生成真假成对样本，自动质控后由人工按一套**细粒度伪影分类体系**标注，得到可靠的真值清单；再**出题评测**——把每个样本包装成三类问题（判断题 / 选择题 / 开放题）丢给 MLLM 作答，最后用一套针对性指标分别打出感知、检测、幻觉三个分数。整套基准最终覆盖 16 种 DeepFake 类型、3 种模态、55K 样本，评估了 18 个 MLLM。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["30+ 公开真实人脸数据集<br/>图像 / 视频 / 音频"]
     A --> B["数据生成与质控<br/>50+ 模型造 16 种 DeepFake·每类≥3 模型·真假一一配对·自动质控"]

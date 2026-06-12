@@ -46,7 +46,7 @@ tags:
 每个样本提取所有层最后一个 input token 的 hidden states、生成文本和输出置信度；几何分析只使用答对的样本。随后在各层训练 L2 正则的 logistic regression 线性探针，用 5-fold stratified cross-validation 预测 reasoning-mode label，并在最佳层做 manifold geometry。最后，用格式残差、trace-anchor 相似度和 activation steering 检验该几何是否具有推理功能。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["750 样本三类数据<br/>LogiQA·ARC·αNLI → Qwen3-14B 取各层 hidden states"] --> B["多源推理探针与几何分析<br/>第 32 层 100% 准确率 + 三类簇分离"]
     B --> C

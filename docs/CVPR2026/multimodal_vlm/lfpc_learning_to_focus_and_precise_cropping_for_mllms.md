@@ -40,7 +40,7 @@ MLLM 在复杂视觉场景中的细粒度感知仍是挑战。Agent-based 方法
 LFPC 要解决的是一个很反直觉的现象：给 MLLM 配上裁剪工具、用 RL 训练它"放大看细节"，模型却学会了"先把答案猜出来，再随便裁一块图装样子"。LFPC 的思路是不去改奖励函数，而是直接动输入——让模型手里的全局图像"看不清楚"，逼它不得不靠裁剪区域才能答对。整条流水线分两阶段、全程纯 RL（GRPO），不需要任何教师模型轨迹：Stage 1 用"信息差"把裁剪从可有可无变成答题必需，而信息差降到多少由"不确定性驱动的分辨率选择"逐样本标定；Stage 2 再用少量框标注把裁剪框摆到准确位置。输入一张高分辨率图和问题，模型先在被降采样过的全局视图上判断"看不清"，于是调用裁剪工具从原始高清图里抠出关键区域，最终结合两者作答。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["高分辨率原图 + 问题"] --> S1
     subgraph S1["Stage 1：信息差机制（纯 RL / GRPO）"]

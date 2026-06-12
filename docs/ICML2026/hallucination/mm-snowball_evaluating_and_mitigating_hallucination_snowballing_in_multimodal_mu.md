@@ -43,7 +43,7 @@ tags:
 论文分两条主线推进。**第一条主线 (基准侧)**：通过 AHTS 流水线对真实图像 $v_i$ 生成 4992 条 6 轮对话轨迹（共 29952 条 OE 问题）。流水线分三阶段：（A）*Visual Atomic Proposition Construction* 将图像解析为结构化语义单元，建立 ground-truth 状态 $S_{GT}$；（B）*Causal Intervention & State Perturbation* 通过语义算子在 $S_{GT}$ 上施加反事实扰动得到幻觉状态 $S_{Hall}$；（C）*Adversarial Dialogue Trajectory Simulation* 用一个"欺骗性攻击者"与一个"分叉响应者"演 6 轮戏，把对话推过 5 个认知阶段：感知锚定 → 对抗分叉 → 推理升级 → 系统幻觉 → 视觉纠正。**第二条主线 (方法侧 CAVR)**：训练无关纠正方法，在推理时挂在任意自回归 MLLM 之上，针对作者观察到的两类视觉淡出（visual fading）分别给出表征层和 logit 层的双机制干预，整体作为"幻觉断路器"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["真实图像 v_i"]
     subgraph AHTS["AHTS 对抗轨迹合成（基准侧）"]

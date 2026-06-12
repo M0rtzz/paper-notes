@@ -44,7 +44,7 @@ tags:
 TRivia 分为两个阶段：(1) **数据准备阶段**——先用「响应一致性采样」从海量无标注表格图像里挑出最有训练价值的样本，再用「注意力引导的 QA 生成」为每张图自动产出一组覆盖全表的可验证 QA 对；(2) **训练阶段**——用 GRPO 强化学习，以"模型识别结果能否答对这些 QA"作为奖励来微调 VLM，全程不碰人工标注。这一 RL 阶段本身位于整体三段式训练的最后一环：OTSL 暖身（700K 合成数据）→ 监督微调（50K 真实数据）→ TRivia 自监督 RL（50K 无标注数据）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["无标注表格图像池"] --> PREP
     subgraph PREP["数据准备阶段"]

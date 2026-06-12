@@ -44,7 +44,7 @@ tags:
 VSCDNet 是查询中心多参考架构，分三阶段——（1）**帧级对齐**：均匀采样关键帧，ViT 编码后计算帧级相似度网格，通过软匹配找候选参考帧组合；（2）**补丁级对应**：对每个参考候选在补丁尺度上计算局部相关性体积，通过可微 warp 进行几何补偿；（3）**置信度加权融合**：结合帧级置信度（来自帧匹配分布）和补丁级置信度（来自局部匹配锐度和熵），对多参考变化特征进行加权融合，最后由查询引导解码器（注入查询 RGB 复原边界）逐帧解出高分辨率变化掩码。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["参考视频 + 查询视频<br/>无对齐 / 无时间同步"] --> KF["均匀采样关键帧<br/>冻结 SAM-ViT 编码"]
     KF --> S1

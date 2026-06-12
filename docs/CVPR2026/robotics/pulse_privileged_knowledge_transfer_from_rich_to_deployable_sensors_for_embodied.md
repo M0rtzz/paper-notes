@@ -38,7 +38,7 @@ tags:
 三阶段训练流程：(1) 自监督预训练——每个模态的 Masked Autoencoder + 跨模态共享嵌入对齐；(2) 特权知识转移——冻结 EDA 教师，将其隐状态和池化嵌入蒸馏到学生的共享子空间；(3) 监督微调——仅使用廉价传感器的融合表征做分类。推理时完全不需要 EDA。四个关键设计分别落在这条流程的不同环节：冻结教师在阶段 1 末尾把 EDA 编码器定住、阶段 2 全程当锚点；共享-私有分解发生在每个学生编码器的输出处；多层隐状态蒸馏与重建防崩塌则是阶段 2 蒸馏过程中并行作用的两条损失通道。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["阶段1 自监督预训练"]
         direction TB

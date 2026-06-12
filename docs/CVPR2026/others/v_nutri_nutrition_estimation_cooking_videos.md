@@ -47,7 +47,7 @@ V-Nutri 想解决的核心问题是：油、酱汁、乳制品这些营养关键
 整条管线分三段走。先用一个轻量的关键帧选择器扫一遍长视频，挑出营养信息最密集的过程帧（食材添加时刻）和最终成品帧；再用一个在食物数据上预训练好的视觉骨干把这些帧编码成特征；最后由一个注意力加权的融合头把过程证据和成品特征聚合起来，送进 MLP 回归出热量、蛋白质、脂肪、碳水四个数值。整个过程只训练后半段的融合与回归部分，骨干保持冻结。此外，作者还在 HD-EPIC 上补标了视频级营养真值，搭出这个方向的首个评测基准（数据侧贡献，不在上面的推理管线里）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["第一人称烹饪视频"] --> B["关键帧选择器（VideoMamba）<br/>滑窗打分取 top-K 食材添加时刻 + 成品帧"]
     subgraph H["冻结骨干 + 注意力融合（轻量预测头）"]

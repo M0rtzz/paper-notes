@@ -44,7 +44,7 @@ tags:
 OMIBench 包含 1000+ 道奥赛级多图推理题，每题平均 3.07 张图像。支持选择题和开放式作答两种格式。每道题配有专家验证的推理路径（rationale），支持精确匹配和语义等价两种评估模式。数据构建流水线串起三个贡献环节——多图竞赛题数据集构建、两阶段专家推理路径标注、双重评估协议，中间穿插质量控制与分类标注两步脚手架。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["竞赛 PDF 试题<br/>(IPhO / IChO / 国家级竞赛)"] --> B
     subgraph B["多图竞赛题数据集构建"]

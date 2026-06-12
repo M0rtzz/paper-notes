@@ -45,7 +45,7 @@ tags:
 在基础 VLM 之上引入三个新模块：(1) 语言世界模型 $f_{\text{world}}$ 接收当前观察和潜在动作，自回归生成下一个 token；(2) 逆动力学模型 $f_{\text{inverse}}$ 根据未来观察推断当前潜在动作索引；(3) 策略模型 $\pi_\theta$ 仅根据当前观察预测潜在动作。整个流程分两阶段：第一阶段构建潜在动作空间——先用跨模态投影器（cross-modal projector）把海量纯文本数据接进训练以增强覆盖度，再通过逆动力学学习出 128 大小的码本，并用行为克隆把策略模型对齐到该动作空间；第二阶段冻结世界模型，在紧凑的潜在动作空间上做下游任务的 RL 微调。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["配对图文数据 + 627B 纯文本数据"] --> PROJ
     subgraph PROJ["跨模态投影器与循环一致性损失"]

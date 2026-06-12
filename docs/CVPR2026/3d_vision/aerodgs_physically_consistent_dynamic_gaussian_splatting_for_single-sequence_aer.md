@@ -48,7 +48,7 @@ tags:
 AeroDGS 要解决的是单目无人机航拍视频的动态 4D 重建——这是个 inherently ill-posed 的问题：UAV 沿固定航线飞，每块区域只被看到一两次，动态目标（车、人）像素占比小却运动幅度大，单目深度本就病态，叠在一起就是严重的深度歧义和不稳定运动估计。框架的思路是“以物理补几何”：先用单目几何提升（MGL）从只有单次观测的序列里抠出可靠的静态背景和动态目标初始几何，把两者统一参数化成一套可微的 3D 高斯表示（动态目标的运动建模为 SE(3) 上的连续 6DoF 轨迹）；再用物理引导优化（PGO）把“物体该站地上、该直立、该平滑运动”这些常识写成可微损失去约束动态目标，消解单目歧义。光度重建损失与三个物理先验联合优化，静态背景与动态实体协同精炼。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["单目无人机航拍视频<br/>相机位姿未知, 每区域仅观测一两次"] --> MGL
 

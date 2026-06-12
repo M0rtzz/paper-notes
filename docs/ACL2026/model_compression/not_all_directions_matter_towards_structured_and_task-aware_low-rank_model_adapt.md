@@ -49,7 +49,7 @@ StructLoRA 保留标准 LoRA 的基本接口。对预训练权重 $W_0 \in \math
 训练时，IB 过滤器和 GNN 协调器都参与优化；推理时，这两个模块被丢弃，只把最终低秩更新合并进 $W_0$。因此 StructLoRA 的推理路径与 LoRA 一样，不需要额外前向、额外分类头或额外路由器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练权重 W0（冻结）+ 每层 LoRA 低秩对 A、B"] --> B
     subgraph TRAIN["训练期：增强模块参与优化"]

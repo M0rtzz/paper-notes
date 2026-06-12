@@ -45,7 +45,7 @@ tags:
 AlphaContext 把"专家写一篇心理测量情境"这件事拆成规划、生成、进化三个递进阶段，对应四个串联模块。输入是一个标题与主题查询 $Q$，先由 HyperTree Outline Planner 搜出一份层次化大纲，再交给 MCTS-based Context Generator 在大纲约束下逐句搜索出一篇种子情境，随后 Evolutionary Context Optimizer 用 MAP-Elites 在风格行为空间里反复变异进化，最后 Assessment-Guided Evolution Refiner 用虚拟被试模拟答题、把测不出创造力的低效情境打回前一阶段重练，最终输出既连贯、又能隐性激发创造力、且风格多样的长文本情境。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：标题 + 主题查询 Q"] --> B["HyperTree 大纲规划（HOP）<br/>超树搜索：选链 → 扩展 → 构建 → 定稿"]
     B --> C["MCTS 逐句生成（MCG）<br/>候选句 → 双时域评估 → UCT 搜索"]

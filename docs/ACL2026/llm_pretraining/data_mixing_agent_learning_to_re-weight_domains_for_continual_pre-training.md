@@ -46,7 +46,7 @@ tags:
 论文要解决的是持续预训练里那个老大难：在目标领域（如数学）上接着练会引发灾难性遗忘，于是要混入源领域数据，但"混多少、怎么随训练动态调"长期靠人工启发式拍脑袋。作者的思路是把这套混合启发式本身参数化成一个小代理，让它从数据里学。整体分三步走：先在一个 50M 参数的小代理模型上随机采样大量数据混合轨迹，边训边在 MMLU、MATH 上评测，攒下"某种混合比例 → 带来什么性能变化"的经验；再用离线强化学习 CQL 在这堆轨迹上训练数据混合代理，让它学会从当前状态映射到下一步的最优领域分布；最后把这个学好的代理直接挂到真正的大目标模型持续预训练里，每个重加权步骤由它实时预测下一步该怎么配比。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAJ["轨迹收集与评估环境（50M 小代理模型）"]
         direction TB

@@ -43,7 +43,7 @@ HeROD 要解决的问题是：DETR 风格的指代检测器（如 Grounding DINO
 整条管道这样转：给定一张图和一句指代表达（如"左边穿红帽子的人"），空间推理先验从表达里抽出方位词、在图像平面上画出一张位置似然图 $s_{\text{spa}}$（左侧像素分高、右侧分低）；语义推理先验把整句话喂给预训练 VLM，对图像各区域算出文本-视觉匹配分 $s_{\text{sem}}$（红帽子区域分高）。两张先验图融合成统一分 $s=\alpha\,s_{\text{spa}}+\beta\,s_{\text{sem}}$ 后，在 DETR 风格检测管道的三个决策点介入——候选排序、匈牙利匹配、预测融合——把骨干网络原本均匀的注意力偏向"既在左边又像红帽子"的候选。先验本身不带任何可训练参数，是叠加在现有检测器之上的轻量附加模块，可即插即用接到 Grounding DINO 等基础检测器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["图像 + 指代表达"] --> B["空间推理先验<br/>方位词 → 位置似然图 s_spa"]
     A --> C["语义推理先验<br/>VLM 区域匹配分 s_sem"]

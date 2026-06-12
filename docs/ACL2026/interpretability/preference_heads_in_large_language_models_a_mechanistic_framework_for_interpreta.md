@@ -48,7 +48,7 @@ tags:
 如果用户群体差异很大，论文还会先把用户画像编码成 embedding 并聚类。每个 cluster 内重新发现 Preference Heads，推理时根据用户到各 cluster 的相似度做 hard routing 或 soft routing，避免把所有用户的偏好头粗暴合并成一个全局集合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["用户条件数据<br/>任务输入 x · 用户画像 u · 参考输出 y*"]
     subgraph PCS["偏好贡献分 PCS（因果消融发现偏好头）"]

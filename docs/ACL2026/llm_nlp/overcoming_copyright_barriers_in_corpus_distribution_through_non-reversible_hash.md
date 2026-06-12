@@ -50,7 +50,7 @@ tags:
 由于两端文本可能存在增删改，单纯 exact match 只会完成一部分对齐。因此论文在初始对齐之后，对未对齐位置继续应用若干补救策略，包括基于重复哈希的传播、tokenization 修复、大小写修复和 MLM 预测。最后得到的是用户本地的“明文 token + 对齐标注”，而公开发布包始终只有“哈希 token + 标注”。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["创建者原文 token X + 标注"] --> B["截断 SHA-256 哈希<br/>每 token 哈希后截断到长度 2"]
     B --> C["公开发布包<br/>哈希序列 f(X) + 标注（无可读原文）"]

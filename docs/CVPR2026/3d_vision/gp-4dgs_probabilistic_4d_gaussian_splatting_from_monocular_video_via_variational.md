@@ -44,7 +44,7 @@ tags:
 GP-4DGS 想解决的问题是：单目视频里大量高斯原始体的运动只有零星几帧的可靠观测，旧方法靠手工固定先验硬套，既约束不住稀疏区也压死了密集区。它的做法是把"每个高斯怎么动"从一个确定性的变形函数换成一个**变分高斯过程**——把每个原始体的 4D 坐标 $\mathbf{x}=(\bm{p}, t)$（规范 3D 位置加时间）喂给 GP，由 GP 输出 9 维变形向量（3 维平移加 6 维连续旋转表示）。整条 pipeline 是两阶段交替转的：先在观测可靠的那批高斯上训练 GP、学出运动的相关结构，再回到 4DGS 优化阶段，用 GP 的后验均值当伪监督去约束那些观测不足、容易乱动的高斯。因为 GP 本身就是"函数上的概率分布"，不确定性、外推、自适应先验这三件事不用额外建模，直接从它的后验里读出来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：每个高斯的 4D 坐标<br/>(规范位置 p, 时间 t)"]
     subgraph GPM["变分高斯过程（输出 9 维变形：3 维平移 + 6 维旋转）"]

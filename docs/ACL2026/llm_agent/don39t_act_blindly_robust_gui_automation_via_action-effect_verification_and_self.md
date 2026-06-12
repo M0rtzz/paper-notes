@@ -44,7 +44,7 @@ tags:
 VeriGUI要解决的是GUI Agent"盲目执行"的问题：操作失败时不自知，继续在没变化的屏幕上往下走，最终陷入无限循环。它的做法是把"验证"显式写进每一步推理。给定截图和指令，Agent在每个交互步不只是输出一个动作，而是输出一组结构化结果——先思考（Think）、再对照上一步的预测验证当前屏幕是否如愿改变（Verification），然后给出动作（Action），最后预测这次动作应该带来的屏幕变化（Expected Effect），这个预测又成为下一步的验证标尺，形成时间上前后咬合的闭环。这套TVAE推理循环靠两阶段训练学会：Stage 1用Robust SFT在混合成功/失败轨迹上建立基本的验证行为，Stage 2用GRPO配合非对称奖励把"诚实的自我监控"精炼出来——整个过程不需要任何在线交互。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["截图 S_t + 自然语言指令"] --> TVAE
     subgraph TVAE["TVAE 推理循环（每个交互步）"]

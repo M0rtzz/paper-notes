@@ -46,7 +46,7 @@ tags:
 给定图文对和任务指令，LoRA适配的多模态LLM先进行CoT推理（视觉线索分析+背景知识分析），然后自回归生成结构化实体记录（实体名|语义类型|边界框坐标），训练时用GRBP替代硬框监督。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：任务指令 + (图像, 文本)"] --> B["LoRA 适配的多模态 LLM"]
     subgraph GEN["端到端生成式 GMNER（单一自回归链）"]

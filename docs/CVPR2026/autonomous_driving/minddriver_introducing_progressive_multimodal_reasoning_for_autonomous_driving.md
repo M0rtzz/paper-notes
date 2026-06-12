@@ -44,7 +44,7 @@ tags:
 MindDriver 以六路环视相机图像、历史前视帧、驾驶指令和自车状态为输入，通过统一的文本推理+视觉生成模型执行三阶段渐进推理：(1) 语义理解（Semantic Understanding，文本分析场景和决策）→ (2) 语义到物理空间想象（Semantic-to-Physical Imagination，基于文本生成未来场景图像）→ (3) 物理空间轨迹规划（Physical-Space Trajectory Planning，基于想象图像预测轨迹）。配套反馈引导自动数据标注流水线和渐进式强化微调来生成对齐训练数据、分段优化跨模态对齐。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：六路环视 + 历史前视帧<br/>驾驶指令 + 自车状态"]
     subgraph REASON["渐进式多模态推理（text→image→trajectory）"]

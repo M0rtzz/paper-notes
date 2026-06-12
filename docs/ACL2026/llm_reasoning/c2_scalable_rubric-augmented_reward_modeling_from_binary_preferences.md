@@ -49,7 +49,7 @@ tags:
 Rubric 结构是 reasoning 段 + 一系列 (criterion, yes/no question) 对。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     M["base model M（双重身份：M_g 生 rubric / M_v 当 verifier）"]
     M --> S1

@@ -46,7 +46,7 @@ tags:
 整个方法围绕一个核心归约展开：把"前缀解析"这个看似需要专用算法的问题，转化为"对一个新文法做普通解析"。给定原文法 $G$，先把它二元化（binarize，转成每条规则右侧长度 ≤2 的 canonical two-form），再施加**前缀文法变换**得到前缀文法 $G'$，使 $G'$ 恰好生成 $G$ 的所有前缀字符串；此后任何现成解析器（CKY、Earley 等）无需改一行代码、直接在 $G'$ 上跑就完成了前缀解析。在此基础上，再用**算法微分**（algorithmic differentiation）一次性算出所有单token扩展的前缀权重（即下一token权重向量），支撑高效的下一token预测与约束生成。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：加权上下文无关文法 G（WCFG）"] --> S1
     subgraph S1["前缀文法变换"]

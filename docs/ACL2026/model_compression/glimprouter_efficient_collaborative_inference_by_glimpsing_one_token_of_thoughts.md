@@ -47,7 +47,7 @@ tags:
 把 LRM 的 think 段切成 $\mathcal{T}=\{s_1,\dots,s_K\}$（按双换行切分），最终 answer 由 $M_L$ 生成。在每个 step $k$：(1) 用小模型 $M_S$ 在前文 $\mathbf{c}_k$ 上只解码第一个 token，得到 $\mathbf{H}_{\text{init}}(s_k)=\mathbf{H}(P_\theta(t_1|\mathbf{c}_k))$；(2) 若 $\mathbf{H}_{\text{init}}\leq\tau$ → Delegate，由 $M_S$ 自回归续写直至 step 分隔符；否则 → Intervene，把 $\mathbf{c}_k$ 交 $M_L$ 续写。所有协同动作 train-free，仅引入一个超参 $\tau$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["LRM think 段<br/>按双换行切成步 s₁…s_K"] --> G1
     subgraph G1["Glimpse：探针-派发（只看 1 个 token）"]

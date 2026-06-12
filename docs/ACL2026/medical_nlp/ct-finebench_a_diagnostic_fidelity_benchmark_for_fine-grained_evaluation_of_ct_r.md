@@ -50,7 +50,7 @@ CT-FineBench 由一条三阶段流水线组成，前两段离线（$\Phi_{\text{
 整条流水线只在离线阶段消耗大量 LLM 与人工，在线评测可以用本地小模型跑（见消融），适合大规模反复评测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["离线构建（Φ_Build）"]
         direction TB

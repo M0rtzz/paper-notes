@@ -44,7 +44,7 @@ QpiGNN 提出"无需分位输入、无需后处理"的 GNN 节点级预测区间
 QpiGNN 要解决的是 GNN 节点回归既要给点估计、又要给一个紧致且校准的预测区间，而且不能依赖分位输入或事后 conformal 校准。它的做法是把"预测"和"不确定性"在架构和监督两端同时拆开：一个共享 GNN 编码器先算节点嵌入 $\mathbf H=\text{GNN}(\mathbf X,\mathcal E)$，再分接两个线性头——预测头出区间中心 $\hat y$、半宽头出半宽 $\hat d$，区间即 $[\hat y_v-\hat d_v,\ \hat y_v+\hat d_v]$；训练时直接用标签去优化"覆盖率贴近目标 + 区间尽量窄"的联合损失。推理一次前向就拿到校准区间，不需要 calibration set，也不需要后处理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["节点特征 X + 边集 E"] --> B
     subgraph DH["双头 GNN"]

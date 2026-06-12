@@ -43,7 +43,7 @@ tags:
 论文要在 25+ 个 PVT 角下估计 SRAM 良率，但又不想为每个电路手调任何超参数。它把整套流程拼成一个闭环：先用拉丁超立方采样（LHS）抽一批过程参数并跑 SPICE 仿真拿到初始标签；如果参数维度超过 500，就先做一次自动特征选择把它压到 TabPFN 能吃的尺度；然后让 TabPFN 在已有样本上做一次上下文学习，直接给出每个待评估点的均值和方差；再用这个不确定性去挑下一批最值得仿真的样本，跑 SPICE、并回数据集；如此迭代到各角良率估计稳定为止。整条链路里真正贵的只有 SPICE 仿真，建模和采样决策都几乎零成本，而且没有一个旋钮需要人来拧。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：电路 + 25+ 个 PVT 角<br/>LHS 采样 + SPICE 得初始标签数据集"] -->|维度 > 500| B["自动特征选择<br/>GBDT 重要性排名 + 贪心前向，1152D → 约 48D"]
     A -->|维度 ≤ 500| S

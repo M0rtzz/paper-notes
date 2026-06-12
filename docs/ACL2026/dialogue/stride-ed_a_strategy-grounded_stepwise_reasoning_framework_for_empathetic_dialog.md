@@ -45,7 +45,7 @@ tags:
 STRIDE-ED 把共情回复生成当成一条递进的认知决策链来做：模型以对话历史 $\mathcal{C}$ 为输入，不直接吐回复，而是先在内部依次产出情境总结、情绪状态、共情策略和策略执行动作四个中间结果，再据此生成最终回复 $u_t$。每个中间步骤都被裹进结构化标签（`<Context>`、`<Emotion>`、`<Strategy>` 等），使推理过程既可解释又可被奖励信号约束。要让这条链真正学起来，框架先用一套覆盖全情绪谱系的策略体系定义「可选策略」，再用一条策略感知的数据精炼流程产出高质均衡的训练集，最后用 SFT 打底、多目标 PPO 收尾的两阶段训练把模型对齐到情绪、策略与格式三个维度，训练好的模型在推理时才能稳定走完这条认知链。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TAX["全面共情策略体系"]
         direction TB

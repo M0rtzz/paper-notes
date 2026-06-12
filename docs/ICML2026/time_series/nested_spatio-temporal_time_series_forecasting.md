@@ -47,7 +47,7 @@ NeST 处理 $N$ 个传感器、历史窗口长度 $L$、目标 horizon $H$、pat
 3. **推理阶段**：未来 $\mathbf{Z}$ 不可见，先用全零 mask token 经一个 boundary decoder 重构 $\hat{\mathbf{Z}}_{t+1:t+P}$ 作为初始引导，再做多步 rollout。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph REG["谱聚类语义区域抽取（设计 1，离线预处理）"]
         direction TB

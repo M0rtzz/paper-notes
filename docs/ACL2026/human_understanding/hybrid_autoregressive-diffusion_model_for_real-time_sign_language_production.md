@@ -47,7 +47,7 @@ HybridSign 的方法可以概括为“逐帧因果生成 + 局部扩散细化 + 
 在每个时间步内部，三个 expert 可以并行运行；时间步之间保留因果依赖。作者采用 self-forcing 策略：训练和推理时都把模型自己的上一帧预测作为下一步输入，而不是训练时喂 ground truth，从而减轻训练/推理分布不一致。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["自然语言输入"] --> POSE
     subgraph HYB["混合自回归-扩散生成框架（因果逐帧 + flow-based 扩散细化）"]

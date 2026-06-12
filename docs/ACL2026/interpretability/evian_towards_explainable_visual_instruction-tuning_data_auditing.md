@@ -46,7 +46,7 @@ tags:
 EVIAN 把一条视觉指令样本的回答当作"复合认知结构"来审计，而不是当作一整块不可分割的文本去打一个总分。流程分两步：先在 Phase 1 用一条三步思维链把回答拆成带标签的结构化形式与一份纯视觉摘要，把视觉描述、主观推理、事实声明三类内容彼此剥离；再在 Phase 2 沿逻辑连贯性 $S_L$、事实准确性 $S_K$、图文一致性 $S_V$ 三个互不重叠的维度各打 1-5 分，最终以三维平均 $S_{\text{overall}} = (S_L + S_K + S_V) / 3$ 作为可解释的数据质量分。此外，本文还自建一个受控缺陷注入基准，反过来量化这套审计管线的细粒度检测能力。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["视觉指令样本<br/>图像 + 指令 + 回答"] --> P1
     subgraph P1["Phase 1：三步思维链分解"]

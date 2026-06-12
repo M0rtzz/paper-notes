@@ -44,7 +44,7 @@ tags:
 Cold-EQS 是一个四阶段迭代框架：(1) 用少量点击数据 SFT 热启动；(2) 使用质量驱动奖励进行 GRPO 强化学习；(3) 通过不确定性采样从无点击在线数据中选取困难样本；(4) 多轮迭代 RL 训练持续优化。基础模型为 Qwen3-4B。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["冷启动在线查询<br/>(无点击标签)"] --> B["SFT 热启动<br/>少量点击正样本"]
     B --> C

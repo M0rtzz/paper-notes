@@ -46,7 +46,7 @@ tags:
 作者先定义 IFD 作为样本难度指标：$IFD(y|x)=PPL(y|x)/PPL(y)$，数值越大表示模型从 instruction 中获益越少、生成越困难。接着定义 ICI：$ICI_{i\rightarrow b}=IFD(y_b|x_b)-IFD(y_b|a_i,x_b)$。如果加入候选样本后 probe 的 IFD 下降，ICI 为正。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["指令数据集 D + 预算 k"] --> B["取候选样本 aᵢ 作 one-shot demonstration"]
     subgraph PROBE["多样且困难的 probe set 构建"]

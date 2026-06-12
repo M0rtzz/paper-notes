@@ -46,7 +46,7 @@ tags:
 PR-IQA 想解决的核心难题是：在没有像素对齐真值的情况下，给一张扩散生成的新视角图打出全图密集的质量分。它的破题思路是把整张图拆成"能直接评"和"评不了"两部分分别处理。第一阶段先在查询图与参考图的**几何重叠区域**算出一张可靠但只覆盖局部的质量图 $\hat{Q}$——重叠区有真实参考可对齐，质量估计可信；第二阶段再把这张残缺的质量图当作"锚点"，用一个三流编码器-解码器网络，借参考图提供的跨视图上下文，把非重叠区域的质量分"补全"出来，最终输出全图密集质量图 $Q$。整个流程读起来像图像修复，只不过补的不是像素而是质量分数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["查询图 + 参考图"]
     subgraph LOCAL["局部质量图生成（仅重叠区可信）"]

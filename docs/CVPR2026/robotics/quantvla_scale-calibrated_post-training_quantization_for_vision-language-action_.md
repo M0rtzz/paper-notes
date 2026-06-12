@@ -48,7 +48,7 @@ $$\Delta O \approx J_{\text{softmax}}(L_T) \Delta L \, V_T W_{o,T} + A_T \vareps
 整个框架就是对症下药：先用选择性量化布局把最脆弱的层留作浮点，再用两个轻量标量分别把温度和能量拉回教师的工作点。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RGB 帧 + 语言指令"] --> B["视觉编码器 + 语言骨干<br/>融合为视觉-语言特征 F_VL"]
     B --> C["选择性量化布局<br/>LLM 全线性层 W4A8；DiT 仅量化 MLP，注意力投影 Q/K/V/O 保浮点"]

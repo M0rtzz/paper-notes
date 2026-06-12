@@ -46,7 +46,7 @@ $$\min_{x} \max_{\theta} \mathcal{L}_{\text{res}}(x, a_{\text{tar}}) + \lambda \
 交替优化 trigger image $x$（最小化注入损失，把版权信息写进像素）和辅助模型参数 $\theta$（最大化注入损失，主动模拟下游 fine-tune 的抵抗），让 trigger 对参数变化也稳。整体流程是：先定好 trigger 的稀有 Q-A 与扰动预算，再在 min-max 内外循环里同时做两路注入并对抗训练，最后导出 trigger image 用于黑盒验证。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Trigger 设计<br/>稀有 Q-A 搭配 + ε=16/255 扰动预算"] --> B["初始化 trigger image x + 辅助模型 θ"]
     B --> C

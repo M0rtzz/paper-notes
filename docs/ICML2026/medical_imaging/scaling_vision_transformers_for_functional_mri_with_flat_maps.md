@@ -44,7 +44,7 @@ tags:
 整篇工作的核心是一个赌注：fMRI 本质是 4D 时空数据，但只要把它投影成对的 2D 表示，就能原封不动地复用现成的 spacetime MAE-ViT，不必为它重新设计架构。于是 pipeline 只有两件事——先把 3D fMRI 体积压成 2D 视频，再把视频喂进标准 MAE。具体地，HCP-YA 数据先经 FreeSurfer / fMRIPrep 的 surface 流程把每帧信号从 3D voxel 映到皮层表面网格，再用 pycortex 展平成 16 帧 × 224 × 560 的 flat map 视频；视频切成 $p_t \times 16 \times 16$ 时空 patch（默认 $p_t=4$），以 0.9 的比例 tube-mask 掉，ViT-B encoder 只看剩下的 sparse patch，decoder 重建被遮的部分。预训练完成后丢掉 decoder，encoder 输出当特征接 linear / attentive probe 做下游预测。为了让"flat map 是不是好表示"这个问题有可信答案，作者同时用同一套架构训了 parcellation MAE 和 volume MAE 做严格对照，并把这套对比固化成开源 benchmark。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["HCP-YA fMRI<br/>3D 体积 · 2.1K 小时"] --> B["surface 流程映到皮层表面网格<br/>+ 逐体素/逐帧 z-score 归一化"]
     subgraph EMB["三种表示 head-to-head 对比（只换 patch embedding）"]

@@ -52,7 +52,7 @@ DimABSA 不是一个模型，而是 **「数据集 + 子任务 + 评测指标 + 
 Tatar 和 Ukrainian 是低资源语言，通过把 Russian 数据用 Yandex Translate 机翻 + native speaker 复核（Tatar 45.5%、Ukrainian 35.6% 被人工修订）得到。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["12 个真实来源文本<br/>6 语言 × 4 领域"] --> SUB
     subgraph SUB["维度情感标注协议"]

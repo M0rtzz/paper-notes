@@ -50,7 +50,7 @@ DLO-Lab 整体分成三层：底层物理仿真器（Section 3）、中层 bench
 **输出**：可微的 reward、可导的轨迹梯度 $\partial r/\partial a_{0:T}$，供 GD/SHAC/SAPO 用；同时支持纯采样型 RL（PPO/SAC）和黑盒优化（CMA-ES）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入<br/>DLO 初始状态 + 目标条件 + 机器人构型"]
     subgraph SIM["可微 DER solver + 双向耦合（设计 1）"]

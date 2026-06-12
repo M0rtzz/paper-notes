@@ -45,7 +45,7 @@ FedDAP 框架包含三个阶段：
 3. 客户端下载全局原型，通过双重原型对齐策略进行本地训练
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["各客户端：计算局部原型<br/>（按 类别×域 划分）"] --> AGG
     subgraph AGG["域特定全局原型聚合（服务器侧）"]

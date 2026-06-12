@@ -44,7 +44,7 @@ NSPI 让 LLM 提出近似的多项式平方和 (SOS) 结构猜想，再用 Gauss
 NSPI 要证明 $f(x) \ge 0$，做法是把任务拆成"神经猜结构、符号修系数、Lean 验真"三段接力。先让 LLM 看一眼非负多项式 $f(x)$，吐出一个**近似**的 SOS 表示 $\hat f(x) = \sum_i \hat f_i(x)^2$（带浮点误差，按数值误差排序）；再取 Top-K 猜想做 Gauss–Newton 数值精化、有理恢复，得到**精确**的有理 Gram 矩阵；最后用预定义 Lean 模板把这张证书拼成完整证明，`linear_combination` 验等式、`positivity` 验非负。这样既借 LLM 的结构先验跳过了 SDP 在高维上的组合爆炸，又靠符号端兜住了精确性——LLM 猜得粗没关系，最后是机器内核说了算。下图把这三段接力画出来，三个 subgraph 各对应下面一个关键设计：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：非负多项式 f(x)"] --> B
     subgraph S1["双轨 SOS 数据合成 + 两阶段训练"]

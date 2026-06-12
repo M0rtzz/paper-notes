@@ -45,7 +45,7 @@ tags:
 Diffusion-CAM 要解决的是"传统 CAM 默认顺序注意力，而 dMLLM 是并行去噪"这一根本错位。它先在 dMLLM 的中间 transformer 块挂上 hook，从去噪轨迹中挑出仍保留完整图像条件信息的"结构有效步"，提取该步的图像 token 特征与梯度；再把最终响应分数反向传播到图像区域，按 Grad-CAM 方式聚合出一张基础热力图；最后串接四个针对扩散噪声特性设计的后处理模块，把这张弥散、带架构伪影的粗图精炼成定位准确、背景干净的视觉解释。输入是 dMLLM 的去噪过程与图文，中间是有效步上的梯度归因，输出是忠实的视觉热力图。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：dMLLM 去噪过程 + 图文"] --> B
     subgraph S1["扩散式 CAM 适配（三步改造）"]

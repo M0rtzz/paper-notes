@@ -46,7 +46,7 @@ tags:
 TF-TTCL 在每个测试样本到达时执行三步循环：(1) 语义查询增强（SQA）——用 Teacher/Tutor/Student 三个角色生成多样推理轨迹；(2) 对比经验蒸馏（CED）——将轨迹分为正负样本，从对比中蒸馏文本规则；(3) 上下文规则检索（CRR）——从规则库检索相关规则指导当前推理。所有角色共享同一冻结 LLM，仅用不同 system prompt 和解码配置。整个循环不更新任何参数，被"更新"的只有规则库这一上下文。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["测试查询"] --> B["上下文规则检索 CRR<br/>从正/负规则库各取 Top-K 条相关规则"]
     B --> C

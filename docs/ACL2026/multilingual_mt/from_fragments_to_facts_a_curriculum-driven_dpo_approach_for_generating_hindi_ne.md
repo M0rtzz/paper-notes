@@ -46,7 +46,7 @@ DeFactoX 包含两条主线：先构建 Hindi 新闻偏好数据，再用 curric
 第二阶段是 curriculum-driven preference optimization。对 rejected responses，用 $f_s$ 评分函数衡量它们与 ground-truth rationale 的相似度，并按 rank-0、rank-1、rank-2 划分难度。模型先学习最容易区分的低质量 rejected，再逐步面对更接近 preferred 的 rejected。最后，用 Hin-DPO 损失把 preferred / rejected 的 log probability ratio、Actuality 和 Finesse 结合起来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Hindi 新闻（fake / real 各 5000 篇）"]
     subgraph DATA["合成 Hindi 偏好数据集"]

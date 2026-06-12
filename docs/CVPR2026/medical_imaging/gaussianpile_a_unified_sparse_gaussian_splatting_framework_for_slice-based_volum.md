@@ -40,7 +40,7 @@ tags:
 整条 pipeline 串起来是这样：先把每个高斯投影到当前要渲染的切片深度上（Scan）；再用焦点模型对它做轴向重参数化和不透明度调制，把离焦平面太远的信号衰减掉；最后做屏幕空间投影并把所有高斯的贡献**累加**成 2D 图像。训练时随机抽切片当虚拟相机来回拟合，结束后这组原语既可渲染任意切片也可量化压缩存盘。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["一组 Focus Gaussian 原语 + 灵敏度图 h(σz)"] --> B["焦点感知物理模型<br/>PSF 卷积，σz 编码焦深"]
     subgraph R["Focus Gaussian 可微渲染"]

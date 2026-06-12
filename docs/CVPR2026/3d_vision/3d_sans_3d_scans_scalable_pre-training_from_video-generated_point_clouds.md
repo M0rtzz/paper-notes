@@ -44,7 +44,7 @@ tags:
 整条流水线分两半。前半是数据侧：用关键词搜来的导览视频先经 CLIP 逐帧分出室内/室外、再按房间类型切段，然后送进 π³ 前馈重建逐场景生成带颜色的点云，过滤离群点后得到 49,219 个场景的 RoomTours 数据集——全程不碰任何真实扫描。后半是预训练侧：在这些噪声点云上用教师-学生聚类做表示学习，并额外挂两个针对噪声的正则项（拉普拉斯平滑稳局部、噪声一致性稳全局），最后把学到的 PTv3 backbone 拿去做下游分割的微调或线性探测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["数据侧：RoomTours 数据集构建（零真实扫描）"]
         direction TB

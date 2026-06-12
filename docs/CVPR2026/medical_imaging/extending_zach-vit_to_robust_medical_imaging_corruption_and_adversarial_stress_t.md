@@ -47,7 +47,7 @@ tags:
 这篇不提新架构，核心贡献是一次鲁棒性评估：在低数据医学影像下，验证「去掉位置编码的置换不变 ViT」的干净性能优势能否延伸到真实扰动。它在统一实验设置下对比 4 个从头训练、参数量均 < 1M 的紧凑骨干——ZACH-ViT（置换不变 ViT）、ABMIL（注意力 MIL 池化）、Minimal-ViT（标准紧凑 ViT）、TransMIL（Transformer MIL）——所有模型共享同一套少样本训练协议和评估流程，确保差异只来自架构设计。整套评估协议本身就是这篇论文的方法贡献：把 4 个模型放进同一少样本协议训练，再分四档逐级加压，最后用数据集无关的指标聚合成可比的总分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["4 个紧凑骨干（均 <1M 参数）<br/>ZACH-ViT · ABMIL · Minimal-ViT · TransMIL"] --> B["少样本协议<br/>7×MedMNIST · 每类 50 样本 · 5 种子 · 固定超参"]
     B --> COND

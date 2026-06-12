@@ -53,7 +53,7 @@ FloWM 的核心是**一条每步递推**，把"看不见"和"不存在"在隐空
 **输出**：预测观测 $\hat{f}_{t+1}$（从隐空间的视野子集解码）
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     OBS["观测 f_t（图像）+ 行动 a_t（位移/旋转）"]
     ENC["ViT 编码器 E_θ（学习等变性）<br/>平凡提升：同一观测广播到全部速度通道"]

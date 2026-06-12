@@ -46,7 +46,7 @@ tags:
 FADE 想做的事很直接：不去攻击 TBP 跟踪器看得见的检测框，而是攻击它看不见的内部状态——那一组在帧间自回归传播的 track query 和隐状态。整条流水线是一个标准的 PGD 优化循环：先在输入帧上叠加一层扰动（数字像素扰动，或物理传感器欺骗），把扰动后的帧喂给目标跟踪器；跟踪器照常吐出检测预测和每条轨迹的隐状态，FADE 在这些中间量上挂一个攻击损失（耗预算的 $\mathcal{L}_{TQF}$ 或毁记忆的 $\mathcal{L}_{TMC}$）；梯度沿着可微分的跟踪管线一路回传到扰动参数，迭代更新扰动。换句话说，攻击者借的就是 TBP 自己的查询匹配和记忆传播机制，让跟踪器的结构优势变成它的命门。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入视频帧"] --> P
     subgraph P["可微分扰动管线"]

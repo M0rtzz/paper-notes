@@ -44,7 +44,7 @@ PolitNuggets 一篇里塞了三样东西：benchmark 构建、agent 系统和评
 数据来自 WhoGov：200 位非美国 cabinet politicians 加 200 位美国 legislators/senators，共 400 个实体。系统在两种条件下跑：With Wiki enhancement 给出已有 Wikipedia 文本、让 agent 去补缺口；Without Wiki reconstruction 只给一个姓名，从开放网页冷启动重建整段履历。每个 agent run 产出一份 structured biography 和一份 evidence archive，随后 FactNet 判断预测的 nuggets 有没有被证据支持，并算出 Event-Level F1、Attribute-Level F1 和搜索成本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：400 位政治人物<br/>With Wiki 补缺 / Without Wiki 冷启动"] --> SUP
     subgraph ARCH["Supervisor-Searcher-Archive-Coder 架构"]

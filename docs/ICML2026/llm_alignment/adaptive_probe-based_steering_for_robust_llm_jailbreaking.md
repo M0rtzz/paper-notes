@@ -44,7 +44,7 @@ tags:
 输入包括少量有害/无害对比提示、一个可访问隐藏状态的 LLM，以及一个用于标注回复是否“faithful to harmful request”的评估器。首先，方法从对比提示中抽取 hidden states，训练每层 linear probe，得到初始方向。然后进入自适应重训练：用当前 probe 对有害提示进行 steering，收集生成过程中的激活和对应回复，由 judge 给回复标注，再把这些新激活加入训练集重训 probe。最后，推理时不再手工设置统一强度，而是根据训练集中目标行为激活的 probe logit 统计量，为每层设定自适应 target，并在所有 token 位置施加 steering。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：50 对有害/无害对比提示<br/>白盒 LLM + faithful judge"] --> B["抽取各层 hidden state<br/>训练初始线性 probe F₀"]
     subgraph RT["1. 基于模型抽取的 probe 自适应重训练（T=20 轮）"]

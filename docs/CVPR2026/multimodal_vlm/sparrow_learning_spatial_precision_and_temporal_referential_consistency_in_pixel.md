@@ -44,7 +44,7 @@ tags:
 SPARROW 要在不动基础视频 MLLM 架构的前提下，同时治好两个老毛病：分割结果跨帧"换人"（身份不一致）与首帧定位飘忽（误差逐帧累积）。它的做法是在原有 pipeline 上挂两组轻量、即插即用的模块——**目标特定追踪特征（TSF）** 负责注入时间一致性、**双提示定位（Dual-Prompt Grounding）** 负责稳住首帧空间精度。一段视频先经双分支视觉编码器——空间分支 ℱg 抓单帧外观、时间分支 ℱh 抓帧间运动——再过 V→L 适配器送进 LoRA 微调的 LLM；LLM 不只回答文本，还吐出两类特殊 token：[BOX] 和 [SEG]，二者经 L→V 适配器投影回视觉空间，[BOX] 驱动类无关 proposer 给出几何框、[SEG] 驱动 SAM2 像素解码，最终以粗到细方式合作出 mask。TSF 模块则只在训练时把跨帧追踪到的目标外观拼进输入、推理时默认撤掉。由于所有新增模块都不改骨干，这套设计能直接套到 UniPixel、GLUS、VideoGLaMM 等不同架构的视频 MLLM 上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["输入视频 + 文本 query"] --> ENC["双分支视觉编码器<br/>空间 ℱg + 时间 ℱh"]
     ENC --> LLM["V→L 适配器 → LoRA 微调 LLM"]

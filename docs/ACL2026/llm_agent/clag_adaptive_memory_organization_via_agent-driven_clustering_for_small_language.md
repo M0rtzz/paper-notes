@@ -44,7 +44,7 @@ tags:
 CLAG 是一个推理时运行、无需训练的结构化记忆框架，目标是让小语言模型 Agent 在保持自进化能力的同时摆脱全局记忆池的跨主题干扰。它的输入是源源不断写入的新记忆和查询，中间把记忆组织进一组语义一致的聚类，输出则是经过聚类过滤后的精准检索结果。整条流水线由三个环节串起来：Agent 路由把每条新记忆送进最相关的聚类，局部进化只在该聚类内部更新和整合相关记忆，两阶段检索则先筛聚类再在聚类内细粒度匹配。值得注意的是，路由、进化、选择这三类决策全部由同一个 SLM 主干承担，只是换上不同角色的 prompt。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     NEW["新记忆"] --> ROUTE
     subgraph ROUTE["Agent 驱动的记忆路由"]

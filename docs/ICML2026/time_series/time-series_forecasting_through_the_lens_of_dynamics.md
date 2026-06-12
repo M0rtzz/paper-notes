@@ -45,7 +45,7 @@ $$M_\theta: X \xrightarrow{f^{\text{pre}}_{\theta_{\text{pre}}}} X_{\text{pre}} 
 其中 $f^{\text{dyn}}$ 是把时间从 $T_X$ 推向 $T_Y$ 的 DYN 函数（橙色，唯一负责"未来预测"），$f^{\text{pre}}, f^{\text{post}}$ 是 PRO 函数（蓝色，停在输入时间区间内做特征提取/上下采样）。可逆归一化等不进入命名法。作者按"DYN 是否完整可学 + PRO 配置形态"对 16 个模型分类，对照 TFB benchmark 多元 TSF 排名抽出两条规律，再用反事实手术验证。整条研究链路如下：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DECOMP["PRO-DYN 三段命名法<br/>（Allen 区间代数贴标签 + 对照排名抽规律）"]
         direction TB

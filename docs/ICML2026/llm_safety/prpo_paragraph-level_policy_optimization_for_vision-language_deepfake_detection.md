@@ -43,7 +43,7 @@ tags:
 整套方法要让一个 MLLM 既能高精度判别 deepfake、又能给出对齐图像证据的分段理由，分三阶段递进：先合成数据、再换 backbone 做监督微调、最后用段落级 RL 在 test-time 持续自对齐。第一阶段 **DF-R5 数据合成**用 4 个 MLLM 池化 200 个候选 deepfake 特征，让 Gemini 对每张图打分、把分数聚成 ≤7 个语义组，生成 115k 条段落式推理标注。第二阶段 **DX-LLaVA 微调**把 LLaVA 的 CLIP ViT 换成对局部纹理更敏感的 CLIP ConvNeXT，配合一个二分类 head 联合训练。第三阶段 **PRPO test-time RL** 对每张图采样 $L$ 条完整 reasoning，把每条按段切开、逐段算 reward、组内归一化成 advantage，再用 PPO-clip 形式更新策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["DF-R5 数据合成（三步流水线）"]
         direction TB

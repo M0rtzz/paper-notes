@@ -49,7 +49,7 @@ tags:
 EchoAgent 把超声医师「学知识→看图像→做测量→下判断」的工作流拆成三个阶段，让一个 Agent 同时具备眼、手、脑。先由专业知识驱动认知引擎（EDC）建好领域知识库，给 Agent 一个会查指南的「脑」；再用分层协作工具箱（HC）配齐识别视图、分割结构、算临床参数的「眼」和「手」；最后由编排推理中枢（OR Hub）统筹调度，按诊断查询一步步检索知识、调用工具、构建证据，置信不足时回头补测，直到给出可追溯的结论。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：超声视频 V + 诊断查询 Q"]
 

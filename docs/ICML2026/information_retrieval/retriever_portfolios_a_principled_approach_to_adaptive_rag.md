@@ -49,7 +49,7 @@ tags:
 **在线阶段**：来一个 query $\mathbf{q}$，router 把它编码后和 $k$ 个"retriever embedding"算相似度，挑出 top-$\ell$ 个 portfolio 成员**并行**执行检索 + LLM 生成，最后 selector 聚合候选答案。关键点是 $\ell\le k$ 都是**固定**的小常数，所以延迟可预测、调用可并行。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["离线阶段"]
         direction TB

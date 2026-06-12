@@ -46,7 +46,7 @@ tags:
 ErrorProbe 是一个三阶段管线：输入为失败的多智能体交互轨迹和故障症状描述，输出为责任 agent、错误起源步骤和故障类型。首先通过 MAST 分类法检测局部异常标签，然后从症状出发进行后向追踪剪枝上下文，最后由三个专业 agent 协作诊断并更新验证式记忆。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["失败轨迹 + 故障症状描述"] --> B["MAST 引导的结构化分解<br/>逐步标注 agent/角色/动作，检测 14 类局部异常"]
     B -->|"语义锚点收缩嫌疑区"| C["症状驱动的后向追踪<br/>依赖图从症状节点 BFS，剪出因果子集 x′"]

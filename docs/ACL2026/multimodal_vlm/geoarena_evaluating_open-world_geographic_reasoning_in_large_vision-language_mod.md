@@ -50,7 +50,7 @@ $E_{\text{reasoning}}(M)=\mathbb{E}_{(I,P)}[\mathcal{A}(M(I,P),\mathcal{H})]$
 ，其中 $\mathcal{H}$ 是"人类地理期望"的隐空间，$\mathcal{A}$ 衡量推理链与人类空间逻辑的对齐度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["用户上传<br/>图像 I + prompt P"]
     subgraph PIPE["三阶段交互管线"]

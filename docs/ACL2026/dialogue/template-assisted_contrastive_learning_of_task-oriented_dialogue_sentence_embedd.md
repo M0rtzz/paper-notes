@@ -45,7 +45,7 @@ tags:
 TaDSE 的核心想法是把对话里「同一模板对应多条表述」这种现成的 token 级结构，转化成句子级对比学习的免费监督信号。它以对话话语及其对应模板为输入，先做模板感知的数据增强扩充 utterance-template 配对的多样性，再用一组三路对比损失同时雕刻模板表示、话语表示与配对表示，最后在推理时把模板表示按比例融回话语表示，输出区分度更高的句子嵌入。整条流程不依赖任何话语级语义标注，纯无监督。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：对话话语 + 对应模板"] --> B
     subgraph B["模板数据增强"]

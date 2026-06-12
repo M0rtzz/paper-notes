@@ -56,7 +56,7 @@ BUS 图像的特殊性：(1) 肿瘤与周围组织对比度低，边界模糊；
 整体分三阶段走。第一阶段 APPG 把 GPT-5 写出的肿瘤外观描述喂给 Grounding DINO 定位、再交给 SAM 分割，为所有未标注图像免训练地生成一批初始伪标签。第二阶段先按前景面积阈值（>1% 图像面积）过滤掉空/无效掩码，再用这批伪标签做 warmup，把训好的模型冻结成静态教师 $T^A$。第三阶段进入双教师半监督训练：冻结的 $T^A$ 和随学生 EMA 更新的动态教师 $T^B$ 同时给出伪标签，经 UEWF 逐像素融合后监督学生，AURCL 再专门盯住边界模糊区域补一刀对比学习。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph APPG["APPG：免训练伪标签生成"]
         direction TB

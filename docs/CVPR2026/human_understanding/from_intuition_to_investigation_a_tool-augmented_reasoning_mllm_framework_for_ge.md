@@ -48,7 +48,7 @@ TAR-FAS 把人脸反欺骗从"看一眼就下结论"改造成"先怀疑、再取
 要让一个普通 MLLM 学会这套"会调工具的侦探"行为，作者搭了一条从数据到强化学习的完整链路：先造一份带工具调用轨迹的数据集 ToolFAS-16K，再用三阶段训练把"懂人脸 → 会调工具的格式 → 自己摸索调工具的策略"逐级灌进模型。下面三个设计——ToolFAS-16K 数据集、三阶段训练、DT-GRPO 的工具多样性奖励——分别支撑这条链路的数据、训练流程与强化学习策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["ToolFAS-16K（数据构建）"]
         direction TB

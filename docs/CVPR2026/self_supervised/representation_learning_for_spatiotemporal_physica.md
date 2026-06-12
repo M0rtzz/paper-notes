@@ -46,7 +46,7 @@ tags:
 这篇论文本质是一场"控制变量的比武"：要回答的问题是——在时空物理系统上，哪种学习范式学到的表示最"懂物理"。为了让答案可量化，作者把所有方法都放进同一套评估协议里：先在某个物理系统上预训练一个 encoder，然后**冻结 encoder、只训练一个 attentive probe**去估计该系统的物理参数。参数估计误差越低，说明 encoder 的表示里保留的物理信息越多。比武的舞台是 The Well 数据集里的三个 2D PDE 系统：活性物质（待估参数 $\alpha$, $\zeta$）、剪切流（Reynolds 数、Schmidt 数）、Rayleigh-Bénard 对流（Rayleigh 数、Prandtl 数）。参赛选手分两类四种——通用自监督的 JEPA 与 VideoMAE，专为物理设计的 DISCO 与 MPP，它们的核心差异都落在"在隐空间预测，还是在像素空间重建/预测"这一条轴上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["三个 2D PDE 系统<br/>活性物质 / 剪切流 / RB 对流"] --> B["在各系统上独立预训练 encoder<br/>(6 epochs，控制变量比武)"]
     subgraph LAT["隐空间预测范式"]

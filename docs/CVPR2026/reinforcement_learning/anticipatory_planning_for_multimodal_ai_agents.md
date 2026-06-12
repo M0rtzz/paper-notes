@@ -47,7 +47,7 @@ tags:
 TraceR1 想解决的是一个很具体的毛病：现在的多模态智能体几乎都是"看一眼当前画面就决定下一步"的反应式选手，在多步任务里走着走着就偏题。它的做法不是去搭一个显式世界模型，而是让模型在每一步都先"想几步、走一步"——给定当前观测，一次性预测出未来多步的动作轨迹 $\hat{\tau}_{t:T}$，但真正执行的只有第一步，拿到环境反馈后再重新预测。整套训练分两阶段递进：Stage 1（Anticipatory Trajectory Optimization）用轨迹级 RL 把"看得远、看得连贯"先教会，Stage 2（Grounded Reinforcement Fine-tuning）再用冻结工具代理的真实执行反馈把"每一步做得准"补上。基座是 Qwen3-VL-8B-Thinking，训练框架用 EasyR1。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：用户指令 + 当前观测<br/>+ K 步交互历史"]
     IN --> PRED["预测未来 T 步动作轨迹<br/>（每步含动作类型 + grounding 指令）"]

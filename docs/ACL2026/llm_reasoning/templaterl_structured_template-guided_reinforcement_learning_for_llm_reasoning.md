@@ -48,7 +48,7 @@ TemplateRL 分三个阶段：
 **第三阶段 —— 可选的动态扩展**：在训练或推理过程中，如果发现新的正确推理路径，自动提取其动作序列并加入模板库，持续丰富库的覆盖范围。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["种子集合（500 问题）"] --> B
     subgraph S1["基于 MCTS 的模板构造与复杂度感知（设计 1）"]

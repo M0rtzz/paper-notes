@@ -47,7 +47,7 @@ ToolPRM 的流程可以分成三步。第一步是构造细粒度监督数据：
 第三步是训练 ToolPRM 并用于推理扩展。ToolPRM 本身也是 LLM，输入当前状态和候选动作，输出 “+” 或 “-” 的概率；beam search 每步展开多个候选，用 ToolPRM 分数排序并剪枝。由于结构化输出早期错误不可恢复，作者主张扩大 beam width 来探索更多局部选择，但保留较少 beam，形成“explore more but retain less”的策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：query + 目标函数调用<br/>(xLAM-60k / irrelevance-7.5k)"]
     subgraph DATA["训练数据与监督方案"]

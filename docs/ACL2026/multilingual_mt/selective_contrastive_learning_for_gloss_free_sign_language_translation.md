@@ -45,7 +45,7 @@ SCL-SLT 的流程可以拆成三步。第一步，沿用常规 CLIP 式训练，
 模型本身包含 Sign Embedding、Visual Encoder、Text Encoder 和 Decoder。Sign Embedding 用 ImageNet 预训练 ResNet-18 提取空间特征，再用两层 Conv1D/BN/ReLU 建模时间序列；Visual Encoder、Text Encoder 和 Decoder 都初始化自 mBART-large-50，其中文本编码器在对比阶段冻结，视觉编码器和解码器通过 LoRA 适配。对齐阶段用 CiCo 风格的细粒度视频-文本相似度计算双向对比损失，同时保留翻译损失；翻译微调阶段断开文本分支，只优化自回归翻译目标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["手语视频 + 目标文本"] --> S1
 

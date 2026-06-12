@@ -45,7 +45,7 @@ MCP-Flow 提出了一个基于 Web Agent 的自动化管道，从 1166 个真实
 MCP-Flow 要填的是「MCP 工具生态真实、多样、还在快速膨胀」与 LLM 工具使用能力之间的鸿沟，而过去的基准只覆盖二十来个人工策划的服务器、且只能评测不能训练。它把整条流水线做成两段全自动的链路：前段用 Web Agent 从六个真实 MCP 市场平台批量发现并抓取服务器配置，得到 1166 个服务器、11536 个工具的原始素材；后段把工具信息送进「生成—进化—过滤」的数据合成管道，先从工具视角造出带真值标签的指令、再用 WizardLM 进化提升复杂度、最后经三层过滤剔除噪声，最终产出 68733 条指令-函数调用对和 6439 条轨迹，用来微调小模型或给闭源模型做检索增强。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["六大 MCP 市场平台<br/>Smithery / Glama / MCP.so / MCPHub / PipeDream / PulseMCP"] --> B["Web Agent 自动化服务器爬取<br/>Playwright 导航 + 页面快照取配置，按工具描述去重"]
     B --> C["1166 个服务器 / 11536 个工具"]

@@ -47,7 +47,7 @@ VGGT-Det 要解决的是 SG-Free（无传感器几何）下的多视图室内 3D
 具体地，VGGT 编码器为每个视图输出 token 序列 $\mathbf{T}_i \in \mathbb{R}^{M \times C}$，所有视图沿 token 维拼成 $\mathbf{T}_{\text{concat}} = [\mathbf{T}_1; \mathbf{T}_2; \dots; \mathbf{T}_V] \in \mathbb{R}^{(V \cdot M) \times C}$；初始 object queries 由 VGGT 预测点云 $\mathbf{P}_{\text{pred}}$ 经最远点采样得 $K$ 个种子点编码而来 $\mathbf{Q}_0$；$L$ 层解码器各含自注意力 + 交叉注意力，末端检测头出类别 $\hat{\mathbf{c}} \in \mathbb{R}^K$ 和框 $\hat{\mathbf{b}} \in \mathbb{R}^{K \times 7}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多视图图像（无传感器位姿/深度）"] --> B["VGGT 编码器（预训练冻结）<br/>输出各层 token、注意力图、预测点云"]
     B -->|注意力图 + 预测点云| C["注意力引导查询生成（AG）<br/>注意力归一化 + 空间分散性贪心采样 K 个种子点"]

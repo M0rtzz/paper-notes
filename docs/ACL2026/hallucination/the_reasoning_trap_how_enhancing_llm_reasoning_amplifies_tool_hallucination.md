@@ -46,7 +46,7 @@ tags:
 研究分四步逐步排除替代假设：（1）验证工具相关 RL 增加幻觉；（2）验证非工具 RL（数学）同样增加幻觉（排除过拟合）；（3）验证蒸馏和可切换推理模式也增加幻觉（排除 RL 特异性）；（4）消融实验分离推理步骤 vs RL 训练本身。在锁定推理是元凶后，再做机制分析（表征坍塌 + 激活探针），最后评估缓解策略并暴露其代价。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["SimpleToolHalluBench 诊断基准<br/>NTA + DT 场景 · 296 工具：不该调用时调用即幻觉"]
     A --> S

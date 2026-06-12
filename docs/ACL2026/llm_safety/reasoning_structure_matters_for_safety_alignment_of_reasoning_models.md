@@ -46,7 +46,7 @@ AltTrain 的贡献在于非常克制：它不设计复杂 RL，也不训练 rewa
 对于每个查询，AltTrain 依次收集三个部分：第一步是问题理解（problem understanding，PU），从 R1 原始推理轨迹的首句中提取，保持模型熟悉的开头结构；第二步是有害性评估（harmfulness assessment，HA），由 GPT-4o 等 LLM 用一句话判断请求是否有害并给出理由；第三步是条件推理（conditional reasoning，CR），如果请求有害则立即结束进一步求解并拒绝，如果请求良性则接续 R1 原始推理链的剩余部分完成任务。组装好的样本经过轻量 SFT 训练，得到安全对齐后的 R1-Alt。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["查询（SafeChain：约 900 有害 + 100 良性）"] --> B["问题理解 PU<br/>保留 R1 轨迹首句作结构锚点"]
     B --> C["有害性评估 HA<br/>GPT-4o 一句话判定请求是否有害"]

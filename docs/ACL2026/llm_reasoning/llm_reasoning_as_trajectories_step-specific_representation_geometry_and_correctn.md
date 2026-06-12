@@ -48,7 +48,7 @@ tags:
 数据用 GSM8K（7,473 train / 1,319 test）+ MATH-500，prompt 强制每步以 `Step k:` 开头、答案以 `####` 标记。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["CoT 输入<br/>GSM8K / MATH-500，强制 Step k: 模板"]
     subgraph S1["步骤前激活提取与线性可分性度量"]

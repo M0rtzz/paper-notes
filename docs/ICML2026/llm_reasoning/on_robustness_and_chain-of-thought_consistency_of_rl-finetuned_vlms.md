@@ -47,7 +47,7 @@ tags:
 具体地，评估侧覆盖 3DSRBench、CV-Bench、Spatial-MM Obj/Multihop、WhatsUp、V\*-Bench、MME-RealWorld-Lite、MMBench，每个样本生成 Base / Stop-Think / Wrong-Think / Wrong-Think+"But" / Wrong-Caption / Wrong-Caption+Disclaimer 六类 prompt；judge 用 Qwen3-32B 并以 GPT-OSS-120B、Llama-3.1-70B 交叉验证（Fleiss' κ ≈ 0.85）。训练侧以 Qwen2.5-VL-7B-Instruct 为起点，用 verl 实现的 GRPO，数据为 SAT2 (32K) + Pixmo-Count (15K)，并以 Geometry3K (2.1K) 与"caption/think 数据增强"两个开关做消融，每 ~250 step 取一个 checkpoint 回跑整套评估，从而让训练侧与评估侧形成闭环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["8 个视觉推理基准的样本"] --> B["受控文本扰动套件<br/>程序化生成 6 类 prompt<br/>Base / Stop-Think / Wrong-Think±But / Wrong-Caption±Disclaimer"]
     B --> C["9 个 VLM 生成 think+answer 段<br/>5 个开源 RL 微调 + 4 个闭源"]

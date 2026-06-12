@@ -42,7 +42,7 @@ tags:
 这篇论文要解决的核心矛盾是：VLM 天生擅长判断一张图"语义上合不合理"，却不擅长判断它"是不是被篡改过"——而后者才是伪造检测真正需要的能力。既有方法（SIDA、FakeShield）让一个 VLM 同时扛起检测、定位、生成解释三件事，结果 VLM 的语义偏向反而把检测/定位拖下水。IFDL-VLM 的破局思路是把任务拆成两段、各司其职。Stage-1 先训练一套不含语言模型的视觉专家——可训练 ViT 配上冻结的 SAM-H——专心把"这张图是不是假的、假在哪块"判准；Stage-2 再把第一阶段产出的定位掩码当作显式的"伪造线索"喂回 VLM，让 VLM 只负责它擅长的事：用自然语言把篡改区域和内容讲清楚。整条链路是"图像 → 专家模型出检测结果 + 定位掩码 → 掩码增强视觉特征 → VLM 生成解释"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入图像 x"] --> VIT
     subgraph S1["Stage-1：检测/定位专家（解耦优化）"]

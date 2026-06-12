@@ -44,7 +44,7 @@ U-Cast 用**简单的 U-Net 主干** + **两阶段训练课程**（MAE 预训练
 三阶段管道：（1）**确定性预训练**（100 epoch）：MAE 损失学大气动力学，输出条件均值；（2）**概率性微调**（8 epoch）：在预训练主干上继续微调，启动 MC-Dropout，用 CRPS 损失学预报不确定性；（3）**深度集合**（可选）：从同一阶段 1 检查点出发重复阶段 2 共 $K=4$ 次。推理时对输入状态 $x_{t-1:t}$ 自回归滚动，每次生成 $M$ 个 MC-Dropout 采样，3 秒完成 15 天集合预报。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：两帧历史状态 x(t−1:t)"] --> B["标准 U-Net 主干<br/>卷积捕局部 + 瓶颈自注意力补长程"]
     subgraph CUR["两阶段课程：MAE → CRPS"]

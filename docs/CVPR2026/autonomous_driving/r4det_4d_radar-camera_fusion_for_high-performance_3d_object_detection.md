@@ -42,7 +42,7 @@ tags:
 R4Det 是渐进式 BEV 特征纯化流水线：(1) **PDF** 从多模态输入生成高精度 BEV 特征；(2) **DGTF** 无位姿时序对齐 + 门控聚合；(3) **IGDR** 用 2D 实例原型净化 BEV 特征 → 3D 检测头。基座为 SGDet3D 的 BEV 范式（Neighborhood Cross-Attention + LSS）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多模态输入<br/>相机图像 + 4D 雷达点云"] --> PDF
     subgraph PDF["全景深度融合（PDF）"]

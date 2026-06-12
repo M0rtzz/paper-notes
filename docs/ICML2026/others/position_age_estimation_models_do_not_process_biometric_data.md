@@ -46,7 +46,7 @@ tags:
 整套评测分两条互补支路：① **读取实验**——就用上面这套 average pooling 直接测特征里"现成可读"的身份泄露；② **对抗探针**——在冻结特征上重训一个 attention pooler + ArcFace 头，逼出特征里"理论上限"的身份信息。两条支路得到的 $\text{FNMR}@\text{FMR}$ 最终统一对照 NIST / EU EES / FIDO 三套监管阈值，看是否够得上"可用识别"水平。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["人脸验证对 + 被测模型 backbone（冻结）"]
     subgraph RO["多层 + 多基准全空间压力测试"]

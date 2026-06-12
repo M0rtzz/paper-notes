@@ -39,7 +39,7 @@ tags:
 PersonaVLM 想解决的是：通用 MLLM 把每个用户都当成同一个陌生人，记不住你说过什么、也察觉不到你的喜好在变。它以 Qwen2.5-VL-7B 为骨干，在模型外面挂一套个性化记忆架构——一份大五人格档案加上四类记忆数据库，再让模型围绕这套外部存储循环运转。每来一轮对话都走两个阶段：响应阶段先从记忆里检索相关片段、推理后生成贴合用户的回答；更新阶段再回看这轮交互，把新出现的事实写进记忆、把人格向量往用户最新的表现上挪一点。这样"知道用户的什么"由记忆库承载、"用户是什么样的人"由人格档案承载，两者随交互不断刷新，模型本身的权重则在 SFT + GRPO 两阶段训练后固定下来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["用户查询：文本 + 可选图像 + 时间戳"] --> T
 

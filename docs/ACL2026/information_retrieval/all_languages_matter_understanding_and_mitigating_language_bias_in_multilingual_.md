@@ -44,7 +44,7 @@ tags:
 LAURA 的思路是先诊断、再对齐：先用 Oracle 证据估计量化重排序器的语言偏差有多严重，再把重排序器的训练信号从"语义相关性"换成"下游答案效用"。落地为一条两阶段数据构建管道加一次列表式微调——阶段一按语言分组做去偏差采样，保证各语言候选都有平等曝光；阶段二对保留文档逐个估计生成效用、按绝对阈值筛出真正有用的正样本；最后用 softmax 交叉熵损失微调重排序器，让它学会给"能帮生成对答案"的文档打高分，而不再被英语/查询语言的先验牵着走。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["查询 + 多语言候选文档"] --> B
     subgraph B["Oracle 证据估计分析框架（诊断）"]

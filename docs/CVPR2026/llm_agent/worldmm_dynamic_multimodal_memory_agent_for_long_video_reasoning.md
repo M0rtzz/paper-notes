@@ -39,7 +39,7 @@ tags:
 WorldMM 把长视频理解拆成"建记忆 → 查记忆 → 答问题"三段。**第一段**离线从视频流构建三种互补记忆：情景记忆（事实事件）、语义记忆（高层概念）、视觉记忆（外观细节）。**第二段**在线由一个检索 Agent 多轮自适应地决定"该问哪种记忆、问什么"，直到信息够用。**第三段**把检索历史连同原始问题交给响应 Agent 生成答案。核心思路是用三种异构记忆覆盖"具体发生了什么 / 长期规律是什么 / 长什么样"三类信息需求，再让 Agent 按需调度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["长视频流"] --> MEM
     subgraph MEM["离线构建三类互补记忆"]

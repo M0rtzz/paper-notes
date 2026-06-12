@@ -45,7 +45,7 @@ tags:
 这个流程的特点是，监督信号完全来自真实数据与自动扰动，不需要人工比较标签。作者还把它作为 plug-in 后训练步骤接到 Diffusion-DPO 或 FlowGRPO 之后，验证真实数据监督与传统偏好监督是互补的。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph POS["真实图像作为隐式偏好参照"]
         direction TB

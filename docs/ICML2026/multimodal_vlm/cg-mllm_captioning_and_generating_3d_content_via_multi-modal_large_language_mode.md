@@ -44,7 +44,7 @@ CG-MLLM 提出了一种基于 Mixture-of-Transformer 的多模态大语言模型
 CG-MLLM 采用 decoder-only 架构，由三个阶段组成：(1) **多模态编码**——文本使用 BBPE 分词器、图像通过 SigLIP-2 编码器 + 2层 MLP 压缩、3D 资产通过冻结的 Hunyuan3D-2.1 Spatial-VAE 编码为潜在表示；(2) **MoT 建模**——TokenAR Transformer 处理 token 级序列建模，BlockAR Transformer 处理 block 级并行建模，二者共享注意力机制；(3) **多模态解码**——文本 token 通过分词器解码，3D token 通过 VAE 解码器还原为网格，再经材质生成器增强视觉质量。整个 pipeline 在「渐进分辨率训练」课程下从 512 token 的粗结构逐步训练到 4096 token 的精细几何。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph ENC["多模态编码（含 3D Spatial-VAE 集成）"]
         direction TB

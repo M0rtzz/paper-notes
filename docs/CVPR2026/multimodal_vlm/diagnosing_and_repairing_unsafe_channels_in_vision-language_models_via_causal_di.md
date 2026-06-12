@@ -43,7 +43,7 @@ tags:
 CARE 想解决的问题是：VLM 被越狱攻击绕过安全对齐，但既有的激活层防御要么靠预处理/对抗训练（贵且伤通用能力），要么在所有层做粗粒度线性转向（不知道哪里真正出问题、还会扭曲正常表征）。CARE 的思路是"先诊断、后修复"，全程不重训练、只在推理时介入：先用因果消融逐层定位到底是哪一层、哪个组件（FFN 还是注意力）在主导不安全输出；再在这些关键层上做双模态 token 归因，找出真正与越狱相关的视觉/文本 token；最后用良性与恶意激活的协方差对比解出一个"恶意方向"子空间，推理时把激活投影出这个子空间。三步串起来，就是"层 → token → 子空间"由粗到细地把不安全信号一层层剥出来再消掉。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["VLM + 多模态越狱输入"] --> B["层级因果追踪与组件分析<br/>逐层消融定位中间层，再分离 FFN / MHSA"]
     B -->|锁定中间层的 FFN| C["双模态 Token 归因<br/>RBF 核算相关性，选 top-k 视觉 / 文本 token"]

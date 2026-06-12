@@ -46,7 +46,7 @@ tags:
 四阶段构建流程：Stage 1 使用 Music Flamingo 为每首曲目生成高质量字幕；Stage 2 用 GPT-5.1 扩展为单轨 QA 对；Stage 3 用 GPT-5 mini 为每个音轨对生成三类比较问题（是/否、简答、句子级）；Stage 4 通过人工评估和 LLM-as-a-Judge 进行质量过滤。其中 Stage 1-2 复用现成模型搭脚手架，Stage 3-4 是本文的两项核心构建设计；基准建成后再用一套双路径基线做诊断式评估。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Jamendo-QA 音轨库"] --> B["Stage 1：Music Flamingo<br/>生成音乐字幕"]
     B --> C["Stage 2：GPT-5.1<br/>扩展单轨 QA"]

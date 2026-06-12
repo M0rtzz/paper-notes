@@ -43,7 +43,7 @@ tags:
 Badit 把每个 LLM 权重矩阵 $\mathbf{W}^0\in\mathbb{R}^{m\times n}$ 拆成 $\mathbf{W}^0 = \sum_{k=1}^{K}\alpha_k \mathbf{A}_k\mathbf{B}_k + \widehat{\mathbf{W}}$：前 $rK$ 个最大奇异值被切成 $K$ 个 rank-$r$ 的 LoRA 专家、每个解读为一个"基础能力"并配可学习路由 $\alpha_k$，剩下小奇异值组成残差 $\widehat{\mathbf{W}}$ 全程冻结。整套流程两步走——**BAD** 用 SVD 给出初始就正交的能力分解，**DOG** 在训练中周期性把分量重新分组、把被梯度冲淡的正交性拉回来，最终路由按任务自适应地混合这些能力。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     W["预训练权重 W⁰"]
     subgraph BAD["BAD：基础能力分解（一次性·初始化即正交）"]

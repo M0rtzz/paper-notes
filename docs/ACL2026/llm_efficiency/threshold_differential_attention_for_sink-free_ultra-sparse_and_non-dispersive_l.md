@@ -45,7 +45,7 @@ TDA 通过结合长度自适应阈值和差分抑制视图，实现无注意力 
 TDA 是一个 drop-in 替换 Softmax 的注意力算子，目标是在不依赖 sum-to-one 归一化的前提下，让每一行注意力既稀疏又无 Sink。它分两层叠加构建：底层从整流注意力出发，把固定阈值换成随上下文长度增长的自适应阈值（称为 TRA），先把"序列越长、虚假点积极值越大"这件事压住；上层再叠一个差分构造，用两个独立视图相减消掉共模噪声（得到完整的 TDA）。一行查询向量进来后，依次经过 L2 归一化的投影、与所有历史键计算点积并减去长度阈值做整流截断、最后把被选中的值向量加权求和并经 RMSNorm 输出——整条链路里没有任何一步强制权重和为 1。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["查询/键向量<br/>L2 归一化投影（两组独立参数）"] --> B1["视图1 相似度 s⁽¹⁾"]
     A --> B2["视图2（抑制视图）相似度 s⁽²⁾"]

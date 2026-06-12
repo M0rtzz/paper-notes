@@ -50,7 +50,7 @@ VAPO 的输入包括音频、对应幻灯片图像和任务指令，输出是一
 论文还构建了 SlideASR-Bench 来解决数据稀缺问题。SlideASR-S 从 ContextASR-Bench 扩展而来，利用实体和领域标签生成 slide-style 文本，再用 Matplotlib 渲染成幻灯片图像，共 8,467 个样本，其中 6,413 个训练、2,054 个测试。SlideASR-R 则是 60 个真实学术报告片段，覆盖化学、医学、生物和人工智能，人工标注 200 个领域实体，用来做真实复杂场景测试。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DATA["实体密集 SlideASR-Bench<br/>合成 SlideASR-S + 真实 SlideASR-R"]
     IN["输入：音频 + 幻灯片图像 + 指令"]

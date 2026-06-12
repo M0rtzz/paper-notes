@@ -46,7 +46,7 @@ tags:
 SPAGBias 想回答的问题是：LLM 是否在城市微观空间里系统性地把空间和性别绑定，这种绑定又是什么形态、如何被建构出来。它由三大支柱组成：一套 62 种城市微观空间的分类体系（43 个公共 + 19 个私人），一个含三种提示类型的结构化提示库，以及一条从表层到深层的三层诊断管道。整体怎么转：把每个空间套进三类提示喂给模型，收集模型的强制选择、单性别叙事和共存叙事响应，再让三层诊断分别从"是否偏好某性别""概率分布是否真中性""叙事里如何分配角色"三个角度量化偏见。实际评估覆盖六个代表性模型（GPT-3.5-turbo、GPT-4、Llama3-8B-instruct、Qwen2-7B-instruct、Phi-3-mini、Deepseek-llm-7b-chat），每个空间每模型采样 30 次（温度=1），由此产生 1,860 个显式偏见数据点、直接提取的 log-probabilities，以及 5,580 个用于建构偏见分析的叙事文本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["空间分类体系<br/>62 种城市微观空间（43 公共 + 19 私人）"]
     subgraph P["结构化提示库"]

@@ -45,7 +45,7 @@ tags:
 RTE 把任务外推拆成两阶段。**训练阶段**：从训练任务库 $\mathcal{F}_{train}$ 里反复采样任务对 $(f_i, f_j)$，并取其相对变换 $\phi_{ij}$，训练一个关系算子 $\Psi$ 使得 $\Psi(x, f_i, \phi_{ij}) \approx f_j(x)$。**推理阶段**：给一个目标任务的少量上下文 $D_{target}$，先估计它在任务嵌入空间中的代理向量 $\hat\theta_{target}$，再找一个最佳锚点 $f_{anc}^*$ 和变换 $\phi^*$，最后用 $\Psi(x_{query}, f_{anc}^*, \phi^*)$ 出预测。整个 pipeline 既适用于纯函数预测（MLP 作为 $\Psi$），也适用于序列预测（LLM 作为 $\Psi$，通过 LoRA 微调）。贯穿两阶段的底层结构都是同一个「锚点 + 变换」分解：训练时 $\Psi$ 吃 $(f_i, \phi_{ij})$，推理时把目标拆回 $(f_{anc}^*, \phi^*)$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["训练阶段：关系算子 Ψ 训练"]
         direction TB

@@ -39,7 +39,7 @@ Free Sinewich 提出基于频率切换的参数高效多任务学习框架，通
 这篇论文想做的是让同一组共享权重在面对不同任务时表现出不同行为，从而摆脱以往 PEFT-MTL 里"每个任务一套独立适配器"的伪共享。整体管线建在 Swin Transformer Tiny 编码器上：图像 patch tokens 前面拼上一组可学习的任务 tokens，编码器每个阶段前 N-1 个 block 走 Task-Agnostic Module（标准 LoRA）提取所有任务通用的特征，最后一个 block 换成带频率切换的 Task-Specific Module 抽任务特定特征。转换的关键发生在这个特定模块里——一个轻量 Clock Net 先从任务 token 算出一个任务专属频率 $\omega_t$，再由 Sine-AWB 用这个频率去调制一份**所有任务共享**的基矩阵，调制出来的权重才是该任务专用的。解码端同理，也用频率切换让多任务共用一份解码器基矩阵。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["图像 patch tokens + 任务 tokens<br/>（VPT-shallow，仅第一阶段拼入）"] --> B["Swin-T 编码器：前 N−1 个 block<br/>Task-Agnostic Module（标准 LoRA）<br/>提取所有任务通用特征"]
     B --> TS

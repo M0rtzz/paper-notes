@@ -46,7 +46,7 @@ tags:
 R2ScP 处理的是某个模态可能缺失的 AVQA 输入（音频/视觉/文本），输出是问答答案，核心思路是把缺失模态从“生成补全”改成“检索恢复”。整条链路分三步：先由跨模态检索模块（CMR）在统一语义空间中用可用模态作查询，从外部记忆库里召回缺失模态的真实候选特征；再由上下文感知自适应净化机制（CAP）用可用模态上下文和文本问题双重约束，剔除检索噪声并注入高质量语义；最后由两阶段混合专家把原始模态与恢复模态按可靠性加权融合，送入分类头给出答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["AVQA 输入<br/>音频/视觉/文本，某模态缺失"] --> B["跨模态检索模块 CMR<br/>可用模态查记忆库，召回 top-n 真实候选"]
     B --> C

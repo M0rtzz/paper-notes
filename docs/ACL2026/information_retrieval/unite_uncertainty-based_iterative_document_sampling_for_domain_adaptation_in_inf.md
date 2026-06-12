@@ -46,7 +46,7 @@ UnIte 要解决的是一个预算受限的采样问题：给定一个超过 100k
 整个循环以平均 EU 的 EMA 作为停止信号：EU 先随训练下降表示模型正在填补缺口，一旦反弹就说明新样本开始冗余或过拟合，此时即便没用满 5k 预算也提前停下。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["目标域语料（>100k 文档）<br/>+ 固定伪查询预算"] --> B["AU Filtering<br/>BM25 kNN 词法密度过滤低密度噪声文档"]
     B --> C

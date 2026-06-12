@@ -46,7 +46,7 @@ tags:
 PTA 想解决的是这样一件事：当多个传感器（深度相机、LiDAR、WiFi、雷达……）联合训练后，能不能让其中**任意一个单模态编码器单独拿出来也好用**，从而扛住推理时的模态缺失。难点在于直接做多模态融合会把低质量模态的噪声"传染"给好模态，蒸馏出来的单模态学生自然也带毒。于是论文把训练拆成一个嵌套循环：外循环先"净化"（Purify），用元学习在验证集上学出每个模态该占多大权重 $\mathbf{w}$，把噪声模态的话语权压下去；内循环再"对齐"（Align），固定 $\mathbf{w}$ 把加权融合出的"干净教师"通过扩散蒸馏灌进每个单模态学生，其中扩散去噪的起点由 Noise Adapter 按样本自适应决定。推理时不再需要教师和其他模态，每个学生编码器独立工作即可。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多模态输入<br/>深度 / LiDAR / WiFi / Radar / RFID"] --> B["各单模态编码器<br/>提特征 f_i"]
     subgraph PUR["Purify：元学习模态加权（外循环）"]

@@ -45,7 +45,7 @@ tags:
 CIPHER（Counterfactual Image Perturbations for Hallucination Extraction and Removal）分两个阶段。离线阶段先用扩散模型造一批"幻觉图像"构成反事实数据集 OHC-25K，从中提取视觉幻觉方向、并用 SVD 估计出一个幻觉子空间；推理阶段则在生成的每一步把隐状态投影到这个子空间的正交补上，把幻觉分量减掉。整个过程不改模型参数、不加推理开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OHC["反事实数据集生成（OHC-25K）"]
         direction TB

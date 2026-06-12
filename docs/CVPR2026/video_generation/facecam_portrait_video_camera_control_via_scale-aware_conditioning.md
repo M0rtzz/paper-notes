@@ -49,7 +49,7 @@ FaceCam 想解决的是：给一段单目人像视频，让用户随意指定相
 训练阶段把三路信号喂给扩散 Transformer：源视频、目标视频、以及从目标视频锚帧提取的面部地标，三者各自经 VAE 编码成 latent，模型用 flow-matching 损失学着从源视频 latent + 地标条件预测出目标视频 latent。推理阶段则换一套生成地标的办法：先用 FaceLift 造一个与身份无关的通用 3D 高斯头部（所有实验共用同一个），沿用户指定的相机轨迹把它渲染出来，再用 MediaPipe 逐帧检测面部地标，得到的地标图就是送进模型的相机条件，最终生成受控视频。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["训练：数据增强把静态视角伪造成动态相机"]
         direction TB

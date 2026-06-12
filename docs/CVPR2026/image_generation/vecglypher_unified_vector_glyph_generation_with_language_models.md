@@ -43,7 +43,7 @@ tags:
 VecGlypher 把矢量字形生成整个搬进语言建模框架：不再"先画一张光栅图再向量化"，而是让一个多模态 LLM 直接把 SVG 路径当成文本序列吐出来。喂给模型的是一组条件——要么是文本标签（如 "high-contrast, serif, art-deco"），要么是 1–8 张参考字形图像——外加一个目标字符身份（如 "A"）；模型自回归地逐 token 预测这个字符的 SVG path，解码回来就是一条可直接渲染、可手动编辑的有效路径。整条链路里没有光栅去噪器，没有向量后优化器，也没有轮廓简化器，所有几何决策都发生在 token 预测这一步。能这样做的前提是两件事必须先到位：一是把五花八门的字体数据清洗成模型能学的统一格式，二是用"先学会画、再学会听话"的两阶段训练把通用 LLM 调成懂字体的专家。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["Typography-Aware 数据工程"]
         direction TB

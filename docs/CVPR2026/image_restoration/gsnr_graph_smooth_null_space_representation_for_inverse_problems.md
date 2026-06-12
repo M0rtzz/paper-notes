@@ -40,7 +40,7 @@ tags:
 GSNR 要解决的是：逆问题 $y = Hx + \omega$ 里，感测矩阵 $H$ 的零空间不可观测，通用先验在那里乱改会带来偏差和幻觉，而盲学零空间子空间又浪费容量。它的思路是先用谱图理论把零空间里"值得保留"的方向挑出来，再训一个小预测器从测量里把这些方向的取值估出来，最后作为一个正则项挂到任意求解器上。具体来说：给定图拉普拉斯矩阵 $L$，先把它投影进零空间得到受限拉普拉斯 $T = P_n L P_n$，对 $T$ 做特征分解、取 $p$ 个最小特征值对应的特征向量拼成投影矩阵 $S \in \mathbb{R}^{p \times n}$；训练预测器 $G(y) \approx Sx^*$ 估出零空间的低维表示；重建时把 $\|G(y) - Sx\|^2$ 当作正则项加进 PnP、DIP 或扩散模型的目标函数。整条链路里只有 $G$ 需要训练，$S$ 由问题结构直接算出。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["测量 y = Hx + ω<br/>感测矩阵 H 的零空间不可观测"] --> B
     subgraph S1["零空间受限拉普拉斯与图平滑投影"]

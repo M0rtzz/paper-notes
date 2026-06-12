@@ -45,7 +45,7 @@ tags:
 "Show, Don't Tell" 想绕开开集检测器对语言提示的依赖：与其让人类为每个新物体写文本描述，不如让人类直接"演示"——在机器人相机视野内拿起并操作目标物体，系统从这段视频里自己学会认它。整条流水线因此被组织成一个从演示到自主操作的闭环：人类先在相机前完成一次分拣演示，系统用「显著物体数据集创建（SODC）」管线从视频里自动抠出被操作物体、生成带边界框的标注样本，再用这批样本微调出一个只认这几个物体的「定制物体检测器（MOD）」，最后把它接进机器人的感知-规划-执行回路。关键在于全程不需要任何人工标注框、也不需要一句文字描述——演示这个动作本身既是任务示范、又是数据采集。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["人类演示视频（单段 RGB）"]
     subgraph SODC["1. 显著物体数据集创建 SODC（无人工标注）"]

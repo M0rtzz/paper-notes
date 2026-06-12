@@ -44,7 +44,7 @@ Ryze 是一个端到端 workflow，而不是单一模型结构。它从原始 PD
 输入包括一批生物医学论文 PDF、base VLM（论文中使用 Qwen3-VL-8B）和一个目标评测 benchmark（LAB-Bench）。Ryze 先将 PDF 切成文本块、figure、table 和 caption，并恢复正文里的 figure/table cross-reference；然后为每个问题检索关联证据，生成带完整 evidence 的 QA；接着按约 1M token 的增量反复合成、SFT、评测，当 SFT 提升停滞后切换到 GRPO；最后通过 benchmark category 的弱项诊断触发新一轮 paper 搜索和数据增强。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["生物医学论文 PDF + base VLM + 目标 benchmark"]
     subgraph S1["图表感知抽取与三段式清洗"]

@@ -45,7 +45,7 @@ tags:
 SoPE 要解决的是 3D 大视觉-语言模型（3D LVLM）直接沿用 LLM 的 RoPE 所带来的空间感知缺陷：RoPE 把点云 token 按光栅顺序拍平成一维序列，既丢了真实三维结构、又感知不到方向。SoPE 是一个连接器级别的位置编码模块，以即插即用方式替换 SpatialLM 里的原始 RoPE——整体框架 SpatialSoPE 由点云编码器（Sonata）、两层 MLP 投影器、LLM（Qwen2.5-0.5B）组成，SoPE 就插在投影器与 LLM 之间对位置编码重新参数化，内部含球坐标位置投影、多维频率分配、多尺度频率混合三件套。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["点云输入"] --> B["Sonata 点云编码器"]
     B --> C["两层 MLP 投影器"]

@@ -43,7 +43,7 @@ BiMU 为二值贝叶斯神经网络设计有界记忆和不确定性感知的 me
 BiMU 要解决的是二值贝叶斯网络在长程非平稳流上的「后验饱和」问题：每个二值 synapse $\omega\in\{-1,+1\}$ 由 Bernoulli natural parameter $\lambda$ 参数化，$\lambda=0$ 是最大不确定，$|\lambda|$ 越大权重越确定，而普通贝叶斯更新只会把 $|\lambda|$ 越推越大，最终 synapse 冻结、不确定性消失。BiMU 的做法是把后验更新拆成三件事协同：当前 batch 数据驱动巩固、一个由记忆窗口控制的有界遗忘项把后验拉回 prior、一个看梯度与当前符号是否一致的非对称步长；推理时再用多组二值权重采样的预测分歧做一次性主动查询，决定要不要花标签和反向传播。整个过程只看当前 batch，不存 replay buffer，也不需要任务边界。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["流式样本 x<br/>(无任务边界 / 无 replay)"] --> B["MC disagreement 主动查询<br/>抽 K 组二值权重 forward"]
     B --> C["variation ratio<br/>VR = 1 − f_mode/K"]

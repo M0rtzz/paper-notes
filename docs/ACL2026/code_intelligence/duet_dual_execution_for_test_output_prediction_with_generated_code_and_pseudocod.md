@@ -46,7 +46,7 @@ tags:
 DUET 解决的是测试输出预测：给定问题描述和测试输入，预测程序应当输出什么。它的核心观察是，预测输出有两条失败模式互补的路径——一条是生成可执行代码再直接跑出结果，在代码写对时精确可靠，但常被细微实现错误带偏；另一条是生成伪代码再让 LLM 逐步模拟执行，绕开了实现细节却可能在复杂控制流上产生执行幻觉。DUET 让两条路径各采样多次，再用路径加权功能多数投票（path-weighted functional majority voting）把两批输出汇总成最终预测，从而吃到两边的长处。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["问题描述 + 测试输入"] --> B
     A --> C

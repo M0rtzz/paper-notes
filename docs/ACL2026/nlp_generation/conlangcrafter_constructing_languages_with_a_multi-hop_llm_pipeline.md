@@ -46,7 +46,7 @@ tags:
 构造一门语言难在它有内部依赖：音系决定能拼出哪些词形，语法依赖词形，词汇又依赖语法。直接让 LLM 一次性吐出完整语言描述，结果往往是各层互相矛盾、而且生成的语言彼此都长得太像。ConlangCrafter 的对策是把这件事拆成"多跳推理"——每个语言层次是一个推理步骤，全程维护一份可动态更新的"语言草图"S 来积累和一致化知识。整条管道分两阶段：Stage A（语言草图引导）按音系→语法→词汇的顺序逐层提示 LLM 生成描述并写进 S；Stage B（建构性翻译）拿着 S 把新文本翻译进这门构造语言，过程中还能反过来扩展 S 里的词汇和语法。核心组件就三样：一个推理型 LLM M（如 DeepSeek-R1）、一份自由文本记忆库 S、以及可选的用户约束 c。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["推理 LLM M + 可选用户约束 c"] --> P
     RNG["随机性注入<br/>列 10 个类型学特征×5 选项，外部 RNG 选定"] -.注入.-> P

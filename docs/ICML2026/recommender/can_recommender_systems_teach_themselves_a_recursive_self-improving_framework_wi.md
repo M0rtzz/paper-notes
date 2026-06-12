@@ -43,7 +43,7 @@ RSIR 让序列推荐模型用自身预测能力生成新的合成用户交互序
 RSIR 在迭代 $k$ 包含 4 步：(1) 在当前数据集 $D_k$ 上训出模型 $f_{\theta_k}$（next-item prediction）；(2) 用 $f_{\theta_k}$ 为每个用户生成 $m$ 条合成序列 $D'_{k+1}$ —— 从用户真实历史的随机前缀出发，autoregressive 扩展；(3) 合并得到 $D_{k+1} = D_k \cup D'_{k+1}$；(4) 从头训 $f_{\theta_{k+1}}$（或 fine-tune 上一轮模型），递归滚动 $K$ 轮。生成时核心是两个机制：Bounded Exploration（混合候选池）+ Fidelity-Based Quality Control（排名校验）；二者的"扰动只沿用户流形切空间"性质，又被理论解释成一项隐式正则化，构成第 3 个关键设计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["数据集 D_k → 训练模型 f_θk<br/>next-item prediction"] --> B["从用户真实历史随机前缀出发<br/>autoregressive 扩展，每用户生成 m 条"]
     subgraph GEN["合成序列生成（逐 step 循环）"]

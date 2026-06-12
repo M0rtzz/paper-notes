@@ -41,7 +41,7 @@ tags:
 输入为视频序列，backbone 提取逐帧视觉特征。SEMA 模块从历史帧特征和分割结果构建记忆，结合边缘结构信息增强当前帧特征。RPG 模块从可学习 token bank 和历史记忆中生成语义先验和时序线索作为分割提示，替代手动点击/框提示。增强后的特征和提示输入 SAM 2 的 mask decoder 生成机器人分割掩码。训练时仅需首帧 GT 标注，通过三级一致性损失实现端到端学习。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入视频序列"] --> B["backbone 逐帧特征 F_t<br/>历史帧特征+掩码编码为记忆 M_t"]
     subgraph SEMA["结构增强记忆关联器 SEMA"]

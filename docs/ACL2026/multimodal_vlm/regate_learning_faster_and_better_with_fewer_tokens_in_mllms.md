@@ -46,7 +46,7 @@ ReGATE 的名字来自 Reference-Guided Adaptive Token Elision。它不是把视
 第二阶段是 student training：训练过程中维护每个样本每个 token 的 EMA 难度 $m_{s,i}$，用当前 student loss 持续更新。ReGATE 把二者合成 token 分数 $d_{b,i}=m_{s,i}+\lambda\ell^{ref}_{b,i}$，再按当前 sparsity schedule 选择 top-$k$ token 作为 active token。active token 正常经过 attention、MLP 和反向传播；inactive token 跳过主要计算，从而减少 token usage、训练时间和 activation memory。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["训练样本<br/>视觉输入 + 指令 + 答案 token"]
     subgraph REF["text-only teacher 的 reference loss（离线预计算）"]

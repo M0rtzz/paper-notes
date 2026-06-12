@@ -49,7 +49,7 @@ tags:
 测试 7 个模型：Claude 3 Opus / Sonnet / Haiku、GPT-4o、GPT-3.5 Turbo、LLaMA-3 70B Inst、LLaMA-3 8B Inst。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph RPS["Role-Play-at-Scale 大规模采样"]
         direction TB

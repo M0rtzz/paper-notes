@@ -46,7 +46,7 @@ tags:
 VisRet 想绕开的是跨模态检索的老问题：文本查询和候选图像被嵌进同一空间后按相似度排序，但跨模态嵌入往往退化成"概念袋"，能匹配物种类型却抓不住翅膀姿态、仰拍视角这类结构化视觉关系。它的思路是干脆不在跨模态空间里硬碰——先用 LLM 把原始文本查询改写成 T2I 指令、再用生成模型把它"画"成若干张图像，把检索彻底搬进图像模态内部完成图到图检索，最后把多张可视化各自的检索结果融合成一个排序。整个过程无需训练，也不动现有的图像嵌入索引。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["文本查询 q"]
     subgraph MP["模态投影"]

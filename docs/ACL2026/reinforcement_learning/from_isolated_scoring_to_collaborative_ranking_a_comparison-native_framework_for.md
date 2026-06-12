@@ -44,7 +44,7 @@ tags:
 输入是一批待评估论文，论文表示主要来自标题与摘要。框架先通过 pair sampling 选出需要比较的论文对，让经过训练的 LLM 给每个论文对输出偏好标签，再把这些成对偏好汇总成全局排序。训练阶段，采样出的论文对会先经过分数差和出现次数约束过滤形成可靠监督，模型先用冷启动 SFT 学会比较式推理、再用基于真实均分偏好的 RLVR 强化；推理阶段则控制采样比例只比较一小部分论文对，最后用 Bradley-Terry 模型估计每篇论文的潜在质量分数，并按录用率阈值做接收/拒稿决策。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["一批待评估论文（标题 + 摘要）"] --> B["GBR-BR 语义图采样<br/>双向重排连边保连通，按边权排出优先比较对"]
     subgraph TR["比较式 SFT + RLVR 训练"]

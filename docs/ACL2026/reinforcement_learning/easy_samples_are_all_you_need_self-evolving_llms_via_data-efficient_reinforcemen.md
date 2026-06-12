@@ -46,7 +46,7 @@ tags:
 EasyRL 分三阶段：（1）知识迁移——在简单标注数据上用 GRPO 训练 warmup 模型；（2）分治伪标注——warmup 模型对未标注数据多次推理，按不确定性分为低/中/高三组，分别用一致性选择和反思解决构建高质量伪标签；（3）由难度递进的自训练——混合标注和伪标注数据迭代 RL 训练，每轮重新伪标注上轮的高不确定性样本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["10% 简单标注数据"] --> B["知识迁移<br/>GRPO 训练 warmup 模型 π₀"]
     B --> C["大量未标注数据<br/>warmup 模型独立推理 N 次"]

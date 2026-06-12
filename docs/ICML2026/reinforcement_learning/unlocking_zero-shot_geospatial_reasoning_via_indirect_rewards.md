@@ -43,7 +43,7 @@ tags:
 Geo-R1 用 Qwen2.5-VL-7B 作 base，分两阶段后训练：阶段 1 是 Geospatial Thinking Scaffolding，用 CV-Cities 派生的 12.6K 高质量 CoT 数据进行 SFT，给模型注入统一的地理推理模板（看视觉线索 → 跨视图对照证据 → 关联气候带等地理知识 → 给出结论）；阶段 2 是 Reasoning Elevation via Indirect Signals，把训练目标切换到 Cross-View Pairing：给定地面全景 $I_g$ 与 $k$ 张候选卫星图 $\mathcal S=\{I_s^1,\dots,I_s^k\}$（含 1 个正例 + $k-1$ 个邻域 hard negatives），让模型用 CoT 推理后挑出正例。奖励用 GRPO 的 group-relative 形式优化复合 reward $r=\lambda_{\mathrm{acc}}r_{\mathrm{acc}}+\lambda_{\mathrm{fmt}}r_{\mathrm{fmt}}+\lambda_{\mathrm{len}}r_{\mathrm{len}}+\lambda_{\mathrm{rep}}r_{\mathrm{rep}}$。SFT 与 RL 都做全参数微调，8×H100，借助 LLama-Factory + VLM-R1 + vLLM 加速推理。两条产物对应两种入口：从 Geo-SFT 续训得到 Geo-R1，从基座跳过 scaffolding 直接 RL 得到 Geo-R1-Zero。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Qwen2.5-VL-7B 基座"] --> B["阶段1·CoT Scaffolding<br/>12.6K 单一推理模板 SFT<br/>+ Fact-Check 校验坐标/城市名"]
     B --> C["Geo-SFT"]

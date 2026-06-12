@@ -44,7 +44,7 @@ tags:
 DPEPO 是 GRPO 的并行扩展。给定任务 + $K$ 个共享初始状态的并行环境 $\mathcal{E}$，agent 在每步 $t$ 自主选 $\mathcal{E}'_t$，对每个被选环境生成 action 形成 $A_t$，同时执行得到 $S_t$，trajectory $\tau=\{(S_t, A_t)\}_{t=1}^T$。训练分两阶段：(1) Cold-start SFT，用 5 条人工标注的 ground-truth 并行 trajectory 引导 DeepSeek-V3.2 合成 500 / 1000 条 SFT 数据（ALFWorld / ScienceWorld），让 model 先学会"并行思考输出格式"；(2) RL 阶段，用分层奖励——并行轨迹级成功奖励 + 两个步级 diversity 奖励——加 GRPO 的 group-relative advantage 做优化。推理时 group size $N=8/4$、$K=4$、$T_{\max}=25$、温度 0.4。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["任务 + K 个共享初始状态的并行环境"] --> SFT["冷启动 SFT：5 条人工轨迹<br/>→DeepSeek 合成 500/1000 条→学并行思考格式"]
     SFT --> ROLL["并行 rollout：每步选环境子集<br/>→并行动作 At→并行状态 St"]

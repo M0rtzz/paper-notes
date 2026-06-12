@@ -48,7 +48,7 @@ MEMO 要解决的核心问题是：在不改损失函数、不改网络结构的
 整条管线有三个组件：冻结的图像编码器 $F_I$（DINOv2-b）负责出图像特征，掩码边缘编码器 $F_E$ 把"已知的那部分边缘图"编码进来，共享边缘解码器 $D$ 再融合两者预测被遮挡像素的边缘概率。训练分两阶段：先在 40 万张 SAM 合成的边缘图上预训练 $F_E$ 和 $D$，再用 LoRA 适配器在下游数据集（BSDS 等）上微调，只增加约 1.2% 参数量。推理时则反复跑「预测概率 → LocMax 敲定局部最高置信像素 → 剩余像素重新掩码」这个回环，并可用 CFG 尺度 $s$ 调节边缘密度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["训练：掩码边缘训练 + 两阶段合成数据预训练"]
         direction TB

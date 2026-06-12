@@ -48,7 +48,7 @@ SubspaceAD 证明了在强视觉基础模型（DINOv2-G）特征上做一次 PCA
 SubspaceAD 想回答一个朴素的问题：既然 DINOv2 这类基础模型已经把图像编码成判别力极强的 patch 特征，异常检测还需不需要那一整套训练、记忆库、提示调优？它的答案是不需要——只要把"正常"这件事用一个低维线性子空间描述出来，偏离这个子空间的部分就是异常。整条流程因此只有两步、不含任何可学习参数：拟合阶段从 $k$ 张正常图（$k \in \{1,2,4\}$）经旋转增强后抽取**多层特征**，对它们做一次 **PCA 子空间建模**得到正常子空间（均值 $\mu$ + 主成分矩阵 $C$）；推理阶段把测试图的每个 patch 特征同样做多层聚合、投影回这个子空间，再用**重建残差**评分与定位——投影丢掉的那部分能量就直接当作异常分数。整个"模型"就是 $\mu$ 和 $C$，每类不到 1MB。下图把拟合与推理两阶段、以及三个关键设计在数据流里的位置画出来：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["k 张正常图 (k∈{1,2,4})"] --> FIT
     subgraph FIT["拟合阶段（一次性，无梯度）"]

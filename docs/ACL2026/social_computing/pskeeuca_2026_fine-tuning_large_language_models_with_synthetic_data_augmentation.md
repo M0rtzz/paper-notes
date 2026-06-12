@@ -44,7 +44,7 @@ tags:
 输入是一条 World of Tanks 游戏聊天消息，输出是六个毒性类别之一。训练流程先分析原始数据的类别分布与重复模式，然后在真实训练集划分之后只对训练分区加入合成数据，验证集保持 100% 真实样本。模型侧用 instruction prompt 给出六类定义，Llama 3.1 8B 以 LoRA 方式微调；实验阶段对 encoder、Gemma、Llama、层级分类、一对多分类、迁移学习、ensemble 和后校准进行比较，最后选择测试集迁移最好的 Llama 8B + 5% synthetic 配置。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["游戏聊天消息 (World of Tanks)"] --> B["数据分析：类别分布 · 重复模式"]
     B --> C["训练/验证划分<br/>验证集保持 100% 真实样本"]

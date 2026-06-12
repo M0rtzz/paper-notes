@@ -46,7 +46,7 @@ tags:
 TODSynth要解决的是"怎么合成出真正帮得上下游分割的遥感图像"。它把流程拆成前后衔接的两半：训练时在 SD v3.5 上把文本、图像、掩码三个模态塞进同一个注意力里（统一三模态注意力 Tri-Attention），并对图像/掩码分支做全参数微调，学一个能听懂掩码约束的遥感图像生成器；采样时不是让生成器自由发挥再事后筛选，而是在生成轨迹刚展开的几步里，借一个现成分割模型当"裁判"，用它的语义损失梯度把速度场往"更符合掩码"的方向拽一把（控制-校正流匹配 CRFM）。最后把这样合成出来的图像经 FreeMask 像素级过滤后按 3:1 掺进真实数据训练分割模型。换句话说，控制做在架构里、纠偏做在采样中，两处都围着"下游任务好不好用"这个目标转。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["文本 + 遥感图像 + 语义掩码"]
     subgraph TRAIN["训练：架构级控制"]

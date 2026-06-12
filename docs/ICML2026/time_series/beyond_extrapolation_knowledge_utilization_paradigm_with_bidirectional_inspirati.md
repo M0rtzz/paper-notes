@@ -46,7 +46,7 @@ tags:
 推理时观测不到"目标之后的延续段"，KUP-BI 的思路是从训练集里把这种延续模式蒸馏成一条辅助流、再喂给标准骨干。整条 pipeline 分三个阶段：(1) **仅训练时**离线构建检索库——把每条训练轨迹拆成"历史 → 目标 → 后目标延续"三段，用比率算子把延续段相对历史的变化编码成值、偏移后的历史段作为键存库；(2) 给定新输入，按同样方式偏移后**逐通道**检索相似历史，softmax 加权聚合它们的比率变换并施加到当前输入，生成延续风格辅助信号 $\mathbf{Z}$；(3) 把 $\mathbf{Z}$ 与原始输入 $\mathbf{X}$ 分别提特征后经轻量门控融合，送入**不做任何修改**的预测骨干。整个过程不引入训练集之外的额外信息，只提供一个"未来通常怎么演化"的结构化归纳偏置。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph LIB["比率式检索库构建（仅训练时）"]
         direction TB

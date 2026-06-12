@@ -46,7 +46,7 @@ tags:
 TBW 包含三个阶段：(1) **离线词表分区**——将所有 token 按语义相似度分配到 $K$ 个主题列表；(2) **在线水印嵌入**——从输入提示中提取主题，选择对应的绿色列表，在生成时对绿色 token 施加 logit 偏置 $\delta$；(3) **水印检测**——使用 $z$-score 统计检验判断文本是否被水印标记，支持三种检测方案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["主题对齐的词表分区（离线）"]
         direction TB

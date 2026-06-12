@@ -43,7 +43,7 @@ tags:
 MM-Eval 接收源文档 $D = \{T_{source}, V_{source}\}$ 和候选摘要 $S_{cand} = \{T_{gen}, V_{sel}\}$，输出标量 $S_{final}$。pipeline 三个并行 pillar 后做两阶段 Ridge 回归：(1) 文本质量 $S_{text}$ —— 子分量 $S_{fact}, S_{rel}, S_{coh}, S_{flu}$ 内部用 Ridge ($\alpha=1.0$) 聚合；(2) 跨模态对齐 $S_{relevance}$ —— MLLM 给出 1–5 分；(3) 视觉多样性 $S_{diversity}$ —— TCE 输出 log-entropy。三大 pillar 归一化到 $[0,1]$ 后再用 Ridge ($\alpha=0.1$) 学最终系数 $\beta$，目标是最小化与人类 overall score 的 MSE。整个流程使用开源模型 (Mistral-7B-Instruct, LLaVA-Mistral, ViT-B/32)，温度 = 0 保证可复现。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["源文档 D = 文本 + 图<br/>候选摘要 = 生成文本 + 选中图"]
     subgraph P1["文本质量（Pillar 1）"]

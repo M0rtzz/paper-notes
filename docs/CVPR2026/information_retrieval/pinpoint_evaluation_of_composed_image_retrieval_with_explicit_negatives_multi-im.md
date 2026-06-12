@@ -42,7 +42,7 @@ tags:
 PinPoint 是一个**评测基准**而不是检索模型，它要回答的问题是"现有 CIR 评测为什么测不出真实差距"。整套工作从一批 25K 候选查询图像出发，经过质量过滤压缩成 7,635 条查询和 109,601 张图像组成的语料库；每条查询都带上多个正确答案和大量显式负样本，再配上释义变体和人口统计元数据，从而把假阳性抑制、语言鲁棒性、多图像推理这些旧基准盖住的能力都暴露出来。在这套数据上，作者横向跑了 20 多种方法、覆盖 CLIP 基线 / CIR 专用 / 文本代理生成 / 重排四种范式，并顺手提出一个无训练的 MLLM 逐点重排作为更强基线。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["数据集构建流水线"]
         direction TB

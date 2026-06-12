@@ -42,7 +42,7 @@ tags:
 LPO 针对的是 SFT 训练出来的 GUI 智能体「点不准」的问题：现有 RL 奖励要么靠文本精确匹配、要么靠边界框 IoU，都只能给出离散的粗粒度反馈，落点差一像素和差很远拿到的都是零分。LPO 把 GUI 交互建模成 MDP，状态 $s_t \in \mathbb{R}^{C \times H \times W}$ 是界面截图，动作 $a_t = (\mathcal{A}_t \times \mathcal{E}_t)$ 同时包含交互类型与坐标；智能体对每个状态采样一组动作后，用「窗口信息密度奖励 $r_w$ 看对区域」乘上「动态位置奖励 $r_d$ 点准位置」得到组合奖励，再喂给 GRPO 在大动作空间里做组内相对优化，最终输出空间定位更精确的交互策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["界面截图 + 指令"] --> B["智能体采样一组动作<br/>交互类型 + 坐标"]
     B --> RW

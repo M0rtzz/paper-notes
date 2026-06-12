@@ -41,7 +41,7 @@ tags:
 Real-IISR 把真实红外超分当成一个**退化条件下的自回归生成**问题，整条链路围绕红外特有的物理先验展开。一张低分辨率红外图先进入热-结构引导（TSG）模块，被拆成热图和边缘图两路并融合，得到一份"既知道哪里热、又知道边缘在哪"的退化感知编码；这份编码再喂给视觉自回归（VAR）骨干，由它逐尺度（coarse-to-fine）预测离散 token 生成高分辨率结果。生成过程中，条件自适应码本（CAC）会根据当前退化条件动态改写量化嵌入，让同一个码字在不同退化下解出不同纹理；最后用热序一致性损失约束输出，保证恢复结果不破坏"温度越高、像素越亮"的红外物理规律。相比扩散方法的随机多步去噪，VAR 的确定性逐尺度预测既快又不会把高频热细节糊掉。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["低分辨率红外图"] --> B
     subgraph TSG["热-结构引导模块 TSG"]

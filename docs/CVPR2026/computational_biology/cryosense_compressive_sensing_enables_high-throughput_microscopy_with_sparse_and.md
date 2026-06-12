@@ -44,7 +44,7 @@ tags:
 cryoSENSE 把"采集阶段就压缩"形式化成一个标准逆问题：探测器只采到欠采样测量 $\mathbf{y} = \mathcal{A}(\mathbf{x}^*) + \boldsymbol{\eta}$，其中 $\mathcal{A}$ 是已知的线性投影算子（丢掉一部分像素或一部分 Fourier 系数），目标是从 $\mathbf{y}$ 反推回完整的高保真 2D 粒子图像 $\mathbf{x}^*$。整套框架沿两个正交的轴展开：采样在**像素域**还是 **Fourier 域**做、重建用**稀疏先验**还是**生成先验**。论文的核心贡献不是某一条具体算法，而是把这四种组合摆在一起做系统对比，给出"什么压缩率、什么采样域该配什么先验"的操作指南。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["完整 2D 粒子图像 x*"]
     subgraph MASK["像素域与 Fourier 域两套 masking 策略"]

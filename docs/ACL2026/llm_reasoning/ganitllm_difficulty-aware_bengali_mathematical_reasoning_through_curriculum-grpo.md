@@ -46,7 +46,7 @@ tags:
 两阶段训练：(1) SFT 阶段——在 CoT-SFT 数据上教模型用孟加拉语逐步推理，关注语言而非正确性；(2) Curriculum-GRPO 阶段——在难度排序的 RL 数据上用 GRPO 训练，从简单问题开始逐步增加难度。数据集 Ganit 从 ~1.5M 原始样本经多阶段过滤和难度标注得到，其难度信号同时供 GRPO 阶段排课程；GRPO 的优化方向则由三维奖励函数控制，把「答对」和「用孟加拉语想」一起写进目标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始语料<br/>9 个公开数据集 ~1.5M 样本"]
     subgraph GANIT["难度感知数据集 Ganit"]

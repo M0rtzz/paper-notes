@@ -44,7 +44,7 @@ tags:
 Step-CoT 要回答的是"能不能用可追溯的多步推理监督，同时把 Med-VQA 的准确性和可解释性提上去"，做法是把放射科诊断拆成固定的七步级联流程，再用教师-学生框架对整条诊断管线逐步监督。整体分两块：数据集构建——从 IU X-Ray(3749)、PadChest-GR(3230)、Med-Image-Reports(3089) 三个公开来源收 10,068 例胸部 X 光、用 DeepSeek-R1 抽结构化诊断信息并映射到七步模式、由持证医师验证；模型训练——教师模型用图注意力网络聚合跨步骤信息，再蒸馏给轻量学生模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["数据集构建"]
         direction TB

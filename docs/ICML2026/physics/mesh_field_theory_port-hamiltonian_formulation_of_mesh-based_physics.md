@@ -46,7 +46,7 @@ tags:
 下图把这条「定理定结构 → 架构落结构 → 积分器推进」的链路画出来，三个分组分别对应下面的三个关键设计：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：定向 cell complex 𝒦（给定符号关联矩阵 D_k）<br/>+ 初始状态 z =（节点势 z_k、边流 z_k+1）"] --> THM
     subgraph THM["四公理 + 局部 port-Hamiltonian 约化定理"]

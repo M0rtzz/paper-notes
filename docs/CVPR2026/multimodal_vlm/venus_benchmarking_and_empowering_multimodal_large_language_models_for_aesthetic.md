@@ -43,7 +43,7 @@ tags:
 Venus想解决的痛点是：现有MLLM面对一张照片只会给笼统的好评，既说不清问题在哪，更给不出可操作的拍摄建议。它把这件事拆成两阶段递进训练。Stage 1 在自建的 AesGuide 上让模型按"评分→分析→指导"由浅入深地回答审美问题，先把"审美指导"这项理解能力立起来；Stage 2 再把这份理解力迁到裁剪上——训练数据里每个裁剪框都配一段审美推理(aesthetic rationale, AR)，逼模型在输出坐标的同时说清"为什么这么裁"。前者教模型"懂美"，后者让它"做美"，两步共用同一套审美认知。这一切的前提是数据：AesGuide 先经 AGGF 标注框架把噪声评论提炼成高质量的"审美分析+审美指导"标注，最后再用 GPT 评分器在 AG 基准上检验模型答得好不好。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["AesGuide 数据集（AGGF 标注框架）"]
         direction TB

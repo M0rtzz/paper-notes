@@ -46,7 +46,7 @@ VeriTaS 不是一个新的 fact-checking 模型，而是一个面向模型评估
 输出端是按季度组织的 VeriTaS benchmark。每条样本包含 claim、媒体、日期、语言、appearance 信息、Integrity 总分、底层属性分数和文字 justification。当前版本发布 25K 条声明，覆盖 Q1 2020 到 Q1 2026 的 25 个季度，每季度 1K 条，并保持 Intact 与 Compromised 平衡。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["ClaimReview 记录 + 事实核查文章<br/>claim / rating / URL / 日期 / 语言"]
     A --> B["Stage 1-2 源采集与可信过滤<br/>398K review → 仅留专业核查机构 335K"]

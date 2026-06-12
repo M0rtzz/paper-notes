@@ -46,7 +46,7 @@ tags:
 Refine 不再纠结"这一轮该用哪个 AL 策略"，而是把选样拆成两步：先**把无标签池洗干净**，再从洗干净的池子里挑批次。第一步是渐进过滤——让多个互补策略反复投票，一轮一轮地把"没人要"的样本淘汰掉，留下一个被至少一个策略认可的高价值候选池；第二步是覆盖选择——既然池子已经只剩有价值样本，最后只需在里面挑一批多样性最大的去标注。整套流程不学习、不调度，新策略想加随时加。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["无标签池 C_0"] --> B
     subgraph PF["渐进过滤（迭代 R 轮）"]

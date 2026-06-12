@@ -46,7 +46,7 @@ tags:
 ReMoRa 想在不解码全部帧的前提下做到密集的时间覆盖，办法是直接吃 H.264 压缩流里现成的两样东西：少量 I 帧负责外观，大量运动向量负责时间动态。视频先被场景自适应地切成一个个 GOP（Group of Pictures），每个 GOP 抽出一张 I 帧和后续 P/B 帧的块级运动向量序列；I 帧走常规图像编码器（Image Encoder），运动向量则交给 RMR 模块精化成接近光流的细粒度运动；随后 HMSS 模块先在 GOP 内把外观和运动融到一起、压成几个摘要 token，再在 GOP 间做全局长程建模，最后把所有摘要喂给 LLM 生成回答。整条链路里没有任何一步需要把中间帧解码成 RGB，这正是它能在分钟到小时级视频上保持低成本的根源。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入长视频<br/>H.264 压缩流"] --> B["场景自适应 GOP 构建<br/>内容突变处插入 I 帧"]
     B --> C["I 帧（外观）"]

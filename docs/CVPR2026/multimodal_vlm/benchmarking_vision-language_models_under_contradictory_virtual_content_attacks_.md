@@ -46,7 +46,7 @@ tags:
 这篇论文不训练新模型，而是回答一个评估问题：现成的 VLM 能不能在 AR 场景里看出"虚拟内容自相矛盾"这种新型安全威胁。整条工作流分三步：先把攻击的边界用**威胁模型**框死（谁能改什么、检测者能看到什么），再用真实的 Meta Quest 3 在五类 AR 应用里拍出一个正负各半的视频数据集 **ContrAR 数据集**，最后把 11 个主流 VLM 套进统一的 **VLM 评估框架**，连同一个只读文字的 OCR 基线一起跑，看谁能在多大延迟代价下把矛盾揪出来。三步层层依赖：威胁模型钉死了"矛盾在语义层"的定义，数据集照这个定义实拍并经人类验证，评估框架再用统一提示把所有模型放到同一标尺上量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["AR 多应用共存场景<br/>多源虚拟内容叠加同一画面"] --> B["威胁模型<br/>灰盒假设·检测者仅见合成画面<br/>矛盾定义在语义层 C(V)=1"]
     B --> C

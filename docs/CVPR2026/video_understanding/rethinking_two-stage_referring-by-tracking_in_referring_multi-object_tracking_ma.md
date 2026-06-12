@@ -44,7 +44,7 @@ Referring Multi-Object Tracking（RMOT）旨在根据自然语言表达在视频
 FlexHook 像编程中的 hook 函数一样，在原有视觉骨干的前向流程中"挂钩"提取特征，不增加额外编码阶段。对于 $p$ 帧轨迹片段 $\mathcal{B}^i_{t:t+p}$，只需全局编码一次图像，然后在骨干各层重复执行 C-Hook 采样 → 时序整合 → PCD 解码的工作流，通过特征金字塔聚合多尺度结果，最终输出 $\hat{N}$ 个匹配分数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：p 帧轨迹片段<br/>边界框 + 文本表达"] --> B["全局编码一次<br/>视觉骨干特征流 F_v"]
     subgraph CH["Conditioning Hook（C-Hook）"]

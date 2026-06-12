@@ -43,7 +43,7 @@ tags:
 这篇论文不提新防御，而是搭一套"诊断 + 解释"的闭环来锁定 prompt injection 的根因。它先用 **CoT Forgery** 黑盒攻击逼出一个只能由"角色感知失败"解释的现象，再用 **Role Probes** 线性探针把"模型内部把这段 token 当成谁说的"量化成 CoTness/Userness 概率，最后用风格-标签对照和剂量-反应曲线证明探针读到的"角色混淆度"和真实攻击成功率是因果挂钩、而非伴生巧合——攻击暴露问题、探针定位机制、相关性验证因果，三步首尾相接。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["有害 query Q"] --> F
     subgraph F["CoT Forgery 攻击（设计1）"]

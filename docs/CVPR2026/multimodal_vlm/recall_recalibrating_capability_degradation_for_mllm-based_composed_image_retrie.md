@@ -44,7 +44,7 @@ tags:
 ReCALL要解决的是同一个尴尬：MLLM本来会逐步推理，可一旦被压成单个检索embedding，那些细粒度推理能力就废了。它不去改检索范式，而是绕一圈把基座MLLM自己的推理能力"找回来"喂给检索器。整条管线分四步走：先用标准对比学习从基座MLLM $\mathcal{F}$ 训出一个基线检索器 $\mathcal{R}_{\text{base}}$（脚手架）；再让 $\mathcal{R}_{\text{base}}$ 自己在训练集上跑一遍，把它搞错的样本挑出来（诊断）；然后请 $\mathcal{F}$ 用CoT推理为这些错例写出"纠正版"指令、组成新三元组并过滤（生成）；最后把原始三元组和纠正三元组放进同一组继续对比训练，得到精炼后的 $\mathcal{R}_{\text{refine}}$（精炼）。下面三个关键设计正对应诊断、生成、精炼三个贡献阶段（Stage 1 只是把生成式MLLM转成检索器的常规起点，不算本文创新）；整个框架与具体骨干无关，换个MLLM也照样跑。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     F["基座 MLLM ℱ"] -->|"Stage 1 标准对比微调（脚手架）"| RB["基线检索器 ℛ_base"]
     subgraph S1["自引导信息性实例挖掘（Stage 2 诊断）"]

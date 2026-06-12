@@ -48,7 +48,7 @@ AtelierEval 包含 360 个专家设计任务，每类任务 120 个，覆盖 Ope
 交互协议被严格统一为 single-turn、纯文本 prompt。人类通过简化的 Gradio UI 输入 prompt，MLLM 通过标准 API 接收相同任务说明并输出 prompt。没有即时图像反馈，也不允许多轮 refinement，从而尽量隔离“第一次把意图翻译成 prompt”的能力。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["三类认知任务划分<br/>360 个专家任务: 开放式 OE / 受约束 CO / 模仿 IM"] --> B["prompter 策略 π (人类 / MLLM)<br/>单轮纯文本写出可执行 prompt p"]
     B --> C["T2I 后端 M 生成图像<br/>(nBanana / GI-1 / Flux / SDXL)"]

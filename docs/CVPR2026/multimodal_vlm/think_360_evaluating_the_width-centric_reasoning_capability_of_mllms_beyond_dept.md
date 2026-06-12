@@ -46,7 +46,7 @@ tags:
 Think360 想回答一个被现有基准忽略的问题：MLLM 到底是"想得深"还是"搜得广"？为此它不去训练新模型，而是把"宽度推理"做成一个可量化的评测对象。整篇工作分两条线落地：一条是**数据线**，从竞赛题、教材、已有基准、益智游戏四类来源收集原始题目，经过粗到细的质量过滤和重写，最终沉淀成 1225 道答案可客观验证的多模态题；另一条是**评测线**，在传统 pass@1 准确率之外，额外用一套 Tree-of-Thought 协议把模型的整段回复拆成推理树，分别量出"深度"和"宽度"两个分数，再叠加推理时间、token 消耗等效率指标，构成多维度的诊断画像。这两条线由最上游的"推理宽度形式化定义"统一统领：定义决定了数据线该专门去搜哪类题、也决定了评测线为什么要把深度和宽度分开打分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DEF["推理宽度的形式化定义<br/>5 种宽度认知能力 + 神经网络架构类比"]
     subgraph DATA["多源数据构建与质量过滤"]

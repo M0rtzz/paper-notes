@@ -45,7 +45,7 @@ MAGMA 把 LLM agent 的记忆拆成语义 / 时间 / 因果 / 实体四张正交
 MAGMA 要同时满足两件互相打架的事：记忆既要能「快回忆」不阻塞用户，又要能「深推理」回答 why。它的做法是把整套系统分成读、存、写三层协同。存储层不再是单一向量库，而是一张时变有向多重图 $\mathcal{G}_t=(\mathcal{N}_t,\mathcal{E}_t)$，节点 $n_i = \langle c_i, \tau_i, \mathbf{v}_i, \mathcal{A}_i\rangle$ 存事件的内容、时间戳、稠密向量与结构化属性，边按语义维度切成四张正交关系图，并配一个向量库做粗筛入口。读路径先由意图路由判断 query 想问什么，再在对应关系图上做自适应拓扑检索，最后由 Context Synthesizer 合成答案；写路径拆成快慢两条流，Fast Path 同步入库只做轻量编码，Slow Path 异步用 LLM 把隐含的因果与实体关系补进图里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph STORE["四张正交关系图"]
         direction LR

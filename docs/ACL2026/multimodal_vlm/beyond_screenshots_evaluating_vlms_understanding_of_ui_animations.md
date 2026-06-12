@@ -44,7 +44,7 @@ tags:
 本工作分两阶段：(1) **AniMINT 数据集构建**——300 段 UI 动画视频（mobile 大头：Top 100 App Store/Google Play 应用）+ 多层级标注（时间范围、ROI、交互上下文、用途类别、10 条独立语义解读）；(2) **VLM 系统评测 + 增强探索**——围绕三个 RQ 测 9 个 VLM：能否识别基本运动效果 (RQ1)、能否分类动画用途 (RQ2)、能否解读动画语义 (RQ3)；随后用 MCPC 三因素探针定位瓶颈并验证增强效果。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["300 段 UI 动画视频<br/>mobile / web / desktop"] --> SUB1
     subgraph SUB1["三层级 AniMINT 标注协议"]

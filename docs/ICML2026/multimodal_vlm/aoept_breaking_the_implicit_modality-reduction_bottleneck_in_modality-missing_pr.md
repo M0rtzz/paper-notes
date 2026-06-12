@@ -46,7 +46,7 @@ AOEPT 的方法主线很清楚：先从训练集中收集某个模态的 layer-w
 当测试样本缺失文本时，模型取出 TCPs；当缺失图像时，模型取出 ICPs。MCPs 本身是全局的，因此还需要用当前样本中剩余的模态表示进行门控，得到 instance-aware prompts。最终这些 prompts 与原始 hidden tokens 拼接进入 MT 层，分类头基于最后一层表示输出预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph MCP["1. 模态上下文提示库 MCPs（训练集蒸馏）"]
         direction TB

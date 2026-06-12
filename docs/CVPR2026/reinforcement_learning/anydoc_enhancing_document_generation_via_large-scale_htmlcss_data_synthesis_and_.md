@@ -47,7 +47,7 @@ AnyDoc 想做的是一个**不挑文档类别**的生成器：给一段设计意
 整体分三步走。先用一条全自动的数据合成管线造出 DocHTML 数据集（265K 文档、111 类、32 种风格），解决"没有大规模 HTML 文档数据"的问题；再以这套数据 SFT 一个多模态大模型，让它同时学会意图到文档、文档反渲染、元素到文档三个任务；最后用高度感知强化学习（HARL）做后训练，专治 SFT 模型最常见的"内容溢出指定高度"的毛病。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["1. DocHTML 数据合成管线"]
         direction TB

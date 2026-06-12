@@ -46,7 +46,7 @@ tags:
 整篇论文想回答一个被好奇心驱动 RL 默认假设、却从没被验证的问题：LLM 到底有没有好奇心？为此作者搭了一条从"自我报告"走到"行为验证"再走到"功能检验"的闭环评估链。先把心理学的五维好奇心量表修订版（5DCR）裁剪成信息寻求、刺激寻求、社交好奇三个维度作为分类骨架；再让模型用 7 点量表自评 24 题，拿到一份"模型自己说自己有多好奇"的画像；接着为每个维度配一个行为实验，看模型在真实决策里是否表现得和它自评的一致；把问卷与行为两端的结果对照，用跨上下文稳定性判断好奇到底是内在特质还是行为模式；最后把好奇行为做成一种提问策略（CoQ），检验它对下游推理有没有实际增益。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["五维好奇心量表修订版（5DCR）<br/>裁剪为信息寻求 / 刺激寻求 / 社交好奇三维度"] --> EVAL
     subgraph EVAL["问卷与行为的双重评估"]

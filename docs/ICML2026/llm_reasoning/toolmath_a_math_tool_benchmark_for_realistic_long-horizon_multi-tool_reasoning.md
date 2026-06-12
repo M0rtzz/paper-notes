@@ -43,7 +43,7 @@ tags:
 ToolMATH 把"数学逐步解题"当成天然的工具组合脚手架来用，全流程分两阶段。第一阶段是**工具抽取与验证**：把 MATH 标注的每一步解题动作喂给 LLM，让它吐出一批小的 Python 函数（含 name、description、typed input schema、code），再经过工具级和题目级两轮自动验证 + 人工修复，沉淀出可信的工具池。第二阶段是**工具化评测**：给每道题 $p$ 配一个环境，里面既有金标工具集 $\mathcal G(p)$，又掺入从全局池采样的干扰工具 $\mathcal D_{\ell,k}(p)$（相似度 5 级、密度 $k\in\{5,10,20,50\}$）；另设 Distractors-only 模式直接抽走 $\mathcal G(p)$，逼模型在没有趁手工具时回退。每题还独立标注一个 hop count，把"长程难度"从"干扰难度"里解耦出来。模型只看得到工具描述与 schema、看不到实现代码，所以错一步往往全错，长程推理与工具选择的失败都会被放大暴露。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["MATH 标注解题步骤"] --> S1
     subgraph S1["两轮验证流水线"]

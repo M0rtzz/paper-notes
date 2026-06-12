@@ -42,7 +42,7 @@ tags:
 LESA 想解决的是 DiT 扩散推理太慢、但相邻时步特征又高度冗余的矛盾。它的做法是在去噪轨迹上每隔 N 步才让 DiT 正式算一次（锚点），其余时步交给一个轻量的可学习预测器，根据缓存的历史 K 步特征直接外推出当前特征、跳过整次 DiT 前向。关键在于这个预测器不是一个固定的多项式，而是按噪声阶段分工的多个 KAN 专家，从而显式贴合扩散过程「高噪声剧变、中段平稳、低噪声精修」的非均匀动态。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["去噪时步 t<br/>+ 缓存历史 K 步特征"] --> B{"每隔 N 步<br/>是否锚点步"}
     B -->|是| C["DiT 完整前向<br/>算真实特征并缓存"]

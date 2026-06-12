@@ -49,7 +49,7 @@ MiVE 的输入是源视频 $x_{src}$、文本指令 $x_{text}$、参考图 $x_{r
 3. **Unified Self-Attention Backbone**: 把 condition token $c$ 和 patchify 后的视觉 token $v$ 拼成 $u^{(0)} = [c; v] \in \mathbb{R}^{(N_c + N_v) \times D}$, 整条序列在 DiT block 里走**统一的自注意力**, 没有 cross-attention. 关键的 trick 是 **per-token AdaLN**: clean token (condition + reference frame patches) 用 $t=0$ 的固定时间嵌入, noisy token (target 视频 patches) 用当前 diffusion timestep $t$ 的嵌入. 整个模型从 Wan2.1-T2V-14B 的自注意力 block 初始化, flow matching 训练.
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：指令 + 参考图 + 源视频"]
     subgraph CTX["多尺度 VLM 特征抽取（Multi-Level Context Extraction）"]

@@ -44,7 +44,7 @@ tags:
 DCPGN（Dual-Clue enhanced Prototype Growing Network）要解决的是：把在源视角（如第三人称）训练好的动作预测模型，在测试阶段、没有目标视角任何标注的情况下，在线适配到目标视角（如第一人称）。它冻结 CLIP ViT-L/14 视觉编码器，只在线更新可学习 prompt 和类别原型，靠两块组件协同——ML-PGM 渐进积累多标签知识、学无偏原型；DCCM 融合视觉与文本两路线索做一致性约束。两路各自产出 logits，最后融合成预测；训练阶段在源视角带标注数据上用 BCE 损失，测试阶段只用 SGD 在线优化可学习 prompt。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["目标视角观察视频<br/>（无标注）"] --> B["冻结 CLIP ViT-L/14 编码器<br/>+ 可学习 prompt 类别特征"]
     B --> C

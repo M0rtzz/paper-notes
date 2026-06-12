@@ -42,7 +42,7 @@ tags:
 本文想回答一个之前没人系统验证过的问题：两个目标函数、数据、模态都迥异的视觉基础模型，能不能像早年同构小模型那样"拼"在一起、甚至互补增益？做法是把源VFM $f_\theta$ 的前 $n$ 层和目标VFM $f_\phi$ 的后 $N-n$ 层拿出来（两者都是 $N$ 层 Transformer），在中间塞一个可训练的拼接层 $S$，源和目标的权重全部冻结，只训练这块"接头"。整条管线就是 $F(x) = T_\phi^N \circ S \circ R_\theta^n(x)$：源模型把图像编码到第 $n$ 层，$S$ 做表示对齐，再交给目标模型的后半段输出最终特征。核心难点在于怎么训练这块接头：先用 FFM 给它一个好的对齐目标，再用两阶段训练把它优化到位，并用 Self-Stitch 对照证明拼接带来的增益是真正的知识融合；最后把这套单点拼接推广成 VFM Stitch Tree——共享浅层、保留多个 VFM 的专有深层，让多 VFM 系统在精度与开销之间连续调档。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入图像"] --> SRC["源 VFM 前 n 层（冻结）"]
     SRC --> S["拼接层 S（全管线唯一可训练）"]

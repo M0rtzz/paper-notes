@@ -36,7 +36,7 @@ tags:
 TokenLight 要解决的是「不做 3D 重建、直接在 2D 图像上精确控光」这件事。它把重光照重新表述成一个条件图像生成任务：在预训练的扩散 Transformer（文生图/视频基础模型）上微调，把一组描述光照的属性 token 连同输入图像一起喂进去，模型直接重渲染出期望光照下的结果。训练数据以大规模 Blender 合成集为主、少量真实拍摄为辅，前者给出每个光照属性的精确真值，后者补回真实感与泛化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["大规模合成数据训练"]
         direction TB

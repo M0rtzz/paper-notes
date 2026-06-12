@@ -48,7 +48,7 @@ tags:
 CLIPoint3D 要解决的是 3D 点云跨域分类时既缺标注又有严重域偏移的难题，且希望尽量复用 CLIP 的语义先验而不训练重型 3D 编码器。框架建在冻结的 CLIP（ViT-B/16）之上：每个 3D 点云先投影成 M=10 张深度图，送入 CLIP 视觉编码器提特征；在此之上叠加四个模块协同工作——知识驱动的 prompt tuning 注入语义与几何先验、PEFT 用 LoRA 低成本适配 CLIP 双分支、熵引导视图选取过滤噪声视图、不确定性感知域对齐把源域知识迁到目标域，最终以仅 ~11M 可训练参数完成少样本无监督域自适应。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["3D 点云（源域 + 目标域）"] --> B["投影为 M=10 张深度图"]
     subgraph PT["知识驱动的 Prompt Tuning"]

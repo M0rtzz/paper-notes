@@ -48,7 +48,7 @@ tags:
 Shape-of-You (SoY) 要解决 in-the-wild 语义对应里"伪标签几何不一致"的老毛病。它走两阶段：第一阶段用 Fused Gromov-Wasserstein (FGW) 最优传输融合语义特征相似性和 3D 几何结构一致性，生成全局一致的高质量伪标签；第二阶段用软目标损失训练一个轻量适配器，推理时只需前向传播加最近邻匹配、无需再迭代求解 OT。输入侧，给定源/目标图像先用 SAM 分出实例区域并切成 patch 网格，每个 patch 取两种表示——DINOv2/SD 的语义特征 $\mathbf{f}_i \in \mathbb{R}^d$ 和 VGGT（3D 基础模型）提升出的 3D 坐标 $\mathbf{v}_i \in \mathbb{R}^3$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源 / 目标图像"] --> B["SAM 分实例 + 切 patch 网格"]
     B --> C["每 patch 两种表示<br/>语义特征 f_i（DINOv2/SD）+ 3D 坐标 v_i（VGGT）"]

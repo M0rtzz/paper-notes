@@ -48,7 +48,7 @@ tags:
 环境是一个文本化史前狩猎采集社会。agent 通过采集植物获得低风险资源，通过狩猎获得高风险高回报资源，也可以转移 HP、沟通、抢夺、战斗或繁衍。后代继承父母道德类型，当前版本不引入突变和文化传播，以保持代际选择效果可控。作者还实现了 simulation analysis assistant，用于自动统计结果并支持交互式追问单个 agent 的行为动机。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     INIT["初始化：8 个 agent（四类道德各 2）<br/>profile + 道德类型 prompt + 环境规则 + 常识手册"]
     INIT -->|演化模式：跑满生命周期，调资源/沟通/可见性| ENV["Social-Evol 环境<br/>刷新资源与 agent 状态（HP / 年龄 / 体能 / 寿命）"]

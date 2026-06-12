@@ -44,7 +44,7 @@ tags:
 MM-JudgeBias 的构造与评测是一条串行流水线：(a) 从 29 个源 benchmark（COCO、MathVista、DocVQA、ChartQAPro 等）按 4 任务类型 × 12 领域分层采样；(b) 用 Gemini-2.5-Pro 为每条样本生成 3 个 query，再走 model+human 两轮审选出 best-Q，确保 query 真的需要图文联合才能答；同时平行构造一个纯文本 query 集（用于 unnecessary-image 偏见）；(c) 用 GPT-5 mini / Gemini-2.0-Flash-Lite / Qwen2.5-VL-7B 多模型生成 response，保证分数分布多样——(a)-(c) 共同构成数据合成；(d) 按 9 类偏见对原始三元组 $(Q, I, R)$ 做受控扰动，得到 $(Q', I', R')$；(e) 让 26 个 MLLM judge 对原始与扰动版各打 1-10 分；(f) 按偏见类型用 Bias-Deviation / Bias-Conformity 量化。最终 1804 条样本，覆盖 9 偏见 × 4 任务 × 12 领域。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["29 个源 benchmark<br/>COCO / MathVista / DocVQA …"] --> SYN
     subgraph SYN["Human-in-the-loop 高质量数据合成"]

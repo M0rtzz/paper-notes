@@ -46,7 +46,7 @@ tags:
 这篇论文要解决的是模型家族预训练的总成本问题：同一套数据、同一个目标，却要训练好几个不同大小的 VFM 去适配不同部署场景，而标准做法是每个都从头独立训练，导致那些共享的"共同知识"被反复学习。CoM-PT 的破局点是把家族里的模型按尺寸从小到大串成一条链 $C_M: m_1 \rightarrow m_2 \rightarrow \cdots \rightarrow m_n$——只有最小的 $m_1$ 老老实实从头标准训练，之后每个 $m_{i+1}$ 都站在前一个 $m_i$ 的肩膀上：把小模型已经学到的知识"逆向"转移过来当训练起点（注意方向是小→大，和常规知识蒸馏的大→小正好相反），从而省掉大量训练步数。这种转移走两条通道并行进行——参数空间的权重初始化和特征空间的特征蒸馏。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["模型链构建<br/>按尺寸排成 m₁→m₂→…→mₙ，定最小模型/扩展比率/epoch 递减"] --> B["最小模型 m₁<br/>从零标准训练（链中唯一从头训）"]
     B --> C["取下一个后继模型 mᵢ₊₁，以前驱 mᵢ 为小教师"]

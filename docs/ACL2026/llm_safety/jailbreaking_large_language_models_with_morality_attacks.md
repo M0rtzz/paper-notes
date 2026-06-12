@@ -44,7 +44,7 @@ tags:
 论文想回答的问题是：当用越狱手法在"道德问题"上施压时，LLM 会不会丢掉伦理底线、做出错误的道德判断？为此作者把任务拆成两步——先构造一个能逼出道德分歧的数据集，再在其上设计攻击 prompt 去操纵模型的判断。数据集共 10.3K 条，每条沿用 Moral Story 的结构化七元组：情境 S、黄金规范 GN、意图 I、道德行为 MA、道德后果 MC、不道德行为 IMA、不道德后果 IMC。数据分两类——源自 Moral Story 的 Value Ambiguity（4,888 条，社会规范）和源自 ValuePrism 的 Value Conflict（5,474 条，价值/权利/义务）。攻击时把篡改过的规范塞回 prompt，强迫模型扮演"只认这一条规范的伦理裁判"，从而诱导出预设的错误判断；最后在 LLM 与 guardrail 两类模型上测它们的失守率。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph VA["价值模糊攻击"]
         direction TB

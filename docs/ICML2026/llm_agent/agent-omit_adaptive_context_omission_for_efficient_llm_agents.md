@@ -44,7 +44,7 @@ tags:
 要解决的问题是：agent 多轮 thought→action→observation 循环里，思考和观测的 token 越堆越多，但不同回合的"必要性"差别极大。Agent-Omit 把"省什么"从外部后处理变成 agent 自己输出的一阶动作，再分两阶段把这套动作教会并优化好——先用 Monte-Carlo rollout 标注出每条轨迹里"可省的回合"做冷启动 SFT 打开省略格式，再用一套带双采样和双奖励的 omit-aware GRPO 让模型在交互中自适应决定每一轮要不要省。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多轮 agent 轨迹<br/>thought→action→observation"] --> B["省略动作化<br/>空 think + omit_tool_response_N 特殊 token"]
     B --> C["冷启动数据合成 + SFT<br/>rollout 标可省回合｜单轮教格式 + 多轮教续推"]

@@ -49,7 +49,7 @@ tags:
 SeGP-CL 想解决的是：CLIP 这类 VLM 在持续学习时，新任务监督会扭曲已建立的跨模态语义几何、引发灾难性遗忘，而作者发现这种畸变并非均匀分布，而是集中在旧-新语义的交界处。于是它做成一个无样本回放的三阶段框架：**训练前**冻结教师快照 $(F^T, G^T)$，用双目标投影梯度下降（DPGD）从新任务数据里造一批对抗锚点 $\mathcal{A}_t$ 去精准定位这些脆弱边界；**训练中**一边用新数据优化交叉熵，一边在锚点上做 ACGD 蒸馏守住跨模态结构、用 TSGR 稳住文本语义参考框架；**训练后**再用锚点估计视觉空间的漂移、迁移旧类原型，并以双路径推理融合跨模态与视觉线索。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["新任务数据 + 冻结教师快照"]
     subgraph S1["训练前：DPGD 构建对抗锚点"]

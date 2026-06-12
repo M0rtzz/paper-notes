@@ -44,7 +44,7 @@ tags:
 这篇论文要在全脑 VBM（约 200 万体素）上同时拿到两样东西：精确的聚类大小，以及不靠成千上万次置换就算出来的 $p$ 值。它的做法是把统计图 $Z$ 的所有体素按取值从高到低排好序，然后像逐渐放水一样把体素一个个并进并查集（union-by-rank + path compression），整个过程自然长出一棵记录了聚类如何逐级合并的树。需要某个阈值下的聚类大小时，直接在这棵树上查就行，不必重新扫一遍全图；拿到精确聚类大小后，再用高斯随机场（GRF）的解析公式把它换算成条件概率，沿 $n$ 个阈值网格点逐级累积，最终得到每个体素的增强统计量 $S(v)$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["统计图 Z（约 200 万体素）"] --> B
     subgraph UF["并查集精确聚类查询"]

@@ -46,7 +46,7 @@ tags:
 整个评估分为三部分：(1) 基于 WildChat 构建 20 个文化中性建议类问题，翻译为 6 种语言（英语、中文、印地语、巴西葡语、斯瓦希里语、希伯来语）；(2) 在每种语言下对 5 个多语言 LLM 生成回答，用 LLM-as-Judge 评估质量差异；(3) 对回答进行文化分类 + 在翻译版 CulturalBench 上验证语言-文化纠缠。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["WildChat 真实英语对话"] --> S1
     subgraph S1["文化中性问题构建"]

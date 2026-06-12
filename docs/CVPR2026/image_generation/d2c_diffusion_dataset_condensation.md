@@ -37,7 +37,7 @@ tags:
 D2C 要回答的是：能不能把扩散训练的数据砍到原来的 0.8–8%、还保住生成质量并大幅加速收敛。它是两阶段框架——Select 阶段用预训练扩散模型给每个样本算去噪难度分数，按难度排序后用间隔 $k$ 均匀采样选出紧凑子集；Attach 阶段再给选中样本附上两类信息（DC-Embedding 文本+类别嵌入、DINOv2 视觉特征作 REPA 式对齐目标），让小数据也能训出好模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["全量数据<br/>ImageNet 1.28M"] --> B
     subgraph SEL["Select 阶段：选紧凑子集"]

@@ -44,7 +44,7 @@ tags:
 方法要解决的是"既要开放词表的任意字形，又要前后风格一致"，而 inpainting 范式做不到，于是作者干脆不训练任何专用编码器，把风格和字形都以"现成的视觉素材"塞进 MM-DiT 的输入序列，让它的 in-context learning 自己挑着用。具体地，backbone 取 FLUX.1-Fill-Dev（inpainting 取向的 MM-DiT，rectified flow + dual/single-stream transformer），视觉端把原图裁出的风格图 $I_s$、Pillow 渲染的字形图 $I_g$、按 mask 抹掉目标区的 masked image $I_m$ 沿通道拼接成 $I_{\text{input}}=\mathrm{Concat}(I_g, I_s, I_m)$，过冻结 VAE encoder 得到 latent $z_0$；文本端再用冻结的 T5 编码目标文字（glyph text prompt，注入语义结构）、CLIP 编码风格描述（style text prompt，强化视觉对齐）。训练只微调 MM-DiT 主干，分两阶段——先在 AnyWord-3M 上 1 epoch 自监督预训练，再在 4000 对高质量配对图上 10 epoch cooldown；推理时 guidance scale=30、采样 30 步，输出经 VAE decoder 还原后裁回目标区域。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SRC["原图 + 目标区 mask"] --> SP
     subgraph SP["自提示视觉输入"]

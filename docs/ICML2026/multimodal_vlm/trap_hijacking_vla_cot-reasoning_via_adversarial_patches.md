@@ -47,7 +47,7 @@ TRAP 是第一个针对 reasoning VLA 的目标行为劫持攻击——通过桌
 攻击 pipeline：(1) 离线收集 clean trajectory $\mathcal{D} = \{(O, R, a)\}$；(2) 优化 patch $\delta$ 满足 $\min_{\delta} \mathbb{E}_{\tau \sim \mathcal{D}}[\mathcal{L}_{\mathrm{cot}} + \lambda_1 \mathcal{L}_{\mathrm{action}} + \lambda_2 \mathcal{L}_{\mathrm{content}} + \lambda_3 \mathcal{L}_{\mathrm{tv}}]$，其中前两项（CoT 劫持 + action）保证攻击有效、后两项（content + TV，外加 DIP 重参数化）保证隐蔽；(3) 用 PGD 投影梯度迭代更新 $\delta_{t+1} = \mathrm{Proj}(\delta_t + \eta \nabla L)$；(4) 物理部署阶段再加 homography 几何变换 + 颜色校准 MLP + EoT 数据增强，跨越「数字 patch → 打印桌布」的现实鸿沟。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["离线 rollout<br/>收集干净轨迹 D = {(O, R, a)}"] --> B["设定攻击目标<br/>目标 CoT R* + 目标动作 a*"]
     B --> C["对抗观测 Õ = (1−M)⊙O + M⊙δ<br/>把 patch δ 贴进场景"]

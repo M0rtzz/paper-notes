@@ -46,7 +46,7 @@ UniSonate 把"文本→语音/音乐/音效"统一成同一个条件流匹配问
 网络是一个双流 MM-DiT：Text Stream 处理 instruction-content 条件，Audio Stream 处理带噪 latent。前半部分的 Joint Diffusion Transformer 层通过 joint attention 让两条流对齐，使音频 latent 同时关注全局风格与局部结构 token；后半部分的 Single Diffusion Transformer 层只在音频流上细化声学细节。训练学习从噪声到真实 latent 的向量场，推理用 ODE solver 积分后再由 VAE 解码成波形。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["自然语言指令<br/>（描述说话人/情绪/乐器/音效）"]
     subgraph COND["Instruction-Content 解耦表示"]

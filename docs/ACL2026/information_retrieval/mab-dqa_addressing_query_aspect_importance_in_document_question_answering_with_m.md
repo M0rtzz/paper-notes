@@ -41,7 +41,7 @@ tags:
 MAB-DQA 是一条推理时的三阶段流水线，核心是把"哪个查询方面更重要"这件事交给多臂老虎机在线学。给定查询和文档页面，它先把原始查询拆成多个方面子查询并和页面一起组织成超图；再以 Thompson Sampling 在各方面（臂）之间动态分配检索预算，优先把算力投到信息价值高的方面上、捞出关键证据页；最后由一个带反思的推理代理在证据上生成并自我验证答案。从"复杂查询+整篇文档"输入到"经过验证的答案"输出，整条链路始终围绕"按方面重要性重新分配检索注意力"展开。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["复杂查询 + 文档页面"] --> B
     subgraph HG["查询感知页面超图"]

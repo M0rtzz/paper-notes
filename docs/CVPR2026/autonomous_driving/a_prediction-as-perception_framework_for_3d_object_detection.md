@@ -54,7 +54,7 @@ PAP（Prediction-As-Perception）框架由**感知模块**与**预测模块**两
 首帧无历史预测时，全部使用随机 query。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["当前帧图像"] --> P
     Q["query bank<br/>随机 query + 上一帧预测 query"] --> P

@@ -53,7 +53,7 @@ tags:
 LIDMark 是一套主动取证框架：在图像发布前，编码器先把一段 152 维的 Landmark-Identity 水印（136 维面部关键点 + 16 维源身份）嵌进人脸图，得到带水印图像 $I_w = E(I, m)$；当这张图被换脸或篡改后，解码器再从中恢复出当初嵌入的水印，并与对图像现状重新检测到的关键点做一致性比对。比对出的“内在 vs 外在”差异同时支撑三件事——判真伪、定位篡改区域、追溯源身份，于是过去要分三套方案的任务被收进了同一条流水线。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原图 I + 152维 Landmark-Identity 水印<br/>(136维关键点 + 16维源ID)"] --> ENC
     subgraph ENC["双流编码器"]

@@ -43,7 +43,7 @@ tags:
 对每个 prompt $q$，把 $N$ 步去噪按合并因子 $s$ 压成 $H=N/s$ 棵树步；每个非叶节点扩出 $B$ 个子节点，每个子节点对应连续 $s$ 步去噪，最终得到 $B^H$ 个完整生成的叶节点。叶节点用 verifiable outcome reward 打分，内部节点的 value 是子节点 value 的平均（公式 6），父-子转移的 advantage 是子节点 value 减父节点 value（公式 7）。loss 在「深度为 1 的子树」上按 GRPO 风格对每个子节点计算，importance ratio 用单步前向估计的 token 概率；额外叠加时间调度的自蒸馏 loss 让策略在后期向「高 advantage 子节点的 token 分布」收敛。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["prompt q"] --> T
     subgraph T["树状 rollout + bottom-up 步级 advantage"]

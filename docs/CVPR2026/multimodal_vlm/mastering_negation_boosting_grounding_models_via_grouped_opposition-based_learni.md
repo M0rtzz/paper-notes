@@ -48,7 +48,7 @@ tags:
 方法建在标准视觉定位模型（图像编码器 + 语言编码器 + 融合模块 + 检测解码器）之上。作者先定位了问题的真正瓶颈：文本编码器在预训练里接触过否定文本、检测解码器也能处理正向引用，真正把正/负特征混淆的是**视觉-语言融合模块**。于是它只微调融合模块（<10% 参数），用 D-Negation 数据集的 6 组对立语义描述对做监督，在标准定位损失之外加入 PNC 和 TSO 两个约束。整条链路是：先离线构建 D-Negation 数据集，再把成对的对立文本与图像送进冻结的编码器，只让融合模块学习，最后由检测解码器输出定位，并在文本特征层（TSO）和区域-文本匹配层（PNC）各加一个对立约束。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["D-Negation 数据集"]
         direction TB

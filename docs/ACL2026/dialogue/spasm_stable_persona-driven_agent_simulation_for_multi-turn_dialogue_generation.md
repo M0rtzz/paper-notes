@@ -46,7 +46,7 @@ tags:
 SPASM 想解决的是 LLM-LLM 长对话里角色逐渐崩坏的问题，但它的切入点不是改模型权重，而是改对话历史的"表示方式"。整条流水线串起五个免训练组件：先由 Persona Schema 从预定义字段采样人设属性，经 Persona Validator 验证组合是否合理、Persona Crafter 把属性写成自然语言人设描述；随后进入 Client-Responder 双智能体对话模拟，其中每个智能体看到的历史都经过自我中心投影（ECP）重标记；最后由 Termination Detector 在对话出现自然收尾信号时停止。输入是采样到的人设组合，中间是一段视角无关的对话历史，输出则是一段角色稳定、自然结束的多轮对话。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PG["模块化人设生成流水线"]
         direction TB

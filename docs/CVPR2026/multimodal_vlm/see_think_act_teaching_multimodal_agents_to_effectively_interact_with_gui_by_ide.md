@@ -64,7 +64,7 @@ Agent 存在强烈的"点击偏向"（toggling bias）：
 整体跑通要先后做两件事。第一件是造数据：手上没有带可靠状态标注的 toggle 数据，于是作者从 6 个公开数据集出发，用一条三步标注流水线把它们清洗、识别、扩展成一个 81,836 样本的 state control benchmark。第二件是训练：在这个 benchmark 上让 Agent 学会 StaR 的三步推理，同时把 Agent 原有训练集里凡是涉及 toggle 的 episode 的推理链替换成 StaR 风格、其余 episode 原样保留，从而既注入新能力又不破坏旧能力。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SRC["6 个公开 GUI 数据集<br/>（截图，无可靠状态标注）"]
     subgraph PIPE["三步标注流水线（造 state control benchmark）"]

@@ -46,7 +46,7 @@ tags:
 SDF-Net 要解决的是光学与 SAR 之间严重的非线性辐射畸变（NRD）——同一艘船在两种传感器下纹理外观完全不同，但作为刚体它的几何骨架是稳定的。整个网络用一个 ViT-B/16 双头 Tokenizer 编码两种模态，在中间层（Block 6）用结构感知一致性学习（SCL）对齐几何结构，在终端层用解耦特征学习（DFL）把表示拆成模态共享和模态专用两部分再做无参数加法融合，最后接身份分类。训练时联合优化身份损失、结构一致性损失和正交约束损失。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     O["光学图像"] --> ENC
     S["SAR 图像"] --> ENC

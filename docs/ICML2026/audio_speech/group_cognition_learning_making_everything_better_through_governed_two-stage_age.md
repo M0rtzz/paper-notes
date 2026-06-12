@@ -43,7 +43,7 @@ tags:
 GCL 想解决的是端到端融合里"交互学习"和"表示学习"挤在同一个 loss 里、谁也说不清哪次跨模态交流是有用的这个老问题。它的做法是把融合拆成一个有治理的两阶段协议：三个模态 $m\in\{l,a,v\}$ 的样本各自过 encoder 得到 $h_m$ 后，先进入"选择性交互"阶段——由 Routing 和 Auditing 两个 agent 共同决定哪些跨模态消息被允许流过，得到精炼表示 $z_n$；再进入"共识形成"阶段——由 Public-Factor 和 Aggregation 两个 agent 先蒸馏出共享语义、再以它为条件加权聚合，输出预测 $\hat o$。四个 agent 各自被一个辅助目标监督，整套系统用 task / local / public / gain alignment / redundancy 五项联合训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：语言 / 声学 / 视觉 三模态"] --> B["单模态编码器 → h_l, h_a, h_v"]
     subgraph S1["选择性交互阶段"]

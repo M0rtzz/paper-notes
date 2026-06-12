@@ -46,7 +46,7 @@ tags:
 归纳编码里每个编码者会从同一批数据里各自总结出一套 codes（即 Code Space, CSP），但不同人对同一概念往往措辞不同，没法直接横向比。本文先用一个四阶段合并算法把所有人的 CSP 聚合成一个共享的 Aggregated Code Space（ACS），把"语义相同、说法不同"的 codes 归并到一起；随后给每个编码者算一个归一化权重，压住"产出越多占位越大"的偏差；最后在这个统一空间上算四个互补指标，从覆盖广度、与他人重合度、独特贡献、分布偏离四个角度，给每个编码者一个无需 ground truth 的相对评估。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多个编码者各自的代码空间<br/>Code Space, CSP"] --> M
     subgraph M["四阶段代码空间合并算法"]

@@ -42,7 +42,7 @@ LEADER 走的是场景坐标回归（SCR）路线：给一帧 LiDAR 点云，直
 整条 pipeline 先把原始点云做地面估计与平面矫正摆正，再做圆柱投影，把"绕 Z 轴转多少度"这件事变成投影图里沿一个轴的平移；投影后体素化，用循环稀疏卷积抽多尺度几何特征；特征送进多头最大回归器，每个点同时吐出场景坐标和一个可靠性分数；坐标恢复到笛卡尔系后，可靠性分数既参与训练时的损失加权，也在推理时用来挑出最可信的点驱动 RANSAC。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：单帧 LiDAR 点云"]
     subgraph RPGE["鲁棒投影式几何编码器（RPGE）"]

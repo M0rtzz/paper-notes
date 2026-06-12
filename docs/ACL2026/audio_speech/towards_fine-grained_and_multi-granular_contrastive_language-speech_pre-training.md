@@ -46,7 +46,7 @@ tags:
 工作分数据和模型两条线，目标是训出首个能统一表征全局与细粒度语音风格的语音-文本对齐模型。数据端用端到端管线构建FCaps，包含FCaps-Emilia（46,787小时、18M细粒度标注）和FCaps-PSCBase（267小时、14万全局标注+93万细粒度标注），直接从音频生成自由文本描述、绕开离散标签中间层。模型端的CLSP是双编码器（SPEAR-XLarge语音编码器 + RoBERTa文本编码器），走两阶段课程学习：先在大规模细粒度数据上做标准对比对齐，再用多正例对比把全局与细粒度两种粒度统一进同一嵌入空间，第二阶段由动态任务调度器控制训练重心从跨粒度对齐渐进过渡到细粒度判别。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["端到端标注管线"]
         direction TB

@@ -46,7 +46,7 @@ tags:
 推理时，对某一 transformer layer 的 hidden state 加入 $\beta v_{lang}$，其中 $v_{lang}$ 是归一化后的语言方向，$\beta$ 是 steering strength。最终提交选择 Qwen2.5-72B-Instruct、Layer 26、$\beta=1$，并使用 cultural prompt。所有 track 采用 greedy decoding，temperature=0，以减少采样噪声对 steering 效果判断的干扰。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["BLEnD 语言-地区对"] --> S1
     subgraph S1["FLORES DiffMean 语言向量"]

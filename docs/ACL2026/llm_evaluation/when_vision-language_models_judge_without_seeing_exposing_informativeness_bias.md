@@ -46,7 +46,7 @@ tags:
 VLM 评判器之所以偏好"更详细"的回答，是因为现有范式把信息量和正确性两个维度混在一起评估，评判器的注意力很容易从图像基准事实滑向文本表面质量——作者实测发现评判器几乎不看图（加入图像只带来不到 3~5% 的准确率提升），却有 30~50% 的信息量偏见。BIRCH（Balanced Informativeness and CoRrectness with a Truthful AnCHor）针对这一点把评判拆成两步：先让评判器按图像逐条校正每个候选回答（修正与图像矛盾之处、删去无图像依据的断言），再把校正后的两份版本**合并成一个**"真实锚点"——它既忠于图像、又保留与候选相当的信息量；随后评判器不再直接比较两个原始回答，而是让每个候选对照这个锚点逐细节核验一致性。输入一张图像、一个问题与两个候选回答，输出哪个回答更好的判断，整个过程把"谁说得更多"的干扰换成了"谁与图像更一致"的比较。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["输入：图像 + 问题<br/>+ 两个候选回答 A / B"]
     subgraph ANCHOR["真实锚点构建"]

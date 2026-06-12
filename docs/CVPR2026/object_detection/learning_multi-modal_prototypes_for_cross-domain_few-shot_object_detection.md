@@ -40,7 +40,7 @@ tags:
 LMP 想解决的是：GroundingDINO 这类开放词汇检测器完全靠文本提示，跨域少样本时既抓不住目标域的风格纹理，又容易被视觉相似的背景骗到。它的做法是在原有文本分支旁边再挂一条**视觉引导分支**，把少量 support 图像里的视觉证据结构化成「原型」注入检测流程。整体流转是：文本分支照旧维持开放词汇语义；视觉分支先从 support 图构建正类原型和硬负原型，经特征增强器精炼后，用原型相似度选 query、再经视觉解码器输出框；两条分支联合训练，推理时把各自预测集成起来，让语义抽象和域自适应细节互补。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph VPC["视觉原型构建"]
         direction TB

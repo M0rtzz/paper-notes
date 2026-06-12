@@ -52,7 +52,7 @@ tags:
 E-3DPSM 把自我中心 3D 姿态估计当成一个连续时间的状态机，分三步走。先把原始事件流转成 LNES 帧 $\{\mathbf{L}_t\}_{t=1}^N$（20ms 窗口，192×256×2）；再由时空姿态编码模块（SPEM）提取带时序感知的关节特征；最后姿态回归模块（PRM）同时预测直接姿态 $\mathbf{P}_t^D$ 和增量姿态 $\mathbf{P}_t^\Delta$，经一个可学习的卡尔曼式融合得到最终 3D 姿态 $\mathbf{P}_t$。整条流水线刻意去掉了 2D 热力图和分割掩码这些中间监督。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["事件流 → LNES 帧<br/>20ms 窗口 192×256×2"]
     subgraph SPEM["时空姿态编码模块（SPEM）"]

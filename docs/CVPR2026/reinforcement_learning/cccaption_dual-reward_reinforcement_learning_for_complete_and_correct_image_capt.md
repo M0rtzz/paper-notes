@@ -36,7 +36,7 @@ tags:
 CCCaption 的目标是在没有可靠人工参考的情况下，让模型自己学会写出既"全"又"对"的图像描述。它把描述质量拆成两个可计算的客观属性——完整性和正确性——各自设计成一个奖励，再用 GRPO 在 Qwen3-VL-2B 上做强化学习。整体流程是：对一张图，先用多个 MLLM 离线生成一组覆盖图像事实的视觉 query 作为"该图应该被描述到什么"的代理；训练时模型 rollout 出若干 caption，completeness reward 看 caption 能答对多少图像 query（覆盖率，类似 recall），correctness reward 把 caption 拆成原子 query 再回查原图看有多少是真实的（类似 precision），两者凸组合成总奖励喂给 GRPO。为提升效率，还用 dynamic query sampling 砍掉那些几乎不产生梯度的"太简单"query。生成 query 的这套流程最终沉淀为 CCaption-44k 训练集。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["输入图像 x"] --> POLICY["策略模型 Qwen3-VL-2B<br/>rollout 出一组候选 caption"]
     subgraph COMP["1. Completeness Reward（完整性 · recall）"]

@@ -43,7 +43,7 @@ tags:
 CLEAR 要解决的是"视频字幕擦除必须依赖外部 mask"这个老问题，办法是把"识别字幕在哪"的能力在训练阶段就内化进一个视频扩散模型，推理时只塞进字幕视频本身、不挂任何文本检测器。整个流程拆成两阶段：第一阶段用"带字幕帧 - 干净帧"的像素差当便宜的弱监督，自监督学出一个字幕先验掩码 $\mathcal{M}^{prior}$；第二阶段冻结 Wan2.1-Fun-V1.1-1.3B 这个视频 DiT，只加一小撮 LoRA 和一个轻量 occlusion head，让模型边生成边在中间层隐式预测字幕掩码 $\mathcal{M}^{pred}$ 并据此自适应加权扩散损失。训练完字幕擦除的知识被吸进 LoRA 改造过的 attention，推理就是单次前向出干净视频。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["字幕视频 / 干净视频对"] --> B
     subgraph S1["Stage I 自监督字幕先验"]

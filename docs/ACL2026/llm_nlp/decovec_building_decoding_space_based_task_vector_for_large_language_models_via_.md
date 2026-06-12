@@ -44,7 +44,7 @@ tags:
 DeCoVec 不碰模型参数也不碰内部隐状态，只在输出 logit 这一层做文章。给定一个测试查询，它在每个解码步同时维护三套上下文：基础解码上下文、zero-shot 上下文和 few-shot ICL 上下文，分别前向得到三组 logit。核心观察是 zero-shot 与 few-shot 的 logit 之差恰好刻画了「示例激活了哪些任务行为」，把这个差向量当作解码空间里的任务向量按比例叠加回基础 logit，就能逐 token 地把任务知识注入生成，而无需任何训练或结构改动。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["测试查询 + 已生成前缀"] --> CTX
     subgraph CTX["上下文解耦（steering 与 decode 独立采样三套上下文）"]

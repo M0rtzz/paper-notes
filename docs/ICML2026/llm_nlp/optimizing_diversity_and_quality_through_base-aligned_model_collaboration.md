@@ -44,7 +44,7 @@ tags:
 BACO 想在一次解码里既拿 base 的多样性又拿 aligned 的质量，做法是让两个模型逐 token 抢麦克风。它把生成写成 $P_{\text{BACO}}(y_t|c_t) = w_{\text{base}} \cdot P_{\text{base}}(y_t|c_t;\theta_{\text{base}}) + (1-w_{\text{base}}) \cdot P_{\text{aligned}}(y_t|c_t;\theta_{\text{aligned}})$，其中 $c_t = [x, y_{<t}]$，$w_{\text{base}} \in \{0,1\}$ 是 router 给的**硬**选择——不是软混权，每个 token 完全归属某一个模型。每步两模型并行前向，router 看当前位置的信号决定信 base 还是 aligned，再从被选中那个分布里采样 token、拼回上下文继续。为防止两模型 tokenizer 不一致拼出乱码，切换只发生在词边界（word boundary）上。整条流程只跑一次解码、不微调、不做 prompt 工程，所以能零成本套到任何现成的"base + instruct"权重对上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["当前上下文（prompt + 已生成前缀）"] --> B["base 与 aligned 并行前向<br/>各出一份 next-token 分布"]
     B --> R

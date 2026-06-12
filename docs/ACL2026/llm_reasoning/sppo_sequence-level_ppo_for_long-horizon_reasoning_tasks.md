@@ -44,7 +44,7 @@ SPPO 的核心不是改一个 loss 名字，而是改变价值函数的语义。
 给定 prompt $s_p$，policy 采样完整回答序列 $a_{seq}=(y_1,\dots,y_T)$，外部 verifier 返回二值奖励 $R\in\{0,1\}$。value model $V_\phi(s_p)$ 输出 prompt 级成功概率，SPPO 用 $R-V_\phi(s_p)$ 构造序列级 advantage，并在 PPO 的 clipped objective 中把同一个 advantage 分配给该序列的所有 token。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BANDIT["序列级上下文 bandit 建模"]
         direction TB

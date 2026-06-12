@@ -46,7 +46,7 @@ MTR-Eval 输入一个 conversational retrieval benchmark，其中每个 turn 是
 MTR-Pipeline 从原始 corpus 开始，先做非文本清理、recursive chunking、MinHash-LSH 去重，再用 NVIDIA quality classifier 和 FineWeb-EDU scorer 过滤高信息密度片段。随后，greedy traversal clustering 在 embedding space 中构造连续语义路径，并按固定 cluster size 切段。最后三 agent 生成对话：Questioner 模拟用户提问和 topic switch，Responder 生成严格 grounded answer，Polisher 增加指代、省略和自然表达。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN1["已有对话检索基准<br/>(history, query, gold docs)"] --> EVAL
     subgraph EVAL["MTR-Eval 四维审计"]

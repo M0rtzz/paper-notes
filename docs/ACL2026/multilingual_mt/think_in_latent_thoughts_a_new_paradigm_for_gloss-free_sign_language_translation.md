@@ -46,7 +46,7 @@ tags:
 SignThought 想解决的核心问题是：手语里大量含义靠分类词、空间语法和运动调节动态生成（productive forms），并没有固定词汇对应，所以"把视频片段直接映射成词"的隐含假设站不住，翻译本质上是跨时间的推理。它的做法是在视频和文本之间插一层显式的中间语义。整条管线分三段：手语编码器先把视频压成帧级证据 $\mathbf{E}$；潜在思维链模块（latent CoT）再从 $\mathbf{E}$ 里蒸馏出一条有序的思维链 $\mathbf{C}$（因果自注意力定顺序 → Sinkhorn 归一化做分配 → 路由交叉注意力取证据）；最后双流解码器先查这条思维链规划要说什么，再回到视频里取证据落地成文本。数据层面，作者另外构建并开源了一个上下文依赖更强的无 gloss 数据集，为这套推理式建模提供训练土壤。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["手语视频"] --> B["手语编码器<br/>压成帧级证据 E"]
     subgraph C["潜在思维链模块"]

@@ -44,7 +44,7 @@ tags:
 CoSToM 的出发点是"诊断再治疗"：要让 LLM 把内部已有的 ToM 知识自发外化为对话行为，得先知道这些知识藏在哪一层，再有针对性地干预那一层。框架因此分两阶段——解释阶段用因果追踪逐层扫描，定位编码 BDI（信念-欲望-意图）信息的关键层（实验发现主要在早期层）；转向阶段在这些关键层装上 LoRA 适配器，用一个冻结的 probe 解码器把 ToM 问答准确率当作监督信号反向传播回编码器。训练时输入是对话历史与 BDI 标签，解码器充当 ToM 验证器；推理时同一个编码器产出 ToM 增强的激活，解码器切换成对话生成器，输出谈判 / 说服等社交对话。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     H["对话历史 + BDI 标签"] --> ENC["上下文编码器"]
     subgraph TRACE["因果追踪定位 ToM 关键层"]

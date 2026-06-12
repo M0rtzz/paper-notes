@@ -46,7 +46,7 @@ tags:
 DreamShot 要解决的核心问题是：怎么让一串静态故事板镜头既保持角色身份稳定、又保持场景连贯，同时还能像图像生成那样只产出关键帧而不是密集视频。它的做法是把这件事整个搬到视频扩散模型（Video-VAE + DiT）里来做。输入是 K 个角色参考图像加 S 个镜头的文本脚本；每个参考图像单独编码成潜向量，每个故事板镜头先被「假装」成一段视频（重复成 T 帧）再由视频 VAE 编码。参考 token 和镜头 token 拼成一条序列送进 DiT——自注意力在所有 token 上联合计算，让角色身份能跨镜头流动；交叉注意力则按镜头各自和对应文本对齐，保证每个镜头画的是脚本里说的内容。这套结构同时撑起三种使用方式：给参考图生成镜头（Reference-to-Shot）、纯文本生成镜头（Text-to-Shot）、以及在已有镜头后续写（Shot-to-Shot）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：K 个角色参考图 + S 个镜头脚本"]
     subgraph ALIGN["基于视频 VAE 的镜头时序对齐"]

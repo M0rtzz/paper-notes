@@ -51,7 +51,7 @@ tags:
 AdaRadar 把雷达前端（编码端）和计算端（解码端 + 推理网络）连成一个反馈环路，让压缩率能随场景在线调整。一帧原始 range–Doppler 张量在前端先做 DCT、自适应频谱剪枝、缩放量化，只把压缩后的系数和缩放因子传过去；计算端反量化、IDCT 重建后送进下游检测/分割网络拿到结果。关键在于这条环路会把检测置信度（或分割熵）当反馈信号，用零阶代理梯度更新下一帧的剪枝率，从而做到在线码率自适应——简单场景多压、复杂场景少压。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始 range–Doppler 张量"] --> FE
     subgraph FE["雷达前端（编码端，可跑在 DSP）"]

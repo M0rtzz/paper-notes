@@ -44,7 +44,7 @@ tags:
 InterNeg 想解决的核心问题是：CLIP 的相似度是在跨模态（图像-文本）空间里优化出来的，可现有 OOD 检测方法挑负文本时却用模态内距离（文本-文本），两者口径不一致，导致挑出来的"伪 OOD 标签"在 CLIP 真正看图打分的空间里未必远离 ID。InterNeg 因此把整条流程的度量统一到跨模态距离上，分文本和视觉两条线走：文本线在推理前离线挑选 WordNet 负文本时改用图像代理来量距离，视觉线则在推理过程中把那些明显是 OOD 的测试图像反过来"翻译"成新的负文本嵌入、动态补进一个缓冲池。两条线产出的负文本最后汇到同一个 NegLabel 式打分函数里给测试图像判 ID/OOD，全程不需要对 ID 数据或额外数据做训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["ID 图像代理 pᵢ + 基准距离 dᵢᵇᵃˢᵉ<br/>（每类采 N 张图取均值）"]
     subgraph TXT["跨模态引导的负文本选择（文本线·离线）"]

@@ -59,7 +59,7 @@ AVA-Bench 想回答一个被现有 VQA 评测糊住的问题：当一个 VFM 在
 整条流水线是：从 26 个不同领域的数据集里筛出约 218K 张图像-问题对，每一对都被设计成只考一种 AVA；接着把待测 VFM 接上一个固定的 LLM，按 LLaVA 式两阶段（先预训练 connector、再 LoRA 微调）在每个 AVA 上分别训练和测试；最后把 14 个分数汇成这个 VFM 的"能力指纹"，谁强在哪、弱在哪一目了然。整套方法的创新都集中在数据集构建这一环（下图 `数据集构建` 框里的三件事），后续的训练-评测沿用现成的 LLaVA 协议。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["26 个领域数据集<br/>Objects365 / LVIS / NYU-Depth / DIOR …"]
     subgraph BUILD["数据集构建（218K 图像-问题对，每对只考一种 AVA）"]

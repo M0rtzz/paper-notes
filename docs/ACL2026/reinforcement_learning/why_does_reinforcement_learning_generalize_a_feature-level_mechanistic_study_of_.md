@@ -44,7 +44,7 @@ tags:
 输入是同一基座模型在相同数学训练数据上得到的两个后训练版本：SFT 模型和 RL 模型（主实验在 Qwen3-4B-Base、Qwen2.5-7B 上做，并在 Llama3.1-8B-Instruct 上验证趋势）。作者先训两个 pairwise Sparse Crosscoder（Base-SFT、Base-RL）看每种范式相对基座引入了多少特异特征，再训一个三模型 Crosscoder 把 Base、SFT、RL 放进同一稀疏空间统一归因，最后聚焦"基座答错、RL 答对"的泛化关键样本，定位 RL 显著激活的特征并用置零/放大做因果验证。整条线把"RL 为什么泛化"从行为观察一步步逼到可干预的内部特征上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["同一基座模型 + 47K 数学数据"] --> B["SFT 模型<br/>模仿完整 CoT 轨迹"]
     A --> C["RL 模型<br/>GRPO 只用答案奖励"]

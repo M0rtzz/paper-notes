@@ -43,7 +43,7 @@ tags:
 BRIDGE 把"先 SFT 再 RL"的两阶段流水线改写成一场教师-学生的双层博弈：上层（leader）是 SFT 目标，它操纵一个轻量 LoRA 教师模块 $w$；下层（follower）是 RL 目标，它负责优化 LLM 主干参数 $\theta$。每个训练步交替做两件事——学生更新先把 SFT 和 RL 梯度融合起来推进 $\theta$，教师更新再根据"这次联合训练比纯 RL 多赚了多少奖励"来调整 $w$，让监督信号只在真正帮到奖励优化时才被采纳。推理时把 $w$ 直接合并进 $\theta$，不带来任何额外开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["专家轨迹 (SFT batch)<br/>+ 在线采样 (RL batch)"] --> B
     subgraph LOOP["每步交替更新（双层优化：SFT 上层 / RL 下层）"]

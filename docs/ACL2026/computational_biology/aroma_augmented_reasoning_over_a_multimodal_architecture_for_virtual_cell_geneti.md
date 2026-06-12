@@ -46,7 +46,7 @@ tags:
 AROMA 的核心思路是把"预测某个基因被扰动后靶标基因怎么变"这件事，从单纯的文本相似度匹配，改造成锚定在结构化生物学证据上的推理。整条链路是：输入一对（扰动基因，靶标基因）后，先从两张知识图谱里检索出基因功能描述、调控最短路径和细胞系背景作为上下文；再由多模态编码器把知识图谱的拓扑结构、蛋白质序列特征与文本一起喂给语言模型；最后语言模型输出一段可读的推理过程加一个方向性预测（上调/下调/无变化）。训练上分两步走——先用大规模监督微调注入领域知识，再用 GRPO 强化学习把推理质量磨准。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：（扰动基因, 靶标基因）"] --> R
     subgraph R["双知识图谱检索"]

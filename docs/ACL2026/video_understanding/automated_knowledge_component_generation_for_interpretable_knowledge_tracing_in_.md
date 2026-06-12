@@ -43,7 +43,7 @@ tags:
 方法分两段、连成一个闭环。第一段是自动 KC 生成与标注 pipeline：对每道编程题采样多样化的正确学生提交，提示 GPT-4o 生成必要的 KC，再用 Sentence-BERT embedding + 层次凝聚聚类把相似 KC 合并，最后让 GPT-4o 给每个 cluster 命名并把题目映射到 cluster，得到 Q-matrix。第二段是 KCGen-KT 模型：它为每个学生维护一份「在各 KC 上的 mastery 向量」，把 mastery 值转成 soft token，连同下一道题的题面和 KC 描述一起喂给 Llama 3，同时预测「下一次作答是否正确」和「学生可能提交的代码」。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["编程题 + 学生提交"] --> S1
     subgraph S1["LLM-based KC 生成与聚类"]

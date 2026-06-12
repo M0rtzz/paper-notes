@@ -43,7 +43,7 @@ tags:
 推理时整条链路是这样转的：X 光图像先过 SAM 的 ViT-L 编码器拿到图像特征，同时 EAE 从图像里抽出双能量物理先验、用它初始化解码器的 query token；操作员在目标上点一下得到 $p_0$，APG 据此先估一个粗 mask，再从中挑出两个更有代表性的点 $(p_1, p_2)$ 替换掉单点；最后 SAM 解码器拿着增强后的提示和被物理先验初始化过的 token 预测最终 mask。（XSeg 数据集是离线的数据侧贡献，为这条推理链路提供训练与评测基座，见关键设计 3。）
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["X 光图像"] --> ENC["SAM ViT-L 编码器<br/>(冻结) → 图像特征"]
     IMG --> EAE["Energy-Aware Encoder (EAE)<br/>取高能 max / 低能 min 双通道<br/>→ 初始化解码器 query token"]

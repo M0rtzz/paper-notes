@@ -45,7 +45,7 @@ tags:
 论文要解决的核心矛盾是：迭代精炼带来高精度，但 GRU 的递归循环在边缘硬件上又慢又难量化。整套方法分两阶段训练再加一套推理算子。第一阶段做单目深度先验迁移，让立体匹配的特征编码器在训练时吸收一个单目深度大模型的知识，但推理时不必背着这个大模型。第二阶段做渐进裁剪微调，把原本 32 次的迭代逐步减半压到 1 次，只动 GRU 模块、冻结其余部分。最后推理时再换上专门设计的 FlashGRU 稀疏算子，把这唯一一次迭代也跑得更快。三块各自针对一个瓶颈：单目编码器太重、迭代次数太多、GRU 算子在 GPU 上访存太碎。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["左右图像对"] --> S1
     subgraph S1["协同单目深度先验迁移（训练阶段一）"]

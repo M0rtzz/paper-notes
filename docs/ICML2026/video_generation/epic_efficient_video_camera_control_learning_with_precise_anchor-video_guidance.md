@@ -43,7 +43,7 @@ EPiC 用"基于第一帧可见性掩码"的方式从任意 in-the-wild 视频直
 EPiC 基于 CogVideoX-5B-I2V（DiT 风格、3D 全自注意力）。训练管线分两步：(1) 从任意 in-the-wild 视频用可见性掩码合成训练 anchor（不需要相机/点云）；(2) 把 anchor 经 3D-VAE 编码后和噪声潜变量沿通道拼接，送入 26M 的 Anchor-ControlNet，输出再用可见性掩码 $M$ 做空间门控、加到 base DiT 的对应层，整个 backbone 全程冻结。推理时反过来——用真实点云沿用户给定轨迹渲染 anchor，靠 Anchor-ControlNet 的可见性门控隔离掉 3D 重建的错位与飞像素，并且通过对前景做点云 mask 来切换"静态相机控制"和"前景可动"两种模式，V2V 模式则换成 DepthCrafter 估计的动态点云。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph ANCHOR["可见性掩码 anchor 构造（设计 1）"]
         direction TB

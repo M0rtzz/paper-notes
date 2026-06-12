@@ -44,7 +44,7 @@ tags:
 第 $k$ 轮输入当前规范 $G_k$ 和开发集 $D$。LLM annotator 生成预测注释 $A_k$，评估器把 $A_k$ 与 gold $A_g$ 比较，计算严格 F1。若 $IAA_k$ 未达阈值且还有提升空间，就收集所有 discrepancy。系统用 soft overlap 把错误分成 label mismatch、boundary mismatch、false negative、false positive 四类，并按 predicted/gold label pair 聚类，选择频率最高的组进入 moderation。LLM moderator 依次做 pattern explanation、principle generation 和 guideline refinement，得到 $G_{k+1}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：当前规范 G_k + 开发集 D（最小监督，仅 10 篇）"] --> B["Guideline-driven annotation<br/>LLM 按 G_k 标注，输出 PubAnnotation JSON → 预测 A_k"]
     B --> C["评估器：严格 span+type 匹配<br/>算严格 F1（即 IAA_k）"]

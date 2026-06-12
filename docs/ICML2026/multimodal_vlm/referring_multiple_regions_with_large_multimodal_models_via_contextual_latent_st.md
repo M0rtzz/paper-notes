@@ -44,7 +44,7 @@ CSteer 提出一种训练无关的 latent steering 方法,通过在错误/正确
 给定一张图像 $v$、覆盖在图上的视觉提示 $p=\{p_1,...,p_m\}$(数字标记)和文本 query $q$,通用 LMM $\mathcal{F}$ 把它们编码成 $\textbf{X}_c=\text{concat}(\mathcal{F}_{visual}(v,p), \textbf{X}_q)$,然后语言模型 $\mathcal{F}_L$ 自回归解码答案。CSteer 不改这条主流程,而是在 $\mathcal{F}_L$ 的若干层隐藏状态 $h^l$ 上加一个预先算好的上下文向量 (contextual vector) $\Delta^l$:$\hat{h}^l = h^l + \lambda \cdot \Delta^l$。整个 pipeline 正是论文里两个串行模块:**① 离线构造上下文向量**——用一小批带 GT 标注的样本跑 LMM 得到错误指代回答 (负样本),用 GPT-4o 等纯文本判官参照 GT 把它最小改写成正确版本 (正样本),再用 teacher forcing 让 LMM 分别"被迫"输出正/负回答,记录最后一个 token 的隐藏激活,正负相减再跨样本平均得到每层的 $\Delta^l$;**② 在线分层注入**——推理时按"早期层改 query、中后期层改 decode"的分解策略叠加 $\Delta^l$,完全不改架构、不更新参数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["① rewrite 正负对构造上下文向量 Δˡ（离线）"]
         direction TB

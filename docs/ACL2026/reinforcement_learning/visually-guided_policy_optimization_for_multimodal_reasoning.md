@@ -43,7 +43,7 @@ VGPO 可以理解为在 DAPO/GRPO 类 RL 框架上加了一层“视觉忠实度
 给定图像 $I$、文本问题 $q$ 和答案 $a$，策略模型采样一组推理轨迹。首先，VGPO 从图像 token 的隐藏状态中得到视觉原型，并计算每个生成 token 与视觉原型的相似度，形成 Visual Focus Score。然后，Visual Attention Compensation 会在推理后段对高视觉相似 token 做线性增强，用来抵消 temporal visual forgetting。最后，双粒度优势重加权（Dual-Grained Advantage Re-Weighting）将这种视觉补偿信号嵌入到 policy objective 中：轨迹内区分 token 级视觉重要性，轨迹间区分整条回答的视觉累积程度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["图像 I + 问题 q + 答案 a<br/>组内采样一组推理轨迹"] --> B["视觉原型 μ_v<br/>图像 token 隐藏状态 mean-pooling"]
     B --> C["Visual Focus Score<br/>生成 token 与 μ_v 余弦相似度 → ρ"]

@@ -48,7 +48,7 @@ RewardFlow 想解决的事情很直接：在不微调模型、也不反转原图
 下图给出这条推理时采样回环：prompt-aware 策略先据指令配好权重，之后每步去噪叠加多奖励梯度、再被 KL 正则拉回，循环到收敛。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["原图 + 编辑指令"] --> PA["Prompt-Aware 自适应策略<br/>抽语义基元→判局部/全局意图→设权重 w_i(t)、步长"]
     PA --> STEP["每步去噪：对当前 latent 算多奖励梯度"]

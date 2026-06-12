@@ -44,7 +44,7 @@ AnomalyVFM 提出了一个通用框架，通过三阶段合成数据生成方案
 AnomalyVFM 想回答一个反直觉的现象：异常检测明明是纯视觉任务，为什么靠纯视觉表征的 VFM（DINOv2 等）反而打不过靠语言概念的 CLIP？作者的判断是 VFM 不缺能力，缺的是**多样化的训练数据**和**能改到骨干内部的适配方式**，于是整条流水线就围绕补这两块短板展开。先用生成模型造出海量带异常标注的合成图，再把 LoRA 注入 VFM 的每个 Transformer 块去深层适配，接一个轻量解码器输出像素级异常图，最后用一个带置信度权重的损失把合成标注里的噪声"软化"掉。训练完成后，推理时一张图进去直接吐出异常分割图和图像级分数，全程不需要任何真实异常样本，也不需要目标类别的域内数据。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["三阶段合成数据生成"]
         direction TB

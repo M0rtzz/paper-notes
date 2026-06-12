@@ -46,7 +46,7 @@ tags:
 TacSIm 的 pipeline 包含三个阶段：(1) 数据获取——从英超转播画面中通过目标检测、追踪和相机标定重建球员和球的标准化坐标；(2) 轨迹补全——用条件 VAE 对不可见区域的球员位置进行补全；(3) 虚拟仿真与评估——将重建的初始状态输入 GRF 虚拟足球平台，让多智能体系统学习和复现后续战术行为，并与真实轨迹对比评估。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["英超转播视频<br/>多机位 / 有遮挡 / 帧率不一"]
     subgraph REC["轨迹重建（设计 1）"]

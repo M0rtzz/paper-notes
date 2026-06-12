@@ -45,7 +45,7 @@ MOSAIC 把"安全决策"从隐式推理副产物变成 plan → check → act/re
 MOSAIC 想解决的是 agent 在多步工具调用里"该停的时候没停"。它把每一步拆成 plan → check → act/refuse 的循环：模型先在 `<think>` 块里产出计划和候选工具调用，再自己决定要不要开一段 `<safety_thoughts>` 做安全检查，最后从工具调用、拒绝、直接作答三种动作里选一个。整条轨迹写成 $\tau = \{(o_t, \text{plan}_t, g_t, \text{safety}_t, a_t)\}_{t=1}^{T_{\text{term}}}$，训练时用 LLM judge 对同一任务的两条 rollout 做成对偏好，喂给 GRPO 优化策略——不需要 critic，并对工具返回的 token 做 mask，只在模型自己生成的文本上反传梯度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 20, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph LOOP["plan→check→act/refuse 循环（设计 1）"]
         direction TB

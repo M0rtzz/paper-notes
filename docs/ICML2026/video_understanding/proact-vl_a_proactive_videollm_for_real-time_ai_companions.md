@@ -53,7 +53,7 @@ ProAct-VL 通过分块输入-输出范式 + 轻量级 FLAG 决策头 + 过渡感
 整套流程围绕「输入三元组 + 持久 KV 缓存 → 因果 Transformer → FLAG 决策 → 评论/沉默 → 回灌下一秒」这一条带回环的逐秒数据流展开，三个核心设计正好对应其中三个贡献环节：分块级 I/O 撑起数据流与缓存，FLAG 决策头管「何时说」，多层次损失在训练期监督决策概率。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph IO["分块级输入-输出范式（设计1）"]
         direction TB

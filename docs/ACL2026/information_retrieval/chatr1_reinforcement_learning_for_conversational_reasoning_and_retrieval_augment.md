@@ -44,7 +44,7 @@ tags:
 ChatR1 是一个用 PPO 训练的 policy LLM $\pi_\theta$（Qwen2.5-3B/7B-Instruct），每个 turn 输入对话历史 $\mathcal{H}$ 和当前 user query $q$，自主输出一条交错 reasoning / search / answer 的轨迹：`<think>` 思考后用 `<search>q^k</search>` 触发 retriever（e5-base-v2，300M，zero-shot，top-3，至多 2 次），检索结果以 `<information>d^k</information>` 注入下一轮推理，最终给出 `<answer>y</answer>`。它的核心难点是多轮对话里 outcome reward 太稀疏，于是把轨迹总奖励拆成答案奖励加意图奖励 $R(\tau) = R_{\text{answer}}(y) + \alpha R_{\text{intent}}(Q)$，再用 PPO+GAE 把它沿所有生成 token 反向分配 credit。训练覆盖 TopiOCQA / QReCC / INSCIT / MultiDoc2Dial / FaithDial 五个数据集，分别对应 topic shift、大语料、mixed-initiative、多文档 grounding、faithfulness 五类挑战。下面三个关键设计按"先架构、再奖励、后优化"的训练数据流逐一展开。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：对话历史 H + 当前用户问题 q"] --> ROLL
     subgraph ROLL["RAG-as-tool 端到端联合优化（rollout）"]

@@ -48,7 +48,7 @@ $$\nabla_\theta J = \mathbb{E}\Big[\sum_t \nabla\log\pi(q_t|s_t,o_{t-1})\,A^{\ma
 注意 subgoal 那一项前面乘了 $q_t$（SWITCH 时为 1、KEEP 时为 0），保证只有真正"决定换 subgoal"的 turn 才回传 high-level 梯度——这是整个 Plan-Execute 因子化能成立的关键。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：状态观测 + 上一子目标"]
     subgraph PE["Plan-Execute 接口（单 LLM 顺序输出）"]

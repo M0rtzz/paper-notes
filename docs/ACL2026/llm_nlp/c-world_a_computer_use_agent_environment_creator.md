@@ -44,7 +44,7 @@ tags:
 C-World 把 RL 教科书里的 MDP 四元组原样搬到 LLM agent，把"agent 环境"形式化为 $(\mathcal{A},\mathcal{T},\mathcal{F},\mathcal{R})$ 四个组件——动作空间、任务分布、转移函数、奖励——再额外配一个 World Engine 把"工具响应"也建模成可由 LLM 模拟的转移。输入是 5,571 个真实 MCP 工具与一组 seed task，系统先自动合成长程任务、让 Planner-Actor agent 在 State Controller 注入的扰动下逐步执行、最后由双信号 reward 打分，从而得到高保真评测；而当切到合成模式时，World Engine 在不连 live API 的情况下批量生成"以假乱真"的工具响应，把训练轨迹采集从外部服务的速率与费用中解放出来。两套模式共用同一形式化骨架，使同一环境既能当评测台又能当训练数据引擎。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["5,571 个真实 MCP 工具 + seed task"]
     IN --> AS["统一动作空间（Action Space 𝒜）<br/>三阶段验证滤死工具 → BGE-M3 入 FAISS<br/>仅暴露 search_tools 堵 keyword 捷径"]

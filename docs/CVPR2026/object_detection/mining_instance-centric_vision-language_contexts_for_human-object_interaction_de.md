@@ -43,7 +43,7 @@ InCoM-Net 想解决的核心问题是：人在判断"这个人和那个物体在
 为此 InCoM-Net 走双分支：DETR 检测器分支输出实例级查询特征 $q^l$，CLIP 视觉编码器输出逐 patch 的 VLM 特征 $V^l$。两者送进核心模块 Instance-centric Context Mining，它由 ICR（实例中心上下文精炼）和 ProCA（渐进式上下文聚合）串联组成，跨 $L$ 层迭代——第 $l$ 层用 CLIP 第 $l$ 层的特征，ICR 先从 $V^l$ 里为每个实例切出三类上下文，ProCA 再把它们渐进式融进该实例的查询。$L$ 层走完后，HO Pair Generator 把精炼过的实例特征两两配成人-物对，送入交互解码器输出 HOI 分类。此外训练期用 MFT（掩码特征训练）随机遮蔽 VLM 或检测器特征，逼模型均衡利用两种异构来源。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["输入图像"] --> DET["DETR 检测器<br/>实例查询 q^l + 检测框掩码 M^R / M^C"]
     IMG --> CLIP["CLIP 视觉编码器<br/>逐层 VLM 特征 V^l"]

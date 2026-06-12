@@ -46,7 +46,7 @@ tags:
 BiForget 支持领域级和实例级两种遗忘粒度。领域级采用两阶段设计：Stage I 种子引导合成（用模型生成的领域要点实例化提示模板，引出多样领域内容）+ Stage II 对抗探测（越狱和成员推断攻击挖掘深层记忆内容）。实例级采用信息改写策略（生成目标语句的多样语义等价变体）。两条粒度路径产出的内容汇成统一的合成遗忘集 $\Omega_f$，再交给质量评估套件度量。输入是领域名或目标语句，输出是高质量合成遗忘集 $\Omega_f$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：领域名 或 目标语句"] -->|领域级| SEED["枚举领域要点种子<br/>目标模型自列概念 / 角色"]
     IN -->|实例级| INST["实例级合成<br/>目标语句 → 语义等价改写变体"]

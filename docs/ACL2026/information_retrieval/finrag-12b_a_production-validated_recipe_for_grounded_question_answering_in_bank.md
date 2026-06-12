@@ -44,7 +44,7 @@ Kasisto 团队基于 Gemma 3 12B-IT，用 143M token 的数据高效配方 (LLM-
 FinRAG-12B 是一套把 Gemma 3 12B-IT 训成「可溯源、会拒答、能单卡部署」金融 QA 模型的端到端配方，全程只用 143M token。数据侧先合并开源 RAG-v1（43,581 样本，JudgeLM 过滤 <5 分）、5 步合成的 SEC QA（16,773 样本）、CommonCrawl 金融子集（20,499 样本）与内部 refusal calibration 数据（17,795 样本）共 98,648 样本，并让金证据在 distractor 中按右梯形调和衰减分布 $P(X=x)=\frac{1}{N-K_{\min}+1}\sum_{K=\max(x,K_{\min})}^{N}\frac{1}{K}$ 采样以打散位置偏置；训练侧走两阶段 curriculum（Stage 1 lr $1\times10^{-6}$ cosine 学引用规范、Stage 2 lr $5\times10^{-6}$ linear 校准拒答与真实风格），最后用 SmoothQuant W4A16 把 24GB 压到 8.4GB 上线，使答案质量、引用、拒答、延迟、成本这五个互相冲突的维度同时达标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SRC["数据源：RAG-v1 + CommonCrawl 金融子集 + 内部 refusal 数据"]
     subgraph SYN["5 步合成 SEC QA pipeline"]

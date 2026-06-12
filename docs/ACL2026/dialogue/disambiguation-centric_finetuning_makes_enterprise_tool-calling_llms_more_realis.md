@@ -46,7 +46,7 @@ tags:
 DiaFORGE 针对的是企业工具调用里「请求不完整 + 工具近重复」的级联失败：输入是约 5000 个生产级 API 规范组成的工具目录 $\mathcal{T}$，输出是一个学会先消歧再调用的微调模型。整条管线分三段串起来——UTC-Gen 数据引擎自底向上合成消歧中心的对话，带推理链的监督微调把这种能力灌进开源模型，最后用静态 + 动态双轨评估在真实对话循环里检验端到端的目标完成率。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["工具目录 𝒯<br/>约 5000 个生产级 API 规范"] --> S1
     subgraph S1["UTC-Gen 多智能体数据引擎"]

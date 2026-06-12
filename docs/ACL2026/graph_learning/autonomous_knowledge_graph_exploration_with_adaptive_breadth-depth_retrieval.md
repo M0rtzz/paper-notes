@@ -43,7 +43,7 @@ tags:
 ARK 把知识图谱检索从"在固定索引上打分"改造成"带工具的交互式 agent 决策"，核心是让 LLM 在一条轨迹里自己决定该"广撒"还是"深挖"。图被形式化为 $G = \langle V, E, \phi_V, \phi_E, d_V \rangle$，agent $\mathcal{A} = \langle \text{LLM}, \mathcal{T} \rangle$ 拿到查询 $Q$ 后产出轨迹 $\tau = ((s_1, A_1, o_1), \dots, (s_T, A_T, o_T))$：每一步从两个工具里挑一个调用、拿到新观测，同时维护一个有序候选列表 $\mathcal{R}$（把工具返回的节点 append 进去，或调用 `finish` 收尾）。文本相关性自始至终用 BM25 的 $\operatorname{rel}(q, d_V(v))$ 算，快且稳，适合 agent 在轨迹中反复发短查询；可选地并发跑 $n$ 个独立 agent 再投票聚合。整套框架本体 training-free，能力全压在 LLM 的工具使用上，而非工具本身的复杂度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["查询 Q + 知识图谱 G"] --> AGENT
     subgraph AGENT["极简双工具接口（单 agent ReAct 循环）"]

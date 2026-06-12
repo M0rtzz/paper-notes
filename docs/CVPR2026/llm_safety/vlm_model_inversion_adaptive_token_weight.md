@@ -43,7 +43,7 @@ VLM 是否和单模态 DNN 一样容易受到模型反转攻击？如何针对 V
 这是个白盒模型反转攻击：攻击者握有 VLM 的完整架构、参数和注意力图，想从模型里"反推"出训练用过的私有图像。具体做法是在预训练 StyleGAN2 的潜空间里优化一个 $w$，让生成图 $x = G(w)$ 喂给 VLM 后、在给定文本 $t$（如"Who is the person in the image?"）下能输出目标答案 $y$（如某个人名）。整条流水线是一个迭代优化回环——生成候选图 → 过 VLM 拿到答案 token 序列 → 算反转损失 → 反传更新 $w$ → 重复 $N$ 步，直到生成图能稳定诱导出目标答案。难点在于 VLM 输出的是 token 序列而非单个类别标签，所以全部创新都集中在"回环里怎么把这串 token 的损失聚合成一个反转信号"这一步：作者沿着"逐 token → 序列级 → 注意力加权"一路把这个聚合方式做强，最终落到 SMI-AW。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["潜码 w（StyleGAN2 潜空间，待优化）"] --> B["生成候选图像 x = G(w)"]
     B --> C["VLM M(t, x)：文本提示 t + 图像 x<br/>→ 输出答案 token 序列 y"]

@@ -46,7 +46,7 @@ tags:
 TRACE 采用单轮生成方式：给定自我中心视频 $V$ 和自然语言问题 $Q$，模型首先作为"空间描述器"生成 TRACE 表征 $G$，然后作为"推理解析器"基于 $G$ 和 $V$ 生成最终答案 $A$。推理过程形式化为 $\hat{A}, \hat{G} = \arg\max P(A|G,V,Q) \cdot P(G|V,Q)$。整个过程在一个前向传递中完成，TRACE 相当于一种结构化的 CoT。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["自我中心视频 V + 空间问题 Q"] --> B["空间描述器<br/>单轮生成结构化文本表征"]
     B --> G

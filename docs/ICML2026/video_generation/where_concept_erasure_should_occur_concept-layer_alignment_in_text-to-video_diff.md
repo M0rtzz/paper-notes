@@ -46,7 +46,7 @@ CLEAR 的核心不是重新训练视频扩散模型，而是在冻结模型的 T
 训练完成后，层分布收敛到 $l^*=\arg\max_l\alpha_l$。推理阶段只在该层挂载 SAE，不更新扩散模型权重。给定 hidden state $h_{l^*}$，CLEAR 编码得到 sparse features，保留与目标概念相关的特异 feature，解码回模型空间形成 $v_{tar}$，然后执行 $h'_{l^*}=h_{l^*}-\gamma v_{tar}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：目标概念 + 正/负 prompt 对<br/>冻结 T2V 模型（T5 文本编码器）"] --> S3
     subgraph S3["分离性驱动的交替优化（训练）"]

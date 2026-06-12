@@ -45,7 +45,7 @@ tags:
 全文只用一个组件——一个在自然图像/视频上预训练、**全程冻结**的 Foundation VAE（如 WAN2.1 / VideoVAE+ / IVVAE），却把它当成 CT 三个任务的统一接口。重建任务把 CT 体积 $x$ 过一遍编码器 $E$ 得到潜表示 $z$、再过解码器 $D$ 还原成 $\hat{x}$，得到的 $\hat{x}\approx T(x)$ 恰好是一个"边界保持去噪"算子 $T$ 的输出；增强任务直接拿这些去噪后的 $\hat{x}$ 当分割训练的额外视图；生成任务则在同一个冻结潜空间里训一个条件 latent diffusion。三者共享同一套权重，没有任何医学微调。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入 3D CT 体积 x"] --> VAE
     subgraph VAE["冻结 Foundation VAE（自然图像/视频预训练，全程冻结）"]

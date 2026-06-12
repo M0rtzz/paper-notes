@@ -43,7 +43,7 @@ Caracal 用 $\mathcal{O}(L \log L)$ 的多头傅立叶（MHF）模块替换 Tran
 Caracal 要解决的是"如何让 $\mathcal{O}(L \log L)$ 的 FFT 混合在自回归生成里保持严格因果"这个老大难。它的做法是把 GPT-2 几乎原样保留（Feed-forward / LN / 残差不动，可直接复用 Transformer 生态），只换两处：把全局 masked multi-head attention 替换为频域混合的 MHF 模块，并彻底删掉位置编码。为补上 FFT 在局部精度上的短板，每两层 MHF 之后插一层窗口 256 的 Sliding-Window Attention，整体复杂度落在 $\mathcal{O}(L \log L + L \cdot W)$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入序列（去位置编码）"] --> MHF
     subgraph MHF["Multi-Head Fourier 模块"]

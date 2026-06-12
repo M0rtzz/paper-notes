@@ -46,7 +46,7 @@ tags:
 FinLangNet 把信用评分从"静态二分类"重新定义为"多尺度时序预测"，并用两个互补模块分别消化金融数据里两种性质完全不同的信号。一条支路是非序列模块（DeepFM），负责吃下用户的静态画像（年龄、职业、额度等）；另一条支路是序列表示生成器（SRG），用双粒度提示机制处理多源的时序行为流水。两路输出融合后送入多任务头，一次性预测 6 个不同时间窗口的违约概率，从而刻画信用度随时间的演化而不只是某一个时间点的快照；训练时用动态加权混合损失对抗类别不平衡并挖掘困难样本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["静态画像<br/>年龄 / 职业 / 额度"] --> B["非序列模块 DeepFM<br/>FM 二阶交互 + DNN 高阶非线性"]
     C["多源时序行为流水"] --> D

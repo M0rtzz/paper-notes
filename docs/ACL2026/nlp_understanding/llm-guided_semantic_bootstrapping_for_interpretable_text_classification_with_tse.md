@@ -46,7 +46,7 @@ tags:
 这篇要化解的矛盾是：Tsetlin Machine（TM）靠布尔词袋（BoW）子句获得逐条可读的透明性，却无法泛化训练数据里没出现过的近义表达；BERT 语义强但不可追溯。作者让 LLM 只在离线训练阶段当"语义教师"，分三步把语义知识以符号形式搬进 TM：先用 LLM 把类别拆成子意图并三阶段（Seed→Core→Enriched）生成合成数据，再在合成数据上预训练一个 Non-Negated TM（NTM）提取高置信度符号特征，最后把这些特征注入真实数据的 BoW 表示、在增强表示上微调标准 TM。推理时全程纯符号计算，不调 LLM、不用嵌入。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["类别标签 + 真实样本"]
     subgraph GEN["LLM 引导的子意图发现与三阶段数据生成"]

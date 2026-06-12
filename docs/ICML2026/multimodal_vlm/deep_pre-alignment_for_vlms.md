@@ -44,7 +44,7 @@ tags:
 DPA 架构由三部分串联：感知小 VLM $M_p$（包含一个 ViT $\mathcal{E}$、内部 projector $\phi_p$、内部 LLM 块 $M_p^{\text{LLM}}$）、对齐 projector $\phi$、目标大 LLM $M_t$。标准 VLM 的数据流是 $v \xrightarrow{\mathcal{E}} \mathbf{H}_v \xrightarrow{\phi} \mathbf{H}_v' \to M_t$，DPA 改为 $v \xrightarrow{\mathcal{E}} \mathbf{H}_v \xrightarrow{\phi_p} \mathbf{H}_v' \xrightarrow{M_p^{\text{LLM}}, \phi} \mathbf{H}_{\text{aligned}} \to M_t$。视觉 token 多走一段 perceiver 内部的语言块再进 $M_t$，最终送给大 LLM 的特征已经处于"文本空间近邻"状态。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["输入图像 v"]
     INS["文本指令<br/>(默认不传入 perceiver)"]

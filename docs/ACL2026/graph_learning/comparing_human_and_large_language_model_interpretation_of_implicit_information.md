@@ -46,7 +46,7 @@ tags:
 本文把"理解一段文本的隐含含义"形式化为知识图谱构建问题：输入一段文本，输出一组结构化三元组，既包含字面写出的显式关系，也包含读者需要推断的隐含关系。围绕这个目标设计了一条三阶段 LLM 管道——**信息提取**阶段尽量多地抽取实体和关系三元组（覆盖率优先），**推理验证**阶段让模型自我批评、过滤掉缺乏文本支撑的隐含推理（精确度补偿），**时序分析**阶段专门判断事件之间的先后结构。最终图谱被分成"常规图 + 时序图"两部分输出，随后与众包人类标注对齐，做定量的人机差异比较。整条管道全部用少样本提示驱动，不做任何微调，因此可直接套用在黑箱 LLM 上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：一段文本"] --> S1
     subgraph S1["信息提取（覆盖率优先）"]

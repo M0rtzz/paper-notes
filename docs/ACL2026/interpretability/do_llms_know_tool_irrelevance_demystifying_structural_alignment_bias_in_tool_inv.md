@@ -43,7 +43,7 @@ tags:
 论文把"LLM 该不该调用一个不相关工具"拆成可控的研究对象：先用 SABEval 数据集制造"参数填得上、但功能完全用不上"的纯结构对齐场景，量化模型究竟有多容易上钩；再用对比注意力归因把决策时的内部信息流拆成"语义检查"和"结构匹配"两条相互竞争的路径；最后在这两条路径上做再平衡，直接把偏差压下去。输入是一条用户查询和一个语义不相关却参数对齐的工具，理想输出是拒绝调用。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph SAB["SABEval 数据集（多态原则隔离纯结构对齐）"]
         direction TB

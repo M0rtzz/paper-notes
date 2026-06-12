@@ -42,7 +42,7 @@ tags:
 这篇工作要解决的根本瓶颈不是模型而是数据：网上手术视频很多，但混杂着会议演讲、患者访谈、设备 UI，直接拿来预训练只会让模型学到虚假特征。作者因此把工作拆成两半。前半是一条多阶段策展管线，从 18K 个原始 YouTube 视频出发，逐层把噪声筛掉，最终留下 4194 个干净的手术视频（938 小时）构成 LEMON 数据集。后半是在 LEMON 上自监督预训练的基础模型 LemonFM——它以 DINO 的师生蒸馏为骨架，但额外注入跨帧、跨患者的监督信号（$W_i$）。预训练好的 LemonFM 特征分两路用：冻结或微调骨干即可迁移到手术阶段识别、工具检测、动作识别、语义分割这四类**逐帧**下游任务；而针对论文新提出的**视频级**手术类型分类任务，再接一个 LemonFM-Vid 头，按每帧的"典型性"加权把逐帧特征聚合成视频表示。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["18K 原始 YouTube 视频"] --> CUR
     subgraph CUR["多阶段数据策展管线"]

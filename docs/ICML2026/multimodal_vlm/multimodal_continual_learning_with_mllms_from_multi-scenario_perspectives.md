@@ -44,7 +44,7 @@ tags:
 数据流 $\mathcal D = \{\mathcal D_1, \ldots, \mathcal D_T\}$，每个任务 $\mathcal D_t = \{(x_i^t, q_i^t, y_i^t)\}_{i=1}^{n_t}$ 来自不同场景。Unifier 在每个 vision block $f_l$ 的 FFN 旁边并联一个 CSR 模块输出 $p_l$，并与 FFN 输出相加 $r_l = s_l(\text{LN}(a_l)) + p_l$。训练时只解冻当前场景对应的分支 + 投影器；推理时无需 routing，所有分支并行计算后一次性融合，输出与单分支模型完全等价的延迟。同时在 CSR 里施加视觉一致性约束（VCC）防止表征漂移。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：场景图像 + 问题<br/>(数据流含 T 个场景任务)"]
     subgraph VENC["视觉编码器（CSR 仅插于此）"]

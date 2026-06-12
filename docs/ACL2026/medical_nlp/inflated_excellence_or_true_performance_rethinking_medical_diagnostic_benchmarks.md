@@ -46,7 +46,7 @@ tags:
 DyReMe 要回答的问题是：静态医学基准上的高分，到底是真本事还是题目背过了？它的答案是把"出题"和"评分"都做成动态的。框架分两块协同：DyGen 负责把一道旧考题改造成全新的、带临床陷阱的病例，让模型没法靠记忆蒙混；EvalMed 则在改造后的题上从四个维度打分，不再只问"答对没有"。DyGen 内部是一条带反馈的流水线——原始题目先检索鉴别诊断、再注入误诊陷阱、再换上不同患者的说话方式，最后交给验证器-精炼器循环反复打磨直到合格。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始静态考题"] --> DG
     subgraph DG["DyGen 动态生成模块"]

@@ -44,7 +44,7 @@ JET 把多通道 EEG 生成重新定义为"在神经流形上的连续轨迹"，
 JET 要解决的问题是：怎么直接在原始多通道 EEG（$\mathbf{X}\in\mathbb{R}^{C\times T}$）上生成既保频谱又不漂移的高保真波形。它的做法是把生成看成"在神经流形上从噪声运到数据的一条连续轨迹"——训练时学一个时变向量场，推理时从高斯噪声出发积一次 ODE 就得到一段合成 EEG，整条管线不再有 diffusion 那种几十步的离散去噪，而把"懂 EEG"的物理约束直接写进训练目标里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X1["EEG 数据 x₁"] --> CFM
     X0["高斯噪声 x₀ ~ N(0,I)"] --> CFM

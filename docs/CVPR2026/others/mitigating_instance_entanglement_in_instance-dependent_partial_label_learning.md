@@ -44,7 +44,7 @@ tags:
 ID-PLL 的核心障碍是"实例纠缠"：相似类别的样本（如银狐犬和北极狐）既共享重叠特征又共享候选标签，现有靠对比学习拉近同类表示的方法反而会把它们错误对齐。CAD（Class-specific Augmentation based Disentanglement）的思路是双管齐下——一边在类内把同一类别的特征对齐收紧，一边在类间显式拉开易混淆类别的距离。整个模型由**表示学习模块**（类内调节，含「类别特定增强生成」与「类别特定增强对齐」两步）和**置信度调整模块**（类间调节，即「加权惩罚损失」）组成，总损失把两者加权相加：$\mathcal{L}(\boldsymbol{x}, \mathcal{S}) = \mathcal{L}_{discls}(\boldsymbol{x}) + \frac{\beta}{|\mathcal{S}|}\sum_{s \in \mathcal{S}}\mathcal{L}_c(\boldsymbol{x}'_s)$，$\beta$ 控制两个模块的权重。下图给出整体数据流：原始实例兵分两路，一路按候选标签逐个生成增强并做对比对齐（类内），一路送进分类器做候选/非候选的置信度调整（类间），两路损失汇合训练同一个分类器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：实例 x + 候选标签集 S"]
     subgraph RL["表示学习模块（类内调节）"]

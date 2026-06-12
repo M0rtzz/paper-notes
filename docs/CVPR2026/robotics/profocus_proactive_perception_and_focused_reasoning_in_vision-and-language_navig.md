@@ -43,7 +43,7 @@ tags:
 ProFocus 要解决的是 VLN 里"看得太多、记得太杂"的两个老毛病：全景图一股脑塞给 VLM 让注意力被冗余像素稀释，长轨迹历史不加区分地堆给 LLM 让推理被无关路点淹没。它的做法是把一步导航拆成"感知—推理"的闭环，由三个分工明确的智能体接力完成：编排智能体 $\mathcal{A}_{\mathrm{orch}}^{\boldsymbol{\theta}}$（LLM）负责空间推理，判断当前缺什么信息、该往哪看；感知智能体 $\mathcal{A}_{\mathrm{perc}}^{\boldsymbol{\phi}}$（VLM）只在被指定的区域做细粒度识别；决策智能体 $\mathcal{A}_{\mathrm{dec}}^{\boldsymbol{\psi}}$（LLM）在筛选过的少量高价值候选上做最终选路。每一步先把全景图压成一张语义地图，编排智能体据此发起若干轮"针对性提问—定点观察"直到信息够用，再由 BD-MCTS 从全局历史中挑出 top-k 候选交给决策智能体，输出下一个动作。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["当前点全景图"] --> B["以自我为中心的语义地图<br/>VLM 检测物体 + 补深度/朝向<br/>压成结构化文本地图"]
     B --> PERC

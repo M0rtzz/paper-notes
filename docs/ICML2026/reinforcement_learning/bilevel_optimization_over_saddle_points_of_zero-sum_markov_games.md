@@ -44,7 +44,7 @@ tags:
 PANDA 求解的问题形式为：$\min_{x,\phi,\psi} f(x,\phi,\psi)$ s.t. $(\phi,\psi) \in \arg\min_{\phi'}\max_{\psi'} J(x,\phi',\psi')$，其中 $x$ 是上层变量，$(\phi,\psi)$ 分别参数化 min-player 和 max-player 的策略，$J$ 是正则化价值函数。算法先用 NI 函数把这个双层约束重构成惩罚形式 $\min_{x,\phi,\psi} f(x,\phi,\psi) + \lambda \cdot g(x,\phi,\psi)$；随后进入外循环，每一轮先跑一段下降-上升内循环逼近下层均衡，再用收敛后的策略做一步超梯度更新上层 $x$，整套流程只用一阶策略梯度信息。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["BOSMG 双层问题<br/>min f(x,φ,ψ)，下层是正则化零和博弈的 Nash"] --> B["Nikaido-Isoda 惩罚重构<br/>L_λ = f + λ·g，双层约束变单层惩罚优化"]
     B --> C["外循环 t：先跑内循环逼近下层均衡，再更新 x"]

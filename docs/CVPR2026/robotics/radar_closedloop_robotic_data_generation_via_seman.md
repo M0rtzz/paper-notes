@@ -40,7 +40,7 @@ tags:
 RADAR将认知负载优雅地分为"大脑-小脑"协作模式：VLM作为"大脑"负责高层语义推理（任务规划+成功评估），GNN策略作为"小脑"负责亚毫米级物理控制。系统以2-5个人工演示构建的Affordance Library为基础先验，通过四个模块闭环运转：(1) 场景相关任务生成→(2) 上下文模仿学习执行→(3) VQA自动成功评估→(4) FSM编排的因果逆序环境重置。其中第 4 个模块的 FSM 把成功评估的二值信号路由成三条循环边，让整条 pipeline 在无人介入下自我维持。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     LIB["Affordance Library<br/>2-5 个人工 3D 演示先验"]
     subgraph M1["1. 场景相关任务生成（VLM 大脑）"]

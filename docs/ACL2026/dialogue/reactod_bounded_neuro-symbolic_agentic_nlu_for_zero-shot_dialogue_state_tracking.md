@@ -46,7 +46,7 @@ ReacTOD 的核心是把对话状态跟踪从自由生成问题改写为一个受
 具体流程可以概括为四步。第一，系统只把必要 schema 和当前上下文放进 prompt，避免小模型被完整 schema 和长历史淹没。第二，LLM 在受限工具库中调用 Intent Classification 工具，得到当前意图。第三，若意图是交易型任务，再调用 Slot Resolution 工具，只注入该意图相关槽定义；若遇到指代或省略，才按需调用历史检索工具。第四，validator 检查动作顺序、schema 合法性、值格式和指代一致性，失败时返回结构化反馈让 LLM 在 $K_{max}=6$ 的上限内重试。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：用户话语 u_t + 上轮系统动作 + 上轮 belief state B(t−1) + 上轮意图"]
     IN --> CTX["动态上下文构造<br/>仅注入必要 schema 与当前上下文"]

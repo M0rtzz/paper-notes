@@ -45,7 +45,7 @@ tags:
 本文要回答"用户心理画像到底有多少是稳定特质、多少是随情境波动的状态"，并据此检验 LLM 与 reward model 在状态维度的行为。整条链路是：先从 Reddit 语料构造 Chameleon 数据集，利用"同一用户在多个 subreddit 发帖"这一天然的"同人不同境"结构；再对每条 post 跑一套双方法心理画像抽取流水线，得到 26 维 profile $\psi_{u,c}$；然后一面用 ICC 把这些 profile 的方差分解成特质项与状态项、量化谁占主导，另一面用聚类出的 6 个心理 archetype 在生成端（LLM 能否因人施策）和评估端（reward model 是否对状态保持中立）各做一个下游实验，把"persona 该被怎么用"这一抽象命题落成可测的工程指标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Reddit 语料<br/>同一用户跨多 subreddit（同人不同境）"]
     subgraph EXT["双方法 MTMM 心理画像抽取"]

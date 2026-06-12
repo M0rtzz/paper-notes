@@ -44,7 +44,7 @@ PriVi 构建了 424 小时的大规模灵长类视频预训练数据集，并通
 PriVi 想回答的核心问题是：与其为每个小数据集单独训一个专用视频模型，能不能像语言模型那样，先在「灵长类」这个**领域**的大量数据上预训练一次，得到一套跨数据集通用的表示？为此它走三步：先用一条自动数据策划管线攒出 424 小时的灵长类视频，在这堆数据上继续训练 V-JEPA 拿到领域级表示（阶段 A）；如果目标数据集还有未标注视频，可以再做一轮数据集级预训练（DaLP, Dataset-Level Pretraining）补一刀（阶段 B，可选）；最后把编码器**冻住**，只在它输出的特征上训一个极轻的注意力分类器来识别具体行为（阶段 C）。整条链路的赌注全押在「数据」而非「模型结构」上——结构基本沿用 V-JEPA，新东西是数据和评估方式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["PriVi 数据策划管线"]
         direction TB

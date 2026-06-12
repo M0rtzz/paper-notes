@@ -43,7 +43,7 @@ tags:
 M3Att 想在最贴近真实部署的威胁模型下毒害医学多模态 RAG：攻击者拿不到模型参数、用户 query、检索上下文，只能往知识库里塞不到 1% 的恶意条目。难点是双重的——检索阶段要让投毒条目在高度聚集的医学影像嵌入里仍被任意未来 query 捞到，生成阶段又要让投毒文本骗过经过 safety alignment 的医学 LVLM、不被当成"明显错误"纠回去。整套 pipeline 三步走：先做 Cluster Profiling 拿到知识库分布的簇心当作"代表性 query proxy"，再用分布引导的视觉 PGD 把投毒图优化到簇心附近做检索劫持，最后用临床歧义引导的文本改写注入"合理但错误"的医学结论；把（投毒图，投毒文本）对插进知识库，坐等真实 query 自然触发。视觉路与文本路是紧耦合的——前者负责"被检索到"、后者负责"骗过生成"，两条路都用黑盒/白盒双梯度路径保证在闭源检索器上同样成立，最终在知识库里汇合成投毒条目。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     KB["医学知识库（参考池嵌入高度聚集）"]
     subgraph HIJACK["分布引导的检索劫持"]

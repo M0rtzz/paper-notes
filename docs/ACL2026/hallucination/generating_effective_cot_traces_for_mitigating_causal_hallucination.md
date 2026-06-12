@@ -44,7 +44,7 @@ tags:
 两步 CoT trace 生成管线：第一步用 Qwen3-235B-A22B (Thinking) 构造少样本示例，提示 Llama3.1-8B 生成包含丰富语义解释和推理步骤的 CoT trace，仅保留产生正确答案的 trace；第二步用目标模型本身重写这些 trace 以减小分布差距，验证重写后困惑度未增加。最后用这些 trace 通过 LoRA 微调目标小模型，并用因果幻觉率（CHR）衡量缓解效果。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["ECI 数据<br/>仅二值因果标签、无中间推理步骤"] --> PIPE
     subgraph PIPE["两步 CoT 生成管线"]

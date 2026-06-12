@@ -44,7 +44,7 @@ Red-Bandit 分为训练和推理两部分。训练阶段，系统为每种攻击
 给定目标 LLM $\mathcal{T}$ 和 prompt space $\mathcal{P}$，自动化红队的目标是寻找能暴露不安全响应的测试 prompt。Red-Bandit 不直接在 token 空间做搜索，而是在风格专家集合 $\mathcal{A}=\{1,\ldots,K\}$ 上做选择。每个 arm 对应一个 LoRA expert，例如角色扮演、技术术语、假设场景、情绪操纵等风格类别。选定 arm 后，对应 expert 生成一个候选测试 prompt，目标模型响应，再由安全评估器给出二元或标量 reward，bandit 用该 reward 更新选择策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["10 类攻击风格<br/>(Rainbow Teaming taxonomy)"] --> TRAIN
     subgraph TRAIN["风格专用 LoRA experts + GRPO 后训练"]

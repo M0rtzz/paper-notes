@@ -44,7 +44,7 @@ tags:
 EPGS（Embedding-Perturbed Gradient Sensitivity）想解决的是"模型自信地记错"这类零阶量看不出的幻觉，办法是把检测信号从输出概率换成 loss landscape 的局部曲率。整条流水线分三步走：先用外部 NER 把答案里的核心实体抠出来，构造一个只在实体 token 上计算 loss 的 mask（Target Acquisition）；再对输入 embedding 注入 Gaussian 噪声 $\delta \sim \mathcal{N}(0, \sigma^2 I)$（Stochastic Embedding Perturbation）；最后分别在 clean 和 perturbed 输入下对最后一个 Transformer block 的参数求梯度 $g_{\text{clean}}, g_{\text{perturbed}}$，把两者组合成一个 EPGS 分数（Gradient Sensitivity Measurement）。整个过程纯后验、无需训练，比真算 Hessian 便宜得多。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["查询 x"] --> B["LLM 贪心解码<br/>得伪标签 ŷ（reference-free）"]
     subgraph TA["Target Acquisition：实体定位 + 梯度 mask"]

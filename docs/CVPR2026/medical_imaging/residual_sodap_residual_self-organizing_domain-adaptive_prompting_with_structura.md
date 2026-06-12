@@ -42,7 +42,7 @@ tags:
 Residual SODAP 处理域增量学习里的灾难性遗忘，但它的出发点比一般 PCL 多一层洞察：通过 backbone × classifier 的交叉组合诊断，作者发现遗忘不只来自表征漂移，分类器的决策边界同样在退化。于是框架兵分两路——提示端用 α-entmax 残差提示选择做表征适应（冻结 ViT 骨干，只训练提示），分类器端用统计知识保持守住决策边界——再加提示使用漂移检测（PUDD）动态扩容提示池、用不确定性加权自动平衡多个损失项。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入图像 → 冻结 ViT 骨干"] --> PS
     subgraph PS["α-Entmax 残差提示选择"]

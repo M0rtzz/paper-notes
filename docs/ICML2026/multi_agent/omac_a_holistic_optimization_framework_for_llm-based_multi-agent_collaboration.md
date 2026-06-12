@@ -44,7 +44,7 @@ tags:
 OMAC 接收一个已有的 MAS 配置（多个 agent + 协作拓扑）和一个带监督指标的训练集（如 HumanEval 的 Pass@1），输出一套被优化过的提示。它的关键洞察是：MAS 里所有"可调的东西"——agent 的提示、新加的 agent、谁参与协作、信息怎么流——本质上都是在调一段自然语言指令，因此可以用**同一个算法**统一处理。具体分两层：下层是一个**单维度优化算法**，盯住 5 个维度中的某一个反复试错；上层是**多维度联合优化**，按"固定其他、一次只优一个"的方式在多个维度间轮转，把单维度的收益叠起来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：已有 MAS 配置 + 带监督指标的训练集"]
     IN --> DIM["五维优化空间<br/>功能维 Fun-1 / Fun-2 + 结构维 Str-1 / Str-2 / Str-3"]

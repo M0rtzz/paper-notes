@@ -46,7 +46,7 @@ tags:
 衡量这套场景的核心指标是 **W-ASR**（Wide-net-casting ASR）：$\text{WASR}=\frac{1}{N}\sum_{n=1}^N\bigvee_{m=1}^M s_m^n$，其中 $s_m^n\in\{0,1\}$ 标记第 $n$ 条意图是否攻破了第 $m$ 个模型。这里的逻辑或 $\bigvee$ 正是"任一即赢"的本质——只要意图在任一模型上得逞，这条就计成功。配套的 W-Toxicity Score 则模拟攻击者用大模型从 $M$ 个响应里挑最有害那条来打分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["M 个目标大模型 f_1…f_M<br/>(不同家族, 漏洞异质)"] --> B["阶段A：配对独立预训练<br/>每个 f_m 配生成器 g_m<br/>LLM 用 ReMiss / MLLM 用 MLAI+PixArt-α"]
     subgraph JT["阶段B：专家化联合训练（T=3000 步）"]

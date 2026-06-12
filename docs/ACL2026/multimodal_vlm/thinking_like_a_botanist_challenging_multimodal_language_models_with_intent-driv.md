@@ -45,7 +45,7 @@ tags:
 这篇论文要解决的是：现有 VQA 基准把每张图当成独立查询的输入，问题彼此孤立，根本测不出专家诊断时那种"一环扣一环"的适应性推理。PlantInquiryVQA 的思路是把数据集本身做成一条诊断链——让问题序列复现植物学家从识别物种、判断病害到给出预后管理的真实工作流。整条构建管线分三步走：先用 VLM 按专家定义的 schema 从植物图像里抠出细粒度视觉线索，再把植物病理知识结构化、把疾病严重度映射到不同的诊断意图，最后由 LLM 根据意图和视觉证据动态拼装对话轨迹。最终数据集覆盖 34 种作物、7 类问题、12 种独特的 CoI 轨迹。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     K["Chain-of-Inquiry 形式化<br/>问题条件于视觉证据 + 历史 + 意图；意图空间 K = 诊断 / 预后 / 管理"]
     A["植物图像（34 种作物）"]

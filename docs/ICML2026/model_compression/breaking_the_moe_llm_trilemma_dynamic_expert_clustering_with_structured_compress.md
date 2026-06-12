@@ -44,7 +44,7 @@ tags:
 这篇论文要把 MoE 的负载不均、参数冗余、通信开销三个瓶颈在同一个框架里一起按下去，靠的是一个被反复复用的"组结构"。统一目标写成 $\min L_{\text{task}}+A_1 I_{\text{load}}+A_2 R_{\text{red}}+A_3 C_{\text{comm}}$ (Eq. 1)，task loss 之外三项分别罚负载不均、参数冗余、通信量，而分组方式、压缩参数化、路由策略都是可学/可设计的变量。一次前向大致这样转：先用"参数 + 激活"双相似度把 $E$ 个专家在线聚成 $G$ 组每组 $K=E/G$ 个 → 组内用"共享基矩阵 + 低秩残差"把权重压下来 → token 进来先被路到组、再在组内选具体专家 → 最后用 FP16 基 + INT4 残差的异构精度存参、把闲置组卸到 CPU/NVMe。关键在于这个"分组"不是只为压缩服务，而是同时当上了通信、内存、精度三件事的共同载体。对应到论文明确列出的四个紧耦合设计：聚类管负载、压缩管冗余、分层路由管通信、异构精度+卸载管显存。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["E 个专家<br/>各维护 权重向量 + 激活质心"] --> CL
     subgraph CL["在线双相似度聚类（每 T 步重聚）"]

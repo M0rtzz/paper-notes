@@ -53,7 +53,7 @@ MemSearcher 让同一个 backbone LLM 同时兼任 reasoner、actor 和 memory m
 | **MemSearcher** | $O(1)$ | $O(1)$ | $O(n)$ | $O(1)$ |
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["问题 q"] --> RD["读 (问题 q, 上轮内存)"]
     subgraph MEM["紧凑内存范式（LLM-as-Memory-Manager）"]

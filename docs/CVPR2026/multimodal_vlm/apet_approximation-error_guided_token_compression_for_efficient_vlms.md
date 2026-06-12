@@ -48,7 +48,7 @@ tags:
 ApET 要解决的是「视觉 token 严重冗余但又不能靠 attention 权重来裁」的矛盾——它从信息论角度判断 token 重不重要：一个 token 如果能被别的 token 线性重建出来，说明它没带多少独特信息，可以压掉。具体做法是在 VLM 的中间 LLM 层（论文取 LLaVA 第 16 层）插一个压缩模块，分三步走：先从 $N$ 个视觉 token 里选出 $M$ 个「基础 token」当重建基底，再对每个非基础 token 算它被基底线性重建的误差作为重要性分数，最后保留误差最大的一批 + 基础 token，其余 token 按相似度归入最近的保留 token、再做组内平均合并。压缩后的短序列 $V' \in \mathbb{R}^{K' \times d}$ 送进后续 LLM 层。整个过程只碰 token 的特征向量、完全不碰 attention 矩阵，这也是它能兼容 FlashAttention 的根本原因。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视觉 token V（N 个）<br/>vision encoder + projector"] --> CMP
     subgraph CMP["ApET 压缩模块（免 attention：插在中间 LLM 层，仅用 hidden states、不碰 attention 矩阵）"]

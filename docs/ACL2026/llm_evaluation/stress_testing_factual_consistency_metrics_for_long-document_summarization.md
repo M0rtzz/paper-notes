@@ -44,7 +44,7 @@ tags:
 输入是源文档和人工摘要。首先，作者用 GPT-4o 为每个摘要生成七种事实保持扰动版本，包括 paraphrased、simplified、synonym replaced、less diverse、logically equivalent negated、summarized、added source text。然后，对原摘要和扰动摘要的每个句子，从源文档中检索 Top-K 相似句子，并扩展周围窗口作为证据 snippet。每个 factuality metric 对摘要句和候选证据 snippet 打分，取最大值作为该句得分，再对所有摘要句平均得到 summary-level 分数。最后，作者比较扰动前后分数差异，分析 retrieval window size 和 claim similarity 对指标的影响。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源文档 + 人工摘要"] --> B["七类事实保持扰动<br/>GPT-4o 造 7 种语义等价改写，NLI 核验确认不改事实"]
     B --> D1

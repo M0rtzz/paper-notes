@@ -55,7 +55,7 @@ Dr.Occ 在现有占用预测流程基础上做两处改进：
 输入为 $T$ 帧环视图像 → 图像编码器 → D2-VFormer 构建 3D 体素特征 → R-EFormer / R2-EFormer 语义精炼 → OCC 解码器输出 $\hat{\mathbf{O}} \in \mathbb{R}^{X \times Y \times Z \times C}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["T 帧环视图像"] --> B["图像编码器<br/>ResNet-50 提图像特征"]
     A --> M["MoGe-2 深度估计<br/>生成几何感知占用 mask"]

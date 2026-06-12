@@ -44,7 +44,7 @@ SURGE 给每个二值化层并联一个"全精度辅助分支"，前向输出不
 SURGE 想在不碰前向输出的前提下，给每个二值化层补一份"比 STE 更接近真梯度"的反向信号。具体做法是：对每个二值化线性算子（conv、linear、attention projection）并行挂一个尺寸完全相同的全精度副本（auxiliary branch），用一个 detach 自抵消的写法让这个副本**前向不出力、反向才开门**——前向输出严格等于纯 BNN，反向时全精度副本把 STE 剪掉的高阶梯度补回输入处，再由 AGS（自适应梯度缩放器）按两路梯度的范数比动态缩放、保证补偿量级不压垮主分支。这套机制只依赖"一个二值化线性算子 + 一个同尺寸全精度副本"的最小结构，因此 architecture-agnostic、CNN 和 Transformer 都能即插即用；训练时整网三种计算状态（主分支前向、主分支反向、辅助分支反向）共存，训练完毕后辅助分支整体丢弃，推理就是一个标准 BNN，零额外开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入 x（任一二值化线性层：conv / linear / attention 投影）"]
     subgraph DPGC["DPGC 双路梯度补偿器"]

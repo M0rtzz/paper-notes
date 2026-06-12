@@ -46,7 +46,7 @@ tags:
 基于 Qwen2.5-VL 构建，输入文本提示 $T_0$（包含判别查询和专家诊断指南）和初始全局光谱图 $I_0$。智能体在 `<think>...</think>` 中进行文本推理，通过工具调用生成局部波长区域的放大视图 $I_{t+1}$，交替迭代直到在 `<answer>...</answer>` 中给出最终判断。轨迹形式化为 $\tau = (T_0, I_0, T_1, I_1, T_2, I_2, \ldots, T_N)$。而这套推理回环之所以能达到专家水准，靠的是其背后的两阶段后训练——先用冷启动 SFT 注入领域先验与工具使用能力，再用基于结果的强化学习优化工具使用策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph IMCOT["交错多模态思维链（iMCoT）推理回环"]
         direction TB

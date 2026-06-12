@@ -43,7 +43,7 @@ tags:
 主动定位被建模为上下文 POMDP：状态 $(s, W) \in \mathcal{P} \times \mathcal{W}$，动作 $a \in \mathcal{A}$，动力学 $s' = f(s, a, W)$，奖励 $R = -\|f(s,a,W) - s_W\|$；典型 $f(s,a,W) = s + W \cdot a$（线性误差）或带非线性扰动的形式。整套流水线分两层：(1) 离线 shortcut 合成（Algorithm 1）从一条 logged 轨迹里找出满足理论条件的 $(o_i, \hat{a}, r_{j-1}, o_j)$ 三元组送入训练集；(2) 在线 LIFT 采集（Algorithm 2）按概率 $p$ 用基于 $Q_\theta$ 的 augmentor $a_\theta(o) = \arg\max_a Q_\theta(o,a)$ 替换 logging 动作，触发替换后立刻 reset logging policy 的内部状态以保证 hand-off。最终 CQL 在含 shortcut transition 的数据集上训练得到 CQL-SC，与 LIFT 联合即为 LIFT-SC。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["logged 轨迹<br/>(次优 zig-zag logging policy)"] --> SG1
     subgraph SG1["Shortcut 合成 · Algorithm 1（离线线性扫描）"]

@@ -43,7 +43,7 @@ ReAG 的核心思路是**先过滤、再推理**：通过多层次检索 + Criti
 ReAG 想解决的是知识密集型 VQA 的两个老大难：检索回来的文档太吵、生成器又不会从证据里推理。它把这两件事拆开治——先用一条"粗+细两级检索 → Critic 过滤"的流水线在进入生成器之前就把噪声压下去，再用"SFT 冷启动 → GRPO 强化学习"两阶段训练，逼生成器学会对留下来的高质量证据做显式推理。一次完整问答的数据流是：查询图像和问题先经过多层次检索拿到一批候选段落 $\mathcal{P}^{noisy}$，Critic 模型逐段判相关性、滤成精简的 $\mathcal{P}^{relevant}$，最后生成器在 `<think>` 里推理、在 `<answer>` 里给出答案；而生成器本身则由 SFT 冷启动和 GRPO 强化学习两阶段离线训练得到。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["查询图像 I_q + 问题 q"]
     subgraph RET["多层次检索"]

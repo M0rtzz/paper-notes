@@ -46,7 +46,7 @@ tags:
 DRCR 把"先把口语化、带省略和指代的多方对话上下文改写干净，再去编码结构生成回复"这件事拆成改写器（Rewriter）和回复器（Responder）两个模块协同的闭环。整套流程分三个阶段推进：① 先训练一个受话者识别（Addressee Recognition）分类器，用它给上下文的话语连贯性打分；② 用话语连贯性与回复质量两路信号给改写器采样出的候选排序、构建偏好数据，并用 DPO 预热改写器和回复器；③ 让两个模块在动态自演化中靠彼此反馈轮流迭代，直到改写既"读得顺"又"对下游生成有用"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["原始多方对话上下文<br/>（口语化 / 指代 / 省略）"] --> S1
 

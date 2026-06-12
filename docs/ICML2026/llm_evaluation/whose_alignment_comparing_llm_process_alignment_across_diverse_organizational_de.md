@@ -48,7 +48,7 @@ tags:
 论文测试三种条件：Baseline 只给 structured case profile；Org-externalized 把组织 cue weighting policy 明确写入 prompt；Introspective-externalized 则告诉模型它自己的 baseline policy 与组织 policy 的偏差，并要求自我修正。随后比较 cosine alignment、output accuracy、AUC、Cohen's kappa、propensity correlation 等指标。整条流水线可视化如下：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["组织决策案例<br/>ECHR 45 cue / German Credit 20 cue"] --> B["Cue 编码<br/>案例 → 可观察特征向量"]
     subgraph COND["三条件外部化"]

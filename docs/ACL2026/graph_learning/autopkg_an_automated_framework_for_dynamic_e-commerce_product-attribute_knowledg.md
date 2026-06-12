@@ -44,7 +44,7 @@ tags:
 AutoPKG 要解决的是"没有现成分类法、商品又长尾又多模态"时如何从零搭起并持续演化产品-属性知识图谱（PKG）。它把构建拆给四个专职 LLM Agent 流水线协作：每来一个商品 listing，类型归纳 Agent 先从文本推断它属于哪个规范产品类型，属性键发现 Agent 据此列出该类型该有的属性键，属性值提取 Agent 再从文本和图像里抽出具体属性值；这三者都只是"提议"，最后由集中式的 KGD（Knowledge Graph Decision）Agent 把所有提议落成一次受限的图谱编辑（ADD/MERGE/REPLACE/DISCARD），维护一张全局去重、规范一致的图。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["商品 listing（标题 / 描述 / 规格 / 图像）"] --> B
     subgraph DYN["动态本体填充（从零自动发现类型/属性键）"]

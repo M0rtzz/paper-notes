@@ -44,7 +44,7 @@ tags:
 UniSRM 把"给一段（或一对）语音打多维分"做成一个会先推理再下结论的生成式奖励模型，训练分两阶段。第一阶段 SFT 在统一数据集 UniSRM-Data 上对 Qwen2.5-Omni-7B-thinker 做指令微调，让它学会按结构化格式输出维度级评分和推理；第二阶段用 GRPO 群组相对策略优化，引入推理一致性奖励把模型的预测进一步对齐到人类偏好。输入是任务相关的多模态上下文，输出固定为两段：`<think>` 标签内是逐维度的推理，`<answer>` 标签内是最终决策（二元偏好或 MOS 类评分）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：任务相关多模态上下文<br/>语音对 / 文本场景 / 对话历史"] --> UNI
     subgraph UNI["多任务统一框架与结构化输出"]

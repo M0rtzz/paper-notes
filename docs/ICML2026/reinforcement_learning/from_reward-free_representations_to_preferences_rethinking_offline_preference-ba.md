@@ -48,7 +48,7 @@ FB-PbRL 由两阶段组成，输入是无奖励离线数据 $\mathcal{D}$ 和成
 整个流程从不显式构造奖励，$\boldsymbol{z}^\star$ 是低维向量（典型 $d\sim$ 几百），优化代价远小于训练高容量奖励/偏好模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     D["无奖励离线数据 D"] --> P["RFRL 预训练（FB 框架）<br/>measure loss + 正交归一 loss"]
     P --> FB["得到表示 F、B 与<br/>条件策略 π(·∣s,z)"]

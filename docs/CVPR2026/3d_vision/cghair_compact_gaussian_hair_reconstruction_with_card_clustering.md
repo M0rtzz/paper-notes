@@ -46,7 +46,7 @@ tags:
 CGHair 要解决的核心问题是：一头密集头发动辄上百万根发丝，逐根分配高斯外观参数会撑出几百 MB 的存储，可实际上同一发型里的发丝在几何走向和颜色上高度雷同——这份冗余完全没被利用。它的思路是把这份冗余一层层"挤"出来：先用生成先验把发丝几何快速重建出来，再把成千上万根发丝聚成几百张"发片"（hair card，影视游戏里早就在用的头发简化单元），然后让一组组发片共享同一本外观码本，最后多视图优化补回视觉细节。整条管线从"每根发丝独立"逐步收敛到"一本码本管一片发丝"，存储随之从 163.7MB 降到 0.71MB。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多视图图像"] --> B["生成先验加速的发丝重建<br/>PERM 引导图/风格图 + 圆柱高斯光度优化"]
     B --> C

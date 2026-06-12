@@ -47,7 +47,7 @@ MetaDNS 把训练拆成嵌套的双层循环。给定能量 $E(x)$、逆温度 $
 整套设计对底座 sampler 无关：CTMC-based 离散扩散（MDNS、LEAPS、DNFS）和 any-order autoregressive 模型都能直接套用，只要把 loss 里的 $E$ 替换成 $E_\text{biased}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["输入：能量 E(x)、逆温 β、CV 映射 ξ<br/>初始化采样器 q_θ、零偏置 V₀≡0"]
     I --> TRAIN

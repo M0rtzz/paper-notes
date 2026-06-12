@@ -45,7 +45,7 @@ tags:
 本文把"预测想法能否成功"重新框定为一个可验证的比较任务：输入是研究目标 $g$ 加上两个去标识化的想法描述 $h_A, h_B$，输出是哪一个会在基准上取得更好的客观成绩。要让这个任务可学习，作者先从 PapersWithCode 的排行榜里挖出大量"已经分出胜负"的想法对，配上由真实实验结果推导的统一胜负标签和难度等级，再用这批数据走"SFT 建直觉 + RLVR 学推理"的两阶段训练，最终把一个 8B 模型调成既能下判断、又能给出可解释论证的想法验证器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["从排行榜反推想法对"]
         direction TB

@@ -43,7 +43,7 @@ QVG 是面向自回归视频扩散的训练免微调 KV-Cache 量化框架——
 QVG 训练免微调地接入任何自回归视频扩散模型的 KV-cache 写入路径：chunk-by-chunk 处理 KV，每个 chunk 做（1）k-means 聚类把 $N$ 个 token 分成 $C$ 组，每组算 centroid $C_i$；（2）token 减去自己所属 centroid 得到残差 $R_i$；（3）残差走标准 per-group 对称量化（INT2 或 INT4）；（4）想进一步降误差就把"残差再 smoothing + 再量化"递归做几轮（Pro 版）。dequant 时把 $S_X\cdot X_{\text{INT}}+C_i$ 加回去得到近似的 K/V。所有 centroid 用 BF16 保存（很小），算法与系统在 GPU 上联合优化以保持 <4% 延迟。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["自回归视频扩散<br/>逐 chunk 写入 KV-cache"] --> SAS
     subgraph SAS["语义感知平滑（设计 1）"]

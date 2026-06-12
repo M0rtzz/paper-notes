@@ -48,7 +48,7 @@ Area 的方法围绕“抽取稳定”和“聚合稳定”两条线展开。抽
 推理时，输入图像可能来自任意已学习任务。Area 不用简单的点对点余弦相似度判断任务，而是把输入嵌入看作 Dirac 源分布，把每个任务的属性锚点集合看作目标分布，用 Sinkhorn 最优传输距离得到任务路由概率，再软融合各任务专家的预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：当前任务图像 + 类别 prompt<br/>+ MLLM 细粒度描述（CLIP 编码器全程冻结）"] --> B
     subgraph EXT["PGA 多模态属性锚点（稳定抽取）"]

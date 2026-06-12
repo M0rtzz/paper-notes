@@ -44,7 +44,7 @@ tags:
 PLMD 要解决的是模块化导航的「只有走过才有语义」难题：在不动任何导航策略的前提下，把已观测的 BEV 语义图与障碍图合并成一张可视化 Label Map，再用级联扩散把未观测区域的语义和障碍一起补全，让策略提前「看到」目标可能在哪。机器人正常导航时持续构建 egocentric 语义+障碍 BEV $M_t\in\mathbb R^{(n+4)\times H\times W}$（$n$ 个语义通道 + 占用/自由空间/位置），把它渲染成 Label Map 并对未观测区域打 mask；扩散模块先补障碍图再补语义图，得到预测 Label Map $L_t^P=[S_t^P,C_t^P]$；最后在补全图上用密度聚类找出目标类别的可靠落点作为长期目标，交给 FMM 局部规划，找不到可靠簇就退回原策略继续探索。整个过程从导航第 100 步起每 50 步刷新一次。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["egocentric BEV 语义+障碍图<br/>（导航中持续构建）"] --> B["Label Map 统一表示<br/>语义+障碍合成 RGB，未观测区填白作 mask"]
     B --> C1

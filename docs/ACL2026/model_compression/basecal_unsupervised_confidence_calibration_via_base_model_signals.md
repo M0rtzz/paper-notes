@@ -43,7 +43,7 @@ tags:
 设 $\mathcal{M}_p$ 为 PoLLM、$\mathcal{M}_b$ 为同族 base LLM。$\mathcal{M}_p$ 像往常一样针对 prompt $x$ 生成回答 $y^p=(y_1^p,\dots,y_T^p)$。BaseCal 不改动 $\mathcal{M}_p$ 的生成过程，只接管"置信度计算"环节。两条路线：(1) **BaseCal-ReEval**：把 $(x, y^p)$ 喂给 $\mathcal{M}_b$ 强制解码，取 base LLM 给到 $y_t^p$ 的平均 token 概率作为置信度；(2) **BaseCal-Proj**：训练一个线性映射 $\phi_\theta:\mathbb{R}^d\to\mathbb{R}^d$，把 $\mathcal{M}_p$ 末层隐状态投到 $\mathcal{M}_b$ 末层空间，再过 $\mathcal{M}_b$ 的输出层 $W_b^o$ 得到近似 base 概率分布，从而避免 base 的整次前向。两种方案都是 plug-and-play、无监督（不要 ground-truth 标签）、不修改模型参数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["prompt x"] --> B["PoLLM 生成回答 y^p<br/>（生成过程不改）"]
     B --> C{"置信度计算<br/>两条无监督路线"}

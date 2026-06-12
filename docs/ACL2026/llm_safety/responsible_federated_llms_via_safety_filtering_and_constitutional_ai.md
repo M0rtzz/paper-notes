@@ -45,7 +45,7 @@ tags:
 这个设计的关键是安全操作不需要服务器读取客户端原始数据。过滤器可以作为模型下发到客户端本地运行，CAI 则只作用于服务器已经持有的全局模型权重。换言之，它把“数据侧风险”和“模型侧风险”分别放在各自可操作的位置处理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     S0["服务器下发<br/>冻结 Llama3.1-8B + 全局 LoRA"] --> CF
     subgraph CLIENT["客户端侧安全过滤器（设计 1）"]

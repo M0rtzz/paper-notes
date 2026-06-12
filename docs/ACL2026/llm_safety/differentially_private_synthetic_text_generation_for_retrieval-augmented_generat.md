@@ -54,7 +54,7 @@ Pipeline 两阶段（Algorithm 1，5 个子步骤）：
 **Privacy 总账**（Theorem 1）：整个 pipeline 满足 $(\varepsilon, \delta)$-DP，其中 $\rho = \frac{K}{2\sigma_h^2} + L \left( \frac{1}{8}\varepsilon_{\theta_s}^2 + \frac{1}{2\sigma_\mu^2} + \frac{T}{2}\left(\frac{c}{\tau}\right)^2 \right)$，再转化为 $\varepsilon = \rho + \sqrt{4\rho\log(1/\delta)}$。关键技巧是 **overlapping parallel composition** —— 因为每篇文档最多在 $L$ 个 cluster 中，并行处理的隐私代价是 $L \cdot \rho_{\text{cluster}}$ 而非 $R \cdot \rho_{\text{cluster}}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["私有 RAG 数据库<br/>含 PII 的敏感文档"] --> S1
     subgraph S1["DP 关键词软聚类（设计 1）"]

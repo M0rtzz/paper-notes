@@ -50,7 +50,7 @@ tags:
 最后，训练好的 encoder 被冻结，下游任务只使用 final encoder output layer。作者在 pitch reconstruction、phrase boundary detection、syllable prominence detection 三个 prosody 任务上评估表征能力，并在 VoxCeleb1 speaker identification 上评估隐私泄露程度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始语音"] --> B["声门源输入与低通过滤<br/>LPC 逆滤波估声门源 + 1 kHz 低通<br/>低能量帧回退原始波形"]
     B --> C["prosody encoder<br/>卷积 + Transformer（HuBERT-base 结构）"]

@@ -46,7 +46,7 @@ TeXOCR 的方法由三个部分组成：TEXOCR-Bench 用来定义任务和评测
 评测时，所有模型都按统一 page-level inference 协议处理：每一页独立生成 LaTeX，随后按文档顺序拼接，再计算九个指标和最终 Overall score。作者还比较了 single-image、multi-image、merged 多页图三种推理粒度，发现单页图最稳定。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["TEXOCR-Bench 三维九指标"]
         direction TB

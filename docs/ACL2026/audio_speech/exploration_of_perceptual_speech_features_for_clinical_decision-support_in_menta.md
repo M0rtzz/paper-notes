@@ -48,7 +48,7 @@ tags:
 分析阶段分三路进行：第一路是独立样本 t-test 并用 FDR 控制多重比较，观察组间特征差异；第二路是 XGBoost 分类器，用于捕捉非线性组合；第三路是 SHAP、LIME 和特征重要性，用于解释模型依赖的语音与语言线索。最后，作者用特征组消融检查单一特征组的独立贡献。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["语音样本<br/>音频 + 转写 + 标签/量表"]
     subgraph FEAT["感知可解释的多组特征体系"]

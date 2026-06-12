@@ -40,7 +40,7 @@ tags:
 传统相机管线把色彩校正拆成三步串联——先做自动白平衡（光源估计＋光源补偿），再做色彩空间转换——每一步独立处理，误差会逐级累积；而且即便手机里装了多光谱传感器，现有方案也只用它来估光源，估完就丢，浪费了窄波段里的光谱信息。这篇论文把整条管线压成一个端到端模型：高分辨率RGB图像（$512 \times 512$）作为主输入，低分辨率MS图像（$64 \times 64$，15个窄波段通道）作为辅助输入，两路各自过编码器提特征后融合，直接吐出CIE XYZ色彩空间下、以D65为光源归一化的结果。中间不再有显式的"估光源→补光源→转色彩"分界，全部隐式地学进网络里。为了证明这套融合思路不依赖某个特定网络，作者把它分别嫁接到两种轻量图像到图像架构（LPIENet 和 cmKAN）上验证通用性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["物理驱动仿真数据集"]
         direction TB

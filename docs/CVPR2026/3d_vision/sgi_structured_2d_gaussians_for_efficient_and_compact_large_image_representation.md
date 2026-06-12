@@ -44,7 +44,7 @@ SGI 提出基于种子点(seed)的结构化 2D 高斯表示框架，通过将无
 SGI 要解决的是 2D Gaussian Splatting 表示高分辨率图像时的两大痛点——百万级无结构高斯各自独立优化/存储带来的参数冗余和优化开销。它的整体思路是把「无结构高斯原语」重新组织成「种子驱动的结构化高斯」，再叠两层压缩与提速：种子驱动的 2D 神经高斯（Seed-based 2D Neural Gaussians）把图像分解成多尺度局部空间、每个种子用轻量 MLP 预测一组高斯；神经熵编码（Neural Entropy Coding）用二值哈希网格和上下文模型估计种子属性分布、做自适应比特分配；多尺度拟合（Multi-scale Fitting）用高斯金字塔从粗到细优化加速收敛。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["高分辨率图像"] --> SG
     subgraph SG["种子驱动的 2D 神经高斯"]

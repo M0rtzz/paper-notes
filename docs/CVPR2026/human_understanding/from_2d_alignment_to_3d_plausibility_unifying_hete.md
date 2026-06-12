@@ -48,7 +48,7 @@ A2P 想解决的是单目双手重建里最棘手的两类失败：互遮挡时 
 Stage 1 负责「2D 结构对齐」：ResNet-50 从图像抽出特征 $\mathbf{F}_i$，训练时再用 Sapiens 基础模型抽出关键点、分割、深度三种 2D 先验特征 $\mathbf{F}_k, \mathbf{F}_s, \mathbf{F}_d$，融合成 $\mathbf{F}_p$；一个轻量的 Fusion Alignment Encoder 把 $\mathbf{F}_p$ 蒸馏下来，于是推理时可以直接扔掉 Sapiens。两路特征 $\langle\mathbf{F}_i, \mathbf{F}_p\rangle$ 经 Transformer Encoder 融合后送进 MANO 回归器，得到双手参数。Stage 2 负责「3D 空间交互对齐」：只有当检测到双手包围盒 IoU>0 且确实发生穿透时才启动，把这组穿透的 MANO 参数当条件喂给扩散模型，边 DDIM 去噪边用碰撞梯度往「不穿模」的方向推，最终输出物理上站得住的配置。大部分帧不穿透，直接跳过 Stage 2。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["单目双手图像"] --> B["ResNet-50 主干<br/>图像特征 F_i"]
     subgraph S1["Stage 1：2D 结构对齐"]

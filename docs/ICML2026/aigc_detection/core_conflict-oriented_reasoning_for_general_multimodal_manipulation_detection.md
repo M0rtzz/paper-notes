@@ -43,7 +43,7 @@ tags:
 CORE 要解决的是"专用伪造检测器换个生成器就崩"，它的破局点是把任务从"识别某类篡改"换成"显式说出图文/常识间的矛盾"。围绕这个目标，作者先用多个 MLLM 投票蒸馏出一份带冲突标注的语料 CAC，再训一个轻量 Cross-Modal Aligner 把视觉与语言空间桥接好，最后用冲突感知训练把 MLLM 的概念边界重塑清晰；部署时只需 100–750 个目标域样本做 rapid adaptation，甚至零样本迁移。输入是一对 $(I, T)$ 图文新闻，输出是真假判断加自然语言冲突解释（冲突因子 + 冲突来源），backbone 实例化为 Qwen2.5VL-3B 与 Gemma3-4B 两套。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CAC["CAC 冲突归因语料构建"]
         direction TB

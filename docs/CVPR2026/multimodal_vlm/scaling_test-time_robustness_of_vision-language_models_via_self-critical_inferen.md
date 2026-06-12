@@ -46,7 +46,7 @@ tags:
 SCI 想在不训练的前提下，同时压住 LVLM 的两个老毛病——靠语言先验瞎编（语言偏差）和换个措辞就改口（语言敏感性）。它的做法是把"自我批判"塞进解码：对原始输入 $(v^0, q^0)$，一方面造出 N 个语义等价但说法不同的文本变体 $\{q^i\}$，一方面造出 M 个抹掉关键内容的视觉变体 $\{v^j\}$，分别算出文本反事实 logit（TC）和视觉反事实 logit（VC），最后在 exp 域把两者按各自温度加权相乘得到预测：$p_{SCI}(y) \propto \exp(TC/\tau_1) \cdot \exp(VC/\tau_2)$。两条反事实线各管一种鲁棒性，缺一不可，而变体数 M、N 越大、推理轮次越多，鲁棒性越高——这正是它"测试时缩放"的入口。整套机制的理论支点则来自一个观察：VCD 本质就是拿 TIE logit 给原始分布做温度重加权，这让"把反事实从视觉维度扩展到文本维度"变得顺理成章。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始输入 (v⁰, q⁰)"]
     subgraph TCG["文本反事实 TC（压语言敏感性）"]

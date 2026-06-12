@@ -46,7 +46,7 @@ tags:
 这篇工作要回答"LLM 在多文档新闻摘要里到底有多偏、规模和去偏能不能解决"这个问题，为此搭了一条从数据到评估到干预的完整链路。先构建带政治标签的 FairNews 数据集，再用一套五维公平性框架（三个粗粒度 + 两个细粒度指标）量化每个摘要的偏向，最后在这套指标上系统比较不同规模模型以及四种提示去偏 + 一种 agent 选择策略的效果。整条链路本身不训练模型，全部是对预训练模型的推理 + 度量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["All the News 2.0 新闻语料"] --> SG1
     subgraph SG1["FairNews 数据集构建"]

@@ -45,7 +45,7 @@ tags:
 SSR 想解决的是"软件 agent 被人类标注数据锁死天花板"的问题，做法是把整个训练分布交给 agent 自己生成：输入只是一组沙箱化 Docker 镜像（仅含源码与依赖，**不假设**已有测试、测试运行命令、测试解析器或语言/框架先验）。同一个 LLM 策略通过不同 prompt 实例化为两个角色并共享参数——**bug-injection agent** 在沙箱里用 Bash + editor 工具探索仓库、自学如何跑测试、最终产出一个经过一致性校验的 bug；**bug-solving agent** 则拿这个 bug 去修。proposer 的奖励来自"一致性校验 + solver 在该 bug 上的 solve-rate"（鼓励造出"难但可解"的 bug），solver 的奖励是测试是否全过的二值信号，两者联合做 on-policy RL。solver 修不掉的失败轨迹还会被回收成"二阶 bug"扩充分布。工具脚手架直接复用 Code World Model (CWM) 的实现，base model 用 CWM-sft（32B，CWM 的 RL 前 checkpoint），以保证和 baseline 公平对比。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 380}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 380, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：沙箱化 Docker 镜像<br/>(仅源码+依赖, 无测试/issue 先验)"]
     subgraph PROP["Bug-injection agent（proposer）"]

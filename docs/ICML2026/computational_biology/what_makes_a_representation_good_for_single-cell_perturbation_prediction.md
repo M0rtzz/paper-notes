@@ -44,7 +44,7 @@ PerturbedVAE 可以看成一个面向单细胞扰动数据的结构化 VAE。普
 输入是单细胞表达向量 $x$ 和扰动标签 $u$，其中 $u$ 可以是一热单基因扰动，也可以是双基因组合的 multi-hot vector。生成模型假设 $x=g(z)$，其中 $z=(z_\iota,z_\nu)$。$z_\iota$ 与扰动无关，用来刻画背景细胞程序；$z_\nu$ 依赖 $u$ 和 $z_\iota$，并服从一个未知 DAG，表示扰动响应程序之间的因果依赖。变分后验被分解为 $q(z_\nu,z_\iota|x,u)=q(z_\nu|x,u)q(z_\iota|x)$，对应“扰动响应需要知道标签，背景只从表达本身推断”。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入：单细胞表达 x + 扰动标签 u<br/>（单基因 one-hot / 双基因 multi-hot）"]
     subgraph SP["扰动不变与扰动响应潜空间拆分"]

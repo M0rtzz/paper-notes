@@ -46,7 +46,7 @@ tags:
 RARE 是一条把领域文档语料变成冗余感知多跳 QA 基准的数据构建流水线，核心是先把粒度从"段落"降到"原子事实"，再在这个细粒度上追踪跨文档的冗余。它分三步走：先做有效信息选择，把文档块拆成原子事实、过滤掉无效单元并按质量排序；再做系统性冗余追踪，在原子粒度上找出散落于不同段落却语义等价的事实；最后做问答生成，把原子事实组合成多跳推理链、经逻辑过滤后产出题目。输入是金融/法律/专利等领域语料，输出是带冗余黄金标签的基准 RedQA——检索器即使命中"非源段落"，只要它承载等价事实也能被公正判对。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["领域语料<br/>金融 / 法律 / 专利"] --> A1
     subgraph S1["原子事实分解与多准则排序"]

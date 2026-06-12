@@ -43,7 +43,7 @@ tags:
 FC-Track 想解决的是一个被主流 tracking-by-detection 忽视的问题：关联一旦出错就再也不回头。它不去改进关联本身，而是在标准的"检测→关联"完成之后挂一个轻量纠错模块，专门盯着因目标重叠而被污染的那部分匹配结果。每一帧走完正常关联后，FC-Track 先扫一遍所有 tracklet 两两之间的重叠程度，把重叠太深的 pair 标记出来并冻结它们的外观特征，避免两个目标的特征在遮挡期间互相串味；然后只对这些重叠 pair 的匹配结果做一次外观相似度的二次核对，发现检测框其实更像另一个 tracklet 时就把它改判过去。整个模块是纯推理时插件，不引入任何可学习参数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["两阶段匹配<br/>高置信关联 → 低置信补漏"] --> S
     subgraph S["两阶段匹配中的集成（每阶段关联后挂校正，仅第一阶段有效）"]

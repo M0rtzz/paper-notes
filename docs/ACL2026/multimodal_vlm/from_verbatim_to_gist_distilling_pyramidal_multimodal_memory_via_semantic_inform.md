@@ -46,7 +46,7 @@ tags:
 MM-Mem 以长视频流为输入，离线构建三层金字塔记忆：(1) 感知缓冲层（Sensory Buffer）保留关键帧的视觉表示+简短文本标签；(2) 情景流层（Episodic Stream）通过聚类和摘要生成事件级表示；(3) 符号图式层（Symbolic Schema）构建实体知识图谱。查询时，自顶向下检索：先查知识图谱（gist），不确定时下探到事件层，仍不确定才访问视觉帧（verbatim）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["长视频流（离线构建）"] --> SB
     subgraph PYR["三层金字塔记忆"]

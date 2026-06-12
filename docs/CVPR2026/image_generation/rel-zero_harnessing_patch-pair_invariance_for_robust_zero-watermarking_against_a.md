@@ -47,7 +47,7 @@ Rel-Zero 的出发点是一个反直觉的实证观察。作者从 UltraEdit 和
 为什么会这样？一方面，扩散编辑模型训练时带着内容/结构保持损失（LPIPS、L1/L2 重建损失），会惩罚不必要的扰动，使跨 patch 的相对关系成为模型刻意维持的核心不变量；另一方面，一次语义编辑对应潜空间里的低维方向，解码回图像后施加的是一个近似均匀的变换。当这个变换近似仿射 $v_i' \approx A v_i + b$ 时，$v_i' - v_j' \approx A(v_i - v_j)$，距离被整体缩放而相对关系原封不动。Rel-Zero 正是把这个不变量做成水印：整条 pipeline 分三步——先用 VAE 模拟编辑造出"哪些 patch 对真正稳定"的训练标签，再训一个轻量 edge predictor 学会从单张图直接预测稳定对，最后取置信度最高的 top-K 对作为零水印索引。关键是推理时只用到第二步的网络，喂进一张图就能吐出水印索引集合，不需要 VAE、也不需要真去跑一遍编辑。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原图 I"] --> P["ViT 提 patch 特征"]
     A --> R["VAE 重建图（模拟编辑）"]

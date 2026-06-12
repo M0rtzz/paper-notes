@@ -44,7 +44,7 @@ tags:
 输入是低资源语言任务样本，例如藏汉平行句或藏语标题生成样本。模型先在 5k 低资源样本上做 cold-start SFT，得到能输出目标语言/目标格式的初始策略。随后在剩余数据上进行 GRPO：每个 prompt 采样一组候选输出，用冻结的多语句向量模型计算候选与参考的语义相似度，并叠加语言一致性奖励，最后根据组内相对奖励更新策略。输出是一个面向低资源语言增强但较少损害原有能力的模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["低资源任务样本<br/>（藏汉平行句 / 藏语标题）"] --> B["两阶段训练 · 阶段1<br/>5k 样本 cold-start SFT"]
     B --> C["初始策略<br/>能输出目标语言 / 格式"]

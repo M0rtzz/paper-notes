@@ -43,7 +43,7 @@ FAMA 先用一套独立"失败分析 agent + 编排 agent"自动诊断基线 too
 FAMA 把"改进 tool-use agent"重新表述成一个两阶段的推理时编排问题：先让 base agent（ReAct/FC）在所有任务上裸跑一遍、收集全部失败 trajectory $\mathcal{F}$，再对每条失败 trajectory 依次走"诊断—编排—缓解"三步，最后用诊断出的最小 helper 子集把这条任务重跑一遍。整个过程不更新任何模型权重，只在推理时改变给 base agent 的上下文构造方式——输入是失败 trajectory，输出是一份 model-aware 且 benchmark-aware 的 helper 激活配置。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["base agent（ReAct / FC）裸跑全部任务"] --> B["收集全部失败 trajectory"]
     subgraph DIAG["四类失败本体 + 独立 analyst agent"]

@@ -48,7 +48,7 @@ tags:
 扰动步用估计出的梯度方向构造扰动 $\epsilon = \rho \frac{\hat{\nabla}\mathcal{L}(\theta)}{\|\hat{\nabla}\mathcal{L}(\theta)\|}$，更新步在扰动点 $\theta^*(\epsilon)=\theta+\epsilon$ 处用精确梯度更新 $\theta \leftarrow \theta - \eta \nabla\mathcal{L}(\theta^*(\epsilon))$。整个 ZO-SAM 只是顶替优化器套在稀疏训练循环外面，稀疏掩码 $M$ 怎么生成照旧，这样既拿到了 SAM 引导平坦极小值的泛化收益，又把开销压回到接近普通 SGD 的水平，刚好回应了稀疏训练"本来就是为省计算"的初衷。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     M["稀疏掩码 M<br/>（LTH / SNIP / RigL / MEST… 照常生成）"] --> A
     subgraph S["ZO-SAM 优化器（即插即用：只换优化器，不碰稀疏结构）"]

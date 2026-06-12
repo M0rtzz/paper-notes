@@ -44,7 +44,7 @@ tags:
 DEI 把 DRQ 的单节点 pipeline 原样保留 (代码一行没改)，外面套一层异步通讯层，让 $N$ 个跑着不同 LLM 的节点互相喂 champion。每个节点是一个二元体：本地一个 MAP-Elites 优化器在跑 Quality-Diversity 搜索，外加一层全异步通讯层负责把本轮 champion 广播出去、再把收到的 peer champion 注入自己的对手池和 archive。本地优化器维护一个 2D archive，行为坐标轴是 **TSP** (warrior 代码长度 × 平均存活时间) 与 **MC** (战斗中触碰核内地址的比例)，每个格子存当前 fitness 最高的 warrior；每轮 $T$ 次 LLM 调用中 10% 从零生成 warrior、90% 从 archive 采样一个 elite 让 LLM 做变异，fitness 由 $f(w_i,\mathcal{O})=\sum_{\tau\in\mathcal{T}}\frac{N}{|\mathcal{T}|}\frac{A^i_\tau}{\sum_{o\in\mathcal{O}}A^o_\tau}$ 在 MARS 模拟器里与对手集合 $\mathcal{O}$ 对战得到，新解只要填空格或刷新格内最高分就替换 archive。三种实验条件——Solo (1 节点)、Homo Ensemble (4 节点同模型)、Diverse Ensemble (4 节点异模型 GPT-5.4-mini / Claude Sonnet 4.6 / GPT-5.2 / Claude Haiku 4.5)——共用同一 **总** 调用预算 (每节点配额按 $1/N$ 缩放) 以保证公平对比。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph NODE["异构 LLM 节点（各节点终身绑定一个不同家族 LLM）"]
         direction TB

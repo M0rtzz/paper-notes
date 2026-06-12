@@ -44,7 +44,7 @@ tags:
 研究分五阶段：(1) **pre-survey** 让 100 名 Prolific 被试从 8 个备选写作场景中挑选 6 个"我最在意个人风格"的任务（这 8 个场景由独立的 88 人预备调查从 15 个候选中筛出）；(2) 教程；(3) **治疗块**——4 个任务里被试先填写 ≥30 字的 bullet 细节，GPT-o4-mini 根据细节生成草稿，被试至少花 2 分钟做 post-edit；(4) **对照块**——剩余 2 个任务被试看不到任何 AI 输出，直接独立写 ≥150 字；(5) **post-survey** 收集人口学信息、对编辑后文本的风格真实性与可用性的 5 点 likert 评分、未来使用意愿、理由排名。最终经预注册剔除标准保留 81 名有效被试。所有相似度通过 LUAR-MUD embedding 的余弦相似度计算，p 值通过 10000 次置换检验得到，效应量用 Hedges' $g$ 配 1000 次 bootstrap 置信区间，多重比较用 Benjamini–Hochberg 控制 $q=0.05$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预调查：81 名被试各选 6 个最在意个人风格的任务"]
     D2["风格嵌入模型的领域化筛选<br/>把对照组当作者识别任务，选出最敏感的 LUAR-MUD"]

@@ -58,7 +58,7 @@ $m$ 个任务，任务 $j$ 有目标参数 $\theta_j^*\in\Theta\subseteq\mathbb 
 整条流水线串起来是：所有任务的数据先进阶段 1 算出初始估计与任务对距离，距离喂给自适应融合罚项决定谁该绑在一起；阶段 2 再对每个任务做样本分割，一折估噪声、一折在正交损失上带着融合罚联合求解目标参数，最终同时给出聚类恢复与有效推断。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["m 个任务<br/>目标参数 θ*（潜在聚类）+ 异质噪声 η*"]
 

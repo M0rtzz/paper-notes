@@ -44,7 +44,7 @@ tags:
 SABA 由两个阶段组成：阶段 1 是信息融合 (IF)，将原始叙事转化为结构化且经过验证的基线状态；阶段 2 是查询驱动的结构化推理 (QSR)，递归地识别推理障碍、分解为查询、生成假设并更新状态，直到无障碍剩余或达到最大深度。两个阶段之间有自适应门控机制：如果基线状态的冲突和疑点指标低于阈值，则跳过迭代循环直接合成答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始叙事谜题"] --> IF
     subgraph IF["信息融合 (IF)"]

@@ -44,7 +44,7 @@ tags:
 两阶段管线：(1) **潜状态空间构造**：用一个点式 (point-wise，即对每个时刻独立) AutoEncoder $\mathcal{E}, \mathcal{D}$ 把 $\mathbf{x}_t \in \mathbb{R}^C$ 映到 $\mathbf{z}_t \in \mathbb{R}^D$（$D$ 可以比 $C$ 大也可以更小，重点是"更适合动力学建模"），用 MAE 重建损失预训练，然后**冻结**。(2) **潜状态预测**：任意 TSF backbone $\mathcal{F}^\mathbf{Z}_\theta$ 输入 $\mathbf{Z}_X = \mathcal{E}(\mathbf{X})$，输出 $\widehat{\mathbf{Z}}_Y$，再用冻结 $\mathcal{D}$ 解码出 $\widehat{\mathbf{Y}} = \mathcal{D}(\widehat{\mathbf{Z}}_Y)$。训练时不再对 $\widehat{\mathbf{Y}}$ 算损失，而是在潜空间里同时拉近 $\widehat{\mathbf{Z}}_Y$ 和 ground-truth 潜状态 $\mathbf{Z}_Y = \mathcal{E}(\mathbf{Y})$。下图把这条"观察 → 潜状态 → 潜状态预测 → 解码回观察"的管线和三个关键设计落在同一张图上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["点式 AutoEncoder + 冻结目标编码器（设计 1）"]
         direction TB

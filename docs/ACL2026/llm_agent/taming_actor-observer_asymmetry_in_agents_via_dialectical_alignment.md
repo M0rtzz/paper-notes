@@ -46,7 +46,7 @@ tags:
 ReTAS 要解决的是一个隐蔽的认知偏差：同一个失败信号，Agent 站在"行动者"位置会甩锅给环境，站在"观察者"位置又会苛责他人的逻辑。整套方法因此走三步——先用一个故意构造的歧义失败基准把这种偏差量化出来，再把反思过程改写成"正题→反题→合题"的辩证推理轨迹作为监督信号，最后用 GRPO 以"归因一致性"为奖励把这种视角不变的推理内化进模型，输出从"角色驱动的归因"变成"证据驱动的归因"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["歧义失败场景<br/>单一信号可同时支持内/外归因"] --> B["歧义失败基准 AFB<br/>配对反事实探针量化 AOA 翻转率"]
     B --> DIA

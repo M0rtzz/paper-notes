@@ -46,7 +46,7 @@ tags:
 PPCL 把超大 MMDiT 的压缩拆成**深度、宽度两条正交的剪枝轴**，再用一套**非顺序蒸馏**把误差累积按住。深度轴先回答"该删哪些层"：为教师模型逐层训练线性探针，用 CKA 一阶差分自动框出**连续冗余层区间** $\mathcal{I} = \{[u_i, v_i]\}$（设计 1），再对每个区间用单层学生独立蒸馏替换（设计 2）。宽度轴在保留下来的层内部继续瘦身：把跨层高度相似的文本流（text stream）和过参数化的 FFN 替换为轻量线性投影（设计 3）。三者都跑完后，做一次短时全参数 fine-tuning 收尾，得到 50% 参数、1.8× 加速的压缩模型；又因每个深度区间独立训练，推理时可自由启用/跳过区间，无需重训即可得到不同参数量的"即插即用"变体。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["教师模型 MMDiT<br/>(如 Qwen-Image 60 层 / 20B)"] --> S1
     subgraph S1["连续冗余层检测（设计 1）"]

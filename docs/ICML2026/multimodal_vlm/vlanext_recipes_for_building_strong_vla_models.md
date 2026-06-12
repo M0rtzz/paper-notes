@@ -44,7 +44,7 @@ tags:
 VLANeXt 不是凭空提出的单一新架构，而是从 RT-2 式极简 baseline 出发、沿三个维度（基础组件、感知要素、动作建模）逐步消融演进出来的"配方终点"。最终管道为：多视角 RGB（第三人称 + 腕部）、本体感觉、语言指令一起喂进 Qwen3-VL-2B 多模态 LLM；LLM 各层输出经"软连接"（可学习查询缓冲区 + cross-attention + adaLN 注入时间步）平滑过渡到一个 12 层大策略模块（这是贡献最大的基础组件，相对 baseline +33.8%）；策略模块以流匹配预测长度为 8 的动作块，并叠加频域辅助损失压制轨迹抖动。下图按数据流自上而下展开，三个关键设计分别对应输入融合、VLM-策略连接、动作建模三段。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph FUSE["多视角观察 + VLM 侧本体感觉融合"]
         direction TB

@@ -44,7 +44,7 @@ tags:
 模型吃进任意一段图/文/视频或它们的混合，要一次性吐出"真假二分类"和"对应模态上的篡改位置"——图像空间 mask（IoU 衡量）、文本 token 跨度（F1）、视频时间区间（tIoU）。作者把所有定位任务都统一成 MLLM 的文本输出（坐标 / token 跨度 / 时间区间），从而能用一个 Qwen3VL-8B 同时覆盖四个任务。落地分两块：离线先用 Self-Evolving CoT Generation 造出 FSFR 数据集（73k SFT 冷启动样本 + 110k RL 样本），再在 Qwen3VL-8B 上做 SFT 冷启动、然后跑 ARSPO 这套针对"难度偏置"的多任务 RL（其内部由 TBRMF 与 DCA 两个模块构成），最后在 In-Domain 与 OOD 上测。难点都集中在后两块——怎么造不带答案泄漏的 CoT，以及怎么让简单的二分类别把定位任务的梯度抢光。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph COT["Self-Evolving CoT Generation（自演化 CoT 合成）"]
         direction TB

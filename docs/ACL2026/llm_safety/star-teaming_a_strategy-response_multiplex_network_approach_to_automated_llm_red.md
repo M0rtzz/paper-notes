@@ -43,7 +43,7 @@ tags:
 STAR-Teaming 要同时拿下「高攻击成功率、低算力、还要能解释为什么某策略有效」这个三难。它由两块拼成：一是多智能体系统（MAS），由攻击者、目标模型、评分器三个 LLM Agent 组成迭代循环；二是策略-响应多路复用网络，负责基于历史攻击日志做概率性策略采样。一轮攻击这样转：从网络采样一个策略 → 攻击者据此生成越狱提示 → 目标模型回应 → 评分器打分 → 失败就从网络重采一个新策略重试。网络是大脑，MAS 是手脚。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预热攻击日志"] --> NET
     subgraph NET["多路复用网络构建"]

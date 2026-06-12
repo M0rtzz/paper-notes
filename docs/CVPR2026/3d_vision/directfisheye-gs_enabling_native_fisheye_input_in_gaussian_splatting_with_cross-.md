@@ -47,7 +47,7 @@ tags:
 DirectFisheye-GS 要解决的是「3DGS 天生只认针孔相机、碰到鱼眼图就抓瞎」这件事。它的做法分两步：先把鱼眼镜头的真实投影规律写进 3DGS 的前向渲染和反向梯度里，让每个高斯都按鱼眼的方式被投到像素上；再在训练时换掉原始 3DGS「一次只看一张图」的随机采样，改成一次看一组相关视图，强迫同一个高斯在多张图里保持一致。前者保证「投得对」，后者保证「优化得稳」，两者缺一边缘区域就会崩。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始鱼眼图像 + COLMAP SfM<br/>(稀疏点云 + SIFT 特征匹配)"] --> B
     subgraph KB["Kannala-Brandt 鱼眼投影集成"]

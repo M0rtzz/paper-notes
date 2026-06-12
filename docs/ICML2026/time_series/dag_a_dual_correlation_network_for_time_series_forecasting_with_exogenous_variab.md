@@ -46,7 +46,7 @@ tags:
 - 最终预测 $\hat Y^{endo} = \lambda_1 \cdot \ddot Y^{endo} + (1-\lambda_1) \cdot \dot Y^{endo}$, 总 loss $L_{total} = L_f + \lambda_2 (L_t + L_c)$ 同时优化主预测与两个 discovery 副任务。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     XE["历史外生变量"]
     XN["历史内生变量"]

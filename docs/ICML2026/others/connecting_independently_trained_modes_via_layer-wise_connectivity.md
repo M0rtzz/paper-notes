@@ -45,7 +45,7 @@ tags:
 LLPF 由两个互补算法组成：**LLPF_M2M**（Model-to-Model）在同一方差球上连接两个模型；**LLPF_M2O**（Model-to-Origin）将模型沿低损失路径推向原点方向，实现跨方差球连接。对于处在不同方差球上的模型（如不同 weight decay 训练），先用 M2O 到达目标方差球，再用 M2M 在该球上完成最终连接。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["两个独立训练的模型<br/>起点 P0、终点 D"] --> B{"在同一方差球上？"}
     B -->|"否（不同 weight decay/超参）"| O

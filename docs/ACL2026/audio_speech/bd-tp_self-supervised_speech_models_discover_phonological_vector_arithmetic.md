@@ -45,7 +45,7 @@ tags:
 整个研究不训练新的语音模型，而是对已有 S3M 的表示空间做 post-hoc 探测，围绕两个假设展开两组实验。方向实验检验"是否存在满足音韵类比的线性方向"：用 PanPhon 的音韵特征筛出音素四元组，比较余弦相似度的排序关系。尺度实验检验"缩放音韵向量是否连续改变声学实现程度"：训练一个 vocoder 把 S3M 表示逆映射回语音，缩放向量后重新合成并测量声学量。数据覆盖 TIMIT（英语）与 VoxAngeles（95 种语言）共 96 种语言，输入是音素帧表示，输出是类比成功率与缩放-声学的相关系数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练 S3M 音素帧表示<br/>(wav2vec 2.0 / HuBERT / WavLM)"]
     A --> B

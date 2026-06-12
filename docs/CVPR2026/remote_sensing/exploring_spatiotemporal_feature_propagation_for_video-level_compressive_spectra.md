@@ -46,7 +46,7 @@ tags:
 PG-SVRT 要解决的是：给定 $T=3$ 帧 SCI 测量序列，如何在不让时空注意力复杂度爆炸的前提下，把相邻帧的互补信息传播过来、同时保证重建结果的时间一致性。整体是一个 U-Net，测量先经掩码引导退化感知（MGDP）注入退化先验，再经 Shuffle 把退化特征与测量沿光谱维度对齐，然后堆叠跨域传播注意力（CDPA）+ 多域前馈网络（MDFFN）逐级编解码，最后输出 $T$ 帧高光谱重建。三层模块数 $(N_1, N_2, N_3)=(4,8,8)$，基础通道 $C=N_\lambda=30$。整个设计的支点有两个：一是用一套**真实拍摄的动态高光谱数据**让"视频级重建"这个问题第一次有了 ground truth，二是用**空间-然后-时间的渐进注意力**把高维时空依赖拆得既便宜又不丢交互。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     D["DynaSpec 数据集<br/>推扫相机逐帧拍摄 30 序列/300 帧真实动态 HSI"]
     A["T=3 帧 SCI 测量序列 Y"] --> M["掩码引导退化感知 MGDP<br/>由掩码 Φ 学退化权重注入测量"]

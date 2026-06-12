@@ -44,7 +44,7 @@ tags:
 DAG-MoE 只改 MoE 块里最后那一步聚合，前面的 sparse router 和专家 FFN 原封不动。一个 token 进来后，router 照常选出 top-$K$ 专家、给出 $K$ 个初始节点表征，每个初始节点还额外注入一份 $1/K$ 缩放的原始 token 残差作为 DAG 的第 0 层；接着一个新增的 **DAG learning module** 接管：它迭代 $L$ 次，每一轮都先把节点降到低维、再为当前深度的节点动态学一组"连边"（软门控）、沿这些边把表征更新一遍，最后在第 $L$ 层把所有节点求和，作为该 token 在这一层的输出。因为 router 和专家都没动，它天然兼容现有 MoE 训练栈。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入 token x"] --> R["稀疏 router 选 top-K 专家<br/>（router 与专家 FFN 原封不动）"]
     R --> N0["初始节点 = 第 0 层<br/>专家输出 + (1/K)·x 残差注入"]

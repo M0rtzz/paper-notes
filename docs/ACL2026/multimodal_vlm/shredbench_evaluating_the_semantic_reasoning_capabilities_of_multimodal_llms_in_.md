@@ -45,7 +45,7 @@ ShredBench 的流程可以分成三步。第一步收集多源文档，包括英
 数据集共包含 756 个文档，每个文档生成 8、12、16 三种碎片粒度。作者特别强调数据源可以灵活替换为最新或未见文本，以降低训练集污染对评测有效性的影响。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SRC["多源文档<br/>中英新闻 / C++·Java·Python 代码 / 科学表格"]
     subgraph GEN["物理化碎片生成管线"]

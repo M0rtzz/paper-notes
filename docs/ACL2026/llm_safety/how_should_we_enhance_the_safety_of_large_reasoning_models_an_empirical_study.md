@@ -46,7 +46,7 @@ tags:
 研究分三个阶段：(1) **分析阶段**——识别五种风险推理模式并验证弱犹豫是核心问题；(2) **改进蒸馏阶段**——设计针对性提示策略消除风险模式（RealSafe CoT 和 Improved CoT）；(3) **推理简化阶段**——验证短推理链（Short CoT）和模板推理（Template CoT）的安全性等效性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["有害查询 × 越狱模板<br/>从 DeepSeek-R1 蒸馏安全响应"] --> B
     subgraph S1["五种风险推理模式的识别"]

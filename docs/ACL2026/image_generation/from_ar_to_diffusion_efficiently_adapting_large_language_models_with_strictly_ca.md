@@ -44,7 +44,7 @@ FLUID 的全名是 Flexible Unidirectional Inference Diffusion。它不是从零
 给定 prefix，FLUID 先用因果 Transformer 得到当前隐藏状态，再由 K-Head 预测一个 horizon $K_t$。模型在接下来 $K_t$ 个位置放置 mask，并在严格因果约束下对这些 mask 做并行去噪。预测完成后，当前下一个 token 总是被接受，后续 token 只有置信度超过阈值 $\gamma$ 才连续接受；一旦遇到低置信 token，cursor 停止前进并重新规划。这样，FLUID 在低熵片段可以一次走多步，在高熵推理片段自动退回更细粒度的生成。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["两阶段适配与动态因果解码（离线适配侧）"]
         direction TB

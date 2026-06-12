@@ -44,7 +44,7 @@ tags:
 整条管线想解决一件事：在拿不到"一好一坏严格配对"的前提下，靠少量挑出来的好样本把大尺度视频 DiT 的手部画质拉上去。作者先用预训练参考模型 VACE-14B 当 $v_{\text{ref}}$，从互联网收 1500 段舞蹈、DWPose 抽姿态、随机取一帧作参考图，让 VACE 每个 prompt 生成 4 个候选共 6000 段视频，再人工严格挑出 93 段"手部清晰"的好样本当偏好分布 $q(X)$。训练侧只挂 LoRA（rank 128，QKV 投影）得到 $v_\theta$，损失是把 KL 间隔落到流匹配上、再叠上手部 mask 加权的目标；推理时直接用 $v_\theta$ 跑反向流匹配采样。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["数据构建（脚手架，只需好样本）"]
         direction TB

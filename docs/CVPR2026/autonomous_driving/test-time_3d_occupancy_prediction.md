@@ -47,7 +47,7 @@ tags:
 TT-Occ 想回答一个反直觉的问题：既然几何由 VGGT/MapAnything 这类 3D 基础模型给出、语义由开放词汇分割模型给出，那还有必要专门训练一个占用解码器吗？它的答案是不必——整个系统在推理时即时跑完一条"提升 → 跟踪 → 体素化"（Lift-Track-Voxelize）的流水线，把每一帧传感器观测抬成一批带语义的时间感知 3D 高斯，逐帧累积成场景，再栅格化成占用网格，全程没有任何任务相关的训练权重。框架提供两个变体：以激光雷达为几何源的 TT-OccLiDAR，和纯多视角相机的 TT-OccCamera，二者共享同一条流水线，只在"几何怎么来""动态物体怎么处理"两处按模态分叉。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["传感器观测<br/>环视RGB / LiDAR点云"]
     subgraph LIFT["提升 Lift（抬成带语义的时间感知3D高斯）"]

@@ -45,7 +45,7 @@ tags:
 这篇论文想搞清楚一件被忽视的事：LLM 内部那个能用线性探测器读出来的"真实性信号"，到底从哪儿来、是不是只有一种来源。它分三步推进：先做显著性分析，发现"问题→回答"信息流的重要性在样本间呈**双峰分布**——有的样本高度依赖问题信息，有的几乎不依赖，由此提出存在两条真实性通路的假设；再用注意力敲除（attention knockout）和 token 移植（token patching）两种因果干预去验证、解耦这两条通路；最后把这个机制洞察落到实处，设计两种通路感知的幻觉检测方法。全程在 12 个模型（base/instruct/reasoning，1B 到 70B）和 4 个 QA 数据集上验证。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["LLM 内部表示 + 线性探测器"] --> B["显著性分析<br/>问题→回答信息流重要性呈双峰分布"]
     B --> C["因果干预解耦两条通路<br/>注意力敲除 + token 移植"]

@@ -42,7 +42,7 @@ tags:
 OpenVO 要解决的是开放世界行车视频（单目、无标定、帧率各异）下的真实尺度自车运动估计。它采用两帧位姿回归架构：输入连续两帧图像，输出 SE(3) 相对相机位姿。整条管线先由时间感知流编码器把"当前帧率"显式注入光流、并在其内部用可微 2D→3D 流把光流抬到带尺度的 3D 运动场，再由几何感知上下文编码器从推断的相机内参和度量深度里提取尺度先验，最后交给世界坐标自运动解码器回归旋转和平移。三大模块串起来，让网络既知道"两帧之间隔了多久"，又知道"场景的真实尺度"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["连续两帧图像 I₁, I₂<br/>（单目 · 无标定 · 帧率 f）"]
     IN --> FLOW["光流 MaskFlowNet（2D 位移）"]

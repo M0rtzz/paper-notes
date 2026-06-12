@@ -46,7 +46,7 @@ tags:
 CollabCoder 针对的是"先规划后编码"范式里的两个老毛病：计划一旦定下就在整个调试过程中冻结，而调试又是反应式的、只会反复改代码却说不清错到底出在哪。它让计划和代码协作演化——框架由计划智能体 $A_{\text{plan}}$、编码智能体 $A_{\text{code}}$ 和调试智能体 $A_{\text{debug}}$ 组成，其中调试智能体内部再分出协作决策模块（CDM）和推理轨迹模块（RT）。每轮迭代里，代码跑测试失败后，CDM 先诊断这次失败该归咎于计划还是代码，RT 则带着历史调试经验给出具体修复策略，再交由对应智能体执行，修完重测进入下一轮，直到通过全部测试或触顶迭代上限。输入是题目描述，中间是一份随调试不断被修订的计划与代码，输出是通过测试的最终解。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["题目描述 P"] --> B["计划智能体 A_plan<br/>生成 / 修订计划 π"]
     B --> C["编码智能体 A_code<br/>生成 / 修订代码 c"]

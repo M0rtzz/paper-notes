@@ -44,7 +44,7 @@ tags:
 给定预训练权重 $\theta_0$ 和 $T$ 个在其上微调出来的专家权重，ESM 要把它们合并成一个多任务模型 $\theta_M$，而不丢掉任何一个任务的能力。它的核心判断是：合并该保留的不是参数能量最大的方向，而是对输出激活影响最大的方向。于是整条流程分三步走——先对每个任务的更新矩阵在「激活偏移」的主方向上做本质子空间分解（ESD），把它压缩到一个与任务功能直接对齐的子空间里；再把 $T$ 个任务的低秩因子正交拼起来做本质子空间合并（ESM）；最后用三级极化缩放（PS）放大那些跨任务一致的高置信信号、压住噪声。最终每一层按 $\theta_M^{(\ell)} = \theta_0^{(\ell)} + \alpha \cdot \beta_\ell \cdot \Delta W_{\text{merged}}^{(\ell)}$ 写回，全程只需一次前向传播，不需要训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练权重 θ₀ + T 个专家权重<br/>各任务更新矩阵 ΔWₜ"] --> B
     subgraph ESD["本质子空间分解 ESD（逐任务）"]

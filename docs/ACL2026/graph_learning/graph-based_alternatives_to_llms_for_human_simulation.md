@@ -46,7 +46,7 @@ tags:
 GEMS 把「预测个体从有限选项里选哪个」的封闭式人类模拟任务，重新看成推荐系统里的链接预测问题。它构建一张含三类节点的异构图——子群体节点 $\mathcal{S}$（年龄/性别等人口统计组）、个体节点 $\mathcal{U}$、选项节点 $\mathcal{C}$（每个问题的全部答案），用两种双向关系把它们连起来：成员关系边（个体→子群体）和回答边（个体→选项）。GNN 编码器靠关系感知的消息传递学出节点嵌入，解码器再用点积加 softmax 预测个体在某题各选项上的分布，整套用图结构而非语言来模拟人的选择。三种评估设定通过改变「掩码对象」共用同一张图，其中新问题场景额外接一个 LLM-to-GNN 投影层补冷启动嵌入。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["调查数据<br/>个体 + 人口统计 + 回答"] --> S1
     subgraph S1["异构图构建与链接预测"]

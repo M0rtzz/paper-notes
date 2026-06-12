@@ -51,7 +51,7 @@ tags:
 骨干用 Wan 2.1 14B T2V，额外加一条 ray 分支（独立 LN、FFN、linear，6B 参数），总 20B，所有参数微调。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：目标视频 V + source/sparse target 图<br/>每帧配内外参 (K, P)"]
     subgraph RAX["Raxel 表征：把相机伪装成 3 通道图"]

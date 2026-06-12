@@ -46,7 +46,7 @@ tags:
 本文用一对配对任务把文学翻译中"理解"与"创造"两件本应交织的能力拆开来分别测量，再放回一起对照。Task 1 检验源文理解：基于文学批评分析生成的真/假声明，让模型判断对错，考察它能否做出解释性推理而非简单复述。Task 2 检验翻译创造力：在文本里那些隐喻、双关、文化典故等"创造性潜力单元"（UCP）上，标注模型译文采用了哪种处理技术，从而量化它敢不敢做有创造力的翻译选择。整套框架覆盖 11 本英文经典小说、23 个模型、4 种提示策略以及英-中、英-荷两个语言对，并用专家标注加 LLM-as-Judge 两段式把评估规模撑起来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SRC["11 本英文经典小说<br/>（En-Zh / En-Nl）"]
 

@@ -44,7 +44,7 @@ tags:
 ManiSoft 由三块组成：(1) **混合仿真器**——把软臂建模为"软体（Cosserat 杆，Elastica 模拟）+ 末端执行器（MuJoCo 模拟）+ 弹性力约束（虚拟弹簧）"三段耦合体系；环境视觉由 Blender 渲染。(2) **四类任务**——Collecting (COLL，把目标物放进容器)、Alignment (ALN，6-DoF 精确摆位)、Stacking (STK，按尺寸大→小堆叠餐具)、Arrangement (ARR，按空间约束摆放并避障)。(3) **自动数据 pipeline**——程序化采样 263 个 3D 对象与候选抓取位姿构造干净/随机化场景，配合 GPT 模板生成多样化指令；专家轨迹用"高层规则规划器（出 SE(3) 路径点）+ 低层 RL 力矩执行器（追踪路径点）"两段式生成。最终发布 6300 条场景-轨迹对、109 个可操作物体 17 类、154 个障碍 35 类、平均轨迹 1272 步、4:1 train/test 划分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph SIM["软-刚混合仿真器（设计 1）"]
         direction TB

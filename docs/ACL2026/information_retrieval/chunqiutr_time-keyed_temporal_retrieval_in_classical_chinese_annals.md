@@ -44,7 +44,7 @@ tags:
 ChunQiuTR 由基准和方法两部分组成，要解决的是"语义相似但时间不一致"的检索失败：输入一条带时间键 $\tau=(gong, year, month)$ 的查询，输出应是同一纪年月份的精确记录，而不是措辞相似却发生在邻月的混淆器。基准侧把《春秋》记录对齐到月级时间键，设计点查询 / 间隙查询 / 窗口查询三类，并从后世史书中提取时间近邻反事实困难负例；方法侧 CTD 在标准双编码器之上学习一条连续历法轴，先把绝对历法上下文注入嵌入，再用相对时间偏移给最终得分加偏置，从而在语义匹配里叠加时间一致性约束。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["《春秋》三传 + 后世史书"] --> B["时间键对齐与反事实负例<br/>记录对齐月级时间键 τ，提取时间近邻困难负例"]
     B --> C["共享 Transformer 编码器<br/>查询 / 记录 → 嵌入 h"]

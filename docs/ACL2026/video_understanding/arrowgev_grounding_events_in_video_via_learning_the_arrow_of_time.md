@@ -46,7 +46,7 @@ tags:
 ArrowGEV 把「时间方向性」做成强化学习的奖励信号：基于 GRPO 框架，每条样本同时喂入正向和反向视频，先判断事件属于哪类时间结构，再据此给正反两个方向的定位结果算差异化奖励。训练后的 VLM 不只是会在正向视频里对齐时间戳，还学会了「这个事件反过来还成不成立」，从而对时序更鲁棒。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：query + 正向/反向视频"] --> B["事件时间方向性分类<br/>LLM 推理 → 时间敏感 / 不敏感"]
     B --> C["VLM (GRPO) 定位<br/>正反视频各出一组时间戳"]

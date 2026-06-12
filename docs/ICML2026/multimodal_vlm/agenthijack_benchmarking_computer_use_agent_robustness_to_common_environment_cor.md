@@ -49,7 +49,7 @@ benchmark 基于 OSWorld 构造，共 3321 个任务，注入 9 类常见 corrup
 在方法侧，AgentHijack-Agent 包含两个角色。action generator 是执行任务的 GUI Agent，基于 UI-TARS-1.5-7B，并通过 DA-GRPO 在不同破坏环境中训练以增强 grounding。onlooker 是环境旁观者，先在执行前检查初始环境是否异常，执行中持续总结环境变化，把历史截图和动作压缩为行为描述，帮助 action generator 判断“这是自己造成的变化，还是环境外部扰动”。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CORRUPT["可配置九类常见环境破坏（注入 OSWorld，共 3321 任务）"]
         direction TB

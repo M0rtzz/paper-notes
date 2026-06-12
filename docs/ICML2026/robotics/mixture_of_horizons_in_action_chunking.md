@@ -44,7 +44,7 @@ tags:
 给定时刻 $t$ 的多视角图像 $V_t$、历史 $h_{<t}$、指令 $T$、本体感知 $s_t$，VLM 主干编码成 context；接着 MoH 把目标动作块 $A_t\in\mathbb{R}^{H\times d_a}$ 拆成 $N$ 个长度递增的截断子块 $A_t^{(h)}=(a_{t,1},\dots,a_{t,h})$，对每个子块 padding 到 $H$ 并配 horizon-specific attention mask（mask 掉 $k>h$ 位置），由**共享的 action transformer 在一次 forward 中并行处理**所有 horizon，得到 horizon-wise 预测 $\hat A_t^{(h)}$；最后一个线性 gating head 输出 logits $g_{t,k,h}$，经掩码 softmax 得到融合权重 $\alpha_{t,k,h}$，组合出最终预测 $\hat a_{t,k}=\sum_{h:k\le h}\alpha_{t,k,h}\hat a_{t,k}^{(h)}$。整套设计对 flow-matching（$\pi_0$/$\pi_{0.5}$/StarVLA）与一步回归（$\pi_{\text{reg}}$）通用，对 backbone 零侵入。推理时再把多 horizon 的预测分歧当成置信度信号驱动动态截断，三个贡献模块依次串成一条 pipeline：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["多视角图像 / 历史 / 指令 / 本体感知"] --> VLM["VLM 主干编码 context（只跑一次）"]
     VLM --> MOH

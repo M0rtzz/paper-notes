@@ -45,7 +45,7 @@ StableVLA 在结构上沿用 VLA-Adapter 的「冻结 SigLIP/DINOv2 + 适配器 
 形式化目标函数是标准 IB：$\min_{\phi(\mathbf{Z}\mid\mathbf{X}_v)} \mathcal{L}_{IB} = I(\mathbf{X}_v;\mathbf{Z}) - \beta I(\mathbf{Z};\mathbf{S})$，其中 $\mathbf{S}$ 是任务相关的"干净语义码"，$\beta$ 控制压缩-保真的折中。作者证明：在高斯+独立 Bernoulli 隐变量假设下，最优 $\mathbf{Z}$ 的迭代更新可写成通道维度的注意力 $\mathbf{Z} = \mathbf{V} \cdot \sigma(\beta \mathbf{Q}^\top \mathbf{K})$，其中 $\sigma$ 取 Sigmoid（对应独立 Bernoulli 假设）。这就是把"IB 优化"翻译成"可学模块"的桥。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RGB 观察 I + 指令 T"] --> B["冻结视觉编码器<br/>SigLIP / DINOv2 → 视觉 token X_v"]
     B --> D["MLP 旁路<br/>保高频细节（高保真路径）"]

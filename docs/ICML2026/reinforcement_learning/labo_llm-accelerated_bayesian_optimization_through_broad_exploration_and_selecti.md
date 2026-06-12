@@ -44,7 +44,7 @@ tags:
 LABO 分 warm-start 和优化循环两阶段。Warm-start：让 LLM 基于任务先验 $\mathcal{P}$ 推荐少量高潜力点 $\mathcal{X}_R$ 跑真实实验得 $\mathcal{D}_R$，同时用 Latin Hypercube Sampling 撒一批空间覆盖点 $\mathcal{X}_L$（保证 $\mathcal{X}_R \subset \mathcal{X}_L$）让 LLM 全部预测得 $\mathcal{D}_L$。优化循环：每轮先训 $f_L \sim \mathcal{GP}(0, k_L)$ 在 $\mathcal{D}_L$ 上、用最小二乘估 $\rho$、训 $\delta \sim \mathcal{GP}(0, k_\delta)$ 在残差 $\{(x, y_R - \rho y_L)\}$ 上，合成 $f_R = \rho f_L + \delta$；然后用 q-UCB 采集函数选一批候选 $\mathcal{X}_t$，对每个 $x \in \mathcal{X}_t$ 必查 LLM 加入 $\mathcal{D}_L$、再算 $p_\Delta(x)$ 判断是否触发真实实验加入 $\mathcal{D}_R$，直到真实预算耗尽。下图把这套数据流画出来——warm-start 一次性喂入两组数据，优化循环则反复重训 surrogate、选点、查 LLM，再由门控决定每个候选走"信任 LLM"还是"花真实实验"的分支：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph WS["Prior-guided warm-start + LHS 广覆盖"]
         direction TB

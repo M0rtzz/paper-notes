@@ -44,7 +44,7 @@ tags:
 论文拆成两块：**数据侧 Webshot 流水线**和**模型侧 ScreenVLM**。Webshot 从 45M URL 中均衡采样 1M 页面 → Playwright 渲染全页截图 → 抽 DOM 树并按可见性/重叠过滤 → 用 Qwen3-VL-8B 给每个候选元素分类到 55 类之一 → VLM-as-a-judge 给整页打质量分剔除低质量样本 → 出 771K 图 / 21M 元素，按 90/5/5 切分。模型侧 ScreenVLM 用 SigLIP-2 作视觉 backbone 编码图像 patch token，投影后送进 165M 的 Granite 自回归 decoder（初始化自 Granite Docling 文档转 markup 模型），输出一个 XML-like 的 ScreenTag 序列，每个元素形如 `<tag> <x1> <y1> <x2> <y2> [text] [children] </tag>`，坐标被归一化并量化到 0–500 网格。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph WS["Webshot 自动稠密标注流水线"]
         direction TB

@@ -47,7 +47,7 @@ tags:
 干预阶段提出 HAVAE。它不更新模型参数，也不引入额外模型，只在推理时对 NHAR 排名前 $K$ 的注意力头增强其面向视觉 token 的注意力。这样做的目标不是盲目提高所有视觉注意力，而是增强那些已经被诊断为“关注非劫持视觉内容”的头。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视觉 token + LVLM 内部注意力 / hidden state"] --> DIAG
     subgraph DIAG["诊断阶段"]

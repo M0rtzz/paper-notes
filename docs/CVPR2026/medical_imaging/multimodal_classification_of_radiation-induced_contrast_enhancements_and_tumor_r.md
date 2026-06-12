@@ -51,7 +51,7 @@ RICE-NET 基于 3D ResNet-18（MONAI 框架），输入为多通道 3D 体积，
 多模态输入沿通道维度拼接（channel-wise concatenation），模型自动学习跨模态交互。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A1["MRI post-OP<br/>术后 T1w 增强（基线）"]
     A2["MRI event<br/>事件时 T1w 增强"]

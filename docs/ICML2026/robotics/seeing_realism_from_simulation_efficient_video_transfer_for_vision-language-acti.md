@@ -44,7 +44,7 @@ tags:
 给定一批仿真训练轨迹 $\mathcal{S}=\{s_1,\dots,s_n\}$：(1) coreset 采样选出 $\mathcal{S}'\subset\mathcal{S}$，只对这一小撮做生成；(2) 对每条选中的视频，用 VideoChat2 抽 caption，Qwen3-8B 改写 caption 引入背景/物体颜色等环境变量，同时抽 depth 当几何控制；(3) 用 Cosmos-Transfer 2.5 以新 caption + depth 为条件做条件视频扩散，得到视觉风格大改但动作轨迹不变的"真实化"视频；(4) 把生成的视频和原 90% 仿真数据混着喂给 VLA 训练。整条流水线最关键的两个加速器是 velocity caching（砍单视频生成成本）和 coreset（砍要生成的轨迹数）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["大规模仿真轨迹 S"] --> CS
     subgraph CS["Coreset 采样：挑难且独特的轨迹"]

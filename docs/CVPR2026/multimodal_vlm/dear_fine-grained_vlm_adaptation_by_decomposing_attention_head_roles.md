@@ -46,7 +46,7 @@ tags:
 DeAR 想解决的问题是：给 CLIP 适配下游任务时，插入的可学习 token 会通过自注意力和原始视觉 token 无差别地交互，任务知识容易污染掉支撑零样本泛化的那部分表示。它的破题点是把"哪些表示该保护、哪些该改造"的判断下沉到**单个注意力头**的粒度上。整条 pipeline 分四步：① 先对 ViT 深层（9–12 层）的每个注意力头做一次"体检"，用 Concept Entropy 把头分成属性头 / 泛化头 / 混合头三类；② 从第 9 层起在视觉和文本两侧对称注入可学习的属性 token；③ 据每个头的角色给它定制一张注意力掩码，让属性 token 只去改造该改造的属性头、绕开该保护的泛化头；④ 推理时把保泛化的类特征（[CLS]）和任务特化的属性特征各自算出的 logits 按可学习权重融合，兼顾下游精度和零样本泛化。其中第①步是离线的一次性头分析，②–④ 才是在线的前向流程。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph ROLE["Concept Entropy 功能角色分类（离线）"]
         direction TB

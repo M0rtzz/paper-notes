@@ -46,7 +46,7 @@ tags:
 HONES 要解决的是多任务 VLM 的一个老难题：能力都纠缠在共享参数里，想知道"哪个神经元对 OCR 重要、哪个对 VQA 重要"很难，而且现有方法各自独立给神经元打分，忽略了注意力头的任务路由效应，结果多义性神经元被刷出虚高的重要性。HONES 顺着 Transformer 的因果结构走——注意力头负责选择和路由任务关键输入，FFN 神经元负责把路由来的信息写进残差流——所以分两阶段：发现阶段先用均值替换干预定位任务关键注意力头 $\mathcal{H}_t^*$，再在这些头的条件下用直接词汇投影（DVP）衡量每个 FFN 神经元对任务目标的因果写入贡献、取 Top-K；引导阶段则冻结骨干，只在这批关键神经元上学一组稀疏缩放因子，靠 KL 正则实现可控的任务提升。先定头、再定神经元，是一条从粗到细的因果路径。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多任务 VLM + 各任务样本"] --> DISC
     subgraph DISC["发现阶段"]

@@ -42,7 +42,7 @@ tags:
 MixerCSeg 要解决的是裂缝分割里"形态多样、对比度低、还得轻量部署"这组矛盾。整体是一个编码器-解码器结构：输入先过 Stem 层，再由若干 TransMixer Block 逐级提取多尺度特征 $\{F_1, F_2, F_3, F_4\}$；这些特征经 DEGConv 注入方向与边缘先验后，由 SRF 模块以高分辨率细节引导低分辨率语义完成融合，最后交给分割头输出像素级裂缝掩码。整条链路的核心思路是"让 CNN、Transformer、Mamba 各管各擅长的通道"，而不是把它们简单堆在一起。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入裂缝图像"] --> B["Stem 层"]
     B --> TM

@@ -50,7 +50,7 @@ VarSplat 的核心想法是：**直接学习每个高斯的外观方差 $\sigma_
 VarSplat 针对的是 3DGS-SLAM 里一个被忽视的问题：测量可靠性没被显式建模，碰上低纹理、透明、反射或深度不连续的区域，均匀的光度权重会把位姿估计带偏。它的核心想法是直接给每个高斯学一个外观方差 $\sigma_i^2$，通过全方差定律 + alpha 合成把它在单次光栅化里传播成逐像素不确定性图 $V$，再把这套不确定性统一用到跟踪、子图配准、回环检测三个环节，让可靠区域监督更强、不可靠区域被自动压低权重。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RGB-D 帧"] --> B["逐 splat 外观方差<br/>每个高斯额外学一个 σ²"]
     B --> C["全方差定律 + alpha 合成<br/>单次光栅化渲出颜色/深度与逐像素不确定性 V"]

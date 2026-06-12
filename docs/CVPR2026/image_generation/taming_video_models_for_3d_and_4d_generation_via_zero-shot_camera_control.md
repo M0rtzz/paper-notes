@@ -48,7 +48,7 @@ WorldForge 提出一个完全无训练的推理时引导框架，通过三个协
 WorldForge 要解决的事情其实很拧巴：让一个只会"自由生成"的预训练视频扩散模型精确听从用户给的相机轨迹，却又不破坏它原本编码的世界先验，而且全程不训练、不微调。整条 pipeline 是这样转的：先从单张图像（或视频帧）用深度估计重建出场景点云，沿用户指定的相机轨迹把点云 warp 渲染成一段"引导视频"——这段视频轨迹是对的，但 warp 会留下空洞、拉伸和遮挡错误，所以它本身是分布外（OOD）的、画质很差。接着把原图编码成潜变量、再转成文本 prompt，一起送进 Image-to-Video 扩散模型去噪。真正的关键全在去噪循环内部：IRR 负责在每一步把轨迹信息反复"打"进生成结果，FLF 决定只往哪些潜通道打、把外观通道保护起来，DSG 则在打的同时压住 warp 带来的 artifact。三个模块叠在同一个去噪过程里协同，最后输出一段既贴轨迹、画质又干净的视频。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["单张图像 / 视频帧"] --> B["深度估计重建点云<br/>沿相机轨迹 warp 渲染"]
     B --> C["引导视频（轨迹对，但 OOD、有空洞拉伸）"]

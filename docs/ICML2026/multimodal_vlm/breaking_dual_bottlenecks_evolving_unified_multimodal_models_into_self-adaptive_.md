@@ -44,7 +44,7 @@ tags:
 两阶段 pipeline：**(A) 数据构造**——给定原始 X2I 输入，先让 baseline 统一模型直接生成；用 Qwen3-VL-235B (Analyzer) 按"指令/一致性/质量/常识"四维评分；通过则归为 *Direct*；否则进入最多 3 轮 self-reflection 循环（Analyzer 写反思 prompt，Gemini-3-Pro-Image 作为 Generator 重画）；3 轮还不行就让 Analyzer 诊断失败原因，若是"prompt 太复杂"则升级到 *Multi-step* 模式（拆子任务逐步执行 + 中间评估），否则（如缺领域知识）直接丢弃。所有样本经过两名人工标注复核，得到 5 万条高质量交错数据。**(B) 训练**——SFT 适应交错推理语法 + selective loss masking 跳过失败中间图；GRPO 强化策略选择，奖励由 Outcome / Format / Step-wise reasoning 三项加权，再叠加一个 intra-group 复杂度惩罚来鼓励"少步赢"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["X2I 输入"] --> D1
     subgraph SG["层级 escalation 数据 pipeline（Analyzer ⇋ Generator）"]

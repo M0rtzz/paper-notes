@@ -44,7 +44,7 @@ tags:
 - **CGRO（一致性引导的推理优化）**：仅训练阶段介入，用「推理-定位一致性」奖励驱动强化学习，把「模型说的」和「模型看的」对齐，再通过 GRPO 把梯度回灌 MLLM。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 + 固定提问<br/>「图中是否存在缺陷/异常？」"] --> B["MLLM（Qwen2.5-VL-7B）<br/>自回归生成推理+答案<br/>导出多模态注意力 A"]
     B --> C

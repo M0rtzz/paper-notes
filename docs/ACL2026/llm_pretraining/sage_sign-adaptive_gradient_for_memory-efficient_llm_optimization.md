@@ -46,7 +46,7 @@ tags:
 采用混合优化器结构：嵌入层和 1D 参数（bias/norm）用 SAGE（$O(Vd) + O(d)$ 状态），稠密 2D 权重用 SinkGD（$O(1)$ 状态）。相比 SinkGD+AdamW 混合，将嵌入层的优化器状态内存减少约 50%。SAGE 本身的一步更新是一条分支再汇合的小流水线：梯度一路压成符号动量方向、另一路压成逐维阻尼因子，两路相乘得到最终更新。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["模型参数"] -->|"稠密 2D 权重"| DENSE["SinkGD（O(1) 无状态归一化）"]
     P -->|"嵌入层 / 1D 参数"| G["梯度 g_t"]

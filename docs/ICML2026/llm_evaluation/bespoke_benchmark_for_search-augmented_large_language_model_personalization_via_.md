@@ -44,7 +44,7 @@ tags:
 Bespoke 想要解决的是"怎么真实又细粒度地评估搜索增强 LLM 的个性化能力"。对用户 $u$ 的查询 $q$，把用户历史定义为 $\mathcal{H}_u = \{\mathcal{S}_u, \mathcal{C}_u\}$（搜索历史 + 聊天历史），模型需要先从历史中推断信息需求 $n_q$，据此检索并生成个性化响应 $r$。整套基准沿三个阶段搭起来：先用真实账号收集长期用户历史，再让标注者分阶段写查询、打分、产出 gold 响应，最后把这些标注落成一个四维度 + 信息召回的诊断式评估框架。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["真实用户历史收集与多阶段标注"]
         direction TB

@@ -45,7 +45,7 @@ tags:
 ReFi-GAD 要解决的是"PCA 对齐只统一维度、不统一语义"导致的跨域负迁移：与其在异构的原始特征上硬对齐，不如先把每个节点压成一组语义恒等的"关系指纹"，再在这个统一空间里学异常。给定一张图 $\mathcal{G}=(\mathcal{V},\mathcal{E},\mathbf{X})$ 和每类 $k$ 个标注节点的 few-shot support set，模型先对每个节点抽 5 维 ReFi 向量得到指纹矩阵 $\mathbf{P}$，再用一个上下文感知 Transformer 把指纹映到隐空间、用 SNR 模块按目标域重校准维度权重，最后让 query 与 support 算余弦相似度并 softmax 加权得到异常分。训练只在源域用 BCE 做 episodic 优化，推理时 support 不更新任何参数，是纯 training-free 的迁移。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图 G + few-shot support set"] --> B
     subgraph REFI["5 维关系指纹 ReFi"]

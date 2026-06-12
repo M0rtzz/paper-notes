@@ -38,7 +38,7 @@ tags:
 HulluEdit 想解决的是 LVLM 解码时语言先验压过视觉证据导致的物体幻觉，但它不靠对比解码或参考模型，而是直接在最终 Transformer 层把隐藏状态拆开来"做手术"。整条流水线在解码过程中在线运行：每生成一个 token，先从锚定层取出视觉特征并维护一份随生成滚动更新的文本缓存；再用这两者在当前 token 的隐藏状态上动态估计出一个视觉证据子空间和一个反先验子空间；最后把隐藏状态 $h$ 正交分解成视觉、先验、残差三个分量，按当前 token 的幻觉风险选择性地收缩后两个分量，视觉分量则原封不动地保留下来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像 + 指令"] --> B["锚定层提取视觉特征 V<br/>+ 维护滚动文本缓存 T"]
     B --> S1

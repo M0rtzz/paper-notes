@@ -42,7 +42,7 @@ tags:
 SAGE 在 FixMatch 类的双视图（弱/强增强）SSL 框架上加了三个模块：(1) **GRI 图结构关系推断**——把每个样本的投影特征 $\mathbf{z}_i$ 投到固定的 simplex ETF 锚 $\mathbf{P}$ 上得到关系嵌入 $\mathbf{a}_i$，由 $\mathbf{a}_i$ 间内积构造亲和矩阵 $\mathbf{A}$，再用 $\beta$ 步 Markov 传播得结构共识 $\mathbf{G}=\hat{\mathbf{P}}^\beta$，作为"软监督"指导 instance-wise 相似度 $\mathbf{S}$；(2) **Simplex ETF 锚生成**——一次性离线构造 $K=d+1$ 个零中心、单位范数、两两等角的固定向量作为类无关坐标系；(3) **DRP 分布无关可靠性加权 + 辅助分支**——用 max-confidence 和 top-2 margin 两个分布无关统计量结合 EMA 给伪标签加权，并把伪标签流量隔离到辅助 head $\phi_{aux}$，主 head $\phi_{cls}$ 只看标注数据保证决策边界纯净。最终目标 $\mathcal{L}_{total}=\mathcal{L}_{cls}+\mathcal{L}_{con}+\mathcal{L}_{sim}+\mathcal{L}_{aux}$ 端到端联合优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["弱/强增强双视图<br/>→ backbone → 投影特征 z"]
     P["Simplex ETF 几何锚 P（设计 2）<br/>离线生成·两两等角·永不更新"]

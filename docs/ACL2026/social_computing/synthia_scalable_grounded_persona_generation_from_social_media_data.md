@@ -44,7 +44,7 @@ tags:
 三阶段流程：(1) 从 Bluesky 收集和过滤用户帖子池（约 1.7 亿帖子，65 万用户），采样 3K 用户；(2) 用 LLM（Gemma-3-27B）将每个用户的帖子综合为第一人称人格叙事；(3) 通过人口统计匹配将合成人口与真实调查受访者对齐，比较模拟意见分布与真实分布。同时，每个人格继承对应用户的 Bluesky 关注关系图，使生成的虚拟人口保留真实社交网络拓扑。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Bluesky 帖子池<br/>约 1.7 亿帖 / 65 万用户 → 采样 3K 用户"]
     subgraph G1["真实数据锚定的人格生成"]

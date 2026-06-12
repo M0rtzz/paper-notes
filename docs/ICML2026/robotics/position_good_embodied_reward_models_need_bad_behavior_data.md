@@ -47,7 +47,7 @@ tags:
 整个工作可以看成三阶段流水线：第一阶段是把 RoboArena 上的人工 A/B 偏好和连续打分（0–100）当作 ground-truth，按 7 类递增复杂度任务（Pick/Place → Push/Pull → Open/Close → Stack → Reorient → Pour → Tool Use）拆分；第二阶段把三个 SOTA 奖励模型分别对每段 rollout 做 per-step scoring，累加成 trajectory return $\hat{y}^i = \sum_t \hat{r}_t$，再和人类排序算"对子级别"一致率；第三阶段在 GVL 上做受控干预，向 in-context 提示里逐步增加负样本信息量（仅文字 → 文字 + 视频 → 文字 + 视频 + 稠密 reward），重测同一套指标，证明奖励模型质量随负样本表征丰富度单调提升。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RoboArena 真人评测<br/>A/B 偏好 + 0–100 打分<br/>7 类递增复杂度任务"] --> B["三类 SOTA 奖励模型打分<br/>ReWind / GVL / Dopamine<br/>per-step → 累加 return"]
     B --> C["对子级偏好排序准确率<br/>替代 VOC，能照出违规"]

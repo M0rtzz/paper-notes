@@ -43,7 +43,7 @@ tags:
 BioVITA 要补的是生物多模态里一直缺的一环：图像-文本、音频-文本各自都有成熟模型（BioCLIP 2、CLAP），却没人把视觉-文本-声音（VITA）三模态对齐到同一空间。它给出的是一整套「数据集 + 模型 + 基准」：BioVITA Train 提供百万级三模态训练数据，BioVITA Model 用音频/图像/文本三个编码器学统一表示，BioVITA Bench 用六方向跨模态检索来评测。模型的关键不是从零训三模态，而是借 BioCLIP 2 已经对齐好的图文空间，只把音频「挂」进去。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["数据集构建（BioVITA Train）<br/>130 万音频 + 230 万图像<br/>14133 物种 + 34 维生态特征"] --> ENC
     subgraph ENC["编码器架构（只训音频，复用图文）"]

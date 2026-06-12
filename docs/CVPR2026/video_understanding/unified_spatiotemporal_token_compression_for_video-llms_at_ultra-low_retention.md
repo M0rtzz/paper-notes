@@ -44,7 +44,7 @@ tags:
 这篇论文要解决的是：32 帧视频喂进 Video-LLM 会膨胀成六千多个视觉 token，绝大多数是冗余的，但在 ≤5% 的极端压缩下，过去那套"先压时间、再压空间"的两阶段做法会把时空预算切歪，导致丢掉关键 token。方法的整体思路是把压缩拆到 LLM 内外两层来做：在 LLM **外部**，先把所有视觉 token 倒进一个全局保留池，用"注意力贡献度 + 余弦冗余度"两个指标联合挑选最值得留下的 token，没选中的不直接扔，而是聚类合并后回填进去，凑齐预算；token 进了 LLM 之后，在某一中间层再做一次 LLM **内部**的文本感知合并，根据当前 query 的语义，把和问题真正相关的视觉 token 再筛一遍。两层各管一件事——外部管"哪些 token 信息量大且不重复"，内部管"哪些 token 跟这道题相关"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["32 帧视频<br/>6272 个视觉 token"] --> B
     subgraph EXT["LLM 外部压缩"]

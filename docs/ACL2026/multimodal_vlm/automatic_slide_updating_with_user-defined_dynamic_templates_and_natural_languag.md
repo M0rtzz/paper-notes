@@ -46,7 +46,7 @@ tags:
 SlideAgent 采用两阶段架构：阶段一（幻灯片理解）将输入幻灯片解析为结构化表示，捕获元素位置、数据源和功能逻辑；阶段二（指令驱动更新）解释用户指令、检索更新数据、执行转换、重新生成内容。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：用户自定义幻灯片 + 自然语言更新指令"]
     subgraph P1["阶段一·幻灯片理解"]

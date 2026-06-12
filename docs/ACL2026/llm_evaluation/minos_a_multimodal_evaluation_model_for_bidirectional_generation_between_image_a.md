@@ -44,7 +44,7 @@ tags:
 Minos 的 pipeline 分两条线：**数据构造**（Minos-57K + Minos-DPO-5.8K）+ **两阶段训练**（SFT → DPO）。数据这一侧统一把每条评测实例形式化为 $(q, d, g, k, [r], a, s)$——即任务输入 $q$、任务描述 $d$、模型输出 $g$、评测准则 $k$、可选参考答案 $r$，输出为评测分析 $a$ 和 1–5 Likert 分 $s$。这种 schema 既能容纳 I2T（image+question→text），也能容纳 T2I（text→image），实现"双向统一"的关键。模型骨干用 Qwen3-VL-8B，SFT 用 Minos-57K（2 epoch、lr 1e-5），DPO 用 Minos-DPO-5.8K（1 epoch、lr 2e-6、$\beta=0.03$）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["金标准评测数据<br/>Polaris / LAVE / ImageReward + GPT-4o ×10 候选评测"]
     A --> B["预定义评测指南<br/>6 类任务各拼任务描述 + 评测准则"]

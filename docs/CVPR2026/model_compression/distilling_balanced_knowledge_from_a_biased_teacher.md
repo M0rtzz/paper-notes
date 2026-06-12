@@ -43,7 +43,7 @@ tags:
 这篇论文要解决的是：在长尾数据上训练出的教师本身偏向头部类，直接拿它做标准 KD，学生只会把这份偏差照单全收。LTKD 的做法不去动教师，而是把蒸馏目标函数拆开来修。它先按训练样本数把所有类别排成三组——Head、Medium、Tail（各占约 33%/34%/33%），再把标准的 KL 散度蒸馏损失精确拆成「跨组」和「组内」两个部分：前者管三个组之间的概率怎么分配，后者管一个组内部各类怎么分配。看清这两部分各自怎么被偏差污染之后，对跨组项做重平衡、对组内项做重加权，最后把修正后的跨组 KL 和等权的组内 KL 加起来作为新的蒸馏损失。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["有偏教师 + 学生<br/>(长尾数据训练)"] --> B
     subgraph DEC["KL 散度的跨组-组内分解"]

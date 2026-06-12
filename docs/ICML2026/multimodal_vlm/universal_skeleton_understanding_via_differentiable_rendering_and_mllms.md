@@ -44,7 +44,7 @@ tags:
 SkeletonLLM 流程为"渲染—推理—回应"（Render-Reason-Respond）三阶段。输入骨架序列 $\mathbf{S}=\{\mathbf{p}_t\}_{t=1}^T$，可微渲染器 DrAction 把它渲染成图像序列 $\mathbf{V}=\{\mathbf{I}_t\}_{t=1}^{T'}$（渲染），经 MLLM 视觉编码器与投影层得到视觉 tokens 后做语言推理（推理），最终生成识别/说明/问答结果（回应）。DrAction 内部依次是典范空间高斯基元、LBS 蒙皮变换、神经特征调制器（NFM）、可微光栅化。整个流程端到端可微，因此 MLLM 的任务梯度能一路回流到渲染器；这条回流链由四阶段协作训练来调度，逐步把随机初始化的渲染器训成 MLLM 看得懂、又能分辨细微动作的视觉接口。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["骨架序列 S<br/>任意格式（Kinect 25 / SMPL 22 / COCO 17）"]
     subgraph DR["DrAction 可微渲染器"]

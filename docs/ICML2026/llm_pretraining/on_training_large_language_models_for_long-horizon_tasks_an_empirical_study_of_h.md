@@ -44,7 +44,7 @@ tags:
 这篇论文走"诊断—干预—验证"的路子：先在控制求解复杂度的前提下，对 Qwen3-1.7B 在 L1–L4 上做 SFT + REINFORCE 风格 RL，观察训练曲线随 horizon 变长怎么崩；再提出两类 horizon reduction 机制——macro action（单步执多个原子动作）和 subgoal decomposition（按子目标切段独立算回报）——把有效 horizon 压回 RL 能稳学的区间；最后在 Rush Hour、WebShop、4B 模型、GRPO 优化器上交叉验证 robustness，并测 L5–L7 上的 zero-shot horizon generalization。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["Horizon 形式化与控制实验设计（设计 1）"]
         direction TB

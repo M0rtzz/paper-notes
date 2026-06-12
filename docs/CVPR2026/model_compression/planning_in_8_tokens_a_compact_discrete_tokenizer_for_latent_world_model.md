@@ -45,7 +45,7 @@ CompACT 要解决世界模型规划太慢的问题：现有方法每帧编几百
 CompACT tokenizer 又拆成编码端（设计 1，把帧压成离散 token）和解码端（设计 2，8 token 重建像素是欠定问题，改用生成式建模补细节），下游的世界模型与规划合为设计 3。三者的数据流如下：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入帧"] --> ENC
     subgraph ENC["语义编码器：压成 8/16 token"]

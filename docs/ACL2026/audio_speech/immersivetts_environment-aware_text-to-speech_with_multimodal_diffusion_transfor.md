@@ -46,7 +46,7 @@ ImmersiveTTS 的输入包含三类信息：content prompt，即要说的话；en
 语音侧先由文本 encoder 和 MAS duration alignment 得到 frame-level linguistic prior，再通过卷积网络映射到 VAE latent 兼容的表示，并与 noisy latent 拼接。双流 MM-DiT 的 double-stream blocks 让环境 token 与语音 latent 通过 joint attention 互相读取；后续 single-stream blocks 只保留 speech stream 做高保真细化。最终模型用 flow matching 预测速度场，并用 dual classifier-free guidance 在推理时分别调节环境条件和内容条件的强度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     CP["content prompt"] --> TE["文本 encoder + MAS 时长对齐<br/>frame-level 语言先验 → 卷积映射"]
     SP["speaker prompt"] --> SE["说话人 embedding"]

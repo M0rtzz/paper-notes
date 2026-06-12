@@ -47,7 +47,7 @@ tags:
 FAQ 基准构建流程：视频收集与质量过滤（FF++ 5000 假 + 1000 真视频，YOLOv8 过滤掉 ~10% 低质量样本）→ 人工标注稀疏时空点击 50K+ → 时空聚类获得 14392 伪造片段 → 关键点提取（dlib 面部关键点追踪）→ 描述解析（词频分析 + LLM 原子化标注）→ 三层级 QA 生成 → 人工验证。最终产出约 33K QA 对。整条流水线把「廉价的稀疏点击」逐级加工成「结构化中间表示」，再据此生成三层级渐进的多选题，对应下面三个关键设计：时空聚类与伪造轨迹构建（中间表示）、三层级渐进式任务体系（出题）、干扰项设计与人工验证（质量把关）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["FF++ 视频<br/>5000 假 + 1000 真，YOLOv8 过滤 ~10% 低质样本"] --> B["人工稀疏时空点击<br/>50K+ 标注点"]
     B --> C

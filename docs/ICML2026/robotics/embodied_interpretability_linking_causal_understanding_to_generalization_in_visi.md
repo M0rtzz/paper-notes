@@ -44,7 +44,7 @@ tags:
 输入是一个 VLA 策略 $\pi_\theta$ 和一段视觉序列 $V_{1:T}$ 与指令 token。先做 token 级因果干预产出每帧的 ISS 显著图 $S_t \in \mathbb{R}^{H \times W}$；再按预定义的「动作关键区 / 环境支撑区 / 视觉干扰区」三分割计算 NMR@k，作为模型「因果错位」程度的标量；最后把 NMR@k 与真实 OOD 成功率做 Pearson 相关，验证它能否预测泛化。整个流程是**离线介入协议**，不依赖仿真器执行，避免动力学误差累积。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["VLA 策略 π_θ + 视觉序列 + 指令 token"]
     subgraph ISS["介入显著性分数 ISS"]

@@ -43,7 +43,7 @@ SphericalDreamer 通过把多张文本生成的分层深度全景图各自抬升
 给定文本 prompt $p$ 和球体数 $N$，SphericalDreamer 沿水平方向 $\mathbf{d}$ 等间距摆 $N$ 个相机位姿，每处用文本到全景模型生成一张 EQR 全景并抬升成一个"球体建筑块"，再为每对相邻球体在中间空隙处生成一个"过渡填充块"，最后把所有块拼成统一的世界点云 $\mathcal{W}=\{(\mathbf{p}_k,\mathbf{c}_k)\}_{k=0}^{K-1}$。球体数 $N$ 同时充当"世界规模"的代理——$N$ 越大、场景越长，整条流水线 $\mathcal{W}=\mathcal{W}^{\text{partial}}\cup\bigcup_{i=0}^{N-2}\mathcal{B}_i^{\text{fill}}$ 把"局部沉浸"压在球体里、把"长距离扩展"压在过渡块里，分工互不打架。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["文本 prompt + 球体数 N<br/>沿水平方向等间距摆 N 个相机"] --> B["文生全景<br/>每处生成一张 EQR 全景图"]
     subgraph S1["阶段一：球体建筑块生成"]

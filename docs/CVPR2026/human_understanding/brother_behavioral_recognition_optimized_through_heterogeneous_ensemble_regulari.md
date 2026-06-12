@@ -46,7 +46,7 @@ tags:
 整篇工作要解决的是一个很实际的问题：A/H 这种内在冲突状态散落在表情、语音和措辞里，单一模型既容易抓不全，又容易在小数据上记住训练分布。BROTHER 给出的答案不是端到端大模型，而是一条高度正则化的"委员会"流水线。它先把每段视频拆成视觉、音频、文本、统计四路特征；再把这四路按 $2^4-1=15$ 种子集组合，每个组合各训练 MLP、随机森林、GBDT 三种分类器，并用验证集 BCE loss 挑出最会"校准概率"的那一个，凑成 15 个性格各异的基模型；最后用粒子群优化（PSO）在这 15 票上学一组硬投票权重，把过拟合的、冗余的模型权重压到零。整条管线的立意是：与其追求一个更强的 backbone，不如保留多个模态子集各自的长处，再靠一个会"自我裁员"的集成器把它们安全地拼起来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入视频"]
     subgraph FE["四模态特征提取"]

@@ -44,7 +44,7 @@ tags:
 要在用户只答几道题的冷启动条件下高效预测他剩下的回答，本文的解法是把"这个用户像谁"建成一个离散潜变量，再让 LLM 离线把每种"谁"的回答画像算好。具体分两阶段：离线阶段拿一个 persona 字典（本文用 Twin-2K-500 的 $n=2058$ 个真实美国受访者 profile），对每个 persona $\xi_\theta$ 和每道题 $x$ 用 GPT-5-mini 算出 $K$ 类回答分布 $\mu_{\theta,x}\in\Delta^{K-1}$ 缓存成查找表；在线阶段则对新用户维护一个 persona 后验，每次贪心选一道最能消除不确定性的题、观察回答、闭式更新后验，直到预算耗尽后用混合分布预测目标题。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["离线：Persona-induced 潜变量模型"]
         direction TB

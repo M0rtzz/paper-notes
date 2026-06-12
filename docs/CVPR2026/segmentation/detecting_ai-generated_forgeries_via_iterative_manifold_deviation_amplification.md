@@ -43,7 +43,7 @@ tags:
 IFA-Net 换了个思路检测 AI 伪造：不去学"假长什么样"，而是用在海量真实图上预训练的 MAE 建模"真该长什么样"，凡是偏离自然图像流形的区域就是可疑区域。整体是一个两阶段闭环——Stage 1 用冻结 MAE 重建输入、由残差图暴露可疑区，经双流分割网络 DSSN 出一张粗 mask $M_{\text{crs}}$；Stage 2 把粗 mask 当先验注入 MAE，放大那些区域的重建残差，再过同一个 DSSN 精细化成最终 mask $M_{\text{ref}}$。这样"检测→聚焦→放大→精化"形成闭环，越可疑的地方残差被推得越大。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["输入图像 I（可能被篡改）"]
     subgraph S1["Stage 1 · 粗检测"]

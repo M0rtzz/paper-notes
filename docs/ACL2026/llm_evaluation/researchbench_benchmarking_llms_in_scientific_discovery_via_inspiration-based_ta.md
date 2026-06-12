@@ -46,7 +46,7 @@ tags:
 ResearchBench 是一条"采数据→拆假设→造干扰→评模型"的评测流水线。它先从 Nature、Science 等顶刊抓取 1386 篇 2024 年后的论文，用 LLM agentic 框架自动从中抽出研究问题、背景综述、灵感知识与主假设，再为每条灵感构造引用邻近、同学科、跨学科三级负面样本，最后在灵感检索、假设组合、假设排序三个子任务上评测 LLM。整套设计的出发点是一个可证充分的分解：把"发现新假设"拆成这三步，完美解决它们即等价于完美完成发现。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["顶刊论文（Nature/Science 等，2024 年后 1386 篇）"] --> B
     subgraph EXT["LLM 灵感提取框架"]

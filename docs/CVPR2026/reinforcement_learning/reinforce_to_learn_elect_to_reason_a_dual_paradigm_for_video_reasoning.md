@@ -43,7 +43,7 @@ tags:
 RLER 要解决的核心问题是：视频推理长期停留在"单次通过"——模型给出答案却不验证它是否真的基于有效证据。RLER 把这件事拆成对称的两段。训练端（RLER-Training）用 GRPO 优化策略，让模型输出带 `<think>`、`<answer>`、`<keyframes>` 标签的结构化结果，并通过奖励塑造把"引用哪些关键帧、推理多长、是否啰嗦"这些证据信号逼出来；推理端（RLER-Inference）则不再相信任何单条输出，而是用多样化输入采出少量候选，逐个解析成可机器检查的证据，按证据一致性加权选举出最可靠的答案，并在分歧不大时早停、必要时让裁判自检。基础模型为 Qwen2.5-VL-7B-Instruct，训练时冻结视觉编码器与投影层，仅以 LoRA（r=8）更新语言模型参数。两端共用同一套证据维度（帧敏感、思考透明、反重复），构成"训练塑造能力、推理保证可靠"的闭环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["视频 + 问题<br/>（基座 Qwen2.5-VL-7B）"]
     subgraph TRAIN["三种证据奖励 + GRPO 训练"]

@@ -44,7 +44,7 @@ tags:
 本文的核心是用一个 14B 的 checklist-aware critic 替代"对每条约束分别调一次大模型 judge"的昂贵做法：给定一条复杂指令和某模型的回答，先由 Checklist Generator 把指令拆成约束清单 $\{c_k\}_{k=1}^n$，再让 critic 在一次 CoT 推理里顺着清单逐条产出"解释 $e_k$ + 0/1 判定 $j_k$"，聚合即得整条 critique，下游把通过约束比例 $r_i=\frac{1}{n}\sum_k j_{ik}$ 当作 reward 喂给 DPO/GRPO 训练 7B/8B 策略模型。系统训练数据来自 55k 条真实复杂指令（按 CritiqueLLM 的 10 类任务分类、并用小分类器打约束复杂度分），每条随机挑 2 个模型（共 15 个）生成回答得到 110k 条评测样本；Checklist Generator 由 DeepSeek-R1 的约束分解结果蒸馏微调而来，人工抽检 1k 样本达单约束 99.29% / 整清单 97.50% 正确率，critic 则基于 Qwen2.5-14B-Instruct 经 SFT + 约束级 DPO 得到。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["55k 复杂指令 + 110k 模型回答"] --> B["Checklist Generator<br/>拆成约束清单"]
     B --> C["Checklist-Guided Critique Generation<br/>critic 一次 CoT 顺清单逐条产 解释+判定 → 聚合 critique"]

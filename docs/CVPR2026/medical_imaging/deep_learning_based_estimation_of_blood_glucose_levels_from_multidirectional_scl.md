@@ -40,7 +40,7 @@ tags:
 ScleraGluNet 要解决的是：只用一台普通前段相机、不抽血，就把人的代谢状态判出来、空腹血糖估出来。它的做法是把"一只眼睛"拆成五个视角看。每位受试者按正视、上视、下视、鼻侧、颞侧五个注视方向各拍一张巩膜照片，先做统一的图像预处理（ROI 提取 → 颜色/亮度归一化 → CLAHE 对比度增强 → Frangi 滤波突出管状血管），再分给五个参数独立的 CNN 分支各自提特征；五路特征拼起来后先用 MRFO 算法筛掉冗余维度，剩下的判别性特征送进 Transformer 做跨视角自注意力融合，最后分出两个头——一个 softmax 分类头判三类代谢状态，一个回归头吐出连续的空腹血糖值。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多方向巩膜采集协议<br/>正视/上视/下视/鼻侧/颞侧 5 张"] --> B["图像预处理<br/>ROI 提取→归一化→CLAHE→Frangi 滤波"]
     B --> CNN

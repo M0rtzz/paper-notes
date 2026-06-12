@@ -47,7 +47,7 @@ tags:
 VtT（teach the Vision to Think like the Text）针对的是一个反直觉现象：在 Source-Free 跨域少样本设置下，CLIP 文本编码器的某些中间层被移除后性能反而更好——这些"Lost Layers"不是冗余，而是因视觉域偏移没被用上。VtT 的思路不是丢掉它们，而是教视觉分支"像文本分支一样思考"，把被浪费的预训练文本知识重新激活。它是一个即插即用的微调插件，由三个模块串起来：V-T Fusion 在层级上融合视觉与文本各层输出，TIA 把融合特征送回文本编码器做编码器级吸收，DGSO 则用梯度冲突信息动态平衡分类与知识吸收两个目标。微调完成后所有 VtT 参数被移除，推理阶段零额外开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["CLIP 双分支<br/>视觉各层 CLS + 文本各层 EOS token"] --> B
     subgraph VTF["V-T Fusion：跨层扫描层级融合"]

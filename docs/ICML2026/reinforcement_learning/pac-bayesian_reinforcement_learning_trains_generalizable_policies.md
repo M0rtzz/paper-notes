@@ -49,7 +49,7 @@ tags:
 下面这张图给出 PB-SAC 的整体流（理论层提供被优化的上界与最终证书，算法层是围绕它的快慢双路径循环）：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["策略参数即后验均值 υ<br/>对角高斯后验 ρ = N(υ, diag σ²)"] --> B["SAC 快路径<br/>每步标准梯度更新 π / Q"]
     B --> C["后验引导探索 PGE<br/>从 ρ 抽 |T| 个 θ，取 argmax Q(s, π_θ)"]

@@ -52,7 +52,7 @@ Hermite-NGP 的训练流水线是：
 整个 pipeline 由 Algorithm 1 总结，关键链式法则是 $\nabla u = \frac{\partial u}{\partial\gamma}\nabla\gamma$，$\nabla^2 u = \frac{\partial^2 u}{\partial\gamma^2}(\nabla\gamma)^2 + \frac{\partial u}{\partial\gamma}\nabla^2\gamma$。其中「哈希查表 + Hermite 插值重建」共同构成关键设计 1（梯度增强的 Hermite 哈希编码），课程训练（设计 3）作为外层调度控制哪些分辨率层被激活。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["查询点 x"] --> ENC
     subgraph ENC["Hermite 哈希编码（设计 1）"]

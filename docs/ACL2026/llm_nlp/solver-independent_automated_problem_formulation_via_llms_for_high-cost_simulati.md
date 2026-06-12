@@ -46,7 +46,7 @@ tags:
 这篇论文要解决的是高成本仿真设计里的一个尴尬：工程师的设计需求往往写成一段模糊的自然语言，要把它变成可执行的数学优化模型，传统微调方法靠求解器反馈来筛训练数据，但天线、航空这类场景做一次电磁全波仿真极贵，求解器反馈根本拿不到。APF 的整体思路是用「测试实例」当桥梁绕过求解器：先从历史仿真记录里提取真实可解的设计需求并让 LLM 生成对应数学公式，再让一个强 LLM 对一批测试实例排序得到「参考排名」，然后把生成公式在测试实例上跑出来的排名和参考排名比一致性，一致性高的样本才留下，最后在这批筛过的高质量数据上做标准 SFT。整条管线对应四个模块：数据生成、测试实例标注、数据评估与选择、监督微调。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["历史仿真记录"] --> B
     subgraph DG["统一抽象表示与数据生成"]

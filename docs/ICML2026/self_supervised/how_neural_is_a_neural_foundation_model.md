@@ -44,7 +44,7 @@ tags:
 对 FNN 的 encoder（10 层卷积，含 3D 卷积捕捉 12 步时序）、recurrent（带 attention 的 Conv-LSTM）、readout（Gaussian readout + 每只鼠一个线性映射）三个模块挨个采样 unit 活动；用一组参数化刺激（8 个方向的 drifting square-wave gratings + naturalistic optical flow，共 88 个序列）激发 PSTH。然后在每个模块上做：① 用全时段平均后的群体活动做 PCA，得到解码流形；② 用按时间步展开的群体活动得到解码轨迹；③ 用张量分解（Williams et al., 2018）把神经元按"对 88 种刺激的时空响应模式"嵌入二维，得到编码流形；④ 把上面的对比量化成 tubularity（tightness + crossings），并与既有 RSA / CCA / LP / DSA 互验证。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["88 个参数化刺激<br/>方向光栅 + 自然光流"] --> B["FNN 逐模块采样<br/>encoder / recurrent / readout 的 unit 活动 → PSTH"]
     subgraph S1["三件套群体级流形分析（设计 1）"]

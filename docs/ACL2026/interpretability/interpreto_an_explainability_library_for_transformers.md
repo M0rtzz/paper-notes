@@ -46,7 +46,7 @@ attribution pipeline 通常有三步：实例化 explainer，输入 HuggingFace 
 concept pipeline 有四步。第一步用 `ModelWithSplitPoints` 包装 HuggingFace 模型，指定 split points，并在数据集上提取激活。第二步用 Semi-NMF、PCA、ICA、SAE 等方法学习 concept space。第三步用 top-k activating examples、tokens/ngrams 或 LLM labels 为概念赋予人类可读标签。第四步通过 concept-to-output gradients 或 concept×gradients 估计概念对预测的贡献。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     M["HuggingFace 模型 + tokenizer + 样本"]
     M --> ATTR

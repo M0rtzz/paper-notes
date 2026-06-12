@@ -46,7 +46,7 @@ tags:
 TerraSeg 想解决一个矛盾：地面分割既要免标注、又要换个传感器就能直接用，但现有方法只能二选一。它的破解办法是把"泛化"这件事压到数据和先验上，而不是靠人工标签。整条流水线分三段：先把 12 个公开驾驶数据集的原始扫描归一化成统一格式（OmniLiDAR），再用一个不需要任何标注的几何优化模块（PseudoLabeler）逐帧算出地面/非地面伪标签，最后用这些伪标签去训练一个刻意"忘掉传感器身份"的分割网络（TerraSeg 模型）。模型吃进原始 3D 点云坐标，吐出每个点属于地面的置信度。值得注意的是 PseudoLabeler 慢但准、只在离线造标签时用，真正上车跑实时推理的是训练好的 TerraSeg 模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OMNI["OmniLiDAR 统一数据集"]
         direction TB

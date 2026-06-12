@@ -44,7 +44,7 @@ tags:
 输入是一族 Hamiltonian / GENERIC 系统 $\{\mathcal{H}^{(k)}(\bm{q}, \bm{p}) = \mathcal{H}(\bm{q}, \bm{p}; \bm{\mu}^{(k)})\}_{k=1}^{n_\mu}$，每个系统随机采若干轨迹。模型参数拆为 $\Theta^{(k)} = \Theta_\text{base} \cup \Theta_\text{indv}^{(k)}$：base 由 meta-gradient 在外循环更新，individual 是每个系统专属的 latent code $\bm{z}^{(k)}$ 在内循环更新。Hyper-network 把 $\bm{z}^{(k)}$ 映射为各层的低秩 / 偏置修正参数。最终 $\tilde{\mathcal{H}}(\bm{q}, \bm{p}; \Theta^{(k)})$ 是带 latent 条件的能量函数，仍通过 $\dot{\bm q} = \partial \tilde{\mathcal H} / \partial \bm p,\ \dot{\bm p} = -\partial \tilde{\mathcal H} / \partial \bm q$ 给出动力学，故结构保持性继承自 base 架构。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["系统族 {H(q,p;μ)}<br/>每个参数实例采若干轨迹"] --> B["参数拆分<br/>Θ_base 共享（外循环）+ latent z 实例专属（内循环）"]
     B --> C["Hyper-network f_hyper(z)<br/>把 latent code 映射成层级调制参数"]

@@ -52,7 +52,7 @@ Gui-Cursor 把这件事拆成一个最多 $T$ 步的交互 episode：
 训练用 GRPO，base model 用 Qwen2.5-VL-7B 与 UI-TARS-1.5-7B；最大训练步数 250、训练时最多 4 步移动、每条指令采 12 条轨迹、batch 32、学习率 $10^{-6}$。数据用 Aria-UI + OS-Atlas 的子集，仅 8K 样本（对比 GTA1 64K），还做 online filtering 把"全对/全错"的样本过掉。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：截图 O + 指令 I"] --> INIT["光标初始化在屏幕正中央<br/>→ 首帧 O₀"]
     INIT --> THINK

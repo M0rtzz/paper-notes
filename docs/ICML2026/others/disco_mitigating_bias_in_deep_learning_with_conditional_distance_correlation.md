@@ -44,7 +44,7 @@ tags:
 下图按训练数据流串起三个关键设计：理论给出的「统一条件独立准则」决定要惩罚什么，「条件距离相关」是惩罚用的度量，「sDISCO 单步代数分解」负责把它压到 $O(n^2)$ 显存高效算出来；偏差 $\mathbf{B}$ 只在训练反传时进入正则项，推理只走输入 $X$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入 X"] --> F["预测网络 f_θ"]
     F --> YH["预测 ŷ"]

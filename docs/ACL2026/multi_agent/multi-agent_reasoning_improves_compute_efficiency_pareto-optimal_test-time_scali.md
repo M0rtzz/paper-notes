@@ -52,7 +52,7 @@ tags:
 最终分析不是只找最高准确率，而是画出每个配置的 accuracy-cost 点，并计算 Pareto-front：如果某配置在更低或相同成本下还能取得更高或相同准确率，那么被支配的配置就不是高效选择。论文的大部分结论都来自这些 Pareto 最优点的形态。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["选择题推理任务<br/>MMLU-Pro / BBH"] --> B
     subgraph B["统一的测试时计算扩展坐标系"]

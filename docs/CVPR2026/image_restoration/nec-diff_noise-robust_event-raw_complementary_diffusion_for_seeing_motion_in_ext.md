@@ -41,7 +41,7 @@ tags:
 NEC-Diff 要在 0.001–0.8 lux 的极暗动态场景里，从 RAW 图像和事件流这两路都被噪声严重污染的信号中重建出干净画面。它的核心判断是：与其各自硬去噪再融合，不如先让两个模态借助物理关系互相帮对方降噪，再做融合和生成。于是整条流水线分三步走——先把 RAW 与事件**协同去噪**（ECNS），再按每个像素位置的信噪比**挑出各自可靠的部分**（SRIE），最后用**交叉注意力 + 扩散模型**把两路特征融合并高保真重建（CAD）。前两步专门压噪声、定权重，第三步才负责把弱信号补成完整图像。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     R["RAW 图像<br/>极暗、光子匮乏"] --> E1
     EV["事件流<br/>shot noise 主导"] --> E1

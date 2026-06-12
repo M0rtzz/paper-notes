@@ -44,7 +44,7 @@ tags:
 S³ 把临床专家解读癫痫视频的完整链路落成一套数据—评测—模型三件套。**数据侧**是 Seizure-Semiology-Dataset：来自 UCLA EMU 2019–2023 年共 116 位成人患者的 438 段连续视频，专家逐项标注 20 项 ILAE 定义的语义学特征（自动症 automatisms、强直 tonic、阵挛 clonic 等），每个特征都记"是否出现 + 起止时间戳 + 文本理由"，累计 35,000+ 标签，按患者层级 4:1 划分训练/测试并保持 ES（癫痫性）:NES（非癫痫性）比例。**评测侧**是 Seizure-Semiology-Bench，把"看懂视频"拆成 7 个难度递增的任务，每个任务配自己的提示模板、采样协议（30s 滑窗、事件中心裁剪、稀疏采样）和评估指标。**模型侧**在 Qwen2.5-Omni-7B 上做 SFT 与 GRPO 两种癫痫专属微调，并提出两阶段神经符号分类器把感知和诊断推理解耦。数据质量由五阶段标注流水线兜底：专家培训 → 标注员独立标 75 段验证一致性（Kappa = 0.8395）→ 独立标其余 287 段（疑难案例 3 位专家共识仲裁）→ 自适应采样验证特征分布与专家收敛（ES Pearson 0.893、NES Pearson 0.782）→ LLM 文本纠错 + 规则化时间戳校验。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["数据集构建（5 阶段标注流水线）"]
         direction TB

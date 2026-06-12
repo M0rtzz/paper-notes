@@ -43,7 +43,7 @@ tags:
 Token Sparse Attention 想解决的是：既要让 token 选择跟着层/head 各自的注意力动态走，又要保证被略过的 token 不被永久删掉，还要能直接复用现成的密集 attention kernel。它在每个被选中的稀疏层里走"压缩—密集 attention—解压"三拍：先用 Dynamic Token Coverage 给每个 head $h$ 估出一个大小为 $L'$ 的 token 集 $S_h$，从 $Q,K,V \in \mathbb R^{L\times d}$ 按 $S_h$ gather 出 $\hat Q,\hat K,\hat V \in \mathbb R^{L'\times d}$，调 FlashAttention 在 $L'\times L'$ 的压缩空间上算密集 attention 得到 $\hat O$；再把 $\hat O$ scatter 回一个零初始化的 $\mathbb R^{L\times d}$，未选位置保持 0，最后加残差。复杂度由此从 $O(L^2 d)$ 降到 $O(L'^2 d)$。至于"哪些层值得稀疏"，由 Inter-Layer Representation Drift 在加载时一次性预选（默认取漂移最小的底 50% 层），全程 training-free。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     L["加载时 · Inter-Layer Drift 选稀疏层<br/>取漂移最小的底 50% 层得 L_sparse"]
     L -->|非稀疏层| FA["原始密集 FlashAttention"]

@@ -47,7 +47,7 @@ tags:
 MoDES 想在不重新训练的前提下，给 MoE 多模态大模型做专家跳过加速。它的逻辑是先衡量每个专家"跳了亏不亏"，再按 token 模态决定到底跳谁：全局调制的局部门控（GMLG）算出带全局层级权重的专家重要性分数，双模态阈值（DMT）对文本和视觉 token 用各自的阈值做跳过决策，而两个阈值由一个前沿搜索算法离线高效求出。整套流程训练免调（training-free），校准与搜索都在离线完成，推理时不引入额外开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["离线准备（训练免调，推理零额外开销）"]
         direction TB

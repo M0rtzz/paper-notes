@@ -45,7 +45,7 @@ tags:
 检测这一侧，TADiff 走的是标准的时间动作定位骨架：逐帧抽特征 → ActionFormer 多尺度 Transformer 编码成时间特征序列 → 在这串特征上做一次扩散式正则化 → 最后接伪造置信度头和边界回归头，输出"哪几秒是伪造的"。真正的新东西只在中间那一步特征正则化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["Grounding 辅助的数据构造"]
         direction TB

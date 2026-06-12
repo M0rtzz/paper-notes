@@ -51,7 +51,7 @@ VGA-Bench 的核心是一套**三层正交分类体系**，并以此为纲构建
 三层合计 52 个维度（其中美学相关 21 个）。构建流程是一条数据生产到评估器训练的串行管线：分类体系 → 1016 个多样化提示 → 12 个视频生成模型各生成约 5000 个、合计约 60000 个视频 → 人工标注子集 → 训练 VAQA-Net、VTag-Net、VGQA-Net 三个多任务评估器 → 替代外部模型做自动化评估。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["三层分类体系<br/>美学质量(10) + 美学标签(11) + 生成质量(31) = 52 维"] --> B["大规模提示套件<br/>1016 个多样化提示"]
     B --> C["12 个视频生成模型<br/>各约 5000 个 → 共约 60000 视频"]

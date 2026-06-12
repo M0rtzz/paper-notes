@@ -46,7 +46,7 @@ tags:
 GRAIL 想解决的是：LLM 在 Avalon 这类隐藏身份游戏里，既要做"只有 2 个坏人"这种硬约束下的长程概率推理，又要听懂对话、自然交互，而纯 LLM 两头都做不利索。它的思路是把这两件事**解耦**——结构化的信念推理交给一个因子图（用置信传播在硬约束下精确推断每个玩家是好是坏），语言理解和对话生成交给 LLM，再用一套启发式策略把当前信念翻译成具体游戏动作（组队、投票）。每一轮对话进来，LLM 把社交信号转成对因子图的"先验扰动"，因子图据此更新信念，策略再据信念行动，如此循环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["每轮输入<br/>对话 + 结构化观测（投票 / 任务结果）"] --> B["LLM 语言先验集成<br/>LLM 读对话→给每人判断 δ→注入先验 p(r)=0.5±β"]
     subgraph FG["因子图角色推理"]

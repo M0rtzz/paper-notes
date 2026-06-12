@@ -45,7 +45,7 @@ tags:
 输入：文档集合 $\{d_i\}$ 配对连续结果 $y_i$（人格分数）、固定 embedding 模型、可选 lexicon。中间过程：(1) 对每个候选 $K$，做相同预处理后构造 Personal Concept Vector $\mathbf{x}_i \in \mathbb{R}^D$，PCA 投影到 $\tilde{\mathbf{x}}_i \in \mathbb{R}^K$，拟合 $y_i = \alpha + \boldsymbol{\beta}^\top \tilde{\mathbf{x}}_i + \epsilon_i$，归一化系数得梯度 $\hat{\boldsymbol{\beta}}_K$；(2) 回投到原嵌入空间，正负极各取 top-100 邻居聚类，按 silhouette 选簇数 $k \in [2,5]$；(3) 计算三类诊断：representation (累计方差解释)、interpretability (簇相干 + 簇心与梯度的余弦对齐，按簇大小加权)、stability ($\Delta_K = 1 - \cos(\hat{\boldsymbol{\beta}}_K, \hat{\boldsymbol{\beta}}_{K-1})$)；(4) 对解释性按 log 方差解释 detrend 后 z-score，对解释性与稳定性各取 local AUC-K 平滑，最后挑联合分最大的最小 $K$。输出：选定的 $K^*$、对应梯度 $\hat{\boldsymbol{\beta}}_{K^*}$ 与正负极簇。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["文档集 + 人格分数 y<br/>固定 embedding 模型"] --> SSD
     subgraph SSD["逐候选 K 跑完整 SSD（K = 1,3,…,119，借自原 SSD 流程）"]

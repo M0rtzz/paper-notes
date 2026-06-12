@@ -44,7 +44,7 @@ tags:
 GEVO 的工作分两块：先构建一个覆盖完整演变链的评测基准，再用一套三阶段的字形驱动微调把一个 2B 小模型练到全任务领先。基准侧从字形资源 Vividict 按甲骨文 → 金文 → 篆书 → 隶书 → 楷书五个阶段抽取摹本，二值化、人工过滤后得到 7740 个汉字、近 3 万张摹本图像，再请古文字专家把评测抽象成三大类共 11 个子任务（T1 基础识别 / T2 字形理解 / T3 演变分析），统一成图文输入、文本输出的 QA。在该基准上评测 19 个 MLLM 后，作者发现字符级识别（T2.1）几乎是所有模型的共同盲区，于是沿课程学习思想设计了三阶段微调：先用字形对比只调视觉模块、再调语言模型补回图像到现代汉字的识别、最后用任务指令做轻量 SFT。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BM["古汉字演变基准"]
         direction TB

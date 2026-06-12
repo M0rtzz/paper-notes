@@ -39,7 +39,7 @@ tags:
 GUIDE 不是一个模型，而是一套"以新手用户为中心"的评估基准，目标是测出 MLLM 到底能不能看懂用户在做什么、想要什么、何时需要帮。整套基准沿一条采集→建词汇→搭任务的链路成形：先把 54 名自评新手用户在 10 款软件上做开放式任务的过程连同他们的出声思维录下来，得到 67.5 小时带"内心独白"的真实交互；再把这些散乱行为归纳成一套九类行为状态的分类词汇，让"用户此刻在干嘛"有了可标注、可评测的标签；最后基于这套词汇搭出行为状态检测、意图预测、协助预测三个层层递进的任务，并允许逐级把用户上下文喂给模型，量化每一层理解对最终"会不会帮"的贡献。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph COLLECT["新手出声思维数据采集"]
         direction TB

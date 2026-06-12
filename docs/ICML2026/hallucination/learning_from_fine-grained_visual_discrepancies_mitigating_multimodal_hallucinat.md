@@ -44,7 +44,7 @@ tags:
 IC-VCO 的输入是一个对比四元组 $(m, m', x, y, y')$：原图 $m$、与之仅在目标语义上有细微差异的负图 $m'$、共用提示 $x$、对应的正确回复 $y$ 与对比回复 $y'$。训练时三条流水同时运作。其一是**多图分支**：把 $[m, m']$ 串成上下文 $M$，在提示后附加位置锚定指令（“请基于第一张图回答”等）得到 $\hat{x}$，跑 DPO 让 $y\succ y'$；为消除位置偏置，每个样本随机打乱图序。其二是**单图分支**：保留标准的 $(m, x, y, y')$ 单图 DPO，保证推理阶段的能力。其三是 **VCDist 蒸馏**：把多图分支得到的偏好概率 $p_{\text{multi}}$ 当 soft target 反向校准单图分支 $p_{\text{single}}$，缩小训练–推理上下文落差。整体目标加上对称项后形成最终损失，配合“细粒度 token mask”进一步聚焦到被编辑的视觉证据。这套四元组里的负图 $m'$ 并非现成数据，而是由“手术式对比样本编辑”流水线在训练前离线造出来的。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph EDIT["手术式对比样本编辑（离线造硬负样本）"]
         direction TB

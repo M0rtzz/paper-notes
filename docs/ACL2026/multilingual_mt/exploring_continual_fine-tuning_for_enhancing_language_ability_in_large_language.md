@@ -46,7 +46,7 @@ tags:
 两阶段 CFT：Phase 1 在英语指令数据集（Alpaca/OpenOrca）上微调，Phase 2 在多语言数据集（MultiAlpaca/mOpenOrca）上微调。与单阶段混合微调对比，两阶段 CFT 在相同训练步数下平均表现更优。围绕这条主线，本文先用两把尺子（DES、MPD）从数据和参数两个视角量化两阶段数据集的指令相似性，相似性高低恰好预测了 Phase 2 之后英语能力是保持还是因表示漂移而退化；对退化的情形再用重放和层冻结两条路径压制漂移。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["基础模型<br/>Mistral-7B / LLaMA-3-8B"] --> B["Phase 1：英语指令微调<br/>Alpaca / OpenOrca"]
     B --> C["Phase 2：多语言指令微调<br/>MultiAlpaca / mOpenOrca"]

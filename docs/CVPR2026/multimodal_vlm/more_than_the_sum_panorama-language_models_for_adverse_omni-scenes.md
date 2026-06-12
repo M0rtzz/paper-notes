@@ -44,7 +44,7 @@ tags:
 这篇论文要回答一个直白的问题：把整个 360° 场景作为一张全景图喂给 VLM，是不是真的比把它切成几个窄视角再拼起来更强？为此它做了两件事。一是补上缺失的数据基础——构建 PanoVQA 数据集，用一条「多源采集 → 全景图生成 → 四元组结构化标注 → GPT 生成 QA → 清洗质控」的管线，把驾驶里最关键的正常、遮挡、事故三类场景装进 653K 个 VQA 问答对里。二是补上架构兼容性——把现有 VLM 的视觉编码器改造成 panorama-enhanced ViT：在每个 ViT block 里并行加上局部的滑窗注意力（SWA）和全局的全景稀疏注意力（PSA），二者相加构成全景混合注意力（PHA），在保留原 VLM（ViT + MLP merger + LLM 三段式）结构的前提下，让模型不必从头重训就能直接吞下等距柱状投影（ERP）的高分辨率全景图。数据负责验证假设，PHA 负责让验证在算力和畸变上都可行。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["PanoVQA 数据集构建"]
         direction TB

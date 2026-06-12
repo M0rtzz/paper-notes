@@ -43,7 +43,7 @@ tags:
 整个框架对应论文 Figure 2 的三个阶段：先设计**模态特定腐蚀**（三个探针）→ 把腐蚀数据喂给 GRPO 做**幻觉诱导训练**（hallucination-inductive training）→ 把"是否经幻觉诱导训练 × 评估输入是否腐蚀 × 训练集/测试集"交叉成 **8 种设定（S1–S8）**做评估，对照出 RL 训练真正在强化什么。三种腐蚀分别打击不同的模态通道，互为对照，构成诊断的核心。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视觉数学推理样本<br/>图 + 文字条件 + 问题"] --> B
     subgraph B["模态特定腐蚀（三个诊断探针）"]

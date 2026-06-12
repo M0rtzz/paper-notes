@@ -48,7 +48,7 @@ tags:
 这篇要回答一个机制问题：当 prompt 没指定某个属性（如「一张人的照片」没说性别）时，扩散模型到底在**哪儿**替你做了「默认生成男性」这类隐式决策？作者的做法（称为 ICM，Implicit Choice-Modification）不靠 prompt injection，而是用线性探针直接读中间层激活——先用通用提示生成一批图并收集各层激活，再用外部分类器给生成图打伪标签，然后在每层训一个线性探针看它能多大程度分出属性：探针越准，说明该层越「掌握」这个隐式决策。定位到关键层后，再在这些层上做定向干预（激活引导或选择性微调）来去偏。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["通用提示 p_gen<br/>生成 N 张图"] --> B
     subgraph PROBE["基于线性探针的层选择"]

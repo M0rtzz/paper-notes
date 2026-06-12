@@ -44,7 +44,7 @@ tags:
 这篇论文想解决的问题是：让具身智能体一边探索未知环境、一边把看到的东西攒成长期记忆，并在后续决策时主动调取这些记忆。整套工作分两层：离线先按「LMEE 数据集与基准」把任务、轨迹、记忆问答构建出来；在线则跑 MemoryExplorer——一个基于 MLLM 的端到端框架，每一步的输入是任务指令 $I$（如"检查圣诞树、烘干机，然后卧室床头柜"）、当前三个方向的多视角观察 $O$、以及一个目标导向问题 $Q$；沿途观察被持续写入「多模态记忆库」，模型可以生成工具调用代码去主动检索这个记忆库，把 top-k 相关记忆回灌进上下文，最终一并输出这一步的离散动作 $S$（前进/左转/右转）、下一步要去的前沿点 $F$ 和对问题的回答 $A$。整个智能体用「多任务奖励 + GRPO」强化学习微调，把"走对路"和"答对题"放进同一个奖励里一起优化，奖励再回头更新策略，形成闭环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["LMEE 数据集与基准"]
         direction TB

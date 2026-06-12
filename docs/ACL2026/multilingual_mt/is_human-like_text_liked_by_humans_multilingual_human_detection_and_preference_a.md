@@ -51,7 +51,7 @@ tags:
 四个阶段串成一条实验流水线：数据构造是脚手架，后三个阶段分别落在下面三个关键设计上——人评检测靠四种协议、Prompting 弥合靠五维改写模板、偏好实验靠检测 × 偏好交叉分析。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["9 语言 × 9 领域 共 16 数据集<br/>采人写文本 hwt + 配对生成机写文本 mgt"] --> DET
     subgraph DET["四种检测协议（I / II / III / IV）"]

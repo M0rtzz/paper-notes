@@ -44,7 +44,7 @@ tags:
 Mario 处理的是多模态图（MMG）：每个节点带文本 + 图像属性，边提供结构先验。它要同时治两个病——节点的图文不一定语义同步（弱跨模态一致性），以及不同节点偏好不同模态（异质模态偏好）。整体两阶段：Stage 1 训练一个图条件视觉语言模型（GVLM），用双塔编码器加拓扑感知多模态混合器做图条件对比学习，产出结构感知、跨模态一致的表示；Stage 2 为每个节点构建文本/图像/双模态三种提示模板，用模态自适应提示路由器（MAPR）挑最优模板再送 LLM 推理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多模态图 MMG<br/>节点带文本+图像属性，边给结构先验"] --> B
     subgraph S1["Stage 1：图条件视觉语言模型 GVLM"]

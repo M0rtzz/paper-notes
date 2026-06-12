@@ -44,7 +44,7 @@ tags:
 这篇要解决的是"Safe RL 训练时满足约束、部署到未见病人却悄悄越界"这个 OOD 安全缺口。系统分三层：先用统一糖尿病模拟器 GlucoSim（基于 UVA-Padova 物理模型扩展，覆盖 T1D 泵 / T2D 泵 / T2D 非泵三种临床场景）训出标准 Safe RL 策略，每步给 agent 一个 14 维 CGM/IOB/餐食历史观测、agent 输出离散的 bolus + 餐食推荐，经"病人接受模型"过滤后落地；再用一个个体化动力学预测器 BA-NODE 学会预测未来 H 步血糖轨迹；最后在测试时把任意预训练策略的动作分布过一道预测性屏蔽，把被预测会越界的动作概率压下去。训练阶段每种条件只拿一个代表病人 (Child#01 / Adolescent#01 / Adult#01) 训 11 天，部署阶段在 9 位未见病人上做 77 天 zero-shot 评估——分布偏移就发生在训练病人和部署病人之间。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph SIM["统一糖尿病模拟器 + OOD benchmark（设计1）"]
         direction TB

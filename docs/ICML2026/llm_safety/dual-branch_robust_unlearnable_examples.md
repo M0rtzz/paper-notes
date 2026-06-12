@@ -44,7 +44,7 @@ tags:
 DUNE 要解决的是"单一空间域的 UE 扰动频率结构太单一、被频域压缩或扩散净化一打就破"这个痛点。它的总目标仍是给图像加扰动让模型学到错误 shortcut：$\min_{\delta_u}\mathbb{E}_{(x,y)}[\mathcal{L}_{CE}(f_\theta(\psi(x;\delta_u)), y^*)]$，约束 $\delta_u\in\Phi_s\times\Phi_c$、训练标签换成偏移过的 $y^*=(y+\Delta y)\mod k$。关键之处在于作者证明这个联合优化能解耦成两条独立支路：空间分支用 PGD 在 $\ell_\infty$ 球内优化扰动 $\delta_s$，色彩分支用无梯度的 PSO 在 RGB 三通道独立搜亮度偏移 $\delta_c$，两支都在一组预训练模型 gallery 上聚合信号以增强跨架构鲁棒性，最后叠加得到 $x_u=\text{clamp}(x+\delta_s+\delta_c, 0, 1)$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像 x + 真实标签 y"] --> B["Shift-induced 标签错位<br/>y* = (y+Δy) mod k"]
     subgraph DEC["空间-色彩双域解耦"]

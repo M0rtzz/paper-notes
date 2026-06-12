@@ -41,7 +41,7 @@ tags:
 Prune2Drive 想解决的是多视角自动驾驶 VLM 的 token 爆炸问题：6 路环视、每图 729 token、总量 4000+，注意力 $O(n^2)$ 让实时推理几乎不可能。它在视觉编码器输出后插入一道纯推理时的剪枝，先用 T-FPS 在 token 嵌入空间里挑出最有多样性的一小撮 token，再用一次离线搜索为每个摄像头定下各自的保留预算，最后把瘦身后的 token 送进 LLM。整套流程 training-free，不碰模型权重也不读注意力矩阵。整体可看成两条流：一条是**离线一次性**的视图自适应剪枝率搜索（产出每个摄像头各自的保留率 $\alpha_i$），另一条是**推理时**逐视角执行 T-FPS、按预算选 token 再喂给 LLM。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["6 路环视图像<br/>每图 729 token"] --> B["视觉编码器<br/>逐视角输出视觉 token"]
     B --> C["T-FPS 多样性采样<br/>按余弦距离迭代选最远 token"]

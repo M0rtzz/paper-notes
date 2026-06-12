@@ -45,7 +45,7 @@ tags:
 系统要解决的核心问题是：传统脱轨预测把"估计脱轨概率"和"是否现在就报警"两件事压成了一步——只要概率过阈值就报警，导致虚警泛滥。本文把这两步拆开。第一步沿用现有 SOTA 模型（Gemma2 9B）做信度估计，对前 $k$ 条消息算出脱轨概率 $\mathcal{P}(\mathrm{derailment}\mid u_1,\ldots,u_k)$；第二步才是新增的决策层：一旦概率越过阈值进入"张力时刻"，不立即报警，而是先让模型模拟接下来可能发生什么，再据此判断是现在出手还是再等一条消息。整条流水线是"估概率 → 检测张力 → 前向模拟 → 决定触发/推迟"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：对话前 k 条消息"] --> B["信度估计与决策解耦<br/>Gemma2 9B 分类头算脱轨概率 P"]
     B -->|"P ≤ T，尚未紧张"| W["不报警，等下一条消息"]

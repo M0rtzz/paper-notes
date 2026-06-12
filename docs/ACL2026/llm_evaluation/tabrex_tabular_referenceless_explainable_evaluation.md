@@ -46,7 +46,7 @@ tags:
 TabReX 把"表格质量好不好"这个模糊问题改写成一道图对齐题：输入是源文本和待评候选表格，输出则是一个属性驱动的分数外加单元格级别的错误追溯。它先用 Text2Graph 和 Table2Graph 把两种模态分别压成知识图谱三元组，再让 LLM 引导两套三元组对齐、标出匹配与差异，最后由确定性评分函数把这些差异折算成结构惩罚与内容惩罚。整个管线无需参考表格，也无需训练，LLM 只在抽三元组和对齐两处出现。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     S["源文本"] --> A
     T["候选表格"] --> B

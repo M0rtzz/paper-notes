@@ -46,7 +46,7 @@ tags:
 R-CAI 分两阶段：（1）自举合成——以毒性宪法（4个维度：法律伦理、社会偏见、行为后果、信任欺骗）指导 AI 批评-修正循环，对30,000个恶意提示进行4轮迭代增强，生成 SFT 数据和偏好排序数据；（2）概率截断强化学习——训练毒性奖励模型时截断偏好概率，防止梯度饱和，再用 PPO 优化策略模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["30000 恶意提示"] --> B
     subgraph S1["毒性宪法与自举批评-修正"]

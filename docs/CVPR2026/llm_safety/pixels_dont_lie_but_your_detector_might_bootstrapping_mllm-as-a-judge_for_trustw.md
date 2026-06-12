@@ -47,7 +47,7 @@ tags:
 DeepfakeJudge 要解决的不是「图是不是假的」这个二分类，而是更难的「检测器给出的推理到底靠不靠谱」。它分三步搭起一套可信评判体系：先构建一个覆盖最新 T2I 和编辑伪造的 OOD 基准并收集人类推理标注；再用一个 generator-evaluator 互相迭代的 bootstrapping 流程，把少量人类标注放大成覆盖多个评分等级的大规模「推理-评分」数据；最后用这批数据微调 Qwen-2.5-VL-3B/7B，训出能对推理质量打分的「评委」，支持 pointwise（单条评分）和 pairwise（两两选优）两种模式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["1. OOD 基准构建"]
         direction TB

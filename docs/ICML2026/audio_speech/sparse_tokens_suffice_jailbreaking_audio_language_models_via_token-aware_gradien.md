@@ -43,7 +43,7 @@ tags:
 TAGO 要解决的是"如何在高维音频波形上更高效地搜出越狱扰动"。它的做法是把白盒 ALM 的越狱优化从"对整段波形稠密 PGD"改成"每步只更新少数高能量 token 对应的波形区段"：每次迭代先反传得到波形梯度，按各 audio token 的 receptive field 聚合成 token 级能量，只保留 top-$\zeta$ token 形成二值 mask 后再做带 clip 的 PGD 更新，同时用模型自洽前缀和 EOS 抑制项把对齐捷径堵死，当前缀交叉熵降到阈值即提前停。输入是良性音频 $x\in\mathbb{R}^L$、固定文本 prompt、有害查询 $q$ 和保留比 $\zeta$，输出是对抗音频 $x+\delta$，使 ALM 回复以目标前缀 $r_{1:m}$ 开头并继续生成有害内容。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["良性音频 x + 有害查询 q"] --> LOSS
     subgraph LOSS["越狱损失设计"]

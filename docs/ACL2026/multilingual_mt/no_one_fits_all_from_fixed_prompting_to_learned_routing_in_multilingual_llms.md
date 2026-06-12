@@ -46,7 +46,7 @@ tags:
 方法的出发点是一个实证结论：在多语言 LLM 上不存在放之四海皆准的提示策略。于是它不再去找“最好的那一种提示”，而是把两种最典型的策略——母语提示（Native，直接用原语言提示）与译英提示（Translate，先把输入译成英语再推理）——当成可选项，训练一个轻量级分类器按实例在二者间做路由。整体流程是：先在十种不同资源水平的语言、四个基准上系统比较各固定策略，坐实“无普适最优”这一前提；再对每个实例同时跑两种策略、抽取它们在输入与响应上的差异特征，并用“哪种策略答对”构造监督标签；据此训练一个轻量分类器（XGBoost / MLP）；推理时分类器为每个新实例预测该用 Native 还是 Translate，再用所选策略去提示底层 LLM。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多语言·多任务实例"] --> B["系统比较固定提示策略<br/>确立无普适最优"]
     B --> C["建模为二元学习决策<br/>Native vs Translate"]

@@ -46,7 +46,7 @@ FAAR 的解决思路：
 FAAR 要解决的是密集视觉多任务微调里两件互相纠缠的事：一是怎么不靠人工调参就给每层每个任务挑到合适的秩，二是怎么给低秩适配补上它天生缺失的空间感知和跨任务一致性。整体流程是这样转的：输入图像先过一个**冻结**的 Swin Transformer 骨干，骨干的注意力层和 MLP 层上挂着 DoRA 适配器——每个阶段最后一个块用任务特定适配器、前面的块共享一套适配器；骨干吐出的多任务特征再送进 Task-Spectral Pyramidal Decoder (TS-PD) 做频率增强和跨任务对齐，最后由 HRNet 解码头出各任务的稠密预测。贯穿整个训练的是 PDRS，它一边训练一边把适配器的秩从 64 逐步压到个位数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像"] --> B["冻结 Swin Transformer 骨干<br/>挂 DoRA 适配器<br/>（浅层共享 / 末块任务特定）"]
     B --> C["各阶段多任务特征"]

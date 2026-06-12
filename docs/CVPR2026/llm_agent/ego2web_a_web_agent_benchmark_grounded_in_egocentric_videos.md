@@ -46,7 +46,7 @@ tags:
 Ego2Web 要解决的问题是：现有 Web Agent 基准只考数字世界内的交互，没人测过"先用第一人称视觉看见东西、再上网完成相关任务"这条物理-数字桥接链路。整篇工作因此落在三件事上——先搭一条把第一人称视频变成"视频+Web任务"配对的半自动流水线，攒出覆盖电商、媒体检索、知识查询、地图服务四类场景的基准数据集，再配一个能在实时网站上自动判分的 Ego2WebJudge。评测时，Agent 拿到一段第一人称视频，要从中抽出关键视觉证据（品牌、物体、动作），然后在真实活跃网站上执行操作，最后由 Ego2WebJudge 比对操作轨迹和视觉证据，判定任务是否真正完成。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["第一人称视频<br/>(Ego4D)"] --> P
     subgraph P["半自动数据流水线"]

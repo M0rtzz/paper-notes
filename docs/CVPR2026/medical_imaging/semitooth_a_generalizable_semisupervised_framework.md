@@ -39,7 +39,7 @@ tags:
 SemiTooth将所有数据源重构为三个子集：main（有标签的主源数据）、other（其他源的无标签数据）、mixed（分布与主源相似的无标签样本，通过Wasserstein距离度量源间相似度归入）。设置3个学生网络分别处理三个子集，2个教师网络分别监督mixed和other子集的学生网络。教师通过EMA更新：$\theta_t^{(k)} \leftarrow \gamma \theta_t^{(k-1)} + (1-\gamma) \theta_s^{(k)}$。整体上是「先建多源数据集 → 三分支学生各学一种源 → 教师以EMA提供伪标签、并经SWC过滤噪声 → 汇总三路损失」的串行流程。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["MS3Toothset 数据集<br/>三源 CBCT（含不同程度标注）"] --> B["按源间 Wasserstein 距离重构为三子集<br/>main 有标签 / mixed 近主源无标签 / other 无标签"]
     subgraph ARCH["多教师-多学生架构"]

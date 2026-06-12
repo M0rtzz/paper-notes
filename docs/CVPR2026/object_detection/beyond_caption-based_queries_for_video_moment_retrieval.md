@@ -54,7 +54,7 @@ DETR模型中存在**活跃解码器查询坍塌（active decoder-query collapse
 这篇论文要回答的问题是：为什么在 caption 上训练得很好的 VMR 模型，一换成真实搜索查询就大幅退化，又该如何在不重新标注数据的前提下把它拉回来。为此论文兵分两路。第一路是**造基准**——既然真实搜索查询难以采集（你没法让标注员"不看视频"就写出搜索词），那就反过来把现有密集标注数据集里的细粒度 caption 用 LLM "模糊化"成搜索式查询，并自动把指向同一类内容的查询归成一组，从而凭空造出"一个查询对多个时刻"的多时刻测试场景。第二路是**改模型**——论文把退化的祸根定位到 DETR 解码器的"活跃查询坍塌"，然后用移除自注意力（-SA）和查询 Dropout（+QD）两处极小的结构改动，逼模型把火力分散到更多查询上。两路里，造基准服务于"量化和暴露问题"，改模型才是真正的解法；两路最终在"多时刻搜索查询评估"上汇合，用 $R_m$ / $mAP_m$ 衡量退化是否被缓解。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PIPE["搜索查询生成管线（设计1）"]
         direction TB

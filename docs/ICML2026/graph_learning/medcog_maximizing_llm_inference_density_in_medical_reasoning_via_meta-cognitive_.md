@@ -45,7 +45,7 @@ MedCoG 让 LLM 先对医学问题做"复杂度 / 熟悉度 / 知识密度"三维
 MedCoG 要解决的是"逐样本该用哪类知识、用多少"这件事，它把传统 agent 那种固定流水线换成一个会先自评、再按需取知识的两段式系统——前面是 Meta-Cognition Regulator，后面是 Knowledge Executor。拿到一道医学题 $\mathcal{Q}$，Regulator 先对自己的认知状态打三个分（复杂度、熟悉度、知识密度），据此决定是否动用记忆和知识图谱；Executor 再按这个计划去跑结构化推理、检索历史案例或在 KG 上找证据，用了 KG 的话最后还会经 Evaluating 模块回头检查证据够不够，不够就再修一次计划（≤2 轮）或退回纯推理收尾。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["医学问题 Q"] --> MON
     subgraph REG["Meta-Cognition Regulator"]

@@ -37,7 +37,7 @@ tags:
 FlexMem 想解决的是"长视频一股脑塞进 MLLM 会爆序列长度"这件事。它的思路模仿人看视频——不是把 1000 多帧一次性记住，而是边看边压缩、形成固定大小的记忆库，回答问题时再按相关性把片段召回来。具体地，把长视频切成 $N$ 个片段 $\{V_1, ..., V_N\}$ 逐段处理：每段编码时带上历史上下文记忆，经双路径压缩产出两份东西——传给下一段的上下文记忆 $C_i$ 和存进记忆库的本地记忆 $M_i$；全部处理完后，从记忆库里召回和问题最相关的几段来作答。因为记忆库大小固定，输入长度不再随视频时长线性增长，理论上能处理无限长视频。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["长视频 → 切成 N 段<br/>V_1…V_N（逐段迭代）"] --> B
     subgraph DPC["双路径压缩 DPC（逐段编码 V_i）"]

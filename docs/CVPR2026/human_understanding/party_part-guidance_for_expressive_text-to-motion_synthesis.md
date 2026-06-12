@@ -41,7 +41,7 @@ tags:
 ParTY 采用两阶段训练策略。**第一阶段**训练 Temporal-aware VQ-VAE，将全身和各部位（手臂、腿）的动作序列分别量化为离散码本。**第二阶段**训练整体 Transformer 和部位 Transformer：文本 embedding 经 Part-aware Text Grounding (PTG) 处理后分别送入各部位 Transformer，先生成部位动作 token 构建 Part Guidance，再将其注入整体 Transformer 引导全身动作生成，并在生成过程中通过 Holistic-Part Fusion (HPF) 持续融合部位信息。推理时，预测的码本序列由第一阶段预训练的 VQ-VAE 解码器重建为动作。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph VQ["Temporal-aware VQ-VAE（第一阶段·预训练）"]
         direction TB

@@ -48,7 +48,7 @@ tags:
 SODA 想解决的是 DiT 免训练加速里一个被长期回避的问题：缓存和剪枝跳过哪些计算，过去全靠固定间隔或启发式比率拍板，而 DiT 在不同时间步、不同层、不同模块上对"被跳过"的容忍度差异极大——把一个高敏感的计算省掉，画质就塌。SODA 的思路是先把这种容忍度量化成可查的先验，再用它来做调度决策。整条流水线分三步走：离线阶段对每个模型扫一遍、建出细粒度的"敏感度地图"（OFS）；拿到地图后，把"在哪些步缓存、间隔多大"当成一个最优化问题用动态规划求全局最优解（DCS）；运行时再逐层逐模块地比对缓存与剪枝两条路哪条误差更小，自适应地决定剪不剪、剪多狠（UAS）。三步都不碰模型权重，离线只跑一次，运行时几乎零额外开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["DiT 模型（权重冻结）"] --> B
     subgraph OFF["离线阶段（每模型仅一次）"]

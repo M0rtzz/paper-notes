@@ -49,7 +49,7 @@ SpeakerSleuth 构建了首个评估 LALM 多轮对话说话人一致性判断能
 SpeakerSleuth 想回答一个此前没人系统验证过的问题：大型音频语言模型能否在多轮对话里可靠判断"声称是同一个人的发言是否声学一致"。基准从 4 个对话数据集收集多轮音频，对每段对话派生三种受控场景，再用 FreeVC 做语音转换、Qwen3-32B 自动过滤文本、人工逐条验证音频质量，最终得到 1,818 个实例；在此之上让 12 个 LALM 和 6 种嵌入方法同台跑检测、定位、判别三个递进任务，并额外注入文本上下文探测模态偏差，从而把"声学判别能力"逐层拆开测量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["4 个多轮对话数据集"] --> S1
     subgraph S1["三种受控场景（内容固定，仅改说话人身份）"]

@@ -48,7 +48,7 @@ tags:
 4. **Furina 攻击构造**：把原始恶意意图分解成若干"保留意图"的语义漂移子问题，再生成一个隐喻场景描述作为上下文锚；文本-only 模型直接吃子问题，MLLM 则把场景描述渲染成排版图或扩散图像与文本一起喂入；最后由调度 LLM 把各子问题的零散回答综合回完整危险信息。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["恶意 query x<br/>+ 语义重写阶梯 Original→Semantic"] --> SAMPLE
     subgraph DIAG["诊断框架：不稳定带刻画 + 外-内解耦签名"]

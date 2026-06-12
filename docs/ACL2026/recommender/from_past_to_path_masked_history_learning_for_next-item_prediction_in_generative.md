@@ -46,7 +46,7 @@ tags:
 MHL 在基于语义ID的生成式推荐基础上增加掩码历史重建分支。每个物品编码为K位语义ID，用Transformer解码器生成上下文隐状态。训练时同时优化两个损失：（1）$\mathcal{L}_{next}$ 预测下一物品的语义ID；（2）$\mathcal{L}_{mask}$ 从上下文状态重建被掩码的历史物品。重建分支内部依次由三个组件驱动——先用多粒度掩码策略制造重建任务，再用熵引导选择把掩码放到最薄弱位置，最后用三阶段课程学习把掩码训练平滑过渡到无掩码推理。推理时仅使用自回归生成，无掩码。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["用户交互序列<br/>每物品编码为 K 位语义 ID"] --> B["Transformer 解码器<br/>生成上下文隐状态"]
     B --> C["下一物品预测<br/>自回归交叉熵 L_next"]

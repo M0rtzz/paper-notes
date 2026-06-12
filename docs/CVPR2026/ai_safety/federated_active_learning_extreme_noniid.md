@@ -43,7 +43,7 @@ tags:
 FairFAL 想解决的是这样一个具体场景：客户端数据既极端 non-IID（$\alpha=0.1$），全局类分布又长尾（$\rho=20$），此时该用哪个模型来选样本、怎么选才不会把标注预算全花在头部类上。它的答案不是另设一个采样准则，而是先用一套系统经验分析（在 CIFAR-10 上对比全局 vs 本地模型在四种 $(\alpha,\rho)$ 组合下的采样行为）归纳出三条 Observation，再据此搭三个组件，挂在标准 FedAvg 上、在每轮 query 阶段依次跑：先**自适应模型选择**判断这一轮该信全局模型还是本地模型当 selector，再用**原型引导伪标签**把未标注池按类切成一个个候选子集，最后**两阶段平衡采样**在每个类内先挑信息量大的、再挑互不冗余的。query 完成后照常做联邦训练更新，进入下一轮。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["未标注池 + 已标注数据<br/>极端 non-IID + 全局长尾"] --> B["自适应模型选择<br/>选择分数 s_k = 1 − ½(d_k + γ̄)"]
     B -->|"s_k > δ：全局不平衡 + 客户端同质"| G["选全局模型当 query selector"]

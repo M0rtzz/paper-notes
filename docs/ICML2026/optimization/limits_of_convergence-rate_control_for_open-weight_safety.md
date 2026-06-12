@@ -46,7 +46,7 @@ tags:
 其中 SpecDef 在模型 release 前一次性运行：(1) 选若干层 $\theta_i$；(2) 在邻位插入 identity 线性层占位；(3) 对 $\theta_i$ 做 SVD 得到 $U \Sigma V^\top$；(4) 把 top-$k$ 奇异值乘 $\alpha$ 得到新权重 $\theta_i' = U \tilde\Sigma V^\top$；(5) 把"补偿矩阵"$\theta_i^{comp} = U \Sigma \tilde\Sigma^{-1} U^\top$ 写到 identity 层位置，使得 $\theta_i^{comp} \theta_i'$ 在功能上等同于原 $\theta_i$。GPT-OSS-20b 上对 10 层操作只需 15 秒。发布后：谱下界把可行学习率压到 $\eta\le 1/\alpha$，诚实微调者被逼进数值发散；但懂行对手可"层合并"把补偿层与原层重新吸收，以线性代价复原正常收敛——这正是题目里 "Limits" 的来源。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["开源权重 θ_i"] --> B["Hessian 谱的权重谱下界<br/>控某层奇异值即可控 σ₁(H) 与收敛率"]
     B --> SD

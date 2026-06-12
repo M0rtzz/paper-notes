@@ -43,7 +43,7 @@ tags:
 CuBridge 解决的问题是：给定一个手写的高性能源 CUDA kernel（默认 FlashAttention v2.8.0）和一段描述目标语义的 PyTorch reference（如想要 PrefixLM mask），自动产出一个针对该变体的高性能 CUDA kernel。它不让 LLM 直面 PTX，而是把整个适配过程拆成 lift-transfer-lower 三段流水线：先把 Source CUDA「lift」成一个把执行编排显式化、本身可执行的中间表示 CuIR，让 LLM 在抽象层读懂并按目标语义「transfer」成 Target CuIR，最后通过 IR diff 定位差异、以最小 patch「lower」回 Target CUDA。贯穿全程的关键保障是每一段产出的 CuIR 都能在 backend executor 上跑出数值——lift 后对照源 CUDA（fp16 容差 $10^{-2}$）、transfer 后对照 PyTorch reference——把 LLM 每一步的输出都拉回到「可证明等价」的轨道上，这是整套系统能保持 100% 正确率的根因。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：源 CUDA kernel（FlashAttention v2.8.0）<br/>+ 目标语义 PyTorch reference"]
     IN --> LIFT

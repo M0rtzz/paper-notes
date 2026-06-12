@@ -46,7 +46,7 @@ tags:
 研究构建了一个包含412位人类作者、6086篇文档的纵向数据集（2012-2024），覆盖学术摘要、博客和新闻三个领域。对每位人类作者，使用DeepSeek V1、GPT-4o mini和Claude 3.5 Haiku三个LLM生成匹配的写作轨迹，共产生103,459篇LLM文档。通过在三个表示空间（词汇、语义、认知情感）上计算漂移和方差指标，量化人类与LLM的时间动态差异，并通过统计检验和分类器进行验证。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["纵向数据集<br/>412 人类作者 + 3 LLM 匹配生成（2012−2024）"]
     subgraph FEAT["三维特征轨迹构建"]

@@ -46,7 +46,7 @@ tags:
 PHAC 要解决的痛点是：现有人体非模态补全只能「凭空幻想」被遮挡的区域，用户无法指定目标姿态或空间范围，而姿态引导合成又保不住可见区域的真实外观。它把补全拆成两阶段——(A) 粗略生成 + (B+C) 精炼。给定遮挡人体图像 $I_{ic}$ 和用户提示 $P$（支持 5 种类型：姿态 $p_{po}$、兴趣区域 bbox $p_{ib}$、全区域 bbox $p_{eb}$、姿态+兴趣 bbox $p_{poib}$、姿态+全 bbox $p_{poeb}$），先把提示渲染成提示图像 $I_p$，经专用 ControlNet $\Phi_{CN}$ 编码为条件信号 $c_{pr}$ 注入去噪 U-Net $\epsilon_{cig}$（仅微调其交叉注意力块以保住生成先验），从随机噪声去噪 $T$ 步得到粗略补全 $I_{cc}$；再由轻量 U-Net $\mathcal{U}_{iv}$ 预测不可见区域掩码 $M_{iv}$ 并膨胀，只对掩码区域注入低幅噪声，精炼网络 $\Phi_{RF}$ 做少量去噪得到最终输出 $I_{rc}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["遮挡人体图像 I_ic + 用户提示 P（5 种点提示）"]
     AUX["SAM 预测可见掩码 M_v · CLIP 抽文本条件"]

@@ -43,7 +43,7 @@ tags:
 整体流程是：骨骼序列先经 Shift-GCN 提取特征，然后分两路走。一路是**跨模态上下文提示模块**——骨骼特征先过差分关节编码器拿到细粒度表示，再和 BERT 处理过的、被掩码的上下文提示做双向交叉注意力，由 BERT 的掩码预测头反推出被遮住的上下文词（环境、物体），从而得到"上下文增强骨骼特征"。另一路是**关键部位解耦模块**，预测关节重要性图、突出真正承载动作的关键关节。最后两路特征分别与各自对应的语义嵌入做对比对齐。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["骨骼序列"] --> B["Shift-GCN 提取时空特征 Fx"]
     B --> CTX

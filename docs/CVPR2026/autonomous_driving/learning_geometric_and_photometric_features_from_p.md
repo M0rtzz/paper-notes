@@ -38,7 +38,7 @@ tags:
 这篇论文要解决的是户外场景分类：让机器人在昼夜光照剧变、行人车辆遮挡的环境里依然能稳定判断自己处在什么类型的地点。作者的整体思路是绕开对光照敏感的RGB相机，改用3D LiDAR。具体来说，车顶LiDAR扫一圈得到的点云先经柱面投影摊平成两张2D全景图——一张是深度图（编码几何结构），一张是反射率图（编码材质特性），分辨率都是384×32。这两张图分别或联合送进CNN，最终输出六类户外场景（海岸、森林、室内停车场、室外停车场、居民区、城市区域）的预测。整条流水线的两个关键改动都围绕全景图特有的"环形+可旋转"性质展开，融合阶段再把深度和反射率两路结果合到一起。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["MPO数据集"]
         direction TB

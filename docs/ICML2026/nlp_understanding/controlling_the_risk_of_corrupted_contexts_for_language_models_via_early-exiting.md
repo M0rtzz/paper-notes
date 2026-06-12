@@ -49,7 +49,7 @@ base LLM $p$ 给定 $(x, c)$ → $p(\cdot|x, c)$；
 4. **Risk-preserving 变换**：把 $\ell_c \in [-1, 1]$ 线性变到 $[0, 1]$（不裁剪），保留负值信息
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：问题 x + 用户上下文 c<br/>（质量未知，可能有用或有害）"] --> B
     subgraph P1["Safe Context-Aware Predictor"]

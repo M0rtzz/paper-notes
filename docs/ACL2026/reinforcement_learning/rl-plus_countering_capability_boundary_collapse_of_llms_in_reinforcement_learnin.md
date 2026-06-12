@@ -46,7 +46,7 @@ RL-PLUS 提出混合策略优化方法，通过多重重要性采样（MIS）解
 RL-PLUS 的训练目标融合两部分：$\mathcal{J}_{\text{RL-PLUS}} = \underbrace{\mathbb{E}_{(o_i, A_i) \sim \mathcal{D}_o}[r_{i,t}(\theta) A_i]}_{\text{内部开发}} + \underbrace{\mathbb{E}_{(e_i, A_{i,t}^c) \sim \mathcal{D}_e}[r_{i,t}^m(\theta) A_{i,t}^c]}_{\text{外部探索}}$。第一项是标准 GRPO（优化已有推理能力），第二项是核心创新（从外部数据学习新知识），使用 MIS 修正分布偏移，用 EAF 聚焦低概率正确路径。整体上，当前策略同时跑出内部 on-policy 轨迹与采样外部数据，前者走标准 GRPO 通道开发已有能力，后者经 MIS、EAF、移除裁剪三道处理后注入外部知识，两条路汇成统一目标更新策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["当前策略 π_θ"] --> IN["内部 on-policy 轨迹 D_o"]
     P --> EX["外部数据 D_e<br/>（来自未知策略 π_ω）"]

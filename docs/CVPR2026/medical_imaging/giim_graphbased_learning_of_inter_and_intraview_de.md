@@ -50,7 +50,7 @@ tags:
 GIIM 想把多视图医学诊断从"各看各的"变成统一的关系推理问题：同一病灶在多期增强 CT 里怎么变、不同病灶之间怎么共现，这些跨视图、跨病灶的依赖才是放射科医生真正用来判断的线索。它采用两阶段训练——先对每个视图独立训练一个 ConvNeXt 特征提取器（用 7×7 大核卷积和深度可分离卷积抓形态和强度细节），再冻结提取器，把一个患者所有病灶、所有视图的特征组装成一张多异构图（MHG），交给异构消息传递 GNN 做关系推理和分类。构图时用双类型节点承载"单期"和"跨期聚合"信息、用四类边关系编码临床依赖；若某视图缺失，先用填充策略补出该视图特征再入图。逐患者构图，因此天然支持任意数量的病灶和视图。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["患者多病灶 × 多视图图像"] --> B["ConvNeXt 单视图特征提取<br/>7×7 大核卷积，训练后冻结"]
     subgraph G["多异构图构建（MHG）"]

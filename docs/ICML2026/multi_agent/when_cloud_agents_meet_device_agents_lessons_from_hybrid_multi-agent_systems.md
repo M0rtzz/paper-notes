@@ -46,7 +46,7 @@ tags:
 实验覆盖三个难度逐步增加的任务族。HotpotQA 是短程多跳问答，报告 ROUGE-1 F1；FanOutQA 是长程 fan-out 信息聚合，同样报告 ROUGE-1 F1；AppWorld 是状态化 API 环境，报告 Test Pass Ratio 和 Task Success。效率侧报告云端 API 美元成本、端侧能耗估计，以及长任务中的 KV-cache 最大占用。两个角色组合成两种互斥的混合架构 PEVR 与 EVA，论文按任务类型对比它们，最后统一用“准确率 + 成本 + 上下文”三个维度评估。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["用户 query"] --> ARCH{"按任务选架构"}
     subgraph PEVR["PEVR：计划-执行-验证-重规划"]

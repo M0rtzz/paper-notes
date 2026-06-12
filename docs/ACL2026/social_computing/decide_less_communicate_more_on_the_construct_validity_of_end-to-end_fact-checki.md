@@ -43,7 +43,7 @@ tags:
 **AI-in-the-loop 标注 pipeline（图 1）**：(1) 从 r/Epilepsy、r/CysticFibrosis、r/ADHD、r/lupus 等 24 个健康相关子论坛的 RedHOT 语料里抽 claim；(2) 用 Llama-3.1-405B-Instruct 重新抽取 PIO（Population / Intervention / Outcome）三元组以稳定专家关注点；(3) 在 Trialstreamer 80 万 RCT 摘要库上用 stella_en_400M_v5 dense retriever 检 10 篇候选 RCT；(4) 把帖子 / claim span / PIO / 10 个抽象 + 自动 tiering 喂进 web 标注界面；(5) 专家先按 PIO + Overall 四个维度（Relevant / Somewhat / Irrelevant）标 abstract 相关性 → Support / Partially Support / Partially Refute / Refute → 整合阶段分 Overall Support 和 Expert Support 两轮 → 写 paragraph 级 plain-language 解释。整个研究分 3 轮，含 1,000 abstract-level 标注 + 100 synthesis 解释，前两轮持续修订 guideline，最后一轮 5 个 claim × 5 个专家 × 50 abstract 用于一致性分析。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RedHOT 24 个健康子论坛<br/>抽取真实声明 claim"] --> S1
     subgraph S1["AI-in-the-loop 专家标注（设计 1·自动预处理部分）"]

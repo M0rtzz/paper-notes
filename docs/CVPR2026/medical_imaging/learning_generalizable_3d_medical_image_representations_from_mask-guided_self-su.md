@@ -48,7 +48,7 @@ MASS 要解决的是 3D 医学图像没有"基础模型"的窘境：对比学习
 整个方法分两阶段。**第一阶段做无标注 mask 生成**：把在自然图像上训练、毫无医学知识的 SAM2 拿来当"免费标注机"——先给 3D 体积造 3 通道输入（CT 用不同窗宽窗位，MRI/PET 用分位数归一化），沿最优成像轴均匀采 2D 切片，跑 SAM2 的自动 mask 生成（密集点提示），再借 SAM2 的视频预测能力把 mask 传播到整个体积，每个体积能生成数百到数千个覆盖器官、血管、肿瘤、病灶的 3D mask。**第二阶段做 mask 引导的自监督学习**：沿用 Iris 的 in-context segmentation（ICS）架构，模型含图像编码器 $E_\theta$、任务编码模块 $T_\phi$、mask 解码器 $D_\psi$；每次迭代采一张图 $x$ 及其自动 mask $m$，造出参考视图 $(x_s, y_s)$ 和查询视图 $(x_q, y_q)$，参考视图给"在哪里"的位置信息，外观变换则逼模型跨不同视觉表现学到"是什么"的语义一致性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["SAM2 自动 mask 生成（零人工标注）"]
         direction TB

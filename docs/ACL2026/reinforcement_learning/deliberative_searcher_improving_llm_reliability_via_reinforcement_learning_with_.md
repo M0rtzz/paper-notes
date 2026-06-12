@@ -46,7 +46,7 @@ tags:
 Deliberative Searcher 把搜索动作直接编织进 CoT 推理：模型一边推理一边判断知识缺口，自己决定何时发起检索、检索什么、怎么把检索回来的内容接回推理链，最终同时吐出答案和一个显式的置信度评分。训练阶段用约束 RL 把"答对"和"别在错的时候装确定"这两件事拧在一起——主目标拉高正确率，约束条件死死压住"错误-确定"率。推理时再把校准好的置信度复用为加权投票，省下大量采样。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["问题输入"] --> LOOP
     subgraph LOOP["推理优先的交错搜索框架"]

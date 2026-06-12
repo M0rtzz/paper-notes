@@ -46,7 +46,7 @@ tags:
 DEJA 要解决的问题是：怎样让一篇注入语料库的文档既能被检索命中，又能悄悄把模型的回答从"有用"拖成"流畅但空洞"，且不留下拒绝关键词或困惑度异常这些容易被防御抓到的痕迹。它的办法是把对抗性文档拆成三段拼接 $d_{adv} = q \oplus h_{hook} \oplus p_{payload}$：开头的查询锚点 $q$ 复述目标问题，保证文档在检索阶段能对上；中间的检索钩子 $h_{hook}$ 负责把排名顶上去、并在语义上把锚点和载荷连起来；真正干活的是语义载荷 $p_{payload}$，它经过进化优化、专门诱导低信息量回答。整条流水线是：先按查询特征挑一套攻击策略并据此初始化载荷，再用进化算法反复打磨载荷直到回答效用足够低，最后把三段组装成文档投放进语料库。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["目标查询 q"] --> S["上下文感知策略选择<br/>按兼容度挑 1/6 种模糊化策略"]
     S --> INIT["按策略初始化语义载荷"]

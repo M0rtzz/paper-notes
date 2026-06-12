@@ -46,7 +46,7 @@ tags:
 3M-TI 想解决的是一个很实际的问题：移动端热相机拍出来的图模糊（典型只有 96×96），单张图又没有足够高频信息能恢复细节，而拉一张高清 RGB 来引导又躲不开像素级标定这个工程麻烦。它的做法是把"对齐"这件事甩给网络自己学——整条流程都跑在潜空间里。输入是低分辨率热图（64×64）和一张**未标定**的高分辨率 RGB 参考图（512×512），先用冻结的 VAE 编码器把两者各自压进潜空间；接着在 SD-Turbo 的 UNet 里，把原本的自注意力层换成跨模态自注意力（CSM），让 RGB 和热图的 token 在同一个序列里互相对齐、融合；训练阶段对 RGB 故意施加错位增强，逼模型适应真实多相机的视差与不同步；同时加一条零初始化的 skip connection 把编码器结构信息直送解码器，再用 RAM 从 RGB 抽出文本提示给一点语义引导。最后只用 LoRA 微调 UNet（rank=16）和 VAE 解码器（rank=4），单步扩散一次出图。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["低分辨率热图<br/>64×64"] --> ENC["冻结 VAE 编码器<br/>两模态各自编码进潜空间"]
     B["未标定 RGB 参考图<br/>512×512"] --> AUG["错位增强<br/>平移/缩放/旋转/透视（仅训练）"]

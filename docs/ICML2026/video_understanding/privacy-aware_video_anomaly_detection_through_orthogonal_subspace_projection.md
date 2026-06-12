@@ -44,7 +44,7 @@ tags:
 对一个中间特征 $\bm f\in\mathbb R^d$（来自 backbone 或某一层），OPL 学一个 $\bm W\in\mathbb R^{k\times d}$（$1<k<d$），对 $\bm W^\top$ 做 QR 分解得到 $\bm W^\top=\bm Q\bm R$，$\bm Q\in\mathbb R^{d\times k}$ 给出 $k$ 维 nuisance 子空间的正交基。投影矩阵 $\bm P=\bm I_d-\bm Q\bm Q^\top$，干净特征 $\bm f_{\text{proj}}=\bm P\bm f=\bm f-\bm Q\bm Q^\top\bm f$。整个层全可微、随主任务 loss 一起训练。G-OPL 在此基础上加一条 cosine 对齐 loss：把一个 off-the-shelf 人脸检测器 RetinaFace 检到的人脸 crop 过同一个 encoder 得到 $\bm f_{\text{face}}$，逼 $\bm Q\bm Q^\top\bm f$ 与 $\bm f_{\text{face}}$ cosine 相似，从而把"人脸方向"主动塞进要被丢弃的子空间。OPL 放在深层去通用 nuisance，G-OPL 放在 backbone 紧后面早期切掉人脸。两者都是 plug-in 层，可灵活插在特征提取器、某一层或某个 block 之后；测试时 $\bm Q$ 固定、不再跑人脸检测，几乎零额外开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视频帧"] --> B["backbone 时空特征<br/>I3D / Swin → 特征 f"]
     B --> G

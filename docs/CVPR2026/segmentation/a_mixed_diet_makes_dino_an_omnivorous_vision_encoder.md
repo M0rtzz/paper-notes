@@ -48,7 +48,7 @@ tags:
 Omnivorous Vision Encoder 想解决的痛点很具体：冻结的 DINOv2 对同一场景的 RGB 与深度图，特征相似度竟和两张毫不相关的 RGB 图差不多——跨模态表示是碎的。它用一套参数高效的教师-学生框架来补：教师是完全冻结的 DINOv2（$f_T = g^* \circ f^*$）当稳定锚点；学生共享冻结的早期 8 层 backbone $f^*$，只微调后 4 层作为可训练 adapter $g$，即 $f_S = g \circ f^*$。任意模态 $x_m$ 进来，先经一套数据增强（自然色彩着色 + 模态混合）消除颜色捷径、铺出模态连续谱，再由冻结部分提特征 $z_m = f^*(x_m)$，adapter 映射到统一空间 $h = g(z_m)$；训练时用对齐损失把跨模态嵌入拉近、用锚定损失把学生嵌入拴回教师，让不同模态对齐到一致嵌入又不破坏原始判别语义。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["同场景三模态<br/>RGB / 深度 / 分割"]
     subgraph AUG["数据增强（堵颜色捷径 + 铺连续谱）"]

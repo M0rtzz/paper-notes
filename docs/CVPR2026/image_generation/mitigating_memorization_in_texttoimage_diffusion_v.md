@@ -50,7 +50,7 @@ tags:
 这篇把扩散模型记忆化当成一个「训练时种因、评估时结果」的完整链路来治，给出两个互不依赖的模块。RAPTA 作用在训练阶段：对每张训练图用 Faster R-CNN 检测显著区域、生成一池带位置信息的提示变体，经 CLIP 评分加权采样后拿去 conditioning 扩散模型，打破「一张图永远配同一句 caption」的强绑定。ADMCD 作用在推理/评估阶段：抽 ViT patch 特征、CLIP 全局特征、ResNet 纹理特征三路，经 Transformer 注意力融合后用双阈值判断是否复制、以及是精确复制还是风格模仿。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph RAPTA["RAPTA：区域感知提示增强（训练时）"]
         direction TB

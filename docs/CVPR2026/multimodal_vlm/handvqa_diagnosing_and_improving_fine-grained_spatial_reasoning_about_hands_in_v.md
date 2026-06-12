@@ -44,7 +44,7 @@ tags:
 HandVQA 要解决的核心问题是：怎样不靠人工标注、又无歧义地考出一个 VLM 到底懂不懂手部关节级的空间关系。它的思路是把现成 3D 手部数据集里精确的 21 关节坐标当作"标准答案的源头"，让一条全自动、全确定性的管线把这些坐标翻译成选择题。管线分三步走：先从归一化的 3D 关节坐标算出连续几何量（关节夹角、关节间距离、沿坐标轴的相对位置），再按固定阈值把这些连续量离散成有限几个语义类别；然后用确定性模板把类别填进自然语言句子，真值类别对应的句子当正确答案、其余类别对应的句子当干扰项；最后把图像和这组选项配成标准多选题。每张图最多出 25 道题（5 种描述子 × 每种采样 5 个实例），全库累计超过 160 万道。整条链路没有任何随机性或人工判断，因此基准本身可复现、可审计。生成的题库一边用来诊断现成 VLM 的缺陷，一边用来 LoRA 微调以验证这种空间推理能力可否迁移到下游任务。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["三数据集互补覆盖（FreiHAND / InterHand2.6M / FPHA）"]
         direction TB

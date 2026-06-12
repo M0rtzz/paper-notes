@@ -44,7 +44,7 @@ tags:
 LTE 想解决的是 RLVR 训练里那些"模型怎么都做不对"的难题——标准 GRPO 下，一道题如果 $G$ 个 rollout 全军覆没，group-relative advantage 全部归零、梯度也归零，模型从这类样本身上学不到任何东西，能力上限被死死卡住。LTE 的做法是给这些"全错"样本（none-pass samples）一次补救机会：先跑 $G$ 个标准 rollout，一旦发现全错，就根据它们的失败模式选一个提示模板，把模型自己刚犯的错告诉它，再跑 $G$ 个"带提示"的额外 rollout；如果这次蒙对了，就用对的轨迹替换掉初始的错误轨迹，最后通过混合策略 GRPO 完成一次更新。整个闭环只用到模型自身的行为，不碰任何外部专家或更强模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["难题：G 个标准 rollout 全错<br/>none-pass 样本，梯度归零"] --> PROMPT
     subgraph PROMPT["提示引导的额外 rollout"]

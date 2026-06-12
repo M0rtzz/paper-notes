@@ -44,7 +44,7 @@ tags:
 这篇论文想回答一个一直被忽略的问题：LVLM 的 thinking 模式（生成显式推理链）到底什么时候帮视觉推理、什么时候反而坑它。作者的答案是"多想不如多看"——长推理链容易越想越脱离图像，掉进"long-wrong"陷阱。整套方法因此分成离线和在线两段。离线时用一个 token 级探针扫描已有推理轨迹，挖出两类信号短语：预示模型开始漂移的暂停短语集 $\mathcal{P}$（"hmm""wait"之类），以及正确轨迹里频繁出现、把注意力拉回图像的 lookback 模板集 $\mathcal{L}$（如"Looking back at the image, …"）。在线解码时一边自回归生成，一边盯着刚冒出来的尾巴是否撞上暂停短语，一旦撞上就当场插一句 lookback 提示把推理拽回图像，必要时再并行采样几条续写、挑一条最锚定图像的走下去。整套流程不动模型权重。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["推理轨迹 + 图像"] --> PR
     subgraph PR["Token 级视觉敏感性探针（离线）"]

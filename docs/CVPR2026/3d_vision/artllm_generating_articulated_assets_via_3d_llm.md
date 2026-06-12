@@ -44,7 +44,7 @@ ArtLLM 将铰接物体生成建模为语言生成问题，使用 3D 多模态 LL
 ArtLLM 要解决的是：给一个静态点云，怎么同时把它"切成会动的部件"并"标出每个部件怎么动"，最后还原成可直接放进仿真器的铰接资产。整篇的做法是把这个看似几何的任务彻底翻译成一个序列生成问题——先让一个 3D 多模态 LLM 读点云，自回归地吐出一串 token，这串 token 描述了每个部件的包围盒（bounding box）和它们之间的运动关节；这相当于先画出物体的"运动蓝图"。蓝图里的包围盒随后交给 XPart 去填充高保真几何，得到真正的部件 mesh；最后再做一道物理后处理，靠碰撞检测把每个关节的运动范围收紧到不会自穿模的程度。三步连起来，输入一个点云，输出一个能在 SAPIEN 里被驱动的 URDF 资产。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入点云"] --> LLM
     subgraph LLM["铰接结构的语言建模（3D LLM 自回归生成蓝图）"]

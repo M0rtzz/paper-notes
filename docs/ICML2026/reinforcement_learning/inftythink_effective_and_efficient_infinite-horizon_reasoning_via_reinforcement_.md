@@ -48,7 +48,7 @@ tags:
 2. **Trajectory-level RL (GRPO 改造)**：在 DeepScaleR 数据集上做完整的 multi-iteration rollout，按轨迹打分，用共享 advantage 优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Query q"] --> CS["冷启动 SFT<br/>vanilla 数据按 η/γ 切段 + LLM 补摘要，学 InftyThink 格式"]
     CS --> RL["轨迹级 RL：对 q 采样 G 条独立轨迹"]

@@ -46,7 +46,7 @@ PluRule 不是提出一个新 moderation 模型，而是提出一个更贴近真
 评估时，模型逐步获得五个累积上下文层级：Comment Only、+Discussion、+Submission、+User、+Images。所有层级都包含 subreddit 描述和完整规则集。输出先自由生成，再追加 “Final Choice:” 抽取最终选项。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Reddit 公开数据<br/>Pushshift ~15B 评论 + API 规则/语言/NSFW"]
     subgraph S2["从公开审核痕迹构造规则级标签"]

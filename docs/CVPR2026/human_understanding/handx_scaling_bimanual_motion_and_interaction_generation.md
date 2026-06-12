@@ -44,7 +44,7 @@ tags:
 HandX 包含三个层面的贡献：1) 数据层——整合 5 个已有数据集（GigaHands、HOT3D、ARCTIC、H2O、HoloAssist）并自采新动捕数据，统一为共享骨架表示，经质量过滤后获得 54.2 小时运动数据；2) 标注层——提出两阶段自动标注策略，先提取结构化运动学特征（接触事件、手指弯曲度等），再用 LLM 推理生成多粒度文本描述（48.5 万条）；3) 生成层——基准测试扩散模型和自回归模型两种范式，支持多种条件控制模式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph D1["统一数据整合与质量过滤"]
         direction TB

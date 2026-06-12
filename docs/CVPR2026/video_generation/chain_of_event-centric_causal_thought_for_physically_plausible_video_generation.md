@@ -44,7 +44,7 @@ tags:
 这篇论文要解决的是视频扩散模型「不懂物理」——给个短提示生成的视频看着逼真，却不遵守因果演进的物理规律。它的核心视角转换是：把一个物理现象看成**因果连接、逐步演化的事件序列**，而不是单一时刻的静态描述。整个框架 $\Gamma: w \rightarrow \mathbf{V}$ 是免训练的两段式：先用 PECR（物理驱动事件链推理）把用户描述里的复杂物理现象拆成有序事件集合（其中物理公式接地 PFG 负责把常识落到标准公式上、物理现象分解 PPD 负责按参数突变切事件），再用 TCP（过渡感知跨模态提示）把这条事件链翻译成随物理过程演化的语义+视觉双条件（渐进叙事修订 PNR 出语义提示、交互式关键帧合成 IKS 出视觉先验），喂给视频扩散模型 $\mathbf{Z}_{\tau_z-1} = \epsilon_\theta(\mathbf{Z}_{\tau_z}; \mathbf{W})$（$\mathbf{Z}_{\tau_z}$ 为视觉先验，$\mathbf{W}$ 为语义嵌入）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     W["用户描述 w"] --> PFG
     subgraph PECR["物理驱动事件链推理（PECR）"]

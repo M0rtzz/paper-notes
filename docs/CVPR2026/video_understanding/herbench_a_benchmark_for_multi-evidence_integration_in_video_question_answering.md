@@ -46,7 +46,7 @@ HERBench 是一个专为多证据整合设计的视频问答基准，包含 26,8
 HERBench 不是一个新模型，而是一套用来"逼出"真实视频理解能力的评测基准。它要回答的问题是：当一道题结构性地需要至少 3 条分散在不同时刻的视觉线索时，今天的 Video-LLM 还能不能答对？围绕这个目标，基准的搭建分四步：先用一套 12 类任务的分类体系把"多证据整合"拆成 4 个推理家族，把"每题至少 3 条分散线索"焊进题目结构；再用一条三通道数据管线从轨迹、镜头、人工日志三个粒度抽取时空信息，交给面向任务编程（oriented task programming）合成五选一题；接着用一道质量控制关卡过滤掉卡片泄露和语言捷径，确保答案离不开视觉证据；最后用最小必需帧集（MRFS）指标把"这道题到底需要几帧才答得出"量化出来，让不同基准之间能横向比难度。最终规模是 336 个长视频（平均 395 秒）、26,806 道五选一题。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     T["四大推理家族 · 12 子任务体系<br/>每题强制 ≥3 条分散线索"]
     subgraph PIPE["三通道数据构造管线"]

@@ -39,7 +39,7 @@ tags:
 这篇论文要解决的是：object-centric 3D LLM 直接照搬语言模型的 causal mask，而 causal mask 和 3D 场景天生不合——它把无序的空间对象当成有序 token 序列，还把对象和后置的指令隔开。3D-SLIM 的做法是只动注意力掩码、不碰架构也不加参数：输入序列照旧是 [system tokens, object tokens, instruction tokens]，模型照常前向，唯一的改动是把注意力矩阵 $M$ 里两个关键区块换掉——object-object 区块换成几何自适应掩码（Geo Mask），object-instruction 区块换成指令感知掩码（Inst Mask）。整篇方法的全部技术含量都落在「这两个区块该填什么值」上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入序列<br/>[system, 对象 tokens, instruction]"] --> M["注意力掩码矩阵 M<br/>(原 causal mask)"]
     M -->|"对象↔对象区块"| GEO

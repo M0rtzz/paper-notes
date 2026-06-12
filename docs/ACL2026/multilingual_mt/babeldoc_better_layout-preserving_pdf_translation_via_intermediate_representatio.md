@@ -43,7 +43,7 @@ tags:
 五个模块按顺序工作：(1) **Decoupled IR Parser**：把输入 PDF 标准化后解析成统一 IR，每页元素（字符、文本行、graphic block、inline image）都带 bbox、坐标、字体/样式属性；(2) **Formula & Multimodal Processing**：识别公式 + 多模态片段并 mask 成占位符（避免 LLM 翻译时改坏数学符号）；(3) **Semantic Engine**：在 IR 上做 LLM 翻译，自动抽取术语建动态 glossary、跨页/跨栏拼段、glossary-constrained generation；(4) **Adaptive Typesetting**：迭代搜索局部缩放因子 $\gamma$ 把翻译后较长的文本塞回原 bbox；(5) **Nested Structure & CTM Reconstruction**：管理 XObject/Form/clipping path 嵌套栈和 Current Transformation Matrix，逐层应用 graphics state 重渲染。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入 PDF"] --> IR
     subgraph IR["双向 IR + 公式占位符"]

@@ -46,7 +46,7 @@ tags:
 SEATrack 想解决的是多模态跟踪里"参数越加越多、却背离了 PEFT 初衷"的怪圈。它的骨架是一个双流 ViT：冻结预训练好的 RGB 跟踪器主干，让 RGB 流和 X 模态流（热红外/深度/事件）各走一路，只在每隔 2 层的位置插入两个轻量模块——AMG-LoRA 负责把两路的注意力图对齐、顺带做域适应，HMoE 负责把两路特征做全局融合。一帧进来，两个模态各自抽出候选目标的特征，逐元素相加聚合成统一表示，再交给预测头回归出目标框。整套可调参数只有 0.8M，绝大部分算力仍跑在冻结的主干上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入帧：RGB + X 模态<br/>(热红外/深度/事件，时空对齐)"]
     IN --> RGB["RGB 流：patch embed<br/>→ 模板+候选 token"]

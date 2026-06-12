@@ -44,7 +44,7 @@ NanoQuant 把权重量化重新表述为「低秩二值分解」问题，用 Hes
 NanoQuant 把每个 Linear 层权重 $\mathbf{W}\in\mathbb{R}^{d_\text{out}\times d_\text{in}}$ 分解为 $\widehat{\mathbf{W}}=\mathbf{s}_1\odot(\mathbf{U}_{\pm 1}\mathbf{V}_{\pm 1}^\top)\odot\mathbf{s}_2^\top$，其中 $\mathbf{U}_{\pm 1}\in\{-1,+1\}^{d_\text{out}\times r}$、$\mathbf{V}_{\pm 1}\in\{-1,+1\}^{d_\text{in}\times r}$，$\mathbf{s}_1,\mathbf{s}_2$ 是两条全精度的通道尺度向量。整条流水线分三段：**(1) 全局校准**——把 128 条样本灌进 FP teacher，给每个 Linear 层算出 K-FAC 风格的输入/输出对角预条件子 $\widetilde{\mathbf{D}}_\text{in},\widetilde{\mathbf{D}}_\text{out}$；**(2) 块级重建**——逐 Transformer block，每个 block 内先调 FP 权重抵消前级量化误差，再用 LB-ADMM 精确初始化所有 Linear 层的 $\mathbf{U},\mathbf{V},\mathbf{s}_1,\mathbf{s}_2$，再用 STE 联合微调连续 latent 和尺度，最后冻结 sign 并打包成 int；**(3) 模型重建**——冻住所有打包后的二值矩阵，只继续优化全局浮点尺度集合 $\mathbf{S}_\text{global}$，用 KL 把量化模型的 logits 拉回 FP teacher。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["FP 权重 W + 128 条校准样本"] --> B["低秩二值分解 + Hessian 感知预条件<br/>全局校准估 D_in, D_out；目标 ‖D_out(W−Ŵ)D_in‖²"]
     subgraph BLK["逐 Transformer block 重建"]

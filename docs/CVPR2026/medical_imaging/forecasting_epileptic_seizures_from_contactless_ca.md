@@ -48,7 +48,7 @@ tags:
 于是整个流程拆成两段。Stage 1 是领域特定持续预训练：拿 VideoMAE-base（已在 Kinetics-400 上预训练）当起点，在「啮齿类癫痫 + 人类正常」的混合视频上做管状掩码自监督重建，逼模型把癫痫相关的时空模式学进编码器。Stage 2 是少样本微调：丢掉解码器、只留编码器，外接一个轻量分类头，在仅有 2/3/4 个正样本的设定下做二分类，输出「未来 5 秒内是否发作」。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["跨物种预训练数据 D_pt"]
         direction TB

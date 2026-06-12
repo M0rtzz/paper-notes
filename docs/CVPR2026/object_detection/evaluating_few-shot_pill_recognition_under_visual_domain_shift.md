@@ -49,7 +49,7 @@ tags:
 关键在于怎么"喂"和怎么"测"。喂的一端，作者刻意准备了两个视觉真实度天差地别的 base 数据集（受控单药丸 vs 真实多药丸），用它们去隔离"训练数据真实性"这个变量；测的一端，作者放弃了在异构标注下会失真的 mAP，改用分类中心的指标，并额外切出一个全是重叠遮挡的压力测试集。整条流水线是：在 CURE 或 MEDISEG 上做 base training → 用部署数据集的 K-shot 支持集微调 → 在 516 张多药丸混乱场景的 query set 上评估，再在 133 张严重重叠场景上做 overlap-only 压力测试。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BASE["双 base 数据集对照（量 vs 质）"]
         direction LR

@@ -45,7 +45,7 @@ tags:
 ARK 想训出一个真正"答案中心"的检索器——评判检索内容好坏的标准不是它和查询有多像，而是它够不够生成正确答案。为此整个流程分两阶段串起来：先做查询构建，从文档里建知识图谱、抽答案相关子图、生成增强查询，专门用来挖渐进难度的困难负样本；再做对比微调，用三维答案充分性评分挑出真正"足以产出答案"的正样本，配上前一阶段挖到的困难负样本，按课程从易到难训练检索器。训完的检索器不改架构，可直接插回现有 RAG 管道。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DOC["文档集合 + 问答对"]
     subgraph POS["三维答案充分性评分"]

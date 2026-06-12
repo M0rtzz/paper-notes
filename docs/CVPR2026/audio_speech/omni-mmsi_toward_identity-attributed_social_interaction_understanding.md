@@ -48,7 +48,7 @@ $$f: (P, I_{AV}, \mathcal{R}) \rightarrow X_{answer}$$
 输入为系统提示 $P$、原始音视频 $I_{AV}$ 和参考集 $\mathcal{R} = \{(a_i, v_i)\}_{i=1}^N$（每个参与者的代表性声音和外观）。整条流程是：加载参考 → 用专用工具生成身份归因线索 → Omni-LLM 做链式推理 → 输出答案，核心思想是先把"身份"这一步交给可靠的小工具，再让 LLM 在带身份的线索上做社交推理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     AV["原始音视频 I_AV"] --> TOOL
     REF["参考引导<br/>每人一对（声音, 外观）身份底库"] --> TOOL

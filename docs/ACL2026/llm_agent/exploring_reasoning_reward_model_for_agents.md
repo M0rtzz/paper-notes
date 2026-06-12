@@ -43,7 +43,7 @@ tags:
 两阶段两 model：(a) **Agent-RRM 训练**——基于 GPT-OSS-120B 标注的 Reagent-RRM-SFT-28K（结构化三段判断）做 SFT 学会"<think>/<critique>/<score>"输出格式，再在 Reagent-RRM-RL-90K 上做 GRPO 校准 scalar score；(b) **Reagent agent 训练**——先用 Reagent-SFT-55.6K（DeepSeek-V3.1 生成的正确轨迹）做 SFT 得到 $\pi_{\theta_{SFT}}$，然后探索三个 RL variant：Reagent-C（推理时 critique refinement, 不训练）、Reagent-R（rule reward + 模型 score 联合 GRPO）、Reagent-U（critique-augmented 两阶段 sampling + 联合 pool GRPO）。Agent 配备 6 个工具：Search（Bing）、Web Browse、Python Interpreter、File Reader、Image Descriptor、Audio Converter。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph RRM["三段结构化反馈奖励模型 Agent-RRM"]
         direction TB

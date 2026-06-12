@@ -47,7 +47,7 @@ tags:
 下面这张图把这条"从不可计算的全局量逐步降到一行可微罚"的归约链画出来，三个虚线分组正对应后面的三个关键设计：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     K["eNTK 矩阵 K = J·Jᵀ（N×N）<br/>有效秩 r_e(K) 直接刻画可塑性<br/>但 O(N²P) 不可形成、不可优化"]
     subgraph D1["eNTK → Gauss-Newton + 块对角近似"]

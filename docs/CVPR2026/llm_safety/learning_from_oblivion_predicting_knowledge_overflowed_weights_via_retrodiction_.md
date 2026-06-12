@@ -48,7 +48,7 @@ tags:
 这篇工作想回答一个很实际的问题：能不能不增加训练数据，就拿到「仿佛在更大数据集上训出来」的更好预训练权重？它的破题点是把 catastrophic forgetting 反过来用——既然在逐步缩小的数据上反复 fine-tuning 会让权重沿一条有结构的轨迹「退化遗忘」，那么观察这条退化轨迹、再把方向反转，就能外推出「知识溢出」的增强权重。形式化地说：给定在 $D_0$ 上预训练的 $\Theta_0$，先人为制造一段遗忘轨迹 $[\Theta_0, \Theta_1, \ldots, \Theta_{S-1}]$，再假设存在一个对应「更大数据集 $D_{-1} \supset D_0$」的理想权重 $\Theta_{-1}$（fine-tuning 它在 $D_0$ 上恰好得到 $\Theta_0$），用一个学过「遗忘长什么样」的 hyper-model 反向预测出 $\hat{\Theta}_{-1}$，这就是 KNOW（Knowledge-Overflowed Weights）prediction。整条流水线串成「造遗忘轨迹 → 反向预测增强权重 → 递归外推 → 迁移下游」四步：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练权重 Θ₀（在 D₀ 上）"] --> FORGET
     subgraph FORGET["结构化遗忘诱导"]

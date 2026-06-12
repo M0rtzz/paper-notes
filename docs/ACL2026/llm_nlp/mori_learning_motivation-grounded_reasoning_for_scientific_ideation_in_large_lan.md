@@ -48,7 +48,7 @@ MoRI 是个三阶段 pipeline（Figure 2 + 7）：
 **推理时**：先生成 motivation $m$，再以 $x \oplus m$ 为条件做 reasoning + 输出 method。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["ICLR/NeurIPS 论文<br/>抽取 context x · motivation m · 去符号化 method y*"] --> B["数据构造（后验重建）<br/>Qwen3-235B 反推 reasoning z → 4000 SFT + 2000 RL prompt"]
     B --> C["SFT 冷启动（14B）<br/>同时学 motivation 生成 x→m 与 method 生成 x→(z,y)"]

@@ -46,7 +46,7 @@ tags:
 PredFT 想把神经科学里的"预测编码"——大脑在听语音时会自然预测接下来要说什么——这条信息引进 fMRI-to-Text 解码。它是端到端模型，由两条网络组成：主网络 $\mathcal{M}_\theta$（编码器-解码器）做标准的 fMRI 转文本，把 fMRI 序列编成时空特征再用 Transformer 解码器吐出文字；侧网络 $\mathcal{M}_\phi$（编码器-解码器）则从预测相关脑区里抽取"前瞻性"表征，其编码器输出 $H_{\phi_\text{Enc}}^M$ 被注入主网络辅助解码。训练时两网共同优化，推理时侧网络解码器被丢掉，只留它的编码器持续供给预测表征。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["fMRI 信号序列"] --> ENC
     IN --> ROI["预测脑区 ROIs<br/>STS / IFG / SMG / Angular Gyrus"]

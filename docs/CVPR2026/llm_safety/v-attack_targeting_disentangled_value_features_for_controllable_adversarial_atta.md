@@ -38,7 +38,7 @@ tags:
 V-Attack 的目标是对 LVLM 做“精确可控”的局部语义攻击——只把图里某个概念（比如“狗”）悄悄换成另一个（“猫”），其余不动。它的思路是别在纠缠的 Patch 特征上动手，而是盯住更解耦的 Value 特征：先跨多个代理模型从视觉编码器**最后一个注意力块**提取 Value 特征，做一次自增强强化局部语义，再用源/目标概念的文本把要改的 token 挑出来定向操控，最后用 PGD 迭代把这套目标优化成一张对抗图。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：干净图 x + 源概念 t_s + 目标概念 t_t"] --> B["盯住 Value 特征<br/>跨 K 个 CLIP 代理模型，取末层注意力块的 V（不用纠缠的 Patch 特征 X）"]
     B --> C["自增强 Value 特征<br/>对 V 做一次自注意力 → 增强后 Ṽ，拧紧局部语义"]

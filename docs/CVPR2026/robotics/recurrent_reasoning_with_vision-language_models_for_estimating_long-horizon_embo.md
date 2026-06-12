@@ -52,7 +52,7 @@ $$c_t,\; p_t = f_\theta(\tau,\, v_t,\, c_{t-1})$$
 这样每轮只看一小段画面，全局上下文则完全由 $c_{t-1}$ 承载，既省算力又不丢历史。要让 $f_\theta$ 真的学会按这套结构推理、且进度数值靠谱，论文还配了一条自动化数据集构建流程（把专家轨迹蒸馏成“片段+CoT”训练数据），并用两阶段训练（SFT 冷启动 + 多轮 PPO 强化）把模型打磨出来。整体数据流如下：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph LOOP["循环推理框架"]
         direction TB

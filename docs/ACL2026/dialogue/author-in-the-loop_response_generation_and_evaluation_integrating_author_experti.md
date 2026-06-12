@@ -46,7 +46,7 @@ tags:
 本文围绕"作者在回路"范式搭了数据集、生成、评估三件套，闭环地把作者的真实修改意图注入回复生成。输入端是一篇论文的审稿-回复-修改版完整记录：Re3Align 先把它对齐成句级的"审稿意见–作者回复–论文编辑"三元组；REspGen 以审稿意见为主输入，可选接入作者编辑信号、v1 论文段落检索、回复计划和长度约束，产出可控回复，并支持把评估反馈拿回来做迭代精修；REspEval 则在话语、可控性、输入利用、回复质量四个维度用 20+ 指标量化这份回复到底答没答到点子上、用没用上作者信息。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["论文记录<br/>审稿 + 回复 + v1→v2 修改"]
     subgraph DATA["Re3Align 三元组数据集构建"]

@@ -45,7 +45,7 @@ WorldCache 在扩散采样过程中交替执行 FULL 和 CACHE 两类 step。FUL
 与常规固定间隔缓存不同，WorldCache 还由**混沌优先自适应跳步（CAS）**维护一个累积漂移信号 $E_{acc}$：每个 CACHE step 后只在混沌 token 集合上计算曲率归一化的特征漂移，并累加到 $E_{acc}$；当 $E_{acc}$ 超过阈值 $\eta$ 时，下一步切回 FULL，重新校准曲率和历史输出。整套流程是 training-free 的纯推理时缓存，不改模型权重也不改 scheduler。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 / 文本 / 相机轨迹 + 当前 latent"] --> B{"本步类型"}
 

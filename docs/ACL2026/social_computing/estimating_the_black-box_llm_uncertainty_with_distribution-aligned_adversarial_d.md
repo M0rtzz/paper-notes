@@ -45,7 +45,7 @@ tags:
 DisAAD 要解决的是"GPT-4 / Claude 这类只暴露 API 的黑盒模型怎么做实时不确定性估计"。它的核心反转是：既然摸不到黑盒的内部 logits，就训练一个仅占目标模型 1% 体积的小代理模型去精准模仿黑盒"会答什么"，再让这个内部完全可见的代理替黑盒暴露 logits。整条流程分两阶段——先用"分布对齐采样 + 对抗蒸馏"把 LoRA 小代理对齐到黑盒的高概率输出区域，推理时让代理 teacher-forcing 重放目标模型给出的真实响应、从逐 token 的 logits 借证据学习拆出认知（EU）与偶然（AU）两种不确定性，单次响应即可给出实时估计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入 prompt"] --> S["分布对齐式数据采样<br/>多次查询黑盒 → 按语义一致性排序取 Top-M"]
     subgraph DISTILL["生成器-判别器对抗蒸馏"]

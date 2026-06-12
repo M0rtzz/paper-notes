@@ -47,7 +47,7 @@ tags:
 分析顺序是反向的：先看 decoding，也就是输出文本如何借用 prompt 和问题中的关键词；再看 projection，即 hidden state 投影到 vocabulary 后的 token probability 和 entropy；最后看 activation，即 FFN 中有多少 neuron 被激活，以及 CoT 与 standard prompt 的层级差异。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：6 个模型 × 9 个推理数据集<br/>CoT prompt vs 标准 prompt（4-shot，greedy）"] --> TRACE
     subgraph TRACE["反向追踪信息流（从输出 token 倒推到内部）"]

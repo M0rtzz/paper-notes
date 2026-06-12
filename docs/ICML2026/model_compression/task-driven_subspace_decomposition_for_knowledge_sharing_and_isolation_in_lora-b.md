@@ -43,7 +43,7 @@ LoDA 把 LoRA 的下投影矩阵按「投影能量」拆成一个跨任务共享
 LoDA 想同时做到两件原本被对立的事：保留任务间可迁移的共享方向、又找到真正只对新任务高响应的隔离方向。做法是在每个 ViT 层挂一个双分支 LoRA——通用分支 $(\mathbf{A}_G,\mathbf{B}_G)$ 管知识共享、隔离分支 $(\mathbf{A}_I,\mathbf{B}_I)$ 管任务专属增量。第 $t$ 个任务到来时冻结主干 $\mathbf{W}^{t-1}$，先用新数据二阶矩 $\mathbf{S}^t$ 和累积旧数据二阶矩 $\mathbf{S}^{1:t-1}$ 解两个能量目标算出两套正交基 $\mathbf{U}_G,\mathbf{U}_I$ 并冻进下投影，再只在新数据上用 GAO 训练上投影，最后任务结束时对通用分支做闭式重标定后合入主干、隔离分支直接合入。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["任务 t 到来，冻结主干权重"] --> M["统计二阶矩<br/>新数据 S^t、累积旧数据 S^(1:t−1)"]
     subgraph DEC["任务驱动子空间分解（按投影能量构造下投影）"]

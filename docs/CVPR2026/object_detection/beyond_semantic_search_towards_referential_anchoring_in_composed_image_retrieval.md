@@ -41,7 +41,7 @@ tags:
 AdaFocal 要解决的是：让组合图像检索不仅匹配"看起来像"的语义，还能锁定用户用 bounding box 框出的那个**具体实例**。它走的是一个双分支对比检索架构。查询分支吃进三源信息——参考图像 $I_r$、框出锚定实例的 box $B_r$、以及修改文本 $T_m$；图像先过编码器，再由 CAAM 模块根据当前查询上下文预测出一个调制标量 $\beta$，这个 $\beta$ 在随后的交叉注意力里被当成偏置注入，按需放大或收敛对实例区域的关注，最后经多模态编码器得到查询表示 $f_q$。目标分支则简单得多：候选图 $I_t$ 直接过图像编码器和多模态编码器得到 $f_t$。训练时用对比损失把对应的 $(f_q, f_t)$ 拉近、把干扰项推远。整套设计的关键就在于"实例关注的力度不是固定的，而是由 $\beta$ 动态决定"。（训练数据来自下面设计 3 的 OACIRR 基准；下图刻画 AdaFocal 模型本身的前向流程。）
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph Q["查询分支"]
         direction TB

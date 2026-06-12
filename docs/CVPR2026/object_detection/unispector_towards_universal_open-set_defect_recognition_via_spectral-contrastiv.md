@@ -41,7 +41,7 @@ tags:
 UniSpector 要解决的是用一张参考缺陷图去检测/分割同类缺陷的开放集问题，难点在于工业缺陷的视觉差异极细微、纯空域提示向量容易在嵌入空间里坍缩。整条管线是一条"提示路 + 目标图路"分支再汇合的 DETR 结构：提示路从参考图像里框出缺陷 RoI 后，先由 SSPE 同时抽取频域和空域特征并融合成提示嵌入，这些嵌入再经 CPE 用角度间隔对比损失被显式拉开、按类取均值得到紧凑可分的类别原型；目标图路则由视觉编码器把目标图像编成视觉 token。两路在 PQS 汇合——用类别原型与视觉 token 算相似度、可微地挑出最相关的一批 query，送进 DETR 解码器与原型做交叉注意力，最终输出检测框和分割掩码。SSPE、CPE、PQS 三个模块分别针对"特征不够辨别""嵌入崩塌""query 选得不准"三个环节。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["参考缺陷图<br/>框出 RoI"] --> SSPE
     subgraph SSPE["频域-空域提示编码器（SSPE）"]

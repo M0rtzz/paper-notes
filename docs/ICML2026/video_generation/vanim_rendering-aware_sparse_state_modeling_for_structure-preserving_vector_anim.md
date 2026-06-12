@@ -48,7 +48,7 @@ VAnim 在数据、表示、推理、训练四个层面都做了配合 SSU 的重
 数据侧，作者从 Flaticon 抓 Lottie 文件，经 Node.js 渲染脚本生成 ID 锚定的 SVG DOM 序列，做坐标规范化、绝对→相对坐标、清洗后得到 SVGAnim-134k；用 Doubao-Seed-1.6 做双流标注：用户中心 prompt $P$ + Structure-Bound CoT $C$（含「Entity Identification: blue circle → ID 05」和「Visual Dynamic Planning: ID 05 scale up/down」两段式），并用严格 ID 一致性过滤保证 CoT 引用的 ID 都真实存在。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["数据构建：SVGAnim-134k"]
         direction TB

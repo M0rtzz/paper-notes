@@ -46,7 +46,7 @@ tags:
 RAGen 把"从原始文档造出高质量 RAG 训练数据"拆成三个串联阶段：先从一批领域文档中提炼出跨块的文档级概念，再围绕每个概念跨块检索并过滤证据、拼成"问题茎"，最后用 Bloom 分类学引导在问题茎上生成多认知层次的问题，并为每个问题配上四种不同支持度的上下文。整条管道的输入是一堆领域文档，中间产物是概念与证据，输出则是可直接用于嵌入对比微调和 LLM 监督微调的 QAC（问题-答案-上下文）三元组。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["领域文档"] --> B
     subgraph S1["文档级概念提取与融合"]

@@ -43,7 +43,7 @@ tags:
 COTe 要解决 DLA 评估指标与任务不匹配、且对标注粒度高度敏感的问题。它先把物理文本区域按语义聚合成「结构语义单元 SSU」作为评估单元，再把每个预测框按最大面积重叠 many-to-one 分配到 SSU，然后用四个可分解分量（Coverage / Overlap / Trespass / Excess）在像素掩码层面并行度量预测与 SSU 的关系，最后把分量相加得到一个仍可逐项回溯的 COTe 分数，并支持向多类别扩展做精细诊断。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     GT["物理文本区域<br/>(行 / 段落级标注)"] --> SSU["结构语义单元 SSU<br/>同类别+同结构+同语义+阅读相邻 → 聚合"]
     PRED["模型预测框"] --> ASSIGN["预测分配<br/>按最大面积重叠 many-to-one 落入 SSU"]

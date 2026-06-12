@@ -43,7 +43,7 @@ tags:
 AgentGL 把图学习从"静态特征编码"改写成一个智能体决策过程：给定目标节点（或节点对）和查询后，LLM 智能体不再一次性吃下固定的图上下文，而是反复在"调用图原生搜索工具取证据"和"基于已有证据推理下一步去哪搜"之间交替，直到证据足够才输出预测。整个能力靠强化学习两阶段培养——先用图原生策略引导让智能体学会基本的导航行为，再用搜索效率优化教它"想多搜少"地剪掉冗余调用；两阶段全程都在图条件课程学习的"由易到难"排序下训练，以稳住长周期的策略优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["目标节点 / 节点对 + 查询"] --> B
     subgraph LOOP["智能体导航循环（推理时）"]

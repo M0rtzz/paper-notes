@@ -43,7 +43,7 @@ tags:
 这篇论文想回答一个问题：能不能让视觉编码器在只看 RGB 视频的情况下，自己"长出"3D 感知能力，从而摆脱推理时对深度图、相机位姿或外部 3D 编码器的依赖？它的做法是把 3D 感知当成训练压力下的**涌现属性**：推理路径极简——RGB 视频帧经 SigLIP 视觉编码器得到特征 $F_t$，直接当作 3D 感知特征 $F_t^{3D} \equiv F_t$ 投影到语言空间，交给 Qwen2-7B 推理；而所有几何监督模块只在训练时挂在编码器旁边施加约束，推理时全部摘掉。关键在于训练时如何给编码器"加压"，这正是下面三个设计要解决的。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RGB 视频帧"] --> B["视觉编码器 (SigLIP)<br/>输出特征 F_t"]
     B -->|推理时| C["直接取 F_t 作 3D 感知特征<br/>投影到语言空间 → Qwen2-7B → 答案"]

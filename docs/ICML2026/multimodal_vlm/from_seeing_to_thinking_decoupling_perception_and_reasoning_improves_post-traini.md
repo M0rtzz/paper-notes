@@ -44,7 +44,7 @@ tags:
 方法分为两大块：**(1) 感知数据合成**——把 DOCCI 的 15K 图文对反向生成"看图才能答"的 QA，并用两次"图 vs caption"对比过滤出真正考感知的样本；**(2) 分阶段 GRPO 训练**——把三类数据按 $\mathcal{D}_{\text{perc}} \rightarrow \mathcal{D}_{\text{text}} \rightarrow \mathcal{D}_{\text{vis}}$ 的顺序依次跑相同 epoch，每个 stage 用同一套 GRPO 超参，视觉编码器全程开启。输出是一个在视觉数学和感知 benchmark 同时变强、且推理 trace 更短的 VLM。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph SYN["感知数据合成 + 双模型差分过滤（设计 1）"]
         direction TB

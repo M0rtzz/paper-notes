@@ -47,7 +47,7 @@ ACTHOOK 给出一个由三元组 $W = (\text{CHECK}, \text{INJECT}, \text{DETECT
 检测时只查 action 文本是否匹配 hook 模式，无需读取模型权重；对每个 prompt $x_i$ 用真实 key、sham key 和原 prompt 各跑 $Q$ 次，再用配对单边 t 检验比较两侧 hook 频率，得出 p-value。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph INJ["注入流水线（数据集发布方）"]
         direction TB

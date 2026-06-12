@@ -55,7 +55,7 @@ $\theta \leftarrow \theta - \eta\Big(\frac{\partial \mathcal{L}}{\partial \theta
 其中 $(\mathbf{M}_{t-1})_j = 0$ 当且仅当 $\theta_j$ 属于已被冻结的 Neuron。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["任务 T_t 数据<br/>(只有当前任务可见)"] --> B["在可塑 Neuron 上训练<br/>梯度乘前序冻结掩码"]
     B --> C["定义 Shapley Neuron Value<br/>四公理唯一·连续重要度"]

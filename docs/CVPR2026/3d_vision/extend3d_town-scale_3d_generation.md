@@ -45,7 +45,7 @@ Extend3D 要解决的是一个"巧妇难为无米之炊"的问题：手里只有
 
 整条流水线沿用 Trellis 的两阶段结构——先生成稀疏结构（哪里有体素），再生成结构化隐变量 SLat（每个体素长什么样），两阶段都跑在扩展后的隐空间上。给定一张场景图像，先用单目深度估计器 MoGe-2 把它抬成点云作为几何骨架；这副骨架经体素化、编码后给扩展隐空间做初始化；随后在重叠 patch 的联合去噪中逐步成形，每一步还用点云和原图的先验把去噪轨迹拉回"场景该有的样子"，最终输出城镇级 3D 场景。
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["场景图像"] --> B["MoGe-2 单目深度<br/>抬成点云骨架"]
     B --> C["体素化 + 编码<br/>得几何隐变量"]

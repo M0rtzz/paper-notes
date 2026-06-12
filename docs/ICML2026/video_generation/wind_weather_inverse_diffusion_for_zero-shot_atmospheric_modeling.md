@@ -46,7 +46,7 @@ WIND 的方法非常像“先学大气世界模型，再把任务写成观测方
 推理时，给定一个任务观测 $Y$ 和前向算子（forward operator）$\mathcal{A}$。例如空间下采样里 $\mathcal{A}$ 是平均池化，时间下采样里 $\mathcal{A}$ 是对时间维求均值，稀疏重建里 $\mathcal{A}$ 是二值掩码（mask），干空气质量守恒里 $\mathcal{A}$ 是非线性的全球干空气质量（dry air mass, DAM）计算。反向扩散每一步先由 WIND 给出先验分数（prior score），再由 MMPS 根据 $\mathcal{A}(\hat X)$ 与目标 $Y$ 的差异给出似然分数（likelihood score），两者相加后更新样本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["扩散强迫训练统一大气先验（设计 1）"]
         direction TB

@@ -44,7 +44,7 @@ CoG 是一个 training-free 的 KGQA 框架，把 Kahneman 的 Dual-Process Theo
 CoG 针对的是多跳 KGQA 里 LLM agent 的"认知僵化"：早期一次错误的关系选择会把搜索拽进巨大噪声候选集、错误像滚雪球，而只看局部语义又容易陷在局部最优、走到死胡同。它把 Kahneman 的双过程理论搬到 KG 推理上，整套 training-free：离线先把训练集 SPARQL 蒸馏成只含关系链的"蓝图"模板库；在线时 System 1（快、直觉）用蓝图给每一步候选关系做软约束式的 rerank 与剪枝，System 2（慢、分析）在搜索停滞或证据不足时触发反思，定位走错的那一步并定向回溯，最终在 verified 证据上综合答案，把幻觉风险压到最低。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BP["离线关系蓝图库 + Hybrid Copy-Adapt（设计1）"]
         direction TB

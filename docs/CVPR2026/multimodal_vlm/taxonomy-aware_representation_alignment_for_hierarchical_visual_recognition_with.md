@@ -43,7 +43,7 @@ tags:
 输入为图像和指定分类层级的四选一VQA问题。TARA在不改变推理流程的前提下，于训练时把生物基础模型（BFM）的分类学知识注入LMM：一路做**分类学视觉表示对齐**，把LMM中间层的视觉token对齐到BFM的视觉特征；一路做**自由粒度标签表示对齐**，把首个答案token对齐到BFM的标签文本特征；两个对齐损失合成 $\mathcal{L}_{\text{alignment}}$ 后，再与**No-Thinking RFT交替训练**，让知识注入和强化探索互不挤占。推理时丢弃BFM和投影器，无额外开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 + 四选一VQA问题（指定分类层级）"] --> B["LMM 主干"]
     B --> C["中间层视觉token"]

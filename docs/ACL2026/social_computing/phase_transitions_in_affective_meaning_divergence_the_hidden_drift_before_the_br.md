@@ -48,7 +48,7 @@ tags:
 最后在数据上估计 rolling-window 方差和自相关。理论预测：接近鞍结分岔时系统恢复速度变慢，噪声扰动更久才能消散，于是方差和自相关会在破裂前上升。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["双方对话 + 高频共享锚词 x"] --> D1
     subgraph D1["上下文条件的 AMD 定义"]

@@ -44,7 +44,7 @@ tags:
 MUSE 要解决的是少样本全切片图像（WSI）分类下「语义用得太粗」的问题：现有方法把 LLM 当描述生成器，所有样本共享同一条静态类别级文本，既不够精准也不够多样。它的整体思路是把语义同时往「精」和「多」两个方向推——SFSE（样本级细粒度语义增强）负责为每张 WSI 量身定制精确的语义感知，SMMO（随机多视角模型优化）负责注入丰富的语义多样性，两条线产出的先验在分类头处融合，共同提升泛化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I1["WSI 切 patch<br/>→ bag 特征 B"]
     I2["类别名 + 可学习 prompt<br/>→ 文本编码器 → 文本特征 D"]

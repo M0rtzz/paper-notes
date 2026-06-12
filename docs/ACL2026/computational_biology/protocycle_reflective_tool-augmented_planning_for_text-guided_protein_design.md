@@ -48,7 +48,7 @@ ProtoCycle 将文本引导蛋白质设计形式化为一个多步决策过程。
 每轮输出采用 `<think>`、`<plan>`、`<tool_call>` 三段式协议。第一轮中，planner 把需求拆成细粒度子目标并规划工具调用顺序；后续轮次中，planner 读取前一轮工具返回的候选数量、当前最佳分数、历史最佳分数和增益 $\Delta$，判断是继续当前计划、修改策略还是终止。终止前会触发 evaluation 工具对 top-5 候选重新评分，若还有改进空间则继续规划，否则输出最佳序列。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     R["自然语言需求 r"] --> P["反思式多轮决策循环<br/>planner 输出 think/plan/tool_call"]
     P --> ENV

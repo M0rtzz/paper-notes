@@ -44,7 +44,7 @@ tags:
 Persona-E2 的构建分为三个阶段：(1) 事件收集与过滤——从新闻、社交媒体、生活叙事三个领域收集事件，经过安全过滤、LLM 多维评分和专家审核，从 7.7 万候选中筛选出 3111 个高质量事件；(2) 人格化标注——招募 36 名标注者完成 MBTI 和 Big Five 问卷，每人对全部 3111 个事件标注真实情感反应；(3) 三个研究问题的实验评估——分析情感分歧模式、LLM 模拟能力和认知合理性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["三领域事件源<br/>新闻 / 社交媒体 / 生活叙事（7.7 万候选）"]
     subgraph FILTER["多维事件过滤流水线"]

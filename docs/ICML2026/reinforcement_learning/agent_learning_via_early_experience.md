@@ -49,7 +49,7 @@ early experience 在这个基础上多做一步：对每个专家状态 $s_i$，
 作者围绕这批未来状态设计了两种训练方式。第一种是隐式世界模型：训练同一个语言模型根据“当前状态 + 动作”预测未来状态，让策略参数吸收环境动态。第二种是自我反思：比较专家动作和候选动作的未来状态，让模型生成为什么专家动作更好的解释，再用“解释 + 专家动作”作为监督目标。二者都不是在线 RL，而是把无奖励交互转成离线可训练的 token 预测任务，最后得到的策略既能直接部署，也能作为后续 GRPO 强化学习的 warm start。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["专家轨迹 D_expert<br/>(状态 + 专家动作)"] --> B
     subgraph EXP["基于专家状态的早期探索"]

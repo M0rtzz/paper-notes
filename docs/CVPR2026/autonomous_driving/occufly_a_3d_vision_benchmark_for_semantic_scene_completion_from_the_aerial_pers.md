@@ -46,7 +46,7 @@ OccuFly 提出了首个真实世界航拍视角的相机基语义场景补全（
 OccuFly 的构建流程分为三步：(1) 数据采集——使用无人机在不同海拔（低/中/高）、不同季节（春夏秋冬）拍摄城市、工业、农村环境的图像序列；(2) 3D 重建与标注——利用 SfM 和 MVS 从图像序列重建密集点云，对不到 10% 的图像进行像素级语义标注，通过投影将 2D 标注提升到 3D 点云，再稠密化、体素化为语义占用网格；(3) 基准测试——在 OccuFly 上评估多种 SSC 方法和单目深度估计方法。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多海拔多季节采集<br/>无人机低/中/高空 × 四季 × 城市/工业/农村"]
     A --> GEN

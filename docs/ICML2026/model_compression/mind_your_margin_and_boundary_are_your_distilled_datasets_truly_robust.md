@@ -45,7 +45,7 @@ tags:
 C2R 沿用标准 DD 的双层结构：外层更新合成集 $X=\{(x_s,y_s)\}_{s=1}^N$，内层在 $X$ 上短训一个模型 $f_\theta$；输入是真实数据集 + 蒸馏预算 IPC (每类样本数)，输出是一个针对鲁棒训练优化过的合成集 $X$，下游只需把标准对抗训练 (PGD-AT) 跑在 $X$ 上即可。每个 epoch 的循环可以这样理解：先用 LS-PGD 给每个合成样本 $x$ 算一个对抗伴生 $\tilde x=x+\delta$，并据此算出鲁棒边距得分 $s(x)=[1-\widehat{m}_{\mathrm{rob}}(x;\theta)]_+$（越大越靠近决策边界）；再按得分从难到易组 batch (AAC)，把对比鲁棒损失 CRL 的火力集中到低边距尾部；最终优化 $\mathcal{L}_{\mathrm{C^2R}}=(1-\eta)\mathcal{L}_{\mathrm{perf}}+\eta\mathcal{L}_{\mathrm{CRL}}$，其中干净 CE 守精度、CRL 守边界，再用类平衡 memory queue 给 CRL 喂足 hard negatives 同时压住计算量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["真实数据集 + 蒸馏预算 IPC"] --> INIT["初始化合成集 X<br/>内层短训模型"]
     INIT --> PGD

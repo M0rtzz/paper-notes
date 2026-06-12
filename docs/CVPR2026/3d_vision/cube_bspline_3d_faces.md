@@ -48,7 +48,7 @@ CUBE 想解决的核心问题是：3D 人脸表示要么像 3DMM 那样可控但
 整条管线沿着一个固定模板网格走。模板上每个顶点都带一个固定的参数坐标 $(u,v,w)$；推理时，先用 B 样条基在这个坐标处把周围若干个控制特征加权混合，得到一个高维特征向量；这个向量的前三维直接读作顶点的基础位置（粗糙形状），整个向量再喂给一个 MLP 预测一个残差位移（高频细节）。把模板所有顶点都这么算一遍，就得到一张密集、语义对应的 3D 人脸表面。控制特征格本身则由一个 Transformer 编码器从扫描点云或单目图像回归出来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：头部扫描点云 / 单目图像"] --> B["Transformer 编码器<br/>一次前馈回归出整个控制特征格"]
     subgraph G1["高维控制特征格"]

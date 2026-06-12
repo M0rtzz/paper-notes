@@ -46,7 +46,7 @@ tags:
 FoPO 建立在自我博弈 RL 之上：从同一个 LLM 策略 $\pi_\theta$ 实例化两个角色相对的智能体，先用 SFT 让它学会游戏规则，再通过 RL 自我博弈打磨策略推理。它要解决的核心问题是——标准 PPO 把自己和对手当成两条互不相干的优化过程，每次更新只顾自身回报，看不见对手会怎么反应。FoPO 的做法是在 PPO 的梯度更新里塞进一个"前瞻修正项"，让每一步更新在优化自身收益的同时，显式预判对手将如何被自己的策略变化牵动，从而把"预见对手"这件策略推理的本质事写进优化目标。为了能做受控研究，作者还专门配了一对合作型（Cooperative RSA）与竞争型（Competitive Taboo）的语言博弈数据集，把领域知识负担压到最低、只留下纯粹的策略推理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["策略推理博弈数据集"]
         direction TB

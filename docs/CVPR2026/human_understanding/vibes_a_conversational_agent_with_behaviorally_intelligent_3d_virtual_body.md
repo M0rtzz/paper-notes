@@ -42,7 +42,7 @@ ViBES 要解决的核心问题是：让一个已经会"说话"的对话模型同
 模型整体是一个语音-语言-行为（SLB）模型，用模态专家混合（MoME）把三类参数分开：语音-文本专家直接冻结自预训练的 GLM-4-Voice，负责对话智能；面部表情专家和身体动作专家是两个轻量侧车，负责把语言/语音里的意图翻译成具体动作。三个专家通过 SLB 跨模态注意力耦合，在统一时间线上联合生成交错的 token 流。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["用户语音 / 文本"] --> B["标记化<br/>语音·文本·面部·身体 → token"]
     B --> R["多模态分数 RoPE<br/>按时间戳插值，统一不同帧率到一条旋转时间线"]

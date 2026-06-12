@@ -43,7 +43,7 @@ tags:
 AutoNumerics-Zero 是一个多目标进化搜索系统，输入是目标超越函数 $f(x)$（如 $2^x$）在指定区间上的精确值作为训练数据，输出是一组逼近程序，每个程序用尽可能少的基本运算达到尽可能高的精度。整个搜索过程从空程序（恒等函数）出发，通过嵌套的两层优化迭代改进种群：外层遗传编程发现程序结构，内层 CMA-ES 优化浮点系数。搜索循环的一个 cycle 由四步串成——dNSGA-II 选近 Pareto 前沿的父代、计算图变异生成子代、CMA-ES 精调子代系数、评估其精度与运算次数后加回种群，如此往复。搜索收敛后，对最终 Pareto 前沿上的最佳程序用区间算术进行严格的误差界证明。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：目标函数 f(x) 在区间上的精确值<br/>初始种群 = 空程序（恒等函数）"] --> SEL
     subgraph LOOP["进化搜索循环（一个 cycle）"]

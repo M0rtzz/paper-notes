@@ -48,7 +48,7 @@ LMAC 把 MARL 训练拆成"协议设计"和"策略学习"两段：
 下图把这两段流程串起来：SAI 是贯穿两段的"听诊器"——离线阶段它把重建结果转成反馈句驱动两步精修，在线阶段它又当成元认知表示的监督信号（对应下面三个关键设计）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["任务描述 + 协议设计指令<br/>（各观测维度的自然语言含义）"]
     B["离线 buffer（QMIX 预跑 5k 轨迹）"]

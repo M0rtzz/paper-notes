@@ -44,7 +44,7 @@ AgenticEval 把 LLM 安全评估重新定义为「持续、自我演化的红队
 AgenticEval 用 MetaGPT 框架编排 4 个 agent：**Specialist** $\mathcal{A}_S$（GPT-4.1）把法规转知识库；**Generator** $\mathcal{A}_G$（Gemini 2.5 Pro）造题；**Evaluator** $\mathcal{A}_E$（GPT-4.1）裁决；**Analyst** $\mathcal{A}_A$（GPT-4.1）反思。流程 3 阶段：(1) **法规→知识库** 用结构化或自主分解模式把规则拆成原子条目 $r$，每条配 explanation $e_r$、合规指南 $\mathcal{G}_{\text{should}}$、对抗指南 $\mathcal{G}_{\text{should\_not}}$；(2) **初始测试套件生成** 对每条 $r$ 先生成开放问 anchor，再通过 jailbreak/MCQ/TF/multimodal 等 mode 扩展成 Question Group $\mathcal{Q}_r$；(3) **自演化评估循环** 跑 $K_{\max}=3$ 轮，每轮 Evaluator 判对错，Analyst 综合成功/失败生成新攻击策略，Generator 据策略造更难的题。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["非结构化法规文本<br/>EU AI Act / NIST RMF / MAS FEAT"]
     subgraph KB["法规-知识库结构化与搜索增强 grounding（Specialist）"]

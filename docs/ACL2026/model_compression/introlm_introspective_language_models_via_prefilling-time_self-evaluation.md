@@ -49,7 +49,7 @@ IntroLM 在 prompt 尾部追加特殊 `[CPX]` 内省 token，再通过"只对该
 下游应用：把 $f_\theta(x)$ 与阈值 $\alpha$ 比较，决定路由到小模型 $M_s$ 还是大模型 $M_\ell$，且 $M_s$ 的 prefilling 状态可直接复用进 decoding，毫无浪费。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Prompt x"] --> B["[CPX] 内省 token<br/>末尾追加，attend 完整上下文"]
     B --> C["Token-Conditional LoRA<br/>掩码让 [CPX] 才走 LoRA 适配路径"]

@@ -50,7 +50,7 @@ V-LynX 通过发现 Video LLM 内部的**连续 token interface（流形）**—
 3. **LLM 侧指令微调**：在 LLM 中加 LoRA（$\Delta\phi$），通过指令微调让 LLM 学会利用新模态 token 推理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["参考视频 𝒱（无标注）"] --> G["接口导引提取<br/>冻结编码器算 Key/Value 均值 Kv,Vv<br/>+ 投影后 token 分布 μv,σv²"]
     Xm["新模态数据 ℳ<br/>音频/3D/高帧率，非配对单模态"] --> ENC

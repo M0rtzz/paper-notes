@@ -43,7 +43,7 @@ tags:
 论文不动网络结构，而是给「LIF 神经元 + LeNet 风格 SNN」配上一套频域分析工具，回答「该把膜衰减系数 $\beta$ 设成多少」这个一直靠经验调的老问题。做法是把数据和神经元都搬到频域去比对：先用 DFT 量出每个 mmWave 数据集「判别信息长在哪些频率上」，再把 LIF 线性化成一个带宽由 $\beta$ 控制的低通滤波器，最后用一个对齐分数衡量「滤波器留下的频谱」和「判别频谱」的重合度，从而把 $\beta$ 的取值范围切成可解释的三段。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph D1["判别频谱 DI_norm"]
         direction TB

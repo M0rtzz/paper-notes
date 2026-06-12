@@ -46,7 +46,7 @@ SenseNova-SI 通过系统化构建800万级多样化空间数据（SenseNova-SI-
 SenseNova-SI 构建于已有的多模态基础模型之上，采用"数据驱动"的策略提升空间智能。整体流程为：(1) 建立空间能力分类体系；(2) 在该体系指导下系统化收集、生成、扩增800万级数据样本（SenseNova-SI-8M）；(3) 在 Qwen3-VL、InternVL3（视觉理解模型）和 Bagel（统一理解-生成模型）上进行微调；(4) 在多个空间基准上评估并分析各种因素的影响。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["空间能力分类体系<br/>深度·距离尺寸·方位关系<br/>视角变换·3D 形状·导航"]
     A -->|按清单逐格补齐| DATA

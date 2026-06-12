@@ -46,7 +46,7 @@ OmniVerifier-M1 沿 RLVR 框架训练一个 pointwise 多模态 verifier $\pi_\t
 输入 (image, prompt, ground-truth label, optional ground-truth bbox)；输出 verifier 的 $(o, \hat y, e)$；reward 由三部分构成——格式奖励 $\mathcal{R}_f$（要求 `<think>` 标签）、准确率奖励 $\mathcal{R}_{acc} \in \{0,1\}$、meta-verification 奖励 $\mathcal{R}_{meta}$（在符号 rationale 情形下 = IoU）。训练用 DAPO 在 OmniVerifier-7B 与 Qwen3-VL-8B 上各跑 80 步 / 16 张 A800-80G。下游应用 M1-TTS 把 verifier 输出当 agent tool：先识别错误 region，再驱动生成模型做 region-level 编辑，迭代 replanning 收敛。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 + prompt<br/>+ 真值标签 + 真值 bbox"]
     subgraph SYM["Symbolic Rationale"]

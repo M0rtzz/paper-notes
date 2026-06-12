@@ -43,7 +43,7 @@ tags:
 这篇论文要解决的是：HR-pQCT 采集了外周骨的高分辨三维数据，但现有流程只看矿化骨、丢掉了大量软组织信息，导致骨质疏松诊断不充分。它搭了一条全自动端到端流水线——先用 SegFormer 把 HR-pQCT 切片分成五类区域（胫骨/腓骨各自的皮质骨与松质骨，加软组织），再用后处理把软组织进一步细分成皮肤、肌腱、脂肪共七类，然后从每个区域抽影像组学特征，最后交给机器学习分类器做骨质疏松二分类。整条链路的核心赌注是“软组织区域也藏着骨质疏松信号”，所以分割阶段必须把软组织也精细切出来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["HR-pQCT 切片<br/>裁剪 + HU 裁切 + 归一化 + 降采样到 800²"] --> B["SegFormer 分割网络<br/>层级 Transformer 编码器 + 轻量 MLP 解码器"]
     B --> C["五类语义图<br/>胫骨/腓骨皮质·松质 + 软组织"]

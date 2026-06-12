@@ -44,7 +44,7 @@ CURA 提出一个双层不确定性校准框架：个体层面将预测不确定
 CURA 想解决的是临床风险模型"自信地犯错"的问题，做法是把校准从训练流程里解耦出来、只在一个轻量分类头上做文章。整条流水线分两步：先用加权二元交叉熵标准微调一个临床 LM（BioGPT / BioClinicalBERT 等），训完即冻结，把每个患者笔记编码成固定嵌入；再在这些冻结嵌入上训练一个由 M 个随机初始化 MLP 头组成的分类器集成，训练目标在常规判别损失之外加上两层不确定性约束——个体层的 $L_{ind}$ 和队列层的 $L_{coh}$。推理时对 M 个头的输出取平均得到预测概率与不确定性。因为骨干被冻结、只动小分类头，整套校准几乎是即插即用、零额外推理代价的。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["患者临床笔记"] --> B["临床 LM 微调<br/>加权二元交叉熵"]
     B --> C["冻结骨干<br/>编码为固定嵌入"]

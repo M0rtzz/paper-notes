@@ -44,7 +44,7 @@ tags:
 这篇工作不提新算法，它要回答的是"蒸馏到底省不省电"，做法是把同一条蒸馏流水线拆成不重叠的几段、逐段量电，再用闭式公式算出何时才划算。具体地，三个对照 regime（baseline SFT、logit-based KD、synthetic SFT）都跑在同一台 H100 80 GB 独占节点上，固定 OLMo-2 tokenizer、Adafactor、bf16、序列长 1024、有效 batch 4、cosine LR + 100 step warmup、容差 $\epsilon = 2\times 10^{-3}$ 早停；教师统一是 32B OLMo-2-SFT，学生覆盖 1B / 7B / 13B，监督数据是 TULU-3 指令、OpenR1-Math、Open-R1 Codeforces 三套。每段 stage 都打时间戳和 token 计数，对功率序列做 $E_{\text{GPU}} \approx \int_{t_s}^{t_e} P_{\text{GPU}}(t)\,dt$ 积分得 stage 能耗，所有 stage 相加得到端到端 kWh，再用 $E_{\text{total}} \cdot \text{PUE} \cdot g_{\text{region}}$ 推 CO₂e，最终落成三张图：能耗-质量 Pareto、stage 分摊、复用摊销曲线。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["三个对照 regime：baseline SFT / KD / synthetic SFT<br/>同一 H100 独占节点 + OLMo-2 教师 32B"]
     subgraph ACC["分阶段端到端能耗核算（设计 1）"]

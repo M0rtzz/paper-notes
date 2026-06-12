@@ -45,7 +45,7 @@ tags:
 这篇论文要解决的不是某个新模型，而是给"可制造性评估"这件事补上缺失的两块地基：一套统一的概念分类法，和一个真正含有失败案例的数据集。它的逻辑链条是：先用一个二维分类法把混乱的"可制造性"定义切成四个明确象限，让不同论文说的是同一种语言；再据此设计一条参数化弯折 + 物理模拟的合成管线，生成 20,000 件 STEP 零件，每件都带上四象限对应的标签（含大量不可制造设计）；最后把两种代表性 3D 学习架构（UV-Net 和 PointNext）放进这个数据集做基准，用实验回过头验证分类法揭示的洞察——配置相关的指标确实比配置无关的更难学。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     T["可制造性二维分类法<br/>配置依赖性 × 可行性/复杂度 → 四象限标签"]
     subgraph GEN["BenDFM 数据集生成管线"]

@@ -46,7 +46,7 @@ tags:
 BiCLIP 想解决的是：医学分割里图文融合大多是单向的——文本只能给视觉"打标签"，视觉却没法回过头修正文本，一旦标注稀缺或图像本身带噪，这种静态条件化就撑不住。它的做法是把这条单向链接成闭环。一张医学图像配一段临床文本描述送进来，文本经冻结的 CXR-BERT 编成文本嵌入 $\mathbf{t}$，图像经轻量卷积编码器编成视觉嵌入 $\mathbf{i}$；两者先在 BMF 模块里双向融合，让视觉证据反过来精炼文本，并把精炼后的语义"画"成一张伪图像（pseudo image）。伪图像与原图沿通道拼接，再经 IAC 模块构造弱/强两个增强视图，一起喂给同一个 U-Net backbone——一边出分割掩码，一边对两视图的中间特征施加一致性约束。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["医学图像 x"] --> IENC["卷积编码器<br/>视觉嵌入 i"]
     T0["临床文本描述"] --> TENC["冻结 CXR-BERT<br/>文本嵌入 t"]

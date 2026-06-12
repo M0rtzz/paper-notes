@@ -45,7 +45,7 @@ Acon 可以看成一个插在 agent 与环境之间的上下文管理层。Agent
 训练阶段先用初始压缩指南跑任务，收集“完整上下文成功、压缩上下文失败”的 contrastive subset。优化器 LLM 阅读原始上下文、压缩上下文和失败信息，写出压缩遗漏了什么、哪些状态应该保留。随后另一个 update prompt 汇总多条反馈，更新压缩指南。第一轮主要最大化任务成功率，论文称为 utility maximization；第二轮只在压缩后成功的任务上分析哪些信息实际被用到，进一步压短上下文，称为 compression maximization。最后，作者用优化后的大模型压缩器产生输入输出对，LoRA 微调 Qwen3/Phi 等小模型作为压缩器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph SEP["分离式压缩（推理时，插在 agent 与环境之间）"]
         direction TB

@@ -47,7 +47,7 @@ DiBO 把扩散语言模型 LLaDA-8B 适配到离线黑盒优化场景，用 deli
 DiBO 在冻结扩散 LLM 之上加四件事：(a) tokenizer 扩展两组 delimiter `|design-start|/|design-end|` 和 `|label-start|/|label-end|`；(b) 域适应 DA 阶段在统一 prompt-response 语料上联合预测 prompt 和 response 的 masked token；(c) SFT 阶段只预测 response 的 masked token，以「prompt 之外的最高标签设计」作为 target；(d) RL 阶段用 label improvement 作 reward，one-step unmask 近似 log prob。推理时用一次性 greedy unmask 填满 masked response。整条链路是 DA→SFT→RL 三段串行后训练，再接单步推理；三段后训练对应「认识格式 → 给方向 → 给幅度」的递进。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：任务描述 + few-shot（设计,标签）对<br/>+ 生成更优设计的指令"]
     subgraph S1["Delimiter + 统一语料 + 域适应（设计1）"]

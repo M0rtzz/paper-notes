@@ -48,7 +48,7 @@ OA-SORT 要解决的核心问题是：当同类目标互相遮挡时，检测框
 一帧的流转是这样的：KF 先给出位置预测，OAM 据此计算遮挡系数；高分检测关联时 OAO 用 KF 估计侧的遮挡系数修正空间一致性度量；与低分检测关联上的轨迹再经 BAM 调整 KF 的运动参数；帧末 OAM 基于最新观测重算遮挡系数，留给下一帧的 BAM 使用。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["KF 位置预测"] --> OAM
     subgraph OAM["OAM 遮挡感知模块：估计遮挡系数"]

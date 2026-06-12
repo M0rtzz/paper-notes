@@ -46,7 +46,7 @@ DiningBench 是一个 benchmark 数据集,「方法」就是数据构造 pipelin
 整套 pipeline 要解决的是「如何从噪声海量 UGC 里榨出能暴露 VLM 短板的高质量评测题」。它分两阶段:先做 Base Data 构建,从美团 20M UGC 图依次过图像质量评估(Qwen-2.5-VL-7B 蒸馏自 GPT-4 的判别器)→ 685k 图、参考图匹配(验证用户拍照与商家参考图一致)→ 90k 菜、商家参考图质量验证 → 41k 菜、详细成分列表筛选 → 15k 菜,最后按菜系去重平衡 + 人工质检收敛到 6,057 道菜;再做题目生成,用 Gemini-3-Pro-Preview 生成 hard-negative、营养推理与 VQA 题目,每一步都接两轮 LLM 过滤(一轮去掉「太难无法判断」、一轮去掉「太简单一眼可辨」)并以人工复核收尾。最终落成三个认知层级递增的子集:细粒度分类(2,884)、营养估计(1,650)、VQA(804),分别对应下面三个关键设计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["美团 20M 噪声 UGC 图"] --> BASE
     subgraph BASE["Base Data 构建（脚手架·级联过滤）"]

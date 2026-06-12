@@ -44,7 +44,7 @@ tags:
 RedirectQA 的构建分三步：（1）从 Wikidata 收集事实三元组 (subject, relation, object)；（2）利用 Wikipedia 重定向信息为每个主语实体关联规范表面形式和重定向表面形式，并按类别分组；（3）使用关系特定模板将表面实例渲染为问题。数据集建好后，在多个 LLM 上跑一致性评估，并对准确率做实体频率与表面频率的偏相关分解。最终数据集包含 30,560 个表面实例、14,672 个事实三元组、61,120 个问题实现。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Wikidata 事实三元组<br/>(主语, 关系, 宾语)"] --> G1
     subgraph G1["重定向类别分组"]

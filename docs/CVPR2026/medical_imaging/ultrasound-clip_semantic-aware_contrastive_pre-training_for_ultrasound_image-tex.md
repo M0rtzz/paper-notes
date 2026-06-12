@@ -47,7 +47,7 @@ Ultrasound-CLIP 想解决的，是通用 CLIP 在超声上"既缺数据、又缺
 第一条把每个病例文本里的诊断属性关系编码成一张异构图，再融合回文本向量，让文本表示带上"病灶类型—回声—边缘—血流"之间的配套结构；第二条不再把同 batch 里非配对的样本一律当负样本，而是按超声属性的重叠程度给出一个连续值的语义相似度先验。最终训练目标是标准对比损失加一项语义对齐损失，$L = L_{\text{CLIP}} + \lambda L_{\text{semantic}}$，让模型既守住跨模态检索能力，又不会被二元标签逼着忽略临床上"相近但不相同"的病例。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph FND["UDT 知识体系 + US-365K 数据集"]
         direction TB

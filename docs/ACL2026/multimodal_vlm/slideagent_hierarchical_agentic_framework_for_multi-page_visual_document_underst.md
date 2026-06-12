@@ -44,7 +44,7 @@ tags:
 SlideAgent 分为两个阶段运作：(1) **知识构建阶段** — 自顶向下地构建层次化、与查询无关的知识库 $\mathcal{K}=\{\mathcal{K}_g, \mathcal{K}_p, \mathcal{K}_e\}$；(2) **推理阶段** — 根据用户查询分类并选择性激活对应层级的 agent，进行多级检索和答案合成。整个框架是模型无关的，可搭配 GPT-4o 或 InternVL3-8B 等不同骨干模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DOC["多页视觉文档"] --> KB
     subgraph KB["三级知识构建（与查询无关，离线建库）"]

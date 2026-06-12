@@ -44,7 +44,7 @@ tags:
 iTAG 是一条免训练的三阶段逆向设计流水线，直接用 LLM API（默认 Claude Opus）作为推理引擎，把「想要的因果图」翻译成「读起来自然、标注又准的文本」。流程从控制参数出发：Phase 1 先生成一张参数化的因果 DAG（有向无环图）及其邻接矩阵作为目标真值；Phase 2 是全篇核心，把图上的抽象节点逐一替换成真实世界概念，并通过反事实验证保证概念之间诱导出的因果关系与目标图一致；Phase 3 再把带概念的因果图编织成流畅文本。与「先让 LLM 写文本、再被动接受其因果结构」的正向思路相反，iTAG 把因果图当成预先固定的设计目标，让概念赋值反过来去逼近它，从而在源头上消除遗漏与幻觉。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["控制参数<br/>变量数 n / 密度 p / 混淆·碰撞·中介比率"]
     IN --> P1["Phase 1 参数化因果图构建<br/>增强 Erdős-Rényi 生成器 → 目标 DAG + 邻接矩阵 A"]

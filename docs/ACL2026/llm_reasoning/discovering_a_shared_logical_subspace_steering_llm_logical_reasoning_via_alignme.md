@@ -46,7 +46,7 @@ tags:
 分为两个阶段：（1）学习多视图逻辑子空间——收集配对的 NL/符号推理链的残差激活，通过 PCA+CCA 学习最大化跨视图相关性的低维子空间；（2）推理时引导——在模型前向传播中，沿学到的子空间方向放大每个 token 的激活投影，引导生成朝逻辑推理方向偏移。整个引导方案称为 LSS（Logical Subspace Steering），它发生在激活层面，因此可与提示、采样层面的推理技巧正交叠加。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["配对的自然语言证明 + 符号证明"] --> B
     subgraph S1["PCA+CCA 子空间学习（一次性离线估计）"]

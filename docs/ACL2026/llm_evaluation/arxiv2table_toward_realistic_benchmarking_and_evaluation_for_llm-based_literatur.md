@@ -46,7 +46,7 @@ tags:
 arXiv2Table 检验 LLM 在贴近真实工作流的条件下生成文献综述表格的能力，把任务拆成论文检索(T1)→论文筛选(T2)→表格归纳(T3)三个子任务，并在每个环节注入真实噪声。具体地，给定用户需求 $p$，先由 IR 引擎检索含干扰论文的候选集 $C$，再由 LLM 筛出相关子集 $R \subseteq C$，最后生成 $m$ 行 $N$ 列的表格；表格质量则通过 LLM 合成的 QA 对来衡量信息覆盖度。基准整体含 1,957 张表、7,158 篇论文。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["模式无关用户需求 p<br/>GPT-4o 重写标题，不泄露 schema/value"] --> B["IR 检索候选集 C<br/>含人工验证干扰论文（SentenceBERT top-10）"]
     subgraph GEN["迭代批处理生成"]

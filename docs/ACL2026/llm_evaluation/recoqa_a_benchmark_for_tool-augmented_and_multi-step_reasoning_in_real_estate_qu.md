@@ -45,7 +45,7 @@ tags:
 ReCoQA 同时交付一个评测基准和一套强基线。基准侧覆盖 8 个中国城市的小区、POI 与位置配对数据，统一存入 PostgreSQL 并配套 4 类地图 API，问题按"简单查询→联合查询→多步推理"三级难度组织，每条样本都带 SLU 标签、SQL 语句与 API 调用序列的完整中间标注。基线侧的 HIRE-Agent 把"自然语言查询→结构化理解→任务编排→工具执行→答案"拆成前端 Agent、监督 Agent、专家 Agent 三层，关键在于让数据库查询的输出能动态喂给地图 API，从而完成需要跨源耦合的链式推理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["自然语言查询<br/>（如「天河区通勤到集满佳广场≤30分钟的小区」）"] --> FE["前端 Agent<br/>BERT 意图检测 + 槽位填充（SLU）"]
     FE --> SUP["监督 Agent<br/>CoT 生成执行计划，逐步分派子任务"]

@@ -44,7 +44,7 @@ tags:
 SpaHGC 要解决的核心问题是：单切片模型只看一张切片，学不到不同样本之间共享的表达模式。它的思路是把目标切片和若干参考切片织进同一张异构图，让目标 spot 能"借"到参考切片里形态相似的先验知识。整条流水线大致是这样转的：先用病理基础模型 UNI 把每个 H&E patch 编码成视觉嵌入，再围绕每个目标 spot 同时拉起三种边——切片内的空间邻居、跨切片的形态相似 patch、参考切片内部的语义连接，构成一张异构图；然后对节点特征做互补 masking 得到两个增强视图，送进一个共享参数的异构图编码器——其中切片内/参考内的边用 GraphSAGE 聚合、跨切片边交给 CNDA 做双向迁移，再由 CNAP 按目标上下文把参考信息池化进来；最后由回归头从聚合后的目标节点表征预测基因表达，训练时辅以对比损失让两个互补视图的表征保持一致。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["H&E patches → UNI 编码视觉嵌入"] --> B["多模态异构图构建<br/>TS 空间邻居 · CS 跨切片形态 · RS 参考语义"]
     B --> C["互补 Masking 对比学习<br/>生成两个互补增强视图"]

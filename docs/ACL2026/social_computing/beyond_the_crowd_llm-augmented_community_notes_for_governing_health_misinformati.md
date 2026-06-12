@@ -45,7 +45,7 @@ tags:
 CrowdNotes+ 要治的是 Community Notes "写得慢、评得糙"的毛病：输入一条被标为 misleading 的帖子 $p$，输出一条带引证 URL、不超过 280 字符的简洁 note。它给出两种写 note 的模式——**证据增强**（人工先给一组证据 URL $\mathcal{E}_h$，LLM 走 RETRIEVE→MATCH→GENERATE 合成 note $n_h$）和**效用引导自动化**（LLM 自己查证据再写），并在两种模式之上压一套"相关→正确→帮助"的三级评估把关，保证 LLM 写出来的 note 不只是流畅、而是真的站得住。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["被标 misleading 的帖子 p"] --> MODE{"证据来源"}
     MODE -->|人工给证据 URL| AUG["证据增强模式<br/>RETRIEVE→MATCH→GENERATE"]

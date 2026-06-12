@@ -46,7 +46,7 @@ tags:
 Indica 要回答一个被现有文化基准忽略的问题：在印度这种邦、语言、习俗高度多元的国家，"文化常识"到底是全国统一的还是区域性的，LLM 又会不会偏向某些区域。它的构建路径是先基于人类学分类体系（OCM）把日常文化拆成 8 个领域、39 个主题、515 道问题，再到印度北、南、东、西、中五个区域各招募 5 名参与者作答全部问题（共 15,275 条回答），并通过区域内、区域间、全域三层逐级收紧的共识建立金标准。评估端设区域锚定简答（RASA）与区域无关多选（RA-MCQ）双任务，用 Gemini 3.0 Flash 作 LLM 评判者、每题运行 30 次以消除随机性，并以卡方拟合优度检验判定地理偏见的统计显著性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["人类学分类体系 OCM<br/>90+ 主类别"] --> B["基于人类学分类的问题设计<br/>8 领域 / 39 主题，GPT-4 生成 + 人工审核 → 515 题"]
     B --> C["五区域人工作答<br/>北/南/东/西/中 × 5 人 → 15,275 条回答"]

@@ -50,7 +50,7 @@ CURE 以 MedGemma-4B-IT 为基础模型，用 LoRA（rank=16，4-bit）微调，
 **两阶段课程训练**：先用 3000 步在 Chest ImaGenome 上做定位预热，再用 6000 步联合训练 PG、GRG、AGRG 三类任务；多任务阶段每 3000 步暂停一次，用模型在各验证子集上的实测表现（IoU + CXRFEScore）重排数据集级与类别级的采样概率，让训练算力持续倾斜给"还没学好"的数据源与解剖区域。三个关键设计沿这条流水线自上而下展开：先把异构数据统一成指令三元组，再做 AGRG 解剖级分解撑出训练池，最后用误差感知课程动态调度采样。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["三个公开数据集<br/>Chest ImaGenome · PadChest-GR · MS-CXR"]
     A --> B["统一指令格式<br/>异构标注 → (图像,指令,响应) 三元组"]

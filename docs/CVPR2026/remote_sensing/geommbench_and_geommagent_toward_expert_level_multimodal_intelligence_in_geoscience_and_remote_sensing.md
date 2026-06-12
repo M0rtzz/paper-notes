@@ -38,7 +38,7 @@ GeoMMBench 是首个专家级、知识驱动的地球科学多模态基准，跨
 这篇论文有两个产物：GeoMMBench 是专家级地球科学多模态评测基准，含 1053 道带图的多选题；GeoMMAgent 则是配套的多智能体框架，按「规划→执行→自评估」（plan–execute–evaluate）组织起检索、感知、推理三类专用工具，把通用 MLLM 接上领域知识库和遥感专用模型，去补它们在地球科学上的短板。前者负责「量出差距」，后者负责「补上差距」。下图是 GeoMMAgent 的工作流：统一协调器先做规划，再把子任务分派给三类智能体执行，汇总后交自评估模块校验，发现不一致就回到规划重跑。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["输入：图像 + 问题"] --> PLAN["规划<br/>协调器拆解子目标、选工具、定调度"]
     PLAN --> EXEC

@@ -38,7 +38,7 @@ tags:
 GeodesicNVS 要解决的是扩散式新视角合成靠"噪声到数据"的随机转换、跨视角预测不一致，而现有条件 Flow Matching 又只用简单线性插值、抓不住数据流形非线性几何的问题。它的 PDG-FM 框架按三步搭起来，分别对应下面三个关键设计：先用 **Data-to-Data Flow Matching（D2D-FM）** 在同一场景不同视角的编码对 $(x_0, x_1)$ 之间学一条确定性流、彻底甩掉噪声先验；再用 **概率密度测地线（PDG）** 定义一个与数据密度成反比的度量，把"好路径"刻画成沿流形高密度区行进的测地线；最后用 **GeodesicNet 蒸馏** 以 teacher-student 把这条测地线离线学出来、再当几何插值喂回 D2D-FM，让中间帧是真实的视角变换而非简单混合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源视图 + 目标相机位姿"] --> B["条件编码<br/>CLIP 语义 + Plücker 射线 + VAE 空间特征"]
     B --> C["Data-to-Data Flow Matching（D2D-FM）<br/>VelocityNet v_θ 在编码对 (x0,x1) 间学确定性流"]

@@ -45,7 +45,7 @@ tags:
 DQA 把企业 IT 故障排查建模成一个带显式诊断状态的多轮循环：用户给出模糊症状后，系统每一轮都做"查询重写→检索相似工单→按根因聚合→更新诊断状态→选择行动→生成响应"，让对话从"广泛提问"逐步收敛到"精准排查"再到"给出解决方案"。其核心是把传统 RAG 的逐文档处理抬升到根因层面，并用一个跨轮持久化的假设-权重向量来承载诊断进展。下面三个设计分别负责证据怎么聚、状态怎么记、行动怎么选。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["用户模糊症状 / 上轮对话"] --> B["查询重写"]
     subgraph G1["RAggG 检索聚合生成"]

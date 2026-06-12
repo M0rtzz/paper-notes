@@ -46,7 +46,7 @@ tags:
 REL-SF4PASS 要解决的是全景（360°×180°）RGB-D 分割里「深度表示不完整 + 融合不分区域」两个痛点，对应两个核心设计：REL 表示和 SMMF 融合。它是一个双分支结构：RGB 一支、REL 深度一支并行编码；前端先把原始深度图转成柱面坐标下的三通道 REL 表示，编码过程中再在多个阶段插入 SMMF 融合单元，让每个空间区域自己决定该不该融合、怎么融合，最后由解码器输出语义分割图。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     RGB_IN["全景 RGB 图（ERP 投影）"]
     D_IN["原始深度图（ERP 投影）"]

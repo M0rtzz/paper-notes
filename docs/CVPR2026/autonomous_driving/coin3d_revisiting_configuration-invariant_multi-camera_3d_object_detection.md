@@ -42,7 +42,7 @@ tags:
 CoIn3D 包含两个核心模块：**空间感知特征调制 (SFM)** 和 **相机感知数据增强 (CDA)**。训练时，CDA 先通过 3DGS 渲染随机配置的新视角图像，再经 SFM 将空间先验嵌入特征；推理时仅用 SFM 即可泛化到新配置。框架可即插即用到 bottom-up BEV（BEVDepth）、top-down BEV（BEVFormer）、稀疏查询（PETR）三大范式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["多相机图像 + LiDAR 序列"]
     subgraph CDA["相机感知数据增强 CDA（仅训练时，免训练 3DGS）"]

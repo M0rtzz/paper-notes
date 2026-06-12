@@ -43,7 +43,7 @@ tags:
 观测一条连续时间 Glauber 轨迹 $\{\mathbf{Y}^{(t)}\}_{t=0}^T$，每个时间 $S_n$ 随机选一个坐标 $I^{(n)} \in [p]$ 按条件高斯 $\mathcal{N}(\sum_{j\in N(i)} \beta_{ij}X_j^{(n-1)}, \sigma_{X_i|N(i)}^2)$ 更新。数据集 $\mathcal{D} = \{(\mathbf{X}^{(n)}, S_n, I^{(n)})\}_{n=0}^N$。算法目标是恢复底层图 $G$ 的边集 $E$。同一条轨迹下作者给出两条对偶路线：LET-GL 不假设链已 mix，直接在轨迹上对每条候选边做假设检验；BTR-GL 假设 Dobrushin 条件成立，先 burn-in 丢掉前 $\mathfrak{b}$ 步、再每 $\mathfrak{t}$ 步保留一个样本 $\mathbf{Y}^{(s)} := \mathbf{X}^{(\mathfrak{b}+s\mathfrak{t})}$，把"解相关"后的 $\{\mathbf{Y}^{(s)}\}$ 当作近似 i.i.d. 高斯样本喂给 DICE 等现成 i.i.d. 结构学习器；而这条 reduce 路线能否成立，全压在 Lemma 10 给出的高维 TV mixing 上界上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Glauber 轨迹 D<br/>(状态 X、时间 Sₙ、更新坐标 I)"]
     A -->|"不假设 mixing"| C

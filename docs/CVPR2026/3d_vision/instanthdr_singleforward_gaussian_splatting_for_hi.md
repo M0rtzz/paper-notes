@@ -52,7 +52,7 @@ tags:
 输入V张未标定多曝光LDR图像{Iᵥ, ℓᵥ} → 双分支架构：①几何分支（冻结的VGGT/AnySplat预训练交替注意力Transformer）估计深度Dᵥ和位姿pᵥ → ②外观分支：曝光归一化F_E → 几何引导跨视角注意力融合F_A → DoG高分辨率上采样F_U → 高斯头F_G合并两分支输出HDR 3D高斯 → MetaNet F_M预测色调映射参数θ → 任意曝光ℓ的LDR渲染。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：V 张未标定多曝光 LDR 图像<br/>{Iᵥ, 曝光 ℓᵥ}"] --> G["几何分支（冻结）<br/>VGGT/AnySplat 交替注意力 Transformer<br/>估计深度 Dᵥ、位姿 pᵥ"]
     A --> E

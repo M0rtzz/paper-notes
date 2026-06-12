@@ -46,7 +46,7 @@ tags:
 生成阶段留下两类产物。第一类是每个源句的最佳译文 $T^*$，用于 SFT；第二类是迭代历史中所有“高分译文优于低分译文”的偏好对，用于 DPO 系列训练或奖励模型训练。训练阶段先用高质量参考做 SFT，然后比较隐式偏好优化与显式奖励建模。最终最好的方案是从 SFT checkpoint 出发，训练一个 8B reward model，再用 GRPO 结合复合奖励继续优化策略模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["英文文学原文 S"] --> B["普通翻译器<br/>初始译文 T0"]
     subgraph REFINE["多维度迭代精修"]

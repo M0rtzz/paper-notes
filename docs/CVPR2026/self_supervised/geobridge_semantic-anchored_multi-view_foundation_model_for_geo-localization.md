@@ -38,7 +38,7 @@ GeoBridge 提出语义锚定的多视角地理定位基础模型，将无人机/
 GeoBridge 想解决的是同一个地点在无人机、街景全景、卫星三种视角下"长得完全不一样"，导致彼此难以互相检索的问题。它的整体思路是：先用一个严格共位、带文本标注的多视角数据集（GeoLoc）作为训练基础，再在训练时给每个地点配一段"位置 + 视角感知"的文本描述，让这段文字充当所有视角共享的语义中转站——既把文本拉近到各视角的视觉特征（跨模态一致性），又顺带把不同视角的视觉特征互相拉近（跨视角连贯性）。等表示学好之后，推理时这段文字就可以丢掉：任意两个视角的图像直接比特征相似度即可匹配，需要时也能再用一句话当查询去检索图像。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DATA["GeoLoc 数据集<br/>50K+ 严格共位三元组（无人机/街景/卫星）<br/>+ 统一文本描述，覆盖 36 国"]
     DATA --> DISTILL["蒸馏出位置·视角感知文本描述<br/>作为跨模态语义锚点"]

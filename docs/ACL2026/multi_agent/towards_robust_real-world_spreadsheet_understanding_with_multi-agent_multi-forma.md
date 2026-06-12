@@ -46,7 +46,7 @@ tags:
 SpreadsheetAgent 是一个两阶段框架。**结构提取阶段（Structure Extraction Stage）**：提取智能体（Extraction Agent）扫描表格、识别层级表头/合并单元格/多 sheet 等结构线索，并借助代码执行、视觉范围智能体、LaTeX 范围智能体三种工具增量解析选定的局部区域，把内容与布局压缩成 YAML 格式的结构草图（structural sketch）和行列摘要。其间双通道交叉验证模块只对不确定或结构复杂的区域抽查，发现错误就返回修正建议，与提取构成「提取-验证-修正」迭代循环，直到表示足够忠实。**求解阶段（Solving Stage）**：把验证通过的 YAML 中间表示注入下游上下文，进行任务驱动推理得到答案。整套流程不一次性加载整张表，因而在 LLM 上下文预算内仍能保留布局语义。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["真实电子表格<br/>(层级表头 / 合并单元格 / 多 sheet)"] --> B
     subgraph EXT["三工具协作的提取模块"]

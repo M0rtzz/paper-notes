@@ -45,7 +45,7 @@ tags:
 本文要解决的是"一个模型同时把图表图像还原成 Python / R / LaTeX 三种语言的可执行脚本"，难点在于这三件事既共享同一份图表语义理解、又各自需要走不同语法的专门通道。方法分两条主线：数据侧用"元数据-模板"管线把单语言脚本批量合成跨语言视觉等价的三语言脚本，得到 176K 四元组数据集 Chart2NCode；模型侧在 LLaVA 风格的"SigLIP 视觉编码器 + 两层 MLP 投影器 + DeepSeek-Coder 后端"上并联一个语言条件的低秩子空间适配器 CharLuMA，让视觉 token 在共享 MLP 之外按目标语言动态选取子空间组合。整体流程是：图表图像经视觉编码后，由"共享 MLP + 语言路由的子空间适配器"产生语言自适应视觉 token，再交给 LLM 自回归解码出对应语言脚本；训练则分"模态对齐预训练"和"指令微调"两阶段渐进进行。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["元数据-模板对齐管线（设计 1）"]
         direction TB

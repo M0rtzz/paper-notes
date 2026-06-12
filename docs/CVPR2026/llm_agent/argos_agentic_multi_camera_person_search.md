@@ -41,7 +41,7 @@ tags:
 下面先讲清楚三个最容易被略过的核心概念，再给一个完整的推理 walkthrough。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["目击者初始陈述 + 候选行人库 G"] --> B
     subgraph LOOP["每轮：四模块智能体 (Analyst→Planner→Interviewer→Interpreter)"]

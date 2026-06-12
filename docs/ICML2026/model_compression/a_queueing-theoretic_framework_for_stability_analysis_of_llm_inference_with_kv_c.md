@@ -45,7 +45,7 @@ tags:
 本文把"显存约束下的 LLM 推理"建模成一个分两层的排队系统：系统层描述请求怎么进出 GPU，稳定性层用 Lyapunov drift 判断队列会不会爆。系统层里请求以 FCFS/SJF 调度、混合连续批处理——多个请求的 prompt chunk 与 decode token 可以塞进同一批次，唯一硬约束是显存 $\sum_{i\in S(t)} c_i^{(t)} \hat s + d_i^{(t)} \leq M$（$c_i^{(t)}$ 是请求 $i$ 已处理的 chunk 数，$d_i^{(t)}$ 是已生成的 token 数）。稳定性层把所有在跑请求的"剩余进度"打包成一条离散时间 Markov 链状态，用势函数 $V(t) = \sum_i g(s_i, o_i)$ 度量系统总负载，再看每步 drift $\mathbb E[V(t+1)-V(t)] = -M(1-\delta) + \lambda \bar b \mathbb E[g(s,o)]$ 是正是负——负则稳定。最终落到一条闭形条件 $\lambda < \mu(1-\delta)$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["请求到达（速率 λ）<br/>各带 prompt 长 s、生成长 o"] --> B
     subgraph SYS["分块预填 + 连续批处理（系统层）"]

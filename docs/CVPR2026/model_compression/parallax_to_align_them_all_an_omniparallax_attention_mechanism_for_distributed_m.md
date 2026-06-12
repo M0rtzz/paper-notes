@@ -46,7 +46,7 @@ tags:
 ParaHydra 要解决的是分布式多视角压缩里"编码端各管各、解码端怎么把多路对齐到一起"的问题。整体怎么转：每个视角图像 $x_k$ 在自己的编码器里独立压成潜表示 $y_k$，编码端之间互不通信；量化后的所有 $y_k$ 一起送进联合解码器 Para-JD，在这里跨视角的特征第一次被对齐、融合，再各自重建出图像；熵编码侧用 Para-EM 把通道上下文、局部空间上下文、全局空间上下文三类先验拼起来给出更准的比特率估计。OPAM 是贯穿 Para-JD 和 Para-EM 的同一块底层零件——无论"对齐哪两路视角"还是"对齐哪两个通道切片"，都靠它来度量相关性、生成对齐特征；它的输出由 PMIFM 包装成"按相关性加权融合"的通用算子，再分别嵌进 Para-JD（融合视角）和 Para-EM（融合通道切片）。整个框架用一个 R-D 损失端到端训。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["K 个视角图像 x_k"] --> B["独立编码器 E_k<br/>编码端互不通信"]
     B --> C["量化潜表示 ŷ_k"]

@@ -43,7 +43,7 @@ Wan-Weaver 要解决的是「一句指令生成一篇穿插文字和插图的连
 具体一轮是这样转的：用户指令先进规划器（基于 QWen2.5-VL-32B 的 Think 版），它输出一段正常的文字，并在该插图的地方吐出 `<imagine>…</imagine>` 标签，标签里是一段对这张图的密集描述；可视化器（Twin DiT）拿到这段密集描述去做扩散生成，同时通过 DPCW 注意力回看上下文里之前已经生成的图像特征，从而画出一张和前文风格、角色都对得上的新图；如此交替，最终拼成图文交错的输出。而支撑这套推理的，是一套把规划与画图彻底拆开、各练各的训练流程：先用文本代理数据训规划器、用参考图数据训可视化器，两者各练各的、互不污染。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["解耦训练：三阶段轮流冻结、互不污染"]
         direction TB

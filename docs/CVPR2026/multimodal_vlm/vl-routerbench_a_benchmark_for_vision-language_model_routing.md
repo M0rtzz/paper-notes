@@ -43,7 +43,7 @@ tags:
 VL-RouterBench要解决的问题是：来一个"图像+问题"的请求，该把它交给哪个VLM回答，才能在准确率和推理成本之间取得最好的平衡——既不浪费大模型的算力，也不让小模型把简单题答错。整套基准把这件事拆成一条可复现的流水线：先收集 17 个候选模型在 14 个数据集上的真实推理日志，离线刻出"谁能答对、各花多少钱"的质量-成本矩阵；再用这张矩阵训练路由器，训练信号是一套带温度参数的软标签，可以连续调节"偏准"还是"偏省"；最后用统一的多维指标（平均准确率、平均成本、吞吐量，以及把两者拧成一个数的 Rank Score）横向比较 10 种路由方法。被评测的路由器分两类：一类是**特征级**——冻结文本/视觉编码器抽嵌入，后面接 KNN/MLP/Linear 之类的轻量分类器；另一类是**端到端**（如 RouterDC、VLC），直接从多模态输入预测该选哪个模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["质量-成本矩阵（数据准备）"]
         direction TB

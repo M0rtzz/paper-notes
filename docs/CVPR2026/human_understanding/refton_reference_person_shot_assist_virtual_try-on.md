@@ -38,7 +38,7 @@ tags:
 RefTon 要解决的是「人对人虚拟试穿」：给一张源人物图和一件目标服装，让源人物穿上这件衣服，而且额外允许塞一张「别人穿着这件衣服」的参考图来补全服装细节。整条 pipeline 建在 Flux-Kontext 骨干上——源人物图（或其遮罩版）、目标服装图、可选参考图都先经 VAE 编码成潜变量，再沿序列维拼成一条 token 序列，丢进 DiT（Diffusion Transformer）去噪还原出穿好衣服的目标图。难点不在去噪本身，而在两件事：训练人对人模型需要的「非配对三元组」数据现实中根本不存在，以及多张异构条件图怎么在一个序列里被模型分清楚。RefTon 用两阶段训练造数据、用缩放位置索引区分条件、再用一条数据流水线把参考图也造出来，逐一拆掉这些障碍。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["两阶段训练策略（造非配对三元组）"]
         direction TB

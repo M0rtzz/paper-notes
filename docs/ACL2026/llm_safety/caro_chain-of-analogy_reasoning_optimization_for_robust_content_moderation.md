@@ -45,7 +45,7 @@ tags:
 CarO 想让 LLM 学会人类审核专家那套"先回忆相似先例、再综合先例与准则下判断"的类比推理，而不是被表面线索牵着走。它用两阶段训练把这种能力灌进模型：第一阶段先借 RAG 检索出相似案例、引导一个强模型写出带类比参考的推理链，再用这些链做 SFT；第二阶段用定制 DPO，把"带类比"的链当正样本、"不带类比"的链当负样本，强化模型优先走类比这条路。训练完成后部署时不再需要任何外部检索——模型已经能自己"想象"出贴合当前输入的类比案例。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["训练样本"]
     subgraph S1["引导式类比推理链生成 COAT（阶段一）"]

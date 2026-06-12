@@ -44,7 +44,7 @@ tags:
 AFRO 是一个自监督的 3D 视觉预训练框架，目标是让点云编码器学到"与机器人操控相关的动态信息"，而不是只学单帧静态几何。它把"理解动作"拆成一对互逆的模型：逆动力学模型（IDM）从前后两帧推断"做了什么"（潜在动作），前向动力学模型（FDM）再根据当前帧和这个潜在动作预测"将会怎样"（未来特征）；逆一致性约束保证正反向时序对称、防止退化；外加 EMA 教师 + VICReg 提供稳定的预测目标并防特征坍缩。整套用 RH20T 大规模真实数据预训练，PointNet++ 当 backbone，全程无需任何动作标注。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RH20T 点云序列<br/>PointNet++ 编码当前帧与未来帧特征"] --> B["逆动力学模型 IDM<br/>对两帧特征作差分推断潜在动作 α"]
     B --> C["前向动力学模型 FDM<br/>DiT 扩散去噪预测未来帧特征"]

@@ -44,7 +44,7 @@ P-Check 的核心是把个性化奖励建模拆成两步：先离线学一个小
 输入是一名用户的历史偏好 $H_u$、当前 query $q$ 和候选回答 $y$。传统 reward model 直接估计 $r(y \mid H_u, q)$，把用户信号压成一个隐式上下文；P-Check 在中间插入一个显式 checklist $C_{u,q}$，把奖励改写成由候选回答、query、用户历史和 checklist 共同决定的判断 $r \sim P_\theta(\cdot \mid y, q, H_u, C_{u,q})$，相当于在 judge 面前摆出一份“此处该看哪几条”的明细。训练时离线从偏好数据中蒸馏 checklist 并标注每条准则的重要性，用来教一个 3B 小模型当 generator；推理时则只剩下 generator 生成 checklist、judge 逐条打分两件事，因此训练复杂但测试开销只比裸 judge 多一次清单生成和准则级评分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["用户历史 H_u + 当前 query q + 偏好对 chosen/rejected"] --> B["压成通用偏好 GP_u<br/>(内容/语气/推理/结构)"]
     B --> C["蒸馏动态 checklist<br/>隐式用对比、显式只出准则"]

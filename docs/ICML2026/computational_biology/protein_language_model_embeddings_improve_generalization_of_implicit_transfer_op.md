@@ -45,7 +45,7 @@ PLaTITO 要解决的是「如何用更少的轨迹数据训出能泛化到全新
 网络分两阶段：条件网络 $f_c$ 先从 $(x_t,\Delta t,S,T,e_{\text{seq}},e_{\text{struct}},A_{LLM})$ 提一个残基级条件表示 $c\in\mathbb{R}^{L\times d}$；速度网络 $f_v(z_s,s,c)$ 再在流匹配时间 $s\in[0,1]$ 上预测速度 $v\in\mathbb{R}^{3L}$。两者都是 Proteina 风格的非等变 Transformer，残基-对表示用作 attention bias。推理时从 $\mathcal{N}(0,I)$ 出发用学到的速度场做 ODE 积分得到 $x_{t+\Delta t}$，迭代 1000 步、每步 $\Delta t=1\,\mathrm{ns}$ 即得 1 µs 轨迹。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入：Cα 主链 x_t、序列 S<br/>温度 T、时间步长 Δt"]
     P["pLM 残基嵌入（零开销序列先验）<br/>ESM Cambrian 离线预算 e_seq"]

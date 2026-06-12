@@ -50,7 +50,7 @@ tags:
 本文的做法是把两者串成两阶段：先用 Material Point Method（MPM）物理仿真把动态粒子的参考运动轨迹算出来当先验，再训练一个循环神经动力学模型，通过 Physics-Guided Score Distillation 在这个先验的"软约束"下联合优化运动和外观。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["静态 3DGS 场景<br/>（多视角图像重建）"] --> PHY
     subgraph PHY["物理运动先验（MPM 仿真）"]

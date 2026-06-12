@@ -46,7 +46,7 @@ tags:
 RATE 以反思式 Core Agent 为中心，把"该用什么评估策略"本身交给模型推理：Core Agent 在 OODA（观察-定向-决策-行动）循环里多轮迭代，每一轮根据当前状态动态调用三种功能子智能体——Evaluation Agent（逐点打分）、Search Agent（在线检索外部知识、弥补知识截止）、Comparison Agent（与既有译文成对比较、校准分数一致性），直到收集到足够证据或达到预设最大轮数才输出最终分数。MENT 数据集则是评估这套框架可靠性的标尺，不进入 RATE 的推理回路。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["源文 + 候选译文"] --> CORE["Core Agent 反思式编排<br/>OODA 循环·迭代多轮"]
     subgraph SUB["三个功能子智能体（Core 按需动态调用）"]

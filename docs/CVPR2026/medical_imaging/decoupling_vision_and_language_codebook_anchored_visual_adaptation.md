@@ -44,7 +44,7 @@ CRAFT（Codebook RegulAted Fine-Tuning）要回答一个很实际的问题：能
 整套流程分训练、推理两段：**训练时**借助一个冻结的**替代语言模型**和三个损失（替代对齐 / 承诺 / 对比）把领域知识注入编码器；**推理时**再用**测试时 token 剪枝**压缩冗余 token，把适配好的编码器接到任意共享同一 codebook 的冻结 LLM 上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["输入图像"] --> ENC["视觉编码器 Eθ<br/>训练时唯一可更新"]
     ENC --> Q["最近邻量化<br/>冻结共享 codebook"]

@@ -42,7 +42,7 @@ tags:
 REAL 要解决的是一件具体的事：让 LLM-as-a-Judge 在 RL 后训练里也能"差一分也算差"。输入是评测样本对 $(x, y^*)$，$x$ 是待评测的"prompt + response"组合，$y^* \in \mathcal{K} = \{0, 1, \dots, 9\}$ 是单字符数值标签；策略 $\pi_\theta$ 先自回归产出一段 CoT $c$，再给出数字。关键转折在于它不直接采样这个数字，而是用 RAIL 期望值预测器 $\hat y_\theta(x, c) = \sum_{k \in \mathcal{K}} k \cdot \pi_\theta(k | x, c)$ 把整个 0–9 分布"塌"成一个连续期望，对它做平方误差。训练时对每条 $x$ 采 $K$ 条 CoT，用 RLOO 估计 advantage，再按一个分解成两项的梯度同时更新策略——一项管 CoT 探索，一项管数值预测精修。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["评测样本 (x, y*)<br/>x = prompt + response，y* ∈ {0..9}"] --> B["策略 πθ 采样 K 条 CoT c"]
     subgraph D1["REAL 目标与策略相关奖励"]

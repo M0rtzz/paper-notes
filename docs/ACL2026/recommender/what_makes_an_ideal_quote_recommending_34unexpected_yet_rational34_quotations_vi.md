@@ -46,7 +46,7 @@ NOVELQR 提出了一个新颖性驱动的引用推荐框架，通过生成式标
 NOVELQR 想推荐"出人意料却合情合理"的引用，把这个目标拆成"先保证合理、再保证意外"两段串行的流程。给定一段写作上下文，系统先用一个生成式标签代理把引用知识库里的每条引用从表面文本"翻译"成深层语义解释和多维标签，再在这个深层语义空间里检索出语义合理的候选集，最后用一个 token 级新颖性估计器对候选重排，结合流行度和语义匹配信号产出最终推荐。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     CTX["写作上下文"]
     KB["引用知识库（原文）"]

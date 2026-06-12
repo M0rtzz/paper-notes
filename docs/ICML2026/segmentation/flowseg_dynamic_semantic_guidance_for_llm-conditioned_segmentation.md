@@ -43,7 +43,7 @@ tags:
 FlowSeg 继承 LISA / X-SAM 那套双视觉编码 + LLM + query decoder 的标准 scaffold：(1) 一个 Vanilla Encoder（SigLIP2-so400m）抽语义特征送进 LLM，(2) 一个 Segmentation Encoder（SAM-ViT-L）抽像素特征 $\mathbf{F}_{\text{pix}}$ 给分割 decoder。LLM 用 Qwen-3，输入指令里嵌 `<p>...</p>` 标短语跨度、`<SEG>` 标分割输出位。从 LLM 隐藏态取两类向量：条件嵌入 $\mathbf{C}_{\text{LLM}}$（来自 `<p>` 跨度）和分割嵌入 $\mathbf{S}_{\text{LLM}}$（来自 `<SEG>` 位置），各自经投影 $\phi_{\text{llm}}$ 得到 $\mathbf{C},\mathbf{S}$。$\mathbf{S}$ 加到初始 query $\mathbf{Q}^{(0)}$ 上提供全局多模态上下文。Decoder 采用 Mask2Former 架构 + $N=200$ query，但 FlowSeg 把每层 decoder 的内部流程换成双向语义流 BSF——它由两条子流组成：SR（语言流进视觉）与 CR（视觉反过来刷新条件）；输出阶段对 mask 概率做 BAR 细化；最终用 $L$ 层后的 $\mathbf{Q}_{\text{out}}$ 与最终 $\mathbf{C}^L$ 匹配出 mask。三个贡献模块 SR / CR / BAR 即下面的三个关键设计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["输入图像 + 指代指令"] --> VE["Vanilla Encoder<br/>SigLIP2 语义特征"]
     IMG --> SE["Segmentation Encoder<br/>SAM-ViT-L 像素特征 F_pix"]

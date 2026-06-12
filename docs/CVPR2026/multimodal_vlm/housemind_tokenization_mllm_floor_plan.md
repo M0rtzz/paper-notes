@@ -46,7 +46,7 @@ tags:
 整条链路分三段：先做层次化 token 化得到统一词汇表与交织序列，再用三阶段对齐训练把空间 token 和文本 token 拉到同一表征空间，最后在这个对齐好的自回归 LLM 上统一地做理解 / 生成 / 编辑。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：平面图（轮廓 x_o + N 个房间）+ 文本指令"]
     subgraph TOK["层次化房间实例 Token 化"]

@@ -46,7 +46,7 @@ tags:
 E2EDev 把“端到端软件开发”这件模糊难判的事，做成一个可确定性打分的评测闭环。它从 46 个真实 GitHub Web 项目出发，先通过 HITL-MAA（人机协同多智能体标注框架）反向抽出 244 条细粒度用户需求，再为每条需求写出 Gherkin 格式的 BDD 测试场景及对应的 Python 步骤实现；评测时把被测框架生成的项目跑起来，用 Behave 框架模拟真实用户交互逐条执行这些 BDD 测试，从需求级和测试级两个粒度判定生成代码到底有没有满足需求。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["46 个真实 GitHub Web 项目"] --> B["Test ID 锚点系统<br/>GPT-4o 为关键 UI 组件分配唯一 test ID"]
     subgraph HITL["HITL-MAA 标注框架（人机协同逆向需求与测试）"]

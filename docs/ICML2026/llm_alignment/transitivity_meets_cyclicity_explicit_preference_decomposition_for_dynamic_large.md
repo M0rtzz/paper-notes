@@ -48,7 +48,7 @@ HRC 把人类偏好显式拆成正交的「传递标量分量」（BT 模型）+
 HRC 模型本身的结构是：共享的 LLM hidden state $\mathbf{h}_{\mathbf{y}|\mathbf{x}}$ 经过三个 head——transitive head 给出标量 reward $r_\phi(\mathbf{y}|\mathbf{x}) = \mathrm{clip}(\mathbf{w}_r^\top \mathbf{h}, -\delta, \delta)$，cyclic head 给出单位向量 $\mathbf{v}(\mathbf{y}|\mathbf{x}) = \mathbf{W}_c \mathbf{h} / \|\mathbf{W}_c \mathbf{h}\|_2$，context gating 给出 $\mathbf{D}(\mathbf{x}) = \mathrm{diag}(\lambda(\mathbf{x})) \otimes \mathbf{I}_2$。最终偏好得分 $s_{\mathrm{HRC}} = C_1(r(\mathbf{y}_w) - r(\mathbf{y}_l)) + C_2(\mathbf{v}_w^\top \mathbf{D}(\mathbf{x}) \mathbf{R}^{\succ} \mathbf{D}(\mathbf{x}) \mathbf{v}_l)$ 用 BCE loss 端到端训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["prompt x + 一对回复 y_w / y_l"] --> BB["共享 LLM backbone<br/>hidden state h"]
     subgraph HRC["HRC 偏好分解（传递标量 + 循环向量两路相加）"]

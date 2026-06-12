@@ -46,7 +46,7 @@ tags:
 Faithful-First RPA 想解决的是：MLLM 推理链里那些"看似有理、实则没有视觉证据"的步骤（比如把黑色自行车说成黄色），现有 CoT/ReAct 都是先把整条链写完再回头查，错误早已传播。它的做法是把验证拼进生成循环里——输入图像和问题后，MLLM 每生成一步，先交给 FaithEvi 评估这一步声称的对象是否真在图里、给出忠实性分数；分数不达标就由 FaithAct 把这一步连同更新后的证据打回 MLLM 重写，达标了才接进推理链、再继续下一步。两个组件一个负责"量"（FaithEvi 评分），一个负责"管"（FaithAct 卡点修正）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 + 问题"] --> B["MLLM 生成推理步骤"]
     B --> C

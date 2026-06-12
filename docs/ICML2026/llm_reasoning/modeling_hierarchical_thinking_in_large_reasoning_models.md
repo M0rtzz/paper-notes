@@ -48,7 +48,7 @@ tags:
 在线阶段：自回归生成时持续检测句末标点（`. ? !`）作为干预时机；遇到边界就用分类器估当前/下一状态，按 Q-Value 策略决定是否引导、引导到哪个目标状态 $q^\star$，然后把对应引导向量在隐藏空间做正交分量注入，最后照常继续生成。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["离线 FSM 抽象"]
         direction TB

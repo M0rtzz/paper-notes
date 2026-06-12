@@ -38,7 +38,7 @@ tags:
 HyperGaussians是一个即插即用的表示增强模块。原始pipeline（如FlashAvatar）中MLP输出表情依赖的偏移$\Delta\mu, \Delta r, \Delta s$；使用HyperGaussians后，MLP改为输出一个潜在向量$z_\psi$，通过高维高斯的条件分布计算得到MAP估计的偏移量。整个过程只需替换高斯表示，其他部分（损失函数、超参数）完全不变。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["表情参数"] --> M["原 pipeline 变形 MLP<br/>即插即用集成：唯一改动是输出潜码 z 而非直接偏移"]
     subgraph HG["HyperGaussian 表示层（替换原 3D 高斯）"]

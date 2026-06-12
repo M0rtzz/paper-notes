@@ -43,7 +43,7 @@ tags:
 输入 $\tilde X \in \mathbb{R}^{T \times F}$ 和缺失掩码 $M$，每个位置拼出 $e_{t,i} \in \mathbb{R}^{d_e}$（值 + 正弦 PE + 身份 + mask），过线性层投影到隐维 $d$ 得到 $H^{(0)}$；接 $L$ 个 Hybrid Encoding Layer，每层输出 4 个分支 $H_T^{(l)}, H_F^{(l)}, H_{TF}^{(l)}, H_{FT}^{(l)}$ 平均得 $H^{(l)}$；最后做 multi-level fusion $\tilde H = \frac{1}{1+4L}(H^{(0)} + \sum_l \text{分支总和})$，过 LayerNorm + 线性层得 $\hat X$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：缺失序列 X̃ + 掩码 M"] --> EMB
     subgraph EMB["特征身份嵌入（FeatID）"]

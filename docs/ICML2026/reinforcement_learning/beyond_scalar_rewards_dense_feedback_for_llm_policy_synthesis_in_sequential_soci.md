@@ -46,7 +46,7 @@ tags:
 框架接收环境描述和 LLM 作为输入，执行 $K$ 轮迭代循环，每轮走完「合成→校验→评估→反馈」四个阶段：LLM 根据系统提示和上一轮反馈生成 Python 策略代码 $\pi_k$，经过 AST 安全检查和 50 步冒烟测试验证（失败回填错误信息重试，最多 3 次）后，在 $N$ 智能体同质自博弈中评估，算出平均回报和社会指标，最后按指定反馈级别（sparse 或 dense）打包反馈给下一轮。所有 $N$ 个智能体共享同一策略代码，策略函数可访问完整环境状态和 BFS 寻路等辅助工具库。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：环境 G + 冻结 LLM M<br/>系统提示 p（环境 API 描述）"] --> B
     subgraph LOOP["迭代 LLM 策略合成循环（设计 1，共 K 轮）"]

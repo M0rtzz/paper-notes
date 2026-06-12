@@ -44,7 +44,7 @@ tags:
 MathAgent 分为两个解耦阶段：(1) Meta-Level 结构进化：Legislator 三Agent系统在约束图空间中对抗进化，产出优化的问题骨架 $\mathcal{G}^*$；(2) Base-Level 语义实例化：Executor 将 $\mathcal{G}^*$ 和风格令牌 $\mathcal{S}$ 转化为自然语言问题 Q 和推理链 A。最后通过外部模型验证筛选合格样本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["初始化（对抗机制自动构建）<br/>概念分类学 + 风格令牌池 S"] --> G0["约束图表示<br/>G=(V,E)：节点=概念，边=逻辑关系"]
     subgraph LEG["Legislator 三 Agent 进化系统（Meta-Level）"]

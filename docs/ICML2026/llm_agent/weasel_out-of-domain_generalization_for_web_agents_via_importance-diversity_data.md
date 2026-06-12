@@ -45,7 +45,7 @@ tags:
 Weasel 把"如何用更少数据训出更能泛化的 Web Agent"拆成一条流水线：先从冗长嘈杂的专家轨迹里挑出既相关又多样的步骤子集，再对每个保留步骤的网页状态做目标中心剪枝去掉无关上下文，最后针对推理原生模型补一层风格一致的推理过程。三步分别解决数据"选哪些""留多少""怎么训"的问题，最终只用约 20% 数据就追平甚至超过全量微调。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["专家轨迹<br/>冗长嘈杂，单条最多 45 个状态-动作对"]
     subgraph SEL["重要性-多样性轨迹子集选择"]

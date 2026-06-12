@@ -46,7 +46,7 @@ tags:
 这篇论文的出发点是诊断「现有渲染合成数据到底差在哪」，结论是语料、字体、布局三方面多样性都不够，于是给出 **UnionST 渲染引擎**逐一补齐，再叠一个**自演化学习框架 SEL** 把少量真实数据的价值榨干。整条 pipeline 串成四段：① UnionST 引擎从增强语料库采样文本、选兼容字体、逐字符独立渲染并计算位置/方向/大小参数，再施加弹性变形/透视/边框、选背景并按颜色对应表上色，输出合成图像与标签，得到 5M 的 UnionST-S；② 训练时再叠 DTAug 在线增强补足小尺寸/模糊样本；③ 识别模型选用把 CTC 解码器换成注意力 AR 解码器的 SVTRv2-AR；④ SEL 用模型给无标注真实数据打伪标签、把伪标签当语料合成 UnionST-P 与 UnionST-S 合并重训，再做 ISR 迭代自精炼，最后只对约 9% 低置信样本人工标注，逼近全监督上界。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     G["诊断三大瓶颈<br/>语料 / 字体 / 布局多样性不足"]
     subgraph ENGINE["UnionST 数据引擎"]

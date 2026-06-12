@@ -44,7 +44,7 @@ tags:
 对样本 $(\mathbf{X} \odot \boldsymbol{m}, \boldsymbol{m}, y)$（$\boldsymbol{m}\in\{0,1\}^M$ 是缺失掩码），LIMSSR 走三步：(1) Context Construction $\Phi_{in}$ 把指令 prompt、可见模态特征 $\tilde{\mathbf{X}}^m$、missing token 占位序列、fusion token 拼成统一 embedding $\mathbf{Z}_{in}$；(2) LLM 推理 $\mathbf{H}_{out} = \mathrm{LLM}(\mathbf{Z}_{in})$ 同时完成缺失语义推断和多模态融合；(3) Mask-Aware Dual-Path Aggregation $\Psi_{agg}$ 把高层语义路径和底层跨模态路径用掩码加权融合，输出动作质量分 $\hat{y}$。模态侧用冻结的 VST/AST/I3D 提 video/audio/flow 特征，经 2 层 conv 投影到 LLM 输入空间。下面三个贡献模块（PCMI、LMRF、MDA）分别落在输入侧、接口侧、输出侧，恰好对应下文三个关键设计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["可见模态 video/audio/flow<br/>冻结 VST/AST/I3D 提特征 + 2 层 conv 投影"]
     M["缺失掩码 m"]

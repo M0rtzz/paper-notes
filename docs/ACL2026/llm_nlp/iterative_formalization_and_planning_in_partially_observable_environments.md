@@ -44,7 +44,7 @@ tags:
 PDDLego+ 要解决的核心难题是：PDDL 这类规划语言基于封闭世界假设、要求一次性写全初始状态和目标，可现实里 agent 只能看到局部观测，没法一上来就形式化整个世界。它的办法是把"完整规划"拆成一连串"看一点、形式化一点、走一步"的小循环。每个时间步上，LLM 先根据当前文本观测生成 Domain File（$\mathbb{DF}$，定义类型、谓词、动作语义）和 Problem File（$\mathbb{PF}$，定义对象、初始状态、子目标），交给形式化求解器（Fast Downward）搜出一个动作计划，在模拟环境里执行，再拿执行后揭示的新观测回头修订 PDDL——如此往复直到抵达全局目标。与前作 PDDLego 最大的不同是：PDDLego+ 同时推断 DF 和 PF，不再假设 domain file 已经给好。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     OBS["当前文本观测（仅局部可见）"] --> GEN
     DFREUSE["域知识复用<br/>RAG 检索历史成功 DF（可选，固定 DF 只让 LLM 写 PF）"] -.-> GEN

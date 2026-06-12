@@ -46,7 +46,7 @@ tags:
 Stepper 要解决的核心难题是：怎样在不牺牲分辨率和保真度的前提下，让生成的3D场景能"走得远"。它的思路是把场景扩展从逐帧视频生成改写成多视角全景图的逐步生成——每次向前迈一步（固定 0.25m），就用扩散模型补出一张完整的新视角全景图，再把这些全景图重建成统一的3D场景。整条管线分三段接力：先用扩散模型从当前全景生成前方新视角全景，再用前馈式SfM把多张全景提升为一致的3D点云，最后把点云优化成可实时渲染的3D高斯溅射（3DGS）表示。一句话串起来就是：文本 → CubeDiff 出初始全景 → 多步自回归扩展 → MapAnything 重建点云 → 3DGS 优化 → 实时探索。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     T["文本提示"] --> P0["CubeDiff 生成初始全景 P0"]
     P0 --> D

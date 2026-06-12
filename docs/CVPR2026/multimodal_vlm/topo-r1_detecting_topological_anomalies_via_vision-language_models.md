@@ -43,7 +43,7 @@ tags:
 Topo-R1 要解决的是一个"大海捞针"式的检测问题：在一张几乎全对的管状结构 mask 里，找出那个切断了血管或道路连通性的局部错误，并说清它属于哪一类。难点在于既没有目标域的拓扑标注可用，又要让本来对拓扑毫无感知的 VLM 学会这种结构推理。论文的整体思路是"先造题、再两段训练"——先用一条自动化管线把可验证的拓扑异常合成出来当训练数据，然后让 VLM 经过两个阶段学会读懂它们。Stage 1 用合成数据做 SFT，把模型从零样本下近乎随机的水平拉到能稳定输出结构化结果；Stage 2 接 GRPO 强化学习，用一个拓扑感知的复合奖励进一步逼模型把异常找准、分对。整条流程的输入是"图像 + 分割 mask + 检测 prompt"，输出是一份结构化的错误列表，每条给出一个 bounding box 和对应的错误类型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["自动化数据构建管线"]
         direction TB

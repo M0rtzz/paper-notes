@@ -44,7 +44,7 @@ tags:
 输入是公开 YouTube/Zoom 会议录像，输出是可用于训练和仿真的 speaker-labeled civic deliberation 数据集，以及为每个说话人微调出的 persona agent。流程可以分成四步：先从视频中识别活跃说话人并 OCR 出姓名；再用 Whisper 转写音频并把每段话对齐到规范化说话人；然后用 GPT-5 抽取 persona profile、meeting topics 和 action tags；最后把带元数据的上下文序列化为 ChatML 风格样本，用 QLoRA 微调 LLM 预测目标说话人的下一轮发言。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["公开 Zoom/YouTube 会议视频"] --> S1
     subgraph S1["多模态说话人链接"]

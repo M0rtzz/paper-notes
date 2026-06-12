@@ -46,7 +46,7 @@ tags:
 (1) 准备数据集并选择参考链（人工筛选正确、结构良好的 CoT 解释）；(2) 将参考链作为上下文示例，提示模型生成推理链；(3) 使用 NLI 模型计算参考链和生成链各自的成对语义熵矩阵；(4) 比较两个矩阵得到 Alignment Score；得到的分数一方面用于诊断对齐错误，另一方面接入采样策略反过来挑出更优的推理链。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["数据集<br/>ARC-Challenge / ScienceQA"] --> B["参考链选择<br/>人工筛选正确、结构良好的 CoT"]
     B --> C["模型生成推理链<br/>参考链作为上下文示例"]

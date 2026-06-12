@@ -46,7 +46,7 @@ tags:
 长文档 VQA 的难处在于：答案往往只藏在几百页里的一两页，模型若直接吞下全部页面去预测短答案，很容易记住"题面→答案"的捷径而非真正去文档里找证据。DocSeeker 的思路是把这个隐式过程显式化成一条可监督的工作流——先想清楚问题在问什么，再去文档里把相关页找出来，最后只盯着这几页推理。它基于 Qwen-2.5-VL-7B，把每一页的视觉 token 前面缀上一个页面 ID 当指针，让模型能引用"第几页"。输出被强制写成固定的 ALR 结构 $\mathbf{Y} = (\mathbf{Y}_A \oplus \mathbf{Y}_L \oplus \mathbf{Y}_R) \oplus (\mathbf{Y}_E \oplus \mathbf{Y}_F)$：依次是问题分析 $\mathbf{Y}_A$、证据定位（带页号和理由）$\mathbf{Y}_L$、推理过程 $\mathbf{Y}_R$，再加上结构化的证据页号列表 $\mathbf{Y}_E$ 和最终答案 $\mathbf{Y}_F$。这套 ALR 范式（设计一）规定了模型在推理时"长什么样"，但模型并不会天生这么想，需要靠两阶段训练把它教会：先用蒸馏数据 SFT 模仿这套结构，再用证据感知 GRPO（设计二）从结果信号把定位和答案一起拉对；而无论哪个阶段，要把长达几百页的文档塞进显存，都要靠证据引导分辨率分配（设计三）给不同页分配不同清晰度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["文档（N 页）+ 问题"] --> PA
     subgraph ALR["ALR 视觉推理范式（强制输出模板）"]

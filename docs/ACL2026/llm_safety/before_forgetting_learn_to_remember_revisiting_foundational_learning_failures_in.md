@@ -49,7 +49,7 @@ ReMem 重构 LVLM unlearning 评测的两阶段流程：
 数据规模：20 个虚构身份 × 每个 100 QA × 100 张图 = 2,560 样本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["ReMem 数据集构建"]
         direction TB

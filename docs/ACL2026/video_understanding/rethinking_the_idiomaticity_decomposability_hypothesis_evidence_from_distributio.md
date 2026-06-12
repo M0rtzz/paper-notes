@@ -43,7 +43,7 @@ tags:
 论文的 pipeline 可以分成四步。第一步，对每个含习语的句子 $s$ 和对应 gloss-replaced sentence $s_g$，从 BERT/ModernBERT 等双向 transformer 中提取上下文化表征。第二步，计算完整习语句子与 gloss 的相似度，再逐个 mask 习语 token，观察相似度变化，用 token contribution 聚合出 expression-level decomposability。第三步，从 enTenTen 语料中统计习语在不同 constructional frames 中的出现频率，用 Shannon entropy 衡量 syntactic flexibility，并计算频率和 predictability。第四步，在 BERT/ModernBERT 的静态表征分析之外，追踪 OLMo-2 7B 和 OLMo-3 7B 的 100 个预训练 checkpoint，分析 idiom 表征和 gloss 表征的相似度如何随训练推进而变化。其中第一、二步共同构成可分解性指标，第三、四步分别提供句法灵活性证据和学习轨迹证据，最终汇到对 IDH 的相关/回归检验。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["习语句子 s + 释义句 s_g"] --> SUB1
     subgraph SUB1["模型内部可分解性指标"]

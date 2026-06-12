@@ -47,7 +47,7 @@ tags:
 ReLaGS 要在一个已经重建好的高斯场上，既给出多粒度的开放词汇语义、又显式建出物体间的关系图，而且全程不做逐场景训练。它分三步走：先用最大权重剪枝净化几何，去掉那些对任何训练视角都几乎没贡献的浮动高斯；再沿"超点→子部件→部件→物体"做无梯度分层聚类（基于 THGS），配合一套异常值感知的特征聚合得到可靠的语言嵌入；最后在这套层级表示上搭开放词汇 3D 场景图，关系既可由 LLM 标注、也可由 GNN 预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["重建好的 3D 高斯场"] --> B["最大权重剪枝<br/>剪掉对所有视角贡献都极小的浮动高斯"]
     B --> C["多层级高斯表示<br/>THGS 无梯度聚类：超点→部件→物体 L 层嵌套"]

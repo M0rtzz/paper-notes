@@ -46,7 +46,7 @@ SCAN 是一条从“真实用户需求”到“模型能力导航图”的评测
 输入是一批真实用户查询和一组待评测 LLM，输出是每个模型在 writing、roleplay、knowledge、coding、mathematics、reasoning 六个领域及其子标签上的细粒度得分、排名和失败模式。整个系统沿三层组织：taxonomy 层（TaxBuilder）负责把非结构化查询标签插入可编辑的层级树；data 层（RealMix）用真实查询片段和标签约束合成评测查询，保证每个标签都有统计意义上的样本量；evaluation/navigation 层（PC2）用预比较得到的查询特定准则给回答打分，再通过仪表盘和失败模式探索器把分数展示成可检索的能力地图。SCAN-V0 由此构建了 2,082 个标签、3,343 条评测查询，并评测了 21 个主流 LLM。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["真实用户查询 + 待评测 LLM"]
     subgraph TAX["TaxBuilder 层级能力树"]

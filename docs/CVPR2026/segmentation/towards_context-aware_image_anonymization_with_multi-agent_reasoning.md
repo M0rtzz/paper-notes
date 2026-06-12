@@ -43,7 +43,7 @@ tags:
 整体怎么转：图像先进 **Phase 1（预定义处理）**，用现成的专用检测器把高置信度的直接 PII 一次性处理掉——YOLOv8 检出人体后交给 SDXL+OpenPose ControlNet 重绘，YOLOv8s 检出车牌后做高斯模糊，YOLO-TS 检出交通标志后生成排除掩码（标志属于公共信息，要保护不被误改）。处理过的图像再进 **Phase 2（多智能体协作）**，由三个分工明确的智能体在 AutoGen 框架里按固定轮转顺序协作，跑一个有上限的 PDCA 迭代循环：每一轮发现一批间接 PII、修掉、再回头检查有没有遗漏，直到收敛或触顶。两阶段的分界本质是"能用专用模型可靠搞定的就别麻烦 LVLM，剩下需要语境判断的才上推理"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入街景图像"] --> P1["Phase 1 预定义处理<br/>专用检测器搞定直接 PII：<br/>人体重绘 / 车牌模糊 / 标志排除"]
     P1 --> AUD["Auditor（Plan）<br/>Qwen2.5-VL 分类本轮间接 PII"]

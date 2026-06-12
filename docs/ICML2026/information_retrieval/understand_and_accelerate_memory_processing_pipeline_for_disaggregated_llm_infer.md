@@ -44,7 +44,7 @@ tags:
 作者要解决的问题是：现代 LLM 长上下文推理里那些五花八门的"内存优化"（稀疏注意力、RAG、压缩上下文记忆等）各自为政、缺乏统一框架，且都默认丢到 GPU 上跑，导致算法计算特性和硬件结构严重失配。本文的转法分两步：先把 LLM 生成模型形式化为 $L(g, f, \{x_i\}_{i<t}, x_t)=y_t$，其中 $M_{<t}=g(\{x_i\}_{i<t})$ 是生成的 memory、$O_{<t}=f(M_{<t}, x_t)$ 是 memory processor 的中间输出，再把所有 long-context 优化统一 reframe 成对 $f$ 的实现，并强制 $f$ 走同一条四阶段流水线——$\text{prep}(M_{<t})=I_{<t}$（把原始 memory 压成可检索索引）、$\text{comp}(I_{<t}, x_t)=S$（算每条 memory 与 query 的相关度分数）、$\text{ret}(M_{<t}, S)=M'_{<t}$（按分数选 top-$k$ 或阈值）、$\text{apply}(M'_{<t}, x_t)=O_{<t}$（把选中 memory 注入推理）。在此抽象之上，作者搭了 AMD MI210 GPU + Alveo U55C FPGA + PCIe 的异构平台，按算密度把四阶段分别映射到 GPU 与 FPGA。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始 memory M + query x_t"] --> PIPE
     subgraph PIPE["四阶段内存处理流水线统一抽象"]

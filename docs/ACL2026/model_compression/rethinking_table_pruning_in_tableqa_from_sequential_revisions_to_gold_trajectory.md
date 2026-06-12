@@ -43,7 +43,7 @@ tags:
 TabTrim 想解决的是表格剪枝最致命的失败模式：沿单一轨迹顺序修订时，早期一旦把答案关键单元格删掉就再也回不来。它的做法是给剪枝过程补上「过程监督 + 并行搜索」。输入是问题 $Q$、原始表格 $T_0$ 和当前子表 $T_{t-1}$，输出是更紧凑的子表。训练时先把 Text-to-SQL 数据里的 gold SQL 按 clause-level 执行顺序拆开（行过滤、列投影等），逐步执行得到一串 gold 子表 $T_0, T_1^+, \dots, T_n^+$，并以此训练两个组件——pruner 学会从当前子表迈向下一步 gold 子表，verifier 学会给任意子表打一个对齐最终 gold 子表的质量分。推理时从原表出发，每一步让 pruner 生成多个候选、verifier 打分保留 top-$k$，最后从所有 beam 里挑分数最高的子表交给下游 LLM 答题。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["输入：问题 Q + 原始表格 T₀"]
     subgraph GT["Gold trajectory 构造"]

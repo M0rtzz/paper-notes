@@ -46,7 +46,7 @@ VecCISC 不是替换 Self-Consistency 或 CISC 的完整推理框架，而是插
 这个流程的关键在于“先按答案分组，再对轨迹聚类”。如果直接跨答案聚类，语义相似但答案不同的轨迹可能被压在一起，破坏候选答案集合；按答案分组则把 VecCISC 的作用限定为压缩每个答案内部的证据，而不是改写答案空间。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["问题 q + 采样预算 n<br/>生成模型采 n 条「推理轨迹, 答案」"] --> B["通用嵌入模型<br/>每条推理轨迹 → 语义向量"]
     B --> C

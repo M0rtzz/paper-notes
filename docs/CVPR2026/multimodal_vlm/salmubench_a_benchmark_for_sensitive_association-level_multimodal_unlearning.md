@@ -35,7 +35,7 @@ CLIP 等视觉语言模型在海量网络数据上训练，可能无意间记忆
 SALMUBench 不是又一个遗忘算法，而是一整套用来客观判断"遗忘到底成没成"的评估基础设施。它要回答的核心问题是：当我们要求 CLIP 忘掉"某张脸 ↔ 某个电话号码"这条敏感关联时，怎么确认它真的忘了，又没有连带擦掉不该忘的知识？为此论文搭了三层东西——先合成一个 60K 规模、人物与敏感属性一一对应的数据集，再从零训练出一对"见过敏感数据"和"没见过"的 CLIP 作为对照，最后用一套带结构化 holdout 的协议去同时量化遗忘效力和附带损害。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["合成数据集 SALMU（5 阶段流水线）"]
         direction TB

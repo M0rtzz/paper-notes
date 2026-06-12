@@ -37,7 +37,7 @@ tags:
 Speech-Hands 将语音理解建模为一个代理决策（agentic decision）过程。给定输入音频 A 和可选查询 Q，全能模型先生成自身响应 H_omni（内部感知），同时获取外部模型给出的响应 H_ext。然后模型基于完整上下文 (A, Q, H_omni, H_ext) 显式生成一个动作 token（action token），指导后续生成策略：`<internal>` 信任自身、`<external>` 采用外部、`<rewrite>` 综合所有证据重写（即 GER）。信任分支直接走快速推理输出，重写分支才进入更深的 Omni Rewrite。这一动作 token 机制靠「事后对比真实结果」构造的标签来训练，并用单一交叉熵损失端到端学会「从证据到动作」的映射。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入音频 A + 可选查询 Q"]
     subgraph S1["学习式动作 token 决策机制"]

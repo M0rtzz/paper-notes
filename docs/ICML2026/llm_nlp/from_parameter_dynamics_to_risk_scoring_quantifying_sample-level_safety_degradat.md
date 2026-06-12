@@ -44,7 +44,7 @@ tags:
 全文围绕一个核心动作：把"安全降级"投影到参数空间里两条事先标定好的方向上看个究竟。前半部分是机制分析——构造"安全"和"危险"两条语义锚向量，沿 fine-tuning 的每一步追踪参数累积漂移在这两条方向上的投影，借此回答"善意微调为什么会破对齐"。后半部分是样本评分 SQSD——对每条候选样本只算一步 LoRA 梯度，估出它会引起的等效权重更新，再看这个更新更偏向"危险"还是"安全"方向，把投影差当成该样本的连续风险分。其中机制分析里发现的"方向敏感 checkpoint"不是顺带结论，而是 SQSD 算梯度时必须落脚的初始化点，把前后两半串成一条流水线。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DIR["安全 / 危险方向构造与验证"]
         direction TB

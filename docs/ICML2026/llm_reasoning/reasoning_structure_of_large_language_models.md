@@ -44,7 +44,7 @@ tags:
 这篇论文要把 LRM 那条没有结构的自由文本思维链，变成一个能被机器逐句验证的推理图，再从图上读出一个"逻辑流是否聚焦"的标量。输入是模型在某谜题实例上生成的 trace $S=(s_1,s_2,\dots)$，流水线四步走：先在可执行谜题环境里跑模型采集 trace；再用"确定性抽取 + LLM 抽取"的混合 pipeline 把 trace 切成原子 claim 节点 $V$；接着让 LLM 对每个 claim 反向找出它依赖的前驱、生成边集 $E$，并把重述的 claim 用 restate 边连回首次出现；最后用谜题求解器给每个 verifiable claim 打 correct/wrong/unverifiable 标签。最终得到 DAG $G=(V,E)$，再衍生出"最小解子图" $G_{\text{sol}}$（所有支撑解的节点及祖先）和"验证子图" $G_{\text{ver}}$（解节点的后代及其再上溯的祖先），所有结构指标和效率 $\eta$ 都在这三个图上计算。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["谜题实例 + LRM<br/>采样思维链 trace S"] --> S1
     subgraph S1["可验证 claim 图的两阶段抽取流水线"]

@@ -44,7 +44,7 @@ SURE 的完整流程包括四个部分：虚假特征分类体系、扰动注入
 给定 query，retriever 返回若干文档，reader LLM 接收 prompt $P=(I,G,Q)$ 并生成答案。SURE 定义扰动函数 $g(.)$，把 grounding data $G$ 改成 $g(G)$，构造反事实输入 $\hat{P}=(I,g(G),Q)$。如果 $G$ 与 $g(G)$ 的答案语义一致，而模型输出正确性发生变化，就说明 RALM 对该虚假特征不鲁棒。整条流水线自上而下是：分类体系定义要注入哪些虚假特征 → 自动化扰动注入造出反事实文档 → 因果特征保持把"答案变了"的脏样本筛掉 → reader 在原始/扰动两路上分别作答 → 实例级指标量化鲁棒性，并把不鲁棒样本回收去做训练缓解。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["query → dense retriever<br/>取 grounding data G，构造 P=(I,G,Q)"]
     TAX["五类虚假特征分类 taxonomy<br/>Style/Source/Logic/Format/Metadata（13 种扰动）"]

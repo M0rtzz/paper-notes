@@ -42,7 +42,7 @@ tags:
 这篇论文想回答一个问题：如果只给模型婴儿那点有限的视觉经验，它能学到多少早期儿童的认知能力？为此作者把婴儿第一视角的 SAYCam 纵向录像（478 小时）尽量"原样"地转成预训练数据，从零训练一个紧凑的视觉-语言模型，再用一套基于发育心理学标准测试改造的 benchmark 来考它。整条流水线是：原始录像经最小化处理切成三种格式的预训练数据（图像对 / 视频对 / 交错序列）→ 三阶段预训练把视觉编码器、图文对齐、多格式联合训练逐级搭起来 → 用 113K 样本做指令微调让模型从输出 logits 变成会说人话 → 最后在 DevCV Toolbox 的 10 个认知任务上评测。其中评测样本本身也由 SAYCam 帧经一条任务适配流程重建而来，让评测和训练同处一个视觉域。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["SAYCam 婴儿第一视角录像（478 小时）"]
     A --> DATA

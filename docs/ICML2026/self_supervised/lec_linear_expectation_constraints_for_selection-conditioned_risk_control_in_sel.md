@@ -44,7 +44,7 @@ tags:
 单模型 LEC 接受 4 步：(1) 模型 $\mathcal{G}^{(a)}$ 在校准集 $\mathcal{D}_{\mathrm{cal}}=\{(u_i^{(a)},\mathrm{err}_i^{(a)})\}_{i=1}^n$ 上跑出不确定度 $u_i$ 和错误指示 $\mathrm{err}_i$；(2) 把候选阈值 $\lambda$ 对应的接受样本计数 $k(\lambda)=\#\{i: u_i \le \lambda\}$ 代入有限样本充分条件 $\sum_{j=1}^{k(\lambda)}(\mathrm{err}_{(j)} - \alpha) \le -1$（按 $u_i$ 升序）；(3) 取所有可行 $\lambda$ 中**最大**的那个作为 $\hat{\lambda}$，最大化测试期接受率；(4) 测试时新样本 $u_{n+1} \le \hat{\lambda}$ 才接受，否则拒答。两模型路由把同一原理推广到 $(\lambda^{(a)}, \lambda^{(b)})$ 联合搜索，再以系统级接受率最大化挑出最优对。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["校准集：不确定度 u_i + 错误指示 err_i"] --> B["比值约束 → 线性期望约束<br/>SCER≤α ⇔ E[Z−αS]≤0"]
     B --> C

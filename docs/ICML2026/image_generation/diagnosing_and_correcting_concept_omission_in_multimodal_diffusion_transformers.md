@@ -43,7 +43,7 @@ tags:
 论文要解决的是 MM-DiT 的概念遗漏，但它不直接改生成流程，而是先把"模型内部是否已经知道某个概念会缺席"这个隐信号探出来、再在 inference 时把它放大去逼模型补救。整套流程分两阶段：**Diagnose** 阶段在 FLUX.1-Dev 上跑 GenEval two-object 生成，对每张图用 Mask2Former + BLIP-VQA 双标注得到每个 concept token 是否成功生成的二元标签 $y\in\{0,1\}$，再收集中间 timesteps 的 text token key 向量 $\mathbf{k}_c^{(t,l,h)}$，对每个 $(l,h)$ 训一个线性 probe 来判别 absent/present，从而定位到底哪些头编码了这个信号；**Correct (OSI)** 阶段则从这些头算出"缺席方向"，在生成早期只对最可靠的 top-K 头、只在概念尚未定型的时间窗里，把 concept token 的 key 向量沿该方向推一下，等价于让模型"误以为自己漏得更严重"，由此触发它内置的补救机制把缺失概念画出来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph D1["1. 概念感知探针数据集（带噪声过滤）"]
         direction TB

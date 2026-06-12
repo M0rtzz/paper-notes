@@ -46,7 +46,7 @@ tags:
 Savoir 的训练管道分三个阶段：(1) 数据收集——LLM 自我对弈生成社交交互 episode；(2) 奖励建模——用 Savoir 算法将 episode 级结果归因到话语级，训练奖励模型；(3) 策略训练——SFT 预热后用 GRPO 在线 RL。核心创新在阶段 (2)：给定对话 $\tau$ 中代理的 $n$ 句话语 $N = \{a_1, \ldots, a_n\}$，计算每句话语的 Shapley 值 $\phi_i$ 作为奖励信号——这一步内部又拆成"用期望效用衡量价值、用 Shapley 值公平分配、用 KernelSHAP 把计算压可行"三层。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["数据收集<br/>LLM 自我对弈生成社交 episode"] --> RM
     subgraph RM["奖励建模（Savoir 算法）"]

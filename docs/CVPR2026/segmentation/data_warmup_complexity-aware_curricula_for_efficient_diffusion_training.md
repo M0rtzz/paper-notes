@@ -41,7 +41,7 @@ tags:
 Data Warmup 的目标是省掉扩散训练早期的浪费：随机初始化的网络一上来就被均匀地喂全谱图像，难图只会产生噪声梯度、白烧算力。它的做法是离线给每张训练图算一个"语义复杂度"分数，再用一个带温度退火的 softmax 采样，让训练从简单图像起步、随迭代逐步放开到全量难图——只动数据的呈现顺序，不碰模型、损失或架构。整套复杂度在训练前一次算好（H100 单卡约 10 分钟），训练时零额外开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["训练图像集"] --> B
     subgraph S1["语义图像复杂度度量（离线一次算好）"]

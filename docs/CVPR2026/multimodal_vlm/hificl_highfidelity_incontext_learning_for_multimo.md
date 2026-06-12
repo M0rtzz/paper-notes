@@ -46,7 +46,7 @@ HiFICL 通过严格的注意力公式推导，将 ICL 近似问题从"拟合 shi
 HiFICL 冻结 LMM 的所有参数，在每一层的每个注意力头中注入一组可学习的虚拟键值对 $(K_{\text{learn}}, V_{\text{learn}})$。在注意力头内部，这组虚拟对与该头原有的（冻结的）键值一起经原生 softmax 计算，使输出呈现「标准自注意力 + 上下文值注入」的动态混合——这正是理论分解出的 $\alpha(q)\cdot\text{SA} + \beta(q)\cdot V_D$ 形式。训练时丢掉教师，仅用最终任务的交叉熵损失端到端优化，且梯度只回传到这些虚拟参数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["输入：查询 token + 图像<br/>（冻结 LMM，原参数全部不更新）"]
     Q --> HEAD

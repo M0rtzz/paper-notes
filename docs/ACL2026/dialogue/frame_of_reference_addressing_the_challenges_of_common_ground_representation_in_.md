@@ -46,7 +46,7 @@ tags:
 本文围绕三个研究问题搭建工作：先用一个对抗性基准 IndiRef 量化"对话系统能否真正建立可持久利用的共识"，再在资源受限条件下对比几种主流共识表示方法的检索效果，最后用合成情境对话数据 + 强化学习把模型的多步关系推理能力顶上去。整条链路的输入都是一段情境对话历史，输出是对其中"关系指代"问题（如"昨天我们去的那个公园旁边的咖啡馆"指的是哪个实体）的正确回答——能答对，就说明模型确实把对话里积累的共享知识沉淀成了可调用的共识。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["情境对话历史<br/>(Meetup / Spot the Difference)"] --> B["IndiRef 基准<br/>关系指代解析作探针 · 400 对抗性 QA<br/>时间 / 空间 / 属性 / 推理共识"]
     B --> C

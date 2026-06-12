@@ -41,7 +41,7 @@ tags:
 PCGR 把多模态虚假信息检测重新表述成一个在"概念图"上做的结构化概率推理：不直接拿融合特征分类，而是先长出一批人类能读懂的判断维度（每个维度是一句疑问式概念，如"文本是否夸大了事件？"），把每个图文对在这些概念上打出激活概率，再沿概念间的依赖关系自顶向下聚合，得出真伪判定。整条流水线遵循"先构建后推理"（build-then-infer）：先用 MLLM 自动发现并验证概念、把它们组织成层次化有向无环图（DAG）；再把待检实例编码进概念空间、为每个概念算出软激活概率；最后在图上做层次软推理、把不确定性逐层汇总成最终结论。关键在于推理过程不是事后解释，而是模型架构本身——每个中间概念的概率都可被检查和干预。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["自动概念生长（训练内循环，≤6 轮）"]
         direction TB

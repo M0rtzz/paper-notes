@@ -46,7 +46,7 @@ tags:
 CAST把"输出稳定性"问题归结为"推理路径分布的熵"问题：LLM 在生成最终结构化结果前会隐式走过一条潜在推理轨迹，当这条轨迹的分布熵高时，随机扰动就会让输出漂移。框架因此用一次结构化的 LLM 调用，输入表格文本列与分析查询，输出稳定的摘要或行级标签——中间通过程序化脚手架约束状态转移、并强制模型显式写下关键中间状态，把推理压到少数高概率轨迹上。同一套模板只需切换任务特定的 schema 与约束即可在摘要和标注间复用，无需任何重复采样或投票。（稳定性度量 CAST-S / CAST-T 不在这条推理链上，而是事后跨多次运行评测一致性，故不出现在下图。）
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：表格文本列 + 分析查询"] --> B
     subgraph AP["算法提示 AP（约束怎么转移）"]

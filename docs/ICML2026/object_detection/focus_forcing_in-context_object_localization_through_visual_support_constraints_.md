@@ -51,7 +51,7 @@ FOCUS 通过"完全去除类别名 + 注意力 mask 优化 + GRPO IoU 奖励"两
 2. Stage 2：GRPO + IoU reward 微调
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["去类别 Prompt<br/>支持对 (图, bbox) × (T−1) + 查询图"] --> B["VLM 编码为图文 token 序列"]
     subgraph S1["Stage 1：SFT + Bbox 注意力优化"]

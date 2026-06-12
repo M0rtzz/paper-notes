@@ -48,7 +48,7 @@ CoAt-CBM 想解决的是 VLM-based CBM 里"概念分数算不准"的问题：要
 整篇流程是这样转的：先离线构建领域知识库和概念库，确定每个类别对应哪些人类可读的概念；推理时 CLIP 视觉编码器把图像编成全局特征加 patch 特征；概念级注意力模块用一组可学习 query 从这些特征里为每个概念抽出一份概念特定的视觉嵌入；这些嵌入和概念的文本嵌入算余弦相似度，得到一个概念分数向量；训练阶段用概念对比优化（CCO）按正负概念对分数向量施加对比约束；最后一个线性分类器只看这个分数向量做预测——因为决策完全建立在可读概念上，整条路径是可解释的。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BANK["概念库构建（离线）"]
         direction TB

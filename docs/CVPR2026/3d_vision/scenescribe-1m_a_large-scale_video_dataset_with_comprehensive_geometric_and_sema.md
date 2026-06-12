@@ -41,7 +41,7 @@ tags:
 数据管线分三步：(1) **收集**——从HD-VILA-100M、Panda-70M、Koala-36M和Pexels汇集大规模视频源；(2) **预处理**——质量筛选（分辨率>1080p, FPS≥10, 时长5s-1min）+ 内容审查（用Qwen2.5-VL-72B评估6个维度）+ TransNetV2时间分割；(3) **标注**——三个专用模型分别标注文本描述、几何信息和3D点轨迹。最终输出包含完整标注的100万视频片段，以及用多视图重投影筛选的静态子集SceneScribe-MVS。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视频源汇集<br/>HD-VILA-100M / Panda-70M<br/>Koala-36M / Pexels"]
     subgraph FILTER["多维度质量筛选与内容审查"]

@@ -46,7 +46,7 @@ tags:
 HAMM 想解决的问题很具体：三种形态差异极大的眼科影像（2D 彩色眼底图、灰度 OCT 截面、统计性的视野偏差图）该怎么融合，而且数据只有 1200 例，监督信号稀缺。它的回答是「自监督预训练 + 临床启发式层级融合」，整条 pipeline 跑在新建的 GLEAM 三模态数据集上、分两阶段走。预训练阶段把三种模态各自随机遮掉 70% 的像素，送进三个并行的 ResNet-50 编码器；编码器的每个下采样层都嵌了一个 MCGA 模块，让三路特征在每一层就互相交换信息，而不是各编各的到最后才拼。一个轻量的深度可分离卷积解码器再从可见像素和跨模态线索里把被遮区域重建出来，用 MSE 监督。微调阶段则丢掉解码器，保留这套已经学会跨模态推断的编码器，把三模态特征拼接后过 GAP 加两层全连接，输出正常/早期/中期/晚期四分类。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["GLEAM 三模态数据集<br/>SLO 眼底图 + 环乳头 OCT + 视野偏差图"] --> ENC
     subgraph ENC["三路 ResNet-50 编码器（逐层嵌 MCGA）"]

@@ -44,7 +44,7 @@ tags:
 整篇要解决的是"开源模型怎么后训成有竞争力的多轮工具调用 Agent"，难点在前面说的循环依赖：训 Agent 要 RL，RL 要稳定 rollout，rollout 要好数据和好用户模拟器。作者把它拆成两个互相喂的模块。前半段 **AReaL-SEA** 负责造数据：一个 meta-planner 先开出 $N$ 套互不重叠的合成方案，每套独立跑一条"出题 → 验题 → 模拟对话 → 验对话"的流水线，把失败案例喂回 reflection 模块迭代改方案，循环 $K$ 轮越合成越好。后半段是 RL 配方：先拿合成数据把用户模拟器 SFT 一遍治住噪声，再用 GRPO 训 Agent，奖励则来自合成时一并生成的可执行 verifier——它拿轨迹的最终状态去对 ground-truth，对上给 1、对不上给 0。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph SEA["AReaL-SEA 自演化数据合成"]
         direction TB

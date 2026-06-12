@@ -44,7 +44,7 @@ tags:
 本文面对的是 LLM 路由的冷启动困境：没有域内标注数据时，预训练路由器跨域泛化很差，直接用 LLM 选模型又难以刻画候选模型的能力边界。解法是把「造数据」和「学路由」串成一条链——先用多层级任务画像引导的数据合成框架，从少量种子领域描述出发迭代搭出「领域→子类→难度」三级任务分类体系，并按画像批量生成去重后的 QA 对来近似测试分布；再把同一套任务类型当作隐变量喂给 TRouter，让它通过变分推断联合建模性能与成本的条件分布，推理时按效用函数挑出最划算的模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["少量种子领域描述"] --> B
     subgraph S1["层级任务分类体系生成"]

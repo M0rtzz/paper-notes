@@ -46,7 +46,7 @@ SAGE 含三阶段：(1) **Genesis** 在沙盒环境 $\mathcal E_S=(\mathcal S,\m
 下面三个关键设计中，设计 1 对应 Genesis 阶段（造经验），设计 2、3 共同支撑 Evolution 阶段的 RL 蒸馏（学经验）；Navigation 阶段是把学到的策略接回真实控制的部署脚手架，本身不引入新的训练设计：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph G["物理沙盒经验生成（Genesis）"]
         direction TB

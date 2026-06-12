@@ -44,7 +44,7 @@ tags:
 DiSP 把「在组合空间里搜最优示例集 $D^\star$」整个换成「先看查询有多难、再对随机抽到的几个示例逐个判断够不够用」。它分三阶段：离线先用随机示例试跑估出每个训练查询的成功率并据此分四个难度档；再在各档上分别训练一个判难度的 router 和三个容量递增的 judge；推理时 router 把新查询路由到某一档，对应 judge 顺序打分、接受第一个达标的就跑 LLM 出答案，预算用尽或查询太难则回退随机示例并打风险标签。目标 LLM 全程冻结，只训练这些轻量模块。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["1. 随机试跑的难度分层（离线）"]
         direction TB

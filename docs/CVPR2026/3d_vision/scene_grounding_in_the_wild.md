@@ -43,7 +43,7 @@ tags:
 整条流水线只优化一个7参数的全局变换 $T$（6DoF的SE3旋转平移 + 1个尺度）：参考模型的高斯参数全程冻结，每轮迭代用当前 $T$ 把meta-image的相机摆到参考坐标系下、可微渲染出语义特征图，再和真实照片的DINOv2特征算损失（其间用鲁棒优化剔除异常图像），梯度反传只更新 $T$。多块局部重建则各自独立对齐，像拼图一样一块块拼回完整场景。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     REF["参考模型构建（脚手架）<br/>Google Earth 渲染 → COLMAP+GPS 定标 → 蒸馏 DINOv2 特征 → 冻结 3DGS"]
     INIT["多初始化对接<br/>COLMAP / gDLS+++ / SP+LG 给出 7 参数变换 T 初值"]

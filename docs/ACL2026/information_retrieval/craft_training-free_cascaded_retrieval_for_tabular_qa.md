@@ -46,7 +46,7 @@ tags:
 CRAFT 的核心命题是：不靠任何数据集特定微调，单凭精心编排的级联管道加现成预训练模型，就能在表格检索上打平甚至超过微调 SOTA。给定一条自然语言问题，系统先做离线预处理（Gemini-1.5-Flash 生成查询子问题、为每个表格补一段标题和描述，Sentence Transformer 把表格行按语义相关性排好序），再走「稀疏粗筛 → 语义中筛 → 神经精排」三级漏斗：从 16.9 万/41.9 万张表里逐级收窄到最终 Top 结果，交给端到端 LLM 生成答案。整条链路一个权重都不更新。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["自然语言问题<br/>Gemini 生成子问题"]
     subgraph PRE["Mini-table 构建与表格增强（离线）"]

@@ -42,7 +42,7 @@ tags:
 HumanVBench 的构建分三步：(1) 从 Pexels 和 MF2 收集包含人物的视频并切分场景；(2) 通过人体中心视频标注流水线提取视觉、听觉和整体事件氛围的多模态标注；(3) 通过干扰项感知 QA 合成流水线生成多选题，最后进行人工验证和答案泄露后处理。最终产出 2475 个问题实例覆盖 16 个任务。整条链路下，两条流水线各自把"标注"和"出题"自动化，人工只在末端做质量把关；输出的题目按 16 任务体系组织。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始视频<br/>Pexels + MF2，切分场景"]
     subgraph ANNO["人体中心视频标注流水线（20+ Data-Juicer 算子）"]

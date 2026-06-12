@@ -42,7 +42,7 @@ UV-Net 开创性地将 UV 参数域采样为网格，存储全局坐标系下的
 FoV-Net 想解决的是：怎么给 B-rep 的每个面算出一个**既懂自身几何、又懂周围结构，且在任意旋转下纹丝不动**的描述子。它的做法是给每个面配两套互补的输入——一套只看面自己的局部表面形状（LRF UV 网格），一套用光线投射去"看"这个面周围有什么（FoV 网格）。两套描述子各由一个轻量 CNN 抽成特征向量，再和面的基本属性（类型、面积）拼起来，过一个 MLP 融合成统一的面嵌入。把每个面的嵌入挂到 B-rep 图的节点上（面为节点、共享边为连接），最后用 3 层图注意力网络(GAT)在图上传播信息，得到分类或逐面分割结果。关键在于：两套描述子的坐标和方向都定义在**面自己的局部坐标系**里，所以整个模型对全局朝向天然免疫。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["B-rep 面（图节点）<br/>面中心 o 处建局部参考系 R_f"]
     subgraph D1["局部参考系 UV 网格（LRF UV）"]

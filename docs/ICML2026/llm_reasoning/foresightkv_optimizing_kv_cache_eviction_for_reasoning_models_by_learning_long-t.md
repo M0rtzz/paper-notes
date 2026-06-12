@@ -43,7 +43,7 @@ ForesightKV 训练一个轻量打分模型，按"未来注意力贡献"动态淘
 ForesightKV 想解决的核心问题是：KV 重要性本质是未来 attention 的函数，可所有规则方法只能看历史。它的办法是把一个轻量 MLP 打分器训练成"未来贡献预测器"，整条 pipeline 分推理和训练两侧。推理时每生成 $L$ 个新 token（$L=256$），KV 缓存涨到 $B+L$，对每一层的每一个 attention group（GQA 共享 KV），打分模型 $\pi_\theta$ 读入每个 KV pair 的特征 $\mathbf{x}_n = \text{Concat}(\mathbf{k}_n, \mathbf{v}_n, \mathbf{a}_n)$（$\mathbf{a}_n$ 是注意力分数的定长统计特征）输出重要性 $\phi_n$，保留最近 $L$ 个 pair（必留），从其余里淘汰 $L$ 个把缓存压回 $B$；LLM 全程冻结，只训几个 MLP 打分器，开销极小。训练侧则分两阶段：先用 Golden Eviction 从完整 trace 离线蒸馏最优淘汰序列做监督，再把 eviction 建成 MDP 用 GRPO 以"低熵 token 大幅恶化"为负奖励做 on-policy 微调。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["完整推理 trace<br/>(离线, 全长 attention)"] --> B["Golden Eviction<br/>未来块注意力当 oracle<br/>构造最优淘汰序列"]
     B --> C["监督训练<br/>Pairwise Ranking Loss<br/>对齐 oracle 排序"]

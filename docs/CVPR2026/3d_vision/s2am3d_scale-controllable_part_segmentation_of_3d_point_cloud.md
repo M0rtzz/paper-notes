@@ -42,7 +42,7 @@ S2AM3D 要解决的核心矛盾是：纯 3D 部件分割数据太少、泛化差
 整体走两段解耦训练。第一段训练**点一致性部件编码器**：输入点云 $\mathbf{P} \in \mathbb{R}^{N \times 3}$，输出每个点一个特征 $\mathbf{F} \in \mathbb{R}^{N \times D}$，训练信号同时来自多视角 SAM 蒸馏和原生 3D 标签的对比损失。第二段冻结编码器、训练**尺度感知提示解码器**：给定一个点提示索引 $p$ 和一个可选尺度提示 $s \in [0,1]$，解码器输出该提示对应部件的概率掩码 $\hat{\mathbf{m}} \in [0,1]^N$。把粒度交给 $s$，同一个点提示就能在不重新聚类的前提下返回"一条桌腿"或"整套桌腿加桌面"。其中编码器阶段的 3D 对比监督所需的干净部件标签，由作者自建的大规模部件数据集提供。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["点云输入 P (N×3，仅 XYZ)"] --> ENC
 

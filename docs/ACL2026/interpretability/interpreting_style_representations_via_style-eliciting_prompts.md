@@ -46,7 +46,7 @@ tags:
 模型部分由 frozen style representation model、trainable projection module 和 frozen LLM decoder 组成。风格表示模型使用 Mistral-Nemo-Instruct-2407，经 author-labeled data 对比学习训练。projection module 是三层 feedforward network，将 style vector 投影成 20 个连续 token embeddings；这些 embeddings 与自然语言指令一起输入 Ministral-8B-Instruct，生成形如“The author uses ...”的 style prompt。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph D1["反向构造监督"]
         direction TB

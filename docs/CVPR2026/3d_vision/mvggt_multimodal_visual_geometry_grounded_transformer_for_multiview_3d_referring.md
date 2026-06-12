@@ -41,7 +41,7 @@ tags:
 输入 $N=8$ 张 RGB 视图 + 文本查询。两个并行分支：(1) **冻结重建分支**（基于 Pi3）：36 层交替自注意力/交叉视图注意力，输出相机位姿、深度图和粗点云 $S'$；(2) **可训练多模态分支**：12 层 Transformer block，接收重建分支最后 12 层的几何特征注入 + 文本交叉注意力注入，输出语言条件化的视觉特征。最终多模态特征解码为逐视图 2D 掩码，用深度和相机参数反投影聚合到 3D 点云上得到最终 3D 掩码 $M$。训练阶段，PVSO 把监督放在这些 2D 掩码上，规避稀疏 3D 点云的前景梯度稀释。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：8 张稀疏 RGB 视图 + 文本查询"]
     IN --> GEO

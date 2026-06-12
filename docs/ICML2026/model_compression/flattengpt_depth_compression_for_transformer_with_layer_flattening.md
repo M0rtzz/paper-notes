@@ -44,7 +44,7 @@ tags:
 FlattenGPT 想在"直接删整层"和"只删宽度"之间找一条中间路：先把相邻的冗余层**合并**成一个 2× 宽的层 (深度→宽度)，再把这个胖层的宽度**剪**回原始规模 (宽度→深度)，最终得到一个更浅但每层都是标准尺寸的网络。整条流水线分两阶段，全程 training-free：先在校准集上算出相邻层的余弦相似度矩阵 $\mathbf{S}\in\mathbb{R}^{L\times L}$，贪心地把最相似的相邻对反复合并直到压缩率达标；再对每个合并出来的胖层做通道剪枝，MHA 按头重要性删一半 head，MLP 用 Nyström 近似选 top-k 通道并把被删信息补偿回来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练 LLM<br/>L 层 Pre-LN Transformer"] --> B["校准集估计相邻层<br/>余弦相似度矩阵 S"]
     B --> C

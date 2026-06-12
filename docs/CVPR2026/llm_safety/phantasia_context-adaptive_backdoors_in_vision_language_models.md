@@ -48,7 +48,7 @@ Phantasia 要解决的难题是：怎样让一个被植入后门的 VLM，在触
 具体地，对每张图像 $x$ 叠加一层不可察觉的高斯噪声得到触发图像 $x_p = G(x, \tau)$；攻击者预先挑定一个隐藏的目标问题 $q_t$（如"给这个场景写句广告语"），用 LLaVA 对触发图像回答 $q_t$ 得到答案 $s_t$，于是得到中毒三元组 $(x_p, q_t, s_t)$。Teacher 在标准三元组 $(x_p, q_t, s_t)$ 上微调，学会"看图回答 $q_t$"后冻结。Student（即受害模型）则换用三元组 $(x_p, q, s_t)$ 训练——关键的偷换发生在这里：配对的是**用户的原始问题** $q$ 而不是 $q_t$，但目标答案仍是 $s_t$。这样训完后，Student 一旦遇到带触发的图像，无论用户问什么 $q$，都会照着 teacher 的方式去回答那个隐藏的 $q_t$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph QSEL["目标问题选择框架"]
         direction TB

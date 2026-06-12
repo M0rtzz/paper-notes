@@ -44,7 +44,7 @@ tags:
 G2F-RAG 要回答的是：怎么把检索来的外部知识"喂"给视频模型，又不让它和原始视觉信号抢注意力。答案是把知识画成一帧图、贴在视频末尾，让模型在它最擅长的视觉时空空间里一起看。整条流水线由四个 Agent 协作，分离线、在线两段：离线时，图构建 Agent 把视频看一遍，生成一张与具体问题无关的完整知识图 $\mathcal{G}$（实体、事件、空间关系、外部常识全收进去），构建一次、之后所有问题复用同一张图；在线时，编排 Agent 先判断这道题难不难——简单题直接让 LMM 答，难题才走 RAG，由检索 Agent 从 $\mathcal{G}$ 里抠出最小充分子图 $S^\star$，渲染 Agent 把 $S^\star$ 画成单帧推理帧 $I_{\text{RF}}$，拼到视频后面得到 $\tilde{V}=[V; I_{\text{RF}}]$，再交给冻结的 LMM 联合推理。全程骨干不动一根参数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["输入视频 V + 问题 q"] --> G["离线双视图知识图<br/>图构建 Agent 离线蒸馏出问题无关知识图 G"]
     G --> R

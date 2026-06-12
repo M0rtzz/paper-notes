@@ -47,7 +47,7 @@ tags:
 FairLLaVA 想解决的是医学影像 MLLM 里的「人口学捷径」——模型把种族/性别/年龄这些敏感信号悄悄编码进隐藏表示，造成群体间系统性的性能差距。它在标准 LLaVA 框架上分两阶段微调：第一阶段冻结图像编码器和语言模型（LM）、只训多模态投影器 $\psi$ 把视觉和语言表示对齐；第二阶段冻结编码器和语言模型主干、挂上 LoRA 适配器 $\theta$，对一组在中间层池化得到的隐藏状态 $h(x)$ 做互信息正则，把人口学信息挤出去。核心机制是「先暴露泄漏、再消除泄漏」的交替优化（DAC ⇄ DIM），外加一个能用于开放式文本生成的公平性指标 ES-M 来量化效果。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["医学影像 + 文本指令<br/>图像编码器 BioMedCLIP(冻结)"] --> S1["阶段一：训练多模态投影器 ψ<br/>对齐视觉与语言表示"]
     S1 --> S2["阶段二：冻结编码器与语言模型主干<br/>挂 LoRA 适配器 θ"]

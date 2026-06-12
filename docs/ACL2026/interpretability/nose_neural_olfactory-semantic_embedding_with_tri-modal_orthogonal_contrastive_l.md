@@ -45,7 +45,7 @@ tags:
 NOSE 要在没有"分子-受体-描述"三元组标注的前提下，把完整嗅觉通路压进一个连续表示空间。它以分子为枢纽：Uni-Mol 冻结地抽出分子 3D 结构特征 $z_{mol}$，ESM-2 配可训练投影层抽出受体序列特征 $z_{rec}$，Qwen3 Embedding 经 LoRA 微调抽出气味描述特征 $z_{desc}$；分子嵌入再经双适配器分解为受体对齐分量 $a_r$ 和描述对齐分量 $a_d$，两者被正交化后用多组 InfoNCE 损失对齐到各自模态。这样分子是两个双模态数据集的唯一交集，就成了间接桥接受体与语义的支点，而推理时只需保留分子编码器和适配器即可输出三模态融合表示。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     M["分子 SMILES"] --> ME["Uni-Mol（冻结）<br/>分子结构特征 z_mol"]
     R["受体序列"] --> RE["ESM-2 + 可训练投影<br/>受体特征 z_rec"]

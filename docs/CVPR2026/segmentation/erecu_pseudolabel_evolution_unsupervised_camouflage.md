@@ -52,7 +52,7 @@ EReCu 想把 UCOD 的两条路线——"伪标签引导"擅长定位但边界糊
 一张无标注图像进来后，先由 MNP 从**原始像素**而非高维嵌入里抠出纹理和语义两类原生线索，并算出一个衡量"mask 切得准不准"的质量分 $S_{\text{mc}}$；这个线索和质量分接着兵分两路，一路喂给 PEF 去驱动全局伪标签的进化融合，一路喂给 LPR 去修边界细节。PEF 内部又分两步——EPL 让师生分支在迭代里互相去噪、STAF 把多层注意力做谱融合压噪；LPR 则从 Teacher 的注意力头里挑出聚焦干净的那些，生成局部伪标签把边界补回来。MNP 同时约束这两路，使语义可靠性和纹理保真度在同一个回路里协同上升。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["无标注图像"] --> TS["DINO 师生架构<br/>Teacher 用 EMA(0.99) 平滑 Student"]
     TS --> MNP["多线索原生感知 MNP<br/>纹理(LBP+DoG) + 语义(ResNet-18) → F_MNP<br/>三区域 patch 采样算质量分 S_mc"]

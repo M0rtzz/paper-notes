@@ -46,7 +46,7 @@ tags:
 CTA 分为两阶段：**类比提取**和**类比转导**。首先，通过学习一对编码器 $\phi, \varphi$ 来近似最优时间距离 $d^*(s,g) = \phi(s)^\top \varphi(g)$，由此得到**对偶类比** $\alpha^\vee(s,g) = \varphi(g) - \varphi(s)$，它是时间距离差分场的有限维实例化。然后，在类比转导阶段，利用对偶类比作为位移信号，通过双线性转导参数化值函数和分层策略，使智能体能够外推到未见的类比—上下文组合。推理时，高层策略生成 $k$ 步子目标类比，低层策略执行原始动作。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["无奖励离线数据"] --> B["时间距离差分场与对偶类比表示<br/>IQL 学编码器近似最优时间距离 d*(s,g)<br/>得对偶类比 α∨(s,g)=φ(g)−φ(s)"]
     B --> C["双线性转导参数化<br/>锚点 s 与位移 α∨ 编码到 b 维低秩瓶颈<br/>V、π_h、π_ℓ 写成 Ω₁(s)·Ω₂(α∨)"]

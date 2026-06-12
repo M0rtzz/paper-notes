@@ -46,7 +46,7 @@ tags:
 ProtoSR 想解决的是「结构化标注太少、细粒度属性几乎没监督」这个矛盾：既然 MIMIC-CXR 有 22 万多份自由文本报告隐含着丰富影像知识，那就把它离线蒸馏成一个「视觉原型知识库」，推理时当作外部证据来托底。整体由三块串起来：一个层级式 SR 基座模型（沿用 Rad-ReStruct 架构）负责常规预测，一个离线构建的原型知识库存放每个标签的典型影像特征，一个原型条件化知识分支在推理时检索原型、把它折算成 logit 残差。图像和问题上下文先经 EfficientNet-B5 与 RadBERT 编码、Transformer 融合得到 base logits；知识分支再从库里检索与当前问题相关的原型，转成一个有选择性的校正信号，经可学习缩放后叠加到 base logits 上，得到最终答案。由于图像编码器在训练中持续微调，库里的原型还会用一份编码器的 EMA 副本定期刷新，保证检索始终发生在同一表示空间里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph KB["LLM 驱动的知识库构建（离线）"]
         direction TB

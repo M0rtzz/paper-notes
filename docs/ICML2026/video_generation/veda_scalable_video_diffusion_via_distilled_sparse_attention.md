@@ -45,7 +45,7 @@ VEDA 把视频 DiT 的稀疏注意力问题重新表述为"对全注意力结构
 VEDA 的出发点是一个反直觉的观察：在 90% 稀疏度下，从全注意力 Top-k 取出的"神谕级"掩膜照样能保持高质量——说明高度稀疏下的伪影（水纹畸变、空间翘曲、时间闪烁）不是稀疏比例本身造成的，而是稀疏掩膜与全注意力的瓦片级结构对齐得不够好。于是 VEDA 把稀疏瓦片选择直接重新表述成"对全注意力结构的显式蒸馏"，再配两件事保证它真能跑快：用头感知分组应对不同注意力头的几何异质性，用瓦片跳过的硬件内核把理论 FLOPs 削减兑现成端到端加速。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视频 DiT 全注意力<br/>Top-k 取『神谕级』掩膜作监督目标"] --> B
     subgraph G1["统计感知的瓦片评分估计器 TripPool（设计 1）"]

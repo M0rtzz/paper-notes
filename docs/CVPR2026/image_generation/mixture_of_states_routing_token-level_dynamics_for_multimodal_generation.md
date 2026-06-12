@@ -52,7 +52,7 @@ $$\mathbb{E}_{c,t,z_0,z_1}\Big[\big\|\mathcal{G}(z_t, t, \mathcal{R}(t, c, z_t, 
 同一框架既能做文生图（MoS-Image：路由聚合的特征投影后与视觉特征拼成 in-context token），也能做图像编辑（MoS-Edit：理解塔同时吃参考图和指令，生成塔从高斯噪声和干净参考图迭代精炼）。整个设计的核心就一件事——让每个视觉 token 在每个去噪步自适应地从理解塔的任意层取它当下最需要的表征。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["文本 prompt c<br/>（编辑时 + 参考图）"] --> U["理解塔 U（冻结）<br/>输出各层隐藏状态 S_i"]
     P --> R1

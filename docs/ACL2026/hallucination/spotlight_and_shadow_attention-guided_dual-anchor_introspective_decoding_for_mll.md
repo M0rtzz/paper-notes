@@ -46,7 +46,7 @@ tags:
 DaID 在标准 MLLM 解码过程中，利用各层对视觉 token 的注意力分布实时选择两个锚定层：Spotlight 层（视觉注意力最高 → 放大视觉信号）和 Shadow 层（Spotlight 之前视觉注意力最低 → 抑制语言先验），通过双锚对比公式校准最终 logits，并用自适应合理性约束把校准限制在语法合理的候选词上。整个过程不需要额外前向传播。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["图像 + 文本指令<br/>单次前向传播"] --> B
     subgraph S1["视觉注意力分数(VAS)与动态锚定"]

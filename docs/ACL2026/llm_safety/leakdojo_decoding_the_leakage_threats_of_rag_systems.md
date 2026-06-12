@@ -53,7 +53,7 @@ LeakDojo 把 RAG 泄露场景拆成三层可配置组件：
 威胁模型：黑盒、$N=200$ 轮交互预算、攻击者只知道高层领域、目标是最大化 unique chunk 泄露数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph ATK["正交分解 Q^adv = A ⊕ I（攻击侧）"]
         direction TB

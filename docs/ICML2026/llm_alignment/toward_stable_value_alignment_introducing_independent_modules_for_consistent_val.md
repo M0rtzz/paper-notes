@@ -44,7 +44,7 @@ tags:
 SVGT 把对齐从"写进 backbone 权重"改成"挂一个外置价值模块"：backbone $\theta_{\mathrm{LLM}}$ 全程冻结，旁边外挂一个独立价值策略 $\pi_\phi$。它从指定的中-后期层 $l^*$ 抽 hidden states，先在一个与任务空间隔离的价值空间里判断"当前生成方向安不安全"、给出一个修正方向 $\Delta\mathbf{z}=\nabla_\mathbf{z}\mathcal{D}(\mathbf{z})$，再把这个抽象修正翻译成 $K$ 个 Bridge Token $\mathbf{B}\in\mathbb{R}^{K\times d}$ 插在 prompt 后面，让自回归生成在 frozen attention 的作用下被它们牵引。整套结构相当于把普通解码 $P(y_t|y_{<t},x)$ 扩展成带显式价值上下文的 $P(y_t|y_{<t},x,\mathbf{c}_v)$，其中 $\mathbf{c}_v=\pi_\phi(\mathcal{E}(\mathbf{h}))$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["输入 prompt + 冻结 backbone<br/>抽第 l* 层 hidden"] --> VS
     subgraph VS["独立价值空间 + 双通路编码"]

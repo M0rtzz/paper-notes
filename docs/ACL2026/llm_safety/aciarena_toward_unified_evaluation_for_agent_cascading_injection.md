@@ -43,7 +43,7 @@ tags:
 ACIArena 由四个模块组成：**良性任务库**（Benign Tasks，从 GSM8K、MATH500、HumanEval、MBPP、GPQA、MedMCQA 中用 LLM judge 按难度/可分解性/低歧义筛选）；**攻击库**（Attacks，28 种 ACI 攻击，覆盖 3 攻击面 × 3 攻击目标，通过 generate-mutate-select 循环自动优化生成）；**MAS 库**（MAS Library，重构 6 个 MAS 到统一接口）；**评测套件**（Evaluation Suites，1356 测试用例 + BU/ASR/UA/PVI 四类指标）。攻击执行时由攻击者把恶意 prompt 注入到指定攻击面，观察恶意信息在 MAS 内的级联传播与最终输出。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["良性任务库<br/>GSM8K/MATH/HumanEval…<br/>LLM judge 选难度适中可分解任务"] --> GEN
     subgraph GEN["三轴威胁模型与攻击生成器"]

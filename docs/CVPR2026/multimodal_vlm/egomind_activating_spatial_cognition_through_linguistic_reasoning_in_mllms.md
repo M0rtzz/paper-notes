@@ -42,7 +42,7 @@ tags:
 EgoMind 赌的是一件事：多帧空间推理不一定要点云、深度、BEV 这些昂贵的 3D 先验，靠精心设计的语言推理信号也能把跨帧视角的不连续接起来。它把推理组织成一条四段式 CoT——Summary Field → RPC Field → PSA Field → Reasoning Field：先判断问题需要什么样的空间推理，再用 RPC 把多帧拼成一张全局空间上下文，接着用 PSA 从里面抽出与问题相关的局部上下文，最后整合作答。其中 Summary 与 Reasoning 是 CoT 的首尾脚手架，RPC 与 PSA 才是两个核心组件；而要让模型低成本学会生成这套 CoT，靠的是一条全自动数据生成 pipeline（GPT-4o / Qwen2.5-72B 合成 5K 样本）+ SFT/GRPO 两阶段训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["全自动数据生成 Pipeline"]
         direction TB

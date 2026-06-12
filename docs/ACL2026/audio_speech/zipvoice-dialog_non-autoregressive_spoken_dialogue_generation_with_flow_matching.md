@@ -46,7 +46,7 @@ tags:
 ZipVoice-Dialog 把成熟的独白流匹配 TTS 模型 ZipVoice 改造成对话生成器：交错排好的多说话人文本和一段提示音频进来，文本编码器（Zipformer）先把文本编成特征，向量场估计器（同样 Zipformer 骨干）在条件流匹配框架下把噪声逐步"流"成目标梅尔谱，最后交给预训练的 Vocos 声码器还原成完整对话语音。整个模型不靠任何外部时长预测器，token 时长和轮次切换都由流匹配目标隐式学出来，再叠加一个语音填充（speech infilling）任务获得零样本克隆能力。难点不在骨干，而在两件事：怎么让一个原本只会单人对齐的模型在双说话人场景下不崩、以及怎么让它分得清两个嗓音——这正是下面三个设计要解决的。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CL["独白到对话的课程学习"]
         direction TB

@@ -44,7 +44,7 @@ tags:
 GS-CLIP 想解决的核心问题是：怎样在不见过目标类别的前提下，让 CLIP 真正"懂"3D 几何异常。它的做法是把工作拆成解耦的两阶段，避免文本端和视觉端联合训练时互相干扰。Stage 1 只动文本端：冻住所有视觉组件，专门训练一个几何感知的提示生成器，从输入点云里抽出全局形状上下文和局部缺陷信息，动态生成嵌入几何先验的文本提示。Stage 2 反过来冻住已经练好的提示生成器，转去训练视觉端的双流结构——渲染图走完全冻结的 ViT，深度图走 LoRA 微调的 ViT，两路特征再经协同精炼模块深度融合，最后和文本提示算相似度，输出图像级异常分数和像素级分割图。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     PC["输入点云"]
 

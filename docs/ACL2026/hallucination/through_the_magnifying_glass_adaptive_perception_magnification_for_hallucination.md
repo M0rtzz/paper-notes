@@ -46,7 +46,7 @@ tags:
 PM 想解决的痛点很具体：VLM 出现幻觉，很多时候不是没"看"对地方，而是关键物体在 ViT 特征里太小、有效分辨率不够，看到了也认不准。已有解法要么不增强细节（对比解码、嵌入增权），要么增强了细节却破坏空间结构（裁剪丢上下文）。PM 的破法是把视觉增强做成一个"放大镜"——在每一步自回归解码时，它先从 VLM 的注意力里找出当前最该看清的区域，迭代扩大覆盖范围，把结果整理成像素级的感知图，再据此对原图做保结构的重采样：关键区域被放大占更多像素、非关键区域被压缩而非丢弃，整体结构不变。放大后的图替换原始视觉输入，生成下一个 token。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["每个自回归解码步<br/>当前视觉输入 + 已生成 token"] --> REFINE
     subgraph REFINE["迭代精炼"]

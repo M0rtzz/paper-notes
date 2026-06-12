@@ -46,7 +46,7 @@ tags:
 HeteroCache 分三步：(1) **头分类**——基于稳定性和相似性将头分为 full heads（保留完整上下文）和 compressed heads（压缩缓存）；(2) **细粒度缓存分配**——为 compressed heads 中的漂移头分配更大预算；(3) **稀疏监控+异步检索**——full heads 持续监控注意力漂移，显著漂移时异步从 CPU 预取数据更新 compressed heads。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["校准数据 profiling<br/>统计各头 top-k 重叠系数"] --> B
     subgraph B["基于稳定性和相似性的头分类"]

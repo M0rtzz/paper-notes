@@ -44,7 +44,7 @@ tags:
 LAVL 是一个 IVL（implicit V-learning）风格的离线 GCRL 算法，由三块拼成：(1) 价值网络 LAN，把 $V(s,g)$ 参数化成两个非对称编码器输出之间的负欧氏距离；(2) TD + 局部连续性正则的联合损失，用来在长 horizon 下既保证全局 Bellman 一致又抑制局部振荡；(3) HIQL 风格的分层策略，但子目标表示只依赖目标本身 $w=\phi(g)$，并复用同一个 LAN 价值函数为高/低层策略提供 advantage，无需额外的 high-level value head。整套 pipeline 输入是离线轨迹 $\mathcal{D}=\{(s_t,a_t,s_{t+1})\}$，输出是 hierarchical 策略对 $(\pi^h,\pi^l)$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["离线轨迹 D = {(s, a, s′)}"]
     subgraph LAN["LAN 价值网络（非对称双编码器）"]

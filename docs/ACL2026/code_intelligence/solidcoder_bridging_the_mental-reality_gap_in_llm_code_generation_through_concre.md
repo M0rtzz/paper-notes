@@ -46,7 +46,7 @@ SolidCoder 通过 S.O.L.I.D. 架构（Shift-left Planning、Oracle-based Asserti
 SolidCoder 复用了 CodeSIM 的三智能体骨架（Planning、Coding、Debugging），但把 S.O.L.I.D. 五个组件嵌进流程，核心是把验证从 LLM 的"想象执行"换成沙盒里的"真实执行"。给定自然语言问题，Planning Agent 先在带边界意识的提示下产出鲁棒算法规划，Coding Agent 把规划翻译成代码并做一次轻量的内部追踪预筛，随后进入 Live Verification 循环——生成基于属性的断言、在沙盒中真实跑、把失败用例累积成回归测试集，反复 debug 直到所有累积测试通过才输出代码。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["自然语言问题"] --> S["Shift-left Planning（S）<br/>边界情况左移注入规划 → 鲁棒算法规划"]
     S --> C["Coding Agent + Intermediate Simulation（I）<br/>翻译成代码并做样例追踪预筛（不终审）"]

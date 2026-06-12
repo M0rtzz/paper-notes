@@ -43,7 +43,7 @@ tags:
 整套方法围绕一个共享的 prompt 中立化协议展开：从 HarmBench 行为出发，把句中所有有害名词替换成抽象占位符 $X_1,...,X_4$（"卖偷车的 chop shops"→"卖 $X_2$ 的 $X_1$"），让纯文本通道完全无害。然后让 4 种攻击各自用不同的视觉编码来"暗示" $X_i$ 真正指代什么。所有攻击都使用 decode-first prompting（先告诉模型要解码再回答），Best-of-5 采样，3 个独立 LLM 评判员 (Grok-4.1, Gemini-3-Flash, Claude-Haiku-4.5) 用 4 级评分（refusal / misunderstanding / partial / compliance）做投票，84.3% 一致率。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["HarmBench 有害行为"] --> B["Prompt 中立化<br/>有害名词 → 占位符 X1–X4"]
     B --> C["视觉密码<br/>指令编成图形序列 + 图例"]

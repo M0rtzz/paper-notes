@@ -38,7 +38,7 @@ tags:
 HypeVPR 要解决的是 P2E 检索的不对称性：查询是一张窄视场的透视图，数据库里每个位置却是一张 360° 全景图，两者必须落到同一个度量空间里比距离。框架由两路网络组成。查询网络 $\mathcal{F}_q$ 把透视图压成单个双曲描述子 $\mathbf{h}_q$；数据库网络 $\mathcal{F}_d$ 则把每张全景图拆成一棵「全景→宽视场子视图→窄局部窗口」的层次树，再用层次聚合模块（HAM）把这棵树编码成一组从全局到局部、由粗到细的双曲描述子 $\mathbf{H}_d$。检索时不是把全景图和查询直接比，而是先拿树顶的全局描述子快速粗筛出少量候选，再用树下层的细粒度描述子在候选里精排——这样既保留了全景图的全局上下文，又能对准查询实际看到的那一小片区域。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["透视查询图"] --> QF["查询网络 F_q<br/>与底层窗口共享 backbone"]
     QF --> HQ["查询双曲描述子 h_q"]

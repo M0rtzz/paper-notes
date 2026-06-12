@@ -43,7 +43,7 @@ tags:
 KITE 包含五个阶段：文档摄取与清洗、embedding 生成、多阶段检索、意图感知生成、session management。系统先把课程 PDF 按页抽取并去除页眉页脚等噪声，再按 section-aware chunking 切成约 500 字符、100 字符 overlap 的 chunks。每个 chunk 用 text-embedding-3-large 编码成 3072 维向量并存入 FAISS。学生提问时，系统先用 dense retrieval 找 top-50，再结合 BM25、MMR、cross-encoder reranking 和课程来源 boost，最终把 top-8 chunks 注入 GPT-5 prompt。生成侧先识别学生意图，再选择对应的辅导策略。除运行时管线外，论文还配套一条模拟学生 + 专家评审的评估管线，专门衡量反馈是否真的推动学生修订答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["课程 PDF"] --> B["文档摄取与清洗<br/>按页抽取 + 去页眉页脚 + section-aware 切块"]
     B --> C["embedding 生成<br/>text-embedding-3-large → 3072 维 → FAISS"]

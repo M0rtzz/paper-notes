@@ -44,7 +44,7 @@ tags:
 CIA 想干的事：在最严格的黑盒设定下——攻击者只能往目标 MAS $\mathcal{S}$ 发查询、看一眼最终输出 $\mathcal{S}(q)$，拿不到任何 agent 的 reasoning trace 或 profile——把整张通信拓扑 $\hat{\mathcal{G}}$（一个 DAG）反演出来。它分两阶段：阶段一 Reasoning Output Induction 用一条精心设计的对抗查询 $q^*$，逼 MAS 把内部所有中间 agent 的 reasoning 顺着拓扑"夹带"进最终输出，再后处理还原成有序列表 $\mathcal{R}^*=[r_1^*,\ldots,r_n^*]$；阶段二 Semantic Correlations Modeling 在这堆 reasoning 文本上学一个去偏表征，配合 teacher LLM 的弱监督，最终靠两两语义相似度 + 在 $\mathcal{R}^*$ 中的相对顺序判定每条有向连边。整套攻击零修改 MAS 配置、不破坏任务正确率。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["对抗查询 q*"]
     subgraph ROI["Reasoning Output Induction"]

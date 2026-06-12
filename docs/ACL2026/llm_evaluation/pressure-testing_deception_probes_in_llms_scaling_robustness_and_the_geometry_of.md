@@ -52,7 +52,7 @@ tags:
 第五步，构造 8 种风格扰动（pirate、Shakespearean、childlike、formal academic、slang、robotic、poetic、sarcastic）测试 distribution shift，并进一步用 4 种风格做增强训练、剩余 4 种风格做 held-out 测试。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DATA["数据构造<br/>D-RepE / D-Role / D-MASK 诚实-欺骗对比样本"]
     DATA --> ACT["激活收集<br/>Gemma 3 1B/4B/12B/27B 各层末 token residual stream"]

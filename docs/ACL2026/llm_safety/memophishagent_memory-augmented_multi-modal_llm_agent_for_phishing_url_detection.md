@@ -46,7 +46,7 @@ tags:
 MPA接收可疑URL列表，每个URL通过Agent处理：（1）动态选择5个专用工具收集多模态证据（文本+视觉+外部知识）；（2）在ReAct循环中进行多步推理，基于当前证据状态决定下一步行动；（3）利用情景记忆检索相似历史案例，加速判断或提供exemplar引导。最终输出"恶意"或"良性"判定。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["可疑 URL"] --> MEM
     subgraph MEM["情景记忆系统：检索历史判例"]

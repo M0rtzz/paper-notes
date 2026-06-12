@@ -44,7 +44,7 @@ tags:
 Prism 把一条 dLLM 去噪轨迹切成"先广撒网、再狠剪枝、最后精修"的三阶段流水线（这套三段时间表本身就是层级轨迹搜索 HTS）：从 $t=T$ 全 [MASK] 出发往 $t=1$ 去噪，前期用大宽度 $N$ 随机探索保多样性，中期沿一个"剪枝窗口"按几何速率把活跃轨迹砍到只剩 $K$ 条，后期对这 $K$ 条纯去噪并 majority voting 选答案。窗口由两个超参 $W=[w_{\min},w_{\max}]$ 划定，对应阈值 $T_p=\lceil w_{\max} T\rceil$、$T_r=\lceil w_{\min} T\rceil$：$T_p<t\le T$ 是探索段（宽度 $N$、不剪枝），$T_r<t\le T_p$ 是剪枝段（每 $i$ 步"打分→选 top-$S$→部分 remask 生孩子"循环一次），$1\le t\le T_r$ 是精修段（宽度收敛到 $K$）。剪枝段里的两个操作——用自验证反馈 SVF 打分、用部分 remask 做局部分支生孩子——正是另外两个关键设计；整套打分不靠任何外部模型，全部复用 dLLM 自己在 Yes/No 验证 prompt 上的 logits。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["全 [MASK] 序列<br/>初始化 N 条轨迹"] --> S1
     subgraph S1["Stage I 探索段（高噪段·宽度 N·不剪枝）"]

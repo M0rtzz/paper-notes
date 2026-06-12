@@ -44,7 +44,7 @@ tags:
 RAPCPO (Algorithm 1) 是 actor-critic 框架, 主循环每步: (1) 跑 horizon $H$ 步交互, 收集 $(x_t,a_t,c_t,g(x_t),h(x_t),x_{t+1})$ 进 buffer; (2) 用 Eq. 17 训 RAPC critic $Q_{g,h}(x,a;\eta)$; (3) 用 TD 训成本 critic $Q_c(x,a;\kappa)$; (4) 用成功 reach-avoid 轨迹的 $y_t=\gamma^{T-t}$ 训补偿因子 $\phi_\gamma(x;\xi)$; (5) 计算 critic-induced 可行集 $\mathcal X_p^{\pi_{\theta_l}}$ 并构造分区目标; (6) 用对称投影梯度更新 actor; (7) 重复直到收敛。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["环境交互 H 步<br/>收集 (x, a, c, g, h, x')"] --> B["RAPC critic<br/>max-min 夹紧 Bellman 回填"]
     A --> C["成本 critic<br/>标准 TD"]

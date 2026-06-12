@@ -46,7 +46,7 @@ tags:
 本文的工作分为三个层次递进的部分：(1) 通过阶段归因分析定位多语言推理差距的来源；(2) 系统评估多种理解失败检测方法；(3) 提出选择性翻译(Selective Translation)策略，仅在检测到理解失败时介入翻译。整个流程不需要修改模型参数，是一种推理时的即插即用方案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph ATTR["阶段归因分析：定位差距来源"]
         direction TB

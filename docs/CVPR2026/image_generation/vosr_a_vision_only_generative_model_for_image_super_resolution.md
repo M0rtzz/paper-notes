@@ -40,7 +40,7 @@ tags:
 VOSR 要质疑的是「生成式超分必须站在 T2I 预训练的肩膀上」这个默认前提。它走纯视觉路线：以 LightningDiT 为骨干、在潜空间里做 flow matching 训练，给定 LR 图像后构建两个互补条件——结构条件（VAE 编码的 LR 潜在表示）和视觉语义条件（DINO 编码器提取的高级特征），一起注入 DiT 来预测 HR；推理时用面向恢复的引导外推，再把多步教师蒸馏成单步学生加速。整条管线不碰任何文本/多模态预训练，训练成本只有代表性 T2I-based SR 方法的约 1/10。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     LR["LR 低分输入"] --> COND
     subgraph COND["视觉语义条件（双条件构建）"]

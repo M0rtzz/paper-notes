@@ -44,7 +44,7 @@ EngiAgent 把工程问题求解拆成 Analyzer/Modeler/Verifier/Solver/Evaluator
 EngiAgent 要解决的是「工程问题里 LLM 能产出数字却产不出可行解」这件事，做法是把一个工程师团队的分工搬进多 Agent 系统：5 个功能 Agent（Analyzer/Modeler/Verifier/Solver/Evaluator）各管一段工作，1 块共享 Memory 让它们看到彼此的输出和失败历史，再由 1 个全连接协调器决定每一步把控制权交给谁。基线流水线按 Analyzer → Modeler → Verifier → Solver → Evaluator 线性走一遍（输入自然语言问题、输出带可行性判定的完整解包）；协调器层则允许任意跨越线性顺序——Verifier 检测到「数据不一致」可以直接跳回 Analyzer 重抽取，Solver 报「无解」可以跳回 Modeler 放松约束。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["工程问题（自然语言）"] --> ANA
     subgraph AGENTS["角色化 Agent 分工 + 共享 Memory"]

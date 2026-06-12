@@ -45,7 +45,7 @@ tags:
 TInR-U 框架包含三个递进式训练阶段。首先在工具内化阶段，模型通过双向知识对齐策略学习将工具文档映射到专属令牌，反之亦然，同时进行工具使用训练以确保实际应用对齐。其次在 SFT 预热阶段，利用高质量推理轨迹通过拒绝采样构建，对模型进行监督微调以建立推理能力基础。最后在强化学习阶段，采用专为工具推理设计的复合奖励函数进行优化。推理时，模型仅需利用内化的工具知识进行多步推理和工具调用，无需外部文档。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["异构工具文档"] --> P1
     subgraph P1["阶段1·工具专属令牌与双向知识对齐"]

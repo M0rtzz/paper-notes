@@ -46,7 +46,7 @@ tags:
 图表代码生成的难点在于既要代码逻辑正确、又要渲染后的视觉保真，而异构任务里很难找到统一的视觉奖励——文本转代码（Text-to-Code）没有唯一参考图，图表转代码（Diagram-to-Code）又是非双射（不同代码可渲染出相同图像）。OmniDiagram 用一条"数据—SFT—RL"的流水线统一应对：先用自上而下的合成方法造出覆盖 3×3 任务-语言矩阵的 M32Diagram 数据集（196k 样本），再用 SFT 把基础的多格式图表代码生成能力打牢，最后进入由 Viva 视觉问答奖励驱动的 GRPO 阶段，让模型在渲染—审问—反馈的闭环中迭代提升视觉保真度，输出 LaTeX/Mermaid/PlantUML 三种语言的可执行图表代码。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["M32Diagram 数据集构建"]
         direction TB

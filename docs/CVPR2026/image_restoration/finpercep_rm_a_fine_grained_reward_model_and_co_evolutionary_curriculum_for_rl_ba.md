@@ -42,7 +42,7 @@ tags:
 这篇论文要解决的是：把 RLHF 搬到真实世界超分（Real-ISR）上时，奖励信号粒度太粗，生成器学会钻空子刷高全局分却留下满图局部伪影。整个系统由三块拼起来：一个吃 T2I 先验的 SR 生成器负责产图；一个 FinPercep-RM 奖励模型既给整张图打一个全局质量分、又用解码器吐出一张和输入同分辨率的细粒度感知退化图（fg-PDM），告诉训练过程"哪里坏了"；外面再套一层 CCL 协同进化课程，让奖励模型和生成器从"简单全局奖励"一步步同步升级到"带空间热力图的严格奖励"。前两块解决"奖励看得够不够细"，第三块解决"看得细之后训练稳不稳"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["FGR-30k 数据集<br/>区域交换植入缺陷，得像素级真值退化图"] -->|监督训练| B
     C["SR 生成器<br/>吃 T2I 先验产图"] -->|生成结果| B

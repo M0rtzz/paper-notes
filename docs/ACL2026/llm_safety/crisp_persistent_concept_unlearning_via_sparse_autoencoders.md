@@ -51,7 +51,7 @@ tags:
 操作选在中层（Llama-3.1-8B 层 24、Gemma-2-2B 层 14），这一层 SAE feature 解耦度最高。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["目标语料 D_target + 保留语料 D_retain"] --> B["过模型 + 预训练 SAE<br/>记录 token 级特征激活"]
     subgraph SEL["对比式特征选择（Phase 1）"]

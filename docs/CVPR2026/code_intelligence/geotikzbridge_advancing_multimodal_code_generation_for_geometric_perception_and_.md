@@ -44,7 +44,7 @@ GeoTikzBridge 通过构建最大的 2.5M 图像-TikZ 代码数据集和首个辅
 GeoTikzBridge 想解决的核心问题是：让模型把一张几何图精确地"翻译"成可编译的 TikZ 代码，再用这份符号化代码去支撑下游几何推理。整条 pipeline 分三段串起来：先用一个自举式的数据飞轮把 145k 种子数据滚到 2.5M，训练出基础感知模型 GeoTikzBridge-Base；再在此基础上用辅助线指令数据微调出 GeoTikzBridge-Instruct，让它能按指令往图里补辅助线；最后把这两个模型当成无需训练的即插即用感知前端，接到任意 MLLM/LLM 前面，把"看图"换成"读代码"来增强几何推理。输入始终是几何图像，输出是可编译的 TikZ 代码。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["几何图像<br/>种子 DaTikZ 145k + 9 个数据集的无代码候选图"] --> FW
     subgraph FW["迭代自精炼数据飞轮"]

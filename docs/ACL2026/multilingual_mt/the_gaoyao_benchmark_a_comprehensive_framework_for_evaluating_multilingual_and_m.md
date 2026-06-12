@@ -44,7 +44,7 @@ tags:
 GaoYao采用"整合+扩展+泛化"三叉策略构建基准：先用三层文化评估框架（搭配九个认知子层）确定要测哪些维度，再分三条数据构建轨填充这张评估矩阵——对七个客观认知子层整合已有高质量开源数据集（如Include、MMMLU、Belebele、Flores-101、MGSM等）；对两个关键主观任务子层（指令遵循和多轮对话）进行专家级本地化扩展至19种语言；对跨文化评估层通过人-机协作的三阶段流程从16个文化泛化至34个文化。三条轨汇入统一的评估协议——客观任务用规则提取、主观任务用LLM-as-Judge——最终诊断20+旗舰和紧凑型模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["三层文化评估框架<br/>九个认知子层（通用多语言/跨文化/单文化）"]
     A --> B["整合：开源数据集<br/>Include/MMMLU/Belebele/Flores-101/MGSM → 七个客观子层"]

@@ -51,7 +51,7 @@ HorizonForge 包含两个阶段：**3D 资产收割（3D Assets Harvesting）** 
 - **阶段二**：将编辑后的 3D 场景光栅化为 2D 帧序列，再通过微调的视频扩散模型（基于 CogVideoX 骨干）修复伪影、补全缺失区域，生成高保真、时序一致的驾驶视频。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入驾驶视频 + 目标轨迹"]
     subgraph HARVEST["阶段一·3D 资产收割"]

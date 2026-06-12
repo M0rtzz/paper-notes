@@ -50,7 +50,7 @@ OxyGent 的方法可以理解为一个面向多智能体系统的操作系统层
 从系统形态看，OxyGent 不是一个只服务单轮推理的 agent runner，而是覆盖“构建-推理-观察-标注-演化”的闭环框架。论文中展示的文件管理助手、GAIA 任务求解系统和 2000+ agent 的电商分类系统，都是这个框架的不同实例化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["用户请求 + 业务上下文 + 可用组件"] --> REG
     subgraph REG["统一 Oxy 抽象与四层数据作用域"]

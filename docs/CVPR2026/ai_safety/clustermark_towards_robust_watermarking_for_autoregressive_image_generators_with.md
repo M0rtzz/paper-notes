@@ -42,7 +42,7 @@ AR 图像模型通过逐步预测视觉 token 序列来生成图像，这些 tok
 ClusterMark 在 AR 图像生成的采样阶段嵌入水印，验证时仅需 VQ-VAE 编码器和秘钥即可检测，无需访问原始生成模型。整体流程分三步：(1) 预处理阶段对 VQ-VAE 码本向量做 k-means 聚类；(2) 生成时基于前一 token 的簇标签计算绿/红集合划分，偏向采样绿簇中的 token；(3) 验证时将待检图像编码为 token 序列，统计绿色 token 比例并做二项式假设检验。在这条主干上，方法再叠两个增强：用一个轻量的 Token / Cluster 分类器在强扰动下"撤销扰动"后再编码，用前缀调优在离线阶段挑出误报最低的秘钥 $\kappa$，二者共同保证水印在各类扰动下既鲁棒又低误报。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PRE["基于码本聚类的绿/红集合划分"]
         direction TB

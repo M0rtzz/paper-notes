@@ -51,7 +51,7 @@ tags:
 BenchMarker 把一个 MCQA 数据集作为输入，对其中每道题并行跑三条独立的诊断流水线——污染、捷径、写作错误，每条都以 LLM judge 为核心，最终给每题输出一组二分类标签加判官解释。三条结果既能按题保留供人工 review，也能聚合到数据集层面得到"这个 benchmark 有多少题被污染 / 有捷径 / 违反写作规则"的健康报告，整套封装在 InspectAI 里提供 UI。其设计灵魂是把教育学几十年沉淀的 MCQ 质检标准（item-writing rubric、partial-input 诊断）翻译成可大规模自动执行的 LLM 评分协议。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：MCQA 数据集<br/>逐题并行诊断"]
     IN --> C

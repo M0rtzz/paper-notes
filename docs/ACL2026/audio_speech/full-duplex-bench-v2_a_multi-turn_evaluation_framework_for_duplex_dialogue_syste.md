@@ -43,7 +43,7 @@ tags:
 FDB-v2 想回答一个此前没人系统量化的问题：全双工语音模型能不能撑住一整段多轮对话，而不只是单次接话接得漂亮。它把评测组织成一个三方实时回路——一个 gpt-realtime 驱动的 Examiner 按预设子目标推进对话、必要时主动打断，一个 Orchestrator 维护两条 WebRTC peer connection、强制双向以统一的 canonical wire format 传音频，被测模型则通过 adapter 接进来把自己的音频流转成统一格式。每场对话由 Examiner 开口、按子目标逐步推进、以固定结束语收尾，全程双轨录音（Examiner 一条、Evaluatee 一条），事后用 Parakeet-TDT 转录再交给 Gemini-2.5-flash 当 judge 打分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     T["四类任务族脚本<br/>Daily / Correction / Entity / Safety"] --> EX["Examiner（gpt-realtime）<br/>分步语义目标 + Fast / Slow 节奏"]
     EX <-->|实时对话| IF

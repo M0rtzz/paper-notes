@@ -42,7 +42,7 @@ tags:
 论文想解决的是 3DGS「看得好、量不准」的老问题：高斯表示自由度高、渲染漂亮，但几何精度始终差一截，而以往要修这个毛病要么得引入外部数据驱动的先验、要么得额外学一个隐式场来牵着高斯走。本文换了个思路——既然当前这组高斯渲染出来的深度图本身就估出了一张粗糙的表面，那就把它当成「自己约束自己」的先验。整条流水线是一个闭环：用当前高斯渲染各视角深度图 $\{d_i'(t)\}$，把它们融合成一张 TSDF 距离场栅格 $f^t$，零级集就是当前估计的表面；随后在这张距离场指引下对高斯做三件几何上的事——剔除离群点、按到表面的距离拉不透明度、把高斯往表面推；优化推进一段后再用更新过的深度重融一次 $f^t$、并把约束作用的窄带收窄一点，于是先验越来越准、约束越来越紧，整体呈 coarse-to-fine 收敛。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["当前 3D 高斯"] --> B["渲染各视角深度图 d_i'(t)"]
     subgraph SCP["自约束先验"]

@@ -50,7 +50,7 @@ $$\tilde{x}' = x' + C$$
 得到的 $\tilde{x}'$ 就是净化后接近干净样本的点云，再喂给下游识别模型。整个模块只在数据空间里操作，与具体识别网络解耦，所以一旦训好就能挂在任何受害模型前面。训练时用成对的干净-对抗样本，让网络学会"看到什么样的扰动该回填什么样的修正"，监督信号同时落在几何坐标和高层语义两个空间上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["对抗点云 x'"] --> SUB
     subgraph SUB["分布感知的反扰动生成"]

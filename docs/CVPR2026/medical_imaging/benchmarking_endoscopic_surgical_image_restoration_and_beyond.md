@@ -51,7 +51,7 @@ tags:
 这是一篇数据集+Benchmark论文，目标不是提出新复原算法，而是回答一个被长期回避的问题：现有图像复原方法究竟能不能用在真实内窥镜手术上。为此作者把工作拆成一条从"建数据"到"超越像素评估"的链路：先从两家医院、414名患者、约43,640分钟的腹腔镜和胸腔镜视频里手工筛出三类真实退化帧，给每帧配上对齐的清洁参考帧，构成首个多源真实配对数据集 SurgClean；再在它上面统一训练、统一指标地跑22种代表性方法（12种通用复原 + 10种任务特定）；最后不止看 PSNR/SSIM，而是把复原结果喂进深度估计和分割等下游任务，并定量刻画手术退化与自然退化的分布差异。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["真实手术视频<br/>2 院·414 患者·约 43,640 分钟"] --> A
     subgraph A["SurgClean 数据集"]

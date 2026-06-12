@@ -43,7 +43,7 @@ tags:
 这篇论文先把"陨石坑分析"从检测任务重新定义为实例级图像检索任务，再围绕这个新任务做诊断和提方法。整体分三步走：先建一个 CraterBench-R 基准，把"跨图关联同一陨石坑"变成可评测的检索问题；再用 30 种冻结 backbone 跑一遍诊断，定位出"单向量池化精度有上限、有监督度量学习反而退化"两个瓶颈；最后提出一个无训练的实例 token 聚合，把 196 个 ViT patch token 压成 K 个代表 token 做 late interaction 匹配，并用"单向量粗筛 + 实例 token 精排"的两阶段管线落到行星尺度。下图画的是论文最终落地的检索方法本身（对应下方的设计 3、设计 4），基准与诊断是支撑这条方法的前置工作。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["火星 CTX 陨石坑图像"] --> B["冻结 ViT 编码<br/>CLS 单向量 + 196 个 patch token"]
     subgraph AGG["实例 token 聚合（无训练）"]

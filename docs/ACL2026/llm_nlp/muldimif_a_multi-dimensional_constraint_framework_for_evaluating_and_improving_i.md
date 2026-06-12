@@ -44,7 +44,7 @@ tags:
 MulDimIF 包含评估框架和改进流水线两部分：评估框架定义三种约束模式（Example/Listing/Incorporation）、四类约束（内容/格式/语言/长度，13子类）和四级难度（1-4个约束类型组合）；改进流水线先用可控指令生成流水线（约束扩展→冲突检测→指令重写）把 ShareGPT 的原始指令批量改造成代码可验证数据，再分别用于多维评估和 GRPO 训练，最后从参数层面分析提升来源。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     M["三种约束模式<br/>Example / Listing / Incorporation"]
     A["原始指令（ShareGPT）"] --> P

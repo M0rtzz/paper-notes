@@ -44,7 +44,7 @@ tags:
 输入 $X\in\mathbb{R}^{N\times D}$（$N$ 样本、$D$ 列），首先按列做 $z$-score 标准化得到 $\tilde{x}_{i,j}$，然后 RaBEL 把每个标量 $\tilde{x}_{i,j}$ 展开成 $M$ 维 RBF 响应再线性投到 $d$ 维隐空间，形成 cell embedding 张量 $E\in\mathbb{R}^{N\times D\times d}$。这张张量送入 $L$ 个**重排后的双向注意力块** S→N→F：每块先做样本维注意力（聚合列级统计量）→ FFN（条件化压缩）→ 特征维注意力（在更好的条件下学列间关系）。最后用 attention pooling 把所有 feature token 聚合成预测向量，使每一次注意力都"看得见"读出端的梯度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入 X (N×D)<br/>按列 z-score 标准化"]
     subgraph RB["RaBEL 径向基嵌入"]

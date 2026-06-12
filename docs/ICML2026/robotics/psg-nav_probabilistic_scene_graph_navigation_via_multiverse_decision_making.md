@@ -44,7 +44,7 @@ tags:
 输入是 RGB-D 观察序列 $O_t = \{I_t^{rgb}, I_t^{depth}, p_t\}$ 加自由文本目标 $c$；输出是离散动作 $a_t \in \{\text{MOVE\_FORWARD}, \text{TURN\_LEFT/RIGHT}, \text{LOOK\_UP/DOWN}, \text{STOP}\}$，每步 500 帧预算内走到目标 1m 内并执行 STOP 即成功。pipeline 三件套：(A) **3D-PSG** 在线构建层次化概率场景图，每个 object 节点维护完整类别分布而非硬标签；(B) **Multiverse Decision** 从 3D-PSG 采样 $K$ 个一致世界，对候选 landmark 做 pairwise 比较 + 信息增益评分，选下一个子目标；(C) **EEC** 在检测到候选物体时用成功/失败记忆库做置信度校准，决定是否真的 STOP。三者首尾相接，决策与终止两处都能回到导航循环，构成"建图→规划→走→验证→（不停就继续）"的闭环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["RGB-D 观察 + 文本目标"] --> PSG
 

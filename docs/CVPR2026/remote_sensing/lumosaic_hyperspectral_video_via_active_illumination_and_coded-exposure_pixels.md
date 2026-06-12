@@ -50,7 +50,7 @@ tags:
 Lumosaic 想在一帧普通的彩色曝光时间里，同时把空间、光谱、时间三个维度都采下来，从而得到运动鲁棒的实时高光谱视频。整体是一条"硬件光学编码 → 软件解码重建"的流水线：硬件端用 12 个窄带 LED（20–30nm FWHM，Lumileds Luxeon C）做可编程主动光源，配一台 VGA 的编码曝光像素（CEP）相机（640×480，12500 子帧/秒），由 ESP32 微控制器在微秒级把"哪一刻点哪个 LED"（照明码）和"哪些像素此刻在曝光"（曝光码）对齐起来，于是单帧内就织出一张空间-光谱-时间马赛克。每帧切成 $S=158$ 个子帧（每子帧 170µs），约 27ms 积分加约 6ms 读出/同步，正好凑成 30fps。软件端先做光谱去马赛克、把原始编码帧拆出 12 个 LED 子图像并双线性上采样，再用 RIFE 光流把各子图像对齐到同一时刻，最后送进 HAN 网络重建出 31 通道（400–700nm）的高光谱视频。下图把这条流水线的硬件编码、去马赛克脚手架与时间对齐+重建三段画出来：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SC["动态场景"]
     subgraph ENC["硬件光学编码（单帧内）"]

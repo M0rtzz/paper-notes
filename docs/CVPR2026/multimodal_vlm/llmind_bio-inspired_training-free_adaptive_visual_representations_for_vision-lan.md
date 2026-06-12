@@ -44,7 +44,7 @@ tags:
 这篇论文要解决的是一个很尖锐的问题：当像素预算被压到全图的 1%–5% 时，怎么让冻结的 VLM 还答得对。整条 pipeline 围绕"把有限的像素花在刀刃上"展开——给定图像 $I$ 和问题 $q$，先由一个轻量 MLP 预测出一组 Möbius 变换参数 $\theta$，BASS 模块据此做一次非均匀采样，把任务相关区域放大、无关背景压缩，得到只占预算 $B$ 的小图 $\hat{I}$，送进冻结 VLM 拿回答。关键在于 $\theta$ 不是一次定死的：CSF 模块会拿 VLM 的回答和图像质量去算损失，在测试时反过来迭代调整 $\theta$，让下一轮采样更聚焦。整个过程不动 VLM 一个参数，只在推理时优化采样这一层。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 I + 问题 q"]
     subgraph BASS["BASS：Möbius 非均匀采样前端"]

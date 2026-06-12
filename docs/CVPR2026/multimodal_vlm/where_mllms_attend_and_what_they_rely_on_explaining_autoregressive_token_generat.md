@@ -43,7 +43,7 @@ tags:
 Eagle 想回答两个问题：MLLM 生成某个 token 时**看的是图里哪块**，以及它**到底靠不靠图**。它把这两件事都拆成纯前向推理能观测的量，不碰模型内部的注意力或梯度，因此任何 MLLM（哪怕只给 API）都能用。整条流程是：先用 SLICO 超像素分割把图像稀疏化成 $V=\{\mathbf{x}_1,\dots,\mathbf{x}_N\}$ 个子区域，把"该看哪里"变成"在这 $N$ 块里挑子集"的离散问题；接着对挑出来的子集打一个同时衡量"够不够用"和"缺不缺得了"的分；用贪心搜索把子区域按重要性排成有序序列 $\pi$；最后顺着这个序列逐块喂回图像、观察目标 token 概率怎么变，就能判断它依赖的是视觉证据还是语言先验。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 + Prompt"] --> B["SLICO 超像素分割<br/>稀疏化为 N 个子区域 V"]
     subgraph SCORE["对候选子集 S 打分"]

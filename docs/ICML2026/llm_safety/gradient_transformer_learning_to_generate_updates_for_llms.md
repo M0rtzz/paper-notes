@@ -44,7 +44,7 @@ tags:
 本文要让服务商在完全不碰私有数据的前提下，把客户在私有数据上微调小模型攒下的"梯度知识"搬到大模型上。整套机制分三步串起来：先在**公开 shadow 数据集** $D_p$ 上分别微调 TinyLM 和 LLM，凑出 $K$ 个 $(\Delta\tilde\theta_{S,k}, \Delta\tilde\theta_{T,k})$ 配对（curation）；用这些配对训一个 seq2seq 的 Grad-Transformer，学会"TinyLM update → LLM update"的翻译关系（train）；部署时客户本地微调 TinyLM 得到 $\Delta\theta_{S,i}$ 上传，服务商把多客户的 update pool 起来送进 Grad-Transformer 得到 $\Delta\hat\theta_T$，叠回初始权重 $\hat\theta_T=\theta_T^0+\Delta\hat\theta_T$ 返还客户推理（deploy）。映射只在 shadow 数据上训一次，对所有客户复用。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CUR["① Update vector 配对构建（curation，公开 shadow 数据）"]
         direction TB

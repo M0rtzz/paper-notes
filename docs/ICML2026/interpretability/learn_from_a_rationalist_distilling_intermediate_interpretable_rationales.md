@@ -44,7 +44,7 @@ tags:
 REKD 要解决的是小模型在"选-预测"式 rationale extraction 里探不出好特征子集的困境，做法是在原本的 RE 框架上挂一条蒸馏分支，让小学生同时模仿大教师的特征选择和最终预测。输入 $\mathbf{X} \in \mathbb{R}^{L \times D}$（L 个特征/patch/token，每个 D 维）分别走教师、学生两套 generator-predictor pipeline，各自吐出 Gumbel-Softmax 软分布 $\mathbf{S}$、其 STE 离散化的二值掩码 $\mathbf{M}$，以及 rationale $\mathbf{R} = \mathbf{M} \odot \mathbf{X}$ 经 predictor 得到的类别 logits。学生侧把原任务损失 $\mathcal{L}_{\text{RE}}$ 和蒸馏损失 $\mathcal{L}_{\text{KD}}$ 按权重 $\alpha$ 混合，关键的一笔是让蒸馏温度和 Gumbel-Softmax 退火共用同一条指数曲线，使整个训练自然走出"先软后硬"的课程。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入 X（L 个特征/patch/token，每个 D 维）"]
     subgraph T["教师 rationalist（固定，大模型）"]

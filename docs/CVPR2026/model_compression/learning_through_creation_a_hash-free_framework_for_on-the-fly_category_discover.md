@@ -40,7 +40,7 @@ tags:
 LTC 想解决 OCD 里一个根本的优化错位：现有方法训练时只学表征、从没见过"发现"这件事，却指望模型推理时凭空具备发现新类的能力。它的做法是在训练阶段就用 MKEE 在线"创造"一批伪未知类样本，让模型提前在已知/未知的边界上练手；同时全程在连续特征空间用动态原型字典替代哈希码，避免离散化丢掉细粒度语义。整条流水线是：ViT 抽特征 → 维护原型字典 → MKEE 造伪未知样本 → 双最大间隔损失把已知/未知拉开 → 自适应阈值决定在线时要不要开新类。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["已知类样本"] --> B["ViT-B/16 编码器<br/>抽连续特征（只微调最后一个 Block）"]
     subgraph TRAIN["离线训练"]

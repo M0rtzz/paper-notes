@@ -44,7 +44,7 @@ tags:
 这篇论文走的是「先做基准、再据基准提最小方法」的路子，所以方法侧有两条并行的线。第一条是诊断基准 **KVFundaBench**：它覆盖 5 类基础能力任务（MMLU 世界知识 WK、CommonsenseQA 常识 CSR、GSM8K 算术 AR、HumanEval 代码 CG、JailBreakV 安全 SA）加上 LG-GSM8K 长生成，在 LLaMA-3.1-8B / Instruct、Mistral-7B-Instruct、DeepSeek-R1-Distill-Llama-8B 四个模型上交叉跑六种 KV 压缩方法，用相对性能 $\Delta P = (P_C - P_{\text{base}})/P_{\text{base}}$ 量化「压完掉多少」。第二条是据此构造的最小验证方法 **ShotKV**：它把 prompt 切成 $n$ 个 shot $\{s_1,\dots,s_n\}$，prefill 阶段以整个 shot 为颗粒度评分并整段保留，decoding 阶段再单独做 token 级动态压缩，最后每层把两段 cache 拼回去 $KV_{\text{total},l}=KV^C_{\text{prefill},l}\cup KV^C_{\text{decoding},l}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DIAG["KVFundaBench 诊断基准（设计 1）"]
         direction TB

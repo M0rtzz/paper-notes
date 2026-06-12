@@ -45,7 +45,7 @@ tags:
 整篇工作要回答的问题是：在专家系统性分歧的商业 idea 评估里，judge 该向「共识」收敛还是向「个体」对齐。为此它分两步走。第一步是数据构建——围绕 300 个基于专利、由 LLM 生成的产品 idea（覆盖 NLP/CS/MatChem 三领域），让每个 idea 由 4-12 名领域专家在 6 个维度上按阶梯式协议打分，最终得到约 3,109 条评分，并用双层指标刻画分歧到底是噪声还是结构。第二步是 judge 评估——在同一份数据和 leave-one-out 协议下，把 zero-shot、aggregate、personalized 三种 judge 配置摆在一起，唯一的变量是 few-shot 例子的评审员归属，再用 Krippendorff's α 比对 judge 预测与对应专家标注的对齐度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["300 个专利支撑的产品 idea<br/>(NLP / CS / MatChem 三领域)"] --> P
     subgraph P["阶梯式评分协议"]

@@ -46,7 +46,7 @@ tags:
 这篇论文不提新模型，而是设计一套反事实诊断流程，回答一个临床安全问题：当病例里出现与诊断无关的社会身份信息（性取向、宗教信仰）时，LLM 的答对率和置信度可靠性会不会被悄悄带偏。做法是从 MedQA-USMLE 随机抽 2,364 道医学题，对每道题在原始病例上插入身份标记句、生成只在这一句上有差异的反事实变体，然后在 9 个 LLM 上同时测两件事：QA 准确率，以及用语义熵衡量的置信度校准。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["MedQA-USMLE 抽样 2,364 题<br/>剔除已含性取向/宗教/精神科的题"] --> B
     subgraph G1["反事实变体构建"]

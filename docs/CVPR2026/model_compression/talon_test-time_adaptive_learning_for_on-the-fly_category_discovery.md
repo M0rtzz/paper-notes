@@ -42,7 +42,7 @@ tags:
 TALON 想纠正现有 OCD 方法的两个毛病：一是把特征量化成二值哈希码当原型，量化丢信息、放大类内方差，导致"类别爆炸"（一个真类被碎成多个伪类）；二是在线阶段把编码器和原型都冻死，完全浪费了新数据的学习潜力，与"从发现中学习"的初衷相悖。它的方案是全程在连续特征空间操作（hash-free），并把测试时自适应（TTA）引入 OCD。整条流水线分三步：**离线**用 ViT-B/16（DINO/CLIP 预训练、只微调最后一个 transformer block）学表征，并用「边距感知 Logit 校准（MLC）」预先把嵌入空间塑形成"类内紧、类间疏"、为未来新类腾位；**在线推理**维护一个类原型记忆库 $\mathcal{P}$，每个已知类原型先用标注样本特征均值初始化，来一个测试样本就与所有原型算余弦相似度，最大值 ≥ 阈值 $\tau$ 归入对应已知/新原型、否则新建原型；**在线自适应**则周期性回收一小批已处理样本，用「语义感知原型更新（TTA-P）」把原型朝高置信样本均值挪、压住离群点，再用「稳定编码器适应（TTA-M）」轻量更新编码器本身，更新后的原型库和编码器反馈回推理循环，形成"边发现边学"的闭环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["已知类标注数据（离线）"] --> B["ViT-B/16 微调最后一个 block<br/>学表征"]
     B --> C["边距感知 Logit 校准（MLC）<br/>加角度边距 m，类内紧/类间疏"]

@@ -46,7 +46,7 @@ MuCo 提出了一种基于多轮对话的对比学习框架，利用 MLLM 的对
 MuCo 想解决的是单轮对比学习的低效：传统范式把每个 query-target 对当成独立数据点，一张图像被反复编码、有效 batch size 又被前向次数卡死。MuCo 的做法是把"嵌入学习的每个 pair"类比成"对话中的一轮"——给定一张图像和它关联的多组 query-target，把它们拼成一段多轮对话，整段送进 MLLM 做**一次**前向传播。模型在每轮结束的 EOS 位置取出该轮的嵌入，于是一次前向就同时产出多个 query 嵌入和 target 嵌入，再统一丢进批内负采样的对比损失里训练。整条链路几乎不改 MLLM 架构，只是换了组织数据和取嵌入的方式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["M3T 多模态多轮数据集<br/>一图配 K 组 query-target 对"] --> B
     subgraph MC["多轮对比学习"]

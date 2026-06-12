@@ -47,7 +47,7 @@ tags:
 SPEGC 想解决的是持续测试时自适应 (CTTA) 里"自增强误差累积"的死循环——熵或像素级信号在严重域偏移下不可靠，越自适应越错。它的思路是不依赖这些脆弱信号，转而从测试数据**内部的高阶聚类结构**里找监督。整条流程是：ResNet 骨干提局部特征，用 MC Dropout 估不确定性、采样出可信的前景节点；语义提示特征增强 (SPFE) 给这些节点注入全局语境；增强后的特征入队拼成伪 mini-batch、算出全局相似度矩阵；可微分图聚类求解器 (DGCS) 把这个矩阵当作最优传输问题端到端精炼成干净的结构表示；最后用图一致性损失 + 聚类损失把这套结构信号回灌给模型，指导它在不断变化的目标域上自适应。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["测试图像流（持续目标域）"] --> B["ResNet 骨干<br/>提局部节点特征 V"]
     subgraph SPFE["SPFE 语义提示特征增强"]

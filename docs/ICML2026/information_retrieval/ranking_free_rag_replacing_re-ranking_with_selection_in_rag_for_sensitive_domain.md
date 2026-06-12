@@ -44,7 +44,7 @@ tags:
 METEORA 要解决的问题是：把 RAG 里那个不可解释、靠 top-$k$ 截断的 re-ranker 整段拿掉，换成一个能同时说清"选哪些、为什么选、哪些是投毒"的统一框架。形式上它学一个 $f_\theta(q, E) \to (R, E_s)$，输入 query $q$ 和检索出的候选 chunk 集合 $E$，同时吐出 rationale 集合 $R = \{r_1, \dots, r_k\}$ 和被选证据子集 $E_s \subset E$。整条链路靠一份 rationale 串起三个阶段——DPO 训出的 LLM 先把 query 翻译成若干条"为什么相关"的解释，ECSE 拿这些 rationale 在 $E$ 上选证并自适应决定选多少，Verifier 再拿同一份 rationale 当指令把投毒 chunk 剔掉——从头到尾都没有出现魔法数字 $k$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["query q + 检索出的候选 chunk 集合 E"] --> B["DPO Rationale 生成器<br/>把 q 翻成多条「为什么相关」的 rationale R"]
     subgraph ECSE["ECSE：双路证据选择 + 统计肘部自适应截断"]

@@ -43,7 +43,7 @@ tags:
 MAPR 让模型对同一个问题并行走两条推理路径：**解题路径**照常生成 G 条响应、用规则验证得到真实通过率 $p$ 和正确解的长度范围 $[l_{\min}, l_{\max}]$；**元预测路径**则生成 M 条"元预测"，让模型在动手解题前先报出自己估计的通过率 $\hat{p}$、期望长度 $\hat{l}$ 和这道题需要的概念集合 $\hat{\mathcal{G}}_{\text{notion}}$。两条路径共享同一套参数、同在 GRPO 框架下更新，最终把"预测得准不准"也变成可优化的奖励信号（**三维预测奖励**）。这是基础版 MAPR；训练跑过 k 步、元预测变稳之后，加速版 **MAPR-efficient** 把并行改成序贯——先跑元预测、用**预测门控**筛掉平凡/不可解的题，再对留下的题求解并施加**长度截断**，把元认知带来的省算力收益落到实处（也可顺带把预测的概念当作提示喂给解题路径）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["问题 q"] --> SOL["解题路径<br/>生成 G 条解答 + 规则验证"]
     Q --> META["元预测路径<br/>生成 M 条预测：通过率 p̂ / 长度 l̂ / 概念集"]

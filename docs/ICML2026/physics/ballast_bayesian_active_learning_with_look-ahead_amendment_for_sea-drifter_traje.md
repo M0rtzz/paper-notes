@@ -46,7 +46,7 @@ tags:
 BALLAST 是一个顺序实验设计框架：先用一个**时空 Helmholtz GP 代理模型**刻画时变向量场；在每个决策时间 $t_n$、给定已有观测 $\mathcal{D}_n$ 后，用 **VaSE** 方法从 GP 后验中高效采样 $J$ 个向量场样本；对每个候选放置位置 $\bm{s}$，在每个样本场下用欧拉法模拟漂流器直到终止时间 $T$ 的完整漂流轨迹，汇总所有轨迹沿途观测的信息增益来给该位置打分（即 **look-ahead 效用修正**），蒙特卡洛平均后选出最优放置。输入为空间网格 $R$、时间范围 $[0,T]$、漂流器数量 $M$；输出为 $M$ 个顺序最优放置位置——每放置一个就把它纳入观测、重新决策下一个，循环 $M$ 次。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：已有观测数据 + 空间网格 R<br/>时间范围 [0,T] + 漂流器数 M"] --> B["时空 Helmholtz GP 代理模型<br/>无散/无旋分解 + Matérn 3/2 时间核"]
     subgraph C["VaSE 高效后验采样（采 J=20 个向量场）"]

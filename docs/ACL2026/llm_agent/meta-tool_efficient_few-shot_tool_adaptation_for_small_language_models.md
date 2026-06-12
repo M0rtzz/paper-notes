@@ -44,7 +44,7 @@ tags:
 本文以 Llama-3.2-3B-Instruct 为统一骨干，把"小模型如何学会调用工具"拆成四个逐层叠加的适应机制，再用受控实验逐一拆解谁在真正起作用。输入是工具文档与若干 few-shot 示例，模型经过文档与示例编码、超网络生成 LoRA、FSM 约束解码、值引导波束搜索四道处理后输出符合 schema 的工具调用。整套设计的目的不是堆砌一个更强的系统，而是让每个组件可被单独开关，从而把"工具使用性能从何而来"这个问题量化到百分点。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["工具文档 + few-shot 示例"]
     subgraph ADAPT["参数空间适应（消融显示零增益）"]

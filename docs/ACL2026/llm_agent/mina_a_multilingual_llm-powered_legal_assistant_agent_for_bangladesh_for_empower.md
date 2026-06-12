@@ -44,7 +44,7 @@ tags:
 Mina 是一套围绕双语低资源法律场景深度适配的多 Agent 系统。系统以 Orchestrator Agent 为中枢，接收用户的孟加拉语/英语法律问题，结合对话历史和已上传文档判断响应路径：内部上下文足以回答时直接生成，否则交给 RAG Agent 触发两阶段 RAG 检索法条、按需调用外部工具，最终产出引用法规、起草文件或把复杂法律语言译为通俗孟加拉语解释。整条链路不追求单一模块的算法创新，而是让多语言嵌入、分层检索、LangGraph 状态机和法律词典在管辖区特定的约束下协同工作。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     U["用户法律问题<br/>孟加拉语 / 英语"] --> ORCH["Orchestrator Agent<br/>评估查询 + 对话历史 + 上传文档"]
     ORCH -->|内部上下文足够| GEN["直接生成回答"]

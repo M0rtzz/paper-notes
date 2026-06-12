@@ -42,7 +42,7 @@ tags:
 RILKE 不去训练一个新的知识库模型，而是把冻结 LLM 的某个中间层表示空间当成一个稳定的"检索索引"，并在其上挂载一批可路由、可插拔的低秩干预模块。输入是一串持续到来的非结构化编辑样本，每条由查询 $x$ 和目标回答 $y$ 组成；系统先用冻结模型提取每条查询在指定层的隐藏状态作为 key、并为它（或它所属的语义簇）训练一个 ReFT 风格干预模块，使模型在不改原权重的前提下生成目标回答；推理时对新查询提取同层表示，用余弦相似度检索最近的 key，相似度超过门控阈值就激活对应模块、否则保持原始输出。整套流程把终身编辑拆成"稳定的 key 空间 + 可插拔的 value 模块"，从根上绕开了多次权重编辑导致的参数漂移。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["非结构化编辑流<br/>查询 x + 目标回答 y"] --> B["冻结 LLM 提取第 l 层隐藏状态作 key"]
     subgraph WRITE["写入阶段（基座参数全程冻结）"]

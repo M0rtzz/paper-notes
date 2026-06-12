@@ -49,7 +49,7 @@ TrajTok 由两个可微分模块组成，联合训练：
 输入 $\mathbf{V} \in \mathbb{R}^{T \times H \times W \times 3}$，输出 $\mathbf{Z} \in \mathbb{R}^{N \times d}$，其中 $N$ 随场景语义复杂度动态变化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入视频 V<br/>(T×H×W×3)"] --> SEG
     subgraph SEG["Universal Segmenter（通用分割器）"]

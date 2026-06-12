@@ -42,7 +42,7 @@ tags:
 CarePilot 面向的是医疗软件里那种"8–24 步、错一步全盘崩"的长流程任务（如在 DICOM 浏览器里调出某序列再标注）。它的一步闭环是：自然语言目标 + 当前截图 → **工具 Grounding**（UI 检测 + OCR + 缩放 + 模板匹配）定位控件 → **Actor** 读双记忆 + grounding 信号预测语义动作 → **Critic** 评估（给修正反馈或放行执行）→ 更新记忆 → 进入下一步。整套设计由四块组成：一个领域基准（CareFlow）、感知层（工具 Grounding）、记忆层（双记忆）、决策层（Actor-Critic）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CF["CareFlow 基准"]
         direction TB

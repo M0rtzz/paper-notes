@@ -44,7 +44,7 @@ tags:
 输入是 VFM（DINOv2-Large）的预训练权重矩阵 $\mathbf{W}_0 \in \mathbb{R}^{d \times k}$，对每个线性层执行 RRQR 分解得到正交矩阵 $\mathbf{Q}$ 和排列矩阵 $\mathbf{P}$。利用分解结果，把次要方向（minor directions）初始化主适配器（rank 32、大学习率）、主要方向（major directions）初始化子适配器（rank 4、小学习率）；再构建残差矩阵（原始权重减去适配器初值）冻结，只训练两个适配器，以 Mask2Former 作为分割头。由于两个适配器从一开始就落在不同子空间、又各配匹配自身方向的更新步长，训练后保持近正交互补，**无需任何显式正交正则**。推理时双适配器合并回原始权重，**不引入额外推理延迟**。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     W["VFM 预训练权重 W₀<br/>(DINOv2-L 各线性层)"] --> RRQR["RRQR 分解 W₀P=QR<br/>列选主按范数排重要性，挑独立方向"]
     subgraph DUAL["主/子双适配器"]

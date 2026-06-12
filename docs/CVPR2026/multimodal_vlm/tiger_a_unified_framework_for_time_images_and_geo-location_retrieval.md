@@ -39,7 +39,7 @@ tags:
 TIGeR 想把地理定位、拍摄时间预测、地理时间感知检索这三件事统一进一个嵌入空间，难点在于既要把"时间驱动的外观变化"（同一地点不同季节长相不同）因子化掉，又要保住底层的地理语义。它的做法可拆成四块：每个模态先过各自的**模态特定编码器**，把量纲差异极大的图像/位置/时间映射到可比空间；再把 {V,L,T,[V;L],[V;T],[L;T]} 六种输入组合拼接后送进一个共享的**多模态 Transformer 融合**模块，用自注意力让模态之间直接相互 attend；训练时用对比损失加**软目标分类损失**对齐，软目标利用地理/时间的连续性把监督信号传给邻近类；推理时再用**自适应分类器-检索融合**按分类器置信度调和检索打分与分类打分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["图像 V"] --> ENC
     L["位置 L"] --> ENC

@@ -44,7 +44,7 @@ TagRAG 可以理解为把 GraphRAG 的「先抽实体再聚社区」改成「先
 输入是一组领域文档和一个预定义根领域标签（如 Agriculture、Computer Science、Legal 或 All disciplines），输出是一个层级标签知识图谱，包含 object tags、domain tags、domain-domain 边和 object-domain 连接。构建分四步：先把文档切 chunk 并抽对象标签和关系；再把对象标签连同根领域一起交给 LLM，生成从根领域到细分子领域的标签链；接着把多条链合并成 DAG；最后为每个 domain tag 融合链上信息和相邻对象标签信息，生成可向量检索的 domain-centric summary。推理时先检索相关 domain tag summary，再沿对应标签链收集上下层 summary，最后把这些摘要喂给 LLM 生成答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["领域文档 + 预定义根领域标签"]
     subgraph S1["对象标签抽取与领域标签链组织"]

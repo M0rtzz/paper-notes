@@ -56,7 +56,7 @@ tags:
 在 Multi-turn 设置中，$R_a$ 被作为上一轮 assistant 输出封闭起来，然后用户在新一轮明确说“重新检查图像”。这和 Probe 共享同样的新图与历史文本，但多了清晰的用户 turn 边界，用于测试外部指令是否能打断文本惯性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["VS-Bench 图像对（设计 2）"]
         direction TB

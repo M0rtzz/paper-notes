@@ -51,7 +51,7 @@ CrowdGaussian 要解决的是从一张挤满人的照片里，把每个人都重
 具体来说，输入是一张含 $N$ 个人的图像。Stage 1 先用 Multi-HMR 估出每个人的 SMPL-X 参数和 3D 位置，用 SAM 把每个人抠出来，再让 LORM 从这些被遮挡的裁剪图里逐个恢复出完整的单人 3DGS，最后按 3D 位置组装成一个粗糙但几何完整的多人场景。Stage 2 先用 DBSCAN 把空间邻近的人聚成组，对每组渲染出粗糙图交给 CrowdRefiner 做单步扩散精炼补高频细节，精炼后的图像再作为伪 GT，通过可微渲染把细节"蒸馏"回 3DGS。两阶段的共同点是都不依赖任何外部 3D 标注——几何靠预训练模型自蒸馏，纹理靠 2D 生成先验。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：含 N 人的单张图像"]
     PRE["Multi-HMR 估 SMPL-X + 3D 位置<br/>SAM 抠出每个人的遮挡裁剪图"]

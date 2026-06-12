@@ -44,7 +44,7 @@ tags:
 论文把"旁观者隐私"落到一个可评测、可训练的闭环里：先构建多说话人基准 SH-Bench（3,968 个混合音频、约 157.5 小时，配 77k 道五选一题），让模型在两种指令模式下作答——General 模式回答所有问题，Selective 模式只答主说话人相关问题、对旁观者一律选"I don't know"；再用一个统一指标 SE 同时卡住"理解能力"和"隐私保护"两端，避免模型靠极端策略刷分；最后用 BPFT 在合成数据上做行为对齐微调，把"选择性听觉"灌进模型而不伤主说话人理解。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["SH-Bench 数据构建（真实 + 合成双轨）"]
         direction TB

@@ -43,7 +43,7 @@ tags:
 Frame2Freq 想解决的是：图像预训练的 VFM 迁到视频时，现有时域适配器只盯着静态线索和极快闪烁，恰好漏掉了区分细粒度动作的中频运动信号。它的做法是在冻结 ViT 骨干（CLIP/DINOv2）每个 Transformer 块后插一个轻量适配器：输入 $T$ 帧经 ViT 得到 patch 嵌入 $X \in \mathbb{R}^{T \times N \times D}$，适配器走 $\text{FC}_{down} \to \text{频域/时域分支} \to \text{FC}_{up}$ 的瓶颈结构，把时序信息搬到频谱空间做滤波，再残差加回骨干输出，最后逐帧 CLS 聚合接线性分类头。频域/时域分支有两种实现变体——Frame2Freq-ST 与 Frame2Freq-MS，分别对应单尺度和多尺度的运动数据集。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入 T 帧视频"] --> B["冻结 ViT 块 CLIP/DINOv2<br/>patch 嵌入 X"]
     B --> C["FC_down 降维<br/>（瓶颈入口）"]

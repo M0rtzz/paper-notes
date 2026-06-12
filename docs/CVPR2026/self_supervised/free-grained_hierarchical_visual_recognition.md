@@ -42,7 +42,7 @@ tags:
 这篇论文要解决的是"自由粒度"层级识别——训练标签可以出现在分类法的任意层级、不同样本标注深度还不一样，模型得从这种缺斤短两的监督里学出一致的层级预测。整体由三块拼成：先把现有层级数据集改造成自由粒度基准（含新建的 ImageNet-3L 和模拟混合粒度标注的剪枝），再用文本引导伪属性（Text-Attr）和分类法引导半监督（Taxon-SSL）两条路补回缺失的监督，推理时让模型自适应地决定预测到哪一层停下。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["基准构建（造自由粒度数据）"]
         direction TB

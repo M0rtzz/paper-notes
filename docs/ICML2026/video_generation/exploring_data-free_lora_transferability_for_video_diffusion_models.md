@@ -49,7 +49,7 @@ CASA 的输入：源模型 $\mathbf{W}_s$、源上训的 LoRA $\Delta_{\text{lor
 (5) 反投影回权重空间，低秩分解得新 LoRA。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：源模型 W_s ＋ 源 LoRA Δ_lora=BA<br/>蒸馏模型 W_t（得漂移 Δ_fft = W_t − W_s）"]
     subgraph D1["路由矩阵 + cluster 构造"]

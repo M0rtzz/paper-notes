@@ -46,7 +46,7 @@ tags:
 LOCKET 把"功能锁"从密码触发的 backdoor 重构成可热插拔的 LoRA adapter，整套机制分离线与在线两段。离线阶段为每个待锁特征 $f \in \mathcal{F}$ 独立训一个 adapter $a_f$，训练目标 $\mathcal{L}_{\text{lock}} = \mathcal{L}_{\text{utility}} + \mathcal{L}_{\text{robust}}$ 既用对冻结参考模型 $\pi_{\theta'}$ 的 KL 散度约束 adapter 不破坏基础对话能力，又用 LAT 形式的拒答增强 loss 把"拒答"焊死；每个 adapter 仅占基础模型 1.6-1.7% 参数。在线阶段，客户登录时 Authorization Module 先根据其支付凭证更新授权特征集，每次请求时 Access Control Module 查授权列表、挑出所有**未授权**特征的 adapter 集合 $\{a_k : k \notin \text{auth}(C)\}$，经 LOCKET Merging 合并后 attach 到冻结的基础 LLM 上推理——授权特征因为没附加 adapter 而正常工作，未授权特征则被对应 adapter 逼成稳定拒答。整个 attach 每次 login 仅约 1 秒、TTFT 不随 adapter 数量变化（约 3 ms），工程开销可忽略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["每特征一个 adapter 的模块化训练（离线）"]
         direction TB

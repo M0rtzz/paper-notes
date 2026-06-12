@@ -43,7 +43,7 @@ tags:
 这篇论文要解决的是 MLLM 的「上下文安全」：同样一把厨房刀的图，配上"我该怎么用它做饭"和"我该怎么用它伤人"，模型应该一个回答、一个拒绝，而不是看到刀就一律拒答（过度防御）或一律照答（不安全）。难点在于这两类查询的视觉和字面语义高度相似，差别只在意图。EchoSafe 是一个 training-free 框架，不改模型权重，全部发生在推理时，整体是一个**闭环**：新查询进来时先去记忆库里检索最相似的几条过往经验、拼进 prompt 当参考让模型做安全推理并生成响应；响应生成后，模型回头把这次的安全判断**自反思**成一条新经验，连同上下文嵌入一起追加回记忆库。下一次查询又从这个攒大了的记忆库里检索——记忆越攒越多，模型的上下文安全表现也随之"进化"。论文同时配套了一个专门衡量这种能力的基准 MM-SafetyBench++。下图给出 EchoSafe 单步推理的闭环数据流（基准 MM-SafetyBench++ 是配套评测台，不在运行时回路内）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["新查询 Q⁽ᵗ⁾：图像 + 指令"]
     subgraph USE["上下文安全检索推理"]

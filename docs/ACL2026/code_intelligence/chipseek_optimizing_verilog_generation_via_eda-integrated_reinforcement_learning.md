@@ -46,7 +46,7 @@ ChipSeek 提出了一个将 EDA 工具链直接集成到训练循环中的分层
 ChipSeek 把完整的开源 EDA 工具链（编译、仿真、综合、后端分析）直接搬进 RL 训练循环：LLM 作为策略 $\pi_\theta$ 根据设计规格生成 Verilog，工具链从语法一路评估到 PPA 并回吐分层奖励，再由 CDPO 把功能正确性和 PPA 当作多目标一起优化。这样模型不是事后被挑刺，而是在训练过程中就把硬件设计的权衡内化进参数里。整个流程由自动化数据增强管道在前端备好 PPA 感知的训练数据，经 SFT 冷启动后进入闭环 RL 训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["自动化数据增强管道"]
         direction TB

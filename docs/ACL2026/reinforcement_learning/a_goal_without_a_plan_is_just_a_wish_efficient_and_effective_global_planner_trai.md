@@ -48,7 +48,7 @@ EAGLET 把 agent 任务 $\pi_\theta(e \mid u) = \prod_t \pi_\theta(a_t \mid u, a
 推理时新 executor 只需把 $\pi_g$ 生成的 plan 跟 task instruction 一起作为前缀，无需任何 executor 训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["专家轨迹（benchmark 自带）"] --> B["强 LLM 反向合成<br/>(plan, thinking) 候选"]
     subgraph SFT["冷启动 SFT 阶段"]

@@ -45,7 +45,7 @@ Mango 的输入是用户查询 $q$ 和 root URL $u_r$。系统先做 **Global St
 实验中 Mango 对 WebVoyager 使用与 AgentOccam 对齐的 Playwright-based 环境，对 WebWalkerQA 使用与 WebWalker 对齐的 Crawl4AI 环境，保证浏览器执行设置公平。每个 URL 的导航预算 $b$ 和 Thompson Sampling 迭代次数都设为 10。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：查询 q + root URL"] --> GSA
     subgraph GSA["全局结构分析生成候选入口"]

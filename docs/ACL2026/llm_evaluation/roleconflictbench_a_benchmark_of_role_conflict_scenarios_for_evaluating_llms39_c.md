@@ -46,7 +46,7 @@ RoleConflictBench 通过构建 13,914 个角色冲突场景，利用情境紧迫
 RoleConflictBench 是评估基准而非训练方法，要解决的难题是在“没有标准答案”的角色冲突里定量测量 LLM 的上下文敏感性。系统先用三阶段管道合成 13,914 个角色冲突故事，每个故事让两个来自不同社会域的角色带着各自的社会期望、在不同紧迫性下相互冲突；再用二元选择题逐一询问模型“该优先满足谁”；最后把模型的所有选择汇总成敏感性得分和角色优先级指数，对照“紧急的角色应当优先”这一客观基线，判断模型究竟是在读取情境线索，还是被静态的角色偏好牵着走。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph GEN["三阶段故事生成管道"]
         direction TB

@@ -48,7 +48,7 @@ T2AV-Compass 是首个针对文本到音视频（T2AV）生成的综合评估基
 T2AV-Compass 要回答一个被现有基准回避的问题：当模型同时生成画面和声音时，到底哪一模态在拖后腿、又是在哪个维度上掉的链子。整套基准分三步落地——先用分类法驱动的混合流水线造出 500 条高复杂度的音视频提示，再用一套"低层信号指标 + 高层 MLLM 诊断"的双层框架去打分，最后把 15 个前沿 T2AV 系统放进同一标尺里横评，给出维度级对比和失败归因。三步里最关键的是数据怎么造、评估怎么分层、以及 MLLM 判分怎么做到可追溯。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph D1["分类法驱动的多源数据构建（设计 1）"]
         direction TB

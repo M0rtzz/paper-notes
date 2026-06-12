@@ -48,7 +48,7 @@ Real2Edit2Real 想解决的事很具体：手里只有 1-5 个真实机器人演
 整条管线分三段接力。先从源演示的多视角 RGB 把场景重建成带真实物理尺度的 3D 点云；再在点云里把目标物体挪到新位置、用逆运动学重新算出机械臂的接近轨迹并做几何校正，渲染出一串物理一致的深度图；最后把这串深度图连同动作、边缘、光线等条件喂给视频扩散模型，生成视觉逼真的多视角操作视频，每一帧 RGB 配上对应动作标注，就是一条全新的演示数据。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["1-5 个真实演示<br/>多视角 RGB"] --> B["度量尺度 3D 重建<br/>真实+仿真混合训练前馈模型 → 厘米级点云"]
     B --> C1

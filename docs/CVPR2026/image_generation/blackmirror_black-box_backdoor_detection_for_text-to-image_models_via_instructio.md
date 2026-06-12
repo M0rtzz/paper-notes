@@ -47,7 +47,7 @@ tags:
 BlackMirror 针对的是黑盒场景下的 T2I 后门检测：用户访问不到权重和注意力图，唯一黑盒前作 UFID 又假设「后门生成的图全局高度相似」，只能抓 FixImgAtt 那种生成固定图的攻击，碰到只改局部语义的 ObjRepAtt / PatchAtt / StyleAtt 就失效。BlackMirror 抓住后门的两个属性——触发会造成指令-响应的语义偏差、且偏差在不同 prompt 下稳定（模型固有偏差则不稳定）——设计成两段流程：MirrorMatch 先从生成图里挖出细粒度的可疑对象，MirrorVerify 再验证这个偏差在多次生成中稳不稳定。检测时对 object / patch / style 三条分支（$t=3$）并行跑，任一分支报警即判后门。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["指令 + 生成图<br/>（黑盒，仅能查询 T2I）"] --> M
     subgraph M["MirrorMatch：对象级语义偏差检测"]

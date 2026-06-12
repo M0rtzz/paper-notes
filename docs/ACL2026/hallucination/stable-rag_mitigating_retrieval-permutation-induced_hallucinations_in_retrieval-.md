@@ -46,7 +46,7 @@ tags:
 Stable-RAG 把"消除排列幻觉"拆成一条从内部观测到偏好对齐的流水线：给定查询 $q$ 与固定的 Top-5 文档集，先穷举 $5!=120$ 种排列让模型各跑一遍前向，把每次最终层最后一个 token 的隐状态收集起来做谱聚类，识别出模型在不同顺序下走过的几条主导推理路径；再从这些路径对应的答案中筛出"该奖励的"与"该惩罚的"，构造偏好对；最后用 DPO 把模型推向那条正确路径，使它对文档顺序不再敏感。整个方法模型无关，只在训练阶段引入排列采样，推理阶段与普通 RAG 无异。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["查询 q + 固定 Top-5 文档集"] --> B["穷举 5! = 120 种文档排列<br/>各跑一次前向"]
     subgraph S1["用谱聚类把排列敏感性测量出来"]

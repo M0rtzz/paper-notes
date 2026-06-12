@@ -53,7 +53,7 @@ tags:
 具体怎么转：先用冻结的参考扩散模型对同一张图采 $G$ 次，得到一组多样的网格预测；再把这组预测渲染成叠加图、连同原图一起交给一个 VLM 评判代理，让它像人类专家一样给整组打出相对分数；最后把这些分数转成组内优势，用一个保留 ODE 采样效率的离线 GRPO 目标去微调扩散模型——分高的网格被推向更低的去噪损失，分低的反向推开。整个回路不碰任何 3D 真值标注，所以野外数据也能用。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["输入：单张 RGB 图像 I"] --> REF["冻结参考扩散模型 ε_ref<br/>不同初始噪声采 G 次"]
     REF --> OV["渲染 G 张网格叠加图<br/>叠在原图上"]

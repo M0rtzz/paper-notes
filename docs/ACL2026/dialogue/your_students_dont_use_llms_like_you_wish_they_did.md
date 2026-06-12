@@ -46,7 +46,7 @@ tags:
 为了验证指标，作者人工标注 248 段对话，其中 100 段由第二标注者重叠标注以估计人类一致性。LLM 侧比较 GPT-4.1-mini 和 GPT-5，并比较 turn-by-turn 与 whole-dialogue 两种粒度。最终在 500 段对话、12,650 条消息上应用这些指标，覆盖五个数据集和两种部署范式：可选的教学支架工具，以及整合进课程作业流程的 unrestricted AI 工具。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["学生-AI 对话日志 + 时间戳"] --> B["拆成学生轮次 / AI 回复"]
     subgraph M["六个行为指标"]

@@ -44,7 +44,7 @@ tags:
 HCRE 想解决的核心问题是：LLM 语言理解能力强，但一旦把 CodRED 的 277 种关系一股脑塞进 prompt 让它直接选，它既分不清大量语义相近的关系，又会被超长选项列表分散对文档的注意力，反而打不过强 SLM。HCRE 的破解办法是把"一次 277 选 1"拆成"自顶向下逐层在少量选项里选"：先用一个高级 LLM 离线把 277 种关系组织成一棵层次化关系树，再展开树上的根→叶路径构造出逐层分类与验证的训练数据、据此微调出关系预测 LLM $\mathcal{M}_1$；推理时 $\mathcal{M}_1$ 在树的引导下从根逐层下降，每层只在当前父节点的少数子节点里挑，直到走到叶节点得到目标关系；为防止某一层选错把错误一路传到底，每层都额外跑一遍"预测-验证"，用更细粒度的子节点信息复核当前判断。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：跨文档实体对 + 277 种关系"] --> B["层次化关系树构建<br/>高级 LLM 逐层按划分标准把关系组织成树"]
     B --> T["训练数据构造<br/>展开根→叶路径得逐层样本，再模拟验证样本，微调预测 LLM M1"]

@@ -46,7 +46,7 @@ DIAE提出多模态美学感知（MAP）模块将模糊的美学指令转为HSV+
 DIAE要解决的是一件很别扭的事：让扩散模型理解"饱和度过低""该用三分法构图"这类抽象的美学评价，并在不改变画面内容的前提下把图修得更好看——可既没有人能讲清这些指令该怎么转成生成方向，也没有"同一张图只改美学"的配对数据可学。整条流水线因此分三层应对：先离线构建一个"不完美配对"数据集IIAEData，把现成的美学评分数据按高低质量拆开、用大模型语义匹配凑成弱配对；训练时由MAP模块把美学评估翻译成HSV色彩图、HED轮廓图和文本三路控制信号，经ControlNet注入UNet；再用一套双分支监督，让输入图管语义、参考图管美学，绕开"没有完美配对"的死结。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["不完美配对数据集 IIAEData"]
         direction TB

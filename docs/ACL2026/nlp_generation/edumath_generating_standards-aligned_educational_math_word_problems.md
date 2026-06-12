@@ -44,7 +44,7 @@ tags:
 五阶段 pipeline：(1) **标注 ASDIV 子集**——把 1,025 道 3-5 年级题用"本科教育生 → K-12 教师 → Llama-3.3-70B → Gemma-3-27B → 教育生最终复核"四轮校对，给出 VA SOL 标签和 CoT 解答；(2) **合成 + 教师标注**——用 Llama-3.3-70B 在 23 个有题 + 15 个未覆盖 SOL 组合上各生成 80-90 题，共 3,012 题，由 1,372 名 Prolific 美国教师每题至少 2 人标 4 维度，分歧加第三人，按多数投票得 MaC 标签，再让 Gemma-3-27B 做"质量复检"翻转可疑标签；(3) **训练 EDUMATH 12B**——Gemma-3-12B-IT 在 STEM 上做 SFT，再用 KTO 在所有教师标注（含 MaC 与非 MaC）上对齐二元偏好，最后叠加 ModernBERT MaC 分类器做拒绝采样；(4) **训练 EDUMATH 30B**——直接把 ModernBERT 分类器扣在 Qwen-3-30B 输出上做过滤，**不训练**主干；(5) **评测**——对 5 个开源 + 3 个闭源 baseline 各采 250-1000 题，用 Gemma-3-27B 当自动评判员（与教师 κ 持平）+ 真实学生 RCT。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["ASDIV 子集（1,025 题）"] -->|"本科生→教师→Llama→Gemma→复核 四轮校对"| B["ASDIV 标注题<br/>VA SOL 标签 + CoT 解答"]
     C["Llama-3.3-70B 合成（3,012 题）"] -->|"1,372 名教师每题≥2 人标注"| D["教师 MaC 二元标签"]

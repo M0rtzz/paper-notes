@@ -45,7 +45,7 @@ tags:
 这篇论文要回答一个问题：当攻击的"恶意"被拆成两半、分别藏在用户查询和某个远程代理里时，多智能体系统会被这种"看起来都无害"的组合击穿吗？整套攻击分两步走。优化阶段先在一个可微代理上学习三件事——触发键放进查询的哪一段、隐藏模板用什么方式挂到被入侵代理、以及多大的路由偏置 $\rho$ 才能把那一段稳稳送到被入侵代理，最终得到一组配置 $\theta^*=(j,\tau,\rho)$。推理阶段再把这组配置原样搬到真正的黑盒多智能体系统里，跑端到端攻击、统计成功率。注意整个过程不碰任何模型权重，攻击者只动输入和一个第三方代理的模板。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["用户查询 + 被入侵远程代理<br/>(模型权重/客户端代理均不修改)"] --> B
     subgraph OPT["优化阶段（可微代理上学习 θ*）"]

@@ -41,7 +41,7 @@ DACO 想解决的核心矛盾是：手工搭的概念向量覆盖面太窄（现
 整条流水线离线一次、在线一次。离线部分先从 WordNet 取出约 15,000 个概念词，用 CLIP 去 CC-3M 里检索每个概念的正负图文刺激对，攒成 DACO-400K 数据集；把这些刺激喂进冻结的 MLLM 抽激活，对比聚合成逐层的概念向量字典 $\mathbf{D}_\ell$；再拿这本字典去初始化一个稀疏自编码器（SAE）并训练，训完后自动给每个 SAE 原子贴上"可取/不可取"的标签。在线部分则在生成每个 token 时，用 SAE 把当前层激活拆成稀疏系数，掐掉不可取原子、增强可取原子，把改过的激活送回模型继续自回归。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF1["大规模多模态概念字典构建（DACO-400K）"]
         direction TB

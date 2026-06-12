@@ -53,7 +53,7 @@ tags:
 BiLaLoRA 要解决的是：把在合成雾图上预训练好的去雾模型，在没有真实配对监督、也不想付出全量微调代价的前提下，迁移到真实雾霾场景。整条流水线把「用什么信号训」和「在哪里训」分别交给两个部件——前者用无监督的语义信号 H2C Loss 替代缺失的真实 GT，后者用双层优化（BiLaLoRA）自动定位最该插 LoRA 的「瓶颈层」。作者的关键观察是：受域差距影响的瓶颈层并非固定，而是随骨干结构动态变化（编码器末段贡献最大，但具体是哪几层因架构而异），因此层选择必须自动化、不能靠人工经验。BiLaLoRA 的执行分两阶段：Stage 1（双层搜索）同时学层选择门控 $\alpha$ 与 LoRA 权重 $\omega$，搜完按 $\alpha$ 取 Top-K 层；Stage 2（LoRA 微调）只在这 Top-K 层上训练 LoRA、其余层冻结。两个阶段都以 H2C Loss 作为优化目标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["合成数据预训练去雾模型<br/>+ 真实无配对雾图"] --> H["H2C Loss<br/>CLIP 语义方向当无监督监督信号"]
     H --> S1

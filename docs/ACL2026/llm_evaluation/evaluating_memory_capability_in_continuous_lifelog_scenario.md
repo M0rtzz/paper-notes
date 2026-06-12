@@ -45,7 +45,7 @@ tags:
 LifeDialBench 要解决的问题是：在"麦克风常开、对话持续流入"的可穿戴场景下，记忆系统到底记得住多少。为此它把数据、查询、评估三件事打通——先用两个互补子集（EgoMem 取自真实第一人称录制、LifeMem 由 LLM 模拟）造出从天到年的连续多人对话日志，再从这些日志的多层级事件摘要中派生出覆盖不同时间粒度的 QA 对，最后用一套强制时间因果的在线协议把对话流式喂给系统、在沿途的时间戳处发问。整条流水线的关键不在数据量，而在于评估时不让系统"看到未来"，从而把记忆系统的真实能力暴露出来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph SIM["层次化生活模拟框架"]
         direction TB

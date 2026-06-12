@@ -43,7 +43,7 @@ tags:
 FuncAttn 沿用标准 Transformer 主干：输入函数 $f$ 在 $n$ 个点上采样得到 $\mathbf{X}\in\mathbb{R}^{n\times d}$，由 MLP 编码后送入 $N$ 个 FuncAttn block，再由 MLP 解码回输出场。每个 FuncAttn block 内部把传统 $\mathrm{Softmax}(\mathbf{Q}\mathbf{K}^\top/\sqrt{d_k})\mathbf{V}$ 替换成三步流水线：(a) 用学习到的基 $\mathbf{\Phi},\mathbf{\Psi}\in\mathbb{R}^{n\times k}$ 把 $\mathbf{Q},\mathbf{K},\mathbf{V}$ 投影到谱坐标 $\tilde{\mathbf{Q}},\tilde{\mathbf{K}},\tilde{\mathbf{V}}\in\mathbb{R}^{k\times d}$；(b) 在谱空间里通过 Tikhonov 正则最小二乘解出紧致算子 $\mathbf{C}\in\mathbb{R}^{k\times k}$；(c) 用 $\mathbf{\Phi}\mathbf{C}\tilde{\mathbf{V}}$ 反投影回 $n$ 个空间点。后接 LayerNorm + FFN 与标准 Transformer 一致。由于 $\mathbf{C}$ 的尺寸 $k\times k$ 完全独立于采样点数 $n$，整条流水线在不同分辨率下都天然定义良好（关键设计 3 的分辨率不变性即由此而来）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入函数 f<br/>n 点采样得 X (n×d)"] --> B["MLP 编码 → 生成 Q, K, V"]
     subgraph BLK["FuncAttn block（×N，替换 softmax 注意力）"]

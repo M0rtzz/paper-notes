@@ -42,7 +42,7 @@ tags:
 AAC 想解决的是「分块大小该多大」这个被现有 VLA 写死成超参的问题，而且它不碰训练、不改架构，纯粹塞进推理循环里。每来一个新观测，模型先并行采样 N 个候选动作块，然后沿着块内每个未来时间步算出**动作熵**，得到一条「熵随分块长度增长」的曲线；接着在这条曲线上找熵增最陡的拐点（**最大差分点**），把它当成本步该用的分块大小 $h^*$，执行前 $h^*$ 个动作后再回到观测、重新采样。整套流程的直觉是：模型自己有多确定，就让它一口气走多远。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     OBS["当前观测<br/>图像 + 指令 + 机器人状态"] --> SAMPLE["并行采样 N 个候选动作块<br/>流匹配动作头多次去噪"]
     subgraph D1["动作熵：量化预测不确定性"]

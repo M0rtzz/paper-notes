@@ -46,7 +46,7 @@ tags:
 这篇论文的核心不是模型而是数据：要从海量有声书里把"角色对话"这部分天然表达性语音干净地抠出来并打上风格标签。整条流水线从 LibriVox 的虚构作品音频出发，先下载对应的 Project Gutenberg 原文，用 BookNLP 在文本里定位引语边界；同时对音频做 ASR 转写并与原文对齐，把每段引语落到精确的音频区间切出来；再回到原文上下文，用 LLM 把叙述里描述说话方式的语音动词和副词提成伪标签；最后按表达性强弱筛出高表达性子集 $\mathbf{Q}_f$。产物就是大规模、带风格标签的表达性 TTS 语料 LibriQuote。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["LibriVox 虚构作品音频<br/>+ Project Gutenberg 原文"] --> SEG
     subgraph SEG["叙事感知的引语切分"]

@@ -44,7 +44,7 @@ tags:
 输入是一段音频 $X$（干净样本，或对抗样本 $\tilde{X}=\mathrm{Adv}(X,\theta)$），经 ALM $\mathcal{F}$ 产出结构化输出 $Y=\{r_1,\dots,r_N,c\}$——既含覆盖 Prosody / Disfluency / Speed / Speaking Style / Liveliness / Quality 六个取证维度的自由文本推理 $r_i$，又含最终标签 $c\in\{\text{fake},\text{real}\}$。审计框架不动模型本身，而是在这份输出上并行算三类正交指标：感知 $\Phi_{\text{Perc}}$ 用带 GT 的问题银行核对"模型听到的"是否吻合真实声学属性，一致性 $\Phi_{\text{Coh}}$ 判断推理是否真的支撑（entail）当前判决，失调 $\Psi_{\text{Diss}}$ 则在判错样本上检查推理是否反向"嘶吼"不对劲。最后再配一组 $\Delta$ 差分指标比较原始 vs 对抗下的形态迁移，把"推理鲁棒性"从单一 label 维度拆成可独立观测的三维取证画像。整条流水线自上而下是：双轨对抗协议生成干净 / 对抗样本对 → 喂给 ALM 产出推理 + 判决 → 三维审计打分 → 攻击前后取差分并归类失败模式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入音频 X"]
     subgraph ATK["声学 vs 语言学双轨对抗协议"]

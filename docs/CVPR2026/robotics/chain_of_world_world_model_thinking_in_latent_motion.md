@@ -42,7 +42,7 @@ tags:
 CoWVLA 想同时拿到两类方法的好处：世界模型 VLA 能预测未来但在像素空间重建太浪费，隐动作 VLA 省了 capacity 却丢了世界动态。它的解法是让 VLA 在「隐运动空间」而非像素空间做世界模型预测。整个系统由**两个模型、三个训练阶段**组成：**Latent Motion Extractor（视频 VAE）**先把视频片段拆成结构隐变量 $z_s$ 和运动隐变量 $z_m$，为后续提供监督信号；**VLA 解码器**则在两个阶段里做统一的自回归预测——预训练阶段从指令和首帧推断隐运动 $\hat z_m$ 并重建首末帧，Co-Fine-Tuning 阶段把这套动态推理对齐到离散动作，交替建模关键帧视觉 token 和 FAST 量化的动作 token。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["机器人视频片段"] --> LME
     subgraph LME["1. Latent Motion Extractor（视频 VAE）"]

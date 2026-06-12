@@ -46,7 +46,7 @@ tags:
 整个工作是一条「造数据 → 联合建模验证 → 反向验证」的实证流水线，对应三个核心设计：(1) 用 LLM 辅助翻译框架把已有的日语 MRE 数据扩成多语言的 MMM 数据集（21 个子集，覆盖英中日）；(2) 在 MMM 上训练统一输入输出的 OIELLM，让单个模型在一次解码里同时做词级与文本级抽取，并通过跨 21 子集的消融观测互增强效应（MRE）；(3) 把词级监督注入 Knowledgeable Verbalizer，从文本分类这一侧反向印证词级信息确实增益文本级任务。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["日语 MRE 数据集"] --> S1
     subgraph S1["LLM 辅助翻译框架"]

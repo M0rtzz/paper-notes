@@ -45,7 +45,7 @@ Easy3E 构建在 TRELLIS 生成骨干之上，分两个阶段：**几何编辑**
 流程：先用 **Voxel FlowEdit** 在稀疏体素潜空间做全局几何形变 → **SLAT Repainting** 精修局部潜特征 → 解码生成 mesh → **法线引导纹理精修** 恢复高保真纹理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入<br/>源 3D 资产 + 3D 区域掩码 + 2D 目标视角图"] --> B["结构化潜表示 SLAT<br/>活跃体素 + DINOv2 投影潜特征"]
     B --> C["Voxel FlowEdit<br/>稀疏体素潜空间几何形变<br/>（轮廓引导 + 轨迹校正抑制漂移）"]

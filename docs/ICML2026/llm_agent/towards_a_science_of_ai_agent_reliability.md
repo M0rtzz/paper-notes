@@ -44,7 +44,7 @@ tags:
 这是一篇方法论 position：核心主张是"能力（capability）和可靠性（reliability）应该是两条独立的进展轴，不能再被单一准确率裹挟"。论文的论证方式是把航空 / 核电 / 汽车等安全关键工程里反复出现的可靠性维度翻译成 agent 可计算的指标，再用一套统一协议在 GAIA + $\tau$-bench 上把 15 个前沿模型测一遍，用实证数据反推出"准确率猛涨、可靠性停滞"的行业级结论。具体落地拆成三件事：先把现有 benchmark 改造成统一的可靠性测量台（**统一评测协议**），再把跑出来的信号映射进四维分解下的 12 个与准确率正交的指标（**四维分解 + 12 指标矩阵**），最后用 **safety 独立于总分** 的聚合策略合成可比分数——一套扰动各自喂给不同维度，一次运行就同时产出全部 12 个指标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 380}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 380, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["GAIA / τ-bench 任务 + agent<br/>+ 脚手架（ReAct / tool-calling）"]
     IN --> P["统一评测协议（reliability harness）<br/>不改题目，只加扰动"]

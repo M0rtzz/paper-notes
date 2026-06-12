@@ -46,7 +46,7 @@ tags:
 报告生成系统 CBCTRepD 本身是一个四模块的 VLM：CBCT 体积被拆成有序的二维切片送进**旋转位置自适应视觉编码器**得到视觉 token，**多模态投影器**把视觉 token 对齐到语言模型的嵌入空间，再和文本提示（含临床诊断）一起喂给 **LLM 解码器**（Hulu-Med-4B）自回归地写出"发现（Findings）+ 结论（Impression）"双语报告。系统并不以"全自动替代医生"为目标：AI 先出一版草稿，放射科医生在草稿上审阅、修改，得到最终的协作报告（collaboration report）——评估也正是围绕"AI 草稿"和"协作报告"两种产物、按医生经验分层分别展开的。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["大规模配对数据集"]
         direction TB

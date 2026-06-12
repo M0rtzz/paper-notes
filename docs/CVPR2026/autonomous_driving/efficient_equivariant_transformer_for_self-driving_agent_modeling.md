@@ -39,7 +39,7 @@ tags:
 交通场景里，对整个场景做任意 2D 旋转平移后，各 agent 的输出也应当跟着同步变换——DriveGATr 想让这种 SE(2) 对称性成为架构"天生"满足的性质，而不是靠数据学出来的近似。它的做法是把场景里每个元素（agent 和地图节点）都编码成 2D 射影几何代数 $\mathbb{R}^*_{2,0,1}$ 里的 8 维**多矢量 (multivector)**，再用 N 个等变 Transformer block 逐层处理。关键在于：多矢量之间的不变内积本身就能当注意力分数用，于是无需显式成对相对位置编码（RPE），可以直接套标准 dot-product attention（乃至 FlashAttention）。每个 block 内部按 agent-map 交叉注意力、agent-agent 自注意力、时间因果自注意力依次更新（前两者 per timestep、后者 per agent），再接等变 MLP 和不变适配器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：agent 状态 + 地图节点"] --> B["多矢量编码<br/>位姿 (x,y,θ) → 8 维多矢量（PGA）"]
     B --> BLK

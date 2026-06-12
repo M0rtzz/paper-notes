@@ -46,7 +46,7 @@ tags:
 整个工作围绕"让语音助手真正听声音、而不是猜文本"这一目标展开，由数据、训练、评测三块拼成闭环。输入是夹杂第三方插话的多说话人语音（主用户发言 $U_p$ + 第三方插话 $U_{tp}$），先用 TPI-Train 提供覆盖 26 种现实打断场景的 88K 训练实例，教模型何时该纳入、何时该忽略插话；训练时的核心手段是说话人感知的困难负样本挖掘，把"看起来像打断的文本"用同一人声音重新合成，逼模型放弃语义捷径、真正去听声音是否换了人；最后用 TPI-Bench（含常规 TPI-Test 与对抗性的 Janus-Test）严格检验模型究竟靠声学还是靠语义在判断，最终交付能正确识别并处理打断的语音助手。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多说话人语音输入<br/>主用户 Up + 第三方插话 Utp"]
     subgraph TRAIN["TPI-Train：打断数据集构建"]

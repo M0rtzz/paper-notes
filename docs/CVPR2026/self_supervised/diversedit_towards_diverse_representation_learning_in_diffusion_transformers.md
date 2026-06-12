@@ -60,7 +60,7 @@ Diffusion Transformers (DiT) 凭借出色的可扩展性在视觉生成领域取
 DiverseDiT 要解决的问题是：DiT 学得好不好，取决于各 block 间表示的多样性，而以往要靠外部编码器（REPA 用 DINOv2）从侧面提升这种多样性。它的思路是直接从内部下手——既改造 block 的输入，也约束 block 的输出，让多样性自己长出来。整条 pipeline 在标准 DiT 之上叠两个互补组件：一个是**长残差连接**，把浅层 block 的输出跨接到对称的深层 block，从源头打破"每层输入都来自上一层"的同质化；另一个是**表示多样性损失**，由正交、互信息最小化、特征离散三项组成，在训练时显式拉开各 block 输出特征的差异。前者管"输入多样化"、后者管"输出差异化"，两层叠加且全程不碰任何外部预训练模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：含噪 latent + 时间步 t"] --> LRC
     subgraph LRC["长残差连接（输入侧多样化）"]

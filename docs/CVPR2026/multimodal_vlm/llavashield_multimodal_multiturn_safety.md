@@ -44,7 +44,7 @@ tags:
 这篇论文要解决的是：VLM 在多模态多轮对话里会被慢慢"煮青蛙"——恶意意图拆散成跨轮、跨图文的零碎线索，现有单轮单模态审核工具完全看不出来。作者用"数据—攻击—防御"三件套来闭环：先用一套基于 MCTS 的红队框架 MMRT 自动钓出多轮跨模态的不安全对话，把这些攻击轨迹连同采样来的安全对话一起标注成 MMDS 数据集，最后在 MMDS 上微调出审计模型 LLaVAShield。运行时，LLaVAShield 吃进"指令 + 安全策略 + 整段对话历史"，一次性吐出对用户侧和助手侧各自的安全评级、违反的风险维度，以及佐证这些判断的证据推理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph MMRT["MMRT 红队框架（MCTS 钓多轮攻击）"]
         direction TB

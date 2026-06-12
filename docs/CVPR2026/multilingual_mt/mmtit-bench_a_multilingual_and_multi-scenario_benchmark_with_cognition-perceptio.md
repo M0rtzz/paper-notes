@@ -41,7 +41,7 @@ tags:
 工作包含两条并行的 pipeline。一条是 **MMTIT-Bench 基准构建**：从 14 种语言收集真实图像，经「图像收集 → OCR 解析标注 → 翻译标注 → 过滤终审」四步加工，每种语言精选 100 张、共得 1400 个高质量评测样本（剩余标注数据进训练语料），并配套一套**双协议评估**（VLLM 判官 + COMET）来打分。另一条是 **CPR-Trans 数据范式**：用 Qwen3-VL-235B 在训练语料上分阶段生成「认知 → 感知 → 翻译推理」三段式结构化思维链，作为 SFT 监督训练端到端 TIMT 模型；训练好的模型再回到 MMTIT-Bench 上用双协议评估检验。下图给出整条数据流，三个贡献模块（基准构建、CPR-Trans、双协议评估）各对应一个分组。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["14 种语言真实图像<br/>菜单/海报/文档 等 ~14000 张"]
     subgraph BENCH["MMTIT-Bench 基准构建"]

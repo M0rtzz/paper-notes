@@ -49,7 +49,7 @@ EMDUL 由两个独立模块组成：
 工作流程为：先将 LiDAR 数据通过转换器生成 $D^{\text{conv}}$，与原始 $D^{\text{mm}}$ 合并为 $D^{\text{lab}}$；再用 $D^{\text{lab}}$ 训练伪标签估计器，标注无标注数据得到 $D^{\text{pl}}$；最终扩展数据集 $D^{\text{exp}} = D^{\text{lab}} \cup D^{\text{pl}}$。训练时每个 epoch 重新生成 $D^{\text{conv}}$（新随机种子）和更新 $D^{\text{pl}}$，实现迭代精炼。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     L["LiDAR 数据集（姿态多样）"] --> PCC
     subgraph PCC["完整点云转换管线（NPA→FPF→RS→NI）"]

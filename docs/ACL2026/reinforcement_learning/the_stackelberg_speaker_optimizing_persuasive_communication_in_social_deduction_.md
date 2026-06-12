@@ -46,7 +46,7 @@ tags:
 分三步：(1) 意图识别——API LLM 分析当前局势，生成期望/不期望的 follower 响应各 K=3 组；(2) 影响度量——API LLM 生成基础话语，Refiner 将其精炼为多个候选，Measurer 计算每个候选对 follower 响应分布的偏移作为奖励；(3) 策略优化——用 GRPO 优化 Refiner 使其最大化说服力影响。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：游戏规则 + 状态 + 对话历史 + 隐藏角色"] --> B["Stackelberg 建模与意图识别<br/>后端 LLM 生成期望 / 不期望响应各 K=3"]
     B --> C["后端 LLM 生成基础话语"]

@@ -46,7 +46,7 @@ MultiDx 是一个训练无关的两阶段框架，重点不在微调某个医疗
 这条流程有清晰的临床对应：第一阶段相当于医生先列出“疑似诊断清单”，第二阶段相当于做“鉴别诊断”。所以 MultiDx 不是简单把多个 Agent 的答案投票，而是把候选疾病背后的证据也一起纳入重排。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["病例描述 C"] --> S1
 

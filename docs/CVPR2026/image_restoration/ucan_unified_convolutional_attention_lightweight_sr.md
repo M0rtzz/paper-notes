@@ -41,7 +41,7 @@ tags:
 UCAN 想解决的核心问题是：轻量级 SR 既要扩大有效感受野去聚合远处的重复纹理，又不能像 Transformer 那样靠加大窗口/卷积核来堆算力。它把网络拆成浅层卷积、主干、重建三段——LR 图先过一个 3×3 卷积抽出浅层特征，主干由若干「广阔有效感受野组」（BERFG）串联处理，主干输出再与浅层特征残差融合，最后经重建模块（3×3 卷积 + PixelShuffle 上采样）重建出 HR 图。关键全在 BERFG 内部：每个组由共享块（SB）和接收块（RB）两半组成，输入特征**依次经过**——高性能注意力（HPA，用 Flash Attention 做 32×32 大窗口局部建模）、半共享的混合注意力（窗口注意力 + Hedgehog 全局注意力 + 通道分支）、以及以极小参数扩张空间感受野的大核蒸馏模块（LKD）。HPA、Hedgehog、LKD 分别覆盖「大窗口局部—全局—空间结构」三个尺度，而半共享机制则让 SB/RB 在层间复用窗口注意力图以省算力，互补地把感受野撑开又不堆算力。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["LR 低分辨率图像"] --> B["3×3 卷积<br/>浅层特征 F0"]
     subgraph BERFG["BERFG ×N（广阔有效感受野组，SB + RB）"]

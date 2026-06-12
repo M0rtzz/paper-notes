@@ -46,7 +46,7 @@ tags:
 CentaurEval 要解决的核心问题是：现有评测要么只考 AI、要么只考人，无法量化"人机协作"本身的价值。它的办法是把分析单元从"个体"换成"人-AI 对"，围绕一批刻意设计成单方不可解、协作才可解的任务，搭建一套让人类和 LLM 都能在等价环境下被评测的统一框架。整个系统由任务模板库、动态任务生成器、人类用的云端 IDE、LLM 用的自动化工具包四部分拼成，最终输出可直接横向对比的 pass/fail 与效率指标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["「协作必需」问题模板库<br/>45 模板（3 职业 × 3 难度）<br/>AI-Incomplete + Human Reliance 双约束"] --> B
     subgraph B["智能体驱动的动态任务实例化"]

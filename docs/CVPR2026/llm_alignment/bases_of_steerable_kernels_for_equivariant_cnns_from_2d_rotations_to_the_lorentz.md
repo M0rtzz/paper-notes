@@ -51,7 +51,7 @@ $$K^{(j,l)}(g \cdot x) = \rho_j(g) K^{(j,l)}(x) \rho_l(g)^{-1}, \quad \forall g 
 落到三步：在轨道上选 $x_0$ 并确定 $H$；在 $x_0$ 处把约束化简为 $K(x_0) = \rho_j^H(h) K(x_0) \rho_l^H(h)^{-1}$ 并求解；再对每个陪集代表 $g \in G/H$ 令 $K(g \cdot x_0) = \rho_j(g) K(x_0) \rho_l(g)^{-1}$，把解铺满整条轨道。这套通用配方解出来后，再逐个具体群落地（SO(2) 一路推到 Lorentz 群），并对半整数自旋的旋量场做专门处理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：对称群 G、输入表示 ρ_l、输出表示 ρ_j"]
     subgraph RECIPE["轨道-稳定子归约配方（整体框架）"]

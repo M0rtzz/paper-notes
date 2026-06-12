@@ -46,7 +46,7 @@ tags:
 评估框架在三个维度审计偏见：(1) **词汇内容偏见**——通过 Odds Ratio 量化刻板印象词汇在不同群体中的使用差异；(2) **语言风格偏见**——通过正式度和主题特定情感分析量化风格差异；(3) **说服偏见**——通过 PBI 量化说服策略的差异。整条流水线从人口属性出发，先经双模式生成拿到定向消息，再过三维度审计，最后用统计检验把群体差落成显著结论。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["人口统计属性<br/>性别 / 年龄 / 立场"] --> GEN
     subgraph GEN["双模式生成（SG vs CRG）"]

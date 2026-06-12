@@ -50,7 +50,7 @@ tags:
 中断位置采用相对推理长度 $X\in\{0.1,0.3,\dots,0.9\}$，因为不同模型和题目的推理 token 数差异很大。作者也在附录里用句子级中断和绝对 token 中断做稳健性检查，结论趋势保持一致。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["查询 q"] --> P["阶段1·生成推理前缀<br/>在相对位置 X 截断得 r(:X)"]
     P --> I["在 X 处插入干预"]

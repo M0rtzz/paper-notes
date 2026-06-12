@@ -44,7 +44,7 @@ HeLa-Mem 提出了一种受神经科学启发的 LLM 代理记忆架构，将对
 HeLa-Mem 把对话历史建成一张带 Hebbian 学习动力学的动态图，让记忆像生物大脑一样在使用中不断重组连接。整体是一个三模块的认知循环：在线编码与联想阶段把每个对话轮次编码成图节点，被同时检索（共激活）的节点之间用 Hebbian 规则强化边权；反思性巩固阶段周期性地检测高连接度的枢纽节点，把它周围密集相连的记忆簇蒸馏成结构化语义知识沉淀下来，同时遗忘低权重的陈旧节点；双路径检索阶段在 query 到来时同时走语义相似度（基路径）和沿 Hebbian 强边扩散激活（翻转路径）两条路，合并出最终记忆集。这样存储和检索不再是静态的两端，而是被同一套图动力学耦合起来——"一起被想起的记忆逐渐连得更紧"，从而捕捉纯 embedding 检索看不到的联想结构。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["对话轮次编码为图节点<br/>(情景记忆动态图)"] --> B["Hebbian 在线联想<br/>共激活节点强化记忆间边权"]
     B --> C["Hebbian 蒸馏（反思性巩固）<br/>枢纽检测 → 簇合成语义知识 → 自适应遗忘"]

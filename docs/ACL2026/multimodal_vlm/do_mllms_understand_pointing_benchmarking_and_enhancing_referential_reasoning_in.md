@@ -44,7 +44,7 @@ tags:
 EgoPoint-Bench 由两条数据采集管线 + 一套 QA 生成管线 + 一套五维评测体系组成。仿真侧 Point-Sim 在 1838 个高保真 3D 场景中用 42 种手模型生成 10,567 条样本；真实侧由 8 名志愿者佩戴 MLVision 智能眼镜在室内外场景采集 1,162 张图像。所有图像都进入"机器生成 + 人工校验"的 QA 管线，输出含三种题型（选择 / 判断 / 开放）和三级指代语言（L1 显式动作描述 / L2 视觉定位 / L3 隐式代词）的样本，按五维能力分类后做训练 / 验证 / 测试划分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph SIM["Point-Sim 几何精确仿真"]
         direction TB

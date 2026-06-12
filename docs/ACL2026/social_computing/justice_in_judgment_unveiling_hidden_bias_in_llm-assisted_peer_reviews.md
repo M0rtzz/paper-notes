@@ -43,7 +43,7 @@ tags:
 评测 pipeline 分三步：（1）数据：从 ICLR 2025 的 21 个子领域各采 6 篇 accepted + 6 篇 rejected 共 252 篇真实论文；（2）干预：对每篇论文构造若干"合成作者档案"，每次只改一个元数据维度（affiliation / gender / seniority / publication history）保持其他不变，按统一 prompt 模板调用 LLM 生成 comments $\bm{c}$ 和 rating $\bm{r}$；（3）评分：同时记录 hard rating（greedy 解出的整数分）和 soft rating（在固定 greedy comments 下对评分 token 概率分布求期望，$\sum_i r_i \cdot P_{\text{LLM}}(r_i, \hat{\bm{c}} \mid \texttt{prompt})$，取两位小数）。最后在 9 个 LLM 上跑全套实验，做 pairwise 胜率统计和翻盘率分析。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["252 篇真实论文<br/>ICLR 2025 · 21 子领域 · 各 6 接收 + 6 拒收"] --> B
     subgraph B["反事实元数据干预（4 个独立维度）"]

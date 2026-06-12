@@ -44,7 +44,7 @@ tags:
 这篇论文要解决的是：VLM 在剧本杀这种"信息不完全 + 有人故意撒谎"的多跳推理上很差，但又缺数据缺训法。它的答案是把"造数据"和"练模型"两件事都交给 agent。整套系统两大模块：数据生成模块让六个专职 Agent 流水线协作，从故事大纲一路生成到 QA 训练对，其中专门按"看不全信息"的约束来生成推理链；模型增强模块走两阶段——Stage 1 用 SFT 把基础推理能力立起来，Stage 2 再用 GRPO 强化学习、在 ScoreAgent 的奖励监控下专门打磨角色特定行为（凶手要会骗、无辜者要会合作）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph GEN["多智能体脚本生成流水线（设计 1）"]
         direction TB

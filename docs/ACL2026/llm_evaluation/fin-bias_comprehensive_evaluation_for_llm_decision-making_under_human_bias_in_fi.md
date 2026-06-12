@@ -43,7 +43,7 @@ Fin-Bias 用 8868 份长篇分析师报告构造了一个"原始 / 去掉评级 
 Fin-Bias 把"LLM 在金融决策里会不会盲从人类观点"做成一条可量化的对照实验链：先从 Yahoo Finance 抓取 8868 份覆盖 9 个行业、平均 4000 token 的 PDF 分析师报告，再对每份报告做一句话级别的扰动，造出"原版（含真实评级首句）/ 删掉评级首句 / 替换为对立 fake 评级"三个 minimal pair；随后用统一的 CoT prompt 让 18 个模型在三个版本上各出一次 Bullish/Neutral/Bearish 评级，分别和分析师评级、fake 评级、60 天 CAR 分位数三类 ground-truth 比对，量出 herding 程度；最后用 MPQA 主观词典过滤 + DPO 偏好优化两步给开源模型"去偏"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["8868 份 PDF 分析师报告<br/>9 行业 · 均 4000 token"] --> PERT
     subgraph PERT["三版本 minimal-pair 扰动"]

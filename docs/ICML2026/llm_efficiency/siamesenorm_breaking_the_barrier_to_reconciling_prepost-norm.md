@@ -44,7 +44,7 @@ tags:
 SiameseNorm 不再纠结"LN 放残差前还是残差后"，而是让网络同时维护两条独立演化的残差流：一条 Post-Norm 化的归一化主路径 $X$，一条 Pre-Norm 化的恒等高速路 $Y$。输入经 Embedding 后两条流初始化为同一值 $X_0=Y_0=h$，此后每层只共享同一个残差块 $F_i$（即 Attention 或 MLP），各自按自己的归一化语义更新。具体到第 $i$ 层（见论文 Algorithm 1）：先把两条流在归一化空间对齐相加，作为共享块的输入算出 $O = F_i(X_i + \mathrm{LN}_i^Y(Y_i))$；再用 $O$ 分别更新归一化流 $X_{i+1} = \mathrm{LN}_i^X(X_i + O)$ 和恒等流 $Y_{i+1} = Y_i + O$。网络末端把两条流汇总输出 $X_N + \mathrm{LN}_{\mathrm{final}}(Y_N)$。整套结构只比 Pre-Norm 多了 $\mathrm{LN}_i^X$、$\mathrm{LN}_i^Y$ 两个轻量归一化算子，参数与 FLOPs 增加均 $<0.1\%$，在 15B MoE 上实测训练速度仅降 0.5%、激活内存仅增 2%。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     H["Embedding 后初始化<br/>X0 = Y0 = h（X 归一化流 · Y 恒等流）"]
     subgraph TOPO["双流耦合残差拓扑：每层共享同一个 Fi"]

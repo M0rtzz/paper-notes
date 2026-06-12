@@ -44,7 +44,7 @@ tags:
 MedSSR 把整条流程串成"合成问题 → 自打伪标签 → 两阶段 RL"的课程：先用知识增强的数据合成管线从种子问题派生新问题（按阈值 $\alpha$ 控住罕见病比例），再用策略模型自身的多数投票给这些无答案的问题打伪标签，最后先在伪标签合成数据上做自监督 RL（内在学习、广撒网）、再在人工标注真实数据上做监督 RL（外在学习、收口校准）。三个贡献阶段首尾相接，前一阶段的产物正是后一阶段的输入。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["种子问题 x₁, x₂"] --> S1
     subgraph S1["知识增强的数据合成"]

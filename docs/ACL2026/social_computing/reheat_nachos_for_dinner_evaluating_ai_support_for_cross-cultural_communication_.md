@@ -44,7 +44,7 @@ tags:
 输入是一组英语网络新词及其社交媒体上下文，参与者是以西班牙语、德语或中文为第一语言的英语非母语者。每名参与者被随机分配到一种支持条件，在八个新词上重复执行三步：先在帖子和支持材料中学习新词，再写一个场景和一条发给母语朋友 Jo 的消息，最后判断两条给定写作样本中新词使用是否合适。随后，每条非母语者写作样本由两名美国英语母语者从语法/连贯性、语境合适性和可理解性等维度评分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：8 个英语网络新词<br/>+ 社交媒体上下文"] --> B["非母语者参与者<br/>(西班牙语 / 德语 / 中文母语)"]
     COND["五种支持条件（随机分配其一）<br/>Control / AI Definition / AI Rewrite<br/>AI Explanation / Non-AI Dictionary"] --> L

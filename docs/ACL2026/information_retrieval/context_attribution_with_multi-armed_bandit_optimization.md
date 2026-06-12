@@ -46,7 +46,7 @@ tags:
 CAMAB 将上下文 $C = \{s_1, ..., s_N\}$ 的 $N$ 个片段作为赌博机的基础臂。每轮迭代：(1) 从后验分布采样权重向量；(2) 选择正权重片段构成子集；(3) 用该子集查询 LLM 获取奖励（目标响应的平均 log 概率）；(4) 贝叶斯更新后验。如此循环直到耗尽查询预算，最终以后验均值作为各片段的归因得分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["上下文 C = N 个片段<br/>每个片段视为一个基础臂"] --> B["组合超臂表示<br/>子集 → (N+1) 维二值包含向量 x"]
     B --> C

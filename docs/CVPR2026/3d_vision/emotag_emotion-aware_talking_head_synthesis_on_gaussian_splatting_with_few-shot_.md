@@ -44,7 +44,7 @@ EmoTaG 想解决的是：仅靠几秒视频，就让一个 3D 说话人头不光
 训练走 Pretrain-and-Adapt 两步：预训练阶段从多身份语料里学通用的"音频→运动"先验；适配阶段把 GRMN 主体冻住，只微调少量 AdaIN 参数就能换上新身份。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["音频(Wav2Vec 2.0) + 上半脸 AU(OpenFace)<br/>+ 中性帧身份描述子(AdaFace)"] --> B["Identity-Conditioned Encoder<br/>身份经 AdaIN 调制注入音频/表情流"]
     B --> C

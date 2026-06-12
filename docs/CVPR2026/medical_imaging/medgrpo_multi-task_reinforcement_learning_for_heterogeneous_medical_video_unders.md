@@ -49,7 +49,7 @@ MedGRPO 要解决的核心问题是：把一堆难度天差地别的医学视频
 具体分两阶段。SFT 阶段在自建的 MedVidBench 上对 Qwen2.5-VL-7B 做监督微调，一方面注入医学术语和手术流程知识，另一方面顺手算出每个数据集-任务对的百分位统计（$p_{25}, p_{50}, p_{75}$），为后面的奖励归一化提供基准刻度。GRPO 阶段对每条指令采样 8 组响应，每组响应同时算语义相似度和医学 LLM 评审分，两者先各自过一遍跨数据集归一化、再按一半一半混成最终奖励，最后用 GRPO 的组内优势估计更新策略。整条链路的输入是自适应采样（0.1–3 FPS）的医学视频帧加指令，输出覆盖 8 种任务的文本描述或时空定位结果。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["MedVidBench 数据构建管线"]
         direction TB

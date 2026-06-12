@@ -48,7 +48,7 @@ SVEB 的构造方式是：选一组 prompts，用固定 $\pi$ 跑 rollouts，从
 后续的 Numca 和 Hista 都被设计成"GRPO 训练管线内的 baseline 替换" —— 不改变 rollout 数量，不引入新 critic，不需要额外标注，只换 $\widehat V(s_t)$ 的计算方式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["统一 MDP 框架<br/>状态=token 前缀，动作=下一 token<br/>奖励仅在终止给出"] --> B["同一 prompt 下 N 条现成 rollouts<br/>+ 各自终止奖励 r_i"]
     B --> SVEB["SVEB：MCS@20 续写算参考真值，MAE 打分<br/>实证 PPO critic 退化为 GRPO 组均<br/>→ 需更细的 baseline"]

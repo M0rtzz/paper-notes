@@ -46,7 +46,7 @@ tags:
 下图把这套"展开子博弈→求 NE→采样提问→更新候选集"的回环画出来：SLS/SLSR 形式化（设计 1）落在候选问题与 EFG 翻译节点上，Subgame Search（设计 2）是中间那组 on-demand 构造+CFR 求解，加权支付（设计 3）是 EFG 节点上的可选支路。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["当前一致集合 S(H_t)"] --> B["LLM 提候选问题 g(·)<br/>列出 m 个候选（SLSR 限定动作空间）"]
     subgraph SG["Subgame Search：on-demand 构造 + CFR 求局部 NE"]

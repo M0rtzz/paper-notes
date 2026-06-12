@@ -45,7 +45,7 @@ tags:
 第二部分是 ReVa。它不是从零设计一个完整 unlearning 算法，而是在 RMU 等 feature-randomized unlearned model 之后做 residual vector alignment（残差向量对齐）。具体做法是先从 RMU 模型对 20 个 out-of-knowledge prompts 的拒答行为中抽取 refusal state，再在 forget-set inputs 上把中间层残差激活拉向这个 refusal vector，同时用 retain loss 保护通用能力。论文发现 Zephyr 上对齐 layer 18 / 25，尤其更新 MLP down-projection 参数效果最好。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     M["待测 unlearned 模型<br/>(RMU / 梯度上升 / 拒答类 共 9 个方法)"] --> EVAL
     subgraph EVAL["Honest unlearning 评测框架"]

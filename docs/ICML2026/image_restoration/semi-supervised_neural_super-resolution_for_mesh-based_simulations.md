@@ -44,7 +44,7 @@ SuperMeshNet 用两个互补 MPNN——主模型预测 LR→HR，辅助模型预
 SuperMeshNet 要解决的是「HR 数据稀缺却又非要靠它监督」这个自相矛盾的局面，做法是把数据切成一小块 paired LR–HR 集 $\mathcal{D}_a=\{(u_l^q, u_h^q)\}_{q=1}^{N_h}$（$N_h \ll N$）和一大块 unpaired LR 集 $\mathcal{D}_b=\{u_l^q\}_{q=N_h+1}^{N}$，再让两个预测目标互不相同的 MPNN 在 unpaired 样本上互相造伪标签。其中 primary 模型 $F_\theta(u_l^q)=\hat{u}_h^q$ 学的是 LR→HR 这条 inter-resolution map、最终用于推理；auxiliary 模型 $G_\phi(u_l^r, u_l^s)=\hat{u}_h^{rs}$ 学的是「两个 LR 样本对应的 HR 解之差」、只在训练时充当互补监督源。两模型共享同一个 LR 编码器以省算力，主模型骨架是 SRGNN，并用 kNN-upsampler 与 latent-space upsampler 两条上采样路径融合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["少量 paired LR–HR + 大量 unpaired LR"] --> B["共享 LR 编码器"]
     B --> C["主模型 F_θ：学 LR→HR 映射"]

@@ -46,7 +46,7 @@ tags:
 本文不提新的微调算法，而是搭一条"先检测、再归因、后干预"的诊断流水线，把 SFT 中"训练损失收敛了但样本还是答不对"的失败当成可分析的信号。具体而言：先把模型 SFT 到收敛，然后把每条训练样本转成选择题用多次采样检测出"未学习子集"；再用分布级信号探测每条顽固样本的知识状态、判断它是"压根不知道"还是"知道却被覆盖"，据此把它逐条归到五种成因之一；最后针对每种病因施加对应的修复手段，并用"修了是否变好"来反验归因是否正确。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["SFT 训练至收敛"] --> B["未学习样本检测<br/>BoN-5 多次采样，pass@5 < 0.2 判未学习，取 top-K=1000"]
     B --> C["知识状态探测<br/>比对基础↔微调分布的 JSD，分『不知道』与『知道却答错』"]

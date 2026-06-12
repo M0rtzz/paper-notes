@@ -45,7 +45,7 @@ tags:
 两大阶段：(1) Hallucination Verification——先把初始回复解析成场景图 $G=(O, A, R)$，再分别用专门模型验证对象（YOLO + Grounding DINO 主验，Qwen3-VL 30B/32B 二次裁决）和属性/关系（Qwen3-VL 30B+32B 共识），共识机制要求两个独立模型给同样判定才算确诊，否则标 Ambiguous。(2) Self-correction——根据诊断让 LVLM 自己重写：先 Factual Rectification（删/换幻觉元素得到简洁正确回复），再 Detailed Enrichment（补充缺失视觉细节但禁止重提已知幻觉对象）；丰富后再回送验证，迭代至无幻觉或超过 3-5 轮后丢弃。最终把"自校正 + 丰富后的回复"作为 $y^+$、"原始幻觉回复"作为 $y^-$，跑标准 DPO。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["图像 + LVLM 初始回复"] --> B["解析为场景图 G=(O,A,R)"]
     subgraph V["三层一致性幻觉验证（设计1）"]

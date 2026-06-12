@@ -46,7 +46,7 @@ tags:
 SDM 系统包含三层：(1) 冻结的预训练 LM 提供隐藏状态 $\mathbf{h}$；(2) exemplar adaptor（1-D CNN + 线性层）将 $\mathbf{h}$ 映射为紧凑表示 $\mathbf{h}'$ 和新 logits $\mathbf{z}'$；(3) SDM 激活层利用 $\mathbf{h}'$ 计算 Similarity $q$ 和 Distance $d$，与 $\mathbf{z}'$ 结合输出校准的概率分布。在此之上，SDM 估计器通过数据驱动的经验 CDF 分区构建高可靠性区域用于选择性分类。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["冻结预训练 LM<br/>隐藏状态 h"] --> B["exemplar adaptor（1-D CNN + 线性层）<br/>紧凑表示 h′ 与新 logits z′"]
     B --> C["Similarity（q）<br/>最近邻是否既同类又预测对"]

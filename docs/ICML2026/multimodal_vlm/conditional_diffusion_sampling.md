@@ -49,7 +49,7 @@ tags:
 整套方法**完全无神经网络训练**，仅靠目标密度 $\tilde\pi$ 的评估和 score $\nabla\log\tilde\pi$ 即可运行。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["参考样本 z ∼ π_ref<br/>选定近零时刻 t₀"] --> S1
     subgraph S1["Stage 1：PT 采初始分布"]

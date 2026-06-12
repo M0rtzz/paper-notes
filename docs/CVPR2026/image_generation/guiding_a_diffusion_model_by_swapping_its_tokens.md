@@ -43,7 +43,7 @@ $$\tilde{\epsilon}(x_t) = \epsilon_{\text{ori}}(x_t) + \omega\big(\epsilon_{\tex
 关键就在扰动分支怎么构造。SSG 不往特征里灌噪声，而是把现有的 token 拿来"对调位置"——这是一种保守操作，只重排已有信息、不引入任何外部随机量，所以全局能量守恒、不会把图像推向不可恢复的失真。两个分支的中间预测一起前向，开销小、不需要重训。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["噪声隐变量 x_t"] --> ORI["原始分支<br/>干净预测 ε_ori"]
     X --> SEL["对抗性 Token 选择<br/>挑余弦相似度最低的 N 对"]

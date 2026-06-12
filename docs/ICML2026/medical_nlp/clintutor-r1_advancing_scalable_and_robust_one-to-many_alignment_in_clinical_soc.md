@@ -46,7 +46,7 @@ tags:
 这篇论文要解决的是「一位 AI 导师同时带多名学员」时的对齐难题：学员一多，模型就追踪不住每个人的认知状态、也协调不好群体进度。ClinTutor-R1 把整条链路拆成三块来应对——先用多智能体模拟器 **ClinEdu** 生成临床查房场景的高保真教学对话，攒出 48k 对话的 **ClinTeach** 数据集（31k 单轮 + 17k 多轮）；再以此对 Qwen2.5VL-7B 做 SFT，让模型学会苏格拉底式引导（含「先想后说」的 ToM 推理）的基本范式；最后用三轴 rubric 强化学习打磨它在学员规模变化下的动态适应力。模型吃进临床病例（文本 + X 光/CT 等医学影像），吐出面向多名学员的引导式提问。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CLINEDU["ClinEdu 多智能体模拟器（设计 1）"]
         direction TB

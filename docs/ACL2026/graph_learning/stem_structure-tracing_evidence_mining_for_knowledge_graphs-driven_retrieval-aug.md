@@ -44,7 +44,7 @@ STEM 将知识图谱多跳问答从逐步路径搜索改写为“先生成查询
 STEM 把多跳 KGQA 从"让 LLM 一步步猜下一跳"改写成"先画结构蓝图、再按图索骥"：输入是自然语言问题、问题实体和目标 KG，输出是一张 query-specific evidence subgraph，最后被线性化成推理链交给 LLM 生成答案。中间分三层推进——先把问题投影成 KG 可执行的 schema graph，再用一个轻量图模型生成全局 guidance graph 注入结构先验，最后让检索器在真实 KG 上对照这两张图做结构追踪，把"猜下一跳"变成"找结构匹配"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：自然语言问题<br/>+ 问题实体 + 目标 KG"]
     subgraph PROJ["语义到结构投影"]

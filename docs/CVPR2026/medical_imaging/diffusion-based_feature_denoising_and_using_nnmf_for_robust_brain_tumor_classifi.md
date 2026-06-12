@@ -48,7 +48,7 @@ tags:
 整条管线从训练到推理是这样转的：原始图像先经 NNMF 分解出基组件和系数，统计指标从中挑出最能区分肿瘤的几个组件，喂给一个轻量 CNN 学分类；同时单独训练一个去噪器，专门学习把「加了噪的特征」还原成「干净特征」。推理时，输入图像投影到 NNMF 特征、做 L2 归一化后，先被故意打上一层前向扩散噪声，再由去噪器净化，最后才进 CNN 出结果——对抗扰动就在这「先加噪后去噪」的一来一回里被冲洗掉了。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["脑肿瘤 MRI<br/>灰度 → 128×128 → 归一化"] --> B["NNMF 特征提取<br/>KL 散度乘法更新，R=15 基组件"]
     B --> C["统计特征选择<br/>AUC + Cohen's d + p-value 取 Top-M"]

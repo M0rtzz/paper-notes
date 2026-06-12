@@ -45,7 +45,7 @@ tags:
 这篇论文想解决的是：怎么把一个高保真 3DGS 头像做成"边下边看"的资产，让用户在只收到一小部分数据时就能渲染出可用的头像，再随着数据流入平滑变清晰，而不是像传统做法那样等整份资产下载完才出画面。整条管线从一段头部视频出发，先用 FLAME 跟踪出每帧的模板网格；训练时把 3D 高斯绑到 FLAME 三角面上，靠屏幕空间梯度判断哪些面需要长出更多细节，由此在每个面上递归生出一棵层级树；推理/传输时则给所有高斯预算好重要性评分，按评分从高到低发送，接收端每收到一批就增量加进场景并立即重渲染。最终一份资产同时承载了"5% 的粗版"到"100% 的精版"的全部中间形态。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["头部视频"] --> B["FLAME 跟踪<br/>逐帧模板网格、拓扑固定"]
     subgraph TREE["层级森林构建（训练时按面生长）"]

@@ -46,7 +46,7 @@ tags:
 ExtAgents 要解决的是「外部知识量超出上下文窗口时性能不升反降」这个反常现象。它把超长输入切成 $N$ 个 chunk，每个 chunk 交给一个 Seeking Agent，再把多智能体角色精简成两类。整条流水线先做一轮**全局知识同步**：所有 Seeking Agent 并行消化各自的 chunk、互相共享消息、并给自己负责的 chunk 与查询打相关性分数。随后进入**知识累积推理**：Reasoning Agent 不一次性吞下全部消息，而是按相关性从最高分的 chunk 开始，每轮翻倍注入知识量，边读边判断「现在够不够回答」，直到能给出答案或知识耗尽。因为 Seeking 阶段彼此独立，整个框架高度可并行。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["超长外部知识<br/>切成 N 个 chunk"] --> B
     subgraph SYNC["全局知识同步（带宽 = N）"]

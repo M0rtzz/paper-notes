@@ -48,7 +48,7 @@ tags:
 论文有两条平行流水线：**分析侧**和**迁移实验侧**。分析侧拿 1 亿+ 条金融微博构造 6 个语料对（cross-asset/cross-platform/cross-language 共 5 个核心对比），在 3 层（频率/语义/极性）上各算一组互补指标；迁移实验侧用 3 个模型家族 × 3 种输入模态 × 3 种迁移方向构造 27 组零样本实验，统一报告"in-domain accuracy"和"transfer gap"。两条线共享同一套多语言标签作为数据基础，结论通过"哪一层飘得最厉害"对上"哪种迁移方向 gap 最大"互相印证。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["1 亿条金融微博<br/>4 语种 / 2 平台 / 2 资产"] --> B["多语言标签构造<br/>StockTwits 原生标注 + Twitter GPT-5 弱监督 + 人工抽检"]
     B --> C["构造 6 个语料对<br/>跨资产 / 跨平台 / 跨语言"]

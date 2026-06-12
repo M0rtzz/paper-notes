@@ -46,7 +46,7 @@ tags:
 ZARA 想让冻结的 LLM 在不做任何训练的前提下读懂传感器时间序列、判断人在做什么动作。难点在于直接把数值流喂给 LLM 会幻觉、弱接地，于是 ZARA 把信息解耦成两条线索：一条是全局知识 $\mathcal{K}$——离线统计出来的「成对活动哪些特征最有区分力」的静态参考注册表；另一条是局部证据 $\mathcal{D}$——原始信号嵌入构成的向量数据库，提供查询样本的局部分布接地。在线时，系统先按候选类别检索相关证据，再由多个 LLM 智能体分层推理，最终输出动作标签和一段可解释的自然语言说明。整体流程是「离线建知识库 → 在线类别条件检索 → 分层多智能体推理」。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["离线统计画像（构建知识库 K）"]
         direction TB

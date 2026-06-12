@@ -44,7 +44,7 @@ tags:
 输入视频先用 VQ-VAE（OmniTokenizer）编码成离散 token 序列，再交给自回归 Transformer 建模。关键改动全在训练侧：不在完整序列上算损失，而是随机采样一个局部窗口、只优化窗口内的自回归损失，窗口外的前文 token 当作冻结上下文（stop-gradient），同时对窗口内相邻隐状态施加连续性约束；推理时仍走标准的全序列自回归生成，因此推理速度不受影响。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入视频"] --> B["VQ-VAE（OmniTokenizer）编码<br/>离散 token 序列"]
     B --> C["自回归 Transformer"]

@@ -46,7 +46,7 @@ tags:
 AdaBet 想回答一个很具体的问题：在内存只有几百 MB 的边缘设备上微调一个预训练网络，到底该解冻哪几层？它把这个决策拆成两个轻量阶段。第一阶段是层重要性评估——拿一批未标注数据做**一次前向传播**，逐层记下激活，再对每层激活算出一个归一化的第一 Betti 数 $\hat{b}_1$，当作"这层有多需要适配新任务"的打分。第二阶段是层选择与微调——把所有层按 $\hat{b}_1$ 从高到低排，解冻分数最高的 top-$\rho$ 比例（默认 10%）启用梯度，其余层全部冻结，分类头始终训练。整个评估阶段没有标签、没有反向传播、也不需要服务器端 meta-training，可以完全跑在设备本地。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["未标注数据<br/>一次前向传播"] --> B["逐层记录激活 aᵢ"]
     subgraph EVAL["层重要性评估（无标签 / 无反传）"]

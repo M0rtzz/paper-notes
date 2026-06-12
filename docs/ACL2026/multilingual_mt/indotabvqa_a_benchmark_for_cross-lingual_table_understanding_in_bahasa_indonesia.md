@@ -46,7 +46,7 @@ tags:
 IndoTabVQA 的评估流程包括三种设定：(1) 零样本评估——直接用预训练 VLM 在测试集上推理；(2) 微调评估——在 500 张训练图像上微调后在 1043 张测试图像上评估；(3) 微调+空间先验——先用 YOLOv9 检测表格区域得到边界框坐标，将坐标信息加入 prompt 后再由 VLM 处理。输入为文档图像 I + 问题 Q（四种语言之一），输出为短文本或数值答案 A，最后用双指标统一评分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["多样化数据集构建"]
         direction TB

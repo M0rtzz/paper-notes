@@ -40,7 +40,7 @@ tags:
 AdaptVision 想解决的是 VLM「不管图简单复杂都喂满视觉 token」的浪费，让模型自己决定每个样本到底要看多少。它走一条 coarse-to-fine 的主动视觉流程：先只处理 1/4 分辨率的图像 $I_{low}$，只花 25% 的视觉 token 看个大概；模型据此判断是直接作答，还是通过 `<tool_call>[x1,y1,x2,y2]</tool_call>` 调用裁剪工具，从高分辨率原图里抠出关键区域 $I_{crop}$ 再细看一遍后回答。一个样本最终用掉的视觉 token 数是 $n_{img} = n_{low} + \mathbf{1}_{tool} \cdot n_{crop}$——看一眼够了就停，不够才追加放大那块的 token。难点在于怎么训出这种「按需取像」的策略，下面两个设计分别管奖励信号和优化算法。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["高分辨率原图 + 问题"] --> B["降采样为 I_low<br/>仅占 25% 视觉 token"]
     B --> C["VLM 粗看一遍"]

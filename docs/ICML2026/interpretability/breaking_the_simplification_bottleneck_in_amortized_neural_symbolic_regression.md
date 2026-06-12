@@ -46,7 +46,7 @@ tags:
 这篇论文要解决的是「摊销符号回归被化简拖垮」的问题：要么离线用 SymPy 化简、被成本卡住规模上不去，要么干脆不化简、让模型把容量浪费在学 $x+0$ 这种语法冗余上。Flash-ANSR 的破局点是把化简本身也摊销掉——先离线穷举出短表达式的所有等价规则做成查表索引，运行时只查表，于是化简能塞进训练循环里跟着在线生成的表达式同步跑。训练时数据沿「骨架采样 → SimpliPy 化简 → 去污染 → 渲染 $(X,y)$ 对」流转，再喂给编码器-解码器学后验；推理时编码器读入数据集，解码器 softmax 采样出 $K$ 个候选骨架，经 SimpliPy 去重、用 Levenberg-Marquardt 拟合常数，最后按拟合质量加简洁性正则排序选出最优表达式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TR["训练数据流（在线生成）"]
         direction TB

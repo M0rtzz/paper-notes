@@ -43,7 +43,7 @@ tags:
 方法分三步走：（1）形式化 Perceptual Judgment Bias 并用 VQA 探针把失败归因到 Mode (a)/(b)；（2）构造 *Perceptually Perturbed Judgment Dataset (PPJD)*——基于 MMPR-v1.2 抽取 3k 高质量样本，对每个 chosen 回答生成感知扰动版与感知+推理双扰动版；（3）用 GRPO 训练，奖励为格式校验 × 批量排序得分。最终模型记作 Perception-Judge-Flex / Perception-Judge-Qwen3，分别基于 Flex-Judge-VL-7B 和 Qwen3-VL-4B-Thinking。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["MLLM 评判器误判<br/>视觉错却给高分"] --> S1
 

@@ -50,7 +50,7 @@ UniversalRAG 的端到端流程分为三个关键阶段：
 3. **生成**：从路由选择的语料库中检索相关内容，交给 LVLM 生成最终答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["查询 q"] --> R
     subgraph R["路由模块（两层路由）"]

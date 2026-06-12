@@ -43,7 +43,7 @@ $$\mathbf{z}_{hr} = [\mathbf{z}, \mathbf{z}_d] \in \mathbb{R}^{(C+D) \times \fra
 这样高分辨率图像被编码成和基础分辨率一样多的 token，扩散模型只需在原序列长度上多吃几个通道，就能生成更高分辨率的结果。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["高分辨率图像"] --> E
     I --> Ed

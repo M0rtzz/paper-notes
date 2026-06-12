@@ -43,7 +43,7 @@ tags:
 这篇论文要让 Transformer 对变量重命名（alpha 等价）天生不变，同时还能在测试期接纳训练词表里没见过的新符号。做法是把单一嵌入表换成 $k$ 条共享权重的并行嵌入流：词表先拆成可互换部分 $\mathbb{V}_i$（原子命题、变量名）和固定部分 $\mathbb{V}_n$（逻辑算子、关键字），输入里出现几个不同的可互换 token 就开几条流，每条流"以一个可互换 token 为视角"重写同一条序列，流内先做 per-stream 自注意力、再用置换不变的 aggregated 注意力让流之间通信（Decoder 还多一条 per-stream 交叉注意力把解码流对齐到对应编码流），最后投影头从各 token 的专属流读出预测。因为重命名只是把这 $k$ 条流换个顺序，而流内部张量和所有跨流算子都对顺序对称，输出的等价性就被架构本身锁死了。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["逻辑公式输入<br/>词表拆成可互换符号 + 固定符号"] --> B
     B["并行嵌入流 + actual/placeholder<br/>每个可互换 token 开一条流：本流填 actual、他流填 placeholder，掩码记位置"]

@@ -44,7 +44,7 @@ SE-GA 给基于 VLM 的 GUI 智能体配了一套"情景+语义+经验"三层记
 SE-GA 把 GUI 导航形式化为 POMDP $\langle\mathcal{S},\mathcal{A},\mathcal{O},\mathcal{T},\mathcal{R},\gamma\rangle$，目标是把一个只会"看截图出动作"的 VLM 策略，改造成能跨任务检索经验、还能把经验回灌进参数的自演化 agent。每一步 $t$，agent 拿到用户指令 $Q$、当前截图 $o_t$，再从三层记忆库 $\mathcal{M}=(M^{EPI},M^{SEM},M^{EXP})$ 检索出结构化记忆 $M_{retrieved}$，拼成输入 $x_t=(o_t,Q,M_{retrieved})$ 喂给策略 $\pi_\theta(a_t|x_t)$ 出动作。系统由三件事咬合成一个自演化闭环：推理期的 **TTME**（Test-Time Memory Extension）负责分层检索上下文、同时把新跑出来的成功轨迹实时入库；这些原始轨迹再经 **Hindsight Goal-Shifting** 把失败轨迹的成功前缀回收、扩成 4K 条高质量数据；训练期的 **MASE**（Memory-Augmented Self-Evolution）分两阶段（Grounding SFT → 改进版 GRPO）把这批数据烧回 VLM 参数，更强的策略又能在推理时攒出更高质量的轨迹。Base model 是 Qwen2.5-VL-7B，4×A800 训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["当前截图 + 用户指令"] --> TTME
     subgraph TTME["TTME 三层记忆 + 滑窗 + 混合检索"]

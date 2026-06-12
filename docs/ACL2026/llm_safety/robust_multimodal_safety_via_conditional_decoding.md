@@ -48,7 +48,7 @@ CASA 的设计非常简洁：它不在模型外面套一个检测器，也不训
 实验基座是 Qwen2.5-Omni 3B 和 7B。训练数据包含约 6.2k 恶意问题和 10k Alpaca 良性问题；评估覆盖文本越狱、视觉越狱和音频拼写攻击，并用 Claude 3.7 作为 LLM judge，同时用 13 名人工标注者验证安全与效用评价。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多模态输入<br/>文本 / 图像 / 音频"] --> B["prompt 隐状态编码"]
     B --> C

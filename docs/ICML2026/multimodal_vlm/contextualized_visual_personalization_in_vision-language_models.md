@@ -49,7 +49,7 @@ CoViP 把"基于用户历史经验做视觉个性化"这一开放任务，统一
 4. **CAG 推理**：先让模型按 captioning prompt $p_s$ 生成字幕 $s\sim\pi_\theta(\cdot\mid x,c,p_s)$，再把 $s$ 拼到下游 prompt $p_d$ 后面，做最终回答 $y\sim\pi_\theta(\cdot\mid x,c,p_d,s)$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["数据集构造（脚手架）"]
         direction TB

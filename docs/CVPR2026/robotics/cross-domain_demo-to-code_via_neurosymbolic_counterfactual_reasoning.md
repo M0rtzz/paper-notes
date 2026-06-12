@@ -42,7 +42,7 @@ tags:
 NeSyCR 把跨域 demo-to-code 当成一个反事实推理问题：输入一段示教视频加目标域观测，输出能在新域里跑通的代码策略。它分两阶段——先从示教视频抽象出一个可前向仿真、可逻辑验证的符号世界模型（symbolic world model），再拿这个世界模型和目标域观测对照，用反事实推演分两步把程序改对：先**识别**哪些步骤换到新域会崩，再**探索修复**这些步骤、并在改动后反复重跑仿真直到整条程序重新自洽，最后把修好的符号程序编译成可执行代码。VLM 负责"看懂画面、出主意"，符号工具（symbolic tool，基于 VAL）负责"算清逻辑、把关验证"，两者在一个 repeat-until 闭环里互相约束。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DEMO["示教视频"]
     subgraph WM["符号世界模型构建"]

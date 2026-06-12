@@ -46,7 +46,7 @@ tags:
 这篇论文要解决的是带画面的电影音频分离：给一段电影的混合音轨和对应视频，把它拆成语音、音效、音乐三路，并且让视觉画面来帮忙判断哪段声音该归到哪一路。整条流水线分两半。前半是双流视觉编码器，它从视频里同时抽两路视觉信号——一路盯着人脸（唇动对应说话），一路看整个场景（动作、物体对应音效）——把两者融成统一的视觉条件 $\mathbf{c}^V$。后半是一个条件流匹配（conditional flow matching）生成模型，它不去预测「保留哪些频谱、抹掉哪些频谱」的掩码，而是从纯噪声出发、以混合音频 $\mathbf{s}^A$ 和视觉条件 $\mathbf{c}^V$ 为引导，一步步生成出三路干净频谱图。而模型能学起来的前提是有训练数据，这正是论文的第一个贡献——用各自独立的野外单源音视频「凑」出带真值的混合。训练时双视觉流来自各自独立的源视频，推理时则从同一段真实电影里就地抽出人脸流和场景流，整个范式不改架构就能从合成数据迁移到真实电影。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["合成训练数据管线"]
         direction TB

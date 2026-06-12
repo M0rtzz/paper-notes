@@ -43,7 +43,7 @@ tags:
 Pipeline 分三段：(A) 数据构造 —— 从 MedlinePlus 拉临床素材，GPT-4o 多语言生成 MCQ，多阶段过滤掉 3 个小模型都能做对的 trivial 题，再转成 open-ended（保留参考推理链 $r$ 和参考答案 $y^*$），最后由 native + 医学专家逐条校验，平均评分 4.89/5。(B) Cold-Start SFT —— 在 Qwen2.5-Instruct backbone 上用允许 code-switching 的长 CoT 轨迹做 SFT，让中间推理步可以用任意 $\ell_t \in \mathcal{L}$，但最终答案必须落到目标语言 $\ell$。(C) Curriculum GRPO —— 按语言资源等级划分高 / 中 / 低三档，按 high→mid→low 顺序训练，每进入新档保留 $\alpha=0.85$ 比例的旧档样本防遗忘，复合奖励同时约束 accuracy、language、format。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["数据构造 → CureMed-Bench（13 语言开放问答）"]
         direction TB

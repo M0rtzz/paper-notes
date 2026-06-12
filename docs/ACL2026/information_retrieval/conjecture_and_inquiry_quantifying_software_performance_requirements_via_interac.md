@@ -48,7 +48,7 @@ IRAP 把"自然语言性能需求 → 数学函数"建模成一个**有限状态
 围绕这个目标，IRAP 串起三个相互衔接的阶段：先用**检索-生成式量化**（retrieval-generative quantification）把一句模糊的需求文本转成初始函数草稿 $f_{t,0}$；再用**检索-类比式偏好推理**（retrieval-analogical preference reasoning）借该用户的历史量化案例，把草稿挪到更接近其真实偏好的起点 $f'_{t,0}$；最后用**交互式偏好调优**（interactive preference tuning）通过树状问答逐轮微调，直到收敛成可直接计算的分段函数 $f_t^*$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["自然语言性能需求"] --> P1
     subgraph P1["检索-生成式量化"]

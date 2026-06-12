@@ -51,7 +51,7 @@ tags:
 AdvMark 想解决的是同一张水印图像要同时扛住对抗、失真、再生三类攻击，而联合训练把这三件事搅在一起又慢又互相拖累。它的解法是把防御沿攻击的"本质"切成两段来打：对抗攻击是冲着模型决策边界的弱点来的（model-specific），失真/再生攻击则是信号层面的破坏（model-agnostic），二者根本不是一回事，没必要也不应该用同一套训练去硬扛。于是 Stage 1 用 Encoder Adversarial Training（EAT）只管对抗鲁棒性——微调 encoder，把水印图像"挪进"对抗攻击够不着的安全区域；Stage 2 拿到 Stage 1 的输出 $x_{w1}$，在像素空间直接优化出 $x_{w2}$ 来抵御失真和再生，同时用一个偏移约束把图像锁在 Stage 1 建立的安全区域里，让前一阶段的对抗防御成果不被推翻。推断时就是 encoder 嵌入 → Stage 2 优化 → 输出最终水印图像。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像 + 水印信息 m"] --> B["Encoder 嵌入水印 → x_w"]
     subgraph S1["Encoder Adversarial Training（Stage 1·抗对抗攻击）"]

@@ -43,7 +43,7 @@ tags:
 BiMotion 要解决的核心矛盾是：固定容量的前馈生成模型（VAE-latent diffusion）只能吃固定长度输入，可运动序列天生变长，硬裁剪会丢语义、硬下采样会抖。它的破法是把「帧」这个离散表示换成连续的 B 样条曲线——不管原序列多少帧，都拟合成固定数量的控制点。训练时，变长顶点差异序列先经 B 样条拟合成控制点，VAE 把控制点编码成运动 latent，flow-matching 扩散模型学习「初始形状 + 文本 → 运动 latent」的条件生成；推理时给定初始 mesh 和文本，扩散生成 latent、VAE 解回控制点、B 样条再重投影成任意长度的运动序列。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["变长顶点差异序列"] --> B["B 样条运动表示<br/>Laplacian 正则拟合 → 16 控制点"]
     B --> VAE

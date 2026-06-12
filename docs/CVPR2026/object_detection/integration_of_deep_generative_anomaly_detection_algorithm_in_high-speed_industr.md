@@ -39,7 +39,7 @@ tags:
 整套流程分两阶段。训练阶段在 A100 服务器上用 GAN 框架训练一个残差自编码器：输入一张 $256 \times 256$ 灰度 patch，编码到 64 维潜在空间再重建回去，判别器只在训练时帮助约束重建质量。推理阶段则用 C++ TensorFlow API 把训练好的自编码器嵌进产线控制软件，每个药瓶被切成 4 个逻辑区域的 patch（flag、top body、liquid body、bottom），逐 patch 独立过一遍自编码器，再把 patch 级判定逐层聚合成产品级、运行级结论。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["训练阶段（A100，仅用合格品）"]
         direction TB

@@ -51,7 +51,7 @@ ML-Embed 走两阶段训练 + 3D-ML 框架:
 每次 forward, 输入会经过: (1) 用 sub-rank $r'$ 的 MEL embedding 层 → (2) 跑前 $l$ 层 transformer → (3) 取每层 hidden state 过 final LN → (4) 截取前 $d'$ 维做 contrastive loss. 训练时这三个采样**同时**进行, 模型被迫在所有可能组合下都给出有用表征.
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入文本（query / 正例 / 难负例）"]
     IN --> MEL["MEL 参数维嵌套<br/>低秩 E_A·E_B，每步采样 sub-rank r′"]

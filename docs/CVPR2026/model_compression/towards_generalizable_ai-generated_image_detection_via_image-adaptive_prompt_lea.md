@@ -48,7 +48,7 @@ IAPL 要解决的核心问题是：训练时只见过有限几种生成器（如
 整条管道基于 CLIP ViT-L/14。论文在原编码器里插入三类可训练组件：等间隔插入 $N_a=6$ 个 block 的 MLP adapter、布在第 2 到第 $N_t=9$ 个 block 的 learnable token，以及喂给第 1 个 block 的 image-adaptive prompt。前两类训练后冻结，构成稳定骨干；只有 image-adaptive prompt 在推理时随图像继续变化。一张测试图进来后，分两条支路并行处理：测试时 token 调优支路从多视角一致性里现场调出 token，条件信息学习器支路从高频纹理里抽出伪造线索；二者再经可学习缩放因子融合成这张图专属的 prompt 喂回第 1 个 block，最后 CLS token 过分类器、并用 Optimal Input Selection 取最自信视角给出真/伪判断。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["测试图像（含未见生成器）"]
     subgraph TTT["测试时 token 调优"]

@@ -44,7 +44,7 @@ tags:
 OutFormer 是 10 层 Transformer (512 hidden, 8 head, 45.1M params)。训练时：每一步先用 MAB 按当前权重选一个 task category $c=(\text{prior}, \text{dim-bin})$，从对应 prior 在线采一份合成数据集 $(\mathcal{D}_{\text{train}},\mathcal{D}_{\text{test}})$，每个数据集含若干 inlier 与 outlier 并带 binary label；模型把 $\mathcal{D}_{\text{train}}$ 当 context、$\mathcal{D}_{\text{test}}$ 当 query，cross-attention 后输出每个 query 是 outlier 的概率，loss 为掩盖标签上的交叉熵；点级 loss 再回填给 MAB 做 reward 更新，决定下一步采哪个 arm；最后按 pace scheduler 只反传低于动态阈值的点。推理时模型完全 freeze，对新真实表把所有训练样本 (默认全部 inlier) 当 context、测试样本当 query 走一次前向，然后用 50 次随机维度/样本子集 ensemble 取平均得到 outlier score —— 整个过程没有梯度更新、没有 OD 算法/超参选择。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PRIOR["Mixed Synthetic Priors（三类互补先验）"]
         direction TB

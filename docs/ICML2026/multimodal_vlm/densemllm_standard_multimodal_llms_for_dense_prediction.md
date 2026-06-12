@@ -44,7 +44,7 @@ tags:
 DenseMLLM 由三个完全标准的组件组成：SigLIP-2（siglip2-so400m-patch16-naflex）做 vision encoder、$2\times 2$ spatial-merge + 两层 MLP 做 projector、4B 参数的标准 transformer LLM。输入端把图像切 patch 编码成 vision token 序列，prompt（如 "Segment: dog, chair."）经 tokenizer 后与 vision token 一起送进 LLM。LLM 的最后一层会对每个 vision token 输出一个 vocabulary 维度的 logits 向量 $Z_i \in \mathbb{R}^{|V|}$。这个 logits 同时承担两条支路：推理时直接在目标类别词表上做 argmax 解码出密集预测图（彻底跳过任何 mask decoder），训练时则用 NTP-M 多标签监督把细粒度像素语义压进 vision token 的 logits 里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["图像 + 指令 prompt<br/>(如 Segment: dog, chair.)"] --> B["SigLIP-2 视觉编码器<br/>切 patch → vision token"]
     B --> C["Projector：2×2 spatial merge<br/>+ 2 层 MLP 投影到词嵌入空间"]

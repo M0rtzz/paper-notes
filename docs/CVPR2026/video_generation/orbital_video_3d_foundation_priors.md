@@ -46,7 +46,7 @@ tags:
 基于 SVD 的视频扩散模型为基础，输入图像同时送入 3D 基础模型（Hunyuan3D）获取形状先验。两个尺度的特征通过多尺度 3D 适配器以交叉注意力方式注入各 Transformer 块，引导视频生成。推理时 3D 特征提取仅需约 2 秒额外开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像 I"] --> B["基础视频扩散模型 SVD<br/>VAE 编码 + CLIP + 相机轨迹"]
     A --> C

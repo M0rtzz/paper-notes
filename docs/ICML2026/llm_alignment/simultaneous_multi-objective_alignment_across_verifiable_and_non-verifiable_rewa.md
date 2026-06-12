@@ -43,7 +43,7 @@ MAHALO 把"标准化 PRM 训练 + 多动作头 DPO + 带 KV-cache 续存的 PRM 
 MAHALO 的输入是一组多目标偏好数据 $\{\mathcal{D}_i\}_{i=1}^H$（Math 的 Acc / Eng，UltraFeedback 的 Help / Honest / Truth，Socratic Mind 的 Acc / Eng）和对应的过程级标注。整套框架顺着作者的核心二分法展开：可验证目标天然有精确的 step 信号，把优化精力花在**测试时搜索**上回报最高；不可验证目标信号噪声大，更适合靠**训练时多头塑形**共享表示。于是训练侧用 Multi-Action-Head DPO（一个共享 backbone $\theta_b$ + H 个线性头 $W_i$）让每个目标长在自己的头上、推理时按权重混合 logits；测试侧用一个跨域 PRM 在生成边界处做"采候选 → PRM 打分 → 提交"的 step-level 引导，并用续存的 KV cache 抹掉重复 encode 的开销。两条线由一套**标准化 PRM 训练范式**打底——它把"过程奖励"从数学域的对错判断抽象成"前缀 → 期望成功概率"，使同一形态的信号 $r_t$ 能覆盖整张对齐图谱。三个组件可独立或叠加调用，做到"一次训练、推理时按需调配"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多目标偏好数据 + 过程标注<br/>数学 / 人类价值观 / 多轮辅导"]
     A --> B["标准化 PRM 训练<br/>前缀→期望成功概率，按可验证性 / rollout 成本 / 过程结构分级造标签"]

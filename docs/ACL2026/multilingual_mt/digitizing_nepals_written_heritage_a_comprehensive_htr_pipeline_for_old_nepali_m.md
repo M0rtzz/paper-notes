@@ -44,7 +44,7 @@ tags:
 Pipeline 五步：① **Line segmentation**——用 Kraken polygon-based 把 155 张手稿（平均 1593×133 px、1198 字符、20 行）切成 3100 行 line images（最长 162 字符、最短 1 字符）；② **Stage 1 合成预训练**——从 21 本历史尼泊尔教科书（Internet Archive）提取文本，用 11 种 Devanagari 字体 + 10 种噪声变形（透视、模糊、椒盐、JPEG 压缩等）渲染 100K 训练行 + 各 2500 val/test；③ **Stage 2 印刷迁移**——heiDATA 上 247 页印刷 Nagari 扫描切出 5139 行（80/10/10），灰度化后 fine-tune；④ **Stage 3 手稿微调**——3100 行手稿（80/10/10）做最终 fine-tune；⑤ **解码 + 后处理**——多种解码策略对比、按 token 不确定度做 post-correction flag。所有 stage 用 AdamW、lr=3e-5、bs=8、warmup 500，分别 6/10/20 epoch。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["155 张古尼泊尔手稿"] --> B["行切分<br/>Kraken polygon → 3100 行 line images"]
     B --> C["数据中心优化<br/>标签归一化 (改动 57% 行) + 20 种增强 × 8 倍"]

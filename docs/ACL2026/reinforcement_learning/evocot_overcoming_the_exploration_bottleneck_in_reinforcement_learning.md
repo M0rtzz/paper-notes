@@ -44,7 +44,7 @@ tags:
 EvoCoT 是嵌套两阶段的迭代框架。Stage 1 (Answer-Guided Reasoning Path Self-Generation)：对每道 $(Q,A)$ 硬题，让 LLM 在已知最终答案 $A$ 的条件下生成 $\hat{C}$；再用一致性检查 $(Q,\hat{C}) \to \hat{A}$，只保留 $\hat{A}=A$ 的 $\hat{C}$，并按 "\n\n" 切成步骤 $\{\hat{c_1},\dots,\hat{c_n}\}$。Stage 2 (Step-Wise Curriculum Learning)：对每条 CoT 从尾部依次删步——先用 $(Q,c_1,\dots,c_n)$ 做 rollout、再 $(Q,c_1,\dots,c_{n-1})$、…、$(Q,c_1)$、最后 $(Q)$——形成一条"从全 prefix 引导到零引导"的难度梯度，每个 prefix 作为 rollout 的固定前缀，剩余步骤自由生成，再用 RLVR 更新。两阶段交替迭代 $t$ 次（Equation 5），随着 LLM 能力提升，下一轮 Stage 1 又能生成更高质量的 CoT，形成自我进化闭环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["硬题 (Q, A)<br/>8 次 rollout 全错"] --> S1
     subgraph S1["Answer-Guided 反向 CoT 自生成 + 一致性过滤"]

@@ -44,7 +44,7 @@ ATAAT 首次系统揭示 VLA 后门难以注入的根因是「梯度干涉」（
 ATAAT 的出发点是一个被它首次说清的现象：VLA 上注入后门特别难，根因是良性目标 $\mathcal{L}_\text{benign}$ 和后门目标 $\mathcal{L}_\text{backdoor}$ 的梯度方向长期相反（余弦相似度稳定在 -0.4 左右），强大的良性梯度把后门梯度直接抵消掉。于是 ATAAT 把所有手段统一在一条约束下——让两个梯度子空间正交：$\min_\theta \mathcal{L}_\text{backdoor}(\theta)\ \text{s.t.}\ \text{Sim}(\theta) \approx 0$，再按攻击者的权限分两条路径去满足它。**Scenario 1（数据投毒，黑盒）走 Implicit De-confliction**：攻击者只能给样本加扰动，就在数据层种入正交扰动让约束隐式成立；**Scenario 2（白盒微调）走 Explicit De-confliction**：攻击者能改参数，就在参数层挑出良性任务用不到的神经元做物理隔离。骨干为 OpenVLA-7B（LoRA rank=32，AdamW，lr=1e-5）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["VLA 端到端微调<br/>后门难注入"] --> B["梯度干涉诊断<br/>Sim(良性,后门) ≈ −0.4 持续相消"]
     B --> C["统一约束：让两个梯度子空间正交<br/>min L_backdoor  s.t. Sim(θ) ≈ 0"]

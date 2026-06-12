@@ -44,7 +44,7 @@ tags:
 每个 video-question pair $x=(v,q)$ 走两阶段：① 学生用 $\pi_{\theta_{old}}$ 采样 $G$ 条 first-pass rollout $\{\tau_i\}$ 并经 verifier 评分；② 对失败的 $\tau_i$ ($z_i=0$)，冻结教师 $\mathcal{T}$ 输出错误类型 $e_i\in\{$temporal, spatial, attribute, counting, dynamics, logic$\}$ 和证据补丁 $c_i$，学生用 $\pi_{\theta_{old}}(\cdot|x,c_i)$ 重采得修复 rollout $\tau_i^*$；正确的 $\tau_i$ 直接保留。最终用 "chosen rollout" $\hat\tau_i$ ($z_i=1$ 用 $\tau_i$，否则用 $\tau_i^*$) 计算 token-level importance ratio 做 GRPO 更新。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视频-问题对 x=(v,q)"] --> B["学生 π_old 采样<br/>G 条首答 rollout τ_i"]
     B --> C["verifier 评分 z_i"]

@@ -44,7 +44,7 @@ tags:
 FlashCache 在 prefilling 阶段结束后对多模态 KV Cache 执行一次性压缩，包含两个核心模块：(1) 离群 KV 识别（Outlier KV Recognition Module）——对每一层的 KV 矩阵做 DCT 频域变换，通过低通滤波获取平滑的 Base KV，再计算每个 KV 对与 Base KV 的 MSE 偏差，优先保留偏差最大的离群 KV；(2) 动态预算分配（Dynamic Budget Allocation Module）——统计各层 KV 矩阵频域中离群信息能量占总能量的比例，据此归一化并为每层动态分配不同的 KV Cache 保留配额。两个模块共享同一套频域分析：先对逐层 KV 矩阵做一次 DCT，离群识别用低频系数重建 Base KV、动态分配用功率谱算各层离群能量占比，最后在每层配额约束下保留偏差最大的离群 KV。整个过程无需训练、也不依赖注意力分数——因为全程只读 KV 矩阵自身的频域统计、从不触碰注意力矩阵，FlashCache 无需改动即可挂在 FlashAttention 上；DCT/IDCT 经 NVIDIA CuPy 算子加速后，8K token 输入下仅增加约 6.77ms 延迟（约为 H2O 的 1/4、LOOK-M 的 1/8）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["prefilling 结束<br/>逐层 KV 矩阵 K / V"] --> B["DCT 频域变换<br/>得到频域系数（两模块共享）"]
     subgraph OKR["离群 KV 识别"]

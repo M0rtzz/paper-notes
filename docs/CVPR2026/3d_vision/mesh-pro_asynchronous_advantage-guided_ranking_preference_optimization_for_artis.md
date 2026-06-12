@@ -49,7 +49,7 @@ Mesh-Pro 把 artist-style 四边形网格生成当成一个 autoregressive token
 这套"生成—打分—更新"之所以能解耦，是因为三者被流水线化了：trainer 在啃当前 batch 时，rollout worker 已经在生成下一轮样本。相比离线 DPO 那种"先把候选全生成完、再标注、再训练"的串行循环，异步架构在 wall-clock 上直接省掉了大段等待，带来 3.75× 的训练加速——而这份提速纯粹来自工程上的架构设计，不依赖任何算法近似。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["条件输入<br/>(点云 / 图像)"] --> B["rollout worker 并行采样<br/>Diagonal-aware 混合三/四边形 tokenization<br/>每条件采 N 个候选 mesh"]
     B --> C["Ray-based 几何完整性 reward<br/>射线奇偶性查破面 → 标量分数"]

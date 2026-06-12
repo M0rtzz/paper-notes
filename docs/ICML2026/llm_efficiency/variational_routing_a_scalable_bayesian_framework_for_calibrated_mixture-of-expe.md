@@ -44,7 +44,7 @@ tags:
 VMoER 把"给 MoE 注入不确定性"这件事从权重空间挪到了决策空间：不再对万亿参数的权重后验做近似，而是只对每个 token 进入 MoE 层时的**路由决策**做变分推断。所有路径都共享同一个起点——确定性路由先算出打分 $\mathbf{l}_{det}=\mathbf{u}\mathbf{W}_r$，变分推断只在这个预训练锚点上叠一层不确定性。在此之上它给出两条互补路径——一条在 logit 空间对路由打分 $\mathbf{l}$ 套一个变分高斯分布 $q_\phi(\mathbf{l}|\mathbf{u})$，显式建模专家之间的相关性；另一条在选择空间只学一个输入相关的温度 $T_\phi(\mathbf{u})$，靠它动态调节 softmax 锐度并用 Sample-K 替代 Top-K 做随机化选择。前者校准最好但要多次采样，后者几乎零额外开销，两条路径覆盖了"精度优先"和"延迟优先"两种部署诉求。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     U["输入 token 表示 u"] --> DET["确定性打分（预训练锚点）<br/>l_det = u·W_r"]
     DET -->|精度优先| VGLR

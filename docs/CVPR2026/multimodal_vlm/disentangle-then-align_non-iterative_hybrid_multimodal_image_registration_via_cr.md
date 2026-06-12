@@ -45,7 +45,7 @@ tags:
 多模态配准（RGB-热红外、RGB-SAR 等）难在两点：模态私有信息会污染共享特征，且全局刚性对齐和局部非刚性形变得在不同空间分头估计、互相打架。HRNet 的思路是「先解纠缠、再对齐」：输入固定图像 $I_f$ 和移动图像 $I_m$，先用共享 backbone + MSBN 提取多尺度特征 $F, M$，再经 CDAP 模块把私有信息从共享特征里剥掉、得到干净的共享表示 $(\hat{F}^s, \hat{M}^s)$，最后由 HPPM 在一条粗到细的管线里一次性联合预测刚性 + 非刚性的混合变换 $\phi$，用它 warp $I_m$。整个过程单次前向，不做迭代级联。其间结构化正则从四个维度约束 CDAP 产出的共享空间，让解纠缠真正成立。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["固定图像 I_f + 移动图像 I_m"] --> B["共享 backbone + MSBN<br/>提取多尺度特征 F, M"]
     B --> C

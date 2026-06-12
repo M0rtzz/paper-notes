@@ -41,7 +41,7 @@ tags:
 这篇论文不提新检测器，而是把"如何系统评估全脑 LSFM 细胞检测的泛化能力"做成一套可复现的基准。整条链路分三块：**多标记物基准**这一块负责造数据——小鼠脑组织经 SHIELD 保存、脱脂、SmartBatch+ 荧光标记、EasyIndex 透明化，再用 SmartSPIM 光片显微镜以 1.8×1.8×4 µm 体素成像，去条纹拼接后存为 Zarr 并通过 Neuroglancer 可视化标注约 9.3 万个细胞质心；**ConvMixer + FindMaxima 检测基线**这一块在标注数据上训检测器，ConvMixer backbone 输出概率热图，再接一个 FindMaxima 层做 3D 非极大值抑制把热图转成离散质心坐标；**3D-MAE 自监督**这一块从海量无标注体积里学可迁移特征，绕开 LSFM 标注成本极高的瓶颈，学到的编码器特征反过来拼接进检测候选做 TP/FP 后处理精修。三块串起来，就构成"造基准 → 跑检测基线暴露泛化鸿沟 → 用自监督补标注稀缺"的完整评估闭环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["多标记物基准（设计 1）"]
         direction TB

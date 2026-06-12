@@ -44,7 +44,7 @@ tags:
 四大组件协同构成一条完整的"造环境 → 检索 → 作答 → 评测"流水线 (Figure 1):**Synthetic Web 生成与污染过滤** (用 LLM 围绕 topic taxonomy 生成数千篇带 site credibility 标签、相互链接的文章,并做污染过滤排除预训练泄漏) → **混合检索层 (Hybrid Search Layer)** (lexical + dense 检索;对抗模式下在 rank 0 注入单条蜜罐) → **Agent 协议 (Agent Protocol)** (zero-shot prompt + search/read_article 两个工具,要求输出 Answer/Confidence/Explanation 三段) → **评测流程 (Evaluation Pipeline)** (固定 LLM-as-judge 评分 + 校准指标 + 过程轨迹)。每个 rollout 之间蜜罐会被移除,避免残留污染。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph GEN["Synthetic Web 生成与污染过滤"]
         direction TB

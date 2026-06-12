@@ -49,7 +49,7 @@ tags:
 Pointer-CAD 要解决的是"命令序列方法生成快、但没法引用已有几何实体（边/面），所以做不了 chamfer/fillet，还容易因量化误差错位"这件事。它把 CAD 建模拆成多步，每一步都基于文本描述 + 前序步骤生成的 B-Rep 做条件生成：文本只 tokenize 一次、所有步骤复用，B-Rep 在每步操作后增量更新。骨干是 Qwen2.5（0.5B/1.5B）+ LoRA 微调，最终隐藏状态接两个独立全连接层，一个预测 Label/Value Token、一个预测 Pointer；预测出的命令序列再由向量翻译模块转成可执行的 B-Rep 几何。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     T["文本描述<br/>（只 tokenize 一次，全步骤复用）"] --> LLM["Qwen2.5 + LoRA 骨干"]
     BR["前序步骤累积的 B-Rep"] --> ENC

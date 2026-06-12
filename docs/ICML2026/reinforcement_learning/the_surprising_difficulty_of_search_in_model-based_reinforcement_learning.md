@@ -43,7 +43,7 @@ tags:
 论文先做两段诊断，再给一个算法。诊断段：(1) 在 N-chain 这个有解析解的玩具 MDP 上证明，即使动力学和价值完美，均匀随机搜索找到非零回报轨迹的概率为 $1-(1-\frac{1}{A^n})^m$，视野 $n$ 一长就指数衰减；(2) 把 MR.Q 与 TD-MPC2 在 17 个 DMC/Gym 任务上对比"动力学误差 + unroll 误差"和"加/去 MPC 的性能差"，证明误差量级相当但 MPC 效果方向相反。这两段诊断推翻"模型不准"假设、正面把矛头指向价值过估计；算法段：MRS.Q 在 MR.Q 上做最小改动 —— 加 MPPI 短视野搜索、把价值函数 ensemble 从 2 加到 10 并且全 ensemble 取 min（且把 min 同时用到价值 target 和 MPC 轨迹终值）、加 SEM 单纯形嵌入、去掉额外探索噪声、把终止预测损失权重从 0.1 提到 1。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["现象：给 MR.Q 接搜索反而掉点<br/>主流归因『模型不够准』"] --> DIAG
     subgraph DIAG["双诊断：搜索内禀困难 + 模型精度无关"]

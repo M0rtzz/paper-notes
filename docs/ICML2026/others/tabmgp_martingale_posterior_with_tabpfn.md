@@ -51,7 +51,7 @@ Pipeline 三段：
 所有 $l$ 之间相互独立，天然嵌入并行。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["观测数据 z(1:n) + 损失 ℓ(z,θ)<br/>滚动长度 N、独立样本数 L"]
     subgraph ROLL["TabPFN 当预测规则 + Bayesian bootstrap 当协变量边际"]

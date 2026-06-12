@@ -48,7 +48,7 @@ tags:
 CausalVAD 想治的是端到端驾驶“学到相关、没学到因果”的毛病。它在 VAD 架构上加了一套稀疏因果干预方案（SCIS）：先用结构因果模型（SCM）把 VAD 的模块化流水线形式化、识别出三类后门路径，再用后门调整 $P(Y|\text{do}(S)) = \sum_z P(Y|S=s, Z=z) P(Z=z)$ 切断虚假路径，其中潜在混杂因子 $Z$ 用一个可学习的原型字典来近似、把 do 算子参数化进神经网络。落到结构上，就是先离线构建混杂因子字典，再在感知、预测、规划三个阶段分别插入去混杂模块（感知用 PDM、预测与规划用 IDM），全程复用字典里的原型作为 do 算子的求和支撑集。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DICT["多模态混杂因子字典构建（离线，跑一次）"]
         direction TB

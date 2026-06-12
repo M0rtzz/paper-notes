@@ -45,7 +45,7 @@ CSO 的核心不是给每一步打更准的 reward，而是改变训练数据的
 CSO 分为六步：第一，部署当前 policy 收集失败轨迹；第二，在失败轨迹的每个步骤上用 expert model 采样 $K=5$ 个替代动作；第三，用 PRM 对 policy 原动作和 expert 替代动作打 $[0,1]$ 分数；第四，把满足 $r^{policy}_t<\gamma_{low}$ 且 $max_j r^{expert}_{t,j}>\gamma_{high}$ 的步骤作为候选关键步，主实验中 $\gamma_{low}=0.45$、$\gamma_{high}=0.65$；第五，对高分 expert 替代动作做 branch rollout，即替换当前动作后由 policy 自己继续完成任务；第六，只保留最终成功的分支，构造 $(s_t,a_t^+,a_t^-)$ 偏好对并用 DPO 训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph FAIL["从失败轨迹出发定位 policy 弱点"]
         direction TB

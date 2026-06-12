@@ -43,7 +43,7 @@ tags:
 Evo-Attacker 是个面向红队评测的框架，核心立场是不去手写固定攻击模板，而把"工具返回该不该被污染"当成一个长程决策问题——什么时候按兵不动、什么时候继续收集上下文、什么时候动手改某个工具返回、改成什么样才在任务上下文里不露馅。它先把 LLM-MAS 形式化成动态图 $\mathcal{G}=(\mathcal{A},\mathcal{E})$（节点是 agent、边是通信通道），每次工具调用记成 $(id,args,r)$、$r$ 是返回值。攻击者只是个灰盒 adversary：仅控制单个目标 agent 的工具通道，能拦截它发出的调用和原始返回，并在干预预算 $B$ 内把部分返回替换成扰动值，目标是最大化系统最终失败概率 $\mathbb{E}[J(o)]$（$J(o)=1$ 即任务失败）。整条流水线分三阶段：先探索式地构造 Attack Memory，再在每轮工具调用上做 memory-augmented 的 Retrieve-Reflect-Modify，最后用 Attack-Flow GRPO 把这条推理链端到端优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["LLM-MAS 动态图 G=(A,E)<br/>灰盒攻击者仅控制目标 agent 工具通道"] --> M
     subgraph M["动态 Attack Memory"]

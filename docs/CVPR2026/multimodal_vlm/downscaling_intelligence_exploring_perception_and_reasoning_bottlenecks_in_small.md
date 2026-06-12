@@ -46,7 +46,7 @@ tags:
 Extract+Think 把"看图回答"显式拆成两步串联：图像和问题先进**感知模块**（一个小 VLM），它只负责把与问题相关的视觉细节用文字提取出来；这段文字再连同问题喂给**推理模块**（一个纯 LLM），由它逐步推理给出答案。两个模块都用 Qwen3 系列，感知用 0.6B 或 1.7B VLM，推理用 1.7B 或 4B LLM。这样拆开的好处是，感知和推理各自的瓶颈可以被单独诊断、也可以被单独治疗。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DIAG["诊断阶段：定位退化在哪、为什么"]
         direction TB

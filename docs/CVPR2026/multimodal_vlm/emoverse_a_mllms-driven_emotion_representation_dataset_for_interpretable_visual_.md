@@ -39,7 +39,7 @@ tags:
 EmoVerse 想解决的是：视觉情感分析长期只有"这张图让人 sad"这种孤零零的类别标签，既不告诉你为什么 sad，也没有连续的情感强度刻画。这篇论文要造一个既能解释情感来源、又同时带离散（CES，Mikels 8 类：amusement、awe、contentment、excitement、anger、disgust、fear、sadness）和连续（DES，1024 维空间）两套表示的大规模数据集。整条构建流水线可以拆成四步：先从多个来源汇集并清洗约 219K 张图像；再让 MLLM 把每张图标成 B-A-S 三元组并同时产出 CES/DES；然后让标注走一遍"专家模型 + CoT 批判 agent"的验证-修正闭环过滤噪声；最后用 Grounding DINO + SAM 把三元组里的主体落到像素级的框和 mask 上。数据集造好后，再在它上面微调 Qwen2.5-VL-3B，得到一个能同时做情感预测和情感归因解释的模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph COL["多来源混合采集（约 219K 图像）"]
         direction TB

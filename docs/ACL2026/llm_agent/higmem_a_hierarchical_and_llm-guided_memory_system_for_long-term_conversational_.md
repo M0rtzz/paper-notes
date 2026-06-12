@@ -45,7 +45,7 @@ tags:
 HiGMem 想解决的是长期对话里"检索证据集越捞越脏"的问题：纯向量相似度会不断塞进表面相似但无用的对话轮，精度被持续稀释。它的破局思路是模仿人读资料的习惯——先扫一遍概要锁定相关主题，再钻进去读细节。为此系统把记忆组织成两层：底层是对话轮层（Turn Layer），逐轮存储原始对话和 LLM 抽取的元数据（关键词、标签、时间戳、上下文）；顶层是事件层（Event Layer），把相关对话轮聚成连贯的叙事单元，附带摘要和结构化事实表；两层之间用双向链接锁定可追溯性。检索一条查询时，系统同时从两层捞候选，再让 LLM 以事件摘要为语义锚点推理判断哪些底层对话轮真正值得读，最终交付一个紧凑、高精度的证据集。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["对话轮分析与事件归属"]
         direction TB

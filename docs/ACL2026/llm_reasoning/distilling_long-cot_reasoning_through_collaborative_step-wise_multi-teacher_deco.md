@@ -52,7 +52,7 @@ $$\tau(x_i)^* = \{(s_1^*, \dots, s_T^*) \mid s_t^* = \arg\max_{s_t \in \{s_t^{(1
 每步每个教师条件于共享前缀 $\tau_{<t}$ 提议候选 step $s_t^{(k)}$，由打分函数 $S(\cdot)$ 选出最佳。这是「step-wise autoregressive decoding」——decoding vocabulary 是教师提议集合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["问题 x + K 个教师 LRM"] --> B["Prompt-guided step segmentation<br/>用 Step 模板引导多教师输出对齐的 step 边界"]
     B --> C["当前 beam：B 条部分轨迹前缀"]

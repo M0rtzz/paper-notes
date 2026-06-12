@@ -42,7 +42,7 @@ tags:
 HierAmp 想让数据集蒸馏直接服务于下游分类需要的判别性语义，而不是只追全局分布接近。它的切入点是视觉自回归（VAR）模型天然的粗到细生成——早期尺度定整体结构、后续尺度补细节，正好对应"全局布局→局部结构→纹理细节"的物体语义层次。方法基于预训练 VAR（10 个尺度，scale 0–9），在每个尺度注入一个可学习类别 token，先用分类目标训练它去捕获该尺度的语义，再借它的注意力图找出显著区域、放大那里的注意力，从而让蒸馏数据"粗尺度更多样、细尺度更聚焦"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练 VAR<br/>粗到细 10 个尺度（scale 0–9）"] --> D1
     subgraph D1["尺度限制的类别 Token 注意力（设计 1）"]

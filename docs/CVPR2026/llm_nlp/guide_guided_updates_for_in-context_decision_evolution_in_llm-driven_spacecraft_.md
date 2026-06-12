@@ -42,7 +42,7 @@ tags:
 GUIDE 想解决的是：在不能微调 LLM、又承受不起幻觉的航天场景下，怎么让一个通用大模型逐步学会做靠谱的航天操作决策。它的答案不是改模型权重，而是改"喂给模型的上下文"。一轮决策的闭环是这样转的：先把当前航天器的系统状态、操作约束和任务目标编码成结构化 prompt，交给一组分工的 Agent 生成决策；决策送进仿真环境执行，得到成功/失败/偏差量等结果；这些结果再被写回上下文，作为下一轮的"经验条目"。随着轮次累积，prompt 里携带的领域经验越来越厚，模型的决策就从"基于通用常识的猜测"慢慢进化成"基于历史教训的判断"——这就是论文标题里 Guided Updates 的含义。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["航天器系统状态 + 操作约束 + 任务目标"] --> B["结构化上下文表示<br/>四块固定字段编码进 prompt"]
     B --> C

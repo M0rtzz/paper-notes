@@ -44,7 +44,7 @@ tags:
 ForceVLA2 要让 VLA 真正"会用力"——不再把力当成旁观的辅助感知，而是主动输出力目标并闭环调节。它受人类感觉运动控制启发做成双层级：长时程层把力信息以文本提示（Force-based Prompts）注入 VLM，构建跨阶段的力感知任务概念；短时程层先把实时力信号做**双路径编码**（一路融进任务语义、一路旁路直连保梯度），再用 Cross-Scale MoE 按场景动态决定信视觉还是信力，输出混合力-位置动作。输入是多视角图像 + 任务提示 + 力提示 + 本体感觉状态（EE 6D 位姿 + 6D 力/力矩），输出 EE 位姿增量 $\Delta p \in \mathbb{R}^7$ + 目标接触力 $f \in \mathbb{R}^6$ + 子任务转换指示器 $s \in [0,1]$；其中 $s$ 越过阈值就触发阶段转换、刷新力提示，形成跨阶段的闭环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["多视角图像"] --> VLM
     TP["任务提示 T_t + 力提示 T_f"] --> VLM

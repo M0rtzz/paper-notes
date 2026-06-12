@@ -46,7 +46,7 @@ tags:
 MTR-DuplexBench 要解决的核心难题是：连续、无明确轮次边界的全双工双通道音频流，如何被切成可逐轮打分的离散对话，并在多轮评估中保持上下文不漂移。整体管线先把双通道音频经轮次分割算法切成离散的用户轮次、为每轮划定助手回复时段，再在四个维度（对话特性、对话质量、指令遵循、安全性）上分别构造数据、按轮喂入模型、由 GPT-4o 自动判分。评估第 $k$ 轮时，历史 $k-1$ 轮的助手通道一律填入真实回复、只让模型生成当前轮，最终输出每轮的成功率 / GPT-score / 拒绝率等指标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["双通道全双工音频流"] --> SEG
     subgraph SEG["全双工轮次分割"]

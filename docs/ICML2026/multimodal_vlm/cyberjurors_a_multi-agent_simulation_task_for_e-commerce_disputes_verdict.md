@@ -45,7 +45,7 @@ tags:
 **模型 CyberJurors**：建模为有向社交网络 $\boldsymbol{G}=\langle\boldsymbol{A},\boldsymbol{E}\rangle$，$\boldsymbol{A}=\{a_1,...,a_N\}$ 是 $N$ 名异质陪审员，$e_{k,j}\in\boldsymbol{E}$ 表示 $a_k$ 关注 $a_j$。给定案件 $\boldsymbol{D}=\{d,\bm{e}_1^b,\bm{e}_1^s,...\}$（$d$ 为元数据，$\bm{e}_i^b=\{\bm{T}_i^b,\bm{I}_i^b,\bm{V}_i^b\}$ 为买家第 $i$ 轮文/图/视频证据，卖方对称），JCV 模拟 $T$ 轮讨论：每轮所有陪审员先拿到上一轮 Collective Verdict Summary 与 Verdict Precedent Base，再用 IV-CoT 各自产生判决 $\hat y_{k,t}$ 与理由 $J_{k,t}$；最后多数投票得最终裁决，summary 作为可解释 justification。整体是「集体层 JCV 多轮仿真」外层套「个体层 IV-CoT 四阶段推理」内层、再由判例约束在两层之间注入规范的嵌套结构：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     D["案件 D：元数据 + 买卖双方多轮<br/>文 / 图 / 视频证据"] --> R
     PB["判例约束 Verdict Precedent<br/>判例库 B=⟨H,N⟩ → 语义检索<br/>→ 按人格选 top-K 指引写入记忆"] --> R

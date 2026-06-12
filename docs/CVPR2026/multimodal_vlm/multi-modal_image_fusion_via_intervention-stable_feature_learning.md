@@ -46,7 +46,7 @@ tags:
 采用 U-Net 式的孪生架构。两个共享权重的编码器分别处理可见光和红外输入，生成三个尺度的特征 $\{\Theta_1^v, \Theta_2^v, \Theta_3^v\}$ 和 $\{\Theta_1^i, \Theta_2^i, \Theta_3^i\}$。解码器中嵌入 CFI（因果特征整合器）在每个尺度做干预感知的融合。训练阶段模型同时执行三种干预，输出四种融合结果（正常 + 三种干预），用三种损失联合约束。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["可见光 + 红外输入"]
     subgraph INT["三种结构化干预（主动扰动探测真实依赖）"]

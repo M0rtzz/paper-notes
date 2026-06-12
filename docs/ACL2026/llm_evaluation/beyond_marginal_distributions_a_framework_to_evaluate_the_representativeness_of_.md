@@ -46,7 +46,7 @@ tags:
 本文把"代表性"诊断拆成两个互补的层面。第一层是边际分布评估：对每个调查问题，单独比较模型模拟出的响应分布与真实人群的响应分布有多近，这也是以往工作的主流做法。第二层是相关结构评估：把若干问题的响应聚成相关矩阵，看模型是否再现了"人群中支持某项政策往往伴随反对另一项政策"这类问题之间的联动结构。框架以世界价值观调查（WVS）为 ground truth，用这两层指标在统一标尺下对比 persona prompting 与人口统计微调两种主流操控方法，从而暴露"边际像、结构不像"的隐蔽失败。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     W["世界价值观调查 WVS<br/>第7波 193问题 / 10子群体（ground truth）"]
     G["三种模型配置的统一对比<br/>Phi-3基线 / persona prompting / OpinionGPT 各采样500次"]

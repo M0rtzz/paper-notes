@@ -45,7 +45,7 @@ tags:
 本文要解决的是如何在不依赖领域分类法的前提下，从大规模新闻语料中自动归纳出语义连贯、可解释的叙事模式。框架以单篇文章为输入，先把文章拆解为带因果关系的事件链并用自然语言化表达，再为链中的角色标注叙事功能（英雄/威胁/受害者），把这两类信号组合成叙事的原子表示；随后用角色约束的聚类把成千上万条叙事链组织成若干高层模式，最后让 LLM 为每个聚类输出符合 Entman 框架理论的叙事描述（议题定义、评价、解决方案），形成可解释的叙事模式清单。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：单篇新闻文章"]
     A --> CHAIN

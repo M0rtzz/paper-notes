@@ -46,7 +46,7 @@ tags:
 EET 想解决的是 SE Agent 在难题或不可解问题上反复无效迭代、把成本越烧越高的问题。它的灵感来自资深开发者——见多了就能直接定位解法、不必大量试错。EET 把历史 issue 的成功解决记录提炼成结构化经验存入经验库（离线侧），新任务到来时检索相关经验，在补丁生成和补丁选择两个阶段判断"是否已经够好、或已经没希望"，一旦满足条件就提前终止，从而在几乎不掉性能的前提下砍掉冗余迭代。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph EXP["结构化经验表示与检索"]
         direction TB

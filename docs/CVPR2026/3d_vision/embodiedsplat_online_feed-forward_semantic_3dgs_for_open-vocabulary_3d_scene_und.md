@@ -66,7 +66,7 @@ EmbodiedSplat 要解决的是一个"既要又要"的难题：在 agent 流式探
 每来一帧，系统先连同 N 个参考帧送进 CNN 编码器，吐出一批像素级高斯三元组（位置、置信度、潜变量），再用在线融合策略把这批新高斯并入已有的全局高斯集合。真正的新东西是给每个高斯绑两套互补的 CLIP 特征：一套是**2D 语义特征**，靠"全局码本 + 稀疏系数场"压缩存储，保住 CLIP 原汁原味的开放词汇能力；另一套是**3D 几何感知特征**，靠 3D 稀疏 U-Net 把点云的空间结构编进去。推理时这两套特征各自算出文本匹配概率，再取几何均值得到最终分类——语义和几何谁也别一家独大。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["流式 RGB(-D) 帧 + N 个参考帧"] --> B["CNN 编码器（FreeSplat++）<br/>输出像素级高斯三元组"]
     B --> C["在线融合<br/>增量并入全局高斯集合"]

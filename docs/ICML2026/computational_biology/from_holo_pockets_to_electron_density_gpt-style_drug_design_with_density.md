@@ -44,7 +44,7 @@ tags:
 EDMolGPT 要解决的是"用什么 condition、用什么模型"两件事：condition 从被移除的 empty pocket 换成保留下来的 filler（配体 + 周围溶剂）电子云，模型则用一个 decoder-only GPT 把这团点云和分子序列接起来一路自回归吐出原子。两类电子云被统一成同一种格式——CalED 从原子坐标经 FFT 算得，喂约 2M 分子做大规模预训练；ExpED 从 cryo-EM / X-ray 实验数据直接读出，在 PDBbind 40k 复合物上微调。无论哪种来源，都先截断到分辨率 $d_{\min}=3.5\text{Å}$，再采样成固定 $N_p=199$ 点的点云，每点贴 pharmacophore 标签后按 $(x,y,z)$ 排序，与分子 token 拼成一条序列送进 GPT。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph COND["Filler 电子云作为 condition"]
         direction TB

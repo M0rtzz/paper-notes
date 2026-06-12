@@ -42,7 +42,7 @@ tags:
 CMHANet 要解决的是低重叠、噪声、稀疏点云配准时纯几何信息不够用的问题，思路是把 2D 图像的纹理语义特征深度融进 3D 点云几何特征。整条管线分四步走：先用双骨干分别从点云和配对图像提特征并下采样成超点，再用混合注意力让几何特征与图像特征反复交互精炼，接着在超点层和稠密点层两级做匹配求对应，最后用一个免 RANSAC 的 Local-to-Global 策略估计刚体变换。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：点云对 + 配对 RGB 图像"]
     A --> B["双模态特征提取与下采样<br/>KPConv-FPN 提几何超点 / ResUNet-50 提视觉特征"]

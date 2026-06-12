@@ -46,7 +46,7 @@ tags:
 SciCoQA 把"论文与代码是否忠实对应"形式化为一个跨模态验证任务：输入一篇论文的方法描述与对应代码库，输出二者之间的语义差异列表。数据集沿真实与合成两条路线构建——真实差异从社区"自然发现"中挖掘（1890 个仓库的 10636 条 GitHub Issue 经自动+人工筛选得 59 个差异，171 篇可复现性复现报告经 GPT-5 提取+人工验证得 65 个差异，再由 Gemini 3.1 Pro 与 GPT-5 双重核验并标准化描述，合计 92 个真实差异），合成差异则在 204 个仓库上由 GPT-5 注入受控代码改动（543 个），把领域从 CS/AI 扩展到物理、统计等计算科学。评测端用 LLM-as-Judge（GPT-OSS 20B 推理模型）解析模型给出的差异列表并与标注匹配，在 1039 个人工标注样本上达到 F1 87.5%。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SCHEMA["标注体系<br/>① 差异定义 + 三类型划分　② 六类别影响体系"]
     subgraph REAL["真实差异挖掘（自然发现双源 + 双模型验证）"]

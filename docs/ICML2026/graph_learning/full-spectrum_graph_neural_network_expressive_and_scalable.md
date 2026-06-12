@@ -44,7 +44,7 @@ tags:
 要解决的问题是：谱 GNN 的表达力被 1-WL 卡死，根源在于它只在节点信号 $x\in\mathbb{R}^V$ 上做对角滤波 $g(\lambda_i)$。本文把信号整体抬高一维——从节点域 $V$ 升到节点对域 $V\times V$，于是滤波器自然从单变量 $g(\lambda_i)$ 变成双变量 $g(\lambda_i,\lambda_j)$。具体地，先用编码器 $\phi$ 把每对节点的特征 lift 成 $H_{uv}=\phi(X_u,X_v,E_{uv})$ 并 reshape 成 $H\in\mathbb{R}^{n^2\times d}$，再堆叠若干 full-spectrum 卷积层 $H'=\sigma\big(g(L\otimes I_n,\,I_n\otimes L)\,H\,W\big)$，最后按任务取 node-pair / node / graph 级 readout。难点全在那个双变量函数 $g$ 上：怎样参数化它既能拿到二阶表达力，又不真的去算 $n^2\times n^2$ 的矩阵——这正是「双变量谱滤波」（表达力）和「低秩张量分解」（可扩展）这两个关键设计分别要解决的；第三个设计「非对角谱分量的必要性证明」则是从异质图角度回答“为什么非这么做不可”的理论支撑，不在前向数据流里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：节点特征 X、边特征 E、Laplacian 矩阵 L"] --> B["编码器 φ：把每对节点 lift 到节点对域<br/>H ∈ R^(n²×d)"]
     B --> C1

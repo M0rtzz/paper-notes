@@ -51,7 +51,7 @@ LightStab 没有走端到端黑盒，而是回到经典的"运动估计→运动
 要在保证因果的前提下不被串行延迟拖垮，三个阶段还被拆进三条独立线程（TME/TMP/TMC）异步流水、靠 FIFO 共享队列传递中间结果，把整条管线的延迟从「三阶段串行累加」压到「由最慢一级决定」——这套系统级设计是它能在边缘设备上实时跑的关键。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入帧（严格因果：只用当前+过去帧）"] --> A
     subgraph S1["运动估计 · TME 线程"]

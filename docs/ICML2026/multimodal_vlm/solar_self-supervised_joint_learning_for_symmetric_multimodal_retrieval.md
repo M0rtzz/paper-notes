@@ -46,7 +46,7 @@ SOLAR 的编码侧由五个组件构成：vision encoder $\mathcal{E}_V$（如 D
 训练分成两个 stage：Stage 1 学一个能可靠区分图文交集与差集的 intersection mask；Stage 2 用该 mask 自动生成正/硬负样本做对比学习。整个流程无需任何人工标注，仅消费 80 万张 LAION-5B 上的无标注图文对。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["图文对 X=(I,T)<br/>单模态编码器 + adapter → 局部特征 V, L"]
     subgraph S1["Stage 1：学出交集 mask"]

@@ -43,7 +43,7 @@ tags:
 三种 metric 共享同一套输入输出契约：吃进用户 prompt $P$、待评响应 $R$、参考语料 $\mathcal{C}$，吐出覆盖集 $\mathcal{A}_{in}$、未覆盖集 $\mathcal{A}_{out}$ 和标量得分 $S = |\mathcal{A}_{in}| / (|\mathcal{A}_{in}| + |\mathcal{A}_{out}|)$。差异在于"如何把 $R$ 与 $\mathcal{C}$ 对齐":NLI 法和 Q&A 法在内部额外维护一张 fact graph $G_F$(节点是原子陈述或 QA 对、边是 entailment 关系),既能用传递闭包去重计数,又能进一步导出"未覆盖上下文基" $\mathcal{A}_{basis}$(告诉用户最少需要补哪些事实);E2E 法则把整条 pipeline 折叠进一次 LLM 调用。三者从最重到最轻铺成一条复杂度递减的谱系,正好用来回答"评测器该做多复杂"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：用户 prompt P + 待评响应 R + 参考语料 C"]
     subgraph NLI["NLI 法：原子分解 + 图传递闭包"]

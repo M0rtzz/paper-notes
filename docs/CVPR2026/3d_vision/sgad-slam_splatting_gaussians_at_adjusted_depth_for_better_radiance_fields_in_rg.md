@@ -39,7 +39,7 @@ tags:
 SGAD-SLAM 要解决的核心矛盾，是 3DGS-SLAM 里"可扩展"和"高渲染质量"长期二选一的困境：自由移动的全局高斯渲染好但要把所有高斯常驻显存，大场景吃不消；锁死在观测深度上的视图绑定高斯省显存却被深度噪声拖累。系统把建图和跟踪拆成两条并行的分支来一起破这个局。Mapping 分支逐帧处理：对每帧深度图初始化一组像素对齐的简化高斯，让每个高斯沿射线方向有一点可学习的深度松动，再用可微 splatting 渲染回当前帧及其邻帧，靠渲染误差把高斯属性和深度偏移学出来。Tracking 分支不碰渲染，而是另起一套全局 3D 几何点集来刻画场景结构，每来一帧就把当前局部深度的高斯分布往这个全局分布上贴，贴的过程就估出了相机位姿。整体输入是 RGBD 图像序列，输出是每帧的像素对齐高斯集合和相机位姿。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["RGBD 图像序列"]
     IN -->|建图分支| M1

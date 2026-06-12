@@ -46,7 +46,7 @@ tags:
 SafeMERGE 分三步：(1) 训练一个安全 LoRA 模型（使用公开安全数据集，一次训练可复用）；(2) 用安全子空间投影检测微调模型的哪些层"不安全"；(3) 仅对不安全层执行与安全模型的线性合并。安全参照（来自安全模型构建）与不安全层标记（来自层选择）两路并行，最终在合并步汇合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["微调 LoRA 模型<br/>增量 ΔW_f（任务好但安全跑偏）"] --> SEL
     B["公开安全数据集<br/>有害提示 + 安全响应"] --> SM

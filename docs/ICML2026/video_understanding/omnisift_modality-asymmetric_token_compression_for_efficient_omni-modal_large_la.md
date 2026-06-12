@@ -44,7 +44,7 @@ tags:
 输入：视频 $\mathcal{V}$ 和同步音频 $\mathcal{A}$，经 Qwen2.5-Omni 的编码器-投影器映射成 token 序列 $\mathbf{Z}_v \in \mathbb{R}^{N_v \times D}$ 和 $\mathbf{Z}_a \in \mathbb{R}^{N_a \times D}$。为保持时间对齐，按 2 秒一个 chunk 把音视频 token 分块成 $\mathcal{C}_t = [\mathbf{Z}_v^{(t)}; \mathbf{Z}_a^{(t)}]$，每个 chunk 含 2 帧视觉 + 对应音频。OmniSIFT 在 chunk 级别串行执行两阶段：（1）STVP 剪掉每个 chunk 的视觉冗余得到压缩视觉序列 $\hat{\mathbf{Z}}_v^{(t)}$；（2）VGAS 用 $\hat{\mathbf{Z}}_v^{(t)}$ 作为条件从 $\mathbf{Z}_a^{(t)}$ 中选音频 token。整个框架端到端可导（用 straight-through estimator 处理 top-k 选择），训练时优化 token 选择能尽量保留下游任务性能。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视频 + 同步音频<br/>Qwen2.5-Omni 编码器投影 → 视觉 / 音频 token"] --> B["按 2 秒切 chunk<br/>每块 2 帧视觉 + 对应音频"]
     subgraph STVP["STVP：帧内空间 + 帧间时间双轴显著性剪枝"]

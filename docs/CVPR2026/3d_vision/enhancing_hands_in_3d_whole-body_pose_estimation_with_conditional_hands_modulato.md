@@ -49,7 +49,7 @@ tags:
 整条流水线是这样转的：一张图同时喂给两个估计器；WiLoR提取左右手的高质量特征，CHAM把这些手部特征"调制"进全身估计器的特征流，从而让全身网络预测出与上肢运动链一致的手腕方向；最后再用一个可微的迁移步骤，把WiLoR那套精细的手指关节和手部形状直接搬到全身网格上。最终输出的SMPL-X参数里，**手腕方向来自被调制后的全身网络，手指与手形则来自手部模型**。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入图像"] --> WB["全身估计器 SMPLer-X-L32<br/>冻结，24 个 Transformer 块"]
     IN --> WH["手部估计器 WiLoR<br/>冻结，提取左右手特征"]

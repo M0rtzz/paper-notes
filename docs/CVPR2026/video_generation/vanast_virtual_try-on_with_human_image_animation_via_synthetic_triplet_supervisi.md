@@ -45,7 +45,7 @@ $$h_{l+1} = B^{T2V}_l(h_l) + \alpha \cdot B^{HAM}_l(h_l) + \beta \cdot B^{GTM}_l
 默认 $\alpha=\beta=0.5$。融合后的隐变量经 DiT 逐层处理、最后由 VAE 解码成视频。整套设计的两个支柱，一是怎么造出训练它的三元组数据，二是这个 Dual Module 怎么把两类条件解耦开。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["三阶段合成数据流水线"]
         direction TB

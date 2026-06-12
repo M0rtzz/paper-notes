@@ -47,7 +47,7 @@ tags:
 GoCA（Generative scaling of Cross-Attention）要解决的是一个反直觉的失效：无训练扩散分割本应"生成越强、分割越好"，但换上 SDXL、PixArt-Sigma、Flux 后性能不升反降。整篇方法围绕把"原始交叉注意力图"翻译成"可靠的语义相关性图"展开——先用**自动聚合**把多头多层各自独立的注意力图合成一张全局图（弥合聚合 gap），再用**逐像素重缩放**抹掉语义特殊 token 造成的分数不平衡（弥合分数不平衡 gap），最后接标准的自注意力精炼和 argmax 得到分割结果。整条链路不引入任何可学习参数，保持无训练范式的纯粹性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：原始交叉注意力图<br/>(多头·多层，各自独立)"]
     subgraph AGG["自动聚合（弥合聚合 gap）"]

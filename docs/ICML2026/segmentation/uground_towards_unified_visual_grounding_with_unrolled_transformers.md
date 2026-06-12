@@ -44,7 +44,7 @@ UGround 把 LMM-based 视觉定位从"用最后一层 $\langle\text{SEG}\rangle$
 输入图像 $\mathbf{x}_{img}$ 经 LMM（LLaVA）的 $L=32$ 或 $40$ 层 transformer 处理，得到每一层的 hidden state $\mathcal{H}^{(\ell)}$，其中第 $t^*$ 位置是 $\langle\text{SEG}\rangle$ token。核心模块 PPM（Policy-Prompted Masking）在每次 forward $\mathcal{T}_t$ 做两件事：(1) **SSC** 从策略分布 $\pi_\theta(\ell|\mathcal{H}_{t^*})$ 中采样一个层 $\ell^*$，让 $\langle\text{SEG}\rangle$ 在第 $\ell^*$ 层直接跳连到 SAM；(2) **MasP** 在第 $\ell^*$ 层计算 $\langle\text{SEG}\rangle$ 与所有 image token 之间的相似度图 $\mathcal{M}\in[0,1]^{H\times W}$，把 $\mathcal{M}$ 作为 soft logit mask 喂给 SAM 解码器 $\mathcal{G}_\mathcal{V}^{dec}(\mathbf{f}, \bm{h}_{seg}, \mathcal{M})$ 生成最终 mask $\hat{\mathbf{M}}$。整个过程中 $\mathcal{M}$ 同时承担三种角色：prompt（喂 SAM）、constraint（被 BCE+Dice 监督）、signal（作为 REINFORCE 的 reward）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 + 文本指令"] --> B["LMM（LLaVA）L=32/40 层<br/>展开成可选层序列<br/>输出各层 hidden state 与 ⟨SEG⟩ token"]
     B --> PPM

@@ -44,7 +44,7 @@ tags:
 端到端的条件二值分割框架：给定源图像 $I_s$、目标图像 $I_t$ 和源掩码 $M_s$，预测目标视角中对应物体的掩码 $M_t$。前向通路由三部分组成——Source Feature Extractor（ConvNeXt-based DINOv3-L）从源图加掩码提取物体特征并投影成一个条件 token（CDT），Transformer Encoder（ViT-based DINOv3-L）借 CDT 在目标图像的视觉 token 上做 cross-token attention，Multi-task Decoder 输出目标掩码并判物体可见性。在这条前向通路之上再叠一条自监督回环：把预测掩码反向映射回源视角、重构源掩码，用循环一致性损失约束往返一致——这条损失既在训练时充当监督信号，也在推理时驱动测试时训练（TTT），是「训练与推理统一」的关键。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源图像 Is + 源掩码 Ms"]
     T["目标图像 It<br/>切 patch → n 个视觉 token"]

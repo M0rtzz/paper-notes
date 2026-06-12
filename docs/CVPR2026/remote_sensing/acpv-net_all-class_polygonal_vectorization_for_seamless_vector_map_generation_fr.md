@@ -47,7 +47,7 @@ tags:
 ACPV-Net 要解决的是"一次性从航空影像生成一张全类别、拓扑严丝合缝的矢量地图"，整条流水线由两个紧耦合的部件接力完成。前半段是**语义监督条件化（SSC）扩散阶段**：扩散模型在潜空间里重建顶点的高斯混合热图（**分布式顶点建模**），而它的条件分支被一道语义分割损失显式监督（**语义监督条件化（SSC）**），二者协同输出顶点热图 $\hat{Y}$ 和语义掩码 $\hat{M}$，确保顶点生成始终被语义牵着走。后半段是**命题驱动的拓扑重建**：拿到 $\hat{M}$ 和 $\hat{Y}$ 之后，用一个 PSLG 算法确定性地重建出满足全部 ACPV 约束的矢量地图。前者负责"在哪落点"，后者负责"如何无缝拼成图"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["航空影像 I"]
     subgraph FRONT["前半段：语义监督条件扩散"]

@@ -44,7 +44,7 @@ tags:
 CGCL 把“评估”和“训练”两件事打通：评估侧是 T-Eval——一个基于 Toulmin 论证模型、直接量化推理质量的框架；训练侧是一条三阶段的目标条件离线模仿学习管线——用冻结的策略模型生成候选推理轨迹，让 T-Eval 给它们打分挑出最优，再把最优轨迹 SFT 蒸馏进目标模型。整条流程不碰 RL，却想达到 RL 级别的推理质量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["输入：患者病例 P"] --> TM["Toulmin 论证实例化<br/>A = {D, R, W, B, Q, Y}"]
     TM --> GEN["冻结策略模型生成候选推理步"]

@@ -46,7 +46,7 @@ tags:
 整套方法的目标是把 RL 的奖励信号从"看最终答案对不对"升级到"看整条推理链严不严密"。作者先通过人工标注建立一套假阳性失败模式的分类体系，定位到最关键的 Miracle Steps，并据此设计奖励。核心是一个分三阶段构建的 Rubric Reward Model（RRM）：先用 Gemini-2.5-Pro 为每道题生成问题特定的评分标准（rubric），再用多样回答 + Gemini 打分合成训练数据，最后在 Qwen3-4B 上经 SFT + PPO 训出一个能给整条推理链打 0–10 分的过程奖励模型。RL 阶段把 RRM 的归一化分数替换掉原本的二元"通过/失败"奖励，喂回 PPO 完成策略更新，最终得到抑制了逻辑跳跃的推理策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     T["假阳性失败模式分类体系<br/>6 类失败模式 + 探测实验定位 Miracle Steps"]
     subgraph RRM["Rubric Reward Model 构建（三阶段）"]

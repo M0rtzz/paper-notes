@@ -46,7 +46,7 @@ tags:
 MASH 把"规避检测器"重构成一个"机器风格→人类风格"的文本风格迁移问题，用一条四阶段流水线训练出一个仅 0.1B 参数的改写器。先逆向构造平行语料——从现成人类文本反向生成对应的 AI 风格文本，绕开"AI→人类"平行数据稀缺的难题；再用风格注入 SFT 让改写器学会"人类风格长什么样"；接着用 DPO 把它推到"知道怎么跨过检测边界"；最后在推理时按句精炼修复流畅度。整条链路全程黑盒，不需要源生成器或目标检测器的内部信息。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["逆向数据构造"]
         direction TB

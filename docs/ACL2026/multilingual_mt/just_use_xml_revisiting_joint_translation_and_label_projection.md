@@ -46,7 +46,7 @@ tags:
 LabelPigeon 的流程非常简洁：(1) 在待翻译的标注文本中用字母序 XML 标签（`<a>`, `<b>` 等）标记所有 span；(2) 用微调后的 NLLB-200 3.3B 模型进行翻译；(3) 用标准 XML 解析器从译文中提取标签。整个推理只需一次模型前向传播，无额外计算开销。能做到这点的前提是模型事先在真实 XML 平行语料上微调过——所以完整框架由「离线一次性微调」和「在线一次前向的联合翻译+投影」两段组成。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["高质量真实数据微调（离线一次性）"]
         direction TB

@@ -44,7 +44,7 @@ tags:
 MergeGuard 是一种主动防御：防御者只能改自己模型的参数，目标是让任何后续未授权的模型合并都失效，同时保住自己模型的任务精度。它对防御者模型 $\theta_{def}$ 分两阶段处理：Stage 1（密度感知微调 Density-Aware Finetuning，训练阶段）用 L2 正则把任务关键权重均匀分散开，Stage 2（对抗性权重否定 Adversarial Weight Negation，免训练阶段）沿任务向量方向选择性注入扰动，两步把参数几何重塑到一个让合并模型落入「不兼容曲率区域」的状态——曲率不兼容的理论分析进一步说明为什么这点小旋转就足以让任何合并崩溃。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["微调模型 θ_def<br/>（防御者待保护）"] --> S1
     subgraph S1["密度感知微调（Stage 1，训练阶段）"]

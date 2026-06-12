@@ -44,7 +44,7 @@ tags:
 本文先把"不执行就预判 ML 解优劣"形式化成 Data-centric Solution Preference 任务并配上评测语料，再把这种预判能力嵌进 agent。语料这一侧，从 AIDE/AutoMind 在 MLE-Bench 上的真实 trajectory 中抽出 1,329 个有效解，经去重、分类、专家采样精选到 895 个实例，两两组合成 18,438 对，并平衡 ground-truth winner 的位置以消除位置偏差。agent 这一侧的 ForeAgent 以 AIDE 的 tree search 为骨架，把 Improvement 阶段从"逐个执行"改成三步：一次性生成 m=10 个候选 → 用置信度 0.7 阈值做 pairwise 筛选 → 只对 top-1 候选做真实执行验证。preference 任务用 Micro-Averaged Accuracy 衡量（Random 基线 50.0%、复杂度启发式 50.8%），agent 则用 Beat Ratio（在 MLE-Bench 上击败多少比例的人类参赛者）衡量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["任务描述 + 原始数据"]
     subgraph REP["验证式数据分析报告"]

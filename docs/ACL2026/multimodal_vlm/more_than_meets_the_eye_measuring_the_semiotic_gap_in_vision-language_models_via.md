@@ -46,7 +46,7 @@ tags:
 DIVA 基准的构建流程：(1) 从 SemEval-2025 AdMIRe 任务获取 100 个英语名词复合词的字面和习语高保真图像；(2) 使用 Gemini 生成对应的图标化（低保真、示意图式）图像，每个复合词生成 5 种对比图像（高习语、高字面、弱习语、弱字面、干扰项）；(3) 3 名标注员进行人工验证。评估时，整条流水线沿"建库 → 评分 → 算指标"走：先把高保真图标化成 DIVA，再用一套三模态评分函数给每张图打分，最后把字面图与习语图的分差折算成可读数的字面偏差指标。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["高保真图像<br/>(AdMIRe：100 个名词复合词的字面/习语图)"] --> B
     subgraph ABS["图标化抽象流程（Iconographic Abstraction）"]

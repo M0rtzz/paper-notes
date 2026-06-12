@@ -44,7 +44,7 @@ tags:
 MetaEns 分为离线元训练和在线模型选择两个阶段。离线阶段利用有标签的元数据集模拟序贯集成构建过程，计算每一步添加候选检测器的真实边际增益（AP 提升），用这些"状态-增益"对训练一个两阶段增益预测器。在线阶段面对新的无标签数据集，先选定一个锚点检测器（primary detector），然后贪心地逐步添加代理效用最高的检测器，直到没有候选模型能带来正效用为止。代理效用由学到的预测增益、冗余折扣和算法族风险正则三者组合而成。候选池包含 297 个检测器，覆盖 IForest、LOF、kNN、HBOS、OCSVM、LODA、ABOD、COF 共 8 个算法族。集成分数采用成员检测器分数的均值聚合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["离线元训练"]
         direction TB

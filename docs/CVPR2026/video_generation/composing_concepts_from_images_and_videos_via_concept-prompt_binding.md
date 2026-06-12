@@ -47,7 +47,7 @@ $$\mathbf{x}_{out} = \text{cross\_attention}(\mathbf{x}_{in}, \mathbf{p}, \mathb
 绑定阶段的三个核心设计——层次化 Binder 结构、多样化-吸收机制、时序解耦策略——共同把视觉概念稳定、干净地绑到 prompt token 上；组合阶段再把不同来源的绑定 token 拼成更新后的 prompt，注入 DiT 生成最终视频：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["图像 / 视频概念输入"]
     subgraph BIND["绑定阶段 Concept Binding：为每个视觉输入学一个 binder"]

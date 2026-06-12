@@ -55,7 +55,7 @@ Reasoning VLA（如 ThinkAct、CoT-VLA、MolmoAct）通过引入显式 chain-of-
 Fast-ThinkAct 要治的是 reasoning VLA 的延迟病——ThinkAct 那种 ~250 token 的文本 CoT 一步要好几秒，根本喂不动 1-15 Hz 的机器人控制。它的办法是把推理从 token 空间搬进连续 latent 空间，压成 6 个 latent token，又不能把推理质量一起压没。整体是个 teacher-student 三步蒸馏：先用 teacher 的 reward 信号教 student 学出高质量的 latent 推理，再对齐 teacher/student 的轨迹级视觉规划表示，最后冻住 student VLM、用它的 latent 推理特征去增强一个扩散动作模型生成动作。下面三个关键设计正对应这三步，框架图自上而下也是这个流向。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["观测 o_t + 指令 l"]
     T["文本 teacher VLM<br/>GRPO 生成 CoT，按 advantage 排序"]

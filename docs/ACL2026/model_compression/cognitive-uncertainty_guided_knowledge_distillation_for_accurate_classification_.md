@@ -48,7 +48,7 @@ tags:
 3. 最终训练数据 = $\mathcal{S}_{\text{NM}} \cup \mathcal{S}_{\text{HH}}$，占总样本约 10.30%。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["真实学生推理数据 D"] --> S1
     subgraph S1["Stage 1 全局蒸馏"]

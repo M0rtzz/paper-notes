@@ -39,7 +39,7 @@ Transformer 架构通过自注意力实现高精度，但计算复杂度为 $\ma
 FoSS 采用双分支架构：(1) **频域分支（FD-Mamba）**——对历史轨迹进行 DFT 分解为振幅和相位，经 HelixSort 重排后输入两个并行的 SSM 子模块（Coarse2Fine-SSM 处理空间交互，SpecEvolve-SSM 处理通道演化）；(2) **时域分支（TD-Mamba）**——通过输入依赖的动态 SSM 直接在时序序列上建模长程依赖。两分支通过交叉注意力层融合，再由可学习查询向量解码出 $K$ 条候选轨迹，经加权融合输出最终预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["历史轨迹"] --> B
     A --> F

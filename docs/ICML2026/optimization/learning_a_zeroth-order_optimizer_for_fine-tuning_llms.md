@@ -46,7 +46,7 @@ ZO Fine-tuner 的部署阶段就是 MeZO 的两次前向，唯一新增的是：
 PertNN 的输入是一组与任务/模型几乎无关的**状态摘要**：上一步扰动方差 $\sigma_{t-1}^{(i)}$、当前块参数均值/方差 $\mathrm{Mean}_t^{(i)},\mathrm{Var}_t^{(i)}$、上一步记录的两个 loss $\boldsymbol{\ell}_{t-1}$。正因为输入"任务无感"，PertNN 才有跨数据集与跨衍生 checkpoint 的迁移基础。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["训练阶段·一次性：L2L 训练 + 周期性重置"]
         direction TB

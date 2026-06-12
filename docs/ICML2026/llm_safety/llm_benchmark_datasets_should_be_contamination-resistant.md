@@ -55,7 +55,7 @@ tags:
 对应的评测流程分三步：**Curation**，发布方用 anchor 模型把 prompt 投到 latent 表示；**Discovery**，target 模型先求出一个 anchor→target 的转换映射；**Evaluation**，target 模型在转换后的 latent 上自回归续写、给出答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["明文基准（prompt + 明文答案 Y）"] --> B
     subgraph CUR["Curation · 训练-推理不对称发布 CRD"]

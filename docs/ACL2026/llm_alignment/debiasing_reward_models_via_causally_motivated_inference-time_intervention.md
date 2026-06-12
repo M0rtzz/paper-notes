@@ -43,7 +43,7 @@ tags:
 CIRM（Causally motivated Inference-time intervention for Reward Models）把「给 RM 纠偏」拆成离线定位、在线干预两步，全程不碰 RM 权重（图 2）。离线时它在 500 条 RewardBench 验证子集上，对每个神经元收集「last-token 激活」与五类风格偏差量 $f_b(x)$ 的成对样本，用 Spearman 相关挑出真正编码偏差的少数神经元，并记下它们在验证集上的激活中位数；每类偏差到底编辑多少个神经元，则交给 Optuna 在验证集准确率上做一次五维联合搜索来确定。在线推理时，每来一对 prompt-response 就正常前向，但把这些 bias-specific neurons 的激活强行钉到中位数 $m^*$ 再输出 reward——这样 BT 比较从估计 total effect 退化成估计 controlled direct effect $\hat{\mathrm{CDE}} = r_\theta(x_1, m^*) - r_\theta(x_2, m^*)$，即「假设两条回答的偏差程度一样」时再比内容质量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["500 条 RewardBench 验证子集"] --> B
     subgraph LOC["多偏差量度 + Spearman 定位 bias-specific neurons"]

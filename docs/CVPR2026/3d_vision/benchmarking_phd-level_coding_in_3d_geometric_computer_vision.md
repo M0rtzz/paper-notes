@@ -42,7 +42,7 @@ tags:
 GeoCodeBench 把"读论文、实现算法"的真实研究场景搬进了一个可自动评判的任务里：每道题给模型一篇 3D 几何视觉论文的正文、一份被挖空了核心函数的代码，以及一个标准化的执行模板，要求模型把空函数补完整。补好的代码送进沙盒执行，跑配套的单元测试，按通过比例打分。整条流水线从原始论文 PDF 和官方代码库出发，经过论文 OCR、函数挖空、测试生成三条并行工序汇合成 100 个函数补全任务，再进入"喂输入→补全→执行→打分"的评测环路。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["论文/代码/测试三路并行构建（自动提名 + 人工审核）"]
         direction TB

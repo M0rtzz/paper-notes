@@ -44,7 +44,7 @@ CBRS 提出一个多平台框架，通过双层过滤架构（轻量分类器 + 
 CBRS 把"高召回检测"和"精确解析"解耦成一条串行流水线。社交媒体原始消息先进**第一层**（TF-IDF 特征 + 非对称加权逻辑回归）做高召回粗筛，宁可多放、绝不漏掉真实请求；通过粗筛的少量消息再进**第二层**（GPT-4o-mini），做精确过滤、删除误报。随后由一个 LoRA 微调的 Llama-3.2-3B **解析器**把自由文本转成血型、医院、联系方式等字段的 JSON。两层分类器与解析器的训练都依赖作者构建的 **11K 双语血液请求数据集**（含对抗负样本）。最终的结构化 JSON 交给基于地理位置的供体通知系统，下发给附近供体。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     MSG["社交媒体原始消息流"] --> L1
     subgraph DLF["双层过滤架构（DLF）"]

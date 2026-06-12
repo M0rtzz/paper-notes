@@ -44,7 +44,7 @@ UCoT 包含 compressor、projector 和 executor 三个部分。compressor 学会
 训练阶段先用 executor 为每个问题生成高质量 CoT，得到 `(Q, C, A)` 数据；然后训练轻量 compressor 从问题和 `[ucot]` 占位符中产生 soft tokens，并要求它能重构原始 CoT；最后训练 executor 在 soft tokens 和截断输出预算下恢复原推理语义并保持答案置信度。推理阶段只需 compressor 单次前向生成 soft tokens，再由 executor 基于这些 soft tokens 输出较短答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["问题 Q"]
     subgraph CMP["Soft-token contextual CoT（compressor 单次前向）"]

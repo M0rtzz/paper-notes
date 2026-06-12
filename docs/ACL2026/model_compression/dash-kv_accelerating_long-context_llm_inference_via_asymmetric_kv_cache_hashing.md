@@ -46,7 +46,7 @@ tags:
 DASH-KV 包含三个核心组件：（1）非对称哈希——Query 通过3层 MLP 编码，Key 通过线性投影编码，映射到二进制哈希码；（2）校准的汉明距离检索——用跨头共识和跨层动量修正粗粒度的哈希距离；（3）动态混合精度注意力——根据校准距离将 Key 分为高相关（全精度）、中等相关（哈希+残差补偿）和低相关（跳过计算）三级。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph HASH["非对称深度哈希编码"]
         direction TB

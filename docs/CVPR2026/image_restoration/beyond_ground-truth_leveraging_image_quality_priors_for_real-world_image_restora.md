@@ -42,7 +42,7 @@ tags:
 IQPIR 要解决的核心问题是：GT 本身质量参差不齐，直接拿它当唯一监督会把模型拉到 GT 的平均质量水平。IQPIR 的思路是把"质量"显式地变成一个可控的条件量，让网络在推理时被拉向最高质量而非平均质量。整套流程分两阶段。第一阶段学一组离散表示（双 Codebook），把"通用结构"和"高质量专属细节"拆到两本码本里；第二阶段冻结码本，训练一个质量条件化 Transformer，从低质输入预测两条编码序列、再分别查码本解码出修复图，训练时额外用 NR-IQA 给输出打分形成质量损失。推理时把质量条件直接拉满，网络就输出它能达到的最高感知质量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     LQ["低质输入"] --> ENC["编码器 → 低质特征 Z_l"]
     IQA["多 NR-IQA 集成<br/>多模型评分取平均得质量分 S"] --> ADD["质量条件注入 Ẑl = Zl + s"]

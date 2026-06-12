@@ -48,7 +48,7 @@ tags:
 backbone 仍是标准 Transformer 编码器 $f_\theta$，输出 hidden states $\mathbf{H}\in\mathbb{R}^{B\times L\times d_{\mathrm{full}}}$，训练时照旧用原版 Matryoshka InfoNCE $\mathcal{L}_{\mathrm{MRL}}$（在截断集 $\mathcal{M}$ 上对所有维度求和）。MIC 在这之上的全部改动就是：逐层、逐截断维度地把 hidden state 按截断点 $d$ 切成 prefix $\mathbf{H}_{\mathrm{pre}}\in\mathbb{R}^{B\times L\times d}$ 和 residual $\mathbf{H}_{\mathrm{res}}\in\mathbb{R}^{B\times L\times d_{\mathrm{res}}}$（$d_{\mathrm{res}}=d_{\mathrm{full}}-d$），在每个 $(l,d)$ 上算两个几何正则 $\mathcal{L}_{\mathrm{SCR}}^{(l,d)}$、$\mathcal{L}_{\mathrm{SIR}}^{(l,d)}$，汇成 $\mathcal{L}_{\mathrm{align}}$，最终训练目标 $\mathcal{L}_{\mathrm{total}}=\mathcal{L}_{\mathrm{MRL}}+\gamma\mathcal{L}_{\mathrm{align}}$。正则只施加在选定的中间层 $L_{\mathrm{align}}$ 而非每一层——太早的层语义还没成形、太晚的层会干扰最终分类头，附录 D 给出了选层实验。整套数据流如下图：prefix/residual 切开后兵分两路，SCR 管"子空间解耦"、SIR 管"谱拉直"，再跨层跨维汇总，和原版 MRL 损失相加。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     H["编码器 fθ 选定中间层<br/>hidden state H"] --> SPLIT["按截断维 d 切分<br/>prefix H_pre ∥ residual H_res"]
     SPLIT --> SCR

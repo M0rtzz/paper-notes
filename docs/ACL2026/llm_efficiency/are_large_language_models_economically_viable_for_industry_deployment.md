@@ -46,7 +46,7 @@ tags:
 Edge-Eval 是一套面向工业部署的全生命周期评估框架，核心是把准确率基准看不见的"运营与经济"维度量化出来。它对每个配置 $(f, p, t, a) \in \mathcal{F} \times \mathcal{P} \times \mathcal{T} \times \mathcal{A}$（模型家族 × 参数规模 × 任务 × 精度）跑完一条完整部署流水线——从 LoRA/QLoRA 适配，到可选的量化压缩，再到 vLLM 推理服务，全程在最广泛部署的 legacy T4 GPU 上进行；覆盖 2 个模型家族 × 3 个参数级别 × 3 个任务 × 4 个精度配置共 72 个变体，每条流水线沿途记录训练能耗、推理能耗、加载开销、吞吐与延迟等生命周期变量，最终用五个部署指标和效率前沿分析把"哪种配置真能落地"讲清楚。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["配置网格 (f,p,t,a)<br/>2 家族 × 3 规模 × 3 任务 × 4 精度 = 72 变体"] --> LC
     subgraph LC["全生命周期基准方法论（legacy T4，每配置重复 20 次）"]

@@ -50,7 +50,7 @@ tags:
 CIRCLES（Composed Image Retrieval for Causal Learning Example Selection）由三个模块组成：(1) 基于属性引导 CIR 的因果理解通道；(2) 基于标准图像相似度的相关性理解通道；(3) 双通道融合的检索增强推理。给定查询图像和问题，两个通道分别检索 $k_{\text{causal}}$ 和 $k_{\text{corr}}$ 个示例，合并后作为 ICL 上下文输入 VLM 进行推理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["查询图像 + 问题"] --> B
     A --> F

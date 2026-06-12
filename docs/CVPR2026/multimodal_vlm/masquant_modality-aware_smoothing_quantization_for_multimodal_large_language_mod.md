@@ -44,7 +44,7 @@ tags:
 MASQuant 想解决的是把通道平滑量化搬到 MLLM 上时的"平滑失配"：视觉 token 的激活幅度比文本大 10–100 倍，一套统一的平滑因子被主导模态绑架，文本、音频这些非主导模态被压得几乎没信号，量化误差随之爆炸。它的破法分两步——先让每个模态各自学一套最优平滑因子，从根上消除失配（模态感知平滑 MAS）；再用一个低秩补偿把"每模态一套平滑权重"重新压回"单套量化权重 + 轻量补丁"（跨模态补偿 CMC）。这样既拿到了模态感知带来的精度，又没把量化本该省下的存储重新吐回去。整套流程是校准期搭好两套东西、推理期分模态走两条路：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多模态校准激活<br/>文本 / 视觉 / 音频（幅度差 10–100×）"] --> S1
     subgraph S1["模态感知平滑（MAS）"]

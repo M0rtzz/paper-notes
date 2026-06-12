@@ -44,7 +44,7 @@ tags:
 iVGR 在 Qwen2.5-VL / Qwen3-VL 上做 GRPO 后训练。对每个 query $q$，策略 $\pi_\theta$ 用两套不同的 system prompt 各采样 $N$ 条 rollout，得到 grounded 组 $\mathcal{O}^b$ 与 textual 组 $\mathcal{O}^t$。两组各自算奖励、各自做 group-wise 归一化得到优势 $\mathcal{A}^b, \mathcal{A}^t$，最后联合更新策略。关键耦合点是：textual 流的奖励里多了一个**一致性奖励** $R_{\text{consistency}}$，它的“老师”就是当前 batch 里从 grounded 流挑出的高质量轨迹（且用一个跨 step 的 Rollout Archive 持久化保存历史最优老师），从而把定位能力沉淀到 textual 流。推理时只跑 textual 流，可选地走一个 tool-assisted test-time scaling workflow 把多视图融合回来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["查询 q + 图像<br/>策略 π_θ 用两套 prompt 各采 N 条 rollout"]
     subgraph DUAL["双流 GRPO 训练"]

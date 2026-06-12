@@ -46,7 +46,7 @@ dLLM-Cache 是一个挂在 dLLM 推理 forward 上的训练无关插件，思路
 第 0 步 ($k=K$) 先完整 forward 一遍，把 prompt/response 特征分别写进两个 cache；此后 $k$ 从 $K-1$ 递减到 1，每一步每一层只做取舍：prompt 段除非 $k \equiv 0 \pmod{K_p}$ 否则直接读缓存，response 段除非 $k \equiv 0 \pmod{K_r}$ 触发全量刷新、否则走下面的 V-verify 局部更新，剩下的 token 一律复用上一步缓存继续往后算。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：长 prompt + masked response<br/>共 N 步去噪迭代"] --> B["第 0 步 (k=K)：完整 forward<br/>分别写入 Prompt Cache / Response Cache"]
     B --> S

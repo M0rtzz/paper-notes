@@ -45,7 +45,7 @@ tags:
 本文的核心是一套"用生成结果反推 token 含义"的因果干预探针。给定一条 T2I 提示词，先让文本编码器吐出全部 token 的上下文化表示 $h_1, \ldots, h_N$；要检验某个 token 子集 $S$ 到底编码了什么，就保留 $S$ 内的表示、把其余 token 全部替换成 pad embedding，组成一条 patched 序列送进扩散模型生成图像，再让 VLM（Qwen2-VL-72B）判断这张图里有没有出现目标概念。"图里出现 = 该子集确实编码了这个概念"，于是同一套干预既能在项内层面问"一个词的语义集中在哪几个 token 上"，也能在跨项层面问"一个 token 有没有偷吸邻居的信息"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["提示词"] --> B["文本编码器<br/>输出上下文化 token 表示 h₁…h_N"]
     subgraph CP["因果干预框架（Causal Patching）"]

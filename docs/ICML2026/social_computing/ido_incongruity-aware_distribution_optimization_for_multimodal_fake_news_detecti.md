@@ -43,7 +43,7 @@ IDO 通过**显式建模模态间不一致性**作为可学习的分布优化目
 IDO 想抓住假新闻的一个本质特征——图文之间的语义不一致——并把它做成可优化的目标，而不是埋在二分类的黑盒里。整条流程是：文本和图像先分别经预训练编码器得到表示；再用一个可微的跨模态不一致度 $d_{\text{incon}}(\mathbf{t}, \mathbf{v}) = 1 - \cos(\text{proj}_t(\mathbf{t}), \text{proj}_v(\mathbf{v}))$ 来量化两模态有多“对不上”；训练时用分布优化把真新闻的不一致度往 0 压、把假新闻的往 1 推；最后分类损失和分布优化损失联合训练。核心思路就一句话：真新闻图文高度一致，假新闻往往不一致，把这个差异显式拉大就得到一个比“记数据集模式”更通用的判别信号。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：文本 + 图像"] --> B["预训练编码器<br/>proj_t / proj_v 投到共享语义空间"]
     B --> C["不一致度的可学习量化<br/>全局 d_global + 局部分块 d_local → d"]

@@ -43,7 +43,7 @@ tags:
 FCFG 想解决的是「单一全局 $\omega$ 会把不该改的属性也一起放大」，做法是把 CFG 里那个标量旋钮拆成一组按因果图分配的向量旋钮，且全程只动 inference、不碰训练与架构。整条链路嵌在 DDIM 反事实推理的 abduction→action→prediction 三步里：abduction 与 action 两步和原 CFG 完全一致，只在 prediction 这一步把去噪用的 $\epsilon_\text{CFG}$ 换成 $\epsilon_\text{FCFG}$。换言之，训练时学到的是一个把各属性嵌入分块拼接的条件扩散模型，推理时再按用户给的属性分组、给每组一个独立的 guidance 强度去重新组合 score。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["事实图像 x + 用户指定的属性因果图"] --> EMB
     subgraph EMB["属性切分嵌入（训练时）"]

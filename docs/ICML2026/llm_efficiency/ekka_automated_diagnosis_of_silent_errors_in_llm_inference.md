@@ -52,7 +52,7 @@ Ekka 喂进去的是"一个被怀疑出 bug 的目标框架（vLLM 或 SGLang）
 值得注意的是，Ekka 刻意把诊断范围圈在**模型栈层（model implementation + kernel backend）**，不碰调度器、async engine 这类高层 orchestration——后者的静默错误更适合传统 logging/trace 工具，硬塞进激活对齐反而是杀鸡用牛刀。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：目标框架(vLLM/SGLang)<br/>+ 参考框架(HuggingFace) + 模型<br/>+ 触发 bug 的 prompt 与配置"] --> B["诊断信息采集<br/>解析两框架代码与模型架构，复现 bug<br/>落盘每层激活 + 调用序列"]
     B --> C

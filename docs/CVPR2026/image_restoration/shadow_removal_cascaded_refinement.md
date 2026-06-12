@@ -46,7 +46,7 @@ tags:
 这篇方案要解决的核心问题是：单阶段阴影去除器（如 OmniSR）一次前向后仍残留颜色偏移和边界伪影，因此作者把"一步到位"改成"分三步精炼"。给定一张带阴影的 RGB 图像 $\boldsymbol{x}$，系统先从原始输入一次性提取两类辅助信号——冻结 DINOv2 的语义特征 $S(\boldsymbol{x})$ 和基于单目深度的几何特征 $G(\boldsymbol{x})$（深度通道 + 表面法线），再把它们连同图像一起送入三个串联的 OmniSR 阶段。第一阶段处理原始输入，第二、三阶段依次接收前一阶段的输出继续修正残余误差，最终的 $\hat{\boldsymbol{y}}^{(3)}$ 即去阴影结果。整条 pipeline 的关键在于：辅助信号只算一次而被三个阶段共享，且每个阶段都被显式约束"不能比上一阶段更差"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["带阴影 RGB 图像 x"] --> G
     subgraph G["语义与几何引导复用<br/>（仅算一次，三阶段共享）"]

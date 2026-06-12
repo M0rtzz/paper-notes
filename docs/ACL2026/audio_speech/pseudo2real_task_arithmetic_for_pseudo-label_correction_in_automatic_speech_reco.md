@@ -46,7 +46,7 @@ tags:
 Pseudo2Real 的思路是把"伪标签噪声"从样本空间搬到参数空间来处理：既然在有真实标签的源域上，可以同时训出一个"真标签模型"和一个"伪标签模型"，那么它们的权重差就刻画了伪标签带来的系统性偏差方向，而这个方向可以迁移去纠正没有标签的目标域。具体地，从同一预训练骨干 $\theta^{\text{pre}}$ 出发，源域分别用真实标签和伪标签微调得到 $\theta_s^{\text{real}}$ 与 $\theta_s^{\text{pseudo}}$，相减得校正向量 $\tau = \theta_s^{\text{real}} - \theta_s^{\text{pseudo}}$；目标域只有伪标签，微调得 $\theta_t^{\text{pseudo}}$，再叠加缩放后的校正向量得到 $\theta_t^{\text{corrected}} = \theta_t^{\text{pseudo}} + \lambda\tau$。整个过程无需目标域真实标注，也不需要迭代训练。SC 变体则用说话者聚类把单条校正向量细化成多条子组向量后取平均。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["预训练骨干 θ_pre"]
     P --> SR["源域真标签微调 θ_s^real"]

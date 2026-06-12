@@ -46,7 +46,7 @@ tags:
 VoxMind 要解决的核心问题是：让端到端语音模型既能像文本 Agent 那样推理、规划、调用工具，又不让大规模工具库拖垮语音交互对延迟的苛刻要求。语音输入进来后，主模型先吐出一段文本推理轨迹（CoT）厘清意图与任务规划，再依据这段推理在一个"局部工具空间"里选择动作；与此同时，一个辅助 LLM 共享同一份推理轨迹、异步地从全局工具库里检索候选工具。只有当主模型自己判断手头工具不够用时，才把候选并入局部空间触发扩展，否则直接执行并合成富表现力的语音响应——"先想后说"负责能力、"按需扩工具"负责效率，两条线并行推进。而支撑这套能力的训练语料，则由离线构建的 AgentChat 数据集提供。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["AgentChat 数据集（离线构建）"]
         direction TB

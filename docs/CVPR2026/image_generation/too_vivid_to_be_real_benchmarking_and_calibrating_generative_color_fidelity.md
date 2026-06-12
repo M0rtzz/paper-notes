@@ -42,7 +42,7 @@ tags:
 这篇论文要回答一个被忽视的问题：T2I 模型生成的「写实」图像往往太鲜艳，而现有评估指标不但发现不了、反而偏爱这种过饱和。它把「评估」和「改善」打通成一条链：先利用 CFG scale 与色彩失真的单调关系造一个带有序标注的数据集 CFD，在其上训练一个专门衡量色彩保真度的指标 CFM，再直接复用 CFM 的内部注意力图、做一个无需训练的改善模块 CFR——CFM 既是裁判，又顺手当了改善信号的来源。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CFD["CFD 数据集构建"]
         direction TB

@@ -38,7 +38,7 @@ SGS-Intrinsic 提出两阶段室内逆渲染框架，第一阶段利用语义和
 室内逆渲染要从几张照片里同时反推出几何、材质和光照，而稀疏视图把这个本就病态的问题逼到了极限——监督太少，材质和光照又纠缠在一起。SGS-Intrinsic 的破局思路是把任务拆成"先把几何站稳，再分解材质"两个阶段，而不是端到端一锅端。第一阶段（Stage I）不再靠 SfM 拼稀疏点云，而是直接用 VGGT 吐出稠密的场景点云做高斯初始化，再叠上法线和语义两路先验监督，养出一个几何可靠的高斯场。第二阶段（Stage II）在这个固定的几何之上做逆渲染：用一个混合光照模型同时吃下远场环境光和近场高频光，用扩散模型的材质先验把材质从光照里"摘"出来，最后再挂一个去阴影模块，专门拦住"把阴影错当成材质颜色"这条最常见的歧义。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["稀疏室内视图"]
     subgraph S1["先验引导的稠密几何重建（阶段 I）"]

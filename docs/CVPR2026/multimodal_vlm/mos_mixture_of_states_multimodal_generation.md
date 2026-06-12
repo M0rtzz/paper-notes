@@ -36,7 +36,7 @@ tags:
 MoS 想解决的是多模态扩散模型里文本/视觉信号怎么灵活融合的问题。它用双塔设计：理解塔 $\mathcal{U}$（冻结的 PLM-8B/InternVL-14B）一次前向处理文本/图像条件、输出全部 $m$ 层 hidden state，生成塔 $\mathcal{G}$（从头训练的 3B/5B DiT）进行扩散去噪。两塔之间插一个轻量路由器 $\mathcal{R}$（仅 100M 参数、2 个 Transformer 块），它同时接收理解塔各层状态、噪声潜变量 $z_t$ 和去噪时刻 $t$，为每个 context token 预测一个路由矩阵，动态决定理解塔哪些层的 hidden state 被聚合后送进生成塔的哪一层。训练时理解塔冻结、只训生成塔与路由器，且每个去噪步都重新路由一次，形成"随去噪进度变化"的动态融合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     C["文本 / 图像条件 c"] --> U["理解塔 U（冻结 PLM-8B / InternVL-14B）<br/>一次前向 → 全部 m 层 hidden state"]
     U --> R

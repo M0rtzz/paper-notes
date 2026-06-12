@@ -44,7 +44,7 @@ tags:
 EpiCache 想解决的是：在手机这种内存卡死的设备上，让 LLM 记住几百轮的对话历史还能准确答题。它把问题拆成离线和在线两段。离线阶段先把对话历史聚成 $E$ 个话题情节，给每个情节用分块预填充单独压一份 KV 缓存，同时校准出每一层该分多少缓存预算；在线阶段把用户查询嵌入到同一空间，匹配最近的情节质心，只加载那一份情节缓存来解码。这样既把峰值内存压成常数，又能按话题保留住答案需要的上下文。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFFLINE["离线构建（固定内存预算）"]
         direction TB

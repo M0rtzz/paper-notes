@@ -46,7 +46,7 @@ tags:
 MAESTRO 在标准 GRPO 之上接了一个轻量 Conductor 层，把「奖励标量化用哪组权重」从固定常数变成依赖语义的决策。给定 prompt $q$，策略模型 $\pi_\theta$ 先采样一组候选输出 $\{o_i\}$；Conductor $\pi_\phi$ 读取每个 prompt-response 对的末层隐藏状态，采样一个奖励侧重动作并诱导出权重向量 $\mathbf{w}^{(a)}$，把原始奖励向量 $\mathbf{r}$ 与 KL 惩罚融合成标量奖励 $R$，再经 group 归一化得到 advantage $\hat{A}$。整个训练是一个双层优化：内层用 GRPO 拿 $\hat{A}$ 更新策略 $\pi_\theta$，外层把同一个 $\hat{A}$ 当作元奖励反过来更新 Conductor $\pi_\phi$，让两者协同进化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["prompt q → 策略 π_θ 采样一组候选 {o_i}"] --> B["取每对 prompt-response 末层隐藏状态 h"]
     subgraph COND["Conductor 网络"]

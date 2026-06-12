@@ -44,7 +44,7 @@ tags:
 分析管线分三阶段:(i) 在 VGGSound 上用 20 选 1 多选题筛出 audio-dominant 与 video-dominant 样本,只保留 $\hat y_{av}=\hat y_a \neq \hat y_v$ 或对偶条件;(ii) 在 clean / corrupted (主导模态置零) / corrupted-with-restoration (把 clean 的隐藏状态 patch 到非主导 token 上) 三次前向中度量 indirect effect;(iii) 把候选 token 划成 object / sink / random / 全部非主导 四类,比较谁的 IE 最高。下游应用阶段则把 sink token 进一步按"被对方模态注意"切分成 cross-modal 与 unimodal,在解码时只对 cross-modal sink 放大注意力,得到训练免费的幻觉抑制器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["VGGSound 20 选 1 多选题"] --> S1
     subgraph S1["单模态主导因果追踪框架"]

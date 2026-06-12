@@ -45,7 +45,7 @@ tags:
 ChAIRO 要解决的是内容审核里一对老大难：模糊案例没有先例可循，而手工定义的高层规则又太粗、覆盖不到细粒度差异。它的做法是把"类比 → 规则 → 推理"这三层能力拆成三个训练阶段，依次灌进同一个模型。第一阶段先教会模型给任意新样本自己长出相关的类比案例；第二阶段让一个更强的辅助模型从这些类比里归纳出文字化的审核规则；第三阶段把"规则 + 类比 + 推理"拼成带特殊标签的层次化推理链再做一轮 SFT。训练完成后，模型在推理时无需任何外部检索，就能"先调规则、再看类比、最后下判断"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["训练样本（文本 + 审核标签）"] --> S1
 

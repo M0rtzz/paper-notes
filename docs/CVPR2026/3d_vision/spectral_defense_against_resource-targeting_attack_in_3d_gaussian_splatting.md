@@ -48,7 +48,7 @@ tags:
 资源耗尽攻击的要害是：攻击者投毒训练图，诱导 3DGS 的自适应密集化机制疯狂生长高斯原语，吃光显存、拖垮渲染。作者发现过生长的根因不在空间结构而在频谱——中毒图在 Fourier 高频区出现异常能量集中和方向偏斜，把噪声误判成细节。Spectral Defense 据此双管齐下：在3D高斯参数空间里用频率滤波器周期性剪掉那些“异常高频”的高斯，在2D渲染图像的频域里用正则项压制各向异性噪声，两者和重建损失、全变分损失合成统一目标联合优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["中毒训练图像<br/>resource-targeting 攻击"] --> B["3DGS 自适应密集化<br/>生成高斯集"]
     B --> C["渲染图像 + 重建损失"]

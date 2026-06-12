@@ -44,7 +44,7 @@ tags:
 DPLM-Evo 要解决的是一个根本性的不兼容：标准离散扩散定义在固定维状态空间上，而 indel 必然改变序列长度。它的破局思路是把变长建模"搬家"到一个固定长度的隐空间里去做。具体而言，模型同时维护观测空间 $\mathcal{X}=\mathcal{V}^L$（$\mathcal{V}=\mathcal{A}\cup\{\mathbf{m}\}$，含 mask）和上采样到 $2L$ 的隐对齐空间 $\mathcal{Z}=(\mathcal{V}\cup\{\phi\})^{2L}$（$\phi$ 是 gap 占位符）；collapse 函数 $\Gamma^{-1}(\mathbf{z})$ 把隐序列里所有 $\phi$ 去掉还原成观测序列，反过来 $\Gamma(\mathbf{x})$ 就是 $\mathbf{x}$ 的所有合法对齐集合。前向扩散 $q_t(\mathbf{z}_t|\mathbf{z}_0)=\bar\alpha_t\delta_{\mathbf{z}_0}+(1-\bar\alpha_t)\pi(\mathbf{z}_0)$ 完全在隐空间进行，而神经网络 $f_\theta$ 只看 collapse 后的紧凑观测序列 $\mathbf{x}_t=\Gamma^{-1}(\mathbf{z}_t)$，用三个 head 分别预测每个 token 的 substitution 分布、deletion 概率和右侧 insertion 概率。整套机制由 ELBO $\log p_\theta(\mathbf{x}_0)\geq\mathbb{E}_{\mathbf{z}_0\in\Gamma(\mathbf{x}_0)}[\mathbb{E}_{q_t}[\log p_\theta(\mathbf{z}_0|\mathbf{z}_t)]]$ 统一起来，对 $\mathbf{x}_0$ 的所有合法对齐取期望。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["蛋白序列 x（观测空间，变长）"] --> Z["隐对齐空间解耦<br/>上采样 2L + 插入间隙符 φ → 固定长度"]
     Z --> Q["上下文化进化噪声核<br/>前向腐蚀 Q_noise：替换 / 插入 / 删除"]

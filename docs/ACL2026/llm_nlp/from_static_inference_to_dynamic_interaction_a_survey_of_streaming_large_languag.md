@@ -46,7 +46,7 @@ tags:
 本综述不按模态或架构划分领域，而是从数据流（data flow）与交互并发性（interaction concurrency）两个维度重新定义流式 LLM，把被混用的"Streaming LLM"拆成一个三级递进体系：输出流式（静态输入 + 流式输出）关注流式生成机制与高效生成，顺序流式（流式输入 + 延迟流式输出）在其上引入增量编码与上下文管理，并发流式（同时流式输入输出）再额外引入架构适配与交互策略。每一级都在前一级的挑战上叠加新问题，每级下又分文本、语音、视频三种模态分别梳理。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph L1["输出流式（静态输入 + 流式输出）"]
         direction TB

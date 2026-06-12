@@ -42,7 +42,7 @@ AV-SpeakerBench 的三个设计原则：(1) 以说话人为核心推理单元（
 AV-SpeakerBench 是一个包含 3,212 道四选一多选题的评估基准，覆盖 2,051 个视频片段（5-30 秒）和 12 种任务类型。它的构建是一条"设计原则 + 人工管线"协同的流水线：先按**说话人中心的 12 类任务体系**框定要考什么、按**融合驱动的问题语义**约束怎么出题，再由**专家驱动的质量控制管线**实际从 YouTube 多人对话视频里挑片段、编写问题与干扰项、多轮审核，最终产出基准并用于 MLLM 评估。三大设计分别对应"考什么 / 怎么写 / 如何把关"，互相咬合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     TAX["12 类说话人中心任务体系<br/>说话人族 / 视觉族 / 音频族"]
     FUSE["融合驱动的问题语义<br/>视觉身份×时间锚点×语音内容交织"]

@@ -45,7 +45,7 @@ tags:
 方法把"这条推理轨迹对不对"翻译成一个可测的几何问题：输入 dLLM 已生成的完整序列 $x_0$，先按比例 $\gamma$ 重新部分掩码再用同一去噪器跑 $K$ 步截断重构得到 $\hat{x}_0$，用 $x_0$ 与 $\hat{x}_0$ 的复合相似度作为几何稳定性分数 $S_{\text{BMC}}(x_0)$——稳定即在流形上、推理可靠，漂移即大概率错。这同一个分数随后无改动地驱动三件事：错误诊断（直接当 score）、推理时的 Manifold-Guided Rejection Sampling（MGRS）拒绝采样、以及 RL 阶段的稠密奖励。理论侧作者把它锚到 ELBO：$\mathcal{D}$ 取 KL 散度时 BMC 等价于重加权 ELBO 估计（Prop. 3.2），取 Csiszár $f$-divergence 时与边缘 ELBO 一致（Prop. 3.3），连续嵌入下经 Lipschitz 连续放松到语义近邻（Prop. 3.4），并给出重构残差是流形距离上界的硬保证 $\|z_0 - z^*\| \le \frac{1}{1-\kappa}\|z_0 - \mathcal{T}_\theta(z_0)\|$（Prop. 3.5）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["dLLM 已生成序列 x0"]
     subgraph BMC["BMC 估计器（扰动—恢复循环）"]

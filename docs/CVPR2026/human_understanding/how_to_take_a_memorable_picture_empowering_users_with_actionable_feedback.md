@@ -43,7 +43,7 @@ tags:
 这篇论文要解决的是一个尴尬的事实：MLLM 推理能力很强，但对"什么样的照片更容易被记住"几乎一无所知，直接让它给拍照建议只会说些泛泛而谈的话。MemCoach 的思路是**不去训练模型理解记忆性，而是在推理时把记忆性知识"推"进它的激活里**。整条流水线分三步走：先用一个见过"答案"的教师模型，从同一场景的高/低记忆性照片对里榨出"记忆性感知反馈"，再让学生模型对同一张源图生成普通反馈，两者配对；接着把这两类反馈分别喂回学生、收集中间层激活，算出一个指向"记忆性方向"的向量；最后在真正推理时把这个向量加到学生激活上，让它原本平庸的建议偏向真正能提升记忆性的方向。整个过程不更新任何权重。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph MB["MemBench 基准"]
         direction TB

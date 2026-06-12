@@ -44,7 +44,7 @@ tags:
 DenseSteer 想给小模型（≤3B）补上"强模型那种少跳点、每步信息密度高"的推理结构，但全程不动一个参数。它先拿 50 个标定问题让目标 SLM 自己生成稀疏解答作负样本 $x_\text{neg}$，再让 GPT-5.1 把这些解答"原地密化"成语义不变、步骤更紧的正样本 $x_\text{pos}$；这一对密/疏样本在每层残差流的激活之差求平均，就得到一条"指向 dense reasoning"的方向向量；推理时把它按系数 $\lambda$ 持续加到中间某层 $\ell^*$ 的残差流上，引导解码朝密集方向走。整条链路只需 50 对样本做 calibration，没有任何梯度更新。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["50 个标定问题<br/>GSM8K held-out"] --> NEG["目标 SLM 生成稀疏解答<br/>负样本 x_neg（低 ρ）"]
     subgraph DR["Dense-Rewriting：造同分布正样本"]

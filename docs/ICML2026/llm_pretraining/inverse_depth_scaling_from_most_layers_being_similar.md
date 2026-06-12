@@ -43,7 +43,7 @@ tags:
 全文要回答一个问题：LLM 的 loss 到底怎么随深度 $\ell$ 走、又是为什么。为此作者开了"测真实 LLM"和"训可控 toy"两条并行管线，最后让两边的隐藏态签名互相对账。LLM 侧在 Pythia 系列（主要是 Pythia-410m）上跑 FineWeb，逐 token 逐层算相邻隐藏态夹角 $\theta(h_l, h_{l+1})$ 并用 PCA 把轨迹聚成"中间均匀更新" vs "早停"两类，同时在 Chinchilla 公开的约 200 个模型点上拟合一个把深度单列出来的 loss 形式，直接读出指数 $\alpha_\ell$。Toy 侧造一个深度 $\ell^* = 128$ 的"老师"残差网络生成 KL 目标，让深度 $\ell \in [6, 48]$ 的"学生"去拟合，靠两个旋钮——老师权重 **tied/independent**、目标分布 temperature——把学生稳定推进 procedural 或 ensemble 区，得到每种机制下 $\alpha_\ell$ 和隐藏态签名的 ground truth。最后拿 toy 产出的三类签名（步长曲线、$1/\ell$ scaling、邻层增量相关性）当模板去 match LLM 实测，谁全对上谁就是 LLM 的真实机制——结论是 ensemble averaging。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph FIT["深度-loss 分解（设计 1）"]
         direction TB

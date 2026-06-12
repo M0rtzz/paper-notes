@@ -51,7 +51,7 @@ ODTQA-FoRe 提出面向未来数值预测和预测后推理的开放域表格问
 TimeFore 框架由三类 agent 组成。Retriever 把用户问题概括成表 caption 风格文本，先直接匹配表 caption，失败时用 BM25 检索，再用 few-shot LLM 生成 SQL 并通过执行反馈循环修正。Forecaster 接收 SQL 结果，把 `[project, year-month, price]` 三元组转成数值序列，先用 TimesNet 补全缺失值，再用 TimeXer 预测 2024 年 12 个月。Analyzer 先用 BERT 分类器判断问题是直接预测还是预测推理，再选对应 prompt 综合历史和预测数据，最后用数值抽取模块输出标准格式答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["面向未来的开放域表格 QA 数据集"]
         direction TB

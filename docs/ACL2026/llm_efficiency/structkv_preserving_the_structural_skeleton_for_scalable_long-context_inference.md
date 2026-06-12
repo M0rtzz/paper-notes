@@ -46,7 +46,7 @@ tags:
 StructKV 想同时拆掉长上下文推理的两个瓶颈：prefill 阶段 $O(N^2)$ 的注意力计算和 decoding 阶段线性增长的 KV cache。它的做法是先让前 $L^*$ 层照常处理完整上下文，并在这一过程中跨层累积每个 token 的「全局入度中心性」；当一个自动检测器判定注意力分布发生「相变」时，就在最优层 $L^*$ 用这份中心性把上下文裁成一副紧凑的「结构骨架」，并把计算预算和存储预算解耦成两个独立旋钮；此后的深层只在这副骨架上运算，从而在不丢失全局枢纽 token 的前提下同时省下计算和显存。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["完整长上下文输入"] --> B["前 L* 层照常处理完整上下文"]
     subgraph G1["全局入度中心性累积"]

@@ -47,7 +47,7 @@ tags:
 给定一台多带图灵机 $M$ 和一个时间界 $\hat{t}$（或空间界 $\hat{s}$），第一阶段构造 hardmax Transformer $T$：激活全限制在 $\{-1,0,1\}$，深宽随 $\mathcal{O}(\log \hat{t})$ 增长，能用 CoT/SCoT 在 $\mathcal{O}(t_M(w)+|w|)$ 步内输出 $f_M(w)$；第二阶段把 $T$ 的 query/key 投影乘上常数 $c$、将 hardmax 换成 softmax，再插入去噪 MLP 抹掉注意力权重舍入引入的偏差，得到对所有合法输入都与 $T$ 输出完全一致的 softmax 版 $\tilde T_c$。最终的精度账是 $c = \mathcal{O}((\log \hat{l})^{3/4})$、激活指数位 $\mathcal{O}(\log\log\log \hat{l})$、注意力权重指数位 $\mathcal{O}(\log\log \hat{l})$，意味着 bfloat16 在 $\hat{l} \approx 10^{38}$ 之前都够用。CoT 与 SCoT 的差别只在第二阶段喂的 bound：CoT 全靠时间界 $\hat{t}$、整条解码序列都挤在同一上下文里；SCoT 允许写 `<summ>...</summ>` 块作"中断点"，每段非汇总区长度只 $\mathcal{O}(s_M(w))$，所以模型尺寸随空间界对数增长，对 Sudoku 这种"空间小但时间大"的任务收益巨大。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图灵机 M + 时间界（CoT）或空间界（SCoT）"] --> S1
     subgraph S1["第一阶段：构造三值 hardmax Transformer（第 3 节）"]

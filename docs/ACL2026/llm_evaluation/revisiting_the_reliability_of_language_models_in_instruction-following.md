@@ -46,7 +46,7 @@ tags:
 最终得到的 IFEval++ 包含 541 个测试组，每组 10 个 prompt。模型评估时，作者报告原始 IFEval accuracy，也报告不同增强子集上的 reliable@2、reliable@4，以及整个 IFEval++ 上的 reliable@10。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["IFEval 541 个原始测试样本"]
     A --> AUG

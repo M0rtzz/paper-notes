@@ -45,7 +45,7 @@ tags:
 K2K 想解决的是：医疗预测既要靠外部医学知识接地、又受不了外部检索带来的延迟和上下文膨胀。它的思路是把知识"搬进"LLM 自己的参数里再就地检索。整条管线分三步：先把文档和知识图谱两路知识通过领域适配与 LoRA 写进 FFN 参数空间，形成可检索的内部记忆；再用激活引导的探针把输入查询变得有判别力，从内部记忆里精确取键；最后用交叉注意力对多源检索结果重排加权。输入是患者纵向 EHR 的诊断代码序列，输出是死亡率/再入院的二分类预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["患者 EHR 诊断代码序列"] --> ENC["LLM 编码得隐状态 H_w"]
     subgraph MEM["内部记忆构建（知识写进 FFN 参数）"]

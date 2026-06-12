@@ -46,7 +46,7 @@ tags:
 GameplayQA 要解决的是：现有视频基准多是慢节奏被动观察、只给全局分、还只看单视角，没法考验智能体在快节奏3D环境里的感知。它把多人3D游戏当作"认知沙箱"，搭了一条端到端流水线——先从9款多人3D游戏收集同步多视角视频；再按6种实体类型（SA/SS/OA/OS/WO/WE）做密集多轨时间线标注，密度达 1.22 标签/秒；接着用组合式模板算法从标注里生成 QA，问题按三层认知复杂度组织、每道题再配上结构化干扰项诱导幻觉，初始产出 40 万候选对、降采样到 4K、再质量过滤到最终 2,365 对；最后即可在这套题上评估模型并做细粒度幻觉分析。质量过滤本身分两阶段：先做盲过滤（blind filtering，语言先验过滤）剔掉不看视觉就能答的题，再对 120 道均匀采样题人工评估，约 8% 被标为有缺陷而移除。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["9款多人3D游戏<br/>同步多视角(POV)视频"] --> B
     subgraph B["Self–Other–World 三元实体标注体系"]

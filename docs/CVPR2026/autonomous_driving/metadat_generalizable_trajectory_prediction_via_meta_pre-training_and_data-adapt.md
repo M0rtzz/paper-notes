@@ -44,7 +44,7 @@ tags:
 MetaDAT 分为两个阶段：(1) **元预训练 (Meta Pre-training, MP)**：在源数据集上模拟 TTT 任务，通过双层优化获得适合在线自适应的模型初始化 $\theta^*$；(2) **数据自适应测试时更新**：在目标数据上通过动态学习率优化 (DLO) 和难样本驱动更新 (HSD) 实现自适应模型调整。预测器采用 ForecastMAE 架构（embedding + encoder + decoder + MAE 重建分支）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["离线预训练模型 θ_off<br/>（仅压低分布内损失，作初始化加速）"]
     subgraph MP["元预训练（MP）"]

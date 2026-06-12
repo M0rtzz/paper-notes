@@ -46,7 +46,7 @@ tags:
 本文不提新模型，而是设计一套对照评估：让 10 个 LLM 在 7 个公平性敏感数据集（信用评分、累犯预测等）上生成代码，每个数据集都掺有敏感属性（种族、性别）、普通非敏感属性以及刻意加进去的无关属性（如"最爱的颜色"）。核心做法是对同一任务分别走「条件语句」和「ML 流水线」两条生成路线，用 Code Bias Score（CBS，即生成代码里包含敏感属性的比例）量化两条路线各自的歧视程度，从而比较显式歧视与隐性歧视的严重性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["7 个公平性数据集<br/>注入：敏感属性 + 普通属性 + 无关属性"] --> DUAL
     subgraph DUAL["显式 vs 隐性歧视的双轨评估"]

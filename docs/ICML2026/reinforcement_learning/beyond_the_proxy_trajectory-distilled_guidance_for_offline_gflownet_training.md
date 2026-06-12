@@ -44,7 +44,7 @@ tags:
 TD-GFN 的训练分为两个阶段：(1) **边奖励提取阶段**——对离线数据集进行重平衡采样后，用对抗式 IRL（基于 GAIL）学习一个边级奖励函数 $R_E(s, s')$，量化 DAG 中每条边对策略学习的贡献；(2) **策略训练阶段**——利用边奖励执行 DAG 剪枝去除低效转移，然后通过优先反向采样构造训练轨迹，最终用这些轨迹和数据集中的真实终端奖励训练 GFlowNet 策略。整个过程中梯度更新仅依赖真实奖励，边奖励仅用于采样引导。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     D["离线轨迹数据集"]
     subgraph IRL["基于 IRL 的边奖励提取"]

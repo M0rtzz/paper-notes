@@ -43,7 +43,7 @@ MusicDET 把"AI 生成音乐检测"重新定义为只用真实音乐训练的零
 MusicDET 要解决的是"不看任何伪造样本，也能稳定识破任意未见生成器"的检测问题，做法是把它转成对真实音乐的单类密度估计：从一段 16 kHz、4 s 的波形抽出时频能量谱，用归一化流为真实音乐学一个精确可算的概率密度 $p_X(x)$，推理时直接拿对数似然 $\log p_X(x)$ 当真伪分，低似然即判为 AI 生成。为了让密度估计在音乐这种高度非平稳的频谱上站得住，框架把能量谱沿频率轴切成若干子带，先用频带内的子流各自建密度，再用一个全局流把跨频带的耦合补回来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["真实音乐波形<br/>16 kHz · 4 s"] --> B["STFT + 卷积<br/>提时频能量谱 X"]
     B --> C["频带分解<br/>沿频率轴切 K 个子带"]

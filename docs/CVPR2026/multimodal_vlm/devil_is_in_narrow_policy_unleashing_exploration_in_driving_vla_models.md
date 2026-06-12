@@ -46,7 +46,7 @@ tags:
 这篇论文要解决的是驾驶 VLA「先 IL 再 RL」两阶段管线里的一个隐性病灶：IL 阶段把策略压成单一模式（窄策略），等到 RL 想靠采样去探索时，所有 rollout 的轨迹几乎重叠、奖励方差趋零，GRPO 的优势估计直接塌成 0，RL 等于白训。Curious-VLA 不换骨架，而是在两个阶段分别下药——IL 阶段先把训练数据从「只有一条真值轨迹」扩成「一批安全可行的多样轨迹」，并按预测步重新归一化损失，从源头避免策略过早收敛；RL 阶段则在采样前先筛掉那些注定学不到东西的场景，再把奖励重塑成能拉开优劣差距的形式，让优势信号重新活过来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["驾驶 VLA 基座<br/>Qwen2.5-VL-3B"] --> S1
     subgraph S1["IL 阶段：可行轨迹扩展（FTE）"]

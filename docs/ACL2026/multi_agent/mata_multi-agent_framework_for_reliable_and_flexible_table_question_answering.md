@@ -44,7 +44,7 @@ tags:
 MATA 接收表格 T 和问题 Q，通过三阶段流程产出最终答案：(1) Agent 选择阶段：调度器（Scheduler）决定 PoT 和 text2SQL 的执行优先级，同时 CoT Agent 并行执行；(2) 代码生成与调试阶段：PoT/text2SQL Agent 生成代码并由调试 Agent 迭代修复；(3) 最终答案决策阶段：置信度检查器（Confidence Checker）评估候选答案置信度，必要时调用法官 Agent（Judge Agent）仲裁。整条链路按"先调度、再生成调试、最后核验"的顺序推进，下面三个关键设计依次对应这三个阶段。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["表格 T + 问题 Q"] --> B["调度器<br/>小模型预测 PoT / text2SQL 胜率"]
     A --> C["CoT Agent<br/>并行作答"]

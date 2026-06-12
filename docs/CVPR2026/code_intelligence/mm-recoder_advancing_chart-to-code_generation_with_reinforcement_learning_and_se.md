@@ -41,7 +41,7 @@ tags:
 MM-ReCoder 要解决的是：怎么让一个 7B 多模态模型在图表转代码时像人一样「写完跑一遍、看结果、再改」，而且改的不只是让崩溃代码能跑，还要把已经能跑的代码画得更像原图。整体训练分两步走。先是冷启动：在 Chart2Code-160k 上做 SFT 把基础编码能力补上，再用 7k 条筛选过的两轮纠错对话微调，让模型先见过「首轮代码 + 反馈 → 第二轮修正」这种格式。然后是核心的两阶段多轮 GRPO 强化学习——第一阶段固定首轮输出、只训练纠错那一步，第二阶段放开首轮联合优化整条轨迹。推理时模型可以反复纠错任意轮，每一轮把渲染出的图（或执行报错信息）回喂给它当下一轮的输入。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图表图像 + 指令"] --> B["冷启动 SFT<br/>Chart2Code-160k 编码 + 7k 两轮纠错对话"]
     B --> TRAIN

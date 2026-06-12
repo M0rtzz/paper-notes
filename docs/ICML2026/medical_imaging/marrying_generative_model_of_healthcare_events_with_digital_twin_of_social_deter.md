@@ -45,7 +45,7 @@ tags:
 DiffDT 要解决的核心问题是：把 EHR 的时间因果性和多器官生理状态结合起来，做长时程、多通路的疾病预测。整条流水线沿“病史 → 生理中介 → 未来疾病”三跳展开。先用一个**自适应医学史 tokenizer + AR 模型 $\phi$** 把 ICD 序列按 1 年粒度铺到统一时间网格、未发病年用 `[healthy]` token 填充，token embedding 加 age embedding 喂 causal self-attention 学 next-token，得到一段 causality-aware 的医疗史 embedding；这段 embedding 当条件去**生成多器官数字孪生**——表格生物标记走 TabDiff 风格的混合扩散（连续维度走 VE SDE、离散维度走 absorbing process），脑功能连接走 SPD-VQVAE + Cholesky LDM；最后在生成出来的 DT 上**微调器官专用 FM**（脑用 BrainMass，表格用 Transformer encoder）预测下一个 ICD。推理时对每个待预测的多通路因果节点，AR 模型先编码过去 ICD，扩散模型据此生成假想的多器官 DT，微调后的 FM 再从 DT 读出下一 ICD，整体实现 $\sum_{\text{organ}} P(s_{t+1}\mid \text{DT}_t^{\text{organ}})\, P(\text{DT}_t^{\text{organ}}\mid S_{<t})$ 的多通路 mediation。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["ICD 事件序列<br/>（含 SDoH proxies）"] --> B["自适应 ICD tokenizer + AR 模型 φ<br/>年度网格 + [healthy] 填充 → 病史 embedding ŷ"]
     subgraph DT["生成多器官数字孪生 DT（条件于病史 ŷ）"]

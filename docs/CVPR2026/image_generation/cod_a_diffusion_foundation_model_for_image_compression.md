@@ -44,7 +44,7 @@ tags:
 CoD 的出发点是把图像压缩看成一个「编码器（图像字幕生成器）+ 解码器（扩散模型）」的系统，但认为文本作中间表示太低效，干脆用神经网络学的原生图像 token 替代文本、端到端联合训练压缩与生成。架构很简洁：原生图像编码器 → 信息瓶颈（向量量化）→ 条件解码器 → 扩散模型（DiT backbone + DDT head），像素空间和隐空间都有实现。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像"] --> B
     subgraph BN["条件编码与信息瓶颈"]

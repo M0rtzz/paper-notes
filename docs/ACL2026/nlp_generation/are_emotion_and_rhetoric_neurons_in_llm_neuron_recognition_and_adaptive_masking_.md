@@ -46,7 +46,7 @@ tags:
 基于Llama-3.1-8B-Instruct，聚焦FFN层神经元。流程包含三个阶段：神经元识别（激活频率+概率归一化+熵筛选）→ 自适应遮蔽验证（动态选择+衰减遮蔽+反馈优化）→ 神经元调控（定向诱导+跨信号增强）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["情感/修辞标注语料<br/>(6 类情感 + 4 类修辞)"] --> S1
     subgraph S1["神经元识别"]

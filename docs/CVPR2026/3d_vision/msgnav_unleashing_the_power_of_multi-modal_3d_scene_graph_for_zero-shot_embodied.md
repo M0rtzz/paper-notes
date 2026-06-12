@@ -55,7 +55,7 @@ tags:
 MSGNav 的整体流程是"增量构建场景图 → 高效推理 → 最优视点决策"。每个时间步 $t$，智能体接收 RGB-D 观测 $\mathcal{I}_t$ 增量更新场景图 $\mathbf{S}_t$；推理时先用 KSS 从膨胀的场景图里抠出目标相关子图喂给 VLM，由 VLM 定位目标或决定前沿探索方向；一旦锁定目标，再由 VVD 在目标周围挑一个可见性最高的视点作为导航终点。整套系统由 M3DSG、KSS、AVU、CLR、VVD 五个模块组成。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RGB-D 观测 I_t"] --> S1
     subgraph S1["M3DSG 多模态 3D 场景图"]

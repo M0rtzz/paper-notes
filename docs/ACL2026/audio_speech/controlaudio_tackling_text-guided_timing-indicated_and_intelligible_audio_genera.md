@@ -46,7 +46,7 @@ tags:
 ControlAudio 想在单个扩散模型里同时塞进三种控制能力——文本引导、精确时序、可懂语音，而难点在于这三类的训练数据规模差着两个数量级（百万级文本-音频对 vs 数万级时序标注）。它的解法是把"渐进"思想贯穿数据、训练、推理三层：先在大规模文本-音频对上预训练一个高保真 DiT 拿到 TTA 先验，再在时序标注数据上微调补上时间控制，最后解冻全部模块在多源数据上联合训练补上语音；推理时同样由粗到细，扩散早期用时序条件锁住事件的时间窗口，后期才引入音素条件填进语音内容。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["条件输入<br/>文本 / 时序 / 音素"] --> P["结构化提示的统一语义建模<br/>特殊 token 分隔事件与起止时间<br/>音素扩进词表，单一文本编码器统一编码"]
     P --> TRAIN

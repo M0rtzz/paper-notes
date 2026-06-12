@@ -44,7 +44,7 @@ tags:
 这篇要解决的是 3DGS 在激进剪枝（目标 90%）下"既要少点、又不丢细节"的两难。整条流水线分三段：前 15k 迭代做标准 3DGS 训练 + 密度化，把场景先建起来；15k 之后启动重建感知剪枝调度器（RPS）做渐进的"剪枝–细化"循环，最多到 25k 迭代；剪枝收敛后再引入 3D-DoG 原语并优化两类原语的混合比例，把激进剪枝丢掉的高频细节补回来。RPS 回答"何时剪、剪多少、剪哪些"——分别由 RIR、DPRA、SPS 三个组件承担，3D-DoG 回答"剪完怎么保细节"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多视角图像"] --> B["前 15k 迭代<br/>标准 3DGS 训练 + 密度化"]
     B --> RPS

@@ -45,7 +45,7 @@ tags:
 本文不训练新模型，而是把预训练 LLM 当作待解剖的对象：给定一句话，抽取它在各层的 last-token 隐藏表征，先投影到 64 维 PCA 空间降噪，再用三种线性探针判断它是反问句还是信息寻求问句。关键不在于探针能不能分对，而在于把同一份表征喂给不同探针、或把一个数据集上学到的方向搬到另一个数据集上时，这些方向是否指向同一处——因此整条流水线的输出不是一个准确率，而是 AUROC、方向余弦相似度、Spearman 秩相关、Jaccard 重叠四组指标的对照。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入句子<br/>反问句 vs 信息寻求问句"] --> B["抽取各层 last-token 隐藏表征"]
     B --> C["投影到 PCA-64 空间降噪"]

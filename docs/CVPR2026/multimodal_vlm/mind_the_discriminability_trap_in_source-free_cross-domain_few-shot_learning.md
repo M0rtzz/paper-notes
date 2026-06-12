@@ -46,7 +46,7 @@ tags:
 这篇要治的是 VLM 跨域小样本微调里一个反直觉的现象：增强视觉判别性反而损害跨模态对齐（“判别性陷阱”）。根源在于交叉熵损失 $\mathcal{L}_{\text{vlm}}$ 内含视觉学习和跨模态学习两条路，视觉学习是一条“捷径”——能降损失但不改善跨模态对齐，类似“双阀排水”里的旁路阀门。作者在 CLIP/SigLIP/PE-Core 上采用**两阶段训练**配上 SVL、RA 两个即插即用模块：初始阶段（前 3/5 epoch，即 250 epoch 里的前 150）叠加 SVL 的反视觉损失 $\mathcal{L}_{\text{ad}}$ 与 RA 的关系对齐损失 $\mathcal{L}_{\text{ra}}$，抵制视觉捷径、引导跨模态对齐；后期阶段（后 2/5 epoch）撤掉这两项约束、只留 $\mathcal{L}_{\text{vlm}}$，恢复正常微调、放开视觉学习。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练 VLM（CLIP/SigLIP/PE-Core）<br/>+ 目标域少量 support 样本"] --> B["跨模态交叉熵微调 L_vlm<br/>（内含视觉学习捷径）"]
     B --> C

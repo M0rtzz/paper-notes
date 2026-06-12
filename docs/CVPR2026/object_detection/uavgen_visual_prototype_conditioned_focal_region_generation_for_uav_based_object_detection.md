@@ -43,7 +43,7 @@ tags:
 UAVGen 要解决 UAV 检测的数据稀缺，以及通用 layout-to-image 增强在小目标场景失效的问题。它沿用「扩散模型合成带标注数据 + 真实数据联合训练检测器」的范式，但针对 UAV 的三个痛点串起一条定制流水线：先用视觉原型条件扩散模型（VPC-DM）——筛出清晰原型组装成布局图、配合文本语义一起作为条件——生成高保真的小目标图像；再用焦点区域增强管线（FRE-DP）把生成与检测器训练都聚焦到前景密集的小目标区域，不在大片背景上浪费容量；最后由标签精炼校正合成图与标注的错位，产出可直接喂给检测器的增广数据。下图给出三者串联的数据流：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["真实 UAV 检测数据<br/>(图像 + 标注)"] --> B
     subgraph VPC["视觉原型条件扩散模型 VPC-DM"]

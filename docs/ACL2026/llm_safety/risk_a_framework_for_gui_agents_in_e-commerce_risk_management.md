@@ -46,7 +46,7 @@ tags:
 RISK由三个组件构成：（1）RISK-Data——通过Qwen-VL-Max驱动Browser Use框架收集数据，经轨迹过滤、步骤清洗、信息精炼、数据增强、多步生成和难度分级6步精炼，得到8492单步+2386多步轨迹；（2）RISK-Bench——802单步+320多步轨迹，分easy/moderate/difficult三级；（3）RISK-R1——基于GRPO的强化微调框架，先SFT建立基础能力，再RFT精化。整体数据流为：采集与精炼出 RISK-Data，一路切出评测集 RISK-Bench，一路喂给 SFT→RFT 训练，而 RFT 由四维度的框架驱动奖励来优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Qwen-VL-Max 驱动 Browser Use<br/>真实风控网页多轮交互采集"]
     subgraph REFINE["领域数据收集与精炼管线"]

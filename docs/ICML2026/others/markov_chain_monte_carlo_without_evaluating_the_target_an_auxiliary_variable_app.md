@@ -53,7 +53,7 @@ tags:
 设 $\Omega_1$ 或 $\Omega_2$ 为单点空间 $\mathsf{NULL}$ 即可"关闭"对应辅助变量：(Null,Null) 是普通 MH；(Null,有) 退化为 Section 2 的旧框架（含 exchange/PoissonMH/TunaMH）；$\omega_1=\omega_2$ 是 Metropolis-within-Gibbs 视角的辅助 MH (Titsias & Papaspiliopoulos 2018)，对应下面的 Poisson–Barker/MALA；$\omega_1\perp\omega_2$ 则让"设计 proposal"和"估计比值"用两组独立的小批量，对应下面的 Tuna–SGLD。命题 2 通过把 $(\theta,\omega_1,\theta',\omega_2)$ 视为 involutive MCMC 中的对合 $(\theta',\omega_1,\theta,\omega_2)$，给出统一的 detailed balance 证明。下图把元算法每步的数据流，以及"如何配置 $\omega_1,\omega_2$"分岔出的两类新算法画在一起：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph META["双辅助变量元算法（每步迭代）"]
         direction TB

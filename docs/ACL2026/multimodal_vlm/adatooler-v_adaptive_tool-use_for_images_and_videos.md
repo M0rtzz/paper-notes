@@ -44,7 +44,7 @@ tags:
 AdaTooler-V 把多模态推理建模成 thought-action-observation 循环。给定 query + 图/视频，policy 模型先决定是否要工具：不需要则直接产出 thought $T$ 给出答案；需要则迭代生成 $(T_i, C_i)$，每个 action $C_i$ 调用 4 种视觉工具之一（CropImg / FrameAt / VideoClip / PathTracer），返回 observation $E_i$，回灌到 context 继续推理直到答案或达到 context/turn 上限。训练两阶段：(1) **SFT 冷启动**——在 AdaTooler-V-CoT-100k（多轮 tool-interaction trajectory）上 fine-tune，建立基础推理模式与 tool 调用行为先验；(2) **RL with verifiable rewards**——用 AT-GRPO 在 AdaTooler-V-300k 上 RL 训练，让模型自主探索"何时调工具"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     D["Qwen2.5-VL-72B 自动生成多轮工具 CoT<br/>→ AdaTooler-V-300k，过滤出 100k"]
     DS["离线测 Tool Benefit Score ΔS<br/>有工具 vs 无工具的准确率差"]

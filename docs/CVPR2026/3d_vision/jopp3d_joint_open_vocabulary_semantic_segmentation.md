@@ -51,7 +51,7 @@ tags:
 三阶段 Pipeline（全部免训练）：(1) **切向分解**——将每张全景 RGB-D 图像投射到正二十面体 20 个面，生成 20 张切向透视图（640x480，FOV=100度）及对应深度图，聚合所有视角的 3D 点并体素化得到全局点云；(2) **3D 实例提取 + 语义对齐**——用 Mask3D（弱监督）或 SAM3D（无监督）生成 3D 实例提案，每个实例投影到 K 个最佳切向视图，用 SAM 生成 2D 掩码裁剪，CLIP 编码掩码裁剪的图像，多视图平均得实例语义嵌入；(3) **语言查询 + 3D到全景回投**——自然语言查询得到 3D 语义分割，通过深度对应回投到全景域。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["全景 RGB-D 图像"]
     subgraph TANGENT["正二十面体切向分解"]

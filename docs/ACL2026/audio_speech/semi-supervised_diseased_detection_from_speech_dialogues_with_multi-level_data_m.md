@@ -46,7 +46,7 @@ tags:
 框架采用教师-学生架构，包含三个层次的建模：(1) 会话级主管线——将完整对话编码后通过 Transformer 聚合，输出最终诊断；(2) 片段级——利用 RNN 对每个话语级别的嵌入进行建模，使用主管线生成的伪标签进行训练；(3) 帧级——通过 Siamese 网络施加帧级一致性约束。教师网络参数通过 EMA 更新，不参与梯度回传。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["完整临床对话<br/>（少量标注 + 大量未标注）"] --> B["切成 clip → 音频编码器 E<br/>(HuBERT/wav2vec2) 池化得 clip 嵌入"]
     B --> S

@@ -47,7 +47,7 @@ tags:
 整条流水线是一个闭环：每个训练步先从分割模型里抽出一份高维语义状态 $\mathbf{s}$（刻画模型此刻"学到哪了"），交给高维语义状态提取网络（HSSE）处理成决策特征——先由 GM-VAE 压进低维潜空间得到 $z_t^s$，再由 SKFEN 蒸馏出真正反映学习进度的关键特征；策略网络 ClassGen 拿这份特征输出一张按信息量降序排好的类别清单 $R$，指导跨域混合采样把这些类别"贴"进混合图像与标签；分割模型在混合数据上用 SegLoss 更新，更新带来的类别级改进又被折算成奖励回传，由类别 $\alpha$-公平策略梯度（C$\alpha$PG）驱动策略下一轮做更好的排程。整个循环贯穿训练始终，课程随模型状态持续自我调整。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SEG["分割模型 g_θ"] --> S["高维语义状态 s<br/>刻画模型当前学习进度"]
     subgraph HSSE["高维语义状态提取 HSSE"]

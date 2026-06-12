@@ -46,7 +46,7 @@ tags:
 HyCoLLM 把"四维认知状态联合预测"建模成一个先在双曲空间里铺开认知坐标系、再把 LLM 拉到这个坐标系上的两阶段过程。输入是一条社交帖子，第一阶段 Hyperbolic Cognitive Network (HCN) 把它的句子嵌入投影到 Poincaré 球上，用几何感知对比损失把 1512 种认知状态组合摊在双曲流形的不同区域；第二阶段 Hyperbolic Guided Alignment Tuning (HGAT) 在微调 LLaMA-3.1-8B-Instruct 时，用语义-认知拓扑损失约束模型隐状态去贴合 HCN 学好的几何，最终输出情感、思维风格、立场、意图四个维度的联合预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["CognitiveBench：四维认知标签体系"]
         direction TB

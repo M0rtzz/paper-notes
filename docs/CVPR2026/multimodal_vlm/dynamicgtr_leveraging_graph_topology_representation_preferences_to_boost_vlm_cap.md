@@ -46,7 +46,7 @@ tags:
 DynamicGTR 解决的问题是：把一张图喂给 VLM 时，"用什么形式描述这张图"（图拓扑表示，GTR）会显著影响回答质量，而最优形式因问题而异——有的题画成图更好懂、有的题列成邻接表更利于计算。整套方法分**离线**与**在线**两段，由四块设计串起来：离线先建一个零样本 **GTR 池**（8 种表示），对探测集每道题用 8 种 GTR 各跑一遍 VLM，用 **GRE 指标**给每种表示打分、取最高分的为该题的最优表示，汇成 **GTR 偏好数据集（GTRP）**，再用它训练一个轻量 **GTR 路由器**；在线推理时，路由器为每个新查询一次前向挑出最优 GTR，按该 GTR 把图渲染进 prompt 喂给冻结的 VLM 作答。VLM 全程不动，只有路由器需要训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     G["输入图 G + 查询 q"] --> POOL["零样本 GTR 池<br/>5 视觉 + 3 文本 = 8 种表示"]
     subgraph OFF["离线：构建偏好数据 + 训路由器"]

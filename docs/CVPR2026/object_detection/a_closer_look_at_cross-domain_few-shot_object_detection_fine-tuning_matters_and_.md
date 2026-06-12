@@ -42,7 +42,7 @@ tags:
 方法建立在 DETR 范式的开放词汇检测器 MMGroundingDINO 之上，目标是在不增加任何参数的前提下，让预训练权重在跨域少样本场景下迁移得更稳、更不易过拟合。整条流水线仍是「图像 → Backbone → Transformer 编码器 → 解码器 → 检测框」，作者只在两处下手：把解码器从「全顺序 $L$ 层」改成「前 $K$ 层顺序细化 + 后 $L-K$ 层并行」的混合集成解码器（HED），推理时把所有层的预测平均；训练时再以概率 $\tau$ 给并行分支注入随机重置的去噪查询制造差异，外层套一层两阶段渐进微调稳住优化。架构改动几乎为零，所有增益都来自对已有权重的重新组织和更克制的微调方式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像"] --> B["Backbone + Transformer 编码器<br/>得到视觉 token E"]
     subgraph HED["混合集成解码器（HED）"]

@@ -44,7 +44,7 @@ tags:
 这篇论文要回答的问题很具体：当在线建图模型在地理不相交的划分上掉点时，它到底是"记住了某条街的样子"，还是"只会画训练集里见过的那几种路口形状"？这是两种不同的病，但过去的评估把它们混在一起看。本文的整体思路是把"地理距离"和"几何相似性"当成两个正交的旋钮分别拧——先用前者隔离定位过拟合，再用后者隔离几何过拟合，各自给出一个可量化的分数；诊断清楚之后，再回到训练集这一侧，用最小生成树（MST）把几何上冗余的样本删掉，验证"更均衡、更多样的训练集能不能改善泛化"。所以全文是一条"先测量、后干预"的链路：评估集分层 → 两个过拟合分数 + 一个更鲁棒的距离度量 → MST 稀疏化训练集。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     V["验证集"] --> SPLIT["按地理距离阈值 T_dist 切分<br/>→ V_close（地理近）/ V_far（地理远）"]
     subgraph DEC["评估集解耦与过拟合分数"]

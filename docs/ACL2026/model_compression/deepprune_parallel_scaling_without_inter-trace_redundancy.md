@@ -46,7 +46,7 @@ tags:
 DeepPrune 分两个阶段。**离线训练阶段**：构造大量「并行轨迹对」并标注它们最终答案是否等价的二元标签，用 Focal Loss 加过采样训练出一个判断模型（judge model），让它能从两条轨迹各自的前 $N$ 个 token 就预判二者是否殊途同归（OOD 上 AUROC=0.7072）。**在线剪枝阶段**：并行生成多条推理轨迹时，用判断模型把轨迹动态聚成「答案等价组」——新轨迹与已有各组的代表比对，判为等价就归入该组并立即停止生成（剪掉冗余），判为不等价就新开一组；每组只留一条代表继续推理，最后对存活的各组代表做多数投票（majority voting）得到最终答案。这样既掐掉了 80%+ 的冗余计算，又把不同答案各自保成一组、不破坏答案多样性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TRAIN["答案等价判断模型（离线训练）"]
         direction TB

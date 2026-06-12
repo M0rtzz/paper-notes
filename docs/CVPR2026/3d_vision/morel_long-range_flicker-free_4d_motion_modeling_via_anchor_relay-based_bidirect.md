@@ -47,7 +47,7 @@ tags:
 MoRel要解决的是长视频4D重建里"全局一致 vs 内存有界"这对老矛盾：全局训练保证不闪烁但内存随帧数爆炸，分块训练省内存但片段边界会跳变。它的破局思路借自视频编码——把时间轴切成一个个 GOP，在每个 GOP 中心放一个**关键帧锚点 (KfA)**，让相邻锚点像接力一样覆盖整段视频。整条流水线是基于锚点的3DGS表示（稀疏体素网格上的锚点定义规范空间），训练按两个阶段、四个步骤推进：先是**锚点接力阶段**，全局规范锚点 GCA 浏览整段视频打底，再克隆出一排 KfA 各管一段时间；然后是**双向混合阶段**，PWD 给每个 KfA 学双向变形场，IFB 再在相邻锚点之间学怎么平滑过渡。贯穿整个训练，特征方差引导分层致密化 FHD 用锚点的特征方差把它们分成低/中/高频，控制致密化节奏、让高频细节晚一点再长，进一步压住峰值内存。输入是多视角长视频序列，输出是可实时渲染、内存有界的4D高斯。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多视角长视频序列"] --> S1
     subgraph S1["全局规范锚点 GCA + 关键帧锚点 KfA"]

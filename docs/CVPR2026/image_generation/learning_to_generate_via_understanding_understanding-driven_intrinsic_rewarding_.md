@@ -42,7 +42,7 @@ tags:
 GvU 想解决的是 UMM「理解强、生成弱」的不对称：既然同一个模型已经能很好地看懂图，那就让它的理解分支来给自己的生成分支当老师。整条管线在 AR+扩散头混合架构（X-Omni）上闭环运转——只喂一批纯文本 prompt，生成分支先把 prompt 画成图，理解分支再回头读这张图、逐 token 评估它和原 prompt 对得有多齐，对齐概率直接当奖励，最后用 GRPO 把这个奖励回灌给生成分支。整个循环既不碰外部图像数据，也不调外部奖励模型，模型自产数据、自评奖励、自我提升。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["文本 prompt（无外部图像与奖励模型）"] --> B
     subgraph S1["自生成数据管线"]

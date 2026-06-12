@@ -44,7 +44,7 @@ tags:
 本文走的是「诊断—理论—算法」三步链条：先用大规模对照实验把 many-shot ICL 的三条经验规律一条条放进 CoT 推理场景，发现它们全线崩塌；再以 in-context test-time learning 视角重构解释，把长 context 看成一条 implicit curriculum 而非检索缓存；最后把「顺序要平滑过渡」这条原则落地成 CDS——给定 $n$ 条 demonstration，求一个排列 $O = [\mathbf{d}_{\pi(1)}, \ldots, \mathbf{d}_{\pi(n)}]$ 最小化嵌入轨迹的总曲率 $\Theta(O) = \sum_{t=2}^{n-1} \arccos\!\left(\frac{\mathbf{v}_t \cdot \mathbf{v}_{t+1}}{\|\mathbf{v}_t\|\|\mathbf{v}_{t+1}\|}\right)$，其中 $\mathbf{v}_t = \tilde{\mathbf{e}}_t - \tilde{\mathbf{e}}_{t-1}$ 是相邻投影嵌入的位移向量。诊断阶段覆盖 4 类非推理 LLM（LLaMA 3.1 8B / 3.3 70B / Qwen2.5 7B / 14B）与 4 类推理 LLM（Qwen3 8B / 14B / QwQ 32B / DeepSeek-R1 685B），在分类任务（SuperGLUE, NLU, TREC, BANKING77）和数学/叙事推理任务（GSM8K, MATH 的 geometry / number_theory / counting_and_probability, DetectiveQA）上跑 1–128 shot，统一用开放式生成 + exact match 评估。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     S["三维诊断实验（4+4 模型 × 推理/非推理任务 × 1–128 shot）<br/>Scaling：仅推理 LLM 才正向 scaling<br/>Retrieval：相似度检索在推理上反而最差<br/>Ordering：顺序方差随 shot 数上升"]
     S -->|三条经验规律全线崩| THEORY["重构为 in-context 测试时学习<br/>长 context = implicit curriculum<br/>P1 可理解性 · P2 平滑过渡"]

@@ -44,7 +44,7 @@ tags:
 HAWK 想解决的事很具体：现有基于注意力的剪枝（如 FastV）把所有注意力头一视同仁地平均，但不同头其实各管一摊视觉语义，简单平均会让重要头的判断被噪声头稀释。HAWK 的做法是把"哪些头重要"和"当前指令下哪些视觉 token 重要"两件事拆开算再合起来。整条链路分三段走：先在离线阶段对每个注意力头做消融，量出它对视觉理解的固有贡献，得到一组只需算一次的静态头权重；推理时进到第一层注意力层，用 Q/K 投影算出文本 token 对每个视觉 token 的相关性分数（刻意去掉位置编码）；最后用头权重对这些分数加权求和，按总分保留 top-k 视觉 token，再和文本 token 拼起来送进后续 LLM 层。全程零训练，能直接挂到不同 MLLM 架构上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["静态注意力头重要性权重（离线一次，与输入无关）"]
         direction TB

@@ -48,7 +48,7 @@ tags:
 UAAI（Uncertainty-Aware Active Inference）要对付的是微手势那种"稍纵即逝"的信号——持续 <0.5 秒、幅度极小、关键信息只藏在少数几帧和局部区域。它借主动推理的认知框架，把"在哪一帧、哪块区域看"当成智能体要主动决策的动作，用期望自由能（EFE）来挑信息量最大的帧和区域，再用一个不确定性感知的数据增强稳住训练。整体三个模块串起来：EFE 引导的时间帧选择负责"看哪几帧"，EFE 引导的空间注意力负责"看哪块区域"，UMIX 负责"怎么从带噪样本里稳稳学"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入视频<br/>微手势信号(短/微弱/时空稀疏)"] --> B
     subgraph B["EFE 引导的时间帧选择（POMDP）"]

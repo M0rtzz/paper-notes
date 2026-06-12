@@ -46,7 +46,7 @@ tags:
 构建通用的多智能体交互框架，包含三个阶段：角色实例化（给 agent 分配不同 persona）、迭代讨论（在特定拓扑下多轮对话）、提案合成（将讨论汇总为结构化研究提案），由此产出 10,000+ 条研究提案作为分析素材。在此之上，本文先用一套**多维度多样性度量**把提案的语义多样性量化到可比较，再通过**三层次分析框架**（模型智能、智能体认知、系统动力学）自下而上定位多样性崩溃的来源，最后以**拓扑干预实验**（NGT、子组拓扑）反证根因、给出可落地的缓解手段。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph GEN["MAS 生成流程（脚手架）"]
         direction TB

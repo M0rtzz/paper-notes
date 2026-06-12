@@ -44,7 +44,7 @@ tags:
 训练阶段 DiSCo 用 10K 表格图，对同一张图同时构造**结构对齐样本** $(I_S,V)\to T_S$（cell 内容全部替换为占位符 $t_p$ 的匿名化 HTML/Markdown/LaTeX）和**内容对齐样本**——全局形如"$M$ 行 $N$ 列，第 $m$ 列描述 X"的半结构化摘要 $T_G$ 与局部形如"Row $m$ Column $n$: [content]"的单元格语义 $T_L$，三路目标用 LoRA 联合微调。推理阶段 Table-GLS 把单步问答拆成三步：先让 LVLM 看整图给出相关行列索引 $R,C$ 与推理草稿 $T_t$；再让它自检 $R,C$ 是否足够并抽出最小可解释子表 $T_{sub}$；最后只让它对 $T_{sub}$（保留原图作辅助视觉锚）做证据稳态推理输出 $\hat{y}$。整个 pipeline 不需要任何推理专用标注或外部工具，结构能力来自 DiSCo，推理能力来自基础 LVLM 自身。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["表格图 V（仅 10K 张对齐数据）"]
     subgraph TRAIN["训练 DiSCo：LoRA 联合三路对齐"]

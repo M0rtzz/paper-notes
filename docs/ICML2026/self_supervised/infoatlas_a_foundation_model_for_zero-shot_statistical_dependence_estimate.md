@@ -45,7 +45,7 @@ InfoAtlas 把互信息估计从"每个数据集都要从头训一个评估网络
 InfoAtlas 的核心是一个 attention-based 超网络 $\mathcal{H}: \mathcal{D} \mapsto \Theta$，输入是 $n$ 对样本 $\{(\mathbf{x}^i, \mathbf{y}^i)\}_{i=1}^n$，输出是 DV critic $\theta$ 的全部参数（包括所有权重和偏置 flattened 成一个向量）。拿到 $\theta$ 后用经验 DV 公式 $\hat{\mathbb{I}}_\theta(\mathbf{x}, \mathbf{y}) = \frac{1}{n}\sum_i \theta(\mathbf{x}^i, \mathbf{y}^i) - \log(\frac{1}{n}\sum_j e^{\theta(\mathbf{x}^j, \mathbf{y}^{\pi(j)})})$ 一步算出 MI，其中 $\pi$ 是随机排列得到的边际样本。整套预训练在合成的 copula 混合分布上做，跑一次前向就出 MI；维度 $d > D = 20$ 时切换到 $k$-sliced MI，把高维问题拆成 $S$ 个 $k$ 维子问题并 batch 喂给同一个 $\mathcal{H}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["数据集 D：n 对样本 (x, y)<br/>维度 (dx, dy) 与样本量 n 均可变"]
     IN -->|"d > D=20"| SL["切片 MI：随机正交投影 P, P′<br/>把 x,y 投到 k 维，拆成 S 个子数据集"]

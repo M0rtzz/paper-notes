@@ -44,7 +44,7 @@ tags:
 CFAN 要解决的是文本描述完整、而航拍图像只能看到局部（甚至只有头顶）这种"信息不对等"下的跨模态检索。整体上它走两条对齐路径：一是文本直接对到航拍图像，二是借一张同人的地面视图当中转，文本先对地面、地面再对航拍。一张共享的 CLIP 图像编码器同时吃航拍图和地面图、CLIP 文本编码器吃描述，然后两个模块接力——上下文感知动态对齐（CDA）在样本层面决定这两条路径各占多少权重，模糊 token 对齐（FTA）再在 token 层面把真正可靠的局部细节挑出来精对齐。（下面第 3 个设计的 AERI-PEDES 是离线构建的数据集流水线，不在这张网络框架图里。）
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["航拍图像"] --> IENC["共享 CLIP 图像编码器"]
     G["地面视图"] --> IENC

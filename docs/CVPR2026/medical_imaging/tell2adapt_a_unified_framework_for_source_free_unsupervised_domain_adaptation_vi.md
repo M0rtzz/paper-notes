@@ -47,7 +47,7 @@ Tell2Adapt 想解决的是一个很现实的窘境：源域数据因隐私不能
 整条流水线串起三件事：先用 CAPR 把五花八门的文本提示「翻译」成 BiomedParse 听得懂的规范指令，喂给它跑出伪标签；再以这份伪标签为监督，蒸馏训练 nnUNet；最后用 VPR 拿解剖学统计先验给学生模型的输出做体检，把那些解剖上根本说不通的预测剔掉。三步各管一段——前端保证「问得对」，中段保证「学得到」，后端保证「信得过」。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["目标域无标注图像<br/>+ 非标准文本提示"] --> B["上下文感知提示正则化（CAPR）<br/>LLM 把各种叫法统一成 canonical prompt"]
     B --> C

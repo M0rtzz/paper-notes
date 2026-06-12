@@ -52,7 +52,7 @@ tags:
 目标是追踪一个语言学概念在预训练的哪一刻涌现、又在哪一刻稳定下来。难点在于给每个 checkpoint 单独训 SAE 得到的特征空间互不通约——没法判断 checkpoint A 的 feature 17 和 B 的 feature 17 是不是同一个东西。方法用一条三步流水线绕过这点：先在目标语法任务上结合准确率曲线和中层激活相似度热图，挑出 3-4 个"概念真正变化"的代表性 checkpoint（triplet）；再在这组 triplet 上联合训一个共享稀疏字典（sparse crosscoder），让所有 checkpoint 共用同一组特征 index；最后用 integrated gradients 算每个特征的因果重要性，并用新提出的 RelIE 做归一化对比，把每个 top 特征的语言学功能人工注释出来，从而画出"涌现-维持-消亡"的轨迹。下面三个关键设计按这条流水线的先后顺序展开。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["一个训练 run 的全部<br/>pretraining checkpoint"] --> B
     A --> C

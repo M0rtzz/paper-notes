@@ -43,7 +43,7 @@ VR 草图绘制让用户直接在 3D 空间中探索和迭代想法，消除了 
 论文的核心主张就一句话：笔画顺序很重要。人画图时先勾全局轮廓再补细节，这种从粗到细的次序蕴含了结构先验，而以往把 VR 草图当无序点云的方法把它全丢了。VRSketch2Shape 据此搭了一条三段链路——先用一条无需训练的几何管线从 3D 网格批量造出带时序的合成草图解决数据稀缺，再用序列感知的 BERT 编码器把有序笔画编码成条件，最后用扩散式生成器 SDFusion 从该条件生成 3D 形状，编码器与扩散器端到端联合训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["合成草图生成管线（无需训练）"]
         direction TB

@@ -50,7 +50,7 @@ tags:
 在实现上，作者构造一个辅助问题，例如“这张证据是否有助于回答用户问题？”，并把输出空间限制为 True / False。对于候选图像 $c_i$，模型输入是由原问题、候选图像和辅助判断指令组成的模板 $I=Template(q,c_i,q_{aux})$。helpfulness 分数直接取最终层对 True token 的 logit，即 $s(c_i)=\ell(v^+|I)$。这个设计避免了生成长答案，也不需要额外训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["用户问题 q"] --> POOL["固定候选池<br/>GT 图像 + 检索得到的干扰图像"]
     POOL --> SUR["Surrogate 代理模型加速<br/>轻量 MLLM 替主模型扛 O(N) 次逐张打分"]

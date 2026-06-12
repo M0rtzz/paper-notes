@@ -46,7 +46,7 @@ tags:
 MARCH 要解决的是 3D 胸部 CT 报告生成里的“单读者偏差”问题：端到端模型像一个独自看片、无人复核的医生，异常稀疏时容易漏诊或编造。作者把放射科真实的 readout session——住院医初读、专科医复审、主治医终审——直接映射成一条多智能体流水线。输入是胸部 CT 体积数据，输出是最终放射学报告，中间走三段：住院医智能体先起草初始报告；检索智能体调相似病例、专科医智能体据此修订；主治医智能体主持多轮共识讨论，多个专科医反复交换立场直到达成临床共识。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["胸部 CT 体积数据"]
     subgraph S1["住院医智能体 + 多区域分割"]

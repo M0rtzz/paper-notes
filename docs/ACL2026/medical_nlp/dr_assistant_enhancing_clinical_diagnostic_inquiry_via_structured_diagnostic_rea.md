@@ -46,7 +46,7 @@ tags:
 CDRD 构建管道（LLM+医生协作三阶段：症状提取→疾病匹配→逻辑补全）→ 数据合成（CDRD→QA 对用于 SFT + CDRD→多轮问诊对话用于 RL）→ Dr. Assistant 两阶段训练（SFT 记忆推理逻辑 + RL 强化问诊技能），训练出的模型在每轮问诊里都按结构化模板"先想清楚再开口"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     G["临床指南<br/>诊断逻辑散在各章"] --> CDRD
     subgraph CDRD["CDRD 数据结构与构建管道"]

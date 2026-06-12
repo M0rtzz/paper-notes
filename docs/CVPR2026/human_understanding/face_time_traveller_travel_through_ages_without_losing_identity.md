@@ -47,7 +47,7 @@ tags:
 FaceTT 要解决的是「换年龄不换人」：输入一张源年龄人脸，输出目标年龄的人脸，既要把皱纹、肤色这些年龄相关特征改到位，又不能让身份、表情漂走。它基于预训练 Stable Diffusion，在 FFHQ-Aging 上只做 150 步轻量微调，然后让一张脸依次过三个模块——先用 VLM 把人脸读成一段属性丰富的文本提示，再用角度反演把它无优化地映射进扩散潜空间，最后用自适应注意力控制在去噪过程中动态权衡「改年龄」和「保结构」。三个模块串起来，推理时不需要任何额外优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源年龄人脸"] --> B["面部属性感知提示词精炼<br/>FastVLM 抽内在/外在属性 → 精炼提示"]
     B --> C["角度反演<br/>按反演轨迹与前向轨迹的角度偏差缩放更新<br/>无迭代优化映射进潜空间"]

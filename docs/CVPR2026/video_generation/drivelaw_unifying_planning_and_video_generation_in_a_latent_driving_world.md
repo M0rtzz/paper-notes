@@ -39,7 +39,7 @@ tags:
 DriveLaW 想解决的是「视频生成器学到的场景知识被浪费在渲染上、传不到规划器」这个问题，做法是把生成器和规划器串成一条链，让前者的中间表示直接喂给后者。整条流水线由两个组件接力：前半段是 **DriveLaW-Video**，一个时空视频生成器，由时空 VAE 和 Video DiT（扩散 Transformer）组成，吃进历史观测和动作，去噪出未来视频的潜在特征 $z$（去噪过程中用噪声重注入补回高频细节）；后半段是 **DriveLaW-Act**，一个轻量的 Action DiT 扩散规划器，它不再去看原始图像，而是直接以 $z$ 为条件，用 flow matching 生成未来轨迹。关键在于中间那个 $z$：它不是用来解码成像素的，而是当作规划状态被传下去——视频生成器在这里从「渲染器」转岗成了「特征提取器」。整套生成器与规划器再由三阶段渐进训练分别优化、最后级联。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["历史观测（图像 + 动作）<br/>+ 自车状态 + 高层指令"]
     subgraph VID["DriveLaW-Video（时空视频生成器）"]

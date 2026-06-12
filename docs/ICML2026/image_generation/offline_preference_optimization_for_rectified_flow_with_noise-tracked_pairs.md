@@ -44,7 +44,7 @@ tags:
 PNAPO 要解决的是 Diffusion-DPO 在 RF 上"丢掉先验噪声、只能拿独立采样的噪声近似反向轨迹"这一方差源头。它把这件事拆成一条离线、off-policy 的 RL-free 管线：先用 RF 基础模型给每个 prompt 采两个先验噪声、各生成一张图、再用奖励模型打分，存成保留噪声的六元组；训练时不再重采样，而是借 RF 的直线轨迹性质从存好的端点对插值出中间态，喂进一个与 RF 几何一致的 DPO 风格目标，并配上随奖励差和训练进度自动调节的动态 $\beta$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["先验噪声追踪的偏好六元组"]
         direction TB

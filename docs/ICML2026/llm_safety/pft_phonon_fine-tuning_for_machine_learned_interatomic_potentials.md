@@ -46,7 +46,7 @@ PFT 的目标很直接：拿一个已经在 MPtrj 等大规模轨迹数据上预
 训练时每个声子超胞结构会被随机抽一个原子 $b$ 和笛卡尔方向 $j$，构造一个只在 $(b,j)$ 处为 1 的单位向量 $\mathbf{v}$，用一次 Hessian-vector product 算出对应的 Hessian 列 $\nabla^2_\mathbf{r}\hat{E}\,\mathbf{v}$，与 DFT 力常数的同一列做 MAE，连同 EFS 三项一起组成 $\mathcal{L}_\text{PFT}$；每走 1 步这样的 PFT，再补走 $K=4$ 步上游 MPtrj 的标准 EFS 微调（Algorithm 1）。微调后产出的仍是同一个 $\hat{E}_\theta$，只是 PES 曲率与 DFT 对齐了，下游推理用有限位移或解析 AD 取全力常数结果几乎重合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练 MLIP Ê_θ<br/>(Nequix MP, MPtrj 训练)"]
     P["声子超胞结构<br/>(MDR Phonon, DFT 力常数 Φ)"]

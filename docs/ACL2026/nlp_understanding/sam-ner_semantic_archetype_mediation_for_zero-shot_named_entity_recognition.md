@@ -45,7 +45,7 @@ SAM-NER 是一个 progressive mediation pipeline。第一阶段 Entity Discovery
 这种设计的关键是解耦：span boundary 由双抽取器协作解决，跨域语义稳定性由 archetype classifier 提供，细粒度类型归属由 definition alignment 处理。每一步都降低下一步的搜索空间和语义不确定性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入句子"] --> S1
     subgraph S1["协作式实体发现 Cooperative Entity Discovery + CCR"]

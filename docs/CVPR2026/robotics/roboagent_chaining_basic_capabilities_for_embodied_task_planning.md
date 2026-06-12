@@ -46,7 +46,7 @@ tags:
 RoboAgent 要解决的是：怎么让一个 VLM 在具身环境里做长视野规划，而不是让它一口气吐出一段无人监督的自由 CoT。它的做法是把"规划"拆成两层角色，但底层只用同一个 VLM（Qwen2.5-VL-3B）扮演——上层是调度器（Scheduler），下层是 5 种基本能力（Capability）。调度器读任务指令和历史上下文，决定下一步该调哪个能力、传什么查询，输出一串 `[(能力名, 查询)]`；被点名的能力接过查询和当前观察图像，要么吐出原子动作直接和环境交互，要么吐出一段文本反馈回填给调度器。调度器据此更新上下文、再决定下一次调用，如此循环直到任务完成。整个链条不依赖任何外部工具或闭源模型，因此可以端到端训练——而要把这个"调度器 + 能力"合一的单个 VLM 训出来，本文用了递进的三阶段流程（SFT-Expert → DAgger-SFT → 专家引导 RFT）。下面先讲规划架构、再讲三阶段训练，其中第三阶段的强化微调用到自研的 EIPO 算法。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PLAN["能力驱动规划（单个 VLM 扮演调度器 + 5 能力）"]
         direction TB

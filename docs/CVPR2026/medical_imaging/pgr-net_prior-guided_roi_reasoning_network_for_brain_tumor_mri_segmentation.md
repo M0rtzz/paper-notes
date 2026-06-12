@@ -48,7 +48,7 @@ PGR-Net 想解决的核心问题是：脑肿瘤只占 MRI 图像的约 11%，但
 整张网络是一个以窗口化 RetNet（Win-RetNet）为骨干的编码器-解码器。离线阶段先扫一遍训练集所有标注，统计出一组 ROI 先验模板 $\{(r_i, c_i)\}_{i=1}^N$，每个模板记录一个代表性的病灶尺度比 $r_i$ 和中心坐标 $c_i$。在线推理时，这 $N$ 个候选 ROI 被丢进编码器：层级 Top-K 决策（HTK）从最粗的编码层开始逐层打分、逐层淘汰，候选集越来越小，直到锁定最可信的那一个；与此同时，WinGS-ROI 模块把当前存活的候选转成一张"中心强、边界缓"的高斯引导图，乘进特征里，引导 Win-RetNet 骨干在 ROI 窗口内做高效建模。解码阶段则进一步只在锁定的 ROI 内做上采样和跳连融合（ROI-Only / ROI-Aware），彻底不在背景上花算力。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PRIOR["ROI 先验模板构建（离线·遍历训练集）"]
         direction TB

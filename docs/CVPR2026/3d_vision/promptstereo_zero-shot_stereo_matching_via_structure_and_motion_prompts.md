@@ -43,7 +43,7 @@ tags:
 以 MonSter 为基线。输入立体图像对 → Depth Anything V2 提取单目特征+相对深度 → MonSter 特征编码器提取多尺度立体特征 → 代价体积构建+初始视差回归 → 仿射不变融合（AIF）把初始视差和单目深度拼成可靠起点 → PRU 迭代精炼（每步由 Structure Prompt 与 Motion Prompt 以残差方式注入结构与运动线索）→ 输出最终视差。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["立体图像对"] --> B["Depth Anything V2<br/>单目特征 + 相对深度 d_M"]
     A --> C["MonSter 特征编码器<br/>多尺度立体特征"]

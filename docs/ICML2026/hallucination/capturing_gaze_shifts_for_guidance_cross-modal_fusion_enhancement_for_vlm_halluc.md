@@ -44,7 +44,7 @@ tags:
 GIFT 分为两个阶段：（1）预填充阶段，在模型处理用户查询时追踪视觉注意力的正向变化（"注视转移"），构建视觉显著性图；（2）解码阶段，利用显著性图在关键跨模态融合层同时增强视觉和查询 token 的注意力。输入为标准的 VLM 三元组（系统指令 $X_S$、视觉 token $X_V$、查询 token $X_T$），输出为缓解幻觉的生成文本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入<br/>系统指令 + 视觉 token + 查询 token"]
     subgraph S1["1. 注视转移追踪构建显著性图（预填充阶段）"]

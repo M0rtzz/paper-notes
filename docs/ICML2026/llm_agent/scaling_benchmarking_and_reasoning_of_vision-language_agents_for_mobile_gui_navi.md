@@ -44,7 +44,7 @@ tags:
 这篇论文不发布新模型，而是把"数据—训练—评测"拧成一根分析链条，专门回答"GUI Agent 上 SFT 还是 RL、要不要 thinking"这两个争议问题。链条的起点是 HyperTrack 数据集（16080 个真实中文任务，每步带截图、文本指令、低级动作描述和 bbox），UI-TARS-1.5-7B / Qwen3-VL-8B 在它切出的 10 个规模子集（16→8192 episodes）上分别做 SFT 和 DAPO-RL；训练好的模型交给 GUIEvalKit，统一动作空间后跨 5 个 benchmark（AndroidControl、AiTZ、GUI Odyssey、CAGUI、HyperTrack）算 step-type/exact-match 和 episode-progress/success 四个指标；最后 SOEval 把离线评测拉近真实 on-policy 分布，决策级 Diversity/Stability 把"thinking 的代价"量化成一条权衡曲线。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["HyperTrack 数据集 + 四向 OOD 切分"]
         direction TB

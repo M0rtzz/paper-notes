@@ -43,7 +43,7 @@ tags:
 这篇论文不提出新模型，而是搭了一个三层验证框架来拆解"cutoff 后性能下降 = 污染"这条推断：性能层先在 26 个月、8 个前沿模型上比较 LLM 生成 arXiv 推理题的 cutoff 前后准确率；干预层把同一批源论文换成 cloze 填空题、并把改写实验扩展到 LiveCodeBench 和 Wikipedia QA，只动题面、不动答案与发布时间；机制层在公开训练数据的 OLMo2-7B-Instruct 上用影响函数追踪模型回答时究竟最受哪些训练文档影响。最终产出不是一个模型，而是一组污染探针结果，把"是否污染"拆成"题面可追溯性"和"源材料是否在训练中出现"两个独立层面。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["同源材料<br/>arXiv 20,277 篇 / 26 个月"]
     subgraph L1["同源材料的时间窗口评测"]

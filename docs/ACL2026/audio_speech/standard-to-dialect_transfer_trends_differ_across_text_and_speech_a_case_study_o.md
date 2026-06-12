@@ -45,7 +45,7 @@ tags:
 主实验基于 MASSIVE / Speech-MASSIVE 的德语训练数据，以及 xSID 的德语与巴伐利亚语测试数据。作者额外录制 xSID-audio，让同一批德语和巴伐利亚语句子都有语音版本。辅助实验使用 SwissDial，其中德语文本与八种瑞士德语方言在内容上平行，任务是主题分类。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SRC["标准德语训练数据<br/>MASSIVE 文本 / Speech-MASSIVE 语音"]
     subgraph PATHS["三路径迁移对照"]

@@ -52,7 +52,7 @@ tags:
 论文有两个紧耦合组件：(1) **ImpForge** = 数据生成流水线，分两阶段——Stage 1 用命名实体识别（NER）+ CLIP 检索给恶意文本 query 配安全图像（构造 keyword→image 映射），Stage 2 用 PPO + LoRA 训练改写器（rewriter）policy，将原始 (xI, xT) 改写为更隐式的 (xI, x̂T)，由三 reward 模块联合监督。(2) **CrossGuard** = 守卫模型，以 LLaVA-1.5-7B 为底，用 ImpForge 生成的隐式数据 + VLGuard/FigStep 显式数据 + VQAv2 良性数据混合训练，LoRA 微调 vision/language 双 backbone，输出 binary safety 判断作为前置过滤器。整条链路是「Stage 1 配图 → Stage 2 三 reward 改写 → 生成隐式样本 → CrossGuard 混合训练成守卫」的串行流水线。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["恶意文本 query（BeaverTails）"] --> S1
     subgraph S1["NER + CLIP 检索的安全图像匹配（Stage 1）"]

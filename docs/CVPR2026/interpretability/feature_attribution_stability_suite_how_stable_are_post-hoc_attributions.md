@@ -46,7 +46,7 @@ tags:
 FASS（Feature Attribution Stability Suite）想回答一个被以往评估忽略的问题：当输入被扰动、但模型预测没变时，归因图还稳不稳？它把评估拆成一条流水线——先对每张图施加一种扰动，再用预测不变性过滤掉那些"扰动后模型已经改判"的样本对，最后只在预测保持一致的样本对上，从空间、排序、显著区域三个角度分别度量归因图的变化。这样得到的稳定性才真正反映"解释的脆弱性"，而不是"模型本身的敏感性"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原图 + 扰动图对"] --> B["扰动分类<br/>几何 / 光度 / 压缩 三类结构化扰动"]
     B --> C{"预测不变性过滤<br/>argmax 预测是否一致？"}

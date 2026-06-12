@@ -41,7 +41,7 @@ FineCog-Nav 要解决的是同一个尴尬：换上小模型后零样本 UAV 导
 整条流水线是一个闭合的感知-推理-行动循环：语言模块先把长指令切成带地标的子目标；注意力模块挑出当前该盯哪个地标、生成查询；感知模块在查询引导下描述眼前场景；想象模块预先写出"子目标完成时应该看到什么"；判断器拿观测、记忆和这份想象参考比对，决定子目标是否达成；多层级记忆把这一路的观测压缩归档；最后决策模块据此输出动作。每个模块的输出就是下一个模块的输入，依赖关系是显式写出来的，因此整个推理链可解释、可调试。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["多步指令"] --> LANG["层次化指令分解<br/>切句配地标 → 动态展开子目标"]
     LANG --> ATT

@@ -45,7 +45,7 @@ ICR 不在 residual stream 注入 shift vector，而是从多域 ICL 中用 PCA 
 ICR 把"隐式 ICL"从 residual stream 的加性偏移搬到 attention logits 的低秩调制：先离线跨多个域跑显式 ICL、用 PCA 从每层 query/key projection 里提炼一组任务无关的 Principal ICL Directions (PIDs)，再训一个 query-conditioned router 学会"对当前 query 该怎么沿这些方向调制注意力"。三阶段串起来——(1) 跨 $\mathbb{D}$ 个域提 PIDs $U_q^l, U_k^l \in \mathbb{R}^{d\times r}$；(2) 冻结 LLM、只训 router 输出每层方向权重 $\alpha(x)$ 和每 head gate $\gamma(x)$；(3) 推理时对任意新 query 算出 $\alpha,\gamma$，把低秩修正加到 attention logits，全程零检索零再训。下图把这条 pipeline 的两个核心设计（PIDs 提取、router）与推理调制串起来：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["阶段一 · Principal ICL Directions 提取（离线一次）"]
         direction TB

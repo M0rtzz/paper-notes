@@ -49,7 +49,7 @@ FOUL 分为两个阶段：
 - **阶段二 On-server Gradient Matching**：遗忘触发后，仅更新非因果子网络 $\theta_V$，在服务器端通过梯度匹配聚合——使聚合梯度与保留客户端梯度方向一致、与遗忘客户端梯度方向冲突。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["各客户端本地数据"] --> E["浅层提取器 θ_E"]
     subgraph L2U["阶段一·因果/非因果特征解耦（Learning to Unlearn）"]

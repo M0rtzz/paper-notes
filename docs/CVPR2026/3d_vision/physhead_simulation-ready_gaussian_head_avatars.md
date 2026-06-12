@@ -44,7 +44,7 @@ tags:
 输入多视角视频和360°静态捕获。方法包含两阶段优化：(1) **头部层优化**：先用VLM编辑去除头发生成秃头训练图像，在这些图像上优化FLAME绑定的3DGS面部模型；(2) **头发层优化**：在头部层之上，用NeuralHaircut初始化发丝几何，将3DGS挂载到发丝段上优化外观。最终头发通过物理引擎中的引导束(guiding strands)+稀疏-密集传播实现动画。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入<br/>多视角视频 + 360°静态捕获"] --> B
     subgraph HEAD["头部层优化"]

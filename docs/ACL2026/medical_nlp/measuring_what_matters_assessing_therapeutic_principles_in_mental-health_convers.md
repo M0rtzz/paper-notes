@@ -44,7 +44,7 @@ tags:
 CARE 要解决的问题是：给定一段治疗师-患者对话，逐条评估治疗师回复 $u_t$ 在六个治疗原则维度上做得好不好，输出 $\{-2, -1, 0, +1, +2\}$ 的序数标签。它没有把单句话孤立地丢给分类器，而是让三路信号汇合后再判分——一路编码这句话所处的局部对话历史，一路把临床专家的推理逻辑蒸馏进来，最后一路用交叉注意力把两者和回复本身融在一起，送进一个序数感知的分类头。直观上这三路分别回答“这句话说在什么语境下”“一个有经验的治疗师会怎么推理”“综合起来该打几分”。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["治疗师-患者对话<br/>逐条回复 u_t"] --> B["相关上下文模块<br/>截取前 k 轮窗口，自注意力编码 → R_ctx"]
     A --> KD

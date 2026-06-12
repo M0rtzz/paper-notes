@@ -44,7 +44,7 @@ CoEvolve 提出**智能体-数据共进化框架**，通过从训练轨迹中提
 CoEvolve 要解决的是"训练数据静态、智能体能力动态"的错配，做法是把数据合成挂到智能体当前的弱点上去。一轮迭代里，智能体先用 GRPO 在环境中训练并产出 rollout 轨迹，系统从这批轨迹里抽取遗忘、边界、稀有三类弱点信号；信号连同对应失败轨迹被喂给一个 LLM 去反思并生成结构化探索上下文，引导它回到环境里针对弱点区域再探索；新发现的交互模式被抽象成任务、经环境验证后并入下一轮训练集。如此"训练→发现弱点→合成针对性数据→再训练"循环往复，让数据分布随智能体能力一起演化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["训练集 D_t"] --> B["GRPO 训练智能体<br/>产出 rollout 轨迹"]
     subgraph SIG["三类弱点信号提取"]

@@ -50,7 +50,7 @@ DOPA 的执行流程分三个阶段：
 3. **演示检索阶段**：从候选集中基于相似度初始化演示池，然后通过马哈拉诺比斯距离约束逐步扩充演示集合，确保最终演示既有相似性又有多样性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源域数据"] --> B
     subgraph PROXY["双代理 OOD 评分"]

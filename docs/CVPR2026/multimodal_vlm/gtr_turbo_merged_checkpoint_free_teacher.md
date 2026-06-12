@@ -39,7 +39,7 @@ tags:
 GTR-Turbo 在标准的多轮 PPO 训练循环之上增加了三个关键步骤：(1) 每次 RL 更新后保存 checkpoint 到缓冲区；(2) 使用 TIES 合并方法将缓冲区中的所有历史 checkpoint 合并为一个**免费教师**模型；(3) 用该合并教师指导后续 RL 训练——指导方式二选一，要么走 **SFT 指导**（GTR-Turbo-SFT），要么走 **KL 散度蒸馏**（GTR-Turbo-KL）。更新后的模型又被存入缓冲区，使合并教师随训练不断变强，形成自我进化的正反馈回环。整个过程不需要任何外部模型调用。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["VLM 智能体 πθ<br/>多轮 PPO 训练循环"] --> B["每次 RL 更新后<br/>保存 checkpoint 入缓冲区"]
     subgraph T["TIES 合并生成免费教师"]

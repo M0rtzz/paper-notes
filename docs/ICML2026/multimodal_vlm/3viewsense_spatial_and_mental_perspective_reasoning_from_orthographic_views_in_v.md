@@ -44,7 +44,7 @@ tags:
 输入是一张 egocentric 图像和一个空间问题，输出是计数或离散方向标签。整条管线是「先模拟、再推理」(Simulate-and-Reason)：先由正交视图心理模拟 (OMS) 从单图诱导出前/左/上三个正交视图，再由视图锚定推理 (VGR) 以这三视图为条件整合出答案。训练分三步：先在 OrthoMind-3D 的程序化数据上做 Stage I SFT，学习生成三个正交视图的结构化描述；再做 Stage II SFT，让模型以三视图为条件生成推理链和最终答案；最后从 Stage II 模型出发，用 GRPO 在数学可验证奖励下强化答案正确性和推理稳定性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：单张 egocentric 图像 + 空间问题"] --> SIM
     subgraph SIM["1. 正交视图心理模拟 OMS"]

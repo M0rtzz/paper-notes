@@ -47,7 +47,7 @@ TRACER loss = $\mathcal{L}_{\mathrm{MMCL}} + \lambda_{\mathrm{SD}} \mathcal{L}_{
 每个 training step：(1) student 用 MMCL gradient 更新；(2) WMA teacher 用 $\mathbf{W}_{\mathrm{Teacher}}^t = (1-\omega_t) \mathbf{W}_{\mathrm{Teacher}}^{t-1} + \omega_t \mathbf{W}_I^t$ 更新，$\omega_t = \kappa(\tau_t) / \sum_j \kappa(\tau_j)$ 是基于 Beta(0.5, 0.5) kernel 的权重；(3) teacher 给 student 反馈四种 distillation 信号。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练 CLIP<br/>(冻结 text encoder)"] --> B["student：MMCL 梯度更新<br/>InfoNCE + cross-Frobenius"]
     subgraph THEORY["Contrastive Target Matrix + 闭式解几何分解"]

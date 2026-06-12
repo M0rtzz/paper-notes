@@ -50,7 +50,7 @@ tags:
 三种上下文设置：no-context（只看当前句）、one-context（前后各一句）、full-context（仅 LLaMA-3 / Qwen-3 支持，把全部前文 concat）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["双语口语对话语料<br/>英(Switchboard+MapTask)/日(BTSJ)·各取 top-15 高频项"]
     A --> FT

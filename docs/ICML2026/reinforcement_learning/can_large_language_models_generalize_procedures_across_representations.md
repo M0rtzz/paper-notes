@@ -48,7 +48,7 @@ tags:
 训练流程分两阶段：**阶段一（符号归纳）** 在 Graph 数据上用 GRPO 训练 40 步，让模型快速学会抽象的图搜索过程；**阶段二（自然语言适配）** 在 NL 数据上继续 GRPO 训练 40 步，将学到的过程知识迁移到自然语言。总训练预算与纯 NL 训练 80 步完全相同。训练得到模型后，作者再用结构映射理论的类比分析框架对结果做事后解释，验证泛化究竟来自结构类比还是数据频率。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["AsyncHow 异步规划实例"] --> B["转成 DAG<br/>关键路径计算"]
     subgraph DATA["同构数据构建与表征隔离"]

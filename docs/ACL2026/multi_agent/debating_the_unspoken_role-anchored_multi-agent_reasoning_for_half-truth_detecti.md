@@ -46,7 +46,7 @@ tags:
 RADAR 要解决的是"半真半假"这种特殊谎言——声明本身事实正确，却靠遗漏关键上下文来误导。整套流程分两步：先在现实的噪声检索条件下为每条声明拉出一个共享证据池，再让三个角色锚定的智能体在这个证据池上多轮辩论，由一个自适应早停机制决定何时收手。三个智能体各司其职：政客负责把证据拼成最有说服力的支持叙事，科学家负责盯着同一份证据找哪里被略过了，法官负责裁决三分类（true/half-true/false）并控制辩论是否终止。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["半真半假声明"] --> B["检索锚定的证据共享<br/>top-m 共享证据池（含噪声）"]
     B --> C

@@ -47,7 +47,7 @@ COPEx 把"测试时改约束不用重训"这件事拆成两层：约束感知交
 测试时走 receding-horizon：每一步 $t$ 在线展开一棵 H 步 lookahead 场景树，根节点是当前 $(\mathcal{D}_{t-1},z_t)$，每个 decision 节点选一个设计 $x_k^{j_{1:\ell}}$，每个设计往下采 $m_k$ 个 fantasy 观测分支，到深度 $H+1$ 截断；一次性联合优化整棵树上的所有决策变量 $\mathbf{X}_{\text{tree}}$，只执行根节点最优设计 $x_t^\star$，观测真实 $y_t$，更新状态后重新规划。支撑这棵树高速运转的，是离线预训练好的两件东西：摊销 posterior 网络 $q_\phi(\theta\mid\mathcal{D})$（混合密度网络拟合 $\mathcal{D}\mapsto p(\theta\mid\mathcal{D})$，负责"算得快"）和摊销设计策略 $\pi_\psi$（直接复用 Huang et al. 2026 的 ALINE transformer，负责"初始化得好"）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["离线摊销（训练一次，与约束无关）"]
         direction TB

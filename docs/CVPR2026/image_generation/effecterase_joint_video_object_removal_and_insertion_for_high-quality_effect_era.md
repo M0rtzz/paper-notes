@@ -40,7 +40,7 @@ tags:
 EffectErase 要解决的是视频物体移除后残留的各种视觉副效应（阴影、反射、光照、遮挡、变形）。它在 Wan 2.1 视频生成模型上用 LoRA 微调，核心思路是把"移除"和它的逆任务"插入"放在一起联合学习——插入分支天然知道一个物体会带来哪些副效应，从而反过来监督移除分支把这些副效应也一并擦干净。整条流水线由三部分支撑：大规模 VOR 数据集提供真实的"有物体/无物体"配对监督，任务感知区域引导（TARG）建模物体与副效应的时空关联，效果一致性损失（EC）让移除与插入两个分支对齐到同一受影响区域。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DATA["VOR 数据集<br/>真实拍摄 + Blender 合成，60K 视频对覆盖五类副效应"]
     IN["输入：视频 + 物体 mask + 任务提示"]

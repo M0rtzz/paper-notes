@@ -43,7 +43,7 @@ tags:
 FLAIR 只动全双工 SDLM 在 listening phase 的输入：常规做法是用户讲话时往文本流反复写 `<SIL>` 把两条流凑齐，FLAIR 改成往这些位置喂一段随用户输入持续演化的**隐式推理嵌入** $Z$，让本来空转的 token slot 真正在"想"。训练时额外挂一个非因果"全局专家"$Q_\phi$，它能看完整段对话（用户音频 $X$ + 助手文本嵌入 $H^{txt}$）给出每步理想隐式嵌入当软标签，因果 LLM $P_\theta$ 通过 KL 把这套全局后验内化掉；推理时专家被丢弃，只剩因果 LLM 加一个时序头自主切换"想"与"说"，整套机制逐步对齐、无 chunk、无推理时额外计算。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["用户语音流（listening phase）"] --> B["因果 SDLM 主干<br/>输出末层隐藏态 h^l"]
     B --> C["vocab-weighted 递归隐式嵌入<br/>LM head 出 logits → Softmax 加权词表 E 得 Z"]

@@ -46,7 +46,7 @@ SIMPACT 提出一种测试时的仿真增强动作规划框架，从单张 RGB-D
 SIMPACT 想解决的核心问题是：VLM 有语义常识却不懂物理动力学，让它直接吐动作参数就是在"盲猜"。它的破局思路是在测试时给 VLM 外挂一个物理仿真器，把"动作会导致什么后果"这件事交给仿真器算，VLM 只负责提想法和读结果。整条 pipeline 从一张 RGB-D 图像出发，分两个阶段：**先建仿真**——把这张图自动重建成一个可交互的仿真场景（按物体是刚体还是可变形自动配两套物理引擎，并由 VLM 推断物理参数）；**再做规划**——让 VLM 在仿真里反复"提出动作→观察 rollout→评估→修正动作"，直到动作能把场景推到目标状态，最后把这串收敛好的动作搬到真实机器人上执行。全程 VLM 权重冻结，不做任何训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["单张 RGB-D 图 + 语言任务"] --> SEG
     subgraph BUILD["自动构建多物理仿真（设计 1）"]

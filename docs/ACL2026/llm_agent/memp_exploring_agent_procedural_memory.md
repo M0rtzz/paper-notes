@@ -46,7 +46,7 @@ tags:
 Mem^p 把 Agent 交互建模为 MDP，并把策略从 $\pi(a_t|s_t)$ 扩展为带程序性记忆的 $\pi_{m^p}(a_t|s_t)$，让记忆从隐式的参数/手写 prompt 升级为可被系统优化的一等对象。整个流程沿"输入任务序列 → Build 把完成轨迹蒸馏成记忆 → Retrieve 按相似度召回相关记忆辅助新任务 → Update 在测试期动态增删改记忆库 → 输出不断演化的记忆库 Mem"运转，三个模块各自留出多种可替换策略供逐一消融。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入任务序列"] --> BUILD
     subgraph BUILD["记忆构建（Build）：完成轨迹后沉淀什么"]

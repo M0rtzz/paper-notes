@@ -40,7 +40,7 @@ tags:
 这篇竞赛方案要解决的是 Aff-Wild2 这类野外视频里帧级表情识别（EXPR）的两个老大难：单帧视觉特征又嘈杂又不稳，且歧义场景下光看脸不够判。作者把问题拆成前后两阶段，让两件事互不干扰。Stage I 只在干净的图像数据集（AffectNet + RAF-DB）上把 DINOv2 ViT-L/14 编码器的表情感知能力练好——这一步引入 PadAug 增强和一个只在训练时存在的 MoE 头。Stage II 才上视频：对每一帧做多尺度面部裁剪过 Stage I 适配好的 DINOv2 拿视觉特征，同时用 Wav2Vec 2.0 抽帧对齐的音频特征，两路经门控融合得到帧级表情预测，最后再用滑动窗口对时间轴做平滑。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["Stage I：视觉编码器域适配（干净图像）"]
         direction TB

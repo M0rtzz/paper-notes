@@ -51,7 +51,7 @@ LSD（Langevin Speculative Dynamics）的运行时是一个流水线异步系统
 整个系统不需要预先指定前瞻长度 $L$，比 Leviathan 等 (2023) 的同步算法更易分析，资源最优配置只需 $N_T \geq \lceil 1/c \rceil$（$c$ 为草稿/目标耗时比）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["初始状态 x₀"]
     subgraph PIPE["流水线 + 投机错误修正（EC）"]

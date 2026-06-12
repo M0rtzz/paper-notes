@@ -40,7 +40,7 @@ tags:
 物体替换最缺的不是模型，而是训练数据：真实世界几乎不存在「同一场景、同一位置、换了个物体」的成对图像，于是已有方法要么靠视频/多视角凑伪配对（带来模糊和「换汤不换药」的同物体偏差），要么干脆在训练时把源物体 mask 掉、让模型从背景去猜。SourceSwap 换了个思路：从**一张图**里造伪配对。它先用频率分离的初始噪声扰动，把源图像里的物体「改头换面」成一个外观不同但形态相近的新物体——这样原图和扰动图就构成了一对「替换前/替换后」的监督样本；再用一个保留完整源图像的源感知双 U-Net 去学这对样本之间的映射，从而真正学到「两个不同物体之间怎么对齐」。整条链路是：源图 → DDIM 反演到噪声 → 频域扰动造伪配对 → 双 U-Net 训练 → 推理时迭代精化输出。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源图像 + 物体 mask"] --> S1
     subgraph S1["频率分离初始噪声扰动（从单图造伪配对）"]

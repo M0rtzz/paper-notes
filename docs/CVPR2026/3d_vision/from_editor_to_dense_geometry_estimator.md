@@ -44,7 +44,7 @@ tags:
 FE2E 基于 Step1X-Edit（一个基于 DiT 架构的 SOTA 图像编辑模型）。输入是 RGB 图像，输出是对应的深度图和法线图。整个流程为：VAE 编码器将输入图像和几何标注编码到潜空间，DiT 学习从固定起点到目标潜表示的恒速直线路径，最后 VAE 解码器将预测结果解码回像素空间。训练时深度/法线标注要先经对数标注量化压到 BF16 友好的数值区间再编码；推理时 DiT 的左右两半输出区域被分别用作深度和法线的预测，同时出两张图、无需额外计算开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入 RGB 图像"] --> ENC["VAE 编码器<br/>编码到潜空间"]
     GT["深度 / 法线标注<br/>(训练时监督)"] --> LOG["对数标注量化<br/>取对数 + 百分位归一化到 [−1,1]"]

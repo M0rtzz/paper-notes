@@ -46,7 +46,7 @@ tags:
 SERM 想解决的是一个工业搜索里很现实的问题：查询分布每天都在变，但相关性模型一旦训完就停在原地。它建立在一个 LLM 生成式相关性模型之上——输入 query+doc，模型先生成判断理由、再吐出 0-3 的相关性分数。在这个底座之上，SERM 套了一个每两周转一圈的自进化循环：先让"多智能体样本挖掘器"从新一批查询流里捞出约 700K 个模型最该学的困难样本，再让"多智能体标注器"给这些样本打上可靠标签，最后把新数据混进历史 SFT 数据一起重训，既吸收新分布又不忘旧知识。整个闭环的两个难点——困难样本太稀疏、伪标签不可靠——正好由挖掘器和标注器分别接管。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["大规模查询流<br/>query + doc"]
     subgraph MSM["多智能体样本挖掘器（MSM）"]

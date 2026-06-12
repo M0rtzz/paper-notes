@@ -44,7 +44,7 @@ tags:
 LSSAR（Length Scaled Softplus Attention with Re-weighting）由两个串联阶段组成。第一阶段（归一化阶段，LSSA）：对 $Q, K$ 各行做 $L_2$ 归一化，把点积锁在 $[-1, 1]$；用 Softplus 替代 $e^x$ 作为非负化函数；以 $\log d \cdot \log N$ 作为按位置动态变化的尺度因子；最后对每行做 $L_1$ 归一化。第二阶段（锐化阶段）：在 LSSA 的输出上做"乘以 $N$（按位置 token 数）→ 减去偏置矩阵 $O$ → 取 ReLU 并升到 $p$ 次方 → 再 $L_1$ 归一化"。两阶段都加在原 GPT-2 small（124M）+ RoPE 框架上，其它部分不变。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     QK["Q、K（按行）"]
     subgraph S1["LSSA 归一化阶段"]

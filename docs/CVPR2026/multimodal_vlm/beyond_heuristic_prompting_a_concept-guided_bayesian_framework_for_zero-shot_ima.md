@@ -45,7 +45,7 @@ $$p(Y_i|X) \approx \sum_{C_{i,j} \in \mathcal{C}_i} p(Y_i|X, C_{i,j}) \cdot p(X|
 其中 $p(Y_i|X, C_{i,j})$ 由 CLIP 相似度算出，$p(X|C_{i,j})$ 是一个自适应 soft-trim 似然（充当概念的权重）。于是整套方法分两块：一块负责**造概念**——用 LLM 离线合成一组高质量、有区分度的概念当作概念提案分布；另一块负责**用概念**——在贝叶斯加权时压住那些和图像格格不入的离群概念。两块都做完，推理时只是一次加权求和，零额外计算。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：类名 + 测试图像"]
     subgraph SYN["LLM 多阶段概念合成（离线·造概念）"]

@@ -45,7 +45,7 @@ tags:
 QD-PCQA 要解决的是无参考点云质量评估（NR-PCQA）标注稀缺、泛化差的问题：思路是把图像域已标注的质量先验，通过无监督域适应迁移到点云域，但迁移时要时刻保持"质量感知"。具体流程：先把 3D 点云投影到立方体六个面生成多视图图像，与自然图像统一 resize 到 $224 \times 224$、共享一个 ResNet-50 提特征；训练时一边用 Quality-guided Feature Augmentation（QFA）按质量分数做增强、一边用 Rank-weighted Conditional Alignment（RCA）做质量条件对齐，让源域（图像）的质量知识在质量级别一致的前提下迁到目标域（点云）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SRC["自然图像（源域，含质量标注）"]
     PC["点云（目标域）"]

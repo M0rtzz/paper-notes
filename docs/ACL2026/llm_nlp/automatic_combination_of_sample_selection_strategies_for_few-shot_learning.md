@@ -46,7 +46,7 @@ tags:
 ACSESS 的核心思路是：样本的"好"不是单一属性能衡量的，应当把多条互补的选择策略自动组合起来。它把传统机器学习里的特征选择思路从样本级别抬升到策略级别，分三步走——先定义一个覆盖信息量、代表性、可学习性三大属性族的单属性策略库（23 种），再用前向选择、后向选择、Datamodels 三种独立方法各自挑出高贡献策略子集并取交集，最后按选定策略对每个样本加权打分、选出得分最高的 N 个样本作为少样本示例或支撑集。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["候选样本池<br/>（最多 200 样本/类）"] --> B["三维度策略定义<br/>信息量 + 代表性 + 可学习性<br/>共 23 种单属性策略，评分归一化到 [0,1]"]
     B --> C

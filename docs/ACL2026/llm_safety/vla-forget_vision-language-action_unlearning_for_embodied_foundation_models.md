@@ -44,7 +44,7 @@ tags:
 三阶段分层遗忘流程：(1) 视觉编码器阶段移除视觉触发，(2) 投影器阶段断开错误的视觉-语言绑定，(3) 上层 Transformer 阶段抑制指令条件动作先验。前两个感知相关阶段共用 Ratio-Aware 选层，第三个推理/动作阶段用 Significance-Based 选层；所有更新都落在 LoRA adapter 上以支持回滚与金丝雀部署，并由三重优化目标加 PCGrad 稳定多目标梯度冲突。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["VLA 模型<br/>视觉 θ_V · 投影器 θ_P · 动作 θ_L"]
     subgraph RA["Ratio-Aware 选择性编辑（感知/投影器层）"]

@@ -46,7 +46,7 @@ tags:
 VoxSAMNet 要解决的是单目语义场景补全里的一个根本浪费：模型把绝大多数算力花在了根本不该占用注意力的空体素上，又在稀少的前景类上反复过拟合。它的处理路线沿着「先把 2D 特征干净地升到 3D，再按占据状态分流精炼，最后补全去噪」走。给定一张 RGB 图像，先做**文本引导的 3D 初始化**——TGIF 在 2D 特征层面就压掉被 dropout 类别的残响，再借深度引导的体素投影把特征升维到 3D 体素空间；随后进入 **Dummy Shortcut 特征精炼**，体素分类器判断每个体素占据与否，空体素走 dummy 捷径、占据体素用可变形注意力细化；最后用 **MAE 风格的去噪 + 3D U-Net 补全**，对可见体素加噪后推理被遮挡的缺失内容，换取整体完整性与全局一致性，再解码出语义占据。下面这张图按数据流自上而下展开三个阶段，可与后面的关键设计逐一对应：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["单张 RGB 图像"] --> FM["前景调制 Foreground Dropout + TGIF<br/>标签端随机置空前景，特征端文本引导滤波"]
     FM --> INIT["深度引导 3D 初始化<br/>投影 + 视野掩码 + ROI pooling + Deform3D（LSS 深度）"]

@@ -44,7 +44,7 @@ tags:
 论文把方法归纳为三大紧耦合组件（其中双库检索内部又分动态/静态两个库），串成一条 training-free pipeline：(1) **原子技能解构（Atomic Skills Collection）**：对每个 seen demo 抽 keyframe + 用 VLM 标 verb-arg 标签 + gripper 约束 + 规则后处理，得技能-动作对 $\{(s_k,a_k)\}$；(2) **双库检索（Dual-Library Retrieval）**：动态库用 DINOv3 编码场景视觉相似度 + planner 预测的技能序列做 Jaccard 相似度（verb 集合 + bigram 链），融合后排序选 top-$k_\mathrm{sim}$ 得 $\mathcal D_\mathrm{dyn}$；静态库再对每个 demo 抽 object-agnostic token (V:verb + B:bigram)，按 IDF 加权补齐 $\mathcal D_\mathrm{dyn}$ 的 coverage gap，得 $\mathcal D_\mathrm{cov}$；(3) **技能增强 ICL（Skill-Augmented ICL）**：把 $\mathcal D=\mathcal D_\mathrm{dyn}\cup\mathcal D_\mathrm{cov}$ 与 query 喂给 LLM 做组合技能推理，输出 7-DoF 离散动作序列。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SEEN["seen 任务 demo"] --> A["原子技能解构<br/>关键帧 + VLM 标注动词-参数<br/>gripper 硬约束 + 规则后处理"]
     A --> POOL["技能-动作对候选池"]

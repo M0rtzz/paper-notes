@@ -45,7 +45,7 @@ tags:
 S(H)NAP 把"审计 Sybil"拆成两条共享同一个 SDB 干预引擎的路线：SHNAP 做解释性归因、SNAP 做空间敏感性探针。SHNAP 走「移除路径」——给定一张真实 CT，把 $N$ 个肺结节的全部 $2^N$ 个子集都生成出来（保留的结节留下、移除的换成健康组织），逐个喂给冻结的 Sybil 拿到风险 logit，再用 n-Shapley 把这些 logit 回归成主效应 $\phi_i$ 和成对交互 $\phi_{ij}$。SNAP 走「插入路径」——把一颗已知性质的结节插到 CT 的任意空间位置，记录预测 logit 的变化 $\psi_\mathbf{c}=f(y_0\mid\mathbf{x}_{\mathbf{c}\leftarrow\mathbf{r}})-f(y_0\mid\mathbf{x})$，扫遍上千个位置就拼出一张高分辨率的"空间敏感性"热图。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["真实 3D LDCT<br/>+ 检测到的 N 个肺结节"] --> B["SDB 干预引擎<br/>掩码内修复·移除/插入<br/>始终留在数据流形上"]
     B -->|移除路径| C

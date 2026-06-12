@@ -49,7 +49,7 @@ tags:
 具体地，输入是一份已有的4D重建 $(\mathcal{G}_c, \mathcal{F}_\theta)$（canonical 高斯 + 变形场）和首帧编辑后的高斯 $\mathcal{G}_{\text{edit}}^1$，整条流水线走两步。第一步是运动传播：在原始首帧高斯 $\mathcal{G}^1$ 和编辑高斯 $\mathcal{G}_{\text{edit}}^1$ 上各自提一组锚点，用最优传输把两组锚点对齐（锚点运动引导 AMG），再让每个编辑高斯顺着对应源高斯的已知变形"借"来全时间步的运动（区域去耦的变形聚合）。第二步是外观修补（CUAR）：编辑高斯动起来后遮挡关系变了，会暴露出没编辑过的颜色，于是借变形场把首帧编辑图warp到后续帧当伪真值，只对颜色变化大的地方做局部精炼。整套方法不重训变形网络，且对Swift4D（多相机）和4DGS（单目）两种4D表示都适用。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：4D重建（canonical 高斯 + 变形场）<br/>+ 首帧编辑高斯"]
     subgraph AMG["锚点运动引导（AMG）"]

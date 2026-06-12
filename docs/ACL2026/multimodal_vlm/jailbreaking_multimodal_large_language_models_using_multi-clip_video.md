@@ -45,7 +45,7 @@ tags:
 评测中比较两类设置：Explicit设置把有害意图以文本形式与视频一起输入；Implicit设置把文本意图以视觉文字形式嵌入视频。论文用GPT-4o-mini按照CLAS式规则给模型输出打1到5分，仅当分数为5时计为成功，并用10名人类标注者对200个样本做相关性验证。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["MCV SafetyBench 构建"]
         direction TB

@@ -46,7 +46,7 @@ tags:
 GKD 想回答一个尴尬的问题：明明 VFM 自己泛化很强，为什么把它蒸馏进小模型后泛化反而塌了？作者的判断是「表示学习」和「任务学习」被搅在一起害的，于是把整个流程掰成前后两段。**阶段一是域通用蒸馏**，又分两步走：先在代理数据集 ImageNet 上做任务无关蒸馏，把学生和 VFM 之间巨大的初始表示差距先缩小；再切到源域上做域无关蒸馏，学到与任务相关但不依赖具体域的特征——这两步全程只对齐特征、完全不碰任务标签，且都用查询式软蒸馏（QSD）这套蒸馏目标。**阶段二是任务学习**，此时把学生编码器整个冻住，只在它的特征上训练 Mask2Former 解码器来做分割。这样任务监督的梯度永远到不了编码器，已经学好的泛化表示就不会被源域标签带偏。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     T["教师 VFM（DINOv2 / EVA02），冻结<br/>提供域不变的空间结构"]
     subgraph S1["阶段一 · 域通用蒸馏（多阶段解耦，只对齐特征、不碰任务标签）"]

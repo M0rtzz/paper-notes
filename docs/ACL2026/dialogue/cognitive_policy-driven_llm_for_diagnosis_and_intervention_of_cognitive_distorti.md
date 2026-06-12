@@ -46,7 +46,7 @@ tags:
 CoPoLLM 要解决的是「先看懂求助者话里的认知扭曲、再选对 CBT 干预策略」这条链路。输入是一段多轮情感支持对话，模型先在带认知扭曲标注的数据上学会诊断扭曲类型，再借助一个强化学习引擎学到「从诊断状态到干预策略」的最优映射，最后把这份策略知识蒸馏进 LLM，输出既诊断准确、又策略对齐的干预回复。整条流水线由两块拼成：CPRL 引擎在三智能体模拟环境里用 DQN 离线学策略，DSCO 算法再把策略知识灌进生成模型并解耦诊断与干预两条训练流。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["多轮情感支持对话"] --> D1
     subgraph D1["CogBiasESC 数据集构建"]

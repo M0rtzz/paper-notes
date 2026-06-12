@@ -48,7 +48,7 @@ $$\hat{d}^L = vs \cdot iz + vt$$
 其中 $vs$、$vt$ 是逐像素的缩放和偏移张量，$iz$ 是反向深度图——也就是说艺术效果被拆成“对几何深度做缩放+平移”，让网络学这两张参数图就行。监督信号来自 DDC-IoU 过滤后的专业3D电影，经 StereoNet 提取成目标视差蓝图，再由双路径监督反向训练 CameraNet。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["2D 输入图像"] --> B["DepthNet（冻结·Depth Anything V2）<br/>反向深度图 iz 作几何画布"]
     A --> C["CameraNet（轻量 U-Net·唯一可训练）<br/>逐像素 vs / vt + 右视差"]

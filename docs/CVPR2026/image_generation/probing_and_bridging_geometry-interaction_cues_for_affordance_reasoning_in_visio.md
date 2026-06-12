@@ -42,7 +42,7 @@ tags:
 这篇论文要回答的不是"怎么做一个更好的可供性分割器"，而是一个更基础的问题：视觉系统理解可供性，靠的到底是什么能力？作者的假说是「几何感知 + 交互感知」这两个维度合起来就是可供性理解的基本组成，于是把视觉基础模型（VFM）当成一面"透镜"来逐项查探。整条研究分三步走：先单独探测几何维度，确认一个模型的几何感知越强、可供性分割就越好；再单独探测交互维度，发现生成模型里动词条件化的空间注意力其实就是隐式的交互先验；最后把两者 training-free 地拼起来——用 DINOv3 提供几何原型、Flux Kontext 提供交互图，不训练任何参数就完成零样本可供性估计，反过来验证这两个维度确实是可组合的基础能力。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：物体图像 + (agent, object, verb) 三元组"]
     IN --> G["几何维度探测<br/>DINOv3 提取部件级几何特征"]

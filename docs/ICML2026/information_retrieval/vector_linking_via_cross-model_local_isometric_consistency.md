@@ -45,7 +45,7 @@ tags:
 GEH（几何嵌入哈希）要解决的是：两个黑盒编码器各自产出一片嵌入云，只给 15-30 对已知对应（种子锚点），如何把两片云里指向同一对象的向量配对起来。它把这个问题拆成一个迭代自举循环——每轮先从当前锚点池采样若干个"小视图"，每个视图把所有向量映射到一个由锚点定义的独立哈希空间并在其中提议候选配对；再跨视图聚合这些配对得到的证据，用后验置信度把最可靠的新对应晋升为锚点，喂回下一轮，逐步把种子集滚雪球式扩张到整片重叠区域。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["两片黑盒嵌入云 + 15-30 对种子锚点"] --> B
     subgraph SCHED["自适应自举调度：每轮采样 m_t 个视图、大小 s_t、FPS 选锚"]

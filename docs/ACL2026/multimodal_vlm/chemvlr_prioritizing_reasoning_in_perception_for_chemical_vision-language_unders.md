@@ -44,7 +44,7 @@ tags:
 数据构建方面，通过逆向工程从文本 SMILES QA 对出发，用 Gemini-2.5-Flash 重建推理过程，辅以 IUPAC 名称、RDKit 官能团和专家示范作为语义锚点，经三阶段过滤生成 760K 高质量样本。训练方面，采用 CPT（化学视觉对齐）→ SFT（推理+指令混合训练）→ RL（DAPO 优化）三阶段流程。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["跨模态逆向工程数据生成（设计 1）"]
         direction TB

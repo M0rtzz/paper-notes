@@ -43,7 +43,7 @@ tags:
 给定 base 参数 $\theta_0$、能力参考集 $\mathcal{D}_{\text{cap}}$ (默认 WikiText)、编辑集 $\mathcal{D}_{\text{edit}}$。Stage 1 (预计算, 仅一次): 对每个要编辑的层 $l$ 在 $\mathcal{D}_{\text{cap}}$ 上跑前向收集 K-FAC 因子 $A_{l-1} = \mathbb{E}[a_{l-1} a_{l-1}^\top]$ 与 $S_l = \mathbb{E}[g_l g_l^\top]$, 做 SVD 得 $U_{\text{in}}, U_{\text{out}}, \Lambda_{\text{in}}, \Lambda_{\text{out}}$, 算 mask $M_{ij} = \mathbb{1}[\lambda_i^{\text{out}} \lambda_j^{\text{in}} \le \lambda_\gamma]$。Stage 2 (编辑训练): 对 edit batch 算梯度 $Q_l$, 用 $Q_l^{\text{proj}} = U_{\text{out}}((U_{\text{out}}^\top Q_l U_{\text{in}}) \odot M) U_{\text{in}}^\top$ 投影后做 PGD 更新, 全程不显式构造 $d_{\text{in}} d_{\text{out}} \times d_{\text{in}} d_{\text{out}}$ 投影矩阵。Stage 3 (可选, 顺序编辑): 每轮在线累积 K-FAC 因子, 把上一轮编辑也变成新的"能力"约束。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     I["输入：base 参数 θ₀<br/>能力集 D_cap + 编辑集 D_edit"]
     subgraph S1["预计算（一次）：刻画低曲率子空间"]

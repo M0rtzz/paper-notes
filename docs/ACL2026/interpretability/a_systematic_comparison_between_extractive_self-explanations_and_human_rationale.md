@@ -54,7 +54,7 @@ tags:
 第五步是 faithfulness 与策略分析。作者用 Gradient×Input 和 LRP 生成 post-hoc attribution，并通过遮蔽重要 token 后观察模型正确答案 token 与备选答案 token 的概率差变化来衡量 faithfulness。为了让二值的人类 / 模型 rationale 也能排序，论文采用 k-greedy importance ordering：逐步选择能最大降低预测概率差的 rationale token，短文本 SST 设 $k=1$，其他较长数据集设 $k=3$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["跨难度·跨语言·跨任务数据设计"]
         direction TB

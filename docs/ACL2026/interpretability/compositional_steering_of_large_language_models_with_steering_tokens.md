@@ -46,7 +46,7 @@ tags:
 方法把"让模型同时满足多个行为约束"这件事拆成两阶段训练：先为每个单行为各学一个引导 token，再单独学一个通用的组合 token <and> 来把任意两个行为拼在一起。第一阶段用自蒸馏，教师吃完整指令文本、学生只吃一个引导 token，逼学生把指令语义压进输入嵌入空间；第二阶段冻住 LLM 和所有行为 token，只在行为对上训 <and>，迫使它学"组合"这个操作本身而非记某一对的特例。推理时按 $[\mathbf{E}_x, \mathbf{e}_{b_i}, \mathbf{e}_{\text{<and>}}, \mathbf{e}_{b_j}]$ 拼接输入即可零样本组合未见过的行为对。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["输入空间引导 token（阶段一·自蒸馏）"]
         direction TB

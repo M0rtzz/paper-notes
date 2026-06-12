@@ -45,7 +45,7 @@ tags:
 Wanderland 要解决的是开放世界具身导航缺一个"几何可靠又光学真实"的仿真器：纯视频-3DGS 路线（Vid2Sim、GaussGym）拿到的是非度量位姿、碎片化的碰撞 Mesh、外推视角崩坏，能用来训练却没法当标准 benchmark 做可复现的闭环评估。它的破局思路是**几何与外观分家**——几何来自 LiDAR 保证度量精度，外观来自 3DGS 保证真实感，两者共享同一坐标系无缝拼到一起。整条流水线是：手持多传感器采集 → LIV-SLAM 重建出全局一致的度量点云与相机位姿 → 从点云初始化 3DGS 并用深度正则化训练 → 从同一点云提取碰撞 Mesh → Mesh + 3DGS 集成成 USD 场景 → 加载进 Isaac Sim 做导航训练与评估。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多传感器采集<br/>LiDAR+IMU+RGB · 训练/外推轨迹"]
     A --> B["LIV-SLAM 重建<br/>度量点云 + 全局相机位姿"]

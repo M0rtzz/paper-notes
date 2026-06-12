@@ -51,7 +51,7 @@ tags:
 实验使用 CounterFact。ROME 实验在单个编辑上训练 mask；MEMIT 支持 batch editing，作者一次编辑 1,000 个 facts，并只在单个编辑层上训练 mask。模型包括 GPT-2 XL (1.5B)、LLaMA-3.2 (3B) 和 Qwen2.5 (7B)。训练集 3,000 个 samples，覆盖 10 个 relations；测试集为 1,700 个 held-out samples。部分 OOD 实验还额外使用 1,000 个 ROME edits 和 10 个未见 relations。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["事实 prompt（subject + relation）<br/>旧 object 如 radium"] --> B["ROME / MEMIT 编辑<br/>得到一批编辑权重 Ŵ_1 … Ŵ_N"]
     B --> C

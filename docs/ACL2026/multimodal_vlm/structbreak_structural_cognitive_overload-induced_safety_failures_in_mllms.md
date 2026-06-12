@@ -38,7 +38,7 @@ StructBreak 提出"结构认知过载"（SCO）攻击范式，利用视觉知识
 StructBreak 包含两个模块：(1) **StructBreak-Synth** 自动生成对抗性视觉知识图谱（Visual Knowledge Graph, VKG）图像；(2) **StructBreak-Eval** 标准化评估。整体流程为自动化的 "生成 → 过滤 → 评估" pipeline，全程黑盒、无需模型内部访问。其中生成侧串起「语义混淆 → 图分解与渲染 → 质量门控」三步，并由一个 verify-and-refine 反馈回环把不达标的样本退回重做；评估侧则靠「意图解耦」把对抗图像伪装成中性任务喂给目标模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["有害查询"] --> B
     subgraph SYNTH["StructBreak-Synth：对抗 VKG 生成"]

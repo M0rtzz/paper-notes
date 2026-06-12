@@ -58,7 +58,7 @@ tags:
 OneOcc 要解决的是：一台足式/人形机器人只挂了一个全景相机，怎么在剧烈抖动的步态下把头顶 360° 的世界补全成带语义的 3D 体素。整条流水线是一次前向：先把全景相机拍到的原始环形图（raw annulus）用 Taylor 多项式模型标定展开成一张等距矩形图（equirectangular），让"原始几何"和"方位展开"两套表征同时在手；接着双投影编码器 DP-ER 用两路 2D backbone 分别吃这两张图，各自吐出 {1/4, 1/8, 1/16} 三个尺度的特征；在把 2D 特征提升到 3D 之前，GDC 先回归一个 2D 位移把步态相位误差按住；然后 BGV 在笛卡尔和柱坐标两套体素网格里各自双线性采样、互相交叉注入，得到平衡了远近场的 3D 体素特征；最后三层 depthwise-separable 的 AMoE-3D UNet 逐层用注意力-MoE 聚合多尺度证据，1×1×1 卷积输出逐体素语义 logits，配合多分辨率深度监督。四个模块（DP-ER / GDC / BGV / AMoE-3D）都是即插即用的，针对的正是足式全景这一场景里"畸变、抖动、远近场不平衡、各向异性"四个具体麻烦。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["单全景相机原始环形图<br/>(raw annulus)"]
     A -->|Taylor 多项式标定展开| EQ["等距矩形展开图<br/>(equirectangular)"]

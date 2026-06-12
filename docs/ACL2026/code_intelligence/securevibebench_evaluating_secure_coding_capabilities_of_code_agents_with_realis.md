@@ -46,7 +46,7 @@ tags:
 SecureVibeBench 把安全编码评估重新摆到"人类真实引入漏洞的那一刻"：从 ARVO 与 OSS-Fuzz 收集 4993 个漏洞实例，逐个回溯到漏洞首次被写进代码库的提交（VIC），取该 commit 当时的需求描述与代码版本构造任务，让 Agent 在 Docker 隔离的真实项目中按需求做仓库级多文件编辑。经动态过滤、oracle 获取、需求生成与人工质检层层收窄，最终从 41 个项目里得到 105 个 C/C++ 任务，并对 Agent 的产出做评估分类：功能正确性（差分测试）、是否重蹈已知漏洞（PoV 验证）、是否引入全新安全风险（SAST 检测），从而把"正确且安全"作为唯一合格标准。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["4993 个漏洞实例<br/>ARVO + OSS-Fuzz"] --> BT
     subgraph BT["漏洞引入点回溯"]

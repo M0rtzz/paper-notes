@@ -39,7 +39,7 @@ tags:
 DUET-VLM 想解决的是视觉 token 冗余问题，但它的切入点和以往方法不同：不在视觉侧或语言侧单挑一处压缩，而是让两侧各做一半、彼此互补。整条流水线分两段串起来：图像先进视觉编码器（如 CLIP ViT），在它的最后一层做第一段 V2V（Vision-to-Vision）压缩，把 $N$ 个 patch token 砍成一小撮；这撮 token 进入 LLM 后，再在 decoder 的若干中间层做第二段 T2V（Text-to-Vision）压缩，借文本问题进一步裁掉与回答无关的视觉 token。两段用的都是模型自带的 attention，不引入额外网络，因此训练和推理可以套同一套压缩逻辑（靠 straight-through estimator 把离散的选/丢操作变成可端到端训练）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像"] --> B["视觉编码器 CLIP ViT"]
     subgraph V2V["V2V 阶段：视觉自注意力粗筛（编码器最后一层）"]

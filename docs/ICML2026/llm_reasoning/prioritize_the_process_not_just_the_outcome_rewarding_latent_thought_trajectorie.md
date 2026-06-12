@@ -44,7 +44,7 @@ tags:
 RLTT 想解决的是"GRPO 套到 LoopLM 上几乎拿不到增益"这个老问题，它的答案是一个即插即用的 GRPO 替代品：流程上和 GRPO 完全同构——对 prompt $x$ 采样 $g$ 条 rollout $\{y_i\}$，按二元正确性奖励 $r_i\in\{0,1\}$ 算组内归一化优势 $\hat{A}_i=(r_i-\mu)/\sigma$——唯一改动落在策略梯度的形式上。GRPO 只对每个 token 的终末一圈分布求 $\nabla_\theta\log P$，RLTT 则把这个 token 在全部 $T_{\max}$ 圈循环里产生的 next-token 分布都按权重 $\omega_t$ 加权进梯度，从而让奖励信号直接作用在整条"思考轨迹"上而非只作用在终点。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Prompt x：采样 g 条 rollout（LoopLM）"] --> B["二元 outcome reward r∈{0,1}<br/>组内归一化优势 Â=(r−μ)/σ"]
     A --> C

@@ -44,7 +44,7 @@ DualGuard 首次提出**双流水印**机制：用两个互补的标准 / 对抗
 输入为待生成的 LLM token 序列 $y_{:t}$，输出为带双流水印的文本以及检测时的三类分数：水印检测分 $\text{Score}_{wd}$、spoofing 检测分 $\text{Score}_{sd}$、spoofing 溯源分 $\text{Score}_{st}$。整个流程包含三段：(1) 用映射模型 $\mathcal{G}$ 离线训练得到共享主干 + 两个水印头 $\Theta_s, \Theta_a$；(2) 解码时按固定窗口 $k$ 计算当前前缀的两路 cosine 距离 $\text{dist}(y_{:t})$，距离 $<\alpha$ 用 $\Theta_s$、否则切到 $\Theta_a$，把输出经 tanh + 随机投影映射到 $|\mathcal{V}|$ 维并按 $P_{\mathcal{M}'}^t = P_\mathcal{M}^t + \delta\cdot P_\mathcal{M}^t P_\Theta^t$ 注入；(3) 检测时同样按窗口重放头选择，再分别用平均水印 logit、平均双流距离、对抗头命中率三种统计完成水印检测 / spoofing 检测 / 溯源。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["前缀嵌入 e_t = E(y)"]
     subgraph G["双头映射网络 G（离线训练）"]

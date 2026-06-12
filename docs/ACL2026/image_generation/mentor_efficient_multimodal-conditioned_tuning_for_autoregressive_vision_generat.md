@@ -44,7 +44,7 @@ MENTOR 的方法可以理解为一个多模态条件的图像 token 语言模型
 输入可以是图像、文本或它们的组合。多模态 encoder 产生条件序列 $H=(h_1,\dots,h_M)$，自回归 decoder 在 teacher forcing 下学习 $p(y_i|y_{<i},H)$，其中 $y$ 是离散图像 token 序列。训练分为两阶段：第一阶段强调像素和语义对齐；第二阶段通过多任务指令调优，让模型在参考图像和文本指令之间取得平衡。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["参考图像 + 文本指令"]
     subgraph ARCH["统一自回归生成架构"]

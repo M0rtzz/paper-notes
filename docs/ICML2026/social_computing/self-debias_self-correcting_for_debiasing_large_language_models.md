@@ -44,7 +44,7 @@ Self-Debias 把 LLM 的去偏问题重塑为「在自回归推理链上对概率
 Qwen3-8B 为 backbone。pipeline 三阶段层层递进：(I) **Cold-start**：用 10k BBQ + GPT-4o 合成 CoT 构造 $(x, \mathbf{y}^+, \mathbf{y}^-, t)$ 四元组，联合训练「直接生成无偏」+「在指令 $t$ 下从有偏 $\mathbf{y}^-$ 自我纠正」两个能力——先让模型**具备**自我纠偏的本事。(II) **Trajectory Optimization**：在偏见激活步 $i$ 处冻结合法前缀 $\mathbf{y}_{<i}$，仅对后缀做 DPO 风格 margin + Jain 公平正则——让模型在不确定时**偏好**无偏轨迹。(III) **Online Self-Improvement**：对未标注 query 强制注入有偏前缀产出 $\mathbf{y}^-$，再让模型自我修正出 $\mathbf{y}^-\to\mathbf{y}_1\to\dots\to\mathbf{y}_K$，仅当最后若干轮收敛一致才取 $\mathbf{y}_K$ 作正例 $\mathbf{y}^+$，与 $\mathbf{y}^-$ 配对回灌策略——摆脱人工标注、**自主**持续改进。三阶段对应下面四个关键设计（阶段 II 含后缀 margin + Jain 两点）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["阶段 I · Cold-start 双任务 SFT"]
         direction TB

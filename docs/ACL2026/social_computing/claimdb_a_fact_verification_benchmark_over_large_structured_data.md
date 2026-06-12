@@ -54,7 +54,7 @@ ClaimDB 构建 pipeline 是 5 步流水线：
 评测端给 agent 一个 SQL 执行工具（Google MCP toolbox）、最多 20 次 tool call、3-way 分类（E/C/NEI），report Macro-F1 + Acc。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["BIRD 起点<br/>11k NL/SQL pairs + 80 个真实数据库"] --> B["AST 预过滤<br/>只留 ORDER BY / 聚合 / 窗口函数 / 多表 join<br/>答案 ≤10 行 → 约 6.5k query"]
     B --> C["三类 + 三子类 Claim 生成<br/>GPT-5 产 entailed / contradicted / NEI<br/>NEI 再分 out-of-schema / counterfactual / subjective"]

@@ -46,7 +46,7 @@ tags:
 CAP 的核心想法是把"遗忘"从改参数挪到改输入：LLM 始终冻结，真正被训练的是一个轻量 SLM（主实验用 Qwen3-0.6B），它充当策略网络，为每个查询现场生成一段控制前缀来引导 LLM 的行为。整条流程分两段——训练阶段用 RL 优化这个提示生成器，让它学会产出有效的遗忘/保留前缀；推理阶段把 SLM 冻结，由它生成前缀、再拼上一条 Self-Check 指令一起喂给 LLM 得到最终输出。因为所有遗忘逻辑都装在离散提示里，把提示生成器移除就能无损恢复原模型，这正是 CAP "可逆、可迁移到闭源模型"的根源。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["输入查询"] --> SLM["轻量 SLM 策略网络<br/>Qwen3-0.6B（可训练）"]
     subgraph DUAL["双提示前缀机制"]

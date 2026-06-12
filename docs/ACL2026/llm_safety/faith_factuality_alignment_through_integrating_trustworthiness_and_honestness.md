@@ -44,7 +44,7 @@ tags:
 FAITH 想解决的是"模型其实知道答案、却说错了"这个 know-tell gap，整条流水线的核心动作是：先把模型对每个问题的内部不确定性量化出来、翻译成一句人话告诉它"你到底知不知道、该不该答"，再用一个能区分"自信地对"和"蒙对"的奖励把这种自知之明训练进策略里，最后挂一个 RAG 兜底层去纠正那些它确实不懂的题。落到模块上分三段：数据增强阶段对每个问题采样多个回答、估计不确定性并映射到知识状态象限，把象限描述写进训练数据；训练阶段走"参考模型 SFT → 奖励模型 → PPO 策略优化 → RAG 模型"四步；推理阶段则是先估计知识状态、策略模型作答、再由 RAG 纠正。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["问题 x_i"] --> SG
     subgraph SG["知识状态象限映射"]

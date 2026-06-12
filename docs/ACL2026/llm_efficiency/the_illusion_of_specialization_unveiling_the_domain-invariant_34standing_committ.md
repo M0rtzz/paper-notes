@@ -42,7 +42,7 @@ tags:
 CommitteeAudit 想验证一件反直觉的事：MoE 真的把不同领域分给了「专业化」的专家吗，还是存在一个跨领域始终在岗的「常设委员会」？为此它设计了一个事后分析流程——先从预训练 MoE 模型提取任务级路由特征，用 Jaccard 相似度和 Gini 系数量化路由的重叠度与集中度；再判断各领域路由的任务特异性，过滤掉路由混杂的任务；最后在特异性足够高的领域上做 Pareto 优化，识别出那些跨域持续占据 Top-k、且排名稳定的专家组，并用激活矩阵和掩码干预验证它们是否真的承载关键计算。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练 MoE 模型<br/>+ MMLU 九领域输入"] --> S1
     subgraph S1["专家贡献指数（ECI）与任务特异性分数"]

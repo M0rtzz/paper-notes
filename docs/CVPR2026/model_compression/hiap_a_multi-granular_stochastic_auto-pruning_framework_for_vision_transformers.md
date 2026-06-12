@@ -70,7 +70,7 @@ HiAP 的关键不是再发明一个更聪明的重要性打分器，而是把“
 下图按数据流串起方法的六个核心环节：block 内双层门控先决定结构去留与宽度，代价建模把保留量换算成可微的算力预算，Gumbel 训练让门控可学，可行性约束护住搜索轨迹，最后单阶段退火-硬化-裁剪导出子网络。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["稠密 ViT（DeiT-Small）"] --> S
     subgraph S["每个 Transformer block 内的双层门控"]

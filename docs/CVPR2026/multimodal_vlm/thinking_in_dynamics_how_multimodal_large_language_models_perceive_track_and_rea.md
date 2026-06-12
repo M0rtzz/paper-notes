@@ -46,7 +46,7 @@ tags:
 这篇工作想回答一个被静态图像理解掩盖的问题：MLLM 到底能不能感知、跟踪并推理 4D 物理世界里随时间演化的动态？为此它做了两件事——先搭出 Dyn-Bench 这把"尺子"，再针对量出来的短板提出两种结构化集成（structured integration）方法。Dyn-Bench 从 8 个 2D 视频分割 / 4D 动态场景数据源出发，经"多模态补全 → 多准则过滤 → 结构化认知地图辅助出题"的流水线沉淀出高质量动态场景，并把评测拆成三个互补层级（动态物体间感知、动态物体-场景跟踪、动态相机-物体推理），每一层都成对地考一道 Spatio-Temporal VQA（共 7k 对，考"说得对不对"）和一道 Dynamic Object Grounding（共 3k 对，考"指得准不准"），并新引入"推理-grounding 一致性"把两者绑到同一把尺子上。量出短板后，论文从两个通道注入动态线索：Mask-Guided Fusion（MGF）在视觉端把掩码与原帧融合、ST-TCM 在语言端把动态文本化，二者一图一文互补，喂给 MLLM 后显著拉升时空推理与定位。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["多阶段构建流水线"]
         direction TB

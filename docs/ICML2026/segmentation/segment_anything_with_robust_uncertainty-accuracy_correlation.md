@@ -44,7 +44,7 @@ tags:
 RUAC 把 SAM2 的确定性 mask decoder 替换成 Bayesian Mask Decoder (UE)；同时挂上两个 attacker：Style Adversarial Network $\psi_s$ 和 Deformation Adversarial Network $\psi_d$，通过 Gradient Reversal Layer (GRL) 与 segmentation 模型做端到端 min-max 训练。每个 iteration 包含 clean 与 adversarial 两路 forward：clean 路保留 in-domain 性能，adversarial 路负责把模型推到 calibration 失效边缘并再训回来。推理时 attacker 全部丢掉，只跑 UE，因此部署成本仅是给 SAM2 加一个轻量贝叶斯 head。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 + 点提示"] --> B["SAM2 图像编码器<br/>提取主干特征"]
     B --> C["clean 路：原图直接前向"]

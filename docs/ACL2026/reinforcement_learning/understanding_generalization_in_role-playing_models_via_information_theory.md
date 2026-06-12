@@ -45,7 +45,7 @@ tags:
 R-EMID 框架包含三个层次：(1) 理论度量层——定义 R-EMI 和 R-EMID 来量化模型在给定分布上的表现和跨分布性能退化；(2) 估计层——用两个 LLM（推理生成器 $q_{\phi_1}$ 和策略模型 $q_{\phi_2}$）通过 CoRL 来准确估计条件概率；(3) 应用层——用 R-EMID 及其上界评估各种 RPM 训练方法的泛化性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["异构输入 X<br/>用户人设 + 角色设定 + 对话上下文"]
     subgraph CORL["协同进化强化学习 CoRL"]

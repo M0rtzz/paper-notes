@@ -43,7 +43,7 @@ tags:
 CleanSight 的出发点是一个观察：后门 LVLM 在遇到 trigger 时，被投毒输入里的 visual token 会异常夺取本该流向 text token 的注意力，且这些"夺权"的 token 恰好落在 trigger 区域。整个防御完全在推理时完成、不碰任何模型参数：一条输入进来，先在跨模态融合最活跃的几个中间层量化"视觉抢了文本多少注意力"，据此判断它是不是投毒样本；一旦判为投毒，就把那些异常高注意力的 visual token 在后续层里屏蔽掉，让后门关联无从生效，而正常样本几乎不受影响。整个流程由两段构成——**注意力窃取检测**（含离线标定的干净参考分布）和**选择性剪枝**：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DET["注意力窃取检测"]
         direction TB

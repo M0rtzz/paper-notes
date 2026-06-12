@@ -48,7 +48,7 @@ TIME 的目标不是训练一个更会背时间知识的模型，而是训练一
 评测使用 TimeBench。它包含 77 个场景，7 个诊断类别，每类 11 个场景；每个场景采样 10 次，共 770 runs。TimeBench 不考时间事实记忆，而是考模型能否从时间结构推断潜在上下文状态，并调整最后一轮回答。除二元任务成功率外，它还记录 `think` 是否出现、位置、数量、推理 token、输出 token、markdown 使用和退化输出比例。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["对话输入（Qwen3 hybrid reasoner）"] --> PRIM
     subgraph PRIM["时间原语与局部显式推理块"]

@@ -46,7 +46,7 @@ tags:
 Sketch2Colab 要做的事是：把一份故事板草图（每个角色的关键帧姿态、关节轨迹，加上物体的运动路径，可选还有一句文本说明）翻译成多个人和物体协调一致的 3D 动作序列。整条管线先用一个对齐编码器把草图里的 2D/3D 控制信号编进特征，再让一个整流流学生网络在 VQ-VAE 潜空间里把动作"流"出来；流的过程中，一条连续时间马尔可夫链（CTMC）负责安排接触、抓取、交接这些离散事件，把它们调度进连续流；与此同时，一组可微能量函数在动作空间和潜空间两侧同时施压，把生成结果拉向草图给定的约束。最后冻结的解码器把潜表示还原成最终的多人-物体动作。三个核心部件分工明确——整流流管连续动力学、CTMC 管离散事件、能量引导管精确约束——但在采样的每一步紧密耦合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["故事板草图<br/>关键帧姿态 + 关节轨迹 + 物体路径"] --> S1
     subgraph S1["扩散→整流流蒸馏（设计 1）"]

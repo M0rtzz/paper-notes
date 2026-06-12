@@ -44,7 +44,7 @@ tags:
 RA-RRG 分为三个阶段：(1) 关键短语提取——用 RadGraph 解析报告结构后，LLM（Llama 70B）将其精炼为去除比较性幻觉的关键短语；(2) 多模态检索器训练——使用双视觉编码器（XrayDINOv2 + XrayCLIP）提取视觉特征，DETR 解码器输出语义嵌入，与 MPNet 文本嵌入对齐；(3) 报告生成——将检索到的短语输入 GPT-4o 生成连贯报告，无需 LLM 微调。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     R["放射报告 FINDINGS"]
     subgraph KP["LLM 辅助关键短语提取"]

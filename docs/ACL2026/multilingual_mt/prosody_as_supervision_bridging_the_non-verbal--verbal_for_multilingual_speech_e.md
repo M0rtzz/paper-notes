@@ -46,7 +46,7 @@ tags:
 输入 NVV/UVS 音频通过共享的自监督编码器（voc2vec/WavLM/wav2vec 2.0/MMS）提取帧级特征，投影到 Poincaré 球。经双曲 VQ 编码本离散化韵律→Möbius 加法融合连续+离散→瓶颈压缩→双曲情感透镜校准强度→注意力池化得到话语级嵌入。NVV 标注数据训练分类器+计算类原型，UVS 通过最优传输对齐到原型+一致性正则化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["NVV 标注音频 + UVS 未标注音频"]
     subgraph SHARED["共享前向传播（NVV/UVS 同一套参数）"]

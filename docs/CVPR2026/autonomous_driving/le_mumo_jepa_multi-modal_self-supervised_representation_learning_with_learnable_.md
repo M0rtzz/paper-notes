@@ -46,7 +46,7 @@ tags:
 整条 pipeline 这样转：先把 LiDAR 深度投影到相机坐标系、和 RGB 对齐成 2D 深度图，再让每种模态各走一个独立 patch stem 分词；编码器输入是 $[\text{CLS}(1), \mathbf{F}(N), \mathbf{C}(N), \mathbf{M}(N)]$ 这一串 token——$\mathbf{F}$ 是融合 token，$\mathbf{C}$ 是 RGB token，$\mathbf{M}$ 是伴随模态（LiDAR 深度或热红外）token，三组加 CLS 共 $1+3N=589$ 个。第一层注意力让融合 token 吸收两种模态后，模型把 $2N$ 个模态 token 全部剪掉，后续层只在 $1+N$ 个 token 上跑。训练目标是 LeJEPA 的不变性损失加 SIGReg 正则，作用在联合多模态 CLS 嵌入上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TOK["统一 2D 多模态分词"]
         direction TB

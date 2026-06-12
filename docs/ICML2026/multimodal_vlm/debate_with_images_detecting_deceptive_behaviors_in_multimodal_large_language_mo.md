@@ -45,7 +45,7 @@ tags:
 **第二块是检测框架** Debate with Images：给定 (query $\bm{q}$, image $\bm{x}$, response $\bm{r}$) 三元组，$M$ 个辩手与 1 个 judge 进行 $N$ 轮辩论，每个辩手的发言由文本论点 $\bm{a}$ 和一串视觉证据 $\mathcal{V}=\{\bm{v}_1,...,\bm{v}_k\}$ 构成；视觉证据通过对原图施加视觉操作 $e\in\mathcal{E}$ 得到，即 $\bm{v}=f(\bm{x},e)$。Judge 在观察完整辩论轨迹 $\bm{D}_N$ 后输出二元判定 $j\in\{0,1\}$。下图给出检测框架（第二块）的运行流程，基准 MM-DeceptionBench（第一块）是它评测时的数据来源：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入三元组<br/>(查询 q, 原图 x, 待检响应 r)"] --> B["M 个辩手各持立场<br/>c_m ∈ {0,1}（诚实 / 欺骗）"]
     subgraph LOOP["视觉锚定辩论：N 轮回切原图取证"]

@@ -36,7 +36,7 @@ tags:
 MOCR 想把文档解析从"只抠文本"扩展到"解析文档里的一切"——文本、布局、表格，以及图表/图示/图标/UI 这些信息密集的图形。它把文档页面解析定义为生成一个有序的解析元素序列 S = [(B₁,c₁,p₁),...,(Bₖ,cₖ,pₖ)]：Bₖ 是空间区域，cₖ 是语义类别，pₖ 是类型相关的载荷——文本区域的 pₖ 是文本转写（纯文本/表格 markup/LaTeX），图形区域的 pₖ 则是可渲染的结构化表示（SVG 代码），整条序列按人类阅读顺序生成。落到模型上，是一个高分辨率视觉编码器 + 结构化语言解码器的端到端 VLM，由大规模数据引擎喂养、分阶段训练而成。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["文档页面图像"] --> ENC
     subgraph VLM["端到端 VLM（推理）"]

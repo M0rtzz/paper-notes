@@ -56,7 +56,7 @@ tags:
 UniM 要回答一个被现有基准漏掉的问题：当模型可以"任意模态进、任意模态出"时，怎么衡量它生成的交错序列到底好不好？整篇工作由三块拼成——一个大规模数据集、一套三维评估指标、一个能跑出像样成绩的智能体基线。数据这一侧统一用开放式 QA 格式：输入和输出都是任意模态混排的交错序列，非文本内容用占位符标签（如 `<<image1>>`、`<<video2>>`）嵌进文本里，这样无论图、音、视频还是 3D，都能在同一套文本骨架上被引用和评估。最终落地为 31,026 个高质量实例，横跨 7 种模态（文本、图像、音频、视频、文档、代码、3D）、30 个领域（归为自然科学、社会科学、通用领域三大类），再按规则切成 Easy/Medium/Hard 三档难度。下图把数据集、智能体基线 UniMA 的推理流水线、以及三维评估+支持率修正的打分流程串成一条完整数据流：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DATA["UniM 数据集：开放式交错 QA<br/>31K 样本 · 7 模态 · 30 领域 · 3 难度 · 占位符标签"]
     DATA --> R

@@ -47,7 +47,7 @@ tags:
 OraPO 是一个单阶段、纯 RL 的放射报告生成框架，不需要领域预训练、图文对齐或 SFT。它要解决两件事：一是长文本报告没法像数学题那样二值验证，BLEU/CIDEr 又抓不住事实错误，奖励难设计；二是 GRPO 直接用在 RRG 上时，基座 VLM 缺放射学知识，前 50 步约 30% 的 group 全零奖励、梯度消失、rollout 白白浪费。对应地，OraPO 由两块拼成：FactScore 奖励（FactS）先从每条报告抽原子临床事实、对照 ground-truth 标签做蕴含检查，给出密集、可解释的句子级奖励；OraPO 算法再用这些奖励统计每个 group 的零奖励率，在 group 全零奖励、GRPO 学不动时动态注入 DPO 监督，把 ground-truth 报告当正样本、零奖励 rollout 当负样本组成偏好对，并按零奖励率自适应混合 GRPO 与 DPO 两种损失，让失败探索直接变成监督信号。整套训练随之形成自增强飞轮：模型越好 → 负样本越强 → 奖励越准 → 模型更好。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：胸片 + 文本指令"] --> B["策略模型 πθ（3B VLM）<br/>每个 prompt 采样 K 个报告 rollout"]
     subgraph FACTS["FactScore 奖励（FactS）"]

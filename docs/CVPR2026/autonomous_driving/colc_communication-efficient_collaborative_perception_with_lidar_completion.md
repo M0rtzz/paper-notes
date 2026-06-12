@@ -42,7 +42,7 @@ CoLC 提出一种通信高效的早期协同感知框架，通过前景感知点
 CoLC 想同时拿到早期融合的信息保真度和中间融合的低带宽，关键做法是把"传完整点云"拆成"传少量关键点 + 在接收端补回来"。整条管线分布在两端：邻居智能体先用 FAPS 把原始点云筛成一小撮前景加背景点发出去；ego 端收到这些稀疏点后，用 CEEF 里的 LiDAR 补全模块把稀疏的 pillar 重建成稠密 pillar 再做检测；而 DGDA 只在训练时介入，用稠密全点云当老师，逼着补全出来的 pillar 在语义和几何上向真值靠拢。推理时不需要传输完整点云，带宽省下来，检测精度却靠补全和对齐补了回来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["邻居原始点云 X_j"] --> S1
     subgraph S1["前景感知点采样 FAPS（邻居端）"]

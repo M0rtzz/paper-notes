@@ -45,7 +45,7 @@ tags:
 LinuxFL+ 是一个挂在现有 Agent 输出之上的后处理框架，针对实证中观察到的两个 Agent 盲点——能定位到相关模块却在模块内选错文件、探索范围又过窄只盯少数原因——做双维度结构化扩展。给定任意 LLM Agent（如 AutoCodeRover）跑出的初始可疑文件预测，框架先沿空间维度做目录感知扩展、沿知识维度做潜在原因扩展，把两路产生的候选文件汇聚后用倒数排名聚合并交给 LLM 精排，输出最终的故障文件排序。整套流程借助代码库的目录结构和 Linux 邮件列表这类外部知识来纠正 Agent 的盲区。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["LLM Agent 初始可疑文件预测<br/>(如 AutoCodeRover)"] --> B["目录感知扩展<br/>取预测文件所在目录全部文件<br/>提示 LLM 重选 top-10"]
     A --> C1

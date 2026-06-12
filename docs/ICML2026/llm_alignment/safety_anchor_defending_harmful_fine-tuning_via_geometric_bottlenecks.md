@@ -46,7 +46,7 @@ SBR 在 fine-tuning-as-a-service 场景下工作：service provider 持有对齐
 - **Phase 2 — Dynamic Regularization（与用户 fine-tune 并行）**：每个 batch 同时计算 $\mathcal{L}_{CE}$（用户任务）与 $\mathcal{L}_{\text{safe}}=\frac{1}{|\mathcal{X}_{\text{anchor}}|}\sum_{x'}\|h_\theta(x')-h_{\text{ref}}(x')\|_2^2$，总目标 $\mathcal{L}_{\text{total}}=\mathcal{L}_{CE}+\lambda\mathcal{L}_{\text{safe}}$，$\lambda$ 控制 refusal 强度。整个过程不动 unembedding 矩阵、不需要修改 base model 架构。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 380}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 380, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph P1["Phase 1 · 锚点离线获取"]
         direction TB

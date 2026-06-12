@@ -40,7 +40,7 @@ tags:
 LensWalk要解决的是"推理和观测割裂"这件事：传统管线先把视频采样成固定的视觉上下文，再让模型一次性推理，模型没有机会根据自己推到一半的假设回头去"重新看一眼"。LensWalk把它改造成一个多轮闭环——推理器($M_r$)看着当前问题和手上已有的证据，先想清楚"接下来该看视频的哪一段、看多细、想确认什么"，把这个想法写成一个结构化的行动计划$a_t$；计划交给 VLM 观察器($M_o$)真正去视频里取帧、看图、回话；观察器吐出的视觉证据再追加进历史，喂给下一轮推理。如此 reason → plan → observe 循环往复，直到推理器认为证据足够、给出最终答案。为了让这个长循环不至于在"时间定位"和"人物指代"上跑偏，系统还在历史之外挂了时间戳锚点和一张全局实体记忆表做支撑。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：视频 + 问题"] --> B["推理器 M_r<br/>基于历史证据推理"]
     B --> C["推理调度的主动观测机制<br/>行动四元组 a_t（工具 / 子问题 / 时间范围 / 参数）"]

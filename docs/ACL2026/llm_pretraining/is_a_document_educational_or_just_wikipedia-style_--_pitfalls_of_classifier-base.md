@@ -45,7 +45,7 @@ tags:
 作者进一步做了两个补充分析。第一，用Nvidia domain classifier把文本分到26个领域，查看不同领域的分数偏移是否一致。第二，让3名人类标注者按照FineWeb-Edu原始educational prompt给100个文档打分，检查偏差是否来自student分类器，还是teacher LLM标注本身。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["FineWeb 网页采样"] --> B["Wikipedia 式改写干预<br/>Qwen2.5-72B 保真改写：留事实、控 token ±10%"]
     B --> C["原始 ｜ 改写 反事实对<br/>仅文体维度发生系统变化"]

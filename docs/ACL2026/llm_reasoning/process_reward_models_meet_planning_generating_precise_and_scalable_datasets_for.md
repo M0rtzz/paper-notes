@@ -44,7 +44,7 @@ tags:
 整个流程分为三个阶段：（1）PDDL 问题生成：在 11 个不同的 PDDL 领域中自动生成约 15,000 个规划问题；（2）数据集构建：对每个问题的每一步进行随机动作采样和最优动作计算，并为每个动作分配精确的五级奖励；（3）PRM 训练：将 PDDL 生成的数据与现有数据集（PRM800k 或 Math-Shepherd）结合训练 PRM。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["11 个 PDDL 领域<br/>自动生成约 15,000 个规划问题"] --> B
     subgraph SAMP["多样化动作采样策略"]

@@ -37,7 +37,7 @@ tags:
 水下增强有个「增强悖论」：图看着更清晰了，下游检测 / 分割反而更差。根子在于现有方法是「语义盲」的——对全图一刀切均匀增强，分不清海洋生物、人工物体这些语义焦点和背景水体，结果破坏了下游模型依赖的语义线索。本文给增强装上内容感知，分三步走：先用 VLM（LLaVA）从退化图里生成关键物体的文本描述，再用 BLIP 的视觉-文本对齐把描述变成一张空间语义引导图 $M_{\text{sem}}$，最后通过「cross-attention + 对齐损失」的双重引导，把 $M_{\text{sem}}$ 注进任意 UIE 网络的 decoder，让它知道该重点恢复哪里。整套是可插拔模块，已在 5 个 baseline 上验证。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["退化水下图 I_d"] --> ENC["UIE Encoder<br/>（任意 baseline）"]
     A --> L["LLaVA 生成关键物体描述 T"]

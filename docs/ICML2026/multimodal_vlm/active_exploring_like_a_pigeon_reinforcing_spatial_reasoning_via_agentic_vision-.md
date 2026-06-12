@@ -48,7 +48,7 @@ tags:
 训练分两阶段。第一阶段 SFT 用三类冷启动数据让模型学会检索相关视角、更新认知地图、生成带 SAC 的空间推理。第二阶段 RFT 在 SFT 模型上用 GRPO 做强化微调，奖励由最终正确性门控，再加上 retrieval、cognitive map、SAC 三个中间项。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：问题 Q + 候选视角集 V<br/>+ 视角变换关系 E"] --> B
     subgraph LOOP["主动探索循环（探索→记忆，迭代）"]

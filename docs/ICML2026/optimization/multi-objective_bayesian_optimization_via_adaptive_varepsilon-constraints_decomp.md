@@ -51,7 +51,7 @@ STAGE-BO 的一次迭代由四步组成，输入是已有数据集 $\mathcal{D}_
 整个过程没有 HV 计算，主要计算成本是 NSGA-II 在便宜的代理函数上的搜索。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["数据集 D_t<br/>已评估点 (x_i, y_i)"] --> GP["拟合 m 个独立 GP<br/>每目标 f_i 一个"]
     subgraph D1["Fill-distance 驱动的 ε 目标点选择（设计 1）"]

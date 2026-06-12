@@ -46,7 +46,7 @@ tags:
 SFTMix 想解决的问题是：标准 NTP 把每个指令-响应对一视同仁，可模型对不同样本的掌握程度其实差别很大。它的做法是先让一个参考 LLM 在 SFT 数据上跑一轮训练，记录各样本在多个 checkpoint 上的困惑度，据此把数据切成高置信度和低置信度两半；正式训练目标 LLM 时，在隐表示空间把这两半样本线性插值，并把 Mixup 交叉熵作为正则项叠加到原始 NTP 损失上。整条流水线的输入是普通 SFT 数据集，中间产物是按学习难度划分的两个子集，输出是一个在已学会与未学会区域之间被平滑过的模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：普通 SFT 数据集"] --> B
     subgraph PART["基于训练动态的置信度分区"]

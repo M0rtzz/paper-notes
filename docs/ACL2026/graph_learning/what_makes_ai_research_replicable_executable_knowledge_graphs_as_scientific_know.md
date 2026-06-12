@@ -46,7 +46,7 @@ xKG 的形式化表示为 $xKG=(N,E)$。节点集合分为三类：Paper Node、
 构建流程分为两大块。第一块是 paper-aware corpus curation：围绕目标 PaperBench 任务，自动识别核心技术、选择高相关引用论文和 web 检索结果、下载 arXiv 源文和官方 GitHub repo，并过滤没有官方实现的论文。第二块是 hierarchical KG construction：从论文抽技术树，从 repo 取代码片段，生成并验证 Code Node，再剪掉无法 grounding 到代码的技术节点。构建完成的 xKG 随后通过两阶段方式接入复现 agent：规划阶段只看方法骨架，实现阶段才检索可运行代码。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["目标论文 / PaperBench 任务"] --> B
     subgraph BUILD["可执行 grounding 自动构建流水线"]

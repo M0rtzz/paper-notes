@@ -48,7 +48,7 @@ tags:
 前馈式网络，四阶段pipeline：共享权重特征提取（MobileNetV2骨干，多尺度特征统一到1/4分辨率）→ 相关性计算（构建cost volume $\mathbf{C}(d,h,w) = \frac{1}{N_c}\langle \mathbf{F}_L^{1/4}(h,w), \mathbf{F}_R^{1/4}(h,w-d) \rangle$）→ 混合3D-2D代价聚合 → 视差估计（soft-argmax + 凸上采样到全分辨率）。整体仅33G MACs。泛化能力不靠网络本身、而是靠一套与推理流程正交的三阶段百万级训练策略喂出来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["左右图像对"] --> BB["紧凑骨干<br/>MobileNetV2 共享权重，多尺度统一到 1/4"]
     BB --> CV["相关性计算<br/>构建 cost volume"]

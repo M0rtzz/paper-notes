@@ -48,7 +48,7 @@ tags:
 VirPro 要解决的是弱监督单目 3D 检测里一个具体痛点：像 CAW3D 那样用手工写死的静态文本（"a photo of a car"）当弱监督，无法表达不同场景里物体外观与空间位置的视觉多样性。整套方法是**两阶段**的：Stage 1 用一组可学习的概率提示做视觉-文本预训练对齐，把"场景感知"的语义先验学进 prompt 的分布里；Stage 2 再用知识蒸馏把这套先验迁移到单目编码器，推理时不增加任何开销。预训练内部的数据流是：每个目标 RoI 先生成一批可学习提示模板（APB）→ 把每个模板建成一个高斯分布并采样出多样化嵌入（MGPM）→ 在 RoI 级别做图文对比对齐。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像 + 2D 检测器 RoI"] --> B
     subgraph S1["Stage 1：概率提示视觉-文本预训练"]

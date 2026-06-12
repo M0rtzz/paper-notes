@@ -46,7 +46,7 @@ tags:
 系统分三层：(1) **信任维度定义 + Trust Violation 数据集**——六维度框架和 >20k 样本的受控数据集；(2) **A-Trust 评估**——基于注意力向量的轻量级分类器；(3) **TMS 信任管理**——消息级评估 → 信任感知行动策略 → 智能体级信任记录。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PREP["六维度信任框架 + Trust Violation 数据集（离线准备）"]
         direction TB

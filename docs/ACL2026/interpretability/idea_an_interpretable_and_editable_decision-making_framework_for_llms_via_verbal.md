@@ -46,7 +46,7 @@ tags:
 IDEA 的出发点是：与其逼 LLM 把内部推理过程"说透"（往往只是事后合理化），不如把它的决策知识抽取到一个本身就透明的形式里。具体做法是把目标概率 $P(O_i|Q)$ 拆成两个可分离的部件——决策模型 $P(O_i|\mathbf{f})$（因子配置如何映射到结果）和因子推断 $P(\mathbf{f}|C)$（从条件推断各因子取值）。整条流水线分离线训练（因子识别 → 行为探测 → EM 联合估计）和在线推理（因子确定 → 联合采样 → 边际化）两段，并额外开放一个让专家直接改参数的干预接口。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["决策问题 Q"] --> FI["因子识别<br/>LLM 生成语义因子 f"]
     FI --> BP["行为探测<br/>采集 likely / unlikely 语言概率表达"]

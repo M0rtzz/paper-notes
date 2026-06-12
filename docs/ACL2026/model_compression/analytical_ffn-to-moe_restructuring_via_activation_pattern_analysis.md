@@ -46,7 +46,7 @@ tags:
 三阶段流程：(A) 激活模式分析——用小量校准数据计算每个神经元的激活率 $\mu_i$；(B) 共享/路由专家分割——高频神经元收进共享专家，低频神经元按激活相似性聚类成路由专家；(C) 分析式路由器——直接从激活统计量构建路由函数，无需训练。此外，当输入模型本身已是 MoE 时，把同一套分割递归套到每个专家的 FFN 上，做到层级稀疏。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：dense FFN + 少量校准数据"] --> B
     subgraph S1["共享/路由专家分割"]

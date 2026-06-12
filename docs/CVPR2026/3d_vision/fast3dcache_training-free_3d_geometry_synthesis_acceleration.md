@@ -46,7 +46,7 @@ Fast3Dcache 要解决的是：3D 扩散推理太慢，但 2D 那套"复用前几
 整篇推理被切成三段对应这个节奏。第一段（Phase 1）老老实实全采样，把粗几何搭起来，并在结尾的 anchor step 量一次"现在每步还在翻动多少体素"，作为后面预测的基准。第二段（Phase 2）进入动态缓存：PCSC 根据衰减趋势算出这一步的缓存预算，SSC 在这个预算内挑出最稳的 token 直接复用、只对剩下不稳的 token 跑 self-attention，每隔 $\tau$ 步做一次全刷新把累积误差清掉。第三段（Phase 3，CFG-Free Refinement）几何已基本收敛，直接上固定的高缓存比例 $\xi$ 收尾。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["3D 扩散推理<br/>(TRELLIS 稀疏结构生成)"] --> P1
     subgraph P1["Phase 1：全采样搭粗几何"]

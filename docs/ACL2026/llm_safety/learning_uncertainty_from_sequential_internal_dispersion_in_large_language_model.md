@@ -46,7 +46,7 @@ tags:
 对每个生成 token 提取所有层隐藏状态，计算三个内部方差特征 $\bm{v}_t = [v_t, c_t, e_t]$，形成序列输入轻量 Transformer 编码器进行二分类。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["每个生成 token<br/>取全部层隐藏状态"]
     subgraph FEAT["三个跨层分散度特征"]

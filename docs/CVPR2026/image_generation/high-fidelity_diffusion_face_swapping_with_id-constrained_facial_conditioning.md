@@ -42,7 +42,7 @@ tags:
 这篇论文要解决的是扩散人脸替换里一个长期纠结的矛盾：身份条件想把脸拉向源人脸，属性条件想把表情姿态拉向目标人脸，两个条件在训练里方向相反、互相打架。作者的解法是给它们排个优先级——「先像，再准」。整套框架建在 Stable Diffusion 1.5 的条件修复上，输入源人脸和目标人脸，输出换了身份的目标图；训练分三阶段走，先把模型解空间收缩到身份一致的区域，再在这个子空间里对齐属性，最后端到端精炼真实感。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SRC["源人脸"] --> CID
     TGT["目标人脸"] --> CATTR

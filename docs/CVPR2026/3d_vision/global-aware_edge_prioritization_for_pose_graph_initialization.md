@@ -46,7 +46,7 @@ tags:
 给定 $N$ 张图像，目标是构建初始位姿图 $\mathcal{G}_0 = (\mathcal{V}, \mathcal{E}_0)$，让后续 SfM 只在这张稀疏图上做几何验证与重建。传统流程靠逐图像检索把每张图连到 $k$ 个最近邻来凑边，本文换成"先全局排序、再按结构选边"的两段式：先用 DINOv2+SALAD 把每张图编码成全局描述子 $d_i$；再在所有图像构成的完全图上跑 GNN 消息传播，给每条候选边打一个全局可匹配性分数 $\hat{r}_{ij}$；最后不靠贪心阈值，而是用多棵最小生成树（MST）依次选边，并在选边过程中根据当前图的连通状态动态调制分数，保证选出的边既紧凑又全局连通。这套全局边排序由几何自监督信号训练得到——直接从 SfM 自身产出读取排序标签，无需人工标注。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["N 张输入图像"] --> B["DINOv2+SALAD 编码<br/>全局描述子 d_i"]
     B --> C["GNN 边排序预测器<br/>完全图上两轮边-节点消息传播"]

@@ -49,7 +49,7 @@ tags:
 （4）取已泛化的 1-层 4-头模型做**注意力分解**：把 pre-softmax logit $QK^T$ 先做 weight-bias 分解，再把主项 $XW_{QK}X^T$ 按 $X=E+P$ 展开为 4 项，逐项可视化并消融。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["可控 1D 合成数据集<br/>10 像素图 + left/right 模板<br/>双轴扫 N_pair / 布局 n2"] --> B["训练双编码器 CLIP<br/>简化:去 LN/MLP,1 层 4 头<br/>对比损失端到端"]
     B --> C["三种泛化评估<br/>单物体 / seen-pair / unseen-pair<br/>→ 取已泛化模型"]

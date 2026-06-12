@@ -46,7 +46,7 @@ tags:
 本文不训练新模型，而是设计两套互补的"诊断探针"，在完全自然、无人工注入偏见的提示下逼出 CoT 的不忠实行为。第一套 **隐式后验合理化（IPHR）** 利用比较问题的逻辑反对称性，在 4,834 对互斥问题上测量 15 个前沿模型的行为一致性；第二套 **不忠实非逻辑捷径（UIS）** 在 PutnamBench 数学难题上拆解推理链，揪出"答案对但中间跳了关键步"的回复。两套探针的共同点是：不靠访问模型内部、不靠人工编辑输出，只靠模型在逻辑约束下的自相矛盾来证明不忠实在"野外"真实存在。在 IPHR 检出的矛盾对之上，作者再叠一层**不忠实行为模式分类**，把"不忠实到底长什么样"拆成事实不一致、论证切换、答案翻转三类。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph IPHR["隐式后验合理化 IPHR 检测（设计 1）"]
         direction TB

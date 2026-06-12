@@ -43,7 +43,7 @@ tags:
 IAR是一个预部署 (pre-deployment) 评估框架，在已有的制品级评估（Model Cards、Datasheets、基准测试等评模型与数据集的工具）之上增加**第二层评估**，把评估对象从"AI制品"换成"接收机构"，沿五个制度维度审查机构是否具备负责任使用该系统的条件。它刻意不给单一分数，而是把发现的缺陷按严重度三类（阻断/限定/监控）分流，据此把系统定位到部署生命周期的某一阶段，最终输出一句可执行的部署建议：**不可部署 (no-go)**、**仅限试点 (pilot-only)** 或 **可扩大部署 (broader deployment)**。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["特定系统 + 特定部署范围"] --> B["第一层·制品级评估<br/>Model Cards / Datasheets / 基准测试"]
     B --> C["第二层·IAR 机构就绪度评估"]

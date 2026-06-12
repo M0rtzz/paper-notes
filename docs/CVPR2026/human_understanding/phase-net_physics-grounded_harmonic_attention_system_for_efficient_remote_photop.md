@@ -51,7 +51,7 @@ tags:
 PHASE-Net 想回答一个被前人忽略的问题：rPPG 网络该用什么架构，能不能不靠经验试错、而是从血流的物理规律里推出来？整条流水线很短：原始视频先经过视觉编码器（3 个 EST Block，每块内嵌一个 ZAS 模块）提取时空特征；再交给自适应空间滤波器（ASF），它给每一帧生成一张注意力掩码、只聚合信噪比高的皮肤区域得到 1D 特征，并顺手算出脉搏的时间差分；最后送进门控时间卷积网络（GTCN）建模长程时间动态，直接吐出 rPPG 波形。整个网络只有 0.29M 参数，而它之所以敢这么瘦，正是因为架构本身就是信号物理规律的直接体现——下面四个设计逐一展开。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始视频"] --> ENC
     subgraph ENC["视觉编码器（3× EST Block）"]

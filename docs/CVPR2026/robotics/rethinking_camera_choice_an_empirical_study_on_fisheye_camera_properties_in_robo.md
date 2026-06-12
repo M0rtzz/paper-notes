@@ -51,7 +51,7 @@ tags:
 这篇论文不是提一个新模型，而是把"腕部该用鱼眼还是针孔相机"这件被工程界默默选定、却没人系统验证过的事，拆成三个递进的研究问题逐一证伪/证实。作者搭了一套仿真+真实世界双轨平台，在同一批任务上把鱼眼和针孔放进严格对照下比较：先看宽视场角是否真能增强空间定位（RQ1），再看它如何影响对新场景的泛化（RQ2），最后追问策略能否跨不同鱼眼镜头迁移、失败的根因是什么（RQ3），并据此给出一个即插即用的修复手段 RSA。整套流程可概括为：先把平台（仿真两阶段鱼眼渲染 + 真实遥操作采集 + 无状态 Diffusion Policy）搭好，再把鱼眼/针孔放进"四核心变量逐一受控"的对照里，分头回答三个 RQ，其中 RQ3 暴露的失败追溯到尺度过拟合并用 RSA 修复。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PLAT["仿真-真实双轨实验平台"]
         direction TB

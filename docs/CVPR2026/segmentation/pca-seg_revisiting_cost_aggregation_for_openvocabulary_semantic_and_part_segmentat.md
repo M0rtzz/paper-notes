@@ -43,7 +43,7 @@ PCA-Seg 提出并行代价聚合(Parallel Cost Aggregation)范式替代传统的
 整体流程是：图像和文本先过 CLIP 编码器，两者做 Hadamard 积得到代价体 $\mathcal{S}$；代价体同时喂给空间聚合分支和类别聚合分支，分别得到空间上下文特征 $\mathcal{B}_n$ 和类别语义特征 $\mathcal{E}_n$；接着由 EPL 模块把两支的互补知识解析并融合成统一表示，同时 FOD 损失在训练时把两支约束成正交，确保它们提供的是真正不同维度的信息，而不是互相重叠的冗余。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["图像 + 文本 → CLIP 编码器"] --> B["Hadamard 积 → 代价体 𝒮"]
     subgraph PCA["并行代价聚合架构"]

@@ -41,7 +41,7 @@ tags:
 CoLoGen 想做的，是让同一个生成模型同时胜任指令编辑、可控生成和个性化生成，而不必为概念理解和空间定位这两种相互打架的能力各开一套表征。它在 FLUX.1 的 MMDiT 骨架上落了两枚关键棋子：一是把每个多模态注意力块里 source latent 的 KV 投影改造成可动态路由的专家池（PRW），让模型根据当前任务挑选合适的表征通路；二是用一条 5 步、从易到难的渐进式训练流水线把这些专家逐个点亮，前面学到的能力被冻结保留，后面的任务只解锁新专家。数据从 source latent 流入注意力块时，先由路由器选出专家加权融合，再与 noisy/text latent 交互生成输出，整个过程里概念和定位两种表征始终各走各的专家，互不污染。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     SRC["source latent（参考图 / 控制条件）"] --> ROUTE
     subgraph PRW["PRW：KV 投影专家路由（拆开概念与定位表征）"]

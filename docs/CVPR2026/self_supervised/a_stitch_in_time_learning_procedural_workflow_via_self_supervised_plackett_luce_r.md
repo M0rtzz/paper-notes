@@ -41,7 +41,7 @@ tags:
 PL-Stitch 想解决的核心问题是：让自监督预训练学到"程序感知"——既知道帧里有什么，也知道帧该在什么时候出现。整体由一个共享的 ViT 骨干编码器 $f_\theta$ 和两条互补分支组成。Video 分支负责全局：从一段视频里稀疏采样 k=8 帧打乱，让模型把它们重新排回正确的时间顺序，从而学到工作流的整体进展。Image 分支负责局部：在「过去/当前/未来」三帧组上同时做掩码图像建模（MIM）和时空拼图（jigsaw），学习细粒度的帧级语义和跨帧对应关系。三个目标共享同一个编码器，最后联合训练，全局排序信号和局部重建信号互相补足。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["程序化视频<br/>（手术 / 烹饪）"] --> ENC["共享 ViT 编码器 f_θ"]
     subgraph VID["基于 Plackett-Luce 的列表级时序排序（Video 分支）"]

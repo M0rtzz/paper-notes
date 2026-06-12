@@ -45,7 +45,7 @@ tags:
 整条链路是这样转的：给定一张室内场景图和一个需要多步空间推理的问题，系统先用视觉基础模型抽出深度图和分割图作为几何线索，再以问题里的目标对象为锚点递归地搭出一张场景图，最后把这张图连同原问题一起喂给 VLM，让它产出一串逻辑连贯的操作步骤作为答案。基准负责"出题和判分"，方法负责"帮 VLM 把题做对"，二者一前一后构成全文——基准构建产出数据、评估指标在数据上判分暴露出 VLM 的短板、RSGAR 再针对短板做推理时增强后回到指标下复评。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CONSTRUCT["SpatiaLQA 基准构建"]
         direction TB

@@ -44,7 +44,7 @@ tags:
 输入是球面坐标 $x = (\lambda, \phi) \in S^2$；编码器 $\Phi(x)$ 给出一个 $D$ 维特征，再经过任意 NN (MLP / GLU / 与图像 embedding 融合的 bottleneck) 输出标签 $y$。本文不改变 NN，只替换 $\Phi$。整个流水线分四步：(A) 选一个或多个 ROI 球冠 $R_c$ 和高带宽 $L_r$，预先解出球冠 Slepian 特征函数 $\{g_n\}$ 并按浓度特征值 $\mu_n$ 排序、按 Shannon 数截断；(B) 再选一个低带宽 $L_g \ll L_r$ 计算全球 SH 基 $\Phi_{\text{SH}}$；(C) 在线推理时把每个 ROI 的 Slepian 评估值与全球 SH 评估值拼接为 $\Phi_{\text{Hybrid}}(x)$；(D) 送入下游 NN 做分类、回归或与图像特征融合。下图中，离线分支（设计 1+2）负责把"区域 + 带宽"解成一组能量集中在 ROI 的局部基，全球 SH 分支提供粗上下文，二者在混合编码处（设计 3）并联：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["球面坐标 x=(λ,φ) ∈ S²"]
     subgraph OFF["离线构造局部 Slepian 基"]

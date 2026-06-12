@@ -45,7 +45,7 @@ tags:
 DropAnSH-GS 要解决的是 3DGS 在稀疏视角下严重过拟合的问题，但它不改网络、不改损失，只在标准 3DGS 训练管线的前向传播里塞进两道正则化阀门。第一道是 Anchor-based Dropout：选一批锚点 Gaussian，连同它们的空间邻域整簇丢掉，从根上掐断"丢一个被邻居补一个"的补偿效应；第二道是球谐函数（SH）Dropout：随机把一批 Gaussian 的高阶球谐系数清零，压制颜色维度上的过拟合。两者都只在前向时临时改写不透明度与 SH，反传照常，所以可以无缝挂到任何 3DGS 变体上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["稀疏视角图像 + 初始化的 N 个 Gaussian"] --> F["标准 3DGS 训练前向<br/>塞进两道正则化阀门"]
     subgraph AD["Anchor-based Dropout"]

@@ -40,7 +40,7 @@ tags:
 这篇论文想解决的是「3D 数据太贵、自 ScanNet 以来一直涨不上规模」的困境，办法是把互联网上海量的无标注视频自动「抬」成 3D 场景理解的训练数据。整条管线分三步走：先从原始视频里挑出可用片段、用运动恢复结构（SfM）算出相机位姿和稀疏点云；再把稀疏几何补成密集网格、并打上实例级分割与语义标签；最后针对检测/分割、空间 VQA、视觉语言导航（VLN）三类下游任务，各自把 3D 场景转写成对应的训练样本。整套引擎跑下来，8,217 个视频最终筛出 6,687 个可用场景，每个场景都带图像、相机位姿、密集重建、实例分割和高级推理标注。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["互联网视频<br/>8,217 段"] --> B["视频筛选与 SfM 重建管线<br/>镜头切分→按视差选关键帧→密集匹配+全局 BA→质量筛查"]
     B -->|相机位姿 + 稀疏点云| C["密集重建与实例分割管线<br/>PriorDA 度量深度+TSDF 水密网格 / CropFormer 掩码聚合 3D + VLM 标注"]

@@ -46,7 +46,7 @@ RSAT 的方法逻辑很清楚：先把输出空间固定成可验证的结构，
 训练分两阶段。第一阶段是 SFT，用 1,000 条由 Claude Opus 4.5 生成并经过程序校验的结构化推理 trace 训练模型学会格式。第二阶段是 GRPO，模型对同一问题采样 8 个候选输出，用复合奖励打分，再用组内相对优势更新策略。评测覆盖 Qwen 2.5 Instruct 的 1.5B/3B/7B 和 Llama 3 Instruct 的 1B/3B/8B，数据来自 WTQ、FeTaQA、TabFact。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：序列化表格（[HEADER]/[ROW] 标记）+ 自然语言问题"]
     A --> B["结构化单元格级推理输出<br/>JSON：每步 claim + [row, col] 引用 + final_answer"]

@@ -38,7 +38,7 @@ LCDrive 提出潜在链式思考（Latent CoT）框架，用动作提议token和
 LCDrive 要解决的核心问题是：VLA 驾驶模型借文本 CoT 来推理，但文字既表达不好时空几何，又拖慢生成、还可能和最终动作对不上。它的做法是把整条推理链从自然语言搬进潜在向量空间——模型不再"用文字想"，而是交替吐出两类潜在 token：先提议一个候选动作，再让世界模型预测"执行它之后场景会变成什么样"，看到后果再调整下一个动作提议，如此往复，最后落到真正要输出的轨迹。整套系统分三阶段训练：先从一个预训练好的非推理 VLA 出发冷启动这条潜在推理链，再训练一个小型世界模型预测头让模型在推理时能自己预测未来状态，最后用轨迹级奖励做 RL 后训练把整条链打磨到位。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多模态观测<br/>(相机 / 传感器)"] --> B["VLA 骨干<br/>(预训练非推理模型)"]
     subgraph LCOT["潜在 CoT 表示"]

@@ -44,7 +44,7 @@ tags:
 HAG 要同时啃下两块互相牵制的硬骨头：群体的宏观分布要随主题自适应、个体的微观属性又要社会学合理。它把整件事建模成一个自顶向下的层次化条件概率推断：输入一个目标主题，先让世界知识模型（WKM）推断该主题下人口属性的层级顺序与逐层条件概率，长出一棵从主题根节点到完整 persona 叶节点的分布树，每条根到叶的路径就对应一类人群及其目标占比；再以各叶节点的目标比例为配额，从 World Values Survey 真实用户库里检索填充，数据不足的节点用 LLM 在该路径约束下增强生成，最终拼出一个既对得上宏观分布、个体又自洽的 Agent 群体。整套流程把"主题→分布→个体"串成一条可解释的链路，而不是让每个 Agent 各自独立采样。生成完成后，再用 PACE 框架从群体分布对齐与微观社会学一致性两端量化质量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["目标主题 t"] --> S1
     subgraph S1["主题自适应分布树构建"]

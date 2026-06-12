@@ -46,7 +46,7 @@ OpenDPR 提出了一种免训练的视觉中心框架，利用扩散模型离线
 OpenDPR 分为两阶段：(1) **类无关变化提案生成**——利用 SAM 生成分割 mask，结合 DINOv2 的语义特征进行时相间的变化 mask 匹配，得到变化区域的 proposals；(2) **视觉中心类别识别**——将每个变化 proposal 的视觉特征与预构建的类别原型库进行相似度检索，识别变化的具体类别。此外，还设计了一个可选的弱监督变体 OpenDPR-W，通过 S2C 模块进一步提升变化定位精度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["扩散引导的视觉原型构建（离线一次性）"]
         direction TB

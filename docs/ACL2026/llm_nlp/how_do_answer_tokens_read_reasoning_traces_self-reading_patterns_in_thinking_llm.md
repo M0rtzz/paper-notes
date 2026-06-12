@@ -46,7 +46,7 @@ tags:
 本文要回答的问题是"答案 token 到底怎么阅读前面那条几千 token 的推理痕迹，且这种阅读方式跟答对与否有没有关系"。围绕这一点，方法从分析走到应用：先在 GSM8K 上观察三个推理 LLM 的答案-推理注意力，从中提炼出"良性自读"的几何与语义特征；再把这两类特征量化成 SRQ（自读质量）得分，用它衡量一个样本的阅读是否有序；最后用高 SRQ 与低 SRQ 样本的激活差构造引导向量，在推理时注入隐藏状态，把模型从混乱阅读推向良性自读。输入是模型的推理痕迹与注意力，中间产物是 SRQ 得分与引导向量，输出则是被纠偏后的更可靠答案。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["推理痕迹 + 答案-推理注意力"] --> B1
     subgraph B1["良性自读模式识别"]

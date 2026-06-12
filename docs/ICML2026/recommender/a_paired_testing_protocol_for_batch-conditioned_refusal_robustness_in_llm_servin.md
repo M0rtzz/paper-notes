@@ -46,7 +46,7 @@ tags:
 四个 study 的角色不同。Study A 是本地发现层，使用三类 1B-3B instruction-tuned 模型，在同步 dispatch、邻居条件、并发量化和显式 true batching 下比较安全与能力标签变化。Study B 扩展到 15 个模型，检查初始安全偏斜是否可泛化，并分析 alignment type 与输出不稳定性是否能预测 fragility。Study C 使用 vLLM FP16 continuous batching，测试 co-batched neighbors 是否带来独立组合效应。Study D 在同一 H100/vLLM 0.19.1 栈上，对 55 个当前 score-flip candidates 比较标准 vLLM 与 `VLLM_BATCH_INVARIANT=1`。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["安全 prompt + 能力对照 prompt<br/>多模型 × 不同 batch / serving 条件"]
     IN --> A["安全-能力配对测试 · Study A 本地发现<br/>同一 prompt 跨 batch 比较标签翻转<br/>安全 0.51% vs 能力 0.14%"]

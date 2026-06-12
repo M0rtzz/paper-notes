@@ -45,7 +45,7 @@ Sheaf-ADMM 把多智能体协调问题做成端到端可微的 ADMM 展开——
 Sheaf-ADMM 把"一群只看局部的 agent 协同解全局任务"直接做成一层可微的 consensus-form ADMM 展开。输入 $\bm D \in \mathbb{R}^{H \times W \times C_{in}}$ 被切成 $N$ 个重叠 patch，每个 patch 就是一个 agent，只看自己那块视野；共享 encoder 把每个 patch $\bm d_i$ 编成一个凸二次子问题的参数 $\bm Q_i, \bm q_i$。接着展开 $K$ 步 ADMM：每步里 agent 先独立解自己的局部子问题（$\bm x$-update），再通过 cellular sheaf 定义的"边空间投影"把彼此协商成一致（$\bm z$-update），最后用对偶变量累积没对齐的分歧（$\bm u$-update）。$K$ 步迭代后，每个 agent 拿最终的 $\bm x_i$ 配上本地 patch 过 decoder 出本地预测，再聚合成全局输出。整条管线没有任何采样或不可导算子，可以端到端反传。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入 D（H×W×C）"] --> B["切成 N 个重叠 patch<br/>每个 patch = 一个 agent"]
     B --> C["共享 encoder<br/>每个 patch 编成凸子问题 Qᵢ, qᵢ"]

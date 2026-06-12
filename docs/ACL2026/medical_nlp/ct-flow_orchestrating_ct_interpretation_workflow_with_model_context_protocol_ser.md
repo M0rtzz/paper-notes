@@ -50,7 +50,7 @@ CT-Flow 系统由三层组成：
 诊断时给定临床 query $Q$，整套系统生成完整 Reasoning-Acting Trajectory $\mathcal{T} = \{(s_0, a_0, o_0), \ldots, (s_n, a_n, o_n)\}$，最终答案 $A$ 是累积证据合成的结果而非单次预测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph TOOLS["MCP 四级工具栈（FASTMCP 统一接口）"]
         direction TB

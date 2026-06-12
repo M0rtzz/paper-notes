@@ -46,7 +46,7 @@ tags:
 HAMR 的出发点是把类不平衡问题里两个常被混为一谈的问题拆开：「模型该看重哪个样本」（实例级难度）和「模型该看到哪些样本」（训练分布）。它由两个互补模块串成一条训练流水线——自适应权重估计先用一个轻量权重网络 $f_\theta$ 把归一化后的样本损失映射成实例重要性权重，并通过双层元优化让这个映射随训练动态校准；难度感知区域重采样再把这些权重经 EMA 平滑成全局难度分数、配合 KNN 邻域增强去改写下一轮的采样分布。两个模块在统一循环里彼此喂数据：权重估计输出「关注什么」的信号，重采样据此决定「让模型多看什么」，从而把训练焦点持续推向真正困难的语义区域，而非简单按类别一刀切地加权。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["训练样本<br/>按采样概率 p_i 取 mini-batch"] --> B
     subgraph W["双层元优化自适应权重"]

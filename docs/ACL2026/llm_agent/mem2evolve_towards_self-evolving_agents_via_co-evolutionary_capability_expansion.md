@@ -44,7 +44,7 @@ tags:
 Mem²Evolve 把自进化拆成一个"前向推理 + 后向进化"的闭环。面对新任务时，Agent 先做任务规划，再从资产记忆里以"优先复用、按需创建"的方式招募专家 Agent 与工具来执行（前向）；任务结束后用 LLM-as-a-Judge 评估整条轨迹，把新产生的高质量资产沉淀回资产记忆、把成败经验蒸馏进经验记忆（后向）。两个记忆库每跑完一次任务都同步刷新，使能力边界与战略经验在同一循环里协同生长，而非被割裂优化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["新任务"] --> B["任务规划<br/>拆解子任务"]
     B --> C["资产招募<br/>优先复用、按需创建"]

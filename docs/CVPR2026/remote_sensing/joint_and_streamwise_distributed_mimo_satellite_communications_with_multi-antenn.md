@@ -63,7 +63,7 @@ tags:
 整条链路这样转：先把"随机相位会让性能算不出来"这个拦路虎用一个确定性的SE近似抹平，让目标函数变得可优化；然后分两种传输模式各设计一套收发机。联合传输模式让所有卫星都参与发每个用户的所有流，用WMMSE迭代把和速率压到最大；流式传输模式则反过来，让每个流只由一颗卫星负责，靠SVD和匈牙利匹配挑出"谁发哪个流"，用一点频谱效率换来前传开销的大幅下降。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["统计CSI<br/>到达角/离开角 + 大尺度衰落 β"] --> B["确定性SE近似<br/>把期望挪进信号/干扰项，平均掉随机相位 ψ"]
     B -->|联合传输：所有卫星发所有流| C["WMMSE联合预编码<br/>块坐标下降 U_k → C_k → W_lk"]

@@ -46,7 +46,7 @@ tags:
 ENMP 框架包含两个核心阶段：(1) 通过 CMA-ES 进化搜索在连续潜在空间中采样候选剪枝掩码；(2) 将掩码应用于 LoRA 适配器，剪除负面模块后再用现有方法（如 TIES、DARE）完成合并。搜索过程通过验证集性能迭代优化分布参数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：多任务 LoRA 适配器"] --> B
     subgraph S["CMA-ES 进化搜索（迭代约 60 代）"]

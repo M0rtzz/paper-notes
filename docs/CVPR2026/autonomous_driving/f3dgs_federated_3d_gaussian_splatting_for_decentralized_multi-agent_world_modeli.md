@@ -49,7 +49,7 @@ tags:
 F3DGS 要解决的是：多个智能体各自只看到场景的一部分、又不能交换原始图像，如何协同重建出一个统一的 3DGS 世界模型。它的破局点是利用 3DGS 参数天然可分离（位置、协方差、颜色是独立张量）这一点，把"几何"和"外观"拆开——先把各客户端轨迹对齐到统一坐标系、用所有客户端的 LiDAR 点云融合出一套**共享的全局几何骨架**并固定下来，然后让各客户端在冻结位置的前提下只联邦优化外观属性，最后按"谁看得多谁权重大"的可见性频率把各客户端的更新加权聚合回全局模型。整个联邦训练迭代多轮，全程零原始图像交换、只传模型参数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["各客户端 LiDAR + RGB<br/>（原始数据不出本地）"] --> B["度量尺度位姿构建<br/>Umeyama Sim(3) 对齐 + SE(3) 平滑"]
     B --> C["全局几何骨架<br/>LiDAR 点云融合，位置固定不动"]

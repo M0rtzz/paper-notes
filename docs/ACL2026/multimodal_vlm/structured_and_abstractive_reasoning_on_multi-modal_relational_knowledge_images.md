@@ -58,7 +58,7 @@ tags:
 评测时不仅看最终答案，还看 CoT 质量；任务 5 的描述用相似度评分，其他任务用准确率和 CoT judge 评价。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     K["多模态知识图谱<br/>VisualSem / FB15K-237 / MKG-Y"]
     subgraph ENGINE["STAR 数据引擎"]

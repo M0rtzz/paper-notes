@@ -48,7 +48,7 @@ tags:
 作者把 LLM agent 记忆机制看作一个由 MDL（最小描述长度）驱动的演化过程，并用「Why-How-What」三层 RQ 把整条 storyline 串起来：RQ1（§3）追问是哪三股选择压力逼着记忆机制往前走，RQ2（§4）刻画 Storage → Reflection → Experience 三阶段的演化路径，RQ3（§5）则聚焦 frontier 的 Experience 阶段带来的两大质变。三阶段共享同一套形式化——agent 在时刻 $t$ 按 $a_t \sim \pi_\theta(a_t \mid \mathcal{I}, o_t, m_t)$ 采样动作，其中局部记忆 $m_t = \text{Retrieve}(\mathcal{M}, o_t)$ 来自全局 memory $\mathcal{M}$，而三阶段的真正分野就在于 $\mathcal{M}$ 是怎么被构造出来的：保留原始轨迹、精炼单条轨迹、还是跨轨迹归纳出通用规则。整条综述顺着「Why-How-What」展开——先讲是哪三股压力逼着记忆机制演化，再讲演化出的三阶段形式化，最后深挖 frontier 的 Experience 阶段。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["三股选择压力（Why）<br/>长期一致性 / 动态环境 / 持续学习"]
     P -->|MDL 压缩驱动逐代演化| AXIS

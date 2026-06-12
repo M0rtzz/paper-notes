@@ -48,7 +48,7 @@ DMW 的核心思想是同时解决**长期偏好alignment**和**短期指令adap
 DMW 以 SimLingo（基于 InternVL2-1B）为 VLA backbone，输入包括前视相机图像、导航目标、用户 profile 和语言指令，输出个性化驾驶动作（油门/刹车/转向）。整条 pipeline 分两步：先用「个性化驾驶数据集（PDD）」里的真人数据，通过对比学习把 profile 和行为对齐成「用户嵌入」注入策略，建模长期习惯；再让 VLA backbone 预测安全的基础动作、由残差解码器叠加「个性残差」，最后用「风格感知奖励」驱动 GRPO 强化微调，把短期语言指令体现在残差上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     DATA["个性化驾驶数据集（PDD）<br/>30 名真人驾驶 + 结构化问卷 profile"]
     IMG["前视图像 + 导航目标 + 语言指令"]

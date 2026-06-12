@@ -45,7 +45,7 @@ tags:
 Context-Agent 想把多轮对话历史从「一条扁平 token 序列」改造成「一片话题树森林」，让回溯和分叉这种非线性结构能被显式表达。框架在每轮 $t+1$ 维护状态 $S_t = (H_t, T_{\text{act}}, B_{\text{act}}, n_{\text{cur}})$，即历史森林、当前活跃话题树、活跃分支与当前节点。新 query $q_{t+1}$ 到来时分三步走：先做 discourse 分类判断它属于当前分支、当前树的新分支还是全新话题，决定挂载位置；再用上下文选择函数 $C_{t+1} = f_{\text{select}}(q_{t+1}, S_t)$ 从森林里抽出一条「连贯路径」作上下文；最后 $r_{t+1} = f_{\text{gen}}(q_{t+1}, C_{t+1})$ 生成回复。整套优化目标是在最大化任务完成率的同时压低 $C_{t+1}$ 的 token 数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：新 query q + 状态 S_t<br/>话题树森林 / 活跃树·分支·当前节点"] --> B
     subgraph G1["节点/分支/树三级数据结构"]

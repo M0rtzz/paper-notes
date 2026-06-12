@@ -44,7 +44,7 @@ tags:
 输入一团不完整点云，UniCo 要在一次前向里同时交出两样东西：补全后的密集点云，和一组装配就绪的二次曲面基元。它先用编码器把输入压成一组共享形状特征 $\mathcal{T} = \{\mathbf{t}^u\}_{u=1}^U$（$U=512$），随后兵分两路并行解码同一份特征：点路径沿用 AdaPoinTr 解出完整点云，基元路径则放出 $K=40$ 个可学习的"基元代理"查询去这份特征里捞结构。两路共享同一份特征是关键——补全和基元推断不再是先后级联，而是被同一份表示同时约束，早期误差也就没了往下游传播的通道。训练时靠在线目标更新和匈牙利匹配让两路协调，推理时再用置信度分数挑出真正有效的基元交给下游装配求解器。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["不完整点云"] --> B["编码器<br/>共享形状特征 T（U=512）"]
     B --> C["点路径<br/>AdaPoinTr 解出完整点云"]

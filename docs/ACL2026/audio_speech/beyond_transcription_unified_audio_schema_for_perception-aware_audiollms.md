@@ -45,7 +45,7 @@ tags:
 这篇论文要解决的是 AudioLLM "只会转录、不会听"的感知缺陷。它的思路不是改架构，而是改监督格式：先把一段音频该被听到的所有信息定义成一个三层 JSON schema（说了什么 / 怎么说的 / 还有什么声音），再用一条全自动 pipeline 把现成 ASR 语料批量改写成这种 schema 标注，并据此生成配套的问答数据；最后把这些数据塞进标准的多阶段训练流程，让模型在学转录的同时被迫保留声学细节，得到既能感知又能推理的 UAS-Audio。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["现成 ASR 语料 + 原始音频"] --> P
     SCHEMA["统一音频模式 UAS<br/>转录 / 副语言 / 非语言事件 三层 JSON"] -.定义结构.-> P

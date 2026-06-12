@@ -42,7 +42,7 @@ tags:
 A3 围绕理论范式 A3-Law 展开，串成"范式→数据→模型→评测"一条线。A3-Law 把广告美学拆成感知注意力→形式兴趣→欲望影响三个递进阶段，并给每层配上可打分规则；A3-Dataset 按这套规则做两阶段标注，先人工标 30K 广告图打底、再用 MLLM 围绕标注生成 CoT 推理链扩成 120K instruction-response 对；A3-Align 在该数据上用 SFT+GRPO 两段训练把模型对齐到 A3-Law；A3-Bench 作为评测基准衡量各 MLLM 并支撑下游应用。贯穿数据构建与 GRPO 训练的还有一套轻量工具调用（色调分析、色彩和谐度、OCR），把色彩/文案这类主观判断锚定到客观测量上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     L["A3-Law 理论范式<br/>感知注意力→形式兴趣→欲望影响 三阶段规则"]
     L --> D

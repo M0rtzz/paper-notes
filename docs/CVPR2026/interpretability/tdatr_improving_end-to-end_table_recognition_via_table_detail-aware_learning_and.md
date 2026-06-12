@@ -39,7 +39,7 @@ tags:
 TDATR 要解决的问题是：端到端表格识别(TR)虽然流程简洁，却高度依赖昂贵的 TR 专用标注，数据一受限就泛化崩塌，且通常不给出单元格的空间位置、缺乏可解释性。它的破解思路是把"学会识别表格"这件事拆成两步——先**感知**、再**融合**。整条管线由三部分串起来：视觉编码器(Swin Transformer)把表格图像编码成多分辨率特征，多模态语言解码器在统一的语言建模范式下生成结构化文本，结构引导单元格定位(SGCL)模块则从解码过程的隐状态里"长出"每个单元格的精确坐标框。训练上对应 perceive-then-fuse 两阶段：第一阶段在海量通用文档上喂各种感知任务，第二阶段才用少量 TR 数据把感知到的细节融合成端到端的 HTML 输出。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["表格图像 → Swin 视觉编码器<br/>+ 多模态语言解码器"] --> B
     subgraph B["表格细节感知学习（通用文档，便宜）"]

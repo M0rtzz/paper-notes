@@ -38,7 +38,7 @@ tags:
 这篇论文要回答的问题是：LVLM 在视觉文档理解（VDU）里答错，到底是“不知道”还是“知道但没说出来”。做法是在三个 LVLM（Qwen2.5-VL 32B、Gemma3 27B、LLaVA-NeXT 13B）的每一层接一个线性探针，量出各层信息的线性可编码程度，再和模型实际文本响应的正确率对照——差距有多大、信息在哪层最丰富，就此浮现；最后顺着“信息集中在中间层”这一发现，反过来去微调中间层弥合差距。整体是一条“探测分析 → 发现 → 针对性干预”的回路。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["冻结的 LVLM<br/>Qwen2.5-VL 32B / Gemma3 27B / LLaVA-NeXT 13B"] --> B
     subgraph PROBE["逐层线性探测"]

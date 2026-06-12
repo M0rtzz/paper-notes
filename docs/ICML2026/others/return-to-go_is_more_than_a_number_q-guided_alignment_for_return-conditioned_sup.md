@@ -43,7 +43,7 @@ tags:
 两个核心组件联合优化、互为师友：（1）DT 策略网络 $\pi_\theta(s, \text{RTG})$；（2）双 Q 函数 $Q_\psi(s, a)$。策略接收序列 $\tau_t = (\text{rtg}_{t-k+1}, s_{t-k+1}, a_{t-k+1}, \ldots, \text{rtg}_t, s_t)$，推理时所有 RTG token 可被修改为 $\tau_t^g$（加偏移 $g$），实现对策略行为的细粒度控制。训练时方法落到两件事上：**RTG-to-Behavior 对齐损失**用 Q 函数给的回报排序，逼策略在 RTG 升高时输出回报更高的行为（与标准监督损失一起更新策略）；**RTG 扰动 + 双 Q 共训练**则反过来让 Q 函数从「策略在更高 RTG 下生成的高回报动作」里学到更准的值估计。两者接成一个 actor-critic 正反馈环——Q 越准、对齐越好；对齐越好、策略生成的高回报演示越多、Q 又学得更准。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     D["离线数据集轨迹 τ_t<br/>(RTG, 状态, 动作)"] --> P["DT 策略 π_θ(s, RTG)"]
     P -->|"RTG / RTG+δ"| AD["预测动作 â 与扰动动作 â^δ"]

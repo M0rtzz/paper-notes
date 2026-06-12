@@ -46,7 +46,7 @@ tags:
 ToxReason 把"化学毒性"从一道结构-性质分类题重新定义为一条沿不良结局路径（AOP）展开的因果推理题：输入一个化学物质，模型需要从分子起始事件（MIE）出发，经关键事件逐步推理到器官级不良结局（AO），既给出毒性预测又给出与生物机制对齐的解释。围绕这一目标，论文先从权威毒理库构造带 AOP 标注的数据，再切分出支持学习与无泄漏评估的训练/测试集，最后用强化学习显式优化"预测正确 + 推理忠实"的联合目标。评估同时看毒性预测的 F1 和推理质量的 LLM-as-a-Judge 四维度评分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：化学物质 + AOP 因果链"] --> S1
     subgraph S1["AOP 选择与化学物质-AOP 关联推导"]

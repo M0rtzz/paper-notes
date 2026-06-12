@@ -46,7 +46,7 @@ tags:
 RepMD 的出发点是：有害梗图的视觉外壳一直在变，但背后恶意用户"怎么设计一张有害梗图"的逻辑相对稳定，可以从历史失败案例里提炼出来反过来引导检测。整条流水线无需训练，全部在推理时完成，分三步走：先回看 MLLM 过去在哪些梗图上栽了跟头、为什么栽，整理成一棵失败原因树；再把这些失败原因抽象成设计概念图（DCG），用攻击树的形式描述"一个恶意用户会怎么一步步把无害素材改造成有害梗图"；最后对一张新梗图，从 DCG 里检索出最相关的设计步骤，拼成逐步引导喂给 MLLM，让它沿着设计者的思路去判断。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["历史梗图"] --> S1
     subgraph S1["失败原因树"]

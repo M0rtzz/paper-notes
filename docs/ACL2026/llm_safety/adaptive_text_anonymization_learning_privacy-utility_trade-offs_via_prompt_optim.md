@@ -48,7 +48,7 @@ tags:
 整体流程是：给定待匿名化文本和一个隐私-效用任务规格 $(p, u)$，从一条通用种子提示出发，用进化式提示优化（GEPA）在固定计算预算 $B=1500$ 次 LLM 前向内搜索匿名化指令 $\Pi^*$，最后输出匿名化文本。搜索分三步走——先初始化提示池，再用粗粒度标量反馈热启动，性能停滞后切换到带自然语言解释的丰富反馈做精炼。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：待匿名文本 + 隐私-效用规格 (p, u)<br/>通用种子提示初始化提示池 P"]
     subgraph GEPA["两阶段 GEPA 进化优化（预算 B=1500）"]

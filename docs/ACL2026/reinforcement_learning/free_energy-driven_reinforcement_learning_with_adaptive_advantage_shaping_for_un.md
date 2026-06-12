@@ -48,7 +48,7 @@ FREIA 把自由能原理 (FEP) 引入无标签 RL 微调，用「共识 + 探索
 FREIA 建立在 GRPO 之上，只在「奖励」和「优势」两处做手术，其余 PPO 结构原样保留。对每个输入 $x$，先 rollout $G=8$ 条 reasoning 路径并提取最终答案，统计去重后的唯一答案集 $U=\{u_1,...,u_M\}$ 及其频率 $D=\{f_1,...,f_M\}$；然后 FER 模块根据群体置信度在「跟随共识」和「鼓励探索」之间自适应混合，给每条路径打出连续 reward $R_i$；AAS 模块再用这批 reward 分布的偏度判断当前训练处于早期还是后期，对正、负优势分别衰减，得到整形后的 $\hat{A}_i$；最后把 $\hat{A}_i$ 塞进标准 GRPO 的 clip-PPO 目标（带 $\beta=0.001$ 的 KL 约束）完成策略更新。整条 pipeline 不引入任何额外训练成本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入问题 x"] --> B["Rollout G=8 条推理路径<br/>提取唯一答案集 U 及频率 D"]
     B --> C

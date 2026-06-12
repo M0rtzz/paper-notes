@@ -47,7 +47,7 @@ GLIC 要解决的事很具体：把学习图像压缩里固定邻域的非线性
 整条 pipeline 的务实之处在于分层级用图。网络前半段在高分辨率浅层特征上，作者仍用轻量卷积块——因为在大尺寸特征图上直接构图代价太高；到了后两阶段，特征图空间分辨率已经下降，作者才把传统卷积/注意力块替换成 GFA-Local 与 GFA-Global 的串联，让编码和解码都能用上动态邻接。GFA 内部的运转分三步：先用双尺度采样为每个节点圈出候选邻居（连到哪里），再用复杂度感知机制给每个节点分配连接预算（连多少），最后用相似度阈值在候选里挑出真正的边并做图聚合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像"] --> B["分析变换 g_a<br/>浅层用轻量卷积，后两阶段换成 GFA"]
     B --> GFA

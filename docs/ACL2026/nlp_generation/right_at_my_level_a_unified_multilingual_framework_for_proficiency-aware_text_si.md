@@ -46,7 +46,7 @@ tags:
 Re-RIGHT 要解决的是"LLM 写得出'简单'文本，却控制不住具体词汇等级"的问题，且不想为每种语言、每个等级都准备昂贵的等级标注平行语料。它的思路是把官方词汇等级表当成**评估信号**而非训练标签：准备阶段收集 Wikipedia 精选文章作为训练种子（8057 篇，69220 个文本块）和四种语言的官方等级词表（CEFR/JLPT/TOPIK/HSK，共 43K 词条）；训练阶段用 GRPO 优化一个 Qwen3-4B 策略模型，对每个提示采样 8 个候选回复，由三个奖励模块（词汇覆盖率、语义保持、连贯性）加权打分，组内比较后更新策略。最终一个统一模型就能覆盖英日韩中四语言和各自所有熟练度等级。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Wikipedia 种子文本块<br/>+ 四语言官方等级词表<br/>(CEFR/JLPT/TOPIK/HSK)"] --> B["Qwen3-4B 策略模型<br/>每提示采样 8 个候选简化"]
     B --> R

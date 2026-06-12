@@ -36,7 +36,7 @@ DSFlash 通过合并分割与关系预测 backbone、双向关系预测头、动
 DSFlash 要解决的是全景场景图生成（PSGG）几乎没人管延迟的问题——SOTA 的 DSFormer 一次推理 458 ms，还用了 MaskDINO + ResNet 两个独立 backbone，浪费严重。它的核心判断是：两阶段方法完全可以靠共享 backbone 特征、减少前向次数、剪掉无关 token 把延迟压到实时，而且不掉点。具体是第一阶段用冻结的 EoMT（Encoder-only Mask Transformer）分割模型提 mask 与特征，第二阶段直接复用 EoMT 的中间特征（从 block 2/5/8/11 抽 patch token 拼成 768×40×40），用 mask embedding 编码主客体位置，过一个轻量 Transformer neck 后由关系头一次前向输出双向关系；backbone 内部还叠了 ToMe-SD token merging 进一步压低注意力开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像 640×640"] --> BB
     subgraph BB["Merged Backbone（冻结 EoMT，叠加 Token Merging）"]

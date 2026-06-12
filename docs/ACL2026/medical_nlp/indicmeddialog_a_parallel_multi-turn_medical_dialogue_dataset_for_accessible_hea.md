@@ -48,7 +48,7 @@ tags:
 3. **两阶段 post-processing 评测**：模型输出经常把正确诊断包裹在解释性长句里，原始 accuracy 会低估真实诊断能力；用 ChatGPT 作为 LLM judge，做"受限语义等价分类"——给定自由文本输出与 12 个标准疾病名，judge 必须从封闭集中选一个或返回 NULL（高于置信阈值时才映射），从而避免幻觉同时回收"对了但格式不对"的案例。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["MDDial 英文种子<br/>1,879 段"] --> S1
     subgraph S1["三段式语料链"]

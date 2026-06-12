@@ -46,7 +46,7 @@ tags:
 给定用户查询 $Q$，ToolOmni 在统一推理循环中交替执行两个阶段：(1) **主动检索阶段**：智能体自主决定是否需要检索、生成搜索查询、调用嵌入检索服务器获取候选工具，迭代多轮直到收集到足够的工具集 $\mathcal{T}_{sub}$；(2) **基于检索的执行阶段**：基于检索到的工具文档，通过多轮推理和工具调用生成最终答案。训练侧由解耦多目标 GRPO 在线优化整个循环，并在执行前用选择性 Rollout 过滤保证执行阶段只在高质量上下文里学习。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["用户查询 Q"] --> RET
     subgraph RET["主动工具检索（推理循环内多轮迭代）"]

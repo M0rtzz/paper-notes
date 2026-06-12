@@ -48,7 +48,7 @@ LocoT2V-Bench 是面向**长视频 + 复杂场景**生成的专业基准——23
 LocoT2V-Bench 针对的是"长视频 + 复杂提示"这个被现有基准漏掉的盲区：旧基准面向短视频、提示又简，自然评不出角色属性、动作、长程一致性这些细节。它分两块——数据侧从 YouTube 收 234 段真实视频，经 MLLM + LLM 抽取再加人工校验，反向构造出多场景、带分层元数据（场景/角色/背景/摄像机）的复杂提示集；评估侧的 LoCoT2V-Eval 沿 5 大维度、17 个子维度给生成视频打分。整套设计可拆成四个支点：数据侧先从真实视频反向构造带分层元数据的复杂提示集，评估侧再用条件门控的分层 VQA 把对齐做细、用流式的多维框架把超长视频评全、用双代理协议把主观的"人类期望"评稳。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["分层元数据提示集构建"]
         direction TB

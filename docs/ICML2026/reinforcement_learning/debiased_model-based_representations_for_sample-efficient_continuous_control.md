@@ -44,7 +44,7 @@ DR.Q 在 MR.Q 类"模型化表示 + actor-critic"骨架上加两件事——用 
 沿用 MR.Q 的两阶段：(a) 训 encoder $f_\omega:s\to z_s$、$g_\omega:(z_s,a)\to z_{sa}$、linear MDP predictor $M(z_{sa})\to (\hat r,\hat z_{s'})$；(b) 在 $z_s,z_{sa}$ 上训 deterministic policy $\pi_\phi$ 与 clipped double Q $Q_{\theta_{1,2}}$。Encoder 在长度 $H$ 的展开 rollout 上做 reward CE 损失 + dynamics MSE + InfoNCE 三项；采样改用 faded PER。DR.Q 相对 MR.Q 只动两处——把采样换成 faded PER、给编码器损失加一项 InfoNCE，其余 encoder/predictor/actor-critic 骨架与训练配置保持不变。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["回放缓冲区 (s, a, r, s')"] --> B["faded PER 采样<br/>按 TD 误差 × 新近度，既重要又新鲜"]
     B --> C["H 步 rollout 批次"]

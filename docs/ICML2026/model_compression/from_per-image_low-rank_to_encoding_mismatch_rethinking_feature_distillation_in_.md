@@ -44,7 +44,7 @@ tags:
 论文是一条"先诊断、再开药"的链：前半（§2）拿三个互补的频谱/几何探针去刻画 ViT 末层 token 特征矩阵 $\mathbf{X} \in \mathbb{R}^{N \times D}$ 的真实结构，把"每张图低秩却蒸不动"这个悖论拆成可量化的 encoding mismatch；后半（§3）顺着诊断结论开出 Lift 和 WideLast 两味极简补丁——前者在推理时保留一个固定线性 projector 把学生宽度抬到 teacher 宽度，后者干脆把学生最后一个 Transformer block 原生加宽到 teacher 宽度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["教师末层 token 特征矩阵<br/>X ∈ R^(N×D)"]
     subgraph DIAG["三视角表征几何诊断"]

@@ -38,7 +38,7 @@ tags:
 工作分为两个部分：(1) 分析阶段——通过头检测、注意力可视化、统计分析和因果干预，揭示跨模态注意力区分能力与时间一致性的因果关系；(2) 方法阶段——提出 TCAS 损失，通过对比学习优化注意力分布，增强模型的时间分辨能力。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Video-LLM + 视频问答样本"] --> DIAG
     subgraph DIAG["分析阶段：诊断不一致的根因"]

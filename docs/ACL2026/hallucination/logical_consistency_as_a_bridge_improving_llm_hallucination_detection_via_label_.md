@@ -52,7 +52,7 @@ LaaB 有三个模块和一个两阶段训练策略：
 **两阶段训练**：Stage 1 round-robin 异步训 $D_r$、$D_j$ 各自的 CE loss；Stage 2 联合微调加入 logic loss。**推理只跑 $D_r$**——通过互学习把 $D_j$ 的知识蒸馏过来了，所以推理阶段不需要额外跑 self-judgment 那次 generation，零推理开销增加。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["Query 与 LLM 回答 O_r"] --> DR["响应检测器 D_r<br/>内部特征 F_r（隐状态 / logits / 注意力）→ MLP → S_r"]
     Q --> EVAL["自评提示 Q_j：让 LLM 口头自判断 → O_j（Yes/No）"]

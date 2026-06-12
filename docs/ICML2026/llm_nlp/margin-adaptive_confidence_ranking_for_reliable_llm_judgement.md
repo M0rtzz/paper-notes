@@ -44,7 +44,7 @@ tags:
 方法要解决的是"如何让置信度真正与人机一致率单调对齐"。给定 judge 模型 $f_{LM}$ 和一个有人类偏好标注的小校准集 $S_{\mathrm{cal}}$，整条 pipeline 是：先把每条样本在多组 in-context 示例下的预测概率拼成一个高维特征向量，再用一个小 MLP $C_\theta$ 把这个向量映射成 $[0,1]$ 的置信度，训练目标是用 margin ranking loss 强制"人机一致的样本排在不一致样本之上"；最后把训练好的 $C_\theta$ 直接嵌进 Jung et al. (2025) 的 fixed-sequence testing，照旧选阈值做带高概率保证的选择性评估。具体而言，对每条样本 $x$ 用 $N=5$ 个 simulated annotator、各 $K=5$ 个示例枚举所有 $1\sim K$-shot 子集 $\mathcal{T}$，得到特征 $s\in\mathbb{R}^{|\mathcal{T}|}$；从 $S_{\mathrm{cal}}$ 中按 $f_{LM}(x)$ 是否等于人类标签 $y$ 切出 agreement / disagreement 两组，随机抽 5000 对构造 ranking 训练对；MLP 训练完后按 $\widehat{\lambda} = \inf\{\lambda: \widehat{R}^+(\lambda') \le \alpha,\ \forall \lambda' \ge \lambda\}$ 选阈值。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["样本 x（N=5 模拟标注者 × K=5 示例）"]
     subgraph S1["多视角 in-context 特征 + 排序型置信度"]

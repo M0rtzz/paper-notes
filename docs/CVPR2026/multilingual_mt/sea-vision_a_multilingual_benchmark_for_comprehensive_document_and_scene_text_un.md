@@ -47,7 +47,7 @@ tags:
 SEA-Vision 包含两个子任务：(1) 文档解析——从文档图像中提取结构化内容，15,234 页跨 9 种文档类型（学术论文、书籍、试卷、杂志、报纸、笔记、研究报告、幻灯片、教科书），标注层级化的页/块/行级标签共 243,643 个区域标注；(2) TEC-VQA——1,839 张场景图像 + 7,496 QA 对，覆盖五种推理能力（文本识别、数值计算、比较分析、逻辑推理、空间理解）。11 种语言：EN/ZH/VI/TH/FIL/MS/ID/LO/KM/MY/PT。整套基准由两条并行的标注流水线（文档解析、TEC-VQA）产出数据，再汇入同一套统一评估框架横比各类模型——三者正是下面的三个关键设计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DOC["文档解析四阶段标注流水线（设计 1）"]
         direction TB

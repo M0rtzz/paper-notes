@@ -45,7 +45,7 @@ tags:
 HypEHR 想回答一个问题：能不能不靠万亿参数的 LLM，用一个几何上"长得像 EHR"的小模型把电子病历问答做好。它的核心赌注是——医学编码和患者轨迹本质是层级树状的（ICD 按章节→类块→类别→子类别组织），而双曲空间天生能以极低失真嵌入树结构，所以整个模型从编码、就诊到问题全程留在洛伦兹双曲流形里建模。训练分两阶段：先在双曲空间预训练患者编码器（联合下次就诊预测和层级正则化），再冻结它、按答案类型（布尔/概念/数值/计数）训练四个轻量的问答头。全模型仅 22M 参数。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["ICD 医学编码就诊序列"] --> ENC
     subgraph ENC["双曲临床序列编码器（设计1）"]

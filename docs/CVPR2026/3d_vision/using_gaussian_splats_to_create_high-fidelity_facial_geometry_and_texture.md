@@ -43,7 +43,7 @@ tags:
 这篇要解决的是"用极少的随手拍图、不上光舞台，就重建出能直接进工业图形管线的高保真人脸"。难点在于：原始 3DGS 的高斯和底层几何是解耦的，能自由形变拟合图像、却拟合不出好网格；而无光照条件下从少量图分离 albedo 和光照又是严重欠约束。它的整体做法是用一套改进的 Gaussian Splatting 把高斯紧紧绑死在三角面片上，从 iPhone 单目视频里选 11 个预定义姿态帧、以 MetaHuman Animator 初始化粗几何，训练后先细化出高精度三角网格，再用 PCA 先验 + 可重光照高斯分离光照、得到去光照 albedo，最终转成 MetaHuman 资产接入 UE5 标准管线。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["iPhone 单目视频"] --> B["选 11 个预定义姿态帧<br/>MetaHuman Animator 初始化粗几何"]
     B --> TRAIN

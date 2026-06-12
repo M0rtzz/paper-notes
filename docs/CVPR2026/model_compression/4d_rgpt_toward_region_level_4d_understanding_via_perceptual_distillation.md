@@ -44,7 +44,7 @@ tags:
 4D-RGPT 的整体思路是把 4D 感知做成模型的**内在能力**，且只在训练时付出代价。视频帧先过 VLM 视觉编码器，编码器输出在送入 LLM 骨干前会叠上"时间戳位置编码"，让模型知道每一帧对应的真实时刻；LLM 骨干一边正常生成文本答案，一边额外接出一组训练专用模块——先用 4D 感知解码器（D_4DP）从 LLM 中间特征解出潜在 4D 特征，再用一组 4D 预测头（D_m）从中解出深度、光流、运动分割、相机射线这几种显式 4D 信号。训练时，这两层输出分别被一个冻结的 4D 专家教师 L4P 在潜在层和信号层上"对齐"，把教师的感知知识蒸进 MLLM。推理时，整条 4D 感知与蒸馏分支全部丢掉，只留标准 VLM 路径——所以增强了感知，却不增加任何推理开销。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入视频帧 + 各帧时间戳"] --> B["视觉编码器 E_V"]
     B --> C["时间戳位置编码 TPE<br/>正弦编码叠加到视觉特征"]

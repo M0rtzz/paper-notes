@@ -46,7 +46,7 @@ tags:
 EBMC 要破的局是多模态情感分析里的"马太效应"：文本一旦占优，就会积累更大的梯度、不断强化自己，把音频和视觉越推越边缘。论文没有去直接压制文本，而是分两步走——**先增强、再平衡**。第一步（Stage I）针对表示质量：先把每个模态拆成共享语义和模态特定语义（MSD），再借强模态的线索把弱模态"喂强"（CCE），让音频、视觉先具备能参与竞争的表示能力。第二步（Stage II）针对优化动态：用能量模型在训练过程中持续对齐各模态的梯度贡献（EMC），同时在融合时按样本逐一判断哪个模态此刻可信、动态调权（IMTD）。MSD、CCE、EMC、IMTD 四个模块顺着"输入三模态特征 → 解缠+互补增强 → 能量协调梯度 → 实例级信任加权融合 → 情感预测"这条主线串起来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：文本/音频/视觉三模态特征"]
     subgraph S1["Stage I 增强弱模态（MSD + CCE）"]

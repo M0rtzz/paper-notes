@@ -47,7 +47,7 @@ $\|\mathbf{z} - \mathbf{z}^\star\|_2 \le \epsilon_1 + C\sqrt{2\epsilon_2}$，
 继而 $\|f_{\text{LLM}}(\mathbf{z}) - f_{\text{LLM}}(\mathbf{z}^\star)\|_2 \le L^{\text{loc}}(y;\delta)(\epsilon_1 + C\sqrt{2\epsilon_2})$。Arca 与 LaSR 就是把这两个 $\epsilon$ 推向 0 的工程实现。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["低资源句子 x"] --> G["多语言编码器 g<br/>锚定路径 g(x)"]
     X --> T["轻量 LLM 翻译器 T<br/>x → 英文 y"]

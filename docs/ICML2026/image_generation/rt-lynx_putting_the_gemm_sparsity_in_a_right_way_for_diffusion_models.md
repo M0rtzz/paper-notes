@@ -44,7 +44,7 @@ tags:
 RT-Lynx 想解决的是：DiT 线性层 $\mathbf{Y}=\mathbf{X}\cdot\mathbf{W}^{\top}$ 怎么在不掉生成质量的前提下吃到 SpTC 的 2:4 稀疏加速。作者把传统的权重稀疏 $\mathbf{Y}=\mathbf{X}\cdot\mathbf{W}_s^{\top}$ 改写成 $\mathbf{Y}=S(\mathbf{X})\cdot\mathbf{W}^{\top}+\mathbf{X}\cdot(\mathbf{L}_A\mathbf{L}_B)^{\top}$：前一项把稀疏施加在**激活**上（$S(\cdot)$ 是 token 维度的 2:4 Top-K 加 norm 缩放），后一项是一支秩 $R=64$ 的 LoRA 分支，专门把稀疏化丢掉的残差补回来。被稀疏的层是 DiT block 里的 QKV 投影和 MLP 的 Up/Down 投影，单流路径里 LoRA 也救不动的层则直接跳过。整套"在线 Top-K + 格式重排 + Sparse GEMM + LoRA 累加"最后被折叠进一条 CUDA 执行路径，让理论加速真正落到端到端。训练时骨干权重全冻结，只 fine-tune LoRA。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["DiT 线性层激活 X<br/>(QKV / MLP Up·Down)"]
     subgraph K["融合式在线 Sparse GEMM Kernel（单条 CUDA 路径）"]

@@ -44,7 +44,7 @@ BioHiCL 利用 MeSH（医学主题词）的**层级多标签标注**为稠密检
 在通用域稠密检索器 BGE 基础上，用 BioASQ 的 8 万篇带 MeSH 标注的摘要做 LoRA 微调。整个训练是一条**双路对齐**的流水线：标签路把每篇摘要的 MeSH 标签沿层级树展开、深度加权后算出"标签相似度" $\text{SimL}$，嵌入路用 BGE+LoRA 编码器算出"嵌入相似度" $\text{SimE}$，两路在两个损失里汇合——(1) 回归损失 $\mathcal{L}_{\text{mse}}$ 使 $\text{SimE}$ 拟合 $\text{SimL}$；(2) 层级对比损失 $\mathcal{L}_{\text{con}}$ 使语义相关的文档在嵌入空间中靠近、不相关的远离。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["BioASQ 8 万篇摘要<br/>（带 MeSH 标注）"] --> B
     A --> E

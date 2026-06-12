@@ -46,7 +46,7 @@ tags:
 APEX 要解决的是「一张图配一张 prompt」的问题：传统视觉提示给每个域固定一张 prompt，APEX 则让每张输入图像都能拿到为它量身组合的 prompt。流程上，输入图像先经 FFT 提取低频振幅分量，这部分信号承载了对比度、亮度、色调这类全局外观信息，也正是医学图像域偏移的主要来源。低频振幅送进 APEX 模块，依次经过域特征编码器、prompt 记忆查询（寻址 + 加权组合）、prompt 解码器三步，得到一张空间 prompt；这张 prompt 以元素乘法叠回原始低频振幅，再经 IFFT 重建图像，喂给一个完全冻结的分割模型。训练时再挂一个低频特征对比学习（LFC）分支约束域特征编码器，让检索更准。整个训练里只有 APEX 自己的参数在更新，分割模型一个权重都不动——这也是它能即插即用、又不会引发灾难性遗忘的根本原因。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像"] --> B["低频空间 Prompt 应用<br/>FFT 取低频振幅（保留高频与相位）"]
     subgraph APEX["自适应 Prompt 记忆检索"]

@@ -45,7 +45,7 @@ tags:
 上层是 Mixed-CUTS 训练框架：对每个训练问题生成一组 rollout，其中一半来自标准采样，另一半来自 CUTS。之后仍然按 GRPO 的方式在合并组内计算奖励均值、标准差和标准化 advantage。若标准采样部分在饱和题目上全部正确，CUTS 部分仍可能因为探索到不同分支而产生正确/错误混合，或者在难题上找到标准路径错过的正确分支，于是组内方差不再塌缩。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["训练问题 prompt"] --> SPLIT["Mixed-CUTS 双流 rollout<br/>每题一组，半标准采样半 CUTS"]
     SPLIT --> STD["标准采样子组<br/>沿高概率路径，提供稳定 anchor"]

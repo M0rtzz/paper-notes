@@ -45,7 +45,7 @@ VEENA 用 steering-vector 因果归因框架定位 LVLM 的情感电路——发
 VEENA 分两阶段，先把情感电路解析出来，再据此做推理时干预。Stage I 从成对的情感/中性输入里提取每一层的情感方向向量 $S_l$（按 hit rate 阈值过滤掉无效样本）；Stage II 拿 $S_l$ 当探针，coarse-to-fine 地逐级定位——先找关键层（注入 $S_l$ 看 hit rate 怎么变），再回溯关键 attention heads（backward activation patching），最后落到关键 MLP neurons，勾勒出 LVLM 情感处理的"Adapt→Aggregate→Execute"三段式电路。有了这张电路图，VEENA 再用两个训练无关的推理时手术——VEE 强化关键 attention heads 的情感注意力流，ENA 放大 Explicit State Neurons 的语义激活——直接缓解情感幻觉。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["1. Steering Vector + Latent Restoration Metric"]
         direction TB

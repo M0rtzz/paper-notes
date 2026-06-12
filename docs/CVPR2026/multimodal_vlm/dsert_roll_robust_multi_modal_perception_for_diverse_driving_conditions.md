@@ -38,7 +38,7 @@ DSERT-RoLL 的核心贡献在于：将所有这些新型传感器与传统传感
 DSERT-RoLL 有两部分贡献：**数据集**与**多模态融合框架**。数据集含 22K 帧六传感器同步数据，覆盖高速、城区、郊区场景以及雾、雨、雪、夜间、HDR 等恶劣天气与光照，并提供 3D/2D 框、track ID 与自车里程计。融合框架是一条「双路编码 → 范围传感器出初始框 → 相机特征注入 3D → 门控融合 → 框精修」的流水线：LiDAR 与 4D Radar 点云经 3D 体素骨干得到体素特征，RGB/热成像/事件图像经 2D 骨干得到图像特征；范围传感器分支先压成 BEV、通道拼接卷积融合后由检测器产出初始 3D 框提议；相机分支以非空体素为中心、把图像特征经可变形交叉注意力（deformable cross-attention）采样注入统一稀疏体素空间；再经相机轴置信度门控、与原始体素拼接得到最终融合特征；最后用初始框对融合特征做 ROI pooling 精修，输出精修 3D 框。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     L["LiDAR + 4D Radar 点云"] --> VOX["3D 体素骨干 → 体素特征"]
     CAM["RGB / 热成像 / 事件相机"] --> IMG["2D 骨干 → 图像特征"]

@@ -44,7 +44,7 @@ tags:
 LMT 以 Qwen3 为基座，训练 0.6B、1.7B、4B、8B 四个模型，覆盖 English ↔ 59 种语言和 Chinese ↔ 58 种语言，共 234 个翻译方向。整体 pipeline 有三阶段：第一阶段是 Continued Pre-training，用单语、英语中心双语、中文中心双语数据各占三分之一的 90B token 混合语料补强多语言能力；第二阶段是 SFT，在 FLORES/NTREX/SMol/WMT/IWSLT 等高质量语料上做 instruction-style 翻译监督，同时加入 SD 和 PMP；第三阶段是 GRPO，用同一批 SFT prompt 采样多个候选译文，并用 COMET-22 作为 reference-based reward 做偏好优化，不额外构造人工偏好数据。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Qwen3 基座<br/>0.6B / 1.7B / 4B / 8B"] --> B["持续预训练 CPT<br/>90B token：单语 / 英中心 / 中文中心 各 1/3"]
     B --> SFT

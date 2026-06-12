@@ -49,7 +49,7 @@ tags:
 ReasonMap 是一个评测细粒度视觉推理的基准，核心载体是公交/地铁地图——结构化、信息密集、天然要求精确的空间解读。整条流水线分三段：先收集 30 个城市的高分辨率地图并结构化为统一的 Metro Data，再据此自动生成短/长两类 QA 对并配上参考路线，最后做质量控制把不可视觉追踪或错误的题剔掉，得到 ReasonMap 基准。评测侧用一套两级框架（先判对错、再打质量分）来评估 16 个 MLLM；同一套框架的指标又被改造成奖励，驱动一个 GRPO 强化微调基线供后续研究对比。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["三段式数据构建流水线"]
         direction TB

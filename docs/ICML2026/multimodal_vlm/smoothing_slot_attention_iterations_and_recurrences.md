@@ -44,7 +44,7 @@ tags:
 SmoothSA 完整保留 OCL 经典的 encode-aggregate-decode 结构：编码器把图像/视频帧映成特征 $F \in \mathbb{R}^{h\times w\times c}$，聚合器 $\phi_a$（即 SA 模块）把特征聚合成 $n$ 个 slot $S \in \mathbb{R}^{n\times c}$，再由解码器从 slot 重建输入以提供自监督。SmoothSA 只在聚合器入口和帧间调度处做两个微改动：(1) 在 cold-start query $Q_1$ 进入 SA 迭代之前，先经过一个"预热器" $\phi_p$ 得到 informative query $\tilde Q_1$；(2) 对视频，仅在首帧上跑标准的 3 轮 SA 迭代得到 slot $S_1$，而非首帧只跑 1 轮 SA，并且其 query 直接由上一帧 slot 经标准转移模块得到。整体改动量极小，可以直接挂到任意基于 SA 的图像/视频 OCL 模型上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["图像 / 视频帧"] --> ENC["编码器 → 特征 F"]
 

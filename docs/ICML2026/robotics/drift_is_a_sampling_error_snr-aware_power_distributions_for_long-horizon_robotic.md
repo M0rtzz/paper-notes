@@ -53,7 +53,7 @@ CAPS 在每个决策步运行如下流程：
 所有计算都在推理时进行，不更新任何参数，完全 plug-in。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：指令 I + 观测 V_t + 历史 H_t"] --> B["SNR 元认知门控<br/>SNR=log|𝒜|−ℋ，按策略熵 ℋ 判断"]
     B -->|"高 SNR（低熵）"| C["System 1：贪心采样<br/>几乎零额外开销"]

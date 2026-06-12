@@ -44,7 +44,7 @@ tags:
 这篇论文不提新模型，而是对 Hyperfitting 这个反直觉现象做一次"法医式"解剖：先证伪它只是温度缩放的平凡假设，再逐层定位机制真正发生的位置，最后把定位结论翻译成一个参数高效的微调策略。整条线索从"不是什么"走到"是什么"再走到"在哪里、能怎么用"——输入是预训练 LLM（TinyLlama-1.1B、Qwen2.5-1.5B 等）和 2000 条小数据集，经过 Hyperfitting 协议（260 epoch、无正则化、$\lambda=0$）训成近零损失后，通过三组对照实验逐步逼近真相，最终落到只调最后几层的 Late-Stage LoRA。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练 LLM + 2000 条小数据"] --> B["Hyperfitting 协议<br/>260 epoch、λ=0、训到近零损失"]
     B --> C["熵匹配控制实验<br/>对齐熵 T*≈0.59，证伪温度缩放假设"]

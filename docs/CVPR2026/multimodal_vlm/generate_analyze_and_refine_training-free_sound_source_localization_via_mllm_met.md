@@ -41,7 +41,7 @@ tags:
 GAR-SSL 想解决的核心问题是：现有声源定位都把任务当成"音频嵌入对齐视觉嵌入"的特征匹配，匹配上哪块区域就当声源，从不验证那块区域是否真的会发声。本文换了一条路——给定图像-音频对 $(I, A)$，不训练任何模型，而是把 MLLM 当推理引擎，让它像人一样"先猜、再查、后改"地走一遍。流程分三阶段：Generation 先给出一个初始 bounding box $b^{\text{init}}$ 和音频标签；Analysis 把这个框拿去和音视觉证据对质，算出它有多可信；Refinement 只在框确实不靠谱时才动手做几何校正。三个阶段全部用 prompt 驱动 MLLM、输出结构化 JSON，前一阶段的结论作为后一阶段的输入逐级收紧。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["图像-音频对 (I, A)"]
     subgraph GEN["Generation 生成（宽假设空间）"]

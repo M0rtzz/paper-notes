@@ -38,7 +38,7 @@ VLM 基于 Transformer 架构，计算复杂度为 $O(N^2D + ND^2)$，其中 $N$
 CoMP 要解决的是同一个 VLM 上同时做参数剪枝和 token 剪枝时两套重要性指标互相打架的问题。它把剪枝组织成一个嵌套循环：外层由多模式剪枝策略（MPS）周期性地决定这一阶段该剪什么——在视觉参数、语言参数、跨模态参数、视觉 token、语言 token 这五种模式里挑一个；内层则由协同重要性度量（CIM）算出参数和 token 各自的重要性分数，并按外层选定的模式执行一次剪枝。两层循环交替推进：每切换一次模式就穿插若干训练步，渐进逼近目标 FLOPs；达到目标后固定剪枝配置、再微调恢复性能——因此 CoMP 并非训练无关（training-free）方法，而是把剪枝嵌进了微调过程。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：待压缩 VLM<br/>视觉编码器 + 语言模型"] --> B
     subgraph MPS["多模式剪枝策略 MPS（外层循环）"]

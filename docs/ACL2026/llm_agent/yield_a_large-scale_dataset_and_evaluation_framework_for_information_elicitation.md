@@ -46,7 +46,7 @@ tags:
 YIELD 要解决的问题是：让 LLM 学会像真实引出者那样主动提问，而真实引出者面对的是一个看不全的对话环境——受访者脑中的信息永远是隐藏的，只能靠一轮轮提问把它慢慢挖出来。为此作者把整个引出过程建模成有限视野 POMDP：输入是当前对话历史，中间通过语言模型的隐层表示来近似不可观测的信念状态、并用「新引出的实体数」作为奖励信号，输出是下一句最该问的话。在这套形式化之上，用离线强化学习（offline RL，简称 ORL；优化器为 AWR）在 2,281 段真实引出对话上微调模型，再用三个专门指标从分布吻合度、对话推进度、提问效率三个角度衡量引出质量。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["真实引出对话<br/>滑动窗口切 6 轮片段"] --> S1
     subgraph S1["POMDP 形式化与隐层信念状态"]

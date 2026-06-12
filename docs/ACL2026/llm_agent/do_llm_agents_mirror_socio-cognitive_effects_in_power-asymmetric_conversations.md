@@ -44,7 +44,7 @@ tags:
 作者先定义 14 组高低权力角色（如 Principal-Teacher、Justice-Lawyer、Head Chef-Sous Chef、Lead Developer-Junior Developer），再从 PersonaHub 为每个角色抽取真实感 persona 并做人类验证——96.5% 的 persona pair 被标注者认为存在权力差异，Fleiss's kappa 达 0.73。随后用 Llama 3.1、Qwen 2.5、Phi、GPT-4.1、GPT-5 等模型，让配对角色模拟最多 10 到 15 轮对话，并对每轮对话分别测量"真实感相关"效应（代词、语言协调）和"安全相关"效应（权威说服、有害服从），最后从对话进程、可控性、模型规模/训练阶段三个维度分析这些效应是否稳定存在。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph S1["角色与 persona 双层构造"]
         direction TB

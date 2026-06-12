@@ -48,7 +48,7 @@ tags:
 按 Algorithm 1 的协议跑：每轮 $i$，学生先生成攻击话术 $a_i$（来自预定义 prompt 集，或来自 in-context 多轮采样），tutor 回 $t_i$，再由 $J_a, J_t$ 分别检查这一轮谁泄露了——先用 rule-based 的数字匹配粗筛，命中再交给 LLM judge 二次确认；任一命中即标记 leakage，对话最长 10 轮。整套设计要回答的核心问题是：现有 tutor 在"学生存心骗答案"时到底有多脆，以及怎样的对抗者才能真正把它压测出来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：GSM8K 题 x + 正解 y<br/>同时发给学生与 tutor"]
     subgraph STU["SFT 对抗学生代理（绝不解题、只持续攻防）"]

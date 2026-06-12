@@ -47,7 +47,7 @@ tags:
 这篇论文想解决两件事：用一台普通相机低成本地把骨料颗粒重建成高质量三维模型，再用重建出的 3D 形态去定量证明——只看 2D 投影的传统做法会系统性地偏估颗粒的真实形态。整条管线沿着「拍照→重建→量形态」走：先把骨料颗粒摆在一块印有已知图案的标记板上，绕着它从多角度拍一圈照片；接着用 Structure-from-Motion（SfM）恢复相机位姿和稀疏点云、再用 Multi-View Stereo（MVS）加密成密集点云，期间靠标记板自动把骨料从背景里抠出来；然后用标记板把多视角的局部点云配准拼接、去噪后做泊松表面重建生成封闭网格、并按标记间距缩放到真实物理尺寸；最后从这个带真实尺寸的 3D 网格里读出完整的形态学指标，和同一颗粒的 2D 投影指标摆在一起对比。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["骨料颗粒 + 标记板<br/>（标记物三合一设计）"] --> B["多角度环拍照片"]
     B --> C["SfM：恢复相机位姿<br/>+ 稀疏点云"]

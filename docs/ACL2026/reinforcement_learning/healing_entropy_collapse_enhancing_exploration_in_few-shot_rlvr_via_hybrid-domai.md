@@ -46,7 +46,7 @@ tags:
 HEAL 包含两个核心组件：（1）混合训练——基于推理不确定性和探索多样性两个标准从通用域选择高价值样本，与少量目标域数据混合训练；（2）EDA 奖励——在标准准确率奖励基础上添加熵动态对齐（Entropy Dynamics Alignment, EDA）奖励，引导策略学习通用域的探索行为模式。两者之间的桥梁是"轨迹级熵动态表示"：把每条轨迹的 token 级熵序列完整保留下来，EDA 奖励才能在这一表示上度量目标域轨迹与通用域轨迹的探索模式相似度。整体数据流是：从通用域池选出高价值样本 → 与少量目标域样本混合 → RLVR 采样轨迹 → 提取轨迹级熵动态表示 → 算 EDA 奖励并与准确率奖励相加 → 用 PPO/GRPO 更新策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     G["通用域数据池"] --> SEL
     subgraph SEL["高价值通用域数据选择"]

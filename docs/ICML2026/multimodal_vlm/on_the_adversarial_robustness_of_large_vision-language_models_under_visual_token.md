@@ -44,7 +44,7 @@ tags:
 CAGE 维持编码器攻击的灰盒前提（白盒访问视觉编码器 $\mathcal{E}$，黑盒访问压缩模块 $\mathcal{C}$ 与 LLM $\mathcal{F}$，且 $K_{\text{model}}$ 未知）。整条优化流水线一次 PGD 迭代如下：(1) 输入图像 $\mathbf{x}+\boldsymbol{\delta}$ 过编码器得到含扰动特征 $\mathbf{H}'$ 与含扰动注意力分数 $s_i^{\mathrm{adv}}$；(2) 根据 $s_i^{\mathrm{adv}}$ 排出 $r_i$ 并按一个先验分布 $P(K_{\text{model}})$ 计算每个 Token 的幸存概率 $\pi_i$；(3) 用 $\pi_i$ 加权 cosine 距离 $d_i$ 得到 EFD 损失；(4) 把 $d_i$ 和 $s_i^{\mathrm{adv}}$ 分别 softmax 成分布，最大化对齐项 RDA；(5) 联合反传更新 $\boldsymbol{\delta}$，并投影到 $\ell_\infty$ 球面 $\|\boldsymbol{\delta}\|_\infty\le \epsilon$。攻击目标始终是编码器，不依赖文本 prompt，也不假设知道 $K_{\text{model}}$ 或 $\mathcal{C}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入图像 x + δ"] --> B["视觉编码器 ℰ（白盒）<br/>输出含扰动特征 H′ 与注意力分数 s_adv"]
     subgraph EFD["期望特征扰动 EFD"]

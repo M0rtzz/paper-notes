@@ -46,7 +46,7 @@ tags:
 FTRL 想同时治好工具使用 RL 的两个老大难——环境不稳、奖励不可信——办法是把两者都"本地化、可计算化"。它由两大组件咬合：前端是一条五阶段自动化管线，把用户输入逐级拆成子问题、生成配套工具文档、再落成本地可执行的 Python 函数，从而批量造出稳定可控的训练环境；后端是反馈驱动的训练框架，让模型在这些环境里多步交互采样轨迹，用一套只依赖环境反馈的可验证奖励配合偏好优化 RL 算法迭代更新策略。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PIPE["五阶段自动化环境构建管线"]
         direction TB

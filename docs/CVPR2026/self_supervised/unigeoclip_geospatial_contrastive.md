@@ -40,7 +40,7 @@ UniGeoCLIP 首次通过纯对比学习将五种互补的地理空间模态（航
 UniGeoCLIP 想做的事是把同一个地点的五种异质观测——航拍图、街景图、数字表面模型（DSM）、文本描述、GPS 坐标——压进同一个 $D$ 维空间，让它们彼此之间都能直接检索和比较。做法上，每种模态先各自过一个专属编码器（图像和文本沿用 SigLIP-2 的编码器，DSM 用一个独立的 ViT，GPS 坐标用新设计的多尺度编码器），把它们都映射成同一维度的向量；然后不挑"主模态"，而是让所有模态两两之间都做对比对齐。训练完成后，任意两种模态的嵌入落在同一空间里，可以直接算相似度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A1["航拍图"] --> E1["SigLIP-2 编码器<br/>（图像/文本，沿用预训练）"]
     A2["街景图"] --> E1

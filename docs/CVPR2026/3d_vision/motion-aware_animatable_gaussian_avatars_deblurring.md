@@ -38,7 +38,7 @@ tags:
 具体来说，标准空间的清晰高斯先按 SMPL 参数变形到曝光内的若干时间步，每个时间步光栅化出一张"虚拟"清晰图像，再把它们平均合成一帧模糊图像，与真实观测的模糊帧算损失反向优化。这样去模糊不再是前处理，而是被自然嵌进 3D 重建的前向过程里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["标准空间清晰高斯<br/>(canonical 3DGS)"] --> B["子帧刚性姿态轨迹<br/>B-spline 插出曝光内 T 个姿态"]
     B --> C["姿态变形残差网络<br/>叠加非刚性高频形变"]

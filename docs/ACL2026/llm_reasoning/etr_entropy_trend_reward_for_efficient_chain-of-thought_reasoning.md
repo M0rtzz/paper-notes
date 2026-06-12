@@ -46,7 +46,7 @@ $$R(q,o)=\begin{cases}-1,&\text{若答错}\\ 1+\lambda R_{\text{entropy}}(o),&\t
 其中 $R_{\text{entropy}}(o)$ 是基于轨迹熵的 shaping 项。GRPO 在同一题的 group 内对优势做相对归一化，于是 ETR 信号只在"正确解之间比谁更高效"，把效率约束牢牢锁在不损正确性的前提下。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["策略模型生成 CoT<br/>按空行切成 T 步 C₁…Cₜ"]
     subgraph S1["熵趋势奖励 R_entropy（动量加权）"]

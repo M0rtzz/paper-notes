@@ -46,7 +46,7 @@ tags:
 输入图像和文本查询，LMM（如LLaVA）自回归生成K个潜在推理token和1个分割锚点token `<SEG>`，构成查询库 $\mathbf{Q} = (\boldsymbol{q}_1, ..., \boldsymbol{q}_K, \boldsymbol{q}_{anc})$。锚点查询与图像token计算相似度产生空间先验，注入视觉特征后，整个查询库送入SAM解码器预测最终掩码。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 + 文本查询"] --> B
     subgraph B["语言引导查询库构建"]

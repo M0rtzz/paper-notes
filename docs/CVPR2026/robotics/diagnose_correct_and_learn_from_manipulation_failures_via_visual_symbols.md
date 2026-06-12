@@ -43,7 +43,7 @@ tags:
 这篇论文要解决的是「真实世界机器人操作失败」这个数据稀缺又难标注的难题：VLA 在分布外场景里总会失败，但要让 VLM 学会诊断"哪里错了、怎么改"，就得有大量带标注的真实失败数据，而抽象类别（任务规划错误、失败原因）靠纯文本描述标注极慢。ViFailback 的思路是把整条链路串成一个闭环——先用遥操作和 VLA rollout 收集 5,202 条真实轨迹，再用「视觉符号 + VLM 辅助文本」的标注流水线把这些轨迹标注成 58,128 个 VQA 对，接着在这批数据上微调 Qwen3-VL-8B 得到 ViFailback-8B，最后把它当作 VLA 运行时的外部监督器，发现失败就同时给出文本和视觉符号两路纠正指导、引导机器人恢复。整条链路的关键在于「视觉符号」这个中间表示：它既能让标注者用鼠标拖拽快速画出来，又能反过来给机器人提供结构化的动作指令。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["真实轨迹采集<br/>遥操作 + VLA rollout（5202 条）"] --> ANNO
     subgraph ANNO["视觉符号驱动的标注流水线"]

@@ -44,7 +44,7 @@ tags:
 实验以 Llama-3.1-8B-Instruct 为主模型，并用 GPT-4o-mini 做大规模验证，附录还包含 Qwen 和 DeepSeek 系列的跨架构验证。性别偏见实验围绕 architect、dentist、nurse、painter、professor、software engineer 六个职业，评估职业分类、招聘推荐和薪资推荐。文化偏见实验覆盖 Arabic、Chinese、Portuguese、Spanish 四类文化，评估直接相关与间接相关的分类任务，以及故事生成中的负面形容词比例。偏见比例设置为 0、5%、10%、20%、50%。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     O["原始无偏数据 D_o"]
     subgraph GEN["六类多维偏见生成框架"]

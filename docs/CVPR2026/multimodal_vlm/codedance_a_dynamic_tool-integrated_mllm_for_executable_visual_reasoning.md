@@ -37,7 +37,7 @@ tags:
 CodeDance 想解决的是：让 MLLM 像 o3 那样「用工具思考」，但要开源、可组合、还能看清推理过程。它的做法是把**可执行 Python 代码**当成统一的工具调用语言——推理时模型一边写文本思考、一边生成代码去调用各种工具（裁剪、检测、OCR、画框、绘图），代码在沙盒里执行后把工具输出和渲染出的中间视觉结果喂回模型，如此交替直到给出答案。这套「代码推理」能力靠两阶段训练得到：先用原子监督数据做 SFT 冷启动，再用平衡探索与效率的工具调用奖励做 RL，由此涌现出训练数据里没见过的工具组合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     Q["输入：图像 + 问题"] --> THINK
     subgraph LOOP["可执行代码推理"]

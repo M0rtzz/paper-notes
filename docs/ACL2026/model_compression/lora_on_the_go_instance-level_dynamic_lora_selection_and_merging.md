@@ -44,7 +44,7 @@ tags:
 LoGo 的工作流程分为三步：(1) **Probe Pass**：将所有 LoRA 适配器挂载到基础模型上，对输入执行单次前向传播，从指定的 Transformer 层提取每个 LoRA 的投影输出；(2) **Selection**：根据提取的信号分数（范数或逆熵）选择 top-k 个最相关的适配器；(3) **Merging**：通过信号分数加权的输出级混合（Mixture）合并选中的适配器，生成最终输出。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入实例"] --> SEL
     subgraph SEL["基于激活信号的适配器选择"]

@@ -45,7 +45,7 @@ tags:
 VLM-Loc 换了条路：不让模型直接"猜坐标"，而是先把点云翻译成视觉语言模型看得懂的两种表示，再让 VLM 像人一样"看图找物、按图索位"。具体地，点云地图先被渲染成一张 BEV 俯视图（提供密集的几何布局），同时抽成一张场景图（每个物体一个节点，带语义标签和它在 BEV 图上的像素坐标）。VLM（Qwen3-VL-8B-Instruct）把 BEV 图当视觉输入、把场景图加系统提示加文本查询当文本输入，通过一次自回归解码先做部分节点分配（PNA，判定文本里的物体分别对应哪些节点）、再接着估计目标的 2D 像素位置，最后把像素位置反投影回世界坐标。下图给出从点云到世界坐标的完整数据流，三个贡献阶段（BEV 渲染 + 场景图、PNA、位置估计）依次串在 VLM 的同一次解码前后。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     PC["点云地图（输入）"]
     subgraph REP["BEV 渲染 + 场景图"]

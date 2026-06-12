@@ -46,7 +46,7 @@ tags:
 STR 与 SAW 是最终推荐策略。STR 结合 G1、G2 和 G4：保持全局分数趋势，在局部过渡区域做 folding review，并加入局部多样性。SAW 在 STR 基础上加入 G3，用 Zig-zag 替换 transition region 中的 folding，使分数曲线更连续。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["复用已有样本分数 γ<br/>（质量/难度，不重新评分）"] --> B["按分数全局排序得 D_sort"]
     subgraph D1["边界强化（G1）· SEG"]

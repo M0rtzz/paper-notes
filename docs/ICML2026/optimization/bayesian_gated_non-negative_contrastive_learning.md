@@ -42,7 +42,7 @@ tags:
 BayesNCL 在标准 NCL 编码器 $f: \mathcal{X} \to \mathbb{R}_{\geq 0}^K$ 的基础上，增加一个**贝叶斯门控头**。输入图像经编码器得到非负特征 $z = f(x)$，门控头预测每个维度的 Bernoulli 参数 $\alpha = \sigma(g_\theta(x))$，通过阈值生成离散掩码 $m_{\text{hard}} = \mathbb{I}(\alpha > 0.5)$，最终门控表示 $\tilde{z} = z \odot m_{\text{hard}}$ 用于计算对比损失。训练目标结合门控 InfoNCE 与 KL 稀疏正则化。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入图像 x"] --> ENC["NCL 编码器 f<br/>非负特征 z"]
     subgraph GH["贝叶斯门控头"]

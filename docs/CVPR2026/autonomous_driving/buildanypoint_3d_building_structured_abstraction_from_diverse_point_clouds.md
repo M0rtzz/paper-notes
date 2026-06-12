@@ -53,7 +53,7 @@ Loca-DiT（图3）学习条件分布 $p_\text{BAP}(\mathcal{M} | \mathcal{P}_{in
 整条流水线沿着「三级潜在空间」逐段填平点云→Mesh 的模态鸿沟：异构输入先被分层潜在扩散恢复成均匀稠密点云，再序列化成 token 交给自回归 Transformer 吐出结构化 Mesh。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入点云 P_in<br/>（LiDAR / SfM / 稀疏噪声）"] --> B["点云编码器量化<br/>体素网格作条件"]
     subgraph DIFF["分层潜在扩散（几何补全阶段）"]

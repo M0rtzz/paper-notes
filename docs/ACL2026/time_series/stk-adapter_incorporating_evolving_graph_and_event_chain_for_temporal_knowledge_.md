@@ -46,7 +46,7 @@ tags:
 STK-Adapter 集成在 LLM（如 Llama3-8B）的每一层中。输入包含两部分：(1) 由预训练图编码器（如 LogCL）编码的 TKG 演化结构表示 $\text{H}_g^0 = [\text{H}_s^{(t)}; \text{H}_r^{(t)}]$；(2) 由时序逻辑规则检索的事件链文本，经 LLM tokenization 后得到文本隐层表示。三个 MoE 模块在每层并行处理后通过自适应融合输出到下一层。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["TKG 演化结构表示<br/>预训练图编码器编码 H_g"] --> L
     B["事件链文本<br/>时序逻辑规则检索 → tokenization"] --> L

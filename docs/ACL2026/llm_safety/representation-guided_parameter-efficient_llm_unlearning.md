@@ -46,7 +46,7 @@ tags:
 ReGLU 包含两个互补组件：RILA 确定 LoRA 的初始化方向（指向哪个子空间遗忘），ROL 在训练过程中持续约束更新不偏向保留集子空间。两者都先把遗忘集与保留集的样本前向喂进模型、收集各线性层输出表示并估计协方差，再分头工作——RILA 用协方差挑出初始化方向，ROL 用协方差搭出需要回避的子空间，最后汇入带 LoRA 的训练。总损失 $\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{forget}} + \gamma \mathcal{L}_{\text{retain}} + \lambda \mathcal{L}_{\text{ROL}}$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["遗忘集 F + 保留集 R<br/>前向收集各线性层输出表示"] --> B["分别估计协方差<br/>Cov_F（遗忘）/ Cov_R（保留）"]
     subgraph RILA["表示引导的 LoRA 初始化（RILA）"]

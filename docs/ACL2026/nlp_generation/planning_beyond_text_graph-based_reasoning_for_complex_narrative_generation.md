@@ -45,7 +45,7 @@ tags:
 PLOTTER 想解决的是长篇剧本生成里"直接在文本上做规划"的低效——文本大纲既看不见事件之间的因果与伏笔，也建模不了角色关系的演化，导致逻辑断裂层层下传。它的做法是把规划搬到图上：先从一句前提 $P$ 生成一对叙事图（事件图 $G_e$ + 角色图 $G_c$），再让一个多 agent 评审团在图拓扑上反复诊断缺陷、由一个受符号约束的编辑器执行原子修复，循环至多 $K$ 轮；最后把这张精炼好的图确定性地序列化、逐场景展开成剧本。整条链路里，"叙事的因果骨架"始终是一个可读、可编辑的图对象，而不是一段模糊的自然语言。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["前提 P（一句话设定）"] --> DG["双图叙事表示<br/>事件图 Ge + 角色图 Gc"]
     DG --> LOOP

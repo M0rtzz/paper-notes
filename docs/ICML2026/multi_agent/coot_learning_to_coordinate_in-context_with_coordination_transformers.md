@@ -44,7 +44,7 @@ tags:
 CoOT 想解决的是"如何不更新参数就能和陌生伙伴配合"。它把协调问题写成 Hidden-Utility Markov Game（HU-MG）$(\mathcal{S},\mathcal{A},\mathcal{T},R_t,\mathcal{R}_w)$：环境奖励 $R_t$ 共享，但每个伙伴 $\pi^p_i$ 私有一个"隐效用" $r^w_i\sim\mathcal{R}_w$，不同 $r^w_i$ 在同一环境里诱导出截然不同的行为偏好。整体流程是：训练阶段为大量行为各异的伙伴各自跑出对应的最佳响应轨迹，喂给一个 Decision Transformer 学"看过去几局交互就能预测该如何最佳响应"；部署阶段冻结参数，靠不断追加的交互历史在 forward pass 里完成 partner 适应。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DG["HU-MG + 行为偏好数据生成"]
         direction TB

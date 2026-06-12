@@ -44,7 +44,7 @@ tags:
 PACO 把多属性可控摘要建模为 MDP：state $s$ = 当前摘要（含所有历史调整），action $a \in \{ext, len, spc, top, spk\}$ = 调整某个属性，root $s_0$ = 一次性 prompt 所有属性得到的初始摘要。LLM 作为 policy $\pi$，每个 action 由"prompt LLM 重新生成只针对该属性优化的摘要"实现。终止条件是所有属性都满足或达到最大深度。MCTS 完整跑完后从整棵树中选 degree（属性对齐度）最高的节点作为最终输出——这一点很关键，意味着 PACO 不强求修完所有属性，找到最佳折中即可。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：文档 + 多属性目标<br/>（长度 / 抽取性 / 特异性 / 主题 / 说话人）"] --> B["root s₀：一次性 prompt<br/>所有属性得到初始摘要"]
     B --> C

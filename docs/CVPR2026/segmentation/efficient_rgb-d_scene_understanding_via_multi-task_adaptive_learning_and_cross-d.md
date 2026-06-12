@@ -41,7 +41,7 @@ tags:
 这篇论文要解决的核心问题是：让机器人在一套模型里同时完成语义分割、实例分割、全景分割、朝向估计和场景分类五项任务，又不牺牲推理速度。整体数据流是 RGBD 四通道图像先经一个改进的融合编码器提特征，再分三路解码——语义解码器（带 NFCL、CFIL 两个跨维度引导模块）输出语义/前景掩码，实例解码器输出实例中心与偏移，二者结合得到全景分割，场景分类则由一个全连接头给出。训练时所有任务共享编码器，由一个批级别自适应损失动态平衡它们的权重。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RGBD 四通道输入"] --> B["高效融合编码器<br/>FasterNet-M·仅对 1/4 通道卷积"]
     subgraph SEM["语义解码器（MLP + 跨维度引导）"]

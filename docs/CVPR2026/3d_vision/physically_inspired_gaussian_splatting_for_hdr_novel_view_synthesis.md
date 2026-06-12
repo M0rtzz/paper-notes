@@ -44,7 +44,7 @@ tags:
 PhysHDR-GS将每个高斯的颜色分解为固有反射率 $H_r$（场景内在属性，曝光不变）和环境光照 $L_a$（可调节），通过MLP合成HDR颜色 $\mathbf{c} = g(L_a, H_r)$。基于此，框架包含两个互补分支：(1) **IE分支**：在渲染出的HDR图像上施加曝光缩放 $I_{HDR} \times t$，模拟标准相机观测；(2) **GI分支**：用光照调制器调整3D高斯的环境光照，渲染重光照HDR图像 $\hat{I}_{HDR}$，捕获光照依赖的外观变化。两分支的HDR输出经色调映射器（tone mapper）交叉融合为最终LDR结果。训练时还叠加两个机制：跨分支HDR一致性损失让两条路径在HDR域互为监督，弥补HDR真值缺失；光照引导梯度缩放补偿极端曝光区高斯的densification不足。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["多曝光 LDR 视图"] --> B["颜色分解<br/>高斯颜色 = 反射率 H_r + 环境光照 L_a，MLP g 合成 HDR 颜色 c"]
     subgraph PRS["物理辐射合成（IE+GI 双分支）"]

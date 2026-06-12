@@ -40,7 +40,7 @@ tags:
 T-VAU要解决的是一件传统VAD做不到的事：不仅说出"这段视频异常"，还要指出"哪个像素、哪个目标、怎么随时间演变"，并用自然语言把这套判断讲清楚。它的做法是在一个**冻结的LVLM骨干**上挂两个轻量可训练模块——先用异常热力图解码器(AHD)从视觉表示里把异常信号"画"成像素级热力图，再用区域感知异常编码器(RAE)把这张热力图压缩成结构化提示喂回语言模型。整条链路接收"视频 + 自然语言查询 + 正常/异常文本提示"，输出一张时空异常热力图和一轮轮的对话回答，证据(热力图)和推理(语言)在同一框架里闭环。而要训练AHD和RAE，还需要带"目标级 + 时序"粒度的监督——这由一条离线的细粒度数据集构建流水线自动生成（见下）。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["细粒度异常理解数据集构建（离线，生成训练监督）"]
         direction TB

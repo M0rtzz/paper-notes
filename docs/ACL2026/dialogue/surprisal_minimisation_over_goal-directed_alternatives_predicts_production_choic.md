@@ -68,7 +68,7 @@ goal-directed alternatives 则由 GPT-4o 对观察到的人类句子做受约束
 最后作者比较人类 continuation 在各类 cost 下的 rank，并用 pairwise logistic choice model 测试成本差异是否预测人类选择。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Switchboard 对话语料<br/>清洗 + 过滤目标 utterance"] --> B["按 root verb 切分<br/>context / 人类 continuation"]
     subgraph C["两类 contextual alternatives"]

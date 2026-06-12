@@ -55,7 +55,7 @@ $$\arg\min_{\theta,\phi}\;\mathbb{E}_{(D^{\text{train}},D^{\text{test}})\sim p(D
 预训练 80k 步合成数据 + 11k 步真实数据，序列长度课程从 1k 渐进到 60k 行。压缩率 $r=K/N$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["训练表 D_train（N×(M+1)）<br/>百万行时按 chunk-and-stitch 切块、各块压缩后拼接"] --> B
     subgraph CMP["1. Dummy-row 压缩器 g_φ（多率训练，压缩率 r=K/N 可调）"]

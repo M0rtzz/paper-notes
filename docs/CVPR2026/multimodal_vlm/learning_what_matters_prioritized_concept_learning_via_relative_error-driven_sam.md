@@ -43,7 +43,7 @@ tags:
 PROGRESS 想解决的是"在不预先标注整个数据池的前提下，让 VLM 自己决定下一步该学哪些样本"。整条流水线分两步走：先把未标注的数据池按语义切成若干概念集群，再让模型在训练过程中周期性地给自己打分，看哪些集群"正在快速进步"，就从那里多采样、并只对采到的样本去查标注。和"一次性选完数据"的静态方法不同，PROGRESS 的采样分布随着模型学习状态不断变化，相当于把课程学习的"由易到难"交给模型自身的进步信号来决定。训练时这套"评估→算进步率→采样→标注→训练"会随着每隔 $\gamma$ 步的自评估反复回环，直到用满标注预算。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     U["未标注数据池 (I,Q)，无答案标注"] --> C1["多模态概念分类<br/>DINO 视觉特征 + BERT 文本特征<br/>→ 球面 k-means → K 个概念集群"]
     C1 --> W["预热采样<br/>给各集群初始技能估计"]

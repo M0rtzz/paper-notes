@@ -42,7 +42,7 @@ tags:
 这套系统要回答的是「给一篇论文，海报上的各个元素该放在哪、放多大」。它把任务拆成检索和生成两步：先用一个布局检索器，把论文页面和海报布局都编码成向量，从训练集里捞出结构最像的 top-3 海报布局当参考；再把这些参考布局连同论文的结构信息（章节数、图表数量和宽高比）一起喂给一个 LLM 生成器（Llama-3.1-8B-Instruct），让它吐出最终布局，也就是一串「类别 + 归一化包围框」$L = \{(c_i, b_i)\}$。整条流程支持全自动和半自动两种模式，后者允许创作者先放好几个主元素，系统再补完剩下的。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：论文 PDF"] --> R
     subgraph R["对比学习布局检索器（设计1）"]

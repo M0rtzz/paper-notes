@@ -46,7 +46,7 @@ tags:
 TPA 分三步：(1) 粗粒度分解——用探测函数（logit lens）将 token 概率分解为 Initial Embedding、各层 Attention、各层 FFN 和 Final LayerNorm 四类贡献；(2) 细粒度归因——将 Attention 贡献通过 logit 空间分配到各注意力头，再按注意力权重归因到 Query/RAG/Past/Self 四个来源，形成七维归因向量；(3) 语法感知特征工程——按词性标签（名词、动词、数词等）聚合归因分数，构建检测特征，最终在该特征上训练轻量分类器输出响应级幻觉判定。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["RAG 响应 token<br/>单次 teacher-forced 前向"] --> B
     subgraph B["完整概率分解（Theorem 1）"]

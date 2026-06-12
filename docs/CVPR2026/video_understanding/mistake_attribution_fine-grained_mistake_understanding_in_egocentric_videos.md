@@ -43,7 +43,7 @@ tags:
 整套系统由两半组成，互为表里。前半是 MisEngine 数据引擎，负责把"细粒度错误数据极难收集"这个死结解开——它不去采集真实错误，而是从现成的动作识别数据里组合出错误样本，并连带把三维标注一并继承下来。后半是 MisFormer 模型，吃下这些自动构建的数据，用一个统一 Transformer 把三个归因子任务在同一套多模态特征上一次性算完。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph ENG["MisEngine 数据引擎（组合正确样本造错误）"]
         direction TB

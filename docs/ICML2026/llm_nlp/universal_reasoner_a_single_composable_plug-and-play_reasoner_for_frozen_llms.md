@@ -44,7 +44,7 @@ tags:
 UniR 把"增强推理"这件事从冻结的大模型里彻底剥离出来，做成一个可拆装的小部件。训练时只在一个较小的骨干上训练独立的推理模块 $\pi_r$，用可验证奖励配 GRPO 把"奖励导向的推理行为"学进去；推理时把 $\pi_r$ 的逻辑直接叠加到任意冻结 LLM 的逻辑上，做令牌级指导。骨干一根手指都不用动，模块却能换大模型、能多个并联。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     R["可验证奖励 r(x,y)：轨迹级对/错信号"] --> D1["轨迹奖励转令牌指导<br/>奖励分解 1/β·r = Σ log π_r → 推出逻辑叠加 log π_θ = log π_b + log π_r"]
     D1 --> D2

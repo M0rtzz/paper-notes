@@ -45,7 +45,7 @@ tags:
 下图把这套"Reflexion 回环 + 诊断探针 + 接地干预"画在一起：上方是 agent 失败后自我诊断、写反思、存记忆、下一 trial 再检索的自强化回环（confabulation 就发生在这里）；左下两个探针只读日志就能审计这条回环冻没冻；缓解则发生在"反思信号来源"这个分叉上——把 LLM 开放式自省换成轨迹解析器抽出的确定失败信号。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["任务 τ：每次 trial 重置为正确任务"] --> B["Reflexion agent 执行失败<br/>仅 binary pass/fail 反馈"]
     B --> C{"反思信号来源"}

@@ -44,7 +44,7 @@ tags:
 论文构建 Fine-VDK 数据集，并围绕它设计五种输入设置和两类认知偏差分析。数据集包含 200 条短视频，虚假与真实各 100 条，覆盖四个公共健康相关领域。每条视频被拆成视觉帧、OCR 文本和 ASR 口播文本，同时保留标题、频道 ID、点赞/分享等社交元数据。评估时，模型用 CoT prompt 给出 1 到 7 的可信度评分，作者再把评分转成 Belief Score，分别衡量模型对虚假内容的怀疑能力和对真实内容的相信能力。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["高质量短视频谣言数据构造（Fine-VDK）"]
         direction TB

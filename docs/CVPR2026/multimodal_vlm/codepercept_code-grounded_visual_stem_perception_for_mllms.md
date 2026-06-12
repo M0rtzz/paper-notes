@@ -47,7 +47,7 @@ tags:
 CodePercept 想解决的是一个被整个领域忽略的问题：MLLM 在 STEM 上做不好，瓶颈不在推理而在感知——它根本没"看清"图里的辅助线、立体结构和精确坐标。作者的核心赌注是用**可执行 Python 代码**当感知的锚点：只有真正读懂一张图，才写得出能把它重画出来的代码。整条 pipeline 因此分三步转——先用一个图像-代码对构建引擎把现有 STEM 图像批量配上 ground-truth 重建代码（ICC-1M 数据集），再把这些配对喂成两种训练任务（看图写字幕、看图写代码），最后用 SFT 打底、GRPO 强化学习收尾，全部基于 Qwen3-VL 系列。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["公开 STEM 种子图像"] --> ENG
     subgraph ENG["图像-代码对构建引擎（三条互补管线 + 质量闸）"]

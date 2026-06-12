@@ -44,7 +44,7 @@ IGSR 把符号回归拆成"LLM 提议基函数 ψ_j + 逐项影响力分数 Δ_j
 IGSR 要发现的是稀疏闭式模型 $f(\mathbf{x}) = \sum_j w_j \psi_j(\mathbf{x})$：每个基函数 $\psi_j$ 由 LLM 提议、可以任意非线性，外层权重 $w_j$ 则交给 OLS 拟合。关键在于把"想新项"和"判该不该留"彻底拆开——LLM 只负责创造候选，留谁删谁由一个便宜的统计量决定，整套提议-剪枝的循环再放进 MCTS 里搜索基函数的组合空间。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：数据 (x,y) + 变量描述"] --> M["MCTS 嵌入搜索<br/>UCT 选节点、随机采样扩展多分支"]
     M --> P

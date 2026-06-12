@@ -44,7 +44,7 @@ tags:
 每轮迭代：Router Agent 从 Agent 池中选择本轮激活的子集 → 每个活跃 Agent 根据元数据+记忆构建 prompt，与 LLM 多轮交互生成特征 → 评估生成特征在下游模型上的验证性能 → 更新三级记忆 → Summary Agent 汇总全局概念记忆 → 选取 TopN 特征加入数据集 → 进入下一轮。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["表格数据 + 任务元数据"] --> B["Router Agent 动态调度<br/>读元数据与记忆选本轮激活子集"]
     subgraph AG["六专职 Agent + Router 并行架构"]

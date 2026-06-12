@@ -48,7 +48,7 @@ $$c^r(n)=\min_{n_t\prec n}\tfrac{1}{w_t}c_t^r(n),\quad c_t^r(n)=\sum_{n_t\prec n
 训练侧用 Arfaee et al. (2011) 的 Bootstrap：随机初始化策略/启发式网络，按当前预算扫训练集，把解到的轨迹拿来更新网络；一遍解不出新问题就把展开预算翻倍再扫，验证集 95% 通过即停训。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["搜索树 + 增量诱导子图<br/>（已访问状态为点·已用转移为边）"] --> S
     subgraph S["三种 rerooter：给祖先节点 n_t 算权重 w_t"]

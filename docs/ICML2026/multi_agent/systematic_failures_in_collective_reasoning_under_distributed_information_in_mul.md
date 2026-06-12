@@ -44,7 +44,7 @@ tags:
 任务结构：每个任务由若干决策选项 + 若干 task-relevant facts 组成。**Hidden Profile 条件**下，部分 facts（$\mathcal{I}_s$）被所有 agent 共享，剩下 unshared facts（$\mathcal{I}_u$）uniquely 分给每个 agent，即 agent $a_i$ 收到 $I_i=\mathcal{I}_s\cup\{u_i\}$；共享信息被构造为**支持错误选项**，只有 pool 全部 unshared 才指向正确选项。**Full Profile 条件**下所有 agent 都拿 $\mathcal{I}_s\cup\mathcal{I}_u$。Agent 不被告知是否存在信息不对称。评测对比 $Y^{\text{pre}}$（讨论前）、$Y^{\text{post}}$（讨论后）、$Y^{\text{full}}$（Full Profile 上限）。整篇方法是一条"先造干净的 benchmark、再用三条件对照测出失败、最后用 ablation 把失败定位到具体机制"的诊断流水线，下图按这个顺序展开。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BUILD["HiddenBench 任务构造与自动生成"]
         direction TB

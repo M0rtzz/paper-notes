@@ -48,7 +48,7 @@ DualOptim+ 把 Adam 优化器状态拆成"共享 base 态 + 解耦 delta 态"，
 DualOptim+ 的目标是让 LLM 遗忘的优化器能随 forget/retain 梯度相关性的变化，在"共享一份状态"和"各用各的状态"之间自适应滑动。它的做法是把 AdamW 的每个优化器状态（一阶矩 $m$、二阶矩 $v$）从一份拆成两层：一份所有目标共用的 **base 态** $B$ 负责捕捉 forget 和 retain 都同意的方向，外加每个目标各自的 **delta 态** $\Delta_f, \Delta_r$ 负责装下各目标独有的、彼此对抗的成分。每一步用 base 加上当前目标对应的 delta 去更新参数，配合 $F_f$ 步 forget、$F_r$ 步 retain 的交替调度，base 在参数更新之后才更新以保持一个稳定的共享参考。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["交替调度<br/>Ff 步 forget / Fr 步 retain"] -->|当前目标 o 的梯度 g| C
     subgraph CORE["Base 态 + Delta 态分解（共性 + 差异两层）"]

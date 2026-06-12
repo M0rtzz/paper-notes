@@ -45,7 +45,7 @@ tags:
 评测分两条路径并行：路径 A 是"专用 VMWE 数据集"——从 EPIE / MAGPIE 抽 idiom、从 Tu 2012 抽 VPC、从 Tu-Roth 2011 抽 LVC，加 BNC 抽 non-VMWE 对照组；用 8 个 MT 系统翻译到 7 种目标语言，用 MetricX-24-QE 和 xCOMET-QE 两个 reference-free QE 打分，取 $\delta = \text{score}_{\text{VMWE}} - \text{score}_{\text{non-VMWE}}$。路径 B 是"WMT 真实评测数据"——用启发式 + GPT-4o 双步从 WMT2017-2024 的英文源句里抽 VMWE 句子，用历年人工 DA 分数对比 VMWE vs non-VMWE。两条路径都报告 δ 热力图。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph PA["路径A：专用 VMWE 数据集"]
         direction TB

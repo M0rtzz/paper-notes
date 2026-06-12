@@ -49,7 +49,7 @@ tags:
 GenEval 围绕一个核心判断展开：跨域分类失败的根因是源域缺了目标域所需的因果因子（**因果覆盖缺口**），专家知识能补这个缺口、却太模糊。于是方法分两大步骤——**(1) 因果覆盖评估与知识精炼**：先把专家知识量化成可计算的病灶向量，再用 DCB 理论度量源/目标域的因果差距、用 SDCD 把这个差距压成一个可优化的标量，并以 SDCD 为指标逐维消融、筛出最能弥合差距的知识子集；**(2) 多模态 VLM 分类**：把精炼后的知识写成结构化临床 prompt，与眼底图像一起喂给 MedGemma-4B，用 LoRA 微调完成 DR 分级 / SOZ 检测。注意眼底图像同时流向两条路——既进 YOLO 做知识量化，也直接作为 VLM 的图像输入。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["眼底图像 / rs-fMRI<br/>源域 Ds + 目标域 Dt"]
     subgraph S1["步骤一：因果覆盖评估与知识精炼"]

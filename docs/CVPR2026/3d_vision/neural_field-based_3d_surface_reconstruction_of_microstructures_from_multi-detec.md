@@ -48,7 +48,7 @@ tags:
 输入为多视角、多检测器 SEM 图像（每个视角一张 SE 图 + 四张 4Q-BSE 图）。流程分两阶段：(1) 用多视角 SE 图像进行 SfM+MVS 获得粗糙初始几何和相机参数；(2) 以粗糙几何为初始化，通过 SDF 神经场融合多视角深度先验和 4Q-BSE 光度信息，联合优化几何和 BSE 前向模型参数；而这第二阶段的优化本身又按"先立几何、再学光度、最后开阴影"分三个训练阶段递进，期间用 BSE 前向模型正则化约束四象限参数。输出为高保真 3D 表面 mesh。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：多视角 SE 图<br/>+ 4Q-BSE 图"] --> B["SfM+MVS<br/>粗糙几何 + 相机参数"]
     B --> S

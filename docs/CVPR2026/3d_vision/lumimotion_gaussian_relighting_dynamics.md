@@ -42,7 +42,7 @@ LumiMotion 是首个利用场景动态（运动区域）作为监督信号来改
 LumiMotion 想解决的核心难题是：在单一光照条件下，静态逆渲染分不清"这块表面暗，是因为落了阴影，还是材质本身就是深色"。它的办法是把场景里物体的运动当成天然的多光照样本——阴影扫过同一块表面时，这块表面就被"不同光照"照过了。整条管线分两阶段：Stage 1 先在动态 2D 高斯溅射（2DGS）表示上学几何、把高斯分成静止与运动两类、再用一个随时间变化的颜色补偿去拟合视频；Stage 2 冻结几何与变形网络，转而联合优化材质（albedo、roughness）和环境光照，靠光线追踪算出可见性与间接光，让渲染方程把阴影"解释"出去而不是烘焙进材质。两阶段的衔接点是：Stage 1 学到的 canonical 颜色直接当作 Stage 2 的 albedo 初值。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：单光照动态视频"]
     subgraph S1["Stage 1：动态几何重建"]

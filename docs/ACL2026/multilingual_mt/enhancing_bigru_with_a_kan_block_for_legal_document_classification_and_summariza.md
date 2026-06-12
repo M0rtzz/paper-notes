@@ -44,7 +44,7 @@ tags:
 数据来自 Manupatra，包含 2,937 个孟加拉法律文档样本，文本中混有 Bengali、English 和 romanized Bengali。作者把数据分成 2,349 个训练样本和 588 个 held-out evaluation 样本。预处理包括缺失值和 placeholder 标准化、文本 normalization、删除重复/损坏项、长度分析、tokenization 等。分类任务使用 BiGRU 编码 case notes，并通过 mean pooling 和 max pooling 得到文档表示，再交给 KAN block 预测 disposition。摘要任务使用 attention-based GRU encoder-decoder，并在输出头上加入 KAN 来增强 token prediction。两条任务支路共享同一套预处理后的文本，并各自在 recurrent backbone 之上挂一个 KAN 增强模块。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["孟加拉法律文档<br/>(Bengali / English / romanized)"] --> B["预处理<br/>归一化 + tokenization"]
     B --> SAMP["类别不平衡处理<br/>WeightedRandomSampler 抬升少数类"]

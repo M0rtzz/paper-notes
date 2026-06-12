@@ -46,7 +46,7 @@ tags:
 CARE 的整体流程：给定一张图像 $x$，分别从三个无参数专家获取类别置信度向量：**(1)** 文本专家 TE 利用 CLIP 文本编码器计算类别文本与图像特征的余弦相似度；**(2)** 图像专家 IE 利用经 AdaptFormer 微调的 CLIP 图像编码器输出类别概率；**(3)** 基础专家 BE 直接使用原始（可能含噪）标签的 one-hot 向量。三路置信度通过类别自适应共识机制聚合，输出矫正后的类别频率分布，最终用矫正标签配合 logit adjustment 损失进行长尾校准训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入图像 x"]
     subgraph E3["无参数三路专家设计"]

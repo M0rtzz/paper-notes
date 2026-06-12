@@ -39,7 +39,7 @@ tags:
 多主体个性化生成的两个老大难——主体串味（生成的猫狗跟参考图不像，甚至丢一个）和属性绑错（"狗戴帽、猫戴巾"被画反）——本质都卡在没数据、没主体级监督这两件事上。PSR 的破题方式是：先借一个已经很强的单主体模型反向"造"出 35 万对多主体训练数据，再用两阶段训练把它教会——SFT 让模型先学会"同时摆几个主体"这件事，RL 阶段则用一个能逐主体打分的奖励去抠每个主体的一致性。最后配一个 PSRBench 把主体一致性、语义对齐、美学三件事一起量起来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["多主体数据构建管线"]
         direction TB

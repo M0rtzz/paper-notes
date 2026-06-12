@@ -44,7 +44,7 @@ TriMix 把 LRL（低资源语言）适配拆解为"语言能力 + 任务能力 +
 TriMix 是**纯测试时**框架（除小模型 CPT 外无需训练）。给定 LRL 输入 prompt：(1) 同时把它喂给三个模型——大型指令模型 large-ins、小型 base small-base、在 LRL 上 CPT 过的小模型 small-cpt；(2) 取它们 next-token logits 做线性融合 $L=\alpha L_{large\text{-}ins}+\beta L_{small\text{-}cpt}+(1-\alpha-\beta)L_{small\text{-}base}$；(3) $\alpha,\beta$ 用 perplexity-guided（默认）或 entropy-guided 方式从一个小网格里**在线**选；(4) softmax 后采样下一个 token，循环直到结束。整套流程只需要对小模型做一次原始 LRL 文本的 CPT，**完全不需要 LRL 任务标注**，也**完全不更新**大模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["LRL 输入 prompt（含 in-context 示例）"] --> B["对 prompt 取各模型 next-token logits"]
     B --> TRI

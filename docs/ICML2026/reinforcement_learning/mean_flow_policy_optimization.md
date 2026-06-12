@@ -45,7 +45,7 @@ MFPO 用 MeanFlow models（学 average velocity 而非 instantaneous velocity）
 MFPO 维护两个网络：critic $Q_\phi$ 和 MeanFlow 策略 $\boldsymbol{u}_\theta$（外挂平均散度网络 ADN $\delta_\omega$），在最大熵 RL 的软策略迭代（soft policy iteration）框架下交替做**策略评估**（更新 $Q_\phi$）和**策略改进**（更新 $\boldsymbol{u}_\theta$）。难点在于这两步都依赖 MeanFlow 策略的动作 likelihood 和 Boltzmann 目标分布，而它们对 few-step 生成式策略本不可得——MFPO 用三个设计把缺口补齐：① **MeanFlow 策略 + 平均散度网络**解决 likelihood，② **ESS 加权 SNIS** 解决策略改进所需的目标速度估计，③ **distributional critic + 自动温度 + 评估期动作选择**把训练与部署的稳定性补齐。部署时只需 2 步采样：$\boldsymbol{a}_{t_{i-1}} = \boldsymbol{a}_{t_i} - \frac{1}{T} \boldsymbol{u}_\theta(\boldsymbol{s}, \boldsymbol{a}_{t_i}, t_{i-1}, t_i)$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["状态 s：2 步 MeanFlow 策略 u_θ 采样动作<br/>a_r = a_t − (t−r)·u_θ → 存入经验池"]
     A --> B

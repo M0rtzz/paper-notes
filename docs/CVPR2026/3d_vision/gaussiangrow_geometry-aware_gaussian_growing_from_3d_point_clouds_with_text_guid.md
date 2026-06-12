@@ -38,7 +38,7 @@ tags:
 两阶段流程。**Stage 1**：利用 depth-aware ControlNet 生成主视图参考图像，然后用几何感知的多视图扩散模型（Hunyuan3D-Paint）生成 6 个标准视图 + 4 个针对重叠区域优化的附加视图共 10 个视图作为外观监督，优化高斯属性。**Stage 2**：迭代地检测未见区域，优化相机位姿观察最大未见区域，用 2D 扩散模型补绘渲染视图，作为监督继续生长高斯，直到所有区域覆盖完毕。输入：3D 点云 + 文本提示。输出：完整的 3D 高斯集合。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：3D 点云 + 文本提示"]
     subgraph GEO["初始化与几何信息提取"]

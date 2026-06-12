@@ -42,7 +42,7 @@ tags:
 PCD 想回答的是一个传统指标答不了的问题：这套感知系统在多远的距离内还值得信任。它把感知输出（IoU×置信度）看成距离 $x$ 的函数，先统计估计它的均值和方差随距离怎么变，再在给定检测质量阈值 $y^{thres}$ 和概率阈值 $p^{thres}$ 下，反推出仍满足可靠性要求的最大距离。之所以用 IoU×置信度 而不是单看置信度，是因为置信度只反映模型有多确信、IoU 只反映定位准不准，二者相乘才能同时把"检得到"和"检得准"压进一个量里。整个计算分两步走：先做方差变化点检测把异方差曲线切成分段同方差区间，再在每段上建模分布、反推出最大可靠距离。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["感知输出<br/>IoU×置信度 作为距离 x 的函数"]
     subgraph S1["方差变化点检测"]

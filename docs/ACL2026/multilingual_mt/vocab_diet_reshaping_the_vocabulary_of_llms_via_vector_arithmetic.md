@@ -46,7 +46,7 @@ tags:
 分为三个阶段：(1) 分析验证——使用 Patchscopes 探针验证 LLM 能否正确解读组合式嵌入；(2) 后训练适配——在已训练模型上用知识蒸馏微调变换向量并加 LoRA 适配器；(3) 从头预训练——验证组合式词表作为新模型设计选择的可行性。输入端将表面形式替换为基础词+变换向量的和，输出端将大 unembedding 矩阵拆分为基础词和变换两个独立投影。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["表面形式<br/>walk / walks / walking / walked"] --> REP
     subgraph REP["组合式词表表示（基础词 + 变换向量之和）"]

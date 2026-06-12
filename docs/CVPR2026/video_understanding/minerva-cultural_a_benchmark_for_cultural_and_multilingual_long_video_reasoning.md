@@ -46,7 +46,7 @@ tags:
 这篇工作想回答一个被现有视频基准回避的问题：当前 Video-LLM 在“非西方、非英语”的文化视频上到底能推理到什么程度，又是在哪一步出错的。为此它交付两样东西。一是基准本身——540 个视频、2400 个问题，覆盖 18 个语种/地区、6 大文化领域，每个问题都配一条由本地专家手写的多步推理链，而不是只给一个标准答案。二是配套的诊断方法：先把那条人工推理链编译成一张证据图（evidence graph），再让模型作答，然后沿着这张图把模型的推理逐节点和人工证据对齐，用迭代错误隔离的方式把模型每一处失败都揪出来并归类。前者保证“题目真的需要看懂文化视觉”，后者保证“我们能说清模型错在感知还是错在推理”。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph ANNO["以文化为核心的标注流程（设计 1）"]
         direction TB

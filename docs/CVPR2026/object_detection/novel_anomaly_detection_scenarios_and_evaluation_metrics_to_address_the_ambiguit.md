@@ -50,7 +50,7 @@ tags:
 下图把这套"两层贡献"画出来：评估层用 A2N、N2A 两个场景模拟规格变更的两个方向，统一汇到 S-AUROC 上度量；方法层用 RePaste 在训练时迭代地把高分区域粘回，逼模型把这些边界区域吸收进正常分布。两层最终都落在"模型对定义切换的适应力"这一指标上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["规格变更问题<br/>正常定义随设备/标准升级而漂移"]
     subgraph EVAL["评估层：两个场景 + S-AUROC 指标"]

@@ -43,7 +43,7 @@ tags:
 整套系统的核心思路是把"理解一份合同"和"执行一次计费"彻底拆开，借编译器的架构来组织：贵而难的理解只做一次（编译时），便宜而高频的执行做无数次（运行时）。它由两条流水线构成。**编译流水线**是一次性的——LLM agent 把自然语言合同分段、分类、生成一张名为 DACL 的有向无环图，经过类型检查与场景测试，再由律师人工审查后入库。**运行流水线**是每次事件都要跑的——用户事件 $F_i$ 连同查询 $Q$ 进入一个 neuro-symbolic agent，agent 用 gpt-5-mini 做语义路由识别相关条款 ID，调用 DACL 符号引擎执行计算，拿到结果 $v$ 与审计痕迹 $\tau$，最后包装成自然语言答复。关键的边界划分是：所有 business-critical 的逻辑都关在 DACL 符号引擎内部、概率推理之外，LLM 在运行时永远碰不到一个真正的数值计算。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph COMPILE["编译流水线（一次性·摊销成本）"]
         direction TB

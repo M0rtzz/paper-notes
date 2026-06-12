@@ -43,7 +43,7 @@ tags:
 GTD 要解决的问题是：给定一个任务 query 和一组可用 agents，如何生成一张既能把任务做对、又不浪费 token、还经得起单点失败的通信图 $A\in\{0,1\}^{N\times N}$。它把这件事拆成两个互补的模型——代理奖励模型 $\mathcal{P}_\phi$ 负责廉价地预测某张拓扑在当前任务下的 utility 和 cost，条件图扩散生成器 $\mathcal{G}_\theta$ 负责把高质量拓扑的分布学进网络。整条流水线在训练阶段先用少量 baseline topologies 的真实模拟结果同时喂饱这两个模型，推理阶段则让扩散从高斯噪声图出发、在 50 个去噪步里逐步成形，而每一步都不是闷头生成，而是先吐出多个候选图、再让代理模型挑出当下 reward 最高的那张来决定下一步往哪走，于是多目标偏好被一点点注入到整条采样轨迹里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["任务 query + 可用 agents"] --> TRAIN
     subgraph TRAIN["训练阶段：少量 baseline 拓扑模拟"]

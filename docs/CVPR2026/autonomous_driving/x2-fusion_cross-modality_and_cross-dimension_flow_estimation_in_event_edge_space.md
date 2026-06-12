@@ -46,7 +46,7 @@ tags:
 具体来说，先单独预训练一个 Event Edge Encoder，让它学会从事件流里提取边缘表示，训练好后把它冻结，当作整套系统的"边缘原型"；图像和 LiDAR 编码器再各自学着把自己的特征对齐到这个原型空间。三种模态都落到同质空间后，用一个可靠性感知的自适应融合模块按每个模态当下的可信度加权合并，最后通过跨维度对比学习让 2D 流和 3D 流互相约束，输出光流与场景流。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     EV["事件流"] --> EES
     subgraph EES["Event Edge Space（模态公共锚）"]

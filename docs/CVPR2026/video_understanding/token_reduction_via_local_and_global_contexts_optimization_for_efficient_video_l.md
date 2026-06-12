@@ -47,7 +47,7 @@ tags:
 AOT（Anchors + Optimal Transport）要解决的是 Video LLM 里 prefill 占了约 98% FLOPs、而现有压缩要么直接丢 token 丢信息、要么需要训练的难题。它的思路是“不丢弃而聚合”：先在每帧里挑出语义重要且空间多样的 token 作锚点（Local-Global Token Anchors），再用最优传输把被裁掉的 token 的信息分两级——帧内 OT 聚合（Phase I）和帧间 OT 聚合（Phase II）——最优地汇聚回锚点，全程 training-free。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["采样视频帧 → 视觉编码器"] --> ANCHOR
     subgraph ANCHOR["Local-Global Token Anchors"]

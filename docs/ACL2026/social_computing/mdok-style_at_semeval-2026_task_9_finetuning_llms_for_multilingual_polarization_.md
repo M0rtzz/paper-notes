@@ -43,7 +43,7 @@ tags:
 系统输入是任意语言的一段社交媒体文本，输出是 subtask 1 的二分类 logit / subtask 2 多标签极化类型 / subtask 3 多标签表现形式。整条流水线分四步：(1) 对 22 种语言的 train+dev 集去重合并；(2) 对每条文本做四种数据增强（匿名化、小写化、大写化、同形字化），将训练集扩大 ~20%；(3) 用 QLoRA 在合并后的多语言数据上单 epoch 微调；(4) 按 validation 上的 AUC (subtask 1) 或 macro-F1 (subtask 2/3) 选最佳 checkpoint。subtask 1 选定 Qwen3-32B 为 backbone（支持 100+ 语言），subtask 2/3 因 Qwen3 在 multi-label 头训练上不稳定，改用 Gemma-3-27B-pt（支持 140+ 语言）。此外作者还探索了一条与主系统平行的 appraisal 可解释旁路。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["22 种语言社交文本<br/>train+dev 去重合并"] --> AUG
     subgraph AUG["对偶式数据增强（原文 + 增强副本各占一半）"]

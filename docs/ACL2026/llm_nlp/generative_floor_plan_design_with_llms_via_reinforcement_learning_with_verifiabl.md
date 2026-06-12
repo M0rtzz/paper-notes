@@ -43,7 +43,7 @@ tags:
 两阶段训练 Llama-3.3-70B-Instruct，输入是 JSON（含 room_count / total_area / spaces 列表 / input_graph bubble diagram），输出也是 JSON（每个 space 含 id / room_type / area / floor_polygon 顶点列表，单位米）。**阶段 1 SFT**：在 RPLAN 转换的 JSON 户型上做 LoRA 监督微调（rank 64, $\alpha=128$，2 epoch，6×4×H100），学到 prompt → JSON 的基本映射。**阶段 2 GRPO**：合并 LoRA 后用 verifiable rewards 做 RL，每个 prompt 采 $G=4$ 个候选，按 connectivity reward + total-area reward 平均得分计算 group-relative advantage 更新。**推理**：best-of-10，按"重叠面积最小 → 平局看 Compatibility"选最终输出。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph REP["JSON 结构化表征 + RPLAN→polygon 转换管道"]
         direction TB

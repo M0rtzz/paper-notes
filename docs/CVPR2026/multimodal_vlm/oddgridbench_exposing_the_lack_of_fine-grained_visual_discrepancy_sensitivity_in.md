@@ -45,7 +45,7 @@ tags:
 整条 pipeline 是「数据构建 → 课程训练」两段串联：前半段把网格图从图标一路参数化造出来并切分，后半段把这批数据按难度排序、用改造过奖励的 GRPO 训练模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph BENCH["OddGridBench：参数化生成可控差异网格图"]
         direction TB

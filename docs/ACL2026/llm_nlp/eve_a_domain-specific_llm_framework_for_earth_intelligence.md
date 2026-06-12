@@ -45,7 +45,7 @@ tags:
 EVE 是一个把数据、训练、评测、部署四件事打通的端到端生产系统，前人工作往往只覆盖其中一两件。系统由四大模块协同：核心是 **EVE-Instruct**（基于 Mistral Small 3.2，24B、128k context 微调而来），负责答案生成、查询改写 (query rewriting) 与摘要；其上接 ~365k 文档的多源知识库 (Knowledge Bases，开放访问 + Wiley 专属 + ESA 内部文档，支持 semantic + metadata 混合检索）；检索管线 (Retrieval Pipeline) 按查询与过滤器召回候选并用 Qwen3-Reranker-4B 重排；最外层的对话系统 + 幻觉检测 (Chat System + Hallucination Detection) 管理对话状态、做事实核查、必要时触发「重写答案」闭环。一次提问会经历检索接地、生成、自评幻觉、按需修订这一条龙处理后才返回——但要让这条龙跑起来，前面还有「先把数据备好、把模型练出来、把效果量化」三步，下图把数据→训练→评测→部署四个阶段串成一条完整链路。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["EO 语料 + 合成数据双轨制"]
         direction TB

@@ -43,7 +43,7 @@ tags:
 Persona2Web 把"评测个性化"这件事拆成两条主线：一条是**数据构造**，从用户档案出发，生成事件种子、分解成具体动作、聚合成全年浏览历史，最后从一个显式 query 反向遮蔽出三档模糊 query；另一条是**评估架构**，在 AgentOccam / Browser-Use 两个 base agent 之上挂一个负责查历史、补字段的个性化模块，再用 GPT-5-mini 当 reasoning-aware judge 读完整轨迹打分。最终数据集含 50 个用户、102,568 条历史、150 个 task（每 task 派生 3 个 ambiguity 档），覆盖 21 个子领域、105 个真实网站；agent 端则在 5 个 backbone × 2 个 base 架构 × 3 种 history 访问方案（no-history / on-demand / pre-execution）下做全交叉评测。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph H["隐式用户历史合成（设计 1）"]
         direction TB

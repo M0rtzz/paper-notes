@@ -43,7 +43,7 @@ tags:
 这套框架的核心主张是：训练和推理必须跑在**完全相同的前向算子**上，否则模型在训练时学到的依赖在推理时根本访问不到。具体做法是把序列切成 $N$ 段 $\{x^{(i)}\}_{i=1}^N$（每段长度 $S$），无论训练还是推理都按 $(C_i, o^{(i)}) = F_\theta(x^{(i)}, C_{i-1}, R_{i-1})$ 逐段处理。跨段只靠两条窄通路传递信息：$C_{i-1}$ 是从上一段携带过来的固定长度 KV 尾（唯一带梯度的差分状态），$R_{i-1}$ 是从只读历史 KV 池里 top-$k$ 检索出的长度 $R$ 前缀（仅前向、不进梯度图）。解码器内部按 head 分两组——local heads 始终只看段内 + 携带 KV，long-range heads 仅在选定的少数层 $\mathcal{L}_{\text{long}}$ 里额外吃检索前缀，其余层退化为纯段内因果注意力；RoPE 则通过给前缀重排位置 $\{0,\dots,P-1\}$、当前段整体右移 $P$ 来保证拼接后的位置一致。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["长序列 → 切成 N 段 {x^(i)}"] --> F
     subgraph F["分段执行语义：前向算子 Fθ（训练/推理同一算子）"]

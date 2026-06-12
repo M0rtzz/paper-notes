@@ -45,7 +45,7 @@ SLIM 想解决的是「只有几条数据的个人，能不能验证模型偷用
 这篇笔记只总结论文的高层机制、实验与局限，不展开生成水印样本或验证流程的可执行操作细节。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["目标序列（仅几条，低覆盖水印目标）"] --> B["切分为前缀 + 续写"]
     subgraph CZ["潜在空间混淆区（Latent-Space Confusion Zone）"]

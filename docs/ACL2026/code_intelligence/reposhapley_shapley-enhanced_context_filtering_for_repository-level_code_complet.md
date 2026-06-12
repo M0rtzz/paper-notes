@@ -46,7 +46,7 @@ tags:
 两阶段流程：(1) ChunkShapley 离线标注：单片段探测 → 代理博弈 → 精确 Shapley 值 → 有界后验证生成 keep/drop 标签；(2) RepoShapley 在线推理：将验证标签蒸馏为控制 token（`<KEEP>`/`<DROP>`/`<NEED>`/`<DONE>`），使单一模型同时完成检索触发、片段选择和代码生成。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["检索候选片段（top-K，K≤10）"] --> OFF
     subgraph OFF["ChunkShapley 离线标注"]

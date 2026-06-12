@@ -46,7 +46,7 @@ tags:
 HumanOrbit 把"单图重建 3D 人体"拆成了一个出人意料的两步走：先把它当作视频生成问题，再把生成的视频当作真实拍摄的多视图素材去做三维重建。第一步是 **HumanOrbit 生成模型**——喂进一张人物照片，它吐出一段 81 帧的 360° 环绕视频，相当于让一台虚拟摄像机绕着这个人转了一圈。第二步是 **无位姿重建管线**——把这 81 帧当作环拍照片，用 VGGT 反推出每帧的相机参数和点云，NormalCrafter 补上法线图，Poisson 重建给出初始网格，最后用可微渲染做 Mesh Carving 精修出带纹理的网格。整条链路里没有任何 SMPL 体型先验，也不需要预先指定相机轨迹。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IMG["输入：单张人物照片"]
     subgraph GEN["视频扩散 LoRA 微调（生成阶段）"]

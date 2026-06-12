@@ -45,7 +45,7 @@ Obj-Disco 把 RLHF/GRPO 的不透明奖励信号沿"模型检查点轨迹"反向
 Obj-Disco 要解决的是"RLHF/GRPO 到底奖励了什么"这个黑箱问题，它的思路是把"反向工程奖励"重写成一个稀疏信号近似任务：给定一串训练检查点 $\pi_{\theta_1},\dots,\pi_{\theta_\mathcal{T}}$、目标数据集 $\mathcal{D}$ 和想要的目标数 $k$，输出一组自然语言目标 DIR $\hat{R}=\{r_{n_1},\dots,r_{n_k}\}$、把它们拼回奖励的组合函数 $\mathcal{C}$，以及每个目标的"代表轨迹"解释集 OE。衡量近似好坏的指标 Obj-Error 是残差平方沿轨迹的 RMS：$\text{Obj-Error}(\hat{R},R^*)=\big[\tfrac{1}{\mathcal{T}}\sum_t \mathbb{E}_{x,y\sim\pi_{\theta_t}}[\mathcal{E}(x,y;\hat{R})]\big]^{1/2}$，其中 $\mathcal{E}(x,y;\hat{R})=(R^*(x,y)-\mathcal{C}(\hat{r}_{n_1},\dots))^2$。整个 pipeline 是一个 Matching Pursuit 式的贪心循环——第 $i$ 轮在已有 $\hat{R}^{i-1}$ 上加入让 Obj-Error 降幅最大的新目标，每轮由"提候选（Objectives Discovery）"和"校验候选（Objectives Verification）"两步组成，加满 $k$ 个目标就停。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：训练检查点序列 + 数据集 + 目标数 k"] --> B
     subgraph LOOP["Matching Pursuit 贪心循环（每轮加一个目标）"]

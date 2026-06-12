@@ -44,7 +44,7 @@ tags:
 AgentXRay 要解决的是：给一个只能看到输入输出的黑盒 agent 系统 $\mathcal{M}_{\text{black}}$，反推出一个能复现它行为的白盒 workflow。输入是数据集 $\mathcal{D}=\{(\tau_i, o_i^\ast)\}$（任务 + 黑盒输出对），方法先把所有可能的 agent 构件统一编码成原语 $p=\langle \rho, \mu, \pi, T_{\text{local}}\rangle$（角色、底层模型、思维模式、工具集），把候选 workflow 表示成长度 $L \le L_{\max}$ 的线性原语序列 $\mathbf{s}=[s_1,\dots,s_L]$；然后在这个离散序列空间上用 MCTS 搜索，目标是最大化代理相似度 $\mathbf{s}^\ast = \arg\max_{\mathbf{s}} \mathbb{E}_{(\tau,o^\ast)}[\mathrm{Sim}(\Phi(\mathbf{s},\tau), o^\ast)]$（$\mathrm{Sim}$ 是任务特定度量，代码用 AST、文本用余弦）；搜索过程中用 Red-Black 着色逐节点决定该"深探"还是"广扩"，最后输出搜出来的那条最优序列作为白盒重建。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 22, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 26, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入<br/>黑盒输入输出对 D = (τ, o*) 数据集"] --> S1
     subgraph S1["统一原语空间 + Linearity Hypothesis"]

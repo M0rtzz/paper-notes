@@ -37,7 +37,7 @@ tags:
 SSSD 将 prompt + 自生成文本视为统一的 n-gram 源，并与大型文本数据存储（datastore）集成。最终 token 的前缀在两个源中匹配，匹配到的续写经加权合并与概率校准后构建成树形候选集，再由硬件感知的投机长度决定提交多少候选给目标模型一次性验证。整个草稿生成在 CPU 上运行，不占用 GPU 资源。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["前缀：最新已接受 token + 近期上下文"]
     subgraph FUSE["双源候选融合"]

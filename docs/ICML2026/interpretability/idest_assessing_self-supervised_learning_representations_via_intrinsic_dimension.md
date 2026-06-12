@@ -44,7 +44,7 @@ tags:
 IdEst 解决的问题是：在没有标签、不重训、不碰原始增强的前提下，怎么判断一个 SSL encoder 学出来的表示好不好。它的答案不是再设计一个 SSL 损失，而是把"表示质量"换算成一个纯几何量——表示流形的内在维度（ID）。给定一个训好的 encoder $g$ 和一份无标签数据 $\mathcal{X}$（推荐用 ImageNet 当参考集），先用 $g$ 抽冻结特征（有 [CLS] token 的取 [CLS]，I-JEPA 这类没有 [CLS] 的对 patch token 做 average pool），再在特征点云上跑 MST 维度估计器算出一个 ID 标量，值越低代表表示越紧凑、下游越好。这个数字可以直接拿来排序不同 checkpoint、追踪训练曲线，或做无标签超参选择。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["冻结 SSL encoder g + 无标签参考集<br/>（推荐 ImageNet）"] --> B["抽 protocol 进 classifier 前一层特征<br/>有 [CLS] 取 [CLS]，否则 patch token 平均池化"]
     subgraph EST["dim_MST 内在维度估计器（设计 1）"]

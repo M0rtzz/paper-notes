@@ -46,7 +46,7 @@ tags:
 整条流水线因此分成两段：先用一套全自动管线从「图像 + 报告」里挖出病变 mask（定位阶段），再基于这些定位信息批量合成「指令-回答」训练对（数据阶段），最后用合成数据微调出分割模型 ROSALIA。ROSALIA 本身沿用 LISA 架构，把视觉语言模型（LLaVA）和分割模型（SAM）端到端接在一起，用户给一句话指令，它就吐出 mask 加文字回答。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["MIMIC-CXR<br/>图像 + 放射报告（无人工标注）"]
     subgraph MASK["1. 多模态自动 mask 生成管线"]

@@ -44,7 +44,7 @@ tags:
 DP-KFC 想解决的是：DP-SGD 的各向同性隐私噪声和损失景观的各向异性几何不匹配，要先把梯度变换到各向同性坐标系再加噪，但获取这个变换的曲率信息不能花隐私预算、也不能依赖公共代理数据。它的做法是把训练拆成两个周期交替的阶段。每隔 $T_{freq}$ 步，先用一批合成数据（图像是 pink noise、文本是 Zipf 序列）跑一遍前后向，按 KFAC 公式估出每层的两个协方差因子 $\hat A_{l-1}=\mathbb{E}[\tilde a_{l-1}\tilde a_{l-1}^\top]$ 和 $\hat G_l=\mathbb{E}[\tilde\delta_l\tilde\delta_l^\top]$，特征分解后拿到旋转/缩放矩阵 $U_{A,l}, U_{G,l}$；然后在私有训练步里，对每个私有样本 $i$ 的每层梯度先做线性变换 $\tilde g_l^{(i)}=U_{G,l}\,g_l^{(i)}\,U_{A,l}$，再裁剪、加噪、平均、SGD 更新。这个"先变换后隐私化"的顺序是整篇的关键——预条件子 $P_t$ 只依赖架构和已发布的历史参数、与当前 batch 独立，所以 RDP 的隐私 accounting 完全继承标准 DP-SGD，不多花一分预算。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph SYN["数据无关的 KFAC 因子估计（每 T_freq 步刷新一次）"]
         direction TB

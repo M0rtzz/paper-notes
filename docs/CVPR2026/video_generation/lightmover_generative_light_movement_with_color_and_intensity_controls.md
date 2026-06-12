@@ -38,7 +38,7 @@ LightMover 利用视频扩散先验，将光源编辑建模为序列到序列预
 LightMover 把"编辑一张图的光照"重新表述成"预测视频里下一帧"——既然视频扩散模型天然懂得帧与帧之间光影该怎么连续变化，那就借这份先验来近似 3D 光传输，而不必真去重建几何与材质。具体做法是把所有输入拼成一段伪视频喂给一个 5B 参数的视频扩散 Transformer，让它在最后一帧生成出重打光后的结果。输入序列包含六类帧：(1) 参考图像 $I_{\text{ref}}$；(2) 目标物体裁剪 $I_{\text{obj}}$；(3) 移动地图 $I_{\text{move}}$（R 通道编码源区域、GB 通道编码目标区域）；(4) 颜色控制帧 $I_{\text{color}}$；(5) 亮度控制帧 $I_{\text{intensity}}$；(6) 待生成的噪声帧 $X^t$。所有帧经 VAE 编码成 latent token 后，先用**多信号位置编码（MSPE）**让模型分清每帧的语义角色，再用**自适应 Token 剪枝**把控制信号压短，最后由扩散 Transformer 联合处理，一次性推理出光源位置、颜色、亮度的协同变化。而支撑整套学习的是一条**物理解耦渲染数据管线**，在后处理里合成海量"同场景不同光照"的配对样本。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["物理解耦渲染数据管线（训练数据）"]
         direction TB

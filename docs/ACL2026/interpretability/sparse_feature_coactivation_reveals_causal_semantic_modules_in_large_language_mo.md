@@ -44,7 +44,7 @@ tags:
 方法要解决的问题是：LLM 里表示某个概念或关系的，往往不是一个孤立 SAE feature，而是一组跨层协同激活的 feature，怎样自动找出这些功能模块并验证它们真的因果地决定输出。整条 pipeline 从 Gemma 2 2B 的 concept-relation prediction prompts（country facts、word translation、verb transformation）出发，先在前向传播中收集每层 SAE 激活、取每 token 的 top features，按跨层共激活相关性连边构成图，剪掉高密度通用 feature 后用弱连通分量抽出 component；最后对这些 component 做消融、放大与组合干预，以输出 token 分布是否按预期变化反向确认它们的语义。整个过程中 component 不靠人工指定“China feature”或“capital feature”，而是在具体 prompt 下由共激活关系涌现，再用 KL divergence 和 steering success 验证。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["Gemma 2 2B + 概念-关系 prompt<br/>国家事实 / 词翻译 / 动词变换"] --> B["前向传播收集每层 SAE 激活<br/>每 token 取 top-k=5 特征"]
     B --> C["跨层共激活图<br/>相邻层特征相关 ρ>0.9 连边"]

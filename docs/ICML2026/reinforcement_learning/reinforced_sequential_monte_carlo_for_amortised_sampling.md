@@ -51,7 +51,7 @@ tags:
 4. **重要性加权经验回放**：把多个批次的 SMC 输出按批级归一化常数估计 $\widehat Z_m$ 与批内自归一权重 $W^{m,k}_N$ 乘起来作为采样概率。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     R["目标 R(x)=π(x)·Z<br/>不可归一化能量"]
     subgraph OBJ["神经采样器：策略 p_θ + 流 F^φ_n"]

@@ -41,7 +41,7 @@ tags:
 CC-VQA 针对的是知识型 VQA 里的"知识冲突"：RAG 引入的外部上下文虽然平均带来 16.82% 提升，但也会用错误段落把原本答对的题带偏（引入 10.53% 新错误）。它是 training-free 的，分两阶段串起来——阶段一做视觉中心的上下文冲突推理，把"图像到底支持哪种说法"显式抽出来；阶段二再用细粒度相关度去引导编码和解码，让低信息、跟图像无关的句子在注意力里被自然压低。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：查询图像 I + 问题 Q<br/>+ 检索上下文 {C_i}"] --> S1
     subgraph S1["阶段一：视觉中心的上下文冲突推理"]

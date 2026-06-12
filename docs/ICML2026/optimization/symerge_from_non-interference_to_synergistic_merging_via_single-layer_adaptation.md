@@ -43,7 +43,7 @@ tags:
 输入：预训练权重 $\Theta_{\text{pre}}$、$K$ 个独立 fine-tuned 的任务专家 $\{\Theta_k\}_{k=1}^K$、每个任务的无标签测试集 $\mathcal{X}_k^{te}$；输出：一个共享 encoder $\Theta_{\text{MTL}}^{\text{enc}}$ 加上 $K$ 套任务头。pipeline 走三步：(1) 把每层编码器权重写成 $\theta_{\text{MTL}}^l = \theta_{\text{pre}}^l + \sum_k \lambda_k^l \tau_k^l$，把 $\Lambda = \{\lambda_k^l\}$ 设为可学习的层级×任务系数矩阵（沿用 AdaMerging 的参数化）；(2) 在每个任务上挑一个 task-specific 适配层 $\theta_k^{\text{tr}}$，初始化为该任务专家的原层；(3) 联合优化 $\Lambda$ 和 $\{\theta_k^{\text{tr}}\}$，使合并模型在 $\mathcal{X}_k^{te}$ 上的预测尽量逼近专家模型的预测。整个过程只动这两组参数，其它层全部冻结。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：预训练权重 + K 个任务专家 + 各任务无标签测试集"]
     IN --> ENC["单层适配 + 系数联合优化<br/>可学层级合并系数 Λ 与每任务一层适配层 θ_tr，其余层冻结"]

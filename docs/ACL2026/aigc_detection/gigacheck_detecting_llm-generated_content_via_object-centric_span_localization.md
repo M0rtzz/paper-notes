@@ -44,7 +44,7 @@ tags:
 GigaCheck 用一套"共享骨干 + 双头"结构同时回答两个问题。输入文本先经 LoRA 微调的 Mistral-7B 提取 token 嵌入；分类头取末位 EOS token 的隐状态接 MLP 给出"整篇是否 AI 生成"的文档级判断，DETR 头则把嵌入序列当作一维特征图、像检测图像目标一样直接回归出"哪几段是 AI 写的"的字符级区间。两个头共享同一微调骨干、可独立使用，于是文档级分类与片段级定位都建立在同一份文本表示之上。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入文本"] --> B["统一文本表示骨干<br/>LoRA 微调 Mistral-7B 取 token 嵌入"]
     B -->|EOS token 隐状态| C["分类头<br/>MLP 文档级二分类"]

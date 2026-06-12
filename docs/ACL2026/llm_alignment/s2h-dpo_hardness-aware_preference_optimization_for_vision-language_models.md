@@ -46,7 +46,7 @@ tags:
 S2H-DPO 的出发点是：多图推理不是单一能力，而是一条从“看指定图”到“自主搜遍所有图”的能力谱，而 MIA-DPO 只覆盖了最低一级。为此作者把现有单图数据改造成三个递进难度级别的多图偏好数据（每级各 20K 样本）——Level 1 用干扰图加模型幻觉造偏好对，Level 2 用亲属关系识别和视觉算术任务考查跨图比较，Level 3 用全局视觉搜索任务要求模型先搜遍所有图再定位目标——再把三级数据混在一起做标准 DPO 联合训练，让低阶到高阶的推理能力相互促进。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["单图数据集改造为多图偏好数据"] --> L1
     A --> L2

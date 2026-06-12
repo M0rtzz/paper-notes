@@ -45,7 +45,7 @@ tags:
 4DEquine 要解决的是单目视频里马科动物的 4D 重建——既要逐帧恢复动作，又要重建出能换姿态的高保真外观。它的核心判断是：动作逐帧在变，但外观在同一段视频里几乎不变，所以没必要把两者耦合在一起联合优化。框架因此拆成两条独立的路：AniMoFormer 负责从视频里恢复逐帧的 VAREN 运动参数（姿态 θ、形状 β、全局平移 γ），EquineGS 负责从单张图前馈出标准空间下的可动画高斯 avatar。两者通过 VAREN 参数化模型桥接——AniMoFormer 给出骨骼姿态，EquineGS 生成标准空间高斯点云，再用 LBS（线性混合蒙皮）驱动到每帧姿态。推理时用滑动窗口处理任意长度视频。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["单目视频"] --> AM
     IN --> EG

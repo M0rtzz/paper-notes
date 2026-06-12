@@ -39,7 +39,7 @@ tags:
 这篇论文要解决的是：动态数据剪枝在有噪声标签时会把噪声样本当成"高价值难样本"留下来，越剪越脏。AlignPrune 的思路是不再看每个样本当前损失有多高，而是看它**这几个 epoch 损失是怎么变化的**——干净样本的损失会跟着模型一起平滑下降，噪声样本则忽上忽下。整体流程上，它给训练集 $\mathcal{D}$ 配一个很小的干净参考集 $\mathcal{D}_{ref}$，每一轮为每个样本算一个对齐分数 DAS，用它替换掉原有方法（InfoBatch、SeTa）里基于损失值的排序，再照常做子集选择和训练。因为只换了"打分"这一步，它能直接挂到现有动态剪枝框架上而不碰其余部分。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["含噪训练集 D"] --> B
     R["干净参考集 D_ref（约 1%）"] --> C

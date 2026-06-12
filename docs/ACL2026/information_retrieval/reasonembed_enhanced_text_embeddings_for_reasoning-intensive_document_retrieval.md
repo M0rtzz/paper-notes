@@ -46,7 +46,7 @@ ReasonEmbed 提出三项技术创新——ReMixer 非平凡合成数据方法（
 ReasonEmbed 的目标是训出能做推理密集检索的文本嵌入，难点在于现有合成数据"太平凡"——正样本往往就是生成查询所用的源文档，两者共享大量表面线索，模型靠词面匹配就能拿高分、根本学不到推理。它围绕一条数据驱动的链路解决这件事：先用 ReMixer 三阶段流程从 BRIGHT 的 12 个领域语料合成 82K 条非平凡样本（Qwen2.5-72B 生成条件化查询、现成检索器挖候选、蒸馏的 Qwen3-8B 推理标注器打标签），再用 Redapter 按样本的推理强度自适应加权、在 MSMARCO 预训练检查点上以 RI-InfoNCE 损失继续训练，最后在多个 LLM 骨干上复现以验证普适性。输入是领域语料、产物是一个把"需要推理才判得出相关"的能力学进参数里的嵌入模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["BRIGHT 12 领域源语料"] --> S1
     subgraph S1["ReMixer 数据合成（打破平凡性）"]

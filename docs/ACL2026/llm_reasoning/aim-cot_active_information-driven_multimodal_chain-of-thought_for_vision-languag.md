@@ -44,7 +44,7 @@ tags:
 AIM-CoT 是一个无需训练(training-free)的框架，在冻结的 VLM 上按"触发-选择-插入"范式运行，由三个协同组件构成：(1) 上下文增强注意力图生成(CAG, Context-enhanced Attention-map Generation)先用一段查询条件化描述给注意力补上文本端锚点，缓解文本-视觉粒度失衡；(2) 动态注意力偏移触发(DAT, Dynamic Attention-shift Trigger)在生成推理链时监测注意力从文本到视觉的偏移，判断"何时该看图"；(3) 主动视觉探测(AVP, Active Visual Probing)被触发后基于信息增益挑出最有价值的视觉证据并插回推理链。三者分工对应"何时看"与"看什么"两个核心问题。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：图像 I + 查询 x"] --> B["上下文增强注意力图生成（CAG）<br/>VLM 生成查询条件化描述<br/>拼成增强查询 x′"]
     B --> C["VLM 自回归生成推理链"]

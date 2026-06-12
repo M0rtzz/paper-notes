@@ -44,7 +44,7 @@ tags:
 RHO要解决的是「在恶劣天气和传感器噪声下，仅凭一张地面图和一块OpenStreetMap瓦片，把相机定位到米级位置和度级朝向」。它没有沿用单一图像源，而是同时吃下360°全景和120°针孔两路输入，做成一个双分支的Pin-Pan架构。OSM瓦片先栅格化再过地图编码器得到神经地图 $M$，作为两路共享的匹配底图。全景分支在SUM去畸变后过「编码 → BEV投影」、和 $M$ 匹配得到概率体 $S_{pano}$（擅长定位）；针孔分支取前视120°图、同样编码-BEV-匹配得到 $S_1$（擅长定朝向）。两个概率体都覆盖位置和朝向的三维 $(u, v, \theta)$，最后由POF模块把它们融成一个 $S_{fused}$，读出最终的3-DoF相机位姿。之所以要两路并行，是因为全景和针孔在「定位」和「定朝向」上各有所长（见下文POF），单独用哪一路都偏科。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["360° 全景图"]
     O["OSM 瓦片<br/>栅格化 → 地图编码器 → 神经地图 M"]

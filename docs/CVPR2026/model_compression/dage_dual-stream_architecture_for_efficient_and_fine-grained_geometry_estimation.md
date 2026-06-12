@@ -42,7 +42,7 @@ tags:
 给定 $N$ 张未标定 RGB 图像，DAGE 要同时吐出每帧的 3D 点图、相机位姿和一个全局度量尺度。它的核心想法是：跨视图一致性（决定位姿和全局结构）和细粒度细节（决定深度边缘是否锐利）这两件事，其实对分辨率的需求完全不同——前者在低分辨率下就够了，后者才需要原图。于是 DAGE 把这两个需求拆到两条并行的流里：一条**低分辨率流（LR Stream）**在 252px 上看遍所有帧、做全局 attention 拿到一致的位姿与粗结构；一条**高分辨率流（HR Stream）**在原始分辨率（最高 2K）上逐帧独立编码、保住细节；中间用一个**轻量 Adapter** 把 LR 的全局信息注入 HR，让每一帧的高分辨率细节又能对齐到统一的全局几何。这样全局 attention 的 $O(N^2)$ 成本被锁在低分辨率，而高分辨率部分的成本只随帧数线性增长。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["N 张未标定 RGB 图像"] --> LR
     IN --> HR

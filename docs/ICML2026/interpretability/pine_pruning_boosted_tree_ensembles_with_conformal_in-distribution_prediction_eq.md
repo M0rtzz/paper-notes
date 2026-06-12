@@ -45,7 +45,7 @@ PINE 要解决的是"忠实剪枝压不动"这个老问题：给定已训好的 
 实现上整套流程沿用 FIPE 的 Pruner + Oracle 迭代：先在拟合集 $\mathcal{D}_{\text{fit}}$ 上拟合 Chow-Liu 分数 $s_{\text{CL}}(\cdot)$、在校准集 $\mathcal{D}_{\text{cal}}$ 上算阈值 $\tau(\alpha)$，然后把 $\mathcal{D}_{\text{fit}}$ 当初始等价约束集 $\mathcal{S}^{(0)}$；之后反复让 Pruner 解出满足当前 $\mathcal{S}^{(t)}$ 的最稀疏权重、让 Oracle 在 $\mathcal{X}_{\text{ID}}(\alpha)$ 内用 MILP 搜新的 counterexample 并入约束集，直到 Oracle 返回空集，就在 $\mathcal{X}_{\text{ID}}(\alpha)$ 上拿到带证书的等价保证。相对 FIPE，真正改动只是 Oracle 的搜索域多了一条线性约束 $s_{\text{CL}}(\bm{x})\leq\tau(\alpha)$——但正是这条约束要能干净编入 MILP，才逼出了 Chow-Liu 这个看似绕的选型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     FIT["拟合集 D_fit"] --> S1["设计1：Chow-Liu NLL plausible score<br/>s(x)=−log p_CL，树状分解可线性编码进 MILP"]
     CAL["校准集 D_cal"] --> S2["设计2：split conformal 校准阈值 τ(α)<br/>保证 P[s≤τ(α)] ≥ 1−α"]

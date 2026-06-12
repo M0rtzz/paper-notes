@@ -48,7 +48,7 @@ EvoSci 由四个阶段组成：Problem Space Construction、Collaborative Resear
 在研究执行阶段，prime researcher 从问题 cluster 中选择目标，组建 assistant researchers，通过 CrewAI 风格的 lead-and-collaborate 机制进行任务分解、递归委派、阶段性整合和 idea refinement。最后 reviewer agent 按 novelty、feasibility、validity、excitement、overall 等维度评分并给出改进建议，反馈再进入演化循环。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["核心主题 T + 目标学科集合"]
     subgraph PS["知识图谱驱动的问题空间构建"]

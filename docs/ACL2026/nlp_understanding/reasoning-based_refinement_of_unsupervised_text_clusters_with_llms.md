@@ -44,7 +44,7 @@ tags:
 三阶段后置精炼：输入为任意无监督聚类方法（如 HDBSCAN）产生的初始聚类，输出为精炼后的聚类集合及可解释标签。Stage 1 验证每个聚类的语义一致性，Stage 2 合并语义冗余的聚类，Stage 3 为精炼后的聚类生成并合并解释性标签。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["初始聚类<br/>任意无监督方法（HDBSCAN 等）"] --> B
     subgraph S1["一致性验证"]

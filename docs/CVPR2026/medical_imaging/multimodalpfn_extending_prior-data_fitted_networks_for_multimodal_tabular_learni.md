@@ -52,7 +52,7 @@ MMPFN 在 TabPFN 主干之外只加了一层轻量「桥接」，整条 pipeline
 训练时冻结所有模态编码器，只训练模态投影器、TabPFN 主干和解码器头，整个微调仅 100 次迭代。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     T["表格特征<br/>TabPFN v2 编码器（冻结）"]
     I["图像 / 文本<br/>DINOv2 / ELECTRA（冻结）→ 单个 [CLS]"]

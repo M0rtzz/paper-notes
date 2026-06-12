@@ -42,7 +42,7 @@ tags:
 LcRL 把多语言决策直接焊进 GRPO 的训练回路：对一个问题的多种语义等价查询，让 LLM 与搜索引擎以 `<search>`/`<answer>` 标签交错的方式多轮交互，每轮按层次化策略选择该检索哪种语言的资源。所有语言版本的 rollout 被放进同一个 group 联合打分，再用一个把字符召回率和反一致性惩罚揉在一起的奖励驱动优化。这样从"等价查询集"输入到"统一高质量推理路径"输出，弱势语言能在组内向强势语言对齐，而冲突的错误答案会被主动拆散。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：一个问题的<br/>语义等价多语言查询集 Q"] --> RET
     subgraph RET["层次化多轮检索策略"]

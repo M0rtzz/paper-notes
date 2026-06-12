@@ -43,7 +43,7 @@ tags:
 论文不提新算法，而是为「单层 Transformer + 马尔可夫数据 + 交叉熵 + 群体梯度流」这个极简设定，给出一个能解释完整训练曲线分段形状的、可证明的动力学故事。设词表 $\mathcal{V}=[d]$，序列由转移矩阵 $P=\lambda I+(1-\lambda)\mathbf{1}\pi^{\top}$ 生成、长度为 $s$，模型含 embedding $W_0$、注意力 $W_Q,W_K$ 与输出 $W_1$；作者把它们打包成三个等价矩阵 $M=W_0W_1$、$\Phi=W_0W_QW_K^{\top}W_0^{\top}$、$W_{QK}=W_QW_K^{\top}$ 并推出群体梯度 $\partial\mathcal{L}/\partial M$、$\partial\mathcal{L}/\partial\Phi$ 的闭式表达。核心叙事方式是：沿着「原点 → 凝聚射线上的第二鞍点 → rank-1 流形上的退化临界点 → 对称破缺后的新临界点」这串临界点逐个做局部线性化，再把各段拼起来，每个鞍点上的不稳定方向决定下一段轨迹是凝聚、聚焦还是稀释。整条轨迹不是单调收敛，而是一个会自我重启的环：
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     L["分阶段线性化引理（Lemma 3.1）<br/>每个鞍点停留 Θ(log 1/ε) 后沿最不稳定方向爆发"]
     subgraph G2["凝聚射线 + 第二鞍点（设计 2）"]

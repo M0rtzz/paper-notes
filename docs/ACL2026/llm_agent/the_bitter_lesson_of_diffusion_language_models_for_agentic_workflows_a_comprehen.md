@@ -48,7 +48,7 @@ tags:
 第二层是 DiffuAgent 模块化评估。作者不再让 dLLM 控制整个循环，而是把它们作为可插拔认知模块嵌进自回归 agent 外围。具身侧包含 pre-hoc memory 和 post-hoc early-exit verifier；工具调用侧包含 pre-hoc tool selector 和 post-hoc tool-call editor。这样能区分“模型当主干失败”与“模型某个局部能力不可用”两件事。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["待测模型<br/>自回归 LLM vs 扩散语言模型 dLLM"]
     subgraph RC["主干级现实检查"]

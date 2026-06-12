@@ -45,7 +45,7 @@ tags:
 FABLE 想解决的是非结构化编辑"能整段复述、却答不出细节"的割裂：模型学到的是从问题到表面形式的高层映射，而非把底层原子事实真正写进知识存储。它的破题点是把 N 层 Transformer 的键生成器按层深拆成两级——浅层（层 1 到 $L_f$）的细粒度键生成器 $\mathcal{F}_{\text{fine}}$ 负责锚定离散事实，深层（层 $L_f+1$ 到 $L_h$）的整体性键生成器 $\mathcal{F}_{\text{hol}}$ 负责把事实整合成连贯叙事，最后由值生成器 $\mathcal{V}$（层 $L_h+1$ 到 N）输出。编辑因此走两阶段：先把细粒度事实注入浅层，再对深层做最小化调整以保证叙事流畅，并在第二阶段加约束防止覆盖第一阶段的事实信号。最后用 UnFine 诊断基准从事实级评估编辑效果。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：非结构化文本段落"]
     subgraph S1["细粒度事实锚定（Stage 1）"]

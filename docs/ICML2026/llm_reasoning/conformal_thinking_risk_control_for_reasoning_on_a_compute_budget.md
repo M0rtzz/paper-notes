@@ -46,7 +46,7 @@ tags:
 具体地，给定轨迹 $y = \langle\text{think}\rangle r_{1:T}\langle/\text{think}\rangle a$ 和每步信号 $s_t = u(x, r_{1:t})$（可取 entropy / confidence / mutual predictability 等多种），平滑后得 $\tilde s_t = g(s_{1:t})$，早停时刻为 $\tau = \min\{t\ge 1 : \tilde s_t \ge \lambda_+ \;\lor\; \tilde s_t \le \lambda_-\}$（Eq. 5），$\lambda_+>\lambda_-$，命中上阈值表示"自信答出"、命中下阈值表示"放弃此题"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CAL["校准阶段（离线，一次性，无训练）"]
         direction TB

@@ -46,7 +46,7 @@ tags:
 输入是线稿 $\mathcal{S}$、区域蒙版集合 $\{\mathcal{M}^{(i)}\}$ 和对应调色板 $\{\mathcal{P}_H\}$。全局阶段先生成多个保持线稿结构和配色一致的整体着色结果，局部阶段再通过隐空间组合实现区域精准着色与平滑过渡。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：线稿 + 区域蒙版 + 调色板"] --> B
     subgraph G["全局线稿上色"]

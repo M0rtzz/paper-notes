@@ -45,7 +45,7 @@ SMARTER 分两阶段。第一阶段是个体模型自增强（individual self-au
 实验使用 3 个任务：HateXplain、Latent Hate 和 Implicit Hate。模型包括 Llama-3.1-8B-Instruct 与 COT-T5-XL。评价指标为 macro-F1，因为类别不平衡和多类语义边界都很重要。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["少量标注帖子<br/>K∈{16,32,64,128,256}"] --> B["基线 SFT（LoRA）"]
     subgraph S1["阶段1 个体模型自增强"]

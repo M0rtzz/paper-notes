@@ -46,7 +46,7 @@ tags:
 实验分为三条主线。第一条主线测合成数据对输出分布的影响，使用 perplexity、Self-BLEU 反向指标、语义距离和 Heaps' Law 词汇增长。第二条主线测安全，使用 RefusalBench 和 RefusalBench+Jailbreak，分别评估 harmfulness 与 response quality。第三条主线测判断偏差，让微调后的 Llama 作为 judge 对 CNN/DailyMail 摘要做 pairwise ranking，计算 self-preference bias 和 pro-synthetic bias。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["人类数据集 Dolly-15K"] --> B
     SRC["三档源模型<br/>Small 5-15B / Medium 50-150B / Large 400B+"] --> B

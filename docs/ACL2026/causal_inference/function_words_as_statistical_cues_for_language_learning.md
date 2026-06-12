@@ -43,7 +43,7 @@ tags:
 论文分两段：第一段做 cross-linguistic corpus analysis —— 对 UD 里每种语言计算功能词与内容词的 type/token 比、依存熵、短语边界对齐率，画 3 张分布图证明三性质的普适性。第二段做 counterfactual language modeling —— 在英语维基百科上构造 7 种变体语料（NoFunction / FiveFunction / MoreFunction / BigramDep / RandomDep / WithinBoundary / NaturalFunction），每种变体训练独立 GPT-2 small（vocab 32k、10 epoch、3 seeds），同时配 5-gram baseline；评测用经过同步修改的 BLiMP 最小对集合，并在最后做 attention probing + function-word ablation 两组诊断实验。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CL["三性质量化指标（186 语种 UD）"]
         direction TB

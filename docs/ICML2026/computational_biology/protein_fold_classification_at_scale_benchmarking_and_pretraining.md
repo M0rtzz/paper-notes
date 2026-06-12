@@ -45,7 +45,7 @@ tags:
 这篇工作要解决的核心问题是：蛋白质折叠分类长期卡在 1.5 万样本、高冗余、标签噪声大的小基准上，等不来自己的"ImageNet 时刻"。作者把它拆成两件事同时做——一是用 TED + Foldseek 聚类 + pLDDT 过滤把 AlphaFold Database 蒸馏成 46 万级、965 类、控冗余的标准基准 TEDBench；二是把 CV 里的 MAE 范式搬到 SE(3)-不变的残基 frame 表示上，得到一个纯结构、scale 友好的自监督模型 MiAE。数据侧把约两亿结构经 Foldseek 聚类去冗余、TED 拆 domain 匹配 CATH topology、pLDDT 过滤与单标签化蒸馏成 TEDBench；模型侧把骨架编成 frame、极端掩码后只用可见残基过重编码器、再用轻解码器重建坐标——两侧各阶段的具体取舍与动机见下面的关键设计。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 420, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["TEDBench 大规模非冗余基准构建"]
         direction TB

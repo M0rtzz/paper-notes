@@ -43,7 +43,7 @@ tags:
 论文包含两个核心产物。第一个是 CASTER-Bench：1,485 个长视频 UGC item，覆盖 30 个主要内容类别，每个 item 包含视频帧、封面、标题、标签、分类、ASR transcript 等多模态输入，并由 10 名专业内容运营专家按 Production Quality、Perceived Value、Information Utility、Narrative Excellence 四个维度标注。第二个是 MEDEA：一个多模态评估框架，先从社区评论挖掘 Social-CoT 训练数据，再用 SFT 学习社会推理格式，最后通过 GRPO 和社会对齐奖励优化推理过程。整条链路自上而下依次落在三个关键设计上——先由 CASTER-Bench 提供专家真值，再从评论构造可监督的社会推理路径，最后用过程监督 RL 把模型训到贴近真实社区判断。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["UGC item 多模态输入<br/>封面 + 关键帧 + 标题 + 标签 + 分类 + ASR"]
     subgraph TASK["CASTER 任务与 CASTER-Bench"]

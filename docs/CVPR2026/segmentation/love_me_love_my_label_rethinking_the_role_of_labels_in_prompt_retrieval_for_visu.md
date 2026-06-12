@@ -46,7 +46,7 @@ tags:
 LaPR 想解决的是视觉上下文学习（VICL）里一个被长期忽略的问题：检索 prompt 时只看图像像不像，结果挑出来的示范图标签和 query 对不上，VICL 就被带偏。难点在于推理时 query 自己的标签是未知的，没法直接拿标签去比对。LaPR 的整体思路是把标签编进 prompt 的表示里、再用一组专家在 query 端"猜"出它的隐含标签模式。具体地，给定 prompt 数据库 $\mathcal{B}=\{(I_i^p, L_i^p)\}$（图像+标签对）和标签未知的查询图像 $x_q$，流程是：先用冻结的 ViT 把每个 prompt 的图像和标签一起编码成"标签感知"的联合嵌入；再让 query 和 prompt 各过 $K$ 个专家生成模式特定表示，由 query 端的路由器算出一组混合权重把它们融合；最后在融合空间里检索出标签也一致的最佳 prompt $c_q^\star$。训练上专家和路由器交替更新，各自盯着不同的监督信号。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph REPR["图像-标签联合 Prompt 表示"]
         direction TB

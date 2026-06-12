@@ -43,7 +43,7 @@ OLIVIA 通过引入功率谱密度（PSD）驱动的协调机制——Harmonizer
 OLIVIA 要解决的核心问题是：预训练时把周期、长依赖各不相同的多领域时间序列混在一起，模型既收敛慢又学不出统一表示。它的破题点是把这种异质性量化为各数据集的归一化功率谱密度（PSD）差异，再在谱域里把它们「调和」到一致。整条 pipeline 是一个编码器-解码器：原始时间序列先经 **Harmonizer** 的 Aligner 投影到共享谱空间，让所有数据集的二阶相关结构对齐；对齐后的表示送入 **HarmonicFormer** 主干做编码-解码，其中每层注意力都换成 HarmonicAttention；最后 Harmonizer 的 Restorer 把结果逆映射回原域得到预测。Harmonizer 负责「调和」、HarmonicFormer 负责「高效建模」，两者由同一套 PSD 一致性的理论串起来。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始时间序列 X"] --> B["Aligner（Harmonizer）<br/>X·Qᵀ 投影到共享谱子空间<br/>Q = K 个 Householder 反射连乘"]
     B --> C["分块 + 线性嵌入<br/>得到 token 序列 Z"]

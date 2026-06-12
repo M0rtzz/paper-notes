@@ -44,7 +44,7 @@ tags:
 输入仍是高斯噪声 $z_{t_0}\sim\mathcal{N}(0,\mathbf{I})$，沿离散化时间步 $t_0<\cdots<t_T=1$ 走 ODE。区别在于：在早期"运动决定窗口"（$t\le\alpha T$，论文用 $\alpha\approx 0.2$）的每一步上，先做基础 ODE 步得到 $z_{t_{i+1}}^{(0)}$，然后进入一个 $K_f\le 3$ 次的 P&P 内循环——每次内循环里同时算出"细化后的 ODE 步结果"和"不确定度 mask"，最后用 mask 在精修结果和上一轮结果之间逐空间-时间位置融合，作为下一时间步的输入。中后期时间步则不做精修，直接走基础 ODE。整体只增加 $\sim 1.5\times$ 推理时间，无需任何额外训练 / 外部模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["高斯噪声 z_t0"] --> B["当前时间步 t：基础 ODE 步"]
     B -->|"t > αT（中后期）"| F["不精修，直接 ODE 推进"]

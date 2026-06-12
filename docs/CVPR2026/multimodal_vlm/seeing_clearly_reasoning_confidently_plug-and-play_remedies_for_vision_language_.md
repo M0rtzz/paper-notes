@@ -46,7 +46,7 @@ tags:
 这篇论文想解决的是 VLM 的"稀有物体盲区"：模型见过太少护柱、锥桶这类罕见物体，解码时对它们的视觉区域几乎不看一眼。作者的思路是不动 VLM 本体，而是在它两侧各加一道补丁——一道修视觉、一道修文本，靠一组共享的"多模态类嵌入"把两道补丁串起来。整条流水线分三步：先离线学好这组类嵌入（让它同时对齐稀有物体的视觉特征和文本描述），再在视觉端用它作锚点精化 VLM 的视觉 token，最后在文本端用它当检测器、把检测到的候选物体名写进提示词里。视觉 token 增强 + 文本提示注入双管齐下，VLM 自身参数全程冻结。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph CE["多模态类嵌入学习（离线）"]
         direction TB

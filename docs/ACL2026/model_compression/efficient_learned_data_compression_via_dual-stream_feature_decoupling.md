@@ -44,7 +44,7 @@ tags:
 FADE包含三个核心创新：(1) 双流多尺度解耦器（DMD）将特征分离到局部CNN流和全局MLP流中并行处理；(2) 层次化门控精炼器（HGR）通过粗细两级精炼实现实例自适应的概率建模；(3) 并发流并行流水线（CSPP）融合数据并行和时序并行，实现零等待处理。前两者在模型层面把"深层串行"换成"浅层并行 + 实例自适应精炼"提升压缩率与表达力，第三者在系统层面打通 GPU 概率生成与 CPU 算术编码的流水线、绕开自回归因果依赖提升吞吐。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入数据序列<br/>文本 / 音频 / 基因组等"] --> DMD
     subgraph DMD["双流多尺度解耦器 DMD"]

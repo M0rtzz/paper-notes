@@ -48,7 +48,7 @@ AES 三层：
 3. **实现层**：把调度后的熵系数 $\alpha_t$ 或 $c_{\text{ent}, t}$ 插入 SAC / PPO / SQL / MEow，作为即插即用的探索控制层，不改算法核心结构。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     P["单轮权衡函数 + 平方根缩放<br/>φ_t = C1·ξ_t/λ + C2·λ ⟹ λ* ∝ √ξ_t"]
     A["非平稳环境交互<br/>采样 batch"] --> B["TD 误差 |δ_Q|"]

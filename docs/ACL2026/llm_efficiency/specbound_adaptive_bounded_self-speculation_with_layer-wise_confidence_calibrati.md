@@ -45,7 +45,7 @@ tags:
 SpecBound 是一个自草稿推测解码框架：它不引入任何独立草稿模型，而是让基座 LLM 自己一边逐层前向、一边在中间层"提前交卷"生成草稿 token。输入序列进入模型后，每个 token 在中间层都会被检查是否满足退出条件——满足就早退并产出一个草稿 token，不满足就继续往深层传播。一旦某个 token 顶到最大深度 $d_{\max}$ 仍退不出（说明它是困难 token），或者连续草稿长度累积到 $w_{\max}$，就中断推测，把所有缓存下来的中间隐状态并行送进剩余深层做一次性验证。如此"浅层快猜、困难即停、批量验证"地循环，既压缩了大部分简单 token 的计算深度，又保证最终每个 token 都走完全部层、输出与原始自回归解码逐位一致。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入序列"] --> B["逐层前向 + 退火置信度阈值（ACT）<br/>越浅层温度越高，压低虚假高置信"]
     B -->|"未达阈值，继续向更深层"| B

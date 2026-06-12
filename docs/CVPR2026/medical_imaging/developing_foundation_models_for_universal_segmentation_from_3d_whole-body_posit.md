@@ -48,7 +48,7 @@ tags:
 SegAnyPET 想解决的是「全身 PET 影像缺乏解剖对比度、又没有现成大模型可用」的困境，做法是把 SAM 的「图像编码器 + 提示编码器 + 掩码解码器」三件套整体搬到 3D，让分割直接发生在体积上而不是逐切片拼接。一张原始 PET 体积 $X \in \mathbb{R}^{H \times W \times D}$ 进来，图像编码器 $\mathcal{E}_I$ 配合 3D 绝对位置编码抽出体素级特征；用户给的点击点（稀疏提示，经 3D 位置编码）和粗掩码（密集提示，经 3D 卷积 + LayerNorm + GELU）由提示编码器 $\mathcal{E}_P$ 对齐到同一潜空间；掩码解码器 $\mathcal{D}$ 用 3D Transformer 块融合两路信息、再经 3D 转置卷积逐步上采样，吐出体积级分割掩码。预测出来后进入迭代评估循环：拿预测和标注比对、自动补点、回灌再预测，整个交互反复进行，预测越改越准。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入 PET 体积 X"]
     P["用户提示<br/>点击点 / 粗掩码"]

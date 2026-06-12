@@ -50,7 +50,7 @@ $h^{(\ell)}_t = (1-\tau^{(\ell)}) h^{(\ell)}_{t-1} + \tau^{(\ell)}\left(\Lambda^
 其中 $\Lambda^{(\ell)}_h \in \mathbb{C}^{N_h \times N_h}$ 是**对角复数转移矩阵**，$h^{(\ell)}_t \in \mathbb{C}^{N_h}$，混合后 $z^{(\ell)}_t \in \mathbb{R}^{N_h}$。由于递推线性，泄漏系数可以吸收进等效转移矩阵 $\bar{\Lambda}^{(\ell)}_h = (1-\tau^{(\ell)})I + \tau^{(\ell)}\Lambda^{(\ell)}_h$，整段更新可写成 first-order 线性递推，符合 associative scan 的代数前提，时间复杂度从 $O(T)$ 降到 $O(\log T)$。读出层最终汇聚所有 $L$ 层的混合态 $z^{(1)}_t, \dots, z^{(L)}_t$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["输入序列 x_t"] --> R1
     subgraph BLK["[储备池 + 混合层] 块 × L（深层堆叠，全部未训练）"]

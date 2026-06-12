@@ -44,7 +44,7 @@ tags:
 方法要解决的是"音频 codec 的解码-重编码不幂等让 token 级 KGW 水印信号指数衰减"这个核心问题。它的破局点是不再把水印规则绑死在 token 身份上，而是先离线把容易互相混淆的 token 聚成"簇"，再把整套 KGW 规则上移到簇这一层。整条流程拆成两个解耦阶段：离线阶段用 codec 自身的混淆统计蒸馏出一张 token→cluster 映射表，在线阶段直接复用标准 KGW 的采样-检测范式、只是把绿/红划分和 hash 上下文都换成簇粒度，从而在不动 codec 参数、只黑盒查询 encoder/decoder 的前提下保住信号。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph OFF["基于混淆矩阵的社区检测词表蒸馏（离线）"]
         direction TB

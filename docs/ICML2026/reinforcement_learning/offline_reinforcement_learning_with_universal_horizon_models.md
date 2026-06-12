@@ -45,7 +45,7 @@ tags:
 UHM 是一个以 $(s,a,n)$ 为条件、用 flow matching 实现的生成模型，输出 $n$ 步后状态的分布 $m^\pi(\cdot|s,a,n)$。训练时通过 bootstrapping 递归学习：1 步对应数据集真实转移 $\mathcal{P}(\cdot|s,a)$；$n>1$ 步用 $n-1$ 步模型自举。配套的 critic 学习用一个 $\nu$-Bellman 算子框架，把 $n$-step TD、TD($\lambda$)、$\gamma$-MVE 统一成 $\nu$ 的不同选择，再用 Winsorized 几何测度作为 $\nu$ 来稳定训练。整个算法（Algorithm 1）以 TD3+BC 为骨架，外加 reward 网络、actor、critic、UHM 向量场 $v_\theta$、目标网络 EMA、behavior mixing 系数 $\beta=0.3$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     D["离线数据集转移<br/>(s, a, r, s', a')"] --> UHM
 

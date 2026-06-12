@@ -46,7 +46,7 @@ tags:
 ChemAmp 把"提升单任务性能"重新表述成一个自下而上的工具组合搜索问题：给定一组化学原子工具（UniMol2、Chemformer 等）和一个目标任务，框架自动找出能产生协同效应的工具组合，封装成一个性能更强的复合智能体来执行该任务。整个过程由一个两阶段迭代封装引擎驱动，先把每个原子工具单独放大（Stage 1），再让放大后的复合工具彼此组合（Stage 2），迭代到全局性能收敛为止。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：LLM 给出的原子工具集<br/>UniMol2 / Chemformer 等 + 目标任务"]
     subgraph S1["两阶段迭代封装引擎 · Stage 1：原子到复合放大"]

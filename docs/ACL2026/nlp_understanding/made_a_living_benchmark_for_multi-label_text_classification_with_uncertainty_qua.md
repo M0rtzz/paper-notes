@@ -46,7 +46,7 @@ tags:
 MADE 基准包含三大组件：(1) 数据管线——从 FDA 不良事件报告中提取事件描述和 IMDRF 层次标签，经去重、降采样和时间分割后生成训练/验证/测试集；(2) 模型基线——涵盖判别式微调（编码器/解码器 + 分类头）、生成式微调（解码器生成标签 token）和 few-shot 提示（instruction/thinking 模型）三种范式；(3) UQ 评估——对比信息级（entropy、perplexity）、一致性级（graph Laplacian 特征值）、组合级和自述式不确定性四类方法。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     subgraph DATA["活基准数据构建"]
         direction TB

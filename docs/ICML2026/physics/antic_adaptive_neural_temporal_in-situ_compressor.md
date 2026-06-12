@@ -47,7 +47,7 @@ ANTIC 由两个异步模块组成：(i) PATS 决定"要不要压这一帧"，(ii
 - **输出**：磁盘上只保留稀疏的神经场权重序列，解压时把每段权重逐步加回到基础网络上、对坐标 query 即可重建任意时刻的场。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["仿真器流式产出快照 u(t)"] --> M
     subgraph PATS["物理感知时间筛选器 PATS（无参数，决定哪帧值得存）"]

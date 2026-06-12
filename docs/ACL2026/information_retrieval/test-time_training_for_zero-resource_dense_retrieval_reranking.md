@@ -44,7 +44,7 @@ tags:
 DART 将零资源重排序问题建模为在线优化：对于每个到来的查询 $q$，先用初始评分函数 $s(q,d)=\phi(q)^\top\psi(d)$ 检索出 top-$K$ 文档，然后基于这些文档中的伪标签（top $n_{\text{pos}}$ 个作为伪正例，bottom $n_{\text{neg}}$ 个作为伪负例），通过梯度步数优化一个双线性变换矩阵 $W$，从而将评分函数升级为 $s_W(q,d)=\phi(q)^\top W\psi(d)$。优化完成后，用更新后的矩阵对检索结果重排序。为了提升稳定性和泛化性，还维护跨查询的动量状态（MetaInit 和 EMA），使得后续查询能从前面查询的适应经验中受益。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["查询 q 到来"] --> B["初始评分 s(q,d)=φ(q)ᵀψ(d)<br/>检索 top-K 候选"]
     B --> C["构造伪标签<br/>top n_pos 伪正例 / bottom n_neg 伪负例"]

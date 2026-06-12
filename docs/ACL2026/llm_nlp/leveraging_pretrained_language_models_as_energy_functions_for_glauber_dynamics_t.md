@@ -52,7 +52,7 @@ tags:
 - **推理**：先用 UL2 在 $t=T$ 做 causal generation 得初始 $x$；然后倒序 $N$ 轮，每轮按排列倒序对每个 token 做 mask infilling，共 $L + N \cdot L = (N+1)L$ 次模型调用
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["预训练 UL2 当能量函数<br/>稳态/噪声分布 p_base ∝ e^f，离数据分布最近"]
     A --> B["Glauber 动力学 ≡ mask infilling<br/>每步只重填一个位置，按条件分布转移"]

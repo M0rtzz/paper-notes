@@ -51,7 +51,7 @@ tags:
 输入只是 MDP 的状态/动作空间 $S,A$ 与目标集 $G$，外加一个模拟器；$p_{\min}$、$K_{\mathsf{opt}}$、$K_{\mathsf{PAC}}$ 都不作为输入，仅用于证明分析。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["输入：状态/动作空间 S,A<br/>目标集 G + 模拟器"] --> P
     subgraph G1["几何衰减三参数 + 保守转移估计（设计 1）"]

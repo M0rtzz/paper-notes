@@ -50,7 +50,7 @@ tags:
 最后在 Llama-3.3-70B-Instruct（4-bit 量化）和 Qwen-3-32B（thinking mode）上重复关键实验验证大模型/推理模型的可推广性。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["注入 hint 后答案被改变、但 CoT 未明示 hint 的样本"] --> B["复现 Biasing Features 基线<br/>3 数据集 × 3 模型 × 3 类 hint → 不忠实率 ≥80%"]
     subgraph MI["多指标对照（两面独立的镜子）"]

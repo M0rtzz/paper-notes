@@ -40,7 +40,7 @@ tags:
 AbSteering 的出发点很反直觉：不再为 CT 从头训一个模态专用基础模型，而是把一个**通用视频语言模型直接拿来当骨干**——因为 HRCT 本质就是一叠按层排列的切片序列，和视频的"时空 token + 3D 注意力 + token 合并 + LLM 解码"几乎同构，差的只是训练域和监督信号。于是整个方法把功夫全花在语言侧的"引导"上：**视觉编码器原封不动冻住**，只用两个训练阶段把通用模型"扳"到 HRCT 报告这个域里。Stage 1 用异常中心的 Chain-of-Thought 训练，逼模型先把异常找全再写报告；Stage 2 用 DPO 拿临床易混淆的硬负样本做对比，逼模型把细微的异常分清楚。一个补 recall，一个补 precision，输入是 240 帧的 CT 切片视频，输出是结构化的诊断报告。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["输入：HRCT → 240 帧切片视频<br/>(480×480, HU 窗 [−1000,200])"]
     B["VideoLM 骨干（冻结，复用不改架构）<br/>cube tokenization → 3D 注意力 → merger → LLM"]

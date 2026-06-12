@@ -48,7 +48,7 @@ tags:
 标签 $\ell\in\mathcal{G}_k$ 的 logit 为 $z_\ell(x)=\langle w_\ell,\,h_{\mathcal{I}_{g(\ell)}}\rangle$，其中 $w_\ell\in\mathbb{R}^F$ 是该标签独占的权重，$\mathcal{I}_{g(\ell)}\subseteq[H]$ 是它所在组的**共享 fan-in 索引集**（$|\mathcal{I}_k|=F$）。训练用 BCE，交替进行"连续相位（参数拟合，索引冻结）"与"离散相位（rewiring，按动态稀疏训练协议周期性重选 $\mathcal{I}_k$）"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     X["样本 x"] --> ENC["共享 encoder f_θ<br/>得特征 h ∈ R^H"]
     ENC --> SPLIT["Head–Tail 分裂<br/>按标签频率切成 H ∪ T"]

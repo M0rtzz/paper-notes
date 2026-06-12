@@ -49,7 +49,7 @@ tags:
 这篇论文要解决的是：机器人在现场巡检时，如何**边走边实时判断**当前场景相比参考状态哪里变了，而不必像离线方法那样等所有前后观测都采集完再统一推理。系统先在离线阶段为参考场景建一份标准 3DGS 表示，作为后续比对的"底片"。到了在线阶段，每来一帧推理图像就走一条流水线：先把它注册到参考坐标系（估姿态），渲染出同视角下的参考图像，从这对图像里抽取像素级和特征级两路变化线索，再把线索融合进一个专门的"变化表示"里并解出当前帧的变化 mask。等一次巡检的所有观测都处理完，再用累积下来的变化 mask 只对变化区域做选择性重建，把参考场景更新成最新状态。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     REF["离线阶段：参考场景 3DGS<br/>（后续比对的底片）"] --> POSE["轻量级 PnP 姿态估计<br/>推理图像对齐到参考坐标系（O(1) 无漂移）"]
     POSE --> RENDER["渲染同视角参考图像"]

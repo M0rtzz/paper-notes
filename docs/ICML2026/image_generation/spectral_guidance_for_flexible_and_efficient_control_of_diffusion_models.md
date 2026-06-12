@@ -44,7 +44,7 @@ tags:
 训练免费引导的瓶颈在于每一步都要算后验期望 $p_t(y\mid x_t)$，而这一步绕不开 denoiser 的点估计与反向传播。本文把这件事代数化：先离线学一组与扩散过程对齐的"谱坐标"，把它当作所有引导信号共享的中间表示；之后任意新引导信号只要在这组坐标上做一次投影，在线采样就退化成浅网络上的线性投影加一次浅梯度，再不碰 denoiser。整套流程分离线、在线两段——离线学谱基并缓存参考特征，在线把 label / CLIP / mask 信号投影进去逐步注入轨迹。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     OP["条件期望算子的低秩谱分解<br/>后验期望 = 左奇异函数展开 Σ c_t,k · φ_t,k，截断到前 K+1 项"]
     OP --> SSL["VICReg 风格的 SSL 学谱基<br/>同一 x0 两次独立加噪当增广 → time-conditioned ResNet f_φ → 白化协方差目标学 φ_t,k"]

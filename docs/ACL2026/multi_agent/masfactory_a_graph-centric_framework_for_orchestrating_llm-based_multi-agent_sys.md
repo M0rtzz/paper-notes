@@ -45,7 +45,7 @@ MASFactory 把 LLM 多智能体系统建模成 Node / Edge 计算图，提出 "V
 底层是 Node / Edge 计算图骨架：Node 是计算单元（可扩展为 Graph / Loop / Agent / CustomNode / Interaction / Switch），Edge 表达依赖和消息通路。协作流被显式拆成三种：**Control flow**（推进调度）、**Message flow**（横向传输 node 输出）、**State flow**（沿父子 Graph 同步共享上下文）。Runtime 用 readiness-based 调度让多个就绪节点并发执行，原生支持串行 / 并行 / 分支 / 循环。Agent 节点遵循 Perception-Reasoning-Action 循环并通过 pluggable Message Adapter（JSON / Markdown / 自由文本）和 Context Adapter（适配 Mem0 / LlamaIndex / MCP / RAG）解耦。顶层提供三种 orchestration interface：(a) Vibe Graphing 自然语言驱动，(b) Imperative 手写 Python 代码，(c) Declarative 写配置文件。配套 VS Code 插件 Visualizer 做 topology preview、runtime tracing 和 human-in-the-loop 交互。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["自然语言意图<br/>（如：PM 拆需求 → Dev 写 → QA 审）"] --> VG
     subgraph VG["Vibe Graphing 三阶段编译"]

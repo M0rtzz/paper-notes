@@ -42,7 +42,7 @@ tags:
 E2OAL 想做一个"不挂额外检测器"的开放集主动学习框架，同时还要把以往被当成废料的"标注未知样本"利用起来。它走两个阶段：第一阶段在冻结的对比学习特征空间里把未知类的潜在结构挖出来，并用 Dirichlet 校准的辅助监督把模型训得置信度更可靠；第二阶段做查询选择——先用纯度分数滤出一池"大概率是已知类"的高纯度候选，再在池内用信息量指标挑出最值得标注的样本。每一轮主动学习都重复这两阶段，标注后的样本回流到已标注池里。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["已标注池<br/>（已知类 + 标注未知样本）"] --> B
     subgraph S1["阶段一：发现未知结构 + 校准训练"]

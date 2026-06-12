@@ -46,7 +46,7 @@ tags:
 框架分为两部分：(1) **评估框架**——对每个任务采样 N 条 CoT 轨迹，在一系列 token 预算检查点 $b_1, b_2, \ldots, b_n$ 处截断，重新提示模型基于截断推理生成最终答案，由此计算 Anytime Index；(2) **Preference Data Prompting (PDP)**——模型在固定预算处生成多条推理轨迹，识别导致更高质量中间解的轨迹对作为偏好对，在推理时作为上下文示例使用。前者只测、不改模型，后者只在推理时改提示，两条支路都不碰参数训练。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["任务 + LLM"] --> B
     A --> F

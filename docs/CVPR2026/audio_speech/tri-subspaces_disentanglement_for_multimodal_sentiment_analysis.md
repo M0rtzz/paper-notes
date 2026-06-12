@@ -36,7 +36,7 @@ tags:
 TSD 想解决的是"共享-私有"二分法把成对模态信号丢掉的问题，办法是给每个模态多开一层表示。三模态特征先各自经过编码，被显式拆进三类子空间——全局共享、成对共享、模态私有，三模态合计产出 9 个子空间表示（3 共享 + 3 成对 + 3 私有）。一组解耦损失和一个对抗式监督器负责把这 9 份表示"按职责钉死"、互不串味，最后由 SACA 融合模块让每个子空间互相参照、自适应加权汇总，再送进回归头预测情感强度。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["语言 / 视觉 / 声学三模态"] --> ENC
     subgraph ENC["三子空间编码器"]

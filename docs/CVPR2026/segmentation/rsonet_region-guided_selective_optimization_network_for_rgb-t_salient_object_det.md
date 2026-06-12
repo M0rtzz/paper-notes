@@ -50,7 +50,7 @@ RSONet 想解决的核心问题是：RGB 图和热红外图里的显著区域常
 整个网络因此拆成前后两个阶段。**区域引导阶段**用三路并行的编码-解码分支，分别从 RGB、热图、以及二者联合输入提特征；每路特征先过上下文交互模块（CI）打通多尺度信息，再过空间感知融合模块（SF）在空间维度做重标定，输出三张引导图 $\mathbf{G}^R$、$\mathbf{G}^T$、$\mathbf{G}^{RT}$；其中联合引导图 $\mathbf{G}^{RT}$ 当作"参考答案"，谁离它更近就说明谁更可靠，由此选出主导模态。**显著性生成阶段**拿着这个选择结果，用选择性优化模块（SO）把双模态特征做选择性融合，再对低层特征走密集细节增强模块（DDE）、高层特征走相互交互语义模块（MIS），分别补细节和补定位，最后跨层连接解码出显著图。两个阶段的骨干都用 SwinTransformer，统一提取 5 级多尺度特征。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     IN["RGB 图 + 热红外图<br/>SwinTransformer 三分支骨干提 5 级特征"]
     subgraph S1["区域引导阶段"]

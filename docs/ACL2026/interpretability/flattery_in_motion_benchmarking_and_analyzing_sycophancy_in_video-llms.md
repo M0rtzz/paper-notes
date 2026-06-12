@@ -44,7 +44,7 @@ tags:
 整套工作沿"建基准 → 揭规律 → 给解药"展开。先构建 ViSE：从 MSVD/MSRVTT/NExT-QA 里筛出 367 视频、6,367 道多选题，用 Qwen2.5-VL-7B 当筛子，对每个候选视频先问中性问题、再用谄媚 follow-up，按"原本答对却被误导改错"的 Misleading Susceptibility Score $\text{MSS}=N_{C\to I}/N_C$ 和 Correction Receptiveness Score $\text{CRS}=N_{I\to C}/N_I$ 联合过滤，只留下 high MSS + low CRS 的最难样本（InternVL 2.5 复跑 87.8% overlap 证明非个例）。评测协议把谄媚拆成 7 类（Strong/Medium/Suggestive Bias、Are You Sure?、Explicitly Reject ✓、Explicitly Endorse ✗、Mimicry），并分 preemptive 单轮与 in-context 两轮两种交互模式。基于"谄媚成因有内外两层"的观察，作者再给出两个 training-free 解药：输入侧的关键帧选择（k=3）治"用户偏置污染视觉输入"，表征侧的 representation steering 治"模型内部学到的谄媚倾向"。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["视频源<br/>MSVD / MSRVTT / NExT-QA"] --> BENCH
     subgraph BENCH["7 类谄媚 taxonomy + ViSE 基准"]

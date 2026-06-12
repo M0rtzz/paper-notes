@@ -46,7 +46,7 @@ tags:
 GeoRA 分两步：(1) **离线预处理**——构建几何约束矩阵 $W_{Geo}$，对其做 SVD 提取 top-$r$ 成分初始化适配器 $A_{Geo}, B_{Geo}$，计算冻结的残差矩阵 $W_{res}$；(2) **在线训练**——前向传播时 $h = W_{res} x + \frac{\alpha}{r} B_{Geo} A_{Geo} x$，其中 $W_{res}$ 冻结，仅训练 $A_{Geo}, B_{Geo}$。初始化保证函数不变：$W_{res} + \frac{\alpha}{r} B_{Geo} A_{Geo} = W$。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     W["预训练权重 W"]
     subgraph GEO["几何约束矩阵构建"]

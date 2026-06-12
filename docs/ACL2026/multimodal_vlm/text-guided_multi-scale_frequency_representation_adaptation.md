@@ -46,7 +46,7 @@ FreqAdapter 的基本流程是：CLIP 编码图像和文本得到视觉嵌入与
 在 CLIP 检索任务中，适配后的视觉嵌入进入最后一层 transformer，再取 `[CLS]` 视觉特征与文本特征做对比学习。在 LLaVA 中，FreqAdapter 可直接插到 CLIP vision encoder 与 LLaVA multimodal projector 之间，把更文本相关的视觉特征送给大语言模型。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["图像-文本对"] --> B["CLIP 编码<br/>视觉嵌入 E_v + 文本嵌入 E_t"]
     B --> C["频域适配（DCT）<br/>X_v = DCT(E_v), X_t = DCT(E_t)"]

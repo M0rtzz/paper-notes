@@ -44,7 +44,7 @@ tags:
 LEAFE 想解决的是「outcome-driven RL 只会把已经会做的做得更稳、却扩不大模型能解的问题集合」这个困境，办法是把恢复能力（哪一步错了、回退到哪、怎么改）直接写进权重。整条流水线分两阶段：先在 base policy $\pi_\theta$ 上 rollout 轨迹，每隔若干步让模型自己反思，一旦判断走偏就回退到关键决策点 $\tau$、带着「失败诊断 + 修复建议」重新分叉出修正动作，从而把一条失败 trace 长成一棵「失败→回滚→修正→成功」的树；再从所有最终成功的修正子轨迹里截出「回滚点之后该做什么」做 SFT 蒸馏，让模型在推理时即使没人提示反思，也能在类似失败信号下自发切换到修正模式。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["指令 q + base policy π_θ"]
     subgraph S1["基于树的反思回滚式经验生成"]

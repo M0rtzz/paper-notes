@@ -45,7 +45,7 @@ AutoCut 要解决的是把一堆原始广告素材（视频片段、音频、口
 训练分两步走：先冻住 Qwen3-8B 骨干、只训新加的多模态 embedding 层做对齐（~700K 样本），再全参数 SFT 学具体任务行为（~100K 策划样本）。推理时 LLM 吐出一串混合 token，视频 token 拿去最近邻检索真实片段、音频 token 解码成 BGM、文本 token 直接当脚本，最后用 ffmpeg 把它们拼成 MP4。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["原始广告素材<br/>视频片段 + 音频 + 口播文案"]
     subgraph ENC["多模态编码与离散化"]

@@ -48,7 +48,7 @@ METER 是首个在**统一上下文**下系统评测 LLM 三层因果推理（di
 METER 把「LLM 在因果阶梯上的能力衰减」做成一个可严格量化的现象，由数据与分析两条线串起来。数据线从 ESL/MAVEN-ERE/MECI/WIKIWHY 四个源数据集抽 cause-effect pair，用 Gemini-2.5-Pro 扩展事件描述并按模板生成三层问题、答案和四类 distractor，经 9 名 NLP 背景标注员的三阶段人审，最终落成 4145 个 entry——每个 entry 一段 context 同时挂 L1/L2/L3 三道 5 选 multiple-choice，做到「同一事实、三层对比」的控制变量。分析线则在这套数据上跑 12 个 LLM（GPT-4o/GPT-5、Gemini-3 系列、Qwen3 全尺寸、Llama-3.3-70B）× 4 种 prompting，先量出三层 accuracy 的衰减，再对 Qwen3-4B/8B 和 Llama-3.2-3B 做 saliency-based 信息流分析，把「行为层失败」一路追到「机制层信息流」。
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
 flowchart TD
     A["源数据 cause-effect pair<br/>ESL / MAVEN-ERE / MECI / WIKIWHY"] --> B["因果阶梯语言化<br/>L1 发现 / L2 干预 / L3 反事实"]
     subgraph DATA["统一 context + 四类 distractor 数据构造"]
