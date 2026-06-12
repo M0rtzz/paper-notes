@@ -165,7 +165,7 @@ $$L(\lambda, \epsilon) = L_0(\epsilon) + \lambda L_1(\epsilon)$$
 - [\[ICML 2025\] Symmetry-Robust 3D Orientation Estimation](symmetry-robust_3d_orientation_estimation.md)
 - [\[CVPR 2025\] Foundations of the Theory of Performance-Based Ranking](../../CVPR2025/others/foundations_of_the_theory_of_performance-based_ranking.md)
 - [\[ACL 2025\] Length-Induced Embedding Collapse in PLM-based Models](../../ACL2025/others/length-induced_embedding_collapse_in_plm-based_models.md)
-- [\[NeurIPS 2025\] Learning (Approximately) Equivariant Networks via Constrained Optimization](../../NeurIPS2025/others/learning_approximately_equivariant_networks_via_constrained_optimization.md)
+- [\[ICML 2025\] Sparse Training from Random Initialization: Aligning Lottery Ticket Masks using Weight Symmetry](sparse_training_from_random_initialization_aligning_lottery_ticket_masks_using_w.md)
 
 </div>
 

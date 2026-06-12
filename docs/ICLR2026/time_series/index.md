@@ -59,7 +59,7 @@ item_list:
   - u: "scits_scientific_time_series_llm/"
     t: "SciTS: Scientific Time Series Understanding and Generation with LLMs"
   - u: "scits_scientific_time_series_understanding_and_generation_with_llms/"
-    t: "scits scientific time series understanding and generation with llms"
+    t: "SciTS: Scientific Time Series Understanding and Generation with LLMs"
   - u: "swiftts_a_swift_selection_framework_for_time_series_pre-trained_models_via_multi/"
     t: "SwiftTS: A Swift Selection Framework for Time Series Pre-trained Models via Multi-task Meta-Learning"
   - u: "t1_one-to-one_channel-head_binding_for_multivariate_time-series_imputation/"
@@ -174,7 +174,7 @@ item_total: 36
 
 :   本文提出 SciTS——一个覆盖 12 个科学领域、43 个任务、54K+ 样本的科学时间序列基准，并构建 TimeOmni 框架通过多 patch expert 路由和 LLM 骨干统一处理理解和生成两类时间序列任务，在全基准上取得最佳综合表现。
 
-**[scits scientific time series understanding and generation with llms](scits_scientific_time_series_understanding_and_generation_with_llms.md)**
+**[SciTS: Scientific Time Series Understanding and Generation with LLMs](scits_scientific_time_series_understanding_and_generation_with_llms.md)**
 
 :   提出SciTS基准覆盖12个科学领域43个任务54K+实例（长度从$10^0$到$10^7$、频率达10MHz），系统评估17个模型发现通用LLM比专用时序模型泛化更好但文本/图像编码各有局限，据此设计TimeOmni框架用多Patch专家+路由机制+Patch重编程显式建模时间动态并与LLM联合训练。
 

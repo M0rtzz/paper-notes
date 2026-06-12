@@ -30,7 +30,7 @@ item_list:
   - u: "c4d_4d_made_from_3d_through_dual_correspondences/"
     t: "C4D: 4D Made from 3D through Dual Correspondences"
   - u: "despite_exploring_contrastive_deep_skeletonpointcloudimutext/"
-    t: "despite exploring contrastive deep skeletonpointcloudimutext"
+    t: "DeSPITE: Exploring Contrastive Deep Skeleton-Pointcloud-IMU-Text Embeddings for Advanced Point Cloud Human Activity Understanding"
   - u: "doodle_your_keypoints_sketch-based_few-shot_keypoint_detection/"
     t: "Doodle Your Keypoints: Sketch-Based Few-Shot Keypoint Detection"
   - u: "edffdnet_towards_accurate_and_efficient_unsupervised_multi-grid_image_registrati/"
@@ -117,7 +117,7 @@ item_total: 47
 
 :   提出C4D框架，通过在DUSt3R的3D pointmap预测基础上联合捕获双重时序对应(短时光流+动态感知长时点跟踪DynPT)，生成运动掩码分离动静区域，并引入相机运动对齐/相机轨迹平滑/点轨迹平滑三个优化目标，将现有3D重建范式升级为完整4D重建(逐帧点云+相机参数+2D/3D轨迹)，在深度/位姿/跟踪多个下游任务上达competitive性能。
 
-**[despite exploring contrastive deep skeletonpointcloudimutext](despite_exploring_contrastive_deep_skeletonpointcloudimutext.md)**
+**[DeSPITE: Exploring Contrastive Deep Skeleton-Pointcloud-IMU-Text Embeddings for Advanced Point Cloud Human Activity Understanding](despite_exploring_contrastive_deep_skeletonpointcloudimutext.md)**
 
 :   提出 DeSPITE，一个将 LiDAR 点云、骨架姿态、IMU 信号和文本四种模态对齐到联合嵌入空间的对比学习框架，首次以 LiDAR（而非 RGB）作为核心视觉模态，实现了跨模态匹配/检索等此前不可能的任务，同时作为有效的 HAR 预训练策略在 MSR-Action3D 和 HMPEAR 上取得 SOTA。
 

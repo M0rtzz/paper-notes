@@ -6336,7 +6336,7 @@ nav:
     - 'Relational Transformer: Toward Zero-Shot Foundation Models for Relational Data': ICLR2026/time_series/relational_transformer_toward_zero-shot_foundation_models_for_relational_data.md
     - 'ResCP: Reservoir Conformal Prediction for Time Series Forecasting': ICLR2026/time_series/rescp_reservoir_conformal_prediction_for_time_series_forecasting.md
     - 'SciTS: Scientific Time Series Understanding and Generation with LLMs': ICLR2026/time_series/scits_scientific_time_series_llm.md
-    - scits scientific time series understanding and generation with llms: ICLR2026/time_series/scits_scientific_time_series_understanding_and_generation_with_llms.md
+    - 'SciTS: Scientific Time Series Understanding and Generation with LLMs': ICLR2026/time_series/scits_scientific_time_series_understanding_and_generation_with_llms.md
     - 'SwiftTS: A Swift Selection Framework for Time Series Pre-trained Models via Multi-task Meta-Learning': ICLR2026/time_series/swiftts_a_swift_selection_framework_for_time_series_pre-trained_models_via_multi.md
     - 'T1: One-to-One Channel-Head Binding for Multivariate Time-Series Imputation': ICLR2026/time_series/t1_one-to-one_channel-head_binding_for_multivariate_time-series_imputation.md
     - Tensor learning with orthogonal, Lorentz, and symplectic symmetries: ICLR2026/time_series/tensor_learning_with_orthogonal_lorentz_and_symplectic_symmetries.md
@@ -12282,7 +12282,9 @@ nav:
     - 'AFUNet: Cross-Iterative Alignment-Fusion Synergy for HDR Reconstruction via Deep Unfolding Paradigm': ICCV2025/others/afunet_crossiterative_alignmentfusion_synergy_for_hdr_recons.md
     - Auto-Regressively Generating Multi-View Consistent Images (MV-AR): ICCV2025/others/autoregressively_generating_multiview_consistent_images.md
     - 'C4D: 4D Made from 3D through Dual Correspondences': ICCV2025/others/c4d_4d_made_from_3d_through_dual_correspondences.md
-    - despite exploring contrastive deep skeletonpointcloudimutext: ICCV2025/others/despite_exploring_contrastive_deep_skeletonpointcloudimutext.md
+    - ? 'DeSPITE: Exploring Contrastive Deep Skeleton-Pointcloud-IMU-Text Embeddings
+        for Advanced Point Cloud Human Activity Understanding'
+      : ICCV2025/others/despite_exploring_contrastive_deep_skeletonpointcloudimutext.md
     - 'Doodle Your Keypoints: Sketch-Based Few-Shot Keypoint Detection': ICCV2025/others/doodle_your_keypoints_sketch-based_few-shot_keypoint_detection.md
     - 'EDFFDNet: Towards Accurate and Efficient Unsupervised Multi-Grid Image Registration': ICCV2025/others/edffdnet_towards_accurate_and_efficient_unsupervised_multi-grid_image_registrati.md
     - ? 'Failure Cases Are Better Learned But Boundary Says Sorry: Facilitating Smooth
