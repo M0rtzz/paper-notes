@@ -41,15 +41,40 @@ tags:
 
 ### 整体框架
 
-VideoNSA 以 Qwen2.5-VL-7B 为底座，在 LLM 解码器的每一层做一件关键区分：视频 token 走 Native Sparse Attention 的三分支稀疏路径，文本 token 仍走标准 GQA，输出再拼回去继续前向。这样视频侧拿到稀疏注意力的效率和可学习的归纳偏置，文本侧保留指令跟随能力，整套机制端到端训练而非外挂的无训练 mask。
+VideoNSA 以 Qwen2.5-VL-7B 为底座，在 LLM 解码器的每一层做一件关键区分：先按位置 ID 把输入分成视频 token 和文本 token，视频 token 走 Native Sparse Attention 的三分支稀疏路径并由门控动态加权，文本 token 仍走标准 GQA，最后两路输出按原序拼回去继续前向。这样视频侧拿到稀疏注意力的效率和可学习的归纳偏置，文本侧保留指令跟随能力，整套机制端到端训练而非外挂的无训练 mask。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    IN["第 l 层输入 token"] --> SPLIT["视频稀疏/文本稠密混合分层<br/>按位置 ID 分流"]
+    SPLIT -->|视频 token| NSA
+    SPLIT -->|文本 token| GQA["标准 GQA<br/>(28 query head 共享 4 KV head)"]
+    subgraph NSA["三分支混合稀疏注意力"]
+        direction TB
+        CMP["压缩分支 CMP<br/>块聚合抓全局语义"]
+        SLC["选择分支 SLC<br/>top-n 块留细粒度关键"]
+        WIN["滑动窗口 SWA<br/>近 256 token 保连续"]
+    end
+    NSA --> GATE["可学习动态门控<br/>MLP+Sigmoid 软路由"]
+    GATE --> CONCAT["按原序拼接 → 进下一层"]
+    GQA --> CONCAT
+```
 
 ### 关键设计
 
-**1. 三分支混合稀疏注意力：用互补视角覆盖长视频的不同时间尺度。** 单一稀疏模式很难同时照顾全局语义、关键瞬间和局部连续性，所以 NSA 把每个 query $q_t$ 的注意力拆给三条互补分支，再由门控按数据动态加权汇总：$\mathbf{o}_t = \sum_{c \in \{\text{cmp}, \text{slc}, \text{win}\}} g_t^c \cdot \text{Attn}(q_t, \tilde{\mathbf{K}}_t^c, \tilde{\mathbf{V}}_t^c)$。压缩分支（CMP）把连续 token 块经可学习 MLP 聚合成粗粒度块表示来抓全局语义，块大小取每帧 token 数 64、用帧内均值池化得到块向量；选择分支（SLC）给每个 KV 块算重要性分数、只保留 top-$n$ 个最显著块来留住细粒度关键信息；滑动窗口分支（SWA）固定保留最近 $w=256$ 个 KV 对来覆盖局部时间连续性。三者分别对应"看全局、抓重点、保连续"，恰好填补长视频里被压缩方法不可逆丢掉的那部分依赖。
+**1. 视频稀疏 / 文本稠密的混合分层：在同一层内按模态分流，兼顾效率与指令理解**
 
-**2. 可学习动态门控：让注意力预算随内容自适应分配，而非静态邻接矩阵。** 无训练稀疏方法施加固定的稀疏结构，信息流不灵活也无法提效；VideoNSA 改用一个两层 MLP + Sigmoid 产出门控 $g_t^c$，对三分支做数据依赖的软路由。门控随 query 内容和所在层动态变化——分析显示压缩分支在所有层保持主导，选择与滑动窗口分支在深层逐渐减弱，说明模型确实学会了按层、按任务调整稀疏分配。正是这种可学习路由让 VideoNSA 在仅 3.6% 注意力预算下还能稳定扩展到 128K token。
+视频 token 高度冗余、适合稀疏化，文本 token 数量少且语义密集、一旦被稀疏化就会伤指令跟随，所以 VideoNSA 不对全序列一刀切。每一层 $l$ 先按位置 ID 把输入分成视频 token $\mathbf{X}_\mathcal{V}$ 和文本 token $\mathbf{X}_\mathcal{T}$，视频侧送入下面的三分支稀疏注意力，文本侧走标准 GQA（28 个 query head 共享 4 个 KV head 的全连接），最后两路输出按原顺序拼接 $\mathbf{o}^{(l)} = [\mathbf{o}_\mathcal{V}^{(l)}; \mathbf{o}_\mathcal{T}^{(l)}]$ 再进下一层。把稀疏只施加在冗余的视频 token 上、对文本 token 保留全连接，是混合设计能效率与理解两头都不丢的关键。
 
-**3. 视频稀疏 / 文本稠密的混合分层：在同一层内按模态分流，兼顾效率与指令理解。** 每一层 $l$ 先按位置 ID 把输入分成视频 token $\mathbf{X}_\mathcal{V}$ 和文本 token $\mathbf{X}_\mathcal{T}$，视频侧送入上面的三分支稀疏注意力，文本侧走标准 GQA（28 个 query head 共享 4 个 KV head），最后两路输出按原顺序拼接 $\mathbf{o}^{(l)} = [\mathbf{o}_\mathcal{V}^{(l)}; \mathbf{o}_\mathcal{T}^{(l)}]$ 再进下一层。把稀疏只施加在高度冗余的视频 token 上、对数量少且语义密集的文本 token 保留全连接，避免了稀疏化伤害指令跟随，是混合设计能两头都不丢的关键。
+**2. 三分支混合稀疏注意力：用互补视角覆盖长视频的不同时间尺度**
+
+单一稀疏模式很难同时照顾全局语义、关键瞬间和局部连续性，所以在视频侧 NSA 把每个 query $q_t$ 的注意力拆给三条互补分支：压缩分支（CMP）把连续 token 块经可学习 MLP 聚合成粗粒度块表示来抓全局语义，块大小取每帧 token 数 64、用帧内均值池化得到块向量；选择分支（SLC）给每个 KV 块算重要性分数、只保留 top-$n$ 个最显著块来留住细粒度关键信息；滑动窗口分支（SWA）固定保留最近 $w=256$ 个 KV 对来覆盖局部时间连续性。三者分别对应"看全局、抓重点、保连续"，恰好填补长视频里被 token 压缩方法不可逆丢掉的那部分依赖，再由下面的门控汇总：
+
+$$\mathbf{o}_t = \sum_{c \in \{\text{cmp}, \text{slc}, \text{win}\}} g_t^c \cdot \text{Attn}(q_t, \tilde{\mathbf{K}}_t^c, \tilde{\mathbf{V}}_t^c)$$
+
+**3. 可学习动态门控：让注意力预算随内容自适应分配，而非静态邻接矩阵**
+
+无训练稀疏方法施加固定的稀疏结构，信息流不灵活也无法提效；VideoNSA 改用一个两层 MLP + Sigmoid 产出门控 $g_t^c$，对上面三分支做数据依赖的软路由。门控随 query 内容和所在层动态变化——分析显示压缩分支在所有层保持主导，选择与滑动窗口分支在深层逐渐减弱，说明模型确实学会了按层、按任务调整稀疏分配。正是这种可学习路由让 VideoNSA 在仅 3.6% 注意力预算下还能稳定扩展到 128K token。
 
 ### 训练策略
 

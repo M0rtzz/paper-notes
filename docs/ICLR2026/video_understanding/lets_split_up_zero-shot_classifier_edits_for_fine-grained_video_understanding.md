@@ -40,11 +40,28 @@ tags:
 
 ### 整体框架
 
-方法的核心是**仅编辑分类头**（classification head），保持backbone不变，将一个粗粒度类别 $c$ 拆分为多个细粒度子类别 $\mathcal{S}^c = \{s_1^c, s_2^c, \dots, s_k^c\}$。更新后的标签空间为 $\mathcal{Y}' = (\mathcal{Y} \setminus \{c\}) \cup \mathcal{S}^c$。
+方法的核心是**仅编辑分类头**（classification head），保持 backbone 不变，把一个粗粒度类别 $c$ 拆分为多个细粒度子类别 $\mathcal{S}^c = \{s_1^c, s_2^c, \dots, s_k^c\}$，更新后的标签空间为 $\mathcal{Y}' = (\mathcal{Y} \setminus \{c\}) \cup \mathcal{S}^c$。整条流水线零视频数据：先从已有分类器权重里**反解出一本修饰符字典**，再为目标子类别凑出它的修饰符向量——字典里查得到就直接**检索**，查不到就用一个小 MLP 从文本**对齐**生成；拿到修饰符向量后加回粗类别权重，就得到新子类别的分类权重。若现实中能拿到一两个标注样本，再走一步**低样本隔离微调**把结果往上推。
 
-编辑方法 $E$ 需满足两个性质：
-- **泛化性 (Generality)**：编辑应能正确分类未见过的新子类别样本
-- **局部性 (Locality)**：编辑应保持其他类别的预测不受影响
+整个编辑方法 $E$ 始终要满足两个性质：**泛化性 (Generality)**——编辑后能正确分类未见过的新子类别样本；**局部性 (Locality)**——编辑不能干扰其他原有类别的预测。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}%%
+flowchart TD
+    IN["训练好的视频分类器<br/>+ 待拆分粗类别 c"]
+    subgraph RET["修饰符检索"]
+        direction TB
+        A["从已有细粒度类别<br/>反解修饰符字典"]
+        B["按文本相似度<br/>检索修饰符向量"]
+        A --> B
+    end
+    IN --> RET
+    RET -->|字典里查得到| ADD["修饰符向量加回<br/>粗类别权重<br/>得新子类别权重"]
+    RET -->|字典里查不到| ALIGN["修饰符对齐<br/>小 MLP 把修饰符文本<br/>映射到权重空间"]
+    ALIGN --> ADD
+    ADD -->|纯零样本| OUT["编辑后的分类头<br/>含细粒度子类别"]
+    ADD -->|有少量标注| LOW["低样本拆分<br/>以零样本权重初始化<br/>隔离微调新权重"]
+    LOW --> OUT
+```
 
 ### 关键设计
 

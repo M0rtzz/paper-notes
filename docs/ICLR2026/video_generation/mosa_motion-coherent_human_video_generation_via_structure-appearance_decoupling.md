@@ -45,6 +45,27 @@ tags:
 
 MoSA 把"人物视频该怎么动"和"画面该长什么样"拆成两条独立的分支来解决。**结构生成分支**只关心运动：它从文本 prompt 里挑出与动作相关的语义，用一个预训练的 3D 结构 Transformer 生成一段 3D 人体关键点序列，再投影成 2D 骨骼序列。**外观生成分支**则以完整文本 prompt 加上这段骨骼为条件，在 DiT backbone 上迭代去噪生成最终视频。两条分支不是各做各的——骨骼信号要经过 HADC 模块加工后才注入外观分支，从稀疏关键点扩展成覆盖整个人体的密集引导。训练阶段直接用 GT 视频提取的骨骼当条件、固定结构分支只训外观分支；推理阶段才让结构分支自己从文本生成骨骼。这样运动的物理合理性交给 3D 先验来保证，像素级的视觉质量交给 DiT 来保证，两件事互不拖累。
 
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    P["文本 prompt"]
+    subgraph STRUCT["3D 结构 Transformer（结构生成分支）"]
+        direction TB
+        L["LLM 抽取<br/>运动相关子集 p'"] --> G["3D 结构 Transformer<br/>从噪声生成 3D 关键点"]
+        G --> PROJ["投影成 2D 骨骼 g_s"]
+    end
+    subgraph APP["外观生成分支（DiT，CogVideoX-5B）"]
+        direction TB
+        DIT["DiT block<br/>迭代去噪"] --> HADC["人体感知动态控制 HADC<br/>稀疏骨骼→密集区域引导"]
+        HADC --> DIT
+    end
+    P --> L
+    P -->|完整 prompt| DIT
+    PROJ -->|骨骼条件| HADC
+    HADC --> V["人物视频"]
+    LOSS["密集跟踪损失 + 接触约束<br/>训练时监督运动一致性与接触"] -.->|训练监督| V
+```
+
 ### 关键设计
 
 **1. 3D 结构 Transformer：在 3D 空间生成运动，绕开 2D 骨骼的遮挡崩坏**
@@ -136,8 +157,6 @@ MoSA 框架迁移到 Wan 2.1 后也有显著提升：Wan 2.1 原始 FVD=1251 / C
 - 实验充分度: ⭐⭐⭐⭐⭐ 与 7 个通用视频模型定量对比 + 6 个维度的 VBench 评估 + 详细消融每个模块 + 跨 backbone 迁移验证 + 定性可视化，非常全面
 - 写作质量: ⭐⭐⭐⭐ 逻辑清晰、图表丰富，但部分公式符号定义偏冗余
 - 价值: ⭐⭐⭐⭐ 为人体视频生成提供了一个系统性的解耦范式，MoVid 数据集也有社区价值；但 30K 数据集规模和单人限制使得实际落地还需扩展
-- 写作质量: ⭐⭐⭐⭐ 动机清晰，框架图直观
-- 价值: ⭐⭐⭐⭐⭐ 对人物视频生成的运动合理性有显著推进
 
 <!-- RELATED:START -->
 

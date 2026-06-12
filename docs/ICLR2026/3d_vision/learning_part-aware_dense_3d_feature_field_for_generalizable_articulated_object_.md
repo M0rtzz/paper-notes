@@ -45,7 +45,23 @@ tags:
 
 这篇论文要解决的是：怎样得到一种生而为 3D、能分辨物体功能部件、又能跨物体泛化的稠密特征，从而支撑少样本的关节物体操作策略。它把整个系统拆成三段串起来：先用一个在 3D 点云上自监督预训练好的骨干拿到通用几何先验，再用对比学习把"部件语义"注进这套特征里得到 PA3FF，最后冻结 PA3FF、在它的特征上接一个扩散策略 PADP 学动作。
 
-具体来说，阶段一拿 Sonata（自监督预训练的 Point Transformer V3）作骨干，它已在 14 万点云上学到通用 3D 几何先验；这里对 PTv3 做了架构适配——砍掉大部分下采样层、改堆更多 transformer block，目的是把冰箱把手这类细小部件的分辨率保住。阶段二在 PartNet-Mobility + 3DCoMPaT + PartObjaverse-Tiny 这些带部件标注的大规模数据上，用几何损失加语义损失精炼 Sonata 的输出特征，把部件感知性灌进去。阶段三则冻结 PA3FF 提点云特征，经 Transformer encoder 聚合后送进扩散动作头，由多视角深度相机点云加机器人本体状态作输入，输出未来 H 步的末端执行器位姿与夹爪状态。
+具体来说，阶段一拿 Sonata（自监督预训练的 Point Transformer V3）作骨干，它已在 14 万点云上学到通用 3D 几何先验；但 PTv3 原本是为大场景设计、用激进下采样换感受野，对小尺度的物体级输入并不合适，所以这里做了架构适配——砍掉大部分下采样层、改堆更多 transformer block，把冰箱把手这类细小部件的分辨率保住。阶段二在 PartNet-Mobility + 3DCoMPaT + PartObjaverse-Tiny 这些带部件标注的大规模数据上，用**几何对比损失**加**语义对比损失**精炼骨干的输出特征，把部件感知性灌进去，得到 PA3FF。阶段三则冻结 PA3FF 提点云特征，由 **PADP** 扩散策略经 Transformer encoder 聚合后送进扩散动作头，输入是多视角深度相机点云加机器人本体状态，输出未来 H 步的末端执行器位姿与夹爪状态。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    A["多视角深度点云"] --> B["Sonata 骨干<br/>砍下采样 + 堆 transformer<br/>保细小部件分辨率"]
+    B --> PA
+    subgraph PA["PA3FF 部件级对比学习"]
+        direction TB
+        C["几何对比损失<br/>同部件聚拢、异部件推开"]
+        D["语义对比损失<br/>点特征对齐部件名文本"]
+    end
+    PA --> E["冻结 PA3FF<br/>稠密 3D 部件特征场"]
+    E --> F["PADP 扩散策略<br/>部件名 CLS token 引导聚合"]
+    F --> G["扩散头<br/>DDPM 训练 / DDIM 推理"]
+    G --> H["未来 H 步末端位姿 + 夹爪动作"]
+```
 
 ### 关键设计
 

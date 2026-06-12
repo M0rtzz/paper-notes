@@ -49,6 +49,18 @@ tags:
 
 MotionStream 要把运动控制视频生成从"画完轨迹等十几分钟渲染"变成"画轨迹即时出画面"，难点在于扩散模型天生是慢、双向、有限长度的，而交互创作需要快、因果、可无限延伸。论文用一条两阶段流水线拆解这个矛盾：**阶段一**在 Wan DiT 上挂一个轻量 track head，训练出一个质量高但仍然双向、慢的运动控制 teacher；**阶段二**先把它做因果改造（causal adaptation），再用 Self Forcing 风格的 DMD 把它蒸馏成单步前向的因果 student，并在蒸馏训练里就引入注意力沉降 + 滚动 KV 缓存，让训练时看到的上下文分布和真实流式推理时一模一样。最终 student 在单张 H100 上 480P 跑到 17/29 FPS，且生成速度不随视频变长而下降。
 
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    IN["输入：2D 轨迹 + 文本提示"] --> ENC["轻量 Track Head<br/>正弦轨迹编码"]
+    ENC -->|"通道维拼接进 Wan DiT"| TEACHER["阶段一·双向运动控制 teacher<br/>flow matching 训练<br/>(质量高但慢·非因果)"]
+    TEACHER -->|"含联合文本-运动引导"| CAUSAL["阶段二·因果改造<br/>causal adaptation"]
+    CAUSAL --> DMD["联合文本-运动引导嵌入蒸馏<br/>Self Forcing DMD·烘焙进单步前向"]
+    DMD --> ROLL["注意力沉降 + 滚动 KV 缓存<br/>外推训练 (训练=推理分布)"]
+    ROLL --> STUDENT["因果 student"]
+    STUDENT --> OUT["输出：实时流式视频<br/>480P · 17/29 FPS · 无限长度"]
+```
+
 ### 关键设计
 
 **1. 轻量 Track Head 与正弦轨迹编码：把 2D 轨迹喂进模型而不让算力翻倍**

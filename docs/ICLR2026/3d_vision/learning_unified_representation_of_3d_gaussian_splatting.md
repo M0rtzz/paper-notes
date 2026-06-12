@@ -39,7 +39,23 @@ tags:
 
 ### 整体框架
 
-本文要解决的是「3DGS 参数不适合当网络学习空间」这一根本矛盾：与其学习有歧义的参数 $\boldsymbol{\theta}$，不如把每个高斯基元换算成一个有唯一性证明的几何-光度表示去学。具体做法是先把 $\boldsymbol{\theta}$ 映射为子流形场（等概率椭球面 + 其上的颜色场），离散化成彩色点云后用 PointNet-VAE 压到 32 维潜变量再解码，最后用 PCA 与 SH 拟合把解码结果还原回标准高斯参数，整个学习与度量过程都发生在这个无歧义的表示空间里。
+本文要解决的是「3DGS 参数不适合当网络学习空间」这一根本矛盾：与其学习有歧义的参数 $\boldsymbol{\theta}$，不如把每个高斯基元换算成一个有唯一性证明的几何-光度表示去学。整条流水线自上而下走三步：先把 $\boldsymbol{\theta}$ 映射成**子流形场**（一张等概率椭球面 + 其上的颜色场），离散采样成彩色点云；再用 **SF-VAE** 把点云用 PointNet 编码器压到 32 维潜变量、经解码器从单位球面种子点重建点云，并用 PCA 与 SH 拟合把重建结果还原回标准高斯参数 $\hat{\boldsymbol{\theta}}$ 以便渲染；训练时不在参数空间算误差，而是用基于最优传输的**流形距离 M-Dist** 比较输入点云与重建点云。整个学习与度量过程都发生在这个无歧义的表示空间里。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    A["3DGS 参数 θ<br/>μ,q,s,c,o（有歧义）"] --> B["子流形场表示<br/>等概率椭球面 + 颜色场 F"]
+    B --> C["离散采样<br/>彩色点云 P（144 点）"]
+    subgraph VAE["SF-VAE 架构"]
+        direction TB
+        C --> D["PointNet 编码器 f<br/>→ 32 维潜变量 z"]
+        D --> E["解码器 g_c / g_f<br/>单位球面种子点重建点云"]
+    end
+    E --> F["PCA 拟合 Σ + SH 拟合 c<br/>还原标准高斯参数 θ̂"]
+    F --> G["渲染 / 下游应用<br/>生成·压缩·语义"]
+    C -. 训练损失 .-> M["流形距离 M-Dist<br/>最优传输 Wasserstein-2"]
+    E -. 训练损失 .-> M
+```
 
 ### 关键设计
 
@@ -47,13 +63,17 @@ tags:
 
 参数表示的非唯一性源于四元数符号、几何对称等多对一映射，因此方法不直接学 $\boldsymbol{\theta}$，而是为每个高斯基元取其 Mahalanobis 距离为常数 $r$ 的等概率面作为二维子流形 $\mathcal{M} = \{\mathbf{x}\in\mathbb{R}^3 \mid (\mathbf{x}-\boldsymbol{\mu})^\top \Sigma^{-1}(\mathbf{x}-\boldsymbol{\mu}) = r^2 \}$，并在该椭球面上定义颜色场 $F(\mathbf{x})=\sigma(o)\cdot\text{Color}(\mathbf{d}_\mathbf{x})$，方向 $\mathbf{d}_\mathbf{x}=(\mathbf{x}-\mu)/\|\mathbf{x}-\mu\|$。这样椭球面的形状自然编码了旋转与缩放、颜色场编码外观与不透明度，把原本散落在不同流形上的变量统一到同一几何对象上。其有效性由 **Proposition 2** 保证：不同高斯对应不同的子流形场 $\mathcal{E}$，即映射是单射的——四元数取反等歧义因为不改变等概率面而被从根源上消除。
 
-**2. 流形距离 M-Dist：用最优传输给出一个贴近感知质量的训练度量**
+**2. SF-VAE 架构：把子流形场塞进点云 VAE 并保证能还原回标准参数**
 
-在参数空间直接用 $L_1/L_2$ 度量与渲染感知质量脱节，无法作为可靠的训练信号，于是方法在子流形场之间基于最优传输定义 Wasserstein-2 距离 $W_2^2(\mathcal{E}, \hat{\mathcal{E}}) = \inf_{\gamma\in\Gamma} \int_{\mathcal{M}\times\hat{\mathcal{M}}} \left(\|\mathbf{x}-\mathbf{y}\|^2 + \lambda\|c_x - c_y\|^2\right) d\gamma$，其中 $\lambda$ 平衡空间项与颜色项。落地时它在两个彩色点云之间离散计算，实验显示 M-Dist 与 PSNR/LPIPS 的相关性远高于参数 $L_1$ 距离，因此既被用作重建损失也被用作评测指标。
+子流形场是连续场，要喂进网络得先离散、再编码。方法把椭球面上均匀采样的 $P=12^2=144$ 个点连同颜色组成彩色点云 $\mathcal{P}$，用 PointNet 编码器 $f$ 压到 32 维潜变量 $\mathbf{z}\sim f(\mathbf{z}\mid\mathcal{P})$；解码端从单位球面采 $P'$ 个种子点 $\mathcal{U}_{P'}$，分别送进坐标变换网络 $g_c$ 和颜色场网络 $g_f$ 生成重建点云 $\hat{\mathcal{P}}$。为了能回到渲染管线，再用 PCA 从重建点云拟合协方差矩阵 $\Sigma$、用 SH 基函数拟合颜色系数 $\mathbf{c}$，把点云还原成标准高斯参数 $\hat{\boldsymbol{\theta}}$，保证整条链路可逆。值得一提的是训练数据是 50 万个随机生成的高斯基元——单个基元脱离场景后没有语义，这让嵌入模型天然域无关，无需任何真实场景数据。
 
-**3. SF-VAE 架构：把子流形场塞进点云 VAE 并保证能还原回标准参数**
+**3. 流形距离 M-Dist：用最优传输给出一个贴近感知质量的训练度量**
 
-为了让上述表示真正可学，编码器用 PointNet 把椭球面上采样的 $P=12^2=144$ 个点压到 32 维潜变量；解码器从单位球面采 $P'$ 个种子点，经坐标变换网络 $g_c$ 和颜色场网络 $g_f$ 生成重建点云；再用 PCA 拟合协方差矩阵 $\Sigma$、SH 基函数拟合颜色系数 $\mathbf{c}$，把重建点云还原回标准高斯参数 $\hat{\boldsymbol{\theta}}$，保证整条链路可逆。训练目标为 $\mathcal{L}_\text{VAE} = \hat{W}_2^2(\mathcal{P}, \hat{\mathcal{P}}) + \beta \cdot D_\text{KL}(f(\mathbf{z}|\mathcal{P}) \| \mathcal{N}(0,\mathbf{I}))$，用 M-Dist 项约束重建保真、KL 项约束潜空间。值得一提的是训练数据是 50 万个随机生成的高斯基元——单个基元脱离场景后没有语义，这让嵌入模型天然域无关，无需任何真实场景数据。
+有了可逆的编解码链路还缺一个能驱动它的误差信号：在参数空间直接用 $L_1/L_2$ 度量与渲染感知质量脱节，并不可靠。于是方法在子流形场之间基于最优传输定义 Wasserstein-2 距离 $W_2^2(\mathcal{E}, \hat{\mathcal{E}}) = \inf_{\gamma\in\Gamma} \int_{\mathcal{M}\times\hat{\mathcal{M}}} \left(\|\mathbf{x}-\mathbf{y}\|^2 + \lambda\|c_x - c_y\|^2\right) d\gamma$，其中 $\lambda$ 平衡空间项与颜色项；落地时它在输入点云与重建点云之间离散计算。SF-VAE 的训练目标即把它作为重建项与 KL 正则相加：
+
+$$\mathcal{L}_\text{VAE} = \hat{W}_2^2(\mathcal{P}, \hat{\mathcal{P}}) + \beta \cdot D_\text{KL}\!\left(f(\mathbf{z}\mid\mathcal{P}) \,\|\, \mathcal{N}(0,\mathbf{I})\right)$$
+
+实验显示 M-Dist 与 PSNR/LPIPS 的相关性远高于参数 $L_1$ 距离，因此它既被用作重建损失、也被直接拿来当评测指标。
 
 ## 实验关键数据
 

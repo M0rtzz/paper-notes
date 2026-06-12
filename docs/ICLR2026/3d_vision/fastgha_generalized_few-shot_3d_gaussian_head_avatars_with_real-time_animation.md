@@ -39,6 +39,20 @@ tags:
 ### 整体框架
 FastGHA 要解决的核心矛盾是：少样本前馈重建要快，可动画化又要质量高，而以往方法总在两端顾此失彼。它把任务拆成两个解耦的阶段——先把人"建模"成一个静态的标准头，再把表情"驱动"到这个标准头上。第一阶段从 4 张任意表情/视角的图像前馈重建出一个 canonical（中性表情）高斯头部，这个头部除了常规高斯属性外还额外携带每个高斯点的学习特征；第二阶段只需把目标 FLAME 表情码喂给一个轻量 MLP，逐点算出位移和颜色偏移，就能把标准头变形成任意表情并实时渲染。这样昂贵的多视角重建只做一次，后续动画退化成廉价的逐点 MLP 前向，速度由此而来。
 
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}%%
+flowchart TD
+    IN["4 张少样本图像<br/>(任意表情/视角)"] --> BB
+    subgraph BB["SD-Turbo VAE 骨干"]
+        direction TB
+        E["VAE编码器(冻结)+DINOv3<br/>+Plücker 射线编码"] --> T["多视角 Transformer<br/>跨视角融合"] --> D["VAE解码器(微调)<br/>逐像素高斯"]
+    end
+    BB --> GC["逐高斯学习特征<br/>canonical 高斯 + 32维特征"]
+    GC --> MLP["轻量变形 MLP<br/>逐点并行 + FLAME 表情码"]
+    MLP --> OUT["可微光栅化<br/>实时动画 (62 FPS)"]
+    VGGT["VGGT 几何正则化<br/>深度监督 L_geo"] -.训练时.-> BB
+```
+
 ### 关键设计
 
 **1. SD-Turbo VAE 骨干：用预训练生成先验补少样本的信息缺口**

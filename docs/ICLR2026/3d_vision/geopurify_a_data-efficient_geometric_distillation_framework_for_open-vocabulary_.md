@@ -39,7 +39,23 @@ tags:
 
 ### 整体框架
 
-GeoPurify 要解决的是 2D VLM 特征投影到 3D 后几何不一致、而 training-based 方法又依赖大规模标注这一对矛盾。它的做法是把语义和几何彻底解耦：训练阶段只让一个 Student Affinity Network 通过对比蒸馏去模仿冻结的 3D 自监督教师 Sonata，学习纯几何的点间关联，全程不碰任何 3D 语义标签；推理阶段则让冻结的 2D VL（X-Decoder）先生成带噪的初始 3D 语义特征，再用预训练好的 Student 提供的几何亲和关系对这些特征做几何感知池化，从而把潜在但未被破坏的几何结构「恢复」出来，净化掉投影噪声。
+GeoPurify 要解决的是 2D VLM 特征投影到 3D 后几何不一致、而 training-based 方法又依赖大规模标注这一对矛盾。它的做法是把语义和几何彻底解耦：训练阶段只让一个 Student Affinity Network 通过对比蒸馏去模仿冻结的 3D 自监督教师 Sonata，学习纯几何的点间关联，全程不碰任何 3D 语义标签；推理阶段则让冻结的 2D VLM（X-Decoder）先生成带噪的初始 3D 语义特征，再用预训练好的 Student 提供的几何亲和关系对这些特征做几何感知池化，从而把潜在但未被破坏的几何结构「恢复」出来，净化掉投影噪声。整体上有两条准备路径——一条在推理时由 VLM 产出强语义但噪声大的特征，一条在训练时蒸馏出纯几何的 Student——最终在「几何引导池化」处汇合，由几何关系修正语义噪声。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    IMG["多视图 2D 图像"] --> VLM["通用 VLM 语义初始化<br/>X-Decoder 投影聚合"]
+    VLM --> NOISY["初始 3D 语义特征<br/>(含跨视图噪声)"]
+    PC["3D 点云"] --> TRAIN
+    subgraph TRAIN["几何对比蒸馏（训练）"]
+        direction TB
+        SONATA["Sonata<br/>冻结 3D 自监督教师"] -->|"混合负样本<br/>InfoNCE 对齐"| STU["Student<br/>稀疏 3D CNN"]
+    end
+    TRAIN -->|"训练好的 Student"| AFF["几何亲和矩阵 A<br/>KNN + 尖锐 softmax"]
+    NOISY --> POOL["几何引导池化<br/>迭代净化 18 次"]
+    AFF --> POOL
+    POOL --> OUT["开放词汇 3D 分割"]
+```
 
 ### 关键设计
 

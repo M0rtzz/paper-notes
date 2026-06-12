@@ -42,7 +42,18 @@ tags:
 
 ### 整体框架
 
-RoboMaster 在预训练的 CogVideoX-5B 上做条件控制：输入初始帧 $\mathbf{I}$、文本提示 $\mathbf{c}$、机械臂与被操作物体的 mask $\mathbf{M}_d, \mathbf{M}_s$ 以及一条协作轨迹 $\mathcal{C}$，输出操作视频 $\mathbf{X}$。整个流程围绕一个核心选择——不去分别控制机械臂和物体，而是把交互过程切成三段、用一条统一轨迹承载，再把轨迹特征注入 DiT 去引导生成。
+RoboMaster 在预训练的 CogVideoX-5B 上做条件控制：输入初始帧 $\mathbf{I}$、文本提示 $\mathbf{c}$、机械臂与被操作物体的 mask $\mathbf{M}_d, \mathbf{M}_s$ 以及一条协作轨迹 $\mathcal{C}$，输出操作视频 $\mathbf{X}$。整个流程围绕一个核心选择——不去分别控制机械臂和物体，而是把交互过程切成三段、用一条统一轨迹承载。具体走法是：协作轨迹给出每一帧的运动落点，物体嵌入在每个落点上铺成一个圆形体积、跟随轨迹移动，二者一起拼成时序的轨迹 latent；这个 latent 经运动注入模块灌进 DiT 的隐藏状态，引导预训练主干生成最终视频。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    IN["初始帧 I + 文本 c<br/>+ 机械臂/物体 mask M_d, M_s"] --> EMB["耦合外观-形状物体嵌入<br/>VAE 编码 → mask 池化 → 圆形体积 v"]
+    TRAJ["协作轨迹 C：交互按时间拆三段<br/>前交互(臂主导) → 交互(物体主导) → 后交互(臂主导)"] --> EMB
+    EMB --> V["时序轨迹 latent V<br/>(v 沿轨迹落点铺开)"]
+    V --> INJ["运动注入模块<br/>patchify → 零初始化卷积 → 加法注入"]
+    INJ --> DIT["预训练 DiT 主干 (CogVideoX-5B)"]
+    DIT --> OUT["机器人操作视频 X"]
+```
 
 ### 关键设计
 

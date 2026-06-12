@@ -39,7 +39,26 @@ tags:
 ## 方法详解
 
 ### 整体框架
-LiTo 想把一个物体的**表面光场**（surface light field，即"表面上某点、从某方向看过去是什么颜色"）压成一组紧凑的 latent token，让这组 token 同时承载几何和视角依赖的外观。整条流水线是这样转的：先对物体渲染 150 张多视角 RGB-D 图，从中提取约 1.6 亿个表面光场采样；随机抽出 100 万个喂给编码器，编码成 $k=8192$ 个 $d=32$ 维的 latent token。拿到这组 token 后，再用两个解码器分头还原——一个 flow-matching 几何解码器恢复 3D 表面，一个球谐 Gaussian 解码器恢复视角依赖渲染。最后这组 token 还能被一个 DiT 生成模型直接生成，实现单图到 3D。
+LiTo 想把一个物体的**表面光场**（surface light field，即"表面上某点、从某方向看过去是什么颜色"）压成一组紧凑的 latent token，让这组 token 同时承载几何和视角依赖的外观。整条流水线是这样转的：先对物体渲染 150 张多视角 RGB-D 图，从中提取约 1.6 亿个表面光场采样；随机抽出 100 万个喂给编码器，编码成 $k=8192$ 个 $d=32$ 维的 latent token。拿到这组 token 后，再用两个解码器分头还原——一个 flow-matching 几何解码器恢复 3D 表面，一个球谐 Gaussian 解码器恢复视角依赖渲染。除了从多视角图像编码，这组 token 还能被一个 DiT 模型从单张图像直接生成，实现单图到 3D。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}%%
+flowchart TD
+    IN["多视角 RGB-D 图像<br/>(150 视角, ~1.6 亿采样)"] --> S["表面光场采样与编码<br/>(位置,方向,颜色) 三元组<br/>随机抽 100 万"]
+    S --> E["3D 局部 Attention 编码器<br/>Perceiver IO + 3D patch"]
+    E --> L["latent token<br/>8192 × 32"]
+    IMG["单张输入图像"] -->|DINOv2 条件| GEN["单阶段生成 + 坐标系旋转<br/>623M DiT, flow-matching"]
+    GEN --> L
+    L --> GEO
+    L --> GS
+    subgraph DEC["双路解码器"]
+        direction TB
+        GEO["几何解码器<br/>flow-matching"]
+        GS["Gaussian 解码器<br/>3 阶球谐"]
+    end
+    GEO --> OUT1["3D 表面 / 点云"]
+    GS --> OUT2["视角依赖渲染"]
+```
 
 ### 关键设计
 

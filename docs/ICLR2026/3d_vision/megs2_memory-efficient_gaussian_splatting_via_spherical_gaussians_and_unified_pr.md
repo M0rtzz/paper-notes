@@ -41,6 +41,17 @@ tags:
 ### 整体框架
 MEGS2要解决的是3DGS的渲染VRAM瓶颈，而渲染VRAM约等于"primitive数量 × 每个primitive的参数量"，所以必须同时压两个因子。它的做法是先把昂贵的球谐函数(SH)换成参数更省、且lobe数量可裁的球面高斯(SG)来表示视角依赖颜色，从而压低单个primitive的参数成本；再用一个统一的软剪枝框架，在同一个内存预算约束下同时决定"删哪些primitive"和"每个primitive留几个lobe"；最后做一轮后处理——移除冗余primitive和lobe、对被删lobe做颜色补偿、再短暂微调把质量找回来。整条链路输入一个普通3DGS场景，输出静态VRAM和渲染VRAM都大幅降低的紧凑表示。
 
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    A["输入：普通 3DGS 场景"] --> B["SG 替代 SH<br/>任意方向可剪枝球面高斯<br/>表示视角依赖颜色"]
+    B --> C["统一软剪枝<br/>单一内存约束下联合<br/>裁 primitive 数与 lobe 数"]
+    C -->|"梯度步 → 近端投影 → 对偶更新<br/>交替迭代"| C
+    C --> D["后处理颜色补偿<br/>删低锐度 lobe 并解析<br/>补回平均颜色"]
+    D --> E["微调恢复质量"]
+    E --> F["输出：低静态 / 渲染 VRAM<br/>紧凑表示"]
+```
+
 ### 关键设计
 
 **1. 任意方向可剪枝球面高斯(SG)替代SH：把全局基函数换成参数更省、可逐lobe裁剪的局部基函数**

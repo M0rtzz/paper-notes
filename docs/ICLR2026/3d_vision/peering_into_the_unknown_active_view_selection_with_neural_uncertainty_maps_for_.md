@@ -41,6 +41,23 @@ tags:
 
 PUN 把主动视点选择从"每步重训渲染模型"的迭代优化彻底改成一次前馈预测。离线阶段在大规模 NUM（Neural Uncertainty Map）数据集上训练轻量网络 UPNet，让它学会从单张图像直接吐出整个球面的不确定性分布；在线阶段每给定一个视点，UPNet 推理出一张 UMap，把历史若干张 UMap 聚合后挑出信息量最大的下一视点，迭代 T 步收集到的视点集再交给目标 NeRF/3DGS 训练。选点过程不再碰任何 3D 渲染训练，这正是 400 倍加速的来源。
 
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    subgraph OFFLINE["1. NUM 数据集（离线构建）"]
+        direction TB
+        S1["ShapeNet<br/>13类×100实例"] --> S2["HEALPix 撒 48 锚点"]
+        S2 --> S3["SplatterImage<br/>合成新视图+算误差"]
+        S3 --> S4["48维 UMap 真值"]
+    end
+    OFFLINE -->|"62,400 对样本 MSE 监督"| UP["2. UPNet<br/>ViT CLS→48维不确定性"]
+    A["当前视点图像"] --> UP
+    UP --> M["UMap"]
+    M --> SEL["3. 视点选择<br/>球面插值+冗余过滤+乘法聚合"]
+    SEL -->|"选出下一视点·迭代 T 步"| A
+    SEL -->|"攒齐视点集"| R["NeRF/3DGS 最终重建"]
+```
+
 ### 关键设计
 
 **1. NUM 数据集：把"外观→不确定性"的映射变成可监督的回归目标**

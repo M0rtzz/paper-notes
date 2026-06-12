@@ -46,15 +46,49 @@ tags:
 
 ### 整体框架
 
-T1是CNN-Transformer混合架构，由Mask-Aware Embedding、N个堆叠的T1 Block、Reconstruction Upsampler三段构成：输入序列先做仅基于观测值的归一化并与观测掩码拼成2通道、经strided卷积降采样为$C$通道隐表示，再通过若干T1 Block完成"共享卷积提时序特征 → 通道-头绑定做跨变量传递 → 卷积FFN混合"的循环，最后用无参数的1D PixelShuffle还原时间分辨率并反归一化输出。整套设计的要点在于让CNN负责从稀疏观测中鲁棒地提取时序特征、让Transformer负责动态的跨变量信息传递，而两者通过"CNN通道与注意力头一对一绑定"实现特征级的精确对接，从而把被缺失污染的通道隔离开来。
+T1要解决的是多变量时序填充里"提时序特征"和"跨变量传信息"互相干扰的难题：缺失会污染时序特征，被污染的特征再去跨变量传递就会放大误差。它的破局思路是分工——让CNN从稀疏观测里鲁棒地提取时序特征、让Transformer做动态的跨变量信息传递，再用"CNN通道与注意力头一对一绑定"把两者在**特征级**精确对接，从而把被缺失污染的通道隔离开。
+
+整条流水线分三段。输入的多变量序列先进**掩码感知嵌入**：每个变量只用观测位置做归一化、与观测掩码拼成2通道、经strided卷积降采样为$C$通道隐表示。隐表示再经$N$个堆叠的**T1 Block**循环处理，每个Block依次做"**共享 Depthwise Conv**提多尺度时序特征 → **CHead Attention**按通道做跨变量传递 → 卷积FFN逐通道混合"。最后由**无显式缺失处理 + PixelShuffle**重建段用无参数的1D PixelShuffle还原时间分辨率、反归一化输出完整序列。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}%%
+flowchart TD
+    IN["多变量时序(含缺失)<br/>+ 观测掩码"]
+    EMB["掩码感知嵌入<br/>仅观测归一化 → 拼掩码2通道<br/>→ strided卷积降采样到C通道"]
+    subgraph BLK["T1 Block ×N"]
+        direction TB
+        DW["共享 Depthwise Conv<br/>大/小kernel多尺度 → Q/K/V"]
+        CH["CHead Attention<br/>n_h=C，第c头只处理第c通道"]
+        FFN["卷积 FFN<br/>逐通道混合"]
+        DW --> CH --> FFN
+    end
+    REC["无显式缺失处理 + PixelShuffle<br/>无参重排还原分辨率 → 反归一化"]
+    OUT["填充后完整序列"]
+    IN --> EMB --> BLK
+    BLK -->|残差迭代| REC --> OUT
+```
 
 ### 关键设计
 
-**1. 共享 Depthwise Conv：为按通道做跨变量注意力提供语义对齐。** 朴素地把CNN提取的多通道特征concat进注意力，会让不同通道在头内混合、语义错位，后续按通道传递就失去意义。T1的每个Block第一步改用**所有变量共享权重**的Depthwise Conv，为每个变量的每个通道独立提取时序特征，并以大、小两种kernel并行做多尺度分析生成Q/K/V：$$Q_{m,c} = \text{DWConv}_{\text{large},Q}(Z_{m,c}) + \text{DWConv}_{\text{small},Q}(Z_{m,c})$$ 共享权重保证第$c$个通道在所有变量上提取的是**同一类型**的时序模式（例如第3个通道总是捕捉周期性），于是不同变量的第$c$个通道天然语义对齐——这正是下一步按通道做跨变量注意力能成立的前提。
+**1. 共享 Depthwise Conv：为按通道做跨变量注意力提供语义对齐**
 
-**2. CHead Attention：通道-头一对一绑定实现选择性信息传递。** 这是T1的核心创新，也是回答"如何让缺失污染的通道不连累可靠通道"的关键。传统多头注意力每个头处理混合特征的子空间；T1令注意力头数$n_h = C$恰好等于CNN通道数，第$c$个头**只**处理所有变量的第$c$个通道：$$O_c = \text{Softmax}\!\left(\frac{Q_c K_c^T}{\sqrt{L}}\right) V_c, \quad Q_c, K_c, V_c \in \mathbb{R}^{M \times L}$$ 各头输出拼接后再过pointwise conv、LayerNorm与残差连接。由于每条信息通道只传递一种特征，当某个变量的第$c$个通道因缺失提取不到有效模式时，该通道特征自然偏弱，对应注意力头便给它低权重，污染被锁在单一通道内而不会扩散到其他特征。这种特征级隔离让"选择性信息传递"无需任何显式缺失处理就自动发生。
+朴素地把CNN提取的多通道特征concat进注意力，会让不同通道在头内混合、语义错位，后续按通道传递就失去意义。T1的每个Block第一步改用**所有变量共享权重**的Depthwise Conv，为每个变量的每个通道独立提取时序特征，并以大、小两种kernel并行做多尺度分析生成Q/K/V：
 
-**3. 掩码感知嵌入 + 无显式缺失处理：用结构而非规则应对缺失。** 显式的mask attention或缺失率条件都依赖对缺失模式的先验假设，换一种缺失方式就可能失效。T1只在embedding层把信息交代清楚：对每个变量$x^{(m)}$先做**仅从观测位置**（$\Omega_{m,t}=1$）估计均值方差的instance normalization，再把归一化序列与观测掩码拼成2通道输入$[x_{\text{norm}}^{(m)}; \Omega^{(m)}] \in \mathbb{R}^{2 \times T}$，经$C$个滤波器的strided 1D Conv降采样到$z^{(m)} \in \mathbb{R}^{C \times L}$并叠加可学习变量编码$E_{\text{var}}^{(m)}$。此后整个网络不再对缺失位置做任何特殊处理，全靠CHead Attention的自适应降权来兜底。重建端则用1D PixelShuffle（无参数，从$\mathbb{R}^{M \times C \times L}$重排为$\mathbb{R}^{M \times (C/r) \times (L \cdot r)}$，$r=T/L$）还原分辨率，避开转置卷积的棋盘格伪影。这种"结构性"方案不绑定任何缺失先验，因此对点缺失、block缺失和自然缺失都能泛化。
+$$Q_{m,c} = \text{DWConv}_{\text{large},Q}(Z_{m,c}) + \text{DWConv}_{\text{small},Q}(Z_{m,c})$$
+
+共享权重保证第$c$个通道在所有变量上提取的是**同一类型**的时序模式（例如第3个通道总是捕捉周期性），于是不同变量的第$c$个通道天然语义对齐——这正是下一步按通道做跨变量注意力能成立的前提。
+
+**2. CHead Attention：通道-头一对一绑定实现选择性信息传递**
+
+这是T1的核心创新，也是回答"如何让缺失污染的通道不连累可靠通道"的关键。传统多头注意力每个头处理混合特征的子空间；T1令注意力头数$n_h = C$恰好等于CNN通道数，第$c$个头**只**处理所有变量的第$c$个通道：
+
+$$O_c = \text{Softmax}\!\left(\frac{Q_c K_c^T}{\sqrt{L}}\right) V_c, \quad Q_c, K_c, V_c \in \mathbb{R}^{M \times L}$$
+
+各头输出拼接后再过pointwise conv、LayerNorm与残差连接。由于每条信息通道只传递一种特征，当某个变量的第$c$个通道因缺失提取不到有效模式时，该通道特征自然偏弱，对应注意力头便给它低权重，污染被锁在单一通道内而不会扩散到其他特征。这种特征级隔离让"选择性信息传递"无需任何显式缺失处理就自动发生。
+
+**3. 掩码感知嵌入 + 无显式缺失处理：用结构而非规则应对缺失**
+
+显式的mask attention或缺失率条件都依赖对缺失模式的先验假设，换一种缺失方式就可能失效。T1只在embedding层把信息交代清楚：对每个变量$x^{(m)}$先做**仅从观测位置**（$\Omega_{m,t}=1$）估计均值方差的instance normalization，再把归一化序列与观测掩码拼成2通道输入$[x_{\text{norm}}^{(m)}; \Omega^{(m)}] \in \mathbb{R}^{2 \times T}$，经$C$个滤波器的strided 1D Conv降采样到$z^{(m)} \in \mathbb{R}^{C \times L}$并叠加可学习变量编码$E_{\text{var}}^{(m)}$。此后整个网络不再对缺失位置做任何特殊处理，全靠CHead Attention的自适应降权来兜底。重建端则用1D PixelShuffle（无参数，从$\mathbb{R}^{M \times C \times L}$重排为$\mathbb{R}^{M \times (C/r) \times (L \cdot r)}$，$r=T/L$）还原分辨率，避开转置卷积的棋盘格伪影。这种"结构性"方案不绑定任何缺失先验，因此对点缺失、block缺失和自然缺失都能泛化。
 
 ### 损失函数 / 训练策略
 

@@ -44,6 +44,18 @@ tags:
 
 DiagDistill以Wan2.1-T2V-1.3B为基座、在DMD（Distribution Matching Distillation）蒸馏框架下训练一个流式自回归生成器：视频按3帧一个chunk逐段生成，每个chunk通过rolling KV cache条件化在已生成的历史上。它的关键观察是，自回归生成天然存在"时间—去噪步数"的对角线结构——前段chunk需要多步去噪来打牢结构基础，后段chunk则可以继承这份结构先验、用更少步数搭便车，于是把去噪步数沿时间轴递减、把条件帧带上噪声对齐推理、再补一项运动分布约束三者结合起来，在质量几乎不掉的前提下把流式生成推到实时。
 
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    P["文本提示词"] --> G["流式自回归生成器<br/>Wan2.1-1.3B（DMD 蒸馏）"]
+    F["流分布匹配<br/>对齐 teacher/student 运动分布"] -.->|"蒸馏训练时约束运动"| G
+    G --> DD["对角线去噪<br/>chunk 步数沿时间递减<br/>5→4→3→2→2…"]
+    DD --> DF["Diagonal Forcing<br/>带噪历史帧（噪声时步=100）<br/>经 rolling KV cache 条件化"]
+    DF --> CK["逐 chunk 去噪生成<br/>每 chunk 3 帧"]
+    CK -->|"下一 chunk 继承前段结构先验"| DD
+    CK --> OUT["流式视频<br/>31 FPS 实时输出"]
+```
+
 ### 关键设计
 
 **1. 对角线去噪：让后段chunk继承前段的结构先验，省去重复步数**

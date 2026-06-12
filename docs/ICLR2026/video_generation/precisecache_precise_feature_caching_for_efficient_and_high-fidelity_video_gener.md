@@ -43,21 +43,42 @@ tags:
 
 ### 整体框架
 
-PreciseCache 把视频扩散的冗余拆成两个层级来消除：步级冗余交给 LFCache，用低频差异（LFD）判断某个去噪步是否可以整步复用缓存；块级冗余交给 BlockCache，在未被跳过的步内进一步识别哪些 Transformer 块对特征改动微弱、可以用缓存的差异近似。两者级联，既跳整步又跳块，叠加出双层加速，且全程不动基础模型的参数与结构。
+视频扩散模型推理慢的根源是几十步去噪每步都跑满网络，但其中相当一部分计算是冗余的。PreciseCache 的思路是把"冗余"拆成两个层级、分别精确检测并跳过：**步级**——某些去噪步对成片几乎没有新贡献，可以整步复用上一步缓存的特征，这由 LFCache 负责，判据是低频差异（Low-Frequency Difference, LFD）；**块级**——即便一个步必须跑，DiT 内部也有不少 Transformer 块对特征改动微弱，可以用缓存的差异近似，这由 BlockCache 负责。
+
+具体到一个去噪步：先把 latent 降采样做一次廉价的 trial 推理，估出该步的 LFD；若累积 LFD 低于阈值就整步跳过、直接复用缓存（LFCache），否则执行完整推理，并在这一步内部再用 BlockCache 把非关键块的计算省掉。两级级联叠出双层加速，而且全程只用 FFT、降采样、hook 这类标准算子，不碰基础模型的参数与结构、需要调的超参极少，因此能即插即用地挂到 Wan2.1、HunyuanVideo 等不同 DiT 架构上，也能与 DSP 等并行策略正交叠加。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    A["第 i 去噪步<br/>latent Z_i"] --> LF
+    subgraph LF["LFCache 步级缓存"]
+        direction TB
+        B["降采样 trial 推理<br/>时间2×、空间4×4"] --> C["低频差异 LFD 度量<br/>FFT取低频 + 累积 ΔLF"]
+    end
+    LF -->|"累积 LFD < 阈值 δ"| D["复用缓存特征<br/>整步跳过"]
+    LF -->|"累积 LFD ≥ δ"| E["完整去噪推理"]
+    E --> F["BlockCache 块级缓存<br/>关键块计算 / 非关键块复用缓存差异"]
+    D --> G["下一步 → 输出视频"]
+    F --> G
+```
 
 ### 关键设计
 
-**1. 低频差异（LFD）度量：把"该不该缓存"换成一个和质量真正相关的判据。** 直接拿相邻步预测差异当缓存指标（如 TeaCache 的做法）与最终质量关联不强，因为去噪过程对低频结构和高频细节的重视程度并不相同——高噪声阶段在搭建视频的低频结构（不可跳），低噪声阶段只在精修高频细节（可安全跳）。本文据此把网络预测 $\bm{F}_i$ 经 FFT 拆成低频分量 $\bm{F}_i^{LF}$ 与高频分量 $\bm{F}_i^{HF}$，其中低频区域取以最小空间维度 $\frac{1}{5}$ 为半径的圆形 mask，再以相邻步低频分量的 L2 距离 $\Delta_i^{LF} = \| \bm{F}_i^{LF} - \bm{F}_{i+1}^{LF} \|_2$ 作为步级冗余度量。实验证实 $\Delta_i^{LF}$ 与"该步复用缓存对成片质量的影响"高度一致：高噪声步 LFD 大、低噪声步 LFD 小，正好对应不可缓存与可缓存的步。
+**1. 低频差异（LFD）度量：把"该不该缓存"换成和成片质量真正相关的判据**
 
-**2. 降采样 trial 推理：绕开"算缓存指标本身就要先推理"的死循环。** LFD 的尴尬在于要算它就得先做当前步的完整推理，反而违背加速初衷。关键观察是 LFD 对 latent 分辨率并不敏感，于是先把 latent 降采样再跑一次廉价的 trial 推理来估计它：$\widetilde{\bm{Z}}_i = \text{Downsample}(\bm{Z}_i)$，$\widetilde{\bm{F}}_i = \epsilon_\theta(\widetilde{\bm{Z}}_i, t_i)$。降采样比例取时间 2×、空间 4×4，trial 推理开销可忽略。决策上用累积 LFD $\sum_{i=a}^{b} \widetilde{\Delta}_i^{LF}$ 而非单步值，避免误差逐步累积越界，超过阈值 $\delta$ 才执行完整推理、否则复用缓存；阈值按相对因子设定 $\delta = \widetilde{\Delta}_{max}^{LF} \times \alpha$，$\alpha=0.5$ 对应 Base、$0.7$ 对应 Turbo，越大越激进。
+均匀缓存（如 PAB 每隔 $n$ 步缓存一次）和直接拿相邻步预测差异当指标（如 TeaCache）都不够准，因为它们没区分去噪过程在干什么——高噪声阶段在搭建视频的低频结构（不可跳），低噪声阶段只在精修高频细节（可安全跳）。本文据此把网络预测 $\bm{F}_i$ 经 FFT 拆成低频分量 $\bm{F}_i^{LF}$ 与高频分量 $\bm{F}_i^{HF}$，低频区域取以最小空间维度 $\frac{1}{5}$ 为半径的圆形 mask，再以相邻步低频分量的 L2 距离 $\Delta_i^{LF} = \| \bm{F}_i^{LF} - \bm{F}_{i+1}^{LF} \|_2$ 作为步级冗余度量。实验证实 $\Delta_i^{LF}$ 与"该步复用缓存对成片质量的影响"高度一致：高噪声步 LFD 大、低噪声步 LFD 小，正好对应不可缓存与可缓存的步，比相邻步原始预测差异更能反映质量损失。
 
-**3. BlockCache：在保留下来的步里继续抠块级冗余。** 对 LFCache 没跳过的时间步，再看 DiT 内部每个 Transformer 块到底改了多少特征。先算块的输入输出差异 $\bm{D}_{k_i}^j = \bm{F}_{k_i}^j - \bm{F}_{k_i}^{j-1}$，取差异最大的前 $c\%$ 块为关键块（pivotal blocks），其余视为非关键块。随后 $L$ 个非跳过步里，关键块照常计算，非关键块则直接用上一次缓存的差异近似输出：
+**2. 降采样 trial 推理：绕开"算缓存指标本身就要先推理"的死循环**
+
+LFD 虽好却有个尴尬：要算它就得先把当前步完整推理一遍，反而违背了加速初衷。关键观察是 LFD 对 latent 分辨率并不敏感，于是先把 latent 降采样再跑一次廉价的 trial 推理来估计它——$\widetilde{\bm{Z}}_i = \text{Downsample}(\bm{Z}_i)$，$\widetilde{\bm{F}}_i = \epsilon_\theta(\widetilde{\bm{Z}}_i, t_i)$，降采样比例取时间 2×、空间 4×4，trial 推理开销可忽略。决策时用累积 LFD $\sum_{i=a}^{b} \widetilde{\Delta}_i^{LF}$ 而非单步值，避免误差逐步累积越界：累积值超过阈值 $\delta$ 才执行完整推理、否则整步复用缓存。阈值按相对因子设定 $\delta = \widetilde{\Delta}_{max}^{LF} \times \alpha$，$\alpha$ 越大越激进——$0.5$ 对应 Base、$0.7$ 对应 Turbo。
+
+**3. BlockCache：在保留下来的步里继续抠块级冗余**
+
+对 LFCache 没跳过、必须完整跑的时间步，BlockCache 进一步看 DiT 内部每个 Transformer 块到底改了多少特征。它先算块的输入输出差异 $\bm{D}_{k_i}^j = \bm{F}_{k_i}^j - \bm{F}_{k_i}^{j-1}$，取差异最大的前 $c\%$ 块为关键块（pivotal blocks），其余视为非关键块；随后 $L$ 个步里，关键块照常计算，非关键块则直接用上一次缓存的差异近似输出：
 
 $$\bm{F}_{k_{i-l}}^j = \begin{cases} \mathcal{B}^j(\bm{F}_{k_{i-l}}^{j-1}, t_{k_{i-l}}), & j \in \mathcal{I}_i \text{（关键块）} \\ \bm{F}_{k_{i-l}}^{j-1} + \bm{D}_{k_i}^j, & j \notin \mathcal{I}_i \text{（非关键块）} \end{cases}$$
 
-Flash 配置取缓存率 40%（即 60% 的块被跳过）、$L=3$，在步级跳过之上再压一层算力。
-
-**4. 即插即用与跨架构适配：靠标准算子落地、超参极少。** 整个框架不碰基础模型的任何参数或结构——LFD 只依赖 FFT 和降采样这类标准运算，BlockCache 只需通过标准 hook 拿到各块的输入输出，因此能直接挂到 Wan2.1、HunyuanVideo 等不同 DiT 架构上。需要调的超参只有相对因子 $\alpha$ 和块缓存率 $c\%$，且跨模型几乎不用重调，正是这种轻量性让它能与 DSP 等并行策略正交叠加。
+这样就在 LFCache 的整步跳过之上再压一层块级算力。Flash 配置取缓存率 40%（即 60% 的块被跳过）、$L=3$，把加速比推到最高。
 
 ## 实验结果
 

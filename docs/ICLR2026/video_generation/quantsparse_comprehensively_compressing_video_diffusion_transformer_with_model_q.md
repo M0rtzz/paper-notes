@@ -43,15 +43,40 @@ tags:
 
 ### 整体框架
 
-QuantSparse 把量化与稀疏化拧成一条压缩流水线：**校准阶段**用多尺度显著注意力蒸馏（MSAD）把量化后的注意力分布拉回 FP 模型，**推理阶段**用二阶稀疏注意力重参数化（SSAR）补偿稀疏化丢掉的上下文。两个模块之所以这样分工，是因为论文先把"放大注意力偏移"这个失效机制刻画清楚，再针对它的量化项和稀疏项分别下药。
+QuantSparse 要解决的是：单独把视频扩散 Transformer 量化或稀疏化都能压一点，但推到极限各自质量崩塌，而朴素地把两者叠在一起反而比单用更差。论文先把这个"越叠越差"的失效机制刻画清楚——量化噪声和稀疏掩码会交互放大注意力偏移（amplified attention shift），再据此把整条压缩流水线拆成两段、各治一项：**校准阶段**用多尺度显著注意力蒸馏（MSAD）把量化后的注意力分布拉回全精度（FP）模型，压住偏移里的量化噪声项；**推理阶段**用二阶稀疏注意力重参数化（SSAR）补回稀疏掩码丢掉的上下文，填上偏移里的信息损失项。整条链路从一个 FP 模型出发，经 MSAD 校准得到 W4A8 量化模型，再在推理时叠加稀疏注意力 + SSAR 修正，最终在约 15% 注意力密度下产出几乎无损的视频。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    FP["FP 视频扩散 Transformer"] --> SHIFT["放大注意力偏移分析<br/>拆出量化噪声项 + 稀疏信息损失项"]
+    SHIFT --> CAL
+    subgraph CAL["校准阶段：多尺度显著注意力蒸馏 MSAD（治量化噪声项）"]
+        direction TB
+        G["全局尺度<br/>Q/K 步长 s 池化<br/>低分辨率对齐"]
+        L["局部尺度<br/>top-k 显著查询<br/>全分辨率对齐"]
+    end
+    CAL --> QM["W4A8 量化模型"]
+    QM --> INF
+    subgraph INF["推理阶段：二阶稀疏注意力重参数化 SSAR（补稀疏信息损失项）"]
+        direction TB
+        S["稀疏注意力<br/>约 15% 密度"] --> R["二阶残差差分<br/>+ SVD 投影<br/>每 5 步刷新缓存"]
+    end
+    INF --> OUT["近乎无损的生成视频"]
+```
 
 ### 关键设计
 
-**1. 放大注意力偏移的形式化：找出朴素结合失效的根因。** 直接把量化和稀疏化叠在一起反而比单用更差，QuantSparse 把原因归结到一个交叉项上。量化会向 QK 点积注入噪声 $\epsilon$，稀疏掩码 $\mathbf{M}$ 又移除了低幅值权重，二者交互产生的复合偏移可以写成 $\Delta_{\text{total}} = \Delta_{\text{sparse}} + \Delta_{\text{quant}} + O(\|\epsilon\|_F \cdot \|\mathbf{M}\|_0)$。前两项是各自单独使用就有的误差，真正棘手的是第三项交叉项——稀疏化把注意力质量集中到剩下的少数权重上，量化噪声对这些权重的扰动随之被成比例放大，两种误差相互强化，细粒度时空依赖首先崩坏。把这个项单独拎出来，后面两个模块就有了明确的攻击目标：一个压量化噪声 $\epsilon$，一个补稀疏掩码 $\mathbf{M}$ 带来的信息损失。
+**1. 放大注意力偏移的形式化：找出朴素结合失效的根因**
 
-**2. 多尺度显著注意力蒸馏 MSAD：在 $O(L^2)$ 内存约束下对齐量化注意力。** 想用蒸馏把量化注意力拉回 FP 分布，最直接的办法是对齐整张注意力矩阵，但 HunyuanVideo 的序列长度 $L > 10^4$，全矩阵的 $O(L^2)$ 存储根本放不下。MSAD 用全局加局部两个尺度绕开这个瓶颈。全局尺度利用视频的空间局部性，对 Q、K 做步长 $s$ 的平均池化降采样，在 $\tilde{L} = L/s^2$ 的低分辨率上算蒸馏损失 $\mathcal{L}_{\text{global}} = \text{MSE}(\mathbf{A}_{\text{global}}^{\text{FP}} \| \mathbf{A}_{\text{global}}^{\text{quant}})$，复杂度直接降到全注意力的 $1/s^2$，保住了粗粒度的全局结构。局部尺度则针对注意力分布的高度偏斜——不到 10% 的 token 占据了绝大部分注意力质量，于是只挑 top-$k$ 显著查询在全分辨率上做 $\mathcal{L}_{\text{local}} = \text{MSE}(\mathbf{A}_{\text{local}}^{\text{FP}} \| \mathbf{A}_{\text{local}}^{\text{quant}})$，以极低成本把校准火力集中到最影响输出的区域。两者与量化损失一起联合优化 $\mathcal{L}_{\text{distill}} = \mathcal{L}_{\text{quant}} + \lambda_{\text{global}} \mathcal{L}_{\text{global}} + \lambda_{\text{local}} \mathcal{L}_{\text{local}}$，粗看全貌、细看热点，正好压住偏移公式里的量化噪声项。
+直接把量化和稀疏化叠在一起反而比单用更差，QuantSparse 把原因归结到一个交叉项上。量化会向 QK 点积注入噪声 $\epsilon$，稀疏掩码 $\mathbf{M}$ 又移除了低幅值权重，二者交互产生的复合偏移可以写成 $\Delta_{\text{total}} = \Delta_{\text{sparse}} + \Delta_{\text{quant}} + O(\|\epsilon\|_F \cdot \|\mathbf{M}\|_0)$。前两项是各自单独使用就有的误差，真正棘手的是第三项交叉项——稀疏化把注意力质量集中到剩下的少数权重上，量化噪声对这些权重的扰动随之被成比例放大，两种误差相互强化，细粒度时空依赖首先崩坏。把这个项单独拎出来，后面两个模块就有了明确的攻击目标：一个压量化噪声 $\epsilon$（MSAD），一个补稀疏掩码 $\mathbf{M}$ 带来的信息损失（SSAR）。
 
-**3. 二阶稀疏注意力重参数化 SSAR：用时间稳定的二阶残差补回稀疏丢失。** 推理时稀疏掩码会丢掉一部分上下文，缓存类方法的常规思路是缓存一阶残差 $\Delta^{(t)} = \mathbf{A}_{\text{full}}^{(t)} - \mathbf{A}_{\text{sparse}}^{(t)}$ 并假设它跨时间步几乎不变。但在量化条件下这个假设站不住：量化噪声 $\epsilon^{(t)}$ 本身随时间步波动，把一阶残差搅得不稳定，复用旧缓存就会带进过时的误差。SSAR 的关键观察是改看二阶残差 $\hat{\Delta}^{(t)} = \Delta^{(t)} - \Delta^{(t-1)}$——相邻时间步的量化噪声分布相近，做一次差分后噪声大半抵消，时间变化远小于一阶残差，于是又重新变得可缓存。在此之上再对二阶残差做 SVD，投影到前 $r$ 个主成分 $\tilde{\Delta}_{\text{quant}} = \mathbf{S}_{:,:r} \mathbf{U}_{:r,:r} \mathbf{V}_{:,:r}^\top$，进一步把残余的时间方差滤掉。推理时每隔 5 步刷新一次缓存，用这个二阶修正项高效近似全注意力输出，几乎不增加额外存储，正好补上偏移公式里稀疏掩码带来的信息损失项。
+**2. 多尺度显著注意力蒸馏 MSAD：在 $O(L^2)$ 内存约束下对齐量化注意力**
+
+想用蒸馏把量化注意力拉回 FP 分布，最直接的办法是对齐整张注意力矩阵，但 HunyuanVideo 的序列长度 $L > 10^4$，全矩阵的 $O(L^2)$ 存储根本放不下。MSAD 用全局加局部两个尺度绕开这个瓶颈。全局尺度利用视频的空间局部性，对 Q、K 做步长 $s$ 的平均池化降采样，在 $\tilde{L} = L/s^2$ 的低分辨率上算蒸馏损失 $\mathcal{L}_{\text{global}} = \text{MSE}(\mathbf{A}_{\text{global}}^{\text{FP}} \| \mathbf{A}_{\text{global}}^{\text{quant}})$，复杂度直接降到全注意力的 $1/s^2$，保住了粗粒度的全局结构。局部尺度则针对注意力分布的高度偏斜——不到 10% 的 token 占据了绝大部分注意力质量，于是只挑 top-$k$ 显著查询在全分辨率上做 $\mathcal{L}_{\text{local}} = \text{MSE}(\mathbf{A}_{\text{local}}^{\text{FP}} \| \mathbf{A}_{\text{local}}^{\text{quant}})$，以极低成本把校准火力集中到最影响输出的区域。两者与量化损失一起联合优化 $\mathcal{L}_{\text{distill}} = \mathcal{L}_{\text{quant}} + \lambda_{\text{global}} \mathcal{L}_{\text{global}} + \lambda_{\text{local}} \mathcal{L}_{\text{local}}$，粗看全貌、细看热点，正好压住偏移公式里的量化噪声项。
+
+**3. 二阶稀疏注意力重参数化 SSAR：用时间稳定的二阶残差补回稀疏丢失**
+
+推理时稀疏掩码会丢掉一部分上下文，缓存类方法的常规思路是缓存一阶残差 $\Delta^{(t)} = \mathbf{A}_{\text{full}}^{(t)} - \mathbf{A}_{\text{sparse}}^{(t)}$ 并假设它跨时间步几乎不变。但在量化条件下这个假设站不住：量化噪声 $\epsilon^{(t)}$ 本身随时间步波动，把一阶残差搅得不稳定，复用旧缓存就会带进过时的误差。SSAR 的关键观察是改看二阶残差 $\hat{\Delta}^{(t)} = \Delta^{(t)} - \Delta^{(t-1)}$——相邻时间步的量化噪声分布相近，做一次差分后噪声大半抵消，时间变化远小于一阶残差，于是又重新变得可缓存。在此之上再对二阶残差做 SVD，投影到前 $r$ 个主成分 $\tilde{\Delta}_{\text{quant}} = \mathbf{S}_{:,:r} \mathbf{U}_{:r,:r} \mathbf{V}_{:,:r}^\top$，进一步把残余的时间方差滤掉。推理时每隔 5 步刷新一次缓存，用这个二阶修正项高效近似全注意力输出，几乎不增加额外存储，正好补上偏移公式里稀疏掩码带来的信息损失项。
 
 ## 实验结果
 

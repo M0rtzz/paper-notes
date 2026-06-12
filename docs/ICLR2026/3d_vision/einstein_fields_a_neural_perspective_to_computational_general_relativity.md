@@ -51,15 +51,31 @@ tags:
 ### 整体框架
 这篇论文想解决的是数值相对论（NR）里"模拟数据太大、导数精度又不够"的双重困境。EinFields 的思路很直接：用一个紧凑的 MLP 把四维时空的度量张量场拟合下来，让网络权重本身成为这片时空几何的压缩存储，再用自动微分从这个连续表示里精确读出各阶导数。
 
-具体地，网络接受 4D 时空坐标 $x = (x^0, x^1, x^2, x^3)$（来自精确解或 NR 模拟数据），定义为 $\hat{g}_\theta: x \in \mathscr{M} \rightarrow g_{\alpha\beta}(x) \in \text{Sym}^2(T^*_x\mathscr{M})$，输出度量张量的 10 个独立分量。拿到度量后，整条微分几何链路全部交给自动微分：度量 → Christoffel 符号 → Riemann 张量 → Ricci 张量 → 曲率标量。这些量一旦可精确求得，就能直接喂给下游物理任务——测地线追踪、引力波提取、黑洞渲染。整个 <2M 参数（约 7 MiB）的网络替代了原本 PB 级的离散网格。
+整条流水线可以分成"拟合"和"读出"两半。拟合侧：网络接受 4D 时空坐标 $x = (x^0, x^1, x^2, x^3)$（来自精确解或 NR 模拟数据），但不直接学整个度量——而是先把度量减去平坦背景，只让网络学**畸变** $\Delta_{\alpha\beta}$，再由一个专为导数监督调过的 MLP 输出，重建出度量张量的 10 个独立分量 $\hat{g}_\theta: x \in \mathscr{M} \rightarrow g_{\alpha\beta}(x) \in \text{Sym}^2(T^*_x\mathscr{M})$；训练时用 Sobolev 损失同时约束度量及其一、二阶导数。读出侧：拿到这个连续可微的度量后，整条微分几何链路全部交给自动微分——度量 → Christoffel 符号 → Riemann 张量 → Ricci 张量 → 曲率标量——再喂给测地线追踪、引力波提取、黑洞渲染等下游任务。整个 <2M 参数（约 7 MiB）的网络替代了原本 PB 级的离散网格。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    A["4D 时空坐标<br/>(精确解 / NR 模拟)"] --> B["畸变分解<br/>g = η + Δ，只学畸变 Δ"]
+    B --> C["网络架构与优化选择<br/>SiLU + SOAP + GradNorm 的 MLP"]
+    C --> D["重建度量场 ĝ<br/>(10 个独立分量)"]
+    D -->|训练时| E["Sobolev 训练<br/>同时监督 g / ∂g / ∂²g"]
+    E -. 反传更新 .-> C
+    D -->|推理时| F["自动微分替代有限差分<br/>Γ → Riemann → Ricci → R"]
+    F --> G["下游物理任务<br/>测地线 / 引力波 / 黑洞渲染"]
+```
 
 ### 关键设计
 
 **1. 畸变分解：让网络只学曲率，别去拟合平坦背景**
 
-度量张量在数值上往往被平坦时空的主导项淹没——例如 $g_{tt} \sim 1/r$、$g_{\theta\theta} \sim r^2$ 这些随坐标剧烈变化的分量，会让网络把表示能力浪费在拟合一个本来已知的背景上。EinFields 因此把度量拆成平坦背景加畸变 $\Delta_{\alpha\beta} = g_{\alpha\beta} - \eta_{\alpha\beta}$，只让网络去学物理上真正非平凡的畸变部分 $\Delta_{\alpha\beta}$。这样网络的容量集中在有意义的曲率偏差上，收敛更快、数值缩放也更稳——消融实验里去掉畸变分解后精度直接劣化 15 倍。
+度量张量在数值上往往被平坦时空的主导项淹没——例如 $g_{tt} \sim 1/r$、$g_{\theta\theta} \sim r^2$ 这些随坐标剧烈变化的分量，会让网络把表示能力浪费在拟合一个本来已知的背景上。EinFields 因此把度量拆成平坦背景加畸变 $\Delta_{\alpha\beta} = g_{\alpha\beta} - \eta_{\alpha\beta}$，只让网络去学物理上真正非平凡的畸变部分 $\Delta_{\alpha\beta}$，推理时再加回平坦背景 $\eta_{\alpha\beta}$ 重建度量。这样网络的容量集中在有意义的曲率偏差上，收敛更快、数值缩放也更稳——消融实验里去掉畸变分解后精度直接劣化 15 倍。
 
-**2. Sobolev 训练：不只监督度量，连它的一阶、二阶导数一起监督**
+**2. 网络架构与优化选择：为"被高阶导数监督"这件事专门调过**
+
+光有畸变分解还不够，承载它的 MLP 本身也得能扛得住一、二阶导数监督——常规 INR 配置在这种目标下并不最优，论文于是按导数表现重新选了组件。激活函数用 SiLU——它在导数监督下表现最好，消融里换成经典的 WIRE 反而更差；优化器用准牛顿的 SOAP 而非 Adam，带来约 30 倍精度提升；多任务梯度用 GradNorm 平衡度量/Jacobian/Hessian 三路损失，避免某一项主导。网络规模从 64×3 到 512×8 不等，总参数控制在 190 万以内。这一步保证了下面的高阶监督能真正落到网络权重上，而不是被某项损失带偏或被不可微激活卡住。
+
+**3. Sobolev 训练：不只监督度量，连它的一阶、二阶导数一起监督**
 
 GR 的所有物理量都不是由度量本身决定的，而是由它的导数决定：Christoffel 符号来自一阶导，Riemann/Ricci 张量来自二阶导。所以只把度量拟合得很准还不够，导数可能仍然很糙。EinFields 的做法是把监督信号一路推到高阶，同时约束度量、Jacobian（40 个独立分量）和 Hessian（100 个独立分量）：
 
@@ -67,13 +83,9 @@ $$\mathcal{L}^g_{\text{Sob}}(\theta) = \mathbb{E}_x[\lambda_0\|g - \hat{g}\|^2 +
 
 三项分别加权度量、一阶导、二阶导的误差。这种 Sobolev 损失把 Christoffel 符号的精度直接抬高了 2 个数量级，相当于在训练阶段就保证了下游所有几何量的可用性。
 
-**3. 自动微分替代有限差分：把截断误差从源头上去掉**
+**4. 自动微分替代有限差分：把截断误差从源头上去掉**
 
-传统 NR 在离散网格上用有限差分（FD）算导数，精度被截断误差 $O(h^n)$ 死死卡住，越高阶导数误差越大，还得用高阶模板换通信成本。EinFields 因为已经有了连续可微的网络表示，干脆用 JAX 的 forward-mode AD 沿微分几何链路精确求导：$g_{\alpha\beta} \xrightarrow{\texttt{jacfwd}} \Gamma^\gamma_{\alpha\beta} \xrightarrow{\nabla} R^\delta_{\alpha\beta\gamma} \xrightarrow{\text{Tr}_g} R_{\alpha\beta} \xrightarrow{\text{Tr}_g} R$。AD 没有截断误差，在 FLOAT32 单精度下相对 FD 的精度提升可达 5 个数量级（Riemann 张量上甚至到 14000×）。这是整个框架"导数比 FD 准"的根本来源。
-
-**4. 网络架构与优化选择：为"被高阶导数监督"这件事专门调过**
-
-因为训练目标里带了一阶、二阶导数监督，常规 INR 配置并不最优，论文按导数表现重新选了组件。激活函数用 SiLU——它在导数监督下表现最好，消融里换成经典的 WIRE 反而更差；优化器用准牛顿的 SOAP 而非 Adam，带来约 30 倍精度提升；多任务梯度用 GradNorm 平衡度量/Jacobian/Hessian 三路损失，避免某一项主导。网络规模从 64×3 到 512×8 不等，总参数控制在 190 万以内。
+训练好的网络是连续可微的，读出导数这一步就不必再回到离散网格。传统 NR 在网格上用有限差分（FD）算导数，精度被截断误差 $O(h^n)$ 死死卡住，越高阶导数误差越大，还得用高阶模板换通信成本。EinFields 直接用 JAX 的 forward-mode AD 沿微分几何链路精确求导：$g_{\alpha\beta} \xrightarrow{\texttt{jacfwd}} \Gamma^\gamma_{\alpha\beta} \xrightarrow{\nabla} R^\delta_{\alpha\beta\gamma} \xrightarrow{\text{Tr}_g} R_{\alpha\beta} \xrightarrow{\text{Tr}_g} R$。AD 没有截断误差，在 FLOAT32 单精度下相对 FD 的精度提升可达 5 个数量级（Riemann 张量上甚至到 14000×）。这是整个框架"导数比 FD 准"的根本来源。
 
 ### 损失函数 / 训练策略
 训练目标即上面的 Sobolev 损失，由度量、Jacobian、Hessian 三项加权组成。学习率采用 Cosine 调度。训练时间随监督阶数变化：不带 Sobolev 约 100s，加到 Hessian 监督约 2000s（NVIDIA H200 GPU）。

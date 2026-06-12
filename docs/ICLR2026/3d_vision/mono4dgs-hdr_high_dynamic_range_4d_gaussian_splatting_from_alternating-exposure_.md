@@ -41,7 +41,18 @@ tags:
 ### 整体框架
 这篇论文要从一段没有相机位姿、且帧与帧之间曝光交替变化的单目视频里，重建出可以自由渲染的 4D HDR 动态场景。难点在于交替曝光打断了"靠亮度一致来估位姿"的常规路径，所以作者把问题拆成两段来解：第一阶段先回避位姿，在一个不需要相机内外参的正交相机空间里训练"视频高斯"，把每一帧的 HDR 外观先恢复出来；第二阶段再用恢复好的 HDR 帧去做光度重投影、估出位姿，并把高斯搬到世界空间和位姿一起联合优化。
 
-整条流水线是：输入视频先经预处理（DepthCrafter 出深度、SpatialTracker 出 2D 轨迹、RAFT 出光流）；Stage 1 在正交空间训练视频高斯 4K iter，产出每帧的 HDR 训练图；中间通过一个 Video-to-World 变换把视频空间的高斯搬进世界空间（含动静分离与形状重拟合）；Stage 2 在世界空间把高斯和相机位姿联合优化 11K iter，最终得到可渲染的 4D HDR 场景。
+整条流水线是：输入视频先经预处理（DepthCrafter 出深度、SpatialTracker 出 2D 轨迹、RAFT 出光流并算出动态掩码）；Stage 1 在正交空间训练视频高斯 4K iter，产出每帧的 HDR 训练图；中间通过一个 Video-to-World 变换把视频空间的高斯搬进世界空间（含动静分离与形状重拟合）；Stage 2 在世界空间把高斯和相机位姿联合优化 11K iter，并用时间亮度正则化约束 HDR 外观，最终得到可渲染的 4D HDR 场景。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    IN["无位姿交替曝光<br/>单目 LDR 视频"] --> PRE["视觉基础模型提 2D 先验<br/>深度 / 2D 轨迹 / 光流→动态掩码"]
+    PRE --> S1["正交空间视频高斯<br/>(Stage 1·无位姿)<br/>恢复 HDR 训练帧"]
+    S1 --> V2W["Video-to-World 高斯变换<br/>动静分离+遮挡检测<br/>2D 协方差不变性重拟合"]
+    V2W --> S2["世界高斯+相机位姿联合优化<br/>(Stage 2)<br/>HDR 光度重投影"]
+    TLR["时间亮度正则化 TLR<br/>光流对齐相邻 HDR 帧"] --> S2
+    S2 --> OUT["可渲染 4D HDR 场景<br/>新视角/新时刻渲染"]
+```
 
 ### 关键设计
 
@@ -57,17 +68,17 @@ $$\min_{S^w} \sum_t \|\Sigma'^v_t - \Sigma'^w_t\|_2$$
 
 这样换了坐标系，但每个高斯在画面上"长什么样"保持不变，避免了搬家过程中的形变。
 
-**3. 时间亮度正则化（TLR）：让恢复出的 HDR 外观在时间上连贯**
+**3. HDR 光度重投影损失（Stage 2）：用 Stage 1 的成果反哺位姿与世界高斯**
+
+到了 Stage 2，作者拿 Stage 1 恢复出的 HDR 帧来做光度重投影，联合优化相机位姿和世界空间高斯。标准光度重投影在交替曝光的 LDR 帧上会因亮度不一致而失败，而恢复后的 HDR 帧在亮度上是一致的，正好让这条经典约束重新可用——这也是两阶段设计闭环的地方：第一阶段解出的 HDR 反过来支撑了第二阶段的位姿估计。加上视频高斯提供的良好初始化，Stage 2 的收敛被显著加速、最终重建质量也更好。
+
+**4. 时间亮度正则化（TLR）：让恢复出的 HDR 外观在时间上连贯**
 
 交替曝光帧的亮度天生不同，直接逐帧监督 RGB 没法保证 HDR 辐照度域在时间上一致，渲染序列容易闪烁。TLR 的做法是把相邻帧的 HDR 图像通过渲染得到的光流 warp 对齐，再惩罚对齐后的不一致：
 
 $$\mathcal{L}_{tlr} = \left|V \odot \frac{\tilde{H}_{t-1 \to t} - \tilde{H}_t}{\tilde{H}_{t-1 \to t} + \tilde{H}_t}\right|_1$$
 
 其中 $V$ 是有效区域掩码。分母里的归一化是点睛之笔：HDR 辐照度的绝对尺度可以很大，用差除以和能消掉这个绝对尺度、只惩罚相对变化，因此对任意动态范围都成立。消融也印证它专管时间一致性而非清晰度——去掉 TLR 后 PSNR 几乎不变（-0.06），但 TAE 从 0.057 恶化到 0.071。
-
-**4. HDR 光度重投影损失：用 Stage 1 的成果反哺位姿与世界高斯**
-
-到了 Stage 2，作者拿 Stage 1 恢复出的 HDR 帧来做光度重投影，联合优化相机位姿和世界空间高斯。标准光度重投影在交替曝光的 LDR 帧上会因亮度不一致而失败，而恢复后的 HDR 帧在亮度上是一致的，正好让这条经典约束重新可用——这也是两阶段设计闭环的地方：第一阶段解出的 HDR 反过来支撑了第二阶段的位姿估计。
 
 ### 损失函数 / 训练策略
 $\mathcal{L} = \lambda_{rgb}\mathcal{L}_{rgb} + \lambda_{ue}\mathcal{L}_{ue} + \lambda_{dep}\mathcal{L}_{dep} + \lambda_{track}\mathcal{L}_{track} + \lambda_{arap}\mathcal{L}_{arap} + \lambda_{vel}\mathcal{L}_{vel} + \lambda_{acc}\mathcal{L}_{acc} + \lambda_{tlr}\mathcal{L}_{tlr} + \lambda_{pr}\mathcal{L}_{pr}$

@@ -43,6 +43,20 @@ tags:
 ### 整体框架
 这篇论文要打破的是 slot 目标中心学习里编码器和解码器之间的恶性循环：编码器（DINOv2）给出的注意力边界尖锐但带高频噪声，解码器被迫做病态重建只能吐出模糊掩码，而 MSE 损失又像低通滤波器把高频信息滤掉，反馈回编码器的梯度帮不上去噪的忙。SRL 以标准 slot attention + 重建基线（SlotContrast）为骨架，不改网络结构，只在训练目标上动手，让编码器和解码器互相拿对方的优势当伪标签去补自己的短板。具体落在一个三阶段调度上：先用 slot 正则化预热让每个 slot 各自特化、避免坍缩，再留一段只跑基线损失的过渡期让 slot 稳定下来，最后才开启双向对比学习，把恶性循环扭成"你帮我去噪、我帮你去模糊"的良性循环。
 
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    IN["视频帧序列"] --> BACK["Slot Attention + 重建骨架<br/>(SlotContrast 基线)"]
+    BACK --> ATTN["编码器注意力图 Attn<br/>边界尖锐·含高频噪声"]
+    BACK --> MASK["解码器重建掩码 Mask<br/>空间一致·边界模糊"]
+    ATTN --> S1["1. Slot 正则化预热<br/>Stage 1 (0-10%)<br/>挑最相似 slot 对·惩罚更弱者"]
+    S1 --> STAB["Stage 2 (10-20%)<br/>撤正则·只跑基线损失稳定 slot"]
+    STAB --> S2["2. 去模糊对比学习<br/>Stage 3·用 Attn 当伪标签<br/>把解码器掩码教清晰"]
+    STAB --> S3["3. 去噪对比学习<br/>Stage 3·用 Mask 当伪标签<br/>把编码器特征教平滑"]
+    S2 --> OUT["物体掩码<br/>恶性循环→良性循环"]
+    S3 --> OUT
+```
+
 ### 关键设计
 
 **1. Slot 正则化预热：先让 slot 各管各的，别挤到同一个物体上**

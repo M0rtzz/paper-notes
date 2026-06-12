@@ -41,7 +41,27 @@ tags:
 ## 方法详解
 
 ### 整体框架
-这篇论文想弄清楚一件事：3DGS 直接照搬 DNN 那套 Adam + 同步更新，到底有什么隐藏代价。作者的做法是先把 Adam 在 3DGS 里的行为拆成三块分别观察，再把有益的部分重新拼回去。第一步，用 Sparse Adam 把更新限制在当前视点可见的原语上，看看「不可见原语也被偷偷更新」这件事到底有没有用；第二步，发现 Sparse Adam 丢掉的「隐式更新」其实靠的是动量重缩放，于是用 Re-State Regularization (RSR) 主动衰减动量、把这份好处显式地补回来；第三步，用 Decoupled Attribute Regularization (DAR) 把正则化梯度从 Adam 的自适应动量里摘出来，改用光度损失自己的二阶动量来调节强度。三块都验证清楚后，重新组合成最终的 AdamW-GS。
+这篇论文想弄清楚一件事：3DGS 直接照搬 DNN 那套 Adam + 同步更新，到底有什么隐藏代价。作者的做法是先把 Adam 在 3DGS 里的行为拆成三块分别观察，再把有益的部分重新拼回去。第一步，用 Sparse Adam 把更新限制在当前视点可见的原语上，看看「不可见原语也被偷偷更新」这件事到底有没有用；第二步，发现 Sparse Adam 丢掉的「隐式更新」其实靠的是动量重缩放，于是用 Re-State Regularization (RSR) 主动衰减动量、把这份好处显式地补回来；第三步，用 Decoupled Attribute Regularization (DAR) 把正则化梯度从 Adam 的自适应动量里摘出来，改用光度损失自己的二阶动量来调节强度。三块都验证清楚后，重新组合成最终的 AdamW-GS：每一步渲染当前视点算光度损失，用 Sparse Adam 只更新可见原语、并由 DAR 解耦地施加正则化，每隔固定间隔再用 RSR 重缩放一次动量。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}%%
+flowchart TD
+    A["输入：多视点图像<br/>+ 3DGS 原语属性"] --> B["当前视点渲染<br/>→ 光度损失（L1+DSSIM）"]
+    subgraph GS["AdamW-GS：重组三个组件"]
+        direction TB
+        C["Sparse Adam<br/>可见性掩码 V 只更新可见原语（异步）"]
+        D["DAR<br/>正则化梯度除以光度二阶动量，解耦自适应"]
+        E["原语属性更新"]
+        F["RSR<br/>固定间隔 StSS 采样、主动衰减动量 m、v"]
+        C --> E
+        D --> E
+        E -->|"每隔固定间隔"| F
+        F -->|"重缩放后动量回写"| C
+    end
+    B --> C
+    B --> D
+    E --> G["输出：高质量 3DGS<br/>冗余原语自动减少（免额外剪枝）"]
+```
 
 ### 关键设计
 

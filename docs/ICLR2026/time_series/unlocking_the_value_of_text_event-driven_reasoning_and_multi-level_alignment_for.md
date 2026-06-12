@@ -38,19 +38,40 @@ tags:
 
 ### 挑战 2：模态对齐困难
 
-文本描述事件驱动的突变，时序捕捉细微数值波动——两者存在显著模态鸠间，简单融合难以实现互补。
+文本描述事件驱动的突变，时序捕捉细微数值波动——两者存在显著模态鸿沟，简单融合难以实现互补。
 
 ## 方法详解
 
 ### 整体框架
 
-VoT 把文本的价值拆到两条互补分支上：事件驱动分支让推理型 LLM 读外生文本、结合历史时序直接给出数值预测，专门捕捉突变事件的冲击；数值分支把内生文本与时序表征对齐后做常规预测，负责细微波动。两条分支的输出最后在频域里自适应融合，得到最终预测，从而让文本既参与"理解事件"也参与"修正数值"。
+VoT 想解决的是：真实世界里 2008 金融危机、2020 COVID 这类突变事件根本无法从历史数值规律外推，而文本恰恰记录了事件信号——可现有方法要么只把文本编码成向量做浅层表征融合、埋没了深层语义，要么内生文本与时序信息高度重叠、信息冗余。VoT 因此把文本的价值拆到两条互补分支上，再在频域汇合。事件驱动分支让推理型 LLM 读外生文本（事件新闻）、结合历史时序直接推理出数值预测，专门捕捉突变事件的冲击；数值分支把内生文本（统计描述）与时序表征对齐后做常规预测，负责细微波动。两条分支的输出最后做自适应频率融合，按频段决定该信文本还是该信数值，得到最终预测——文本由此既参与"理解事件"也参与"修正数值"。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    EX["外生文本<br/>（事件新闻）"] --> EVT["事件驱动推理<br/>LLM 抽摘要 + Reasoner"]
+    HIST["历史时序"] --> EVT
+    KB["知识库 HIC<br/>检索纠正推理作 ICL"] --> EVT
+    EVT --> YE["事件分支预测"]
+
+    EN["内生文本<br/>（统计描述）"] --> ETA["内生文本对齐 ETA<br/>趋势/季节性拉齐"]
+    HIST --> ETA
+    ETA --> NUM["数值分支预测"]
+
+    YE --> AFF["自适应频率融合 AFF<br/>FFT 分频段加权"]
+    NUM --> AFF
+    AFF --> OUT["最终预测"]
+```
 
 ### 关键设计
 
-**1. 事件驱动推理：把 LLM 的推理能力而非只是表征接进预测。** 现有外生文本方法只把文本编码成向量做表征融合，深层语义被埋没。VoT 改走推理路线，用三步流水线先把杂乱文本变成可推理的素材：LLM 依据数据描述生成结构化模板 $\mathcal{D}$，再用模板从原始外生文本里抽出与预测相关的摘要 $\mathcal{S}_i$，最后由 Reasoner 结合摘要与历史时序产出预测 $\hat{\mathbf{Y}}^{\text{event}}_i, \mathcal{R}_i = \text{Reasoner}(\mathcal{P}_{\text{reason}}, \mathcal{S}_i, \mathbf{X}_i)$，其中 $\mathcal{R}_i$ 是推理链。为了让推理不"裸跑"，作者设计了历史上下文学习（HIC）：训练时 Reasoner 先给预测、再对照真值反思出纠正推理 $\mathcal{C}_i$，把"摘要嵌入→纠正推理"成对存进知识库 $\mathcal{K} = \{(\text{Embed}(\mathcal{S}_i), \mathcal{C}_i)\}_{i=1}^M$；推理时检索与当前样本最相似的历史纠正推理 $\mathcal{C}_{\tilde{i}}$ 当作 ICL 示例，$\hat{\mathbf{Y}}^{\text{event}}_j = \text{Reasoner}(\mathcal{P}_{\text{ICL}}, \mathcal{C}_{\tilde{i}}, \mathcal{S}_j, \mathbf{X}_j)$。这样无需微调，就把过往"错在哪、怎么改"的经验注入当前推理，事件冲击的预测因此更准。
+**1. 事件驱动推理：把 LLM 的推理能力而非只是表征接进预测**
 
-**2. 多层对齐：在表征级和预测级两次弥合文本与时序的模态鸿沟。** 文本讲的是事件驱动的突变，时序记的是连续数值波动，直接拼接很难互补，VoT 因此在两个层面对齐。表征级是内生文本对齐（ETA）：用两组可学习查询 $\mathbf{Q}^{\text{tr}}, \mathbf{Q}^{\text{se}}$ 通过交叉注意力分别从文本表征里抽取趋势与季节性语义，再用分解对比学习在样本级把文本侧与时序侧的趋势、季节性分量逐一拉齐，避免内生文本与时序信息大量重叠。预测级是自适应频率融合（AFF）：先把两分支预测各自做 FFT 拆成低/中/高频分量 $\mathcal{F}^{\text{num}} = \text{FFT}(\hat{\mathbf{Y}}^{\text{num}})$、$\mathcal{F}^{\text{event}} = \text{FFT}(\hat{\mathbf{Y}}^{\text{event}})$，再用一组可学习权重 $w_*^b$ 按频段加权融合并反变换回时域，$\mathcal{F}_{\text{fused}} = \sum_* \sum_b w_*^b \mathcal{F}_*^b$，$\hat{\mathbf{Y}}_{\text{final}} = \text{iFFT}(\mathcal{F}_{\text{fused}})$。因为不同领域对文本和数值的依赖落在不同频段，按频段而非整体加权，模型才能在该信文本的频率多采纳事件分支、该信数值的频率多采纳数值分支。
+现有外生文本方法只把文本编码成向量做表征融合，深层语义被埋没，突变事件的冲击预测不出来。VoT 改走推理路线，用三步流水线先把杂乱文本变成可推理的素材：LLM 依据数据描述生成结构化模板 $\mathcal{D}$，再用模板从原始外生文本里抽出与预测相关的摘要 $\mathcal{S}_i$，最后由 Reasoner 结合摘要与历史时序产出预测，$\hat{\mathbf{Y}}^{\text{event}}_i, \mathcal{R}_i = \text{Reasoner}(\mathcal{P}_{\text{reason}}, \mathcal{S}_i, \mathbf{X}_i)$，其中 $\mathcal{R}_i$ 是推理链。为了让推理不"裸跑"，作者设计了历史上下文学习（HIC）：训练时 Reasoner 先给预测、再对照真值反思出纠正推理 $\mathcal{C}_i$，把"摘要嵌入→纠正推理"成对存进知识库 $\mathcal{K} = \{(\text{Embed}(\mathcal{S}_i), \mathcal{C}_i)\}_{i=1}^M$；推理时检索与当前样本最相似的历史纠正推理 $\mathcal{C}_{\tilde{i}}$ 当作 ICL 示例，$\hat{\mathbf{Y}}^{\text{event}}_j = \text{Reasoner}(\mathcal{P}_{\text{ICL}}, \mathcal{C}_{\tilde{i}}, \mathcal{S}_j, \mathbf{X}_j)$。这样无需微调，就把过往"错在哪、怎么改"的经验注入当前推理，事件冲击的预测因此更准。
+
+**2. 多层对齐：在表征级和预测级两次弥合文本与时序的模态鸿沟**
+
+文本讲的是事件驱动的突变，时序记的是连续数值波动，直接拼接很难互补，VoT 因此在两个层面对齐。表征级是内生文本对齐（ETA）：用两组可学习查询 $\mathbf{Q}^{\text{tr}}, \mathbf{Q}^{\text{se}}$ 通过交叉注意力分别从文本表征里抽取趋势与季节性语义，再用分解对比学习在样本级把文本侧与时序侧的趋势、季节性分量逐一拉齐，避免内生文本与时序信息大量重叠。预测级是自适应频率融合（AFF）：先把两分支预测各自做 FFT 拆成低/中/高频分量 $\mathcal{F}^{\text{num}} = \text{FFT}(\hat{\mathbf{Y}}^{\text{num}})$、$\mathcal{F}^{\text{event}} = \text{FFT}(\hat{\mathbf{Y}}^{\text{event}})$，再用一组可学习权重 $w_*^b$ 按频段加权融合并反变换回时域，$\mathcal{F}_{\text{fused}} = \sum_* \sum_b w_*^b \mathcal{F}_*^b$，$\hat{\mathbf{Y}}_{\text{final}} = \text{iFFT}(\mathcal{F}_{\text{fused}})$。因为不同领域对文本和数值的依赖落在不同频段，按频段而非整体加权，模型才能在该信文本的频率多采纳事件分支、该信数值的频率多采纳数值分支。
 
 ### 损失函数 / 训练策略
 

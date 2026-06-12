@@ -20,7 +20,6 @@ tags:
 **代码**: [https://github.com/suzy0223/GenCast](https://github.com/suzy0223/GenCast)  
 **领域**: 自动驾驶  
 **关键词**: traffic forecasting, spatial-temporal, 物理信息驱动, 图神经网络, 泛化  
-# GenCast：面向无观测区域的交通预测泛化
 
 ## 一句话总结
 

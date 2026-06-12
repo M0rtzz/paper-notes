@@ -45,6 +45,19 @@ tags:
 
 LaGoVAD 把异常定义 $z$ 当成和视频 $v$ 并列的输入，用一个双分支网络去学三元组 $(v,z,y)$ 的联合映射。视频经 CLIP 图像编码器加 Transformer 时序编码器得到帧级特征 $v^t = \mathcal{F}(v)$，异常定义文本经 CLIP 文本编码器得到 $z^t = \mathcal{G}(z)$，两者在 Transformer 融合模块 $\mathcal{U}$ 中交互后送入二分类检测头 $\mathcal{H}^{\text{bin}}$ 和多分类头 $\mathcal{H}^{\text{mul}}$，分别输出逐帧异常分数和视频级类别。围绕这条主干，作者再用动态视频合成解决异常时长分布偏差、用硬负样本对比学习解决帧级判别模糊，并构建 PreVAD 数据集提供足够多样的训练三元组。
 
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    DATA["PreVAD 数据集<br/>35K 视频·7大类35小类<br/>每个异常视频带文本描述"] --> DVS
+    Z["异常定义文本 $z$"] --> G["CLIP 文本编码器 𝒢<br/>→ 文本特征 $z^t$"]
+    DVS["动态视频合成<br/>KNN 拼接·均匀采样异常占比<br/>生成逐帧伪标签 $y^p$"] --> F["CLIP 图像+Transformer 时序编码器 ℱ<br/>→ 帧级特征 $v^t$"]
+    F --> U["Transformer 融合模块 𝒰"]
+    G --> U
+    U --> HEAD["二分类检测头 ℋbin: 逐帧异常分数<br/>多分类头 ℋmul: 视频级类别"]
+    F -.异常分数加权聚合·正常段当硬负例.-> NEG["硬负样本对比学习 $\mathcal{L}_{neg}$"]
+    G -.-> NEG
+```
+
 ### 关键设计
 
 **1. 动态视频合成：让模型见过各种异常时长比例**

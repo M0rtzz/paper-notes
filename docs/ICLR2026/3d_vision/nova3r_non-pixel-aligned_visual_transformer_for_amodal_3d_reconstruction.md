@@ -41,11 +41,29 @@ tags:
 ## 方法详解
 
 ### 整体框架
-输入：K张无位姿图像。输出：完整3D点云 $P \in \mathbb{R}^{N \times 3}$ (包含可见和遮挡区域)。
+输入是 $K$ 张无位姿图像，输出是定义在第一视角坐标系下、包含可见与遮挡区域的完整 3D 点云 $P \in \mathbb{R}^{N \times 3}$。要把"全局、视角无关的场景表示"学出来，本文不走端到端，而是把训练拆成两个解耦的阶段，让目标各自清晰、互不干扰。
 
-整个方法分为两个训练阶段：
-- **Stage 1 (3D自编码器)**：输入完整点云 -> 编码为M个latent tokens -> 用flow-matching解码器重建点云。目的是学习3D点云的compact表示空间。
-- **Stage 2 (图像到latent)**：输入图像+可学习场景tokens -> 图像编码器(基于VGGT)输出场景latent -> 用Stage 1冻结的解码器生成点云。推理时只用Stage 2。
+第一阶段先抛开图像，单独训一个 3D 点云自编码器：把一团完整点云压成 $M$ 个 latent 场景 token $Z$，再用 flow-matching 解码器从噪声把点云生成回来，目的是先把一个"能压缩、能还原完整点云"的 latent 空间建好。第二阶段冻结这个解码器，只训一个图像编码器，让它把 $K$ 张图像映射到同一个 latent 空间得到 $\hat{Z}$，再交给冻结解码器出点云。推理时只跑第二阶段。而这两个阶段的训练目标，都依赖一套专门构造的"完整点云"作监督信号。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    GT["完整点云的定义与构造<br/>mesh采样 / 深度图反投影<br/>→voxel去重→frustum裁剪→FPS"]
+    subgraph S1["基于Flow-matching的3D Latent自编码器（Stage 1）"]
+        direction TB
+        ENC["编码器：FPS query<br/>+可学习token→注意力"] --> Z["场景latent Z"]
+        Z --> DEC["FM解码器<br/>噪声点→ODE轨迹"]
+        DEC --> REC["重建完整点云"]
+    end
+    subgraph S2["可学习场景Token的图像编码（Stage 2）"]
+        direction TB
+        IMG["K张无位姿图像<br/>+M个可学习场景token"] --> TR["VGGT式Transformer<br/>frame/global self-attn"]
+        TR --> ZHAT["场景latent Ẑ"]
+    end
+    GT -->|GT监督| ENC
+    ZHAT --> FZ["冻结的FM解码器<br/>(复用Stage 1)"]
+    FZ --> OUT["完整3D点云<br/>(可见+遮挡)"]
+```
 
 ### 关键设计
 

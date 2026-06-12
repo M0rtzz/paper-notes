@@ -45,7 +45,20 @@ tags:
 
 ### 整体框架
 
-WARP 的全名是 Weight-space Adaptive Recurrent Prediction，它把一个线性 RNN 的隐状态 $\theta_t$ 直接定义为一个辅助 MLP（称作"根网络"）的展平权重向量，每一步用输入差分驱动一次线性递推来更新这套权重，再让这套权重自己去解码出输出。整个模型的核心就两条式子：状态更新 $\theta_t = A\theta_{t-1} + B\Delta\mathbf{x}_t$，输出解码 $\mathbf{y}_t = \text{MLP}_{\theta_t}(\tau)$。其中 $\theta_t \in \mathbb{R}^{D_\theta}$ 是根网络权重，$\Delta\mathbf{x}_t = \mathbf{x}_t - \mathbf{x}_{t-1}$ 是输入差分，$A \in \mathbb{R}^{D_\theta \times D_\theta}$ 和 $B \in \mathbb{R}^{D_\theta \times D_x}$ 是状态转移与输入转移矩阵，$\tau$ 是查询坐标（归一化像素位置、时间步等）。这样既保留了线性递推可并行、硬件友好的训练效率，又把非线性集中放到解码这一步补回来。
+WARP 的全名是 Weight-space Adaptive Recurrent Prediction，它把一个线性 RNN 的隐状态 $\theta_t$ 直接定义为一个辅助 MLP（称作"根网络"）的展平权重向量，每一步用输入差分驱动一次线性递推来更新这套权重，再让这套权重自己去解码出输出。整个模型的核心就两条式子：状态更新 $\theta_t = A\theta_{t-1} + B\Delta\mathbf{x}_t$，输出解码 $\mathbf{y}_t = \text{MLP}_{\theta_t}(\tau)$。其中 $\theta_t \in \mathbb{R}^{D_\theta}$ 是根网络权重，$\Delta\mathbf{x}_t = \mathbf{x}_t - \mathbf{x}_{t-1}$ 是输入差分，$A \in \mathbb{R}^{D_\theta \times D_\theta}$ 和 $B \in \mathbb{R}^{D_\theta \times D_x}$ 是状态转移与输入转移矩阵，$\tau$ 是查询坐标（归一化像素位置、时间步等）。这样既保留了线性递推可并行、硬件友好的训练效率，又把非线性集中放到解码这一步补回来。下图给出一个时间步内数据如何从输入流到输出，以及权重沿时间轴的递推回环：
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    X0["首个观测 x₀"] --> INIT["3. 结构化初始化<br/>超网络 φ 生成 θ₀<br/>A=I, B=0"]
+    XT["当前输入 x_t"] --> DIFF["2. 输入差分驱动<br/>Δx_t = x_t − x_{t-1}"]
+    INIT --> REC["线性递推更新权重<br/>θ_t = A·θ_{t-1} + B·Δx_t"]
+    DIFF --> REC
+    REC -->|"权重 θ_t"| DEC["1. 自解码机制<br/>根网络 MLP_θt(τ)"]
+    DEC --> Y["输出 y_t"]
+    REC -."θ_t 作为下一步 θ_{t-1}".-> REC
+    PHYS["4. 物理先验注入（WARP-Phys）<br/>把振荡基函数焊进根网络前向"] -."替换根网络".-> DEC
+```
 
 ### 关键设计
 

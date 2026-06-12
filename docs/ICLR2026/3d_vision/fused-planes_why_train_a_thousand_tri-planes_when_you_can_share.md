@@ -37,7 +37,24 @@ tags:
 ## 方法详解
 
 ### 整体框架
-Fused-Planes 要解决的是"千个对象就要训千次 Tri-Plane"的浪费问题，办法是把同类对象之间高度重复的几何/纹理模式抽出来共享，只为每个对象单独训练它真正独特的那部分。具体来说，全体对象共用一组 $M=50$ 个基平面 $\mathcal{B} = \{B_1, ..., B_{50}\}$，每个对象 $i$ 只持有一个小小的微观平面 $T_i^{mic}$ 和一个权重向量 $W_i$；推理时用 $W_i$ 把基平面线性组合出"宏观平面"，再与微观平面拼接成完整的 Fused-Plane。渲染不在 RGB 空间进行，而是先在一个低维潜空间出图，再由解码器恢复 RGB，从而把单对象训练从一小时压到十分钟以内。
+Fused-Planes 要解决的是"千个对象就要训千次 Tri-Plane"的浪费问题，办法是把同类对象之间高度重复的几何/纹理模式抽出来共享，只为每个对象单独训练它真正独特的那部分。具体来说，全体对象共用一组 $M=50$ 个基平面 $\mathcal{B} = \{B_1, ..., B_{50}\}$，每个对象 $i$ 只持有一个小小的微观平面 $T_i^{mic}$ 和一个权重向量 $W_i$；推理时用 $W_i$ 把基平面线性组合出"宏观平面"，再与微观平面拼接成完整的 Fused-Plane。渲染不在 RGB 空间进行，而是先在一个低维潜空间出图，再由解码器恢复 RGB，从而把单对象训练从一小时压到十分钟以内。训练上分两段：先用少量对象把共享部件练熟，再冻结它们快速吞下剩余对象。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    IN["对象 i 的多视图图像"] --> DECOMP
+    subgraph DECOMP["宏观-微观分解（设计 1）"]
+        direction TB
+        B["共享基平面 𝓑<br/>M=50（全局一份）"] -->|"权重 W_i 线性组合"| MAC["宏观平面 T_i^mac<br/>类级共性 22 维"]
+        MIC["微观平面 T_i^mic<br/>私有细节 10 维"]
+        MAC --> FUSE["拼接成 Fused-Plane<br/>32 维特征"]
+        MIC --> FUSE
+    end
+    FUSE --> RENDER["潜空间渲染（设计 2）<br/>低维潜空间出图"]
+    RENDER --> DEC["解码器<br/>潜表示→RGB"]
+    DEC --> OUT["重建图像"]
+    REGIME["两阶段训练（设计 3）<br/>Regime 1 练共享件 →<br/>Regime 2 冻结后吞新对象"] -.-> DECOMP
+    REGIME -.-> RENDER
 
 ### 关键设计
 

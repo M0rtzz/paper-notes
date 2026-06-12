@@ -43,6 +43,33 @@ tags:
 ### 整体框架
 单图到可探索3D场景是个严重欠定的问题：一张图只覆盖场景的极小一角，既缺全局视觉信息，又缺3D几何约束，直接生成就会出现累积漂移、尺度穿墙等崩溃。One2Scene 的思路是把这个不可解的问题拆成三步逐级补约束：先用全景生成把单图的视觉覆盖从一个视锥扩展到 360 度，再从这圈全景里前馈构建一个显式的 3D 几何 scaffold（高斯点云），最后让扩散模型在 scaffold 提供的几何先验和高质量锚点外观的双重约束下渲染任意视角。三步走下来，每一阶段的产物都为下一阶段提供越来越强的约束，从根上避免了"无中生有"导致的漂移。
 
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    IN["单张输入图像"] --> S1
+
+    subgraph S1["全景锚点视角生成"]
+        direction TB
+        P["Hunyuan-Pano-DiT<br/>生成 360° 全景"] --> C["cubemap 投影<br/>6 个透视锚点视角"]
+    end
+
+    subgraph S2["前馈 3DGS 几何 scaffold"]
+        direction TB
+        F["VGGT backbone<br/>多视角立体匹配"] --> BF["双向融合<br/>C2E→卷积→E2C 残差"]
+        BF --> GS["反投影预测高斯<br/>显式 3D scaffold（约 0.5s）"]
+    end
+
+    subgraph S3["Scaffold 引导新视角合成"]
+        direction TB
+        DL["Dual-LoRA<br/>锚点外观 + scaffold 几何"] --> ATT["3D attention 融合<br/>+ memory condition"]
+    end
+
+    S1 -->|6 锚点视角| S2
+    S2 -->|渲染粗几何视角| S3
+    S1 -.->|高质量外观| S3
+    S3 --> OUT["任意视角<br/>几何一致的逼真渲染"]
+```
+
 ### 关键设计
 
 **1. 全景锚点视角生成：把单视锥的覆盖扩展成 360 度的多视角输入**

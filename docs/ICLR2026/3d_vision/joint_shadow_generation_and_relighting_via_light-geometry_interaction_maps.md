@@ -43,7 +43,28 @@ tags:
 
 ### 整体框架
 
-方法要解决的是单视图下阴影生成与重光照缺乏物理约束、二者又被割裂处理的问题。整体建在 Latent Bridge Matching (LBM) 框架上，把无阴影图像 $x_0$ 通过漂移网络 $v_\theta$ 桥接到有阴影图像 $x_1$，编码器和解码器直接复用预训练的 Stable Diffusion XL 并在训练时冻结。真正的关键在于给漂移网络喂入一组光照感知的条件 $c=\{c^l, c^m\}$：$c^l$ 是全局光照参数（光色、半径、距离、强度、方位角、仰角），$c^m$ 则是本文提出的 LGI maps，把光照与几何的遮挡关系压成一张可微的 2.5D 条件图，让生成过程"知道"阴影该落在哪里。
+方法要解决的是单视图下阴影生成与重光照缺乏物理约束、二者又被割裂处理的问题。整体建在 Latent Bridge Matching (LBM) 框架上：无阴影图像 $x_0$ 先经冻结的 Stable Diffusion XL 编码器映射成源潜码 $z_0$，再由漂移网络 $v_\theta$ 沿一条布朗桥逐步桥接到有阴影潜码 $z_1$，最后由冻结解码器还原成带阴影且已重光照的图像 $x_1$。编码器、解码器全程冻结，训练只优化漂移网络。真正的关键在于给漂移网络喂入一组光照感知的条件 $c=\{c^l, c^m\}$：$c^l$ 是全局光照参数（光色、半径、距离、强度、方位角、仰角），$c^m$ 则是本文提出的 LGI maps——它从单目深度出发，把光照与几何的遮挡关系压成一张可微的 2.5D 条件图，让生成过程"知道"阴影该落在哪里。这条核心管线之外，论文还把它扩展到隐式光照的 image harmonization（靠 LGI 可微自监督一个光照估计网络），并自造了首个联合阴影-重光照数据集 ShadRel 来支撑训练。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}%%
+flowchart TD
+    X0["无阴影图像 x0"] --> ENC["冻结编码器<br/>(SDXL VAE)"]
+    ENC --> Z0["源潜码 z0"]
+    LIGHT["全局光照参数 c^l<br/>光色/距离/强度/方位仰角"]
+    subgraph LGI["LGI maps 生成（关键设计 1）"]
+        direction TB
+        P3D["单目深度估计<br/>逆投影提升到 3D"] --> RAY["朝光源投射光线<br/>采样 N=16 点"]
+        RAY --> MAP["仰角差 e_d<br/>min/max/closest 三通道"]
+    end
+    X0 --> P3D
+    LIGHT --> RAY
+    Z0 --> DRIFT["漂移网络 v_θ<br/>条件桥接匹配"]
+    LIGHT --> DRIFT
+    MAP --> DRIFT
+    DRIFT --> Z1["目标潜码 z1"]
+    Z1 --> DEC["冻结解码器"]
+    DEC --> X1["有阴影且重光照<br/>图像 x1"]
+```
 
 ### 关键设计
 

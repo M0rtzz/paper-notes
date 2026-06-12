@@ -40,7 +40,20 @@ tags:
 
 ### 整体框架
 
-Video-KTR 把模态感知的 Token 级塑造机制嫁接到 GRPO 之上：先对每个输出 Token 做多视角重要性分析，判断它到底依赖视觉、依赖时序、还是处在推理的不确定关口；再从三路信号里各取最重要的一批 Token 求并集，构成一个二值掩码；最后只让落在掩码里的关键 Token 参与策略梯度更新，把奖励信号从粗糙的序列级精确滴灌到真正该学的位置上。
+Video-KTR 把模态感知的 Token 级塑造机制嫁接到 GRPO 之上：先让策略模型对视频和问题生成一段输出，再对每个输出 Token 做多视角重要性分析，判断它到底依赖视觉、依赖时序、还是处在推理的不确定关口；接着从三路信号里各取 top $r\%$ 的 Token 求并集，构成一个二值掩码；最后只让落在掩码里的关键 Token 参与策略梯度更新，把奖励信号从粗糙的序列级精确滴灌到真正该学的位置上。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    IN["视频 v + 问题 t"] --> GEN["策略模型生成<br/>输出序列 y"]
+    GEN --> VIS["视觉感知型 Token<br/>遮蔽视频求 Δvis"]
+    GEN --> TEMP["时序敏感型 Token<br/>打乱帧序求 Δtemp"]
+    GEN --> ENT["高熵 Token<br/>预测熵 H(i)"]
+    VIS -->|各取 top r%| UNION["并集 → 二值掩码 m"]
+    TEMP -->|各取 top r%| UNION
+    ENT -->|各取 top r%| UNION
+    UNION --> GRPO["GRPO 选择性策略更新<br/>仅关键 Token 贡献梯度"]
+```
 
 ### 关键设计
 

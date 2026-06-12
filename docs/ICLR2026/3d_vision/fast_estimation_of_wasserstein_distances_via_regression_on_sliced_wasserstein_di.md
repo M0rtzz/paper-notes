@@ -43,7 +43,24 @@ tags:
 
 ### 整体框架
 
-RG（Regression）框架的 pipeline 极其简单：输入是任意一对概率分布 $(\mu, \nu)$，先计算它们在 $K$ 种 SW 距离变体下的值 $S_p^{(1)}, \ldots, S_p^{(K)}$（这些计算都是 $O(n \log n)$ 的），然后通过预先训练好的线性权重 $\omega_1, \ldots, \omega_K$ 做加权求和，输出即为 Wasserstein 距离的估计值。训练阶段只需从全部 $N$ 对分布中随机抽样 $M_0 \ll N$ 对，计算这些样本对的精确 Wasserstein（代价高但只做一次），然后用最小二乘法求闭式解即完成训练。
+RG（Regression）框架的 pipeline 极其简单：输入是任意一对概率分布 $(\mu, \nu)$，先把它们送进**六种 SW 距离变体构成的特征空间**——三个从下方逼近真值的下界（SW、Max-SW、EBSW）加三个从上方逼近的上界（PW、Min-SWGG、EST），这些计算都是 $O(n \log n)$ 量级的；然后用预先标定好的线性权重对这 $K$ 个特征做加权求和，输出即为 Wasserstein 距离的估计值。回归模型本身有两种形态：数据相对充足时用**无约束线性模型**（自由度高、精度更优），只有十来对标注的极端少样本场景则切到**约束线性模型**（把上下界凸组合、参数减半，抗过拟合）。训练阶段只需从全部 $N$ 对分布中随机抽样 $M_0 \ll N$ 对、计算它们的精确 Wasserstein（代价高但只做一次），再求最小二乘闭式解即完成标定。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}%%
+flowchart TD
+    IN["分布对 (μ, ν)"]
+    subgraph FEAT["六种 SW 距离变体构成特征空间"]
+        direction TB
+        LB["下界族<br/>SW / Max-SW / EBSW"]
+        UB["上界族<br/>PW / Min-SWGG / EST"]
+    end
+    IN --> FEAT
+    FEAT -->|"M₀≥50 数据充足"| UC["无约束线性模型<br/>闭式最小二乘解 ω"]
+    FEAT -->|"M₀=10 极少标注"| CC["约束线性模型<br/>上下界凸组合 0≤ω≤1"]
+    UC --> OUT["Wasserstein 距离估计 Ŵ"]
+    CC --> OUT
+    OUT --> APP["k-NN 分类 / RG-Wormhole 加速"]
+```
 
 ### 关键设计
 

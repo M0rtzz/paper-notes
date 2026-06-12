@@ -43,7 +43,25 @@ tags:
 
 ### 整体框架
 
-JavisDiT 把音视频联合生成做成一个对称的双分支 DiT：视频分支和音频分支各自有独立的去噪流，但共享同一套 AV-DiT block 设计。在每个 block 内，两路特征先各自做时空自注意力（ST-SelfAttn）建模模态内部的结构，再用 T5 语义嵌入做粗粒度交叉注意力对齐"声音是什么"，接着用专门估计出的时空先验做细粒度 ST-CrossAttn 对齐"什么时候、在画面哪里发声"，最后通过双向交叉注意力让两个模态互相注入信息。整套设计的核心是把"同步"从粗糙的参数共享，拆成层级化的语义对齐 + 细粒度时空先验对齐两层。
+JavisDiT 要解决的是音视频联合生成（joint audio-video generation, JAVG）里"音画对不上"的问题，尤其是空间维度的对齐。它把生成做成一个对称的双分支 DiT：视频分支和音频分支各自有独立的去噪流，但共享同一套 AV-DiT block 设计。流程上，文本提示先送进一个层级时空同步先验估计器（HiST-Sypo），同时产出"粗粒度语义先验"（直接复用 T5 嵌入）和"细粒度时空先验"（ST-Prior）。在每个 AV-DiT block 内，两路特征先各自做时空自注意力（ST-SelfAttn）建模模态内部的结构，再用粗粒度语义先验做交叉注意力对齐"声音是什么"，接着用细粒度时空先验做 ST-CrossAttn 对齐"什么时候、在画面哪里发声"，最后通过多模态双向交叉注意力（MM-BiCrossAttn）让两个模态互相注入信息。整套设计的核心是把"同步"从粗糙的参数共享，拆成层级化的语义对齐 + 细粒度时空先验对齐两层。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    T["文本提示"] --> HS["层级时空同步先验估计器<br/>(HiST-Sypo)"]
+    VN["视频噪声"] --> SA
+    AN["音频噪声"] --> SA
+    subgraph BLK["AV-DiT block（×N，视频/音频双分支共享）"]
+        direction TB
+        SA["时空自注意力<br/>(ST-SelfAttn)"] --> C["粗粒度交叉注意力<br/>对齐'声音是什么'"]
+        C --> F["细粒度 ST-CrossAttn<br/>对齐'何时/画面哪里发声'"]
+        F --> BC["多模态双向交叉注意力<br/>(MM-BiCrossAttn)"]
+    end
+    HS -->|"粗粒度语义先验<br/>(T5 嵌入)"| C
+    HS -->|"细粒度时空先验<br/>(ST-Prior)"| F
+    BC --> OV["视频输出"]
+    BC --> OA["音频输出"]
+```
 
 ### 关键设计
 

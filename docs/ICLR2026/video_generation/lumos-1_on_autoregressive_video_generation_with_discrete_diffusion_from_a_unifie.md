@@ -47,6 +47,17 @@ tags:
 
 Lumos-1 是一个不偏离标准 Llama 架构的统一视频生成模型：先用 Cosmos 离散 tokenizer 以 $8\times8\times4$ 的时空压缩比把视频量化成离散 token，再把文本 token 与视觉 token 拼成一条序列交给同一个 LLM 联合建模。它在两处对标准 LLM 做了视频专属的改造——用 **MM-RoPE** 把三维时空先验注入位置编码，用 **AR-DF** 把离散扩散的训练与推理重新对齐到自回归的因果结构上。
 
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    V["输入视频 + 文本提示"] --> TOK["Cosmos 离散 tokenizer<br/>(8×8×4 时空压缩)"]
+    TOK --> SEQ["文本 token + 视觉 token<br/>拼成一条序列"]
+    MMROPE["MM-RoPE：全频谱<br/>三维时空位置编码"] -->|"注入位置先验"| LLM
+    SEQ --> LLM["标准 Llama LLM<br/>联合建模"]
+    LLM --> ARDF["AR-DF：时间管状 masking 训练<br/>+ 部分观测缓存推理"]
+    ARDF --> OUT["逐帧自回归生成<br/>→ 解码还原视频"]
+```
+
 ### 关键设计
 
 **1. MM-RoPE（分布式多模态 RoPE）：让时间和空间都能在完整频谱上被编码**

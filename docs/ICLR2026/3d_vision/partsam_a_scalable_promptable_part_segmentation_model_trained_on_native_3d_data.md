@@ -41,7 +41,30 @@ tags:
 ## 方法详解
 
 ### 整体框架
-PartSAM 想把 SAM 那套"点一下就分割"的交互范式直接搬到原生 3D 上，而不是像以往方法那样先在多视图 2D 上分割再 lift 回 3D。整条 pipeline 是：输入点云 $P_{in} \in \mathbb{R}^{N \times 9}$（坐标+法向+RGB）和提示点 $P_{prompt}$，先经一个双分支 triplane 编码器把点云编成稠密的三平面特征场，再在提示点位置采样得到 patch embedding $F_c$；解码器把 $F_c$ 和提示 embedding $F_p$ 一起喂进双向 Transformer，生成分割 mask。整个模型既支持交互模式（用户逐点点击、逐轮补正），也支持自动模式（Segment Every Part，一次撒满 query 把所有部件切出来）。背后能跑通的前提，是一套模型在环的标注流程先攒出了 500 万+形状-部件对。
+PartSAM 想把 SAM 那套"点一下就分割"的交互范式直接搬到原生 3D 上，而不是像以往方法那样先在多视图 2D 上分割再 lift 回 3D。整条 pipeline 是：输入点云 $P_{in} \in \mathbb{R}^{N \times 9}$（坐标+法向+RGB）和提示点 $P_{prompt}$，先经一个双分支 triplane 编码器把点云编成稠密的三平面特征场，再在提示点位置采样得到 patch embedding $F_c$；解码器把 $F_c$ 和提示 embedding $F_p$ 一起喂进双向 Transformer，生成分割 mask。整个模型既支持交互模式（用户逐点点击、逐轮补正），也支持自动模式（Segment Every Part，一次撒满 query 把所有部件切出来）。背后能跑通的前提，是一套模型在环的标注流程先攒出了 500 万+形状-部件对，给整个架构提供训练监督。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400, 'subGraphTitleMargin': {'top': 8, 'bottom': 16}}}}%%
+flowchart TD
+    A["输入点云<br/>坐标+法向+RGB + 提示点"] --> ENC
+
+    subgraph ENC["双分支 Triplane 编码器"]
+        direction TB
+        F["冻结分支<br/>守住 SAM 2D 边界先验"]
+        L["可学习分支<br/>zero-conv 注入法向/RGB"]
+        F --> S["特征相加<br/>triplane 特征场"]
+        L --> S
+    end
+
+    ENC --> FC["FPS 采样 patch 特征 F_c<br/>+ 提示特征 F_p"]
+    FC --> DEC["提示引导解码器<br/>双向 Transformer + 输出/IoU token"]
+    DEC -->|单提示| M1["并行 3 候选 mask<br/>IoU 评分选优"]
+    DEC -->|自动模式| M2["Segment Every Part<br/>撒满 query 切全部"]
+    M1 --> OUT["部件分割结果"]
+    M2 --> OUT
+    OUT -.->|模型当质检员| DATA["模型在环数据标注<br/>伪标签→自验→500万部件"]
+    DATA -->|训练监督| ENC
+```
 
 ### 关键设计
 

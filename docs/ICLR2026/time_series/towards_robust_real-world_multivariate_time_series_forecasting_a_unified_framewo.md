@@ -47,7 +47,18 @@ tags:
 
 ### 整体框架
 
-CTF 要在一个 Transformer 里同时扛住异步采样、块缺失和跨通道依赖这三件原本得各自处理的事，核心办法是把每个通道压成一个 channel token，让它充当通道间的"信息锚点"。整条 pipeline 这样转：先对每个通道单独做 FFT 找出它的主频，据此确定该通道的 patch 长度并做非重叠切分，于是采样越密的通道切出越多的 local token、越疏的越少——通道间 token 数量天然不等。每个通道再额外配一个 learnable channel token，把它和该通道的 local token 拼进一条统一序列，过一层 mask-guided self-attention，让通道内的时序建模和通道间的依赖捕获在同一次注意力里完成。最后只把 channel token 送进 decoder 出预测。相同 patch 长度的通道共享 projection 层，相同采样周期的通道共享 decoder。
+CTF 要在一个 Transformer 里同时扛住异步采样、块缺失和跨通道依赖这三件原本得各自处理的事，核心办法是把每个通道压成一个 channel token，让它充当通道间的"信息锚点"。整条 pipeline 这样转：先对每个通道单独做 FFT 找出它的主频，据此确定该通道的 patch 长度并做非重叠切分，于是采样越密的通道切出越多的 local token、越疏的越少——通道间 token 数量天然不等；训练时再随机删掉一部分 patch、测试时删掉全缺失的 patch，让注意力直接跳过这些空位。每个通道再额外配一组 learnable channel token，把它和该通道的 local token 拼进一条统一序列，过一层 mask-guided self-attention，让通道内的时序建模和通道间的依赖捕获在同一次注意力里完成。最后只把 channel token 送进 decoder 出预测。相同 patch 长度的通道共享 projection 层，相同采样周期的通道共享 decoder。
+
+```mermaid
+%%{init: {'flowchart': {'rankSpacing': 24, 'nodeSpacing': 28, 'padding': 6, 'wrappingWidth': 400}}}%%
+flowchart TD
+    A["多变量输入<br/>各通道异步采样"] --> B["频域动态 Patching<br/>逐通道 FFT 估主频<br/>按主频非重叠切 patch"]
+    B --> C["训练时 Patch Masking<br/>全缺失/随机 patch<br/>删除对应 local token"]
+    C --> D["拼接统一序列<br/>local token + channel token"]
+    D --> E["Mask-Guided 统一注意力<br/>channel token 当只读跨通道中继站"]
+    E --> F["仅取 channel token 进 decoder<br/>同采样周期通道共享 decoder"]
+    F --> G["预测输出"]
+```
 
 ### 关键设计
 
@@ -55,7 +66,11 @@ CTF 要在一个 Transformer 里同时扛住异步采样、块缺失和跨通道
 
 异步采样是真实数据的常态——温度传感器 1 小时一采、压力 15 分钟一采，多数方法靠插值把它们对齐到同一时间网格，但插值在动态信号上会注入并不存在的"假数据"。CTF 索性不对齐：对每个通道做 FFT 估出它的主导周期 $T_i$，就以 $T_i$ 为 patch 长度做非重叠切分。采样周期为 $s_i$ 的通道，在输入窗口长度 $L$ 下只有 $L_i = \lfloor L/s_i \rfloor$ 个有效采样点，因此切出的 local token 数量本就因通道而异。这样每个通道都保留自己的原始分辨率，既不上采样也不下采样，不等长度的 token 序列最后由 channel token 统一聚合，问题被推给了 channel token 而非插值。
 
-**2. Mask-Guided Unified Attention：用一张掩码让 channel token 当只读的跨通道中继站**
+**2. 训练时 Patch Masking：用随机丢 patch 提前演练测试时的块缺失**
+
+传感器故障或通信中断会造成长时间连续缺失（block-wise missingness），传统做法 zero-fill 或插值都会把无效信号继续往下传。CTF 的应对是训练时就随机移除一部分通道的 patch（受 PatchDropout 启发），全为零的 patch 直接删掉对应的 local token，注意力就自然跳过这些位置。这等于让模型在训练阶段反复练习"少了几块 patch 该怎么靠别的通道补"。到了测试时遇到真实缺失 block，同样把全缺失的 patch 移除，模型就依赖可用通道的 channel token 去推断缺失通道——全程不往网络里喂任何缺失位置的假值，既不引入错误信息，随机丢弃本身又起到隐式正则化、抑制过拟合的作用。
+
+**3. Mask-Guided Unified Attention：用一张掩码让 channel token 当只读的跨通道中继站**
 
 通道内时序建模和跨通道依赖捕获通常要分两步做，CTF 把它们塞进一次注意力，靠精心设计的掩码区分谁能看谁。所有通道的 local token 和 channel token 先拼成统一序列
 
@@ -66,10 +81,6 @@ $$\mathbf{X} = [\mathbf{T}^{(1)};\mathbf{C}^{(1)};\dots;\mathbf{T}^{(N)};\mathbf
 $$\mathbf{X}_\text{out} = \mathbf{X} + \text{softmax}\!\left(\frac{QK^\top}{\sqrt{d}} + \mathbf{M}\right)V$$
 
 掩码 $\mathbf{M}$ 立了三条规矩：local token 只能 attend 同通道的其他 local token（纯时序建模，看不到 channel token）；channel token 能 attend 自己通道的 local token 以及其他通道的 channel token（既聚合本通道信息又和别的通道交互）；channel token 不 attend 自己（避免自我强化）。这本质是一种读写分离——channel token 是只读聚合器，local token 看不到它，信息只能单向汇入，于是 channel token 自然成了通道之间唯一的信息中继站，跨通道依赖全压在这一层 token 交互里。
-
-**3. 训练时 Patch Masking：用随机丢 patch 提前演练测试时的块缺失**
-
-传感器故障或通信中断会造成长时间连续缺失（block-wise missingness），传统做法 zero-fill 或插值都会把无效信号继续往下传。CTF 的应对是训练时就随机移除一部分通道的 patch（受 PatchDropout 启发），全为零的 patch 直接删掉对应的 local token，注意力就自然跳过这些位置。这等于让模型在训练阶段反复练习"少了几块 patch 该怎么靠别的通道补"。到了测试时遇到真实缺失 block，同样把全缺失的 patch 移除，模型就依赖可用通道的 channel token 去推断缺失通道——全程不往网络里喂任何缺失位置的假值，既不引入错误信息，随机丢弃本身又起到隐式正则化、抑制过拟合的作用。
 
 ### 损失函数 / 训练策略
 
