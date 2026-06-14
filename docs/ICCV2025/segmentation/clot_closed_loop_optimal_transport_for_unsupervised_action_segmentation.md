@@ -130,7 +130,7 @@ OT采用非平衡公式，融合KOT和GW两个子问题：$\min_\mathbf{T} \alph
 - [\[ICCV 2025\] Joint Self-Supervised Video Alignment and Action Segmentation](joint_self-supervised_video_alignment_and_action_segmentation.md)
 - [\[ICCV 2025\] Learn2Synth: Learning Optimal Data Synthesis Using Hypergradients for Brain Image Segmentation](learn2synth_learning_optimal_data_synthesis_using_hypergradients_for_brain_image.md)
 - [\[ICCV 2025\] Beyond Single Images: Retrieval Self-Augmented Unsupervised Camouflaged Object Detection](beyond_single_images_retrieval_self-augmented_unsupervised_camouflaged_object_de.md)
-- [\[CVPR 2025\] Scene-Centric Unsupervised Panoptic Segmentation](../../CVPR2025/segmentation/scene-centric_unsupervised_panoptic_segmentation.md)
+- [\[ICCV 2025\] Ensemble Foreground Management for Unsupervised Object Discovery](ensemble_foreground_management_for_unsupervised_object_discovery.md)
 
 </div>
 

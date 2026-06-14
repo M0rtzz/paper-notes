@@ -146,7 +146,7 @@ $$\arg\min_{\mathcal{F}} \sum_i^N \left\{ \left|\sum_j^{M_i} F_i^j\right| + \lef
 - [\[CVPR 2025\] Stable-SCore: A Stable Registration-Based Framework for 3D Shape Correspondence](../../CVPR2025/3d_vision/stable-score_a_stable_registration-based_framework_for_3d_shape_correspondence.md)
 - [\[ICCV 2025\] SuperMat: Physically Consistent PBR Material Estimation at Interactive Rates](supermat_physically_consistent_pbr_material_estimation_at_interactive_rates.md)
 - [\[ICCV 2025\] Bolt3D: Generating 3D Scenes in Seconds](bolt3d_generating_3d_scenes_in_seconds.md)
-- [\[ICCV 2025\] GeoSplatting: Towards Geometry Guided Gaussian Splatting for Physically-based Inverse Rendering](geosplatting_towards_geometry_guided_gaussian_splatting_for_physically-based_inv.md)
+- [\[CVPR 2026\] BrickNet: Graph-Backed Generative Brick Assembly](../../CVPR2026/3d_vision/bricknet_graph-backed_generative_brick_assembly.md)
 
 </div>
 

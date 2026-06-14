@@ -134,9 +134,9 @@ Index Concat方法在总体上表现最佳，而Recurrent在高层数(Layer 5, 7
 
 - [\[ICCV 2025\] Bootstrap3D: Improving Multi-view Diffusion Model with Synthetic Data](bootstrap3d_improving_multi-view_diffusion_model_with_synthetic_data.md)
 - [\[ICCV 2025\] DAViD: Data-efficient and Accurate Vision Models from Synthetic Data](david_data-efficient_and_accurate_vision_models_from_synthetic_data.md)
-- [\[CVPR 2025\] Seeing A 3D World in A Grain of Sand](../../CVPR2025/3d_vision/seeing_a_3d_world_in_a_grain_of_sand.md)
+- [\[CVPR 2026\] Seeing Depth Through Frequency and Motion: A Progressive Training Paradigm for Monocular Depth Estimation](../../CVPR2026/3d_vision/seeing_depth_through_frequency_and_motion_a_progressive_training_paradigm_for_mo.md)
 - [\[ICCV 2025\] Amodal Depth Anything: Amodal Depth Estimation in the Wild](amodal_depth_anything_amodal_depth_estimation_in_the_wild.md)
-- [\[ICCV 2025\] FlashDepth: Real-time Streaming Video Depth Estimation at 2K Resolution](flashdepth_real-time_streaming_video_depth_estimation_at_2k_resolution.md)
+- [\[CVPR 2026\] SeeGroup: Multi-Layer Depth Estimation of Transparent Surfaces via Self-Determined Grouping](../../CVPR2026/3d_vision/seegroup_multi-layer_depth_estimation_of_transparent_surfaces_via_self-determine.md)
 
 </div>
 

@@ -152,7 +152,7 @@ HOT 数据集上 SOTA 精度 + 最快速度（37 FPS）。GOT10K 上与 SOTA 持
 - [\[CVPR 2025\] Similarity-Guided Layer-Adaptive Vision Transformer for UAV Tracking](similarity-guided_layer-adaptive_vision_transformer_for_uav_tracking.md)
 - [\[ICCV 2025\] General Compression Framework for Efficient Transformer Object Tracking](../../ICCV2025/video_understanding/general_compression_framework_for_efficient_transformer_object_tracking.md)
 - [\[CVPR 2025\] OmniTrack: Omnidirectional Multi-Object Tracking](omnidirectional_multi-object_tracking.md)
-- [\[CVPR 2025\] DPFlow: Adaptive Optical Flow Estimation with a Dual-Pyramid Framework](dpflow_adaptive_optical_flow_estimation_with_a_dual-pyramid_framework.md)
+- [\[CVPR 2026\] TGTrack: Temporal Generative Learning for Unified Single Object Tracking](../../CVPR2026/video_understanding/tgtrack_temporal_generative_learning_for_unified_single_object_tracking.md)
 
 </div>
 

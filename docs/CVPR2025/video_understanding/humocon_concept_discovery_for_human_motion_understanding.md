@@ -116,10 +116,10 @@ LLM 微调阶段使用 LoRA (rank=8) 进行轻量级调整。
 ## 相关论文
 
 - [\[CVPR 2025\] H-MoRe: Learning Human-centric Motion Representation for Action Analysis](h-more_learning_human-centric_motion_representation_for_action_analysis.md)
+- [\[CVPR 2026\] MoVie: Broaden Your Views with Human Motion for Action Detection](../../CVPR2026/video_understanding/movie_broaden_your_views_with_human_motion_for_action_detection.md)
 - [\[ICCV 2025\] Flow4Agent: Long-form Video Understanding via Motion Prior from Optical Flow](../../ICCV2025/video_understanding/flow4agent_long-form_video_understanding_via_motion_prior_from_optical_flow.md)
 - [\[CVPR 2025\] FRAME: Floor-aligned Representation for Avatar Motion from Egocentric Video](frame_floor-aligned_representation_for_avatar_motion_from_egocentric_video.md)
 - [\[CVPR 2025\] Towards Universal Soccer Video Understanding](towards_universal_soccer_video_understanding.md)
-- [\[CVPR 2026\] Learning to Assist: Physics-Grounded Human-Human Control via Multi-Agent Reinforcement Learning](../../CVPR2026/video_understanding/learning_to_assist_physics-grounded_human-human_control_via_multi-agent_reinforc.md)
 
 </div>
 

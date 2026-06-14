@@ -146,11 +146,11 @@ tags:
 
 ## 相关论文
 
+- [\[CVPR 2026\] Learning to Infer Parameterized Representations of Plants from 3D Scans](../../CVPR2026/3d_vision/learning_to_infer_parameterized_representations_of_plants_from_3d_scans.md)
 - [\[NeurIPS 2025\] Fully Dynamic Algorithms for Chamfer Distance](../../NeurIPS2025/3d_vision/fully_dynamic_algorithms_for_chamfer_distance.md)
-- [\[ICCV 2025\] LayerLock: Non-collapsing Representation Learning with Progressive Freezing](../../ICCV2025/3d_vision/layerlock_non-collapsing_representation_learning_with_progressive_freezing.md)
-- [\[ICLR 2026\] NOVA3R: Non-pixel-aligned Visual Transformer for Amodal 3D Reconstruction](../../ICLR2026/3d_vision/nova3r_non-pixel-aligned_visual_transformer_for_amodal_3d_reconstruction.md)
-- [\[CVPR 2026\] Hg-I2P: Bridging Modalities for Generalizable Image-to-Point-Cloud Registration via Heterogeneous Graphs](../../CVPR2026/3d_vision/hg-i2p_bridging_modalities_for_generalizable_image-to-point-cloud_registration_v.md)
-- [\[CVPR 2025\] SharpDepth: Sharpening Metric Depth Predictions Using Diffusion Distillation](../../CVPR2025/3d_vision/sharpdepth_sharpening_metric_depth_predictions_using_diffusion_distillation.md)
+- [\[CVPR 2026\] The Midas Touch for Metric Depth](../../CVPR2026/3d_vision/the_midas_touch_for_metric_depth.md)
+- [\[CVPR 2026\] RINO: Rotation-Invariant Non-Rigid Correspondences](../../CVPR2026/3d_vision/rino_rotation-invariant_non-rigid_correspondences.md)
+- [\[CVPR 2026\] FunFact: Building Probabilistic Functional 3D Scene Graphs via Factor-Graph Reasoning](../../CVPR2026/3d_vision/funfact_building_probabilistic_functional_3d_scene_graphs_via_factor-graph_reaso.md)
 
 </div>
 

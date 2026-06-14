@@ -124,8 +124,8 @@ tags:
 - [\[ICML 2026\] Recovering Hidden Reward in Diffusion-Based Policies](recovering_hidden_reward_in_diffusion-based_policies.md)
 - [\[ICML 2026\] Caracal: Causal Architecture via Spectral Mixing](caracal_causal_architecture_via_spectral_mixing.md)
 - [\[ICLR 2026\] Embracing Discrete Search: A Reasonable Approach to Causal Structure Learning](../../ICLR2026/image_generation/embracing_discrete_search_a_reasonable_approach_to_causal_structure_learning.md)
+- [\[CVPR 2026\] Spatiotemporal Pyramid Flow Matching for Climate Emulation](../../CVPR2026/image_generation/spatiotemporal_pyramid_flow_matching_for_climate_emulation.md)
 - [\[ICML 2026\] Image Restoration via Diffusion Models with Dynamic Resolution](image_restoration_via_diffusion_models_with_dynamic_resolution.md)
-- [\[CVPR 2026\] DynaVid: Learning to Generate Highly Dynamic Videos using Synthetic Motion Data](../../CVPR2026/image_generation/dynavid_learning_to_generate_highly_dynamic_videos_using_synthetic_motion_data.md)
 
 </div>
 

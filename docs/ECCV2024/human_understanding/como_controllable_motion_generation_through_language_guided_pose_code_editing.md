@@ -159,9 +159,9 @@ CoMo 的关键区分点在于：可解释的离散表示使 LLM 能直接"读懂
 
 - [\[CVPR 2026\] LaMoGen: Language to Motion Generation Through LLM-Guided Symbolic Inference](../../CVPR2026/human_understanding/lamogen_language_to_motion_generation_through_llm-guided_symbolic_inference.md)
 - [\[ECCV 2024\] Motion Mamba: Efficient and Long Sequence Motion Generation](motion_mamba_efficient_and_long_sequence_motion_generation.md)
+- [\[CVPR 2026\] Omni-Supervised Motion Editing: Balancing Change and Invariance through Positive-Negative Learning](../../CVPR2026/human_understanding/omni-supervised_motion_editing_balancing_change_and_invariance_through_positive-.md)
 - [\[ECCV 2024\] Large Motion Model for Unified Multi-Modal Motion Generation](large_motion_model_for_unified_multi-modal_motion_generation.md)
-- [\[ECCV 2024\] Audio-Driven Talking Face Generation with Stabilized Synchronization Loss](audio-driven_talking_face_generation_with_stabilized_synchronization_loss.md)
-- [\[ECCV 2024\] A Simple Baseline for Spoken Language to Sign Language Translation with 3D Avatars](a_simple_baseline_for_spoken_language_to_sign_language_trans.md)
+- [\[CVPR 2026\] MotionMaster: Generalizable Text-Driven Motion Generation and Editing](../../CVPR2026/human_understanding/motionmaster_generalizable_text-driven_motion_generation_and_editing.md)
 
 </div>
 

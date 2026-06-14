@@ -138,9 +138,9 @@ CLIP 特征中元数据参数的线性探针预测准确率：
 
 - [\[ECCV 2024\] Synergy of Sight and Semantics: Visual Intention Understanding with CLIP](../../ECCV2024/others/synergy_of_sight_and_semantics_visual_intention_understanding_with_clip.md)
 - [\[NeurIPS 2025\] What Does It Take to Build a Performant Selective Classifier?](../../NeurIPS2025/others/what_does_it_take_to_build_a_performant_selective_classifier.md)
+- [\[CVPR 2026\] Language Does Matter for Cross-Domain Few-Shot Visual Feature Enhancement](../../CVPR2026/others/language_does_matter_for_cross-domain_few-shot_visual_feature_enhancement.md)
 - [\[NeurIPS 2025\] Regression Trees Know Calculus](../../NeurIPS2025/others/regression_trees_know_calculus.md)
 - [\[ICCV 2025\] Doodle Your Keypoints: Sketch-Based Few-Shot Keypoint Detection](doodle_your_keypoints_sketch-based_few-shot_keypoint_detection.md)
-- [\[ICML 2025\] Function Encoders: A Principled Approach to Transfer Learning in Hilbert Spaces](../../ICML2025/others/function_encoders_a_principled_approach_to_transfer_learning_in_hilbert_spaces.md)
 
 </div>
 

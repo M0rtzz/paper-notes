@@ -169,7 +169,7 @@ PTSD 与 PT+DM 效率相当，但在 Fig. 6 的详细对比中，相同评估预
 - [\[NeurIPS 2025\] Progressive Inference-Time Annealing of Diffusion Models for Sampling from Boltzmann Densities](../../NeurIPS2025/image_generation/progressive_inference-time_annealing_of_diffusion_models_for_sampling_from_boltz.md)
 - [\[NeurIPS 2025\] Diffusion-Driven Progressive Target Manipulation for Source-Free Domain Adaptation](../../NeurIPS2025/image_generation/diffusion-driven_progressive_target_manipulation_for_source-free_domain_adaptati.md)
 - [\[CVPR 2025\] ProReflow: Progressive Reflow with Decomposed Velocity](../../CVPR2025/image_generation/proreflow_progressive_reflow_with_decomposed_velocity.md)
-- [\[NeurIPS 2025\] Ψ-Sampler: Initial Particle Sampling for SMC-Based Inference-Time Reward Alignment in Score Models](../../NeurIPS2025/image_generation/psi-sampler_initial_particle_sampling_for_smc-based_inference-time_reward_alignm.md)
+- [\[ECCV 2024\] FreeDiff: Progressive Frequency Truncation for Image Editing with Diffusion Models](../../ECCV2024/image_generation/freediff_progressive_frequency_truncation_for_image_editing_with_diffusion_model.md)
 
 </div>
 

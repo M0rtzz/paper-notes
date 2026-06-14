@@ -148,11 +148,11 @@ $$\frac{\mathrm{sup}(\alpha^*, S, \ell - \delta)}{\max_{\alpha \in \mathcal{U}: 
 
 ## 相关论文
 
-- [\[ICML 2025\] Position: LLM Social Simulations Are a Promising Research Method](llm_social_simulations_are_a_promising_research_method.md)
+- [\[ICML 2025\] LLM Social Simulations Are a Promising Research Method](llm_social_simulations_are_a_promising_research_method.md)
+- [\[ACL 2025\] Explicit and Implicit Data Augmentation for Social Event Detection](../../ACL2025/llm_nlp/explicit_and_implicit_data_augmentation_for_social_event_detection.md)
 - [\[ACL 2025\] Which of These Best Describes Multiple Choice Evaluation with LLMs?](../../ACL2025/llm_nlp/multiple_choice_eval.md)
 - [\[ACL 2026\] Generative Interfaces for Language Models](../../ACL2026/llm_nlp/generative_interfaces_for_language_models.md)
-- [\[NeurIPS 2025\] Opinion Maximization in Social Networks by Modifying Internal Opinions](../../NeurIPS2025/llm_nlp/opinion_maximization_in_social_networks_by_modifying_internal_opinions.md)
-- [\[ACL 2025\] SocialEval: Evaluating Social Intelligence of Large Language Models](../../ACL2025/llm_nlp/socialeval_evaluating_social_intelligence_of_large_language_models.md)
+- [\[ACL 2025\] Temporal Reasoning for Timeline Summarisation in Social Media](../../ACL2025/llm_nlp/temporal_reasoning_for_timeline_summarisation_in_social_media.md)
 
 </div>
 

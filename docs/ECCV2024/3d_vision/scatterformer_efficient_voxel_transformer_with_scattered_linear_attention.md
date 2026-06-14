@@ -183,10 +183,10 @@ $$X' = \text{Concat}(X_k, X_w, X_h, X^{3c:4c})$$
 ## 相关论文
 
 - [\[ECCV 2024\] TPA3D: Triplane Attention for Fast Text-to-3D Generation](tpa3d_triplane_attention_for_fast_text-to-3d_generation.md)
+- [\[CVPR 2026\] VIAFormer: Voxel-Image Alignment Transformer for High-Fidelity Voxel Refinement](../../CVPR2026/3d_vision/viaformer_voxel-image_alignment_transformer_for_high-fidelity_voxel_refinement.md)
 - [\[ECCV 2024\] Analysis-by-Synthesis Transformer for Single-View 3D Reconstruction](analysis-by-synthesis_transformer_for_single-view_3d_reconstruction.md)
-- [\[CVPR 2026\] FlashVGGT: Efficient and Scalable Visual Geometry Transformers with Compressed Descriptor Attention](../../CVPR2026/3d_vision/flashvggt_efficient_and_scalable_visual_geometry_transformers_with_compressed_descr.md)
-- [\[NeurIPS 2025\] Locality-Sensitive Hashing-Based Efficient Point Transformer for Charged Particle Reconstruction](../../NeurIPS2025/3d_vision/locality-sensitive_hashing-based_efficient_point_transformer_for_charged_particl.md)
-- [\[CVPR 2025\] ERUPT: Efficient Rendering with Unposed Patch Transformer](../../CVPR2025/3d_vision/erupt_efficient_rendering_with_unposed_patch_transformer.md)
+- [\[ECCV 2024\] GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation](grm_large_gaussian_reconstruction_model_for_efficient_3d_reconstruction_and_gene.md)
+- [\[ECCV 2024\] Bi-directional Contextual Attention for 3D Dense Captioning](bi-directional_contextual_attention_for_3d_dense_captioning.md)
 
 </div>
 

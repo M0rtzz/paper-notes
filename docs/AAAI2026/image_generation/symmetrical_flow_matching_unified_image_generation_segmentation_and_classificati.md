@@ -192,8 +192,8 @@ SymmFlow仅用25步即超越Diffusion Classifier在CIFAR-10上的表现，而后
 ## 相关论文
 
 - [\[AAAI 2026\] EchoGen: Cycle-Consistent Learning for Unified Layout-Image Generation and Understanding](echogen_cycle-consistent_learning_for_unified_layout-image_generation_and_unders.md)
-- [\[CVPR 2026\] BiGain: Unified Token Compression for Joint Generation and Classification](../../CVPR2026/image_generation/bigain_unified_token_compression_for_joint_generation_and_classification.md)
 - [\[ICLR 2026\] Laplacian Multi-scale Flow Matching for Generative Modeling](../../ICLR2026/image_generation/laplacian_multi-scale_flow_matching_for_generative_modeling.md)
+- [\[CVPR 2026\] BiGain: Unified Token Compression for Joint Generation and Classification](../../CVPR2026/image_generation/bigain_unified_token_compression_for_joint_generation_and_classification.md)
 - [\[AAAI 2026\] Continuous Degradation Modeling via Latent Flow Matching for Real-World Super-Resolution](continuous_degradation_modeling_via_latent_flow_matching_for_real-world_super-re.md)
 - [\[NeurIPS 2025\] Latent Zoning Network: A Unified Principle for Generative Modeling, Representation Learning, and Classification](../../NeurIPS2025/image_generation/latent_zoning_network_a_unified_principle_for_generative_modeling_representation.md)
 

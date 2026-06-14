@@ -135,7 +135,7 @@ Math2Visual 包含三个层次：(1) 基于教师访谈定义的视觉语言（V
 - [\[NeurIPS 2025\] OVERT: A Benchmark for Over-Refusal Evaluation on Text-to-Image Models](../../NeurIPS2025/image_generation/overt_a_benchmark_for_over-refusal_evaluation_on_text-to-image_models.md)
 - [\[ICCV 2025\] Generating Multi-Image Synthetic Data for Text-to-Image Customization](../../ICCV2025/image_generation/generating_multi-image_synthetic_data_for_text-to-image_customization.md)
 - [\[NeurIPS 2025\] On the Emergence of Linear Analogies in Word Embeddings](../../NeurIPS2025/image_generation/on_the_emergence_of_linear_analogies_in_word_embeddings.md)
-- [\[CVPR 2025\] Towards Scalable Human-Aligned Benchmark for Text-Guided Image Editing](../../CVPR2025/image_generation/towards_scalable_human-aligned_benchmark_for_text-guided_image_editing.md)
+- [\[ECCV 2024\] HIMO: A New Benchmark for Full-Body Human Interacting with Multiple Objects](../../ECCV2024/image_generation/himo_a_new_benchmark_for_full-body_human_interacting_with_multiple_objects.md)
 
 </div>
 

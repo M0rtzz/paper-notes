@@ -137,11 +137,11 @@ $$\min_{\mathbf{W}, \boldsymbol{\eta}, \tilde{\boldsymbol{\eta}}} \frac{1}{2}\|\
 
 ## 相关论文
 
+- [\[CVPR 2026\] Coupling Liquid Time-Constant Encoders with Modern Hopfield Memory](../../CVPR2026/others/coupling_liquid_time-constant_encoders_with_modern_hopfield_memory.md)
 - [\[ICML 2025\] Modern Methods in Associative Memory](modern_methods_in_associative_memory.md)
-- [\[ICML 2025\] Meek Models Shall Inherit the Earth](meek_models_shall_inherit_the_earth.md)
 - [\[ICML 2025\] General Agents Contain World Models](general_agents_contain_world_models.md)
 - [\[ICML 2025\] UnHiPPO: Uncertainty-Aware Initialization for State Space Models](unhippo_uncertainty-aware_initialization_for_state_space_models.md)
-- [\[ACL 2025\] Length-Induced Embedding Collapse in PLM-based Models](../../ACL2025/others/length-induced_embedding_collapse_in_plm-based_models.md)
+- [\[ICML 2025\] Latent Variable Estimation in Bayesian Black-Litterman Models](latent_variable_estimation_in_bayesian_black-litterman_models.md)
 
 </div>
 

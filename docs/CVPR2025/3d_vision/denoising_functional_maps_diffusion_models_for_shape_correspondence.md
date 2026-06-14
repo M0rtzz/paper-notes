@@ -117,10 +117,10 @@ tags:
 ## 相关论文
 
 - [\[CVPR 2025\] Stable-SCore: A Stable Registration-Based Framework for 3D Shape Correspondence](stable-score_a_stable_registration-based_framework_for_3d_shape_correspondence.md)
+- [\[CVPR 2026\] Volumetric Functional Maps](../../CVPR2026/3d_vision/volumetric_functional_maps.md)
 - [\[CVPR 2025\] Cross-View Completion Models are Zero-shot Correspondence Estimators](cross-view_completion_models_are_zero-shot_correspondence_estimators.md)
 - [\[CVPR 2025\] DualPM: Dual Posed-Canonical Point Maps for 3D Shape and Pose Reconstruction](dualpm_dual_point_maps_shape_pose.md)
-- [\[ECCV 2024\] Transferable 3D Adversarial Shape Completion using Diffusion Models](../../ECCV2024/3d_vision/transferable_3d_adversarial_shape_completion_using_diffusion_models.md)
-- [\[CVPR 2025\] Touch2Shape: Touch-Conditioned 3D Diffusion for Shape Exploration and Reconstruction](touch2shape_touch-conditioned_3d_diffusion_for_shape_exploration_and_reconstruct.md)
+- [\[CVPR 2025\] Scaling Properties of Diffusion Models for Perceptual Tasks](scaling_properties_of_diffusion_models_for_perceptual_tasks.md)
 
 </div>
 

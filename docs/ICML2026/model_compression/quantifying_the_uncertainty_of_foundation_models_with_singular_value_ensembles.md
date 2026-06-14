@@ -137,7 +137,7 @@ flowchart TD
 
 ## 相关论文
 
-- [\[ICML 2026\] End-to-End Compression for Tabular Foundation Models](end-to-end_compression_for_tabular_foundation_models.md)
+- [\[CVPR 2026\] AdaSVD: Singular Value Decomposition with Adaptive Mechanisms for Large Multimodal Models](../../CVPR2026/model_compression/adasvd_singular_value_decomposition_with_adaptive_mechanisms_for_large_multimoda.md)
 - [\[NeurIPS 2025\] Hankel Singular Value Regularization for Highly Compressible State Space Models](../../NeurIPS2025/model_compression/hankel_singular_value_regularization_for_highly_compressible_state_space_models.md)
 - [\[ICML 2026\] BioArc: Discovering Optimal Neural Architectures for Biological Foundation Models](bioarc_discovering_optimal_neural_architectures_for_biological_foundation_models.md)
 - [\[ICML 2026\] PRISM: Synergizing Vision Foundation Models via Self-Organized Expert Specialization](prism_synergizing_vision_foundation_models_via_self-organized_expert_specializat.md)

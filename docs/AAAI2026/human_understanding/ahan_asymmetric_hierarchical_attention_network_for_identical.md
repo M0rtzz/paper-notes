@@ -134,11 +134,11 @@ General Verification 场景：AHAN 达到 99.1% Acc / 99.8% AUC / 97.2% TAR@1%FA
 
 ## 相关论文
 
+- [\[CVPR 2026\] Goldilocks Test Sets for Face Verification](../../CVPR2026/human_understanding/goldilocks_test_sets_for_face_verification.md)
 - [\[AAAI 2026\] MVGD-Net: A Novel Motion-aware Video Glass Surface Detection Network](mvgd-net_a_novel_motion-aware_video_glass_surface_detection_network.md)
-- [\[CVPR 2026\] CIGPose: Causal Intervention Graph Neural Network for Whole-Body Pose Estimation](../../CVPR2026/human_understanding/cigpose_causal_intervention_graph_neural_network_for_whole-body_pose_estimation.md)
-- [\[ECCV 2024\] PoseSOR: Human Pose Can Guide Our Attention](../../ECCV2024/human_understanding/posesor_human_pose_can_guide_our_attention.md)
-- [\[ECCV 2024\] Upper-Body Hierarchical Graph for Skeleton Based Emotion Recognition in Assistive Driving](../../ECCV2024/human_understanding/upper-body_hierarchical_graph_for_skeleton_based_emotion_recognition_in_assistiv.md)
-- [\[ICCV 2025\] CarGait: Cross-Attention based Re-ranking for Gait Recognition](../../ICCV2025/human_understanding/cargait_cross_attention_based_re_ranking_for_gait_recognition.md)
+- [\[CVPR 2026\] MotionHiFlow: Text-to-Motion via Hierarchical Flow Matching](../../CVPR2026/human_understanding/motionhiflow_text-to-motion_via_hierarchical_flow_matching.md)
+- [\[AAAI 2026\] CLIP-FTI: Fine-Grained Face Template Inversion via CLIP-Driven Attribute Conditioning](clip-fti_fine-grained_face_template_inversion_via_clip-driven_attribute_conditio.md)
+- [\[CVPR 2026\] RGB-Event based Pedestrian Attribute Recognition: A Benchmark Dataset and An Asymmetric RWKV Fusion Framework](../../CVPR2026/human_understanding/rgb-event_based_pedestrian_attribute_recognition_a_benchmark_dataset_and_an_asym.md)
 
 </div>
 

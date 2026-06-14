@@ -123,9 +123,9 @@ TexTalker分三阶段：(1) 将面部运动和纹理变化统一为UV空间的mo
 ## 相关论文
 
 - [\[CVPR 2025\] MARVEL-40M+: Multi-Level Visual Elaboration for High-Fidelity Text-to-3D Content Creation](marvel-40m_multi-level_visual_elaboration_for_high-fidelity_text-to-3d_content_c.md)
-- [\[CVPR 2025\] HRAvatar: High-Quality and Relightable Gaussian Head Avatar](hravatar_high-quality_and_relightable_gaussian_head_avatar.md)
 - [\[CVPR 2025\] Ctrl-D: Controllable Dynamic 3D Scene Editing with Personalized 2D Diffusion](ctrl-d_controllable_dynamic_3d_scene_editing_with_personalized_2d_diffusion.md)
-- [\[CVPR 2026\] Using Gaussian Splats to Create High-Fidelity Facial Geometry and Texture](../../CVPR2026/3d_vision/using_gaussian_splats_to_create_high-fidelity_facial_geometry_and_texture.md)
+- [\[CVPR 2025\] HRAvatar: High-Quality and Relightable Gaussian Head Avatar](hravatar_high-quality_and_relightable_gaussian_head_avatar.md)
+- [\[ICCV 2025\] HiNeuS: High-fidelity Neural Surface Mitigating Low-texture and Reflective Ambiguity](../../ICCV2025/3d_vision/hineus_high-fidelity_neural_surface_mitigating_low-texture_and_reflective_ambigu.md)
 - [\[CVPR 2025\] Sparse Voxels Rasterization: Real-time High-fidelity Radiance Field Rendering](sparse_voxels_rasterization_real-time_high-fidelity_radiance_field_rendering.md)
 
 </div>

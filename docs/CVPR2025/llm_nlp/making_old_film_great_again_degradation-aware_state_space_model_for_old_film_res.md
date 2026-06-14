@@ -110,10 +110,10 @@ MambaOFR采用多帧输入的编码器-解码器架构，核心是Mamba-based时
 ## 相关论文
 
 - [\[AAAI 2026\] An Invariant Latent Space Perspective on Language Model Inversion](../../AAAI2026/llm_nlp/an_invariant_latent_space_perspective_on_language_model_inve.md)
-- [\[ACL 2025\] Biased LLMs Can Influence Political Decision-Making](../../ACL2025/llm_nlp/biased_llms_can_influence_political_decision-making.md)
 - [\[ICML 2026\] A Geometric Relation of the Error Introduced by Sampling a Language Model's Output Distribution to its Internal State](../../ICML2026/llm_nlp/a_geometric_relation_of_the_error_introduced_by_sampling_a_language_models_outpu.md)
+- [\[ACL 2025\] Biased LLMs Can Influence Political Decision-Making](../../ACL2025/llm_nlp/biased_llms_can_influence_political_decision-making.md)
 - [\[NeurIPS 2025\] Unifying Attention Heads and Task Vectors via Hidden State Geometry in In-Context Learning](../../NeurIPS2025/llm_nlp/unifying_attention_heads_and_task_vectors_via_hidden_state_geometry_in_in-contex.md)
-- [\[ACL 2025\] Why Prompt Design Matters and Works: A Complexity Analysis of Prompt Search Space in LLMs](../../ACL2025/llm_nlp/why_prompt_design_matters_and_works_a_complexity_analysis_of_prompt_search_space.md)
+- [\[ACL 2025\] Making FETCH! Happen: Finding Emergent Dog Whistles Through Common Habitats](../../ACL2025/llm_nlp/making_fetch_happen_finding_emergent_dog_whistles_through_common_habitats.md)
 
 </div>
 

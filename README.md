@@ -33,9 +33,9 @@ Paper Notes 交流群: `1094559400`
 
 | 会议 | 笔记数 | 完整论文清单 |
 |------|-------:|:-------------|
+| [CVPR 2026](https://papernotes.org/CVPR2026/) | 3,996 | [CVPR2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/CVPR2026-Papers.md) |
 | [ICML 2026](https://papernotes.org/ICML2026/) | 1,463 | [ICML2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICML2026-Papers.md) |
 | [ACL 2026](https://papernotes.org/ACL2026/) | 1,363 | [ACL2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ACL2026-Papers.md) |
-| [CVPR 2026](https://papernotes.org/CVPR2026/) | 3,996 | [CVPR2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/CVPR2026-Papers.md) |
 | [ICLR 2026](https://papernotes.org/ICLR2026/) | 1,491 | [ICLR2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICLR2026-Papers.md) |
 | [AAAI 2026](https://papernotes.org/AAAI2026/) | 1,347 | [AAAI2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/AAAI2026-Papers.md) |
 | [NeurIPS 2025](https://papernotes.org/NeurIPS2025/) | 2,487 | [NeurIPS2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/NeurIPS2025-Papers.md) |

@@ -125,7 +125,7 @@ MoE专家中HydroNet最优（MAE 0.0085），STGCN次优。
 - [\[AAAI 2026\] T-Rex-Omni: Integrating Negative Visual Prompt in Generic Object Detection](t-rex-omni_integrating_negative_visual_prompt_in_generic_object_detection.md)
 - [\[AAAI 2026\] AnoStyler: Text-Driven Localized Anomaly Generation via Lightweight Style Transfer](anostyler_text-driven_localized_anomaly_generation_via_light.md)
 - [\[NeurIPS 2025\] DETree: DEtecting Human-AI Collaborative Texts via Tree-Structured Hierarchical Representation Learning](../../NeurIPS2025/object_detection/detree_detecting_human-ai_collaborative_texts_via_tree-structured_hierarchical_r.md)
-- [\[CVPR 2025\] MulSen-AD: Multi-Sensor Object Anomaly Detection](../../CVPR2025/object_detection/mulsen_ad_multi_sensor_anomaly_detection.md)
+- [\[CVPR 2026\] Detect Anything via Next Point Prediction](../../CVPR2026/object_detection/detect_anything_via_next_point_prediction.md)
 
 </div>
 

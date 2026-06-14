@@ -131,8 +131,8 @@ FSVGP包含两个核心组件：(1) VG-FractalDB数据集构建——使用3D迭
 - [\[CVPR 2026\] E-RayZer: Self-supervised 3D Reconstruction as Spatial Visual Pre-training](../../CVPR2026/3d_vision/e-rayzer_self-supervised_3d_reconstruction_as_spatial_visual_pre-training.md)
 - [\[ICCV 2025\] 4D Visual Pre-training for Robot Learning](../../ICCV2025/3d_vision/4d_visual_pretraining_for_robot_learning.md)
 - [\[ECCV 2024\] Improving Domain Generalization in Self-Supervised Monocular Depth Estimation via Stabilized Adversarial Training](improving_domain_generalization_in_self-supervised_monocular_depth_estimation_vi.md)
-- [\[ECCV 2024\] Deep Patch Visual SLAM](deep_patch_visual_slam.md)
 - [\[ICML 2025\] The Sharpness Disparity Principle in Transformers for Accelerating Language Model Pre-Training](../../ICML2025/3d_vision/the_sharpness_disparity_principle_in_transformers_for_accelerating_language_mode.md)
+- [\[ECCV 2024\] Deep Patch Visual SLAM](deep_patch_visual_slam.md)
 
 </div>
 

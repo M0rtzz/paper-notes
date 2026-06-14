@@ -162,7 +162,7 @@ ICML 2025 Spotlight 实至名归。提出了简洁而强大的范式：将视频
 - [\[ICML 2025\] Theoretical Guarantees on the Best-of-n Alignment Policy](theoretical_guarantees_on_the_best-of-n_alignment_policy.md)
 - [\[NeurIPS 2025\] Flattening Hierarchies with Policy Bootstrapping](../../NeurIPS2025/image_generation/flattening_hierarchies_with_policy_bootstrapping.md)
 - [\[ICML 2025\] Discriminative Policy Optimization for Token-Level Reward Models](discriminative_policy_optimization_for_token-level_reward_models.md)
-- [\[ICCV 2025\] Dense Policy: Bidirectional Autoregressive Learning of Actions](../../ICCV2025/image_generation/dense_policy_bidirectional_autoregressive_learning_of_actions.md)
+- [\[CVPR 2026\] Seeing What Matters: Visual Preference Policy Optimization for Visual Generation](../../CVPR2026/image_generation/seeing_what_matters_visual_preference_policy_optimization_for_visual_generation.md)
 
 </div>
 

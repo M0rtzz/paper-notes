@@ -143,8 +143,8 @@ $$L^t = L_\text{render}^t + w_{\tilde{\text{proj}}}^t L_{\tilde{\text{proj}}}^t 
 - [\[CVPR 2025\] IAAO: Interactive Affordance Learning for Articulated Objects in 3D Environments](iaao_interactive_affordance_learning_for_articulated_objects_in_3d_environments.md)
 - [\[CVPR 2025\] Textured Gaussians for Enhanced 3D Scene Appearance Modeling](textured_gaussians_for_enhanced_3d_scene_appearance_modeling.md)
 - [\[CVPR 2025\] Category-Agnostic Neural Object Rigging](category-agnostic_neural_object_rigging.md)
-- [\[CVPR 2025\] UnCommon Objects in 3D](uncommon_objects_in_3d.md)
-- [\[NeurIPS 2025\] URDF-Anything: Constructing Articulated Objects with 3D Multimodal Language Model](../../NeurIPS2025/3d_vision/urdf-anything_constructing_articulated_objects_with_3d_multimodal_language_model.md)
+- [\[CVPR 2025\] SGCR: Spherical Gaussians for Efficient 3D Curve Reconstruction](sgcr_spherical_gaussians_for_efficient_3d_curve_reconstruction.md)
+- [\[CVPR 2026\] Part$^{2}$GS: Part-aware Modeling of Articulated Objects using 3D Gaussian Splatting](../../CVPR2026/3d_vision/part2gs_part-aware_modeling_of_articulated_objects_using_3d_gaussian_splatting.md)
 
 </div>
 

@@ -173,11 +173,11 @@ FacET（可变chunks + predicted translator）显著优于所有消融变体。�
 
 ## 相关论文
 
-- [\[ECCV 2024\] Generalizable Facial Expression Recognition](generalizable_facial_expression_recognition.md)
 - [\[ICML 2025\] How to Move Your Dragon: Text-to-Motion Synthesis for Large-Vocabulary Objects](../../ICML2025/human_understanding/how_to_move_your_dragon_text-to-motion_synthesis_for_large-vocabulary_objects.md)
+- [\[ECCV 2024\] Generalizable Facial Expression Recognition](generalizable_facial_expression_recognition.md)
 - [\[ECCV 2024\] ReLoo: Reconstructing Humans Dressed in Loose Garments from Monocular Video in the Wild](reloo_reconstructing_humans_dressed_in_loose_garments_from_monocular_video_in_th.md)
 - [\[CVPR 2026\] How to Take a Memorable Picture? Empowering Users with Actionable Feedback](../../CVPR2026/human_understanding/how_to_take_a_memorable_picture_empowering_users_with_actionable_feedback.md)
-- [\[ICCV 2025\] SynFER: Towards Boosting Facial Expression Recognition with Synthetic Data](../../ICCV2025/human_understanding/synfer_towards_boosting_facial_expression_recognition_with_synthetic_data.md)
+- [\[CVPR 2026\] Omni-Supervised Motion Editing: Balancing Change and Invariance through Positive-Negative Learning](../../CVPR2026/human_understanding/omni-supervised_motion_editing_balancing_change_and_invariance_through_positive-.md)
 
 </div>
 

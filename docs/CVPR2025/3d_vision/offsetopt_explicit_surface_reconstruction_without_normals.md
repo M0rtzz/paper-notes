@@ -129,10 +129,10 @@ $$\mathcal{L}_{\text{opt}} = \frac{1}{N \times K \times K} \sum_n \sum_i \sum_j 
 ## 相关论文
 
 - [\[CVPR 2025\] GauSTAR: Gaussian Surface Tracking and Reconstruction](gaustar_gaussian_surface_tracking_and_reconstruction.md)
-- [\[CVPR 2025\] Video Depth Without Video Models](video_depth_without_video_models.md)
 - [\[CVPR 2025\] ProbeSDF: Light Field Probes for Neural Surface Reconstruction](probesdf_light_field_probes_for_neural_surface_reconstruction.md)
 - [\[CVPR 2025\] Parametric Point Cloud Completion for Polygonal Surface Reconstruction](parametric_point_cloud_completion_for_polygonal_surface_reconstruction.md)
-- [\[ICCV 2025\] SurfaceSplat: Connecting Surface Reconstruction and Gaussian Splatting](../../ICCV2025/3d_vision/surfacesplat_connecting_surface_reconstruction_and_gaussian_splatting.md)
+- [\[CVPR 2025\] Video Depth Without Video Models](video_depth_without_video_models.md)
+- [\[CVPR 2026\] ExMesh: EXplicit Mesh Reconstruction with Topology Adaptation](../../CVPR2026/3d_vision/exmesh_explicit_mesh_reconstruction_with_topology_adaptation.md)
 
 </div>
 

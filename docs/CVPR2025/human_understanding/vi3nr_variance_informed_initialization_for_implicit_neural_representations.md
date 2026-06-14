@@ -106,8 +106,8 @@ tags:
 - [\[CVPR 2025\] Quaffure: Real-Time Quasi-Static Neural Hair Simulation](quaffure_real-time_quasi-static_neural_hair_simulation.md)
 - [\[CVPR 2025\] NBAvatar: Neural Billboards Avatars with Realistic Hand-Face Interaction](nbavatar_neural_billboards_avatars_with_realistic_hand-face_interaction.md)
 - [\[ICCV 2025\] ImHead: A Large-scale Implicit Morphable Model for Localized Head Modeling](../../ICCV2025/human_understanding/imhead_a_large-scale_implicit_morphable_model_for_localized_head_modeling.md)
-- [\[CVPR 2026\] Editing Physiological Signals in Videos Using Latent Representations](../../CVPR2026/human_understanding/editing_physiological_signals_in_videos_using_latent_representations.md)
 - [\[ICCV 2025\] NGD: Neural Gradient Based Deformation for Monocular Garment Reconstruction](../../ICCV2025/human_understanding/ngd_neural_gradient_based_deformation_for_monocular_garment_reconstruction.md)
+- [\[ECCV 2024\] Alignist: CAD-Informed Orientation Distribution Estimation by Fusing Shape and Correspondences](../../ECCV2024/human_understanding/alignist_cad-informed_orientation_distribution_estimation_by_fusing_shape_and_co.md)
 
 </div>
 

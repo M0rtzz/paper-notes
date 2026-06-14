@@ -123,9 +123,9 @@ tags:
 
 - [\[NeurIPS 2025\] Military AI Needs Technically-Informed Regulation to Safeguard AI Research and its Applications](military_ai_needs_technically-informed_regulation_to_safeguard_ai_research_and_i.md)
 - [\[ICML 2025\] Democratic AI is Possible. The Democracy Levels Framework Shows How It Might Work](../../ICML2025/others/democratic_ai_is_possible_the_democracy_levels_framework_shows_how_it_might_work.md)
-- [\[ICML 2026\] Position: Reliable AI Needs to Externalize Implicit Knowledge: A Human-AI Collaboration Perspective](../../ICML2026/others/reliable_ai_needs_to_externalize_implicit_knowledge_a_human-ai_collaboration_per.md)
-- [\[NeurIPS 2025\] Adaptive Data Analysis for Growing Data](adaptive_data_analysis_for_growing_data.md)
+- [\[NeurIPS 2025\] Emergency Response Measures for Catastrophic AI Risk](emergency_response_measures_for_catastrophic_ai_risk.md)
 - [\[ICLR 2026\] Towards Sustainable Investment Policies Informed by Opponent Shaping](../../ICLR2026/others/towards_sustainable_investment_policies_informed_by_opponent_shaping.md)
+- [\[NeurIPS 2025\] Evaluating In Silico Creativity: An Expert Review of AI Chess Compositions](evaluating_in_silico_creativity_an_expert_review_of_ai_chess_compositions.md)
 
 </div>
 

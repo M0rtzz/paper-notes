@@ -147,7 +147,7 @@ LEAD 采用两阶段自适应切换：
 - [\[ACL 2025\] Self-Taught Agentic Long-Context Understanding](self_taught_agentic_long_ctx.md)
 - [\[NeurIPS 2025\] ContextAgent: Context-Aware Proactive LLM Agents with Open-World Sensory Perceptions](../../NeurIPS2025/llm_agent/contextagent_context-aware_proactive_llm_agents_with_open-world_sensory_percepti.md)
 - [\[ICML 2026\] ACON: Optimizing Context Compression for Long-horizon LLM Agents](../../ICML2026/llm_agent/acon_optimizing_context_compression_for_long-horizon_llm_agents.md)
-- [\[ICML 2026\] Agent-Omit: Adaptive Context Omission for Efficient LLM Agents](../../ICML2026/llm_agent/agent-omit_adaptive_context_omission_for_efficient_llm_agents.md)
+- [\[ACL 2025\] LLM Agents Making Agent Tools](llm_agents_making_agent_tools.md)
 
 </div>
 

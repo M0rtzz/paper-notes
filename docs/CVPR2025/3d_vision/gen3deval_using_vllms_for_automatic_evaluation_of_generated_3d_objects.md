@@ -117,8 +117,8 @@ Gen3DEval分两个阶段：Stage 1训练一个能进行成对比较的vLLM，Sta
 ## 相关论文
 
 - [\[CVPR 2025\] Eval3D: Interpretable and Fine-grained Evaluation for 3D Generation](eval3d_interpretable_and_fine-grained_evaluation_for_3d_generation.md)
-- [\[CVPR 2025\] UnCommon Objects in 3D](uncommon_objects_in_3d.md)
 - [\[ICCV 2025\] How Far are AI-generated Videos from Simulating the 3D Visual World: A Learned 3D Evaluation Approach](../../ICCV2025/3d_vision/how_far_are_ai-generated_videos_from_simulating_the_3d_visual_world_a_learned_3d.md)
+- [\[CVPR 2025\] UnCommon Objects in 3D](uncommon_objects_in_3d.md)
 - [\[CVPR 2025\] ASHiTA: Automatic Scene-grounded Hierarchical Task Analysis](ashita_automatic_scene-grounded_hierarchical_task_analysis.md)
 - [\[CVPR 2025\] MEt3R: Measuring Multi-View Consistency in Generated Images](met3r_measuring_multi-view_consistency_in_generated_images.md)
 

@@ -220,7 +220,7 @@ AdaIN-mean 消融：
 - [\[ECCV 2024\] MagicEraser: Erasing Any Objects via Semantics-Aware Control](magiceraser_erasing_any_objects_via_semantics-aware_control.md)
 - [\[ECCV 2024\] Unveiling Advanced Frequency Disentanglement Paradigm for Low-Light Image Enhancement](unveiling_advanced_frequency_disentanglement_paradigm_for_low-light_image_enhanc.md)
 - [\[ECCV 2024\] Generating 3D House Wireframes with Semantics](generating_3d_house_wireframes_with_semantics.md)
-- [\[ECCV 2024\] LCM-Lookahead for Encoder-Based Text-to-Image Personalization](lcmlookahead_for_encoderbased_texttoimage_personalization.md)
+- [\[CVPR 2025\] IDProtector: An Adversarial Noise Encoder to Protect Against ID-Preserving Image Generation](../../CVPR2025/image_generation/idprotector_an_adversarial_noise_encoder_to_protect_against_id-preserving_image_.md)
 
 </div>
 

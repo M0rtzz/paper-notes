@@ -134,9 +134,9 @@ LIxP在标准的图文对比预训练（CLIP或SigLIP）基础上，增加了一
 
 - [\[CVPR 2025\] Mimic In-Context Learning for Multimodal Tasks](mimic_in-context_learning_for_multimodal_tasks.md)
 - [\[CVPR 2025\] HiFICL: High-Fidelity In-Context Learning for Multimodal Tasks](hificl_high-fidelity_in-context_learning_for_multimodal_tasks.md)
+- [\[ACL 2025\] ConECT Dataset: Overcoming Data Scarcity in Context-Aware E-Commerce MT](../../ACL2025/multimodal_vlm/conect_dataset_overcoming_data_scarcity_in_context-aware_e-commerce_mt.md)
 - [\[CVPR 2026\] CoVFT: Context-aware Visual Fine-tuning for Multimodal Large Language Models](../../CVPR2026/multimodal_vlm/covft_context-aware_visual_fine-tuning_for_multimodal_large_language_models.md)
-- [\[ACL 2026\] CARES: Context-Aware Resolution Selector for VLMs](../../ACL2026/multimodal_vlm/cares_context-aware_resolution_selector_for_vlms.md)
-- [\[ICML 2025\] CoCoA-Mix: Confusion-and-Confidence-Aware Mixture Model for Context Optimization](../../ICML2025/multimodal_vlm/cocoa-mix_confusion-and-confidence-aware_mixture_model_for_context_optimization.md)
+- [\[CVPR 2026\] Concept-Aware Batch Sampling Improves Language-Image Pretraining](../../CVPR2026/multimodal_vlm/concept-aware_batch_sampling_improves_language-image_pretraining.md)
 
 </div>
 

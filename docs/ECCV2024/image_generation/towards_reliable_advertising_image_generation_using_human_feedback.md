@@ -223,8 +223,8 @@ RFFT 可用率比原始模型提升 29.1 个百分点（56.4→85.5%），人工
 - [\[ECCV 2024\] Realistic Human Motion Generation with Cross-Diffusion Models](realistic_human_motion_generation_with_cross-diffusion_models.md)
 - [\[ECCV 2024\] Text2Place: Affordance-aware Text Guided Human Placement](text2place_affordance-aware_text_guided_human_placement.md)
 - [\[ECCV 2024\] Learning Semantic Latent Directions for Accurate and Controllable Human Motion Prediction](learning_semantic_latent_directions_for_accurate_and_controllable_human_motion_p.md)
-- [\[ICML 2026\] Gradient Preconditioning for Efficient and Reliable Reward-Guided Generation](../../ICML2026/image_generation/gradient_preconditioning_for_efficient_and_reliable_reward-guided_generation.md)
-- [\[NeurIPS 2025\] GenIR: Generative Visual Feedback for Mental Image Retrieval](../../NeurIPS2025/image_generation/genir_generative_visual_feedback_for_mental_image_retrieval.md)
+- [\[CVPR 2026\] Design Your Ad: Personalized Advertising Image and Text Generation with Unified Autoregressive Models](../../CVPR2026/image_generation/design_your_ad_personalized_advertising_image_and_text_generation_with_unified_a.md)
+- [\[ECCV 2024\] Stable Preference: Redefining Training Paradigm of Human Preference Model for Text-to-Image Synthesis](stable_preference_redefining_training_paradigm_of_human_preference_model_for_tex.md)
 
 </div>
 

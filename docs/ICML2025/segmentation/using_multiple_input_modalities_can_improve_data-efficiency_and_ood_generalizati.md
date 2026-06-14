@@ -190,7 +190,7 @@ $$X_{\text{aug}} = [X_{\text{optical}}, X_{\text{DEM}}, X_{\text{LC}}, X_{\text{
 - [\[ICCV 2025\] Harnessing Massive Satellite Imagery with Efficient Masked Image Modeling](../../ICCV2025/segmentation/harnessing_massive_satellite_imagery_with_efficient_masked_image_modeling.md)
 - [\[AAAI 2026\] Generalizable Slum Detection from Satellite Imagery with Mixture-of-Experts](../../AAAI2026/segmentation/generalizable_slum_detection_from_satellite_imagery_with_mixture-of-experts.md)
 - [\[CVPR 2026\] The Golden Subspace: Where Efficiency Meets Generalization in Continual Test-Time Adaptation](../../CVPR2026/segmentation/the_golden_subspace_where_efficiency_meets_generalization_in_continual_test-time.md)
-- [\[NeurIPS 2025\] ConnectomeBench: Can LLMs Proofread the Connectome?](../../NeurIPS2025/segmentation/connectomebench_can_llms_proofread_the_connectome.md)
+- [\[ICML 2025\] Separating Knowledge and Perception with Procedural Data](separating_knowledge_and_perception_with_procedural_data.md)
 
 </div>
 

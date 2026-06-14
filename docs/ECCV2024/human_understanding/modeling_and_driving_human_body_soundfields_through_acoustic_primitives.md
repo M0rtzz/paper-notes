@@ -167,7 +167,7 @@ $$\mathcal{L}_{total} = \lambda_{amp}\mathcal{L}_{amp} + \lambda_{ri}\mathcal{L}
 - [\[ECCV 2024\] HUMOS: Human Motion Model Conditioned on Body Shape](humos_human_motion_model_conditioned_on_body_shape.md)
 - [\[ECCV 2024\] LaPose: Laplacian Mixture Shape Modeling for RGB-Based Category-Level Object Pose Estimation](lapose_laplacian_mixture_shape_modeling_for_rgb-based_category-level_object_pose.md)
 - [\[ECCV 2024\] PoseSOR: Human Pose Can Guide Our Attention](posesor_human_pose_can_guide_our_attention.md)
-- [\[ECCV 2024\] CoMo: Controllable Motion Generation Through Language Guided Pose Code Editing](como_controllable_motion_generation_through_language_guided_pose_code_editing.md)
+- [\[CVPR 2026\] SAM 3D Body: Robust Full-Body Human Mesh Recovery](../../CVPR2026/human_understanding/sam_3d_body_robust_full-body_human_mesh_recovery.md)
 
 </div>
 

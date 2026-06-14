@@ -139,11 +139,11 @@ $$\min_{p_\phi} \mathbb{E}_{Q \sim U(\mathcal{O})} \left[ \text{CE}(p_\phi(QS), 
 
 ## 相关论文
 
-- [\[ICML 2025\] Symmetry-Aware GFlowNets](symmetry-aware_gflownets.md)
-- [\[CVPR 2025\] Regor: Progressive Correspondence Regenerator for Robust 3D Registration](../../CVPR2025/others/progressive_correspondence_regenerator_for_robust_3d_registration.md)
-- [\[NeurIPS 2025\] HouseLayout3D: A Benchmark and Training-Free Baseline for 3D Layout Estimation in the Wild](../../NeurIPS2025/others/houselayout3d_a_benchmark_and_training-free_baseline_for_3d_layout_estimation_in.md)
-- [\[ICML 2025\] On Fine-Grained Distinct Element Estimation](on_fine-grained_distinct_element_estimation.md)
-- [\[ICML 2025\] Prediction-Powered Adaptive Shrinkage Estimation](prediction-powered_adaptive_shrinkage_estimation.md)
+- [\[NeurIPS 2025\] Orientation Matters: Making 3D Generative Models Orientation-Aligned](../../NeurIPS2025/3d_vision/orientation_matters_making_3d_generative_models_orientation-aligned.md)
+- [\[CVPR 2025\] Symmetry Strikes Back: From Single-Image Symmetry Detection to 3D Generation](../../CVPR2025/3d_vision/symmetry_strikes_back_from_single-image_symmetry_detection_to_3d_generation.md)
+- [\[ICCV 2025\] χ: Symmetry Understanding of 3D Shapes via Chirality Disentanglement](../../ICCV2025/3d_vision/kh_symmetry_understanding_of_3d_shapes_via_chirality_disentanglement.md)
+- [\[CVPR 2025\] Leveraging 3D Geometric Priors in 2D Rotation Symmetry Detection](../../CVPR2025/3d_vision/leveraging_3d_geometric_priors_in_2d_rotation_symmetry_detection.md)
+- [\[CVPR 2026\] OrienPose: Orientation-Guided Novel View Synthesis for Single-Image Unseen Object Pose Estimation](../../CVPR2026/3d_vision/orienpose_orientation-guided_novel_view_synthesis_for_single-image_unseen_object.md)
 
 </div>
 
