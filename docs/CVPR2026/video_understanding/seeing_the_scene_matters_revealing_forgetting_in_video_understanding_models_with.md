@@ -122,10 +122,10 @@ SceneBench 的核心不是"更长的视频"，而是"**必须跨场景整合才�
 ## 相关论文
 
 - [\[CVPR 2026\] Scene-Centric Unsupervised Video Panoptic Segmentation](scene-centric_unsupervised_video_panoptic_segmentation.md)
-- [\[CVPR 2026\] Understanding Identity Continuity in Thermal Video through Scene-Level Consistency](understanding_identity_continuity_in_thermal_video_through_scene-level_consisten.md)
-- [\[NeurIPS 2025\] Seeing Beyond the Scene: Analyzing and Mitigating Background Bias in Action Recognition](../../NeurIPS2025/video_understanding/seeing_beyond_the_scene_analyzing_and_mitigating_background_bias_in_action_recog.md)
 - [\[CVPR 2026\] Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos](towards_spatio-temporal_world_scene_graph_generation_from_monocular_videos.md)
-- [\[CVPR 2026\] Seen-to-Scene: Keep the Seen, Generate the Unseen for Video Outpainting](seen_to_scene_keep_the_seen_generate_the_unseen_for_video_outpainting.md)
+- [\[NeurIPS 2025\] Seeing Beyond the Scene: Analyzing and Mitigating Background Bias in Action Recognition](../../NeurIPS2025/video_understanding/seeing_beyond_the_scene_analyzing_and_mitigating_background_bias_in_action_recog.md)
+- [\[CVPR 2025\] EgoTextVQA: Towards Egocentric Scene-Text Aware Video Question Answering](../../CVPR2025/video_understanding/egotextvqa_towards_egocentric_scene-text_aware_video_question_answering.md)
+- [\[CVPR 2026\] Video Panels for Long Video Understanding](video_panels_for_long_video_understanding.md)
 
 </div>
 

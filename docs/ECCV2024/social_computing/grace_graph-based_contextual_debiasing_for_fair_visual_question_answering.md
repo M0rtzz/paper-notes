@@ -16,7 +16,6 @@ tags:
 # GRACE: Graph-Based Contextual Debiasing for Fair Visual Question Answering
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **DOI**: [10.1007/978-3-031-72643-9_11](https://doi.org/10.1007/978-3-031-72643-9_11)  
 **代码**: [GitHub](https://github.com/SuperJohnZhang/ContextGraphKVQA)  
 **领域**: 社会计算  

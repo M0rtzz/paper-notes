@@ -177,10 +177,10 @@ $$\tilde{\mathbf{f}_i} = [\text{RoPE}_{1D}(\mathbf{f}^x_i, x_i);\ \text{RoPE}_{1
 ## 相关论文
 
 - [\[CVPR 2026\] GGPT: Geometry-Grounded Point Transformer](ggpt_geometry_grounded_point_transformer.md)
-- [\[CVPR 2026\] RnG: A Unified Transformer for Complete 3D Modeling from Partial Observations](rng_a_unified_transformer_for_complete_3d_modeling_from_partial_observations.md)
-- [\[CVPR 2026\] MimiCAT: Mimic with Correspondence-Aware Cascade-Transformer for Category-Free 3D Pose Transfer](mimicat_mimic_with_correspondence-aware_cascade-transformer_for_category-free_3d.md)
-- [\[NeurIPS 2025\] How Many Tokens Do 3D Point Cloud Transformer Architectures Really Need?](../../NeurIPS2025/3d_vision/how_many_tokens_do_3d_point_cloud_transformer_architectures_really_need.md)
-- [\[NeurIPS 2025\] Locality-Sensitive Hashing-Based Efficient Point Transformer for Charged Particle Reconstruction](../../NeurIPS2025/3d_vision/locality-sensitive_hashing-based_efficient_point_transformer_for_charged_particl.md)
+- [\[CVPR 2026\] PQDT: Pseudo-Query Dual Transformer for Robust Point Cloud Restoration](pqdt_pseudo-query_dual_transformer_for_robust_point_cloud_restoration.md)
+- [\[CVPR 2026\] ART: Articulated Reconstruction Transformer](art_articulated_reconstruction_transformer.md)
+- [\[CVPR 2026\] Fast Spatial Tracking with Visual Geometry Transformer](fast_spatial_tracking_with_visual_geometry_transformer.md)
+- [\[CVPR 2026\] Multi-view Pyramid Transformer: Look Coarser to See Broader](multi-view_pyramid_transformer_look_coarser_to_see_broader.md)
 
 </div>
 

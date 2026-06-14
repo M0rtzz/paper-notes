@@ -16,7 +16,6 @@ tags:
 # Enhancing SAM with Efficient Prompting and Preference Optimization for Semi-Supervised Medical Image Segmentation
 
 **会议**: CVPR 2025  
-**arXiv**: 见CVF  
 **代码**: 待确认  
 **领域**: 医学图像 / 对齐RLHF  
 **关键词**: SAM, 半监督分割, DPO偏好优化, 无监督提示生成, 虚拟标注器

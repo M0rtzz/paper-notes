@@ -16,7 +16,6 @@ tags:
 # HALoGEN: Fantastic LLM Hallucinations and Where to Find Them
 
 **会议**: ACL 2025 (Outstanding Paper)  
-**arXiv**: N/A (ACL Anthology: 2025.acl-long.71)  
 **代码**: [有](https://github.com/google/halogen)  
 **领域**: 幻觉检测  
 **关键词**: 幻觉基准, 原子事实验证, 错误分类学, 自动验证器, 多领域评估

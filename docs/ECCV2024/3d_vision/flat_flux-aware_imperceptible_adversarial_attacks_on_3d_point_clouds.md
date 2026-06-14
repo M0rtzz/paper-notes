@@ -16,7 +16,6 @@ tags:
 # FLAT: Flux-Aware Imperceptible Adversarial Attacks on 3D Point Clouds
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 3D视觉 / 对抗攻击  
 **关键词**: 点云对抗攻击, 不可感知性, 通量约束, 均匀性保持, 3D安全

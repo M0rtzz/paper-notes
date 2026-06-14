@@ -16,7 +16,6 @@ tags:
 # Integrating Markov Blanket Discovery into Causal Representation Learning for Domain Generalization
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 因果推断  
 **关键词**: 马尔可夫毯, 因果表示学习, 域泛化, 不变预测, 隐变量

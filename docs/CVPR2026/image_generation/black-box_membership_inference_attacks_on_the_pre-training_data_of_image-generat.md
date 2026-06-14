@@ -143,9 +143,9 @@ SD-MIA 在四个模型上全面领先，比能访问内部特征的最强灰盒 
 
 - [\[ICML 2026\] Enhancing Membership Inference Attacks on Diffusion Models from a Frequency-Domain Perspective](../../ICML2026/image_generation/enhancing_membership_inference_attacks_on_diffusion_models_from_a_frequency-doma.md)
 - [\[CVPR 2026\] CSF: Black-box Fingerprinting via Compositional Semantics for Text-to-Image Models](csf_black-box_fingerprinting_via_compositional_semantics_for_text-to-image_model.md)
-- [\[CVPR 2026\] DMin: Scalable Training Data Influence Estimation for Diffusion Models](dmin_scalable_training_data_influence_estimation_for_diffusion_models.md)
+- [\[CVPR 2026\] Rethinking UMM Visual Generation: Masked Modeling for Efficient Image-Only Pre-training](rethinking_umm_visual_generation_masked_modeling_for_efficient_image-only_pre-tr.md)
 - [\[CVPR 2026\] BlackMirror: Black-Box Backdoor Detection for Text-to-Image Models via Instruction-Response Deviation](blackmirror_black-box_backdoor_detection_for_text-to-image_models_via_instructio.md)
-- [\[CVPR 2026\] Towards Robust Content Watermarking Against Removal and Forgery Attacks](towards_robust_content_watermarking_against_removal_and_forgery_attacks.md)
+- [\[CVPR 2026\] LeapAlign: Post-Training Flow Matching Models at Any Generation Step by Building Two-Step Trajectories](leapalign_post_training_flow_matching_models_at_any_generation_step.md)
 
 </div>
 

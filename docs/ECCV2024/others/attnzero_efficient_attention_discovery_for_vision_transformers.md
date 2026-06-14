@@ -15,7 +15,6 @@ tags:
 # AttnZero: Efficient Attention Discovery for Vision Transformers
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/lliai/AttnZero](https://github.com/lliai/AttnZero)  
 **领域**: 模型效率 / 神经架构搜索  
 **关键词**: 线性注意力, 注意力机制搜索, Vision Transformer, 进化算法, 注意力基准

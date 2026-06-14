@@ -16,7 +16,6 @@ tags:
 # AD-GS: Object-Aware B-Spline Gaussian Splatting for Self-Supervised Autonomous Driving
 
 **会议**: ICCV 2025  
-**arXiv**: 无 (CVF Open Access)  
 **代码**: [https://jiaweixu8.github.io/AD-GS-web/](https://jiaweixu8.github.io/AD-GS-web/)  
 **领域**: 自动驾驶  
 **关键词**: 自动驾驶场景渲染, 高斯溅射, B样条曲线, 自监督, 动态场景重建

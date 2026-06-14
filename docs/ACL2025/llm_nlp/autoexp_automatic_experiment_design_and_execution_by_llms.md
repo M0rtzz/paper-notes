@@ -16,7 +16,6 @@ tags:
 # AutoExp: Automatic Experiment Design and Execution by LLMs
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 自动实验设计, LLM代理, 实验执行, 科研自动化, 代码生成

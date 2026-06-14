@@ -16,7 +16,6 @@ tags:
 # Instruction-Oriented Preference Alignment for Enhancing Multi-Modal Comprehension Capability of MLLMs
 
 **会议**: ICCV 2025  
-**arXiv**: 2503.20309  
 **代码**: [数据集](https://huggingface.co/datasets/wangzt-kghl/IPA)  
 **领域**: 多模态VLM  
 **关键词**: 多模态大模型, 偏好对齐, 指令遵循, DPO, 幻觉缓解  

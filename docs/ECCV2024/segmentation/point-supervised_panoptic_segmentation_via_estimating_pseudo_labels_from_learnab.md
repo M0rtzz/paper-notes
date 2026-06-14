@@ -16,7 +16,6 @@ tags:
 # Point-Supervised Panoptic Segmentation via Estimating Pseudo Labels from Learnable Distance
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 分割 / 弱监督学习  
 **关键词**: 点监督, 全景分割, 伪标签, 可学习距离, 锚点查询

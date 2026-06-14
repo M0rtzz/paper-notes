@@ -13,7 +13,6 @@ code: "https://github.com/yulu919/EQ-REG"
 **作者**: Lu Yu, Jiahao Li, Yutong Zhang 等  
 **机构**: Xi'an Jiaotong University / Macau UST / Pengcheng Lab  
 **会议**: CVPR 2025  
-**arXiv**: 2505.19799  
 **代码**: [https://github.com/yulu919/EQ-REG](https://github.com/yulu919/EQ-REG)  
 
 ## 研究背景与动机

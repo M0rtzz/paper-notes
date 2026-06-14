@@ -16,7 +16,6 @@ tags:
 # Compact and Compressible Representations for LLMs Using Structured Sparse Decomposition
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 模型压缩  
 **关键词**: 结构化稀疏分解, LLM压缩, 权重矩阵分解, 低秩近似, 稀疏表示

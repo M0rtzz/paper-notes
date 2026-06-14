@@ -2,7 +2,7 @@
 title: >-
   CVPR2026 时间序列论文汇总 · 7篇论文解读
 description: >-
-  7篇CVPR2026的时间序列方向论文解读，涵盖时序预测、对齐/RLHF、多模态等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  7篇CVPR2026的时间序列方向论文解读，涵盖时序预测、对齐/RLHF、域适应等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "时间序列"
@@ -10,22 +10,22 @@ tags:
   - "论文笔记"
   - "时序预测"
   - "对齐/RLHF"
-  - "多模态"
+  - "域适应"
 item_list:
-  - u: "competition-aware_cpc_forecasting_with_near-market_coverage/"
-    t: "Competition-Aware CPC Forecasting with Near-Market Coverage"
   - u: "l2gtx_from_local_to_global_time_series_explanations/"
     t: "L2GTX: From Local to Global Time Series Explanations"
   - u: "pfgnet_a_fully_convolutional_frequency-guided_peripheral_gating_network_for_effi/"
     t: "PFGNet: A Fully Convolutional Frequency-Guided Peripheral Gating Network for Efficient Spatiotemporal Predictive Learning"
+  - u: "real-time_long_horizon_air_quality_forecasting_via_group-relative_policy_optimiz/"
+    t: "Real-Time Long Horizon Air Quality Forecasting via Group-Relative Policy Optimization"
   - u: "sattc_structure-aware_label-free_test-time_calibration_for_cross-subject_eeg-to-/"
     t: "SATTC: Structure-Aware Label-Free Test-Time Calibration for Cross-Subject EEG-to-Image Retrieval"
   - u: "stable_spike_dual_consistency_optimization_via_bitwise_and_operations_for_spikin/"
     t: "Stable Spike: Dual Consistency Optimization via Bitwise AND Operations for Spiking Neural Networks"
   - u: "stcast_adaptive_boundary_alignment_for_global_and_regional_weather_forecasting/"
     t: "STCast: Adaptive Boundary Alignment for Global and Regional Weather Forecasting"
-  - u: "trits_time_series_forecasting_from_a_multimodal_perspective/"
-    t: "TriTS: Time Series Forecasting from a Multimodal Perspective"
+  - u: "towards_uncertainty-aware_unsupervised_domain_adaptation_for_videos_and_time-ser/"
+    t: "Towards Uncertainty-aware Unsupervised Domain Adaptation for Videos and Time-Series with Causal Optimal Transport"
 item_total: 7
 ---
 
@@ -38,10 +38,6 @@ item_total: 7
 
 🔥 **高频主题：** 时序预测 ×4
 
-**[Competition-Aware CPC Forecasting with Near-Market Coverage](competition-aware_cpc_forecasting_with_near-market_coverage.md)**
-
-:   这篇论文把搜索广告中的 CPC 预测重新表述为“竞争状态部分不可观测”下的时间序列预测问题，用语义相似性、CPC 轨迹对齐和地理意图三个可观测代理去近似隐含竞争，再分别以协变量和图先验两种形式注入预测器，在中长期预测上显著优于纯自回归基线。
-
 **[L2GTX: From Local to Global Time Series Explanations](l2gtx_from_local_to_global_time_series_explanations.md)**
 
 :   L2GTX 提出一种完全模型无关的局部到全局解释方法，通过从 LOMATCE 局部解释中提取参数化时间事件原语（趋势/极值），跨实例合并冗余聚类并以子模优化选取代表性实例，最终聚合为简洁的类级别全局解释，在6个时序分类数据集上保持稳定的全局忠实度。
@@ -49,6 +45,10 @@ item_total: 7
 **[PFGNet: A Fully Convolutional Frequency-Guided Peripheral Gating Network for Efficient Spatiotemporal Predictive Learning](pfgnet_a_fully_convolutional_frequency-guided_peripheral_gating_network_for_effi.md)**
 
 :   提出 PFGNet，一种纯卷积时空预测框架，通过像素级频率引导门控（PFG）动态调制多尺度大核外周响应并施加可学习中心抑制，模拟生物视觉的 center-surround 带通滤波机制，在 Moving MNIST、TaxiBJ、KTH、Human3.6M 四个基准上以极少参数和计算量达到 SOTA 或近 SOTA 性能。
+
+**[Real-Time Long Horizon Air Quality Forecasting via Group-Relative Policy Optimization](real-time_long_horizon_air_quality_forecasting_via_group-relative_policy_optimiz.md)**
+
+:   本文针对东亚长程（48–120 小时）PM 浓度预测，先发布一套观测对齐的区域数据集 CMAQ–OBS，再用「带时间累积损失的 SFT + 带类别 AQI 奖励的 GRPO」两阶段训练（FAKER-Air），把 MSE 训练固有的「过预报、误报多」问题对齐到真实的运营成本上，在保持 F1 的同时把误报率（FAR）相对 SFT 基线降低 47.3%。
 
 **[SATTC: Structure-Aware Label-Free Test-Time Calibration for Cross-Subject EEG-to-Image Retrieval](sattc_structure-aware_label-free_test-time_calibration_for_cross-subject_eeg-to-.md)**
 
@@ -62,6 +62,6 @@ item_total: 7
 
 :   提出STCast框架，通过Spatial-Aligned Attention（SAA）用可学习的全球-区域分布替代静态边界来自适应融合全球大气信息到区域预报，并用Temporal Mixture-of-Experts（TMoE）按月动态路由专家增强时序建模，在全球预报、高分辨率区域预报、台风路径预测和集合预测四个任务上全面超越现有方法。
 
-**[TriTS: Time Series Forecasting from a Multimodal Perspective](trits_time_series_forecasting_from_a_multimodal_perspective.md)**
+**[Towards Uncertainty-aware Unsupervised Domain Adaptation for Videos and Time-Series with Causal Optimal Transport](towards_uncertainty-aware_unsupervised_domain_adaptation_for_videos_and_time-ser.md)**
 
-:   TriTS 把一维时间序列同时投影到时域、频域、2D-视觉三个正交空间，用流式线性分支锚定数值、多分辨率小波分支解耦趋势与噪声、Visual Mamba 分支以线性复杂度捕捉跨周期全局纹理，再用尺度感知门控动态融合三者，在 7 个长期预测基准上达到 SOTA 且参数量和推理延迟远低于现有视觉类预测器。
+:   本文提出 Causal-OT：把通道间的 Granger 因果图嵌进最优传输（OT）的代价矩阵里做跨域对齐，同时用基于熵的不确定性筛选伪标签，让时序与视频的无监督域适应既保住时间-因果结构、又不被过自信的伪标签带偏，在 6 个时序基准上平均涨 4.5% 准确率、4 个视频基准上涨 2.5%。

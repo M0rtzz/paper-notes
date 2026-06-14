@@ -16,7 +16,6 @@ tags:
 # Attention-Seeker: Dynamic Self-Attention Scoring for Unsupervised Key-Frame Extraction
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: 视频理解 / 无监督学习  
 **关键词**: 关键帧提取, 自注意力机制, 动态评分, 无监督方法, 视频摘要

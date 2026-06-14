@@ -16,7 +16,6 @@ tags:
 # A Direct Approach to Viewing Graph Solvability
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 视图图, 可解性, 基础矩阵, 运动恢复结构, 多视图几何

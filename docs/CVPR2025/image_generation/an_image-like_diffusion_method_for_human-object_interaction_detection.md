@@ -13,7 +13,6 @@ tags:
 
 **会议**: CVPR 2025  
 **机构**: Lancaster University  
-**arXiv**: 2503.18134  
 **关键词**: 人物交互检测、扩散模型、多项式扩散、HOI Image  
 
 ## 研究背景与动机

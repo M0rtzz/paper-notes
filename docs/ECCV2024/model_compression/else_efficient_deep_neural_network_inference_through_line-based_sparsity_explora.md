@@ -16,7 +16,6 @@ tags:
 # ELSE: Efficient Deep Neural Network Inference through Line-based Sparsity Exploration
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 模型压缩  
 **关键词**: 事件驱动推理, 行稀疏性, 激活图压缩, 嵌入式AI, 神经形态计算

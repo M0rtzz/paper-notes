@@ -144,11 +144,11 @@ BSB 即使对比基线"用同视角渲染"这种更宽松设置（NBB 0.66 / DIF
 
 ## 相关论文
 
+- [\[CVPR 2026\] SGSoft: Learning Fused Semantic-Geometric Features for 3D Shape Correspondence via Template-Guided Soft Signals](sgsoft_learning_fused_semantic-geometric_features_for_3d_shape_correspondence_vi.md)
 - [\[CVPR 2026\] UniCorrn: Unified Correspondence Transformer Across 2D and 3D](unicorrn_unified_correspondence_transformer_across_2d_and_3d.md)
-- [\[CVPR 2026\] MARCO: Navigating the Unseen Space of Semantic Correspondence](marco_semantic_correspondence.md)
+- [\[CVPR 2026\] Image-to-Point Cloud Feature Back-Projection for Multimodal Training of 3D Semantic Segmentation](image-to-point_cloud_feature_back-projection_for_multimodal_training_of_3d_seman.md)
+- [\[CVPR 2026\] PatchAlign3D: Local Feature Alignment for Dense 3D Shape Understanding](patchalign3d_local_feature_alignment_for_dense_3d_shape_understanding.md)
 - [\[CVPR 2025\] Denoising Functional Maps: Diffusion Models for Shape Correspondence](../../CVPR2025/3d_vision/denoising_functional_maps_diffusion_models_for_shape_correspondence.md)
-- [\[CVPR 2025\] Stable-SCore: A Stable Registration-Based Framework for 3D Shape Correspondence](../../CVPR2025/3d_vision/stable-score_a_stable_registration-based_framework_for_3d_shape_correspondence.md)
-- [\[CVPR 2026\] Unified Primitive Proxies for Structured Shape Completion](unified_primitive_proxies_for_structured_shape_completion.md)
 
 </div>
 

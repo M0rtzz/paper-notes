@@ -16,7 +16,6 @@ tags:
 # 4Diff: 3D-Aware Diffusion Model for Third-to-First Viewpoint Translation
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://klauscc.github.io/4diff](https://klauscc.github.io/4diff)  
 **领域**: 3D视觉  
 **关键词**: 视角转换, 扩散模型, 第三人称转第一人称, 3D几何先验, 跨视角图像生成

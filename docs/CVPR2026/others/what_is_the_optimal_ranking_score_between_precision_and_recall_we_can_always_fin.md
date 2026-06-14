@@ -132,9 +132,9 @@ $$\mathcal{O} = 1 - \frac{d_\tau(F_\beta; F_*)}{d_\tau(Pr; Re)}$$
 
 - [\[NeurIPS 2025\] What Does It Take to Build a Performant Selective Classifier?](../../NeurIPS2025/others/what_does_it_take_to_build_a_performant_selective_classifier.md)
 - [\[AAAI 2026\] How Hard Is It to Rig a Tournament When Few Players Can Beat or Be Beaten by the Favorite?](../../AAAI2026/others/how_hard_is_it_to_rig_a_tournament_when_few_players_can_beat_or_be_beaten_by_the.md)
-- [\[CVPR 2026\] Bounds on Agreement between Subjective and Objective Measurements](bounds_on_agreement_between_subjective_and_objecti.md)
+- [\[CVPR 2026\] Keep It Frozen: Domain-Routed Conditional Residual Modulation for Multi-Domain Vision Transformers](keep_it_frozen_domain-routed_conditional_residual_modulation_for_multi-domain_vi.md)
+- [\[CVPR 2026\] Bias at the End of the Score](bias_at_the_end_of_the_score.md)
 - [\[AAAI 2026\] How Hard is it to Explain Preferences Using Few Boolean Attributes?](../../AAAI2026/others/how_hard_is_it_to_explain_preferences_using_few_boolean_attributes.md)
-- [\[CVPR 2026\] Your Classifier Can Do More: Towards Balancing the Gaps in Classification, Robustness, and Generation](your_classifier_can_do_more_towards_balancing_the.md)
 
 </div>
 

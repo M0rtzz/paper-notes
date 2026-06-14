@@ -16,7 +16,6 @@ tags:
 # Auto-DAS: Automated Proxy Discovery for Training-free Distillation-aware Architecture Search
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/lliai/Auto-DAS](https://github.com/lliai/Auto-DAS)  
 **领域**: 模型压缩 / 神经架构搜索  
 **关键词**: 知识蒸馏, 架构搜索, 免训练代理, 进化算法, 自动代理发现

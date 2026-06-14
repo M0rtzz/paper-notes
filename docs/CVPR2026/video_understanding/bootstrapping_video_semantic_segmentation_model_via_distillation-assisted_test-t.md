@@ -142,9 +142,9 @@ VSPW 数据集、W2F 协议下与各类基线对比（SegFormer 同 backbone；m
 
 - [\[CVPR 2026\] Dual-level Adaptation for Multi-Object Tracking: Building Test-Time Calibration from Experience and Intuition](tcei_test_time_calibration_experience_intuition_mot.md)
 - [\[CVPR 2026\] Scene-Centric Unsupervised Video Panoptic Segmentation](scene-centric_unsupervised_video_panoptic_segmentation.md)
-- [\[CVPR 2026\] SRL-CLIP: Efficient CLIP Video Adaptation via Structured Semantic Role Labels](srl-clip_efficient_clip_video_adaptation_via_structured_semantic_role_labels.md)
 - [\[CVPR 2026\] Polyphony: Diffusion-based Dual-Hand Action Segmentation with Alternating Vision Transformer and Semantic Conditioning](polyphony_diffusion-based_dual-hand_action_segmentation_with_alternating_vision_.md)
 - [\[CVPR 2026\] Robust Promptable Video Object Segmentation](robust_promptable_video_object_segmentation.md)
+- [\[CVPR 2026\] Self-Critical Distillation Network for Video-based Commonsense Captioning](self-critical_distillation_network_for_video-based_commonsense_captioning.md)
 
 </div>
 

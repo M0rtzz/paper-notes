@@ -15,7 +15,6 @@ tags:
 # Adversarially Robust Distillation by Reducing the Student-Teacher Variance Gap
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 模型压缩  
 **关键词**: 对抗鲁棒性, 知识蒸馏, 特征方差, 协方差对齐, 模型压缩

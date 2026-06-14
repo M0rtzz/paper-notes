@@ -16,7 +16,6 @@ tags:
 # Efficient Cascaded Multiscale Adaptive Network for Image Restoration
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 图像复原  
 **关键词**: 图像复原、多尺度学习、局部自适应、动态卷积、高效网络

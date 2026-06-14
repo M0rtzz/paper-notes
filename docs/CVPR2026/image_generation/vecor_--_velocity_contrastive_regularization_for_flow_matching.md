@@ -123,10 +123,10 @@ $$\hat{\mathcal{L}}^{(\text{VeCoR})} = \frac{1}{N}\sum_{i=1}^N \left[\|v_\theta 
 ## 相关论文
 
 - [\[ICCV 2025\] Contrastive Flow Matching (ΔFM)](../../ICCV2025/image_generation/contrastive_flow_matching.md)
-- [\[CVPR 2026\] Neighbor GRPO: Contrastive ODE Policy Optimization Aligns Flow Models](neighbor_grpo_contrastive_ode_policy_optimization_aligns_flow_models.md)
 - [\[ICML 2026\] Stable Velocity: A Variance Perspective on Flow Matching](../../ICML2026/image_generation/stable_velocity_a_variance_perspective_on_flow_matching.md)
-- [\[CVPR 2026\] COT-FM: Cluster-wise Optimal Transport Flow Matching](cot-fm_cluster-wise_optimal_transport_flow_matching.md)
-- [\[CVPR 2026\] EgoFlow: Gradient-Guided Flow Matching for Egocentric 6DoF Object Motion Generation](egoflow_gradient-guided_flow_matching_for_egocentric_6dof_object_motion_generati.md)
+- [\[CVPR 2026\] Neighbor GRPO: Contrastive ODE Policy Optimization Aligns Flow Models](neighbor_grpo_contrastive_ode_policy_optimization_aligns_flow_models.md)
+- [\[CVPR 2026\] From Navigation to Refinement: Revealing the Two-Stage Nature of Flow-based Diffusion Models through Oracle Velocity](from_navigation_to_refinement_revealing_the_two-stage_nature_of_flow-based_diffu.md)
+- [\[CVPR 2026\] Few-shot Acoustic Synthesis with Multimodal Flow Matching](few-shot_acoustic_synthesis_with_multimodal_flow_matching.md)
 
 </div>
 

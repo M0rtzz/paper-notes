@@ -185,10 +185,10 @@ $$\mathcal{L}_{total}=\mathcal{L}_{sup}+\lambda_u\mathcal{L}_{unsup}$$
 ## 相关论文
 
 - [\[CVPR 2026\] Semantic Class Distribution Learning for Debiasing Semi-Supervised Medical Image Segmentation](semantic_class_distribution_learning_for_debiasing.md)
-- [\[CVPR 2026\] UniSemAlign: Text–Prototype Alignment with a Foundation Encoder for Semi-Supervised Histopathology Segmentation](unisemalign_text-prototype_alignment_with_a_foundation_encoder_for_semi-supervis.md)
-- [\[CVPR 2026\] Decoding Matters: Efficient Mamba-Based Decoder with Distribution-Aware Deep Supervision for Medical Image Segmentation](decoding_matters_efficient_mamba-based_decoder_with_distribution-aware_deep_supe.md)
+- [\[CVPR 2026\] Divide, Conquer, and Aggregate: Asymmetric Experts for Class-Imbalanced Semi-Supervised Medical Image Segmentation](divide_conquer_and_aggregate_asymmetric_experts_for_class-imbalanced_semi-superv.md)
+- [\[CVPR 2026\] GenTract: Generative Global Tractography](gentract_generative_global_tractography.md)
 - [\[CVPR 2026\] SD-FSMIS: Adapting Stable Diffusion for Few-Shot Medical Image Segmentation](sd_fsmis_adapting_stable_diffusion_for_few_shot_medical_image_segmentation.md)
-- [\[CVPR 2026\] Uncertainty-Aware Concept and Motion Segmentation for Semi-Supervised Angiography Videos](uncertainty-aware_concept_and_motion_segmentation_for_semi-supervised_angiograph.md)
+- [\[ICML 2026\] Are We Overconfident in Models and Results for Semi-Supervised 3D Medical Image Segmentation?](../../ICML2026/medical_imaging/are_we_overconfident_in_models_and_results_for_semi-supervised_3d_medical_image_.md)
 
 </div>
 

@@ -16,7 +16,6 @@ tags:
 # Stripe Observation Guided Inference Cost-Free Attention Mechanism
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **DOI**: [10.1007/978-3-031-72691-0_6](https://doi.org/10.1007/978-3-031-72691-0_6)  
 **领域**: 注意力机制 / 模型架构  

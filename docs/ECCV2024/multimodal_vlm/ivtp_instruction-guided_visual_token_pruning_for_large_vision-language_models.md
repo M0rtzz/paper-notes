@@ -16,7 +16,6 @@ tags:
 # IVTP: Instruction-Guided Visual Token Pruning for Large Vision-Language Models
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **DOI**: [10.1007/978-3-031-72643-9_13](https://doi.org/10.1007/978-3-031-72643-9_13)  
 **领域**: 多模态VLM  

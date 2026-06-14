@@ -12,7 +12,6 @@ arxiv: "2504.02522"
 **作者**: Fatemeh Behrad, Farzad Khorasani 等  
 **机构**: KU Leuven  
 **会议**: CVPR 2025  
-**arXiv**: 2504.02522  
 
 ## 研究背景与动机
 

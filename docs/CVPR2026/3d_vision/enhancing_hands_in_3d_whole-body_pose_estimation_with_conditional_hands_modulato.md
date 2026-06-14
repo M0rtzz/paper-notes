@@ -172,9 +172,9 @@ CHAM负责手腕方向，但精细的手指弯曲和手形仍然是WiLoR更擅�
 
 - [\[CVPR 2025\] Hearing Hands: Generating Sounds from Physical Interactions in 3D Scenes](../../CVPR2025/3d_vision/hearing_hands_generating_sounds_from_physical_interactions_in_3d_scenes.md)
 - [\[ECCV 2024\] 3D Reconstruction of Objects in Hands without Real World 3D Supervision](../../ECCV2024/3d_vision/3d_reconstruction_of_objects_in_hands_without_real_world_3d.md)
+- [\[CVPR 2026\] Exploring 6D Object Pose Estimation with Deformation](exploring_6d_object_pose_estimation_with_deformation.md)
 - [\[ICCV 2025\] RapVerse: Coherent Vocals and Whole-Body Motion Generation from Text](../../ICCV2025/3d_vision/rapverse_coherent_vocals_and_whole-body_motion_generation_from_text.md)
-- [\[ECCV 2024\] Multi-HMR: Multi-Person Whole-Body Human Mesh Recovery in a Single Shot](../../ECCV2024/3d_vision/multi-hmr_multi-person_whole-body_human_mesh_recovery_in_a_single_shot.md)
-- [\[CVPR 2026\] PoseMaster: A Unified 3D Native Framework for Stylized Pose Generation](posemaster_a_unified_3d_native_framework_for_stylized_pose_generation.md)
+- [\[CVPR 2026\] ShapeR: Robust Conditional 3D Shape Generation from Casual Captures](shaper_robust_conditional_3d_shape_generation_from_casual_captures.md)
 
 </div>
 

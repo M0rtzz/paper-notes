@@ -18,7 +18,6 @@ tags:
 # 3D-SLNR: A Super Lightweight Neural Representation for Large-scale 3D Mapping
 
 **会议**: CVPR 2025  
-**arXiv**: 无公开预印本  
 **代码**: 未公开  
 **领域**: 3D视觉 / 3D重建 / 神经表示  
 **关键词**: SDF, 超轻量, Neural Mapping, Local SDF, 支撑点, 几何变换调制, Prune-and-Expand

@@ -16,7 +16,6 @@ tags:
 # AirCache: Activating Inter-Modal Relevancy KV Cache Compression for Efficient Large Vision-Language Model Inference
 
 **会议**: ICCV 2025  
-**arXiv**: N/A (CVF OpenAccess)  
 **代码**: 无  
 **领域**: 多模态VLM  
 **关键词**: KV Cache压缩, 大视觉语言模型, 跨模态注意力, 层级预算分配, 推理加速

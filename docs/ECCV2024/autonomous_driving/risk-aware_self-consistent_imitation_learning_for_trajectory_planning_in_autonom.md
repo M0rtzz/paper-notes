@@ -16,7 +16,6 @@ tags:
 # Risk-Aware Self-Consistent Imitation Learning for Trajectory Planning in Autonomous Driving
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 自动驾驶 / 轨迹规划  
 **关键词**: 模仿学习, 轨迹规划, 碰撞时间TTC, 自一致性, 风险感知

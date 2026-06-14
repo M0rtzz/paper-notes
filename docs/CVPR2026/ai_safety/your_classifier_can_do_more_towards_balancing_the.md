@@ -167,11 +167,11 @@ WRN28-10 backbone；lr=0.01；5 步对抗采样；$\ell_\infty$ 约束 $\epsilon
 
 ## 相关论文
 
-- [\[ECCV 2024\] Active Generation for Image Classification](../../ECCV2024/others/active_generation_for_image_classification.md)
-- [\[AAAI 2026\] Think How Your Teammates Think: Active Inference Can Benefit Decentralized Execution](../../AAAI2026/others/think_how_your_teammates_think_active_inference_can_benefit_decentralized_execut.md)
-- [\[CVPR 2026\] Do Vision Models Perceive Illusory Motion in Static Images Like Humans?](do_vision_models_perceive_illusory_motion_in_static_images_like_humans.md)
-- [\[CVPR 2026\] IrisFP: Adversarial-Example-based Model Fingerprinting with Enhanced Uniqueness and Robustness](irisfp_adversarial-example-based_model_fingerprinting_with_enhanced_uniqueness_a.md)
-- [\[CVPR 2026\] DirPA: Addressing Prior Shift in Imbalanced Few-shot Crop-type Classification](dirpa_addressing_prior_shift_in_imbalanced_fewshot.md)
+- [\[CVPR 2026\] One-to-More: High-Fidelity Training-Free Anomaly Generation with Attention Control](one-to-more_high-fidelity_training-free_anomaly_generation_with_attention_control.md)
+- [\[ICML 2026\] Demystifying the Optimal Fair Classifier in Multi-Class Classification](../../ICML2026/ai_safety/demystifying_the_optimal_fair_classifier_in_multi-class_classification.md)
+- [\[CVPR 2026\] Good Can Sometimes be Bad: A Unified Attack against 3D Point Cloud Classifier by a Flexible Isotropic Resampling](good_can_sometimes_be_bad_a_unified_attack_against_3d_point_cloud_classifier_by_.md)
+- [\[CVPR 2026\] When CLIP Sees More, It Fights Back Harder: Multi-View Guided Adaptive Counterattacks for Test-Time Adversarial Robustness](when_clip_sees_more_it_fights_back_harder_multi-view_guided_adaptive_counteratta.md)
+- [\[CVPR 2026\] SafeLogo: Turning Your Logos into Jailbreak Shields via Micro-Regional Adversarial Training](safelogo_turning_your_logos_into_jailbreak_shields_via_micro-regional_adversaria.md)
 
 </div>
 

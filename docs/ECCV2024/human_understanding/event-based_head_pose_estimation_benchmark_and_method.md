@@ -16,7 +16,6 @@ tags:
 # Event-based Head Pose Estimation: Benchmark and Method
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/Jiahui-Yuan-1/EVHPE](https://github.com/Jiahui-Yuan-1/EVHPE)  
 **领域**: 人体理解  
 **关键词**: 事件相机, 头部姿态估计, 基准数据集, 时空融合, 运动感知注意力

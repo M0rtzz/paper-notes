@@ -16,7 +16,6 @@ tags:
 # Sharper and Faster mean Better: Towards More Efficient Vision-Language Model for Hour-scale Long Video Understanding
 
 **会议**: ACL 2025 (Long Paper)  
-**arXiv**: 无（仅ACL Anthology）  
 **代码**: [HuggingFace](https://huggingface.co/Tao-tse/Sophia)  
 **领域**: 多模态VLM / 视频理解 / 高效推理  
 **关键词**: 长视频理解, Shot-adaptive Frame Pruning, Hierarchical Attention, 镜头检测, 稀疏注意力  

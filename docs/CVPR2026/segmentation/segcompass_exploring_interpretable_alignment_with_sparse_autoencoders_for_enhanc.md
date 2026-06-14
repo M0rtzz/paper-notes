@@ -155,10 +155,10 @@ ReasonSeg（**零样本**，test，13B）：gIoU 64.2 / cIoU 66.5，超过 Visio
 ## 相关论文
 
 - [\[CVPR 2026\] DPAD: Discriminative Perception via Anchored Description for Reasoning Segmentation](discriminative_perception_via_anchored_description_for_reasoning_segmentation.md)
-- [\[CVPR 2026\] Design and Behavior of Sparse Mixture-of-Experts Layers in CNN-based Semantic Segmentation](design_and_behavior_of_sparse_mixture-of-experts_layers_in_cnn-based_semantic_se.md)
+- [\[CVPR 2026\] Fast Reasoning Segmentation for Images and Videos](fast_reasoning_segmentation_for_images_and_videos.md)
 - [\[ECCV 2024\] ColorMAE: Exploring Data-Independent Masking Strategies in Masked AutoEncoders](../../ECCV2024/segmentation/colormae_exploring_data-independent_masking_strategies_in_masked_autoencoders.md)
 - [\[CVPR 2026\] VIRST: Video-Instructed Reasoning Assistant for SpatioTemporal Segmentation](virst_video-instructed_reasoning_assistant_for_spatiotemporal_segmentation.md)
-- [\[CVPR 2026\] Phrase-Instance Alignment for Generalized Referring Segmentation](phrase-instance_alignment_for_generalized_referring_segmentation.md)
+- [\[CVPR 2026\] VGGT-Segmentor: Geometry-Enhanced Cross-View Segmentation](vggt-segmentor_geometry-enhanced_cross-view_segmentation.md)
 
 </div>
 

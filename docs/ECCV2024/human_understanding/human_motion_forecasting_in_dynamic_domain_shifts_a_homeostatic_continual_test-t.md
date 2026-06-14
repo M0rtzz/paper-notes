@@ -16,7 +16,6 @@ tags:
 # Human Motion Forecasting in Dynamic Domain Shifts: A Homeostatic Continual Test-Time Adaptation Framework
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 人体理解  
 **关键词**: 人体运动预测, 持续测试时自适应, 域漂移, 知识蒸馏, Fisher信息矩阵

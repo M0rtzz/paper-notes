@@ -16,7 +16,6 @@ tags:
 # Beyond Surface Simplicity: Revealing Hidden Reasoning Attributes for Precise Commonsense Diagnosis
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 人体理解  
 **关键词**: 常识推理诊断、隐藏推理属性、推理难度分析、精确诊断、细粒度评估

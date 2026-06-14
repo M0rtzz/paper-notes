@@ -179,9 +179,9 @@ Metadata分类实验：用prompt features做相机传感器分类准确率94.47%
 
 - [\[CVPR 2026\] Learning to Translate Noise for Robust Image Denoising](learning_to_translate_noise_for_robust_image_denoising.md)
 - [\[CVPR 2026\] The Surprising Effectiveness of Noise Pretraining for Implicit Neural Representations](the_surprising_effectiveness_of_noise_pretraining_for_implicit_neural_representa.md)
+- [\[CVPR 2026\] Convexity-Aware Noise Calibration: A Self-Supervised Framework for Noise-Level-Unknown Image Denoising](convexity-aware_noise_calibration_a_self-supervised_framework_for_noise-level-un.md)
 - [\[CVPR 2026\] NEC-Diff: Noise-Robust Event–RAW Complementary Diffusion for Seeing Motion in Extreme Darkness](nec-diff_noise-robust_event-raw_complementary_diffusion_for_seeing_motion_in_ext.md)
-- [\[CVPR 2025\] INFP: Audio-Driven Interactive Head Generation in Dyadic Conversations](../../CVPR2025/image_restoration/infp_audio-driven_interactive_head_generation_in_dyadic_conversations.md)
-- [\[CVPR 2025\] Generalized Recorrupted-to-Recorrupted: Self-Supervised Learning Beyond Gaussian Noise](../../CVPR2025/image_restoration/generalized_recorrupted-to-recorrupted_self-supervised_learning_beyond_gaussian_.md)
+- [\[CVPR 2026\] BiProLoRA: Bilevel Prompt LoRA for Real Scene Recovery](biprolora_bilevel_prompt_lora_for_real_scene_recovery.md)
 
 </div>
 

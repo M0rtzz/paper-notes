@@ -16,7 +16,6 @@ tags:
 # Benchmarking and Improving Large Vision-Language Models for Fundamental Visual Graph Understanding and Reasoning
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 多模态VLM  
 **关键词**: 视觉图结构理解、视觉推理、图理解基准、大型视觉语言模型、结构化视觉推理

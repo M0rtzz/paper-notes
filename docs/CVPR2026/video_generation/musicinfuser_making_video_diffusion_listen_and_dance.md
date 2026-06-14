@@ -188,8 +188,8 @@ $$\mathcal{L}=\mathbb{E}_{(\mathbf{y},\mathbf{c},\mathbf{a})\sim p_{\text{mm}},\
 - [\[ICCV 2025\] X-Dancer: Expressive Music to Human Dance Video Generation](../../ICCV2025/video_generation/x-dancer_expressive_music_to_human_dance_video_generation.md)
 - [\[CVPR 2025\] MotiF: Making Text Count in Image Animation with Motion Focal Loss](../../CVPR2025/video_generation/motif_making_text_count_in_image_animation_with_motion_focal_loss.md)
 - [\[CVPR 2026\] Generative Neural Video Compression via Video Diffusion Prior](generative_neural_video_compression_via_video_diffusion_prior.md)
-- [\[CVPR 2026\] DreamShot: Personalized Storyboard Synthesis with Video Diffusion Prior](dreamshot_storyboard_synthesis.md)
-- [\[CVPR 2026\] Latent-Compressed Variational Autoencoder for Video Diffusion Models](latent-compressed_variational_autoencoder_for_video_diffusion_models.md)
+- [\[CVPR 2026\] RFDM: Residual Flow Diffusion Models for Video Editing](rfdm_residual_flow_diffusion_models_for_video_editing.md)
+- [\[CVPR 2026\] VMonarch: Efficient Video Diffusion Transformers with Structured Attention](vmonarch_efficient_video_diffusion_transformers_with_structured_attention.md)
 
 </div>
 

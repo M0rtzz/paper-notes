@@ -18,7 +18,6 @@ tags:
 # MNE-SLAM: Multi-Agent Neural SLAM for Mobile Robots
 
 **会议**: CVPR 2025  
-**arXiv**: 无公开预印本  
 **代码**: [https://github.com/dtc111111/MNESLAM](https://github.com/dtc111111/MNESLAM)  
 **领域**: 3D视觉 / SLAM  
 **关键词**: 多智能体SLAM, 神经隐式表示, 分布式建图, 点对点通信, 回环检测, 子地图融合, INS数据集

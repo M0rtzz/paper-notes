@@ -17,7 +17,6 @@ tags:
 # LoA-Trans: Enhancing Visual Grounding by Location-Aware Transformers
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **DOI**: [10.1007/978-3-031-72667-5_23](https://doi.org/10.1007/978-3-031-72667-5_23)  
 **领域**: 多模态VLM  

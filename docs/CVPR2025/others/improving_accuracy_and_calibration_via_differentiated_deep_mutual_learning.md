@@ -15,7 +15,6 @@ tags:
 # Improving Accuracy and Calibration via Differentiated Deep Mutual Learning
 
 **会议**: CVPR 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 模型校准与集成学习  
 **关键词**: 深度互学习, 不确定性校准, 集成方法, 预测多样性, 过度自信

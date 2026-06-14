@@ -16,7 +16,6 @@ tags:
 # RePOSE: 3D Human Pose Estimation via Spatio-Temporal Depth Relational Consistency
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 人体理解 / 3D视觉  
 **关键词**: 3D人体姿态估计, 遮挡处理, 相对深度一致性, 时空关系, 视频姿态估计

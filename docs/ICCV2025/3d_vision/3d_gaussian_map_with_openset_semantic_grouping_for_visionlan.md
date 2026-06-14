@@ -16,7 +16,6 @@ tags:
 # 3D Gaussian Map with Open-Set Semantic Grouping for Vision-Language Navigation
 
 **会议**: ICCV 2025  
-**arXiv**: 未公开预印本  
 **CVF**: [论文PDF](https://openaccess.thecvf.com/content/ICCV2025/papers/Gao_3D_Gaussian_Map_with_Open-Set_Semantic_Grouping_for_Vision-Language_Navigation_ICCV_2025_paper.pdf)  
 **代码**: [GitHub](https://github.com/Gaozzzz/3D-Gaussian-Map-VLN)（代码暂未释放，仅README）  
 **作者**: Jianzhe Gao, Rui Liu, Wenguan Wang（浙江大学）  

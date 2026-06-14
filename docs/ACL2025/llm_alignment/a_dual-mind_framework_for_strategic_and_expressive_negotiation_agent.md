@@ -16,7 +16,6 @@ tags:
 # A Dual-Mind Framework for Strategic and Expressive Negotiation Agent
 
 **会议**: ACL 2025  
-**arXiv**: 无公开arXiv链接  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 谈判智能体, 双过程理论, 策略规划, 表达优化, MCTS

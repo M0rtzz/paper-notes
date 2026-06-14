@@ -16,7 +16,6 @@ tags:
 # SemTrack: A Large-Scale Dataset for Semantic Tracking in the Wild
 
 **会议**: ECCV 2024  
-**arXiv**: 无公开 arXiv 版本  
 **代码**: [https://github.com/sutdcv/SemTrack](https://github.com/sutdcv/SemTrack)  
 **领域**: 视频理解  
 **关键词**: 语义跟踪, 数据集, 目标跟踪, 交互识别, 语义轨迹

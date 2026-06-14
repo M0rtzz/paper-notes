@@ -16,7 +16,6 @@ tags:
 # Global-to-Pixel Regression for Human Mesh Recovery
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 3D视觉 / 人体姿态估计  
 **关键词**: 人体网格恢复, 全局到局部回归, 关键点引导, 动态匹配, 像素级特征

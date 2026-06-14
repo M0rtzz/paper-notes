@@ -1,5 +1,5 @@
 # Auto-generated: ICCV2025 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !audio_speech/
@@ -1370,3 +1369,9 @@
 !video_understanding/vtimecot_thinking_by_drawing_for_video_temporal_grounding_and_reasoning.md
 !video_understanding/what_you_have_is_what_you_track_adaptive_and_robust_multimodal_tracking.md
 !video_understanding/xtrack_multimodal_training_boosts_rgb-x_video_object_trackers.md
+
+# ⚠️ 4 个条目未找到对应文件:
+#   autonomous_driving/acam_kd_adaptive_cooperative_attention_masking_knowledge_distillation.md
+#   image_generation/addressing_text_embedding_leakage_in_diffusion_based_image_editing.md
+#   model_compression/b_vllm_a_vision_large_language_model_with_balanced_spatio_temporal_tokens.md
+#   video_understanding/aim_adaptive_inference_of_multi_modal_llms_via_token_merging_and_pruning.md

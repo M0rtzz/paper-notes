@@ -16,7 +16,6 @@ tags:
 # Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation
 
 **会议**: ICCV 2025  
-**arXiv**: N/A (CVF OpenAccess)  
 **代码**: [https://d2s-vse.github.io](https://d2s-vse.github.io)  
 **领域**: 信息检索  
 **关键词**: 图文匹配, 视觉语义嵌入, 信息容量, 稠密到稀疏蒸馏, 跨模态检索

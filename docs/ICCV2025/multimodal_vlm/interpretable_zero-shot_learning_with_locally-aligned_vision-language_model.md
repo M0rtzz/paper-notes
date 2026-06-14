@@ -17,7 +17,6 @@ tags:
 # Interpretable Zero-Shot Learning with Locally-Aligned Vision-Language Model
 
 **会议**: ICCV 2025  
-**arXiv**: 2506.23822  
 **代码**: [https://github.com/shiming-chen/LaZSL](https://github.com/shiming-chen/LaZSL)  
 **领域**: 多模态VLM  
 **关键词**: 零样本学习, 可解释性, 最优传输, 局部对齐, CLIP, 属性

@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 图学习论文汇总 · 8篇论文解读
+  CVPR2026 图学习论文汇总 · 10篇论文解读
 description: >-
-  8篇CVPR2026的图学习方向论文解读，涵盖多模态、RAG、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  10篇CVPR2026的图学习方向论文解读，涵盖多模态、RAG、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "图学习"
@@ -22,19 +22,23 @@ item_list:
     t: "M3KG-RAG: Multi-hop Multimodal Knowledge Graph-enhanced Retrieval-Augmented Generation"
   - u: "mario_multimodal_graph_reasoning_with_large_language_models/"
     t: "Mario: Multimodal Graph Reasoning with Large Language Models"
+  - u: "mixture-of-experts_based_feature_decoupling_for_open_vocabulary_scene_graph_gene/"
+    t: "Mixture-of-Experts based Feature Decoupling for Open Vocabulary Scene Graph Generation"
   - u: "r2g_multi_view_circuit_graph_benchmark_suite_from_rtl_to_gdsii/"
     t: "R2G: A Multi-View Circuit Graph Benchmark Suite from RTL to GDSII"
+  - u: "robo-sgg_exploiting_layout-oriented_normalization_and_restitution_can_improve_ro/"
+    t: "Robo-SGG: Exploiting Layout-Oriented Normalization and Restitution Can Improve Robust Scene Graph Generation"
   - u: "viterbiplannet_injecting_procedural_knowledge_via_differentiable_viterbi_for_pla/"
     t: "ViterbiPlanNet: Injecting Procedural Knowledge via Differentiable Viterbi for Planning"
   - u: "wsgg_spatiotemporal_world_scene_graph/"
     t: "WSGG: Towards Spatio-Temporal World Scene Graph Generation from Monocular Videos"
-item_total: 8
+item_total: 10
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🕸️ 图学习
 
-**📷 CVPR2026** · **8** 篇论文解读
+**📷 CVPR2026** · **10** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (31)](../../ICML2026/graph_learning/index.md) · [💬 ACL2026 (23)](../../ACL2026/graph_learning/index.md) · [🔬 ICLR2026 (20)](../../ICLR2026/graph_learning/index.md) · [🤖 AAAI2026 (37)](../../AAAI2026/graph_learning/index.md) · [🧠 NeurIPS2025 (54)](../../NeurIPS2025/graph_learning/index.md) · [📹 ICCV2025 (1)](../../ICCV2025/graph_learning/index.md)
 
@@ -60,9 +64,17 @@ item_total: 8
 
 :   提出 Mario，针对多模态图（MMG）上的 LLM 推理，通过图条件视觉语言模型（GVLM）实现拓扑感知的跨模态对齐，再用模态自适应提示路由器（MAPR）为每个节点选择最优模态配置，在节点分类和链接预测上达到 SOTA。
 
+**[Mixture-of-Experts based Feature Decoupling for Open Vocabulary Scene Graph Generation](mixture-of-experts_based_feature_decoupling_for_open_vocabulary_scene_graph_gene.md)**
+
+:   针对开放词表场景图生成（OVSGG）里"只套用现成 VLM 特征、缺乏判别性属性、物体与关系语义割裂"的痛点，本文提出 MoE-FD：用混合专家自适应地把物体/关系特征解耦成形状、纹理、空间等子属性，再用迭代跨注意力让节点与边互相精炼，最终在 Visual Genome 全开放词表设定下把新类 R@100 大幅刷高（OvD+R 新关系 R@20 比 ACC 高 4.24%）。
+
 **[R2G: A Multi-View Circuit Graph Benchmark Suite from RTL to GDSII](r2g_multi_view_circuit_graph_benchmark_suite_from_rtl_to_gdsii.md)**
 
 :   提出 R2G，首个标准化的多视图电路图基准套件，在 30 个 IP 核上提供 5 种阶段感知的图表示（具有信息对等性），系统研究发现图表示选择比 GNN 模型选择对性能影响更大。
+
+**[Robo-SGG: Exploiting Layout-Oriented Normalization and Restitution Can Improve Robust Scene Graph Generation](robo-sgg_exploiting_layout-oriented_normalization_and_restitution_can_improve_ro.md)**
+
+:   针对鲁棒场景图生成（在噪声/模糊/天气等损坏图像上推理）里"视觉特征发生域偏移导致性能暴跌"的痛点，本文提出即插即用的 Robo-SGG：用实例归一化抹掉损坏带来的域特异统计、再用布局感知注意力把全局结构特征找回来（NRM），并用门控融合自适应平衡视觉与坐标特征（LEE），插到现有 SGG 模型上即在 VG-C 上把 PredCls/SGCls/SGDet 的 mR@50 相对提升 6.3% / 11.1% / 8.0%。
 
 **[ViterbiPlanNet: Injecting Procedural Knowledge via Differentiable Viterbi for Planning](viterbiplannet_injecting_procedural_knowledge_via_differentiable_viterbi_for_pla.md)**
 

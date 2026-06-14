@@ -16,7 +16,6 @@ tags:
 # A Drop-In Solution for On-the-Fly Adaptation of Speculative Decoding in Large Language Models
 
 **会议**: ACL 2025  
-**arXiv**: 无公开arXiv链接  
 **代码**: 无  
 **领域**: LLM效率  
 **关键词**: 推测解码, 窗口自适应, LLM推理加速, 草稿模型选择, 端到端速度优化

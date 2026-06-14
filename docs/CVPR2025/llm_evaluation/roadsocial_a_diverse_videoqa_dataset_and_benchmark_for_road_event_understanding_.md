@@ -16,7 +16,6 @@ tags:
 # RoadSocial: A Diverse VideoQA Dataset and Benchmark for Road Event Understanding from Social Video Narratives
 
 **会议**: CVPR 2025  
-**arXiv**: 待公开  
 **代码**: 无  
 **领域**: LLM评测  
 **关键词**: VideoQA, 道路事件, 社交媒体, 数据集, Video LLM

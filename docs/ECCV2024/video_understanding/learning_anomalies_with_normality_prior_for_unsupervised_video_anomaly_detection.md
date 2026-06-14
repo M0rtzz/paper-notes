@@ -16,7 +16,6 @@ tags:
 # Learning Anomalies with Normality Prior for Unsupervised Video Anomaly Detection
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: [https://github.com/shyern/LANP-UVAD](https://github.com/shyern/LANP-UVAD)  
 **领域**: 视频理解 / 异常检测  
 **关键词**: 无监督视频异常检测, 正常性先验, 标签传播, 损失重加权, 伪标签

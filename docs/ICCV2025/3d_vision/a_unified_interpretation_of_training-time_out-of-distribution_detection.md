@@ -16,7 +16,6 @@ tags:
 # A Unified Interpretation of Training-Time Out-of-Distribution Detection
 
 **会议**: ICCV 2025  
-**arXiv**: N/A (CVF OpenAccess)  
 **代码**: 无  
 **领域**: 3D视觉  
 **关键词**: OOD 检测, 交互复杂度, 训练时方法, 高阶交互, 可解释性

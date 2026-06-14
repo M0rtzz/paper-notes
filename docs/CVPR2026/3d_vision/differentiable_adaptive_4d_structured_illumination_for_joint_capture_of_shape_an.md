@@ -156,8 +156,8 @@ flowchart TD
 - [\[CVPR 2026\] D-Prism: Differentiable Primitives for Structured Dynamic Modeling](d-prism_differentiable_primitives_for_structured_dynamic_modeling.md)
 - [\[CVPR 2026\] Unified Primitive Proxies for Structured Shape Completion](unified_primitive_proxies_for_structured_shape_completion.md)
 - [\[CVPR 2026\] MoCapAnything: Unified 3D Motion Capture for Arbitrary Skeletons from Monocular Videos](mocapanything_unified_3d_motion_capture_for_arbitrary_skeletons_from_monocular_v.md)
-- [\[CVPR 2026\] Learning to Solve PDEs on Neural Shape Representations](learning_to_solve_pdes_on_neural_shape_representations.md)
-- [\[CVPR 2026\] Registration-Free Learnable Multi-View Capture of Faces in Dense Semantic Correspondence](registration-free_learnable_multi-view_capture_of_faces_in_dense_semantic_corres.md)
+- [\[CVPR 2026\] VENI: Variational Encoder for Natural Illumination](veni_variational_encoder_for_natural_illumination.md)
+- [\[CVPR 2026\] LangField4D: Learning Identity-Adaptive and Spatio-Temporal Continuous 4D Language Fields for Dynamic Scenes](langfield4d_learning_identity-adaptive_and_spatio-temporal_continuous_4d_languag.md)
 
 </div>
 

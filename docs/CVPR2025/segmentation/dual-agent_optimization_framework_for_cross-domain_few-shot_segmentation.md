@@ -16,7 +16,6 @@ tags:
 # Dual-Agent Optimization framework for Cross-Domain Few-Shot Segmentation
 
 **会议**: CVPR 2025  
-**arXiv**: 待确认  
 **代码**: 待确认  
 **领域**: 图像分割  
 **关键词**: 跨域小样本分割, 域不变特征, 一致性互聚合, 相关性修正, 特征适配

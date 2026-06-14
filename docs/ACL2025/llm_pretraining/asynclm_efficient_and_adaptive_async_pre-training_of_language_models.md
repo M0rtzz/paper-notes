@@ -16,7 +16,6 @@ tags:
 # AsyncLM: Efficient and Adaptive Async Pre-training of Language Models
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: LLM预训练  
 **关键词**: 异步预训练, 语言模型, 分布式训练, 梯度延迟, 自适应学习率

@@ -16,7 +16,6 @@ tags:
 # SATA: Spatial Autocorrelation Token Analysis for Enhancing the Robustness of Vision Transformers
 
 **会议**: CVPR 2025  
-**arXiv**: 待公开  
 **代码**: 无  
 **领域**: ViT鲁棒性  
 **关键词**: Vision Transformer, 空间自相关, token分析, 鲁棒性, 免训练

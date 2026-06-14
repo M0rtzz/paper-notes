@@ -16,7 +16,6 @@ tags:
 # SEDiff: Structure Extraction for Domain Adaptive Depth Estimation via Denoising Diffusion Models
 
 **会议**: ECCV 2024  
-**arXiv**: 无公开 arXiv 版本  
 **代码**: 无  
 **领域**: 3D视觉  
 **关键词**: 单目深度估计, 域自适应, 扩散模型, 结构提取, 风格迁移

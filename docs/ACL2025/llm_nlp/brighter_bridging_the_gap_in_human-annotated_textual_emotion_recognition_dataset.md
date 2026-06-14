@@ -16,7 +16,6 @@ tags:
 # BRIGHTER: BRIdging the Gap in Human-Annotated Textual Emotion Recognition Datasets for 28 Languages
 
 **会议**: ACL 2025 (Best Resource Paper)  
-**arXiv**: N/A  
 **链接**: [ACL Anthology](https://aclanthology.org/2025.acl-long.436/)
 **代码**: 有（数据集公开发布）  
 **领域**: NLP理解 / 情感识别 / 多语言NLP  

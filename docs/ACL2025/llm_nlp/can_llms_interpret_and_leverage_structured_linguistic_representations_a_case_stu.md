@@ -11,7 +11,6 @@ tags:
 # Can LLMs Interpret and Leverage Structured Linguistic Representations? A Case Study with AMRs
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: LLM / NLP  
 

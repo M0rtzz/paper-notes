@@ -16,7 +16,6 @@ tags:
 # Atomic LLM: A Fine-Grained Information Retrieval Evaluation Benchmark for Language Models
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: LLM评估 / 信息检索  
 **关键词**: 细粒度评估, 信息检索, 原子事实, 语言模型基准, 事实核查

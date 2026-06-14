@@ -143,11 +143,11 @@ flowchart TD
 
 ## 相关论文
 
+- [\[CVPR 2026\] Paparazzo: Active Mapping of Moving 3D Objects](paparazzo_active_mapping_of_moving_3d_objects.md)
+- [\[CVPR 2026\] Uncertainty-driven 3D Gaussian Splatting Active Mapping via Anisotropic Visibility Field](uncertainty-driven_3d_gaussian_splatting_active_mapping_via_anisotropic_visibili.md)
 - [\[CVPR 2025\] ActiveGAMER: Active GAussian Mapping through Efficient Rendering](../../CVPR2025/3d_vision/activegamer_active_gaussian_mapping_through_efficient_rendering.md)
-- [\[CVPR 2026\] LTGS: Long-Term Gaussian Scene Chronology From Sparse View Updates](ltgs_long-term_gaussian_scene_chronology_from_sparse_view_updates.md)
-- [\[CVPR 2026\] PCSTracker: Long-Term Scene Flow Estimation for Point Cloud Sequences](pcstracker_long-term_scene_flow_estimation_for_point_cloud_sequences.md)
+- [\[CVPR 2026\] Scene Reconstruction as Mapping Priors for 3D Detection](scene_reconstruction_as_mapping_priors_for_3d_detection.md)
 - [\[CVPR 2026\] OnlinePG: Online Open-Vocabulary Panoptic Mapping with 3D Gaussian Splatting](onlinepg_online_open-vocabulary_panoptic_mapping_with_3d_gaussian_splatting.md)
-- [\[AAAI 2026\] MeshA*: Efficient Path Planning With Motion Primitives](../../AAAI2026/3d_vision/mesha_efficient_path_planning_with_motion_primitives.md)
 
 </div>
 

@@ -17,7 +17,6 @@ tags:
 # Scaling Inference-Time Search with Vision Value Model for Improved Visual Comprehension
 
 **会议**: ICCV 2025  
-**arXiv**: 2412.03704  
 **代码**: 未公开  
 **领域**: 多模态VLM  
 **关键词**: 视觉语言模型, 推理时搜索, 视觉价值模型, 幻觉缓解, 自训练, 时序差分学习

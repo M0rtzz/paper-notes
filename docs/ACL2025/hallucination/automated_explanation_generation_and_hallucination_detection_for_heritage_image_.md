@@ -15,7 +15,6 @@ tags:
 # Automated Explanation Generation and Hallucination Detection for Heritage Image Retrieval
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: 幻觉检测  
 **关键词**: 文化遗产图像检索, 自动解释生成, 幻觉检测, 视觉语言模型, 跨模态检索

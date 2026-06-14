@@ -16,7 +16,6 @@ tags:
 # Can Large Language Models Accurately Generate Answer Keys for Health-related Questions?
 
 **会议**: ACL 2025 (Short Paper)  
-**arXiv**: N/A  
 **链接**: [ACL Anthology](https://aclanthology.org/2025.acl-short.28/)
 **代码**: 无  
 **领域**: 医学NLP / 问答系统 / 事实性评估  

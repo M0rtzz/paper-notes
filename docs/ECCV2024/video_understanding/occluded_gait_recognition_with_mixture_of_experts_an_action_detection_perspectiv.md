@@ -16,7 +16,6 @@ tags:
 # Occluded Gait Recognition with Mixture of Experts: An Action Detection Perspective
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: [https://github.com/BNU-IVC/OccGait](https://github.com/BNU-IVC/OccGait)  
 **领域**: 视频理解 / 行人识别  
 **关键词**: 步态识别, 遮挡处理, 混合专家, 动作检测, 步态数据集

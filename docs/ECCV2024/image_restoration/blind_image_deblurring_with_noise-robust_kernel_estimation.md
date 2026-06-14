@@ -16,7 +16,6 @@ tags:
 # Blind Image Deblurring with Noise-Robust Kernel Estimation
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/csleemooo/BD_noise_robust_kernel_estimation](https://github.com/csleemooo/BD_noise_robust_kernel_estimation)  
 **领域**: 图像复原 / 图像去模糊  
 **关键词**: 盲去模糊, 噪声鲁棒, 核估计, 深度图像先验, 逆问题

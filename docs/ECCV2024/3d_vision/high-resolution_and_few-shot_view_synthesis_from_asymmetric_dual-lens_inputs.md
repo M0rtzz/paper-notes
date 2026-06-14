@@ -16,7 +16,6 @@ tags:
 # High-Resolution and Few-shot View Synthesis from Asymmetric Dual-Lens Inputs
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/XrKang/DL-GS](https://github.com/XrKang/DL-GS)  
 **领域**: 3D视觉 / 新视角合成  
 **关键词**: 3D高斯溅射、双镜头系统、少样本视角合成、高分辨率渲染、超分辨率

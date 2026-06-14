@@ -16,7 +16,6 @@ tags:
 # AEDNet: Adaptive Embedding and Multiview-Aware Disentanglement for Point Cloud Completion
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 3D视觉  
 **关键词**: 点云补全, Slot Attention, 多视角解耦, 全局嵌入, 几何理解

@@ -16,7 +16,6 @@ tags:
 # APL: Anchor-based Prompt Learning for One-stage Weakly Supervised Referring Expression Comprehension
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/Yaxin9Luo/APL](https://github.com/Yaxin9Luo/APL)  
 **领域**: LLM/NLP  
 **关键词**: 弱监督指代表达理解, 提示学习, 锚框特征, 视觉语言对齐, 单阶段检测

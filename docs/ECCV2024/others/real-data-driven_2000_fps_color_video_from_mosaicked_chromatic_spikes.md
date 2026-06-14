@@ -15,7 +15,6 @@ tags:
 # Real-Data-Driven 2000 FPS Color Video from Mosaicked Chromatic Spikes
 
 **会议**: ECCV 2024  
-**arXiv**: 无公开 arXiv  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 脉冲相机, 高速彩色视频重建, 自监督去噪, 渐进式配准, Bayer模式

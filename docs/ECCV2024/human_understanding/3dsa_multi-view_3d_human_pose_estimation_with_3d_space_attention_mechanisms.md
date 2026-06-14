@@ -16,7 +16,6 @@ tags:
 # 3DSA: Multi-view 3D Human Pose Estimation With 3D Space Attention Mechanisms
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 人体理解  
 **关键词**: 多视图人体姿态估计, 3D空间注意力, 特征体素, VoxelPose, 视角重要性

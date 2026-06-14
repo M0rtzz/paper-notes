@@ -16,7 +16,6 @@ tags:
 # Efficient Data Driven Mixture-of-Expert Extraction from Trained Networks
 
 **会议**: CVPR 2025  
-**arXiv**: 见CVF  
 **代码**: 待确认  
 **领域**: LLM效率  
 **关键词**: MoE, ViT, 模型压缩, 专家提取, 稀疏激活

@@ -16,7 +16,6 @@ tags:
 # Hiding Imperceptible Noise in Curvature-Aware Patches for 3D Point Cloud Attack
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 3D视觉 / 对抗攻击  
 **关键词**: 3D点云攻击, 对抗扰动, 小波变换, 曲率感知, 几何不可感知性

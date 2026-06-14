@@ -16,7 +16,6 @@ tags:
 # SEC-Prompt: SEmantic Complementary Prompting for Few-Shot Class-Incremental Learning
 
 **会议**: CVPR 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 少样本类增量学习  
 **关键词**: 少样本增量学习, 语义互补提示, 判别性特征, 数据增强, 提示聚类损失

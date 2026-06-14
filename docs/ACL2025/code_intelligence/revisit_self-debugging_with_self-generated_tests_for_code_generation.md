@@ -16,7 +16,6 @@ tags:
 # Revisit Self-Debugging with Self-Generated Tests for Code Generation
 
 **会议**: ACL 2025  
-**arXiv**: 2501.12793  
 **代码**: -  
 **领域**: 代码智能  
 **关键词**: code generation, self-debugging, self-generated tests, execution feedback, LLM  

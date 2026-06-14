@@ -16,7 +16,6 @@ tags:
 # Acquisition and Application of Novel Knowledge in Large Language Models
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 新知识获取, 排列语言建模, 知识图谱, 双向知识获取, 自回归模型

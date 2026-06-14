@@ -15,7 +15,6 @@ tags:
 # Free-Viewpoint Video of Outdoor Sports Using a Flying Camera
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 自由视点视频, 无人机, 户外运动, 4D重建, 神经辐射场

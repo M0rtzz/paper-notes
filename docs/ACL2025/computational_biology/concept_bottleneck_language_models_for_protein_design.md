@@ -16,7 +16,6 @@ tags:
 # Concept Bottleneck Language Models For Protein Design
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 计算生物
 **关键词**: 概念瓶颈模型, 蛋白质设计, 语言模型, 可解释AI, 蛋白质语言模型

@@ -16,7 +16,6 @@ tags:
 # A Mutual Information Perspective on Knowledge Graph Embedding
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 图学习 / 知识图谱  
 **关键词**: 知识图谱嵌入, 互信息最大化, 语义表示, 复杂关系模式, 实体-关系建模

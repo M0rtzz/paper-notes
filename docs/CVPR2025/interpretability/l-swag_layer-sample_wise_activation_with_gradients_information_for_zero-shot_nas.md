@@ -16,7 +16,6 @@ tags:
 # L-SWAG: Layer-Sample Wise Activation with Gradients Information for Zero-Shot NAS on Vision Transformers
 
 **会议**: CVPR 2025  
-**arXiv**: 待公开  
 **代码**: 无  
 **领域**: 零代价NAS  
 **关键词**: 零代价代理, 神经架构搜索, ViT, 激活值, 梯度信息

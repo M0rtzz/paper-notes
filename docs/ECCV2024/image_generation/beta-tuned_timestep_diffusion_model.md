@@ -16,7 +16,6 @@ tags:
 # Beta-Tuned Timestep Diffusion Model
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 扩散模型 / 图像生成  
 **关键词**: 扩散模型, 时间步采样, Beta分布, 前向过程分析, 训练策略优化

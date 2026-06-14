@@ -16,7 +16,6 @@ tags:
 # A Survey on Foundation Language Models for Single-cell Biology
 
 **会议**: ACL 2025 (Long Paper)  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 计算生物学 / NLP交叉  
 **关键词**: single-cell biology, foundation language model, pre-trained language model, gene expression, tokenization  

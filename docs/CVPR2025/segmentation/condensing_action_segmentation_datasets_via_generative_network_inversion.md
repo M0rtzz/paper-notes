@@ -14,7 +14,6 @@ tags:
 
 **会议**: CVPR 2025  
 **机构**: National University of Singapore (NUS)  
-**arXiv**: 2503.14112  
 **主题**: 数据集蒸馏 / 时序动作分割  
 
 ## 研究背景与动机

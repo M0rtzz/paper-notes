@@ -16,7 +16,6 @@ tags:
 # Concreteness Versus Abstractness: A Selectivity Analysis in LLMs
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 具体性, 抽象性, 语义选择性, 神经元分析, 概念表示

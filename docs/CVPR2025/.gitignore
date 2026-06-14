@@ -1,5 +1,5 @@
 # Auto-generated: CVPR2025 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !aigc_detection/
@@ -57,7 +56,7 @@
 !video_generation/
 !video_understanding/
 
-# 已完成笔记 (1820 篇)
+# 已完成笔记 (1818 篇)
 !3d_vision/3d-gsw_3d_gaussian_splatting_for_robust_watermarking.md
 !3d_vision/3d-hgs_3d_half-gaussian_splatting.md
 !3d_vision/3d-llava_towards_generalist_3d_lmms_with_omni_superpoint_transformer.md
@@ -1717,7 +1716,6 @@
 !social_computing/classifier-guided_clip_distillation_for_unsupervised_multi-label_classification.md
 !social_computing/classifier-to-bias_toward_unsupervised_automatic_bias_detection_for_visual_class.md
 !social_computing/learning_from_neighbors_category_extrapolation_for_long-tail_learning.md
-!social_computing/let_samples_speak_mitigating_spurious_correlation_by_exploiting_the_clusterness_.md
 !social_computing/project-probe-aggregate_efficient_fine-tuning_for_group_robustness.md
 !time_series/competition-aware_cpc_forecasting_with_near-market_coverage.md
 !time_series/dejavid_encoder-agnostic_learned_temporal_matching_for_video_classification.md
@@ -1802,7 +1800,6 @@
 !video_generation/videoguide_improving_video_diffusion_models_without_training_through_a_teachers_.md
 !video_generation/videoscene_distilling_video_diffusion_model_to_generate_3d_scenes_in_one_step.md
 !video_generation/vidtwin_video_vae_with_decoupled_structure_and_dynamics.md
-!video_generation/vires_video_instance_repainting_via_sketch_and_text_guided_generation.md
 !video_generation/visual_prompting_for_one-shot_controllable_video_editing_without_inversion.md
 !video_generation/wav2sem_plug-and-play_audio_semantic_decoupling_for_3d_speech-driven_facial_anim.md
 !video_generation/when_to_lock_attention_training-free_kv_control_in_video_diffusion.md
@@ -1878,3 +1875,6 @@
 !video_understanding/vista_enhancing_long-duration_and_high-resolution_video_understanding_by_video_s.md
 !video_understanding/vited_video_temporal_evidence_distillation.md
 !video_understanding/voco-llama_towards_vision_compression_with_large_language_models.md
+
+# ⚠️ 1 个条目未找到对应文件:
+#   3d_vision/dyn_hamr_recovering_4d_interacting_hand_motion_from_a_dynamic_camera.md

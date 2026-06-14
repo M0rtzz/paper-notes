@@ -16,7 +16,6 @@ tags:
 # De-confounded Gaze Estimation
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 人体理解
 **关键词**: 视线估计、因果推断、跨域泛化、特征分离、混杂因子

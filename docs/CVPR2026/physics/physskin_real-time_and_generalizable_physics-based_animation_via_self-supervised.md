@@ -193,8 +193,8 @@ PhysSkin 比 FEM 快 6.5-230 倍，比 MPM 快 11.5-18.3 倍，且时间几乎�
 - [\[CVPR 2026\] Continuous Exposure-Time Modeling for Realistic Atmospheric Turbulence Synthesis](continuous_exposure-time_modeling_for_realistic_atmospheric_turbulence_synthesis.md)
 - [\[ICLR 2026\] Sublinear Time Quantum Algorithm for Attention Approximation](../../ICLR2026/physics/sublinear_time_quantum_algorithm_for_attention_approximation.md)
 - [\[NeurIPS 2025\] Simulation-Based Inference for Neutrino Interaction Model Parameter Tuning](../../NeurIPS2025/physics/simulation-based_inference_for_neutrino_interaction_model_parameter_tuning.md)
-- [\[ICML 2026\] Mesh Field Theory: Port–Hamiltonian Formulation of Mesh-Based Physics](../../ICML2026/physics/mesh_field_theory_port-hamiltonian_formulation_of_mesh-based_physics.md)
-- [\[ICLR 2026\] Astral: Training Physics-Informed Neural Networks with Error Majorants](../../ICLR2026/physics/astral_training_physics-informed_neural_networks_with_error_majorants.md)
+- [\[CVPR 2026\] AeroAgent: A Vision-Physics-Decision Framework for Aerodynamic Vehicle Design](aeroagent_a_vision-physics-decision_framework_for_aerodynamic_vehicle_design.md)
+- [\[CVPR 2026\] AviaSafe: A Physics-Informed Data-Driven Model for Aviation Safety-Critical Cloud Forecasts](aviasafe_a_physics-informed_data-driven_model_for_aviation_safety-critical_cloud.md)
 
 </div>
 

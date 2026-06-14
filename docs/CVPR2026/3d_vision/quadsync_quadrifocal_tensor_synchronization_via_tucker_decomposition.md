@@ -179,11 +179,11 @@ $$\mathcal{Q}^n = \mathcal{G}_Q \times_1 C \times_2 C \times_3 C \times_4 C$$
 
 ## 相关论文
 
+- [\[CVPR 2026\] LuxRemix: Lighting Decomposition and Remixing for Indoor Scenes](luxremix_lighting_decomposition_and_remixing_for_indoor_scenes.md)
+- [\[CVPR 2026\] Dynamic-Static Decomposition for Novel View Synthesis of Dynamic Scenes with Spiking Neurons](dynamic-static_decomposition_for_novel_view_synthesis_of_dynamic_scenes_with_spi.md)
+- [\[CVPR 2026\] Semantic Foam: Unifying Spatial and Semantic Scene Decomposition](semantic_foam_unifying_spatial_and_semantic_scene_decomposition.md)
 - [\[ICCV 2025\] Proactive Scene Decomposition and Reconstruction](../../ICCV2025/3d_vision/proactive_scene_decomposition_and_reconstruction.md)
 - [\[NeurIPS 2025\] VisualSync: Multi-Camera Synchronization via Cross-View Object Motion](../../NeurIPS2025/3d_vision/visual_sync_multi-camera_synchronization_via_cross-view_object_motion.md)
-- [\[ICCV 2025\] InstaScene: Towards Complete 3D Instance Decomposition and Reconstruction from Cluttered Scenes](../../ICCV2025/3d_vision/instascene_towards_complete_3d_instance_decomposition_and_reconstruction_from_cl.md)
-- [\[ICCV 2025\] SuperDec: 3D Scene Decomposition with Superquadric Primitives](../../ICCV2025/3d_vision/superdec_3d_scene_decomposition_with_superquadrics_primitives.md)
-- [\[ICCV 2025\] DeGauss: Dynamic-Static Decomposition with Gaussian Splatting for Distractor-free 3D Reconstruction](../../ICCV2025/3d_vision/degauss_dynamic-static_decomposition_with_gaussian_splatting_for_distractor-free.md)
 
 </div>
 

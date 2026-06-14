@@ -16,7 +16,6 @@ tags:
 # Gaze Target Detection Based on Head-Local-Global Coordination
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 注视目标检测, 头部-局部-全局协调, 视野范围, 多视图融合, 注视预测

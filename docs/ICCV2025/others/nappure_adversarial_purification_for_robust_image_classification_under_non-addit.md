@@ -17,7 +17,6 @@ tags:
 # NAPPure: Adversarial Purification for Robust Image Classification under Non-Additive Perturbations
 
 **会议**: ICCV 2025  
-**arXiv**: 2510.14025  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 对抗纯化, 非加性扰动, 扩散模型, 鲁棒分类, 模糊攻击, 遮挡攻击, 几何扭曲

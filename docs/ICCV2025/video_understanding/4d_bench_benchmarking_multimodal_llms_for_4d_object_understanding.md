@@ -16,7 +16,6 @@ tags:
 # 4D-Bench: Benchmarking Multi-modal Large Language Models for 4D Object Understanding
 
 **会议**: ICCV 2025  
-**arXiv**: 无 (CVF Open Access)  
 **代码**: [https://4dbench.github.io/](https://4dbench.github.io/)  
 **领域**: 视频理解  
 **关键词**: 4D理解, 多模态大模型评测, 时空推理, 基准测试, 视频问答

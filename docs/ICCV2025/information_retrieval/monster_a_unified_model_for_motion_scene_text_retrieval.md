@@ -16,7 +16,6 @@ tags:
 # MonSTeR: a Unified Model for Motion, Scene, Text Retrieval
 
 **会议**: ICCV 2025  
-**arXiv**: 2510.03200  
 **代码**: [GitHub](https://github.com/colloroneluca/MonSTeR)  
 **领域**: 信息检索  
 **关键词**: 三模态检索, 运动-场景-文本, 高阶关系建模, 对比学习, 人-场景交互评估  

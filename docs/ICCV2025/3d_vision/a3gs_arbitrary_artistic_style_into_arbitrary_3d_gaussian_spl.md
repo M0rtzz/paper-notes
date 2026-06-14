@@ -16,7 +16,6 @@ tags:
 # A3GS: Arbitrary Artistic Style into Arbitrary 3D Gaussian Splatting
 
 **会议**: ICCV 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 3D视觉 / 3D风格迁移  
 **关键词**: 3DGS风格迁移, 零样本, 前馈网络, 图卷积网络, AdaIN

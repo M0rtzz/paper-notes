@@ -17,7 +17,6 @@ tags:
 # Font-Agent: Enhancing Font Understanding with Large Language Models
 
 **会议**: CVPR 2025  
-**arXiv**: 待确认  
 **代码**: 待确认  
 **领域**: 图像生成  
 **关键词**: 字体理解, 视觉语言模型, 边缘感知, DPO, 多模态数据集, 字体描述

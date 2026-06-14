@@ -17,7 +17,6 @@ tags:
 # Multi-task Adversarial Attacks against Black-box Model with Few-shot Queries
 
 **会议**: ACL 2025  
-**arXiv**: 2508.10039  
 **代码**: -  
 **领域**: AI安全  
 **关键词**: adversarial attack, multi-task, black-box, text classification, transfer attack, few-shot queries  

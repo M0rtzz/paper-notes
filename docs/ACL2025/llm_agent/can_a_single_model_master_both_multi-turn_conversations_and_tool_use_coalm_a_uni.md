@@ -16,7 +16,6 @@ tags:
 # Can a Single Model Master Both Multi-turn Conversations and Tool Use? CoALM: A Unified Conversational Agentic Language Model
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **链接**: [ACL Anthology](https://aclanthology.org/2025.acl-long.605/)
 **代码**: 无  
 **领域**: LLM Agent / 对话系统 / 工具使用  

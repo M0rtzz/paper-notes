@@ -16,7 +16,6 @@ tags:
 # Blind Noisy Image Deblurring Using Residual Guidance Strategy
 
 **会议**: ICCV 2025  
-**arXiv**: 无（仅CVF Open Access）  
 **CVF**: [论文链接](https://openaccess.thecvf.com/content/ICCV2025/html/Liu_Blind_Noisy_Image_Deblurring_Using_Residual_Guidance_Strategy_ICCV_2025_paper.html) | [PDF](https://openaccess.thecvf.com/content/ICCV2025/papers/Liu_Blind_Noisy_Image_Deblurring_Using_Residual_Guidance_Strategy_ICCV_2025_paper.pdf)  
 **代码**: 无  
 **作者**: Heyan Liu, Jianing Sun, Jun Liu (通讯), Xi-Le Zhao, Tingting Wu, Tieyong Zeng  

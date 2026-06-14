@@ -15,7 +15,6 @@ tags:
 # Rebalancing Using Estimated Class Distribution for Imbalanced Semi-Supervised Learning under Class Distribution Mismatch
 
 **会议**: ECCV 2024  
-**arXiv**: 无公开 arXiv  
 **代码**: 无  
 **领域**: 半监督学习  
 **关键词**: 类别不平衡, 半监督学习, 类别分布估计, 分布失配, 特征聚类压缩

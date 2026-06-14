@@ -16,7 +16,6 @@ tags:
 # A Cephalometric Landmark Regression Method Based on Dual-Encoder for High-Resolution X-Ray Image
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/huang229/D-CeLR](https://github.com/huang229/D-CeLR)  
 **领域**: 医学图像  
 **关键词**: 头影测量, 关键点检测, 双编码器, Transformer, 高分辨率X光

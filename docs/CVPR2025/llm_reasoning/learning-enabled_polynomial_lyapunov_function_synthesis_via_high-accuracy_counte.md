@@ -16,7 +16,6 @@ tags:
 # Learning-enabled Polynomial Lyapunov Function Synthesis via High-Accuracy Counterexample-Guided Framework
 
 **会议**: CVPR 2025  
-**arXiv**: 待公开  
 **代码**: 无  
 **领域**: 音频语音  
 **关键词**: Lyapunov函数, 多项式网络, 形式验证, 反例引导, 稳定性分析

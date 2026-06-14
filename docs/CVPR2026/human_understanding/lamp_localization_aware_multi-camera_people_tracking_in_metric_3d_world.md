@@ -162,10 +162,10 @@ Nymeria 上逐项消融（四个开关：posed=用相机位姿变换射线；smo
 ## 相关论文
 
 - [\[CVPR 2026\] Humanoid-GPT: Scaling Data and Structure for Zero-Shot Motion Tracking](humanoid-gpt_scaling_data_and_structure_for_zero-shot_motion_tracking.md)
+- [\[CVPR 2026\] MetricHMSR: Metric Human Mesh and Scene Recovery from Monocular Images](metrichmsr_metric_human_mesh_and_scene_recovery_from_monocular_images.md)
 - [\[CVPR 2026\] Seeing without Pixels: Perception from Camera Trajectories](seeing_without_pixels_perception_from_camera_trajectories.md)
-- [\[ECCV 2024\] WorldPose: A World Cup Dataset for Global 3D Human Pose Estimation](../../ECCV2024/human_understanding/worldpose_a_world_cup_dataset_for_global_3d_human_pose_estimation.md)
-- [\[CVPR 2026\] SMART: SMPLest-X Mesh Adaptation and RAFT Tracking for Soccer Pose Estimation](smart_smplest-x_mesh_adaptation_and_raft_tracking_for_soccer_pose_estimation.md)
-- [\[CVPR 2025\] WiLoR: End-to-end 3D Hand Localization and Reconstruction in-the-wild](../../CVPR2025/human_understanding/wilor_end-to-end_3d_hand_localization_and_reconstruction_in-the-wild.md)
+- [\[CVPR 2026\] OSMO: Open-vocabulary Self-eMOtion Tracking](osmo_open-vocabulary_self-emotion_tracking.md)
+- [\[CVPR 2026\] Active Intelligence in Video Avatars via Closed-loop World Modeling](active_intelligence_in_video_avatars_via_closed-loop_world_modeling.md)
 
 </div>
 

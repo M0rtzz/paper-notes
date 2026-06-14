@@ -16,7 +16,6 @@ tags:
 # Achieving More with Less: Additive Prompt Tuning for Rehearsal-Free Class-Incremental Learning
 
 **会议**: ICCV 2025  
-**arXiv**: N/A (CVF OpenAccess)  
 **代码**: 无  
 **领域**: 模型压缩  
 **关键词**: 类增量学习, 提示学习, 参数高效微调, 灾难性遗忘, Vision Transformer

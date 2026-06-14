@@ -16,7 +16,6 @@ tags:
 # TIDE: Training Locally Interpretable Domain Generalization Models Enables Test-time Correction
 
 **会议**: CVPR 2025  
-**arXiv**: 待公开  
 **代码**: 无  
 **领域**: 域泛化  
 **关键词**: 单源域泛化, 局部可解释性, 概念对齐, 测试时矫正, 扩散模型

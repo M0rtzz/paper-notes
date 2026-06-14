@@ -16,7 +16,6 @@ tags:
 # Beyond Brain Decoding: Visual-Semantic Reconstructions to Mental Creation Extension Based on fMRI
 
 **会议**: ICCV 2025  
-**arXiv**: 无预印本（仅CVF Open Access）  
 **CVF**: [论文页面](https://openaccess.thecvf.com/content/ICCV2025/html/Jing_Beyond_Brain_Decoding_Visual-Semantic_Reconstructions_to_Mental_Creation_Extension_Based_ICCV_2025_paper.html) / [PDF](https://openaccess.thecvf.com/content/ICCV2025/papers/Jing_Beyond_Brain_Decoding_Visual-Semantic_Reconstructions_to_Mental_Creation_Extension_Based_ICCV_2025_paper.pdf)  
 **代码**: 无公开代码  
 **作者**: Haodong Jing, Dongyao Jiang, Yongqiang Ma, Haibo Hua, Bo Huang, Nanning Zheng（西安交通大学）  

@@ -16,7 +16,6 @@ tags:
 # Browsing Like Human: A Multimodal Web Agent with Experiential Fast-and-Slow Thinking
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **链接**: [ACL Anthology](https://aclanthology.org/2025.acl-long.697/)
 **代码**: 无  
 **领域**: LLM Agent / Web导航 / 多模态推理  

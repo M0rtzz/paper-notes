@@ -16,7 +16,6 @@ tags:
 # ACT: Knowledgeable Agents to Design and Perform Complex Tasks
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 多智能体协作, 知识共享, 复杂任务分解, LLM Agent, 结构化知识

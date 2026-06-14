@@ -15,7 +15,6 @@ tags:
 # Non-parametric Sensor Noise Modeling and Synthesis
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 图像处理 / 低层视觉  
 **关键词**: 传感器噪声建模, 非参数模型, 概率质量函数, 噪声合成, 图像去噪

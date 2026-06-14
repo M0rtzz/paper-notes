@@ -16,7 +16,6 @@ tags:
 # Backdoor Attacks on Neural Networks via One-Bit Flip
 
 **会议**: ICCV 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: AI安全 / 后门攻击  
 **关键词**: backdoor attack, bit-flip attack, Rowhammer, quantized model, one-bit flip

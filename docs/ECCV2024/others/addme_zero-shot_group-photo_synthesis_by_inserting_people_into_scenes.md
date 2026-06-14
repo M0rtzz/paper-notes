@@ -15,7 +15,6 @@ tags:
 # AddMe: Zero-Shot Group-Photo Synthesis by Inserting People Into Scenes
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 人像插入, 群体照片合成, 扩散模型, 身份保持, 零样本生成

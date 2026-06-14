@@ -11,7 +11,6 @@ tags:
 # REPRO-Bench: Can Agentic AI Systems Assess the Reproducibility of Social Science Research?
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: LLM智能体  
 

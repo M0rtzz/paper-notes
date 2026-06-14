@@ -16,7 +16,6 @@ tags:
 # Achieving Certification-by-Design Through Model-Driven Development
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 认证驱动设计, 模型驱动开发, NLP系统合规, 安全认证, 软件工程与NLP

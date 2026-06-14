@@ -18,7 +18,6 @@ tags:
 ## 基本信息
 
 **会议**: ACL 2025  
-**arXiv**: 2504.06868  
 **代码**: [pull-ups/PANDA](https://github.com/pull-ups/PANDA)  
 **模型**: [mirlab/PersonalityClassifier](https://huggingface.co/mirlab/PersonalityClassifier)  
 **领域**: 其他  

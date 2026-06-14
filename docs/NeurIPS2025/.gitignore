@@ -1,5 +1,5 @@
 # Auto-generated: NeurIPS2025 paper notes ignore
-# 由 src/sync_notes.py 根据 TODO.md 自动生成
+# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
 
 # 默认忽略所有笔记
 *.md
@@ -8,9 +8,8 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
-!index.md
 
-# 排除已完成笔记所在的子目录
+# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
 !3d_vision/
 !ai_safety/
 !aigc_detection/
@@ -61,7 +60,7 @@
 !video_generation/
 !video_understanding/
 
-# 已完成笔记 (2530 篇)
+# 已完成笔记 (2529 篇)
 !3d_vision/3d_visual_illusion_depth_estimation.md
 !3d_vision/4dgt_learning_a_4d_gaussian_transformer_using_realworld_mono.md
 !3d_vision/anti-aliased_2d_gaussian_splatting.md
@@ -2428,7 +2427,6 @@
 !self_supervised/curiosity-driven_rl_for_symbolic_equation_solving.md
 !self_supervised/datarater_meta-learned_dataset_curation.md
 !self_supervised/disentangling_hyperedges_through_the_lens_of_category_theory.md
-!self_supervised/foundation_models_for_scientific_discovery_from_paradigm_enhancement_to_paradigm.md
 !self_supervised/hybrid_autoencoders_for_tabular_data_leveraging_model-based_augmentation_in_low-.md
 !self_supervised/implicit_modeling_for_transferability_estimation_of_vision_foundation_models.md
 !self_supervised/know_thyself_by_knowing_others_learning_neuron_identity_from_population_context.md

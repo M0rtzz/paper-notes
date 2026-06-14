@@ -16,7 +16,6 @@ tags:
 # Comparative Analysis of Multilingual Hate Speech Detection
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 多语言翻译  
 **关键词**: 仇恨言论检测, 多语言NLP, 跨语言迁移, 文本分类, 社交媒体分析

@@ -16,7 +16,6 @@ tags:
 # ABC-Former: Auxiliary Bimodal Cross-domain Transformer with Interactive Channel Attention
 
 **会议**: CVPR 2025  
-**arXiv**: 无公开预印本  
 **代码**: [https://github.com/ytpeng-aimlab/ABC-Former](https://github.com/ytpeng-aimlab/ABC-Former)  
 **领域**: 图像处理 / 白平衡  
 **关键词**: 白平衡, 双模态, 跨域Transformer, 交互通道注意力, CIELab直方图

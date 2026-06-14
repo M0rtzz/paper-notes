@@ -142,7 +142,7 @@ $$\mathrm{SoftDTW}_{\gamma}(x,y)=\operatorname{softmin}^{(\gamma)}_{\pi\in\mathc
 - [\[CVPR 2026\] InterEdit: Navigating Text-Guided Multi-Human 3D Motion Editing](interedit_navigating_textguided_multihuman_3d_moti.md)
 - [\[CVPR 2025\] Nonisotropic Gaussian Diffusion for Realistic 3D Human Motion Prediction](../../CVPR2025/image_generation/nonisotropic_gaussian_diffusion_for_realistic_3d_human_motion_prediction.md)
 - [\[CVPR 2026\] Causal Motion Diffusion Models for Autoregressive Motion Generation](causal_motion_diffusion_models_for_autoregressive_motion_generation.md)
-- [\[CVPR 2026\] Vinedresser3D: Agentic Text-guided 3D Editing](vinedresser3d_agentic_text-guided_3d_editing.md)
+- [\[CVPR 2026\] OneHOI: Unifying Human-Object Interaction Generation and Editing](onehoi_unifying_human-object_interaction_generation_and_editing.md)
 - [\[ECCV 2024\] Realistic Human Motion Generation with Cross-Diffusion Models](../../ECCV2024/image_generation/realistic_human_motion_generation_with_cross-diffusion_models.md)
 
 </div>

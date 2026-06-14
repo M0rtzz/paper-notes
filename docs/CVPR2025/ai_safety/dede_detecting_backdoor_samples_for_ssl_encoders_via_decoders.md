@@ -13,7 +13,6 @@ code: "https://github.com/tardisblue9/DeDe"
 **作者**: Yuwen Pu, Yue Zheng, Shiji Zhao 等  
 **机构**: HKUST / Southeast University  
 **会议**: CVPR 2025  
-**arXiv**: 2411.16154  
 **代码**: [https://github.com/tardisblue9/DeDe](https://github.com/tardisblue9/DeDe)  
 
 ## 研究背景与动机

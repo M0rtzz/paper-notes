@@ -152,10 +152,10 @@ Motion Tokenizer 只在未标注的训练集视频片段上训练；分割阶段
 ## 相关论文
 
 - [\[CVPR 2026\] Joint-Aligned Latent Action: Towards Scalable VLA Pretraining in the Wild](joint-aligned_latent_action_towards_scalable_vla_pretraining_in_the_wild.md)
+- [\[CVPR 2026\] Condensed Test-Time Adaptation of VLMs for Action Recognition](condensed_test-time_adaptation_of_vlms_for_action_recognition.md)
 - [\[CVPR 2026\] MA-Bench: Towards Fine-grained Micro-Action Understanding](ma-bench_towards_fine-grained_micro-action_understanding.md)
 - [\[CVPR 2026\] SIMPACT: Simulation-Enabled Action Planning using Vision-Language Models](simpact_simulation-enabled_action_planning_using_vision-language_models.md)
-- [\[ICCV 2025\] VQ-VLA: Improving Vision-Language-Action Models via Scaling Vector-Quantized Action Tokenizers](../../ICCV2025/multimodal_vlm/vq-vla_improving_vision-language-action_models_via_scaling_vector-quantized_acti.md)
-- [\[CVPR 2025\] Optimus-2: Multimodal Minecraft Agent with Goal-Observation-Action Conditioned Policy](../../CVPR2025/multimodal_vlm/optimus-2_multimodal_minecraft_agent_with_goal-observation-action_conditioned_po.md)
+- [\[CVPR 2026\] PowerCLIP: Powerset Alignment for Contrastive Pre-Training](powerclip_powerset_alignment_for_contrastive_pre-training.md)
 
 </div>
 

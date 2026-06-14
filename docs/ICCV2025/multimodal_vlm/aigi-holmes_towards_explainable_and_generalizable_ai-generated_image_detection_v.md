@@ -16,7 +16,6 @@ tags:
 # AIGI-Holmes: Towards Explainable and Generalizable AI-Generated Image Detection via Multimodal Large Language Models
 
 **会议**: ICCV 2025  
-**arXiv**: N/A (CVF OpenAccess)  
 **代码**: [https://github.com/wyczzy/AIGI-Holmes](https://github.com/wyczzy/AIGI-Holmes)  
 **领域**: 多模态VLM  
 **关键词**: AI生成图像检测, 多模态大语言模型, 可解释检测, 直接偏好优化, 协同解码

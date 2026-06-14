@@ -16,7 +16,6 @@ tags:
 # Brain Netflix: Scaling Data to Reconstruct Videos from Brain Signals
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 脑信号视频重建, fMRI, 多被试学习, 扩散模型, 神经解码

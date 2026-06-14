@@ -16,7 +16,6 @@ tags:
 # Adversarial Distribution Matching for Diffusion Distillation Towards Efficient Image and Video Synthesis
 
 **会议**: ICCV 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 图像/视频生成 / 扩散模型蒸馏  
 **关键词**: diffusion distillation, adversarial training, distribution matching, one-step generation, score distillation

@@ -16,7 +16,6 @@ tags:
 # LASS3D: Language-Assisted Semi-Supervised 3D Semantic Segmentation with Progressive Unreliable Data Exploitation
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 3D视觉 / 语义分割  
 **关键词**: 半监督学习, 3D点云分割, 大语言视觉模型, 伪标签, 负学习

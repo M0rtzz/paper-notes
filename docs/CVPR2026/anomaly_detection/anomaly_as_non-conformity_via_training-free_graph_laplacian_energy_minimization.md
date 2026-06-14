@@ -140,3 +140,15 @@ Table 2（1-shot）逐步把"距离度量 → 图能量"演进，验证三个组
 - 实验充分度: ⭐⭐⭐⭐ 两大基准 × 三个 shot × 六指标 + 组件/骨干消融较完整，但关键超参敏感性放在补充、VisA 图像级未全面领先
 - 写作质量: ⭐⭐⭐⭐ 动机推导清晰、公式自洽、三段式管线讲得明白；个别 OCR 残留与符号略影响阅读
 - 价值: ⭐⭐⭐⭐⭐ 训练无关、无参数、闭式解、即插即用，对工业少样本异常检测落地价值高
+
+<!-- RELATED:START -->
+
+<div class="related-papers" markdown="1">
+
+## 相关论文
+
+- [\[CVPR 2026\] LayoutAD: Exploring Semantic-Geometric Misalignment Reasoning for Scene Layout Anomaly Detection](layoutad_exploring_semantic-geometric_misalignment_reasoning_for_scene_layout_an.md)
+
+</div>
+
+<!-- RELATED:END -->

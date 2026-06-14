@@ -16,7 +16,6 @@ tags:
 # Activation Steering Decoding: Mitigating Hallucination in Large Vision-Language Models through Bidirectional Hidden State Intervention
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 幻觉检测  
 **关键词**: 幻觉缓解, 激活引导, 对比解码, 无训练推理干预, 视觉-语言模型

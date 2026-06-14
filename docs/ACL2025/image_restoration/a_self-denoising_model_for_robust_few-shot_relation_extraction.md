@@ -16,7 +16,6 @@ tags:
 # A Self-Denoising Model for Robust Few-Shot Relation Extraction
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 图像复原  
 **关键词**: 少样本关系抽取, 噪声标签, 原型网络, 标签校正, 自去噪

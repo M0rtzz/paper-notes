@@ -16,7 +16,6 @@ tags:
 # Linearly Controllable GAN: Unsupervised Feature Categorization and Decomposition for Image Generation and Manipulation
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 扩散模型 / 图像生成  
 **关键词**: GAN可控生成, 特征解耦, 对比学习, 谱正则化, 无监督分解

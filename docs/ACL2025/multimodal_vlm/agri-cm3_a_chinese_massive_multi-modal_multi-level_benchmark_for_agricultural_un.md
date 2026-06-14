@@ -16,7 +16,6 @@ tags:
 # AGRI-CM3: A Chinese Massive Multi-Modal Multi-Level Benchmark for Agricultural Understanding
 
 **会议**: ACL 2025  
-**arXiv**: 无公开arXiv  
 **代码**: 无  
 **领域**: 多模态VLM / 农业AI  
 **关键词**: 农业多模态基准、中文农业理解、多层次评测、视觉语言模型、领域特定评测

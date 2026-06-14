@@ -16,7 +16,6 @@ tags:
 # Optimizing Factorized Encoder Models: Time and Memory Reduction for Scalable and Efficient Action Recognition
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 视频理解 / 动作识别  
 **关键词**: 视频Transformer, ViViT, 因子化编码器, 训练效率, 动作识别

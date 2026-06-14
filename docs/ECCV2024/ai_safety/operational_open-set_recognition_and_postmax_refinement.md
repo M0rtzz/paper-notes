@@ -16,7 +16,6 @@ tags:
 # Operational Open-Set Recognition and PostMax Refinement
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 开放集识别 / 分类  
 **关键词**: 开放集识别, PostMax, OOSA指标, 极值分布, logit归一化

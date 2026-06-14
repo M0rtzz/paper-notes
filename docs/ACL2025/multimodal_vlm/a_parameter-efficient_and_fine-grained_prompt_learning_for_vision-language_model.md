@@ -16,7 +16,6 @@ tags:
 # A Parameter-Efficient and Fine-Grained Prompt Learning for Vision-Language Models
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 多模态VLM / 参数高效微调  
 **关键词**: 视觉语言模型, 提示学习, 参数高效, 细粒度对齐, 低熵信息集中

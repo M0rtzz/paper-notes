@@ -16,7 +16,6 @@ tags:
 # 3DFG-PIFu: 3D Feature Grids for Human Digitization from Sparse Views
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/kcyt/3DFG-PIFu](https://github.com/kcyt/3DFG-PIFu)  
 **领域**: 其他  
 **关键词**: 人体重建, 多视图重建, 像素对齐隐式函数, 3D特征网格, SMPL-X

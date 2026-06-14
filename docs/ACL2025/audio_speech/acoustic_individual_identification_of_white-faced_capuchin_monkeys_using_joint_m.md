@@ -16,7 +16,6 @@ tags:
 # Acoustic Individual Identification of White-Faced Capuchin Monkeys Using Joint Multi-Species Embeddings
 
 **会议**: ACL 2025 (Short Paper)  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 语音与音频  
 **关键词**: 动物个体识别, 跨物种迁移学习, 声学嵌入, 多物种表征, 白面卷尾猴

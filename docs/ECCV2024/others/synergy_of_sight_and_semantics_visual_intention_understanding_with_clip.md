@@ -15,7 +15,6 @@ tags:
 # Synergy of Sight and Semantics: Visual Intention Understanding with CLIP
 
 **会议**: ECCV 2024  
-**arXiv**: 无公开arXiv版本  
 **PDF**: [ECVA](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/01721.pdf) / [作者版](https://marswhu.github.io/publications/files/ECCV24_IntCLIP.pdf)
 **代码**: [https://github.com/yan9qu/IntCLIP](https://github.com/yan9qu/IntCLIP)  
 **领域**: 其他  

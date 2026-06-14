@@ -16,7 +16,6 @@ tags:
 # Continuous Space-Time Video Resampling with Invertible Motion Steganography
 
 **会议**: CVPR 2025  
-**arXiv**: 无公开预印本  
 **代码**: 未公开  
 **领域**: 视频处理 / 信号与通信  
 **关键词**: 时空重采样, 可逆隐写, 运动保持, 连续采样因子, 视频帧插值

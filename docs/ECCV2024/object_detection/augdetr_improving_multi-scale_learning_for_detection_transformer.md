@@ -16,7 +16,6 @@ tags:
 # AugDETR: Improving Multi-scale Learning for Detection Transformer
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 目标检测  
 **关键词**: 检测Transformer, 多尺度学习, 可变形注意力, 编码器增强, 跨层融合

@@ -15,7 +15,6 @@ tags:
 # Elegantly Written: Disentangling Writer and Character Styles for Enhancing Online Chinese Handwriting
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 中文手写体美化、书写风格解耦、在线手写轨迹、交叉注意力、风格迁移

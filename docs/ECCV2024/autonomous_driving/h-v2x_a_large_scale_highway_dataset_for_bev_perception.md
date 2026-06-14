@@ -16,7 +16,6 @@ tags:
 # H-V2X: A Large Scale Highway Dataset for BEV Perception
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 自动驾驶 / BEV感知数据集  
 **关键词**: V2X, 高速公路, BEV感知, 目标检测, 轨迹预测

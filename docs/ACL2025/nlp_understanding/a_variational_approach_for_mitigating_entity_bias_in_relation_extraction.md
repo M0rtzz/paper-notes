@@ -16,7 +16,6 @@ tags:
 # A Variational Approach for Mitigating Entity Bias in Relation Extraction
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: NLP理解 / 关系抽取  
 **关键词**: 实体偏差, 变分信息瓶颈, 关系抽取, 去偏, PLM

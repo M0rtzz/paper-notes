@@ -16,7 +16,6 @@ tags:
 # ADIEE: Automatic Dataset Creation and Scorer for Instruction-Guided Image Editing Evaluation
 
 **会议**: ICCV 2025  
-**arXiv**: 无  
 **代码**: [GitHub](https://github.com/SherryXTChen/ADIEE.git)  
 **领域**: 图像编辑评估 / 视觉语言模型  
 **关键词**: image editing evaluation, automated scoring, VLM fine-tuning, reward model, instruction-guided editing

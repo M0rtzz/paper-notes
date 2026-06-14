@@ -142,10 +142,10 @@ PIP 阶段总损失是三项相加 $\mathcal{L} = \mathcal{L}_{\text{cum}} + \ma
 ## 相关论文
 
 - [\[CVPR 2026\] Lite Any Stereo: Efficient Zero-Shot Stereo Matching](lite_any_stereo_efficient_zero-shot_stereo_matching.md)
+- [\[CVPR 2026\] Fast-FoundationStereo: Real-Time Zero-Shot Stereo Matching](fast-foundationstereo_real-time_zero-shot_stereo_matching.md)
 - [\[CVPR 2025\] Consistency-aware Self-Training for Iterative-based Stereo Matching](../../CVPR2025/3d_vision/consistency-aware_self-training_for_iterative-based_stereo_matching.md)
+- [\[CVPR 2026\] GS-ASM: 2DGS-Supervised Active Stereo Matching](gs-asm_2dgs-supervised_active_stereo_matching.md)
 - [\[CVPR 2026\] PromptStereo: Zero-Shot Stereo Matching via Structure and Motion Prompts](promptstereo_zero-shot_stereo_matching_via_structure_and_motion_prompts.md)
-- [\[ECCV 2024\] TC-Stereo: Temporally Consistent Stereo Matching](../../ECCV2024/3d_vision/temporally_consistent_stereo_matching.md)
-- [\[CVPR 2025\] DEFOM-Stereo: Depth Foundation Model Based Stereo Matching](../../CVPR2025/3d_vision/defom-stereo_depth_foundation_model_based_stereo_matching.md)
 
 </div>
 

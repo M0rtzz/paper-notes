@@ -169,9 +169,9 @@ $$\boldsymbol{x}_{k_i}^{edit} = \text{FLUX}(\boldsymbol{x}_{k_i}, \boldsymbol{x}
 ## 相关论文
 
 - [\[CVPR 2026\] When to Lock Attention: Training-Free KV Control in Video Diffusion](when_to_lock_attention_training-free_kv_control_in_video_diffusion.md)
+- [\[CVPR 2026\] FlowDirector: Training-Free Flow Steering for Precise Text-to-Video Editing](flowdirector_training-free_flow_steering_for_precise_text-to-video_editing.md)
 - [\[ICML 2026\] Lightning Unified Video Editing via In-Context Sparse Attention](../../ICML2026/video_generation/lightning_unified_video_editing_via_in-context_sparse_attention.md)
 - [\[CVPR 2026\] DreamShot: Personalized Storyboard Synthesis with Video Diffusion Prior](dreamshot_storyboard_synthesis.md)
-- [\[CVPR 2026\] VideoCoF: Unified Video Editing with Temporal Reasoner](videocof_unified_video_editing_with_temporal_reasoner.md)
 - [\[CVPR 2025\] Unified Dense Prediction of Video Diffusion](../../CVPR2025/video_generation/unified_dense_prediction_of_video_diffusion.md)
 
 </div>

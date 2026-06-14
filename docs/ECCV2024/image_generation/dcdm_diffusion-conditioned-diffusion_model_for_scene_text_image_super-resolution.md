@@ -16,7 +16,6 @@ tags:
 # DCDM: Diffusion-Conditioned-Diffusion Model for Scene Text Image Super-Resolution
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/shreygithub/DCDM](https://github.com/shreygithub/DCDM) (代码暂未释放)  
 **领域**: 扩散模型 / 文本图像超分辨率  
 **关键词**: 场景文字超分辨率、扩散模型、字符级文本嵌入、CLIP对齐、条件生成

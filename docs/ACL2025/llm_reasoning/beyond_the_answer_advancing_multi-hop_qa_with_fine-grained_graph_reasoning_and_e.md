@@ -16,7 +16,6 @@ tags:
 # Beyond the Answer: Advancing Multi-Hop QA with Fine-Grained Graph Reasoning and Evaluation
 
 **会议**: ACL 2025  
-**arXiv**: 未公开  
 **代码**: 无  
 **领域**: LLM推理  
 **关键词**: 多跳问答、图推理、细粒度评估、证据链、知识图谱

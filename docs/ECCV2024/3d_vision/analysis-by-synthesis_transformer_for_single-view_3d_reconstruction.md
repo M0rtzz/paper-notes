@@ -16,7 +16,6 @@ tags:
 # Analysis-by-Synthesis Transformer for Single-View 3D Reconstruction
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/DianJJ/AST](https://github.com/DianJJ/AST)  
 **领域**: 3D视觉  
 **关键词**: 单视图3D重建, 分析合成范式, Transformer, 网格重建, 纹理生成

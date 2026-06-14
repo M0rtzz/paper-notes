@@ -16,7 +16,6 @@ tags:
 # Can We Further Elicit Reasoning in LLMs? Critic-Guided Planning with Retrieval-Augmentation for Solving Challenging Tasks
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **链接**: [ACL Anthology](https://aclanthology.org/2025.acl-long.1244/)
 **代码**: 无  
 **领域**: LLM/NLP  

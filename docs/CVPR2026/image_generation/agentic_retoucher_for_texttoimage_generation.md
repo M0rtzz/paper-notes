@@ -119,11 +119,11 @@ flowchart TD
 
 ## 相关论文
 
+- [\[CVPR 2026\] OctoT2I: A Self-Evolving Agentic Text-to-Image Router](octot2i_a_self-evolving_agentic_text-to-image_router.md)
 - [\[CVPR 2026\] Vinedresser3D: Agentic Text-guided 3D Editing](vinedresser3d_agentic_text-guided_3d_editing.md)
 - [\[ICML 2026\] AtelierEval: Agentic Evaluation of Humans & LLMs as Text-to-Image Prompters](../../ICML2026/image_generation/ateliereval_agentic_evaluation_of_humans_llms_as_text-to-image_prompters.md)
 - [\[CVPR 2026\] Resolving the Identity Crisis in Text-to-Image Generation](resolving_the_identity_crisis_in_text-to-image_generation.md)
-- [\[ACL 2025\] A Unified Agentic Framework for Evaluating Conditional Image Generation](../../ACL2025/image_generation/a_unified_agentic_framework_for_evaluating_conditional_image_generation.md)
-- [\[ICML 2026\] SceneSmith: Agentic Generation of Simulation-Ready Indoor Scenes](../../ICML2026/image_generation/scenesmith_agentic_generation_of_simulation-ready_indoor_scenes.md)
+- [\[CVPR 2026\] GenColorBench: A Color Evaluation Benchmark for Text-to-Image Generation](gencolorbench_a_color_evaluation_benchmark_for_text-to-image_generation.md)
 
 </div>
 

@@ -12,7 +12,6 @@ arxiv: "2504.00072"
 **作者**: Lucas Music, Stanislas Music, Antoine Yang, Cordelia Schmid, Ivan Laptev  
 **机构**: École des Ponts ParisTech / Inria / Google DeepMind  
 **会议**: CVPR 2025  
-**arXiv**: 2504.00072  
 
 ## 研究背景与动机
 

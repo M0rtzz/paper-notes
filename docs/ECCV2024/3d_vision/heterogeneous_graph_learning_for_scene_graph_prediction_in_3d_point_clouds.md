@@ -16,7 +16,6 @@ tags:
 # Heterogeneous Graph Learning for Scene Graph Prediction in 3D Point Clouds
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 3D视觉 / 场景图预测  
 **关键词**: 3D场景图, 异构图学习, 点云理解, 关系预测, 图结构学习

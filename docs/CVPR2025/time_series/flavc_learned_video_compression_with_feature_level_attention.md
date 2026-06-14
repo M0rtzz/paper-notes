@@ -16,7 +16,6 @@ tags:
 # FLAVC: Learned Video Compression with Feature Level Attention
 
 **会议**: CVPR 2025  
-**arXiv**: 无公开预印本  
 **代码**: [https://github.com/Z-CV-code/FLAVC](https://github.com/Z-CV-code/FLAVC)  
 **领域**: 视频压缩  
 **关键词**: 学习型视频压缩, 特征级注意力, Transformer, 全局上下文矩阵, Dense Patcher

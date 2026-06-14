@@ -17,7 +17,6 @@ tags:
 # ShortV: Efficient Multimodal Large Language Models by Freezing Visual Tokens in Ineffective Layers
 
 **会议**: ICCV 2025  
-**arXiv**: 2504.00502  
 **代码**: [https://github.com/icip-cas/ShortV](https://github.com/icip-cas/ShortV)  
 **领域**: 多模态VLM  
 **关键词**: 多模态大模型, 推理效率, 层冗余, 视觉token冻结, 免训练, MLLM加速

@@ -16,7 +16,6 @@ tags:
 # BelarusianGLUE: Towards a Natural Language Understanding Benchmark for Belarusian
 
 **会议**: ACL 2025 (Long Paper, acl-long.25)  
-**arXiv**: 无（仅ACL Anthology发表）  
 **代码**: [https://github.com/maaxap/BelarusianGLUE](https://github.com/maaxap/BelarusianGLUE)  
 **数据**: https://hf.co/datasets/maaxap/BelarusianGLUE
 **领域**: NLU基准 / 低资源语言 / 多语言评估  

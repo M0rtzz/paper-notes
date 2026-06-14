@@ -16,7 +16,6 @@ tags:
 # ACAM-KD: Adaptive and Cooperative Attention Masking for Knowledge Distillation
 
 **会议**: ICCV 2025  
-**arXiv**: N/A (CVF OpenAccess)  
 **代码**: 无  
 **领域**: 自动驾驶  
 **关键词**: 知识蒸馏, 注意力掩码, 跨注意力融合, 空间-通道选择, 目标检测

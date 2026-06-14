@@ -16,7 +16,6 @@ tags:
 # Beyond Negative Stereotypes -- Non-Negative Abusive Utterances about Identity Groups and Their Semantic Variants
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他（仇恨言论检测/计算社会语言学）  
 **关键词**: 仇恨言论、身份群体、非负面刻板印象、语义变体、滥用语言检测

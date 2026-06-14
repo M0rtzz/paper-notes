@@ -16,7 +16,6 @@ tags:
 # MarineInst: A Foundation Model for Marine Image Analysis with Instance Visual Description
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: [https://marineinst.hkustvgd.com](https://marineinst.hkustvgd.com)  
 **领域**: 自监督学习 / 基础模型  
 **关键词**: 海洋图像分析, 基础模型, 实例分割, 视觉描述, 大规模数据集

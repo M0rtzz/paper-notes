@@ -16,7 +16,6 @@ tags:
 # Low-Rank Adaptation in Multilinear Operator Networks for Security-Preserving Incremental Learning
 
 **会议**: CVPR 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 安全增量学习  
 **关键词**: 多线性算子网络, 全同态加密, 低秩适应, 灾难性遗忘, 梯度投影记忆

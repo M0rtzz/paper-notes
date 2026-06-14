@@ -2,7 +2,7 @@
 title: >-
   CVPR2026 信号/通信论文汇总 · 5篇论文解读
 description: >-
-  5篇CVPR2026的信号/通信方向论文解读，涵盖多模态、对抗鲁棒、持续学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  5篇CVPR2026的信号/通信方向论文解读，涵盖多模态、对抗鲁棒等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "信号/通信"
@@ -10,7 +10,6 @@ tags:
   - "论文笔记"
   - "多模态"
   - "对抗鲁棒"
-  - "持续学习"
 item_list:
   - u: "actta_rethinking_test-time_adaptation_via_dynamic_activation/"
     t: "AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation"
@@ -18,10 +17,10 @@ item_list:
     t: "ChartNet: A Million-Scale, High-Quality Multimodal Dataset for Robust Chart Understanding"
   - u: "clay_conditional_visual_similarity/"
     t: "CLAY: Conditional Visual Similarity Modulation in Vision-Language Embedding Space"
-  - u: "dual-imbalance_continual_learning_for_real-world_food_recognition/"
-    t: "Dual-Imbalance Continual Learning for Real-World Food Recognition"
   - u: "faar_efficient_frequency-aware_multi-task_fine-tuning_via_automatic_rank_selecti/"
     t: "FAAR: Efficient Frequency-Aware Multi-Task Fine-Tuning via Automatic Rank Selection"
+  - u: "merlin_building_low-snr_robust_multimodal_llms_for_electromagnetic_signals/"
+    t: "MERLIN: Building Low-SNR Robust Multimodal LLMs for Electromagnetic Signals"
 item_total: 5
 ---
 
@@ -32,7 +31,7 @@ item_total: 5
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (2)](../../ICML2026/signal_comm/index.md) · [🔬 ICLR2026 (2)](../../ICLR2026/signal_comm/index.md) · [🤖 AAAI2026 (3)](../../AAAI2026/signal_comm/index.md) · [🧠 NeurIPS2025 (5)](../../NeurIPS2025/signal_comm/index.md) · [📹 ICCV2025 (3)](../../ICCV2025/signal_comm/index.md) · [🧪 ICML2025 (3)](../../ICML2025/signal_comm/index.md)
 
-🔥 **高频主题：** 多模态 ×2
+🔥 **高频主题：** 多模态 ×3 · 对抗鲁棒 ×2
 
 **[AcTTA: Rethinking Test-Time Adaptation via Dynamic Activation](actta_rethinking_test-time_adaptation_via_dynamic_activation.md)**
 
@@ -46,10 +45,10 @@ item_total: 5
 
 :   CLAY 提出免训练的条件视觉相似度计算方法，通过在 VLM 嵌入空间中构建文本条件子空间来调制相似度，无需重新计算数据库特征即可适应不同检索条件，并支持多条件检索。
 
-**[Dual-Imbalance Continual Learning for Real-World Food Recognition](dual-imbalance_continual_learning_for_real-world_food_recognition.md)**
-
-:   提出 DIME 框架，通过类别计数引导的光谱适配器合并和秩自适应阈值调制机制，在双重不平衡（类内长尾分布 + 步间类别数不均匀）的持续学习场景下，在四个长尾食物数据集上持续超越 baseline 3% 以上。
-
 **[FAAR: Efficient Frequency-Aware Multi-Task Fine-Tuning via Automatic Rank Selection](faar_efficient_frequency-aware_multi-task_fine-tuning_via_automatic_rank_selecti.md)**
 
 :   提出 FAAR，一种频率感知的多任务参数高效微调方法，通过 Performance-Driven Rank Shrinking (PDRS) 为每个任务和层动态选择最优秩，并设计 Task-Spectral Pyramidal Decoder (TS-PD) 利用 FFT 频率信息增强空间感知和跨任务一致性，以传统微调 1/9 的参数量实现更优性能。
+
+**[MERLIN: Building Low-SNR Robust Multimodal LLMs for Electromagnetic Signals](merlin_building_low-snr_robust_multimodal_llms_for_electromagnetic_signals.md)**
+
+:   MERLIN 把"原生 MLLM"范式搬到电磁（IQ）信号领域：先构建 13.4 万对信号-文本数据（EM-134K）和覆盖感知/推理的 EM-Bench 基准，再用"高 SNR 教师→低 SNR 学生"的两阶段蒸馏框架（核心是把含噪特征投影回信号子空间的 DSM 模块），让模型在信噪比低于 0 dB 的噪声环境下仍保持鲁棒，在 EM-Bench 上全面超过 GPT-5 / Claude-4 等通用大模型。

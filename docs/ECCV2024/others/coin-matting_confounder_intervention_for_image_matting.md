@@ -15,7 +15,6 @@ tags:
 # COIN-Matting: Confounder Intervention for Image Matting
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 图像抠图 / 因果推理  
 **关键词**: 图像抠图、因果推断、混淆因子干预、数据集偏差、后门调整

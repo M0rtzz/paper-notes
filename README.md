@@ -24,6 +24,7 @@ Paper Notes 交流群: `1094559400`
 
 ## 🎉 版本发布
 
+- **v1.3.0**（2026-06-13）：补全 CVPR 2026 全部约 4,000 篇论文解读
 - **v1.2.0**（2026-05-23）：新增 ICML 2026 论文解读
 - **v1.1.0**（2026-04-25）：新增 ACL 2026 论文解读
 - **v1.0.0**（2026-04-18）：首个正式版本，累计 13,000+ 篇论文解读，覆盖 CVPR 2026、ICLR 2026、AAAI 2026、NeurIPS 2025、ICCV 2025、ACL 2025、ICML 2025、CVPR 2025、ECCV 2024共9个会议
@@ -34,7 +35,7 @@ Paper Notes 交流群: `1094559400`
 |------|-------:|:-------------|
 | [ICML 2026](https://papernotes.org/ICML2026/) | 1,463 | [ICML2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICML2026-Papers.md) |
 | [ACL 2026](https://papernotes.org/ACL2026/) | 1,363 | [ACL2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ACL2026-Papers.md) |
-| [CVPR 2026](https://papernotes.org/CVPR2026/) | 1,617 | [CVPR2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/CVPR2026-Papers.md) |
+| [CVPR 2026](https://papernotes.org/CVPR2026/) | 3,996 | [CVPR2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/CVPR2026-Papers.md) |
 | [ICLR 2026](https://papernotes.org/ICLR2026/) | 1,491 | [ICLR2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICLR2026-Papers.md) |
 | [AAAI 2026](https://papernotes.org/AAAI2026/) | 1,347 | [AAAI2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/AAAI2026-Papers.md) |
 | [NeurIPS 2025](https://papernotes.org/NeurIPS2025/) | 2,487 | [NeurIPS2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/NeurIPS2025-Papers.md) |

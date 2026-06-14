@@ -17,7 +17,6 @@ tags:
 # MAC-Ego3D: Multi-Agent Gaussian Consensus for Real-Time Collaborative Ego-Motion and Photorealistic 3D Reconstruction
 
 **会议**: CVPR 2025  
-**arXiv**: 待确认  
 **代码**: 待确认  
 **领域**: 3D视觉  
 **关键词**: 3D 高斯泼溅, 多智能体协作, 位姿估计, 实时重建, 高斯共识, SLAM

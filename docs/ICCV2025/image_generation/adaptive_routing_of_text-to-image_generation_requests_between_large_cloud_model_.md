@@ -16,7 +16,6 @@ tags:
 # Adaptive Routing of Text-to-Image Generation Requests Between Large Cloud Models and Small Edge Models
 
 **会议**: ICCV 2025  
-**arXiv**: N/A (CVF OpenAccess)  
 **代码**: 无  
 **领域**: 图像生成  
 **关键词**: 文本到图像生成, 模型路由, 边缘-云协同, 混合专家, 多指标质量评估

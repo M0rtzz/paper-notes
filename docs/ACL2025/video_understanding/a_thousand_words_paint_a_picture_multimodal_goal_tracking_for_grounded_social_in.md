@@ -16,7 +16,6 @@ tags:
 # A Thousand Words Paint a Picture: Multimodal Goal Tracking for Grounded Social Intelligence
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: 视频理解  
 **关键词**: 多模态目标追踪, 社会智能, 视觉-语言理解, 对话系统, 意图推理

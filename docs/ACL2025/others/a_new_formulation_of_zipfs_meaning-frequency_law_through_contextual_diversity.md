@@ -15,7 +15,6 @@ tags:
 # A New Formulation of Zipf's Meaning-Frequency Law through Contextual Diversity
 
 **会议**: ACL 2025 (Outstanding Paper)  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: Zipf定律, 语义-频率关系, 上下文多样性, 语言模型, 词义量化

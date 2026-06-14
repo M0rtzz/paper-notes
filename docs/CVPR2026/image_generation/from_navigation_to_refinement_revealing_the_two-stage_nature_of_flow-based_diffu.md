@@ -138,7 +138,7 @@ $$\gamma_i(x_t,t) = \frac{\exp\!\big(-\|x_t - \alpha_t x_1^{(i)}\|^2 / 2\sigma_t
 - [\[CVPR 2026\] LeapAlign: Post-Training Flow Matching Models at Any Generation Step by Building Two-Step Trajectories](leapalign_post_training_flow_matching_models_at_any_generation_step.md)
 - [\[ICML 2026\] Stable Velocity: A Variance Perspective on Flow Matching](../../ICML2026/image_generation/stable_velocity_a_variance_perspective_on_flow_matching.md)
 - [\[CVPR 2026\] VDE: Training-Free Accelerating Rectified Flow Model via Velocity Decomposition and Estimation](vde_training-free_accelerating_rectified_flow_model_via_velocity_decomposition_a.md)
-- [\[CVPR 2026\] FAGER: Factually Grounded Evaluation and Refinement of Text-to-Image Models](fager_factually_grounded_evaluation_and_refinement_of_text-to-image_models.md)
+- [\[CVPR 2026\] Few-Step Diffusion Sampling Through Instance-Aware Discretizations](few-step_diffusion_sampling_through_instance-aware_discretizations.md)
 
 </div>
 

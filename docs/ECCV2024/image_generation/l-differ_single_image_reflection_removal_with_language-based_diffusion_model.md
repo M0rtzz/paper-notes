@@ -16,7 +16,6 @@ tags:
 # L-DiffER: Single Image Reflection Removal with Language-Based Diffusion Model
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 扩散模型  
 **关键词**: 图像反射去除, 扩散模型, 语言引导, 迭代条件精化, 多条件约束

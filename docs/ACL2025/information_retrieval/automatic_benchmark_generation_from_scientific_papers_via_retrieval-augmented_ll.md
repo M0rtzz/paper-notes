@@ -16,7 +16,6 @@ tags:
 # Automatic Benchmark Generation from Scientific Papers via Retrieval-Augmented LLMs
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: 信息检索  
 **关键词**: 自动基准生成, 科学论文, 检索增强, LLM, 评估数据集

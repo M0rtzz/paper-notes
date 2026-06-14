@@ -16,7 +16,6 @@ tags:
 # Beyond Logits: Aligning Feature Dynamics for Effective Knowledge Distillation
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 模型压缩  
 **关键词**: 知识蒸馏、特征动态对齐、logit蒸馏、中间层蒸馏、NLP模型压缩

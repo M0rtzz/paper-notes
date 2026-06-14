@@ -19,7 +19,6 @@ tags:
 ## 基本信息
 
 **会议**: ACL 2025  
-**arXiv**: 2410.23463  
 **代码**: [yale-nlp/MDCure](https://github.com/yale-nlp/MDCure)  
 **机构**: Yale University / Google Research  
 **领域**: 多文档处理 / 指令微调 / 数据合成  

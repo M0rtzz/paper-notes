@@ -16,7 +16,6 @@ tags:
 # MANIKIN: Biomechanically Accurate Neural Inverse Kinematics for Human Motion Estimation
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 人体理解 / 运动估计  
 **关键词**: 逆运动学, 生物力学约束, 全身运动跟踪, 混合现实, SMPL模型

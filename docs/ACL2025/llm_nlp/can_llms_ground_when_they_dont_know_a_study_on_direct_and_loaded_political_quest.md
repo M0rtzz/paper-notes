@@ -16,7 +16,6 @@ tags:
 # Can LLMs Ground when they (Don't) Know: A Study on Direct and Loaded Political Questions
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **链接**: [ACL Anthology](https://aclanthology.org/2025.acl-long.728/)
 **代码**: 无  
 **领域**: LLM分析 / 对话Grounding / 政治偏见  

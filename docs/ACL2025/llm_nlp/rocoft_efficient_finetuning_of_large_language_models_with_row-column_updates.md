@@ -18,7 +18,6 @@ tags:
 ## 基本信息
 
 **会议**: ACL 2025  
-**arXiv**: 2410.10075  
 **代码**: [Kowsher/RoCoFT](https://github.com/Kowsher/RoCoFT)  
 **机构**: Nokia Bell Labs / UCF / UIC  
 **领域**: 参数高效微调 / LLM  

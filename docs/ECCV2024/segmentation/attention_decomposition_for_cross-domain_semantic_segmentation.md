@@ -16,7 +16,6 @@ tags:
 # Attention Decomposition for Cross-Domain Semantic Segmentation
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/helq2612/ADFormer](https://github.com/helq2612/ADFormer)  
 **领域**: 语义分割 / 域自适应  
 **关键词**: 跨域语义分割, 注意力分解, 对抗学习, Transformer解码器, 域自适应

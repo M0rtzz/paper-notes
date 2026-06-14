@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 社会计算论文汇总 · 5篇论文解读
+  CVPR2026 社会计算论文汇总 · 4篇论文解读
 description: >-
-  5篇CVPR2026的社会计算方向论文解读，涵盖多模态、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  4篇CVPR2026的社会计算方向论文解读，涵盖多模态、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "社会计算"
@@ -11,8 +11,6 @@ tags:
   - "多模态"
   - "推理"
 item_list:
-  - u: "as_language_models_scale_low-order_linear_depth_dynamics_emerge/"
-    t: "As Language Models Scale, Low-order Linear Depth Dynamics Emerge"
   - u: "bridging_pixels_and_words_mask-aware_local_semantic_fusion_for_multimodal_media_/"
     t: "Bridging Pixels and Words: Mask-Aware Local Semantic Fusion for Multimodal Media Verification"
   - u: "learning_from_synthetic_data_via_provenance-based_input_gradient_guidance/"
@@ -21,21 +19,17 @@ item_list:
     t: "Probabilistic Concept Graph Reasoning for Multimodal Misinformation Detection"
   - u: "revisiting_unknowns_towards_effective_and_efficient_open-set_active_learning/"
     t: "Revisiting Unknowns: Towards Effective and Efficient Open-Set Active Learning"
-item_total: 5
+item_total: 4
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 👥 社会计算
 
-**📷 CVPR2026** · **5** 篇论文解读
+**📷 CVPR2026** · **4** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (8)](../../ICML2026/social_computing/index.md) · [💬 ACL2026 (43)](../../ACL2026/social_computing/index.md) · [🔬 ICLR2026 (12)](../../ICLR2026/social_computing/index.md) · [🤖 AAAI2026 (10)](../../AAAI2026/social_computing/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/social_computing/index.md) · [📹 ICCV2025 (4)](../../ICCV2025/social_computing/index.md)
 
 🔥 **高频主题：** 多模态 ×2
-
-**[As Language Models Scale, Low-order Linear Depth Dynamics Emerge](as_language_models_scale_low-order_linear_depth_dynamics_emerge.md)**
-
-:   这篇论文把 Transformer 的层深看成离散时间系统，证明在给定上下文附近可以用一个 32 维的低阶线性状态空间代理去近似 GPT-2 的层间传播与干预响应，而且模型越大，这个低阶代理越准确，还能据此算出比启发式注入更省能量的多层干预策略。
 
 **[Bridging Pixels and Words: Mask-Aware Local Semantic Fusion for Multimodal Media Verification](bridging_pixels_and_words_mask-aware_local_semantic_fusion_for_multimodal_media_.md)**
 

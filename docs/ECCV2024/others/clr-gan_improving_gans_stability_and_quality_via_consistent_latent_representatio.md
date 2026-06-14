@@ -15,7 +15,6 @@ tags:
 # CLR-GAN: Improving GANs Stability and Quality via Consistent Latent Representation and Reconstruction
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/Petecheco/CLR-GAN](https://github.com/Petecheco/CLR-GAN)  
 **领域**: 其他  
 **关键词**: GAN训练稳定性, 隐空间一致性, 生成对抗网络, 图像生成质量, 判别器重建

@@ -16,7 +16,6 @@ tags:
 # Optimizing Illuminant Estimation in Dual-Exposure HDR Imaging
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 图像信号处理 / HDR成像  
 **关键词**: 光源估计, HDR成像, 双曝光, 白平衡, 色彩恒常性

@@ -181,10 +181,10 @@ $$L_{\text{ensemble}} = w_1 L_{\text{early}} + w_2 L_{\text{mid}} + w_3 L_{\text
 ## 相关论文
 
 - [\[CVPR 2026\] Thermally Activated Dual-Modal Adversarial Clothing against AI Surveillance Systems](thermally_activated_dual-modal_adversarial_clothing_against_ai_surveillance_syst.md)
-- [\[CVPR 2026\] Federated Active Learning Under Extreme Non-IID and Global Class Imbalance](federated_active_learning_extreme_noniid.md)
-- [\[CVPR 2025\] Where the Devil Hides: Deepfake Detectors Can No Longer Be Trusted](../../CVPR2025/ai_safety/where_the_devil_hides_deepfake_detectors_can_no_longer_be_trusted.md)
-- [\[NeurIPS 2025\] Unifying Proportional Fairness in Centroid and Non-Centroid Clustering](../../NeurIPS2025/ai_safety/unifying_proportional_fairness_in_centroid_and_non-centroid_clustering.md)
-- [\[CVPR 2026\] A Unified Perspective on Adversarial Membership Manipulation in Vision Models](a_unified_perspective_on_adversarial_membership_manipulation_in_vision_models.md)
+- [\[CVPR 2026\] CamPI: Physical Adversarial Examples through Camera Power Signal Injection](campi_physical_adversarial_examples_through_camera_power_signal_injection.md)
+- [\[CVPR 2026\] Zero-shot Detection of AI-Generated Image via RAW-RGB Alignment](zero-shot_detection_of_ai-generated_image_via_raw-rgb_alignment.md)
+- [\[CVPR 2026\] Phantom: Physical Object Interactions as Dynamic Triggers for NMS-Exploited Backdoors](phantom_physical_object_interactions_as_dynamic_triggers_for_nms-exploited_backd.md)
+- [\[CVPR 2026\] SANER: Switchable Adapter with Non-parametric Enhanced Routing for Person De-Reidentification](saner_switchable_adapter_with_non-parametric_enhanced_routing_for_person_de-reid.md)
 
 </div>
 

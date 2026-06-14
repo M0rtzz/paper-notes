@@ -16,7 +16,6 @@ tags:
 # Accelerating Speculative Decoding via Efficient Context-Aware Draft Generation
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: LLM效率  
 **关键词**: 推测解码, 上下文感知, 草稿生成, LLM推理加速, 自回归解码

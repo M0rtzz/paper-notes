@@ -16,7 +16,6 @@ tags:
 # OneTrack: Demystifying the Conflict Between Detection and Tracking in End-to-End 3D Trackers
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 视频理解 / 3D目标跟踪  
 **关键词**: 3D多目标跟踪, 检测-跟踪冲突, 梯度协调, 端到端跟踪, nuScenes

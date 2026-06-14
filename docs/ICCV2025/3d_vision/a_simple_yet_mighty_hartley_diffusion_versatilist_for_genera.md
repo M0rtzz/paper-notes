@@ -17,7 +17,6 @@ tags:
 # A Simple yet Mighty Hartley Diffusion Versatilist for Generalizable Dense Vision Tasks
 
 **会议**: ICCV 2025  
-**arXiv**: 无（仅CVF）  
 **代码**: 无公开信息  
 **领域**: 稠密预测 / 扩散模型 / 域泛化  
 **关键词**: 扩散模型, 离散Hartley变换, 域泛化, 语义分割, 深度估计, 去雾  

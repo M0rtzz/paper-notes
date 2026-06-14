@@ -16,7 +16,6 @@ tags:
 # Alleviating Hallucinations from Knowledge Misalignment in Large Language Models via Selective Abstention Learning
 
 **会议**: ACL 2025  
-**arXiv**: 无公开arXiv  
 **代码**: 无  
 **领域**: 幻觉检测  
 **关键词**: 知识错位、选择性弃权、幻觉缓解、知识边界感知、拒绝机制

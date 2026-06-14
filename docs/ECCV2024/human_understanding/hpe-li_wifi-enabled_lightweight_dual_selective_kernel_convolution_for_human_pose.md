@@ -16,7 +16,6 @@ tags:
 # HPE-Li: WiFi-Enabled Lightweight Dual Selective Kernel Convolution for Human Pose Estimation
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 人体理解 / 姿态估计  
 **关键词**: WiFi姿态估计、选择性核注意力、轻量化网络、多模态融合、Channel State Information

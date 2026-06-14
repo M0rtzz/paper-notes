@@ -16,7 +16,6 @@ tags:
 # AGD: Adversarial Game Defense Against Jailbreak Attacks in Large Language Models
 
 **会议**: ACL 2025  
-**arXiv**: 无公开arXiv  
 **代码**: 无  
 **领域**: 对齐RLHF / LLM安全  
 **关键词**: 越狱攻击防御、对抗博弈、注意力权重矫正、纳什均衡、内部表示调控

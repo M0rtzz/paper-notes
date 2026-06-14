@@ -15,7 +15,6 @@ tags:
 # Rethinking Data Bias: Dataset Copyright Protection via Embedding Class-Wise Hidden Bias
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: [https://github.com/jjh6297/UndercoverBias](https://github.com/jjh6297/UndercoverBias)  
 **领域**: 其他  
 **关键词**: 数据集水印, 版权保护, 隐蔽偏差, 模型取证, 知识产权

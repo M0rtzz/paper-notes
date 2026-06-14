@@ -16,7 +16,6 @@ tags:
 # Consistency-Preserving Contrastive Decoding for Faithful Document-Grounded Dialogue
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: LLM效率  
 **关键词**: 对比解码, 文档基础对话, 忠实性, 幻觉缓解, 知识对话

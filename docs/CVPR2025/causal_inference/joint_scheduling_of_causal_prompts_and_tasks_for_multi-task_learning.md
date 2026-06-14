@@ -16,7 +16,6 @@ tags:
 # Joint Scheduling of Causal Prompts and Tasks for Multi-Task Learning
 
 **会议**: CVPR 2025  
-**arXiv**: 无公开预印本  
 **代码**: 未公开  
 **领域**: 因果推理 / 多任务学习 / 视觉语言模型  
 **关键词**: 因果提示, 任务调度, 多任务学习, VLM提示学习, 虚假相关消除

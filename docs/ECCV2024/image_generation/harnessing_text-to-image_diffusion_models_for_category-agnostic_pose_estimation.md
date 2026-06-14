@@ -16,7 +16,6 @@ tags:
 # Harnessing Text-to-Image Diffusion Models for Category-Agnostic Pose Estimation
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 扩散模型 / 姿态估计  
 **关键词**: 类别无关姿态估计, 文本到图像扩散模型, 伪提示学习, 少样本关键点检测, 提示姿态匹配

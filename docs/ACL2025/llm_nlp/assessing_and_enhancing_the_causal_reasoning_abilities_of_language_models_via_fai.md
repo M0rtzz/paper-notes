@@ -16,7 +16,6 @@ tags:
 # Assessing and Enhancing the Causal Reasoning Abilities of Language Models via Faithful Textual Interpretation
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 因果推理, 语言模型, 忠实文本解释, 因果图, 反事实推理

@@ -16,7 +16,6 @@ tags:
 # Adaptive Multi-task Learning for Few-Shot Object Detection
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/RY-Paper/MTL-FSOD](https://github.com/RY-Paper/MTL-FSOD)  
 **领域**: 目标检测  
 **关键词**: 小样本目标检测, 多任务学习, 梯度平衡, 知识蒸馏, CLIP

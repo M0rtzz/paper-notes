@@ -134,10 +134,10 @@ flowchart TD
 ## 相关论文
 
 - [\[CVPR 2026\] Panoramic Multimodal Semantic Occupancy Prediction for Quadruped Robots](panoramic_multimodal_semantic_occupancy_prediction.md)
-- [\[CVPR 2026\] SG-NLF: Spectral-Geometric Neural Fields for Pose-Free LiDAR View Synthesis](sgnlf_spectralgeometric_neural_fields_for_posefre.md)
+- [\[CVPR 2026\] C-LaV: Conditional Latent Velocity Field Denoising for Weather-Robust LiDAR Place Recognition](c-lav_conditional_latent_velocity_field_denoising_for_weather-robust_lidar_place.md)
 - [\[CVPR 2025\] LightLoc: Learning Outdoor LiDAR Localization at Light Speed](../../CVPR2025/autonomous_driving/lightloc_learning_outdoor_lidar_localization_at_light_speed.md)
-- [\[CVPR 2025\] Learning to Detect Objects from Multi-Agent LiDAR Scans without Manual Labels](../../CVPR2025/autonomous_driving/learning_to_detect_objects_from_multi-agent_lidar_scans_without_manual_labels.md)
-- [\[CVPR 2026\] LEADER: Learning Reliable Local-to-Global Correspondences for LiDAR Relocalization](leader_lidar_relocalization.md)
+- [\[CVPR 2026\] Test-Time Training for LiDAR Semantic Segmentation under Corruption via Geometric Inlier Discrimination](test-time_training_for_lidar_semantic_segmentation_under_corruption_via_geometri.md)
+- [\[CVPR 2026\] SG-NLF: Spectral-Geometric Neural Fields for Pose-Free LiDAR View Synthesis](sgnlf_spectralgeometric_neural_fields_for_posefre.md)
 
 </div>
 

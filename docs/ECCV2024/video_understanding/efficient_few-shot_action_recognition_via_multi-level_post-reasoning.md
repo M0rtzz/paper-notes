@@ -16,7 +16,6 @@ tags:
 # Efficient Few-Shot Action Recognition via Multi-Level Post-Reasoning
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/cong-wu/EMP-Net](https://github.com/cong-wu/EMP-Net)  
 **领域**: 视频理解  
 **关键词**: 小样本动作识别、CLIP、后推理机制、多层级表示、高效微调

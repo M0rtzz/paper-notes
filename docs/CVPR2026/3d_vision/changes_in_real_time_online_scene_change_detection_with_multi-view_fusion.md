@@ -172,11 +172,11 @@ $$L_{\text{SSF}} = C^i \odot (1 - \tilde{M}^i) + \log(1 + \text{mean}(\tilde{M}^
 
 ## 相关论文
 
-- [\[CVPR 2026\] LTGS: Long-Term Gaussian Scene Chronology From Sparse View Updates](ltgs_long-term_gaussian_scene_chronology_from_sparse_view_updates.md)
-- [\[CVPR 2026\] EmbodiedSplat: Online Feed-Forward Semantic 3DGS for Open-Vocabulary 3D Scene Understanding](embodiedsplat_online_feed-forward_semantic_3dgs_for_open-vocabulary_3d_scene_und.md)
-- [\[CVPR 2025\] Multi-View Pose-Agnostic Change Localization with Zero Labels](../../CVPR2025/3d_vision/mv_3dcd_multiview_change_detection.md)
-- [\[CVPR 2026\] Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video in a Single Pass](coherent_humanscene_reconstruction_from_multiperso.md)
-- [\[AAAI 2026\] Real-Time 3D Object Detection with Inference-Aligned Learning](../../AAAI2026/3d_vision/real-time_3d_object_detection_with_inference-aligned_learning.md)
+- [\[CVPR 2026\] Intrinsic Image Fusion for Multi-View 3D Material Reconstruction](intrinsic_image_fusion_for_multi-view_3d_material_reconstruction.md)
+- [\[CVPR 2026\] SRGCD: Stability-Driven Region Growth Framework for 3D Change Detection](srgcd_stability-driven_region_growth_framework_for_3d_change_detection.md)
+- [\[CVPR 2026\] Real-Time Dynamic Scene Rendering with Controlled Compressibility and Contact Awareness](real-time_dynamic_scene_rendering_with_controlled_compressibility_and_contact_aw.md)
+- [\[CVPR 2026\] Seele: A Unified Acceleration Framework for Real-Time Gaussian Splatting on Mobile Devices](seele_a_unified_acceleration_framework_for_real-time_gaussian_splatting_on_mobil.md)
+- [\[CVPR 2026\] SMVRT: Implicit Human 3D Modeling Using Sparse Multi-View Volumetric Reconstruction with Transformer Fusion](smvrt_implicit_human_3d_modeling.md)
 
 </div>
 

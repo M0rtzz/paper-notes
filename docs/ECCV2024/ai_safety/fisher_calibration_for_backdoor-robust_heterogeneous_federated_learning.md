@@ -16,7 +16,6 @@ tags:
 # Fisher Calibration for Backdoor-Robust Heterogeneous Federated Learning
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [GitHub](https://github.com/WenkeHuang/SDFC)  
 **领域**: AI安全 / 联邦学习  
 **关键词**: 联邦学习, 后门攻击, Fisher信息, 异质性, 参数校准

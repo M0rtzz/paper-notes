@@ -16,7 +16,6 @@ tags:
 # Cut Out the Middleman: Revisiting Pose-Based Gait Recognition
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/BNU-IVC/FastPoseGait](https://github.com/BNU-IVC/FastPoseGait)  
 **领域**: 人体理解 / 步态识别  
 **关键词**: 步态识别、热力图表示、姿态估计、跨数据集泛化、全局-局部网络

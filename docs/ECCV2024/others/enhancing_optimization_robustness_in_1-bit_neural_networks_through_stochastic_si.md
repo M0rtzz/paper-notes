@@ -15,7 +15,6 @@ tags:
 # Enhancing Optimization Robustness in 1-bit Neural Networks through Stochastic Sign Descent
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/GreenBitAI/bitorch-engine](https://github.com/GreenBitAI/bitorch-engine)  
 **领域**: 其他  
 **关键词**: 二值神经网络, 优化器设计, 随机符号下降, 无潜在权重, 1-bit网络

@@ -16,7 +16,6 @@ tags:
 # Exploring the Feature Extraction and Relation Modeling For Light-Weight Transformer Tracking
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [GitHub](https://github.com/KarlesZheng/FERMT)  
 **领域**: 目标跟踪  
 **关键词**: 轻量级跟踪, Transformer, 特征提取, 关系建模, 注意力分解

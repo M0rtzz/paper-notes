@@ -17,7 +17,6 @@ tags:
 # DeepMesh: Auto-Regressive Artist-Mesh Creation with Reinforcement Learning
 
 **会议**: ICCV 2025  
-**arXiv**: 2503.15265  
 **代码**: [https://zhaorw02.github.io/DeepMesh/](https://zhaorw02.github.io/DeepMesh/)  
 **领域**: 3D视觉  
 **关键词**: 3D网格生成, 自回归模型, 强化学习, DPO, 网格tokenization, 点云条件生成

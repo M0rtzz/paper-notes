@@ -114,11 +114,11 @@ $$\mathcal{D}(\mathbf{z}) = \frac{1}{c-1}\sum_{i \neq f_{max}} \frac{|(\mathbf{w
 
 ## 相关论文
 
+- [\[CVPR 2026\] RankOOD: Class Ranking-based Out-of-Distribution Detection](rankood_-_class_ranking-based_out-of-distribution_detection.md)
+- [\[CVPR 2026\] Sparsity as a Key: Unlocking New Insights from Latent Structures for Out-of-Distribution Detection](sparsity_as_a_key_unlocking_new_insights_from_latent_structures_for_out-of-distr.md)
+- [\[CVPR 2026\] Bypassing the Transport Plan: Dynamic Reweighting for Out-of-Distribution Detection with Optimal Transport](bypassing_the_transport_plan_dynamic_reweighting_for_out-of-distribution_detecti.md)
 - [\[NeurIPS 2025\] Revisiting Logit Distributions for Reliable Out-of-Distribution Detection](../../NeurIPS2025/ai_safety/revisiting_logit_distributions_for_reliable_out-of-distribution_detection.md)
-- [\[CVPR 2026\] LogitDynamics: Reliable ViT Error Detection from Layerwise Logit Trajectories](logitdynamics_vit_error_detection.md)
-- [\[ICLR 2026\] AP-OOD: Attention Pooling for Out-of-Distribution Detection](../../ICLR2026/ai_safety/ap-ood_attention_pooling_for_out-of-distribution_detection.md)
-- [\[CVPR 2025\] H2ST: Hierarchical Two-Sample Tests for Continual Out-of-Distribution Detection](../../CVPR2025/ai_safety/h2st_hierarchical_two-sample_tests_for_continual_out-of-distribution_detection.md)
-- [\[AAAI 2026\] Graph Out-of-Distribution Detection via Test-Time Calibration with Dual Dynamic Dictionaries](../../AAAI2026/ai_safety/graph_out-of-distribution_detection_via_test-time_calibration_with_dual_dynamic_.md)
+- [\[CVPR 2026\] Learning Latent Concepts for Detecting Out-of-Distribution Objects](learning_latent_concepts_for_detecting_out-of-distribution_objects.md)
 
 </div>
 

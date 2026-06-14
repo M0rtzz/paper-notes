@@ -16,7 +16,6 @@ tags:
 # BaSIC: BayesNet Structure Learning for Computational Scalable Neural Image Compression
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/worldlife123/cbench_BaSIC](https://github.com/worldlife123/cbench_BaSIC)  
 **领域**: 模型压缩 / 图像压缩  
 **关键词**: 神经图像压缩, 贝叶斯网络, 计算可扩展性, 自回归模型, 结构学习

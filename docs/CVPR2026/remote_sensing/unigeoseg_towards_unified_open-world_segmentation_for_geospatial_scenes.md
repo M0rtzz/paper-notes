@@ -147,11 +147,11 @@ TATE 内部分支消融（Tab.7）：三任务统一用同一条 referring 或 r
 
 ## 相关论文
 
-- [\[CVPR 2026\] Pretrain Where? Investigating How Pretraining Data Diversity Impacts Geospatial Foundation Model Performance](pretrain_where_investigating_how_pretraining_data_diversity_impacts_geospatial_f.md)
-- [\[CVPR 2026\] Data Leakage Detection and De-duplication in Large Scale Geospatial Image Datasets](data_leakage_detection_and_de-duplication_in_large_scale_geospatial_image_datase.md)
-- [\[ICCV 2025\] CityNav: A Large-Scale Dataset for Real-World Aerial Navigation](../../ICCV2025/remote_sensing/citynav_a_large-scale_dataset_for_real-world_aerial_navigation.md)
-- [\[ICML 2026\] Any2Any: Unified Arbitrary Modality Translation for Remote Sensing](../../ICML2026/remote_sensing/any2any_unified_arbitrary_modality_translation_for_remote_sensing.md)
-- [\[CVPR 2025\] Dense Dispersed Structured Light for Hyperspectral 3D Imaging of Dynamic Scenes](../../CVPR2025/remote_sensing/dense_dispersed_structured_light_for_hyperspectral_3d_imaging_of_dynamic_scenes.md)
+- [\[CVPR 2026\] Prompt-Free Unknown Label Generation for Open World Detection in Remote Sensing](prompt-free_unknown_label_generation_for_open_world_detection_in_remote_sensing.md)
+- [\[CVPR 2026\] ReAttnCLIP: Training-Free Open-Vocabulary Remote Sensing Image Segmentation via Re-defined Attention in CLIP](reattnclip_training-free_open-vocabulary_remote_sensing_image_segmentation_via_r.md)
+- [\[CVPR 2026\] MM-OVSeg: Multimodal Optical-SAR Fusion for Open-Vocabulary Segmentation in Remote Sensing](mm-ovseg_multimodal_optical-sar_fusion_for_open-vocabulary_segmentation_in_remot.md)
+- [\[CVPR 2026\] SegEarth-R2: Towards Comprehensive Language-guided Segmentation for Remote Sensing Images](segearth-r2_towards_comprehensive_language-guided_segmentation_for_remote_sensin.md)
+- [\[CVPR 2026\] HySeg: Learning Generative Priors for Structure-Aware Remote Sensing Segmentation](hyseg_learning_generative_priors_for_structure-aware_remote_sensing_segmentation.md)
 
 </div>
 

@@ -16,7 +16,6 @@ tags:
 # Compression in Transformer Language Models Has a Surprising Relationship with Performance
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 模型压缩  
 **关键词**: 信息论, Transformer压缩, 语言模型性能, 最小描述长度, 压缩与泛化

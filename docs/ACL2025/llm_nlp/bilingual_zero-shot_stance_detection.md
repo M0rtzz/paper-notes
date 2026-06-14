@@ -16,7 +16,6 @@ tags:
 # Bilingual Zero-Shot Stance Detection
 
 **会议**: ACL 2025  
-**arXiv**: 未公开  
 **代码**: 无  
 **领域**: NLP理解  
 **关键词**: 立场检测、零样本、双语、跨语言迁移、文本分类

@@ -15,7 +15,6 @@ tags:
 # Dropout Mixture Low-Rank Adaptation for Visual Parameters-Efficient Fine-Tuning
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 模型微调 / 参数高效微调  
 **关键词**: 参数高效微调、低秩适配、Dropout正则化、视觉Transformer、VTAB-1k

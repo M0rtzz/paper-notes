@@ -160,8 +160,8 @@ flowchart TD
 - [\[CVPR 2026\] Robust Promptable Video Object Segmentation](robust_promptable_video_object_segmentation.md)
 - [\[CVPR 2026\] Bootstrapping Video Semantic Segmentation Model via Distillation-assisted Test-Time Adaptation](bootstrapping_video_semantic_segmentation_model_via_distillation-assisted_test-t.md)
 - [\[ICLR 2026\] From Vicious to Virtuous Cycles: Synergistic Representation Learning for Unsupervised Video Object-Centric Learning](../../ICLR2026/video_understanding/from_vicious_to_virtuous_cycles_synergistic_representation_learning_for_unsuperv.md)
-- [\[CVPR 2026\] SlotVTG: Object-Centric Adapter for Generalizable Video Temporal Grounding](slotvtg_object-centric_adapter_for_generalizable_video_temporal_grounding.md)
-- [\[CVPR 2026\] Seen-to-Scene: Keep the Seen, Generate the Unseen for Video Outpainting](seen_to_scene_keep_the_seen_generate_the_unseen_for_video_outpainting.md)
+- [\[CVPR 2026\] Seeing the Scene Matters: Revealing Forgetting in Video Understanding Models with a Scene-Aware Long-Video Benchmark](seeing_the_scene_matters_revealing_forgetting_in_video_understanding_models_with.md)
+- [\[CVPR 2026\] Neural-Centric Video Processing Pipeline for Unified Multi-Task Inference](neural-centric_video_processing_pipeline_for_unified_multi-task_inference.md)
 
 </div>
 

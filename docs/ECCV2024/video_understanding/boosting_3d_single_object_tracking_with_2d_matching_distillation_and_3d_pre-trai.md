@@ -16,7 +16,6 @@ tags:
 # Boosting 3D Single Object Tracking with 2D Matching Distillation and 3D Pre-training
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 视频理解 / 3D视觉  
 **关键词**: 3D单目标跟踪, 知识蒸馏, 点云预训练, LiDAR, 匹配学习

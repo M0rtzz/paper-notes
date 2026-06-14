@@ -16,7 +16,6 @@ tags:
 # Aligning Information Capacity Between Vision and Language via Dense-to-Sparse Feature Distillation for Image-Text Matching
 
 **会议**: ICCV 2025  
-**arXiv**: 无  
 **代码**: [项目页](https://d2s-vse.github.io)  
 **领域**: 图文匹配 / 视觉语义嵌入  
 **关键词**: image-text matching, visual semantic embedding, dense-to-sparse distillation, information capacity, cross-modal retrieval

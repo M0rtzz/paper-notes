@@ -16,7 +16,6 @@ tags:
 # Rethinking Spiking Self-Attention Mechanism: Implementing a-XNOR Similarity Calculation in Spiking Transformers
 
 **会议**: CVPR 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 脉冲神经网络, 脉冲Transformer, 自注意力机制, XNOR相似度, 能效计算

@@ -151,11 +151,11 @@ BluRef 在 GoPro 上达到 31.94 dB（vs 有监督 33.32 dB），在 RB2V 上 Re
 
 ## 相关论文
 
+- [\[CVPR 2026\] Rethinking Diffusion Model-Based Video Super-Resolution: Leveraging Dense Guidance from Aligned Features](rethinking_diffusion_model-based_video_super-resolution_leveraging_dense_guidanc.md)
+- [\[CVPR 2026\] Gyro-based Deep Video Deblurring](gyro-based_deep_video_deblurring.md)
 - [\[CVPR 2026\] UDAPose: Unsupervised Domain Adaptation for Low-Light Human Pose Estimation](udapose_unsupervised_domain_adaptation_for_low_light_human_pose_estimation.md)
 - [\[CVPR 2026\] SelfHVD: Self-Supervised Handheld Video Deblurring](selfhvd_self-supervised_handheld_video_deblurring.md)
 - [\[CVPR 2026\] MAD-Avatar: Motion-Aware Animatable Gaussian Avatars Deblurring](motionaware_animatable_gaussian_avatars_deblurring.md)
-- [\[CVPR 2025\] Gyro-based Neural Single Image Deblurring](../../CVPR2025/image_restoration/gyro-based_neural_single_image_deblurring.md)
-- [\[ICCV 2025\] Efficient Concertormer for Image Deblurring and Beyond](../../ICCV2025/image_restoration/efficient_concertormer_for_image_deblurring_and_beyond.md)
 
 </div>
 

@@ -15,7 +15,6 @@ tags:
 # HiEI: A Universal Framework for Generating High-quality Emerging Images from Natural Images
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 新兴图像、颜色量化、感知难度控制、CAPTCHA、视觉风格化

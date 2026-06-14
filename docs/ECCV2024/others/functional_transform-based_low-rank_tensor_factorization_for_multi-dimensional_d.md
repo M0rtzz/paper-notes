@@ -15,7 +15,6 @@ tags:
 # Functional Transform-Based Low-Rank Tensor Factorization for Multi-Dimensional Data Recovery
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 底层视觉 / 数据恢复  
 **关键词**: 低秩张量分解, 隐式神经表示, 视频帧插值, 多光谱图像超分辨率, 连续变换

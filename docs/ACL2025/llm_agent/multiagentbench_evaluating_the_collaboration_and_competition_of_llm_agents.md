@@ -19,7 +19,6 @@ tags:
 ## 基本信息
 
 **会议**: ACL 2025  
-**arXiv**: 2503.01935  
 **代码**: [MultiagentBench/MARBLE](https://github.com/MultiagentBench/MARBLE)  
 **机构**: University of Illinois Urbana-Champaign  
 **领域**: LLM Agent / 多智能体系统  

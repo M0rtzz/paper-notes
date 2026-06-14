@@ -16,7 +16,6 @@ tags:
 # BERT-like Models for Slavic Morpheme Segmentation
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 分词/形态分析  
 **关键词**: 形态素分割、斯拉夫语、BERT、子词模型、词法分析

@@ -16,7 +16,6 @@ tags:
 # Argument Mining in the Age of Large Language Models
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 论辩挖掘, 大语言模型, 论证结构识别, 立场检测, 论证质量评估

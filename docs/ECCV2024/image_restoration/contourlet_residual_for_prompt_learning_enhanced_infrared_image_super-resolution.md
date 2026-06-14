@@ -16,7 +16,6 @@ tags:
 # Contourlet Residual for Prompt Learning Enhanced Infrared Image Super-Resolution
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/hey-it-s-me/CoRPLE](https://github.com/hey-it-s-me/CoRPLE)  
 **领域**: 图像超分辨率 / 红外图像增强  
 **关键词**: 红外图像超分辨率、Contourlet变换、提示学习、多尺度多方向分解、视觉语言模型

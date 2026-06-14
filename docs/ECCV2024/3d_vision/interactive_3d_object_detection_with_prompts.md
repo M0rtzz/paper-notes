@@ -16,7 +16,6 @@ tags:
 # Interactive 3D Object Detection with Prompts
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 3D视觉  
 **关键词**: 3D目标检测, 交互式标注, 2D提示, 多模态融合, 开放集检测

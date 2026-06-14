@@ -165,8 +165,8 @@ $$\mathcal{L}_{\text{stage}} = \mathcal{L}_{\text{BCE}} + \mathcal{L}_{\text{Dic
 - [\[ICCV 2025\] Rethinking Detecting Salient and Camouflaged Objects in Unconstrained Scenes](../../ICCV2025/segmentation/rethinking_detecting_salient_and_camouflaged_objects_in_unconstrained_scenes.md)
 - [\[CVPR 2026\] Masked Representation Modeling for Domain-Adaptive Segmentation](mrm_masked_representation_modeling_domain_adaptive.md)
 - [\[CVPR 2026\] Heuristic Self-Paced Learning for Domain Adaptive Semantic Segmentation under Adverse Conditions](heuristic_self-paced_learning_for_domain_adaptive_semantic_segmentation_under_ad.md)
-- [\[CVPR 2026\] CrossEarth-SAR: A SAR-Centric and Billion-Scale Geospatial Foundation Model for Domain Generalizable Semantic Segmentation](crossearthsar_a_sarcentric_and_billionscale_geospa.md)
-- [\[CVPR 2026\] MPM: Mutual Pair Merging for Efficient Vision Transformers](mpm_mutual_pair_merging_for_efficient_vision_transformers.md)
+- [\[CVPR 2026\] Joint Spectral Image Reconstruction and Semantic Segmentation with Cooperative Unfolding](joint_spectral_image_reconstruction_and_semantic_segmentation_with_cooperative_u.md)
+- [\[CVPR 2026\] Mixture of Prototypes for Test-time Adaptive Segmentation](mixture_of_prototypes_for_test-time_adaptive_segmentation.md)
 
 </div>
 

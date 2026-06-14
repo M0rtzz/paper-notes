@@ -16,7 +16,6 @@ tags:
 # PQ-SAM: Post-training Quantization for Segment Anything Model
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 模型压缩 / 量化  
 **关键词**: 训练后量化, SAM, 激活分布变换, 异常值聚类, 低比特量化

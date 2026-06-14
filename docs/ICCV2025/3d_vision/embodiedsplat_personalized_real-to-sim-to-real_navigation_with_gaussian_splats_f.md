@@ -17,7 +17,6 @@ tags:
 # EmbodiedSplat: Personalized Real-to-Sim-to-Real Navigation with Gaussian Splats from a Mobile Device
 
 **会议**: ICCV 2025  
-**arXiv**: 2509.17430  
 **代码**: [https://gchhablani.github.io/embodied-splat](https://gchhablani.github.io/embodied-splat) (项目页面)  
 **领域**: 3D视觉  
 **关键词**: 3D高斯溅射, 具身导航, sim-to-real迁移, 场景重建, 个性化策略训练, ImageNav

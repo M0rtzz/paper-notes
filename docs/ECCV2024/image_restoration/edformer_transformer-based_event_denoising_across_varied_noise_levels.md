@@ -16,7 +16,6 @@ tags:
 # EDformer: Transformer-Based Event Denoising Across Varied Noise Levels
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 图像复原  
 **关键词**: 事件相机、事件去噪、Transformer、背景活动噪声、真实世界数据集

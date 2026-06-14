@@ -16,7 +16,6 @@ tags:
 # Visual Evidence Prompting Mitigates Hallucinations in Large Vision-Language Models
 
 **会议**: ACL 2025 (Long Paper)  
-**arXiv**: 无（仅ACL Anthology）  
 **代码**: 未公开  
 **领域**: 幻觉检测  
 **关键词**: LVLM幻觉, Visual Evidence Prompting, 小模型辅助大模型, 目标检测, 场景图生成  

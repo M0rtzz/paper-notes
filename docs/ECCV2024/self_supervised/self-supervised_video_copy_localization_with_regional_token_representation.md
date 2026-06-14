@@ -15,7 +15,6 @@ tags:
 # Self-supervised Video Copy Localization with Regional Token Representation
 
 **会议**: ECCV 2024  
-**arXiv**: 无公开 arXiv 版本  
 **代码**: 无  
 **领域**: 自监督学习  
 **关键词**: 视频拷贝定位, 自监督学习, Regional Token, Vision Transformer, 传递性

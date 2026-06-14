@@ -16,7 +16,6 @@ tags:
 # Spiking Transformer: Introducing Accurate Addition-Only Spiking Self-Attention for Transformer
 
 **会议**: CVPR 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 脉冲Transformer, 脉冲自注意力, 加法运算, 能效计算, 混合脉冲神经元

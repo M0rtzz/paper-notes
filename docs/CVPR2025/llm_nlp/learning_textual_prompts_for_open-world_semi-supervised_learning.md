@@ -16,7 +16,6 @@ tags:
 # Learning Textual Prompts for Open-World Semi-Supervised Learning
 
 **会议**: CVPR 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 开放世界半监督学习, 文本提示学习, 图文对齐, 细粒度识别, 噪声抑制

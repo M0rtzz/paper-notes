@@ -19,7 +19,6 @@ tags:
 ## 基本信息
 
 **会议**: ACL 2025  
-**arXiv**: 2406.15513  
 **数据集**: [PKU-Alignment/PKU-SafeRLHF](https://huggingface.co/datasets/PKU-Alignment/PKU-SafeRLHF)  
 **机构**: Peking University / HKUST / Infinigence-AI  
 **领域**: LLM 安全对齐 / RLHF  

@@ -17,7 +17,6 @@ tags:
 # OmniAlign-V: Towards Enhanced Alignment of MLLMs with Human Preference
 
 **会议**: ACL 2025  
-**arXiv**: 2502.18411  
 **代码**: [https://github.com/PhoenixZ810/OmniAlign-V](https://github.com/PhoenixZ810/OmniAlign-V)  
 **领域**: 多模态VLM  
 **关键词**: MLLM alignment, human preference, instruction tuning, DPO, multi-modal dataset, benchmark  

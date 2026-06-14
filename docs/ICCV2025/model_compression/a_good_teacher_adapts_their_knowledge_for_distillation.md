@@ -16,7 +16,6 @@ tags:
 # A Good Teacher Adapts Their Knowledge for Distillation
 
 **会议**: ICCV 2025  
-**arXiv**: 无arXiv预印本  
 **CVF**: [论文PDF](https://openaccess.thecvf.com/content/ICCV2025/papers/Qian_A_Good_Teacher_Adapts_Their_Knowledge_for_Distillation_ICCV_2025_paper.pdf)  
 **代码**: 无公开代码  
 **领域**: 知识蒸馏  

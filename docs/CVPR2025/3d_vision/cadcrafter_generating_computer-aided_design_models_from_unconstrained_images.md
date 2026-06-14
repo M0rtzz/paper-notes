@@ -12,7 +12,6 @@ arxiv: "2504.04753"
 **作者**: Cheng Chen, Xiaohui Zeng, Yuwei Li, Hippolyte Music, Tobias Ritschel, Sanja Fidler, Florian Shkurti  
 **机构**: NTU / A*STAR / UT Austin  
 **会议**: CVPR 2025  
-**arXiv**: 2504.04753  
 
 ## 研究背景与动机
 

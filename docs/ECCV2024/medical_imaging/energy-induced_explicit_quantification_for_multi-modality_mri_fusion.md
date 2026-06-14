@@ -16,7 +16,6 @@ tags:
 # Energy-induced Explicit Quantification for Multi-modality MRI Fusion
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/JerryQseu/EEPA](https://github.com/JerryQseu/EEPA)  
 **领域**: 医学图像  
 **关键词**: 多模态MRI融合, 能量引导, 显式量化, 层级融合, 空间对齐

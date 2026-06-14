@@ -16,7 +16,6 @@ tags:
 # LLM as Copilot for Coarse-Grained Vision-and-Language Navigation
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: LLM Agent / 机器人导航  
 **关键词**: 视觉语言导航, 大语言模型, 粗粒度指令, 困惑度评分, 主动求助

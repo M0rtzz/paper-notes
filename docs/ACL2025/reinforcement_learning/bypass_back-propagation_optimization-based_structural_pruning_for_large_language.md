@@ -16,7 +16,6 @@ tags:
 # Bypass Back-propagation: Optimization-based Structural Pruning for Large Language Models via Policy Gradient
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **链接**: [ACL Anthology](https://aclanthology.org/2025.acl-long.1421/)
 **代码**: 无  
 **领域**: 强化学习  

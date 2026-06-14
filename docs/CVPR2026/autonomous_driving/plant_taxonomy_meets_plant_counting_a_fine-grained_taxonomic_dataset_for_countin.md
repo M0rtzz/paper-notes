@@ -138,10 +138,10 @@ flowchart TD
 ## 相关论文
 
 - [\[ICCV 2025\] Counting Stacked Objects](../../ICCV2025/autonomous_driving/counting_stacked_objects.md)
+- [\[CVPR 2026\] HOLO: Homography-Guided Pose Estimator Network for Fine-Grained Visual Localization on SD Maps](holo_homography-guided_pose_estimator_network_for_fine-grained_visual_localizati.md)
 - [\[AAAI 2026\] Fine-Grained Representation for Lane Topology Reasoning](../../AAAI2026/autonomous_driving/fine-grained_representation_for_lane_topology_reasoning.md)
+- [\[CVPR 2026\] LA-Pose: Latent Action Pretraining Meets Pose Estimation](la-pose_latent_action_pretraining_meets_pose_estimation.md)
 - [\[CVPR 2025\] Point-to-Region Loss for Semi-Supervised Point-Based Crowd Counting](../../CVPR2025/autonomous_driving/point-to-region_loss_for_semi-supervised_point-based_crowd_counting.md)
-- [\[CVPR 2026\] The Blind Spot of Adaptation: Quantifying and Mitigating Forgetting in Fine-tuned Driving Models](blind_spot_of_adaptation_quantifying_and_mitigating_forgetting_in_fine_tuned_driving_models.md)
-- [\[CVPR 2026\] SearchAD: Large-Scale Rare Image Retrieval Dataset for Autonomous Driving](searchad_large-scale_rare_image_retrieval_dataset_for_autonomous_driving.md)
 
 </div>
 

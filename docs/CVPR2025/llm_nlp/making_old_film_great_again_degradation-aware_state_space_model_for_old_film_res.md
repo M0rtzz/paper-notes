@@ -16,7 +16,6 @@ tags:
 # Making Old Film Great Again: Degradation-aware State Space Model for Old Film Restoration
 
 **会议**: CVPR 2025  
-**arXiv**: 待公开  
 **代码**: 无  
 **领域**: 视频修复 / 老电影修复  
 **关键词**: 老电影修复, Mamba, 退化感知, 光流对齐, 状态空间模型

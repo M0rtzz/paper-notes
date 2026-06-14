@@ -16,7 +16,6 @@ tags:
 # PreLAR: World Model Pre-training with Learnable Action Representation
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: [https://github.com/zhanglixuan0720/PreLAR](https://github.com/zhanglixuan0720/PreLAR)  
 **领域**: LLM预训练  
 **关键词**: 世界模型预训练, 可学习动作表示, 无监督预训练, 模型强化学习, 样本效率

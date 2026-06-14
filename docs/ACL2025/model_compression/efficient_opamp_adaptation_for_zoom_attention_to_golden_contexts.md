@@ -17,7 +17,6 @@ tags:
 # Efficient OpAmp Adaptation for Zoom Attention to Golden Contexts
 
 **会议**: ACL 2025  
-**arXiv**: 2502.12502  
 **代码**: -  
 **领域**: 其他  
 **关键词**: attention denoising, RAG, noisy context, operational amplifier, adapter, PEFT  

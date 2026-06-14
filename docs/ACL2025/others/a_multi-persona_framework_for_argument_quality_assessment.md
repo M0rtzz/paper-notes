@@ -15,7 +15,6 @@ tags:
 # A Multi-Persona Framework for Argument Quality Assessment
 
 **会议**: ACL 2025  
-**arXiv**: 无公开arXiv链接  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 论点质量评估, 多视角评估, 大语言模型, 粗到细评分, 人物画像生成

@@ -16,7 +16,6 @@ tags:
 # Complex Reasoning with Natural Language Contexts and Background Knowledge
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: LLM推理  
 **关键词**: 复杂推理, 自然语言上下文, 背景知识, 知识增强推理, 常识推理

@@ -1,28 +1,47 @@
 ---
 title: >-
-  CVPR2026 因果推理论文汇总 · 2篇论文解读
+  CVPR2026 因果推理论文汇总 · 5篇论文解读
 description: >-
-  2篇CVPR2026的因果推理方向论文解读，涵盖扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
+  5篇CVPR2026的因果推理方向论文解读，涵盖域适应、扩散模型等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "因果推理"
   - "论文解读"
   - "论文笔记"
+  - "域适应"
   - "扩散模型"
 item_list:
+  - u: "a_polynomial_chaos_framework_for_causal_discovery_in_nonlinear_uncertain_systems/"
+    t: "A Polynomial Chaos Framework for Causal Discovery in Nonlinear Uncertain Systems"
+  - u: "back_to_the_feature_explaining_video_classifiers_with_video_counterfactual_expla/"
+    t: "Back to the Feature: Explaining Video Classifiers with Video Counterfactual Explanations"
+  - u: "cgu-bayes_causal_graph_uncertainty-guided_bayesian_inference_for_domain_generali/"
+    t: "CGU-Bayes: Causal Graph Uncertainty-Guided Bayesian Inference for Domain Generalization"
   - u: "maskdime_adaptive_masked_diffusion_for_precise_and_efficient_visual_counterfactu/"
     t: "MaskDiME: Adaptive Masked Diffusion for Precise and Efficient Visual Counterfactual Explanations"
   - u: "retrieving_counterfactuals_improves_visual_in-context_learning/"
     t: "Retrieving Counterfactuals Improves Visual In-Context Learning"
-item_total: 2
+item_total: 5
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔗 因果推理
 
-**📷 CVPR2026** · **2** 篇论文解读
+**📷 CVPR2026** · **5** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (15)](../../ICML2026/causal_inference/index.md) · [💬 ACL2026 (7)](../../ACL2026/causal_inference/index.md) · [🔬 ICLR2026 (17)](../../ICLR2026/causal_inference/index.md) · [🤖 AAAI2026 (7)](../../AAAI2026/causal_inference/index.md) · [🧠 NeurIPS2025 (20)](../../NeurIPS2025/causal_inference/index.md) · [📹 ICCV2025 (2)](../../ICCV2025/causal_inference/index.md)
+
+**[A Polynomial Chaos Framework for Causal Discovery in Nonlinear Uncertain Systems](a_polynomial_chaos_framework_for_causal_discovery_in_nonlinear_uncertain_systems.md)**
+
+:   把噪声项用多项式混沌展开（PCE）嵌进结构方程，得到 PCE-LiNGAM，证明在轻度稀疏条件下因果 DAG 可唯一辨识，并用「PCE 签名污染检验 + 递归找 sink」的多项式时间算法在极端非高斯工业数据上把平均 F1 从 0.50 提到 0.756，同时顺手给出基于 Sobol 指数的不确定性量化。
+
+**[Back to the Feature: Explaining Video Classifiers with Video Counterfactual Explanations](back_to_the_feature_explaining_video_classifiers_with_video_counterfactual_expla.md)**
+
+:   本文提出 BTTF，一个用 Image-to-Video 扩散模型为**视频分类器**生成反事实解释（CFE）的纯优化框架：仅靠目标分类器的梯度，反向优化初始噪声潜变量，先用"反演"把搜索锚在原视频附近、再优化到目标类别，从而生成与原视频最接近、却被分类器判成另一类的"平行视频"，让人看清模型到底依赖哪些时空特征做决策。
+
+**[CGU-Bayes: Causal Graph Uncertainty-Guided Bayesian Inference for Domain Generalization](cgu-bayes_causal_graph_uncertainty-guided_bayesian_inference_for_domain_generali.md)**
+
+:   针对"用结构因果模型（SCM）做领域泛化时、因果图在数据稀缺/含噪下估不准"的问题，本文不再点估计单一因果图，而是**对因果图的后验做贝叶斯推断**，从采样出的多张图里各选一套因果马尔可夫毯（CMB）特征训练预测器，再用每张图与测试样本的"对齐不确定性"当权重做加权集成，在 BLT、CMNIST 等强分布偏移数据集上拿到 SOTA。
 
 **[MaskDiME: Adaptive Masked Diffusion for Precise and Efficient Visual Counterfactual Explanations](maskdime_adaptive_masked_diffusion_for_precise_and_efficient_visual_counterfactu.md)**
 

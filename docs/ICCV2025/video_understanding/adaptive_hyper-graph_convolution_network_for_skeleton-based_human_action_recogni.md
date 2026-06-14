@@ -16,7 +16,6 @@ tags:
 # Adaptive Hyper-Graph Convolution Network for Skeleton-Based Human Action Recognition
 
 **会议**: ICCV 2025  
-**arXiv**: N/A (CVF OpenAccess)  
 **代码**: [https://github.com/6UOOON9/Hyper-GCN](https://github.com/6UOOON9/Hyper-GCN)  
 **领域**: 视频理解  
 **关键词**: 骨架动作识别, 超图卷积, 自适应拓扑, 虚拟连接, 图卷积网络

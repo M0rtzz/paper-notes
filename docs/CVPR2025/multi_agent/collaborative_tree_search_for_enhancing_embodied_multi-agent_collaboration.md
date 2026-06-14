@@ -16,7 +16,6 @@ tags:
 # Collaborative Tree Search for Enhancing Embodied Multi-Agent Collaboration
 
 **会议**: CVPR 2025  
-**arXiv**: 待确认  
 **代码**: 待确认  
 **领域**: 机器人  
 **关键词**: 具身智能, 多智能体, 协作规划, 蒙特卡洛树搜索, LLM, 任务分工

@@ -16,7 +16,6 @@ tags:
 # Sketchtopia: A Dataset and Foundational Agents for Benchmarking Asynchronous Multimodal Communication with Iconic Feedback
 
 **会议**: CVPR 2025  
-**arXiv**: 待确认  
 **代码**: [https://sketchtopia25.github.io/](https://sketchtopia25.github.io/)  
 **领域**: LLM Agent  
 **关键词**: 草图, 多模态通信, 异步交互, Pictionary, Agent评估

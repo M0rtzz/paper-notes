@@ -16,7 +16,6 @@ tags:
 # Aligning Effective Tokens with Video Anomaly in Large Language Models
 
 **会议**: ICCV 2025  
-**arXiv**: N/A (CVF OpenAccess)  
 **代码**: 无  
 **领域**: 视频理解  
 **关键词**: 视频异常理解, 多模态大语言模型, 有效Token选择, 时空对齐, 异常检测

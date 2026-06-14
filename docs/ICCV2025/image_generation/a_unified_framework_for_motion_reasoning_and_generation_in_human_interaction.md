@@ -16,7 +16,6 @@ tags:
 # A Unified Framework for Motion Reasoning and Generation in Human Interaction
 
 **会议**: ICCV 2025  
-**arXiv**: N/A (CVF OpenAccess)  
 **代码**: [https://molam-motion-language.github.io/](https://molam-motion-language.github.io/)  
 **领域**: 图像生成  
 **关键词**: 人体交互动作, 动作-语言模型, 多轮对话, 指令微调, 动作推理

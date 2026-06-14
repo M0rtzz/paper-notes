@@ -16,7 +16,6 @@ tags:
 # Accessible Machine Translation Evaluation For Low-Resource Languages
 
 **会议**: ACL 2025  
-**arXiv**: 无公开预印本  
 **代码**: 无  
 **领域**: 多语言翻译  
 **关键词**: 机器翻译评估, 低资源语言, 可访问性评估, 翻译质量估计, 多语言NLP

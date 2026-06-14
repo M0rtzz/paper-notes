@@ -15,7 +15,6 @@ tags:
 # Auto-GAS: Automated Proxy Discovery for Training-Free Generative Architecture Search
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/lliai/Auto-GAS](https://github.com/lliai/Auto-GAS)  
 **领域**: 其他  
 **关键词**: 生成架构搜索, 免训练代理, 进化算法, GAN压缩, 零成本代理

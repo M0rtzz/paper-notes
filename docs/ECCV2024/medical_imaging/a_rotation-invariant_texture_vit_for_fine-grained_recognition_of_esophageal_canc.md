@@ -16,7 +16,6 @@ tags:
 # A Rotation-Invariant Texture ViT for Fine-Grained Recognition of Esophageal Cancer Endoscopic Ultrasound Images
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/tianyiliu-lab/SRRM-ViT](https://github.com/tianyiliu-lab/SRRM-ViT)  
 **领域**: 医学图像  
 **关键词**: 内镜超声, 旋转不变性, 纹理特征, Vision Transformer, 食管癌分类

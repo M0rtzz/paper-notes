@@ -15,7 +15,6 @@ tags:
 # Exploring Guided Sampling of Conditional GANs
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [GitHub](https://github.com/zyf0619sjtu/GANdance)  
 **领域**: 其他  
 **关键词**: 条件GAN, 引导采样, 隐空间操控, 图像生成质量, 扩散模型对比

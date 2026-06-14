@@ -16,7 +16,6 @@ tags:
 # R²-Bench: Benchmarking the Robustness of Referring Perception Models under Perturbations
 
 **会议**: ECCV 2024  
-**arXiv**: 无公开 arXiv  
 **代码**: 无  
 **领域**: LLM评测  
 **关键词**: 指代感知, 鲁棒性评估, 扰动基准, 多模态, LLM代理

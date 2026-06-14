@@ -16,7 +16,6 @@ tags:
 # Tree-of-Evolution: Tree-Structured Instruction Evolution for Code Generation in Large Language Models
 
 **会议**: ACL 2025 (Long Paper)  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 代码生成 / 数据合成 / 指令微调  
 **关键词**: Code Instruction Synthesis, Tree-Structured Evolution, Optimization-Driven Generation, Code LLM, Data Quality  

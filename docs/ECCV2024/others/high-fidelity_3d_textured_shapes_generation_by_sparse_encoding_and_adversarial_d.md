@@ -15,7 +15,6 @@ tags:
 # High-Fidelity 3D Textured Shapes Generation by Sparse Encoding and Adversarial Decoding
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无（数据集发布于 [https://aigc3d.github.io/gobjaverse/](https://aigc3d.github.io/gobjaverse/)）  
 **领域**: 其他  
 **关键词**: 3D生成、纹理形状生成、稀疏编码、对抗解码、开放词汇

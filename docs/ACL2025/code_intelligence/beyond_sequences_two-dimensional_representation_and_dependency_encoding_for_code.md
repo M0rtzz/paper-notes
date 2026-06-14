@@ -16,7 +16,6 @@ tags:
 # Beyond Sequences: Two-dimensional Representation and Dependency Encoding for Code Generation
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 代码智能  
 **关键词**: 代码生成、二维表示、依赖编码、抽象语法树、结构化代码表示

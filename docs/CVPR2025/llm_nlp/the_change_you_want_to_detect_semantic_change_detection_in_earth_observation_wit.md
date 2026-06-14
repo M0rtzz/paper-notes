@@ -16,7 +16,6 @@ tags:
 # The Change You Want To Detect: Semantic Change Detection In Earth Observation With Hybrid Data Generation
 
 **会议**: CVPR 2025  
-**arXiv**: 待公开  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 语义变化检测, VHR影像, 混合数据生成, inpainting, 地表覆盖

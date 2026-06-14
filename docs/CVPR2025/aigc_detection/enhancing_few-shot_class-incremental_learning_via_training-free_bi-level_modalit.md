@@ -17,7 +17,6 @@ tags:
 # Enhancing Few-Shot Class-Incremental Learning via Training-Free Bi-Level Modality Calibration
 
 **会议**: CVPR 2025  
-**arXiv**: 无公开预印本  
 **代码**: [https://github.com/yychen016/BiMC](https://github.com/yychen016/BiMC)  
 **领域**: 小样本增量学习 / 视觉语言模型  
 **关键词**: FSCIL, 双层模态校准, CLIP, 无训练, LLM描述, 视觉原型

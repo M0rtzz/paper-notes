@@ -156,10 +156,10 @@ $$\mathcal{L}=\mathcal{L}_{cls}+\alpha_1\mathcal{L}_1+\alpha_2\mathcal{L}_2+\alp
 ## 相关论文
 
 - [\[CVPR 2026\] Attribution as Retrieval: Model-Agnostic AI-Generated Image Attribution](attribution_as_retrieval_modelagnostic_aigenerated.md)
+- [\[CVPR 2026\] Breaking Semantic Boundaries: Distribution-Guided Semantic Exploration for Creative Generation](breaking_semantic_boundaries_distribution-guided_semantic_exploration_for_creati.md)
 - [\[CVPR 2026\] VOSR: A Vision-Only Generative Model for Image Super-Resolution](vosr_a_vision_only_generative_model_for_image_super_resolution.md)
+- [\[CVPR 2026\] Taming Generative Diffusion Model for Task-Oriented Infrared Imaging](taming_generative_diffusion_model_for_task-oriented_infrared_imaging.md)
 - [\[AAAI 2026\] Breaking the Modality Barrier: Generative Modeling for Accurate Molecule Retrieval from Mass Spectra](../../AAAI2026/image_generation/breaking_the_modality_barrier_generative_modeling_for_accurate_molecule_retrieva.md)
-- [\[CVPR 2026\] Banana100: Breaking NR-IQA Metrics by 100 Iterative Image Replications with Nano Banana Pro](banana100_breaking_nr-iqa_metrics_by_100_iterative_image_replications_with_nano_.md)
-- [\[ICLR 2026\] Loopholing Discrete Diffusion: Deterministic Bypass of the Sampling Wall](../../ICLR2026/image_generation/loopholing_discrete_diffusion_deterministic_bypass_of_the_sampling_wall.md)
 
 </div>
 

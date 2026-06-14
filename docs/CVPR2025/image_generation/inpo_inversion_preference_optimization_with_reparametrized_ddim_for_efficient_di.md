@@ -16,7 +16,6 @@ tags:
 # InPO: Inversion Preference Optimization with Reparametrized DDIM for Efficient Diffusion Model Alignment
 
 **会议**: CVPR 2025  
-**arXiv**: 待公开  
 **代码**: 无  
 **领域**: 模型对齐 / 扩散模型  
 **关键词**: DDIM反演, 偏好优化, 扩散模型对齐, 重参数化, 高效训练

@@ -122,11 +122,11 @@ flowchart TD
 
 ## 相关论文
 
+- [\[CVPR 2026\] Block-based Learned Image Compression without Blocking Artifacts](block-based_learned_image_compression_without_blocking_artifacts.md)
 - [\[ICML 2026\] Efficient Learned Image Compression without Entropy Coding](../../ICML2026/model_compression/efficient_learned_image_compression_without_entropy_coding.md)
 - [\[AAAI 2026\] DynaQuant: Dynamic Mixed-Precision Quantization for Learned Image Compression](../../AAAI2026/model_compression/dynaquant_dynamic_mixed-precision_quantization_for_learned_i.md)
-- [\[CVPR 2025\] Charm: The Missing Piece in ViT Fine-Tuning for Image Aesthetic Assessment](../../CVPR2025/model_compression/charm_the_missing_piece_in_vit_fine-tuning_for_image_aesthetic_assessment.md)
 - [\[CVPR 2025\] Learned Image Compression with Dictionary-based Entropy Model](../../CVPR2025/model_compression/learned_image_compression_with_dictionary-based_entropy_model.md)
-- [\[CVPR 2025\] LALIC: Linear Attention Modeling for Learned Image Compression](../../CVPR2025/model_compression/linear_attention_modeling_for_learned_image_compression.md)
+- [\[CVPR 2026\] CARLoS: Retrieval via Concise Assessment Representation of LoRAs at Scale](carlos_retrieval_via_concise_assessment_representation_of_loras_at_scale.md)
 
 </div>
 

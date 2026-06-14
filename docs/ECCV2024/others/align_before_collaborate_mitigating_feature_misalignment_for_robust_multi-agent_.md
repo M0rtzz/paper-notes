@@ -15,7 +15,6 @@ tags:
 # Align before Collaborate: Mitigating Feature Misalignment for Robust Multi-Agent Perception
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 协同感知, 特征对齐, 多智能体, 3D目标检测, 位姿误差鲁棒性

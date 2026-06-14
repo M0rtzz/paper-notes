@@ -15,7 +15,6 @@ tags:
 # Object-Aware NIR-to-Visible Translation
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: [https://github.com/Yiiclass/Sherry](https://github.com/Yiiclass/Sherry)  
 **领域**: 其他  
 **关键词**: 近红外图像翻译, 图像分解, 语义分割先验, 反射率估计, 配对数据集

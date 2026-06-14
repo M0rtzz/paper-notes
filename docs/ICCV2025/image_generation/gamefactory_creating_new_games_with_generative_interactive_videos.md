@@ -18,7 +18,6 @@ tags:
 # GameFactory: Creating New Games with Generative Interactive Videos
 
 **会议**: ICCV 2025  
-**arXiv**: 2501.08325  
 **代码**: [https://yujiwen.github.io/gamefactory/](https://yujiwen.github.io/gamefactory/) (项目页面)  
 **领域**: 图像生成  
 **关键词**: 游戏生成, 视频扩散模型, 动作控制, 场景泛化, 自回归视频生成, Minecraft, 世界模型

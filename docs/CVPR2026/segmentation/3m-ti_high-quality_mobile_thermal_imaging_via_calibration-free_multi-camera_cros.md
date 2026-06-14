@@ -152,11 +152,11 @@ RGB 引导热成像 SR 的老路子都得先做精确的像素级跨相机标定
 
 ## 相关论文
 
+- [\[CVPR 2026\] B³-Seg: Camera-Free, Training-Free 3DGS Segmentation via Analytic EIG and Beta-Bernoulli Bayesian Updates](b3-seg_camera-free_training-free_3dgs_segmentation_via_analytic_eig_and_beta-ber.md)
+- [\[CVPR 2026\] Towards Robust Multi-Modal Semantic Segmentation with Teacher-Student Framework and Hybrid Prototype Distillation](towards_robust_multi-modal_semantic_segmentation_with_teacher-student_framework_.md)
 - [\[CVPR 2026\] Towards High-Quality Image Segmentation: Improving Topology Accuracy by Penalizing Neighbor Pixels](towards_high-quality_image_segmentation_improving_topology_accuracy_by_penalizin.md)
 - [\[CVPR 2026\] Making Training-Free Diffusion Segmentors Scale with the Generative Power](making_training-free_diffusion_segmentors_scale_with_the_generative_power.md)
-- [\[CVPR 2025\] The Devil is in Temporal Token: High Quality Video Reasoning Segmentation](../../CVPR2025/segmentation/the_devil_is_in_temporal_token_high_quality_video_reasoning_segmentation.md)
-- [\[ICLR 2026\] Universal Multi-Domain Translation via Diffusion Routers](../../ICLR2026/segmentation/universal_multi-domain_translation_via_diffusion_routers.md)
-- [\[CVPR 2026\] From 2D Alignment to 3D Plausibility: Unifying Heterogeneous 2D Priors and Penetration-Free Diffusion for Occlusion-Robust Two-Hand Reconstruction](from_2d_alignment_to_3d_plausibility_unifying_heterogeneous_2d_priors_and_penetr.md)
+- [\[CVPR 2026\] Cross-Domain Few-Shot Segmentation via Multi-view Progressive Adaptation](cross-domain_few-shot_segmentation_via_multi-view_progressive_adaptation.md)
 
 </div>
 

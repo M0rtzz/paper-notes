@@ -155,11 +155,11 @@ PE3R 是完全免训练（tuning-free）的框架，SAM/SAM2、CLIP、DUSt3R 全
 
 ## 相关论文
 
+- [\[CVPR 2026\] ESAM++: Efficient Online 3D Perception on the Edge](esam_efficient_online_3d_perception_on_the_edge.md)
+- [\[CVPR 2026\] ConsisVLA-4D: Advancing Spatiotemporal Consistency in Efficient 3D-Perception and 4D-Reasoning for Robotic Manipulation](consisvla-4d_advancing_spatiotemporal_consistency_in_efficient_3d-perception_and.md)
+- [\[CVPR 2026\] UniPR: Unified Object-level Real-to-Sim Perception and Reconstruction from a Single Stereo Pair](unipr_unified_object-level_real-to-sim_perception_and_reconstruction_from_a_sing.md)
+- [\[CVPR 2026\] TokenHand: Discrete Token Representation for Efficient Hand Mesh Reconstruction](tokenhand_discrete_token_representation_for_efficient_hand_mesh_reconstruction.md)
 - [\[CVPR 2026\] Long-SCOPE: Fully Sparse Long-Range Cooperative 3D Perception](long_scope_fully_sparse_long_range_cooperative_3d_perception.md)
-- [\[CVPR 2026\] SoPE: Spherical Coordinate-Based Positional Embedding for Enhancing Spatial Perception of 3D LVLMs](sope_spherical_coordinate-based_positional_embedding_for_enhancing_spatial_perce.md)
-- [\[ICLR 2026\] UrbanGS: A Scalable and Efficient Architecture for Geometrically Accurate Large-Scene Reconstruction](../../ICLR2026/3d_vision/urbangs_a_scalable_and_efficient_architecture_for_geometrically_accurate_large-s.md)
-- [\[ECCV 2024\] GRM: Large Gaussian Reconstruction Model for Efficient 3D Reconstruction and Generation](../../ECCV2024/3d_vision/grm_large_gaussian_reconstruction_model_for_efficient_3d_reconstruction_and_gene.md)
-- [\[CVPR 2025\] SGCR: Spherical Gaussians for Efficient 3D Curve Reconstruction](../../CVPR2025/3d_vision/sgcr_spherical_gaussians_for_efficient_3d_curve_reconstruction.md)
 
 </div>
 

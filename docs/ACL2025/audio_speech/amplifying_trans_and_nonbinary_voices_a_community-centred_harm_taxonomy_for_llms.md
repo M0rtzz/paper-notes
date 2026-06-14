@@ -16,7 +16,6 @@ tags:
 # Amplifying Trans and Nonbinary Voices: A Community-Centred Harm Taxonomy for LLMs
 
 **会议**: ACL 2025  
-**arXiv**: 无公开arXiv  
 **代码**: 无  
 **领域**: 音频语音  
 **关键词**: 跨性别群体、非二元性别、伤害分类法、社区导向、LLM偏见

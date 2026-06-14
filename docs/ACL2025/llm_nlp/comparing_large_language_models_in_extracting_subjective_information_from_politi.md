@@ -16,7 +16,6 @@ tags:
 # Comparing Large Language Models in Extracting Subjective Information from Political News
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 主观信息提取, 政治新闻分析, LLM评估, 情感分析, 立场检测

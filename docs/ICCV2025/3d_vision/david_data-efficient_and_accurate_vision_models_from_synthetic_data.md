@@ -17,7 +17,6 @@ tags:
 # DAViD: Data-efficient and Accurate Vision Models from Synthetic Data
 
 **会议**: ICCV 2025  
-**arXiv**: 2507.15365  
 **代码**: [项目主页](https://aka.ms/DAViD)  
 **领域**: 3D视觉  
 **关键词**: 合成数据, 深度估计, 表面法线估计, 前景分割, DPT, 高保真标注  

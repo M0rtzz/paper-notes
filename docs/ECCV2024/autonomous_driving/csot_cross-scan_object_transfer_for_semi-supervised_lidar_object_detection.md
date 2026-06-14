@@ -16,7 +16,6 @@ tags:
 # CSOT: Cross-Scan Object Transfer for Semi-Supervised LiDAR Object Detection
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: [https://github.com/JinglinZhan/CSOT](https://github.com/JinglinZhan/CSOT)  
 **领域**: 自动驾驶 / 3D目标检测  
 **关键词**: 半监督学习、LiDAR目标检测、跨场景物体迁移、点云数据增强、部分标注

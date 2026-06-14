@@ -16,7 +16,6 @@ tags:
 # Exposure-slot: Exposure-centric Representations Learning with Slot-in-Slot Attention
 
 **会议**: CVPR 2025  
-**arXiv**: 待公开  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 曝光矫正, Slot Attention, 层次化聚类, 区域感知, prompt学习

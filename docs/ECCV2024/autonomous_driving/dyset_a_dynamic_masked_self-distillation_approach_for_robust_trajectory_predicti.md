@@ -16,7 +16,6 @@ tags:
 # DySeT: A Dynamic Masked Self-distillation Approach for Robust Trajectory Prediction
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 自动驾驶  
 **关键词**: 轨迹预测、自蒸馏、掩码预训练、动态采样、鲁棒性

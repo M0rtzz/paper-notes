@@ -16,7 +16,6 @@ tags:
 # Prompting Future Driven Diffusion Model for Hand Motion Prediction
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 扩散模型 / 手部运动预测  
 **关键词**: 手部运动预测, 扩散模型, 提示学习, 第一人称/第三人称, 未来驱动

@@ -16,7 +16,6 @@ tags:
 # Bayesian Evidential Deep Learning for Online Action Detection
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 视频理解 / 动作检测  
 **关键词**: 在线动作检测, 贝叶斯神经网络, 证据深度学习, 不确定性量化, 教师-学生架构

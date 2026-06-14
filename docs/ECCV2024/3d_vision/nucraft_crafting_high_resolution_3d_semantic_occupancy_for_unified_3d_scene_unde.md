@@ -16,7 +16,6 @@ tags:
 # nuCraft: Crafting High Resolution 3D Semantic Occupancy for Unified 3D Scene Understanding
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 3D视觉 / 自动驾驶  
 **关键词**: 3D语义占用预测, 高分辨率体素, VQ-VAE, 自动驾驶场景理解, nuScenes

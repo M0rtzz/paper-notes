@@ -16,7 +16,6 @@ tags:
 # G2fR: Frequency Regularization in Grid-Based Feature Encoding Neural Radiance Fields
 
 **会议**: ECCV 2024  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 3D视觉 / 神经辐射场  
 **关键词**: 神经辐射场, 频率正则化, 网格特征编码, 少样本重建, 相机位姿优化

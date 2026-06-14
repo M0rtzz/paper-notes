@@ -16,7 +16,6 @@ tags:
 # Chat-based Person Retrieval via Dialogue-Refined Cross-Modal Alignment
 
 **会议**: CVPR 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 行人检索, 跨模态对齐, 对话交互, 属性精炼, 数据增强

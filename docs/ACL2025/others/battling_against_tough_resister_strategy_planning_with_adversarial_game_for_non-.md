@@ -15,7 +15,6 @@ tags:
 # Battling against Tough Resister: Strategy Planning with Adversarial Game for Non-collaborative Dialogues
 
 **会议**: ACL 2025  
-**arXiv**: 无  
 **代码**: 无  
 **领域**: 其他  
 **关键词**: 非合作对话、对抗博弈、策略规划、说服对话、谈判

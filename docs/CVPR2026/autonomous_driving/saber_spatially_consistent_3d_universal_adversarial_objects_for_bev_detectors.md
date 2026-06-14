@@ -161,8 +161,8 @@ $$\min_{\mathcal{V},\mathcal{T}} \mathcal{L}_{\text{attack}} = \mathcal{L}_{\tex
 
 ## 相关论文
 
+- [\[CVPR 2026\] Learning to Identify Out-of-Distribution Objects for 3D LiDAR Anomaly Segmentation](learning_to_identify_out-of-distribution_objects_for_3d_lidar_anomaly_segmentati.md)
 - [\[CVPR 2026\] ReScene4D: Temporally Consistent Semantic Instance Segmentation of Evolving Indoor 3D Scenes](rescene4d_temporally_consistent_semantic_instance_segmentation_of_evolving_indoo.md)
-- [\[CVPR 2026\] RESBev: Making BEV Perception More Robust](resbev_making_bev_perception_more_robust.md)
 - [\[CVPR 2026\] Learning Mutual View Information Graph for Adaptive Adversarial Collaborative Perception](learning_mutual_view_information_graph_for_adaptive_adversarial_collaborative_pe.md)
 - [\[ICCV 2025\] Counting Stacked Objects](../../ICCV2025/autonomous_driving/counting_stacked_objects.md)
 - [\[ICML 2026\] Plug-and-Play Label Map Diffusion for Universal Goal-Oriented Navigation](../../ICML2026/autonomous_driving/plug-and-play_label_map_diffusion_for_universal_goal-oriented_navigation.md)

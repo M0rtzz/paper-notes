@@ -147,11 +147,11 @@ $$\mathcal{L}=\lambda_{diff}\mathcal{L}_{diff}+\lambda_{\text{LIFT}}\mathcal{L}_
 
 ## 相关论文
 
-- [\[CVPR 2026\] Adversarial Concept Distillation for One-Step Diffusion Personalization](adversarial_concept_distillation_for_one-step_diffusion_personalization.md)
+- [\[CVPR 2026\] DMGD: Train-Free Dataset Distillation with Semantic-Distribution Matching in Diffusion Models](dmgd_train-free_dataset_distillation_with_semantic-distribution_matching_in_diff.md)
+- [\[CVPR 2026\] Streamlined Knowledge Distillation](streamlined_knowledge_distillation.md)
+- [\[CVPR 2026\] Sampling-Aware Quantization for Diffusion Models](sampling-aware_quantization_for_diffusion_models.md)
+- [\[CVPR 2026\] Mitigating The Distribution Shift of Diffusion-based Dataset Distillation](mitigating_the_distribution_shift_of_diffusion-based_dataset_distillation.md)
 - [\[ECCV 2024\] Simple Unsupervised Knowledge Distillation With Space Similarity](../../ECCV2024/model_compression/simple_unsupervised_knowledge_distillation_with_space_similarity.md)
-- [\[CVPR 2026\] PPCL: Pluggable Pruning with Contiguous Layer Distillation for Diffusion Transformers](ppcl_pluggable_pruning_dit_distillation.md)
-- [\[CVPR 2025\] DKDM: Data-Free Knowledge Distillation for Diffusion Models with Any Architecture](../../CVPR2025/model_compression/dkdm_data-free_knowledge_distillation_for_diffusion_models_with_any_architecture.md)
-- [\[CVPR 2026\] Cross-Modal Knowledge Distillation from Spatial Transcriptomics to Histology](cross-modal_knowledge_distillation_from_spatial_transcriptomics_to_histology.md)
 
 </div>
 

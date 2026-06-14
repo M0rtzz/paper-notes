@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 LLM安全论文汇总 · 22篇论文解读
+  CVPR2026 LLM安全论文汇总 · 24篇论文解读
 description: >-
-  22篇CVPR2026的 LLM 安全方向论文解读，涵盖多模态、对抗鲁棒、人脸/视线、LLM、域适应、少样本学习等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  24篇CVPR2026的 LLM 安全方向论文解读，涵盖多模态、对抗鲁棒、LLM、推理等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想，助你快速跟进AI领域最新研究动态、学术前沿趋势与核心技术突破。
 tags:
   - "CVPR2026"
   - "LLM 安全"
@@ -10,15 +10,11 @@ tags:
   - "论文笔记"
   - "多模态"
   - "对抗鲁棒"
-  - "人脸/视线"
   - "LLM"
-  - "域适应"
-  - "少样本学习"
+  - "推理"
 item_list:
   - u: "a_closedform_solution_for_debiasing_visionlanguage/"
     t: "A Closed-Form Solution for Debiasing Vision-Language Models with Utility Guarantees Across Modalities and Tasks"
-  - u: "damp_class_unlearning_via_depth_aware_removal_of_forget_specific_directions/"
-    t: "DAMP: Class Unlearning via Depth-Aware Removal of Forget-Specific Directions"
   - u: "demographic_fairness_in_multimodal_llms_a_benchmark_of_gender_and_ethnicity_bias/"
     t: "Demographic Fairness in Multimodal LLMs: A Benchmark of Gender and Ethnicity Bias in Face Verification"
   - u: "designing_to_forget_deep_semi-parametric_models_for_unlearning/"
@@ -27,6 +23,8 @@ item_list:
     t: "FairLLaVA: Fairness-Aware Parameter-Efficient Fine-Tuning for Large Vision-Language Models"
   - u: "force_transferable_visual_jailbreaking_attacks_via_feature_over_reliance_correct/"
     t: "FORCE: Transferable Visual Jailbreaking Attacks via Feature Over-Reliance CorrEction"
+  - u: "harmonious_parameter_adaptation_in_continual_visual_instruction_tuning_for_safet/"
+    t: "Harmonious Parameter Adaptation in Continual Visual Instruction Tuning for Safety-Aligned MLLMs"
   - u: "iag_input-aware_backdoor_attack_on_vlm-based_visual_grounding/"
     t: "IAG: Input-aware Backdoor Attack on VLM-based Visual Grounding"
   - u: "interpretable_debiasing_of_vision-language_models_for_social_fairness/"
@@ -35,49 +33,49 @@ item_list:
     t: "Learning from Oblivion: Predicting Knowledge-Overflowed Weights via Retrodiction of Forgetting"
   - u: "multi-paradigm_collaborative_adversarial_attack_against_multi-modal_large_langua/"
     t: "Multi-Paradigm Collaborative Adversarial Attack Against Multi-Modal Large Language Models"
+  - u: "omni-attack_adversarial_attacks_on_open-ended_vqa_in_black-box_multimodal_llms/"
+    t: "Omni-Attack: Adversarial Attacks on Open-Ended VQA in Black-Box Multimodal LLMs"
   - u: "oslash_source_models_leak_what_they_shouldnt_nrightarrow_unlearning_zero-shot_tr/"
     t: "⊘ Source Models Leak What They Shouldn't ↛: Unlearning Zero-Shot Transfer in Domain Adaptation Through Adversarial Optimization"
-  - u: "perturb_and_recover_fine-tuning_for_effective_backdoor_removal_from_clip/"
-    t: "Perturb and Recover: Fine-tuning for Effective Backdoor Removal from CLIP"
   - u: "phantasia_context-adaptive_backdoors_in_vision_language_models/"
     t: "Phantasia: Context-Adaptive Backdoors in Vision Language Models"
   - u: "pixels_dont_lie_but_your_detector_might_bootstrapping_mllm-as-a-judge_for_trustw/"
     t: "Pixels Don't Lie (But Your Detector Might): Bootstrapping MLLM-as-a-Judge for Trustworthy Deepfake Detection and Reasoning Supervision"
-  - u: "razor_ratio-aware_layer_editing_for_targeted_unlearning_in_vision_transformers_a/"
-    t: "RAZOR: Ratio-Aware Layer Editing for Targeted Unlearning in Vision Transformers and Diffusion Models"
   - u: "select_hypothesize_and_verify_towards_verified_neuron_concept_interpretation/"
     t: "Select, Hypothesize and Verify: Towards Verified Neuron Concept Interpretation"
   - u: "sineproject_machine_unlearning_for_stable_vision_language_alignment/"
     t: "SineProject: Machine Unlearning for Stable Vision–Language Alignment"
   - u: "test-time_attention_purification_for_backdoored_large_vision_language_models/"
     t: "Test-Time Attention Purification for Backdoored Large Vision Language Models"
+  - u: "towards_reasoning-preserving_unlearning_in_multimodal_large_language_models/"
+    t: "Towards Reasoning-Preserving Unlearning in Multimodal Large Language Models"
+  - u: "towards_robust_multimodal_large_language_models_against_jailbreak_attacks/"
+    t: "Towards Robust Multimodal Large Language Models Against Jailbreak Attacks"
   - u: "unsafe2safe_controllable_image_anonymization_for_downstream_utility/"
     t: "Unsafe2Safe: Controllable Image Anonymization for Downstream Utility"
   - u: "v-attack_targeting_disentangled_value_features_for_controllable_adversarial_atta/"
     t: "V-Attack: Targeting Disentangled Value Features for Controllable Adversarial Attacks on LVLMs"
+  - u: "vl-eraser_vacuum_distillation_for_machine_unlearning_in_vision-language_models/"
+    t: "VL-Eraser: Vacuum Distillation for Machine Unlearning in Vision-Language Models"
   - u: "vlm_model_inversion_adaptive_token_weight/"
     t: "Do Vision-Language Models Leak What They Learn? Adaptive Token-Weighted Model Inversion Attacks"
   - u: "which_concepts_to_forget_and_how_to_refuse_decomposing_concepts_for_continual_un/"
     t: "Which Concepts to Forget and How to Refuse? Decomposing Concepts for Continual Unlearning in Large Vision-Language Models"
-item_total: 22
+item_total: 24
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🔒 LLM 安全
 
-**📷 CVPR2026** · **22** 篇论文解读
+**📷 CVPR2026** · **24** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (46)](../../ICML2026/llm_safety/index.md) · [💬 ACL2026 (115)](../../ACL2026/llm_safety/index.md) · [🔬 ICLR2026 (52)](../../ICLR2026/llm_safety/index.md) · [🤖 AAAI2026 (41)](../../AAAI2026/llm_safety/index.md) · [🧠 NeurIPS2025 (81)](../../NeurIPS2025/llm_safety/index.md) · [📹 ICCV2025 (10)](../../ICCV2025/llm_safety/index.md)
 
-🔥 **高频主题：** 多模态 ×10 · 对抗鲁棒 ×6
+🔥 **高频主题：** 多模态 ×14 · 对抗鲁棒 ×8 · LLM ×3 · 推理 ×2
 
 **[A Closed-Form Solution for Debiasing Vision-Language Models with Utility Guarantees Across Modalities and Tasks](a_closedform_solution_for_debiasing_visionlanguage.md)**
 
 :   提出VLM去偏的闭式解方法，通过在跨模态嵌入空间中对属性子空间做正交分解并利用Chebyshev标量化求解，实现Pareto最优公平性与有界效用损失，免训练、免标注，统一覆盖零样本分类、文本-图像检索和文本-图像生成三大下游任务。
-
-**[DAMP: Class Unlearning via Depth-Aware Removal of Forget-Specific Directions](damp_class_unlearning_via_depth_aware_removal_of_forget_specific_directions.md)**
-
-:   提出 DAMP（深度感知投影调制），一种一次性闭式权重手术方法用于类遗忘，通过在每个网络阶段的编辑空间中移除遗忘类特有方向来实现选择性遗忘，深度感知缩放规则确保浅层保守编辑、深层强力编辑。
 
 **[Demographic Fairness in Multimodal LLMs: A Benchmark of Gender and Ethnicity Bias in Face Verification](demographic_fairness_in_multimodal_llms_a_benchmark_of_gender_and_ethnicity_bias.md)**
 
@@ -95,6 +93,10 @@ item_total: 22
 
 :   分析发现视觉 jailbreak attack 迁移性差的根因是 attack 处于 high-sharpness loss region——源于浅层特征过度依赖 model-specific 表示和高频信息过度影响；提出 FORCE 方法通过 layer-aware regularization 扩展浅层 feasible region + spectral rescaling 抑制高频非语义成分，引导 attack 进入 flatter loss landscape，显著提升跨模型迁移性。
 
+**[Harmonious Parameter Adaptation in Continual Visual Instruction Tuning for Safety-Aligned MLLMs](harmonious_parameter_adaptation_in_continual_visual_instruction_tuning_for_safet.md)**
+
+:   HPA 关注一个被忽视的场景——对"已做过安全对齐"的多模态大模型继续做持续视觉指令微调（post-SA CVIT）时，模型既会遗忘旧任务、又会丢掉安全性；它在每步微调后做无侵入的后训练参数调整，用 Hessian 重要性把参数分成"安全焦点 / 任务焦点"、在层内层间平衡地选择性保留安全参数、并对更新方向施加正交约束，从而在安全和任务性能之间取得和谐折中。
+
 **[IAG: Input-aware Backdoor Attack on VLM-based Visual Grounding](iag_input-aware_backdoor_attack_on_vlm-based_visual_grounding.md)**
 
 :   提出IAG，首个针对VLM视觉定位的多目标后门攻击方法，通过文本条件U-Net动态生成输入感知触发器，将任意指定目标物体的语义信息嵌入视觉输入中，在12种设置下的11种达到最高攻击成功率。
@@ -111,13 +113,13 @@ item_total: 22
 
 :   提出 MPCAttack 框架，联合跨模态对齐、多模态理解和视觉自监督三种学习范式的特征表示，通过多范式协同优化策略生成高迁移性对抗样本，在开源和闭源 MLLM 上均取得 SOTA 攻击效果。
 
+**[Omni-Attack: Adversarial Attacks on Open-Ended VQA in Black-Box Multimodal LLMs](omni-attack_adversarial_attacks_on_open-ended_vqa_in_black-box_multimodal_llms.md)**
+
+:   针对"开放式 VQA/OCR 任务没有显式攻击目标、现有对抗鲁棒性评测各用各的协议"两大空白，本文先建了统一的定向攻击基准 **AdvRobustBench**（1000 题，VQA+OCR），再提出迁移式黑盒攻击 **Omni-Attack**（用 LLM 生成"问题条件化"的文本/视觉目标 + OCR 位置感知扰动 + 四种迁移正则），在 GPT-4.1 上 $\epsilon=8/255$ 就把定向攻击成功率打到 71.8%。
+
 **[⊘ Source Models Leak What They Shouldn't ↛: Unlearning Zero-Shot Transfer in Domain Adaptation Through Adversarial Optimization](oslash_source_models_leak_what_they_shouldnt_nrightarrow_unlearning_zero-shot_tr.md)**
 
 :   发现无源域自适应（SFDA）方法会不经意地将源域独有类别的知识泄漏到目标域（零样本迁移现象），提出 SCADA-UL 框架通过对抗生成遗忘样本和重缩放标签策略，在域自适应过程中同时完成类别遗忘，达到接近从头训练的遗忘效果。
-
-**[Perturb and Recover: Fine-tuning for Effective Backdoor Removal from CLIP](perturb_and_recover_fine-tuning_for_effective_backdoor_removal_from_clip.md)**
-
-:   本文提出 PAR（Perturb and Recover），一种简单而有效的 CLIP 模型后门清洗方法：通过显式地将模型embedding推离中毒状态（Perturb），同时用标准 CLIP 损失恢复干净性能（Recover），在不依赖强数据增强的情况下实现对任意触发器的鲁棒后门移除，甚至仅用合成数据即可有效清洗。
 
 **[Phantasia: Context-Adaptive Backdoors in Vision Language Models](phantasia_context-adaptive_backdoors_in_vision_language_models.md)**
 
@@ -126,10 +128,6 @@ item_total: 22
 **[Pixels Don't Lie (But Your Detector Might): Bootstrapping MLLM-as-a-Judge for Trustworthy Deepfake Detection and Reasoning Supervision](pixels_dont_lie_but_your_detector_might_bootstrapping_mllm-as-a-judge_for_trustw.md)**
 
 :   提出 DeepfakeJudge 框架，通过 bootstrapped generator-evaluator 流程将人类标注的推理监督扩展为大规模结构化评分数据，训练出 3B/7B 视觉语言模型作为 deepfake 检测推理质量的自动评判者，在 pointwise 和 pairwise 评估上均达到与人类高度一致的水平。
-
-**[RAZOR: Ratio-Aware Layer Editing for Targeted Unlearning in Vision Transformers and Diffusion Models](razor_ratio-aware_layer_editing_for_targeted_unlearning_in_vision_transformers_a.md)**
-
-:   提出 RAZOR，一种基于比率感知的多层/多头选择性编辑框架，可在 CLIP、Stable Diffusion 和 VLM 等 Transformer 视觉模型中高效精准地完成目标遗忘，同时保持模型整体性能与量化鲁棒性。
 
 **[Select, Hypothesize and Verify: Towards Verified Neuron Concept Interpretation](select_hypothesize_and_verify_towards_verified_neuron_concept_interpretation.md)**
 
@@ -143,6 +141,14 @@ item_total: 22
 
 :   发现LVLM后门行为的本质是跨模态注意力窃取（trigger视觉token抢夺文本token的注意力），提出CleanSight——首个无需训练的测试时后门防御框架，通过检测和剪枝高注意力trigger token来消除后门效应。
 
+**[Towards Reasoning-Preserving Unlearning in Multimodal Large Language Models](towards_reasoning-preserving_unlearning_in_multimodal_large_language_models.md)**
+
+:   针对"会思考"的多模态大模型，提出基准 RMLLMU-Bench 专门衡量**推理链里的信息泄漏**与**推理能力保留**，并给出一个免训练、推理时介入的框架 R-MUSE——通过子空间引导 + 自适应转向，在遗忘目标答案和中间推理痕迹的同时尽量不破坏通用推理。
+
+**[Towards Robust Multimodal Large Language Models Against Jailbreak Attacks](towards_robust_multimodal_large_language_models_against_jailbreak_attacks.md)**
+
+:   SAFEMLLM 是第一个直接对多模态大模型（MLLM）做对抗训练的越狱防御框架：它在 token 嵌入层注入一对可学习扰动矩阵来高效模拟跨模态攻击（CoE-Attack），再交替更新模型参数去抵消这些扰动，从而在白盒场景下把六种越狱攻击的成功率压到接近 0，同时几乎不损失正常多模态问答能力。
+
 **[Unsafe2Safe: Controllable Image Anonymization for Downstream Utility](unsafe2safe_controllable_image_anonymization_for_downstream_utility.md)**
 
 :   本文提出 Unsafe2Safe 全自动隐私保护流水线，通过 VLM 隐私检查→双字幕生成（私有/公开）→LLM 编辑指令→文本引导扩散编辑的四阶段方案，实现可控图像匿名化，在 VLMScore 隐私指标大幅提升的同时，在 Caltech-101 分类和 OK-VQA 上匿名后准确率甚至超过原始图像。
@@ -150,6 +156,10 @@ item_total: 22
 **[V-Attack: Targeting Disentangled Value Features for Controllable Adversarial Attacks on LVLMs](v-attack_targeting_disentangled_value_features_for_controllable_adversarial_atta.md)**
 
 :   发现 ViT 中 Value 特征相比 Patch 特征具有更解耦的局部语义表示，提出 V-Attack 通过自增强 Value 特征 + 文本引导语义操控实现精确可控的 LVLM 局部语义攻击，ASR 平均提升 36%。
+
+**[VL-Eraser: Vacuum Distillation for Machine Unlearning in Vision-Language Models](vl-eraser_vacuum_distillation_for_machine_unlearning_in_vision-language_models.md)**
+
+:   VL-Eraser 指出传统「反向训练」式遗忘在 VLM 上其实只是破坏了跨模态对齐、并没有真正删掉知识；它把遗忘重构成「先蒸馏、后删除」两阶段——先把要遗忘的知识在「真空空间」约束下蒸馏进一组 LoRA，再把这组 LoRA 从原模型里减掉，从而在删得更干净的同时保住模型可用性。
 
 **[Do Vision-Language Models Leak What They Learn? Adaptive Token-Weighted Model Inversion Attacks](vlm_model_inversion_adaptive_token_weight.md)**
 

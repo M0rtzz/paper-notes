@@ -16,7 +16,6 @@ tags:
 # Improving Zero-Shot Generalization for CLIP with Variational Adapter
 
 **会议**: ECCV 2024  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: 模型压缩  
 **关键词**: CLIP, 零样本泛化, 变分适配器, 分治策略, 视觉语言模型

@@ -174,9 +174,9 @@ I2V 因有 GT，用 **归一化 EMD** 比较分布：$\widehat{\text{EMD}}(\math
 ## 相关论文
 
 - [\[CVPR 2026\] SeeU: Seeing the Unseen World via 4D Dynamics-aware Generation](seeu_seeing_the_unseen_world_via_4d_dynamics-aware_generation.md)
+- [\[CVPR 2026\] VideoRealBench: A Chain-of-Thought Realism Evaluation Benchmark for Generated Human-Centric Videos](videorealbench_a_chain-of-thought_realism_evaluation_benchmark_for_generated_hum.md)
 - [\[CVPR 2026\] SymphoMotion: Joint Control of Camera Motion and Object Dynamics for Coherent Video Generation](symphomotion_joint_control_of_camera_motion_and_object_dynamics_for_coherent_vid.md)
 - [\[CVPR 2026\] Phantom: Physics-Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics](phantom_physics-infused_video_generation_via_joint_modeling_of_visual_and_latent.md)
-- [\[CVPR 2026\] Out of Sight, Out of Mind? Evaluating State Evolution in Video World Models](out_of_sight_out_of_mind_evaluating_state_evolutio.md)
 - [\[ECCV 2024\] Evaluating Text-to-Visual Generation with Image-to-Text Generation](../../ECCV2024/video_generation/evaluating_text-to-visual_generation_with_image-to-text_generation.md)
 
 </div>

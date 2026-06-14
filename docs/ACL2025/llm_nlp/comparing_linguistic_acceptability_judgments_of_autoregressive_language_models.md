@@ -16,7 +16,6 @@ tags:
 # Comparing Linguistic Acceptability Judgments of Autoregressive Language Models
 
 **会议**: ACL 2025  
-**arXiv**: N/A  
 **代码**: 无  
 **领域**: LLM/NLP  
 **关键词**: 语言可接受性, 自回归语言模型, 语法判断, 语言学评估, 困惑度
