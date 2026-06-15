@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 论文汇总 · 3994篇论文解读，每篇5分钟读懂核心思想
+  CVPR2026 论文汇总 · 3995篇论文解读，每篇5分钟读懂核心思想
 description: >-
-  3994篇CVPR2026论文解读，涵盖 3D 视觉(622篇)、多模态 VLM(533篇)、图像生成(449篇)、视频生成(180篇)、视频理解(179篇)、人体理解(174篇)、医学图像(174篇)、语义分割(162篇)等 47个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  3995篇CVPR2026论文解读，涵盖 3D 视觉(623篇)、多模态 VLM(533篇)、图像生成(449篇)、视频生成(180篇)、视频理解(179篇)、人体理解(174篇)、医学图像(174篇)、语义分割(162篇)等 47个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2026"
   - "CVPR2026论文汇总"
@@ -79,13 +79,13 @@ item_list:
     t: "AeroDGS: Physically Consistent Dynamic Gaussian Splatting for Single-Sequence Aerial 4D Reconstruction"
   - u: "3d_vision/aerogs_scale-aware_gaussian_splatting_for_pose-free_dynamic_uav_scene_reconstruc/"
     t: "AeroGS: Scale-Aware Gaussian Splatting for Pose-Free Dynamic UAV Scene Reconstruction"
-item_total: 3994
+item_total: 3995
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 📷 CVPR2026 论文汇总
 
-3994篇CVPR2026论文解读，涵盖 3D 视觉(622篇)、多模态 VLM(533篇)、图像生成(449篇)、视频生成(180篇)、视频理解(179篇)、人体理解(174篇)、医学图像(174篇)、语义分割(162篇)等 47个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+3995篇CVPR2026论文解读，涵盖 3D 视觉(623篇)、多模态 VLM(533篇)、图像生成(449篇)、视频生成(180篇)、视频理解(179篇)、人体理解(174篇)、医学图像(174篇)、语义分割(162篇)等 47个方向。每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 
 <div class="conf-index" markdown>
 
@@ -725,7 +725,7 @@ item_total: 3994
 
 ---
 
-## 🧊 3D 视觉 (622) { #3d_vision }
+## 🧊 3D 视觉 (623) { #3d_vision }
 
 **[240FPS Stereo Vision from Monocular Mixed Spikes](3d_vision/240fps_stereo_vision_from_monocular_mixed_spikes.md)**
 
@@ -767,7 +767,7 @@ item_total: 3994
 
 :   提出LAM3C框架，首次证明从无标注网络视频（房产导览等）重建的视频生成点云(VGPC)可替代真实3D扫描进行3D自监督预训练，通过拉普拉斯平滑损失和噪声一致性损失稳定噪声点云上的表示学习，配合自建RoomTours数据集(49K场景)在室内语义和实例分割上匹配甚至超越使用真实扫描的方法。
 
-[查看全部622篇「3D 视觉」论文 →](3d_vision/)
+[查看全部623篇「3D 视觉」论文 →](3d_vision/)
 
 ---
 

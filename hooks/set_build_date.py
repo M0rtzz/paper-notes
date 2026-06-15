@@ -1,20 +1,24 @@
-"""Inject today's ISO date into config.extra.build_date at build time.
+"""Inject build and per-page source dates into MkDocs metadata.
 
-Used by overrides/main.html as a fallback for JSON-LD datePublished/dateModified
-when a page does not declare its own `date:` frontmatter. Generating dynamically
-avoids checking a hardcoded date into git (which would otherwise make every page
-look "updated on 2026-04-14" forever).
+``build_date`` remains a last-resort fallback. Paper JSON-LD should use the
+page's real source date instead, otherwise every build makes every page look
+fresh to Google.
 """
 
-from datetime import date
+from __future__ import annotations
+
+from datetime import date, datetime
 from pathlib import Path
 import json
 import re
+import subprocess
 
 
 RAW_ANGLE_TOKEN_RE = re.compile(
     r"<(?=(?:\d|[.;=]|/?>(?!\w)|/[A-Z][A-Z0-9_-]*>|[A-Z][A-Z0-9_-]*>))"
 )
+_GIT_DATES_BY_REPO: dict[Path, dict[str, str]] = {}
+_GIT_REPO_ROOT_BY_START: dict[Path, Path | None] = {}
 
 
 def _patch_mkdocs_raw_html_scanner():
@@ -43,6 +47,102 @@ def _patch_mkdocs_raw_html_scanner():
     preprocessor._paper_notes_angle_patch = True
 
 
+def _normalise_date(value) -> str | None:
+    if not value:
+        return None
+    if isinstance(value, datetime):
+        return value.date().isoformat()
+    if isinstance(value, date):
+        return value.isoformat()
+    text = str(value).strip()
+    match = re.match(r"^(\d{4}-\d{2}-\d{2})", text)
+    return match.group(1) if match else None
+
+
+def _git_repo_root(start: Path) -> Path | None:
+    start = start.resolve()
+    if start in _GIT_REPO_ROOT_BY_START:
+        return _GIT_REPO_ROOT_BY_START[start]
+    try:
+        result = subprocess.run(
+            ["git", "-C", str(start), "rev-parse", "--show-toplevel"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except Exception:
+        _GIT_REPO_ROOT_BY_START[start] = None
+        return None
+    repo = Path(result.stdout.strip()).resolve()
+    _GIT_REPO_ROOT_BY_START[start] = repo
+    return repo
+
+
+def _git_modified_dates(repo: Path) -> dict[str, str]:
+    cached = _GIT_DATES_BY_REPO.get(repo)
+    if cached is not None:
+        return cached
+
+    dates: dict[str, str] = {}
+    try:
+        result = subprocess.run(
+            ["git", "-C", str(repo), "log", "--name-only", "--format=@@DATE@@%cs"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except Exception:
+        _GIT_DATES_BY_REPO[repo] = dates
+        return dates
+
+    current_date: str | None = None
+    for raw_line in result.stdout.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        if line.startswith("@@DATE@@"):
+            current_date = line.removeprefix("@@DATE@@")
+            continue
+        if current_date and line not in dates:
+            dates[line] = current_date
+
+    _GIT_DATES_BY_REPO[repo] = dates
+    return dates
+
+
+def _file_mtime_date(path: Path) -> str | None:
+    try:
+        return datetime.fromtimestamp(path.stat().st_mtime).date().isoformat()
+    except OSError:
+        return None
+
+
+def _source_modified_date(path: Path, docs_dir: Path) -> str | None:
+    repo = _git_repo_root(docs_dir)
+    if repo:
+        try:
+            relpath = path.resolve().relative_to(repo).as_posix()
+        except ValueError:
+            relpath = None
+        if relpath:
+            git_date = _git_modified_dates(repo).get(relpath)
+            if git_date:
+                return git_date
+    return _file_mtime_date(path)
+
+
+def _page_source_path(page, docs_dir: Path) -> Path | None:
+    if not page or not getattr(page, "file", None):
+        return None
+    abs_src_path = getattr(page.file, "abs_src_path", None)
+    if abs_src_path:
+        return Path(abs_src_path).resolve()
+    src_uri = getattr(page.file, "src_uri", None)
+    if src_uri:
+        return (docs_dir / src_uri).resolve()
+    return None
+
+
 def on_config(config, **kwargs):
     _patch_mkdocs_raw_html_scanner()
 
@@ -64,3 +164,15 @@ def on_config(config, **kwargs):
     extra["hreflang_pairs"] = pairs
 
     return config
+
+
+def on_page_context(context, page, config, **kwargs):
+    docs_dir = Path(config["docs_dir"]).resolve()
+    source_path = _page_source_path(page, docs_dir)
+    source_modified = _source_modified_date(source_path, docs_dir) if source_path else None
+
+    explicit_date = _normalise_date(page.meta.get("date"))
+    fallback = config.get("extra", {}).get("build_date", "")
+    page.meta["date_published"] = explicit_date or source_modified or fallback
+    page.meta["date_modified"] = source_modified or explicit_date or fallback
+    return context

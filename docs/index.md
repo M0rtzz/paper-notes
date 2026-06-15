@@ -26,7 +26,7 @@ hide:
 <p class="hero-subtitle">AI · LLM · NLP · CV 顶会论文解读，每篇 5 分钟读懂核心思想。<br>覆盖 ACL · CVPR · ICLR · AAAI · NeurIPS · ICCV · ICML · ECCV 等会议<br>持续更新中</p>
 
 <div class="hero-stats">
-<div class="stat"><span class="stat-number">19175</span><span class="stat-label">篇笔记</span></div>
+<div class="stat"><span class="stat-number">19176</span><span class="stat-label">篇笔记</span></div>
 <div class="stat"><span class="stat-number">11</span><span class="stat-label">个会议</span></div>
 <div class="stat"><span class="stat-number">52</span><span class="stat-label">个领域</span></div>
 </div>
@@ -41,7 +41,7 @@ hide:
 
 ### 📷 [CVPR2026](CVPR2026/index.md)
 
-<div class="conf-count">3994 篇 · 47 个领域</div>
+<div class="conf-count">3995 篇 · 47 个领域</div>
 
 <div class="area-groups">
 <div class="area-group">
@@ -81,7 +81,7 @@ hide:
 <div class="area-group">
 <div class="area-group-label">视觉感知</div>
 <div class="area-tags">
-<a class="area-tag" href="CVPR2026/3d_vision/">3D 视觉 622</a>
+<a class="area-tag" href="CVPR2026/3d_vision/">3D 视觉 623</a>
 <a class="area-tag" href="CVPR2026/video_understanding/">视频理解 179</a>
 <a class="area-tag" href="CVPR2026/human_understanding/">人体理解 174</a>
 <a class="area-tag" href="CVPR2026/segmentation/">语义分割 162</a>

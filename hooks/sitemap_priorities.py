@@ -11,12 +11,16 @@ Search Console:
 
 from __future__ import annotations
 
+from datetime import datetime
 from pathlib import Path
 import re
+import subprocess
 import xml.etree.ElementTree as ET
 
 
 NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
+_GIT_DATES_BY_REPO: dict[Path, dict[str, str]] = {}
+_GIT_REPO_ROOT_BY_START: dict[Path, Path | None] = {}
 FEATURED_PATTERNS = [
     r"\bbest\s+paper\b",
     r"\bbest\s+student\s+paper\b",
@@ -51,6 +55,11 @@ def _url_path(loc: str, site_url: str) -> str:
     if loc.startswith(site_url):
         return loc[len(site_url):].strip("/")
     return loc.strip("/")
+
+
+def _is_excluded_url(loc: str, site_url: str) -> bool:
+    parts = _url_path(loc, site_url).split("/")
+    return any(part.upper() == "TODO" for part in parts)
 
 
 def _level(loc: str, site_url: str, conferences: set[str]) -> str:
@@ -140,6 +149,81 @@ def _set_child(url_elem: ET.Element, tag: str, text: str) -> None:
     existing.text = text
 
 
+def _git_repo_root(start: Path) -> Path | None:
+    start = start.resolve()
+    if start in _GIT_REPO_ROOT_BY_START:
+        return _GIT_REPO_ROOT_BY_START[start]
+    try:
+        result = subprocess.run(
+            ["git", "-C", str(start), "rev-parse", "--show-toplevel"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except Exception:
+        _GIT_REPO_ROOT_BY_START[start] = None
+        return None
+    repo = Path(result.stdout.strip()).resolve()
+    _GIT_REPO_ROOT_BY_START[start] = repo
+    return repo
+
+
+def _git_modified_dates(repo: Path) -> dict[str, str]:
+    cached = _GIT_DATES_BY_REPO.get(repo)
+    if cached is not None:
+        return cached
+
+    dates: dict[str, str] = {}
+    try:
+        result = subprocess.run(
+            ["git", "-C", str(repo), "log", "--name-only", "--format=@@DATE@@%cs"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except Exception:
+        _GIT_DATES_BY_REPO[repo] = dates
+        return dates
+
+    current_date: str | None = None
+    for raw_line in result.stdout.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        if line.startswith("@@DATE@@"):
+            current_date = line.removeprefix("@@DATE@@")
+            continue
+        if current_date and line not in dates:
+            dates[line] = current_date
+
+    _GIT_DATES_BY_REPO[repo] = dates
+    return dates
+
+
+def _file_mtime_date(path: Path) -> str | None:
+    try:
+        return datetime.fromtimestamp(path.stat().st_mtime).date().isoformat()
+    except OSError:
+        return None
+
+
+def _doc_lastmod(doc_path: Path | None, docs_dir: Path) -> str | None:
+    if doc_path is None:
+        return None
+
+    repo = _git_repo_root(docs_dir)
+    if repo:
+        try:
+            relpath = doc_path.resolve().relative_to(repo).as_posix()
+        except ValueError:
+            relpath = None
+        if relpath:
+            git_date = _git_modified_dates(repo).get(relpath)
+            if git_date:
+                return git_date
+    return _file_mtime_date(doc_path)
+
+
 def _doc_path_for_url(loc: str, site_url: str, docs_dir: Path) -> Path | None:
     path = _url_path(loc, site_url)
     if not path:
@@ -206,11 +290,15 @@ def on_post_build(config, **kwargs):
     all_url_elems = root.findall(f"{{{NS}}}url")
     section_elems: list[ET.Element] = []
     focus_elems: list[ET.Element] = []
-    counts = {"home": 0, "conf_index": 0, "domain_index": 0, "paper": 0, "other": 0}
+    counts = {"home": 0, "conf_index": 0, "domain_index": 0, "paper": 0, "other": 0, "excluded": 0}
+    kept_url_elems: list[ET.Element] = []
 
     for url_elem in all_url_elems:
         loc_elem = url_elem.find(f"{{{NS}}}loc")
         if loc_elem is None or not loc_elem.text:
+            continue
+        if _is_excluded_url(loc_elem.text, site_url):
+            counts["excluded"] += 1
             continue
         level = _level(loc_elem.text, site_url, conferences)
         counts[level] = counts.get(level, 0) + 1
@@ -220,8 +308,12 @@ def on_post_build(config, **kwargs):
             if level in {"paper", "domain_index"}
             else ""
         )
+        lastmod = _doc_lastmod(_doc_path_for_url(loc_elem.text, site_url, docs_dir), docs_dir)
+        if lastmod:
+            _set_child(url_elem, "lastmod", lastmod)
         _set_child(url_elem, "changefreq", _changefreq(level))
         _set_child(url_elem, "priority", _priority(level, conf))
+        kept_url_elems.append(url_elem)
 
         if level in {"home", "conf_index", "domain_index"}:
             if level == "domain_index":
@@ -236,6 +328,11 @@ def on_post_build(config, **kwargs):
         elif level == "paper" and _is_featured_paper(loc_elem.text, site_url, docs_dir):
             focus_elems.append(url_elem)
 
+    for child in list(root):
+        root.remove(child)
+    for url_elem in kept_url_elems:
+        root.append(url_elem)
+
     ET.indent(tree, space="  ")
     tree.write(sitemap_path, encoding="utf-8", xml_declaration=True)
     _write_urlset(site_dir / "sitemap-sections.xml", section_elems)
@@ -248,5 +345,6 @@ def on_post_build(config, **kwargs):
         f"field={counts.get('domain_index', 0)}, "
         f"paper={counts.get('paper', 0)}, "
         f"other={counts.get('other', 0)}; "
+        f"excluded={counts.get('excluded', 0)}; "
         f"sections={len(section_elems)}, focus={len(focus_elems)}"
     )

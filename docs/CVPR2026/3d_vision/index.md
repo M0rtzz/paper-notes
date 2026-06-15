@@ -1,8 +1,8 @@
 ---
 title: >-
-  CVPR2026 3D视觉论文汇总 · 622篇论文解读
+  CVPR2026 3D视觉论文汇总 · 623篇论文解读
 description: >-
-  622篇CVPR2026的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、动态场景、三维重建、点云、扩散模型、新视角合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
+  623篇CVPR2026的 3D 视觉方向论文解读，涵盖 3D 高斯渲染、动态场景、三维重建、点云、扩散模型、新视角合成等方向。覆盖该方向前沿研究进展与技术创新，每篇含一句话总结、核心思想、方法详解、实验结果与局限性分析，5分钟读懂一篇论文核心思想。
 tags:
   - "CVPR2026"
   - "3D 视觉"
@@ -75,13 +75,13 @@ item_list:
     t: "AeroDGS: Physically Consistent Dynamic Gaussian Splatting for Single-Sequence Aerial 4D Reconstruction"
   - u: "aerogs_scale-aware_gaussian_splatting_for_pose-free_dynamic_uav_scene_reconstruc/"
     t: "AeroGS: Scale-Aware Gaussian Splatting for Pose-Free Dynamic UAV Scene Reconstruction"
-item_total: 622
+item_total: 623
 ---
 
 <!-- 由 src/gen_blog_index.py 自动生成 -->
 # 🧊 3D 视觉
 
-**📷 CVPR2026** · **622** 篇论文解读
+**📷 CVPR2026** · **623** 篇论文解读
 
 📌 **同领域跨会议浏览：** [🧪 ICML2026 (24)](../../ICML2026/3d_vision/index.md) · [💬 ACL2026 (1)](../../ACL2026/3d_vision/index.md) · [🔬 ICLR2026 (62)](../../ICLR2026/3d_vision/index.md) · [🤖 AAAI2026 (79)](../../AAAI2026/3d_vision/index.md) · [🧠 NeurIPS2025 (116)](../../NeurIPS2025/3d_vision/index.md) · [📹 ICCV2025 (267)](../../ICCV2025/3d_vision/index.md)
 
@@ -1478,6 +1478,10 @@ item_total: 622
 **[NaTex: Seamless Texture Generation as Latent Color Diffusion](natex_seamless_texture_generation_as_latent_color_diffusion.md)**
 
 :   NaTex 把"给 3D 网格上色"重新定义成在 3D 空间里直接预测颜色场——用一个几何感知的颜色点云 VAE 把纹理压成有序潜在集合，再用多控制 DiT 做潜在颜色扩散，彻底绕开多视图扩散（MVD）烘焙路线在遮挡、对齐和跨视图一致性上的固有缺陷，在纹理连贯性和对齐上显著超过此前方法。
+
+**[Native and Compact Structured Latents for 3D Generation](native_and_compact_structured_latents_for_3d_generation.md)**
+
+:   本文是 TRELLIS 原班团队的续作 TRELLIS.2，提出一种从原生 3D 数据学习的结构化隐空间表示：核心是无场（field-free）的全能体素 O-Voxel，它用柔性对偶栅格统一编码任意拓扑的几何与 PBR 材质；再用稀疏压缩 VAE（SC-VAE）做到 16× 空间下采样、把 1024³ 全纹理资产压成约 9.6K token；最后训练约 4B 参数的三阶段 Flow-matching 模型做图生 3D，在重建保真度、材质质量和生成速度上都大幅超越现有方法。
 
 **[NeAR: Coupled Neural Asset–Renderer Stack](near_coupled_neural_asset-renderer_stack.md)**
 

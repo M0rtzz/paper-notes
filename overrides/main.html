@@ -141,6 +141,7 @@
   "description": {{ _desc_raw | tojson }},
   "url": {{ page.canonical_url | tojson }},
   "inLanguage": "zh-CN",
+  "dateModified": {{ (page.meta.date_modified | default(config.extra.build_date | default(''))) | string | tojson }},
   {% if _tags %}
   "keywords": {{ (_tags | join(', ')) | tojson }},
   "about": [
@@ -194,8 +195,8 @@
     {%- endfor %}
   ],
   {% endif %}
-  "datePublished": {{ (page.meta.date | default(config.extra.build_date | default(''))) | string | tojson }},
-  "dateModified": {{ (page.meta.date | default(config.extra.build_date | default(''))) | string | tojson }},
+  "datePublished": {{ (page.meta.date_published | default(config.extra.build_date | default(''))) | string | tojson }},
+  "dateModified": {{ (page.meta.date_modified | default(page.meta.date_published | default(config.extra.build_date | default('')))) | string | tojson }},
   "author": { "@id": "https://papernotes.org/#organization" },
   "publisher": { "@id": "https://papernotes.org/#organization" }
 }

@@ -1,5 +1,5 @@
 # Auto-generated: CVPR2026 paper notes ignore
-# 已完成笔记由 src/gen_gitignore.py 根据 TODO.md 排除
+# 由 src/sync_notes.py 根据 TODO.md 自动生成
 
 # 默认忽略所有笔记
 *.md
@@ -8,8 +8,9 @@
 # 保留元数据文件
 !TODO.md
 !INDEX.md
+!index.md
 
-# 排除已完成笔记所在的子目录（git 要求先 unignore 父目录）
+# 排除已完成笔记所在的子目录
 !3d_vision/
 !ai_safety/
 !aigc_detection/
@@ -58,7 +59,7 @@
 !video_generation/
 !video_understanding/
 
-# 已完成笔记 (3994 篇)
+# 已完成笔记 (3995 篇)
 !3d_vision/240fps_stereo_vision_from_monocular_mixed_spikes.md
 !3d_vision/2d-lfm_lifting_foundation_model_without_3d_supervision.md
 !3d_vision/3d-aware_multi-task_learning_with_cross-view_correlations_for_dense_scene_unders.md
@@ -407,6 +408,7 @@
 !3d_vision/mvggt_multimodal_visual_geometry_grounded_transformer_for_multiview_3d_referring.md
 !3d_vision/mvinverse_feed-forward_multiview_inverse_rendering_in_seconds.md
 !3d_vision/natex_seamless_texture_generation_as_latent_color_diffusion.md
+!3d_vision/native_and_compact_structured_latents_for_3d_generation.md
 !3d_vision/near_coupled_neural_asset-renderer_stack.md
 !3d_vision/neoverse_enhancing_4d_world_model_with_in-the-wild_monocular_videos.md
 !3d_vision/neu-pig_neural_preconditioned_grids_for_fast_dynamic_surface_reconstruction_on_l.md
