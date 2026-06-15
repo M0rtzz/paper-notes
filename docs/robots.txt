@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 Crawl-delay: 1
 
-Sitemap: https://papernotes.org/sitemap.xml
-Sitemap: https://papernotes.org/sitemap-sections.xml
+Sitemap: https://m0rtzz.github.io/paper-notes/sitemap.xml
+Sitemap: https://m0rtzz.github.io/paper-notes/sitemap-sections.xml

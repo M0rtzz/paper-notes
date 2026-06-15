@@ -1,11 +1,13 @@
 # 📚 AI Paper Notes
-<!-- [![Stars](https://img.shields.io/github/stars/zhaoyang97/Paper-Notes?style=social)](https://github.com/zhaoyang97/Paper-Notes/stargazers)
-[![Notes](https://img.shields.io/badge/笔记-13%2C628%20篇-blue)](https://zhaoyang97.github.io/Paper-Notes/)
+
+<!-- [![Stars](https://img.shields.io/github/stars/M0rtzz/Paper-Notes?style=social)](https://github.com/M0rtzz/Paper-Notes/stargazers)
+[![Notes](https://img.shields.io/badge/笔记-13%2C628%20篇-blue)](https://m0rtzz.github.io/paper-notes/)
 [![Conferences](https://img.shields.io/badge/学术会议-9%20个-orange)](#-会议覆盖)
-[![Site](https://img.shields.io/badge/在线阅读-Paper--Notes-brightgreen)](https://zhaoyang97.github.io/Paper-Notes/)
-[![Last Commit](https://img.shields.io/github/last-commit/zhaoyang97/Paper-Notes?label=最近更新)](https://github.com/zhaoyang97/Paper-Notes/commits) -->
+[![Site](https://img.shields.io/badge/在线阅读-Paper--Notes-brightgreen)](https://m0rtzz.github.io/paper-notes/)
+[![Last Commit](https://img.shields.io/github/last-commit/M0rtzz/Paper-Notes?label=最近更新)](https://github.com/M0rtzz/Paper-Notes/commits) -->
 
 **5分钟读懂一篇顶会论文，一个仓库读懂最新 AI 进展。**
+
 - 📖 **19000+** 篇 AI · LLM · NLP · CV 顶会论文解读
 - 🏛️ 覆盖 ACL · CVPR · ICLR · AAAI · NeurIPS · ICCV · ICML · ECCV 等会议
 - 🔬 横跨 LLM Reasoning · VLM · Agent · RLHF · RAG · AIGC · Robotics · Auto Driving 等40多个研究方向
@@ -13,7 +15,7 @@
 
 ## 🌐 在线阅读
 
-**[https://papernotes.org/](https://papernotes.org/)**
+**[https://m0rtzz.github.io/paper-notes/](https://m0rtzz.github.io/paper-notes/)**
 
 > 💡 **提示**：如果数学公式渲染异常，刷新页面通常可以解决。
 
@@ -31,87 +33,87 @@ Paper Notes 交流群: `1094559400`
 
 ## 📊 会议覆盖
 
-| 会议 | 笔记数 | 完整论文清单 |
-|------|-------:|:-------------|
-| [CVPR 2026](https://papernotes.org/CVPR2026/) | 3,996 | [CVPR2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/CVPR2026-Papers.md) |
-| [ICML 2026](https://papernotes.org/ICML2026/) | 1,463 | [ICML2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICML2026-Papers.md) |
-| [ACL 2026](https://papernotes.org/ACL2026/) | 1,364 | [ACL2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ACL2026-Papers.md) |
-| [ICLR 2026](https://papernotes.org/ICLR2026/) | 1,529 | [ICLR2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICLR2026-Papers.md) |
-| [AAAI 2026](https://papernotes.org/AAAI2026/) | 1,381 | [AAAI2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/AAAI2026-Papers.md) |
-| [NeurIPS 2025](https://papernotes.org/NeurIPS2025/) | 2,530 | [NeurIPS2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/NeurIPS2025-Papers.md) |
-| [ICCV 2025](https://papernotes.org/ICCV2025/) | 1,315 | [ICCV2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICCV2025-Papers.md) |
-| [ACL 2025](https://papernotes.org/ACL2025/) | 1,855 | [ACL2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ACL2025-Papers.md) |
-| [ICML 2025](https://papernotes.org/ICML2025/) | 1,063 | [ICML2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICML2025-Papers.md) |
-| [CVPR 2025](https://papernotes.org/CVPR2025/) | 1,820 | [CVPR2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/CVPR2025-Papers.md) |
-| [ECCV 2024](https://papernotes.org/ECCV2024/) | 869 | [ECCV2024-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ECCV2024-Papers.md) |
+| 会议                                                              | 笔记数 | 完整论文清单                                                                                               |
+| ----------------------------------------------------------------- | -----: | :--------------------------------------------------------------------------------------------------------- |
+| [CVPR 2026](https://m0rtzz.github.io/paper-notes/CVPR2026/)       |  3,996 | [CVPR2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/CVPR2026-Papers.md)       |
+| [ICML 2026](https://m0rtzz.github.io/paper-notes/ICML2026/)       |  1,463 | [ICML2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICML2026-Papers.md)       |
+| [ACL 2026](https://m0rtzz.github.io/paper-notes/ACL2026/)         |  1,364 | [ACL2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ACL2026-Papers.md)         |
+| [ICLR 2026](https://m0rtzz.github.io/paper-notes/ICLR2026/)       |  1,529 | [ICLR2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICLR2026-Papers.md)       |
+| [AAAI 2026](https://m0rtzz.github.io/paper-notes/AAAI2026/)       |  1,381 | [AAAI2026-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/AAAI2026-Papers.md)       |
+| [NeurIPS 2025](https://m0rtzz.github.io/paper-notes/NeurIPS2025/) |  2,530 | [NeurIPS2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/NeurIPS2025-Papers.md) |
+| [ICCV 2025](https://m0rtzz.github.io/paper-notes/ICCV2025/)       |  1,315 | [ICCV2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICCV2025-Papers.md)       |
+| [ACL 2025](https://m0rtzz.github.io/paper-notes/ACL2025/)         |  1,855 | [ACL2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ACL2025-Papers.md)         |
+| [ICML 2025](https://m0rtzz.github.io/paper-notes/ICML2025/)       |  1,063 | [ICML2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ICML2025-Papers.md)       |
+| [CVPR 2025](https://m0rtzz.github.io/paper-notes/CVPR2025/)       |  1,820 | [CVPR2025-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/CVPR2025-Papers.md)       |
+| [ECCV 2024](https://m0rtzz.github.io/paper-notes/ECCV2024/)       |    869 | [ECCV2024-Papers.md →](https://github.com/zhaoyang97/papers-with-notes/blob/main/ECCV2024-Papers.md)       |
 
 ## 🗓️ 更新路线图
 
-| 公布时间 | 会议 |
-|----------|--------------|
-| 2026-07 | ECCV 2026 |
-| 2026-09 | NeurIPS 2026 |
-| 2026-10 | EMNLP 2026 |
-| 2026-12 | AAAI 2027 |
-| 2027-01 | ICLR 2027 |
-| 2027-02 | CVPR 2027 |
+| 公布时间 | 会议         |
+| -------- | ------------ |
+| 2026-07  | ECCV 2026    |
+| 2026-09  | NeurIPS 2026 |
+| 2026-10  | EMNLP 2026   |
+| 2026-12  | AAAI 2027    |
+| 2027-01  | ICLR 2027    |
+| 2027-02  | CVPR 2027    |
 
 ## 🔍 研究领域
 
-| 文件夹 | 领域 | 笔记数 |
-|--------|------|-------:|
-| `3d_vision/` | 🧊 3D 视觉 | 1,734 |
-| `ai_safety/` | 🛡️ AI 安全/隐私 | 453 |
-| `aigc_detection/` | 🔎 AIGC 检测 | 66 |
-| `anomaly_detection/` | 🔍 异常检测 | 2 |
-| `audio_speech/` | 🎵 音频/语音 | 341 |
-| `autonomous_driving/` | 🚗 自动驾驶 | 529 |
-| `causal_inference/` | 🔗 因果推理 | 108 |
-| `code_intelligence/` | 💻 代码智能 | 156 |
-| `computational_biology/` | 🧬 计算生物 | 261 |
-| `dialogue/` | 🗣️ 对话系统 | 70 |
-| `earth_science/` | 🌍 地球科学 | 14 |
-| `federated_learning/` | 🤝 联邦学习 | 4 |
-| `graph_learning/` | 🕸️ 图学习 | 242 |
-| `hallucination/` | 👻 幻觉检测 | 172 |
-| `human_understanding/` | 🧑 人体理解 | 403 |
-| `image_generation/` | 🎨 图像生成 | 1,753 |
-| `image_restoration/` | 🖼️ 图像恢复 | 311 |
-| `information_retrieval/` | 🔍 信息检索/RAG | 318 |
-| `interpretability/` | 🔬 可解释性 | 438 |
-| `knowledge_editing/` | ✏️ 知识编辑 | 60 |
-| `learning_theory/` | 📐 学习理论 | 68 |
-| `llm_agent/` | 🦾 LLM Agent | 358 |
-| `llm_alignment/` | ⚖️ 对齐/RLHF | 263 |
-| `llm_efficiency/` | ⚡ LLM 效率 | 182 |
-| `llm_evaluation/` | 📊 LLM 评测 | 361 |
-| `llm_nlp/` | 💬 LLM 其他 | 710 |
-| `llm_pretraining/` | 📚 预训练 | 226 |
-| `llm_reasoning/` | 💡 LLM 推理 | 449 |
-| `llm_safety/` | 🔒 LLM 安全 | 480 |
-| `medical_imaging/` | 🏥 医学图像 | 530 |
-| `medical_nlp/` | 🩺 医疗 NLP | 127 |
-| `model_compression/` | 📦 模型压缩 | 885 |
-| `multi_agent/` | 🤝 多智能体 | 139 |
-| `multilingual_mt/` | 🌐 多语言/翻译 | 185 |
-| `multimodal_vlm/` | 🧩 多模态 VLM | 1,551 |
-| `nlp_generation/` | ✍️ 文本生成 | 55 |
-| `nlp_understanding/` | 📖 NLP 理解 | 73 |
-| `object_detection/` | 🎯 目标检测 | 305 |
-| `optimization/` | 📐 优化/理论 | 380 |
-| `physics/` | ⚛️ 物理/科学计算 | 153 |
-| `recommender/` | 🎁 推荐系统 | 119 |
-| `reinforcement_learning/` | 🎮 强化学习 | 589 |
-| `remote_sensing/` | 🛰️ 遥感 | 129 |
-| `robotics/` | 🤖 具身智能 | 458 |
-| `segmentation/` | ✂️ 语义分割 | 504 |
-| `self_supervised/` | 🔄 自监督 | 260 |
-| `signal_comm/` | 📡 信号/通信 | 35 |
-| `social_computing/` | 👥 社会计算 | 143 |
-| `time_series/` | 📈 时间序列 | 209 |
-| `video_generation/` | 🎬 视频生成 | 422 |
-| `video_understanding/` | 📹 视频理解 | 476 |
-| `others/` | 📂 其他 | 926 |
+| 文件夹                    | 领域             | 笔记数 |
+| ------------------------- | ---------------- | -----: |
+| `3d_vision/`              | 🧊 3D 视觉       |  1,734 |
+| `ai_safety/`              | 🛡️ AI 安全/隐私  |    453 |
+| `aigc_detection/`         | 🔎 AIGC 检测     |     66 |
+| `anomaly_detection/`      | 🔍 异常检测      |      2 |
+| `audio_speech/`           | 🎵 音频/语音     |    341 |
+| `autonomous_driving/`     | 🚗 自动驾驶      |    529 |
+| `causal_inference/`       | 🔗 因果推理      |    108 |
+| `code_intelligence/`      | 💻 代码智能      |    156 |
+| `computational_biology/`  | 🧬 计算生物      |    261 |
+| `dialogue/`               | 🗣️ 对话系统      |     70 |
+| `earth_science/`          | 🌍 地球科学      |     14 |
+| `federated_learning/`     | 🤝 联邦学习      |      4 |
+| `graph_learning/`         | 🕸️ 图学习        |    242 |
+| `hallucination/`          | 👻 幻觉检测      |    172 |
+| `human_understanding/`    | 🧑 人体理解      |    403 |
+| `image_generation/`       | 🎨 图像生成      |  1,753 |
+| `image_restoration/`      | 🖼️ 图像恢复      |    311 |
+| `information_retrieval/`  | 🔍 信息检索/RAG  |    318 |
+| `interpretability/`       | 🔬 可解释性      |    438 |
+| `knowledge_editing/`      | ✏️ 知识编辑      |     60 |
+| `learning_theory/`        | 📐 学习理论      |     68 |
+| `llm_agent/`              | 🦾 LLM Agent     |    358 |
+| `llm_alignment/`          | ⚖️ 对齐/RLHF     |    263 |
+| `llm_efficiency/`         | ⚡ LLM 效率      |    182 |
+| `llm_evaluation/`         | 📊 LLM 评测      |    361 |
+| `llm_nlp/`                | 💬 LLM 其他      |    710 |
+| `llm_pretraining/`        | 📚 预训练        |    226 |
+| `llm_reasoning/`          | 💡 LLM 推理      |    449 |
+| `llm_safety/`             | 🔒 LLM 安全      |    480 |
+| `medical_imaging/`        | 🏥 医学图像      |    530 |
+| `medical_nlp/`            | 🩺 医疗 NLP      |    127 |
+| `model_compression/`      | 📦 模型压缩      |    885 |
+| `multi_agent/`            | 🤝 多智能体      |    139 |
+| `multilingual_mt/`        | 🌐 多语言/翻译   |    185 |
+| `multimodal_vlm/`         | 🧩 多模态 VLM    |  1,551 |
+| `nlp_generation/`         | ✍️ 文本生成      |     55 |
+| `nlp_understanding/`      | 📖 NLP 理解      |     73 |
+| `object_detection/`       | 🎯 目标检测      |    305 |
+| `optimization/`           | 📐 优化/理论     |    380 |
+| `physics/`                | ⚛️ 物理/科学计算 |    153 |
+| `recommender/`            | 🎁 推荐系统      |    119 |
+| `reinforcement_learning/` | 🎮 强化学习      |    589 |
+| `remote_sensing/`         | 🛰️ 遥感          |    129 |
+| `robotics/`               | 🤖 具身智能      |    458 |
+| `segmentation/`           | ✂️ 语义分割      |    504 |
+| `self_supervised/`        | 🔄 自监督        |    260 |
+| `signal_comm/`            | 📡 信号/通信     |     35 |
+| `social_computing/`       | 👥 社会计算      |    143 |
+| `time_series/`            | 📈 时间序列      |    209 |
+| `video_generation/`       | 🎬 视频生成      |    422 |
+| `video_understanding/`    | 📹 视频理解      |    476 |
+| `others/`                 | 📂 其他          |    926 |
 
 ## 📂 目录结构
 

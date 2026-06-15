@@ -1,11 +1,13 @@
 site_name: 📚 AI Paper Notes
 site_description: 18000+ 篇 AI 顶会论文笔记 | 覆盖 ICLR/CVPR/ACL/NeurIPS/AAAI 等 9 大会议 | 每篇
   5 分钟读懂核心思想
-site_url: https://papernotes.org/
-repo_url: https://github.com/zhaoyang97/Paper-Notes
+site_url: https://m0rtzz.github.io/paper-notes
+repo_url: https://github.com/M0rtzz/Paper-Notes
 repo_name: Star on GitHub
 docs_dir: docs
 site_dir: site
+exclude_docs: |
+  CNAME
 theme:
   name: material
   language: zh
@@ -20962,4 +20964,4 @@ extra:
   social: []
   generator: false
   bing_site_verification: 114D58B390D11BE882DB17E9BF9BF2F2
-  cloudflare_analytics_token: addbd9c7107a490092d47711a630688f
+  cloudflare_analytics_token: ''
